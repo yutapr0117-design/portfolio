@@ -1,0 +1,750 @@
+> > poof.  If they go anything, by neglect, they go permissive, by automatic
+> > waiver of the copyleft condition.
+> >
+>
+> I have triggered #3 by developing code based on L0-R.  I must now publish
+> the code.
+
+For completeness: or cease executing or developing it, or cease using the L0-R code in doing so.
+
+> At what time can I stop publishing the code?
+
+When you stop executing and developing the program.
+
+> > > What is "development" anyway?  Can I even look at the code in a code editor
+> > > without triggering section 3?  That's usually my first step even before
+> > > reading the docs.  Or does "development" happen the first time I compile
+> > > the code?
+> >
+> > All copyleft licenses face a challenge in defining the "trigger" for
+> > source and licensing requirements.  What is "interaction ... through a
+> > computer network" under (A)GPL?  What is "executing it on a computer"?
+> > What is "distribution" under MPL-2.0?
+> >
+>
+> I am not asking an abstract question.  I am asking you as the license
+> author what "develop" means to you for the purposes of evaluating a license
+> submission.
+>
+> This should be a very simple question to answer and instead I get evasion.
+
+The overarching question is whether L0-R meets the Open Source Definition.  I generalized to make the point that all copyleft licenses have a definitional problem in drafting their trigger provisions.  That isn't new.
+
+> > Legal drafters have some tools and techniques to chip away at those
+> > challenges.  One of those tools is throwing in the towel and using terms
+> > from industry, as understood in industry.  An early draft of L0-R
+> > intentionally chose general terms _without_ any established meaning in
+> > software or law for the trigger.  The draft I proposed borrows "execute"
+> > and "develop" from software parlance, intentionally.  If the point is to
+> > write a license that software people can understand, the most best path to
+> > relative clarity is software-speak.
+> >
+>
+> I thought your objective was to reduce the uncertainties?
+
+The rationale behind L0-R was to implement a stronger variant of copyleft, to enhance dual licensing opportunity, while reducing license pondering on the _community_ side. That is, among those working under the public license.  Sometimes communities waste time on licensing questions because there's no clear answer in the license.  But often they waste time when there _is_ a clear enough answer, but nobody around can decipher it with confidence.
+
+I'm a big fan of existing copyleft licenses, especially the GPL-3.0 and MPL-2.0.  Partly because licensing is what I do, and I'm equipped to handle them.  But those classics are long, structurally complex, and substantively expansive.  In dual licensing ecosystems around them, the parties best equipped to grapple with that material, the ones with lawyers and dollars to buy tools and compliance pros, are usually the ones happily buying their way onto other terms.  The folks without lawyers end up grappling with terms that are neither as terse, tight, or empowering as an old academic license, nor as rigorous as an enterprise contract.  God bless FSF and Mozilla for what they do, in guides and commentary.
+
+L0-R moves the needle on copyleft, but it also moves the needle on accessibility, which runs with the inverse of license length.  The law gives drafters the ability to incorporate usage of trade.  I could probably do more precision than "execute" and "develop" from trade in legal language, and double the length of the license.  But most coders wouldn't grasp 100% of the result.  Using their language gets us maybe 75% there, but much closer to 100% comprehension, and keeps the license short.
+
+> > Legal drafters also learn to accept that perfect clarity is impossible, and
+> > that managing uncertainty is as important as reducing it.  Who should
+> > should bear irreducible uncertainty in L0-R's copyleft trigger?  The
+> > purpose of the license is to implement a very strong version of copyleft,
+> > in terse form, with structural escape valves in the form of a grace period
+> > and either alternative licenses or automatic, permissive relicensing.
+> >
+>
+> No, the intended structural escape is a commercial license NOT permissive
+> relicensing.  Permissive relicensing may never happen until the copyright
+> itself expires and the grace period only delays when you must publish
+> source, not that you don't need to.
+
+Nigel, brother, it's hard to read retorts about my own intent with a level head.
+
+> > In short, "What does 'development' mean here?" is actually a question to
+> > you and other software people
+>
+> No. The question is to the license author.  If you can't explain when your
+> license requirements are intended to trigger then it's not a license that
+> should ever be approved by the OSI.
+
+I've explained my choice as drafter: reliance on usage of trade.  If the license is applied or litigated, it will be interpreted as written, as the court believes the licensor intended it and the licensee should have understood it, and not by interviewing me or combing through my drafting notes.  If those concepts seem strange or contrived, please feel free to sound out other lawyers on the list.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From carlo at piana.eu  Tue Sep 26 09:51:54 2017
+From: carlo at piana.eu (Carlo Piana)
+Date: Tue, 26 Sep 2017 11:51:54 +0200
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170926020744.GK6204@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org> <086b2989-c50c-c984-5192-bc966380788e@piana.eu> <20170926020744.GK6204@dev.kemitchell.com>
+Message-ID: <46261d9e-733f-7414-ca75-e7128ca99ada@piana.eu>
+
+On 26/09/2017 04:07, Kyle Mitchell wrote:
+
+[...]
+> On to your questions.
+Thank you for adding this level of clarity. Unfortunately, this only
+reinforces my views.
+>
+> "Use in the execution and development of any computer program" is written in technical terms, not legal terms.  Court I'm familiar with will see those word choices, gather that they are technical terms, rather than legal ones, and ask, "What would software people mean by 'execution and development'?".  The court would ask for evidence from software people, not lawyers.
+>
+> You gave a specific example.  As a software person, I _would_ read the language to apply to programs compiled with an L0-R compiler.  Yes, that's new.  And intentional.
+
+Besides it being against the OSD, I find this concept fairly
+overreaching on general policy grounds.
+>
+> As for the Definition, I'm afraid I can't read it as you do.  OSD criterion number 6 prohibits limits on use of software in "fields of endeavor", not all limits on use, flat-out.  It gives two examples, business and genetic engineering, that are broad reasons for using software, not choices about how to license software.  And we all know a famous counterexample, the JSON License's prohibition on use for evil, very broad indeed.  OSI's annotations describe the major intent of the criterion to exclude noncommercial use limitations.  Commercial use of L0-R code is very possible.
+
+Again, this is plainly wrong. It means that you cannot *use* (mind: not
+distribute, just use) this software in a legal way if the software you
+are interacting with is not under a license that allows you sharing the
+code either on legal or material grounds (e.g., it's BSD, but you didn't
+receive the source). That limits the field of endeavor very much indeed.
+The examples are just examples. "Genetic research" is no different from
+"Proprietary software development and/or consumption". You may find a
+confirmation in #9 as well: the same rationale applies here.
+
+JSON limitation, besides being rather vague and undefined and ultimately
+probably inapplicable, is not AFAICT an OSI approved license, and you
+can read many comments online criticizing (I seem to remember discussing
+it here or maybe in other licensing discussion fora, sorry, can't recall
+it precisely).
+
+>
+> We know from the choice of words, from the examples, from the annotation, and from the approval of licenses like AGPL, that the criterion does not prohibit all possible limits on use.  Modifying an AGPL program and using it in such a way that users interact with it remotely, without any opportunity to receive source, is not permitted.  But AGPL meets the Definition, including criterion 6, even if users over the network never receive any copy of any part of the software.  Often they don't.
+
+AGPL limits the use of the software as well, but only insofar as you
+provide public access to the software you are running. If you use it
+privately, then you can modify it at leisure. The example is way way
+different.
+
+The fact that people would not use of their right is immaterial, the
+license sets copyright conditions, and these conditions by no means
+WHATSOEVER limit your use if this use does not involve network access.
+
+I agree that AGPL stretches a bit the Definition, but not on the right
+to use, rather on the right to MODIFY the software, and only if you aim
+this in a situation which is functionally equivalent to distribution.
+
+[...]
+
+
+All the best.
+
+
+Carlo
+
+
+
+From cowan at ccil.org  Tue Sep 26 12:46:49 2017
+From: cowan at ccil.org (John Cowan)
+Date: Tue, 26 Sep 2017 08:46:49 -0400
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170926093012.GM6204@dev.kemitchell.com>
+References: <20170923192346.GA6204@dev.kemitchell.com> <CAD2gp_QojYugHr4x8qbn-OZsqEknjSXWvaJwBNdjdca3jgxsDQ@mail.gmail.com> <20170924034515.GB6204@dev.kemitchell.com> <CAD2gp_T98xk9Ek-U7h5uF_Q5=F5seeFi-fVbqB3TGNqW+rq5LQ@mail.gmail.com> <20170924175037.GC6204@dev.kemitchell.com> <CADaGzk5BuPVY-3i2hXGZ+ky53wNCLEYq+UZjDbKXGRcpT72kUg@mail.gmail.com> <20170925171121.GD6204@dev.kemitchell.com> <CADaGzk6bAd=B4mW4zsd23o+MKA7J4WYdvoOMz5ad+Mi1n3cnuw@mail.gmail.com> <20170925232025.GH6204@dev.kemitchell.com> <CADaGzk48-R0dPiJ+9ne70L7ZMPezGdaVwDinv-z+jHuOdYehLw@mail.gmail.com> <20170926093012.GM6204@dev.kemitchell.com>
+Message-ID: <CAD2gp_QP06ZSQvvGYs6psQrP5b5PS6Hxs9iH_RD+Kg4hXztUOg@mail.gmail.com>
+
+On Tue, Sep 26, 2017 at 5:30 AM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+OSI approval goes only to license terms.
+
+
+Actually, that turns out not to be the case.  The OSI approves
+OSD-conforming licenses
+only if it believes that they further the goals of OSI.  That is part of
+the reason why
+license-review exists, and why the Board is far from being a rubber stamp.
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+I now introduce Professor Smullyan, who will prove to you that either
+he doesn't exist or you don't exist, but you won't know which. --Melvin Fitting
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170926/4e69e05d/attachment.html>
+
+From nigel.2048 at gmail.com  Tue Sep 26 15:28:46 2017
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Tue, 26 Sep 2017 11:28:46 -0400
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170926093012.GM6204@dev.kemitchell.com>
+References: <20170923192346.GA6204@dev.kemitchell.com> <CAD2gp_QojYugHr4x8qbn-OZsqEknjSXWvaJwBNdjdca3jgxsDQ@mail.gmail.com> <20170924034515.GB6204@dev.kemitchell.com> <CAD2gp_T98xk9Ek-U7h5uF_Q5=F5seeFi-fVbqB3TGNqW+rq5LQ@mail.gmail.com> <20170924175037.GC6204@dev.kemitchell.com> <CADaGzk5BuPVY-3i2hXGZ+ky53wNCLEYq+UZjDbKXGRcpT72kUg@mail.gmail.com> <20170925171121.GD6204@dev.kemitchell.com> <CADaGzk6bAd=B4mW4zsd23o+MKA7J4WYdvoOMz5ad+Mi1n3cnuw@mail.gmail.com> <20170925232025.GH6204@dev.kemitchell.com> <CADaGzk48-R0dPiJ+9ne70L7ZMPezGdaVwDinv-z+jHuOdYehLw@mail.gmail.com> <20170926093012.GM6204@dev.kemitchell.com>
+Message-ID: <CADaGzk7pzmgiBZ1kq4QoKzhT1B=mN_ghpB33wwA01Tv8HNn76A@mail.gmail.com>
+
+On Tue, Sep 26, 2017 at 5:30 AM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+> On 2017-09-25 23:09, Nigel T wrote:
+>
+
+> Triggering on use opens a host of issues for users.  This doesn't happen
+> in AGPL so no, you can't pull the same stunt.
+>
+> I mentioned AGPL because it smudges the line between "use" and
+> "distribution".  Which is providing software for remote interaction over a
+> network?
+>
+
+The hosting entity is the distributor right?  There are some gray areas but
+this is a bug not a feature of AGPL.
+
+Also content creators are not the only users of the software package/CMS
+correct?  The folks that log in to read the blogs are also users.
+
+The content creators are in that gray area for distribution.  The content
+consumers are not.  Both are users of the code.
+
+
+> Open Source has never required free-as-in-beer distribution.  Early
+> license drafters expected payment for copies of source, and media and
+> shipping weren't cheap.
+>
+
+If putting the repo behind a $100,000 paywall meets the requirement for
+publishing under L0-R then the source isn't really available under terms
+normally associated with open source.
+
+The GPL doesn't permit this:
+ - b) Convey the object code in, or embodied in, a physical product (including a physical distribution medium), accompanied by a written offer, valid for at least three years and valid for as long as you offer spare parts or customer support for that product model, to give anyone who possesses the object code either (1) a copy of the Corresponding Source for all the software in the product that is covered by this License, on a durable physical medium customarily used for software interchange, *for a price no more than your reasonable cost of physically performing this conveying of source, *or (2) access to copy the Corresponding Source from a network server at no charge.
+
+Adding this kind of protection to the license would be well worth the
+impact to brevity.
+
+It occurs to me that there is also no language in the license to keep the
+developers from pointing to a repo behind a paywall that
+restricts redistribution of source code or requiring software audits as
+part of the terms of access.
+
+GPL has language to protect against these kinds of loopholes and this too
+is worth the impact to brevity.
+
+You still have the issue where users have no access to source code because
+the repository went away.  Most users would likely depend on the link in
+the license to meet their obligation for publishing source code.  If that
+link were to die then they would be out of compliance with no way to
+recover.  Given they aren't developers they may never know the link went
+bad or was ever good in the first place.
+
+So I would also like to see language in the license that protects users if
+access to the original source code as noted in the license is lost.
+
+We disagree on the basic distinction you draw between users and
+> developers.  We may not resolve that disagreement, and we may not need to.
+> I think I know where you're coming from.  To give you a sense of where I'm
+> coming from: I couldn't help noticing, browsing through lists of AGPL
+> projects on Wikipedia, how many are either databases (MongoDB, Neo4j
+> extensions) or network applications (Diaspora, Gitorious).  Software very
+> often run with, or for, others.
+>
+
+The difference between developers and users is still very relevant.
+
+By claiming that the OSI should ignore the distinction because the AGPL has
+slightly muddied the waters is like claiming we can ignore the difference
+between people who craft chairs and people who sit on them because some
+users paint their chairs or put stickers on them blurs the line between
+users and furniture makers.
+
+So yeah, we disagree.  Determining impact to the user community as well as
+the developer community is part of the license approval process.
+
+> I have triggered #3 by developing code based on L0-R.  I must now publish
+> > the code.
+>
+> For completeness: or cease executing or developing it, or cease using the
+> L0-R code in doing so.
+
+
+Thank you for the clarification.  I would ask that you put that into the
+license text.
+
+
+> Nigel, brother, it's hard to read retorts about my own intent with a level
+> head.
+>
+
+My apologies.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170926/47061f57/attachment.html>
+
+From kyle at kemitchell.com  Tue Sep 26 16:15:28 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 26 Sep 2017 09:15:28 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CAD2gp_QP06ZSQvvGYs6psQrP5b5PS6Hxs9iH_RD+Kg4hXztUOg@mail.gmail.com>
+References: <20170924034515.GB6204@dev.kemitchell.com> <CAD2gp_T98xk9Ek-U7h5uF_Q5=F5seeFi-fVbqB3TGNqW+rq5LQ@mail.gmail.com> <20170924175037.GC6204@dev.kemitchell.com> <CADaGzk5BuPVY-3i2hXGZ+ky53wNCLEYq+UZjDbKXGRcpT72kUg@mail.gmail.com> <20170925171121.GD6204@dev.kemitchell.com> <CADaGzk6bAd=B4mW4zsd23o+MKA7J4WYdvoOMz5ad+Mi1n3cnuw@mail.gmail.com> <20170925232025.GH6204@dev.kemitchell.com> <CADaGzk48-R0dPiJ+9ne70L7ZMPezGdaVwDinv-z+jHuOdYehLw@mail.gmail.com> <20170926093012.GM6204@dev.kemitchell.com> <CAD2gp_QP06ZSQvvGYs6psQrP5b5PS6Hxs9iH_RD+Kg4hXztUOg@mail.gmail.com>
+Message-ID: <20170926161528.GN6204@dev.kemitchell.com>
+
+John,
+
+Thanks for your note.
+
+I understood the purpose of the process as it's described on the website:
+
+- Ensure approved licenses conform to the Open Source Definition
+
+- Identify appropriate License Proliferation Category
+
+- Discourage vanity and duplicative Licenses
+
+- Ensure a thorough, transparent and timely review (e.g. within 60 days)
+
+That's hardly a rubber-stamp process, especially the first point!
+
+If there are OSI-wide goals other stewardship of the Definition, are they listed somewhere?  What happens if a license passes the first three points, including the Definition, but isn't approved?
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Tue Sep 26 16:52:49 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 26 Sep 2017 09:52:49 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CADaGzk7pzmgiBZ1kq4QoKzhT1B=mN_ghpB33wwA01Tv8HNn76A@mail.gmail.com>
+References: <20170924034515.GB6204@dev.kemitchell.com> <CAD2gp_T98xk9Ek-U7h5uF_Q5=F5seeFi-fVbqB3TGNqW+rq5LQ@mail.gmail.com> <20170924175037.GC6204@dev.kemitchell.com> <CADaGzk5BuPVY-3i2hXGZ+ky53wNCLEYq+UZjDbKXGRcpT72kUg@mail.gmail.com> <20170925171121.GD6204@dev.kemitchell.com> <CADaGzk6bAd=B4mW4zsd23o+MKA7J4WYdvoOMz5ad+Mi1n3cnuw@mail.gmail.com> <20170925232025.GH6204@dev.kemitchell.com> <CADaGzk48-R0dPiJ+9ne70L7ZMPezGdaVwDinv-z+jHuOdYehLw@mail.gmail.com> <20170926093012.GM6204@dev.kemitchell.com> <CADaGzk7pzmgiBZ1kq4QoKzhT1B=mN_ghpB33wwA01Tv8HNn76A@mail.gmail.com>
+Message-ID: <20170926165249.GO6204@dev.kemitchell.com>
+
+On 2017-09-26 11:09, Nigel T wrote:
+> > > Triggering on use opens a host of issues for users.  This doesn't happen
+> > > in AGPL so no, you can't pull the same stunt.
+> >
+> > I mentioned AGPL because it smudges the line between "use" and
+> > "distribution".  Which is providing software for remote interaction over a
+> > network?
+> >
+>
+> The hosting entity is the distributor right?  There are some gray areas but
+> this is a bug not a feature of AGPL.
+
+This idea of gray areas representing bugs, rather than features, is a very important one!  I think I will borrow that turn of phrase...
+
+> Also content creators are not the only users of the software package/CMS
+> correct?  The folks that log in to read the blogs are also users.
+>
+> The content creators are in that gray area for distribution.  The content
+> consumers are not.  Both are users of the code.
+
+Agreed.  My point was that at least some users---I think the ones you're calling "content creators"---face a copyleft source provision requirement triggered by "use".
+
+> > Open Source has never required free-as-in-beer distribution.  Early
+> > license drafters expected payment for copies of source, and media and
+> > shipping weren't cheap.
+> >
+>
+> If putting the repo behind a $100,000 paywall meets the requirement for
+> publishing under L0-R then the source isn't really available under terms
+> normally associated with open source.
+>
+> The GPL doesn't permit this:
+>
+>    - b) Convey the object code in, or embodied in, a physical product
+>    (including a physical distribution medium), accompanied by a written offer,
+>    valid for at least three years and valid for as long as you offer spare
+>    parts or customer support for that product model, to give anyone who
+>    possesses the object code either (1) a copy of the Corresponding Source for
+>    all the software in the product that is covered by this License, on a
+>    durable physical medium customarily used for software interchange, *for
+>    a price no more than your reasonable cost of physically performing this
+>    conveying of source, *or (2) access to copy the Corresponding Source
+>    from a network server at no charge.
+>
+> Adding this kind of protection to the license would be well worth the
+> impact to brevity.
+>
+> It occurs to me that there is also no language in the license to keep the
+> developers from pointing to a repo behind a paywall that
+> restricts redistribution of source code or requiring software audits as
+> part of the terms of access.
+>
+> GPL has language to protect against these kinds of loopholes and this too
+> is worth the impact to brevity.
+
+I think these can both be addressed, and briefly.  Off the cuff here:
+ Uses in the execution or development of any computer program, the entire source code of which is not publicly available, free of charge, on terms approved by the Open Source Initiative...
+
+What do you think?
+
+I like it, but worry a bit about the extent to which it ensconces availability of free and freemium distribution for Open Source as an expectation.  But that's a general concern.  Your concerns were specific.
+
+> You still have the issue where users have no access to source code because
+> the repository went away.  Most users would likely depend on the link in
+> the license to meet their obligation for publishing source code.  If that
+> link were to die then they would be out of compliance with no way to
+> recover.  Given they aren't developers they may never know the link went
+> bad or was ever good in the first place.
+>
+> So I would also like to see language in the license that protects users if
+> access to the original source code as noted in the license is lost.
+
+Would a clarification that use in unmodified form, not as part of some larger work or to develop some other program, does not fall under the Open Source release condition, allay your concerns?
+
+> > We disagree on the basic distinction you draw between users and
+> > developers.  We may not resolve that disagreement, and we may not need to.
+> > I think I know where you're coming from.  To give you a sense of where I'm
+> > coming from: I couldn't help noticing, browsing through lists of AGPL
+> > projects on Wikipedia, how many are either databases (MongoDB, Neo4j
+> > extensions) or network applications (Diaspora, Gitorious).  Software very
+> > often run with, or for, others.
+> >
+>
+> The difference between developers and users is still very relevant.
+>
+> By claiming that the OSI should ignore the distinction because the AGPL has
+> slightly muddied the waters is like claiming we can ignore the difference
+> between people who craft chairs and people who sit on them because some
+> users paint their chairs or put stickers on them blurs the line between
+> users and furniture makers.
+>
+> So yeah, we disagree.  Determining impact to the user community as well as
+> the developer community is part of the license approval process.
+
+This is not the first time today that I'm reading that OSI approval is more than what opensource.org says.  But I hope it's been clear from the get-go that I'm open to all questions.  My concern, procedurally, is making clear that I know what is part of the process, and what is a part of the process that affects the outcome, and how.
+
+I brought up AGPL as I did to demonstrate that hooking into use for copyleft is not without precedent, and evidently compatible with the Definition, in principle.  That being the case, I'm by no means against assessing impacts of various kinds, as well.
+
+For what it's worth, I think users-not-developers has been a fissure point between Free Software and permissive Open Source worldviews for as far back as I've read.  Nothing new under the sun, I suppose.  But the Definition has accepted Free Software licenses that implement the view that software consumers should be software makers, too.
+
+> > > I have triggered #3 by developing code based on L0-R.  I must now publish
+> > > the code.
+> >
+> > For completeness: or cease executing or developing it, or cease using the
+> > L0-R code in doing so.
+>
+> Thank you for the clarification.  I would ask that you put that into the
+> license text.
+
+I think that it's there.  You could read condition 3 as:
+ function condition_three (l0r_code, program) { if ( // "cease using the L0-R code": using(l0r_code) && // "cease executing or developing it": (executing(program) || developing(program)) && (!published(program) || !osi_licensed(program)) ) { return " must be limited to a period of ${GRACE_PERIOD} consecutive calendar days " } else { return " [U]se in source and binary forms, with or without modification, are permitted " } }
+
+> > Nigel, brother, it's hard to read retorts about my own intent with a level
+> > head.
+> >
+>
+> My apologies.
+
+And mine, sincerely.  If I provoked you, if I was anything less than careful.
+
+We're on level ground.  This has been an _excellent_ conversation.
+
+Best,
+
+K
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Thu Sep 28 03:58:59 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Wed, 27 Sep 2017 20:58:59 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170923000911.GN14929@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com>
+Message-ID: <20170928035859.GA28290@dev.kemitchell.com>
+
+I received a phone call from Bruce Perens today, on L0-R and some other topics.
+
+Bruce made very clear that he doesn't represent or speak for OSI, but provided some excellent feedback on the process and L0-R specifically.  Feedback I felt I should summarize here, so it lives with the rest of the mail archive, where others will probably look for that kind of thing.  This summary can't be all of it---I was too busy keeping up to take good dictation---but I hope Bruce will chime in if he feels I've got something wrong, or omitted something essential.  He's copied.
+
+Bruce's most concrete point was that, yes, licenses that conform to the Open Source Definition are open source licenses, but some licenses that conform to the Open Source Definition come before OSI, and leave without OSI approval.  Poorly drafted terms conceived by amateur drafters came up a few times.  As did needless, proliferating reimplementations of existing terms.
+
+The major point that I took on a more general level was that I should expect and respect focus on "licensee compliance load" created by L0-R, especially for "passive licensees" who don't look like developers, and tend to use FOSS because it is free.  A litmus test is whether users who don't either know or care about Open Source and its particulars stand a chance of needing a lawyer at any point.  Permission must be very clear to feel comfortable advocating use with no counsel.
+
+Use without involving either lawyer skills or development skills is "free riding" in a very direct sense.  But creating opportunity for others to ride places they otherwise couldn't afford to go is a valuable kind of public good that OSI promotes, absent though it may be from the Definition.  A similar concern for compliance load on developers combining software under Open Source terms pervades.  All of this sounded in points already made here on the list in different terms, especially about the dichotomy, sharp or fuzzy, of "users" and "developers".
+
+Bruce didn't see great prospects for anything triggering short of either modification or distribution, even if the triggering actions look distinctly developer-like, such as incorporation into another program or compilation of other code.  The outlook seemed to be that licenses triggering in that way could very well conform to the Definition, but would be very difficult for OSI to be seen to promote.
+
+We discussed AGPL at some length, and in some detail.  Bruce characterized the section 13 trigger there as attempting to synthesize an analog to public performance of copyrighted software work, which doesn't exist under the law.  From that point of view, provision over a network wasn't "use", it was trying to be something entirely of its own kind.  A kludge.
+
+We also discussed the legal boundary between creation of derivative works and reproduction in copies, to acquire a copy to execute, and also incidental to execution itself.  We agreed that many ways to incorporate or adapt software---combinations---probably should be treated as derivative, but don't involve "derivative works" as that's understood at law.  That begs another attempt at synthesis.  One not taken up to date.
+
+My specific takeaways for L0-R were twofold:
+
+1.  Take another stab at revising condition 3, to make it more readable, especially for not-a-lawyers.
+
+2.  Revisit the condition also to clarify, if possible, a "safe zone" of uses for which permission is unconditional, even at the expense of added length.  L0-R might be OSD-conformant as written; I certainly see it that way.  In final form, it may or may not garner OSI approval.  But whatever the outcome, that clarity is worth chasing.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Thu Sep 28 21:09:19 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Thu, 28 Sep 2017 14:09:19 -0700
+Subject: [License-review] Fwd: Re: For Approval: License Zero Reciprocal Public License
+Message-ID: <20170928210919.GD13257@dev.kemitchell.com>
+
+Bruce sent the following reply to my summary, and asked that I forward to the list, since he doesn't currently subscribe.
+
+----- Forwarded message from Bruce Perens <bruce at perens.com> -----
+
+Date: Wed, 27 Sep 2017 22:24:24 -0700
+From: Bruce Perens <bruce at perens.com>
+To: Kyle Mitchell <kyle at kemitchell.com>
+Cc: license-review at opensource.org
+Subject: Re: [License-review] For Approval: License Zero Reciprocal Public License
+
+On Wed, Sep 27, 2017 at 8:58 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+>
+> Bruce didn't see great prospects for anything triggering short of either
+> modification or distribution, even if the triggering actions look
+> distinctly developer-like, such as incorporation into another program or
+> compilation of other code.
+
+
+Actually, I'm OK with incorporation into another program as a trigger *when
+a developer causes it to happen.* We have the specific issue of the
+production and distribution of instructions that combine a program and
+create a derivative work only at the users site, as a means to bypass the
+distribution provisions of the GPL. This is argued to apply to dynamic
+linking.
+
+Compilation of other code which is not open source, or indeed any term
+regarding things that are only processed by the program, would be
+field-of-use restrictions.
+
+2.  Revisit the condition also to clarify, if possible, a "safe zone" of
+> uses for which permission is unconditional, even at the expense of added
+> length.  L0-R might be OSD-conformant as written; I certainly see it that
+> way.  In final form, it may or may not garner OSI approval.  But whatever
+> the outcome, that clarity is worth chasing.
+>
+
+The concept is interesting and I have felt for a while that a stronger
+reciprocal license is necessary. I think it can be achieved in a way that's
+compliant with the OSD and compelling to the people here and the OSI board.
+But perhaps not as quickly as you think.
+ Thanks
+ Bruce
+
+----- End forwarded message -----
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Fri Sep 29 16:39:18 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Fri, 29 Sep 2017 09:39:18 -0700
+Subject: [License-review] Fwd: Re: For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170928210919.GD13257@dev.kemitchell.com>
+References: <20170928210919.GD13257@dev.kemitchell.com>
+Message-ID: <20170929163918.GA24958@dev.kemitchell.com>
+
+Bruce,
+
+I'd be interested in your opinion on this revision, which splits the
+use-triggered copyleft conditions across two numbered items:
+ 3.  Uses with any modification that is not "Open Source" as defined by the Open Source Initiative must be limited to a period of <Grace Period> consecutive calendar days.
+ 4.  Uses as a component of{, or in the development of,} other software that is not "Open Source" as defined by the Open Source Initiative must be limited to a period of <Grace Period> consecutive calendar days.
+
+Do I guess correctly that you'd support this variation _without_
+the text in curly braces, but oppose it with, on the basis of field
+of use discrimination?
+
+I'd like to argue "field of use", but want to prioritize improvements
+to clarity and "safe harbor" for non-developer users, which respond
+to many others' comments, too.
+
+On the clarity front, this revision brings the concept of "Open
+Source" in straight from OSI.  That's really what earlier language
+about published source and license terms wanted.  It struck me that
+many edge cases of concern, especially those that Nigel brought up,
+went right to factual criteria that the Definition touches, but my
+original draft's somewhat reductionist "model" of Open Source missed.
+
+For non-developer users, I think breaking out the condition this way
+helps make clear that unmodified use, not as a component of other
+software, doesn't come under any of the conditions to the general
+grant of permission without condition.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From sokhanget010 at icloud.com  Sun Oct  1 19:07:41 2017
+From: sokhanget010 at icloud.com (Sokha Nget)
+Date: Mon, 02 Oct 2017 02:07:41 +0700
+Subject: [License-review] Fwd: Re: For Approval: License Zero Reciprocal Public License
+Message-ID: <36234CF6-F96B-4102-B5EB-23EC44932AE5@icloud.com>
+
+
+
+
+From kyle at kemitchell.com  Thu Oct 19 23:58:27 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Thu, 19 Oct 2017 16:58:27 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <46261d9e-733f-7414-ca75-e7128ca99ada@piana.eu>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org> <086b2989-c50c-c984-5192-bc966380788e@piana.eu> <20170926020744.GK6204@dev.kemitchell.com> <46261d9e-733f-7414-ca75-e7128ca99ada@piana.eu>
+Message-ID: <20171019235827.GD9707@dev.kemitchell.com>
+
+On 2017-09-26 11:09, Carlo Piana wrote:
+> On 26/09/2017 04:07, Kyle Mitchell wrote:
+> > "Use in the execution and development of any computer
+> > program" is written in technical terms, not legal terms.
+> > Court I'm familiar with will see those word choices,
+> > gather that they are technical terms, rather than legal
+> > ones, and ask, "What would software people mean by
+> > 'execution and development'?".  The court would ask for
+> > evidence from software people, not lawyers.
+> >
+> > You gave a specific example.  As a software person, I
+> > _would_ read the language to apply to programs compiled
+> > with an L0-R compiler.  Yes, that's new.  And
+> > intentional.
+>
+> Besides it being against the OSD, I find this concept fairly
+> overreaching on general policy grounds.
+
+Might I ask what those policy grounds are?
+
+A number of folks, on the list and off, have mentioned
+policy considerations separate from OSD conformance.  Not
+everyone seems to agree OSI should do more than apply OSD,
+but in conversation with most of those who do, I'm at a
+loss.  There doesn't seem to be any document setting out
+what OSI's additional policy constraints are, or what, if
+any, relationship they have to OSD itself.
+
+I'm very grateful to those, like John Cowan and Bruce
+Perens, who've taken the time to go back and forth with me.
+I get a better picture of the policies that matter to those
+individuals that way.  But it takes a lot of time, and I'm
+sure my understanding won't ever be perfect.  Reproducing
+that experience is a lot to ask, both of those proposing on
+license-review, and of those responding there.  Having
+achieved it, it still isn't clear which of whose policy
+concerns will affect OSI's public decision on the license.
+
+Returning to L0-R, if the policy position is that license
+conditions that require reciprocity can go no further than
+AGPL, then I'm wasting time indeed.  Someone should stop me
+before I take any more.  But that would be, I think, a
+momentous shift for OSI and the meaning of OSI approval.
+
+If permissive-side terms can get more or more permissive,
+even at the cost of legal uncertainty and risk to
+developers---for example, in FPL/0BSD---but copyleft terms
+can't evolve in their own direction, then OSD plus OSI
+policies make a ratchet that turns only away from copyleft,
+and toward pushover licenses.
+
+> > As for the Definition, I'm afraid I can't read it as you
+> > do.  OSD criterion number 6 prohibits limits on use of
+> > software in "fields of endeavor", not all limits on use,
+> > flat-out.  It gives two examples, business and genetic
+> > engineering, that are broad reasons for using software,
+> > not choices about how to license software.  And we all
+> > know a famous counterexample, the JSON License's
+> > prohibition on use for evil, very broad indeed.  OSI's
+> > annotations describe the major intent of the criterion
+> > to exclude noncommercial use limitations.  Commercial
+> > use of L0-R code is very possible.
+>
+> Again, this is plainly wrong. It means that you cannot *use* (mind: not
+> distribute, just use) this software in a legal way if the software you
+> are interacting with is not under a license that allows you sharing the
+> code either on legal or material grounds (e.g., it's BSD, but you didn't
+> receive the source). That limits the field of endeavor very much indeed.
+> The examples are just examples. "Genetic research" is no different from
+> "Proprietary software development and/or consumption". You may find a
+> confirmation in #9 as well: the same rationale applies here.
+>
+> JSON limitation, besides being rather vague and undefined and ultimately
+> probably inapplicable, is not AFAICT an OSI approved license, and you
+> can read many comments online criticizing (I seem to remember discussing
+> it here or maybe in other licensing discussion fora, sorry, can't recall
+> it precisely).
+
+If "proprietary software development and/or consumption" is
+a field of endeavor against which an OSD-conformant license
+can't discriminate, how do _any_ copyleft licenses conform
+to the definition?  Criterion 6 isn't specific to conditions
+on use, or indeed to license conditions at all.
+
+To quote Stallman, from "Copyleft: pragmatic idealism":
+ I make my code available for use in free software, and not for use in proprietary software, in order to encourage other people who write software to make it free as well. I figure that since proprietary software developers use copyright to stop us from sharing, we cooperators can use copyright to give other cooperators an advantage of their own: they can use our code.
+
+That's discrimination.  But is it discrimination against a
+"field of endeavor"?  Apparently not.
+
+On the other side, some business firms choose to
+discriminate against Open Source and Free Software, such as
+by adopting a proprietary-software business model.  But as
+the open community has grown, we've seen more and more firms
+based on Open Source competing with proprietary-software
+incumbents.
+
+Moodle competes with Blackboard, for example.  The field of
+endeavor is education.  The choice of proprietary or open
+software is evidently independent of the field.
+
+> > We know from the choice of words, from the examples,
+> > from the annotation, and from the approval of licenses
+> > like AGPL, that the criterion does not prohibit all
+> > possible limits on use.  Modifying an AGPL program and
+> > using it in such a way that users interact with it
+> > remotely, without any opportunity to receive source, is
+> > not permitted.  But AGPL meets the Definition, including
+> > criterion 6, even if users over the network never
+> > receive any copy of any part of the software.  Often
+> > they don't.
+>
+> AGPL limits the use of the software as well, but only insofar as you
+> provide public access to the software you are running. If you use it
+> privately, then you can modify it at leisure. The example is way way
+> different.
+>
+> The fact that people would not use of their right is immaterial, the
+> license sets copyright conditions, and these conditions by no means
+> WHATSOEVER limit your use if this use does not involve network access.
+>
+> I agree that AGPL stretches a bit the Definition, but not on the right
+> to use, rather on the right to MODIFY the software, and only if you aim
+> this in a situation which is functionally equivalent to distribution.
+
+You've echoed some very important points from my
+back-and-forth with John here.  John can speak for his own
+point of view---and does, very capably!---but I will try to
+recap the key points of my part in it.
+
+On AGPL and use versus distribution:
+
+I bring up AGPL to show that the Definition has room for
+conditions that go beyond legal "distribution" of a
+"derivative work".  Especially to address technical
+loopholes that permit taking from the open/free community
+without giving back, on technicalities.  Loopholes that pose
+a fundamental threat to copyleft as a strategy.
+
+Applying that pattern forward, AGPL has a tools loophole.  I
+can arguably run modified AGPL software on my own hardware,
+use it to generate any number of useful outputs, and grant
+access to those outputs behind a software service.  And I
+can keep my patches to myself, as long as users never
+"interact" with the AGPL software itself.
+
+In other words, anything one step removed from interaction
+over a network gets a free pass.  Depending on the software,
+I can potentially "distribute" all of its utility, in the
+sense I think you mean, so long as I don't also distribute
+the experience of "interaction" with it.  Does OSI policy
+prohibit closing that loophole?  How do we close it without
+a more exacting, and use-based, trigger?
+
+AGPL's muddying of the use-distribution distinction is
+symptomatic of what's going on in the industry.  Hosted
+software and rental infrastructure make the boundary less
+and less clear, less and less relevant.  Folks' interests
+tend to get distributed across a whole swarm of computers
+these days, even when the folks aren't programmers.
+Relatively few of those computers are directly owned or
+controlled; we have no idea where execution takes place, or

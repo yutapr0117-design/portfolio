@@ -1,0 +1,750 @@
+
+> 3.  As Richard has noted "uses with modifications" is
+>     quite confusing.  I think you are referring to
+>     conditions imposed upon modifications of code licensed
+>     under LZPL; if so, you should say that.  If not, it
+>     sounds to me like you are trying to impose
+>     restrictions upon
+>     other software (that software that is used with
+>     modifications of LZPL software), which would be a
+>     violation of OSD 9.
+
+Does reversion to "use with modification", a callback to the
+BSD grant language, alleviate the confusion here?
+
+> 4. "Uses as part of, or in development of, other software"
+>    seems to be a clear limitation on other software, and a
+>    violation of OSD 9.  I'm not sure what you're getting
+>    at here that is different than in the prior paragraph.
+>    "Part of" seems to be getting at the same concept as
+>    "modifications" in the prior paragraph.  "In
+>    development of" seems to be targeted at the same thing,
+>    or else is an effort to impose conditions on software
+>    in no way derived from LZPL licensed software, which
+>    would fail OSD 9 (and is probably copyright misuse as
+>    well).
+>
+> It might help if you were to more clearly articulate (on
+> the board, or to yourself) what it is you want people to
+> do, and not do, with LZPL licensed code, articulate those
+> in a draft of the license (using language more consistent
+> with the rights granted in BSD), and then compare those
+> against, in particular, OSD 6 and OSD 9 to ensure that
+> neither the goals, nor the explicit language, of your
+> provisions are inconsistent with those parts of the
+> definitions.
+
+Sounds like examples are in order.
+
+A distributes a Python parser generator, X, under L0-R.
+
+B patches X to improve its performance.  X does not release
+source code for its patch.  After a time, B falls afoul of
+L0-R condition 3, for use with modifications that are not
+Open Source.
+
+C writes a file transfer program in Python that imports X as
+a package.  C uses X as A distributed it.  C provides copies
+of source for the whole transfer program to users, including
+for X, but licenses its code "on top" as proprietary
+software.  B falls afoul of L0-R condition 4, for use of X
+as a part of proprietary software.
+
+D uses X, as A distributed it, to generate a parser for a
+compiler.  B sells the compiler on proprietary terms.  B
+falls afoul of L0-R condition 4, for use of X in the
+development of its compiler, which is not Open Source.
+
+E includes X in a software distribution, to be provided on
+physical media, online for download, and for installation on
+provided infrastructure.  Other software in the distribution
+is proprietary.  E retains X's notices with its source.  E
+is in compliance with L0-R condition 1.
+
+F includes a compilation of X to native code in a similar
+software distribution.  F reproduces X's notices in
+accompanying documentation.  F is in compliance with L0-R
+condition 2.
+
+G runs X, just as A distributed it, to compare its output to
+that of another parser generator.  F is in compliance with
+L0-R, under the general grant of permission.  No conditions
+read on G's use without modification.
+
+> I also find the argument that you're trying to do
+> something that AGPL, or LGPL, or some other OSI approved
+> license is trying to do, but in a different way, to be
+> muddling the discussion.  In general, the discussion (per
+> the submission guidelines) should focus on conformance
+> with OSD, the rationale for your license ("Compare to and
+> contrast with the most similar OSI-approved license(s)":
+> i.e., what additional features beyond 2-clause BSD this
+> license provides), and perhaps why particular language you
+> chose is being used.
+
+Discussion here on the list has ranged broadly, and often
+far afield of my initial proposal, responsive to the
+questions the OSI approval-process page lays out:
+
+https://lists.opensource.org/pipermail/license-review/2017-September/003097.html
+
+I'm happy to talk about any aspect of the license, and
+understand it's my part in this process to do so, whether
+questions go immediately to OSD or not.
+
+That being said, I've taken pains to ask repeatedly whether
+a concern is OSD- or policy-driven.  That prompted more
+general discussion on the role of additional policy
+considerations, how they bear on this process, and L0-R's
+fate more specifically.
+
+As for goal, L0-R does not try to reimplement AGPL-3.0's
+trigger.  L0-R aims to implement a trigger that fires in
+more situations than the combination of GPL and AGPL 13.  In
+order to address the ASP loophole, AGPL triggered source
+provision requirements on a kind of use, namely use
+facilitating interaction over a network.  L0-R follows that
+line, implementing copyleft entirely in conditions on use,
+rather than on distribution.
+
+Use conditions strike me as more powerful.  I think we see
+that in proprietary software, where seat-count,
+running-instance, and other limits get implemented as
+use-based conditions, and work.  And I think use conditions
+can plug copyleft loopholes that distribution conditions
+can't.
+
+With the added power comes a risk of gotchas and overreach.
+Hence a felt need for a grace period, as a mitigation. Maybe
+that's not the right mitigation.  But that's the motivation.
+
+I don't think anything I've mentioned wanders into copyright
+misuse territory, any more than, say, a noncommercial
+limitation would.  Especially when acquiring a copy, or
+executing it, implicates 106 exclusive rights.
+
+> As an aside, a permissive license that allows for copyleft
+> forks but not permissive or proprietary forks might be an
+> interesting option, if that's what you're trying to get
+> at.  I don't think that there is anything right now on the
+> OSI list that does that.  But right now it's not clear to
+> me that's what you're getting at.
+
+L0-R aims to be a copyleft license that allows forks, the
+additional code of which may be licensed under any
+OSD-conformant terms, permissive or copyleft.
+
+I agree a permissive-to-copyleft only license would be an
+interesting exercise. If you ever try to write one, let me
+know.  I'd be interested to help as I can.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From cowan at ccil.org  Fri Oct 20 22:23:40 2017
+From: cowan at ccil.org (John Cowan)
+Date: Fri, 20 Oct 2017 18:23:40 -0400
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <1508523343.3658826.1145657248.4767692F@webmail.messagingengine.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <1508523343.3658826.1145657248.4767692F@webmail.messagingengine.com>
+Message-ID: <CAD2gp_Q7BxO8YOkPrDjPaaKqi_s_tBH9jiw=KpYoNJsVvFZ6=g@mail.gmail.com>
+
+On Fri, Oct 20, 2017 at 2:15 PM, Richard Fontana <fontana at sharpeleven.org>
+wrote:
+
+The BSD license (family) seem to make a distinction between
+> "redistribution" and "use", as did some other permissive licenses
+> originating at roughly the same time.
+
+
+Indeed.  I have always assumed that since "redistribution" is a copyright
+matter,
+"use" is the patent term of art, and therefore the BSD license is both a
+copyright
+and a patent license. The MIT license contains the verbs "use",
+"sublicense", and
+"sell copies", which I believe are patent terms also (although MIT has
+denied
+this interpretation of the word "use").
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+We are lost, lost.  No name, no business, no Precious, nothing.  Only empty.
+Only hungry: yes, we are hungry.  A few little fishes, nassty bony little
+fishes, for a poor creature, and they say death.  So wise they are; so just,
+so very just.  --Gollum
+
+Others, none ever submitted for
+> OSI approval AFAIK, merely spoke of permitting "use". I'm not sure if
+> that was true of any proto-versions of the BSD license, but I am
+> pretty sure that the earliest versions did not have "with or without
+> modification" spelled out.
+>
+> One could get into whether that's a good way of drafting a copyright
+> license, but I don't think it's necessary to get into that. We
+> certainly all accept that the 3-clause and 2-clause BSD licenses are
+> OSD-conformant. So too derivatives like the recently-approved BSD+Patent
+> (not to be confused with the late Facebook React license).
+>
+> Your license keeps the distinction between "redistribution" and
+> "use". But partly as a consequence of that, I find the language of the
+> added clauses confusing. They refer to "uses" where the original BSD
+> language had (and still has, in your license) "use". Is "uses" the
+> same as "use", or does it just mean "particular forms of the thing
+> that was previously referred to in the singular as "use""? Or no?
+>
+> If "uses" is essentially the same as, or just a pluralization of,
+> "use" as used in the initial grant language, doesn't that suggest that
+> clauses 3 and 4 somehow don't cover the redistribution case? Maybe
+> that doesn't matter, but I'm finding it at least distracting. :)
+>
+> Or why "uses" instead of "use", when everyone is expecting the license
+> to refer to "use" because that's what its BSD ancestors did?
+>
+> Leaving that issue aside, I also find it distracting where the license
+> says "uses with modification". I find it at least somewhat confusing
+> phrasing.
+>
+> Don't you mean something like this: If you've exercised the right to
+> modify which I've semi-implicitly granted you with my BSD-derived
+> grant language, then in proceeding to "use" that modified version --
+> which I will assume for the moment is really "distribution and use",
+> or "use including distribution" -- at all points in time in which the
+> "use" is taking place, the code has to be "Open Source" in the OSD
+> sense (including the fact that I must publish source code if otherwise
+> there'd be no licensing act and source code wouldn't be available to
+> anyone but me)?
+>
+> Would it be equivalent to say something like: If you modify this code,
+> you must publish the modifications under an OSI-approved license
+> within <Grace Period> days? Not suggesting that's better wording but
+> I'm trying to rephrase what I think the intended meaning is. My
+> rephrasing there also may make clearer what some may see as an open
+> source conformance issue.
+>
+> I may have a comment on clause 4, but I will leave it there for the
+> moment.
+>
+> Richard
+>
+>
+>
+>
+>
+>
+>
+>
+> On Thu, Oct 19, 2017, at 08:27 PM, Kyle Mitchell wrote:
+> > Revising the text of the proposed license, per feedback here
+> > on license-review and elsewhere.
+> >
+> > Also replying to the original message this time.  If I
+> > revise again, I'll do the same, so it's easier to find.
+> >
+> > First the new text, then a few notes.
+> >
+> > Text:
+> >
+> >     License Zero Reciprocal Public License <Version>
+> >
+> >     Copyright <Year> <Copyright Holder>
+> >
+> >     Redistribution and use in source and binary forms, with
+> >     or without modification, are permitted provided that the
+> >     following conditions are met:
+> >
+> >     1.  Redistributions of source code must retain the above
+> >         copyright notice, this list of conditions and the
+> >         following disclaimer.
+> >
+> >     2.  Redistributions in binary form must reproduce the
+> >         above copyright notice, this list of conditions and
+> >         the following disclaimer in the documentation and/or
+> >         other materials provided with the distribution.
+> >
+> >     3.  Uses with any modification that is not "Open Source"
+> >         as defined by the Open Source Initiative must be
+> >         limited to <Grace Period> calendar days.
+> >
+> >     4.  Uses as part of, or in development of, other
+> >         software that is not "Open Source" as defined by the
+> >         Open Source Initiative must be limited to <Grace
+> >         Period> calendar days.
+> >
+> >     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+> >     CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+> >     WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+> >     WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+> >     PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+> >     COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY
+> >     DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+> >     CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+> >     PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+> >     USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+> >     CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+> >     CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+> >     NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
+> >     USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+> >     OF SUCH DAMAGE.
+> >
+> > Notes:
+> >
+> > - I've removed all mention of agent for sale of alternative
+> >   licenses, as well as the automatic waiver of the copyleft
+> >   conditions.  My motivation was twofold. For one, those
+> >   features produced considerable comment, concern, and
+> >   confusion, aside from the main issue of use conditions
+> >   triggering copyleft.  For two, the aim of each can be
+> >   achieved otherwise, outside the license text. As a result,
+> >   the proposal is now _exactly_ BSD-2-Clause, plus new
+> >   conditions 3 and 4.
+> >
+> > - The copyleft triggers now speak directly in terms of OSD
+> >   conformance, to catch both source availability and license
+> >   terms requirements.  (The assumption is that L0-R, in some
+> >   form, will eventually be recognized itself, so L0-R code
+> >   can clearly incorporate L0-R code.)  But that aside, I
+> >   think the new language goes more directly to intent, and
+> >   reads more clearly.
+> >
+> > - I've split the new conditions across two numbered items.
+> >   This should help clarify that unmodified use alone does
+> >   not trigger share-alike.
+> >
+> > - I was tempted to define terms for repeated words and
+> >   phrases, but held the urge back.  BSD-2-Clause doesn't do
+> >   so, and for this kind of license, stylistically, I think
+> >   that's probably best.
+> >
+> > --
+> > Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+> > _______________________________________________
+> > License-review mailing list
+> > License-review at opensource.org
+> > https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171020/e5425622/attachment.html>
+
+From fw at deneb.enyo.de  Mon Oct 23 18:39:55 2017
+From: fw at deneb.enyo.de (Florian Weimer)
+Date: Mon, 23 Oct 2017 20:39:55 +0200
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171020002742.GA26076@dev.kemitchell.com> (Kyle Mitchell's message of "Thu, 19 Oct 2017 17:27:42 -0700")
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com>
+Message-ID: <8760b5vhc4.fsf@mid.deneb.enyo.de>
+
+* Kyle Mitchell:
+
+>     3.  Uses with any modification that is not "Open Source"
+>         as defined by the Open Source Initiative must be
+>         limited to <Grace Period> calendar days.
+>
+>     4.  Uses as part of, or in development of, other
+>         software that is not "Open Source" as defined by the
+>         Open Source Initiative must be limited to <Grace
+>         Period> calendar days.
+
+What is this supposed to mean?
+
+Usually, mere ?use? of a software (in the sense of running the code)
+cannot be open source or not.  That distinction only arises if
+redistribution happens.
+
+Clause 4 seems to restrict the use (running) of the software to
+open-source development.  This is pretty close to a restriction on
+fields of endeavor.  Even the most restrictive open source licenses
+(like a common interpretation of the Sleeypcat license, or the QPL)
+permit arbitrary use for your own internal purpose.  From a practical
+point of view, this is very important because it allows you to avoid
+complex license management for purely internal applications.
+
+There is also the practical concern: In some jurisdictions, once you
+have legally obtained a copy, you can run the program without
+restriction, without consent from the copyright holder, even if doing
+so technically creates additional (temporary) copies.
+
+
+From osi-review at piana.eu  Mon Oct 23 18:54:19 2017
+From: osi-review at piana.eu (Carlo Piana)
+Date: Mon, 23 Oct 2017 20:54:19 +0200
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <8760b5vhc4.fsf@mid.deneb.enyo.de>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <8760b5vhc4.fsf@mid.deneb.enyo.de>
+Message-ID: <01dbfd5b-dfa1-5613-ee86-b92069286a8e@piana.eu>
+
+On 23/10/2017 20:39, Florian Weimer wrote:
+> * Kyle Mitchell:
+>
+>>     3.  Uses with any modification that is not "Open Source"
+>>         as defined by the Open Source Initiative must be
+>>         limited to <Grace Period> calendar days.
+>>
+>>     4.  Uses as part of, or in development of, other
+>>         software that is not "Open Source" as defined by the
+>>         Open Source Initiative must be limited to <Grace
+>>         Period> calendar days.
+> What is this supposed to mean?
+>
+> Usually, mere ?use? of a software (in the sense of running the code)
+> cannot be open source or not.  That distinction only arises if
+> redistribution happens.
+>
+> Clause 4 seems to restrict the use (running) of the software to
+> open-source development.  This is pretty close to a restriction on
+> fields of endeavor.  
+That's precisely my point. It is a restriction on fields of endeavor.
+
+> Even the most restrictive open source licenses
+> (like a common interpretation of the Sleeypcat license, or the QPL)
+> permit arbitrary use for your own internal purpose.  From a practical
+> point of view, this is very important because it allows you to avoid
+> complex license management for purely internal applications.
+>
+> There is also the practical concern: In some jurisdictions, once you
+> have legally obtained a copy, you can run the program without
+> restriction, without consent from the copyright holder, even if doing
+> so technically creates additional (temporary) copies.
+
+This is also a good point, although I think that this can be stipulated
+in return of having a free as in FreeBeer license.
+
+Cheers
+
+Carlo
+
+
+
+From kyle at kemitchell.com  Mon Oct 23 19:23:27 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Mon, 23 Oct 2017 12:23:27 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <8760b5vhc4.fsf@mid.deneb.enyo.de>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <8760b5vhc4.fsf@mid.deneb.enyo.de>
+Message-ID: <20171023192327.GF9694@dev.kemitchell.com>
+
+Florian,
+
+Thanks for your note.  I'm especially grateful for feedback
+from folks outside the US!
+
+On 2017-10-23 20:10, Florian Weimer wrote:
+> * Kyle Mitchell:
+> Usually, mere ?use? of a software (in the sense of running the code)
+> cannot be open source or not.  That distinction only arises if
+> redistribution happens.
+
+You're right.  Software itself is Open Source, not
+particular uses of it.
+
+In L0-R, "Open Source" points to the noun phrases "any
+modification" in condition 3 and "other software" in
+condition 4.
+
+> Clause 4 seems to restrict the use (running) of the software to
+> open-source development.  This is pretty close to a restriction on
+> fields of endeavor.  Even the most restrictive open source licenses
+> (like a common interpretation of the Sleeypcat license, or the QPL)
+> permit arbitrary use for your own internal purpose.  From a practical
+> point of view, this is very important because it allows you to avoid
+> complex license management for purely internal applications.
+
+OSD criterion 6 has come up a few times.  Recapping my part
+in those discussions:
+
+If development of proprietary software is a "field of
+endeavor" against which Open Source licenses cannot
+discriminate, then distribution-triggered copyleft
+conditions like GPL's would fail the criterion, too.  That's
+clearly not the case.  So "field of endeavor" must mean
+something else.
+
+I read it to cover ends, like education or the examples
+given in OSD, rather than means, like how to license
+software used for those ends.  Something like the difference
+between "purpose" and "methodology".
+
+> There is also the practical concern: In some jurisdictions, once you
+> have legally obtained a copy, you can run the program without
+> restriction, without consent from the copyright holder, even if doing
+> so technically creates additional (temporary) copies.
+
+Correct.  Some jurisdictions' copyright laws overlook
+"transient copies" created incidentally to computer
+execution.
+
+I read "use" and "redistribution" in BSD-2-Clause to cover
+all licensable exclusive rights of copyright owners, adding
+up to a full permissive license.  That being the case, "use"
+must cover more than just transitive copying for execution.
+Copies made to bring a program onto the computer, for
+example.
+
+Even in jurisdictions that overlook transient copies, seat-,
+instance-, and other metered use limitations are very common
+in commercial licenses.  They are also enforceable, so long
+as the only way way to obtain a copy "legally" is under
+license with the restrictions.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Mon Oct 23 19:25:20 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Mon, 23 Oct 2017 12:25:20 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <01dbfd5b-dfa1-5613-ee86-b92069286a8e@piana.eu>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <8760b5vhc4.fsf@mid.deneb.enyo.de> <01dbfd5b-dfa1-5613-ee86-b92069286a8e@piana.eu>
+Message-ID: <20171023192520.GG9694@dev.kemitchell.com>
+
+Carlo,
+
+Sorry.  I didn't see your reply to Florian until after I
+replied to him myself.
+
+You may wish to follow up from that message, Message-ID:
+<20171023192327.GF9694 at dev.kemitchell.com>
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Mon Oct 23 19:37:55 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 23 Oct 2017 12:37:55 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171020043657.GE26076@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org> <086b2989-c50c-c984-5192-bc966380788e@piana.eu> <20170926020744.GK6204@dev.kemitchell.com> <46261d9e-733f-7414-ca75-e7128ca99ada@piana.eu> <20171019235827.GD9707@dev.kemitchell.com> <CAD2gp_QuuwQVb4SitqaUhJzsb+28DMoY6EWoGAzm+ON22YNqTg@mail.gmail.com> <20171020040937.GC26076@dev.kemitchell.com> <CAK2MWOv+wS6eqPX8Txgnm25z5dweGkUrYfZa=SoTB6B=FEaJXg@mail.gmail.com> <20171020043657.GE26076@dev.kemitchell.com>
+Message-ID: <CAK2MWOtLLEDeKFWjMn1s8+HSPUiZtq+FUpNyr8qdaznDVDakDQ@mail.gmail.com>
+
+Kyle,
+
+While there may be greenhorns or new kids who are unclear on the function
+of OSI, and I understand that many are unclear of what Open Source actually
+means, I do not receive reports of the community being upset that more
+licenses are not being approved. If there is any exasperation communicated,
+it is that so many licenses have already been approved and that there
+appears to be no end to the process. Indeed, the best thing the OSI might
+be able to do for the community at this point might be to stop operating
+continuously and only consider licenses at several-year intervals.
+
+I would consider it an active disservice to the community to approve a
+license that had the effect of a present one and was simply shorter and
+purportedly easier for some party to understand but perhaps only in the
+mind of the author.
+
+The fact that there is some program out there to parse license terms and
+perform combinatorial analysis as if it were "Lawyer in a Box" is not a
+compelling argument for allowing an increase in the combinatorial problem.
+I would much rather have the developers understand the combinations, even
+if this means restricting the number of them, than have them rely on the
+appearance of a legal authority where none is actually utilized.
+ Thanks
+ Bruce
+
+On Thu, Oct 19, 2017 at 9:36 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+> On 2017-10-19 21:10, Bruce Perens wrote:
+> > > But for God's sake don't tell the open software community,
+> > > of all people, that their identity's defined by an opaque,
+> > > bureaucratic rite on a mailing list, overtly camouflaging an
+> > > arbitrary decision process that can't be changed, no matter
+> > > how frustrating it may be.  I couldn't defend that.  I don't
+> > > know anyone my age or younger who'd want to try.
+> >
+> > This is overstated. The OSI board has usually discussed on this public
+> list
+> > the reasons for rejection, when there are practical reasons for rejection
+> > that are not explicitly stated in the OSD. The reasons I just set down
+> are
+> > not put forth as an addition to the OSD, just a statement of what some
+> > perfectly reasonable concerns should be. I think we can develop such a
+> list
+> > without ever insisting that it be made a modification to the OSD, and
+> also
+> > without insisting that the OSI board limit themselves to a programatic
+> > interpetation of the OSD.
+>
+> I hope I overstated reality.  I fear I haven't overstated
+> probable perception.  And not just of unread greenhorns, the
+> "new kids" I sometimes read about.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171023/6e3c6d58/attachment.html>
+
+From fw at deneb.enyo.de  Mon Oct 23 19:44:31 2017
+From: fw at deneb.enyo.de (Florian Weimer)
+Date: Mon, 23 Oct 2017 21:44:31 +0200
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171023192327.GF9694@dev.kemitchell.com> (Kyle Mitchell's message of "Mon, 23 Oct 2017 12:23:27 -0700")
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <8760b5vhc4.fsf@mid.deneb.enyo.de> <20171023192327.GF9694@dev.kemitchell.com>
+Message-ID: <87mv4htzs0.fsf@mid.deneb.enyo.de>
+
+* Kyle Mitchell:
+
+>> Clause 4 seems to restrict the use (running) of the software to
+>> open-source development.  This is pretty close to a restriction on
+>> fields of endeavor.  Even the most restrictive open source licenses
+>> (like a common interpretation of the Sleeypcat license, or the QPL)
+>> permit arbitrary use for your own internal purpose.  From a practical
+>> point of view, this is very important because it allows you to avoid
+>> complex license management for purely internal applications.
+>
+> OSD criterion 6 has come up a few times.  Recapping my part
+> in those discussions:
+>
+> If development of proprietary software is a "field of
+> endeavor" against which Open Source licenses cannot
+> discriminate, then distribution-triggered copyleft
+> conditions like GPL's would fail the criterion, too.  That's
+> clearly not the case.  So "field of endeavor" must mean
+> something else.
+
+For this reason, I assumed that ?field of endeavor? always referred to
+activities which do not involve the creation of derivative works.  So
+?you may incorporate this program into open-source software only? is
+acceptable, but ?you may use this program to write open-source
+software only? is not, because it disallows writing poetry with the
+program.
+
+
+From kyle at kemitchell.com  Mon Oct 23 19:52:05 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Mon, 23 Oct 2017 12:52:05 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <87mv4htzs0.fsf@mid.deneb.enyo.de>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <8760b5vhc4.fsf@mid.deneb.enyo.de> <20171023192327.GF9694@dev.kemitchell.com> <87mv4htzs0.fsf@mid.deneb.enyo.de>
+Message-ID: <20171023195205.GJ9694@dev.kemitchell.com>
+
+On 2017-10-23 21:10, Florian Weimer wrote:
+> * Kyle Mitchell:
+> 
+> >> Clause 4 seems to restrict the use (running) of the software to
+> >> open-source development.  This is pretty close to a restriction on
+> >> fields of endeavor.  Even the most restrictive open source licenses
+> >> (like a common interpretation of the Sleeypcat license, or the QPL)
+> >> permit arbitrary use for your own internal purpose.  From a practical
+> >> point of view, this is very important because it allows you to avoid
+> >> complex license management for purely internal applications.
+> >
+> > OSD criterion 6 has come up a few times.  Recapping my part
+> > in those discussions:
+> >
+> > If development of proprietary software is a "field of
+> > endeavor" against which Open Source licenses cannot
+> > discriminate, then distribution-triggered copyleft
+> > conditions like GPL's would fail the criterion, too.  That's
+> > clearly not the case.  So "field of endeavor" must mean
+> > something else.
+> 
+> For this reason, I assumed that ?field of endeavor? always referred to
+> activities which do not involve the creation of derivative works.  So
+> ?you may incorporate this program into open-source software only? is
+> acceptable, but ?you may use this program to write open-source
+> software only? is not, because it disallows writing poetry with the
+> program.
+
+L0-R stars off by giving the same, broad grant of permission
+as BSD-2-Clause, in exactly the same words.  Even with the
+additional L0-R conditions, the license doesn't say that you
+may _only_ use the L0-R with other Open Source.  Rather, you
+may use the software however you like, but it's a condition
+of using it with a patch or some other software that either
+the patch or software becomes Open Source within a given
+time, or you stop using it that way within a given time.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Mon Oct 23 19:59:03 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 23 Oct 2017 12:59:03 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <87mv4htzs0.fsf@mid.deneb.enyo.de>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <8760b5vhc4.fsf@mid.deneb.enyo.de> <20171023192327.GF9694@dev.kemitchell.com> <87mv4htzs0.fsf@mid.deneb.enyo.de>
+Message-ID: <CAK2MWOuhcMc5qLp=MEf1Tpwtju_fjT6kLPxyqiDE-u4YAM53mw@mail.gmail.com>
+
+I created the "Field of Endeavor" clause because of my experience with the
+license that UC Berkeley applied to the SPICE analog electronic circuit
+analysis software and our desire to include that software in Debian. This
+license prohibited the use of SPICE software by the police of South Africa.
+Obviously this term was written during the time of Apartheid, but it
+remained in effect after the South Africa Nationalist party lost power and
+a democratic government arose in South Africa. Indeed, as far as I could
+tell the police of South Africa were employing Black individuals as
+officers and they were still prohibited from using SPICE.
+
+I contacted the licensing staff at UC Berkeley and they were unwilling to
+consider changes to the license or to offer Debian an exception.
+
+>From this, I developed a perception that field-of-use restrictions, no
+matter how well-meant, could easily end up being harmful to the community.
+
+I think it was the general acceptance of the Open Source campaign that
+eventually convinced people at the University to change that license to be
+something OSI-approved.
+
+I do not believe that the creation of derivative works falls under "use
+restriction". Use and creation of derivative works are two separate rights
+under copyright law.
+
+Obviously we operate in the context of copyright law as it exists where our
+users are. This is really worldwide, but I personally am more informed of
+US law. There is the unfortunate tendency of the US to impose its law on
+other nations through treaties, and whatever nation a work originates in it
+is likely to encounter US law as it is exported, so wherever nation I speak
+in I am generally welcomed to discuss copyright law from a mainly US
+context.
+ Thanks
+ Bruce
+
+
+
+On Mon, Oct 23, 2017 at 12:44 PM, Florian Weimer <fw at deneb.enyo.de> wrote:
+
+> * Kyle Mitchell:
+>
+> >> Clause 4 seems to restrict the use (running) of the software to
+> >> open-source development.  This is pretty close to a restriction on
+> >> fields of endeavor.  Even the most restrictive open source licenses
+> >> (like a common interpretation of the Sleeypcat license, or the QPL)
+> >> permit arbitrary use for your own internal purpose.  From a practical
+> >> point of view, this is very important because it allows you to avoid
+> >> complex license management for purely internal applications.
+> >
+> > OSD criterion 6 has come up a few times.  Recapping my part
+> > in those discussions:
+> >
+> > If development of proprietary software is a "field of
+> > endeavor" against which Open Source licenses cannot
+> > discriminate, then distribution-triggered copyleft
+> > conditions like GPL's would fail the criterion, too.  That's
+> > clearly not the case.  So "field of endeavor" must mean
+> > something else.
+>
+> For this reason, I assumed that ?field of endeavor? always referred to
+> activities which do not involve the creation of derivative works.  So
+> ?you may incorporate this program into open-source software only? is
+> acceptable, but ?you may use this program to write open-source
+> software only? is not, because it disallows writing poetry with the
+> program.
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171023/53d6643b/attachment.html>
+
+From kyle at kemitchell.com  Mon Oct 23 20:27:45 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Mon, 23 Oct 2017 13:27:45 -0700

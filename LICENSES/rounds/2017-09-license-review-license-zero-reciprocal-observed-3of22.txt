@@ -1,0 +1,750 @@
+> affected.  The bad news, of course: that
+> is not the law.
+
+
+Neither is it the use that the copyright owner
+can control every use.  In particular, the
+? 117 right of software adaptation is lost
+under your license without onerous conditions.
+I call that copyright misuse.
+
+
+> L0-R drives a harder
+> "bargain" in that sense---its mores are
+> more demanding---but the difference is
+> one of degree, not of any totally new
+> kind.
+>
+
+What's totally new is that it is extended
+beyond the copyright bundle into a whole
+set of rights that people always have had.
+If you look at the FSF's definition of software
+freedom, the right to use (including the right
+to adapt) is guaranteed.
+
+
+> You wrote a little.  I've written too
+> much.  If you make it this far, and even
+> if you don't, thank you.  Challenging
+> feedback is the feedback I'm most
+> grateful for.
+> <https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review>
+
+
+You're welcome.  Please understand that
+if my language is harsh, it is aimed only
+at your license, not at you personally.
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+Humpty Dump Dublin squeaks through his norse Humpty Dump Dublin hath a horrible vorse
+But for all his kinks English / And his irismanx brogues Humpty Dump Dublin's grandada of all rogues.  --Cousin
+James
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170924/b96c77f0/attachment.html>
+
+From kyle at kemitchell.com  Sun Sep 24 17:50:37 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Sun, 24 Sep 2017 10:50:37 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CAD2gp_T98xk9Ek-U7h5uF_Q5=F5seeFi-fVbqB3TGNqW+rq5LQ@mail.gmail.com>
+References: <20170923002249.GA9012@dev.kemitchell.com> <1506126617.1315966.1115452640.69727340@webmail.messagingengine.com> <20170923005217.GB9012@dev.kemitchell.com> <2fd963f5339340a7b93ee2cb98a89e5d@aplex01.dom1.jhuapl.edu> <20170923160910.GE9012@dev.kemitchell.com> <F3C362BF-DF25-4036-82CB-07794142DAE6@gmail.com> <20170923192346.GA6204@dev.kemitchell.com> <CAD2gp_QojYugHr4x8qbn-OZsqEknjSXWvaJwBNdjdca3jgxsDQ@mail.gmail.com> <20170924034515.GB6204@dev.kemitchell.com> <CAD2gp_T98xk9Ek-U7h5uF_Q5=F5seeFi-fVbqB3TGNqW+rq5LQ@mail.gmail.com>
+Message-ID: <20170924175037.GC6204@dev.kemitchell.com>
+
+John,
+
+Thanks again.  I think I understand your line of reasoning much better now.
+
+You're absolutely right that copyright owners cannot control every use, and that copyright misuse can kill a license.  Fair use is the classic category of meaningful exceptions.  And you're right to point out 17 USC 117 as another, specific to software.  But I think you overestimate what's protected under that section.  I think L0-R exercises rights well within what copyright affords.
+
+Broadly speaking, 117 permits the "owner of a copy of a computer program" to make copies and adaptations of software as "essential steps" in using it on some computer.  "Essential" is a high bar, but as a threshold matter, "owner of a copy" is not the same as "licensee".
+
+The licensed-not-sold concept comes up in two relevant places under US law, the "first sale doctrine" and the 117 limitation.  The one to read, as I see it, is Vernor v. Autodesk, 621 F.3d 1102 (9th Cir. 2010):
+ We read [three prior opinions] to prescribe three considerations that we may use to determine whether a software user is a licensee, rather than an owner of a copy.  First, we consider whether the copyright owner specifies that a user is granted a license.  Second, we consider whether the copyright owner significantly restricts the user's ability to transfer the software.  Finally, we consider whether the copyright owner imposes notable use restrictions.[Note 11]  ...
+ Note 11:  Although use restrictions were not dispositive in [the three prior opinions], we considered them in each case.  [Citations omitted.]
+
+Applying the test to L0-R, slightly out of order for clarity:
+
+1.  L0-R is a license.
+
+3.  L0-R imposes a very notable use restriction, a time limit on use with other than published Open Source.
+
+2.  Redistribution, source and binary, is subjected to conditions that ensure the use restriction applies to each recipient.
+
+At least as I read it, the law does not rigidly couple copy-for-distribution to copy-for-use.  It's possible to permit distribution---conditions 1 and 2 of L0-R---without permitting everyone to whom copies are distributed to use without restriction---against the terms of condition 3.  In other words, it's not the law that anyone who comes upon a copy, in circumstances either foul or fair, receives an automatic right to use and adapt, despite any restrictions the copyright holder might like impose.  When there is an outright, unrestricted sale, the copyright owner loses some rights to take back, sue, or impose new restrictions.  But not every transfer of a copy makes an outright, unrestricted sale.
+
+As for the FSF's definition of Free Software, you're absolutely right about freedom 0, "freedom to run the program as you wish, for any purpose".  But consider what that definition has to say about copyleft:
+ Certain kinds of rules about the manner of distributing free software are acceptable, when they don't conflict with the central freedoms.  For example, copyleft (very simply stated) is the rule that when redistributing the program, you cannot add restrictions to deny other people the central freedoms.  This rule does not conflict with the central freedoms; rather it protects them.
+
+L0-R sets a rule about freedom 0, imposing source and licensing requirements.  Those requirements protect freedoms 1 and 3, via "access to source code" and license requirements.  GPL and AGPL set rules about freedom 3, "freedom to distribute copies of your modified versions to others".  GPL and AGPL likewise buttress freedoms 1 and 3, also via access to source and license requirements.  I don't think L0-R restricts the "central freedoms" by setting freedom-protecting source and licensing rules about freedom 0, any more than the GPL restricts them by setting freedom-protecting source and licensing rules about freedom 3.
+
+There is an implementation difference.  FSF's definition doesn't mention rules about other freedoms, other than the one the GPLs chose to hook into.  But it leaves open, and begs, the question of whether they could also be Freedom-enhancing, on balance.  GPL-3.0 and AGPL-3.0 are older than Vernor.  Were GPL-3.0 rewritten today, perhaps the authors would still choose to take distribution restrictions out of the toolbox, and leave use restrictions behind.  But both come from the toolbox called copyright.
+
+Once the question of L0-R under OSD is resolved, I'd be very interested to see what FSF has to say.  But I should be careful how much I take on at once.
+
+Many thanks,
+
+K
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From nigel.2048 at gmail.com  Mon Sep 25 14:10:23 2017
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Mon, 25 Sep 2017 10:10:23 -0400
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170924175037.GC6204@dev.kemitchell.com>
+References: <20170923002249.GA9012@dev.kemitchell.com> <1506126617.1315966.1115452640.69727340@webmail.messagingengine.com> <20170923005217.GB9012@dev.kemitchell.com> <2fd963f5339340a7b93ee2cb98a89e5d@aplex01.dom1.jhuapl.edu> <20170923160910.GE9012@dev.kemitchell.com> <F3C362BF-DF25-4036-82CB-07794142DAE6@gmail.com> <20170923192346.GA6204@dev.kemitchell.com> <CAD2gp_QojYugHr4x8qbn-OZsqEknjSXWvaJwBNdjdca3jgxsDQ@mail.gmail.com> <20170924034515.GB6204@dev.kemitchell.com> <CAD2gp_T98xk9Ek-U7h5uF_Q5=F5seeFi-fVbqB3TGNqW+rq5LQ@mail.gmail.com> <20170924175037.GC6204@dev.kemitchell.com>
+Message-ID: <CADaGzk5BuPVY-3i2hXGZ+ky53wNCLEYq+UZjDbKXGRcpT72kUg@mail.gmail.com>
+
+Kyle,
+
+Even as one of the more pro-developer/pro-business voices on this list I
+find your license problematic for both users and downstream developers and
+I'm not certain that the initial developer really benefits all that much
+either.
+
+Whatever the intent, the license is it strikes me as a copyright-trap for
+unsuspecting users.  An end-user could end up with software under L0-R for
+which they could be sued for non-compliance because they couldn't produce
+the source code for that software.
+
+You also haven't shown how this license is better for the open source
+developer (as opposed to the licensing agency) using a dual licensing
+business model.  For non-compliant internal use in businesses without
+external distribution you aren't going to even know it happens unless you
+are going to engage in software audits.  If that's your intended business
+model...good luck with that but I don't think OSI needs to help you.  If
+that's not your business model then dual licensing using AGPL covers the
+remaining use cases.
+
+Or they can go the freemium or free trial route and use a proprietary
+license. Most corporations don't care all that much about source
+availability but the usefulness of the product.  Maintaining a codebase
+internally can be a huge cost sink if technology is not their main line of
+business (and sometimes even if it is) with no benefit if it doesn't offer
+them any competitive advantages.
+
+Essentially you're trying to finesse your way around having an OSI approved
+NC license for your company (yes, I read your site).  Presumably because
+nobody is accepting your existing L0 NC license as open source and you
+don't think you can make using CC-BY-NC for software fly either.
+
+Frankly, for both downstream users and developers a NC clause is much safer
+than what you propose even if what constitutes NC use is occasionally
+argued.
+
+While I'm a fan of the inclusivity of CC for all kinds of Commons business
+models including NC licenses, that's not the position of the OSI and I'm
+going to agree with John.
+
+Nice try, but no cigar.
+
+Regards,
+
+Nigel
+
+
+On Sun, Sep 24, 2017 at 1:50 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+> John,
+>
+> Thanks again.  I think I understand your line of reasoning much better now.
+>
+> You're absolutely right that copyright owners cannot control every use,
+> and that copyright misuse can kill a license.  Fair use is the classic
+> category of meaningful exceptions.  And you're right to point out 17 USC
+> 117 as another, specific to software.  But I think you overestimate what's
+> protected under that section.  I think L0-R exercises rights well within
+> what copyright affords.
+>
+> Broadly speaking, 117 permits the "owner of a copy of a computer program"
+> to make copies and adaptations of software as "essential steps" in using it
+> on some computer.  "Essential" is a high bar, but as a threshold matter,
+> "owner of a copy" is not the same as "licensee".
+>
+> The licensed-not-sold concept comes up in two relevant places under US
+> law, the "first sale doctrine" and the 117 limitation.  The one to read, as
+> I see it, is Vernor v. Autodesk, 621 F.3d 1102 (9th Cir. 2010):
+>
+>   We read [three prior opinions] to prescribe three considerations that we
+> may use to determine whether a software user is a licensee, rather than an
+> owner of a copy.  First, we consider whether the copyright owner specifies
+> that a user is granted a license.  Second, we consider whether the
+> copyright owner significantly restricts the user's ability to transfer the
+> software.  Finally, we consider whether the copyright owner imposes notable
+> use restrictions.[Note 11]  ...
+>
+>   Note 11:  Although use restrictions were not dispositive in [the three
+> prior opinions], we considered them in each case.  [Citations omitted.]
+>
+> Applying the test to L0-R, slightly out of order for clarity:
+>
+> 1.  L0-R is a license.
+>
+> 3.  L0-R imposes a very notable use restriction, a time limit on use with
+> other than published Open Source.
+>
+> 2.  Redistribution, source and binary, is subjected to conditions that
+> ensure the use restriction applies to each recipient.
+>
+> At least as I read it, the law does not rigidly couple
+> copy-for-distribution to copy-for-use.  It's possible to permit
+> distribution---conditions 1 and 2 of L0-R---without permitting everyone to
+> whom copies are distributed to use without restriction---against the terms
+> of condition 3.  In other words, it's not the law that anyone who comes
+> upon a copy, in circumstances either foul or fair, receives an automatic
+> right to use and adapt, despite any restrictions the copyright holder might
+> like impose.  When there is an outright, unrestricted sale, the copyright
+> owner loses some rights to take back, sue, or impose new restrictions.  But
+> not every transfer of a copy makes an outright, unrestricted sale.
+>
+> As for the FSF's definition of Free Software, you're absolutely right
+> about freedom 0, "freedom to run the program as you wish, for any
+> purpose".  But consider what that definition has to say about copyleft:
+>
+>   Certain kinds of rules about the manner of distributing free software
+> are acceptable, when they don't conflict with the central freedoms.  For
+> example, copyleft (very simply stated) is the rule that when redistributing
+> the program, you cannot add restrictions to deny other people the central
+> freedoms.  This rule does not conflict with the central freedoms; rather it
+> protects them.
+>
+> L0-R sets a rule about freedom 0, imposing source and licensing
+> requirements.  Those requirements protect freedoms 1 and 3, via "access to
+> source code" and license requirements.  GPL and AGPL set rules about
+> freedom 3, "freedom to distribute copies of your modified versions to
+> others".  GPL and AGPL likewise buttress freedoms 1 and 3, also via access
+> to source and license requirements.  I don't think L0-R restricts the
+> "central freedoms" by setting freedom-protecting source and licensing rules
+> about freedom 0, any more than the GPL restricts them by setting
+> freedom-protecting source and licensing rules about freedom 3.
+>
+> There is an implementation difference.  FSF's definition doesn't mention
+> rules about other freedoms, other than the one the GPLs chose to hook
+> into.  But it leaves open, and begs, the question of whether they could
+> also be Freedom-enhancing, on balance.  GPL-3.0 and AGPL-3.0 are older than
+> Vernor.  Were GPL-3.0 rewritten today, perhaps the authors would still
+> choose to take distribution restrictions out of the toolbox, and leave use
+> restrictions behind.  But both come from the toolbox called copyright.
+>
+> Once the question of L0-R under OSD is resolved, I'd be very interested to
+> see what FSF has to say.  But I should be careful how much I take on at
+> once.
+>
+> Many thanks,
+>
+> K
+>
+> --
+> Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170925/c092cd15/attachment.html>
+
+From kyle at kemitchell.com  Mon Sep 25 17:11:21 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Mon, 25 Sep 2017 10:11:21 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CADaGzk5BuPVY-3i2hXGZ+ky53wNCLEYq+UZjDbKXGRcpT72kUg@mail.gmail.com>
+References: <20170923005217.GB9012@dev.kemitchell.com> <2fd963f5339340a7b93ee2cb98a89e5d@aplex01.dom1.jhuapl.edu> <20170923160910.GE9012@dev.kemitchell.com> <F3C362BF-DF25-4036-82CB-07794142DAE6@gmail.com> <20170923192346.GA6204@dev.kemitchell.com> <CAD2gp_QojYugHr4x8qbn-OZsqEknjSXWvaJwBNdjdca3jgxsDQ@mail.gmail.com> <20170924034515.GB6204@dev.kemitchell.com> <CAD2gp_T98xk9Ek-U7h5uF_Q5=F5seeFi-fVbqB3TGNqW+rq5LQ@mail.gmail.com> <20170924175037.GC6204@dev.kemitchell.com> <CADaGzk5BuPVY-3i2hXGZ+ky53wNCLEYq+UZjDbKXGRcpT72kUg@mail.gmail.com>
+Message-ID: <20170925171121.GD6204@dev.kemitchell.com>
+
+Nigel,
+
+Thanks again.  You make many valid points.  However, those points go to whether you think L0-R advisable, or to what business models you think developers should and shouldn't attempt, and not to whether L0-R meets the Open Source Definition.
+
+I don't understand OSI license review as a process of conferring blanket OSI approval on any business model, company, or community, or of prescribing any particular approach among many that count as Open Source.  OSI has approved a number of company-specific licenses; I don't take those as endorsements of the entities involved.  And OSI has approved some licenses now placed in a "redundant" category; that's clearly no promotional boon.
+
+The only help I ask from OSI is the help that it offers---the time unavoidably required to apply the Definition to L0-R, approve it as an Open Source license, or clarify which Definition criteria it misses and how it might be revised to comply.  I'm happy to answer any questions posed during the process, and the guide to the process makes clear that I should do so.  Indeed, there are many good conversations to be had about the issues L0-R touches.  But most aren't the business at hand.
+
+On other writing:
+
+Others are welcome to read what I've written publicly on L0-R, L0-NC, and License Zero more generally:
+
+https://medium.com/licensezero
+
+Those posts touch on a few points of legal significance and license design, in passing, but in the main treat community, business, and, frankly, policy questions that I don't understand belong here on license-review.  Perhaps on license-discuss.
+
+I've been selective here, and followed the prescribed submission format, to respect the time of those involved.  A dump of all my prior writing would have had quite the opposite effect, punishing those generous enough to read straight through with a great deal that's irrelevant or simply out-of-date.  The same effect by sending a list of links, at the additional cost of a skeletal mailing list archive record.
+
+On copyright "traps":
+
+I'm afraid I must object to "trap", just as I objected to "coercion".  "Trap" has been leveled at all strong copyleft licenses.  But license conditions as a legal mechanism, by definition, take permission away, making grounds for IP suits.  That's as true of attribution, list-changes, and other typical permissive-license conditions as it is of more involved copyleft conditions.  An anecdote: I'm fond of polling developers at events about Apache-2.0 NOTICE files.  Many don't believe when I tell them!
+
+Some conditions are more difficult to apply, in practice, than others.  But neither relatively easy conditions, nor relatively hard ones, nor great heaps of condition language---AGPL is about four times the length of L0-R, I believe---apparently disqualify a license as Open Source.  Unless they trip over the criteria.
+
+On noncommercial terms:
+
+You're right.  I do want a noncommercial software license.  So I wrote one, L0-NC, based in part on CC-BY-NC, just as you mentioned.  That is obviously _not_ an Open Source license.  I won't be troubling OSI about it!
+
+With L0-R, I wanted something very different: a stronger-than-strong copyleft license,  a more aggressive legal implementation of community values that prize publicly available source code and Open Source terms.  In other words, Open Source values.  Yes, that want is partly motivated by a desire to offer license terms that incentivize some downstream users to pay for alternative terms, in financial support of developers who do work in the open.  The effect is to make dual licensing a viable model for independent developers.  Independent developers who can choose between a noncommercial and a reciprocal public license---L0-NC or L0-R---as they prefer.
+
+Your view of L0-R as a kind of back-door noncommercial license, and therefore not an Open Source license, sits uneasily with your point that developers could achieve the same practical effect with AGPL in lieu of L0-R.  Neither AGPL nor L0-R discriminates against commerce as a field of endeavor, or against commercial entities as groups, under the Definition.  It is possible to run a business, as an individual or a large company, making and using strong-copyleft code.  Dual licensing opportunity springs from the fact that many people and groups---not just commercial ones---discriminate against Open Source in how they choose to go about their business.
+
+Permissive licenses practice Open Source values, but don't hold others accountable for them.  Copyleft licenses do.  You're right that AGPL is the go-to license choice for dual licensing businesses.  It's strongest, common, OSI-approved copyleft license going.  MongoDB has just filed to go public.  It won't be the last on that model.
+
+AGPL is an Open Source license.  Which criteria of the Open Source Definition does AGPL meet that L0-R does not?
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From josh at postgresql.org  Mon Sep 25 17:19:33 2017
+From: josh at postgresql.org (Josh berkus)
+Date: Mon, 25 Sep 2017 10:19:33 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170924175037.GC6204@dev.kemitchell.com>
+References: <20170923002249.GA9012@dev.kemitchell.com> <1506126617.1315966.1115452640.69727340@webmail.messagingengine.com> <20170923005217.GB9012@dev.kemitchell.com> <2fd963f5339340a7b93ee2cb98a89e5d@aplex01.dom1.jhuapl.edu> <20170923160910.GE9012@dev.kemitchell.com> <F3C362BF-DF25-4036-82CB-07794142DAE6@gmail.com> <20170923192346.GA6204@dev.kemitchell.com> <CAD2gp_QojYugHr4x8qbn-OZsqEknjSXWvaJwBNdjdca3jgxsDQ@mail.gmail.com> <20170924034515.GB6204@dev.kemitchell.com> <CAD2gp_T98xk9Ek-U7h5uF_Q5=F5seeFi-fVbqB3TGNqW+rq5LQ@mail.gmail.com> <20170924175037.GC6204@dev.kemitchell.com>
+Message-ID: <5e5c36c8-4b56-a137-4278-fc62f8ecbd53@postgresql.org>
+
+Kyle,
+
+I haven't seen you address my point that your license, as written, is a
+"single origin license".  That is, it assumes that there is a single
+entity releasing source code, and a bunch of downstream users. You
+appear to have not given much thought to:
+
+- People who want to use some or all of the code from the project in a
+larger work;
+- people who want to cherry-pick specific files or libraries from the code;
+- organizations who decide to create OSS communities around modified
+versions of the code.
+
+Clause 3 of the license privileges the "original releasor" of the code
+over successive OSS redistributors as a part of the license.  It also
+leaves unresolved what redistributors are allowed to do in terms of
+agents, time limits, and other changes.
+
+We have rejected other license applications for the same reason, and
+even the ones not rejected are still in decision limbo.  You might want
+to take a second stab at that.
+
+--Josh Berkus
+
+
+
+
+
+From carlo at piana.eu  Mon Sep 25 17:54:44 2017
+From: carlo at piana.eu (Carlo)
+Date: Mon, 25 Sep 2017 19:54:44 +0200
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org>
+Message-ID: <086b2989-c50c-c984-5192-bc966380788e@piana.eu>
+
+On 23/09/2017 02:37, Josh berkus wrote:
+> On 09/22/2017 05:09 PM, Kyle Mitchell wrote:
+>> 3.  Uses in the execution or development of any computer program, the
+>>     entire source code of which is not published and publicly licensed
+>>     under licenses approved by the Open Source Initiative, must be
+>>     limited to a period of <Grace Period> consecutive calendar days. This
+>>     condition is waived if licenses permitting those uses cease to be
+>>     available via the following agent, or a successor named in a
+>>     subsequent release, for <Waiver Period> consecutive calendar days:
+>>
+>>         <Agent Information>
+> This is a fascinating clause, and I would like to hear the reasoning
+> behind it, both legal and usage.
+>
+> --Josh Berkus
+
+I had hard time understanding this clause myself, even after reading a
+lot of explanation. Take it as a readability test from someone to some
+extent literate in FOSS licensing, but not an English native speaker, if
+nothing else.
+
+What does "use in the execution or development of any computer program"
+mean?
+
+For instance, let us suppose software so licensed is a compiler and is
+used to compile some other software. Would this be an infringement
+unless this other software is published and licensed under an
+OSI-compliant license within grace period?
+
+Limiting the use of the software is flat out against the OSD (eg #6). If
+I can use the software only to do certain things, or all things but only
+with certain subject matter, this can't be approved. All the discussion
+would therefore be moot.
+
+I will not even start with the rest of the statement elsewhere, which
+might deserve debunking. I think the characterization by John Cowan is
+even too mild if what I read in the text is correct.
+
+That's quite different from imposing copyleft conditions. Accepted
+copyleft conditions impact on modifications of the software which are
+either distributed or quasi-distributed through network access (AGPL).
+This impacts on use of non-distributed software.
+
+All the best,
+
+Carlo
+
+PS: as already said, my objections are against the legal text, not the
+person or the intent.?
+
+
+
+From kyle at kemitchell.com  Mon Sep 25 19:45:18 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Mon, 25 Sep 2017 12:45:18 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <5e5c36c8-4b56-a137-4278-fc62f8ecbd53@postgresql.org>
+References: <20170923005217.GB9012@dev.kemitchell.com> <2fd963f5339340a7b93ee2cb98a89e5d@aplex01.dom1.jhuapl.edu> <20170923160910.GE9012@dev.kemitchell.com> <F3C362BF-DF25-4036-82CB-07794142DAE6@gmail.com> <20170923192346.GA6204@dev.kemitchell.com> <CAD2gp_QojYugHr4x8qbn-OZsqEknjSXWvaJwBNdjdca3jgxsDQ@mail.gmail.com> <20170924034515.GB6204@dev.kemitchell.com> <CAD2gp_T98xk9Ek-U7h5uF_Q5=F5seeFi-fVbqB3TGNqW+rq5LQ@mail.gmail.com> <20170924175037.GC6204@dev.kemitchell.com> <5e5c36c8-4b56-a137-4278-fc62f8ecbd53@postgresql.org>
+Message-ID: <20170925194518.GE6204@dev.kemitchell.com>
+
+Josh,
+
+Thanks for following up.  My mail client must have marked your message of 9/22 read before I actually had a chance to read it.  Apologies!
+
+> - People who want to use some or all of the code from the project in a
+> larger work;
+> - people who want to cherry-pick specific files or libraries from the code;
+
+The analysis here is much the same as for BSD-2-Clause, whence L0-R comes.
+
+L0-R retains BSD-2-Clause's preamble, granting permission for "redistribution and use in source and binary forms, with or without modification".  Conditions 1 and 2 apply to "redistributions".  The only changes to the original BSD extend the requirement to preserve copyright notice and terms to a new source availability notice.  Condition 3 applies to "uses", the other verb in the general grant of permission.
+
+I think by "larger work" you mean another program with more than just code borrowed from a single L0-R-licensed codebase.
+
+If I want to reuse, say, a single function from the source of a BSD-2-Clause project, I read the license to permit me to do so, as long as I preserve notices in distributed source code or documentation with distributed binaries.  The same would be true of a function from an L0-R-licensed project, with the additional requirement that the larger work must be published in source form and licensed under OSI terms if the L0-R code is used in "execution or development" of that program.  If your larger work runs a function copied from my L0-R project, that would be a "use[] in the execution" of your larger work.
+
+> - organizations who decide to create OSS communities around modified
+> versions of the code.
+>
+> Clause 3 of the license privileges the "original releasor" of the code
+> over successive OSS redistributors as a part of the license.
+
+I think I know what you mean, but I'm not entirely sure.  Let me take a stab.
+
+Fundamentally, there is a difference in all dual-licensed projects between the individual or entity that grants the initial copyleft license, and retains the right to offer other terms for the original code, and others licensed only under the public terms, who can't give others more permission than they've received.  All condition-bearing licenses, the vast majority of OSI-approved licenses among them, create that kind of difference to some degree.  Moreover, that difference is the basis of dual licensing, clearly possible with OSI-approved public terms.
+
+If that's the "privilege" that irks, L0-R's automatic waiver should please.  Perchance the original licensor stops dual licensing---that is, stops using its unique position to offer different terms---L0-R reverts to a permissive license, a slight variation on BSD-2-Clause.  At that point, setting aside the usual permissive-license notice preservation requirements, the original licensor stands more or less in the same position as subsequent contributors publishing on similarly permissive terms.  Everyone will have given nearly all the permission the law stands them in stead to give, to everyone.
+
+Just as it is possible to fork a dual-licensed GPL or AGPL project today, it will be possible to fork a dual-licensed L0-R-licensed project.  The community may or may not choose to continue using L0-R for its own contributions.  It may instead publish its modifications under BSD-2-Clause, for example.  The combination would then be L0-R for the "base", and BSD-2-Clause for copyrightable work "on top".  If the source is published, L0-R condition 3 for the base is satisfied.  The whole source of the program is "publicly licensed under licenses approved by the Open Source Initiative", namely BSD-2-Clause and (prospectively) L0-R.
+
+Does this address what you meant by "organizations", "community", and "privilege"?
+
+> It also leaves unresolved what redistributors are allowed to do in terms of
+> agents, time limits, and other changes.
+
+All of the template variables, from the copyright notice down, are part of the license, for the licensor to decide.  Downstream distributors cannot change those terms---"relicense" the code---any more than they can relicense AGPL or GPL code.
+
+An aside: I was already tempted to move alternative-licensing information out from under condition 3, up with the other notices, for copyright and source availability.  I think I will take a stab at that next, as it helps make clear that passing information around with license terms is typical of open source today.  If there's anything new in L0-R as currently proposed, it's the template variables for the lengths of the grace period and automatic waiver period.  Those affect the legal language in ways that, say, additional information crammed in an Apache-2.0 NOTICE file should not or could not.
+
+As for downstream _contributors_, they have similar autonomy with respect to the license terms they apply to their own contributions.  Compared to BSD-2-Clause, that autonomy is modulated somewhat by condition 3, the copyleft condition, which requires OSI-approved terms.  The addition of that copyleft requirement is the better part of the difference between BSD-2-Clause and L0-R.  Much as 1(c) makes the better part of the difference between ALF-3.0 (permissive) and OSL-3.0 (copyleft).
+
+How does the L0-R extension play out in practice?  Again assuming OSI approval of some version of L0-R, say that I release a library under L0-R.  You fork it later, add improvements, and license your work, on top of mine, on L0-R terms of your own.  You list yourself as a copyright holder, the repository for your modified version, your alternative licensing information, your grace and waiver periods.  Per the conditions of my license, you also retain my notices and terms in code and binaries.  Assuming you actually publish the source for your modifications, the whole---my code and yours---would meet the requirement of condition 3.  Users would receive a L0-R license from you, and a L0-R license from me.  Together, those licenses would cover at least all copyright interests in the code.
+
+> We have rejected other license applications for the same reason, and
+> even the ones not rejected are still in decision limbo.  You might want
+> to take a second stab at that.
+
+Might you be able to name a few of those licenses, so I can read up?  That would be much appreciated.
+
+This raises a major procedural question, which I could boil down to: "Would OSI approve BSD-2-Clause as an Open Source license today?"  There is always a bit of history and practice that develops, applying a test like the Definition over and over again.  Best practices, or at least our perception of them, also evolve, or hopefully do.  But I'd be surprised and dismayed to learn that the goalposts have moved so far.  And I think it would come as quite a shock to the swathes of developers choosing BSD-n-Clause and its cousins, MIT, ISC, etc., for new work every day.
+
+Worse comes to worst, I could rewrite L0-R in a more traditionally legal, EPL- or Apache-esque style, addressing each substantive question in its own enumerated section, with descriptive headings, and so on.  I'm a licensing lawyer, and that's my native mode.  But style and brevity matter in our communities.  I think it's vitally important that someone---if not License Zero, someone else---evolve the copyleft concept in a license form that feels tractable to those who can't trust the "enterprise"-looking, American contract-style licenses.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From josh at postgresql.org  Mon Sep 25 21:02:46 2017
+From: josh at postgresql.org (Josh berkus)
+Date: Mon, 25 Sep 2017 14:02:46 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170925194518.GE6204@dev.kemitchell.com>
+References: <20170923005217.GB9012@dev.kemitchell.com> <2fd963f5339340a7b93ee2cb98a89e5d@aplex01.dom1.jhuapl.edu> <20170923160910.GE9012@dev.kemitchell.com> <F3C362BF-DF25-4036-82CB-07794142DAE6@gmail.com> <20170923192346.GA6204@dev.kemitchell.com> <CAD2gp_QojYugHr4x8qbn-OZsqEknjSXWvaJwBNdjdca3jgxsDQ@mail.gmail.com> <20170924034515.GB6204@dev.kemitchell.com> <CAD2gp_T98xk9Ek-U7h5uF_Q5=F5seeFi-fVbqB3TGNqW+rq5LQ@mail.gmail.com> <20170924175037.GC6204@dev.kemitchell.com> <5e5c36c8-4b56-a137-4278-fc62f8ecbd53@postgresql.org> <20170925194518.GE6204@dev.kemitchell.com>
+Message-ID: <6a56b0aa-8892-8ad0-7f30-e4e0f06eedc6@postgresql.org>
+
+On 09/25/2017 12:45 PM, Kyle Mitchell wrote:
+> Josh,
+
+> If I want to reuse, say, a single function from the source of a BSD-2-Clause project, I read the license to permit me to do so, as long as I preserve notices in distributed source code or documentation with distributed binaries.  The same would be true of a function from an L0-R-licensed project, with the additional requirement that the larger work must be published in source form and licensed under OSI terms if the L0-R code is used in "execution or development" of that program.  If your larger work runs a function copied from my L0-R project, that would be a "use[] in the execution" of your larger work.
+
+However, this right is 100% inheritable.  That is, as a downstream
+developer, I have exactly the same rights as the developer from whom I
+received the code.
+
+> 
+>> - organizations who decide to create OSS communities around modified
+>> versions of the code.
+>>
+>> Clause 3 of the license privileges the "original releasor" of the code
+>> over successive OSS redistributors as a part of the license.
+> 
+> I think I know what you mean, but I'm not entirely sure.  Let me take a stab.
+> 
+> Fundamentally, there is a difference in all dual-licensed projects between the individual or entity that grants the initial copyleft license, and retains the right to offer other terms for the original code, and others licensed only under the public terms, who can't give others more permission than they've received.  All condition-bearing licenses, the vast majority of OSI-approved licenses among them, create that kind of difference to some degree.  Moreover, that difference is the basis of dual licensing, clearly possible with OSI-approved public terms.
+
+But dual-licensing isn't part of the OSS license.  Companies
+dual-license by virtue of their ownership of the original copyright, not
+because the OSS license enables dual-licensing.  Embedding
+dual-licensing in the OSS license itself is a radical innovation, and
+would need to be debated as to whether it violates the OSD.
+
+You also need to make a case as to why a license which embeds
+dual-licensing is needed.  Materially, it's clear that companies can
+already dual-license, and several have built lucrative business models
+around it.  If MySQL didn't need L0-R, why does anyone else?
+
+> If that's the "privilege" that irks, L0-R's automatic waiver should please.  Perchance the original licensor stops dual licensing---that is, stops using its unique position to offer different terms---L0-R reverts to a permissive license, a slight variation on BSD-2-Clause.  At that point, setting aside the usual permissive-license notice preservation requirements, the original licensor stands more or less in the same position as subsequent contributors publishing on similarly permissive terms.  Everyone will have given nearly all the permission the law stands them in stead to give, to everyone.
+
+Only the "original licensor" can set the agent, which is presumably an
+organization with whom that licensor has a business relationship -- one
+which a downstream licensor may not share.  Certainly, as a developer, I
+am unlikely to grant a firm chosen by you the right to relicense my
+freely donated code as they see fit.  Generally, I expect to get paid
+for that.
+
+The alternative is chaos, where each page of the code has a different
+agent allowed to grant waivers, and any commercial licensing requires a
+week on the telephone.  Worse, each page of the code could also have
+different time limits.
+
+>> It also leaves unresolved what redistributors are allowed to do in terms of
+>> agents, time limits, and other changes.
+> 
+> All of the template variables, from the copyright notice down, are part of the license, for the licensor to decide.  Downstream distributors cannot change those terms---"relicense" the code---any more than they can relicense AGPL or GPL code.
+
+No other approved license that I know of includes immutable contact
+information for a specific agency.  In fact, we've delayed approval of
+licenses brought to us by large government agencies over this specific
+point.
+
+Any time a license requires specific contact information, it runs up
+against these questions:
+
+* what if the licensee lives in a country where they're not allowed to
+contact that person/address/website?
+* what if the contact information changes?  how do you update licenses
+in the field?
+
+> An aside: I was already tempted to move alternative-licensing information out from under condition 3, up with the other notices, for copyright and source availability.  I think I will take a stab at that next, as it helps make clear that passing information around with license terms is typical of open source today.  If there's anything new in L0-R as currently proposed, it's the template variables for the lengths of the grace period and automatic waiver period.  Those affect the legal language in ways that, say, additional information crammed in an Apache-2.0 NOTICE file should not or could not.
+
+Removing all references to the agent from the license would help.
+
+> This raises a major procedural question, which I could boil down to: "Would OSI approve BSD-2-Clause as an Open Source license today?"  There is always a bit of history and practice that develops, applying a test like the Definition over and over again.  Best practices, or at least our perception of them, also evolve, or hopefully do.  But I'd be surprised and dismayed to learn that the goalposts have moved so far.  And I think it would come as quite a shock to the swathes of developers choosing BSD-n-Clause and its cousins, MIT, ISC, etc., for new work every day.
+
+The issues I have with your license are its differences from BSD, not
+its similarities.
+
+> Worse comes to worst, I could rewrite L0-R in a more traditionally legal, EPL- or Apache-esque style, addressing each substantive question in its own enumerated section, with descriptive headings, and so on.  I'm a licensing lawyer, and that's my native mode.  But style and brevity matter in our communities.  I think it's vitally important that someone---if not License Zero, someone else---evolve the copyleft concept in a license form that feels tractable to those who can't trust the "enterprise"-looking, American contract-style licenses.
+
+Brevity to the point of incoherency isn't an asset.  You've done a lot
+of explaining of what you meant by Clause 3, but as a developer if I
+read Clause 3 that's not what I see.  People expect brief licenses to be
+easily understood.
+
+--Josh Berkus
+
+
+
+From nigel.2048 at gmail.com  Mon Sep 25 21:54:35 2017
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Mon, 25 Sep 2017 17:54:35 -0400
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170925171121.GD6204@dev.kemitchell.com>
+References: <20170923005217.GB9012@dev.kemitchell.com> <2fd963f5339340a7b93ee2cb98a89e5d@aplex01.dom1.jhuapl.edu> <20170923160910.GE9012@dev.kemitchell.com> <F3C362BF-DF25-4036-82CB-07794142DAE6@gmail.com> <20170923192346.GA6204@dev.kemitchell.com> <CAD2gp_QojYugHr4x8qbn-OZsqEknjSXWvaJwBNdjdca3jgxsDQ@mail.gmail.com> <20170924034515.GB6204@dev.kemitchell.com> <CAD2gp_T98xk9Ek-U7h5uF_Q5=F5seeFi-fVbqB3TGNqW+rq5LQ@mail.gmail.com> <20170924175037.GC6204@dev.kemitchell.com> <CADaGzk5BuPVY-3i2hXGZ+ky53wNCLEYq+UZjDbKXGRcpT72kUg@mail.gmail.com> <20170925171121.GD6204@dev.kemitchell.com>
+Message-ID: <CADaGzk6bAd=B4mW4zsd23o+MKA7J4WYdvoOMz5ad+Mi1n3cnuw@mail.gmail.com>
+
+Kyle,
+
+I'm sorry if you object to the word "trap" but you don't just evaluate
+licenses from the perspective of everyone playing nice.
+
+Here's a couple of "not nice" scenarios off the top of my head:
+
+1) It is my impression that a developer could release their L0-R software
+in binary form to users under the OSI Open Source banner without the
+current source during the grace period.  As the original authors they can
+define this grace period to be any arbitrary period.  Users see that the
+project is under an OSI approved license so it must be safe to use and
+begin using it.  That the source in the repo is for a prior version doesn't
+register.
+
+After the grace period ends the developer's agent begins demanding payment
+for the current version under a commercial license if the users cannot
+comply by publishing the source.  Oh and the grace period ended six months
+ago.  No one can comply because the developer has never released the source
+for the current version. They never needed to release the source since they
+aren't governed by the terms of the license. Regardless, by using the
+product after the grace period ended the users must have intended to buy a
+commercial license is their argument.
+
+2) Developer releases code under the OSI approved L0-R license.  It sounds
+useful (and safe) so other developers download the code to just to try
+out.  A year later the developer's agent sends a letter to everyone that
+has downloaded the code to demand a software audit to ensure
+compliance...or just buy a license for some fee that is less than the cost
+and hassle for doing an audit.  If the downstream developer ever combined
+the L0-R code with any proprietary code of value then it's an extra bonus
+payday.  They can't just dump the test projects onto GitHub.
+
+AFAIK (IANAL) an AGPL release can't do either of these things but it can
+meet the legitimate needs of open source developers that wish to dual
+license.
+
+Other questions include things like how long do I have to continue to
+publish as a developer?  At what point does L0-R consider that my
+development ended and I no longer have a requirement to publish?  There are
+FOSS projects that no longer exist that used to be on Java.net.  Can the
+upstream developers now force users to purchase a commercial license
+because the downstream project site went poof?
+
+What is "development" anyway?  Can I even look at the code in a code editor
+without triggering section 3?  That's usually my first step even before
+reading the docs.  Or does "development" happen the first time I compile
+the code?
+
+Regards,
+
+Nigel
+
+
+On Mon, Sep 25, 2017 at 1:11 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+> Nigel,
+>
+> Thanks again.  You make many valid points.  However, those points go to
+> whether you think L0-R advisable, or to what business models you think
+> developers should and shouldn't attempt, and not to whether L0-R meets the
+> Open Source Definition.
+>
+> I don't understand OSI license review as a process of conferring blanket
+> OSI approval on any business model, company, or community, or of
+> prescribing any particular approach among many that count as Open Source.
+> OSI has approved a number of company-specific licenses; I don't take those
+> as endorsements of the entities involved.  And OSI has approved some
+> licenses now placed in a "redundant" category; that's clearly no
+> promotional boon.
+>
+> The only help I ask from OSI is the help that it offers---the time
+> unavoidably required to apply the Definition to L0-R, approve it as an Open
+> Source license, or clarify which Definition criteria it misses and how it
+> might be revised to comply.  I'm happy to answer any questions posed during
+> the process, and the guide to the process makes clear that I should do so.
+> Indeed, there are many good conversations to be had about the issues L0-R
+> touches.  But most aren't the business at hand.
+>
+> On other writing:
+>
+> Others are welcome to read what I've written publicly on L0-R, L0-NC, and
+> License Zero more generally:
+>
+> https://medium.com/licensezero
+>
+> Those posts touch on a few points of legal significance and license
+> design, in passing, but in the main treat community, business, and,
+> frankly, policy questions that I don't understand belong here on
+> license-review.  Perhaps on license-discuss.
+>
+> I've been selective here, and followed the prescribed submission format,
+> to respect the time of those involved.  A dump of all my prior writing
+> would have had quite the opposite effect, punishing those generous enough
+> to read straight through with a great deal that's irrelevant or simply
+> out-of-date.  The same effect by sending a list of links, at the additional
+> cost of a skeletal mailing list archive record.
+>
+> On copyright "traps":
+>
+> I'm afraid I must object to "trap", just as I objected to "coercion".
+> "Trap" has been leveled at all strong copyleft licenses.  But license
+> conditions as a legal mechanism, by definition, take permission away,
+> making grounds for IP suits.  That's as true of attribution, list-changes,
+> and other typical permissive-license conditions as it is of more involved
+> copyleft conditions.  An anecdote: I'm fond of polling developers at events
+> about Apache-2.0 NOTICE files.  Many don't believe when I tell them!
+>
+> Some conditions are more difficult to apply, in practice, than others.
+> But neither relatively easy conditions, nor relatively hard ones, nor great
+> heaps of condition language---AGPL is about four times the length of L0-R,
+> I believe---apparently disqualify a license as Open Source.  Unless they
+> trip over the criteria.
+>
+> On noncommercial terms:
+>
+> You're right.  I do want a noncommercial software license.  So I wrote
+> one, L0-NC, based in part on CC-BY-NC, just as you mentioned.  That is
+> obviously _not_ an Open Source license.  I won't be troubling OSI about it!
+>
+> With L0-R, I wanted something very different: a stronger-than-strong
+> copyleft license,  a more aggressive legal implementation of community
+> values that prize publicly available source code and Open Source terms.  In
+> other words, Open Source values.  Yes, that want is partly motivated by a
+> desire to offer license terms that incentivize some downstream users to pay
+> for alternative terms, in financial support of developers who do work in
+> the open.  The effect is to make dual licensing a viable model for
+> independent developers.  Independent developers who can choose between a
+> noncommercial and a reciprocal public license---L0-NC or L0-R---as they
+> prefer.
+>
+> Your view of L0-R as a kind of back-door noncommercial license, and
+> therefore not an Open Source license, sits uneasily with your point that
+> developers could achieve the same practical effect with AGPL in lieu of
+> L0-R.  Neither AGPL nor L0-R discriminates against commerce as a field of
+> endeavor, or against commercial entities as groups, under the Definition.
+> It is possible to run a business, as an individual or a large company,
+> making and using strong-copyleft code.  Dual licensing opportunity springs
+> from the fact that many people and groups---not just commercial
+> ones---discriminate against Open Source in how they choose to go about
+> their business.
+>
+> Permissive licenses practice Open Source values, but don't hold others
+> accountable for them.  Copyleft licenses do.  You're right that AGPL is the
+> go-to license choice for dual licensing businesses.  It's strongest,
+> common, OSI-approved copyleft license going.  MongoDB has just filed to go
+> public.  It won't be the last on that model.
+>
+> AGPL is an Open Source license.  Which criteria of the Open Source
+> Definition does AGPL meet that L0-R does not?
+>
+> --
+> Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170925/e60bf9d0/attachment.html>
+
+From kyle at kemitchell.com  Mon Sep 25 22:10:58 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Mon, 25 Sep 2017 15:10:58 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <6a56b0aa-8892-8ad0-7f30-e4e0f06eedc6@postgresql.org>
+References: <20170923160910.GE9012@dev.kemitchell.com> <F3C362BF-DF25-4036-82CB-07794142DAE6@gmail.com> <20170923192346.GA6204@dev.kemitchell.com> <CAD2gp_QojYugHr4x8qbn-OZsqEknjSXWvaJwBNdjdca3jgxsDQ@mail.gmail.com> <20170924034515.GB6204@dev.kemitchell.com> <CAD2gp_T98xk9Ek-U7h5uF_Q5=F5seeFi-fVbqB3TGNqW+rq5LQ@mail.gmail.com> <20170924175037.GC6204@dev.kemitchell.com> <5e5c36c8-4b56-a137-4278-fc62f8ecbd53@postgresql.org> <20170925194518.GE6204@dev.kemitchell.com> <6a56b0aa-8892-8ad0-7f30-e4e0f06eedc6@postgresql.org>
+Message-ID: <20170925221058.GG6204@dev.kemitchell.com>
+
+> > If I want to reuse, say, a single function from the source of a BSD-2-Clause project, I read the license to permit me to do so, as long as I preserve notices in distributed source code or documentation with distributed binaries.  The same would be true of a function from an L0-R-licensed project, with the additional requirement that the larger work must be published in source form and licensed under OSI terms if the L0-R code is used in "execution or development" of that program.  If your larger work runs a function copied from my L0-R project, that would be a "use[] in the execution" of your larger work.
+>
+> However, this right is 100% inheritable.  That is, as a downstream
+> developer, I have exactly the same rights as the developer from whom I
+> received the code.
+
+I'm not quite sure I follow.  I think I'm stumbling on "inheritable".
+
+The model is "direct licensing".  Everyone who comes upon a copy of L0-R code, or BSD-2-Clause code, receives the same permission, subject to the same conditions, under the public license.  The conditions apply to everyone receiving permission.  Rights don't pass through distributors or developers of modifications or incorporating works.  They aren't "sublicensors".  Rather, they reproduce notices that communicate the existence of the public license, its terms, and the notices required to satisfy its condition.  They can't concoct notices that communicate different information about permissions with legal effect.
+
+There are edge cases where folks "downstream" in the sense of receiving from someone other than the copyright holders end up with code, but not notice, conditions, or disclaimer.  Redistribution without that information by anyone is outside the permission granted by the public license.  So everyone ends up with the same license, but not everyone always ends up with all the information they need to comply with that license's conditions.
+
+> >> - organizations who decide to create OSS communities around modified
+> >> versions of the code.
+> >>
+> >> Clause 3 of the license privileges the "original releasor" of the code
+> >> over successive OSS redistributors as a part of the license.
+> >
+> > I think I know what you mean, but I'm not entirely sure.  Let me take a stab.
+> >

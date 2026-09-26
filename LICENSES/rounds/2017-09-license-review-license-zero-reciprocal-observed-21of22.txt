@@ -1,0 +1,750 @@
+From: cowan at ccil.org (John Cowan)
+Date: Tue, 28 Nov 2017 10:44:35 -0500
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <20171114181007.GL15549@dev.kemitchell.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOvhJCMFimdGSV5xw2MF8CzfjZt1DKJZKXh1GGeKMngiTQ@mail.gmail.com> <20171108075050.GQ25059@dev.kemitchell.com> <CAK2MWOvXOQNvRsNXyQd06o0jw9g0fc=GB4zYJVYsaHzbW+fOdg@mail.gmail.com> <CAD2gp_QE_0dz7m3nE8uMECMSYkXD64FP=r6s4LoHx_n7obQNCQ@mail.gmail.com> <CAK2MWOt2X8XHfUEtrDp4Tzu9vGe2fD9+ydV4BUir08CgnTEksQ@mail.gmail.com> <34f8ca5c-e16b-51a7-ce0f-b2ec88714a1f@piana.eu> <20171114181007.GL15549@dev.kemitchell.com>
+Message-ID: <CAD2gp_S8qBO_pHoQUEicQ3OO=8c_jkMo5hXvc_PAewaj1J1O=g@mail.gmail.com>
+
+On Tue, Nov 14, 2017 at 1:10 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+That's what proprietary software does to permissively
+> licensed code. Building on permissively licensed code makes
+> a proprietary program better, and therefore more marketable.
+> The open components transform from raw materials into gold.
+> But the proprietary touch also hardens them, locks them up
+> behind confidentiality and restrictive terms like bullion in
+> a vault.
+
+
+It does not, precisely because software is bits, not atoms.  The
+specific *copies* of the permissive software present in the
+proprietary object cannot be modified further, at least arguably.
+But all other copies may.  Solaris is now Oracle proprietary, but
+OpenSolaris development continues.
+
+
+> Courts do not issue orders to comply with privately drafted
+> license conditions. No court applying law I know, hearing a
+> lawsuit about GPL or L0-R software, would ever issue an
+> order to release and publicly license proprietary source
+> code.
+
+
+Quite right.
+
+
+> If they find a licensee exceeded their permission by
+> failing to meet conditions, with no legal excuse or defense,
+> they'll order payment of money damages, possibly attorneys'
+> fees, and perhaps issue an order to stop using the software.
+> I believe that's it.
+>
+
+Note that the threat of statutory damages for copyright violation
+is considerably more powerful than mere breach of contract,
+especially because it's unclear that all licenses constitute
+valid contracts -- many are arguably more like licenses to
+trespass, where no consideration is necessary or relevant,
+and which are acts of sovereign power that can be retracted
+at any time by the owner.
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+When I'm stuck in something boring where reading would be impossible or
+rude, I often set up math problems for myself and solve them as a way
+to pass the time.      --John Jenkins
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171128/7af8eeec/attachment.html>
+
+From josh at postgresql.org  Tue Jun 19 23:18:56 2018
+From: josh at postgresql.org (Josh berkus)
+Date: Tue, 19 Jun 2018 16:18:56 -0700
+Subject: [License-review] L0-R WAS: moving to an issue tracker
+In-Reply-To: <20180619231234.GG18555@dev.kemitchell.com>
+References: <CAFjZtRc=6MZDMXpMrvad6oAuOgj_Kmb8U19qe-kRZw-puAh=8w@mail.gmail.com> <8e39062a-2f4f-4507-5df0-ea7f6e64b509@postgresql.org> <CAJ-h4vsOoE6U9yzje0jpLLgQa-YsFN=wOWpxvEjej7o2dXPdwA@mail.gmail.com> <CAK2MWOvpNVWQdMarz2F9Hr=7gU8jJsyr59E2vMsj1U3YDVqWUg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B51978BD4E35@FMSMSX108.amr.corp.intel.com> <0e8069da-2fc3-2897-ea2f-7479cdc42c31@opensource.org> <CAK2MWOt8ty5gvPZyW4yzvGT9jswYyFs4Gj+s3dqXGWXS+7OQfg@mail.gmail.com> <a7526439-ff77-5fc4-26f3-4c5031ab7849@opensource.org> <20180619211623.GE18555@dev.kemitchell.com> <6c2c4f04-3186-a438-bc0f-6b7c6f057799@opensource.org> <20180619231234.GG18555@dev.kemitchell.com>
+Message-ID: <cba3c726-7097-9ad7-800f-040c4cc1e6eb@postgresql.org>
+
+On 06/19/2018 04:12 PM, Kyle Mitchell wrote:
+> There was lively debate on L0-R's OSD conformance, but most
+> controversy focused on broader policy concerns.  I read
+> repeatedly that policy would prevail: that OSI would not
+> approve, even if the license were OSD-conformant, even if it
+> had approved licenses with comparable features before.  By
+> sheer endurance---many characters were typed---and some
+> perseverance---the list went down for a spell---the group
+> did manage two waves of focused comment directly on OSD.  But
+> overall, policy stalked conformance and vice-versa, making
+> each conversation much harder to have.
+
+L0-R is a great example of where some format other than email would help
+a LOT.  Like, I can't tell you whether I personally approve of the
+license at this point or not, because I've completely lost track of what
+the current text is, and what the lawyers had to say about the meaning
+of certain pieces of language.
+
+--Josh Berkus
+
+
+
+From kyle at kemitchell.com  Tue Jun 19 23:42:59 2018
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 19 Jun 2018 16:42:59 -0700
+Subject: [License-review] L0-R WAS: moving to an issue tracker
+In-Reply-To: <cba3c726-7097-9ad7-800f-040c4cc1e6eb@postgresql.org>
+References: <CAJ-h4vsOoE6U9yzje0jpLLgQa-YsFN=wOWpxvEjej7o2dXPdwA@mail.gmail.com> <CAK2MWOvpNVWQdMarz2F9Hr=7gU8jJsyr59E2vMsj1U3YDVqWUg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B51978BD4E35@FMSMSX108.amr.corp.intel.com> <0e8069da-2fc3-2897-ea2f-7479cdc42c31@opensource.org> <CAK2MWOt8ty5gvPZyW4yzvGT9jswYyFs4Gj+s3dqXGWXS+7OQfg@mail.gmail.com> <a7526439-ff77-5fc4-26f3-4c5031ab7849@opensource.org> <20180619211623.GE18555@dev.kemitchell.com> <6c2c4f04-3186-a438-bc0f-6b7c6f057799@opensource.org> <20180619231234.GG18555@dev.kemitchell.com> <cba3c726-7097-9ad7-800f-040c4cc1e6eb@postgresql.org>
+Message-ID: <20180619234259.GH18555@dev.kemitchell.com>
+
+On 2018-06-19 16:06, Josh berkus wrote:
+> On 06/19/2018 04:12 PM, Kyle Mitchell wrote:
+> > There was lively debate on L0-R's OSD conformance, but most
+> > controversy focused on broader policy concerns.  I read
+> > repeatedly that policy would prevail: that OSI would not
+> > approve, even if the license were OSD-conformant, even if it
+> > had approved licenses with comparable features before.  By
+> > sheer endurance---many characters were typed---and some
+> > perseverance---the list went down for a spell---the group
+> > did manage two waves of focused comment directly on OSD.  But
+> > overall, policy stalked conformance and vice-versa, making
+> > each conversation much harder to have.
+> 
+> L0-R is a great example of where some format other than email would help
+> a LOT.  Like, I can't tell you whether I personally approve of the
+> license at this point or not, because I've completely lost track of what
+> the current text is, and what the lawyers had to say about the meaning
+> of certain pieces of language.
+
+FWIW, I tracked my own revisions to the license text in Git
+from before first submission.
+
+Whether or not I _should_ be revising also came up in the
+discussion.  Given the time spent trying to batch up and
+post numbered revisions of both the license text and
+submission form, I have to admit that rankled.
+
+In any event, both revision control and discussion make up
+the process.  It wouldn't do just to use Git, or just to use
+a message board or bug tracker.  And it wouldn't do to use
+either, if they didn't archive well.
+
+Good to hear from you, Josh.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Wed Jun 20 00:28:15 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 19 Jun 2018 17:28:15 -0700
+Subject: [License-review] Consensus on L0-R
+Message-ID: <CAK2MWOv6d2ZPzaUNJO4S0Y-7Advw4xF7idp7iqwyoRZuQaVU6Q@mail.gmail.com>
+
+*> 5. If you run this software to analyze, modify, or generate> software,
+you must release source code for that software.*
+
+At the time, around November 11, I pointed out that this really obviously
+and inarguably violated OSD #6, and I wasn't the only one pointing this
+out. As far as I am aware, the consensus was that it wasn't an Open Source
+license.
+
+The discussion devolved to topics not connected with the license after
+that, eventually requiring intervention by OSI's president.
+
+I understand that you want to create a business method for people who don't
+have one now. One that OSI is not obligated to approve as Open Source. But
+you really could be out creating a user community for this as a
+non-Open-Source license. Lots of people use non-Open-Source licenses.
+However, when I asked you to introduce me to someone who was interested in
+the license, no names were forthcoming. So, I have to believe this is only
+theoretical.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180619/308911ed/attachment-0001.html>
+
+From kyle at kemitchell.com  Wed Jun 20 04:31:44 2018
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 19 Jun 2018 21:31:44 -0700
+Subject: [License-review] Consensus on L0-R
+In-Reply-To: <CAK2MWOv6d2ZPzaUNJO4S0Y-7Advw4xF7idp7iqwyoRZuQaVU6Q@mail.gmail.com>
+References: <CAK2MWOv6d2ZPzaUNJO4S0Y-7Advw4xF7idp7iqwyoRZuQaVU6Q@mail.gmail.com>
+Message-ID: <20180620043144.GL18555@dev.kemitchell.com>
+
+On 2018-06-19 17:06, Bruce Perens wrote:
+> *> 5. If you run this software to analyze, modify, or generate> software,
+> you must release source code for that software.*
+>
+> At the time, around November 11, I pointed out that this really obviously
+> and inarguably violated OSD #6, and I wasn't the only one pointing this
+> out. As far as I am aware, the consensus was that it wasn't an Open Source
+> license.
+
+Obvious and inarguable aren't arguments, but conclusions.
+Expecting bare conclusions to make up minds, or using them
+to block formal consideration procedurally, is what I meant
+by "throwing weight" on another license-review thread this
+month.
+
+I've responded to this conclusion with history:
+
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2017-November/003292.html
+
+I also addressed your argument from the text of OSD:
+
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2017-November/003289.html
+
+I am not sure how your are discerning consensus.  I do
+recall you and Carlo came out definitely against
+conformance.
+
+I remain open to the idea that you may be right.  But not
+for no reason.  I'll keep testing the reasons I'm given.
+
+> The discussion devolved to topics not connected with the license after
+> that, eventually requiring intervention by OSI's president.
+
+You refer to this message?:
+
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2017-November/003277.html
+
+The topic of how, exactly the license-review process works
+is alive on the list again today.
+
+> I understand that you want to create a business method for people who don't
+> have one now. One that OSI is not obligated to approve as Open Source.
+
+I'm not asking OSI to approve a business model.  It isn't
+even mentioned in the current license text.  I'm asking OSI
+to approve an evolved reciprocal license that says, in
+essence, what Richard and others said GPL was meant to say
+in its day, leveraging what we've learned about copyright
+licensing since.  Users of that license needn't sell
+exceptions, any more than users of GPL or AGPL must sell
+exceptions.
+
+Approved licenses _do_ mention or address exceptions and
+parallel terms.  Artistic (directly).  Apache (warranties).
+GPL (if you count writing in for an exception).
+
+> But you really could be out creating a user community for this as a
+> non-Open-Source license. Lots of people use non-Open-Source licenses.
+> However, when I asked you to introduce me to someone who was interested in
+> the license, no names were forthcoming. So, I have to believe this is only
+> theoretical.
+
+It doesn't matter.  Blocking here isn't calculated to help.
+
+We've addressed this.  If popularity is required for OSI
+approval, OSI should say so.  And it should accept that
+license submissions _won't_ come in open to revision.  If
+you require sailing ships, the ships you get will have
+sailed...
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Wed Jun 20 07:13:56 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 20 Jun 2018 00:13:56 -0700
+Subject: [License-review] Consensus on L0-R
+In-Reply-To: <20180620043144.GL18555@dev.kemitchell.com>
+References: <CAK2MWOv6d2ZPzaUNJO4S0Y-7Advw4xF7idp7iqwyoRZuQaVU6Q@mail.gmail.com> <20180620043144.GL18555@dev.kemitchell.com>
+Message-ID: <CAK2MWOuYfeHdCKonwm0ZFwff6PNTGmJQpqCh1ss-1E3aSrZoYQ@mail.gmail.com>
+
+On Tue, Jun 19, 2018 at 9:31 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+>
+> I've responded to this conclusion with history:
+>
+> http://lists.opensource.org/pipermail/license-review_
+> lists.opensource.org/2017-November/003292.html
+
+
+So, here you create a rather convoluted argument for the OSD not being
+externally consistent, by ingoring the word "use" in #6 and arguing that
+somehow #2 overrides #6. No overriding of one rule with another is
+necessary for a valid analysis. You also ignore #3, which it turns out is
+important for this analysis.
+
+Use and the creation of derivative works are two separate and independent
+rights in copyright law. Use means running the program.
+
+So here is a valid analysis without any rule overriding another, without
+self-reference, quite simple:
+
+#2 requires that the program be available in source code form. It does not
+make any reference to derivative works.
+
+#3 requires that derivative works be allowed, and that it must be permitted
+for them to be distributed under the same license as the original work. It
+is not required for derivative works to be allowed under any other license.
+It makes no reference to use.
+
+#3 has an important application that you might be missing: In requiring
+that the derivative works can be distributed under the same license as the
+original work, it requires that licenses with terms that require source
+code distribution, if used on the original work, must be capable of being
+*applied* to a derivative work. Thus, it permits the GPL.
+
+#6 requires that the program can be used for any purpose. It does not make
+any reference to derivative works.
+
+You are also assuming that I was unaware of the fact that programs could
+process programs when I proposed the OSD. I was indeed aware, not simply
+from the entire collection of textual tools in Unix which I had been using
+since I started using Unix at the NYIT Computer Graphics Lab in 1981. There
+was also Lisp, which was a well-known self-processing language at the time.
+
+
+> I am not sure how your are discerning consensus.  I do recall you and
+> Carlo came out definitely against conformance.
+>
+
+Yes, and you objected, and none of the reviewers spoke on your behalf at
+that point (you're not a reviewer of your own license).
+And I think I've proven that your analysis was erroneous, anyway.
+
+
+>
+> I remain open to the idea that you may be right.  But not
+> for no reason.  I'll keep testing the reasons I'm given.
+>
+> > The discussion devolved to topics not connected with the license after
+> > that, eventually requiring intervention by OSI's president.
+>
+> You refer to this message?:
+>
+> http://lists.opensource.org/pipermail/license-review_
+> lists.opensource.org/2017-November/003277.html
+
+
+No, another one which it would not help the civility of the discussion to
+go over again.
+
+
+> The topic of how, exactly the license-review process works
+> is alive on the list again today.
+>
+
+Yes, and we can beat this dead horse once again, with the result that the
+OSI may start using a new piece of software. This is not a fundamental
+discussion of OSI's right to deny their imprimatur to your license.
+
+
+> I'm asking OSI to approve an evolved reciprocal license that says, in
+> essence, what Richard and others said GPL was meant to say in its day
+
+
+No, actually FSF's "Four Freedoms" also prohibit LR-0. "Freedom 0": *The
+freedom to run the program as you wish, for any purpose.*
+
+
+> Approved licenses _do_ mention or address exceptions and parallel terms.
+> Artistic (directly).  Apache (warranties). GPL (if you count writing in for
+> an exception).
+>
+
+Sorry, what's the point here?
+
+
+> We've addressed this.  If popularity is required for OSI
+> approval, OSI should say so.
+
+
+We just heard this evening from Allison about the license having some
+meaningful value. Users would be one way to attest to such a value.
+
+And of course being open to revision means you don't get rejected for a
+stupid omission that you could fix without resubmitting the entire license.
+Which makes it a best practice.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/2279f1c9/attachment-0001.html>
+
+From kyle at kemitchell.com  Wed Jun 20 09:08:34 2018
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Wed, 20 Jun 2018 02:08:34 -0700
+Subject: [License-review] Consensus on L0-R
+In-Reply-To: <CAK2MWOuYfeHdCKonwm0ZFwff6PNTGmJQpqCh1ss-1E3aSrZoYQ@mail.gmail.com>
+References: <CAK2MWOv6d2ZPzaUNJO4S0Y-7Advw4xF7idp7iqwyoRZuQaVU6Q@mail.gmail.com> <20180620043144.GL18555@dev.kemitchell.com> <CAK2MWOuYfeHdCKonwm0ZFwff6PNTGmJQpqCh1ss-1E3aSrZoYQ@mail.gmail.com>
+Message-ID: <20180620090834.GO18555@dev.kemitchell.com>
+
+On 2018-06-20 00:06, Bruce Perens wrote:
+> On Tue, Jun 19, 2018 at 9:31 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+>
+> >
+> > I've responded to this conclusion with history:
+> >
+> > http://lists.opensource.org/pipermail/license-review_
+> > lists.opensource.org/2017-November/003292.html
+>
+> So, here you create a rather convoluted argument for the OSD not being
+> externally consistent
+
+Actually, there I point out that RPL, a license OSI approved
+in two versions, decades ago, requires release of private
+changes, closes the ASP loophole by a condition on a kind of
+use, and extends reciprocity beyond modified versions and
+combinations.  Their gap to close was web frameworks.
+L0-R's is development tools.
+
+In the message here, I argue that _your reading_ of OSD to
+damn L0-R was not externally consistent, and seemed
+concocted ad hoc to achieve one particular result:
+
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2017-November/003289.html
+
+Fortunately, there are other internally consistent readings
+that accord with OSI's approval decisions.
+
+> by ingoring the word "use" in #6 and arguing that
+> somehow #2 overrides #6.
+
+I didn't argue for any override at all.  You did, in your
+second attempt at an OSD reading to include AGPL and exclude
+L0-R, to which I responded.  I stated explicitly that
+there's no language in OSD to support any criterion
+overriding any other, and in fact the preamble suggests all
+be read consistently.
+
+I don't ignore "use", and in fact I've addressed #6 more
+than any other criterion on this list.  There's no blanket
+prohibition on use restrictions in #6 as written.  Rather,
+there's a prohibition on restrictions on use in specific
+fields of endeavor.  If "field of endeavor" means running
+over a network for others without sharing source or
+licensing on like terms, or running to produce output that's
+a derivative of the program, OSI has approved licenses that
+fail #6.  In theory, AGPL 13 has to fall back on the 106
+exclusive rights, despite its language, just as L0-R
+condition 5 must.
+
+Fortunately, the more natural reading of "field of
+endeavor", and the examples in OSD#6, don't cover means of
+endeavoring, like closed, proprietary software development.
+
+> You also ignore #3, which it turns out is important for
+> this analysis.
+>
+> Use and the creation of derivative works are two separate and independent
+> rights in copyright law. Use means running the program.
+
+Use is not an exclusive right of copyright holders under the
+Copyright Act.  It appears in one narrow provision, 117,
+which applies only to owners and distinctly owner-like
+licensees of copies.
+
+To use your term, use was "synthesized" as a copyright
+holder privilege, based on the fact that execution without
+reproduction, preparation of a derivative work, or
+distribution is practically impossible.
+
+> So here is a valid analysis without any rule overriding another, without
+> self-reference, quite simple:
+>
+> #2 requires that the program be available in source code form. It does not
+> make any reference to derivative works.
+>
+> #3 requires that derivative works be allowed, and that it must be permitted
+> for them to be distributed under the same license as the original work. It
+> is not required for derivative works to be allowed under any other license.
+> It makes no reference to use.
+>
+> #3 has an important application that you might be missing: In requiring
+> that the derivative works can be distributed under the same license as the
+> original work, it requires that licenses with terms that require source
+> code distribution, if used on the original work, must be capable of being
+> *applied* to a derivative work. Thus, it permits the GPL.
+>
+> #6 requires that the program can be used for any purpose.
+> It does not make any reference to derivative works.
+
+See above.  "Field of endeavor" is important in how others
+understand OSD #6, to save existing network-copyleft
+licenses.
+
+As for OSD reading number three, I'm sorry, I don't follow.
+How is L0-R troubled by this reading?  Re #3, derivatives of
+L0-R code can be licensed under L0-R:
+ Releasing source code means publicly licensing it under either this license or a license approved by the Open Source Initiative, and promptly publishing it...
+
+What do #2, #3, and #6 require that L0-R fails to provide,
+or prohibit that L0-R requires, that doesn't boil down to
+"any use restriction"?
+
+> You are also assuming that I was unaware of the fact that programs could
+> process programs when I proposed the OSD.
+
+You mentioned that you hadn't considered a license with a
+term like L0-R condition 5, but that if you had, you would
+have prohibited it in your draft.  That motivated my
+response:  If you'd addressed it in your draft, someone else
+may have taken issue between proposal and adoption, for OSI
+or Debian before it.  It's come up now instead, and I am
+here to argue for it now.
+
+> > I am not sure how your are discerning consensus.  I do recall you and
+> > Carlo came out definitely against conformance.
+> >
+>
+> Yes, and you objected, and none of the reviewers spoke on your behalf at
+> that point (you're not a reviewer of your own license).
+
+Silence is not consensus.  Especially in light of the
+demands on participants' time repeatedly voiced here.
+
+This is consensus deployed as a procedural weapon, not
+sought as a goal.  In healthy consensus-based organizations,
+a block starts a conversation, never stops it.
+
+Richard has written that it's arguably conformant with OSD
+as written.  (I take it he might amend OSD to change that
+result.)  He can obviously speak for himself.
+
+> > I'm asking OSI to approve an evolved reciprocal license that says, in
+> > essence, what Richard and others said GPL was meant to say in its day
+>
+> No, actually FSF's "Four Freedoms" also prohibit LR-0. "Freedom 0": *The
+> freedom to run the program as you wish, for any purpose.*
+ I make my code available for use in free software, and not for use in proprietary software, in order to encourage other people who write software to make it free as well. I figure that since proprietary software developers use copyright to stop us from sharing, we cooperators can use copyright to give other cooperators an advantage of their own: they can use our code.
+ https://www.gnu.org/philosophy/pragmatic.html
+
+FSF's own drafting implies the same kind of more nuanced
+understanding of Freedom 0 as OSI's approval of AGPL implies
+of OSD #6.  I'm not free to run AGPL software for the
+purpose of providing proprietary network services to others.
+
+RPL predates AGPL.  FSF's advertises no mechanism for
+after-the-fact clarification.  I wish they did.
+
+> > Approved licenses _do_ mention or address exceptions and parallel terms.
+> > Artistic (directly).  Apache (warranties). GPL (if you count writing in for
+> > an exception).
+> >
+>
+> Sorry, what's the point here?
+
+Even mentioning dual-licensing in a license text doesn't
+stop OSI approving it.
+
+The point is moot.  The current draft of L0-R no longer
+mentions dual-licensing.
+
+> > We've addressed this.  If popularity is required for OSI
+> > approval, OSI should say so.
+>
+> We just heard this evening from Allison about the license having some
+> meaningful value. Users would be one way to attest to such a value.
+
+No one has opposed L0-R as duplicative of a currently
+approved license.  It's novel.  There is value in that.
+
+But "value" will always be little more than a conduit for
+summations of personal views.  It's even looser than
+"policy" or "good for the community".
+
+That's no fault of Allison's.  She hasn't been stuck into
+the back-and-forth on L0-R, as we have.  If we want to know
+what she meant, or what the board means, we should ask.  And
+whether, say, BSD+Patents demonstrated a user base prior to
+approval.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Wed Jun 20 09:46:56 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 20 Jun 2018 02:46:56 -0700
+Subject: [License-review] Consensus on L0-R
+In-Reply-To: <20180620090834.GO18555@dev.kemitchell.com>
+References: <CAK2MWOv6d2ZPzaUNJO4S0Y-7Advw4xF7idp7iqwyoRZuQaVU6Q@mail.gmail.com> <20180620043144.GL18555@dev.kemitchell.com> <CAK2MWOuYfeHdCKonwm0ZFwff6PNTGmJQpqCh1ss-1E3aSrZoYQ@mail.gmail.com> <20180620090834.GO18555@dev.kemitchell.com>
+Message-ID: <CAK2MWOsdYLQFgMWOsY-twbOXpu4wgKFdDP1jEtN0nUQcjerQiw@mail.gmail.com>
+
+On Wed, Jun 20, 2018 at 2:08 AM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+>
+> Actually, there I point out that RPL ... Their gap to close was web
+> frameworks. L0-R's is development tools.
+
+
+Either the RPL passes the OSD or the folks on the board at the time thought
+that it did. This does not, however, give any reason that LR-0 should also
+pass the OSD.
+
+Their intent to close a particular gap, to which you draw a parallel, has
+nothing to do with passing or failing the OSD.
+
+> There's no blanket prohibition on use restrictions in #6 as written.
+Rather, there's a prohibition on restrictions on use in specific fields of
+endeavor. If "field of endeavor" means running over a network for others
+without sharing source or licensing on like terms, or running to produce
+output that's a derivative of the program, OSI has approved licenses that
+fail #6.
+
+Nope. You are taking use and attempting to apply it to derivative works
+again.
+
+Use in #6 means run the program. Use for a field of endeavor means to *run
+the program* for any form of work. It is equivalent to "use for any
+purpose."
+
+> Fortunately, the more natural reading of "field of endeavor", and the
+examples in OSD#6, don't cover means of endeavoring, like closed,
+proprietary software development.
+
+OSD #6 requries that you be permitted to *run *any Open Source program for
+closed, proprietary software development, which is a field of endeavor. And
+thus LR-0 fails the OSD. You can't create a proprietary derivative of the
+program.
+
+Use is not an exclusive right of copyright holders under the Copyright
+> Act.  It appears in one narrow provision, 117, which applies only to owners
+> and distinctly owner-like licensees of copies.
+>
+
+You missed 1201, and if I took more than a minute I could probably find
+more.
+
+As for OSD reading number three, I'm sorry, I don't follow.
+>
+
+You wanted to know why GPL passed OSD and LR-0 did not.
+
+
+> What do #2, #3, and #6 require that L0-R fails to provide,
+>
+
+The right to run the program for use to analyze etc. proprietary software.
+
+This is consensus deployed as a procedural weapon, not
+> sought as a goal.
+
+
+No, if anything is a procedural weapon, it is your insistence on re-arguing
+the same topics many times over months. Your license is not Open Source.
+You will not be able to convince anyone that it's Open Source with language
+implementing a use restriction. No amount of argument will change that.
+
+
+> In healthy consensus-based organizations,
+>
+
+Please do not imply that our organization is unhealthy.
+
+
+>   I make my code available for use in free software, and not
+>   for use in proprietary software, in order to encourage
+>   other people who write software to make it free as well. I
+>   figure that since proprietary software developers use
+>   copyright to stop us from sharing, we cooperators can use
+>   copyright to give other cooperators an advantage of their
+>   own: they can use our code.
+>
+
+That is fine. Give it another name than Open Source. Bask in your fame when
+everyone decides to do it your way. Start today. OSI and I are not stopping
+you.
+
+
+>   https://www.gnu.org/philosophy/pragmatic.html
+>
+> FSF's own drafting implies the same kind of more nuanced understanding of
+> Freedom 0
+
+
+The rest of your discussion did not have to do with license terms, and I
+didn't feel a need to answer it.
+
+-- 
+Bruce Perens K6BP - CEO, Legal Engineering
+Standards committee chair, license review committee member, co-founder,
+Open Source Initiative
+President, Open Research Institute; Board Member, Fashion Freedom
+Initiative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/6ffab606/attachment.html>
+
+From cem.f.karan.civ at mail.mil  Wed Jun 20 12:47:01 2018
+From: cem.f.karan.civ at mail.mil (Karan, Cem F CIV USARMY RDECOM ARL (US))
+Date: Wed, 20 Jun 2018 12:47:01 +0000
+Subject: [License-review] [Non-DoD Source] Re: L0-R WAS: moving to an issue tracker
+In-Reply-To: <20180619234259.GH18555@dev.kemitchell.com>
+References: <CAJ-h4vsOoE6U9yzje0jpLLgQa-YsFN=wOWpxvEjej7o2dXPdwA@mail.gmail.com> <CAK2MWOvpNVWQdMarz2F9Hr=7gU8jJsyr59E2vMsj1U3YDVqWUg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B51978BD4E35@FMSMSX108.amr.corp.intel.com> <0e8069da-2fc3-2897-ea2f-7479cdc42c31@opensource.org> <CAK2MWOt8ty5gvPZyW4yzvGT9jswYyFs4Gj+s3dqXGWXS+7OQfg@mail.gmail.com> <a7526439-ff77-5fc4-26f3-4c5031ab7849@opensource.org> <20180619211623.GE18555@dev.kemitchell.com> <6c2c4f04-3186-a438-bc0f-6b7c6f057799@opensource.org> <20180619231234.GG18555@dev.kemitchell.com> <cba3c726-7097-9ad7-800f-040c4cc1e6eb@postgresql.org> <20180619234259.GH18555@dev.kemitchell.com>
+Message-ID: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EBA@UMECHPA7F.easf.csd.disa.mil>
+
+> -----Original Message-----
+> From: License-review [mailto:license-review-bounces at lists.opensource.org] On Behalf Of Kyle Mitchell
+> Sent: Tuesday, June 19, 2018 7:43 PM
+> To: Josh berkus <josh at postgresql.org>
+> Cc: License submissions for OSI review <license-review at lists.opensource.org>
+> Subject: [Non-DoD Source] Re: [License-review] L0-R WAS: moving to an issue tracker
+> 
+> On 2018-06-19 16:06, Josh berkus wrote:
+> > On 06/19/2018 04:12 PM, Kyle Mitchell wrote:
+> > > There was lively debate on L0-R's OSD conformance, but most
+> > > controversy focused on broader policy concerns.  I read repeatedly
+> > > that policy would prevail: that OSI would not approve, even if the
+> > > license were OSD-conformant, even if it had approved licenses with
+> > > comparable features before.  By sheer endurance---many characters
+> > > were typed---and some perseverance---the list went down for a
+> > > spell---the group did manage two waves of focused comment directly
+> > > on OSD.  But overall, policy stalked conformance and vice-versa,
+> > > making each conversation much harder to have.
+> >
+> > L0-R is a great example of where some format other than email would
+> > help a LOT.  Like, I can't tell you whether I personally approve of
+> > the license at this point or not, because I've completely lost track
+> > of what the current text is, and what the lawyers had to say about the
+> > meaning of certain pieces of language.
+> 
+> FWIW, I tracked my own revisions to the license text in Git from before first submission.
+> 
+> Whether or not I _should_ be revising also came up in the discussion.  Given the time spent trying to batch up and post numbered
+> revisions of both the license text and submission form, I have to admit that rankled.
+> 
+> In any event, both revision control and discussion make up the process.  It wouldn't do just to use Git, or just to use a message board
+> or bug tracker.  And it wouldn't do to use either, if they didn't archive well.
+> 
+> Good to hear from you, Josh.
+> 
+> --
+> Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+Actually, would argue that using a bug tracker (Git*) would actually be better than a discussion list; if we make each license its own project, then the issues within a project could be for individual questions/problems that need to be clarified for that particular license.  Anyone that wants to figure out what happened on a thread can just read the issue for that thread.  The only real problem I see is if people open up multiple issues on what is actually the same issue; AFAIK, neither GitHub nor Gitlab have a good method of merging issues together.   The mailing list would only be to announce new licenses and where to find their Git* repositories.  Once the text is finalized, it can be tagged in the original project.  If it is approved, then it can also be copied into a separate master project that contains all the approved licenses.
+
+The only real issue I see with this is that if you want to keep up to date on a license, you will need to log into Git* and watch the license, otherwise you'll only get updates whenever you get around to logging into Git* and manually looking at the license text.
+
+Thanks,
+Cem Karan
+
+
+From kyle at kemitchell.com  Wed Jun 20 21:13:11 2018
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Wed, 20 Jun 2018 14:13:11 -0700
+Subject: [License-review] Consensus on L0-R
+In-Reply-To: <CAK2MWOsdYLQFgMWOsY-twbOXpu4wgKFdDP1jEtN0nUQcjerQiw@mail.gmail.com>
+References: <CAK2MWOv6d2ZPzaUNJO4S0Y-7Advw4xF7idp7iqwyoRZuQaVU6Q@mail.gmail.com> <20180620043144.GL18555@dev.kemitchell.com> <CAK2MWOuYfeHdCKonwm0ZFwff6PNTGmJQpqCh1ss-1E3aSrZoYQ@mail.gmail.com> <20180620090834.GO18555@dev.kemitchell.com> <CAK2MWOsdYLQFgMWOsY-twbOXpu4wgKFdDP1jEtN0nUQcjerQiw@mail.gmail.com>
+Message-ID: <20180620211311.GF14837@dev.kemitchell.com>
+
+On 2018-06-20 02:06, Bruce Perens wrote:
+> On Wed, Jun 20, 2018 at 2:08 AM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+> >
+> > Actually, there I point out that RPL ... Their gap to close was web
+> > frameworks. L0-R's is development tools.
+>
+> Either the RPL passes the OSD or the folks on the board at the time thought
+> that it did. This does not, however, give any reason that LR-0 should also
+> pass the OSD.
+
+It demonstrates that OSD#6 is not a blanket prohibition on
+use restrictions.  RPL contains an explicit use-based
+restriction.  It was approved.
+
+> Their intent to close a particular gap, to which you draw a parallel, has
+> nothing to do with passing or failing the OSD.
+

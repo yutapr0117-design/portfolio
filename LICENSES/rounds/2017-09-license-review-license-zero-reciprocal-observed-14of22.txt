@@ -1,0 +1,750 @@
+availability, you're right, I should speak to it myself.
+
+Requiring modifications under "this license" introduces a
+far heavier compliance burden.  That's been the case for
+most copyleft licenses, like GPL 2.  This is where the big
+license-compatibility problems come from.  It's a stated
+goal of L0-R to implement a stronger trigger, but weaker
+compliance requirements once copyleft is triggered.
+
+The escape from same-license incompatibility problems is a
+whitelist of approved licenses for derivatives,
+combinations, and so on.  (A)GPL-3.0 go toward this, with
+mutual reciprocity, under section 13.  I'm not entirely up
+to date on what EPL-2.0 is doing for GPL compat, but I
+understand an analogous approach was on offer there,
+essentially yielding copyleft to GPL copyleft where
+necessary.
+
+L0-R can't do anything about GPL's exactitude.  But it can
+leave things more open as far as its own requirements go.
+
+> > I can lock the reference to the OSD "as originally published" by OSI.
+> >
+>
+> The one originally published doesn't include that text. Just the first
+> sentence. I'm not clear when the rest appeared, it's not in the Debian Free
+> Software Guidelines.
+
+So it sounds like I need to reference as of a recent date.
+Otherwise _I'm_ stuck defining "Open Source".  Not
+competition the OSI board is likely to welcome!
+
+Since you mention it, any chance you could help OSI put
+together a revision history?  As I can attest, from personal
+experience, to the value of that kind of thing for those
+reading to catch up.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Wed Oct 25 06:01:06 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 24 Oct 2017 23:01:06 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171025044603.GC21084@dev.kemitchell.com>
+References: <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <d15cb1e0110d40359ebd942aaa3f9d91@aplex01.dom1.jhuapl.edu> <20171025032325.GA21084@dev.kemitchell.com> <CAK2MWOsmLRBj6LNBsBp0W9BifX09xjKXjf4shSOopPn=9PT_4Q@mail.gmail.com> <20171025034954.GB21084@dev.kemitchell.com> <CAK2MWOs7DO+Xm6GV9cEOmFj9u97i93V_=T88oYmwqNNoS-cVzQ@mail.gmail.com> <20171025044603.GC21084@dev.kemitchell.com>
+Message-ID: <CAK2MWOvPJ5FBnTi5o+HgVBCga3hxtD6ZXSqa8dAsu39-dst8nw@mail.gmail.com>
+
+On Tue, Oct 24, 2017 at 9:46 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+>
+> Please understand that I'm not doubting intent here, yours or that of
+> others who approved of the text later.
+
+
+And I just want to make sure that the users of this license don't run into
+trouble in court. One way to reduce ambiguity is not to include a
+not-for-purpose document by reference that will lead some judge into a
+rabbit hole when you could just copy a few sentences of language.
+
+First, the sentences that follow use "must", not "may".
+>
+
+Must *allow* source code redistribution. Not must require it. All of the
+terms you want follow that, and are diluted by it.
+
+
+> Second, a great many approved licenses don't say anything about
+> reproduction cost or preferred form.  BSD-2-Clause, for example, is silent
+> on them.
+>
+
+People don't think of why the BSD license came about. The US Government,
+through ARPA, funded projects at UC Berkeley to add virtual memory
+facilities to Unix in order to support computer graphics, fast crash-proof
+filesystems and fsck (yes, there was Unix before fsck), and better
+networking. Since this was supported with your taxpayer dollars, the BSD
+license was created to give all taxpayers the maximal utility from that
+work. ARPA's mission was in part an economic one, not only to seed
+technology but to have the resulting industrial capabilities (both hardware
+and software) exist within US manufacturers in case they were needed for
+war. At the time, it was believed that facilitating the development of
+companies like Sun Microsystems and SGI was the best way to achieve the
+economic mission, and these companies were not out to redistribute source
+code.
+
+So, if the BSD license is silent on source code redistribution, it is
+mainly because they and their funder didn't expect anyone but them to do it.
+
+I'm convinced to use my own language, but neither copying nor rephrasing
+> come without cost.
+>
+
+There was a cost for referencing too, and we're not talking about a license
+the size of the GPL.
+
+> That means a potential mismatch between "Open Source" as defined by OSD
+and "Open Source" as defined by L0-R.
+
+I am just hoping to keep "Open Source" as it was intended to be when this
+organization was started, and that is fraught enough.
+
+The original L0-R proposal used publication plus licensing
+> under OSD conformant terms.  I backed up to "Open Source
+> Software" as defined by OSD due to concerns about "publish",
+> and realization that OSD said a lot about distribution.  If
+> there's reason to acknowledge OSD is incomplete as to source
+> availability, you're right, I should speak to it myself.
+>
+
+If you reference the OSD to define what is a compatible license for
+modifications, you should also have a backup. As in "An OSI-certified Open
+Source license or a license no more restrictive than this one." And you
+will need separate language requiring source-code availability for the
+entire program.
+
+If the OSI minutes exist, dates and text of revisions can probably be found
+in it.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171024/801f8efc/attachment.html>
+
+From kyle at kemitchell.com  Wed Oct 25 06:31:54 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 24 Oct 2017 23:31:54 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOvPJ5FBnTi5o+HgVBCga3hxtD6ZXSqa8dAsu39-dst8nw@mail.gmail.com>
+References: <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <d15cb1e0110d40359ebd942aaa3f9d91@aplex01.dom1.jhuapl.edu> <20171025032325.GA21084@dev.kemitchell.com> <CAK2MWOsmLRBj6LNBsBp0W9BifX09xjKXjf4shSOopPn=9PT_4Q@mail.gmail.com> <20171025034954.GB21084@dev.kemitchell.com> <CAK2MWOs7DO+Xm6GV9cEOmFj9u97i93V_=T88oYmwqNNoS-cVzQ@mail.gmail.com> <20171025044603.GC21084@dev.kemitchell.com> <CAK2MWOvPJ5FBnTi5o+HgVBCga3hxtD6ZXSqa8dAsu39-dst8nw@mail.gmail.com>
+Message-ID: <20171025063154.GD21084@dev.kemitchell.com>
+
+On 2017-10-24 23:10, Bruce Perens wrote:
+> On Tue, Oct 24, 2017 at 9:46 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+> >
+> > Please understand that I'm not doubting intent here, yours or that of
+> > others who approved of the text later.
+>
+>
+> And I just want to make sure that the users of this license don't run into
+> trouble in court. One way to reduce ambiguity is not to include a
+> not-for-purpose document by reference that will lead some judge into a
+> rabbit hole when you could just copy a few sentences of language.
+
+Incorporation by reference is not unknown to the courts.
+Privately negotiated deals involve big stacks of documents
+incorporated by reference, all the time.  Those documents
+haven't the benefit of a single source of publication,
+verifiable on the Internet.
+
+That's not to say there aren't evidentiary issues connecting
+separate documents.  But this is not new territory.
+
+> > First, the sentences that follow use "must", not "may".
+> >
+>
+> Must *allow* source code redistribution. Not must require it. All of the
+> terms you want follow that, and are diluted by it.
+
+That's a viable reading, but not the only viable reading.
+And I'd argue it's far from the most natural.  To give you a
+sense of where analysis might go, the subject of the leading
+sentence is "software", not "license" or "distribution
+terms".  The following sentence is passive.
+
+> > Second, a great many approved licenses don't say anything about
+> > reproduction cost or preferred form.  BSD-2-Clause, for example, is silent
+> > on them.
+> >
+>
+> People don't think of why the BSD license came about. The US Government,
+> through ARPA, funded projects at UC Berkeley to add virtual memory
+> facilities to Unix in order to support computer graphics, fast crash-proof
+> filesystems and fsck (yes, there was Unix before fsck), and better
+> networking. Since this was supported with your taxpayer dollars, the BSD
+> license was created to give all taxpayers the maximal utility from that
+> work. ARPA's mission was in part an economic one, not only to seed
+> technology but to have the resulting industrial capabilities (both hardware
+> and software) exist within US manufacturers in case they were needed for
+> war. At the time, it was believed that facilitating the development of
+> companies like Sun Microsystems and SGI was the best way to achieve the
+> economic mission, and these companies were not out to redistribute source
+> code.
+>
+> So, if the BSD license is silent on source code redistribution, it is
+> mainly because they and their funder didn't expect anyone but them to do it.
+
+Really appreciate this background!
+
+Back to the matter at hand, at least under the law I'm
+familiar with, courts will look outside the text of an
+operative legal document, like a license, only when it runs
+aground on a fact situation rendering it vague or ambiguous.
+Otherwise, they stick to the "four corners", meaning the
+language of the license itself.  The parol evidence rule
+prevents introducing outside evidence to make terms
+ambiguous, when they aren't on their own.
+
+>From a different angle, the same point holds for MIT.  It
+doesn't say anything about cost or preferred source form.
+
+> > I'm convinced to use my own language, but neither
+> > copying nor rephrasing come without cost.
+> >
+>
+> There was a cost for referencing too, and we're not talking about a license
+> the size of the GPL.
+
+Forgive me.  I'm not sure what you mean.
+
+Possible change to OSD?  We can solve that by date-locking
+the reference.  That's very typical in contract drafting,
+say for referencing a statute in force at the time a
+contract is made.  No sweat.
+
+> > That means a potential mismatch between "Open Source" as
+> > defined by OSD and "Open Source" as defined by L0-R.
+>
+> I am just hoping to keep "Open Source" as it was intended to be when this
+> organization was started, and that is fraught enough.
+
+I'm in no position to contribute with authority to that
+discussion.  But for what it's worth, lack of clarity there
+makes the task of drafting new licenses to be proposed that
+much harder.
+
+> > The original L0-R proposal used publication plus
+> > licensing under OSD conformant terms.  I backed up to
+> > "Open Source Software" as defined by OSD due to concerns
+> > about "publish", and realization that OSD said a lot
+> > about distribution.  If there's reason to acknowledge
+> > OSD is incomplete as to source availability, you're
+> > right, I should speak to it myself.
+> >
+>
+> If you reference the OSD to define what is a compatible license for
+> modifications, you should also have a backup. As in "An OSI-certified Open
+> Source license or a license no more restrictive than this one." And you
+> will need separate language requiring source-code availability for the
+> entire program.
+
+Alas, from my lawyer's chair, "no more restrictive" doesn't
+offer much clarity.  Restrictions---conditions or exceptions
+to conditions---vary as often in kind as in extent.
+
+I don't mean to be a spoilsport.  I'm sure I've seen that
+language elsewhere.  But repeated usage doesn't make it any
+more clear, I'm afraid.
+
+> If the OSI minutes exist, dates and text of revisions can probably be found
+> in it.
+
+This is worth doing, no matter what comes of L0-R.
+
+OSI may or may not hew to OSD as you originally intended it.
+But the history shouldn't die.
+
+I know it's work digging it all up, and repackaging for
+outside consumption.  Alas, not all primarily documents make
+it.  So it goes.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From jim at jimjag.com  Wed Oct 25 13:32:37 2017
+From: jim at jimjag.com (Jim Jagielski)
+Date: Wed, 25 Oct 2017 09:32:37 -0400
+Subject: [License-review] resolving ambiguities in OSD [was Re: For Approval: License Zero Reciprocal Public License]
+In-Reply-To: <CAK2MWOtBfum6q7Ebthiy_v5SBiSB0cA=8wusNGX7zzsvr3UkoA@mail.gmail.com>
+References: <CAFjZtRdBsgYOYk7Vss=c3FTbOcoJQQs_dx5h2=WGO6X4cpWUgA@mail.gmail.com> <CAK2MWOsvcEOV4O5URChq_L_iAwFf6b24qB7u=G94OToY7Mz5iQ@mail.gmail.com> <20171025003636.GC9148@dev.kemitchell.com> <296fde9f-4cc8-6229-6e08-6d972ee7d695@postgresql.org> <1508893650.895164.1149981768.01B5EA62@webmail.messagingengine.com> <CAK2MWOtBfum6q7Ebthiy_v5SBiSB0cA=8wusNGX7zzsvr3UkoA@mail.gmail.com>
+Message-ID: <9425096C-63D2-4D32-8DA7-6920F397D7FB@jimjag.com>
+
+Even though there are licenses that may be OSD compliant but
+not OSI approved, the fact is that there are numerous companies
+who *require* that any s/w used, leveraged or consumed is, in
+fact, under an OSI approved license. Even if someone states
+that the license is OSD compliant, w/o OSI approval, many
+people simply won't touch it.
+
+One can decry the unfairness of that, but it's a fact that one
+simply cannot ignore.
+
+
+From mccoy.smith at intel.com  Wed Oct 25 22:55:27 2017
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Wed, 25 Oct 2017 22:55:27 +0000
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171025004904.GD9148@dev.kemitchell.com>
+References: <20171023214753.GQ9694@dev.kemitchell.com> <CAA4ffp-T0wZFGbJVGGO-Kh-A2Q0DHiWFU+BFDx9HRWdXygWAwA@mail.gmail.com> <20171023220814.GA7764@dev.kemitchell.com> <CAA4ffp8=-kXx3p+CvcBOKjumK73d0+fOqeq6RBhT8J-MpH4aiQ@mail.gmail.com> <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5194673CB16@FMSMSX108.amr.corp.intel.com>
+
+Not sure you need to hear back from me (I'm not on the OSI board, so my affiliation is only as a commentator on this and other OSI mailing lists).  But since you asked.....
+
+1.  I continue to believe that your license, as drafted (based on the last draft I saw) violates OSD 6 & 9, for the reasons outlined in my prior e-mail.  I think it could be rewritten to not violate those provisions and meet what I understand to be your goals for the license.  But the process here is to examine your license, not your goals.
+
+2.  I think there is quite an interesting philosophical question raised by what I think are your goals here.  I will opine upon them as an external observer and not as someone who speaks for OSI (there are others who have responded to you who do).  Namely, would an "IP Maximaleft" license be approvable by OSI under the OSD?  So, hypothetically:
+ "You are granted a license to all the rights that the author(s) have the right to grant, under the following conditions: 1. You preserve all notices by the author(s). 2. You preserve all disclaimers of liability by the author(s), and you understand that you get no liability from the author(s). 3.  Every exercise of the rights granted to you by the author(s) requires you to publicly publish the source code resulting from the exercise of those rights."
+
+[Note:  This is *not* a license submission by me, nor is it intended to be something to be reviewed for legal clarity or completeness; it's just a hypothetical].
+In my opinion, that sort of license would pass the OSD (assuming it could be written in a way that is deemed to be legally clear so that it doesn't sweep in use cases violating OSD 9).  I don't think FSF's Freedom 0 is required by the current OSD.
+
+3.  I don't think a license of that type is a particularly good idea, nor is it a license that I think many users would want to accept.  And I think it would be detrimental to the smaller developers.  The freedom to privately tinker, as articulated in FSF Freedom 0, is a worthwhile freedom.  Requiring someone to publish their tinkering, particularly when that obligation is continuing, would impose a burden that I think most developers wouldn't want to shoulder, and might also subject them to having to publish work that is not something they'd want public.
+
+4.  I seriously doubt this license is going to achieve the goals you seek.  The companies you think are extracting value from the work of unpaid developers would likely not accept software licensed under those terms.  Taking the right to privately tinker away from an organization that might have hundreds or thousands of developers who might be tinkering with the code creates an administrative compliance nightmare that is not likely worth the benefit of receiving the code.
+
+5.  In the end, the LZPL schema looks something like a fairly common model in the industry -- an eval license, followed by a commercial license in the eval process is successful.  Except the eval license in this case, LZPL, has terms that I think most organizations and developers wouldn't find palatable.  Better for the developers you think want to use this model to use a more standard eval license and keep "open source" out of it.
+
+For what it's worth
+
+McCoy
+-----Original Message-----
+From: License-review [mailto:license-review-bounces at opensource.org] On Behalf Of Kyle Mitchell
+Sent: Tuesday, October 24, 2017 5:49 PM
+To: License submissions for OSI review <license-review at opensource.org>
+Subject: Re: [License-review] For Approval: License Zero Reciprocal Public License
+
+On 2017-10-24 17:10, Bruce Perens wrote:
+> Can we get back to writing licenses now, please?
+
+Yes, I'd love to.  But frankly, apart from waiting to hear back from Richard and McCoy, and giving your latest message its second read, I'm feeling less and less like I know what to do.
+
+To give a sense, it came as a surprise to read that you think a draft---which draft?---is OSD-conformant as revised.
+I think that's the first vote of such confidence I've heard on the conformance question.
+
+I'm equally tempted to stand on whatever you think conforms, ask that it be reported to the board, and wait for whatever feedback comes of that, on the one hand, or to rewrite the whole thing from scratch with a free hand, best I can, on the other.
+
+--
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933 _______________________________________________
+License-review mailing list
+License-review at opensource.org
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+From kyle at kemitchell.com  Thu Oct 26 00:10:20 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Wed, 25 Oct 2017 17:10:20 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5194673CB16@FMSMSX108.amr.corp.intel.com>
+References: <20171023220814.GA7764@dev.kemitchell.com> <CAA4ffp8=-kXx3p+CvcBOKjumK73d0+fOqeq6RBhT8J-MpH4aiQ@mail.gmail.com> <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <2D52F7EE739F8542A700CAB96276B5194673CB16@FMSMSX108.amr.corp.intel.com>
+Message-ID: <20171026001020.GP21084@dev.kemitchell.com>
+
+McCoy,
+
+Many thanks.  Comments inline.  Sorry again for rewrapping.
+
+On 2017-10-25 22:10, Smith, McCoy wrote:
+> Not sure you need to hear back from me (I'm not on the OSI
+> board, so my affiliation is only as a commentator on this
+> and other OSI mailing lists).  But since you asked.....
+
+I asked because your prior feedback was much appreciated.
+Thanks for taking time again!
+
+> 1.  I continue to believe that your license, as drafted
+>     (based on the last draft I saw) violates OSD 6 & 9,
+>     for the reasons outlined in my prior e-mail.  I think
+>     it could be rewritten to not violate those provisions
+>     and meet what I understand to be your goals for the
+>     license.  But the process here is to examine your
+>     license, not your goals.
+
+I'm not exactly sure I understand the OSD 6 concern,
+especially to the extent rephrasing alone can avoid it.
+This has come up with Bruce, as well, prompting words like
+"inversion" from Bruce and "refactoring" from me.  Does it
+boil down to a matter of form, rather than function?  That
+can't be it.  I must still be missing something.
+
+All the same, much inspired by Bruce, I'll be floating a
+more direct rewrite shortly.  Here's hoping the result
+addresses your OSD 6 concern.  If I'm so lucky, perhaps I
+can work backwards to a more complete understanding, with a
+passing and a failing text.
+
+> 2.  I think there is quite an interesting philosophical
+>     question raised by what I think are your goals here. I
+>     will opine upon them as an external observer and not
+>     as someone who speaks for OSI (there are others who
+>     have responded to you who do).  Namely, would an "IP
+>     Maximaleft" license be approvable by OSI under the
+>     OSD?  So, hypothetically:
+
+Let the record reflect that McCoy has coined "maximaleft".
+
+>   "You are granted a license to all the rights that the
+>   author(s) have the right to grant, under the following
+>   conditions:
+>
+>    1. You preserve all notices by the author(s).
+>
+>    2. You preserve all disclaimers of liability by the
+>       author(s), and you understand that you get no
+>       liability from the author(s).
+>
+>    3. Every exercise of the rights granted to you by the
+>       author(s) requires you to publicly publish the
+>       source code resulting from the exercise of those
+>       rights."
+
+This is eerily close to my current rewrite draft.
+
+> In my opinion, that sort of license would pass the OSD
+> (assuming it could be written in a way that is deemed to
+> be legally clear so that it doesn't sweep in use cases
+> violating OSD 9).  I don't think FSF's Freedom 0 is
+> required by the current OSD.
+
+That leaves OSD 9.  GPL "work based on the Program" is
+clearly within bounds.  Could you give an example of a use
+out of OSD 9 bounds?
+
+For example, I believe it was Bruce who mentioned that
+requiring release of software incorporating L0-R software as
+a component would probably conform to OSD 9.  As does
+GPL-3.0 and its impositions on "the whole of the work, and
+all its parts, regardless of how they are packaged".   But
+per Bruce, requiring release of software generated,
+compiled, translated, or optimized by an L0-R program would
+not.  So L0-R could reach software created by modification
+of the L0-R software itself, but not software created by
+executing the L0-R software.
+
+I don't mean to welcome myself to still more of your time.
+But I'd be very grateful to read your thoughts along these
+lines, perhaps in the frame of the forthcoming revision.
+
+> 3.  I don't think a license of that type is a particularly
+>     good idea, nor is it a license that I think many users
+>     would want to accept.  And I think it would be
+>     detrimental to the smaller developers.  The freedom to
+>     privately tinker, as articulated in FSF Freedom 0, is
+>     a worthwhile freedom.  Requiring someone to publish
+>     their tinkering, particularly when that obligation is
+>     continuing, would impose a burden that I think most
+>     developers wouldn't want to shoulder, and might also
+>     subject them to having to publish work that is not
+>     something they'd want public.
+>
+> 4.  I seriously doubt this license is going to achieve the
+>     goals you seek.  The companies you think are
+>     extracting value from the work of unpaid developers
+>     would likely not accept software licensed under those
+>     terms.  Taking the right to privately tinker away from
+>     an organization that might have hundreds or thousands
+>     of developers who might be tinkering with the code
+>     creates an administrative compliance nightmare that is
+>     not likely worth the benefit of receiving the code.
+>
+> 5.  In the end, the LZPL schema looks something like a
+>     fairly common model in the industry -- an eval
+>     license, followed by a commercial license in the eval
+>     process is successful.  Except the eval license in
+>     this case, LZPL, has terms that I think most
+>     organizations and developers wouldn't find palatable.
+>     Better for the developers you think want to use this
+>     model to use a more standard eval license and keep
+>     "open source" out of it.
+
+I'm focusing more heavily on points germane to the review
+process, above, but I've read these points, too, and
+carefully.  Much obliged, and happy to return to these
+topics any time.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Thu Oct 26 00:12:48 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 25 Oct 2017 17:12:48 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171026001020.GP21084@dev.kemitchell.com>
+References: <20171023220814.GA7764@dev.kemitchell.com> <CAA4ffp8=-kXx3p+CvcBOKjumK73d0+fOqeq6RBhT8J-MpH4aiQ@mail.gmail.com> <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <2D52F7EE739F8542A700CAB96276B5194673CB16@FMSMSX108.amr.corp.intel.com> <20171026001020.GP21084@dev.kemitchell.com>
+Message-ID: <CAK2MWOtcGYhCUHKkxXQy8ZJtHucRJNwAD2BpsHrADPmwPUjx8w@mail.gmail.com>
+
+I'm off of this discussion until Tuesday at the earliest. I have an FCC
+filing to finish, and a life away from the Internet to pursue :-)
+ Thanks
+ Bruce
+
+On Wed, Oct 25, 2017 at 5:10 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+> McCoy,
+>
+> Many thanks.  Comments inline.  Sorry again for rewrapping.
+>
+> On 2017-10-25 22:10, Smith, McCoy wrote:
+> > Not sure you need to hear back from me (I'm not on the OSI
+> > board, so my affiliation is only as a commentator on this
+> > and other OSI mailing lists).  But since you asked.....
+>
+> I asked because your prior feedback was much appreciated.
+> Thanks for taking time again!
+>
+> > 1.  I continue to believe that your license, as drafted
+> >     (based on the last draft I saw) violates OSD 6 & 9,
+> >     for the reasons outlined in my prior e-mail.  I think
+> >     it could be rewritten to not violate those provisions
+> >     and meet what I understand to be your goals for the
+> >     license.  But the process here is to examine your
+> >     license, not your goals.
+>
+> I'm not exactly sure I understand the OSD 6 concern,
+> especially to the extent rephrasing alone can avoid it.
+> This has come up with Bruce, as well, prompting words like
+> "inversion" from Bruce and "refactoring" from me.  Does it
+> boil down to a matter of form, rather than function?  That
+> can't be it.  I must still be missing something.
+>
+> All the same, much inspired by Bruce, I'll be floating a
+> more direct rewrite shortly.  Here's hoping the result
+> addresses your OSD 6 concern.  If I'm so lucky, perhaps I
+> can work backwards to a more complete understanding, with a
+> passing and a failing text.
+>
+> > 2.  I think there is quite an interesting philosophical
+> >     question raised by what I think are your goals here. I
+> >     will opine upon them as an external observer and not
+> >     as someone who speaks for OSI (there are others who
+> >     have responded to you who do).  Namely, would an "IP
+> >     Maximaleft" license be approvable by OSI under the
+> >     OSD?  So, hypothetically:
+>
+> Let the record reflect that McCoy has coined "maximaleft".
+>
+> >   "You are granted a license to all the rights that the
+> >   author(s) have the right to grant, under the following
+> >   conditions:
+> >
+> >    1. You preserve all notices by the author(s).
+> >
+> >    2. You preserve all disclaimers of liability by the
+> >       author(s), and you understand that you get no
+> >       liability from the author(s).
+> >
+> >    3. Every exercise of the rights granted to you by the
+> >       author(s) requires you to publicly publish the
+> >       source code resulting from the exercise of those
+> >       rights."
+>
+> This is eerily close to my current rewrite draft.
+>
+> > In my opinion, that sort of license would pass the OSD
+> > (assuming it could be written in a way that is deemed to
+> > be legally clear so that it doesn't sweep in use cases
+> > violating OSD 9).  I don't think FSF's Freedom 0 is
+> > required by the current OSD.
+>
+> That leaves OSD 9.  GPL "work based on the Program" is
+> clearly within bounds.  Could you give an example of a use
+> out of OSD 9 bounds?
+>
+> For example, I believe it was Bruce who mentioned that
+> requiring release of software incorporating L0-R software as
+> a component would probably conform to OSD 9.  As does
+> GPL-3.0 and its impositions on "the whole of the work, and
+> all its parts, regardless of how they are packaged".   But
+> per Bruce, requiring release of software generated,
+> compiled, translated, or optimized by an L0-R program would
+> not.  So L0-R could reach software created by modification
+> of the L0-R software itself, but not software created by
+> executing the L0-R software.
+>
+> I don't mean to welcome myself to still more of your time.
+> But I'd be very grateful to read your thoughts along these
+> lines, perhaps in the frame of the forthcoming revision.
+>
+> > 3.  I don't think a license of that type is a particularly
+> >     good idea, nor is it a license that I think many users
+> >     would want to accept.  And I think it would be
+> >     detrimental to the smaller developers.  The freedom to
+> >     privately tinker, as articulated in FSF Freedom 0, is
+> >     a worthwhile freedom.  Requiring someone to publish
+> >     their tinkering, particularly when that obligation is
+> >     continuing, would impose a burden that I think most
+> >     developers wouldn't want to shoulder, and might also
+> >     subject them to having to publish work that is not
+> >     something they'd want public.
+> >
+> > 4.  I seriously doubt this license is going to achieve the
+> >     goals you seek.  The companies you think are
+> >     extracting value from the work of unpaid developers
+> >     would likely not accept software licensed under those
+> >     terms.  Taking the right to privately tinker away from
+> >     an organization that might have hundreds or thousands
+> >     of developers who might be tinkering with the code
+> >     creates an administrative compliance nightmare that is
+> >     not likely worth the benefit of receiving the code.
+> >
+> > 5.  In the end, the LZPL schema looks something like a
+> >     fairly common model in the industry -- an eval
+> >     license, followed by a commercial license in the eval
+> >     process is successful.  Except the eval license in
+> >     this case, LZPL, has terms that I think most
+> >     organizations and developers wouldn't find palatable.
+> >     Better for the developers you think want to use this
+> >     model to use a more standard eval license and keep
+> >     "open source" out of it.
+>
+> I'm focusing more heavily on points germane to the review
+> process, above, but I've read these points, too, and
+> carefully.  Much obliged, and happy to return to these
+> topics any time.
+>
+> --
+> Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171025/505ca5f4/attachment.html>
+
+From Nigel.Tzeng at jhuapl.edu  Thu Oct 26 00:37:23 2017
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Thu, 26 Oct 2017 00:37:23 +0000
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171026001020.GP21084@dev.kemitchell.com>
+References: <20171023220814.GA7764@dev.kemitchell.com> <CAA4ffp8=-kXx3p+CvcBOKjumK73d0+fOqeq6RBhT8J-MpH4aiQ@mail.gmail.com> <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <2D52F7EE739F8542A700CAB96276B5194673CB16@FMSMSX108.amr.corp.intel.com>, <20171026001020.GP21084@dev.kemitchell.com>
+Message-ID: <8374fb7f7a6a4c85a61bbc2e434f9779@aplex01.dom1.jhuapl.edu>
+
+Kyle,
+
+The non-compliance with freedom 0 is a show stopper in my opinion and I typically am not all that concerned about compatibility with the GPL.
+
+Nigel
+From: Kyle Mitchell <kyle at kemitchell.com<mailto:kyle at kemitchell.com>>
+Date: Wednesday, Oct 25, 2017, 8:10 PM
+To: License submissions for OSI review <license-review at opensource.org<mailto:license-review at opensource.org>>
+Subject: Re: [License-review] For Approval: License Zero Reciprocal Public License
+
+McCoy,
+
+Many thanks.  Comments inline.  Sorry again for rewrapping.
+
+On 2017-10-25 22:10, Smith, McCoy wrote:
+> Not sure you need to hear back from me (I'm not on the OSI
+> board, so my affiliation is only as a commentator on this
+> and other OSI mailing lists).  But since you asked.....
+
+I asked because your prior feedback was much appreciated.
+Thanks for taking time again!
+
+> 1.  I continue to believe that your license, as drafted
+>     (based on the last draft I saw) violates OSD 6 & 9,
+>     for the reasons outlined in my prior e-mail.  I think
+>     it could be rewritten to not violate those provisions
+>     and meet what I understand to be your goals for the
+>     license.  But the process here is to examine your
+>     license, not your goals.
+
+I'm not exactly sure I understand the OSD 6 concern,
+especially to the extent rephrasing alone can avoid it.
+This has come up with Bruce, as well, prompting words like
+"inversion" from Bruce and "refactoring" from me.  Does it
+boil down to a matter of form, rather than function?  That
+can't be it.  I must still be missing something.
+
+All the same, much inspired by Bruce, I'll be floating a
+more direct rewrite shortly.  Here's hoping the result
+addresses your OSD 6 concern.  If I'm so lucky, perhaps I
+can work backwards to a more complete understanding, with a
+passing and a failing text.
+
+> 2.  I think there is quite an interesting philosophical
+>     question raised by what I think are your goals here. I
+>     will opine upon them as an external observer and not
+>     as someone who speaks for OSI (there are others who
+>     have responded to you who do).  Namely, would an "IP
+>     Maximaleft" license be approvable by OSI under the
+>     OSD?  So, hypothetically:
+
+Let the record reflect that McCoy has coined "maximaleft".
+
+>   "You are granted a license to all the rights that the
+>   author(s) have the right to grant, under the following
+>   conditions:
+>
+>    1. You preserve all notices by the author(s).
+>
+>    2. You preserve all disclaimers of liability by the
+>       author(s), and you understand that you get no
+>       liability from the author(s).
+>
+>    3. Every exercise of the rights granted to you by the
+>       author(s) requires you to publicly publish the
+>       source code resulting from the exercise of those
+>       rights."
+
+This is eerily close to my current rewrite draft.
+
+> In my opinion, that sort of license would pass the OSD
+> (assuming it could be written in a way that is deemed to
+> be legally clear so that it doesn't sweep in use cases
+> violating OSD 9).  I don't think FSF's Freedom 0 is
+> required by the current OSD.
+
+That leaves OSD 9.  GPL "work based on the Program" is
+clearly within bounds.  Could you give an example of a use
+out of OSD 9 bounds?
+
+For example, I believe it was Bruce who mentioned that
+requiring release of software incorporating L0-R software as
+a component would probably conform to OSD 9.  As does
+GPL-3.0 and its impositions on "the whole of the work, and
+all its parts, regardless of how they are packaged".   But
+per Bruce, requiring release of software generated,
+compiled, translated, or optimized by an L0-R program would
+not.  So L0-R could reach software created by modification
+of the L0-R software itself, but not software created by
+executing the L0-R software.
+
+I don't mean to welcome myself to still more of your time.
+But I'd be very grateful to read your thoughts along these
+lines, perhaps in the frame of the forthcoming revision.
+
+> 3.  I don't think a license of that type is a particularly
+>     good idea, nor is it a license that I think many users
+>     would want to accept.  And I think it would be
+>     detrimental to the smaller developers.  The freedom to
+>     privately tinker, as articulated in FSF Freedom 0, is
+>     a worthwhile freedom.  Requiring someone to publish
+>     their tinkering, particularly when that obligation is
+>     continuing, would impose a burden that I think most
+>     developers wouldn't want to shoulder, and might also
+>     subject them to having to publish work that is not
+>     something they'd want public.
+>
+> 4.  I seriously doubt this license is going to achieve the
+>     goals you seek.  The companies you think are
+>     extracting value from the work of unpaid developers
+>     would likely not accept software licensed under those
+>     terms.  Taking the right to privately tinker away from
+>     an organization that might have hundreds or thousands
+>     of developers who might be tinkering with the code
+>     creates an administrative compliance nightmare that is
+>     not likely worth the benefit of receiving the code.
+>
+> 5.  In the end, the LZPL schema looks something like a
+>     fairly common model in the industry -- an eval
+>     license, followed by a commercial license in the eval
+>     process is successful.  Except the eval license in
+>     this case, LZPL, has terms that I think most
+>     organizations and developers wouldn't find palatable.
+>     Better for the developers you think want to use this
+>     model to use a more standard eval license and keep
+>     "open source" out of it.
+

@@ -1,7 +1,7 @@
 ---
 file: LICENSES/rounds/README.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-discuss・license-review participants / 監査人
-last-updated: 2026-09-25
+last-updated: 2026-09-26
 canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲート 1) / LICENSES/ACD-1.0.discussion-log.md (分解と分類はこちら)
 ---
 
@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-25 時点・106 ファイル）
+## いまの状態（2026-09-26 時点・128 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -148,6 +148,28 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 1999-2024 | `license-review`（観測）| **W3C Software License をめぐる 25 年分 72 通（件名で束ねたもの） → 観測保存（5/7 部）** | **同じ束の 5/7 部。** 本文は無改変で、7 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 1999-2024 | `license-review`（観測）| **W3C Software License をめぐる 25 年分 72 通（件名で束ねたもの） → 観測保存（6/7 部）** | **同じ束の 6/7 部。** 本文は無改変で、7 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 1999-2024 | `license-review`（観測）| **W3C Software License をめぐる 25 年分 72 通（件名で束ねたもの） → 観測保存（7/7 部）** | **同じ束の 7/7 部。** 本文は無改変で、7 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（1/22 部）** | **記録の中で、単独の起草者による審査がいちばん長く続いた例**（15 か月・220 通）で、**結末は「委員長が却下を勧告 → 提出者が事実上取り下げ → 理事会は決定せず」**。**OSD に書かれていない審査基準が、参加者自身の言葉で列挙されている** —— Moen 氏 *"**vanity license or duplicative** ... **needlessly specific to one business entity** ... **unjustifiably opaque or ambiguous** ... **was not drafted with a lawyer**"*、Villa 氏（元理事）*"OSI approval is a **political game, not an actual objective test**"*（#248） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（2/22 部）** | **同じ束の 2/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（3/22 部）** | **同じ束の 3/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（4/22 部）** | **同じ束の 4/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（5/22 部）** | **同じ束の 5/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（6/22 部）** | **同じ束の 6/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（7/22 部）** | **同じ束の 7/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（8/22 部）** | **同じ束の 8/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（9/22 部）** | **同じ束の 9/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（10/22 部）** | **同じ束の 10/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（11/22 部）** | **同じ束の 11/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（12/22 部）** | **同じ束の 12/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（13/22 部）** | **同じ束の 13/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（14/22 部）** | **同じ束の 14/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（15/22 部）** | **同じ束の 15/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（16/22 部）** | **同じ束の 16/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（17/22 部）** | **同じ束の 17/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（18/22 部）** | **同じ束の 18/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（19/22 部）** | **同じ束の 19/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（20/22 部）** | **同じ束の 20/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（21/22 部）** | **同じ束の 21/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（22/22 部）** | **同じ束の 22/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2009-02 | `license-review`（観測）| **IPA Font License v1.0 の承認審査 41 通（2025-09 の後日談を含む） → 観測保存（1/3 部）** | **`review-precedents.md` §1.105 が「記録に在る唯一の日本発の提出」と述べていたのは誤りで、これが 2 件目である —— しかも承認されている**（#242）。提出者は **Mori Hamada & Matsumoto の弁護士**が**IPA を代理**しており、**成功した日本の先例には弁護士が付いていた**。**Swiger 氏は "Non-reusable licenses" カテゴリへの収容を勧めたうえで承認を推している** ——**再利用の見込みの無さは却下ではなく分類で処理された** |
 | 2009-02 | `license-review`（観測）| **IPA Font License v1.0 の承認審査 41 通（2025-09 の後日談を含む） → 観測保存（2/3 部）** | **同じスレッドの 2/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2009-02 | `license-review`（観測）| **IPA Font License v1.0 の承認審査 41 通（2025-09 の後日談を含む） → 観測保存（3/3 部）** | **同じスレッドの 3/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |

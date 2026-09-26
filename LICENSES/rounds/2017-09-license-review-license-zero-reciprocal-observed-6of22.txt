@@ -1,0 +1,750 @@
+how many network segments are involved.  If copyleft can't
+respond to that trend, staying within the Definition, again,
+the Definition's a noose around copyleft's neck.
+
+On unmodified use:
+
+A recent revision to the L0-R license text, posted elsewhere
+on this thread, helps to clarify that unmodified use does
+not trigger copyleft requirements.  The intent of L0-R is
+nothing more or less than requiring publication of source
+and Open Source licensing of modifications, incorporating
+software, and software developed with tools.  I'll be
+posting another revision shortly that I think makes that
+even more clear.
+
+On use conditions generally:
+
+I absolutely concede that conditions on use are different
+from conditions on distribution.  In my mind, the question
+L0-R asks is:  Given that, why can't use conditions conform
+to the Open Source Definition?
+
+DFSG, OSD after it, and "What is free software?" were all
+written, to some extent, as generalizations of existing
+licenses, GPL among them.  They all speak in terms of
+absolute freedoms, or prohibitions on restricting freedoms.
+Then they make room for copyleft.  Sometimes they seem to
+carve out a very specifically GPL-shaped hole, so tight a
+fit that one wonders how AGPL fits.  Sometimes they speak to
+copyleft at a more general level, closer to that of the rest
+of the definition.
+
+For an example of the former, FSF's "What is free software?"
+states freedom 3 absolutely:
+ The freedom to distribute copies of your modified versions to others (freedom 3).
+
+and only later, in a subsection of the part about freedom 3:
+ Certain kinds of rules about the manner of distributing free software are acceptable, when they don't conflict with the central freedoms.  For example, copyleft (very simply stated) is the rule that when redistributing the program, you cannot add restrictions to deny other people the central freedoms.  This rule does not conflict with the central freedoms; rather it protects them.
+
+There's no such "Copyleft" carve-out from the discussion of
+freedom 0 (use), and no discussion of whether conditions on
+freedom 0 could be freedom-protecting.  As a result, "What
+is free software?" might be _more_ specific about
+permissible conditions than OSD.  Under FSF's definition,
+I'd ask:  Why can't we leverage conditions on use to protect
+the four freedoms, too?  Up until AGPL, that wasn't the GPL
+approach.  Perhaps it isn't the approach FSF thinks best.
+But isn't it consistent with the values?
+
+The effect we'd expect from L0-R-style conditions is more
+Open Source releases, on the one hand, and more support for
+Open Source, in the form of fees for "selling exceptions",
+on the other.  The result of either is Open Source
+enhancing.  That's the structure that L0-R attempts to
+implement.  When the definitions and maintaining
+organizations speak of copyleft in anything like general,
+architectural terms, they accept conditions on protected
+freedoms generally, not just on distribution.  At that
+level, I think they describe L0-R.
+
+An aside on AGPL:
+
+I do not believe AGPL Section 13 says anything about
+"public" access, directly or through a defined term.  It
+requires offering source to "all users interacting with it
+remotely through a computer network".
+
+There is some limitation to the distributed-copy based
+copyleft trigger in (A)GPL to accommodate private
+modifications, say, within companies, or distributed to
+others to run at the distributor's behest.  You could
+describe those structures in general terms as distinguishing
+distribution for "public" and "private" purposes.  But
+Section 13 doesn't invoke any of that structure.
+
+Best,
+
+K
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Fri Oct 20 00:27:42 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Thu, 19 Oct 2017 17:27:42 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170923000911.GN14929@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com>
+Message-ID: <20171020002742.GA26076@dev.kemitchell.com>
+
+Revising the text of the proposed license, per feedback here
+on license-review and elsewhere.
+
+Also replying to the original message this time.  If I
+revise again, I'll do the same, so it's easier to find.
+
+First the new text, then a few notes.
+
+Text:
+ License Zero Reciprocal Public License <Version>
+ Copyright <Year> <Copyright Holder>
+ Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+ 1.  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+ 2.  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ 3.  Uses with any modification that is not "Open Source" as defined by the Open Source Initiative must be limited to <Grace Period> calendar days.
+ 4.  Uses as part of, or in development of, other software that is not "Open Source" as defined by the Open Source Initiative must be limited to <Grace Period> calendar days.
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Notes:
+
+- I've removed all mention of agent for sale of alternative licenses, as well as the automatic waiver of the copyleft conditions.  My motivation was twofold. For one, those features produced considerable comment, concern, and confusion, aside from the main issue of use conditions triggering copyleft.  For two, the aim of each can be achieved otherwise, outside the license text. As a result, the proposal is now _exactly_ BSD-2-Clause, plus new conditions 3 and 4.
+
+- The copyleft triggers now speak directly in terms of OSD conformance, to catch both source availability and license terms requirements.  (The assumption is that L0-R, in some form, will eventually be recognized itself, so L0-R code can clearly incorporate L0-R code.)  But that aside, I think the new language goes more directly to intent, and reads more clearly.
+
+- I've split the new conditions across two numbered items. This should help clarify that unmodified use alone does not trigger share-alike.
+
+- I was tempted to define terms for repeated words and phrases, but held the urge back.  BSD-2-Clause doesn't do so, and for this kind of license, stylistically, I think that's probably best.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From josh at postgresql.org  Fri Oct 20 02:00:55 2017
+From: josh at postgresql.org (Josh berkus)
+Date: Thu, 19 Oct 2017 19:00:55 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171020002742.GA26076@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com>
+Message-ID: <6bf511ef-93d9-5e6e-6b78-1fad761362dc@postgresql.org>
+
+Thanks, Kyle, your revisions have addressed most of my concerns.  As
+such I'd like to refine this further to make it actually enforceable.
+
+On 10/19/2017 05:27 PM, Kyle Mitchell wrote:
+>     3.  Uses with any modification that is not "Open Source"
+>         as defined by the Open Source Initiative must be
+>         limited to <Grace Period> calendar days.
+> 
+>     4.  Uses as part of, or in development of, other
+>         software that is not "Open Source" as defined by the
+>         Open Source Initiative must be limited to <Grace
+>         Period> calendar days.
+
+Some questions for you:
+
+- What event is the time limit measured from?
+
+- How do you picture the time limit being enforced?  If a licensor
+encounters potential infringement, how will he or she know how long the
+infringing code has been in use/distributed/built?
+
+
+Questions for the licensing committee:
+
+- Do we have any precedent for a license with a time limit?  I can't
+recall one.
+
+- Is the language ""Open Source" as defined by the Open Source
+Initiative" adequate?
+
+
+From cowan at ccil.org  Fri Oct 20 02:56:57 2017
+From: cowan at ccil.org (John Cowan)
+Date: Thu, 19 Oct 2017 22:56:57 -0400
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171019235827.GD9707@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org> <086b2989-c50c-c984-5192-bc966380788e@piana.eu> <20170926020744.GK6204@dev.kemitchell.com> <46261d9e-733f-7414-ca75-e7128ca99ada@piana.eu> <20171019235827.GD9707@dev.kemitchell.com>
+Message-ID: <CAD2gp_QuuwQVb4SitqaUhJzsb+28DMoY6EWoGAzm+ON22YNqTg@mail.gmail.com>
+
+On Thu, Oct 19, 2017 at 7:58 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+Might I ask what those policy grounds are?
+>
+> A number of folks, on the list and off, have mentioned
+> policy considerations separate from OSD conformance.  Not
+> everyone seems to agree OSI should do more than apply OSD,
+> but in conversation with most of those who do, I'm at a
+> loss.  There doesn't seem to be any document setting out
+> what OSI's additional policy constraints are, or what, if
+> any, relationship they have to OSD itself.
+>
+
+That's deliberate.  Jurisprudentially, the OSD is in the nature of a code,
+but OSI's (self-assumed) jurisdiction is in the nature of equity: it
+approves licenses based on what the Board members believe to be right and
+just.  Licenses that violate the code will not be adopted (although in some
+cases licenses have been approved that on some readings don't agree with
+it), but there is no guarantee that licenses that conform to the code will
+be adopted.  This is a fact about how OSI operates, and while it may be
+frustrating, there is nothing you or anyone else can do about it.
+
+--
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171019/612afc83/attachment.html>
+
+From kyle at kemitchell.com  Fri Oct 20 03:21:09 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Thu, 19 Oct 2017 20:21:09 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <6bf511ef-93d9-5e6e-6b78-1fad761362dc@postgresql.org>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <6bf511ef-93d9-5e6e-6b78-1fad761362dc@postgresql.org>
+Message-ID: <20171020032109.GB26076@dev.kemitchell.com>
+
+Josh,
+
+Thank you!
+
+On 2017-10-19 19:10, Josh Berkus wrote:
+> On 10/19/2017 05:27 PM, Kyle Mitchell wrote:
+> >     3.  Uses with any modification that is not "Open Source"
+> >         as defined by the Open Source Initiative must be
+> >         limited to <Grace Period> calendar days.
+> >
+> >     4.  Uses as part of, or in development of, other
+> >         software that is not "Open Source" as defined by the
+> >         Open Source Initiative must be limited to <Grace
+> >         Period> calendar days.
+>
+> Some questions for you:
+>
+> - What event is the time limit measured from?
+
+Excellent question.  Right now, it isn't up to usual
+standards of private-contract clarity.  I would love help
+bringing it closer.
+
+The bad news?  That's not laziness talking.  I'm not sure
+how clear it can be, or should be.  I suspect clarity would
+come from pinning it down to technical details that will
+change, inconveniently, over time.  Practical developments
+could scramble the result, just as they've scrambled
+triggers in copyleft licenses past.  Meanwhile, going that
+route would probably take quite a bit of language, too.
+Take L0-R into BSD+Patent territory.
+
+Why press on?  Because my gut sense---US lawyer talking
+here---is that fuzziness favors the licensee, and that these
+provisions are fuzzy, but not unenforceable, as currently
+written.  If you can come up with a reasonable reading of
+the language under which you fit within n consecutive
+calendar days, you have the upper hand.  Conversely, if
+there's no straight read that brings the facts within n
+days, the licensor could enforce with confidence.
+
+So, a failure case to start.  Company uses an L0-R project,
+grace period of 7 calendar days, with patch B, on January
+first.  On January seventh, they edit patch B, giving birth
+to patch B2, and use with B2.  On January thirteenth, they
+edit again.  On to B3.
+
+Are they in compliance?  My gut tells me no.  My mind tells
+me they could make it painful to find out before an American
+court.  Not ideal.
+
+We could try to patch in at least a couple of ways, using
+whatever clarity we think comes from the BSD
+use-distribution distinction:
+ 3.  Uses with any modification that is not "Open Source" as defined by the Open Source Initiative must be limited to <Grace Period> calendar days,
+ 1. starting on first use with any such modification.
+ 2. starting on first use with any such modification, and ending on last use with any derivative work based on that modification.
+ 4.  Uses as part of, or in development of, other software that is not "Open Source" as defined by the Open Source Initiative must be limited to <Grace Period> calendar days,
+ 1. starting on first use with any such software.
+ 2. starting on first use with a such software, and ending on last use with any derivative work based on that software.
+
+The first variants imply that a single licensor needs a
+license to use _immediately_ upon triggering use, if they've
+made a prior use that would have triggered, had it crossed
+the n-day grace period.  That makes the grace period a
+one-time-use kind of mitigation, and a potential gotcha.
+The second variants are easier to read as per-use with
+modification or per-use with other software grace periods,
+resetting on use with each distinct modification or other
+software.  The first avoid the problem of defining distinct
+triggering uses that ought to reset the clock.  The latter
+accept the problem, and solve it incompletely.
+
+The alternative to all of this is to drop the grace period
+entirely.  It would be possible to comply with that license,
+assuming you work "in the open" and apply the same public
+license to your code.  But we all know not everyone, in
+every context, can do that.  We could build in retroactive
+forgiveness for those that eventually publish Open Source,
+but that vitiates the incentive to comply in the first
+place.
+
+In practice, I expect some L0-R licensors will choose a
+grace period reflective of the short time frame needed to
+publish code, on the order of days, and some licensors will
+choose a grace period like a free trial, on the order of
+weeks.  Since the actual number of days will be arbitrary,
+my gut tells me to keep it generic, and work toward
+something OSI can approve with a placeholder.  That I
+shouldn't rely on whether n days, for some n, feels
+reasonable or workable to satisfy OSD's values.
+
+> - How do you picture the time limit being enforced?  If a licensor
+> encounters potential infringement, how will he or she know how long the
+> infringing code has been in use/distributed/built?
+
+1.  Note potential compliance.  Set a reminder to...
+
+2.  Check for compliance some time later, perhaps the length of the grace period.  Can we find their code online?
+
+3.  Cease and Desist to the potential offender.
+
+If the licensee can provide evidence of compliance that
+makes a suit untenable, the licensor moves on.  If they're
+unhappy, say, with the breadth of distribution of the code,
+OSD-conformant terms and information about the whereabout of
+the code should enable them to redistribute more broadly.
+
+Conceptually, it's akin to knowing when you can C&D an
+(A)GPL infringer.  There's always a chance they've made
+source available in some way you didn't happen to find.
+There is a difference, playing off the fact that OSD is less
+specific in how source must be provided than, say, GPL-3.0.
+But referencing the Open Source Definition by name is so
+valuable, readability wise, that I don't think I'd trade it
+back for my old language, which spoke in terms of
+"publication" and OSD-conformant license terms.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Fri Oct 20 04:09:07 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 19 Oct 2017 21:09:07 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171019235827.GD9707@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org> <086b2989-c50c-c984-5192-bc966380788e@piana.eu> <20170926020744.GK6204@dev.kemitchell.com> <46261d9e-733f-7414-ca75-e7128ca99ada@piana.eu> <20171019235827.GD9707@dev.kemitchell.com>
+Message-ID: <CAK2MWOvkjP+SSYr99NX8Bxs6H9S29tfVKSqcKOuD1aZbMsue5A@mail.gmail.com>
+
+There was quite a lot I did not think of when writing the OSD, and which
+perhaps did not belong in the OSD but which OSI should do as part of the
+license approval process for the benefit of developers and users. It's
+probably time to put together a list of what those things are, for
+everybody's information.
+
+With regard to *simple users,* those who make use of the Open Source
+software and do not modify or redistribute it, there should be as close to *no
+legal load* as possible. We need to be cognizant that many of these users
+are individuals and very small businesses that can't reasonably assume any
+legal load at all. We can't protect them from patent issues brought by
+others than the licensor of the software, but to the extent that we can
+protect them, we should. In particular, *simple users should not ever have
+to read the license.*
+
+We should also endeavor to keep the legal load upon *Open Source developers*
+as low as possible. These are also individuals, small businesses, etc. We
+expect them to understand the license somewhat, but they are not legal
+experts and do not necessarily have easy access to legal experts or even
+the inclination to use them.
+
+So, we can think about some things that would increase the load on those
+communities.
+
+Use-coupled license responsibilities. We should not allow them at all. If
+you're an infringer if you don't put the correct web badge on your site,
+it's a bad license for Open Source because it means the user has to track
+what programs they're running and put the proper badges online, and make
+sure in perpetuity that those badges keep being presented. No thanks.
+
+License proliferation: We don't want them to have to do more license
+combinatorial analysis than should be necessary. Thus, we should not in
+general accept new licenses, unless they in some way present a benefit to
+the community in a way that presently-accepted licenses do not.
+
+Crayon licenses: We should not today approve licenses that were developed
+without the assistance of a lawyer, because they are likely to not be
+parsed by a judge the way the developer expects. The name "crayon license"
+comes from a Monty Python sketch including a "cat license" which has "dog"
+crossed out and "cat" written in, in crayon. Some developers have been
+really seriously harmed (by Artistic License 1) and there are a few
+unfortunately-OSI-accepted time bombs waiting for new victims.
+
+Additional loads on the developer: We already place a number of loads on
+them when distributing, in general they have to present a copyright
+statement and license, sometimes a notice of source code availability,
+sometimes they have to distribute source code, and they perform some
+management of contributors and their rights. That's already a significant
+load, and additional loads upon the developer might not be a reasonable
+expectation.
+
+What we get from this is that there will be some licenses which are
+OSD-compliant but which should not be OSI-certified.
+
+Surely there are more things we should watch out for, this is just off the
+top of my head.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171019/f14d322d/attachment.html>
+
+From kyle at kemitchell.com  Fri Oct 20 04:09:37 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Thu, 19 Oct 2017 21:09:37 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CAD2gp_QuuwQVb4SitqaUhJzsb+28DMoY6EWoGAzm+ON22YNqTg@mail.gmail.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org> <086b2989-c50c-c984-5192-bc966380788e@piana.eu> <20170926020744.GK6204@dev.kemitchell.com> <46261d9e-733f-7414-ca75-e7128ca99ada@piana.eu> <20171019235827.GD9707@dev.kemitchell.com> <CAD2gp_QuuwQVb4SitqaUhJzsb+28DMoY6EWoGAzm+ON22YNqTg@mail.gmail.com>
+Message-ID: <20171020040937.GC26076@dev.kemitchell.com>
+
+On 2017-10-19 22:10, John Cowan wrote:
+> On Thu, Oct 19, 2017 at 7:58 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+> > Might I ask what those policy grounds are?
+> >
+> > A number of folks, on the list and off, have mentioned
+> > policy considerations separate from OSD conformance.  Not
+> > everyone seems to agree OSI should do more than apply OSD,
+> > but in conversation with most of those who do, I'm at a
+> > loss.  There doesn't seem to be any document setting out
+> > what OSI's additional policy constraints are, or what, if
+> > any, relationship they have to OSD itself.
+> >
+>
+> That's deliberate.  Jurisprudentially, the OSD is in the nature of a code,
+> but OSI's (self-assumed) jurisdiction is in the nature of equity: it
+> approves licenses based on what the Board members believe to be right and
+> just.  Licenses that violate the code will not be adopted (although in some
+> cases licenses have been approved that on some readings don't agree with
+> it), but there is no guarantee that licenses that conform to the code will
+> be adopted.  This is a fact about how OSI operates, and while it may be
+> frustrating, there is nothing you or anyone else can do about it.
+
+Good to hear from you again, John.
+
+Two thoughts here, one concrete and one more general:
+
+First, if this is indeed a fact of how OSI operates, it
+ought to say so publicly, on https://opensource.org/approval
+and elsewhere.  And it ought to be careful that "right and
+just", however defined, color well within the lines of its
+nonprofit and tax-exempt statuses, its stated mission.  The
+obvious prescription there is legal advice and transparency,
+in that order, and in appropriately measured quantities.
+
+I come in peace, in admiration for OSI and what it's
+achieved.  That's why I bothered in the first place.  If OSI
+needs to press pause on this process to look after that
+weightier one, so be it.  But OSI cannot and should not
+become a closet (c)(6) that _defines_ Open Source to include
+values-forward, copyleft-empowered community spirit, while
+in practice _approving_ only terms that certain kinds or
+sizes of business players, users, or constituents prefer.
+
+Second, as a practical matter, law and equity merged long
+ago, both in England and in the United States.  The old
+maxims of equity still float around, show up in court
+opinions now and then, because they're fun and sound
+prestigious.  But it's long left legal propriety to glance
+over rule by men, rather than by laws, under the cover of
+vague, discretionary fallbacks kept intentionally vague.  We
+expect written opinions and adherence to precedent on equity
+matters, too.  It's that transparency thing again.
+
+On a practical level, you're absolutely right.  If L0-R ends
+up OSD-conformant, but not OSI approved, there will be
+little I can do about it but point back to this
+license-review thread, and admit that I myself tried and
+failed to suss out the difference.  I don't want to end up
+there.  It's bad enough telling the folks who
+enthusiastically share L0's _noncommercial_ option as a
+solution to "open source sustainability" that they should
+read opensource.org and mind their capitalization.
+
+If the Definition needs to be refined or amended, let's
+start that project.  I'll chip in.  If OSI needs a
+living-document statement of additional policies and values
+to uphold in its approval process, I'll help there, too.
+Even if it ends up cutting L0-R out.
+
+But for God's sake don't tell the open software community,
+of all people, that their identity's defined by an opaque,
+bureaucratic rite on a mailing list, overtly camouflaging an
+arbitrary decision process that can't be changed, no matter
+how frustrating it may be.  I couldn't defend that.  I don't
+know anyone my age or younger who'd want to try.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Fri Oct 20 04:20:40 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 19 Oct 2017 21:20:40 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171020040937.GC26076@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org> <086b2989-c50c-c984-5192-bc966380788e@piana.eu> <20170926020744.GK6204@dev.kemitchell.com> <46261d9e-733f-7414-ca75-e7128ca99ada@piana.eu> <20171019235827.GD9707@dev.kemitchell.com> <CAD2gp_QuuwQVb4SitqaUhJzsb+28DMoY6EWoGAzm+ON22YNqTg@mail.gmail.com> <20171020040937.GC26076@dev.kemitchell.com>
+Message-ID: <CAK2MWOv+wS6eqPX8Txgnm25z5dweGkUrYfZa=SoTB6B=FEaJXg@mail.gmail.com>
+
+But for God's sake don't tell the open software community,
+of all people, that their identity's defined by an opaque,
+bureaucratic rite on a mailing list, overtly camouflaging an
+arbitrary decision process that can't be changed, no matter
+how frustrating it may be.  I couldn't defend that.  I don't
+know anyone my age or younger who'd want to try.
+
+This is overstated. The OSI board has usually discussed on this public list
+the reasons for rejection, when there are practical reasons for rejection
+that are not explicitly stated in the OSD. The reasons I just set down are
+not put forth as an addition to the OSD, just a statement of what some
+perfectly reasonable concerns should be. I think we can develop such a list
+without ever insisting that it be made a modification to the OSD, and also
+without insisting that the OSI board limit themselves to a programatic
+interpetation of the OSD.
+ Thanks
+ Bruce
+
+On Thu, Oct 19, 2017 at 9:09 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+> On 2017-10-19 22:10, John Cowan wrote:
+> > On Thu, Oct 19, 2017 at 7:58 PM, Kyle Mitchell <kyle at kemitchell.com>
+> wrote:
+> > > Might I ask what those policy grounds are?
+> > >
+> > > A number of folks, on the list and off, have mentioned
+> > > policy considerations separate from OSD conformance.  Not
+> > > everyone seems to agree OSI should do more than apply OSD,
+> > > but in conversation with most of those who do, I'm at a
+> > > loss.  There doesn't seem to be any document setting out
+> > > what OSI's additional policy constraints are, or what, if
+> > > any, relationship they have to OSD itself.
+> > >
+> >
+> > That's deliberate.  Jurisprudentially, the OSD is in the nature of a
+> code,
+> > but OSI's (self-assumed) jurisdiction is in the nature of equity: it
+> > approves licenses based on what the Board members believe to be right and
+> > just.  Licenses that violate the code will not be adopted (although in
+> some
+> > cases licenses have been approved that on some readings don't agree with
+> > it), but there is no guarantee that licenses that conform to the code
+> will
+> > be adopted.  This is a fact about how OSI operates, and while it may be
+> > frustrating, there is nothing you or anyone else can do about it.
+>
+> Good to hear from you again, John.
+>
+> Two thoughts here, one concrete and one more general:
+>
+> First, if this is indeed a fact of how OSI operates, it
+> ought to say so publicly, on https://opensource.org/approval
+> and elsewhere.  And it ought to be careful that "right and
+> just", however defined, color well within the lines of its
+> nonprofit and tax-exempt statuses, its stated mission.  The
+> obvious prescription there is legal advice and transparency,
+> in that order, and in appropriately measured quantities.
+>
+> I come in peace, in admiration for OSI and what it's
+> achieved.  That's why I bothered in the first place.  If OSI
+> needs to press pause on this process to look after that
+> weightier one, so be it.  But OSI cannot and should not
+> become a closet (c)(6) that _defines_ Open Source to include
+> values-forward, copyleft-empowered community spirit, while
+> in practice _approving_ only terms that certain kinds or
+> sizes of business players, users, or constituents prefer.
+>
+> Second, as a practical matter, law and equity merged long
+> ago, both in England and in the United States.  The old
+> maxims of equity still float around, show up in court
+> opinions now and then, because they're fun and sound
+> prestigious.  But it's long left legal propriety to glance
+> over rule by men, rather than by laws, under the cover of
+> vague, discretionary fallbacks kept intentionally vague.  We
+> expect written opinions and adherence to precedent on equity
+> matters, too.  It's that transparency thing again.
+>
+> On a practical level, you're absolutely right.  If L0-R ends
+> up OSD-conformant, but not OSI approved, there will be
+> little I can do about it but point back to this
+> license-review thread, and admit that I myself tried and
+> failed to suss out the difference.  I don't want to end up
+> there.  It's bad enough telling the folks who
+> enthusiastically share L0's _noncommercial_ option as a
+> solution to "open source sustainability" that they should
+> read opensource.org and mind their capitalization.
+>
+> If the Definition needs to be refined or amended, let's
+> start that project.  I'll chip in.  If OSI needs a
+> living-document statement of additional policies and values
+> to uphold in its approval process, I'll help there, too.
+> Even if it ends up cutting L0-R out.
+>
+> But for God's sake don't tell the open software community,
+> of all people, that their identity's defined by an opaque,
+> bureaucratic rite on a mailing list, overtly camouflaging an
+> arbitrary decision process that can't be changed, no matter
+> how frustrating it may be.  I couldn't defend that.  I don't
+> know anyone my age or younger who'd want to try.
+>
+> --
+> Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171019/1448d117/attachment.html>
+
+From kyle at kemitchell.com  Fri Oct 20 04:24:00 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Thu, 19 Oct 2017 21:24:00 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOvkjP+SSYr99NX8Bxs6H9S29tfVKSqcKOuD1aZbMsue5A@mail.gmail.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org> <086b2989-c50c-c984-5192-bc966380788e@piana.eu> <20170926020744.GK6204@dev.kemitchell.com> <46261d9e-733f-7414-ca75-e7128ca99ada@piana.eu> <20171019235827.GD9707@dev.kemitchell.com> <CAK2MWOvkjP+SSYr99NX8Bxs6H9S29tfVKSqcKOuD1aZbMsue5A@mail.gmail.com>
+Message-ID: <20171020042400.GD26076@dev.kemitchell.com>
+
+Bruce,
+
+Thank you.  Setting these things out isn't easy, and neither
+will socializing them be.  But it's a start.
+
+On 2017-10-19 21:10, Bruce Perens wrote:
+> With regard to *simple users,* those who make use of the Open Source
+> software and do not modify or redistribute it, there should be as close to *no
+> legal load* as possible. We need to be cognizant that many of these users
+> are individuals and very small businesses that can't reasonably assume any
+> legal load at all. We can't protect them from patent issues brought by
+> others than the licensor of the software, but to the extent that we can
+> protect them, we should. In particular, *simple users should not ever have
+> to read the license.*
+
+I believe L0-R, especially as recently clarified, passes
+this test.  Terms governing use _without modification_ are
+precisely as under BSD-2-Clause.  Only use with modification
+triggers.
+
+> Use-coupled license responsibilities. We should not allow them at all. If
+> you're an infringer if you don't put the correct web badge on your site,
+> it's a bad license for Open Source because it means the user has to track
+> what programs they're running and put the proper badges online, and make
+> sure in perpetuity that those badges keep being presented. No thanks.
+
+I'm not sure quite what you mean by "use-coupled", but I'd
+be careful to avoid prohibiting attribution and notice
+retention here.  If you use my MIT library in the HTTP
+server for your website, you probably don't need to send
+every visitor my copyright notice.  But if you bundle my
+library in the blob of JavaScript your HTTP server has
+visitors load in their browsers...
+
+> License proliferation: We don't want them to have to do more license
+> combinatorial analysis than should be necessary. Thus, we should not in
+> general accept new licenses, unless they in some way present a benefit to
+> the community in a way that presently-accepted licenses do not.
+
+I'm not in favor of proliferation of old ideas in new
+dressing, except perhaps where prior implementations were
+technically flawed.  For example, approval of ISC after MIT
+doesn't trouble me in the least.
+
+But I have to mention that software, empowered especially by
+metadata standards, substantially reduces this burden.
+License metadata in JavaScript package metadata facilitates
+automatic display of the keyhole logo on npmjs.com, for
+example.  We can package up legal analysis, too.
+
+> Additional loads on the developer: We already place a number of loads on
+> them when distributing, in general they have to present a copyright
+> statement and license, sometimes a notice of source code availability,
+> sometimes they have to distribute source code, and they perform some
+> management of contributors and their rights. That's already a significant
+> load, and additional loads upon the developer might not be a reasonable
+> expectation.
+
+I see an anti-copyleft ratchet here, too.  I'd love to see a
+Berne Convention amendment with magic language for effective
+public domain dedication with warranty disclaimer. But I'd
+hate to see Open Source veer preferentially in favor of
+permissive licenses, to the exclusion of copyright as a
+means to achieve policy ends, too.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Fri Oct 20 04:36:57 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Thu, 19 Oct 2017 21:36:57 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOv+wS6eqPX8Txgnm25z5dweGkUrYfZa=SoTB6B=FEaJXg@mail.gmail.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org> <086b2989-c50c-c984-5192-bc966380788e@piana.eu> <20170926020744.GK6204@dev.kemitchell.com> <46261d9e-733f-7414-ca75-e7128ca99ada@piana.eu> <20171019235827.GD9707@dev.kemitchell.com> <CAD2gp_QuuwQVb4SitqaUhJzsb+28DMoY6EWoGAzm+ON22YNqTg@mail.gmail.com> <20171020040937.GC26076@dev.kemitchell.com> <CAK2MWOv+wS6eqPX8Txgnm25z5dweGkUrYfZa=SoTB6B=FEaJXg@mail.gmail.com>
+Message-ID: <20171020043657.GE26076@dev.kemitchell.com>
+
+On 2017-10-19 21:10, Bruce Perens wrote:
+> > But for God's sake don't tell the open software community,
+> > of all people, that their identity's defined by an opaque,
+> > bureaucratic rite on a mailing list, overtly camouflaging an
+> > arbitrary decision process that can't be changed, no matter
+> > how frustrating it may be.  I couldn't defend that.  I don't
+> > know anyone my age or younger who'd want to try.
+>
+> This is overstated. The OSI board has usually discussed on this public list
+> the reasons for rejection, when there are practical reasons for rejection
+> that are not explicitly stated in the OSD. The reasons I just set down are
+> not put forth as an addition to the OSD, just a statement of what some
+> perfectly reasonable concerns should be. I think we can develop such a list
+> without ever insisting that it be made a modification to the OSD, and also
+> without insisting that the OSI board limit themselves to a programatic
+> interpetation of the OSD.
+
+I hope I overstated reality.  I fear I haven't overstated
+probable perception.  And not just of unread greenhorns, the
+"new kids" I sometimes read about.
+
+Nobody is asking me, but I'd strongly encourage OSI to start
+by properly conditioning outside perception of what it is
+that this process does, by edits to the public webpages
+describing it.  If that means alluding to a list of policy
+concerns that doesn't exist yet, so be it.  Take the
+opportunity to solicit help combing the license-review
+archives and bringing together material in a repository
+somewhere.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Fri Oct 20 04:52:15 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 19 Oct 2017 21:52:15 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171020042400.GD26076@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org> <086b2989-c50c-c984-5192-bc966380788e@piana.eu> <20170926020744.GK6204@dev.kemitchell.com> <46261d9e-733f-7414-ca75-e7128ca99ada@piana.eu> <20171019235827.GD9707@dev.kemitchell.com> <CAK2MWOvkjP+SSYr99NX8Bxs6H9S29tfVKSqcKOuD1aZbMsue5A@mail.gmail.com> <20171020042400.GD26076@dev.kemitchell.com>
+Message-ID: <CAK2MWOs+ioM787g6RYW-zT_Z9ABPf984WB5DPtnTdbeHefMGpA@mail.gmail.com>
+
+On Thu, Oct 19, 2017 at 9:24 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+> Only use with modification triggers.
+>
+Well, I'm going to have to read the text again and convince myself that you
+really need to base terms upon use at all if there is also modification.
+
+> I'd be careful to avoid prohibiting attribution and notice retention here.
+
+Those involve development and distribution, and don't really fit in the
+passive use case. However, we need to consider that it is no longer the
+rule that you can view the source code for Javascript or HTML, DRM for
+these things is coming, and that there are optimizing programs (like at
+Cloudflare) that might accidentally get rid of some of these notices for
+us. I don't have a good solution yet, but it would probably be a technical
+one.
+
+
+> We can package up legal analysis, too.

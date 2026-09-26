@@ -1,0 +1,750 @@
+your voluminous argument. I could rebut every word, but it simply isn't
+necessary.
+
+You quoted just the first sentence here, and responded by repeating a bare
+> conclusion, as opinion, about OSD 6.
+>
+
+Exactly. That was all that was necessary.
+
+
+> Was the rest for nothing?  I'd be happy to return to it.
+>
+
+I think you're barking up the wrong tree. It doesn't fit the Open Source
+model and you've been told that repeatedly.
+
+I asked the questions in hopes of hearing OSI's answers.
+>
+
+Richard Fontana sits on the board and has had criticism of the license.
+Simon is reading, because he answered when you went over the top about
+OSI's legal obligations. You aren't engaging the other board members as far
+as I can see. Ultimately, the people on the list would make recommendations
+to the OSI board which they would generally follow, although they are not
+compelled to, and the people on the list with demonstrated competence in
+license analysis don't for the most part seem to be big fans of the license.
+
+So I am not holding out hope, sorry.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171108/e94b6222/attachment.html>
+
+From cowan at ccil.org  Wed Nov  8 17:34:22 2017
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 8 Nov 2017 12:34:22 -0500
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOvXOQNvRsNXyQd06o0jw9g0fc=GB4zYJVYsaHzbW+fOdg@mail.gmail.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOvhJCMFimdGSV5xw2MF8CzfjZt1DKJZKXh1GGeKMngiTQ@mail.gmail.com> <20171108075050.GQ25059@dev.kemitchell.com> <CAK2MWOvXOQNvRsNXyQd06o0jw9g0fc=GB4zYJVYsaHzbW+fOdg@mail.gmail.com>
+Message-ID: <CAD2gp_QE_0dz7m3nE8uMECMSYkXD64FP=r6s4LoHx_n7obQNCQ@mail.gmail.com>
+
+On Wed, Nov 8, 2017 at 11:27 AM, Bruce Perens <bruce at perens.com> wrote:
+
+In your license, you are asking for an *unrelated* program to be made Open
+> Source due to a condition predicated on a specific form of use. Besides
+> being clearly against OSD # 6 (and sorry, OSI is not now required to
+> announce this obvious fact),
+>
+
+I don't see this.  If OSD #6 means, or is interpreted to mean, "no
+discrimination against particular tasks", then I can see it, and that's a
+license prohibition I would support.  But I have trouble reading it into
+the text of #6.  Can you explicate?
+
+
+> it's against the first of the four freedoms, because it creates a
+> consequence for use that is not related to protecting the four freedoms
+> regarding the program you're actually running.
+>
+
+I agree with that.  The four freedoms are just as much Open Source as Free
+Software obligations.
+
+
+> And you need to be aware that the Open Source campaign does not espouse
+> that proprietary software is immoral.
+>
+
+Indeed.  Years ago, ESR pointed out that it makes no sense to open-source
+"consultant in a box" software, code that gives you the same advice that
+the person whose expertise it encodes would provide if they were there. If Alice is quite legitimately paid $$$$ for her good advice, then she
+should be paid appropriately by someone who uses Alice Inc. software that
+gives that same advice.  Allowing redistribution would directly deprive
+Alice of her livelihood; allowing modification would just be providing
+someone else's advice rather than Alice's, though you could sensibly
+open-source the framework in which the advice is embedded if there is one.
+
+Even RMS doesn't think you have an obligation to open-source software you
+don't distribute.
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+Don't be so humble.  You're not that great. --Golda Meir
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171108/8a465c85/attachment.html>
+
+From bruce at perens.com  Wed Nov  8 17:51:16 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 8 Nov 2017 09:51:16 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <CAD2gp_QE_0dz7m3nE8uMECMSYkXD64FP=r6s4LoHx_n7obQNCQ@mail.gmail.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOvhJCMFimdGSV5xw2MF8CzfjZt1DKJZKXh1GGeKMngiTQ@mail.gmail.com> <20171108075050.GQ25059@dev.kemitchell.com> <CAK2MWOvXOQNvRsNXyQd06o0jw9g0fc=GB4zYJVYsaHzbW+fOdg@mail.gmail.com> <CAD2gp_QE_0dz7m3nE8uMECMSYkXD64FP=r6s4LoHx_n7obQNCQ@mail.gmail.com>
+Message-ID: <CAK2MWOt2X8XHfUEtrDp4Tzu9vGe2fD9+ydV4BUir08CgnTEksQ@mail.gmail.com>
+
+On Wed, Nov 8, 2017 at 9:34 AM, John Cowan <cowan at ccil.org> wrote:
+
+>
+>
+> On Wed, Nov 8, 2017 at 11:27 AM, Bruce Perens <bruce at perens.com> wrote:
+>
+> In your license, you are asking for an *unrelated* program to be made
+>> Open Source due to a condition predicated on a specific form of use.
+>> Besides being clearly against OSD # 6 (and sorry, OSI is not now required
+>> to announce this obvious fact),
+>>
+>
+> I don't see this.  If OSD #6 means, or is interpreted to mean, "no
+> discrimination against particular tasks", then I can see it, and that's a
+> license prohibition I would support.  But I have trouble reading it into
+> the text of #6.  Can you explicate?
+>
+
+Here is the relevant L0-R text:
+
+
+*5. If you run this software to analyze, modify, or generate     software,
+you must release source code for that software.*
+
+Analysis, modification, and generation of software are a field of endeavor
+under OSD # 6. OSD #2 says the *program *must include source code, so it
+overrides any provision in OSD # 6 that would prevent the program from
+having source code. But not *other *programs. So, GPL OK, King Midas not OK.
+
+We strengthen this with OSD # 9 requiring that the license not bind to
+other software that is simply distributed with the Open Source.
+
+So, although you could argue that combination of source code with your
+GPL-licensed program is a field of endeavor under OSD # 6, OSD # 2 says the
+program has to have source code, so that argument would fail. It would not,
+however, fail when the source code in question is not part of the program,
+and thus not required to be in source code form under OSD # 2.
+
+If anyone at the time had seriously proposed that the program compel Open
+Sourcing of anything it processed as input, I would probably have included
+that in # 9 as well. But the prospect was so absurd that I did not consider
+it.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171108/62ba0af9/attachment.html>
+
+From Nigel.Tzeng at jhuapl.edu  Wed Nov  8 18:07:11 2017
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Wed, 8 Nov 2017 18:07:11 +0000
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <CAD2gp_QE_0dz7m3nE8uMECMSYkXD64FP=r6s4LoHx_n7obQNCQ@mail.gmail.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOvhJCMFimdGSV5xw2MF8CzfjZt1DKJZKXh1GGeKMngiTQ@mail.gmail.com> <20171108075050.GQ25059@dev.kemitchell.com> <CAK2MWOvXOQNvRsNXyQd06o0jw9g0fc=GB4zYJVYsaHzbW+fOdg@mail.gmail.com> <CAD2gp_QE_0dz7m3nE8uMECMSYkXD64FP=r6s4LoHx_n7obQNCQ@mail.gmail.com>
+Message-ID: <3B95CBE7-8CDA-43F6-A193-C6E0609AA843@jhuapl.edu>
+
+I pointed out at the beginning that given the intent was to promote a dual licensing business model and it would be very hard to game the license to be both OSD compliant and make commercial users need/want to pay for a commercial license.
+
+The objective isn?t bad and I can believe his programmer friends/customers like the concept of ?use my stuff for free for fun, but if you make money from it pay me in money or code in return?.  I like it too.  Unfortunately, it just isn?t open source.
+
+Developers achieve this outcome by simply selling a proprietary license and letting open source projects use their developer tooling for free or having a pro version and an open source community version.  Neither requires L0R and the issues that arise by tying compliance to use.
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171108/e1685390/attachment.html>
+
+From osi-review at piana.eu  Wed Nov  8 18:18:20 2017
+From: osi-review at piana.eu (Carlo Piana)
+Date: Wed, 8 Nov 2017 19:18:20 +0100
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOt2X8XHfUEtrDp4Tzu9vGe2fD9+ydV4BUir08CgnTEksQ@mail.gmail.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOvhJCMFimdGSV5xw2MF8CzfjZt1DKJZKXh1GGeKMngiTQ@mail.gmail.com> <20171108075050.GQ25059@dev.kemitchell.com> <CAK2MWOvXOQNvRsNXyQd06o0jw9g0fc=GB4zYJVYsaHzbW+fOdg@mail.gmail.com> <CAD2gp_QE_0dz7m3nE8uMECMSYkXD64FP=r6s4LoHx_n7obQNCQ@mail.gmail.com> <CAK2MWOt2X8XHfUEtrDp4Tzu9vGe2fD9+ydV4BUir08CgnTEksQ@mail.gmail.com>
+Message-ID: <34f8ca5c-e16b-51a7-ce0f-b2ec88714a1f@piana.eu>
+
+On 08/11/2017 18:51, Bruce Perens wrote:
+>
+>
+> On Wed, Nov 8, 2017 at 9:34 AM, John Cowan <cowan at ccil.org
+> <mailto:cowan at ccil.org>> wrote:
+>
+>
+>
+>     On Wed, Nov 8, 2017 at 11:27 AM, Bruce Perens <bruce at perens.com
+>     <mailto:bruce at perens.com>> wrote:
+>
+>         In your license, you are asking for an *unrelated* program to
+>         be made Open Source due to a condition predicated on a
+>         specific form of use. Besides being clearly against OSD # 6
+>         (and sorry, OSI is not now required to announce this obvious
+>         fact),
+>
+>
+>     I don't see this.? If OSD #6 means, or is interpreted to mean, "no
+>     discrimination against particular tasks", then I can see it, and
+>     that's a license prohibition I would support.? But I have trouble
+>     reading it into the text of #6.? Can you explicate?
+>
+>
+> Here is the relevant L0-R text:
+>
+> /5. If you run this software to analyze, modify, or generate
+> ? ? ?software, you must release source code for that software./
+> /
+> /
+> Analysis, modification, and generation of software are a field of
+> endeavor under OSD # 6.?OSD #2 says the /program /must include source
+> code, so it overrides any provision in OSD # 6 that would prevent the
+> program from having source code.?But not /other /programs. So, GPL OK,
+> King Midas not OK.
+>
+> We strengthen this with OSD # 9 requiring that the license not bind to
+> other software that is simply distributed with the Open Source.?
+
+[...]
+
+Il love this King Midas analogy. It is quite graphic and I could not
+agree more with Bruce. The provision Bruce has extracted is not an
+acceptable one in open source. I have already stated my case, many
+others have, I stand firm in my belief. I am shocked we are still
+arguing something that should have been long settled by now.
+
+Our world has fought long battles against the characterization of
+copyleft as "viral", which in turn is intended in the pejorative
+"infectious", a frivolous yet still today damaging concept that detracts
+many from using copyleft software. A license containing such language
+would be indeed flat out infectious, the legal equivalent of a virus.
+The fact that this would also be legally sound, just worsens the
+situation. Let's imagine a Patrick McHardy using that clause. You must
+be kidding me.
+
+Sorry for the additional noise.
+
+Carlo
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171108/987cf50f/attachment.html>
+
+From webmink at opensource.org  Wed Nov  8 18:23:36 2017
+From: webmink at opensource.org (Simon Phipps)
+Date: Wed, 8 Nov 2017 18:23:36 +0000
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <20171108075050.GQ25059@dev.kemitchell.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOvhJCMFimdGSV5xw2MF8CzfjZt1DKJZKXh1GGeKMngiTQ@mail.gmail.com> <20171108075050.GQ25059@dev.kemitchell.com>
+Message-ID: <CAA4ffp9mFt0sGY0sf_ZsMeNAXPMU+-TLH-qv5-S5h5jKpYhJmA@mail.gmail.com>
+
+>
+> I asked the questions in hopes of hearing OSI's answers.
+> Others, leaning both ways, have agreed they aren't cut and
+> dry.  Perhaps the committee will come back, and constrain me
+> to just the kind of license you have in mind.
+
+
+That's not how OSI or the license review process works. OSI waits for this
+public forum to reach a stable consensus, then evaluates it against mission
+and principle, then crystalises the community opinion if they match. OSI
+will not offer opinions on licenses either here or privately, and this
+forum is the "committee".
+
+S.
+
+
+On Wed, Nov 8, 2017 at 7:50 AM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+> On 2017-11-07 15:11, Bruce Perens wrote:
+> > On Tue, Nov 7, 2017 at 2:49 PM, Kyle Mitchell <kyle at kemitchell.com>
+> wrote:
+> > > If Open Source licenses can hook copyleft into distribution, why can't
+> > > they hook copyleft into use?
+> >
+> > IMO, OSD # 6 catches your use cases and thus your proposal is not an Open
+> > Source license.
+>
+> If that's true of OSD 6 as OSI applies it, I'll say again
+> that OSI ought to make that broadly understood.  It is not
+> now broadly understood.  Which is part of the reason you've
+> been careful to point out your view may not track OSI's.
+>
+> > But the real question here is not whether your proposed license meets the
+> > OSD.
+>
+> I don't mean to bang a tin drum.  But that is the _only_
+> inquiry I thought I started, submitting L0-R for review.
+> And the reason I reached out to you, in reply to your tweet
+> that Open Source means an OSD-conformant license, full stop.
+>
+> > It is the fact that it is in absolutely nobody's interest to ever
+> > accept the license as presently written, because it asks for too much.
+>
+> It is in copyleft-leaning toolmakers' interest.  And in the
+> interest of those who still want to make open software a
+> viable competitor to closed-source software.  And in the
+> interest of those who want a new deal with those carrying
+> off from the community, down one-way streets paved with
+> approved license terms.
+>
+> I've said before that passing judgment like this risks
+> sending the message that OSI has decided copyleft has to
+> play with a handicap.  And that insofar as free software is
+> losing to closed source---or succeeding only by redefining
+> success as assisting closed source, rather than competing
+> with it---handicapping copyleft looks like picking a winner.
+>
+> > It asks for an unreasonable compliance burden of the user, and it asks of
+> > someone who actually owns a copyright to some work to Open Source that
+> work
+> > simply for the benefit of using your program.
+>
+> Will OSI reject a license on the basis that releasing
+> software as Open Source is an onerous, unreasonable exaction
+> dwarfing conceivable use value of any single program?  Is
+> foretelling practical cost-benefit analysis part of what it
+> does?
+>
+> OSI has already approved licenses that require release
+> simply for the benefit of modifying, running, and
+> distributing the licensed program.  Some users of Open
+> Source continue to see those licenses as unreasonable.
+> Judging by OSI approvals past, OSI has not.
+>
+> > I can conceive that a software developer receives such great value when
+> > they incorporate someone else's code into their product. So that's where
+> I
+> > drew the line, and in this I was following the previous work of Richard
+> > Stallman and the authors of various licenses the Debian project was
+> > accepting.
+>
+> The industry smudges every bright line, in time.
+>
+> Consider Node.js.  Significant server and other software is
+> written on Node, using Node-targeted libraries.  But a
+> substantial chunk of the growth of the platform comes down
+> to developer tooling---code generators, linters, style
+> checkers, transpilers, bundlers, minifiers---for
+> browser-targeted development.  Crack open a typical
+> front-end web project shipped yesterday, and you'd have a
+> much harder time replacing the tooling than the framework.
+> I can swap out React in a hurry, as many recently have done.
+> Babel?  Webpack?  Potentially much harder!
+>
+> > And thus, even if this license met the OSD, which I don't believe it
+> does,
+> > for OSI to certify it would be dereliction of their duty to the
+> community.
+>
+> There is no more substance to "approving L0-R would be
+> dereliction of duty" than to "L0-R is absurd".  If that
+> statement's meant to persuade, it's meant to persuade on
+> some other basis than arguable merit.
+>
+> I have spent a lot of time arguing merit.  Several hours,
+> and several drafts, on my prior message alone.  You quoted
+> one sentence of that message, an example, in another reply.
+> You quoted just the first sentence here, and responded by
+> repeating a bare conclusion, as opinion, about OSD 6.
+>
+> Was the rest for nothing?  I'd be happy to return to it.
+>
+> > So, I wonder if you are trying to engage us in some sort of Socratic
+> > discussion? Certainly you are capable of thinking through the
+> consequences
+> > of your own license as I have.
+>
+> Your conclusions are not inevitable.  We disagree.  Some of
+> my reasons appear above.  Some appear in my previous reply.
+> Please consider them.  I took time for hope you would.
+>
+> > You appear to have scrapped the previous
+> > version of your license that you might have made OSD compliant with my
+> > advice, removing consequences based on use. In its place, I see *yet
+> > another pass at incorporating use into your terms.*
+> >
+> > I can confidently say that you have exhausted this path.
+>
+> You've invited me, several times as I now understand, to
+> propose a different license.  To pare L0-R back to a pithy
+> reimplementation of GPL-style copyleft with some bugfixes.
+> As I take your gist, a bare modification copyleft triggers,
+> and combination without "derivative work".  Perhaps that's
+> L0-R as currently proposed, with edits we've discussed, less
+> condition 5. Perhaps that seems useful, from your point of
+> view.  But it's not the license I proposed for review.
+>
+> True, L0-R was rewritten, and partly at your urging.  But it
+> has asked what McCoy dubbed the "maximaleft" question from
+> the very beginning.  It has asked the questions Richard set
+> out last month.  The rewrite sharpened focus on those
+> questions.
+>
+> I asked the questions in hopes of hearing OSI's answers.
+> Others, leaning both ways, have agreed they aren't cut and
+> dry.  Perhaps the committee will come back, and constrain me
+> to just the kind of license you have in mind.  I see, and
+> have tried to make, a strong case that they shouldn't.
+>
+> --
+> Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+
+
+
+-- 
+Simon Phipps*, President, The Open Source Initiative*
++44 238 098 7027 or +1 415 683 7660 : www.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171108/ba3c2db2/attachment.html>
+
+From cowan at ccil.org  Wed Nov  8 21:16:20 2017
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 8 Nov 2017 16:16:20 -0500
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOt2X8XHfUEtrDp4Tzu9vGe2fD9+ydV4BUir08CgnTEksQ@mail.gmail.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOvhJCMFimdGSV5xw2MF8CzfjZt1DKJZKXh1GGeKMngiTQ@mail.gmail.com> <20171108075050.GQ25059@dev.kemitchell.com> <CAK2MWOvXOQNvRsNXyQd06o0jw9g0fc=GB4zYJVYsaHzbW+fOdg@mail.gmail.com> <CAD2gp_QE_0dz7m3nE8uMECMSYkXD64FP=r6s4LoHx_n7obQNCQ@mail.gmail.com> <CAK2MWOt2X8XHfUEtrDp4Tzu9vGe2fD9+ydV4BUir08CgnTEksQ@mail.gmail.com>
+Message-ID: <CAD2gp_R9RxUza3J7bMwfHt98kg0LF=j0YRQ07yfPCiGVgcFD+w@mail.gmail.com>
+
+On Wed, Nov 8, 2017 at 12:51 PM, Bruce Perens <bruce at perens.com> wrote:
+
+Analysis, modification, and generation of software are a field of endeavor
+> under OSD # 6.
+>
+
+Okay, so any task counts as a "field of endeavor".  This should be
+explained somewhere, as the examples in the OSDA suggest lines of business.
+
+
+> OSD #2 says the *program *must include source code, so it overrides any
+> provision in OSD # 6 that would prevent the program from having source code.
+>
+
+So "distributing binary without source" is a field of endeavor too, but
+discrimination based on it (that is, forbidding it) is okay because #2.
+This also should be explained.
+ But not *other *programs. So, GPL OK, King Midas not OK.
+>
+
+No argument from me.  I just want the ??'s dotted and the ?'s crossed.
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+They do not preach that their God will rouse them
+A little before the nuts work loose.
+They do not teach that His Pity allows them
+to drop their job when they damn-well choose. --Rudyard Kipling, "The Sons of Martha"
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171108/34306c93/attachment.html>
+
+From bruce at perens.com  Wed Nov  8 21:32:56 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 8 Nov 2017 13:32:56 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <CAD2gp_R9RxUza3J7bMwfHt98kg0LF=j0YRQ07yfPCiGVgcFD+w@mail.gmail.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOvhJCMFimdGSV5xw2MF8CzfjZt1DKJZKXh1GGeKMngiTQ@mail.gmail.com> <20171108075050.GQ25059@dev.kemitchell.com> <CAK2MWOvXOQNvRsNXyQd06o0jw9g0fc=GB4zYJVYsaHzbW+fOdg@mail.gmail.com> <CAD2gp_QE_0dz7m3nE8uMECMSYkXD64FP=r6s4LoHx_n7obQNCQ@mail.gmail.com> <CAK2MWOt2X8XHfUEtrDp4Tzu9vGe2fD9+ydV4BUir08CgnTEksQ@mail.gmail.com> <CAD2gp_R9RxUza3J7bMwfHt98kg0LF=j0YRQ07yfPCiGVgcFD+w@mail.gmail.com>
+Message-ID: <CAK2MWOvxaDQ0wBDN2xmG-utu8zqq3ney9McCEj6+M86mmH4jbQ@mail.gmail.com>
+
+I don't stand behind the annotations. One or two sort of miss the purpose
+and they could be improved.
+ Thanks
+ Bruce
+
+On Wed, Nov 8, 2017 at 1:16 PM, John Cowan <cowan at ccil.org> wrote:
+
+>
+>
+> On Wed, Nov 8, 2017 at 12:51 PM, Bruce Perens <bruce at perens.com> wrote:
+>
+> Analysis, modification, and generation of software are a field of endeavor
+>> under OSD # 6.
+>>
+>
+> Okay, so any task counts as a "field of endeavor".  This should be
+> explained somewhere, as the examples in the OSDA suggest lines of business.
+>
+>
+>> OSD #2 says the *program *must include source code, so it overrides any
+>> provision in OSD # 6 that would prevent the program from having source code.
+>>
+>
+> So "distributing binary without source" is a field of endeavor too, but
+> discrimination based on it (that is, forbidding it) is okay because #2.
+> This also should be explained.
+>
+>  But not *other *programs. So, GPL OK, King Midas not OK.
+>>
+>
+> No argument from me.  I just want the ??'s dotted and the ?'s crossed.
+>
+> --
+> John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+> They do not preach that their God will rouse them
+> A little before the nuts work loose.
+> They do not teach that His Pity allows them
+> to drop their job when they damn-well choose.
+>                 --Rudyard Kipling, "The Sons of Martha"
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171108/71f7e2a7/attachment.html>
+
+From kyle at kemitchell.com  Thu Nov  9 07:10:31 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Wed, 8 Nov 2017 23:10:31 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <CAA4ffp9mFt0sGY0sf_ZsMeNAXPMU+-TLH-qv5-S5h5jKpYhJmA@mail.gmail.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOvhJCMFimdGSV5xw2MF8CzfjZt1DKJZKXh1GGeKMngiTQ@mail.gmail.com> <20171108075050.GQ25059@dev.kemitchell.com> <CAA4ffp9mFt0sGY0sf_ZsMeNAXPMU+-TLH-qv5-S5h5jKpYhJmA@mail.gmail.com>
+Message-ID: <20171109071031.GD23064@dev.kemitchell.com>
+
+On 2017-11-08 18:11, Simon Phipps wrote:
+> > I asked the questions in hopes of hearing OSI's answers.
+> > Others, leaning both ways, have agreed they aren't cut and
+> > dry.  Perhaps the committee will come back, and constrain me
+> > to just the kind of license you have in mind.
+>
+> That's not how OSI or the license review process works. OSI waits for this
+> public forum to reach a stable consensus, then evaluates it against mission
+> and principle, then crystalises the community opinion if they match. OSI
+> will not offer opinions on licenses either here or privately, and this
+> forum is the "committee".
+
+Thanks so much, Simon.  I know I accidentally rankled you a
+while back.  But please know I'm sincerely grateful for your
+pointers on process.  It takes time, I know.
+
+For what it's worth, my confusion here traces back to
+https://opensource.org/approval once more:
+ What Will Happen
+ 1. The License Review community will discuss on the mailing list for at least 30 days.  The submitter should participate in this discussion by replying to any questions asked or claims made about the license.
+ 2. The License Review Chair will summarize and present recommendations to OSI Board (and copy the list).
+ 3. The OSI Board will make the final decision, or requests for additional information, at the next monthly meeting.
+ 4. The License Review Chair will report back to the List.
+ 5. If Approved, the OSI Website will be updated as appropriate.
+
+The website names Luis License Review Chair, but I
+understand he no longer holds the post.  I gathered that
+Richard does, somewhere along the way.  I can't recall
+offhand how.  And I took his recent e-mail laying out
+questions for the board as preparation for the report
+mentioned above.
+
+I so wish that my first e-mail to license-discuss had been a
+request for an overview of the process, soup to nuts.
+Instead, I did what looked for all the world like my
+homework, and followed its instructions.  I can't help
+feeling that's hurt more than helped me.
+
+I have no desire to lay blame anywhere, on anyone.  But
+someone should please update /approval, before it takes
+another victim.  If only to replace it with instructions to
+inquire on this list.
+
+Best,
+
+K
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Thu Nov  9 20:58:35 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 9 Nov 2017 12:58:35 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <20171109071031.GD23064@dev.kemitchell.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOvhJCMFimdGSV5xw2MF8CzfjZt1DKJZKXh1GGeKMngiTQ@mail.gmail.com> <20171108075050.GQ25059@dev.kemitchell.com> <CAA4ffp9mFt0sGY0sf_ZsMeNAXPMU+-TLH-qv5-S5h5jKpYhJmA@mail.gmail.com> <20171109071031.GD23064@dev.kemitchell.com>
+Message-ID: <CAK2MWOs2rf7cxv4y4tN+cL-W8sWjN_ng5iknjp2zpJOHy6OK_Q@mail.gmail.com>
+
+Kyle,
+
+It seems to me that you got the more than 30 days discussion that you were
+entitled to. IMO you started with an attempt to transcend the Open Source
+model (although that was not immediately obvious to me) and you pushed as
+hard as you could, and you failed. Whatever injury you accumulated in doing
+so was a reasonable cost of the attempt and IMO not OSI's problem.
+
+Note that I contribute my effort to this committee pro bono, and the other
+folks here who are admitted to the bar do similarly while their time is
+worth much more than mine, and you got copious use of all of our time. So,
+I think we're even.
+
+For the record, I recommend that the license not be approved.
+
+Why don't you try it with a user community? Maybe someone will like it.
+ Thanks
+ Bruce
+
+
+On Wed, Nov 8, 2017 at 11:10 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+> On 2017-11-08 18:11, Simon Phipps wrote:
+> > > I asked the questions in hopes of hearing OSI's answers.
+> > > Others, leaning both ways, have agreed they aren't cut and
+> > > dry.  Perhaps the committee will come back, and constrain me
+> > > to just the kind of license you have in mind.
+> >
+> > That's not how OSI or the license review process works. OSI waits for
+> this
+> > public forum to reach a stable consensus, then evaluates it against
+> mission
+> > and principle, then crystalises the community opinion if they match. OSI
+> > will not offer opinions on licenses either here or privately, and this
+> > forum is the "committee".
+>
+> Thanks so much, Simon.  I know I accidentally rankled you a
+> while back.  But please know I'm sincerely grateful for your
+> pointers on process.  It takes time, I know.
+>
+> For what it's worth, my confusion here traces back to
+> https://opensource.org/approval once more:
+>
+>   What Will Happen
+>
+>   1. The License Review community will discuss on the
+>      mailing list for at least 30 days.  The submitter
+>      should participate in this discussion by replying to
+>      any questions asked or claims made about the license.
+>
+>   2. The License Review Chair will summarize and present
+>      recommendations to OSI Board (and copy the list).
+>
+>   3. The OSI Board will make the final decision, or requests
+>      for additional information, at the next monthly
+>      meeting.
+>
+>   4. The License Review Chair will report back to the List.
+>
+>   5. If Approved, the OSI Website will be updated as
+>      appropriate.
+>
+> The website names Luis License Review Chair, but I
+> understand he no longer holds the post.  I gathered that
+> Richard does, somewhere along the way.  I can't recall
+> offhand how.  And I took his recent e-mail laying out
+> questions for the board as preparation for the report
+> mentioned above.
+>
+> I so wish that my first e-mail to license-discuss had been a
+> request for an overview of the process, soup to nuts.
+> Instead, I did what looked for all the world like my
+> homework, and followed its instructions.  I can't help
+> feeling that's hurt more than helped me.
+>
+> I have no desire to lay blame anywhere, on anyone.  But
+> someone should please update /approval, before it takes
+> another victim.  If only to replace it with instructions to
+> inquire on this list.
+>
+> Best,
+>
+> K
+>
+> --
+> Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171109/e327d4b8/attachment.html>
+
+From bruce at perens.com  Thu Nov  9 21:01:06 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 9 Nov 2017 13:01:06 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOs2rf7cxv4y4tN+cL-W8sWjN_ng5iknjp2zpJOHy6OK_Q@mail.gmail.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOvhJCMFimdGSV5xw2MF8CzfjZt1DKJZKXh1GGeKMngiTQ@mail.gmail.com> <20171108075050.GQ25059@dev.kemitchell.com> <CAA4ffp9mFt0sGY0sf_ZsMeNAXPMU+-TLH-qv5-S5h5jKpYhJmA@mail.gmail.com> <20171109071031.GD23064@dev.kemitchell.com> <CAK2MWOs2rf7cxv4y4tN+cL-W8sWjN_ng5iknjp2zpJOHy6OK_Q@mail.gmail.com>
+Message-ID: <CAK2MWOuRWFC0S0-zbm-n-1KpSxRrkiCsBD9xkiGEW+ONAUSQUA@mail.gmail.com>
+
+> and the other folks here who are admitted to the bar do similarly while
+their time is worth much more than mine,
+This is to say that they are admitted and I'm not. I don't ever want to
+make *that *mistake.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171109/4b2a9e81/attachment.html>
+
+From kyle at kemitchell.com  Mon Nov 13 05:39:56 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Sun, 12 Nov 2017 21:39:56 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOuRWFC0S0-zbm-n-1KpSxRrkiCsBD9xkiGEW+ONAUSQUA@mail.gmail.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOvhJCMFimdGSV5xw2MF8CzfjZt1DKJZKXh1GGeKMngiTQ@mail.gmail.com> <20171108075050.GQ25059@dev.kemitchell.com> <CAA4ffp9mFt0sGY0sf_ZsMeNAXPMU+-TLH-qv5-S5h5jKpYhJmA@mail.gmail.com> <20171109071031.GD23064@dev.kemitchell.com> <CAK2MWOs2rf7cxv4y4tN+cL-W8sWjN_ng5iknjp2zpJOHy6OK_Q@mail.gmail.com> <CAK2MWOuRWFC0S0-zbm-n-1KpSxRrkiCsBD9xkiGEW+ONAUSQUA@mail.gmail.com>
+Message-ID: <20171113053956.GH15549@dev.kemitchell.com>
+
+Bruce,
+
+Lawyer time is worth more than yours in just one, very
+narrow manner of speaking.
+
+You want to run me off. Perhaps you're entitled to. I have
+no idea. I have had as many words on this process, on and
+off this list, from people who apparently ought to know, as
+on the license. It's been like Calvinball. And yes, perhaps
+to your point, if the webmaster had put the rules I'm given
+to understand today on /approval last quarter, I wouldn't
+have signed up to play.
+
+I'm tired, too. But I'm going to answer your latest reading
+of OSD, your bad metaphor, put the "viral license" FUD
+recently exhumed back in its grave. I want a full record
+here, and I'm as energetic as ever for the question. Anyone
+who wants can engage me on it, here or privately. But I'm
+not going to exert myself on prior pace to keep this process
+turning over. Looking back to Richard's summaries, just two
+weeks ago, it's clear we've been southbound since.
+
+Why did I bother? Because when I turn away from this
+process, I will see members of the community call L0-R
+software open source. I will see them talk about selling
+exceptions as an approach to open source sustainability.
+Hell, they said that about the _noncommercial_ license, for
+which I took great pains to project otherwise. But when I
+hear about L0-R, I am also supposed to chide that OSI did
+not approve. First they'll ask who OSI is. If we get past
+that, they'll ask why.
+
+These people grew up doing software on the Web, as I did. If
+I tell them to read between OSD's lines in a tortured,
+selective way, they'll read it for themselves. If I appeal
+to authority, they'll demand reasons. If I tell them it was
+the default outcome of a process, different from what's
+described online, applying a definition held back in
+self-empowering vagueness, and also unenumerated policies,
+they'll wonder if I really came up in their community at
+all. That's not how their community works, and they'll be
+indignant to hear that's how it's defined. I've had a few of
+these conversations already.
+
+I bothered because I put myself between. I'm the one in my
+peer group who knew of, and cared about, OSI approval. L0-R
+came out of conversations with coder friends, but none of
+them asked me to bring it here. Having done so, I wanted to
+bring back something definitive, that would hold up on both
+sides, be it good news or bad.
+
+I took the time, and now that you mention it, I'll never see
+it paid, either. But I see time on interesting community
+matters as a privilege to spend, not any loss to measure up
+and account for. Not everyone who can gets to do this.
+
+And yes, coffee when you can.

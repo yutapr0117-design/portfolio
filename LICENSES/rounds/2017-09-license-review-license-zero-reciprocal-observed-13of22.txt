@@ -1,0 +1,750 @@
+
+In software, we give WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OF IMPLIED.  Fiduciary duties mean that's not exactly the
+game for what we give as officers and directors.  But
+there's law, and there's right.
+
+I come in peace.  I'm very grateful to all of you.
+
+Best,
+
+K
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Wed Oct 25 00:05:35 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 24 Oct 2017 17:05:35 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com>
+References: <8760b5vhc4.fsf@mid.deneb.enyo.de> <01dbfd5b-dfa1-5613-ee86-b92069286a8e@piana.eu> <CAA4ffp-cbhLxZsM0geVEdr1NRn9ZhHde5wFyj3uXQnRNeKXd7w@mail.gmail.com> <1ca814d0-78e2-12e3-1780-f3e17b25e032@postgresql.org> <20171023214753.GQ9694@dev.kemitchell.com> <CAA4ffp-T0wZFGbJVGGO-Kh-A2Q0DHiWFU+BFDx9HRWdXygWAwA@mail.gmail.com> <20171023220814.GA7764@dev.kemitchell.com> <CAA4ffp8=-kXx3p+CvcBOKjumK73d0+fOqeq6RBhT8J-MpH4aiQ@mail.gmail.com> <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com>
+Message-ID: <CAK2MWOvroNSCHvim5JJSPPyLxcU-5ATG3tsNardtcMLwUR7eYA@mail.gmail.com>
+
+>
+> On Wed, Oct 25, 2017 at 1:46 AM, Kyle Mitchell <kyle at kemitchell.com>
+> wrote:
+>
+>> Those currently wearing fiduciary hats for
+>
+> OSI to seek the benefit of their own legal counsel whenever
+>> this comes up.  I'll say no more.
+>>
+>
+> No, please do, I can't let that covert but public allegation slide.
+>
+
+Maybe we should all agree that was a dumb thing to say, and move on. It's a
+non-profit administering a trademark program, and not particularly
+arbitrary as those things go.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171024/fe1faa8f/attachment.html>
+
+From kyle at kemitchell.com  Wed Oct 25 00:16:13 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 24 Oct 2017 17:16:13 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com>
+References: <CAA4ffp-cbhLxZsM0geVEdr1NRn9ZhHde5wFyj3uXQnRNeKXd7w@mail.gmail.com> <1ca814d0-78e2-12e3-1780-f3e17b25e032@postgresql.org> <20171023214753.GQ9694@dev.kemitchell.com> <CAA4ffp-T0wZFGbJVGGO-Kh-A2Q0DHiWFU+BFDx9HRWdXygWAwA@mail.gmail.com> <20171023220814.GA7764@dev.kemitchell.com> <CAA4ffp8=-kXx3p+CvcBOKjumK73d0+fOqeq6RBhT8J-MpH4aiQ@mail.gmail.com> <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com>
+Message-ID: <20171025001613.GB9148@dev.kemitchell.com>
+
+On 2017-10-25 01:10, Simon Phipps wrote:
+> On Wed, Oct 25, 2017 at 1:46 AM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+> > Those currently wearing fiduciary hats for
+> > OSI to seek the benefit of their own legal counsel whenever
+> > this comes up.  I'll say no more.
+> >
+>
+> No, please do, I can't let that covert but public allegation slide.
+
+No allegation made or intended.  I've no reason to believe
+OSI is currently playing out-of-bounds, or harbor any hope
+whatsoever of seeing it called out of bounds.
+
+"Mission" versus "purpose" and tax status is a classic
+attorney-client conversation for (c)(3) entities.  One I'm
+used to having with those in my charge.  Especially those
+working areas adjacent to the (c)(3)/(c)(6) morass.
+Especially when transparency, policy positions, and personal
+discretion come up.
+
+I don't want to see OSI anywhere near that kind of issue.
+But I am not the attorney engaged and accountable to OSI for
+advising how to steer clear of it.  So I direct to my
+colleagues who are.
+
+The usual lawyerly prudence.  Nothing more.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Wed Oct 25 00:30:10 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 24 Oct 2017 17:30:10 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171025001613.GB9148@dev.kemitchell.com>
+References: <CAA4ffp-cbhLxZsM0geVEdr1NRn9ZhHde5wFyj3uXQnRNeKXd7w@mail.gmail.com> <1ca814d0-78e2-12e3-1780-f3e17b25e032@postgresql.org> <20171023214753.GQ9694@dev.kemitchell.com> <CAA4ffp-T0wZFGbJVGGO-Kh-A2Q0DHiWFU+BFDx9HRWdXygWAwA@mail.gmail.com> <20171023220814.GA7764@dev.kemitchell.com> <CAA4ffp8=-kXx3p+CvcBOKjumK73d0+fOqeq6RBhT8J-MpH4aiQ@mail.gmail.com> <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com>
+Message-ID: <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com>
+
+Can we get back to writing licenses now, please? As far as I can tell you
+had a simple drafting problem that no longer stands in your way. It may
+still be that the license is not compelling enough in its merit to be
+OSI-certified even though it achieves OSD-compliance. We have gone really
+far beyond the matter at hand and I fear the unsubscribe commands are
+pouring into the list server.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171024/278d3e35/attachment.html>
+
+From kyle at kemitchell.com  Wed Oct 25 00:36:36 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 24 Oct 2017 17:36:36 -0700
+Subject: [License-review] resolving ambiguities in OSD [was Re: For Approval: License Zero Reciprocal Public License]
+In-Reply-To: <CAK2MWOsvcEOV4O5URChq_L_iAwFf6b24qB7u=G94OToY7Mz5iQ@mail.gmail.com>
+References: <CAFjZtRdBsgYOYk7Vss=c3FTbOcoJQQs_dx5h2=WGO6X4cpWUgA@mail.gmail.com> <CAK2MWOsvcEOV4O5URChq_L_iAwFf6b24qB7u=G94OToY7Mz5iQ@mail.gmail.com>
+Message-ID: <20171025003636.GC9148@dev.kemitchell.com>
+
+On 2017-10-24 16:10, Bruce Perens wrote:
+> On Tue, Oct 24, 2017 at 4:34 PM, Luis Villa <luis at lu.is> wrote:
+> > A better approach would be to attempt to capture some of the unwrittten
+> > criteria that the board uses (proliferation, drafting quality, etc.)
+> >
+>
+> It's not actually unwritten. You can find volumes about it on this list.
+> Just not codified.
+
+For what it's worth, as someone undergoing this process in
+the first person for the first time, I can't overstate how
+helpful it is to have static webpages setting out the
+Definition, the annotations, and the review process.
+
+It would be quite a project to codify the license-review
+archive's wisdom, especially without the ability to query
+folks whose messages you can't be sure you read correctly.
+But static pages on opensource.org would still say more,
+having done all that.
+
+For example, I've enjoyed going back-and-forth with a number
+of folks on other-than-OSD issues for L0-R so far, but:
+
+- People have their own way of talking about things, their own vocabulary and favorite examples.  For example, you and John Cowan speak about users of unmodified copies a little differently.  It's hard to keep straight.  When replies run in parallel, it's hard to juggle.
+ A document like OSD speaks in a more unified voice.
+
+- It isn't clear whose concerns, or what formulation of shared concerns, affects the review outcome.  Input isn't any less valuable for coming from someone who admits they don't speak for the board, but there is a practical difference.  When making revisions, I've sometimes wondered whether I'm running out of one policy fire into another.  Whether the former, the latter, both, or neither need dousing to proceed.
+ An "approval criteria" page, approved by the board, would send a far clearer signal.
+
+- I'm not sure current directors or license reviewers will feel all that bound by old conclusions, especially for particularly old ones.  A perfectly studied license-review historian might find themself ahead of the board, or behind it in the times.
+
+Best,
+
+K
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Wed Oct 25 00:49:04 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 24 Oct 2017 17:49:04 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com>
+References: <20171023214753.GQ9694@dev.kemitchell.com> <CAA4ffp-T0wZFGbJVGGO-Kh-A2Q0DHiWFU+BFDx9HRWdXygWAwA@mail.gmail.com> <20171023220814.GA7764@dev.kemitchell.com> <CAA4ffp8=-kXx3p+CvcBOKjumK73d0+fOqeq6RBhT8J-MpH4aiQ@mail.gmail.com> <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com>
+Message-ID: <20171025004904.GD9148@dev.kemitchell.com>
+
+On 2017-10-24 17:10, Bruce Perens wrote:
+> Can we get back to writing licenses now, please?
+
+Yes, I'd love to.  But frankly, apart from waiting to hear
+back from Richard and McCoy, and giving your latest message
+its second read, I'm feeling less and less like I know what
+to do.
+
+To give a sense, it came as a surprise to read that you
+think a draft---which draft?---is OSD-conformant as revised.
+I think that's the first vote of such confidence I've heard
+on the conformance question.
+
+I'm equally tempted to stand on whatever you think conforms,
+ask that it be reported to the board, and wait for whatever
+feedback comes of that, on the one hand, or to rewrite the
+whole thing from scratch with a free hand, best I can, on
+the other.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From josh at postgresql.org  Wed Oct 25 00:49:55 2017
+From: josh at postgresql.org (Josh berkus)
+Date: Tue, 24 Oct 2017 17:49:55 -0700
+Subject: [License-review] resolving ambiguities in OSD [was Re: For Approval: License Zero Reciprocal Public License]
+In-Reply-To: <20171025003636.GC9148@dev.kemitchell.com>
+References: <CAFjZtRdBsgYOYk7Vss=c3FTbOcoJQQs_dx5h2=WGO6X4cpWUgA@mail.gmail.com> <CAK2MWOsvcEOV4O5URChq_L_iAwFf6b24qB7u=G94OToY7Mz5iQ@mail.gmail.com> <20171025003636.GC9148@dev.kemitchell.com>
+Message-ID: <296fde9f-4cc8-6229-6e08-6d972ee7d695@postgresql.org>
+
+On 10/24/2017 05:36 PM, Kyle Mitchell wrote:
+>> It's not actually unwritten. You can find volumes about it on this list.
+>> Just not codified.
+> For what it's worth, as someone undergoing this process in
+> the first person for the first time, I can't overstate how
+> helpful it is to have static webpages setting out the
+> Definition, the annotations, and the review process.
+
+For that matter, as a member of this committee, if there are criteria
+other than the below for evaluating licenses, I would like to know about
+them:
+
+1. Is legally valid/rigorous
+
+2. Complies with OSD
+
+3. Is significantly different from existing licenses
+
+4. Has a substantiated use case
+
+Those are all of the criteria that I'm aware of.  So if there are others
+I should be examining, please let me know.
+
+
+From bruce at perens.com  Wed Oct 25 00:55:47 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 24 Oct 2017 17:55:47 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171025004904.GD9148@dev.kemitchell.com>
+References: <20171023214753.GQ9694@dev.kemitchell.com> <CAA4ffp-T0wZFGbJVGGO-Kh-A2Q0DHiWFU+BFDx9HRWdXygWAwA@mail.gmail.com> <20171023220814.GA7764@dev.kemitchell.com> <CAA4ffp8=-kXx3p+CvcBOKjumK73d0+fOqeq6RBhT8J-MpH4aiQ@mail.gmail.com> <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com>
+Message-ID: <CAK2MWOvpGxsMXvoYcvMh3auQUUk=Y=+EDDjxgR8unR6uXb-_Kw@mail.gmail.com>
+
+>  I'm feeling less and less like I know what to do.
+
+I think that if you use the language that I proposed, you can abandon the
+quirky coupling of modification and thus the major objection to your
+license so far. Having dispatched that, there may be remaining problems,
+but probably smaller ones. Again, the result might not be so meritorious
+that the board chooses to admit it to certification.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171024/7241596d/attachment.html>
+
+From fontana at sharpeleven.org  Wed Oct 25 01:07:30 2017
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Tue, 24 Oct 2017 21:07:30 -0400
+Subject: [License-review] resolving ambiguities in OSD [was Re: For Approval: License Zero Reciprocal Public License]
+In-Reply-To: <296fde9f-4cc8-6229-6e08-6d972ee7d695@postgresql.org>
+References: <CAFjZtRdBsgYOYk7Vss=c3FTbOcoJQQs_dx5h2=WGO6X4cpWUgA@mail.gmail.com> <CAK2MWOsvcEOV4O5URChq_L_iAwFf6b24qB7u=G94OToY7Mz5iQ@mail.gmail.com> <20171025003636.GC9148@dev.kemitchell.com> <296fde9f-4cc8-6229-6e08-6d972ee7d695@postgresql.org>
+Message-ID: <1508893650.895164.1149981768.01B5EA62@webmail.messagingengine.com>
+
+On Tue, Oct 24, 2017, at 08:49 PM, Josh berkus wrote:
+> On 10/24/2017 05:36 PM, Kyle Mitchell wrote:
+> >> It's not actually unwritten. You can find volumes about it on this list.
+> >> Just not codified.
+> > For what it's worth, as someone undergoing this process in
+> > the first person for the first time, I can't overstate how
+> > helpful it is to have static webpages setting out the
+> > Definition, the annotations, and the review process.
+> 
+> For that matter, as a member of this committee, if there are criteria
+> other than the below for evaluating licenses, I would like to know about
+> them:
+> 
+> 1. Is legally valid/rigorous
+> 
+> 2. Complies with OSD
+> 
+> 3. Is significantly different from existing licenses
+> 
+> 4. Has a substantiated use case
+> 
+> Those are all of the criteria that I'm aware of.  So if there are others
+> I should be examining, please let me know. 
+
+I'd argue another one is "Is sufficiently clear and understandable",
+though that is closely related to 1 and 2.
+
+Richard
+
+
+
+
+From bruce at perens.com  Wed Oct 25 01:13:23 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 24 Oct 2017 18:13:23 -0700
+Subject: [License-review] resolving ambiguities in OSD [was Re: For Approval: License Zero Reciprocal Public License]
+In-Reply-To: <1508893650.895164.1149981768.01B5EA62@webmail.messagingengine.com>
+References: <CAFjZtRdBsgYOYk7Vss=c3FTbOcoJQQs_dx5h2=WGO6X4cpWUgA@mail.gmail.com> <CAK2MWOsvcEOV4O5URChq_L_iAwFf6b24qB7u=G94OToY7Mz5iQ@mail.gmail.com> <20171025003636.GC9148@dev.kemitchell.com> <296fde9f-4cc8-6229-6e08-6d972ee7d695@postgresql.org> <1508893650.895164.1149981768.01B5EA62@webmail.messagingengine.com>
+Message-ID: <CAK2MWOtBfum6q7Ebthiy_v5SBiSB0cA=8wusNGX7zzsvr3UkoA@mail.gmail.com>
+
+Most of this is implicit within the OSD but they are useful to keep in mind:
+
+With regard to *simple users,* those who make use of the Open Source
+software and do not modify or redistribute it, there should be as close to *no
+legal load* as possible. We need to be cognizant that many of these users
+are individuals and very small businesses that can't reasonably assume any
+legal load at all. We can't protect them from patent issues brought by
+others than the licensor of the software, but to the extent that we can
+protect them, we should. In particular, *simple users should not ever have
+to read the license.*
+
+We should also endeavor to keep the legal load upon *Open Source developers* as
+low as possible. These are also individuals, small businesses, etc. We
+expect them to understand the license somewhat, but they are not legal
+experts and do not necessarily have easy access to legal experts or even
+the inclination to use them.
+
+So, we can think about some things that would increase the load on those
+communities.
+
+Use-coupled license responsibilities. We should not allow them at all. If
+you're an infringer if you don't put the correct web badge on your site,
+it's a bad license for Open Source because it means the user has to track
+what programs they're running and put the proper badges online, and make
+sure in perpetuity that those badges keep being presented. No thanks.
+
+License proliferation: We don't want them to have to do more license
+combinatorial analysis than should be necessary. Thus, we should not in
+general accept new licenses, unless they in some way present a benefit to
+the community in a way that presently-accepted licenses do not.
+
+Crayon licenses: We should not today approve licenses that were developed
+without the assistance of a lawyer, because they are likely to not be
+parsed by a judge the way the developer expects. The name "crayon license"
+comes from a Monty Python sketch including a "cat license" which has "dog"
+crossed out and "cat" written in, in crayon. Some developers have been
+really seriously harmed (by Artistic License 1) and there are a few
+unfortunately-OSI-accepted time bombs waiting for new victims.
+
+Additional loads on the developer: We already place a number of loads on
+them when distributing, in general they have to present a copyright
+statement and license, sometimes a notice of source code availability,
+sometimes they have to distribute source code, and they perform some
+management of contributors and their rights. That's already a significant
+load, and additional loads upon the developer might not be a reasonable
+expectation.
+
+What we get from this is that there will be some licenses which are
+OSD-compliant but which should not be OSI-certified.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171024/f97ef6b5/attachment.html>
+
+From josh at postgresql.org  Wed Oct 25 01:19:58 2017
+From: josh at postgresql.org (Josh berkus)
+Date: Tue, 24 Oct 2017 18:19:58 -0700
+Subject: [License-review] resolving ambiguities in OSD [was Re: For Approval: License Zero Reciprocal Public License]
+In-Reply-To: <CAK2MWOtBfum6q7Ebthiy_v5SBiSB0cA=8wusNGX7zzsvr3UkoA@mail.gmail.com>
+References: <CAFjZtRdBsgYOYk7Vss=c3FTbOcoJQQs_dx5h2=WGO6X4cpWUgA@mail.gmail.com> <CAK2MWOsvcEOV4O5URChq_L_iAwFf6b24qB7u=G94OToY7Mz5iQ@mail.gmail.com> <20171025003636.GC9148@dev.kemitchell.com> <296fde9f-4cc8-6229-6e08-6d972ee7d695@postgresql.org> <1508893650.895164.1149981768.01B5EA62@webmail.messagingengine.com> <CAK2MWOtBfum6q7Ebthiy_v5SBiSB0cA=8wusNGX7zzsvr3UkoA@mail.gmail.com>
+Message-ID: <b2a34b63-ae15-5367-3306-ebb48eaecf3b@postgresql.org>
+
+On 10/24/2017 06:13 PM, Bruce Perens wrote:
+> 
+> With regard to?*simple users,*?those who make use of the Open Source
+> software and do not modify or redistribute it, there should be as close
+> to?*no legal load*?as possible. We need to be cognizant that many of
+> these users are individuals and very small businesses that can't
+> reasonably assume any legal load at all. We can't protect them from
+> patent issues brought by others than the licensor of the software, but
+> to the extent that we can protect them, we should. In
+> particular,?*simple users should not ever have to read the license.*
+
+Is this an actual requirement for OSI license certification?  I ask
+because it has specific bearing on whether or not we recommend LZRPL.
+
+It would also leave open the question of why the AGPL gets to circumvent
+that requirement.
+
+--Josh
+
+
+From Nigel.Tzeng at jhuapl.edu  Wed Oct 25 02:45:06 2017
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Wed, 25 Oct 2017 02:45:06 +0000
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171025004904.GD9148@dev.kemitchell.com>
+References: <20171023214753.GQ9694@dev.kemitchell.com> <CAA4ffp-T0wZFGbJVGGO-Kh-A2Q0DHiWFU+BFDx9HRWdXygWAwA@mail.gmail.com> <20171023220814.GA7764@dev.kemitchell.com> <CAA4ffp8=-kXx3p+CvcBOKjumK73d0+fOqeq6RBhT8J-MpH4aiQ@mail.gmail.com> <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com>, <20171025004904.GD9148@dev.kemitchell.com>
+Message-ID: <d15cb1e0110d40359ebd942aaa3f9d91@aplex01.dom1.jhuapl.edu>
+
+I think you have three issues.
+
+First, I don?t think you two are talking about the same draft.
+
+Second, I don?t believe your license achieves the goal you desire because ultimately what you want isn?t open source
+
+And finally, it appears to me that it may be possible to easily circumvent your intent because the business entity can make their changes under BSD and simply not provide source to any of the internal users of the derivative work fulfilling both BSD and L0R requirements. No one else is legally authorized to make that source available to anyone...not even the actual coders. The requirement for a public repo isn?t in the last draft.
+
+I think...because I?m not sure the last draft I read really is the last draft.
+
+You can continue to patch your license to close loopholes but attempting to force commercial users to pay the developers ultimately isn?t open source. It?s a shared source model with dual licensing.
+
+/shrug
+
+I?m not against that desire, and in fact am for it, but you?re trying to do something the OSD guards against.
+
+There?s also no reason to allow this license to pass muster while also stating non-commercial source available licenses isn?t ?open source?.
+
+At the end of the day both try to achieve the same goal: make commercial users pay for using the work.
+
+From: Kyle Mitchell <kyle at kemitchell.com<mailto:kyle at kemitchell.com>>
+Date: Tuesday, Oct 24, 2017, 8:49 PM
+To: License submissions for OSI review <license-review at opensource.org<mailto:license-review at opensource.org>>
+Subject: Re: [License-review] For Approval: License Zero Reciprocal Public License
+
+On 2017-10-24 17:10, Bruce Perens wrote:
+> Can we get back to writing licenses now, please?
+
+Yes, I'd love to.  But frankly, apart from waiting to hear
+back from Richard and McCoy, and giving your latest message
+its second read, I'm feeling less and less like I know what
+to do.
+
+To give a sense, it came as a surprise to read that you
+think a draft---which draft?---is OSD-conformant as revised.
+I think that's the first vote of such confidence I've heard
+on the conformance question.
+
+I'm equally tempted to stand on whatever you think conforms,
+ask that it be reported to the board, and wait for whatever
+feedback comes of that, on the one hand, or to rewrite the
+whole thing from scratch with a free hand, best I can, on
+the other.
+
+--
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+_______________________________________________
+License-review mailing list
+License-review at opensource.org
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171025/fc12ce8f/attachment.html>
+
+From kyle at kemitchell.com  Wed Oct 25 03:23:25 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 24 Oct 2017 20:23:25 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <d15cb1e0110d40359ebd942aaa3f9d91@aplex01.dom1.jhuapl.edu>
+References: <20171023220814.GA7764@dev.kemitchell.com> <CAA4ffp8=-kXx3p+CvcBOKjumK73d0+fOqeq6RBhT8J-MpH4aiQ@mail.gmail.com> <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <d15cb1e0110d40359ebd942aaa3f9d91@aplex01.dom1.jhuapl.edu>
+Message-ID: <20171025032325.GA21084@dev.kemitchell.com>
+
+On 2017-10-25 02:10, Tzeng, Nigel H. wrote:
+> And finally, it appears to me that it may be possible to
+> easily circumvent your intent because the business entity
+> can make their changes under BSD and simply not provide
+> source to any of the internal users of the derivative work
+> fulfilling both BSD and L0R requirements. No one else is
+> legally authorized to make that source available to
+> anyone...not even the actual coders. The requirement for a
+> public repo isn?t in the last draft.
+
+You're right.  I removed the "publish" requirement from the
+most recent draft.  John Cowan in particular found a few
+ways that requirement could run into trouble.
+
+My response was to require Open Source per OSD.  As it turns
+out, OSD 2 actually goes beyond what the license for
+software says, to availability of source code:
+ The program must include source code, and must allow distribution in source code as well as compiled form. Where some form of a product is not distributed with source code, there must be a well-publicized means of obtaining the source code for no more than a reasonable reproduction cost, preferably downloading via the Internet without charge. The source code must be the preferred form in which a programmer would modify the program. Deliberately obfuscated source code is not allowed. Intermediate forms such as the output of a preprocessor or translator are not allowed.
+
+That requirement applies to releases of modification and
+other software under the most recent draft of L0-R. Speaking
+of which...
+
+> I think...because I?m not sure the last draft I read
+> really is the last draft.
+
+Totally understandable.
+
+The currently proposed draft is here:
+
+https://lists.opensource.org/pipermail/license-review/2017-October/003134.html
+
+All other changes have only been proposed to specific
+people, in response to specific feedback.  I will update the
+current draft, going forward, only by replying to the
+original message.
+
+> You can continue to patch your license to close loopholes
+> but attempting to force commercial users to pay the
+> developers ultimately isn?t open source. It?s a shared
+> source model with dual licensing.
+>
+> /shrug
+>
+> I?m not against that desire, and in fact am for it, but
+> you?re trying to do something the OSD guards against.
+
+The license that you rightly exclude from Open Source here
+is L0-NC, a noncommercial license based on BSD, with
+commercial use language from CC-BY-NC-3.0.
+
+https://licensezero.com/licenses/noncommercial/diff
+
+I have not and will not propose that license to OSI for
+approval, because it clearly does _not_ meet the Definition,
+as you say.
+
+But copyleft licenses like GPL and AGPL, both OSI-approved,
+are very commonly used as the public license for
+dual-licensing business models.  Businesses pay for
+alternative terms in these situations because they
+discriminate against Open Source, not because the licenses
+discriminate against business.  A recent, successful example
+of a project dual-licensed in this way is MongoDB, under
+AGPL.
+
+L0-R aims to be a very strong copyleft license.  Stronger
+even than AGPL.  That will make it even more attractive for
+some business users to purchase alternative terms, when
+available.  But plenty of for-profit concerns will be able
+to use L0-R software under its public license without issue.
+At the same time, an individual wanting to use L0-R code
+with private modifications for a non-commercial hobby
+project _would_ need other terms.  Commercial use doesn't
+matter.  Sharing alike as Open Source does.
+
+> At the end of the day both try to achieve the same goal:
+> make commercial users pay for using the work.
+
+Businesses following dual-licensing business models very
+often pick an OSI-approved license, like GPL or AGPL,
+precisely for this purpose.  Their intent doesn't make those
+licenses not Open Source.  Open Source depends on what the
+license says.
+
+Again, OSD-conformant licenses cannot discriminate against
+commercial use.  But commercial users can and do
+discriminate against Open Source software and the freedoms
+it values and protects.  The fact that companies that do not
+choose an Open Source-compatible business model may dislike
+an Open Source license, and try to buy other terms, does not
+disqualify the Open Source from being Open Source.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Wed Oct 25 03:38:19 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 24 Oct 2017 20:38:19 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171025032325.GA21084@dev.kemitchell.com>
+References: <20171023220814.GA7764@dev.kemitchell.com> <CAA4ffp8=-kXx3p+CvcBOKjumK73d0+fOqeq6RBhT8J-MpH4aiQ@mail.gmail.com> <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <d15cb1e0110d40359ebd942aaa3f9d91@aplex01.dom1.jhuapl.edu> <20171025032325.GA21084@dev.kemitchell.com>
+Message-ID: <CAK2MWOsmLRBj6LNBsBp0W9BifX09xjKXjf4shSOopPn=9PT_4Q@mail.gmail.com>
+
+I don't believe that the use of the OSD by reference works as you intend.
+The OSD is not a software license, it's a specification of how licenses
+should behave. Thus, it doesn't really require that source code must be
+distributed at all, when you use it by reference, it simply requires that
+your license allow source code redistribution (which it doesn't, because
+there is no language to that effect).
+
+If asked to testify, I would probably not be able to say this use of the
+document made sense.
+
+And OSI has not agreed to keep the OSD in its present form so that it can
+serve as the text of your license.
+
+Can you try being a bit less clever, and just write a stand-alone license
+that doesn't reference the BSD license, doesn't reference the OSD, and says
+what the licensee should do?
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171024/e31930d4/attachment.html>
+
+From kyle at kemitchell.com  Wed Oct 25 03:49:54 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 24 Oct 2017 20:49:54 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOsmLRBj6LNBsBp0W9BifX09xjKXjf4shSOopPn=9PT_4Q@mail.gmail.com>
+References: <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <d15cb1e0110d40359ebd942aaa3f9d91@aplex01.dom1.jhuapl.edu> <20171025032325.GA21084@dev.kemitchell.com> <CAK2MWOsmLRBj6LNBsBp0W9BifX09xjKXjf4shSOopPn=9PT_4Q@mail.gmail.com>
+Message-ID: <20171025034954.GB21084@dev.kemitchell.com>
+
+On 2017-10-24 20:10, Bruce Perens wrote:
+> I don't believe that the use of the OSD by reference works as you intend.
+> The OSD is not a software license, it's a specification of how licenses
+> should behave. Thus, it doesn't really require that source code must be
+> distributed at all, when you use it by reference, it simply requires that
+> your license allow source code redistribution (which it doesn't, because
+> there is no language to that effect).
+>
+> If asked to testify, I would probably not be able to say this use of the
+> document made sense.
+
+I'm a bit puzzled.
+
+The preamble reads:
+ Open source doesn't just mean access to the source code. The distribution terms of open-source software must comply with the following criteria...
+
+I read that to mean that "Open Source", as defined by OSD,
+is software that must be under terms that meet its criteria.
+So OSD isn't a license in itself, of course.   But it
+defines "open source software", not "open source license".
+
+Similar story for for distribution.  To release open source,
+as defined:
+ The program must include source code...
+
+Moreover:
+ Where some form of a product is not distributed with source code, there must be a well-publicized means of obtaining the source code for no more than a reasonable reproduction cost, preferably downloading via the Internet without charge.  The source code must be the preferred form in which a programmer would modify the program. Deliberately obfuscated source code is not allowed. Intermediate forms such as the output of a preprocessor or translator are not allowed.
+
+Licenses can't distribute source, so OSD is speaking to
+something other than the license here.
+
+What OSD says about source distribution doesn't say anything
+so general as "publication", as L0-R originally required,
+nor anything so specific as provision to those receiving
+binaries, or interacting over a network, as under AGPL.
+
+"Publication" and license meeting OSD seemed to do the
+trick, but others worried about edge cases.  So I fell back
+on OSD.  If OSD isn't good enough, either, then sure, I'll
+tackle it myself.
+
+> And OSI has not agreed to keep the OSD in its present form so that it can
+> serve as the text of your license.
+
+I can lock the reference to the OSD "as originally
+published" by OSI.
+
+> Can you try being a bit less clever, and just write a stand-alone license
+> that doesn't reference the BSD license, doesn't reference the OSD, and says
+> what the licensee should do?
+
+I mentioned doing so earlier today.  I am at work on it now.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Wed Oct 25 04:20:28 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 24 Oct 2017 21:20:28 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171025034954.GB21084@dev.kemitchell.com>
+References: <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <d15cb1e0110d40359ebd942aaa3f9d91@aplex01.dom1.jhuapl.edu> <20171025032325.GA21084@dev.kemitchell.com> <CAK2MWOsmLRBj6LNBsBp0W9BifX09xjKXjf4shSOopPn=9PT_4Q@mail.gmail.com> <20171025034954.GB21084@dev.kemitchell.com>
+Message-ID: <CAK2MWOs7DO+Xm6GV9cEOmFj9u97i93V_=T88oYmwqNNoS-cVzQ@mail.gmail.com>
+
+On Tue, Oct 24, 2017 at 8:49 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+> But it defines "open source software", not "open source license".
+>
+
+The preface says what Open Source software is, but the provisions define
+the behavior of an Open Source license.
+
+
+>   The program must include source code...
+>
+
+This is because a program could have an OSI-certified Open Source license,
+but no source code, and we did not want such a program to be presented as
+Open Source. And the rest of the sentence says "and must allow distribution
+of source code" which implies "the license".
+
+
+> Licenses can't distribute source, so OSD is speaking to something other
+> than the license here.
+>
+
+Nope. It's specifying that the license must allow (not require) the
+distribution of source code, and then has some terms to prevent gaming.
+
+But it's not attempting to be a software license, it wasn't written to be a
+software license, and if asked to testify I'd still say the use makes no
+sense because the subject of the document is not to be a software license
+but to specify the behavior of licenses as a class.
+
+And what you're doing is silly, because it's actually just a few sentences
+of the OSD you need to use to define how source is distributed, and rather
+than use them by reference you could just copy them or make a similar
+statement in your own language.
+
+Now, if you want to include the OSD by reference to specify that a
+modification must be under an OSD-compliant license, that makes logical
+sense but I still think it's bad writing, because you don't know what the
+OSD will say tomorrow. It would be much cleaner to specify that
+modifications must be under "this license".
+
+
+> I can lock the reference to the OSD "as originally published" by OSI.
+>
+
+The one originally published doesn't include that text. Just the first
+sentence. I'm not clear when the rest appeared, it's not in the Debian Free
+Software Guidelines.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171024/5a851572/attachment.html>
+
+From kyle at kemitchell.com  Wed Oct 25 04:46:03 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 24 Oct 2017 21:46:03 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOs7DO+Xm6GV9cEOmFj9u97i93V_=T88oYmwqNNoS-cVzQ@mail.gmail.com>
+References: <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <d15cb1e0110d40359ebd942aaa3f9d91@aplex01.dom1.jhuapl.edu> <20171025032325.GA21084@dev.kemitchell.com> <CAK2MWOsmLRBj6LNBsBp0W9BifX09xjKXjf4shSOopPn=9PT_4Q@mail.gmail.com> <20171025034954.GB21084@dev.kemitchell.com> <CAK2MWOs7DO+Xm6GV9cEOmFj9u97i93V_=T88oYmwqNNoS-cVzQ@mail.gmail.com>
+Message-ID: <20171025044603.GC21084@dev.kemitchell.com>
+
+On 2017-10-24 21:10, Bruce Perens wrote:
+> > Licenses can't distribute source, so OSD is speaking to something other
+> > than the license here.
+> >
+>
+> Nope. It's specifying that the license must allow (not require) the
+> distribution of source code, and then has some terms to prevent gaming.
+
+Please understand that I'm not doubting intent here, yours
+or that of others who approved of the text later.  But there
+are at least two reasons I can see that this language is
+hard to read as you propose.
+
+First, the sentences that follow use "must", not "may".
+That's language of obligation, not discretion or permission.
+
+Second, a great many approved licenses don't say anything
+about reproduction cost or preferred form.  BSD-2-Clause,
+for example, is silent on them.
+
+> But it's not attempting to be a software license, it wasn't written to be a
+> software license, and if asked to testify I'd still say the use makes no
+> sense because the subject of the document is not to be a software license
+> but to specify the behavior of licenses as a class.
+>
+> And what you're doing is silly, because it's actually just a few sentences
+> of the OSD you need to use to define how source is distributed, and rather
+> than use them by reference you could just copy them or make a similar
+> statement in your own language.
+
+I'm convinced to use my own language, but neither copying
+nor rephrasing come without cost.
+
+As for copying, you pointed out that OSD may change, and
+that point is well taken.  That means a potential mismatch
+between "Open Source" as defined by OSD and "Open Source" as
+defined by L0-R.
+
+As for rephrasing, there's no guarantee that I'll refactor
+without changing meaning.  In fact, there will almost
+certainly be edge cases where different words fit the same
+facts differently.
+
+The end result is "slippage" between how OSD defines "Open
+Source" and what L0-R requires.  I guess that's breaks.
+
+> Now, if you want to include the OSD by reference to specify that a
+> modification must be under an OSD-compliant license, that makes logical
+> sense but I still think it's bad writing, because you don't know what the
+> OSD will say tomorrow. It would be much cleaner to specify that
+> modifications must be under "this license".
+
+The original L0-R proposal used publication plus licensing
+under OSD conformant terms.  I backed up to "Open Source
+Software" as defined by OSD due to concerns about "publish",
+and realization that OSD said a lot about distribution.  If
+there's reason to acknowledge OSD is incomplete as to source

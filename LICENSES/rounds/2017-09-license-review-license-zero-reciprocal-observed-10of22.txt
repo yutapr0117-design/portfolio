@@ -1,0 +1,750 @@
+> >       Open Source Definition published by the Open Source
+> >       Initiative.
+>
+> [...]
+>
+> My first question, in the above, is "what if the user doesn't have the
+> ability to relicense the patch?"  The clause above imposes an obligation
+> that the *user* may be unable to fulfill -- or for that matter even
+> unaware of -- while the *distributor*, who is the jerk who bundled ZRPL
+> code with a proprietary patch in the first place, gets off scot-free.
+> Is that how you intended this paragraph to be interpreted?
+
+Yes.  The originator of the non-Open Source patch will be in
+breach, as would any follow-on user to whom they provide a
+copy.  The originator of the patch can't give more
+permission than they themselves received from owners of
+rights in the original L0-R code.  If the one who made the
+patch made any kind of warranty---express or implied---to
+the end user, the end user might be able to bring a claim
+against the infringing modifier-distributor, to answer for
+any liability of their own.
+
+The situation you describe is unfortunate, but not peculiar
+to L0-R.  Any copyleft license that triggers a requirement
+to provide all source, not just source for your own
+modifications, has the same potential.  Otherwise, the
+freedom to hack software you obtain wouldn't get much
+protection.  Any first infringer could open the door for
+subsequent recipients to dodge the copyleft requirement, on
+the grounds that it's conveniently impossible to do so.
+
+To give a concrete example, AGPL section 13 speaks in terms
+of "an opportunity to receive the Corresponding Source".
+"Corresponding Source", in turn, means "all the source code
+needed to generate, install, and (for an executable work)
+run the object code and to modify the work".  If you have
+source for your own modifications, but not someone else's
+modifications, in the aggregate you're providing over the
+network, I don't think you can comply.
+
+This risk is somewhat mitigated by the fact that it takes a
+particular software architecture to enable modifications to
+one part of a program without the modified source to
+another.  It's certainly possible.  But if the program is
+written in an interpreted language, or a single compiled
+binary, you're likely to have the whole source for what you
+build with modifications.
+
+> >   4.  Use as a component of, or in development of, other
+> >       software must be accompanied by release of that
+> >       software as Open Source Software per the Open Source
+> >       Definition published by the Open Source Initiative.
+>
+> So here you're thinking this is a license for things like software
+> development tools and libraries, correct?
+
+"[A]s a component of" is meant to catch the GPL use case of
+incorporation as a dependency or library.  It's
+intentionally broad, so there's no clear copyright or
+technical "out", as with shared libraries, arguably
+non-derivative works, and so on.
+
+"[O]r in development of" is meant to catch developer tools.
+The only situation in which use of dev tools are currently
+covered by any copyleft implementation, that I'm aware of,
+is making a modified dev tool available for remote
+interaction over a network under AGPL.  An edge case, for
+sure.
+
+I have thought about trying to specialize "in development
+of" with some examples.  I've come up with a few lists of
+verbs, but they've all struck me as more problematic than
+the language they want to replace.
+
+Reading "in development of" to cover use of a transpiler to
+output source code feels correct.   Reading "in development
+of" to cover using a text editor to write other programs
+feels a bit more like a reach.  But a "reach" in the
+practical sense of a licensor thinking carefully about their
+choice of license.  Not in any legal sense.
+
+> >   5.  A failure to meet condition 3 or condition 4 is
+> >       automatically excused on required release of software,
+> >       or permanent cessation of use involving the software,
+> >       within ____ calendar days of first failure to meet the
+> >       condition involving the same software or a preexisting
+> >       work upon which it was based.
+> >
+> > Number 3 and 4 now state release requirements affirmatively.
+> > The "grace period" mechanism for both now lives in a
+> > separate 5.  Number 5 is structured like a path to
+> > forgiveness, akin to section 8 of (A)GPL-3.0.
+>
+> OK, that tightens it up a lot.
+>
+> However, the inclusion of any kind of grace period at all *materially*
+> means that the grace period starts from the day a licensor *discovers*
+> the infringement, not when the infringing use starts, since the licensor
+> has no way to accurately know that time period.
+>
+> That's not, as far as I'm concerned, a reason to reject the license, but
+> might be worth noting in the recommendations around it.
+
+I'm not sure that's true.
+
+X releases code under L0-R (14 days).  Y violates the
+license by using with an unreleased private patch past its
+grace period.  X can sue, six months later, then compel
+production of documents and records that show use in excess
+of permission under the license.  If the dates six months
+ago don't add up to compliance, X has grounds for a
+copyright claim against Y.
+
+That assumes that X feels pretty confident that Y has made
+unauthorized use.  Confident enough to incur the time and
+other costs of sending a strongly worded letter and
+escalating as necessary, if it is ignored.
+
+There may also be cases where X learns more directly, before
+litigation, of facts showing Y exceeded its permission.  We
+can expect that to be pretty rare for, say, private patches
+to standalone software that doesn't do any networking.  But
+the same information asymmetry, alas, hides much GPL and
+even LGPL violation today.  Public licensors with any
+interest in their license conditions just can't police all
+licensees.  They have to live with licensee's other motives
+for compliance, and perhaps make an occasional public
+example of someone.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Tue Oct 24 00:20:08 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Mon, 23 Oct 2017 17:20:08 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <22effe28-c96e-97fe-66c3-bc8374aedd34@postgresql.org>
+References: <6bf511ef-93d9-5e6e-6b78-1fad761362dc@postgresql.org> <20171020032109.GB26076@dev.kemitchell.com> <2709ff94-43e9-ec32-1eb0-d73e181dcdd4@postgresql.org> <20171020193353.GG26076@dev.kemitchell.com> <de4a2abc-03b0-ae96-0bdb-a9d395116a03@postgresql.org> <20171020194845.GA30388@dev.kemitchell.com> <7afe8523-45df-5df6-03df-84fda178f403@postgresql.org> <20171023225521.GR9694@dev.kemitchell.com> <5a6590b3-d57c-6867-34e8-68ac77f8d2fd@postgresql.org> <22effe28-c96e-97fe-66c3-bc8374aedd34@postgresql.org>
+Message-ID: <20171024002008.GB16922@dev.kemitchell.com>
+
+On 2017-10-23 16:10, Josh berkus wrote:
+> On 10/23/2017 04:41 PM, Josh berkus wrote:
+> >>   3.  Use with any software patch must be accompanied by
+> >>       release of that patch as Open Source Software per the
+> >>       Open Source Definition published by the Open Source
+> >>       Initiative.
+> > So ... in our prior discussion, I was taking "use" to mean
+> > copying/redistribution, as the word is used in BSD.  However, I now see
+> > that you really mean "use" as in "user".  This changes my interpretation
+> > of some of the clauses.
+> >
+> > My first question, in the above, is "what if the user doesn't have the
+> > ability to relicense the patch?"  The clause above imposes an obligation
+> > that the *user* may be unable to fulfill -- or for that matter even
+> > unaware of -- while the *distributor*, who is the jerk who bundled ZRPL
+> > code with a proprietary patch in the first place, gets off scot-free.
+> > Is that how you intended this paragraph to be interpreted?
+> >
+>
+> Also ... is "software patch" a useful description of anything?  What's a
+> patch?  Personally, these days, I do pull requests and container
+> layering ... are those patches?
+
+A very good point.
+
+I've thought of specializing "software patch" as well as "in
+development of".  I might have better leverage on "patch",
+though:
+ 3.  Use with any modification constituting a "derivative work" under copyright law must be accompanied by release of that modification as Open Source Software per the Open Source Definition published by the Open Source Initiative.
+
+Could also substitute "change" for "modification".
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Tue Oct 24 00:24:58 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 23 Oct 2017 17:24:58 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171024001533.GA16922@dev.kemitchell.com>
+References: <20171020002742.GA26076@dev.kemitchell.com> <6bf511ef-93d9-5e6e-6b78-1fad761362dc@postgresql.org> <20171020032109.GB26076@dev.kemitchell.com> <2709ff94-43e9-ec32-1eb0-d73e181dcdd4@postgresql.org> <20171020193353.GG26076@dev.kemitchell.com> <de4a2abc-03b0-ae96-0bdb-a9d395116a03@postgresql.org> <20171020194845.GA30388@dev.kemitchell.com> <7afe8523-45df-5df6-03df-84fda178f403@postgresql.org> <20171023225521.GR9694@dev.kemitchell.com> <5a6590b3-d57c-6867-34e8-68ac77f8d2fd@postgresql.org> <20171024001533.GA16922@dev.kemitchell.com>
+Message-ID: <CAK2MWOsb=bxsqPsfaE55YSgCpuGrzoH99r4ESPCiMvdffRTgMg@mail.gmail.com>
+
+I am afraid that the phrase under discussion, "Use with any software
+patch", is an illustration of how to fail at simple language. It does
+appear to recast the meaning of "use" (and thus rightly confused Josh), and
+it avoids stating either "modification" or "derivative work" in favor of
+"patch", a word that is not inclusive of all of the acts you wish to
+restrict.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171023/3ead20b6/attachment.html>
+
+From bruce at perens.com  Tue Oct 24 00:33:01 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 23 Oct 2017 17:33:01 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171024002008.GB16922@dev.kemitchell.com>
+References: <6bf511ef-93d9-5e6e-6b78-1fad761362dc@postgresql.org> <20171020032109.GB26076@dev.kemitchell.com> <2709ff94-43e9-ec32-1eb0-d73e181dcdd4@postgresql.org> <20171020193353.GG26076@dev.kemitchell.com> <de4a2abc-03b0-ae96-0bdb-a9d395116a03@postgresql.org> <20171020194845.GA30388@dev.kemitchell.com> <7afe8523-45df-5df6-03df-84fda178f403@postgresql.org> <20171023225521.GR9694@dev.kemitchell.com> <5a6590b3-d57c-6867-34e8-68ac77f8d2fd@postgresql.org> <22effe28-c96e-97fe-66c3-bc8374aedd34@postgresql.org> <20171024002008.GB16922@dev.kemitchell.com>
+Message-ID: <CAK2MWOt0Mdk-AKoKNFNBfAjm6Nw6UQQCiqhOiM0vjc5+axoLmA@mail.gmail.com>
+
+On Mon, Oct 23, 2017 at 5:20 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+>
+>   3.  Use with any modification constituting a "derivative
+>       work" under copyright law must be accompanied by
+>       release of that modification as Open Source Software
+>       per the Open Source Definition published by the Open
+>       Source Initiative.
+>
+
+So, it's not the act of modification that triggers the license terms, but
+it's the act of running the program along with such a modification. Until
+one actually runs the program, the act of producing a modification is
+unrestricted.
+
+And then it's not *any *modification, but only one that constitutes a
+derivative work, and thus is neither de minimus, fair use, nor any sort of
+modifcation that does not constitute a derivative work because copyright
+law understands textual alteration to be a derivative work and does not
+take notice of the infinite number of ways of combining two programs
+together.
+
+I am failing to understand how this makes things simpler :-)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171023/a70faf6d/attachment.html>
+
+From kyle at kemitchell.com  Tue Oct 24 00:55:31 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Mon, 23 Oct 2017 17:55:31 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOvd8M_7=KQEy8zbr7sd5zxg3ybx8ACOt98v20XOgW-s5A@mail.gmail.com>
+References: <20170926020744.GK6204@dev.kemitchell.com> <46261d9e-733f-7414-ca75-e7128ca99ada@piana.eu> <20171019235827.GD9707@dev.kemitchell.com> <CAD2gp_QuuwQVb4SitqaUhJzsb+28DMoY6EWoGAzm+ON22YNqTg@mail.gmail.com> <20171020040937.GC26076@dev.kemitchell.com> <CAK2MWOv+wS6eqPX8Txgnm25z5dweGkUrYfZa=SoTB6B=FEaJXg@mail.gmail.com> <20171020043657.GE26076@dev.kemitchell.com> <CAK2MWOtLLEDeKFWjMn1s8+HSPUiZtq+FUpNyr8qdaznDVDakDQ@mail.gmail.com> <20171023202745.GK9694@dev.kemitchell.com> <CAK2MWOvd8M_7=KQEy8zbr7sd5zxg3ybx8ACOt98v20XOgW-s5A@mail.gmail.com>
+Message-ID: <20171024005531.GC16922@dev.kemitchell.com>
+
+On 2017-10-23 16:10, Bruce Perens wrote:
+> On Mon, Oct 23, 2017 at 1:27 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+>
+> >
+> > These are contributors who identify strongly, on
+> > a personal level, with "open source".  People for whom "open
+> > source" rings mostly in the kind of collaborative practices,
+> > governance concerns, and social values
+> >
+>
+> Which is unsettling because it allows them to get rid of the nasty freedom
+> part. There has been an effort to recast Open Source as the "open source
+> development paradigm". Which doesn't really exist. There is an open
+> development paradigm and there is Open Source, and one is not the other nor
+> is one necessary for the other. If OSI is being seduced into that idea,
+> it's a mistake.
+
+What these folks do or don't think about "freedom" as it
+relates to Open Source they themselves should say.
+
+I appear here only in my capacity as messenger.  I'm aware I
+might still get shot, but hey, that's the gig.
+
+> > Whatever happens, OSI shouldn't talk past those whose views don't fit on
+> > that line.  There are more than a few of them.  Many are doing vitally
+> > important work right now.
+> >
+>
+> Au contraire. OSI exists to draw a line in the sand, clearly define it,
+> promote that you should do things that way and make it clear what is, and
+> what is not that way, and nurture the development community that works in
+> the specific way we stand for. Lots of people do great work and we can
+> appreciate it, but it's not OSI's job to be inclusive of it.
+
+Let there be a line. And if a line there is, may it be a
+sharp one.
+
+I mention these folks and their views, and plead to have
+them considered, because the matter of what comes to mind
+when people see and say "open source" isn't a contest of
+rigor, or first claim, or internal consistency.  Numbers are
+relevant.  So is audience.  So is a certain prestige amongst
+developer-kind.
+
+If OSI succeeds in holding up to all its most rigorous,
+self-imposed standards, but fewer and fewer developers care,
+either because they dismiss OSI's claim to define to "open
+source", or because they hitch their identities to some new
+turn of phrase, I think the community as a will have
+suffered a very great loss.
+
+> > If OSI measures need and community sentiment by volume, like a vote by
+> > applause at a battle of the bands, it will always hear consumers'
+> > preference louder than maintainers'. Software itself, especially with
+> > permissive Open Source
+> > terms, fairly well guarantees the former will outnumber the latter.  And
+> > of course users would, as a rule, rather have the most permissive, legally
+> > tenable license they can get.
+> >
+>
+> Many years ago a "summit" of Open Source using companies was held in which
+> they issued their consensus statement that the developer community should
+> only use permissive licenses. A fellow named Christopher Blizzard responded
+> to this with an essay entitled "Every little girl wants a pony". I no
+> longer have a copy - can anyone find it and the statement that elicited it?
+
+I would be very, very grateful for links to, or copies of,
+these documents!
+
+> The mission of Open Source developers is not to be a vast pool of creators
+> providing corporate welfare for the world's richest companies, functioning
+> as their unpaid employees. We have not set out to facilitate the
+> development of proprietary software with our work, but to create more Open
+> Source. To the extent that the proprietary world participates, they do so
+> under our rules, not the other way around. Or they call it something other
+> than "Open Source".
+>
+> Thus, it is within the purview of OSI to recognize that every little girl
+> wants a pony, and to say "no" when appropriate in the interest of the
+> developers.
+
+This rings very near to the sentiment that set off License
+Zero.  The immediate moral response to industry abuse of
+community was a license addressing the _source_ of the pain,
+a noncommercial license.
+
+It was only talking to friends and fellow devs still holding
+on in the copyleft camp that lead me to write L0-R.  The
+core realization there was that commerce was just the most
+visible symptom of the underlying disorder.  The fundamental
+difference is in values, in a lack of reciprocity that makes
+a one-way valve between producer-community to
+consumer-users, to the benefit of the latter.
+
+So I asked devs what kind of deal they'd want with users, if
+they could write their own.  It boiled down to "share what
+you do with my code as open source, or support me if you're
+stuck in a place that can't or won't do that" plus "I want
+to keep working on GitHub, distributing on npm, and using
+the other current-generation code services".
+
+That's a harder copyleft bargain than AGPL, mashed up with
+permissive distribution permissions.  L0-R was born.
+
+> > The number one requested feature is setting _negative_ rules instead. Rules
+> > like "no GPL", or "anything but copyleft".
+> >
+>
+> I suspect this request is coming from parties that can afford Palamida or
+> Black Duck but are unwilling to go to the expense. The corporations need to
+> have a compliance effort. OSI did not set out to absolve them of that
+> responsibility.
+
+LF has, to the extent of SPDX, OpenChain, and I'm sure other
+work I'm now forgetting.  I expect their view is that if
+it's going to get done with software, the software should
+ideally be Open Source.
+
+> > http://lillicense.org/
+>
+> The less-informed approach legal language with the firm belief that they
+> could improve upon it if only they were allowed to state it simply. But
+> this "cry in the dark" ends up duplicating the Apache license in its
+> effect, and the Apache license is brief, well-understood and not baffling
+> in its legal language. OSI's major responsibility in regard to this sort of
+> effort is to explain why it ultimately harms the developer community.
+
+Jeremy Ashkenas, the hand behind Lil License, explained to
+me that he was motivated mostly to make this clarification:
+ The authors have no obligation to provide support or updates for the software, and may not be held liable for any damages, claims or other liability arising from its use.
+
+IIRC, the rest is a rehash of MIT.
+
+The picture is of a prolific permissive-license software
+developer getting fed up enough to write a license, even
+though he knew he shouldn't do so himself, just to speak and
+perhaps dull the pain pain of having hordes or end-user
+developers fail to understand a simple implication of The
+MIT License.  Brokenness on many levels.
+
+> > I wouldn't underestimate how alienating and frustrating is legal English to
+> > minds not yet ruined for it.
+>
+> As you can see from the wording, when I wrote the OSD I was a systems
+> programmer at Pixar who worked on Linux for a hobby. I had little
+> understanding of how to properly phrase it, or it might have been written
+> as a list of permissions rather than a list of prohibitions. Any
+> development of legal knowledge that followed that was out of necessity.
+>
+> OSI (and FSF before it) did not create the framework of intellectual
+> property law, indeed we are more prisoners of it than anything else. The
+> alienation and frustration arises from the fact that the system was not
+> built to accommodate us, but to thwart us. It literally exists to make
+> copying a tort.
+>
+> It is the unfortunate truth that the words of the license are only a
+> portion of what needs to be parsed. There is the context of law and case
+> law. Thus, we arrive at things like an exhaustion doctrine that applies to
+> the BSD license in regard to patents, but is completely unstated within the
+> license.
+>
+> Unfortunately if a developer believes they understand a plain-language
+> license, they are probably understanding less than half of it due to the
+> lack of context. We can warn them, or we can train them. We might harm them
+> by doing neither.
+
+For what it's worth, a key part of what I do when I write a
+plain-language contract, best case, is test it on non-lawyer
+readers.  Then:
+
+1. write in key background rules not apparent from the text
+
+2. put terms with specific legal meanings in quotes, and either call them out as legal terms, or defined them if I think I can
+
+I'm a full-time transactional attorney.  My experience has
+_not_ been that educated speakers of English can never
+understand legal documents at a practical level.  It has
+been that writing transactional documents that educated
+speakers of English can understand requires a great deal of
+the attorneys drafting.  More than they're accustomed to.
+Also that the effort pays off, magnificently, in myriad,
+unexpected ways.
+
+My two cents.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Tue Oct 24 01:05:30 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Mon, 23 Oct 2017 18:05:30 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOt0Mdk-AKoKNFNBfAjm6Nw6UQQCiqhOiM0vjc5+axoLmA@mail.gmail.com>
+References: <2709ff94-43e9-ec32-1eb0-d73e181dcdd4@postgresql.org> <20171020193353.GG26076@dev.kemitchell.com> <de4a2abc-03b0-ae96-0bdb-a9d395116a03@postgresql.org> <20171020194845.GA30388@dev.kemitchell.com> <7afe8523-45df-5df6-03df-84fda178f403@postgresql.org> <20171023225521.GR9694@dev.kemitchell.com> <5a6590b3-d57c-6867-34e8-68ac77f8d2fd@postgresql.org> <22effe28-c96e-97fe-66c3-bc8374aedd34@postgresql.org> <20171024002008.GB16922@dev.kemitchell.com> <CAK2MWOt0Mdk-AKoKNFNBfAjm6Nw6UQQCiqhOiM0vjc5+axoLmA@mail.gmail.com>
+Message-ID: <20171024010530.GD16922@dev.kemitchell.com>
+
+On 2017-10-23 17:10, Bruce Perens wrote:
+> On Mon, Oct 23, 2017 at 5:20 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+>
+> >
+> >   3.  Use with any modification constituting a "derivative
+> >       work" under copyright law must be accompanied by
+> >       release of that modification as Open Source Software
+> >       per the Open Source Definition published by the Open
+> >       Source Initiative.
+> >
+>
+> So, it's not the act of modification that triggers the license terms, but
+> it's the act of running the program along with such a modification. Until
+> one actually runs the program, the act of producing a modification is
+> unrestricted.
+
+It's unclear, insofar as how "use" maps onto the actual
+exclusive rights of copyright holders is unclear.
+
+I could rewrite L0-R tomorrow by hacking up a more
+"enterprise" style form, say OSL, and defining the copyleft
+triggers in terms of the exact 106 rights.  But the result
+would be a massive shift in style and length that would,
+frankly, chase most potential L0-R licensors that I know
+away from the license.  Many turn away from GPL today, by
+action of a similar reflex.
+
+> And then it's not *any *modification, but only one that constitutes a
+> derivative work, and thus is neither de minimus, fair use, nor any sort of
+> modifcation that does not constitute a derivative work because copyright
+> law understands textual alteration to be a derivative work and does not
+> take notice of the infinite number of ways of combining two programs
+> together.
+
+This is the cost of the change, in meaning.
+
+> I am failing to understand how this makes things simpler :-)
+
+I agree, which is why I stuck to the plainer language until
+Josh poked me.
+
+My original preference was "use with any modification", a
+direct callback to the BSD preamble.  If the license is
+going to stay a short, academic-style license, it has to use
+the terms already in play, which are evidently sufficient to
+cover all needed permission-giving territory, rather than
+replace them with something out of OSL, say.
+
+I've been tempted a few times to drop BSD on the floor and
+rewrite the whole thing, in my preferred style, from
+scratch.  But I fear that merely delays things and distracts
+from the core issues, in the new conditions.  We could end
+up talking about whether my disclaimer or permission-grant
+language is sufficient, since that's the easier thing to do.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Tue Oct 24 01:06:23 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Mon, 23 Oct 2017 18:06:23 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOsb=bxsqPsfaE55YSgCpuGrzoH99r4ESPCiMvdffRTgMg@mail.gmail.com>
+References: <20171020032109.GB26076@dev.kemitchell.com> <2709ff94-43e9-ec32-1eb0-d73e181dcdd4@postgresql.org> <20171020193353.GG26076@dev.kemitchell.com> <de4a2abc-03b0-ae96-0bdb-a9d395116a03@postgresql.org> <20171020194845.GA30388@dev.kemitchell.com> <7afe8523-45df-5df6-03df-84fda178f403@postgresql.org> <20171023225521.GR9694@dev.kemitchell.com> <5a6590b3-d57c-6867-34e8-68ac77f8d2fd@postgresql.org> <20171024001533.GA16922@dev.kemitchell.com> <CAK2MWOsb=bxsqPsfaE55YSgCpuGrzoH99r4ESPCiMvdffRTgMg@mail.gmail.com>
+Message-ID: <20171024010623.GE16922@dev.kemitchell.com>
+
+On 2017-10-23 17:10, Bruce Perens wrote:
+> I am afraid that the phrase under discussion, "Use with any software
+> patch", is an illustration of how to fail at simple language. It does
+> appear to recast the meaning of "use" (and thus rightly confused Josh), and
+> it avoids stating either "modification" or "derivative work" in favor of
+> "patch", a word that is not inclusive of all of the acts you wish to
+> restrict.
+
+Very welcome feedback.
+
+I will revert to "use with modification" for now.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Tue Oct 24 01:11:03 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 23 Oct 2017 18:11:03 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171023220814.GA7764@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <8760b5vhc4.fsf@mid.deneb.enyo.de> <01dbfd5b-dfa1-5613-ee86-b92069286a8e@piana.eu> <CAA4ffp-cbhLxZsM0geVEdr1NRn9ZhHde5wFyj3uXQnRNeKXd7w@mail.gmail.com> <1ca814d0-78e2-12e3-1780-f3e17b25e032@postgresql.org> <20171023214753.GQ9694@dev.kemitchell.com> <CAA4ffp-T0wZFGbJVGGO-Kh-A2Q0DHiWFU+BFDx9HRWdXygWAwA@mail.gmail.com> <20171023220814.GA7764@dev.kemitchell.com>
+Message-ID: <CAK2MWOtd4sKQVS_aihqk5gSPvgooNLx1e_WXkpu1wzcs2M-gfQ@mail.gmail.com>
+
+On Mon, Oct 23, 2017 at 3:08 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+>
+> 1. Why are net-freedom-enhancing conditions on distribution
+>    permitted, but net-freedom-enhancing conditions on use
+>    prohibited?
+>
+
+Because net-freedom-enhancing conditions on use were not necessary, given
+that we had distribution and modification to hang them off of, and there
+were examples of net-freedom-enhancing conditions on use that had backfired
+and become net-freedom-reducing. So, I wrote the rule that way.
+
+>
+> 2. What's the basis in OSD for that distinction?
+
+
+The OSD language on field of endeavor restrictions. Now, you are attempting
+to avoid that by coupling modification and use together in your
+restrictions, awkwardly and unnecessarily. You can do all that you desire
+with modification alone.
+
+
+> 3. What's the difference between "distribution" and "use",
+>    anyway?  (We're using "distribution" here in a loose
+>    sense, not precisely as employed in the Copyright Act.)
+>
+
+Use is running the program, including the creation of incidental copies as
+necessary for running.
+
+Copyright law was written for a publisher paradigm that we are not limited
+to, so the word "distribution" may be used differently.
+
+
+> 4. Industry developments---ASP, PaaS---are making that
+>    distinction less and less relevant.  Doesn't confining
+>    copyleft to distribution-triggered conditions
+>    fundamentally hobble it as a technique for driving a good
+>    reciprocity bargain?
+
+
+Not really, because you can do all that you desire with modification alone.
+
+
+> In other words, is AGPL the furthest copyleft can go?
+
+
+Not at all. If you want to hang your terms on modification, you can still
+do that. You can activate your terms on private development (which OSD does
+not prohibit but some may take exception to), or you can make _exceptions_
+to your terms that protect private development and are permissive rather
+than restrictive.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171023/cc1e6ee8/attachment.html>
+
+From bruce at perens.com  Tue Oct 24 01:35:23 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 23 Oct 2017 18:35:23 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171024005531.GC16922@dev.kemitchell.com>
+References: <20170926020744.GK6204@dev.kemitchell.com> <46261d9e-733f-7414-ca75-e7128ca99ada@piana.eu> <20171019235827.GD9707@dev.kemitchell.com> <CAD2gp_QuuwQVb4SitqaUhJzsb+28DMoY6EWoGAzm+ON22YNqTg@mail.gmail.com> <20171020040937.GC26076@dev.kemitchell.com> <CAK2MWOv+wS6eqPX8Txgnm25z5dweGkUrYfZa=SoTB6B=FEaJXg@mail.gmail.com> <20171020043657.GE26076@dev.kemitchell.com> <CAK2MWOtLLEDeKFWjMn1s8+HSPUiZtq+FUpNyr8qdaznDVDakDQ@mail.gmail.com> <20171023202745.GK9694@dev.kemitchell.com> <CAK2MWOvd8M_7=KQEy8zbr7sd5zxg3ybx8ACOt98v20XOgW-s5A@mail.gmail.com> <20171024005531.GC16922@dev.kemitchell.com>
+Message-ID: <CAK2MWOuBCXs04k2rDBoCU3PALRx56au6xxRQCWUcBy_LSSaz1w@mail.gmail.com>
+
+On Mon, Oct 23, 2017 at 5:55 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+>
+> I mention these folks and their views, and plead to have
+> them considered, because the matter of what comes to mind
+> when people see and say "open source" isn't a contest of
+> rigor, or first claim, or internal consistency.  Numbers are
+> relevant.  So is audience.  So is a certain prestige amongst
+> developer-kind.
+>
+
+Well, this is a point that I believe needs to be made to everyone concerned
+with _marketing_ the idea of Open Source: We won. We are so pervasive in
+industry that it is scary, and industry is actually feeling the negative
+effects of software monoculture upon security because of the pervasive use
+of a number of popular Open Source programs and the need to keep updated
+and to push those updates out to customers (which is surprisingly difficult
+to get some companies to accept). Rather than evangelize to outsiders about
+Open Source, we now need to evangelize to insiders about how to keep safe.
+
+Having won, the only thing we can do to further increase use of Open Source
+is to stop being as Open as we presently are. Which would, of course,
+ultimately be self-defeating.
+
+Of course, we can fill in some number of smaller enterprises that don't
+have the message yet. But if you are expecting large, further increases in
+uptake of Open Source to match those in the recent past, go work on Open
+Science and Open Publication instead.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171023/a7840698/attachment.html>
+
+From kyle at kemitchell.com  Tue Oct 24 02:25:27 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Mon, 23 Oct 2017 19:25:27 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOuBCXs04k2rDBoCU3PALRx56au6xxRQCWUcBy_LSSaz1w@mail.gmail.com>
+References: <20171019235827.GD9707@dev.kemitchell.com> <CAD2gp_QuuwQVb4SitqaUhJzsb+28DMoY6EWoGAzm+ON22YNqTg@mail.gmail.com> <20171020040937.GC26076@dev.kemitchell.com> <CAK2MWOv+wS6eqPX8Txgnm25z5dweGkUrYfZa=SoTB6B=FEaJXg@mail.gmail.com> <20171020043657.GE26076@dev.kemitchell.com> <CAK2MWOtLLEDeKFWjMn1s8+HSPUiZtq+FUpNyr8qdaznDVDakDQ@mail.gmail.com> <20171023202745.GK9694@dev.kemitchell.com> <CAK2MWOvd8M_7=KQEy8zbr7sd5zxg3ybx8ACOt98v20XOgW-s5A@mail.gmail.com> <20171024005531.GC16922@dev.kemitchell.com> <CAK2MWOuBCXs04k2rDBoCU3PALRx56au6xxRQCWUcBy_LSSaz1w@mail.gmail.com>
+Message-ID: <20171024022527.GF16922@dev.kemitchell.com>
+
+On 2017-10-23 18:10, Bruce Perens wrote:
+> On Mon, Oct 23, 2017 at 5:55 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+> >
+> > I mention these folks and their views, and plead to have
+> > them considered, because the matter of what comes to mind
+> > when people see and say "open source" isn't a contest of
+> > rigor, or first claim, or internal consistency.  Numbers are
+> > relevant.  So is audience.  So is a certain prestige amongst
+> > developer-kind.
+> >
+>
+> Well, this is a point that I believe needs to be made to everyone concerned
+> with _marketing_ the idea of Open Source: We won. We are so pervasive in
+> industry that it is scary, and industry is actually feeling the negative
+> effects of software monoculture upon security because of the pervasive use
+> of a number of popular Open Source programs and the need to keep updated
+> and to push those updates out to customers (which is surprisingly difficult
+> to get some companies to accept). Rather than evangelize to outsiders about
+> Open Source, we now need to evangelize to insiders about how to keep safe.
+>
+> Having won, the only thing we can do to further increase use of Open Source
+> is to stop being as Open as we presently are. Which would, of course,
+> ultimately be self-defeating.
+>
+> Of course, we can fill in some number of smaller enterprises that don't
+> have the message yet. But if you are expecting large, further increases in
+> uptake of Open Source to match those in the recent past, go work on Open
+> Science and Open Publication instead.
+
+I agree that "Open Source" won, in a marketing sense.  But
+that is a very peculiar, narrow, and dangerous form of
+victory.  The phrase is popular and perception is positive,
+even suspiciously so.  But name recognition is not name
+integrity.  There may be a good feeling about "Open Source"
+in the air, but that doesn't mean "Open Source" means what
+we'd like it to mean, or that OSI has control of it.
+Rather, it means "Open Source" is daily a more tempting
+linguistic grab ball for all manner of causes, adjacent and
+far-flung.
+
+"Open Source won" in terms of adoption, and I agree that
+it's high time to revisit the single-minded focus on driving
+use.  But I'd strongly _disagree_ that "Open Source won" in
+any values sense, as you and I have used "values".  If
+there's a "victory", it's been among proprietary software
+firms---most especially proprietary software-service
+firms---that now serve the majority of computer users with
+software they cannot inspect, study, or change.  As a
+scouting combine for young developers.  As a rainforest to
+scour for the odd, industrially promising specimen.  As a
+dev-time group-buy demilitarized zone.  Again, real
+victories.  But limited ones.
+
+As as with any marketing victory, much of Open Source's
+marketing success came about by explaining what "Open
+Source" already meant, at least practically, but as much or
+more again by opportunistic stretching and sliding of its
+meaning over all manner of things companies already liked
+and wanted.  All to your point on "Open Source" as a
+methodology.  And permissive licensing.  And the rise of
+(c)(6) foundations.  And the rush on education.  We could
+both go on.
+
+Returning briefly to L0-R---which I'm otherwise happy to
+leave behind for conversation like this, anytime---I'd like
+to point out that, fundamentally, it wouldn't make any sense
+to write a more exacting copyleft license at a time when
+"Open Source" wasn't riding high.  Copyleft is a deal.
+Strong copyleft drives a harder bargain.  Setting out Open
+Source reciprocity in very succinct terms is a very direct
+way of putting light on the distinction between marketing
+victory and values defeat.  And, I think, of rectifying it.
+
+...
+
+You mentioned Open Science and Open Publishing, and I can't
+help it:  Have a look at https://publicdomainchronicle.org,
+another project of mine, launched earlier this month.  It's
+my foundation-funded "port" of the permissive open source
+licensing experience to science, where patent looms largest.
+And for the record, the code's Apache-2.0!
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Tue Oct 24 02:31:09 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 23 Oct 2017 19:31:09 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171024022527.GF16922@dev.kemitchell.com>
+References: <20171019235827.GD9707@dev.kemitchell.com> <CAD2gp_QuuwQVb4SitqaUhJzsb+28DMoY6EWoGAzm+ON22YNqTg@mail.gmail.com> <20171020040937.GC26076@dev.kemitchell.com> <CAK2MWOv+wS6eqPX8Txgnm25z5dweGkUrYfZa=SoTB6B=FEaJXg@mail.gmail.com> <20171020043657.GE26076@dev.kemitchell.com> <CAK2MWOtLLEDeKFWjMn1s8+HSPUiZtq+FUpNyr8qdaznDVDakDQ@mail.gmail.com> <20171023202745.GK9694@dev.kemitchell.com> <CAK2MWOvd8M_7=KQEy8zbr7sd5zxg3ybx8ACOt98v20XOgW-s5A@mail.gmail.com> <20171024005531.GC16922@dev.kemitchell.com> <CAK2MWOuBCXs04k2rDBoCU3PALRx56au6xxRQCWUcBy_LSSaz1w@mail.gmail.com> <20171024022527.GF16922@dev.kemitchell.com>
+Message-ID: <CAK2MWOvYiVzqVXwhCx+e6OfS12pzwfn+tZmqP+EOvrw4gfsasg@mail.gmail.com>
+
+I think the most important point regarding your license proposal tonight is
+this one. Why don't you try what I suggest below and come back to us with
+new text? Regarding the philosophical discussion, ultimately I have to take
+that up with other people rather than license-review.
+
+If you want to hang your terms on modification [without use], you can still
+do that. You can activate your terms on private development (which OSD does
+not prohibit but some may take exception to), or you can make _exceptions_
+to your terms that protect private development and are permissive rather
+than restrictive.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171023/906a6014/attachment.html>
+
+From kyle at kemitchell.com  Tue Oct 24 02:48:06 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Mon, 23 Oct 2017 19:48:06 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOtd4sKQVS_aihqk5gSPvgooNLx1e_WXkpu1wzcs2M-gfQ@mail.gmail.com>
+References: <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <8760b5vhc4.fsf@mid.deneb.enyo.de> <01dbfd5b-dfa1-5613-ee86-b92069286a8e@piana.eu> <CAA4ffp-cbhLxZsM0geVEdr1NRn9ZhHde5wFyj3uXQnRNeKXd7w@mail.gmail.com> <1ca814d0-78e2-12e3-1780-f3e17b25e032@postgresql.org> <20171023214753.GQ9694@dev.kemitchell.com> <CAA4ffp-T0wZFGbJVGGO-Kh-A2Q0DHiWFU+BFDx9HRWdXygWAwA@mail.gmail.com> <20171023220814.GA7764@dev.kemitchell.com> <CAK2MWOtd4sKQVS_aihqk5gSPvgooNLx1e_WXkpu1wzcs2M-gfQ@mail.gmail.com>
+Message-ID: <20171024024806.GG16922@dev.kemitchell.com>
+
