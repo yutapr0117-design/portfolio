@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/checks_license_submission.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-09-24
+last-updated: 2026-09-26
 canonical-ref: .github/scripts/check_repository_consistency.py (集約器) / docs/architecture/check-repository-consistency-map.md (全 Check の一覧) / docs/architecture/total-check-runbook.md §9 (総数の権威)
 ---
 
@@ -59,3 +59,7 @@ Check を足すときは docstring inventory + `# ── N.` + map + runbook §9
   機械で縛っている層である
 - **後任 AI**: **新しい Check の行き先はこの 2 分割で決める** ——
   審査者が受け取る面なら本 file、次版の草案なら `checks_license_draft.py`、運用の記録なら `checks_license_dossier.py`
+
+## 2026-09-26: 472f
+
+提出パケットの**版に紐づく欄**（識別子・Version・版付き URL・件名・SPDX 依頼の Full name）が `SUBMISSION-TARGET` と一致することを強制する。確定手順 (3) は「Check 444 が一致を強制する」と書いていたが、444 は `submission.md` を読んでいなかった。照合数の下限（10）は、欄の書式が変わって検出器が見失ったときに黙って緑になるのを防ぐ。
