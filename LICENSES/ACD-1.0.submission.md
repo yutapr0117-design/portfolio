@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.submission.md
 audience: OSI license-discuss / license-review participants, SPDX submitters, the human who sends the message
-last-updated: 2026-09-25
+last-updated: 2026-09-26
 canonical-ref: LICENSES/ACD-1.0.txt (the text being submitted) / LICENSES/REVIEWERS.md (English entry point) / LICENSES/ACD-1.0.against.md (the adverse case)
 ---
 
@@ -145,14 +145,19 @@ place of that, and nothing in §3b is withdrawn by making it.
 > > I do not read that silence as agreement. Replies on that list arrive on their own
 > > schedule, and a measurable share of threads there receive none at all.
 > > **The differences between the text discussed there and the text submitted here are
-> > therefore not responses to comments. They are defects I found in my own text**, and each
-> > one is listed, with what was changed and why, in the errata record linked below.
+> > therefore not responses to comments on the list.** Most are defects I found in my own
+> > text; some were found by reviewers who read it outside the list; one is a question I
+> > put to the list myself, still unanswered. Each is listed, with what was changed and why,
+> > in the errata record linked below.
 > > **Defects that are still unrepaired are listed as unrepaired.**
 >
 > **この段落で守ること**: **(1)** 沈黙を支持と読ませない（`against.md` #109 —— 返信ゼロは
-> 珍しくない）。**(2)** 「指摘を反映した」と書かない —— **1.1 草案が閉じている 12 件は
-> 全件が自己発見の errata で、言われて直したものは 1 件も無い**。**(3)** 未修理を未修理と書く。
-> **(4)** 貼れば §B.0 の語数が約 110 語増える —— **申告語数を測り直す**（確定手順の (3)）。
+> 珍しくない）。**(2)** 「指摘を反映した」と書かない —— **list の議論に由来する errata は E11 の 1 件だけで、
+> しかも自分が出した未回答の問い**（`ACD-1.2-CHANGELIST.md` 冒頭・2026-09-22 時点で 30 件中 自己発見 23 / 外部レビュー 6 / list 1）。
+> **⚠ 2026-09-26 訂正: 旧文は「1.1 草案が閉じている 12 件は全件が自己発見」と書き、英文も *"They are defects I found
+> in my own text"* と断言していた** —— 外部レビュー由来の 6 件が入った後も直されておらず、**送れば偽になる文だった**。
+> **「すべて自分で見つけた」とも書けない。** 送る日に errata の由来を数え直す。**(3)** 未修理を未修理と書く。
+> **(4)** 貼れば §B.0 の語数が約 160 語増える（2026-09-26 実測 159・旧記載の「約 110」は旧文 135 語に対しても過少だった） —— **申告語数を測り直す**（確定手順の (3)）。
 > **返信が届いていたら、この沈黙版は使わず上の元の指示に従う。**
 
 Send to `license-review@opensource.org` (subscribe first). OSI asks submitters to state
@@ -161,7 +166,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1505 words**, measured 2026-09-25)
+### B.0 The message as it should actually be sent (**1568 words**, measured 2026-09-25)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -229,7 +234,21 @@ engaging at all** (`ACD-OSI-BOTTLENECKS.md` B3). **The full treatment went to th
 (`ACD-1.0.submission-reference.md` §3d). **Naming an objection before the reviewer finds it is worth
 words; explaining it at length in the opening message is not.**
 
-**And 1,505 the same day**, when the OSD affirmation gained **OSD 1 and OSD 7**. The review-process
+**And 1,488 later on 2026-09-25**, when the gap paragraph gained one sentence naming
+CERN-OHL-P-2.0. A census of all 141 approved texts that day (`ACD-1.0.gap-census.md`) found that
+its patent grant over *Products* can be read to reach a trained model, so the patent limb of the
+gap holds only as "names models" (`against.md` #241). The three-together claim still stands, but a
+reviewer who knows CERN-OHL would have found the nearest counter-example before we named it.
+**+32 words**, against a first draft of 50.
+
+**And 1,519 later still on 2026-09-25**, when two comparative claims in the message were found false
+against this dossier's own records. *"Nearest approved licences"* listed CC0, which is not approved, and
+named Apache-2.0 as the nearest patent machinery, where the census found three permissive licences with an
+express patent grant (`review-responses.md` §6). *"The incumbents do not attempt"* moral rights was
+false for EUPL, which `submission-reference.md` already quoted against us. **Both had been corrected in the
+reference material and not in the message** — the surface that is read first was the one left stale.
+
+**And 1,568 the same day, last of the three**, when the OSD affirmation gained **OSD 1 and OSD 7**. The review-process
 page asks for 3, 5, 6 and 9, and those were there; **the archive shows 1 and 7 are the criteria a
 patent objection is actually raised under** (`review-doctrine.md` §1.112). **Naming a criterion we
 meet costs 49 words and removes a place the reviewer has to go looking.**
@@ -310,6 +329,8 @@ measured it**: across all 149 OSI-approved texts (SPDX List 3.28.0, fetched 2026
 "machine learning", "text and data mining", "machine-generated" and "subsist" occur **zero** times.
 Absence of the words is not absence of effect — a permissive licence allows training by allowing
 everything — but it is what leaves §6, §8.4 and §9 open. The command is in the repository.
+**The nearest approach:** CERN-OHL-P-2.0 grants patents over work *"arising from the … processing
+of Covered Source"*, which can be read to reach a model. It does not name models and has conditions.
 
 **Why now, since the objection is reasonable.** Licences for machine learning have been brought to
 this list since at least April 2023 — the Restricted Artificial Intelligence License, withdrawn four
@@ -344,8 +365,9 @@ material" beside source and object code. I have not narrowed it, because dataset
 are the non-code material the gap is about; the overlap, and the committee's own line between a
 licence tied to software and one unrelated to it, are set out in the reference (§3d).
 
-**Nearest approved licences.** It is closest in effect to the Unlicense, MIT-0, 0BSD and CC0, and
-closest in patent machinery to Apache-2.0. The full comparison — **including where those are the
+**Nearest approved licences.** It is closest in effect to the Unlicense, MIT-0 and 0BSD (and to
+CC0, which is not approved), and in patent terms to UPL-1.0, BlueOak-1.0.0 and BSD-2-Clause-Patent,
+each of which differs from it by one kind of condition. The full comparison — **including where those are the
 better choice, which is most of the time** — is in the repository.
 
 **Structure, since it matters for reviewability.** §3 surrenders the Covered Rights and §4 grants a
@@ -365,7 +387,7 @@ example, but 0BSD and MIT-0 read the same way — is *"not open source, at least
 because the right of integrity reaches software there and can be used to stop modification. §12
 answers that with a waiver where waiver is possible and, where it is not, a covenant not to
 exercise, binding heirs. **No lawyer has checked whether it works. What I claim is only that the
-incumbents do not attempt it.**
+permissive incumbents do not attempt it;** EUPL, a copyleft licence, does, in the same shape as §12.
 
 **Legal review: none.** No lawyer has drafted or read it. I state that plainly rather than let it
 be discovered. What can be shown without counsel is mechanical, and is checked in CI on every
@@ -422,8 +444,10 @@ Submit via https://tools.spdx.org/app/submit_new_license/ (preferred) or the
   CreativeWork node, in `sitemap.xml`, in `.well-known/aio-manifest.json`, and in the
   `llms.txt` family, each of which is checked in CI.
 - **Not a duplicate:** it is not a variant of any listed licence. A clause-level comparison
-  with 0BSD (closest on "zero conditions") and Apache-2.0 (closest on "express patent
-  licence") is given in section B.2 above.
+  with 0BSD (closest on "zero conditions"), with UPL-1.0, BlueOak-1.0.0 and
+  BSD-2-Clause-Patent (closest on "permissive with an express patent licence", each with one
+  kind of condition), and with CERN-OHL-P-2.0 (whose patent licence can be read to reach
+  things made from the work) is in `LICENSES/ACD-1.0.submission-reference.md` section 2.
 - **Steward commitment:** I am the steward. Once `ACD-1.0` is on the list I will not modify
   the text that the identifier denotes. Any later improvement will be issued as a distinct
   version (`ACD-1.1`, `ACD-2.0`) with its own identifier. Section 16.4 of the text itself

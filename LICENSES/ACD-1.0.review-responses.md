@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-09-05
+last-updated: 2026-09-25
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文) / LICENSES/ACD-1.0.submission.md (提出パケット) / LICENSES/READY-TO-SUBMIT.md (提出判断) / LICENSES/FROZEN.md (凍結宣言) / docs/architecture/acd-license-rationale.md (設計根拠)
 ---
 
@@ -354,18 +354,25 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 >
 > | | Patent grant | ML/TDM stated | Reservation disclaimed | Machine-generated material | Conditions |
 > |---|---|---|---|---|---|
-> | CC0-1.0 | **No** (Sec. 4(a) expressly excludes) | No | No | No | None |
+> | CC0-1.0 (*not OSI-approved*) | **No** (Sec. 4(a) expressly excludes) | No | No | No | None |
 > | Unlicense | Not addressed | No | No | No | None |
 > | 0BSD / MIT-0 | Not addressed | No | No | No | None |
 > | MIT / BSD-2 | Not addressed | No | No | No | Notice |
 > | Apache-2.0 | Yes, limited to the Work and Derivative Works | No | No | No | Notice, NOTICE file, change marking |
+> | BSD-2-Clause-Patent | Yes, to Contributions alone or in the combination they were added to | No | No | No | Notice |
+> | BlueOak-1.0.0 | Yes, *"everything with this software"* | No | No | No | Licence text or link (30-day cure) |
+> | UPL-1.0 | Yes, to the Software and listed Larger Works | No (but names *data* as licensed material) | No | No | Notice |
+> | CERN-OHL-P-2.0 | Yes, over *Products*, i.e. work *"arising from the … processing of Covered Source"* — readable as reaching a model | No | No | No | Conditions on conveying a Product (Sec. 4) |
 > | ACD-1.0 | Yes, extended to models, parameters and outputs (Sec. 8.4) | Yes (Sec. 6.1) | Yes (Sec. 6.2) | Yes (Sec. 9) | **None** (Sec. 10.1) |
 >
-> The row that matters is the first: no approved instrument in the
-> public-domain-dedication family grants patents, and no permissive licence with
-> a patent grant is condition-free.
+> The rows that matter are the first and the four after Apache-2.0. No approved
+> instrument in the public-domain-dedication family grants patents (CC0 is not
+> approved and excludes them). Permissive licences with an express patent grant
+> already exist, and each differs from ACD-1.0 by one kind of condition; one of
+> them, CERN-OHL-P-2.0, can be read to reach a trained model without naming it.
+> So neither half of the gap is new on its own; the conjunction is.
 
-**なぜこの形か**: 比較表は**自分に不利な列を含めないと信用されない**。Apache-2.0 の「条件」列（NOTICE ほか）は Apache の弱点ではなく設計であり、そう扱うこと。ACD-1.0 の列で「None」と書ける代償が Q「特許報復条項がない」であることは §5 で認めてある。
+**なぜこの形か**: 比較表は**自分に不利な列を含めないと信用されない**。**2026-09-25 に行を 4 本足した** —— 全数 census（`ACD-1.0.gap-census.md` / `against.md` #241）で見つかった最も近い承認済みライセンスが、この表に 1 本も無かった（比較相手を**知っている相手だけ**から選んでいた）。**CC0 には未承認と明記した**（承認済みの比較表に並べると承認済みに見える）。Apache-2.0 の「条件」列（NOTICE ほか）は Apache の弱点ではなく設計であり、そう扱うこと。ACD-1.0 の列で「None」と書ける代償が Q「特許報復条項がない」であることは §5 で認めてある。
 
 ---
 

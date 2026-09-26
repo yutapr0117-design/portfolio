@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses-clauses.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-09-20
+last-updated: 2026-09-25
 canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威)
 ---
 
@@ -162,9 +162,17 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 
 **Q. §8.4 はモデル・重み・出力にまで特許ライセンスを及ぼすと言うが、前例がない。**
 
+**2026-09-25 訂正**: 旧回答は *"I am not aware of a precedent either"* で始まっていた。同日の全数 census（`ACD-1.0.gap-census.md` / `against.md` #241）で CERN-OHL-P-2.0 の Products への特許許諾が見つかり、**自分たちの記録を知っている相手に対して偽になっていた**ので、部分的な先例を先に名指しする形へ改めた。
+
 > **English:**
 >
-> I am not aware of a precedent either, and I would be glad to be shown one. The
+> There is a partial one, and I should name it. CERN-OHL-P-2.0 grants a patent
+> licence over "Products", defined to include any work "arising from the use,
+> application or processing of Covered Source", which can be read to reach a
+> trained model. It does not name models, parameters or outputs, and conveying
+> a Product carries a notice obligation (its Section 4). So what is new in
+> Section 8.4 is naming them, and doing so without a condition — not the idea
+> that a patent grant can follow what is made from the work. The
 > reasoning is in Section 8.4's own text: Section 1.5 excludes patents from
 > "Covered Rights", so Section 6.4 by itself leaves computational use permitted
 > as a matter of copyright while leaving a patent-shaped hole in the same place.

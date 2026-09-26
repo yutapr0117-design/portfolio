@@ -1,7 +1,7 @@
 ---
 file: LICENSES/REVISION-PROTOCOL.md
 audience: 次のセッションの実装者（一次読者） / OSI license-discuss・license-review の参加者（§0 の英文）
-last-updated: 2026-09-04
+last-updated: 2026-09-26
 canonical-ref: LICENSES/FROZEN.md (凍結と venue の単一ソース) / LICENSES/ACD-1.0.discussion-log.md (指摘の記録) / LICENSES/ACD-1.0.errata.md (既知の欠陥)
 ---
 
@@ -279,6 +279,10 @@ the basis of this response, I wrote everything else myself"*）。**これを毎
    - **分岐 A（指摘が届いた）**: 改善は**リスト由来**。§1 の 1 ラウンドを閉じてから移る。
    - **分岐 B（沈黙のまま）**: 改善は**すべて自分で見つけたもの**である。1.1 草案が閉じている
      **12 件は全件が自己発見の errata** であって、誰かに言われて直したものは 1 件も無い。
+     **⚠ 2026-09-26 注記: これは 2026-09-11 時点の数である。** 2026-09-22 には errata 30 件のうち
+     自己発見 23 / 外部レビュー 6 / list 由来 1（E11・自分が出した未回答の問い）になっており
+     （`ACD-1.2-CHANGELIST.md` 冒頭）、**「全件が自己発見」とはもう書けない。** 書ける形は下の 3 つの区別を保ったもの
+     （`submission.md` の沈黙版を同日に訂正）。
      **したがって提出文はそう書かなければならない** —— 「指摘を反映した」と書けば嘘になる。
      書ける形は「**pre-review を求めた。アーカイブに返信は無い。本文の変更は自分で見つけた
      欠陥に対するもの**」である（**沈黙を支持と読ませない** —— §3.5・`against.md` #109）。
