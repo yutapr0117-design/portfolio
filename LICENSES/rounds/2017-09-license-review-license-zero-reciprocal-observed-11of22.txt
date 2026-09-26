@@ -1,0 +1,750 @@
+On 2017-10-23 18:10, Bruce Perens wrote:
+> On Mon, Oct 23, 2017 at 3:08 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+>
+> >
+> > 1. Why are net-freedom-enhancing conditions on distribution
+> >    permitted, but net-freedom-enhancing conditions on use
+> >    prohibited?
+> >
+>
+> Because net-freedom-enhancing conditions on use were not necessary, given
+> that we had distribution and modification to hang them off of, and there
+> were examples of net-freedom-enhancing conditions on use that had backfired
+> and become net-freedom-reducing. So, I wrote the rule that way.
+
+Interesting.
+
+Can you give an example of a net-freedom-reducing use
+condition targeting license terms or source publication that
+backfired?  Do you believe that _all_ use-based conditions
+are doomed to backfire, that we can't write effective ones?
+
+That being said, all things being equal, I'd like to be
+convicted specifically, not by association!
+
+> > 2. What's the basis in OSD for that distinction?
+>
+> The OSD language on field of endeavor restrictions. Now, you are attempting
+> to avoid that by coupling modification and use together in your
+> restrictions, awkwardly and unnecessarily.
+
+That language reads:
+ The license must not restrict anyone from making use of the program in a specific field of endeavor.  For example, it may not restrict the program from being used in a business, or from being used for genetic research.
+
+It's very, very hard for me to read that as:
+ The license must not put conditions on any kind of permission but permission to distribute with modifications.
+
+Moreover, it's perfectly possible to write conditions on
+distribution with modifications that violate the criterion.
+For example, a license condition that says licensees may not
+distribute with modifications that enable interoperability
+with military systems or standards.
+
+> > 4. Industry developments---ASP, PaaS---are making that
+> >    distinction less and less relevant.  Doesn't
+> >    confining copyleft to distribution-triggered
+> >    conditions fundamentally hobble it as a technique for
+> >    driving a good reciprocity bargain?
+>
+>
+> Not really, because you can do all that you desire with modification alone.
+
+I cannot.
+
+If I include an L0-R-licensed Python library package as a
+dependency of a project, to be run as distributed by the
+original author, I don't think I've "modified" the package
+in any plain sense.  If I utilize an L0-R-licensed binary
+optimizer to improve a proprietary software program, I don't
+think I've "modified" the L0-R program, either.
+
+> > In other words, is AGPL the furthest copyleft can go?
+>
+>
+> Not at all. If you want to hang your terms on modification, you can still
+> do that. You can activate your terms on private development (which OSD does
+> not prohibit but some may take exception to), or you can make _exceptions_
+> to your terms that protect private development and are permissive rather
+> than restrictive.
+
+So in your opinion distribution with modifications is the
+furthest copyleft can go?  Perhaps with some allowance for
+"saying use, but meaning distribution" aberrations, like
+AGPL-3.0 section 13?
+
+That would be a tight collar around copyleft's neck.  A
+statement, in effect that only a subset of the power of
+copyright is available to be turned back around on
+copyright.
+
+As I've mentioned elsewhere, a great many of the most
+common, and powerful, proprietary software licensing models
+reach right for use language, or don't bother distinguishing
+which exclusive rights under copyright will be trampled in
+violation.  Concurrent-user, seat-count, and
+running-instance limits, to give a few examples.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Tue Oct 24 04:29:52 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 23 Oct 2017 21:29:52 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171024024806.GG16922@dev.kemitchell.com>
+References: <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <8760b5vhc4.fsf@mid.deneb.enyo.de> <01dbfd5b-dfa1-5613-ee86-b92069286a8e@piana.eu> <CAA4ffp-cbhLxZsM0geVEdr1NRn9ZhHde5wFyj3uXQnRNeKXd7w@mail.gmail.com> <1ca814d0-78e2-12e3-1780-f3e17b25e032@postgresql.org> <20171023214753.GQ9694@dev.kemitchell.com> <CAA4ffp-T0wZFGbJVGGO-Kh-A2Q0DHiWFU+BFDx9HRWdXygWAwA@mail.gmail.com> <20171023220814.GA7764@dev.kemitchell.com> <CAK2MWOtd4sKQVS_aihqk5gSPvgooNLx1e_WXkpu1wzcs2M-gfQ@mail.gmail.com> <20171024024806.GG16922@dev.kemitchell.com>
+Message-ID: <CAK2MWOugqOYQe-u8mnix3-sUoSMnhgb1K-toAgXA8N+o7P1BKA@mail.gmail.com>
+
+On Mon, Oct 23, 2017 at 7:48 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+>
+> Can you give an example of a net-freedom-reducing use
+> condition targeting license terms or source publication that
+> backfired?  Do you believe that _all_ use-based conditions
+> are doomed to backfire, that we can't write effective ones?
+>
+
+I mentioned the Berkeley SPICE one. But mainly the problem is keeping the
+legal load on passive users low.  Use restrictions, of course, effect
+users. And I really did consider that when writing the OSD.
+
+
+> That language reads:
+>
+>   The license must not restrict anyone from making use of
+>   the program in a specific field of endeavor.  For example,
+>   it may not restrict the program from being used in a
+>   business, or from being used for genetic research.
+>
+
+While use restrictions are the main way that proposed licenses fail the
+field-of-endeavor language, they are not the only one. Coupling other
+license terms to fields of endeavor would also fail. No arguments about why
+the OSD should then ban the GPL, please. We've disposed of that one.
+
+So in your opinion distribution with modifications is the furthest copyleft
+> can go?
+
+
+No. Actually I don't know how you got there, since we haven't been
+discussing distribution.
+
+Consider a license with these terms:
+
+*If you modify the program, you must publish the modification in the source
+code form preferred for modification. As an exception to this rule, you are
+not required to distribute source code during private development of your
+modification. This is defined as until you distribute the program, use it
+for another legal entity, or allow another legal entity to use it.*
+
+
+See what I did here? I inverted a use restriction into a permission which
+lets you out of a license requirement.
+
+The requirement for this to work is that the first statement be legal under
+the OSD. So:
+
+*If you modify the program, you must publish the modification in the source
+code form preferred for modification.*
+
+That's OSD-compliant and it's the only requirement or restriction. Then:
+
+
+*As an exception to this rule, you are not required to distribute source
+code during private development of your modification. This is defined as
+until you distribute the program, use it for another legal entity, or allow
+another legal entity to use it.*
+
+This is only a permission. There's language like this in GPL 3 with regard
+to the Novell-Microsoft patent license.
+
+*unless you entered into that arrangement, or that patent license was
+granted, prior to 28 March 2007.*
+
+OSI approved the license.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171023/6480d26f/attachment.html>
+
+From fw at deneb.enyo.de  Tue Oct 24 07:28:33 2017
+From: fw at deneb.enyo.de (Florian Weimer)
+Date: Tue, 24 Oct 2017 09:28:33 +0200
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171023195205.GJ9694@dev.kemitchell.com> (Kyle Mitchell's message of "Mon, 23 Oct 2017 12:52:05 -0700")
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <8760b5vhc4.fsf@mid.deneb.enyo.de> <20171023192327.GF9694@dev.kemitchell.com> <87mv4htzs0.fsf@mid.deneb.enyo.de> <20171023195205.GJ9694@dev.kemitchell.com>
+Message-ID: <87efptuhr2.fsf@mid.deneb.enyo.de>
+
+* Kyle Mitchell:
+
+> L0-R stars off by giving the same, broad grant of permission
+> as BSD-2-Clause, in exactly the same words.  Even with the
+> additional L0-R conditions, the license doesn't say that you
+> may _only_ use the L0-R with other Open Source.  Rather, you
+> may use the software however you like, but it's a condition
+> of using it with a patch or some other software that either
+> the patch or software becomes Open Source within a given
+> time, or you stop using it that way within a given time.
+
+It's still not clear to me whether you want that an L0-R-licensed text
+editor can be used to write something which is not intended for
+publication.  It's not clear form the license, and your explanations
+haven't clarified that so far.
+
+Such ambiguity is a problem for a license.
+
+
+From Nigel.Tzeng at jhuapl.edu  Tue Oct 24 17:37:08 2017
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Tue, 24 Oct 2017 17:37:08 +0000
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171024005531.GC16922@dev.kemitchell.com>
+References: <20170926020744.GK6204@dev.kemitchell.com> <46261d9e-733f-7414-ca75-e7128ca99ada@piana.eu> <20171019235827.GD9707@dev.kemitchell.com> <CAD2gp_QuuwQVb4SitqaUhJzsb+28DMoY6EWoGAzm+ON22YNqTg@mail.gmail.com> <20171020040937.GC26076@dev.kemitchell.com> <CAK2MWOv+wS6eqPX8Txgnm25z5dweGkUrYfZa=SoTB6B=FEaJXg@mail.gmail.com> <20171020043657.GE26076@dev.kemitchell.com> <CAK2MWOtLLEDeKFWjMn1s8+HSPUiZtq+FUpNyr8qdaznDVDakDQ@mail.gmail.com> <20171023202745.GK9694@dev.kemitchell.com> <CAK2MWOvd8M_7=KQEy8zbr7sd5zxg3ybx8ACOt98v20XOgW-s5A@mail.gmail.com> <20171024005531.GC16922@dev.kemitchell.com>
+Message-ID: <5BD3BB51-4CD8-46EA-A7CB-053E36075272@jhuapl.edu>
+
+On 10/23/17, 8:55 PM, "License-review on behalf of Kyle Mitchell" <license-review-bounces at opensource.org on behalf of kyle at kemitchell.com> wrote:
+ >If OSI succeeds in holding up to all its most rigorous, >self-imposed standards, but fewer and fewer developers care, >either because they dismiss OSI's claim to define to "open >source", or because they hitch their identities to some new >turn of phrase, I think the community as a will have >suffered a very great loss.
+
+To a certain extent it?s happening given that CC0 hasn?t been approved by the OSI and is still considered open source.
+
+Still waiting to hear on NOSA?  > This rings very near to the sentiment that set off License > Zero.  The immediate moral response to industry abuse of > community was a license addressing the _source_ of the pain, > a noncommercial license.  > It was only talking to friends and fellow devs still holding > on in the copyleft camp that lead me to write L0-R.  The > core realization there was that commerce was just the most > visible symptom of the underlying disorder.  The fundamental > difference is in values, in a lack of reciprocity that makes > a one-way valve between producer-community to > consumer-users, to the benefit of the latter.
+
+Permissive licenses are ?one-way valves? in the same way that gift giving is ?a one-way valve?.  
+
+We don?t make things permissive because we intend to receive anything in return.  We make things permissive because we want folks to use the code we wrote.
+
+And the evil industry you rail against ended up paying for a lot of that code to be written.
+ > So I asked devs what kind of deal they'd want with users, if > they could write their own.  It boiled down to "share what > you do with my code as open source, or support me if you're > stuck in a place that can't or won't do that" plus "I want > to keep working on GitHub, distributing on npm, and using > the other current-generation code services".  > That's a harder copyleft bargain than AGPL, mashed up with > permissive distribution permissions.  L0-R was born.
+
+Reciprocity is nice but doesn?t pay the rent.  Which is likely why your developer friends wish to get paid in cash for commercial use of their code.
+
+Which is fine but this seems like a very complicated way to accomplish what a CC-BY-SA-NC style of license would do?but isn?t considered open source.
+
+
+
+
+
+From kyle at kemitchell.com  Tue Oct 24 17:59:53 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 24 Oct 2017 10:59:53 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <5BD3BB51-4CD8-46EA-A7CB-053E36075272@jhuapl.edu>
+References: <20171019235827.GD9707@dev.kemitchell.com> <CAD2gp_QuuwQVb4SitqaUhJzsb+28DMoY6EWoGAzm+ON22YNqTg@mail.gmail.com> <20171020040937.GC26076@dev.kemitchell.com> <CAK2MWOv+wS6eqPX8Txgnm25z5dweGkUrYfZa=SoTB6B=FEaJXg@mail.gmail.com> <20171020043657.GE26076@dev.kemitchell.com> <CAK2MWOtLLEDeKFWjMn1s8+HSPUiZtq+FUpNyr8qdaznDVDakDQ@mail.gmail.com> <20171023202745.GK9694@dev.kemitchell.com> <CAK2MWOvd8M_7=KQEy8zbr7sd5zxg3ybx8ACOt98v20XOgW-s5A@mail.gmail.com> <20171024005531.GC16922@dev.kemitchell.com> <5BD3BB51-4CD8-46EA-A7CB-053E36075272@jhuapl.edu>
+Message-ID: <20171024175953.GH16922@dev.kemitchell.com>
+
+On 2017-10-24 17:10, Tzeng, Nigel H. wrote:
+> On 10/23/17, 8:55 PM, "License-review on behalf of Kyle Mitchell" <license-review-bounces at opensource.org on behalf of kyle at kemitchell.com> wrote:
+>     > This rings very near to the sentiment that set off License
+>     > Zero.  The immediate moral response to industry abuse of
+>     > community was a license addressing the _source_ of the pain,
+>     > a noncommercial license.
+>
+>     > It was only talking to friends and fellow devs still holding
+>     > on in the copyleft camp that lead me to write L0-R.  The
+>     > core realization there was that commerce was just the most
+>     > visible symptom of the underlying disorder.  The fundamental
+>     > difference is in values, in a lack of reciprocity that makes
+>     > a one-way valve between producer-community to
+>     > consumer-users, to the benefit of the latter.
+>
+> Permissive licenses are ?one-way valves? in the same way
+> that gift giving is ?a one-way valve?.
+>
+> We don?t make things permissive because we intend to
+> receive anything in return.  We make things permissive
+> because we want folks to use the code we wrote.
+
+I've referred to permissive licenses as "gift wrap" myself, e.g.:
+
+https://twitter.com/kemitchell/status/916342243719495680
+ MIT, BSD, Apache-2.0, and other permissive Open Source software licenses are legal gift wrap. When you wrap software up like a present, and stick on the Internet, you have given a gift.
+
+It's the norm of using only permissive licenses, encouraging
+their use at the total exclusion of other kinds, and
+expecting only permissive licenses from others, that makes a
+one-way valve.  A norm that encourages programmers to be
+maximally generous, and surrender most of their leverage, by
+default, before they're even aware of the ramifications.
+
+> And the evil industry you rail against ended up paying for
+> a lot of that code to be written.
+
+I don't rail against industry.  For the most part, I
+represent it.
+
+The wiser part of industry releases quite a bit of Open
+Source under permissive terms, for good reason.  The wiser
+part of industry also realizes that the same release,
+licensing, and maintenance play doesn't work, long term, for
+big swathes of available programming talent.  They _want_ a
+way to make good, open work common and sustainable in the
+chasm between beginner just starting out and seasoned,
+employed veteran at a large company.  A company with a
+cost-benefit view of, say, The MIT License, that no
+individual can match.
+
+>     > So I asked devs what kind of deal they'd want with users, if
+>     > they could write their own.  It boiled down to "share what
+>     > you do with my code as open source, or support me if you're
+>     > stuck in a place that can't or won't do that" plus "I want
+>     > to keep working on GitHub, distributing on npm, and using
+>     > the other current-generation code services".
+>
+>     > That's a harder copyleft bargain than AGPL, mashed up with
+>     > permissive distribution permissions.  L0-R was born.
+>
+> Reciprocity is nice but doesn?t pay the rent.  Which is
+> likely why your developer friends wish to get paid in cash
+> for commercial use of their code.
+
+https://writing.kemitchell.com/2017/02/10/Medicant-Maintainerati.html
+ None of that pays your rent. As an economic entity, you have, in the most direct sense, voluntarily bowed out of the picture.  Financially speaking, all the time you have spent producing the product is, at best, a loss leader.
+
+Many of my developer friends want to use L0-R.  And they
+expect some income from "selling exceptions" to it, since a
+goodly portion of commercial users would rather pay than
+reciprocate.
+
+> Which is fine but this seems like a very complicated way
+> to accomplish what a CC-BY-SA-NC style of license would
+> do?but isn?t considered open source.
+
+And isn't recommended for software.
+
+For the record, L0-NC, the noncommercial public license
+option for License Zero, uses the "noncommercial" language
+direct from the CC-...3.0 series.
+
+As I've mentioned elsewhere, a noncommercial license
+addresses a symptom of an underlying disagreement, not the
+disagreement itself.  Some companies would be fully open to
+reciprocating under L0-R.  Those companies would still have
+to pay for an exception under a noncommercial license.  Most
+developers I speak to, hearing that hypothetical, lean
+toward L0-R.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Tue Oct 24 19:42:01 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 24 Oct 2017 12:42:01 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOugqOYQe-u8mnix3-sUoSMnhgb1K-toAgXA8N+o7P1BKA@mail.gmail.com>
+References: <8760b5vhc4.fsf@mid.deneb.enyo.de> <01dbfd5b-dfa1-5613-ee86-b92069286a8e@piana.eu> <CAA4ffp-cbhLxZsM0geVEdr1NRn9ZhHde5wFyj3uXQnRNeKXd7w@mail.gmail.com> <1ca814d0-78e2-12e3-1780-f3e17b25e032@postgresql.org> <20171023214753.GQ9694@dev.kemitchell.com> <CAA4ffp-T0wZFGbJVGGO-Kh-A2Q0DHiWFU+BFDx9HRWdXygWAwA@mail.gmail.com> <20171023220814.GA7764@dev.kemitchell.com> <CAK2MWOtd4sKQVS_aihqk5gSPvgooNLx1e_WXkpu1wzcs2M-gfQ@mail.gmail.com> <20171024024806.GG16922@dev.kemitchell.com> <CAK2MWOugqOYQe-u8mnix3-sUoSMnhgb1K-toAgXA8N+o7P1BKA@mail.gmail.com>
+Message-ID: <20171024194201.GI16922@dev.kemitchell.com>
+
+On 2017-10-23 21:10, Bruce Perens wrote:
+> On Mon, Oct 23, 2017 at 7:48 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+>
+> >
+> > Can you give an example of a net-freedom-reducing use
+> > condition targeting license terms or source publication that
+> > backfired?  Do you believe that _all_ use-based conditions
+> > are doomed to backfire, that we can't write effective ones?
+> >
+>
+> I mentioned the Berkeley SPICE one. But mainly the problem is keeping the
+> legal load on passive users low.  Use restrictions, of course, effect
+> users. And I really did consider that when writing the OSD.
+
+As I understood it, the SPICE limitation didn't say anything
+about licensing or source availability.  I imagine it had
+more to do with human rights, or perhaps Apartheid specifically.
+
+Just to check my understanding:  By "passive users", do you
+mean users of the software as distributed, without
+modification?
+
+> > That language reads:
+> >
+> >   The license must not restrict anyone from making use of
+> >   the program in a specific field of endeavor.  For example,
+> >   it may not restrict the program from being used in a
+> >   business, or from being used for genetic research.
+> >
+>
+> While use restrictions are the main way that proposed licenses fail the
+> field-of-endeavor language, they are not the only one. Coupling other
+> license terms to fields of endeavor would also fail. No arguments about why
+> the OSD should then ban the GPL, please. We've disposed of that one.
+
+My concern here is that OSD 6 as written apparently means
+both what it says, in very general terms, and also something
+else entirely, and far more specific.  You may have disposed
+of the GPL argument with condition 6 as you expanded on it.
+But proprietary software either is a "field of endeavor", or
+it isn't.  If it is, then you have to read "not restrict
+anyone from making use" oddly, narrowly, and very
+specifically to avoid current copyleft implementations.
+
+Those are the words on the page.  Words flex, sure, but
+sometimes farther than credulity can follow.  I have immense
+respect for how difficult a document like OSD is to write.
+Harder, I'm sure, than any specific license.  But if OSD 6
+needs other words, after so many years, to say what it
+means, then OSI should add and explain those words.  They
+should be as public and accessible as the rest of OSD is
+today.
+
+> > So in your opinion distribution with modifications is the furthest copyleft
+> > can go?
+>
+>
+> No. Actually I don't know how you got there, since we haven't been
+> discussing distribution.
+>
+> Consider a license with these terms:
+>
+> *If you modify the program, you must publish the modification in the source
+> code form preferred for modification. As an exception to this rule, you are
+> not required to distribute source code during private development of your
+> modification. This is defined as until you distribute the program, use it
+> for another legal entity, or allow another legal entity to use it.*
+>
+>
+> See what I did here? I inverted a use restriction into a permission which
+> lets you out of a license requirement.
+>
+> The requirement for this to work is that the first statement be legal under
+> the OSD. So:
+>
+> *If you modify the program, you must publish the modification in the source
+> code form preferred for modification.*
+>
+> That's OSD-compliant and it's the only requirement or restriction. Then:
+>
+>
+> *As an exception to this rule, you are not required to distribute source
+> code during private development of your modification. This is defined as
+> until you distribute the program, use it for another legal entity, or allow
+> another legal entity to use it.*
+>
+> This is only a permission. There's language like this in GPL 3 with regard
+> to the Novell-Microsoft patent license.
+>
+> *unless you entered into that arrangement, or that patent license was
+> granted, prior to 28 March 2007.*
+>
+> OSI approved the license.
+
+I must be missing something.  This seems to elevate form
+over substance in a pretty dramatic way.
+
+Under copyright law, would-be licensees start with no
+permission, other than fair use and other narrow carve-outs
+from copyright as a whole.  By effect of a public license,
+they end up with some set of permissions, subject to
+conditions that whittle those permissions down, and perhaps
+some exceptions to some of those conditions.  The end result
+is a set of actions licensees may now take without liability
+that they could not take without liability before.
+
+Most Open Source licenses, including BSD-2-Clause, start out
+by granting permission to do pretty much everything.  Then
+they pare the broad grant back with conditions.  So
+BSD-2-Clause's preamble, alone, would permit redistribution
+in source form without notices.  But the preamble plus
+condition 1 takes source redistribution without notices
+back.
+
+That's just a drafting choice, an implementation choice.  We
+could "invert" BSD-2-Clause as "You may: ..." followed by an
+exhaustive, numbered list of permission grants, rather than
+a broad grant followed by restrictive conditions.  If we did
+the job right, the resulting set of licensee permissions
+would be the same.  In other words, we could "refactor" it.
+
+I'm puzzled as to why "inverting a use restriction into a
+permission" makes otherwise non-conformant terms conformant.
+Isn't the legal effect the same?  Don't most approved
+licenses pare permissions back with restrictive conditions
+on a broad grant, rather than long enumerations of
+affirmatively stated permissions?
+
+I note that the language you propose _does_ differ from
+going L0-R condition 3, in that it permits indefinite
+private use of private modifications.  Is that relevant in
+making it OSD-conformant, in your view?  It comes up fairly
+often in FSF's comments on licenses.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From josh at postgresql.org  Tue Oct 24 20:41:46 2017
+From: josh at postgresql.org (Josh berkus)
+Date: Tue, 24 Oct 2017 13:41:46 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171024001533.GA16922@dev.kemitchell.com>
+References: <20171020002742.GA26076@dev.kemitchell.com> <6bf511ef-93d9-5e6e-6b78-1fad761362dc@postgresql.org> <20171020032109.GB26076@dev.kemitchell.com> <2709ff94-43e9-ec32-1eb0-d73e181dcdd4@postgresql.org> <20171020193353.GG26076@dev.kemitchell.com> <de4a2abc-03b0-ae96-0bdb-a9d395116a03@postgresql.org> <20171020194845.GA30388@dev.kemitchell.com> <7afe8523-45df-5df6-03df-84fda178f403@postgresql.org> <20171023225521.GR9694@dev.kemitchell.com> <5a6590b3-d57c-6867-34e8-68ac77f8d2fd@postgresql.org> <20171024001533.GA16922@dev.kemitchell.com>
+Message-ID: <da445571-cdfe-4e50-7b85-96348b2ad480@postgresql.org>
+
+On 10/23/2017 05:15 PM, Kyle Mitchell wrote:
+> On 2017-10-23 16:10, Josh berkus wrote:
+>> On 10/23/2017 03:55 PM, Kyle Mitchell wrote:
+>>> Josh,
+>>>
+>>> I've been busy working out variations, trying to cover all
+>>> the concerns we raised, plus a few from Richard and McCoy,
+>>> without doubling the length of the license or veering into
+>>> heavy-duty contract structure.
+>>>
+>>> The frontrunner:
+>>>
+>>>   3.  Use with any software patch must be accompanied by
+>>>       release of that patch as Open Source Software per the
+>>>       Open Source Definition published by the Open Source
+>>>       Initiative.
+>>
+>> [...]
+>>
+>> My first question, in the above, is "what if the user doesn't have the
+>> ability to relicense the patch?"  The clause above imposes an obligation
+>> that the *user* may be unable to fulfill -- or for that matter even
+>> unaware of -- while the *distributor*, who is the jerk who bundled ZRPL
+>> code with a proprietary patch in the first place, gets off scot-free.
+>> Is that how you intended this paragraph to be interpreted?
+> 
+> Yes.  The originator of the non-Open Source patch will be in
+> breach, as would any follow-on user to whom they provide a
+> copy.  The originator of the patch can't give more
+> permission than they themselves received from owners of
+> rights in the original L0-R code.  If the one who made the
+> patch made any kind of warranty---express or implied---to
+> the end user, the end user might be able to bring a claim
+> against the infringing modifier-distributor, to answer for
+> any liability of their own.
+
+Not according to the wording in that clause; according to it, only "use"
+triggers the restriction, not redistribution.  Granted that it's
+difficult to modify software without using it (at least for testing
+purposes), but the license seems worded to put the onus on the user, not
+on the modifier.
+
+> The situation you describe is unfortunate, but not peculiar
+> to L0-R.  Any copyleft license that triggers a requirement
+> to provide all source, not just source for your own
+> modifications, has the same potential.  Otherwise, the
+> freedom to hack software you obtain wouldn't get much
+> protection.  Any first infringer could open the door for
+> subsequent recipients to dodge the copyleft requirement, on
+> the grounds that it's conveniently impossible to do so.
+
+You're missing the distinction between the user and the modifier of code
+here.  The GPL puts its emphasis on *distribution*, not use; in fact, I
+can use GPLv2 code all I want in combination with any other licenses and
+not violate anything.  The violation only happens when I give a copy of
+that code to someone else.
+
+The distinction here is important.  Theoretically, someone who is going
+to modify code should understand the licensing of the code they are
+modifying.  But I don't feel like we can expect the same of someone who
+is just executing a binary;  they don't *know* that it was modified with
+incompatibly licensed code unless they dig into the code history.
+
+What I don't get is why you even bother with this emphasis on use
+instead of distribution.  Explain?
+
+--Josh Berkus
+
+
+From kyle at kemitchell.com  Tue Oct 24 21:39:36 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 24 Oct 2017 14:39:36 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <da445571-cdfe-4e50-7b85-96348b2ad480@postgresql.org>
+References: <20171020032109.GB26076@dev.kemitchell.com> <2709ff94-43e9-ec32-1eb0-d73e181dcdd4@postgresql.org> <20171020193353.GG26076@dev.kemitchell.com> <de4a2abc-03b0-ae96-0bdb-a9d395116a03@postgresql.org> <20171020194845.GA30388@dev.kemitchell.com> <7afe8523-45df-5df6-03df-84fda178f403@postgresql.org> <20171023225521.GR9694@dev.kemitchell.com> <5a6590b3-d57c-6867-34e8-68ac77f8d2fd@postgresql.org> <20171024001533.GA16922@dev.kemitchell.com> <da445571-cdfe-4e50-7b85-96348b2ad480@postgresql.org>
+Message-ID: <20171024213936.GJ16922@dev.kemitchell.com>
+
+On 2017-10-24 13:10, Josh berkus wrote:
+> On 10/23/2017 05:15 PM, Kyle Mitchell wrote:
+> > On 2017-10-23 16:10, Josh berkus wrote:
+> >> On 10/23/2017 03:55 PM, Kyle Mitchell wrote:
+> >>> Josh,
+> >>>
+> >>> I've been busy working out variations, trying to cover all
+> >>> the concerns we raised, plus a few from Richard and McCoy,
+> >>> without doubling the length of the license or veering into
+> >>> heavy-duty contract structure.
+> >>>
+> >>> The frontrunner:
+> >>>
+> >>>   3.  Use with any software patch must be accompanied by
+> >>>       release of that patch as Open Source Software per the
+> >>>       Open Source Definition published by the Open Source
+> >>>       Initiative.
+> >>
+> >> [...]
+> >>
+> >> My first question, in the above, is "what if the user doesn't have the
+> >> ability to relicense the patch?"  The clause above imposes an obligation
+> >> that the *user* may be unable to fulfill -- or for that matter even
+> >> unaware of -- while the *distributor*, who is the jerk who bundled ZRPL
+> >> code with a proprietary patch in the first place, gets off scot-free.
+> >> Is that how you intended this paragraph to be interpreted?
+> >
+> > Yes.  The originator of the non-Open Source patch will be in
+> > breach, as would any follow-on user to whom they provide a
+> > copy.  The originator of the patch can't give more
+> > permission than they themselves received from owners of
+> > rights in the original L0-R code.  If the one who made the
+> > patch made any kind of warranty---express or implied---to
+> > the end user, the end user might be able to bring a claim
+> > against the infringing modifier-distributor, to answer for
+> > any liability of their own.
+>
+> Not according to the wording in that clause; according to it, only "use"
+> triggers the restriction, not redistribution.  Granted that it's
+> difficult to modify software without using it (at least for testing
+> purposes), but the license seems worded to put the onus on the user, not
+> on the modifier.
+
+I suppose L0-R could drive an even harder bargain than it
+tries to now, by prohibiting distribution with non-Open
+Source modifications, or for use as a component of non-Open
+source.  That wouldn't help our naive users executing
+prebuilt binaries.  But it might dissuade the one making
+those binaries from handing them out in the first place.
+
+A few more notes on this below.
+
+> > The situation you describe is unfortunate, but not
+> > peculiar to L0-R.  Any copyleft license that triggers a
+> > requirement to provide all source, not just source for
+> > your own modifications, has the same potential.
+> > Otherwise, the freedom to hack software you obtain
+> > wouldn't get much protection.  Any first infringer could
+> > open the door for subsequent recipients to dodge the
+> > copyleft requirement, on the grounds that it's
+> > conveniently impossible to do so.
+>
+> You're missing the distinction between the user and the modifier of code
+> here.  The GPL puts its emphasis on *distribution*, not use; in fact, I
+> can use GPLv2 code all I want in combination with any other licenses and
+> not violate anything.  The violation only happens when I give a copy of
+> that code to someone else.
+
+Correct, roughly speaking.
+
+> The distinction here is important.  Theoretically, someone who is going
+> to modify code should understand the licensing of the code they are
+> modifying.  But I don't feel like we can expect the same of someone who
+> is just executing a binary;  they don't *know* that it was modified with
+> incompatibly licensed code unless they dig into the code history.
+
+Nor can we realistically expect the same of someone who is
+just executing a purportedly MIT-licensed binary.  They may
+not know it was modified with, say, proprietary performance
+patches, for which they lack proper use licenses.
+
+> What I don't get is why you even bother with this emphasis on use
+> instead of distribution.  Explain?
+
+Sure.  Two reasons.
+
+First, L0-R wants to drive a harder reciprocity bargain than
+GPL.  For example, it wants to trigger on exactly the GPL
+use case you outline above.  GPL allows licensees to take
+open code, modify it, build on top of it, build out other
+software with it, and refuse to share that work back to the
+open, all by avoiding "distribution".
+
+AGPL wanted to drive a harder bargain than GPL, too, by
+closing the ASP loophole.  So AGPL also triggers source
+requirements on a kind of use, albeit one that _feels_
+vaguely like a kind of distribution, to cover cases GPL's
+distribution-based trigger couldn't reach.
+
+Second, L0-R wants to maximize distribution and
+compatibility with distribution systems.  Preserving
+BSD-2-Clause's "redistribution" conditions verbatim does
+just that.
+
+As a practical matter, many distribution systems take
+warranties and even default licenses for user-provided
+content, under their terms of service.  Those can serve as
+backstops, should redistribution of user content technically
+exceed permission under the applied public license.  But not
+all such services do this with terms, want to, or know they
+might want to.
+
+In the end, software is always caveat user.  Open Source is
+no exception.  It's as important to make sure you have terms
+for software you're using to begin with as it is to make
+sure those terms are Open Source terms, and that you can
+live with their conditions.
+
+I've done a lot of work on those problems.  But that work
+doesn't take the form of public license terms.
+
+Thanks again for great questions, Josh.  Really, really
+appreciate the time you've put in.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From simon at webmink.com  Tue Oct 24 21:51:04 2017
+From: simon at webmink.com (Simon Phipps)
+Date: Tue, 24 Oct 2017 23:51:04 +0200
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171023220814.GA7764@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <8760b5vhc4.fsf@mid.deneb.enyo.de> <01dbfd5b-dfa1-5613-ee86-b92069286a8e@piana.eu> <CAA4ffp-cbhLxZsM0geVEdr1NRn9ZhHde5wFyj3uXQnRNeKXd7w@mail.gmail.com> <1ca814d0-78e2-12e3-1780-f3e17b25e032@postgresql.org> <20171023214753.GQ9694@dev.kemitchell.com> <CAA4ffp-T0wZFGbJVGGO-Kh-A2Q0DHiWFU+BFDx9HRWdXygWAwA@mail.gmail.com> <20171023220814.GA7764@dev.kemitchell.com>
+Message-ID: <CAA4ffp8=-kXx3p+CvcBOKjumK73d0+fOqeq6RBhT8J-MpH4aiQ@mail.gmail.com>
+
+On 24 Oct 2017 00:08, "Kyle Mitchell" <kyle at kemitchell.com> wrote:
+
+On 2017-10-23 23:10, Simon Phipps wrote:
+> I cannot envisage any circumstances where limiting mere use (i.e. without
+> distribution or other making available) would be acceptable in an open
+> source/free software license, whether the code was unchanged or had been
+> improved.
+
+We've reached the core question again.
+
+
+Glad to be of service.
+
+
+As succinctly as I can:
+
+1. Why are net-freedom-enhancing conditions on distribution permitted, but net-freedom-enhancing conditions on use prohibited?
+
+2. What's the basis in OSD for that distinction?  Or does it come from an unarticulated policy concern?
+
+3. What's the difference between "distribution" and "use", anyway?  (We're using "distribution" here in a loose sense, not precisely as employed in the Copyright Act.)
+
+4. Industry developments---ASP, PaaS---are making that distinction less and less relevant.  Doesn't confining copyleft to distribution-triggered conditions fundamentally hobble it as a technique for driving a good reciprocity bargain?  In other words, is AGPL the furthest copyleft can go?
+
+
+
+All your questions seem to omit the context that the open source license
+exists not as an independent intellectual exercise for copyright attorneys
+but as a pragmatic matter of advocacy and implementation for software
+freedom.
+
+OSI does not approve licenses in isolation as an academic exercise but as a
+matter of protecting and promoting open source software, development and
+communities; championing software freedom in society through education,
+collaboration, and infrastructure; and preventing abuse of the ideals and
+ethos inherent to the open source movement. (taken from
+https://opensource.org/)
+
+A license could conceivably avoid disqualification under the OSD and yet
+not be approved by the Board because it undermines OSI's larger role of
+crystallising and stewarding the consensus of the larger community[1]. It's
+unlikely extensive rules will be made to codify that reality.[2]
+
+Best regards,
+
+S.
+
+My personal thoughts on those points:
+[1] https://meshedinsights.com/2017/10/18/control-or-consensus/
+[2]] https://meshedinsights.com/2017/02/09/governance-games/
+-------------- next part --------------
+An HTML attachment was scrubbed...

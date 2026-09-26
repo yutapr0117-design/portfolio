@@ -1,0 +1,750 @@
+> argument, but I won't do that (though I'm interested in hearing other
+> attempts). I would argue clause 5 violates the 'spirit', though
+> admittedly not the letter, of OSD 9: "The license must not place
+> restrictions on other software that is distributed along with the
+> licensed software. For example, the license must not insist that all
+> other programs distributed on the same medium must be open-source
+> software."
+>
+> To approve LO-R, we'd basically be saying that OSD 9 means "An open
+> source license can't place restrictions on other software that is
+> distributed along with the licensed software, but as long as the other
+> software is *not* distributed, it *can* place restrictions on it."
+
+That seems unnecessary overkill.  Reading OSD 9 to mean "as
+long as the other software is _not_ distributed, it _can_
+place restrictions on it" goes well beyond what's needed to
+approve L0-R.  It would also miss the case where L0-R
+software is used to generate subject code, and one or both
+do get distributed.
+
+As an alternative, OSI could read OSD 9:
+ The license must not place restrictions on other software that is distributed along with the licensed software[ as a consequence of being distributed along with the licensed software --- KEM].
+
+This sits quite well with the example:
+ For example, the license must not insist that all other programs distributed on the same medium must be open-source software.
+
+Other criteria may still constrain licensing.  OSD 3, for
+example:
+ The license must allow modifications and derived works, and must allow them to be distributed under the same terms as the license of the original software.
+
+L0-R meets OSD 3.  All code required to be "released" can be
+released under L0-R.
+
+> This feels to me like you're exploiting a drafting mistake in OSD 9 --
+> a failure, in importing the DFSG to the OSD, to think beyond
+> distribution criteria, which I think is true of other parts of the
+> OSD. Debian was naturally focused on issues like 'can a free license
+> force all packages in a distro to be free'. I think the reason DFSG 9
+> does not address the scenario of a license restricting other software
+> having a different tangential relationship to the licensed software
+> than distribution is probably that no such license had ever been
+> encountered. If Bruce is still following this discussion maybe he can
+> comment.
+
+No exploitation intended!
+
+I read OSD 9 as a basic protection for the "common carriers"
+of the software world: the loaded-media vendors, mirror
+hosts, and kindred bit merchants, whose business is to
+distribute qua distribute, without manual modification.
+
+Given the volume of software packages these folks handle, to
+make widespread use of systems like Debian possible, our
+lack of interest in seeing terms of service from each, and
+the fact they often provide service out of the goodness of
+their pocketbooks, we don't want to impose per-package
+analysis of license obligations springing out of their kind
+of distribution, besides.  We can impose such worries on
+folks who work with what they carry, but not on those who
+merely transport from maintainer to working destination.
+
+If I recall correctly, the heading for OSD 9's predecessor
+in DFSG uses "contamination".  That makes a very nice
+analogy to crates of goods loaded into a container for
+shipping.  Each individual crate may be full of noxious
+awful.  But as customers shipping the awful, you and I
+needn't concern ourselves with whether your industrial
+solvent was stacked atop my radioactive isotopes in the
+truck, so long as yours doesn't leak onto mine, and mine
+doesn't irradiate yours.  Neither does the shipping company
+have to care.  So too as a Debian APT FTP host, one needn't
+worry whether package X and package Y create license woes
+amongst themselves by simple virtue of passing through the
+same server, appearing on the same USB stick, or flying away
+in response to a single HTTP request.
+
+Professional Aside:  By "common carrier" I am hereby
+revenged upon Richard for wanton use of "contacts".  That
+induced a case of the lawyer-willies on my end, utterly
+foreseeable on his!
+
+> Leaving the literal OSD aside, I don't think open source software
+> should force a particular kind of licensing policy on *other*
+> software, entirely unrelated other than the fact that it was in some
+> way the functional target of running the purportedly open source
+> software. Here, I think strong copyleft as traditionally understood
+> (in the GPL/AGPL sense) is as far as an open source license should
+> go. My intuition is that an open source text editor, for example,
+> ought to be usable to modify source files that the user chooses not to
+> publish, or chooses to distribute only in binary form, or chooses to
+> publish only under a proprietary license.
+
+The text editor example is one that's come to my mind, too.
+I asked myself a few times whether L0-R should reach through
+that kind of program.  It's a new thought in my world,
+though of course proprietary text editors certainly aren't.
+
+Then I turned the question around:  Should L0-R deny text
+editor authors, as a class of developer, the ability to
+press the same kind of copyleft bargain that we offer to
+others?  At a more general level, are we willing to deny
+developer toolmakers meaningful copyleft bargains to offer,
+of this kind?
+
+We can all smudge the library-developer tool line without
+much trouble.  Any library can be packaged as a tool that
+patches the same into other code, or spits it out to STDOUT,
+perhaps applying simple transformations, based on input.
+Code is data, and data is code.  One gets run, the other
+gets derived from or incorporated.  But that's mostly us
+lawyers pleasing themselves with lawyerly distinctions.
+Copyright catches all of the above.
+
+Smudging the line doesn't mean there ought not to be one.
+Taking off somewhat from Bruce, within my understanding,
+Open Source ought to keep in mind that share-alike
+requirements should fall on developer-kind, rather than
+user-kind, or perhaps bit-merchant-distributor kind.  L0-R
+does not extend to _all_ output or input of L0-R programs.
+Only to grammatical objects in sentences with verbs that
+strongly imply developer subjects.  Situations where OSI has
+expected competence to contend with present-day, GPL-style,
+distribution-based copyleft, as well.
+
+That makes developer tools exactly the class of programs
+where software copyleft ought to be able to go, without
+collateral damage among Bruce's "simple users".  Moreover,
+it's the only place share-alike _can_ go, insofar as sharing
+like means sharing code, rather than other products of
+running software, even products subject to copyright.  L0-R
+does _not_ require that, say, graphic art or prose be made
+available under Creative Commons terms, or made available in
+any way.
+
+If copyleft can't reach developer tools, Open Source
+developer tools will always be as much benefit to
+proprietary shops as to Open Source ones; proprietary
+toolmakers will not reciprocate without extrinsic
+motivation.  Linters, prettifiers, optimizers, transpilers,
+bundlers, compilers, and the like will become a one-way
+valve between those competing communities.  Those are
+_precisely_ the tools where open development occurs most
+naturally, where itches are most likely to be felt and
+scratched, where developers know best what to do, since
+development is what they do.  Like libraries, tools are
+directed very specifically at developer-kind.
+
+On a personal note, many of the independent developers
+inspiring this work made meaningful and important leaps
+precisely in developer tooling and broad-purpose utility
+libraries, this turn of the great programming-platform
+cycle.  The tools afford value in being applied to code,
+much less so than being extended or directly modified, than
+other products of programming effort.  I'd be greatly
+disappointed to deny the next generation of toolmakers
+strong reciprocity, and the business model that can proceed
+nicely with it.  Existing strong-copyleft licenses, like
+AGPL, do little or nothing for them now---almost all use is
+unmodified, though the users are plenty capable of
+modifying, and on local machines, without network
+interaction.  The same licenses serve nice code library
+authors better.
+
+> ... I believe there has been
+> that sort of basic assumption about open source and free software from
+> the get-go. Maybe  others disagree with me there and I hope to hear
+> such other views.
+>
+> I think the proper way to proceed as to this point is to consider
+> amending the OSD first, to clarify that an open source license can
+> restrict other software so long as the relationship between the open
+> source software and the other software is not a mere distribution
+> relationship, or is a kind of execution/target of execution
+> relationship, or something like that. Right now I'm not in favor of
+> such an amendment, but it might be worthwhile for the OSI board to
+> consider the issue.
+
+I have to admit, the phrase "basic assumption about open
+source and free software from the get-go" kind of takes the
+wind out of me.  On the one hand, I don't have anything to
+take away from it, factually.  I wasn't around; for all I
+know, you're dead right.  But I'm troubled that, frankly,
+there's nothing I feel I can say about it, at all.  Though
+it apparently matters to this and other outcomes.
+
+In other contexts, that's par for the course.  In Open
+Source, _about_ Open Source, it's tingling the kind of
+frustrated feeling we've hit before, in meta-discussion
+about transparency.  A disempowered feeling.
+
+If had-to-be-there is what it comes down to, I could not be
+more in favor of an OSD revision.  And a revision that goes
+beyond the terse style of the current text, to give a better
+chance of preserving the why, the rationale, behind whatever
+harder-line rule or clarifications currently exists in
+unreduced wisdom.  "Spell out all of your unspoken
+assumptions" is too tall an order for anyone, at any time, I
+know.  But as close as we can come, that's what we leave
+behind.  With a little luck, I'll contribute to enough of
+note to find myself facing that problem someday, too.
+
+> ... Although it can be argued that clause 5 is
+> consistent with the OSD, I think it is likely that a large number of
+> open source software users today assume that an open source license
+> cannot have a feature like clause 5.
+
+I don't mean to play the same old saw too often, but this
+strikes me as an off-ramp to still another strange loop in
+the license-review process.
+
+In the same way that polling constituents' preferences will
+turn up only more encouragement toward cultivate permissive
+licenses, and spurn copyleft, asking users what they're
+already familiar with will reinforce the need for more of
+what OSI has already approved.  That sets a collision course
+with license antiproliferation, broadly defined.  In tandem,
+they'd add up to a prescription to shut OSI's doors, carve
+the current license list into stone, and declare eternal
+victory.
+
+I understand that position has some support.  Trouble is,
+the thought process might have held just as strongly before
+OSL, before AGPL, or before any of the recent permissive
+inductees, for that matter.  And it's fundamentally
+inconsistent with the idea that Open Source can or should be
+defined in principle, rather than by a purely empirical,
+social, or political process.  In that alternate Open Source
+universe, OSI would need a new polling process or voting
+apparatus, not a refined Definition.
+
+Thanks again,
+
+K
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Mon Nov  6 21:02:48 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 6 Nov 2017 13:02:48 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <20171027202935.GA5874@dev.kemitchell.com>
+References: <20171027202935.GA5874@dev.kemitchell.com>
+Message-ID: <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com>
+
+On Fri, Oct 27, 2017 at 1:29 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+>
+>   5. If you run this software to analyze, modify, or generate
+>      software, you must release source code for that software.
+>
+
+I am back from my ranch, sorry about the delay in responding to this.
+
+No, I don't believe that this would pass OSD #6.
+
+For the cases *analyze* and *modify*, the program has another program
+(called the "input program") as its input. For *generate, *we may or may
+not have another program as input.
+
+Consider that the analysis task is a simple one: counting the number of
+source code lines. So, once I use the L0-R program to count those lines, I
+must license the input program as Open Source. Which seems absurd and does
+seem to be a use restriction as prohibited by OSD#6. But keep reading, it
+gets worse.
+
+If I use the L0-R program to count the lines of a program for which I don't
+own the copyright, I do not have the right to re-license the input program,
+and am thus infringing upon the L0-R program.
+
+So, here we violate the guideline that the passive user should not have to
+read the license, and its corollary that a routine act of the passive user,
+using the program in the way it's intended and not attempting to be a
+software developer, should not render the user an infringer.
+
+For the modify and generate cases, let us assume that the L0-R program is a
+compiler. We should consider whether the program places pieces of itself in
+its output, as a compiler usually does. If the program is modified to place
+an entire copy of itself in its output for the purpose of circumventing the
+license, you can and should catch that as the GPL does. But if the program
+is performing its usual task of compiling source code, you are asking for
+the program it is run upon to be licensed as Open Source simply because it
+is processed with the L0-R compiler. Which again seems absurd, and we don't
+have any reason to expect that the person running a compiler is even a
+software developer. Gentoo, for example, builds all packages from source at
+install time. So, there's a case where the user is not a developer and can
+not be expected to have the right to re-license the software as your
+license expects.
+
+So, I am left with: is there any other *use *for which the L0-R program
+should have the right to compel that the input to the program is
+relicensed? And I am only coming up with the case in which a derivative
+work of the L0-R software is created or at least the combination of the
+L0-R software with other software short of meeting the definition of a
+derivative work. And we don't have to restrict that sort of act as a *use,*
+we have other language that can cover it.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171106/18b1abc1/attachment.html>
+
+From mccoy.smith at intel.com  Mon Nov  6 22:49:57 2017
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Mon, 6 Nov 2017 22:49:57 +0000
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+Message-ID: <2D52F7EE739F8542A700CAB96276B5195E231FA1@FMSMSX106.amr.corp.intel.com>
+
+Some comments below.  Richard and Bruce have raised other philosophical issues already, many of which I share so won't repeat; to the extent that I think there are other philosophical question, I've detailed them below.
+
+>>**This software comes as is, without any warranty at all. As far as the law allows, those giving this license will not be liable for any damages related to this software or this license, for any kind of legal claim.**
+
+Do you believe this to be sufficiently "conspicuous" to satisfy the requirements of, inter alia, UCC & UCITA?  Do you think this language is sufficient to properly disclaim the UCC & UCITA warranties of merchantability and for a particular purpose?  If not, is there a reason why (i.e., you don't think UCC or UCITA would apply here, or you just don't care about those two statutory provisions -- one widely adopted in the US, one not)?  There's a reason why fairly specific language, and the SHOUTING ALL CAPS, has become ubiquitous in open source disclaimers, and I'm curious if you believe that is unnecessary.
+
+>>You may do everything with this software that would otherwise infringe copyright in this software, or any patent anyone giving this license has or obtains that would have read on this software just after any of their contributions, on these conditions:
+
+Is there are reason why the statement about copyright is not limited to "anyone giving this license" but it is about patents?  Also, is there are reason for copyrights you use "infringe" but for patents you use "read on"?  The inconsistencies in language could result in inconsistent interpretations of the licenses granted.  Also, is "contribution" intended to encompass the original author's work, or just subsequent modifications?  Many licenses make it clear (via a definition) that both are included, but I wonder if you think such a definition is unnecessary because it would be understood and interpreted in that way.
+
+>>2. You may not make any legal claim against anyone accusing this software, or any derivative work based on it, of infringing any patent that would read on this software alone, without modification or extension.
+
+Is the subject of the verb "accusing" "You," or "anyone"?  The way this is written, it appears it is the latter (and makes the clause nonsensical:  "You can't sue for personal injury or defamation anyone who has made an accusation of patent infringement against this software"!).  I'd suggest more careful grammar.
+Also, what is the difference between a "modification" and an "extension"?  "Modification" is one act that falls within the definition of a derivative work in 17 USC 101.   Extension does not.  I'd suggest you define the latter term if it is intended to describe something different.  If it is meant to mean the same thing, then you should use the correct 17 USC based terminology.
+
+>>3. If you modify or extend this software, you must release source code for your modification or extension.
+
+Same comment as above with regard to "extension" vs. modification.  
+
+>>4. If you include this software in a larger piece of software, you must release any source code for that larger piece of software that has not yet been released.
+
+Is "include" the meaning in everyday English (inter alia, "to take in or comprise as a part of a whole or group"), or in everyday computer programming?  If the latter, you should make that clear.  If the former, I think you have a potential OSD 9 problem, since this would dictate the licensing of software merely on the same medium.
+Note that if you mean English "include" but also want to limit this requirement to non-distributed software (to get around the interesting anomaly in OSD 9 that it recites/possibly requires distribution), doesn't this suggest a rather odd OSD 9 avoidance loophole?  I.e., OSD 9 does not allow you to have a license that requires as a condition of distribution that software on the same medium be open source.  But surely that condition also applies in the circumstance for software on the same medium that is not distributed -- else one could avoid the requirement to disclose source by distributing the code.  This is one reason why I believe Richard's observation that Freedom Zero is inherently part of the OSD -- because if it is not, it results in rather bizarre results like allowing for licenses that require source disclosure for internal use, but which preclude that requirement for external use. 
+>>5. If you run this software to analyze, modify, or generate software, you must release source code for that software.
+
+I will echo Bruce's comments on this part.  "Analyze" and "generate" are verbs, outside of the rights articulated in 17 USC (and also not entirely clear on their own) which in most instances would not require an exercise of the copyright rights of the "this" software (other than the Freedom Zero right to use/run).  I believe this to be a violation of OSD 9 (if not by its actual wording -- since it recites distribution -- then its logical implication, as outlined above).  "Modify" may require use of the "this" software (to the extent that modification results in creation of a derivative work of the "this" software;  in the instance when it is not, then it reverts back to the same problem (for example, a simple LZPL text editor used to write a piece of software but which does not import any of its own code into the created software -- this imposes conditions upon the created software as the result of doing nothing more than exercising the Freedom Zero right to privately run the licensed software.
+Also, as a matter of drafting, you probably want to make clear the difference between the "this software" (i.e., that software licensed under LZPL) and the "other" software (i.e., that software upon which you are attempting to impose LZPL terms upon as a result of exercising the functions articulated in this provision).
+
+>>To release source code, you must license it to the public under either these terms or terms approved by the Open Source Initiative, and promptly publish it, in the preferred form for making modifications, to a freely accessible distribution system widely used for similarly licensed source code.
+
+"Terms or terms approved by the Open Source initiative" is a bit unclear -- this could mean a license which has gone through the license approval process within OSI, or the "terms" of the OSD.
+
+>>Any unknowing failure to meet condition 3, 4, or 5 is excused if you release source code as required within 30 days of becoming aware of the failure.
+
+You might want to clarify that the "release [of] source code" articulated here are under the conditions above.
+
+McCoy
+
+From bruce at perens.com  Mon Nov  6 22:58:23 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 6 Nov 2017 14:58:23 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5195E231FA1@FMSMSX106.amr.corp.intel.com>
+References: <2D52F7EE739F8542A700CAB96276B5195E231FA1@FMSMSX106.amr.corp.intel.com>
+Message-ID: <CAK2MWOs=U4EOOB0=5atn39+8BShh9km0ctB5UWzqPiiPOaiAyQ@mail.gmail.com>
+
+On Mon, Nov 6, 2017 at 2:49 PM, Smith, McCoy <mccoy.smith at intel.com> wrote:
+
+>
+>
+> >>4. If you include this software in a larger piece of
+>      software, you must release any source code for that
+>      larger piece of software that has not yet been released.
+>
+
+
+>
+> Is "include" the meaning in everyday English (inter alia, "to take in or
+> comprise as a part of a whole or group"), or in everyday computer
+> programming?  If the latter, you should make that clear.  If the former, I
+> think you have a potential OSD 9 problem, since this would dictate the
+> licensing of software merely on the same medium.
+>
+
+Good point. Simple aggregation should not trigger your license. Combination
+into a single program should, and I'd be happy to see that not be limited
+to creation of a derivative work, since copyright law is somewhat unhelpful
+in that regard and case law is insufficient.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171106/97017d5b/attachment.html>
+
+From rick at linuxmafia.com  Mon Nov  6 23:35:19 2017
+From: rick at linuxmafia.com (Rick Moen)
+Date: Mon, 6 Nov 2017 15:35:19 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5195E231FA1@FMSMSX106.amr.corp.intel.com>
+References: <2D52F7EE739F8542A700CAB96276B5195E231FA1@FMSMSX106.amr.corp.intel.com>
+Message-ID: <20171106233519.GW1074@linuxmafia.com>
+
+Quoting McCoy Smith (mccoy.smith at intel.com):
+
+> Do you believe this to be sufficiently "conspicuous" to satisfy the
+> requirements of, inter alia, UCC & UCITA?  Do you think this language
+> is sufficient to properly disclaim the UCC & UCITA warranties of
+> merchantability and for a particular purpose?  If not, is there a
+> reason why (i.e., you don't think UCC or UCITA would apply here, or
+> you just don't care about those two statutory provisions -- one widely
+> adopted in the US, one not)?  There's a reason why fairly specific
+> language, and the SHOUTING ALL CAPS, has become ubiquitous in open
+> source disclaimers, and I'm curious if you believe that is
+> unnecessary.
+
+For reference, the UCC requirement of 'conspicuous' notice is here:
+https://www.law.cornell.edu/ucc/2/2-316
+
+UCITA (not yet widely adopted and something of a fizzle as a UCC2B
+effort; Virginia and Maryland only, so far) incorporates those UCC Article
+2 rules, but adds safe harbor provisions relating to the visual
+appearance of the printed or displayed text.  (There's a conflict on
+these matters between UCITA and provisions of the Federal Magnuson-Moss
+Act, 15 USC Sec. 2301, that, last I heard, had not been adjudicated.)
+
+
+
+From kyle at kemitchell.com  Tue Nov  7 07:09:29 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Mon, 6 Nov 2017 23:09:29 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5195E231FA1@FMSMSX106.amr.corp.intel.com>
+References: <2D52F7EE739F8542A700CAB96276B5195E231FA1@FMSMSX106.amr.corp.intel.com>
+Message-ID: <20171107070929.GI25059@dev.kemitchell.com>
+
+McCoy,
+
+Thanks again.  A few notes below.
+
+On 2017-11-06 22:11, Smith, McCoy wrote:
+> >>**This software comes as is, without any warranty at all.
+> >>As far as the law allows, those giving this license will
+> >>not be liable for any damages related to this software or
+> >>this license, for any kind of legal claim.**
+>
+> Do you believe this to be sufficiently "conspicuous" to
+> satisfy the requirements of, inter alia, UCC & UCITA?
+
+Yes.
+
+As a general matter, if the first term in a short license,
+surrounded by asterisks, is not "conspicuous", then
+conspicuous does not mean conspicuous.
+
+More specifically, per UCC 1-201:
+ "Conspicuous", with reference to a term, means so written, displayed, or presented that a reasonable person against which it is to operate ought to have noticed it.  Whether a term is "conspicuous" or not is a decision for the court.  Conspicuous terms include the following: ... (B) ... or set off from surrounding text of the same size by symbols or other marks that call attention to the language.
+
+I don't have my print copy of UCITA handy, but here's from
+Virginia, enacted:
+ "Conspicuous," with reference to a term, means so written, displayed, or presented that a reasonable person against which it is to operate ought to have noticed it.  [...] With respect to a person, conspicuous terms include ... (ii) ... or set off from the surrounding text by symbols or other marks that draw attention to the language ...
+
+If you'd like a prior from the OSI-approved corpus, MPL-2.0
+uses asterisks in its canonical plain text rendering, linked
+from this page:
+
+https://www.mozilla.org/en-US/MPL/
+
+Frankly, I'm not sure asterisks are necessary for a term at
+the top of a license this short.  But it's nice to see a few
+pretty things in the otherwise cold, dead world of legal
+language that I've made my professional home.
+
+> Do you think this language is sufficient to properly
+> disclaim the UCC & UCITA warranties of merchantability and
+> for a particular purpose?
+
+Yes, under UCC 2-316(3)(a) and Virginia 59.1-504.6(b).  A
+rare case of true legal "magic words".
+
+> There's a reason why fairly specific language, and the
+> SHOUTING ALL CAPS, has become ubiquitous in open source
+> disclaimers, and I'm curious if you believe that is
+> unnecessary.
+
+Currently approved licenses are uniform in their general
+approach, but vary widely in specific substance,
+copy-and-paste jobs excepted.  The approach is unnecessary.
+The substance we can make shorter, and no less effective,
+without actively discouraging close reads with eyestrain.
+
+That's more work, and more homework, but worthwhile.  Fair
+License got it almost exactly wrong.  I thin L0-R gets it
+right.
+
+re long disclaimers:
+
+There is "gotcha" case law out there to be found, where
+courts in search of a way to read an egregious wrong out of
+a disclaimer find a lengthy list of terms wanting for a
+precise description of exactly the claim brought.  But
+addressing those outcomes in the usual way, with a taller
+and taller stalagmite of accreted legal terminology, is
+ultimately self-defeating when the goal isn't a narrow
+slicing and dicing of risks, but a general, blanket
+disclaimer.
+
+For a few reasons.  First because the more specific-sounding
+words you use, the more the aggregate reads with intent to
+disclaim and limit risks specifically.  Second because
+courts will attempt to give different words different
+meanings, opening up distinctions through which specific
+claims can slide.  Third because describing every form of
+new and old legal risk, in specific terms, at finite length,
+is impossible, like painting a house with Crayola markers in
+a rainstorm.
+
+Some disclaimers go even longer, by stating general classes
+of risks and following them with incomplete lists of
+specific terms.  That's self-defeating, too.  Courts cannot
+"unsee" the examples, even if the terms ask them to, and
+they try to oblige.  The specifics will tend to limit
+construction of the general class.
+
+re all-caps formatting:
+
+The belief that the law requires ALL CAPS to be conspicuous,
+or that ALL CAPS are sufficient to make text conspicuous, is
+widespread and wrong.  The UCC definition does not require
+them.  As for sufficiency:
+ Lawyers who think their caps lock keys are instant "make conspicuous" buttons are deluded.
+ American General Finance, Inc. v. Bassett, 285 F.3d 882 (9th Cir. 2002)
+
+This came to my attention first through Ken Adams' A Manual
+of Style for Contract Drafting.
+
+As for how the misconception arises, I subscribe to Matthew
+Butterick's hypothesis from Typography for Lawyers: that was
+what typewriters could do, universally and easily, to make
+text stand out.  So purpose and practice linked up, and got
+stuck that way.
+
+> >>You may do everything with this software that would
+> >>otherwise infringe copyright in this software, or any patent
+> >>anyone giving this license has or obtains that would have
+> >>read on this software just after any of their contributions,
+> >>on these conditions:
+>
+> Is there are reason why the statement about copyright is
+> not limited to "anyone giving this license" but it is
+> about patents?
+
+The scope of the copyright license is bounded to the
+copyrights in the software itself, which is itself the
+potentially copyrightable work.  Which patents get licensed
+isn't so grounded in the software, so the patent grant has
+to specify them.  In doing so, it refers to those giving the
+license.
+
+I could have specified "copyrights that those giving this
+license hold in the software", but that goes without saying.
+
+> Also, is there are reason for copyrights
+> you use "infringe" but for patents you use "read on"?
+
+I use "infringe" to describe actions that licensees need a
+license to take without liability.  I use "read on" to
+describe the relationships between patents and the software,
+to bring them under the patent permission.
+
+I sometimes here "infringing product", though that seems
+less correct to me than "accused product" or "the product
+the patent they're accused of infringing reads on".  Always
+grateful for others' takes on my usage.  My intent here was
+to leverage the language I use with patent colleagues.
+
+> The inconsistencies in language could result in
+> inconsistent interpretations of the licenses granted.
+
+For each license, I aimed to say, first, what licensees may
+do, and second, under what IP.
+
+- For both permissions, copyright and patent, the first is the same: "everything ... that would otherwise infringe".
+
+- For copyright, the second is "copyright in the software".
+
+- For patent, the second is "any [contributor] patent ... that would have read on this software just after any of their contributions".
+
+A shot in the dark: might adding a verb clear things up, in
+your reading?
+ You may do everything with this software that would otherwise infringe copyright in this software, or infringe any patent anyone giving this license has or obtains that would have read on this software just after any of their contributions...
+
+I could also split the grant language in two, at the cost of
+some redundancy:
+ You may do everything with this software that would otherwise infringe copyright in this software.
+ You may do everything with this software that would otherwise infringe any patent anyone giving this license has or obtains that would have read on this software just after any of their contributions.
+
+> Also, is "contribution" intended to encompass the original
+> author's work, or just subsequent modifications? Many
+> licenses make it clear (via a definition) that both are
+> included, but I wonder if you think such a definition is
+> unnecessary because it would be understood and interpreted
+> in that way.
+
+I don't think the plain meaning of "contribution", in
+general or in the industry, distinguishes either early work
+from later work, or original licensors' work from outside
+licensors' work.  And reading "contribution" that
+restrictively potentially makes the patent grant a nullity
+for the original not-a-contributor, who's potentially the
+only one giving the license.
+
+Looking back at a few of the OSI-approved definitions of
+"contribution" that come to mind, I think I would have
+defined "contribution" in those licenses, too.  But largely
+to counteract ambiguity arising from other terms and
+structure.
+
+That seems to be what happened in Apache 2.0, for example.
+If you replace "any work of authorship" with "the original
+version of the Work" in that definition, you end up with an
+oddly circular sentence about submitting the original Work
+to the Licensor for inclusion in the Work.  I'd be
+interested to look back at the drafts.
+
+> >>2. You may not make any legal claim against anyone accusing
+> >>   this software, or any derivative work based on it, of
+> >>   infringing any patent that would read on this software
+> >>   alone, without modification or extension.
+>
+> Is the subject of the verb "accusing" "You," or "anyone"?
+> The way this is written, it appears it is the latter (and
+> makes the clause nonsensical:  "You can't sue for personal
+> injury or defamation anyone who has made an accusation of
+> patent infringement against this software"!).  I'd suggest
+> more careful grammar.
+>
+> Also, what is the difference between a "modification" and
+> an "extension"?  "Modification" is one act that falls
+> within the definition of a derivative work in 17 USC 101.
+> Extension does not.  I'd suggest you define the latter
+> term if it is intended to describe something different. If
+> it is meant to mean the same thing, then you should use
+> the correct 17 USC based terminology.
+
+Thank you for these points.  They strongly echo feedback
+from others, off the list.
+
+Here is where my revision stands at the moment:
+ 2. You must not make any legal claim against anyone for infringing any patent claim that would read on this software alone, accusing this software, with or without modification or extension, alone or included in a larger piece of software.
+
+I've rearranged the clauses.  I think this order helps. It's
+also the order I see in my early drafts.  I fiddled with it
+too much.
+
+Derivative work looked a tempting shortcut, until I
+remembered where that road leads.  The accused-product
+language now mirrors the copyleft conditions.
+
+> >>3. If you modify or extend this software, you must release
+> >>   source code for your modification or extension.
+>
+> Same comment as above with regard to "extension" vs.
+> modification.
+
+I've been all over the 17 USC 101 definition for other
+projects these past few weeks, and failed to remember that
+"modification" appears there.  I would prefer to dive _away_
+from non-obvious, specific legal meaning in the copyleft
+conditions.
+
+I'll look into whether "modification" in the Copyright Act
+has been read in any particular direction.  It may be that
+"modification" alone works fine.
+
+I'll also put some thought on whether "change" would work
+here.  As in:
+ 3. If you change this software, you must release source code for your changes.
+
+> >>4. If you include this software in a larger piece of
+> >>   software, you must release any source code for that
+> >>   larger piece of software that has not yet been
+> >>   released.
+>
+> Is "include" the meaning in everyday English (inter alia, "to take in or comprise as a part of a whole or group"), or in everyday computer programming?  If the latter, you should make that clear.  If the former, I think you have a potential OSD 9 problem, since this would dictate the licensing of software merely on the same medium.
+> Note that if you mean English "include" but also want to limit this requirement to non-distributed software (to get around the interesting anomaly in OSD 9 that it recites/possibly requires distribution), doesn't this suggest a rather odd OSD 9 avoidance loophole?  I.e., OSD 9 does not allow you to have a license that requires as a condition of distribution that software on the same medium be open source.  But surely that condition also applies in the circumstance for software on the same medium that is not distributed -- else one could avoid the requirement to disclose source by distributing the code.  This is one reason why I believe Richard's observation that Freedom Zero is inherently part of the OSD -- because if it is not, it results in rather bizarre results like allowing for licenses that require source disclosure for internal use, but which preclude that requirement for external use.
+
+Bruce responded on this one, too, quoting your comments.
+I'll respond there.
+
+> >>5. If you run this software to analyze, modify, or generate
+> >>   software, you must release source code for that software.
+>
+> I will echo Bruce's comments on this part.  "Analyze" and
+> "generate" are verbs, outside of the rights articulated in
+> 17 USC (and also not entirely clear on their own) which in
+> most instances would not require an exercise of the
+> copyright rights of the "this" software (other than the
+> Freedom Zero right to use/run).  I believe this to be a
+> violation of OSD 9 (if not by its actual wording -- since
+> it recites distribution -- then its logical implication,
+> as outlined above).  "Modify" may require use of the
+> "this" software (to the extent that modification results
+> in creation of a derivative work of the "this" software;
+> in the instance when it is not, then it reverts back to
+> the same problem (for example, a simple LZPL text editor
+> used to write a piece of software but which does not
+> import any of its own code into the created software --
+> this imposes conditions upon the created software as the
+> result of doing nothing more than exercising the Freedom
+> Zero right to privately run the licensed software.
+
+I'll take this up in the context of Bruce's comments, as well.
+
+> >>To release source code, you must license it to the public
+> >>under either these terms or terms approved by the Open
+> >>Source Initiative, and promptly publish it, in the preferred
+> >>form for making modifications, to a freely accessible
+> >>distribution system widely used for similarly licensed
+> >>source code.
+>
+> "Terms or terms approved by the Open Source initiative" is
+> a bit unclear -- this could mean a license which has gone
+> through the license approval process within OSI, or the
+> "terms" of the OSD.
+
+Agreed.  The terms/license distinction isn't clear, and
+bringing it up isn't helpful.
+
+I've revisions ready to go that speak here in terms of "this
+license" and licenses approved by OSI.
+
+> >>Any unknowing failure to meet condition 3, 4, or 5 is
+> >>excused if you release source code as required within 30
+> >>days of becoming aware of the failure.
+>
+> You might want to clarify that the "release [of] source
+> code" articulated here are under the conditions above
+
+Do you mean by something like...?:
+ Any unknowing failure to meet condition 3, 4, or 5 is excused if you release source code as _required by the condition_ within 30 days of becoming aware of the failure.
+
+
+Many thanks!
+
+K
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Tue Nov  7 20:05:14 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 7 Nov 2017 12:05:14 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOs=U4EOOB0=5atn39+8BShh9km0ctB5UWzqPiiPOaiAyQ@mail.gmail.com>
+References: <2D52F7EE739F8542A700CAB96276B5195E231FA1@FMSMSX106.amr.corp.intel.com> <CAK2MWOs=U4EOOB0=5atn39+8BShh9km0ctB5UWzqPiiPOaiAyQ@mail.gmail.com>
+Message-ID: <20171107200514.GJ25059@dev.kemitchell.com>
+
+On 2017-11-06 14:11, Bruce Perens wrote:
+> On Mon, Nov 6, 2017 at 2:49 PM, Smith, McCoy <mccoy.smith at intel.com> wrote:
+> > >>4. If you include this software in a larger piece of

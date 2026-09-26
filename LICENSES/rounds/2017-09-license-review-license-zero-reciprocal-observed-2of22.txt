@@ -1,0 +1,750 @@
+modification, are permitted provided that the following conditions
+are met:
+
+1.  Redistributions of source code must retain the above copyright and source availability notices, this list of conditions and the following disclaimer.
+
+2.  Redistributions in binary form must reproduce the above copyright and source availability notices, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3.  Uses in the execution or development of any computer program, the entire source code of which is not published and publicly licensed under licenses approved by the Open Source Initiative, must be limited to a period of <Grace Period> consecutive calendar days. This condition is waived if licenses permitting those uses cease to be available via the following agent, or a successor named in a subsequent release, for <Waiver Period> consecutive calendar days:
+ <Agent Information>
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+Sincerest thanks to all for time and input.
+
+Best,
+
+K
+
+--
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+_______________________________________________
+License-review mailing list
+License-review at opensource.org
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170923/186d3ba3/attachment.html>
+
+From kyle at kemitchell.com  Sat Sep 23 16:09:10 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Sat, 23 Sep 2017 09:09:10 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <2fd963f5339340a7b93ee2cb98a89e5d@aplex01.dom1.jhuapl.edu>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <1506125873.1314263.1115444192.53AAD338@webmail.messagingengine.com> <20170923002249.GA9012@dev.kemitchell.com> <1506126617.1315966.1115452640.69727340@webmail.messagingengine.com> <20170923005217.GB9012@dev.kemitchell.com> <2fd963f5339340a7b93ee2cb98a89e5d@aplex01.dom1.jhuapl.edu>
+Message-ID: <20170923160910.GE9012@dev.kemitchell.com>
+
+Nigel,
+
+Thanks for your response.
+
+If you'll forgive me generalizing a bit, I
+think you broached two main topics:
+
+1. Triggering source publication requirements on use, rather than distribution of modifications.
+
+I hope you'll forgive me starting out by
+saying that while this is absolutely the part
+of L0-R most worth discussing, I don't
+believe this choice of trigger affects
+whether L0-R meets the Definition.  I don't
+read any part of OSD to compel any particular
+kind of trigger for copyleft requirements.
+
+I usually refer to troubles complying with
+license conditions for software that you've
+received from someone else "downstream
+compliance issues".  Alas, downstream issues
+aren't peculiar to L0-R, or even to copyleft
+licenses generally.
+
+Take a typical attribution requirement under
+a permissive license, like the two-clause BSD
+License.  If A writes software and licenses
+BSD-2-Clause, B makes modifications and gives
+C a copy without A's copyright notice, then C
+might fail to meet the attribution condition
+of A's license if C makes a copy for D
+without A's notice, and end up without a
+license C needs.
+
+The same can happen with GPL-style copyleft
+conditions.  If A writes software and
+licenses GPL-2.0, B makes modifications and
+gives C a binary copy with access only to B's
+new source, then C's at risk of failing to
+meet the source condition of A's license if C
+distributes with further modifications, and
+only B and C source.  More generally, one
+purpose of GPL-style copyleft, as an
+implementation of Software Freedom, is to
+ensure that any licensee can also be a
+developer.  The distinction between user and
+developer dissolves.
+
+The only solution to eliminating downstream
+compliance issues I'm aware of is permissive
+licensing utterly without condition, such as
+under The Free Public License / 0BSD or The
+Unlicense.  Under a direct-licensing model,
+where everyone receives permission directly
+from the copyright holders, through the
+public license, any condition gives a license
+teeth that can bite anyone downstream.  L0-R
+has license conditions, and therefore
+potential downstream issues.  But it tries to
+mitigate headache in a couple of ways.
+
+First, condition 3 requires that source code
+_be_ published, but not that any or every
+specific licensee _do_ the publishing.  If A
+licenses code L0-R, B makes modifications,
+licenses those modifications under an Open
+Source license, and publishes code, users of
+B's modified version don't trip over
+condition 3 by executing or developing with
+A's software.
+
+Second, L0-R preserves BSD-2-Clause's
+redistribution conditions.  It modifies them
+only to require preservation of notice of a
+source code repository, in addition to the
+copyright notice.  This is meant to help
+ensure that not only license-terms
+information, but also source availability
+information, travels with the software
+wherever it roams.
+
+2. Issues related to license changes.
+
+You pointed out at least two ways in which
+the licensing situation under L0-R can drift
+away from the situation when the license text
+is originally applied to the code.  Both
+involve situations where licensees might have
+to look beyond the particular form of the
+software they've obtained to assess rights.
+
+First, there's the automatic waiver.  The
+concern that provision tries to address is a
+kind of "orphan code" tragedy, where the
+creators would be willing to make a deal for
+other license terms, or relicense, to permit
+non-Open Source use further down the line,
+but can't be found or bothered. Dual
+licensing stops, and all that's left is a
+very exacting public license.
+
+The most rigorous way to address that concern
+is simply to tell licensors that they ought
+to relicense their software under permissive
+terms when and if the time comes.  Or to set
+up some facility to offer alternative
+licenses indefinitely.  I have little hope
+for either of those approaches lasting the
+test of time.
+
+That being the case, we need some kind of
+trigger for, effectively, automatic
+permissive relicensing.  Automatic in the
+sense of requiring no further action by the
+licensor.  One approach would be to set a
+date in the license, but licensors would only
+very rarely guess the right date ahead of
+time.  Assessing whether a licensor has
+_failed_ to take some action, like offer
+alternative licenses, gives licensors more
+control, over time, of waiver. But from the
+licensee point of view, it involves proof of
+a negative.  The language puts the burden of
+that uncertainty where it belongs, on those
+who should seek an alternative license if
+they can get one.
+
+As for retroactive changes to the agent, and
+other changes to license information for a
+project, over time and over versions, I'm
+afraid those issues aren't peculiar to L0-R,
+either.  Fundamentally, the model of terms in
+public licenses distributed the same way as
+the software creates issues for those who
+want to make changes in what's already been
+distributed far and wide.
+
+If you license version 1.0 of a project under
+GPL-2.0, and later decide to move to
+GPL-3.0+, you're faced with the problem of
+informing folks with copies of 1.0 that only
+mention GPL-2.0.  If you're using a third
+party distribution service, you probably try
+to alter the artifacts they distribute.  And
+you likely publish a notice on your website
+and in README or similar of later versions of
+your project, mentioning that prior versions
+have been relicensed.  You'd do much the same
+for an L0-R agent change.
+
+The information dissemination problems here
+are mitigated somewhat by the copyright and
+repository notices.  If you're curious
+whether the licensing agent for a project has
+changed, you may find the information you
+need at the repository.
+
+3.  Concerns about the licensing agency.
+
+I'll put some thought on dropping the current
+language about an agent in favor of a
+requirement to preserve any separate notice
+about where alternative licenses are
+available.  Perhaps:
+ ...
+ Alternative Licenses Available: <Information>
+ ...
+ 1. ... must retain all the notices above...
+ 2. ... must reproduce all the notices above...
+ 3. ... This condition is waived if alternative licenses permitting those uses cease to be available for <Waiver Period> consecutive calendar days.
+
+The constraint foremost in in mind is
+ensuring that downstream recipients have some
+way to identify where alternative licenses
+can be got if needed, and some evidence to
+authenticate those purporting to offer
+alternative licenses as those actually
+capable of doing so.
+
+In general, it falls on licensors to maintain
+a dual-licensing practice to avoid the
+automatic waiver.  There is always an issue
+of trust, and verification, when delegating
+important duties to others.  Also opportunity
+and specialization.  The core idea behind
+licensezero.com is a "dual-license vending
+machine" that stands ready to vend
+alternative licenses, 24/7.  To give
+small-scale companies and independent
+developers the machinery they need to run
+dual-licensing businesses.
+
+
+As long as there be law, there will be
+pondering.  And lawyers, I'm afraid.  My goal
+with L0-R could not be perfect clarity, but a
+relative clarity, constrained in brevity.  A
+natural tension, there.
+
+Thanks once more for time and thoughts.
+
+Best,
+
+K
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From nigel.2048 at gmail.com  Sat Sep 23 17:18:07 2017
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Sat, 23 Sep 2017 13:18:07 -0400
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170923160910.GE9012@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <1506125873.1314263.1115444192.53AAD338@webmail.messagingengine.com> <20170923002249.GA9012@dev.kemitchell.com> <1506126617.1315966.1115452640.69727340@webmail.messagingengine.com> <20170923005217.GB9012@dev.kemitchell.com> <2fd963f5339340a7b93ee2cb98a89e5d@aplex01.dom1.jhuapl.edu> <20170923160910.GE9012@dev.kemitchell.com>
+Message-ID: <F3C362BF-DF25-4036-82CB-07794142DAE6@gmail.com>
+
+The issue isn't downstream compliance but that users have downstream compliance to publish source.  
+
+My, perhaps incorrect, belief is that users typically can gain a use license from the upstream open source project even if the downstream developer is out of compliance. 
+
+They can't distribute further because then they would trigger distribution requirements but typically users don't.
+
+So I disagree that the difference between users and developers dissolves for most FOSS use cases.
+
+Arguably this is the same problem as patents rights and the ability to use software but my disagreement with requiring patent clauses is one of scope rather objective.  
+
+I'm for patent grants.  I'm against accidental patent grants of patents created by other inventors.
+
+This license complicates use under FOSS copyright and not patents which most developer don't own anyway.
+
+The other issue is if I ever play with L0-R code privately I'm compelled to publish that test code because I've presumably triggered the copyleft by "developing".  If that code ever touches any proprietary code libraries I might be using normally I'm screwed. I can't comply even if I never release anything.
+
+Nobody but me would know (unless downloads or clones are being tracked) but that's besides the point.  I dislike being compelled to be dishonest even if no one else knows and I'm also not happy to be compelled to litter my github repo with test projects for code I never end up using for anything.
+
+Sent from my iPhone
+
+> On Sep 23, 2017, at 12:09 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+> 
+> Nigel,
+> 
+> Thanks for your response.
+> 
+> If you'll forgive me generalizing a bit, I
+> think you broached two main topics:
+> 
+> 1. Triggering source publication requirements
+>   on use, rather than distribution of
+>   modifications.
+> 
+> I hope you'll forgive me starting out by
+> saying that while this is absolutely the part
+> of L0-R most worth discussing, I don't
+> believe this choice of trigger affects
+> whether L0-R meets the Definition.  I don't
+> read any part of OSD to compel any particular
+> kind of trigger for copyleft requirements.
+> 
+> I usually refer to troubles complying with
+> license conditions for software that you've
+> received from someone else "downstream
+> compliance issues".  Alas, downstream issues
+> aren't peculiar to L0-R, or even to copyleft
+> licenses generally.
+> 
+> Take a typical attribution requirement under
+> a permissive license, like the two-clause BSD
+> License.  If A writes software and licenses
+> BSD-2-Clause, B makes modifications and gives
+> C a copy without A's copyright notice, then C
+> might fail to meet the attribution condition
+> of A's license if C makes a copy for D
+> without A's notice, and end up without a
+> license C needs.
+> 
+> The same can happen with GPL-style copyleft
+> conditions.  If A writes software and
+> licenses GPL-2.0, B makes modifications and
+> gives C a binary copy with access only to B's
+> new source, then C's at risk of failing to
+> meet the source condition of A's license if C
+> distributes with further modifications, and
+> only B and C source.  More generally, one
+> purpose of GPL-style copyleft, as an
+> implementation of Software Freedom, is to
+> ensure that any licensee can also be a
+> developer.  The distinction between user and
+> developer dissolves.
+> 
+> The only solution to eliminating downstream
+> compliance issues I'm aware of is permissive
+> licensing utterly without condition, such as
+> under The Free Public License / 0BSD or The
+> Unlicense.  Under a direct-licensing model,
+> where everyone receives permission directly
+> from the copyright holders, through the
+> public license, any condition gives a license
+> teeth that can bite anyone downstream.  L0-R
+> has license conditions, and therefore
+> potential downstream issues.  But it tries to
+> mitigate headache in a couple of ways.
+> 
+> First, condition 3 requires that source code
+> _be_ published, but not that any or every
+> specific licensee _do_ the publishing.  If A
+> licenses code L0-R, B makes modifications,
+> licenses those modifications under an Open
+> Source license, and publishes code, users of
+> B's modified version don't trip over
+> condition 3 by executing or developing with
+> A's software.
+> 
+> Second, L0-R preserves BSD-2-Clause's
+> redistribution conditions.  It modifies them
+> only to require preservation of notice of a
+> source code repository, in addition to the
+> copyright notice.  This is meant to help
+> ensure that not only license-terms
+> information, but also source availability
+> information, travels with the software
+> wherever it roams.
+> 
+> 2. Issues related to license changes.
+> 
+> You pointed out at least two ways in which
+> the licensing situation under L0-R can drift
+> away from the situation when the license text
+> is originally applied to the code.  Both
+> involve situations where licensees might have
+> to look beyond the particular form of the
+> software they've obtained to assess rights.
+> 
+> First, there's the automatic waiver.  The
+> concern that provision tries to address is a
+> kind of "orphan code" tragedy, where the
+> creators would be willing to make a deal for
+> other license terms, or relicense, to permit
+> non-Open Source use further down the line,
+> but can't be found or bothered. Dual
+> licensing stops, and all that's left is a
+> very exacting public license.
+> 
+> The most rigorous way to address that concern
+> is simply to tell licensors that they ought
+> to relicense their software under permissive
+> terms when and if the time comes.  Or to set
+> up some facility to offer alternative
+> licenses indefinitely.  I have little hope
+> for either of those approaches lasting the
+> test of time.
+> 
+> That being the case, we need some kind of
+> trigger for, effectively, automatic
+> permissive relicensing.  Automatic in the
+> sense of requiring no further action by the
+> licensor.  One approach would be to set a
+> date in the license, but licensors would only
+> very rarely guess the right date ahead of
+> time.  Assessing whether a licensor has
+> _failed_ to take some action, like offer
+> alternative licenses, gives licensors more
+> control, over time, of waiver. But from the
+> licensee point of view, it involves proof of
+> a negative.  The language puts the burden of
+> that uncertainty where it belongs, on those
+> who should seek an alternative license if
+> they can get one.
+> 
+> As for retroactive changes to the agent, and
+> other changes to license information for a
+> project, over time and over versions, I'm
+> afraid those issues aren't peculiar to L0-R,
+> either.  Fundamentally, the model of terms in
+> public licenses distributed the same way as
+> the software creates issues for those who
+> want to make changes in what's already been
+> distributed far and wide.
+> 
+> If you license version 1.0 of a project under
+> GPL-2.0, and later decide to move to
+> GPL-3.0+, you're faced with the problem of
+> informing folks with copies of 1.0 that only
+> mention GPL-2.0.  If you're using a third
+> party distribution service, you probably try
+> to alter the artifacts they distribute.  And
+> you likely publish a notice on your website
+> and in README or similar of later versions of
+> your project, mentioning that prior versions
+> have been relicensed.  You'd do much the same
+> for an L0-R agent change.
+> 
+> The information dissemination problems here
+> are mitigated somewhat by the copyright and
+> repository notices.  If you're curious
+> whether the licensing agent for a project has
+> changed, you may find the information you
+> need at the repository.
+> 
+> 3.  Concerns about the licensing agency.
+> 
+> I'll put some thought on dropping the current
+> language about an agent in favor of a
+> requirement to preserve any separate notice
+> about where alternative licenses are
+> available.  Perhaps:
+> 
+>    ...
+> 
+>    Alternative Licenses Available:
+>    <Information>
+> 
+>    ...
+> 
+>    1. ... must retain all the notices
+>       above...
+> 
+>    2. ... must reproduce all the notices
+>       above...
+> 
+>    3. ... This condition is waived if
+>       alternative licenses permitting those
+>       uses cease to be available for <Waiver
+>       Period> consecutive calendar days.
+> 
+> The constraint foremost in in mind is
+> ensuring that downstream recipients have some
+> way to identify where alternative licenses
+> can be got if needed, and some evidence to
+> authenticate those purporting to offer
+> alternative licenses as those actually
+> capable of doing so.
+> 
+> In general, it falls on licensors to maintain
+> a dual-licensing practice to avoid the
+> automatic waiver.  There is always an issue
+> of trust, and verification, when delegating
+> important duties to others.  Also opportunity
+> and specialization.  The core idea behind
+> licensezero.com is a "dual-license vending
+> machine" that stands ready to vend
+> alternative licenses, 24/7.  To give
+> small-scale companies and independent
+> developers the machinery they need to run
+> dual-licensing businesses.
+> 
+> 
+> As long as there be law, there will be
+> pondering.  And lawyers, I'm afraid.  My goal
+> with L0-R could not be perfect clarity, but a
+> relative clarity, constrained in brevity.  A
+> natural tension, there.
+> 
+> Thanks once more for time and thoughts.
+> 
+> Best,
+> 
+> K
+> 
+> -- 
+> Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+From kyle at kemitchell.com  Sat Sep 23 19:23:46 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Sat, 23 Sep 2017 12:23:46 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <F3C362BF-DF25-4036-82CB-07794142DAE6@gmail.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <1506125873.1314263.1115444192.53AAD338@webmail.messagingengine.com> <20170923002249.GA9012@dev.kemitchell.com> <1506126617.1315966.1115452640.69727340@webmail.messagingengine.com> <20170923005217.GB9012@dev.kemitchell.com> <2fd963f5339340a7b93ee2cb98a89e5d@aplex01.dom1.jhuapl.edu> <20170923160910.GE9012@dev.kemitchell.com> <F3C362BF-DF25-4036-82CB-07794142DAE6@gmail.com>
+Message-ID: <20170923192346.GA6204@dev.kemitchell.com>
+
+Nigel,
+
+Thanks again for time and attention.
+
+I think you're generally correct about how users
+get licenses.  With some exceptions, notably The
+MIT License, popular Open Source licenses I'm
+aware of don't grant rights to sublicense.
+Rather, they require preservation of the license
+terms with copies, so that folks downstream become
+aware that they have permission direct from
+licensors, under the public license.  Heather
+Meeker calls this "direct licensing" in her books.
+
+I'm not sure you're correct about the effect
+direct licensing has on compliance with license
+conditions.  Users receive licenses directly from
+rights holders, but the terms of those licenses
+are the terms of the applied public licenses,
+conditions and all.  Whether those conditions
+actually have any effect on folks we're calling
+"users" depends on the specific wording of the
+condition.  Are the conditions triggered by things
+that users do?
+
+Terms vary.  For example, Apache-2.0's
+"Redistribution" section actually speaks in terms
+of "reproduc[ing] and distribut[ing] copies", but
+all the requirements apply either to changes made
+(b) or distribution (to "recipients") (a, c, d).
+Conversely, MIT's attribution condition speaks
+only in terms of "copies".  I could argue that
+language reads on private copies, too.
+
+Your concern about affecting other code due to
+even casual use is a very valid one, and a common
+refrain in discussions of copyleft terms.  L0-R
+has even more of a hair trigger than AGPL, by
+design.  That fact directly motivated the
+built-in, n-day grace period.
+
+The intent is _not_ to turn well meaning folks
+into unwitting infringers.  Rather, it's to
+motivate contributions to what's available under
+Open Source terms.  Contributions may come either
+in kind, as released code, or in coin for
+alternative license terms, to support those
+releasing code.
+
+Best,
+
+K
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From cowan at ccil.org  Sat Sep 23 22:12:27 2017
+From: cowan at ccil.org (John Cowan)
+Date: Sat, 23 Sep 2017 18:12:27 -0400
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170923192346.GA6204@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <1506125873.1314263.1115444192.53AAD338@webmail.messagingengine.com> <20170923002249.GA9012@dev.kemitchell.com> <1506126617.1315966.1115452640.69727340@webmail.messagingengine.com> <20170923005217.GB9012@dev.kemitchell.com> <2fd963f5339340a7b93ee2cb98a89e5d@aplex01.dom1.jhuapl.edu> <20170923160910.GE9012@dev.kemitchell.com> <F3C362BF-DF25-4036-82CB-07794142DAE6@gmail.com> <20170923192346.GA6204@dev.kemitchell.com>
+Message-ID: <CAD2gp_QojYugHr4x8qbn-OZsqEknjSXWvaJwBNdjdca3jgxsDQ@mail.gmail.com>
+
+On Sat, Sep 23, 2017 at 3:23 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+
+> The intent is _not_ to turn well meaning folks
+> into unwitting infringers.  Rather, it's to
+> motivate contributions to what's available under
+> Open Source terms.  Contributions may come either
+> in kind, as released code, or in coin for
+> alternative license terms, to support those
+> releasing code.
+>
+
+And that's the killer argument.  Encouraging contributions
+is one thing: coercing them is another.  And I at least
+frequently deal with open-source code from the 1990s or
+earlier, and I don't want to have to distribute the little hacks
+I need to make to run that code on current OSes.
+
+No cigar.
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+No,  John.  I want formats that are actually useful, rather than over-
+featured megaliths that address all questions by piling on ridiculous
+internal links in forms which are hideously over-complex. --Simon St. Laurent on xml-dev
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170923/160bda23/attachment.html>
+
+From kyle at kemitchell.com  Sun Sep 24 03:45:15 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Sat, 23 Sep 2017 20:45:15 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <CAD2gp_QojYugHr4x8qbn-OZsqEknjSXWvaJwBNdjdca3jgxsDQ@mail.gmail.com>
+References: <20170923000911.GN14929@dev.kemitchell.com> <1506125873.1314263.1115444192.53AAD338@webmail.messagingengine.com> <20170923002249.GA9012@dev.kemitchell.com> <1506126617.1315966.1115452640.69727340@webmail.messagingengine.com> <20170923005217.GB9012@dev.kemitchell.com> <2fd963f5339340a7b93ee2cb98a89e5d@aplex01.dom1.jhuapl.edu> <20170923160910.GE9012@dev.kemitchell.com> <F3C362BF-DF25-4036-82CB-07794142DAE6@gmail.com> <20170923192346.GA6204@dev.kemitchell.com> <CAD2gp_QojYugHr4x8qbn-OZsqEknjSXWvaJwBNdjdca3jgxsDQ@mail.gmail.com>
+Message-ID: <20170924034515.GB6204@dev.kemitchell.com>
+
+John,
+
+I hope you'll forgive me.  I couldn't
+quite decide what general impression to
+take from your message.  "Killer
+argument" sounds good, at least to this
+lawyer's ear.  "No cigar", not so much.
+
+As for "coercing" contributions, I think
+I can speak for L0-R as others have
+spoken for prior copyleft licenses,
+especially the progressively stronger
+ones:
+
+First, "coercion" is inapt.  It's far
+too strong, too negative.  Yes, copyleft
+licenses rely on the prospect of legal
+enforcement---involuntary on the
+receiving end---to shore up their
+conditions, often with the aim of
+inducing compliance.  But there's no
+obligation to use copyleft-licensed
+software.  Copyleft requirements trouble
+us only if and when we decide to use in
+ways that trigger relevant conditions.
+The rules are laid out from the start.
+
+Second, and conversely, there's no
+entitlement to others' software, even
+others' Open Source software, on the
+terms we might prefer.  We might prefer
+the law as a whole leave software
+totally unencumbered by IP rights, in
+natural state akin to a total permissive
+license today, perhaps with an
+obligation to provide source to those
+affected.  The bad news, of course: that
+is not the law.  The good news:
+developers can use the double-edged
+sword the law provides instead to
+license with conditions that promote a
+community of software development more
+like what they'd expect under policies
+they'd prefer.
+
+Prior copyleft licenses, which meet the
+Open Source definition, take this
+approach.  As does L0-R.  I sometimes
+think of these licenses as offering a
+deal.  If you're willing to join the
+community, and abide by its mores,
+you're welcome to its software.
+Otherwise not.  L0-R drives a harder
+"bargain" in that sense---its mores are
+more demanding---but the difference is
+one of degree, not of any totally new
+kind.
+
+One could read GPL as closing a "greedy
+user" loophole in permissive
+(disparagingly, "pushover") licenses.
+One could read AGPL as closing the ASP
+loophole in GPL.  One could read L0-R as
+closing "private changes" and "build
+tool" loopholes in AGPL.  All of that
+from the frame that software licenses
+ought to be Open Source, and source code
+ought to be published.
+
+Returning to your specific concern,
+licensors may choose to offer terms that
+allow withholding personal patches for
+compatibility with new operating
+systems.  All prior OSI-approved
+licenses may happen to allow that; I'm
+not sure.  But I don't read any part of
+the Definition to require it.
+
+And the Definition is the issue here.
+L0-R may not seem like a good idea to
+you.  I happen to disagree; perhaps
+you're right, and I'm wrong.  But I
+think L0-R is an Open Source license.
+
+You wrote a little.  I've written too
+much.  If you make it this far, and even
+if you don't, thank you.  Challenging
+feedback is the feedback I'm most
+grateful for.
+
+Best,
+
+K
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From cowan at ccil.org  Sun Sep 24 07:38:00 2017
+From: cowan at ccil.org (John Cowan)
+Date: Sun, 24 Sep 2017 03:38:00 -0400
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170924034515.GB6204@dev.kemitchell.com>
+References: <20170923000911.GN14929@dev.kemitchell.com> <1506125873.1314263.1115444192.53AAD338@webmail.messagingengine.com> <20170923002249.GA9012@dev.kemitchell.com> <1506126617.1315966.1115452640.69727340@webmail.messagingengine.com> <20170923005217.GB9012@dev.kemitchell.com> <2fd963f5339340a7b93ee2cb98a89e5d@aplex01.dom1.jhuapl.edu> <20170923160910.GE9012@dev.kemitchell.com> <F3C362BF-DF25-4036-82CB-07794142DAE6@gmail.com> <20170923192346.GA6204@dev.kemitchell.com> <CAD2gp_QojYugHr4x8qbn-OZsqEknjSXWvaJwBNdjdca3jgxsDQ@mail.gmail.com> <20170924034515.GB6204@dev.kemitchell.com>
+Message-ID: <CAD2gp_T98xk9Ek-U7h5uF_Q5=F5seeFi-fVbqB3TGNqW+rq5LQ@mail.gmail.com>
+
+On Sat, Sep 23, 2017 at 11:45 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+I hope you'll forgive me.  I couldn't
+> quite decide what general impression to
+> take from your message.  "Killer
+> argument" sounds good, at least to this
+> lawyer's ear.  "No cigar", not so much.
+>
+
+Sorry, I wrote that poorly; I meant a killer
+argument against that feature of the license.
+
+Second, and conversely, there's no
+> entitlement to others' software, even
+> others' Open Source software, on the
+> terms we might prefer.  We might prefer
+> the law as a whole leave software
+> totally unencumbered by IP rights, in
+> natural state akin to a total permissive
+> license today, perhaps with an
+> obligation to provide source to those

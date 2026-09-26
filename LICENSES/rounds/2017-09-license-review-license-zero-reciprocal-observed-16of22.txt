@@ -1,0 +1,750 @@
+
+On Wed, Oct 25, 2017 at 11:33 PM, Luis Villa <luis at lu.is> wrote:
+
+> On Tue, Oct 24, 2017 at 6:20 PM Josh berkus <josh at postgresql.org> wrote:
+>
+>> On 10/24/2017 06:13 PM, Bruce Perens wrote:
+>> >
+>> > With regard to *simple users,* those who make use of the Open Source
+>> > software and do not modify or redistribute it, there should be as close
+>> > to *no legal load* as possible. [...]
+>
+>  *simple users should not ever have to read the license.*
+>>
+>
+I also read "simple user" as someone executing the code rather than reusing
+it to make new code; that is, exercising freedom 0.  I am a simple user of
+gcc; I don't modify it even for my own internal purposes, I don't give
+copies of it to anyone, and I certainly don't offer a compilation service
+over the network. I think the vast majority of gcc users are in this
+position.
+
+
+> It would also leave open the question of why the AGPL gets to circumvent
+>> that requirement.
+>>
+>
+The AGPL does not circumvent freedom 0 if the GPL does not, because its
+only additional provision (clause 13) imposes obligations only on those who
+modify the licensed software.
+
+
+> And GPL v2 and v3, and EUPL, and I'm sure others. (The only reason one can
+> even vaguely pretend v2 meets a "should not ever have to read the license"
+> criteria is because of decades of usage.)
+>
+
+How does the GPL whether v2 or v3 infringe freedom 0?  I don't see it.
+Indeed, GPL v3 clause 9 explicitly protects freedom-0-only users by saying
+"You are not required to accept this License in order to receive or run a
+copy of the Program", and GPL v2 clause 5 implicitly does the same with
+"You are not required to accept this License, since you have not signed
+it", then limiting this to those who neither modify nor distribute.
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+Original line from The Warrior's Apprentice by Lois McMaster Bujold:
+"Only on Barrayar would pulling a loaded needler start a stampede toward
+one."
+English-to-Russian-to-English mangling thereof: "Only on Barrayar you risk
+to
+lose support instead of finding it when you threat with the charged weapon."
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171026/292c89a9/attachment.html>
+
+From kyle at kemitchell.com  Thu Oct 26 18:51:50 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Thu, 26 Oct 2017 11:51:50 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5194673F0EA@FMSMSX108.amr.corp.intel.com>
+References: <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <2D52F7EE739F8542A700CAB96276B5194673CB16@FMSMSX108.amr.corp.intel.com> <20171026001020.GP21084@dev.kemitchell.com> <2D52F7EE739F8542A700CAB96276B5194673F0EA@FMSMSX108.amr.corp.intel.com>
+Message-ID: <20171026185150.GU21084@dev.kemitchell.com>
+
+On 2017-10-26 15:10, Smith, McCoy wrote:
+> > I'm not exactly sure I understand the OSD 6 concern,
+> > especially to the extent rephrasing alone can avoid it.
+>
+> This was the concern with your time-limited termination
+> provision, which applied to non-open source but not open
+> source.  Again, I think this could be drafted to eliminate
+> the OSD 6 issue.
+
+Check my understanding?
+
+1. It wasn't the time limit itself that prompted OSD 6 concerns.  It was the fact that the time limit applied differently to open-source and non-open-source software.
+
+2. The "specific field of endeavor" was use of non-open-source software.
+
+3. Use of non-open-source software is distinct from creation of non-open-source software.  The former is protected by OSD 6.  The latter is not.
+
+> > That leaves OSD 9.  GPL "work based on the Program" is
+> > clearly within bounds.  Could you give an example of a
+> > use out of OSD 9 bounds?
+>
+> OSD 9 gives an example:  "For example, the license must
+> not insist that all other programs distributed on the same
+> medium must be open-source software."  I'll give you two
+> others which I think would violate OSD 9:
+>
+> 1. The license must not insist that all programs executing
+>    on the same device must be open-source software.
+> 2. The license must not attempt to dictate the license of
+>    software when that software does not exercise of any of
+>    the rights licensed by the open source license.
+>
+> [as to example 2, the authors of *GPL have been very
+> careful to outline that those licenses only apply to
+> software that requires an exercise of the derivative or
+> collective work rights licensed under *GPL].
+
+Let's revisit in the context of the forthcoming revision.  I
+believe the relevant terms there will be "incorporate ...
+into other software" and "develop ... other software".
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Fri Oct 27 20:29:35 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Fri, 27 Oct 2017 13:29:35 -0700
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+Message-ID: <20171027202935.GA5874@dev.kemitchell.com>
+
+This message revises the text of The License Zero Reciprocal
+Public License proposed for OSI approval.  I also recap and
+revise answers to the "How to Submit A Request"
+questionnaire at https://opensource.org/approval below, to
+keep things current and in one place.
+
+At the urging of several reviewers, this text was written
+from scratch, not from BSD-2-Clause.  As a result, there is
+more "surface area" of new language.  Hopefully that's
+offset by improved structure and clarity.
+
+In process terms, I'd appreciate input on how to make this
+submission ready for report to the board, when that might
+happen, and if or how I should go about revising the
+proposed text in response to further feedback.  On my end,
+I'd prefer to consolidate input and batch edits, should they
+prove necessary.  It's been tough for folks to keep track of
+the latest without centralized revision control.
+
+
+Revision History:
+
+2017-09-23
+
+<https://lists.opensource.org/pipermail/license-review/2017-September/003097.html>
+
+(resending the initial proposal message, which was not
+delivered to the list on first try)
+
+<https://lists.opensource.org/pipermail/license-review/2017-September/003091.html>
+
+(reporting revisions from private feedback since the
+initial, failed proposal message)
+
+2017-09-25
+
+<https://lists.opensource.org/pipermail/license-review/2017-September/003120.html>
+
+(addressing feedback from license-review)
+
+2017-10-20
+
+<https://lists.opensource.org/pipermail/license-review/2017-October/003134.html>
+
+(addressing more feedback, and utilizing more of
+BSD-2-Clause verbatim)
+
+
+Submission: [No Change]
+
+I am submitting the License Zero Reciprocal Public License
+(L0-R) for approval as an Open Source license on behalf of
+Artless Devices LLC.  Artless Devices LLC is a California
+business entity, and I am its sole member and manager.  The
+company operates licensezero.com, a software dual-licensing
+and relicensing agency.
+
+
+Rationale: [No Change]
+
+L0-R aims to implement a clear and stronger-than-strong
+variant of copyleft, minimizing community-side legal
+pondering and maximizing dual-licensing opportunity.
+
+
+Distinguish: [Updated]
+
+1. L0-R is an original license, structured like the classic "academic" licenses, with a copyright notice, broad grant of permission, notice retention conditions, and disclaimer.  However, L0-R aims to be plainer in style, using legal terms of art when appropriate, but eschewing needless legal style.
+
+2. Unlike other academic-style licenses, L0-R includes reciprocity, or copyleft, conditions.
+
+3. Unlike GPL, LGPL, and AGPL, L0-R's reciprocity requirements trigger on modification and development of other software.  (They also trigger on incorporation into other software.)  L0-R's triggers are _not_ tied specifically to distribution as under GPL, or quasi-distribution use as under AGPL.  Rather, L0-R applies reciprocity conditions to actions that unavoidably require exercise of granted permissions, without necessarily naming the precise exclusive rights of copyright holders that trigger in each case.  This approach is in line with drafting practice for conditions in proprietary license agreements, such as concurrent-user and running-instance limits.
+
+4. Unlike previously approved copyleft licenses of which I'm aware, L0-R _requires_ sharing.  Previous drafts permitted use with private modifications and incorporating software for a stated, limited time, without sharing.  That language has been removed in response to reviewer concerns about OSD 6 conformance, which I must admit I don't yet entirely understand.  I would like to include such a "safe harbor" if I can within OSD.
+
+5. Unlike existing copyleft licenses, L0-R offers more flexibility in the terms licensees can apply to subject source code.  Licensees _may_ use L0-R's terms, but may also use any terms approved by the Open Source Initiative.  This is akin to the special, mutual allowance between GPL and AGPL, under their respective section 13 terms, extended to whole OSI roster. License restrictions apply only to additional code, and don't allow or require relicensing of L0-R work.
+
+6. Like (A)GPL-3.0, L0-R builds in automatic, retroactive forgiveness for unknowing violation of reciprocity conditions, on required publication of source code within a set time after becoming aware of the need.
+
+7. Unlike MIT, BSD, and their progeny, L0-R grants explicit copyright and patent permission, with a lightweight patent termination provision.  I tried to avoid bringing this in scope by reuse of BSD-2-Clause as a basis for prior drafts.  But no license written from scratch in 2017 can ignore the patent issue.
+
+8. The patent scope language is similar in approach to Apache-2.0, MPL-2.0, and others, covering patents that reach a contributors' contributions, with the existing code to which they contributed.  Contributors do _not_ license patents they obtain that come to read on the whole software, by virtue of others' contributions.
+
+9. Patent termination language is also in line with priors, though much condensed.  The relevant language is a condition of all permission granted, so it affects copyright permission, as well as patent permission.  This is unlike Apache-2.0, but in line with MPL-2.0 and GPL-3.0.  Termination triggers on claims against the software or derivatives, but only if the patent reads on the software as provided, before any additional changes. That's in line with Apache-2.0.
+
+
+Legal Review: [No Change]
+
+I am a licensing lawyer, I took the first drafts,
+and I made the first revisions.  I've been
+fortunate to receive very generous private
+feedback from fellow attorneys, but I will stand
+behind this proposal alone.
+
+
+Proliferation Category: [Updated]
+
+Other
+
+L0-R is not yet in wide current use, and I will not
+recommend it for use until its text stabilizes and its OSI
+status is clear.  It's a goal of the project to conform to
+the Open Source Definition.
+
+I believe L0-R does enough that's new and useful to warrant
+review.  I believe it would proliferate new ideas.
+
+I would also be interested in the correct process for, and
+results of, reviewing L0-R assuming waiver of its copyleft
+conditions---from number 3 to the end.  I suspect the
+remainder would be classed "Redundant", especially of
+BSD+Patent.
+
+
+Plain Text: [Updated]
+
+The plain text of the license follows.  Text set <like this>
+denotes a placeholder.
+ License Zero Reciprocal Public License <Version>
+ Copyright: <Name>
+ Source: <URI or instructions>
+ **This software comes as is, without any warranty at all. As far as the law allows, those giving this license will not be liable for any damages related to this software or this license, for any kind of legal claim.**
+ You may do everything with this software that would otherwise infringe copyright in this software, or any patent anyone giving this license has or obtains that would have read on this software just after any of their contributions, on these conditions:
+ 1. You must ensure that everyone who gets a copy of this software from you, in source code or any other form, also gets the complete text of this license and the copyright and source notices above.
+ 2. You may not make any legal claim against anyone accusing this software, or any derivative work based on it, of infringing any patent that would read on this software alone, without modification or extension.
+ 3. If you modify or extend this software, you must release source code for your modification or extension.
+ 4. If you include this software in a larger piece of software, you must release any source code for that larger piece of software that has not yet been released.
+ 5. If you run this software to analyze, modify, or generate software, you must release source code for that software.
+ To release source code, you must license it to the public under either these terms or terms approved by the Open Source Initiative, and promptly publish it, in the preferred form for making modifications, to a freely accessible distribution system widely used for similarly licensed source code.
+ Any unknowing failure to meet condition 3, 4, or 5 is excused if you release source code as required within 30 days of becoming aware of the failure.
+
+Thanks to all for continued and valuable interest and
+feedback.
+
+Best,
+
+K
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From ml at gondwanaland.com  Sun Oct 29 19:24:27 2017
+From: ml at gondwanaland.com (Mike Linksvayer)
+Date: Sun, 29 Oct 2017 12:24:27 -0700
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <20171027202935.GA5874@dev.kemitchell.com>
+References: <20171027202935.GA5874@dev.kemitchell.com>
+Message-ID: <CAGSmzpRPv6JFB8Ki1QXvFObYPyYzyNophCt6=msjSXSY2PZfiQ@mail.gmail.com>
+
+On Fri, Oct 27, 2017 at 1:29 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+> L0-R aims to implement a clear and stronger-than-strong
+> variant of copyleft, minimizing community-side legal
+> pondering and maximizing dual-licensing opportunity.
+>
+
+I think with the rewrite that you've accomplished this beautifully, and I
+found your initial draft and manifesto confusing and grating respectively.
+Whatever their objectives, future license drafters are taking notes, I
+hope. Well done.
+
+It's OSD conformant, and if it's not, the OSD could use some clarification.
+I doubt OSI approval is really all that important for the success of LZ
+though -- approval or not, surely this license will join AGPL on lists like
+https://opensource.google.com/docs/thirdparty/licenses/#banned approval --
+which presumably is taken into account in your theory of how to maximize
+dual-licensing opportunity.
+
+Mike
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171029/7b95413c/attachment.html>
+
+From kyle at kemitchell.com  Mon Oct 30 00:12:24 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Sun, 29 Oct 2017 17:12:24 -0700
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <CAGSmzpRPv6JFB8Ki1QXvFObYPyYzyNophCt6=msjSXSY2PZfiQ@mail.gmail.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAGSmzpRPv6JFB8Ki1QXvFObYPyYzyNophCt6=msjSXSY2PZfiQ@mail.gmail.com>
+Message-ID: <20171030001224.GD20812@dev.kemitchell.com>
+
+Mike,
+
+Thanks for chiming in.  We should grab another bite in
+Oakland sometime soon.
+
+On 2017-10-29 12:10, Mike Linksvayer wrote:
+> It's OSD conformant, and if it's not, the OSD could use some clarification.
+
+Very grateful for the good word.
+
+In the spirit of leaving a helpful record behind, I must
+admit I'm still not sure where the OSD 6 and OSD 9 lines
+were.  I hope others will agree that this new language has
+come back within bounds.  I tried to follow Bruce and
+McCoy's directions to get it there.  But I couldn't say
+where I crossed back into Open Source territory.
+
+I've reread a number of e-mails from Richard, McCoy, and
+Bruce again today.  Perhaps their message is one I just
+can't get through the medium of the mailing list.  More
+practically, perhaps OSI needn't clarify any more than
+necessary to decide on L0-R, for now.
+
+I'm overdue for coffee-or-a-meal with more than a few folks
+on this list.  First order of business will be thanks.  But
+after that, if anyone would like to talk me through their
+view, I'd be happy to report back to the list with a
+summary.  First for a cross-check, to make sure I listened
+well.  Then for posterity.
+
+> I doubt OSI approval is really all that important for the success of LZ
+> though -- approval or not, surely this license will join AGPL on lists like
+> https://opensource.google.com/docs/thirdparty/licenses/#banned approval --
+> which presumably is taken into account in your theory of how to maximize
+> dual-licensing opportunity.
+
+OSI approval remains a very important objective for L0-R,
+over and above OSD conformance.  Coders I speak to who want
+an L0-R-like license want to call their work "open source"
+with pride, and see it recognized as such.  I've borne some
+bad news about universal preeminence of OSI in that identity
+politics here on the list.  But I'm here because _I_ care.
+
+In my mind, L0-R needed to come through this process, and I
+needed to contribute whatever I could along the way.  And
+not only, or primarily, for License Zero.  Fundamentally,
+L0-R asks questions about the Definition.  Questions that
+seemed to belong here.
+
+Best,
+
+K
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From fontana at sharpeleven.org  Mon Oct 30 17:47:20 2017
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Mon, 30 Oct 2017 13:47:20 -0400
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <20171027202935.GA5874@dev.kemitchell.com>
+References: <20171027202935.GA5874@dev.kemitchell.com>
+Message-ID: <20171030174719.GB7846@bluenote>
+
+Kyle,
+
+Thanks for submitting this revision. In this response I've reordered
+some of the quoted text of your message.
+
+> I believe L0-R does enough that's new and useful to warrant
+> review.  I believe it would proliferate new ideas.
+
+I agree. No question.
+
+This license submission raises a number of difficult policy questions,
+which are clarified by this latest version. In this message I will set
+out what I think the four difficult policy questions are, without
+attempting to comment further on them here.
+
+Policy question 1 (raised by clause 3: "If you modify or extend this
+software, you must release source code for your modification or
+extension."):
+ Can an open source license (or, for those who prefer, 'Should the OSI approve a license that') require(s) source code distribution upon private/internal modification or extension, even in circumstances that go beyond the network services provision scenario contemplated in AGPLv3 section 13 paragraph 1?
+
+Policy question 2 (raised by clause 4: "If you include this software
+in a larger piece of software, you must release any source code for
+that larger piece of software that has not yet been released."):
+ Can an open source license (or 'Should the OSI approve a license that') require(s) source code distribution merely because the user has, without necessarily engaging in distribution or AGPLv3-style network services provision, incorporated the licensed software into other software? (Maybe we ought to assume that if this were a distribution-triggerd clause it would be Open Source, though that may not be clear.)
+
+Policy question 3 (raised by clause 5: "If you run this software to
+analyze, modify, or generate software, you must release source code
+for that software."):
+ Can an open source license (or 'Should the OSI approve a license that') require(s) source code distribution of software other than the licensed software, or software that incorporates or is a modification or extension of the licensed software? (Perhaps one can put the question this way: At what point are the 'contacts' between the licensed software and the other software too remote for a source distribution requirement, particularly one that is triggered merely by running the licensed software, to be a legitimate feature of an Open Source license?)
+
+Policy question 4 (raised by your candid admission of how you yourself
+intend to use this license):
+ Should the OSI approve a license if the license submitter's primary contemplated use is as a means of facilitating a dual-license or 'proprietary relicensing' business strategy?
+
+> It's a goal of the project to conform to
+> the Open Source Definition.
+
+Apologies if you've previously commented on this, but I'm interested
+in knowing whether you also plan to seek recognition by the FSF of
+this license as conformant to the Free Software Definition. I believe
+the present-day OSI board might be reluctant to approve LO-R if it
+were very likely or certain that the FSF would designate LO-R as
+'non-free'.
+
+> I would also be interested in the correct process for, and
+> results of, reviewing L0-R assuming waiver of its copyleft
+> conditions---from number 3 to the end.  I suspect the
+> remainder would be classed "Redundant", especially of
+> BSD+Patent.
+
+If I understand you correctly, I'd suggest submitting that as a
+separate license (if you want to pursue that).
+
+Richard
+
+
+
+From fontana at sharpeleven.org  Mon Oct 30 18:36:46 2017
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Mon, 30 Oct 2017 14:36:46 -0400
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <20171030174719.GB7846@bluenote>
+References: <20171027202935.GA5874@dev.kemitchell.com> <20171030174719.GB7846@bluenote>
+Message-ID: <20171030183646.GA8258@bluenote>
+
+
+I'll comment here on what I think may be the easiest of the four
+difficult policy questions, though it is not easy.
+
+> Policy question 3 (raised by clause 5: "If you run this software to
+> analyze, modify, or generate software, you must release source code
+> for that software."):
+> 
+>   Can an open source license (or 'Should the OSI approve a license
+>   that') require(s) source code distribution of software other than
+>   the licensed software, or software that incorporates or is a
+>   modification or extension of the licensed software? (Perhaps one can
+>   put the question this way: At what point are the 'contacts' between
+>   the licensed software and the other software too remote for a source
+>   distribution requirement, particularly one that is triggered merely
+>   by running the licensed software, to be a legitimate feature of an
+>   Open Source license?)
+
+I'll grant you that nothing in the OSD clearly states this is not
+okay. I think one could make an OSD 5 or, better perhaps, OSD 6
+argument, but I won't do that (though I'm interested in hearing other
+attempts). I would argue clause 5 violates the 'spirit', though
+admittedly not the letter, of OSD 9: "The license must not place
+restrictions on other software that is distributed along with the
+licensed software. For example, the license must not insist that all
+other programs distributed on the same medium must be open-source
+software."
+
+To approve LO-R, we'd basically be saying that OSD 9 means "An open
+source license can't place restrictions on other software that is
+distributed along with the licensed software, but as long as the other
+software is *not* distributed, it *can* place restrictions on it."
+
+This feels to me like you're exploiting a drafting mistake in OSD 9 --
+a failure, in importing the DFSG to the OSD, to think beyond
+distribution criteria, which I think is true of other parts of the
+OSD. Debian was naturally focused on issues like 'can a free license
+force all packages in a distro to be free'. I think the reason DFSG 9
+does not address the scenario of a license restricting other software
+having a different tangential relationship to the licensed software
+than distribution is probably that no such license had ever been
+encountered. If Bruce is still following this discussion maybe he can
+comment.
+
+Leaving the literal OSD aside, I don't think open source software
+should force a particular kind of licensing policy on *other*
+software, entirely unrelated other than the fact that it was in some
+way the functional target of running the purportedly open source
+software. Here, I think strong copyleft as traditionally understood
+(in the GPL/AGPL sense) is as far as an open source license should
+go. My intuition is that an open source text editor, for example,
+ought to be usable to modify source files that the user chooses not to
+publish, or chooses to distribute only in binary form, or chooses to
+publish only under a proprietary license. I believe there has been
+that sort of basic assumption about open source and free software from
+the get-go. Maybe others disagree with me there and I hope to hear
+such other views.
+
+I think the proper way to proceed as to this point is to consider
+amending the OSD first, to clarify that an open source license can
+restrict other software so long as the relationship between the open
+source software and the other software is not a mere distribution
+relationship, or is a kind of execution/target of execution
+relationship, or something like that. Right now I'm not in favor of
+such an amendment, but it might be worthwhile for the OSI board to
+consider the issue. Although it can be argued that clause 5 is
+consistent with the OSD, I think it is likely that a large number of
+open source software users today assume that an open source license
+cannot have a feature like clause 5.
+
+Richard
+
+
+From kyle at kemitchell.com  Tue Oct 31 02:55:24 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Mon, 30 Oct 2017 19:55:24 -0700
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <20171030174719.GB7846@bluenote>
+References: <20171027202935.GA5874@dev.kemitchell.com> <20171030174719.GB7846@bluenote>
+Message-ID: <20171031025524.GA18180@dev.kemitchell.com>
+
+Richard,
+
+Thank you very much for this message.  I'd like to offer my
+thoughts on the questions posed, as succinctly as I can.
+
+First, one embarrassing, general admission from me.  Larry
+Rosen was kind enough to point out today that OSL-3.0
+section 5 actually goes further than AGPL-3.0 section 13 in
+its trigger.  OSL's "External Deployment" reaches also "use,
+distribution, or communication of the of the Original Work",
+without modification.  In a few dimensions, that makes
+OSL-3.0, not AGPL-3.0, the high water mark.
+
+On 2017-10-30 13:10, Richard Fontana wrote:
+> Policy question 1 (raised by clause 3: "If you modify or extend this
+> software, you must release source code for your modification or
+> extension."):
+>
+>   Can an open source license (or, for those who prefer, 'Should the
+>   OSI approve a license that') require(s) source code distribution
+>   upon private/internal modification or extension, even in
+>   circumstances that go beyond the network services provision scenario
+>   contemplated in AGPLv3 section 13 paragraph 1?
+
+Posing this question in terms of specific prior licenses
+feels very appropriate.  I've done much the same, a few
+times, on the thread.  But stating it so concretely, and
+narrowly, shouldn't obscure the broader implications.
+
+If currently approved licenses are as strong as
+modification-based copyleft triggers can be within Open
+Source, then Open Source hobbles copyleft as a strategy.
+Defining Open Source that way would say, in effect, that
+copyleft has to limit itself to only a small part of the
+power of copyright, or else part ways with Open Source.
+That Open Source copyleft licenses have to play with a
+handicap against proprietary licenses, which aren't so
+limited.
+
+The absolutism of permissive licenses is apparently not so
+constrained.  We've seen at least one license, FSL/0BSD, go
+right to the edge of permissivity, by stripping a dated form
+down to its unclear permission grant, dropping the basic
+mechanism of attribution for the sake of licensee
+convenience, at non-negligible risk to licensors, and
+receive approval.
+
+A few notes on private changes, FSF, and free software below
+are also relevant here.
+
+> Policy question 2 (raised by clause 4: "If you include this software
+> in a larger piece of software, you must release any source code for
+> that larger piece of software that has not yet been released."):
+>
+>   Can an open source license (or 'Should the OSI approve a license
+>   that') require(s) source code distribution merely because the user
+>   has, without necessarily engaging in distribution or AGPLv3-style
+>   network services provision, incorporated the licensed software into
+>   other software? (Maybe we ought to assume that if this were a
+>   distribution-triggerd clause it would be Open Source, though that
+>   may not be clear.)
+
+OSI-approved copyleft licenses already reach code that
+incorporates, without directly modifying.  Hence all the
+familiar fret about static versus dynamic linking, loading
+in dynamic languages, and so on.  L0-R could alleviate those
+headaches, and succinctly.
+
+As for extent, AGPL and OSL already go beyond triggering
+copyleft based on distribution.  Both trigger on execution
+of the software, run in a certain way.  That kind of
+execution "distributes" the usefulness of the software over
+the network in only a very loose sense.  Source provisions
+requirements trigger nonetheless, without actual
+distribution of any copy.
+
+Finally, I hope you'll forgive a semantic nit: I don't
+believe you mean to connect this policy question to OSD 9
+through "other software".  Rather, you raise OSD 9 for
+question 3 / clause 5.
+
+> Policy question 3 (raised by clause 5: "If you run this software to
+> analyze, modify, or generate software, you must release source code
+> for that software."):
+>
+>   Can an open source license (or 'Should the OSI approve a license
+>   that') require(s) source code distribution of software other than
+>   the licensed software, or software that incorporates or is a
+>   modification or extension of the licensed software? (Perhaps one can
+>   put the question this way: At what point are the 'contacts' between
+>   the licensed software and the other software too remote for a source
+>   distribution requirement, particularly one that is triggered merely
+>   by running the licensed software, to be a legitimate feature of an
+>   Open Source license?)
+
+You've responded to this question separately.
+
+I'll reply to that message.
+
+> Policy question 4 (raised by your candid admission of how you yourself
+> intend to use this license):
+>
+>   Should the OSI approve a license if the license submitter's primary
+>   contemplated use is as a means of facilitating a dual-license or
+>   'proprietary relicensing' business strategy?
+
+I've tried to be as transparent as possible about the
+inspiration for this license.  But my views on its purpose
+or meaning won't bind others who choose to use it.  Some of
+those may do so without any interest in "selling exceptions"
+at all.  Nothing about the license, as written, requires
+that approach.
+
+At least one other license, Artistic-2.0, mentions reaching
+out to licensors for alternative terms, right in its text.
+L0-R no longer does so.  Other licenses, like Apache-2.0,
+expressly address offering additional terms not found in the
+public license.  GPL-3.0 consciously addresses itself to
+sideline patent licenses.  As it turns out, all approved
+licenses I'm aware of abide separate, parallel terms.  A
+remarkable number do so expressly.
+
+Moreover, common use for dual-licensing evidently does _not_
+disqualify a license.  In my experience, AGPL-3.0 is the
+most common pick of this kind, exemplified most recently by
+MongoDB.  That doesn't make AGPL any less an Open Source
+license.  Nor does offering software under a vague
+permissive license, like MIT, with an eye to selling
+functionality, title, or noninfringement warranties on the
+side, cast doubt on that classic.
+
+I am not sure what's meant by "proprietary relicensing".  It
+was _not_ a drafting goal to make it possible or convenient
+for L0-R licensors to retract their public license and move
+the same work onto proprietary terms.  The License Zero
+service happens to allow developers to set a price at which
+they'll relicense from copyleft to permissive public terms,
+essentially selling an exception to everyone at once.  But
+the end result is software under permissive Open Source
+terms, not proprietary ones.  Again, it will be perfectly
+possible to use L0-R without using licensezero.com or
+anything like it.
+
+> > It's a goal of the project to conform to
+> > the Open Source Definition.
+>
+> Apologies if you've previously commented on this, but I'm interested
+> in knowing whether you also plan to seek recognition by the FSF of
+> this license as conformant to the Free Software Definition. I believe
+> the present-day OSI board might be reluctant to approve LO-R if it
+> were very likely or certain that the FSF would designate LO-R as
+> 'non-free'.
+
+I haven't gone back and forth with FSF staff, as I have with
+those on this list, about L0-R.  And I understand there's no
+standard, public process for doing so.  I'd thought
+originally of running both conversations in parallel, but
+found license-review needed and deserved all the attention I
+could muster.
+
+Left to speculate, I'm of two minds on L0-R and FSF.
+
+On the one hand, "What is free software?" lays out all the
+components of a strong case for net-freedom-enhancing
+conditions on the four freedoms generally.  It specializes
+to distribution-freedom conditions to cover GPL-style
+copyleft.  But that begs extension to the other freedoms.
+It isn't clear from "What is free software?" why "Copyleft"
+should be a subsection of "The freedom to redistribute if
+you wish..." in particular, and appear there only.
+
+On the other hand, FSF's comments on specific licenses,
+which I must admit I find a bit cryptic, come down hard on
+requirements to give notice of private changes.  It's hard
+to tell whether that reflects an absolutist position on
+freedom 1 that does not apply to freedom 3, or the fact
+that, to date, triggers of the kind haven't been employed to
+advance copyleft aims.
+
+On one hand, FSF is the institutional home and intellectual
+birthplace of software copyleft as practiced to date.  That
+bodes well for L0-R.  On the other had, I wonder whether FSF
+might be more opinionated in matters of implementation.
+They are clearly invested---understandably so---in the
+specific compromises written out in the licenses they tend.
+
+> > I would also be interested in the correct process for, and
+> > results of, reviewing L0-R assuming waiver of its copyleft
+> > conditions---from number 3 to the end.  I suspect the
+> > remainder would be classed "Redundant", especially of
+> > BSD+Patent.
+>
+> If I understand you correctly, I'd suggest submitting that as a
+> separate license (if you want to pursue that).
+
+I might very well do so, after word on L0-R, since if at all
+possible, I'd like L0-P(ermissive) and L0-R to differ only
+by the addition of conditions 3-5.  I'd like to make it an
+easy, abbreviated process, following on from L0-R, rather
+than a separate or parallel burden.  Especially since
+L0-Permissive would very likely be classed redundant of
+BSD+Patents, and L0-R has been burden enough.
+
+In other words, it can wait!
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Tue Oct 31 06:54:24 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Mon, 30 Oct 2017 23:54:24 -0700
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <20171030183646.GA8258@bluenote>
+References: <20171027202935.GA5874@dev.kemitchell.com> <20171030174719.GB7846@bluenote> <20171030183646.GA8258@bluenote>
+Message-ID: <20171031065424.GC18180@dev.kemitchell.com>
+
+Richard,
+
+Thanks also for this message.  Again, great thought and
+effort in evidence.  Noted.  Much obliged!
+
+On 2017-10-30 14:10, Richard Fontana wrote:
+>
+> I'll comment here on what I think may be the easiest of the four
+> difficult policy questions, though it is not easy.
+>
+> > Policy question 3 (raised by clause 5: "If you run this software to
+> > analyze, modify, or generate software, you must release source code
+> > for that software."):
+> >
+> >   Can an open source license (or 'Should the OSI approve a license
+> >   that') require(s) source code distribution of software other than
+> >   the licensed software, or software that incorporates or is a
+> >   modification or extension of the licensed software? (Perhaps one can
+> >   put the question this way: At what point are the 'contacts' between
+> >   the licensed software and the other software too remote for a source
+> >   distribution requirement, particularly one that is triggered merely
+> >   by running the licensed software, to be a legitimate feature of an
+> >   Open Source license?)
+>
+> I'll grant you that nothing in the OSD clearly states this is not
+> okay. I think one could make an OSD 5 or, better perhaps, OSD 6

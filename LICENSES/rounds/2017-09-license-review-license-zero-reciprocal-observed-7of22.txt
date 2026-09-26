@@ -1,0 +1,750 @@
+>
+
+:-) It's going to be a GIGO problem then, isn't it?
+
+
+> I see an anti-copyleft ratchet here, too.
+
+
+Not really. Copyleft works strongly in the developer's favor against
+various sorts of bad actor. Too many Open Source developers are already
+treated as unpaid employees of some deep-pockets company.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171019/a5f0c6d0/attachment.html>
+
+From fontana at sharpeleven.org  Fri Oct 20 18:15:43 2017
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Fri, 20 Oct 2017 14:15:43 -0400
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171020002742.GA26076@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com>
+Message-ID: <1508523343.3658826.1145657248.4767692F@webmail.messagingengine.com>
+
+Hi Kyle,
+
+The BSD license (family) seem to make a distinction between
+"redistribution" and "use", as did some other permissive licenses
+originating at roughly the same time. Others, none ever submitted for
+OSI approval AFAIK, merely spoke of permitting "use". I'm not sure if
+that was true of any proto-versions of the BSD license, but I am
+pretty sure that the earliest versions did not have "with or without
+modification" spelled out.
+
+One could get into whether that's a good way of drafting a copyright
+license, but I don't think it's necessary to get into that. We
+certainly all accept that the 3-clause and 2-clause BSD licenses are
+OSD-conformant. So too derivatives like the recently-approved BSD+Patent 
+(not to be confused with the late Facebook React license). 
+
+Your license keeps the distinction between "redistribution" and
+"use". But partly as a consequence of that, I find the language of the
+added clauses confusing. They refer to "uses" where the original BSD
+language had (and still has, in your license) "use". Is "uses" the
+same as "use", or does it just mean "particular forms of the thing
+that was previously referred to in the singular as "use""? Or no?
+
+If "uses" is essentially the same as, or just a pluralization of,
+"use" as used in the initial grant language, doesn't that suggest that
+clauses 3 and 4 somehow don't cover the redistribution case? Maybe
+that doesn't matter, but I'm finding it at least distracting. :)
+
+Or why "uses" instead of "use", when everyone is expecting the license
+to refer to "use" because that's what its BSD ancestors did?
+
+Leaving that issue aside, I also find it distracting where the license
+says "uses with modification". I find it at least somewhat confusing
+phrasing.
+
+Don't you mean something like this: If you've exercised the right to
+modify which I've semi-implicitly granted you with my BSD-derived
+grant language, then in proceeding to "use" that modified version --
+which I will assume for the moment is really "distribution and use",
+or "use including distribution" -- at all points in time in which the
+"use" is taking place, the code has to be "Open Source" in the OSD
+sense (including the fact that I must publish source code if otherwise
+there'd be no licensing act and source code wouldn't be available to
+anyone but me)?
+
+Would it be equivalent to say something like: If you modify this code,
+you must publish the modifications under an OSI-approved license
+within <Grace Period> days? Not suggesting that's better wording but
+I'm trying to rephrase what I think the intended meaning is. My
+rephrasing there also may make clearer what some may see as an open
+source conformance issue. 
+
+I may have a comment on clause 4, but I will leave it there for the
+moment.
+
+Richard 
+
+
+
+
+
+
+
+On Thu, Oct 19, 2017, at 08:27 PM, Kyle Mitchell wrote:
+> Revising the text of the proposed license, per feedback here
+> on license-review and elsewhere.
+> 
+> Also replying to the original message this time.  If I
+> revise again, I'll do the same, so it's easier to find.
+> 
+> First the new text, then a few notes.
+> 
+> Text:
+> 
+>     License Zero Reciprocal Public License <Version>
+> 
+>     Copyright <Year> <Copyright Holder>
+> 
+>     Redistribution and use in source and binary forms, with
+>     or without modification, are permitted provided that the
+>     following conditions are met:
+> 
+>     1.  Redistributions of source code must retain the above
+>         copyright notice, this list of conditions and the
+>         following disclaimer.
+> 
+>     2.  Redistributions in binary form must reproduce the
+>         above copyright notice, this list of conditions and
+>         the following disclaimer in the documentation and/or
+>         other materials provided with the distribution.
+> 
+>     3.  Uses with any modification that is not "Open Source"
+>         as defined by the Open Source Initiative must be
+>         limited to <Grace Period> calendar days.
+> 
+>     4.  Uses as part of, or in development of, other
+>         software that is not "Open Source" as defined by the
+>         Open Source Initiative must be limited to <Grace
+>         Period> calendar days.
+> 
+>     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+>     CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+>     WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+>     WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+>     PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+>     COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY
+>     DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+>     CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+>     PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+>     USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+>     CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+>     CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+>     NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
+>     USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+>     OF SUCH DAMAGE.
+> 
+> Notes:
+> 
+> - I've removed all mention of agent for sale of alternative
+>   licenses, as well as the automatic waiver of the copyleft
+>   conditions.  My motivation was twofold. For one, those
+>   features produced considerable comment, concern, and
+>   confusion, aside from the main issue of use conditions
+>   triggering copyleft.  For two, the aim of each can be
+>   achieved otherwise, outside the license text. As a result,
+>   the proposal is now _exactly_ BSD-2-Clause, plus new
+>   conditions 3 and 4.
+> 
+> - The copyleft triggers now speak directly in terms of OSD
+>   conformance, to catch both source availability and license
+>   terms requirements.  (The assumption is that L0-R, in some
+>   form, will eventually be recognized itself, so L0-R code
+>   can clearly incorporate L0-R code.)  But that aside, I
+>   think the new language goes more directly to intent, and
+>   reads more clearly.
+> 
+> - I've split the new conditions across two numbered items.
+>   This should help clarify that unmodified use alone does
+>   not trigger share-alike.
+> 
+> - I was tempted to define terms for repeated words and
+>   phrases, but held the urge back.  BSD-2-Clause doesn't do
+>   so, and for this kind of license, stylistically, I think
+>   that's probably best.
+> 
+> -- 
+> Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+From josh at postgresql.org  Fri Oct 20 18:33:50 2017
+From: josh at postgresql.org (Josh berkus)
+Date: Fri, 20 Oct 2017 11:33:50 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171020032109.GB26076@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <6bf511ef-93d9-5e6e-6b78-1fad761362dc@postgresql.org> <20171020032109.GB26076@dev.kemitchell.com>
+Message-ID: <2709ff94-43e9-ec32-1eb0-d73e181dcdd4@postgresql.org>
+
+On 10/19/2017 08:21 PM, Kyle Mitchell wrote:
+> The alternative to all of this is to drop the grace period
+> entirely.  It would be possible to comply with that license,
+> assuming you work "in the open" and apply the same public
+> license to your code.  But we all know not everyone, in
+> every context, can do that.  We could build in retroactive
+> forgiveness for those that eventually publish Open Source,
+> but that vitiates the incentive to comply in the first
+> place.
+
+So, please do understand that these comments are mine personally --
+you've already seen commends by Perens and Fontana, and will no doubt
+see others.
+
+I'd be inclined to drop the grace period, because I can't see any way in
+which it's enforceable.  And what would be the point of certifying, or
+adopting, a license which can't be enforced?
+
+However, without the grace period, what you have is materially a more
+compact form of the LGPL license.  And is the value of reducing a 3-page
+license to 1 page enough to make it worth adding another license to the
+OSS ecosystem?  Or is there a practical difference between this and the
+LGPL that I'm missing?
+
+--Josh
+
+
+From kyle at kemitchell.com  Fri Oct 20 19:27:58 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Fri, 20 Oct 2017 12:27:58 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <1508523343.3658826.1145657248.4767692F@webmail.messagingengine.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <1508523343.3658826.1145657248.4767692F@webmail.messagingengine.com>
+Message-ID: <20171020192758.GF26076@dev.kemitchell.com>
+
+Richard,
+
+Thank you for taking time.  Really great feedback here.
+
+Your point on "uses" is very well taken.  I'm pretty sure
+earlier drafts of mine employed "use", singular, as you
+suggested.  There were two goals in that:
+
+1. Call back to "use" in the BSD grant language.
+ If use/uses leads you to doubt that connection, it's not so clear as I thought!
+
+2. Distinguish new conditions on "use" from conditions on "redistribution", 1 and 2.
+ This goes to your second point, on whether there's any implied distribution requirement in the new L0-R conditions.  I don't intend any.
+
+I chose BSD as the starting point for L0-R because of its
+academic brevity, its "pluggable" numbered-list condition
+structure, and its built-in use-redistribution and
+with-without-modification distinctions.  The first suits the
+licensor-users I envision.  The second makes it easy to
+write waivers to drop additional copyleft conditions out.
+The last makes it possible to implement use-based copyleft
+condition, leaving unmodified alone, while showing in the
+text that the familiar BSD-2-Clause redistribution rules
+remain intact.
+
+I would gladly revise back to "Use with any modification..."
+and "Use as part of, or in development of..." in 3 and 4 if
+that's beneficial, net-net.  My only concern is frustration
+of other drafting goals.
+
+To be specific, the motivation for "uses" came out of the
+puzzle Josh highlighted: bringing clarity to the grace
+periods, and doing so in a way that avoids time-based
+gotchas.
+
+One of those gotchas is picking up a piece of L0-R (seven
+days) code, running it with a private patch for six days
+before dropping it, and a year later using the same L0-R
+code for a completely different project, with a different
+private patch, for another six-day period.  Ideally, there
+wouldn't be any good theory of liability there.
+
+To avoid that, I need some way to restart grace period
+clocks for sufficiently distinct modifications,
+incorporations, and developed products, perhaps based on
+unbroken chains of derivative works.  Or a new way to make
+clear that Open Source doesn't have to happen immediately,
+but it does have to happen.
+
+On your second point, it wasn't my intention to trigger the
+use-based conditions in 3 and 4 on use, as described, plus
+distribution, somehow implied.
+
+BSD "redistribution" is very easy to read as Copyright Act
+"distribute".  But "use" has no Copyright Act analog, and
+must to be mapped onto copyright terms.  More specifically,
+at least under US law, to actually execute changed code, you
+need "reproduce" and "prepare derivative works" from
+17US106.  I read BSD-2-Clause "use" to grant permission for
+reproduction and preparation of derivative works.
+
+If we think BSD-2-Clause grants blanket copyright permission
+for software, and that courts will read distinct terms like
+"use" and "redistribution" apart, then either
+"redistribution" has to expand past its plain meaning to
+cover "reproduction" and "preparation of derivative works",
+or "use" does.
+
+I'm going to take some time this afternoon to try to revise
+the language again, both for concerns here, and in light of
+Josh's input.  I've tried before; maybe recent input will
+help get me unstuck.
+
+I'll give thought to your proposed rewording of 3, as well.
+The choice of structure in current draft 3 and 4 was largely
+to parallel that of BSD 1 and 2.  If I can avoid the
+jarring, discontinuous look of BSD+Patents---probably
+inevitable for that project---I'd like to.  But that's of
+lesser concern than other matters broached.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Fri Oct 20 19:33:53 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Fri, 20 Oct 2017 12:33:53 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <2709ff94-43e9-ec32-1eb0-d73e181dcdd4@postgresql.org>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <6bf511ef-93d9-5e6e-6b78-1fad761362dc@postgresql.org> <20171020032109.GB26076@dev.kemitchell.com> <2709ff94-43e9-ec32-1eb0-d73e181dcdd4@postgresql.org>
+Message-ID: <20171020193353.GG26076@dev.kemitchell.com>
+
+On 2017-10-20 11:10, Josh berkus wrote:
+> On 10/19/2017 08:21 PM, Kyle Mitchell wrote:
+> > The alternative to all of this is to drop the grace period
+> > entirely.  It would be possible to comply with that license,
+> > assuming you work "in the open" and apply the same public
+> > license to your code.  But we all know not everyone, in
+> > every context, can do that.  We could build in retroactive
+> > forgiveness for those that eventually publish Open Source,
+> > but that vitiates the incentive to comply in the first
+> > place.
+>
+> So, please do understand that these comments are mine personally --
+> you've already seen commends by Perens and Fontana, and will no doubt
+> see others.
+
+Understood.  That doesn't make your comments any less valued
+or appreciated!
+
+> I'd be inclined to drop the grace period, because I can't see any way in
+> which it's enforceable.  And what would be the point of certifying, or
+> adopting, a license which can't be enforced?
+
+Perhaps I've misunderstood what you mean by "enforceable"
+before.  Do you mean that, with the grace period, an L0-R
+licensor might never be in a position to successfully argue
+that a licensee has failed to abide by the new license
+conditions, 3 and 4?
+
+> However, without the grace period, what you have is materially a more
+> compact form of the LGPL license.  And is the value of reducing a 3-page
+> license to 1 page enough to make it worth adding another license to the
+> OSS ecosystem?  Or is there a practical difference between this and the
+> LGPL that I'm missing?
+
+I believe there's a significant practical difference.
+
+L0-R is designed to trigger copyleft requirements in far
+more situations than would LGPL.  For example, I would read
+"[u]ses as a part of other software" to reach use as a
+shared library.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From josh at postgresql.org  Fri Oct 20 19:46:00 2017
+From: josh at postgresql.org (Josh berkus)
+Date: Fri, 20 Oct 2017 12:46:00 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171020193353.GG26076@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <6bf511ef-93d9-5e6e-6b78-1fad761362dc@postgresql.org> <20171020032109.GB26076@dev.kemitchell.com> <2709ff94-43e9-ec32-1eb0-d73e181dcdd4@postgresql.org> <20171020193353.GG26076@dev.kemitchell.com>
+Message-ID: <de4a2abc-03b0-ae96-0bdb-a9d395116a03@postgresql.org>
+
+On 10/20/2017 12:33 PM, Kyle Mitchell wrote:
+> On 2017-10-20 11:10, Josh berkus wrote:
+>> On 10/19/2017 08:21 PM, Kyle Mitchell wrote:
+>>> The alternative to all of this is to drop the grace period
+>>> entirely.  It would be possible to comply with that license,
+>>> assuming you work "in the open" and apply the same public
+>>> license to your code.  But we all know not everyone, in
+>>> every context, can do that.  We could build in retroactive
+>>> forgiveness for those that eventually publish Open Source,
+>>> but that vitiates the incentive to comply in the first
+>>> place.
+>>
+>> So, please do understand that these comments are mine personally --
+>> you've already seen commends by Perens and Fontana, and will no doubt
+>> see others.
+> 
+> Understood.  That doesn't make your comments any less valued
+> or appreciated!
+> 
+>> I'd be inclined to drop the grace period, because I can't see any way in
+>> which it's enforceable.  And what would be the point of certifying, or
+>> adopting, a license which can't be enforced?
+> 
+> Perhaps I've misunderstood what you mean by "enforceable"
+> before.  Do you mean that, with the grace period, an L0-R
+> licensor might never be in a position to successfully argue
+> that a licensee has failed to abide by the new license
+> conditions, 3 and 4?
+
+Correct.  The "grace period" is infinitely gameable.
+
+
+
+From kyle at kemitchell.com  Fri Oct 20 19:48:45 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Fri, 20 Oct 2017 12:48:45 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <de4a2abc-03b0-ae96-0bdb-a9d395116a03@postgresql.org>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <6bf511ef-93d9-5e6e-6b78-1fad761362dc@postgresql.org> <20171020032109.GB26076@dev.kemitchell.com> <2709ff94-43e9-ec32-1eb0-d73e181dcdd4@postgresql.org> <20171020193353.GG26076@dev.kemitchell.com> <de4a2abc-03b0-ae96-0bdb-a9d395116a03@postgresql.org>
+Message-ID: <20171020194845.GA30388@dev.kemitchell.com>
+
+On 2017-10-20 12:10, Josh berkus wrote:
+> Correct.  The "grace period" is infinitely gameable.
+
+I'll add that to my list for this afternoon's drafting
+session.  I'm not sure I agree.  But I'll put on my
+combat-lawyer helmet, and find a way to read it that way.
+
+Thanks again.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From josh at postgresql.org  Fri Oct 20 20:21:02 2017
+From: josh at postgresql.org (Josh berkus)
+Date: Fri, 20 Oct 2017 13:21:02 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171020194845.GA30388@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <6bf511ef-93d9-5e6e-6b78-1fad761362dc@postgresql.org> <20171020032109.GB26076@dev.kemitchell.com> <2709ff94-43e9-ec32-1eb0-d73e181dcdd4@postgresql.org> <20171020193353.GG26076@dev.kemitchell.com> <de4a2abc-03b0-ae96-0bdb-a9d395116a03@postgresql.org> <20171020194845.GA30388@dev.kemitchell.com>
+Message-ID: <7afe8523-45df-5df6-03df-84fda178f403@postgresql.org>
+
+On 10/20/2017 12:48 PM, Kyle Mitchell wrote:
+> On 2017-10-20 12:10, Josh berkus wrote:
+>> Correct.  The "grace period" is infinitely gameable.
+> 
+> I'll add that to my list for this afternoon's drafting
+> session.  I'm not sure I agree.  But I'll put on my
+> combat-lawyer helmet, and find a way to read it that way.
+
+Well, you kind of laid out the problems yourself.
+
+--Josh
+
+
+
+From mccoy.smith at intel.com  Fri Oct 20 20:38:35 2017
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Fri, 20 Oct 2017 20:38:35 +0000
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <1508523343.3658826.1145657248.4767692F@webmail.messagingengine.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <1508523343.3658826.1145657248.4767692F@webmail.messagingengine.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5194672DC4A@FMSMSX108.amr.corp.intel.com>
+
+I had similar drafting concerns as did Richard, as well as others.  The goal with this license is still a bit murky to me (the way I read it and understand the mailing list discussion, the goal here is to create a permissive license that may be relicensed under any copyleft license that meets the OSD, but for a short grace period where it might be relicensed under any other license model), and I think there are probably better ways to achieve this goal with greater clarity (and to avoid questions of OSD compliance that others have raised).
+
+1.  I agree with Richard that the grace period concept, as currently formulated, is arguably non-conformant with OSD 6.  I also think that the way Richard has reformulated it solves that potential problem.  It also is more consistent with how other, more recent, OSD approved licenses do things; see, for example, the grace/cure periods in Sec 8 of GPLv3.  So, rather than saying "you may only do X for the following number of days," saying "you must do Y within the following number of days" gets away from questions about whether you are excluding a specific field of endeavor, which is prohibited by OSD 6.  Another tack, which I think is more consistent with your goals here, is to say "you must relicense under a license that obligates, as a condition of exercise of rights, that source code be disclosed" (or something along those lines) to eliminate the concern you seem to have about permissive licensing allowing for the option of non-open source (aka commercial) forking.  The grace period to me seems like a fairly unimportant part of the goal of your license, unless you are trying -- like the authors of GPLv3 -- to make clear that users have a certain period, greater than instantaneous, to conform without being in a state of breach or infringement.
+
+2.  The use of "Open Source" in quote marks is potentially confusing given that's not a defined term by the OSI.  The OSI promulgates the Open Source Definition (OSD for short) so I think you should be using that terminology.  Also, it is not "software" that meets that definition, it is the license associated with it.  Better terminology would be something along the lines of "software licensed under a license that meets the Open Source Definition from the Open Source Initiative."  Note, however, I think it is smarter to instead say "software that is licensed under a license certified as meeting the Open Source Definition by the Open Source Initiative" since tying your license terms to the definition means that there are any number of licenses that have never gone through the review process (and which may in fact be non-OSD compliant) that may be swept up into the options of your license.  By way of example, the Clear BSD License:  It is on the FSF's list of "free software" licenses, but not on the OSI list.  There are good reasons for that (as described in the warnings on the FSF page).  Can LZPL code be relicensed Clear BSD?  Is that a result you want, given the concerns some have with that license?
+
+3.  As Richard has noted "uses with modifications" is quite confusing.  I think you are referring to conditions imposed upon modifications of code licensed under LZPL; if so, you should say that.  If not, it sounds to me like you are trying to impose restrictions upon other software (that software that is used with modifications of LZPL software), which would be a violation of OSD 9.
+
+4. "Uses as part of, or in development of, other software" seems to be a clear limitation on other software, and a violation of OSD 9.  I'm not sure what you're getting at here that is different than in the prior paragraph.  "Part of" seems to be getting at the same concept as "modifications" in the prior paragraph.  "In development of" seems to be targeted at the same thing, or else is an effort to impose conditions on software in no way derived from LZPL licensed software, which would fail OSD 9 (and is probably copyright misuse as well).
+
+It might help if you were to more clearly articulate (on the board, or to yourself) what it is you want people to do, and not do, with LZPL licensed code, articulate those in a draft of the license (using language more consistent with the rights granted in BSD), and then compare those against, in particular, OSD 6 and OSD 9 to ensure that neither the goals, nor the explicit language, of your provisions are inconsistent with those parts of the definitions.
+
+I also find the argument that you're trying to do something that AGPL, or LGPL, or some other OSI approved license is trying to do, but in a different way, to be muddling the discussion.  In general, the discussion (per the submission guidelines) should focus on conformance with OSD, the rationale for your license ("Compare to and contrast with the most similar OSI-approved license(s)":  i.e., what additional features beyond 2-clause BSD this license provides), and perhaps why particular language you chose is being used.
+
+As an aside, a permissive license that allows for copyleft forks but not permissive or proprietary forks might be an interesting option, if that's what you're trying to get at.  I don't think that there is anything right now on the OSI list that does that.  But right now it's not clear to me that's what you're getting at.
+
+-----Original Message-----
+From: License-review [mailto:license-review-bounces at opensource.org] On Behalf Of Richard Fontana
+Sent: Friday, October 20, 2017 11:16 AM
+To: license-review at opensource.org
+Subject: Re: [License-review] For Approval: License Zero Reciprocal Public License
+
+Hi Kyle,
+
+The BSD license (family) seem to make a distinction between "redistribution" and "use", as did some other permissive licenses originating at roughly the same time. Others, none ever submitted for OSI approval AFAIK, merely spoke of permitting "use". I'm not sure if that was true of any proto-versions of the BSD license, but I am pretty sure that the earliest versions did not have "with or without modification" spelled out.
+
+One could get into whether that's a good way of drafting a copyright license, but I don't think it's necessary to get into that. We certainly all accept that the 3-clause and 2-clause BSD licenses are OSD-conformant. So too derivatives like the recently-approved BSD+Patent (not to be confused with the late Facebook React license). 
+
+Your license keeps the distinction between "redistribution" and "use". But partly as a consequence of that, I find the language of the added clauses confusing. They refer to "uses" where the original BSD language had (and still has, in your license) "use". Is "uses" the same as "use", or does it just mean "particular forms of the thing that was previously referred to in the singular as "use""? Or no?
+
+If "uses" is essentially the same as, or just a pluralization of, "use" as used in the initial grant language, doesn't that suggest that clauses 3 and 4 somehow don't cover the redistribution case? Maybe that doesn't matter, but I'm finding it at least distracting. :)
+
+Or why "uses" instead of "use", when everyone is expecting the license to refer to "use" because that's what its BSD ancestors did?
+
+Leaving that issue aside, I also find it distracting where the license says "uses with modification". I find it at least somewhat confusing phrasing.
+
+Don't you mean something like this: If you've exercised the right to modify which I've semi-implicitly granted you with my BSD-derived grant language, then in proceeding to "use" that modified version -- which I will assume for the moment is really "distribution and use", or "use including distribution" -- at all points in time in which the "use" is taking place, the code has to be "Open Source" in the OSD sense (including the fact that I must publish source code if otherwise there'd be no licensing act and source code wouldn't be available to anyone but me)?
+
+Would it be equivalent to say something like: If you modify this code, you must publish the modifications under an OSI-approved license within <Grace Period> days? Not suggesting that's better wording but I'm trying to rephrase what I think the intended meaning is. My rephrasing there also may make clearer what some may see as an open source conformance issue. 
+
+I may have a comment on clause 4, but I will leave it there for the moment.
+
+Richard 
+
+
+
+
+
+
+
+On Thu, Oct 19, 2017, at 08:27 PM, Kyle Mitchell wrote:
+> Revising the text of the proposed license, per feedback here on 
+> license-review and elsewhere.
+> 
+> Also replying to the original message this time.  If I revise again, 
+> I'll do the same, so it's easier to find.
+> 
+> First the new text, then a few notes.
+> 
+> Text:
+> 
+>     License Zero Reciprocal Public License <Version>
+> 
+>     Copyright <Year> <Copyright Holder>
+> 
+>     Redistribution and use in source and binary forms, with
+>     or without modification, are permitted provided that the
+>     following conditions are met:
+> 
+>     1.  Redistributions of source code must retain the above
+>         copyright notice, this list of conditions and the
+>         following disclaimer.
+> 
+>     2.  Redistributions in binary form must reproduce the
+>         above copyright notice, this list of conditions and
+>         the following disclaimer in the documentation and/or
+>         other materials provided with the distribution.
+> 
+>     3.  Uses with any modification that is not "Open Source"
+>         as defined by the Open Source Initiative must be
+>         limited to <Grace Period> calendar days.
+> 
+>     4.  Uses as part of, or in development of, other
+>         software that is not "Open Source" as defined by the
+>         Open Source Initiative must be limited to <Grace
+>         Period> calendar days.
+> 
+>     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+>     CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+>     WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+>     WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+>     PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+>     COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY
+>     DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+>     CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+>     PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+>     USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+>     CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+>     CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+>     NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
+>     USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+>     OF SUCH DAMAGE.
+> 
+> Notes:
+> 
+> - I've removed all mention of agent for sale of alternative
+>   licenses, as well as the automatic waiver of the copyleft
+>   conditions.  My motivation was twofold. For one, those
+>   features produced considerable comment, concern, and
+>   confusion, aside from the main issue of use conditions
+>   triggering copyleft.  For two, the aim of each can be
+>   achieved otherwise, outside the license text. As a result,
+>   the proposal is now _exactly_ BSD-2-Clause, plus new
+>   conditions 3 and 4.
+> 
+> - The copyleft triggers now speak directly in terms of OSD
+>   conformance, to catch both source availability and license
+>   terms requirements.  (The assumption is that L0-R, in some
+>   form, will eventually be recognized itself, so L0-R code
+>   can clearly incorporate L0-R code.)  But that aside, I
+>   think the new language goes more directly to intent, and
+>   reads more clearly.
+> 
+> - I've split the new conditions across two numbered items.
+>   This should help clarify that unmodified use alone does
+>   not trigger share-alike.
+> 
+> - I was tempted to define terms for repeated words and
+>   phrases, but held the urge back.  BSD-2-Clause doesn't do
+>   so, and for this kind of license, stylistically, I think
+>   that's probably best.
+> 
+> --
+> Kyle Mitchell, attorney // Oakland // (510) 712 - 0933 
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+_______________________________________________
+License-review mailing list
+License-review at opensource.org
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+From kyle at kemitchell.com  Fri Oct 20 22:06:51 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Fri, 20 Oct 2017 15:06:51 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5194672DC4A@FMSMSX108.amr.corp.intel.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <20171020002742.GA26076@dev.kemitchell.com> <1508523343.3658826.1145657248.4767692F@webmail.messagingengine.com> <2D52F7EE739F8542A700CAB96276B5194672DC4A@FMSMSX108.amr.corp.intel.com>
+Message-ID: <20171020220651.GC30388@dev.kemitchell.com>
+
+McCoy,
+
+Thanks for your time, as well.  Very generous!
+
+And congrats again on getting BSD+Patents through.  Poor
+BSD-2-Clause has a whole flock of hungry lawyers circling
+above it these days...
+
+Please forgive me for reflowing your message. I prefer
+unbroken, plain text myself, but keep getting chided for it,
+and am back to wrapping at 60.
+
+On 2017-10-20 20:10, Smith, McCoy wrote:
+> I had similar drafting concerns as did Richard, as well as
+> others.  The goal with this license is still a bit murky
+> to me (the way I read it and understand the mailing list
+> discussion, the goal here is to create a permissive
+> license that may be relicensed under any copyleft license
+> that meets the OSD, but for a short grace period where it
+> might be relicensed under any other license model), and I
+> think there are probably better ways to achieve this goal
+> with greater clarity (and to avoid questions of OSD
+> compliance that others have raised).
+
+Thanks for a chance to revisit the goal at a high level.  I
+tried to lay that out in my initial submission e-mail, per
+the instructions on the webpage.  There's been a whole lot
+of typing since then.
+
+L0-R's goal is to implement a share-alike license that
+triggers in even more situations than AGPL, but is easier to
+comply with once triggered.  It starts with BSD-2-Clause and
+adds conditions that require sharing alike of modifications,
+incorporating software, and software built with.  However,
+the licensing part of share-alike needn't take the form of
+L0-R terms.  Any OSD-conformant terms suffice.
+
+> 1.  I agree with Richard that the grace period concept, as
+>     currently formulated, is arguably non-conformant with
+>     OSD 6.  I also think that the way Richard has
+>     reformulated it solves that potential problem.  It
+>     also is more consistent with how other, more recent,
+>     OSD approved licenses do things; see, for example, the
+>     grace/cure periods in Sec 8 of GPLv3.  So, rather than
+>     saying "you may only do X for the following number of
+>     days," saying "you must do Y within the following
+>     number of days" gets away from questions about whether
+>     you are excluding a specific field of endeavor, which
+>     is prohibited by OSD 6.  Another tack, which I think
+>     is more consistent with your goals here, is to say
+>     "you must relicense under a license that obligates, as
+>     a condition of exercise of rights, that source code be
+>     disclosed" (or something along those lines) to
+>     eliminate the concern you seem to have about
+>     permissive licensing allowing for the option of
+>     non-open source (aka commercial) forking.  The grace
+>     period to me seems like a fairly unimportant part of
+>     the goal of your license, unless you are trying --
+>     like the authors of GPLv3 -- to make clear that users
+>     have a certain period, greater than instantaneous, to
+>     conform without being in a state of breach or
+>     infringement.
+
+The concern about "instantaneous" compliance was my
+motivation.
+
+As a practical matter, I know many devs who work "in the
+open" by default, for whom an unmitigated requirement to put
+new code out wouldn't pose any problem.  But that just isn't
+possible in different work environments.  L0-R doesn't want
+to force devs who can't work like that to do so.  Rather,
+it's about seeing the code in the open, eventually.
+Share-alike as in "share your work like we have", not "work
+like we do".
+
+I will need to put a bit more thought on the difference
+between "you must do A in X days" and "you may only enjoy
+this license without doing A for X days".  How one falls
+afoul of condition six, and the other doesn't.  On first
+pass, that sounds awfully formalistic.  When GPL says "you
+must", the legal effect is really "it's a condition of this
+license that you", right?  There must be something I'm not
+grasping here.
+
+> 2.  The use of "Open Source" in quote marks is potentially
+>     confusing given that's not a defined term by the OSI.
+>     The OSI promulgates the Open Source Definition (OSD
+>     for short) so I think you should be using that
+>     terminology.
+
+How about:
+ ...that does not conform to the Open Source Definition published by the Open Source Initiative...
+
+>     Also, it is not "software" that meets
+>     that definition, it is the license associated with it.
+
+I believed this, too, until some back-and-forth on this
+thread.  And as first proposed, L0-R's reference to Open
+Source read:
+ ...that is not published in original source code form and publicly licensed under the terms of this license or terms approved by the Open Source Initiative as "Open Source"...
+
+"Open Source" versus "Open Source Definition" aside, that
+reflected the idea that OSD is only about license terms.  If
+OSD doesn't say anything about source availability, L0-R had
+to do so itself.
+
+But then OSD 2 says:
+ The program must include source code.... Where some form of a product is not distributed with source code, there must be a well-publicized means of obtaining the source code for no more than a reasonable reproduction cost, preferably downloading via the Internet without charge. The source code must be the preferred form in which a programmer would modify the program.  Deliberately obfuscated source code is not allowed.  Intermediate forms such as the output of a preprocessor or translator are not allowed.
+
+Clearly, those aren't license criteria.  A license can't
+achieve any of that directly, and could do so indirectly,
+for the original licensor, only by means of a warranty.  The
+closest I've seen is a provenance warranty, in Larry Rosen's
+licenses.  Never a source-available warranty.
+
+All manner of concerns about "publication" came up in
+discussion, too.  Valid concerns.  Rather than try to
+reimplement the source availability criteria laid out in
+OSD, I reference them.  L0-R was already referencing OSD for
+terms criteria.
+
+>     Better terminology would be something along the lines
+>     of "software licensed under a license that meets the
+>     Open Source Definition from the Open Source
+>     Initiative."  Note, however, I think it is smarter to
+>     instead say "software that is licensed under a license
+>     certified as meeting the Open Source Definition by the
+>     Open Source Initiative" since tying your license terms
+>     to the definition means that there are any number of
+>     licenses that have never gone through the review
+>     process (and which may in fact be non-OSD compliant)
+>     that may be swept up into the options of your license.
+>     By way of example, the Clear BSD License:  It is on
+>     the FSF's list of "free software" licenses, but not on
+>     the OSI list.  There are good reasons for that (as
+>     described in the warnings on the FSF page).  Can LZPL
+>     code be relicensed Clear BSD?  Is that a result you
+>     want, given the concerns some have with that license?
+
+Point taken on the scope of "OSD-conformant".  I hear there
+are a few "crayon licenses" in there, too, which Bruce would
+like to redo in white-out.  On the other hand, I'm told L0-R
+may not end up in the club, either, precisely on the
+difference between OSD-conformant and what OSI will approve.
+
+As for relicensing:  A modification to L0-R code could be
+licensed, say, MIT, and comply.  But I don't see L0-R
+permitting relicensing from L0-R code itself to MIT.  MIT
+grants more permission than L0-R licensees receive, due to
+the new conditions triggering source and licensing
+requirements.

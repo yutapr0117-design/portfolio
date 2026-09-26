@@ -1,0 +1,750 @@
+I'm focusing more heavily on points germane to the review
+process, above, but I've read these points, too, and
+carefully.  Much obliged, and happy to return to these
+topics any time.
+
+--
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+_______________________________________________
+License-review mailing list
+License-review at opensource.org
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171026/7a20961f/attachment.html>
+
+From rick at linuxmafia.com  Thu Oct 26 00:52:22 2017
+From: rick at linuxmafia.com (Rick Moen)
+Date: Wed, 25 Oct 2017 17:52:22 -0700
+Subject: [License-review] When a submission for approval stops being one (was: For Approval: License Zero Reciprocal Public License)
+In-Reply-To: <20171026001020.GP21084@dev.kemitchell.com>
+References: <CAA4ffp8=-kXx3p+CvcBOKjumK73d0+fOqeq6RBhT8J-MpH4aiQ@mail.gmail.com> <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <2D52F7EE739F8542A700CAB96276B5194673CB16@FMSMSX108.amr.corp.intel.com> <20171026001020.GP21084@dev.kemitchell.com>
+Message-ID: <20171026005221.GD30423@linuxmafia.com>
+
+Kyle, you've been gracious and courteous in reaction to commentary,
+which I'm sure is appreciated.  (I am not an OSI Board member, merely a
+longtime participant from the surrounding open source community.)
+
+I wish to note in passing that you approached license-review with a
+licence, which turns out (as you acknowledge) to not be in use for
+any software, but rather an experiment.  Moreover, it turns out
+explicitly to be a 'draft', one that you keep revising.  As we often
+see, your draft includes wording taken from popular OSI Certified
+licences; as you may know if you've followed license-{review,discuss},
+'built using familiar ingredients' has proven a poor guarantor of quality.
+
+There has been at least a suggestion perhaps from you and certainly from
+some others, past and present, that the license-review commentariat and
+OSI Board are somehow obliged to spend time and careful consideration on
+experimental licences.  After widely held reasons for lacking enthusiasm for
+particular licences having been recounted here by Bruce and others, some
+claimed in response that OSD ought to be amended to include them.  (On
+the bright side, at least your submission(s) is/are lawyer-drafted.)
+
+FWIW, I do not concur that OSI's Board or this mailing list owes any
+positive obligation individual participants may feel to set aside 
+apathy for particular submissions -- especially 'drafts', peculiar
+crayon-licence creations by non-lawyers, licences that seem
+substantially duplicative or lacking in a compelling justification,
+and/or licences representing zero or effectively zero software.
+
+Also FWIW, I concur with McCoy's and Bruce's feelings on the
+use-burdening problems of your general approach.  But, more to the
+immediate point, you appear to lack a (finished) submission for OSI's
+review process.  You seem to have, instead,  a notion -- one that you've
+been attempting to expand into a licence, using this mailing list as a
+writing workshop.  That is not this forum's mission, and my sense is
+that the effort has worn out its welcome.
+
+I've withheld comment until this moment because I didn't want to sound 
+brusque, but I respect your good intentions and thought I'd try to help
+suggest candidate reasons why you're getting no traction.
+
+-- 
+Cheers,                              ? On donne des conseils, mais on ne 
+Rick Moen                            donne point la sagesse d'en profiter. ?
+rick at linuxmafia.com                                     -- La Rochefoucauld
+McQ! (4x80)                       
+
+
+From kyle at kemitchell.com  Thu Oct 26 01:55:45 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Wed, 25 Oct 2017 18:55:45 -0700
+Subject: [License-review] When a submission for approval stops being one (was: For Approval: License Zero Reciprocal Public License)
+In-Reply-To: <20171026005221.GD30423@linuxmafia.com>
+References: <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <2D52F7EE739F8542A700CAB96276B5194673CB16@FMSMSX108.amr.corp.intel.com> <20171026001020.GP21084@dev.kemitchell.com> <20171026005221.GD30423@linuxmafia.com>
+Message-ID: <20171026015545.GQ21084@dev.kemitchell.com>
+
+Rick,
+
+As you say, neither you, nor OSI, nor the "commentariat" owe
+me any time whatsoever.  I hope my thanks tell my gratitude,
+that time and attention I've taken to read and reply in
+depth show it.  All of that would be valid as a cold-hearted
+tactic, if all I cared about was approval.  I can give only
+my word that, in my case, it comes from a more gracious
+personal place, and a more curious intellectual place,
+besides.
+
+As for the state of flux of the license text, I sense
+frustration.  Completely valid frustration.  Frankly, I
+share it.  For reasons brought up on the thread Luis split
+off, I've come to feel a bit like a ping-pong ball, bouncing
+off one stroke of feedback to another, too dizzy to see
+where I'm supposed to end up.
+
+As for the "draft" designation, for what it's worth, I used
+that term, and adopted that mindset, after reading this bit
+of https://opensource.org/approval:
+ 5. Submit a formal request to license-review. For new licenses, this should happen before they are finalized to allow for any necessary changes
+
+Before reading that page, it was my impression that I'd have
+to submit a "final".  That it would be fixed through
+discussion.  That I'd have to withdraw and resubmit if
+changes proved necessary.
+
+Your point on reusing past language is also well taken, very
+recent EPL-2.0 and BSD+Patents excepted.  As I've mentioned
+today and yesterday, I'm near to a clean-slate rewrite of
+the proposal that cribs no more than one five-word snippet
+on form of source from GPL.  I hope to post that later
+today.  I think it will address many concerns, and reflect
+the feedback-revision process /approval seems to have in
+mind. A crucial process for L0-R, insofar as one of its
+objectives was OSI approval, and the path to OSD conformance
+wasn't clear from /osd or /licenses.
+
+If the sense of the list is that I should stand on that
+revision for a while, perhaps long enough to be reported up
+the to board and make its way back down, I'm very open to
+that.  Frankly, even if it isn't the sense of the list, I
+might do it anyway.  I'm tired, too.
+
+As for adoption, I think we're all aware of its
+chicken-and-egg dynamic with OSI approval.  OSI approval
+affects my willingness to recommend licenses, to clients and
+others.  It has to.  And it affects my willingness to
+recommend L0-R, until its fate is clear.  Frankly, I won't
+be cajoling anyone, even my friends, to will a demonstrable
+licensor-user base into being for license-review.  I don't
+think anyone benefits by reinforcing any incentive to do so.
+I wonder what other proposed licenses have done.
+
+When dealing with licenses that fall in discouraged
+license-proliferation categories, I'm sure it's nice to have
+the extra braking power of the approval-adoption loop.  But
+when the same puts friction on license forms with new ideas
+and objectives---and I think even those who've objected to
+L0-R here would grant that it's novel---that strikes me as
+malfunction.  At worst, it requires giving a lot of dubious
+advice as a rite of passage for each new attempt at a
+license exploring new OSD territory.
+
+Finally, perhaps I'm flattering myself, but if L0-R's
+concept were redundant of some other license, or technically
+boring, or intellectually bloodless, I don't think I'd've
+seen the kind of response that I have, on and off the list,
+from the folks that I have.  L0-R strikes me as the kind of
+idea I'd've been wiling to chime in on myself, out of my own
+time, had it fallen upon someone else.  When the next one
+falls on someone else, I hope I'm in a position to pay
+forward, and help refine it.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Thu Oct 26 02:29:18 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 25 Oct 2017 19:29:18 -0700
+Subject: [License-review] When a submission for approval stops being one (was: For Approval: License Zero Reciprocal Public License)
+In-Reply-To: <20171026015545.GQ21084@dev.kemitchell.com>
+References: <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <2D52F7EE739F8542A700CAB96276B5194673CB16@FMSMSX108.amr.corp.intel.com> <20171026001020.GP21084@dev.kemitchell.com> <20171026005221.GD30423@linuxmafia.com> <20171026015545.GQ21084@dev.kemitchell.com>
+Message-ID: <CAK2MWOv=7328QR6XyB-F8pDO2pehG-rv+1dj9mgQcxU2VvUexw@mail.gmail.com>
+
+It does seem to have been an excessively noisy and at bordering on the
+obnoxious process for a relatively simple drafting of a license. I don't
+think I'd want to entertain a second one anytime soon.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171025/76bac115/attachment.html>
+
+From luis at lu.is  Thu Oct 26 03:33:56 2017
+From: luis at lu.is (Luis Villa)
+Date: Thu, 26 Oct 2017 03:33:56 +0000
+Subject: [License-review] resolving ambiguities in OSD [was Re: For Approval: License Zero Reciprocal Public License]
+In-Reply-To: <b2a34b63-ae15-5367-3306-ebb48eaecf3b@postgresql.org>
+References: <CAFjZtRdBsgYOYk7Vss=c3FTbOcoJQQs_dx5h2=WGO6X4cpWUgA@mail.gmail.com> <CAK2MWOsvcEOV4O5URChq_L_iAwFf6b24qB7u=G94OToY7Mz5iQ@mail.gmail.com> <20171025003636.GC9148@dev.kemitchell.com> <296fde9f-4cc8-6229-6e08-6d972ee7d695@postgresql.org> <1508893650.895164.1149981768.01B5EA62@webmail.messagingengine.com> <CAK2MWOtBfum6q7Ebthiy_v5SBiSB0cA=8wusNGX7zzsvr3UkoA@mail.gmail.com> <b2a34b63-ae15-5367-3306-ebb48eaecf3b@postgresql.org>
+Message-ID: <CAFjZtReo9RvBUYDJEvMiUy==N-OEVpdvOaNrZcM15=BPN5JKFg@mail.gmail.com>
+
+On Tue, Oct 24, 2017 at 6:20 PM Josh berkus <josh at postgresql.org> wrote:
+
+> On 10/24/2017 06:13 PM, Bruce Perens wrote:
+> >
+> > With regard to *simple users,* those who make use of the Open Source
+> > software and do not modify or redistribute it, there should be as close
+> > to *no legal load* as possible. We need to be cognizant that many of
+> > these users are individuals and very small businesses that can't
+> > reasonably assume any legal load at all. We can't protect them from
+> > patent issues brought by others than the licensor of the software, but
+> > to the extent that we can protect them, we should. In
+> > particular, *simple users should not ever have to read the license.*
+>
+> Is this an actual requirement for OSI license certification?  I ask
+> because it has specific bearing on whether or not we recommend LZRPL.
+>
+> It would also leave open the question of why the AGPL gets to circumvent
+> that requirement.
+>
+
+And GPL v2 and v3, and EUPL, and I'm sure others. (The only reason one can
+even vaguely pretend v2 meets a "should not ever have to read the license"
+criteria is because of decades of usage.)
+
+In the other thread we also now see it suggested (again, in completely good
+faith!) that enforceability is a criteria; putting aside that all contracts
+balance some risks around enforcement and other goals, and different
+license authors may have very different perspectives on that optimal
+balance, I'm at a loss as to how OSI can reasonably assess this in all but
+the most egregious cases. (And certainly hard to see how license-review's
+non-lawyers can assess it better than a reasonably experienced lawyer in
+the space like Kyle.)
+
+Again, OSI would be well-served by actually writing down the non-OSD
+criteria, or publicly admitting that the criteria are not agreed-to and
+non-transparent. I realize this would not be easy, but the current
+situation benefits no one.
+
+Luis
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171026/1c3285a8/attachment.html>
+
+From brlcad at mac.com  Thu Oct 26 05:17:55 2017
+From: brlcad at mac.com (Christopher Sean Morrison)
+Date: Thu, 26 Oct 2017 01:17:55 -0400
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <mailman.1.1508932802.696.license-review@opensource.org>
+References: <mailman.1.1508932802.696.license-review@opensource.org>
+Message-ID: <5BA81B77-057E-4332-81FF-8A4F8C4E3E79@mac.com>
+
+
+>> And I just want to make sure that the users of this license don't run into
+>> trouble in court. One way to reduce ambiguity is not to include a
+>> not-for-purpose document by reference that will lead some judge into a
+>> rabbit hole when you could just copy a few sentences of language.
+> 
+> Incorporation by reference is not unknown to the courts.
+> Privately negotiated deals involve big stacks of documents
+> incorporated by reference, all the time.  Those documents
+> haven't the benefit of a single source of publication,
+> verifiable on the Internet.
+
+Just because you can doesn?t mean you should.  I read the suggestion as offering an alternative, not suggesting incorporation by reference is unknown or new territory.  The indirection adds unnecessary complexity that (imho) devalues the quality of the license (especially from a non-legal perspective, however minor).  Most open sources licenses stand on their four corners (dammit lgpl).
+
+> Possible change to OSD?  We can solve that by date-locking
+> the reference.  That's very typical in contract drafting,
+> say for referencing a statute in force at the time a
+> contract is made.  No sweat.
+
+Just because you can doesn?t mean you should.  Not a problem if the license embedded/stated the conditions it cares about from the OSD in language appropriate to how it?s framed.
+
+Perhaps I?m mistaken, but I?ve also never considered the actual language of the OSD as being suitable for legal purposes.  It?s a general framing that guides the community in general layman terms.  Incorporating it by reference is a can of unhelpful worms imho.
+
+>> If you reference the OSD to define what is a compatible license for
+>> modifications, you should also have a backup. As in "An OSI-certified Open
+>> Source license or a license no more restrictive than this one." And you
+>> will need separate language requiring source-code availability for the
+>> entire program.
+> 
+> Alas, from my lawyer's chair, "no more restrictive" doesn't
+> offer much clarity.  Restrictions---conditions or exceptions
+> to conditions---vary as often in kind as in extent.
+> 
+> I don't mean to be a spoilsport.  I'm sure I've seen that
+> language elsewhere.  But repeated usage doesn't make it any
+> more clear, I'm afraid.
+
+Responses like this make the discussion feel long in the tooth.  The point was defining a backup, not coming up with the precise wording for you with clarity.  The GPL and LGPL have been de facto effective in this regard (section 7&10).  Of course if you just embedded/stated what you care about from the OSD in language appropriate to how it?s framed ? there wouldn?t be this to discuss.
+
+Cheers,
+Sean
+
+
+
+From fontana at sharpeleven.org  Thu Oct 26 05:22:57 2017
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Thu, 26 Oct 2017 01:22:57 -0400
+Subject: [License-review] resolving ambiguities in OSD [was Re: For Approval: License Zero Reciprocal Public License]
+In-Reply-To: <CAFjZtReo9RvBUYDJEvMiUy==N-OEVpdvOaNrZcM15=BPN5JKFg@mail.gmail.com>
+References: <CAFjZtRdBsgYOYk7Vss=c3FTbOcoJQQs_dx5h2=WGO6X4cpWUgA@mail.gmail.com> <CAK2MWOsvcEOV4O5URChq_L_iAwFf6b24qB7u=G94OToY7Mz5iQ@mail.gmail.com> <20171025003636.GC9148@dev.kemitchell.com> <296fde9f-4cc8-6229-6e08-6d972ee7d695@postgresql.org> <1508893650.895164.1149981768.01B5EA62@webmail.messagingengine.com> <CAK2MWOtBfum6q7Ebthiy_v5SBiSB0cA=8wusNGX7zzsvr3UkoA@mail.gmail.com> <b2a34b63-ae15-5367-3306-ebb48eaecf3b@postgresql.org> <CAFjZtReo9RvBUYDJEvMiUy==N-OEVpdvOaNrZcM15=BPN5JKFg@mail.gmail.com>
+Message-ID: <1508995377.3083126.1151397288.7C10CC3F@webmail.messagingengine.com>
+ 
+On Wed, Oct 25, 2017, at 11:33 PM, Luis Villa wrote:
+> On Tue, Oct 24, 2017 at 6:20 PM Josh berkus
+> <josh at postgresql.org> wrote:>> On 10/24/2017 06:13 PM, Bruce Perens wrote:
+>> >
+>> > With regard to *simple users,* those who make use of the Open
+>> > Source>> > software and do not modify or redistribute it, there should be as
+>> > close>> > to *no legal load* as possible. We need to be cognizant that
+>> > many of>> > these users are individuals and very small businesses that can't
+>> > reasonably assume any legal load at all. We can't protect them from>> > patent issues brought by others than the licensor of the
+>> > software, but>> > to the extent that we can protect them, we should. In
+>> > particular, *simple users should not ever have to read the
+>> > license.*>> 
+>> Is this an actual requirement for OSI license certification?  I ask
+>> because it has specific bearing on whether or not we recommend LZRPL.>> 
+>> It would also leave open the question of why the AGPL gets to
+>> circumvent>> that requirement.
+> 
+> And GPL v2 and v3, and EUPL, and I'm sure others. (The only reason one
+> can even vaguely pretend v2 meets a "should not ever have to read the
+> license" criteria is because of decades of usage.)
+I read Bruce as saying that, in effect, mere exercisers of FSF Freedom 0
+should not have to read the license, essentially the same as saying an
+Open Source license should not limit Freedom 0. But maybe I
+misunderstood and Bruce was speaking much more broadly.
+> Again, OSI would be well-served by actually writing down the non-OSD
+> criteria, or publicly admitting that the criteria are not agreed-to
+> and non-transparent. I realize this would not be easy, but the current
+> situation benefits no one.
+So here are some of my thoughts on this. I think the OSI (and I mean the
+OSI broadly to include the license-review and license-discuss
+participants) has never really limited itself to mechanical or
+literalist application of the OSD, not taking context , tradition or
+policy into account. I think this is  clear from review of the mailing
+list archives and past OSI board minutes relating to license approvals.
+I am not sure if there is some expectation out there that the OSI
+*should* limit itself to literalist application of the OSD but that
+seems wrong to me.
+For one thing, the OSI grandparented in a bunch of licenses at the
+beginning, as exemplifying what open source was supposed to mean. I
+don't think the OSD can be understood properly without thinking about
+that. All of those licenses did not limit Freedom 0, for example.
+The first sentence at https://opensource.org/approval
+says: "The goal of the OSI License Review Process is to ensure that licenses and software labeled as "open source" conforms to existing community norms and expectations."
+I do think it would be good to try to write down more about those norms
+and expectations that is not obvious from an out-of-context review of
+the OSD. (Actually I'm all for trying to revise the OSD, but there is
+probably little appetite for that. )
+But I feel the accusation of nontransparency is unfair. Several years
+ago I gave a talk (called "The Tragedy of the Commons Gatekeepers") in
+which I criticized the license review  processes of OSI, FSF and Debian.
+One thing I liked about OSI, though, was its transparency - at least in
+any contentious case, when a license was rejected, it was generally
+clear what the problem was, from review of mailing list archives and
+board minutes. Contrast that with Debian, where the legendary ftpmasters
+have arbitrary power to accept or reject licenses without rationale
+(subject to the democratic processes of Debian, though), or the FSF,
+where rationale for free/nonfree designations is often relatively
+unclear or opaque. Richard
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171026/9b1a62e6/attachment.html>
+
+From kyle at kemitchell.com  Thu Oct 26 05:33:32 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Wed, 25 Oct 2017 22:33:32 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <5BA81B77-057E-4332-81FF-8A4F8C4E3E79@mac.com>
+References: <mailman.1.1508932802.696.license-review@opensource.org> <5BA81B77-057E-4332-81FF-8A4F8C4E3E79@mac.com>
+Message-ID: <20171026053332.GS21084@dev.kemitchell.com>
+
+Sean,
+
+I think you will see language in my forthcoming revision to
+your liking.
+
+I agree some of this feels mighty long in the tooth.  Making
+a fresh start in that revision will hopefully help focus the
+discussion, and bring together diverging lines of comment.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From rick at linuxmafia.com  Thu Oct 26 05:33:52 2017
+From: rick at linuxmafia.com (Rick Moen)
+Date: Wed, 25 Oct 2017 22:33:52 -0700
+Subject: [License-discuss] [License-review] resolving ambiguities in OSD [was Re: For Approval: License Zero Reciprocal Public License]
+In-Reply-To: <CAFjZtReo9RvBUYDJEvMiUy==N-OEVpdvOaNrZcM15=BPN5JKFg@mail.gmail.com>
+References: <CAFjZtRdBsgYOYk7Vss=c3FTbOcoJQQs_dx5h2=WGO6X4cpWUgA@mail.gmail.com> <CAK2MWOsvcEOV4O5URChq_L_iAwFf6b24qB7u=G94OToY7Mz5iQ@mail.gmail.com> <20171025003636.GC9148@dev.kemitchell.com> <296fde9f-4cc8-6229-6e08-6d972ee7d695@postgresql.org> <1508893650.895164.1149981768.01B5EA62@webmail.messagingengine.com> <CAK2MWOtBfum6q7Ebthiy_v5SBiSB0cA=8wusNGX7zzsvr3UkoA@mail.gmail.com> <b2a34b63-ae15-5367-3306-ebb48eaecf3b@postgresql.org> <CAFjZtReo9RvBUYDJEvMiUy==N-OEVpdvOaNrZcM15=BPN5JKFg@mail.gmail.com>
+Message-ID: <20171026053352.GE30423@linuxmafia.com>
+
+I've moved this to license-discuss because I'm not sure this is
+part of discussion of any licence being evaluated, any more.  I 
+could be wrong (and am certainly not criticising upthread posts).
+
+Quoting Luis Villa (luis at lu.is):
+
+> Again, OSI would be well-served by actually writing down the non-OSD
+> criteria, or publicly admitting that the criteria are not agreed-to and
+> non-transparent. I realize this would not be easy, but the current
+> situation benefits no one.
+
+When you say 'the non-OSD criteria', this assumes there is a set the
+Board (and most outside commmenters?) would agree on.  That might be
+true or might not.  The set Bruce adduced on license-review strike me as
+capturing points most often mentioned.  
+
+Let's suppose that set were listed on https://opensource.org/approval
+with framing like 'OSI's Board cannot guarantee that the License Review
+community will be interested in and comment on your license.  Reasons 
+participating individuals have cited for disinterest in some past
+licenses include perception that the license is a vanity license or
+duplicative, that it is needlessly specific to one business entity, 
+that it is unjustifiably opaque or ambiguous in its wording, that it was
+not drafted with a lawyer's review or has legal flaws suggesting legal
+review was inadequate or unheeded, that it is essentially unused by
+significant amounts of current software and appears unlikely to beecome
+so, that it unduly burdens use by developers, business, or end-users, or
+that it increases license proliferation and the complexity of the
+resulting combinatorial license matrix without adequate compensating
+merit.  All of these criteria are judgement calls be individual
+participants, and end up mattering to those individuals (the License
+Review Chair, OSI's Board, and outside participants) irrespective of
+their being entirely informal and outside the OSD's wording.  At other
+times, otherwise frequent commenters may withhold comment because they
+lack specialized expertise, or just aren't interested.  Please note,
+too, that individual participants tend to be unswayed by the argument
+that you assembled your license using bits and pieces of previously
+approved license, if those other concerns apply in their view.'[1]
+
+Ask yourself, is that really an improvement?  (Even imaginaing better
+wordsmithing than mine, I have doubts.)  In my experience, submitters
+invariably think such judgements are wrong in _their_ cases or should be
+set aside for their benefit.  Also, these really _are_ judgement calls:
+For example, license-review has appeared to take seriously, over the
+last few years, a number of permissive licenses I considered lacking any
+reasonable purpose.  Other regulars obviously have greater patience in
+that area.  So, whose non-OSD criteria are worthy of mention?  Other
+than mine, of course.  ;->
+
+What I'd predict is that this would merely shift the bone of contention.
+Scorned submitters would rail against non-OSD criteria being unfair,
+vague, and also wrongly applied (reminiscent of the old joke about
+'terrible food, and such small portions!').  This will then be followed
+by the now-obligatory declaration that OSI is irrelevant and [something
+du jour] has replaced it.
+
+
+[1] Here I've used Yank-standard spelling because 
+https://opensource.org/approval does.
+
+
+From brlcad at mac.com  Thu Oct 26 06:18:29 2017
+From: brlcad at mac.com (Christopher Sean Morrison)
+Date: Thu, 26 Oct 2017 02:18:29 -0400
+Subject: [License-discuss] resolving ambiguities in OSD (was [License-review])
+In-Reply-To: <mailman.35182.1508901810.1919.license-review@opensource.org>
+References: <mailman.35182.1508901810.1919.license-review@opensource.org>
+Message-ID: <4A5B2C33-6FC9-4A7F-AA7E-5B4453CF4074@mac.com>
+
+
+> Date: Tue, 24 Oct 2017 18:13:23 -0700
+> From: Bruce Perens <bruce at perens.com>
+> To: License submissions for OSI review <license-review at opensource.org>
+> Subject: Re: [License-review] resolving ambiguities in OSD [was Re:
+> 	For Approval: License Zero Reciprocal Public License]
+> 
+> Most of this is implicit within the OSD but they are useful to keep in mind:
+> 
+> With regard to *simple users,* those who make use of the Open Source
+> software and do not modify or redistribute it, there should be as close to *no
+> legal load* as possible. We need to be cognizant that many of these users
+> are individuals and very small businesses that can't reasonably assume any
+> legal load at all. We can't protect them from patent issues brought by
+> others than the licensor of the software, but to the extent that we can
+> protect them, we should. In particular, *simple users should not ever have
+> to read the license.*
+> 
+> We should also endeavor to keep the legal load upon *Open Source developers* as
+> low as possible. These are also individuals, small businesses, etc. We
+> expect them to understand the license somewhat, but they are not legal
+> experts and do not necessarily have easy access to legal experts or even
+> the inclination to use them.
+
+Bruce,
+
+This is fascinating and refreshing.  It?s great to be reminded of some of the implicit founding principles that sometimes get diluted over time.
+
+This also reminds me of the discussions from a couple months ago where the issue at hand was licenses that explicitly deny a patent grant and thus violate the OSD (by my analysis) IF the licensor/contributor holds patent rights and asserts them via any royalty basis or discriminatory manner.
+
+This issue is rather pressing now with so many federal agencies moving into open source, commensurately searching the legal landscape for something close to public domain yet still addressing indemnification and contributor patent grants.  Some landed on CC0 (oops), others on preambles and DCOs, others trying to craft new licenses to fill the perceived void.  All leading to proliferation and...
+
+> So, we can think about some things that would increase the load on those
+> communities.
+
+? increased load.  How can OSI decrease this load?  Patent rights as they pertain to our source code is an undeniable burden on communities and developers alike currently.
+
+One possible solution could be to amend the OSD replacing instances of "license? with ?license and all contributors?.   Thus, for example, OSD#1 is clearly violated if there is not a patent grant mechanism in place: ?The license and all contributors shall not restrict any party from selling or giving away the software ?? and it would likely mean licenses like CC0 fail without an accompanying grant.
+
+I can think of a few other possibilities, but that seems like the most direct approach that instills that it?s not just the license that determines whether code is ?Open".  People do.
+
+> License proliferation: We don't want them to have to do more license
+> combinatorial analysis than should be necessary. Thus, we should not in
+> general accept new licenses, unless they in some way present a benefit to
+> the community in a way that presently-accepted licenses do not.
+
+Assuming software patents don?t go anywhere anytime soon, logically one can predict an approximate 2x proliferation given only a handful (5?) address patent rights.  BSD+Patent is exemplary.
+
+> there are a few
+> unfortunately-OSI-accepted time bombs waiting for new victims.
+
+How about creating a deprecation policy?  This community could (should?) define formal revocation criteria for delisting, timeframes, appeal process.  They dilute and ? increase load.
+
+Cheers!
+Sean
+
+
+
+From rick at linuxmafia.com  Thu Oct 26 06:44:58 2017
+From: rick at linuxmafia.com (Rick Moen)
+Date: Wed, 25 Oct 2017 23:44:58 -0700
+Subject: [License-review] When a submission for approval stops being one (was: For Approval: License Zero Reciprocal Public License)
+In-Reply-To: <20171026015545.GQ21084@dev.kemitchell.com>
+References: <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <2D52F7EE739F8542A700CAB96276B5194673CB16@FMSMSX108.amr.corp.intel.com> <20171026001020.GP21084@dev.kemitchell.com> <20171026005221.GD30423@linuxmafia.com> <20171026015545.GQ21084@dev.kemitchell.com>
+Message-ID: <20171026064458.GG30423@linuxmafia.com>
+
+Quoting Kyle Mitchell (kyle at kemitchell.com):
+
+> As for the "draft" designation, for what it's worth, I used
+> that term, and adopted that mindset, after reading this bit
+> of https://opensource.org/approval:
+[...]
+
+Good point.  Sorry, I completely missed that nuance, and overinterpreted 
+your wording.  
+
+At the same time, it's definitely true that you've been doing an
+unusually large amount of post-submission redrafting.  While I can only
+admire your patience and intelligent responses, I'll confess that I held
+back until today in part because this whole thread seemed a time sink,
+despite good intentions.  And I think I you're right about widespread
+weariness.
+
+> As for adoption, I think we're all aware of its chicken-and-egg
+> dynamic with OSI approval.
+
+Quite so.  And I'm willing to speculate (as always, speaking for myself)
+that people's willingness to consider new licences is also influenced by
+the perception that too many questionable licences have been approved in
+the past.
+
+
+> Frankly, I won't be cajoling anyone, even my friends, to will a
+> demonstrable licensor-user base into being for license-review.
+
+I will put this in the form of a question because I might be missing
+something:  If a new (but unconsidered by OSI) open source licence has
+distinctive and compelling utility, why isn't it going to draw a
+demonstrable licensor-user base without certification?  To be flip, the
+way ones knows something is compelling is that it compels.
+
+I've always seen the OSI Certified programme as conceptually similar in
+aim to IETF's RFC programme -- in the sense of recognising current best
+practices, with particular attention to those widely adopted.   I think
+this is a bug, not a feature, from the perspective of OSI's overall
+mission to further the interests of open source.  (For IETF's criteria
+for RFCs, see section 6 of 'The Tao of IETF', at 
+https://www.ietf.org/tao.html .)
+
+But yes, you also definitely have an excellent point that L0-R
+introduces one of the very few truly novel approaches we've seen in many
+a year, and you have my unabashed admiration for that.
+
+
+
+From kyle at kemitchell.com  Thu Oct 26 07:23:37 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Thu, 26 Oct 2017 00:23:37 -0700
+Subject: [License-review] When a submission for approval stops being one (was: For Approval: License Zero Reciprocal Public License)
+In-Reply-To: <20171026064458.GG30423@linuxmafia.com>
+References: <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <2D52F7EE739F8542A700CAB96276B5194673CB16@FMSMSX108.amr.corp.intel.com> <20171026001020.GP21084@dev.kemitchell.com> <20171026005221.GD30423@linuxmafia.com> <20171026015545.GQ21084@dev.kemitchell.com> <20171026064458.GG30423@linuxmafia.com>
+Message-ID: <20171026072337.GT21084@dev.kemitchell.com>
+
+On 2017-10-25 23:10, Rick Moen wrote:
+> Quoting Kyle Mitchell (kyle at kemitchell.com):
+>
+> > As for the "draft" designation, for what it's worth, I used
+> > that term, and adopted that mindset, after reading this bit
+> > of https://opensource.org/approval:
+> [...]
+>
+> Good point.  Sorry, I completely missed that nuance, and overinterpreted
+> your wording.
+>
+> At the same time, it's definitely true that you've been doing an
+> unusually large amount of post-submission redrafting.  While I can only
+> admire your patience and intelligent responses, I'll confess that I held
+> back until today in part because this whole thread seemed a time sink,
+> despite good intentions.  And I think I you're right about widespread
+> weariness.
+
+No apology necessary.  license-review's a country planted
+thick with nuances!
+
+And you're right that I've done a lot of editing.  That's
+very much in my lawyerly mode, where a good result is often
+about coming up with a lot of variations, and selecting the
+best.  But perhaps that's not the right dance on this list,
+even if it's legal in nature, even if I'm of a mind to
+welcome as much input as possible.
+
+Clearly that backfired as far as your thoughts go ... and
+for that _I_ am sorry.
+
+> > Frankly, I won't be cajoling anyone, even my friends, to will a
+> > demonstrable licensor-user base into being for license-review.
+>
+> I will put this in the form of a question because I might be missing
+> something:  If a new (but unconsidered by OSI) open source licence has
+> distinctive and compelling utility, why isn't it going to draw a
+> demonstrable licensor-user base without certification?  To be flip, the
+> way ones knows something is compelling is that it compels.
+
+As others have mentioned, many consumers, distributors, and
+service providers of note require OSI-approved license
+terms.  Turning all that down, even temporarily, costs.  The
+more it costs---another way of saying, the more valuable OSI
+approval becomes---the more benefit a new license has to
+offer over all prior OSI-approved alternatives to make sense
+for adoption before approval.
+
+The clear OSI-approved alternative to L0-R as envisioned is
+AGPL-3.0.  I can create an artificial incentive to use L0-R
+before OSI approval by promoting it as the only copyleft
+public license compatible with the dual-licensing platform
+I'm offering.  But I don't feel right putting that kind of
+pressure on my community.  As things stand, I know more than
+a few users who want the strongest copyleft license
+available.  But the strength of AGPL plus the practical
+benefits of OSI approval outweigh the strength of L0-R
+without approval, even if L0-R with approval would overcome
+AGPL with approval.
+
+> But yes, you also definitely have an excellent point that L0-R
+> introduces one of the very few truly novel approaches we've seen in many
+> a year, and you have my unabashed admiration for that.
+
+I'm just the lawyer.  The ideas come from folks still making
+software full time, still contributing to the community.  I
+was able to hear them, put it together, and do my job.
+That's all.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From rick at linuxmafia.com  Thu Oct 26 08:24:27 2017
+From: rick at linuxmafia.com (Rick Moen)
+Date: Thu, 26 Oct 2017 01:24:27 -0700
+Subject: [License-review] When a submission for approval stops being one (was: For Approval: License Zero Reciprocal Public License)
+In-Reply-To: <20171026072337.GT21084@dev.kemitchell.com>
+References: <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <2D52F7EE739F8542A700CAB96276B5194673CB16@FMSMSX108.amr.corp.intel.com> <20171026001020.GP21084@dev.kemitchell.com> <20171026005221.GD30423@linuxmafia.com> <20171026015545.GQ21084@dev.kemitchell.com> <20171026064458.GG30423@linuxmafia.com> <20171026072337.GT21084@dev.kemitchell.com>
+Message-ID: <20171026082427.GH30423@linuxmafia.com>
+
+Quoting Kyle Mitchell (kyle at kemitchell.com):
+
+> Clearly that backfired as far as your thoughts go ... and
+> for that _I_ am sorry.
+
+I hope I did not sound dyspeptic, especially not towards your estimable
+self.  If I hadn't respected your effort, I would've skipped this
+thread.
+
+> As others have mentioned, many consumers, distributors, and
+> service providers of note require OSI-approved license
+> terms.  Turning all that down, even temporarily, costs.  The
+> more it costs---another way of saying, the more valuable OSI
+> approval becomes---the more benefit a new license has to
+> offer over all prior OSI-approved alternatives to make sense
+> for adoption before approval.
+
+And yet, my point remains:  Speaking for myself, I'm skeptical of any
+allegedly valuable licence with zero (or nearly zero) adoption because,
+if compelling, it should have compelled.  For example, MPL & its CDDL
+progeny were vital before landing on OSI's doorstep; adoption preceding
+submission underlined their point and made them much more worthy of note
+than otherwise.
+
+(And, also, I would expect adoption of a compellingly good open source
+licence among the many who disregard or are apathetic towards OSI.)
+
+Now, you could rightly say 'Not everyone has the pioneering Web browser
+and a major office suite handy to punctuate an argument.'  True enough,
+a sign of the cosmos's inherent bias, along with the Cubs making the
+World Series only once a century.  But there you have it; what you imply
+is a hurdle meriting concern, I call just a pragmatic heuristic at work.  
+
+
+> I'm just the lawyer.  The ideas come from folks still making
+> software full time, still contributing to the community.  I
+> was able to hear them, put it together, and do my job.
+> That's all.
+
+Well, the lot of you have brought something new into the world that has
+real thought behind it.  That is worthy of note and respect.
+
+
+
+From rick at linuxmafia.com  Thu Oct 26 08:57:02 2017
+From: rick at linuxmafia.com (Rick Moen)
+Date: Thu, 26 Oct 2017 01:57:02 -0700
+Subject: [License-review] When a submission for approval stops being one (was: For Approval: License Zero Reciprocal Public License)
+In-Reply-To: <20171026064458.GG30423@linuxmafia.com>
+References: <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <2D52F7EE739F8542A700CAB96276B5194673CB16@FMSMSX108.amr.corp.intel.com> <20171026001020.GP21084@dev.kemitchell.com> <20171026005221.GD30423@linuxmafia.com> <20171026015545.GQ21084@dev.kemitchell.com> <20171026064458.GG30423@linuxmafia.com>
+Message-ID: <20171026085702.GI30423@linuxmafia.com>
+
+I wrote:
+
+> I've always seen the OSI Certified programme as conceptually similar in
+> aim to IETF's RFC programme -- in the sense of recognising current best
+> practices, with particular attention to those widely adopted.   I think
+> this is a bug, not a feature, from the perspective of OSI's overall
+> mission to further the interests of open source.  (For IETF's criteria
+> for RFCs, see section 6 of 'The Tao of IETF', at 
+> https://www.ietf.org/tao.html .)
+
+I should know better than to attempt cleverness when tired.  I meant 
+'feature, not a bug', in case that was less than apparent.
+
+-- 
+Cheers,                           ? Dans les champs de l'observation, le hasard
+Rick Moen                         ne favorise que les esprits pr?par?. ?
+rick at linuxmafia.com                                           -- Louis Pasteur
+McQ! (4x80)
+
+
+
+From mccoy.smith at intel.com  Thu Oct 26 15:39:58 2017
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Thu, 26 Oct 2017 15:39:58 +0000
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20171026001020.GP21084@dev.kemitchell.com>
+References: <20171023220814.GA7764@dev.kemitchell.com> <CAA4ffp8=-kXx3p+CvcBOKjumK73d0+fOqeq6RBhT8J-MpH4aiQ@mail.gmail.com> <20171024221559.GK16922@dev.kemitchell.com> <CAA4ffp94=UuSJwTCEuzarOmK1sUXcOQ0J-FkHtFTDjoYPbu3Tw@mail.gmail.com> <20171024234608.GN16922@dev.kemitchell.com> <CAA4ffp8gpYcUZuH-wP1wiG3a5Hf8GnVbKN7Gh1Zcd_q-h4R-XQ@mail.gmail.com> <20171025001613.GB9148@dev.kemitchell.com> <CAK2MWOtDjbZwt-qzHvn5gL4RiE-nXSKtkpBh477r1fgxjVzMkA@mail.gmail.com> <20171025004904.GD9148@dev.kemitchell.com> <2D52F7EE739F8542A700CAB96276B5194673CB16@FMSMSX108.amr.corp.intel.com> <20171026001020.GP21084@dev.kemitchell.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5194673F0EA@FMSMSX108.amr.corp.intel.com>
+
+>>I'm not exactly sure I understand the OSD 6 concern, especially to the extent rephrasing alone can avoid it.
+
+This was the concern with your time-limited termination provision, which applied to non-open source but not open source.  Again, I think this could be drafted to eliminate the OSD 6 issue.
+
+>>That leaves OSD 9.  GPL "work based on the Program" is clearly within bounds.  Could you give an example of a use out of OSD 9 bounds?
+
+OSD 9 gives an example:  "For example, the license must not insist that all other programs distributed on the same medium must be open-source software."  I'll give you two others which I think would violate OSD 9:
+
+1. The license must not insist that all programs executing on the same device must be open-source software.
+2. The license must not attempt to dictate the license of software when that software does not exercise of any of the rights licensed by the open source license.
+
+[as to example 2, the authors of *GPL have been very careful to outline that those licenses only apply to software that requires an exercise of the derivative or collective work rights licensed under *GPL].
+
+
+From cowan at ccil.org  Thu Oct 26 17:16:25 2017
+From: cowan at ccil.org (John Cowan)
+Date: Thu, 26 Oct 2017 13:16:25 -0400
+Subject: [License-review] resolving ambiguities in OSD [was Re: For Approval: License Zero Reciprocal Public License]
+In-Reply-To: <CAFjZtReo9RvBUYDJEvMiUy==N-OEVpdvOaNrZcM15=BPN5JKFg@mail.gmail.com>
+References: <CAFjZtRdBsgYOYk7Vss=c3FTbOcoJQQs_dx5h2=WGO6X4cpWUgA@mail.gmail.com> <CAK2MWOsvcEOV4O5URChq_L_iAwFf6b24qB7u=G94OToY7Mz5iQ@mail.gmail.com> <20171025003636.GC9148@dev.kemitchell.com> <296fde9f-4cc8-6229-6e08-6d972ee7d695@postgresql.org> <1508893650.895164.1149981768.01B5EA62@webmail.messagingengine.com> <CAK2MWOtBfum6q7Ebthiy_v5SBiSB0cA=8wusNGX7zzsvr3UkoA@mail.gmail.com> <b2a34b63-ae15-5367-3306-ebb48eaecf3b@postgresql.org> <CAFjZtReo9RvBUYDJEvMiUy==N-OEVpdvOaNrZcM15=BPN5JKFg@mail.gmail.com>
+Message-ID: <CAD2gp_QTXzaivQrTHnwTzTudF5uPCLQg+sK8xEx6dwpkPP=uOQ@mail.gmail.com>

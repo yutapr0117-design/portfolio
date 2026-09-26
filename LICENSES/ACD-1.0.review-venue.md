@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-venue.md
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人
-last-updated: 2026-09-24
+last-updated: 2026-09-26
 canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの審査者の立場) / LICENSES/ACD-1.0.review-corpus.md (アーカイブ全体の測定) / LICENSES/ACD-1.0.against.md
 ---
 
@@ -379,3 +379,93 @@ engage しなかった記録（#116）と同じ論理**である。**#116 は行
 **そして Villa 氏は OSI の役員でも moderator でもない**（末尾の定型文が
 *"The opinions expressed in this email are those of the sender and not necessarily those of the
 Open Source Initiative"* と述べている）。**これは参加者の発言であって OSI の立場ではない。**
+
+## 1.113 OSD に書かれていない審査基準を、参加者自身が列挙している —— そしてその一覧は我々の bottleneck 表とほぼ同じである（2026-09-26）
+
+一次資料は `rounds/2017-09-license-review-license-zero-reciprocal-observed-*.txt`（220 通・22 部）。
+**記録の中で、単独の起草者による審査がいちばん長く続いた例**（2017-09〜2018-12・15 か月）で、
+**主題（maximalist copyleft）は ACD とは遠い。還元するのは手続きと基準についてだけである。**
+
+### 「OSD を満たすこと」は必要条件であって十分条件ではない、と 3 人が別々に述べている
+
+John Cowan 氏 2017-09-26 —— 提出者の *"OSI approval goes only to license terms"* に対し、
+*"Actually, that turns out not to be the case. **The OSI approves OSD-conforming licenses only if
+it believes that they further the goals of OSI.** That is part of the reason why license-review
+exists, and why the Board is far from being a rubber stamp."*
+
+Bruce Perens 氏（提出者が電話の内容を同日リストへ要約・本人 CC）2017-09-27 ——
+*"licenses that conform to the Open Source Definition are open source licenses, but **some licenses
+that conform to the Open Source Definition come before OSI, and leave without OSI approval**.
+**Poorly drafted terms conceived by amateur drafters** came up a few times. As did needless,
+proliferating reimplementations of existing terms."*
+
+Bruce Perens 氏 2017-11-07 —— *"while I can reject it strictly on OSD grounds, **I should really
+stress that this is an issue of principle. OSI should not endorse that sort of poor bargain with
+certification of the license.**"*
+
+### 元理事が、書かれていない基準の存在を名指ししている
+
+Luis Villa 氏 2017-10-24 —— *"it has never been explicit or clear either. And has led to many, many
+rounds of confusion ... not to mention many (accurate?) accusations that **OSI approval is a
+political game, not an actual objective test**. If the board wants to be transparent about the
+current situation, it should amend the OSD to add: **'11. Whatever OSI's then-current board feels
+is the interests of the open source movement.'** That wouldn't be ideal, but at least it would be
+accurate and transparent."*
+
+**これは `board-decisions.md` が記録した理事会の 2 つの天井** ——
+*"consensus … even where they cannot identify a specific aspect of the OSD"* と
+*"prior approval … does not bind"* —— **と同じことを、書かれていない側から述べている。**
+
+### そして、その「書かれていない基準」の一覧が在る
+
+Rick Moen 氏 2017-10-25、`https://opensource.org/approval` に載せるべき文面として ——
+
+> *"Reasons participating individuals have cited for disinterest in some past licenses include
+> perception that the license is a **vanity license or duplicative**, that it is **needlessly
+> specific to one business entity**, that it is **unjustifiably opaque or ambiguous in its
+> wording**, that it **was not drafted with a lawyer** ..."*
+
+**4 項目のうち 4 つが、我々の bottleneck 表にそのまま在る**
+（`ACD-OSI-BOTTLENECKS.md`）——
+vanity = **B6** / duplicative = **B10 と #84** / one business entity = **提出パケット §4b** /
+opaque or ambiguous = **B3 + B13** / not drafted with a lawyer = **B1**。
+
+**これは我々の表が正しいことの証明ではない** ——**参加者が挙げた理由と、我々が自分で挙げた弱点が
+一致した、という事実だけである。** だが **register を「我々の心配事の一覧」ではなく
+「リストが実際に挙げてきた理由の一覧」として読んでよい**ことの、独立した裏づけではある。
+
+### chicken-and-egg を、提出者が 2017 年に名指ししている
+
+Kyle Mitchell 氏 2017-10-24 —— *"I'd imagined that I would find terms acceptable to OSI, start
+using it and promoting its use ... and then approach SPDX with that evidence of use 'in the wild'
+to hand. It's a goal of the license to be OSI-approved. **That creates a certain loop** ...
+**The chicken-and-egg problem is a well-known brake on proliferation**"*
+
+**我々の B2（採用 1 件）と B11（SPDX を意図的に見送っている）は、この loop の両端である。**
+**同じ loop を、9 年前に別の提出者が同じ言葉で述べていた** ——
+**我々の見送りの理由づけが特異なものではないことの裏づけになる。**
+**⚠ ただし loop を名指しできることと、loop から出られることは別である。**
+
+### 凍結の理由が、リスト側の言葉で在る
+
+Josh Berkus 氏 2018-06-19 —— *"L0-R is a great example of where some format other than email would
+help a LOT. Like, **I can't tell you whether I personally approve of the license at this point or
+not, because I've completely lost track of what the current text is**, and what the lawyers had to
+say about the meaning of certain pieces of language."*
+
+**これは審査中に本文を書き直し続けた結果である。** `REVISION-PROTOCOL.md` §2 の凍結
+（Check 453 が sha256 で機械強制）は、**我々の礼儀ではなく、審査者がこの状態に陥らないための
+手段**だと、リスト側の言葉で裏づけられる。
+**⚠ 逆側**: 凍結は**審査中に見つかった欠陥を直せない**ことでもある（errata の E 系列はその費用で、
+`ACD-1.0.errata.md` が数えている）。**どちらを選んでも費用は消えない。**
+
+### 結末
+
+Richard Fontana 氏 2018-12-07 —— *"In my most recent License Committee Report **I recommended that
+the OSI reject L0-R**. Subsequently, however, at its November board meeting, **the OSI chose not to
+make any decision on L0-R, because it appeared that the license submitter had effectively withdrawn
+the license from consideration**."*
+
+**220 通・15 か月・弁護士である単独起草者・複数回の本文改訂の末に、決定は出ていない。**
+**`board-decisions.md` §2b が記録した「取り下げは終端ではなく経路」と、
+#139 の「第 3 の帰結（承認でも否決でもない留め置き）」の、3 つ目の形である。**

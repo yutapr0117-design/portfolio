@@ -1,0 +1,750 @@
+From kyle at kemitchell.com  Sat Sep 23 00:09:11 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Fri, 22 Sep 2017 17:09:11 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170916004817.GU5422@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com>
+Message-ID: <20170923000911.GN14929@dev.kemitchell.com>
+
+Following up on submission, after a week's time.
+
+Thanks to feedback from a number of friends and
+colleagues, the license text has evolved somewhat.
+All substantive changes since my original message
+to license-review are in condition 3:
+
+License Zero Reciprocal Public License <Version>
+
+Copyright <Name> <Jurisdiction> (ISO 3166-2)
+ Ed25519: <Public Key>
+
+Source code is available at:
+<Repository>
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+1.  Redistributions of source code must retain the above copyright and source availability notices, this list of conditions and the following disclaimer.
+
+2.  Redistributions in binary form must reproduce the above copyright and source availability notices, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3.  Uses in the execution or development of any computer program, the entire source code of which is not published and publicly licensed under licenses approved by the Open Source Initiative, must be limited to a period of <Grace Period> consecutive calendar days. This condition is waived if licenses permitting those uses cease to be available via the following agent, or a successor named in a subsequent release, for <Waiver Period> consecutive calendar days:
+ <Agent Information>
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From fontana at sharpeleven.org  Sat Sep 23 00:17:53 2017
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Fri, 22 Sep 2017 20:17:53 -0400
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170923000911.GN14929@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com>
+Message-ID: <1506125873.1314263.1115444192.53AAD338@webmail.messagingengine.com>
+
+Er, was this submitted to license-review last week? I don't see anything
+in the list archives. We've been having some significant problems with
+mail delivery recently. I will let the folks on our infrastructure list
+know if so.
+
+Richard
+
+
+On Fri, Sep 22, 2017, at 08:09 PM, Kyle Mitchell wrote:
+> Following up on submission, after a week's time.
+> 
+> Thanks to feedback from a number of friends and
+> colleagues, the license text has evolved somewhat.
+> All substantive changes since my original message
+> to license-review are in condition 3:
+> 
+> License Zero Reciprocal Public License <Version>
+> 
+> Copyright <Name>
+>           <Jurisdiction> (ISO 3166-2)
+> 
+>           Ed25519: <Public Key>
+> 
+> Source code is available at:
+> <Repository>
+> 
+> Redistribution and use in source and binary forms, with or without
+> modification, are permitted provided that the following conditions
+> are met:
+> 
+> 1.  Redistributions of source code must retain the above copyright
+>     and source availability notices, this list of conditions and the
+>     following disclaimer.
+> 
+> 2.  Redistributions in binary form must reproduce the above copyright
+>     and source availability notices, this list of conditions and the
+>     following disclaimer in the documentation and/or other materials
+>     provided with the distribution.
+> 
+> 3.  Uses in the execution or development of any computer program, the
+>     entire source code of which is not published and publicly licensed
+>     under licenses approved by the Open Source Initiative, must be
+>     limited to a period of <Grace Period> consecutive calendar days. This
+>     condition is waived if licenses permitting those uses cease to be
+>     available via the following agent, or a successor named in a
+>     subsequent release, for <Waiver Period> consecutive calendar days:
+> 
+>         <Agent Information>
+> 
+> THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+> "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+> LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+> A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+> HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+> SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+> LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+> DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+> THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+> (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+> OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+> 
+> -- 
+> Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+From webmink at opensource.org  Sat Sep 23 00:20:35 2017
+From: webmink at opensource.org (Simon Phipps)
+Date: Sat, 23 Sep 2017 01:20:35 +0100
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <1506125873.1314263.1115444192.53AAD338@webmail.messagingengine.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <1506125873.1314263.1115444192.53AAD338@webmail.messagingengine.com>
+Message-ID: <CAA4ffp85fDUAbF2on_b6_X-C2HaDeCNSNfHMH9-Nrrmd0Ggtjg@mail.gmail.com>
+
+I don't see anything held in the moderation queue.
+
+S.
+
+On 23 Sep 2017 01:18, "Richard Fontana" <fontana at sharpeleven.org> wrote:
+
+> Er, was this submitted to license-review last week? I don't see anything
+> in the list archives. We've been having some significant problems with
+> mail delivery recently. I will let the folks on our infrastructure list
+> know if so.
+>
+> Richard
+>
+>
+> On Fri, Sep 22, 2017, at 08:09 PM, Kyle Mitchell wrote:
+> > Following up on submission, after a week's time.
+> >
+> > Thanks to feedback from a number of friends and
+> > colleagues, the license text has evolved somewhat.
+> > All substantive changes since my original message
+> > to license-review are in condition 3:
+> >
+> > License Zero Reciprocal Public License <Version>
+> >
+> > Copyright <Name>
+> >           <Jurisdiction> (ISO 3166-2)
+> >
+> >           Ed25519: <Public Key>
+> >
+> > Source code is available at:
+> > <Repository>
+> >
+> > Redistribution and use in source and binary forms, with or without
+> > modification, are permitted provided that the following conditions
+> > are met:
+> >
+> > 1.  Redistributions of source code must retain the above copyright
+> >     and source availability notices, this list of conditions and the
+> >     following disclaimer.
+> >
+> > 2.  Redistributions in binary form must reproduce the above copyright
+> >     and source availability notices, this list of conditions and the
+> >     following disclaimer in the documentation and/or other materials
+> >     provided with the distribution.
+> >
+> > 3.  Uses in the execution or development of any computer program, the
+> >     entire source code of which is not published and publicly licensed
+> >     under licenses approved by the Open Source Initiative, must be
+> >     limited to a period of <Grace Period> consecutive calendar days. This
+> >     condition is waived if licenses permitting those uses cease to be
+> >     available via the following agent, or a successor named in a
+> >     subsequent release, for <Waiver Period> consecutive calendar days:
+> >
+> >         <Agent Information>
+> >
+> > THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+> > "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+> > LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+> > A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+> > HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+> > SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+> > LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+> > DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+> > THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+> > (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+> > OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+> >
+> > --
+> > Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+> > _______________________________________________
+> > License-review mailing list
+> > License-review at opensource.org
+> > https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170923/3337bc9d/attachment.html>
+
+From kyle at kemitchell.com  Sat Sep 23 00:22:49 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Fri, 22 Sep 2017 17:22:49 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <1506125873.1314263.1115444192.53AAD338@webmail.messagingengine.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <1506125873.1314263.1115444192.53AAD338@webmail.messagingengine.com>
+Message-ID: <20170923002249.GA9012@dev.kemitchell.com>
+
+Richard,
+
+Thanks for your message.  Sounds like somebody's
+server ate my e-mail.
+
+Would you like me to resend my prior message, or
+perhaps paste its content into a reply?  I have
+the proper answers to the intro, rationale,
+distinctiveness, review, and proliferation
+questions ready to go.
+
+Best,
+
+K
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From fontana at sharpeleven.org  Sat Sep 23 00:30:17 2017
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Fri, 22 Sep 2017 20:30:17 -0400
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170923002249.GA9012@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <1506125873.1314263.1115444192.53AAD338@webmail.messagingengine.com> <20170923002249.GA9012@dev.kemitchell.com>
+Message-ID: <1506126617.1315966.1115452640.69727340@webmail.messagingengine.com>
+
+Kyle, yes please re-send or paste the relevant content from the prior
+message.
+
+Thanks!
+
+Richard 
+
+On Fri, Sep 22, 2017, at 08:22 PM, Kyle Mitchell wrote:
+> Richard,
+> 
+> Thanks for your message.  Sounds like somebody's
+> server ate my e-mail.
+> 
+> Would you like me to resend my prior message, or
+> perhaps paste its content into a reply?  I have
+> the proper answers to the intro, rationale,
+> distinctiveness, review, and proliferation
+> questions ready to go.
+> 
+> Best,
+> 
+> K
+> 
+> -- 
+> Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+From josh at postgresql.org  Sat Sep 23 00:37:22 2017
+From: josh at postgresql.org (Josh berkus)
+Date: Fri, 22 Sep 2017 17:37:22 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170923000911.GN14929@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com>
+Message-ID: <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org>
+
+On 09/22/2017 05:09 PM, Kyle Mitchell wrote:
+> 3.  Uses in the execution or development of any computer program, the
+>     entire source code of which is not published and publicly licensed
+>     under licenses approved by the Open Source Initiative, must be
+>     limited to a period of <Grace Period> consecutive calendar days. This
+>     condition is waived if licenses permitting those uses cease to be
+>     available via the following agent, or a successor named in a
+>     subsequent release, for <Waiver Period> consecutive calendar days:
+> 
+>         <Agent Information>
+
+This is a fascinating clause, and I would like to hear the reasoning
+behind it, both legal and usage.
+
+--Josh Berkus
+
+
+From kyle at kemitchell.com  Sat Sep 23 00:52:17 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Fri, 22 Sep 2017 17:52:17 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <1506126617.1315966.1115452640.69727340@webmail.messagingengine.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <1506125873.1314263.1115444192.53AAD338@webmail.messagingengine.com> <20170923002249.GA9012@dev.kemitchell.com> <1506126617.1315966.1115452640.69727340@webmail.messagingengine.com>
+Message-ID: <20170923005217.GB9012@dev.kemitchell.com>
+
+A quick bit of procedural history:  My
+original message to license-review didn't get
+delivered, for whatever reason.  A follow-up did.
+This reply reproduces my initial responses to the
+new-license questionnaire, along with with the
+most recent text of the proposed license.
+
+Submission:
+
+I am submitting the License Zero Reciprocal Public
+License (L0-R) for approval as an Open Source
+license on behalf of Artless Devices LLC.  Artless
+Devices LLC is a California business entity, and I
+am its sole member and manager. The company
+operates licensezero.com, a software
+dual-licensing and relicensing agency.
+
+
+Rationale:
+
+L0-R aims to implement a clear and
+stronger-than-strong variant of copyleft,
+minimizing community-side legal pondering and
+maximizing dual-licensing opportunity.
+
+
+Distinguish:
+
+1. L0-R is based on BSD-2-Clause.  L0-R adds metadata to the copyright notice, a notice of source code availability, obligations to retain the new notice, and a new, third, copyleft condition.
+
+2. L0-R sits with the stronger copyleft licenses, such as GPL and AGPL.  L0-R's trigger for copyleft breaks sooner, on "execution" or "development" of software with the licensed work, rather than distribution or provision over a network.  L0-R's copyleft obligations are both stronger and weaker.  Subject software must be published as source code, but can be licensed under any combination of OSI-approved terms.
+
+3. L0-R stands distinct from all Open Source licenses of which I'm aware in three lesser respects.  First, it directs licensees to an agent for sale of alternative licenses. Second, it sets up automatic waiver of its copyleft condition in the event alternative licenses cease to be available.  Third, copyleft obligations kick in only after a grace period of some calendar days.
+
+3. L0-R grew out of a prior license, the License Zero Noncommercial Public License (L0-NC), also based on BSD-2-Clause:
+ https://licensezero.com/licenses/noncommercial/diff
+ L0-NC is clearly _not_ Open Source, though it reverts more directly back to an unmodified BSD-2-Clause by effect of its automatic waiver.
+
+
+Legal Review:
+
+I am a licensing lawyer, I took the first drafts,
+and I made the first revisions.  I've been
+fortunate to receive very generous private
+feedback from fellow attorneys, but I will stand
+behind this proposal alone.
+
+
+Proliferation Category:
+
+Other (with a follow-on question)
+
+L0-R is not yet in wide current use, evidencing a well
+known chicken-and-egg problem ... and a nice
+structural brake on needless proliferation.  I
+believe L0-R does enough that's new and useful to
+warrant review.  I believe it would proliferate
+new ideas.
+
+I would also be interested in the correct process
+for, and results of, reviewing L0-R terms assuming
+automatic waiver of condition 3, by its own terms.
+I suspect those terms would be classed "Redundant",
+especially of BSD-2-Clause, despite the added
+source-availability notice.
+
+
+Plain Text:
+
+The plain text of the license follows.  This text
+is _not_ final, and I look forward to feedback.
+Text set <like this> denotes a placeholder.  I'm
+by no means wedded to that convention.
+
+
+License Zero Reciprocal Public License <Version>
+
+Copyright <Name> <Jurisdiction> (ISO 3166-2)
+ Ed25519: <Public Key>
+
+Source code is available at:
+<Repository>
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+1.  Redistributions of source code must retain the above copyright and source availability notices, this list of conditions and the following disclaimer.
+
+2.  Redistributions in binary form must reproduce the above copyright and source availability notices, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3.  Uses in the execution or development of any computer program, the entire source code of which is not published and publicly licensed under licenses approved by the Open Source Initiative, must be limited to a period of <Grace Period> consecutive calendar days. This condition is waived if licenses permitting those uses cease to be available via the following agent, or a successor named in a subsequent release, for <Waiver Period> consecutive calendar days:
+ <Agent Information>
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+Sincerest thanks to all for time and input.
+
+Best,
+
+K
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Sat Sep 23 01:19:09 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Fri, 22 Sep 2017 18:19:09 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org>
+Message-ID: <20170923011909.GC9012@dev.kemitchell.com>
+
+Josh,
+
+Thanks for your time, and your interest.
+
+I've just responded to the thread with a copy of
+my responses to the standard new-license
+questionnaire.  I hope some of your answers are
+there, at least on a general level.
+
+But since condition 3 is exactly where I suspect
+all the action will be, a few notes more, deeper
+in the weeds of implementation:
+
+Condition 3 aims to implement a kind of copyleft
+condition.  It shares the approach of prior
+implementations in focusing on source code
+availability and licensing terms.  It's highly
+self-contained, sounding in the point Larry Rosen
+made with OSL-versus-AFL.
+
+Compared to the GPL and even AGPL, the "trigger"
+for copyleft fires more easily.  Rather than focus
+on distribution and modification, the language
+hooks into use: "execution" and "development" of
+software.  This encompasses provision over a
+network---via "execution"---as under AGPL.  It
+goes further, extending the share-alike aspects of
+the condition to changes made for internal use,
+for example.
+
+Once you've triggered the condition, the
+requirements are both more and less exacting than
+what we see in current mainstream copyleft
+licenses.
+
+On the access-to-source front, L0-R requires
+_publication_ of source, not just provision to
+users.  That burden's substantially mitigated by
+the availability of free source distribution
+online.  Many GPL licensees satisfy source
+provision by "access ... from a network server at
+no charge" today, anyway.  Cheaper than media!
+
+On the license-alike front, L0-R requires less
+than current copyleft licenses, which prescribe
+the same terms, perhaps with a relicensing or
+express cross-compatibility "out" for specific,
+sister licenses, like (A)GPL-3.0 section 13.  L0-R
+permits any combination of OSI-approved terms for
+implicated programs.
+
+If there's any place where I would most appreciate
+feedback, it's on how this approach plays out
+where we see license compatibility issues now.  My
+hope is that it substantially reduces developer
+compat head scratching, perhaps at the price of an
+opportunity for skulduggery in licensees' choice
+of an obscure or otherwise unfortunate
+OSI-approved license to achieve compliance.  I
+have my own little "test suite" of hypotheticals
+to run through on it, but it's hard to get these
+rights, and I can't pretend my suite's complete.
+
+All of this is mitigated by a "grace period" of a
+set number of calendar days.  Licensees can make
+otherwise noncompliant uses of the L0-R software
+for that period.
+
+The last sentence implements an automatic waiver
+of the copyleft condition in the event the
+licensor stops offering alternative licenses that
+_do_ permit uses executing and developing non-OSI,
+source-not-available software.  In other words, if
+the licensor stops dual licensing the code for a
+set period, condition 3 writes itself out of the
+license, substantially undoing the "patch" to
+BSD-2-Clause.  The only remaining difference is an
+obligation to reproduce the notice of where source
+code is available.
+
+Best,
+
+K
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From josh at postgresql.org  Sat Sep 23 01:24:14 2017
+From: josh at postgresql.org (Josh berkus)
+Date: Fri, 22 Sep 2017 18:24:14 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170923011909.GC9012@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org> <20170923011909.GC9012@dev.kemitchell.com>
+Message-ID: <dc507b22-57f0-e04c-cb64-bbff0a62fe78@postgresql.org>
+
+On 09/22/2017 06:19 PM, Kyle Mitchell wrote:
+> The last sentence implements an automatic waiver
+> of the copyleft condition in the event the
+> licensor stops offering alternative licenses that
+> _do_ permit uses executing and developing non-OSI,
+> source-not-available software.  In other words, if
+> the licensor stops dual licensing the code for a
+> set period, condition 3 writes itself out of the
+> license, substantially undoing the "patch" to
+> BSD-2-Clause.  The only remaining difference is an
+> obligation to reproduce the notice of where source
+> code is available.
+
+I'll let the lawyers comment on whether the clause actually does what
+you describe.  I'll say, as a software developer, that the wording there
+is entirely baffling and I have no idea whatsoever what it requires of me.
+
+Your explanation also doesn't explain the role of the "Agent".
+
+--Josh
+
+
+From kyle at kemitchell.com  Sat Sep 23 01:33:03 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Fri, 22 Sep 2017 18:33:03 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <dc507b22-57f0-e04c-cb64-bbff0a62fe78@postgresql.org>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org> <20170923011909.GC9012@dev.kemitchell.com> <dc507b22-57f0-e04c-cb64-bbff0a62fe78@postgresql.org>
+Message-ID: <20170923013303.GD9012@dev.kemitchell.com>
+
+Josh,
+
+Thanks again.
+
+I don't mean to baffle.  Ideally, the license
+terms would explain themselves.  But that's in
+great tension with keeping things short, BSD
+style.  I'll end up explaining what this condition
+does, one way or another.  So I appreciate your
+feedback on the challenge I have ahead of me.
+
+The role of the agent under L0-R is to vend
+licenses that allow what the public license
+prohibits.  A company dual licensing software may
+publish source under the terms of GPL or AGPL, but
+offer licenses without copyleft requirements for a
+fee.  If the company delegates the job of vending
+those licenses to another, that "other" acts as
+the company's "agent".
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From josh at postgresql.org  Sat Sep 23 01:35:16 2017
+From: josh at postgresql.org (Josh berkus)
+Date: Fri, 22 Sep 2017 18:35:16 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170923013303.GD9012@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org> <20170923011909.GC9012@dev.kemitchell.com> <dc507b22-57f0-e04c-cb64-bbff0a62fe78@postgresql.org> <20170923013303.GD9012@dev.kemitchell.com>
+Message-ID: <2a1de8b6-a460-c219-cc5f-d1a0a2b986da@postgresql.org>
+
+On 09/22/2017 06:33 PM, Kyle Mitchell wrote:
+> Josh,
+> 
+> Thanks again.
+> 
+> I don't mean to baffle.  Ideally, the license
+> terms would explain themselves.  But that's in
+> great tension with keeping things short, BSD
+> style.  I'll end up explaining what this condition
+> does, one way or another.  So I appreciate your
+> feedback on the challenge I have ahead of me.
+> 
+> The role of the agent under L0-R is to vend
+> licenses that allow what the public license
+> prohibits.  A company dual licensing software may
+> publish source under the terms of GPL or AGPL, but
+> offer licenses without copyleft requirements for a
+> fee.  If the company delegates the job of vending
+> those licenses to another, that "other" acts as
+> the company's "agent".
+
+This assumes single origin for the software.  What if I make a modified
+version of the software?  Do I get to designate my own agent?  If not,
+why not?
+
+--Josh
+
+
+
+From Nigel.Tzeng at jhuapl.edu  Sat Sep 23 02:52:03 2017
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Sat, 23 Sep 2017 02:52:03 +0000
+Subject: [License-review] For Approval: License Zero Reciprocal Public License
+In-Reply-To: <20170923005217.GB9012@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com> <20170923000911.GN14929@dev.kemitchell.com> <1506125873.1314263.1115444192.53AAD338@webmail.messagingengine.com> <20170923002249.GA9012@dev.kemitchell.com> <1506126617.1315966.1115452640.69727340@webmail.messagingengine.com>, <20170923005217.GB9012@dev.kemitchell.com>
+Message-ID: <2fd963f5339340a7b93ee2cb98a89e5d@aplex01.dom1.jhuapl.edu>
+
+Hmmm maybe I misunderstand Clause 2 but I'm uncomfortable with shifting the burden of source code publication to users of software rather than developers.
+
+For example developer uses L0-R code during <Grace Period> to develop and completes an app and then gives it to users, with or without source code. Because the L0-R also "triggers on execution" the (probably non-technical) users of the code must publish the source code (which they may not have) somewhere or be in violation of the license.
+
+Can the agent or upstream L0-R developers sue these users for non-compliance and copyright infringement?
+
+If I buy a TV with non-compliant L0-R code what are my responsibilities and how do I fix it if I never got source?
+
+There will also be confusion as to what, if any, L0-R code has triggered the waiver and "reverts to BSD-2".
+
+>From the developer prospective what happens to older versions of the code? A new release may transfer license agency to new entity but version x-1 may be pointed at some old agent and a URL that no longer exists.
+
+Is that older version now waivered (after the grace period) and free for use as if L0-R is BSD?
+
+How do I as developer of L0-R code retroactively change agency for a version published in some unknown repo somewhere? Or am I stuck and never able to switch agents?
+
+How does a downstream developer know that the agency has changed if the old links don't work? How do they even know how long it's been since alternative licenses haven't been available?
+
+Can that agency disrupt my software support business based on releasing L0-R open source by simply making new licenses unavailable?
+
+Why would I want to trust anyone but myself as that agent?
+
+I'm thinking you haven't minimized legal ponderings...
+
+
+From: Kyle Mitchell <kyle at kemitchell.com<mailto:kyle at kemitchell.com>>
+Date: Friday, Sep 22, 2017, 8:52 PM
+To: License submissions for OSI review <license-review at opensource.org<mailto:license-review at opensource.org>>
+Subject: Re: [License-review] For Approval: License Zero Reciprocal Public License
+
+A quick bit of procedural history:  My
+original message to license-review didn't get
+delivered, for whatever reason.  A follow-up did.
+This reply reproduces my initial responses to the
+new-license questionnaire, along with with the
+most recent text of the proposed license.
+
+Submission:
+
+I am submitting the License Zero Reciprocal Public
+License (L0-R) for approval as an Open Source
+license on behalf of Artless Devices LLC.  Artless
+Devices LLC is a California business entity, and I
+am its sole member and manager. The company
+operates licensezero.com, a software
+dual-licensing and relicensing agency.
+
+
+Rationale:
+
+L0-R aims to implement a clear and
+stronger-than-strong variant of copyleft,
+minimizing community-side legal pondering and
+maximizing dual-licensing opportunity.
+
+
+Distinguish:
+
+1. L0-R is based on BSD-2-Clause.  L0-R adds metadata to the copyright notice, a notice of source code availability, obligations to retain the new notice, and a new, third, copyleft condition.
+
+2. L0-R sits with the stronger copyleft licenses, such as GPL and AGPL.  L0-R's trigger for copyleft breaks sooner, on "execution" or "development" of software with the licensed work, rather than distribution or provision over a network.  L0-R's copyleft obligations are both stronger and weaker.  Subject software must be published as source code, but can be licensed under any combination of OSI-approved terms.
+
+3. L0-R stands distinct from all Open Source licenses of which I'm aware in three lesser respects.  First, it directs licensees to an agent for sale of alternative licenses. Second, it sets up automatic waiver of its copyleft condition in the event alternative licenses cease to be available.  Third, copyleft obligations kick in only after a grace period of some calendar days.
+
+3. L0-R grew out of a prior license, the License Zero Noncommercial Public License (L0-NC), also based on BSD-2-Clause:
+ https://licensezero.com/licenses/noncommercial/diff
+ L0-NC is clearly _not_ Open Source, though it reverts more directly back to an unmodified BSD-2-Clause by effect of its automatic waiver.
+
+
+Legal Review:
+
+I am a licensing lawyer, I took the first drafts,
+and I made the first revisions.  I've been
+fortunate to receive very generous private
+feedback from fellow attorneys, but I will stand
+behind this proposal alone.
+
+
+Proliferation Category:
+
+Other (with a follow-on question)
+
+L0-R is not yet in wide current use, evidencing a well
+known chicken-and-egg problem ... and a nice
+structural brake on needless proliferation.  I
+believe L0-R does enough that's new and useful to
+warrant review.  I believe it would proliferate
+new ideas.
+
+I would also be interested in the correct process
+for, and results of, reviewing L0-R terms assuming
+automatic waiver of condition 3, by its own terms.
+I suspect those terms would be classed "Redundant",
+especially of BSD-2-Clause, despite the added
+source-availability notice.
+
+
+Plain Text:
+
+The plain text of the license follows.  This text
+is _not_ final, and I look forward to feedback.
+Text set <like this> denotes a placeholder.  I'm
+by no means wedded to that convention.
+
+
+License Zero Reciprocal Public License <Version>
+
+Copyright <Name> <Jurisdiction> (ISO 3166-2)
+ Ed25519: <Public Key>
+
+Source code is available at:
+<Repository>
+
+Redistribution and use in source and binary forms, with or without

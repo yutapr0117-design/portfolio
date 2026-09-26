@@ -1,0 +1,750 @@
+> > >>   software, you must release any source code for that
+> > >>   larger piece of software that has not yet been released.
+> >
+> > Is "include" the meaning in everyday English (inter alia, "to take in or
+> > comprise as a part of a whole or group"), or in everyday computer
+> > programming?  If the latter, you should make that clear.  If the former, I
+> > think you have a potential OSD 9 problem, since this would dictate the
+> > licensing of software merely on the same medium.
+>
+> Good point. Simple aggregation should not trigger your license. Combination
+> into a single program should, and I'd be happy to see that not be limited
+> to creation of a derivative work, since copyright law is somewhat unhelpful
+> in that regard and case law is insufficient.
+
+Following GPL 3.0, section 5, trailing paragraph:
+ 4. If you combine this software with other software to make a larger program, you must release any source code for that larger program that has not yet been released.
+
+Does that avoid the issue in your readings?
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Tue Nov  7 20:39:49 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 7 Nov 2017 12:39:49 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <20171107200514.GJ25059@dev.kemitchell.com>
+References: <2D52F7EE739F8542A700CAB96276B5195E231FA1@FMSMSX106.amr.corp.intel.com> <CAK2MWOs=U4EOOB0=5atn39+8BShh9km0ctB5UWzqPiiPOaiAyQ@mail.gmail.com> <20171107200514.GJ25059@dev.kemitchell.com>
+Message-ID: <CAK2MWOvaJohWxxoz8h-LagMMvwRK-i3=h=-DXt5J6NGFFiO04w@mail.gmail.com>
+
+On Tue, Nov 7, 2017 at 12:05 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+>
+>
+> Following GPL 3.0, section 5, trailing paragraph:
+>
+>   4. If you combine this software with other software to
+>      make a larger program, you must release any source code
+>      for that larger program that has not yet been released.
+>
+> Does that avoid the issue in your readings?
+
+
+It seems to, and it seems to be better language IMO.
+
+My concern around this whole issue is that derivative works under the law
+might mean textual inclusion, the 1980's way of combining programs involved
+static linking and people seem to think that they can use dynamic linking
+for copyright avoidance (although I have an argument that they can't), and
+that we are now at a point where a single program need not run in a single
+address space, come from a single file, or reside in a single CPU or indeed
+a single computer. It just acts like one program. So, I would rather be in
+a position to analyze as an expert what is one program than to codify what
+is one for today's technology and then have inventions change the
+definition.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171107/382eb425/attachment.html>
+
+From kyle at kemitchell.com  Tue Nov  7 22:49:29 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 7 Nov 2017 14:49:29 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com>
+Message-ID: <20171107224929.GK25059@dev.kemitchell.com>
+
+Bruce,
+
+First and foremost, please don't apologize!  Very grateful
+for your thoughts.  And looking forward to coffee, now that
+you're back.
+
+I tried replying to your message inline, but found I could
+say what I wanted better in one fluid run, as you did.
+Here's hoping that's easier on the reading end, too.
+
+
+If Open Source licenses can hook copyleft into distribution,
+why can't they hook copyleft into use?  The answer I think
+I've read to date is that Open Source accepts the burdens of
+copyleft licensing, as long as they fall on
+software-developer-type people, not other-type people.
+Historically, we associate developer-type people with
+modification, and other-type people, your "passive users",
+with use.
+
+Developer tools break that correlation, and that rationale.
+People who use developer tools on source code are
+overwhelmingly software developers, almost by definition.
+Open Source already expects those people to grapple with
+copyleft, because it expects them to work with source.  They
+don't lose their identity, or competency, in transition from
+hacker of one project, in source, to user of another,
+perhaps binary.  Fluidly passing from one to the other _is_
+software development.  Developers work with source by
+running programs.
+
+So I might have written, akin to my last BSD-based draft:
+ 5. If you run this software to develop software, you must release source code for that software.
+
+Better yet, squashing a bug pointed out in your comments:
+ 5. If you run this software to develop software, you must release source code for that software that has not yet been released.
+
+You're right that non-developers occasionally use developer
+tools on source, usually when a developer tells them to, or
+gives them software that does.  They occasionally modify and
+distribute software, too.  In my formative years, I did a
+lot of copying and pasting commands, trying to make Linux
+work right.  I'm sure I committed an unwitting copyleft
+violation or two along the way.  That "error rate" does not
+and should not put GPL-style copyleft beyond the pale of the
+OSD.  Similarly negligible edge cases shouldn't put the
+kibosh on L0-R-style copyleft, either.  In other words, OSD
+shouldn't give developers a pass on copyleft because the
+occasional non-developer innocent might be seen to share
+software like a developer, run developer tools like a
+developer, and handle source code like a developer, aided
+and abetted by bona fide developers.
+
+You're right that bona fide developers can fall down on the
+job, and set downstream users up for compliance problems.
+That isn't new or peculiar to L0-R, either.  With the
+revision above, running a Gentoo-like distribution built
+entirely of Open Source, shipping a L0-R compiler, wouldn't
+create any new release obligations.  But a faulty
+distribution could set a user up with non-Open Source they
+might unwittingly compile.  Or a license-incompatible
+combination they might unwittingly convey.  Or install
+scripts to patch a network service without offering the
+patch.  Open Source already accepts that positioning oneself
+downstream of an errant developer, as a passive user, can't
+be allowed to unravel copyleft.
+
+You're right that copyleft licenses offer a deal, and the
+deal doesn't always appeal to those who'd rather make
+proprietary software.  An L0-R `wc -l` run on source code is
+a valid hypothetical.  So is a five-line GPL sorting
+algorithm, linked into a larger program using a package
+manager, and then inadvertently conveyed out-of-house.  Most
+GPL libraries offer a great deal more, and I take it a swell
+leak detecting static analyzer under L0-R wouldn't rankle so
+much.  What principle denies that kind of tool the ability
+to drive an effective copyleft bargain, while allowing a
+leak-detection library, which one happens to include before
+running, to do so?  Why deny a good dev tool L0-R for fear
+of a useless dev tool?  We don't deny good libraries the GPL
+for fear less valuable dross will make a nuisance with it.
+
+All of these horribles have done a few parades before, long
+before L0-R ever crossed my mind.  What's new here?  The
+use-based trigger.  Granted, there might be a policy reason
+to distinguish use-based triggers, even for dev tools, on
+principle.  But it's not that OSI won't lay the burden of
+copyleft licenses on developer tool users.  It already does.
+
+As for whether pushing that kind of bargain is "absurd",
+there's nothing much I can say to the word, and that's
+mighty frustrating.  L0-R doesn't seem absurd to me, or to
+the developers asking me for it.  "L0-R means you can only
+use it for open source work" doesn't seem that hard to
+explain or understand.  Just new.  If there were nothing
+new, there'd be nothing to propose here.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Tue Nov  7 23:54:37 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 7 Nov 2017 15:54:37 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <20171107224929.GK25059@dev.kemitchell.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com>
+Message-ID: <CAK2MWOvhJCMFimdGSV5xw2MF8CzfjZt1DKJZKXh1GGeKMngiTQ@mail.gmail.com>
+
+On Tue, Nov 7, 2017 at 2:49 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+>
+>
+> If Open Source licenses can hook copyleft into distribution, why can't
+> they hook copyleft into use?
+
+
+IMO, OSD # 6 catches your use cases and thus your proposal is not an Open
+Source license.
+
+But the real question here is not whether your proposed license meets the
+OSD. It is the fact that it is in absolutely nobody's interest to ever
+accept the license as presently written, because it asks for too much. It
+asks for an unreasonable compliance burden of the user, and it asks of
+someone who actually owns a copyright to some work to Open Source that work
+simply for the benefit of using your program.
+
+I can conceive that a software developer receives such great value when
+they incorporate someone else's code into their product. So that's where I
+drew the line, and in this I was following the previous work of Richard
+Stallman and the authors of various licenses the Debian project was
+accepting.
+
+And thus, even if this license met the OSD, which I don't believe it does,
+for OSI to certify it would be dereliction of their duty to the community.
+
+So, I wonder if you are trying to engage us in some sort of Socratic
+discussion? Certainly you are capable of thinking through the consequences
+of your own license as I have. You appear to have scrapped the previous
+version of your license that you might have made OSD compliant with my
+advice, removing consequences based on use. In its place, I see *yet
+another pass at incorporating use into your terms.*
+
+I can confidently say that you have exhausted this path.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171107/60350293/attachment.html>
+
+From bruce at perens.com  Wed Nov  8 03:05:57 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 7 Nov 2017 19:05:57 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <20171107224929.GK25059@dev.kemitchell.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com>
+Message-ID: <CAK2MWOt3yAOnnKrK=bQAb0duvnVP=XrjCME1HprXuSE1hT41fg@mail.gmail.com>
+
+On Tue, Nov 7, 2017 at 2:49 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+> So is a five-line GPL sorting
+> algorithm, linked into a larger program using a package
+> manager, and then inadvertently conveyed out-of-house.
+
+
+I should address this one. I haven't yet met the court that would compel
+the owner of a large body of code to GPL it for such a situation.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171107/d08f3ba6/attachment.html>
+
+From kyle at kemitchell.com  Wed Nov  8 04:07:14 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 7 Nov 2017 20:07:14 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOvaJohWxxoz8h-LagMMvwRK-i3=h=-DXt5J6NGFFiO04w@mail.gmail.com>
+References: <2D52F7EE739F8542A700CAB96276B5195E231FA1@FMSMSX106.amr.corp.intel.com> <CAK2MWOs=U4EOOB0=5atn39+8BShh9km0ctB5UWzqPiiPOaiAyQ@mail.gmail.com> <20171107200514.GJ25059@dev.kemitchell.com> <CAK2MWOvaJohWxxoz8h-LagMMvwRK-i3=h=-DXt5J6NGFFiO04w@mail.gmail.com>
+Message-ID: <20171108040714.GO25059@dev.kemitchell.com>
+
+On 2017-11-07 12:11, Bruce Perens wrote:
+> On Tue, Nov 7, 2017 at 12:05 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+> >
+> > Following GPL 3.0, section 5, trailing paragraph:
+> >
+> >   4. If you combine this software with other software to
+> >      make a larger program, you must release any source code
+> >      for that larger program that has not yet been released.
+> >
+> > Does that avoid the issue in your readings?
+>
+> It seems to, and it seems to be better language IMO.
+
+Thank you for having another look.
+
+Very glad to read this response!
+
+> My concern around this whole issue is that derivative works under the law
+> might mean textual inclusion, the 1980's way of combining programs involved
+> static linking and people seem to think that they can use dynamic linking
+> for copyright avoidance (although I have an argument that they can't), and
+> that we are now at a point where a single program need not run in a single
+> address space, come from a single file, or reside in a single CPU or indeed
+> a single computer. It just acts like one program. So, I would rather be in
+> a position to analyze as an expert what is one program than to codify what
+> is one for today's technology and then have inventions change the
+> definition.
+
+It's now a goal of mine to keep the words "derivative work"
+out of L0-R.  I was tempted to use it in patent termination,
+but I got over it.  Thanks, in part, to McCoy.
+
+"Derivative work" is unclear, and it's probably going to
+stay that way.  If the right answer is going to be "it's not
+perfectly clear, and technology is changing", I'd rather
+developer-readers come to that conclusion themselves.  Why
+require them to ask a lawyer, or attempt legal research, to
+end up in the same place?
+
+I'd bet "larger program" breaks down, too, in time.
+Probably in my lifetime.  But I can't see that far ahead.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Wed Nov  8 04:21:03 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 7 Nov 2017 20:21:03 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOt3yAOnnKrK=bQAb0duvnVP=XrjCME1HprXuSE1hT41fg@mail.gmail.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOt3yAOnnKrK=bQAb0duvnVP=XrjCME1HprXuSE1hT41fg@mail.gmail.com>
+Message-ID: <20171108042103.GP25059@dev.kemitchell.com>
+
+On 2017-11-07 19:11, Bruce Perens wrote:
+> On Tue, Nov 7, 2017 at 2:49 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+> > So is a five-line GPL sorting algorithm, linked into a
+> > larger program using a package manager, and then
+> > inadvertently conveyed out-of-house.
+>
+> I should address this one. I haven't yet met the court that would compel
+> the owner of a large body of code to GPL it for such a situation.
+
+Note sure where this points.  Do you think you've met a
+court that would compel the owner of a large body of code to
+release it Open Source after `l0rwc -l proprietary/**/*.c`?
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Wed Nov  8 04:31:27 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 7 Nov 2017 20:31:27 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <20171108042103.GP25059@dev.kemitchell.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOt3yAOnnKrK=bQAb0duvnVP=XrjCME1HprXuSE1hT41fg@mail.gmail.com> <20171108042103.GP25059@dev.kemitchell.com>
+Message-ID: <CAK2MWOvizG_fvdSrp8OJdbTR0n08FjkeYU89qqZs0swUR30bgQ@mail.gmail.com>
+
+On Tue, Nov 7, 2017 at 8:21 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+>
+> Note sure where this points.  Do you think you've met a
+> court that would compel the owner of a large body of code to
+> release it Open Source after `l0rwc -l proprietary/**/*.c`?
+
+
+In the case of the GPL, Richard did not spell out what amount of code
+combination was de minimis. What I was trying to say was that in practice
+that does not matter, because nobody is compelled to GPL their large work
+for a de minimis combination.
+
+This is a different issue from your last draft of L0-R, which IMO asks for
+too much - the dedication of a work to Open Source - for very little in
+return - the right to simply run a program. So, while I can reject it
+strictly on OSD grounds, I should really stress that this is an issue of
+principle. OSI should not endorse that sort of poor bargain with
+certification of the license.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171107/28de098a/attachment.html>
+
+From rick at linuxmafia.com  Wed Nov  8 05:13:03 2017
+From: rick at linuxmafia.com (Rick Moen)
+Date: Tue, 7 Nov 2017 21:13:03 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOvizG_fvdSrp8OJdbTR0n08FjkeYU89qqZs0swUR30bgQ@mail.gmail.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOt3yAOnnKrK=bQAb0duvnVP=XrjCME1HprXuSE1hT41fg@mail.gmail.com> <20171108042103.GP25059@dev.kemitchell.com> <CAK2MWOvizG_fvdSrp8OJdbTR0n08FjkeYU89qqZs0swUR30bgQ@mail.gmail.com>
+Message-ID: <20171108051303.GD1074@linuxmafia.com>
+
+Quoting Bruce Perens (bruce at perens.com):
+
+> In the case of the GPL, Richard did not spell out what amount of code
+> combination was de minimis. What I was trying to say was that in practice
+> that does not matter, because nobody is compelled to GPL their large work
+> for a de minimis combination.
+
+Nobody is compelled for _any_ size combination.  This is an urban
+legend:  The remedies available for copyright infringement do not
+include specific performance, and you just cannot find examples of
+judges attempting to invent one (and particularly not one ordering
+release of the infringing party's property under licence terms not of
+his/her choosing).
+
+-- 
+Haiku are "IP";                       Permission's hereby
+Keen Unixes are, too.  GNU            Granted to deal in this poem
+Is better, and free.                  Without restriction. -- Seth David Schoen
+
+
+From bruce at perens.com  Wed Nov  8 05:34:22 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 7 Nov 2017 21:34:22 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <20171108051303.GD1074@linuxmafia.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOt3yAOnnKrK=bQAb0duvnVP=XrjCME1HprXuSE1hT41fg@mail.gmail.com> <20171108042103.GP25059@dev.kemitchell.com> <CAK2MWOvizG_fvdSrp8OJdbTR0n08FjkeYU89qqZs0swUR30bgQ@mail.gmail.com> <20171108051303.GD1074@linuxmafia.com>
+Message-ID: <CAK2MWOvirepsddTG_o1o8Jioax2L2va0kfe_LeWo9EhUJ-z_-Q@mail.gmail.com>
+
+That is correct so far and I don't expect it to change. But there is
+specific performance for breach of contract, and you know about the recent
+finding in *Artifex v. Hancom.*
+
+On Tue, Nov 7, 2017 at 9:13 PM, Rick Moen <rick at linuxmafia.com> wrote:
+
+>
+> Nobody is compelled for _any_ size combination.  This is an urban
+> legend:  The remedies available for copyright infringement do not
+> include specific performance
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171107/b9fa9b66/attachment.html>
+
+From rick at linuxmafia.com  Wed Nov  8 07:01:34 2017
+From: rick at linuxmafia.com (Rick Moen)
+Date: Tue, 7 Nov 2017 23:01:34 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOvirepsddTG_o1o8Jioax2L2va0kfe_LeWo9EhUJ-z_-Q@mail.gmail.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOt3yAOnnKrK=bQAb0duvnVP=XrjCME1HprXuSE1hT41fg@mail.gmail.com> <20171108042103.GP25059@dev.kemitchell.com> <CAK2MWOvizG_fvdSrp8OJdbTR0n08FjkeYU89qqZs0swUR30bgQ@mail.gmail.com> <20171108051303.GD1074@linuxmafia.com> <CAK2MWOvirepsddTG_o1o8Jioax2L2va0kfe_LeWo9EhUJ-z_-Q@mail.gmail.com>
+Message-ID: <20171108070134.GH1074@linuxmafia.com>
+
+Quoting Bruce Perens (bruce at perens.com):
+
+> That is correct so far and I don't expect it to change. But there is
+> specific performance for breach of contract, and you know about the recent
+> finding in *Artifex v. Hancom.*
+
+I even read your blog post on the case, Bruce.
+
+U.S. District Court for the Northern District of California dismissed
+Hancom's interloculatory motion to dismiss[1], finding that copyright
+owners who distribute software products through an open source licence
+may be able to enforce the terms of that licence through _either_ breach of
+contract or copyright infringement claims.
+
+When last I followed the case, no contractual remedy had yet been assessed
+against Hancom, Inc., but I would be astonished if the judge in that or
+any other similar case ever ordered release of an infringer's
+copyrighted property under terms not of his/her choosing.  For one
+thing, it's never happened over four decades of copyleft history.  For
+another, the traditional remedies for breach of contract are: money
+damages, restitution, recission, reformation, and specific performance 
+-- where the latter must be one that compels one party to perform, as
+nearly as practicable, his or her duties specified by the contract, and 
+is available only when money damages are inadequate to compensate the
+plaintiff for the breach.
+
+No copyleft acquaintance of my experience, and certainly not GPLv2 opted
+for by L Peter Deutsch for Artifex Ghostscript, requires the licensee to
+agree to licence the full code of a derivative work under it.  GPLv2
+merely states (clause 5) that if you don't do that and assert that you
+don't actually accept the licence, then you have no right to modify or
+distribute the licensed work, and are in violation of copyright law.
+
+Thus an infringer such as (per Artifex's assertion) Hancom is IMO likely
+to end up being assessed copyright infringement remedies, which may cost
+them a bit but isn't going to end up requiring any form of specific
+performance, let alone involuntary licensing of its property.
+
+(If a judge ever disagrees, then I'm wrong, but it's not happened to
+date.)
+
+
+
+[1] Hancom argued that Artifex had failed to plausibly demonstrate
+existence of a contract, any claim for contract breach was pre-empted by
+Federal copyright law, and that complications of extraterritoriality 
+bar US firm Artifex from bringly a US copyright infringement claim
+against a South Korean firm developing software outside the USA.
+
+
+
+From kyle at kemitchell.com  Wed Nov  8 07:50:50 2017
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 7 Nov 2017 23:50:50 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <CAK2MWOvhJCMFimdGSV5xw2MF8CzfjZt1DKJZKXh1GGeKMngiTQ@mail.gmail.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOvhJCMFimdGSV5xw2MF8CzfjZt1DKJZKXh1GGeKMngiTQ@mail.gmail.com>
+Message-ID: <20171108075050.GQ25059@dev.kemitchell.com>
+
+On 2017-11-07 15:11, Bruce Perens wrote:
+> On Tue, Nov 7, 2017 at 2:49 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+> > If Open Source licenses can hook copyleft into distribution, why can't
+> > they hook copyleft into use?
+>
+> IMO, OSD # 6 catches your use cases and thus your proposal is not an Open
+> Source license.
+
+If that's true of OSD 6 as OSI applies it, I'll say again
+that OSI ought to make that broadly understood.  It is not
+now broadly understood.  Which is part of the reason you've
+been careful to point out your view may not track OSI's.
+
+> But the real question here is not whether your proposed license meets the
+> OSD.
+
+I don't mean to bang a tin drum.  But that is the _only_
+inquiry I thought I started, submitting L0-R for review.
+And the reason I reached out to you, in reply to your tweet
+that Open Source means an OSD-conformant license, full stop.
+
+> It is the fact that it is in absolutely nobody's interest to ever
+> accept the license as presently written, because it asks for too much.
+
+It is in copyleft-leaning toolmakers' interest.  And in the
+interest of those who still want to make open software a
+viable competitor to closed-source software.  And in the
+interest of those who want a new deal with those carrying
+off from the community, down one-way streets paved with
+approved license terms.
+
+I've said before that passing judgment like this risks
+sending the message that OSI has decided copyleft has to
+play with a handicap.  And that insofar as free software is
+losing to closed source---or succeeding only by redefining
+success as assisting closed source, rather than competing
+with it---handicapping copyleft looks like picking a winner.
+
+> It asks for an unreasonable compliance burden of the user, and it asks of
+> someone who actually owns a copyright to some work to Open Source that work
+> simply for the benefit of using your program.
+
+Will OSI reject a license on the basis that releasing
+software as Open Source is an onerous, unreasonable exaction
+dwarfing conceivable use value of any single program?  Is
+foretelling practical cost-benefit analysis part of what it
+does?
+
+OSI has already approved licenses that require release
+simply for the benefit of modifying, running, and
+distributing the licensed program.  Some users of Open
+Source continue to see those licenses as unreasonable.
+Judging by OSI approvals past, OSI has not.
+
+> I can conceive that a software developer receives such great value when
+> they incorporate someone else's code into their product. So that's where I
+> drew the line, and in this I was following the previous work of Richard
+> Stallman and the authors of various licenses the Debian project was
+> accepting.
+
+The industry smudges every bright line, in time.
+
+Consider Node.js.  Significant server and other software is
+written on Node, using Node-targeted libraries.  But a
+substantial chunk of the growth of the platform comes down
+to developer tooling---code generators, linters, style
+checkers, transpilers, bundlers, minifiers---for
+browser-targeted development.  Crack open a typical
+front-end web project shipped yesterday, and you'd have a
+much harder time replacing the tooling than the framework.
+I can swap out React in a hurry, as many recently have done.
+Babel?  Webpack?  Potentially much harder!
+
+> And thus, even if this license met the OSD, which I don't believe it does,
+> for OSI to certify it would be dereliction of their duty to the community.
+
+There is no more substance to "approving L0-R would be
+dereliction of duty" than to "L0-R is absurd".  If that
+statement's meant to persuade, it's meant to persuade on
+some other basis than arguable merit.
+
+I have spent a lot of time arguing merit.  Several hours,
+and several drafts, on my prior message alone.  You quoted
+one sentence of that message, an example, in another reply.
+You quoted just the first sentence here, and responded by
+repeating a bare conclusion, as opinion, about OSD 6.
+
+Was the rest for nothing?  I'd be happy to return to it.
+
+> So, I wonder if you are trying to engage us in some sort of Socratic
+> discussion? Certainly you are capable of thinking through the consequences
+> of your own license as I have.
+
+Your conclusions are not inevitable.  We disagree.  Some of
+my reasons appear above.  Some appear in my previous reply.
+Please consider them.  I took time for hope you would.
+
+> You appear to have scrapped the previous
+> version of your license that you might have made OSD compliant with my
+> advice, removing consequences based on use. In its place, I see *yet
+> another pass at incorporating use into your terms.*
+>
+> I can confidently say that you have exhausted this path.
+
+You've invited me, several times as I now understand, to
+propose a different license.  To pare L0-R back to a pithy
+reimplementation of GPL-style copyleft with some bugfixes.
+As I take your gist, a bare modification copyleft triggers,
+and combination without "derivative work".  Perhaps that's
+L0-R as currently proposed, with edits we've discussed, less
+condition 5. Perhaps that seems useful, from your point of
+view.  But it's not the license I proposed for review.
+
+True, L0-R was rewritten, and partly at your urging.  But it
+has asked what McCoy dubbed the "maximaleft" question from
+the very beginning.  It has asked the questions Richard set
+out last month.  The rewrite sharpened focus on those
+questions.
+
+I asked the questions in hopes of hearing OSI's answers.
+Others, leaning both ways, have agreed they aren't cut and
+dry.  Perhaps the committee will come back, and constrain me
+to just the kind of license you have in mind.  I see, and
+have tried to make, a strong case that they shouldn't.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From bruce at perens.com  Wed Nov  8 16:27:52 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 8 Nov 2017 08:27:52 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero Reciprocal Public License
+In-Reply-To: <20171108075050.GQ25059@dev.kemitchell.com>
+References: <20171027202935.GA5874@dev.kemitchell.com> <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com> <20171107224929.GK25059@dev.kemitchell.com> <CAK2MWOvhJCMFimdGSV5xw2MF8CzfjZt1DKJZKXh1GGeKMngiTQ@mail.gmail.com> <20171108075050.GQ25059@dev.kemitchell.com>
+Message-ID: <CAK2MWOvXOQNvRsNXyQd06o0jw9g0fc=GB4zYJVYsaHzbW+fOdg@mail.gmail.com>
+
+On Tue, Nov 7, 2017 at 11:50 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+>
+> It is in copyleft-leaning toolmakers' interest.
+
+ IMO it's not a copyleft license either. From
+https://www.gnu.org/philosophy/free-sw.en.html
+
+*copyleft <https://www.gnu.org/copyleft/copyleft.html> (very simply stated)
+is the rule that when redistributing the program, you cannot add
+restrictions to deny other people the central freedoms. This rule does not
+conflict with the central freedoms; rather it protects them.*
+
+So, consider the Four Freedoms section on use:
+
+*The freedom to run the program means the freedom for any kind of person or
+organization to use it on any kind of computer system, for any kind of
+overall job and purpose, without being required to communicate about it
+with the developer or any other specific entity. In this freedom, it is the
+user's purpose that matters, not the developer's purpose; you as a user are
+free to run the program for your purposes, and if you distribute it to
+someone else, she is then free to run it for her purposes, but you are not
+entitled to impose your purposes on her.*
+
+*The freedom to run the program as you wish means that you are not
+forbidden or stopped from making it run. This has nothing to do with what
+functionality the program has, whether it is technically capable of
+functioning in any given environment, or whether it is useful for any
+particular computing activity. *
+
+In your license, you are asking for an *unrelated* program to be made Open
+Source due to a condition predicated on a specific form of use. Besides
+being clearly against OSD # 6 (and sorry, OSI is not now required to
+announce this obvious fact), it's against the first of the four freedoms,
+because it creates a consequence for use that is not related to protecting
+the four freedoms regarding the program you're actually running.
+
+So, AGPL protects the Four Freedoms regarding the program that is actually
+being run. Your L0-R as presently submitted, in contrast, overreaches to an
+unrelated program that is simply input to the program being run.
+
+I'm going to call this the *King Midas Touch.* Simply process an unrelated
+piece of copyrighted property and it has to now be Open Source! In
+contrast, copyleft is only activated when you make your code part of the
+covered program.
+
+
+> I've said before that passing judgment like this risks sending the message
+> that OSI has decided copyleft has to play with a handicap.
+
+
+Richard Stallman decided that copyleft had to play with handicaps, in order
+to protect its the Four Freedoms. OSI similarly follows me in requiring
+that Open Source licenses play with 10 handicaps (mostly stated as the
+license may *not*) in order to protect what fundamentally makes them Open
+Source.
+
+
+> And that insofar as free software is losing to closed source---or
+> succeeding only by redefining success as assisting closed source, rather
+> than competing
+> with it---handicapping copyleft looks like picking a winner.
+>
+
+If you want to make a new deal in which unrelated software that is simply
+processed with your program has to become Open Source, that is your right,
+but you will need to name it something else than Open Source. I suggest you
+call it* King Midas Software. *And if it succeeds better than Open Source,
+so be it, but I don't believe it will do so. Open Source works so well
+because of what it *does not* ask for.
+
+And you need to be aware that the Open Source campaign does not espouse
+that proprietary software is immoral. Thus, while OSI exists to promote
+Open Source, I can't really say that their purpose is to replace
+proprietary software in the market. So the whole question of winning or
+losing *against *proprietary software (rather than just winning for Open
+Source) is one you have at FSF rather than OSI, and be prepared for the
+Four Freedoms to take precedence there.
+
+
+> Will OSI reject a license on the basis that releasing software as Open
+> Source is an onerous, unreasonable exaction dwarfing conceivable use value
+> of any single program?
+
+
+I'm really sure they would. They would take a principled stand on this. The
+compulsion to Open Source a program simply in return for the right to use
+another, is such an obvious over-reach, and introduces so many problems for
+the user community. Even if you were to somehow make it OSD compliant, they
+would continue to see it as a really bad deal for the community.
+
+
+> Is foretelling practical cost-benefit analysis part of what it does?
+>
+
+If asking "is this license good for the community" means doing a
+cost-benefit analysis, yes. OSI doesn't have to do a mechanical parse
+according to the OSD. The purpose of the organization is to protect,
+nurture, and facilitate that community. Faced with a license that would
+cause the community obvious problems, they would easily say "no".
+
+
+> OSI has already approved licenses that require release simply for the
+> benefit of modifying, running, and distributing the licensed program.
+
+
+Yes.  But of the program being run, modified, and distributed. Never an
+unrelated program.
+
+Some users of Open Source continue to see those licenses as unreasonable.
+> Judging by OSI approvals past, OSI has not.
+>
+
+Yes. OSI does not see copyleft as unreasonable. I believe they would see
+the King Midas Touch as unreasonable.
+
+
+> The industry smudges every bright line, in time.
+>
+ Well, you're the one trying to smudge the bright line, and I get to fight
+that, as well as OSI.
+
+
+> Consider Node.js.  Significant server and other software is written on
+> Node, using Node-targeted libraries.  But a substantial chunk of the growth
+> of the platform comes down to developer tooling---code generators, linters,
+> style checkers, transpilers, bundlers, minifiers---for
+> browser-targeted development.  Crack open a typical front-end web project
+> shipped yesterday, and you'd have a much harder time replacing the tooling
+> than the framework. I can swap out React in a hurry, as many recently have
+> done. Babel?  Webpack?  Potentially much harder!
+>
+
+All of these tool makers consider it a fair deal that your work doesn't
+have to become Free Software just because you use a tool upon it. Even
+Richard Stallman, who believes with all of his heart that proprietary
+software is immoral and caused himself RSI and years of pain in writing
+these tools, guarantees your freedom to keep the input to a program under
+your own terms.
+
+I have spent a lot of time arguing merit.  Several hours, and several
+> drafts, on my prior message alone.  You quoted one sentence of that
+> message, an example, in another reply.
+>
+
+Yes. Because I am I am finding it trivial to reject the license, despite
