@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/checks_license_draft.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-09-24
+last-updated: 2026-09-26
 canonical-ref: .github/scripts/check_repository_consistency.py (集約器) / LICENSES/ACD-1.2-DRAFT.txt (検査対象) / docs/architecture/check-repository-consistency-map.md (全 Check の一覧)
 ---
 
@@ -39,3 +39,7 @@ Check **468**（草案が NOT IN FORCE / NOT SUBMITTED / NOT APPLIED を述べ�
 ## Audience-specific notes
 
 - **後任 AI**: 草案を確定して新しい版を切るとき、この module の対象 path も新しい草案へ向け直すこと
+
+## 2026-09-26: 草案が無いときの挙動
+
+以前は `if ACD-1.2-DRAFT.txt exists` の中に全体があり else が無く、**草案が無いと 468 は OK も ERROR も出さずに消えていた**。版を確定して DRAFT を改名した日に、次版の検査が黙って止まる形である（`ACD-1.1-CHANGELIST.md` §0.13 は RED になると書いていた）。else で明示的に RED にし、mutation（草案 path を存在しない名前にずらす）を登録した。
