@@ -457,6 +457,15 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 472f: 提出パケット §A.0 header の License URL 欄だけを別の版へずらす —— 版を切り替えた日に"
+            "欄が 1 つ残ると、審査者には旧版の欄と新版の本文が届く (2026-09-26)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": "License URL:                    https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt",
+    "replace": "License URL:                    https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.2.txt",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
