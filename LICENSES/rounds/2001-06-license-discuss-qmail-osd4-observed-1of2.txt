@@ -1,0 +1,750 @@
+From brian at collab.net  Thu Jun  7 07:24:59 2001
+From: brian at collab.net (Brian Behlendorf)
+Date: Thu, 7 Jun 2001 00:24:59 -0700 (PDT)
+Subject: license submission: qmail
+Message-ID: <Pine.BSF.4.31.0106070004250.1996-100000@localhost>
+
+
+ESR and I exchanged some private email on the subject of Darren Reed's
+"clarification" of his terms on the ipfilter code to deny the distribution
+of modified derived works; he pointed out that clause 4 of the OSD states:
+ 4. The license may restrict source-code from being distributed in modified form only if the license allows the distribution of "patch files" with the source code for the purpose of modifying the program at build time. The license must explicitly permit distribution of software built from modified source code. The license may require derived works to carry a different name or version number from the original software.
+
+I think this is a flaw in the OSD - what it means is that those authors
+who place their software under such a license effective make forking
+impossible.  Why?  Because a project aimed at building a derivative work
+may not have a shared code tree, making collaboration impractical enough
+to effectively prevent a fork.  This allows for pragmatic window-dressing
+and bug fixing by repackagers like Debian and other linux distributions,
+but it does not really provide for the same checks on power between
+developers that are really what open source is all about.
+
+By this token, I hereby submit that qmail's license terms, at least as
+defined at http://cr.yp.to/qmail/dist.html, passes this clause, and the
+others in the OSD, based on one theory - that the requirement
+ only if the license allows the distribution of "patch files" with the source code
+
+is superfluous.  Such a promise never needs to be made, because a
+potential redistributor *always* has the right to create and distribute
+patches (was it the Accolade case that established that?), and "with" is
+not well defined and could simply mean on the same CD or from the same
+website, though that's largely immaterial: I have the right to distribute
+patches to qmail - I even have the right to create a single tarball that
+includes the qmail tarball and my patchset.  These are standard rights
+under copyright law - it's clearly a "compilation", and not a derived
+work.
+
+The other terms of clause #4 are met by DJB's requirements on package
+builders that he states on that same page.  The other clauses in the OSD
+are also not violated.  Clause #3 would be in question, but #4 seems to
+allow exceptions to #3 - which seems to fly in the face of the rationale
+of #3: "people need to be able to experiment with and redistribute
+modifications".
+
+Thus, I submit that either qmail's license be approved as an
+OSD-conformant license, or OSI consider whether clause #4 needs, er,
+"clarification".  It's hard to argue that neither is the case.
+ Brian
+
+
+
+
+
+From jcowan at reutershealth.com  Thu Jun  7 14:23:58 2001
+From: jcowan at reutershealth.com (John Cowan)
+Date: Thu, 07 Jun 2001 10:23:58 -0400
+Subject: license submission: qmail
+References: <Pine.BSF.4.31.0106070004250.1996-100000@localhost>
+Message-ID: <3B1F8E7E.30202@reutershealth.com>
+
+Brian Behlendorf wrote:
+
+> I think this is a flaw in the OSD - what it means is that those authors
+> who place their software under [a "patches-only"] license effective make forking
+> impossible.  Why?  Because a project aimed at building a derivative work
+> may not have a shared code tree, making collaboration impractical enough
+> to effectively prevent a fork.
+
+
+I am not an RCS/CVS expert, but it seems to me that it wouldn't be too
+hard to add a mode to download the original source plus forward deltas,
+SCCS-style.  This mode would meet the restrictions of the license:
+the original source is present, and the patches are merely aggregated
+with it, not incorporated into it.  At the receiving end, of course,
+they can be integrated.
+
+> but it does not really provide for the same checks on power between
+> developers that are really what open source is all about.
+
+
+How is this so different from the NPL's treatment of Netscape as a
+privileged participant?  We didn't say that wasn't Open Source.
+ 
+> By this token, I hereby submit that qmail's license terms, at least as
+> defined at http://cr.yp.to/qmail/dist.html, passes this clause, and the
+> others in the OSD, based on one theory - that the requirement
+> 
+>   only if the license allows the distribution of "patch files" with the
+>   source code
+> 
+> is superfluous.
+
+
+It is superfluous in the sense that distributors already have the
+right to distribute patches, as you make clear.
+
+> The other terms of clause #4 are met by DJB's requirements on package
+> builders that he states on that same page.
+
+
+Technically, I suppose they are.  But the restrictions are obnoxious.
+You may not distribute binaries based on modified source, even if
+you change the name.  You may not distribute source in a different
+packaging (like RPM or deb).  You may not distribute binaries if
+they are not the latest version, which means you have to kill the
+product from all accessible archives when DJB releases a new one.
+
+If I were a distributor, I wouldn't put up with this nonsense,
+Open Source or not.
+
+-- 
+There is / one art             || John Cowan <jcowan at reutershealth.com>
+no more / no less              || http://www.reutershealth.com
+to do / all things             || http://www.ccil.org/~cowan
+with art- / lessness           \\ -- Piet Hein
+
+
+
+From brian at collab.net  Thu Jun  7 16:48:25 2001
+From: brian at collab.net (Brian Behlendorf)
+Date: Thu, 7 Jun 2001 09:48:25 -0700 (PDT)
+Subject: license submission: qmail
+In-Reply-To: <3B1F8E7E.30202@reutershealth.com>
+Message-ID: <Pine.BSF.4.31.0106070946290.4664-100000@localhost>
+
+On Thu, 7 Jun 2001, John Cowan wrote:
+> I am not an RCS/CVS expert, but it seems to me that it wouldn't be too
+> hard to add a mode to download the original source plus forward deltas,
+> SCCS-style.  This mode would meet the restrictions of the license:
+> the original source is present, and the patches are merely aggregated
+> with it, not incorporated into it.  At the receiving end, of course,
+> they can be integrated.
+
+If there's a way to manage the toolset to work around this, fine; but it
+seems like there are lots of edge cases that become awkward.
+
+> How is this so different from the NPL's treatment of Netscape as a
+> privileged participant?  We didn't say that wasn't Open Source.
+
+Privileged participation is fine.  I can fork Mozilla's code and start a
+new development project around it if I want to, regardless of Netscape.
+ Brian
+
+
+
+
+
+From ian at airs.com  Thu Jun  7 16:58:26 2001
+From: ian at airs.com (Ian Lance Taylor)
+Date: 07 Jun 2001 09:58:26 -0700
+Subject: license submission: qmail
+In-Reply-To: <Pine.BSF.4.31.0106070004250.1996-100000@localhost>
+References: <Pine.BSF.4.31.0106070004250.1996-100000@localhost>
+Message-ID: <sir8wwp6q5.fsf@daffy.airs.com>
+
+Brian Behlendorf <brian at collab.net> writes:
+
+> ESR and I exchanged some private email on the subject of Darren Reed's
+> "clarification" of his terms on the ipfilter code to deny the distribution
+> of modified derived works; he pointed out that clause 4 of the OSD states:
+> 
+>    4. The license may restrict source-code from being distributed in
+>    modified form only if the license allows the distribution of "patch
+>    files" with the source code for the purpose of modifying the program at
+>    build time. The license must explicitly permit distribution of software
+>    built from modified source code. The license may require derived works
+>    to carry a different name or version number from the original software.
+> 
+> I think this is a flaw in the OSD - what it means is that those authors
+> who place their software under such a license effective make forking
+> impossible.  Why?  Because a project aimed at building a derivative work
+> may not have a shared code tree, making collaboration impractical enough
+> to effectively prevent a fork.  This allows for pragmatic window-dressing
+> and bug fixing by repackagers like Debian and other linux distributions,
+> but it does not really provide for the same checks on power between
+> developers that are really what open source is all about.
+
+I don't like the clause either.  But I think it permits forking in
+principle.  It just makes it harder.  I agree that it seems to
+prohibit the currently popular CVS based development environment.  But
+it doesn't prohibit the possibility of developing a different one, in
+which a checkout fetches the original tarball and a set of patches,
+and a commit consists of sending a diff back to the server.
+
+
+> The other terms of clause #4 are met by DJB's requirements on package
+> builders that he states on that same page.  The other clauses in the OSD
+> are also not violated.  Clause #3 would be in question, but #4 seems to
+> allow exceptions to #3 - which seems to fly in the face of the rationale
+> of #3: "people need to be able to experiment with and redistribute
+> modifications".
+> 
+> Thus, I submit that either qmail's license be approved as an
+> OSD-conformant license, or OSI consider whether clause #4 needs, er,
+> "clarification".  It's hard to argue that neither is the case.
+
+So you are saying that the question here is what limitations clause #4
+permits on this sentence: ``The license must explicitly permit
+distribution of software built from modified source code.''  After
+all, DJB requires his approval for any such distribution.  The intent
+of clause #4 is presumably that permission beyond adherence to the
+license itself is not required, and so DJB's license would not adhere.
+
+Ian
+
+
+From ian at airs.com  Thu Jun  7 17:01:15 2001
+From: ian at airs.com (Ian Lance Taylor)
+Date: 07 Jun 2001 10:01:15 -0700
+Subject: license submission: qmail
+In-Reply-To: <3B1F8E7E.30202@reutershealth.com>
+References: <Pine.BSF.4.31.0106070004250.1996-100000@localhost> <3B1F8E7E.30202@reutershealth.com>
+Message-ID: <sin17kp6lg.fsf@daffy.airs.com>
+
+John Cowan <jcowan at reutershealth.com> writes:
+
+> > The other terms of clause #4 are met by DJB's requirements on package
+> > builders that he states on that same page.
+> 
+> 
+> Technically, I suppose they are.  But the restrictions are obnoxious.
+> You may not distribute binaries based on modified source, even if
+> you change the name.  You may not distribute source in a different
+> packaging (like RPM or deb).  You may not distribute binaries if
+> they are not the latest version, which means you have to kill the
+> product from all accessible archives when DJB releases a new one.
+
+A minor correction: it is DJB's intent that you are permitted to
+distribute binaries which are not the latest version.  The qmail page
+only permits distribution of 1.03 because that is when he introduced
+the possibility of binary distribution.  See http://cr.yp.to/distributors.html
+
+Ian
+
+
+From weigel+ at pitt.edu  Thu Jun  7 18:13:33 2001
+From: weigel+ at pitt.edu (Matthew C. Weigel)
+Date: Thu, 07 Jun 2001 14:13:33 -0400 (EDT)
+Subject: license submission: qmail
+In-Reply-To: <Pine.BSF.4.31.0106070004250.1996-100000@localhost>
+Message-ID: <Pine.GSO.3.96L.1010607140316.11723A-100000@unixs1.cis.pitt.edu>
+
+On Thu, 7 Jun 2001, Brian Behlendorf wrote:
+
+>    4. The license may restrict source-code from being distributed in
+>    modified form only if the license allows the distribution of "patch
+>    files" with the source code for the purpose of modifying the program at
+>    build time. The license must explicitly permit distribution of software
+>    built from modified source code. The license may require derived works
+>    to carry a different name or version number from the original software.
+> 
+> I think this is a flaw in the OSD - what it means is that those authors
+> who place their software under such a license effective make forking
+> impossible.  Why?  Because a project aimed at building a derivative work
+> may not have a shared code tree, making collaboration impractical enough
+> to effectively prevent a fork.
+
+Automate patch, and you have a shared source tree.  There is no
+technical limitation to forking, there is simply a higher cost attached
+to the technical possibility.
+
+> This allows for pragmatic window-dressing and bug fixing by
+> repackagers like Debian and other linux distributions, but it does
+> not really provide for the same checks on power between developers
+> that are really what open source is all about.
+
+I submit that checks on power is not the point of open source (or free
+software), but rather the freedom from legal culpability in sharing,
+and the removal of the most onerous restrictions that prevent forking.
+"Most onerous restrictions" would include things like running code
+through an obfuscator, distributing in pseudocode or assembly, etc.
+
+> By this token, I hereby submit that qmail's license terms, at least as
+> defined at http://cr.yp.to/qmail/dist.html, passes this clause, and the
+> others in the OSD, based on one theory - that the requirement
+> 
+>   only if the license allows the distribution of "patch files" with the
+>   source code
+
+I think that "...software built from modified source code..." implies
+*binaries* built from modified source code fairly clearly.  Which is
+not allowed.
+
+> is superfluous.  Such a promise never needs to be made, because a
+> potential redistributor *always* has the right to create and distribute
+> patches (was it the Accolade case that established that?), and "with" is
+> not well defined and could simply mean on the same CD or from the same
+> website, though that's largely immaterial: I have the right to distribute
+> patches to qmail - I even have the right to create a single tarball that
+> includes the qmail tarball and my patchset.  These are standard rights
+> under copyright law - it's clearly a "compilation", and not a derived
+> work.
+
+I think it is relevant, given the way case law and the legislators are
+leaning now, to mention the need in the definition, though.  It renders
+interpretations of copyright law by judges and juries irrelevant - open
+source software must allow at least distributing patches.
+
+> The other terms of clause #4 are met by DJB's requirements on package
+> builders that he states on that same page.  The other clauses in the OSD
+> are also not violated.  Clause #3 would be in question, but #4 seems to
+> allow exceptions to #3 - which seems to fly in the face of the rationale
+> of #3: "people need to be able to experiment with and redistribute
+> modifications".
+
+People need to be able to distribute at least patches so that fellow
+hackers hacking the same piece of software can experiment, and people
+need to be able to distribute binaries of their hacks for people less
+inclined to compile themselves.
+
+> Thus, I submit that either qmail's license be approved as an
+> OSD-conformant license, or OSI consider whether clause #4 needs, er,
+> "clarification".  It's hard to argue that neither is the case.
+
+I would, although I'm not against clarification.
+--  Matthew Weigel Research Systems Programmer weigel+ at pitt.edu
+
+
+
+From jcowan at reutershealth.com  Thu Jun  7 18:26:57 2001
+From: jcowan at reutershealth.com (John Cowan)
+Date: Thu, 07 Jun 2001 14:26:57 -0400
+Subject: license submission: qmail
+References: <Pine.GSO.3.96L.1010607140316.11723A-100000@unixs1.cis.pitt.edu>
+Message-ID: <3B1FC771.5030100@reutershealth.com>
+
+Matthew C. Weigel wrote:
+
+
+> People need to be able to distribute at least patches so that fellow
+> hackers hacking the same piece of software can experiment, 
+
+
+Patches are essentially commentary on the original, and as such make
+at most fair use of it.  The classic example is the "C Answer Book",
+which gives answers to the questions in K&R, and makes no sense
+without it -- but is not a derivative work.
+
+Furthermore, it is arguable whether patches are copyrightable,
+given the likelihood of a form-content merger: what can be expressed
+in only one (natural) way is not, in general, copyrightable.
+
+So if you devise qmail patches, you can pass them to your friends.
+ > and people > need to be able to distribute binaries of their hacks for people less > inclined to compile themselves.
+
+I agree.  But that's not what the OSD says.
+
+
+-- 
+There is / one art             || John Cowan <jcowan at reutershealth.com>
+no more / no less              || http://www.reutershealth.com
+to do / all things             || http://www.ccil.org/~cowan
+with art- / lessness           \\ -- Piet Hein
+
+
+
+From weigel+ at pitt.edu  Thu Jun  7 18:38:09 2001
+From: weigel+ at pitt.edu (Matthew C. Weigel)
+Date: Thu, 07 Jun 2001 14:38:09 -0400 (EDT)
+Subject: license submission: qmail
+In-Reply-To: <3B1FC771.5030100@reutershealth.com>
+Message-ID: <Pine.GSO.3.96L.1010607143038.11723B-100000@unixs1.cis.pitt.edu>
+
+On Thu, 7 Jun 2001, John Cowan wrote:
+
+> So if you devise qmail patches, you can pass them to your friends.
+
+I wasn't contesting that in any way.  I was contesting Brian's claim
+that passing around patches was not enough in the *spirit* of open
+source.  I think that patches and binaries are enough.
+
+>  > and people
+>  > need to be able to distribute binaries of their hacks for people less
+>  > inclined to compile themselves.
+> 
+> I agree.  But that's not what the OSD says.
+
+Well, I expressed my opinion:
+ I think that "...software built from modified source code..." implies *binaries* built from modified source code fairly clearly.  Which is not allowed.
+
+That is, I think the distinction made is sufficiently clear for people
+who are not trying to avoid the obvious interpretation.  Not that I'm
+arguing "don't change it," just that I think Brian's interpretation is
+specious.
+--  Matthew Weigel Research Systems Programmer weigel+ at pitt.edu
+
+
+
+From david at usermode.org  Thu Jun  7 19:44:10 2001
+From: david at usermode.org (David Johnson)
+Date: Thu, 7 Jun 2001 19:44:10 +0000
+Subject: license submission: qmail
+In-Reply-To: <Pine.GSO.3.96L.1010607140316.11723A-100000@unixs1.cis.pitt.edu>
+References: <Pine.GSO.3.96L.1010607140316.11723A-100000@unixs1.cis.pitt.edu>
+Message-ID: <01060719441002.00177@weathertop>
+
+On Thursday June 07 2001 06:13 pm, Matthew C. Weigel wrote:
+
+> I submit that checks on power is not the point of open source (or free
+> software), but rather the freedom from legal culpability in sharing,
+> and the removal of the most onerous restrictions that prevent forking.
+
+Very well said! Checks on power is a negative. Permission to share is a 
+positive. I would much rather focus on the positive. Open Source is never 
+having to look over your shoulder.
+
+-- 
+David Johnson
+___________________
+http://www.usermode.org
+
+
+From brian at collab.net  Thu Jun  7 19:54:41 2001
+From: brian at collab.net (Brian Behlendorf)
+Date: Thu, 7 Jun 2001 12:54:41 -0700 (PDT)
+Subject: license submission: qmail
+In-Reply-To: <Pine.GSO.3.96L.1010607140316.11723A-100000@unixs1.cis.pitt.edu>
+Message-ID: <Pine.BSF.4.31.0106071249160.5548-100000@localhost>
+
+On Thu, 7 Jun 2001, Matthew C. Weigel wrote:
+> Automate patch, and you have a shared source tree.  There is no
+> technical limitation to forking, there is simply a higher cost attached
+> to the technical possibility.
+
+If you can point me at a vibrant open source community laboring under such
+conditions, I'll rest my case; however, I just don't see how it's
+possible.  Given the huge # of patches in the qmail community and the
+degree of overlap between them and the stability of the underlying
+pristine source (djb does somewhere around a release every two years), I'd
+expect to see it there, but I don't.
+
+> I think that "...software built from modified source code..." implies
+> *binaries* built from modified source code fairly clearly.  Which is
+> not allowed.
+
+DJB allows for binaries of modified source to be created, if they meet a
+set of conditions.
+ Brian
+
+
+
+
+
+From weigel+ at pitt.edu  Thu Jun  7 20:41:03 2001
+From: weigel+ at pitt.edu (Matthew C. Weigel)
+Date: Thu, 07 Jun 2001 16:41:03 -0400 (EDT)
+Subject: license submission: qmail
+In-Reply-To: <Pine.BSF.4.31.0106071249160.5548-100000@localhost>
+Message-ID: <Pine.GSO.3.96L.1010607162741.11723C-100000@unixs1.cis.pitt.edu>
+
+On Thu, 7 Jun 2001, Brian Behlendorf wrote:
+
+> If you can point me at a vibrant open source community laboring under
+> such conditions, I'll rest my case; however, I just don't see how
+> it's possible.
+
+Why does it have to be 'vibrant'?  All it needs are a few members in
+the community.
+
+> Given the huge # of patches in the qmail community and the degree of
+> overlap between them and the stability of the underlying pristine
+> source (djb does somewhere around a release every two years), I'd
+> expect to see it there, but I don't.
+
+Well, what do you mean by 'vibrant'?  That people *make* patches, and
+that there are a huge number of patches, is a lot more 'vibrant' than
+some open source projects.
+
+> > I think that "...software built from modified source code..." implies
+> > *binaries* built from modified source code fairly clearly.  Which is
+> > not allowed.
+> 
+> DJB allows for binaries of modified source to be created, if they meet a
+> set of conditions.
+
+Which are incompatible.  For instance, DJB makes quite clear that 'fair
+use' is insufficient for free (or open source) software, in
+http://cr.yp.to/softwarelaw.html - "As long as you're not distributing
+the software...."  Further, the 'set of conditions' boils down to his
+approval, which is contrary to open source - 
+ The license must explicitly permit distribution of software built from modified source code.
+
+The qmail license does NOT explicitly permit distribution of software
+built from modified source code.
+--  Matthew Weigel Research Systems Programmer weigel+ at pitt.edu
+
+
+
+From brian at collab.net  Thu Jun  7 20:52:05 2001
+From: brian at collab.net (Brian Behlendorf)
+Date: Thu, 7 Jun 2001 13:52:05 -0700 (PDT)
+Subject: license submission: qmail
+In-Reply-To: <sir8wwp6q5.fsf@daffy.airs.com>
+Message-ID: <Pine.BSF.4.31.0106071255100.5548-100000@localhost>
+
+On 7 Jun 2001, Ian Lance Taylor wrote:
+> > Thus, I submit that either qmail's license be approved as an
+> > OSD-conformant license, or OSI consider whether clause #4 needs, er,
+> > "clarification".  It's hard to argue that neither is the case.
+>
+> So you are saying that the question here is what limitations clause #4
+> permits on this sentence: ``The license must explicitly permit
+> distribution of software built from modified source code.''  After
+> all, DJB requires his approval for any such distribution.
+
+Nope, read more closely at http://cr.yp.to/qmail/dist.html:
+ Exception: You are permitted to distribute a precompiled var-qmail package if [...list of conditions...]
+
+The OSD doesn't state that there could be no conditions.
+
+> The intent
+> of clause #4 is presumably that permission beyond adherence to the
+> license itself is not required, and so DJB's license would not adhere.
+
+I think that page describes sufficiently how to create binaries of
+derivative works; it just doesn't allow source code releases of those
+derivative works, except as pristine source + patches.  Kinda perverse
+that the OSD has this preferential treatment for binaries over source
+releases, IMHO...
+
+Like I did a few months ago with the can-copyrights-enforce-standards
+question, I'm exploring the edge cases of the OSD with the intent of
+either finding models that accomplish goals that others not currently in
+the open source community have (to bring them in) or to force us to ask
+ourselves what "Open Source" really means, and whether the OSD matches
+that concept.  I'm not trying to be an ass about this, seriously.  I just
+see licenses like Darren Reed's and DJB's, and see some healthy debate
+outside of this list and OSI as to whether such terms are "Open Source" or
+not, and see the opportunity for clarification.
+ Brian
+
+
+
+
+
+
+
+From ian at airs.com  Thu Jun  7 21:10:05 2001
+From: ian at airs.com (Ian Lance Taylor)
+Date: 07 Jun 2001 14:10:05 -0700
+Subject: license submission: qmail
+In-Reply-To: <Pine.BSF.4.31.0106071255100.5548-100000@localhost>
+References: <Pine.BSF.4.31.0106071255100.5548-100000@localhost>
+Message-ID: <siu21sngia.fsf@daffy.airs.com>
+
+Brian Behlendorf <brian at collab.net> writes:
+
+> On 7 Jun 2001, Ian Lance Taylor wrote:
+> > > Thus, I submit that either qmail's license be approved as an
+> > > OSD-conformant license, or OSI consider whether clause #4 needs, er,
+> > > "clarification".  It's hard to argue that neither is the case.
+> >
+> > So you are saying that the question here is what limitations clause #4
+> > permits on this sentence: ``The license must explicitly permit
+> > distribution of software built from modified source code.''  After
+> > all, DJB requires his approval for any such distribution.
+> 
+> Nope, read more closely at http://cr.yp.to/qmail/dist.html:
+> 
+>   Exception: You are permitted to distribute a precompiled var-qmail
+>   package if [...list of conditions...]
+> 
+> The OSD doesn't state that there could be no conditions.
+
+I don't get it.  One of the conditions for distributing a precompiled
+package is that the binaries are precisely what would result from
+compiling unchanged source code.  That doesn't fit the sentence I
+quoted above from OSD clause #4.
+
+(Note that DJB's condition ``produces exactly the same /var/qmail
+hierarchy'' implies that it produce the same binaries, as qmail
+binaries are installed in /var/qmail/bin.)
+
+> > The intent
+> > of clause #4 is presumably that permission beyond adherence to the
+> > license itself is not required, and so DJB's license would not adhere.
+> 
+> I think that page describes sufficiently how to create binaries of
+> derivative works; it just doesn't allow source code releases of those
+> derivative works, except as pristine source + patches.  Kinda perverse
+> that the OSD has this preferential treatment for binaries over source
+> releases, IMHO...
+
+No, that page does not permit distribution of binaries of derivative
+works.
+
+Ian
+
+
+From jcowan at reutershealth.com  Thu Jun  7 21:18:37 2001
+From: jcowan at reutershealth.com (John Cowan)
+Date: Thu, 07 Jun 2001 17:18:37 -0400
+Subject: license submission: qmail
+References: <Pine.BSF.4.31.0106071249160.5548-100000@localhost>
+Message-ID: <3B1FEFAD.5030508@reutershealth.com>
+
+Brian Behlendorf wrote:
+
+> DJB allows for binaries of modified source to be created, if they meet a
+> set of conditions.
+
+
+Only if they exhibit *exactly* the same behavior as the original.
+You can distribute a version localized for another OS or variant,
+but you can't distribute a functionally different version.
+
+For example, you could not deliver a binary package that prints
+error messages (for humans, not protocol errors) in another
+language besides English. You could deliver source patches only,
+since they are not derivative works.
+
+On reading the OSD again, I think this violates the second
+sentence of #4:  "The license must explicitly permit distribution of 
+software built from modified source code."  If "built from" is
+interpreted in the ordinary sense of "compiled from", and if
+"modified" means "modified in any way" (as opposed to merely
+"localized for the environment") then the qmail/djbdns license
+does not permit this.
+
+-- 
+There is / one art             || John Cowan <jcowan at reutershealth.com>
+no more / no less              || http://www.reutershealth.com
+to do / all things             || http://www.ccil.org/~cowan
+with art- / lessness           \\ -- Piet Hein
+
+
+
+From jcowan at reutershealth.com  Thu Jun  7 21:42:08 2001
+From: jcowan at reutershealth.com (John Cowan)
+Date: Thu, 07 Jun 2001 17:42:08 -0400
+Subject: license submission: qmail
+References: <Pine.BSF.4.31.0106071255100.5548-100000@localhost>
+Message-ID: <3B1FF530.1090603@reutershealth.com>
+
+Brian Behlendorf wrote:
+
+
+> The OSD doesn't state that there could be no conditions.
+
+
+/me delicately alludes to the matter of Bullwinkle manure.
+
+Those who don't understand, and wish to, should send me
+an off-list email.
+
+But in general, a claim that "X must allow Y" is satisfied
+by a statemen by X that "Y is allowed under conditions Z"
+can't be true in general, since the conditions Z can be
+arbitrarily restrictive.
+
+-- 
+There is / one art             || John Cowan <jcowan at reutershealth.com>
+no more / no less              || http://www.reutershealth.com
+to do / all things             || http://www.ccil.org/~cowan
+with art- / lessness           \\ -- Piet Hein
+
+
+
+From weigel+ at pitt.edu  Thu Jun  7 21:47:54 2001
+From: weigel+ at pitt.edu (Matthew C. Weigel)
+Date: Thu, 07 Jun 2001 17:47:54 -0400 (EDT)
+Subject: license submission: qmail
+In-Reply-To: <Pine.BSF.4.31.0106071255100.5548-100000@localhost>
+Message-ID: <Pine.GSO.3.96L.1010607173110.11723E-100000@unixs1.cis.pitt.edu>
+
+On Thu, 7 Jun 2001, Brian Behlendorf wrote:
+
+> Nope, read more closely at http://cr.yp.to/qmail/dist.html:
+> 
+>   Exception: You are permitted to distribute a precompiled var-qmail
+>   package if [...list of conditions...]
+> 
+> The OSD doesn't state that there could be no conditions.
+
+That's semantic pussy-footing.  The license must explicitly allow
+distribution, not explicitly disallow distribution except when certain
+conditions are met.  There is no room in 'grant permission to
+distribute' for 'do not grant permission to distribute.'
+
+> I think that page describes sufficiently how to create binaries of
+> derivative works; it just doesn't allow source code releases of those
+> derivative works, except as pristine source + patches.  Kinda perverse
+> that the OSD has this preferential treatment for binaries over source
+> releases, IMHO...
+
+Kinda perverse that you so strongly insist on misreading the OSD.  It's
+simple; allow distribution of binaries for people who don't want to
+hack, and provide something that those who want to hack, can hack. 
+While people on Unix systems tend to take compilers for granted, they
+are not automatically on every platform.  What would you do if every
+open source project that runs on Windows (including gcc) were only
+available in source form?
+
+> Like I did a few months ago with the can-copyrights-enforce-standards
+> question, I'm exploring the edge cases of the OSD with the intent of
+> either finding models that accomplish goals that others not currently
+> in the open source community have (to bring them in) or to force us
+> to ask ourselves what "Open Source" really means, and whether the OSD
+> matches that concept.
+
+It does, as long as you read what it says.  Edge cases are fine; but
+these aren't edge cases, these are examples of how intentionally
+misreading sections of the OSD lead to different non-open source
+licenses.
+
+> I'm not trying to be an ass about this, seriously.  I just see
+> licenses like Darren Reed's and DJB's, and see some healthy debate
+> outside of this list and OSI as to whether such terms are "Open
+> Source" or not, and see the opportunity for clarification.
+
+Re: IPF license.  Darren has made two incompatible statements about his
+intents in writing the license, one of which is clearly incompatible
+with open source, and one of which is perfectly acceptable.  Drawing
+any conclusions about his intent in writing the license, and hence the
+footing on which a person might find himself in a legal battle based on
+"intent," is not firm.
+
+Re: qmail license.  Where's the 'healthy debate' about whether or not
+it is open source?  You're intentionally misreading the OSD to get
+discussion going, but I've never seen DJB, nor anyone who uses qmail,
+nor anyone who refuses to incorporate qmail into 'free or open source
+only' compilations, claim that qmail is open source.
+--  Matthew Weigel Research Systems Programmer weigel+ at pitt.edu
+
+
+
+From brian at collab.net  Thu Jun  7 22:21:26 2001
+From: brian at collab.net (Brian Behlendorf)
+Date: Thu, 7 Jun 2001 15:21:26 -0700 (PDT)
+Subject: license submission: qmail
+In-Reply-To: <3B1FEFAD.5030508@reutershealth.com>
+Message-ID: <Pine.BSF.4.31.0106071518440.5548-100000@localhost>
+
+On Thu, 7 Jun 2001, John Cowan wrote:
+> Only if they exhibit *exactly* the same behavior as the original.
+> You can distribute a version localized for another OS or variant,
+> but you can't distribute a functionally different version.
+
+Is that disallowed by the OSD?  In spirit, perhaps, but that's my whole
+point: the OSD needs to better map to what people expect it to be, and
+either be a lot more precise or give up some of the exceptions which
+create more edge cases than they solve.
+
+> On reading the OSD again, I think this violates the second
+> sentence of #4:  "The license must explicitly permit distribution of
+> software built from modified source code."  If "built from" is
+> interpreted in the ordinary sense of "compiled from", and if
+> "modified" means "modified in any way" (as opposed to merely
+> "localized for the environment") then the qmail/djbdns license
+> does not permit this.
+

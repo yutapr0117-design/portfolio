@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-26 時点・128 ファイル）
+## いまの状態（2026-09-26 時点・133 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -170,6 +170,11 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（20/22 部）** | **同じ束の 20/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（21/22 部）** | **同じ束の 21/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（22/22 部）** | **同じ束の 22/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2001-06 | `license-discuss`（観測）| **qmail のライセンスと OSD 4 21 通 → 観測保存（1/2 部）** | **OSD 3 の後半が実際に判定の決め手として使われている例**（Moen 氏 *"OSD clause #3, immediately preceding, strikes me as disambiguating this."*）。**条件一般について Cowan 氏** —— *"a claim that 'X must allow Y' is satisfied by a statement by X that 'Y is allowed under conditions Z' **can't be true in general, since the conditions Z can be arbitrarily restrictive**."*（#251） |
+| 2001-06 | `license-discuss`（観測）| **qmail のライセンスと OSD 4 21 通 → 観測保存（2/2 部）** | **同じ束の 2/2 部。** 本文は無改変で、2 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2004-09 | `license-discuss`（観測）| **Academic Citing License の相談 36 通 → 観測保存（1/3 部）** | **「使用の制限は OSD に無い」ことをリストが自分で認めている場所** —— Prodromou 氏 *"It'd be more accurate to say **'no restrictions on use not covered by copyright law.'**"*。**そして我々の類型についての知覚が記録されている** —— Moen 氏の 800 件の audit で *"'public domain' did indeed comprise an **overwhelming majority of those with serious licensing problems**"*、逆側に Cowan 氏 *"they aren't licensed at all. **But they are clearly Open Source.**"*（#250 / #251） |
+| 2004-09 | `license-discuss`（観測）| **Academic Citing License の相談 36 通 → 観測保存（2/3 部）** | **同じ束の 2/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2004-09 | `license-discuss`（観測）| **Academic Citing License の相談 36 通 → 観測保存（3/3 部）** | **同じ束の 3/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2009-02 | `license-review`（観測）| **IPA Font License v1.0 の承認審査 41 通（2025-09 の後日談を含む） → 観測保存（1/3 部）** | **`review-precedents.md` §1.105 が「記録に在る唯一の日本発の提出」と述べていたのは誤りで、これが 2 件目である —— しかも承認されている**（#242）。提出者は **Mori Hamada & Matsumoto の弁護士**が**IPA を代理**しており、**成功した日本の先例には弁護士が付いていた**。**Swiger 氏は "Non-reusable licenses" カテゴリへの収容を勧めたうえで承認を推している** ——**再利用の見込みの無さは却下ではなく分類で処理された** |
 | 2009-02 | `license-review`（観測）| **IPA Font License v1.0 の承認審査 41 通（2025-09 の後日談を含む） → 観測保存（2/3 部）** | **同じスレッドの 2/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2009-02 | `license-review`（観測）| **IPA Font License v1.0 の承認審査 41 通（2025-09 の後日談を含む） → 観測保存（3/3 部）** | **同じスレッドの 3/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |

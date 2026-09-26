@@ -1,0 +1,167 @@
+I can modify it to fix a bug which crops up under certain conditions and
+causes a core dump, which doesn't change its behavior, it just makes it
+more robust.  I can then build that, and create a var-qmail package, and
+redistribute that, under DJB's terms.
+ Brian
+
+
+
+
+
+From brian at collab.net  Thu Jun  7 22:22:56 2001
+From: brian at collab.net (Brian Behlendorf)
+Date: Thu, 7 Jun 2001 15:22:56 -0700 (PDT)
+Subject: license submission: qmail
+In-Reply-To: <3B1FF530.1090603@reutershealth.com>
+Message-ID: <Pine.BSF.4.31.0106071521590.5548-100000@localhost>
+
+On Thu, 7 Jun 2001, John Cowan wrote:
+> But in general, a claim that "X must allow Y" is satisfied
+> by a statemen by X that "Y is allowed under conditions Z"
+> can't be true in general, since the conditions Z can be
+> arbitrarily restrictive.
+
+Every license has a list of conditions attached to those rights they
+grant, even the BSD/MIT licenses.
+ Brian
+
+
+
+
+
+From brian at collab.net  Thu Jun  7 22:39:07 2001
+From: brian at collab.net (Brian Behlendorf)
+Date: Thu, 7 Jun 2001 15:39:07 -0700 (PDT)
+Subject: license submission: qmail
+In-Reply-To: <Pine.GSO.3.96L.1010607173110.11723E-100000@unixs1.cis.pitt.edu>
+Message-ID: <Pine.BSF.4.31.0106071523090.5548-100000@localhost>
+
+On Thu, 7 Jun 2001, Matthew C. Weigel wrote:
+> On Thu, 7 Jun 2001, Brian Behlendorf wrote:
+>
+> > Nope, read more closely at http://cr.yp.to/qmail/dist.html:
+> >
+> >   Exception: You are permitted to distribute a precompiled var-qmail
+> >   package if [...list of conditions...]
+> >
+> > The OSD doesn't state that there could be no conditions.
+>
+> That's semantic pussy-footing.  The license must explicitly allow
+> distribution, not explicitly disallow distribution except when certain
+> conditions are met.  There is no room in 'grant permission to
+> distribute' for 'do not grant permission to distribute.'
+
+This is not "pussy-footing".  May I quote from the GPL?
+
+5. You are not required to accept this License, since you have not signed it. However, nothing else grants you permission to modify or distribute the Program or its derivative works. These actions are prohibited by law if you do not accept this License. Therefore, by modifying or distributing the Program (or any work based on the Program), you indicate your acceptance of this License to do so, and all its terms and conditions for copying, distributing or modifying the Program or works based on it.
+
+You have to follow the conditions the GPL sets out in order to
+redistribute modified source or binaries.  Neither the GPL nor DJB's
+conditions listed in his "exceptions" violate the letter of the OSD.
+DJB's might violate the spirit of the OSD, but again, that's my point -
+OSD spirit != OSD letter.
+
+> > I think that page describes sufficiently how to create binaries of
+> > derivative works; it just doesn't allow source code releases of those
+> > derivative works, except as pristine source + patches.  Kinda perverse
+> > that the OSD has this preferential treatment for binaries over source
+> > releases, IMHO...
+>
+> Kinda perverse that you so strongly insist on misreading the OSD.  It's
+> simple; allow distribution of binaries for people who don't want to
+> hack, and provide something that those who want to hack, can hack.
+> While people on Unix systems tend to take compilers for granted, they
+> are not automatically on every platform.  What would you do if every
+> open source project that runs on Windows (including gcc) were only
+> available in source form?
+
+Let's be clear what I am arguing for: that allowing licenses that only
+allow redistribution of modifications as "pristine source, plus patches"
+is not copacetic to what I understand and believe in as the goals of and
+positive qualities of Open Source.  I don't see the above situation w/r/t
+binaries and source as copacetic to that; it allows for some pragmatic
+modifications by distributors, but doesn't really allow the right to fork.
+
+The sensitivity I come to with this is the fact that when I presented a
+proposal here a few weeks ago regarding whether a copyright on a codebase
+could be used to help enforce standards-compliance, even though no one
+could cite a specific clause in the OSD that prevented it, people
+despaired over what they felt was a violation of the spirit of the OSD -
+that it would give the original copyright holder too much arbitrary power
+over deciding whether a derivative work was conformant with a
+specification.
+
+I agreed with that sentiment, and let the company who I was asking on
+behalf of it just wasn't possible; now most likely something which might
+have been open sourced, won't be.  Unfortunately, that event didn't result
+in a call for a clarification of the OSD to better map to that spirit
+everyone was so passionate about.  Here is a similar situation, and I'm
+surprised that people are now arguing the opposite case, that we should
+accept vague language in the OSD that creates a poor situation in favor of
+a copyright holder, and puts anyone who wants to fork at a significant
+operational disadvantage.
+ Brian
+
+
+
+
+
+From cowan at mercury.ccil.org  Fri Jun  8 01:44:50 2001
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Thu, 7 Jun 2001 21:44:50 -0400 (EDT)
+Subject: license submission: qmail
+In-Reply-To: <Pine.BSF.4.31.0106071518440.5548-100000@localhost> from Brian Behlendorf at "Jun 7, 2001 03:21:26 pm"
+Message-ID: <E158BKU-0003DZ-00@mercury.ccil.org>
+
+Brian Behlendorf scripsit:
+
+> I can modify it to fix a bug which crops up under certain conditions and
+> causes a core dump, which doesn't change its behavior, it just makes it
+> more robust.  I can then build that, and create a var-qmail package, and
+> redistribute that, under DJB's terms.
+
+Nope, that *does* change its behavior.  If the original qmail core dumps,
+you have to core dump too.
+
+"If Parliament does not mean what it says, my lord, it must say so." -- A.P. Herbert
+
+-- 
+John Cowan                                   cowan at ccil.org
+One art/there is/no less/no more/All things/to do/with sparks/galore --Douglas Hofstadter
+
+
+From rick at linuxmafia.com  Fri Jun  8 05:30:23 2001
+From: rick at linuxmafia.com (Rick Moen)
+Date: Thu, 7 Jun 2001 22:30:23 -0700
+Subject: license submission: qmail
+In-Reply-To: <Pine.BSF.4.31.0106071523090.5548-100000@localhost>; from brian@collab.net on Thu, Jun 07, 2001 at 03:39:07PM -0700
+References: <Pine.GSO.3.96L.1010607173110.11723E-100000@unixs1.cis.pitt.edu> <Pine.BSF.4.31.0106071523090.5548-100000@localhost>
+Message-ID: <20010607223023.U585@uncle-enzo.linuxmafia.com>
+
+begin Brian Behlendorf quotation:
+
+> You have to follow the conditions the GPL sets out in order to
+> redistribute modified source or binaries.  Neither the GPL nor DJB's
+> conditions listed in his "exceptions" violate the letter of the OSD.
+> DJB's might violate the spirit of the OSD, but again, that's my point -
+> OSD spirit != OSD letter.
+
+OSD clause #3, immediately preceding, strikes me as disambiguating this.
+
+Apply it to the two licence cases being compared here, and I think
+you'll see the relevance:  Although a copy of qmail compiled from
+modified source is a derived work, it may not be distributed under the
+same terms as the original (as clause #3 says must be true for OSD
+compliance).
+
+I applaud your move to explore edge cases, though.  You're right that
+this is both healthy and necessary.  We've seen before areas where the 
+OSD's wording at least arguably fails to indicate its intent.  Which
+suggests room for improvement.
+
+-- 
+Cheers,                      Evolution:  Life's a niche, and then you die.
+Rick Moen
+rick at linuxmafia.com
+
+
