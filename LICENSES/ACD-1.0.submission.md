@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.submission.md
 audience: OSI license-discuss / license-review participants, SPDX submitters, the human who sends the message
-last-updated: 2026-09-25
+last-updated: 2026-09-26
 canonical-ref: LICENSES/ACD-1.0.txt (the text being submitted) / LICENSES/REVIEWERS.md (English entry point) / LICENSES/ACD-1.0.against.md (the adverse case)
 ---
 
@@ -145,14 +145,19 @@ place of that, and nothing in §3b is withdrawn by making it.
 > > I do not read that silence as agreement. Replies on that list arrive on their own
 > > schedule, and a measurable share of threads there receive none at all.
 > > **The differences between the text discussed there and the text submitted here are
-> > therefore not responses to comments. They are defects I found in my own text**, and each
-> > one is listed, with what was changed and why, in the errata record linked below.
+> > therefore not responses to comments on the list.** Most are defects I found in my own
+> > text; some were found by reviewers who read it outside the list; one is a question I
+> > put to the list myself, still unanswered. Each is listed, with what was changed and why,
+> > in the errata record linked below.
 > > **Defects that are still unrepaired are listed as unrepaired.**
 >
 > **この段落で守ること**: **(1)** 沈黙を支持と読ませない（`against.md` #109 —— 返信ゼロは
-> 珍しくない）。**(2)** 「指摘を反映した」と書かない —— **1.1 草案が閉じている 12 件は
-> 全件が自己発見の errata で、言われて直したものは 1 件も無い**。**(3)** 未修理を未修理と書く。
-> **(4)** 貼れば §B.0 の語数が約 110 語増える —— **申告語数を測り直す**（確定手順の (3)）。
+> 珍しくない）。**(2)** 「指摘を反映した」と書かない —— **list の議論に由来する errata は E11 の 1 件だけで、
+> しかも自分が出した未回答の問い**（`ACD-1.2-CHANGELIST.md` 冒頭・2026-09-22 時点で 30 件中 自己発見 23 / 外部レビュー 6 / list 1）。
+> **⚠ 2026-09-26 訂正: 旧文は「1.1 草案が閉じている 12 件は全件が自己発見」と書き、英文も *"They are defects I found
+> in my own text"* と断言していた** —— 外部レビュー由来の 6 件が入った後も直されておらず、**送れば偽になる文だった**。
+> **「すべて自分で見つけた」とも書けない。** 送る日に errata の由来を数え直す。**(3)** 未修理を未修理と書く。
+> **(4)** 貼れば §B.0 の語数が約 160 語増える（2026-09-26 実測 159・旧記載の「約 110」は旧文 135 語に対しても過少だった） —— **申告語数を測り直す**（確定手順の (3)）。
 > **返信が届いていたら、この沈黙版は使わず上の元の指示に従う。**
 
 Send to `license-review@opensource.org` (subscribe first). OSI asks submitters to state
