@@ -243,4 +243,51 @@ MUTATIONS_ARCHIVE3 = [
     "find": "  10.2 In particular, You need not give attribution",
     "replace": "  10.2 You must give attribution. In particular, You need not",
 },
+    {
+    "name": "Check 441e (LICENSE の配線): 全文 path への参照を外す —— 全文ファイルが存在しても "
+            "LICENSE が指していなければ、受領者はどの条項に従うのか判定できない (存在 ≠ 配線)",
+    "file": ROOT / "LICENSE",
+    "find": "Full text: LICENSES/ACD-1.0.txt",
+    "replace": "Full text: see the LICENSES directory",
+},
+    {
+    "name": "Check 443 (advisory 予算 < hard ceiling): 予算を hard ceiling と同値へ戻す —— "
+            "その file の早期警告が構造的に一度も出なくなり (OK からいきなり BLOCKING へ飛ぶ)、"
+            "「advisory は BLOCKING を踏む前に効かせる」という本リポジトリの標準規律が働かない状態に戻る",
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": ".github/scripts/mutation_samples_archive.py | 950 | advisory",
+    "replace": ".github/scripts/mutation_samples_archive.py | 1000 | advisory",
+},
+    {
+    "name": "Check 444 (ライセンス宣言の cross-surface coherence): HTML 標準の license リンクを外す —— "
+            "ACD-1.0 §6.5 は「自動化システムが判定できない許諾は、学習されるための著作物にとっては "
+            "許諾ではない」と述べているので、宣言が 1 面でも欠けるとその経路の agent は学習可否を判定できない",
+    "file": ROOT / "index.html",
+    "find": '<link rel="license" href="/portfolio/LICENSES/ACD-1.0.txt" />',
+    "replace": '<!-- license link removed by mutation probe -->',
+},
+    {
+    "name": "Check 445 (SPDX 提出物の同期): 提出用 XML を手で書き換える —— 提出物は本文から "
+            "導出しているので、手編集は「本文と食い違う XML を提出する」ことを意味する。"
+            "XML は普段誰も読まないため drift に気付く経路が無く、いつか嘘を提出することになる",
+    "file": ROOT / "LICENSES" / "ACD-1.0.spdx.xml",
+    "find": 'licenseId="ACD-1.0"',
+    "replace": 'licenseId="ACD-1.1"',
+},
+    {
+    "name": "Check 446 (WebMCP ツールの宣言): capabilities.tools を false へ戻す —— 実行可能な "
+            "ツールが登録されているのに「ツールは無い」と宣言する状態。2026-08-23 まで実際に"
+            "そうなっており、静的 discovery しかしない agent はツールの存在を知りようがなかった",
+    "file": ROOT / ".well-known" / "mcp.json",
+    "find": '"tools": true,',
+    "replace": '"tools": false,',
+},
+    {
+    "name": "Check 447 (制約列挙の正典一致): C6 を列挙から落とす —— エージェントはこの prompt を "
+            "展開して監査するので、名前が欠けると**存在しない制約セットを監査する**。"
+            "2026-08-23 まで実際に C5/C6/C7 が欠落していた (範囲の表記だけ更新され中身が古いまま)",
+    "file": ROOT / ".well-known" / "mcp.json",
+    "find": "C6 AIO Integrity / ",
+    "replace": "",
+},
 ]
