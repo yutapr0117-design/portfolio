@@ -1,0 +1,750 @@
+> 
+> ----- Messaggio originale -----
+> > Da: "Rigo Wenning" <rigo at w3.org>
+> > A: "license-review at lists.opensource.org"
+> > <license-review at lists.opensource.org>
+> > Inviato: Gioved?, 18 aprile 2024 19:42:18
+> > Oggetto: [License-review] Request for approval of the updated W3C
+> > Software license
+> 
+> > Hello,
+> >
+> > W3C has registered its Software Notice and License with OSI. OSI
+> > approved the 2015 version of the license on November 29, 2017.
+> >
+> > https://opensource.org/license/w3c
+> >
+> > On 2023-01-01, W3C changed its underlying structure and legal status.
+> > This affects the wording of the license registered with OSI.
+> >
+> > W3C updated the 2015 Software license with the necessary legal
+> > information and created the 2023 Software license.
+> >
+> > The main change is in the copyright notice. There is no change in the
+> > legal text, except for the attribution to the new legal entity moving
+> > from W3C hosts to the new W3C legal entity.
+> >
+> > The new license can be seen online here:
+> >
+> > https://www.w3.org/copyright/software-license-2023/
+> >
+> > and attached as text version.
+> >
+> > Asserting that, like the 2015 version, the 2023 version of the W3C
+> > Software license continues to comply with the Open Source Definition.
+> > Especially it continues to comply OSD principle 3 by allowing for
+> > derivative works, principle 5 and 6 by avoiding all discriminations
+> > and principle 9 as it does not affect combinability.
+> >
+> > W3C therefore humbly requests the approval of the 2023 version of the
+> > W3C Software license by OSI and the update of the license stored in
+> >
+> > https://opensource.org/license/w3c
+> >
+> > Yours sincerely
+> >
+> >  --
+> >  Rechtsanwalt Rigo Wenning
+> >  ERCIM/W3C Legal counsel
+> >
+> >
+> > _______________________________________________
+> > The opinions expressed in this email are those of the sender and not
+> > necessarily those of the Open Source Initiative. Communication from
+> > the Open Source Initiative will be sent from an opensource.org email address.
+> >
+> > License-review mailing list
+> > License-review at lists.opensource.org
+> > http://lists.opensource.org/mailman/listinfo/license-review_lists.open
+> > source.org
+> 
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily
+> those of the Open Source Initiative. Communication from the Open Source
+> Initiative will be sent from an opensource.org email address.
+> 
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-
+> review_lists.opensource.org
+
+
+
+From carlo at piana.eu  Mon Apr 22 08:53:55 2024
+From: carlo at piana.eu (Carlo Piana)
+Date: Mon, 22 Apr 2024 10:53:55 +0200 (CEST)
+Subject: [License-review] Request for approval of the updated W3C Software license
+In-Reply-To: <06fd01da9413$94d50990$be7f1cb0$@lexpan.law>
+References: <5ced66ba-1ee3-485e-a39c-80b35226e5cd@w3.org> <1380182666.41125.1713610234521.JavaMail.zimbra@piana.eu> <06fd01da9413$94d50990$be7f1cb0$@lexpan.law>
+Message-ID: <103445098.332457.1713776035244.JavaMail.zimbra@piana.eu>
+
+McCoy,
+
+this is precisely the very point I have been discussing during the prior round of approval of the now superseded version. I wasn't pleased by it then, I am not now, and the rationale I (I don't remember other criticism being voiced, but I might just be wrong) was given was not satisfactory.
+
+IMHO the steward of the license should at least provide a clear interpretation upon which we could somewhat rely.
+
+
+All the best,
+
+Carlo
+
+
+----- Messaggio originale -----
+> Da: "McCoy Smith" <mccoy at lexpan.law>
+> A: "License submissions for OSI review" <license-review at lists.opensource.org>
+> Inviato: Domenica, 21 aprile 2024 19:44:37
+> Oggetto: Re: [License-review] Request for approval of the updated W3C Software license
+
+> The part about this that gives me pause is that it appears to contemplate
+> licensors adding non-removable IP disclaimers ("Any pre-existing intellectual
+> property disclaimers" must be preserved). Given that the W3C patent policy,
+> although royalty-free, allows participants to exclude out patents (see W3C
+> patent policy, Sec 4), this provision would seem to allow licensors to exclude
+> out some or all of their patents that are infringed by the licensed code. Which
+> would allow this license to include disclaimers that would make it violative of
+> OSD 1.
+> I'd suggest that the Board consider whether this provision (which exists also in
+> the old, previously approved, version) might be violative of the OSD. Perhaps
+> the text itself (a variant of MIT) provides enough patent protection even if a
+> W3C member opts out its patents to a specification, but I'm not sure it makes
+> sense to have an approved license that allows for add-on IP disclaimers around
+> copyright or patent.
+> 
+>> -----Original Message-----
+>> From: License-review <license-review-bounces at lists.opensource.org> On
+>> Behalf Of Carlo Piana
+>> Sent: Saturday, April 20, 2024 3:51 AM
+>> To: License submissions for OSI review <license-review at lists.opensource.org>
+>> Subject: Re: [License-review] Request for approval of the updated W3C
+>> Software license
+>> 
+>> Dear Mr. Wenning,
+>> 
+>> thank you for your submission. I am replying in my personal capacity of Open
+>> Source lawyer, without any of my statements and opinions meant or be
+>> construed as an official position of OSI in any manner.
+>> 
+>> I have in the past expressed some reservations as to how the license, in its
+>> previous incarnations, is drafted, but since it has been approved and it has not
+>> been substantially changed, I will defer to the previous evaluation and will not
+>> reopen the discussion.
+>> 
+>> On a general note, and building from the experience of retrospectively
+>> reviewing all the previously approved licenses, I note some points that I submit
+>> to you and to all future drafters of similar licenses.
+>> 
+>> This license seems conceived more as a one-off license that a contributor to a
+>> standard should prepare when a reference implementation is submitted.
+>> However, an Open Source license in my reading should be conceived to be used
+>> and easily implemented in all subsequent modifications and combinations. I
+>> will suggest here after a few possible doubts that a downstream developer
+>> could have.
+>> 
+>> - First bullet. "The full text of this NOTICE". What is the "notice" part of the
+>> license? The entirety?
+>> - Second bullet. Someone getting the software and wanting to reuse may be
+>> confused, not understanding what is the document you refer to, which is not
+>> defined.
+>> - Third bullet. It refers to a "W3C document", but why, since this is a software
+>> license? Maybe you will put a clarification note as to where you host the
+>> document and what it is meant to be. This clarification should be available
+>> irrespective of the availability of the web resources, including by OSI public
+>> repository of licenses. All licenses should be as much as possible
+>> self-contained
+>> and self-sufficient.
+>> - Disclaimers. This does not raise particular concerns, but may I point out that
+>> the disclaimer only benefits copyright holders and not all who distribute,
+>> promote the software as is and could be left out in the cold? By contrast, the
+>> GPLv3 license provides "...OR ANY OTHER PARTY WHO MODIFIES AND/OR
+>> CONVEYS THE PROGRAM AS PERMITTED ABOVE".
+>> 
+>> Again, this is not meant to raise any objection, or to imply criticism to the
+>> drafting, but as a general remark to any who would like to create a new Open
+>> Source license.
+>> 
+>> All the best,
+>> 
+>> Carlo
+>> 
+>> 
+>> 
+>> 
+>> ----- Messaggio originale -----
+>> > Da: "Rigo Wenning" <rigo at w3.org>
+>> > A: "license-review at lists.opensource.org"
+>> > <license-review at lists.opensource.org>
+>> > Inviato: Gioved?, 18 aprile 2024 19:42:18
+>> > Oggetto: [License-review] Request for approval of the updated W3C
+>> > Software license
+>> 
+>> > Hello,
+>> >
+>> > W3C has registered its Software Notice and License with OSI. OSI
+>> > approved the 2015 version of the license on November 29, 2017.
+>> >
+>> > https://opensource.org/license/w3c
+>> >
+>> > On 2023-01-01, W3C changed its underlying structure and legal status.
+>> > This affects the wording of the license registered with OSI.
+>> >
+>> > W3C updated the 2015 Software license with the necessary legal
+>> > information and created the 2023 Software license.
+>> >
+>> > The main change is in the copyright notice. There is no change in the
+>> > legal text, except for the attribution to the new legal entity moving
+>> > from W3C hosts to the new W3C legal entity.
+>> >
+>> > The new license can be seen online here:
+>> >
+>> > https://www.w3.org/copyright/software-license-2023/
+>> >
+>> > and attached as text version.
+>> >
+>> > Asserting that, like the 2015 version, the 2023 version of the W3C
+>> > Software license continues to comply with the Open Source Definition.
+>> > Especially it continues to comply OSD principle 3 by allowing for
+>> > derivative works, principle 5 and 6 by avoiding all discriminations
+>> > and principle 9 as it does not affect combinability.
+>> >
+>> > W3C therefore humbly requests the approval of the 2023 version of the
+>> > W3C Software license by OSI and the update of the license stored in
+>> >
+>> > https://opensource.org/license/w3c
+>> >
+>> > Yours sincerely
+>> >
+>> >  --
+>> >  Rechtsanwalt Rigo Wenning
+>> >  ERCIM/W3C Legal counsel
+>> >
+>> >
+>> > _______________________________________________
+>> > The opinions expressed in this email are those of the sender and not
+>> > necessarily those of the Open Source Initiative. Communication from
+>> > the Open Source Initiative will be sent from an opensource.org email address.
+>> >
+>> > License-review mailing list
+>> > License-review at lists.opensource.org
+>> > http://lists.opensource.org/mailman/listinfo/license-review_lists.open
+>> > source.org
+>> 
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not necessarily
+>> those of the Open Source Initiative. Communication from the Open Source
+>> Initiative will be sent from an opensource.org email address.
+>> 
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-
+>> review_lists.opensource.org
+> 
+> 
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily
+> those of the Open Source Initiative. Communication from the Open Source
+> Initiative will be sent from an opensource.org email address.
+> 
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+From carlo at piana.eu  Mon Apr 22 08:55:00 2024
+From: carlo at piana.eu (Carlo Piana)
+Date: Mon, 22 Apr 2024 10:55:00 +0200 (CEST)
+Subject: [License-review] Request for approval of the updated W3C Software license
+In-Reply-To: <06fd01da9413$94d50990$be7f1cb0$@lexpan.law>
+References: <5ced66ba-1ee3-485e-a39c-80b35226e5cd@w3.org> <1380182666.41125.1713610234521.JavaMail.zimbra@piana.eu> <06fd01da9413$94d50990$be7f1cb0$@lexpan.law>
+Message-ID: <1316351137.332909.1713776100077.JavaMail.zimbra@piana.eu>
+
+McCoy,
+
+this is precisely the very point I have been discussing during the prior round of approval of the now superseded version. I wasn't pleased by it then, I am not now, and the rationale I (I don't remember other criticism being voiced, but I might just be wrong) was given was not satisfactory.
+
+IMHO the steward of the license should at least provide a clear interpretation upon which we could somewhat rely.
+
+
+All the best,
+
+Carlo
+
+
+----- Messaggio originale -----
+> Da: "McCoy Smith" <mccoy at lexpan.law>
+> A: "License submissions for OSI review" <license-review at lists.opensource.org>
+> Inviato: Domenica, 21 aprile 2024 19:44:37
+> Oggetto: Re: [License-review] Request for approval of the updated W3C Software license
+
+> The part about this that gives me pause is that it appears to contemplate
+> licensors adding non-removable IP disclaimers ("Any pre-existing intellectual
+> property disclaimers" must be preserved). Given that the W3C patent policy,
+> although royalty-free, allows participants to exclude out patents (see W3C
+> patent policy, Sec 4), this provision would seem to allow licensors to exclude
+> out some or all of their patents that are infringed by the licensed code. Which
+> would allow this license to include disclaimers that would make it violative of
+> OSD 1.
+> I'd suggest that the Board consider whether this provision (which exists also in
+> the old, previously approved, version) might be violative of the OSD. Perhaps
+> the text itself (a variant of MIT) provides enough patent protection even if a
+> W3C member opts out its patents to a specification, but I'm not sure it makes
+> sense to have an approved license that allows for add-on IP disclaimers around
+> copyright or patent.
+> 
+>> -----Original Message-----
+>> From: License-review <license-review-bounces at lists.opensource.org> On
+>> Behalf Of Carlo Piana
+>> Sent: Saturday, April 20, 2024 3:51 AM
+>> To: License submissions for OSI review <license-review at lists.opensource.org>
+>> Subject: Re: [License-review] Request for approval of the updated W3C
+>> Software license
+>> 
+>> Dear Mr. Wenning,
+>> 
+>> thank you for your submission. I am replying in my personal capacity of Open
+>> Source lawyer, without any of my statements and opinions meant or be
+>> construed as an official position of OSI in any manner.
+>> 
+>> I have in the past expressed some reservations as to how the license, in its
+>> previous incarnations, is drafted, but since it has been approved and it has not
+>> been substantially changed, I will defer to the previous evaluation and will not
+>> reopen the discussion.
+>> 
+>> On a general note, and building from the experience of retrospectively
+>> reviewing all the previously approved licenses, I note some points that I submit
+>> to you and to all future drafters of similar licenses.
+>> 
+>> This license seems conceived more as a one-off license that a contributor to a
+>> standard should prepare when a reference implementation is submitted.
+>> However, an Open Source license in my reading should be conceived to be used
+>> and easily implemented in all subsequent modifications and combinations. I
+>> will suggest here after a few possible doubts that a downstream developer
+>> could have.
+>> 
+>> - First bullet. "The full text of this NOTICE". What is the "notice" part of the
+>> license? The entirety?
+>> - Second bullet. Someone getting the software and wanting to reuse may be
+>> confused, not understanding what is the document you refer to, which is not
+>> defined.
+>> - Third bullet. It refers to a "W3C document", but why, since this is a software
+>> license? Maybe you will put a clarification note as to where you host the
+>> document and what it is meant to be. This clarification should be available
+>> irrespective of the availability of the web resources, including by OSI public
+>> repository of licenses. All licenses should be as much as possible
+>> self-contained
+>> and self-sufficient.
+>> - Disclaimers. This does not raise particular concerns, but may I point out that
+>> the disclaimer only benefits copyright holders and not all who distribute,
+>> promote the software as is and could be left out in the cold? By contrast, the
+>> GPLv3 license provides "...OR ANY OTHER PARTY WHO MODIFIES AND/OR
+>> CONVEYS THE PROGRAM AS PERMITTED ABOVE".
+>> 
+>> Again, this is not meant to raise any objection, or to imply criticism to the
+>> drafting, but as a general remark to any who would like to create a new Open
+>> Source license.
+>> 
+>> All the best,
+>> 
+>> Carlo
+>> 
+>> 
+>> 
+>> 
+>> ----- Messaggio originale -----
+>> > Da: "Rigo Wenning" <rigo at w3.org>
+>> > A: "license-review at lists.opensource.org"
+>> > <license-review at lists.opensource.org>
+>> > Inviato: Gioved?, 18 aprile 2024 19:42:18
+>> > Oggetto: [License-review] Request for approval of the updated W3C
+>> > Software license
+>> 
+>> > Hello,
+>> >
+>> > W3C has registered its Software Notice and License with OSI. OSI
+>> > approved the 2015 version of the license on November 29, 2017.
+>> >
+>> > https://opensource.org/license/w3c
+>> >
+>> > On 2023-01-01, W3C changed its underlying structure and legal status.
+>> > This affects the wording of the license registered with OSI.
+>> >
+>> > W3C updated the 2015 Software license with the necessary legal
+>> > information and created the 2023 Software license.
+>> >
+>> > The main change is in the copyright notice. There is no change in the
+>> > legal text, except for the attribution to the new legal entity moving
+>> > from W3C hosts to the new W3C legal entity.
+>> >
+>> > The new license can be seen online here:
+>> >
+>> > https://www.w3.org/copyright/software-license-2023/
+>> >
+>> > and attached as text version.
+>> >
+>> > Asserting that, like the 2015 version, the 2023 version of the W3C
+>> > Software license continues to comply with the Open Source Definition.
+>> > Especially it continues to comply OSD principle 3 by allowing for
+>> > derivative works, principle 5 and 6 by avoiding all discriminations
+>> > and principle 9 as it does not affect combinability.
+>> >
+>> > W3C therefore humbly requests the approval of the 2023 version of the
+>> > W3C Software license by OSI and the update of the license stored in
+>> >
+>> > https://opensource.org/license/w3c
+>> >
+>> > Yours sincerely
+>> >
+>> >  --
+>> >  Rechtsanwalt Rigo Wenning
+>> >  ERCIM/W3C Legal counsel
+>> >
+>> >
+>> > _______________________________________________
+>> > The opinions expressed in this email are those of the sender and not
+>> > necessarily those of the Open Source Initiative. Communication from
+>> > the Open Source Initiative will be sent from an opensource.org email address.
+>> >
+>> > License-review mailing list
+>> > License-review at lists.opensource.org
+>> > http://lists.opensource.org/mailman/listinfo/license-review_lists.open
+>> > source.org
+>> 
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not necessarily
+>> those of the Open Source Initiative. Communication from the Open Source
+>> Initiative will be sent from an opensource.org email address.
+>> 
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-
+>> review_lists.opensource.org
+> 
+> 
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily
+> those of the Open Source Initiative. Communication from the Open Source
+> Initiative will be sent from an opensource.org email address.
+> 
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+From rigo at w3.org  Tue Apr 23 11:15:48 2024
+From: rigo at w3.org (Rigo Wenning)
+Date: Tue, 23 Apr 2024 13:15:48 +0200
+Subject: [License-review] Request for approval of the updated W3C Software license
+In-Reply-To: <1380182666.41125.1713610234521.JavaMail.zimbra@piana.eu>
+References: <5ced66ba-1ee3-485e-a39c-80b35226e5cd@w3.org> <1380182666.41125.1713610234521.JavaMail.zimbra@piana.eu>
+Message-ID: <94b0c30b-60cd-4de6-9e9a-003511f4383d@w3.org>
+
+Dear Mr. Piana
+
+On 2024-04-20 12:50:34, Carlo Piana wrote:
+> thank you for your submission. I am replying in my personal capacity of Open Source lawyer, without any of my statements and opinions meant or be construed as an official position of OSI in any manner.
+> 
+> I have in the past expressed some reservations as to how the license, in its previous incarnations, is drafted, but since it has been approved and it has not been substantially changed, I will defer to the previous evaluation and will not reopen the discussion.
+
+Thank you. In fact, only the copyright holder in W3C changes because of 
+organizational changes. The license itself does not change at all.
+
+I nevertheless take the opportunity to respond to your very interesting 
+questions.
+> 
+> On a general note, and building from the experience of retrospectively reviewing all the previously approved licenses, I note some points that I submit to you and to all future drafters of similar licenses.
+> 
+> This license seems conceived more as a one-off license that a contributor to a standard should prepare when a reference implementation is submitted. However, an Open Source license in my reading should be conceived to be used and easily implemented in all subsequent modifications and combinations. I will suggest here after a few possible doubts that a downstream developer could have.
+
+W3C standards serve a large variety of stakeholders. The license 
+submitted is a very old license that was crafted in 1998. The only 
+adaptation so far was to also enable the application to standards work 
+to allow for more liberty.
+
+So in fact, the license just restricts the use (and abuse) of the the 
+W3C name (inherited from the MIT license that served as a template). It 
+is used in a large variety of contexts, for software produced by the 
+W3C, for contributions to test cases, even for W3C Specifications.
+> 
+> - First bullet. "The full text of this NOTICE". What is the "notice" part of the license? The entirety?
+
+Historically, the main target of the obligation to carry the Notice was 
+to carry the disclaimer. The second target was the affiliation. So 
+"NOTICE" in our reading means the 3 bullet points plus the disclaimer. 
+But I note the difficulty. There is no chance I could just iterate here, 
+but I may come back once a clarification has been pushed through the 
+relevant committees. We know about the difficulties to produce the 
+disclaimer in certain situations. Note though, that the short notice in 
+the second bullet gives in indication.
+
+> - Second bullet. Someone getting the software and wanting to reuse may be confused, not understanding what is the document you refer to, which is not defined.
+
+The technique used is web (of course). A document on the W3C website 
+makes explicit reference to that license to indicate that this license 
+applies. This document may e.g. use other licenses in part. In that 
+case, this is a reminder not to forget those other required notices. The 
+relation between License and Document/Software is fixed in the URI used 
+on the document that wants the W3C Software License to be applied to it.
+
+
+> - Third bullet. It refers to a "W3C document", but why, since this is a software license? Maybe you will put a clarification note as to where you host the document and what it is meant to be. This clarification should be available irrespective of the availability of the web resources, including by OSI public repository of licenses. All licenses should be as much as possible self-contained and self-sufficient.
+
+W3C has two licenses: A document license on certain recommendations and 
+the software license. The naming was adapted when people claimed that 
+one couldn't apply that license to documents. Because W3C applies the 
+submitted license to software and documents alike. This is done, when 
+W3C wants to produce forkable documents, or forkable tests, or forkable 
+software.
+
+> - Disclaimers. This does not raise particular concerns, but may I point out that the disclaimer only benefits copyright holders and not all who distribute, promote the software as is and could be left out in the cold? By contrast, the GPLv3 license provides "...OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS THE PROGRAM AS PERMITTED ABOVE".
+
+Yes, this is inherited from the MIT License and was one of the 
+conditions for W3C to be able to distribute software and documents that 
+were produced as part of the Web development. Note that this was 
+inherited from the X-Consortium that produced reference code and did not 
+want to be liable for that reference code.
+
+A developer is free to add their own additional disclaimer, if they want.
+> 
+> Again, this is not meant to raise any objection, or to imply criticism to the drafting, but as a general remark to any who would like to create a new Open Source license.
+
+Thank you for the remarks. As a standardisation organisation, W3C is 
+rather a special case with particular needs and practices. I noted down 
+some of your suggestions in case I'm around  for future modifications.
+
+Best regards
+ -- Rechtsanwalt Rigo Wenning ERCIM/W3C Legal counsel
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: OpenPGP_signature.asc
+Type: application/pgp-signature
+Size: 840 bytes
+Desc: OpenPGP digital signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20240423/0ce2f358/attachment.asc>
+
+From rigo at w3.org  Tue Apr 23 13:04:27 2024
+From: rigo at w3.org (Rigo Wenning)
+Date: Tue, 23 Apr 2024 15:04:27 +0200
+Subject: [License-review] Request for approval of the updated W3C Software license
+In-Reply-To: <06fd01da9413$94d50990$be7f1cb0$@lexpan.law>
+References: <5ced66ba-1ee3-485e-a39c-80b35226e5cd@w3.org> <1380182666.41125.1713610234521.JavaMail.zimbra@piana.eu> <06fd01da9413$94d50990$be7f1cb0$@lexpan.law>
+Message-ID: <507a77db-98de-4989-852c-3bd612796cc0@w3.org>
+
+Dear Mr. Smith,
+
+On 2024-04-21 19:44:37, McCoy Smith wrote:
+> The part about this that gives me pause is that it appears to contemplate licensors adding non-removable IP disclaimers ("Any pre-existing intellectual property disclaimers" must be preserved). 
+
+As I said already in the other reply, if works are amalgamated and only 
+partly under this W3C license, it is IMHO required to have those other 
+notices & disclaimers too. This is also due to the technique of 
+application of that license: By putting a link to the W3C Software 
+License from the work in question, the license applies to that work. But 
+of course those are only W3C practices and others may apply the license 
+with other means. In the case of W3C practices, the sentence clarifies 
+that the W3C does not want to replace other pre-existing rights.
+
+Given that the W3C patent policy, although royalty-free, allows 
+participants to exclude out patents (see W3C patent policy, Sec 4), this 
+provision would seem to allow licensors to exclude out some or all of 
+their patents that are infringed by the licensed code. Which would allow 
+this license to include disclaimers that would make it violative of OSD 1.
+
+There is a strict distinction between the copyright on works and the 
+patent policy with respect to W3C Recommendations. They are entirely 
+distinct. The W3C Software license does not contain any patent 
+provisions. If we have works where the community wants to combine 
+copyright licensing and patent protections on certain reference software 
+e.g., I normally recommend one of the more modern OSI Licenses.
+
+But this is distinct from claiming a patent on a W3C Recommendation. If 
+a patent is excluded from a W3C Recommendation, the Exception Handling 
+of ? 7 of the Patent Policy[1] applies. I've done myself a dozen of 
+those exception procedures. To date, there is no Recommendation of W3C 
+that has known patent issues and that did not go through the exception 
+procedure. So far W3C has never accepted a patent in a W3C 
+Recommendation. We either killed the patent or designed around it.
+
+In consequence it means that an open source implementation of a W3C 
+Recommendation is protected by this procedure. But if the open source 
+implementation features functionality beyond the W3C Recommendation, the 
+W3C Patent Policy does not apply anymore (see No.3 of ? 5).
+
+The W3C Software license is not at all concerned with this system. For 
+documents it is not needed and for Software, the patent concerns are out 
+of scope for this (old) license.
+
+> I'd suggest that the Board consider whether this provision (which exists also in the old, previously approved, version) might be violative of the OSD. Perhaps the text itself (a variant of MIT) provides enough patent protection even if a W3C member opts out its patents to a specification, but I'm not sure it makes sense to have an approved license that allows for add-on IP disclaimers around copyright or patent.
+
+Again, a Working Group Member being able to opt out of their W3C patent 
+commitments is unrelated to the license. And only because someone opted 
+out of their W3C Working Group participant patent commitments does not 
+mean that there are no mechanics to mediate the situation.
+
+Note that only people that are members of a given W3C Working Group make 
+patent commitments. The patent commitments made in W3C are independent 
+of any license. They apply on W3C Recommendation features for works 
+under all types of licenses, OSI or proprietary.
+
+1.https://www.w3.org/Consortium/Patent-Policy/
+
+Best regards
+ -- Rechtsanwalt Rigo Wenning ERCIM/W3C Legal counsel
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: OpenPGP_signature.asc
+Type: application/pgp-signature
+Size: 840 bytes
+Desc: OpenPGP digital signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20240423/719f23b4/attachment.asc>
+
+From pamela.chestek at opensource.org  Tue Aug 13 01:17:42 2024
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Mon, 12 Aug 2024 18:17:42 -0700
+Subject: [License-review] Request for approval of the updated W3C Software license
+In-Reply-To: <5ced66ba-1ee3-485e-a39c-80b35226e5cd@w3.org>
+References: <5ced66ba-1ee3-485e-a39c-80b35226e5cd@w3.org>
+Message-ID: <482a56a1-1b69-460b-a264-5d9c5e28146c@opensource.org>
+
+Below is the recommendation of the License Committee on the W3C license, 
+which is /"Resolved that it is the opinion of the OSI that the W3C 
+Software and Document license - 2023 version is not a new license. The 
+text on the OSI website will be modified to reflect that the license has 
+alternative text for the names of the copyright owners."/
+ ?The next Board meeting is Friday, August 16, when I expect the Board 
+will vote on the recommendation.
+
+Pam
+
+====================
+
+License: W3C Software and Document license - 2023 version (Exhibit A)
+Submitted: 18 April 2024, 
+https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2024-April/005464.html
+Decision date: due no later than the first Board meeting after 18 June 2024
+
+*License Review Committee Recommendation: *
+
+Resolved that it is the opinion of the OSI that the W3C Software and 
+Document license - 2023 version is not a new license. The text on the 
+OSI website will be modified to reflect that the license has alternative 
+text for the names of the copyright owners."
+
+Rationale Document
+
+The license-review list criticized this license here and here for its 
+reference to external documents (?Permission to copy ? provided that you 
+include the following on ALL copies of the work or portions thereof, 
+including modifications: Any pre-existing intellectual property 
+disclaimers, notices, or terms and conditions?) that might add 
+unacceptable limitations, including the withholding of patent licenses. 
+However, this license was approved in 2017, despite the objections also 
+being voiced then.
+
+SPDX, which has established standards for determining when changes to a 
+license create a new version, said ?In 2023, W3C made minor 
+modifications to this license as of Jan 1, 2023?. However, those changes 
+did not give rise to a new license under the SPDX Matching Guidelines, 
+thus the same id can be used.?
+
+In order to maintain consistency with OSI?s past decisions and with SPDX 
+(thus also avoiding the challenge of having an OSI-approved license that 
+would not have a unique SPDX identifier), the OSI will also consider 
+this license the same license as the 2015 version and an OSI-approved 
+license.
+
+Exhibit A
+
+Software and Document license - 2023 version
+
+Status: This document is in effect since 1 January 2023.
+????????????????????????????????????????
+This work is being provided by the copyright holders under the following
+license.
+
+License
+
+By obtaining and/or copying this work, you (the licensee) agree that you 
+have read, understood, and will comply with the following terms and 
+conditions.
+
+Permission to copy, modify, and distribute this work, with or without 
+modification, for any purpose and without fee or royalty is hereby 
+granted, provided that you include the following on ALL copies of the 
+work or portions thereof, including modifications:
+ ? ? The full text of this NOTICE in a location viewable to users of the 
+redistributed or derivative work. ? ? Any pre-existing intellectual property disclaimers, notices, or 
+terms and conditions. If none exist, the W3C software and document short 
+notice should be included. ? ? Notice of any changes or modifications, through a copyright 
+statement on the new code or document such as "This software or document 
+includes material copied from or derived from [title and URI of the W3C 
+document]. Copyright ? [$year-of-document] World Wide Web Consortium. 
+https://www.w3.org/copyright/software-license-2023/"
+
+Disclaimers
+
+THIS WORK IS PROVIDED "AS IS," AND COPYRIGHT HOLDERS MAKE NO 
+REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT 
+LIMITED TO, WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR 
+PURPOSE OR THAT THE USE OF THE SOFTWARE OR DOCUMENT WILL NOT INFRINGE 
+ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+
+COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL 
+OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE SOFTWARE OR DOCUMENT.
+
+The name and trademarks of copyright holders may NOT be used in 
+advertising or
+publicity pertaining to the work without specific, written prior 
+permission. Title to copyright in this work will at all times remain 
+with copyright holders.
+
+Versions
+ ? ? This version: https://www.w3.org/copyright/software-license-2023/ ? ? Latest version: https://www.w3.org/copyright/software-license/ ? ? Previous version: https://www.w3.org/copyright/software-license-2015/
+
+Changes since the previous document
+ ? ? The 2023 version updates identification of the copyright holder.
+
+On 4/18/2024 10:42 AM, Rigo Wenning wrote:
+> Hello,
+>
+> W3C has registered its Software Notice and License with OSI. OSI 
+> approved the 2015 version of the license on November 29, 2017.
+>
+> https://opensource.org/license/w3c
+>
+> On 2023-01-01, W3C changed its underlying structure and legal status. 
+> This affects the wording of the license registered with OSI.
+>
+> W3C updated the 2015 Software license with the necessary legal 
+> information and created the 2023 Software license.
+>
+> The main change is in the copyright notice. There is no change in the 
+> legal text, except for the attribution to the new legal entity moving 
+> from W3C hosts to the new W3C legal entity.
+>
+> The new license can be seen online here:
+>
+> https://www.w3.org/copyright/software-license-2023/
+>
+> and attached as text version.
+>
+> Asserting that, like the 2015 version, the 2023 version of the W3C 
+> Software license continues to comply with the Open Source Definition. 
+> Especially it continues to comply OSD principle 3 by allowing for 
+> derivative works, principle 5 and 6 by avoiding all discriminations 
+> and principle 9 as it does not affect combinability.
+>
+> W3C therefore humbly requests the approval of the 2023 version of the 
+> W3C Software license by OSI and the update of the license stored in
+>
+> https://opensource.org/license/w3c
+>
+> Yours sincerely
+>
+> ?--
+> ?Rechtsanwalt Rigo Wenning
+> ?ERCIM/W3C Legal counsel
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>

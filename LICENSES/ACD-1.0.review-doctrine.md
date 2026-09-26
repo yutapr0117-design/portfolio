@@ -252,3 +252,152 @@ another way to say these things about patents.**"*
 **学習済みモデルと出力に届かない**。届かないことを示せなければ、§8.4 は
 「特許について言う、もう一つの言い方」である。**この主張は本ドシエに既に在るが、
 反対の形に名前がついたのは 2026-09-25 が初めてである。**
+
+## 1.111 OSD の起草者本人が「OSD は著作権・人格権・特許を区別しない」と述べている —— MXM Public License（2009・不承認）（2026-09-25）
+
+一次資料は `rounds/2009-04-license-review-mxm-public-license-observed-*.txt`（59 通・4 部）。
+**提出したのは Carlo Piana 氏で、ISO/IEC の MPEG Working Group を代理している。**
+**そして氏が 2023 年に、我々の論点の先例として自分のこの提出を名指ししている** ——
+*"we have in the past discussed many times (see discussion of CC0 or **the MXM license** or the
+W3C license) pure copyright licenses excluding all other rights"*（`against.md` #238）。
+
+### 何が提出されたか
+
+MPL を改変し、**特許条項を外した**もの。提出文はその理由を隠していない ——
+*"none of the contributors would have accepted to encapsulate their patents in a FOSS license
+without the ability to ask for a license separately from the copyright."*
+
+### 起草者本人の発言（本節の中心）
+
+Bruce Perens 氏 2009-04-14 ——
+
+> *"I am the creator of the Open Source Definition, and thus can shed some light on the parts that
+> might be seen as ambiguous. ... **The OSD does not distinguish between copyright, moral rights,
+> patents, contract restriction, or any other means of restricting what someone can do with
+> software. It applies equally to all of those.** And thus I believe that your proposed license,
+> by making explicit that patent rights are not granted for a large class of binary derivatives of
+> the program, violates **most of the OSD rules, not just rule number 7**."*
+
+**これは `against.md` #236 が集めた「OSD は明示的な特許許諾を要求していない」という 4〜6 人の
+読みに対する、最も強い反対である** ——しかも**その文書を書いた本人**から出ている。
+
+**同じ趣旨を、別の人が別の角度から述べている。** Matthew Flaschen 氏 2009-04-08 ——
+*"No provision of the OSD **explicitly** requires any specific grant of intellectual property.
+There is no mention of copyright, patent, or trademark in the OSD. **So saying, the OSD doesn't
+require patent grants makes no sense. It doesn't require copyright license grants explicitly
+either.** In practice, **both** copyright and patent rights must be granted in order to ensure the
+actions listed in the OSD are possible."*
+
+**この形の反論は、#236 の読みを「誤り」とは言わず「無意味」と言う** ——
+**OSD は著作権についても明示していないのだから、「明示していない ⇒ 要求していない」は
+どの権利についても成り立たない。**
+
+### どの条で切られたか —— OSD 7
+
+Russ Nelson 氏（当時 OSI）—— *"This license **obviously does not comply with the Open Source
+Definition's term #7**, Distribution of License."*
+Chuck Swiger 氏 —— OSD 7 の *"without the need for execution of an additional license by those
+parties"* を引き、*"suggests that the contributors don't really intend to open-source their stuff
+in the first place."* Lawrence Rosen 氏 —— *"the MXM Public License doesn't pass the OSD test."*
+
+**ACD-1.0 には当たらない** —— §8 が明示的に許諾し、§10.1 が条件を付けず、
+§8.2 が *"subject to no condition"* と述べる。**だが「どの条で切られるか」を知っているのと
+知らないのとでは、答え方が違う。**
+
+### CC0 を止めた "on notice" の議論は、2012 年ではなく 2009 年に始まっている
+
+Richard Fontana 氏 2009-04-08 —— *"this license clearly **puts the user on notice** that he/she may
+need to pay patent royalties to the copyright licensor for exercising rights that OSI-approved
+licences are supposed to provide."*
+
+**`comparison.md` §1.4 は、この反対を 2012 年の CC0 撤回理由として記録している。
+3 年早い同じ形が、同じリストに在った** ——**反対は CC0 に固有ではなく、類型に付いている。**
+
+### 起草者が示した「OSD に適合する代案」は、条件付きの特許許諾だった
+
+Perens 氏 —— *"You could, however, construct a license that is 1) fully compliant with the OSD and
+2) **grants patent rights only for derivative works under that license**, and 3) spoils the
+potential revenue stream from non-commercially-licensed derivatives as much as it can.
+For example, **a patent grant that applies only to software under the AGPL3 license** ..."*
+
+**⚠ これは `review-precedents.md` §1.108 と #235 の読みに緊張を与える。**
+そこでは **Intel の 2001 年 BSD+Patent が「GPL 系 OS に条件づけた特許許諾」を理由に OSD 3 / 6 / 8 で
+争われ、無条件にした 2016 年版が承認された**と記録した。
+**ここでは OSD の起草者が、ライセンスに条件づけた特許許諾を「OSD に完全に適合する」と述べている。**
+**両立しないわけではない**（2001 年に争われたのは *特定の OS 実装* への条件づけで、
+Perens 氏の案は *そのライセンスの下の派生物* への条件づけである）。
+**だが「無条件だから通った」と単純化してはならない。**
+**ACD-1.0 §8.2 が無条件であることは、依然として安全側の選択である。**
+
+### この節が establish しないこと
+
+**MXM は理事会の議決に至っていない** —— 記録に在るのはリスト上の評価と、
+**提出者自身による 2012 年の総括**（*"as MXM is a copyright-only license, and **this is why, in my
+recollection, it failed to be approved**"*・保存先は `2012-03-license-review-cc0-osd-patents-observed-*.txt`）
+である。**「不承認」と書くときは、この出典が提出者本人の回想であることを併記する。**
+
+## 1.112 特許について沈黙したライセンスは、反対を記録に残したまま承認されている —— W3C（2017）（2026-09-25）
+
+一次資料は `rounds/1999-2024-license-review-w3c-software-license-observed-*.txt`（72 通・7 部）。
+**Piana 氏が 2023 年に名指しした 3 件（CC0 / MXM / W3C）の最後の 1 件であり、
+3 件のうち唯一「承認された」ものである。**
+
+### 提出者は「著作権のみ」だと明言している
+
+Wendy Seltzer 氏（W3C 顧問弁護士）2017-08-09 ——
+*"**This is a copyright-only license. It makes no statement about the presence or absence of patent
+claims covering the licensed works.** Copyright and patent are distinct regimes, so I don't believe
+there's ambiguity in offering one without discussing the other."*
+
+### 反対は記録され、承認は止まらなかった
+
+Carlo Piana 氏 2017-08-11 —— *"If different rights insist on software, the owner of those rights
+who purports to give permission **must** give those permission under all the rights she may have,
+or the openness test would miserably fail. ... **A license which only gives copyright licenses but
+refuses to do so for patents is not an open source license in my and many others' opinion.**"*
+
+**しかし氏は保留を求めていない** —— 2017-08-16 *"I have acknowledged that the issue is of minimal
+importance in the context of this particular license ... and **I have not asked to withhold
+approval**. However, I still keep the point ... that the issue **whether an open source license can
+openly exclude patent rights from the grants and still be called 'open source' must be resolved**."*
+
+Nigel Tzeng 氏 —— *"**there is no red line for patents in the OSD.** Either get the necessary
+consensus to change the OSD or **stop debating this in every single Open Source license submission
+and holding them up**."* Lawrence Rosen 氏 —— *"This W3C copyright license is **the wrong
+battlefield** to argue about patents ... OSI should please approve it."*
+
+**Richard Fontana 氏が 2017-10-26 に承認を勧告し、2017-11-29 に承認された。**
+
+### なぜこれが #238 の 3 段構造を強めるのか
+
+**#238 は「沈黙は許され、明示的な除外は致命的で、明示的な許諾が実務の標準」と書いた。
+1 段目の根拠はそれまで「発言」だけだった。ここには承認がある** ——
+**同じ反対者（Piana 氏）が、沈黙には保留を求めず（W3C・2017）、
+明示的な除外には OSD 違反だと述べている（MXM・2009 / MulanOWL・2023）。**
+**1 人の中で線が引かれており、線の位置は「沈黙 / 除外」の境目にある。**
+
+**⚠ ただし Piana 氏の 2017 年の文は「未解決だ」と言っている。**
+**「沈黙は許される」は、争わないという運用であって、決着した規則ではない。**
+
+### 特許の除外が持ち出される条は、時期によって違う
+
+**OSD 7**（Nelson 氏 / Swiger 氏 / Rosen 氏・2009・MXM）/ **"most of the OSD rules"**
+（Perens 氏・2009・§1.111）/ **OSD 1**（McCoy Smith 氏・2024・W3C の IP disclaimer 条項について
+*"would allow this license to include disclaimers that would make it violative of OSD 1"*）。
+
+**ACD-1.0 はどれにも当たらない** —— §8 が明示的に許諾し、§8.2 が *"subject to no condition"*、
+§10.1 が条件を付けない。**だが提出文は OSD 3 / 5 / 6 / 9 しか名指ししていなかった**
+（review-process ページが求める 4 つ）。**記録上、特許まわりの反対が実際に持ち出される条は
+OSD 1 と OSD 7 である** ——**満たしている条を名指ししない理由が無いので、1 文足した**
+（`submission.md` §B.0）。
+
+### 25 年分を束ねたので、別の時代の事実も 1 つ入っている
+
+**2001 年、W3C の提出は 19 か月放置されていた**（2000-01 提出 → 2001-08 時点で未処理）。
+Russ Nelson 氏の答え —— *"Why isn't it approved? Because we got hideously backlogged. ...
+**if you want it approved, and you've submitted it and haven't heard from us, resubmit it.**"*
+
+**⚠ これを我々の沈黙への処方として読んではならない。** 2001 年の運用には moderation が無く、
+**我々の場合は moderator が「ACD-1.0 に関する further submissions の前に直接返信せよ」と
+求め、その後も投稿が通っていない**（B14 / `ACD-OSI-BOTTLENECKS-POSTING.md`）。
+**「再提出せよ」という処方が在ることと、我々がいま再提出できることは別である。**

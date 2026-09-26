@@ -1,0 +1,606 @@
+to implement the standard_, or do they simply wish to protect their 
+ability to charge royalties for other uses of the patents? In the W3C 
+patent process that Larry Rosen and I contributed to, there is a patent 
+grant only to the extent that the patent is used to implement the 
+standard. Other uses of the patent, including in the same software, need 
+not be royalty-free.
+ Thanks
+ Bruce
+
+
+
+From osi-review at piana.eu  Wed Apr 15 09:42:30 2009
+From: osi-review at piana.eu (Carlo Piana)
+Date: Wed, 15 Apr 2009 11:42:30 +0200
+Subject: [Fwd: Re: What would work instead of the MXM public license?]
+In-Reply-To: <49E5A4A4.9030001@perens.com>
+References: <49E5A121.9020605@perens.com> <49E5A4A4.9030001@perens.com>
+Message-ID: <49E5AC06.4070005@piana.eu>
+
+Bruce Perens ha scritto:
+>
+>> The point is that a strong copyleft license has many
+>> downsides in the standardization process, because the reference code
+>> cannot be put into a proprietary derivative as mandated by the
+>> neutrality of the standard making process.
+> This is why I suggested that you dual-license the reference code.
+
+The dual licensing is quite complicated to manage, we are speaking of a
+variety of patent holders and copyright holders, not necessarily the
+same set includes both. ISO/IEC does not want to interfere on this, just
+to set the minimal rules. But I can surely investigate if this is an
+opportunity.
+
+
+>> The same neutrality that
+>> would vouch for mandating a zero royalty RAND conditions,
+> It is reassuring to see that more national declarations, especially in
+> Europe, recognize that RF is a necessary component of an Open Standard.
+
+Indeed! EIN 2.0 is highly welcomed even by massive patent holders (see
+at http://www.ecis.eu).
+
+>
+> Are you able to further discuss the motivation of the contributors? Do
+> they really wish to gain a revenue from use of the patents _as
+> exercised to implement the standard_, or do they simply wish to
+> protect their ability to charge royalties for other uses of the
+> patents? In the W3C patent process that Larry Rosen and I contributed
+> to, there is a patent grant only to the extent that the patent is used
+> to implement the standard. Other uses of the patent, including in the
+> same software, need not be royalty-free.
+
+>From my experience in licensing MPEG 2 and 4 parts, they actually charge
+for implementations of the standard, through patent pooling. There is a
+not irrelevant revenue from this stream, as far as I can tell. Many of
+the contributors are also implementers as well as big market players in
+hardware and/or software; others -- like the Fraunhofer institute for
+Mp3 -- are just technology providers. Others have been relegated to very
+small market shares (or expelled from it) over the years, and survived
+only through the licensing stream (the Italian consumer electronic
+industry is quite an example). I am *not* directly advising any of them,
+though, as I assist their licensees. Actually, I have not even
+investigated who the members of WG11 currently are and who is an active
+party of the MXM standardization (apart from a couple of usual
+suspects), but being it an "open" process, they can vary.
+
+With best regards,
+
+Carlo
+
+========================
+Avv. Carlo Piana
+
+Piazza Castello 24 - 20121 Milan - Italy
+phone +39 02 72 00000 3
+fax +39 02 86 90 901
+http://law.piana.eu (firm)
+http://www.piana.eu (blog)
+http://identi.ca/carlopiana/all (microblog)
+email carlo at piana.eu
+
+**NEW** gpg/pgp public key: http://www.piana.eu/gpg
+Fingerprint 9046 9688 5465 DDF8 D712 4A7C 7F30 CB15 4580 F067
+#old key was revoked, please use the new one#
+
+Law is Freedom, and Freedom is all the rest.
+Protecting digital freedom, your rights!
+
+
+
+From nelson at crynwr.com  Wed Apr 15 14:24:25 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Wed, 15 Apr 2009 10:24:25 -0400
+Subject: [Fwd: Re: What would work instead of the MXM public license?]
+In-Reply-To: <49E5A121.9020605@perens.com>
+References: <49E5A121.9020605@perens.com>
+Message-ID: <18917.60953.912809.551604@desk.crynwr.com>
+
+Bruce Perens writes: > My view of the OSD, independently from the reading and the intentions of > the creator, is that the key point lies with the interpretation of rule #1. >  > a) If the conditions extend to all patents (but all patents of whom?),
+
+The licensor.  We have no control over third-party patents, so we have
+to ignore them.
+ > Actually, patent ridden software containing a lot of > code originally released under the BSD license is on the shelves,
+
+Innocent until proven guilty.
+ > The point is that it is not just the license that makes the software > "open source" (or Free Software), but a plethora of rights and technical > constraints, as the TiVo issue has exposed quite clearly. The license is > a pre-condition, but it is not sufficient.
+
+And the goal is not to merely have freely copyable software, but
+instead to have a strong community backing the software, with a
+pyramid consisting of a base of strong, supportive users who document
+their use, document the code, submit bugs, donate money, etc, a
+mid-stage of casual committers, and a peak of committed donors of
+code.
+
+So, no, a license is just a pre-condition.
+ > As per your suggestion to switch to a strong copyleft license, such as > the AGPL v.3, this was my initial suggestion ans I still sort of > advocate it. The point is that a strong copyleft license has many > downsides in the standardization process, because the reference code > cannot be put into a proprietary derivative as mandated by the > neutrality of the standard making process.
+
+No, but the copyright holder on the reference code can dual-license it.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Cloudmade supports http://openstreetmap.org/ 
+521 Pleasant Valley Rd. | +1 315-323-1241    
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From osi-review at piana.eu  Wed Apr 15 14:39:21 2009
+From: osi-review at piana.eu (Carlo Piana)
+Date: Wed, 15 Apr 2009 16:39:21 +0200
+Subject: [Fwd: Re: What would work instead of the MXM public license?]
+In-Reply-To: <18917.60953.912809.551604@desk.crynwr.com>
+References: <49E5A121.9020605@perens.com> <18917.60953.912809.551604@desk.crynwr.com>
+Message-ID: <49E5F199.9080307@piana.eu>
+
+Russ Nelson ha scritto:
+> Bruce Perens writes:
+>  > My view of the OSD, independently from the reading and the intentions of
+>  > the creator, is that the key point lies with the interpretation of rule #1.
+>  > 
+>  > a) If the conditions extend to all patents (but all patents of whom?),
+>
+> The licensor.  We have no control over third-party patents, so we have
+> to ignore them.
+>   
+
+Right!
+
+>  > Actually, patent ridden software containing a lot of
+>  > code originally released under the BSD license is on the shelves,
+>
+> Innocent until proven guilty.
+>   
+>  > The point is that it is not just the license that makes the software
+>  > "open source" (or Free Software), but a plethora of rights and technical
+>  > constraints, as the TiVo issue has exposed quite clearly. The license is
+>  > a pre-condition, but it is not sufficient.
+>
+> And the goal is not to merely have freely copyable software, but
+> instead to have a strong community backing the software, with a
+> pyramid consisting of a base of strong, supportive users who document
+> their use, document the code, submit bugs, donate money, etc, a
+> mid-stage of casual committers, and a peak of committed donors of
+> code.
+> So, no, a license is just a pre-condition.
+>   
+
+
+I was referring to the legal aspects. This list is good, but is entirely
+on the development side. If we speak about Freedom, this is entirely
+irrelevant (not in the general picture, just in our specific area of
+concentration).
+
+>  > As per your suggestion to switch to a strong copyleft license, such as
+>  > the AGPL v.3, this was my initial suggestion ans I still sort of
+>  > advocate it. The point is that a strong copyleft license has many
+>  > downsides in the standardization process, because the reference code
+>  > cannot be put into a proprietary derivative as mandated by the
+>  > neutrality of the standard making process.
+>
+> No, but the copyright holder on the reference code can dual-license it.
+>
+>   
+This does not help very much if the copyright holder is not the patent
+holder and vice versa. I think I have already tackled the issue of dual
+licensing.
+
+With best regards,
+
+Carlo
+
+
+
+
+From cowan at ccil.org  Wed Apr 15 14:47:48 2009
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 15 Apr 2009 10:47:48 -0400
+Subject: [Fwd: Re: What would work instead of the MXM public license?]
+In-Reply-To: <18917.60953.912809.551604@desk.crynwr.com>
+References: <49E5A121.9020605@perens.com> <18917.60953.912809.551604@desk.crynwr.com>
+Message-ID: <20090415144748.GA31061@mercury.ccil.org>
+
+Russ Nelson scripsit:
+
+> And the goal is not to merely have freely copyable software, but
+> instead to have a strong community backing the software, with a
+> pyramid consisting of a base of strong, supportive users who document
+> their use, document the code, submit bugs, donate money, etc, a
+> mid-stage of casual committers, and a peak of committed donors of
+> code.
+
+The goal for SOME kinds of open-source software, particularly the bloated
+monstrosities which pass for application programs these days.  Lots of
+projects are managed as cathedrals (or chapels) and properly should be,
+with a single committer or small team working very closely together.
+
+> So, no, a license is just a pre-condition.
+
+But it's the license, and not any other feature, that makes code open
+source or closed source.  Open source software development has room for
+a huge variety of models besides the much-touted bazaar model.
+
+-- 
+John Cowan    cowan at ccil.org    http://ccil.org/~cowan
+Rather than making ill-conceived suggestions for improvement based on
+uninformed guesses about established conventions in a field of study with
+which familiarity is limited, it is sometimes better to stick to merely
+observing the usage and listening to the explanations offered, inserting
+only questions as needed to fill in gaps in understanding. --Peter Constable
+
+
+From nelson at crynwr.com  Wed Apr 15 14:57:52 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Wed, 15 Apr 2009 10:57:52 -0400
+Subject: [Fwd: Re: What would work instead of the MXM public license?]
+In-Reply-To: <49E5F199.9080307@piana.eu>
+References: <49E5A121.9020605@perens.com> <18917.60953.912809.551604@desk.crynwr.com> <49E5F199.9080307@piana.eu>
+Message-ID: <18917.62960.930793.156560@desk.crynwr.com>
+
+Carlo Piana writes: > This does not help very much if the copyright holder is not the patent > holder and vice versa. I think I have already tackled the issue of dual > licensing.
+
+Then they're separate issues, and the copyright holder (licensor) and
+end user of the code (licensee) can/must treat the patent holder as a
+third party, who may or may not give a patent grant to open source
+implementations.
+
+If a copyright holder wants to license software which they know is
+covered by a patent, then they can simply say so.  The legal
+arrangement afforded by the copyright has nothing to do with it.
+
+And anyway, none of this applies to free thought countries; only the
+USA allows patents on purely mental processes.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Cloudmade supports http://openstreetmap.org/ 
+521 Pleasant Valley Rd. | +1 315-323-1241    
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From bruce at perens.com  Wed Apr 15 15:04:00 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 15 Apr 2009 08:04:00 -0700
+Subject: [Fwd: Re: What would work instead of the MXM public license?]
+In-Reply-To: <18917.60953.912809.551604@desk.crynwr.com>
+References: <49E5A121.9020605@perens.com> <18917.60953.912809.551604@desk.crynwr.com>
+Message-ID: <49E5F760.4060509@perens.com>
+
+Russ Nelson wrote:
+>  > a) If the conditions extend to all patents (but all patents of whom?),
+>
+> The licensor.  We have no control over third-party patents, so we have
+> to ignore them.
+>   
+It has to be more than simply the organization granting the license. 
+Other organizations are participating, and they are the patent holders 
+and controllers of this activity, but they aren't named directly in the 
+license.
+
+The fact that they insist that the organization publicize an explicit 
+non-grant concerning the patents is sufficient evidence of that.
+ Thanks
+ Bruce
+
+
+From bruce at perens.com  Wed Apr 15 15:11:04 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 15 Apr 2009 08:11:04 -0700
+Subject: [Fwd: Re: What would work instead of the MXM public license?]
+In-Reply-To: <20090415144748.GA31061@mercury.ccil.org>
+References: <49E5A121.9020605@perens.com> <18917.60953.912809.551604@desk.crynwr.com> <20090415144748.GA31061@mercury.ccil.org>
+Message-ID: <49E5F908.5090406@perens.com>
+
+John Cowan wrote:
+> Lots of
+> projects are managed as cathedrals (or chapels) and properly should be,
+> with a single committer or small team working very closely together.
+>   
+You still need the right to circumvent the cathedral when they go feral. 
+For example the story a few years back with David Dawes and the XFree86 
+project. The rest of the project collectively walked off and started 
+x.org, leaving the then project administrator alone.
+
+> But it's the license, and not any other feature, that makes code open
+> source or closed source.  Open source software development has room for
+> a huge variety of models besides the much-touted bazaar model.
+Yes. But somebody placed on Opensource.org's front page this sentence:
+ Open source is a development method for software that harnesses the power of distributed peer review and transparency of process.
+
+IMO it is often the case that such a development method is followed, but 
+this is an inaccurate explanation of what Open Source is.
+ Thanks
+ Bruce
+
+From cowan at ccil.org  Wed Apr 15 15:29:35 2009
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 15 Apr 2009 11:29:35 -0400
+Subject: [Fwd: Re: What would work instead of the MXM public license?]
+In-Reply-To: <49E5F908.5090406@perens.com>
+References: <49E5A121.9020605@perens.com> <18917.60953.912809.551604@desk.crynwr.com> <20090415144748.GA31061@mercury.ccil.org> <49E5F908.5090406@perens.com>
+Message-ID: <20090415152934.GB31061@mercury.ccil.org>
+
+Bruce Perens scripsit:
+
+> You still need the right to circumvent the cathedral when they go feral. 
+
++1
+
+> Yes. But somebody placed on Opensource.org's front page this sentence:
+> 
+>    Open source is a development method for software that harnesses the
+>    power of distributed peer review and transparency of process.
+> 
+> IMO it is often the case that such a development method is followed, but 
+> this is an inaccurate explanation of what Open Source is.
+
++1
+
+-- 
+John Cowan   cowan at ccil.org  http://www.ccil.org/~cowan
+Most languages are dramatically underdescribed, and at least one is
+dramatically overdescribed.  Still other languages are simultaneously
+overdescribed and underdescribed.  Welsh pertains to the third category. --Alan King
+
+
+From lrosen at rosenlaw.com  Wed Apr 15 16:13:41 2009
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Wed, 15 Apr 2009 09:13:41 -0700
+Subject: [Fwd: Re: What would work instead of the MXM public license?]
+In-Reply-To: <18917.62960.930793.156560@desk.crynwr.com>
+References: <49E5A121.9020605@perens.com><18917.60953.912809.551604@desk.crynwr.com><49E5F199.9080307@piana.eu> <18917.62960.930793.156560@desk.crynwr.com>
+Message-ID: <E9994B2779D44E90AF0F9F4D66077E31@LROSENTOSHIBA>
+
+> Carlo Piana writes:
+>  > This does not help very much if the copyright holder is not the patent
+>  > holder and vice versa. I think I have already tackled the issue of dual
+>  > licensing.
+
+Russ Nelson responded: 
+> Then they're separate issues, and the copyright holder (licensor) and
+> end user of the code (licensee) can/must treat the patent holder as a
+> third party, who may or may not give a patent grant to open source
+> implementations.
+
+There is no need to hypothesize a new fact pattern.
+
+The MPEG Working Group (ISO/IEC/JTC1/SC29/WG11) "is currently working on the
+ISO/IEC 23006 MPEG eXtensible Middleware (MXM) standard, which has reached
+the Committee Draft status, and this MXMPL license is intended to cover the
+reference implementation of said upcoming standard." [See the original MXMPL
+submission email dated 4/8/2009.]
+
+The companies proposing this standard in the MPEG Working Group are aware of
+patents whose claims read on that reference implementation. They are
+proposing to distribute that reference implementation as actual software
+under the MXMPL and they want to call it "open source software."
+
+This would be the first license for open source software where the licensor
+specifically intends that copies and derivative works will infringe known
+patents, and where the patent owners intend to demand royalties and a
+separate patent license for all such open source software. 
+
+The way patent law works, the MXM licensors can't specifically prohibit us
+from distributing patent infringing software. They just sit in wait until we
+do, and then the patent owners are free to pounce upon us or our customers
+with patent infringement lawsuits. That's how the real world of software
+patents operates, but we don't need to bless this practice with OSI license
+approval.
+
+I suggested here earlier that this proposed license intentionally violates
+OSD #7: "The rights attached to the program must apply to all to whom the
+program is redistributed without the need for execution of an additional
+license by those parties." 
+
+Of course, some will say, the patents are bogus or silly or expiring or not
+in the public interest, but those aren't the issues before us. Regardless of
+our attitude toward software patents, I don't know of any ethical open
+source implementer who will distribute open source software that is intended
+to be infringing--without a patent license that authorizes its free use. We
+know the MPEG Working Group companies are serious about demanding royalties
+for their patents. They won't mind suing for patent infringement. They
+intend to.
+
+There is nothing in the MXMPL license that protects our community against
+whatever patents the MPEG Working Group companies own, and that is risk
+enough to recommend the disapproval of their license by OSI.
+
+/Larry
+
+P.S. I think this emphasizes the importance of a Warranty of Provenance in
+open source licenses, such as in OSL/AFL 3.0:
+ "Licensor warrants that the copyright in and to the Original Work and the patent rights granted herein by Licensor are owned by the  Licensor or are sublicensed to You under the terms of this License with the permission of the contributor(s) of those copyrights and patent rights."
+
+Leaving out patent rights from an open source software license nowadays is
+like giving you the source code and telling you that it is only available
+for the appreciation of its expressive beauty.
+
+
+Lawrence Rosen
+Rosenlaw & Einschlag, a technology law firm (www.rosenlaw.com)
+3001 King Ranch Road, Ukiah, CA 95482
+707-485-1242 * cell: 707-478-8932 * fax: 707-485-1243
+Skype: LawrenceRosen
+
+
+
+> -----Original Message-----
+> From: Russ Nelson [mailto:nelson at crynwr.com]
+> Sent: Wednesday, April 15, 2009 7:58 AM
+> To: license-review at opensource.org
+> Subject: Re: [Fwd: Re: What would work instead of the MXM public license?]
+> 
+> Carlo Piana writes:
+>  > This does not help very much if the copyright holder is not the patent
+>  > holder and vice versa. I think I have already tackled the issue of dual
+>  > licensing.
+> 
+> Then they're separate issues, and the copyright holder (licensor) and
+> end user of the code (licensee) can/must treat the patent holder as a
+> third party, who may or may not give a patent grant to open source
+> implementations.
+> 
+> If a copyright holder wants to license software which they know is
+> covered by a patent, then they can simply say so.  The legal
+> arrangement afforded by the copyright has nothing to do with it.
+> 
+> And anyway, none of this applies to free thought countries; only the
+> USA allows patents on purely mental processes.
+> 
+> --
+> --my blog is at    http://blog.russnelson.com
+> Cloudmade supports http://openstreetmap.org/
+> 521 Pleasant Valley Rd. | +1 315-323-1241
+> Potsdam, NY 13676-3213  |     Sheepdog
+
+
+
+From matthew.flaschen at gatech.edu  Wed Apr 15 16:47:14 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Wed, 15 Apr 2009 12:47:14 -0400
+Subject: What would work instead of the MXM public license?
+In-Reply-To: <49E5965E.9050501@piana.eu>
+References: <49E4EDE7.7090203@perens.com> <49E5965E.9050501@piana.eu>
+Message-ID: <49E60F92.3050809@gatech.edu>
+
+Carlo Piana wrote:
+> a) If the conditions extend to all patents (but all patents of whom?),
+
+At the very least, the licensors.  Yes, there are various devious ways
+you can assign things so one party holds copyright, and another patents. But explicitly allowing the licensors themselves to sue recipients for
+patent infringements is in no way compliant.
+
+> then there is no issue about discrimination or else, the patent covenant
+> I have inserted is just a mitigation of the non-compliance introduced by
+> withholding the patents, but it is insufficient because it does not
+> reach all the domains of endeavour as it is mandated by rule #1.
+
+Again, there is no "safe" field of endeavour.  Even a home user could
+infringe a patent, just by using software.  No, they probably won't be
+sued, but they're not safe either.
+
+> The license is a pre-condition, but it is not sufficient.
+
+Agreed.
+
+> If you think that this license is "open source", then we have a serious problem.
+
+Obviously not.  It's a frank enough "reference" (or whatever you want to
+call it) license that explicitly disclaims a patent license.
+
+Matt Flaschen
+
+
+From lrosen at rosenlaw.com  Wed Apr 15 17:51:48 2009
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Wed, 15 Apr 2009 10:51:48 -0700
+Subject: [Fwd: Re: What would work instead of the MXM public license?]
+Message-ID: <86F7F9449C9649B4A5FA57297C570AA7@LROSENTOSHIBA>
+
+> Carlo Piana writes:
+> > This does not help very much if the copyright holder is not the
+> > patent holder and vice versa. I think I have already tackled the 
+> > issue of dual licensing.
+
+Russ Nelson responded: 
+> Then they're separate issues, and the copyright holder (licensor) and 
+> end user of the code (licensee) can/must treat the patent holder as a 
+> third party, who may or may not give a patent grant to open source 
+> implementations.
+
+
+There is no need to hypothesize a new fact pattern.
+
+The MPEG Working Group (ISO/IEC/JTC1/SC29/WG11) "is currently working on the
+ISO/IEC 23006 MPEG eXtensible Middleware (MXM) standard, which has reached
+the Committee Draft status, and this MXMPL license is intended to cover the
+reference implementation of said upcoming standard." [See the original MXMPL
+submission email dated 4/8/2009.]
+
+The companies proposing this standard in the MPEG Working Group are aware of
+patents whose claims read on that reference implementation. They are
+proposing to distribute that reference implementation as actual software
+under the MXMPL and they want to call it "open source software."
+
+This would be the first license for open source software where the licensor
+specifically intends that copies and derivative works will infringe known
+patents, and where the patent owners intend to demand royalties and a
+separate patent license for all such open source software. 
+
+The way patent law works, the MXM licensors can't specifically prohibit us
+from distributing patent infringing software. They just sit in wait until we
+do, and then the patent owners are free to pounce upon us or our customers
+with patent infringement lawsuits. That's how the real world of software
+patents operates, but we don't need to bless this practice with OSI license
+approval.
+
+I suggested here earlier that this proposed license intentionally violates
+OSD #7: "The rights attached to the program must apply to all to whom the
+program is redistributed without the need for execution of an additional
+license by those parties." 
+
+Of course, some will say, the patents are bogus or silly or expiring or not
+in the public interest, but those aren't the issues before us. Regardless of
+our attitude toward software patents, I don't know of any ethical open
+source implementer who will distribute open source software that is intended
+to be infringing--without a patent license that authorizes its free use. We
+know the MPEG Working Group companies are serious about demanding royalties
+for their patents. They won't mind suing for patent infringement. They
+intend to.
+
+There is nothing in the MXMPL license that protects our community against
+whatever patents the MPEG Working Group companies own, and that is risk
+enough to recommend the disapproval of their license by OSI.
+
+/Larry
+
+P.S. I think this emphasizes the importance of a Warranty of Provenance in
+open source licenses, such as in OSL/AFL 3.0:
+ "Licensor warrants that the copyright in and to the Original Work and the patent rights granted herein by Licensor are owned by the  Licensor or are sublicensed to You under the terms of this License with the permission of the contributor(s) of those copyrights and patent rights."
+
+Leaving out patent rights from an open source software license nowadays is
+like giving you the source code and telling you that it is only available
+for the appreciation of its expressive beauty.
+
+
+Lawrence Rosen
+Rosenlaw & Einschlag, a technology law firm (www.rosenlaw.com)
+3001 King Ranch Road, Ukiah, CA 95482
+707-485-1242 * cell: 707-478-8932 * fax: 707-485-1243
+Skype: LawrenceRosen
+
+
+
+> -----Original Message-----
+> From: Russ Nelson [mailto:nelson at crynwr.com]
+> Sent: Wednesday, April 15, 2009 7:58 AM
+> To: license-review at opensource.org
+> Subject: Re: [Fwd: Re: What would work instead of the MXM public 
+> license?]
+> 
+> Carlo Piana writes:
+>  > This does not help very much if the copyright holder is not the 
+> patent  > holder and vice versa. I think I have already tackled the 
+> issue of dual  > licensing.
+> 
+> Then they're separate issues, and the copyright holder (licensor) and 
+> end user of the code (licensee) can/must treat the patent holder as a 
+> third party, who may or may not give a patent grant to open source 
+> implementations.
+> 
+> If a copyright holder wants to license software which they know is 
+> covered by a patent, then they can simply say so.  The legal 
+> arrangement afforded by the copyright has nothing to do with it.
+> 
+> And anyway, none of this applies to free thought countries; only the 
+> USA allows patents on purely mental processes.
+> 
+> --
+> --my blog is at    http://blog.russnelson.com
+> Cloudmade supports http://openstreetmap.org/
+> 521 Pleasant Valley Rd. | +1 315-323-1241
+> Potsdam, NY 13676-3213  |     Sheepdog
+
+
+
+
+

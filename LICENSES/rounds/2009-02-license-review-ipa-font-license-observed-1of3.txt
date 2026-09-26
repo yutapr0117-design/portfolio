@@ -1,0 +1,750 @@
+From yuko.noguchi at mhmjapan.com  Wed Feb  4 05:33:36 2009
+From: yuko.noguchi at mhmjapan.com (yuko.noguchi at mhmjapan.com)
+Date: Wed, 4 Feb 2009 14:33:36 +0900
+Subject: For Approval: IPA Font License v1.0
+Message-ID: <10FAE7C07A4AC64BA87502D67A7690B501B92069@MHM-MSG.inter.local>
+
+Dear OSI members:
+ 
+On behalf of The Information-Technology Promotion Agency, Japan ("IPA"), we would like to submit "IPA Font License v1.0" for OSI approval.
+
+The full text of the license can be found at the following URL:
+http://ipafont.ipa.go.jp/enduser_license_draft090203.html
+
+The following are some basic facts regarding IPA, history of this license and the reason why we ask for OSI approval.
+
+[About IPA]
+
+The following website is about IPA (The Information-Technology Promotion Agency, Japan):
+http://www.ipa.go.jp/english/about/index.html
+For information about the Open Software Center that manages the IPA Font please refer to the following website:
+http://www.ipa.go.jp/software/open/ossc/english/role/index.html
+
+[IPA Font License History and Rationale for OSI  Compliance]
+
+1.  The IPA Font
+As the Japanese government worked to promote the popularization of open source software (?OSS?), it became clear that no Japanese-language font existed that could be freely used in an OSS development environment or in a multi-OS (operating system) environment.  The lack of an open Japanese-language font was a significant obstacle for the promotion of OSS and for the stimulation of Japan?s software industry.
+
+2.  The Creation of IPA Font and the Current IPA Font License 
+Recognizing that a Japanese-language font was important to ensure future intercompatibility of Japanese-language electronic documents for software research and development in Japanese-language environments, the high quality Japanese ?IPA Font?, to which IPA holds all rights, was created on December 18, 2003.  This IPA Font includes 7,000 characters per typeface, complying with Japanese industry standard (JIS) X 0208:1997.  In October, 2007, a license  was prepared in compliance with JIS X 0213:2004 (12,000 characters per typeface) (the "Current License").
+
+The Current License under which the IPA Font Ver. 2 is distributed was prepared based on the following policies.
+(1) The highest degree of freedom is granted for general users to use the font for digital content.
+(2) Modifications and adjustments may be conducted freely for personal use.
+(3) The IPA Font provided may be distributed freely.  However distribution restrictions apply to derivative fonts created by modification adjustment or extraction of the IPA Font.??
+
+3.  License Revision and the Reason for Asking OSI Approval
+There is a plan to release a new OTF (output text format) version of the IPA Font.  The aim is to enable the community to enjoy an open development structure and open utilization of the IPA Font and to create an internationally coherent license system.  This is significant because the IPA Font is becoming established as the standard public font supporting Japan?s software infrastructure.  Maintenance of the font?s quality and extensive use of the font will lead to greater interoperability, which we anticipate will in turn lead to the promotion of innovations in the software industry.  
+Enhancing interoperability can be achieved in an effective manner by bundling fonts to operating systems.  However, many distributors require OSI approval of its license as part of their bundling policy. 
+
+4.  Significance of the IPA Font License
+We have therefore prepared an open font license, which we have submitted for your review today, to comply with OSD, considering the special characteristics of a Japanese-language font and the special characteristics of the Japanese-language font industry.  By obtaining OSI approval, the Japanese-language font will play an important role as an open module in OSS and in the rest of the software industry.  A Japanese-language font is essential in Japanese-language environment infrastructure.  A new license that can further promote the IPA Font as an open font is considered to have great social significance by becoming a foundation for future development of the software industry.
+We hope that this license will result in a software development environment with a high level of interoperability and the promotion of innovation in the Japanese software industry.  
+
+Thank you for your time and efforts to review the IPA Font License v1.0.
+
+Sincerely, 
+  
+======================
+Yuko Noguchi
+
+Toby Stephens
+
+Attorney-at-Law
+MORI HAMADA & MATSUMOTO
+Marunouchi Kitaguchi Building
+1-6-5 Marunouchi Chiyoda-ku
+Tokyo, Japan
+Tel: +81-3-5223-7761
+Fax: +81-3-5223-7661
+URL: http://www.mhmjapan.com/
+
+
+
+From bruce at perens.com  Wed Feb  4 20:41:46 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 04 Feb 2009 12:41:46 -0800
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <10FAE7C07A4AC64BA87502D67A7690B501B92069@MHM-MSG.inter.local>
+References: <10FAE7C07A4AC64BA87502D67A7690B501B92069@MHM-MSG.inter.local>
+Message-ID: <4989FD8A.1030203@perens.com>
+
+Hi Yuko-san,
+
+Your project is very interesting, congratulations! I do see some
+problems with the license that I hope you can work through.
+
+One of the main purposes of Open Source is to encourage the distribution
+of derived works, so that Open Source programs can be extended and
+improved in perpetuity. Thus, I see a problem with your statement:
+
+> Modifications and adjustments may be conducted freely for personal use.
+
+Although this is not quite what the license itself says, the license
+does seem to be intended to make modifications for other than personal
+use difficult. The intent of Open Source is that modifications for any
+sort of use - not just personal use - must will be allowed.
+
+The problem I see with your license is that it does not allow the
+distribution of derived works as font files, only as difference files.
+Presumably each user would have to combine the font and the difference
+file to create a new font on the end user's system. And that font could
+never be distributed in its usable form. This does not seem very
+practical. At a minimum, your license should allow for the distribution
+of derived works as font files. Although the Open Source Definition
+allows the distribution of source-code modifications as difference
+files, it does not make any such provision for the program in its
+executable form.
+
+By restricting the distribution of derived works to difference files,
+the license also makes it an act of infringement to convert the font
+file to another file format. For example, the conversion from a Type One
+font to an SVG Font is not allowed by the license. This also seems
+impractical and overly restrictive.
+
+I do not believe that there is significant danger to the font users from
+the distribution of "unapproved" versions, as long as those versions are
+named differently from the original (as your license requires). Our
+experience in Open Source has been that allowing people to change things
+invariably makes them better. Deliberately improper modifications have
+been very rare - I can only think of a few in the last 10 years. They
+are very quickly found and eliminated.
+
+I hope you can resolve these issues.
+
+Many Thanks
+
+Bruce Perens
+
+yuko.noguchi at mhmjapan.com wrote:
+> Dear OSI members:
+>  
+> On behalf of The Information-Technology Promotion Agency, Japan ("IPA"), we would like to submit "IPA Font License v1.0" for OSI approval.
+>
+> The full text of the license can be found at the following URL:
+> http://ipafont.ipa.go.jp/enduser_license_draft090203.html
+>
+> The following are some basic facts regarding IPA, history of this license and the reason why we ask for OSI approval.
+>
+> [About IPA]
+>
+> The following website is about IPA (The Information-Technology Promotion Agency, Japan):
+> http://www.ipa.go.jp/english/about/index.html
+> For information about the Open Software Center that manages the IPA Font please refer to the following website:
+> http://www.ipa.go.jp/software/open/ossc/english/role/index.html
+>
+> [IPA Font License History and Rationale for OSI  Compliance]
+>
+> 1.  The IPA Font
+> As the Japanese government worked to promote the popularization of open source software (?OSS?), it became clear that no Japanese-language font existed that could be freely used in an OSS development environment or in a multi-OS (operating system) environment.  The lack of an open Japanese-language font was a significant obstacle for the promotion of OSS and for the stimulation of Japan?s software industry.
+>
+> 2.  The Creation of IPA Font and the Current IPA Font License 
+> Recognizing that a Japanese-language font was important to ensure future intercompatibility of Japanese-language electronic documents for software research and development in Japanese-language environments, the high quality Japanese ?IPA Font?, to which IPA holds all rights, was created on December 18, 2003.  This IPA Font includes 7,000 characters per typeface, complying with Japanese industry standard (JIS) X 0208:1997.  In October, 2007, a license  was prepared in compliance with JIS X 0213:2004 (12,000 characters per typeface) (the "Current License").
+>
+> The Current License under which the IPA Font Ver. 2 is distributed was prepared based on the following policies.
+> (1) The highest degree of freedom is granted for general users to use the font for digital content.
+> (2) Modifications and adjustments may be conducted freely for personal use.
+> (3) The IPA Font provided may be distributed freely.  However distribution restrictions apply to derivative fonts created by modification adjustment or extraction of the IPA Font.??
+>
+> 3.  License Revision and the Reason for Asking OSI Approval
+> There is a plan to release a new OTF (output text format) version of the IPA Font.  The aim is to enable the community to enjoy an open development structure and open utilization of the IPA Font and to create an internationally coherent license system.  This is significant because the IPA Font is becoming established as the standard public font supporting Japan?s software infrastructure.  Maintenance of the font?s quality and extensive use of the font will lead to greater interoperability, which we anticipate will in turn lead to the promotion of innovations in the software industry.  
+> Enhancing interoperability can be achieved in an effective manner by bundling fonts to operating systems.  However, many distributors require OSI approval of its license as part of their bundling policy. 
+>
+> 4.  Significance of the IPA Font License
+> We have therefore prepared an open font license, which we have submitted for your review today, to comply with OSD, considering the special characteristics of a Japanese-language font and the special characteristics of the Japanese-language font industry.  By obtaining OSI approval, the Japanese-language font will play an important role as an open module in OSS and in the rest of the software industry.  A Japanese-language font is essential in Japanese-language environment infrastructure.  A new license that can further promote the IPA Font as an open font is considered to have great social significance by becoming a foundation for future development of the software industry.
+> We hope that this license will result in a software development environment with a high level of interoperability and the promotion of innovation in the Japanese software industry.  
+>
+> Thank you for your time and efforts to review the IPA Font License v1.0.
+>
+> Sincerely, 
+>   
+> ======================
+> Yuko Noguchi
+>
+> Toby Stephens
+>
+> Attorney-at-Law
+> MORI HAMADA & MATSUMOTO
+> Marunouchi Kitaguchi Building
+> 1-6-5 Marunouchi Chiyoda-ku
+> Tokyo, Japan
+> Tel: +81-3-5223-7761
+> Fax: +81-3-5223-7661
+> URL: http://www.mhmjapan.com/
+>
+>   
+
+
+
+From yuko.noguchi at mhmjapan.com  Thu Feb  5 04:29:38 2009
+From: yuko.noguchi at mhmjapan.com (yuko.noguchi at mhmjapan.com)
+Date: Thu, 5 Feb 2009 13:29:38 +0900
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <4989FD8A.1030203@perens.com>
+References: <10FAE7C07A4AC64BA87502D67A7690B501B92069@MHM-MSG.inter.local> <4989FD8A.1030203@perens.com>
+Message-ID: <10FAE7C07A4AC64BA87502D67A7690B501B92165@MHM-MSG.inter.local>
+
+Dear Bruce,
+
+Thank you for your prompt response. 
+
+We will respond in more details later, but let me clarify one point.
+
+> > Modifications and adjustments may be conducted freely for 
+> personal use.
+
+this part was an explanation of the old (Current) license, not the one
+we have posted for your approval this time.
+IPA no longer has an intention to limit the modification for personal
+use only.
+This was the old days.
+Sorry if the explanation was confusing...
+
+Kind regards,
+
+Yuko 
+
+
+From yuko.noguchi at mhmjapan.com  Tue Feb 10 10:03:15 2009
+From: yuko.noguchi at mhmjapan.com (yuko.noguchi at mhmjapan.com)
+Date: Tue, 10 Feb 2009 19:03:15 +0900
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <10FAE7C07A4AC64BA87502D67A7690B501B92165@MHM-MSG.inter.local>
+References: <10FAE7C07A4AC64BA87502D67A7690B501B92069@MHM-MSG.inter.local> <4989FD8A.1030203@perens.com> <10FAE7C07A4AC64BA87502D67A7690B501B92165@MHM-MSG.inter.local>
+Message-ID: <10FAE7C07A4AC64BA87502D67A7690B501C3E5BF@MHM-MSG.inter.local>
+
+Dear Bruce,
+
+Once again, thank you for your feedback.  This is much appreciated.  
+IPA is now considering your concerns in the context of the Japanese
+Fonts environment and 
+are due to discuss these within IPA on this coming Thursday.  
+We look forward to posting again shortly thereafter.
+
+Best regards,
+
+Yuko Noguchi
+
+
+
+
+From yuko.noguchi at mhmjapan.com  Thu Feb 12 09:30:23 2009
+From: yuko.noguchi at mhmjapan.com (yuko.noguchi at mhmjapan.com)
+Date: Thu, 12 Feb 2009 18:30:23 +0900
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <4989FD8A.1030203@perens.com>
+References: <10FAE7C07A4AC64BA87502D67A7690B501B92069@MHM-MSG.inter.local> <4989FD8A.1030203@perens.com>
+Message-ID: <10FAE7C07A4AC64BA87502D67A7690B501C3E6E8@MHM-MSG.inter.local>
+
+Dear Bruce and all,
+
+Thank you for your comments.  Let us address these in turn.
+ 
+1.  Personal Use
+First of all, we do agree that it is important to provide a convenient
+environment for developing free fonts in the Japanese Open Source
+market.  The Personal Use restriction is not a part of IPA policy
+anymore, and the proposed license has been redrafted in accordance with
+the Open Source principles.
+ 
+2.  Difference Files
+To understand IPA's perspective, it is worth considering the environment
+surrounding the use and development of the Japanese font industry and
+where this may differ from the US font industry.
+Fundamental is the difference between a font program ("FP") for an
+alphabet or "phonogram" based language (English) and Japanese which is
+Kanji or "ideogram" based.  The latter comprises over 10,000 distinct
+and different characters.  In many cases the difference between
+completely unrelated characters is very small.   Even a very slight
+change to the construction of such a character may  result in
+misdescription, or in a worst case scenario, its mistaken conversion to
+a character with a completely different meaning.  Please see an example
+of one Kanji character, the unified ideograph U+82A6 "ashi" explained in
+Section B.1 and B.2 in an article which can be found at the following
+URL: http://www.unicode.org/reports/tr37/ .  This is a small example of
+what is a very real problem.  It is often very difficult to modify font
+program without making such mistakes when there are many similar Kanji
+characters.
+
+Therefore, IPA thinks it very important to be clear about exactly what
+modifications have been applied in creating the Derivative FP.  Further
+it is important that the Original FP is preserved and immediately
+accessible to ensure that any developer or user can refer to that
+Original FP as a reference to confirm the character selection in case of
+doubt.  By always referencing any derivative works back to  and creating
+any Derivative FP's directly from the Original FP there is less chance
+that mistakes can become compounded and perpetuated.  In this way, it
+would be easier for the developers of fonts to correct any problems and
+to maintain font integrity.  In a FP consisting of over 10,000
+characters with small differences only, this is an important and
+difficult task.
+ 
+This is really the core reason why we have submitted the IPA Font
+License - As  a  license which falls within the Open-Source fundamentals
+and also reflects the circumstances of Kanji-based languages as in Japan
+and China.  IPA  believes that the proposed difference file system is
+fundamental to achieving a robust open-source environment for the free
+development distribution and use of the Kanji based fonts.  Since the
+OSD allows such a mechanism, we are keen and willing to do the work to
+create a license that meet both (i) IPA's belief in this Difference File
+system as preserving integrity and (ii) the OSD requirements.
+ 
+ 
+We are informed by IPA that the combination of the Original FP and the
+Difference File is an extremely easy operation which is fully automated
+if  authorized by the user.  This should therefore present no bar to
+end-users.
+ 
+3.  Conversion to another file format.
+IPA considers that a difference file system can easily be applied to the
+Original FP to  convert the font file to another file format.  This
+should therefore allow such conversion without any infringement of the
+proposed license. Also, the SVG Font format is allowed, as SVG is used
+in embedding fonts to a Digital Document File, and the license expressly
+allows to embed the Licensed Program into a Digital Document File.
+ 
+ 
+We hope that this is a useful clarification of the spirit in which the
+license is intended.  We are grateful for your further comments and
+thoughts to help us achieve an appropriate Open Source friendly license.
+ 
+Kind regards,
+
+Yuko Noguchi
+
+
+
+
+From bruce at perens.com  Thu Feb 12 19:17:44 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 12 Feb 2009 11:17:44 -0800
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <10FAE7C07A4AC64BA87502D67A7690B501C3E6E8@MHM-MSG.inter.local>
+References: <10FAE7C07A4AC64BA87502D67A7690B501B92069@MHM-MSG.inter.local> <4989FD8A.1030203@perens.com> <10FAE7C07A4AC64BA87502D67A7690B501C3E6E8@MHM-MSG.inter.local>
+Message-ID: <499475D8.7050108@perens.com>
+
+Dear Yuko,
+
+Given your explanation, It seems to me that the premise of the IPA font 
+license is that some utility for automatically dealing with difference 
+files in fonts will become a standard part of all computer systems. 
+Currently, this is not an automatic facility that is included with BSD 
+or Linux desktops that I am aware of, or Macintosh or Microsoft systems. 
+All of those systems have a list of font formats that they can presently 
+accommodate. On loading a combination of a font and a difference file, 
+the systems I have mentioned would fail to use the font. Currently, the 
+users of these systems would be required to operate command-line tools 
+of considerable sophistication in order to transform the font into a 
+usable form.
+
+The easy solution for this is to provide the font in the format expected 
+by these various systems, rather than expect the user to install special 
+software.  A license that prohibits  such a common and expected 
+operation would, I believe, be rejected. I do not know of any 
+OSI-approved licenses at present that make a similar restriction.
+
+I urge you to take a wider view regarding the possible derivative works. 
+Consider, for example, the creation of a new Unicode font. Certainly it 
+would be to everyone's advantage for Unicode fonts worldwide to render 
+kanji according to IPA. Such a Unicode font would be derived from the 
+IPA font, and a number of other fonts as well. The overall size of the 
+combined work might hold many times the number of glyphs in the IPA 
+font. But the license you propose would restrict such a font to being 
+encoded as the IPA font and a much larger difference file, and it could 
+not be converted between formats for distribution. It seems that this 
+would make the use of IPA's font untenable for the creators of such 
+works. Surely it is to the advantage of IPA and the Japanese people for 
+this sort of work to be possible.
+
+I understand your reluctance regarding the potential large impact of 
+small changes. Please understand that you are not the first to make such 
+an argument, and that Open Source licenses permit modification in other 
+potentially dangerous situations. For example, we have operating system 
+device drivers which can physically damage the computer equipment if 
+they are incorrect. If OpenStreetMap is incorrect, an application using 
+it can guide the driver of an automobile and its occupants into a 
+life-threatening situation. There are many such works under Open Source 
+licenses that permit the distribution of directly-executable versions of 
+modified works.
+
+The major restrictions on modification of the executable file, rather 
+than the source file, that OSI has been willing to accept in the past 
+are restrictions on trademark use and a requirement to rename derivative 
+works.
+
+I have not seen similar licenses accepted in the past, so I would 
+suggest that the prospect of OSI acceptance is unlikely if this license 
+is not modified. But I think this is an important project, so I urge you 
+to make the necessary modifications and obtain acceptance of the 
+license, or to use one of the existing approved licenses.
+
+    Many Thanks
+
+    Bruce Perens
+
+
+From matthew.flaschen at gatech.edu  Thu Feb 12 19:40:57 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Thu, 12 Feb 2009 14:40:57 -0500
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <10FAE7C07A4AC64BA87502D67A7690B501C3E6E8@MHM-MSG.inter.local>
+References: <10FAE7C07A4AC64BA87502D67A7690B501B92069@MHM-MSG.inter.local> <4989FD8A.1030203@perens.com> <10FAE7C07A4AC64BA87502D67A7690B501C3E6E8@MHM-MSG.inter.local>
+Message-ID: <49947B49.9030200@gatech.edu>
+
+yuko.noguchi at mhmjapan.com wrote:
+> This is a small example of what is a very real problem.  It is often
+> very difficult to modify font program without making such mistakes when
+> there are many similar Kanji characters.
+
+You're basically saying that the font "source code" is very complex, and
+small modifications can introduce "bugs".  I am sure you are correct,
+but this is true for much open source software.  I understand that you
+don't want buggy derived versions associated with your original font.
+However, this is addressed by "The license may require derived works to
+carry a different name or version number from the original software."
+You can require new fonts have a totally different name and version,
+which means no one should confuse it with the original.
+
+> we are keen and willing to do the work to create a license that meet
+> both (i) IPA's belief in this Difference File system as preserving integrity
+> and (ii) the OSD requirements.
+
+As the OSD says (and Bruce pointed out), "The license may restrict
+source-code from being distributed in modified form" if patches are
+provided.  However, it does not allow binary distribution to be
+restricted in the same way.
+
+Of course, it is discouraged to use this provision even for source code,
+and most licenses do not.
+
+> We are informed by IPA that the combination of the Original FP and the
+> Difference File is an extremely easy operation which is fully automated
+> if  authorized by the user.  This should therefore present no bar to
+> end-users.
+
+It does in fact make things more difficult for end users. In most cases,
+ fonts can be installed simply by drag-and-drop, but the difference file
+adds an additional step that /will/ result in some end users giving up
+on installing derived fonts.
+
+> 3.  Conversion to another file format.
+> IPA considers that a difference file system can easily be applied to the
+> Original FP to  convert the font file to another file format.
+
+That is in theory true, but in practice it doesn't make much sense to
+have a diff file e.g. between SVG and TrueType.
+
+Matt Flaschen
+
+
+From tiemann at opensource.org  Tue Feb 17 01:56:17 2009
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Mon, 16 Feb 2009 20:56:17 -0500
+Subject: IPA Font license
+Message-ID: <6cca531e0902161756q46349974h9a41eb08cbdffa4@mail.gmail.com>
+
+Matt,
+
+I read, as you do, that source and binary materials are treated
+differently by the OSD.  Moreover, I read that the second sentence of
+OSD#4 (which says "The license must explicitly permit distribution of
+software built from modified source code") explicitly allows one to
+create a binary work from derived sources and distribute such a binary
+work (though, again as you point out, named and/or versioned differently).
+
+I guess that the question then becomes "in the pantheon of sources and
+binaries, where does the font file fit?"  Is a font description file
+source code because it's the preferred way of describing the font, or is
+it a binary?  Technically one can patch either sources or binaries with
+'patch', but clearly the most common use by far is to patch source code,
+so perhaps this makes the font description source.  But it could be
+binary.  Or is it both?  A document in postscript format or xml
+certainly looks like both.  Or is it neither?  There was some discussion
+during the SIL font review that font files in general don't fit the kind
+of protective rubric established for things like books or software
+programs.
+
+I do think there is a legitimate mechanical question which is: if a user
+creates a derived font by applying the patch file to the original font,
+what are the limits of using and distributing of the resulting work?
+And do those limitations reasonably comply with the OSD?  For example,
+if a user did such a transformation on their PC, and then the derived
+font were captured via an online backup procedure, would the media
+holding the backed up derived work create a violation of the license?
+What if it were restored to a different computer (or many different
+computers)?
+
+I do think that the question you raise about the different treatment of
+source and binary by OSD#4 is an important question, and I would like to
+see the IPA folks answer how they see this distinction, and whether the
+fact of this distinction might cause them to change anything in their
+approach.
+
+M
+
+From tiemann at opensource.org  Tue Feb 17 19:03:38 2009
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Tue, 17 Feb 2009 14:03:38 -0500
+Subject: For Approval: IPA Font License v1.0
+Message-ID: <6cca531e0902171103k2d890fe4y7a4977439ff13ee3@mail.gmail.com>
+
+[resent with a better subject line so that it joins the ongoing discussion]
+
+Matt,
+
+I read, as you do, that source and binary materials are treated
+differently by the OSD.  Moreover, I read that the second sentence of
+OSD#4 (which says "The license must explicitly permit distribution of
+software built from modified source code") explicitly allows one to
+create a binary work from derived sources and distribute such a binary
+work (though, again as you point out, named and/or versioned differently).
+
+I guess that the question then becomes "in the pantheon of sources and
+binaries, where does the font file fit?"  Is a font description file
+source code because it's the preferred way of describing the font, or is
+it a binary?  Technically one can patch either sources or binaries with
+'patch', but clearly the most common use by far is to patch source code,
+so perhaps this makes the font description source.  But it could be
+binary.  Or is it both?  A document in postscript format or xml
+certainly looks like both.  Or is it neither?  There was some discussion
+during the SIL font review that font files in general don't fit the kind
+of protective rubric established for things like books or software
+programs.
+
+I do think there is a legitimate mechanical question which is: if a user
+creates a derived font by applying the patch file to the original font,
+what are the limits of using and distributing of the resulting work?
+And do those limitations reasonably comply with the OSD?  For example,
+if a user did such a transformation on their PC, and then the derived
+font were captured via an online backup procedure, would the media
+holding the backed up derived work create a violation of the license?
+What if it were restored to a different computer (or many different
+computers)?
+
+I do think that the question you raise about the different treatment of
+source and binary by OSD#4 is an important question, and I would like to
+see the IPA folks answer how they see this distinction, and whether the
+fact of this distinction might cause them to change anything in their
+approach.
+
+M
+
+From bruce at perens.com  Wed Feb 18 04:48:24 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 17 Feb 2009 20:48:24 -0800
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <6cca531e0902171103k2d890fe4y7a4977439ff13ee3@mail.gmail.com>
+References: <6cca531e0902171103k2d890fe4y7a4977439ff13ee3@mail.gmail.com>
+Message-ID: <499B9318.6060902@perens.com>
+
+Mike,
+
+This need not rest on OSD #4. OSD #2 requires that the license allow 
+distribution in compiled form as well as source form.Compilation 
+translates a program into a usable form. The IPA font license requires 
+that a step required to translate the program into a usable form  - the 
+combination of an original font file and a derivative work embodied as a 
+difference file - must not take place until after distribution. Thus it 
+doesn't permit distribution of the compiled form, and doesn't pass OSD #2.
+
+    Thanks
+
+    Bruce
+
+
+Michael Tiemann wrote:
+> [resent with a better subject line so that it joins the ongoing discussion]
+>
+> Matt,
+>
+> I read, as you do, that source and binary materials are treated
+> differently by the OSD.  Moreover, I read that the second sentence of
+> OSD#4 (which says "The license must explicitly permit distribution of
+> software built from modified source code") explicitly allows one to
+> create a binary work from derived sources and distribute such a binary
+> work (though, again as you point out, named and/or versioned differently).
+>
+> I guess that the question then becomes "in the pantheon of sources and
+> binaries, where does the font file fit?"  Is a font description file
+> source code because it's the preferred way of describing the font, or is
+> it a binary?  Technically one can patch either sources or binaries with
+> 'patch', but clearly the most common use by far is to patch source code,
+> so perhaps this makes the font description source.  But it could be
+> binary.  Or is it both?  A document in postscript format or xml
+> certainly looks like both.  Or is it neither?  There was some discussion
+> during the SIL font review that font files in general don't fit the kind
+> of protective rubric established for things like books or software
+> programs.
+>
+> I do think there is a legitimate mechanical question which is: if a user
+> creates a derived font by applying the patch file to the original font,
+> what are the limits of using and distributing of the resulting work?
+> And do those limitations reasonably comply with the OSD?  For example,
+> if a user did such a transformation on their PC, and then the derived
+> font were captured via an online backup procedure, would the media
+> holding the backed up derived work create a violation of the license?
+> What if it were restored to a different computer (or many different
+> computers)?
+>
+> I do think that the question you raise about the different treatment of
+> source and binary by OSD#4 is an important question, and I would like to
+> see the IPA folks answer how they see this distinction, and whether the
+> fact of this distinction might cause them to change anything in their
+> approach.
+>
+> M
+>
+>   
+
+
+
+From yuko.noguchi at mhmjapan.com  Wed Feb 18 12:20:48 2009
+From: yuko.noguchi at mhmjapan.com (yuko.noguchi at mhmjapan.com)
+Date: Wed, 18 Feb 2009 21:20:48 +0900
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <6cca531e0902171103k2d890fe4y7a4977439ff13ee3@mail.gmail.com>
+References: <6cca531e0902171103k2d890fe4y7a4977439ff13ee3@mail.gmail.com>
+Message-ID: <10FAE7C07A4AC64BA87502D67A7690B501C3EC1D@MHM-MSG.inter.local>
+
+Dear Michael,
+
+Thank you for your discussion.
+
+> I do think that the question you raise about the different treatment
+of
+> source and binary by OSD#4 is an important question, and I would like
+to
+> see the IPA folks answer how they see this distinction, and whether
+the
+> fact of this distinction might cause them to change anything in their
+> approach.
+
+I have talked with the IPA, and here is what they explained to me.
+Because I am not a programmer, please allow me if there is anything
+imprecise in the following explanation.  
+
+As you may already understand, font programs are created in a different
+manner from usual software programs.  They are not created using
+programming languages, and therefore, in a strict sense, there is no
+"source code" written in programming languages.  Instead, font programs
+are created and modified using certain font developing tools, and in
+general, distributed font programs (which can be installed into PCs
+without compilation, and in this sense, can be seen as equivalent to
+object code) can be directly modified using these font developing tools
+without requiring any other information (therefore, in this sense, can
+be seen as equivalent to source code).   Therefore, font programs is a
+program that has the function of both object code and source code at the
+same time.  In fact, there are many GPL font programs which are
+distributed without attaching any other file.
+See, for example,  http://www.unifont.org/fontguide/.  
+
+IPA informs me that there is another type of files called "native files"
+created by font developing tools, which are sometimes attached to font
+programs.  These native files, however, is not required in order for a
+recipient of font programs to modify the font programs.  For example,
+OSS developing tool "fontforge" and "TTX/Font Tools" do not require
+native files to modify font programs.
+
+IPA acknowledges that SIL Open Font License is now approved by OSI.  IPA
+understands that the largest difference between the IPA license as
+proposed and the SIL OFL is this difference file requirement.  IPA
+thought that, because font programs have the function of source code, it
+could ask the difference file system under OSD #4, and also it would
+help avoiding confusions in the OSS font market by making the changes
+readily distinguished from the base source.
+
+I know that Bruce has raised the question regarding OSD#2.  As I am not
+sure how to interpret OSD in the context of font programs, which has
+somehow different characteristic from usual software program, it is not
+easy for us to answer to Bruce's point about OSD #2 at this point.  If
+there would be further discussion on this list, we would highly
+appreciate it.
+
+Thank you all for your great discussions.
+
+Kind regards,
+
+Yuko Noguchi
+
+  
+
+
+From michaeltiemann at mac.com  Thu Feb 19 15:30:21 2009
+From: michaeltiemann at mac.com (Michael Tiemann)
+Date: Thu, 19 Feb 2009 10:30:21 -0500
+Subject: For Approval: IPA Font License v1.0
+Message-ID: <0F260342-2FB2-44F8-A873-578C3015BB35@mac.com>
+
+I think that Bruce makes strong points both with respect to OSD  #4  
+and OSD #2.  I believe that if we are to take the position that  
+"source" and "binary" are the same when considering fonts, then we  
+should do one of the two things:
+
+1a.  Interpret the OSD compatibility of the license assuming we use  
+the source terms to govern the binary distributions, and if the source  
+terms are too restrictive to binary distributions, reject the license
+1b.  Interpret the OSD compatibility of the license assuming we use  
+the binary terms to govern the source distributions, and if the binary  
+terms are too restrictive to the source terms, reject the license
+
+If either 1a or 1b says reject, then reject.  It seems to me that  
+Bruce has raised issues that will make approval difficult without some  
+modification to the license.
+
+2.  Clarify in the license that the font code belongs specifically to  
+the category of "source" or "binary" with respect to the OSD, and then  
+judge whether the terms of the license are OSD-compliant with respect  
+to that single class.  This would likely slow down approval because it  
+would require us to think about approval in a completely new way.
+
+M
+
+
+
+From tiemann at opensource.org  Thu Feb 19 15:37:43 2009
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Thu, 19 Feb 2009 10:37:43 -0500
+Subject: For Approval: IPA Font License v1.0
+Message-ID: <6cca531e0902190737w7292367fq4ccb5507db23926@mail.gmail.com>
+
+I think that Bruce makes strong points both with respect to OSD  #4 and OSD
+#2.  I believe that if we are to take the position that "source" and
+"binary" are the same when considering fonts, then we should do one of the
+two things:
+
+1a.  Interpret the OSD compatibility of the license assuming we use the
+source terms to govern the binary distributions, and if the source terms are
+too restrictive to binary distributions, reject the license
+1b.  Interpret the OSD compatibility of the license assuming we use the
+binary terms to govern the source distributions, and if the binary terms are
+too restrictive to the source terms, reject the license
+
+If either 1a or 1b says reject, then reject.  It seems to me that Bruce has
+raised issues that will make approval difficult without some modification to
+the license.
+
+2.  Clarify in the license that the font code belongs specifically to the
+category of "source" or "binary" with respect to the OSD, and then judge
+whether the terms of the license are OSD-compliant with respect to that
+single class.  This would likely slow down approval because it would require
+us to think about approval in a completely new way.
+
+M
+
+From yuko.noguchi at mhmjapan.com  Thu Feb 19 16:16:58 2009
+From: yuko.noguchi at mhmjapan.com (yuko.noguchi at mhmjapan.com)
+Date: Fri, 20 Feb 2009 01:16:58 +0900
+Subject: For Approval: IPA Font License v1.0
+References: <6cca531e0902190737w7292367fq4ccb5507db23926@mail.gmail.com>
+Message-ID: <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local>
+
+Thank you all for your discussions.
+
+After considering your points, IPA now would like to propose two revision to the draft license.  Before trying to re-draft the license, I would first like to explain the points to see whether such revision would help solve the problem. 
+ 
+1) The Recipient can re-distribute the modified version of the Licensed Program, only if such modified program accompanies a difference file from the original program.
+IPA understands Bruce's point regarding OSD#2 and the practicality he seeks, and have decided to allow distribution of the font file in a modified form.
+However, IPA still believes it very important to have a difference file so that recipient can see how the program was modified.
+
+2) As an exception to the rule explained in 1) above, the Recipient do not need to provide the difference file if the modification is only a change of file format.
+

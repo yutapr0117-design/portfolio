@@ -1,0 +1,750 @@
+#ken	P-)}
+
+Ken Coar, Sanagendamgagwedweinini  http://Golux.Com/coar/
+Author, developer, opinionist      http://Apache-Server.Com/
+
+"All right everyone!  Step away from the glowing hamburger!"
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rick at linuxmafia.com  Wed Sep  5 20:46:55 2001
+From: rick at linuxmafia.com (Rick Moen)
+Date: Wed, 5 Sep 2001 13:46:55 -0700
+Subject: W3C license
+In-Reply-To: <3B96774C.A3814AA5@Golux.Com>
+References: <Pine.GSO.4.33P.0108301653440.16864-100000@unixs1.cis.pitt.edu> <15247.2101.428701.163590@desk.crynwr.com> <3B8F779E.CAE4BDA0@Golux.Com> <20010904200306.R21743@linuxmafia.com> <3B961417.7B0B703B@Golux.Com> <20010905103846.X21743@linuxmafia.com> <3B966857.9F6F3EE6@Golux.Com> <20010905111621.C21743@linuxmafia.com> <3B96774C.A3814AA5@Golux.Com>
+Message-ID: <20010905134655.H21743@linuxmafia.com>
+
+begin Rodent of Unusual Size quotation:
+
+> Or, to quote Russ exactly, "This has the beneficial effect of making
+> it harder to create Yet Another open source license."
+
+The correctness of Russ's statement as posted should be apparent.  I
+fail to see the utility of debate.
+
+> I agree with keeping the number of essentially identical licences
+> to a minimum.  I do *not* agree with accomplishing that by
+> discouraging people from trying.
+
+Perhaps you should contemplate the connotations of Russ's phrase "Yet
+Another open source license."  I think most people got his point without
+exegesis.
+
+-- 
+Cheers,              "By reading this sentence, you agree to be bound by the 
+Rick Moen             terms of the Internet Protocol, version 4, or, at your 
+rick at linuxmafia.com   option, any later version."  -- Seth David Schoen
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From weigel+ at pitt.edu  Wed Sep  5 20:49:52 2001
+From: weigel+ at pitt.edu (Matthew C. Weigel)
+Date: Wed, 05 Sep 2001 16:49:52 -0400 (EDT)
+Subject: W3C license
+In-Reply-To: <3B96774C.A3814AA5@Golux.Com>
+Message-ID: <Pine.GSO.4.33P.0109051633220.13280-100000@unixs1.cis.pitt.edu>
+
+On Wed, 5 Sep 2001, Rodent of Unusual Size wrote:
+
+> "This has the beneficial effect of making it harder to create Yet
+> Another open source license."
+>
+> I agree with keeping the number of essentially identical licences to
+> a minimum.  I do *not* agree with accomplishing that by discouraging
+> people from trying.
+
+To address that statement in particular, it was reducing the workload
+placed uon the volunteers of the OSI that had this particular benefit.
+
+Realistically, paring down the number of submissions is as necessary
+as paring down the number of approvals.  The only way to pare down the
+number of submissions is, you guessed it, getting fewer people to do
+so.
+
+Presumably, a license which does something new and interesting will
+either a) have someone who already put in the time to develop this new
+and different license, and is clearly motivated, or b) get a tenacious
+third party sufficiently interested to do the work.
+--  Matthew Weigel Research Systems Programmer mcweigel at cs.cmu.edu ne weigel at pitt.edu
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From Ken.Coar at Golux.Com  Wed Sep  5 21:03:39 2001
+From: Ken.Coar at Golux.Com (Rodent of Unusual Size)
+Date: Wed, 05 Sep 2001 17:03:39 -0400
+Subject: W3C license
+References: <Pine.GSO.4.33P.0108301653440.16864-100000@unixs1.cis.pitt.edu> <15247.2101.428701.163590@desk.crynwr.com> <3B8F779E.CAE4BDA0@Golux.Com> <20010904200306.R21743@linuxmafia.com> <3B961417.7B0B703B@Golux.Com> <20010905103846.X21743@linuxmafia.com> <3B966857.9F6F3EE6@Golux.Com> <20010905111621.C21743@linuxmafia.com> <3B96774C.A3814AA5@Golux.Com> <20010905134655.H21743@linuxmafia.com>
+Message-ID: <3B96932B.B6C101A@Golux.Com>
+
+Rick Moen wrote:
+> 
+> > Or, to quote Russ exactly, "This has the beneficial effect of making
+> > it harder to create Yet Another open source license."
+> 
+> The correctness of Russ's statement as posted should be apparent.  I
+> fail to see the utility of debate.
+
+Well, then, I guess you fail to see it.  That does not make
+the statement correct, however.  Nor does it make mine correct,
+either. :-)  The fact that I disagree with the correctness as
+posted makes your first sentence a no-op.
+
+> Perhaps you should contemplate the connotations of Russ's phrase
+> "Yet Another open source license."  I think most people got his
+> point without exegesis.
+
+Perhaps you should contemplate my remarks and position on their
+own merits rather than trying to tell me I should not have them
+because I misunderstood something.  It is only *your* opinion
+that I have misunderstood; I think I have understood perfectly.
+
+Words are tools.  Particularly when discussing licences, they
+are edged tools.  Ambiguity and implication and assuming the
+reader understands what the author meant should be avoided.
+
+Sorry, Rick, but so far it appears to me that you are trying to
+handwave away my objections to Russ' remark and the apparent
+attitude behind it.
+
+And for what it is worth, Russ himself agreed with my position
+in a private email.  Apparently I explained it better to him
+than I have done here.
+-- 
+#ken	P-)}
+
+Ken Coar, Sanagendamgagwedweinini  http://Golux.Com/coar/
+Author, developer, opinionist      http://Apache-Server.Com/
+
+"All right everyone!  Step away from the glowing hamburger!"
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From Ken.Coar at Golux.Com  Wed Sep  5 21:15:31 2001
+From: Ken.Coar at Golux.Com (Rodent of Unusual Size)
+Date: Wed, 05 Sep 2001 17:15:31 -0400
+Subject: W3C license
+References: <Pine.GSO.4.33P.0109051633220.13280-100000@unixs1.cis.pitt.edu>
+Message-ID: <3B9695F3.745515D@Golux.Com>
+
+"Matthew C. Weigel" wrote:
+> 
+> On Wed, 5 Sep 2001, Rodent of Unusual Size wrote:
+> 
+> > "This has the beneficial effect of making it harder to create Yet
+> > Another open source license."
+> 
+> To address that statement in particular, it was reducing the
+> workload placed uon the volunteers of the OSI that had this
+> particular benefit.
+
+See below.
+
+> Realistically, paring down the number of submissions is as
+> necessary as paring down the number of approvals.
+
+Given the current process, that is most likely true.  But since
+I do not believe the current process is as good as it could be,
+I do not consider that truth to be an absolute one.
+
+Possible improvement #1: if the load is too much for the
+current volunteer base.. get more volunteers.
+
+Problem: 'We cannot squeeze this many data through this wire.'
+Current solution: 'Do not try; send fewer data.'
+Alternate solution: 'Get a bigger wire.'
+Other alternates are possible.
+
+> Presumably, a license which does something new and interesting
+> will either a) have someone who already put in the time to develop
+> this new and different license, and is clearly motivated, or
+> b) get a tenacious third party sufficiently interested to do
+> the work.
+
+Um, judging from the threads of the last fortnight, that just
+ain't happening with the current model.  It sounds as though
+there are several motivated people, but the task they have been
+assigned is Sisyphean.  It is not due to their lack of motivation
+that the licences in question are not being approved, nor to
+duplication of existing approved ones, but apparently to the
+inertia and other problems of the current process.
+-- 
+#ken	P-)}
+
+Ken Coar, Sanagendamgagwedweinini  http://Golux.Com/coar/
+Author, developer, opinionist      http://Apache-Server.Com/
+
+"All right everyone!  Step away from the glowing hamburger!"
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From weigel+ at pitt.edu  Wed Sep  5 21:39:25 2001
+From: weigel+ at pitt.edu (Matthew C. Weigel)
+Date: Wed, 05 Sep 2001 17:39:25 -0400 (EDT)
+Subject: W3C license
+In-Reply-To: <3B9695F3.745515D@Golux.Com>
+Message-ID: <Pine.GSO.4.33P.0109051733290.13280-100000@unixs1.cis.pitt.edu>
+
+On Wed, 5 Sep 2001, Rodent of Unusual Size wrote:
+
+> Given the current process, that is most likely true.  But since
+> I do not believe the current process is as good as it could be,
+> I do not consider that truth to be an absolute one.
+
+Neither do I.
+
+> Possible improvement #1: if the load is too much for the
+> current volunteer base.. get more volunteers.
+
+This has been said many times, by myself and others.  We can't make
+them pull more people in.
+
+> Um, judging from the threads of the last fortnight, that just
+> ain't happening with the current model.
+
+Sure it is, to the extent that much of anything is happening with the
+current model.
+
+More volunteers would help, but keeping the work load down for however
+many volunteers they do have is still valuable.
+
+I think we agree on everything but the value of trying to get the
+current process more effective over doing a complete overhaul.
+--  Matthew Weigel Research Systems Programmer mcweigel at cs.cmu.edu ne weigel at pitt.edu
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rick at linuxmafia.com  Wed Sep  5 21:46:16 2001
+From: rick at linuxmafia.com (Rick Moen)
+Date: Wed, 5 Sep 2001 14:46:16 -0700
+Subject: W3C license
+In-Reply-To: <3B96932B.B6C101A@Golux.Com>
+References: <15247.2101.428701.163590@desk.crynwr.com> <3B8F779E.CAE4BDA0@Golux.Com> <20010904200306.R21743@linuxmafia.com> <3B961417.7B0B703B@Golux.Com> <20010905103846.X21743@linuxmafia.com> <3B966857.9F6F3EE6@Golux.Com> <20010905111621.C21743@linuxmafia.com> <3B96774C.A3814AA5@Golux.Com> <20010905134655.H21743@linuxmafia.com> <3B96932B.B6C101A@Golux.Com>
+Message-ID: <20010905144616.J21743@linuxmafia.com>
+
+begin Rodent of Unusual Size quotation:
+
+> Well, then, I guess you fail to see it.
+
+We concur, for suitable values of "it".
+
+> That does not make the statement correct, however.  
+
+Also true:  Its accuracy may be assessed independently.  (I can
+recommend some good books on formal logic, should you be in need.)
+
+> The fact that I disagree with the correctness as posted makes your
+> first sentence a no-op.
+
+If one were to grant the postulate that I attribute to featherless
+bipeds, generally, the ability to grasp the self-evident, that would
+likewise be true.
+
+> Perhaps you should contemplate my remarks and position on their own
+> merits rather than trying to tell me I should not have them because I
+> misunderstood something. 
+
+Merits are where you find 'em.
+
+> It is only *your* opinion that I have misunderstood; I think I have
+> understood perfectly.
+
+I am much cheered.  Would you perhaps like me to ship you a lollipop?
+
+> Sorry, Rick, but so far it appears to me that you are trying to
+> handwave away my objections to Russ' remark and the apparent
+> attitude behind it.
+
+Irony remains one's second-best entertainment value.
+
+> And for what it is worth, Russ himself agreed with my position
+> in a private email. 
+
+I agree with Russ's statement, you disagree with it, and -- to complete 
+a misshapen circle -- you claim he agrees with you.   What's the
+expression?  Do the math.
+
+-- 
+Cheers,
+Rick Moen                                        This space for rant.
+rick at linuxmafia.com
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From Ken.Coar at Golux.Com  Wed Sep  5 21:55:19 2001
+From: Ken.Coar at Golux.Com (Rodent of Unusual Size)
+Date: Wed, 05 Sep 2001 17:55:19 -0400
+Subject: W3C license
+References: <Pine.GSO.4.33P.0109051733290.13280-100000@unixs1.cis.pitt.edu>
+Message-ID: <3B969F47.F0CBE9F7@Golux.Com>
+
+"Matthew C. Weigel" wrote:
+> 
+> I think we agree on everything but the value of trying to get the
+> current process more effective over doing a complete overhaul.
+
+Okey, I can go along with that. :-)
+-- 
+#ken	P-)}
+
+Ken Coar, Sanagendamgagwedweinini  http://Golux.Com/coar/
+Author, developer, opinionist      http://Apache-Server.Com/
+
+"All right everyone!  Step away from the glowing hamburger!"
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From weigel+ at pitt.edu  Wed Sep  5 22:15:47 2001
+From: weigel+ at pitt.edu (Matthew C. Weigel)
+Date: Wed, 05 Sep 2001 18:15:47 -0400 (EDT)
+Subject: W3C license
+In-Reply-To: <3B969F47.F0CBE9F7@Golux.Com>
+Message-ID: <Pine.GSO.4.33P.0109051812300.13280-100000@unixs1.cis.pitt.edu>
+
+On Wed, 5 Sep 2001, Rodent of Unusual Size wrote:
+
+> > I think we agree on everything but the value of trying to get the
+> > current process more effective over doing a complete overhaul.
+>
+> Okey, I can go along with that. :-)
+
+To clarify my statements (I didn't expect agreement or I wouldn't have
+said it! :), I think that the OSI should first improve their process
+so that *something* can be done, and second move away from their
+current process.
+
+If they try to overhaul while *still* trying to work with the current
+process, we'll see something worse as a result.
+--  Matthew Weigel Research Systems Programmer mcweigel at cs.cmu.edu ne weigel at pitt.edu
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From mibsoft at mibsoftware.com  Thu Dec 13 18:13:40 2001
+From: mibsoft at mibsoftware.com (Forrest J. Cavalier III)
+Date: Thu, 13 Dec 2001 13:13:40 -0500 (EST)
+Subject: W3C and GPL compatibility (was Re: Discussion: ADPL)
+Message-ID: <200112131813.fBDIDe5n012622@bean.epix.net>
+
+> "Forrest J. Cavalier III" wrote:
+> 
+> > There are two ways that I see trademark clauses written
+> > in licenses.  As I read the GPL, trademark protection clauses
+> > as a condition of license are not GPL compatible.  But
+> > trademark warning statements along the lines of "Nothing in this license
+> > gives you...." don't seem to impose a further restriction, and therefore are
+> > GPL compatible, in my understanding.
+> >
+> 
+> That's also the message I'm getting from the FSF at the moment
+> (more specifically, from Bradley M. Kuhn).
+> 
+
+(Thanks for confirming that.  FSF licensing answers must be swamped,
+based on delayed responses to items I submitted in the last month.)
+
+That FSF position might explain the W3C license being OK.
+
+The W3C is a pretty unique license, because the only conditions it
+seems to impose are propagating the license and notice (including
+the trademark statement.), It doesn't make compliance with the
+statement a condition for permission to use the software.
+
+That seems like a strategy which could be abused.  Suppose I tacked
+a notice onto the W3C license: "The copyright holders expect payment of $50.00 from you to <name> at <address.>"
+
+Wouldn't that still be GPL compatible and OSD compliant, since
+it expresses an expectation of payment.  It doesn't require it.
+
+I wonder what kind of revenue stream it would create.
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From lrosen at rosenlaw.com  Thu Nov 14 19:03:46 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Thu, 14 Nov 2002 11:03:46 -0800
+Subject: W3C Patent Policy
+Message-ID: <021301c28c10$90b5bcb0$927ba8c0@ROSENGARDEN>
+
+W3C (www.w3c.org) has just released the Last Call Working Draft of its
+patent policy (http://www.w3.org/TR/2002/WD-patent-policy-20021114) for
+"Last Call" review.  
+
+Some of you may remember that an earlier draft of that policy provided
+for the possible payment of "reasonable and non-discriminatory" (RAND)
+royalties in order to practice W3C specifications.  That dreadful
+prospect is no longer in the policy.  The draft policy now provides that
+all patents necessary to implement W3C specifications must be
+"royalty-free" (RF).  
+
+If this draft is adopted by W3C, all specifications published by W3C can
+be implemented by anyone, anywhere, without payment of royalties.  This
+is a major victory for open source.  The open source community was
+represented on the Patent Policy Working Group by Eben Moglen, Bruce
+Perens and Larry Rosen.  
+
+The community now needs to be heard supporting this policy so that it is
+not undone during the public input and W3C Advisory Council phase.
+Address your comments to www-patentpolicy-comment at w3.org.  
+
+We hope that this RF policy will be adopted by other standards
+organizations around the world.  
+
+/Larry Rosen
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From paivakil at vsnl.net  Fri Nov 15 12:12:10 2002
+From: paivakil at vsnl.net (Mahesh T Pai)
+Date: Fri, 15 Nov 2002 17:42:10 +0530
+Subject: W3C Patent Policy
+In-Reply-To: <021301c28c10$90b5bcb0$927ba8c0@ROSENGARDEN>
+References: <021301c28c10$90b5bcb0$927ba8c0@ROSENGARDEN>
+Message-ID: <3DD4E49A.2020106@vsnl.net>
+
+Lawrence E. Rosen wrote:
+
+> This is a major victory for open source.
+
+
+Yes, thanks to you all.
+
+> The community now needs to be heard supporting this policy so that
+> it is not undone during the public input and W3C Advisory Council
+> phase. Address your comments to www-patentpolicy-comment at w3.org.
+
+Will you please explain that?  I mean what is likely to happen to 
+'undo' the achievements.
+
+Also, please clarify in what way you expect further support from the 
+community.  (may be, you can tell us a point or two we should tell the 
+W3C).
+
+
+Regards,
+Mahesh T Pai.
+
+
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From seth.johnson at RealMeasures.dyndns.org  Fri Nov 15 17:29:37 2002
+From: seth.johnson at RealMeasures.dyndns.org (Seth Johnson)
+Date: Fri, 15 Nov 2002 12:29:37 -0500
+Subject: W3C Patent Policy
+References: <021301c28c10$90b5bcb0$927ba8c0@ROSENGARDEN> <3DD4E49A.2020106@vsnl.net>
+Message-ID: <3DD52F01.9ECF6D4B@RealMeasures.dyndns.org>
+
+
+Mahesh T Pai wrote:
+> 
+> > The community now needs to be heard supporting this policy so that
+> > it is not undone during the public input and W3C Advisory Council
+> > phase. Address your comments to www-patentpolicy-comment at w3.org.
+> 
+> Will you please explain that?  I mean what is likely to happen to
+> 'undo' the achievements.
+> 
+> Also, please clarify in what way you expect further support from the
+> community.  (may be, you can tell us a point or two we should tell the
+> W3C).
+
+
+Here's a bit from Eben Moglen that might offer some
+insight.  The final vote was contentious, with some
+as-yet-unnamed participant(s) raising the question of how
+they could resign from the Patent Policy Working Group.
+
+See the very nondescript "minutes" here:
+
+http://lists.w3.org/Archives/Public/www-patentpolicy-comment/2002Nov/0000.html
+
+Seth Johnson
+
+
+-------- Original Message --------
+Date: Sat, 9 Nov 2002 10:25:19 -0500
+From: Eben Moglen <moglen at columbia.edu>
+
+Reporting on the W3C for our community raises complex issues
+for those of us who are invited experts on the PPWG.  The
+group is "member confidential," which means that there's an
+agreement not to go beyond the  public minutes and documents
+in public statements.  But member organizations, of course,
+assume that they can internally discuss matters at any level
+of detail they like.  Larry Rosen, Bruce Perens and I have
+been somewhat constrained in what we can say to what is,
+after all, the equivalent of our organization.
+
+With that in mind, I can say that the final decision for an
+RF-only policy is highly controversial within the WG, which
+did not reach consensus and which resolved that large
+question, and several smaller issues, on relatively close
+votes.  Member organizations that disagree with the policy
+are preparing their formal objections and their
+presentations to the Advisory Committee.  Among the
+strongest arguments they present is that even a policy
+requiring technical Working Group members, or even all W3
+members, to make their patent claims available RF cannot
+prevent third-party patents from encumbering standards, and
+that an organization that can make effective standards must
+have some method for dealing with the incorporation of
+patented technology.  Therefore, they say, work will simply
+be done elsewhere than in the W3, and some have gone so far
+as to say that they think the value of their W3C membership
+should be reconsidered.  A subtext in that discussion is an
+issue, occasionally heated, about whether the W3C is the
+creature of its members only, or whether it has a broader
+public interest to serve, and if so how the activities of
+the staff and the Director should be understood to serve
+that public interest.
+
+This is perfectly legitimate politics within the W3C itself,
+which must decide through the votes of its members what to
+do with the recommendations of the PPWG.  It is relevant to
+the recognition that even the proposed RF policy, which is
+not everything that the free software movement sought to
+achieve by any means, is an unstable and controversial deal
+that may yet fall apart.
+
+C-FIT Community Discussion List
+List Parent: seth.johnson at RealMeasures.dyndns.org
+C-FIT Home:  http://RealMeasures.dyndns.org/C-FIT
+
+To Subscribe/Unsubscribe:
+------------------------------------------------------------
+Send "[Un]Subscribe C-FIT_Community" To
+Listserv at RealMeasures.dyndns.org
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From seth.johnson at RealMeasures.dyndns.org  Sat Nov 16 14:00:44 2002
+From: seth.johnson at RealMeasures.dyndns.org (Seth Johnson)
+Date: Sat, 16 Nov 2002 09:00:44 -0500
+Subject: The Register on W3C Patent Policy
+Message-ID: <3DD64F8C.FD1A7907@RealMeasures.dyndns.org>
+
+
+(Forwarded from Patents list.  Article text pasted below. 
+-- Seth)
+
+-------- Original Message --------
+Date: Sat, 16 Nov 2002 14:51:27 +0100 (CET)
+From: PILCH Hartmut <phm at a2e.de>
+To: Seth Johnson <seth.johnson at RealMeasures.dyndns.org>
+CC:
+C-FIT_Community at RealMeasures.dyndns.org,<C-FIT_Release_Community at RealMeasures.dyndns.org>,<fairuse-discuss at nyfairuse.org>,
+<patents at aful.org>
+
+> > http://news.com.com/2100-1001-965863.html
+> W3C Bows to Royalty-free Pressure
+
+Another article with a much less pro-patent title:
+> http://www.theregister.co.uk/content/6/28135.html
+
+W3C rejects net patent tax, avoids web schism
+
+By Andrew Orlowski in San Francisco
+
+Posted: 16/11/2002 at 01:31 GMT
+
+The web standards consortium W3C has agreed on a policy that
+should
+prevent nasty royalty surprises for developers in the
+future.
+
+...
+
+
+-- 
+Hartmut Pilch, FFII & Eurolinux Alliance              tel.
++49-89-12789608
+Protecting Innovation against Patent Inflation	    
+http://swpat.ffii.org/
+125,000 signatures against software patents     
+http://www.noepatents.org/
+
+----
+
+
+> http://www.theregister.co.uk/content/6/28135.html
+
+
+W3C rejects net patent tax, avoids web schism
+
+By Andrew Orlowski
+16/11/2002
+
+
+The web standards consortium W3C has agreed on a policy that
+should prevent nasty royalty surprises for developers in the
+future. 
+
+The latest draft from the W3C's patent policy group
+stipulates that participants must agree to license patents
+on a royalty-free basis. W3C-blessed web standards have
+always been royalty-free, but last year the W3C countenanced
+a twin-track approach, adding RAND licensing as an option. 
+
+It met with a fierce response from software libre
+developers, with talk of creating a breakaway organization
+that could set royalty-free standards. Developers are
+reluctant to start work on a technology with the threat of
+possible lawsuits and fees hanging over them, and for GPL
+developers it's a no-no: the license forbids developers from
+working with encumbered technology. 
+
+The new draft, which had input from the FSF's Eben Moglen
+and Bruce Perens, should avert a schism by eliminating the
+RAND track altogether. So there's no way that a technology
+could begin life as a royalty-free license then switch to a
+fee-bearing license during the ratification process. 
+
+The W3C allows patent holders to "retain defensive use of
+their patents". The W3C expects this to be ratified by next
+May. ?
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From reagle at w3.org  Mon Jan  6 20:31:27 2003
+From: reagle at w3.org (Joseph Reagle)
+Date: Mon, 6 Jan 2003 15:31:27 -0500
+Subject: New W3C Software License: Please update OSI page
+Message-ID: <200301061531.27853.reagle@w3.org>
+
+In compliance with [1] I'm requesting that you please update the W3C license 
+maintained [2] on your site as that license (copyright-software-19980720) 
+is now deprecated. The new version [3] was created so as to ensure 
+continuing compatability with the OSI definition and GPL. Please indicate 
+if this request does not satisfy your policies or if its resolution will 
+exceed more than three months. Thank you.
+
+
+[1] http://www.opensource.org/docs/certification_mark.php
+[2] http://www.opensource.org/licenses/W3C.php
+[3] http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231
+... This formulation of W3C's notice and license became active on December 31 2002. This version removes the copyright ownership notice such that this license can be used with materials other than those owned by the W3C, reflects that ERCIM is now a host of the W3C, includes references to this specific dated version of the license, and removes the ambiguous grant of "use". Otherwise, this version is the same as the previous version and is written so as to preserve the Free Software Foundation's assessment of GPL compatibility and OSI's certification under the Open Source Definition....
+
+
+-- 
+Joseph Reagle Jr.                 http://www.w3.org/People/Reagle/
+W3C Policy Analyst                mailto:reagle at w3.org
+IETF/W3C XML-Signature Co-Chair   http://www.w3.org/Signature/
+W3C XML Encryption Chair          http://www.w3.org/Encryption/2001/
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From david at drrw.info  Fri Mar  4 14:33:48 2005
+From: david at drrw.info (David Webber (XML))
+Date: Fri, 4 Mar 2005 09:33:48 -0500
+Subject: Comparing OSI to OASIS and W3C
+References: <1e1083b605030314426aa1bca5@mail.gmail.com>	 <87oee0s47a.fsf@sanosuke.troilus.org>  <42283AB5.5040704@roblimo.com> <1109942171.27856.5.camel@bad.dynu.ca> <4228628E.7020509@roblimo.com>
+Message-ID: <8dc601c520c7$2e4b1360$6e01a8c0@DRRW01>
+
+Folks,
+
+Here's what a chiefly need - something like this table below.
+
+I know this may be asking for the sky and the stars - but if
+there was something like this it would be very helpful - 
+even in draft form.
+
+Thanks, DW
+ OSI license template name Expected use for - X  Y  Z  T  S  license compatiblity - OASIS  W3C  A o    o    o IPR Type 1, Z - Yes, others No Z, T = Yes, X, S = No  B    o o o  No  No  C o o o    o Partial - IPR type 3, others no T = Yes, Y = partial  D    o o   No  Yes  E    o o o o No  No 
+
+
+
+
+From david at drrw.info  Fri Mar  4 14:58:10 2005
+From: david at drrw.info (David Webber (XML))
+Date: Fri, 4 Mar 2005 09:58:10 -0500
+Subject: Comparing OSI to OASIS and W3C
+References: <1e1083b605030314426aa1bca5@mail.gmail.com>	 <87oee0s47a.fsf@sanosuke.troilus.org>  <42283AB5.5040704@roblimo.com> <1109942171.27856.5.camel@bad.dynu.ca> <4228628E.7020509@roblimo.com> <8dc601c520c7$2e4b1360$6e01a8c0@DRRW01>
+Message-ID: <8e2a01c520ca$95e19a00$6e01a8c0@DRRW01>
+
+Nuts - let's try that again!
+
+Here's the table -
+http://drrw.net/misc/OSI-tables.htm
+
+Thanks, DW
+
+----- Original Message ----- 
+From: "David Webber (XML)" <david at drrw.info>
+To: "Robin 'Roblimo' Miller" <robin at roblimo.com>; "Open Source License
+Discussion List" <license-discuss at opensource.org>
+Sent: Friday, March 04, 2005 9:33 AM
+Subject: Comparing OSI to OASIS and W3C
+
+
+> Folks,
+>
+> Here's what a chiefly need - something like this table below.
+>
+> I know this may be asking for the sky and the stars - but if
+> there was something like this it would be very helpful -
+> even in draft form.
+>
+> Thanks, DW
+>
+>       OSI license template name Expected use for - X
+>       Y
+>       Z
+>       T
+>       S
+>       license compatiblity -
+>       OASIS
+>       W3C
+>       A o    o    o IPR Type 1, Z - Yes, others No Z, T = Yes, X, S = No
+>       B    o o o  No  No
+>       C o o o    o Partial - IPR type 3, others no T = Yes, Y = partial
+>       D    o o   No  Yes
+>       E    o o o o No  No
+>
+>
+>
+>
+
+
+
+
+From LMajerus at fenwick.com  Fri Mar  4 15:13:36 2005
+From: LMajerus at fenwick.com (Laura Majerus)
+Date: Fri, 4 Mar 2005 07:13:36 -0800
+Subject: Comparing OSI to OASIS and W3C
+Message-ID: <04520710CFD6EC44B7DFD2EA5436A713021F5590@exchsvc01.firm.fenwick.llp>
+
+
+I should introduce myself. I'm Laura Majerus, half of the new lawyer team for OSI. I've been on this list for a while, but have been mostly in listen mode.
+
+OSI is definitely planning to put out a table summarizing existing licenses. It will help people with choosing a license, which will (may? might?) lead to less license proliferation.
+
+Laura
+ -----Original Message-----
+From: 	David Webber (XML) [mailto:david at drrw.info]
+Sent:	Fri Mar 04 06:35:18 2005
+To:	Robin 'Roblimo' Miller; Open Source License Discussion List
+Subject:	Comparing OSI to OASIS and W3C

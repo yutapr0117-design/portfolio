@@ -607,7 +607,7 @@ Landley 氏の問いは「代替可能な類型に 1 件足す費用」を問う
 
 **どちらが勝つかは我々には決められない。両方を register に載せる。**
 
-## 1.105 記録に在る唯一の日本発の提出を、初めて開いた —— 止めたのは本文ではなく翻訳の証明だった（2026-09-22）
+## 1.105 日本発の提出を初めて開いた —— 止めたのは本文ではなく翻訳の証明だった（2026-09-22）
 
 **きっかけはオーナーの指摘**（*「世界中で議論するのに、日本人不在はおかしい」*）。
 **⚠ 当初これを「推論」と書いたのは誤りで、本人が同じ時間に訂正した** ——
@@ -618,7 +618,7 @@ Landley 氏の問いは「代替可能な類型に 1 件足す費用」を問う
 
 **MATSUBARA 氏の 25 通のうち 23 通が 1 つのスレッドだった**:
 **「For Legacy Approval: TOPPERS License」（2015-06-10 〜 2015-11-04・全 50 通）。**
-**記録に在る唯一の日本発の提出であり、我々は一度も開いていなかった。**
+**当時これを「記録に在る唯一の日本発の提出」と書いた。⚠ それは誤りだった（2026-09-25 に訂正・`against.md` #242）** ——**2009 年の IPA Font License v1.0 が在り、しかも承認されている**（§1.110）。**誤った原因は探し方にある** —— この節は**差出人のドメインから日本の参加者を数えて**辿り着いており、**提出名の側から数えると別の 1 件が出た。**
 
 ### 何が起きたか
 
@@ -722,3 +722,79 @@ PREAMBLE の第 1 文は *"Software and the works that surround it"* で、適�
 リポジトリである。**上の carve-out は ACD の形をそのまま述べている** ——
 **だがそれは我々の読みであって委員会の判断ではない。**
 
+
+## 1.110 日本発の提出は 2 件あり、通った方には弁護士が付いていた —— IPA Font License（2009・承認）（2026-09-25）
+
+一次資料は `rounds/2009-02-license-review-ipa-font-license-observed-*.txt`（41 通・3 部）。
+**§1.105 が「唯一」と書いたのを撤回する根拠でもある**（`against.md` #242）。
+
+### 誰が出したか
+
+**2009-02-04、`mhmjapan.com` の Yuko Noguchi 氏 —— 森・濱田松本法律事務所の弁護士**が、
+**独立行政法人情報処理推進機構（IPA）を代理して**提出している ——
+*"On behalf of The Information-Technology Promotion Agency, Japan ("IPA"), we would like to submit
+'IPA Font License v1.0' for OSI approval."*
+
+**B1 にとっての意味は率直である。** 日本発の提出は 2 件あり、
+**弁護士が付いた方（IPA Font・2009）は承認され、付かなかった方（TOPPERS・2015）は
+翻訳の証明で止まった**（§1.105）。**n=2 なので因果は言えない。だが並べれば見える。**
+
+### 何が論点になり、どう決着したか
+
+初版は **difference file（差分ファイル）方式** —— 派生フォントは「元のフォント + 差分」でしか
+配布できない —— を採っていた。**Perens 氏が OSD 2 で切った** ——
+*"a step required to translate the program into a usable form ... must not take place until after
+distribution. Thus it doesn't permit distribution of the compiled form, and doesn't pass OSD #2."*
+
+**提出者は 1 か月で本文を 2 度書き直し、3 月 4 日に difference file の要求を全部落とした。**
+Perens 氏 *"Please convey to your colleagues my appreciation for the excellent way they have
+listened and responded to the objections."* Tiemann 氏 *"I hereby add my own affirmation that this
+license appears to meet the criteria of the OSD in letter and in spirit."*
+
+**⚠ これを「審査中は書き直してよい」と読んではならない。** 2009 年の運用であり、
+**2026 年の process ページは「審査中は変更せず、取り下げて新版を出せ」と明文で述べている**
+（`REVISION-PROTOCOL.md` §2）。**読めるのは「指摘に応じて落とした」という*姿勢*の方である。**
+
+### 再利用の見込みが無いことは、却下ではなく分類で処理された
+
+Chuck Swiger 氏 2009-03-27 —— *"the license seems to be fully OSD-compliant. It would be more
+universal if 'Article 5 (Governing Law)' section could be removed, but as this license seems to be
+fairly specific to IPA anyway, that might be a moot concern: regardless, **I would recommend
+approval and placing it into the 'Non-reusable licenses' category**."*
+
+**B2（採用実績 1 件）にとって、これは 2 つのことを同時に述べている。**
+**有利**: 再利用の見込みが無いことは、**承認しない理由ではなく、収容先の問題として扱われた。**
+**不利**: **その収容先は降格である。** ACD-1.0 は §16.3 と提出パケット §4b で
+**「提出者専用ではない」ことを積極的に主張している**ので、この扱いは我々が求めるものではない。
+**そして 2009 年の category 体系は現在のものと違う** ——現在の分類は
+`review-labels.md` が扱っている。
+
+### 主題適格（B15）にとっての逆側
+
+**OSI はフォントのライセンスを承認している。** 主題は source code でも object code でもなく
+**書体**だが、Cowan 氏がこう述べている ——
+*"In the U.S., the appearance of a font is what is not copyrightable, nor is a straight
+representation of the font ... **A vector font, however, is considered program code and therefore
+copyrightable**."*
+
+**線は「コードか否か」ではなく、「プログラムとして扱えるか / ソフトウェアに結びついているか」に
+引かれている。** これは B15 にとって有利な材料である ——
+2023 年の Mulan 不承認（*"open culture licenses are outside the purview"*）と並べると、
+**フォント（承認）と文化的著作物（不承認）の間のどこかに線がある**ことが分かる。
+**⚠ ただし線の位置は分からない。** そして **ACD-1.0 §1.2 が名指しする "audiovisual material" は、
+フォントより Mulan の列挙に近い語である。**
+
+### 2025 年の後日談 —— 同じ件名に 16 年後の 4 通が繋がっている
+
+2025-09、IPA Font License で配布された MJ 明朝の WOFF 変換版に対し、
+権利を承継した CITPC が配布停止を求めた件が `license-discuss` に持ち込まれた
+（*"questions have arisen within the Japanese-speaking open-source community about whether the IPA
+Font License fundamentally meets the definition of open source"*）。
+**Shuji Sado 氏（Open Source Group Japan 会長）が答えている** ——
+*"I don't see this episode as bearing on whether the IPA Font License v1.0 is 'Open Source.'
+It looks like an **operational compliance issue** around redistribution conditions, **not a
+challenge to the license's status**."*
+
+**ドシエは佐渡氏を 9 file で引用しながら、このスレッドを引いていなかった。**
+**承認は取り消せない**（§1.88）という事実と、**承認後に「本当に open source か」と問われうる**
+という事実は両立する ——**そしてその問いに答えたのは OSI ではなく、その言語圏の当事者だった。**
