@@ -166,7 +166,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1568 words**, measured 2026-09-25)
+### B.0 The message as it should actually be sent (**1701 words**, measured 2026-09-27)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -252,6 +252,12 @@ reference material and not in the message** — the surface that is read first w
 page asks for 3, 5, 6 and 9, and those were there; **the archive shows 1 and 7 are the criteria a
 patent objection is actually raised under** (`review-doctrine.md` §1.112). **Naming a criterion we
 meet costs 49 words and removes a place the reviewer has to go looking.**
+
+**And 1,701 on 2026-09-27**, when the message gained **the limb of the vanity test I cannot answer**.
+Bradley Kuhn's 2022 formulation has two parts and the archive shows the list applies both
+(`review-outcomes.md` §1.116); the packet answered *"wholly unserved"* at length and said nothing
+about *"widespread need"*. **Saying nothing about the half you cannot evidence reads, to a reviewer
+who knows the test, as not knowing the test.** **+133 words**（段落そのものも 133 語 —— 最初にここへ「+94」と書いたのは見積もりで、**実測すると 1.4 倍だった**。見積もりは書いた本人に甘い）。
 
 **Why that last addition earns its words.** *"Why another public-domain-equivalent?"* is the opening
 move in this category — Rob Landley put it as fungibility (#84), David Woolley put it to the
@@ -403,6 +409,16 @@ developed it further under my standing delegation. The name ACD-1.0, the general
 and this packet took shape during that delegated work, and I came to know their concrete state
 afterwards. I read the text in full and understood it before relying on it. I am the Dedicator and
 steward and I answer for it; I did not write its clauses.
+
+**The demand, which I cannot show.** Bradley Kuhn set a two-part test on this list in 2022: a
+submitter should show that the licence serves *"a widespread need for many different FOSS
+communities"* **and** that the need is *"wholly unserved by all existing FOSS licenses"*. The
+second limb is what the gap analysis above and the census of all 141 approved texts address. **The
+first I cannot demonstrate.** One repository uses this, and adoption is not something a submitter
+should manufacture. What I can say is narrower: the instrument carries nothing specific to me, so
+anyone may apply it without editing a clause (Section 16.3), and the need I am asserting is the one
+the preamble states. **Whether that need is widespread is a question for you, not a claim I can
+evidence.**
 
 **Everything else, including the case against approving it.** The repository carries an adverse
 list — written by me, adverse items first, with the two entries that have no answer at the top —
