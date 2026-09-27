@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.faq.md
 audience: 採用検討者, 法務, ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-09-05
+last-updated: 2026-09-27
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (逐条リファレンス) / LICENSES/ACD-1.0.comparison.md (族ごとの比較) / LICENSES/ACD-1.0.jurisdictions.md (法域別の問い)
 ---
 
@@ -524,6 +524,11 @@ Dedicator が与えうるものではなく、本 Dedication はそれを与え�
 リスト）へ投稿済み・反応待ち**で、承認申請の窓口である `license-review` へは未投稿、
 SPDX も未提出である。**承認の手続きはまだ何も始まっていない。**
 
+> **⚠ 2026-09-27 追記 —— 「反応待ち」は「届いている」を意味しない。** 我々の投稿のうち**少なくとも 3 通**
+> （`license-review` 2 通 + 2026-09-17 の 1.1 の Discussion Request 1 通）が **moderation で拒否され、
+> リストに届いていない**（`ACD-1.0.against.md` #215・発信状態の単一ソースは `FROZEN.md` の `POSTING-STATUS`）。
+> 出す版は **1.2**（1.1 は 2026-09-17 に確定・凍結済み）。
+
 ### B2. OSI が却下したら / 反応が無かったら
 
 **却下は結果であって失敗ではない。** 想定問答 meta 分冊 Q20 に**撤回すべき条件を事前に**
@@ -532,6 +537,9 @@ SPDX も未提出である。**承認の手続きはまだ何も始まってい�
 
 **反応が無かった場合も事実として記録する** —— `ACD-1.0.discussion-log.md` が空のままなら
 「スレッドは反応を得られなかった」と書くのが正しく、起きなかった議論を匂わせるより良い。
+**ただし「反応が無かった」と「届かなかった」は別の事実である**（2026-09-27 追記）—— moderation で拒否された
+投稿について「反応を得られなかった」と書くと、リストが読んで黙ったかのように読める。拒否が分かっている投稿は
+**拒否された**と書き、届いたか分からない投稿は**分からない**と書く（アーカイブを取得できなかった日も同じ）。
 
 ### B3. SPDX にはいつ出すのか
 
@@ -588,9 +596,11 @@ steward は **Dedicator（適用者）本人**（`ACD-1.0.submission.md` §A に
 | **実際に来た指摘** | `LICENSES/ACD-1.0.discussion-log.md` |
 | 使う側の実務 | **本書** |
 | 設計根拠と申請ドシエ | `docs/architecture/acd-license-rationale.md` |
-| 提出パケット（英文・送るだけ） | `LICENSES/ACD-1.0.submission.md` |
+| 提出パケット（英文・**送る版は §B.0 の確定手順を経る**。送信可否はオーナーの判断） | `LICENSES/ACD-1.0.submission.md` |
 | 提出判断と**残る弱点** | `LICENSES/READY-TO-SUBMIT.md` |
 | 凍結の状態と投稿先の単一ソース | `LICENSES/FROZEN.md` |
+| 確定・凍結済みの後継版（未提出・未適用） | `LICENSES/ACD-1.1.txt` |
+| 次版の草案（出す版・作業場） | `LICENSES/ACD-1.2-DRAFT.txt` / `LICENSES/ACD-1.2-CHANGELIST.md` |
 | 機械可読な記述子 | `LICENSES/ACD-1.0.machine.json` / `LICENSES/ACD-1.0.spdx.xml` |
 
 **ここに無い疑問が出たら、それはこの一覧の欠落である。** 追記すること。
