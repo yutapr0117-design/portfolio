@@ -345,3 +345,97 @@ an advertisement. I see it as equivalent to the ... 3-clause BSD"* の endorseme
 
 *"Decision date: due no later than the first Board meeting after October 23, 2023"*
 （2023-08-23 提出の 60 日後）——**§1.116 で見た運用と同じ。**
+
+## 1.120 英語としての不可解さは、実際に書かれた否決理由である —— そして「弁護士を雇え」の最も鋭い形が記録に在る（2026-09-27）
+
+一次資料は `rounds/2022-03-license-review-yateam-not-approved-observed-*.txt`（9 通・5 部）と
+`rounds/2019-05-license-review-master-console-withdrawn-observed-*.txt`（15 通・2 部）。
+
+### 否決の Rationale Document、逐語
+
+YATeam Public License v1（2022-03 提出 → **2023-09-15 の理事会で不承認**）——
+
+> *"Resolved that it is the opinion of the OSI that the YATeam Public License Version 1 **does not
+> conform to the OSD and assure software freedom** and the license is therefore not approved."*
+>
+> Rationale Document: *"This license is an attempt to create a license where the licensor can
+> choose what options to invoke. However, in Section 4 the license allows adding restrictions that
+> do not comply with the OSD ... **Unless a license meets the OSD in every possible iteration, it
+> cannot be approved as an open source license.** **The license is also unintelligible in the
+> English language version.**"*
+
+**2 つ在る。**
+**(1) *"in every possible iteration"*** —— **選択肢を持つライセンスは、すべての組合せで OSD を
+満たさなければならない。** **ACD-1.0 には選択肢が無い**（§10.1 は条件を 1 つも持たない）ので
+**構造上あたらない** ——**これは「強い」からではなく「取りうる形が 1 つしかない」からである。**
+**(2) *"unintelligible in the English language version"*** ——
+**英語としての不可解さが、Rationale Document に書かれた否決理由の一つである。**
+**B3（長さ）と B13（理解コスト）の、最も鋭い形。**
+**⚠ ACD-1.0 の英語は「不可解」ではないが、それを我々が判定することはできない。**
+`review-corpus.md` の代理指標（平均文長 27.3・最長 85 語・従属節 2 つ以上の長文 0 件）は
+**読みやすさの代理であって、審査者の心証ではない。**
+
+### 二言語の扱い —— 2 人が別々の理由で同じ結論に至っている
+
+Russell Nelson 氏 —— 中国語が正文で英語が訳、という構造は *"untenable"*。
+*"The proper way is '**I cut the cake, you pick the piece**.' ... YATeam allows the defendant to
+choose whichever language version they want."*
+Pamela Chestek 氏 —— *"I believe it's also true that **some countries won't respect the choice of
+version stated in the license** and will only enforce the local language no matter what the license
+says about it. So perhaps the lesson is only that **translations shouldn't be part of the formal
+agreement**."*
+
+**ACD-1.0 §15.8 は英語を正文と定め、翻訳を本文の一部にしていない。**
+**ドシエの大半は日本語だが、それは instrument の外に在る**（`REVIEWERS.md` が英語の入口）。
+**この構図は、上の「教訓」をそのまま満たしている。**
+
+### 「弁護士を雇え」の最も鋭い形
+
+Bruce Perens 氏 2019-05-28、Master-Console の提出者に向けて ——
+
+> *"It's obviously not the product of a lawyer. I have previously worked on the case **Jacobsen v.
+> Katzer**, in which an Open Source developer paid **tens of thousands of dollars in losses and
+> five years of hardship in court** because he relied on the Artistic License ... rather than a
+> license from an attorney. These licenses are very unlikely to do what you expect when a judge
+> goes to parse them — which is the only purpose of a license. Thus, **it is an active disservice
+> to the programmers of the world** to present them with a license which is unlikely to work as
+> they expect in court, and is likely to cause them damages. **So, please get a lawyer to write a
+> license for you.**"*
+
+**B1 の最も強い表現である** ——**害は「承認されないこと」ではなく、
+それを採用した第三者が被る損害として述べられている。**
+**ACD-1.0 は §16.3 と README で「誰でも使ってよい」と積極的に招いている。**
+**その招きに対して、この一文は正面から当たる。**
+**我々の既存の対処**（提出パケット §5 で法的レビューの不在を最初に述べ、
+`LICENSE` にも来歴と不在を書いた・#67）**は、開示であって反論ではない。**
+**⚠ 事実の訂正**: 氏は *"Artistic License Zero"* と書いているが、
+Jacobsen v. Katzer で争われたのは **Artistic License** である。
+
+### 委員長が示した経路は、我々がいま辿っている経路そのものである
+
+Pamela Chestek 氏 2019-05-27 —— *"I suggest that you **withdraw the license for now** ...
+I would also suggest **starting a thread on license-discuss** about the concepts that you would
+like to employ, to get feedback on whether they would be acceptable for an approved license.
+**If after discussion it appears that the OSI might approve a license of the type you propose**,
+you can get assistance with conveying the concepts more clearly in a legal document and
+**resubmitting the revised version**."*
+
+**`REVIEWERS.md` の Status が述べる我々の計画（discuss → 指摘を取り込む → review へ）は、
+委員長が別の提出者に示した経路と同じ形である。** **⚠ ただし向きが違う** ——
+あちらは*提出したものを取り下げて* discuss へ行けという指示で、**我々は discuss から始めている。**
+
+### そして、我々にとって最も不愉快な一文
+
+Richard Fontana 氏 2019-05-27 —— *"My first thought was that this license was written in a
+non-English language and **run through a machine translator without subsequent human review**."*
+
+**ACD-1.0 の本文は AI が生成した英語である**（§E.1 で開示している）。
+**もし英語が機械的に見えれば、これがその反応である。**
+**開示していることは、そう読まれないことを意味しない。**
+
+### 手続きの実測（3 例目）
+
+*"Decision date: due no later than the first Board meeting after 21 May 2022"* に対し、
+**理事会の議決は 2023-09-15**（**約 16 か月遅い**）。
+Mulan の 207 日（§1.108）、NOSA 2.0 の 3 年半（§1.118）に続く 3 例目 ——
+**公表された決定期限は上限として機能していない。**
