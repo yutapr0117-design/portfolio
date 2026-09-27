@@ -704,6 +704,20 @@ is considered program code and therefore copyrightable**."*
 **⚠ ただし線の位置は分からないままで、§1.2 が名指しする "audiovisual material" は、
 フォントより Mulan の列挙に近い語である。**
 
+**⚠ 逆側の逆側（2026-09-27 に、同じ次元を新しい一次資料へ当て直して出た）。**
+**フォントの先例は、承認する側の 1 人が名指しで否定している。** Richard Fontana 氏は
+2026-09-11 の OpenMDW スレッドで、Sado 氏が SIL Open Font License を「ソフトウェアでない素材の
+ために設計されたライセンスを OSI が承認した例」として挙げたのに対し、
+*"I would assert that this license … was **wrongly approved** by the OSI"* と述べ、
+**自分が 17 年前にその承認を後押ししたことを謝罪している**
+（`rounds/2026-09-14-license-review-openmdw-thread-observed.txt` / `review-doctrine.md` §1.125 (c)）。
+**承認されたという事実は残るが、先例としての重さは、承認する側がそう言っている分だけ軽い。**
+**しかも同じ 1 通が、素材の種類で線を引いている** —— OSAID を引いて
+*"the OSI contemplates that things other than OSI-approved licenses might be suitable for
+**model parameters**, but **that does not apply to code or model architecture materials**"*。
+**パラメータ側については「そもそも OSI 承認ライセンスの仕事ではないかもしれない」という読みが、
+審査者の側から出ている。**
+
 **逆側（2）。** 有利な読みも 1 つある —— **不承認の理由が OSD 違反ではなかった**ということは、
 **主題が近いと判定されれば OSD 側の審査に進む**ということでもある（同じ記録で、
 理事会は否決を *"only if it violates the OSD"* に狭めている・§B2 節）。
