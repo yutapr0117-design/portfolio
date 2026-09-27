@@ -857,3 +857,80 @@ but rather are proprietary by default**"*（Berne 以降、著作権は創作と
 **後半は §3 が「何もしない」ことと違う理由**である ——
 **黙っていれば public domain になるのではなく、黙っていれば proprietary になる。**
 **§3 が在ることの必要性は、この一文が最も短く説明している。**
+
+## 1.116 理事会は準拠法条項を「必要でも望ましくもない」と述べて承認した —— そして弁護士が起草しても 11 か月・3 版かかった（2026-09-27）
+
+一次資料は `rounds/2022-04-license-review-open-logistics-license-observed-*.txt`（106 通・15 部）。
+**Open Logistics License**（Apache-2.0 を欧州法へ適合させたもの）は 2022-04 に提出され、
+**2023-03-19 の理事会で承認**された（special purpose category）。
+
+### 理事会が、承認の文言のなかで準拠法について立場を述べている
+
+Pamela Chestek 氏 2023-03-18 ——
+
+> *"The Board of the Open Source Initiative approved the Open Logistics License version 1.3 as an
+> Open Source Initiative Certified license in the special purpose category of licenses at its
+> March 19, 2023 meeting. **The Board did so with the comment that it does not believe that choice
+> of law provisions are necessary or advisable in open source licenses.**"*
+
+**ACD-1.0 §15.7 は準拠法も法廷地も置いていない。**
+**ドシエはこれまで、その不在を「費用」としてだけ記録してきた** ——
+`submission-reference.md` §4 は *"a plaintiff chooses the venue, and neither party can predict
+which law governs"* と書き、2026-09-20 の外部レビューはこれを
+*"the instrument's greatest systemic defect"* と呼んだ（`against.md` #170）。
+**費用は消えないが、理事会自身の選好はこちら側に在る** ——
+**置かないことが、置くことより不利だという証拠は無く、理事会は逆を述べている。**
+
+**⚠ 過大に読まない。** 理事会が述べたのは *"necessary or advisable"* であって、
+**「不在が有利に働く」とは言っていない。** §15.7 が抱える固有の問題（#23 が指摘した
+「depeçage を宣言で作ろうとしている」読み）は、この発言では何も解決しない。
+
+### 法律事務所が起草に同伴しても、承認まで 11 か月・3 版かかった
+
+提出文自身が述べている —— *"The entire process of discussing and drafting the license was
+accompanied by **BHO Legal, a German law firm specialized in IT law** ... The license was
+subsequently **reviewed and approved by several in-house lawyers**."*
+
+**それでも v1.1 → v1.2 → v1.3 と 2 度書き直され、106 通を要した。**
+**B1（法的レビューが無い）にとっての意味は 2 つで、向きが逆である。**
+**不利**: 弁護士が付いていてなお 3 版を要したのだから、**付いていない我々が一発で通る見込みは薄い。**
+**有利**: **法的レビューは審査を短くしない** ——**「弁護士が居れば通る」でも「居なければ止まる」でもなく、
+どちらの側でもリストは条文を読んで直させる。**
+
+### vanity の判定基準が、2 段で述べられている
+
+Bradley M. Kuhn 氏 2022-12-23 ——
+
+> *"If a license submitter cannot make a clear and compelling case as to why their license serves a
+> ***widespread* need for many different FOSS communities**, *and* explain how that need is
+> **wholly unserved by all existing FOSS licenses** — then the license is almost surely just a
+> vanity license. ... They come to OSI for its endorsement and **to build their own licensing
+> credibility upon a foundation of OSI's credibility**. OSI-approval should always include the
+> question ... **whether the license is in service to a broader FOSS community beyond the
+> organization submitting it**."*
+
+**これは B6（vanity）と B10（gap）を 1 つの連言にしたものである。**
+**我々の答えは提出パケット §4b（本文に固有名詞ゼロ・採用に本文編集が不要）と gap census だが、
+Kuhn 氏の基準は「提出者専用でないこと」より強い** ——**"widespread need" を求めている。**
+**採用実績 1 件（B2）では、その語に届かない。**
+
+### 開発者からの feedback が集まらない、という観察
+
+Josh Berkus 氏 2022-12-23 —— *"developer feedback on this license is limited; **its entire reason
+for existence depends on legal interpretation**, and I have nothing to contribute to that.
+My one request is: ... somewhere this license needs **a FAQ that explains in developer
+(non-lawyer) terms when I would want to use it**, in preference to the standard APL, and why."*
+
+**ACD-1.0 も存在理由の大半が法的解釈である。** FAQ は既にある（`ACD-1.0.faq.md`）が、
+**「いつ、なぜ、既存のどれの代わりに使うのか」を開発者の言葉で答える面としては読まれていない。**
+
+### 改訂の手続きが、委員長の運用として記録されている
+
+Pamela Chestek 氏 2023-01-21 —— *"**We will consider version 1.2 withdrawn and this a
+resubmission.** The Decision Date for it will be 30 days after submission"*、
+根拠として承認ページを引用 —— *"'Decision Date' ... (a) **60 days after a license is initially
+submitted** ... and (b) **30 days after submission of a revised version**"*。
+
+**`REVISION-PROTOCOL.md` §2 が記録している「審査中は変更せず、取り下げて新版を出す」は、
+委員長が実際にそう運用した記録として裏づけられる** ——**改訂は取り下げと再提出として扱われ、
+時計は 30 日で引き直される。**

@@ -1,0 +1,750 @@
+
+
+I'm looking forward to your comments and we are still hoping for a successful license review afterwards.
+
+
+
+Regards
+
+Andreas
+
+
+Von: License-review <license-review-bounces at lists.opensource.org> Im Auftrag von Pamela Chestek
+Gesendet: Dienstag, 5. Juli 2022 00:32
+An: license-review at lists.opensource.org
+Betreff: Re: [License-review] For Approval: Open Logistics License
+
+(In my personal capacity)
+
+Hi Andreas,
+
+Is English the language of the agreement? I want to make sure we're reviewing the actual agreement itself, not your translation of it. If the license is in German, we will need to have the German version and a certified translation for review.
+
+Here are my concerns about this license:
+
+Definition for "Subject Matter of the License"
+This is confusingly defined. It states that it means "the copyrighted works of the software components ..." and continues "as well as the other components protected under copyright, design and/or patent law which are made available under this license ... as well as the application and user documentation."
+
+First, with respect to the first use of the word "copyrighted," that suggests the license is going to be limited to just the copyrightable content, not, for example, any patentable content. The Apache license's parallel provision, which is the definition for the "Work," is somewhat similarly flawed because it uses the term of art "authorship," which one can read as limiting the license to only copyright content. That's something we cannot change in the Apache license, but I would suggest removing the "copyrighted" limitation from this license to make sure it isn't construed as limited to only content that is copyrightable.
+
+The same definition then refers to "as well as the other components protected under copyright, design and/or patent law which are made available under this license in accordance with a copyright notice inserted into or attached to the work ...." This clause seems unnecessary. If a third-party included component states that it is under the Open Logistics License, then there is no need to also mention it in the license for the larger work. It will only cause problems in license interpretation.
+
+This phrase also likely goes beyond what may be the original scope of the license for the "other component." The text says the Open Logistics License applies to "the other components protected under copyright, design and/or patent law ... as well as the application and user documentation." This says that the Open Logistics License will apply to the "application and user documentation" of third party components, which would appear to be regardless of what the licenses actually are for the application and documentation as assigned by the owner of the third party component. This is a copyleft - I assume it wasn't intended, but that's what it says.
+
+If the intent was that the Open Logistics License applies to "application and user documentation" for the originally licensed code, not for the "other components," the sentence needs to be restructured. At the moment it states fairly clearly (under US English grammar rules) that the "application and user documentation" is referring to the "other components," not the larger work being licensed.
+
+Also, if the intention is that the Open Logistics License applies, not only to the code, but to the "application and user documentation," this isn't necessarily a problem but I question whether it is a wise choice to require that text works, like documentation, be under the same license as the software code. It also seems to be a bit of a trap for the unwary; I expect that most people believe that the software code and its documentation can be separately licensed and won't realize that the code license is also dictating the documentation license.
+
+Finally, what is the "application" and how does it differ from the work being licensed?
+
+Definition for "Source Code"
+It is defined as "in the programming language." I'm not sure why this was changed from the common and well-understood concept of that source code is the preferred form for making modifications. I am just wary of new definitions when there is a well-understood and perfectly serviceable definition. It is an opportunity to create ambiguity about the meaning and intent for the term. What problem were you trying to solve with this new definition?
+
+Definition of "Object Code"
+What does the word "interim" do? Shouldn't the final manifestation of the code that will run on the computer also be considered "object code"?
+
+?2 Granting of usage rights
+Why is the grant so detailed? Why is it not simply a grant of all the rights of the copyright owner, similar to what you have done for the patent grant? What grant have you made that isn't also a grant of one of the exclusive rights of the copyright owner? My concern about such a detailed grant, rather than one that simply reiterates all the exclusive rights of the copyright owner, is that there will be unintentional loopholes. I see from your website that you intend to ensure that the rights as described in the Supplementary Terms of Contract for the Procurement of IT Services are clearly granted, but perhaps it would be better to grant all copyright rights (e.g., reproduce, distribute, exhibit, make available, etc.) and then add "including, but not limited to," the rights you have enumerated.
+
+?3 Grant of a patent license
+The grant of the copyright license is "for the terms of the copyrights" but the term of the patent grant is not stated. I don't think it's necessary to state a term since the grant is perpetual, but having two clauses that say something different invites challengers to find some distinction between the two. It would also be easier to understand the license if the terms of the patent license grant (non-exclusive, perpetual, etc.) was parallel to the grant in the copyright license. It would then be clear that the scope of both grants is meant to be the same.
+
+"Under no circumstances will anything in this Section 3 be construed as granting, by implication, estoppel or otherwise, a license to any patent for which the respective Contributors have not granted patent rights when they submitted their respective Contributions." What is this sentence designed to do? The grant clause defines the grant (patents that read on the contribution or the whole work at the time of contribution). It's not necessary to say that there is no grant of what is not granted.
+
+As to the patent license termination, it does not appear to be limited to proceedings for infringement only of patents that were licensed, but any patent infringement lawsuit at all brought by a licensee. (This might also be McCoy's point.) Also, as I read it, not only is the patent license terminated, but the entire license is terminated: "all patent licenses which have been granted to You under this License for the Subject Matter of the License as well as this License in itself [that is, the Open Logistics License as a whole] shall be deemed terminated ..." Was that the intent? I know that termination provisions vary and I'm not sure what the current view is on the appropriateness of terminating the copyright license too, but there are OSI-approved licenses that terminate the copyright grant too.
+
+I don't understand this sentence: "the Contributors are entitled to decide in their own discretion to abandon respectively maintain any patent designated by patent number upon delivery of the Subject Matter of the License." It is the words "to abandon respectively maintain any patent ... upon delivery of the Subject Matter of the License" that are very unclear. What does "abandon respectively maintain any patent" mean? It is saying both abandon and maintain without any conjunction.
+
+You state "We have been asked by some partners of the current project for which the license has been drafted to include the possibility that they submit a list of patents they are not willing to contribute to the work. This is reflected in the license text. However, it is part of our workflow for the inclusion of contributions into the project that no contributions would be accepted where a patent that would be part of such list of patents excluded from the contribution could be applicable." If above sentence is where you are stating that a patentee may withhold a patent license to its contribution, it will block the license from being approved. A license that allows someone to withhold patents from licensing is inconsistent with the OSD and cannot be approved. It doesn't matter that your project doesn't accept patent-encumbered software, in order for a license to be approved by the OSI it must be acceptable for all users in all circumstances.
+
+If instead this sentence is meant to advise that a patentee can "release their patents in order to make them available to the public" as you mention below, which I understand to mean abandoning patent rights, I don't think it's necessary to say that expressly in the license. No one using the software will insist that a patentee maintain a patent.
+
+?7 Limited warranty
+"This License is granted free of charge and thus constitutes a gift. Accordingly, any warranty is excluded." Is that the undeniable conclusion under German law or is this statement enforceable as a matter of contract? That wouldn't necessarily be the case under US law. In the US a license grant isn't necessarily a gift and one can't transform it into a gift by just saying so.
+
+Does the statement "The Subject Matter of the License is not completed and may therefore contain ... additional patents of Contributors" a reference to patents that are carved out of the grant (not acceptable, as mentioned above)? If not, what is the meaning?
+
+?8 Limitation of liability
+Reiterating Eric's point that "Except in cases of intent and gross negligence or causing personal injury" is unclear. Is it two things, causing personal injury intentionally or causing personal injury through gross negligence, or three things, an intentional tort not related to personal injury, gross negligence not related to personal injury, and personal injury no matter how caused, even if only by simple negligence? Can the language be clarified?
+
+Regarding intentional infringement, as well as that the software is "accurate, devoid of mistakes, complete and/or usable for any purpose," are these claims that cannot be excluded by contract under German law?
+
+As to others' comments about the applicable law provision, there are other approved licenses that have choice-of-law provisions, so I don't see that as a stopper. What I see as the stopper is the ability to NOT grant a patent license for a patent that reads on a contribution. That is a full stop for OSI approval.
+
+It also is not a well-drafted English-language license, as I've described above. We have learned from experience that these licenses can have lives that are longer than ours and a drafting error or ambiguity will last forever. For that reason I believe it is important that new open source licenses be written as cleanly as possible. This one, though, has a number of flaws that I believe make it unacceptable as a new open source license.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com<mailto:pamela at chesteklegal.com>
+www.chesteklegal.com<https://deu01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.chesteklegal.com%2F&data=05%7C01%7Candreas.nettstraeter%40openlogisticsfoundation.org%7Cb2351ae257394d74e19208da5e0d216d%7Cb346d634acfb42c7bd44f1557ee89b1b%7C1%7C0%7C637925707753675801%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C2000%7C%7C%7C&sdata=yH87s1esavahZ1c0%2FFVF%2BwbZHgRBYeGLx4nijyJIDSw%3D&reserved=0>
+
+
+
+On 5/30/2022 5:49 AM, Andreas Nettstr?ter wrote:
+Dear all,
+
+Finally, I managed to collect all input. Therefore, I'm happy to address your concerns regarding our license.
+I hope the clarifications help to understand our approach a bit more. If there is need for more details, please reply and I'll try to answer faster than in the first round.
+
+Regards
+Andreas
+
+
+1. Eric's concern with regard to the limitation of liability in the license
+With regard to the comment on the limitation of liability, Eric fears that contributors will be inappropriately liable under the license. In general, we do not see any reasonable claims against contributors since contributors do not enter contracts with users but only allow to use the IP they created with their contribution (they grant rights of use). At least we are not aware of any claims against contributors to open source software. Furthermore, the limitation of liability clause itself does not create any liability but limits the liability in case it arises at all. Therefore, it should be beneficial to all contributors. Since the license is drafted to comply at least with German laws, a further limitation of liability would not be possible once liability arose at all. E.g., the comprehensive limitation of liability in the Apache 2.0 license would be void, if it had to be interpreted under German (or other European laws). Since liability for personal injury cannot be excluded under German laws on general terms and conditions, adjustments to the close would not benefit contributors.
+
+2. Comments No. 1 and No. 2 by McCoy Smith
+McCoy's assumption is 100% correct, there is no comprehensive European contract law any more than there is in the USA. The adjustments made in the license compared to the "original" Apache 2.0 license are made in accordance with German law. We decided to use a choice of law clause in order to be sure that the license is enforceable. As mentioned above, in the case German laws applied wrt the Apache 2.0 license, some of the provisions would be void and therefore not enforceable. However, it is our understanding that there have been few court cases wrt to open source licenses and even fewer decisions that relied on the enforceability of clauses that could/would be void under appliable laws.
+
+3. Comment No. 3 by McCoy Smith:
+According to German law, one can only deviate from or limit liability to a very limited extent by means of general terms and conditions. Assuming that open source software is handed over as a gift, we fortunately no longer have comprehensive liability for simple negligence, but "only" the liability specified in the licence (under German laws). However, it is not possible to further deviate from this liability in favour of the potentially liable party.
+
+4. Comment No. 4 by McCoy Smith:
+We see three issues here.
+a. There seems to be a misunderstanding wrt the last paragraph of the patent clause. Of course, any patentee can unilaterally "revoke" his/her patent with the consequence that it ceases to exist and therefore a right to use it is no longer required. However, this is not a revocation of a patent once granted in the sense that the recipient would then no longer be allowed to use it. What we have seen in the past is that companies and public institutions have released their patents in order to make them available to the public, therefore, we wanted to include this statement in the license.
+b. The right to use the patent should be limited to the part of the works that existed at the time of filing a contribution. Otherwise, further contributions from third parties could lead to a situation where a contributor would have to grant rights to use patents which have not been necessary at the time of the contribution. We think this is in line with the patent clause in the Apache 2.0 license.
+c. The last issue might be the most important for you. We have been asked by some partners of the current project for which the license has been drafted to include the possibility that they submit a list of patents they are not willing to contribute to the work. This is reflected in the license text. However, it is part of our workflow for the inclusion of contributions into the project that no contributions would be accepted where a patent that would be part of such list of patents excluded from the contribution could be applicable.
+
+
+
+Von: License-review <license-review-bounces at lists.opensource.org><mailto:license-review-bounces at lists.opensource.org> Im Auftrag von Andreas Nettstr?ter
+Gesendet: Montag, 16. Mai 2022 18:36
+An: License submissions for OSI review <license-review at lists.opensource.org><mailto:license-review at lists.opensource.org>
+Betreff: Re: [License-review] For Approval: Open Logistics License
+
+Dear all,
+
+I'm still waiting for the final input from all partners. Corona/Covid are still causing longer delays here.
+
+Sorry for that. I hope that I can provide feedback until next week the latest.
+
+Regards
+Andreas
+________________________________
+From: License-review <license-review-bounces at lists.opensource.org<mailto:license-review-bounces at lists.opensource.org>> on behalf of Andreas Nettstr?ter <andreas.nettstraeter at openlogisticsfoundation.org<mailto:andreas.nettstraeter at openlogisticsfoundation.org>>
+Sent: Sunday, April 17, 2022 5:15:36 PM
+To: License submissions for OSI review <license-review at lists.opensource.org<mailto:license-review at lists.opensource.org>>
+Subject: Re: [License-review] For Approval: Open Logistics License
+
+Dear all,
+
+Thanks for the useful feedback.
+
+I'll talk to the lawyers and give you more information on the decisions and reasons for the changes. Also regarding the connection between German and European law.
+
+Because of Easter holidays this could take some days.
+
+Regards
+Andreas
+________________________________
+From: License-review <license-review-bounces at lists.opensource.org<mailto:license-review-bounces at lists.opensource.org>> on behalf of Eric Schultz <eric at wwahammy.com<mailto:eric at wwahammy.com>>
+Sent: Saturday, April 16, 2022 9:12:50 PM
+To: License submissions for OSI review <license-review at lists.opensource.org<mailto:license-review at lists.opensource.org>>
+Subject: Re: [License-review] For Approval: Open Logistics License
+
+Andreas,
+
+Thanks for submitting this!
+
+I'm no lawyer but I'm a little uncomfortable with the wording for the disclaimer of liability around which words the "and" and "or" apply to.
+
+For example does it mean:
+
+1. (intent and gross negligence) OR (causing personal injury), or
+2. (intent) and (gross negligence or causing personal injury)
+
+While we should definitely avoid any harm to our users, 1 seems like it's creating a pretty high risk to developers. After all, in some cases it's nearly impossible to avoid all possible injuries to all persons everywhere. Depending on the design of the software, it may be dangerous to some subset of users while perfectly safe to other users.
+
+One thought I have is that, in cases of potential liability, I am under the impression that certain punishments apply if someone intends to cause the injury or exhibited gross negligence. So does it make sense to have an "and" there?
+My thinking is it would make more sense to rewrite the clause to mean:  (intent OR gross negligence) AND (causing personal injury). After all, if you exhibit intent and gross negligence but don't cause any injury, as I understand it, there would be no civil liability because there would be no injured party. Then again, I'm not a lawyer and I'm based in the US so I'm applying my very limited knowledge to that.
+
+Eric
+
+On Thu, Apr 14, 2022 at 6:37 AM Andreas Nettstr?ter <andreas.nettstraeter at openlogisticsfoundation.org<mailto:andreas.nettstraeter at openlogisticsfoundation.org>> wrote:
+Dear License Review Team,
+
+I would like to propose the Open Logistics License for an approval.
+
+You can find the plain text copy of the license in the attachment and the requested additional information in the following.
+
+Rationale:
+This new license is intended to represent the rights and obligations of an established license, such as Apache v2, while respecting the differences between US and European law. The changes were mainly done in the paragraphs regarding warranty and liability.
+
+Distinguish:
+The Open Logistics License is based on Apache v2, but has been modified to comply more with European law.
+
+Legal review:
+The entire process of discussing and drafting the license was accompanied by BHO Legal, a German law firm specialized in IT law. Adjustments were made to specifically adapt the rules on the patent license, warranty, and liability to European law. The adjustments are intended to strengthen the acceptance of the license by European companies and minimize (perhaps only perceived) risks. The license was subsequently reviewed and approved by several in-house lawyers of larger European companies. Further details and justifications for the individual changes can be provided on request.
+
+Proliferation category:
+The decision on one specific category is quite hard. The license is compatible with Apache2, but was adapted to some specific European rules. The license will be used by a larger group of companies in the frame of open source development for logistics and supply chain management, but is, of course, not limited to this purpose. Therefore, the license can be seen as a special purpose license.
+
+I'm happy to deliver more information, if needed.
+
+Regards from Germany
+Andreas
+
+--
+Andreas Nettstr?ter
+Open Logistics Foundation
+
+_______________________________________________
+The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org<https://deu01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fopensource.org%2F&data=05%7C01%7Candreas.nettstraeter%40openlogisticsfoundation.org%7Cb2351ae257394d74e19208da5e0d216d%7Cb346d634acfb42c7bd44f1557ee89b1b%7C1%7C0%7C637925707753675801%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C2000%7C%7C%7C&sdata=ZWdkaMTxct0NFgFiFoOjZFkTFQkrjMNMz%2Br3aGW5fmI%3D&reserved=0> email address.
+
+License-review mailing list
+License-review at lists.opensource.org<mailto:License-review at lists.opensource.org>
+http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org<https://deu01.safelinks.protection.outlook.com/?url=http%3A%2F%2Flists.opensource.org%2Fmailman%2Flistinfo%2Flicense-review_lists.opensource.org&data=05%7C01%7Candreas.nettstraeter%40openlogisticsfoundation.org%7Cb2351ae257394d74e19208da5e0d216d%7Cb346d634acfb42c7bd44f1557ee89b1b%7C1%7C0%7C637925707753832092%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C2000%7C%7C%7C&sdata=Z%2FW4AWCrnhJBeanTI8EADbWYWr1byFhUC3lr%2Fp7lpRg%3D&reserved=0>
+
+
+--
+Eric Schultz, Developer and FOSS Advocate
+wwahammy.com<https://deu01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwwahammy.com%2F&data=05%7C01%7Candreas.nettstraeter%40openlogisticsfoundation.org%7Cb2351ae257394d74e19208da5e0d216d%7Cb346d634acfb42c7bd44f1557ee89b1b%7C1%7C0%7C637925707753832092%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C2000%7C%7C%7C&sdata=hB00T6wvukUO%2F8ZilvtjA9ATA4yAyDesvvFGvkTX6pM%3D&reserved=0>
+eric at wwahammy.com<mailto:eric at wwahammy.com>
+@wwahammy
+Pronouns: He/his/him
+
+
+
+_______________________________________________
+
+The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+
+
+
+License-review mailing list
+
+License-review at lists.opensource.org<mailto:License-review at lists.opensource.org>
+
+http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org<https://deu01.safelinks.protection.outlook.com/?url=http%3A%2F%2Flists.opensource.org%2Fmailman%2Flistinfo%2Flicense-review_lists.opensource.org&data=05%7C01%7Candreas.nettstraeter%40openlogisticsfoundation.org%7Cb2351ae257394d74e19208da5e0d216d%7Cb346d634acfb42c7bd44f1557ee89b1b%7C1%7C0%7C637925707753832092%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C2000%7C%7C%7C&sdata=Z%2FW4AWCrnhJBeanTI8EADbWYWr1byFhUC3lr%2Fp7lpRg%3D&reserved=0>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20220830/3b672483/attachment-0001.html>
+-------------- next part --------------
+Open Logistics License
+Version 1.1, [MONTH] 2022
+https://www.openlogisticsfoundation.org/licenses/
+
+TERMS AND CONDITIONS FOR USE, REPRODUCTION AND DISTRIBUTION
+
+??1 Definitions
+
+(1) "Subject Matter of the License" shall mean the works of software components
+in Source or Object form as well as any other components protected under
+copyright, design and/or patent law which are made available under this License. 
+
+(2) "License" shall mean the terms and conditions for the use, reproduction and
+distribution of the Subject Matter of the License in accordance with the
+provisions of this document. 
+
+(3) "Licensor(s)" shall mean the copyright holder(s) or the entity authorized by
+law or contract by the copyright holder(s) to grant the License.
+
+(4) "You" (or "Your") shall mean a natural or legal person exercising the
+permissions granted by this License.
+
+(5) "Source" form shall mean the preferred form for making modifications,
+including but not limited to software source code, documentation source, and
+configuration files.
+
+(6) "Object" form shall mean any form resulting from mechanical transformation
+or translation of a Source form, including but not limited to compiled object
+code, generated documentation, and conversions to other media types.
+
+(7) "Derivative Works" shall mean any work, whether in Source or Object form or
+any other form, that is based on (or derived from) the Subject Matter of the
+License and for which the editorial revisions, annotations, elaborations, or
+other modifications represent, as a whole, an original work of authorship. For
+the purposes of this License, Derivative Works shall not include works that
+remain separable from, or merely link (or bind by name) to the interfaces of,
+the Subject Matter of the License and Derivative Works thereof.
+
+(8) "Contribution" shall mean any proprietary work, including the original
+version of the Subject Matter of the License and any changes or additions to
+such work, or Derivative Works of such work, that the rights holder, or a
+natural or legal person authorized to make submissions, intentionally submits to
+a Licensor to be incorporated into the Subject Matter of the License. For the
+purposes of this definition, "submit" shall mean any form of electronic or
+written communication which is sent to a Licensor or its representatives for the
+purpose of discussing or improving the Subject Matter of the License, including
+but not limited to communications sent via electronic mailing lists, source code
+control systems and issue tracking systems; however, communications that are
+clearly marked by the copyright holder as "not a contribution" or otherwise
+identified as such in writing are excluded. 
+
+(9) "Contributor" shall mean the Licensor(s) and/or any natural or legal person
+on whose behalf the Licensor(s) receive(s) any Contribution subsequently
+incorporated into the Subject Matter of the License.
+
+??2 Grant of usage rights
+
+Subject to the terms and conditions of this License and compliance with the
+provisions of this License, You are hereby granted by each Contributor, insofar
+as applicable to the respective Subject Matter of the License the
+
+- royalty-free and non-exclusive,
+- sub-licensable for commercial and non-commercial purposes,
+- worldwide and perpetual,
+- irrevocable and non-terminable
+
+right to reproduce, prepare Derivative Works of, publicly display, publicly
+perform, and distribute the Subject Matter of the License and such Derivative
+Works in any form. This right of use includes but is not limited to the right
+
+- to use the Subject Matter of the License in any hardware and software environment (with regard to the software and data components), in particular to store or load it permanently or temporarily, to display it and run it, including to the extent reproductions are necessary to that end,
+- to otherwise modify, interpret, edit or redesign it, 
+- to store, reproduce, exhibit, publish, distribute it in tangible or intangible form, on any medium or in any other way, for commercial and non-commercial purposes, in particular to communicate it privately or publicly, including via image, audio and other information carriers, irrespective of whether by wire or wireless means,
+- to use it in databases, data networks and online services, including the right to make the software and data components of the Subject Matter of the License available in Source or Object form to users of the aforementioned databases, networks and online services for research and retrieval purposes,
+- to allow third parties to use or operate it,
+- to use it for own purposes but also to provide services to third parties,
+- to distribute it
+
+in its original or modified, interpreted, edited or redesigned form.
+
+The foregoing right of use relates to the Subject Matter of the License, in
+particular to its Source and Object form of software components (including
+design rights, where applicable).
+
+??3 Grant of patent license
+
+Subject to the terms and conditions of this License and compliance with the
+provisions of this License, You are hereby granted by each Contributor a 
+- royalty-free and non-exclusive, 
+- worldwide and perpetual, 
+- irrevocable (with the exception of the restrictions set out in this Section 3) 
+
+patent license in all rights deriving from the patents, owned and licensable by
+the Contributor at the time of the submission of the Contribution, to 
+
+- produce, 
+- have produced, 
+- use, 
+- offer for sale, 
+- sell, 
+- import and otherwise transfer 
+
+the Subject Matter of the License. 
+
+However, said patent license shall cover only those rights deriving from the
+patents of the respective Contributors which are indispensable in order not to
+infringe that patent and only to the extent that the use of the Contributor???s
+respective Contributions, whether alone or in combination with other
+Contributions of the Contributors or any third parties together with the Subject
+Matter of the License for which these Contributions were submitted, would
+otherwise infringe that patent. For avoidance of doubt, no patent licenses are
+granted for use of the Subject Matter of the License or the Contributions which
+become necessary for its lawful use due to the fact that third party
+modifications are made to the Subject Matter of the License or the respective
+Contributions after the Contributions have been submitted by the Contributors. 
+
+In the event that You institute patent litigation against any entity or person
+(including a counterclaim or countersuit in a legal action), alleging that the
+Subject Matter of the License or a Contribution incorporated or contained
+therein constitutes patent infringement or a contributory factor to patent
+infringement, all patent licenses which have been granted to You under this
+License for the Subject Matter of the License as well as this License itself
+shall be deemed terminated as of the date on which the action is filed.
+
+??4 Distribution
+
+You may reproduce and distribute copies of the Subject Matter of the License or
+Derivative Works on any medium, with or without modifications (with regard to
+software components) in Source or Object form, provided that You comply with the
+following rules:
+
+- You must provide all other recipients of the Subject Matter of the License or of Derivative Works with a copy of this License and inform them that the Subject Matter of the License was originally licensed under this License.
+- You must ensure that modified files contain prominent notices indicating that You have modified the files.
+- You must retain all copyright, patent, trademark and attribution notices in the Subject Matter of the License in the Source form of any Derivative Works You distribute, with the exception of those notices that do not pertain to any part of the Derivative Works.
+- You must ensure that the recipients of the Subject Matter of the License or Derivative Works are obligated to incorporate the provisions of this Section 4 into any license under which they distribute the Subject Matter of the License or Derivative Works to any other recipients.
+
+You may add Your own copyright notices to Your modifications and state any
+additional or different license conditions and conditions for the use,
+reproduction or distribution of Your modifications or for those Derivative Works
+as a whole, provided that Your use, reproduction and distribution of the work
+complies with the terms and conditions set out in this License in all other
+respects.
+
+??5 Submission of Contributions
+
+Unless expressly stated otherwise, every Contribution that You have
+intentionally submitted for inclusion in the Subject Matter of the License is
+subject to this License without any additional terms or conditions applying.
+Irrespective of the above, none of the terms or conditions contained herein may
+be interpreted to supersede or modify the terms or conditions of any separate
+licensing agreement that You may have concluded with a Licensor for such
+Contributions, such as a so-called "Contributor License Agreement" (CLA).
+
+??6 Trademarks
+
+This License does not grant permission to use the trade names, trademarks,
+service marks or product names of the Licensor(s) or of a Contributor.
+
+??7 Limited warranty 
+
+This License is granted free of charge and thus constitutes a gift. Accordingly,
+any warranty is excluded. The Subject Matter of the License is a work in
+progress; it is constantly being improved by countless Contributors. The Subject
+Matter of the License is not complete and may therefore contain errors ("bugs")
+or additional patents of Contributors or third parties, as is inherent in this
+type of development.
+
+??8 Limitation of liability 
+
+Except in cases of intentional and grossly negligent conduct, the Contributors,
+their legal representatives, trustees, officers and employees shall not be
+liable for direct or indirect, material or immaterial loss or damage of any kind
+arising from the License or the use of the Subject Matter of the License; this
+applies, among other things, but not exclusively, to loss of goodwill, loss of
+production, computer failures or errors, loss of data or economic loss or
+damage, even if the Contributor has been notified of the possibility of such
+loss or damage. Irrespective of the above, the Licensor shall only be liable
+within the scope of statutory product liability to the extent that the
+respective provisions are applicable to the Subject Matter of the License or the
+Contribution.
+
+Except in cases of intentional conduct, the Contributors, their legal
+representatives, trustees, officers and employees shall not be liable for any
+infringement of third-party patent or intellectual property rights arising from
+the Contributions nor do they warrant that the Contributions are accurate,
+devoid of mistakes, complete and/or fit for any particular purpose.
+
+??9 Provision of warranties or assumption of additional liability in the event of
+distribution of the Subject Matter of the License
+
+In the event of distribution of the Subject Matter of the License or Derivative
+Works, You are free to accept support, warranty, indemnity or other liability
+obligations and/or rights consistent with this License and to charge a fee in
+return. However, in accepting such obligations, You may act only on Your own
+behalf and on Your sole responsibility, not on behalf of any other Contributor,
+and You hereby agree to indemnify, defend, and hold each Contributor harmless
+for any liability incurred by, or claims asserted against, such Contributor by
+reason of Your accepting any such warranty or additional liability.
+
+??10 Applicable law
+
+This License is governed by German law, excluding its conflict of laws
+provisions and the provisions of the UN Convention on Contracts for the
+International Sale of Goods (CISG). 
+
+END OF TERMS AND CONDITIONS
+
+From andreas.nettstraeter at openlogisticsfoundation.org  Mon Sep 19 06:36:46 2022
+From: andreas.nettstraeter at openlogisticsfoundation.org (=?iso-8859-1?Q?Andreas_Nettstr=E4ter?=)
+Date: Mon, 19 Sep 2022 06:36:46 +0000
+Subject: [License-discuss] For Discussion: Open Logistics License v1.1
+In-Reply-To: <FRYP281MB0237618AD15125EAC9D84EC49B799@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM>
+References: <FRYP281MB023754FAFEC6C180850DBC649BEF9@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <CAMkzgA56wZH6j1=cg=Svae0iaWvFVgK0WruOn71z2Hrx3AxOnA@mail.gmail.com> <FRYP281MB0237D0FA880CF2F3A27D05759BF09@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <FRYP281MB02371CDE989B4226E0C5FBF69BCF9@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <FRYP281MB0237BD4555849E0904EAADB39BDD9@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <8c4ca64c-ef41-3019-3ba9-0a35b46fec0a@gmail.com> <FRYP281MB0237618AD15125EAC9D84EC49B799@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM>
+Message-ID: <FRYP281MB0237927BE311116C4B5A67139B4D9@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM>
+
+Dear all,
+
+Do you see any critical points which need to be solved before resubmitting the Open Logistics License for license review?
+
+Thanks for all your feedback and comments in advance.
+
+Regards
+Andreas
+
+
+
+Von: License-discuss <license-discuss-bounces at lists.opensource.org> Im Auftrag von Andreas Nettstr?ter
+Gesendet: Dienstag, 30. August 2022 09:13
+An: license-discuss at lists.opensource.org
+Betreff: [License-discuss] For Discussion: Open Logistics License v1.1
+
+Dear all,
+
+
+As proposed, I forward this thread about the Open Logistics License from license review to license discuss.
+
+
+
+We updated to version 1.1 (see attachment) and addressed all mentioned points from the last discussions. Especially, the critical points within "?3 Grant of a patent license" are removed now. In addition, we have carried out a spell check and aligned much of the wording.
+
+
+
+There are only two points left, which are specific for German/European law:
+
+
+
+Regarding "? 7 Limited warranty":
+
+It is an attempt to limit the warranty, whether it is enforceable in this way cannot be conclusively said. But the worst that can happen is that the provision is invalid. The second sentence is just a general statement that new components, patents, etc. can be added at any time.
+
+
+
+Regarding "? 8 Limitation of liability":
+
+We changed the wording to make it clearer, but in general intent cannot be fully excluded under German/European law, the rest results from the limited liability.
+
+
+
+I'm looking forward to your comments and we are still hoping for a successful license review afterwards.
+
+
+
+Regards
+
+Andreas
+
+
+Von: License-review <license-review-bounces at lists.opensource.org<mailto:license-review-bounces at lists.opensource.org>> Im Auftrag von Pamela Chestek
+Gesendet: Dienstag, 5. Juli 2022 00:32
+An: license-review at lists.opensource.org<mailto:license-review at lists.opensource.org>
+Betreff: Re: [License-review] For Approval: Open Logistics License
+
+(In my personal capacity)
+
+Hi Andreas,
+
+Is English the language of the agreement? I want to make sure we're reviewing the actual agreement itself, not your translation of it. If the license is in German, we will need to have the German version and a certified translation for review.
+
+Here are my concerns about this license:
+
+Definition for "Subject Matter of the License"
+This is confusingly defined. It states that it means "the copyrighted works of the software components ..." and continues "as well as the other components protected under copyright, design and/or patent law which are made available under this license ... as well as the application and user documentation."
+
+First, with respect to the first use of the word "copyrighted," that suggests the license is going to be limited to just the copyrightable content, not, for example, any patentable content. The Apache license's parallel provision, which is the definition for the "Work," is somewhat similarly flawed because it uses the term of art "authorship," which one can read as limiting the license to only copyright content. That's something we cannot change in the Apache license, but I would suggest removing the "copyrighted" limitation from this license to make sure it isn't construed as limited to only content that is copyrightable.
+
+The same definition then refers to "as well as the other components protected under copyright, design and/or patent law which are made available under this license in accordance with a copyright notice inserted into or attached to the work ...." This clause seems unnecessary. If a third-party included component states that it is under the Open Logistics License, then there is no need to also mention it in the license for the larger work. It will only cause problems in license interpretation.
+
+This phrase also likely goes beyond what may be the original scope of the license for the "other component." The text says the Open Logistics License applies to "the other components protected under copyright, design and/or patent law ... as well as the application and user documentation." This says that the Open Logistics License will apply to the "application and user documentation" of third party components, which would appear to be regardless of what the licenses actually are for the application and documentation as assigned by the owner of the third party component. This is a copyleft - I assume it wasn't intended, but that's what it says.
+
+If the intent was that the Open Logistics License applies to "application and user documentation" for the originally licensed code, not for the "other components," the sentence needs to be restructured. At the moment it states fairly clearly (under US English grammar rules) that the "application and user documentation" is referring to the "other components," not the larger work being licensed.
+
+Also, if the intention is that the Open Logistics License applies, not only to the code, but to the "application and user documentation," this isn't necessarily a problem but I question whether it is a wise choice to require that text works, like documentation, be under the same license as the software code. It also seems to be a bit of a trap for the unwary; I expect that most people believe that the software code and its documentation can be separately licensed and won't realize that the code license is also dictating the documentation license.
+
+Finally, what is the "application" and how does it differ from the work being licensed?
+
+Definition for "Source Code"
+It is defined as "in the programming language." I'm not sure why this was changed from the common and well-understood concept of that source code is the preferred form for making modifications. I am just wary of new definitions when there is a well-understood and perfectly serviceable definition. It is an opportunity to create ambiguity about the meaning and intent for the term. What problem were you trying to solve with this new definition?
+
+Definition of "Object Code"
+What does the word "interim" do? Shouldn't the final manifestation of the code that will run on the computer also be considered "object code"?
+
+?2 Granting of usage rights
+Why is the grant so detailed? Why is it not simply a grant of all the rights of the copyright owner, similar to what you have done for the patent grant? What grant have you made that isn't also a grant of one of the exclusive rights of the copyright owner? My concern about such a detailed grant, rather than one that simply reiterates all the exclusive rights of the copyright owner, is that there will be unintentional loopholes. I see from your website that you intend to ensure that the rights as described in the Supplementary Terms of Contract for the Procurement of IT Services are clearly granted, but perhaps it would be better to grant all copyright rights (e.g., reproduce, distribute, exhibit, make available, etc.) and then add "including, but not limited to," the rights you have enumerated.
+
+?3 Grant of a patent license
+The grant of the copyright license is "for the terms of the copyrights" but the term of the patent grant is not stated. I don't think it's necessary to state a term since the grant is perpetual, but having two clauses that say something different invites challengers to find some distinction between the two. It would also be easier to understand the license if the terms of the patent license grant (non-exclusive, perpetual, etc.) was parallel to the grant in the copyright license. It would then be clear that the scope of both grants is meant to be the same.
+
+"Under no circumstances will anything in this Section 3 be construed as granting, by implication, estoppel or otherwise, a license to any patent for which the respective Contributors have not granted patent rights when they submitted their respective Contributions." What is this sentence designed to do? The grant clause defines the grant (patents that read on the contribution or the whole work at the time of contribution). It's not necessary to say that there is no grant of what is not granted.
+
+As to the patent license termination, it does not appear to be limited to proceedings for infringement only of patents that were licensed, but any patent infringement lawsuit at all brought by a licensee. (This might also be McCoy's point.) Also, as I read it, not only is the patent license terminated, but the entire license is terminated: "all patent licenses which have been granted to You under this License for the Subject Matter of the License as well as this License in itself [that is, the Open Logistics License as a whole] shall be deemed terminated ..." Was that the intent? I know that termination provisions vary and I'm not sure what the current view is on the appropriateness of terminating the copyright license too, but there are OSI-approved licenses that terminate the copyright grant too.
+
+I don't understand this sentence: "the Contributors are entitled to decide in their own discretion to abandon respectively maintain any patent designated by patent number upon delivery of the Subject Matter of the License." It is the words "to abandon respectively maintain any patent ... upon delivery of the Subject Matter of the License" that are very unclear. What does "abandon respectively maintain any patent" mean? It is saying both abandon and maintain without any conjunction.
+
+You state "We have been asked by some partners of the current project for which the license has been drafted to include the possibility that they submit a list of patents they are not willing to contribute to the work. This is reflected in the license text. However, it is part of our workflow for the inclusion of contributions into the project that no contributions would be accepted where a patent that would be part of such list of patents excluded from the contribution could be applicable." If above sentence is where you are stating that a patentee may withhold a patent license to its contribution, it will block the license from being approved. A license that allows someone to withhold patents from licensing is inconsistent with the OSD and cannot be approved. It doesn't matter that your project doesn't accept patent-encumbered software, in order for a license to be approved by the OSI it must be acceptable for all users in all circumstances.
+
+If instead this sentence is meant to advise that a patentee can "release their patents in order to make them available to the public" as you mention below, which I understand to mean abandoning patent rights, I don't think it's necessary to say that expressly in the license. No one using the software will insist that a patentee maintain a patent.
+
+?7 Limited warranty
+"This License is granted free of charge and thus constitutes a gift. Accordingly, any warranty is excluded." Is that the undeniable conclusion under German law or is this statement enforceable as a matter of contract? That wouldn't necessarily be the case under US law. In the US a license grant isn't necessarily a gift and one can't transform it into a gift by just saying so.
+
+Does the statement "The Subject Matter of the License is not completed and may therefore contain ... additional patents of Contributors" a reference to patents that are carved out of the grant (not acceptable, as mentioned above)? If not, what is the meaning?
+
+?8 Limitation of liability
+Reiterating Eric's point that "Except in cases of intent and gross negligence or causing personal injury" is unclear. Is it two things, causing personal injury intentionally or causing personal injury through gross negligence, or three things, an intentional tort not related to personal injury, gross negligence not related to personal injury, and personal injury no matter how caused, even if only by simple negligence? Can the language be clarified?
+
+Regarding intentional infringement, as well as that the software is "accurate, devoid of mistakes, complete and/or usable for any purpose," are these claims that cannot be excluded by contract under German law?
+
+As to others' comments about the applicable law provision, there are other approved licenses that have choice-of-law provisions, so I don't see that as a stopper. What I see as the stopper is the ability to NOT grant a patent license for a patent that reads on a contribution. That is a full stop for OSI approval.
+
+It also is not a well-drafted English-language license, as I've described above. We have learned from experience that these licenses can have lives that are longer than ours and a drafting error or ambiguity will last forever. For that reason I believe it is important that new open source licenses be written as cleanly as possible. This one, though, has a number of flaws that I believe make it unacceptable as a new open source license.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com<mailto:pamela at chesteklegal.com>
+www.chesteklegal.com<https://deu01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.chesteklegal.com%2F&data=05%7C01%7Candreas.nettstraeter%40openlogisticsfoundation.org%7Cc768a429eeff4d899d9c08da8a80eac4%7Cb346d634acfb42c7bd44f1557ee89b1b%7C1%7C0%7C637974583554962760%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000%7C%7C%7C&sdata=Hk0GXpdq%2BhDNFRoIdXhRJUKrWtSEBhxNXnkbTX9o5XY%3D&reserved=0>
+
+
+
+On 5/30/2022 5:49 AM, Andreas Nettstr?ter wrote:
+Dear all,
+
+Finally, I managed to collect all input. Therefore, I'm happy to address your concerns regarding our license.
+I hope the clarifications help to understand our approach a bit more. If there is need for more details, please reply and I'll try to answer faster than in the first round.
+
+Regards
+Andreas
+
+
+1. Eric's concern with regard to the limitation of liability in the license
+With regard to the comment on the limitation of liability, Eric fears that contributors will be inappropriately liable under the license. In general, we do not see any reasonable claims against contributors since contributors do not enter contracts with users but only allow to use the IP they created with their contribution (they grant rights of use). At least we are not aware of any claims against contributors to open source software. Furthermore, the limitation of liability clause itself does not create any liability but limits the liability in case it arises at all. Therefore, it should be beneficial to all contributors. Since the license is drafted to comply at least with German laws, a further limitation of liability would not be possible once liability arose at all. E.g., the comprehensive limitation of liability in the Apache 2.0 license would be void, if it had to be interpreted under German (or other European laws). Since liability for personal injury cannot be excluded under German laws on general terms and conditions, adjustments to the close would not benefit contributors.
+
+2. Comments No. 1 and No. 2 by McCoy Smith
+McCoy's assumption is 100% correct, there is no comprehensive European contract law any more than there is in the USA. The adjustments made in the license compared to the "original" Apache 2.0 license are made in accordance with German law. We decided to use a choice of law clause in order to be sure that the license is enforceable. As mentioned above, in the case German laws applied wrt the Apache 2.0 license, some of the provisions would be void and therefore not enforceable. However, it is our understanding that there have been few court cases wrt to open source licenses and even fewer decisions that relied on the enforceability of clauses that could/would be void under appliable laws.
+
+3. Comment No. 3 by McCoy Smith:
+According to German law, one can only deviate from or limit liability to a very limited extent by means of general terms and conditions. Assuming that open source software is handed over as a gift, we fortunately no longer have comprehensive liability for simple negligence, but "only" the liability specified in the licence (under German laws). However, it is not possible to further deviate from this liability in favour of the potentially liable party.
+
+4. Comment No. 4 by McCoy Smith:
+We see three issues here.
+a. There seems to be a misunderstanding wrt the last paragraph of the patent clause. Of course, any patentee can unilaterally "revoke" his/her patent with the consequence that it ceases to exist and therefore a right to use it is no longer required. However, this is not a revocation of a patent once granted in the sense that the recipient would then no longer be allowed to use it. What we have seen in the past is that companies and public institutions have released their patents in order to make them available to the public, therefore, we wanted to include this statement in the license.
+b. The right to use the patent should be limited to the part of the works that existed at the time of filing a contribution. Otherwise, further contributions from third parties could lead to a situation where a contributor would have to grant rights to use patents which have not been necessary at the time of the contribution. We think this is in line with the patent clause in the Apache 2.0 license.
+c. The last issue might be the most important for you. We have been asked by some partners of the current project for which the license has been drafted to include the possibility that they submit a list of patents they are not willing to contribute to the work. This is reflected in the license text. However, it is part of our workflow for the inclusion of contributions into the project that no contributions would be accepted where a patent that would be part of such list of patents excluded from the contribution could be applicable.
+
+
+
+Von: License-review <license-review-bounces at lists.opensource.org><mailto:license-review-bounces at lists.opensource.org> Im Auftrag von Andreas Nettstr?ter
+Gesendet: Montag, 16. Mai 2022 18:36
+An: License submissions for OSI review <license-review at lists.opensource.org><mailto:license-review at lists.opensource.org>
+Betreff: Re: [License-review] For Approval: Open Logistics License
+
+Dear all,
+
+I'm still waiting for the final input from all partners. Corona/Covid are still causing longer delays here.
+
+Sorry for that. I hope that I can provide feedback until next week the latest.
+
+Regards
+Andreas
+________________________________
+From: License-review <license-review-bounces at lists.opensource.org<mailto:license-review-bounces at lists.opensource.org>> on behalf of Andreas Nettstr?ter <andreas.nettstraeter at openlogisticsfoundation.org<mailto:andreas.nettstraeter at openlogisticsfoundation.org>>
+Sent: Sunday, April 17, 2022 5:15:36 PM
+To: License submissions for OSI review <license-review at lists.opensource.org<mailto:license-review at lists.opensource.org>>
+Subject: Re: [License-review] For Approval: Open Logistics License
+
+Dear all,
+
+Thanks for the useful feedback.
+
+I'll talk to the lawyers and give you more information on the decisions and reasons for the changes. Also regarding the connection between German and European law.
+
+Because of Easter holidays this could take some days.
+
+Regards
+Andreas
+________________________________
+From: License-review <license-review-bounces at lists.opensource.org<mailto:license-review-bounces at lists.opensource.org>> on behalf of Eric Schultz <eric at wwahammy.com<mailto:eric at wwahammy.com>>
+Sent: Saturday, April 16, 2022 9:12:50 PM
+To: License submissions for OSI review <license-review at lists.opensource.org<mailto:license-review at lists.opensource.org>>
+Subject: Re: [License-review] For Approval: Open Logistics License
+
+Andreas,
+
+Thanks for submitting this!
+
+I'm no lawyer but I'm a little uncomfortable with the wording for the disclaimer of liability around which words the "and" and "or" apply to.
+
+For example does it mean:
+
+1. (intent and gross negligence) OR (causing personal injury), or
+2. (intent) and (gross negligence or causing personal injury)
+
+While we should definitely avoid any harm to our users, 1 seems like it's creating a pretty high risk to developers. After all, in some cases it's nearly impossible to avoid all possible injuries to all persons everywhere. Depending on the design of the software, it may be dangerous to some subset of users while perfectly safe to other users.
+
+One thought I have is that, in cases of potential liability, I am under the impression that certain punishments apply if someone intends to cause the injury or exhibited gross negligence. So does it make sense to have an "and" there?
+My thinking is it would make more sense to rewrite the clause to mean:  (intent OR gross negligence) AND (causing personal injury). After all, if you exhibit intent and gross negligence but don't cause any injury, as I understand it, there would be no civil liability because there would be no injured party. Then again, I'm not a lawyer and I'm based in the US so I'm applying my very limited knowledge to that.
+
+Eric
+
+On Thu, Apr 14, 2022 at 6:37 AM Andreas Nettstr?ter <andreas.nettstraeter at openlogisticsfoundation.org<mailto:andreas.nettstraeter at openlogisticsfoundation.org>> wrote:
+Dear License Review Team,
+
+I would like to propose the Open Logistics License for an approval.
+
+You can find the plain text copy of the license in the attachment and the requested additional information in the following.
+
+Rationale:
+This new license is intended to represent the rights and obligations of an established license, such as Apache v2, while respecting the differences between US and European law. The changes were mainly done in the paragraphs regarding warranty and liability.
+
+Distinguish:
+The Open Logistics License is based on Apache v2, but has been modified to comply more with European law.
+
+Legal review:
+The entire process of discussing and drafting the license was accompanied by BHO Legal, a German law firm specialized in IT law. Adjustments were made to specifically adapt the rules on the patent license, warranty, and liability to European law. The adjustments are intended to strengthen the acceptance of the license by European companies and minimize (perhaps only perceived) risks. The license was subsequently reviewed and approved by several in-house lawyers of larger European companies. Further details and justifications for the individual changes can be provided on request.
+
+Proliferation category:
+The decision on one specific category is quite hard. The license is compatible with Apache2, but was adapted to some specific European rules. The license will be used by a larger group of companies in the frame of open source development for logistics and supply chain management, but is, of course, not limited to this purpose. Therefore, the license can be seen as a special purpose license.
+
+I'm happy to deliver more information, if needed.
+
+Regards from Germany
+Andreas
+
+--
+Andreas Nettstr?ter
+Open Logistics Foundation
+
+_______________________________________________
+The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org<https://deu01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fopensource.org%2F&data=05%7C01%7Candreas.nettstraeter%40openlogisticsfoundation.org%7Cc768a429eeff4d899d9c08da8a80eac4%7Cb346d634acfb42c7bd44f1557ee89b1b%7C1%7C0%7C637974583554962760%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000%7C%7C%7C&sdata=Q3UO8AoG%2BdTxYBh1rR3%2BdRgJlQBMGapmjrBHPifApcE%3D&reserved=0> email address.
+
+License-review mailing list
+License-review at lists.opensource.org<mailto:License-review at lists.opensource.org>
+http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org<https://deu01.safelinks.protection.outlook.com/?url=http%3A%2F%2Flists.opensource.org%2Fmailman%2Flistinfo%2Flicense-review_lists.opensource.org&data=05%7C01%7Candreas.nettstraeter%40openlogisticsfoundation.org%7Cc768a429eeff4d899d9c08da8a80eac4%7Cb346d634acfb42c7bd44f1557ee89b1b%7C1%7C0%7C637974583554962760%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000%7C%7C%7C&sdata=yQZLP1myjpUAouibtOn3Pnyh7iIiOJxV4oH0E6lKXHc%3D&reserved=0>
+
+
+--
+Eric Schultz, Developer and FOSS Advocate
+wwahammy.com<https://deu01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwwahammy.com%2F&data=05%7C01%7Candreas.nettstraeter%40openlogisticsfoundation.org%7Cc768a429eeff4d899d9c08da8a80eac4%7Cb346d634acfb42c7bd44f1557ee89b1b%7C1%7C0%7C637974583554962760%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000%7C%7C%7C&sdata=BsM5Kq0b7eQRJ147AG8SyA6uTtGn71HVvKtFCjhhNdo%3D&reserved=0>
+eric at wwahammy.com<mailto:eric at wwahammy.com>
+@wwahammy
+Pronouns: He/his/him
+
+
+_______________________________________________
+
+The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+
+
+
+License-review mailing list
+
+License-review at lists.opensource.org<mailto:License-review at lists.opensource.org>
+
+http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org<https://deu01.safelinks.protection.outlook.com/?url=http%3A%2F%2Flists.opensource.org%2Fmailman%2Flistinfo%2Flicense-review_lists.opensource.org&data=05%7C01%7Candreas.nettstraeter%40openlogisticsfoundation.org%7Cc768a429eeff4d899d9c08da8a80eac4%7Cb346d634acfb42c7bd44f1557ee89b1b%7C1%7C0%7C637974583554962760%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000%7C%7C%7C&sdata=yQZLP1myjpUAouibtOn3Pnyh7iIiOJxV4oH0E6lKXHc%3D&reserved=0>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20220919/4cf702b9/attachment-0001.html>
+
+From mccoy at lexpan.law  Mon Sep 19 16:10:37 2022
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Mon, 19 Sep 2022 09:10:37 -0700
+Subject: [License-discuss] For Discussion: Open Logistics License v1.1
+In-Reply-To: <FRYP281MB0237618AD15125EAC9D84EC49B799@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM>
+References: <FRYP281MB023754FAFEC6C180850DBC649BEF9@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <CAMkzgA56wZH6j1=cg=Svae0iaWvFVgK0WruOn71z2Hrx3AxOnA@mail.gmail.com> <FRYP281MB0237D0FA880CF2F3A27D05759BF09@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <FRYP281MB02371CDE989B4226E0C5FBF69BCF9@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <FRYP281MB0237BD4555849E0904EAADB39BDD9@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <8c4ca64c-ef41-3019-3ba9-0a35b46fec0a@gmail.com> <FRYP281MB0237618AD15125EAC9D84EC49B799@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM>
+Message-ID: <041801d8cc42$5be2aec0$13a80c40$@lexpan.law>
+
+I still find the patent language confusing. To wit:
+The grant says that ?no patent licenses are granted for use of the Subject
+Matter of the License or the Contributions which become necessary for its
+lawful use due to the fact that third party
+
+modifications are made to the Subject Matter of the License or the
+respective Contributions after the Contributions have been submitted by the
+Contributors?
+
+This is a relatively standard (in FOSS license) patent grant limitation that
+makes clear that no patent grant is made for changes after the Contributor
+submits their contribution.
+
+But the termination clause says termination may happen when there is a
+patent infringement allegation by the Contributor ?alleging that the Subject
+Matter of the License or a Contribution incorporated or contained therein
+constitutes  a contributory factor to patent infringement?
+
+Those two clauses seem mutually contradictory: if you?re not granting a
+patent license to subsequent modifications (which would necessarily include
+claims that the licensed content is a ?contributory factor? to
+infringement), then your license should not terminate if you assert against
+those modifications. Otherwise, you are either, expressly or by implication,
+granting a license to those subsequent modifications.
+
+Note also the termination for contributor factor infringement would
+potentially cover hardware+software combinations. I?m not sure if that is
+the intent here, but that might be potentially considered non-reciprocal.
+ 
+
+Also, I find the use of Derivative Work as a defined term here potentially

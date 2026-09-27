@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-27 時点・134 ファイル）
+## いまの状態（2026-09-27 時点・149 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -170,6 +170,21 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（20/22 部）** | **同じ束の 20/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（21/22 部）** | **同じ束の 21/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（22/22 部）** | **同じ束の 22/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（1/15 部）** | **理事会が承認の際に準拠法条項について自分の立場を述べている** —— *"it does not believe that **choice of law provisions are necessary or advisable** in open source licenses"*（2023-03-18）。**ACD-1.0 §15.7 は置いていない**（#254）。**法律事務所が起草に同伴した提出でも承認まで 11 か月・3 版**を要し、Kuhn 氏が vanity の 2 段判定を述べている（#255） |
+| 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（2/15 部）** | **同じ束の 2/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（3/15 部）** | **同じ束の 3/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（4/15 部）** | **同じ束の 4/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（5/15 部）** | **同じ束の 5/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（6/15 部）** | **同じ束の 6/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（7/15 部）** | **同じ束の 7/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（8/15 部）** | **同じ束の 8/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（9/15 部）** | **同じ束の 9/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（10/15 部）** | **同じ束の 10/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（11/15 部）** | **同じ束の 11/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（12/15 部）** | **同じ束の 12/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（13/15 部）** | **同じ束の 13/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（14/15 部）** | **同じ束の 14/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（15/15 部）** | **同じ束の 15/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2004-09 | `license-discuss`（観測）| **Allegro Giftware License の承認相談 11 通 → 観測保存（1/1 部）** | **proliferation の反対が「すべてを与える」ライセンスへ向けられている唯一の記録** —— Moen 氏 *"even an extremely permissive one like yours ... **needlessly putting it in a ghetto of your devising**"*。**そして「献呈 + 許諾の組み合わせ」を出すという発想が 2004 年に在る** —— Rousskov 氏 *"a **'Public Domain or whatever license you want' dedication/license combo** for OSI approval"*（#253）|
 | 2001-06 | `license-discuss`（観測）| **qmail のライセンスと OSD 4 21 通 → 観測保存（1/2 部）** | **OSD 3 の後半が実際に判定の決め手として使われている例**（Moen 氏 *"OSD clause #3, immediately preceding, strikes me as disambiguating this."*）。**条件一般について Cowan 氏** —— *"a claim that 'X must allow Y' is satisfied by a statement by X that 'Y is allowed under conditions Z' **can't be true in general, since the conditions Z can be arbitrarily restrictive**."*（#251） |
 | 2001-06 | `license-discuss`（観測）| **qmail のライセンスと OSD 4 21 通 → 観測保存（2/2 部）** | **同じ束の 2/2 部。** 本文は無改変で、2 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
