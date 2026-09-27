@@ -63,6 +63,10 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        雛形の 1 欄 `<location of this file>` の存在を同じ文で限定していること。§4c は数え方を直して
        期待値 1 にしたが、**同じ主張を無限定で繰り返す面が 5 つ残っていた**（REVIEWERS.md に 2 つ、
        submission-reference §3、review-rules、mirror doc）。記録である `against.md` は対象外。
+       **(472f・2026-09-26)** 提出パケットの**版に紐づく欄**（識別子・Version・版付き URL・件名・
+       SPDX 依頼の Full name）が `SUBMISSION-TARGET` の版と一致すること。確定手順 (3) は「Check 444 が
+       一致を強制する」と書いていたが **444 は `submission.md` を読んでいなかった**（存在しない強制の主張）。
+       しかも (3) は §B.0 しか挙げず、§A 表・§A.0・§C・§D の 11 行が版の切り替えで 1.0 のまま残る形だった。
   473. **来歴の開示が、否定の半分だけで現れないこと** (BLOCKING): steward は
        *"the drafting was not directed by me, **but the direction of the licence was mine**"*
        と述べており、2026-09-14 (#125) に開示を**両方の半分を持つ形**へ訂正した。
@@ -303,6 +307,43 @@ def run(ctx):
                      "提出対象の版の語句で引き直すか、直前で版を明示せよ"),
                     blocking=True,
                 )
+
+    # ── 472f. 提出パケットの版に紐づく欄が、SUBMISSION-TARGET の版と一致すること ───────────
+    #   2026-09-26: 確定手順 (3) は「§B.0 の header・URL を新版へ向ける。Check 444 が一致を強制する」
+    #   と書いていたが、444 は submission.md を読まず、§A 表・§A.0・§C・§D の欄は手順にも無かった。
+    #   版を切り替えた日に、これらが黙って旧版を指したまま送られる形。欄を列挙して marker と照合する。
+    _sub472f = ROOT / "LICENSES" / "ACD-1.0.submission.md"
+    if _sub472f.exists():
+        _t472f = _sub472f.read_text(encoding="utf-8")
+        _mk472f = re.search(r"<!--\s*SUBMISSION-TARGET:\s*(ACD-\d+\.\d+)\s*-->", _t472f)
+        _pats472f = [
+            r"https://yutapr0117-design\.github\.io/portfolio/LICENSES/(ACD-\d+\.\d+)\.",
+            r"Short [Ii]dentifier(?: requested)?[:*| ]+`?(ACD-\d+\.\d+)",
+            r"(?m)^Version:\s+(\d+\.\d+)\s*$",
+            r"\*\*Subject:\*\* For Approval: .*?\((ACD-\d+\.\d+)\)",
+            r"\*\*SPDX XML:\*\* `LICENSES/(ACD-\d+\.\d+)\.spdx",
+            r"I am submitting the \*\*Autonomous Commons Dedication [\d.]+ \((ACD-\d+\.\d+)\)",
+            r"\*\*Full name:\*\* Autonomous Commons Dedication (\d+\.\d+)",
+        ]
+        _seen472f, _bad472f = 0, []
+        if _mk472f:
+            _tg472f = _mk472f.group(1)
+            for _p in _pats472f:
+                for _m in re.finditer(_p, _t472f):
+                    _seen472f += 1
+                    _v = _m.group(1) if _m.group(1).startswith("ACD-") else "ACD-" + _m.group(1)
+                    if _v != _tg472f:
+                        _ln = _t472f.count("\n", 0, _m.start()) + 1
+                        _bad472f.append(f"L{_ln} {_v}")
+        check(
+            bool(_mk472f) and _seen472f >= 10 and not _bad472f,
+            f"Check 472f: 提出パケットの版に紐づく欄 {_seen472f} 箇所が SUBMISSION-TARGET と一致",
+            (f"Check 472f: 版に紐づく欄が提出対象と食い違う、または欄を見失った "
+             f"(照合 {_seen472f} 箇所・不一致 {_bad472f})。**版を切り替えたら、識別子・Version・URL・件名・"
+             "SPDX 依頼の Full name をすべて新版へ向ける** ——片側だけ直すと、審査者には旧版の URL と新版の本文が届く。"
+             "照合数が 10 を下回るときは欄の書式が変わって検出器が見失っている"),
+            blocking=True,
+        )
 
     # ── 472c. 入口ページの検証コマンドの期待値が、実行結果と一致すること ─────────────────
     #   審査者は「コピーして貼るだけ」のコマンドを最も信用する。その期待値が実行結果と違えば、
