@@ -1,0 +1,750 @@
+From waynerangelboy at gmail.com  Mon May 27 08:28:44 2019
+From: waynerangelboy at gmail.com (Wayne A Rangel)
+Date: Mon, 27 May 2019 13:58:44 +0530
+Subject: [License-review] For Approval: Master-Console's Open-Source Definitive License(MCopdl)
+Message-ID: <CAJ2s1Et15M6j3yZwF+ZEmKOYoHef0GH0B6n-c1mweTfumfy7eA@mail.gmail.com>
+
+Master-Console's Open-Source Definitive License is for a whole purpose of
+open-source projects
+out there. Master-Console Inc.(https://master-console-inc.tk) is the owner
+of this license and founded this license as other licenses out there like
+Apache License or GPL were not actually compatible for security reasons the
+project was working on, therefore we casted a custom license which would
+not only help ourselves but the millions of open-source projects out there
+but it can't be done without proper approval and verification, then only it
+can seem for the license to help and people using it would think so. This
+license was created with similarity to some popular licenses and with
+essential security features which those licenses lacked like prevention of
+transcripted use. Transcripted use means which reveals the source publicly
+but does not let users access actual content, download and verify the
+integrity of the project, thus harming the open-source terms. An example
+could be this: https://www.androwish.org/index.html/tree?ci=tip which does
+let access to view but does not let access to part of the original source
+in it and forcibly acts to download all the source. It has many other
+features too, but plenty much writing here would take your time. However,
+its all listed in the license.
+
+THE LICENSE IS ATTACHED WITH THIS MAIL AS A PLAIN TEXT FILE, PLEASE READ
+AND VERIFY ALL OF ITS SOURCE. PLEASE REPLY BACK FOR APPROVAL OR REJECTION
+AND STATE WHERE IT WENT WRONG. THIS LICENSE MAY COME UNDER THE PROLIFERATION
+CATEGORY OF A GENERAL-PURPOSE OPEN-SOURCE LICENSE LIKE MOSTLY USED LICENSES
+BUT HOWEVER FOCUSES MORE TO BEING SECURE, OPEN-SOURCE AND FREE FOR ALL.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190527/e4a1ec94/attachment.html>
+-------------- next part --------------
+x---------------------------------------------Master-Console's Open-Source Definitive License---------------------------------------------------x
+x--------------------------------------------------------------v1.0 revision-1------------------------------------------------------------------x
+x-----------------------------------------------URL for this license is not available yet-------------------------------------------------------x
+ Master-Console's Open-Source Definitive License registers the corresponding licensed product/products under the License's Terms and Conditions to which anyone using this product/products should comply with. The following are the TERMS AND CONDITIONS:
+ 1. License Definitions
+ "Definition" means all the defined terms and conditions to be followed through the end of this document.
+ "Source" implies to the core files, code used, documents and resources used in the product. This definition also applies to 'source code'.
+ "Product" means any program, package, binary, source, assets, resource or anything finally available with the source with which is licensed  under this particular license. This definition also applies to 'software'.
+ "Open-Source" denotes software or product for which the original source code is made freely available and may be redistributed and modified under the terms and conditions of this license.
+ "Circumstances" means all the rights and ways through which the product license is to be followed.
+ "This License" shall mean that the definitions followed through the terms and conditions of this document till the end of this document.
+ "The One" can refer of a single individual, a group or a decentralised or centralised organisation, a country.
+ "Creator" shall mean the one who has all the copyright owns of one' own product who can license, unlicense or change the circumstances to comply with this product but not the definitions of this license. The Creator does not mean the one who has created the product, it only does mean the one who firstly licensed and published the product.
+ "Owner" shall mean the one who has all the copyright owns of one's own right to the product given by the Creator and based on the rights given by the Creator, the Owner can thus license, unlicense or change the circumstances to comply with this product but not the  definitions of this license. Owner is meant to be another one but if its the Creator itself, then the 'Owner' definition does not apply and thus the Creator itself becomes the Owner with all rights.
+ "Authorisation" shall mean that some permissions and exclusive rights granted to someone by the Owner or Creator.
+ "Trusted Authoritative" shall mean the one who has been granted some access to the source in complaince with the Creator or Owner's terms. A Trusted Authoritative is not an Owner or Creator but holds copyright done in accordance to the product. A Member and Contributor can become a Trusted Authoritative.
+ "Member" shall mean anyone who is a part of the one which if the one is a group, a decentralised or centralised organisation or even a country. This definition does not apply if the one is a single individual.
+ "Contributor" shall mean anyone who does a contributive task for the product, its source or any part of the product.  "Publisher" shall mean anyone who publishes the source, product or a part of the product with respect to this license.
+ "User" shall mean anyone who agrees with the product, this license and uses the product, its source or uses a part of the product in their product.  "Operation" shall mean anything done which regards the product.  "Revert" shall mean the source or anything which does not comply with the license and product terms.
+ "Damage" shall mean any harm done with regards to the product or its source.
+ "Task" shall mean a work or an activity involving mental or physical effort done in order to achieve a purpose or result.
+ "Authoritative Task" shall mean a task done by the one who holds copyright done in accordance with the product and the one who's task need  no verification. This implies to work done by the Creator, Owner or a Trusted Authoritative.  "Contributive Task" shall mean a task done by a Contributor in accordance with the product and the task which needs verification.  A Contributive task aims to fulfill the needs or make the product fortunate and convenient for the users and thus can mean any work of art, code, documents, resource and others in complaince with the product.  "End-User" shall mean any user who actually uses a particular product in convention, that is runs it.
+ 2. Source Distribution and Redistribution  The Source distributed must be disclosed, that is the product should be open-source under the following terms:  -Task done in accordance with the product must be licensed under the same license. This can apply to any part of the product, even native code, that is compiled code. This does not apply to other products not licensed under this license which means this product should always be licensed under this license but the ones who are using in their code may or may not license their products under this license.
+ -Source distributed or redistributed must be Open-Source and should be Free for all. This only applies to the product licensed under this license and not any others.
+ -A copy of this license must be held in every copy of the product.
+ -All other mediums the product is distributed with can be either open-source or closed-source but the product must be open-source, that is, other products have their own Creator, Owners and they decide whether to keep their code open-source but when a product which is licensed  under this license is used, only the used part or the product should be open-source. Thus the other part is the decision of the one who holds all copyright owns on their product and can either disclose or undisclose it.
+ -Changes done to the source code must be stated.  -The Owner can provide their own terms and conditions to work with circumstances through their product.
+ -Modification should take with respect to the dignity of the original author, with proper liability for the modifier's and the original author's code but not for others.  -Private distribution in organisations and charity is allowed with their own likely modification.  -The source distributed should just not be made available to see by the public by transcripts but should be available at a repository like base. An example of transcripts can be a site to view code publicly but not to be able to download or verify the code.
+ -If the source has advanced beneficial improvement, that is a compiled product with best principles and greater features than the  original compiled product. The User can make it a commercial product but with complaince with the product, its Owner and the license. However, the Creator or Owner can revoke the license and the product distribution anytime if they see anything not acting in accordance  with the license and their terms.
+ 3. Source Permissions  This license grants and restricts some permissions under the distribution and definitions of this license. The following are the permissions:
+ -Commercial Use: This is permitted but under the distribution terms of this license which can be found above  and with the monitoring of the Owner or Creator.
+ -Distribution: This is permitted but under the distribution terms of this license which can be found above. Distributed source should always be free for all.
+ -Modification: This is permitted but under the distribution terms of this license which can be found above  and with the monitoring of the Owner or Creator.
+ -Private Use: This is permitted but under the distribution terms of this license which can be found above  and with the monitoring of the Owner or Creator.
+ -Trademark Use: This is not permitted except for the Creator, Owner, a Trusted Authoritative, a Member or a Contributor. The Trademark of the product can also be used with the authorisation of the Author.  -Liability: This license does not hold persons such as a Member, Contributor or a User responsible for operations taken in behalf of the product Owner. Thus this license includes a limitation of liability. But damages from the Source, Creator, Owner, a Trusted Authoritative, a Member or a Contributor are liable.
+ -Warranty: This license does not hold persons such as Creator, Owner, a Trusted Authoritative, a Member or a Contributor for damages and bad operations done by the product if any. Thus this license provides no warranty.
+ -Revertive Distribution: Some Developers want the source to be safe, malware-free, stable .This can be monitored by the Creator,  Owner or Trusted Authoritative and if found, they can ask the distributor/distributors to revert the code to being helpful rather than being with malicious or unstable version of the source. If still the distributor does not comply, the Creator,  Owner or Trusted Authoritative can report and takedown that source. This is only an optional feature of this license  and it is the Creator, Owner or Trusted Authoritative's choice to apply Revertive Distribution act. This act is granted  only 3 times since abuse of the license can also take place or if there was a potential exploitation code  which is still used and ignored by the owner, thus this is limited to 3. This Permission is granted if the source is used privately.
+ -Transcripted Use: This is not permitted except for the Creator, Owner. Transcripted site can be a site to view code publicly but not to be  able to use, download and verify the code. This is required since large products have tons of sources. This means code to be stored and disclosed in a repository like base for everyone.
+ 4. Copyright Infringement  COPYRIGHT INFRINGEMENT IS THE USE OF TASKS OR WORKS PROTECTED BY COPYRIGHT LAW WITHOUT PERMISSION, INFRINGING CERTAIN EXCLUSIVE RIGHTS  GRANTED TO THE COPYRIGHT HOLDER, SUCH AS THE RIGHT TO REPRODUCE, DISTRIBUTE, DISPLAY OR PERFORM THE PROTECTED WORK, OR TO MAKE SELF-AUTHORISED WORKS.  COPYRIGHT INFRINGEMENT OF THIS PRODUCT IS CERTAINLY NOT ALLOWED BY ANY MEANS EVEN IF ITS OPEN-SOURCE BECAUSE THE INFRINGER MEANING THE ONE  WHO INFRINGES THE OWNER'S TASK MAY HANDLE THE SOURCE WITH ANOTHER LICENSE, BREAK THE LICENSE, CIRCUMSTANCES, DEFINITIONS AND ALSO THE TERMS  AND CONDITIONS DEFINED BY THE ACTUAL OWNER, THEN THE INFRINGED SOURCES ARE TO BE TAKEN DOWN AND SHOULD BE UNDISCLOSED TO PUBLIC IF ANY.  IF THIS PRODUCT ITSELF INFRINGES THE RIGHTS AND TERMS OF ANY OTHER PRODUCT, THEN THIS LICENSE CANNOT BE APPLIED TO THIS PRODUCT AND  THUS HAS NO PROTECTION. IF PROPER AUTHORISATION HAS BEEN GIVEN FROM THE ACTUAL OWNER, THEN COPYRIGHT INFRINGEMENT IS NOT APPLIED TO THIS  PRODUCT OWNER AND THEN PROPER AUTHORISATION IS GIVEN TO A USER FROM THIS PRODUCT OWNER OR THE ACTUAL OWNER OF ANOTHER PRODUCT WHICH THIS PRODUCT USES, THEN TOO COPYRIGHT INFRINGEMENT IS NOT APPLIED BUT THE COPYRIGHTED CONTENT SHOULD BELONG TO THEIR RESPECTIVE OWNERS BEFORE TAKING ANY ACTION.
+ 5. Disclaimer for Trademark Use THE USER WHO EXPLICITLY USES ALL THE RESOURCES OF THE PRODUCT SHALL NOT SELL NOR USE THE PRODUCT TRADEMARK UNDER COMMERCIAL USE OR STATING TO BE OR IN UNDER HIS PATENT USE. TRADEMARK USE IS ONLY ALLOWED WITH THE PROPER AUTHORISATION, IF THE WORK DONE IS FROM THE CREATOR, OWNER, TRUSTED AUTHORITIATIVE, MEMBER OR A CONTRIBUTOR.
+ 6. Disclaimer of Transcripted Use THE USER WHO EXPLICITLY USES ALL THE RESOURCES OF THE PRODUCT SHALL NOT HOST NOR STORE THE SOURCE IN A TRANSCRIPTED ENVIRONMENT WHICH DOES NOT COMPLETELY LET OTHER USERS ACCESS THE RESOURCES UNDER THE OPEN SOURCE TERMS. THE SOURCE IF HOSTED CAN ONLY BE IN A REPOSITORY LIKE BASE WHICH MEANS IT NEED NOT BE A REPOSITORY BUT IT SHOULD LET USERS ACCESS THE SOURCE, DOWNLOAD, VIEW AND VERIFY ITS INTEGRITY WITH BEING FREE FOR FOR ALL. THIS DOES NOT APPLY TO PRIVATE USE SINCE IT IS NOT ACCESSIBLE TO PUBLIC.
+ 7. Disclaimer of Warranty. THE ONE WHO IS THE SOLE LICENSOR MEANING THE ONE WHO LICENSED THIS PRODUCT UNDER NO CONDITION WILL BE APPLIED FOR WARRANTY OF THEIR PRODUCT SUCH AS  THE USER WHO USES THE PRODUCT CANNOT ACT UPON WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE WARRANTIES STATED BY THE LICENSOR. THIS LICENSE THUS STATES THAT THE PROGRAM USERS ARE IN CHARGE OF HARM IN ANY KIND OF USAGE OF THIS PRODUCT UNLESS  THEY ARE GIVEN SPECIAL RIGHTS BY THE LICENSOR.
+ 8. Limitation of Liability. THIS LICENSE, THE LICENSED PRODUCT AND THE RELATIVE KEYS MEANING THE RESOURCES USED WILL BE LIABLE TO THE USER IN CHARGE FOR DAMAGES,  INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PRODUCT, INCLUDING BUT NOT LIMITED TO THE DAMAGES DONE FROM THE SOURCE, PRODUCT OR THE CREATOR, OWNER, A TRUSTED AUTHORITIATIVE, A MEMBER OR A CONTRIBUTOR.
+ 9. Limitation of Revertive Distribution THE USER WHO EXPLICITLY USES ALL THE RESOURCES OF THE PRODUCT SHALL NOT UPLOAD, HOST OR STORE AN UNSAFE, MALICIOUS, UNSTABLE VERSION OF THE PRODUCT IF ITS THE SOURCE OR IF ITS THE FINAL PRODUCT ITSELF UNLESS WITH PROPER AUTHORISATION, IF THE WORK DONE IS FROM THE CREATOR, OWNER, TRUSTED AUTHORITIATIVE, MEMBER OR A CONTRIBUTOR.
+ 10. Compatibility with Other Licenses MASTER-CONSOLE'S OPEN-SOURCE DEFINITIVE LICENSE(MCopdl) V1.0 REVISION-1 IS WRITTEN WITH ACCORDANCE AND SIMILARITY TO OTHER POPULAR LICENSES TO NOT MAKE ANY CONFUSION IN THE TERMS AGREED. HOWEVER, COMPATIBILITY WITH OTHER LICENSE USED IN THE PRODUCT DEPENDS ON THE PRODUCT ITSELF AND THE LICENSE USED.
+ 11. License Details  License name: Master-Console's Open-Source Definitive License License codename: MCopdl License version: v1.0 revision-1 OSI(Open-Source Initiative) Approved: Not yet FSF(Free Software Foundation) Approved: Not yet GPL(General Public License) compatible: Needs decision ***Anything else to be approved and compatible of***
+x-----------------------------------------------------------------------------------------------------------------------------------------------x
+THE LICENSE DEFINITIONS, TERMS AND CONDITIONS END HERE. CIRCUMSTANCES TO BE FOLLOWED ARE THE CHOICE OF THE PRODUCT'S RESPECTIVE OWNERS.
+
+From opensource at lukasatkinson.de  Mon May 27 09:11:16 2019
+From: opensource at lukasatkinson.de (Lukas Atkinson)
+Date: Mon, 27 May 2019 11:11:16 +0200
+Subject: [License-review] For Approval: Master-Console's Open-Source Definitive License(MCopdl)
+In-Reply-To: <CAJ2s1Et15M6j3yZwF+ZEmKOYoHef0GH0B6n-c1mweTfumfy7eA@mail.gmail.com>
+References: <CAJ2s1Et15M6j3yZwF+ZEmKOYoHef0GH0B6n-c1mweTfumfy7eA@mail.gmail.com>
+Message-ID: <CAJTYOd05Bu904+HpVveZuAFiZiKz=oqeovfUivNqUXNMjv8sRA@mail.gmail.com>
+
+I have difficulty understanding the license because it introduces many
+novel terms, and because the English is not particularly clear. While
+fine in general, that is highly problematic for a legal document.
+
+- was this license already reviewed by a lawyer, or do you first want
+feedback from this list?
+
+- could you explain in more detail what those ?essential security
+features? are that other licenses lack? Could you please provide a
+rationale for them?
+
+- what is ?transcripted use?? Doesn't this clause go in the same
+direction as the GPL's requirement that the corresponding source code
+must be machine readable?
+
+- the license includes sentences like ?This is permitted [?] with the
+monitoring of the Owner or Creator.? What kind of monitoring? If use
+of the software is conditional on the ?Owner?'s permission, that might
+not be free software.
+
+
+On Mon, 27 May 2019 at 10:29, Wayne A Rangel <waynerangelboy at gmail.com> wrote:
+>
+> Master-Console's Open-Source Definitive License is for a whole purpose of open-source projects
+> out there. Master-Console Inc.(https://master-console-inc.tk) is the owner of this license and founded this license as other licenses out there like Apache License or GPL were not actually compatible for security reasons the project was working on, therefore we casted a custom license which would not only help ourselves but the millions of open-source projects out there but it can't be done without proper approval and verification, then only it can seem for the license to help and people using it would think so. This license was created with similarity to some popular licenses and with essential security features which those licenses lacked like prevention of transcripted use. Transcripted use means which reveals the source publicly but does not let users access actual content, download and verify the integrity of the project, thus harming the open-source terms. An example could be this: https://www.androwish.org/index.html/tree?ci=tip which does let access to view but does not let access to part of the original source in it and forcibly acts to download all the source. It has many other features too, but plenty much writing here would take your time. However, its all listed in the license.
+>
+> THE LICENSE IS ATTACHED WITH THIS MAIL AS A PLAIN TEXT FILE, PLEASE READ AND VERIFY ALL OF ITS SOURCE. PLEASE REPLY BACK FOR APPROVAL OR REJECTION AND STATE WHERE IT WENT WRONG. THIS LICENSE MAY COME UNDER THE PROLIFERATION
+> CATEGORY OF A GENERAL-PURPOSE OPEN-SOURCE LICENSE LIKE MOSTLY USED LICENSES BUT HOWEVER FOCUSES MORE TO BEING SECURE, OPEN-SOURCE AND FREE FOR ALL.
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+From waynerangelboy at gmail.com  Mon May 27 10:00:46 2019
+From: waynerangelboy at gmail.com (Wayne A Rangel)
+Date: Mon, 27 May 2019 15:30:46 +0530
+Subject: [License-review] For Approval: Master-Console's Open-Source Definitive License(MCopdl)
+In-Reply-To: <CAJTYOd05Bu904+HpVveZuAFiZiKz=oqeovfUivNqUXNMjv8sRA@mail.gmail.com>
+References: <CAJ2s1Et15M6j3yZwF+ZEmKOYoHef0GH0B6n-c1mweTfumfy7eA@mail.gmail.com> <CAJTYOd05Bu904+HpVveZuAFiZiKz=oqeovfUivNqUXNMjv8sRA@mail.gmail.com>
+Message-ID: <CAJ2s1EtSsCz_nGeE0f7-u-y4MwiVF_KY1Vsvup1AENMKxsxeXA@mail.gmail.com>
+
+- was this license already reviewed by a lawyer, or do you first want
+feedback from this list?
+
+Yes, we do want feedback from the list
+
+- - could you explain in more detail what those ?essential security
+features? are that other licenses lack? Could you please provide a
+rationale for them? Prevention of Transcripted use: An example for transcripted use will be a
+company or anyone creates a open-source free software and since its
+open-source, it should be available
+to the public, that is each and every part in a raw format. But that is not
+in the case of transcripted use, it allows to view code
+but not access specific content, does not allow to download a specific part
+which is still open-source, also which does not allow
+the integrity of the author even if its machine readable that is it keeps
+the source open and free but not freely accessible.
+
+ -Prevention of Revertive Distribution: An example for Revertive
+Distribution will be a company or anyone creates a open-source free
+software and since its open-source, it should be available to the
+public, however, some people may use the source to make malicious instances
+of the software and can spread it around with the source having integrity
+of the author. Also software developers usually test their softwares and
+keep their beta versions secure, but if anyone with access to that code can spread a beta
+version of the software which is not totally working or interpreting
+another software with liability of their own can damage the developer's hardwork itself. If the developer
+thinks this as revertive distribution, can act against these sources. But
+this only works for beta versions, malicious instances of free and open source software.
+However, some developers host beta code publicly, they can remain to not
+apply or apply this act if they see anything wrong and anyone is allowed to fork their project code
+or anything, but if the developer see any instances of their code being
+malicious or someone always spreading old unstable versions, they can use this act. Its their
+decision. They can use this anytime but only 3 times. Why 3 times?=>
+explained in license.
+ - what is ?transcripted use??
+Yes, GPL states the code must be machine readable. Any electronic-document
+can be machine-readable, one which is hidden to be accessible is also
+machine-readable. But that's not what
+Transcripted use means, it means the code may be licensed, open-source and
+free but the source is not distributed freely or not accessible in a
+defined way, that is, its mostly hidden from raw access.
+For example, a repository is a aggregation of data itself into some
+accessible place of storage or it may also imply some ability to
+selectively extract data. The word data here and accessible means its raw
+data, like Github or Gitlab or Bitbucket is a repository hosting service
+that offers the data in raw, to access-"to download, to edit(not directly),
+to view in raw", no changes are made in how they are shown but interfaces
+are likely everywhere.
+
+- the license includes sentences like ?This is permitted [?] with the
+monitoring of the Owner or Creator.? What kind of monitoring? If use
+of the software is conditional on the ?Owner?'s permission, that might
+not be free software.
+
+No no, The license states that their copyrighted content like their code if
+not used with the same license(stated in license), is not distributed free
+for all, or directly used commercially, or states the software to be theirs, The Owner or Creator can
+willingly may monitor these things  and takedown any rebelling content
+against the license but that does not mean that the Owner can say that software should not be free or
+should not be hosted anywhere or you can't access the source. It just gives the actual owner to monitor any rebelling content
+against the license and their circumstancial terms. This can only take
+place if the content truly belongs to the Owner and only if found.
+
+On Mon, 27 May 2019 at 14:42, Lukas Atkinson <opensource at lukasatkinson.de>
+wrote:
+
+> I have difficulty understanding the license because it introduces many
+> novel terms, and because the English is not particularly clear. While
+> fine in general, that is highly problematic for a legal document.
+>
+> - was this license already reviewed by a lawyer, or do you first want
+> feedback from this list?
+>
+> - could you explain in more detail what those ?essential security
+> features? are that other licenses lack? Could you please provide a
+> rationale for them?
+>
+> - what is ?transcripted use?? Doesn't this clause go in the same
+> direction as the GPL's requirement that the corresponding source code
+> must be machine readable?
+>
+> - the license includes sentences like ?This is permitted [?] with the
+> monitoring of the Owner or Creator.? What kind of monitoring? If use
+> of the software is conditional on the ?Owner?'s permission, that might
+> not be free software.
+>
+>
+> On Mon, 27 May 2019 at 10:29, Wayne A Rangel <waynerangelboy at gmail.com>
+> wrote:
+> >
+> > Master-Console's Open-Source Definitive License is for a whole purpose
+> of open-source projects
+> > out there. Master-Console Inc.(https://master-console-inc.tk) is the
+> owner of this license and founded this license as other licenses out there
+> like Apache License or GPL were not actually compatible for security
+> reasons the project was working on, therefore we casted a custom license
+> which would not only help ourselves but the millions of open-source
+> projects out there but it can't be done without proper approval and
+> verification, then only it can seem for the license to help and people
+> using it would think so. This license was created with similarity to some
+> popular licenses and with essential security features which those licenses
+> lacked like prevention of transcripted use. Transcripted use means which
+> reveals the source publicly but does not let users access actual content,
+> download and verify the integrity of the project, thus harming the
+> open-source terms. An example could be this:
+> https://www.androwish.org/index.html/tree?ci=tip which does let access to
+> view but does not let access to part of the original source in it and
+> forcibly acts to download all the source. It has many other features too,
+> but plenty much writing here would take your time. However, its all listed
+> in the license.
+> >
+> > THE LICENSE IS ATTACHED WITH THIS MAIL AS A PLAIN TEXT FILE, PLEASE READ
+> AND VERIFY ALL OF ITS SOURCE. PLEASE REPLY BACK FOR APPROVAL OR REJECTION
+> AND STATE WHERE IT WENT WRONG. THIS LICENSE MAY COME UNDER THE PROLIFERATION
+> > CATEGORY OF A GENERAL-PURPOSE OPEN-SOURCE LICENSE LIKE MOSTLY USED
+> LICENSES BUT HOWEVER FOCUSES MORE TO BEING SECURE, OPEN-SOURCE AND FREE FOR
+> ALL.
+> > _______________________________________________
+> > License-review mailing list
+> > License-review at lists.opensource.org
+> >
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190527/82269643/attachment.html>
+
+From brlcad at mac.com  Mon May 27 12:56:03 2019
+From: brlcad at mac.com (Christopher Sean Morrison)
+Date: Mon, 27 May 2019 08:56:03 -0400
+Subject: [License-review] For Approval: Master-Console's Open-Source Definitive License(MCopdl)
+In-Reply-To: <mailman.255.1558948330.9084.license-review_lists.opensource.org@lists.opensource.org>
+References: <mailman.255.1558948330.9084.license-review_lists.opensource.org@lists.opensource.org>
+Message-ID: <8C867DC4-46D4-4080-908C-DA369B2A40B7@mac.com>
+
+
+> From: Wayne A Rangel <waynerangelboy at gmail.com>
+> 
+> Master-Console's Open-Source Definitive License is for a whole purpose of
+> open-source projects
+> out there. Master-Console Inc.(https://master-console-inc.tk) is the owner
+> of this license and founded this license as other licenses out there like
+> Apache License or GPL were not actually compatible for security reasons the
+> project was working on, therefore we casted a custom license which would
+> not only help ourselves but the millions of open-source projects out there
+> but it can't be done without proper approval and verification, then only it
+> can seem for the license to help and people using it would think so.
+
+Correct me if I?m mistaken, but you seem to be conflating your desire that some 3rd party had chosen a different Open Source license with the need for a different Open Source license to exist.  The ?transcripted use? example that you provide seems to be such a case, and a poor one at that because the Tcl/Tk license is very permissive.
+
+> This
+> license was created with similarity to some popular licenses and with
+> essential security features which those licenses lacked like prevention of
+> transcripted use. Transcripted use means which reveals the source publicly
+> but does not let users access actual content, download and verify the
+> integrity of the project, thus harming the open-source terms. An example
+> could be this: https://www.androwish.org/index.html/tree?ci=tip which does
+> let access to view but does not let access to part of the original source
+> in it and forcibly acts to download all the source.
+
+I fail to see where there is denied access to any part of the original source to AndroWish.  It?s in a Fossil repository which can be publicly cloned: fossil clone http://anonymous:www.androwish.org androwish.fossil
+
+Even if it were not in a public repository and even if source were not provided, they'd still be in full compliance with the original Tcl/Tk license terms ? the license only requires they include a verbatim copy of the license in any distributions.  Is there some distribution of AndroWish that does not provide the license terms? 
+
+>    "Creator" shall mean the one who has all the copyright owns of one' own product who can license, unlicense or change the circumstances to comply
+>              with this product but not the definitions of this license. The Creator does not mean the one who has created the product, it only does
+>              mean the one who firstly licensed and published the product.
+
+I must admit that I stopped reading the license at this point.  There are many grammatical and other errors throughout the document, such as using ?owns? as a noun, that should be grounds for rejection alone.
+
+Sean 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190527/4842ebee/attachment.html>
+
+From waynerangelboy at gmail.com  Mon May 27 13:18:52 2019
+From: waynerangelboy at gmail.com (Wayne A Rangel)
+Date: Mon, 27 May 2019 18:48:52 +0530
+Subject: [License-review] For Approval: Master-Console's Open-Source Definitive License(MCopdl)
+In-Reply-To: <8C867DC4-46D4-4080-908C-DA369B2A40B7@mac.com>
+References: <mailman.255.1558948330.9084.license-review_lists.opensource.org@lists.opensource.org> <8C867DC4-46D4-4080-908C-DA369B2A40B7@mac.com>
+Message-ID: <CAJ2s1EvmucO_6Zf1JhR7uEBN3PKzyEnEsPEQLJE5nB4XFLkrvg@mail.gmail.com>
+
+This license does not include stating sources like tcl that are licensed
+with BSD like license to be within or followed with this, We showed an
+example site and we are not talking about AndroWish(we are
+talking in General) which could not be different from what you talk about.
+Yes, you are right, accessible from fossil, but not accessible from within
+web, within a normal static browser(transcripted use), it does not
+necessarily mean its should be in a repository or in a page. It should be
+accessible as raw data(can be in any interface and doesn't mean anyone can
+come and edit the raw data but should be accessible). And thanks for
+figuring out the grammatical errors. We will fix it soon.
+
+
+On Mon, 27 May 2019 at 18:26, Christopher Sean Morrison via License-review <
+license-review at lists.opensource.org> wrote:
+
+>
+> From: Wayne A Rangel <waynerangelboy at gmail.com>
+>
+> Master-Console's Open-Source Definitive License is for a whole purpose of
+> open-source projects
+> out there. Master-Console Inc.(https://master-console-inc.tk) is the owner
+> of this license and founded this license as other licenses out there like
+> Apache License or GPL were not actually compatible for security reasons the
+> project was working on, therefore we casted a custom license which would
+>
+> not only help ourselves but the millions of open-source projects out there
+> but it can't be done without proper approval and verification, then only it
+> can seem for the license to help and people using it would think so.
+>
+>
+> Correct me if I?m mistaken, but you seem to be conflating your desire that
+> some 3rd party had chosen a different Open Source license with the need for
+> a different Open Source license to exist.  The ?transcripted use? example
+> that you provide seems to be such a case, and a poor one at that because
+> the Tcl/Tk license is very permissive.
+>
+> This
+> license was created with similarity to some popular licenses and with
+> essential security features which those licenses lacked like prevention of
+> transcripted use. Transcripted use means which reveals the source publicly
+> but does not let users access actual content, download and verify the
+> integrity of the project, thus harming the open-source terms. An example
+> could be this: https://www.androwish.org/index.html/tree?ci=tip which does
+> let access to view but does not let access to part of the original source
+> in it and forcibly acts to download all the source.
+>
+>
+> I fail to see where there is denied access to any part of the original
+> source to AndroWish.  It?s in a Fossil repository which can be publicly
+> cloned: fossil clone http://anonymous:www.androwish.org androwish.fossil
+>
+> Even if it were not in a public repository and even if source were not
+> provided, they'd still be in full compliance with the original Tcl/Tk
+> license terms ? the license only requires they include a verbatim copy of
+> the license in any distributions.  Is there some distribution of AndroWish
+> that does not provide the license terms?
+>
+>    "Creator" shall mean the one who has all the copyright owns of one' own
+> product who can license, unlicense or change the circumstances to comply
+>              with this product but not the definitions of this license.
+> The Creator does not mean the one who has created the product, it only does
+>              mean the one who firstly licensed and published the product.
+>
+>
+> I must admit that I stopped reading the license at this point.  There are
+> many grammatical and other errors throughout the document, such as using
+> ?owns? as a noun, that should be grounds for rejection alone.
+>
+> Sean
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190527/a8016b6f/attachment.html>
+
+From rfontana at redhat.com  Mon May 27 13:20:20 2019
+From: rfontana at redhat.com (Richard Fontana)
+Date: Mon, 27 May 2019 09:20:20 -0400
+Subject: [License-review] For Approval: Master-Console's Open-Source Definitive License(MCopdl)
+In-Reply-To: <CAJTYOd05Bu904+HpVveZuAFiZiKz=oqeovfUivNqUXNMjv8sRA@mail.gmail.com>
+References: <CAJ2s1Et15M6j3yZwF+ZEmKOYoHef0GH0B6n-c1mweTfumfy7eA@mail.gmail.com> <CAJTYOd05Bu904+HpVveZuAFiZiKz=oqeovfUivNqUXNMjv8sRA@mail.gmail.com>
+Message-ID: <CAC1cPGw3iAC46eG0SUq-ZoDf8Did0sHGou0gUg97Py6WRQEYmw@mail.gmail.com>
+
+On Mon, May 27, 2019 at 5:12 AM Lukas Atkinson
+<opensource at lukasatkinson.de> wrote:
+>
+> I have difficulty understanding the license because it introduces many
+> novel terms, and because the English is not particularly clear.
+
+I agree. My first thought was that this license was written in a
+non-English language and run through a machine translator without
+subsequent human review.
+
+Maybe this would be one of those license submissions best served by
+moving to license-discuss?
+
+Richard
+
+
+>
+> On Mon, 27 May 2019 at 10:29, Wayne A Rangel <waynerangelboy at gmail.com> wrote:
+> >
+> > Master-Console's Open-Source Definitive License is for a whole purpose of open-source projects
+> > out there. Master-Console Inc.(https://master-console-inc.tk) is the owner of this license and founded this license as other licenses out there like Apache License or GPL were not actually compatible for security reasons the project was working on, therefore we casted a custom license which would not only help ourselves but the millions of open-source projects out there but it can't be done without proper approval and verification, then only it can seem for the license to help and people using it would think so. This license was created with similarity to some popular licenses and with essential security features which those licenses lacked like prevention of transcripted use. Transcripted use means which reveals the source publicly but does not let users access actual content, download and verify the integrity of the project, thus harming the open-source terms. An example could be this: https://www.androwish.org/index.html/tree?ci=tip which does let access to view but does not let access to part of the original source in it and forcibly acts to download all the source. It has many other features too, but plenty much writing here would take your time. However, its all listed in the license.
+> >
+> > THE LICENSE IS ATTACHED WITH THIS MAIL AS A PLAIN TEXT FILE, PLEASE READ AND VERIFY ALL OF ITS SOURCE. PLEASE REPLY BACK FOR APPROVAL OR REJECTION AND STATE WHERE IT WENT WRONG. THIS LICENSE MAY COME UNDER THE PROLIFERATION
+> > CATEGORY OF A GENERAL-PURPOSE OPEN-SOURCE LICENSE LIKE MOSTLY USED LICENSES BUT HOWEVER FOCUSES MORE TO BEING SECURE, OPEN-SOURCE AND FREE FOR ALL.
+> > _______________________________________________
+> > License-review mailing list
+> > License-review at lists.opensource.org
+> > http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+
+-- 
+Richard Fontana
+Senior Commercial Counsel
+Red Hat, Inc.
+
+
+From pamela.chestek at opensource.org  Mon May 27 14:09:05 2019
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Mon, 27 May 2019 10:09:05 -0400
+Subject: [License-review] For Approval: Master-Console's Open-Source Definitive License(MCopdl)
+In-Reply-To: <CAJ2s1EvmucO_6Zf1JhR7uEBN3PKzyEnEsPEQLJE5nB4XFLkrvg@mail.gmail.com>
+References: <mailman.255.1558948330.9084.license-review_lists.opensource.org@lists.opensource.org> <8C867DC4-46D4-4080-908C-DA369B2A40B7@mac.com> <CAJ2s1EvmucO_6Zf1JhR7uEBN3PKzyEnEsPEQLJE5nB4XFLkrvg@mail.gmail.com>
+Message-ID: <98ddc5d7-d32d-6328-1eeb-6597285c33cd@opensource.org>
+
+HI Wayne,
+
+Thank you for submitting the license. I agree with the others who have
+commented; the license is quite difficult to understand because of the
+misuse of many English words and grammatical errors. There are also
+writing techniques and conventions that make a licenses clearer and more
+predictably applied that are absent from this license.
+
+Then, because of the difficulty of the text, I cannot work on
+understanding the licensing concepts you are proposing.
+
+I suggest that you withdraw the license for now because of the further
+work that is needed. I would also suggest starting a thread on
+license-discuss (license-discuss at lists.opensource.org) about the
+concepts that you would like to employ, to get feedback on whether they
+would be acceptable for an approved license. If after discussion it
+appears that the OSI might approve a license of the type you propose,
+you can get assistance with conveying the concepts more clearly in a
+legal document and resubmitting the revised version.
+
+Best regards,
+
+Pam
+
+Pamela Chestek
+Chair, License Review Committee
+Open Source Initiative
+
+On 5/27/2019 9:18 AM, Wayne A Rangel wrote:
+> This license does not include stating sources like tcl that are
+> licensed with BSD like license to be within or followed with this, We
+> showed an example site and we are not talking about AndroWish(we are
+> talking in General) which could not be different from what you talk
+> about. Yes, you are right, accessible from fossil, but not accessible
+> from within web, within a normal static browser(transcripted use), it
+> does not necessarily mean its should be in a repository or in a page.
+> It should be accessible as raw data(can be in any interface and
+> doesn't mean anyone can come and edit the raw data but should be
+> accessible). And thanks for figuring out the grammatical errors. We
+> will fix it soon.
+>
+>
+> On Mon, 27 May 2019 at 18:26, Christopher Sean Morrison via
+> License-review <license-review at lists.opensource.org
+> <mailto:license-review at lists.opensource.org>> wrote:
+>
+>
+>>     From: Wayne A Rangel <waynerangelboy at gmail.com
+>>     <mailto:waynerangelboy at gmail.com>>
+>>
+>>     Master-Console's Open-Source Definitive License is for a whole
+>>     purpose of
+>>     open-source projects
+>>     out there. Master-Console Inc.(https://master-console-inc.tk) is
+>>     the owner
+>>     of this license and founded this license as other licenses out
+>>     there like
+>>     Apache License or GPL were not actually compatible for security
+>>     reasons the
+>>     project was working on, therefore we casted a custom license
+>>     which would
+>>     not only help ourselves but the millions of open-source projects
+>>     out there
+>>     but it can't be done without proper approval and verification,
+>>     then only it
+>>     can seem for the license to help and people using it would think so.
+>
+>     Correct me if I?m mistaken, but you seem to be conflating your
+>     desire that some 3rd party had chosen a different Open Source
+>     license with the need for a different Open Source license to
+>     exist.? The ?transcripted use? example that you provide seems to
+>     be such a case, and a poor one at that because the Tcl/Tk license
+>     is very permissive.
+>
+>>     This
+>>     license was created with similarity to some popular licenses and with
+>>     essential security features which those licenses lacked like
+>>     prevention of
+>>     transcripted use. Transcripted use means which reveals the source
+>>     publicly
+>>     but does not let users access actual content, download and verify the
+>>     integrity of the project, thus harming the open-source terms. An
+>>     example
+>>     could be this: https://www.androwish.org/index.html/tree?ci=tip
+>>     which does
+>>     let access to view but does not let access to part of the
+>>     original source
+>>     in it and forcibly acts to download all the source.
+>
+>     I fail to see where there is denied access to any part of the
+>     original source to AndroWish.? It?s in a Fossil repository which
+>     can be publicly cloned:?fossil clone
+>     http://anonymous:www.androwish.org androwish.fossil
+>
+>     Even if it were not in a public repository and even if source were
+>     not provided, they'd still be in full compliance with the original
+>     Tcl/Tk license terms ? the license only requires they include a
+>     verbatim copy of the license in any distributions.? Is there some
+>     distribution of AndroWish that does not provide the license terms??
+>
+>>     ? ?"Creator" shall mean the one who has all the copyright owns of
+>>     one' own product who can license, unlicense or change the
+>>     circumstances to comply
+>>     ?????????????with this product but not the definitions of this
+>>     license. The Creator does not mean the one who has created the
+>>     product, it only does
+>>     ?????????????mean the one who firstly licensed and published the
+>>     product.
+>
+>     I must admit that I stopped reading the license at this point.?
+>     There are many grammatical and other errors throughout the
+>     document, such as using ?owns? as a noun, that should be grounds
+>     for rejection alone.
+>
+>     Sean
+>     ?
+>     _______________________________________________
+>     License-review mailing list
+>     License-review at lists.opensource.org
+>     <mailto:License-review at lists.opensource.org>
+>     http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190527/1daa4ae0/attachment.html>
+
+From mccoy.smith at intel.com  Tue May 28 15:54:34 2019
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Tue, 28 May 2019 15:54:34 +0000
+Subject: [License-review] For Approval: Master-Console's Open-Source Definitive License(MCopdl)
+In-Reply-To: <CAJTYOd05Bu904+HpVveZuAFiZiKz=oqeovfUivNqUXNMjv8sRA@mail.gmail.com>
+References: <CAJ2s1Et15M6j3yZwF+ZEmKOYoHef0GH0B6n-c1mweTfumfy7eA@mail.gmail.com> <CAJTYOd05Bu904+HpVveZuAFiZiKz=oqeovfUivNqUXNMjv8sRA@mail.gmail.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5198B15815C@fmsmsx117.amr.corp.intel.com>
+
+I'll add to the comments that this license is in non-idiomatic English and should be revised accordingly if it is desired to be approved.
+
+
+
+Two of the "rights" enumerated appear to me to violate OSD 5 and/or 6:
+
+
+-Revertive Distribution: Some Developers want the source to be safe, malware-free, stable .This can be monitored by the Creator, Owner or Trusted Authoritative and if found, they can ask the distributor/distributors to revert the code to being helpful rather than being with malicious or unstable version of the source. If still the distributor does not comply, the Creator, Owner or Trusted Authoritative can report and takedown that source. This is only an optional feature of this license and it is the Creator, Owner or Trusted Authoritative's choice to apply Revertive Distribution act. This act is granted only 3 times since abuse of the license can also take place or if there was a potential exploitation code which is still used and ignored by the owner, thus this is limited to 3. This Permission is granted if the source is used privately.
+
+
+
+This seems to confer a right on the Creator, Owner or a contributor the right to decide what modified versions are ?malicious? or ?unstable? and force takedown.  That violates OSD 6 (and OSD 5 since it discriminates against non-contributors).
+
+
+
+-Transcripted Use: This is not permitted except for the Creator, Owner. Transcripted site can be a site to view code publicly but not to be able to use, download and verify the code. This is required since large products have tons of sources. This means code to be stored and disclosed in a repository like base for everyone.
+
+
+
+Since this right is only conferred to the Creator or Owner, this violates OSD 5.
+
+
+
+I?m not sure it makes sense to do a rewrite of this license if it continues to have problems complying with the OSD.
+
+
+
+There are also potential Freedom Zero problems with this license as well, I think, although the wording is such that I can?t quite tell.
+
+
+
+-----Original Message-----
+From: License-review [mailto:license-review-bounces at lists.opensource.org] On Behalf Of Lukas Atkinson
+Sent: Monday, May 27, 2019 2:11 AM
+To: License submissions for OSI review <license-review at lists.opensource.org>
+Subject: Re: [License-review] For Approval: Master-Console's Open-Source Definitive License(MCopdl)
+
+
+
+I have difficulty understanding the license because it introduces many novel terms, and because the English is not particularly clear. While fine in general, that is highly problematic for a legal document.
+
+
+
+- was this license already reviewed by a lawyer, or do you first want feedback from this list?
+
+
+
+- could you explain in more detail what those ?essential security features? are that other licenses lack? Could you please provide a rationale for them?
+
+
+
+- what is ?transcripted use?? Doesn't this clause go in the same direction as the GPL's requirement that the corresponding source code must be machine readable?
+
+
+
+- the license includes sentences like ?This is permitted [?] with the monitoring of the Owner or Creator.? What kind of monitoring? If use of the software is conditional on the ?Owner?'s permission, that might not be free software.
+
+
+
+
+
+On Mon, 27 May 2019 at 10:29, Wayne A Rangel <waynerangelboy at gmail.com<mailto:waynerangelboy at gmail.com>> wrote:
+
+>
+
+> Master-Console's Open-Source Definitive License is for a whole purpose
+
+> of open-source projects out there. Master-Console Inc.(https://master-console-inc.tk) is the owner of this license and founded this license as other licenses out there like Apache License or GPL were not actually compatible for security reasons the project was working on, therefore we casted a custom license which would not only help ourselves but the millions of open-source projects out there but it can't be done without proper approval and verification, then only it can seem for the license to help and people using it would think so. This license was created with similarity to some popular licenses and with essential security features which those licenses lacked like prevention of transcripted use. Transcripted use means which reveals the source publicly but does not let users access actual content, download and verify the integrity of the project, thus harming the open-source terms. An example could be this: https://www.androwish.org/index.html/tree?ci=tip which does let access to view but does not let access to part of the original source in it and forcibly acts to download all the source. It has many other features too, but plenty much writing here would take your time. However, its all listed in the license.
+
+>
+
+> THE LICENSE IS ATTACHED WITH THIS MAIL AS A PLAIN TEXT FILE, PLEASE
+
+> READ AND VERIFY ALL OF ITS SOURCE. PLEASE REPLY BACK FOR APPROVAL OR REJECTION AND STATE WHERE IT WENT WRONG. THIS LICENSE MAY COME UNDER THE PROLIFERATION CATEGORY OF A GENERAL-PURPOSE OPEN-SOURCE LICENSE LIKE MOSTLY USED LICENSES BUT HOWEVER FOCUSES MORE TO BEING SECURE, OPEN-SOURCE AND FREE FOR ALL.
+
+> _______________________________________________
+
+> License-review mailing list
+
+> License-review at lists.opensource.org<mailto:License-review at lists.opensource.org>
+
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.open
+
+> source.org
+
+
+
+_______________________________________________
+
+License-review mailing list
+
+License-review at lists.opensource.org<mailto:License-review at lists.opensource.org>
+
+http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190528/4adc7363/attachment.html>
+
+From bruce at perens.com  Tue May 28 17:14:38 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 28 May 2019 10:14:38 -0700
+Subject: [License-review] For Approval: Master-Console's Open-Source Definitive License(MCopdl)
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5198B15815C@fmsmsx117.amr.corp.intel.com>
+References: <CAJ2s1Et15M6j3yZwF+ZEmKOYoHef0GH0B6n-c1mweTfumfy7eA@mail.gmail.com> <CAJTYOd05Bu904+HpVveZuAFiZiKz=oqeovfUivNqUXNMjv8sRA@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B15815C@fmsmsx117.amr.corp.intel.com>
+Message-ID: <CAK2MWOvg_H0Pfo_5q06VUPr8JtmMCY3ST24ADZFDj-0mdHp19A@mail.gmail.com>
+
+Wayne,
+
+I will second McCoy's opinion, and inform you: It is never necessary for a
+license to grant rights only to the copyright holder, since the copyright
+holder has all rights by default and does not need a license to grant them.
+
+On Tue, May 28, 2019 at 8:55 AM Smith, McCoy <mccoy.smith at intel.com> wrote:
+
+> I'll add to the comments that this license is in non-idiomatic English and
+> should be revised accordingly if it is desired to be approved.
+>
+>
+>
+> Two of the "rights" enumerated appear to me to violate OSD 5 and/or 6:
+>
+>
+>
+> -Revertive Distribution: Some Developers want the source to be safe,
+> malware-free, stable .This can be monitored by the Creator, Owner or
+> Trusted Authoritative and if found, they can ask the
+> distributor/distributors to revert the code to being helpful rather than
+> being with malicious or unstable version of the source. If still the
+> distributor does not comply, the Creator, Owner or Trusted Authoritative
+> can report and takedown that source. This is only an optional feature of
+> this license and it is the Creator, Owner or Trusted Authoritative's choice
+> to apply Revertive Distribution act. This act is granted only 3 times since
+> abuse of the license can also take place or if there was a potential
+> exploitation code which is still used and ignored by the owner, thus this
+> is limited to 3. This Permission is granted if the source is used privately.
+>
+>
+>
+> This seems to confer a right on the Creator, Owner or a contributor the
+> right to decide what modified versions are ?malicious? or ?unstable? and
+> force takedown.  That violates OSD 6 (and OSD 5 since it discriminates
+> against non-contributors).
+>
+>
+>
+> -Transcripted Use: This is not permitted except for the Creator, Owner.
+> Transcripted site can be a site to view code publicly but not to be able to
+> use, download and verify the code. This is required since large products
+> have tons of sources. This means code to be stored and disclosed in a
