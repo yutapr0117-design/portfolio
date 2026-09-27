@@ -439,3 +439,69 @@ non-English language and **run through a machine translator without subsequent h
 **理事会の議決は 2023-09-15**（**約 16 か月遅い**）。
 Mulan の 207 日（§1.108）、NOSA 2.0 の 3 年半（§1.118）に続く 3 例目 ——
 **公表された決定期限は上限として機能していない。**
+
+## 1.121 「OSD 適合は十分条件ではない」の理由 —— 商標を一貫して行使する義務がある、と当時の会長が述べている（2026-09-27）
+
+一次資料は `rounds/2008-12-license-review-tgppl-trademark-rule-observed-*.txt`（134 通・8 部）。
+Transitive Grace Period Public Licence（2008-12 提出）は**承認されていない。**
+
+### #248 の原理に、理由が付いた
+
+Russ Nelson 氏（当時 OSI 会長）2009-02-17、提出者が「60 日のレビューで OSD 非適合という
+指摘は誰からも出ていない」と述べたのに対し ——
+
+> *"The license review process is **more what you'd call 'guidelines' than actual rules**.
+> The review takes as long as it takes."*
+>
+> *"**There are reasons beyond OSD conformance why we might not want to approve the license.
+> Why? Because we have a trademark to preserve.** If you can figure out some way to **comply with
+> the OSD in a way that does not achieve the desired open source effect**, which endangers the
+> meaning of OSI-Approved trademark, **then we MUST deny your license OSI approval (trademark law
+> gives us no choice).**"*
+>
+> *"**Somebody has to decide what OSD conformance means. It's us.**"*
+>
+> *"we've given the plank to smart-asses before who thought that **strict OSD compliance (which
+> technically doesn't even require that you SHIP SOURCE CODE) was sufficient**."*
+
+**#248 は「OSD 適合は必要条件であって十分条件ではない」を 3 人の発言で記録した。
+ここにはその理由が在る** ——**商標は一貫して行使しなければ保護を失うので、
+「形式的には適合するが効果を達成しない」ライセンスを承認することは、
+OSI にとって選択の余地のない拒否事由になる。**
+
+**これは #248 の Villa 氏の *"political game"* という言い方より正確である** ——
+**恣意ではなく、商標という法的資産の保全から来ている。**
+
+### ACD-1.0 にとって何を意味するか
+
+**我々の提出パケットは「逐条で OSD を満たす」を中心に据えている**
+（`submission-osd.md` の 10 条逐条と、§3b の反対側）。
+**この一文は、その中心が十分条件ではないことを、理由つきで述べている。**
+
+**我々が答えられるのは「効果を達成するか」の側だけである** ——
+**§10.1 は条件を 1 つも持たないので、「形式的には適合するが効果を達成しない」という
+構造を取りようがない。** **抜け道は条件の中にしか作れず、条件が無いからである。**
+
+**⚠ だが Nelson 氏が挙げた例は条件の抜け道ではない** ——
+*"a license which permitted distribution of all the source code you didn't get"* は
+**許諾の形をした空洞**で、**条件ゼロでも作りうる**。
+**ACD-1.0 が空洞でないことは、§4.2 が改変と派生物を許し、§10.1 が条件を付けないことから
+言えるが、それは我々の読みである。**
+
+### そして、ここでも限定状態が語られている
+
+Nelson 氏 —— *"**It's possible that years of experience with this license may be needed before it
+can be approved.**"* **TGPPL は承認されていない**（提出から 17 年）。
+**§1.118（NOSA 2.0 の 3 年半）、§1.120（YATeam の 16 か月遅れ）に続く 3 例目で、
+こちらは「決まらないまま」である。**
+
+### 併せて記録する —— 条件を緩める側の変更に承認は要らない
+
+Lawrence Rosen 氏 2008-12-14 —— *"So long as the Licensor **waives a condition** of the OSL 3.0
+license that otherwise burdens the licensee, **no formal OSI approval should be needed**. ...
+**Note that you cannot use a waiver to *add a burden* on a licensee. That would require a new
+license and OSI approval.**"*
+
+**ACD-1.0 は条件を 1 つも持たないので、この非対称の「緩める側」の極にある。**
+**⚠ ただし氏が述べているのは既存ライセンスへの waiver についてで、
+新しい instrument が要らないという話ではない** ——**#84 と #253 の proliferation はそのまま残る。**

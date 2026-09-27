@@ -1,0 +1,750 @@
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com>
+Message-ID: <494D5655.4040201@perens.com>
+
+zooko wrote:
+>   This is consistent with what I've learned from Prof. Moglen as well 
+> as from my own analysis.  The requirement to transitively offer the 
+> grace period to users of your derived work is an added burden.
+The OSL does require that you convey the license terms that you received 
+to those to whom you further distribute. So, the "transitive" aspect is 
+already there. Eben has a special concern, which is that FSF doesn't 
+want any terms added to GPL without FSF's authorization, under any 
+circumstances, whatever the reason. I have not yet heard a similar 
+objection from Larry.
+> it would still need to have a separate name
+Names are fine. If you craft this correctly, you don't really need OSI 
+approval because it would not add requirements to an OSI-approved license.
+ Thanks
+ Bruce
+
+
+From zooko at zooko.com  Wed Jan 14 17:03:30 2009
+From: zooko at zooko.com (zooko)
+Date: Wed, 14 Jan 2009 10:03:30 -0700
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <494D5655.4040201@perens.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com>
+Message-ID: <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>
+
+On Dec 20, 2008, at 13:32 PM, Bruce Perens wrote:
+
+> If you craft this correctly, you don't really need OSI approval  
+> because it would not add requirements to an OSI-approved license.
+
+I still do need OSI approval for the Transitive Grace Period Public  
+Licence.  The intent of the TGPPL cannot be expressed clearly without  
+adding requirements, namely the requirement to open-source derived  
+works under the TGPPL.
+
+I understand, and support, the desire to minimize licence  
+proliferation, but my intent for the TGPPL cannot be expressed as a  
+variation of an existing licence.
+
+Regards,
+
+Zooko
+---
+Tahoe, the Least-Authority Filesystem -- http://allmydata.org
+store your data: $10/month -- http://allmydata.com/?tracking=zsig
+
+
+From zooko at zooko.com  Tue Jan 20 22:01:11 2009
+From: zooko at zooko.com (zooko)
+Date: Tue, 20 Jan 2009 15:01:11 -0700
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>
+Message-ID: <E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com>
+
+[following-up to my own post]
+
+Folks:
+
+I'm reading this page:
+
+http://opensource.org/approval
+
+It looks like the next step in the process is for "the Trac  
+Maintainers to file appropriate tickets".  From examining the trac,  
+the only person that has filed a ticket about a licence is Russ  
+Nelson.  Is Mr. Nelson the only Trac Maintainer?
+
+This page also states that the process is intended to "Ensure a  
+thorough, transparent, and timely review (e.g., within 60 days)".   
+Since I submitted this request for approval on December 14, 2008, I  
+hope that this means I will have a resolution by Valentine's Day.  I  
+don't know if it matter how much of this 60-period is spent before my  
+RFA is on the trac and how much is after.
+
+Regards,
+
+Zooko Wilcox-O'Hearn
+---
+Tahoe, the Least-Authority Filesystem -- http://allmydata.org
+store your data: $10/month -- http://allmydata.com/?tracking=zsig
+
+
+From nelson at crynwr.com  Wed Jan 21 04:09:10 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Tue, 20 Jan 2009 23:09:10 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com>
+Message-ID: <18806.40934.286136.330314@desk.crynwr.com>
+
+Oh, sorry, I tend to ignore people who submit licenses without their
+full name.  I suppose that it's possible to submit a license
+anonymously, but nothing in our process says that I'm obligated to
+cooperate with anonymous submissions.
+
+I'm on a deadline right now, but in time I'll make a Trac entry.
+-russ
+
+zooko writes: > [following-up to my own post] >  > Folks: >  > I'm reading this page: >  > http://opensource.org/approval >  > It looks like the next step in the process is for "the Trac   > Maintainers to file appropriate tickets".  From examining the trac,   > the only person that has filed a ticket about a licence is Russ   > Nelson.  Is Mr. Nelson the only Trac Maintainer? >  > This page also states that the process is intended to "Ensure a   > thorough, transparent, and timely review (e.g., within 60 days)".    > Since I submitted this request for approval on December 14, 2008, I   > hope that this means I will have a resolution by Valentine's Day.  I   > don't know if it matter how much of this 60-period is spent before my   > RFA is on the trac and how much is after. >  > Regards, >  > Zooko Wilcox-O'Hearn > --- > Tahoe, the Least-Authority Filesystem -- http://allmydata.org > store your data: $10/month -- http://allmydata.com/?tracking=zsig
+
+
+From matthew.flaschen at gatech.edu  Wed Jan 21 04:23:06 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Tue, 20 Jan 2009 23:23:06 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18806.40934.286136.330314@desk.crynwr.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com>	<803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>	<4945D81C.6020600@perens.com>	<8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA>	<D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>	<49473F92.6020003@gatech.edu>	<E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>	<494C809B.7000007@perens.com>	<B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com>	<494D5655.4040201@perens.com>	<1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>	<E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com> <18806.40934.286136.330314@desk.crynwr.com>
+Message-ID: <4976A32A.20303@gatech.edu>
+
+Russ Nelson wrote:
+> Oh, sorry, I tend to ignore people who submit licenses without their
+> full name.  I suppose that it's possible to submit a license
+> anonymously, but nothing in our process says that I'm obligated to
+> cooperate with anonymous submissions.
+
+Where in the process (http://opensource.org/approval) does it say
+submissions may not be anonymous?  Even if it did, you should have
+pointed this out over a month ago.
+
+Matt Flaschen
+
+
+From zooko at zooko.com  Wed Jan 21 04:23:06 2009
+From: zooko at zooko.com (zooko)
+Date: Tue, 20 Jan 2009 21:23:06 -0700
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18806.40934.286136.330314@desk.crynwr.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com> <18806.40934.286136.330314@desk.crynwr.com>
+Message-ID: <34055E7C-EA19-42FB-87CA-1D3AA007E800@zooko.com>
+
+My name is Zooko Wilcox-O'Hearn.
+
+Thanks!
+
+Regards,
+
+Zooko
+---
+Tahoe, the Least-Authority Filesystem -- http://allmydata.org
+store your data: $10/month -- http://allmydata.com/?tracking=zsig
+
+
+From nelson at crynwr.com  Wed Jan 21 04:30:38 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Tue, 20 Jan 2009 23:30:38 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <4976A32A.20303@gatech.edu>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com> <18806.40934.286136.330314@desk.crynwr.com> <4976A32A.20303@gatech.edu>
+Message-ID: <18806.42222.612508.958315@desk.crynwr.com>
+
+Matthew Flaschen writes: > Russ Nelson wrote: > > Oh, sorry, I tend to ignore people who submit licenses without their > > full name.  I suppose that it's possible to submit a license > > anonymously, but nothing in our process says that I'm obligated to > > cooperate with anonymous submissions. >  > Where in the process (http://opensource.org/approval) does it say > submissions may not be anonymous?  Even if it did, you should have > pointed this out over a month ago.
+
+Well, that would be COOPERATING, now wouldn't it?
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Crynwr sells support for free software  | PGPok | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From matthew.flaschen at gatech.edu  Wed Jan 21 04:33:19 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Tue, 20 Jan 2009 23:33:19 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18806.42222.612508.958315@desk.crynwr.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com>	<803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>	<4945D81C.6020600@perens.com>	<8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA>	<D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>	<49473F92.6020003@gatech.edu>	<E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>	<494C809B.7000007@perens.com>	<B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com>	<494D5655.4040201@perens.com>	<1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>	<E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com>	<18806.40934.286136.330314@desk.crynwr.com>	<4976A32A.20303@gatech.edu> <18806.42222.612508.958315@desk.crynwr.com>
+Message-ID: <4976A58F.3070803@gatech.edu>
+
+Russ Nelson wrote:
+> Matthew Flaschen writes:
+>  > Russ Nelson wrote:
+>  > > Oh, sorry, I tend to ignore people who submit licenses without their
+>  > > full name.  I suppose that it's possible to submit a license
+>  > > anonymously, but nothing in our process says that I'm obligated to
+>  > > cooperate with anonymous submissions.
+>  > 
+>  > Where in the process (http://opensource.org/approval) does it say
+>  > submissions may not be anonymous?  Even if it did, you should have
+>  > pointed this out over a month ago.
+> 
+> Well, that would be COOPERATING, now wouldn't it?
+
+Okay, to put it more strongly, "YOU'RE supposed to COOPERATE regardless
+of whether the submission is anonymous."
+
+Matt Flaschen
+
+
+From nelson at crynwr.com  Wed Jan 21 04:41:03 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Tue, 20 Jan 2009 23:41:03 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <4976A58F.3070803@gatech.edu>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com> <18806.40934.286136.330314@desk.crynwr.com> <4976A32A.20303@gatech.edu> <18806.42222.612508.958315@desk.crynwr.com> <4976A58F.3070803@gatech.edu>
+Message-ID: <18806.42847.483542.776643@desk.crynwr.com>
+
+Matthew Flaschen writes: > Okay, to put it more strongly, "YOU'RE supposed to COOPERATE regardless > of whether the submission is anonymous."
+
+That requires a presumption that each and every license submission
+should be treated like a gold tablet sent down from God to Moses (or
+is that Joseph Smith -- I think I'm confusing my religions here).  The
+marginal value of the next license approval request is approaching
+zero.
+
+I've got Chris DiBona's disease: new licenses make me yawn.  Sorry.
+Licenses that are interesting don't comply with the OSD, and licenses
+that do are too close to the existing licenses to be interesting.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Crynwr sells support for free software  | PGPok | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From bruce at perens.com  Wed Jan 21 04:50:53 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 20 Jan 2009 20:50:53 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18806.42847.483542.776643@desk.crynwr.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com>	<803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>	<4945D81C.6020600@perens.com>	<8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA>	<D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>	<49473F92.6020003@gatech.edu>	<E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>	<494C809B.7000007@perens.com>	<B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com>	<494D5655.4040201@perens.com>	<1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>	<E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com>	<18806.40934.286136.330314@desk.crynwr.com>	<4976A32A.20303@gatech.edu>	<18806.42222.612508.958315@desk.crynwr.com>	<4976A58F.3070803@gatech.edu> <18806.42847.483542.776643@desk.crynwr.com>
+Message-ID: <4976A9AD.9050300@perens.com>
+
+Yes, I agree with you. But you are saying it in a way that would lead 
+some people to believe the problem is you. How about "OSI decided to 
+table the submissions, taking no action, on the recommendation of the 
+license manager".
+ Thanks
+ Bruce
+
+Russ Nelson wrote:
+> Matthew Flaschen writes:
+>  > Okay, to put it more strongly, "YOU'RE supposed to COOPERATE regardless
+>  > of whether the submission is anonymous."
+>
+> That requires a presumption that each and every license submission
+> should be treated like a gold tablet sent down from God to Moses (or
+> is that Joseph Smith -- I think I'm confusing my religions here).  The
+> marginal value of the next license approval request is approaching
+> zero.
+>
+> I've got Chris DiBona's disease: new licenses make me yawn.  Sorry.
+> Licenses that are interesting don't comply with the OSD, and licenses
+> that do are too close to the existing licenses to be interesting.
+>
+>   
+
+
+
+From matthew.flaschen at gatech.edu  Wed Jan 21 05:00:42 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Wed, 21 Jan 2009 00:00:42 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18806.42847.483542.776643@desk.crynwr.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com>	<803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>	<4945D81C.6020600@perens.com>	<8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA>	<D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>	<49473F92.6020003@gatech.edu>	<E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>	<494C809B.7000007@perens.com>	<B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com>	<494D5655.4040201@perens.com>	<1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>	<E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com>	<18806.40934.286136.330314@desk.crynwr.com>	<4976A32A.20303@gatech.edu>	<18806.42222.612508.958315@desk.crynwr.com>	<4976A58F.3070803@gatech.edu> <18806.42847.483542.776643@desk.crynwr.com>
+Message-ID: <4976ABFA.9000103@gatech.edu>
+
+Russ Nelson wrote:
+> Matthew Flaschen writes:
+>  > Okay, to put it more strongly, "YOU'RE supposed to COOPERATE regardless
+>  > of whether the submission is anonymous."
+> 
+> That requires a presumption that each and every license submission
+> should be treated like a gold tablet sent down from God to Moses (or
+> is that Joseph Smith -- I think I'm confusing my religions here).
+
+Also, the plates were passed down by the angel Moroni...
+
+> The marginal value of the next license approval request is approaching
+> zero.
+
+I assume by marginal value you mean the marginal value OSI and the
+community get from approving the license.  Fine, so OSI should reject
+this license (no argument from me).  That doesn't mean just ignoring
+submissions and hoping they go away.
+
+Matt Flaschen
+
+
+From rick at linuxmafia.com  Wed Jan 21 06:03:17 2009
+From: rick at linuxmafia.com (Rick Moen)
+Date: Tue, 20 Jan 2009 22:03:17 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <34055E7C-EA19-42FB-87CA-1D3AA007E800@zooko.com>
+References: <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com> <18806.40934.286136.330314@desk.crynwr.com> <34055E7C-EA19-42FB-87CA-1D3AA007E800@zooko.com>
+Message-ID: <20090121060317.GH16400@linuxmafia.com>
+
+Quoting zooko (zooko at zooko.com):
+
+> My name is Zooko Wilcox-O'Hearn.
+
+But it's pronounced "Bryce Wilcox"?  ;->
+
+-- 
+Cheers,              Crypto lets someone say "Hi! I absolutely definitely have 
+Rick Moen            a name somewhat like the name of a large familiar 
+rick at linuxmafia.com  organization, and I'd like to steal your data!" and lots 
+McQ!  (4x80)         of users will say "OK, fine, whatever."    -- John Levine 
+
+
+From zooko at zooko.com  Wed Jan 21 13:38:59 2009
+From: zooko at zooko.com (zooko)
+Date: Wed, 21 Jan 2009 06:38:59 -0700
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <20090121060317.GH16400@linuxmafia.com>
+References: <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com> <18806.40934.286136.330314@desk.crynwr.com> <34055E7C-EA19-42FB-87CA-1D3AA007E800@zooko.com> <20090121060317.GH16400@linuxmafia.com>
+Message-ID: <B1241EED-CA6F-4D3B-9F23-A9878CA0C12D@zooko.com>
+
+On Jan 20, 2009, at 23:03 PM, Rick Moen wrote:
+
+> But it's pronounced "Bryce Wilcox"?  ;->
+
+No, I changed my name from "Bryce Wilcox" to "Zooko Wilcox-O'Hearn"  
+in 2006.
+
+Regards,
+
+Zooko
+---
+Tahoe, the Least-Authority Filesystem -- http://allmydata.org
+store your data: $10/month -- http://allmydata.com/?tracking=zsig
+
+
+From zooko at zooko.com  Wed Jan 21 17:19:29 2009
+From: zooko at zooko.com (Zooko O'Whielacronx)
+Date: Wed, 21 Jan 2009 10:19:29 -0700
+Subject: TGPPL, deterring licence proliferation by withholding the stamp of OSD-conformance (was: recent submissions merit no action)
+In-Reply-To: <4976A8FB.8030502@perens.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com>	<803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>	<4945D81C.6020600@perens.com>	<8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA>	<D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>	<49473F92.6020003@gatech.edu>	<E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>	<494C809B.7000007@perens.com>	<B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com>	<494D5655.4040201@perens.com>	<1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>	<E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com> <18806.40934.286136.330314@desk.crynwr.com> <4976A32A.20303@gatech.edu> <4976A8FB.8030502@perens.com>
+Message-ID: <FF13F713-3E28-4CA3-8E1D-E97475ACE538@zooko.com>
+
+Bruce Perens wrote that my Request for Approval of the Transitive  
+Grace Period Public Licence as OSD-compliant "may well be considered  
+frivolous".
+
+My Request For Approval is not frivolous.  I believe that the  
+Transitive Grace Period Public Licence could turn out to be important  
+-- it is a novel mechanism for cooperation which has the potential to  
+greatly foment creative work.  Other people think it is a good idea,  
+too.
+
+My company, allmydata.com, has released all of the software that runs  
+our business under the Transitive Grace Period Public Licence, dual- 
+licensed with the GPL.  We do not do such things frivolously.
+
+http://opensource.org/about says:
+
+"The Open Source Initiative (OSI) is a California public benefit  
+corporation, with 501(c)3 tax-exempt status, founded in 1998.
+The OSI are the stewards of the Open Source Definition (OSD) and the  
+community-recognized body for reviewing and approving licenses as OSD- 
+conformant."
+
+This is the social contract to which the larger open source community  
+understands OSI to be committed: to inform the community about  
+whether a licence does or does not conform to the Open Source  
+Definition.  When I announce the availability of software on  
+community sites such as SourceForge, Freshmeat, the Python Package  
+Index, or Launchpad, the site asks me if the licence is certified by  
+OSI to be OSD-conformant.  Likewise, people who are considering using  
+my software sometimes ask me personally if the licences are certified  
+by OSI.  They ask this because they want to know whether the licence  
+is open source or not, and they rely on the OSI to tell them.
+
+Obviously the OSI should not entertain frivolous or malicious  
+Requests For Approval, but it appears that in your concern about  
+licence proliferation you have started to use your power of  
+withholding certification of OSD-conformance as a general purpose  
+tool to deter the use of licences that you don't like.  This is wrong.
+
+There are a few options available to OSI which are consistent with  
+the community's recognition of OSI:
+
+1.  Announce that the OSI approval process is no longer merely  
+determining whether a licence conforms to the OSD, but also whether  
+the licence is sufficiently useful to be recommended to the  
+community.  Send out a press release explaining what the new rules  
+are, update the process documentation, and change the "about" page,  
+quoted above, which in this case would no longer be correct.
+
+2.  Forget about deterring licence proliferation.  Let OSI focus  
+solely on "reviewing and approvling licences as OSD-conformant", and  
+hope that other forces will prevent licence proliferation from  
+growing out of control and strangling open source cooperation.
+
+3.  Separately indicate whether the OSI finds a licence to be OSD- 
+conformant and whether it advises the use of that licence.  This is  
+as Russell Nelson has suggested in "restarting License (anti-) 
+Proliferation" [1].  In this scheme, the OSI would maintain two lists  
+of licences: "recommended" and "conformant".  In my opinion this is  
+the best option of the three.
+
+In the meantime, please approve the Transitive Grace Period Public  
+Licence as OSD-conformant without further unnecessary delay.  Delays  
+in this process could have a negative impact on myself or on my  
+company.  I understand that many or all of us are working pro bono,  
+in the public interest, and do not get paid to work on this full- 
+time, so I planned for a certain amount of unavoidable delay, but I  
+must confess that I am distressed to discover that approval of the  
+licence has been delayed for no good reason.
+
+I entered into this process based on my understanding of the OSI's  
+role in our community and of the documented process for licence  
+review.  I have executed my part of the process in good faith,  
+following to the best of my ability the public documentation, and I  
+expect to be addressed respectfully and for the OSI to fulfill its  
+side of the process in good faith.
+
+Regards,
+
+Zooko Wilcox-O'Hearn
+
+[1] https://ideas.opensource.org/attachment/ticket/157/email
+---
+Tahoe, the Least-Authority Filesystem -- http://allmydata.org
+store your data: $10/month -- http://allmydata.com/?tracking=zsig
+
+
+From cowan at ccil.org  Wed Jan 21 18:11:17 2009
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 21 Jan 2009 13:11:17 -0500
+Subject: TGPPL, deterring licence proliferation by withholding the stamp of OSD-conformance (was: recent submissions merit no action)
+In-Reply-To: <FF13F713-3E28-4CA3-8E1D-E97475ACE538@zooko.com>
+References: <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com> <18806.40934.286136.330314@desk.crynwr.com> <4976A32A.20303@gatech.edu> <4976A8FB.8030502@perens.com> <FF13F713-3E28-4CA3-8E1D-E97475ACE538@zooko.com>
+Message-ID: <20090121181116.GC10185@mercury.ccil.org>
+
+Zooko O'Whielacronx scripsit:
+
+> My Request For Approval is not frivolous.  I believe that the  
+> Transitive Grace Period Public Licence could turn out to be important  
+> -- it is a novel mechanism for cooperation which has the potential to  
+> greatly foment creative work.  Other people think it is a good idea,  
+> too.
+
+I agree entirely that the TGPPL is not frivolous, though it may not
+accomplish what it attempts to accomplish.
+
+> 3.  Separately indicate whether the OSI finds a licence to be OSD- 
+> conformant and whether it advises the use of that licence.  This is  
+> as Russell Nelson has suggested in "restarting License (anti-) 
+> Proliferation" [1].  In this scheme, the OSI would maintain two lists  
+> of licences: "recommended" and "conformant".  In my opinion this is  
+> the best option of the three.
+
+Such efforts are indeed underway.
+
+-- 
+[W]hen I wrote it I was more than a little              John Cowan
+febrile with foodpoisoning from an antique carrot       cowan at ccil.org
+that I foolishly ate out of an illjudged faith          http://ccil.org/~cowan
+in the benignancy of vegetables.  --And Rosta
+
+
+From rick at linuxmafia.com  Wed Jan 21 19:56:00 2009
+From: rick at linuxmafia.com (Rick Moen)
+Date: Wed, 21 Jan 2009 11:56:00 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <B1241EED-CA6F-4D3B-9F23-A9878CA0C12D@zooko.com>
+References: <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com> <18806.40934.286136.330314@desk.crynwr.com> <34055E7C-EA19-42FB-87CA-1D3AA007E800@zooko.com> <20090121060317.GH16400@linuxmafia.com> <B1241EED-CA6F-4D3B-9F23-A9878CA0C12D@zooko.com>
+Message-ID: <20090121195559.GA19937@linuxmafia.com>
+
+Quoting zooko (zooko at zooko.com):
+
+> No, I changed my name from "Bryce Wilcox" to "Zooko Wilcox-O'Hearn"  
+> in 2006.
+
+Thank you for clarifying, Zooko.  Among other things, this let me
+correct two references to you by name within entry "VCS" on 
+http://linuxmafia.com/kb/Devtools/ .
+
+
+
+From nelson at crynwr.com  Sat Jan 24 23:22:09 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sat, 24 Jan 2009 18:22:09 -0500
+Subject: TGPPL, deterring licence proliferation by withholding the stamp of OSD-conformance (was: recent submissions merit no action)
+In-Reply-To: <FF13F713-3E28-4CA3-8E1D-E97475ACE538@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com> <18806.40934.286136.330314@desk.crynwr.com> <4976A32A.20303@gatech.edu> <4976A8FB.8030502@perens.com> <FF13F713-3E28-4CA3-8E1D-E97475ACE538@zooko.com>
+Message-ID: <18811.41633.34669.856030@desk.crynwr.com>
+
+Zooko O'Whielacronx writes: > Obviously the OSI should not entertain frivolous or malicious   > Requests For Approval, but it appears that in your concern about   > licence proliferation you have started to use your power of   > withholding certification of OSD-conformance as a general purpose   > tool to deter the use of licences that you don't like.  This is wrong.
+
+Mmmmm, not exactly the case.  One of the filters for frivolity is
+whether someone submits the license using a pseudonym, or their real
+name.  It's not clear that you have passed that bar yet, Mr. Bryan
+Zooko Wilcox O'Hearn O'Whielacronx.
+
+Ooohhhhh, did I say "not clear"?  I meant to say "damned uncertain".
+
+The community expects us to not waste their time with frivolous
+licenses.  I feel strongly that the time of the people subscribed to
+license-review is valuable, is a contribution to the OSI directly, and
+the community indirectly, and should not be wasted by people who do
+not respect their efforts.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Crynwr sells support for free software  | PGPok | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From cowan at ccil.org  Sat Jan 24 23:24:35 2009
+From: cowan at ccil.org (John Cowan)
+Date: Sat, 24 Jan 2009 18:24:35 -0500
+Subject: TGPPL, deterring licence proliferation by withholding the stamp of OSD-conformance (was: recent submissions merit no action)
+In-Reply-To: <18811.41633.34669.856030@desk.crynwr.com>
+References: <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com> <18806.40934.286136.330314@desk.crynwr.com> <4976A32A.20303@gatech.edu> <4976A8FB.8030502@perens.com> <FF13F713-3E28-4CA3-8E1D-E97475ACE538@zooko.com> <18811.41633.34669.856030@desk.crynwr.com>
+Message-ID: <20090124232435.GD16553@mercury.ccil.org>
+
+Russ Nelson scripsit:
+
+> Mmmmm, not exactly the case.  One of the filters for frivolity is
+> whether someone submits the license using a pseudonym, or their real
+> name.  It's not clear that you have passed that bar yet, Mr. Bryan
+> Zooko Wilcox O'Hearn O'Whielacronx.
+
+He has stated his real (i.e. legal) name.  Do you have real reason to
+doubt it?  Ought we to doubt your real name?  There is no evidence
+in favor of it, not even your statement to that effect.
+
+-- 
+Dream projects long deferred             John Cowan <cowan at ccil.org>
+usually bite the wax tadpole.            http://www.ccil.org/~cowan --James Lileks
+
+
+From nelson at crynwr.com  Sat Jan 24 23:58:44 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sat, 24 Jan 2009 18:58:44 -0500
+Subject: TGPPL, deterring licence proliferation by withholding the stamp of OSD-conformance (was: recent submissions merit no action)
+In-Reply-To: <20090124232435.GD16553@mercury.ccil.org>
+References: <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com> <18806.40934.286136.330314@desk.crynwr.com> <4976A32A.20303@gatech.edu> <4976A8FB.8030502@perens.com> <FF13F713-3E28-4CA3-8E1D-E97475ACE538@zooko.com> <18811.41633.34669.856030@desk.crynwr.com> <20090124232435.GD16553@mercury.ccil.org>
+Message-ID: <18811.43828.17687.423651@desk.crynwr.com>
+
+John Cowan writes: > Russ Nelson scripsit: >  > > Mmmmm, not exactly the case.  One of the filters for frivolity is > > whether someone submits the license using a pseudonym, or their real > > name.  It's not clear that you have passed that bar yet, Mr. Bryan > > Zooko Wilcox O'Hearn O'Whielacronx. >  > He has stated his real (i.e. legal) name.  Do you have real reason to > doubt it?
+
+The fact that it's been ... variable ... lends doubt.  Worse, nobody
+has been forcing him to supply variations on the theme.  I like to
+make people laugh, smile, chuckle, and guffaw, even at my expense, but
+something I take seriously.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Crynwr sells support for free software  | PGPok | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From bruce at perens.com  Sun Jan 25 02:37:53 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 24 Jan 2009 18:37:53 -0800
+Subject: TGPPL, deterring licence proliferation by withholding the stamp of OSD-conformance
+In-Reply-To: <18811.41633.34669.856030@desk.crynwr.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com>	<803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>	<4945D81C.6020600@perens.com>	<8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA>	<D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>	<49473F92.6020003@gatech.edu>	<E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>	<494C809B.7000007@perens.com>	<B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com>	<494D5655.4040201@perens.com>	<1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>	<E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com>	<18806.40934.286136.330314@desk.crynwr.com>	<4976A32A.20303@gatech.edu>	<4976A8FB.8030502@perens.com>	<FF13F713-3E28-4CA3-8E1D-E97475ACE538@zooko.com> <18811.41633.34669.856030@desk.crynwr.com>
+Message-ID: <497BD081.3000401@perens.com>
+
+Russ Nelson wrote:
+> The community expects us to not waste their time with frivolous
+> licenses.  I feel strongly that the time of the people subscribed to
+> license-review is valuable, is a contribution to the OSI directly, and
+> the community indirectly, and should not be wasted by people who do
+> not respect their efforts.
+The board has total freedom to reject the license, and they should. 
+Meanwhile, I am concerned that it looks as if it is your _personal_ 
+action if you dally in psychoanalysis of the submitter rather than the 
+submission while waiting for that to happen. Do the dignified thing and 
+just get the board to say no, without further conversation.
+ Thanks
+ Bruce
+
+
+From nelson at crynwr.com  Sun Feb  1 02:51:43 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sat, 31 Jan 2009 21:51:43 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>
+Message-ID: <18821.3647.494134.33860@desk.crynwr.com>
+
+zooko writes: > I still do need OSI approval for the Transitive Grace Period Public   > Licence.  The intent of the TGPPL cannot be expressed clearly without   > adding requirements, namely the requirement to open-source derived   > works under the TGPPL.
+
+You are merely giving licensees the freedom to not comply with a
+certain term of the OSL for 12 months as long as they give any
+sublicensees the same freedom.
+
+You can and should get a lawyer to put a spit shine on this statement,
+but you aren't adding requirements.  You're putting a requirement on
+your wavier.  Anybody who doesn't like it is free to decline your
+wavier, at which point they have to comply with the OSD.  You are free
+to offer the waiver to their sublicensees.
+
+You can't force people to accept freedom.  If you could, the irony
+would kill you.
+
+I've reviewed this license's review, and I can't find anybody who
+agreed with Mr. Wilcox-O'Hearn that his license is required in order
+to achieve his goal.  Has anybody changed their mind?
+
+If I get no positive responses within 48 hours, I'll submit a license
+committee report that says roughly "Hey, great idea, Zooko, implement
+it as a conditional waiver to the OSD 3.0".
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Cloudmade supports http://openstreetmap.org/    | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From bruce at perens.com  Sun Feb  1 03:10:40 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 31 Jan 2009 19:10:40 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18821.3647.494134.33860@desk.crynwr.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com>	<803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>	<4945D81C.6020600@perens.com>	<8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA>	<D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>	<49473F92.6020003@gatech.edu>	<E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>	<494C809B.7000007@perens.com>	<B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com>	<494D5655.4040201@perens.com>	<1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <18821.3647.494134.33860@desk.crynwr.com>
+Message-ID: <498512B0.10305@perens.com>
+
+Russ Nelson wrote:
+> I've reviewed this license's review, and I can't find anybody who
+> agreed with Mr. Wilcox-O'Hearn that his license is required in order
+> to achieve his goal.  Has anybody changed their mind?
+1. Yes, you can add a separate exception to grant this extra freedom to 
+the folks to whom you distribute.
+
+2. Zooko said some time ago that he needs this to be in the license so 
+that he, or other creators of works under the license, can compel 
+creators of derivative works to also offer the same term on their addition.
+
+IMO, #2 is a trivial enough addition to #1 that it's not worthwhile to 
+approve the license.
+ Thanks
+ Bruce
+
+
+From nelson at crynwr.com  Sun Feb  1 03:33:00 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sat, 31 Jan 2009 22:33:00 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <498512B0.10305@perens.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <18821.3647.494134.33860@desk.crynwr.com> <498512B0.10305@perens.com>
+Message-ID: <18821.6124.199955.913521@desk.crynwr.com>
+
+Bruce Perens writes: > 2. Zooko said some time ago that he needs this to be in the license so  > that he, or other creators of works under the license, can compel  > creators of derivative works to also offer the same term on their addition.
+
+Yes, that was in the email I was responding to.  It's a simple
+modification to his 12-month waiver, which makes it conditioned on
+offering the same waiver to the licensee's sublicensees.
+
+There is a slight difference between what he wants and what we want
+him to take away.  You might have the case where a licensee declines
+to accept the waiver, in which case they still get the software but
+the OSL only requires that they redistribute under the terms of the
+OSL.  Thus, their sublicensees don't get the offer of the waiver.
+Zooko can offer the waiver separately to them.
+
+BUT (and here's the difference) they might not know about Zooko's
+offer.  That seems sufficiently improbable, and the harm from it small
+enough, that I think that the value of not having the TGPPL as a named
+license choice exceeds the harm of this event.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Cloudmade supports http://openstreetmap.org/    | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From bruce at perens.com  Sun Feb  1 03:41:24 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 31 Jan 2009 19:41:24 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18821.6124.199955.913521@desk.crynwr.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com>	<803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>	<4945D81C.6020600@perens.com>	<8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA>	<D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>	<49473F92.6020003@gatech.edu>	<E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>	<494C809B.7000007@perens.com>	<B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com>	<494D5655.4040201@perens.com>	<1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>	<18821.3647.494134.33860@desk.crynwr.com>	<498512B0.10305@perens.com> <18821.6124.199955.913521@desk.crynwr.com>
+Message-ID: <498519E4.90802@perens.com>
+
+Russ Nelson wrote:
+> BUT (and here's the difference) they might not know about Zooko's
+> offer.  That seems sufficiently improbable, and the harm from it small
+> enough, that I think that the value of not having the TGPPL as a named
+> license choice exceeds the harm of this event.
+>   
+PLUS they may not get a similar offer from any of the creators of 
+derivative works, unless those folks opt to put the offer in place on 
+their own. Whereas Zooko would have compelled those folks to make the 
+offer. IMO, the world can live with that.
+
+
+
+From zooko at zooko.com  Sun Feb  1 04:23:20 2009
+From: zooko at zooko.com (zooko)
+Date: Sat, 31 Jan 2009 21:23:20 -0700
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <498519E4.90802@perens.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com>	<803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>	<4945D81C.6020600@perens.com>	<8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA>	<D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>	<49473F92.6020003@gatech.edu>	<E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>	<494C809B.7000007@perens.com>	<B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com>	<494D5655.4040201@perens.com>	<1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>	<18821.3647.494134.33860@desk.crynwr.com>	<498512B0.10305@perens.com> <18821.6124.199955.913521@desk.crynwr.com> <498519E4.90802@perens.com>
+Message-ID: <9445B406-4C57-4EFB-BD88-FB47C9209DF2@zooko.com>
+
+Thanks to Russ Nelson and Bruce Perens for their recent responses.
+
+The idea that you two have suggested, to express the terms of the  
+Transitive Grace Period Public Licence in terms of the OSL 3.0, plus  
+an added clause, plus perhaps added waivers transferred directly from  
+the holder of copyright on the original work to recipients of the  
+derived work, is an interesting idea.  I would, of course, welcome  
+help from the experts of the OSI in crafting future versions of the  
+Transitive Grace Period Public Licence.  Software has already been  
+distributed under the Transitive Grace Period Public Licence version  
+1.0, but I don't anticipate that anyone would object to granting  
+their rights under a newer version, so compatibility between TGPPL v1  
+and a future version of the TGPPL will hopefully not be a problem.
+
+However, even if I were to publish a new version of the Transitive  
+Grace Period Public Licence, and even if it were constructed along  
+the lines that you prefer, this would not reduce the OSI's burden of  
+including the Transitive Grace Period Public Licence in the list of  
+OSD-conformant licences, nor would it reduce the licence  
+proliferation problem, nor the problem of mutually incompatible  
+licences.  Therefore, there is no advantage in withholding  
+certification of OSD-conformance from the Transitive Grace Period  
+Public Licence v1.0 in anticipation of a future version of the licence.
+
+Problem 1:
+
+Me: "Here's some software I wrote.  You can use it under this licence."
+
+Him: "How do I know that your licence is open source?"
+
+Me: "Well, it is just the OSL 3.0 plus an added clause."
+
+Him: "That doesn't prove that it is open source!  Your added clause  
+could have legal effects which render your licence non-Open-Source.   
+I'm not going to believe that it is open source unless I can look it  
+up on the OSI's list of OSD-conformant licences and see that they say  
+that it is open source."
+
+Problem 2:
+
+It is vitally important that people do not conflate TGPPL with OSL.   
+We do not want people to choose to use code under the TGPPL thinking  
+incorrectly that they can subsequently release their derived works  
+under the OSL.  They ought to understand at the beginning that they  
+are being granted the right to distribute a derived work while  
+withholding the source of that derived work for up to twelve months,  
+*on the condition* that they extend the same grant of rights to all  

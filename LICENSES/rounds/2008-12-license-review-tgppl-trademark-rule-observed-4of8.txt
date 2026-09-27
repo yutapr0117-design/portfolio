@@ -1,0 +1,750 @@
+Message-ID: <20090218024620.GM19851@linuxmafia.com>
+
+Quoting Christopher Schmidt (crschmidt at metacarta.com):
+
+> I'm not sure how this is relevant to what I said?
+
+Then, this is likely to be a short conversation.
+
+> I said I release Open Source software, where the definition of "Open
+> Source Software" is "software which is released under a license which
+> is compliant with the Open Source Definition according to legal
+> review". 
+
+In the case under discussion, there are significant problems with
+claimed OSD compliance that have been cited upthread. 
+
+
+[snip]
+
+> This is understandable, but given that, I can't (personally) seriously
+> accept that the definition of 'open source' should be limited to a set
+> of licenses that are managed by OSI. 
+
+You seem to have missed (or decided for reasons of your own to ignore)
+what I said, which was quite specific.  Here it is again:
+
+You would be making a grave mistake if you think that trying to call
+something with even _arguable_ OSD-compliance problems "open source" is
+in the interest of you or your firm.
+
+
+
+From zooko at zooko.com  Wed Feb 18 03:01:27 2009
+From: zooko at zooko.com (zooko)
+Date: Tue, 17 Feb 2009 20:01:27 -0700
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <20090218023309.GT15275@metacarta.com>
+References: <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218023309.GT15275@metacarta.com>
+Message-ID: <D352A86C-A79A-45B1-9080-A0155D37F597@zooko.com>
+
+On Feb 17, 2009, at 19:33 PM, Christopher Schmidt wrote:
+
+> It is possible that the TGPPL is arguably OSD-non-compliant. If  
+> that is the case, I apologize; my understanding was not that anyone  
+> has decided it is not complaint, but instead that it is not going  
+> to become an OSI approved license for other reasons.
+
+Nobody suggested in the 60-day review that TGPPL is not OSD- 
+conformant.  If there is any reason to doubt that it is OSD- 
+conformant, please let me know right away -- I am distributing  
+software that is very important to me under the TGPPL and accepting  
+other people's contributions under the same terms, and I if I am  
+inadvertently using a licence that is not truly open source then I  
+need to know as soon as possible so that I can fix the licence.
+
+My recent summary of my understanding of this thread also states that  
+the license-discuss review indicates that TGPPL is OSD-conformant:
+
+http://www.crynwr.com/cgi-bin/ezmlm-cgi?17:mss: 
+529:200902:ofpndmgcgmbhbmimpkpe
+
+Thanks,
+
+Zooko Wilcox-O'Hearn
+---
+Tahoe, the Least-Authority Filesystem -- http://allmydata.org
+store your data: $10/month -- http://allmydata.com/?tracking=zsig
+
+
+From nelson at crynwr.com  Wed Feb 18 04:07:27 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Tue, 17 Feb 2009 23:07:27 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <20090218023309.GT15275@metacarta.com>
+References: <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218023309.GT15275@metacarta.com>
+Message-ID: <18843.35199.802427.394134@desk.crynwr.com>
+
+Christopher Schmidt writes: > It seems clear to me from watching this list over the past two years > that there is a limited relationship between "Meeting the OSD" and > "Being approved by OSI".
+
+True.  Unarguable.  Zooko agrees with you, because he already claims
+that his software meets the OSD, and yet he wants OSI approval on top
+of that.  Whatever is the difference between those two things, it is
+something desirable.  Since it's a scarce commodity, we should expect
+people to be willing to pay a price to get it (ECON101).
+ > because OSI has a policy of encouraging license submitters to not > submit licenses which may be similar to existing ones. This is > understandable, but given that, I can't (personally) seriously > accept that the definition of 'open source' should be limited to a > set of licenses that are managed by OSI.
+
+There is a commons here, in the Garret Hardin _Tragedy of the Commons_
+sense.  From your perspective, I can agree with you.  Why should you
+be limited to a choice of one, two, five, ten, or seventy licenses?
+It's no skin off your back if you choose the Chris Schmidt Public
+License for your software.  But the problem is that your *users* need
+to understand your license, and worse than that, if party A has
+responsibility for party B, and they give party B a distribution with
+your software as an installation possiblity, party A needs to
+understand your license.
+
+And every other license written by every other developer whose
+software is in the distribution.
+
+Every little bit of pain you inflict on your users through your choice
+of a non-OSI-approved license becomes a big pain in the ass for
+someone responsible for the legal compliance of a lot of software.
+
+It's our job to manage the commons.  Sometimes that means saying "no."
+It doesn't make you any friends, but it does save the commons from
+overuse.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Cloudmade supports http://openstreetmap.org/    | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From nelson at crynwr.com  Wed Feb 18 04:25:58 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Tue, 17 Feb 2009 23:25:58 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <D352A86C-A79A-45B1-9080-A0155D37F597@zooko.com>
+References: <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218023309.GT15275@metacarta.com> <D352A86C-A79A-45B1-9080-A0155D37F597@zooko.com>
+Message-ID: <18843.36311.196402.84068@desk.crynwr.com>
+
+zooko writes: > Nobody suggested in the 60-day review that TGPPL is not OSD-  > conformant.
+
+The license review process is more what you'd call "guidelines" than
+actual rules.  The review takes as long as it takes.
+ > If there is any reason to doubt that it is OSD- conformant, please > let me know right away
+
+There are reasons beyond OSD conformance why we might not want to
+approve the license.  Why?  Because we have a trademark to preserve.
+If you can figure out some way to comply with the OSD in a way that
+does not achieve the desired open source effect, which endangers the
+meaning of OSI-Approved trademark, then we MUST deny your license OSI
+approval (trademark law gives us no choice).
+
+*Somebody* has to decide what OSD conformance means.  It's us.
+
+Trust me on this one: we've given the plank to smart-asses before who
+thought that strict OSD compliance (which technically doesn't even
+require that you SHIP SOURCE CODE) was sufficient.
+
+Anybody here think that a license which permitted distribution of all
+the source code you didn't get would be approved?  I thought not.  And
+yet that would comply with the OSD.
+ > My recent summary of my understanding of this thread also states that   > the license-discuss review indicates that TGPPL is OSD-conformant: >  > http://www.crynwr.com/cgi-bin/ezmlm-cgi?17:mss:529:200902:ofpndmgcgmbhbmimpkpe
+
+What license-discuss review?  You mean the license-review discussion?
+
+This committee is advisory only.  The board makes the final decision.
+In this case, I reported the board's decision shortly after it was
+made a few weeks ago in Brussels.  Consequently, you can set aside any
+previous discussion by this committee as inadequate because the board
+has decided it was inadequate.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Cloudmade supports http://openstreetmap.org/    | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From bruce at perens.com  Wed Feb 18 04:31:15 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 17 Feb 2009 20:31:15 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18843.35199.802427.394134@desk.crynwr.com>
+References: <18821.13553.735971.396757@desk.crynwr.com>	<18821.15151.964365.330966@desk.crynwr.com>	<F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com>	<18826.52058.247334.763582@desk.crynwr.com>	<260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com>	<18843.9063.369990.149772@desk.crynwr.com>	<3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com>	<18843.22560.880077.311005@desk.crynwr.com>	<20090218012537.GR15275@metacarta.com>	<20090218021124.GL19851@linuxmafia.com>	<20090218023309.GT15275@metacarta.com> <18843.35199.802427.394134@desk.crynwr.com>
+Message-ID: <499B8F13.9060801@perens.com>
+
+I didn't expect to have an embarrassment of riches when I wrote the OSD. 
+That we have one is a problem for the users that should not be made worse.
+
+The TGPPL's main failing, IMO, is its questionable utility weighed 
+against the existing licenses and the cost to the users of having 
+another. This calls on OSI to reject it for a reason I didn't write into 
+the OSD, but which is still their duty.
+
+Other licenses are poorly written, self-contradictory, or impractical. 
+Those aren't in the OSD either, but it's OSI's duty to reject them 
+rather than inflict them on the user community.
+ Bruce
+
+Russ Nelson wrote:
+> Christopher Schmidt writes:
+>  > It seems clear to me from watching this list over the past two years
+>  > that there is a limited relationship between "Meeting the OSD" and
+>  > "Being approved by OSI".
+>
+> True.  Unarguable.  Zooko agrees with you, because he already claims
+> that his software meets the OSD, and yet he wants OSI approval on top
+> of that.  Whatever is the difference between those two things, it is
+> something desirable.  Since it's a scarce commodity, we should expect
+> people to be willing to pay a price to get it (ECON101).
+>
+>  > because OSI has a policy of encouraging license submitters to not
+>  > submit licenses which may be similar to existing ones. This is
+>  > understandable, but given that, I can't (personally) seriously
+>  > accept that the definition of 'open source' should be limited to a
+>  > set of licenses that are managed by OSI.
+>
+> There is a commons here, in the Garret Hardin _Tragedy of the Commons_
+> sense.  From your perspective, I can agree with you.  Why should you
+> be limited to a choice of one, two, five, ten, or seventy licenses?
+> It's no skin off your back if you choose the Chris Schmidt Public
+> License for your software.  But the problem is that your *users* need
+> to understand your license, and worse than that, if party A has
+> responsibility for party B, and they give party B a distribution with
+> your software as an installation possiblity, party A needs to
+> understand your license.
+>
+> And every other license written by every other developer whose
+> software is in the distribution.
+>
+> Every little bit of pain you inflict on your users through your choice
+> of a non-OSI-approved license becomes a big pain in the ass for
+> someone responsible for the legal compliance of a lot of software.
+>
+> It's our job to manage the commons.  Sometimes that means saying "no."
+> It doesn't make you any friends, but it does save the commons from
+> overuse.
+>
+>   
+
+
+
+From cowan at ccil.org  Wed Feb 18 04:38:22 2009
+From: cowan at ccil.org (John Cowan)
+Date: Tue, 17 Feb 2009 23:38:22 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <20090218012537.GR15275@metacarta.com>
+References: <9445B406-4C57-4EFB-BD88-FB47C9209DF2@zooko.com> <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com>
+Message-ID: <20090218043822.GA29157@mercury.ccil.org>
+
+Christopher Schmidt scripsit:
+
+> How is that? Open source is a term. TGPPL is not an OSI Approved
+> License, and until TGPPL is a OSI Approved, it is a violation of the
+> trademark usage guidelines to use that, but thee is no similar trademark
+> on "Open Source", according to anythign I've read.
+
+You are technically quite correct.
+
+> I release open souce (or Open Source) software that is not under an OSI
+> Approved license, because that software meets the Open Source
+> Definition. Whether the Open Source INitiative has approved that license
+> is irrelevant to whether the software actually is or is not open source.
+
+Indeed.  However, OSI approval has its advantages.
+
+-- 
+Deshil Holles eamus.  Deshil Holles eamus.  Deshil Holles eamus.
+Send us, bright one, light one, Horhorn, quickening, and wombfruit. (3x)
+Hoopsa, boyaboy, hoopsa!  Hoopsa, boyaboy, hoopsa!  Hoopsa, boyaboy, hoopsa! --Joyce, Ulysses, "Oxen of the Sun"       cowan at ccil.org
+
+
+From nelson at crynwr.com  Wed Feb 18 04:41:59 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Tue, 17 Feb 2009 23:41:59 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <499B8F13.9060801@perens.com>
+References: <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218023309.GT15275@metacarta.com> <18843.35199.802427.394134@desk.crynwr.com> <499B8F13.9060801@perens.com>
+Message-ID: <18843.37271.503907.319723@desk.crynwr.com>
+
+Bruce Perens writes: > I didn't expect to have an embarrassment of riches when I wrote the OSD. 
+
+You didn't write the OSD.  You wrote the Debian Free Software
+Guidelines.  Note: guidelines rather than actual rules.  They were to
+be interpreted by Debian maintainers who presumably had the best
+interests of Debian at heart.  They were not written to be interpreted
+by hostile parties, with OSI approval the reward for strict compliance.
+If we were to use them in that manner, many bad things would have
+happened.  We didn't, and they didn't.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Cloudmade supports http://openstreetmap.org/    | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From rick at linuxmafia.com  Wed Feb 18 04:50:02 2009
+From: rick at linuxmafia.com (Rick Moen)
+Date: Tue, 17 Feb 2009 20:50:02 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18843.36311.196402.84068@desk.crynwr.com>
+References: <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218023309.GT15275@metacarta.com> <D352A86C-A79A-45B1-9080-A0155D37F597@zooko.com> <18843.36311.196402.84068@desk.crynwr.com>
+Message-ID: <20090218045002.GO19851@linuxmafia.com>
+
+Quoting Russ Nelson (nelson at crynwr.com):
+
+> Anybody here think that a license which permitted distribution of all
+> the source code you didn't get would be approved?  I thought not.  And
+> yet that would comply with the OSD.
+
+And that was fairly similar to the example I was going to give, if I
+cared enough to pursue the matter further with Christopher Schmidt.
+
+Christopher and Zooko seem to think it's sufficient that the licence
+mechanistically comply with the wording of OSD, devoid of context.  That
+is not so, and sufficient reason has been cited (upthread) to think that
+the real-world effect of the licence, as drafted, would be problematic
+for various parties (not limited just to OSI, either).
+
+I think Zooko will eventually realise that point is the one that
+matters.
+
+
+
+From bruce at perens.com  Wed Feb 18 05:51:00 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 17 Feb 2009 21:51:00 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18843.37271.503907.319723@desk.crynwr.com>
+References: <18821.13553.735971.396757@desk.crynwr.com>	<18821.15151.964365.330966@desk.crynwr.com>	<F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com>	<18826.52058.247334.763582@desk.crynwr.com>	<260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com>	<18843.9063.369990.149772@desk.crynwr.com>	<3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com>	<18843.22560.880077.311005@desk.crynwr.com>	<20090218012537.GR15275@metacarta.com>	<20090218021124.GL19851@linuxmafia.com>	<20090218023309.GT15275@metacarta.com>	<18843.35199.802427.394134@desk.crynwr.com>	<499B8F13.9060801@perens.com> <18843.37271.503907.319723@desk.crynwr.com>
+Message-ID: <499BA1C4.7090509@perens.com>
+
+Russ Nelson wrote:
+> You didn't write the OSD. You wrote the Debian Free Software Guidelines. They were to be interpreted by Debian maintainers who presumably had the best interests of Debian at heart.
+:-)
+
+I wish the Debian developers had been the cohesive and supportive bunch 
+of folks you think they were, and that there had been no hostile parties 
+and companies that wanted to game the system. Remember, this is when 
+TrollTech had Qt under an x86-only license, and they weren't the only 
+one playing that game.
+
+Things haven't changed that much.
+ Thanks
+ Bruce
+
+
+From cowan at ccil.org  Wed Feb 18 07:34:17 2009
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 18 Feb 2009 02:34:17 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18843.36311.196402.84068@desk.crynwr.com>
+References: <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218023309.GT15275@metacarta.com> <D352A86C-A79A-45B1-9080-A0155D37F597@zooko.com> <18843.36311.196402.84068@desk.crynwr.com>
+Message-ID: <20090218073417.GB29157@mercury.ccil.org>
+
+Russ Nelson scripsit:
+
+>  > If there is any reason to doubt that it is OSD- conformant, please
+>  > let me know right away
+> 
+> There are reasons beyond OSD conformance why we might not want to
+> approve the license.  
+
+More than that, the OSI never AFAIK takes official action to declare a
+license not OSD-compliant.  Acceptance implies OSD-compliance, in the
+judgment of the board (backstopped, if necessary, by the judgment of
+a judge).  But rejection implies nothing.
+
+> *Somebody* has to decide what OSD conformance means.  It's us.
+
+Not at all.  You decide on OSI certification and that's it.
+
+-- 
+John Cowan        http://ccil.org/~cowan   cowan at ccil.org
+Lope de Vega: "It wonders me I can speak at all.  Some caitiff rogue did
+rudely yerk me on the knob, wherefrom my wits still wander."
+An Englishman: "Ay, a filchman to the nab betimes 'll leave a man
+crank for a spell." --Harry Turtledove, Ruled Britannia
+
+
+From cowan at ccil.org  Wed Feb 18 07:37:29 2009
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 18 Feb 2009 02:37:29 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <20090218021124.GL19851@linuxmafia.com>
+References: <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com>
+Message-ID: <20090218073729.GD29157@mercury.ccil.org>
+
+Rick Moen wrote, but did not assert:
+
+> You would be making a grave mistake if you think that trying to call
+> something with even _arguable_ OSD-compliance problems "open source" is
+> in the interest of you or your firm.  I strongly suggest you not commit
+> that error, if you don't wish to have a severe and ongoing public
+> relations problem.
+
+I agree.  However, licenses can be OSD-compliant but not OSI Approved.
+
+Rick Moen wrote and asserted:
+
+> ...and then I realised that this is a classic case of "let's you and him
+> fight"; you're speaking of Zooko's licence, not yours, and you don't
+> speak for him.  
+
+I don't see any evidence in Chris's messages to believe that.
+
+-- 
+It was dreary and wearisome.  Cold clammy winter still held way in this
+forsaken country.  The only green was the scum of livid weed on the dark
+greasy surfaces of the sullen waters.  Dead grasses and rotting reeds loomed
+up in the mists like ragged shadows of long-forgotten summers. --"The Passage of the Marshes"          http://www.ccil.org/~cowan
+
+
+From nelson at crynwr.com  Wed Feb 18 15:59:01 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Wed, 18 Feb 2009 10:59:01 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <20090218073729.GD29157@mercury.ccil.org>
+References: <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218073729.GD29157@mercury.ccil.org>
+Message-ID: <18844.12357.906241.339392@desk.crynwr.com>
+
+John Cowan writes: > I agree.  However, licenses can be OSD-compliant but not OSI Approved.
+
+What happens when Microsoft decides that the MS-HUGELY-PROPRIETARY
+license is OSD-compliant?  I propose that the basis on which someone
+should rely on assertion of OSD compliance is: "Is the organization
+the Open Source Initiative?"  If not, then you shouldn't believe the
+claim of OSD compliance.
+
+If even our FRIENDS don't think we have any authority, it's time to
+declare victory and go home.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Cloudmade supports http://openstreetmap.org/    | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From tg at mirbsd.de  Wed Feb 18 16:02:55 2009
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Wed, 18 Feb 2009 16:02:55 +0000 (UTC)
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18844.12357.906241.339392@desk.crynwr.com>
+References: <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218073729.GD29157@mercury.ccil.org> <18844.12357.906241.339392@desk.crynwr.com>
+Message-ID: <Pine.BSM.4.64L.0902181601400.27773@herc.mirbsd.org>
+
+Russ Nelson dixit:
+
+>What happens when Microsoft decides that the MS-HUGELY-PROPRIETARY
+>license is OSD-compliant?
+
+What if it is? You all are human beings too and thusly can err.
+In the end, OSD compliance is determined by the person wondering
+if he can use said piece of work (or his lawyers). Besides, OSD
+compliance affects a licence, whereas the OSI Certified Open
+Source Software? trademark affects pieces of work.
+
+bye,
+//mirabilos
+-- 
+?It is inappropriate to require that a time represented as seconds since the Epoch precisely represent the number of seconds between the referenced time and the Epoch.? -- IEEE Std 1003.1b-1993 (POSIX) Section B.2.2.2
+
+
+From cowan at ccil.org  Wed Feb 18 18:14:20 2009
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 18 Feb 2009 13:14:20 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18844.12357.906241.339392@desk.crynwr.com>
+References: <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218073729.GD29157@mercury.ccil.org> <18844.12357.906241.339392@desk.crynwr.com>
+Message-ID: <20090218181420.GE29157@mercury.ccil.org>
+
+Russ Nelson scripsit:
+
+> What happens when Microsoft decides that the MS-HUGELY-PROPRIETARY
+> license is OSD-compliant?
+
+Well, okay, let's talk (I hope for the last time) about John Cowan,
+Russ Nelson and the OSI, Microsoft, and a few licenses.  I proposed that
+the MS-PL and MS-CL were OSD-compliant and ought to become OSI Approved.
+I presented some arguments I considered compelling for OSD-compliance.
+They were not contradicted then or later.
+
+You then, on process and copyright grounds, asked me to withdraw the
+application and I did so.  The licenses were then in my view OSD-compliant
+but not OSI Approved.  I said so publicly in several places, including
+Groklaw, Slashdot, and my own blog.
+
+Much later, some folks from Microsoft got wind of all this and asked for
+OSI approval.  They got it, after the full name of the MS-PL was changed.
+All good.  Everyone happy, except the fanatics who believe that saying
+anything positive about anything Microsoft is proof of corruption.
+
+> I propose that the basis on which someone should rely on assertion of
+> OSD compliance is: "Is the organization the Open Source Initiative?"
+> If not, then you shouldn't believe the claim of OSD compliance.
+
+That's as much as to say: before the board acted, John Cowan shouldn't
+have been believed about the MS-PL and the MS-CL, whereas after
+the board action the same uncontroverted arguments about identical
+texts were somehow worthy of belief.  Who died and appointed you God?
+(Eric Raymond, perhaps?)
+
+If EvilMicroSnortCo claims that their Hugely Proprietary License
+("We get all rights, you get no rights, period") is OSD-compliant, we
+shouldn't listen.  But if the OSI board (drunk, or bribed, or suffering
+from collective temporary insanity) certifies the HPL as OSI Approved,
+we'd have to accept that -- but we wouldn't accept the claim that it
+was OSD-compliant when we can plainly see it's not.
+
+The claim "This license is OSD-compliant" is not like the claim "This
+is an Intel chip", where (by social agreement) Intel gets to be the
+authority.  It's much more like the claim "This is an Intel-compatible
+chip", where people present their evidence and reasoning and eventually a
+consensus is formed.  Such claims *can* be politicized or commercialized,
+but to claim that they *have* to be is postmodernism run wild, like the
+notion that the law of gravity is a mere social convention.  (Tell that
+to Art Linkletter's daughter!)
+
+> If even our FRIENDS don't think we have any authority, it's time to
+> declare victory and go home.
+
+I never thought the OSI had any authority.  What it has is a logo,
+a trademark, and a reputation for neutrality and objectivity, like
+Underwriters Laboratories.  Erode the last, and the other two aren't
+worth much.
+
+What OSI has done is basically to approve licenses.  Due to concerns about
+license proliferation, you basically don't want to do that any more,
+except for the minor case of new versions of old licenses.  The OSI
+reinvention is hopelessly stalled out.  Perhaps it is indeed time to
+go home.
+
+-- 
+John Cowan   http://ccil.org/~cowan  cowan at ccil.org
+[P]olice in many lands are now complaining that local arrestees are insisting
+on having their Miranda rights read to them, just like perps in American TV
+cop shows.  When it's explained to them that they are in a different country,
+where those rights do not exist, they become outraged.  --Neal Stephenson
+
+
+From cowan at ccil.org  Wed Feb 18 21:44:48 2009
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 18 Feb 2009 16:44:48 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com>
+References: <18821.6124.199955.913521@desk.crynwr.com> <498519E4.90802@perens.com> <9445B406-4C57-4EFB-BD88-FB47C9209DF2@zooko.com> <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com>
+Message-ID: <20090218214448.GH17194@mercury.ccil.org>
+
+zooko scripsit:
+
+> If you want to protect the trademark in the sense of prohibiting  
+> people from using it without your permission, then you'll need to  
+> either give me permission or sue me (and the other people who have  
+> released software under TGPPL).  
+
+The trademark is not "Open Source" (which cannot be trademarked) but
+"OSI Approved".
+
+> Please include the Transitive Grace Period Public Licence, v1.0, on  
+> the list you maintain of Open Source Definition-conformant licences.
+
+The OSI does not maintain such a list.  It maintains a list of
+OSI Approved licenses.  There may be, and doubtless are, many 
+OSD-compliant licenses that are not OSI Approved.
+
+-- 
+John Cowan        http://www.ccil.org/~cowan          cowan at ccil.org
+Please leave your values                Check your assumptions.  In fact, at the front desk.                      check your assumptions at the door. --sign in Paris hotel                   --Cordelia Vorkosigan
+
+
+From Nigel.Tzeng at jhuapl.edu  Thu Feb 19 04:41:19 2009
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Wed, 18 Feb 2009 23:41:19 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0 
+Message-ID: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu>
+
+You know, I was pretty surprised there were two folks interested in time-bounded licenses like this when reading ESR's blog comments*.
+
+I am curious that the theory that more proprietary software developers/companies would use a time bounded open source license if they knew they could garner a years worth of "secrecy rent" did not get more discussion here.  Looking at the archive, I don't believe it was quite phrased that way but I think it would be the primary draw of such a license for some folks that are looking to balance income and greater good.
+
+I'm not convinced that this theory has a lot of merit (vice simply dual licensing using GPL) but I think that it is a new trait that probably isn't covered by another license and deserves more than being a waiver if it is indeed a new open source (sub?) genre.   It more like AFL or Non-Profit OSL variants than simply OSL with a waiver you can ignore downstream.
+
+The reason you wouldn't want the waiver to be removable is because if you're a developer or company releasing under this license with the expectation that you can take ANY derivative of your work, improve it and sell it for a year, you don't want someone downstream stripping you of that ability on what was your work you put out for the common good.  You get this in exchange for allowing some other developer or company take your work, improve it and compete with you for a year with the knowledge that their competitive advantage become part of your feature list in the not too distant future.
+
+Independent contributors might also be more inclined to participate with the knowledge that any their improvements used in the commercial product are guaranteed to reemerge along with the other new features in a year.  Some users might be more willing to pay for a product when they know the outcome is source in a year.  They get the benefit of the current "pro" version in exchange for their financial support without the proprietary lock-in.
+
+All without CLAs or other entanglements.  I think that ideally that is their objective.  If it really pans out that way, I can see the attraction and perhaps otherwise closed source might be made open and we might even get a new sustainable open source business model out of it.
+
+That said, I echoed Matthew's objections about code escrow and trust.  This is not an issue that can be easily dismissed.  My recommendation is for Zooko and/or Ajay to create a modified GForge site that automatically released code 12 months after check in and the license be modified to require that folks use that or some other equivalent escrow service to ensure (or at least increase the likelihood of) compliance with the license.  Bonus points for having the code encrypted in the repository so not even the site maintainers can see the code for a year.  You make a release or a patch for anyone and you need to check source for those changes into the repository at the same time so the clock starts.  Extra bonus points for having a software storefront as well.
+
+If they were to put the effort in making sure the infrastructure for such a time delay was as painless as possible and as secure as reasonable for both project owners, contributors and users I would hope that the OSI would be kind enough to assure potential contributors that TGPPL v1 was indeed OSD compliant and was waiting until the end of some experimental period (say 2 years for 2 full release generations) before full OSI license approval was granted for TGPPL v2 (after a couple years experimentation you've probably learned what needs tweaking).
+
+This would have the benefit of giving the concept the maximum possible traction and chance for success during this experimental period while not producing any immediate license proliferation.  If it is a new successful form of open source, then it's not proliferation at all.
+
+* http://esr.ibiblio.org/?p=658#comment-233052
+
+From nelson at crynwr.com  Thu Feb 19 04:52:57 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Wed, 18 Feb 2009 23:52:57 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <20090218181420.GE29157@mercury.ccil.org>
+References: <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218073729.GD29157@mercury.ccil.org> <18844.12357.906241.339392@desk.crynwr.com> <20090218181420.GE29157@mercury.ccil.org>
+Message-ID: <18844.58793.326401.855143@desk.crynwr.com>
+
+John Cowan writes: > That's as much as to say: before the board acted, John Cowan shouldn't > have been believed about the MS-PL and the MS-CL, whereas after > the board action the same uncontroverted arguments about identical > texts were somehow worthy of belief.
+
+Basically, yes.
+ > Who died and appointed you God?
+
+The people who look to us to answer the question "Is this software
+open source?"  That's .... pretty much everybody except a few grumpy
+people.  No true open source developer would fail to believe us.
+ > If EvilMicroSnortCo claims that their Hugely Proprietary License > ("We get all rights, you get no rights, period") is OSD-compliant, we > shouldn't listen.
+
+How do we know that YOU are correct and EMSCo is incorrect?
+
+I fear that you are waving your hands at the hermenutics of OSD
+compliance as if the problem didn't exist.  That's just the way
+leftists wave their hands at the problem of Public Choice, and the way
+rightists wave their hands at the problem of Linear Infrastructure.
+
+All this hand-waving accomplishes nothing.  The problems remain.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Cloudmade supports http://openstreetmap.org/    | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From cowan at ccil.org  Thu Feb 19 05:52:10 2009
+From: cowan at ccil.org (John Cowan)
+Date: Thu, 19 Feb 2009 00:52:10 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18844.58793.326401.855143@desk.crynwr.com>
+References: <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218073729.GD29157@mercury.ccil.org> <18844.12357.906241.339392@desk.crynwr.com> <20090218181420.GE29157@mercury.ccil.org> <18844.58793.326401.855143@desk.crynwr.com>
+Message-ID: <20090219055210.GF29157@mercury.ccil.org>
+
+Russ Nelson scripsit:
+> John Cowan writes:
+>  > That's as much as to say: before the board acted, John Cowan shouldn't
+>  > have been believed about the MS-PL and the MS-CL, whereas after
+>  > the board action the same uncontroverted arguments about identical
+>  > texts were somehow worthy of belief.
+> 
+> Basically, yes.
+
+There speaks the voice of a "little group of willful men, representing no
+opinion but their own": a self-selected and hieratic band of monopolists
+who hope to preserve their power by obfuscation, a power which has not
+even the dubious merit of accomplishing economic maldistribution, but
+which exists solely to provide a few with the pleasure of enjoying it.
+
+Or at least if it is not so, you are not providing any evidence of it.
+"People of the same trade seldom meet together, even for merriment and
+diversion, but the conversation ends in a conspiracy against the public."
+
+>  > Who died and appointed you God?
+> 
+> The people who look to us to answer the question "Is this software
+> open source?"  That's .... pretty much everybody except a few grumpy
+> people.
+
+The OSI Approved list gives almost everybody almost everything they need.
+It's unlikely that *any* newly submitted license will pass the "must
+not be the same as X with special provision Y" test.  So what's the new
+plan, Stan?
+
+> No true open source developer would fail to believe us.
+
+Is this a joke?
+
+http://en.wikipedia.org/wiki/No_true_Scotsman
+
+> How do we know that YOU are correct and EMSCo is incorrect?
+
+In the same way that I know you mean "How do we know that YOU are correct
+and EMSCo is incorrect?" by the above sentence and not, say "Mary had
+a little lamb whose fleece was white as snow."
+
+> I fear that you are waving your hands at the hermenutics of OSD
+> compliance as if the problem didn't exist.  
+
+I don't deny that there are problems of interpretation with the OSD.
+But the claim that the OSI is Humpty Dumpty, and the OSD means what
+(in each particular case) the OSI says it means, is nothing but rank
+fundamentalism, with Russ Nelson as the William Jennings Bryan of the
+movement.
+
+> All this hand-waving accomplishes nothing.  The problems remain.
+
+You would say that, wouldn't you?
+
+-- 
+Yes, chili in the eye is bad, but so is your    John Cowan
+ear.  However, I would suggest you wash your    cowan at ccil.org
+hands thoroughly before going to the toilet.    http://www.ccil.org/~cowan --gadicath
+
+
+From tiemann at opensource.org  Thu Feb 19 11:16:23 2009
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Thu, 19 Feb 2009 06:16:23 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <20090219055210.GF29157@mercury.ccil.org>
+References: <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218073729.GD29157@mercury.ccil.org> <18844.12357.906241.339392@desk.crynwr.com> <20090218181420.GE29157@mercury.ccil.org> <18844.58793.326401.855143@desk.crynwr.com> <20090219055210.GF29157@mercury.ccil.org>
+Message-ID: <6cca531e0902190316p1b66f1f3w871a8c958fbaa071@mail.gmail.com>
+
+The purpose of the license-review list is to review licenses.
+
+The license in question, the TGPPL, should be the subject of this review
+thread.
+
+zooko has stated the position that OSI approval is important for the
+purposes of being able to make truthful statements about the validity of the
+license, which is a valid concern.
+
+I find the TGPPL to be complicated in ways not anticipated by the OSD.  I
+believe that one of the goals of any new, innovative open source license is
+that it can be expressed in simple terms.  For all the hatred people share
+about Microsoft, the two licenses they did submit to the OSI for approval
+were models of simplicity, at least with respect to the licenses themselves,
+which is the subject of this list.
+
+I believe that what people most seek when evaluating open source licenses is
+the answer to two questions: does this license grant me the rights and
+freedoms that I expect (thus permitting me to enjoy the fruits of my labor),
+and are those rights and freedoms well understood and accepted by the wider
+community (thus enabling the network effect)?  The issue of time-boundedness
+is problematic because it means that an observable property may have one
+evaluation at one point in time and another evaluation at another point in
+time, not because of some extrinsic change in circumstances, but because of
+the software in question itself.
+
+Everybody agrees that the BSD is an open source license, and everybody
+agrees that when Sun Microsystems exercised their freedom to make the
+Berkeley Standard Distribution fork called SunOS prorprietary to Sun, SunOS
+ceased to be open source software.  Ditto Apple when they forked BSD to
+become OSX.  The OSI does not complain that Sun's proprietary license or
+Apple's proprietary license is a misrepresentation of open source--it's
+perfectly faithful in that they never claimed them to be open source.
+
+For me, a rider or a waiver or an indulgence, or whatever you want to call
+it, that suspends the open source property has no place in being called open
+source.  It may be a wonderful thing that you have created a mechanism that
+automagically creates or releases or liberates open source software from
+special proprietary rights, but it is only in the state of being actual open
+source software that we should make our evaluation.  We should not make our
+evaluation based on the certainty of a promise that can be deferred for some
+period of time.
+
+Let me further strengthen that argument.
+
+The OSI does not permit licenses to discriminate against people or groups
+nor against fields of endeavor, which means that people we don't like (for
+any definition of "we") can do things we don't like (again, for any
+definition of "we"), and that's that.  Why don't we prohibit terrorists from
+using open source software to make weapons that attack our cities?  First,
+because there are other laws against that, and we trust those laws will be
+far more relevant to the behavior in question than what is written into a
+software license.  Second, because the OSI is in no position to decide where
+we should draw the line between acceptable and unacceptable groups of people
+nor are we in a position to decide where we should draw the line between
+acceptable and unacceptable use.  We simply don't have that moral authority.
+
+Now: the TGPPL says that the grace period is 12 months.  Who is the OSI to

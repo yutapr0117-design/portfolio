@@ -1,0 +1,750 @@
+> Thus, it is difficult for me to see how the TGPPL could be OSD compliant.
+
+
+I think I understand what you are saying, and I think it clarifies my
+example with respect to Apple's OSX.  The BSD license permits Apple to put
+their own terms around the code and say "hands off--this is proprietary
+software now!"  Guys like Greg Stein even thing that's cool.  Whatever.  The
+fact is, nobody is confused for a moment that the software wrapped in
+Apple's license has the open source property while wrapped in that license.
+If Apple chooses to push a patch upstream, absent their restrictive license,
+such changes may be accepted by the upstream maintainers, and version of
+open source BSD may be derived with those changes, retaining the open source
+property.
+
+If Bruce's logic is correct, the TGPPL creates a trojan horse situation
+where the license would (if the OSI were to grant such approval) claim open
+source over top of code that did not, in fact, carry the open source
+property.  That would be Bad.
+
+M
+
+From bruce at perens.com  Thu Feb 19 18:34:04 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 19 Feb 2009 10:34:04 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <6cca531e0902191019q1e2769ddwdfc8f4e9db7c5c62@mail.gmail.com>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu>	 <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com>	 <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net>	 <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com>	 <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net>	 <499DA0CB.9090609@perens.com> <6cca531e0902191019q1e2769ddwdfc8f4e9db7c5c62@mail.gmail.com>
+Message-ID: <499DA61C.80903@perens.com>
+
+Michael Tiemann wrote:
+> If Bruce's logic is correct, the TGPPL creates a trojan horse 
+> situation where the license would (if the OSI were to grant such 
+> approval) claim open source over top of code that did not, in fact, 
+> carry the open source property.  That would be Bad.
+The lanuguage in the license is:
+ to distribute or communicate copies of the Original Work and Derivative Works to the public, with the proviso that copies of Original Work or Derivative Works that You distribute or communicate shall be licensed under this Transitive Grace Period Public Licence no later than 12 months after You distributed or communicated said copies;
+
+So, this depends on whether the license is applied but is in abeyance 
+during the 12 months, or whether this is a /contract/ and the creator of 
+a derivative work is agreeing to apply the license after the 12 months.
+ Thanks
+ Bruce
+
+From lrosen at rosenlaw.com  Thu Feb 19 19:03:28 2009
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Thu, 19 Feb 2009 11:03:28 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <499DA61C.80903@perens.com>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu>	 <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com>	 <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net>	 <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com>	 <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net>	 <499DA0CB.9090609@perens.com> <6cca531e0902191019q1e2769ddwdfc8f4e9db7c5c62@mail.gmail.com> <499DA61C.80903@perens.com>
+Message-ID: <3F1780336FC5413F90D431796FDB3A2F@LROSENTOSHIBA>
+
+>     to distribute or communicate copies of the Original Work and
+>     Derivative Works to the public, with the proviso that copies of
+>     Original Work or Derivative Works that You distribute or communicate
+>     shall be licensed under this Transitive Grace Period Public Licence
+>     no later than 12 months after You distributed or communicated said
+>     copies;
+> 
+> So, this depends on whether the license is applied but is in abeyance
+> during the 12 months, or whether this is a /contract/ and the creator of
+> a derivative work is agreeing to apply the license after the 12 months.
+
+I don't understand what difference that would make for the OSD, although I
+agree that the legal analysis during litigation and damages may be different
+under different legal theories. So what?
+
+There was a reference much earlier in this thread to the Aladdin Public
+License, which the Transitive Grace Period Public License somewhat
+resembles. The Aladdin license was an old non-open source license, used for
+Ghostscript and some other wonderful software [1], that applied for a year
+and then was re-released under the GPL. I wrote about it briefly in my book
+as an alternative to open source and referred to it as "eventual source", a
+term that never caught on. 
+
+A few years later I learned from the president of Artifex Software, the
+company that distributes Ghostscript [http://artifex.com/] that they no
+longer use that business model. Perhaps transitive grace periods don't work
+in practice?
+
+/Larry
+
+[1] Peter Deutsch, the author of those programs and of the Aladdin Public
+License, was a founding board member of OSI. Again, everyone knew that the
+Aladdin license was *not* open source.
+
+
+
+Lawrence Rosen
+Rosenlaw & Einschlag, a technology law firm (www.rosenlaw.com)
+3001 King Ranch Road, Ukiah, CA 95482
+707-485-1242 * cell: 707-478-8932 * fax: 707-485-1243
+Skype: LawrenceRosen
+Author of "Open Source Licensing: Software Freedom and  Intellectual Property Law" (Prentice Hall 2004)
+
+
+
+> -----Original Message-----
+> From: Bruce Perens [mailto:bruce at perens.com]
+> Sent: Thursday, February 19, 2009 10:34 AM
+> To: Michael Tiemann
+> Cc: Chris Zumbrunn; license-review at opensource.org
+> Subject: Re: For Approval: Transitive Grace Period Public Licence, v1.0
+> 
+> Michael Tiemann wrote:
+> > If Bruce's logic is correct, the TGPPL creates a trojan horse
+> > situation where the license would (if the OSI were to grant such
+> > approval) claim open source over top of code that did not, in fact,
+> > carry the open source property.  That would be Bad.
+> The lanuguage in the license is:
+> 
+>     to distribute or communicate copies of the Original Work and
+>     Derivative Works to the public, with the proviso that copies of
+>     Original Work or Derivative Works that You distribute or communicate
+>     shall be licensed under this Transitive Grace Period Public Licence
+>     no later than 12 months after You distributed or communicated said
+>     copies;
+> 
+> So, this depends on whether the license is applied but is in abeyance
+> during the 12 months, or whether this is a /contract/ and the creator of
+> a derivative work is agreeing to apply the license after the 12 months.
+> 
+>     Thanks
+> 
+>     Bruce
+
+
+
+From chris at zumbrunn.com  Thu Feb 19 19:35:29 2009
+From: chris at zumbrunn.com (Chris Zumbrunn)
+Date: Thu, 19 Feb 2009 20:35:29 +0100
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <499DA0CB.9090609@perens.com>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net> <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com> <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net> <499DA0CB.9090609@perens.com>
+Message-ID: <6235859.293911235072139223.JavaMail.root@engine234.deployzone.net>
+
+
+On Feb 19, 2009, at 19:11 , Bruce Perens wrote:
+
+> Chris Zumbrunn wrote:
+>>
+>> No, because for the first twelve month the license behaves like a  
+>> permissive open source license.
+>>
+> Actually, it doesn't. A permissive or "gift" Open Source license  
+> allows software under /other/ licenses, generally a proprietary  
+> license or "All Rights Reserved", to be combined with the Open  
+> Source component.
+>
+> In the case of software under the TGPPL, the restricted component is  
+> under the TGPPL, rather than another license. But that component is  
+> not Open Source until some time expires.
+>
+> Consider the situation of someone who acquires that software and  
+> redistributes it as if it were Open Source. That person would be  
+> subject to criminal prosecution under trade secrets law and civil  
+> suit for copyright infringement. Even though the TGPPL applied to  
+> the software in question.
+>
+> Thus, it is difficult for me to see how the TGPPL could be OSD  
+> compliant.
+
+I'm not defending the TGPPL, I'm just picking at it from a different  
+angle.
+
+The license explicitly allows me to distribute my derivative work  
+without licensing it under the TGPPL (as long as I can magically  
+ensure that after a period of 12 month the TGPPL will apply). That  
+part is worded clearly. What isn't clear at all is under which other  
+license I would be able to license my derivative work for that 12  
+months period. Apparently anything would go, as long as these other  
+license terms terminate within the timeframe.
+
+Of course, a license that only behaves like a permissive open source  
+license for a period of 12 month would be an oxymoron.
+
+Chris
+
+
+
+From bruce at perens.com  Thu Feb 19 19:42:13 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 19 Feb 2009 11:42:13 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <3F1780336FC5413F90D431796FDB3A2F@LROSENTOSHIBA>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu>	 <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com>	 <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net>	 <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com>	 <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net>	 <499DA0CB.9090609@perens.com> <6cca531e0902191019q1e2769ddwdfc8f4e9db7c5c62@mail.gmail.com> <499DA61C.80903@perens.com> <3F1780336FC5413F90D431796FDB3A2F@LROSENTOSHIBA>
+Message-ID: <499DB615.8070203@perens.com>
+
+Lawrence Rosen wrote:
+>>     to distribute or communicate copies of the Original Work and
+>>     Derivative Works to the public, with the proviso that copies of
+>>     Original Work or Derivative Works that You distribute or communicate
+>>     shall be licensed under this Transitive Grace Period Public Licence
+>>     no later than 12 months after You distributed or communicated said
+>>     copies;
+>>
+>> So, this depends on whether the license is applied but is in abeyance
+>> during the 12 months, or whether this is a /contract/ and the creator of
+>> a derivative work is agreeing to apply the license after the 12 months.
+>>     
+>
+> I don't understand what difference that would make for the OSD,
+It's a matter of whether the TGPPL /itself/ is - for a period of time - 
+not compliant with essentially all of the OSD requirements, or whether 
+the license applied to the non-Open-Source work is something /other/ 
+than the TGPPL.
+ Thanks
+ Bruce
+
+From Nigel.Tzeng at jhuapl.edu  Thu Feb 19 22:43:38 2009
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Thu, 19 Feb 2009 17:43:38 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <499DA0CB.9090609@perens.com>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net> <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com> <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net>,<499DA0CB.9090609@perens.com>
+Message-ID: <1073897725056E4A944FC4FD0DB6EF716F8626916F@aplesstar.dom1.jhuapl.edu>
+
+>Chris Zumbrunn wrote:
+>> No, because for the first twelve month the license behaves like a
+>> permissive open source license.
+>Actually, it doesn't. A permissive or "gift" Open Source license allows
+>software under /other/ licenses, generally a proprietary license or "All
+>Rights Reserved", to be combined with the Open Source component.
+
+>In the case of software under the TGPPL, the restricted component is
+>under the TGPPL, rather than another license. But that component is not
+>Open Source until some time expires.
+
+He means it acts like BSD code that has been used in a proprietary 
+product.
+
+Allowed to be proprietary, binary only for 12 months.
+
+>Consider the situation of someone who acquires that software and
+>redistributes it as if it were Open Source. That person would be subject
+>to criminal prosecution under trade secrets law and civil suit for
+>copyright infringement. Even though the TGPPL applied to the software in
+>question.
+
+Except that you can't acquire the source code until either 12 months expires
+or they might explicitly release it earlier.  
+
+Once source is available, it's open source like any other OSL code forever 
+more (or 70 years + life of the author).
+
+Before 12 months, it acts like BSD code that has been absorbed into a 
+proprietary product.  What HAD already been released as source is 
+still open source but any new code that has been added is still under that
+12 month grace period.
+
+>Thus, it is difficult for me to see how the TGPPL could be OSD compliant.
+
+Once the source is available it is OSL.  But you can add your new proprietary 
+code to it without needing to release that new code for 12 months.
+
+From Nigel.Tzeng at jhuapl.edu  Thu Feb 19 22:51:57 2009
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Thu, 19 Feb 2009 17:51:57 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <6cca531e0902191019q1e2769ddwdfc8f4e9db7c5c62@mail.gmail.com>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net> <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com> <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net> <499DA0CB.9090609@perens.com>,<6cca531e0902191019q1e2769ddwdfc8f4e9db7c5c62@mail.gmail.com>
+Message-ID: <1073897725056E4A944FC4FD0DB6EF716F86269170@aplesstar.dom1.jhuapl.edu>
+
+>From: mdtiemann at gmail.com [mdtiemann at gmail.com] On Behalf Of Michael Tiemann [tiemann at opensource.org]
+
+>I think I understand what you are saying, and I think it clarifies my
+>example with respect to Apple's OSX.  The BSD license permits Apple to put
+>their own terms around the code and say "hands off--this is proprietary
+>software now!"  Guys like Greg Stein even thing that's cool.  Whatever.  The
+>fact is, nobody is confused for a moment that the software wrapped in
+>Apple's license has the open source property while wrapped in that license.
+
+If OSX was under the TGPPL rather than BSD then Apple would add 
+proprietary code to the BSD code and enjoy 12 months of grace period
+before they had to release the source code.
+
+Still no one is confused for a moment because the rule is simple:  12 months
+after distribution (of binary) the source must be released and after that it 
+works as any other open source code.
+
+>If Apple chooses to push a patch upstream, absent their restrictive license,
+>such changes may be accepted by the upstream maintainers, and version of
+>open source BSD may be derived with those changes, retaining the open source
+>property.
+
+>If Bruce's logic is correct, the TGPPL creates a trojan horse situation
+>where the license would (if the OSI were to grant such approval) claim open
+>source over top of code that did not, in fact, carry the open source
+>property.  That would be Bad.
+
+Only because you persist in misunderstanding.  There is no trojan horse.
+
+The license ensures that the source will be released in 12 months or Apple
+no longer has a license to use FreeBSD code inside of OSX any longer.
+
+What it gives Apple is a 12 month period where its own new additions 
+provide it  a competitive advantage before it must be released for 
+anyone to reuse (under TGPPL).  
+
+Likewise if I were to "improve" OSX and sell it then I would have 12 
+months of competitive advantage before Apple (and everyone else)
+would get those improvements.  The "free" versions only ever lag the proprietary
+versions by a year.
+
+From rick at linuxmafia.com  Thu Feb 19 23:16:47 2009
+From: rick at linuxmafia.com (Rick Moen)
+Date: Thu, 19 Feb 2009 15:16:47 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <1073897725056E4A944FC4FD0DB6EF716F86269170@aplesstar.dom1.jhuapl.edu>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net> <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com> <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net> <1073897725056E4A944FC4FD0DB6EF716F86269170@aplesstar.dom1.jhuapl.edu>
+Message-ID: <20090219231647.GE18004@linuxmafia.com>
+
+Quoting Tzeng, Nigel H. (Nigel.Tzeng at jhuapl.edu):
+
+> If OSX was under the TGPPL rather than BSD then Apple would add 
+> proprietary code to the BSD code and enjoy 12 months of grace period
+> before they had to release the source code.
+
+In your hypothetical, if Apple, Inc. owned copyright over the particular
+code they released under TGPPL, what exactly _would_ oblige them to
+comply with the TGPPL disclosure terms after 12 months?
+
+To explain:  Were that code copyright, by contrast, held by some other
+party, Apple would commit the tort of copyright violation against that
+party, by redistributing his/her code without complying with his/her
+conditions -- but Apple, Inc. cannot be held to violate their _own_
+rights.
+
+So, what does 'had to' mean in this context?  Or else what?
+
+-- 
+Cheers,
+Rick Moen                      "vi is my shepherd; I shall not font."
+rick at linuxmafia.com                               -- Psalm 0.1 beta
+
+
+From zooko at zooko.com  Thu Feb 19 23:21:45 2009
+From: zooko at zooko.com (zooko)
+Date: Thu, 19 Feb 2009 16:21:45 -0700
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18843.36311.196402.84068@desk.crynwr.com>
+References: <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218023309.GT15275@metacarta.com> <D352A86C-A79A-45B1-9080-A0155D37F597@zooko.com> <18843.36311.196402.84068@desk.crynwr.com>
+Message-ID: <6BBE52C3-D4B3-41AA-A4C7-9802FD59500F@zooko.com>
+
+On Feb 17, 2009, at 21:25 PM, Russ Nelson wrote:
+
+> This committee is advisory only.  The board makes the final  
+> decision. In this case, I reported the board's decision shortly  
+> after it was made a few weeks ago in Brussels.  Consequently, you  
+> can set aside any previous discussion by this committee as  
+> inadequate because the board has decided it was inadequate.
+
+You earlier reported about the board in two messages:
+
+On 2009-02-05:
+
+http://www.crynwr.com/cgi-bin/ezmlm-cgi?17:mss:518:ofpndmgcgmbhbmimpkpe
+
+You reported that the board was not comfortable with the thoroughness  
+of the discussion of the transitive quality of the licence.   
+(Eminently reasonable, since before that time most participants in  
+the discussion had mistakenly thought that it was equivalent to the  
+simple practice of GPL'ing your old version.)
+
+and on 2009-02-17:
+
+http://www.crynwr.com/cgi-bin/ezmlm-cgi?17:mss:530:ofpndmgcgmbhbmimpkpe
+
+You reported that a discussion among the board had occurred which  
+raised a particular problem with the way that open-source licences  
+are vulnerable to non-compliance.
+
+Thank you for reporting these notes to the list, but I would also  
+like to see the actual minutes, so I can tell who was present, where  
+the meeting was held, what was said in more detail, and what binding  
+motions if any were taken.
+
+Regards,
+
+Zooko
+---
+Tahoe, the Least-Authority Filesystem -- http://allmydata.org
+store your data: $10/month -- http://allmydata.com/?tracking=zsig
+
+
+From nelson at crynwr.com  Fri Feb 20 06:07:29 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Fri, 20 Feb 2009 01:07:29 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <6BBE52C3-D4B3-41AA-A4C7-9802FD59500F@zooko.com>
+References: <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218023309.GT15275@metacarta.com> <D352A86C-A79A-45B1-9080-A0155D37F597@zooko.com> <18843.36311.196402.84068@desk.crynwr.com> <6BBE52C3-D4B3-41AA-A4C7-9802FD59500F@zooko.com>
+Message-ID: <18846.18593.477153.491087@desk.crynwr.com>
+
+zooko writes: > http://www.crynwr.com/cgi-bin/ezmlm-cgi?17:mss:530:ofpndmgcgmbhbmimpkpe >  > You reported that a discussion among the board had occurred which   > raised a particular problem with the way that open-source licences   > are vulnerable to non-compliance.
+
+Did I say that?  No, it's a particular problem with the way YOUR
+license is vulnerable to non-compliance.  Don't mis-represent what
+other people say.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Cloudmade supports http://openstreetmap.org/    | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From nelson at crynwr.com  Fri Feb 20 06:23:32 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Fri, 20 Feb 2009 01:23:32 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <1073897725056E4A944FC4FD0DB6EF716F8626916F@aplesstar.dom1.jhuapl.edu>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net> <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com> <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net> <499DA0CB.9090609@perens.com> <1073897725056E4A944FC4FD0DB6EF716F8626916F@aplesstar.dom1.jhuapl.edu>
+Message-ID: <18846.19556.554033.294898@desk.crynwr.com>
+
+Tzeng, Nigel H. writes: > Once the source is available it is OSL.  But you can add your new proprietary  > code to it without needing to release that new code for 12 months.
+
+This works so badly in so many ways I don't know where to start, but
+I'll do my best..  First, you have the problem that the copyright
+holder needs to keep track of some piece of proprietary software which
+includes his software even though there is no requirement for the
+licensor to tell him.  Second, you need the copyright holder to CARE;
+arguably a problem with any other open source code as well, but with
+EVERY OTHER license, you know from the start whether the copyright
+holder cares.  With this license, you only find out a year later.
+Third, the licensor only needs to release source for the code that is
+a year old, so it's not like you get a code dump; instead you get a
+constant trickle of year-old code which may be useful to nobody given
+that it's a change to code that is a year old.
+
+This is, bluntly, one of the least-well-conceived ideas for a license
+I've seen in about seven years.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Cloudmade supports http://openstreetmap.org/ 
+521 Pleasant Valley Rd. | +1 315-323-1241    
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From nelson at crynwr.com  Fri Feb 20 06:29:31 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Fri, 20 Feb 2009 01:29:31 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <6235859.293911235072139223.JavaMail.root@engine234.deployzone.net>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net> <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com> <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net> <499DA0CB.9090609@perens.com> <6235859.293911235072139223.JavaMail.root@engine234.deployzone.net>
+Message-ID: <18846.19915.430841.967669@desk.crynwr.com>
+
+Chris Zumbrunn writes: > part is worded clearly. What isn't clear at all is under which other   > license I would be able to license my derivative work for that 12   > months period. Apparently anything would go, as long as these other   > license terms terminate within the timeframe.
+
+What if I licensed the code under the BSD license during the 12 month
+period, and somebody made a derivative work under it?
+ > Of course, a license that only behaves like a permissive open source   > license for a period of 12 month would be an oxymoron.
+
+Exactly why the board is concerned -- and rightfully so in my opinion.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Cloudmade supports http://openstreetmap.org/ 
+521 Pleasant Valley Rd. | +1 315-323-1241    
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From bruce at perens.com  Fri Feb 20 06:34:56 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 19 Feb 2009 22:34:56 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18846.19556.554033.294898@desk.crynwr.com>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu>	<529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com>	<26982305.291881235051371630.JavaMail.root@engine234.deployzone.net>	<6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com>	<10845305.293261235066497857.JavaMail.root@engine234.deployzone.net>	<499DA0CB.9090609@perens.com>	<1073897725056E4A944FC4FD0DB6EF716F8626916F@aplesstar.dom1.jhuapl.edu> <18846.19556.554033.294898@desk.crynwr.com>
+Message-ID: <499E4F10.50606@perens.com>
+
+I am somewhat at a loss regarding why the OSI board found the discussion 
+of TGPPL insufficient. I think Russ got off-topic a few times, but that 
+was conduct not content. I for one feel that this discussion is past the 
+point of diminishing returns.
+ Thanks
+ Bruce
+
+
+From nelson at crynwr.com  Fri Feb 20 06:41:11 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Fri, 20 Feb 2009 01:41:11 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net> <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com> <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net>
+Message-ID: <18846.20615.935053.967509@desk.crynwr.com>
+
+Chris Zumbrunn writes: > No, because for the first twelve month the license behaves like a   > permissive open source license.
+
+Not.  At.  All.  Let's say that I get a copy of some TGPPL code.  I
+immediately release it under the OSL.  What happens to that code
+release in a year?  I can think of two possibilities:
+ 1) The OSL remains in force, in which case, the TGPPL is really the
+GPPL; its transitive nature being completely lost.  Note that I could
+also do this on day 364 of my 12 months.
+ 2) The OSL expires, except that the OSL says it doesn't expire as
+long as the copyright remains in force.  That means that the code was
+never *really* licensed under the OSL, at which point the judge would
+throw up his hands and say "You're all completely insane; get out of
+my courtroom."
+
+Either way, very bad things happen.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Cloudmade supports http://openstreetmap.org/ 
+521 Pleasant Valley Rd. | +1 315-323-1241    
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From nelson at crynwr.com  Fri Feb 20 06:45:11 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Fri, 20 Feb 2009 01:45:11 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <499E4F10.50606@perens.com>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net> <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com> <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net> <499DA0CB.9090609@perens.com> <1073897725056E4A944FC4FD0DB6EF716F8626916F@aplesstar.dom1.jhuapl.edu> <18846.19556.554033.294898@desk.crynwr.com> <499E4F10.50606@perens.com>
+Message-ID: <18846.20855.394594.166506@desk.crynwr.com>
+
+Bruce Perens writes: > I am somewhat at a loss regarding why the OSI board found the discussion  > of TGPPL insufficient.
+
+Well, the fact that we're learning new things about how the TGPPL has
+some very strange effects, says to me that we didn't talk about it
+enough earlier.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Cloudmade supports http://openstreetmap.org/ 
+521 Pleasant Valley Rd. | +1 315-323-1241    
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From bruce at perens.com  Fri Feb 20 06:48:54 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 19 Feb 2009 22:48:54 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18846.20855.394594.166506@desk.crynwr.com>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu>	<529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com>	<26982305.291881235051371630.JavaMail.root@engine234.deployzone.net>	<6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com>	<10845305.293261235066497857.JavaMail.root@engine234.deployzone.net>	<499DA0CB.9090609@perens.com>	<1073897725056E4A944FC4FD0DB6EF716F8626916F@aplesstar.dom1.jhuapl.edu>	<18846.19556.554033.294898@desk.crynwr.com>	<499E4F10.50606@perens.com> <18846.20855.394594.166506@desk.crynwr.com>
+Message-ID: <499E5256.109@perens.com>
+
+Russ Nelson wrote:
+> Bruce Perens writes:
+>  > I am somewhat at a loss regarding why the OSI board found the discussion 
+>  > of TGPPL insufficient.
+>
+> Well, the fact that we're learning new things about how the TGPPL has
+> some very strange effects, says to me that we didn't talk about it
+> enough earlier.
+>   
+IMO we established sufficiently that it was not a candidate for 
+approval. We are now extending our perception of its severity as a 
+non-candidate for approval.
+ Thanks
+ Bruce
+
+
+From nelson at crynwr.com  Fri Feb 20 06:52:39 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Fri, 20 Feb 2009 01:52:39 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <1073897725056E4A944FC4FD0DB6EF716F86269169@aplesstar.dom1.jhuapl.edu>
+References: <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218073729.GD29157@mercury.ccil.org> <18844.12357.906241.339392@desk.crynwr.com> <20090218181420.GE29157@mercury.ccil.org> <18844.58793.326401.855143@desk.crynwr.com> <20090219055210.GF29157@mercury.ccil.org> <6cca531e0902190316p1b66f1f3w871a8c958fbaa071@mail.gmail.com> <1073897725056E4A944FC4FD0DB6EF716F86269169@aplesstar.dom1.jhuapl.edu>
+Message-ID: <18846.21303.453365.498442@desk.crynwr.com>
+
+Tzeng, Nigel H. writes: > >And it would be a damn shame for the OSI to approve a license as open source that had that property. >  > Yes.  It would also be a damn shame if the OSI never bothered to approve a license that was "different" and perhaps even "complex" even if it appears to adhere to the spirit of open source and provided something new.
+
+The problem is that the license either 1) fails to have the requested
+transitive nature (in which case a waiver suffices), or 2) turns
+OSI-approved open source licenses such as the OSL into time-restricted
+license.  It would totally and completely break the idea of OSI
+approval on a license.
+
+So, yeah, "appears to" is the operative phrase.
+ > Essentially, it appears folks may have accepted that there is no middle ground between BSD and GPL.
+
+Mmmmmm, no, it is that Zooko's middle ground does not work.  And
+remember: Zooko insists on transitivity.  That is not necessarily part
+of a middle ground.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Cloudmade supports http://openstreetmap.org/ 
+521 Pleasant Valley Rd. | +1 315-323-1241    
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From tiemann at opensource.org  Fri Feb 20 12:25:55 2009
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Fri, 20 Feb 2009 07:25:55 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <6BBE52C3-D4B3-41AA-A4C7-9802FD59500F@zooko.com>
+References: <18821.13553.735971.396757@desk.crynwr.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218023309.GT15275@metacarta.com> <D352A86C-A79A-45B1-9080-A0155D37F597@zooko.com> <18843.36311.196402.84068@desk.crynwr.com> <6BBE52C3-D4B3-41AA-A4C7-9802FD59500F@zooko.com>
+Message-ID: <6cca531e0902200425w4c9cb319x6c724973d3ae90b8@mail.gmail.com>
+
+The OSI keeps minutes of its meetings, and it publishes such minutes after
+they are reviewed and approved.  The minutes can be found at
+http://opensource.org/minutes .  The minutes lists board members attending
+the meetings, board observers, officer reports, old business, new business,
+etc.
+
+I am at a loss to explain how it is that our Secretary, Danese Cooper, has
+not yet published any of the minutes from 2009, but I assure you that will
+be rectified.
+
+On Thu, Feb 19, 2009 at 6:21 PM, zooko <zooko at zooko.com> wrote:
+
+> On Feb 17, 2009, at 21:25 PM, Russ Nelson wrote:
+>
+>  This committee is advisory only.  The board makes the final decision. In
+>> this case, I reported the board's decision shortly after it was made a few
+>> weeks ago in Brussels.  Consequently, you can set aside any previous
+>> discussion by this committee as inadequate because the board has decided it
+>> was inadequate.
+>>
+>
+> You earlier reported about the board in two messages:
+>
+> On 2009-02-05:
+>
+> http://www.crynwr.com/cgi-bin/ezmlm-cgi?17:mss:518:ofpndmgcgmbhbmimpkpe
+>
+> You reported that the board was not comfortable with the thoroughness of
+> the discussion of the transitive quality of the licence.  (Eminently
+> reasonable, since before that time most participants in the discussion had
+> mistakenly thought that it was equivalent to the simple practice of GPL'ing
+> your old version.)
+>
+> and on 2009-02-17:
+>
+> http://www.crynwr.com/cgi-bin/ezmlm-cgi?17:mss:530:ofpndmgcgmbhbmimpkpe
+>
+> You reported that a discussion among the board had occurred which raised a
+> particular problem with the way that open-source licences are vulnerable to
+> non-compliance.
+>
+> Thank you for reporting these notes to the list, but I would also like to
+> see the actual minutes, so I can tell who was present, where the meeting was
+> held, what was said in more detail, and what binding motions if any were
+> taken.
+>
+> Regards,
+>
+> Zooko
+>
+> ---
+> Tahoe, the Least-Authority Filesystem -- http://allmydata.org
+> store your data: $10/month -- http://allmydata.com/?tracking=zsig
+>
+
+From tiemann at opensource.org  Fri Feb 20 12:30:54 2009
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Fri, 20 Feb 2009 07:30:54 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <499E4F10.50606@perens.com>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net> <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com> <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net> <499DA0CB.9090609@perens.com> <1073897725056E4A944FC4FD0DB6EF716F8626916F@aplesstar.dom1.jhuapl.edu> <18846.19556.554033.294898@desk.crynwr.com> <499E4F10.50606@perens.com>
+Message-ID: <6cca531e0902200430m23c837d9kcd0c5e23b8485cee@mail.gmail.com>
+
+On Fri, Feb 20, 2009 at 1:34 AM, Bruce Perens <bruce at perens.com> wrote:
+
+> I am somewhat at a loss regarding why the OSI board found the discussion of
+> TGPPL insufficient. I think Russ got off-topic a few times, but that was
+> conduct not content. I for one feel that this discussion is past the point
+> of diminishing returns.
+>
+>   Thanks
+>
+>   Bruce
+>
+
+I agree.  If anybody other than the license submitter has strong arguments
+as to (1) how the TGGPL meets the terms of the OSD in a legally clear and
+understandable way, and (2) why the committee should recommend approval to
+the Board, now would be the time.  From my reading of board and non-board
+comments, the TGGPL does not appear to be a candidate for approval.
+
+M
+
+From Nigel.Tzeng at jhuapl.edu  Fri Feb 20 14:50:25 2009
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Fri, 20 Feb 2009 09:50:25 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18846.21303.453365.498442@desk.crynwr.com>
+References: <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218073729.GD29157@mercury.ccil.org> <18844.12357.906241.339392@desk.crynwr.com> <20090218181420.GE29157@mercury.ccil.org> <18844.58793.326401.855143@desk.crynwr.com> <20090219055210.GF29157@mercury.ccil.org> <6cca531e0902190316p1b66f1f3w871a8c958fbaa071@mail.gmail.com> <1073897725056E4A944FC4FD0DB6EF716F86269169@aplesstar.dom1.jhuapl.edu>,<18846.21303.453365.498442@desk.crynwr.com>
+Message-ID: <1073897725056E4A944FC4FD0DB6EF716F86269174@aplesstar.dom1.jhuapl.edu>
+
+From: Russ Nelson [nelson at crynwr.com]
+
+>Tzeng, Nigel H. writes:
+>>>And it would be a damn shame for the OSI to approve a license as 
+>>>open source that had that property.
+>>
+>> Yes.  It would also be a damn shame if the OSI never bothered to 
+>> approve a license that was "different" and perhaps even "complex" 
+>> even if it appears to adhere to the spirit of open source and provided 
+>> something new.
+
+>The problem is that the license either 1) fails to have the requested
+>transitive nature (in which case a waiver suffices), or 2) turns
+>OSI-approved open source licenses such as the OSL into time-restricted
+>license.  It would totally and completely break the idea of OSI
+>approval on a license.
+
+>So, yeah, "appears to" is the operative phrase.
+
+Lets take your example:
+
+>Not.  At.  All.  Let's say that I get a copy of some TGPPL code.  I
+>immediately release it under the OSL.  What happens to that code
+>release in a year?  I can think of two possibilities:
+
+>1) The OSL remains in force, in which case, the TGPPL is really the
+>GPPL; its transitive nature being completely lost.  Note that I could
+>also do this on day 364 of my 12 months.
+>
+>2) The OSL expires, except that the OSL says it doesn't expire as
+>long as the copyright remains in force.  That means that the code was
+>never *really* licensed under the OSL, at which point the judge would
+>throw up his hands and say "You're all completely insane; get out of
+>my courtroom."
+
+Neither possibility. 
+
+If you are not the copyright holder you can't release it under the OSL 
+(or BSD). Either you have source previously released under TGPPL 
+or you have someone's currently proprietary unreleased source.  
+
+If you are the copyright holder then you've just dual licensed your
+portion of the codebase under OSL (or BSD) and TGPPL.  The other 
+previously released code is still under TGPPL.  That you must release 
+under TGPPL within 12 months is a given because it's a requirement 
+for the license on the code you reused.  
+
+Transitivity is preserved although you've just opened the window for 
+forking your contributions.
+
+What you license your code for the 12 months is (mostly) immaterial.  
+It's your code. What happens after is what happens after any other time 
+you have two licenses on the same code.
+
+Any other degenerate case I can think of applies to the attempted mixing 
+of any two incompatible open source licenses.
+
+>> Essentially, it appears folks may have accepted that there is no middle 
+>> ground between BSD and GPL.
+
+>Mmmmmm, no, it is that Zooko's middle ground does not work.  And
+>remember: Zooko insists on transitivity.  That is not necessarily part
+>of a middle ground.
+
+Actually, what it appears is that folks are creating a series of scenarios
+that appear to fail and declaring failure without providing him time to
+show how it might work.
+

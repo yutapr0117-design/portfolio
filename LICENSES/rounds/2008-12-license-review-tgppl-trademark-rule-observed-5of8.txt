@@ -1,0 +1,750 @@
+say that 12 months is fair and adequate?  If TGPPL version 2 said 12 years,
+how could we say "that's unacceptable"?  Even 12 seconds is problematic
+because somebody could argue for 24 seconds, then 48 seconds, etc.
+
+Instead, I believe the OSI's concern should be "what is true now?  And can
+that truth be trusted for the foreseeable future?"  The TGPPL would set a
+bad precedent that would encourage longer waivers, to the point where the
+fact of the software is that it is proprietary, at least in somebody's
+eyes.  And it would be a damn shame for the OSI to approve a license as open
+source that had that property.
+
+From maffulli at funambol.com  Thu Feb 19 13:17:58 2009
+From: maffulli at funambol.com (Stefano Maffulli)
+Date: Thu, 19 Feb 2009 14:17:58 +0100
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0 
+In-Reply-To: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu>
+Message-ID: <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com>
+
+On 19/feb/09, at 05:41, Tzeng, Nigel H. wrote:
+
+>  I think that it is a new trait that probably isn't covered by  
+> another license and deserves more than being a waiver if it is  
+> indeed a new open source (sub?) genre.
+
+
+This is not a new license. It's a license similar to other existing  
+ones with an additional clause that sets a time based deadline.  
+Software released under the TGPPL falls under the Open Source  
+Definition only when the time has passed. Until then it's not open  
+source software.
+
+/stef
+
+
+
+From chris at zumbrunn.com  Thu Feb 19 13:49:21 2009
+From: chris at zumbrunn.com (Chris Zumbrunn)
+Date: Thu, 19 Feb 2009 14:49:21 +0100
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0 
+In-Reply-To: <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com>
+Message-ID: <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net>
+
+
+On Feb 19, 2009, at 14:17 , Stefano Maffulli wrote:
+
+> On 19/feb/09, at 05:41, Tzeng, Nigel H. wrote:
+>
+>> I think that it is a new trait that probably isn't covered by  
+>> another license and deserves more than being a waiver if it is  
+>> indeed a new open source (sub?) genre.
+>
+> This is not a new license. It's a license similar to other existing  
+> ones with an additional clause that sets a time based deadline.  
+> Software released under the TGPPL falls under the Open Source  
+> Definition only when the time has passed. Until then it's not open  
+> source software.
+
+You've got that backwards. It is truly open source *until* that time  
+has passed. After that it turns into crippled open source because it  
+becomes copyleft ;-)
+
+Chris
+
+
+
+
+
+
+From tiemann at opensource.org  Thu Feb 19 14:45:35 2009
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Thu, 19 Feb 2009 09:45:35 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net>
+Message-ID: <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com>
+
+On Thu, Feb 19, 2009 at 8:49 AM, Chris Zumbrunn <chris at zumbrunn.com> wrote:
+
+>
+> On Feb 19, 2009, at 14:17 , Stefano Maffulli wrote:
+>
+>  On 19/feb/09, at 05:41, Tzeng, Nigel H. wrote:
+>>
+>>  I think that it is a new trait that probably isn't covered by another
+>>> license and deserves more than being a waiver if it is indeed a new open
+>>> source (sub?) genre.
+>>>
+>>
+>> This is not a new license. It's a license similar to other existing ones
+>> with an additional clause that sets a time based deadline. Software released
+>> under the TGPPL falls under the Open Source Definition only when the time
+>> has passed. Until then it's not open source software.
+>
+>
+That's how I read it.
+
+
+>
+>>
+> You've got that backwards. It is truly open source *until* that time has
+> passed. After that it turns into crippled open source because it becomes
+> copyleft ;-)
+
+
+Um, what does this mean to you: "The Transitive Grace Period Public Licence
+has requirements similar to the GPL except that it allows you to wait for up
+to twelve months after you redistribute a derived work before releasing the
+source code of your derived work."?  To me it means that the release of a
+derived work denies the open source property of that derived work (and hence
+also to the community who contributed to that derived work) for a period of
+time.
+
+I think we all agree that when Apple distributes a derived work of the BSD
+code (OSX) with no promise at all of ever releasing the source code to their
+derived work (OSX), that it's not open source, even if they do contribute
+substantial changes back to the BSD community.  And that is as it should
+be.  Creating an arbitrary period of limbo, be it 12 seconds or 12 months or
+12 years, is a bridge too far.
+
+M
+
+From webmink at gmail.com  Thu Feb 19 14:57:13 2009
+From: webmink at gmail.com (Simon Phipps)
+Date: Thu, 19 Feb 2009 14:57:13 +0000
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com>
+Message-ID: <BA4C25AA-556A-49CF-8599-4203ACC3DBB0@gmail.com>
+
+
+On Feb 19, 2009, at 13:17, Stefano Maffulli wrote:
+
+> On 19/feb/09, at 05:41, Tzeng, Nigel H. wrote:
+>
+>> I think that it is a new trait that probably isn't covered by  
+>> another license and deserves more than being a waiver if it is  
+>> indeed a new open source (sub?) genre.
+>
+>
+> This is not a new license. It's a license similar to other existing  
+> ones with an additional clause that sets a time based deadline.  
+> Software released under the TGPPL falls under the Open Source  
+> Definition only when the time has passed. Until then it's not open  
+> source software.
+
+Having followed the discussion, that's my conclusion too. As a free- 
+standing license I don't believe it would qualify as Open Source  
+because of that initial period where the four freedoms are not  
+available. I'd be surprised if the OSI Board approved it. That's not  
+to say a company attempting a business model on this approach would  
+fail, but their software could not be described as open source until  
+the initial period had expired.
+
+S.
+
+
+
+From tiemann at opensource.org  Thu Feb 19 15:17:43 2009
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Thu, 19 Feb 2009 10:17:43 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <BA4C25AA-556A-49CF-8599-4203ACC3DBB0@gmail.com>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <BA4C25AA-556A-49CF-8599-4203ACC3DBB0@gmail.com>
+Message-ID: <6cca531e0902190717x1ed7c632x1a6d9347633e6066@mail.gmail.com>
+
+Thanks Simon!
+
+On Thu, Feb 19, 2009 at 9:57 AM, Simon Phipps <webmink at gmail.com> wrote:
+
+>
+> On Feb 19, 2009, at 13:17, Stefano Maffulli wrote:
+>
+>  On 19/feb/09, at 05:41, Tzeng, Nigel H. wrote:
+>>
+>>  I think that it is a new trait that probably isn't covered by another
+>>> license and deserves more than being a waiver if it is indeed a new open
+>>> source (sub?) genre.
+>>>
+>>
+>>
+>> This is not a new license. It's a license similar to other existing ones
+>> with an additional clause that sets a time based deadline. Software released
+>> under the TGPPL falls under the Open Source Definition only when the time
+>> has passed. Until then it's not open source software.
+>>
+>
+> Having followed the discussion, that's my conclusion too. As a
+> free-standing license I don't believe it would qualify as Open Source
+> because of that initial period where the four freedoms are not available.
+> I'd be surprised if the OSI Board approved it. That's not to say a company
+> attempting a business model on this approach would fail, but their software
+> could not be described as open source until the initial period had expired.
+>
+> S.
+>
+>
+
+From nelson at crynwr.com  Thu Feb 19 15:21:22 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Thu, 19 Feb 2009 10:21:22 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <20090219055210.GF29157@mercury.ccil.org>
+References: <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218073729.GD29157@mercury.ccil.org> <18844.12357.906241.339392@desk.crynwr.com> <20090218181420.GE29157@mercury.ccil.org> <18844.58793.326401.855143@desk.crynwr.com> <20090219055210.GF29157@mercury.ccil.org>
+Message-ID: <18845.30962.760292.844195@desk.crynwr.com>
+
+John Cowan writes: > > No true open source developer would fail to believe us. >  > Is this a joke? >  > http://en.wikipedia.org/wiki/No_true_Scotsman
+
+Sheesh.  You have to ask??
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Cloudmade supports http://openstreetmap.org/    | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From cowan at ccil.org  Thu Feb 19 15:25:53 2009
+From: cowan at ccil.org (John Cowan)
+Date: Thu, 19 Feb 2009 10:25:53 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18845.30962.760292.844195@desk.crynwr.com>
+References: <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218073729.GD29157@mercury.ccil.org> <18844.12357.906241.339392@desk.crynwr.com> <20090218181420.GE29157@mercury.ccil.org> <18844.58793.326401.855143@desk.crynwr.com> <20090219055210.GF29157@mercury.ccil.org> <18845.30962.760292.844195@desk.crynwr.com>
+Message-ID: <20090219152553.GH29157@mercury.ccil.org>
+
+Russ Nelson scripsit:
+> John Cowan writes:
+>  > > No true open source developer would fail to believe us.
+>  > 
+>  > Is this a joke?
+>  > 
+>  > http://en.wikipedia.org/wiki/No_true_Scotsman
+> 
+> Sheesh.  You have to ask??
+
+Ghu only knows.  The rest of the posting didn't read like a joke --
+but then again, perhaps IHBT.  I can't tell, can I.
+
+-- 
+John Cowan    cowan at ccil.org    http://ccil.org/~cowan
+The present impossibility of giving a scientific explanation is no proof
+that there is no scientific explanation. The unexplained is not to be
+identified with the unexplainable, and the strange and extraordinary
+nature of a fact is not a justification for attributing it to powers
+above nature.  --The Catholic Encyclopedia, s.v. "telepathy" (1913)
+
+
+From Nigel.Tzeng at jhuapl.edu  Thu Feb 19 16:06:05 2009
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Thu, 19 Feb 2009 11:06:05 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <BA4C25AA-556A-49CF-8599-4203ACC3DBB0@gmail.com>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com>,<BA4C25AA-556A-49CF-8599-4203ACC3DBB0@gmail.com>
+Message-ID: <1073897725056E4A944FC4FD0DB6EF716F86269168@aplesstar.dom1.jhuapl.edu>
+
+>On Feb 19, 2009, at 13:17, Stefano Maffulli wrote:
+
+>> On 19/feb/09, at 05:41, Tzeng, Nigel H. wrote:
+>>
+>>> I think that it is a new trait that probably isn't covered by
+>>> another license and deserves more than being a waiver if it is
+>>> indeed a new open source (sub?) genre.
+>>
+>>
+>> This is not a new license. It's a license similar to other existing
+>> ones with an additional clause that sets a time based deadline.
+>> Software released under the TGPPL falls under the Open Source
+>> Definition only when the time has passed. Until then it's not open
+>> source software.
+
+>Having followed the discussion, that's my conclusion too. As a free-
+>standing license I don't believe it would qualify as Open Source
+>because of that initial period where the four freedoms are not
+>available. I'd be surprised if the OSI Board approved it. That's not
+>to say a company attempting a business model on this approach would
+>fail, but their software could not be described as open source until
+>the initial period had expired.
+
+>S.
+
+OSL has been described as both a license and contract.
+
+"So OSL 3.0 can be both a license and a contract, but at heart it is a license just like GPL or any other open source license, phrased in contract language.
+
+As a legal document, OSL 3.0 is drafted as a unilateral contract in which the Licensor makes certain promises and accepts certain obligations. In return, any licensee who accepts and uses the software must honor certain conditions. In a formal sense, in unilateral contracts licensees don't make promises, they merely honor conditions, and so you will find no language in OSL 3.0 to the effect that "licensee promises" anything at all. For example, the obligation to publish source code is an obligation of the Licensor, not a licensee"
+
+In Michael's Apple example, OSX would not be considered open source because there is no obligation to ever open source OSX.  Hence the dislike of some to permissive licenses.
+
+In this example, there would be a contractural obligation to open source the code within 12 months or be in breach.  Or if you prefer, lose your licence to use the code.  Which ever way is the correct way of thinking of this restriction (license or contract).  Perhaps it is not a freestanding open source license but open source contract.  I don't know, perhaps Larry would comment on that aspect.
+
+To me the biggest question is that how to make this something that happens as a matter of course rather than as a matter of court. Hence the suggestion for a escrow service that makes compliance as painless as possible.
+
+The time period should not be variable but some agreed upon balance between potential business needs and common good.  A pragmatic question that will ultimately be "arbitrary" but hopefully based on consensus what is, in fact, reasonable.  Postulating 12 seconds or 12 years is unhelpful except as an exercise in reductio ad absurdum.
+
+I would ask instead the question whether an open source contract (if license is too rigid a term) such as this would be useful for the community to have.  Saying it's just the same thing as OSL 3.0 with a time clause is ignoring the potential vast difference in how commercial open source could work under this.  
+
+If you prefer we can move that aspect to license-discuss or even license-poliferation since the submitter appears to me to really just want validation that the license is OSD compliant but there's no such mechanism other than OSI approved.
+
+From tg at mirbsd.de  Thu Feb 19 16:08:13 2009
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Thu, 19 Feb 2009 16:08:13 +0000 (UTC)
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <BA4C25AA-556A-49CF-8599-4203ACC3DBB0@gmail.com>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <BA4C25AA-556A-49CF-8599-4203ACC3DBB0@gmail.com>
+Message-ID: <Pine.BSM.4.64L.0902191606150.13879@herc.mirbsd.org>
+
+Simon Phipps dixit:
+
+> I don't believe it would qualify as Open Source because of that initial
+> period where the four freedoms are not available
+
+Isn?t the ?four freedoms? talk the Free Software (as in FSF) definition?
+You?re confusing things here.
+
+A BSD licenced work where you do not (yet) have the source code of
+also comes under an OSD conformant licence, it?s just not OSI Approved
+Open Source Software? until you actually get the source code.
+
+bye,
+//mirabilos
+-- 
+?It is inappropriate to require that a time represented as seconds since the Epoch precisely represent the number of seconds between the referenced time and the Epoch.? -- IEEE Std 1003.1b-1993 (POSIX) Section B.2.2.2
+
+
+From tg at mirbsd.de  Thu Feb 19 16:11:47 2009
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Thu, 19 Feb 2009 16:11:47 +0000 (UTC)
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18844.58793.326401.855143@desk.crynwr.com>
+References: <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218073729.GD29157@mercury.ccil.org> <18844.12357.906241.339392@desk.crynwr.com> <20090218181420.GE29157@mercury.ccil.org> <18844.58793.326401.855143@desk.crynwr.com>
+Message-ID: <Pine.BSM.4.64L.0902191608380.13879@herc.mirbsd.org>
+
+Russ Nelson dixit:
+
+>The people who look to us to answer the question "Is this software
+>open source?"
+
+Actually, they don?t. They want you to _simplify_ the answer to the
+question by providing a trademark which OSS developers can use if
+they adhere to certain conditions, fully knowing you only allow a
+*subset* of truly open source (as in OSD compliant) software to bear
+it.
+
+>No true open source developer would fail to believe us.
+
+Erm, sorry, but this is just ridiculous. While you do have some
+acknowledged authority, nobody sane just trusts authority blindly.
+
+Let me state it again: the OSI does not control the term ?Open
+Source?, or OSD compliance. It, however, does control the OSD,
+and the term ?OSI Approved Open Source Software??. The usual
+way to get the latter is to use one of the OSI approved licen-
+ces, but that needs not be the only way.
+
+//mirabilos
+-- 
+?It is inappropriate to require that a time represented as seconds since the Epoch precisely represent the number of seconds between the referenced time and the Epoch.? -- IEEE Std 1003.1b-1993 (POSIX) Section B.2.2.2
+
+
+From tiemann at opensource.org  Thu Feb 19 16:26:39 2009
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Thu, 19 Feb 2009 11:26:39 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <1073897725056E4A944FC4FD0DB6EF716F86269168@aplesstar.dom1.jhuapl.edu>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <BA4C25AA-556A-49CF-8599-4203ACC3DBB0@gmail.com> <1073897725056E4A944FC4FD0DB6EF716F86269168@aplesstar.dom1.jhuapl.edu>
+Message-ID: <6cca531e0902190826hb0236c0g3251c1d0294c236a@mail.gmail.com>
+
+On Thu, Feb 19, 2009 at 11:06 AM, Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu>wrote:
+
+> The time period should not be variable but some agreed upon balance between
+> potential business needs and common good.  A pragmatic question that will
+> ultimately be "arbitrary" but hopefully based on consensus what is, in fact,
+> reasonable.  Postulating 12 seconds or 12 years is unhelpful except as an
+> exercise in reductio ad absurdum.
+
+
+I disagree.  There are many very earnest Quakers who simply cannot bring
+themselves to join the open source movement because they refuse to
+contribute to something that they cannot restrict from being used to kill
+other people.
+
+You may think the less of a Quaker because they join the open source
+movement anyway, or you may think the more of them.   But the fact is that
+the unrestricted use permissions granted by the OSD are a Big Deal to some
+people.  But again, the OSD was drafted as it was specifically because we
+did not want to make the OSI some moral arbiter in what was or was not
+acceptable use, even though killing people is something most of us find
+utterly abhorent.
+
+The 12 month period is perfectly arbitrary, and would put the OSI in an
+impossible position of agreeing to one business convenience while
+disallowing others.  It's not our role to provide such convenience, but
+rather to uphold the standards of the open source community, in discussions
+like these, and ensure that if we approve something, it conforms to those
+standards.  I don't like the idea of creating exceptions to those standards,
+even for a period of limited time, even for a business that is doing
+worthwhile things.
+
+M
+
+From Nigel.Tzeng at jhuapl.edu  Thu Feb 19 16:38:02 2009
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Thu, 19 Feb 2009 11:38:02 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <6cca531e0902190316p1b66f1f3w871a8c958fbaa071@mail.gmail.com>
+References: <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218073729.GD29157@mercury.ccil.org> <18844.12357.906241.339392@desk.crynwr.com> <20090218181420.GE29157@mercury.ccil.org> <18844.58793.326401.855143@desk.crynwr.com> <20090219055210.GF29157@mercury.ccil.org>,<6cca531e0902190316p1b66f1f3w871a8c958fbaa071@mail.gmail.com>
+Message-ID: <1073897725056E4A944FC4FD0DB6EF716F86269169@aplesstar.dom1.jhuapl.edu>
+
+>From: mdtiemann at gmail.com [mdtiemann at gmail.com] On Behalf Of Michael Tiemann [tiemann at opensource.org]
+
+>I find the TGPPL to be complicated in ways not anticipated by the OSD.  I
+>believe that one of the goals of any new, innovative open source license is
+>that it can be expressed in simple terms.  
+
+>I believe that what people most seek when evaluating open source licenses is
+>the answer to two questions: does this license grant me the rights and
+>freedoms that I expect (thus permitting me to enjoy the fruits of my labor),
+>and are those rights and freedoms well understood and accepted by the wider
+>community (thus enabling the network effect)?  The issue of time-boundedness
+>is problematic because it means that an observable property may have one
+>evaluation at one point in time and another evaluation at another point in
+>time, not because of some extrinsic change in circumstances, but because of
+>the software in question itself.
+
+I disagree that this license is not simple since it can be reduced to "This is OSL 3.0 with a time delay.  You get the fruits of MY labor 12 months after I release binary."
+
+I do not see how time is not an observable property.  Binary release 19 FEB 2009.  Code release must be no later than 19 FEB 2010.
+
+I can see how trust is an issue that I will indeed release on 19 FEB 2010 but this isn't too different than any other non-compliance scenario.
+
+>For me, a rider or a waiver or an indulgence, or whatever you want to call
+>it, that suspends the open source property has no place in being called open
+>source.  It may be a wonderful thing that you have created a mechanism that
+>automagically creates or releases or liberates open source software from
+>special proprietary rights, but it is only in the state of being actual open
+>source software that we should make our evaluation.  We should not make our
+>evaluation based on the certainty of a promise that can be deferred for some
+>period of time.
+
+It would be a certainty of promise to release by a certain date backed by either copyright or contract law.  I'm not certain that you ever get anything more.
+
+>Now: the TGPPL says that the grace period is 12 months.  Who is the OSI to
+>say that 12 months is fair and adequate?  If TGPPL version 2 said 12 years,
+>how could we say "that's unacceptable"?  Even 12 seconds is problematic
+>because somebody could argue for 24 seconds, then 48 seconds, etc.
+>
+>Instead, I believe the OSI's concern should be "what is true now?  And can
+>that truth be trusted for the foreseeable future?"  The TGPPL would set a
+>bad precedent that would encourage longer waivers, to the point where the
+>fact of the software is that it is proprietary, at least in somebody's
+>eyes.  
+
+OSI would not necessarily be saying that 12 months is fair any more than it makes judgements on whether permissive or copyleft licenses are more "fair".  The contributor or user decides it is fair and bases their use on their own criteria.
+
+Of course, as I stated earlier, the time shouldn't be variable so the OSI could refrain from approving licenses beyond 12 months ever.
+
+>And it would be a damn shame for the OSI to approve a license as open source that had that property.
+
+Yes.  It would also be a damn shame if the OSI never bothered to approve a license that was "different" and perhaps even "complex" even if it appears to adhere to the spirit of open source and provided something new.
+
+Essentially, it appears folks may have accepted that there is no middle ground between BSD and GPL.  Yes, that's probably true unless you address the root desires for finding such middle ground.  Namely, how do I open source my stuff and still make money on it?  Today we have hacks to do this:  dual license GPL and commercial license with a contributor license agreement and hope for no forks that you can't use for your pro product.
+
+This is not to say that TGPPL is the correct implementation but surely something more elegant is possible.
+
+From Nigel.Tzeng at jhuapl.edu  Thu Feb 19 16:58:13 2009
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Thu, 19 Feb 2009 11:58:13 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <6cca531e0902190826hb0236c0g3251c1d0294c236a@mail.gmail.com>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <BA4C25AA-556A-49CF-8599-4203ACC3DBB0@gmail.com> <1073897725056E4A944FC4FD0DB6EF716F86269168@aplesstar.dom1.jhuapl.edu>,<6cca531e0902190826hb0236c0g3251c1d0294c236a@mail.gmail.com>
+Message-ID: <1073897725056E4A944FC4FD0DB6EF716F8626916B@aplesstar.dom1.jhuapl.edu>
+
+>On Thu, Feb 19, 2009 at 11:06 AM, Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu<mailto:Nigel.Tzeng at jhuapl.edu>> wrote:
+The time period should not be variable but some agreed upon balance between potential business needs and common good.  A pragmatic question that will ultimately be "arbitrary" but hopefully based on consensus what is, in fact, reasonable.  Postulating 12 seconds or 12 years is unhelpful except as an exercise in reductio ad absurdum.
+
+>I disagree.  There are many very earnest Quakers who simply cannot bring themselves to join the open
+>source movement because they refuse to contribute to something that they cannot restrict from being used to
+>kill other people.
+
+>You may think the less of a Quaker because they join the open source movement anyway, or you may think the
+>more of them.   But the fact is that the unrestricted use permissions granted by the OSD are a Big Deal to some
+>people.  But again, the OSD was drafted as it was specifically because we did not want to make the OSI some
+>moral arbiter in what was or was not acceptable use, even though killing people is something most of us find
+>utterly abhorent.
+
+>The 12 month period is perfectly arbitrary, and would put the OSI in an impossible position of agreeing to one
+>business convenience while disallowing others.  It's not our role to provide such convenience, but rather to uphold
+>the standards of the open source community, in discussions like these, and ensure that if we approve something, it
+>conforms to those standards.  I don't like the idea of creating exceptions to those standards, even for a period of
+>limited time, even for a business that is doing worthwhile things.
+
+>M
+
+OSD #6 Rationale: The major intention of this clause is to prohibit license traps that prevent open source from being used commercially. We want commercial users to join our community, not feel excluded from it.  (Even if Quakers do feel excluded as a result)
+
+I am curious though, why you think that a license that permits the time period for source release to be infinite (ie BSD) to be less of a business convenience than one that stipulates that the time period must be no more than 1 year.
+
+Re-reading the OSD just now, I think my earlier suggestions might run afoul of OSD #10.  Perhaps the modification should just be "source code not immediately released must be escrowed to ensure future release".
+
+From Nigel.Tzeng at jhuapl.edu  Thu Feb 19 17:24:06 2009
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Thu, 19 Feb 2009 12:24:06 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <1073897725056E4A944FC4FD0DB6EF716F8626916B@aplesstar.dom1.jhuapl.edu>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <BA4C25AA-556A-49CF-8599-4203ACC3DBB0@gmail.com> <1073897725056E4A944FC4FD0DB6EF716F86269168@aplesstar.dom1.jhuapl.edu>,<6cca531e0902190826hb0236c0g3251c1d0294c236a@mail.gmail.com>,<1073897725056E4A944FC4FD0DB6EF716F8626916B@aplesstar.dom1.jhuapl.edu>
+Message-ID: <1073897725056E4A944FC4FD0DB6EF716F8626916E@aplesstar.dom1.jhuapl.edu>
+
+Apologies for the munged formatting of the previous message(s).
+
+From tiemann at opensource.org  Thu Feb 19 17:40:35 2009
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Thu, 19 Feb 2009 12:40:35 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <1073897725056E4A944FC4FD0DB6EF716F86269169@aplesstar.dom1.jhuapl.edu>
+References: <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218073729.GD29157@mercury.ccil.org> <18844.12357.906241.339392@desk.crynwr.com> <20090218181420.GE29157@mercury.ccil.org> <18844.58793.326401.855143@desk.crynwr.com> <20090219055210.GF29157@mercury.ccil.org> <6cca531e0902190316p1b66f1f3w871a8c958fbaa071@mail.gmail.com> <1073897725056E4A944FC4FD0DB6EF716F86269169@aplesstar.dom1.jhuapl.edu>
+Message-ID: <6cca531e0902190940x66e5a71cp319f5e62f984bd45@mail.gmail.com>
+
+On Thu, Feb 19, 2009 at 11:38 AM, Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu>wrote:
+
+> Yes.  It would also be a damn shame if the OSI never bothered to approve a
+> license that was "different" and perhaps even "complex" even if it appears
+> to adhere to the spirit of open source and provided something new.
+>
+> Essentially, it appears folks may have accepted that there is no middle
+> ground between BSD and GPL.  Yes, that's probably true unless you address
+> the root desires for finding such middle ground.  Namely, how do I open
+> source my stuff and still make money on it?  Today we have hacks to do this:
+>  dual license GPL and commercial license with a contributor license
+> agreement and hope for no forks that you can't use for your pro product.
+
+
+The OSI was never consulted, and need not be consulted, by those who wish to
+place special conditions for commercial reasons over top of open source
+licenses and use them in their businesses.  For example, MySQL's
+dual-license didn't need OSI approval--they can say "here's MySQL under an
+OSI-approved license, and here it is under our commercial use license--take
+your pick and pay as appropriate."
+
+If you wanted to offer to customers "here's the dual-licensable version and
+here's the (12 month old) GPL version", you don't need our blessing.  I
+think that some kind of commercially controlled switch that governs which
+OSI-approved license is in force at what point in time need not itself be an
+OSI-approved device.  Moreover, depending on the arbitrariness (and
+capriciousness) of the device, it may be something which even if it met the
+letter of the OSD, would not be in the spirit of what open source is trying
+to accomplish.
+
+To give a concrete example: the Arbitrary and Capricious License (which I
+just made up) computes the number of days since Epoch (Jan 1, 1969) modulo
+the number of currently approved and recommended OSI licenses and randomly
+selects which one is in force for that day (using the timezone of the
+licensor as the determinant of when daytime begins and ends) and a random
+number generator that publishes its results to the licensor's website.  The
+fact that the software is *always* under an open source license means it
+should be OSD-compliant.  But the fact that the specific terms are subject
+to arbitrary and random change make it virtually impossible to determine
+what that OSD-ness actually means in terms of rights, obligations,
+compatibility, and community.  Approving such a license would create a legal
+mayhem.
+
+I realize that the TGPPL is trying to arbitrate in a more finite way, but
+the problems it creates remain (especially when one considers the problem of
+versioning changes and grandfathering or not specific functionality).
+
+
+>
+> This is not to say that TGPPL is the correct implementation but surely
+> something more elegant is possible.
+
+
+As previously argued, the most elegant solution is to pick a position and
+stick with it, rather than try to create a legal superpositioning that one a
+privileged actor can control.
+
+M
+
+From chris at zumbrunn.com  Thu Feb 19 18:01:27 2009
+From: chris at zumbrunn.com (Chris Zumbrunn)
+Date: Thu, 19 Feb 2009 19:01:27 +0100
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net> <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com>
+Message-ID: <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net>
+
+
+On Feb 19, 2009, at 15:45 , Michael Tiemann wrote:
+
+> Um, what does this mean to you: "The Transitive Grace Period Public  
+> Licence
+> has requirements similar to the GPL except that it allows you to  
+> wait for up
+> to twelve months after you redistribute a derived work before  
+> releasing the
+> source code of your derived work."?  To me it means that the release  
+> of a
+> derived work denies the open source property of that derived work  
+> (and hence
+> also to the community who contributed to that derived work) for a  
+> period of
+> time.
+
+No, because for the first twelve month the license behaves like a  
+permissive open source license. After that period it converts to a  
+copyleft license. So, it isn't fair at all to say that the license  
+isn't open source for the first twelve month. That's like claiming  
+that the BSD isn't open source.
+
+The license says:
+
+3. to distribute or communicate copies of the Original Work and  
+Derivative Works to the public, with the proviso that copies of  
+Original Work or Derivative Works that You distribute or communicate  
+shall be licensed under this Transitive Grace Period Public Licence no  
+later than 12 months after You distributed or communicated said copies;
+
+Note that it *doesn't* say that You can distribute copies under the  
+TGPPL and then release the source 12 months later, which probably is  
+what you were thinking.
+
+> I think we all agree that when Apple distributes a derived work of  
+> the BSD
+> code (OSX) with no promise at all of ever releasing the source code  
+> to their
+> derived work (OSX), that it's not open source, even if they do  
+> contribute
+> substantial changes back to the BSD community.  And that is as it  
+> should
+> be.
+
+What is not open source? The BSD code that they derived there work of  
+is open source, which is the correct comparison here.
+
+> Creating an arbitrary period of limbo, be it 12 seconds or 12 months  
+> or
+> 12 years, is a bridge too far.
+
+Yes, I hate it when that happens (somebody promising to release  
+something under an open source license sometime in the future).
+
+What I'm wondering about is, under *which* license or choice of  
+licenses somebody could distribute their derived works during that 12  
+months period, since it clearly isn't the TGPPL.
+
+Chris
+
+
+
+From bruce at perens.com  Thu Feb 19 18:11:23 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 19 Feb 2009 10:11:23 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net> <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com> <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net>
+Message-ID: <499DA0CB.9090609@perens.com>
+
+Chris Zumbrunn wrote:
+> No, because for the first twelve month the license behaves like a 
+> permissive open source license.
+Actually, it doesn't. A permissive or "gift" Open Source license allows 
+software under /other/ licenses, generally a proprietary license or "All 
+Rights Reserved", to be combined with the Open Source component.
+
+In the case of software under the TGPPL, the restricted component is 
+under the TGPPL, rather than another license. But that component is not 
+Open Source until some time expires.
+
+Consider the situation of someone who acquires that software and 
+redistributes it as if it were Open Source. That person would be subject 
+to criminal prosecution under trade secrets law and civil suit for 
+copyright infringement. Even though the TGPPL applied to the software in 
+question.
+
+Thus, it is difficult for me to see how the TGPPL could be OSD compliant.
+ Thanks
+ Bruce
+
+From tiemann at opensource.org  Thu Feb 19 18:13:01 2009
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Thu, 19 Feb 2009 13:13:01 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net> <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com> <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net>
+Message-ID: <6cca531e0902191013q65083a1t881e2875e1dc9111@mail.gmail.com>
+
+On Thu, Feb 19, 2009 at 1:01 PM, Chris Zumbrunn <chris at zumbrunn.com> wrote:
+
+>
+> On Feb 19, 2009, at 15:45 , Michael Tiemann wrote:
+>
+>  Um, what does this mean to you: "The Transitive Grace Period Public
+>> Licence
+>> has requirements similar to the GPL except that it allows you to wait for
+>> up
+>> to twelve months after you redistribute a derived work before releasing
+>> the
+>> source code of your derived work."?  To me it means that the release of a
+>> derived work denies the open source property of that derived work (and
+>> hence
+>> also to the community who contributed to that derived work) for a period
+>> of
+>> time.
+>>
+>
+> No, because for the first twelve month the license behaves like a
+> permissive open source license. After that period it converts to a copyleft
+> license. So, it isn't fair at all to say that the license isn't open source
+> for the first twelve month. That's like claiming that the BSD isn't open
+> source.
+
+
+I think that my subsequent response where I discuss the fictitious
+"Arbitrary and Capricious Licnese" explains the very real problem with
+trying to stretch the OSI-approved umbrella to cover mechanisms that select
+between various open source licenses under the control of some privileged
+entity.
+
+To say nothing of the confusion that seems to persist about whether initial
+state of TGPPL-licensed software.
+
+M
+
+From tiemann at opensource.org  Thu Feb 19 18:19:07 2009
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Thu, 19 Feb 2009 13:19:07 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <499DA0CB.9090609@perens.com>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com> <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net> <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com> <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net> <499DA0CB.9090609@perens.com>
+Message-ID: <6cca531e0902191019q1e2769ddwdfc8f4e9db7c5c62@mail.gmail.com>
+
+On Thu, Feb 19, 2009 at 1:11 PM, Bruce Perens <bruce at perens.com> wrote:
+
+> Chris Zumbrunn wrote:
+>
+>> No, because for the first twelve month the license behaves like a
+>> permissive open source license.
+>>
+> Actually, it doesn't. A permissive or "gift" Open Source license allows
+> software under /other/ licenses, generally a proprietary license or "All
+> Rights Reserved", to be combined with the Open Source component.
+>
+> In the case of software under the TGPPL, the restricted component is under
+> the TGPPL, rather than another license. But that component is not Open
+> Source until some time expires.
+>
+> Consider the situation of someone who acquires that software and
+> redistributes it as if it were Open Source. That person would be subject to
+> criminal prosecution under trade secrets law and civil suit for copyright
+> infringement. Even though the TGPPL applied to the software in question.
+>
