@@ -489,6 +489,43 @@ of copyright** or words of the same purport **that such person knows to be false
 **⚠ ただし「構造上そうなっている」ことと「そう読まれる」ことは別で、
 本 Q&A がその読みを保証するわけではない。**
 
+**Q. §13 / §14 は Dedicator の側にしか利益が無い。公表されている新規ライセンスの基準は「licensor を構造的に優位に置く条項を持たない」と述べているが、これは当たらないのか。（2026-09-27 追加）**
+
+> **English:**
+>
+> **The asymmetry is real and I state it first.** Sections 13 and 14 protect the Dedicator and
+> nobody else. Every other asymmetry in this text runs the other way — Section 3 gives up rights,
+> Section 4 grants them unconditionally and independently of Section 3, Section 8 grants patent
+> rights, Section 12 gives up the enforcement of moral rights, and Sections 10.1 and 10.4 mean
+> the recipient is asked for nothing and can lose nothing. **The disclaimers are the one place
+> where the instrument keeps something for the person applying it.**
+>
+> **Why I do not think the requirement reaches them.** The requirement, as the Committee has
+> actually applied it, is about the **allocation of the rights the licence deals in**. The
+> application I have read (ModelGo Attribution 2.0, 2026-09-22) concerned a termination that
+> fired on claims against the Licensor but not on claims against a licensee, so one class of
+> participant could be sued without consequence and another could not. **ACD-1.0 has no class
+> structure of that kind**: there is no condition (§10.1) and no termination (§10.4), so there
+> is no position for anyone to hold that another does not.
+>
+> **What I will not offer as an argument.** That every approved licence carries the same
+> disclaimers is true and I do not rely on it. "Everyone does it" is the form of argument this
+> dossier refuses elsewhere, and a reviewer is entitled to ask whether a licence that gives up
+> everything else should also give up the warranty disclaimer. **My answer is that a disclaimer
+> of warranty is not an allocation of the rights being granted; it is a statement that nothing is
+> promised about them, and a recipient who is promised nothing has lost nothing they were given.**
+> If the Committee reads the requirement more widely, I would rather be told than guess.
+
+**日本語（要旨）**: **非対称は実在し、それを先に自分で言う。** §13 / §14 は Dedicator の側にしか
+利益が無く、**本文の中でここだけが「適用する側が手元に残しているもの」**である。
+**基準が当たらないと考える理由は、委員会が実際に当てた形にある** —— 2026-09-22 の適用
+（`review-doctrine.md` §1.123）は**許諾する権利の配分**についてのもので、ACD には条件も終了も
+無いため**当事者の類型がそもそも立たない**。
+**⚠ 依拠しない論法を明記する** —— 「承認済みのすべてが同じ免責を持つ」は真だが**「皆やっている」型**で、
+本ドシエが他所で信用しない形である。**答えは「免責は許諾する権利の配分ではない」**
+（何も約束されていない受領者は、与えられたものを失っていない）。
+**委員会がより広く読むなら、推測するより言われたい。**
+
 **Q. 再頒布時に本文を同梱する義務が無いなら、§13 / §14 の免責はどこまで実効的なのか。下流の受領者は、免責を見ないまま作品を受け取ることになるのでは。**
 
 > **English:**
