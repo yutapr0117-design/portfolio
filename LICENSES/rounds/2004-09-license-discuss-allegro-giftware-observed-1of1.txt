@@ -1,0 +1,490 @@
+From elias at users.sf.net  Wed Sep 22 12:03:22 2004
+From: elias at users.sf.net (Elias Pschernig)
+Date: Wed, 22 Sep 2004 14:03:22 +0200
+Subject: For Approval: Allegro giftware license
+Message-ID: <1095854602.1344.32.camel@allefant>
+
+Hello,
+
+we would like to see the license for the Allegro game programming
+library recognized as open source, since there are sometimes problems
+with it (like inclusion into open source projects, which are afraid of
+it). But since it historically is the license used for it and is now in
+use for so many years, we don't really want to change it.
+
+I'm not sure how I could create a legal analysis and email to license-
+approval though, as requested on your website. Maybe someone can give a
+hint where to find someone doing that? (And it is so short I don't think
+there need be any analysis?)
+
+Anyway, the license is here:
+
+http://alleg.sourceforge.net/license.html
+
+It's not based off any other license, but some licenses are very close.
+For example, the zlib license. The (Allegro) giftware license just
+removes the three restrictions given at the end of the zlib license.
+This means, you don't have to keep a reference to where you got the
+source from, and can just take out parts of it and re-use. You can also
+re-use the name and distribute altered versions (actualls happened and
+is happening right now). Well, basically, the source is completely free
+to use for whatever you want.
+
+It should be compatible with any other open source license, since it
+allows everything. It's just a simple game programming library, and we
+want everyone who finds code from it useful to just use it, without
+having to care about noting where which line of code came from.
+
+I must admit, I didn't read through all of the open source licenses -
+since we don't want a new license, but just are interested in the
+current license of our project (and some add-on libraries also using
+it). So ever if there is one which is more close to it than zlib it
+would still be nice if it could be officially marked as OSI-compatible
+(assuming it is).
+
+
+Plain Text version of the license:
+"
+The giftware license
+
+Allegro is gift-ware. It was created by a number of people working in
+cooperation, and is given to you freely as a gift. You may use, modify,
+redistribute, and generally hack it about in any way you like, and you
+do not have to give us anything in return.  
+However, if you like this product you are encouraged to thank us by
+making a return gift to the Allegro community. This could be by writing
+an add-on package, providing a useful bug report, making an improvement
+to the library, or perhaps just releasing the sources of your program so
+that other people can learn from them. If you redistribute parts of this
+code or make a game using it, it would be nice if you mentioned Allegro
+somewhere in the credits, but you are not required to do this. We trust
+you not to abuse our generosity. 
+By Shawn Hargreaves, 18 October 1998.
+"
+
+
+Thanks for your consideration,
+
+-- 
+Elias Pschernig
+
+
+
+From prabhaka at apple.com  Wed Sep 22 16:12:57 2004
+From: prabhaka at apple.com (Ernest Prabhakar)
+Date: Wed, 22 Sep 2004 09:12:57 -0700
+Subject: For Approval: Allegro giftware license
+In-Reply-To: <1095854602.1344.32.camel@allefant>
+References: <1095854602.1344.32.camel@allefant>
+Message-ID: <44152530-0CB2-11D9-9F27-000393CDCA50@apple.com>
+
+Hi Elias,
+
+I don't know if the license is well-formed, but I certainly don't see 
+anything here that would violate the OSD.
+
+> Allegro is gift-ware. It was created by a number of people working in
+> cooperation, and is given to you freely as a gift. You may use, modify,
+> redistribute, and generally hack it about in any way you like, and you
+> do not have to give us anything in return.
+
+I don't know if the OSI would consider it worth their time to approve 
+something like this, but that's a procedural issue, not a legal one.
+
+-- Ernie P.
+IANAL, TINLA
+
+On Sep 22, 2004, at 5:03 AM, Elias Pschernig wrote:
+>
+> Plain Text version of the license:
+> "
+> The giftware license
+>
+> Allegro is gift-ware. It was created by a number of people working in
+> cooperation, and is given to you freely as a gift. You may use, modify,
+> redistribute, and generally hack it about in any way you like, and you
+> do not have to give us anything in return.
+>
+> However, if you like this product you are encouraged to thank us by
+> making a return gift to the Allegro community. This could be by writing
+> an add-on package, providing a useful bug report, making an improvement
+> to the library, or perhaps just releasing the sources of your program 
+> so
+> that other people can learn from them. If you redistribute parts of 
+> this
+> code or make a game using it, it would be nice if you mentioned Allegro
+> somewhere in the credits, but you are not required to do this. We trust
+> you not to abuse our generosity.
+>
+> By Shawn Hargreaves, 18 October 1998.
+
+
+
+From rick at linuxmafia.com  Wed Sep 22 18:35:01 2004
+From: rick at linuxmafia.com (Rick Moen)
+Date: Wed, 22 Sep 2004 11:35:01 -0700
+Subject: For Approval: Allegro giftware license
+In-Reply-To: <1095854602.1344.32.camel@allefant>
+References: <1095854602.1344.32.camel@allefant>
+Message-ID: <20040922183501.GI22041@linuxmafia.com>
+
+Quoting Elias Pschernig (elias at users.sf.net):
+
+> Anyway, the license is here:
+> 
+> http://alleg.sourceforge.net/license.html
+
+Elias, speaking for myself, I see nothing within megaparsecs of
+OSD-infringement about this simple permissive licence.
+
+However (separately from your question), why not a standard permissive
+licence such as the MIT/X one
+(http://www.opensource.org/licenses/mit-license.php)?  I'm sure it'll
+seem a bit colder and less folksy, but among other things you really
+should consider the merits of the MIT licence (and similar ones such as
+revised BSD) protecting you from warranty claims.
+
+-- 
+Cheers,                           "This is Unix.  Stop acting so helpless."
+Rick Moen                                               -- D.J. Bernstein
+rick at linuxmafia.com
+
+
+From elias at users.sf.net  Wed Sep 22 19:41:52 2004
+From: elias at users.sf.net (Elias Pschernig)
+Date: Wed, 22 Sep 2004 21:41:52 +0200
+Subject: For Approval: Allegro giftware license
+In-Reply-To: <44152530-0CB2-11D9-9F27-000393CDCA50@apple.com>
+References: <1095854602.1344.32.camel@allefant> <44152530-0CB2-11D9-9F27-000393CDCA50@apple.com>
+Message-ID: <1095882113.27926.5.camel@allefant>
+
+On Wed, 2004-09-22 at 09:12 -0700, Ernest Prabhakar wrote:
+> Hi Elias,
+> 
+> I don't know if the license is well-formed, but I certainly don't see 
+> anything here that would violate the OSD.
+> 
+> > Allegro is gift-ware. It was created by a number of people working in
+> > cooperation, and is given to you freely as a gift. You may use, modify,
+> > redistribute, and generally hack it about in any way you like, and you
+> > do not have to give us anything in return.
+> 
+> I don't know if the OSI would consider it worth their time to approve 
+> something like this, but that's a procedural issue, not a legal one.
+> 
+
+Well, the intention was to make it easy to e.g. include the library in a
+open source linux distribution, since there's always the question "are
+you sure your license is open source compatible?" In particular, when we
+asked freenode to add it as a project, they said we should first approve
+the license by OSI.
+
+But I guess, just refering to the positive answers I got in this list is
+enough :)
+
+-- 
+Elias Pschernig
+
+
+
+From elias at users.sf.net  Wed Sep 22 19:52:25 2004
+From: elias at users.sf.net (Elias Pschernig)
+Date: Wed, 22 Sep 2004 21:52:25 +0200
+Subject: For Approval: Allegro giftware license
+In-Reply-To: <20040922183501.GI22041@linuxmafia.com>
+References: <1095854602.1344.32.camel@allefant> <20040922183501.GI22041@linuxmafia.com>
+Message-ID: <1095882745.27926.16.camel@allefant>
+
+On Wed, 2004-09-22 at 11:35 -0700, Rick Moen wrote:
+
+> However (separately from your question), why not a standard permissive
+> licence such as the MIT/X one
+> (http://www.opensource.org/licenses/mit-license.php)?  I'm sure it'll
+> seem a bit colder and less folksy, but among other things you really
+> should consider the merits of the MIT licence (and similar ones such as
+> revised BSD) protecting you from warranty claims.
+> 
+
+Yes, there's no real need for a new license, except the historical
+reason I mentioned. The Allegro library always used the "giftware"
+license worded by its author, so why change it.
+
+There's a separate disclaimer at the beginning of the documentation
+(http://alleg.sourceforge.net/onlinedocs/en/index.html - the paragraph
+with blue background). Apparently who wrote it didn't think this has to
+be inside the same text which describes how you may copy/modify it.
+Could this still be a problem?
+
+-- 
+Elias Pschernig
+
+
+
+From rick at linuxmafia.com  Wed Sep 22 20:06:46 2004
+From: rick at linuxmafia.com (Rick Moen)
+Date: Wed, 22 Sep 2004 13:06:46 -0700
+Subject: For Approval: Allegro giftware license
+In-Reply-To: <1095882113.27926.5.camel@allefant>
+References: <1095854602.1344.32.camel@allefant> <44152530-0CB2-11D9-9F27-000393CDCA50@apple.com> <1095882113.27926.5.camel@allefant>
+Message-ID: <20040922200646.GP22041@linuxmafia.com>
+
+Quoting Elias Pschernig (elias at users.sf.net):
+
+> Well, the intention was to make it easy to e.g. include the library in a
+> open source linux distribution, since there's always the question "are
+> you sure your license is open source compatible?" In particular, when we
+> asked freenode to add it as a project, they said we should first approve
+> the license by OSI.
+
+This highlights yet another reason why you should consider using one of
+the standard licences:  When a codebase uses a one-off licence, even an
+extremely permissive one like yours, cautious people will not be not be
+able to assess its fitness for their needs and compatiblity matrix
+without studying it carefully.  Whereas, if for example you use the
+standard MIT/X licence, those characteristics are already known, and
+newcomers need see only the licence's name to know them implicitly.
+
+Inventing one-off licences without a really, really compelling reason is
+pretty much always a bad idea, and hurts your project over the long
+term by needlessly putting it in a ghetto of your devising.
+
+A lot of people who've already spent personal time writing such a
+licence seem inclined to ignore that consideration.  That's unfortunate.
+
+
+
+From elias at users.sf.net  Fri Sep 24 22:39:04 2004
+From: elias at users.sf.net (Elias Pschernig)
+Date: Sat, 25 Sep 2004 00:39:04 +0200
+Subject: For Approval: Allegro giftware license
+In-Reply-To: <20040922183501.GI22041@linuxmafia.com>
+References: <1095854602.1344.32.camel@allefant> <20040922183501.GI22041@linuxmafia.com>
+Message-ID: <1096065544.1304.10.camel@allefant>
+
+On Wed, 2004-09-22 at 11:35 -0700, Rick Moen wrote:
+> Quoting Elias Pschernig (elias at users.sf.net):
+> 
+> > Anyway, the license is here:
+> > 
+> > http://alleg.sourceforge.net/license.html
+> 
+> Elias, speaking for myself, I see nothing within megaparsecs of
+> OSD-infringement about this simple permissive licence.
+> 
+> However (separately from your question), why not a standard permissive
+> licence such as the MIT/X one
+> (http://www.opensource.org/licenses/mit-license.php)?  I'm sure it'll
+> seem a bit colder and less folksy, but among other things you really
+> should consider the merits of the MIT licence (and similar ones such as
+> revised BSD) protecting you from warranty claims.
+> 
+
+I'd like to use the MIT license now instead of approving the current
+one.. but after proposing the license change a user of the library
+raised a problem: The MIT license says that you must retain the license
+notice in re-distributions and even substantial portions of the code.
+This isn't required by our current license - we don't care if someone
+releases all of it under a new name and makes that GPL for example.
+
+Would MIT allow that? The above user suggested to change the license to
+"public domain" instead.. but I can't find that in the list of OSI
+licenses.
+
+Any hints?
+
+-- 
+Elias Pschernig
+
+
+
+From rousskov at measurement-factory.com  Fri Sep 24 22:52:45 2004
+From: rousskov at measurement-factory.com (Alex Rousskov)
+Date: Fri, 24 Sep 2004 16:52:45 -0600 (MDT)
+Subject: For Approval: Allegro giftware license
+In-Reply-To: <1096065544.1304.10.camel@allefant>
+References: <1095854602.1344.32.camel@allefant>  <20040922183501.GI22041@linuxmafia.com> <1096065544.1304.10.camel@allefant>
+Message-ID: <20040924164530.G39163@measurement-factory.com>
+
+On Sat, 25 Sep 2004, Elias Pschernig wrote:
+
+> The above user suggested to change the license to "public domain" 
+> instead.. but I can't find that in the list of OSI licenses.
+
+You can get a lawyer-friendly Public Domain dedication from the 
+Creative Commons web site: http://creativecommons.org/. They can even 
+register your dedication at no charge. A Public Domain dedication is 
+not on the OSI licenses list because it is not a license.
+
+As with virtually any legal document, enforceability of Public Domain 
+dedications have been questioned. You can search this list archive for 
+a few examples.  When they add a few hours to the day, I might submit 
+a "Public Domain or whatever license you want" dedication/license 
+combo for OSI approval.
+
+HTH,
+
+Alex.
+
+
+From rick at linuxmafia.com  Fri Sep 24 23:07:10 2004
+From: rick at linuxmafia.com (Rick Moen)
+Date: Fri, 24 Sep 2004 16:07:10 -0700
+Subject: For Approval: Allegro giftware license
+In-Reply-To: <1096065544.1304.10.camel@allefant>
+References: <1095854602.1344.32.camel@allefant> <20040922183501.GI22041@linuxmafia.com> <1096065544.1304.10.camel@allefant>
+Message-ID: <20040924230710.GZ22041@linuxmafia.com>
+
+Quoting Elias Pschernig (elias at users.sf.net):
+
+> I'd like to use the MIT license now instead of approving the current
+> one.. but after proposing the license change a user of the library
+> raised a problem: The MIT license says that you must retain the license
+> notice in re-distributions and even substantial portions of the code.
+
+Is that a problem?  It's only about 20 lines of comment code (or
+accompanying README).  
+
+If you want, you can certainly write a shorter and even more permissive
+licence, e.g.,  
+ Copyright (c) 2004 George Tirebiter Do as thou wilt, shall be the whole of this licence.
+
+It wouldn't be OSI-approved, but it'd be quite obviously open source.
+(It'd leave you open to possible warranty claims, but at least it's
+short.)
+
+> This isn't required by our current license - we don't care if someone
+> releases all of it under a new name and makes that GPL for example.
+
+Er, only the copyright holder can, by law, determine the terms of usage
+for a given instance of his codebase.  Other people lack title.
+
+> Would MIT allow that?
+
+No, nor can any other licence.
+
+> The above user suggested to change the license to
+> "public domain" instead.. but I can't find that in the list of OSI
+> licenses.
+
+This matter badly needs to be FAQed.  (That is not a complaint.)
+
+1.  Ever since adoption of the Berne Convention, copyright arises
+automatically at the moment of creation of any creative work in the 
+statutorily-covered categories (except in exceptional cases such as
+works created directly by the USA Federal government).  Prior to that,
+omitting copyright notices on distributed copies of the work could cause
+the work to go directly to the public domain.  Not any more.  I would 
+speculate that memory of the old regime, in part, is causing lingering
+misconceptions about "public domain" works.
+
+2.  Because of that, works without explicit licence indications are
+_not_ (any more) public domain, but rather are proprietary by default,
+since copyright law reserves many important rights (redistribution,
+creation of derivative works) by default to the owner, absent some form
+of permission grant to the contrary.  (This is incidental to my line 
+of reasoning, but I just thought I'd point it out.)
+
+3.  The only way clearly indicated in law for a copyrighted work to
+become public domain -- absent extraordinary judicial steps -- is for
+its term of copyright to expire.
+
+4.  Declarations by copyright holders that they are "contributing to the 
+public domain" some work they own, thus, have an unknown effect.  A
+judge might rule them to have no force, in which case likely the work's 
+default proprietary licensing would apply until expiration.  Or the
+judge might rule that the owner's substantive intent was to grant 
+universal permission to use the work for any purpose.  Moreover, the
+effect might differ in various jurisdictions.
+
+Therefore, most commentators on this mailing list would tell you to
+carefully avoid "changing the licence to public domain".  (NOTE:
+"Public domain" would not be, strictly speaking, a licence, but rather
+an attempt to nullify the copyright ownership interest in question.
+That alone explains why it isn't listed on the "list of OSI licences".)
+
+
+A few other people on this mailing list have strongly if somewhat
+vaguely disputed the point in the past.  Many of them tend to point to
+the Creative Commons "public domain declaration" pages as somehow
+allegedly proving that the notion has legal merit.
+
+By coincidence, my mother-in-law happened to have attended a lecture at
+Stanford by Creative Commons co-founder (and legal scholar) Prof.
+Lawrence Lessig, who expressed pretty much _exactly_ the above
+sentiments about "public domain" works, during (I think) the Q&A period
+at the end.  I wasn't present, or I would have asked him about the
+Creative Commons page, and whether it shouldn't be either removed or
+heavily annotated since he feels (as I do) that "public domain"
+declarations are a doubtful concept.
+
+(The main reason I haven't written to Prof. Lessig directly is his
+adoption of a rather obnoxious "challenge-response" regime for his
+incoming e-mail.  I'm reluctant to jump through annoying hoops just to
+send people e-mail -- and my MTA auto-rejects all possible such
+"challenge" mails, for that reason.)
+
+
+
+
+From jcowan at reutershealth.com  Sat Sep 25 02:34:38 2004
+From: jcowan at reutershealth.com (John Cowan)
+Date: Fri, 24 Sep 2004 22:34:38 -0400
+Subject: For Approval: Allegro giftware license
+In-Reply-To: <1096065544.1304.10.camel@allefant>
+References: <1095854602.1344.32.camel@allefant> <20040922183501.GI22041@linuxmafia.com> <1096065544.1304.10.camel@allefant>
+Message-ID: <20040925023438.GB13521@skunk.reutershealth.com>
+
+Elias Pschernig scripsit:
+
+> I'd like to use the MIT license now instead of approving the current
+> one.. but after proposing the license change a user of the library
+> raised a problem: The MIT license says that you must retain the license
+> notice in re-distributions and even substantial portions of the code.
+> This isn't required by our current license - we don't care if someone
+> releases all of it under a new name and makes that GPL for example.
+
+All that that means is that the *text* of the license must be included.
+It does *not* mean that the text is the current effective license of
+the revised work; it's commonplace to include MIT-licensed works in
+larger works licensed under other licenses.
+
+In any case, the AFL gives the recipient a few more protections, and
+helps to protect you against patent lawsuits.
+
+> Would MIT allow that? The above user suggested to change the license to
+> "public domain" instead.. but I can't find that in the list of OSI
+> licenses.
+
+It's a matter of dispute whether it's even possible to make something
+public domain, at least in the U.S., except by operation of law (that is,
+the passage of time).  Actual public-domain code, like that written by
+U.S. government employees, actually is Open Source, though.
+
+-- 
+You are a child of the universe no less         John Cowan
+than the trees and all other acyclic            http://www.reutershealth.com
+graphs; you have a right to be here.            http://www.ccil.org/~cowan --DeXiderata by Sean McGrath                  jcowan at reutershealth.com
+
+
+From rick at linuxmafia.com  Sat Sep 25 02:54:02 2004
+From: rick at linuxmafia.com (Rick Moen)
+Date: Fri, 24 Sep 2004 19:54:02 -0700
+Subject: For Approval: Allegro giftware license
+In-Reply-To: <20040925023438.GB13521@skunk.reutershealth.com>
+References: <1095854602.1344.32.camel@allefant> <20040922183501.GI22041@linuxmafia.com> <1096065544.1304.10.camel@allefant> <20040925023438.GB13521@skunk.reutershealth.com>
+Message-ID: <20040925025402.GE22041@linuxmafia.com>
+
+Quoting John Cowan (jcowan at reutershealth.com):
+
+[MIT terms:]
+
+> All that that means is that the *text* of the license must be included.
+> It does *not* mean that the text is the current effective license of
+> the revised work; it's commonplace to include MIT-licensed works in
+> larger works licensed under other licenses.
+
+Conceptually, the included work in that case _remains_ MIT-licensed:
+One tends not to notice the license of the included part at that point,
+because it's compatible with just about anything and everything. 
+
+
