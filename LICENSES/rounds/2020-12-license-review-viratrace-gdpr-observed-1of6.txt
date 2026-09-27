@@ -1,0 +1,750 @@
+From kyle at kemitchell.com  Tue Aug 14 18:08:41 2018
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 14 Aug 2018 18:08:41 -0000
+Subject: [License-discuss] GDPR and code authors...
+In-Reply-To: <CAB--ThbPrSjBdqp03ne3Z-R-g0-oJTzjpxcuaZBgCkeH9W=qvQ@mail.gmail.com>
+References: <CAAJ8xWe0QsL=v90Es=FZ33PC-kFRQwrGDhHaSQcLaiCsnNUudg@mail.gmail.com> <0367b0a3-3e2e-9ba4-ef57-ae116577c465@measurement-factory.com> <CAB--ThbPrSjBdqp03ne3Z-R-g0-oJTzjpxcuaZBgCkeH9W=qvQ@mail.gmail.com>
+Message-ID: <20180814180909.GC11507@dev.kemitchell.com>
+
+Gil,
+
+If you haven't already, diff versions 1.0 and 1.1 of the
+Developer Certificate of Origin:
+
+https://developercertificate.org/
+
+It's my understanding national legislation in the UK
+motivated that change, and for a particular kernel
+developer, long before GDPR.  But it's in the same vein, and
+good history to know.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Tue Aug 14 18:57:24 2018
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Tue, 14 Aug 2018 18:57:24 -0000
+Subject: [License-discuss] GDPR and code authors...
+In-Reply-To: <0367b0a3-3e2e-9ba4-ef57-ae116577c465@measurement-factory.com>
+References: <CAAJ8xWe0QsL=v90Es=FZ33PC-kFRQwrGDhHaSQcLaiCsnNUudg@mail.gmail.com> <0367b0a3-3e2e-9ba4-ef57-ae116577c465@measurement-factory.com>
+Message-ID: <20180814185750.GD11507@dev.kemitchell.com>
+
+On 2018-08-14 10:08, Alex Rousskov wrote:
+> On 08/14/2018 06:39 AM, Antoine Thomas wrote:
+>
+> > A famous cartoon about coders and development is joking today about the
+> > right for coders to delete their personal data in a project, because of
+> > GDPR in Europe. For an open source project, it would mean to have to
+> > create an "anonymous" coder to transfer contributions.
+>
+> GDPR rights are no absolute -- there are many reasonable exclusions. In
+> most cases, code contribution metadata would fall under one or more of
+> those exclusions IMHO.
+
+Of potential interest:
+
+https://web.archive.org/web/20180813181231/https://www.npmjs.com/policies/privacy#forgotten
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From antoine.thomas at prestashop.com  Tue Aug 14 12:39:06 2018
+From: antoine.thomas at prestashop.com (Antoine Thomas)
+Date: Tue, 14 Aug 2018 14:39:06 +0200
+Subject: [License-discuss] GDPR and code authors...
+Message-ID: <CAAJ8xWe0QsL=v90Es=FZ33PC-kFRQwrGDhHaSQcLaiCsnNUudg@mail.gmail.com>
+
+Hello,
+
+A famous cartoon about coders and development is joking today about the
+right for coders to delete their personal data in a project, because of
+GDPR in Europe. For an open source project, it would mean to have to create
+an "anonymous" coder to transfer contributions.
+
+Please have a look at this:
+http://www.commitstrip.com/en/2018/08/13/right-to-be-forgotten/
+It's also available in french.
+
+This lead to a few questions: - Is this technically possible with GIT? - What kind of IP and license issues could this generate? For project
+owners ? For users and service companies? - What does it mean for copyright if some of the authors are unknown ?
+
+I hope this will stay a joke, or that this is not a serious threat.
+
+Best regards,
+
+Antoine
+
+
+
+
+[image: PrestaShop]
+<https://www.prestashop.com/?utm_source=signature&utm_medium=e-mail&utm_campaign=emails-signatures>
+
+Antoine Thomas aka ttoine
+
+Developer Advocate
+
+t: +33 (0)6 63 13 79 06
+
+antoine.thomas at prestashop.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20180814/71d2c056/attachment.html>
+
+From rousskov at measurement-factory.com  Tue Aug 14 16:18:48 2018
+From: rousskov at measurement-factory.com (Alex Rousskov)
+Date: Tue, 14 Aug 2018 10:18:48 -0600
+Subject: [License-discuss] GDPR and code authors...
+In-Reply-To: <CAAJ8xWe0QsL=v90Es=FZ33PC-kFRQwrGDhHaSQcLaiCsnNUudg@mail.gmail.com>
+References: <CAAJ8xWe0QsL=v90Es=FZ33PC-kFRQwrGDhHaSQcLaiCsnNUudg@mail.gmail.com>
+Message-ID: <0367b0a3-3e2e-9ba4-ef57-ae116577c465@measurement-factory.com>
+
+On 08/14/2018 06:39 AM, Antoine Thomas wrote:
+
+> A famous cartoon about coders and development is joking today about the
+> right for coders to delete their personal data in a project, because of
+> GDPR in Europe. For an open source project, it would mean to have to
+> create an "anonymous" coder to transfer contributions.
+
+GDPR rights are no absolute -- there are many reasonable exclusions. In
+most cases, code contribution metadata would fall under one or more of
+those exclusions IMHO.
+
+And most code submissions (rather than their metadata) are not covered
+by GDPR at all. Thus, there should be virtually no GDPR-driven copyright
+transfers.
+
+
+> This lead to a few questions:
+> ?- Is this technically possible with GIT?
+
+Technically, everything is possible with git ;-). However, altering
+project history creates serious technical and non-technical problems,
+especially for projects with many distributed independent developers and
+for automation. This is one of the reasons I hope that GDPR exclusions
+would apply.
+
+
+> ?- What kind of IP and license issues could this generate? For project
+> owners ? For users and service companies?
+
+Virtually none, I hope. GDPR should not affect code ownership in most
+cases, and virtually all exceptional situations where serious problems
+could arise should fall under GDPR exceptions.
+
+
+> I hope this will stay a joke, or that this is not a serious threat.
+
+One of the older open source projects I work on does get a constant
+trickle of removal requests. So far, they were mostly about mailing list
+postings rather than code submissions. I am sure there will be
+code-related metadata removal requests as well, so this is not just a
+joke. However, I hope that GDPR exceptions provide a reasonable defense
+against unreasonable demands to rewrite DVCS (e.g., git) history.
+
+IANAL. TINLA.
+
+Alex.
+
+
+From gyehuda at oath.com  Tue Aug 14 16:53:02 2018
+From: gyehuda at oath.com (Gil Yehuda)
+Date: Tue, 14 Aug 2018 09:53:02 -0700
+Subject: [License-discuss] GDPR and code authors...
+In-Reply-To: <0367b0a3-3e2e-9ba4-ef57-ae116577c465@measurement-factory.com>
+References: <CAAJ8xWe0QsL=v90Es=FZ33PC-kFRQwrGDhHaSQcLaiCsnNUudg@mail.gmail.com> <0367b0a3-3e2e-9ba4-ef57-ae116577c465@measurement-factory.com>
+Message-ID: <CAB--ThbPrSjBdqp03ne3Z-R-g0-oJTzjpxcuaZBgCkeH9W=qvQ@mail.gmail.com>
+
+Along these lines, I recently heard a discussion about the relationship
+between GDPR and contributor license agreements (CLAs). If someone signs a
+CLA with a foundation or other entity to contribute code, could they
+request their "data" back (the signed CLA, their github ID, etc.)? Do CLA
+signature websites need to have user consent terms, etc?
+
+Does anyone here have a pointer to a clear statement about how GDPR impacts
+the little things we do in the world of open source -- like CLA management?
+
+Thanks.
+*Gil Yehuda: *I help with externally facing technology at Oath.
+
+
+On Tue, Aug 14, 2018 at 9:19 AM Alex Rousskov <
+rousskov at measurement-factory.com> wrote:
+
+> On 08/14/2018 06:39 AM, Antoine Thomas wrote:
+>
+> > A famous cartoon about coders and development is joking today about the
+> > right for coders to delete their personal data in a project, because of
+> > GDPR in Europe. For an open source project, it would mean to have to
+> > create an "anonymous" coder to transfer contributions.
+>
+> GDPR rights are no absolute -- there are many reasonable exclusions. In
+> most cases, code contribution metadata would fall under one or more of
+> those exclusions IMHO.
+>
+> And most code submissions (rather than their metadata) are not covered
+> by GDPR at all. Thus, there should be virtually no GDPR-driven copyright
+> transfers.
+>
+>
+> > This lead to a few questions:
+> >  - Is this technically possible with GIT?
+>
+> Technically, everything is possible with git ;-). However, altering
+> project history creates serious technical and non-technical problems,
+> especially for projects with many distributed independent developers and
+> for automation. This is one of the reasons I hope that GDPR exclusions
+> would apply.
+>
+>
+> >  - What kind of IP and license issues could this generate? For project
+> > owners ? For users and service companies?
+>
+> Virtually none, I hope. GDPR should not affect code ownership in most
+> cases, and virtually all exceptional situations where serious problems
+> could arise should fall under GDPR exceptions.
+>
+>
+> > I hope this will stay a joke, or that this is not a serious threat.
+>
+> One of the older open source projects I work on does get a constant
+> trickle of removal requests. So far, they were mostly about mailing list
+> postings rather than code submissions. I am sure there will be
+> code-related metadata removal requests as well, so this is not just a
+> joke. However, I hope that GDPR exceptions provide a reasonable defense
+> against unreasonable demands to rewrite DVCS (e.g., git) history.
+>
+> IANAL. TINLA.
+>
+> Alex.
+>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20180814/7a3ef482/attachment.html>
+
+From tg at mirbsd.de  Tue Aug 14 18:05:03 2018
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Tue, 14 Aug 2018 18:05:03 +0000 (UTC)
+Subject: [License-discuss] GDPR and code authors...
+In-Reply-To: <CAAJ8xWe0QsL=v90Es=FZ33PC-kFRQwrGDhHaSQcLaiCsnNUudg@mail.gmail.com>
+References: <CAAJ8xWe0QsL=v90Es=FZ33PC-kFRQwrGDhHaSQcLaiCsnNUudg@mail.gmail.com>
+Message-ID: <Pine.BSM.4.64L.1808141758080.123@herc.mirbsd.org>
+
+Antoine Thomas dixit:
+
+>A famous cartoon about coders and development is joking today about the
+>right for coders to delete their personal data in a project, because of
+
+IIRC the GDPR/DSGVO has an exception for things the author published
+themselves. An OSS contribution can be considered publication, AIUI.
+There?s also? ?berechtigtes Interesse?, don?t know the English term,
+which *might* help. IANAL, TINLA.
+
+The problem is that the GDPR/DSGVO is incomplete and the part with
+the definitions? estimates publication date has been moved to 2019,
+as far as I was informed by a friend who knows more about this than
+I do. No lawyer will give you an answer that?s less conservative
+than to power off your servers, stop the projects, etc. right now,
+because too many things are as of now unclear.
+
+> - What kind of IP and license issues could this generate? For project
+>owners ? For users and service companies?
+> - What does it mean for copyright if some of the authors are unknown ?
+
+Copyright is separate. The code itself is published under an OSS
+licence (by the project, with the project or the contributor as
+licensor), so nothing can spill over to that.
+
+Metadata? I was told (see above for caveats) you can argue that
+keeping the code author?s (contributor?s) metadata in the commit
+logs is necessary for their and your ?berechtigtes Interesse?,
+because you might need to prove, under copyright law, who?s a
+(co?)author of the code.
+
+Even if not, I highly doubt a requirement to rewrite already-
+published history (be it git or a regular VCS like CVS) will
+fall out of it, unless the presiding judge has never seen a
+computer, or something.
+
+But yes, I also am waiting for some questions regarding code
+contributions and mailing lists to be clarified. Current advice
+from a(n otherwise rather careful) DSB is to *not* write text
+about everything you do, but to leave it open (both in wording
+and in amount), so your own words cannot be used against you
+later when things will have gotten clarified.
+
+bye,
+//mirabilos
+-- 
+I believe no one can invent an algorithm. One just happens to hit upon it
+when God enlightens him. Or only God invents algorithms, we merely copy them.
+If you don't believe in God, just consider God as Nature if you won't deny
+existence.		-- Coywolf Qi Hunt
+
+
+From cowan at ccil.org  Tue Aug 14 21:07:57 2018
+From: cowan at ccil.org (John Cowan)
+Date: Tue, 14 Aug 2018 17:07:57 -0400
+Subject: [License-discuss] GDPR and code authors...
+In-Reply-To: <Pine.BSM.4.64L.1808141758080.123@herc.mirbsd.org>
+References: <CAAJ8xWe0QsL=v90Es=FZ33PC-kFRQwrGDhHaSQcLaiCsnNUudg@mail.gmail.com> <Pine.BSM.4.64L.1808141758080.123@herc.mirbsd.org>
+Message-ID: <CAD2gp_RKytyJ2cgLLmU1qA83ZfjGOq2DAxd_UdWuRMLPX75WkA@mail.gmail.com>
+
+On Tue, Aug 14, 2018 at 2:05 PM, Thorsten Glaser <tg at mirbsd.de> wrote:
+
+There?s also? ?berechtigtes Interesse?, don?t know the English term,
+> which *might* help. IANAL, TINLA.
+>
+
+"Legitimate interest."  See <
+https://www.gdpreu.org/the-regulation/key-concepts/legitimate-interest/>.
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org "You need a change: try Canada"  "You need a change: try China" --fortune cookies opened by a couple that I know
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20180814/58920213/attachment-0001.html>
+
+From bruce.perens at opensource.org  Wed Aug 15 23:28:16 2018
+From: bruce.perens at opensource.org (Bruce Perens)
+Date: Wed, 15 Aug 2018 16:28:16 -0700
+Subject: [License-discuss] GDPR and code authors...
+In-Reply-To: <CAD2gp_RKytyJ2cgLLmU1qA83ZfjGOq2DAxd_UdWuRMLPX75WkA@mail.gmail.com>
+References: <CAAJ8xWe0QsL=v90Es=FZ33PC-kFRQwrGDhHaSQcLaiCsnNUudg@mail.gmail.com> <Pine.BSM.4.64L.1808141758080.123@herc.mirbsd.org> <CAD2gp_RKytyJ2cgLLmU1qA83ZfjGOq2DAxd_UdWuRMLPX75WkA@mail.gmail.com>
+Message-ID: <CAGaT-eBXQQigakD31MeBxnk1LA22Jh6kEKoNB9TH5_EK6eKv9Q@mail.gmail.com>
+
+You must be able to preserve information about the copyright holder who
+granted you rights over their work, and the terms under which they made the
+grant (the contributor license agreement they signed or the license they
+applied to the work) for your own legal protection. This is indeed a
+"legitimate interest".
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20180815/3a7378ca/attachment.html>
+
+From lrosen at rosenlaw.com  Thu Aug  1 16:50:52 2019
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Thu, 1 Aug 2019 09:50:52 -0700
+Subject: [License-discuss] New GDPR, California Privacy Penalties Expected
+Message-ID: <02d201d54889$48e8bf70$daba3e50$@rosenlaw.com>
+
+FYI: The California Consumer Privacy Act ("CCPA") will go into effect on
+January 1, 2020.
+
+/Larry
+
+This email is licensed under  <https://creativecommons.org/licenses/by/4.0/>
+CC-BY-4.0. Please copy freely.  
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190801/f8ced9f5/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: image001.png
+Type: image/png
+Size: 1393 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190801/f8ced9f5/attachment.png>
+
+From lrosen at rosenlaw.com  Mon Feb 17 02:58:25 2020
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Sun, 16 Feb 2020 18:58:25 -0800
+Subject: [License-discuss] GDPR/CCPA and CAL
+Message-ID: <022301d5e53e$216cf720$6446e560$@rosenlaw.com>
+
+I would appreciate a more complete answer to Brian's question. GDPR and CCPA
+deal with "personal information" under statutory authority in various
+jurisdictions. Neither relies on copyright law to control access to or use
+of personal information. So is CAL relying only on contractual law stated in
+the license agreement to provide restrictions on the use or distribution of
+such data? Where is the constitutional or statutory authority to control
+data used by a copyrighted or patented work of software? Is this in
+principle like the attempt of software licenses to control the uses of APIs?
+Both may be an overreach. Strong wishes and heartfelt goals may not be
+sufficient authority to do something with intellectual "property," if
+property it actually is short of trade secrets or personal information.
+ 
+
+This reveals how little I understand about this topic and about CAL.
+ 
+
+/Larry
+ 
+
+From: License-review <license-review-bounces at lists.opensource.org> On Behalf
+Of VanL
+Sent: Thursday, February 13, 2020 12:03 PM
+To: License submissions for OSI review <license-review at lists.opensource.org>
+Subject: Re: [License-review] For approval: The Cryptographic Autonomy
+License (Beta 4)
+ 
+
+Hi Brian,
+ 
+
+On Thu, Feb 13, 2020 at 1:56 PM Brian Behlendorf <brian at behlendorf.com
+<mailto:brian at behlendorf.com> > wrote:
+
+
+Has anyone considered the PII and GDPR/CCPA/etc implications of the CAL? 
+Could there be scenarios where the CAL requires behavior that the GDPR 
+prevents?
+ 
+
+The CAL was written with particular care to be compatible with the GDPR and
+CCPA, and carefully use similar language. In fact, the first version had a
+interpretive aid specifying that complying with specific paragraphs of the
+GDPR would also result in a compliant delivery of user data under the CAL.
+That paragraph was removed due to misunderstandings about its effects, but
+it is still true.
+ 
+
+Thanks,
+Van
+ 
+ 
+ 
+ 
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20200216/efa4c608/attachment.html>
+
+From btilly at gmail.com  Tue Feb 18 20:04:03 2020
+From: btilly at gmail.com (Ben Tilly)
+Date: Tue, 18 Feb 2020 12:04:03 -0800
+Subject: [License-discuss] GDPR/CCPA and CAL
+In-Reply-To: <022301d5e53e$216cf720$6446e560$@rosenlaw.com>
+References: <022301d5e53e$216cf720$6446e560$@rosenlaw.com>
+Message-ID: <CANoac9VKW3r3N9zZU=ObVawKEcneE5So3tHg57N9Bvy8+2-XfQ@mail.gmail.com>
+
+I have a similar question.
+
+The Constitution gives regulation of interstate commerce to Congress, not
+the states.  Suppose that I am a Delaware company that does business in
+California but is headquartered in New Jersey.  If I sell personal data to
+a New York company where some of the IP addresses and cookies are
+associated with Californians, what gives California authority to regulate
+that commercial transaction?
+
+I am not a lawyer, but this sure feels like overreach.
+
+On Sun, Feb 16, 2020 at 6:59 PM Lawrence Rosen <lrosen at rosenlaw.com> wrote:
+
+> I would appreciate a more complete answer to Brian?s question. GDPR and
+> CCPA deal with ?personal information? under statutory authority in various
+> jurisdictions. Neither relies on copyright law to control access to or use
+> of personal information. So is CAL relying only on contractual law stated
+> in the license agreement to provide restrictions on the use or distribution
+> of such data? Where is the constitutional or statutory authority to control
+> *data* used by a copyrighted or patented work of software? Is this in
+> principle like the attempt of software licenses to control the uses of
+> APIs? Both may be an overreach. Strong wishes and heartfelt goals may not
+> be sufficient authority to do something with intellectual ?property,? if
+> property it actually is short of trade secrets or personal information.
+>
+>
+>
+> This reveals how little I understand about this topic and about CAL.
+>
+>
+>
+> /Larry
+>
+>
+>
+> *From:* License-review <license-review-bounces at lists.opensource.org> *On
+> Behalf Of *VanL
+> *Sent:* Thursday, February 13, 2020 12:03 PM
+> *To:* License submissions for OSI review <
+> license-review at lists.opensource.org>
+> *Subject:* Re: [License-review] For approval: The Cryptographic Autonomy
+> License (Beta 4)
+>
+>
+>
+> Hi Brian,
+>
+>
+>
+> On Thu, Feb 13, 2020 at 1:56 PM Brian Behlendorf <brian at behlendorf.com>
+> wrote:
+>
+>
+> Has anyone considered the PII and GDPR/CCPA/etc implications of the CAL?
+> Could there be scenarios where the CAL requires behavior that the GDPR
+> prevents?
+>
+>
+>
+> The CAL was written with particular care to be compatible with the GDPR
+> and CCPA, and carefully use similar language. In fact, the first version
+> had a interpretive aid specifying that complying with specific paragraphs
+> of the GDPR would also result in a compliant delivery of user data under
+> the CAL. That paragraph was removed due to misunderstandings about its
+> effects, but it is still true.
+>
+>
+>
+> Thanks,
+> Van
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20200218/978266aa/attachment.html>
+
+From wayne at viratrace.us  Mon Nov 30 22:14:04 2020
+From: wayne at viratrace.us (Wayne Thornton)
+Date: Mon, 30 Nov 2020 15:14:04 -0700
+Subject: [License-review] Approval Request - ViraTrace Public Source License 1.0
+Message-ID: <1761b38511b.ea4b6887232365.2424304861618741903@viratrace.us>
+
+Attached is the Plaintext copy of the proposed ViraTrace Public Source License (v 1.0).?
+
+
+
+
+Rationale: ViraTrace is an independent software development company with proprietary and open source code which may be used commercially by the company. No other license fits our business model closely enough to be of benefit.?
+
+
+
+Distinguish: This license is very similar in context to the APSL (v 1.0).?
+
+
+
+Legal Review: NONE
+
+
+
+Proliferation Category: Non-Reusable License
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20201130/38d4aa89/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: VPSL v 1.rtf
+Type: application/octet-stream
+Size: 20575 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20201130/38d4aa89/attachment.rtf>
+
+From pamela.chestek at opensource.org  Thu Dec 10 01:56:25 2020
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Wed, 9 Dec 2020 20:56:25 -0500
+Subject: [License-review] Approval Request - ViraTrace Public Source License 1.0
+In-Reply-To: <1761b38511b.ea4b6887232365.2424304861618741903@viratrace.us>
+References: <1761b38511b.ea4b6887232365.2424304861618741903@viratrace.us>
+Message-ID: <2539a9f8-0c2c-b306-1383-21877bcf8ec5@opensource.org>
+
+Hi Wayne,
+
+Under "Rationale," can you explain what about this license is suited for 
+your business model when other existing licenses aren't? What does it 
+accomplish that no other license does?
+
+Can you tell us how it differs from the APSL?
+
+Why is the license category "non-reusable"? That's not a category we are 
+inclined to use for a new license. One of the value of the licenses is 
+that they are reusable, so it would be helpful to understand why your 
+license isn't designed for others to use yet is covers a situation that 
+no other license covers.
+
+Thanks,
+
+Pamela Chestek
+Chair, License Committee
+Open Source Initiative
+
+
+On 11/30/2020 5:14 PM, Wayne Thornton wrote:
+> Attached is the Plaintext copy of the proposed ViraTrace Public Source 
+> License (v 1.0).
+>
+>
+> Rationale: ViraTrace is an independent software development company 
+> with proprietary and open source code which may be used commercially 
+> by the company. No other license fits our business model closely 
+> enough to be of benefit.
+>
+> Distinguish: This license is very similar in context to the APSL (v 1.0).
+>
+> Legal Review: NONE
+>
+> Proliferation Category: Non-Reusable License
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20201209/ca07cf27/attachment-0001.html>
+
+From mccoy at lexpan.law  Thu Dec 10 02:05:20 2020
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Wed, 9 Dec 2020 18:05:20 -0800
+Subject: [License-review] Approval Request - ViraTrace Public Source License 1.0
+In-Reply-To: <2539a9f8-0c2c-b306-1383-21877bcf8ec5@opensource.org>
+References: <1761b38511b.ea4b6887232365.2424304861618741903@viratrace.us> <2539a9f8-0c2c-b306-1383-21877bcf8ec5@opensource.org>
+Message-ID: <040a01d6ce98$ea79f3e0$bf6ddba0$@lexpan.law>
+
+I?m interested in the statement on legal review: ?NONE?
+
+I don?t think this is required, but generally recommended. Do you intend at any point to have legal review?
+ 
+
+FWIW, this license appears to be based substantially on the FedTax Public Source License: https://dev.taxcloud.net/ftpsl/ (which, AFAIK, has never been reviewed by OSI).
+ 
+
+From: License-review <license-review-bounces at lists.opensource.org> On Behalf Of Pamela Chestek
+Sent: Wednesday, December 9, 2020 5:56 PM
+To: license-review at lists.opensource.org; wayne at viratrace.us
+Subject: Re: [License-review] Approval Request - ViraTrace Public Source License 1.0
+ 
+
+Hi Wayne,
+
+Under "Rationale," can you explain what about this license is suited for your business model when other existing licenses aren't? What does it accomplish that no other license does?
+
+Can you tell us how it differs from the APSL?
+
+Why is the license category "non-reusable"? That's not a category we are inclined to use for a new license. One of the value of the licenses is that they are reusable, so it would be helpful to understand why your license isn't designed for others to use yet is covers a situation that no other license covers.
+
+Thanks,
+
+Pamela Chestek
+Chair, License Committee
+Open Source Initiative
+
+
+
+On 11/30/2020 5:14 PM, Wayne Thornton wrote:
+
+Attached is the Plaintext copy of the proposed ViraTrace Public Source License (v 1.0). 
+ 
+ 
+
+Rationale: ViraTrace is an independent software development company with proprietary and open source code which may be used commercially by the company. No other license fits our business model closely enough to be of benefit. 
+ 
+
+Distinguish: This license is very similar in context to the APSL (v 1.0). 
+ 
+
+Legal Review: NONE
+ 
+
+Proliferation Category: Non-Reusable License
+
+
+
+
+
+
+_______________________________________________
+The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address. 
+License-review mailing list
+License-review at lists.opensource.org <mailto:License-review at lists.opensource.org> 
+http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20201209/7c20d806/attachment.html>
+
+From kevin+osi at km6g.us  Thu Dec 10 02:19:47 2020
+From: kevin+osi at km6g.us (Kevin P. Fleming)
+Date: Wed, 9 Dec 2020 21:19:47 -0500
+Subject: [License-review] Approval Request - ViraTrace Public Source License 1.0
+In-Reply-To: <040a01d6ce98$ea79f3e0$bf6ddba0$@lexpan.law>
+References: <1761b38511b.ea4b6887232365.2424304861618741903@viratrace.us> <2539a9f8-0c2c-b306-1383-21877bcf8ec5@opensource.org> <040a01d6ce98$ea79f3e0$bf6ddba0$@lexpan.law>
+Message-ID: <CAE+UdopnoYq1vmWS75VOzSLTw+Ld2XjA_KyaoE5YY5D2ZxTtXA@mail.gmail.com>
+
+My non-lawyer reading is that this is the AGPL 'on steroids'; if you
+use the code 'to provide a service' of any form, to anyone, and you
+have modified the code, you must make the modified code available.
+
+On Wed, Dec 9, 2020 at 9:06 PM McCoy Smith <mccoy at lexpan.law> wrote:
+>
+> I?m interested in the statement on legal review: ?NONE?
+>
+> I don?t think this is required, but generally recommended. Do you intend at any point to have legal review?
+>
+>
+>
+> FWIW, this license appears to be based substantially on the FedTax Public Source License: https://dev.taxcloud.net/ftpsl/ (which, AFAIK, has never been reviewed by OSI).
+>
+>
+>
+> From: License-review <license-review-bounces at lists.opensource.org> On Behalf Of Pamela Chestek
+> Sent: Wednesday, December 9, 2020 5:56 PM
+> To: license-review at lists.opensource.org; wayne at viratrace.us
+> Subject: Re: [License-review] Approval Request - ViraTrace Public Source License 1.0
+>
+>
+>
+> Hi Wayne,
+>
+> Under "Rationale," can you explain what about this license is suited for your business model when other existing licenses aren't? What does it accomplish that no other license does?
+>
+> Can you tell us how it differs from the APSL?
+>
+> Why is the license category "non-reusable"? That's not a category we are inclined to use for a new license. One of the value of the licenses is that they are reusable, so it would be helpful to understand why your license isn't designed for others to use yet is covers a situation that no other license covers.
+>
+> Thanks,
+>
+> Pamela Chestek
+> Chair, License Committee
+> Open Source Initiative
+>
+> On 11/30/2020 5:14 PM, Wayne Thornton wrote:
+>
+> Attached is the Plaintext copy of the proposed ViraTrace Public Source License (v 1.0).
+>
+>
+>
+>
+>
+> Rationale: ViraTrace is an independent software development company with proprietary and open source code which may be used commercially by the company. No other license fits our business model closely enough to be of benefit.
+>
+>
+>
+> Distinguish: This license is very similar in context to the APSL (v 1.0).
+>
+>
+>
+> Legal Review: NONE
+>
+>
+>
+> Proliferation Category: Non-Reusable License
