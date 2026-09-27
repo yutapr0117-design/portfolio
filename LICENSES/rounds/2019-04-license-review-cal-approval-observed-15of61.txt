@@ -1,0 +1,750 @@
+> >> This statement applies perfectly to the CAL. If I were to update the
+> GPL preamble for the CAL, I would only say:
+> >>
+> >> "The CAL is designed to make sure that you have the freedom to use and
+> distribute copies of free software (and charge others for services you
+> provide or source code if you wish), that you receive your data and the
+> source code from those who provide the software to you, or can get those
+> things if you want them, that you can change the software or use pieces of
+> it in new free programs, that you can run the software to process your data
+> in the context of your choice, and that you know you can do these things.
+> >>
+> >> To protect your rights, we need to prevent others from denying you
+> these rights or asking you to surrender the rights. Therefore, you have
+> certain responsibilities if you provide the software to others, or if you
+> modify it: responsibilities to respect the freedom and the autonomy of
+> others."
+> >>
+> >> The CAL doesn't restrict freedom zero. It just curtails the economic
+> incentive for others to act in ways that restrict other's freedoms by also
+> requiring them to also turn over those things that grant them exclusivity
+> and thus, power.
+> >
+> > _______________________________________________
+> > License-review mailing list
+> > License-review at lists.opensource.org
+> >
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+>
+> --
+> henrik.ingo at avoinelama.fi
+> +358-40-5697354        skype: henrik.ingo            irc: hingo
+> www.openlife.cc
+>
+> My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190513/2cd420d3/attachment-0001.html>
+
+From henrik.ingo at avoinelama.fi  Mon May 13 17:21:30 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Mon, 13 May 2019 20:21:30 +0300
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOvVJ4oODDRoeCo_-Dn876vRVYkKAZNfjED_AyOHODGL_w@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOv_rXFVg1XAeKdKJyUMOOZKFpvavFKJML=07UrcNVN-oA@mail.gmail.com> <CAKHykesRV+qcgMaxf7Z=B2L0U39zd0806QsHGednfRbbj6WPtA@mail.gmail.com> <CAK2MWOvVJ4oODDRoeCo_-Dn876vRVYkKAZNfjED_AyOHODGL_w@mail.gmail.com>
+Message-ID: <CAKHykeuJynLYd7YGk-bi+goZ0TsmjmYU6uUqYxbR6pPb1tST7Q@mail.gmail.com>
+
+#9 would work for GCC (although it doesn't seem to be your intended
+use case) but not for OpenOffice.
+
+I think OSD works quite well as a constitution and should remain
+short. I'm quite comfortable with OSI justifying decisions with there
+existing an obvious community consensus. (And other reasons, not even
+requiring consensus. Including the lack of consensus!)
+
+henrik
+
+On Mon, May 13, 2019 at 7:58 PM Bruce Perens <bruce at perens.com> wrote:
+>
+> The closest clause to what you are thinking of is #9. But this brings up a problem. There are an infinite variety of somewhat pernicious terms, but an OSD which restricted all of them would be unbounded in size. Similarly, if we turned the OSD around and made it state the allowed terms, rather than the prohibited ones; as I might have done 21 years ago, had I experience I had not yet acquired; simply encompassing the already-approved licenses might result in something quite large.
+>
+> Think of some of the oddball terms that were not necessarily in the interest of the community, but would be difficult to disallow simply from the OSD text, especially with an assumption that #5 and #6 should not be broadly applied. For example, the Bitkeeper license term which required that you connect to their log server and log your activities. The NASA license term that applies contractual restrictions to the public domain. The Open Hardware licenses that attempt to apply copyright to hardware designs still considered the exclusive domain of patent, and thus help to drive a creeping expansion of copyright that would be turned against us.
+>
+>     Thanks
+>
+>     Bruce
+>
+>
+>
+> On Mon, May 13, 2019 at 9:33 AM Henrik Ingo <henrik.ingo at avoinelama.fi> wrote:
+>>
+>> I have been sympathetic with Van's attempt - clearly genuine - at
+>> providing user freedom also for user data. Because of this I was
+>> previously silent on the question whether this conforms with the OSD.
+>> On its face it doesn't (more on that below), but it's clearly a good
+>> faith proposal, so warrants at least a fair discussion.
+>>
+>> Previously on license-review the License Zero license proposed a
+>> requirement to publish anything *created with* the licensed software.
+>> (https://licensezero.com/licenses/reciprocal ?5) I didn't read all of
+>> that thread, but I understand this was at least one reason it was
+>> rejected. Josh Berkus' position is that this doesn't fail any clause
+>> in the current OSD, but is clearly against long standing consensus and
+>> should be added as a new OSD clause.
+>> (https://twitter.com/fuzzychef/status/1122204342113558528) OTOH a
+>> broad interpretation of OSD6 could apply. In either case there clearly
+>> is precedent in the community for discussing this: Software created
+>> with GCC is not required to be GPL licensed, and I wouldn't expect to
+>> have to publish every text I wrote with OpenOffice. Maybe the only
+>> reason OSD doesn't have such a clause is that it was too obvious and
+>> non-contentious, even back in 1998?
+>>
+>> While the OSD remains unamended, I think the License Zero outcome can
+>> be used as precedent. I wanted to add it to the discussion, in
+>> addition to Bruce's invocation of FSF Freedom 0.
+>>
+>> Within the background set by both of those then... It still seems to
+>> me that CAL has scoped this requirement in a way that is rather well
+>> justified:
+>>
+>> "?User Data? means any data that is either a) an input to, or b) an
+>> output from, the Workor a Modified Work, in which a third party other
+>> than the Licensee has a Lawful Interestin the data."
+>>
+>> - It is not unreasonable that a user has the right to access data that
+>> is theirs. (e.g. a photo that I own copyright in) This doesn't require
+>> the user to give away rights to the data (as License Zero did).
+>> - The 21st century problem addressed here is that we still want to
+>> protect user rights. Historically the operator WAS the user, and
+>> therefore this was an easier question to solve. In SaaS this is not
+>> the case. We must now decide whether software freedom gives the
+>> operator rights against the user, or vice versa.
+>> - Since the CAL limits User Data to something that is an input or
+>> output of the system, it's also not unreasonable burden to expect the
+>> software to provide an easy to use option to exercise this right.
+>> (E.g. access logs incidentally created by a user don't apply.)
+>>
+>> When I look at this, it seem Van has a quite strong argument that on
+>> this part, the CAL is a net positive contribution to software freedom.
+>> BUT, to arrive at this conclusion, we have to interpret "Freedom to
+>> run the program for any purpose" as the operator here is running the
+>> program *on behalf* of the user. The whole idea of network copyleft is
+>> IMO justified by this same view though! I fully get that not everyone
+>> is ready to agree with me there.
+>>
+>> While it seems Van has succeeded in scoping CAL in a way that is quite
+>> defensible, I also agree with Bruce that this whole topic is a can of
+>> worms. Also, if I were to imagine a future OSD clause that rejects
+>> licenses that restrict data/input/output of the software, maybe (in my
+>> imagination) proposed by Josh Berkus, it may be hard to craft a
+>> sentence that would still allow for what CAL is carving out.
+>>
+>> So it seems after so many words, I still don't have a strong opinion
+>> one way or another.
+>>
+>> One more thought though: Maybe one reason we currently see so many
+>> proprietary SaaS platforms hoarding user data, is that the software
+>> world is dominated by permissive open source and proprietary software.
+>> (And in a SaaS context, anything from GPL down are permissive
+>> licenses!) Maybe if there were more network copyleft licenses
+>> available, and most importantly, projects used the ones that are
+>> available, and finally, users preferred such SaaS services, then maybe
+>> this would also create a dynamic where federated services empowering
+>> users was a norm, and Van wouldn't need to propose a license forcing
+>> such a fix? Maybe the User Data sections of CAL are a knee jerk
+>> reaction to a symptom that would go away but just focusing on the more
+>> fundamental proplem: From SaaS to IaaS, most of today's services are
+>> just proprietary, period.
+>>
+>>
+>> > "Obviously I don't have the Freedom to run the program without hardware"
+>>
+>> I look forward to reviewing your "Free Iphones for Everyone License" :-)
+>>
+>> The key here really is that the CAL responsibilities are limited to
+>> data that user already has an ownership interest in. Anything beyond
+>> that would clearly be unacceptable and not deserving a discussion.
+>>
+>> > Obviously I have many other problems with the license.
+>>
+>> As do I, for some small value of "many".
+>>
+>> henrik
+>>
+>> On Fri, May 10, 2019 at 7:38 AM Bruce Perens via License-review
+>> <license-review at lists.opensource.org> wrote:
+>> >
+>> > Van,
+>> >
+>> > It seems to me that you have re-defined the Free Software Foundation's version of Software Freedom, arbitrarily, to encompass data rights. It doesn't seem that this should be your task alone, or that of your customer. Perhaps the Free Software Foundation would want to be involved :-)
+>> >
+>> > The problem with the way you have done it is that it provides your newly-defined Data Freedom to people at the expense of someone else, who loses the Freedom to run the program as they like under the FSF version of Freedom to which the OSI signed on.
+>> >
+>> > I could play this game too, by extending the definition of Freedom in other arbitrary ways. Perhaps by adding hardware rights. And then when anyone asked me why having to provide others with hardware wasn't removing their freedom, I would say  "Obviously I don't have the Freedom to run the program without hardware".
+>> >
+>> > The point here is that it's an arbitrary re-definition. Each different arbitrary extension of Freedom probably would be at someone else's expense, and reducing their Freedom under the classical FSF definition of Freedom.
+>> >
+>> >     Thanks
+>> >
+>> >     Bruce
+>> >
+>> > On Thu, May 9, 2019 at 8:44 PM VanL <van.lindberg at gmail.com> wrote:
+>> >>
+>> >> The CAL and the GPL preserve freedom in exactly the same way. You are not being precise enough in your reading. The CAL does not prevent anyone from running the program as they wish. There are no use restrictions in the CAL, except those that, in the words of the GPL:
+>> >>
+>> >> "To protect your rights, we need to prevent others from denying you these rights or asking you to surrender the rights. Therefore, you have certain responsibilities if you distribute copies of the software, or if you modify it: responsibilities to respect the freedom of others."
+>> >>
+>> >> This statement applies perfectly to the CAL. If I were to update the GPL preamble for the CAL, I would only say:
+>> >>
+>> >> "The CAL is designed to make sure that you have the freedom to use and distribute copies of free software (and charge others for services you provide or source code if you wish), that you receive your data and the source code from those who provide the software to you, or can get those things if you want them, that you can change the software or use pieces of it in new free programs, that you can run the software to process your data in the context of your choice, and that you know you can do these things.
+>> >>
+>> >> To protect your rights, we need to prevent others from denying you these rights or asking you to surrender the rights. Therefore, you have certain responsibilities if you provide the software to others, or if you modify it: responsibilities to respect the freedom and the autonomy of others."
+>> >>
+>> >> The CAL doesn't restrict freedom zero. It just curtails the economic incentive for others to act in ways that restrict other's freedoms by also requiring them to also turn over those things that grant them exclusivity and thus, power.
+>> >
+>> > _______________________________________________
+>> > License-review mailing list
+>> > License-review at lists.opensource.org
+>> > http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>>
+>>
+>> --
+>> henrik.ingo at avoinelama.fi
+>> +358-40-5697354        skype: henrik.ingo            irc: hingo
+>> www.openlife.cc
+>>
+>> My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+
+
+From rfontana at redhat.com  Mon May 13 17:39:53 2019
+From: rfontana at redhat.com (Richard Fontana)
+Date: Mon, 13 May 2019 13:39:53 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAKHykesRV+qcgMaxf7Z=B2L0U39zd0806QsHGednfRbbj6WPtA@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOv_rXFVg1XAeKdKJyUMOOZKFpvavFKJML=07UrcNVN-oA@mail.gmail.com> <CAKHykesRV+qcgMaxf7Z=B2L0U39zd0806QsHGednfRbbj6WPtA@mail.gmail.com>
+Message-ID: <CAC1cPGwbiGZD9tAvORTFroBhsRkcXi1nHkOG-awi+gHji_UjoA@mail.gmail.com>
+
+On Mon, May 13, 2019 at 12:34 PM Henrik Ingo <henrik.ingo at avoinelama.fi> wrote:
+
+> Previously on license-review the License Zero license proposed a
+> requirement to publish anything *created with* the licensed software.
+> (https://licensezero.com/licenses/reciprocal ?5) I didn't read all of
+> that thread, but I understand this was at least one reason it was
+> rejected.
+
+License Zero was not actually rejected. I know there is a
+currently-popular viewpoint that hostile reception to a license on
+license-review, resulting ultimately in withdrawal from the process,
+is tantamount to OSI rejecting a license, but I don't agree.
+
+That said:
+
+> While the OSD remains unamended, I think the License Zero outcome can
+> be used as precedent. I wanted to add it to the discussion, in
+> addition to Bruce's invocation of FSF Freedom 0.
+
+I do think that significant past "hostile receptions" have been and
+should be treated as having some significance ("precedential" may not
+be the right concept).
+
+Richard
+
+
+From bruce at perens.com  Mon May 13 17:50:26 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 13 May 2019 10:50:26 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAKHykeuJynLYd7YGk-bi+goZ0TsmjmYU6uUqYxbR6pPb1tST7Q@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOv_rXFVg1XAeKdKJyUMOOZKFpvavFKJML=07UrcNVN-oA@mail.gmail.com> <CAKHykesRV+qcgMaxf7Z=B2L0U39zd0806QsHGednfRbbj6WPtA@mail.gmail.com> <CAK2MWOvVJ4oODDRoeCo_-Dn876vRVYkKAZNfjED_AyOHODGL_w@mail.gmail.com> <CAKHykeuJynLYd7YGk-bi+goZ0TsmjmYU6uUqYxbR6pPb1tST7Q@mail.gmail.com>
+Message-ID: <CAK2MWOv4RtEDph0DeeUgH-zzqGGNwp--M0cizM-y2KAJVB2H8w@mail.gmail.com>
+
+On Mon, May 13, 2019 at 10:21 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+wrote:
+
+> I think OSD works quite well as a constitution and should remain
+> short. I'm quite comfortable with OSI justifying decisions with there
+> existing an obvious community consensus.
+>
+
+Oh, I agree, Henrik. I am just making the point to illustrate that a
+mechanical interpretation of the OSD, and improving the OSD to the point
+that a mechanical interpretation actually works, is not a realistic
+proposal.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190513/a8dcc039/attachment.html>
+
+From rfontana at redhat.com  Mon May 13 18:26:12 2019
+From: rfontana at redhat.com (Richard Fontana)
+Date: Mon, 13 May 2019 14:26:12 -0400
+Subject: [License-discuss] The Scope of the OSD (Was For Approval: The Cryptographic Autonomy License)
+In-Reply-To: <d4bf6771-0b0a-e29e-4c5e-f4e9964a20cf@chesteklegal.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOsUnn-9=pZ7N8gW2Dp0K=ajY2od47EjWCcrE6AL6ChgVw@mail.gmail.com> <CAFQvZEP59JMy1-whZNngojxQom4oq8eqN-1BrzqY1Log8Y5Y3g@mail.gmail.com> <CAK2MWOt+cYwn3dEY1q0L0TnfVjSy95WSYbtOj-u9AU=DC2RW2w@mail.gmail.com> <CAFjZtRdQoLNKuz2mxPWBW7OVmHoXKbs9TUM0-XzzsLcYV0DGCw@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B10818F@fmsmsx117.amr.corp.intel.com> <d4bf6771-0b0a-e29e-4c5e-f4e9964a20cf@chesteklegal.com>
+Message-ID: <CAC1cPGxc1O0J+CDiyEgTmtbgnFO0s7-7KOUaJ9ogZ3H+3LZp3w@mail.gmail.com>
+
+On Mon, May 13, 2019 at 10:39 AM Pamela Chestek <pamela at chesteklegal.com> wrote:
+>
+> Moved to license-discuss, since it's not specifically about CAL.
+>
+> On 5/11/2019 1:48 PM, Smith, McCoy wrote:
+
+> I do think it ought to be made clear, though, whether Freedom Zero is part of the OSD. I think we?ve had some debate in the past as to whether it was (I think it is inherently so, but I don?t see that the OSD makes that explicitly clear).  If it is not, I don?t see how that?s a valid reason to reject any license.
+
+I see this as being addressed by the new process which "ensure[s] that
+a license will be approved only if it conforms to the Open Source
+Definition and provides software freedom."
+
+Based on some discussion I've seen on Twitter, some seem to assume
+that invoking "software freedom" necessarily means specifically
+deferring to the FSF's interpretation of its own free software
+definition. I think the FSF's pronouncements on the meaning of free
+software are the most persuasive resource that exists on what software
+freedom means, but I would expect over time the OSI might take
+positions on the meaning of software freedom that the FSF has not yet
+reached, or might disagree with the FSF, much as Debian at least
+implicitly sometimes reaches different conclusions from the the FSF as
+to what is free software.
+
+That said, I can think of few concepts as core to software freedom as
+what the FSF calls Freedom Zero.
+
+> McCoy,
+>
+> A hard rule of "if you can't name an OSD the license doesn't meet it must be approved" doesn't leave room for stuff that we all clearly agree doesn't belong, what I think of as the Section 101 problem for open source licenses.* What if it's just outside the concept? Say I write a license that is a grant of all patent and copyright rights but as the only condition of the license you have to come to my house and feed my goats on Fridays. I don't see any definition that doesn't comply with, so it should be approved as an open source license?
+>
+> You can contort OSD 5 and 6 to justify it, "you're excluding people who don't live near you!/are allergic to goats!/are doing more socially beneficial things on Fridays!" As Richard Fontana said earlier in the CAL thread, you can rationalize OSD 5 & 6 to claim discrimination for any limitation. GPL discriminates against those who won't add their name to a modified file (Section 2(a)) because they are being harassed for working in free software. So I am skeptical of any theory under OSD 5 & 6 because you can always find someone who hypothetically is being discriminated against.
+
+I feel OSD 5/6 are useful in focusing attention on what is arguably
+wrong with a license from an open source/software freedom perspective
+(not necessarily the discrimination as such, but the nature of the
+non-equally-applied restriction).
+
+Richard
+
+
+From luis at lu.is  Mon May 13 19:30:26 2019
+From: luis at lu.is (Luis Villa)
+Date: Mon, 13 May 2019 12:30:26 -0700
+Subject: [License-discuss] history of l-r/org relationship [was Re: [License-review] For Approval: The Cryptographic Autonomy License]
+In-Reply-To: <CAC1cPGwbiGZD9tAvORTFroBhsRkcXi1nHkOG-awi+gHji_UjoA@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOv_rXFVg1XAeKdKJyUMOOZKFpvavFKJML=07UrcNVN-oA@mail.gmail.com> <CAKHykesRV+qcgMaxf7Z=B2L0U39zd0806QsHGednfRbbj6WPtA@mail.gmail.com> <CAC1cPGwbiGZD9tAvORTFroBhsRkcXi1nHkOG-awi+gHji_UjoA@mail.gmail.com>
+Message-ID: <CAFjZtRezCgHM2nDfshkiZ5e4kgJEH1gPDHMr=2t0TvyigaHDiw@mail.gmail.com>
+
+[Trying to keep non-CAL stuff off license-review, though that feels like a
+futile battle]
+
+On Mon, May 13, 2019 at 10:40 AM Richard Fontana <rfontana at redhat.com>
+wrote:
+
+> On Mon, May 13, 2019 at 12:34 PM Henrik Ingo <henrik.ingo at avoinelama.fi>
+> wrote:
+>
+> > Previously on license-review the License Zero license proposed a
+> > requirement to publish anything *created with* the licensed software.
+> > (https://licensezero.com/licenses/reciprocal ?5) I didn't read all of
+> > that thread, but I understand this was at least one reason it was
+> > rejected.
+>
+> License Zero was not actually rejected. I know there is a
+> currently-popular viewpoint that hostile reception to a license on
+> license-review, resulting ultimately in withdrawal from the process,
+> is tantamount to OSI rejecting a license, but I don't agree.
+>
+
+Point of history: during my term on the board as chair of the license
+committee, starting 1/3rd of the lifetime of the org ago, it was understood
+that the "committee" I chaired *was* license-review, though as with any
+board committee, the board of course retained final decision-making power.
+This relationship was serious enough that at one point we briefly discussed
+how we could formalize the mailing list as a board committee, consistent
+with our charter. As I recall, the conclusion was that, because of the
+changing membership of this list, this was impractical, but that as a
+practical matter it was still considered to be a board committee whose
+actions should be reported to the board.
+
+Past that, license-review has been a formal documented part of the review
+process 2007
+<https://web.archive.org/web/20071218014621/http://opensource.org:80/approval>
+(which I believe is around when it was created as a separate list?), and
+license-discuss since at least 2002
+<https://web.archive.org/web/20021004090302/http://opensource.org/docs/certification_mark.php>
+(when the documentation said "community review is an important part of the
+approval process"). Yes, the board has always had final formal approval
+(you can see that in both the 2002 and 2007 docs), but it's also been
+widely understood that this was typically a formality.
+
+Finally, the tight relationship between list and board is why I felt, when
+I was the board's license chair, I had an obligation to revise the list CoC
+in 2013, moderate the list actively, and repeatedly discuss conformance to
+process on-list. The board formally approved the CoC and process revisions
+I put in place at that time. If the list had been something at arms-length,
+I would not have bothered, but you know what they say about your website
+<https://anildash.com/2011/07/20/if_your_websites_full_of_assholes_its_your_fault-2/>
+.
+
+As the docs and our practice suggest, the board has always formally been
+the final decision maker, never the list. But I'm not sure that the
+distinction matters at all - for submitters, and for the broader open
+source community, being screened and rejected by a list that is (1) a
+documented, formal part of the process (2) hosted on opensource.org and (3)
+has a lot of present and former board members on it is, well, "tantamount
+to OSI rejecting a license".
+
+Perhaps there is some important nuance there I'm missing, though.
+
+Luis
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190513/2277b304/attachment.html>
+
+From rfontana at redhat.com  Mon May 13 20:11:00 2019
+From: rfontana at redhat.com (Richard Fontana)
+Date: Mon, 13 May 2019 16:11:00 -0400
+Subject: [License-discuss] history of l-r/org relationship [was Re: [License-review] For Approval: The Cryptographic Autonomy License]
+In-Reply-To: <CAFjZtRezCgHM2nDfshkiZ5e4kgJEH1gPDHMr=2t0TvyigaHDiw@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOv_rXFVg1XAeKdKJyUMOOZKFpvavFKJML=07UrcNVN-oA@mail.gmail.com> <CAKHykesRV+qcgMaxf7Z=B2L0U39zd0806QsHGednfRbbj6WPtA@mail.gmail.com> <CAC1cPGwbiGZD9tAvORTFroBhsRkcXi1nHkOG-awi+gHji_UjoA@mail.gmail.com> <CAFjZtRezCgHM2nDfshkiZ5e4kgJEH1gPDHMr=2t0TvyigaHDiw@mail.gmail.com>
+Message-ID: <CAC1cPGzjL2+Sodq6ESwc0i0gAkX=iviNChxmoCX0gJiNYcQqrg@mail.gmail.com>
+
+On Mon, May 13, 2019 at 3:31 PM Luis Villa <luis at lu.is> wrote:
+
+> As the docs and our practice suggest, the board has always formally been the final decision maker, never the list. But I'm not sure that the distinction matters at all - for submitters, and for the broader open source community, being screened and rejected by a list that is (1) a documented, formal part of the process (2) hosted on opensource.org and (3) has a lot of present and former board members on it is, well, "tantamount to OSI rejecting a license".
+>
+> Perhaps there is some important nuance there I'm missing, though.
+
+It's my feeling that engagement (by non-submitters) on license-review
+has declined over time (and over a longer period of time if you
+consider the license approval portion of license-discuss pre-~2007 or
+whenever l-r was created). I wouldn't know how to attempt to measure
+that (maybe look at subscriptions and unsubscriptions, and try to
+account for variations in the numbers of licenses submitted or under
+active consideration during a given time period). But the more
+engagement goes down, the harder it is to seriously contend that l-r
+is equivalent to a board committee, and indeed the harder it is to
+contend that the OSI is just acting in accordance with community
+consensus as evidenced by the list. If I'm right about engagement, it
+seems consistent with the views you've repeatedly expressed about the
+problems with having a mailing list-centered process for reviewing
+licenses.
+
+One possible nuance is that even if the "committee" reaction to a
+given license is negative, causing a license submitter not having the
+persistence of someone like Jim Wright to withdraw, the reason for
+that reaction may itself be unclear or not clearly justified, and
+there won't be anything approaching the clear disposition that a vote
+to reject a license will have.
+
+Richard
+
+
+
+
+
+
+
+>
+> Luis
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+
+
+
+-- 
+Richard Fontana
+Senior Commercial Counsel
+Red Hat, Inc.
+
+
+From van.lindberg at gmail.com  Mon May 13 21:02:51 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Mon, 13 May 2019 16:02:51 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAKHykesRV+qcgMaxf7Z=B2L0U39zd0806QsHGednfRbbj6WPtA@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOv_rXFVg1XAeKdKJyUMOOZKFpvavFKJML=07UrcNVN-oA@mail.gmail.com> <CAKHykesRV+qcgMaxf7Z=B2L0U39zd0806QsHGednfRbbj6WPtA@mail.gmail.com>
+Message-ID: <CAFQvZENsA5brxmDhVGTFbRPgcq2wtfCM9wcMkeykzLVrWCzNew@mail.gmail.com>
+
+Hello all,
+
+I wanted to stop for a minute and provide a checkpoint: a good faith
+summary of what I see as the arguments and counterarguments about the CAL.
+Please correct me if I am misrepresenting anyone's arguments.
+
+As far as I see it, there are two substantive debates occurring over the
+CAL: 1) Can data portability can be guaranteed as part of software
+freedom/under the OSD? 2) Is the legal mechanism of using "public performance" effective,
+compliant with the OSD, and good policy?
+
+These issues are fundamental. Regardless of how well (or how poorly) the
+CAL is drafted, these cannot be resolved through more precise wording or
+better examples. Other issues of wording, or clarifications about the role
+of patent rights have been raised, but those seem to have been resolved
+through explanation or changes to the wording. There is also a third line
+of argument that the CAL is too complicated, and that complexity *per se*
+should be disqualifying. With regard to this third argument regarding
+complexity, it seems subordinate to the substantive debates above. (For an
+example, see Perens, ; also in rebuttal, Villa,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004143.html
+)
+
+The substantive arguments above generally only apply to the "operator" use
+case, where the software is being run by a first user (the "operator") to
+provide services to one or more second users (the "end users"). Note that
+the linked messages below are *representative*, not comprehensive.
+
+*1. Arguments about data portability:* The CAL conditions the exercise of
+copyright and patent permissions on providing data portability for end
+users of the software in the operator context. This is for "User Data" as
+defined in the CAL, which is scoped to data that is input to or output from
+the software in which a user as a preexisting interest.
+
+- Argument: The data portability provisions violate freedom zero. (Perens,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004121.html
+)
+- Response: Data portability is in line with traditional notions of
+software freedom (Lindberg,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004123.html),
+see also "CAL is a net positive contribution to software freedom" (Ingo,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004148.html)
+
+
+- Argument: It is a use restriction (prohibited under OSD 6) to deny
+operators the ability to withhold user data from end users because it
+applies more particularly in the operator case. (Perens,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004081.html,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004036.html
+)
+- Response: Operators are free to use the software in any way they see fit
+- there is nothing in the CAL that denies them the ability to use the
+software in any particular way. They just have to take the additional
+action of providing data portability along with source.
+
+- Argument: This encumbers data that is outside the scope of the license.
+(Perens,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004032.html
+)
+- Response: The CAL does not create any rights that did not previously
+exist. It does not change the license for any work or data. (Lindberg,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004033.html
+)
+
+- Argument: Data is not copyrightable, so not reachable by the license.
+(Rosen,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004137.html
+)
+- Response: The copyrightability or not of data is not relevant to the
+license; the CAL does not create new ownership interests or licensing
+rights. (
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004139.html
+)
+
+- Argument (Ingo vs Ingo!): CAL may fail OSD #6, in similar fashion to
+license zero... "I also agree with Bruce that this whole topic is a can of
+worms"
+- Response: Having "Freedom to run the program for any purpose" includes
+both operator and end user as people "running" the program - this is the
+idea behind all network copyleft.... CAL is scoped "in a way that is quite
+defensible"
+(Both are Ingo, same message:
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004148.html
+)
+
+- Argument: Data portability is an ethical restriction which doesn't belong
+in a license. (Cowan,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004140.html
+)
+- Response: The CAL limits itself to permissions for the work and does not
+invoke ethical duties (
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004108.html
+)
+
+*2. Arguments about the legal mechanism:* Open source software licenses
+rely on intellectual property law to enforce their rules concerning the
+licensing of derived works. Most existing FOSS licenses have used the
+ability to distribute the work and to create derivative works (both under
+copyright) as the traditional "hook" for enforcement. Some alternatives do
+exist: the third party beneficiary language in NASA 1.3, and the "network
+interaction" with a modified work in AGPL.The CAL also uses distribution
+and the ability to create derivative works as hooks for copyleft
+enforcement. The CAL also uses "public performance" (either as included in
+the copyright statute or as defined in the included definition), as well as
+patent rights (specifically "use", "sale," and "offer for sale").
+
+Most of the arguments have to do with the use of public performance:
+- Argument: This is legally untested and not necessary (e.g. Ingo,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004046.html
+)
+- Response: The only other license applicable in an operator context is the
+AGPL, which uses legally novel terms, is gameable relative to enforcement,
+and ambiguous in a corporate context (Lindberg,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004047.html,
+see also Fleming,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004049.html
+)
+
+- Argument: Public performance is US-centric and may not be applicable in
+the international context. (Chestek,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004054.html
+)
+- Response: WIPO "Communication to the public" appears analogous (Atkinson,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004055.html,
+see also Ingo,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004060.html),
+and "Public performance is also a defined term" (Lindberg,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004108.html
+)
+
+- Argument: Public performance extends copyright ("is copyright
+maximalist") and so should be rejected as a matter of policy. (example:
+Henrik Ingo,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004059.html,
+see also Peterson,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004092.html).
+
+- Response: "Public performance is recognized under copyright" and it is
+better to use existing legal terms (Lindberg,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004095.html,
+see also Rosen,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004137.html,
+but Rosen mentions that it may be limited in application)
+
+- Argument: The CAL uses Oracle v. Google-based logic regarding API
+reimplementation, this is premature (Fontana,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004062.html)
+
+- Response: These rights already exist, this is not an extension (Lindberg,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004108.html,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004089.html).
+Also, the structure of the CAL does not make it dependent upon a particular
+outcome in OvG (Chestek,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004067.html
+)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190513/12eb9848/attachment-0001.html>
+
+From van.lindberg at gmail.com  Mon May 13 21:20:01 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Mon, 13 May 2019 16:20:01 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAKHykesRV+qcgMaxf7Z=B2L0U39zd0806QsHGednfRbbj6WPtA@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOv_rXFVg1XAeKdKJyUMOOZKFpvavFKJML=07UrcNVN-oA@mail.gmail.com> <CAKHykesRV+qcgMaxf7Z=B2L0U39zd0806QsHGednfRbbj6WPtA@mail.gmail.com>
+Message-ID: <CAFQvZEPrBCOxaX=9+yG_EBfSp5FM4=h_u2ekxZ-iijUPDt3RQw@mail.gmail.com>
+
+Hi Ingo,
+
+Thanks for the... ambiguous review? I think that you have put your finger
+on a number of key points. You may or may not agree with what I am
+proposing - and at this point I am not sure - but it seems from here that
+you generally understand it.
+
+One quick clarification, though:
+
+On Mon, May 13, 2019 at 11:33 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+wrote:
+
+> Previously on license-review the License Zero license proposed a
+> requirement to publish anything *created with* the licensed software....
+> Software created with GCC is not required to be GPL licensed, and I
+> wouldn't expect to
+> have to publish every text I wrote with OpenOffice.
+
+
+This is not analogous to the CAL. The CAL doesn't impose a need to publish
+"every text you wrote with OpenOffice" or all the "software created with
+GCC." Instead it just makes it so that someone couldn't keep your notes or
+your software from you.
+
+As you later point out:
+
+> Within the background set by both of those then... It still seems to
+> me that CAL has scoped this requirement in a way that is rather well
+> justified:
+>
+> "?User Data? means any data that is either a) an input to, or b) an
+> output from, the Workor a Modified Work, in which a third party other
+> than the Licensee has a Lawful Interestin the data."
+>
+> - It is not unreasonable that a user has the right to access data that
+> is theirs. (e.g. a photo that I own copyright in) This doesn't require
+> the user to give away rights to the data (as License Zero did).
+>
+
+Correct. Just to emphasize this a little further, imagine a network-hosted
+compiler. Would you expect to be able to get the binaries that resulted
+from the compilation of your source code? Of course you would. But under
+all current licenses, the freedom to get your own binaries from the
+operator and run them in another context - to "run your program for any
+purpose" - is not an explicitly protected part of software freedom. Under
+the CAL it would be.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190513/541bf24e/attachment.html>
+
+From pamela at chesteklegal.com  Mon May 13 21:29:15 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Mon, 13 May 2019 17:29:15 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZENsA5brxmDhVGTFbRPgcq2wtfCM9wcMkeykzLVrWCzNew@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOv_rXFVg1XAeKdKJyUMOOZKFpvavFKJML=07UrcNVN-oA@mail.gmail.com> <CAKHykesRV+qcgMaxf7Z=B2L0U39zd0806QsHGednfRbbj6WPtA@mail.gmail.com> <CAFQvZENsA5brxmDhVGTFbRPgcq2wtfCM9wcMkeykzLVrWCzNew@mail.gmail.com>
+Message-ID: <ce4d034b-ff49-8579-0a64-f5c0d78d3ad4@chesteklegal.com>
+
+I would add that the special provision for GDPR in Section 7.1.1 is
+facially non-compliant with OSD 5/6 because it singles out one class of
+licensees, those who have to comply with a specific privacy law, the
+GDPR, and gives them different treatment than those who have to comply
+with other privacy laws.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+On 5/13/2019 5:02 PM, VanL wrote:
+> Hello all,
+>
+> I wanted to stop for a minute and provide a checkpoint: a good faith
+> summary of what I see as the arguments and counterarguments about the
+> CAL. Please correct me if I am misrepresenting anyone's arguments.
+>
+> As far as I see it, there are two substantive debates occurring over
+> the CAL:
+> ??? 1) Can data portability can be guaranteed as part of software
+> freedom/under the OSD?
+> ??? 2) Is the legal mechanism of using "public performance" effective,
+> compliant with the OSD, and good policy?
+>
+> These issues are fundamental. Regardless of how well (or how poorly)
+> the CAL is drafted, these cannot be resolved through more precise
+> wording or better examples. Other issues of wording, or clarifications
+> about the role of patent rights have been raised, but those seem to
+> have been resolved through explanation or changes to the wording.
+> There is also a third line of argument that the CAL is too
+> complicated, and that complexity /per se/ should be disqualifying.
+> With regard to this third argument regarding complexity, it seems
+> subordinate to the substantive debates above. (For an example, see
+> Perens, ; also in rebuttal, Villa,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004143.html)
+>
+> The substantive arguments above generally only apply to the "operator"
+> use case, where the software is being run by a first user (the
+> "operator") to provide services to one or more second users (the "end
+> users"). Note that the linked messages below are *representative*, not
+> comprehensive.
+>
+> *1. Arguments about data portability:* The CAL conditions the exercise
+> of copyright and patent permissions on providing data portability for
+> end users of the software in the operator context. This is for "User

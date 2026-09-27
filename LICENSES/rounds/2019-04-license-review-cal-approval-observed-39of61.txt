@@ -1,0 +1,750 @@
+Holochain. They could have a corner of the Holochain that they entirely
+own, and locked-in users, which is against the stated purpose of the
+Holochain.
+
+So, how could the Holochain creators fight this? By asserting their
+patents. Whether the defendant is Open Source or not, they would have to do
+it to protect the Holochain.
+ Thanks
+ Bruce
+-- 
+Bruce Perens - Partner, OSS.Capital.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191206/edee0e70/attachment-0001.html>
+
+From henrik.ingo at avoinelama.fi  Sat Dec  7 00:29:57 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Sat, 7 Dec 2019 02:29:57 +0200
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CADaGzk4v8nLrs8-nY7r+jzkr-EuR83ZXrhio21o-umrztZAygQ@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CADaGzk6Q_DGaqW-gTuUE8CF8ZEu5bfodguy5fBJN6FrZUPO1HQ@mail.gmail.com> <CAFQvZEP85_v9_SverXi3oYmTsMg3xE1WL6s9W5-oMaiWEDv87w@mail.gmail.com> <CADaGzk4v8nLrs8-nY7r+jzkr-EuR83ZXrhio21o-umrztZAygQ@mail.gmail.com>
+Message-ID: <CAKHykevVXZTsngfYb6XXEmUNObZCO-4Ok0Tnd2qm5oO+GCa=yA@mail.gmail.com>
+
+Nigel,
+
+Let's not get carried away here. If a plain text password isn't stored by
+the system, then there is obviously no obligation to produce a copy. This
+would be the case also for any other data not stored by the system.
+
+Henrik
+
+On Fri, 6 Dec 2019, 23:39 Nigel T, <nigel.2048 at gmail.com> wrote:
+
+> Again, where in the license text does it delineate what is required to be
+> meet 4.2?  I can return an encrypted password to the user but the plain
+> text was provided by the user at some point.  I have either not returned
+> all the data given to me by the user or have obfuscated it using a
+> cryptographic means.
+>
+> Bob has preexisting rights to US census data records because it is public
+> information.  Alice has spent time and money cataloging that information so
+> it could be found in a name search.  The service provides linkage from
+> people in his tree to the historical US census data.  What needs to be
+> provided?
+>
+> Answers that states with "as a general rule" or "your example is
+> underspecified" means Alice has to spend lots of effort to make sure that
+> the software complies with 4.2 even if she has made zero changes to that
+> software.
+>
+> In the context of your company that means any would be competitor is at a
+> huge disadvantage in using any of your offerings because at any point it
+> could be determined that they are in non-compliance with 4.2 and only have
+> 60 days to fix it or cease operations.  It doesn't matter at all to you if
+> you are compliant.  You don't need a license.
+>
+> On Fri, Dec 6, 2019 at 10:49 AM VanL <van.lindberg at gmail.com> wrote:
+>
+>> Hi Nigel,
+>>
+>> On Fri, Dec 6, 2019 at 8:52 AM Nigel T <nigel.2048 at gmail.com> wrote:
+>>
+>>> 3.2.a seems to imply to me that there is no patent grant when the work
+>>> is used as part of a combination or modification.
+>>>
+>>
+>> This is known as a combination carveout. Patent claims are covered for
+>> what is provided to you. If you modify the software in some way so that it
+>> infringes a patent *solely because of your modification or combination*,
+>> then your actions are not specifically licensed.
+>>
+>> The rationale is clear: The licensor is only responsible for what they
+>> provide to other people, not those peoples' subsequent actions. Otherwise
+>> someone could include a single line from someone's software ("#include
+>> <stdio.h>") and claim that all the patents owned by that person were
+>> licensed.
+>>
+>>
+>>
+>>> IANAL but this strikes me as a license I wouldn't touch with someone
+>>> else's 10 foot pole.
+>>>
+>>
+>> I would imagine that the CAL would not be for everyone.
+>>
+>>
+>>>
+>>> The new version also does not appear to address the issue that if CAL
+>>> licensed software does not meet the requirements of 4.2 then the burden of
+>>> meeting 4.2 falls on the user even if they had made no changes to the
+>>> software.
+>>>
+>>
+>> The CAL does not mandate a particular software architecture. Presumably,
+>> as with any other copyleft license, anyone wanting to use CAL-licensed
+>> software will consider whether they are willing to comply with the terms.
+>>
+>>
+>>> A strict reading could imply that 4.2 would require that the user of the
+>>> software provide clients with their plain text password.  Does it?  If not,
+>>> why not?
+>>>
+>>
+>> As a *general* rule, this is incorrect. Nothing in the CAL requires a
+>> party to engage in poor software design so as to keep a plaintext password
+>> available, nor does anything in the CAL require or suggest that a licensee
+>> should decrypt the user's password. More broadly, I would hope that the
+>> user's plain text password would not be "available to [the licensee]", but
+>> no one can anticipate all the ways in which people will create software.
+>>
+>>
+>>> The user of the software is the service provider and it strikes me as
+>>> this license is a potential minefield for any user other than the original
+>>> authors.  What does "fully use an independent copy" or "substantially
+>>> identical use of the work" mean in the contexts of the license?
+>>>
+>>
+>> The easiest way to think about this is by analogy to the GPL3's
+>> anti-Tivoization and "complete corresponding source" provisions, If a
+>> particular piece of data is needed for the software to function in the same
+>> way in a self-hosted situation, then it must be provided.
+>>
+>> To guide your thoughts here, think about the "desert island test." There
+>> is a desert island, with two people, Alice and Bob, and helpfully, two
+>> identical computer systems. Alice provides your genealogical service to
+>> Bob, her only customer, on the first computer. After a while, Bob becomes
+>> dissatisfied, and wants to be able to run the software himself.
+>>
+>> Alice must provide to Bob the software itself, together with anything
+>> needed to use all the functions in the software. Alice must also provide
+>> Bob a copy of Bob's information, so that when Bob loads the information
+>> into his new copy of the software on his own computer, it has the
+>> information he expects, and the functionality associated with organizing or
+>> analyzing his information is also available.
+>>
+>> There is one big caveat, though: Alice only needs to turn over
+>> information that Bob has some preexisting right to. If Alice also held her
+>> own information in the software, Alice doesn't need to turn over her own
+>> information to Bob.
+>>
+>>
+>>>
+>>> Take this in the context of something like a genealogy service.  The
+>>> user data includes my account information (data I provided), profile (data
+>>> I provided), my family tree (data I provided)...
+>>>
+>>
+>> Yes, Alice would provide Bob all this information.
+>>
+>>
+>>> ... my DNA information (data generated for me) and potential DNA matches
+>>> (data generated for me) and links to historical data and public records
+>>> (data generated for me).
+>>>
+>>
+>> This example is underspecified, so this part cannot be answered given the
+>> information provided. If this information is solely based on the processing
+>> of Bob's information, then Alice would need to provide it. If this is based
+>> upon other information owned by Alice, then there is no requirement to
+>> provide information owned by Alice.
+>>
+>> Thanks,
+>> Van
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191207/5c335272/attachment.html>
+
+From josh at berkus.org  Sat Dec  7 00:46:28 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Fri, 6 Dec 2019 16:46:28 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAK2MWOsZJi3T0_sK9NTO9HRYAdSweh5MuPZJhu1pF7eqCJ+Kfg@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CAK2MWOvPsD72HfO28BD4+-LF=Vr-=EckbepANVNcOVKHL-V9sQ@mail.gmail.com> <9ddb5548-8412-f67d-d236-a1b005e508a1@berkus.org> <CAK2MWOsZJi3T0_sK9NTO9HRYAdSweh5MuPZJhu1pF7eqCJ+Kfg@mail.gmail.com>
+Message-ID: <dac66bcb-a4c4-10d9-d5c5-ba8e46fe293c@berkus.org>
+
+On 12/6/19 4:29 PM, Bruce Perens wrote:
+
+> So, how could the Holochain creators fight this? By asserting their
+> patents. Whether the defendant is Open Source or not, they would have to
+> do it to protect the Holochain.
+
+OK, I can see your reasoning, but I don't get why this invalidates the
+license?
+
+If anything, we've stated categorically that we cannot enforce "moral"
+behavior through licensing.  Heck, if Holochain is using patents to
+enforce user ownership of data, that seems like moral behavior anyway.
+
+-- 
+Josh Berkus
+
+
+From bruce at perens.com  Sat Dec  7 01:27:45 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 6 Dec 2019 17:27:45 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <dac66bcb-a4c4-10d9-d5c5-ba8e46fe293c@berkus.org>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CAK2MWOvPsD72HfO28BD4+-LF=Vr-=EckbepANVNcOVKHL-V9sQ@mail.gmail.com> <9ddb5548-8412-f67d-d236-a1b005e508a1@berkus.org> <CAK2MWOsZJi3T0_sK9NTO9HRYAdSweh5MuPZJhu1pF7eqCJ+Kfg@mail.gmail.com> <dac66bcb-a4c4-10d9-d5c5-ba8e46fe293c@berkus.org>
+Message-ID: <CAK2MWOsZy-6h8wLbAORB5B2_qDttDnPr41rGX59XmopDaPAozQ@mail.gmail.com>
+
+On Fri, Dec 6, 2019 at 4:46 PM Josh Berkus <josh at berkus.org> wrote:
+
+> If anything, we've stated categorically that we cannot enforce "moral"
+> behavior through licensing.  Heck, if Holochain is using patents to
+> enforce user ownership of data, that seems like moral behavior anyway.
+
+
+Thank you for taking the time to understand the scenario.
+
+Rather than being a moral consideration, it's directly related to our
+mission to protect Open Source and facilitate its development and use
+everywhere. We would create, by our adoption of a license, an area in which
+interoperable software under any of the so-far-approved Open Source
+licenses *can not participate.* If we are to be good stewards of Open
+Source, we should not *constrain* Open Source this way.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191206/b1fcc0b9/attachment-0001.html>
+
+From van.lindberg at gmail.com  Sat Dec  7 02:18:53 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 6 Dec 2019 20:18:53 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAK2MWOsZy-6h8wLbAORB5B2_qDttDnPr41rGX59XmopDaPAozQ@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CAK2MWOvPsD72HfO28BD4+-LF=Vr-=EckbepANVNcOVKHL-V9sQ@mail.gmail.com> <9ddb5548-8412-f67d-d236-a1b005e508a1@berkus.org> <CAK2MWOsZJi3T0_sK9NTO9HRYAdSweh5MuPZJhu1pF7eqCJ+Kfg@mail.gmail.com> <dac66bcb-a4c4-10d9-d5c5-ba8e46fe293c@berkus.org> <CAK2MWOsZy-6h8wLbAORB5B2_qDttDnPr41rGX59XmopDaPAozQ@mail.gmail.com>
+Message-ID: <CAFQvZEO6ZtegufB1-OF5dt5pSJ=_PR9Kb8qqUDmuz03_0_0BPA@mail.gmail.com>
+
+Bruce,
+
+I think people understand your scenario. The problem is that you are not
+arguing about the license. You are arguing about imagined future business
+conduct.
+
+Van
+
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+
+On Fri, Dec 6, 2019, 7:28 PM Bruce Perens via License-review <
+license-review at lists.opensource.org> wrote:
+
+>
+> On Fri, Dec 6, 2019 at 4:46 PM Josh Berkus <josh at berkus.org> wrote:
+>
+>> If anything, we've stated categorically that we cannot enforce "moral"
+>> behavior through licensing.  Heck, if Holochain is using patents to
+>> enforce user ownership of data, that seems like moral behavior anyway.
+>
+>
+> Thank you for taking the time to understand the scenario.
+>
+> Rather than being a moral consideration, it's directly related to our
+> mission to protect Open Source and facilitate its development and use
+> everywhere. We would create, by our adoption of a license, an area in which
+> interoperable software under any of the so-far-approved Open Source
+> licenses *can not participate.* If we are to be good stewards of Open
+> Source, we should not *constrain* Open Source this way.
+>
+>     Thanks
+>
+>     Bruce
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191206/1cf8c50b/attachment.html>
+
+From josh at berkus.org  Sat Dec  7 02:37:53 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Fri, 6 Dec 2019 18:37:53 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAK2MWOsZy-6h8wLbAORB5B2_qDttDnPr41rGX59XmopDaPAozQ@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CAK2MWOvPsD72HfO28BD4+-LF=Vr-=EckbepANVNcOVKHL-V9sQ@mail.gmail.com> <9ddb5548-8412-f67d-d236-a1b005e508a1@berkus.org> <CAK2MWOsZJi3T0_sK9NTO9HRYAdSweh5MuPZJhu1pF7eqCJ+Kfg@mail.gmail.com> <dac66bcb-a4c4-10d9-d5c5-ba8e46fe293c@berkus.org> <CAK2MWOsZy-6h8wLbAORB5B2_qDttDnPr41rGX59XmopDaPAozQ@mail.gmail.com>
+Message-ID: <ddecf9ca-20e3-cd13-62ef-0051412ac507@berkus.org>
+
+On 12/6/19 5:27 PM, Bruce Perens wrote:
+> Rather than being a moral consideration, it's directly related to our
+> mission to protect Open Source and facilitate its development and use
+> everywhere. We would create, by our adoption of a license, an area in
+> which interoperable software under any of the so-far-approved Open
+> Source licenses /can not participate./?If we are to be good stewards of
+> Open Source, we should not /constrain/ Open Source this way.
+
+I just don't see how this is different from, well, any other licenses.
+
+I mean, if share software under the Apache License, and someone builds
+new, different software that incorporates some of my interface code, I
+can assert patent rights against them for the portion of their software
+that wasn't copied from me (assuming it violates one or more patents).
+That allows me to prevent them from creating "interoperable" software
+under a different license.
+
+In the CAL, the other company is copying data and not interface code,
+but how is that different, really?  Copying is copying.
+
+-- 
+Josh Berkus
+
+
+From bruce at perens.com  Sat Dec  7 03:50:47 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 6 Dec 2019 19:50:47 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEO6ZtegufB1-OF5dt5pSJ=_PR9Kb8qqUDmuz03_0_0BPA@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CAK2MWOvPsD72HfO28BD4+-LF=Vr-=EckbepANVNcOVKHL-V9sQ@mail.gmail.com> <9ddb5548-8412-f67d-d236-a1b005e508a1@berkus.org> <CAK2MWOsZJi3T0_sK9NTO9HRYAdSweh5MuPZJhu1pF7eqCJ+Kfg@mail.gmail.com> <dac66bcb-a4c4-10d9-d5c5-ba8e46fe293c@berkus.org> <CAK2MWOsZy-6h8wLbAORB5B2_qDttDnPr41rGX59XmopDaPAozQ@mail.gmail.com> <CAFQvZEO6ZtegufB1-OF5dt5pSJ=_PR9Kb8qqUDmuz03_0_0BPA@mail.gmail.com>
+Message-ID: <CAK2MWOvve3GQmETkSiqFPK=U1s6N31qthT_sk57MRznfREatjw@mail.gmail.com>
+
+On Fri, Dec 6, 2019, 6:19 PM VanL <van.lindberg at gmail.com> wrote:
+
+> You are arguing about imagined future business conduct.
+>
+
+It's valid to argue about questions like "what is the intent of the terms",
+"what are the implications of the terms in practice", "how would
+unfortunate outcomes of the terms play out".
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191206/681cf4db/attachment.html>
+
+From van.lindberg at gmail.com  Sat Dec  7 05:32:34 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 6 Dec 2019 23:32:34 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAK2MWOvve3GQmETkSiqFPK=U1s6N31qthT_sk57MRznfREatjw@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CAK2MWOvPsD72HfO28BD4+-LF=Vr-=EckbepANVNcOVKHL-V9sQ@mail.gmail.com> <9ddb5548-8412-f67d-d236-a1b005e508a1@berkus.org> <CAK2MWOsZJi3T0_sK9NTO9HRYAdSweh5MuPZJhu1pF7eqCJ+Kfg@mail.gmail.com> <dac66bcb-a4c4-10d9-d5c5-ba8e46fe293c@berkus.org> <CAK2MWOsZy-6h8wLbAORB5B2_qDttDnPr41rGX59XmopDaPAozQ@mail.gmail.com> <CAFQvZEO6ZtegufB1-OF5dt5pSJ=_PR9Kb8qqUDmuz03_0_0BPA@mail.gmail.com> <CAK2MWOvve3GQmETkSiqFPK=U1s6N31qthT_sk57MRznfREatjw@mail.gmail.com>
+Message-ID: <CAFQvZEPWe3+h4nTY029OW_sP0Qr4uebc-ELmhC+myiVF6gm1LQ@mail.gmail.com>
+
+But as has been pointed out by several people, the scenario you describe
+could happen with any license.  Thus it is not about the license, it is
+about the situation you are imagining.
+
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+
+On Fri, Dec 6, 2019, 9:51 PM Bruce Perens via License-review <
+license-review at lists.opensource.org> wrote:
+
+> On Fri, Dec 6, 2019, 6:19 PM VanL <van.lindberg at gmail.com> wrote:
+>
+>> You are arguing about imagined future business conduct.
+>>
+>
+> It's valid to argue about questions like "what is the intent of the
+> terms", "what are the implications of the terms in practice", "how would
+> unfortunate outcomes of the terms play out".
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191206/b7b8c81e/attachment.html>
+
+From bruce at perens.com  Sun Dec  8 00:18:08 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 7 Dec 2019 16:18:08 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEPWe3+h4nTY029OW_sP0Qr4uebc-ELmhC+myiVF6gm1LQ@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CAK2MWOvPsD72HfO28BD4+-LF=Vr-=EckbepANVNcOVKHL-V9sQ@mail.gmail.com> <9ddb5548-8412-f67d-d236-a1b005e508a1@berkus.org> <CAK2MWOsZJi3T0_sK9NTO9HRYAdSweh5MuPZJhu1pF7eqCJ+Kfg@mail.gmail.com> <dac66bcb-a4c4-10d9-d5c5-ba8e46fe293c@berkus.org> <CAK2MWOsZy-6h8wLbAORB5B2_qDttDnPr41rGX59XmopDaPAozQ@mail.gmail.com> <CAFQvZEO6ZtegufB1-OF5dt5pSJ=_PR9Kb8qqUDmuz03_0_0BPA@mail.gmail.com> <CAK2MWOvve3GQmETkSiqFPK=U1s6N31qthT_sk57MRznfREatjw@mail.gmail.com> <CAFQvZEPWe3+h4nTY029OW_sP0Qr4uebc-ELmhC+myiVF6gm1LQ@mail.gmail.com>
+Message-ID: <CAK2MWOuQ3KdrgijvRGh5wTF-w2bgbUUti0MFnKGyU-di8nuBRA@mail.gmail.com>
+
+On Fri, Dec 6, 2019, 9:33 PM VanL <van.lindberg at gmail.com> wrote:
+
+> But as has been pointed out by several people, the scenario you describe
+> could happen with any license.
+>
+
+Certainly any party can assert a patent, but as we have observed, Open
+Source projects don't assert patents against each other. I don't know if
+even one instance.
+
+The difference in this case is that a fundamental feature of the  network
+breaks if you allow interoperable software under another Open Source
+license on the network. Because that network node operator is not bound by
+any anti-sequestration terms. So as far as I can tell, you have to assert
+your patents, you can't tolerate having that operator continue.
+
+There's a pretty big difference between could sue, but nobody does it
+because of the damage it would cause, and must sue because the network
+fails and/or the business breaks if you don't.
+
+Now this all might be moot. There was a company called Synform that tried
+to do this years ago, got $20 Million funding and $500k exit. And there's
+at least one today: Storj.io and Tardigrade.io. I am not invested in any of
+these, we don't do blockchain and will not be getting into this market. But
+what this makes me think is that this will end up being another license
+that nobody uses, like the badgeware one which caused tons of dispute and
+ended up with zero community acceptance.
+ Thanks
+ Bruce
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191207/d94ad3a7/attachment.html>
+
+From opensource at lukasatkinson.de  Sun Dec  8 13:06:34 2019
+From: opensource at lukasatkinson.de (Lukas Atkinson)
+Date: Sun, 8 Dec 2019 14:06:34 +0100
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAK2MWOuQ3KdrgijvRGh5wTF-w2bgbUUti0MFnKGyU-di8nuBRA@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CAK2MWOvPsD72HfO28BD4+-LF=Vr-=EckbepANVNcOVKHL-V9sQ@mail.gmail.com> <9ddb5548-8412-f67d-d236-a1b005e508a1@berkus.org> <CAK2MWOsZJi3T0_sK9NTO9HRYAdSweh5MuPZJhu1pF7eqCJ+Kfg@mail.gmail.com> <dac66bcb-a4c4-10d9-d5c5-ba8e46fe293c@berkus.org> <CAK2MWOsZy-6h8wLbAORB5B2_qDttDnPr41rGX59XmopDaPAozQ@mail.gmail.com> <CAFQvZEO6ZtegufB1-OF5dt5pSJ=_PR9Kb8qqUDmuz03_0_0BPA@mail.gmail.com> <CAK2MWOvve3GQmETkSiqFPK=U1s6N31qthT_sk57MRznfREatjw@mail.gmail.com> <CAFQvZEPWe3+h4nTY029OW_sP0Qr4uebc-ELmhC+myiVF6gm1LQ@mail.gmail.com> <CAK2MWOuQ3KdrgijvRGh5wTF-w2bgbUUti0MFnKGyU-di8nuBRA@mail.gmail.com>
+Message-ID: <CAJTYOd1Ln3MRgCNYM-oyN5JnwUCrPfZb40KbrZXkLCMW8x1rnA@mail.gmail.com>
+
+On Sun, 8 Dec 2019 at 01:19, Bruce Perens wrote:
+
+> Certainly any party can assert a patent, but as we have observed, Open
+> Source projects don't assert patents against each other. I don't know if
+> even one instance.
+>
+
+Open source project's don't tend to sue each other in general, so the lack
+of patent litigation is quite unsurprising.
+
+
+> The difference in this case is that a fundamental feature of the  network
+> breaks if you allow interoperable software under another Open Source
+> license on the network. Because that network node operator is not bound by
+> any anti-sequestration terms. So as far as I can tell, you have to assert
+> your patents, you can't tolerate having that operator continue.
+>
+
+I somewhat agree with your analysis, but:
+ - if the design of the Holochain requires patent litigation to work, that's a feature of the Holochain and not of the CAL. - if a pure-CAL software environment were required, the components could surely be written in a manner to refuse interoperability with programs that don't declare themselves as CAL-licensed. IIRC some GNU software already gates some APIs behind similar checks. - in any case, relying on network effects may be sufficient to keep a CAL-licensed reference implementation prominent.
+
+
+[?] But what this makes me think is that this will end up being another
+> license that nobody uses, like the badgeware one which caused tons of
+> dispute and ended up with zero community acceptance.
+>
+
+I am eagerly awaiting OSI approval for the CAL because it does a much
+better job at protecting end user freedoms than any other copyleft license
+I know. The CAL only lacks two wishlist items for me (CC-BY-4.0-style
+upgrade clause, GPLv3-style additional terms mechanism). While I will keep
+using the GPL license suite for compatibility, I expect to start
+dual-licensing future projects under the CAL. Despite its weird name the
+CAL looks very interesting for a standard webapp context, without any
+Blockchains.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191208/65c7c420/attachment.html>
+
+From nigel.2048 at gmail.com  Mon Dec  9 16:27:35 2019
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Mon, 9 Dec 2019 11:27:35 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAKHykevVXZTsngfYb6XXEmUNObZCO-4Ok0Tnd2qm5oO+GCa=yA@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CADaGzk6Q_DGaqW-gTuUE8CF8ZEu5bfodguy5fBJN6FrZUPO1HQ@mail.gmail.com> <CAFQvZEP85_v9_SverXi3oYmTsMg3xE1WL6s9W5-oMaiWEDv87w@mail.gmail.com> <CADaGzk4v8nLrs8-nY7r+jzkr-EuR83ZXrhio21o-umrztZAygQ@mail.gmail.com> <CAKHykevVXZTsngfYb6XXEmUNObZCO-4Ok0Tnd2qm5oO+GCa=yA@mail.gmail.com>
+Message-ID: <B324DC1C-C6A7-4184-B0B0-D7940646E6F7@gmail.com>
+
+Where does it say that there is no obligation?  
+
+Show me in the license text where it implies or states that the plain text password that was provided by the user to the system is not considered user data?
+
+That it?s not stored in plain text on the system is covered under 4.2 where I can?t keep data from the user via encryption.
+
+Sent from my iPhone
+
+> On Dec 6, 2019, at 7:29 PM, Henrik Ingo <henrik.ingo at avoinelama.fi> wrote:
+> 
+> Nigel,
+> 
+> Let's not get carried away here. If a plain text password isn't stored by the system, then there is obviously no obligation to produce a copy. This would be the case also for any other data not stored by the system.
+> 
+> Henrik
+> 
+>> On Fri, 6 Dec 2019, 23:39 Nigel T, <nigel.2048 at gmail.com> wrote:
+>> Again, where in the license text does it delineate what is required to be meet 4.2?  I can return an encrypted password to the user but the plain text was provided by the user at some point.  I have either not returned all the data given to me by the user or have obfuscated it using a cryptographic means.
+>> 
+>> Bob has preexisting rights to US census data records because it is public information.  Alice has spent time and money cataloging that information so it could be found in a name search.  The service provides linkage from people in his tree to the historical US census data.  What needs to be provided?
+>> 
+>> Answers that states with "as a general rule" or "your example is underspecified" means Alice has to spend lots of effort to make sure that the software complies with 4.2 even if she has made zero changes to that software.  
+>> 
+>> In the context of your company that means any would be competitor is at a huge disadvantage in using any of your offerings because at any point it could be determined that they are in non-compliance with 4.2 and only have 60 days to fix it or cease operations.  It doesn't matter at all to you if you are compliant.  You don't need a license. 
+>> 
+>>> On Fri, Dec 6, 2019 at 10:49 AM VanL <van.lindberg at gmail.com> wrote:
+>>> Hi Nigel,
+>>> 
+>>>> On Fri, Dec 6, 2019 at 8:52 AM Nigel T <nigel.2048 at gmail.com> wrote:
+>>>> 3.2.a seems to imply to me that there is no patent grant when the work is used as part of a combination or modification.
+>>> 
+>>> This is known as a combination carveout. Patent claims are covered for what is provided to you. If you modify the software in some way so that it infringes a patent *solely because of your modification or combination*, then your actions are not specifically licensed.
+>>> 
+>>> The rationale is clear: The licensor is only responsible for what they provide to other people, not those peoples' subsequent actions. Otherwise someone could include a single line from someone's software ("#include <stdio.h>") and claim that all the patents owned by that person were licensed.
+>>> 
+>>>  
+>>>> IANAL but this strikes me as a license I wouldn't touch with someone else's 10 foot pole.
+>>> 
+>>> I would imagine that the CAL would not be for everyone.
+>>>  
+>>>> 
+>>>> The new version also does not appear to address the issue that if CAL licensed software does not meet the requirements of 4.2 then the burden of meeting 4.2 falls on the user even if they had made no changes to the software. 
+>>> 
+>>> The CAL does not mandate a particular software architecture. Presumably, as with any other copyleft license, anyone wanting to use CAL-licensed software will consider whether they are willing to comply with the terms.
+>>>  
+>>>> A strict reading could imply that 4.2 would require that the user of the software provide clients with their plain text password.  Does it?  If not, why not? 
+>>> 
+>>> As a *general* rule, this is incorrect. Nothing in the CAL requires a party to engage in poor software design so as to keep a plaintext password available, nor does anything in the CAL require or suggest that a licensee should decrypt the user's password. More broadly, I would hope that the user's plain text password would not be "available to [the licensee]", but no one can anticipate all the ways in which people will create software.
+>>>  
+>>>> The user of the software is the service provider and it strikes me as this license is a potential minefield for any user other than the original authors.  What does "fully use an independent copy" or "substantially identical use of the work" mean in the contexts of the license?  
+>>> 
+>>> The easiest way to think about this is by analogy to the GPL3's anti-Tivoization and "complete corresponding source" provisions, If a particular piece of data is needed for the software to function in the same way in a self-hosted situation, then it must be provided.
+>>> 
+>>> To guide your thoughts here, think about the "desert island test." There is a desert island, with two people, Alice and Bob, and helpfully, two identical computer systems. Alice provides your genealogical service to Bob, her only customer, on the first computer. After a while, Bob becomes dissatisfied, and wants to be able to run the software himself.
+>>> 
+>>> Alice must provide to Bob the software itself, together with anything needed to use all the functions in the software. Alice must also provide Bob a copy of Bob's information, so that when Bob loads the information into his new copy of the software on his own computer, it has the information he expects, and the functionality associated with organizing or analyzing his information is also available.
+>>> 
+>>> There is one big caveat, though: Alice only needs to turn over information that Bob has some preexisting right to. If Alice also held her own information in the software, Alice doesn't need to turn over her own information to Bob.
+>>>  
+>>>> 
+>>>> Take this in the context of something like a genealogy service.  The user data includes my account information (data I provided), profile (data I provided), my family tree (data I provided)...
+>>> 
+>>> Yes, Alice would provide Bob all this information.
+>>>  
+>>>> ... my DNA information (data generated for me) and potential DNA matches (data generated for me) and links to historical data and public records (data generated for me). 
+>>> 
+>>> This example is underspecified, so this part cannot be answered given the information provided. If this information is solely based on the processing of Bob's information, then Alice would need to provide it. If this is based upon other information owned by Alice, then there is no requirement to provide information owned by Alice.
+>>> 
+>>> Thanks,
+>>> Van
+>>> 
+>>> _______________________________________________
+>>> License-review mailing list
+>>> License-review at lists.opensource.org
+>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191209/1865eb1d/attachment.html>
+
+From nigel.2048 at gmail.com  Mon Dec  9 16:37:38 2019
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Mon, 9 Dec 2019 11:37:38 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEOeR-rqDA=m87A7kxX_CLMXrTcjHRHgHkcYgdZPpmm8AA@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CADaGzk6Q_DGaqW-gTuUE8CF8ZEu5bfodguy5fBJN6FrZUPO1HQ@mail.gmail.com> <CAFQvZEP85_v9_SverXi3oYmTsMg3xE1WL6s9W5-oMaiWEDv87w@mail.gmail.com> <CADaGzk4v8nLrs8-nY7r+jzkr-EuR83ZXrhio21o-umrztZAygQ@mail.gmail.com> <CAFQvZEOeR-rqDA=m87A7kxX_CLMXrTcjHRHgHkcYgdZPpmm8AA@mail.gmail.com>
+Message-ID: <0C623C02-931E-443B-8E35-D37816406426@gmail.com>
+
+The fact is, unlike any other FOSS license, under this license a user who does not modify any code is still not going to know if they are compliant or not.  
+
+In every other license, if they provide source they know they are compliant.  Here, if the original code licensed under CAL is not fully compliant with 4.2 then they are never going to be compliant unless they pay someone to make it compliant within 60 days.
+
+That?s not ?hypothetical?.  That?s just the way the license is written.
+
+> On Dec 6, 2019, at 5:48 PM, VanL <van.lindberg at gmail.com> wrote:
+> 
+> Hi Nigel,
+> 
+> Let me start with the following:
+> 
+>> Answers that states with "as a general rule" or "your example is underspecified" means Alice has to spend lots of effort to make sure that the software complies with 4.2 even if she has made zero changes to that software.  
+> [snip]
+> 
+> I can talk about the license, but one of the things that seems to be a persistent desire here is for analysis of hypotheticals that aren't based in any concrete situation. As with any situation where we are talking about rights in software (or data), the analysis *usually* ends up being straightforward when the exact facts are known.
+
+The analysis requirement is excessively onerous for users of CAL licensed code to determine if they are compliant with 4.2 except in the most simple or benign case.
+
+> But repeatedly in this process, I have attempted to make assumptions based upon preexisting knowledge, most likely implementations, etc, but have then been sharply criticized because my response does not allow for the whole range of possibilities.
+
+You refuse to address what happens if the original code is not 4.2 compliant.
+
+> Thus, I try to answer as well as I can, but I am trying to resist the temptation to guess when the examples are underspecified. And this is why:
+> 
+>> Bob has preexisting rights to US census data records because it is public information.  Alice has spent time and money cataloging that information so it could be found in a name search.  The service provides linkage from people in his tree to the historical US census data. 
+> 
+> This adds new facts. It possibly changes the analysis. And it is still underspecified.
+>  
+>> What needs to be provided?
+> 
+> The User Data:
+> 
+> ?User Data? means any data that is an input to or an output from the Work, where the presence of the data is necessary for substantially identical use of the Work in an equivalent context chosen by the Recipient, and where the Recipient has an existing ownership interest, an existing right to possess, or where the data has been generated by, for, or has been assigned to the Recipient.
+
+All you did here was repeat your license text.
+
+> Thanks,
+> Van
+> 
+> 
+> 
+>>  
+>   
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191209/68df0ad9/attachment-0001.html>
+
+From henrik.ingo at avoinelama.fi  Mon Dec  9 18:33:27 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Mon, 9 Dec 2019 20:33:27 +0200
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <B324DC1C-C6A7-4184-B0B0-D7940646E6F7@gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CADaGzk6Q_DGaqW-gTuUE8CF8ZEu5bfodguy5fBJN6FrZUPO1HQ@mail.gmail.com> <CAFQvZEP85_v9_SverXi3oYmTsMg3xE1WL6s9W5-oMaiWEDv87w@mail.gmail.com> <CADaGzk4v8nLrs8-nY7r+jzkr-EuR83ZXrhio21o-umrztZAygQ@mail.gmail.com> <CAKHykevVXZTsngfYb6XXEmUNObZCO-4Ok0Tnd2qm5oO+GCa=yA@mail.gmail.com> <B324DC1C-C6A7-4184-B0B0-D7940646E6F7@gmail.com>
+Message-ID: <CAKHyketTX1AdVeH4Kict+Y812zaCcet4-eFCCAx-gEK_iYG4Dg@mail.gmail.com>
+
+Ok, I see your point now. While you're being unreasonable, it's a valid
+nitpick in a legal analysis to say that hashing could be a form of DRM in
+some intentionally dumb lawyer's imagination.
+
+henrik
+
+On Mon, Dec 9, 2019 at 6:27 PM Nigel T <nigel.2048 at gmail.com> wrote:
+
+> Where does it say that there is no obligation?
+>
+> Show me in the license text where it implies or states that the plain text
+> password that was provided by the user to the system is not considered user
+> data?
+>
+> That it?s not stored in plain text on the system is covered under 4.2
+> where I can?t keep data from the user via encryption.
+>
+> Sent from my iPhone
+>
+> On Dec 6, 2019, at 7:29 PM, Henrik Ingo <henrik.ingo at avoinelama.fi> wrote:
+>
+> Nigel,
+>
+> Let's not get carried away here. If a plain text password isn't stored by
+> the system, then there is obviously no obligation to produce a copy. This
+> would be the case also for any other data not stored by the system.
+>
+> Henrik
+>
+> On Fri, 6 Dec 2019, 23:39 Nigel T, <nigel.2048 at gmail.com> wrote:
+>
+>> Again, where in the license text does it delineate what is required to be
+>> meet 4.2?  I can return an encrypted password to the user but the plain
+>> text was provided by the user at some point.  I have either not returned
+>> all the data given to me by the user or have obfuscated it using a
+>> cryptographic means.
+>>
+>> Bob has preexisting rights to US census data records because it is public
+>> information.  Alice has spent time and money cataloging that information so
+>> it could be found in a name search.  The service provides linkage from
+>> people in his tree to the historical US census data.  What needs to be
+>> provided?
+>>
+>> Answers that states with "as a general rule" or "your example is
+>> underspecified" means Alice has to spend lots of effort to make sure that
+>> the software complies with 4.2 even if she has made zero changes to that
+>> software.
+>>
+>> In the context of your company that means any would be competitor is at a
+>> huge disadvantage in using any of your offerings because at any point it
+>> could be determined that they are in non-compliance with 4.2 and only have
+>> 60 days to fix it or cease operations.  It doesn't matter at all to you if
+>> you are compliant.  You don't need a license.
+>>
+>> On Fri, Dec 6, 2019 at 10:49 AM VanL <van.lindberg at gmail.com> wrote:
+>>
+>>> Hi Nigel,
+>>>
+>>> On Fri, Dec 6, 2019 at 8:52 AM Nigel T <nigel.2048 at gmail.com> wrote:
+>>>
+>>>> 3.2.a seems to imply to me that there is no patent grant when the work
+>>>> is used as part of a combination or modification.
+>>>>
+>>>
+>>> This is known as a combination carveout. Patent claims are covered for
+>>> what is provided to you. If you modify the software in some way so that it
+>>> infringes a patent *solely because of your modification or combination*,
+>>> then your actions are not specifically licensed.
+>>>
+>>> The rationale is clear: The licensor is only responsible for what they
+>>> provide to other people, not those peoples' subsequent actions. Otherwise
+>>> someone could include a single line from someone's software ("#include
+>>> <stdio.h>") and claim that all the patents owned by that person were
+>>> licensed.
+>>>
+>>>
+>>>
+>>>> IANAL but this strikes me as a license I wouldn't touch with someone
+>>>> else's 10 foot pole.
+>>>>
+>>>
+>>> I would imagine that the CAL would not be for everyone.
+>>>
+>>>
+>>>>
+>>>> The new version also does not appear to address the issue that if CAL
+>>>> licensed software does not meet the requirements of 4.2 then the burden of
+>>>> meeting 4.2 falls on the user even if they had made no changes to the
+>>>> software.
+>>>>
+>>>
+>>> The CAL does not mandate a particular software architecture. Presumably,
+>>> as with any other copyleft license, anyone wanting to use CAL-licensed
+>>> software will consider whether they are willing to comply with the terms.
+>>>
+>>>
+>>>> A strict reading could imply that 4.2 would require that the user of
+>>>> the software provide clients with their plain text password.  Does it?  If
+>>>> not, why not?
+>>>>
+>>>
+>>> As a *general* rule, this is incorrect. Nothing in the CAL requires a
+>>> party to engage in poor software design so as to keep a plaintext password
+>>> available, nor does anything in the CAL require or suggest that a licensee
+>>> should decrypt the user's password. More broadly, I would hope that the
+>>> user's plain text password would not be "available to [the licensee]", but
+>>> no one can anticipate all the ways in which people will create software.
+>>>
+>>>
+>>>> The user of the software is the service provider and it strikes me as
+>>>> this license is a potential minefield for any user other than the original
+>>>> authors.  What does "fully use an independent copy" or "substantially
+>>>> identical use of the work" mean in the contexts of the license?
+>>>>
+>>>
+>>> The easiest way to think about this is by analogy to the GPL3's
+>>> anti-Tivoization and "complete corresponding source" provisions, If a

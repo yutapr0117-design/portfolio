@@ -505,3 +505,58 @@ license and OSI approval.**"*
 **ACD-1.0 は条件を 1 つも持たないので、この非対称の「緩める側」の極にある。**
 **⚠ ただし氏が述べているのは既存ライセンスへの waiver についてで、
 新しい instrument が要らないという話ではない** ——**#84 と #253 の proliferation はそのまま残る。**
+
+## 1.122 委員長は反対意見を繰り返し条文と OSD へ差し戻す —— #263 と対で読むべき、審査の実際の形（2026-09-27）
+
+一次資料は `rounds/2019-04-license-review-cal-approval-observed-*.txt`（585 通・61 部）。
+**アーカイブ中で最大の提出スレッド**で、**2020-02-14 の理事会で承認された**
+（**賛成 8・反対 0・棄権 1・欠席 2**）。
+
+### ドシエは本文を分析し、審査を読んでいなかった
+
+`gap-measurements.md` は **CAL-1.0 の条文**を我々の gap 主張に当て、
+*"CAL-1.0 §3.1(a) は非特許 IP 全般に及び database 権にも届く"* と結論している
+（#150 が「最も近い承認済みライセンスを提出パケットが論じていない」と記録した当のもの）。
+**しかしその審査 585 通は一度も開いていなかった。**
+**「言及 ≠ 読了」** ——**census が名前で数えたとき「未言及」と出なかったので、
+読んだつもりになっていた。**
+
+### 委員長の扱い方
+
+Pamela Chestek 氏は、反対意見に対して繰り返し同じ問いを返している（2020-02-12）——
+
+> *"I'm still in the dark. **Can you explain what OSD is not met and where you find that in the
+> license?** If it's a meta-OSD problem, like forced disclosure of data that is not yours to have,
+> **can you explain it in layperson's terms?** If you believe that the license is not appropriate
+> for certain types of uses or certain types of software architecture, **can you explain how that
+> violates the OSD?**"*
+
+Josh Berkus 氏も同じ線を引いている —— *"**The fact that a license is useless in certain contexts
+does not make it an invalid license.** I challenge you to find any of our approved licenses that is
+useful to everyone everywhere under every circumstance."* /
+*"it sounds like **you don't have specific objections to the actual text of this license**, but do
+have discussion you want to take to license-discuss."*
+
+**#263（会長 Nelson 氏の「OSD 適合は十分条件ではない・商標のため MUST deny」）と、
+この差し戻しは矛盾しない。2 つで審査の形になっている** ——
+**通常の運用では、反対は条文と OSD に接続しなければ効かない。
+接続できない反対を理由に拒否する権限は在るが、それは予備の力として語られている。**
+
+**ACD-1.0 にとっての意味**: **我々の逐条作業（`submission-osd.md`）は、
+委員長が反対者に求めているものと同じ土俵に在る。**
+**⚠ ただし #263 の天井は消えない** ——**土俵に乗ることと勝つことは別である。**
+
+### late objection は再開理由にならない
+
+承認の告知 —— *"The Board discussed the additional emails sent **after the License Committee made
+its recommendation** to the Board and **found that they did not raise issues not previously
+considered**."*
+**勧告後に届いた反対は、新しい論点でなければ再開を生まない。**
+**§1.116（Open Logistics）で見た「改訂は取り下げと再提出として扱う」と合わせると、
+時計の進め方が読める。**
+
+### 弁護士 + 長期、の 3 例目
+
+CAL は弁護士（Van Lindberg 氏）が起草し、**beta 1 から beta 4 まで 4 版・約 11 か月**を要した。
+**§1.116（Open Logistics・法律事務所同伴・3 版・11 か月）、§1.110（IPA Font・弁護士・2 版）に続く。**
+**法的レビューは審査を短くしない** ——**それは #255 で記録した通りで、ここが 3 例目である。**

@@ -1,0 +1,750 @@
+Van wrote:
+
+> The problem I am having here is a more global problem with the license....
+>>
+>
+> The CAL is an unabashedly legal instrument, and fir anyone who really
+> wants to understand it, legal counsel is required.
+>
+
+This seems to be very unsympathetic to the developer who is the intended
+user of the license.
+
+
+> But it really is no more complex than the GPL.
+>
+
+I found the GPL easy to parse, all of those years ago before I learned
+anything about intellectual property and licensing. Otherwise we would not
+have an OSD.
+I am not finding that I have been able to parse the CAL properly today,
+with an additional 21 years of experience. No, not even with attorney
+assistance, since they don't agree.
+
+For the ordinary developer, though, I can summarize its effects in one
+> sentence:
+>
+> If you make CAL-licensed software available in any way to a person, then
+> you must also provide that person 1) a copy of the license, 2) access to
+> the software source code, and 3) a copy of any of the data used with
+> software that the person has given to you, should that data still be
+> available.
+>
+
+You left out performance, and you did not take into account how things
+actually appear to the person running the program. So, the way this
+actually should read, IMO, is:
+
+You performed the program when the program ran on a system connected to the
+Internet. This activated the license requirements. You probably received
+data from other people. You don't know what data, the program was taking
+care of this. But you are responsible to give that data back to those
+people, if they ever ask, and in a way the program does not take care of
+for you automatically. We know you aren't a programmer or a lawyer, but you
+may need both of those to comply with the license. And be careful not to
+give away critical data of your own, like your secret key - it's a thing in
+your wallet - by mistake.
+
+This really is un-sympathetic to that user.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190509/e0e5cb86/attachment.html>
+
+From van.lindberg at gmail.com  Fri May 10 11:14:24 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 10 May 2019 06:14:24 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOv_rXFVg1XAeKdKJyUMOOZKFpvavFKJML=07UrcNVN-oA@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOv_rXFVg1XAeKdKJyUMOOZKFpvavFKJML=07UrcNVN-oA@mail.gmail.com>
+Message-ID: <CAFQvZEOTCbjgXEOrXKqweP5328T8CV+sAo23p5FLTyVvk_+Czw@mail.gmail.com>
+
+On Thu, May 9, 2019, 11:37 PM Bruce Perens <bruce at perens.com> wrote:
+
+> Van,
+>
+> It seems to me that you have re-defined the Free Software Foundation's
+> version of Software Freedom, arbitrarily, to encompass data rights. It
+> doesn't seem that this should be your task alone, or that of your customer.
+> Perhaps the Free Software Foundation would want to be involved :-)
+>
+
+
+As it so happens, I *have* asked the FSF to look at the CAL.
+
+But as it does not fall to me to define Free Software, so neither does that
+privilege arrogate to you.
+
+I have explained how the CAL enables Freedom in the Free Software sense,
+and shown how it fits within the tradition of Free Software licenses.
+
+I have also explained how the legal mechanisms used in the CAL were drafted
+very carefully to conform to the limitations imposed by the OSD.
+
+It appears that you accept that the CAL enables user Freedom, but think the
+CAL's protection of user data portability restricts an operator's freedom
+to lock down end user data. We are in agreement there.
+
+The difference is that, as you pointed out upthread, you privilege the
+operator's ability to lock down the data too highly to give the user a
+right of data access.
+
+On that point we disagree.
+
+It seems like that is the definitional question I am submitting to the
+board: whether open source as a term encompasses licenses that both
+absolutely guarantee operator freedom of action as well as licenses that
+impose a duty on operators to ensure that all downstream users receive the
+same rights and privileges the operators themselves received.
+
+Thanks,
+Van
+
+
+
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190510/a8ca1ee9/attachment.html>
+
+From Nigel.Tzeng at jhuapl.edu  Fri May 10 12:31:49 2019
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Fri, 10 May 2019 12:31:49 +0000
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com>
+Message-ID: <DA60C6BF-9C1C-4FFF-99A9-893DEFAC346B@jhuapl.edu>
+
+So?taking the photo site as the example I can:
+
+ 1.  Take user image 2.  Modify it, creating a ?modified? or derivative data (denoise, change size, fix white balance, add a watermark, etc) 3.  Delete the original image from my server 4.  Have no requirement to return the ?modified form? of the data achieving vendor lock in
+
+I am moderately disinclined to try to extend copyleft further in general and certainly not when it doesn?t really do what the submitter wanted it to do in the first place.  I?m pretty sure that whatever I upload to YouTube has been modified since it takes some processing time for it to become live and has been converted to a different codec, down sampled, etc. Photos uploaded to free sites are often made more compressed or smaller in resolution to reduce the amount of storage required.
+
+If, as you state below, there are no access rights to ?modified forms? of the data then CAL doesn?t do anything useful for most people.
+
+I also do not believe you have addressed Bruce?s concern that a user of a CAL licensed software may be obligated to return data that the software package makes very difficult to extract and return.  An example might be ?I want all my comments and ratings on other people?s photos returned to me?.  The user can still see their comments and ratings on the site but the operator has no easy way of pulling that data out for them because the package doesn?t provide such a mechanism.  They would have to pay someone to either do manual database queries or extend the software to be able to dump that data.
+
+ObDis: speaking only for myself
+
+On 5/9/19, 7:00 AM, "License-review on behalf of VanL" <license-review-bounces at lists.opensource.org<mailto:license-review-bounces at lists.opensource.org> on behalf of van.lindberg at gmail.com<mailto:van.lindberg at gmail.com>> wrote:
+
+Hi Bruce,
+
+
+On Wed, May 8, 2019, 11:38 PM Bruce Perens <bruce at perens.com<mailto:bruce at perens.com>> wrote:
+
+
+On Wed, May 8, 2019 at 8:07 PM VanL <van.lindberg at gmail.com<mailto:van.lindberg at gmail.com>> wrote:
+
+The CAL does not contain a concept of "Derived Data," so I am somewhat unsure how to respond to your #2.
+
+The problem is that Anna's data exists in a modified form. It's been digitally signed by Betty along with data added by Betty.
+
+That is irrelevant. There are no rights to "modified forms" of the data.
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190510/fa11827a/attachment.html>
+
+From van.lindberg at gmail.com  Fri May 10 12:59:27 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 10 May 2019 07:59:27 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <DA60C6BF-9C1C-4FFF-99A9-893DEFAC346B@jhuapl.edu>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <DA60C6BF-9C1C-4FFF-99A9-893DEFAC346B@jhuapl.edu>
+Message-ID: <CAFQvZEOYiqRVxO+RuY4_rRJ-BGLmwuXrXDQ3BgPrEwvS=1mBxQ@mail.gmail.com>
+
+Hi Nigel,
+
+On Fri, May 10, 2019, 7:32 AM Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu>
+wrote:
+
+> So?taking the photo site as the example I can:
+>
+>
+>
+>    1. Take user image
+>    2. Modify it, creating a ?modified? or derivative data (denoise,
+>    change size, fix white balance, add a watermark, etc)
+>    3. Delete the original image from my server
+>    4. Have no requirement to return the ?modified form? of the data
+>    achieving vendor lock in
+>
+>
+Good hypo. I see that I was being too imprecise when responding to Bruce.
+
+The CAL enforces data portability for data that is 1) an input or output of
+the software, and 2) in which you have an ownership or posessory interest.
+
+Thus the analysis is how the IP laws of your jurisdiction treat the data
+stored with the operator. Does the law recognize an ownership or posessory
+interest? Then you can get the data back. If not, then no.
+
+Comparing and contrasting the two hypotheticals, I see that I was
+implicitly saying that I don't see that the law would recognize that Anna
+had an ownership interest in Betty's block, but that the law does recognize
+my ownership interest in my photos that you have denoised.
+
+Thanks,
+Van
+
+
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190510/0afacb65/attachment.html>
+
+From van.lindberg at gmail.com  Fri May 10 14:58:58 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 10 May 2019 09:58:58 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOsUnn-9=pZ7N8gW2Dp0K=ajY2od47EjWCcrE6AL6ChgVw@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOsUnn-9=pZ7N8gW2Dp0K=ajY2od47EjWCcrE6AL6ChgVw@mail.gmail.com>
+Message-ID: <CAFQvZEP59JMy1-whZNngojxQom4oq8eqN-1BrzqY1Log8Y5Y3g@mail.gmail.com>
+
+On Thu, May 9, 2019 at 11:55 PM Bruce Perens <bruce at perens.com> wrote:
+
+> [snip]
+>
+
+I assume that most of the content of this message is deliberate
+overstatement in the service of either humor or sarcasm.
+
+With reference to the substantive assertion that the GPL is uncomplicated,
+I will just note that there are still corner cases in terms of GPL
+compliance that are subject to debate.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190510/e264204c/attachment-0001.html>
+
+From Nigel.Tzeng at jhuapl.edu  Fri May 10 16:58:39 2019
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Fri, 10 May 2019 16:58:39 +0000
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEOYiqRVxO+RuY4_rRJ-BGLmwuXrXDQ3BgPrEwvS=1mBxQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <DA60C6BF-9C1C-4FFF-99A9-893DEFAC346B@jhuapl.edu> <CAFQvZEOYiqRVxO+RuY4_rRJ-BGLmwuXrXDQ3BgPrEwvS=1mBxQ@mail.gmail.com>
+Message-ID: <751A57A5-7E53-4B64-B973-1D4FF06E6320@jhuapl.edu>
+
+That makes sense.  Simple modifications don?t convey any rights.
+
+Is the implication then that I can request any data for which I have ownership interest?  I have photos for which I have a copyright license but the original photographer still owns the copyright.  How does the operator tell the difference between ownership interest and a license to use?  Does a license to use a work in certain circumstances give me possessory interest? I haven?t run into possessory interest used before in the context copyright (IANAL).
+
+Do I need to provide the operator with a list of items I believe I have ownership interest or can I just say ?hey give me everything I own??  If I can get data back where I only have a license can I request any data that I have a valid license whether I uploaded it or not?  Can my wife ask for all of my data based on community property interest?
+
+You also deleted the section regarding the difficulty of an operator returning data that is difficult to access from the provided software.  I think you avoided answering Bruce when he asked that as well.
+
+Is this a can of legal worms I want to open as a developer or user?  Because CAL seems problematic for everyone except the original developer even for folks trying to adhere to the license in good faith.  If the data is present but hard to access the non-developer operator is going to have significant issues in complying with the requirements.
+
+ObDis: Speaking for myself
+
+On 5/10/19, 9:00 AM, "License-review on behalf of VanL" <license-review-bounces at lists.opensource.org<mailto:license-review-bounces at lists.opensource.org> on behalf of van.lindberg at gmail.com<mailto:van.lindberg at gmail.com>> wrote:
+
+Hi Nigel,
+
+On Fri, May 10, 2019, 7:32 AM Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu<mailto:Nigel.Tzeng at jhuapl.edu>> wrote:
+So?taking the photo site as the example I can:
+
+
+a.       Take user image
+
+b.       Modify it, creating a ?modified? or derivative data (denoise, change size, fix white balance, add a watermark, etc)
+
+c.       Delete the original image from my server
+
+d.       Have no requirement to return the ?modified form? of the data achieving vendor lock in
+
+Good hypo. I see that I was being too imprecise when responding to Bruce.
+
+The CAL enforces data portability for data that is 1) an input or output of the software, and 2) in which you have an ownership or posessory interest.
+
+Thus the analysis is how the IP laws of your jurisdiction treat the data stored with the operator. Does the law recognize an ownership or posessory interest? Then you can get the data back. If not, then no.
+
+Comparing and contrasting the two hypotheticals, I see that I was implicitly saying that I don't see that the law would recognize that Anna had an ownership interest in Betty's block, but that the law does recognize my ownership interest in my photos that you have denoised.
+
+Thanks,
+Van
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190510/b9cebda7/attachment.html>
+
+From bruce at perens.com  Fri May 10 18:46:18 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 10 May 2019 11:46:18 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEP59JMy1-whZNngojxQom4oq8eqN-1BrzqY1Log8Y5Y3g@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOsUnn-9=pZ7N8gW2Dp0K=ajY2od47EjWCcrE6AL6ChgVw@mail.gmail.com> <CAFQvZEP59JMy1-whZNngojxQom4oq8eqN-1BrzqY1Log8Y5Y3g@mail.gmail.com>
+Message-ID: <CAK2MWOt+cYwn3dEY1q0L0TnfVjSy95WSYbtOj-u9AU=DC2RW2w@mail.gmail.com>
+
+On Fri, May 10, 2019 at 7:59 AM VanL <van.lindberg at gmail.com> wrote:
+
+> I assume that most of the content of this message is deliberate
+> overstatement in the service of either humor or sarcasm.
+>
+
+Not at all. It illustrated from the non-programmer, non-lawyer's
+perspective just how impossible compliance is. *They can't do it on their
+own. *The way I wrote that is exactly what they would face.
+
+
+> With reference to the substantive assertion that the GPL is uncomplicated,
+> I will just note that there are still corner cases in terms of GPL
+> compliance that are subject to debate.
+>
+
+This may be, but we do have a really large non-lawyer community who
+identify with its goals and are reasonably confident in their understanding
+of it, and who have committed a really large body of property to be managed
+under its terms. Unlike CAL, it received the attention of attorneys (a team
+of 40 in the case of GPL3) but is not so unabashedly a license for *lawyers
+*to interpret.
+
+> But as it does not fall to me to define Free Software, so neither does
+that privilege arrogate to you.
+
+It's a little late for that, as far as defining Open Source is concerned.
+But this is diversion. Two definitions do exist, your terms comply with
+neither, and your answer is only that the privilege of *re-defining *doesn't
+fall to me.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190510/48586cb7/attachment.html>
+
+From van.lindberg at gmail.com  Fri May 10 20:40:08 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 10 May 2019 15:40:08 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <751A57A5-7E53-4B64-B973-1D4FF06E6320@jhuapl.edu>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <DA60C6BF-9C1C-4FFF-99A9-893DEFAC346B@jhuapl.edu> <CAFQvZEOYiqRVxO+RuY4_rRJ-BGLmwuXrXDQ3BgPrEwvS=1mBxQ@mail.gmail.com> <751A57A5-7E53-4B64-B973-1D4FF06E6320@jhuapl.edu>
+Message-ID: <CAFQvZENFrFJ2_gBa6NByN0xPyjM9SU+ySXK6y+cpg5o6LZznMg@mail.gmail.com>
+
+Hi Nigel,
+
+On Fri, May 10, 2019 at 11:59 AM Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu>
+wrote:
+
+> Is the implication then that I can request any data for which I have
+> ownership interest?  I have photos for which I have a copyright license but
+> the original photographer still owns the copyright.  How does the operator
+> tell the difference between ownership interest and a license to use?  Does
+> a license to use a work in certain circumstances give me possessory
+> interest? I haven?t run into possessory interest used before in the context
+> copyright (IANAL).
+>
+
+Yes, technically you have the right to ask for things that you don't own
+but you have a rightful license. In practice, this would mean that "I can
+download things that I uploaded" 99% of the time. If someone wanted to ask
+for more, then I presume that the standard practice would be that the
+requester would need to demonstrate that they had a lawful interest. This
+is standard practice, for example, in some music and photography
+applications that have a process for registering that you have a license to
+particular content.
+
+
+
+> Do I need to provide the operator with a list of items I believe I have
+> ownership interest or can I just say ?hey give me everything I own?? If I
+> can get data back where I only have a license can I request any data that I
+> have a valid license whether I uploaded it or not?
+>
+
+Under most circumstances, this would be a "give me my stuff" like Facebook
+export or Google Checkout. If you think you have an interest in something
+else, you would need to demonstrate that. If you successfully demonstrate a
+lawful interest, the operator would need to provide a copy.
+
+
+>    Can my wife ask for all of my data based on community property interest?
+>
+
+Your wife is not a Recipient. But if she were, then she would need to
+establish that she has a lawful interest, as above. If she has a lawful
+interest, then she should be able to get that thing which she "owns."
+
+
+> You also deleted the section regarding the difficulty of an operator
+> returning data that is difficult to access from the provided software.  I
+> think you avoided answering Bruce when he asked that as well.
+>
+
+I guess I didn't note that portion. But in general, something being
+difficult to access does not seem like it would excuse non-compliance.
+
+
+
+> Is this a can of legal worms I want to open as a developer or user?
+> Because CAL seems problematic for everyone except the original developer
+> even for folks trying to adhere to the license in good faith.  If the data
+> is present but hard to access the non-developer operator is going to have
+> significant issues in complying with the requirements.
+>
+
+Can you explain more of what you mean about "hard to access"? In practice,
+the data portability provision is mostly applicable in the SaaS context,
+where you also have a registered account associated with any provided
+material. That is the 99.9% common use case.
+ Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190510/fbd1f48a/attachment-0001.html>
+
+From van.lindberg at gmail.com  Fri May 10 21:19:39 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 10 May 2019 16:19:39 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOt+cYwn3dEY1q0L0TnfVjSy95WSYbtOj-u9AU=DC2RW2w@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOsUnn-9=pZ7N8gW2Dp0K=ajY2od47EjWCcrE6AL6ChgVw@mail.gmail.com> <CAFQvZEP59JMy1-whZNngojxQom4oq8eqN-1BrzqY1Log8Y5Y3g@mail.gmail.com> <CAK2MWOt+cYwn3dEY1q0L0TnfVjSy95WSYbtOj-u9AU=DC2RW2w@mail.gmail.com>
+Message-ID: <CAFQvZEPG3g2DBqhE7AL84Q3a3vqXb6D6edppT+rC56C9Dj_64g@mail.gmail.com>
+
+On Fri, May 10, 2019 at 1:46 PM Bruce Perens <bruce at perens.com> wrote:
+
+> On Fri, May 10, 2019 at 7:59 AM VanL <van.lindberg at gmail.com> wrote:
+>
+>> I assume that most of the content of this message is deliberate
+>> overstatement in the service of either humor or sarcasm.
+>>
+>
+> Not at all. It illustrated from the non-programmer, non-lawyer's
+> perspective just how impossible compliance is. *They can't do it on their
+> own. *The way I wrote that is exactly what they would face.
+>
+
+I am not sure how to respond when the hypothetical is "I am a person
+providing a network service, but I have no idea what I am doing, and I
+won't ask for help, so I might do something wrong."
+
+I'll reiterate: For the ordinary developer, the CAL means:
+
+If you make CAL-licensed software available in any way to a person, then
+you must also provide that person 1) a copy of the license, 2) access to
+the software source code, and 3) a copy of any of the data used with
+software that the person has given to you, should that data still be
+available.
+
+___
+
+This discussion seems to be going around in circles. You have made a number
+of points at various times:
+
+1) You believe that software is not susceptible to public performance, or
+if it is, not through the API.
+2) You believe an operator's ability to lock down the data they receive
+from end users is core to the OSD and to the concept of Free Software.
+3) You believe that the CAL is too complicated and won't work.
+
+We fundamentally disagree on these points. We disagree as to whether they
+are true in general as well as to their applicability to CAL's submission
+to the board.
+
+I have tried to point out what I see as flaws in your analysis, but it
+seems that we are really at the point where we are debating beliefs. I have
+deep respect for you and your long experience here, and so I am not sure
+that further reiteration or rebuttal will bring any more light.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190510/0d12fba7/attachment.html>
+
+From bruce at perens.com  Fri May 10 21:29:26 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 10 May 2019 14:29:26 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZENFrFJ2_gBa6NByN0xPyjM9SU+ySXK6y+cpg5o6LZznMg@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <DA60C6BF-9C1C-4FFF-99A9-893DEFAC346B@jhuapl.edu> <CAFQvZEOYiqRVxO+RuY4_rRJ-BGLmwuXrXDQ3BgPrEwvS=1mBxQ@mail.gmail.com> <751A57A5-7E53-4B64-B973-1D4FF06E6320@jhuapl.edu> <CAFQvZENFrFJ2_gBa6NByN0xPyjM9SU+ySXK6y+cpg5o6LZznMg@mail.gmail.com>
+Message-ID: <CAK2MWOvcnqhUxtqjH+LL_JNaAsfHrWePubF5HenJM+uLEX1y+w@mail.gmail.com>
+
+Van,
+
+Holochain is a blockchain financial system (and may be other sorts of
+blockchain things), and the typical user pays or receives funds and
+interacts with other users through the program, with their output
+distributed to *all users, *as is typical for blockchain. So, they are
+potentially performing to everyone and at least performing to whoever they
+directly connect to, and they have received data of anyone who put data
+into the blockchain before their transaction.
+
+In the case of Holochain, compliance may be fulfilled by simply
+distributing the entire blockchain to the public. Which you had to do
+anyway, blockchain isn't any good if people don't pass it on.
+
+In the case of any other software under the CAL, we have no guarantee what
+the scale of the technical and legal burden of compliance is.
+
+> I guess I didn't note that portion. But in general, something being
+difficult to access does not seem like it would excuse non-compliance.
+
+This is the lack of sympathy for the user which I am having a problem with.
+
+> Can you explain more of what you mean about "hard to access"? In
+practice, the data portability provision is mostly applicable in the SaaS
+context, where you also have a registered account associated with any
+provided material. That is the 99.9% common use case.
+
+No, we can't explain this reliably, because we don't know what kind of
+software will exist under this license. So, you are asking for a forecast.
+You are assuming that with 99% probability the operator is SaaS, has a
+significant income from the business, and can raise the resources necessary
+for compliance. We can have no guarantee that this is the case.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190510/46815afe/attachment.html>
+
+From bruce at perens.com  Fri May 10 21:48:09 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 10 May 2019 14:48:09 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEPG3g2DBqhE7AL84Q3a3vqXb6D6edppT+rC56C9Dj_64g@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOsUnn-9=pZ7N8gW2Dp0K=ajY2od47EjWCcrE6AL6ChgVw@mail.gmail.com> <CAFQvZEP59JMy1-whZNngojxQom4oq8eqN-1BrzqY1Log8Y5Y3g@mail.gmail.com> <CAK2MWOt+cYwn3dEY1q0L0TnfVjSy95WSYbtOj-u9AU=DC2RW2w@mail.gmail.com> <CAFQvZEPG3g2DBqhE7AL84Q3a3vqXb6D6edppT+rC56C9Dj_64g@mail.gmail.com>
+Message-ID: <CAK2MWOsb16j=C2dxwEsnoGCcJdb2YQdqRr7q5gs7Bqp-hkvAYw@mail.gmail.com>
+
+On Fri, May 10, 2019 at 2:19 PM VanL <van.lindberg at gmail.com> wrote:
+
+> I am not sure how to respond when the hypothetical is "I am a person
+> providing a network service, but I have no idea what I am doing, and I
+> won't ask for help, so I might do something wrong."
+>
+
+Your customer is implementing a blockchain as a distributed service in
+which all users interact peer-to-peer or broadcast (one-to-everyone).  All
+are providing a network service, simply by spending the money in their
+cryptographic wallets or making income. They are all just users. There is
+no central operator theorized for Holochain.
+
+And it's not that they are *afraid *to ask for help. It's that they can not
+afford the help.
+
+The license can be used in other contexts, besides Holochain, where the
+user naively offers a network service simply by running the program
+peer-to-peer.
+
+I'll reiterate: For the ordinary developer, the CAL means:
+>
+> 3) a copy of any of the data used with software that the person has given
+> to you, should that data still be available.
+>
+ This is entirely assuming that the software is not used in a networking
+context where users are peer-to-peer. In that case they can not be assumed
+to know what the data is or what their obligations are.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190510/c6e3d27f/attachment.html>
+
+From bruce at perens.com  Fri May 10 22:01:56 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 10 May 2019 15:01:56 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEPG3g2DBqhE7AL84Q3a3vqXb6D6edppT+rC56C9Dj_64g@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOsUnn-9=pZ7N8gW2Dp0K=ajY2od47EjWCcrE6AL6ChgVw@mail.gmail.com> <CAFQvZEP59JMy1-whZNngojxQom4oq8eqN-1BrzqY1Log8Y5Y3g@mail.gmail.com> <CAK2MWOt+cYwn3dEY1q0L0TnfVjSy95WSYbtOj-u9AU=DC2RW2w@mail.gmail.com> <CAFQvZEPG3g2DBqhE7AL84Q3a3vqXb6D6edppT+rC56C9Dj_64g@mail.gmail.com>
+Message-ID: <CAK2MWOtJzLdZnt2jKaR=a9kWX+DBqid7ZeWBGOiKxLdG-i4LtQ@mail.gmail.com>
+
+On Fri, May 10, 2019 at 2:19 PM VanL <van.lindberg at gmail.com> wrote:
+
+> This discussion seems to be going around in circles.
+>
+
+I agree that we may have reached Josh's arbitrary limit of 100 messages at
+which point people not involved in the process seem to give up upon it.
+However, it is premature to say it's going in circles when we have just
+raised the issue of how OSI's need to consider software freedom,
+specifically Freedom Zero, and when we have just discussed the impact of
+the license on peer-to-peer users.
+
+1) You believe that software is not susceptible to public performance, or
+> if it is, not through the API.
+>
+
+No, I believe that lawyers have disagreed upon this issue, right here.
+
+2) You believe an operator's ability to lock down the data they receive
+> from end users is core to the OSD and to the concept of Free Software.
+>
+
+Yes. As the Free Software Foundation and OSI both define things.
+
+
+> 3) You believe that the CAL is too complicated and won't work.
+>
+
+I believe that no non-lawyer can understand it without counsel, and even
+then there are issues.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190510/51125c7f/attachment-0001.html>
+
+From lrosen at rosenlaw.com  Fri May 10 22:10:50 2019
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Fri, 10 May 2019 15:10:50 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEPG3g2DBqhE7AL84Q3a3vqXb6D6edppT+rC56C9Dj_64g@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOsUnn-9=pZ7N8gW2Dp0K=ajY2od47EjWCcrE6AL6ChgVw@mail.gmail.com> <CAFQvZEP59JMy1-whZNngojxQom4oq8eqN-1BrzqY1Log8Y5Y3g@mail.gmail.com> <CAK2MWOt+cYwn3dEY1q0L0TnfVjSy95WSYbtOj-u9AU=DC2RW2w@mail.gmail.com> <CAFQvZEPG3g2DBqhE7AL84Q3a3vqXb6D6edppT+rC56C9Dj_64g@mail.gmail.com>
+Message-ID: <007901d5077d$3b889190$b299b4b0$@rosenlaw.com>
+
+Van wrote:
+
+> I am not sure that further reiteration or rebuttal will bring any more light
+ 
+
+FWIW, now that you have all spoken at length about CAL, I want to express my "vote" against approval of that license. 
+ 
+
+1. I agree that there is a performance copyright. It is explicit in 17 USC 106, and I have personally included that performance grant in my own licenses (OSL ?3(d) "to perform the Original Work publicly"). However, it has nothing to do with normal execution of a software program on a computer by a user. Rather, I view it as a grant relating to (e.g.) music that is produced when software is executed. Refer also to the display of a work on a website like YouTube to show how the software works (this latter is the "display" copyright in ? 17 USC 106, or in OSL ?3(e) "to display the Original Work publicly"). Beyond those limited applications, there is only slight value to a performance or display grant in a software license.
+ 
+
+2. The application of CAL to data is troubling to me. Data is not copyrightable as such; it is the collection and organization of that data that is copyrighted, not the individual pieces of data which are free to be copied, like true (or false?) facts. I do, however, encourage the adoption of protections like GDPL for "personal data." I wish we had similar protection in the U.S. for the collection and protection of personal data by Facebook and similar applications. That would require a statutory scheme, not a software license. But other non-personal data should be free as the wind and it usually is.
+ 
+
+I don't vote here, but I express opinions about license approval or disapproval.
+ 
+
+/Larry
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190510/57b76866/attachment.html>
+
+From lrosen at rosenlaw.com  Fri May 10 22:23:50 2019
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Fri, 10 May 2019 15:23:50 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <007901d5077d$3b889190$b299b4b0$@rosenlaw.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOsUnn-9=pZ7N8gW2Dp0K=ajY2od47EjWCcrE6AL6ChgVw@mail.gmail.com> <CAFQvZEP59JMy1-whZNngojxQom4oq8eqN-1BrzqY1Log8Y5Y3g@mail.gmail.com> <CAK2MWOt+cYwn3dEY1q0L0TnfVjSy95WSYbtOj-u9AU=DC2RW2w@mail.gmail.com> <CAFQvZEPG3g2DBqhE7AL84Q3a3vqXb6D6edppT+rC56C9Dj_64g@mail.gmail.com> <007901d5077d$3b889190$b299b4b0$@rosenlaw.com>
+Message-ID: <009701d5077f$0f6b50f0$2e41f2d0$@rosenlaw.com>
+
+Sorry for this extra email. I meant OSL 3.0 ??1(d) and 1(e). /Larry
+ 
+ 
+
+From: Lawrence Rosen <lrosen at rosenlaw.com> 
+Sent: Friday, May 10, 2019 3:11 PM
+To: 'License submissions for OSI review' <license-review at lists.opensource.org>
+Cc: Lawrence Rosen <lrosen at rosenlaw.com>
+Subject: RE: [License-review] For Approval: The Cryptographic Autonomy License
+ 
+
+Van wrote:
+
+> I am not sure that further reiteration or rebuttal will bring any more light
+ 
+
+FWIW, now that you have all spoken at length about CAL, I want to express my "vote" against approval of that license. 
+ 
+
+1. I agree that there is a performance copyright. It is explicit in 17 USC 106, and I have personally included that performance grant in my own licenses (OSL ?3(d) "to perform the Original Work publicly"). However, it has nothing to do with normal execution of a software program on a computer by a user. Rather, I view it as a grant relating to (e.g.) music that is produced when software is executed. Refer also to the display of a work on a website like YouTube to show how the software works (this latter is the "display" copyright in ? 17 USC 106, or in OSL ?3(e) "to display the Original Work publicly"). Beyond those limited applications, there is only slight value to a performance or display grant in a software license.
+ 
+
+2. The application of CAL to data is troubling to me. Data is not copyrightable as such; it is the collection and organization of that data that is copyrighted, not the individual pieces of data which are free to be copied, like true (or false?) facts. I do, however, encourage the adoption of protections like GDPL for "personal data." I wish we had similar protection in the U.S. for the collection and protection of personal data by Facebook and similar applications. That would require a statutory scheme, not a software license. But other non-personal data should be free as the wind and it usually is.
+ 
+
+I don't vote here, but I express opinions about license approval or disapproval.
+ 
+
+/Larry
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190510/1be675b9/attachment.html>
+
+From van.lindberg at gmail.com  Fri May 10 23:13:13 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 10 May 2019 18:13:13 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <007901d5077d$3b889190$b299b4b0$@rosenlaw.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOsUnn-9=pZ7N8gW2Dp0K=ajY2od47EjWCcrE6AL6ChgVw@mail.gmail.com> <CAFQvZEP59JMy1-whZNngojxQom4oq8eqN-1BrzqY1Log8Y5Y3g@mail.gmail.com> <CAK2MWOt+cYwn3dEY1q0L0TnfVjSy95WSYbtOj-u9AU=DC2RW2w@mail.gmail.com> <CAFQvZEPG3g2DBqhE7AL84Q3a3vqXb6D6edppT+rC56C9Dj_64g@mail.gmail.com> <007901d5077d$3b889190$b299b4b0$@rosenlaw.com>
+Message-ID: <CAFQvZEOxHVsuiXZpHqOm8VeuPzAqdfgkcJgBnvs5KGJ2CU4qpQ@mail.gmail.com>
+
+Hello Larry,
+
+Thank you for your comments.
+
+My responses to your two points are:
+
+1. Even if public performance is limited to the scope you identify, the CAL
+has an explicit defined term that makes the connection with making an API
+available explicit.
+
+2. I agree as to the copyrightability (or not) of data - but the CAL
+doesn't really address that. Data could be non-copyrightable and still
+subject to a data portability provision in a license. Note that the CAL
+does not require that user data be destroyed, only that it be provided back
+to its owner. It still may be free to use, barring any other contractual
+obligations between the parties.
+
+I also want to thank you for your concise summation of your concerns. I
+hope that the OSI board disagrees with you, though.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190510/0c3ea598/attachment-0001.html>
+
+From cowan at ccil.org  Sat May 11 00:16:22 2019
+From: cowan at ccil.org (John Cowan)
+Date: Fri, 10 May 2019 20:16:22 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEPG3g2DBqhE7AL84Q3a3vqXb6D6edppT+rC56C9Dj_64g@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOsUnn-9=pZ7N8gW2Dp0K=ajY2od47EjWCcrE6AL6ChgVw@mail.gmail.com> <CAFQvZEP59JMy1-whZNngojxQom4oq8eqN-1BrzqY1Log8Y5Y3g@mail.gmail.com> <CAK2MWOt+cYwn3dEY1q0L0TnfVjSy95WSYbtOj-u9AU=DC2RW2w@mail.gmail.com> <CAFQvZEPG3g2DBqhE7AL84Q3a3vqXb6D6edppT+rC56C9Dj_64g@mail.gmail.com>
+Message-ID: <CAD2gp_SFZy8g4wpVc-9Gk+fFqBUQiHAy-BQN4JJfjyEaqL5Fow@mail.gmail.com>
+
+On Fri, May 10, 2019 at 5:20 PM VanL <van.lindberg at gmail.com> wrote:
+
+2) You believe an operator's ability to lock down the data they receive
+> from end users is core to the OSD and to the concept of Free Software.
+>
+
+As Eric Frank Russell wrote in his story "Basic Right", you have a hold of
+the right stick, but at the wrong end.  To turn the knob up to 11:
+
+We do not believe that the "right" to commit crimes is core to the OSD and
+the Free Software Guidelines.  We *do* believe that using FOSS licensing to
+try to prevent people from committing crimes is a Very Bad Idea.
+
+
+
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+This great college [Trinity], of this ancient university [Cambridge],
+has seen some strange sights. It has seen Wordsworth drunk and Porson
+sober. And here am I, a better poet than Porson, and a better scholar
+than Wordsworth, somewhere betwixt and between.  --A.E. Housman
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190510/1d6eacc8/attachment.html>
+
+From van.lindberg at gmail.com  Sat May 11 00:35:03 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 10 May 2019 19:35:03 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAD2gp_SFZy8g4wpVc-9Gk+fFqBUQiHAy-BQN4JJfjyEaqL5Fow@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOsUnn-9=pZ7N8gW2Dp0K=ajY2od47EjWCcrE6AL6ChgVw@mail.gmail.com> <CAFQvZEP59JMy1-whZNngojxQom4oq8eqN-1BrzqY1Log8Y5Y3g@mail.gmail.com> <CAK2MWOt+cYwn3dEY1q0L0TnfVjSy95WSYbtOj-u9AU=DC2RW2w@mail.gmail.com> <CAFQvZEPG3g2DBqhE7AL84Q3a3vqXb6D6edppT+rC56C9Dj_64g@mail.gmail.com> <CAD2gp_SFZy8g4wpVc-9Gk+fFqBUQiHAy-BQN4JJfjyEaqL5Fow@mail.gmail.com>
+Message-ID: <CAFQvZEO9HeJYCC2ETQv0GyHVYxyws4TtgScGT4uaOWixb4uPqQ@mail.gmail.com>
+
+On Fri, May 10, 2019, 7:17 PM John Cowan <cowan at ccil.org> wrote:
+
+>
+>
+> On Fri, May 10, 2019 at 5:20 PM VanL <van.lindberg at gmail.com> wrote:
+>
+> 2) You believe an operator's ability to lock down the data they receive
+>> from end users is core to the OSD and to the concept of Free Software.
+>>

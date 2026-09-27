@@ -1,0 +1,750 @@
+Response below.
+
+On Wed, May 1, 2019 at 5:24 PM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+>
+> On 4/27/2019 10:30 AM, Pamela Chestek wrote:
+>
+>
+> On 4/23/19 10:15 PM, VanL wrote:
+>
+> There is a particular way of locking down a program that is available in
+> hashchain applications; that particular method is addressed in a single
+> clause. That is exactly like anti-Tivoization (which is also addressed in a
+> single clause inspired by the GPLv3, and the anti-circumvention, which is
+> addressed in a third clause - again parallel to the GPLv3).
+>
+>
+> On 4/23/19 11:55 PM, Bruce Perens via License-review wrote:
+>
+> Here you add data to the terms, which none of our other licenses require,
+> and you require it of *users *of the program who are not developers.
+>
+>
+> Bruce does identify what strikes me as a distinction between your section
+> 2.3 and the anti-Tivozation clause. The anti-Tivozation clause says that
+> where object code is conveyed on certain devices where the device is
+> transferred in a way equivalent to ownership, then you must give me what is
+> needed to install and execute a modified version of the code on the device.
+> That all relates to my right to modify code in a meaningful way. Your
+> provision simply says that someone can get a copy of their data, as Bruce
+> points out a burden that falls on someone who is only running the software.
+> So I don't consider them analogous.
+>
+> Van,
+>
+> Do you have a comment on this? I share Bruce's concern that Section 2.3 is
+> outside the scope of open source licenses. I'm not buying your argument
+> that it's the same as anti-Tivoization, for the reason I described above.
+>
+>
+There are two separate issues. The clause in 2.3(c) referring to
+cryptographic seeds, etc. is a special anti-Tivoization clause for the
+context of a cryptographically authenticated distributed system. In those
+systems, the keys (and the ability to generate or revoke the key, which is
+effectively identical) are "data" but are also intrinsic to the functioning
+of the system. It is possible to give someone software and prohibit them
+from running it or having control over it. This is software Tivoization,
+and 2.3(c) addresses this attack.
+
+The larger concern seems to be with 2.3(b), which is the User Data clause.
+The analysis here is that Freedom 0 - the right to run the program as you
+wish, for any purpose - necessarily implies a right of data portability
+with regard to your own data. I am unable to run the program as I wish if,
+after having run it with some SaaS provider, all of my previous data
+entered into the program and used for my personal processing is now
+rendered inaccessible to me. As with the GPL licenses, the only rights
+denied are the rights that would reduce the freedom of a third party
+recipient, and so the specific right to deny data portability is denied if
+you are offering the program's functionality to a Recipient.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190501/2dac904c/attachment-0001.html>
+
+From pamela at chesteklegal.com  Thu May  2 12:31:15 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Thu, 2 May 2019 08:31:15 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEOZDaCA08Lqy_4aXwQEE55UbXP2n6667YWWRB8rdVZ+Ew@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <cdc03475-5138-de56-82a2-14cbc0d911a1@chesteklegal.com> <CAFQvZEM2Cgh23Koad83DHAicAdjExAK3VQQcdexZS5fi5YHbJw@mail.gmail.com> <e66527f6-80ab-aa2a-7c3d-3c9049264262@chesteklegal.com> <CAFQvZEOZDaCA08Lqy_4aXwQEE55UbXP2n6667YWWRB8rdVZ+Ew@mail.gmail.com>
+Message-ID: <307d4ee3-121c-b147-8c48-f78edec67ef1@chesteklegal.com>
+
+
+On 5/1/2019 9:05 PM, VanL wrote:
+>
+>
+> On Wed, May 1, 2019 at 5:18 PM Pamela Chestek <pamela at chesteklegal.com
+> <mailto:pamela at chesteklegal.com>> wrote:
+
+> Isn't it as simple as "cannot impose any additional restrictions"?
+>
+> Not quite. The GPLv3 has a list of allowable restrictions (trademark,
+> etc), and you can't add additional restrictions above those
+> enumerated. For the CAL, however, I hoped to avoid adding a laundry list.
+>
+> Removed that portion from 2.3, and focused on 7.2: "This License is
+> not sublicensable. Each time You provide the Work or a Modified Work
+> to a Recipient, the Recipient automatically receives a license under
+> the terms described in this License. *You may not impose any further
+> reservations, conditions, or other provisions on any Recipients?
+> exercise of the permissions granted herein."*
+>
+Yes, that's better, thanks.
+
+<snip>
+>
+>>     ?
+>>     GPLv3, Section 3: You disclaim any intention to limit operation
+>>     or modification of the work as a means of enforcing, against the
+>>     work's users, your or third parties' legal rights to forbid
+>>     circumvention of technological measures.
+>>
+>>     CAL: 2.3(e):?You waive any claim that the capabilities of the
+>>     work were limited or modified as a means of enforcing the legal
+>>     rights of third parties against Recipients
+>
+>
+Okay, I get it, thanks.
+>> ?
+>>
+>>     You have defined "Public Performance" as using the Software to
+>>     take any
+>>     action that implicates the right of performance or public display
+>>     under
+>>     copyright law, and include as one use case of making an interface
+>>     available. The license grant is for this full scope. However, your
+>>     definition of "Modified Work" and "Recipient" refer only to
+>>     "Public[ly]
+>>     Perform[ance/ing] an interface." This creates ambiguity about the
+>>     scope
+>>     of the right for Modified Work and that Recipients have.
+>>
+>>
+>> If you look at the header to 2.3, it encompasses all ways in which a
+>> Licensee can communicate the Work to a Recipient.
+> Not following at all.
+>
+> I am not quite understanding your question, then. The header to
+> section 2 states:
+> "Any distribution, Public Performance, sale, or offer for sale of the
+> Work to a Recipient is subject to the following conditions...
+> "These words are used to imply distribution (under copyright), public
+> performance (under copyright, or alternative, as defined), and
+> distribution to a third party, including SaaS/network interaction
+> (which is considered to be encompassed under sale/offer under patent
+> law). These specific terms were used because these were the ones that
+> I saw as implicating some kind of transfer, in some respect, of the
+> work covered by the License.
+In 2.2 you say that Public Performance, defined as "using the Software
+to take any action that implicates the rights of public performance or
+public display of a work under copyright law, specifically including
+making aspects of the Software, including any interfaces used for access
+to or manipulation of User Data, directly or indirectly available to the
+public," is subject to subject to some conditions. In 2.2.2 you say one
+of the conditions is providing source code for Modified Works, which is
+defined as "any work containing, directly combining with, derivative of,
+or Publicly Performing*/an interface/* included in or derived from the
+Work." So if my Modified Work implicates the right of Public Performance
+in some way other than making an interface available (say reading it
+aloud at my author talk at the New York Public Library), must I make my
+modified version available? I say no, I only have to when the Modified
+Work implicates using the interface.
+
+You've defined Public Performance more broadly, then added a specific
+limitation in the context of Modified Work, i.e., only those works that
+consist of publicly performing an interface. It's s simple fix, you just
+need to change the definition of Modified Work so it doesn't further
+limit the scope of Modified Work: "'Modified Work' means any work
+containing, directly combining with, derivative of, or Publicly
+Performing [strike "an interface"] included in or derived from the Work."
+
+>> ?
+>>
+>>     Section 7.1.1: I don't understand why a reference to GDPR is
+>>     required;
+>>     it strikes me as a "you must comply with all applicable law"
+>>     requirement. And why the GDPR and not any other or future laws? If a
+>>     statement is needed that the requirements the law impose will
+>>     override
+>>     the license requirements, you can say that more generally.
+>>
+>>
+>> This clause is not about complying with the GDPR. Rather, it is the
+>> reverse: It is a limitation saying that if you comply with those
+>> specific subsets of the GDPR, that is also good enough to count as
+>> compliance with CAL 2.3(b). It is intended to streamline CAL
+>> compliance by hooking into an already-existing enforcement regime.
+> I do not misunderstand this section but I am apparently not explaining
+> my concern clearly enough. It is facially non-compliant with OSD 6.
+> You have given special permission to someone who has to comply with
+> the GDPR that relieves them of duties under CAL. Others who may have
+> similar conflicts do not get this special permission. Imagine that
+> Australia passes exactly the same law as the GDPR except it's called
+> the ADPR. Those who have to comply with the ADPR do not have the
+> special forgiveness for compliance that those who are complying with
+> the GDPR have. The Australians therefore may not be able to use the
+> CAL software because they cannot comply with it and the ADPR at the
+> same time, but those who must comply with the GDPR have an additional
+> permission so they can comply with both. The solution is to make this
+> section non-specific to a particular legal regime.
+>
+> Hmm. Maybe I will just delete 7.1.1. This was meant to be an
+> interpretive guide only, and to reduce the possible scope of what a
+> court might think is necessary to comply. But it doesn't affect the
+> rights/responsibilities at all. All that said, it seems to be causing
+> more confusion than it helps.
+> Specifically with regard to your hypothetical, though, anyone who
+> provided the same data in the way described would be complying with
+> the CAL. They may also be complying with another law (GDPR,? ADPR, or
+> $XDPR). But this license doesn't condition anything on compliance with
+> those other laws. It only says that the performances required under
+> the CAL and those specific subsections of the GPDR should be
+> interpreted consistently.
+>
+I assumed there was something about data delivery schemes in the GDPR
+that might conflict with the CAL, so you were saying compliance with the
+GDPR scheme would be compliance with CAL. That is an additional
+permission available for GDPR and no one else. If it's always going to
+be possible to comply with the CAL and a privacy law no matter what the
+legal requirements? of the privacy law, then I would suggest taking it
+out. If it could be that a data privacy law prevents full compliance
+with sections 2.3(a) and (b), then it probably makes sense to make the
+implications clear, either the CAL is waived to the extent necessary or
+there is liberty or death. What if the privacy law said "Data Processor
+may not provide a copy of data about the Subject if the data was not
+provided to the Data Processor by the Subject"?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190502/12cba0a4/attachment.html>
+
+From van.lindberg at gmail.com  Thu May  2 16:32:51 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 2 May 2019 11:32:51 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <307d4ee3-121c-b147-8c48-f78edec67ef1@chesteklegal.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <cdc03475-5138-de56-82a2-14cbc0d911a1@chesteklegal.com> <CAFQvZEM2Cgh23Koad83DHAicAdjExAK3VQQcdexZS5fi5YHbJw@mail.gmail.com> <e66527f6-80ab-aa2a-7c3d-3c9049264262@chesteklegal.com> <CAFQvZEOZDaCA08Lqy_4aXwQEE55UbXP2n6667YWWRB8rdVZ+Ew@mail.gmail.com> <307d4ee3-121c-b147-8c48-f78edec67ef1@chesteklegal.com>
+Message-ID: <CAFQvZEMSaNOxFgVmmDji59M0ou-E8DZkTqYDV9WcS=RPTHXkzg@mail.gmail.com>
+
+Two items. First to all: I have not been as responsive as I would like to
+the questions here. I apologize if my slowness has been taken, individually
+or collectively, as not being willing to engage respectfully.
+
+To Pam:
+
+You wrote:
+
+> You've defined Public Performance more broadly, then added a specific
+limitation in the context of Modified Work, i.e., only those works that
+consist of publicly performing an interface. It's s simple fix, you just
+need to change the definition of Modified Work so it doesn't further limit
+the scope of Modified Work: "'Modified Work' means any work containing,
+directly combining with, derivative of, or Publicly Performing [strike "an
+interface"] included in or derived from the Work."
+
+I understand this now, thanks. I can swap out "an interface," for something
+like "elements of". But don't I need something that indicates that not the
+entire original work might be present (or publicly performed) in a modified
+work?
+
+Thanks,
+Van
+
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+
+
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190502/8db01af8/attachment-0001.html>
+
+From bruce at perens.com  Thu May  2 18:59:12 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 2 May 2019 11:59:12 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZENju5C4-WAeUUCYS862tousn5AQQ7N73TVo5Kty0K0y9w@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <CAK2MWOvfUd+cf4_Lky3cqwSJQR-MdcJgF1zGs9wwph1GriA7bg@mail.gmail.com> <CAFQvZEPU8dRtUcVA1MwJmQ_HACxQXt30M4SUULiyfsGDC84i1Q@mail.gmail.com> <49972b09-6422-c091-b0ff-ac8a5df6fa5f@chesteklegal.com> <1b6d260c-5a73-7462-9fbd-49574bbb8645@chesteklegal.com> <CAFQvZENju5C4-WAeUUCYS862tousn5AQQ7N73TVo5Kty0K0y9w@mail.gmail.com>
+Message-ID: <CAK2MWOt-htShmvYM3OMscAbMS_92tuBKEerP1r8vLZu27J7Dew@mail.gmail.com>
+
+On Wed, May 1, 2019 at 6:18 PM VanL <van.lindberg at gmail.com> wrote:
+
+> The analysis here is that Freedom 0 - the right to run the program as you
+> wish, for any purpose - necessarily implies a right of data portability
+> with regard to your own data. I am unable to run the program as I wish if,
+> after having run it with some SaaS provider, all of my previous data
+> entered into the program and used for my personal processing is now
+> rendered inaccessible to me.
+>
+
+I am unable to run the program as I wish *unless* - which can be followed
+by any number of absurd requirements on top of the one you should have a
+right to: simply being able to run the program.
+
+I once had some legal right - perhaps short of ownership - to hold a copy
+of the data, before I uploaded it to some site operator and foolishly did
+not keep my own copy, and not really considering that the site operator
+wasn't responsible to keep and return that data. I probably clicked YES on
+something that absolved them of responsibility and committed me to
+indemnify them, without reading it. And of course I wasn't paying them.
+
+I agree that some law, somewhere, should enforce responsibility upon social
+network operators regarding privacy and some other things, but even then I
+am not convinced that law should extend to a requirement to hand over data.
+To attempt to implement this compulsion in an Open Source software license
+rather than law? I am far from compelled.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190502/d990af58/attachment.html>
+
+From pamela at chesteklegal.com  Thu May  2 22:48:07 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Thu, 2 May 2019 18:48:07 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEMSaNOxFgVmmDji59M0ou-E8DZkTqYDV9WcS=RPTHXkzg@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <cdc03475-5138-de56-82a2-14cbc0d911a1@chesteklegal.com> <CAFQvZEM2Cgh23Koad83DHAicAdjExAK3VQQcdexZS5fi5YHbJw@mail.gmail.com> <e66527f6-80ab-aa2a-7c3d-3c9049264262@chesteklegal.com> <CAFQvZEOZDaCA08Lqy_4aXwQEE55UbXP2n6667YWWRB8rdVZ+Ew@mail.gmail.com> <307d4ee3-121c-b147-8c48-f78edec67ef1@chesteklegal.com> <CAFQvZEMSaNOxFgVmmDji59M0ou-E8DZkTqYDV9WcS=RPTHXkzg@mail.gmail.com>
+Message-ID: <b112b862-d85d-7a66-77ec-299c44168633@chesteklegal.com>
+
+
+On 5/2/2019 12:32 PM, VanL wrote:
+> >?You've defined Public Performance more broadly, then added a
+> specific limitation in the context of Modified Work, i.e., only those
+> works that consist of publicly performing an interface. It's s simple
+> fix, you just need to change the definition of Modified Work so it
+> doesn't further limit the scope of Modified Work: "'Modified Work'
+> means any work containing, directly combining with, derivative of, or
+> Publicly Performing [strike "an interface"] included in or derived
+> from the Work."
+>
+> I understand this now, thanks. I can swap out "an interface," for
+> something like "elements of". But don't I need something that
+> indicates that not the entire original work might be present (or
+> publicly performed) in a modified work??
+Yes, just striking the wording makes it awkward (I was leaving that for
+you to figure out!). I don't see any flaw in using "elements of," it's
+not narrowing.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190502/ceea1fd5/attachment.html>
+
+From pamela at chesteklegal.com  Sun May  5 21:45:44 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sun, 5 May 2019 17:45:44 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <f43cd30d-1eda-92bc-d6c6-7af6aa0dc030@chesteklegal.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com> <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com> <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com> <CAC1cPGw_osifivuxpA=5ty8x_EaYE_KCah7euXA_Gv5rQfOr6Q@mail.gmail.com> <CAK2MWOsQyS0q5QjLTfp2GEY9pN28QxjZnDbEc22af_U6Jsq6BQ@mail.gmail.com> <CAFQvZEO8_HUgVjjPvZKybyTmLEFCFvZ_dEy0gtKSioNP7_n3Sg@mail.gmail.com> <f43cd30d-1eda-92bc-d6c6-7af6aa0dc030@chesteklegal.com>
+Message-ID: <9880a87d-4ee8-5cb2-e62d-452553227877@chesteklegal.com>
+
+
+On 5/1/19 8:59 AM, Pamela Chestek wrote:
+>
+> On 5/1/2019 1:11 AM, VanL wrote:
+>> The CAL reflects my belief - in which I would be thrilled to be wrong
+>> - that we have already entered the world in which licenses like the
+>> CAL are necessary, and that the CAL only reflects the law as it has
+>> been revealed to be.
+>>
+> Then why is the right of public performance necessary? Why open this can
+> of worms that has the potential effect of extending copyleft beyond its
+> current boundaries and beyond boundaries that the S. Ct. might set?
+Hi Van,
+
+The above question was intended for you. The concerns I have with the
+public performance concept are: (a) its unpredictable application
+outside of the US because it is a unique term of art under US law,
+combined with (b) its potential extension beyond the boundaries of
+existing copyright law because you have defined it within the license
+without the definition being tied to the scope of copyright.[^1]
+
+GPLv3 uses the term "propagate" for the exercise of all copyright that,
+"without permission, would make you directly or secondarily liable for
+infringement under applicable copyright law," expressly including making
+available to the public, and excluding "executing it on a computer or
+modifying a private copy." The GPLv3 then grants unfettered permission
+to "make, run and propagate covered works that you do not convey,
+without conditions ..." What if you were to make "propagation" a trigger
+for the copyleft/obligation to provide source code -- wouldn't that
+accomplish the same thing you are trying to accomplish?
+
+I'm not suggesting that the license you propose has to be a modification
+of the GPL, I'm only pointing it out as an example of a way to craft a
+license that successfully ties the scope of the license to the scope of
+copyright law without expanding it by how a definition in a license is
+written.
+
+Pam
+
+[^1]:
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004067.html;
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004079.html
+>
+> Pam
+>
+> Pamela S. Chestek
+> Chestek Legal
+> PO Box 2492
+> Raleigh, NC 27602
+> 919-800-8033
+> pamela at chesteklegal.com
+> www.chesteklegal.com
+
+
+
+From van.lindberg at gmail.com  Mon May  6 14:06:59 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Mon, 6 May 2019 09:06:59 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <9880a87d-4ee8-5cb2-e62d-452553227877@chesteklegal.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com> <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com> <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com> <CAC1cPGw_osifivuxpA=5ty8x_EaYE_KCah7euXA_Gv5rQfOr6Q@mail.gmail.com> <CAK2MWOsQyS0q5QjLTfp2GEY9pN28QxjZnDbEc22af_U6Jsq6BQ@mail.gmail.com> <CAFQvZEO8_HUgVjjPvZKybyTmLEFCFvZ_dEy0gtKSioNP7_n3Sg@mail.gmail.com> <f43cd30d-1eda-92bc-d6c6-7af6aa0dc030@chesteklegal.com> <9880a87d-4ee8-5cb2-e62d-452553227877@chesteklegal.com>
+Message-ID: <CAFQvZEPuNQLwuWpLKkKKg-vxZ0qTv9SVgHavTyp44YKSwHt0NA@mail.gmail.com>
+
+Hi Pam,
+
+I understand this point, but I think there are a couple counterpoints to be
+made.
+
+1)* Explicit is better than implicit*. I agree that "propagate" does seem
+to cover public performance, if it covers all activities that would make a
+person liable for infringement under copyright. As I stated above, this is
+consistent with my analysis as well. But it was not clear that it was so
+before OvG. In fact, it is not clear right now whether the AGPL and GPL
+have different scope because of OvG. And, given that OvG is still pending,
+we don't know exactly how the lines are going to come down, especially
+because there is bound to be ambiguity that will need to be fleshed out by
+further litigation.
+
+If we are going to cue in on public performance and its applicability to
+network action, then it is preferable to be explicit about it. Like the
+AGPL tried to do with "network interaction," let's just say "making aspects
+of the Software, including any interfaces used for access to or
+manipulation of User Data, directly or indirectly available to the public"
+is what we are concerned about.
+
+2) *The term is bolstered by an in-license definition*. The CAL doesn't
+just throw out the term "public performance" - it also includes the
+belt-and-suspenders trick of making it a defined term in 6(m), as partially
+quoted above. If the jurisdiction doesn't recognize public performance,
+then this just becomes a normal defined term, directly analogous to the
+AGPL "network interaction" term.
+
+3) *There is more than just copyright in play - there are patents too*. The
+CAL is designed to use both copyright and patent law as hooks for copyleft
+enforcement. The definition in 6(m) is also implicates the "use," "sale,"
+or "offer for sale" of the software. Doing things as set up in the CAL
+allows a court (and a license enforcer) to use either, whereas the
+propagate definition is copyright only.
+
+4) *I tried to avoid inventing new terms*. While the GPLv3's "propagate" is
+a relatively benign example of the issue, comprehensibility is enhanced by
+using known terms as much as possible. "Public performance" has associated
+case law. "Propagate" does not. This makes the CAL more susceptible to
+analysis by licensors/licensees and courts.
+
+5) *The CAL is limited by its text to IP rights too*. Lest any of the above
+actually overreach IP law, there is a carveout, in 7.1.2: "No extension
+beyond intellectual property: The scope of the permissions granted in
+section 1.1 shall be interpreted to be coextensive with the rights granted
+to the Licensor under the intellectual property laws of the jurisdiction in
+which this License is enforced." Thus, attempted extralegal enforcement
+should be curtailed.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190506/5e187ca2/attachment.html>
+
+From kevin+osi at km6g.us  Tue May  7 11:46:50 2019
+From: kevin+osi at km6g.us (Kevin P. Fleming)
+Date: Tue, 7 May 2019 06:46:50 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEPuNQLwuWpLKkKKg-vxZ0qTv9SVgHavTyp44YKSwHt0NA@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com> <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com> <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com> <CAC1cPGw_osifivuxpA=5ty8x_EaYE_KCah7euXA_Gv5rQfOr6Q@mail.gmail.com> <CAK2MWOsQyS0q5QjLTfp2GEY9pN28QxjZnDbEc22af_U6Jsq6BQ@mail.gmail.com> <CAFQvZEO8_HUgVjjPvZKybyTmLEFCFvZ_dEy0gtKSioNP7_n3Sg@mail.gmail.com> <f43cd30d-1eda-92bc-d6c6-7af6aa0dc030@chesteklegal.com> <9880a87d-4ee8-5cb2-e62d-452553227877@chesteklegal.com> <CAFQvZEPuNQLwuWpLKkKKg-vxZ0qTv9SVgHavTyp44YKSwHt0NA@mail.gmail.com>
+Message-ID: <CAE+UdorzD3ms15dYiOdeKioKxa1gqwSspZvqNXZvdcJi6cVBpg@mail.gmail.com>
+
+On Mon, May 6, 2019 at 9:08 AM VanL <van.lindberg at gmail.com> wrote:
+> 3) There is more than just copyright in play - there are patents too. The CAL is designed to use both copyright and patent law as hooks for copyleft enforcement. The definition in 6(m) is also implicates the "use," "sale," or "offer for sale" of the software. Doing things as set up in the CAL allows a court (and a license enforcer) to use either, whereas the propagate definition is copyright only.
+
+Does this imply that the CAL can only be fully effective if there are
+issued patents covering portions of the work which is using the CAL?
+
+
+From van.lindberg at gmail.com  Tue May  7 12:34:44 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Tue, 7 May 2019 07:34:44 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAE+UdorzD3ms15dYiOdeKioKxa1gqwSspZvqNXZvdcJi6cVBpg@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com> <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com> <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com> <CAC1cPGw_osifivuxpA=5ty8x_EaYE_KCah7euXA_Gv5rQfOr6Q@mail.gmail.com> <CAK2MWOsQyS0q5QjLTfp2GEY9pN28QxjZnDbEc22af_U6Jsq6BQ@mail.gmail.com> <CAFQvZEO8_HUgVjjPvZKybyTmLEFCFvZ_dEy0gtKSioNP7_n3Sg@mail.gmail.com> <f43cd30d-1eda-92bc-d6c6-7af6aa0dc030@chesteklegal.com> <9880a87d-4ee8-5cb2-e62d-452553227877@chesteklegal.com> <CAFQvZEPuNQLwuWpLKkKKg-vxZ0qTv9SVgHavTyp44YKSwHt0NA@mail.gmail.com> <CAE+UdorzD3ms15dYiOdeKioKxa1gqwSspZvqNXZvdcJi6cVBpg@mail.gmail.com>
+Message-ID: <CAFQvZEO=jy+wLbDq-k_jhWyRXwqxdjxK8++kzsRnjuq6E8Y7=g@mail.gmail.com>
+
+There CAL has three equal and alternative methods of action: copyright,
+patent, and contract. The effects should be consistent across all three,
+even though remedies will differ.
+
+It's true that licensors with patents will have extra tools. But even in a
+situation in which a licensor does not have a patent, it is ordinary
+practice to restrict software functionality on the basis of copyright
+rights. The functional and expressive aspects of software are so
+interrelated that copying expression is very hard to avoid using the
+"patent" verbs (e.g., make, use, sell, and offer to sell) when exercising
+rights under copyright. Thus, the use of patent verbs makes the application
+and of the license consistent regardless of whether the licensor has a
+patent.
+
+Thanks,
+Van
+
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+
+On Tue, May 7, 2019, 6:47 AM Kevin P. Fleming <kevin+osi at km6g.us> wrote:
+
+> On Mon, May 6, 2019 at 9:08 AM VanL <van.lindberg at gmail.com> wrote:
+> > 3) There is more than just copyright in play - there are patents too.
+> The CAL is designed to use both copyright and patent law as hooks for
+> copyleft enforcement. The definition in 6(m) is also implicates the "use,"
+> "sale," or "offer for sale" of the software. Doing things as set up in the
+> CAL allows a court (and a license enforcer) to use either, whereas the
+> propagate definition is copyright only.
+>
+> Does this imply that the CAL can only be fully effective if there are
+> issued patents covering portions of the work which is using the CAL?
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190507/88b77da2/attachment.html>
+
+From pamela at chesteklegal.com  Wed May  8 22:00:53 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Wed, 8 May 2019 18:00:53 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com>
+Message-ID: <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com>
+
+Hi Van,
+
+I have one more scenario that occurred to me when I was re-reading the
+license. I'd like to know if I understand correctly:
+
+Assume that the CAL is used for front-end software. A website uses the
+software for its website. Through a webform I order a gift that is for
+my daughter, who lives at a different address. It appears to me that,
+under the CAL:
+
+My daughter's name and address are "User Data," that is, they are data
+that is input to the Work and my daughter, a third party, has a Lawful
+Interest in the data.
+The website has Publicly Performed, that is, it has made an interface
+available that is used for access to User Data, my daughter's name and
+address.
+As a result, this interaction means that under 2.2.1 and 2.2.2 the
+website has to provide me (the Recipient) with a copy of the source code.
+
+Is that correct?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+On 4/22/2019 2:43 PM, VanL wrote:
+> I'd like to thank everyone who provided feedback on earlier drafts of
+> the Cryptographic Autonomy License (CAL). Since we presented the draft
+> license in February, we have received hundreds of comments and
+> suggestions, all of which have helped us fine-tune the license.
+>
+> We now present the CAL 1.0-Beta for approval at the next board meeting:
+> ? Google Docs link:
+> https://docs.google.com/document/d/1sWUREQN02YJ-q91gXOCflRB57Q1YcU1G7UMS_a8WOTI/edit#
+> ? PDF Link: https://www.processmechanics.com/static/CAL-1.0-Beta.pdf
+>
+> The CAL is still open for revision until it is approved by the Board,
+> and the links above will be updated as appropriate.
+>
+> I also refer everyone here again to the blog post describing the legal
+> foundations of the license
+> (https://www.processmechanics.com/2019/03/15/the-cryptographic-autonomy-license/)
+> as well as the discussion on license-discuss, summarized by Lukas
+> Atkinson here:
+> http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-April/020394.html
+>
+> Thanks,
+> Van
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190508/00454f83/attachment.html>
+
+From van.lindberg at gmail.com  Wed May  8 22:45:08 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Wed, 8 May 2019 17:45:08 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com>
+Message-ID: <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com>
+
+Hi Pam,
+
+Reading through your hypothetical, you seem to get the big picture correct,
+but some of the details incorrect.
+
+At a high level, would a website operator running a CAL-licensed storefront
+application have to provide a copy of the store-running source code to you?
+*Yes, they would. *
+Would a website operator also need to offer you a copy of your User Data
+(here your order information)? *Yes, they would.*
+
+To specifics:
+
+On Wed, May 8, 2019 at 5:01 PM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+> Assume that the CAL is used for front-end software. A website uses the
+> software for its website. Through a webform I order a gift that is for my
+> daughter, who lives at a different address. It appears to me that, under
+> the CAL:
+>
+> My daughter's name and address are "User Data," that is, they are data
+> that is input to the Work and my daughter, a third party, has a Lawful
+> Interest in the data.
+>
+
+This is not quite correct. The information about the order is User Data,
+but it is *your* User Data, not your daughter's; your daughter is not a
+Recipient. (Note that *you* would have the ability to ask for your order
+data from the website.)
+
+
+> The website has Publicly Performed, that is, it has made an interface
+> available that is used for access to User Data, my daughter's name and
+> address. As a result, this interaction means that under 2.2.1 and 2.2.2 the
+> website has to provide me (the Recipient) with a copy of the source code.
+>
+
+Yes, they would need to provide you a copy of the source code. This is
+similar (in practice) to how AGPL web apps work. Technically, the AGPL only
+requires a link to download the source code of modified works, but compare
+the as-applied licensing for various AGPL web apps:
+ - Owncloud
+<https://owncloud.com/owncloud-agplv3-owncloud-commercial-license/>: "How
+does the AGPLv3 apply to those apps and any apps you write as extentions?
+Very easily; every ownCloud app is treated as modified work because the
+code from the ownCloud core is always running in parallel of any such
+extensions."
+ - Processmaker
+<https://www.processmaker.com/agplv3-license-and-bpm-open-source-license>:
+"Under the AGPL, you must release the complete source code for the
+application that is built with ProcessMaker, even if that application is
+running on a network server for SaaS or Cloud hosted purposes."  (Compare
+Razuna <https://www.razuna.org/whatisrazuna/licensing>, who also use this
+phrasing).
+ - Artifex <https://artifex.com/licensing/>: "Bottom line, if you
+distribute our software, or make the functionality of the software
+available to users interacting with it remotely through a computer network,
+you must share your source code."
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190508/ef9eb2a9/attachment.html>
+
+From bruce at perens.com  Thu May  9 02:27:43 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 8 May 2019 19:27:43 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com>
+Message-ID: <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com>
+
+Van,
+
+Let's please get more specific regarding blockchain, since that is the
+target of the customer.
+
+Anna puts data in a blockchain, and her digital signature. She holds some
+right to this data.
+Betty then processes the blockchain, adding data and her own digital
+signature. Because it's a blockchain, Betty's added data is necessarily
+derivative of Anna's.
+
+Anna asks Betty for her data. What does Betty have to provide?
+
+1. Only the data that Anna fed into the system.
+2. The data that Anna fed into the system, and Betty's data which is
+derivative.
+3. #2, plus the secret key that Betty used to manipulate Anna's data.
+
+Note your definition of "Source Code":
+
+o) ?Source Code? means the form of the work preferred for making
+modifications, including any comments, design documentation, help
+materials, installation instructions, *cryptographic keys*, and any
+information reasonably necessary to compile the Source Code into Object
+Code *or Process User Data* using generated Object Code.
+
+Emphasis mine. Perhaps modulated by a comma, the definition of source code
+seems to include cryptographic keys used to process user data.
+ Thanks
+ Bruce
+
+On Wed, May 8, 2019 at 3:46 PM VanL <van.lindberg at gmail.com> wrote:
+
+> Hi Pam,
+>
+> Reading through your hypothetical, you seem to get the big picture
+> correct, but some of the details incorrect.
+>
+> At a high level, would a website operator running a CAL-licensed
+> storefront application have to provide a copy of the store-running source
+> code to you?
+> *Yes, they would. *
+> Would a website operator also need to offer you a copy of your User Data

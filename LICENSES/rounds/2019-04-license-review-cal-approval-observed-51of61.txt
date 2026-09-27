@@ -1,0 +1,750 @@
+> withdrawing Beta 3 and substituting Beta 4 (here attached).
+>
+
+A couple of extremely minor points: Capital-a "Access" and lowercase-a
+"access" appear to be used inconsistently and there is no definition of
+"Access". In the prefatory material, "with Combined-Works-Exception" should
+be "WITH ..." (the SPDX operator, or whatever the proper term is, is
+capitalized).
+
+Richard
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200207/d6675f73/attachment.html>
+
+From rfontana at redhat.com  Fri Feb  7 17:00:06 2020
+From: rfontana at redhat.com (Richard Fontana)
+Date: Fri, 7 Feb 2020 12:00:06 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org>
+Message-ID: <CAC1cPGzACYp=s4gxr5syP30JgZf9T1Vn46PVJY6O81omG1T6qA@mail.gmail.com>
+
+On Thu, Feb 6, 2020 at 7:00 PM Josh Berkus <josh at berkus.org> wrote:
+
+> On 1/7/20 11:00 AM, Pamela Chestek wrote:
+> > The discussion is still active so it will not be considered at the next
+> > Board meeting, which is this Friday. The soonest would be the February
+> > Board meeting.
+>
+> So, it's been a month since there's been any discussion about the CAL.
+> Pamela, can we take a poll of how people feel about the license?
+> Pass/Reject/MoreDiscussionNeeded?
+>
+
+Having reviewed the latest draft, "Pass" from me. I have lingering concerns
+over this license, and the potential for abuse by Holochain or other
+unknown licensors, based partly on the earlier drafting history, some of
+Van's earlier comments on those drafts, and general suspicion of new
+copyleft licenses advanced specifically by narrow commercial interests.
+However I don't think those concerns are sufficiently grounded in the
+current license text such that I would recommend rejection or more
+protracted discussion. If this license is approved, I would not recommend
+that anyone use it. But on its face, the license, including the core
+interesting User Data requirement feature, seem to me consistent with the
+spirit of the OSD and software freedom.
+
+Richard
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200207/8c9430c9/attachment.html>
+
+From josh at berkus.org  Fri Feb  7 17:20:50 2020
+From: josh at berkus.org (Josh Berkus)
+Date: Fri, 7 Feb 2020 09:20:50 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAC1cPGzACYp=s4gxr5syP30JgZf9T1Vn46PVJY6O81omG1T6qA@mail.gmail.com>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <CAC1cPGzACYp=s4gxr5syP30JgZf9T1Vn46PVJY6O81omG1T6qA@mail.gmail.com>
+Message-ID: <4b92eb69-48f0-8a63-0bf8-820b48cccfca@berkus.org>
+
+
+> Having reviewed the latest draft, "Pass" from me. I have lingering
+> concerns over this license, and the potential for abuse by Holochain or
+> other unknown licensors, based partly on the earlier drafting history,
+> some of Van's earlier comments on those drafts, and general suspicion of
+> new copyleft licenses advanced specifically by narrow commercial
+> interests. However I don't think those concerns are sufficiently
+> grounded in the current license text such that I would recommend
+> rejection or more protracted discussion. If this license is approved, I
+> would not recommend that anyone use it. But on its face, the license,
+> including the core interesting User Data requirement feature, seem to me
+> consistent with the spirit of the OSD and software freedom.
+
+Well, let's thought-experiment this onto a non-crypto project to see how
+it maps.  Imagine that I'm Tobias, lead maintainer of Pretalx conference
+software, and owner of pretalx.com hosting service.  What I want out of
+the license is:
+
+* reassurance for my customers that I won't "lock up" their data;
+* a guarantee that if someone launches a competeing pretalx hosting
+service, they can't lock up customer data preventing migration either
+* maximizing sharing of any improvements to the code
+
+Does the CAL do this?
+
+
+-- 
+Josh Berkus
+
+
+From van.lindberg at gmail.com  Fri Feb  7 17:50:37 2020
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 7 Feb 2020 11:50:37 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <4b92eb69-48f0-8a63-0bf8-820b48cccfca@berkus.org>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <CAC1cPGzACYp=s4gxr5syP30JgZf9T1Vn46PVJY6O81omG1T6qA@mail.gmail.com> <4b92eb69-48f0-8a63-0bf8-820b48cccfca@berkus.org>
+Message-ID: <CAFQvZEOXQTVZpBc9+OCgyEtwbX8TiSz8xujFHt-UmrHD4gNaSQ@mail.gmail.com>
+
+On Fri, Feb 7, 2020, 11:21 AM Josh Berkus <josh at berkus.org> wrote:
+
+>
+> Well, let's thought-experiment this onto a non-crypto project to see how
+> it maps.  Imagine that I'm Tobias, lead maintainer of Pretalx conference
+> software, and owner of pretalx.com hosting service.  What I want out of
+> the license is:
+>
+> * reassurance for my customers that I won't "lock up" their data;
+> * a guarantee that if someone launches a competeing pretalx hosting
+> service, they can't lock up customer data preventing migration either
+> * maximizing sharing of any improvements to the code
+>
+> Does the CAL do this?
+>
+
+Yes on all counts.
+
+And if anyone has a reason why any of those things would not be true,
+please speak up.
+
+Thanks,
+Van
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200207/8987f141/attachment.html>
+
+From eric at wwahammy.com  Fri Feb  7 19:30:10 2020
+From: eric at wwahammy.com (Eric Schultz)
+Date: Fri, 7 Feb 2020 13:30:10 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <4b92eb69-48f0-8a63-0bf8-820b48cccfca@berkus.org>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <CAC1cPGzACYp=s4gxr5syP30JgZf9T1Vn46PVJY6O81omG1T6qA@mail.gmail.com> <4b92eb69-48f0-8a63-0bf8-820b48cccfca@berkus.org>
+Message-ID: <CAMkzgA53+Kds8OsuTn7-6aa1nua2SG8SwU1+wkoEcoB5qwH-2g@mail.gmail.com>
+
+Consistent with my previous comments, I say "MoreDiscussionNeeded". I don't
+think we fully understand how this applies in some of the situations I
+previously mentioned and how it interacts with the principles behind FOSS
+and its effect on users. Sadly, the nature of this process doesn't really
+allow a proper nuanced exploration necessary for a decision of this
+magnitude and I don't think that discussion is going to happen on this list.
+
+That said, given the process we have and the discussion so far, I lean
+slightly towards this license being OSD compliant (and FSD compliant for
+that matter). But I'm also not going to be shocked if there's some
+unexpected consequences from this license.
+
+Eric
+
+On Fri, Feb 7, 2020, 11:20 AM Josh Berkus <josh at berkus.org> wrote:
+
+>
+> > Having reviewed the latest draft, "Pass" from me. I have lingering
+> > concerns over this license, and the potential for abuse by Holochain or
+> > other unknown licensors, based partly on the earlier drafting history,
+> > some of Van's earlier comments on those drafts, and general suspicion of
+> > new copyleft licenses advanced specifically by narrow commercial
+> > interests. However I don't think those concerns are sufficiently
+> > grounded in the current license text such that I would recommend
+> > rejection or more protracted discussion. If this license is approved, I
+> > would not recommend that anyone use it. But on its face, the license,
+> > including the core interesting User Data requirement feature, seem to me
+> > consistent with the spirit of the OSD and software freedom.
+>
+> Well, let's thought-experiment this onto a non-crypto project to see how
+> it maps.  Imagine that I'm Tobias, lead maintainer of Pretalx conference
+> software, and owner of pretalx.com hosting service.  What I want out of
+> the license is:
+>
+> * reassurance for my customers that I won't "lock up" their data;
+> * a guarantee that if someone launches a competeing pretalx hosting
+> service, they can't lock up customer data preventing migration either
+> * maximizing sharing of any improvements to the code
+>
+> Does the CAL do this?
+>
+>
+> --
+> Josh Berkus
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200207/6e88349e/attachment-0001.html>
+
+From rfontana at redhat.com  Fri Feb  7 21:11:34 2020
+From: rfontana at redhat.com (Richard Fontana)
+Date: Fri, 7 Feb 2020 16:11:34 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAMkzgA53+Kds8OsuTn7-6aa1nua2SG8SwU1+wkoEcoB5qwH-2g@mail.gmail.com>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <CAC1cPGzACYp=s4gxr5syP30JgZf9T1Vn46PVJY6O81omG1T6qA@mail.gmail.com> <4b92eb69-48f0-8a63-0bf8-820b48cccfca@berkus.org> <CAMkzgA53+Kds8OsuTn7-6aa1nua2SG8SwU1+wkoEcoB5qwH-2g@mail.gmail.com>
+Message-ID: <CAC1cPGxF-Gg4N6-HDzDp_sqwnSshqf5+_+8BmtbKcYewB0mJKg@mail.gmail.com>
+
+On Fri, Feb 7, 2020 at 2:36 PM Eric Schultz <eric at wwahammy.com> wrote:
+
+> But I'm also not going to be shocked if there's some unexpected
+> consequences from this license.
+>
+
+I agree with this. I would feel better if the OSI had some process for
+reviewing and potentially delisting or at least deprecating approved
+licenses based on problematic experiences with a license that were not
+foreseeable at the time of approval.
+
+Richard
+
+
+
+
+
+
+
+
+
+
+>
+> Eric
+>
+> On Fri, Feb 7, 2020, 11:20 AM Josh Berkus <josh at berkus.org> wrote:
+>
+>>
+>> > Having reviewed the latest draft, "Pass" from me. I have lingering
+>> > concerns over this license, and the potential for abuse by Holochain or
+>> > other unknown licensors, based partly on the earlier drafting history,
+>> > some of Van's earlier comments on those drafts, and general suspicion of
+>> > new copyleft licenses advanced specifically by narrow commercial
+>> > interests. However I don't think those concerns are sufficiently
+>> > grounded in the current license text such that I would recommend
+>> > rejection or more protracted discussion. If this license is approved, I
+>> > would not recommend that anyone use it. But on its face, the license,
+>> > including the core interesting User Data requirement feature, seem to me
+>> > consistent with the spirit of the OSD and software freedom.
+>>
+>> Well, let's thought-experiment this onto a non-crypto project to see how
+>> it maps.  Imagine that I'm Tobias, lead maintainer of Pretalx conference
+>> software, and owner of pretalx.com hosting service.  What I want out of
+>> the license is:
+>>
+>> * reassurance for my customers that I won't "lock up" their data;
+>> * a guarantee that if someone launches a competeing pretalx hosting
+>> service, they can't lock up customer data preventing migration either
+>> * maximizing sharing of any improvements to the code
+>>
+>> Does the CAL do this?
+>>
+>>
+>> --
+>> Josh Berkus
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>
+
+-- 
+Richard Fontana
+He / Him / His
+Senior Commercial Counsel
+Red Hat, Inc.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200207/76d2a587/attachment.html>
+
+From mccoy at lexpan.law  Fri Feb  7 21:29:47 2020
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Fri, 7 Feb 2020 13:29:47 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAC1cPGxF-Gg4N6-HDzDp_sqwnSshqf5+_+8BmtbKcYewB0mJKg@mail.gmail.com>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <CAC1cPGzACYp=s4gxr5syP30JgZf9T1Vn46PVJY6O81omG1T6qA@mail.gmail.com> <4b92eb69-48f0-8a63-0bf8-820b48cccfca@berkus.org> <CAMkzgA53+Kds8OsuTn7-6aa1nua2SG8SwU1+wkoEcoB5qwH-2g@mail.gmail.com> <CAC1cPGxF-Gg4N6-HDzDp_sqwnSshqf5+_+8BmtbKcYewB0mJKg@mail.gmail.com>
+Message-ID: <000001d5ddfd$b92ce810$2b86b830$@lexpan.law>
+
+>>From: License-review <license-review-bounces at lists.opensource.org> On Behalf Of Richard Fontana
+>>Sent: Friday, February 7, 2020 1:12 PM
+>>To: Eric Schultz <eric at wwahammy.com>
+>>Cc: License submissions for OSI review <license-review at lists.opensource.org>
+>>Subject: Re: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+ 
+
+>>I agree with this. I would feel better if the OSI had some process for reviewing and potentially delisting or at least deprecating approved licenses based on problematic experiences with a >>license that were not foreseeable at the time of approval. 
+ 
+
+>>Richard
+ 
+
+I second the idea of a License Deprecation Committee, a la the License Proliferation Committee of ?04.  In fact, you could make it a License Proliferation and Deprecation Committee to address both issues (assuming there are people who believe license proliferation is now a problem).
+ 
+
+Given that there have been existing licenses on the list that have been argued as precedent for recent submissions which were rejected or opposed, at a minimum there ought to be a serious look at some of the historical approvals to test whether those approvals would survive under current standards.  I can think of at least one license currently on the list which I?ve looked at recently where I can?t justify it as consistent with the OSD (or at least my understanding thereof) or the approval process as currently run.  That?s not a situation that I believe ought to exist and can play into the perception that OSI approval is inconsistent and/or arbitrary.
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200207/16aa623e/attachment.html>
+
+From van.lindberg at gmail.com  Fri Feb  7 22:04:39 2020
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 7 Feb 2020 16:04:39 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <000001d5ddfd$b92ce810$2b86b830$@lexpan.law>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <CAC1cPGzACYp=s4gxr5syP30JgZf9T1Vn46PVJY6O81omG1T6qA@mail.gmail.com> <4b92eb69-48f0-8a63-0bf8-820b48cccfca@berkus.org> <CAMkzgA53+Kds8OsuTn7-6aa1nua2SG8SwU1+wkoEcoB5qwH-2g@mail.gmail.com> <CAC1cPGxF-Gg4N6-HDzDp_sqwnSshqf5+_+8BmtbKcYewB0mJKg@mail.gmail.com> <000001d5ddfd$b92ce810$2b86b830$@lexpan.law>
+Message-ID: <CAFQvZEPnrApkpCxyPx2W-TED2A2P3GOWHoWD3q9VSzRuE2matw@mail.gmail.com>
+
+With the mild proviso that this discussion really should be on
+license-discuss, I also think a deprecation committee is a great idea.
+
+- Van
+
+On Fri, Feb 7, 2020 at 3:30 PM McCoy Smith <mccoy at lexpan.law> wrote:
+
+> *>>From:* License-review <license-review-bounces at lists.opensource.org> *On
+> Behalf Of *Richard Fontana
+> *>>Sent:* Friday, February 7, 2020 1:12 PM
+> *>>To:* Eric Schultz <eric at wwahammy.com>
+> *>>Cc:* License submissions for OSI review <
+> license-review at lists.opensource.org>
+> *>>Subject:* Re: [License-review] For approval: The Cryptographic
+> Autonomy License (Beta 4)
+>
+>
+>
+> >>I agree with this. I would feel better if the OSI had some process for
+> reviewing and potentially delisting or at least deprecating approved
+> licenses based on problematic experiences with a >>license that were not
+> foreseeable at the time of approval.
+>
+>
+>
+> >>Richard
+>
+>
+>
+> I second the idea of a License Deprecation Committee, a la the License
+> Proliferation Committee of ?04.  In fact, you could make it a License
+> Proliferation and Deprecation Committee to address both issues (assuming
+> there are people who believe license proliferation is now a problem).
+>
+>
+>
+> Given that there have been existing licenses on the list that have been
+> argued as precedent for recent submissions which were rejected or opposed,
+> at a minimum there ought to be a serious look at some of the historical
+> approvals to test whether those approvals would survive under current
+> standards.  I can think of at least one license currently on the list which
+> I?ve looked at recently where I can?t justify it as consistent with the OSD
+> (or at least my understanding thereof) or the approval process as currently
+> run.  That?s not a situation that I believe ought to exist and can play
+> into the perception that OSI approval is inconsistent and/or arbitrary.
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200207/916357d3/attachment-0001.html>
+
+From josh at berkus.org  Fri Feb  7 22:15:07 2020
+From: josh at berkus.org (Josh Berkus)
+Date: Fri, 7 Feb 2020 14:15:07 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAMkzgA53+Kds8OsuTn7-6aa1nua2SG8SwU1+wkoEcoB5qwH-2g@mail.gmail.com>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <CAC1cPGzACYp=s4gxr5syP30JgZf9T1Vn46PVJY6O81omG1T6qA@mail.gmail.com> <4b92eb69-48f0-8a63-0bf8-820b48cccfca@berkus.org> <CAMkzgA53+Kds8OsuTn7-6aa1nua2SG8SwU1+wkoEcoB5qwH-2g@mail.gmail.com>
+Message-ID: <d3997f72-8adf-4f28-9c6a-0af1dbacdffa@berkus.org>
+
+On 2/7/20 11:30 AM, Eric Schultz wrote:
+> That said, given the process we have and the discussion so far, I lean
+> slightly towards this license being OSD compliant (and FSD compliant for
+> that matter).?But I'm also not going to be shocked if there's some
+> unexpected consequences from this license.
+
+I am *certain* there will be unexpected side effects.  That's been true
+for every significant license we've passed.
+
+My criterion is whether there will be substantial freedom-promoting
+reasons to use the license, and am fairly confident that the answer is
+"yes".
+
+-- 
+Josh Berkus
+
+
+From pamela at chesteklegal.com  Sat Feb  8 14:26:10 2020
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sat, 8 Feb 2020 09:26:10 -0500
+Subject: [License-discuss] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEPnrApkpCxyPx2W-TED2A2P3GOWHoWD3q9VSzRuE2matw@mail.gmail.com>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <CAC1cPGzACYp=s4gxr5syP30JgZf9T1Vn46PVJY6O81omG1T6qA@mail.gmail.com> <4b92eb69-48f0-8a63-0bf8-820b48cccfca@berkus.org> <CAMkzgA53+Kds8OsuTn7-6aa1nua2SG8SwU1+wkoEcoB5qwH-2g@mail.gmail.com> <CAC1cPGxF-Gg4N6-HDzDp_sqwnSshqf5+_+8BmtbKcYewB0mJKg@mail.gmail.com> <000001d5ddfd$b92ce810$2b86b830$@lexpan.law> <CAFQvZEPnrApkpCxyPx2W-TED2A2P3GOWHoWD3q9VSzRuE2matw@mail.gmail.com>
+Message-ID: <2002c783-7fb3-ab8c-b5c2-612669faa4b7@chesteklegal.com>
+
+As suggested, moving to license-discuss.
+
+My concern with delisting is that someone will have relied on the 
+approval and it would be unfair, and a bad look for OSI, to suddenly 
+pull the rug out.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com
+919-800-8033
+www.chesteklegal.com
+
+On 2/7/20 5:04 PM, VanL wrote:
+
+> With the mild proviso that this discussion really should be on 
+> license-discuss, I also think a deprecation committee is a great idea.
+>
+> - Van
+>
+> On Fri, Feb 7, 2020 at 3:30 PM McCoy Smith <mccoy at lexpan.law> wrote:
+>
+>     *>>From:* License-review
+>     <license-review-bounces at lists.opensource.org
+>     <mailto:license-review-bounces at lists.opensource.org>> *On Behalf
+>     Of *Richard Fontana
+>     *>>Sent:* Friday, February 7, 2020 1:12 PM
+>     *>>To:* Eric Schultz <eric at wwahammy.com <mailto:eric at wwahammy.com>>
+>     *>>Cc:* License submissions for OSI review
+>     <license-review at lists.opensource.org
+>     <mailto:license-review at lists.opensource.org>>
+>     *>>Subject:* Re: [License-review] For approval: The Cryptographic
+>     Autonomy License (Beta 4)
+>
+>     >>I agree with this. I would feel better if the OSI had some process
+>     for reviewing and potentially delisting or at least deprecating
+>     approved licenses based on problematic experiences with a
+>     >>license that were not foreseeable at the time of approval.
+>
+>     >>Richard
+>
+>     I second the idea of a License Deprecation Committee, a la the
+>     License Proliferation Committee of ?04.? In fact, you could make
+>     it a License Proliferation and Deprecation Committee to address
+>     both issues (assuming there are people who believe license
+>     proliferation is now a problem).
+>
+>     Given that there have been existing licenses on the list that have
+>     been argued as precedent for recent submissions which were
+>     rejected or opposed, at a minimum there ought to be a serious look
+>     at some of the historical approvals to test whether those
+>     approvals would survive under current standards.? I can think of
+>     at least one license currently on the list which I?ve looked at
+>     recently where I can?t justify it as consistent with the OSD (or
+>     at least my understanding thereof) or the approval process as
+>     currently run.? That?s not a situation that I believe ought to
+>     exist and can play into the perception that OSI approval is
+>     inconsistent and/or arbitrary.
+>
+>     _______________________________________________
+>     License-review mailing list
+>     License-review at lists.opensource.org
+>     <mailto:License-review at lists.opensource.org>
+>     http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20200208/d3387671/attachment.html>
+
+From van.lindberg at gmail.com  Sat Feb  8 14:38:29 2020
+From: van.lindberg at gmail.com (VanL)
+Date: Sat, 8 Feb 2020 08:38:29 -0600
+Subject: [License-discuss] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <2002c783-7fb3-ab8c-b5c2-612669faa4b7@chesteklegal.com>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <CAC1cPGzACYp=s4gxr5syP30JgZf9T1Vn46PVJY6O81omG1T6qA@mail.gmail.com> <4b92eb69-48f0-8a63-0bf8-820b48cccfca@berkus.org> <CAMkzgA53+Kds8OsuTn7-6aa1nua2SG8SwU1+wkoEcoB5qwH-2g@mail.gmail.com> <CAC1cPGxF-Gg4N6-HDzDp_sqwnSshqf5+_+8BmtbKcYewB0mJKg@mail.gmail.com> <000001d5ddfd$b92ce810$2b86b830$@lexpan.law> <CAFQvZEPnrApkpCxyPx2W-TED2A2P3GOWHoWD3q9VSzRuE2matw@mail.gmail.com> <2002c783-7fb3-ab8c-b5c2-612669faa4b7@chesteklegal.com>
+Message-ID: <CAFQvZEM=roPCwS0rGtf4OS9QKBCPGJJCbP2V5NKH2GCEVd+fyA@mail.gmail.com>
+
+That is a fair concern, but I think it could be mitigated. As a threshold
+matter, the licenses I look at as being possibly worthy of
+de-classification don't seem to be wisely used. For those few affected,
+there could be a deprecation period, and some of them could be revised.
+
+Thanks,
+Van
+
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+
+On Sat, Feb 8, 2020, 8:28 AM Pamela Chestek <pamela at chesteklegal.com> wrote:
+
+> As suggested, moving to license-discuss.
+>
+> My concern with delisting is that someone will have relied on the approval
+> and it would be unfair, and a bad look for OSI, to suddenly pull the rug
+> out.
+>
+> Pam
+>
+> Pamela S. Chestek
+> Chestek Legal
+> PO Box 2492
+> Raleigh, NC 27602
+> pamela at chesteklegal.com
+> 919-800-8033
+> www.chesteklegal.com
+> On 2/7/20 5:04 PM, VanL wrote:
+>
+>  With the mild proviso that this discussion really should be on
+> license-discuss, I also think a deprecation committee is a great idea.
+>
+> - Van
+>
+> On Fri, Feb 7, 2020 at 3:30 PM McCoy Smith <mccoy at lexpan.law>
+> <mccoy at lexpan.law> wrote:
+>
+>> *>>From:* License-review <license-review-bounces at lists.opensource.org> *On
+>> Behalf Of *Richard Fontana
+>> *>>Sent:* Friday, February 7, 2020 1:12 PM
+>> *>>To:* Eric Schultz <eric at wwahammy.com>
+>> *>>Cc:* License submissions for OSI review <
+>> license-review at lists.opensource.org>
+>> *>>Subject:* Re: [License-review] For approval: The Cryptographic
+>> Autonomy License (Beta 4)
+>>
+>>
+>>
+>> >>I agree with this. I would feel better if the OSI had some process for
+>> reviewing and potentially delisting or at least deprecating approved
+>> licenses based on problematic experiences with a >>license that were not
+>> foreseeable at the time of approval.
+>>
+>>
+>>
+>> >>Richard
+>>
+>>
+>>
+>> I second the idea of a License Deprecation Committee, a la the License
+>> Proliferation Committee of ?04.  In fact, you could make it a License
+>> Proliferation and Deprecation Committee to address both issues (assuming
+>> there are people who believe license proliferation is now a problem).
+>>
+>>
+>>
+>> Given that there have been existing licenses on the list that have been
+>> argued as precedent for recent submissions which were rejected or opposed,
+>> at a minimum there ought to be a serious look at some of the historical
+>> approvals to test whether those approvals would survive under current
+>> standards.  I can think of at least one license currently on the list which
+>> I?ve looked at recently where I can?t justify it as consistent with the OSD
+>> (or at least my understanding thereof) or the approval process as currently
+>> run.  That?s not a situation that I believe ought to exist and can play
+>> into the perception that OSI approval is inconsistent and/or arbitrary.
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>
+> _______________________________________________
+> License-review mailing listLicense-review at lists.opensource.orghttp://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20200208/50642cb6/attachment.html>
+
+From esr at thyrsus.com  Sat Feb  8 14:43:30 2020
+From: esr at thyrsus.com (Eric S. Raymond)
+Date: Sat, 8 Feb 2020 09:43:30 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <2002c783-7fb3-ab8c-b5c2-612669faa4b7@chesteklegal.com>
+References: <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <CAC1cPGzACYp=s4gxr5syP30JgZf9T1Vn46PVJY6O81omG1T6qA@mail.gmail.com> <4b92eb69-48f0-8a63-0bf8-820b48cccfca@berkus.org> <CAMkzgA53+Kds8OsuTn7-6aa1nua2SG8SwU1+wkoEcoB5qwH-2g@mail.gmail.com> <CAC1cPGxF-Gg4N6-HDzDp_sqwnSshqf5+_+8BmtbKcYewB0mJKg@mail.gmail.com> <000001d5ddfd$b92ce810$2b86b830$@lexpan.law> <CAFQvZEPnrApkpCxyPx2W-TED2A2P3GOWHoWD3q9VSzRuE2matw@mail.gmail.com> <2002c783-7fb3-ab8c-b5c2-612669faa4b7@chesteklegal.com>
+Message-ID: <20200208144329.GA3259@thyrsus.com>
+
+Pamela Chestek <pamela at chesteklegal.com>:
+> As suggested, moving to license-discuss.
+> 
+> My concern with delisting is that someone will have relied on the approval
+> and it would be unfair, and a bad look for OSI, to suddenly pull the rug
+> out.
+
+Unfair?  I think that's a very minor risk compared to the risk of tying our hands
+and being unable to correct our own past mistakes.
+
+I don't have an object-level opinion about the particular license at issue.
+I do thinmk this meta-level argument should be rejected.
+
+It's a good look for OSI when, having determined that we made an
+error, we own up to it and correct it.
+--  <a href="http://www.catb.org/~esr/">Eric S. Raymond</a>
+
+
+
+
+From pamela at chesteklegal.com  Sat Feb  8 16:54:11 2020
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sat, 8 Feb 2020 11:54:11 -0500
+Subject: [License-discuss] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEM=roPCwS0rGtf4OS9QKBCPGJJCbP2V5NKH2GCEVd+fyA@mail.gmail.com>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <CAC1cPGzACYp=s4gxr5syP30JgZf9T1Vn46PVJY6O81omG1T6qA@mail.gmail.com> <4b92eb69-48f0-8a63-0bf8-820b48cccfca@berkus.org> <CAMkzgA53+Kds8OsuTn7-6aa1nua2SG8SwU1+wkoEcoB5qwH-2g@mail.gmail.com> <CAC1cPGxF-Gg4N6-HDzDp_sqwnSshqf5+_+8BmtbKcYewB0mJKg@mail.gmail.com> <000001d5ddfd$b92ce810$2b86b830$@lexpan.law> <CAFQvZEPnrApkpCxyPx2W-TED2A2P3GOWHoWD3q9VSzRuE2matw@mail.gmail.com> <2002c783-7fb3-ab8c-b5c2-612669faa4b7@chesteklegal.com> <CAFQvZEM=roPCwS0rGtf4OS9QKBCPGJJCbP2V5NKH2GCEVd+fyA@mail.gmail.com>
+Message-ID: <dd96360d-406b-49c9-30a8-c2865e66cf30@chesteklegal.com>
+
+Wisely or widely?
+
+Agree re "widely." Which also means that leaving them alone will also 
+have little impact.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com
+919-800-8033
+www.chesteklegal.com
+
+On 2/8/20 9:38 AM, VanL wrote:
+> That is a fair concern, but I think it could be mitigated. As a 
+> threshold matter, the licenses I look at as being possibly worthy of 
+> de-classification don't seem to be wisely used. For those few 
+> affected, there could be a deprecation period, and some of them could 
+> be revised.
+>
+> Thanks,
+> Van
+>
+> __________________________
+> Van Lindberg
+> van.lindberg at gmail.com <mailto:van.lindberg at gmail.com>
+> m: 214.364.7985
+>
+> On Sat, Feb 8, 2020, 8:28 AM Pamela Chestek <pamela at chesteklegal.com 
+> <mailto:pamela at chesteklegal.com>> wrote:
+>
+>     As suggested, moving to license-discuss.
+>
+>     My concern with delisting is that someone will have relied on the
+>     approval and it would be unfair, and a bad look for OSI, to
+>     suddenly pull the rug out.
+>
+>     Pam
+>
+>     Pamela S. Chestek
+>     Chestek Legal
+>     PO Box 2492
+>     Raleigh, NC 27602
+>     pamela at chesteklegal.com <mailto:pamela at chesteklegal.com>
+>     919-800-8033
+>     www.chesteklegal.com <http://www.chesteklegal.com>
+>
+>     On 2/7/20 5:04 PM, VanL wrote:
+>>     With the mild proviso that this discussion really should be on
+>>     license-discuss, I also think a deprecation committee is a great
+>>     idea.
+>>
+>>     - Van
+>>
+>>     On Fri, Feb 7, 2020 at 3:30 PM McCoy Smith <mccoy at lexpan.law>
+>>     <mailto:mccoy at lexpan.law> wrote:
+>>
+>>         *>>From:* License-review
+>>         <license-review-bounces at lists.opensource.org
+>>         <mailto:license-review-bounces at lists.opensource.org>> *On
+>>         Behalf Of *Richard Fontana
+>>         *>>Sent:* Friday, February 7, 2020 1:12 PM
+>>         *>>To:* Eric Schultz <eric at wwahammy.com
+>>         <mailto:eric at wwahammy.com>>
+>>         *>>Cc:* License submissions for OSI review
+>>         <license-review at lists.opensource.org
+>>         <mailto:license-review at lists.opensource.org>>
+>>         *>>Subject:* Re: [License-review] For approval: The
+>>         Cryptographic Autonomy License (Beta 4)
+>>
+>>         >>I agree with this. I would feel better if the OSI had some
+>>         process for reviewing and potentially delisting or at least
+>>         deprecating approved licenses based on problematic
+>>         experiences with a >>license that were not foreseeable at the
+>>         time of approval.
+>>
+>>         >>Richard
+>>
+>>         I second the idea of a License Deprecation Committee, a la
+>>         the License Proliferation Committee of ?04. In fact, you
+>>         could make it a License Proliferation and Deprecation
+>>         Committee to address both issues (assuming there are people
+>>         who believe license proliferation is now a problem).
+>>
+>>         Given that there have been existing licenses on the list that
+>>         have been argued as precedent for recent submissions which
+>>         were rejected or opposed, at a minimum there ought to be a
+>>         serious look at some of the historical approvals to test
+>>         whether those approvals would survive under current
+>>         standards.? I can think of at least one license currently on
+>>         the list which I?ve looked at recently where I can?t justify
+>>         it as consistent with the OSD (or at least my understanding
+>>         thereof) or the approval process as currently run.? That?s
+>>         not a situation that I believe ought to exist and can play
+>>         into the perception that OSI approval is inconsistent and/or
+>>         arbitrary.
+>>
+>>         _______________________________________________
+>>         License-review mailing list
+>>         License-review at lists.opensource.org
+>>         <mailto:License-review at lists.opensource.org>
+>>         http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>>
+>>     _______________________________________________
+>>     License-review mailing list
+>>     License-review at lists.opensource.org  <mailto:License-review at lists.opensource.org>
+>>     http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>     _______________________________________________
+>     License-discuss mailing list
+>     License-discuss at lists.opensource.org
+>     <mailto:License-discuss at lists.opensource.org>
+>     http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20200208/44bf5d21/attachment-0001.html>
+
+From van.lindberg at gmail.com  Sat Feb  8 19:29:48 2020
+From: van.lindberg at gmail.com (VanL)
+Date: Sat, 8 Feb 2020 13:29:48 -0600
+Subject: [License-discuss] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <dd96360d-406b-49c9-30a8-c2865e66cf30@chesteklegal.com>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <CAC1cPGzACYp=s4gxr5syP30JgZf9T1Vn46PVJY6O81omG1T6qA@mail.gmail.com> <4b92eb69-48f0-8a63-0bf8-820b48cccfca@berkus.org> <CAMkzgA53+Kds8OsuTn7-6aa1nua2SG8SwU1+wkoEcoB5qwH-2g@mail.gmail.com> <CAC1cPGxF-Gg4N6-HDzDp_sqwnSshqf5+_+8BmtbKcYewB0mJKg@mail.gmail.com> <000001d5ddfd$b92ce810$2b86b830$@lexpan.law> <CAFQvZEPnrApkpCxyPx2W-TED2A2P3GOWHoWD3q9VSzRuE2matw@mail.gmail.com> <2002c783-7fb3-ab8c-b5c2-612669faa4b7@chesteklegal.com> <CAFQvZEM=roPCwS0rGtf4OS9QKBCPGJJCbP2V5NKH2GCEVd+fyA@mail.gmail.com> <dd96360d-406b-49c9-30a8-c2865e66cf30@chesteklegal.com>
+Message-ID: <CAFQvZEO4z96UJce8pwr-3S_ChhTGzM6qXtD+ZQViDBuCfhEYVg@mail.gmail.com>
+
+Widely. Autocorrect fail.
+

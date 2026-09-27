@@ -1,0 +1,750 @@
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191211/d9973a37/attachment.html>
+
+From van.lindberg at gmail.com  Wed Dec 11 19:48:04 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Wed, 11 Dec 2019 13:48:04 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com>
+Message-ID: <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com>
+
+Hi Nigel,
+
+The core issue is that I don't think it is appropriate to dictate the
+mechanism. All of your suggestions boil down to, "add the technical
+requirement that the software does [X]." I think that the pressure of
+compliance will make the type of ease-of-use features you are suggesting
+desirable. That is enough. I don't want to mandate them.
+
+Thanks,
+Van
+
+
+On Wed, Dec 11, 2019 at 12:49 PM Nigel T <nigel.2048 at gmail.com> wrote:
+
+> Van,
+>
+> What issue do you have with not requiring the downstream user to provide
+> any user data that the original CAL licensed software doesn't make
+> available to the non-technical user?
+>
+> If the original software doesn't provide a user accessible export feature
+> then there should be no downstream requirement for the user to provide any
+> user data.  You cannot assume that the user is a developer so the assertion
+> that they can just do a SQL dump or some other convoluted technical
+> mechanism is an excessive burden to place on users.
+>
+> You can make it a requirement that any modification that adds user data
+> must be accompanied by a user accessible export feature of some kind.
+>
+> Nigel
+>
+> On Wed, Dec 11, 2019 at 12:37 PM VanL <van.lindberg at gmail.com> wrote:
+>
+>> Hi Nigel,
+>>
+>> You are correct that the CAL does not mandate any particular
+>> functionality or method of compliance. History has shown that mandating a
+>> particular technical structure is unwise. Instead, the CAL simply describes
+>> what is required and uses the standard tool of open source licensing - the
+>> denial or termination of the license - to motivate compliance.
+>>
+>> You can argue that the CAL may be difficult to comply with in some cases,
+>> or that ot would not be well-suited to some types of applications. But
+>> those are not marks against the CAL. Different licenses address different
+>> needs.
+>>
+>> Thanks,
+>> Van
+>>
+>>
+>> On Wed, Dec 11, 2019, 9:13 AM Nigel T <nigel.2048 at gmail.com> wrote:
+>>
+>>> The bar is being moved here.  CAL does not require that the software be
+>>> able to import any data to get back to a running state...or (according to
+>>> Van) even need to export any data so a SQL dump is acceptable in meeting
+>>> the CAL requirement.
+>>>
+>>> So the user's "ability to get back to the place they were" probably
+>>> requires that they re-enter the data and re-doing any associations by hand
+>>> anyway. The data doesn't even have to be in any kind of layout to
+>>> facilitate re-entering the data.  Here you go...a SQL dump of your data,
+>>> enjoy.  I could even just create a single PNG of all the data and meet CAL
+>>> requirements.
+>>>
+>>> If the objective really is for the user to be able to get back to where
+>>> they were with a clean copy of the system then CAL should specify that CAL
+>>> software should support import/export round tripping of user data.
+>>>
+>>> In any case, the operation of the software is not dependent on the
+>>> user's customer data being present or your software is broken.
+>>>
+>>> I take it you do not like the suggestion that the downstream software
+>>> user is under no obligation to provide any customer data that the original
+>>> code did not provide as export?
+>>>
+>>> On Wed, Dec 11, 2019 at 12:37 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+>>> wrote:
+>>>
+>>>>
+>>>>
+>>>> On Wed, 11 Dec 2019, 03:29 VanL, <van.lindberg at gmail.com> wrote:
+>>>>
+>>>>> The use or operation of the software is not dependent on user?s
+>>>>>> customer provided data being present...
+>>>>>
+>>>>>
+>>>>> This is not really correct, if you think about it.
+>>>>>
+>>>>> I don't think it is debatable to say that some (most?) software works
+>>>>> differently in the presence of particular data. The subroutines the run are
+>>>>> different; the displayed interface may be different; the state of the
+>>>>> software is *different.* Because the accumulated state is different, the
+>>>>> actual functioning of the software, as experienced by the user, is
+>>>>> different.
+>>>>>
+>>>>> I agree that the user has the ability to get back to the place where
+>>>>> they were by re-entering the data and re-doing any associations made. But
+>>>>> the latent potential for the software to work the same way is not the same
+>>>>> as the software actually functioning the exact same way.
+>>>>>
+>>>>>
+>>>> Taking this argument further, the user can also rewrite all the code
+>>>> from scratch, and therefore all copyleft licenses (and open source) are
+>>>> unnecessary in general.
+>>>>
+>>>> Henrik
+>>>>
+>>>>>
+>>>>> _______________________________________________
+>>>> License-review mailing list
+>>>> License-review at lists.opensource.org
+>>>>
+>>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>>
+>>> _______________________________________________
+>>> License-review mailing list
+>>> License-review at lists.opensource.org
+>>>
+>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191211/97d384a1/attachment-0001.html>
+
+From josh at berkus.org  Wed Dec 11 20:08:55 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Wed, 11 Dec 2019 12:08:55 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com>
+Message-ID: <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org>
+
+On 12/11/19 11:48 AM, VanL wrote:
+> Hi Nigel,
+> 
+> The core issue is that I don't think it is appropriate to dictate the
+> mechanism. All of your suggestions boil down to, "add the technical
+> requirement that the software does [X]." I think that the pressure of
+> compliance will make the type of ease-of-use features you are suggesting
+> desirable. That is enough. I don't want to mandate them.
+
+I don't think you understand Nigel's argument at all.
+
+Here's an example:
+
+1) You create some software that has no data export functionality and
+license it under the CAL.
+
+2) I use your software as the basis for some other application.
+
+3) I am now compelled, under the terms of the license, to *write* a user
+data export feature that didn't exist in the software that I copied from
+you under the CAL.
+
+4) As a corollary, this means that if I am not a programmer (and don't
+have $$$$), I cannot use the software you created in (1).
+
+While the above may be OK with you, it would be an unprecedented step in
+the history of OSS licenses, and as such is likely to create significant
+barriers to approval.
+
+Nigel is suggesting language to make the data export requirement
+symmetrical; that is, that downstream users are required to preserve or
+expand any data export features present in the software they copied.
+
+-- 
+Josh Berkus
+
+
+From nigel.2048 at gmail.com  Wed Dec 11 20:26:09 2019
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Wed, 11 Dec 2019 15:26:09 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org>
+Message-ID: <CADaGzk6vvvcse-uAZ8LshoUNmnFDKPf9iqrxG8adpzd2SDgz5g@mail.gmail.com>
+
+Josh,
+
+Thank you.  That's my primary concern.  There are other scenarios where a
+bad actor can exploit this asymmetry to their advantage.
+
+Nigel
+
+On Wed, Dec 11, 2019 at 3:09 PM Josh Berkus <josh at berkus.org> wrote:
+
+> On 12/11/19 11:48 AM, VanL wrote:
+> > Hi Nigel,
+> >
+> > The core issue is that I don't think it is appropriate to dictate the
+> > mechanism. All of your suggestions boil down to, "add the technical
+> > requirement that the software does [X]." I think that the pressure of
+> > compliance will make the type of ease-of-use features you are suggesting
+> > desirable. That is enough. I don't want to mandate them.
+>
+> I don't think you understand Nigel's argument at all.
+>
+> Here's an example:
+>
+> 1) You create some software that has no data export functionality and
+> license it under the CAL.
+>
+> 2) I use your software as the basis for some other application.
+>
+> 3) I am now compelled, under the terms of the license, to *write* a user
+> data export feature that didn't exist in the software that I copied from
+> you under the CAL.
+>
+> 4) As a corollary, this means that if I am not a programmer (and don't
+> have $$$$), I cannot use the software you created in (1).
+>
+> While the above may be OK with you, it would be an unprecedented step in
+> the history of OSS licenses, and as such is likely to create significant
+> barriers to approval.
+>
+> Nigel is suggesting language to make the data export requirement
+> symmetrical; that is, that downstream users are required to preserve or
+> expand any data export features present in the software they copied.
+>
+> --
+> Josh Berkus
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191211/8bd70381/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Wed Dec 11 21:11:34 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Wed, 11 Dec 2019 23:11:34 +0200
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org>
+Message-ID: <CAKHykeuhT8Nr6gcbraT4CjQM=fHasaLgsRTuKh8_J7s9V4wVBQ@mail.gmail.com>
+
+Josh,
+
+I agree that this is an interesting question to discuss, and raised it
+myself some months ago. But...
+
+On Wed, Dec 11, 2019 at 10:09 PM Josh Berkus <josh at berkus.org> wrote:
+
+> 3) I am now compelled, under the terms of the license, to *write* a user
+> data export feature that didn't exist in the software that I copied from
+> you under the CAL.
+>
+>
+Sorry but this is not true. The whole point of Van's position is that the
+CAL doesn't compel you to write or create any particular technical solution.
+
+As a trivial counter example: Assume that you use the CAL licensed software
+to provide services to a single user other than yourself. You can now
+fulfill your obligations easily by just creating a zip file of your data
+directory.
+
+Of course, if you expect lots of users and therefore maybe lots of requests
+for user data, you probably should write an easy export feature since that
+is the most practical solution to you. But the CAL doesn't compel you to do
+that. Quite the contrary, it allows you to choose whatever method is
+preferable for you.
+
+
+> 4) As a corollary, this means that if I am not a programmer (and don't
+> have $$$$), I cannot use the software you created in (1).
+>
+> While the above may be OK with you, it would be an unprecedented step in
+> the history of OSS licenses, and as such is likely to create significant
+> barriers to approval.
+>
+>
+Note that this same criticism can be pointed toward the GPL itself too -
+for source code.
+
+Assume I give to you 1 CD with a binary executable, and another CD with the
+corresponding source. I have not published the source code online, you are
+the only recipient of it.
+
+You now want to distribute the unmodified binary to 2 other recipients. How
+will you comply with the GPL requirement to distribute source? You either
+have to burn 2 new CDs with the source, or upload the source to an online
+location. If you don't know how to do that, you must spend $$$$ to get it
+done.
+
+The fact that this is not a common problem with the GPL, suggests that the
+analogous problem might not be common for CAL either. Even if the
+hypothetical scenario is definitely worth discussing.
+
+
+
+> Nigel is suggesting language to make the data export requirement
+> symmetrical; that is, that downstream users are required to preserve or
+> expand any data export features present in the software they copied.
+>
+
+Note that such a requirement may itself not be OSD compliant. At least care
+would have to be taken to draft the language more precisely than what you
+did above, so that it doesn't create the situation where some code or
+feature can never be removed from the software.
+
+henrik
+
+
+
+> --
+> Josh Berkus
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191211/318a5fbc/attachment.html>
+
+From bruce at perens.com  Wed Dec 11 23:23:14 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 11 Dec 2019 15:23:14 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAKHykeuhT8Nr6gcbraT4CjQM=fHasaLgsRTuKh8_J7s9V4wVBQ@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAKHykeuhT8Nr6gcbraT4CjQM=fHasaLgsRTuKh8_J7s9V4wVBQ@mail.gmail.com>
+Message-ID: <CAK2MWOufoiQ8zKzBPVVJjE6asbr6+KA7PRnpQWvBSs_YScaL5Q@mail.gmail.com>
+
+Henrik, I think your example misses the point. Most operators, of course,
+have more than one customer, and in returning data to one customer, must be
+very careful to segregate it from anyone else's data. The penalties in
+Europe for failing to do that are potentially very significant, and we can
+expect them to get that way everywhere.
+
+So they either are compelled to write an export facility, or do some sort
+of ad hoc export. But they must be very careful about what data is
+released, and due diligence probably requires that they inspect the
+outgoing data manually.
+
+On Wed, Dec 11, 2019, 13:12 Henrik Ingo <henrik.ingo at avoinelama.fi> wrote:
+
+> Josh,
+>
+> I agree that this is an interesting question to discuss, and raised it
+> myself some months ago. But...
+>
+> On Wed, Dec 11, 2019 at 10:09 PM Josh Berkus <josh at berkus.org> wrote:
+>
+>> 3) I am now compelled, under the terms of the license, to *write* a user
+>> data export feature that didn't exist in the software that I copied from
+>> you under the CAL.
+>>
+>>
+> Sorry but this is not true. The whole point of Van's position is that the
+> CAL doesn't compel you to write or create any particular technical solution.
+>
+> As a trivial counter example: Assume that you use the CAL licensed
+> software to provide services to a single user other than yourself. You can
+> now fulfill your obligations easily by just creating a zip file of your
+> data directory.
+>
+> Of course, if you expect lots of users and therefore maybe lots of
+> requests for user data, you probably should write an easy export feature
+> since that is the most practical solution to you. But the CAL doesn't
+> compel you to do that. Quite the contrary, it allows you to choose whatever
+> method is preferable for you.
+>
+>
+>> 4) As a corollary, this means that if I am not a programmer (and don't
+>> have $$$$), I cannot use the software you created in (1).
+>>
+>> While the above may be OK with you, it would be an unprecedented step in
+>> the history of OSS licenses, and as such is likely to create significant
+>> barriers to approval.
+>>
+>>
+> Note that this same criticism can be pointed toward the GPL itself too -
+> for source code.
+>
+> Assume I give to you 1 CD with a binary executable, and another CD with
+> the corresponding source. I have not published the source code online, you
+> are the only recipient of it.
+>
+> You now want to distribute the unmodified binary to 2 other recipients.
+> How will you comply with the GPL requirement to distribute source? You
+> either have to burn 2 new CDs with the source, or upload the source to an
+> online location. If you don't know how to do that, you must spend $$$$ to
+> get it done.
+>
+> The fact that this is not a common problem with the GPL, suggests that the
+> analogous problem might not be common for CAL either. Even if the
+> hypothetical scenario is definitely worth discussing.
+>
+>
+>
+>> Nigel is suggesting language to make the data export requirement
+>> symmetrical; that is, that downstream users are required to preserve or
+>> expand any data export features present in the software they copied.
+>>
+>
+> Note that such a requirement may itself not be OSD compliant. At least
+> care would have to be taken to draft the language more precisely than what
+> you did above, so that it doesn't create the situation where some code or
+> feature can never be removed from the software.
+>
+> henrik
+>
+>
+>
+>> --
+>> Josh Berkus
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>
+>
+> --
+> henrik.ingo at avoinelama.fi
+> +358-40-5697354        skype: henrik.ingo            irc: hingo
+> www.openlife.cc
+>
+> My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191211/bb9cbd3d/attachment-0001.html>
+
+From van.lindberg at gmail.com  Wed Dec 11 23:59:34 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Wed, 11 Dec 2019 15:59:34 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAK2MWOufoiQ8zKzBPVVJjE6asbr6+KA7PRnpQWvBSs_YScaL5Q@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAKHykeuhT8Nr6gcbraT4CjQM=fHasaLgsRTuKh8_J7s9V4wVBQ@mail.gmail.com> <CAK2MWOufoiQ8zKzBPVVJjE6asbr6+KA7PRnpQWvBSs_YScaL5Q@mail.gmail.com>
+Message-ID: <CAFQvZENjVoXmO9V_nAfJ0NYHgvD8au87+NNJHF4ct+TrFEW+sg@mail.gmail.com>
+
+Hi Bruce,
+
+You say:
+
+So they either are compelled to write an export facility, or do some sort
+of ad hoc export.
+
+
+No. They are not compelled to offer services to other people! They can run
+the software themselves.
+
+If someone *chooses* to offer services to others, then they need to comply
+with the CAL.
+
+Which, as you point out:
+
+Most operators, of course, have more than one customer, and in returning
+> data to one customer, must be very careful to segregate it from anyone
+> else's data. The penalties in Europe for failing to do that are potentially
+> very significant, and we can expect them to get that way everywhere.
+>
+> ... But they must be very careful about what data is released, and due
+> diligence probably requires that they inspect the outgoing data manually.
+>
+
+
+If someone chooses to offer services to other people, they need to expect
+that there will be compliance burdens that they are taking on - far more
+substantial than the requirements of the CAL. It doesn't make sense to
+manufacture a "clueless operator" theory that requires someone to knowingly
+offer services, take on burdens they can't comply with, and then complain
+that the problem is the software license.
+
+Thanks,
+Van
+
+
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191211/1649b4b0/attachment.html>
+
+From nigel.2048 at gmail.com  Thu Dec 12 03:17:46 2019
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Wed, 11 Dec 2019 22:17:46 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZENjVoXmO9V_nAfJ0NYHgvD8au87+NNJHF4ct+TrFEW+sg@mail.gmail.com>
+References: <CAFQvZENjVoXmO9V_nAfJ0NYHgvD8au87+NNJHF4ct+TrFEW+sg@mail.gmail.com>
+Message-ID: <EF899B64-7888-4292-94FF-A246E8760E55@gmail.com>
+
+A SaaS license is intended to be applied to software that is seen and used by third parties. 
+
+It is disingenuous for you to imply otherwise.
+
+Many non-developers have set up their own content management system like Wordpress on their own servers.  If Wordpress was CAL instead of GPL none of those users would be able to use WordPress because it?s unlikely that WordPress is fully compliant under the terms of 4.2.  
+
+It is also unlikely that they could tell definitively whether or not it is in compliance.
+
+They are not ?clueless?, just not developers.  
+
+This is not a ?manufactured? hypothetical but a large, real world, OSS user base composed of developers, non-developers and SaaS providers.
+
+What you call ?services? to make it seem that all SaaS software users are deep pocketed service providers is in reality just blog posts made by normal folks using open source software in the spirit it was intended to be used.
+
+As written, I will continue to advocate against this license.  
+
+It appears to me to be deeply flawed, dangerous, and against the spirit that open source software is intended for normal users and not just developers. 
+
+It doesn?t even achieve the goal of user data independence for non-developers so I?m starting to wonder why it is written the way it is.
+
+> On Dec 11, 2019, at 7:00 PM, VanL <van.lindberg at gmail.com> wrote:
+> 
+> ?
+> Hi Bruce,
+> 
+> You say:
+> So they either are compelled to write an export facility, or do some sort of ad hoc export. 
+> 
+> No. They are not compelled to offer services to other people! They can run the software themselves.
+> 
+> If someone *chooses* to offer services to others, then they need to comply with the CAL.
+> 
+> Which, as you point out:
+> 
+>> Most operators, of course, have more than one customer, and in returning data to one customer, must be very careful to segregate it from anyone else's data. The penalties in Europe for failing to do that are potentially very significant, and we can expect them to get that way everywhere.
+>> 
+>> ... But they must be very careful about what data is released, and due diligence probably requires that they inspect the outgoing data manually.
+> 
+> 
+> 
+> If someone chooses to offer services to other people, they need to expect that there will be compliance burdens that they are taking on - far more substantial than the requirements of the CAL. It doesn't make sense to manufacture a "clueless operator" theory that requires someone to knowingly offer services, take on burdens they can't comply with, and then complain that the problem is the software license.
+> 
+> Thanks,
+> Van
+> 
+>  
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191211/3bf15628/attachment.html>
+
+From van.lindberg at gmail.com  Thu Dec 12 04:52:07 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Wed, 11 Dec 2019 20:52:07 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <EF899B64-7888-4292-94FF-A246E8760E55@gmail.com>
+References: <CAFQvZENjVoXmO9V_nAfJ0NYHgvD8au87+NNJHF4ct+TrFEW+sg@mail.gmail.com> <EF899B64-7888-4292-94FF-A246E8760E55@gmail.com>
+Message-ID: <CAFQvZEPeS_ze-78nsrSGz5MGGQ2gw1QEc5zgw7Y4mEBaAAp3sw@mail.gmail.com>
+
+On Wed, Dec 11, 2019, 9:18 PM Nigel T <nigel.2048 at gmail.com> wrote:
+
+> A SaaS license is intended to be applied to software that is seen and used
+> by third parties.
+>
+> It is disingenuous for you to imply otherwise.
+>
+> Many non-developers have set up their own content management system like
+> Wordpress on their own servers.  If Wordpress was CAL instead of GPL none
+> of those users would be able to use WordPress because it?s unlikely that
+> WordPress is fully compliant under the terms of 4.2.
+>
+
+
+This is an illuminating example. If WordPress was CAL licensed, then all
+those people hosting their own blogs on WordPress would have to provide a
+link to or copy of the source code they were using, but that is it. Why?
+Because they would not be hosting the user data of random readers. The
+outcome would be essentially the same as the AGPL.
+
+Someone would only need to provide additional user data if they did more
+than host their own blog, but instead moved into the blog hosting business.
+
+Thanks,
+Van
+
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191211/69cd7d35/attachment.html>
+
+From bruce at perens.com  Thu Dec 12 05:25:12 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 11 Dec 2019 21:25:12 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEPeS_ze-78nsrSGz5MGGQ2gw1QEc5zgw7Y4mEBaAAp3sw@mail.gmail.com>
+References: <CAFQvZENjVoXmO9V_nAfJ0NYHgvD8au87+NNJHF4ct+TrFEW+sg@mail.gmail.com> <EF899B64-7888-4292-94FF-A246E8760E55@gmail.com> <CAFQvZEPeS_ze-78nsrSGz5MGGQ2gw1QEc5zgw7Y4mEBaAAp3sw@mail.gmail.com>
+Message-ID: <CAK2MWOuaoCHuoyOBJnML=Hvg9WYqQ1Oi+mQzrhXmce8Q-oquFg@mail.gmail.com>
+
+If they hosted comments on their WordPress blog, and did not approve some
+comments but kept them in the approval queue, this would be sufficient to
+activate the data terms.
+
+I agree with Nigel.
+
+On Wed, Dec 11, 2019, 8:53 PM VanL <van.lindberg at gmail.com> wrote:
+
+> On Wed, Dec 11, 2019, 9:18 PM Nigel T <nigel.2048 at gmail.com> wrote:
+>
+>> A SaaS license is intended to be applied to software that is seen and
+>> used by third parties.
+>>
+>> It is disingenuous for you to imply otherwise.
+>>
+>> Many non-developers have set up their own content management system like
+>> Wordpress on their own servers.  If Wordpress was CAL instead of GPL none
+>> of those users would be able to use WordPress because it?s unlikely that
+>> WordPress is fully compliant under the terms of 4.2.
+>>
+>
+>
+> This is an illuminating example. If WordPress was CAL licensed, then all
+> those people hosting their own blogs on WordPress would have to provide a
+> link to or copy of the source code they were using, but that is it. Why?
+> Because they would not be hosting the user data of random readers. The
+> outcome would be essentially the same as the AGPL.
+>
+> Someone would only need to provide additional user data if they did more
+> than host their own blog, but instead moved into the blog hosting business.
+>
+> Thanks,
+> Van
+>
+>
+>> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191211/0f82c8da/attachment-0001.html>
+
+From henrik.ingo at avoinelama.fi  Thu Dec 12 08:05:21 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Thu, 12 Dec 2019 10:05:21 +0200
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAK2MWOuaoCHuoyOBJnML=Hvg9WYqQ1Oi+mQzrhXmce8Q-oquFg@mail.gmail.com>
+References: <CAFQvZENjVoXmO9V_nAfJ0NYHgvD8au87+NNJHF4ct+TrFEW+sg@mail.gmail.com> <EF899B64-7888-4292-94FF-A246E8760E55@gmail.com> <CAFQvZEPeS_ze-78nsrSGz5MGGQ2gw1QEc5zgw7Y4mEBaAAp3sw@mail.gmail.com> <CAK2MWOuaoCHuoyOBJnML=Hvg9WYqQ1Oi+mQzrhXmce8Q-oquFg@mail.gmail.com>
+Message-ID: <CAKHykevKsrWty9Qq35u1BMnuw=cR4zXvkt4wf72vs4JAT7Nrgw@mail.gmail.com>
+
+If there was a request from a user to get their user data, then the
+clueless operator could also easily publish or approve the queued comments,
+and they would be in compliance. This is a first class feature in the
+Wordpress GUI, and requires zero coding skills from the operator.
+
+For those who are not intimately familiar with Wordpress... It has been CAL
+compliant 13 years ago:
+https://en.blog.wordpress.com/2006/08/14/my-comments/
+
+Admittedly the CAL maybe implies data should be exported in some other
+format than a HTML page, such as a mysqldump, json, or xml file. But it
+doesn't explicitly mandate a specific data format. In the case of the
+clueless Wordpress operator presumably administering a fairly low volume
+site, it could be argued that a HTML page from where a user can easily
+copypaste all of their user data is in fact a good alternative to provide
+this data.
+
+IMO the Wordpress example rather strengthens Van's argument that for
+realistic scenarios the CAL requirements are not unreasonable. I agree that
+there's a discussion worth having about licensors with bad intent, but I
+don't support the idea that a license should be rejected based on rather
+theoretical corner cases. Especially when - as I illustrated in my previous
+email - same corner cases can be constructed for existing licenses like GPL.
+
+henrik
+
+On Thu, Dec 12, 2019 at 7:26 AM Bruce Perens via License-review <
+license-review at lists.opensource.org> wrote:
+
+> If they hosted comments on their WordPress blog, and did not approve some
+> comments but kept them in the approval queue, this would be sufficient to
+> activate the data terms.
+>
+> I agree with Nigel.
+>
+> On Wed, Dec 11, 2019, 8:53 PM VanL <van.lindberg at gmail.com> wrote:
+>
+>> On Wed, Dec 11, 2019, 9:18 PM Nigel T <nigel.2048 at gmail.com> wrote:
+>>
+>>> A SaaS license is intended to be applied to software that is seen and
+>>> used by third parties.
+>>>
+>>> It is disingenuous for you to imply otherwise.
+>>>
+>>> Many non-developers have set up their own content management system like
+>>> Wordpress on their own servers.  If Wordpress was CAL instead of GPL none
+>>> of those users would be able to use WordPress because it?s unlikely that
+>>> WordPress is fully compliant under the terms of 4.2.
+>>>
+>>
+>>
+>> This is an illuminating example. If WordPress was CAL licensed, then all
+>> those people hosting their own blogs on WordPress would have to provide a
+>> link to or copy of the source code they were using, but that is it. Why?
+>> Because they would not be hosting the user data of random readers. The
+>> outcome would be essentially the same as the AGPL.

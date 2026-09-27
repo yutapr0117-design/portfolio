@@ -1,0 +1,750 @@
+}
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190728/29fd40e7/attachment-0001.html>
+
+From van.lindberg at gmail.com  Mon Jul 29 15:37:53 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Mon, 29 Jul 2019 10:37:53 -0500
+Subject: [License-discuss] CAL Termination for Non-Compliance and New York law
+In-Reply-To: <CAGkaBH1GsCnnOzSNtuc1qDaZ+9uGimjuYvaOFRFm5MQ3OeeoCg@mail.gmail.com>
+References: <CAGkaBH1GsCnnOzSNtuc1qDaZ+9uGimjuYvaOFRFm5MQ3OeeoCg@mail.gmail.com>
+Message-ID: <CAFQvZENNGhnXGcEcGUH02tHAw00fWhEaaf6w4Gw8TXSiq4KmXA@mail.gmail.com>
+
+Hello Alexander,
+
+1. You mistake recission for termination; they are different.
+2. The license should be evaluated as a unilateral contract, which allows
+the construction in the CAL.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190729/eb070b87/attachment.html>
+
+From lrosen at rosenlaw.com  Tue Jul 30 18:48:13 2019
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Tue, 30 Jul 2019 11:48:13 -0700
+Subject: [License-discuss] The CAL is NOT unilateral because...
+In-Reply-To: <CAGkaBH0Kf3KFthzDveM=24ZAsQXUkQ=c0=cXz0qSRi3_y=OoZw@mail.gmail.com>
+References: <CAGkaBH0Kf3KFthzDveM=24ZAsQXUkQ=c0=cXz0qSRi3_y=OoZw@mail.gmail.com>
+Message-ID: <017d01d54707$581d5c40$085814c0$@rosenlaw.com>
+
+Alexander Terekhov (pseudonymously) wrote:
+
+> The CAL is NOT unilateral because in a unilateral license agreement a licensee/offeree has no contractual liability; there are no damages *and* no specific performance can possibly be imposed on a licensee/offeree in a unilateral license agreement.
+
+
+
+I will step in to say that Alexander is wrong. He should please take his legal theories to court rather than bury this discussion list in such legal silliness. Citing court cases in this forum proves nothing. Please no longer answer him here.
+ 
+
+/Larry
+ 
+
+Lawrence Rosen
+
+Rosenlaw ( <http://www.rosenlaw.com/> www.rosenlaw.com) 
+
+LinkedIn: LawrenceRosen
+
+3001 King Ranch Rd., Ukiah, CA 95482
+
+Cell: 707-478-8932 
+
+This email is licensed under  <https://creativecommons.org/licenses/by/4.0/> CC-BY-4.0. Please copy freely.  
+ 
+
+From: Alexander Terekhov <herr.alter at gmail.com> 
+Sent: Tuesday, July 30, 2019 11:05 AM
+To: license-discuss at lists.opensource.org
+Cc: VanL <van.lindberg at gmail.com>; lrosen at rosenlaw.com
+Subject: The CAL is NOT unilateral because...
+ 
+
+Hello Van,
+
+The CAL is NOT unilateral because in a unilateral license agreement a licensee/offeree has no contractual liability; there are no damages *and* no specific performance can possibly be imposed on a licensee/offeree in a unilateral license agreement.
+
+The CAL stipulates, however:  
+
+"... You agree that either the Licensor or a Recipient (as an intended third-party beneficiary) may enforce these conditions via specific performance."  
+
+A licensee/offeree in a unilateral agreement can breach nothing because he is not obliged to abide anything; non-compliance by a licensee/offeree is impossible in a unilateral license agreement.
+
+In a unilateral license agreement only a licensor/offeror has a contractual obligation, which becomes binding upon performance or fulfilment of a condition precedent (an act required by an offeror).
+
+Assuming proper consideration, a licensor is a party with liability for damages arising from termination / breach, which BTW happens to "not terminate a licensee's right to use intellectual property", said Judge Easterbrook and the SCOTUS agreed:
+
+https://www.lw.com/thoughtLeadership/supreme-court-clarifies-treatment-of-rejected-trademark-licenses-in-bankruptcy
+
+Easterbrook:
+
+https://caselaw.findlaw.com/us-7th-circuit/1605632.html
+
+?Outside of bankruptcy, a licensor's breach does not terminate a licensee's right to use intellectual property. Lakewood had two principal obligations under its contract with CAM: to provide CAM with motors and cord sets (CAM was to build the rest of the fan) and to pay for the completed fans that CAM drop-shipped to retailers. Suppose that, before the bankruptcy began, Lakewood had broken its promise by failing to provide the motors. CAM might have elected to treat that breach as ending its own obligations, see Uniform Commercial Code ? 2?711(1), but it also could have covered in the market by purchasing motors and billed Lakewood for the extra cost. UCC ? 2?712. CAM had bargained for the security of being able to sell Lakewood-branded fans for its own account if Lakewood defaulted; outside of bankruptcy, Lakewood could not have ended CAM's right to sell the box fans by failing to perform its own duties, any more than a borrower could end the lender's right to collect just by declaring that the debt will not be paid.
+
+What ? 365(g) does by classifying rejection as breach is establish that in bankruptcy, as outside of it, the other party's rights remain in place. After rejecting a contract, a debtor is not subject to an order of specific performance. See NLRB v. Bildisco & Bildisco, 465 U.S. 513, 531, 104 S.Ct. 1188, 79 L.Ed.2d 482 (1984); Midway Motor Lodge of Elk Grove v. Innkeepers' Telemanagement & Equipment Corp., 54 F.3d 406, 407 (7th Cir.1995). The debtor's unfulfilled obligations are converted to damages; when a debtor does not assume the contract before rejecting it, these damages are treated as a pre-petition obligation, which may be written down in common with other debts of the same class. But nothing about this process implies that any rights of the other contracting party have been vaporized. Consider how rejection works for leases. A lessee that enters bankruptcy may reject the lease and pay damages for abandoning the premises, but rejection does not abrogate the lease (which would absolve the debtor of the need to pay damages). Similarly a lessor that enters bankruptcy could not, by rejecting the lease, end the tenant's right to possession and thus re-acquire premises that might be rented out for a higher price. The bankrupt lessor might substitute damages for an obligation to make repairs, but not rescind the lease altogether.?
+
+Hope this helps.
+
+regards,
+alexander.
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190730/5aca6e4f/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: image001.png
+Type: image/png
+Size: 1393 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190730/5aca6e4f/attachment.png>
+
+From rick at linuxmafia.com  Tue Jul 30 19:17:22 2019
+From: rick at linuxmafia.com (Rick Moen)
+Date: Tue, 30 Jul 2019 12:17:22 -0700
+Subject: [License-discuss] [OT] Noise filter (was: The CAL is NOT unilateral because...)
+In-Reply-To: <017d01d54707$581d5c40$085814c0$@rosenlaw.com>
+References: <CAGkaBH0Kf3KFthzDveM=24ZAsQXUkQ=c0=cXz0qSRi3_y=OoZw@mail.gmail.com> <017d01d54707$581d5c40$085814c0$@rosenlaw.com>
+Message-ID: <20190730191722.GI32521@linuxmafia.com>
+
+Quoting Lawrence Rosen (lrosen at rosenlaw.com):
+
+> Please no longer answer him here.
+
+17 years ago on this very mailing list, a remarkably similar thread 
+inspired contributor Tobia Conforto to post a very useful procmail
+filter, usable by individual subscribers to filter both postings
+from specific persons and also first-level replies to those persons.
+I personally don't care for such filtering, but retained a copy pro bono
+publico:
+
+http://linuxmafia.com/faq/Mail/filter.txt
+
+(If your system doesn't offer procmail for post-SMTP mail delivery,
+Conforto's coding logic may nonetheless be a useful model, in crafting a
+recipe.)
+
+
+From van.lindberg at gmail.com  Thu Aug  8 21:18:25 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 8 Aug 2019 16:18:25 -0500
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+Message-ID: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com>
+
+Subject: Cryptographic Autonomy License Beta 2
+
+Thanks again to the license-review committee for the response to Beta 1. I
+have reworked the CAL to remove the reasons for rejection and to address
+some of the concerns that led into the ?further discussion? items. I have
+also privately discussed these with various people and received positive
+feedback, and so am posting CAL beta 2 for discussion.
+
+The link to CAL Beta 2 is here:
+https://docs.google.com/document/d/1PFX7PtPoSbSe7cC7BEoh44OjbWN91-IQOyGzO5Zr-1Q/edit?usp=sharing
+
+I debated providing a redline, but this is a significant reworking of the
+license ? dealing not just with the exact issues raised, but also working
+to simplify the language as much as possible. The result was such that a
+redline would be so noisy as to be uninformative. However, for those who
+are interested, the remainder of this message is a changelog describing the
+changes made in response to the discussions previously held.
+
+Thanks,
+
+Van
+
+====
+
+Changelog:
+
+Overall:
+
+1. Use of Legal language
+
+CAL Beta 1 was criticized for its use of legal terms, idioms, and
+constructions. These criticisms both focused on interpretability for
+developers as well as the lack of a few explicit positive grants, which
+were present in CAL Beta 1 through negative implication. The entire license
+has been reworked with an eye toward reducing complexity.
+
+2. Private right of use
+
+One criticism of CAL Beta 1 was that it did not include an explicit
+positive grant of a private right of use. (It was present, but not
+explicit.) CAL Beta 2 has been updated to include a positive grant for
+private use, as well as to describe its scope. As long as the use is truly
+"private", there is an unlimited right to use CAL-licensed software. See
+Section 1:
+
+> 1. Purpose
+
+> This License gives You unlimited permission to use and modify the
+
+> software to which it applies (the ?Work?), either as-is or in
+
+> modified form, for Your private purposes, while protecting the
+
+> owners and contributors to the software from liability. If any
+
+> non-affiliated third party receives any part, aspect, or element
+
+> of the Work from You, this License also requires that You provide
+
+>that third party all the permissions and materials needed to
+
+> independently use and modify the Work without a loss of data or
+
+> capability.
+
+As with other licenses, obligations are incurred only when a third party
+becomes involved.
+
+3.    Specific provision for GDPR
+
+Comment: This provision was always an interpretive aid, not a fundamental
+part of the license. I have removed it.
+
+4.    The mechanism of ?public performance?
+
+Comment: While I still believe that the use of the term "public
+performance" was fine, this mechanism has been reworked significantly to
+remove this concern. Specifically:
+
+- There was some question as to whether any sort of "public performance" -
+regardless of the use of the specific term of art - could be a trigger for
+applying copyleft obligations. Bruce Perens advocated that some sort of
+"public performance" is acceptable [1] and noted that it has been an
+accepted part of other licenses. To address the concern, the mechanism was
+reworked to focus on the transfer of "any part, aspect, or element of the
+Work" to a third party. See CAL Section 4:
+
+> 4. Conditions
+
+> If You exercise any permission granted by this License, such that the
+Work,
+
+> or any part, aspect, or element of the Work, is distributed, communicated,
+
+> displayed, made available, or made perceptible to a non-Affiliate third
+party
+
+>  (a ?Recipient?), either directly or via a network connection to the
+Recipient,
+
+> You must comply with the following conditions: [...]
+
+This parallels existing licenses where the transfer of the *whole* work is
+used as the trigger for copyleft obligations. The concept was proposed
+on-list and did not attract debate. [2]
+
+[1]
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-June/004261.html
+
+[2]
+http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-July/020715.html
+
+5. Scope of copyleft.
+
+- Beta 2 has been reworked to focus on the transfer of "licenseable" parts
+of the Work. This limits the application to what can be properly reached by
+a license, regardless of what the scope of copyleft turns out to be. See
+Section 2.1 of CAL Beta 2:
+
+> 2.1 Application
+
+> The terms of this License apply to the Work as you receive it from
+Licensor,
+
+> as well as to any modifications, elaborations, or implementations created
+by
+
+> You that contain any licenseable portion of the Work (a ?Modified Work?).
+
+> Unless specified, any reference to the Work also applies to a Modified
+Work.
+
+
+6. At what point the licensor can oblige licensee behavior.
+
+In CAL Beta 2 (quoted above relative to the ?public performance?
+objection), I have tried to recast this as the ?communication? of some
+part, aspect, or element of the Work. This aligns the trigger
+philosophically with previous work, while still retaining the network
+aspect that we want.
+
+7. A license that requires data portability.
+
+As described in various email threads, the point of the data provision is
+to enable Recipients to make use of the software with their own data. This
+was not evident to some participants in the discussion, who incorrectly
+referred to "licensing" of data.
+
+I refocused the discussion and language in the CAL to focus on the ability
+of Recipients to use the software without any loss of functionality or
+data. See Section 4.3:
+
+> 4.3 Maintain User Autonomy
+
+> In addition to providing each Recipient the opportunity to have
+
+> Access to the Source Code, You cannot use the permissions given
+
+> under this License to interfere with a Recipient?s ability to
+
+> fully use an independent copy of the Work generated from the
+
+> Source Code You provide with the Recipient?s own User Data.
+
+This should be clearer in its application and intent, by noting that the
+freedom being preserved is specific to a Recipient's ability to
+independently run the Work as received from the Licensee.
+
+8. Definitions
+
+While the use of a ?Definitions? section is typical in a license or other
+legal document, its use in the CAL was criticized. Instead, some necessary
+definitions have been placed in-line and the standalone section was removed.
+
+9. ?Affiliates?
+
+While CAL Beta 1 already included the concept of ?Affiliates,? CAL Beta 2
+slightly expands the notion so as to deal with a common occurrence:
+independent contractors dedicated to a single employer. These dedicated
+contractors are also affiliates under Beta 2. See Section 7.1.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190808/dfa5cc2d/attachment-0001.html>
+
+From van.lindberg at gmail.com  Tue Aug 13 15:40:30 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Tue, 13 Aug 2019 10:40:30 -0500
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com>
+Message-ID: <CAFQvZEPkSH_Ryg=HGGM-MgF6yJoArkT1o31iLiitxaUkhh6eQQ@mail.gmail.com>
+
+There has been a lot of noise on this list recently. Bumping this thread to
+give anyone who wishes a chance to comment.
+
+Thanks,
+Van
+
+On Thu, Aug 8, 2019 at 4:18 PM VanL <van.lindberg at gmail.com> wrote:
+
+> Subject: Cryptographic Autonomy License Beta 2
+>
+> Thanks again to the license-review committee for the response to Beta 1. I
+> have reworked the CAL to remove the reasons for rejection and to address
+> some of the concerns that led into the ?further discussion? items. I have
+> also privately discussed these with various people and received positive
+> feedback, and so am posting CAL beta 2 for discussion.
+>
+> The link to CAL Beta 2 is here:
+> https://docs.google.com/document/d/1PFX7PtPoSbSe7cC7BEoh44OjbWN91-IQOyGzO5Zr-1Q/edit?usp=sharing
+>
+> I debated providing a redline, but this is a significant reworking of the
+> license ? dealing not just with the exact issues raised, but also working
+> to simplify the language as much as possible. The result was such that a
+> redline would be so noisy as to be uninformative. However, for those who
+> are interested, the remainder of this message is a changelog describing the
+> changes made in response to the discussions previously held.
+>
+> Thanks,
+>
+> Van
+>
+> ====
+>
+> Changelog:
+>
+> Overall:
+>
+> 1. Use of Legal language
+>
+> CAL Beta 1 was criticized for its use of legal terms, idioms, and
+> constructions. These criticisms both focused on interpretability for
+> developers as well as the lack of a few explicit positive grants, which
+> were present in CAL Beta 1 through negative implication. The entire license
+> has been reworked with an eye toward reducing complexity.
+>
+> 2. Private right of use
+>
+> One criticism of CAL Beta 1 was that it did not include an explicit
+> positive grant of a private right of use. (It was present, but not
+> explicit.) CAL Beta 2 has been updated to include a positive grant for
+> private use, as well as to describe its scope. As long as the use is truly
+> "private", there is an unlimited right to use CAL-licensed software. See
+> Section 1:
+>
+> > 1. Purpose
+>
+> > This License gives You unlimited permission to use and modify the
+>
+> > software to which it applies (the ?Work?), either as-is or in
+>
+> > modified form, for Your private purposes, while protecting the
+>
+> > owners and contributors to the software from liability. If any
+>
+> > non-affiliated third party receives any part, aspect, or element
+>
+> > of the Work from You, this License also requires that You provide
+>
+> >that third party all the permissions and materials needed to
+>
+> > independently use and modify the Work without a loss of data or
+>
+> > capability.
+>
+> As with other licenses, obligations are incurred only when a third party
+> becomes involved.
+>
+> 3.    Specific provision for GDPR
+>
+> Comment: This provision was always an interpretive aid, not a fundamental
+> part of the license. I have removed it.
+>
+> 4.    The mechanism of ?public performance?
+>
+> Comment: While I still believe that the use of the term "public
+> performance" was fine, this mechanism has been reworked significantly to
+> remove this concern. Specifically:
+>
+> - There was some question as to whether any sort of "public performance" -
+> regardless of the use of the specific term of art - could be a trigger for
+> applying copyleft obligations. Bruce Perens advocated that some sort of
+> "public performance" is acceptable [1] and noted that it has been an
+> accepted part of other licenses. To address the concern, the mechanism was
+> reworked to focus on the transfer of "any part, aspect, or element of the
+> Work" to a third party. See CAL Section 4:
+>
+> > 4. Conditions
+>
+> > If You exercise any permission granted by this License, such that the
+> Work,
+>
+> > or any part, aspect, or element of the Work, is distributed,
+> communicated,
+>
+> > displayed, made available, or made perceptible to a non-Affiliate third
+> party
+>
+> >  (a ?Recipient?), either directly or via a network connection to the
+> Recipient,
+>
+> > You must comply with the following conditions: [...]
+>
+> This parallels existing licenses where the transfer of the *whole* work is
+> used as the trigger for copyleft obligations. The concept was proposed
+> on-list and did not attract debate. [2]
+>
+> [1]
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-June/004261.html
+>
+> [2]
+> http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-July/020715.html
+>
+> 5. Scope of copyleft.
+>
+> - Beta 2 has been reworked to focus on the transfer of "licenseable" parts
+> of the Work. This limits the application to what can be properly reached by
+> a license, regardless of what the scope of copyleft turns out to be. See
+> Section 2.1 of CAL Beta 2:
+>
+> > 2.1 Application
+>
+> > The terms of this License apply to the Work as you receive it from
+> Licensor,
+>
+> > as well as to any modifications, elaborations, or implementations
+> created by
+>
+> > You that contain any licenseable portion of the Work (a ?Modified Work?).
+>
+> > Unless specified, any reference to the Work also applies to a Modified
+> Work.
+>
+>
+> 6. At what point the licensor can oblige licensee behavior.
+>
+> In CAL Beta 2 (quoted above relative to the ?public performance?
+> objection), I have tried to recast this as the ?communication? of some
+> part, aspect, or element of the Work. This aligns the trigger
+> philosophically with previous work, while still retaining the network
+> aspect that we want.
+>
+> 7. A license that requires data portability.
+>
+> As described in various email threads, the point of the data provision is
+> to enable Recipients to make use of the software with their own data. This
+> was not evident to some participants in the discussion, who incorrectly
+> referred to "licensing" of data.
+>
+> I refocused the discussion and language in the CAL to focus on the ability
+> of Recipients to use the software without any loss of functionality or
+> data. See Section 4.3:
+>
+> > 4.3 Maintain User Autonomy
+>
+> > In addition to providing each Recipient the opportunity to have
+>
+> > Access to the Source Code, You cannot use the permissions given
+>
+> > under this License to interfere with a Recipient?s ability to
+>
+> > fully use an independent copy of the Work generated from the
+>
+> > Source Code You provide with the Recipient?s own User Data.
+>
+> This should be clearer in its application and intent, by noting that the
+> freedom being preserved is specific to a Recipient's ability to
+> independently run the Work as received from the Licensee.
+>
+> 8. Definitions
+>
+> While the use of a ?Definitions? section is typical in a license or other
+> legal document, its use in the CAL was criticized. Instead, some necessary
+> definitions have been placed in-line and the standalone section was removed.
+>
+> 9. ?Affiliates?
+>
+> While CAL Beta 1 already included the concept of ?Affiliates,? CAL Beta 2
+> slightly expands the notion so as to deal with a common occurrence:
+> independent contractors dedicated to a single employer. These dedicated
+> contractors are also affiliates under Beta 2. See Section 7.1.
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190813/801ce8f8/attachment-0001.html>
+
+From rfontana at redhat.com  Tue Aug 13 15:55:01 2019
+From: rfontana at redhat.com (Richard Fontana)
+Date: Tue, 13 Aug 2019 11:55:01 -0400
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com>
+Message-ID: <CAC1cPGzW_HrcoKmg_Fci3AfqeX=y9c7pO_oZCpnd6EcQKVfK_Q@mail.gmail.com>
+
+On Thu, Aug 8, 2019 at 5:19 PM VanL <van.lindberg at gmail.com> wrote:
+
+> 5. Scope of copyleft.
+>
+>
+> - Beta 2 has been reworked to focus on the transfer of "licenseable" parts of the Work. This limits the application to what can be properly reached by a license, regardless of what the scope of copyleft turns out to be. See Section 2.1 of CAL Beta 2:
+>
+>
+> > 2.1 Application
+>
+> > The terms of this License apply to the Work as you receive it from Licensor,
+>
+> > as well as to any modifications, elaborations, or implementations created by
+>
+> > You that contain any licenseable portion of the Work (a ?Modified Work?).
+>
+> > Unless specified, any reference to the Work also applies to a Modified Work.
+
+If I understand correctly, this has the effect of replacing the
+language in the earlier version that would have imposed copyleft
+obligations on APIs by choosing not to address the issue head on
+(contrary to what I think you recommended that license drafters ought
+to do in an earlier thread).
+
+However, leaving aside the notion of API copyrightability, isn't this
+problematically broad? How do you reconcile it with OSD 9 ("The
+license must not place restrictions on other software that is
+distributed along with the licensed software.")?
+
+Richard
+
+
+From bruce at perens.com  Tue Aug 13 16:04:41 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 13 Aug 2019 09:04:41 -0700
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com>
+Message-ID: <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com>
+
+It looks like this is the main reason for objection:
+
+*No Withholding User Data*
+
+*Throughout any period in which You exercise any of the permissions granted
+to You under this License, You must also provide to any Recipient to whom
+you provide services via the Work, a no-charge copy, provided in a commonly
+used electronic form, of the Recipient?s User Data in your possession, to
+the extent that such User Data is available to You for use in conjunction
+with the Work. *
+
+
+As in the previous version of the license, this attempts to extend the
+reciprocal license paradigm to data which is merely processed by the
+program.
+
+As it happens in this case, the user can make a case that they already have
+some right to the data, having created or provided it themselves. In the
+case of some data, for example a photograph which they took, they may have
+a viable ownership right. In other cases, such as simple facts, nobody owns
+the data.
+
+The ownership of the data *distracts from the main issue,* however, which
+is that the license attempts to *encumber data which is processed by the
+program.* This is a slippery slope which OSI should not embark upon, it
+ends with licenses like Kyle's which attempt to encumber all software
+processed by the program and force placement of that software under an Open
+Source license.
+
+I submit that this language still runs awry of OSD#6, since a business
+which sequesters customer data to its own advantage might be obnoxious, but
+it's still a field of endeavor. And it runs awry of OSD#9 to the extent
+that the data can be considered software.
+
+I am the guy on your TV saying "Let's champion data rights as human
+rights!" A substantial part of the human race have seen that IBM spot by
+now, it runs in Europe and Asia besides North America. I believe in data
+rights, but this license is not the way to achieve them.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190813/2803a010/attachment.html>
+
+From simon at webmink.com  Tue Aug 13 16:05:30 2019
+From: simon at webmink.com (Simon Phipps)
+Date: Tue, 13 Aug 2019 17:05:30 +0100
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAC1cPGzW_HrcoKmg_Fci3AfqeX=y9c7pO_oZCpnd6EcQKVfK_Q@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAC1cPGzW_HrcoKmg_Fci3AfqeX=y9c7pO_oZCpnd6EcQKVfK_Q@mail.gmail.com>
+Message-ID: <CAA4ffp_XVoDP=tGHrPKiyHsvkYx4++zVRsUKTP+R6zDJuhsEnQ@mail.gmail.com>
+
+On Tue, Aug 13, 2019 at 4:55 PM Richard Fontana <rfontana at redhat.com> wrote:
+
+> On Thu, Aug 8, 2019 at 5:19 PM VanL <van.lindberg at gmail.com> wrote:
+>
+> > 5. Scope of copyleft.
+> >
+> >
+> > - Beta 2 has been reworked to focus on the transfer of "licenseable"
+> parts of the Work. This limits the application to what can be properly
+> reached by a license, regardless of what the scope of copyleft turns out to
+> be. See Section 2.1 of CAL Beta 2:
+> >
+> >
+> > > 2.1 Application
+> >
+> > > The terms of this License apply to the Work as you receive it from
+> Licensor,
+> >
+> > > as well as to any modifications, elaborations, or implementations
+> created by
+> >
+> > > You that contain any licenseable portion of the Work (a ?Modified
+> Work?).
+> >
+> > > Unless specified, any reference to the Work also applies to a Modified
+> Work.
+>
+> If I understand correctly, this has the effect of replacing the
+> language in the earlier version that would have imposed copyleft
+> obligations on APIs by choosing not to address the issue head on
+> (contrary to what I think you recommended that license drafters ought
+> to do in an earlier thread).
+>
+> However, leaving aside the notion of API copyrightability, isn't this
+> problematically broad? How do you reconcile it with OSD 9 ("The
+> license must not place restrictions on other software that is
+> distributed along with the licensed software.")?
+>
+
+Can you explain why this is "problematic" in relation to OSD 9 please
+Richard? To my eyes the phrase "any modifications, elaborations, or
+implementations created by You that contain any licenseable portion of the
+Work" clearly bounds the effect to derivations of the licensed software and
+not to unrelated software distributed alongside.
+
+S.
+(personally)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190813/c3788966/attachment.html>
+
+From mccoy.smith at intel.com  Tue Aug 13 16:20:31 2019
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Tue, 13 Aug 2019 16:20:31 +0000
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAA4ffp_XVoDP=tGHrPKiyHsvkYx4++zVRsUKTP+R6zDJuhsEnQ@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAC1cPGzW_HrcoKmg_Fci3AfqeX=y9c7pO_oZCpnd6EcQKVfK_Q@mail.gmail.com> <CAA4ffp_XVoDP=tGHrPKiyHsvkYx4++zVRsUKTP+R6zDJuhsEnQ@mail.gmail.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5199F402659@fmsmsx117.amr.corp.intel.com>
+
+>>From: License-discuss [mailto:license-discuss-bounces at lists.opensource.org] On Behalf Of Simon Phipps
+>>Sent: Tuesday, August 13, 2019 9:06 AM
+>>To: license-discuss at lists.opensource.org
+>>Subject: Re: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+
+
+
+>>Can you explain why this is "problematic" in relation to OSD 9 please Richard? To my eyes the phrase "any modifications, elaborations, or implementations created by You that contain any licenseable >>portion of the Work" clearly bounds the effect to derivations of the licensed software and not to unrelated software distributed alongside.
+
+That was my reaction as well.
+Although I dislike use of the noun ?elaborations? (what is that intended to encompass?) and assume ?implementations? is intended to capture a reciprocal effect via patents?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190813/8783d407/attachment.html>
+
+From bruce at perens.com  Tue Aug 13 16:33:21 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 13 Aug 2019 09:33:21 -0700
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5199F402659@fmsmsx117.amr.corp.intel.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAC1cPGzW_HrcoKmg_Fci3AfqeX=y9c7pO_oZCpnd6EcQKVfK_Q@mail.gmail.com> <CAA4ffp_XVoDP=tGHrPKiyHsvkYx4++zVRsUKTP+R6zDJuhsEnQ@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5199F402659@fmsmsx117.amr.corp.intel.com>
+Message-ID: <CAK2MWOv4D4O=9Goi7kqgC2zOjv7NXjRjs_=_O0xYjLKSMtHk9w@mail.gmail.com>
+
+I concur with Richard. To the extent that the user data can be considered
+to be software, the license imposes terms upon software which is merely
+processed by the program. Thus, it runs awry of #9
+
+On Tue, Aug 13, 2019 at 9:21 AM Smith, McCoy <mccoy.smith at intel.com> wrote:
+
+> >>*From:* License-discuss [mailto:
+> license-discuss-bounces at lists.opensource.org] *On Behalf Of *Simon Phipps
+> *>>Sent:* Tuesday, August 13, 2019 9:06 AM
+> *>>To:* license-discuss at lists.opensource.org
+> *>>Subject:* Re: [License-discuss] For Discussion: Cryptographic Autonomy
+> License (CAL) Beta 2
+>
+>
+>
+>
+>
+>
+>
+> >>Can you explain why this is "problematic" in relation to OSD 9 please
+> Richard? To my eyes the phrase "any modifications, elaborations, or
+> implementations created by You that contain any licenseable >>portion of
+> the Work" clearly bounds the effect to derivations of the licensed software
+> and not to unrelated software distributed alongside.
+>
+> That was my reaction as well.
+>
+> Although I dislike use of the noun ?elaborations? (what is that intended
+> to encompass?) and assume ?implementations? is intended to capture a
+> reciprocal effect via patents?
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens - Partner, OSS.Capital.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190813/91123ab7/attachment-0001.html>
+

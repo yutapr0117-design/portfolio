@@ -1,0 +1,750 @@
+> (here your order information)? *Yes, they would.*
+>
+> To specifics:
+>
+> On Wed, May 8, 2019 at 5:01 PM Pamela Chestek <pamela at chesteklegal.com>
+> wrote:
+>
+>> Assume that the CAL is used for front-end software. A website uses the
+>> software for its website. Through a webform I order a gift that is for my
+>> daughter, who lives at a different address. It appears to me that, under
+>> the CAL:
+>>
+>> My daughter's name and address are "User Data," that is, they are data
+>> that is input to the Work and my daughter, a third party, has a Lawful
+>> Interest in the data.
+>>
+>
+> This is not quite correct. The information about the order is User Data,
+> but it is *your* User Data, not your daughter's; your daughter is not a
+> Recipient. (Note that *you* would have the ability to ask for your order
+> data from the website.)
+>
+>
+>> The website has Publicly Performed, that is, it has made an interface
+>> available that is used for access to User Data, my daughter's name and
+>> address. As a result, this interaction means that under 2.2.1 and 2.2.2 the
+>> website has to provide me (the Recipient) with a copy of the source code.
+>>
+>
+> Yes, they would need to provide you a copy of the source code. This is
+> similar (in practice) to how AGPL web apps work. Technically, the AGPL only
+> requires a link to download the source code of modified works, but compare
+> the as-applied licensing for various AGPL web apps:
+>
+>    - Owncloud
+> <https://owncloud.com/owncloud-agplv3-owncloud-commercial-license/>: "How
+> does the AGPLv3 apply to those apps and any apps you write as extentions?
+> Very easily; every ownCloud app is treated as modified work because the
+> code from the ownCloud core is always running in parallel of any such
+> extensions."
+>
+>     - Processmaker
+> <https://www.processmaker.com/agplv3-license-and-bpm-open-source-license>:
+> "Under the AGPL, you must release the complete source code for the
+> application that is built with ProcessMaker, even if that application is
+> running on a network server for SaaS or Cloud hosted purposes."  (Compare
+> Razuna <https://www.razuna.org/whatisrazuna/licensing>, who also use this
+> phrasing).
+>
+>     - Artifex <https://artifex.com/licensing/>: "Bottom line, if you
+> distribute our software, or make the functionality of the software
+> available to users interacting with it remotely through a computer network,
+> you must share your source code."
+>
+> Thanks,
+> Van
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190508/1f5e23df/attachment-0001.html>
+
+From bruce at perens.com  Thu May  9 02:52:51 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 8 May 2019 19:52:51 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com>
+Message-ID: <CAK2MWOs+czygDoXB1BgmOCR9aSfWjeex7osK0Lfa1fO-tjv1NA@mail.gmail.com>
+
+Van,
+
+Please confirm: the terms of this license do not apply to the copyright
+holder themselves, as with most licenses.
+
+The point I am getting to here is that blockchain processing is practical
+for the copyright holder, and would not be practical for any licenses,
+since - as I read it so far - the license requires disclosure of secret
+keys in some circumstances, which would necessarily destroy trust in the
+blockchain. This does not apply to the copyright holder, because he/she is
+not bound to those terms.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190508/e60553c3/attachment.html>
+
+From van.lindberg at gmail.com  Thu May  9 03:07:27 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Wed, 8 May 2019 22:07:27 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com>
+Message-ID: <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com>
+
+Hi Bruce,
+
+On Wed, May 8, 2019, 9:28 PM Bruce Perens via License-review <
+license-review at lists.opensource.org> wrote:
+
+Van,
+
+Let's please get more specific regarding blockchain, since that is the
+target of the customer.
+
+Anna puts data in a blockchain, and her digital signature. She holds some
+right to this data.
+Betty then processes the blockchain, adding data and her own digital
+signature. Because it's a blockchain, Betty's added data is necessarily
+derivative of Anna's.
+
+Anna asks Betty for her data. What does Betty have to provide?
+
+1. Only the data that Anna fed into the system.
+2. The data that Anna fed into the system, and Betty's data which is
+derivative.
+3. #2, plus the secret key that Betty used to manipulate Anna's data.
+
+
+
+Short answer: Possibly nothing. If anything, then only (1).
+
+Longer answer: In order for Betty to have a duty vis a vis Anna, Anna needs
+to be a Recipient of the Work from Betty. Just putting your data out into
+the wild does not create duties downstream for anyone who happens to get
+the data. The duty is personal to each Recipient. See CAL 2.3(b).
+
+Let's assume for the sake of the hypo that Betty is providing services to
+Anna that make Anna a Recipient of the Work from Betty. In which case,
+Betty will need to make available to Anna the User Data provided by Anna -
+your #1.
+
+The CAL does not contain a concept of "Derived Data," so I am somewhat
+unsure how to respond to your #2. Regardless, Anna does not have a Lawful
+Interest in Betty's derivative data, so the CAL does not create any duty.
+
+Given that there is no duty to provide the "derivative" data of #2, any
+keys used to manipulate the data are also irrelevant (your #3).
+
+Anticipating possible questions:
+
+Q: What if Anna's data is encrypted by Betty while in Betty's possession?
+Does Betty need to give up her key then?
+
+A: No. If the encryption is reversible, then Betty must decrypt Anna's data
+in order to provide it to her unencrypted, but the encryption key used by
+Betty can stay secret.
+
+If the encryption is irreversible, then the information is likely "not
+available" to Betty, so the duty doesn't apply. If the application does
+process Anna's User Data somehow while it is in the encrypted state, then
+the encrypted User Data must be made available to Anna so that she can
+process that data in the setting of her choice.
+
+
+
+Note your definition of "Source Code":
+
+o) ?Source Code? means the form of the work preferred for making
+modifications, including any comments, design documentation, help
+materials, installation instructions, *cryptographic keys*, and any
+information reasonably necessary to compile the Source Code into Object
+Code *or Process User Data* using generated Object Code.
+
+Emphasis mine. Perhaps modulated by a comma, the definition of source code
+seems to include cryptographic keys used to process user data.
+
+
+This is mixing two different concepts.  The above concerns User Data, this
+concerns source code. If Betty has a code signing key necessary to execute
+the object code, then that code signing key must be provided so that Anna
+can compile and run the source code in other contexts. This is exactly the
+same as the requirement to provide keys under the GPLv3's complete
+corresponding source.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190508/445fa6ed/attachment.html>
+
+From van.lindberg at gmail.com  Thu May  9 03:11:31 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Wed, 8 May 2019 22:11:31 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOs+czygDoXB1BgmOCR9aSfWjeex7osK0Lfa1fO-tjv1NA@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAK2MWOs+czygDoXB1BgmOCR9aSfWjeex7osK0Lfa1fO-tjv1NA@mail.gmail.com>
+Message-ID: <CAFQvZENQqGSn=jfYMMrJb-Ag+NSfN-W15UBKPu5g0pg-EPGQmA@mail.gmail.com>
+
+The CAL is compatible with blockchain use, and does not place a particular
+party in a privileged position.
+
+See my answer above, addressing how this would interact in a blockchain
+application. Hopefully that clarifies your question here.
+
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+
+On Wed, May 8, 2019, 9:53 PM Bruce Perens via License-review <
+license-review at lists.opensource.org> wrote:
+
+> Van,
+>
+> Please confirm: the terms of this license do not apply to the copyright
+> holder themselves, as with most licenses.
+>
+> The point I am getting to here is that blockchain processing is practical
+> for the copyright holder, and would not be practical for any licenses,
+> since - as I read it so far - the license requires disclosure of secret
+> keys in some circumstances, which would necessarily destroy trust in the
+> blockchain. This does not apply to the copyright holder, because he/she is
+> not bound to those terms.
+>
+>     Thanks
+>
+>     Bruce
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190508/fd6f5ffa/attachment.html>
+
+From bruce at perens.com  Thu May  9 04:37:51 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 8 May 2019 21:37:51 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com>
+Message-ID: <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com>
+
+On Wed, May 8, 2019 at 8:07 PM VanL <van.lindberg at gmail.com> wrote:
+
+> In order for Betty to have a duty vis a vis Anna, Anna needs to be a
+> Recipient of the Work from Betty.
+>
+
+What if Anna performs the work? It seems to me that all participants in a
+blockchain system would have to perform the work to at least one other
+user. Since your language seems oriented toward a system with a system
+operator who potentially hoards data, most users would probably be
+performing the software to that system operator. Potentially this is your
+customer.
+
+
+> The CAL does not contain a concept of "Derived Data," so I am somewhat
+> unsure how to respond to your #2.
+>
+
+The problem is that Anna's data exists in a modified form. It's been
+digitally signed by Betty along with data added by Betty.
+
+So, Anna gets a copy of the blockchain after Betty adds her block. She now
+has a lawful interest in it, in terms of possession. But not in the key
+that Betty used to sign it?
+
+I am not yet seeing that your language regarding cryptographic keys and
+user data is sufficiently selective. It just says "cryptographic keys" and
+that they are the keys necessary to "process user data". Process can mean
+many things, including applying a digital signature.
+
+Note your definition of "Source Code":
+
+o) ?Source Code? means the form of the work preferred for making
+modifications, including any comments, design documentation, help
+materials, installation instructions, *cryptographic keys*, and any
+information reasonably necessary to compile the Source Code into Object
+Code *or Process User Data* using generated Object Code.
+
+Emphasis mine. Perhaps modulated by a comma, the definition of source code
+seems to include cryptographic keys used to process user data.
+
+
+> This is mixing two different concepts.  The above concerns User Data,
+this concerns source code.
+
+It seems to me that the above is concerning both source code and user data.
+To quote again:
+
+*cryptographic keys*, and any information reasonably necessary to compile
+the Source Code into Object Code *or Process User Data* using generated
+Object Code.
+
+
+I am still reading this as "cryptographic keys necessary to process user
+data". If that is not what it says, perhaps splitting this into two
+sentences is appropriate.
+
+> If Betty has a code signing key necessary to execute the object code,
+then that code signing key must be provided so that Anna can compile and
+run the source code in other contexts.
+
+But not process user data? The text arguably says yes, you are saying no.
+ Thanks
+ Bruce
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190508/e6420e91/attachment-0001.html>
+
+From van.lindberg at gmail.com  Thu May  9 10:59:50 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 9 May 2019 05:59:50 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com>
+Message-ID: <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com>
+
+Hi Bruce,
+
+
+On Wed, May 8, 2019, 11:38 PM Bruce Perens <bruce at perens.com> wrote:
+
+>
+>
+> On Wed, May 8, 2019 at 8:07 PM VanL <van.lindberg at gmail.com> wrote:
+>
+>> In order for Betty to have a duty vis a vis Anna, Anna needs to be a
+>> Recipient of the Work from Betty.
+>>
+>
+> What if Anna performs the work?
+>
+
+If Anna performs the work, then Anna will need to provide source code to
+those who receive the work from her.
+
+If you mean, "What if *Betty* performs the work?" then this case was
+already addressed in my email above, responding to the hypo.
+
+It seems to me that all participants in a blockchain system would have to
+> perform the work to at least one other user.
+>
+
+Ok.
+
+Since your language seems oriented toward a system with a system operator
+> who potentially hoards data....
+>
+
+I am not sure where you are getting this.
+
+- If you are getting it from the text of the license, please quote the
+provision.
+
+- If you are inferring that I _must have_ built in an exception for this
+activity because you think that is my client's business model, then you are
+incorrect along a number of fronts. There is no privileged "data hoarder"
+in the license. Further, that is not my client's business model, and
+technically, that's not how my client's technology works.
+
+But I'll take it here as if this were a modification of the hypo.
+
+Continuing....
+
+
+....most
+
+> users would probably be performing the software to that system operator.
+> Potentially this is your customer.
+>
+
+I am not sure how to address this other than to mechanically apply the
+rules in the license.
+
+In your hypo here, all the participants in this blockchain-based app
+perform the work to a central operator. Thus, the central operator is a
+Recipient.
+
+Under the CAL, a Recipient gets a copy/offer of the source code and a
+copy/offer of the Recipient's own User Data.
+
+
+>
+>> The CAL does not contain a concept of "Derived Data," so I am somewhat
+>> unsure how to respond to your #2.
+>>
+>
+> The problem is that Anna's data exists in a modified form. It's been
+> digitally signed by Betty along with data added by Betty.
+>
+
+That is irrelevant. There are no rights to "modified forms" of the data.
+
+Is Anna's data available to Betty, and is Anna a Recipient from Betty? If
+so, Anna can get a copy of her own data from Betty.
+
+
+> So, Anna gets a copy of the blockchain after Betty adds her block. She now
+> has a lawful interest in it, in terms of possession. But not in the key
+> that Betty used to sign it?
+>
+
+Anna never has the right in this hypo to Betty's key. Betty's block is not
+Anna's User Data.
+
+More fundamentally, you seem to be constructing hypos that don't really
+make sense under the CAL. I'd suggest you try drawing this out on a
+whiteboard, using the rules for who gets source in the AGPL context. The
+flow of duties in the CAL is roughly the same.
+
+
+
+> It seems to me that the above is concerning both source code and user
+> data. To quote again:
+>
+> *cryptographic keys*, and any information reasonably necessary to compile
+> the Source Code into Object Code *or Process User Data* using generated
+> Object Code.
+>
+>
+> I am still reading this as "cryptographic keys necessary to process user
+> data". If that is not what it says, perhaps splitting this into two
+> sentences is appropriate.
+>
+> > If Betty has a code signing key necessary to execute the object code,
+> then that code signing key must be provided so that Anna can compile and
+> run the source code in other contexts.
+>
+> But not process user data? The text arguably says yes, you are saying no.
+>
+
+No. You are selecting elements from the sentence in such a way as to create
+a new sentence. A Recipient gets everything necessary to compile the binary
+and execute the resulting object code.
+
+
+Thanks,
+Van
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190509/a62c3f1b/attachment.html>
+
+From bruce at perens.com  Fri May 10 01:08:27 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 9 May 2019 18:08:27 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com>
+Message-ID: <CAK2MWOtkPgVbnQYXXcvwT+g62Db6RgVhk4A3Dvj2GpiO5KG0iA@mail.gmail.com>
+
+Van,
+
+OSI is not simply bound to interpret the OSD, but to protect user's
+software freedom. Thus, we can apply this rule:
+ - The freedom to run the program as you wish, for any purpose (freedom 0).
+
+
+Your proposed text does not grant that freedom. The data release terms
+prevent some purposes, even regarding entirely unmodified software as
+distributed by your customer.
+
+I believe the data release terms also violate the OSD, but since some folks
+here believe you can use #5 and #6 of the OSD against anything you want,
+let's use the FSF rule, which OSI is also bound to by its own rules.
+
+Obviously I have many other problems with the license.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190509/a5053c6b/attachment.html>
+
+From bruce at perens.com  Fri May 10 01:39:38 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 9 May 2019 18:39:38 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com>
+Message-ID: <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com>
+
+On Thu, May 9, 2019 at 4:00 AM VanL <van.lindberg at gmail.com> wrote:
+
+> Since your language seems oriented toward a system with a system operator
+>> who potentially hoards data....
+>>
+>
+> I am not sure where you are getting this.
+>
+
+The fact that your text has language to compel someone to disclose data in
+certain situations obviously indicates that you believe a licensee might
+not otherwise wish to disclose that data ("hoard" it). Your discussion of
+the terms, albeit theoretical, was posed as applying to a photo storage
+site which refused to return your photos.
+
+The intent for Holochain, as promoted by your customer, is to be
+distributed without middlemen. However, in such a network there would be
+little need for the data disclosure terms, thus they appear to be meant to
+fight a centralized operator. Indeed, the explanatory language for
+Holochain poses it this way:
+
+Suppose someone releases a cryptocurrency which promotes itself as a
+peer-to-peer app that is extremely easy to use. You just install it on your
+phone, tablet, or computer, and it leverages the power of cryptographic
+keys to sign transactions to and from your account/wallet. You can do
+direct transactions with other users without those transactions going
+through any centralized servers.
+
+That sounds pretty normal so far, but this particular application generates
+the crypto keys for your account from a key-server controlled by the
+software developer. It turns out the developer ALSO has a copy of
+everyone?s private keys that control their accounts, and can spend anyone?s
+funds whenever they want. Would you consider this a valid approach for a
+decentralized cryptocurrency?
+
+
+It seems to me that this is the sort of operation to which the data
+disclosure terms are directed.
+
+
+> *cryptographic keys*, and any information reasonably necessary to compile
+>> the Source Code into Object Code *or Process User Data* using generated
+>> Object Code.
+>>
+>>
+>> I am still reading this as "cryptographic keys necessary to process user
+>> data". If that is not what it says, perhaps splitting this into two
+>> sentences is appropriate.
+>>
+> ...
+
+>
+> No. You are selecting elements from the sentence in such a way as to
+> create a new sentence. A Recipient gets everything necessary to compile the
+> binary and execute the resulting object code.
+>
+
+The problem I am having here is a more global problem with the license. A
+number of competent attorneys have struggled with it here, and it's
+sufficiently unclear to them; or in the case of public performance,
+contrary to their understanding of law; that I can't count on lawyers and
+courts holding to your interpretation. Nor do I believe that uncounseled
+developer has the slightest hope of developing a correct understanding of
+the license.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190509/02a3ae85/attachment.html>
+
+From van.lindberg at gmail.com  Fri May 10 03:43:50 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 9 May 2019 22:43:50 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com>
+Message-ID: <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com>
+
+Hi Bruce,
+
+I'm going to respond to both your emails here.
+
+
+On Thu, May 9, 2019, 8:39 PM Bruce Perens <bruce at perens.com> wrote:
+
+>
+> The intent for Holochain, as promoted by your customer, is to be
+> distributed without middlemen. However, in such a network there would be
+> little need for the data disclosure terms, thus they appear to be meant to
+> fight a centralized operator.
+>
+
+[Snip further discussion of Holochain]
+
+Thanks for including the information about Holo and Holochain. I think this
+provides valuable context.
+
+In the view of the creators of Holochain, centralized power tends to reduce
+the freedom of all those who interact with it. Thus decentralization is a
+positive hood, in that it tends to maximize self-determination.  The CAL is
+designed to  reduce the incentives for participants in the ecosystem to
+take a decentralized system (like Holochain) and re-centralize it to get
+power over the other participants.
+
+This is why the CAL is really in the Free Software tradition: RMS saw
+copyright as a tool for immoral domination of others, so he created
+copyleft to reverse the typical incentives toward IP centralization,
+promoting Freedom.
+
+The creators of Holochain see centralized control over data as an
+equivalent tool for immoral domination of others, and commissioned the CAL
+to reverse the typical incentives toward data centralization ("hoarding"),
+promoting Freedom.
+
+This brings us to Freedom Zero. You wrote in your other email:
+
+> OSI is not simply bound to interpret the OSD, but to protect user's
+software freedom. Thus, we can apply this rule:
+>
+> The freedom to run the program as you wish, for any purpose (freedom 0).
+>
+> Your proposed text does not grant that freedom. The data release terms
+prevent some purposes, even regarding entirely unmodified software as
+distributed by your customer.
+
+The CAL and the GPL preserve freedom in exactly the same way. You are not
+being precise enough in your reading. The CAL does not prevent anyone from
+running the program as they wish. There are no use restrictions in the CAL,
+except those that, in the words of the GPL:
+
+"To protect your rights, we need to prevent others from denying you these
+rights or asking you to surrender the rights. Therefore, you have certain
+responsibilities if you distribute copies of the software, or if you modify
+it: responsibilities to respect the freedom of others."
+
+This statement applies perfectly to the CAL. If I were to update the GPL
+preamble for the CAL, I would only say:
+
+"The CAL is designed to make sure that you have the freedom to use and
+distribute copies of free software (and charge others for services you
+provide or source code if you wish), that you receive your data and the
+source code from those who provide the software to you, or can get those
+things if you want them, that you can change the software or use pieces of
+it in new free programs, that you can run the software to process your data
+in the context of your choice, and that you know you can do these things.
+
+To protect your rights, we need to prevent others from denying you these
+rights or asking you to surrender the rights. Therefore, you have certain
+responsibilities if you provide the software to others, or if you modify
+it: responsibilities to respect the freedom and the autonomy of others."
+
+The CAL doesn't restrict freedom zero. It just curtails the economic
+incentive for others to act in ways that restrict other's freedoms by also
+requiring them to also turn over those things that grant them exclusivity
+and thus, power.
+
+
+The problem I am having here is a more global problem with the license....
+>
+
+The CAL is an unabashedly legal instrument, and fir anyone who really wants
+to understand it, legal counsel is required. But it really is no more
+complex than the GPL.
+
+For the ordinary developer, though, I can summarize its effects in one
+sentence:
+
+If you make CAL-licensed software available in any way to a person, then
+you must also provide that person 1) a copy of the license, 2) access to
+the software source code, and 3) a copy of any of the data used with
+software that the person has given to you, should that data still be
+available.
+
+
+Thanks,
+
+Van
+
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190509/5de2ec8f/attachment-0001.html>
+
+From bruce at perens.com  Fri May 10 04:37:20 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 9 May 2019 21:37:20 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com>
+Message-ID: <CAK2MWOv_rXFVg1XAeKdKJyUMOOZKFpvavFKJML=07UrcNVN-oA@mail.gmail.com>
+
+Van,
+
+It seems to me that you have re-defined the Free Software Foundation's
+version of Software Freedom, arbitrarily, to encompass data rights. It
+doesn't seem that this should be your task alone, or that of your customer.
+Perhaps the Free Software Foundation would want to be involved :-)
+
+The problem with the way you have done it is that it provides your
+newly-defined* Data Freedom* to people at the expense of someone else, who
+loses the Freedom to run the program as they like under the *FSF version of
+Freedom* to which the OSI signed on.
+
+I could play this game too, by extending the definition of Freedom in other
+arbitrary ways. Perhaps by adding hardware rights. And then when anyone
+asked me why having to provide others with hardware wasn't removing their
+freedom, I would say  "Obviously I don't have the Freedom to run the
+program without hardware".
+
+The point here is that it's an arbitrary re-definition. Each different
+arbitrary extension of Freedom probably would be at someone else's expense,
+and reducing their Freedom under the classical FSF definition of Freedom.
+ Thanks
+ Bruce
+
+On Thu, May 9, 2019 at 8:44 PM VanL <van.lindberg at gmail.com> wrote:
+
+> The CAL and the GPL preserve freedom in exactly the same way. You are not
+> being precise enough in your reading. The CAL does not prevent anyone from
+> running the program as they wish. There are no use restrictions in the CAL,
+> except those that, in the words of the GPL:
+>
+> "To protect your rights, we need to prevent others from denying you these
+> rights or asking you to surrender the rights. Therefore, you have certain
+> responsibilities if you distribute copies of the software, or if you modify
+> it: responsibilities to respect the freedom of others."
+>
+> This statement applies perfectly to the CAL. If I were to update the GPL
+> preamble for the CAL, I would only say:
+>
+> "The CAL is designed to make sure that you have the freedom to use and
+> distribute copies of free software (and charge others for services you
+> provide or source code if you wish), that you receive your data and the
+> source code from those who provide the software to you, or can get those
+> things if you want them, that you can change the software or use pieces of
+> it in new free programs, that you can run the software to process your data
+> in the context of your choice, and that you know you can do these things.
+>
+> To protect your rights, we need to prevent others from denying you these
+> rights or asking you to surrender the rights. Therefore, you have certain
+> responsibilities if you provide the software to others, or if you modify
+> it: responsibilities to respect the freedom and the autonomy of others."
+>
+> The CAL doesn't restrict freedom zero. It just curtails the economic
+> incentive for others to act in ways that restrict other's freedoms by also
+> requiring them to also turn over those things that grant them exclusivity
+> and thus, power.
+>
+>>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190509/6d1e11cd/attachment.html>
+
+From bruce at perens.com  Fri May 10 04:55:09 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 9 May 2019 21:55:09 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com>
+Message-ID: <CAK2MWOsUnn-9=pZ7N8gW2Dp0K=ajY2od47EjWCcrE6AL6ChgVw@mail.gmail.com>
+

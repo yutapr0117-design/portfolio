@@ -1,0 +1,750 @@
+In-Reply-To: <CAA4ffp-rH0wziSyL=_DTyEtHfuzfwTzHpTfNbE_H2mOmi=YN8g@mail.gmail.com>
+References: <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAKHykevbYeSG7Wo5P5GTHZ7fu2az1_0EToOFwwJm-Nnk7AZSxA@mail.gmail.com> <d6440d72-148b-8ac3-60ad-c2ef6aa16cf2@chesteklegal.com> <CAKHykevh0dbOHVBOJPk8FjES_FZdnMzUP7aSmDZWxqwQL9UjjQ@mail.gmail.com> <3f205b0b-86b4-d7e8-b41e-d1a1ed6a709e@chesteklegal.com> <20190828204647.472gqj3abuikmub7@ebb.org> <CAFQvZEO+CnibJCJM95djdd7qd60KkbAO3QfHBOxW-47S4ZcvaQ@mail.gmail.com> <CAK2MWOunaYe5FXZvTNFvb423_9wSCXOngFkyodF3sUT0N5m8Vw@mail.gmail.com> <CAKHykesCJp1nqRwyZxZzLZGCY60T77PFdVKUKVeNW5pT8sSMsg@mail.gmail.com> <CAFQvZEOnGPoDCLcHSemuz8VEuO7RErNQnAVb+Zp7DVhS+EPC5g@mail.gmail.com> <CAK2MWOsjJSNX07ZrCpABjVrmm5mC5ib9h7XOn4SiT7RREAi0XA@mail.gmail.com> <089d4621-c01f-6927-5f98-a8f55d99c9cd@berkus.org> <CAK2MWOvWgH6+1yM3q4G63joXR9SsmE_hVBuC6HkXUZMQ-vhy_g@mail.gmail.com> <CAFQvZEPyqLg47dqqYuTq9ksdy9LqymBxm6PqrrCcCOv3Vennug@mail.gmail.com> <CAK2MWOsVxyR07uNW9mW+zj5LmDd4r3qYLXwntbjWJ6H8g-+oEg@mail.gmail.com> <CAA4ffp-rH0wziSyL=_DTyEtHfuzfwTzHpTfNbE_H2mOmi=YN8g@mail.gmail.com>
+Message-ID: <CAK2MWOv6ft04kz8YAYg_fCta6mN+6F_0bCckYTNhVxU+iv3aPQ@mail.gmail.com>
+
+We know you disagree. You haven't really put much time into the "why". And
+so, this is parsed as Simon's personal feeling, rather than Simon's
+rationale.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190829/5f4896f2/attachment.html>
+
+From simon at webmink.com  Thu Aug 29 19:25:45 2019
+From: simon at webmink.com (Simon Phipps)
+Date: Thu, 29 Aug 2019 20:25:45 +0100
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAK2MWOv6ft04kz8YAYg_fCta6mN+6F_0bCckYTNhVxU+iv3aPQ@mail.gmail.com>
+References: <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAKHykevbYeSG7Wo5P5GTHZ7fu2az1_0EToOFwwJm-Nnk7AZSxA@mail.gmail.com> <d6440d72-148b-8ac3-60ad-c2ef6aa16cf2@chesteklegal.com> <CAKHykevh0dbOHVBOJPk8FjES_FZdnMzUP7aSmDZWxqwQL9UjjQ@mail.gmail.com> <3f205b0b-86b4-d7e8-b41e-d1a1ed6a709e@chesteklegal.com> <20190828204647.472gqj3abuikmub7@ebb.org> <CAFQvZEO+CnibJCJM95djdd7qd60KkbAO3QfHBOxW-47S4ZcvaQ@mail.gmail.com> <CAK2MWOunaYe5FXZvTNFvb423_9wSCXOngFkyodF3sUT0N5m8Vw@mail.gmail.com> <CAKHykesCJp1nqRwyZxZzLZGCY60T77PFdVKUKVeNW5pT8sSMsg@mail.gmail.com> <CAFQvZEOnGPoDCLcHSemuz8VEuO7RErNQnAVb+Zp7DVhS+EPC5g@mail.gmail.com> <CAK2MWOsjJSNX07ZrCpABjVrmm5mC5ib9h7XOn4SiT7RREAi0XA@mail.gmail.com> <089d4621-c01f-6927-5f98-a8f55d99c9cd@berkus.org> <CAK2MWOvWgH6+1yM3q4G63joXR9SsmE_hVBuC6HkXUZMQ-vhy_g@mail.gmail.com> <CAFQvZEPyqLg47dqqYuTq9ksdy9LqymBxm6PqrrCcCOv3Vennug@mail.gmail.com> <CAK2MWOsVxyR07uNW9mW+zj5LmDd4r3qYLXwntbjWJ6H8g-+oEg@mail.gmail.com> <CAA4ffp-rH0wziSyL=_DTyEtHfuzfwTzHpTfNbE_H2mOmi=YN8g@mail.gmail.com> <CAK2MWOv6ft04kz8YAYg_fCta6mN+6F_0bCckYTNhVxU+iv3aPQ@mail.gmail.com>
+Message-ID: <CAA4ffp_-3VT4SPh52F-goGwKPFxKTRw12xfPubHtZhAX-s89Sg@mail.gmail.com>
+
+If you had read to the end of the line you would have seen the explanation.
+>
+> CAL is within the paradigm established by AGPL, even if it is pushing one
+> of the edges
+
+
+We are all very well aware of your extensively-expressed personal feelings
+about CAL too!
+
+S.
+
+On Thu, Aug 29, 2019 at 8:19 PM Bruce Perens <bruce at perens.com> wrote:
+
+> We know you disagree. You haven't really put much time into the "why". And
+> so, this is parsed as Simon's personal feeling, rather than Simon's
+> rationale.
+>
+
+
+-- 
+*Simon Phipps*  http://webmink.com
+
+*Office:* +1 (415) 683-7660 *or* +44 (238) 098 7027
+*Signal/Mobile*:  +44 774 776 2816
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190829/6817eed0/attachment-0001.html>
+
+From bruce at perens.com  Thu Aug 29 19:34:37 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 29 Aug 2019 12:34:37 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAA4ffp_-3VT4SPh52F-goGwKPFxKTRw12xfPubHtZhAX-s89Sg@mail.gmail.com>
+References: <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAKHykevbYeSG7Wo5P5GTHZ7fu2az1_0EToOFwwJm-Nnk7AZSxA@mail.gmail.com> <d6440d72-148b-8ac3-60ad-c2ef6aa16cf2@chesteklegal.com> <CAKHykevh0dbOHVBOJPk8FjES_FZdnMzUP7aSmDZWxqwQL9UjjQ@mail.gmail.com> <3f205b0b-86b4-d7e8-b41e-d1a1ed6a709e@chesteklegal.com> <20190828204647.472gqj3abuikmub7@ebb.org> <CAFQvZEO+CnibJCJM95djdd7qd60KkbAO3QfHBOxW-47S4ZcvaQ@mail.gmail.com> <CAK2MWOunaYe5FXZvTNFvb423_9wSCXOngFkyodF3sUT0N5m8Vw@mail.gmail.com> <CAKHykesCJp1nqRwyZxZzLZGCY60T77PFdVKUKVeNW5pT8sSMsg@mail.gmail.com> <CAFQvZEOnGPoDCLcHSemuz8VEuO7RErNQnAVb+Zp7DVhS+EPC5g@mail.gmail.com> <CAK2MWOsjJSNX07ZrCpABjVrmm5mC5ib9h7XOn4SiT7RREAi0XA@mail.gmail.com> <089d4621-c01f-6927-5f98-a8f55d99c9cd@berkus.org> <CAK2MWOvWgH6+1yM3q4G63joXR9SsmE_hVBuC6HkXUZMQ-vhy_g@mail.gmail.com> <CAFQvZEPyqLg47dqqYuTq9ksdy9LqymBxm6PqrrCcCOv3Vennug@mail.gmail.com> <CAK2MWOsVxyR07uNW9mW+zj5LmDd4r3qYLXwntbjWJ6H8g-+oEg@mail.gmail.com> <CAA4ffp-rH0wziSyL=_DTyEtHfuzfwTzHpTfNbE_H2mOmi=YN8g@mail.gmail.com> <CAK2MWOv6ft04kz8YAYg_fCta6mN+6F_0bCckYTNhVxU+iv3aPQ@mail.gmail.com> <CAA4ffp_-3VT4SPh52F-goGwKPFxKTRw12xfPubHtZhAX-s89Sg@mail.gmail.com>
+Message-ID: <CAK2MWOvaf-3FLzg+VhkOZhWY0L9xqOaf+R62N14ccZmt1Yf9DQ@mail.gmail.com>
+
+On Thu, Aug 29, 2019 at 12:25 PM Simon Phipps <simon at webmink.com> wrote:
+
+> If you had read to the end of the line you would have seen the explanation.
+>>
+>> CAL is within the paradigm established by AGPL, even if it is pushing one
+>> of the edges
+>
+>
+Well, this is really frustrating, because somehow I just don't have the
+mental power to extrapolate, from what you are saying, to how the argument
+relates to the terms regarding the user's data at all. So, if you would
+actually take the time to set down an argument, rather than giving us
+one-liners every few days, we might have some idea of what you mean.
+
+We are all very well aware of your extensively-expressed personal feelings
+> about CAL too!
+>
+
+Well, in contrast to you, Mr. Executive Director of OSI, I have taken the
+trouble to set down my arguments in detail. And I am at least as busy as
+you.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190829/5684c459/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Thu Aug 29 19:44:24 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Thu, 29 Aug 2019 22:44:24 +0300
+Subject: [License-review] [License-discuss] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAK2MWOv6LT0o+0hUFczDbuzgf1myK-ZD0GUo=OmnbNH-vfir=A@mail.gmail.com>
+References: <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAKHykevbYeSG7Wo5P5GTHZ7fu2az1_0EToOFwwJm-Nnk7AZSxA@mail.gmail.com> <d6440d72-148b-8ac3-60ad-c2ef6aa16cf2@chesteklegal.com> <CAKHykevh0dbOHVBOJPk8FjES_FZdnMzUP7aSmDZWxqwQL9UjjQ@mail.gmail.com> <3f205b0b-86b4-d7e8-b41e-d1a1ed6a709e@chesteklegal.com> <20190828204647.472gqj3abuikmub7@ebb.org> <CAFQvZEO+CnibJCJM95djdd7qd60KkbAO3QfHBOxW-47S4ZcvaQ@mail.gmail.com> <CAK2MWOunaYe5FXZvTNFvb423_9wSCXOngFkyodF3sUT0N5m8Vw@mail.gmail.com> <CAKHykesCJp1nqRwyZxZzLZGCY60T77PFdVKUKVeNW5pT8sSMsg@mail.gmail.com> <CAK2MWOt8U+qb6Kno+Ac3ny6b1Hqxy8vuWnp_+Mvubo2K2K0AfQ@mail.gmail.com> <CAKHyketSdUXxVhdrYfuDaZO2JE5193ztGeAUD2NZpnM8vSm6Dg@mail.gmail.com> <CAK2MWOv6LT0o+0hUFczDbuzgf1myK-ZD0GUo=OmnbNH-vfir=A@mail.gmail.com>
+Message-ID: <CAKHykevOfTWVbbM=OCieFuCHCT4evPc_DTxU4O+YoK+7NXoWOQ@mail.gmail.com>
+
+On Thu, Aug 29, 2019 at 8:40 PM Bruce Perens <bruce at perens.com> wrote:
+
+> On Thu, Aug 29, 2019 at 10:30 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+> wrote:
+>
+>> I was lazy and didn't include a link, but I was really referencing - if
+>> not exactly quoting - your own words from March:
+>> https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-March/004014.html
+>>
+>> It seems your mind has changed now that we are discussing a different
+>> license?
+>>
+>
+> So, I am having trouble seeing how declining to give FSF a unilateral veto
+> power on license-review, something we have never even thought of doing with
+> anyone, places us in an adversary relationship with FSF.
+>
+>
+The sub-thread that this discussion originates in was responding to Bradley
+suggesting that a new copyleft license (such as CAL) must only be approved
+by, or even submitted to, OSI if it has been authored with a similar
+process as the AGPL was, for at least as many years, and only if it was
+first endorsed by the FSF. And also only if submitted by a non-profit
+license steward. After re-reading your replies, I realize now you may have
+simply talked about something else completely, but this is what me and Van
+were talking about.
+
+Even then, your omission to address this topic makes it seem you don't
+disagree with Bradley. So you can take this as an opportunity to clarify
+your position.
+
+It's unclear to me why you think anyone here is adversarial to the FSF.
+
+henrik
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190829/f4b115a7/attachment.html>
+
+From bruce at perens.com  Thu Aug 29 20:01:46 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 29 Aug 2019 13:01:46 -0700
+Subject: [License-review] [License-discuss] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAKHykevOfTWVbbM=OCieFuCHCT4evPc_DTxU4O+YoK+7NXoWOQ@mail.gmail.com>
+References: <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAKHykevbYeSG7Wo5P5GTHZ7fu2az1_0EToOFwwJm-Nnk7AZSxA@mail.gmail.com> <d6440d72-148b-8ac3-60ad-c2ef6aa16cf2@chesteklegal.com> <CAKHykevh0dbOHVBOJPk8FjES_FZdnMzUP7aSmDZWxqwQL9UjjQ@mail.gmail.com> <3f205b0b-86b4-d7e8-b41e-d1a1ed6a709e@chesteklegal.com> <20190828204647.472gqj3abuikmub7@ebb.org> <CAFQvZEO+CnibJCJM95djdd7qd60KkbAO3QfHBOxW-47S4ZcvaQ@mail.gmail.com> <CAK2MWOunaYe5FXZvTNFvb423_9wSCXOngFkyodF3sUT0N5m8Vw@mail.gmail.com> <CAKHykesCJp1nqRwyZxZzLZGCY60T77PFdVKUKVeNW5pT8sSMsg@mail.gmail.com> <CAK2MWOt8U+qb6Kno+Ac3ny6b1Hqxy8vuWnp_+Mvubo2K2K0AfQ@mail.gmail.com> <CAKHyketSdUXxVhdrYfuDaZO2JE5193ztGeAUD2NZpnM8vSm6Dg@mail.gmail.com> <CAK2MWOv6LT0o+0hUFczDbuzgf1myK-ZD0GUo=OmnbNH-vfir=A@mail.gmail.com> <CAKHykevOfTWVbbM=OCieFuCHCT4evPc_DTxU4O+YoK+7NXoWOQ@mail.gmail.com>
+Message-ID: <CAK2MWOvDZTeDitwL-QgULa7P3UMvyNTO-Gv7+ze1pfmTXMi-VA@mail.gmail.com>
+
+On Thu, Aug 29, 2019 at 12:44 PM Henrik Ingo <henrik.ingo at avoinelama.fi>
+wrote:
+
+> Even then, your omission to address this topic makes it seem you don't
+> disagree with Bradley. So you can take this as an opportunity to clarify
+> your position.
+>
+
+I am aware of the length of the AGPL proceeding because I attended a
+meeting Bradley held in New York in 2000 asking about how to deal with
+Google and its ilk (I'm not sure SaaS was even a common term then). I
+suggested that license terms activating on public performance would address
+the problem. I might have been the first to do so. But that was my only
+active participation in the creation of the license.
+
+I frankly never considered having a waiting period on a license submission.
+Obviously, something like changing the OSD would take a longer
+consultation. And that gets us to the fundamental question, does the
+license as submitted fit the OSD and is it Free Software? I would say no to
+fitting the OSD and possibly yes to it being Free Software. The definition
+of Free Software, IMO, does too little to maintain that users can actually
+practically run the software. The OSD does somewhat more.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190829/041eb454/attachment.html>
+
+From van.lindberg at gmail.com  Wed Dec  4 20:29:32 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Wed, 4 Dec 2019 14:29:32 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+Message-ID: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com>
+ Based upon ongoing discussions with the license review committee, I am
+withdrawing Beta 3 and substituting Beta 4 (here attached).
+
+The primary change between Beta 3 and Beta 4 is the definition of "User
+Data."
+
+My understanding of OSI's position is that data requirements, such as are
+addressed by the CAL, are within scope of what an open source license can
+reasonably address. However, there was a request by the committee to more
+tightly define the definition of "User Data" so that it was more closely
+tied to function and experience of using the software by a user who chooses
+to self-host.
+
+In consultation with my client, we have proposed and received positive
+feedback on the following modified definition of User Data (most
+significant change bolded):
+
+?User Data? means any data that is an input to or an output from the
+Work, *where
+the presence of the data is necessary for substantially identical use of
+the Work in an equivalent context chosen by the Recipient*, and where the
+Recipient has an existing ownership interest, an existing right to possess,
+or where the data has been generated by, for, or has been assigned to the
+Recipient.
+
+There are also a few cleanups and the following minor but substantive
+changes:
+- Section 7.4, There is a definition of "prevailing party" for attorney fee
+awards (" A ?prevailing party? is the party that achieves, or avoids,
+compliance with this License, including through settlement.")
+- Section 5.3, Enforcing against a terminated licensee does not cause
+termination for the license-enforcing party  ("Administrative review
+procedures, declaratory judgment actions, counterclaims in response to
+patent litigation, and enforcement actions against former Licensees
+terminated under this section do not cause termination due to litigation.")
+
+All other discussion regarding CAL Betas 2 and 3 should apply.
+
+>From the original submission:
+
+*Rationale:* The CAL is a new network copyleft license especially
+applicable for distributed systems. It is designed to be as protective as
+possible of downstream recipients of the software, providing them all that
+they need to create and use an independent copy of a licensed work without
+losing functionality or data.
+
+*Distinguish:* The CAL is most similar to the AGPL, and will have a similar
+scope of action in most cases. However, the CAL has provisions that require
+that operators provide recipients of the software with a copy of their user
+data, enhancing their ability to independently use the software. The CAL
+also allows the creation of mixed "Larger Works," provides for affiliate
+use, and does not specify a mechanism by which notice is given to
+recipients.
+
+*Legal Analysis*: The CAL was drafted by legal counsel. Previous
+discussions have outlined many aspects of the legal analysis.
+
+A copy the the license in Markdown format is attached. For those who would
+prefer it, a Google Docs version of the license is viewable here:
+https://docs.google.com/document/d/1-eD9EH6i3wdSXgG4XJbF-a0cSSknOERjYzlVonOwAQ0/edit?usp=sharing
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191204/64d396d6/attachment-0001.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Cryptographic Autonomy License v1.0-Beta 4.md
+Type: application/octet-stream
+Size: 16454 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191204/64d396d6/attachment-0001.md>
+
+From bruce at perens.com  Thu Dec  5 06:22:50 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 4 Dec 2019 22:22:50 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com>
+Message-ID: <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com>
+
+Hi Van,
+
+I hope you've been well.
+
+The purpose of the CAL is to protect the Holochain (https://holochain.org/)
+from bad actors who would sequester user data. I am exploring whether it
+could possibly be effective at that, which of course has some implication
+on its usefulness.
+
+Is there anything in the terms that would prevent a developer from reading
+the entire code base, and developing a detailed understanding of how it
+works?
+
+Would anything in the terms prevent a developer from documenting how
+Holochain (or any other licensed code) works, and publicly distributing
+that document under a different license from the original code? Assume that
+the document only renders descriptions of the functionality necessary for
+interoperability.
+
+Would anything in the terms prevent any developer from taking that
+document, and implementing an interoperable program under any license, or
+no license?
+
+Would the CAL terms prevent such an interoperable program from operating as
+a Holonet node?
+
+Does Holonet have any other legal means of preventing such an interoperable
+program from operating as a Holonet node?
+
+Can the CAL data terms, and the overall intent to keep user data available
+to the user on Holonet, thus be circumvented by anyone who takes the
+trouble to develop an interoperable program?
+
+And if the answer is no, even if the program is under an OSI-approved
+license?
+ Thanks
+ Bruce
+
+On Wed, Dec 4, 2019 at 12:31 PM VanL <van.lindberg at gmail.com> wrote:
+
+> Based upon ongoing discussions with the license review committee, I am
+> withdrawing Beta 3 and substituting Beta 4 (here attached).
+>
+> The primary change between Beta 3 and Beta 4 is the definition of "User
+> Data."
+>
+> My understanding of OSI's position is that data requirements, such as are
+> addressed by the CAL, are within scope of what an open source license can
+> reasonably address. However, there was a request by the committee to more
+> tightly define the definition of "User Data" so that it was more closely
+> tied to function and experience of using the software by a user who chooses
+> to self-host.
+>
+> In consultation with my client, we have proposed and received positive
+> feedback on the following modified definition of User Data (most
+> significant change bolded):
+>
+> ?User Data? means any data that is an input to or an output from the Work, *where
+> the presence of the data is necessary for substantially identical use of
+> the Work in an equivalent context chosen by the Recipient*, and where the
+> Recipient has an existing ownership interest, an existing right to possess,
+> or where the data has been generated by, for, or has been assigned to the
+> Recipient.
+>
+> There are also a few cleanups and the following minor but substantive
+> changes:
+> - Section 7.4, There is a definition of "prevailing party" for attorney
+> fee awards (" A ?prevailing party? is the party that achieves, or avoids,
+> compliance with this License, including through settlement.")
+> - Section 5.3, Enforcing against a terminated licensee does not cause
+> termination for the license-enforcing party  ("Administrative review
+> procedures, declaratory judgment actions, counterclaims in response to
+> patent litigation, and enforcement actions against former Licensees
+> terminated under this section do not cause termination due to litigation.")
+>
+> All other discussion regarding CAL Betas 2 and 3 should apply.
+>
+> From the original submission:
+>
+> *Rationale:* The CAL is a new network copyleft license especially
+> applicable for distributed systems. It is designed to be as protective as
+> possible of downstream recipients of the software, providing them all that
+> they need to create and use an independent copy of a licensed work without
+> losing functionality or data.
+>
+> *Distinguish:* The CAL is most similar to the AGPL, and will have a
+> similar scope of action in most cases. However, the CAL has provisions that
+> require that operators provide recipients of the software with a copy of
+> their user data, enhancing their ability to independently use the software.
+> The CAL also allows the creation of mixed "Larger Works," provides for
+> affiliate use, and does not specify a mechanism by which notice is given to
+> recipients.
+>
+> *Legal Analysis*: The CAL was drafted by legal counsel. Previous
+> discussions have outlined many aspects of the legal analysis.
+>
+> A copy the the license in Markdown format is attached. For those who would
+> prefer it, a Google Docs version of the license is viewable here:
+> https://docs.google.com/document/d/1-eD9EH6i3wdSXgG4XJbF-a0cSSknOERjYzlVonOwAQ0/edit?usp=sharing
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens - Partner, OSS.Capital.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191204/f0d4eaf8/attachment.html>
+
+From bruce at perens.com  Thu Dec  5 06:24:45 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 4 Dec 2019 22:24:45 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com>
+Message-ID: <CAK2MWOtkRKJDfsKWXKaaQWyEAS88ZgM_-WgYhftVrEbFGY+gpg@mail.gmail.com>
+
+s/Holonet/Holochain/ Sorry.
+
+On Wed, Dec 4, 2019 at 10:22 PM Bruce Perens <bruce at perens.com> wrote:
+
+> Hi Van,
+>
+> I hope you've been well.
+>
+> The purpose of the CAL is to protect the Holochain (https://holochain.org/)
+> from bad actors who would sequester user data. I am exploring whether it
+> could possibly be effective at that, which of course has some implication
+> on its usefulness.
+>
+> Is there anything in the terms that would prevent a developer from reading
+> the entire code base, and developing a detailed understanding of how it
+> works?
+>
+> Would anything in the terms prevent a developer from documenting how
+> Holochain (or any other licensed code) works, and publicly distributing
+> that document under a different license from the original code? Assume that
+> the document only renders descriptions of the functionality necessary for
+> interoperability.
+>
+> Would anything in the terms prevent any developer from taking that
+> document, and implementing an interoperable program under any license, or
+> no license?
+>
+> Would the CAL terms prevent such an interoperable program from operating
+> as a Holonet node?
+>
+> Does Holonet have any other legal means of preventing such an
+> interoperable program from operating as a Holonet node?
+>
+> Can the CAL data terms, and the overall intent to keep user data available
+> to the user on Holonet, thus be circumvented by anyone who takes the
+> trouble to develop an interoperable program?
+>
+> And if the answer is no, even if the program is under an OSI-approved
+> license?
+>
+>     Thanks
+>
+>     Bruce
+>
+> On Wed, Dec 4, 2019 at 12:31 PM VanL <van.lindberg at gmail.com> wrote:
+>
+>> Based upon ongoing discussions with the license review committee, I am
+>> withdrawing Beta 3 and substituting Beta 4 (here attached).
+>>
+>> The primary change between Beta 3 and Beta 4 is the definition of "User
+>> Data."
+>>
+>> My understanding of OSI's position is that data requirements, such as are
+>> addressed by the CAL, are within scope of what an open source license can
+>> reasonably address. However, there was a request by the committee to more
+>> tightly define the definition of "User Data" so that it was more closely
+>> tied to function and experience of using the software by a user who chooses
+>> to self-host.
+>>
+>> In consultation with my client, we have proposed and received positive
+>> feedback on the following modified definition of User Data (most
+>> significant change bolded):
+>>
+>> ?User Data? means any data that is an input to or an output from the
+>> Work, *where the presence of the data is necessary for substantially
+>> identical use of the Work in an equivalent context chosen by the Recipient*,
+>> and where the Recipient has an existing ownership interest, an existing
+>> right to possess, or where the data has been generated by, for, or has been
+>> assigned to the Recipient.
+>>
+>> There are also a few cleanups and the following minor but substantive
+>> changes:
+>> - Section 7.4, There is a definition of "prevailing party" for attorney
+>> fee awards (" A ?prevailing party? is the party that achieves, or avoids,
+>> compliance with this License, including through settlement.")
+>> - Section 5.3, Enforcing against a terminated licensee does not cause
+>> termination for the license-enforcing party  ("Administrative review
+>> procedures, declaratory judgment actions, counterclaims in response to
+>> patent litigation, and enforcement actions against former Licensees
+>> terminated under this section do not cause termination due to litigation.")
+>>
+>> All other discussion regarding CAL Betas 2 and 3 should apply.
+>>
+>> From the original submission:
+>>
+>> *Rationale:* The CAL is a new network copyleft license especially
+>> applicable for distributed systems. It is designed to be as protective as
+>> possible of downstream recipients of the software, providing them all that
+>> they need to create and use an independent copy of a licensed work without
+>> losing functionality or data.
+>>
+>> *Distinguish:* The CAL is most similar to the AGPL, and will have a
+>> similar scope of action in most cases. However, the CAL has provisions that
+>> require that operators provide recipients of the software with a copy of
+>> their user data, enhancing their ability to independently use the software.
+>> The CAL also allows the creation of mixed "Larger Works," provides for
+>> affiliate use, and does not specify a mechanism by which notice is given to
+>> recipients.
+>>
+>> *Legal Analysis*: The CAL was drafted by legal counsel. Previous
+>> discussions have outlined many aspects of the legal analysis.
+>>
+>> A copy the the license in Markdown format is attached. For those who
+>> would prefer it, a Google Docs version of the license is viewable here:
+>> https://docs.google.com/document/d/1-eD9EH6i3wdSXgG4XJbF-a0cSSknOERjYzlVonOwAQ0/edit?usp=sharing
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>
+>
+> --
+> Bruce Perens - Partner, OSS.Capital.
+>
+
+
+-- 
+Bruce Perens - Partner, OSS.Capital.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191204/b1b2b2ee/attachment-0001.html>
+
+From van.lindberg at gmail.com  Thu Dec  5 14:05:54 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 5 Dec 2019 08:05:54 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com>
+Message-ID: <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com>
+
+Hello Bruce,
+
+You seem to be outlining a classic clean-room reverse engineering procedure
+and asking if it is possible for someone to use such a procedure.
+
+- In the case of Holochain itself, certain necessary aspects are patent
+pending. The CAL itself is the mechanism by which the patent is licensed to
+users and contributors. Someone who attempted to subvert the user
+protections would thus be exposing themselves to an infringement lawsuit,
+as they would have bypassed the method by which they could receive a
+license. Thus patent law, like copyright, is harnessed to protect the
+software commons.
+
+- In the general case, I don't dispute that there could be a hypothetical
+clean room procedure that would allow legal reverse engineering. In
+practice, I believe the law is muddled and the steps needed to create and
+execute such a clean room procedure are unclear. Maybe Google v. Oracle
+will give us more clarity.
+
+Thanks,
+Van
+
+On Thu, Dec 5, 2019 at 12:23 AM Bruce Perens via License-review <
+license-review at lists.opensource.org> wrote:
+
+> Hi Van,
+>
+> I hope you've been well.
+>
+> The purpose of the CAL is to protect the Holochain (https://holochain.org/)
+> from bad actors who would sequester user data. I am exploring whether it
+> could possibly be effective at that, which of course has some implication
+> on its usefulness.
+>
+> Is there anything in the terms that would prevent a developer from reading
+> the entire code base, and developing a detailed understanding of how it
+> works?
+>
+> Would anything in the terms prevent a developer from documenting how
+> Holochain (or any other licensed code) works, and publicly distributing
+> that document under a different license from the original code? Assume that
+> the document only renders descriptions of the functionality necessary for
+> interoperability.
+>
+> Would anything in the terms prevent any developer from taking that
+> document, and implementing an interoperable program under any license, or
+> no license?
+>
+> Would the CAL terms prevent such an interoperable program from operating
+> as a Holonet node?
+>
+> Does Holonet have any other legal means of preventing such an
+> interoperable program from operating as a Holonet node?
+>
+> Can the CAL data terms, and the overall intent to keep user data available
+> to the user on Holonet, thus be circumvented by anyone who takes the
+> trouble to develop an interoperable program?
+>
+> And if the answer is no, even if the program is under an OSI-approved
+> license?
+>
+>     Thanks
+>
+>     Bruce
+>
+> On Wed, Dec 4, 2019 at 12:31 PM VanL <van.lindberg at gmail.com> wrote:
+>
+>> Based upon ongoing discussions with the license review committee, I am
+>> withdrawing Beta 3 and substituting Beta 4 (here attached).
+>>
+>> The primary change between Beta 3 and Beta 4 is the definition of "User
+>> Data."
+>>
+>> My understanding of OSI's position is that data requirements, such as are
+>> addressed by the CAL, are within scope of what an open source license can
+>> reasonably address. However, there was a request by the committee to more
+>> tightly define the definition of "User Data" so that it was more closely
+>> tied to function and experience of using the software by a user who chooses
+>> to self-host.
+>>
+>> In consultation with my client, we have proposed and received positive
+>> feedback on the following modified definition of User Data (most
+>> significant change bolded):
+>>
+>> ?User Data? means any data that is an input to or an output from the
+>> Work, *where the presence of the data is necessary for substantially
+>> identical use of the Work in an equivalent context chosen by the Recipient*,
+>> and where the Recipient has an existing ownership interest, an existing
+>> right to possess, or where the data has been generated by, for, or has been
+>> assigned to the Recipient.
+>>
+>> There are also a few cleanups and the following minor but substantive
+>> changes:
+>> - Section 7.4, There is a definition of "prevailing party" for attorney
+>> fee awards (" A ?prevailing party? is the party that achieves, or avoids,
+>> compliance with this License, including through settlement.")
+>> - Section 5.3, Enforcing against a terminated licensee does not cause
+>> termination for the license-enforcing party  ("Administrative review
+>> procedures, declaratory judgment actions, counterclaims in response to
+>> patent litigation, and enforcement actions against former Licensees
+>> terminated under this section do not cause termination due to litigation.")
+>>
+>> All other discussion regarding CAL Betas 2 and 3 should apply.
+>>
+>> From the original submission:
+>>
+>> *Rationale:* The CAL is a new network copyleft license especially
+>> applicable for distributed systems. It is designed to be as protective as
+>> possible of downstream recipients of the software, providing them all that
+>> they need to create and use an independent copy of a licensed work without
+>> losing functionality or data.
+>>
+>> *Distinguish:* The CAL is most similar to the AGPL, and will have a
+>> similar scope of action in most cases. However, the CAL has provisions that
+>> require that operators provide recipients of the software with a copy of
+>> their user data, enhancing their ability to independently use the software.
+>> The CAL also allows the creation of mixed "Larger Works," provides for
+>> affiliate use, and does not specify a mechanism by which notice is given to
+>> recipients.
+>>
+>> *Legal Analysis*: The CAL was drafted by legal counsel. Previous
+>> discussions have outlined many aspects of the legal analysis.
+>>
+>> A copy the the license in Markdown format is attached. For those who
+>> would prefer it, a Google Docs version of the license is viewable here:
+>> https://docs.google.com/document/d/1-eD9EH6i3wdSXgG4XJbF-a0cSSknOERjYzlVonOwAQ0/edit?usp=sharing
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>
+>
+> --
+> Bruce Perens - Partner, OSS.Capital.
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191205/77931134/attachment.html>
+
+From bruce at perens.com  Thu Dec  5 16:12:54 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 5 Dec 2019 08:12:54 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com>
+Message-ID: <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com>
+
+Van,
+
+Why would a clean-room procedure be necessary? It's Open Source software,
+and everyone has the right to read it.
+
+Let's make sure I have this straight. You can't write other Open Source
+software that is compatible with Holochain, under any license but the CAL,
+because only software under the CAL license has a license to the patents?
+ Thanks
+ Bruce
+
+On Thu, Dec 5, 2019 at 6:07 AM VanL <van.lindberg at gmail.com> wrote:
+
+> Hello Bruce,
+>
+> You seem to be outlining a classic clean-room reverse engineering
+> procedure and asking if it is possible for someone to use such a procedure.
+>
+> - In the case of Holochain itself, certain necessary aspects are patent
+> pending. The CAL itself is the mechanism by which the patent is licensed to
+> users and contributors. Someone who attempted to subvert the user
+> protections would thus be exposing themselves to an infringement lawsuit,
+> as they would have bypassed the method by which they could receive a
+> license. Thus patent law, like copyright, is harnessed to protect the
+> software commons.
+>
+> - In the general case, I don't dispute that there could be a hypothetical
+> clean room procedure that would allow legal reverse engineering. In
+> practice, I believe the law is muddled and the steps needed to create and
+> execute such a clean room procedure are unclear. Maybe Google v. Oracle
+> will give us more clarity.
+>
+> Thanks,
+> Van
+>
+> On Thu, Dec 5, 2019 at 12:23 AM Bruce Perens via License-review <
+> license-review at lists.opensource.org> wrote:
+>
+>> Hi Van,
+>>
+>> I hope you've been well.
+>>
+>> The purpose of the CAL is to protect the Holochain (
+>> https://holochain.org/) from bad actors who would sequester user data. I
+>> am exploring whether it could possibly be effective at that, which of
+>> course has some implication on its usefulness.
+>>
+>> Is there anything in the terms that would prevent a developer from
+>> reading the entire code base, and developing a detailed understanding of
+>> how it works?
+>>
+>> Would anything in the terms prevent a developer from documenting how
+>> Holochain (or any other licensed code) works, and publicly distributing
+>> that document under a different license from the original code? Assume that
+>> the document only renders descriptions of the functionality necessary for
+>> interoperability.
+>>
+>> Would anything in the terms prevent any developer from taking that
+>> document, and implementing an interoperable program under any license, or
+>> no license?
+>>
+>> Would the CAL terms prevent such an interoperable program from operating
+>> as a Holonet node?
+>>
+>> Does Holonet have any other legal means of preventing such an
+>> interoperable program from operating as a Holonet node?
+>>
+>> Can the CAL data terms, and the overall intent to keep user data
+>> available to the user on Holonet, thus be circumvented by anyone who takes
+>> the trouble to develop an interoperable program?
+>>
+>> And if the answer is no, even if the program is under an OSI-approved
+>> license?
+>>
+>>     Thanks
+>>
+>>     Bruce
+>>
+>> On Wed, Dec 4, 2019 at 12:31 PM VanL <van.lindberg at gmail.com> wrote:
+>>
+>>> Based upon ongoing discussions with the license review committee, I am
+>>> withdrawing Beta 3 and substituting Beta 4 (here attached).
+>>>
+>>> The primary change between Beta 3 and Beta 4 is the definition of "User
+>>> Data."
+>>>

@@ -1,0 +1,750 @@
+
+If the independent work did not contain any protectable, licenseable
+portions of the CAL-licensed work, then I don't think the CAL could reach
+it under any standard.
+
+
+
+> I think 5.3 would benefit from following clarification: " In the event of
+> termination due to litigation initiated by You,"
+>
+
+Done.
+
+Thanks,
+Van
+
+
+
+[1] For the old-timers, yes, this is in deliberate contrast to X11. :)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190814/2c72d58b/attachment-0001.html>
+
+From rmf at lookhere.com  Wed Aug 14 23:30:26 2019
+From: rmf at lookhere.com (Roger Fujii)
+Date: Wed, 14 Aug 2019 19:30:26 -0400
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com>
+Message-ID: <da78cc6f-fd76-10fa-4d74-df857905d84c@lookhere.com>
+
+On 8/13/2019 12:04 PM, Bruce Perens via License-discuss wrote:
+> It looks like this is the main reason for objection:
+>
+>         /*No Withholding User Data*/
+>
+>         /Throughout any period in which You exercise any of the
+>         permissions granted to You under this License, You must also
+>         provide to any Recipient to whom you provide services via the
+>         Work, a no-charge copy, provided in a commonly used electronic
+>         form, of the Recipient?s User Data in your possession, to the
+>         extent that such User Data is available to You for use in
+>         conjunction with the Work. /
+>
+> [snip]
+> The ownership of the data /distracts from the main issue,/ however, 
+> which is that the license attempts to /encumber data which is 
+> processed by the program./ This is a slippery slope which OSI should 
+> not embark upon, it ends with licenses like Kyle's which attempt to 
+> encumber all software processed by the program and force placement of 
+> that software under an Open Source license.
+>
+Even more fundamentally than that is that this section does something 
+that no open source license does (that I'm aware of anyway), which is to 
+create an obligation just by running an /unmodified/ program.? While 
+this (surprisingly) doesn't violate any OSD section explicitly, it 
+violates a tenet of open source software - that the user can run 
+*unmodified* versions without worrying about legal ramifications (well, 
+copyright wise anyway). No good will come to opensource if company legal 
+has to get involved just to run a binary.
+
+> I submit that this language still runs awry of OSD#6, since a business 
+> which sequesters customer data to its own advantage might be 
+> obnoxious, but it's still a field of endeavor. And it runs awry of 
+> OSD#9 to the extent that the data can be considered software.
+
+I think the data part distracts from the actual issue.?? For the sake of 
+argument, replace "User Data" with "modified source to all open source 
+You use" (this way, we keep it in the source code arena).?? Would a 
+license like this pass (making an obligation on something that isn't a 
+derivative work)?
+
+>
+> I am the guy on your TV saying "Let's champion data rights as human 
+> rights!" A substantial part of the human race have seen that IBM spot 
+> by now, it runs in Europe and Asia besides North America. I believe in 
+> data rights, but this license is not the way to achieve them.
+>
++1
+
+Roger Fujii
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190814/ed128609/attachment.html>
+
+From van.lindberg at gmail.com  Thu Aug 15 00:26:30 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Wed, 14 Aug 2019 19:26:30 -0500
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <da78cc6f-fd76-10fa-4d74-df857905d84c@lookhere.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com> <da78cc6f-fd76-10fa-4d74-df857905d84c@lookhere.com>
+Message-ID: <CAFQvZENNNmZ1Lw2KNMVDgs3UxfG=Uu-RjbXF0OJerArbsbkJMQ@mail.gmail.com>
+
+Hi Roger,
+
+Thanks for taking the time to comment.
+
+I'd disagree with this characterization:
+
+On Wed, Aug 14, 2019, 6:31 PM Roger Fujii <rmf at lookhere.com> wrote:
+
+> Even more fundamentally than that is that this section does something that
+> no open source license does (that I'm aware of anyway), which is to create
+> an obligation just by running an /unmodified/ program.
+>
+
+A person can run the unmodified program (and even a modified one) without
+having any obligations as long.as they run it for themselves, for their
+private purposes.
+
+This even applies to businesses, who can run CAL-licensed software for the
+benefit of their employees and dedicated contractors.
+
+The obligations of the CAL only apply when there is a "Recipient" - a
+non-Affiliate third party who receives part or all of the Work from you.
+
+That is a form of distribution - even if it is partial - and that is the
+trigger for CAL's conditions.
+
+Thanks,
+Van
+
+
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190814/ac46025f/attachment-0001.html>
+
+From rmf at lookhere.com  Thu Aug 15 03:55:26 2019
+From: rmf at lookhere.com (Roger Fujii)
+Date: Wed, 14 Aug 2019 23:55:26 -0400
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAFQvZENNNmZ1Lw2KNMVDgs3UxfG=Uu-RjbXF0OJerArbsbkJMQ@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com> <da78cc6f-fd76-10fa-4d74-df857905d84c@lookhere.com> <CAFQvZENNNmZ1Lw2KNMVDgs3UxfG=Uu-RjbXF0OJerArbsbkJMQ@mail.gmail.com>
+Message-ID: <b0c25b61-513f-d08f-3fde-13f5586e58f8@lookhere.com>
+
+On 8/14/2019 8:26 PM, VanL wrote:
+> Hi Roger,
+>
+> Thanks for taking the time to comment.
+>
+> I'd disagree with this characterization:
+>
+> On Wed, Aug 14, 2019, 6:31 PM Roger Fujii <rmf at lookhere.com 
+> <mailto:rmf at lookhere.com>> wrote:
+>
+>     Even more fundamentally than that is that this section does
+>     something that no open source license does (that I'm aware of
+>     anyway), which is to create an obligation just by running an
+>     /unmodified/ program.
+>
+>
+> A person can run the unmodified program (and even a modified one) 
+> without having any obligations as long.as <http://long.as> they run it 
+> for themselves, for their private purposes.
+> This even applies to businesses, who can run CAL-licensed software for 
+> the benefit of their employees and dedicated contractors.
+> The obligations of the CAL only apply when there is a "Recipient" - a 
+> non-Affiliate third party who receives part or all of the Work from you.
+> That is a form of distribution - even if it is partial - and that is 
+> the trigger for CAL's conditions.
+>
+But there is NO such constraint for 4.2.1.?? It says (bold mine):
+*Throughout any period in which You exercise *any* of the permissions 
+granted to You under this License *
+
+***So, let's concoct an example. I have an authentication db which has 
+username/passwords. I have another separate db that has all sorts of 
+data on the username. To get a username/password, the user submits a 
+request to staff, the staff uses a unmodified CAL licensed standalone 
+program that populates the username/password in the authentication db, 
+and the user gets the authentication info texted/IMed/emailed to them. 
+Since this is a concocted example, I'll say that this standalone program 
+is the only CAL licensed part in the system. Given the wording (since 
+nothing is constraining "User Data" and you have to use some permission 
+to execute the CAL binary), any one logging in can request their user 
+data (including the data on the separate db server, that never touched 
+CAL) even if the user logging in never executed a single line of CAL code. *
+
+*The problem is that data and code live in separate spaces. Code lives 
+when it is executed. Data lives by its mere existence. You /might/ get 
+around this by adding 2 exceptions: so 4.2.1 does not apply if a) you 
+use unmodified source, or b) modified source with modifications 
+released. So one can either have released the source OR you have to 
+release the user data - this would be no different than something that 
+is dual licensed. Dunno if other people will agree though.*
+
+*Roger Fujii *
+
+**
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190814/3b171982/attachment.html>
+
+From bruce at perens.com  Thu Aug 15 03:57:12 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 14 Aug 2019 20:57:12 -0700
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAFQvZENNNmZ1Lw2KNMVDgs3UxfG=Uu-RjbXF0OJerArbsbkJMQ@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com> <da78cc6f-fd76-10fa-4d74-df857905d84c@lookhere.com> <CAFQvZENNNmZ1Lw2KNMVDgs3UxfG=Uu-RjbXF0OJerArbsbkJMQ@mail.gmail.com>
+Message-ID: <CAK2MWOs+Zkg9PTpt9AY9WMWzfYBbbCVFFt4RMoqo6yNU8FibXQ@mail.gmail.com>
+
+On Wed, Aug 14, 2019 at 5:27 PM VanL <van.lindberg at gmail.com> wrote:
+
+> A person can run the unmodified program (and even a modified one) without
+> having any obligations as long.as they run it for themselves, for their
+> private purposes.
+>
+
+Van,
+
+Haven't you just very clearly characterized this term as a use restriction?
+And doesn't this way of stating it make it very clear it's in contravention
+of OSD #6? It would certainly be a field of endeavor to run the program for
+anyone but yourself, or for anything but a private purpose.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190814/cdc509e6/attachment.html>
+
+From lrosen at rosenlaw.com  Thu Aug 15 04:16:42 2019
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Wed, 14 Aug 2019 21:16:42 -0700
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAK2MWOs+Zkg9PTpt9AY9WMWzfYBbbCVFFt4RMoqo6yNU8FibXQ@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com> <da78cc6f-fd76-10fa-4d74-df857905d84c@lookhere.com> <CAFQvZENNNmZ1Lw2KNMVDgs3UxfG=Uu-RjbXF0OJerArbsbkJMQ@mail.gmail.com> <CAK2MWOs+Zkg9PTpt9AY9WMWzfYBbbCVFFt4RMoqo6yNU8FibXQ@mail.gmail.com>
+Message-ID: <008401d55320$3ffd2030$bff76090$@rosenlaw.com>
+
+Bruce Perens wrote:
+
+> And doesn't this way of stating it make it very clear it's in contravention of OSD #6? It would certainly be a field of endeavor to run the program for anyone but yourself, or for anything but a private purpose.
+ 
+
+Bruce, this seems to be a real stretch about "field of endeavor." What is the "field?"
+ 
+
+/Larry
+ 
+
+From: License-discuss <license-discuss-bounces at lists.opensource.org> On Behalf Of Bruce Perens via License-discuss
+Sent: Wednesday, August 14, 2019 8:57 PM
+To: license-discuss at lists.opensource.org
+Cc: Bruce Perens <bruce at perens.com>
+Subject: Re: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+ 
+ 
+ 
+
+On Wed, Aug 14, 2019 at 5:27 PM VanL <van.lindberg at gmail.com <mailto:van.lindberg at gmail.com> > wrote:
+
+A person can run the unmodified program (and even a modified one) without having any obligations as long.as <http://long.as>  they run it for themselves, for their private purposes.
+ 
+
+Van,
+ 
+
+Haven't you just very clearly characterized this term as a use restriction? And doesn't this way of stating it make it very clear it's in contravention of OSD #6? It would certainly be a field of endeavor to run the program for anyone but yourself, or for anything but a private purpose.
+ 
+ Thanks
+ 
+ Bruce
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190814/1d277a38/attachment.html>
+
+From bruce at perens.com  Thu Aug 15 04:44:32 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 14 Aug 2019 21:44:32 -0700
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <008401d55320$3ffd2030$bff76090$@rosenlaw.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com> <da78cc6f-fd76-10fa-4d74-df857905d84c@lookhere.com> <CAFQvZENNNmZ1Lw2KNMVDgs3UxfG=Uu-RjbXF0OJerArbsbkJMQ@mail.gmail.com> <CAK2MWOs+Zkg9PTpt9AY9WMWzfYBbbCVFFt4RMoqo6yNU8FibXQ@mail.gmail.com> <008401d55320$3ffd2030$bff76090$@rosenlaw.com>
+Message-ID: <CAK2MWOs=O6FZqkJKrb3Pk=Ojhn0yG0oQyNv_H2PK7aMKGfVJVg@mail.gmail.com>
+
+On Wed, Aug 14, 2019 at 9:31 PM Lawrence Rosen <lrosen at rosenlaw.com> wrote:
+
+> Bruce, this seems to be a real stretch about "field of endeavor." What is
+> the "field?"
+>
+
+Any means of doing business with the software at all! It doesn't seem at
+all a reach that there is a field of endeavor in doing business.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190814/1555c702/attachment-0001.html>
+
+From henrik.ingo at avoinelama.fi  Thu Aug 15 11:15:56 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Thu, 15 Aug 2019 14:15:56 +0300
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAFQvZEO5Lx55e5taAg-4H--=55+y-XVf8c2pAsa3LktatpF4HQ@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAFQvZEPkSH_Ryg=HGGM-MgF6yJoArkT1o31iLiitxaUkhh6eQQ@mail.gmail.com> <CAKHykevkB0iA1fGeqWonoK9O8v4JNwhr0fj_OX5Zqnk7m3HWBA@mail.gmail.com> <CAFQvZEO5Lx55e5taAg-4H--=55+y-XVf8c2pAsa3LktatpF4HQ@mail.gmail.com>
+Message-ID: <CAKHykeudmY-Lu0-4ikouttqVFj6w4KQaWnpEWU0-59s9BuL9GQ@mail.gmail.com>
+
+On Wed, Aug 14, 2019 at 5:35 PM VanL <van.lindberg at gmail.com> wrote:
+
+> On Wed, Aug 14, 2019 at 8:02 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+> wrote:
+>
+>> Data autonomy
+>>
+>> Wrt the discussion of not encumbering mere use / private use with any
+>> obligations, I notice there's first of all a very explicit carve out for
+>> "your private purposes". Also the first paragraph of 4.2 is in the same
+>> spirit I think. But I think 4.2.1 still falls a bit short of drawing the
+>> right boundary. I think the reasonable boundary is: 1) If the software you
+>> received includes functionality for the user to download his data, you
+>> cannot remove or encumber this functionality. 2) When you add functionality
+>> that causes more data to be stored, it must be available through the same
+>> or similar functionality.
+>>
+>
+> [snip]
+>
+> I see where you are going by this, but I don't think that works.
+>
+> First, as you note, your proposed modification would have the result of
+> making certain parts of the software un-modifiable, which I think is a
+> no-go.
+>
+> Second, it doesn't seem proper to me to dictate the structure of someone's
+> program. I want to identify the policy that needs to be upheld, not the
+> mechanism.[1] There are a million ways to be compliant with the CAL; I
+> don't want to bake something in where it would not be appropriate. For
+> example, even "I tar up the files and email them to you" may not be
+> efficient, but it would be compliant.
+>
+> Third, there are examples of later-added "user data download"
+> functionality (e.g., Google Takeout) that would be hypothetically compliant
+> with the CAL. So it doesn't seem unreasonable to say that functionality
+> could be added to assist with compliance, if necessary.
+>
+> Fourth, termination is not immediate; termination due to non-compliance
+> only occurs if the licensee does not comply within 60 days of being
+> notified of non-compliance. That gives adequate time for even inefficient
+> measures, and prevents this from being a "submarine" issue.
+>
+>
+>
+This is all fair counter arguments. As you've seen in other threads, I'm
+not the biggest fan of AGPLv3 either, where the license all but assumes a
+Graphical UI. (To be clear: I am a fan of copyleft and the AGPL, I just
+think there's room for alternatives.) Otoh through the discussions this
+year I've also learned to respect the value of crafting open source
+licenses that don't burden use of unmodified versions of the software.
+
+I don't want to debate whether my suggestion is better than your current
+position. I expect that others will be more resistant to this idea as a
+whole anyway. I wanted to address the arguments about not burdening "mere
+use" with legal requirements and risk. Should that become the primary
+argument of your opposition, you can always reconsider whether you want to
+seek shelter at my proposal after all.
+
+(I will silently consider to what extent I could approve of your current
+text if you submit it to license review. It's certainly improved from last
+time, but the idea remains problematic even to me.)
+
+
+
+>
+>> API copyleft
+>>
+>> You no longer make any references to "public performance", so the issue
+>> of pioneering a new evil copyright power is avoided. Similarly there
+>> doesn't appear to be a direct claim on API copyright.
+>>
+>> *"4. If You exercise any permission granted by this License, such that
+>> the Work, or any part, aspect, or element of the Work, is distributed,
+>> communicated, made available, or made perceptible to a non-Affiliate third
+>> party (a ?Recipient?), either via physical delivery or via a network
+>> connection to the Recipient, You must comply with the following conditions"*
+>>
+>> There is no question that a software license can claim rights in all of
+>> the above things. Also, since you are granting these rights, there's no OSD
+>> issue as such.
+>>
+>> While this is narrower than the previous version, I think my practical
+>> questions still remain: If the work is "made perceptible" via a video
+>> screen in the park, do the photons emitted by the screen still fall within
+>> "physical delivery"?
+>>
+>
+> I thought very hard about your "public park" example, and that is why I
+> chose those specific words. I don't think a walk-by would result in
+> "physical delivery" of the software under any reasonable standard. If this
+> ended up being the only issue, I would consider "tangible physical
+> delivery," but I don't think it is necessary.
+>
+>
+I agree. I'm splitting hairs and clarifying the issue here and maybe in a
+FAQ example is sufficient. The real issue is the ambition to claim rights
+to competing API compatible implementations.
+
+
+> Rather than nit picking on that, let's go to the real issue: Since you
+>> didn't say anything about APIs or interfaces, it seems to me words like
+>> "aspect", "perceptible" and maybe "elaborate" remain in the license because
+>> the goal of your client clearly still remains to assert copyleft on an
+>> independent work implementing a compatible API.
+>>
+>
+> This depends. If the independent work contained protectable, licenseable
+> portions of the CAL-licensed work, then it is not "independent," it is
+> derivative.
+>
+> If the independent work did not contain any protectable, licenseable
+> portions of the CAL-licensed work, then I don't think the CAL could reach
+> it under any standard.
+>
+>
+Forgive me, but that is just a redundant statement that is legal weasel
+wording. You're essentially still saying that if an API could be protected
+by copyright, in some jurisdiction, then the CAL would still claim those
+rights. In my understanding, the previous review round was fairly strongly
+against this.
+
+
+henrik
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190815/2dc3a0b3/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Thu Aug 15 11:21:33 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Thu, 15 Aug 2019 14:21:33 +0300
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAFQvZENNJQevzxUGAtNePinOeGDWS0GFT0NrTGaPY8XVfcjtRA@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAJTYOd0jajJO-0ZFU=qV1gwsZ4tegtt_aFrxXSt8gCRO8ZGufQ@mail.gmail.com> <CAFQvZENNJQevzxUGAtNePinOeGDWS0GFT0NrTGaPY8XVfcjtRA@mail.gmail.com>
+Message-ID: <CAKHyketzg2RYONtLcd-=tO8=j1-owQyLP3bLo9CM0r-2wfui6g@mail.gmail.com>
+
+On Wed, Aug 14, 2019 at 5:55 PM VanL <van.lindberg at gmail.com> wrote:
+
+> Hi Lukas,
+>
+> Thanks for your comments.In general, the patent termination provision was
+> crafted to deal with the actual types of patent attacks I most usually see
+> around open source - a company, frequently an NPE, will assert a patent
+> against a large number of users of a common open source application. I
+> wanted to discourage any patent attacks on CAL-licensed software against
+> anyone.
+>
+> Looking at the Apache license, for example, the primary entities protected
+> are the *contributors.* The CAL protects both the contributors *and* the
+> Recipients. So if a patent aggressor initiates litigation against a
+> downstream user, a patent-holding contributor can act on behalf of the user
+> (because the license is terminated as to the patent aggressor).
+>
+
+Btw, I very much appreciate this. Software patents is one area where I
+think copyleft licenses could use much stronger language than what has been
+done so far. It seems to me during GPLv3 drafting the big FOSS friendly
+corporations successfully lobbied for fairly soft language here. (Same
+corporation(s) that are behind the Apache License I guess.)
+
+But in a way it's understandable that the most popular license needed to
+consider a multitude of users, where CAL as a new license can go further.
+Thanks for doing that!
+
+
+henrik
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190815/b5556824/attachment.html>
+
+From van.lindberg at gmail.com  Thu Aug 15 11:25:25 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 15 Aug 2019 06:25:25 -0500
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <b0c25b61-513f-d08f-3fde-13f5586e58f8@lookhere.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com> <da78cc6f-fd76-10fa-4d74-df857905d84c@lookhere.com> <CAFQvZENNNmZ1Lw2KNMVDgs3UxfG=Uu-RjbXF0OJerArbsbkJMQ@mail.gmail.com> <b0c25b61-513f-d08f-3fde-13f5586e58f8@lookhere.com>
+Message-ID: <CAFQvZEN0MN_tx+d+5F50S3AeVhr6V2fuW6A7vZSyGvm82v9Rkw@mail.gmail.com>
+
+Hi Roger,
+
+Thanks for creating a specific hypothetical.
+
+On Wed, Aug 14, 2019, 10:56 PM Roger Fujii <rmf at lookhere.com> wrote:
+
+>
+> *So, let's concoct an example. I have an authentication db which has
+> username/passwords. I have another separate db that has all sorts of data
+> on the username. To get a username/password, the user submits a request to
+> staff, the staff uses a unmodified CAL licensed standalone program that
+> populates the username/password in the authentication db, and the user gets
+> the authentication info texted/IMed/emailed to them. Since this is a
+> concocted example, I'll say that this standalone program is the only CAL
+> licensed part in the system. *
+>
+
+Where this analysis fails is that all the conditions in section 4 only
+apply to a Recipient. (See top of section 4). Under this hypothetical,
+there is no applicable Recipient relative to whom the conditions apply, so
+there are no resulting obligations.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190815/b455ce51/attachment-0001.html>
+
+From van.lindberg at gmail.com  Thu Aug 15 11:41:27 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 15 Aug 2019 06:41:27 -0500
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAK2MWOs+Zkg9PTpt9AY9WMWzfYBbbCVFFt4RMoqo6yNU8FibXQ@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com> <da78cc6f-fd76-10fa-4d74-df857905d84c@lookhere.com> <CAFQvZENNNmZ1Lw2KNMVDgs3UxfG=Uu-RjbXF0OJerArbsbkJMQ@mail.gmail.com> <CAK2MWOs+Zkg9PTpt9AY9WMWzfYBbbCVFFt4RMoqo6yNU8FibXQ@mail.gmail.com>
+Message-ID: <CAFQvZEOymv8AxcVWujZ9mf+xFf5WyfRTkgEvDPd_4V93CjJgQg@mail.gmail.com>
+
+Hi Bruce,
+
+>
+> Haven't you just very clearly characterized this term as a use
+> restriction? And doesn't this way of stating it make it very clear it's in
+> contravention of OSD #6? It would certainly be a field of endeavor to run
+> the program for anyone but yourself, or for anything but a private purpose.
+>
+
+
+No, in fact this shows the opposite. The CAL's conditions trigger when
+someone communicates a work, in whole or in part, to another person
+(technically, a non-Affiliate third party).
+
+If you do not put the work or some part of the work into another person's
+hands, you can do literally anything you want with the software. Name it,
+you can do it. No requirements, no obligations.
+
+The use of "private" in this context reflects the concept that this broad
+permission is personal to a licensee. Otherwise, if you distribute copies
+of such a program... you must pass on to the recipient the same freedoms
+that you received."
+
+Thanks,
+Van
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190815/a7d691ac/attachment.html>
+
+From van.lindberg at gmail.com  Thu Aug 15 11:59:50 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 15 Aug 2019 06:59:50 -0500
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAKHykeudmY-Lu0-4ikouttqVFj6w4KQaWnpEWU0-59s9BuL9GQ@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAFQvZEPkSH_Ryg=HGGM-MgF6yJoArkT1o31iLiitxaUkhh6eQQ@mail.gmail.com> <CAKHykevkB0iA1fGeqWonoK9O8v4JNwhr0fj_OX5Zqnk7m3HWBA@mail.gmail.com> <CAFQvZEO5Lx55e5taAg-4H--=55+y-XVf8c2pAsa3LktatpF4HQ@mail.gmail.com> <CAKHykeudmY-Lu0-4ikouttqVFj6w4KQaWnpEWU0-59s9BuL9GQ@mail.gmail.com>
+Message-ID: <CAFQvZEMrohzrm1BDPDmQ7zG0cCLdi6sKSZVNhtAtphHG94NZew@mail.gmail.com>
+
+Hi Henrik,
+
+On Thu, Aug 15, 2019, 6:16 AM Henrik Ingo <henrik.ingo at avoinelama.fi> wrote:
+
+>
+> Forgive me, but that is just a redundant statement that is legal weasel
+> wording. You're essentially still saying that if an API could be protected
+> by copyright, in some jurisdiction, then the CAL would still claim those
+> rights. In my understanding, the previous review round was fairly strongly
+> against this.
+>
+
+I would have you know that I am 1/16 weasel. On my mother's side.
+
+More seriously, the CAL goes right up to the border of copyright, whatever
+that may be. I don't apologize for that. I understood the policy concern
+resulting from appearing to push the boundaries, so I removed that.[1] But
+the CAL makes the same bargain as other reciprocal licenses - and if I am
+correct about where the law will end up, has exactly the same scope.
+
+Thanks,
+Van
+
+[1] My thinking here was motivated in part by some of my old writings
+criticizing the GPL FAQ for its interpretations that very much do push the
+boundaries of copyright, but are quoted as near-scripture and taken as
+authoritative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190815/d1620d8b/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Thu Aug 15 14:53:56 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Thu, 15 Aug 2019 17:53:56 +0300
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAFQvZEMrohzrm1BDPDmQ7zG0cCLdi6sKSZVNhtAtphHG94NZew@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAFQvZEPkSH_Ryg=HGGM-MgF6yJoArkT1o31iLiitxaUkhh6eQQ@mail.gmail.com> <CAKHykevkB0iA1fGeqWonoK9O8v4JNwhr0fj_OX5Zqnk7m3HWBA@mail.gmail.com> <CAFQvZEO5Lx55e5taAg-4H--=55+y-XVf8c2pAsa3LktatpF4HQ@mail.gmail.com> <CAKHykeudmY-Lu0-4ikouttqVFj6w4KQaWnpEWU0-59s9BuL9GQ@mail.gmail.com> <CAFQvZEMrohzrm1BDPDmQ7zG0cCLdi6sKSZVNhtAtphHG94NZew@mail.gmail.com>
+Message-ID: <CAKHykeuLaQ4fyxoTYF5d_-H_h0Dk97cwkf1r8yWePj8GApq0Kg@mail.gmail.com>
+
+On Thu, Aug 15, 2019 at 3:00 PM VanL <van.lindberg at gmail.com> wrote:
+
+> Hi Henrik,
+>
+> On Thu, Aug 15, 2019, 6:16 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+> wrote:
+>
+>>
+>> Forgive me, but that is just a redundant statement that is legal weasel
+>> wording. You're essentially still saying that if an API could be protected
+>> by copyright, in some jurisdiction, then the CAL would still claim those
+>> rights. In my understanding, the previous review round was fairly strongly
+>> against this.
+>>
+>
+> I would have you know that I am 1/16 weasel. On my mother's side.
+>
+>
+:-)
+
+
+> More seriously, the CAL goes right up to the border of copyright, whatever
+> that may be. I don't apologize for that. I understood the policy concern
+> resulting from appearing to push the boundaries, so I removed that.[1] But
+> the CAL makes the same bargain as other reciprocal licenses - and if I am
+> correct about where the law will end up, has exactly the same scope.
+>
+>
+Ah. Thanks for this. It helps me be clearer:
+
+I think in your previous review, there were two distinct objections:
+
+1. Assuming that APIs are or should be copyrightable goes against policy
+goals of OSI / open source community
+2. Even if APIs are - perhaps one day in the future - copyrightable in some
+jurisdiction, an open source license shouldn't assert those rights. At most
+it could be mentioned to grant such a right explicitly.
+
+So I agree that you have addressed the first objection and was raising a
+concern about the second. Not all reviewers supported the second objection.
+I don't. Even then, I wouldn't support a license proposal that tries to
+sneak by such a significant new issue without being very explicit about it.
+In effect, that makes even myself opposed to asserting API copyright *at
+this point in time*, since I don't think it can be done explicitly (1) yet,
+and certainly wouldn't support a license trying to do it vaguely, like this
+version of CAL attempts to do.
+
+So to make progress with CAL now, you would have to clearly retract any
+previous attempts to also have it cover APIs.
+
+Also, we must be vary of the possibility that if we end up in a future
+where APIs can violate copyrights, then very likely there can exist
+software that is "Unrelated software" in the OSD sense, yet infringes
+copyright by law. An open source license cannot assert rights against such
+unrelated software.
+
+
+> [1] My thinking here was motivated in part by some of my old writings
+> criticizing the GPL FAQ for its interpretations that very much do push the
+> boundaries of copyright, but are quoted as near-scripture and taken as
+> authoritative.
+>
+>
+In fact, this remark is totally relevant. Like many, I agree that the FSF
+can be criticized for how it has expanded the reach of GPL by trying to
+expand the legal meaning of a derived work. While that wasn't a great idea,
+I do think that:
+ - It worked. Majority of open source users conform with the FSFs
+assertions, because they want to avoid legal risk, PR risk or "hassle". - We/Me tolerate it, because we support and find the underlying goal
+reasonable, AND - It's less of an issue because the same objective* could have been
+achieved by a different language which doesn't depend on the legal
+definition of a derived work. - We may be more forgiving of such games when done by a non-profit for
+ideological reasons.
+
+...so in essence the real problem is just an imperfection in GPL license
+text. (In reality of course it's a more complex issue. But also in reality
+this behavior from FSF is tolerated.)
+
+*) By same objective I mean things like unambiguously requiring that
+dynamically linked libraries, or PNG files in Wordpress, are covered by the
+copyleft obligations, regardless of whether those are derived works of the
+GPLd code.
+
+In your case...
+ - The risk is that being vague in the license and aggressive outside the
+license will also work! - I don't support the underlying goal of making money and attacking
+competing implementations. - I don't think your objective can be achieved with any text and also
+conform to "OSD and software freedom" - See second point
+
+henrik
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190815/4c76df06/attachment.html>
+
+From van.lindberg at gmail.com  Thu Aug 15 15:22:54 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 15 Aug 2019 10:22:54 -0500
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAKHykeuLaQ4fyxoTYF5d_-H_h0Dk97cwkf1r8yWePj8GApq0Kg@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAFQvZEPkSH_Ryg=HGGM-MgF6yJoArkT1o31iLiitxaUkhh6eQQ@mail.gmail.com> <CAKHykevkB0iA1fGeqWonoK9O8v4JNwhr0fj_OX5Zqnk7m3HWBA@mail.gmail.com> <CAFQvZEO5Lx55e5taAg-4H--=55+y-XVf8c2pAsa3LktatpF4HQ@mail.gmail.com> <CAKHykeudmY-Lu0-4ikouttqVFj6w4KQaWnpEWU0-59s9BuL9GQ@mail.gmail.com> <CAFQvZEMrohzrm1BDPDmQ7zG0cCLdi6sKSZVNhtAtphHG94NZew@mail.gmail.com> <CAKHykeuLaQ4fyxoTYF5d_-H_h0Dk97cwkf1r8yWePj8GApq0Kg@mail.gmail.com>
+Message-ID: <CAFQvZEO-W9-HuGQ-Avox3AhCsD8DgpFN+MhVpByEFTQopbgX5g@mail.gmail.com>
+
+Hi Henrik,
+
+There is a catch-22 here. I am trying to represent the law as I understand
+it. When I was explicit about my understanding of the consequences of the
+law, I was criticized for expressing it. Now, you criticize me for
+vagueness. But if there is vagueness, it is because the law is vague.
+
+As I quoted upthread to McCoy Smith, my language regarding the scope of the
+license is very closely tied - in most points word-for-word - from the
+definition of derivative works in 17 USC 101. I intend to capture every
+derivative work, no matter how it is expressed. How is that not exactly
+what was intended, and allowed, and consistent with copyleft in its other
+iterations?
+
+
+Also:
+On Thu, Aug 15, 2019 at 9:54 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+wrote:
+
+> [snip]
+>  - I don't support the underlying goal of making money and attacking
+> competing implementations.
+>
+
+For the record, this is not the goal. The goal is to create a platform that
+is resistant to attempts to undermine user's autonomy. The CAL is one of
+the tools in that effort.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190815/739901ec/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Thu Aug 15 15:34:50 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Thu, 15 Aug 2019 18:34:50 +0300
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAFQvZEO-W9-HuGQ-Avox3AhCsD8DgpFN+MhVpByEFTQopbgX5g@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAFQvZEPkSH_Ryg=HGGM-MgF6yJoArkT1o31iLiitxaUkhh6eQQ@mail.gmail.com> <CAKHykevkB0iA1fGeqWonoK9O8v4JNwhr0fj_OX5Zqnk7m3HWBA@mail.gmail.com> <CAFQvZEO5Lx55e5taAg-4H--=55+y-XVf8c2pAsa3LktatpF4HQ@mail.gmail.com> <CAKHykeudmY-Lu0-4ikouttqVFj6w4KQaWnpEWU0-59s9BuL9GQ@mail.gmail.com> <CAFQvZEMrohzrm1BDPDmQ7zG0cCLdi6sKSZVNhtAtphHG94NZew@mail.gmail.com> <CAKHykeuLaQ4fyxoTYF5d_-H_h0Dk97cwkf1r8yWePj8GApq0Kg@mail.gmail.com> <CAFQvZEO-W9-HuGQ-Avox3AhCsD8DgpFN+MhVpByEFTQopbgX5g@mail.gmail.com>
+Message-ID: <CAKHykeuCy_Ujo-MBb4BqSbhaVznuJrU10FZYHCVHTca5jL21HQ@mail.gmail.com>
+

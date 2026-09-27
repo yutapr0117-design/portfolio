@@ -1,0 +1,750 @@
+
+> The Affero General Public License
+> The Affero General Public License is a free software license, copyleft, and
+> incompatible with the GNU GPL. It consists of the GNU GPL version 2, with one
+> additional section that Affero added with FSF approval. The new section, 2(d),
+> covers the distribution of application programs through web services or
+> computer networks. The Affero GPL is incompatible with the GNU GPL version 2
+> because of section 2(d); however, the section is written so that we can make
+> GNU GPL version 3 upward compatible with the Affero GPL. That is why we gave
+> our approval for Affero to modify the GNU GPL in this way.
+> </quote>
+
+Dear Henrik, 
+
+I think there is a big difference between being "endorsed" (hence, promoted, favorably advised for) and being included in a list of "approved" Free Software licenses, something of a detached, objective nature, much alike what happens here in OSI. Therefore Bradley is accurate here, from my standpoint, though I can't speak for FSF. 
+
+AGPLv.3 was, conversely, endorsed. 
+
+As far as I am aware, the only license whose name is not prepended by "GNU" and somewhat endorsed is the Apache license for non copyleft licensed works (and public domain, perhaps). 
+
+> I (we?) tend to think of this list as the FSF counterpart to OSI's list of
+> approved licenses. (And when things go well, I would expect to find a FOSS
+> license listed on both.) It seems to me that contrary to your narrative, the
+> AGPL was indeed endorsed by the FSF as a free software license already in 2003.
+> (And enthusiastically received by many of us, I remember!)
+
+Correct and incorrect at the same time, depending on the meaning attached to "endorsed". 
+
+Cheers, 
+
+Carlo 
+
+> henrik
+
+> On Fri, Jan 3, 2020 at 7:14 AM Bradley M. Kuhn < [ mailto:bkuhn at ebb.org |
+> bkuhn at ebb.org ] > wrote:
+
+>> McCoy Smith wrote today:
+>> > As far as I can tell, AGPLv1 never got on the OSI list ... AGPLv3 was
+>> > submitted in January 2008 AGPLv3 was finalized in November 2007 (so it
+>> > was submitted to OSI two months after its drafting was completed). It
+>> > was approved in March 2008 ... So AGPLv3 went from finalization to OSI
+>> > approval in a mere 4 months.
+
+>> Starting the clock on Affero GPL at the third-party 2008-03 list submission
+>> doesn't reflect OSI's diligence in past decisions. OSI leadership was aware
+>> of AGPLv1. (I know, because I talked extensively with OSI directors during the
+>> years AGPLv1 was the only AGPL.) No one even considered submitting it
+>> officially because -- as a careful and thoughtful license drafting authority
+>> -- FSF experimented in real world scenarios with a (possibly silly) new
+>> copyleft idea first for years before declaring it official. Heck, I admit I
+>> was on the wrong side of history on this one: I advocated for the FSF to
+>> release a GPLv2.2 in 2003 with the Affero clause in it. The FSF didn't like
+>> the idea, precisely because the clause was too novel, and needed time to see
+>> if developers felt the clause brought them and their users' software freedom.
+
+[...] 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200103/09528cb5/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Fri Jan  3 09:24:00 2020
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Fri, 3 Jan 2020 11:24:00 +0200
+Subject: [License-review] AGPL timeline & why cautious processes with real-world testing are better (was Re: For approval: The Cryptographic Autonomy License (Beta 4))
+In-Reply-To: <1098627782.736787.1578041848653.JavaMail.zimbra@piana.eu>
+References: <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com> <CAA4ffp9dRE8ypcktR0XbDXHXmjiuoWgy=ctSMLJq4pLOB9jeRQ@mail.gmail.com> <004101d5c196$fc82bfa0$f5883ee0$@lexpan.law> <20200103050008.hhadp6mbjxu5jfot@ebb.org> <CAKHykeuBVMggX2GVurXW23=SVmwfjB=q_=RSppOL9q_-Bvkr0A@mail.gmail.com> <1098627782.736787.1578041848653.JavaMail.zimbra@piana.eu>
+Message-ID: <CAKHykevw9JUBNv+zJPfdKDYNU46ryrs0Acf7YvRse=qvNKkFXQ@mail.gmail.com>
+
+On Fri, Jan 3, 2020 at 10:57 AM Carlo Piana <osi-review at piana.eu> wrote:
+> Dear Henrik,
+>
+>
+> I think there is a big difference between being "endorsed" (hence, promoted, favorably advised for) and being included in a list of "approved" Free Software licenses, something of a detached, objective nature, much alike what happens here in OSI. Therefore Bradley is accurate here, from my standpoint, though I can't speak for FSF.
+>
+> AGPLv.3 was, conversely, endorsed.
+>
+> As far as I am aware, the only license whose name is not prepended by "GNU" and somewhat endorsed is the Apache license for non copyleft licensed works (and public domain, perhaps).
+
+For sure this is a possible answer to my question, but I didn't want
+to speculate on Bradley's answer, even if this was an obvious one that
+comes to mind.
+
+One reason I didn't want to write such speculation is because I feel
+that if this indeed is the explanation, then I think in the context of
+reviewing the CAL at OSI, Bradley's historical account becomes hugely
+misleading. Nobody is expecting the OSI to endorse the CAL as
+preferred-before-others. I guess I was kind of hoping the answer would
+be something else, like merely poor memory.
+
+>> I (we?) tend to think of this list as the FSF counterpart to OSI's list of approved licenses. (And when things go well, I would expect to find a FOSS license listed on both.) It seems to me that contrary to your narrative, the AGPL was indeed endorsed by the FSF as a free software license already in 2003. (And enthusiastically received by many of us, I remember!)
+>
+>
+> Correct and incorrect at the same time, depending on the meaning attached to "endorsed".
+
+I'm sure we will find out 5 timezones later...
+
+henrik
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+
+
+From van.lindberg at gmail.com  Fri Jan  3 10:57:32 2020
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 3 Jan 2020 04:57:32 -0600
+Subject: [License-review] AGPL timeline & why cautious processes with real-world testing are better (was Re: For approval: The Cryptographic Autonomy License (Beta 4))
+In-Reply-To: <20200103050008.hhadp6mbjxu5jfot@ebb.org>
+References: <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com> <CAA4ffp9dRE8ypcktR0XbDXHXmjiuoWgy=ctSMLJq4pLOB9jeRQ@mail.gmail.com> <004101d5c196$fc82bfa0$f5883ee0$@lexpan.law> <20200103050008.hhadp6mbjxu5jfot@ebb.org>
+Message-ID: <CAFQvZEMcYZ6sHpRUCVQWjYkjfa6fzqMa7=D_2xFjGPzxn325Hw@mail.gmail.com>
+
+I am not sure that holding up the drafting process of AGPL v1 is helpful
+here.
+
+
+Apologies if I get any of the dates wrong, but if I recall correctly,
+during the time when the AGPL was drafted, Bradley was working for the FSF
+( or had just recently finished working with them). Bradley also maintained
+a close official relationship with the FSF even after he left - he just
+resigned as a director last year.
+
+This means that during the time when the AGPL was drafted, Bradley had
+extraordinary access to the decisionmakers at the FSF, and used that access
+to advance the AGPL.
+
+The drafting if the AGPL was also essentially a private process. Bradley
+may have consulted with various people, but I remember when the AGPL came
+out, and I don't remember it being a public process - certainly not to the
+same extent that the CAL has been refined in public.
+
+So regardless of whether the AGPL was "accepted" or "endorsed" by the FSF,
+it benefitted from Bradley's official relationship with the FSF. It seems
+unlikely that anyone not-Bradley could have drafted a license and got it on
+the FSF's list of recognized Free Software licenses.
+
+This is significant because the inclusion of the AGPL on the FSF's list of
+recognized Free Software licenses was essential to its growth and use as a
+license.
+
+In short, it not reasonable to hold it up the AGPL process as a model for
+others. The "go slow" model that Bradley is proposing was based upon the
+unique circumstances of Bradley's employment with the FSF and his ability
+to bypass the sort of process that the CAL is going through and get his
+license on the list of FSF-recognized licenses.
+
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+
+On Thu, Jan 2, 2020, 11:14 PM Bradley M. Kuhn <bkuhn at ebb.org> wrote:
+
+> McCoy Smith wrote today:
+> >    As far as I can tell, AGPLv1 never got on the OSI list ... AGPLv3 was
+> >    submitted in January 2008 AGPLv3 was finalized in November 2007 (so it
+> >    was submitted to OSI two months after its drafting was completed).  It
+> >    was approved in March 2008 ... So AGPLv3 went from finalization to OSI
+> >    approval in a mere 4 months.
+>
+> Starting the clock on Affero GPL at the third-party 2008-03 list submission
+> doesn't reflect OSI's diligence in past decisions.  OSI leadership was
+> aware
+> of AGPLv1. (I know, because I talked extensively with OSI directors during
+> the
+> years AGPLv1 was the only AGPL.)  No one even considered submitting it
+> officially because -- as a careful and thoughtful license drafting
+> authority
+> -- FSF experimented in real world scenarios with a (possibly silly) new
+> copyleft idea first for years before declaring it official.  Heck, I admit
+> I
+> was on the wrong side of history on this one: I advocated for the FSF to
+> release a GPLv2.2 in 2003 with the Affero clause in it.  The FSF didn't
+> like
+> the idea, precisely because the clause was too novel, and needed time to
+> see
+> if developers felt the clause brought them and their users' software
+> freedom.
+>
+> So instead, AGPLv1 was deployed as a GPLv2 fork, used by projects, but not
+> officially endorsed by the FSF nor the OSI.  This was a good thing.
+> Looking
+> back now, I see that I was the fool who was rushing in by asking for the
+> Affero clause to become standard merely two years after its invention and
+> first promulgation.
+>
+> This caution is similar to what Fontana (et al) have done with
+> copyleft-next.
+> copyleft-next has many novel copyleft ideas worth trying.  But, no one has
+> submitted it to OSI yet, even though it's years old now and is in use by
+> projects.  I wrote more about this last year in:
+> <
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2018-November/003828.html
+> >
+>
+> And, during all that AGPL real-world experimentation time, no one, as Luis
+> claimed, "screamed" at AGPLv1'd projects that I'm aware of.
+>
+> Luis wrote today:
+> >> OSI and many allies will scream bloody murder (arguably with reason!)
+>
+> BTW, Luis, I find that phrase "scream bloody murder" offensive.  We
+> shouldn't
+> be comparing a license choice, even one we detest, to murder.  Such phrases
+> can also be triggering for those who have experienced murder of a friend or
+> family member.
+> --
+> Bradley M. Kuhn - he/him
+>
+> Pls. support the charity where I work, Software Freedom Conservancy:
+> https://sfconservancy.org/supporter/
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200103/648f9a1b/attachment-0001.html>
+
+From van.lindberg at gmail.com  Fri Jan  3 11:30:37 2020
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 3 Jan 2020 05:30:37 -0600
+Subject: [License-review] AGPL timeline & why cautious processes with real-world testing are better (was Re: For approval: The Cryptographic Autonomy License (Beta 4))
+In-Reply-To: <CAFQvZEMcYZ6sHpRUCVQWjYkjfa6fzqMa7=D_2xFjGPzxn325Hw@mail.gmail.com>
+References: <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com> <CAA4ffp9dRE8ypcktR0XbDXHXmjiuoWgy=ctSMLJq4pLOB9jeRQ@mail.gmail.com> <004101d5c196$fc82bfa0$f5883ee0$@lexpan.law> <20200103050008.hhadp6mbjxu5jfot@ebb.org> <CAFQvZEMcYZ6sHpRUCVQWjYkjfa6fzqMa7=D_2xFjGPzxn325Hw@mail.gmail.com>
+Message-ID: <CAFQvZEN9RjS8sCeV3wqU+D1j==jD+2RPvohoxi+wSO8QUub95w@mail.gmail.com>
+
+I should add that I am not saying that anything about the AGPL process was
+illegitimate. Bradley and the Affero folks had an idea, and they got it
+done. Good for them! It just is not a reasonable or repeatable path for
+anyone else.
+
+Thanks,
+Van
+
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+
+On Fri, Jan 3, 2020, 4:57 AM VanL <van.lindberg at gmail.com> wrote:
+
+> I am not sure that holding up the drafting process of AGPL v1 is helpful
+> here.
+>
+>
+> Apologies if I get any of the dates wrong, but if I recall correctly,
+> during the time when the AGPL was drafted, Bradley was working for the FSF
+> ( or had just recently finished working with them). Bradley also maintained
+> a close official relationship with the FSF even after he left - he just
+> resigned as a director last year.
+>
+> This means that during the time when the AGPL was drafted, Bradley had
+> extraordinary access to the decisionmakers at the FSF, and used that access
+> to advance the AGPL.
+>
+> The drafting if the AGPL was also essentially a private process. Bradley
+> may have consulted with various people, but I remember when the AGPL came
+> out, and I don't remember it being a public process - certainly not to the
+> same extent that the CAL has been refined in public.
+>
+> So regardless of whether the AGPL was "accepted" or "endorsed" by the FSF,
+> it benefitted from Bradley's official relationship with the FSF. It seems
+> unlikely that anyone not-Bradley could have drafted a license and got it on
+> the FSF's list of recognized Free Software licenses.
+>
+> This is significant because the inclusion of the AGPL on the FSF's list of
+> recognized Free Software licenses was essential to its growth and use as a
+> license.
+>
+> In short, it not reasonable to hold it up the AGPL process as a model for
+> others. The "go slow" model that Bradley is proposing was based upon the
+> unique circumstances of Bradley's employment with the FSF and his ability
+> to bypass the sort of process that the CAL is going through and get his
+> license on the list of FSF-recognized licenses.
+>
+> __________________________
+> Van Lindberg
+> van.lindberg at gmail.com
+> m: 214.364.7985
+>
+> On Thu, Jan 2, 2020, 11:14 PM Bradley M. Kuhn <bkuhn at ebb.org> wrote:
+>
+>> McCoy Smith wrote today:
+>> >    As far as I can tell, AGPLv1 never got on the OSI list ... AGPLv3 was
+>> >    submitted in January 2008 AGPLv3 was finalized in November 2007 (so
+>> it
+>> >    was submitted to OSI two months after its drafting was completed).
+>> It
+>> >    was approved in March 2008 ... So AGPLv3 went from finalization to
+>> OSI
+>> >    approval in a mere 4 months.
+>>
+>> Starting the clock on Affero GPL at the third-party 2008-03 list
+>> submission
+>> doesn't reflect OSI's diligence in past decisions.  OSI leadership was
+>> aware
+>> of AGPLv1. (I know, because I talked extensively with OSI directors
+>> during the
+>> years AGPLv1 was the only AGPL.)  No one even considered submitting it
+>> officially because -- as a careful and thoughtful license drafting
+>> authority
+>> -- FSF experimented in real world scenarios with a (possibly silly) new
+>> copyleft idea first for years before declaring it official.  Heck, I
+>> admit I
+>> was on the wrong side of history on this one: I advocated for the FSF to
+>> release a GPLv2.2 in 2003 with the Affero clause in it.  The FSF didn't
+>> like
+>> the idea, precisely because the clause was too novel, and needed time to
+>> see
+>> if developers felt the clause brought them and their users' software
+>> freedom.
+>>
+>> So instead, AGPLv1 was deployed as a GPLv2 fork, used by projects, but not
+>> officially endorsed by the FSF nor the OSI.  This was a good thing.
+>> Looking
+>> back now, I see that I was the fool who was rushing in by asking for the
+>> Affero clause to become standard merely two years after its invention and
+>> first promulgation.
+>>
+>> This caution is similar to what Fontana (et al) have done with
+>> copyleft-next.
+>> copyleft-next has many novel copyleft ideas worth trying.  But, no one has
+>> submitted it to OSI yet, even though it's years old now and is in use by
+>> projects.  I wrote more about this last year in:
+>> <
+>> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2018-November/003828.html
+>> >
+>>
+>> And, during all that AGPL real-world experimentation time, no one, as Luis
+>> claimed, "screamed" at AGPLv1'd projects that I'm aware of.
+>>
+>> Luis wrote today:
+>> >> OSI and many allies will scream bloody murder (arguably with reason!)
+>>
+>> BTW, Luis, I find that phrase "scream bloody murder" offensive.  We
+>> shouldn't
+>> be comparing a license choice, even one we detest, to murder.  Such
+>> phrases
+>> can also be triggering for those who have experienced murder of a friend
+>> or
+>> family member.
+>> --
+>> Bradley M. Kuhn - he/him
+>>
+>> Pls. support the charity where I work, Software Freedom Conservancy:
+>> https://sfconservancy.org/supporter/
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200103/4b76c891/attachment.html>
+
+From luis at lu.is  Fri Jan  3 13:25:33 2020
+From: luis at lu.is (Luis Villa)
+Date: Fri, 3 Jan 2020 05:25:33 -0800
+Subject: [License-review] poor choice of words [wa Re: AGPL timeline & why cautious processes with real-world testing are better (was Re: For approval: The Cryptographic Autonomy License (Beta 4))]
+In-Reply-To: <20200103050008.hhadp6mbjxu5jfot@ebb.org>
+References: <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com> <CAA4ffp9dRE8ypcktR0XbDXHXmjiuoWgy=ctSMLJq4pLOB9jeRQ@mail.gmail.com> <004101d5c196$fc82bfa0$f5883ee0$@lexpan.law> <20200103050008.hhadp6mbjxu5jfot@ebb.org>
+Message-ID: <CAFjZtRcvRyeF-bcT55orJf3=qXEs9LJXw=A7dDEaZ3C1z-U1-g@mail.gmail.com>
+
+On Fri, Jan 3, 2020 at 12:14 AM Bradley M. Kuhn <bkuhn at ebb.org> wrote:
+
+> Luis wrote today:
+> >> OSI and many allies will scream bloody murder (arguably with reason!)
+>
+> BTW, Luis, I find that phrase "scream bloody murder" offensive.  We
+> shouldn't
+> be comparing a license choice, even one we detest, to murder.  Such phrases
+> can also be triggering for those who have experienced murder of a friend or
+> family member.
+
+
+My sincere apologies for the poor phrasing (and snarkiness more generally).
+I should know better, especially having called people out for something
+similar literally last week.
+
+To be frank, it?s a sign that I?m very sick and tired of this process. I?m
+going to step away from OSI-related stuff for a while; it is obviously not
+fun for me right now and not clear my participation is creating much value
+(since I?m mostly just repeating the same points over and over again).
+
+Luis
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200103/1ceda1a9/attachment.html>
+
+From karen at sfconservancy.org  Fri Jan  3 15:32:21 2020
+From: karen at sfconservancy.org (Karen M. Sandler)
+Date: Fri, 03 Jan 2020 10:32:21 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFjZtRcUDpFpFuwAzvb2UJPC9Y5_R5tS+7wYA3S2H2DGjed-sw@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAFjZtRcUDpFpFuwAzvb2UJPC9Y5_R5tS+7wYA3S2H2DGjed-sw@mail.gmail.com>
+Message-ID: <ac9fd4d2e21bf2d840cbfcb1435ddae2@sfconservancy.org>
+
+Since I haven't really been active here in the past (this is my first 
+ever post[1]), I want to start by thanking OSI. They are clearly acting 
+in good faith in responding to tough criticism and responding as 
+helpfully as possible to really tough challenges.  After all, this 
+process is run wholly by volunteers.
+
+On 2020-01-02 10:27, Luis Villa wrote:
+
+> If we?re going to add yet another unwritten rule to the long list of
+> unwritten rules we might as well just simplify by saying ?OSI?s rule is
+> that only FSF gets to advance the state of the art in copyleft, 
+> everyone
+> else is stuck in a vast set of catch-22s that are impossible to
+> simultaneously satisfy?.
+
+OSI is a public charity. Public charities must operate exclusively for 
+their exempt purpose (the mission for which they are organized) and 
+can't operate to the benefit of private individuals (or entities) 
+without significantly risking their charitable status. That means that a 
+public charity should be thinking about how all of their activities fit 
+within their service of the public good. In particular, individuals 
+can't be enriched by the org beyond an incidental benefit. If they are, 
+it's called "private inurement". For example, a bus service run by a 
+charity for private school students turned out to be private inurement.
+
+Our understanding of the societal impact of FOSS licenses has developed 
+over the years. We now know that some licenses have ultimately served 
+primarily to benefit certain individuals and for-profit companies. I 
+think the OSI must consider this when evaluating new licenses, and 
+re-examining the OSD itself in the event that the analysis turns out to 
+be troubling. I think that the OSI board will make that decision in an 
+informed way (and may very well decide here that this doesn't cross that 
+line), but surely it's right to ask questions about how a license will 
+operate in practice and who it will benefit.
+
+I'm obviously not in any decision-making role here, but to me this means 
+that the FSF or another charity that writes a license for the exclusive 
+purpose of forwarding an exempt charitable purpose (which is similar to 
+that of OSI's mission) is fundamentally an easier analysis as to whether 
+its license is appropriate for OSI to approve. Additionally, licenses 
+that are already being used clearly to advance software freedom are 
+surely much easier to consider.  If a license isn't in use yet, we have 
+to imagine its implications. We're largely hoping that we'll guess 
+correctly how its provisions will work out in practice and we should all 
+be sure to kick the tires as much as we can.
+
+karen
+
+
+[1] I've avoided this list in the past, as I've seen how difficult it 
+can be for participants. I don't think it's unique to this list, but 
+it's been especially difficult with this one given my keen interest in 
+the subject matter discussed. Thanks to current leadership who have been 
+going out of their way to try to make OSI more welcoming and inclusive.
+
+
+
+Karen M. Sandler
+Executive Director, Software Freedom Conservancy
+__________
+Become a Supporter today! http://sfconservancy.org/supporter/
+
+
+From bkuhn at ebb.org  Fri Jan  3 17:45:30 2020
+From: bkuhn at ebb.org (Bradley M. Kuhn)
+Date: Fri, 3 Jan 2020 09:45:30 -0800
+Subject: [License-review] AGPL timeline & why cautious processes with real-world testing are better (was Re: For approval: The Cryptographic Autonomy License (Beta 4))
+In-Reply-To: <CAFQvZEMcYZ6sHpRUCVQWjYkjfa6fzqMa7=D_2xFjGPzxn325Hw@mail.gmail.com>
+References: <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com> <CAA4ffp9dRE8ypcktR0XbDXHXmjiuoWgy=ctSMLJq4pLOB9jeRQ@mail.gmail.com> <004101d5c196$fc82bfa0$f5883ee0$@lexpan.law> <20200103050008.hhadp6mbjxu5jfot@ebb.org> <CAFQvZEMcYZ6sHpRUCVQWjYkjfa6fzqMa7=D_2xFjGPzxn325Hw@mail.gmail.com>
+Message-ID: <20200103174530.hlzic55voqa4m4wl@ebb.org>
+
+VanL wrote today:
+>    So regardless of whether the AGPL was "accepted" or "endorsed" by the
+>    FSF, it benefitted from Bradley's official relationship with the FSF.
+
+... and I'm sure your license will benefit from your official relationship
+with its drafting authority too.
+
+(I won't bore the list with full fact-check corrections of Van's speculations
+about my relationships with FSF and AGPL, so I'll limit to this: I have no
+affiliation with FSF per <http://ebb.org/bkuhn/blog/2019/10/15/fsf-rms.html>
+but I do think FSF did a good job handling AGPLv1 -> AGPLv3.  Van was
+narrowly correct in that I historically had some form of relationship with
+the FSF during the AGPLv1 through the initial AGPLv3 era, although at times
+during that period, the relationship was only as a untitled volunteer.)
+
+In this analogy, Van and Holochain are the drafting authority.  I brought up
+the drafting authority's actions with regard to AGPL and copyleft-next to
+laud those drafting authorities for advisable restraint in *not* submitting a
+license to OSI before the license percolated in use and community
+consideration.  They certainly didn't post multiple revisions here seeking
+interactive drafting assistance from overworked OSI volunteers; they created
+wholly separate public-focused drafting processes invited everyone to
+participate in those public processes.
+
+Van wrote further:
+> AGPL process.. was based upon ... unique circumstances
+
+Neither approach is unique: AGPL and copyleft-next are clear examples of my
+suggested approach, while Radcliffe's CPAL and MongoDB's SS Public License
+are other examples of the approach that Van has pursued.
+
+However, Van, you cherry-picked that side point of my email, and ignored the
+main point.  You focused only one drafting authority's behavior.  The main
+question for this discussion is what the OSI should do.  As I pointed out,
+the OSI did *not* list the AGPL nor copyleft-next for the first 6-7 years of
+their existence, *and* the drafting authority *did not* submit it during that
+period.  Indeed, AGPLv3 was ultimately submitted by a *third party* licensor
+who wanted OSI to endorse it as open source.  As I pointed out, historically,
+licenses submitted before use by the drafting authority and pre-approved by
+OSI have ultimately been deprecated or (at times) outright embarrassments for
+OSI.  I'm glad OSI narrowly escaped this problem with MongoDB's SS Public
+License, but we're having a repeat of that scenario here.
+
+If we want to talk about what's really different from the time of past
+licenses and today, it's really the story of OSI's great success.  Sorry to
+quote something as base as "Spiderman", but with that greater power comes
+greater responsibility.  Bestowing the label of "open source" onto a license
+today gives serious power and real economic advantages to a license drafting
+authority -- particularly, when that drafting authority is also a for-profit
+company distributing software under that license, and/or a lawyer/law firm
+who sells their services as an open source licensing expert.  It's an
+unenviable position for the OSI, particularly as a primarily volunteer
+organization.  I appreciate that Van is a great lawyer (and thus a zealous
+advocate for his client's success), but the policy implications of OSI
+volunteers interactively drafting a very novel copyleft license with a
+for-profit entity's lawyer and then approving it quickly really concern me.
+Licenses function as legislation of our community.  Yes, lobbyists often
+write our legislation, but that rarely generates good outcomes for the
+Republic and its people.
+
+McCoy also said yesterday:
+> [AGPLv3] was approved...with very little discussion on the mailing list.
+
+This also goes to my point: the Affero clause by then had an 7+ year track
+record, enforcement history and real projects under it.  There was a real
+community and real usage to examine, so hypothetical debate wasn't needed.
+All we have with unused and untested copyleft experiments is hypothetical
+debate, which can only get us so far, but not far enough to tell whether a
+particular license really expands or curtails software freedom.
+
+Henrik asked specifically this morning:
+> Would you mind clarifying what you mean by "not officially endorsed by the
+> FSF"
+
+AGPLv1 was an authorized fork of GPL published by (now defunct) Affero, Inc.
+It was not an official license promulgated by the FSF until AGPLv3's release.
+
+--
+Bradley M. Kuhn - he/him
+
+Pls. support the charity where I work, Software Freedom Conservancy:
+https://sfconservancy.org/supporter/
+
+
+From mccoy at lexpan.law  Fri Jan  3 18:15:43 2020
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Fri, 3 Jan 2020 10:15:43 -0800
+Subject: [License-review] AGPL timeline & why cautious processes with real-world testing are better (was Re: For approval: The Cryptographic Autonomy License (Beta 4))
+In-Reply-To: <20200103050008.hhadp6mbjxu5jfot@ebb.org>
+References: <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com> <CAA4ffp9dRE8ypcktR0XbDXHXmjiuoWgy=ctSMLJq4pLOB9jeRQ@mail.gmail.com> <004101d5c196$fc82bfa0$f5883ee0$@lexpan.law> <20200103050008.hhadp6mbjxu5jfot@ebb.org>
+Message-ID: <004c01d5c261$d0c056e0$724104a0$@lexpan.law>
+
+>>-----Original Message-----
+>>From: License-review <license-review-bounces at lists.opensource.org> On
+Behalf Of Bradley M. Kuhn
+>>Sent: Thursday, January 2, 2020 9:00 PM
+>>To: License submissions for OSI review
+<license-review at lists.opensource.org>
+>>Subject: [License-review] AGPL timeline & why cautious processes with
+real-world testing are better (was Re: For approval: The Cryptographic
+Autonomy License (Beta 4))
+
+>>McCoy Smith wrote today:
+>>>    As far as I can tell, AGPLv1 never got on the OSI list ... AGPLv3 was
+>>>    submitted in January 2008 AGPLv3 was finalized in November 2007 (so
+it
+>>>    was submitted to OSI two months after its drafting was completed).
+It
+>>>    was approved in March 2008 ... So AGPLv3 went from finalization to
+OSI
+>>>    approval in a mere 4 months.
+
+>>Starting the clock on Affero GPL at the third-party 2008-03 list
+submission doesn't reflect OSI's diligence in past decisions.  OSI
+leadership was aware of AGPLv1. (I know, because I talked extensively with
+>>OSI directors during the years AGPLv1 was the only AGPL.)  No one even
+considered submitting it officially because -- as a careful and thoughtful
+license drafting authority
+>>-- FSF experimented in real world scenarios with a (possibly silly) new
+copyleft idea first for years before declaring it official.  Heck, I admit I
+was on the wrong side of history on this one: I advocated for >>the FSF to
+release a GPLv2.2 in 2003 with the Affero clause in it.  The FSF didn't like
+the idea, precisely because the clause was too novel, and needed time to see
+if developers felt the clause brought them >>and their users' software
+freedom.
+
+FWIW, I wasn't trying to imply that AGPL got some sort of special,
+expedited, treatment through the process.  Simon had asked about the
+approval process for AGPL, I just pulled up the timeline.
+
+I think one can use  AGPLv3's approval (in a short timeline, and with little
+comment) as a bit of a confirmation of what some are saying ought to be part
+of the process. Inter alia:
+
+AGPLv1 comes out in 2002, and includes the "copyleft novelty" of Section
+2(d), applying the copyleft to network interactions.  It then is used for
+several years without submission to OSI, and gains some adoption.
+Meanwhile, the OSL, which has a similar novelty, is later submitted to the
+OSI and approved.
+AGPLv3 comes out in 2007.  It applies the copyleft to network interactions
+(now in Section 13) as had the predecessor versions, but includes features
+from GPLv3 -- a license also quickly approved for the OSI list, but which
+underwent a lengthy and public drafting and revision process.
+So AGPLv3 had a combination of a relatively long history of use (for the
+copyleft on network interactions), some precedent (approval of a similar
+concept in OSL), and an lengthy and public drafting process (for the other
+parts of the license that came from GPLv3). 
+
+If one (or multiple) of those requirements are part of the requirements
+process for submitting a license for OSI approval, I still think that ought
+to be made clear at the outset to potential submitters -- and there ought to
+be some direction to potential submitters on what they can call their
+license (other than "open source") if they need to rely on long history of
+use before submitting.
+
+
+
+From van.lindberg at gmail.com  Fri Jan  3 18:22:06 2020
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 3 Jan 2020 12:22:06 -0600
+Subject: [License-review] AGPL timeline & why cautious processes with real-world testing are better (was Re: For approval: The Cryptographic Autonomy License (Beta 4))
+In-Reply-To: <20200103174530.hlzic55voqa4m4wl@ebb.org>
+References: <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com> <CAA4ffp9dRE8ypcktR0XbDXHXmjiuoWgy=ctSMLJq4pLOB9jeRQ@mail.gmail.com> <004101d5c196$fc82bfa0$f5883ee0$@lexpan.law> <20200103050008.hhadp6mbjxu5jfot@ebb.org> <CAFQvZEMcYZ6sHpRUCVQWjYkjfa6fzqMa7=D_2xFjGPzxn325Hw@mail.gmail.com> <20200103174530.hlzic55voqa4m4wl@ebb.org>
+Message-ID: <CAFQvZEN5tOOw=8Y3-OGwKyEKQ21hbGY_Pr_E=N=p5=r7TwfrZw@mail.gmail.com>
+
+Hi Bradley,
+
+I appreciate your response, and I recognize that I didn't get all the
+details quite right. I see your point. But I think you missed mine:
+
+On Fri, Jan 3, 2020 at 11:48 AM Bradley M. Kuhn <bkuhn at ebb.org> wrote:
+
+> VanL wrote today:
+> >    So regardless of whether the AGPL was "accepted" or "endorsed" by the
+> >    FSF, it benefitted from Bradley's official relationship with the FSF.
+>
+> ... and I'm sure your license will benefit from your official relationship
+> with its drafting authority too.
+>
+
+The issue is not the relationship with the *drafting* authority. The issue
+is the relationship with the *certifying* authority. The FSF
+accepted/authorized/recognized AGPLv1 essentially immediately. The AGPL
+benefited from being recognized as a Free Software license, allowing it to
+gain community uptake. Thus the AGPL avoided the chicken-and-egg situation
+that any other license would have. Moreover, there have been at least a
+couple people stating on this list that they are interested in using the
+CAL as soon as it is approved. Is that not a sign of interest by non-Holo
+licensors?
+
+The delay vis-a-vis OSI approval is not the issue. If the FSF were to
+immediately recognize the CAL as a Free Software license, but in return I
+had to wait five years for OSI approval, I would take that deal in a
+second. This is why the AGPL process is not equivalent; I don't think that
+path is available to anyone else.
+
+The argument that people should not submit licenses until years after they
+are used undermines the OSI's role as a license authority. This policy
+explicitly means that people should "ignore the OSI until some undefined
+point in the future."
+
+You compare the CAL to the SSPL. Let's look at that comparison. The CAL
+wasn't sprung on anyone as a surprise. It has gone through a very public
+discussion phase, with significant changes. It wasn't designed to be a
+license that forces commercial licensing. It may not have been perfect, but
+the effort behind the CAL has been to do everything the "right" way.
+
+In contrast, let's look at the SSPL. MongoDB, Inc is successfully ignoring
+the OSI. The SSPL now has a significant installed base. Some projects are
+getting released by non-MongoDB licensors under the SSPL. Those releases
+may be "unwilling" and due to the terms of the license - but that is true
+of any copyleft license. Is this the vision of success that the OSI wants
+to encourage?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200103/afc9a913/attachment-0001.html>
+
+From simon at webmink.com  Fri Jan  3 19:05:32 2020
+From: simon at webmink.com (Simon Phipps)
+Date: Fri, 3 Jan 2020 19:05:32 +0000
+Subject: [License-review] AGPL timeline & why cautious processes with real-world testing are better (was Re: For approval: The Cryptographic Autonomy License (Beta 4))
+In-Reply-To: <004c01d5c261$d0c056e0$724104a0$@lexpan.law>
+References: <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com> <CAA4ffp9dRE8ypcktR0XbDXHXmjiuoWgy=ctSMLJq4pLOB9jeRQ@mail.gmail.com> <004101d5c196$fc82bfa0$f5883ee0$@lexpan.law> <20200103050008.hhadp6mbjxu5jfot@ebb.org> <004c01d5c261$d0c056e0$724104a0$@lexpan.law>
+Message-ID: <CAA4ffp8xkpt=DdQjBq6m4S_-mB-=qQw9TxVCC2Bp+tXogqkZ5w@mail.gmail.com>
+
+On Fri, Jan 3, 2020 at 6:16 PM McCoy Smith <mccoy at lexpan.law> wrote:
+
+>   Simon had asked about the approval process for AGPL, I just pulled up
+> the timeline.
+>
+ And I wasn't asking about the approval process for the AGPL!
+
+I am looking for the archives of the public discussions of the potential
+impact of networked-use triggers in licenses when applied in connection
+with proprietary relicensing. This was in response to Richard's comment "It
+matters whether proprietary relicensing is the primary use case" since it
+seems clear that proprietary licensing will use whatever mechanism places
+the greatest burden on peer contributors in the community so obviously
+would have been fully explored before AGPL was finalised.
+
+This is by way of exploration of the proposal that OSI should review all
+the potential uses of a license in addition to the conformance of the
+license with the OSD. That proposal is just as novel as the other proposal
+that copyleft licenses should be used for years in advance of OSI approval,
+so also deserves scrutiny.
+
+S.
+(Personally)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200103/e642b90c/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Fri Jan  3 19:25:46 2020
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Fri, 3 Jan 2020 21:25:46 +0200
+Subject: [License-review] AGPL timeline & why cautious processes with real-world testing are better (was Re: For approval: The Cryptographic Autonomy License (Beta 4))
+In-Reply-To: <CAFQvZEN5tOOw=8Y3-OGwKyEKQ21hbGY_Pr_E=N=p5=r7TwfrZw@mail.gmail.com>
+References: <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com> <CAA4ffp9dRE8ypcktR0XbDXHXmjiuoWgy=ctSMLJq4pLOB9jeRQ@mail.gmail.com> <004101d5c196$fc82bfa0$f5883ee0$@lexpan.law> <20200103050008.hhadp6mbjxu5jfot@ebb.org> <CAFQvZEMcYZ6sHpRUCVQWjYkjfa6fzqMa7=D_2xFjGPzxn325Hw@mail.gmail.com> <20200103174530.hlzic55voqa4m4wl@ebb.org> <CAFQvZEN5tOOw=8Y3-OGwKyEKQ21hbGY_Pr_E=N=p5=r7TwfrZw@mail.gmail.com>
+Message-ID: <CAKHyketU2=KYNScZTqrG764O6eV9hoYxOh1MVw33eswC4tSkNQ@mail.gmail.com>
+
+Hi Van
+
+I feel like this refers to something I wrote earlier:
+
+On Fri, Jan 3, 2020 at 8:23 PM VanL <van.lindberg at gmail.com> wrote:
+> Moreover, there have been at least a couple people stating on this list that they are interested in using the CAL as soon as it is approved. Is that not a sign of interest by non-Holo licensors?
+
+I just want to clarify for the record, that I'm not currently active
+in any projects where a network copyleft license would be relevant. I
+did however make a statement that I'm one of those people who
+generally favors copyleft and increasingly network copyleft, and that
+I see CAL as a great license that I'd probably choose if I'm working
+on such projects in the future. In short, I just wanted to say I think

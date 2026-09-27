@@ -1,0 +1,750 @@
+>> viewers of the site that interact with and respond to the content
+>> provided.  So it isn't CAL 4.2 compliant for the non-technical user.
+>>
+>> On Thu, Dec 12, 2019 at 3:06 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+>> wrote:
+>>
+>>> If there was a request from a user to get their user data, then the
+>>> clueless operator could also easily publish or approve the queued comments,
+>>> and they would be in compliance. This is a first class feature in the
+>>> Wordpress GUI, and requires zero coding skills from the operator.
+>>>
+>>> For those who are not intimately familiar with Wordpress... It has been
+>>> CAL compliant 13 years ago:
+>>> https://en.blog.wordpress.com/2006/08/14/my-comments/
+>>>
+>>> Admittedly the CAL maybe implies data should be exported in some other
+>>> format than a HTML page, such as a mysqldump, json, or xml file. But it
+>>> doesn't explicitly mandate a specific data format. In the case of the
+>>> clueless Wordpress operator presumably administering a fairly low volume
+>>> site, it could be argued that a HTML page from where a user can easily
+>>> copypaste all of their user data is in fact a good alternative to provide
+>>> this data.
+>>>
+>>> IMO the Wordpress example rather strengthens Van's argument that for
+>>> realistic scenarios the CAL requirements are not unreasonable. I agree that
+>>> there's a discussion worth having about licensors with bad intent, but I
+>>> don't support the idea that a license should be rejected based on rather
+>>> theoretical corner cases. Especially when - as I illustrated in my previous
+>>> email - same corner cases can be constructed for existing licenses like GPL.
+>>>
+>>> henrik
+>>>
+>>> On Thu, Dec 12, 2019 at 7:26 AM Bruce Perens via License-review <
+>>> license-review at lists.opensource.org> wrote:
+>>>
+>>>> If they hosted comments on their WordPress blog, and did not approve
+>>>> some comments but kept them in the approval queue, this would be sufficient
+>>>> to activate the data terms.
+>>>>
+>>>> I agree with Nigel.
+>>>>
+>>>> On Wed, Dec 11, 2019, 8:53 PM VanL <van.lindberg at gmail.com> wrote:
+>>>>
+>>>>> On Wed, Dec 11, 2019, 9:18 PM Nigel T <nigel.2048 at gmail.com> wrote:
+>>>>>
+>>>>>> A SaaS license is intended to be applied to software that is seen and
+>>>>>> used by third parties.
+>>>>>>
+>>>>>> It is disingenuous for you to imply otherwise.
+>>>>>>
+>>>>>> Many non-developers have set up their own content management system
+>>>>>> like Wordpress on their own servers.  If Wordpress was CAL instead of GPL
+>>>>>> none of those users would be able to use WordPress because it?s unlikely
+>>>>>> that WordPress is fully compliant under the terms of 4.2.
+>>>>>>
+>>>>>
+>>>>>
+>>>>> This is an illuminating example. If WordPress was CAL licensed, then
+>>>>> all those people hosting their own blogs on WordPress would have to provide
+>>>>> a link to or copy of the source code they were using, but that is it. Why?
+>>>>> Because they would not be hosting the user data of random readers. The
+>>>>> outcome would be essentially the same as the AGPL.
+>>>>>
+>>>>> Someone would only need to provide additional user data if they did
+>>>>> more than host their own blog, but instead moved into the blog hosting
+>>>>> business.
+>>>>>
+>>>>> Thanks,
+>>>>> Van
+>>>>>
+>>>>>
+>>>>>> _______________________________________________
+>>>>> License-review mailing list
+>>>>> License-review at lists.opensource.org
+>>>>>
+>>>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>>>
+>>>> _______________________________________________
+>>>> License-review mailing list
+>>>> License-review at lists.opensource.org
+>>>>
+>>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>>
+>>>
+>>>
+>>> --
+>>> henrik.ingo at avoinelama.fi
+>>> +358-40-5697354        skype: henrik.ingo            irc: hingo
+>>> www.openlife.cc
+>>>
+>>> My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+>>> _______________________________________________
+>>> License-review mailing list
+>>> License-review at lists.opensource.org
+>>>
+>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191212/ff71f677/attachment-0001.html>
+
+From josh at berkus.org  Thu Dec 12 22:31:27 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Thu, 12 Dec 2019 14:31:27 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com>
+Message-ID: <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org>
+
+On 12/11/19 1:05 PM, VanL wrote:
+> Hi Josh,
+> 
+> Ok, this puts Nigel's concern into clearer focus, and I am glad to see
+> Nigel confirming it. Nevertheless, I am not convinced. Reasoning below:
+> 
+> On Wed, Dec 11, 2019 at 2:08 PM Josh Berkus <josh at berkus.org
+> <mailto:josh at berkus.org>> wrote:
+> 
+>     1) You create some software that has no data export functionality and
+>     license it under the CAL.
+> 
+> ?
+> This is the first big problem. Is the distribution of the software
+> compliant? If so, there is *some* data export functionality, even if it
+> is not polished for non-technical operators. So starting by saying
+> "there is software with *no* data export functionality" is starting by
+> saying "if I receive a non-compliant distribution, then my own
+> subsequent distribution will be non-compliant."
+
+Such software can be compliant if it contains/requires no user data to
+operate.  Or it can have a way to get the user data for one area of the
+program, but not for others.
+
+> ?
+> 
+>     2) I use your software as the basis for some other application.
+> 
+> 
+> OK.
+> ?
+> 
+>     3) I am now compelled, under the terms of the license, to *write* a user
+>     data export feature that didn't exist in the software that I copied from
+>     you under the CAL.
+> 
+> 
+> This is where the logic chain really falls apart.
+> 
+> If a person wants to use the CAL-licensed software, for their own
+> private purposes, then they can do so. They don't need to write any
+> features, they don't need to provide any data to any other person. You
+> are missing step 2.5: You decide to use the software (either the
+> original application or your derived application) to provide services to
+> another third party.
+> 
+> If someone wants to offer services to someone else, then they are
+> already choosing to take upon themselves various burdens. If part of the
+> additional burden that they choose to take on involves providing the
+> software and data to users, then they are choosing that.
+
+People build applications in layers.  Imagine the sofware I'm copying is
+a CAL-licensed database, but what I'm building is some node.js-based
+end-user app.
+> I would also push back on the idea that even if there isn't a polished
+> "data export" functionality, then that means that the data isn't
+> available. I would also suggest that if they are offering services to
+> third parties, but they don't have the necessary skills to
+> operate/troubleshoot the software, they are already in a bad position.
+
+Um, have you ever worked in the web or mobile applications fields?
+There are pretty good reasons why front-end and back-end are generally
+separate teams.
+
+>     4) As a corollary, this means that if I am not a programmer (and don't
+>     have $$$$), I cannot use the software you created in (1).
+> 
+> 
+> I hope you see the logical errors now:
+> - You *can* use the software, as a non-technical user, as long as you
+> are using it for private purposes.
+
+I don't care about "private purposes".  Any OSS license is OK with
+private usage; if the CAL wasn't, we'd be blocking it for that reason.
+I'm talking about downstream users who are supplying a service or
+software to someone else.
+
+> If you choose to use the software to provide services to others, *yes*,
+> you must comply with the terms of the CAL. But you can't assume that the
+> distribution you received is going to be non-compliant in the first place.?
+> 
+> - If the distribution you received is compliant, then this issue doesn't
+> exist.
+> - If the software distribution *you* received is not compliant, or some
+> other software that you built on top of CAL-licensed software is not
+> compliant, then yes, you must invest time or money to be compliant if
+> you wish to use that software to provide services to others.
+
+Seems like you understand the novelty factor here; this is it in a
+nutshell.  The new factor doesn't necessarily mean that the licence is
+not acceptable, but it *is* something that needs to be hashed out.
+
+Do you understand, now, why Nigel was suggesting symmetry as a solution
+for this, even if you don't agree with it?
+
+-- 
+Josh Berkus
+
+
+From henrik.ingo at avoinelama.fi  Fri Dec 13 07:37:29 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Fri, 13 Dec 2019 09:37:29 +0200
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org>
+Message-ID: <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com>
+
+On Fri, Dec 13, 2019 at 12:32 AM Josh Berkus <josh at berkus.org> wrote:
+
+> People build applications in layers.  Imagine the sofware I'm copying is
+> a CAL-licensed database, but what I'm building is some node.js-based
+> end-user app.
+>
+
+Just to interject on this specific point: This is a great and relevant
+example.
+
+And this is exactly a situation where IMHO opinion the approach in CAL is a
+good one. You have an obligation to fulfill your obligations under CAL, but
+the CAL doesn't mandate you to implement some particular API in your
+node.js app. You can choose to use a more manual export procedure if you
+wish.
+
+The alternative, that you would be required to implement some specific
+feature in your node.js code, which isn't even CAL licensed, would IMO be
+much more problematic. And questionable from an OSD point of view, so I'm
+not sure it's even an option.
+
+henrik
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191213/2580f82e/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Fri Dec 13 07:52:17 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Fri, 13 Dec 2019 09:52:17 +0200
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CADaGzk5KTiq=coWA=iofwqUw-ZrSBfZPtCkahLhRg_4mLjBq4w@mail.gmail.com>
+References: <CAFQvZENjVoXmO9V_nAfJ0NYHgvD8au87+NNJHF4ct+TrFEW+sg@mail.gmail.com> <EF899B64-7888-4292-94FF-A246E8760E55@gmail.com> <CAFQvZEPeS_ze-78nsrSGz5MGGQ2gw1QEc5zgw7Y4mEBaAAp3sw@mail.gmail.com> <CAK2MWOuaoCHuoyOBJnML=Hvg9WYqQ1Oi+mQzrhXmce8Q-oquFg@mail.gmail.com> <CAKHykevKsrWty9Qq35u1BMnuw=cR4zXvkt4wf72vs4JAT7Nrgw@mail.gmail.com> <CADaGzk7MZReEd_BLub4s7pPT4ZmY0eXZs=tSyaxQ3u=8D8bWLA@mail.gmail.com> <CAFQvZEM7DG6gAYkZrRwiJfjWjh_2j=v3ZMX_zb0iEOjUWGn7dA@mail.gmail.com> <CADaGzk5KTiq=coWA=iofwqUw-ZrSBfZPtCkahLhRg_4mLjBq4w@mail.gmail.com>
+Message-ID: <CAKHyketPO75yTQ6TnP9vHTvEo-P=iwe2aV3PT=d9Qzinp-x2rA@mail.gmail.com>
+
+On Thu, Dec 12, 2019 at 11:30 PM Nigel T <nigel.2048 at gmail.com> wrote:
+
+> On Thu, Dec 12, 2019 at 3:17 PM VanL <van.lindberg at gmail.com> wrote:
+>
+>> The hypothetical then expanded again to user accounts, memberships,
+>> badges, user content, etc - the whole WordPress ecosystem. I can't say that
+>> the whole WordPress ecosystem would be able to easily comply. But you
+>> yourself identify that the information is stored in the database or the
+>> filesystem, and it is accessible, so compliance is possible. I would also
+>> note plugins like WP-all-export.
+>>
+>
+> These specifics were provided to refute Henrik's assertion that WordPress
+> has been 4.2 compliant for years.  These are not "expanded hypotheticals"
+> but counter-examples.
+>
+>
+Just to be clear, I of course agree that there can exist software that
+would not allow easy export of user data in a CAL compliant manner. But I
+did feel compelled to point out that the initial Wordpress examples given
+by you and Bruce are in fact compliant! Only on your third attempt did you
+manage to present a sufficiently complicated scenario that it plausibly
+might not be compliant out of the box. Yet even then Van pointed out that
+there could exist and a user could easily install a plugin specifically
+designed to export all data of a given user, regardless of what arbitrary
+set of other plugins you had activated.
+
+Further, I have also pointed out that if we were talking about a blogging
+software that actually was licensed under CAL, it would of course be even
+more likely to support such export functionality than Wordpress.
+
+So I think this discussion - which raised a very valid question - has shown
+that in practice the current language in CAL will work well and while
+problematic cases can be constructed, they seem to be the exception and
+users should simply avoid such software, should they actually exist in the
+future.
+
+henrik
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191213/347f0311/attachment.html>
+
+From pamela at chesteklegal.com  Fri Dec 13 14:09:55 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Fri, 13 Dec 2019 09:09:55 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com>
+Message-ID: <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com>
+
+
+On 12/13/2019 2:37 AM, Henrik Ingo wrote:
+> On Fri, Dec 13, 2019 at 12:32 AM Josh Berkus <josh at berkus.org
+> <mailto:josh at berkus.org>> wrote:
+>
+>     People build applications in layers.? Imagine the sofware I'm
+>     copying is
+>     a CAL-licensed database, but what I'm building is some node.js-based
+>     end-user app.
+>
+>
+> Just to interject on this specific point: This is a great and relevant
+> example.
+>
+> And this is exactly a situation where IMHO opinion the approach in CAL
+> is a good one. You have an obligation to fulfill your obligations
+> under CAL, but the CAL doesn't mandate you to implement some
+> particular API in your node.js app. You can choose to use a more
+> manual export procedure if you wish.
+>
+The CAL is a very strong copyleft license. How does that affect this
+hypothetical? Can a CAL-licensed database be used for a node.js-based
+end-user app?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191213/a88bc633/attachment.html>
+
+From nigel.2048 at gmail.com  Fri Dec 13 14:22:44 2019
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Fri, 13 Dec 2019 09:22:44 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAKHyketPO75yTQ6TnP9vHTvEo-P=iwe2aV3PT=d9Qzinp-x2rA@mail.gmail.com>
+References: <CAFQvZENjVoXmO9V_nAfJ0NYHgvD8au87+NNJHF4ct+TrFEW+sg@mail.gmail.com> <EF899B64-7888-4292-94FF-A246E8760E55@gmail.com> <CAFQvZEPeS_ze-78nsrSGz5MGGQ2gw1QEc5zgw7Y4mEBaAAp3sw@mail.gmail.com> <CAK2MWOuaoCHuoyOBJnML=Hvg9WYqQ1Oi+mQzrhXmce8Q-oquFg@mail.gmail.com> <CAKHykevKsrWty9Qq35u1BMnuw=cR4zXvkt4wf72vs4JAT7Nrgw@mail.gmail.com> <CADaGzk7MZReEd_BLub4s7pPT4ZmY0eXZs=tSyaxQ3u=8D8bWLA@mail.gmail.com> <CAFQvZEM7DG6gAYkZrRwiJfjWjh_2j=v3ZMX_zb0iEOjUWGn7dA@mail.gmail.com> <CADaGzk5KTiq=coWA=iofwqUw-ZrSBfZPtCkahLhRg_4mLjBq4w@mail.gmail.com> <CAKHyketPO75yTQ6TnP9vHTvEo-P=iwe2aV3PT=d9Qzinp-x2rA@mail.gmail.com>
+Message-ID: <CADaGzk7bAN6RcSwLe5j784MQQSU=0kTenZBZNyLTju8-d0spjg@mail.gmail.com>
+
+On Fri, Dec 13, 2019 at 2:53 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+wrote:
+
+> On Thu, Dec 12, 2019 at 11:30 PM Nigel T <nigel.2048 at gmail.com> wrote:
+>
+>> On Thu, Dec 12, 2019 at 3:17 PM VanL <van.lindberg at gmail.com> wrote:
+>>
+>>> The hypothetical then expanded again to user accounts, memberships,
+>>> badges, user content, etc - the whole WordPress ecosystem. I can't say that
+>>> the whole WordPress ecosystem would be able to easily comply. But you
+>>> yourself identify that the information is stored in the database or the
+>>> filesystem, and it is accessible, so compliance is possible. I would also
+>>> note plugins like WP-all-export.
+>>>
+>>
+>> These specifics were provided to refute Henrik's assertion that WordPress
+>> has been 4.2 compliant for years.  These are not "expanded hypotheticals"
+>> but counter-examples.
+>>
+>
+> Just to be clear, I of course agree that there can exist software that
+> would not allow easy export of user data in a CAL compliant manner.
+>
+
+If software CAN exist that is not CAL compliant and licensed under CAL then
+it's a compliance time bomb for every downstream user.  Why should this be
+approved?
+
+
+> But I did feel compelled to point out that the initial Wordpress examples
+> given by you and Bruce are in fact compliant! Only on your third attempt
+> did you manage to present a sufficiently complicated scenario that it
+> plausibly might not be compliant out of the box. Yet even then Van pointed
+> out that there could exist and a user could easily install a plugin
+> specifically designed to export all data of a given user, regardless of
+> what arbitrary set of other plugins you had activated.
+>
+
+Could exist and does exist are not the same.  There is nothing in CAL that
+requires the original software to provide even rudimentary export
+capabilities.
+
+Van insists that doing SQL queries is sufficient (even good) to meet CAL
+requirements and you believe that simply having the data appear as HTML
+somewhere fulfills the requirement.  Of course, nothing is written in the
+license terms that indicates these are acceptable so we'd have to find out
+in a court of law if that's actually true.  This would be in conflict with
+Bruce's opinion that "The open source definition means that you shouldn't
+need a lawyer just to be a user".
+
+But lets say that it is...then 4.2 is relatively easy to be compliant with
+for professional service providers (folks actually likely to attempt user
+data lock in) so has very little value in terms of data portability and 4.2
+can be safely removed because its a huge burden for non-technical OSS users.
+
+But I think the intent is for 4.2 to be hard to be compliant with and I'll
+get to that below.
+
+
+> So I think this discussion - which raised a very valid question - has
+> shown that in practice the current language in CAL will work well and while
+> problematic cases can be constructed, they seem to be the exception and
+> users should simply avoid such software, should they actually exist in the
+> future.
+>
+
+I think we should simply avoid approving this license because the
+problematic cases are very common for SaaS software.  You assert that these
+cases are "an exception".  What is your evidence that they are exceptions
+and not the norm?
+
+There is are a vast amount of OSS software that would not be CAL compliant
+that the original authors could relicense under CAL if they wanted to.
+Nothing in CAL precludes them from doing so and they would be non-compliant
+out of the box for downstream users.
+
+All the vendors of SaaS software that have long wanted an OSI approved
+license for their product marketing where no one could actually legally use
+their software without a lot of refactoring effort would be quite happy.
+After all, they don't care about non-compliance...they are the original
+authors and you can use their "open source product released under an OSI
+approved open source license" on their own servers all day without any
+issues.
+
+That's interesting isn't it?  I can release CAL licensed software as "open
+source" that no one but me can use without a lot of work because of
+non-compliance with 4.2.  Someone like Amazon or Microsoft would have to
+decide between not competing with my cloud product, buying a commercial
+license from me or spending engineering resources to become 4.2 compliant
+and hope they got it right every time I released a new version.  Not just
+my product but probably all of their cloud infrastructure that used my
+product as well.  Oh and naturally all that infrastructure code has to get
+released too.  If normal OSS users get locked out...well that's a shame,
+but it's just the cost of doing business.  They weren't likely to be using
+my enterprise cloud product anyway.
+
+Gosh, I wonder what companies might want an OSI approved license like that?
+
+A little asymmetry in an OSS license can be okay but you need to carefully
+look at how that asymmetry can be abused before approval.
+
+henrik
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191213/9cb74a38/attachment.html>
+
+From van.lindberg at gmail.com  Fri Dec 13 14:47:56 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 13 Dec 2019 08:47:56 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com>
+Message-ID: <CAFQvZEOgEnkS4jy_PiWf_QSu8zxd3H2x+zbTnsVzyW8cdAN7LA@mail.gmail.com>
+
+On Fri, Dec 13, 2019 at 8:10 AM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+> The CAL is a very strong copyleft license. How does that affect this
+> hypothetical? Can a CAL-licensed database be used for a node.js-based
+> end-user app?
+>
+
+Yes it can. However, the necessary compliance would depend on what the
+node.js app actually does, and whether it effectively communicates some
+aspect of the database to a Recipient.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191213/3fc7f223/attachment-0001.html>
+
+From henrik.ingo at avoinelama.fi  Fri Dec 13 15:45:51 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Fri, 13 Dec 2019 17:45:51 +0200
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CADaGzk7bAN6RcSwLe5j784MQQSU=0kTenZBZNyLTju8-d0spjg@mail.gmail.com>
+References: <CAFQvZENjVoXmO9V_nAfJ0NYHgvD8au87+NNJHF4ct+TrFEW+sg@mail.gmail.com> <EF899B64-7888-4292-94FF-A246E8760E55@gmail.com> <CAFQvZEPeS_ze-78nsrSGz5MGGQ2gw1QEc5zgw7Y4mEBaAAp3sw@mail.gmail.com> <CAK2MWOuaoCHuoyOBJnML=Hvg9WYqQ1Oi+mQzrhXmce8Q-oquFg@mail.gmail.com> <CAKHykevKsrWty9Qq35u1BMnuw=cR4zXvkt4wf72vs4JAT7Nrgw@mail.gmail.com> <CADaGzk7MZReEd_BLub4s7pPT4ZmY0eXZs=tSyaxQ3u=8D8bWLA@mail.gmail.com> <CAFQvZEM7DG6gAYkZrRwiJfjWjh_2j=v3ZMX_zb0iEOjUWGn7dA@mail.gmail.com> <CADaGzk5KTiq=coWA=iofwqUw-ZrSBfZPtCkahLhRg_4mLjBq4w@mail.gmail.com> <CAKHyketPO75yTQ6TnP9vHTvEo-P=iwe2aV3PT=d9Qzinp-x2rA@mail.gmail.com> <CADaGzk7bAN6RcSwLe5j784MQQSU=0kTenZBZNyLTju8-d0spjg@mail.gmail.com>
+Message-ID: <CAKHykeva9wqRn7WKCBQCRa7W-qEY8t3MnjGhnO3wvGsUFdPYtQ@mail.gmail.com>
+
+On Fri, Dec 13, 2019 at 4:23 PM Nigel T <nigel.2048 at gmail.com> wrote:
+
+> On Fri, Dec 13, 2019 at 2:53 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+> wrote:
+>
+>> Just to be clear, I of course agree that there can exist software that
+>> would not allow easy export of user data in a CAL compliant manner.
+>>
+>
+> If software CAN exist that is not CAL compliant and licensed under CAL
+> then it's a compliance time bomb for every downstream user.  Why should
+> this be approved?
+>
+
+I might be completely missing your point now... But just to answer the
+question as written: Are you also of the opinion that BSD and GPL licenses
+should not have been approved?
+
+https://en.wikipedia.org/wiki/UNIX_System_Laboratories,_Inc._v._Berkeley_Software_Design,_Inc
+.
+https://en.wikipedia.org/wiki/Gpl-violations.org
+
+etc...
+
+
+> But I think the intent is for 4.2 to be hard to be compliant with and I'll
+> get to that below.
+> Gosh, I wonder what companies might want an OSI approved license like that?
+>
+>
+Ok, so your real argument is simply that we should not approve this license
+because you are convinced Van's client has bad intentions?
+
+But I would want to use it for hobby projects. I have no bad intentions -
+at least not commercially motivated ones. Does that make it better? Or
+would it be better if we just focus on the license text without classifying
+participants here based on assumed moral standards?
+
+
+> A little asymmetry in an OSS license can be okay but you need to carefully
+> look at how that asymmetry can be abused before approval.
+>
+>
+Asymmetry exists when a single person or corporation owns all the rights in
+a copylefted piece of software. In the case of GPL and AGPL I wouldn't
+describe that as "a little asymmetry". It's a very strong asymmetry.
+
+With projects where ownership isn't pooled to a single entity, (e.g. Linux)
+the same copyleft license can be a strong defense that creates balance in
+the community and prevents a single entity from dominating the project.
+
+It's easy to see how CAL could become popular with non-profit and other
+community projects that want to ensure openness of data in the age of large
+SaaS and social media companies who like to hoard user data. The open
+source community will benefit from having this license in its toolkit.
+
+henrik
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191213/a9c490c3/attachment.html>
+
+From josh at berkus.org  Wed Dec 18 18:01:55 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Wed, 18 Dec 2019 10:01:55 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com>
+Message-ID: <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org>
+
+On 12/13/19 6:09 AM, Pamela Chestek wrote:
+> The CAL is a very strong copyleft license. How does that affect this
+> hypothetical? Can a CAL-licensed database be used for a node.js-based
+> end-user app?
+
+I don't see why not -- in fact, I anticipate that this will be the
+primary use of the CAL, blockchain folks nonwithstanding.
+
+That's why I'm so interested in making sure that it is viable for that
+use-case.
+
+Note that liberally-licensed code on top of strong-copyleft databases is
+already a commonality in the industry, and is why there are so many
+arguments about how the DB client libraries are licensed.  For example,
+MySQL changing its client library license from LGPL to GPL back in 2006
+caused quite a stir, because it effectively forced relicensing of a
+whole generation of PHP applications.
+
+So I don't think the CAL is novel in that respect.
+
+-- 
+Josh Berkus
+
+
+From van.lindberg at gmail.com  Wed Dec 18 18:56:26 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Wed, 18 Dec 2019 12:56:26 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org>
+Message-ID: <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com>
+
+Hi Josh,
+
+Two questions:
+
+1. Do you feel that the CAL would be reasonable as-is, in its strong
+copyleft form?
+2. Do you feel that the CAL's combined work exception would also enable
+liberally-licensed web apps in the traditional mode?
+
+Thanks,
+Van
+
+
+On Wed, Dec 18, 2019 at 12:02 PM Josh Berkus <josh at berkus.org> wrote:
+
+> On 12/13/19 6:09 AM, Pamela Chestek wrote:
+> > The CAL is a very strong copyleft license. How does that affect this
+> > hypothetical? Can a CAL-licensed database be used for a node.js-based
+> > end-user app?
+>
+> I don't see why not -- in fact, I anticipate that this will be the
+> primary use of the CAL, blockchain folks nonwithstanding.
+>
+> That's why I'm so interested in making sure that it is viable for that
+> use-case.
+>
+> Note that liberally-licensed code on top of strong-copyleft databases is
+> already a commonality in the industry, and is why there are so many
+> arguments about how the DB client libraries are licensed.  For example,
+> MySQL changing its client library license from LGPL to GPL back in 2006
+> caused quite a stir, because it effectively forced relicensing of a
+> whole generation of PHP applications.
+>
+> So I don't think the CAL is novel in that respect.
+>
+> --
+> Josh Berkus
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191218/65c053dd/attachment.html>
+
+From josh at berkus.org  Wed Dec 18 19:13:34 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Wed, 18 Dec 2019 11:13:34 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com>
+Message-ID: <3013ad61-43d5-9144-2b07-7eb367a02d48@berkus.org>
+
+On 12/18/19 10:56 AM, VanL wrote:
+> Hi Josh,
+> 
+> Two questions:
+> 
+> 1. Do you feel that the CAL would be reasonable as-is, in its strong
+> copyleft form?
+> 2. Do you feel that the CAL's combined work exception would also enable
+> liberally-licensed web apps in the traditional mode?
+
+That's what both Henrik and I are trying to figure out.
+
+>From my perspective, a strong-copyleft DB forcing requirements on the
+app layer is OK (and not novel), as long as everyone involved is clear
+on what those restrictions are and who they affect.    So the core idea
+here is fine, and *might* even stem the flow of submissions for other,
+less well-considered, network-effect licenses.  But that requires making
+the CAL as good of a license as possible, so that nobody feels the need
+for anything else (or at least, anything else that's OSD-compliant).
+
+
+-- 
+Josh Berkus
+
+
+From kevin+osi at km6g.us  Wed Dec 18 20:43:21 2019
+From: kevin+osi at km6g.us (Kevin P. Fleming)
+Date: Wed, 18 Dec 2019 15:43:21 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <3013ad61-43d5-9144-2b07-7eb367a02d48@berkus.org>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <3013ad61-43d5-9144-2b07-7eb367a02d48@berkus.org>
+Message-ID: <CAE+UdorTi0NKvENU-tPZA80JtwraHcRr-6-QMyH_DmCysPKCRQ@mail.gmail.com>
+
+On Wed, Dec 18, 2019 at 2:14 PM Josh Berkus <josh at berkus.org> wrote:
+
+> From my perspective, a strong-copyleft DB forcing requirements on the
+> app layer is OK (and not novel), as long as everyone involved is clear
+
+<snort>Sleepycat</snort>
+
+
+From pamela at chesteklegal.com  Tue Dec 24 14:04:25 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Tue, 24 Dec 2019 09:04:25 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com>
+Message-ID: <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com>
+
+On 12/18/19 1:56 PM, VanL wrote:
+> 2. Do you feel that the CAL's combined work exception would also 
+> enable liberally-licensed web apps in the traditional mode?
+
+I read the CAL, or at least your intended scope of copyleft, to force 
+the licensing of apps that run on Holochain to use an open source 
+license and that they cannot be under a proprietary license. In your 
+first iteration of the license, you were clear that making software that 
+uses CAL-licensed APIs would be covered by the license. Therefore, if I 
+distribute an application that uses the Holochain APIs but nothing more 
+of Holochain that the APIs, then I am distributing a Modified Work. 
+Section 4.1.2 say "You must provide to each Recipient of a Modified Work 
+Access to Source Code corresponding to those portions of the Work 
+remaining in the Modified Work as well as the modifications used by You 
+to create the Modified Work. The Source Code corresponding to the 
+modifications in the Modified Work must be provided to the Recipient 
+either a) under this License, or b) under a Compatible Open Source 
+License," with compatible open source license defined.
+
+The Holochain website talks about doing things like running a social 
+network client. Would that social network software have to be under an 
+open source license?
+
+Pam
+
+-- 
+Pamela S. Chestek

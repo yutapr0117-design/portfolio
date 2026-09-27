@@ -1,0 +1,750 @@
+> Data" as defined in the CAL, which is scoped to data that is input to
+> or output from the software in which a user as a preexisting interest.
+>
+> - Argument: The data portability provisions violate freedom zero.
+> (Perens,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004121.html)
+> - Response: Data portability is in line with traditional notions of
+> software freedom (Lindberg,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004123.html),
+> see also "CAL is a net positive contribution to software freedom"
+> (Ingo,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004148.html)
+>
+>
+> - Argument: It is a use restriction (prohibited under OSD 6) to deny
+> operators the ability to withhold user data from end users because it
+> applies more particularly in the operator case. (Perens,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004081.html,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004036.html)
+> - Response: Operators are free to use the software in any way they see
+> fit - there is nothing in the CAL that denies them the ability to use
+> the software in any particular way. They just have to take the
+> additional action of providing data portability along with source.
+>
+> - Argument: This encumbers data that is outside the scope of the
+> license. (Perens,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004032.html)
+> - Response: The CAL does not create any rights that did not previously
+> exist. It does not change the license for any work or data. (Lindberg,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004033.html)
+>
+> - Argument: Data is not copyrightable, so not reachable by the
+> license. (Rosen,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004137.html)
+> - Response: The copyrightability or not of data is not relevant to the
+> license; the CAL does not create new ownership interests or licensing
+> rights.
+> (http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004139.html)
+>
+> - Argument (Ingo vs Ingo!): CAL may fail OSD #6, in similar fashion to
+> license zero... "I also agree with Bruce that this whole topic is a
+> can of worms"
+> - Response: Having "Freedom to run the program for any purpose"
+> includes both operator and end user as people "running" the program -
+> this is the idea behind all network copyleft.... CAL is scoped "in a
+> way that is quite defensible"
+> (Both are Ingo, same message:
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004148.html)
+>
+> - Argument: Data portability is an ethical restriction which doesn't
+> belong in a license. (Cowan,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004140.html)
+> - Response: The CAL limits itself to permissions for the work and does
+> not invoke ethical duties
+> (http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004108.html)
+>
+> *2. Arguments about the legal mechanism:* Open source software
+> licenses rely on intellectual property law to enforce their rules
+> concerning the licensing of derived works. Most existing FOSS licenses
+> have used the ability to distribute the work and to create derivative
+> works (both under copyright) as the traditional "hook" for
+> enforcement. Some alternatives do exist: the third party beneficiary
+> language in NASA 1.3, and the "network interaction" with a modified
+> work in AGPL.The CAL also uses distribution and the ability to create
+> derivative works as hooks for copyleft enforcement. The CAL also uses
+> "public performance" (either as included in the copyright statute or
+> as defined in the included definition), as well as patent rights
+> (specifically "use", "sale," and "offer for sale").
+>
+> Most of the arguments have to do with the use of public performance:
+> - Argument: This is legally untested and not necessary (e.g. Ingo,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004046.html)
+> - Response: The only other license applicable in an operator context
+> is the AGPL, which uses legally novel terms, is gameable relative to
+> enforcement, and ambiguous in a corporate context (Lindberg,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004047.html,
+> see also Fleming,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004049.html)
+>
+> - Argument: Public performance is US-centric and may not be applicable
+> in the international context. (Chestek,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004054.html)
+> - Response: WIPO "Communication to the public" appears analogous
+> (Atkinson,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004055.html,
+> see also Ingo,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004060.html),
+> and "Public performance is also a defined term" (Lindberg,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004108.html)
+>
+> - Argument: Public performance extends copyright ("is copyright
+> maximalist") and so should be rejected as a matter of policy.
+> (example: Henrik Ingo,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004059.html,
+> see also Peterson,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004092.html).
+>
+> - Response: "Public performance is recognized under copyright" and it
+> is better to use existing legal terms (Lindberg,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004095.html,
+> see also Rosen,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004137.html,
+> but Rosen mentions that it may be limited in application)
+>
+> - Argument: The CAL uses Oracle v. Google-based logic regarding API
+> reimplementation, this is premature (Fontana,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004062.html)
+>
+> - Response: These rights already exist, this is not an extension
+> (Lindberg,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004108.html,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004089.html).
+> Also, the structure of the CAL does not make it dependent upon a
+> particular outcome in OvG (Chestek,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004067.html)
+>
+>
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190513/26adbbfe/attachment-0001.html>
+
+From van.lindberg at gmail.com  Mon May 13 21:40:07 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Mon, 13 May 2019 16:40:07 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <ce4d034b-ff49-8579-0a64-f5c0d78d3ad4@chesteklegal.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOv_rXFVg1XAeKdKJyUMOOZKFpvavFKJML=07UrcNVN-oA@mail.gmail.com> <CAKHykesRV+qcgMaxf7Z=B2L0U39zd0806QsHGednfRbbj6WPtA@mail.gmail.com> <CAFQvZENsA5brxmDhVGTFbRPgcq2wtfCM9wcMkeykzLVrWCzNew@mail.gmail.com> <ce4d034b-ff49-8579-0a64-f5c0d78d3ad4@chesteklegal.com>
+Message-ID: <CAFQvZENSTtF=E0xSHLG_PctpaC68FyKeF1NOh8Oy5p9=1+9ryw@mail.gmail.com>
+
+I thought this was resolved as being simply an interpretive aid... but if
+this ends up being the remaining issue, I will jettison 7.1.1.
+
+Thanks,
+Van
+
+On Mon, May 13, 2019 at 4:30 PM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+> I would add that the special provision for GDPR in Section 7.1.1 is
+> facially non-compliant with OSD 5/6 because it singles out one class of
+> licensees, those who have to comply with a specific privacy law, the GDPR,
+> and gives them different treatment than those who have to comply with other
+> privacy laws.
+>
+> Pam
+>
+> Pamela S. Chestek
+> Chestek Legal
+> PO Box 2492
+> Raleigh, NC 27602
+> 919-800-8033
+> pamela at chesteklegal.com
+> www.chesteklegal.com
+>
+> On 5/13/2019 5:02 PM, VanL wrote:
+>
+> Hello all,
+>
+> I wanted to stop for a minute and provide a checkpoint: a good faith
+> summary of what I see as the arguments and counterarguments about the CAL.
+> Please correct me if I am misrepresenting anyone's arguments.
+>
+> As far as I see it, there are two substantive debates occurring over the
+> CAL:
+>     1) Can data portability can be guaranteed as part of software
+> freedom/under the OSD?
+>     2) Is the legal mechanism of using "public performance" effective,
+> compliant with the OSD, and good policy?
+>
+> These issues are fundamental. Regardless of how well (or how poorly) the
+> CAL is drafted, these cannot be resolved through more precise wording or
+> better examples. Other issues of wording, or clarifications about the role
+> of patent rights have been raised, but those seem to have been resolved
+> through explanation or changes to the wording. There is also a third line
+> of argument that the CAL is too complicated, and that complexity *per se*
+> should be disqualifying. With regard to this third argument regarding
+> complexity, it seems subordinate to the substantive debates above. (For an
+> example, see Perens, ; also in rebuttal, Villa,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004143.html
+> )
+>
+> The substantive arguments above generally only apply to the "operator" use
+> case, where the software is being run by a first user (the "operator") to
+> provide services to one or more second users (the "end users"). Note that
+> the linked messages below are *representative*, not comprehensive.
+>
+> *1. Arguments about data portability:* The CAL conditions the exercise of
+> copyright and patent permissions on providing data portability for end
+> users of the software in the operator context. This is for "User Data" as
+> defined in the CAL, which is scoped to data that is input to or output from
+> the software in which a user as a preexisting interest.
+>
+> - Argument: The data portability provisions violate freedom zero. (Perens,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004121.html
+> )
+> - Response: Data portability is in line with traditional notions of
+> software freedom (Lindberg,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004123.html),
+> see also "CAL is a net positive contribution to software freedom" (Ingo,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004148.html)
+>
+>
+> - Argument: It is a use restriction (prohibited under OSD 6) to deny
+> operators the ability to withhold user data from end users because it
+> applies more particularly in the operator case. (Perens,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004081.html,
+>
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004036.html
+> )
+> - Response: Operators are free to use the software in any way they see fit
+> - there is nothing in the CAL that denies them the ability to use the
+> software in any particular way. They just have to take the additional
+> action of providing data portability along with source.
+>
+> - Argument: This encumbers data that is outside the scope of the license.
+> (Perens,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004032.html
+> )
+> - Response: The CAL does not create any rights that did not previously
+> exist. It does not change the license for any work or data. (Lindberg,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004033.html
+> )
+>
+> - Argument: Data is not copyrightable, so not reachable by the license.
+> (Rosen,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004137.html
+> )
+> - Response: The copyrightability or not of data is not relevant to the
+> license; the CAL does not create new ownership interests or licensing
+> rights. (
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004139.html
+> )
+>
+> - Argument (Ingo vs Ingo!): CAL may fail OSD #6, in similar fashion to
+> license zero... "I also agree with Bruce that this whole topic is a can of
+> worms"
+> - Response: Having "Freedom to run the program for any purpose" includes
+> both operator and end user as people "running" the program - this is the
+> idea behind all network copyleft.... CAL is scoped "in a way that is quite
+> defensible"
+> (Both are Ingo, same message:
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004148.html
+> )
+>
+> - Argument: Data portability is an ethical restriction which doesn't
+> belong in a license. (Cowan,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004140.html
+> )
+> - Response: The CAL limits itself to permissions for the work and does not
+> invoke ethical duties (
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004108.html
+> )
+>
+> *2. Arguments about the legal mechanism:* Open source software licenses
+> rely on intellectual property law to enforce their rules concerning the
+> licensing of derived works. Most existing FOSS licenses have used the
+> ability to distribute the work and to create derivative works (both under
+> copyright) as the traditional "hook" for enforcement. Some alternatives do
+> exist: the third party beneficiary language in NASA 1.3, and the "network
+> interaction" with a modified work in AGPL.The CAL also uses distribution
+> and the ability to create derivative works as hooks for copyleft
+> enforcement. The CAL also uses "public performance" (either as included in
+> the copyright statute or as defined in the included definition), as well as
+> patent rights (specifically "use", "sale," and "offer for sale").
+>
+> Most of the arguments have to do with the use of public performance:
+> - Argument: This is legally untested and not necessary (e.g. Ingo,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004046.html
+> )
+> - Response: The only other license applicable in an operator context is
+> the AGPL, which uses legally novel terms, is gameable relative to
+> enforcement, and ambiguous in a corporate context (Lindberg,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004047.html,
+> see also Fleming,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004049.html
+> )
+>
+> - Argument: Public performance is US-centric and may not be applicable in
+> the international context. (Chestek,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004054.html
+> )
+> - Response: WIPO "Communication to the public" appears analogous
+> (Atkinson,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004055.html,
+> see also Ingo,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004060.html),
+> and "Public performance is also a defined term" (Lindberg,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004108.html
+> )
+>
+> - Argument: Public performance extends copyright ("is copyright
+> maximalist") and so should be rejected as a matter of policy. (example:
+> Henrik Ingo,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004059.html,
+> see also Peterson,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004092.html).
+>
+> - Response: "Public performance is recognized under copyright" and it is
+> better to use existing legal terms (Lindberg,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004095.html,
+> see also Rosen,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004137.html,
+> but Rosen mentions that it may be limited in application)
+>
+> - Argument: The CAL uses Oracle v. Google-based logic regarding API
+> reimplementation, this is premature (Fontana,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004062.html)
+>
+> - Response: These rights already exist, this is not an extension
+> (Lindberg,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004108.html,
+>
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004089.html).
+> Also, the structure of the CAL does not make it dependent upon a particular
+> outcome in OvG (Chestek,
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004067.html
+> )
+>
+>
+>
+>
+> _______________________________________________
+> License-review mailing listLicense-review at lists.opensource.orghttp://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190513/2004d4b2/attachment-0001.html>
+
+From lrosen at rosenlaw.com  Tue May 14 00:01:19 2019
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Mon, 13 May 2019 17:01:19 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZENsA5brxmDhVGTFbRPgcq2wtfCM9wcMkeykzLVrWCzNew@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOv_rXFVg1XAeKdKJyUMOOZKFpvavFKJML=07UrcNVN-oA@mail.gmail.com> <CAKHykesRV+qcgMaxf7Z=B2L0U39zd0806QsHGednfRbbj6WPtA@mail.gmail.com> <CAFQvZENsA5brxmDhVGTFbRPgcq2wtfCM9wcMkeykzLVrWCzNew@mail.gmail.com>
+Message-ID: <025a01d509e8$2ac4f070$804ed150$@rosenlaw.com>
+
+Van, your response to my earlier comments about CAL did not capture my objections correctly.
+ 
+
+1. "Performance" is a very misleading word for you to use. First, it is meant by you in an entirely different way than the explicit copyright term-of-art in 17 USC 101:
+ 
+
+To ? <https://www.law.cornell.edu/uscode/text/17/101> perform? a work means to recite, render, play, dance, or act it, either directly or by means of any <https://www.law.cornell.edu/uscode/text/17/101>  device or  <https://www.law.cornell.edu/uscode/text/17/101> process or, in the case of a motion picture or other audiovisual work, to show its images in any sequence or to make the sounds accompanying it audible.
+ 
+
+You risk misleading licensors and licensees about the meaning of that word.
+ 
+
+"Performance" also relates, in your private definition, to an API. But an API doesn't require that anything specific be performed. An API by which one program tells another simply to "wake up" doesn't itself perform anything or require the awakened program to perform anything specific. We should be careful not to misinform the Supreme Court about what the vast majority of the software industry means by an API. It is merely a type of interface or interaction between separate copyrighted programs to allow them to function together. Many of us believe that an API should not be subject to copyright or licensing restrictions at all.
+ 
+
+2. When a person sends data to a program, no license should require that the receiving program be prepared to send it back. Data is and should remain free. The sender alreadyd knows (or should know) what data she sent to the receiver. There is no need to impose any return burden on the receiver of that data.
+ 
+
+More important, my reference in my email to GDPR meant only that the receiver should have a responsibility not to disclose anyone's personal data to any third party. When my phone sends my name and URL and location as data to a receiving program, that automatically (by statute!) should be confidential information. The sender could have copied the data before it was sent, and the receiver should have a confidentiality obligation about that data that forbids her from disclosing it to anyone without my express permission. This has no relationship to "ownership interests or licensing rights." For example, my "location" is not owned; it is merely personal information that I want kept from third parties.
+ 
+
+I hope you won't dismiss my concerns about CAL casually.
+ 
+
+/Larry
+ 
+ 
+
+From: License-review <license-review-bounces at lists.opensource.org> On Behalf Of VanL
+Sent: Monday, May 13, 2019 2:03 PM
+To: License submissions for OSI review <license-review at lists.opensource.org>
+Subject: Re: [License-review] For Approval: The Cryptographic Autonomy License
+ 
+
+Hello all, 
+ 
+
+I wanted to stop for a minute and provide a checkpoint: a good faith summary of what I see as the arguments and counterarguments about the CAL. Please correct me if I am misrepresenting anyone's arguments. 
+ 
+
+As far as I see it, there are two substantive debates occurring over the CAL: 
+ 1) Can data portability can be guaranteed as part of software freedom/under the OSD?
+ 2) Is the legal mechanism of using "public performance" effective, compliant with the OSD, and good policy?
+ 
+
+These issues are fundamental. Regardless of how well (or how poorly) the CAL is drafted, these cannot be resolved through more precise wording or better examples. Other issues of wording, or clarifications about the role of patent rights have been raised, but those seem to have been resolved through explanation or changes to the wording. There is also a third line of argument that the CAL is too complicated, and that complexity per se should be disqualifying. With regard to this third argument regarding complexity, it seems subordinate to the substantive debates above. (For an example, see Perens, ; also in rebuttal, Villa, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004143.html)
+ 
+
+The substantive arguments above generally only apply to the "operator" use case, where the software is being run by a first user (the "operator") to provide services to one or more second users (the "end users"). Note that the linked messages below are *representative*, not comprehensive.
+ 
+
+1. Arguments about data portability: The CAL conditions the exercise of copyright and patent permissions on providing data portability for end users of the software in the operator context. This is for "User Data" as defined in the CAL, which is scoped to data that is input to or output from the software in which a user as a preexisting interest.
+ 
+
+- Argument: The data portability provisions violate freedom zero. (Perens, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004121.html)
+
+- Response: Data portability is in line with traditional notions of software freedom (Lindberg, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004123.html), see also "CAL is a net positive contribution to software freedom" (Ingo, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004148.html) 
+ 
+
+- Argument: It is a use restriction (prohibited under OSD 6) to deny operators the ability to withhold user data from end users because it applies more particularly in the operator case. (Perens, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004081.html, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004036.html)
+
+- Response: Operators are free to use the software in any way they see fit - there is nothing in the CAL that denies them the ability to use the software in any particular way. They just have to take the additional action of providing data portability along with source.
+ 
+
+- Argument: This encumbers data that is outside the scope of the license. (Perens, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004032.html)
+
+- Response: The CAL does not create any rights that did not previously exist. It does not change the license for any work or data. (Lindberg, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004033.html)
+ 
+
+- Argument: Data is not copyrightable, so not reachable by the license. (Rosen, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004137.html)
+
+- Response: The copyrightability or not of data is not relevant to the license; the CAL does not create new ownership interests or licensing rights. (http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004139.html)
+ 
+
+- Argument (Ingo vs Ingo!): CAL may fail OSD #6, in similar fashion to license zero... "I also agree with Bruce that this whole topic is a can of worms" 
+
+- Response: Having "Freedom to run the program for any purpose" includes both operator and end user as people "running" the program - this is the idea behind all network copyleft.... CAL is scoped "in a way that is quite defensible" 
+
+(Both are Ingo, same message: http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004148.html)
+ 
+
+- Argument: Data portability is an ethical restriction which doesn't belong in a license. (Cowan, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004140.html)
+
+- Response: The CAL limits itself to permissions for the work and does not invoke ethical duties (http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004108.html)
+ 
+
+2. Arguments about the legal mechanism: Open source software licenses rely on intellectual property law to enforce their rules concerning the licensing of derived works. Most existing FOSS licenses have used the ability to distribute the work and to create derivative works (both under copyright) as the traditional "hook" for enforcement. Some alternatives do exist: the third party beneficiary language in NASA 1.3, and the "network interaction" with a modified work in AGPL.The CAL also uses distribution and the ability to create derivative works as hooks for copyleft enforcement. The CAL also uses "public performance" (either as included in the copyright statute or as defined in the included definition), as well as patent rights (specifically "use", "sale," and "offer for sale").
+ 
+
+Most of the arguments have to do with the use of public performance:
+
+- Argument: This is legally untested and not necessary (e.g. Ingo, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004046.html)
+
+- Response: The only other license applicable in an operator context is the AGPL, which uses legally novel terms, is gameable relative to enforcement, and ambiguous in a corporate context (Lindberg, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004047.html, see also Fleming, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004049.html)
+ 
+
+- Argument: Public performance is US-centric and may not be applicable in the international context. (Chestek, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004054.html)
+
+- Response: WIPO "Communication to the public" appears analogous (Atkinson, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004055.html, see also Ingo, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004060.html), and "Public performance is also a defined term" (Lindberg, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004108.html)
+ 
+
+- Argument: Public performance extends copyright ("is copyright maximalist") and so should be rejected as a matter of policy. (example: Henrik Ingo, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004059.html, see also Peterson, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004092.html). 
+
+- Response: "Public performance is recognized under copyright" and it is better to use existing legal terms (Lindberg, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004095.html, see also Rosen, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004137.html, but Rosen mentions that it may be limited in application)
+ 
+
+- Argument: The CAL uses Oracle v. Google-based logic regarding API reimplementation, this is premature (Fontana, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004062.html) 
+
+- Response: These rights already exist, this is not an extension (Lindberg, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004108.html, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004089.html). Also, the structure of the CAL does not make it dependent upon a particular outcome in OvG (Chestek, http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004067.html)
+ 
+ 
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190513/11c706eb/attachment-0001.html>
+
+From van.lindberg at gmail.com  Tue May 14 01:39:22 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Mon, 13 May 2019 20:39:22 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <025a01d509e8$2ac4f070$804ed150$@rosenlaw.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOv_rXFVg1XAeKdKJyUMOOZKFpvavFKJML=07UrcNVN-oA@mail.gmail.com> <CAKHykesRV+qcgMaxf7Z=B2L0U39zd0806QsHGednfRbbj6WPtA@mail.gmail.com> <CAFQvZENsA5brxmDhVGTFbRPgcq2wtfCM9wcMkeykzLVrWCzNew@mail.gmail.com> <025a01d509e8$2ac4f070$804ed150$@rosenlaw.com>
+Message-ID: <CAFQvZEN30+Zf09BiknZT1wszrPx-2VuR4+u5P9Ycd2rf09WNrw@mail.gmail.com>
+
+Hi Larry,
+
+Thank you for the correction.
+
+On Mon, May 13, 2019, 7:13 PM Lawrence Rosen <lrosen at rosenlaw.com> wrote:
+
+> Van, your response to my earlier comments about CAL did not capture my
+> objections correctly.
+>
+> 1. "Performance" is a very misleading word for you to use. First, it is
+> meant by you in an entirely different way than the explicit copyright
+> term-of-art in 17 USC 101:
+>
+> To ?perform <https://www.law.cornell.edu/uscode/text/17/101>? a work
+> means to recite, render, play, dance, or act it, either directly or by
+> means of any device  <https://www.law.cornell.edu/uscode/text/17/101>or
+> process <https://www.law.cornell.edu/uscode/text/17/101> or, in the case
+> of a motion picture or other audiovisual work, to show its images in any
+> sequence or to make the sounds accompanying it audible.
+>
+> You risk misleading licensors and licensees about the meaning of that word.
+>
+
+Here we disagree. You are focusing too literally on selected parts of the
+statute - many parts of which do not apply.
+
+But you did not quote all of 17 U.S.C. ? 101:
+ To perform or display a work ?publicly? means?
+ [. . .]
+ (2) to transmit or otherwise communicate a performance or display of
+the work to a place specified by clause (1) or to the public, by means of
+any device or process, whether the members of the public capable of
+receiving the performance or display receive it in the same place or in
+separate places and at the same time or at different times.
+
+In particular, I am focusing on the "render[ing]" and "display" of the work
+over the network as being the performance.
+
+As I have noted previously, software is classified as a literary work for
+purposes of copyright law, so that is where I go to for examples.
+
+Let's say, for example, that I did a dramatic reading, line by line, of the
+source code to an audience. Public performance of the code as a literary
+work? Yes - clearly in line with established cases.
+
+What about a dramatic display of my code, sending selected lines out to an
+audience? Yes, and again in line with established cases.
+
+When I make my API available, in almost all cases I will incidentally make
+portions of my source code available as part of the response. This is
+indistinguishable from the dramatic display, and consistent with the full
+text of the statute.
+
+Also, per OvG, even the minimal creativity involved, plus the creative
+organization of how to send responses is enough to maintain copyright - and
+public performance - in the network action of a software program.
+
+Please let me know where you disagree with this analysis.
+
+Many of us believe that an API should not be subject to copyright or
+> licensing restrictions at all.
+>
+Again, I generally agree, but that is not where we are.
+
+Aside from copyright, however, the CAL also hooks into the patent rights to
+use, sell, and offer to sell. Even if I am wrong on my public performance
+analysis, making the API available over the network is clearly included in
+at least one of use, sell, or offer to sell. This provides a secondary,
+independent chain of reasoning to support the concept.
+
+Again, please let me know where you see this failing legally.
+
+> 2. When a person sends data to a program, no license should require that
+> the receiving program be prepared to send it back. Data is and should
+> remain free. The sender alreadyd knows (or should know) what data she sent
+> to the receiver. There is no need to impose any return burden on the
+> receiver of that data.
+>
+I understand this point. It is a normative point, not a legal one: it
+"should" not be necessary.
+
+In an ideal world, that is true. I don't think your representation accords
+with reality, though. We regularly observe situations where people "send"
+data to an operator, and then want it back, and the operator refuses.
+
+
+More important, my reference in my email to GDPR meant only that the
+> receiver should have a responsibility not to disclose anyone's personal
+> data to any third party. When my phone sends my name and URL and location
+> as data to a receiving program, that automatically (by statute!) should be
+> confidential information. The sender could have copied the data before it
+> was sent, and the receiver should have a confidentiality obligation about
+> that data that forbids her from disclosing it to anyone without my express
+> permission. This has no relationship to "ownership interests or licensing
+> rights." For example, my "location" is not owned; it is merely personal
+> information that I want kept from third parties.
+>
+
+I agree that there should be a general obligation to keep personal
+information confidential - and under certain statutes, an operator has a
+requirement to do so.
+
+The CAL does not address the confidentiality of personal information
+vis-a-vis third parties at all. In fact, there is specific language
+limiting the data portability provisions to data that a person has a
+preexisting right to possess.
+
+I hope you won't dismiss my concerns about CAL casually.
+>
+
+No casual dismissal intended. You felt that my summary was deficient and
+provided additional information. Now that you explained more, I have tried
+to respond more fully.
+
+Thanks,
+Van
+
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190513/f3eaba68/attachment.html>
+
+From lrosen at rosenlaw.com  Tue May 14 03:19:12 2019
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Mon, 13 May 2019 20:19:12 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEN30+Zf09BiknZT1wszrPx-2VuR4+u5P9Ycd2rf09WNrw@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOv_rXFVg1XAeKdKJyUMOOZKFpvavFKJML=07UrcNVN-oA@mail.gmail.com> <CAKHykesRV+qcgMaxf7Z=B2L0U39zd0806QsHGednfRbbj6WPtA@mail.gmail.com> <CAFQvZENsA5brxmDhVGTFbRPgcq2wtfCM9wcMkeykzLVrWCzNew@mail.gmail.com> <025a01d509e8$2ac4f070$804ed150$@rosenlaw.com> <CAFQvZEN30+Zf09BiknZT1wszrPx-2VuR4+u5P9Ycd2rf09WNrw@mail.gmail.com>
+Message-ID: <026b01d50a03$d0bf3830$723da890$@rosenlaw.com>
+
+Van, now I am doubly confused. You assert that by "perform" you really meant "display." But "display" is a separate explicit verb in 17 USC 106, and according to 17 USC 101 it means:
+ 
+
+To ? <https://www.law.cornell.edu/uscode/text/17/101> display? a work means to show a copy of it, either directly or by means of a film, slide, television image, or any other  <https://www.law.cornell.edu/uscode/text/17/101> device or  <https://www.law.cornell.edu/uscode/text/17/101> process or, in the case of a motion picture or other audiovis?ual work, to show individual images nonsequentially.
+ 
+
+My immediate quarrel is not with what you mean to say with your license, only with your choice of copyright terms-of-art that mean something very different.
+ 
+
+It appears that you intend to focus on the "render[ing]" and "display" of the work over a network. In computer science, that is referred to as "executing" the work on the network. Thus, in your situation, you probably mean "executing" the API. 
+ 
+
+Yes, software is classified as a literary work for purposes of copyright law. But nowadays, the musical or image components of a software work (see, e.g., Pandora and YouTube) can also be performed or displayed. That doesn't change their own copyright character, nor does it suggest that the performance or display is of the literary components of that work. The "literary" software is executed so that those musical or image components can be performed or displayed. 
+ 
+
+I challenge you to do a "dramatic reading, line by line, of the source code to an audience." This reminds me of several of the night-time comics who ask professional actors to read Trump's remarks dramatically to the audience. That is not software, although every component is executed by camera, network, and television software to bring it to me. The performance or display by Trump or the performer are not themselves software.
+ 
+
+Yes, it is also true, as you say, that when you "make [your] API available," you may incidentally "make portions of [your] source code available." But the essential and important aspects of that availability is the execution of the API, not anything to do with its source code per se. The "network action of a software program" is its execution on a computer somewhere on the network, not the music or images or even the source code.
+ 
+
+My concern is your choice of terminology. While the Supreme Court has not yet told us that an API cannot be copyrighted nor licensed, I personally prefer that we not confuse them with inappropriate terms-of-art so that they don't understand that the execution of the API is what must ? for the sake of free software ? remain free and unconstrained. For these reasons, I personally support almost all of Google's amici briefs in that litigation.
+ 
+
+My objections have nothing to do with patent law. The word "use" is frequently misconstrued in open source licenses to imply a patent license. Perhaps, or perhaps not? A patented API is a different beast from one where only copyright is claimed.
+ 
+
+You said: "We regularly observe situations where people 'send' data to an operator, and then want it back, and the operator refuses." True, but so what? Why force them to return data that the sender already has? And why omit the important reference to "personal information" that the receiver ought not to share with anyone even if the sender wants it back? For that reason, telecommunications networks should not share location data without express permission.
+ 
+
+What you wish to do with CAL can perhaps be done better with correct words. I apologize for calling your response a "casual dismissal." Neither is my objection casual.
+ 
+
+Best, /Larry
+ 
+ 
+
+From: VanL <van.lindberg at gmail.com> 
+Sent: Monday, May 13, 2019 6:39 PM
+To: Lawrence Rosen <lrosen at rosenlaw.com>; License submissions for OSI review <license-review at lists.opensource.org>
+Subject: Re: [License-review] For Approval: The Cryptographic Autonomy License
+ 
+
+Hi Larry,
+ 
+
+Thank you for the correction.
+ 
+
+On Mon, May 13, 2019, 7:13 PM Lawrence Rosen <lrosen at rosenlaw.com <mailto:lrosen at rosenlaw.com> > wrote:
+
+Van, your response to my earlier comments about CAL did not capture my objections correctly.
+
+1. "Performance" is a very misleading word for you to use. First, it is meant by you in an entirely different way than the explicit copyright term-of-art in 17 USC 101:
+
+To ? <https://www.law.cornell.edu/uscode/text/17/101> perform? a work means to recite, render, play, dance, or act it, either directly or by means of any <https://www.law.cornell.edu/uscode/text/17/101>  device or  <https://www.law.cornell.edu/uscode/text/17/101> process or, in the case of a motion picture or other audiovisual work, to show its images in any sequence or to make the sounds accompanying it audible.
+
+You risk misleading licensors and licensees about the meaning of that word.
+ 
+
+Here we disagree. You are focusing too literally on selected parts of the statute - many parts of which do not apply.
+ 
+
+But you did not quote all of 17 U.S.C. ? 101:
+ 
+ To perform or display a work ?publicly? means?
+ 
+ [. . .]
+ 
+ (2) to transmit or otherwise communicate a performance or display of the work to a place specified by clause (1) or to the public, by means of any device or process, whether the members of the public capable of receiving the performance or display receive it in the same place or in separate places and at the same time or at different times.
+ 
+
+In particular, I am focusing on the "render[ing]" and "display" of the work over the network as being the performance.
+ 
+
+As I have noted previously, software is classified as a literary work for purposes of copyright law, so that is where I go to for examples.
+ 
+
+Let's say, for example, that I did a dramatic reading, line by line, of the source code to an audience. Public performance of the code as a literary work? Yes - clearly in line with established cases.
+ 
+
+What about a dramatic display of my code, sending selected lines out to an audience? Yes, and again in line with established cases.
+ 
+
+When I make my API available, in almost all cases I will incidentally make portions of my source code available as part of the response. This is indistinguishable from the dramatic display, and consistent with the full text of the statute.
+ 
+
+Also, per OvG, even the minimal creativity involved, plus the creative organization of how to send responses is enough to maintain copyright - and public performance - in the network action of a software program.
+ 
+
+Please let me know where you disagree with this analysis. 
+ 
+
+Many of us believe that an API should not be subject to copyright or licensing restrictions at all.
+
+Again, I generally agree, but that is not where we are. 
+ 
+
+Aside from copyright, however, the CAL also hooks into the patent rights to use, sell, and offer to sell. Even if I am wrong on my public performance analysis, making the API available over the network is clearly included in at least one of use, sell, or offer to sell. This provides a secondary, independent chain of reasoning to support the concept.
+ 
+
+Again, please let me know where you see this failing legally.
+
+2. When a person sends data to a program, no license should require that the receiving program be prepared to send it back. Data is and should remain free. The sender alreadyd knows (or should know) what data she sent to the receiver. There is no need to impose any return burden on the receiver of that data.
+
+I understand this point. It is a normative point, not a legal one: it "should" not be necessary.
+ 
+
+In an ideal world, that is true. I don't think your representation accords with reality, though. We regularly observe situations where people "send" data to an operator, and then want it back, and the operator refuses.
+ 
+ 
+
+More important, my reference in my email to GDPR meant only that the receiver should have a responsibility not to disclose anyone's personal data to any third party. When my phone sends my name and URL and location as data to a receiving program, that automatically (by statute!) should be confidential information. The sender could have copied the data before it was sent, and the receiver should have a confidentiality obligation about that data that forbids her from disclosing it to anyone without my express permission. This has no relationship to "ownership interests or licensing rights." For example, my "location" is not owned; it is merely personal information that I want kept from third parties.
+ 
+
+I agree that there should be a general obligation to keep personal information confidential - and under certain statutes, an operator has a requirement to do so. 
+ 
+
+The CAL does not address the confidentiality of personal information vis-a-vis third parties at all. In fact, there is specific language limiting the data portability provisions to data that a person has a preexisting right to possess.
+ 
+
+I hope you won't dismiss my concerns about CAL casually.
+ 
+
+No casual dismissal intended. You felt that my summary was deficient and provided additional information. Now that you explained more, I have tried to respond more fully.
+ 
+
+Thanks,
+
+Van
+ 
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190513/8b7032c7/attachment-0001.html>
+
+From pamela at chesteklegal.com  Tue May 14 12:44:21 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Tue, 14 May 2019 08:44:21 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZENsA5brxmDhVGTFbRPgcq2wtfCM9wcMkeykzLVrWCzNew@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <fadb0df6-bd4e-cf0b-9145-f7eef8fbddbc@chesteklegal.com> <CAFQvZENR01Pth7s4EBdq4mDxAygvgt+T08OAMc-S67nAfvPWsQ@mail.gmail.com> <CAK2MWOuer2=y=-+5ErGMaB1Zn2bPaWh+jj14YquUweyt0cNwCA@mail.gmail.com> <CAFQvZEMu0ZqaDyp2N2wZi4ub_U8Nh2GpCW4Y4M5x=YaJjOpWTw@mail.gmail.com> <CAK2MWOtRVFZAR0WETFMMs0yHJ_3NmiS4UVkhUcX0hK1ToNGQ+Q@mail.gmail.com> <CAFQvZEMgT4fYQEkFih7vnZ8zinqrsqM855dQuh2L=ONoCp4pyQ@mail.gmail.com> <CAK2MWOv3hcdHjGFyspHjzS31=k=zF9m4NRTscodVDOXVpSkDEw@mail.gmail.com> <CAFQvZEMCy+uhvU7tdcCUbRer4bL1NHFXBC99T4==Xg59Wfz9yQ@mail.gmail.com> <CAK2MWOv_rXFVg1XAeKdKJyUMOOZKFpvavFKJML=07UrcNVN-oA@mail.gmail.com> <CAKHykesRV+qcgMaxf7Z=B2L0U39zd0806QsHGednfRbbj6WPtA@mail.gmail.com> <CAFQvZENsA5brxmDhVGTFbRPgcq2wtfCM9wcMkeykzLVrWCzNew@mail.gmail.com>
+Message-ID: <ee047576-550f-ff5e-0ae7-ffb39b603cd6@chesteklegal.com>

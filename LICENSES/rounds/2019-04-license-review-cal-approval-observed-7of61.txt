@@ -1,0 +1,750 @@
+> be subject to the terms of the CAL, even though the Supreme Court said it
+> was lawful. Do you agree?
+>
+
+This analysis seems right to me. I'll note, though, that I think the chance
+of the Supreme Court saying that there was no copyright whatsoever in APIs
+is slim to none - the best I am expecting is a wide practical exception.
+
+The CAL also hooks into patent rights - the rights to use and sell, in
+particular - as a secondary means of enforcing the copyleft provisions.
+That means that for a patent-holding open source licensor, the patent grant
+aligns with the copyright grant.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190429/b726f21c/attachment.html>
+
+From rfontana at redhat.com  Tue Apr 30 14:59:38 2019
+From: rfontana at redhat.com (Richard Fontana)
+Date: Tue, 30 Apr 2019 10:59:38 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZENTcas_yATUO7zpRDV82sBvkv7Rib=-BdvbQhvn982z0Q@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <78f34908-cdcf-3074-f700-5fe9a679186c@chesteklegal.com> <CAFQvZEM-F0Z8vEJNgtD270krDa_DB1T55rsxZMfnD-Y6gXB92w@mail.gmail.com> <86761658-aa7f-edf3-0cac-d8af01d489c3@chesteklegal.com> <CAFQvZENTcas_yATUO7zpRDV82sBvkv7Rib=-BdvbQhvn982z0Q@mail.gmail.com>
+Message-ID: <CAC1cPGxJM=K__40BWPwTjzENfvoMQeAF_dmQ=xgP8v=Sa-jwLw@mail.gmail.com>
+
+On Mon, Apr 29, 2019 at 10:20 AM VanL <van.lindberg at gmail.com> wrote:
+>
+>
+>
+> On Sun, Apr 28, 2019 at 2:35 PM Pamela Chestek <pamela at chesteklegal.com> wrote:
+>>
+>> Hi Van,
+>>
+>> Thanks, and I appreciate your indulgence while I struggle with how the license is architected. So the design of the license (and perhaps the goal) is that (1) any software written to offer the same APIs has to be under a Compatible Open Source License and (2) the user's data is portable. Is that correct?
+>
+>
+> Yes, that is correct.
+
+I'm still trying to find time to review CAL in detail but I want to
+note this as one major concern I have.
+
+This seems to be the first submitted-to-OSI license I can think of
+that is intentionally written to extend copyleft to API copyright --
+the first concerted attempt to create an "Oracle v. Google copyleft",
+if you will. If I understand correctly, this means
+
+(a) if independent reimplementations of APIs bearing no literal
+similarity to the CAL-licensed implementation are distributed in
+binary form, the distributor must also provide the source code of the
+modifications under CAL or presumably a permissive or weak copyleft
+license,
+
+(b) the source code of independent reimplementations of APIs bearing
+no literal similarity to the CAL-licensed implementation must be
+distributed, under CAL or presumably a permissive or weak copyleft
+license, if the licensee "Publicly Performs" an interface (as a
+separate matter I think the concept of performing an *interface* is
+unclear)
+
+It's true that to the extent APIs are copyrightable, there could be
+implications for interpretation of existing licenses like the GPL and
+AGPL. However, the FSF, as GPL family license steward, has I believe
+taken a strong public stance against API copyrightability as a matter
+of policy and I believe would not endorse a newly-maximalist reading
+of the GPL to take advantage of API copyrightability. I also believe
+that there is a deep-rooted policy against accommodation of any sort
+of restrictive application of interface copyright in free
+software/open source, dating from the 1990s, that ought to be read
+into the OSD and our understanding of software freedom, and is
+supported by the widespread hostility in the free software and open
+source community to the result in Oracle v. Google. I think it would
+be legitimate for a post-Oracle v. Google open source license to
+recognize the potential copyrightability of APIs by treating them as
+subject to some highly permissive license requirement, but it's
+another thing entirely to use it as the basis for a copyleft
+requirement.
+
+Have you given thought to the different legal situation in the EU
+under SAS Institute Inc. v. World Programming Ltd.
+(https://en.wikipedia.org/wiki/SAS_Institute_Inc_v_World_Programming_Ltd)?
+I would be curious to hear from lawyers in Europe about this.
+
+Richard
+
+
+From rfontana at redhat.com  Tue Apr 30 15:09:06 2019
+From: rfontana at redhat.com (Richard Fontana)
+Date: Tue, 30 Apr 2019 11:09:06 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAC1cPGxJM=K__40BWPwTjzENfvoMQeAF_dmQ=xgP8v=Sa-jwLw@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <78f34908-cdcf-3074-f700-5fe9a679186c@chesteklegal.com> <CAFQvZEM-F0Z8vEJNgtD270krDa_DB1T55rsxZMfnD-Y6gXB92w@mail.gmail.com> <86761658-aa7f-edf3-0cac-d8af01d489c3@chesteklegal.com> <CAFQvZENTcas_yATUO7zpRDV82sBvkv7Rib=-BdvbQhvn982z0Q@mail.gmail.com> <CAC1cPGxJM=K__40BWPwTjzENfvoMQeAF_dmQ=xgP8v=Sa-jwLw@mail.gmail.com>
+Message-ID: <CAC1cPGxE423W4dueM+GRLsHk2GJLrsoEJyLZM=_6h-pwznvEwg@mail.gmail.com>
+
+On Tue, Apr 30, 2019 at 10:59 AM Richard Fontana <rfontana at redhat.com> wrote:
+>
+
+> This seems to be the first submitted-to-OSI license I can think of
+> that is intentionally written to extend copyleft to API copyright --
+> the first concerted attempt to create an "Oracle v. Google copyleft",
+> if you will. If I understand correctly, this means
+>
+> (a) if independent reimplementations of APIs bearing no literal
+> similarity to the CAL-licensed implementation are distributed in
+> binary form, the distributor must also provide the source code of the
+> modifications under CAL or presumably a permissive or weak copyleft
+> license,
+
+I'm not sure if my reading is correct there, but I believe my
+confusion is based on the ambiguous definition of Modified Work:
+
+?Modified Work? means any work containing, directly combining with,
+derivative of, or Publicly Performing an interface included in or
+derived from the Work.
+
+I think you mean "any work containing, directly combining with,
+derivative of, or {Publicly Performing an interface included in or
+derived from} the Work
+
+and not
+
+"any work {containing, directly combining with, derivative of, or
+Publicly Performing} an interface included in or derived from the Work
+
+... but I'm not sure.
+
+Richard
+
+
+From carlo at piana.eu  Tue Apr 30 15:11:38 2019
+From: carlo at piana.eu (Carlo Piana)
+Date: Tue, 30 Apr 2019 17:11:38 +0200
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAC1cPGxJM=K__40BWPwTjzENfvoMQeAF_dmQ=xgP8v=Sa-jwLw@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <78f34908-cdcf-3074-f700-5fe9a679186c@chesteklegal.com> <CAFQvZEM-F0Z8vEJNgtD270krDa_DB1T55rsxZMfnD-Y6gXB92w@mail.gmail.com> <86761658-aa7f-edf3-0cac-d8af01d489c3@chesteklegal.com> <CAFQvZENTcas_yATUO7zpRDV82sBvkv7Rib=-BdvbQhvn982z0Q@mail.gmail.com> <CAC1cPGxJM=K__40BWPwTjzENfvoMQeAF_dmQ=xgP8v=Sa-jwLw@mail.gmail.com>
+Message-ID: <7ccad77b-e283-49cd-f249-62a26223fb5f@piana.eu>
+
+On 30/04/19 16:59, Richard Fontana wrote:
+> Have you given thought to the different legal situation in the EU
+> under SAS Institute Inc. v. World Programming Ltd.
+> (https://en.wikipedia.org/wiki/SAS_Institute_Inc_v_World_Programming_Ltd)?
+> I would be curious to hear from lawyers in Europe about this.
+
+Yes, under SAS Institute v World Programming Language API are by far
+excluded from copyrightability, even if they used the same vocabulary,
+structure, sequence, and the same applies to programming languages and
+file formats.
+
+Indeed I worked with other lawyers behind the scenes (pro bono, alas!)?
+so that this happened when the case hit the ECJ. I could not expand into
+it very much given the names that floated around in this thread and the
+people involved. So now it's settled law.
+
+Cheers
+
+Carlo
+
+
+
+
+From mccoy.smith at intel.com  Tue Apr 30 15:16:37 2019
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Tue, 30 Apr 2019 15:16:37 +0000
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAC1cPGxE423W4dueM+GRLsHk2GJLrsoEJyLZM=_6h-pwznvEwg@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <78f34908-cdcf-3074-f700-5fe9a679186c@chesteklegal.com> <CAFQvZEM-F0Z8vEJNgtD270krDa_DB1T55rsxZMfnD-Y6gXB92w@mail.gmail.com> <86761658-aa7f-edf3-0cac-d8af01d489c3@chesteklegal.com> <CAFQvZENTcas_yATUO7zpRDV82sBvkv7Rib=-BdvbQhvn982z0Q@mail.gmail.com> <CAC1cPGxJM=K__40BWPwTjzENfvoMQeAF_dmQ=xgP8v=Sa-jwLw@mail.gmail.com> <CAC1cPGxE423W4dueM+GRLsHk2GJLrsoEJyLZM=_6h-pwznvEwg@mail.gmail.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5198B0EF0C9@fmsmsx117.amr.corp.intel.com>
+
+>>From: License-review [mailto:license-review-bounces at lists.opensource.org] On Behalf Of Richard Fontana
+>>Sent: Tuesday, April 30, 2019 8:09 AM
+>>To: License submissions for OSI review <license-review at lists.opensource.org>
+>>Subject: Re: [License-review] For Approval: The Cryptographic Autonomy License
+
+>>I'm not sure if my reading is correct there, but I believe my confusion is based on the ambiguous definition of Modified Work:
+
+>>?Modified Work? means any work containing, directly combining with, derivative of, or Publicly Performing an interface included in or derived from the Work.
+
+>>I think you mean "any work containing, directly combining with, derivative of, or {Publicly Performing an interface included in or derived from} the Work
+
+>>and not
+
+>>"any work {containing, directly combining with, derivative of, or Publicly Performing} an interface included in or derived from the Work
+
+>>
+
+Might be a good opportunity to avail yourself (or not, depending on your intent) of the Oxford comma:  https://thewritelife.com/is-the-oxford-comma-necessary/
+
+
+From carlo at piana.eu  Tue Apr 30 15:27:19 2019
+From: carlo at piana.eu (Carlo Piana)
+Date: Tue, 30 Apr 2019 17:27:19 +0200
+Subject: [License-review] Oxford comma [was: for Approval: The Cryptographic Autonomy License]
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5198B0EF0C9@fmsmsx117.amr.corp.intel.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <78f34908-cdcf-3074-f700-5fe9a679186c@chesteklegal.com> <CAFQvZEM-F0Z8vEJNgtD270krDa_DB1T55rsxZMfnD-Y6gXB92w@mail.gmail.com> <86761658-aa7f-edf3-0cac-d8af01d489c3@chesteklegal.com> <CAFQvZENTcas_yATUO7zpRDV82sBvkv7Rib=-BdvbQhvn982z0Q@mail.gmail.com> <CAC1cPGxJM=K__40BWPwTjzENfvoMQeAF_dmQ=xgP8v=Sa-jwLw@mail.gmail.com> <CAC1cPGxE423W4dueM+GRLsHk2GJLrsoEJyLZM=_6h-pwznvEwg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0EF0C9@fmsmsx117.amr.corp.intel.com>
+Message-ID: <36eff790-fa8c-6e6f-df79-2a4a7432a9e6@piana.eu>
+
+You made my day, McCoy. I often use the Oxford comma even not knowing
+what it is, and in Italian too, where it is in theory forbidden, just
+like starting a sentence with "e" ("and"), "o" ("or"), or any
+conjunction at large.
+
+But I suspect we are digressing.
+
+Carlo
+
+(also "but" is forbidden at the beginning of a sentence, and a
+parenthetical too, but now being officially a Pirate entitles me to huge
+slack, so WTF!).
+
+On 30/04/19 17:16, Smith, McCoy wrote:
+> Might be a good opportunity to avail yourself (or not, depending on your intent) of the Oxford comma:  https://thewritelife.com/is-the-oxford-comma-necessary/
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+
+
+From pamela at chesteklegal.com  Tue Apr 30 15:46:29 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Tue, 30 Apr 2019 11:46:29 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <7ccad77b-e283-49cd-f249-62a26223fb5f@piana.eu>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <78f34908-cdcf-3074-f700-5fe9a679186c@chesteklegal.com> <CAFQvZEM-F0Z8vEJNgtD270krDa_DB1T55rsxZMfnD-Y6gXB92w@mail.gmail.com> <86761658-aa7f-edf3-0cac-d8af01d489c3@chesteklegal.com> <CAFQvZENTcas_yATUO7zpRDV82sBvkv7Rib=-BdvbQhvn982z0Q@mail.gmail.com> <CAC1cPGxJM=K__40BWPwTjzENfvoMQeAF_dmQ=xgP8v=Sa-jwLw@mail.gmail.com> <7ccad77b-e283-49cd-f249-62a26223fb5f@piana.eu>
+Message-ID: <e16bef24-ec04-6cb4-0973-66ac0dbdbb5a@chesteklegal.com>
+
+
+On 4/30/2019 11:11 AM, Carlo Piana wrote:
+> On 30/04/19 16:59, Richard Fontana wrote:
+>> Have you given thought to the different legal situation in the EU
+>> under SAS Institute Inc. v. World Programming Ltd.
+>> (https://en.wikipedia.org/wiki/SAS_Institute_Inc_v_World_Programming_Ltd)?
+>> I would be curious to hear from lawyers in Europe about this.
+> Yes, under SAS Institute v World Programming Language API are by far
+> excluded from copyrightability, even if they used the same vocabulary,
+> structure, sequence, and the same applies to programming languages and
+> file formats.
+>
+> Indeed I worked with other lawyers behind the scenes (pro bono, alas!)?
+> so that this happened when the case hit the ECJ. I could not expand into
+> it very much given the names that floated around in this thread and the
+> people involved. So now it's settled law.
+>
+This relates to my earlier question about the interpretation of "public
+performance" if the US Supreme were to decide APIs are not
+copyrightable. I read the CAL as still requiring the licensing of the
+new program under a open source license, and wonder if that may be true
+too in the EU. It is muddled even more in the EU, where there is no
+"public performance" concept. Instead it may be treated as
+"communicating to the public." However, that concept is in the Infosec
+Directive, not the Computer Program Directive, confusing things further.
+Or at least it does for this US lawyer.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+From cowan at ccil.org  Tue Apr 30 17:34:12 2019
+From: cowan at ccil.org (John Cowan)
+Date: Tue, 30 Apr 2019 13:34:12 -0400
+Subject: [License-review] Oxford comma [was: for Approval: The Cryptographic Autonomy License]
+In-Reply-To: <36eff790-fa8c-6e6f-df79-2a4a7432a9e6@piana.eu>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <78f34908-cdcf-3074-f700-5fe9a679186c@chesteklegal.com> <CAFQvZEM-F0Z8vEJNgtD270krDa_DB1T55rsxZMfnD-Y6gXB92w@mail.gmail.com> <86761658-aa7f-edf3-0cac-d8af01d489c3@chesteklegal.com> <CAFQvZENTcas_yATUO7zpRDV82sBvkv7Rib=-BdvbQhvn982z0Q@mail.gmail.com> <CAC1cPGxJM=K__40BWPwTjzENfvoMQeAF_dmQ=xgP8v=Sa-jwLw@mail.gmail.com> <CAC1cPGxE423W4dueM+GRLsHk2GJLrsoEJyLZM=_6h-pwznvEwg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0EF0C9@fmsmsx117.amr.corp.intel.com> <36eff790-fa8c-6e6f-df79-2a4a7432a9e6@piana.eu>
+Message-ID: <CAD2gp_ThcMii8x3CuKCPmU7SVvhEWRDu32F9ZOxkzKPQqEi79Q@mail.gmail.com>
+
+On Tue, Apr 30, 2019 at 11:28 AM Carlo Piana <carlo at piana.eu> wrote:
+
+> You made my day, McCoy. I often use the Oxford comma even not knowing
+> what it is, and in Italian too, where it is in theory forbidden, just
+> like starting a sentence with "e" ("and"), "o" ("or"), or any
+> conjunction at large.
+>
+
+Alas, matters are not so simple.  Inserting the comma can also create
+ambiguity:
+when people normally omit the comma, "I had dinner with Sarah, my sister
+and Eric"
+clearly means three people, but inserting the comma to make "I had dinner
+with
+Sarah, my sister, and Eric" suggests that "Sarah" and "my sister" are the
+same.
+So whether you put it in or you leave it out, you can make trouble for
+yourself.
+
+
+
+>
+> But I suspect we are digressing.
+>
+
+Indeed.
+
+
+>
+> Carlo
+>
+> (also "but" is forbidden at the beginning of a sentence, and a
+> parenthetical too, but now being officially a Pirate entitles me to huge
+> slack, so WTF!).
+>
+> On 30/04/19 17:16, Smith, McCoy wrote:
+> > Might be a good opportunity to avail yourself (or not, depending on your
+> intent) of the Oxford comma:
+> https://thewritelife.com/is-the-oxford-comma-necessary/
+> >
+> > _______________________________________________
+> > License-review mailing list
+> > License-review at lists.opensource.org
+> >
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/e2f68a74/attachment.html>
+
+From bruce at perens.com  Tue Apr 30 17:42:52 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 30 Apr 2019 10:42:52 -0700
+Subject: [License-review] Oxford comma [was: for Approval: The Cryptographic Autonomy License]
+In-Reply-To: <CAD2gp_ThcMii8x3CuKCPmU7SVvhEWRDu32F9ZOxkzKPQqEi79Q@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <78f34908-cdcf-3074-f700-5fe9a679186c@chesteklegal.com> <CAFQvZEM-F0Z8vEJNgtD270krDa_DB1T55rsxZMfnD-Y6gXB92w@mail.gmail.com> <86761658-aa7f-edf3-0cac-d8af01d489c3@chesteklegal.com> <CAFQvZENTcas_yATUO7zpRDV82sBvkv7Rib=-BdvbQhvn982z0Q@mail.gmail.com> <CAC1cPGxJM=K__40BWPwTjzENfvoMQeAF_dmQ=xgP8v=Sa-jwLw@mail.gmail.com> <CAC1cPGxE423W4dueM+GRLsHk2GJLrsoEJyLZM=_6h-pwznvEwg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0EF0C9@fmsmsx117.amr.corp.intel.com> <36eff790-fa8c-6e6f-df79-2a4a7432a9e6@piana.eu> <CAD2gp_ThcMii8x3CuKCPmU7SVvhEWRDu32F9ZOxkzKPQqEi79Q@mail.gmail.com>
+Message-ID: <CAK2MWOt9JJE=26z7h-jMxU6_CoEbEnA7p8xFefcKBR-e=312Aw@mail.gmail.com>
+
+Nobody seems to understand what semicolons are for.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/a115fd83/attachment.html>
+
+From speterso at redhat.com  Tue Apr 30 20:06:21 2019
+From: speterso at redhat.com (Scott Peterson)
+Date: Tue, 30 Apr 2019 16:06:21 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com>
+Message-ID: <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com>
+
+I arrive late to this discussion. I am sorry. I should have paid attention
+earlier.
+
+I have just realized that this license asserts that:
+"... making aspects of the Software, including any interfaces used for
+access to or manipulation of User Data, directly or indirectly available to
+the public"
+is an exclusive right of an owner of copyright in the text of software.
+
+If the authors of software who choose to use this license could available
+themselves of this sort of exclusive right without impacting anyone else,
+then, fine, whatever. But, they can't. The rights under copyright are (for
+better or for worse) granted without any action needed on the part of the
+owner to claim such rights. If this right is a part of the exclusive rights
+of a copyright holder, then it would apply to existing software -- not just
+to those who would like a certain type of licensing arrangement.
+
+Think of all of the software that is functioning all around us -- software
+that was built and does what it does every day without the expectation of
+this twist on an exclusive right of public performance.
+
+In my view, we do not need a new exclusive right for software; we have
+enough already.
+
+Of course, a license cannot create a new exclusive right. However, it can
+create a base on which others might build FUD.
+
+Let's reduce, rather than increase, FUD about rights relating to software.
+
+Whatever the other merits of the license as a whole, I hope that it is
+revised to eliminate the implication that interoperation of software
+implicates an exclusive performance right.
+
+-- Scott
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/8d91b412/attachment.html>
+
+From speterso at redhat.com  Tue Apr 30 20:36:37 2019
+From: speterso at redhat.com (Scott Peterson)
+Date: Tue, 30 Apr 2019 16:36:37 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com>
+Message-ID: <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com>
+
+Here is a context in which to consider my earlier comment about introducing
+a new exclusive right for software.
+
+The state of copyright law as it applies to software is a shared resource.
+
+As with public laws generally, one copyright owner or a community of
+developers or some other subset of those who create or use software does
+not get to have its own version of copyright law. We all need to share.
+
+Actions that impact the interpretation of copyright law as it applies to
+software ought to be considered for their impact more broadly, not only on
+the situation that is the immediate subject of the actions.
+
+Of course, there is an opportunity for customization: each copyright owner
+can offer licenses under unique terms that that copyright owner creates.
+But, those license terms still share the underlying copyright law that
+creates the rights being licensed. (But note that there is a shared
+interest in interpretation of widely-used license texts. <
+https://opensource.com/law/16/11/licenses-are-shared-resources> )
+
+-- Scott
+
+
+On Tue, Apr 30, 2019 at 4:06 PM Scott Peterson <speterso at redhat.com> wrote:
+
+> I arrive late to this discussion. I am sorry. I should have paid attention
+> earlier.
+>
+> I have just realized that this license asserts that:
+> "... making aspects of the Software, including any interfaces used for
+> access to or manipulation of User Data, directly or indirectly available to
+> the public"
+> is an exclusive right of an owner of copyright in the text of software.
+>
+> If the authors of software who choose to use this license could available
+> themselves of this sort of exclusive right without impacting anyone else,
+> then, fine, whatever. But, they can't. The rights under copyright are (for
+> better or for worse) granted without any action needed on the part of the
+> owner to claim such rights. If this right is a part of the exclusive rights
+> of a copyright holder, then it would apply to existing software -- not just
+> to those who would like a certain type of licensing arrangement.
+>
+> Think of all of the software that is functioning all around us -- software
+> that was built and does what it does every day without the expectation of
+> this twist on an exclusive right of public performance.
+>
+> In my view, we do not need a new exclusive right for software; we have
+> enough already.
+>
+> Of course, a license cannot create a new exclusive right. However, it can
+> create a base on which others might build FUD.
+>
+> Let's reduce, rather than increase, FUD about rights relating to software.
+>
+> Whatever the other merits of the license as a whole, I hope that it is
+> revised to eliminate the implication that interoperation of software
+> implicates an exclusive performance right.
+>
+> -- Scott
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/79e77d5c/attachment.html>
+
+From bruce at perens.com  Tue Apr 30 21:31:48 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 30 Apr 2019 14:31:48 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com>
+Message-ID: <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com>
+
+Scott,
+
+Before your arrival I did ask about this, and Van replied with a
+justification asserting that public performance was indeed a granted right
+regarding software. I reproduce Van's reply below.
+
+This continues to confuse me, since I understood that AGPL went to
+significant length to synthesize a public performance right where none
+existed.
+
+Van's reply:
+
+Under both US and international law, copyright applies to software by
+virtue of software being considered a literary work. See:
+
+"The Copyright Act of 1976, which became effective on January 1, 1978, made
+it clear that Congress intended software to be copyrightable. The
+definition of literary works in Section 101 states that they are:
+
+works, other than audiovisual works, expressed in words, numbers, or other
+verbal or numerical symbols or indicia, regardless of the nature of the
+material objects, such as books, periodicals, manuscripts, phonorecords,
+film, tapes, disks, or cards, in which they are embodied. {FN7: 17 U.S.C.
+?101 <http://www4.law.cornell.edu/uscode/17/101.html>}
+
+Furthermore, the House Report discussing the Act states:
+
+The term ?literary works? does not connote any criterion of literary merit
+or qualitative value: it includes catalogs, directories, and similar
+factual, reference, or instructional works and compilations of data. It
+also includes computer data bases, and computer programs to the extent that
+they incorporate authorship in the programmer?s expression of original
+ideas, as distinguished from the ideas themselves. {FN8: H.R. Rep. No.
+94-1476 at 54 <http://digital-law-online.info/lpdi1.0/quotes/fn2-8.htm#q>}"
+http://digital-law-online.info/lpdi1.0/treatise17.html
+
+"For the purpose of copyright, the term ?literary works? is not confined to
+works of literature in the commonly understood sense, but is taken to
+include all works expressed in writing, regardless of whether they have
+literary merit or not.... Computer software is also considered a ?literary
+work? and is thus given all of the protections of the copyright law."
+https://copyright.uslegal.com/enumerated-categories-of-copyrightable-works/copyright-for-literary-work
+
+"Can I copyright my software or mobile app?
+<https://www.wipo.int/copyright/en/faq_copyright.html#accordion__collapse__10>
+
+Computer programs and other types of software are considered as literary
+works for copyright purposes. Therefore they receive automatic protection
+without the need for registration. In some countries, the process of voluntary
+registration
+<https://www.wipo.int/copyright/en/faq_copyright.html#accordion__collapse__05_a>
+for
+software may differ from that for other types of work."
+
+https://www.wipo.int/copyright/en/faq_copyright.html
+
+On Tue, Apr 30, 2019 at 1:37 PM Scott Peterson <speterso at redhat.com> wrote:
+
+> Here is a context in which to consider my earlier comment about
+> introducing a new exclusive right for software.
+>
+> The state of copyright law as it applies to software is a shared resource.
+>
+> As with public laws generally, one copyright owner or a community of
+> developers or some other subset of those who create or use software does
+> not get to have its own version of copyright law. We all need to share.
+>
+> Actions that impact the interpretation of copyright law as it applies to
+> software ought to be considered for their impact more broadly, not only on
+> the situation that is the immediate subject of the actions.
+>
+> Of course, there is an opportunity for customization: each copyright owner
+> can offer licenses under unique terms that that copyright owner creates.
+> But, those license terms still share the underlying copyright law that
+> creates the rights being licensed. (But note that there is a shared
+> interest in interpretation of widely-used license texts. <
+> https://opensource.com/law/16/11/licenses-are-shared-resources> )
+>
+> -- Scott
+>
+>
+> On Tue, Apr 30, 2019 at 4:06 PM Scott Peterson <speterso at redhat.com>
+> wrote:
+>
+>> I arrive late to this discussion. I am sorry. I should have paid
+>> attention earlier.
+>>
+>> I have just realized that this license asserts that:
+>> "... making aspects of the Software, including any interfaces used for
+>> access to or manipulation of User Data, directly or indirectly available to
+>> the public"
+>> is an exclusive right of an owner of copyright in the text of software.
+>>
+>> If the authors of software who choose to use this license could available
+>> themselves of this sort of exclusive right without impacting anyone else,
+>> then, fine, whatever. But, they can't. The rights under copyright are (for
+>> better or for worse) granted without any action needed on the part of the
+>> owner to claim such rights. If this right is a part of the exclusive rights
+>> of a copyright holder, then it would apply to existing software -- not just
+>> to those who would like a certain type of licensing arrangement.
+>>
+>> Think of all of the software that is functioning all around us --
+>> software that was built and does what it does every day without the
+>> expectation of this twist on an exclusive right of public performance.
+>>
+>> In my view, we do not need a new exclusive right for software; we have
+>> enough already.
+>>
+>> Of course, a license cannot create a new exclusive right. However, it can
+>> create a base on which others might build FUD.
+>>
+>> Let's reduce, rather than increase, FUD about rights relating to software.
+>>
+>> Whatever the other merits of the license as a whole, I hope that it is
+>> revised to eliminate the implication that interoperation of software
+>> implicates an exclusive performance right.
+>>
+>> -- Scott
+>>
+>> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/7c69b401/attachment-0001.html>
+
+From bruce at perens.com  Tue Apr 30 21:40:42 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 30 Apr 2019 14:40:42 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com>
+Message-ID: <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com>
+
+Van's response was a reply to this question:
+
+
+On Tue, Apr 30, 2019 at 2:31 PM Bruce Perens <bruce at perens.com> wrote:
+
+> Scott,
+>
+> Before your arrival I did ask about this, and Van replied with a
+> justification asserting that public performance was indeed a granted right
+> regarding software. I reproduce Van's reply below.
+>
+> This continues to confuse me, since I understood that AGPL went to
+> significant length to synthesize a public performance right where none
+> existed.
+>
+> Van's reply:
+>
+> Under both US and international law, copyright applies to software by
+> virtue of software being considered a literary work. See:
+>
+> "The Copyright Act of 1976, which became effective on January 1, 1978,
+> made it clear that Congress intended software to be copyrightable. The
+> definition of literary works in Section 101 states that they are:
+>
+> works, other than audiovisual works, expressed in words, numbers, or other
+> verbal or numerical symbols or indicia, regardless of the nature of the
+> material objects, such as books, periodicals, manuscripts, phonorecords,
+> film, tapes, disks, or cards, in which they are embodied. {FN7: 17 U.S.C.
+> ?101 <http://www4.law.cornell.edu/uscode/17/101.html>}
+>
+> Furthermore, the House Report discussing the Act states:
+>
+> The term ?literary works? does not connote any criterion of literary merit
+> or qualitative value: it includes catalogs, directories, and similar
+> factual, reference, or instructional works and compilations of data. It
+> also includes computer data bases, and computer programs to the extent that
+> they incorporate authorship in the programmer?s expression of original
+> ideas, as distinguished from the ideas themselves. {FN8: H.R. Rep. No.
+> 94-1476 at 54 <http://digital-law-online.info/lpdi1.0/quotes/fn2-8.htm#q>
+> }"
+> http://digital-law-online.info/lpdi1.0/treatise17.html
+>
+> "For the purpose of copyright, the term ?literary works? is not confined
+> to works of literature in the commonly understood sense, but is taken to
+> include all works expressed in writing, regardless of whether they have
+> literary merit or not.... Computer software is also considered a ?literary
+> work? and is thus given all of the protections of the copyright law."
+> https://copyright.uslegal.com/enumerated-categories-of-copyrightable-works/copyright-for-literary-work
+>
+> "Can I copyright my software or mobile app?
+> <https://www.wipo.int/copyright/en/faq_copyright.html#accordion__collapse__10>
+>
+> Computer programs and other types of software are considered as literary
+> works for copyright purposes. Therefore they receive automatic protection
+> without the need for registration. In some countries, the process of voluntary
+> registration
+> <https://www.wipo.int/copyright/en/faq_copyright.html#accordion__collapse__05_a> for
+> software may differ from that for other types of work."
+>
+> https://www.wipo.int/copyright/en/faq_copyright.html
+>
+> On Tue, Apr 30, 2019 at 1:37 PM Scott Peterson <speterso at redhat.com>
+> wrote:
+>
+>> Here is a context in which to consider my earlier comment about
+>> introducing a new exclusive right for software.
+>>
+>> The state of copyright law as it applies to software is a shared resource.
+>>
+>> As with public laws generally, one copyright owner or a community of
+>> developers or some other subset of those who create or use software does
+>> not get to have its own version of copyright law. We all need to share.
+>>
+>> Actions that impact the interpretation of copyright law as it applies to
+>> software ought to be considered for their impact more broadly, not only on
+>> the situation that is the immediate subject of the actions.
+>>
+>> Of course, there is an opportunity for customization: each copyright
+>> owner can offer licenses under unique terms that that copyright owner
+>> creates. But, those license terms still share the underlying copyright law
+>> that creates the rights being licensed. (But note that there is a shared
+>> interest in interpretation of widely-used license texts. <
+>> https://opensource.com/law/16/11/licenses-are-shared-resources> )
+>>
+>> -- Scott
+>>
+>>
+>> On Tue, Apr 30, 2019 at 4:06 PM Scott Peterson <speterso at redhat.com>
+>> wrote:
+>>
+>>> I arrive late to this discussion. I am sorry. I should have paid
+>>> attention earlier.
+>>>
+>>> I have just realized that this license asserts that:
+>>> "... making aspects of the Software, including any interfaces used for
+>>> access to or manipulation of User Data, directly or indirectly available to
+>>> the public"
+>>> is an exclusive right of an owner of copyright in the text of software.
+>>>
+>>> If the authors of software who choose to use this license could
+>>> available themselves of this sort of exclusive right without impacting
+>>> anyone else, then, fine, whatever. But, they can't. The rights under
+>>> copyright are (for better or for worse) granted without any action needed
+>>> on the part of the owner to claim such rights. If this right is a part of
+>>> the exclusive rights of a copyright holder, then it would apply to existing
+>>> software -- not just to those who would like a certain type of licensing
+>>> arrangement.
+>>>
+>>> Think of all of the software that is functioning all around us --
+>>> software that was built and does what it does every day without the
+>>> expectation of this twist on an exclusive right of public performance.
+>>>
+>>> In my view, we do not need a new exclusive right for software; we have
+>>> enough already.
+>>>
+>>> Of course, a license cannot create a new exclusive right. However, it
+>>> can create a base on which others might build FUD.
+>>>
+>>> Let's reduce, rather than increase, FUD about rights relating to
+>>> software.
+>>>
+>>> Whatever the other merits of the license as a whole, I hope that it is
+>>> revised to eliminate the implication that interoperation of software
+>>> implicates an exclusive performance right.
+>>>
+>>> -- Scott
+>>>
+>>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/29cc88e7/attachment.html>
+
+From bruce at perens.com  Tue Apr 30 21:43:32 2019
+From: bruce at perens.com (Bruce Perens)

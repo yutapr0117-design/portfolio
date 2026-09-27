@@ -1,0 +1,750 @@
+>
+>
+> Also:
+> On Thu, Aug 15, 2019 at 9:54 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+> wrote:
+>
+>> [snip]
+>>  - I don't support the underlying goal of making money and attacking
+>> competing implementations.
+>>
+>
+> For the record, this is not the goal. The goal is to create a platform
+> that is resistant to attempts to undermine user's autonomy. The CAL is one
+> of the tools in that effort.
+>
+>
+>
+Sorry, that part went out very unclear. I just wanted to say the bar is
+higher when the license steward is a commercial company. This is not meant
+as an expression of distrust toward your client, but in many that have gone
+before them.
+
+henrik
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190815/9f4daa59/attachment-0001.html>
+
+From pamela.chestek at opensource.org  Fri Aug 16 20:46:28 2019
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Fri, 16 Aug 2019 16:46:28 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org>
+Message-ID: <d6ef8ad1-29b0-c5b7-d668-0e291b986eac@opensource.org>
+
+At its meeting today, the Board passed the following motion: "The Board
+of the Open Source Initiative withholds its approval of the
+Cryptographic Autonomy License Version 1.0 as an Open Source Initiative
+Certified license."
+
+Vote: 7 Yes; 0 No; 0 Abstain.
+
+The license has been listed on the "Archived Discussions on Not Approved
+Licenses" wiki page,
+https://wiki.opensource.org/bin/Working+Groups+%26+Incubator+Projects/Archived+Discussions+on+Not+Approved+Licenses/,
+which has a link to the rational document (also below).
+
+I also moved the wiki page listing the Not Approved Licenses so that it
+is linked from the home page of the wiki, which should make it a bit
+easier to find.
+
+Pam
+
+Pamela Chestek
+Chair, License Review Committee
+Open Source Initiative
+
+On 6/27/2019 9:02 AM, Pamela Chestek wrote:
+> Below is the License Review Committee's recommendation to the OSI
+> Board on the Cryptographic Autonomy License.
+>
+> You will see that there is a section titled "Open Questions." If list
+> members would like to discuss these topics, please have the
+> conversation on the License-Discuss list.
+>
+> Pam
+>
+> Pamela Chestek
+> Chair, License Review Committee
+> Open Source Initiative
+>
+> License: Cryptographic Autonomy License (as captured 8 May 2019,
+> Exhibit A)
+> Submitted: April 22, 2019:?
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004028.html
+> Decision due no later than the first Board meeting after June 21, 2019
+>
+> License Review Committee Recommendation:
+>
+> Resolved that it is the opinion of the OSI that the Cryptographic
+> Autonomy License does not conform to the OSD and assure software
+> freedom and the license is therefore not approved. The license
+> submitter is invited to submit a new draft for consideration by the
+> OSI after revision. See [link] for rationale document.
+>
+> _Rationale Document_
+>
+> _Reasons for withholding approval:_
+>
+>  1. Specific provision for GDPR: The license makes special
+>     accommodations for those who must comply with General Data
+>     Protection Regulation (EU) 2016/679 ("GDPR") Arts. 15(3) and 20(1)
+>     but does not make those same accommodations for those who may be
+>     obliged to comply with similar requirements found in other data
+>     privacy laws. An additional permission or restriction granted
+>     specifically for a particular class or group is, on its face,
+>     non-compliance with OSD5/6. However, the license submitter said
+>     that this provision will be removed if it is the remaining issue.
+>     http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004156.html
+>
+>  2. The mechanism of ?public performance?: The health of an open
+>     source software project relies on a predictable and consistent
+>     understanding of what the license permits and what it requires for
+>     compliance. However, this license uses a term specific to US law,
+>     which is ?public performance.? The use of of a term found only in
+>     one jurisdiction?s body of law leads to the possibility of highly
+>     disparate outcomes under other legal systems. The license
+>     submitter suggests that public performance ?appears analogous? to
+>     the EU concept of communication to the public,
+>     http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004153.html;
+>     however, there is no reason to believe an EU court would find that
+>     the words ?public performance? mean the same thing as
+>     ?communication to the public? or that an EU court would view
+>     ?communication to the public? as applying to APIs in the same way
+>     that the license submitter posits ?public performance? does under
+>     US law. (A number of commenters on license-review also disagreed
+>     with the license submitter?s belief that under US law the right of
+>     public performance will extend to the use of APIs.) The submitter
+>     argues that the term is defined in the license and therefore does
+>     not rely on local interpretation,
+>     http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004153.html.
+>     However, the definition does rely on copyright law for scope
+>     (??Public Performance? (or ?Publicly Performing?) means using the
+>     Software to take any action that implicates the rights of public
+>     performance or public display of a work under copyright law,
+>     ...?). The high likelihood that the license would be interpreted
+>     in significantly different ways in different legal jurisdictions
+>     militates against its approval. Although the CAL is not, by any
+>     means, a ?crayon? license, it has the potential for the same
+>     negative consequence, which is unpredictable interpretation.
+>
+> _Open questions_
+>
+> The above are the reasons that the license has not been approved and
+> the submitter is encouraged to revise and resubmit the license.
+> However, there are also additional issues raised during the discussion
+> of the license that merit further community input and discussion
+> before the license would be approved. These issues are:
+>
+> 1.??? _Scope of copyleft_.
+> Until now, the principle of copyleft has only been applied to literal
+> code, not APIs. The license submitter?s proposal is for a copyleft
+> effect that would apply to new implementations of the API even when
+> the underlying has been written from scratch.
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004056.html.
+> The license also makes this extension even if the legal system would
+> not extend copyright (and therefore copyleft) so far. During the
+> license-review process some commentators objected to this extension of
+> the copyleft principle this far. However, the license review committee
+> does not believe that there was sufficient discussion representing all
+> points of view on the license-review list and so does not reject the
+> license for this reason. The license submitter should also be aware
+> that the OSI was a signatory on a brief submitted to the U.S. Supreme
+> Court advocating against the copyrightability of APIs. APIs are also
+> known to be outside the scope of copyright under European law. We are
+> consequently uncomfortable endorsing an application of copyright law
+> to APIs in any form without further discussion.
+>
+> 2.??? _At what point the licensor can oblige licensee behavior_.
+> The trigger for meeting license obligations can differ across
+> licenses. The most common, almost universal trigger, is distribution
+> of software. The AGPL license triggers upon allowing network
+> interaction with modified software. The CAL license implements a new
+> trigger, which is the obligation to make unmodified software available
+> to anyone interacting with an interface for the software. In other
+> words, someone might install a program that allows for interaction
+> with the website (perhaps providing a webform to sign up for a
+> newsletter) and would now be obliged to make the source code available
+> to any person who filled out the webform.
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004113.html
+> The License Review Committee does not believe that there has been
+> adequate airing of this issue from a variety of viewpoints on the
+> license-review discussion about this aspect of the license, so has not
+> reached a conclusion about at what point imposing license obligations
+> is appropriate.
+>
+> 3.??? _A license that requires data portability_.
+> Section 2.3(b) obliges the user of a software to ?provide to any third
+> party with which you have an enforceable legal agreement, a no-charge
+> copy ? of the User Data in your possession in which that third party
+> has a Lawful Interest ?.? The license submitter confirmed in this
+> sequence of emails that the intent of this provision is to expand the
+> scope of software freedom:
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004123.html
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004124.html
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004126.html
+>
+> The members of the License Review Committee do not agree whether this
+> is appropriate for an open source license. It therefore requires
+> extensive additional public discussion before the OSI will be able to
+> reach a conclusion on this point.
+>
+> If the license submitter is interested in resubmitting this license
+> for review, the license review committee recommends eliciting
+> additional, more diverse discussion on these points on the
+> license-discuss list prior to its resubmission.
+>
+>
+>
+> On 4/22/2019 2:43 PM, VanL wrote:
+>> I'd like to thank everyone who provided feedback on earlier drafts of
+>> the Cryptographic Autonomy License (CAL). Since we presented the
+>> draft license in February, we have received hundreds of comments and
+>> suggestions, all of which have helped us fine-tune the license.
+>>
+>> We now present the CAL 1.0-Beta for approval at the next board meeting:
+>> ? Google Docs link:
+>> https://docs.google.com/document/d/1sWUREQN02YJ-q91gXOCflRB57Q1YcU1G7UMS_a8WOTI/edit#
+>> ? PDF Link: https://www.processmechanics.com/static/CAL-1.0-Beta.pdf
+>>
+>> The CAL is still open for revision until it is approved by the Board,
+>> and the links above will be updated as appropriate.
+>>
+>> I also refer everyone here again to the blog post describing the
+>> legal foundations of the license
+>> (https://www.processmechanics.com/2019/03/15/the-cryptographic-autonomy-license/)
+>> as well as the discussion on license-discuss, summarized by Lukas
+>> Atkinson here:
+>> http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-April/020394.html
+>>
+>> Thanks,
+>> Van
+>>
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190816/97e00d23/attachment.html>
+
+From van.lindberg at gmail.com  Mon Aug 19 14:28:41 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Mon, 19 Aug 2019 09:28:41 -0500
+Subject: [License-review] For Approval: Cryptographic Autonomy License (Beta 2)
+Message-ID: <CAFQvZEMpdfiXsohw2-YbqOjjgdgXj4g5C4_oTyu3cBfk5FFF=w@mail.gmail.com>
+
+Hello all,
+
+I noted the recording of the vote on the CAL Beta 1 previously presented
+here. As seen on the license-discuss list, I am now submitting CAL Beta 2
+for approval. The license text is here:
+
+https://docs.google.com/document/d/1PFX7PtPoSbSe7cC7BEoh44OjbWN91-IQOyGzO5Zr-1Q/edit?usp=sharing
+
+I have reworked the CAL to remove the reasons for rejection and to address
+the concerns that led into the ?further discussion? items. In particular, I
+worked on laying out the scope of the private right of use, clarifying when
+the conditions apply, and avoiding constructions that may result in adverse
+policy inferences. I also simplified the language to enhance
+interpretability.
+
+The most controversial aspect of the CAL remains: it requires someone who
+is communicating the software (or a part of the software) to a "Recipient"
+(a non-affiliated third party), to also allow that Recipient access to the
+Recipient's own user data. To show how this fits into the broader concept
+of software freedom, the policy associated with this requirement is also
+laid out: to allow a Recipient to fully use an independent copy of the Work
+generated from the Source Code provided with the Recipient?s own User Data.
+
+For those only following this list, I also provided a changelog on
+license-discuss [1] which prompted some discussion. From that discussion,
+I'll note that Russell McOrmond is on record as believing that the CAL is
+part of a class of licenses - which includes the AGPL, and the GPL as
+applied) is not compliant with the OSD. Bruce Perens is on record as
+believing the any requirements that an operator provide user data is a
+violation of "no field of use" restriction in OSD 6. Bruce is also on
+record as believing that the identification of the private right of use is
+a field of use restriction.
+
+Thanks,
+
+Van
+
+
+[1]
+http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-August/020937.html
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190819/a3a7e1fd/attachment.html>
+
+From pamela.chestek at opensource.org  Mon Aug 19 14:51:03 2019
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Mon, 19 Aug 2019 10:51:03 -0400
+Subject: [License-review] For Approval: Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAFQvZEMpdfiXsohw2-YbqOjjgdgXj4g5C4_oTyu3cBfk5FFF=w@mail.gmail.com>
+References: <CAFQvZEMpdfiXsohw2-YbqOjjgdgXj4g5C4_oTyu3cBfk5FFF=w@mail.gmail.com>
+Message-ID: <9f25e4a3-99d6-351b-6524-2f10b38a2ce9@opensource.org>
+
+Van,
+
+Can you resubmit following the process described under "Under to Submit
+a Request"? https://opensource.org/approval. The most significant piece
+that's missing is a plaintext copy.
+
+However, I won't make you link to earlier public discussions! And thanks
+for providing a summary of the history in one email, that is very helpful.
+
+Thanks,
+Pam
+
+Pamela Chestek
+Chair, License Review Committee
+Open Source Initiative
+
+On 8/19/2019 10:28 AM, VanL wrote:
+> Hello all,
+>
+> I noted the recording of the vote on the CAL Beta 1 previously
+> presented here. As seen on the license-discuss list, I am now
+> submitting CAL Beta 2 for approval. The license text is here:
+>
+> https://docs.google.com/document/d/1PFX7PtPoSbSe7cC7BEoh44OjbWN91-IQOyGzO5Zr-1Q/edit?usp=sharing
+>
+> I have reworked the CAL to remove the reasons for rejection and to
+> address the concerns that led into the ?further discussion? items. In
+> particular, I worked on laying out the scope of the private right of
+> use, clarifying when the conditions apply, and avoiding constructions
+> that may result in adverse policy inferences. I also simplified the
+> language to enhance interpretability.
+>
+> The most controversial aspect of the CAL remains: it requires someone
+> who is communicating the software (or a part of the software) to a
+> "Recipient" (a non-affiliated third party), to also allow that
+> Recipient access to the Recipient's own user data. To show how this
+> fits into the broader concept of software freedom, the policy
+> associated with this requirement is also laid out: to allow a
+> Recipient to fully use an independent copy of the Work generated from
+> the Source Code provided with the Recipient?s own User Data.
+>
+> For those only following this list, I also provided a changelog on
+> license-discuss [1] which prompted some discussion. From that
+> discussion, I'll note that Russell McOrmond is on record as believing
+> that the CAL is part of a class of licenses - which includes the AGPL,
+> and the GPL as applied) is not compliant with the OSD. Bruce Perens is
+> on record as believing the any requirements that an operator provide
+> user data is a violation of "no field of use" restriction in OSD 6.
+> Bruce is also on record as believing that the identification of the
+> private right of use is a field of use restriction.
+>
+> Thanks,
+>
+> Van
+>
+>
+> [1]
+> http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-August/020937.html
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190819/60d74de9/attachment.html>
+
+From van.lindberg at gmail.com  Mon Aug 19 15:42:25 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Mon, 19 Aug 2019 10:42:25 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+Message-ID: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com>
+
+*Rationale:* The CAL is a new network copyleft license especially
+applicable for distributed systems. It is designed to be as protective as
+possible of downstream recipients of the software, providing them all that
+they need to create and use an independent copy of a licensed work without
+losing functionality or data.
+
+*Distinguish:* The CAL is most similar to the AGPL, and will have a similar
+scope of action in most cases. However, the CAL has provisions that require
+that operators provide recipients of the software with a copy of their user
+data, enhancing their ability to independently use the software. The CAL
+also allows the creation of mixed "Larger Works," provides for affiliate
+use, and does not specify a mechanism by which notice is given to
+recipients.
+
+*Legal Analysis*: The CAL was drafted by legal counsel. Previous
+discussions have outlined many aspects of the legal analysis.
+
+Following the rejection of CAL Beta 1, this version has been reworked to
+remove the reasons for rejection and to address the concerns that led into
+the ?further discussion? items. In particular, I worked on laying out the
+scope of the private right of use, clarifying when the conditions apply,
+and avoiding constructions that may result in adverse policy inferences. I
+also simplified the language to enhance interpretability.
+
+The most controversial aspect of the CAL remains: it requires someone who
+is communicating the software (or a part of the software) to a "Recipient"
+(a non-affiliated third party), to also allow that Recipient access to the
+Recipient's own user data. To show how this fits into the broader concept
+of software freedom, the policy associated with this requirement is also
+laid out: to allow a Recipient to fully use an independent copy of the Work
+generated from the Source Code provided with the Recipient?s own User Data.
+
+*Previous Discussion*: For those only following this list, I also provided
+a changelog on license-discuss [1] which prompted some discussion. From
+that discussion, I'll note that Russell McOrmond is on record as believing
+that the CAL is part of a class of licenses - which includes the AGPL, and
+the GPL as applied) is not compliant with the OSD. Bruce Perens is on
+record as believing the any requirements that an operator provide user data
+is a violation of "no field of use" restriction in OSD 6. Bruce is also on
+record as believing that the identification of the private right of use is
+a field of use restriction.
+
+
+[1]
+http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-August/020937.html
+
+A copy of the license in markdown-formatted plaintext is attached.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190819/d4e67183/attachment-0001.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Cryptographic Autonomy License v1.0-Beta 2.md
+Type: application/octet-stream
+Size: 15616 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190819/d4e67183/attachment-0001.md>
+
+From josh at berkus.org  Mon Aug 19 20:00:10 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Mon, 19 Aug 2019 13:00:10 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com>
+Message-ID: <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org>
+
+On 8/19/19 8:42 AM, VanL wrote:
+> /Previous Discussion/: For those only following this list, I also
+> provided a changelog on license-discuss [1] which prompted some
+> discussion. From that discussion, I'll note that Russell McOrmond is on
+> record as believing that the CAL is part of a class of licenses - which
+> includes the AGPL, and the GPL as applied) is not compliant with the
+> OSD. Bruce Perens is on record as believing the any requirements that an
+> operator provide user data is a violation of "no field of use"
+> restriction in OSD 6. Bruce is also on record as believing that the
+> identification of the private right of use is a field of use restriction.
+> 
+
+I can't say that I agree with any of those points of view.  If we're
+going to discuss them, though, should that be here or license-discuss at
+this point?
+
+-- 
+Josh Berkus
+
+
+From van.lindberg at gmail.com  Mon Aug 19 20:05:01 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Mon, 19 Aug 2019 15:05:01 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org>
+Message-ID: <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com>
+
+Hi Josh,
+
+Russell and Bruce were the only two people in that discussion who
+specifically declared that they found CAL Beta 2 unsatisfactory, and they
+each provided a reason. I wanted to reflect those announcements here in the
+spirit of full disclosure.
+
+I am not suggesting that we reopen those discussions, but I wouldn't be
+surprised if they get reopened anyway. :)
+
+Thanks,
+Van
+
+
+On Mon, Aug 19, 2019 at 3:00 PM Josh Berkus <josh at berkus.org> wrote:
+
+> On 8/19/19 8:42 AM, VanL wrote:
+> > /Previous Discussion/: For those only following this list, I also
+> > provided a changelog on license-discuss [1] which prompted some
+> > discussion. From that discussion, I'll note that Russell McOrmond is on
+> > record as believing that the CAL is part of a class of licenses - which
+> > includes the AGPL, and the GPL as applied) is not compliant with the
+> > OSD. Bruce Perens is on record as believing the any requirements that an
+> > operator provide user data is a violation of "no field of use"
+> > restriction in OSD 6. Bruce is also on record as believing that the
+> > identification of the private right of use is a field of use restriction.
+> >
+>
+> I can't say that I agree with any of those points of view.  If we're
+> going to discuss them, though, should that be here or license-discuss at
+> this point?
+>
+> --
+> Josh Berkus
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190819/6f0184ce/attachment.html>
+
+From pamela.chestek at opensource.org  Mon Aug 19 20:20:11 2019
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Mon, 19 Aug 2019 16:20:11 -0400
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org>
+Message-ID: <0f9d6087-8404-0fd4-48e8-6475012810ae@opensource.org>
+
+Here please. The license has been submitted and any discussion going to
+whether or not it should be approved should be on L-R.
+
+Pam
+
+Pamela Chestek
+Chair, License Review Committee
+Open Source Initiative
+
+On 8/19/2019 4:00 PM, Josh Berkus wrote:
+> On 8/19/19 8:42 AM, VanL wrote:
+>> /Previous Discussion/: For those only following this list, I also
+>> provided a changelog on license-discuss [1] which prompted some
+>> discussion. From that discussion, I'll note that Russell McOrmond is on
+>> record as believing that the CAL is part of a class of licenses - which
+>> includes the AGPL, and the GPL as applied) is not compliant with the
+>> OSD. Bruce Perens is on record as believing the any requirements that an
+>> operator provide user data is a violation of "no field of use"
+>> restriction in OSD 6. Bruce is also on record as believing that the
+>> identification of the private right of use is a field of use restriction.
+>>
+> I can't say that I agree with any of those points of view.  If we're
+> going to discuss them, though, should that be here or license-discuss at
+> this point?
+>
+
+
+
+From josh at berkus.org  Mon Aug 19 20:30:56 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Mon, 19 Aug 2019 13:30:56 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com>
+Message-ID: <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org>
+
+Van,
+
+So, I'm tackling this for the perspective of "as a software developer,
+what are my questions about using anything under this license".  I'll
+admit to not having re-read the entirely of the original discussion, so
+if some of these questions were already covered, feel free to bounce me
+to the archives.
+
+Overall, the license is looking really good to me.
+
+### 2.2. Offer and Acceptance
+
+- I cannot make heads or tails of this paragraph.  What is it supposed
+to mean?  Would there be a way to state that in language that would be
+clearer to a layman?
+
+Patent Clauses:
+
+- These are very clear and well-stated.  I don't know how they do
+legall, but as a developer I find them very straightforwards.
+
+#### 4.2.1. No Withholding User Data
+
+- Again, I don't have any opinion on enforcability, but the meaning here
+is quite clear to me.
+- For my part, I find this clause a natural extension of copyleft
+principles, and as such not a violation of the OSD.
+- Even further, as a database geek, I would love to see more
+user-data-protection licenses.
+
+#### 4.2.2. No Technical Measures that Limit Access
+
+- This paragraph seems ripe for inadvertent violation.  For example, a
+strict interpretation of this seems to read that you're not allow to
+place any copy of the code under private-key encryption, even for your
+own organization's use.  I'd love to see some of the "withold" or other
+intent language here.
+
+#### 4.2.3. No Legal or Contractual Measures that Limit Access
+
+- Do we need an exemption here for government action? Not everyone has a
+choice about some of these laws (like anti-circumvention).
+
+### 5.3. Termination Due to Litigation
+
+- Do you want to limit this to patent infringement?  What about other
+types of legal action, such as claims for damages?
+
+### 7.2. Choice of Jurisdiction and Governing Law
+
+- This seems like it could be used to circumvent some of the provisions
+of the license.  Comment?
+
+-- 
+Josh Berkus
+
+
+From van.lindberg at gmail.com  Mon Aug 19 20:54:01 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Mon, 19 Aug 2019 15:54:01 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org>
+Message-ID: <CAFQvZEN_J_vU=Hjd=O9N3NEDbTSTsHgKd_L4-g=kL1ByZVEMvw@mail.gmail.com>
+
+Hi Josh,
+
+Thanks for the questions.
+
+On Mon, Aug 19, 2019 at 3:31 PM Josh Berkus <josh at berkus.org> wrote:
+
+>
+> ### 2.2. Offer and Acceptance
+>
+> - I cannot make heads or tails of this paragraph.  What is it supposed
+> to mean?  Would there be a way to state that in language that would be
+> clearer to a layman?
+>
+
+This paragraph is legalese that helps establish enforceability.
+
+Briefly, there are a couple different ways that a license can be enforced -
+under IP laws, under contract laws, or both. There is a long history of
+cases that indicate that certain formulations have certain legal effects.
+This paragraph includes some of those historical incantations.
+
+Think of it as the legal equivalent of Java's "public static void
+main(String[] args)"
+
+
+Patent Clauses:
+>
+> - These are very clear and well-stated.  I don't know how they do
+> legall, but as a developer I find them very straightforwards.
+>
+> #### 4.2.1. No Withholding User Data
+>
+> - Again, I don't have any opinion on enforcability, but the meaning here
+> is quite clear to me.
+> - For my part, I find this clause a natural extension of copyleft
+> principles, and as such not a violation of the OSD.
+> - Even further, as a database geek, I would love to see more
+> user-data-protection licenses.
+>
+
+Thanks!
+
+
+
+> #### 4.2.2. No Technical Measures that Limit Access
+>
+> - This paragraph seems ripe for inadvertent violation.  For example, a
+> strict interpretation of this seems to read that you're not allow to
+> place any copy of the code under private-key encryption, even for your
+> own organization's use.  I'd love to see some of the "withold" or other
+> intent language here.
+>
+
+I would point you to the language near the end of this clause: "You may
+not... limit a Recipient?s ability to access any functionality present* *in
+Recipient's independent copy** of the Work, or to deny* *a Recipient** full
+control of the **Recipient?s User Data*.*"
+
+What you do with your copy is your business; this clause makes clear that
+you cannot restrict what a Recipient can do with their independent copy of
+the work.
+
+Regarding business use, I would also point you to the "Affiliates" clause
+in 7.1. Anyone inside your own organization is not a "Recipient." Private
+use inside an organization, including for serving employees and dedicated
+contractors, is unrestricted.
+
+Do these points address your concerns?
+
+
+
+> #### 4.2.3. No Legal or Contractual Measures that Limit Access
+>
+> - Do we need an exemption here for government action? Not everyone has a
+> choice about some of these laws (like anti-circumvention).
+>
+
+I don't think so. We do presume that everyone will obey the law. What this
+does is it restricts the availability of certain causes of action between
+private parties.
+
+
+
+> ### 5.3. Termination Due to Litigation
+>
+> - Do you want to limit this to patent infringement?  What about other
+> types of legal action, such as claims for damages?
+>
+
+Right now I am inclined to say no. First, patent litigation seems
+especially damaging, and worth calling out specifically. Second, some types
+of claims we want to allow (such as trademark claims).
+
+
+>
+> ### 7.2. Choice of Jurisdiction and Governing Law
+>
+> - This seems like it could be used to circumvent some of the provisions
+> of the license.  Comment?
+>
+
+No, I don't think so. This applies to a licensee (the person receiving the
+software) suing the licensor (the contributor). The licensor has the
+ability to bring a claim wherever necessary.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190819/ba3079f4/attachment.html>
+
+From van.lindberg at gmail.com  Mon Aug 19 21:09:19 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Mon, 19 Aug 2019 16:09:19 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org>
+Message-ID: <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com>
+
+Hi Josh,
+
+Looking again, I didn't really address your question about the "offer an
+acceptance" language. So here goes:
+
+License terms such as these are interpreted as contracts. Contracts require
+1) an offer, 2) an acceptance, and 3) consideration.
+
+> ### 2.2. Offer and Acceptance
+> This License is automatically offered to every person and organization.
+
+This establishes that the license is being offered as-is to every possible

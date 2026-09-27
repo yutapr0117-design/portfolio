@@ -1,0 +1,750 @@
+But the danger, or damage, is in how the body of licenses affect the
+interpretation of the OSD.
+
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+
+On Sat, Feb 8, 2020, 10:55 AM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+> Wisely or widely?
+>
+> Agree re "widely." Which also means that leaving them alone will also have
+> little impact.
+>
+> Pam
+>
+> Pamela S. Chestek
+> Chestek Legal
+> PO Box 2492
+> Raleigh, NC 27602pamela at chesteklegal.com
+> 919-800-8033www.chesteklegal.com
+>
+> On 2/8/20 9:38 AM, VanL wrote:
+>
+> That is a fair concern, but I think it could be mitigated. As a threshold
+> matter, the licenses I look at as being possibly worthy of
+> de-classification don't seem to be wisely used. For those few affected,
+> there could be a deprecation period, and some of them could be revised.
+>
+> Thanks,
+> Van
+>
+> __________________________
+> Van Lindberg
+> van.lindberg at gmail.com
+> m: 214.364.7985
+>
+> On Sat, Feb 8, 2020, 8:28 AM Pamela Chestek <pamela at chesteklegal.com>
+> wrote:
+>
+>> As suggested, moving to license-discuss.
+>>
+>> My concern with delisting is that someone will have relied on the
+>> approval and it would be unfair, and a bad look for OSI, to suddenly pull
+>> the rug out.
+>>
+>> Pam
+>>
+>> Pamela S. Chestek
+>> Chestek Legal
+>> PO Box 2492
+>> Raleigh, NC 27602
+>> pamela at chesteklegal.com
+>> 919-800-8033
+>> www.chesteklegal.com
+>> On 2/7/20 5:04 PM, VanL wrote:
+>>
+>> With the mild proviso that this discussion really should be on
+>> license-discuss, I also think a deprecation committee is a great idea.
+>>
+>> - Van
+>>
+>> On Fri, Feb 7, 2020 at 3:30 PM McCoy Smith <mccoy at lexpan.law>
+>> <mccoy at lexpan.law> wrote:
+>>
+>>> *>>From:* License-review <license-review-bounces at lists.opensource.org> *On
+>>> Behalf Of *Richard Fontana
+>>> *>>Sent:* Friday, February 7, 2020 1:12 PM
+>>> *>>To:* Eric Schultz <eric at wwahammy.com>
+>>> *>>Cc:* License submissions for OSI review <
+>>> license-review at lists.opensource.org>
+>>> *>>Subject:* Re: [License-review] For approval: The Cryptographic
+>>> Autonomy License (Beta 4)
+>>>
+>>>
+>>>
+>>> >>I agree with this. I would feel better if the OSI had some process for
+>>> reviewing and potentially delisting or at least deprecating approved
+>>> licenses based on problematic experiences with a >>license that were not
+>>> foreseeable at the time of approval.
+>>>
+>>>
+>>>
+>>> >>Richard
+>>>
+>>>
+>>>
+>>> I second the idea of a License Deprecation Committee, a la the License
+>>> Proliferation Committee of ?04.  In fact, you could make it a License
+>>> Proliferation and Deprecation Committee to address both issues (assuming
+>>> there are people who believe license proliferation is now a problem).
+>>>
+>>>
+>>>
+>>> Given that there have been existing licenses on the list that have been
+>>> argued as precedent for recent submissions which were rejected or opposed,
+>>> at a minimum there ought to be a serious look at some of the historical
+>>> approvals to test whether those approvals would survive under current
+>>> standards.  I can think of at least one license currently on the list which
+>>> I?ve looked at recently where I can?t justify it as consistent with the OSD
+>>> (or at least my understanding thereof) or the approval process as currently
+>>> run.  That?s not a situation that I believe ought to exist and can play
+>>> into the perception that OSI approval is inconsistent and/or arbitrary.
+>>> _______________________________________________
+>>> License-review mailing list
+>>> License-review at lists.opensource.org
+>>>
+>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>
+>>
+>> _______________________________________________
+>> License-review mailing listLicense-review at lists.opensource.orghttp://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>> _______________________________________________
+>> License-discuss mailing list
+>> License-discuss at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>
+>
+> _______________________________________________
+> License-discuss mailing listLicense-discuss at lists.opensource.orghttp://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20200208/fdf1f5e9/attachment.html>
+
+From molly.deblanc at opensource.org  Sat Feb  8 21:01:18 2020
+From: molly.deblanc at opensource.org (Molly de Blanc)
+Date: Sat, 8 Feb 2020 16:01:18 -0500
+Subject: [License-discuss] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEO4z96UJce8pwr-3S_ChhTGzM6qXtD+ZQViDBuCfhEYVg@mail.gmail.com>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <CAC1cPGzACYp=s4gxr5syP30JgZf9T1Vn46PVJY6O81omG1T6qA@mail.gmail.com> <4b92eb69-48f0-8a63-0bf8-820b48cccfca@berkus.org> <CAMkzgA53+Kds8OsuTn7-6aa1nua2SG8SwU1+wkoEcoB5qwH-2g@mail.gmail.com> <CAC1cPGxF-Gg4N6-HDzDp_sqwnSshqf5+_+8BmtbKcYewB0mJKg@mail.gmail.com> <000001d5ddfd$b92ce810$2b86b830$@lexpan.law> <CAFQvZEPnrApkpCxyPx2W-TED2A2P3GOWHoWD3q9VSzRuE2matw@mail.gmail.com> <2002c783-7fb3-ab8c-b5c2-612669faa4b7@chesteklegal.com> <CAFQvZEM=roPCwS0rGtf4OS9QKBCPGJJCbP2V5NKH2GCEVd+fyA@mail.gmail.com> <dd96360d-406b-49c9-30a8-c2865e66cf30@chesteklegal.com> <CAFQvZEO4z96UJce8pwr-3S_ChhTGzM6qXtD+ZQViDBuCfhEYVg@mail.gmail.com>
+Message-ID: <CA+NbpC6x8NJ-AmeQ+HDKs3+HwPWhHYOGwEf0pb5Wd0=WJ5-kPA@mail.gmail.com>
+
+It's been suggested to have a sort of "Emeritus" license list in the past,
+which won't invalidate them as part of the open source license ecosystem,
+but instead clarify that they are generally not recommended for active use.
+
+Cheers,
+M.
+
+On Sat, Feb 8, 2020 at 2:31 PM VanL <van.lindberg at gmail.com> wrote:
+
+> Widely. Autocorrect fail.
+>
+> But the danger, or damage, is in how the body of licenses affect the
+> interpretation of the OSD.
+>
+> __________________________
+> Van Lindberg
+> van.lindberg at gmail.com
+> m: 214.364.7985
+>
+> On Sat, Feb 8, 2020, 10:55 AM Pamela Chestek <pamela at chesteklegal.com>
+> wrote:
+>
+>> Wisely or widely?
+>>
+>> Agree re "widely." Which also means that leaving them alone will also
+>> have little impact.
+>>
+>> Pam
+>>
+>> Pamela S. Chestek
+>> Chestek Legal
+>> PO Box 2492
+>> Raleigh, NC 27602pamela at chesteklegal.com
+>> 919-800-8033www.chesteklegal.com
+>>
+>> On 2/8/20 9:38 AM, VanL wrote:
+>>
+>> That is a fair concern, but I think it could be mitigated. As a threshold
+>> matter, the licenses I look at as being possibly worthy of
+>> de-classification don't seem to be wisely used. For those few affected,
+>> there could be a deprecation period, and some of them could be revised.
+>>
+>> Thanks,
+>> Van
+>>
+>> __________________________
+>> Van Lindberg
+>> van.lindberg at gmail.com
+>> m: 214.364.7985
+>>
+>> On Sat, Feb 8, 2020, 8:28 AM Pamela Chestek <pamela at chesteklegal.com>
+>> wrote:
+>>
+>>> As suggested, moving to license-discuss.
+>>>
+>>> My concern with delisting is that someone will have relied on the
+>>> approval and it would be unfair, and a bad look for OSI, to suddenly pull
+>>> the rug out.
+>>>
+>>> Pam
+>>>
+>>> Pamela S. Chestek
+>>> Chestek Legal
+>>> PO Box 2492
+>>> Raleigh, NC 27602
+>>> pamela at chesteklegal.com
+>>> 919-800-8033
+>>> www.chesteklegal.com
+>>> On 2/7/20 5:04 PM, VanL wrote:
+>>>
+>>> With the mild proviso that this discussion really should be on
+>>> license-discuss, I also think a deprecation committee is a great idea.
+>>>
+>>> - Van
+>>>
+>>> On Fri, Feb 7, 2020 at 3:30 PM McCoy Smith <mccoy at lexpan.law>
+>>> <mccoy at lexpan.law> wrote:
+>>>
+>>>> *>>From:* License-review <license-review-bounces at lists.opensource.org> *On
+>>>> Behalf Of *Richard Fontana
+>>>> *>>Sent:* Friday, February 7, 2020 1:12 PM
+>>>> *>>To:* Eric Schultz <eric at wwahammy.com>
+>>>> *>>Cc:* License submissions for OSI review <
+>>>> license-review at lists.opensource.org>
+>>>> *>>Subject:* Re: [License-review] For approval: The Cryptographic
+>>>> Autonomy License (Beta 4)
+>>>>
+>>>>
+>>>>
+>>>> >>I agree with this. I would feel better if the OSI had some process
+>>>> for reviewing and potentially delisting or at least deprecating approved
+>>>> licenses based on problematic experiences with a >>license that were not
+>>>> foreseeable at the time of approval.
+>>>>
+>>>>
+>>>>
+>>>> >>Richard
+>>>>
+>>>>
+>>>>
+>>>> I second the idea of a License Deprecation Committee, a la the License
+>>>> Proliferation Committee of ?04.  In fact, you could make it a License
+>>>> Proliferation and Deprecation Committee to address both issues (assuming
+>>>> there are people who believe license proliferation is now a problem).
+>>>>
+>>>>
+>>>>
+>>>> Given that there have been existing licenses on the list that have been
+>>>> argued as precedent for recent submissions which were rejected or opposed,
+>>>> at a minimum there ought to be a serious look at some of the historical
+>>>> approvals to test whether those approvals would survive under current
+>>>> standards.  I can think of at least one license currently on the list which
+>>>> I?ve looked at recently where I can?t justify it as consistent with the OSD
+>>>> (or at least my understanding thereof) or the approval process as currently
+>>>> run.  That?s not a situation that I believe ought to exist and can play
+>>>> into the perception that OSI approval is inconsistent and/or arbitrary.
+>>>> _______________________________________________
+>>>> License-review mailing list
+>>>> License-review at lists.opensource.org
+>>>>
+>>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>>
+>>>
+>>> _______________________________________________
+>>> License-review mailing listLicense-review at lists.opensource.orghttp://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>
+>>> _______________________________________________
+>>> License-discuss mailing list
+>>> License-discuss at lists.opensource.org
+>>>
+>>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>>
+>>
+>> _______________________________________________
+>> License-discuss mailing listLicense-discuss at lists.opensource.orghttp://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>
+>> _______________________________________________
+>> License-discuss mailing list
+>> License-discuss at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20200208/3f86bd82/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Sun Feb  9 17:54:52 2020
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Sun, 9 Feb 2020 19:54:52 +0200
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAMkzgA53+Kds8OsuTn7-6aa1nua2SG8SwU1+wkoEcoB5qwH-2g@mail.gmail.com>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <CAC1cPGzACYp=s4gxr5syP30JgZf9T1Vn46PVJY6O81omG1T6qA@mail.gmail.com> <4b92eb69-48f0-8a63-0bf8-820b48cccfca@berkus.org> <CAMkzgA53+Kds8OsuTn7-6aa1nua2SG8SwU1+wkoEcoB5qwH-2g@mail.gmail.com>
+Message-ID: <CAKHyketu27idjp0aXhe+vUZ4C4hixNJcrNG3z7=xw593H=-8YQ@mail.gmail.com>
+
+Eric,
+
+I liked your previous email although I didn't reply to it. I think it
+would be an interesting discussion to debate how free software can
+benefit (or not) the Uighurs, or the LGBT community. However, I don't
+think such a discussion belongs in the thread about reviewing and
+approving a particular license. For one thing, the people competent in
+understanding the legal text of a license may not be competent in
+commenting on what is best for the Uighur people. Therefore, the way I
+see it, we use concepts like values and principles as an abstraction
+layer to distill some high level guidelines (OSD and the four
+freedoms, but not only those...), and then we evaluate specific
+licenses (and software and their  communities) against those values. I
+of course believe that software freedom and also data autonomy / open
+data tend to benefit both oppressed minorities, third world countries,
+etc. But it would be an interesting topic to study further too.
+
+As for the CAL, I think it is in alignment with our current
+understanding of values of the FOSS community. Separately, also the
+current values are always up for re-evaluation, but in a different
+thread and possibly in a different forum.
+
+
+Josh,
+
+I was already previously on the record that I think the latest version
+of the CAL does conform to the OSD. For those just tuning in, it's
+worth mentioning that over the past year Van made significant changes
+to the license in response to feedback from this list, including from
+me. I'd like to commend him for setting a shining example of how to
+work with the process. I hope future submitters can study and learn
+from this process.
+
+I also previously had supported the idea that OSI could in limited
+circumstances also deprecate previously approved licenses. I think
+such decisions should be rare, and the number of licenses thus
+deprecated could even be zero. But I believe it might reduce some of
+the stress in reviewing new licenses if participants knew that there
+is at least a theoretical possibility to de-list licenses that in
+hindsight are considered as mistakes.
+
+henrik
+
+On Fri, Feb 7, 2020 at 9:31 PM Eric Schultz <eric at wwahammy.com> wrote:
+>
+> Consistent with my previous comments, I say "MoreDiscussionNeeded". I don't think we fully understand how this applies in some of the situations I previously mentioned and how it interacts with the principles behind FOSS and its effect on users. Sadly, the nature of this process doesn't really allow a proper nuanced exploration necessary for a decision of this magnitude and I don't think that discussion is going to happen on this list.
+>
+> That said, given the process we have and the discussion so far, I lean slightly towards this license being OSD compliant (and FSD compliant for that matter). But I'm also not going to be shocked if there's some unexpected consequences from this license.
+>
+> Eric
+>
+> On Fri, Feb 7, 2020, 11:20 AM Josh Berkus <josh at berkus.org> wrote:
+>>
+>>
+>> > Having reviewed the latest draft, "Pass" from me. I have lingering
+>> > concerns over this license, and the potential for abuse by Holochain or
+>> > other unknown licensors, based partly on the earlier drafting history,
+>> > some of Van's earlier comments on those drafts, and general suspicion of
+>> > new copyleft licenses advanced specifically by narrow commercial
+>> > interests. However I don't think those concerns are sufficiently
+>> > grounded in the current license text such that I would recommend
+>> > rejection or more protracted discussion. If this license is approved, I
+>> > would not recommend that anyone use it. But on its face, the license,
+>> > including the core interesting User Data requirement feature, seem to me
+>> > consistent with the spirit of the OSD and software freedom.
+>>
+>> Well, let's thought-experiment this onto a non-crypto project to see how
+>> it maps.  Imagine that I'm Tobias, lead maintainer of Pretalx conference
+>> software, and owner of pretalx.com hosting service.  What I want out of
+>> the license is:
+>>
+>> * reassurance for my customers that I won't "lock up" their data;
+>> * a guarantee that if someone launches a competeing pretalx hosting
+>> service, they can't lock up customer data preventing migration either
+>> * maximizing sharing of any improvements to the code
+>>
+>> Does the CAL do this?
+>>
+>>
+>> --
+>> Josh Berkus
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+
+
+From pamela.chestek at opensource.org  Sun Feb  9 19:27:30 2020
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Sun, 9 Feb 2020 14:27:30 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com>
+Message-ID: <8cba2522-0173-ab6e-2ca8-5884dda22bdf@opensource.org>
+
+To the Board of the OSI and the License-Review list:
+
+Below is the recommendation of the License Committee of the Open Source
+Initiative on the Cryptographic Autonomy License, Beta 4.
+
+****
+
+License: Cryptographic Autonomy License Beta 4 (Exhibit A)
+Submitted:
+Beta 2 August 22, 2019:
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-August/004310.html
+
+Beta 3 August 22, 2019:
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-August/004310.html;
+
+Beta 4 December 4, 2019:
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-December/004455.html
+
+
+Decision due no later than the first Board meeting after January 4, 2020.
+
+_License Review Committee Recommendation_:
+
+/Resolved that it is the opinion of the OSI that the Cryptographic
+Autonomy License Beta 4 be approved for the Uncategorized Licenses
+category./
+
+_Rationale Document__
+_
+_Notes_:
+
+The four versions of the license submitted were heavily reviewed, in
+discussion for five months with over 350 emails submitted to
+license-review. The OSI Board reached out during its affiliate calls and
+on Twitter to ensure that everyone was aware that the license was under
+discussion in an effort to have as many participants as possible in the
+discussion. The last email discussing the substance of the license was
+on January 5, 2020, followed by a call for a straw poll on February 6,
+2020. In response there were three ?yes? answers and one ?more
+discussion needed.?
+
+The following criticisms were raised in the review process and there
+were strong views of both sides of many of them. The License Committee
+considered all the arguments, occasionally asking for additional
+information or clarification to ensure that the point was discussed
+fully and the argument was clear. Ultimately, as explained below, the
+License Committee did not view any of the criticisms as barriers to
+approval.
+
+/The CAL allows for assertion of copyright against APIs/. The license is
+written so that the copyleft obligation reaches to the full extent of
+the licensor?s copyright rights. As a comparison, the GPL imposes
+copyleft only when software is distributed, not when it is used in other
+ways that might nevertheless also implicate copyright, such as making
+available over a network. While the reach of the copyleft in this
+license is very far, it is not conceptually any further than some other
+approved network copyleft licenses. The reach of the copyleft is also
+dependent on the interpretation of the rights of copyright under each
+countries? laws, so the copyleft effect will be limited by how each
+country interprets copyright rights.
+
+/The CAL applies to data, not just software/. The data aspect of the
+license is narrowly written to only apply where the absence of data will
+prevent the reimplementation of the software by another, as seen in the
+definition of ?User Data?: ?any data that is an input to or an output
+from the Work, where the presence of the data is necessary for
+substantially identical use of the Work in an equivalent context chosen
+by the Recipient, and where the Recipient has an existing ownership
+interest, an existing right to possess, or where the data has been
+generated by, for, or has been assigned to the Recipient.? Section 4.2.
+This requirement is consistent with the anti-Tivoization principle in
+the family of GNU Public LIcenses version 3.
+
+/A private user of the software still has a burden, to provide User
+Data/. This is incorrect, the duty to provide User Data is only if the
+software is used to provide services to a Recipient. Section 4.2.1.
+
+/The terms "fully use an independent copy" and "substantially identical
+use of the work" are ambiguous/. It is not possible to anticipate and
+then dictate the outcome for every potential factual situation. Written
+legal documents commonly use words that allow for the construction of a
+more exact scope when the context is known.
+
+/The CAL allows the licensor to prevent competitive implementations
+through the use of patents, and the license steward?s client would be
+motivated to do so to avoid sequestration of data by another/. Patents
+can be used to prevent a competitive implementation no matter what the
+open source license is, and different licensors may have different
+interests they wish to protect, using their patents to do so. The CAL is
+no different from other open source licenses in this respect.
+
+/A recipient of the source code and User Data may not know whether they
+are complying with Section 4.2/. Section 4.2.1 requires the disclosure
+of User Data only where the software user is providing services to a
+Recipient and only to the extent that the User Data is available to
+them. This is not an unduly onerous requirement.
+
+/Providing User Data is too burdensome, particularly for less
+sophisticated users/. All open source licenses have a compliance burden,
+some significant. This burden was not seen as overly burdensome given
+the goal of the license to avoid sequestration of User Data.
+
+/The CAL can be exploited in a dual-licensing scheme/. Copyleft licenses
+have been exploited in dual licensing schemes for over a decade. This
+license is unlikely to increase the behavior and the risk is tolerable
+given the potential benefit to software freedom this license offers.
+
+There were also objections raised about the OSI?s review process itself,
+which are not pertinent to the substance of the license.
+
+_Exhibit A_
+
+?#Cryptographic Autonomy License version 1.0
+?
+*This Cryptographic Autonomy License (the ?License?) applies to any Work
+whose owner has marked it with any of the following notices:*
+?
+*?Licensed under the Cryptographic Autonomy License version 1.0,? or
+?SPDX-License-Identifier: CAL-1.0,? or*
+?
+*?Licensed under the Cryptographic Autonomy License version 1.0, with
+Combined Work Exception,? or*
+?
+*?SPDX-License-Identifier: CAL-1.0-With-Exception?.*
+_________________________________________________________________
+?
+?
+## 1. Purpose
+This License gives You unlimited permission to use and modify the
+software to which it applies (the ?Work?), either as-is or in modified
+form, for Your private purposes, while protecting the owners and
+contributors to the software from liability.?
+?
+This License also strives to protect the freedom and autonomy of third
+parties who receive the Work from you.? If any non-affiliated third
+party receives any part, aspect, or element of the Work from You, this
+License requires that You provide that third party all the permissions
+and materials needed to independently use and modify the Work without
+that third party having a loss of data or capability due to your actions.
+?
+The full permissions, conditions, and other terms are laid out below.
+?
+## 2. Receiving a License
+In order to receive this License, You must agree to its rules. The rules
+of this License are both obligations of Your agreement with the Licensor
+and conditions to your License. You must not do anything with the Work
+that triggers a rule You cannot or will not follow.?
+?
+###??? 2.1. Application
+The terms of this License apply to the Work as you receive it from
+Licensor, as well as to any modifications, elaborations, or
+implementations created by You that contain any licenseable portion of
+the Work (a ?Modified Work?). Unless specified, any reference to the
+Work also applies to a Modified Work.
+?
+###??? 2.2. Offer and Acceptance
+This License is automatically offered to every person and organization.
+You show that you accept this License and agree to its conditions by
+taking any action with the Work that, absent this License, would
+infringe any intellectual property right held by Licensor.?
+###??? 2.3. Compliance and Remedies
+Any failure to act according to the terms and conditions of this License
+places Your use of the Work outside the scope of the License and
+infringes the intellectual property rights of the Licensor. In the event
+of infringement, the terms and conditions of this License may be
+enforced by Licensor under the intellectual property laws of any
+jurisdiction to which You are subject. You also agree that either the
+Licensor or a Recipient (as an intended third-party beneficiary) may
+enforce the terms and conditions of this License against You via
+specific performance.
+?
+## 3. Permissions and Conditions
+###??? 3.1. Permissions Granted
+Conditioned on compliance with section 4, and subject to the limitations
+of section 3.2, Licensor grants You the world-wide, royalty-free,
+non-exclusive permission to:
+? > a) Take any action with the Work that would infringe the non-patent
+intellectual property laws of any jurisdiction to which You are subject; and
+?
+? > b) Take any action with the Work that would infringe any patent
+claims that Licensor can license or becomes able to license, to the
+extent that those claims are embodied in the Work as distributed by
+Licensor.
+?
+###??? 3.2. Limitations on Permissions Granted
+The following limitations apply to the permissions granted in section 3.1:?
+? > a) Licensor does not grant any patent license for claims that are
+only infringed due to modification of the Work as provided by Licensor,
+or the combination of the Work as provided by Licensor, directly or
+indirectly, with any other component, including other software or hardware.
+?
+? > b) Licensor does not grant any license to the trademarks, service
+marks, or logos of Licensor, except to the extent necessary to comply
+with the attribution conditions in section 4.1 of this License.
+?
+## 4. Conditions
+If You exercise any permission granted by this License, such that the
+Work, or any part, aspect, or element of the Work, is distributed,
+communicated, made available, or made perceptible to a non-Affiliate
+third party (a ?Recipient?), either via physical delivery or via a
+network connection to the Recipient, You must comply with the following
+conditions:?
+?
+###??? 4.1. Provide Access to Source Code
+Subject to the exception in section 4.4, You must provide to each
+Recipient a copy of, or no-charge unrestricted network access to, the
+Source Code corresponding to the Work.
+?
+The ?Source Code? of the Work means the form of the Work preferred for
+making modifications, including any comments, configuration information,
+documentation, help materials, installation instructions, cryptographic
+seeds or keys, and any information reasonably necessary for the
+Recipient to independently compile and use the Source Code and to have
+full access to the functionality contained in the Work.
+?
+####??? 4.1.1. Providing Network Access to the Source Code
+Network access to the Notices and Source Code may be provided by You or
+by a third party, such as a public software repository, and must persist
+during the same period in which You exercise any of the permissions
+granted to You under this License and for at least one year thereafter.
+?
+####??? 4.1.2. Source Code for a Modified Work
+Subject to the exception in section 4.5, You must provide to each
+Recipient of a Modified Work Access to Source Code corresponding to
+those portions of the Work remaining in the Modified Work as well as the
+modifications used by You to create the Modified Work. The Source Code
+corresponding to the modifications in the Modified Work must be provided
+to the Recipient either a) under this License, or b) under a Compatible
+Open Source License.
+?
+A ?Compatible Open Source License? means a license accepted by the Open
+Source Initiative that allows object code created using both Source Code
+provided under this License and Source Code provided under the other
+open source license to be distributed together as a single work.
+?
+####??? 4.1.3. Coordinated Disclosure of Security Vulnerabilities
+You may delay providing the Source Code corresponding to a particular
+modification of the Work for up to ninety (90) days (the ?Embargo
+Period?) if:
+?
+? > a) the modification is intended to address a newly-identified
+vulnerability or a security flaw in the Work,?
+?
+? > b) disclosure of the vulnerability or security flaw before the end
+of the Embargo Period would put the data, identity, or autonomy of one
+or more Recipients of the Work at significant risk,
+??
+? > c) You are participating in a coordinated disclosure of the
+vulnerability or security flaw with one or more additional Licensees, and?
+?
+? > d) Access to the Source Code pertaining to the modification is
+provided to all Recipients at the end of the Embargo Period.
+?
+###??? 4.2. Maintain User Autonomy
+In addition to providing each Recipient the opportunity to have Access
+to the Source Code, You cannot use the permissions given under this
+License to interfere with a Recipient?s ability to fully use an
+independent copy of the Work generated from the Source Code You provide
+with the Recipient?s own User Data.
+?
+?User Data? means any data that is an input to or an output from the
+Work, where the presence of the data is necessary for substantially
+identical use of the Work in an equivalent context chosen by the
+Recipient, and where the Recipient has an existing ownership interest,
+an existing right to possess, or where the data has been generated by,
+for, or has been assigned to the Recipient.
+?
+####??? 4.2.1. No Withholding User Data
+Throughout any period in which You exercise any of the permissions
+granted to You under this License, You must also provide to any
+Recipient to whom you provide services via the Work, a no-charge copy,
+provided in a commonly used electronic form, of the Recipient?s User
+Data in your possession, to the extent that such User Data is available
+to You for use in conjunction with the Work.?
+?
+####??? 4.2.2. No Technical Measures that Limit Access
+You may not, by means of the use cryptographic methods applied to
+anything provided to the Recipient, by possession or control of
+cryptographic keys, seeds, hashes, by any other technological protection
+measures, or by any other method, limit a Recipient?s ability to access
+any functionality present in Recipient's independent copy of the Work,
+or to deny a Recipient full control of the Recipient?s User Data.
+?
+####??? 4.2.3. No Legal or Contractual Measures that Limit Access
+You may not contractually restrict a Recipient's ability to
+independently exercise the permissions granted under this License. You
+waive any legal power to forbid circumvention of technical protection
+measures that include use of the Work, and You waive any claim that the
+capabilities of the Work were limited or modified as a means of
+enforcing the legal rights of third parties against Recipients.
+?
+###??? 4.3. Provide Notices and Attribution
+You must retain all licensing, authorship, or attribution notices
+contained in the Source Code (the ?Notices?), and provide all such
+Notices to each Recipient, together with a statement acknowledging the
+use of the Work. Notices may be provided directly to a Recipient or via
+an easy-to-find hyperlink to an Internet location also providing Access
+to Source Code.
+?
+###??? 4.4. Scope of Conditions in this License
+You are required to uphold the conditions of this License only relative
+to those who are Recipients of the Work from You.? Other than providing
+Recipients with the applicable Notices, Access to Source Code, and a
+copy of and full control of their User Data, nothing in this License
+requires You to provide processing services to or engage in network
+interactions with anyone.
+?
+###??? 4.5. Combined Work Exception
+As an exception to condition that You provide Recipients Access to
+Source Code, any Source Code files marked by the Licensor as having the
+?Combined Work Exception,? or any object code exclusively resulting from
+Source Code files so marked, may be combined with other Software into a
+?Larger Work.? So long as you comply with the requirements to provide
+Recipients the applicable Notices and Access to the Source Code provided
+to You by Licensor, and you provide Recipients access to their User Data
+and do not limit Recipient?s ability to independently work with their
+User Data, any other Software in the Larger Work as well as the Larger
+Work as a whole may be licensed under the terms of your choice.
+?
+## 5. Term and Termination
+The term of this License begins when You receive the Work, and continues
+until terminated for any of the reasons described herein, or until all
+Licensor?s intellectual property rights in the Software expire,
+whichever comes first (?Term?). This License cannot be revoked, only
+terminated for the reasons listed below.
+?
+###??? 5.1. Effect of Termination
+If this License is terminated for any reason, all permissions granted to
+You under Section 3 by any Licensor automatically terminate. You will
+immediately cease exercising any permissions granted in this License
+relative to the Work, including as part of any Modified Work.
+?
+###??? 5.2. Termination for Non-Compliance; Reinstatement
+This License terminates automatically if You fail to comply with any of
+the conditions in section 4. As a special exception to termination for
+non-compliance, Your permissions for the Work under this License will
+automatically be reinstated if You come into compliance with all the

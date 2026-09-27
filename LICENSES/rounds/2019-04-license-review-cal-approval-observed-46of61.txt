@@ -1,0 +1,750 @@
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com
+919-800-8033
+www.chesteklegal.com
+
+
+From pamela at chesteklegal.com  Tue Dec 24 14:20:03 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Tue, 24 Dec 2019 09:20:03 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAE+UdorTi0NKvENU-tPZA80JtwraHcRr-6-QMyH_DmCysPKCRQ@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <3013ad61-43d5-9144-2b07-7eb367a02d48@berkus.org> <CAE+UdorTi0NKvENU-tPZA80JtwraHcRr-6-QMyH_DmCysPKCRQ@mail.gmail.com>
+Message-ID: <20bae9a1-c7f3-56a3-0405-104b12b22e6a@chesteklegal.com>
+
+Van,
+
+Someone posted this on Twitter: "Scenario: Company X claims they are the 
+Recipient, demands from Licensee the User Data associated with a list of 
+employee names or IP addresses. Licensee incentivized to hand over the 
+User Data to Company X: why risk going to court and end up not being the 
+prevailing party?"
+
+My response was "Company X has to have possessory interest in User Data. 
+Interesting potential conflict with privacy laws though."
+
+Can you elaborate on what happens if the CAL and privacy laws, or even 
+just privacy interests, conflict? Say an employer that self-insures 
+provided identity data about its employee to its claims management 
+company. The claims management company processes health care claims for 
+its employees. The employer claims that information about the employees' 
+health care claims is Recipient Data and it is entitled to it (after 
+all, it is paying out on the claims).
+
+1. Who decides, and how, whether information is Recipient Data?
+
+2. What if HIPAA says that the employer may not have health care 
+information about its employees? But the CAL says they must provide it?
+
+
+Pam
+
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com
+919-800-8033
+www.chesteklegal.com
+
+
+From josh at berkus.org  Tue Dec 24 19:49:06 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Tue, 24 Dec 2019 11:49:06 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <20bae9a1-c7f3-56a3-0405-104b12b22e6a@chesteklegal.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <3013ad61-43d5-9144-2b07-7eb367a02d48@berkus.org> <CAE+UdorTi0NKvENU-tPZA80JtwraHcRr-6-QMyH_DmCysPKCRQ@mail.gmail.com> <20bae9a1-c7f3-56a3-0405-104b12b22e6a@chesteklegal.com>
+Message-ID: <94b3d254-5941-83c5-ecd5-df02c1d3d122@berkus.org>
+
+On 12/24/19 6:20 AM, Pamela Chestek wrote:
+> Can you elaborate on what happens if the CAL and privacy laws, or even
+> just privacy interests, conflict? Say an employer that self-insures
+> provided identity data about its employee to its claims management
+> company. The claims management company processes health care claims for
+> its employees. The employer claims that information about the employees'
+> health care claims is Recipient Data and it is entitled to it (after
+> all, it is paying out on the claims).
+
+Well, GDPR is all about user ownership of data, so I don't really see
+this as a problem with privacy laws (I can get a GDPR expert to opine on
+this if you want).
+
+However, you are getting into the issues around "who is the owner of the
+data", which will definitely be an issue with CAL-licensed applications. The employees would regard themselves to be owners of their healthcare
+data, whereas the company (the one paying for the software) regards
+*itself* as the owner.  But ... this is honestly not a question for a
+license to answer.  Sometimes, one still needs litigation attorneys ;-)
+
+(BTW, this health claims example isn't a great example, because as I
+read it that's not the kind of data that would be covered by the CAL,
+since that's "content" data as opposed to data required for the software
+to operate.  However, I can can personally come up with examples where
+PII would be covered by the CAL, so it's a legit question)
+
+Fundamentally, though, that's no different from "who is the author of
+the code" in older licenses; the same sorts of issues apply, and
+likewise can only be determined in court.
+
+
+-- 
+Josh Berkus
+
+
+From van.lindberg at gmail.com  Thu Dec 26 22:58:17 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 26 Dec 2019 16:58:17 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com>
+Message-ID: <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com>
+
+Hi Pam,
+
+Sorry for the late reply.
+
+On Tue, Dec 24, 2019 at 8:05 AM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+> The Holochain website talks about doing things like running a social
+> network client. Would that social network software have to be under an
+> open source license?
+>
+
+This comes down to the licensor's choice. If the licensor used the CAL
+without the Combined Works Exception, then this would have the effect of
+ensuring that the software stayed open source - modulo standard copyright
+rules that would tend to allow different licenses as the link between the
+CAL-licensed framework and other software became more attenuated.
+
+In the case of Holochain, Holo intends to use the Combined Works exception
+to allow differently-licensed software "on top" of the CAL-licensed
+framework. As an analogy, think of the external vs. internal interfaces
+split already used in the Linux kernel.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191226/f3b67b0f/attachment-0001.html>
+
+From van.lindberg at gmail.com  Thu Dec 26 23:04:43 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 26 Dec 2019 17:04:43 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <20bae9a1-c7f3-56a3-0405-104b12b22e6a@chesteklegal.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <3013ad61-43d5-9144-2b07-7eb367a02d48@berkus.org> <CAE+UdorTi0NKvENU-tPZA80JtwraHcRr-6-QMyH_DmCysPKCRQ@mail.gmail.com> <20bae9a1-c7f3-56a3-0405-104b12b22e6a@chesteklegal.com>
+Message-ID: <CAFQvZENPQbMnjJ-YQkKmbczuEQzgcu2PYO_6oCeO9CEawWNKpQ@mail.gmail.com>
+
+On Tue, Dec 24, 2019 at 8:20 AM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+> Someone posted this on Twitter: "Scenario: Company X claims they are the
+> Recipient, demands from Licensee the User Data associated with a list of
+> employee names or IP addresses. Licensee incentivized to hand over the
+> User Data to Company X: why risk going to court and end up not being the
+> prevailing party?"
+>
+> My response was "Company X has to have possessory interest in User Data.
+> Interesting potential conflict with privacy laws though."
+>
+
+There is no conflict with privacy laws - in fact, the CAL was written so
+that compliance with the strongest extant privacy laws would also satisfy
+the user data requirements of the CAL - and also, so that it did not
+require giving any information that would be prohibited by current privacy
+laws.
+
+This does require that an operator receiving a request for user data that
+may also fall under the privacy laws should be careful about the person to
+whom that information is revealed, but any operator would need to be
+careful to both 1) provide the proper data, and 2) not provide improper
+data, regardless of the CAL.
+
+As for interactions with things like HIPAA, employers do not acquire
+ownership of data by paying for insurance, so I don't think that is an
+issue.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191226/337a15e1/attachment.html>
+
+From pamela at chesteklegal.com  Fri Dec 27 13:58:41 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Fri, 27 Dec 2019 08:58:41 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZENPQbMnjJ-YQkKmbczuEQzgcu2PYO_6oCeO9CEawWNKpQ@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <3013ad61-43d5-9144-2b07-7eb367a02d48@berkus.org> <CAE+UdorTi0NKvENU-tPZA80JtwraHcRr-6-QMyH_DmCysPKCRQ@mail.gmail.com> <20bae9a1-c7f3-56a3-0405-104b12b22e6a@chesteklegal.com> <CAFQvZENPQbMnjJ-YQkKmbczuEQzgcu2PYO_6oCeO9CEawWNKpQ@mail.gmail.com>
+Message-ID: <61c73ab5-f22b-3d16-4ab9-552e4e672235@chesteklegal.com>
+
+
+
+On 12/26/2019 6:04 PM, VanL wrote:
+> There is no conflict with privacy laws - in fact, the CAL was written
+> so that compliance with the strongest extant privacy laws would also
+> satisfy the user data requirements of the CAL - and also, so that it
+> did not require giving any information that would be prohibited by
+> current privacy laws.
+>
+Can you elaborate on where in the license this potential conflict is
+addressed?
+
+Pam
+
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+From van.lindberg at gmail.com  Fri Dec 27 14:52:40 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 27 Dec 2019 08:52:40 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <61c73ab5-f22b-3d16-4ab9-552e4e672235@chesteklegal.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <3013ad61-43d5-9144-2b07-7eb367a02d48@berkus.org> <CAE+UdorTi0NKvENU-tPZA80JtwraHcRr-6-QMyH_DmCysPKCRQ@mail.gmail.com> <20bae9a1-c7f3-56a3-0405-104b12b22e6a@chesteklegal.com> <CAFQvZENPQbMnjJ-YQkKmbczuEQzgcu2PYO_6oCeO9CEawWNKpQ@mail.gmail.com> <61c73ab5-f22b-3d16-4ab9-552e4e672235@chesteklegal.com>
+Message-ID: <CAFQvZEMivVfk3Sx=AcNTc-6D+A163gznkyEZpW0YuJAtQayzrg@mail.gmail.com>
+
+Specifically, it is in the user data provision. The definition of user data
+only includes data in which the recipient has an existing right of
+ownership or possession.
+
+The GDPR and CCPA include a provision that says that the data that must be
+provided under those laws includes the data pertaining to that user, but
+not to any other user.
+
+
+
+On Fri, Dec 27, 2019, 7:59 AM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+>
+>
+> On 12/26/2019 6:04 PM, VanL wrote:
+> > There is no conflict with privacy laws - in fact, the CAL was written
+> > so that compliance with the strongest extant privacy laws would also
+> > satisfy the user data requirements of the CAL - and also, so that it
+> > did not require giving any information that would be prohibited by
+> > current privacy laws.
+> >
+> Can you elaborate on where in the license this potential conflict is
+> addressed?
+>
+> Pam
+>
+>
+> Pamela S. Chestek
+> Chestek Legal
+> PO Box 2492
+> Raleigh, NC 27602
+> 919-800-8033
+> pamela at chesteklegal.com
+> www.chesteklegal.com
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191227/d491f44f/attachment.html>
+
+From pamela at chesteklegal.com  Fri Dec 27 16:22:33 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Fri, 27 Dec 2019 11:22:33 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEMivVfk3Sx=AcNTc-6D+A163gznkyEZpW0YuJAtQayzrg@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <3013ad61-43d5-9144-2b07-7eb367a02d48@berkus.org> <CAE+UdorTi0NKvENU-tPZA80JtwraHcRr-6-QMyH_DmCysPKCRQ@mail.gmail.com> <20bae9a1-c7f3-56a3-0405-104b12b22e6a@chesteklegal.com> <CAFQvZENPQbMnjJ-YQkKmbczuEQzgcu2PYO_6oCeO9CEawWNKpQ@mail.gmail.com> <61c73ab5-f22b-3d16-4ab9-552e4e672235@chesteklegal.com> <CAFQvZEMivVfk3Sx=AcNTc-6D+A163gznkyEZpW0YuJAtQayzrg@mail.gmail.com>
+Message-ID: <17840944-b6cc-6076-a579-4f810bc6ea66@chesteklegal.com>
+
+
+
+On 12/27/2019 9:52 AM, VanL wrote:
+> Specifically, it is in the user data provision. The definition of user
+> data only includes data in which the recipient has an existing right
+> of ownership or possession.
+>
+That assumes there can only be one owner, but I don't believe that's a
+valid assumption with a non-rivalrous good.
+
+Pam
+
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+From pamela at chesteklegal.com  Fri Dec 27 19:21:32 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Fri, 27 Dec 2019 14:21:32 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com>
+Message-ID: <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com>
+
+
+On 12/26/19 5:58 PM, VanL wrote:
+> Hi Pam,
+>
+> Sorry for the?late reply.
+>
+> On Tue, Dec 24, 2019 at 8:05 AM Pamela Chestek 
+> <pamela at chesteklegal.com <mailto:pamela at chesteklegal.com>> wrote:
+>
+>     The Holochain website talks about doing things like running a social
+>     network client. Would that social network software have to be
+>     under an
+>     open source license?
+>
+>
+> This comes down to the licensor's choice. If the licensor used the CAL 
+> without the Combined Works Exception, then this would have the effect 
+> of ensuring that the software stayed open source - modulo standard 
+> copyright rules that would tend to allow different licenses as the 
+> link between the CAL-licensed framework and other software became more 
+> attenuated.
+>
+> In the case of Holochain, Holo intends to use the Combined Works 
+> exception to allow differently-licensed software "on top" of the 
+> CAL-licensed framework. As an analogy, think of the external vs. 
+> internal interfaces split already used in the Linux kernel.
+
+Isn't it more similar to the outcome if the Linux kernel hadn't 
+clarified that what is in user space didn't need to be under the GPL? If 
+the Linux kernel was under the CAL, wouldn't all the applications that 
+run on it also have to be under open source licenses, unless the 
+licensor had the Combined Works exception?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com
+919-800-8033
+www.chesteklegal.com
+>
+> Thanks,
+> Van
+>
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-- 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191227/d51c38d5/attachment-0001.html>
+
+From bruce at perens.com  Fri Dec 27 19:35:53 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 27 Dec 2019 11:35:53 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com>
+Message-ID: <CAK2MWOuncFYUsQOKJHq0q3gyTfB5-grixybur=tJxGJb=wTzqA@mail.gmail.com>
+
+On Fri, Dec 27, 2019 at 11:22 AM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+> Isn't it more similar to the outcome if the Linux kernel hadn't clarified
+> that what is in user space didn't need to be under the GPL? If the Linux
+> kernel was under the CAL, wouldn't all the applications that run on it also
+> have to be under open source licenses, unless the licensor had the Combined
+> Works exception?
+>
+
+This is not a particularly good example, because the kernel provides an
+interface that is clearly intended to provide services to separate
+programs. Sort of like the plug in Goloob v. Nintendo. In addition the API
+was defined in industry standards, and thus it was clear that the Linux
+developers could not own a copyright to those portions of the API.
+-- 
+Bruce Perens - Partner, OSS.Capital.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191227/02e1e2e1/attachment.html>
+
+From van.lindberg at gmail.com  Sat Dec 28 02:28:12 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 27 Dec 2019 20:28:12 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <17840944-b6cc-6076-a579-4f810bc6ea66@chesteklegal.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <3013ad61-43d5-9144-2b07-7eb367a02d48@berkus.org> <CAE+UdorTi0NKvENU-tPZA80JtwraHcRr-6-QMyH_DmCysPKCRQ@mail.gmail.com> <20bae9a1-c7f3-56a3-0405-104b12b22e6a@chesteklegal.com> <CAFQvZENPQbMnjJ-YQkKmbczuEQzgcu2PYO_6oCeO9CEawWNKpQ@mail.gmail.com> <61c73ab5-f22b-3d16-4ab9-552e4e672235@chesteklegal.com> <CAFQvZEMivVfk3Sx=AcNTc-6D+A163gznkyEZpW0YuJAtQayzrg@mail.gmail.com> <17840944-b6cc-6076-a579-4f810bc6ea66@chesteklegal.com>
+Message-ID: <CAFQvZEMvVBUrqnVtHOeSjbM4LYZDJi4R8JL+kd=DcoJL54vx_g@mail.gmail.com>
+
+That may be so - but I think it is important that the CAL does not create
+any new rights. Thus users should only be able to get what they already
+have a right to have.
+
+Thanks,
+Van
+
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+
+On Fri, Dec 27, 2019, 10:23 AM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+>
+>
+> On 12/27/2019 9:52 AM, VanL wrote:
+> > Specifically, it is in the user data provision. The definition of user
+> > data only includes data in which the recipient has an existing right
+> > of ownership or possession.
+> >
+> That assumes there can only be one owner, but I don't believe that's a
+> valid assumption with a non-rivalrous good.
+>
+> Pam
+>
+>
+> Pamela S. Chestek
+> Chestek Legal
+> PO Box 2492
+> Raleigh, NC 27602
+> 919-800-8033
+> pamela at chesteklegal.com
+> www.chesteklegal.com
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191227/46588070/attachment.html>
+
+From van.lindberg at gmail.com  Sat Dec 28 02:31:36 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 27 Dec 2019 20:31:36 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com>
+Message-ID: <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com>
+
+Using the convinced works exception would be similar in effect (not exactly
+the same, but similar) to what exists in the Linux kernel today.
+
+Without the exception, it would be more similar to the Joomla or WordPress
+ecosystem (again, not exactly, but similar).
+
+Thanks,
+Van
+
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+
+On Fri, Dec 27, 2019, 1:22 PM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+>
+> On 12/26/19 5:58 PM, VanL wrote:
+>
+> Hi Pam,
+>
+> Sorry for the late reply.
+>
+> On Tue, Dec 24, 2019 at 8:05 AM Pamela Chestek <pamela at chesteklegal.com>
+> wrote:
+>
+>> The Holochain website talks about doing things like running a social
+>> network client. Would that social network software have to be under an
+>> open source license?
+>>
+>
+> This comes down to the licensor's choice. If the licensor used the CAL
+> without the Combined Works Exception, then this would have the effect of
+> ensuring that the software stayed open source - modulo standard copyright
+> rules that would tend to allow different licenses as the link between the
+> CAL-licensed framework and other software became more attenuated.
+>
+> In the case of Holochain, Holo intends to use the Combined Works exception
+> to allow differently-licensed software "on top" of the CAL-licensed
+> framework. As an analogy, think of the external vs. internal interfaces
+> split already used in the Linux kernel.
+>
+> Isn't it more similar to the outcome if the Linux kernel hadn't clarified
+> that what is in user space didn't need to be under the GPL? If the Linux
+> kernel was under the CAL, wouldn't all the applications that run on it also
+> have to be under open source licenses, unless the licensor had the Combined
+> Works exception?
+>
+> Pam
+> Pamela S. Chestek
+> Chestek Legal
+> PO Box 2492
+> Raleigh, NC 27602
+> pamela at chesteklegal.com
+> 919-800-8033
+> www.chesteklegal.com
+>
+>
+> Thanks,
+> Van
+>
+>
+>
+> _______________________________________________
+> License-review mailing listLicense-review at lists.opensource.orghttp://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+> --
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191227/7386b9b5/attachment-0001.html>
+
+From bkuhn at ebb.org  Thu Jan  2 02:27:29 2020
+From: bkuhn at ebb.org (Bradley M. Kuhn)
+Date: Wed, 01 Jan 2020 18:27:29 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> (VanL's message of "Fri, 27 Dec 2019 20:31:36 -0600")
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com>
+Message-ID: <87sgkymw32.fsf@ebb.org>
+
+I can't find an example when OSI approved a novel copyleft license that
+hadn't yet been used in practice and therefore had no track record of use
+for any FOSS project.  It was once somewhat common for OSI to approve
+licenses that were used by only one entity, and most of those licenses were
+never used beyond the one project, and even most of those entities have
+deprecated those by now.  (OSI also made a decision to cease considering
+such single-use licenses.)  Rapid acceptance of a novel licenses, so far
+unused in practice, causes confusion in the FOSS community.
+
+Folks have shouted down Bruce as he wonders how Van's license will be used
+in practice.  I think Bruce has made a useful point on this thread: as a
+general matter, it's relevant that we consider how the license impacts
+users' *and* software publishers' software freedoms in *practice*, not
+merely *in theory*.
+
+In that regard, I'd like to know if the project that plans to use this
+license will be inbound=outbound (i.e., is the entity that's promulgating
+this new license willing to bound themselves by the license terms)?  Van,
+could you tell us, on behalf of your client (who appears to be the only
+potential licensor interested in this license), what their contribution
+plans are regarding this license?  Are they planning to accept contributions
+under this license, and thus be bound by it for their FOSS projects?
+If not, why not?
+-- 
+
+Bradley M. Kuhn - he/him
+
+Pls. support the charity where I work, Software Freedom Conservancy:
+https://sfconservancy.org/supporter/
+
+
+From rfontana at redhat.com  Thu Jan  2 03:37:40 2020
+From: rfontana at redhat.com (Richard Fontana)
+Date: Wed, 1 Jan 2020 22:37:40 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <87sgkymw32.fsf@ebb.org>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org>
+Message-ID: <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com>
+
+On Wed, Jan 1, 2020 at 9:29 PM Bradley M. Kuhn <bkuhn at ebb.org> wrote:
+
+> Folks have shouted down Bruce as he wonders how Van's license will be used
+> in practice.  I think Bruce has made a useful point on this thread: as a
+> general matter, it's relevant that we consider how the license impacts
+> users' *and* software publishers' software freedoms in *practice*, not
+> merely *in theory*.
+>
+> In that regard, I'd like to know if the project that plans to use this
+> license will be inbound=outbound (i.e., is the entity that's promulgating
+> this new license willing to bound themselves by the license terms)?  Van,
+> could you tell us, on behalf of your client (who appears to be the only
+> potential licensor interested in this license), what their contribution
+> plans are regarding this license?  Are they planning to accept contributions
+> under this license, and thus be bound by it for their FOSS projects?
+> If not, why not?
+
+I would also like to know the answer to this question -- or, to put
+the issue more directly, I am interested in knowing whether Holochain
+plans to use this license in connection with a copyleft/proprietary
+dual-licensing business model (what some call "proprietary
+relicensing").
+
+I know there is a difference of opinion on whether the actual or
+anticipated license-employing business model of a license submitter
+should matter at all for purposes of OSI approval. For me, if the
+business model in question is some form of proprietary relicensing,
+it's an easier question. OSI ought to take a clear position that
+proprietary relicensing is a bad practice, and that licenses
+principally designed for use in connection with proprietary
+relicensing (whether this is obvious from the text of the license, or,
+as will more often be the case, detectable as a matter of common sense
+and known extrinsic facts) raise special OSD conformance concerns.
+
+When Kyle Mitchell's L0-R was being discussed a couple of years ago, I
+expressed the view on this list that the nature of the business model
+of the entity associated with the license (Artless Devices) -- a kind
+of proprietary-relicensing "vending machine" as I believe Kyle
+described it -- was relevant when examining the license for
+conformance to the OSD. This was in part because of the substantive
+restrictive novelty of the license, and because the only foreseeable
+user of the license would be a project engaged in a business deal with
+Artless Devices. In the case of CAL, we have a complex copyleft
+license with significant conditions not seen before in an open source
+license, where the only foreseeable user is Holochain itself.
+
+It matters whether proprietary relicensing is the primary use case for
+at least a couple of reasons. First, there is the long general history
+of this technique being used, in effect, as a disguised attempt to
+inhibit software freedom, particularly for commercial users. Second,
+and this goes to Bradley's comment, the proprietary relicensing use
+case generally requires projects to adopt rules of governance that
+result in concentration of licensing power in one entity and an
+asymmetric, discriminatory approach to legally handling contributions,
+which I would argue in the copyleft context conflicts with present-day
+open source values which should inform how we interpret the OSD.
+
+Richard
+
+
+
+From bruce at perens.com  Thu Jan  2 04:52:09 2020
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 1 Jan 2020 20:52:09 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <87sgkymw32.fsf@ebb.org>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org>
+Message-ID: <CAK2MWOugX=rh7cz0R-g5-ZvkMXHmHMi8fpLRohtXT7sWfEaTfQ@mail.gmail.com>
+
+Don't waste your time, Bradley. They were told not to listen to you,
+either.
+
+On Wed, Jan 1, 2020 at 6:29 PM Bradley M. Kuhn <bkuhn at ebb.org> wrote:
+
+> I can't find an example when OSI approved a novel copyleft license that
+> hadn't yet been used in practice and therefore had no track record of use
+> for any FOSS project.  It was once somewhat common for OSI to approve
+> licenses that were used by only one entity, and most of those licenses were
+> never used beyond the one project, and even most of those entities have
+> deprecated those by now.  (OSI also made a decision to cease considering
+> such single-use licenses.)  Rapid acceptance of a novel licenses, so far
+> unused in practice, causes confusion in the FOSS community.
+>
+> Folks have shouted down Bruce as he wonders how Van's license will be used
+> in practice.  I think Bruce has made a useful point on this thread: as a
+> general matter, it's relevant that we consider how the license impacts
+> users' *and* software publishers' software freedoms in *practice*, not
+> merely *in theory*.
+>
+> In that regard, I'd like to know if the project that plans to use this
+> license will be inbound=outbound (i.e., is the entity that's promulgating
+> this new license willing to bound themselves by the license terms)?  Van,
+> could you tell us, on behalf of your client (who appears to be the only
+> potential licensor interested in this license), what their contribution
+> plans are regarding this license?  Are they planning to accept
+> contributions
+> under this license, and thus be bound by it for their FOSS projects?
+> If not, why not?
+> --
+>
+> Bradley M. Kuhn - he/him
+>
+> Pls. support the charity where I work, Software Freedom Conservancy:
+> https://sfconservancy.org/supporter/
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens - Partner, OSS.Capital.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200101/e875bfdd/attachment.html>
+
+From josh.simmons at opensource.org  Thu Jan  2 05:18:06 2020
+From: josh.simmons at opensource.org (Joshua R. Simmons)
+Date: Wed, 1 Jan 2020 21:18:06 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAK2MWOugX=rh7cz0R-g5-ZvkMXHmHMi8fpLRohtXT7sWfEaTfQ@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAK2MWOugX=rh7cz0R-g5-ZvkMXHmHMi8fpLRohtXT7sWfEaTfQ@mail.gmail.com>
+Message-ID: <CAMn5X_BLHOZJFTOfrs69w8PBkRXMt0yULz4tw1A4VS-jx68jyg@mail.gmail.com>
+
+That's out of line, Bruce. I'm not sure where this FUD is coming from, but
+it's inappropriate.
+
+Regardless of my own views, I quite value Bradley's contribution, as well
+as Van's engaging the process and responding to criticism in good faith.
+
+I've been following the discussions closely and, frankly, it seems a decent
+model of critical civil discourse. Let's keep it that way.
+
+(Apologies for the re-send, had to square away some issues with my mailing
+list membership.)
+
+Josh Simmons, VP at Open Source Initiative (Tax ID 91-2037395)
+@joshsimmons <http://twitter.com/joshsimmons> | josh at opensource.org |
+1-707-600-6098
+| bluesomewhere on Freenode
+ad astra per aspera ?
+
+
+On Wed, Jan 1, 2020 at 8:53 PM Bruce Perens via License-review <
+license-review at lists.opensource.org> wrote:
+
+> Don't waste your time, Bradley. They were told not to listen to you,
+> either.
+>
+> On Wed, Jan 1, 2020 at 6:29 PM Bradley M. Kuhn <bkuhn at ebb.org> wrote:
+>
+>> I can't find an example when OSI approved a novel copyleft license that
+>> hadn't yet been used in practice and therefore had no track record of use
+>> for any FOSS project.  It was once somewhat common for OSI to approve
+>> licenses that were used by only one entity, and most of those licenses
+>> were
+>> never used beyond the one project, and even most of those entities have
+>> deprecated those by now.  (OSI also made a decision to cease considering
+>> such single-use licenses.)  Rapid acceptance of a novel licenses, so far
+>> unused in practice, causes confusion in the FOSS community.
+>>
+>> Folks have shouted down Bruce as he wonders how Van's license will be used
+>> in practice.  I think Bruce has made a useful point on this thread: as a
+>> general matter, it's relevant that we consider how the license impacts
+>> users' *and* software publishers' software freedoms in *practice*, not
+>> merely *in theory*.
+>>
+>> In that regard, I'd like to know if the project that plans to use this
+>> license will be inbound=outbound (i.e., is the entity that's promulgating
+>> this new license willing to bound themselves by the license terms)?  Van,
+>> could you tell us, on behalf of your client (who appears to be the only
+>> potential licensor interested in this license), what their contribution
+>> plans are regarding this license?  Are they planning to accept

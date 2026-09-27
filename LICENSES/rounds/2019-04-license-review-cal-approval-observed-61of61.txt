@@ -1,0 +1,704 @@
+Message-ID: <CAFQvZEP+g++NMXxH4Nd-6kZocCX6drG4yMrGMah-kYTLpyUADA@mail.gmail.com>
+
+If you do, I am happy to be a resource.
+
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+
+On Sat, Feb 15, 2020, 2:23 PM Josh Berkus <josh at berkus.org> wrote:
+
+> On 2/14/20 4:24 PM, Brian Behlendorf wrote:
+> > I realize this is moot with the OSI board recommending approval (or did
+> > they approve?), but I'm not persuaded by what was written at that link
+> > (starting with "GDPR is about privacy, not data" - the "D" is literally
+> > "Data" and the P is not "Privacy"). I'm not a GDPR expert by any
+> > stretch, but found in other discussions that making self-sovereign
+> > identity systems GDPR-compatible to involve several layers of
+> > non-trivial issues. Issues such as the fact that any particular bit of
+> > data is rarely about just one person, and more often than not about two
+> > people; hashed/encrypted data can also be PII; and that there are
+> > reasonable exceptions where data can't be shared or deleted upon request
+> > that are not machine-parseable situations (such as "valid business
+> > reason"). GDPR's impact is also still evolving as enforcement actions
+> > establish a track record for how it will be enforced and accepted by
+> > judges on broad or narrow interpretive bases. It's a ton of complexity -
+> > but all of which I find myself arguing on the side of being an
+> > unavoidable part of the ethics of dealing with data about other people.
+>
+> Hmmm.  I know a law student who is writing a paper on GDPR for school;
+> I'll see if I can interest her in taking on CAL vs. GDPR as a law paper.
+>
+> --
+> Josh Berkus
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200215/d43afe58/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Sun Feb 16 08:31:27 2020
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Sun, 16 Feb 2020 10:31:27 +0200
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <alpine.DEB.2.21.2002141611010.4251@flooz>
+References: <CAMkzgA7mAdLFnpmFZ0n0Tjhfzrgq_eA8QZawi9rgmH8AXUCsUg@mail.gmail.com> <alpine.DEB.2.21.2002131142220.4251@flooz> <7373866c-6778-e1c9-b8b3-d1080e3157dc@chesteklegal.com> <alpine.DEB.2.21.2002141611010.4251@flooz>
+Message-ID: <CAKHykeswcjCNEFRdwaOZwQbvSnhQ4=ms1iO1QQTzQYt_JZw1iA@mail.gmail.com>
+
+On Sat, Feb 15, 2020 at 8:04 PM Brian Behlendorf <brian at behlendorf.com> wrote:
+> On Thu, 13 Feb 2020, Pamela Chestek wrote:
+> > Yes, that was one of the very first issues raised with the CAL license
+> > v1 on license-discuss before it was submitted to license-review almost a
+> > year ago, in April 2019. This is Van's explanation about why they are
+> > about two different things:
+> > http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-March/020324.html.
+>
+> I realize this is moot with the OSI board recommending approval (or did
+> they approve?),
+
+At this point it's approved.
+
+> but I'm not persuaded by what was written at that link
+> (starting with "GDPR is about privacy, not data" - the "D" is literally
+> "Data" and the P is not "Privacy"). I'm not a GDPR expert by any stretch,
+> but found in other discussions that making self-sovereign identity systems
+> GDPR-compatible to involve several layers of non-trivial issues. Issues
+> such as the fact that any particular bit of data is rarely about just one
+> person, and more often than not about two people; hashed/encrypted data
+> can also be PII; and that there are reasonable exceptions where data can't
+> be shared or deleted upon request that are not machine-parseable
+> situations (such as "valid business reason"). GDPR's impact is also still
+> evolving as enforcement actions establish a track record for how it will
+> be enforced and accepted by judges on broad or narrow interpretive bases.
+> It's a ton of complexity - but all of which I find myself arguing on the
+> side of being an unavoidable part of the ethics of dealing with data about
+> other people.
+>
+> I would have more trust in an analysis of these issues by someone not
+> vested in whether OSI approves the license. Elizabeth Renieris
+> (@hackylawyer on Twitter) for instance.
+>
+
+I'm not a lawyer but also not vested in any interests. I'm also
+European so I have some everyday knowledge about GDPR. (Such as what
+the letters stand for. Yes, this is a common question!)
+
+The key here is that the data that GDPR applies to is a different set
+than what the CAL considers User Data. Says the CAL:
+
+> ?User Data? means any data that is an input to or an output from the Work, where the presence of the data is necessary for substantially identical use of the Work in an equivalent context chosen by the Recipient, and where the Recipient has an existing ownership interest, an existing right to possess, or where the data has been generated by, for, or has been assigned to the Recipient.
+
+>From the above it is clear that the CAL addresses data that I already
+have in my possession, or have had when it was stored in the system by
+me, or in any case data that I'm clearly entitled to have. So in terms
+of privacy or confidentiality the data I can get thanks to CAL should
+typically not be new information to me. The point of the CAL is merely
+to guarantee my right to move data that belongs to me. ("data
+autonomy")
+
+The GDPR otoh is concerned with transparency: site operators must
+disclose to me what data they have collected and enriched about me.
+Usually behind my back such that I was never aware of that data. Of
+course, data that I have entered into a site (my cat photos) is also
+covered by GDPR, but it's not the main point.
+
+Separately the EU also has a MyData initiative, which is concerned
+with my right to extract and move my data from one service provider to
+another. This is similar in spirit to the CAL. This initiative is more
+about growing an ecosystem of tools and practices, and the legal basis
+does come from the GDPR. (And before GDPR came from other pre-existing
+EU legislation.)
+
+
+> All of this is not to argue for or against CAL as an OSD-compliant
+> license, though it feels like the first (I could be wrong) to bring the
+> data created or managed by the application into the license itself.
+
+It sure is the first. This was a major discussion item in the review process.
+
+> That
+> seems to veer very much on limitations on use, but more importantly - data
+> is a complex subject, and at times will defy the kind of predictability
+> and automated-conformance-checking that open source licenses have long
+> offered their users. Perhaps it's not OSI's role to argue that an approved
+> license should not be used, but this license will add to the compliance
+> burden for end users, no matter how much this license authors believe
+> their obligations are a strict subset.
+
+It certainly does introduce a new aspect licensees must take into
+account. Even if in some jurisdictions it may have little practical
+consequence, if the same obligation existed by law anyway, it's still
+something lawyers need to analyze and keep in mind.
+
+henrik
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+
+
+From lrosen at rosenlaw.com  Mon Feb 17 02:58:25 2020
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Sun, 16 Feb 2020 18:58:25 -0800
+Subject: [License-discuss] GDPR/CCPA and CAL
+Message-ID: <022301d5e53e$216cf720$6446e560$@rosenlaw.com>
+
+I would appreciate a more complete answer to Brian's question. GDPR and CCPA
+deal with "personal information" under statutory authority in various
+jurisdictions. Neither relies on copyright law to control access to or use
+of personal information. So is CAL relying only on contractual law stated in
+the license agreement to provide restrictions on the use or distribution of
+such data? Where is the constitutional or statutory authority to control
+data used by a copyrighted or patented work of software? Is this in
+principle like the attempt of software licenses to control the uses of APIs?
+Both may be an overreach. Strong wishes and heartfelt goals may not be
+sufficient authority to do something with intellectual "property," if
+property it actually is short of trade secrets or personal information.
+ 
+
+This reveals how little I understand about this topic and about CAL.
+ 
+
+/Larry
+ 
+
+From: License-review <license-review-bounces at lists.opensource.org> On Behalf
+Of VanL
+Sent: Thursday, February 13, 2020 12:03 PM
+To: License submissions for OSI review <license-review at lists.opensource.org>
+Subject: Re: [License-review] For approval: The Cryptographic Autonomy
+License (Beta 4)
+ 
+
+Hi Brian,
+ 
+
+On Thu, Feb 13, 2020 at 1:56 PM Brian Behlendorf <brian at behlendorf.com
+<mailto:brian at behlendorf.com> > wrote:
+
+
+Has anyone considered the PII and GDPR/CCPA/etc implications of the CAL? 
+Could there be scenarios where the CAL requires behavior that the GDPR 
+prevents?
+ 
+
+The CAL was written with particular care to be compatible with the GDPR and
+CCPA, and carefully use similar language. In fact, the first version had a
+interpretive aid specifying that complying with specific paragraphs of the
+GDPR would also result in a compliant delivery of user data under the CAL.
+That paragraph was removed due to misunderstandings about its effects, but
+it is still true.
+ 
+
+Thanks,
+Van
+ 
+ 
+ 
+ 
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20200216/efa4c608/attachment.html>
+
+From btilly at gmail.com  Tue Feb 18 20:04:03 2020
+From: btilly at gmail.com (Ben Tilly)
+Date: Tue, 18 Feb 2020 12:04:03 -0800
+Subject: [License-discuss] GDPR/CCPA and CAL
+In-Reply-To: <022301d5e53e$216cf720$6446e560$@rosenlaw.com>
+References: <022301d5e53e$216cf720$6446e560$@rosenlaw.com>
+Message-ID: <CANoac9VKW3r3N9zZU=ObVawKEcneE5So3tHg57N9Bvy8+2-XfQ@mail.gmail.com>
+
+I have a similar question.
+
+The Constitution gives regulation of interstate commerce to Congress, not
+the states.  Suppose that I am a Delaware company that does business in
+California but is headquartered in New Jersey.  If I sell personal data to
+a New York company where some of the IP addresses and cookies are
+associated with Californians, what gives California authority to regulate
+that commercial transaction?
+
+I am not a lawyer, but this sure feels like overreach.
+
+On Sun, Feb 16, 2020 at 6:59 PM Lawrence Rosen <lrosen at rosenlaw.com> wrote:
+
+> I would appreciate a more complete answer to Brian?s question. GDPR and
+> CCPA deal with ?personal information? under statutory authority in various
+> jurisdictions. Neither relies on copyright law to control access to or use
+> of personal information. So is CAL relying only on contractual law stated
+> in the license agreement to provide restrictions on the use or distribution
+> of such data? Where is the constitutional or statutory authority to control
+> *data* used by a copyrighted or patented work of software? Is this in
+> principle like the attempt of software licenses to control the uses of
+> APIs? Both may be an overreach. Strong wishes and heartfelt goals may not
+> be sufficient authority to do something with intellectual ?property,? if
+> property it actually is short of trade secrets or personal information.
+>
+>
+>
+> This reveals how little I understand about this topic and about CAL.
+>
+>
+>
+> /Larry
+>
+>
+>
+> *From:* License-review <license-review-bounces at lists.opensource.org> *On
+> Behalf Of *VanL
+> *Sent:* Thursday, February 13, 2020 12:03 PM
+> *To:* License submissions for OSI review <
+> license-review at lists.opensource.org>
+> *Subject:* Re: [License-review] For approval: The Cryptographic Autonomy
+> License (Beta 4)
+>
+>
+>
+> Hi Brian,
+>
+>
+>
+> On Thu, Feb 13, 2020 at 1:56 PM Brian Behlendorf <brian at behlendorf.com>
+> wrote:
+>
+>
+> Has anyone considered the PII and GDPR/CCPA/etc implications of the CAL?
+> Could there be scenarios where the CAL requires behavior that the GDPR
+> prevents?
+>
+>
+>
+> The CAL was written with particular care to be compatible with the GDPR
+> and CCPA, and carefully use similar language. In fact, the first version
+> had a interpretive aid specifying that complying with specific paragraphs
+> of the GDPR would also result in a compliant delivery of user data under
+> the CAL. That paragraph was removed due to misunderstandings about its
+> effects, but it is still true.
+>
+>
+>
+> Thanks,
+> Van
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20200218/978266aa/attachment.html>
+
+From ian at iankelling.org  Wed Mar  4 16:00:36 2020
+From: ian at iankelling.org (Ian Kelling)
+Date: Wed, 04 Mar 2020 11:00:36 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZENh_sUygAAbe9uDs+EptVt53aKPsy1YiPywOy3VU9YJEw@mail.gmail.com>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <871rqz3w40.fsf@fsf.org> <CAFQvZENh_sUygAAbe9uDs+EptVt53aKPsy1YiPywOy3VU9YJEw@mail.gmail.com>
+Message-ID: <874kv49kkb.fsf@iankelling.org>
+
+
+VanL <van.lindberg at gmail.com> writes:
+
+> Hello Ian,
+>
+> Thanks for chiming in. A couple responses:
+>
+> On Thu, Feb 13, 2020 at 8:50 AM Ian Kelling <ian at iankelling.org> wrote:
+>
+>>
+>> What is providing a service?
+>
+>
+> Providing a service is defined in terms of communicating the Work to
+> another person - the essential human-to-human communication. It is
+> encompassed in Section 4:
+>
+> "Exercis[ing] any permission granted by this License, such that the Work,
+> or any part, aspect, or element of the Work, is distributed, communicated,
+> made available, or made perceptible to a non-Affiliate third party (a
+> ?Recipient?), either via physical delivery or via a network connection to
+> the Recipient."
+>
+> Speaking broadly as to Mailman, preferences and your specific messages
+> would be considered User Data. But your worry about a bug preventing the
+> use of Mailman is unfounded. The CAL doesn't specify the particular
+> mechanism of compliance, so "bug-free" export code is not required.
+
+Your argument seems to be that noncompliance is fine because the license
+doesn't specify a compliance mechanism. But copyright law does, and it
+doesn't make any sense to consider a license open source when
+noncompliance is the natural result of free software development with
+the best intentions.
+
+Its not just about requiring bugs be fixed. As far as I can tell,
+anytime you run a gratis service which stores user data (as defined by
+CAL), its reasonable to expect that some people will input data then
+request their user data (and CAL requires you give it to them), so to
+reasonably expect that to be in compliance, it requires there to exist
+software functionality to get that data, call it an export or
+whatever. Almost all free software I know of that is used for gratis
+services does not expose all user data it stores back to the user or
+have that functionality, and thus would expect to be in noncompliance if
+run under this license. I can list off 10 common ones easily, many are
+in debian and developed with the best intentions around user data. Its
+easy to say "software should do X", until you are the one writing it. It
+just doesn't make sense to call a license open source if normal free
+software can't comply because it lacks specific functionally.
+
+Here's more concrete examples. For Mailman, you've said that CAL would
+require users to be able to get their emails. Mailman stores email in a
+raw form called mbox on the server. But mailman only exposes it to users
+in html form which is derived from the raw form and missing some user
+data, and can't work correctly with another instance of Mailman. Users
+would need the mbox data. So if Mailman was under CAL, running it would
+lead to noncompliance. And Mailman is a an extremely simple example. A
+better one would be Mediawiki, or CiviCRM where admin users can define
+and change fields at runtime, making things quite complicated, and
+making the burden of tracking user data not just on the developer, but
+also users. It could easily take months or years of full time
+development to write functionality to export user data and track it. In
+the rationale document by the OSI, it says compliance can already be
+hard, so its fine that this is hard too. There has to be a limit
+somewhere, and this should clearly be beyond it. For compliance with
+existing licenses, you can follow a general principle of treating users
+like fellow developers and there's essentially no burden, but this is
+completely different.
+
+To argue against this using the OSD: #3 says "allows modification", and
+in the annotated version "For rapid evolution to happen, people need to
+be able to experiment", it implies at least allowing any modification
+that is typical in free software development, and implies allowing
+running that software, and of course, being in compliance while doing
+it. Well, the user data requirement does not allow that for software
+meant to run as gratis internet services that stores user data. It would
+be one thing if that was already a common practice in but its not at
+all.
+
+
+-- 
+Ian Kelling
+https://iankelling.org
+Note, this my personal opinion, unrelated to my employer
+
+
+From pamela.chestek at opensource.org  Fri Mar  6 19:45:20 2020
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Fri, 6 Mar 2020 14:45:20 -0500
+Subject: [License-discuss] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <874kv49kkb.fsf@iankelling.org>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <871rqz3w40.fsf@fsf.org> <CAFQvZENh_sUygAAbe9uDs+EptVt53aKPsy1YiPywOy3VU9YJEw@mail.gmail.com> <874kv49kkb.fsf@iankelling.org>
+Message-ID: <ae7369fe-e655-bd1d-0b67-9e672bbd06f8@opensource.org>
+
+Moving to license-discuss since the license has been approved.
+
+Pam
+
+Pamela Chestek
+Chair, License Review Committee
+Open Source Initiative
+
+On 3/4/2020 11:00 AM, Ian Kelling wrote:
+> VanL <van.lindberg at gmail.com> writes:
+>
+>> Hello Ian,
+>>
+>> Thanks for chiming in. A couple responses:
+>>
+>> On Thu, Feb 13, 2020 at 8:50 AM Ian Kelling <ian at iankelling.org> wrote:
+>>
+>>> What is providing a service?
+>>
+>> Providing a service is defined in terms of communicating the Work to
+>> another person - the essential human-to-human communication. It is
+>> encompassed in Section 4:
+>>
+>> "Exercis[ing] any permission granted by this License, such that the Work,
+>> or any part, aspect, or element of the Work, is distributed, communicated,
+>> made available, or made perceptible to a non-Affiliate third party (a
+>> ?Recipient?), either via physical delivery or via a network connection to
+>> the Recipient."
+>>
+>> Speaking broadly as to Mailman, preferences and your specific messages
+>> would be considered User Data. But your worry about a bug preventing the
+>> use of Mailman is unfounded. The CAL doesn't specify the particular
+>> mechanism of compliance, so "bug-free" export code is not required.
+> Your argument seems to be that noncompliance is fine because the license
+> doesn't specify a compliance mechanism. But copyright law does, and it
+> doesn't make any sense to consider a license open source when
+> noncompliance is the natural result of free software development with
+> the best intentions.
+>
+> Its not just about requiring bugs be fixed. As far as I can tell,
+> anytime you run a gratis service which stores user data (as defined by
+> CAL), its reasonable to expect that some people will input data then
+> request their user data (and CAL requires you give it to them), so to
+> reasonably expect that to be in compliance, it requires there to exist
+> software functionality to get that data, call it an export or
+> whatever. Almost all free software I know of that is used for gratis
+> services does not expose all user data it stores back to the user or
+> have that functionality, and thus would expect to be in noncompliance if
+> run under this license. I can list off 10 common ones easily, many are
+> in debian and developed with the best intentions around user data. Its
+> easy to say "software should do X", until you are the one writing it. It
+> just doesn't make sense to call a license open source if normal free
+> software can't comply because it lacks specific functionally.
+>
+> Here's more concrete examples. For Mailman, you've said that CAL would
+> require users to be able to get their emails. Mailman stores email in a
+> raw form called mbox on the server. But mailman only exposes it to users
+> in html form which is derived from the raw form and missing some user
+> data, and can't work correctly with another instance of Mailman. Users
+> would need the mbox data. So if Mailman was under CAL, running it would
+> lead to noncompliance. And Mailman is a an extremely simple example. A
+> better one would be Mediawiki, or CiviCRM where admin users can define
+> and change fields at runtime, making things quite complicated, and
+> making the burden of tracking user data not just on the developer, but
+> also users. It could easily take months or years of full time
+> development to write functionality to export user data and track it. In
+> the rationale document by the OSI, it says compliance can already be
+> hard, so its fine that this is hard too. There has to be a limit
+> somewhere, and this should clearly be beyond it. For compliance with
+> existing licenses, you can follow a general principle of treating users
+> like fellow developers and there's essentially no burden, but this is
+> completely different.
+>
+> To argue against this using the OSD: #3 says "allows modification", and
+> in the annotated version "For rapid evolution to happen, people need to
+> be able to experiment", it implies at least allowing any modification
+> that is typical in free software development, and implies allowing
+> running that software, and of course, being in compliance while doing
+> it. Well, the user data requirement does not allow that for software
+> meant to run as gratis internet services that stores user data. It would
+> be one thing if that was already a common practice in but its not at
+> all.
+>
+>
+
+
+
+From nigel.2048 at gmail.com  Fri Mar 13 11:34:15 2020
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Fri, 13 Mar 2020 07:34:15 -0400
+Subject: [License-discuss] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <ae7369fe-e655-bd1d-0b67-9e672bbd06f8@opensource.org>
+References: <ae7369fe-e655-bd1d-0b67-9e672bbd06f8@opensource.org>
+Message-ID: <F41B0EB9-00C2-413C-A16C-32E0B09C2A86@gmail.com>
+
+Who knows if this will be seen but I brought all this up and the board said no big deal.
+
+Sent from my iPhone
+
+> On Mar 6, 2020, at 2:46 PM, Pamela Chestek <pamela.chestek at opensource.org> wrote:
+> 
+> ?Moving to license-discuss since the license has been approved.
+> 
+> Pam
+> 
+> Pamela Chestek
+> Chair, License Review Committee
+> Open Source Initiative
+> 
+>> On 3/4/2020 11:00 AM, Ian Kelling wrote:
+>> VanL <van.lindberg at gmail.com> writes:
+>> 
+>>> Hello Ian,
+>>> 
+>>> Thanks for chiming in. A couple responses:
+>>> 
+>>>> On Thu, Feb 13, 2020 at 8:50 AM Ian Kelling <ian at iankelling.org> wrote:
+>>> 
+>>>> What is providing a service?
+>>> 
+>>> Providing a service is defined in terms of communicating the Work to
+>>> another person - the essential human-to-human communication. It is
+>>> encompassed in Section 4:
+>>> 
+>>> "Exercis[ing] any permission granted by this License, such that the Work,
+>>> or any part, aspect, or element of the Work, is distributed, communicated,
+>>> made available, or made perceptible to a non-Affiliate third party (a
+>>> ?Recipient?), either via physical delivery or via a network connection to
+>>> the Recipient."
+>>> 
+>>> Speaking broadly as to Mailman, preferences and your specific messages
+>>> would be considered User Data. But your worry about a bug preventing the
+>>> use of Mailman is unfounded. The CAL doesn't specify the particular
+>>> mechanism of compliance, so "bug-free" export code is not required.
+>> Your argument seems to be that noncompliance is fine because the license
+>> doesn't specify a compliance mechanism. But copyright law does, and it
+>> doesn't make any sense to consider a license open source when
+>> noncompliance is the natural result of free software development with
+>> the best intentions.
+>> 
+>> Its not just about requiring bugs be fixed. As far as I can tell,
+>> anytime you run a gratis service which stores user data (as defined by
+>> CAL), its reasonable to expect that some people will input data then
+>> request their user data (and CAL requires you give it to them), so to
+>> reasonably expect that to be in compliance, it requires there to exist
+>> software functionality to get that data, call it an export or
+>> whatever. Almost all free software I know of that is used for gratis
+>> services does not expose all user data it stores back to the user or
+>> have that functionality, and thus would expect to be in noncompliance if
+>> run under this license. I can list off 10 common ones easily, many are
+>> in debian and developed with the best intentions around user data. Its
+>> easy to say "software should do X", until you are the one writing it. It
+>> just doesn't make sense to call a license open source if normal free
+>> software can't comply because it lacks specific functionally.
+>> 
+>> Here's more concrete examples. For Mailman, you've said that CAL would
+>> require users to be able to get their emails. Mailman stores email in a
+>> raw form called mbox on the server. But mailman only exposes it to users
+>> in html form which is derived from the raw form and missing some user
+>> data, and can't work correctly with another instance of Mailman. Users
+>> would need the mbox data. So if Mailman was under CAL, running it would
+>> lead to noncompliance. And Mailman is a an extremely simple example. A
+>> better one would be Mediawiki, or CiviCRM where admin users can define
+>> and change fields at runtime, making things quite complicated, and
+>> making the burden of tracking user data not just on the developer, but
+>> also users. It could easily take months or years of full time
+>> development to write functionality to export user data and track it. In
+>> the rationale document by the OSI, it says compliance can already be
+>> hard, so its fine that this is hard too. There has to be a limit
+>> somewhere, and this should clearly be beyond it. For compliance with
+>> existing licenses, you can follow a general principle of treating users
+>> like fellow developers and there's essentially no burden, but this is
+>> completely different.
+>> 
+>> To argue against this using the OSD: #3 says "allows modification", and
+>> in the annotated version "For rapid evolution to happen, people need to
+>> be able to experiment", it implies at least allowing any modification
+>> that is typical in free software development, and implies allowing
+>> running that software, and of course, being in compliance while doing
+>> it. Well, the user data requirement does not allow that for software
+>> meant to run as gratis internet services that stores user data. It would
+>> be one thing if that was already a common practice in but its not at
+>> all.
+>> 
+>> 
+> 
+> 
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+
+
+From nweinsto at qti.qualcomm.com  Thu Mar 19 23:43:11 2020
+From: nweinsto at qti.qualcomm.com (Nicholas Matthew Neft Weinstock)
+Date: Thu, 19 Mar 2020 23:43:11 +0000
+Subject: [License-discuss] CAL clarification
+Message-ID: <BY5PR02MB7090DCF7E57013BD55C176E2E1F40@BY5PR02MB7090.namprd02.prod.outlook.com>
+
+Hello, I wanted to get clarification on section 3.1(b) of the Cryptographic Autonomy License.
+
+The relevant text from the license, as approved:
+
+
+3.1. Permissions Granted
+Conditioned on compliance with section 4, and subject to the limitations of section 3.2, Licensor grants You the world-wide, royalty-free, non-exclusive permission to:
+...
+b) Take any action with the Work that would infringe any patent claims that Licensor can license or becomes able to license, to the extent that those claims are embodied in the Work as distributed by Licensor.
+
+
+I have two questions:
+1) If someone contributes a small patch to a CAL project, and otherwise never distributes that CAL project (modified or unmodified), are they only granting a license to patents that fully read on their patch?
+2) Does someone become a Licensor when they distribute an unmodified CAL project?
+
+Thank you,
+Nicholas Weinstock
+
+
+
+From van.lindberg at gmail.com  Fri Mar 20 02:23:48 2020
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 19 Mar 2020 21:23:48 -0500
+Subject: [License-discuss] CAL clarification
+In-Reply-To: <BY5PR02MB7090DCF7E57013BD55C176E2E1F40@BY5PR02MB7090.namprd02.prod.outlook.com>
+References: <BY5PR02MB7090DCF7E57013BD55C176E2E1F40@BY5PR02MB7090.namprd02.prod.outlook.com>
+Message-ID: <CAFQvZEMr9tvbSmMYOe-yV9ZMQbDiNGnjoWZ0iOqDHge86Kt9Aw@mail.gmail.com>
+
+Hi Nicholas,
+
+On Thu, Mar 19, 2020 at 6:44 PM Nicholas Matthew Neft Weinstock <
+nweinsto at qti.qualcomm.com> wrote:
+
+>
+> 3.1. Permissions Granted
+> Conditioned on compliance with section 4, and subject to the limitations
+> of section 3.2, Licensor grants You the world-wide, royalty-free,
+> non-exclusive permission to:
+> ...
+> b) Take any action with the Work that would infringe any patent claims
+> that Licensor can license or becomes able to license, to the extent that
+> those claims are embodied in the Work as distributed by Licensor.
+>
+
+I have two questions:
+> 1) If someone contributes a small patch to a CAL project, and otherwise
+> never distributes that CAL project (modified or unmodified), are they only
+> granting a license to patents that fully read on their patch?
+>
+
+This depends on the contribution policy for the project, not the CAL
+itself. Some projects have an inbound license agreement that only applies
+to the patch, others to the project as a whole.
+
+If the CAL itself is used as the license for the contribution, then your
+supposition would be correct.
+
+
+> 2) Does someone become a Licensor when they distribute an unmodified CAL
+> project?
+>
+
+No, a licensor must have licensable material in the distributed project.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20200319/c2f52730/attachment.html>
+
+From rick at linuxmafia.com  Sat Mar 21 22:54:55 2020
+From: rick at linuxmafia.com (Rick Moen)
+Date: Sat, 21 Mar 2020 15:54:55 -0700
+Subject: [License-review] [License-discuss] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAK2MWOvDZTeDitwL-QgULa7P3UMvyNTO-Gv7+ze1pfmTXMi-VA@mail.gmail.com>
+References: <3f205b0b-86b4-d7e8-b41e-d1a1ed6a709e@chesteklegal.com> <20190828204647.472gqj3abuikmub7@ebb.org> <CAFQvZEO+CnibJCJM95djdd7qd60KkbAO3QfHBOxW-47S4ZcvaQ@mail.gmail.com> <CAK2MWOunaYe5FXZvTNFvb423_9wSCXOngFkyodF3sUT0N5m8Vw@mail.gmail.com> <CAKHykesCJp1nqRwyZxZzLZGCY60T77PFdVKUKVeNW5pT8sSMsg@mail.gmail.com> <CAK2MWOt8U+qb6Kno+Ac3ny6b1Hqxy8vuWnp_+Mvubo2K2K0AfQ@mail.gmail.com> <CAKHyketSdUXxVhdrYfuDaZO2JE5193ztGeAUD2NZpnM8vSm6Dg@mail.gmail.com> <CAK2MWOv6LT0o+0hUFczDbuzgf1myK-ZD0GUo=OmnbNH-vfir=A@mail.gmail.com> <CAKHykevOfTWVbbM=OCieFuCHCT4evPc_DTxU4O+YoK+7NXoWOQ@mail.gmail.com> <CAK2MWOvDZTeDitwL-QgULa7P3UMvyNTO-Gv7+ze1pfmTXMi-VA@mail.gmail.com>
+Message-ID: <20200321225455.GR18108@linuxmafia.com>
+
+Quoting Bruce Perens via License-review (license-review at lists.opensource.org):
+
+> I am aware of the length of the AGPL proceeding because I attended a
+> meeting Bradley held in New York in 2000 asking about how to deal with
+> Google and its ilk (I'm not sure SaaS was even a common term then). 
+
+At the time, we spoke of Application Service Providers (and thus, in the
+view of many copyleft fans, of the 'ASP Loophole'). 
+
+-- 
+Cheers,                            "To summarize the summary of the summary:
+Rick Moen                           People are a problem."
+rick at linuxmafia.com                                       -- Douglas Adams
+McQ!  (4x80)
+
+

@@ -1,0 +1,750 @@
+>>>> _______________________________________________
+>>>> License-review mailing list
+>>>> License-review at lists.opensource.org
+>>>>
+>>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+From mccoy at lexpan.law  Thu Feb 13 18:22:04 2020
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Thu, 13 Feb 2020 10:22:04 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <87sgje2za0.fsf@dustycloud.org>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <87h7zx53fc.fsf@dustycloud.org> <CAFQvZEMni7-atzwHG1Y=gggLHGN-8v-QCX+SoWTMNTh=FCy+=A@mail.gmail.com> <87eev1475l.fsf@dustycloud.org> <CAFQvZEPVL=_sCp0sjkBrFtiyHETMCmUyByAzf3YTShLeA-tJ=A@mail.gmail.com> <878sl84qi5.fsf@dustycloud.org> <CAA4ffp_A2asvHkdTZpMn4pEtk_hX4GMCM9FB8ddUXGNdraZvEw@mail.gmail.com> <87v9ob2zj0.fsf@dustycloud.org> <b44b8ef4-fa0e-edd0-ca7f-deffc255cf3d@opensource.org> <87sgje2za0.fsf@dustycloud.org>
+Message-ID: <000001d5e29a$7e51d1f0$7af575d0$@lexpan.law>
+
+>>-----Original Message-----
+>>From: License-review <license-review-bounces at lists.opensource.org> On Behalf Of Christopher Lemmer Webber
+>>Sent: Thursday, February 13, 2020 9:06 AM
+>>To: License submissions for OSI review <license-review at lists.opensource.org>
+>>Subject: Re: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+
+>>Pamela Chestek writes:
+
+>>> Hi Chris,
+>>>
+>>> I'm still in the dark. Can you explain what OSD is not met and where you find that in the license? If it's a meta-OSD problem, like forced disclosure of data that is not yours to have, can you explain it in 
+>>> layperson's terms?
+
+>>In layperson's terms, the concerns are roughly the following:
+
+>> - Is there a possibility of forced disclosure of private data, in terms of user data or keys, in terms of a wider source distribution requirement or via the introduction of the user/recipient data (and
+>>cryptographic material) disclosure for equivalent use?
+
+>> - I think that requirements for documentation and configuration information for "use" is a bit too broad; I think "execute" is a better term.  This one is an easy fix.
+
+FWIW, GPLv3 has requirements to disclose keys, and configuration information for "execution":
+
+?Installation Information? for a User Product means any methods, procedures, *authorization keys,* or *other information required to install and execute modified versions of a covered work* in that User Product from a modified version of its Corresponding Source.
+
+>From a precedent standpoint, "execute" might be better (given GPLv3 is OSI approved and uses that term), although I'm not sure what other "uses" there are for software other than execution.  It's an interesting semantic/definitional question.
+
+
+
+From van.lindberg at gmail.com  Thu Feb 13 18:26:18 2020
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 13 Feb 2020 12:26:18 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <87sgje2za0.fsf@dustycloud.org>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <87h7zx53fc.fsf@dustycloud.org> <CAFQvZEMni7-atzwHG1Y=gggLHGN-8v-QCX+SoWTMNTh=FCy+=A@mail.gmail.com> <87eev1475l.fsf@dustycloud.org> <CAFQvZEPVL=_sCp0sjkBrFtiyHETMCmUyByAzf3YTShLeA-tJ=A@mail.gmail.com> <878sl84qi5.fsf@dustycloud.org> <CAA4ffp_A2asvHkdTZpMn4pEtk_hX4GMCM9FB8ddUXGNdraZvEw@mail.gmail.com> <87v9ob2zj0.fsf@dustycloud.org> <b44b8ef4-fa0e-edd0-ca7f-deffc255cf3d@opensource.org> <87sgje2za0.fsf@dustycloud.org>
+Message-ID: <CAFQvZEMf98kVD-5MsaOJ69cn4pBoj1=06=829fEf3aYZ9J3E5A@mail.gmail.com>
+
+These are good concerns. For completeness, I'll respond:
+
+On Thu, Feb 13, 2020 at 11:06 AM Christopher Lemmer Webber <
+cwebber at dustycloud.org> wrote:
+
+>
+>  - Is there a possibility of forced disclosure of private data, in terms
+>    of user data or keys, in terms of a wider source distribution
+>    requirement or via the introduction of the user/recipient data (and
+>    cryptographic material) disclosure for equivalent use?
+>
+
+No. The CAL only requires turning over data to which a person has an
+existing legal right. By definition, this is not "forced disclosure" - the
+legal basis already exists.
+
+
+
+>   - I think that requirements for documentation and configuration
+>    information for "use" is a bit too broad; I think "execute" is a
+>    better term.  This one is an easy fix.
+>
+
+I don't think there ends up being a meaningful difference between "use" and
+"execute," especially given the context of providing only the
+"information *reasonably
+necessary* for the Recipient to independently compile and use the Source
+Code and to have full access to the functionality contained in the Work."
+
+
+>
+>   - Is the requirement to be able to give user/recipient data an onerous
+>    one?
+
+
+The difficulty or non-difficulty of providing data has been discussed on
+this list in the context of the CAL. In certain circumstances, providing
+source code is also onerous, but that does not make copyleft licenses any
+less OSD-compliant.
+
+
+>    What are the implications for data retention?  What about
+>    accidental data loss?
+
+
+The CAL does not penalize accidental data loss, nor does it require a
+particular data retention policy. It just says that someone providing
+services must provide the "Recipient?s User Data *in your possession*, *to
+the extent that such User Data is available to You* for use in conjunction
+with the Work."
+
+
+> If software does not make extracting such
+>    information easy, is the liability on the software developers, or on
+>    the operator of a service?
+>
+
+The liability is on the person providing the service, not the developers -
+just as with other copyleft licenses.
+
+
+
+
+> > If you believe that the license is not appropriate for certain types
+> > of uses or certain types of software architecture, can you explain how
+> > that violates the OSD?
+>
+> Yes, in addition to the above three bulleted concerns, I have indicated
+> that I think a peer-to-peer actor model environment would be especially
+> difficult to comply with this license for ... [the issue is] arguably
+> raised in
+
+OSD sections 6 and 10 ("no discrimination against fields of endeavor"
+>
+(though this would arise implicitly) or "License Must Be
+> Technology-Neutral"
+>
+(as in, is this something that is easier to deal with in client-server
+> architectures but
+> not as possible in ocap actor model architectures).
+
+
+The fact that an author may choose an architecture that makes compliance
+more difficult is not discrimination against a field of endeavor nor a
+requirement that particular technologies be used (or not used). Even if
+compliance may be "difficult," that is not discrimination. For example, a
+person can also engage in development practices that make full disclosure
+of the source code difficult; that does not mean that those practices are
+outlawed by the license.
+
+
+But I would like to most strongly disagree with the following:
+
+if we can determine that a license is written in such a way that it can be
+> used to
+> coerce via legal means a violation of a person's privacy...
+>
+
+The CAL does not do this. It *only* requires the disclosure of the User's
+own data, to which they have an existing legal claim. Giving someone *their
+own data* is never a violation of that person's privacy!
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200213/24118322/attachment.html>
+
+From brian at behlendorf.com  Thu Feb 13 19:55:27 2020
+From: brian at behlendorf.com (Brian Behlendorf)
+Date: Thu, 13 Feb 2020 11:55:27 -0800 (PST)
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAMkzgA7mAdLFnpmFZ0n0Tjhfzrgq_eA8QZawi9rgmH8AXUCsUg@mail.gmail.com>
+References: <CAMkzgA7mAdLFnpmFZ0n0Tjhfzrgq_eA8QZawi9rgmH8AXUCsUg@mail.gmail.com>
+Message-ID: <alpine.DEB.2.21.2002131142220.4251@flooz>
+
+
+Has anyone considered the PII and GDPR/CCPA/etc implications of the CAL? 
+Could there be scenarios where the CAL requires behavior that the GDPR 
+prevents? Those licenses introduce a concept completely foreign to 
+copyright law, which is data protection rights for the subjects of data 
+(who that data is about), even if that subject isn't a party to the 
+transfer of software and thus covered by this license. What would be the 
+ramifications of such a clash? Could someone using the software have to 
+stop using it based on a request from a data subject?
+
+Brian
+
+On Thu, 13 Feb 2020, Eric Schultz wrote:
+> Sorry to bring?this up at a late stage but I just thought of a situation I wanted clarification on. Let's say a voice recognition provider using the CAL allows users to confidentially choose to submit
+> their voice recordings to improve the quality of recognition. Is there any sort of dynamic here where one user would be able to request access to all of the other users confidential recordings? My
+> hunch is no but it's a little bit of a different situation than I had seen considered on the list.
+> Eric
+> 
+>
+
+From van.lindberg at gmail.com  Thu Feb 13 20:03:16 2020
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 13 Feb 2020 14:03:16 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <alpine.DEB.2.21.2002131142220.4251@flooz>
+References: <CAMkzgA7mAdLFnpmFZ0n0Tjhfzrgq_eA8QZawi9rgmH8AXUCsUg@mail.gmail.com> <alpine.DEB.2.21.2002131142220.4251@flooz>
+Message-ID: <CAFQvZENokjWHXuz-VLmDuiu21_ShWcz_QgfJfaQq0kUYR1Pz=A@mail.gmail.com>
+
+Hi Brian,
+
+On Thu, Feb 13, 2020 at 1:56 PM Brian Behlendorf <brian at behlendorf.com>
+wrote:
+
+>
+> Has anyone considered the PII and GDPR/CCPA/etc implications of the CAL?
+> Could there be scenarios where the CAL requires behavior that the GDPR
+> prevents?
+>
+
+The CAL was written with particular care to be compatible with the GDPR and
+CCPA, and carefully use similar language. In fact, the first version had a
+interpretive aid specifying that complying with specific paragraphs of the
+GDPR would also result in a compliant delivery of user data under the CAL.
+That paragraph was removed due to misunderstandings about its effects, but
+it is still true.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200213/9dda405a/attachment.html>
+
+From pamela at chesteklegal.com  Thu Feb 13 20:36:53 2020
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Thu, 13 Feb 2020 15:36:53 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <alpine.DEB.2.21.2002131142220.4251@flooz>
+References: <CAMkzgA7mAdLFnpmFZ0n0Tjhfzrgq_eA8QZawi9rgmH8AXUCsUg@mail.gmail.com> <alpine.DEB.2.21.2002131142220.4251@flooz>
+Message-ID: <7373866c-6778-e1c9-b8b3-d1080e3157dc@chesteklegal.com>
+
+Yes, that was one of the very first issues raised with the CAL license
+v1 on license-discuss before it was submitted to license-review almost a
+year ago, in April 2019. This is Van's explanation about why they are
+about two different things:
+http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-March/020324.html.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+On 2/13/2020 2:55 PM, Brian Behlendorf wrote:
+
+>
+> Has anyone considered the PII and GDPR/CCPA/etc implications of the
+> CAL? Could there be scenarios where the CAL requires behavior that the
+> GDPR prevents? Those licenses introduce a concept completely foreign
+> to copyright law, which is data protection rights for the subjects of
+> data (who that data is about), even if that subject isn't a party to
+> the transfer of software and thus covered by this license. What would
+> be the ramifications of such a clash? Could someone using the software
+> have to stop using it based on a request from a data subject?
+>
+> Brian
+>
+> On Thu, 13 Feb 2020, Eric Schultz wrote:
+>> Sorry to bring?this up at a late stage but I just thought of a
+>> situation I wanted clarification on. Let's say a voice recognition
+>> provider using the CAL allows users to confidentially choose to submit
+>> their voice recordings to improve the quality of recognition. Is
+>> there any sort of dynamic here where one user would be able to
+>> request access to all of the other users confidential recordings? My
+>> hunch is no but it's a little bit of a different situation than I had
+>> seen considered on the list.
+>> Eric
+>>
+>>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200213/4266a1ce/attachment-0001.html>
+
+From pamela at chesteklegal.com  Thu Feb 13 21:44:47 2020
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Thu, 13 Feb 2020 16:44:47 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <87sgje2za0.fsf@dustycloud.org>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <87h7zx53fc.fsf@dustycloud.org> <CAFQvZEMni7-atzwHG1Y=gggLHGN-8v-QCX+SoWTMNTh=FCy+=A@mail.gmail.com> <87eev1475l.fsf@dustycloud.org> <CAFQvZEPVL=_sCp0sjkBrFtiyHETMCmUyByAzf3YTShLeA-tJ=A@mail.gmail.com> <878sl84qi5.fsf@dustycloud.org> <CAA4ffp_A2asvHkdTZpMn4pEtk_hX4GMCM9FB8ddUXGNdraZvEw@mail.gmail.com> <87v9ob2zj0.fsf@dustycloud.org> <b44b8ef4-fa0e-edd0-ca7f-deffc255cf3d@opensource.org> <87sgje2za0.fsf@dustycloud.org>
+Message-ID: <f1cce040-cae2-6ddb-86c0-81015bf1c6e0@chesteklegal.com>
+
+Comments are mine personally, not on behalf of the OSI.
+
+On 2/13/2020 12:05 PM, Christopher Lemmer Webber wrote:
+> Pamela Chestek writes:
+>
+>> Hi Chris,
+>>
+>> I'm still in the dark. Can you explain what OSD is not met and where you
+>> find that in the license? If it's a meta-OSD problem, like forced
+>> disclosure of data that is not yours to have, can you explain it in
+>> layperson's terms?
+> In layperson's terms, the concerns are roughly the following:
+>
+>  - Is there a possibility of forced disclosure of private data, in terms
+>    of user data or keys, in terms of a wider source distribution
+>    requirement or via the introduction of the user/recipient data (and
+>    cryptographic material) disclosure for equivalent use?
+I just don't see how this is possible. The requirement to turn over data
+is only data about me to me, no data about anyone else or to anyone
+else: "'User Data' means any data that is either an input to or an
+output from the Work, or is necessary for the functioning of the Work,
+in which the Recipient has an existing ownership interest, an existing
+right to possess, or has been generated for or uniquely assigned to the
+Recipient."
+
+I take your point to be that it may be impossible to separate the two
+because of the software architecture. In that case, it's an ill-chosen
+license and no user should elect to use software under this license. I'm
+gathering that's your position on the AGPL, that you are advising people
+not to adopt it for certain uses because it's ill-suited for those
+purposes. That's the right thing to do. Are you saying that because the
+AGPL is not suited for some software it shouldn't have been approved as
+an open source license?
+>
+>  - I think that requirements for documentation and configuration
+>    information for "use" is a bit too broad; I think "execute" is a
+>    better term.  This one is an easy fix. - Is the requirement to be able to give user/recipient data an onerous
+>    one?  What are the implications for data retention?  What about
+>    accidental data loss?  If software does not make extracting such
+>    information easy, is the liability on the software developers, or on
+>    the operator of a service?
+
+I think "use" is better. I am thinking of the case where someone
+requires a signed copy of software before installing on a hardware
+device. You may be able to execute the code in an emulator (or in a
+vacuum), but you won't be able to actually use it on the hardware device
+that you own.
+
+>  - Is the requirement to be able to give user/recipient data an onerous
+>    one?  What are the implications for data retention?  What about
+>    accidental data loss?  If software does not make extracting such
+>    information easy, is the liability on the software developers, or on
+>    the operator of a service?
+
+We've discussed the burden of providing data in the thread already and
+it was addressed in the rationale document. It is a judgment call and
+the License Committee's judgment was that it's not too burdensome.
+
+Your reading of the license is also not correct if you believe that it
+requires creating documentation, fixing bugs, providing data that has
+been lost, etc. The definition of Source Code describing what needs to
+be provided does not say that you have to create anything. With respect
+to lost data, the requirement is that you provide "the Recipient?s User
+Data in your possession, to the extent that such User Data is available
+to You for use in conjunction with the Work." If it's been lost it's no
+longer available to you.
+
+>> If you believe that the license is not appropriate for certain types
+>> of uses or certain types of software architecture, can you explain how
+>> that violates the OSD?
+> Yes, in addition to the above three bulleted concerns, I have indicated
+> that I think a peer-to-peer actor model environment would be especially
+> difficult to comply with this license for, and may result in accidental
+> weakening of its security.  (Again, I do not think this is Van's intent,
+> I think it is a bug, but I'm not sure if it's fixable.)  The phrasing
+> you used "not appropriate for certain types of uses or certain types of
+> software architecture", is arguably raised in OSD sections 6 and 10 ("no
+> discrimination against fields of endeavor" (though this would arise
+> implicitly) or "License Must Be Technology-Neutral" (as in, is this
+> something that is easier to deal with in client-server architectures but
+> not as possible in ocap actor model architectures).
+I believe you're mistaking discrimination created by the text of a
+license, which is what OSD 6 and 10 refer to, with the wisdom of using a
+license for a particular type of software or in a different type of
+environment. Not every license has to be well-suited for every type of
+software.
+>
+> *However*, I think we are hitting something that goes beyond mere OSD
+> compliance.
+>
+> OSI publishes a list of licenses.  These licenses appear as
+> recommendations from the OSI.  The OSD is a useful document, though a
+> question is: is the OSI's job merely to be a technical filter that
+> issues a pass/fail for OSD compliance?  There are many things that the
+> OSD does not discuss, such as implications of privacy (though I have
+> discussed others, such as onerousness of capbility to comply with terms
+> of the license).  For example (and leaving aside whether or not this is
+> what happens in the CAL, I am discussing in the more general), if we can
+> determine that a license is written in such a way that it can be used to
+> coerce via legal means a violation of a person's privacy, but it
+> technically checked all the boxes on the OSD, should the OSI still
+> publish that license on its list?
+> I would be extremely disturbed if the answer to that question is "yes".
+> I think that the OSD is a good metric, but as others have indicated, it
+> might be incomplete in assessing how user freedom is impacted by a
+> license.  Shouldn't our first priority be to find serious user freedom
+> violations in the construction of a license and then see how that
+> matches up with the OSD?  After all, OSI refers to its license list as
+> "approved" not as "compliant".
+In addition to passing the OSD, what qualities and characteristics that
+a license must have to be approved is a challenging question and one
+that is often discussed on this list. I don't have any answer although I
+have been thinking about it a long time, but not nearly as long as
+others have been. It's not an easy question. In my view "I know it when
+I see it" isn't an acceptable answer but I haven't yet landed on a list
+of principles that I think we all would agree on.
+
+All open source licenses can be used for evil. Does that mean that no
+license should ever again be approved as open source? Is there not a
+balance, when the likelihood that it will be used in ways that enhance
+the interests of software freedom and user freedom is greater than the
+potential for evil, and approving the license may effect net positive
+change? We aren't seers, we don't know whether the license will be
+widely adopted and create an entirely new open network or whether it
+will die on the vine. But I don't believe that a license can only be
+approved if the only possible outcome is widespread adoption for
+exclusively non-evil purposes.
+
+Pam
+>
+>> Thanks,
+>> Pam
+>>
+>> Pamela Chestek
+>> Chair, License Review committee
+>> Open Source Initiative
+>>
+>> On 2/12/2020 5:48 PM, Christopher Lemmer Webber wrote:
+>>> Hi Simon,
+>>>
+>>> Thank you for your question.  I have done my best to give a more high
+>>> level series of questions in the last email I just sent in response to
+>>> Van:
+>>>
+>>>   http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2020-February/004675.html
+>>>
+>>> I hope I have done a better job of detailing a set of concerns that
+>>> don't require going into the CS weeds.
+>>>
+>>>
+>>> Simon Phipps writes:
+>>>
+>>>> Chris,
+>>>>
+>>>> Thanks for the engagement. For those of us who are not specialists in the
+>>>> computer science topics you're discussing, please can you summarise why you
+>>>> believe CAL does not satisfy the OSD, specifically citing the clauses
+>>>> involved?
+>>>>
+>>>> Thanks
+>>>>
+>>>> Simon
+>>>> (in-role)
+>>>>
+>>>> On Wed, Feb 12, 2020 at 12:08 AM Christopher Lemmer Webber <
+>>>> cwebber at dustycloud.org> wrote:
+>>>>
+>>>>> Hi Van,
+>>>>>
+>>>>> First of all, I have asked for review from a community I collaborate
+>>>>> with which actually works on cryptographic autonomy here:
+>>>>>
+>>>>>   https://groups.google.com/forum/#!topic/cap-talk/VE6nNhfwp_w
+>>>>>
+>>>>> The above thread outlines my concerns in detail.  It may be desirable
+>>>>> for me to bullet-point them in a follow-up email, but I'd encourage
+>>>>> reading that email.
+>>>>>
+>>>>> I will respond to some parts below.
+>>>>>
+>>>>> VanL writes:
+>>>>>
+>>>>>> I look forward to responding to your other concerns. But to respond
+>>>>> above:
+>>>>>> There are only two substantive locations where cryptographic keys are
+>>>>>> required. In the definition of source code, section 4.1:
+>>>>>>
+>>>>>> The ?Source Code? of the Work means the form of the Work preferred for
+>>>>>> making modifications, including any comments, configuration information,
+>>>>>> documentation, help materials, installation instructions, cryptographic
+>>>>>> seeds or keys, and any information reasonably necessary for the Recipient
+>>>>>> to independently compile and use the Source Code and to have full access
+>>>>> to
+>>>>>> the functionality contained in the Work.
+>>>>>>
+>>>>>> This is essentially equivalent to the "complete corresponding source" of
+>>>>>> the GPL3. Quoting specifically from the GPL3: "'Installation Information'
+>>>>>> for a User Product means any methods, procedures,* authorization keys,*
+>>>>> or
+>>>>>> other information required to install and execute modified versions of a
+>>>>>> covered work in that User Product from a modified version of its
+>>>>>> Corresponding Source."
+>>>>>>
+>>>>>> So this first element is tied to the ability to "independently compile
+>>>>> and
+>>>>>> use the Source Code and have full access to the functionality contained
+>>>>> in
+>>>>>> the Work" -- i.e., no Tivoization.
+>>>>> I agree that it is similar to GPLv3 in this particular section, however
+>>>>> there are some key differences.  The GPLv3 appears to specify the
+>>>>> requirement to "install and execute".  This is not the same as the
+>>>>> requirement to provide a broader requirement for documentation for
+>>>>> "use".  Usage is significantly broader than mere execution... how much
+>>>>> documentation need there be?  Is it a violation to add a feature then
+>>>>> not document how to use it?  There is also a broader number of
+>>>>> requirements here, including the requirements for configuration
+>>>>> information.
+>>>>>
+>>>>> This isn't the primary part I am concerned about, but it does concern
+>>>>> me.  As I expressed in the email above to cap-talk (and in my Copyleft
+>>>>> Conference talk last year), I am *already* concerned about the
+>>>>> requirements that network copyleft introduces in the AGPL for a
+>>>>> circumstance where there is little distinction between code and data,
+>>>>> and thus private configuration information might be considered part of
+>>>>> the complete and corresponding work.  In my talk last year I was making
+>>>>> an argument that we could see emacs lisp as being both configuration
+>>>>> information and code (but the lack of network requirement permitted
+>>>>> private modification).  Here that argument need not even be made since
+>>>>> the CAL *explicitly* requires configuration information.
+>>>>>
+>>>>> I'm definitely worried then about:
+>>>>>  - The introduction of a requirement for documentation for *use*
+>>>>>  - The introduction of a requirement for configuration information,
+>>>>>    *especially in the context of network distribution requirements*.
+>>>>>
+>>>>> These concerns compound with the following section.
+>>>>>
+>>>>>> The second substantive place where cryptographic keys are mentioned is in
+>>>>>> the user autonomy provisions, specifically 4.2.2:
+>>>>>>
+>>>>>> You may not, by the use of cryptographic methods applied to anything
+>>>>>> provided to the Recipient, by possession or control of cryptographic
+>>>>> keys,
+>>>>>> seeds, or hashes, by other technological protection measures, or by any
+>>>>>> other method, limit a Recipient's ability to access any functionality
+>>>>>> present in the Recipient's independent copy of the Work, or deny a
+>>>>>> Recipient full control of the Recipient's User Data.
+>>>>>>
+>>>>>> This is where the distinction arises. An operator must not use any
+>>>>>> technical measure, including the use of cryptographic protocols, to
+>>>>> "limit
+>>>>>> a Recipient's ability to access any functionality" or to "deny a
+>>>>> Recipient
+>>>>>> full control of the Recipient's User Data." However, securely
+>>>>> transmitting
+>>>>>> information to the Recipient (e.g. using TLS) does nothing to "limit a
+>>>>>> Recipient's ability to access any functionality" or "deny a Recipient
+>>>>> full
+>>>>>> control of the Recipient's User Data."
+>>>>> Here is where I am very concerned.  Recipient is very broad.
+>>>>>
+>>>>> The use of the word "operator" tells me that the intended use of this
+>>>>> license has been seen within the scope of a client-server style
+>>>>> architecture, or has been flavored by the experience of seeing that
+>>>>> rolled out as the primary way we've seen networked applications in the
+>>>>> last couple of decades.  I explain in the above email to cap-talk why I
+>>>>> think this is going to be big trouble: I believe it *actually* prevents
+>>>>> applications and protocols that are persuing cryptographic autonomy.  In
+>>>>> particular:
+>>>>>
+>>>>>  - It does not seem to anticipate that *every user* should be running
+>>>>>    their own application... not client-to-server, but peer-to-peer, so
+>>>>>    these are not "server operator requirements", they are requirements
+>>>>>    for every user, including potentially ones just running some software
+>>>>>    on their phone or laptop.  If Bob holds some small amount of data on
+>>>>>    Alice's machine, is Bob able to persue an enforcement request from
+>>>>>    Alice's usage of her phone?  I do not see a good way to present this
+>>>>>    requirement to ordinary users, and it may even result in accidental
+>>>>>    privacy leaks.
+>>>>>
+>>>>>  - Assume that object access is managed by capability security.  This is
+>>>>>    to say, if you have a reference to an object, you can access its
+>>>>>    resources, but otherwise you cannot.  In order to uphold the
+>>>>>    Principle of Least Authority, varied and attenuated access is given
+>>>>>    out to many different objects in the system.  Which of them are
+>>>>>    "users", and what rights for what data do they have to extract which
+>>>>>    information?  This is not theoretical, this is the direction that
+>>>>>    sophisticated peer-to-peer, cryptographically secure distributed
+>>>>>    programs are going (eg the programming language E, the work that the
+>>>>>    Agoric company is doing, and my own work on Spritely Goblins).  While
+>>>>>    I (and many other security researchers) believe this is the
+>>>>>    healthiest direction for network security to go, I do not see a good
+>>>>>    way to be able to uphold this with the requirements for recipient
+>>>>>    data distribution and key distribution.
+>>>>>
+>>>>> Perhaps this sounds too technically abstract.  Let me put it more
+>>>>> simply: I believe I could use this license to coerce someone into giving
+>>>>> up private data or encryption keys in a peer to peer network.
+>>>>>
+>>>>>> Thus, the information that needs to be provided, including cryptographic
+>>>>>> keys, is limited to that information that would prevent compilation or
+>>>>>> access to functionality, or would deny the Recipient full control over
+>>>>> the
+>>>>>> Recipient's own user data. The normal system uses of cryptography are not
+>>>>>> implicated. Nor are the uses of cryptography in a distributed systems for
+>>>>>> addressing or authentication, excepting the use of a user's keys to
+>>>>>> validate an agent's actions (which belong to the user anyway).
+>>>>> You seem more confident than I am in terms of what these categories are,
+>>>>> so I think it would be useful for you to give us some scenarios, then we
+>>>>> can work through them:
+>>>>>
+>>>>>  - A requirement for distributing "recipient data".
+>>>>>  - A situation where two peers communicate, but a requirement for
+>>>>>    recipient data distribution does not become invoked.
+>>>>>  - A scenario by which cryptographic key material, in relationship to
+>>>>>    user data, must be provided.
+>>>>>  - A scenario where the remote program has cryptographic key material
+>>>>>    that is not required to be distributed.  This one is very important
+>>>>>    in that the question must be asked: "what part of the license makes
+>>>>>    this categorically excluded from its requirement"?
+>>>>>
+>>>>> With those in place I think we can have a better analysis.
+>>>>>
+>>>>> Finally, I am going to repeat part of what I said in the cap-talk
+>>>>> thread: the choice of the license name is ironic, because though the
+>>>>> goals are good (ensure autonomy of users), it may actually create
+>>>>> difficulties in complying in the kinds of systems that actually are
+>>>>> doing so through cryptography and protocols (ocap actor model systems,
+>>>>> encrypted data vaults).  The problem is one that must be addressed for
+>>>>> the sake of user freedom, but I believe it is being addressed on the
+>>>>> incorrect layer.  Here we see an attempt to address it on the license
+>>>>> layer, but IMO this is wrong: there are active systems that exist and
+>>>>> are addressing this in such a way that the cryptographic tooling and
+>>>>> protocols themselves are the ones that help ensure greater user
+>>>>> autonomy.
+>>>>>
+>>>>> Thank you,
+>>>>>  - Chris
+>>>>>
+>>>>>> Thanks,
+>>>>>> Van
+>>>>>>
+>>>>>>
+>>>>>>
+>>>>>> On Tue, Feb 11, 2020 at 6:54 AM Christopher Lemmer Webber <
+>>>>>> cwebber at dustycloud.org> wrote:
+>>>>>>
+>>>>>>> Where in the license is this distinction made?
+>>>>>>>
+>>>>>>> At any rate, I'm not convinced such a distinction exists.  I
+>>>>>>> increasingly work with peer to peer systems where the distinction
+>>>>>>> between "user" and "system" and even "client" and "server" no longer
+>>>>>>> exist.  I don't believe it is possible to make a sound distinction, and
+>>>>>>> at any rate I don't see one in the license.  But perhaps I am missing
+>>>>>>> something?
+>>>>>>>
+>>>>>>> Regardless, these are not my only concerns.  I will write them up today.
+>>>>>>>
+>>>>>>>
+>>>>>>> VanL writes:
+>>>>>>>
+>>>>>>>> I definitely want to hear any concerns... but I will also note that
+>>>>> the
+>>>>>>>> crypto portions of the license were reviewed by a number of people who
+>>>>>>> are
+>>>>>>>> expert in that space and they approved.
+>>>>>>>>
+>>>>>>>> My best guess is that you are concerned that this requires the
+>>>>> disclosure
+>>>>>>>> of user-specific keys, and so you think that means that traditional
+>>>>>>> crypto
+>>>>>>>> which relies on a private key or private cert would need to be
+>>>>> disclosed.
+>>>>>>>> This is incorrect.
+>>>>>>>>
+>>>>>>>> They difference is between user keys and system keys. User keys form
+>>>>> the
+>>>>>>>> basis of a user's identity and control over computation or data. Under
+>>>>>>> the
+>>>>>>>> license, they must be controlled by the user alone.
+>>>>>>>>
+>>>>>>>> System keys, however, used for things like TLS and SSH, are not User
+>>>>> Data
+>>>>>>>> within the scope of that term. They may be kept confidential and
+>>>>> secure.
+>>>>>>>> Thanks,
+>>>>>>>> Van
+>>>>>>>>
+>>>>>>>> __________________________
+>>>>>>>> Van Lindberg
+>>>>>>>> van.lindberg at gmail.com
+>>>>>>>> m: 214.364.7985
+>>>>>>>>
+>>>>>>>> On Mon, Feb 10, 2020, 7:17 PM Christopher Lemmer Webber <
+>>>>>>>> cwebber at dustycloud.org> wrote:
+>>>>>>>>
+>>>>>>>>> Josh Berkus writes:
+>>>>>>>>>
+>>>>>>>>>> On 1/7/20 11:00 AM, Pamela Chestek wrote:
+>>>>>>>>>>> The discussion is still active so it will not be considered at the
+>>>>>>> next
+>>>>>>>>>>> Board meeting, which is this Friday. The soonest would be the
+>>>>>>> February
+>>>>>>>>>>> Board meeting.
+>>>>>>>>>> So, it's been a month since there's been any discussion about the
+>>>>> CAL.
+>>>>>>>>>> Pamela, can we take a poll of how people feel about the license?
+>>>>>>>>>> Pass/Reject/MoreDiscussionNeeded?
+>>>>>>>>> I'm not very sure if I'm in the right place to state this, but I'd
+>>>>> say
+>>>>>>>>> "Reject" or at least "MoreDiscussionNeeded".  I believe there are
+>>>>> very
+>>>>>>>>> serious problems in the license that will (ironically, due to its
+>>>>> name)
+>>>>>>>>> prevent the ability to have safely private networks on
+>>>>> cryptographically
+>>>>>>>>> secure peer to peer networks.  I believe I can demonstrate the
+>>>>> privacy
+>>>>>>>>> risks, and spend most of tomorrow doing a detailed and longer writeup
+>>>>>>>>> about my concerns.  Note that I don't think it's any malicious
+>>>>> intention
+>>>>>>>>> of the author to introduce these problems; I think Van is acting in
+>>>>> good
+>>>>>>>>> faith and interest there, but nonetheless I think the concerns exist
+>>>>> and
+>>>>>>>>> are very grave, if I understand correctly.
+>>>>>>>>>
+>>>>>>>>> If I am going to air them before the board meeting, am I doing it in
+>>>>> the
+>>>>>>>>> right place here?  If so, I will follow up on the thread here
+>>>>> tomorrow.
+>>>>>>>>>  - Chris
+>>>>>>>>>
+>>>>>>>>> PS: I'm sorry I haven't aired my very serious concerns earlier.  Van
+>>>>>>>>> asked me personally to review at last year's CopyleftConf and I never
+>>>>>>>>> got around to writing up my thoughts.  I regret that, and wish I had
+>>>>>>>>> done so sooner... maybe I could have prevented a lot of trouble.
+>>>>>>>>> Nonetheless I think it's important that I write them up now; I'm
+>>>>>>>>> guessing we're in the "speak now or forever hold your peace" moment
+>>>>>>>>> though, so I'm trying to articulate my concerns before it's too late.
+>>>>>>>>>
+>>>>>>>>> _______________________________________________
+>>>>>>>>> License-review mailing list
+>>>>>>>>> License-review at lists.opensource.org
+>>>>>>>>>
+>>>>>>>>>
+>>>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>>>>>> _______________________________________________
+>>>>>>>> License-review mailing list
+>>>>>>>> License-review at lists.opensource.org
+>>>>>>>>
+>>>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org

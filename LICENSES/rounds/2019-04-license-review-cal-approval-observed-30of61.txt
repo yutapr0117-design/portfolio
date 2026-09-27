@@ -1,0 +1,750 @@
+Date: Thu, 22 Aug 2019 15:41:53 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAFQvZEMmVMA3gcrTpP+gLzwfrfjWJ8Do9pCDdiggDYP+c-jsXA@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com> <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com> <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org> <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com> <CAFQvZEMmVMA3gcrTpP+gLzwfrfjWJ8Do9pCDdiggDYP+c-jsXA@mail.gmail.com>
+Message-ID: <CAK2MWOugGFGUC628qzA0euppgkD=bht1Kc8-p0ykFmtBM0ampg@mail.gmail.com>
+
+On Thu, Aug 22, 2019 at 3:37 PM VanL <van.lindberg at gmail.com> wrote:
+
+>
+> I know you consider the CAL's user autonomy provisions to be a field of
+> use restriction as well, but you seem to be alone in that view.
+>
+
+Van,
+
+It's not proper for a license submitter to rule unilaterally that a
+particular critic is alone in their view.
+
+You need to leave that to the group to decide. Please remember that you are
+submitting a license for this group to review.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/66896785/attachment.html>
+
+From josh at berkus.org  Thu Aug 22 22:42:04 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Thu, 22 Aug 2019 15:42:04 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com> <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com> <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org> <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com>
+Message-ID: <be25f211-6599-007c-c8c9-952cadbdc146@berkus.org>
+
+On 8/22/19 3:29 PM, Bruce Perens wrote:
+> This is a contractually-required performance requirement which attempts
+> to synthesize a data right which does not actually exist in the local
+> jurisdiction. And thus it is the same as every approach to OSI with a
+> license that attempts to enforce something that might properly be a law,
+> but isn't, so we'll try to make it a license term instead.
+
+I have no opinion on whether something is legally enforceable; I leave
+that to the lawyers.
+
+On 8/22/19 3:29 PM, Bruce Perens wrote:> Actually, I am declining to say
+that one party is more important than
+> the other. I can't see that I have much of a right to say one
+> law-abiding person is more important than another.
+
+Your invokation of OSD#6 on this was *definitely* a statement that one
+party's rights are more important than another's.
+
+-- 
+Josh Berkus
+
+
+From van.lindberg at gmail.com  Thu Aug 22 22:47:39 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 22 Aug 2019 15:47:39 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAK2MWOsfCoN5v2Jebjau_L0MaaUGOjWj6CamPdzt8WrxC5L-EA@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <CAK2MWOtvQWV5G6f1DM5=6+7-eYtUxus_LqQDpEHZLCPEodi9Mw@mail.gmail.com> <CAFQvZEPF8DpwJe1tzkUOfV2PR8Jo_Jj+uNc4cDd4tw5DqCAEzQ@mail.gmail.com> <CAK2MWOsfCoN5v2Jebjau_L0MaaUGOjWj6CamPdzt8WrxC5L-EA@mail.gmail.com>
+Message-ID: <CAFQvZEMp007Chn7uLXt9iUNU5PivuTvA8yiOTUQb361kSfjsuQ@mail.gmail.com>
+
+Hi Bruce,
+
+On Thu, Aug 22, 2019, 3:36 PM Bruce Perens <bruce at perens.com> wrote:
+
+> Van,
+>
+> By your definition, "run for yourself without restriction" means "but not
+> serving anyone else". That seems like such a large restriction that the
+> statement "you can run the program for yourself without restriction" is
+> obviously not true.
+>
+
+Running something for yourself would be just fine. But the CAL says you can
+run for affiliates as well. That is very significant - and a contrast with
+the AGPL. So I completely disagree.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/7d308e9b/attachment.html>
+
+From bruce at perens.com  Thu Aug 22 22:50:29 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 22 Aug 2019 15:50:29 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <be25f211-6599-007c-c8c9-952cadbdc146@berkus.org>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com> <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com> <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org> <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com> <be25f211-6599-007c-c8c9-952cadbdc146@berkus.org>
+Message-ID: <CAK2MWOv9Rfat6uG4C-8FahRtQ7HP8jaCgdnCjiK-=YW9vO+NAw@mail.gmail.com>
+
+On Thu, Aug 22, 2019 at 3:42 PM Josh Berkus <josh at berkus.org> wrote:
+
+> On 8/22/19 3:29 PM, Bruce Perens wrote:
+> > This is a contractually-required performance requirement which attempts
+> > to synthesize a data right which does not actually exist in the local
+> > jurisdiction. And thus it is the same as every approach to OSI with a
+> > license that attempts to enforce something that might properly be a law,
+> > but isn't, so we'll try to make it a license term instead.
+>
+> I have no opinion on whether something is legally enforceable; I leave
+> that to the lawyers.
+>
+
+Sorry, I did not pose this as an argument about whether the term could be
+enforced. The point is that something like data rights would more properly
+be made a law. In fact, I hear they made it one in Europe. But it's not a
+law everywhere, so we will try to create our own law through our license
+terms and make it one that way.
+
+And I submit that we've seen people try to make their own law that way many
+times, and we have generally rejected the license for doing so.
+
+Your invokation of OSD#6 on this was *definitely* a statement that one
+> party's rights are more important than another's.
+
+
+Not at all. The *effect *of interpretation of any rule or law may happen to
+advantage one party over another.  But the determination must always be
+made by evaluating the rule or law, not the importance of one party in the
+dispute versus the other. I would imagine that is a fundamental of
+jurisprudence, although I would not be one to take on such airs as to call
+this jurisprudence.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/902bde74/attachment-0001.html>
+
+From van.lindberg at gmail.com  Thu Aug 22 22:51:49 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 22 Aug 2019 15:51:49 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAK2MWOugGFGUC628qzA0euppgkD=bht1Kc8-p0ykFmtBM0ampg@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com> <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com> <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org> <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com> <CAFQvZEMmVMA3gcrTpP+gLzwfrfjWJ8Do9pCDdiggDYP+c-jsXA@mail.gmail.com> <CAK2MWOugGFGUC628qzA0euppgkD=bht1Kc8-p0ykFmtBM0ampg@mail.gmail.com>
+Message-ID: <CAFQvZENRt=UEncBnhxrfkK=ss5ufOeumE-jeH5rdFHnYObnKwQ@mail.gmail.com>
+
+Hi Bruce,
+
+On Thu, Aug 22, 2019, 3:42 PM Bruce Perens <bruce at perens.com> wrote:
+
+>
+>
+> On Thu, Aug 22, 2019 at 3:37 PM VanL <van.lindberg at gmail.com> wrote:
+>
+>>
+>> I know you consider the CAL's user autonomy provisions to be a field of
+>> use restriction as well, but you seem to be alone in that view.
+>>
+>
+> It's not proper for a license submitter to rule unilaterally that a
+> particular critic is alone in their view.
+>
+> You need to leave that to the group to decide. Please remember that you
+> are submitting a license for this group to review.
+>
+
+No disrespect intended. I was not making a value statement or final
+judgment, I was only making an observation about the comments pro and con
+that have been made so far.
+
+Thanks,
+Van
+
+
+
+
+
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/548e8072/attachment.html>
+
+From bruce at perens.com  Thu Aug 22 22:53:21 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 22 Aug 2019 15:53:21 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAFQvZEMp007Chn7uLXt9iUNU5PivuTvA8yiOTUQb361kSfjsuQ@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <CAK2MWOtvQWV5G6f1DM5=6+7-eYtUxus_LqQDpEHZLCPEodi9Mw@mail.gmail.com> <CAFQvZEPF8DpwJe1tzkUOfV2PR8Jo_Jj+uNc4cDd4tw5DqCAEzQ@mail.gmail.com> <CAK2MWOsfCoN5v2Jebjau_L0MaaUGOjWj6CamPdzt8WrxC5L-EA@mail.gmail.com> <CAFQvZEMp007Chn7uLXt9iUNU5PivuTvA8yiOTUQb361kSfjsuQ@mail.gmail.com>
+Message-ID: <CAK2MWOu7wLt54UNUEzJLxsKYVvnv_A9d7c9y8vUaEfu0FaT6CA@mail.gmail.com>
+
+Van,
+
+Isn't referring to the AGPL just distraction from the issue at hand? A
+restriction is a restriction. One should not say "without restriction" and
+"but never for anyone but you and your affiliate" in the same breath. One
+or the other might be true, but not both.
+ Thanks
+ Bruce
+
+On Thu, Aug 22, 2019 at 3:47 PM VanL <van.lindberg at gmail.com> wrote:
+
+> Hi Bruce,
+>
+> On Thu, Aug 22, 2019, 3:36 PM Bruce Perens <bruce at perens.com> wrote:
+>
+>> Van,
+>>
+>> By your definition, "run for yourself without restriction" means "but not
+>> serving anyone else". That seems like such a large restriction that the
+>> statement "you can run the program for yourself without restriction" is
+>> obviously not true.
+>>
+>
+> Running something for yourself would be just fine. But the CAL says you
+> can run for affiliates as well. That is very significant - and a contrast
+> with the AGPL. So I completely disagree.
+>
+> Thanks,
+> Van
+>
+>
+
+-- 
+Bruce Perens - Partner, OSS.Capital.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/7592c3cb/attachment.html>
+
+From bruce at perens.com  Thu Aug 22 22:56:57 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 22 Aug 2019 15:56:57 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAFQvZENRt=UEncBnhxrfkK=ss5ufOeumE-jeH5rdFHnYObnKwQ@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com> <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com> <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org> <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com> <CAFQvZEMmVMA3gcrTpP+gLzwfrfjWJ8Do9pCDdiggDYP+c-jsXA@mail.gmail.com> <CAK2MWOugGFGUC628qzA0euppgkD=bht1Kc8-p0ykFmtBM0ampg@mail.gmail.com> <CAFQvZENRt=UEncBnhxrfkK=ss5ufOeumE-jeH5rdFHnYObnKwQ@mail.gmail.com>
+Message-ID: <CAK2MWOtr7dfvA_RoV4TzsbxK8UoVAWfYJpk-UsY6E3EygkKBeg@mail.gmail.com>
+
+On Thu, Aug 22, 2019 at 3:52 PM VanL <van.lindberg at gmail.com> wrote:
+
+> No disrespect intended. I was not making a value statement or final
+> judgment, I was only making an observation about the comments pro and con
+> that have been made so far.
+>
+
+In that case, please consider that the argument about version 1 of the
+submitted license is still relevant to the terms in question, which persist
+in this version in their intent if not their exact language. I was not
+unsupported in my opinion on those same terms, during that long discussion.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/6aaf0b48/attachment.html>
+
+From pamela at chesteklegal.com  Thu Aug 22 22:57:10 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Thu, 22 Aug 2019 18:57:10 -0400
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAFQvZENRt=UEncBnhxrfkK=ss5ufOeumE-jeH5rdFHnYObnKwQ@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com> <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com> <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org> <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com> <CAFQvZEMmVMA3gcrTpP+gLzwfrfjWJ8Do9pCDdiggDYP+c-jsXA@mail.gmail.com> <CAK2MWOugGFGUC628qzA0euppgkD=bht1Kc8-p0ykFmtBM0ampg@mail.gmail.com> <CAFQvZENRt=UEncBnhxrfkK=ss5ufOeumE-jeH5rdFHnYObnKwQ@mail.gmail.com>
+Message-ID: <4a66487e-9a45-0f4e-b8ba-598398c08946@chesteklegal.com>
+
+
+On 8/22/2019 6:51 PM, VanL wrote:
+> Hi Bruce,
+>
+> On Thu, Aug 22, 2019, 3:42 PM Bruce Perens <bruce at perens.com
+> <mailto:bruce at perens.com>> wrote:
+>
+>
+>
+>     On Thu, Aug 22, 2019 at 3:37 PM VanL <van.lindberg at gmail.com
+>     <mailto:van.lindberg at gmail.com>> wrote:
+>
+>
+>         I know you consider the CAL's user autonomy provisions to be a
+>         field of use restriction as well, but you seem to be alone in
+>         that view.
+>
+>
+>     It's not proper for a license submitter to rule unilaterally that
+>     a particular critic is alone in their view.
+>
+>     You need to leave that to the group to decide. Please remember
+>     that you are submitting a license for this group to review.
+>
+>
+> No disrespect intended. I was not making a value statement or final
+> judgment, I was only making an observation about the comments pro and
+> con that have been made so far.
+
+For what it's worth, I agree with Bruce's view on the inappropriateness
+of imposing restrictions on data in a software license. So he is not the
+only one.
+
+And I hope it's obvious that am speaking here for myself only, not for
+the OSI.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/54a61fa0/attachment-0001.html>
+
+From pamela at chesteklegal.com  Thu Aug 22 23:09:59 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Thu, 22 Aug 2019 19:09:59 -0400
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com>
+Message-ID: <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com>
+
+
+On 8/22/2019 4:49 PM, Lukas Atkinson wrote:
+> ?
+>
+>     There are other problems with practical use of the license. Open
+>     Source software is intended for everyone to use, not just everyone
+>     who can afford an attorney and a programming staff. It thus should
+>     be the case that the "naive user", who simply runs Open Source
+>     software and does not modify it, should /not /need to read and
+>     understand the license, and certainly should not need a lawyer to
+>     tell them how to run the program in a compliant manner.
+>
+>
+> An end user is free to run the software for themselves or their
+> affiliates without restriction, and will certainly not have to consult
+> a lawyer for that. You are painting an overly dramatic picture here.
+> In general, I also find the CAL to be more comprehensible for lay
+> persons than e.g. the GPLv3.
+>
+> If anyone operates a service for other people to use, they already are
+> subject to so many legal obligations in their respective jurisdiction
+> that the CAL's provisions will really not matter that much.
+
+As a complete duffer in software, this provision is troublesome to me.
+It goes well beyond offering a service. This is the same example I used
+on the last review of this license, so forgive me for repeating it.
+Suppose I put up my homemade website and want a widget that displays my
+Twitter feed. I look at my options among the various addons and
+extensions and pick one that looks like it's just the ticket. Woe is me
+if I picked one under the CAL. Having the widget on my website is not a
+private use and so I have to make the source code available, plus
+provide notices and attribution on my website for the widget. I suspect
+anyone would be surprised that they had incurred such a burden.
+
+Still speaking entirely personally.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/b26401ac/attachment.html>
+
+From bruce at perens.com  Thu Aug 22 23:13:46 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 22 Aug 2019 16:13:46 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com>
+Message-ID: <CAK2MWOuZGdHPR8M-MoD34ykJUNtdjp54ur0eAqY04btFMLrdqA@mail.gmail.com>
+
+On Thu, Aug 22, 2019 at 4:10 PM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+> so forgive me for repeating it
+>
+
+I am just not coming up with any way to produce something coherent for the
+license committee and OSI board to use in ruling on version X, without
+repeating arguments used with version Y. All we can do is cherry pick the
+good ones from the last discussion.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/7f8a4480/attachment.html>
+
+From simon at webmink.com  Thu Aug 22 23:20:02 2019
+From: simon at webmink.com (Simon Phipps)
+Date: Fri, 23 Aug 2019 00:20:02 +0100
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <4a66487e-9a45-0f4e-b8ba-598398c08946@chesteklegal.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com> <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com> <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org> <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com> <CAFQvZEMmVMA3gcrTpP+gLzwfrfjWJ8Do9pCDdiggDYP+c-jsXA@mail.gmail.com> <CAK2MWOugGFGUC628qzA0euppgkD=bht1Kc8-p0ykFmtBM0ampg@mail.gmail.com> <CAFQvZENRt=UEncBnhxrfkK=ss5ufOeumE-jeH5rdFHnYObnKwQ@mail.gmail.com> <4a66487e-9a45-0f4e-b8ba-598398c08946@chesteklegal.com>
+Message-ID: <CAA4ffp9QdcU866GOeUJc3enwKKA5SR3Abid=vD2FXbpPL_38Ag@mail.gmail.com>
+
+On Thu, Aug 22, 2019 at 11:58 PM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+>
+> For what it's worth, I agree with Bruce's view on the inappropriateness of
+> imposing restrictions on data in a software license. So he is not the only
+> one.
+>
+
+I on the other hand disagree with characterising what Van has clearly
+framed as a requirement arising from use of the software with the generic
+term "data restriction".  As others have pointed out, the requirement
+arises from the licensing of the software and does not mutate into a
+restriction or requirement uniquely associated with the data.
+
+
+>
+> And I hope it's obvious that am speaking here for myself only, not for the
+> OSI.
+>
+
+Likewise, hence use of my personal e-mail. I've an OSI comment to make so
+will send that seperately.
+
+S.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190823/7ff1ecef/attachment.html>
+
+From bruce at perens.com  Thu Aug 22 23:26:46 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 22 Aug 2019 16:26:46 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAA4ffp9QdcU866GOeUJc3enwKKA5SR3Abid=vD2FXbpPL_38Ag@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com> <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com> <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org> <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com> <CAFQvZEMmVMA3gcrTpP+gLzwfrfjWJ8Do9pCDdiggDYP+c-jsXA@mail.gmail.com> <CAK2MWOugGFGUC628qzA0euppgkD=bht1Kc8-p0ykFmtBM0ampg@mail.gmail.com> <CAFQvZENRt=UEncBnhxrfkK=ss5ufOeumE-jeH5rdFHnYObnKwQ@mail.gmail.com> <4a66487e-9a45-0f4e-b8ba-598398c08946@chesteklegal.com> <CAA4ffp9QdcU866GOeUJc3enwKKA5SR3Abid=vD2FXbpPL_38Ag@mail.gmail.com>
+Message-ID: <CAK2MWOv6=KSLmFCw2mdeX_JW80P2+bkpGi8a4CajrJ9qo1=pOw@mail.gmail.com>
+
+On Thu, Aug 22, 2019 at 4:21 PM Simon Phipps <simon at webmink.com> wrote:
+
+> I on the other hand disagree with characterising what Van has clearly
+> framed as a requirement arising from use of the software with the generic
+> term "data restriction".  As others have pointed out, the requirement
+> arises from the licensing of the software and does not mutate into a
+> restriction or requirement uniquely associated with the data.
+>
+
+I've been using the term "use restriction", and "applies terms to data
+simply processed by the program". We have established that the power of
+contracts allows one to require performance regarding the data without this
+being a specific "encumberance" upon the data. IMO this is mainly of
+academic interest, terms regarding the data and data restrictions have very
+similar effects.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/3a0f57cc/attachment.html>
+
+From webmink at opensource.org  Thu Aug 22 23:33:09 2019
+From: webmink at opensource.org (Simon Phipps)
+Date: Fri, 23 Aug 2019 00:33:09 +0100
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAK2MWOugGFGUC628qzA0euppgkD=bht1Kc8-p0ykFmtBM0ampg@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com> <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com> <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org> <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com> <CAFQvZEMmVMA3gcrTpP+gLzwfrfjWJ8Do9pCDdiggDYP+c-jsXA@mail.gmail.com> <CAK2MWOugGFGUC628qzA0euppgkD=bht1Kc8-p0ykFmtBM0ampg@mail.gmail.com>
+Message-ID: <CAA4ffp_6iaDuXF5EvOxg3MOYD67bNfZnCEt3uneG5LnYd3jAiw@mail.gmail.com>
+
+With a moderator hat on, list members - especially in this thread - should
+note:
+ 1. It is not appropriate to post excessively, The flood of messages alienates other participants and shows a lack of respect. As a guideline, posting more than 2-3 times in a day should be the exception 2. Some matters require long messages, but repeatedly sending lengthy and complex replies is discouraged. Please take the time to write shorter and simpler messages rather than "shooting from the hip" - the deadlines are long here. 3. Please avoid censorious messages. If you believe a participant needs instructing in etiquette please contact the moderators. 4. Please do not characterise your views as those of OSI, even if you are a past or present director. The OSI Board will make it clear when such a statement is made.
+
+We aim for a light touch, but repeated exceptional behaviour has been and
+will be treated as a code of conduct violation.
+
+Thanks,
+
+Simon
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190823/96fe521d/attachment.html>
+
+From van.lindberg at gmail.com  Thu Aug 22 23:38:59 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 22 Aug 2019 18:38:59 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com>
+Message-ID: <CAFQvZEMLYcq6RsygvW_5Oq4yLCH7sLBduJmmMMsYXuxkL0HWoA@mail.gmail.com>
+
+Hi Pam,
+
+Thanks for the hypothetical.
+
+On Thu, Aug 22, 2019 at 6:10 PM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+>
+> As a complete duffer in software, this provision is troublesome to me. It
+> goes well beyond offering a service. This is the same example I used on the
+> last review of this license, so forgive me for repeating it. Suppose I put
+> up my homemade website and want a widget that displays my Twitter feed. I
+> look at my options among the various addons and extensions and pick one
+> that looks like it's just the ticket. Woe is me if I picked one under the
+> CAL. Having the widget on my website is not a private use and so I have to
+> make the source code available, plus provide notices and attribution on my
+> website for the widget. I suspect anyone would be surprised that they had
+> incurred such a burden.
+>
+
+- Is your concern here with the requirement to provide source code, or with
+the user data/user autonomy provisions? The source code can be provided via
+"easy-to-find hyperlink to an Internet location" with the necessary source
+code and disclosures.
+- You stated that you are putting in the widget to quote your own tweets.
+So would there be any "Recipient?s User Data in your possession" to be
+worried about? If it would just be your own tweets, then no, correct?
+- If you are referring to other's tweets, then do you have them "in your
+possession", or are you just displaying what is provided by Twitter via
+their API?
+- If for some reason you have them in your possession - say as a local JSON
+cache - and the person who wrote them asks for a copy, then would it be an
+excessive burden to email the JSON file to the person?
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/a2907aaa/attachment.html>
+
+From pamela at chesteklegal.com  Thu Aug 22 23:51:13 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Thu, 22 Aug 2019 19:51:13 -0400
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAFQvZEMLYcq6RsygvW_5Oq4yLCH7sLBduJmmMMsYXuxkL0HWoA@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAFQvZEMLYcq6RsygvW_5Oq4yLCH7sLBduJmmMMsYXuxkL0HWoA@mail.gmail.com>
+Message-ID: <0195fd7e-83bd-04e6-cd1c-d7f90ec57fbd@chesteklegal.com>
+
+
+On 8/22/19 7:38 PM, VanL wrote:
+> Hi Pam,
+>
+> Thanks for the hypothetical.
+>
+> On Thu, Aug 22, 2019 at 6:10 PM Pamela Chestek
+> <pamela at chesteklegal.com <mailto:pamela at chesteklegal.com>> wrote:
+>
+>
+>     As a complete duffer in software, this provision is troublesome to
+>     me. It goes well beyond offering a service. This is the same
+>     example I used on the last review of this license, so forgive me
+>     for repeating it. Suppose I put up my homemade website and want a
+>     widget that displays my Twitter feed. I look at my options among
+>     the various addons and extensions and pick one that looks like
+>     it's just the ticket. Woe is me if I picked one under the CAL.
+>     Having the widget on my website is not a private use and so I have
+>     to make the source code available, plus provide notices and
+>     attribution on my website for the widget. I suspect anyone would
+>     be surprised that they had incurred such a burden.
+>
+>
+> - Is your concern here with the requirement to provide source code, or
+> with the user data/user autonomy provisions? The source code can be
+> provided via "easy-to-find hyperlink to an Internet location" with the
+> necessary source code and disclosures.
+The concern was separate from the data issue. It's not the ease of
+compliance, it's the fact that there is a compliance requirement at all
+when no other license has one in the same circumstance. Surely when I
+search for a widget in an app store and install it on my platform CMS of
+choice I can assume I have a license to do just that with no further
+requirements.
+
+This license may be troller's gift. We already have copyright trolls who
+use the CC licenses to troll. They post images, use SEO to make sure
+their image is at the top of any image search (say "Los Angeles" or
+"success"), count on the fact that the person using the image will fail
+to comply with the license properly, and then sue them for lots of
+money. I have several clients who have been bitten by this scheme.
+Indeed the cure provision reduces the risk, but there is still the
+opportunity to create some havoc simply because you have caught people
+unaware on an unexpected requirement.
+
+> - You stated that you are putting in the widget to quote your own
+> tweets. So would there be any "Recipient?s User Data in your
+> possession" to be worried about? If it would just be your own tweets,
+> then no, correct?
+Agree.
+> - If you are referring to other's tweets, then do you have them "in
+> your possession", or are you just displaying what is provided by
+> Twitter via their API?
+> - If for some reason you have them in your possession - say as a local
+> JSON cache - and the person who wrote them asks for a copy, then would
+> it be an excessive burden to email the JSON file to the person?
+You assume I know what a JSON file is and where to find it.
+
+Pam
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/4861ab95/attachment.html>
+
+From bruce at perens.com  Thu Aug 22 23:54:46 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 22 Aug 2019 16:54:46 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAA4ffp_6iaDuXF5EvOxg3MOYD67bNfZnCEt3uneG5LnYd3jAiw@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com> <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com> <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org> <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com> <CAFQvZEMmVMA3gcrTpP+gLzwfrfjWJ8Do9pCDdiggDYP+c-jsXA@mail.gmail.com> <CAK2MWOugGFGUC628qzA0euppgkD=bht1Kc8-p0ykFmtBM0ampg@mail.gmail.com> <CAA4ffp_6iaDuXF5EvOxg3MOYD67bNfZnCEt3uneG5LnYd3jAiw@mail.gmail.com>
+Message-ID: <CAK2MWOugDWTDrhO6FTFo=750Nv4VMyhDtVwXozEZQmiCxehauA@mail.gmail.com>
+
+OK, I feel the need to push back, Mr. Moderator.
+
+Just how are we to carry out one of the first days of evaluation of a new
+version of a complicated license submission, with many differing opinions
+and points discussed, when we are asked to restrict ourselves to so few
+messages that the discussion won't be interactive? We can, and I fear that
+OSI is constructing a means for us to, conduct ourselves as if we were
+preschool kids at "parallel play". This does not seem to be a particularly
+effective means of communication.
+
+AND having restricted ourselves to two or three messages, you want
+one-liners? Let me assure you a lot of thought goes into participation on
+the list, and I am bothered that this is characterized as "shooting from
+the hip".
+
+I am pretty sure that all people here know that I am not on the OSI board,
+and if I make an observation regarding what OSI does or has done, it's an
+observation, not a Papal Bull.
+
+And I'm sorry for my obviously censurious reply to Van, but in my defense,
+I don't wish to see rhetorical tactics like "you're alone in your opinion"
+distract from the policy discussion.
+ Thanks
+ Bruce
+
+On Thu, Aug 22, 2019 at 4:34 PM Simon Phipps <webmink at opensource.org> wrote:
+
+> With a moderator hat on, list members - especially in this thread - should
+> note:
+>
+>    1. It is not appropriate to post excessively, The flood of messages
+>    alienates other participants and shows a lack of respect. As a guideline,
+>    posting more than 2-3 times in a day should be the exception
+>    2. Some matters require long messages, but repeatedly sending lengthy
+>    and complex replies is discouraged. Please take the time to write shorter
+>    and simpler messages rather than "shooting from the hip" - the deadlines
+>    are long here.
+>    3. Please avoid censorious messages. If you believe a participant
+>    needs instructing in etiquette please contact the moderators.
+>    4. Please do not characterise your views as those of OSI, even if you
+>    are a past or present director. The OSI Board will make it clear when such
+>    a statement is made.
+>
+> We aim for a light touch, but repeated exceptional behaviour has been and
+> will be treated as a code of conduct violation.
+>
+> Thanks,
+>
+> Simon
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens - Partner, OSS.Capital.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/706a6344/attachment-0001.html>
+
+From pamela at chesteklegal.com  Thu Aug 22 23:54:56 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Thu, 22 Aug 2019 19:54:56 -0400
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAA4ffp9QdcU866GOeUJc3enwKKA5SR3Abid=vD2FXbpPL_38Ag@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com> <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com> <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org> <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com> <CAFQvZEMmVMA3gcrTpP+gLzwfrfjWJ8Do9pCDdiggDYP+c-jsXA@mail.gmail.com> <CAK2MWOugGFGUC628qzA0euppgkD=bht1Kc8-p0ykFmtBM0ampg@mail.gmail.com> <CAFQvZENRt=UEncBnhxrfkK=ss5ufOeumE-jeH5rdFHnYObnKwQ@mail.gmail.com> <4a66487e-9a45-0f4e-b8ba-598398c08946@chesteklegal.com> <CAA4ffp9QdcU866GOeUJc3enwKKA5SR3Abid=vD2FXbpPL_38Ag@mail.gmail.com>
+Message-ID: <5eb4c36d-621d-0635-314e-60aa271b6244@chesteklegal.com>
+
+
+On 8/22/19 7:20 PM, Simon Phipps wrote:
+> I on the other hand disagree with characterising what Van has clearly
+> framed as a requirement arising from use of the software with the
+> generic term "data restriction".? As others have pointed out, the
+> requirement arises from the licensing of the software and does not
+> mutate into a restriction or requirement uniquely associated with the
+> data.
+> ?
+Disclaimer: Personal view.
+
+I don't follow your distinction. All objectionable impairments can be
+framed as conditions on the license. "This license is granted on the
+condition that you water my plants on Thursday." So plant-watering is
+properly the subject matter of an open source license?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+From webmink at opensource.org  Fri Aug 23 00:03:53 2019
+From: webmink at opensource.org (Simon Phipps)
+Date: Fri, 23 Aug 2019 01:03:53 +0100
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAK2MWOugDWTDrhO6FTFo=750Nv4VMyhDtVwXozEZQmiCxehauA@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com> <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com> <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org> <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com> <CAFQvZEMmVMA3gcrTpP+gLzwfrfjWJ8Do9pCDdiggDYP+c-jsXA@mail.gmail.com> <CAK2MWOugGFGUC628qzA0euppgkD=bht1Kc8-p0ykFmtBM0ampg@mail.gmail.com> <CAA4ffp_6iaDuXF5EvOxg3MOYD67bNfZnCEt3uneG5LnYd3jAiw@mail.gmail.com> <CAK2MWOugDWTDrhO6FTFo=750Nv4VMyhDtVwXozEZQmiCxehauA@mail.gmail.com>
+Message-ID: <CAA4ffp_ou-K=Og1YPw=G8cBrX+tRi6f0nJta3oQqwgbtauGLSA@mail.gmail.com>
+
+I clearly indicated we're aiming for a light touch rather than legalism -
+those were all guidelines for individuals rather than strict rules.
+
+All the same, posting twelve times within a few hours is OTT no matter how
+you look at it. Why not take a break until tomorrow? If you feel you have
+to reply please do so privately - thanks.
+
+S.
+
+
+On Fri, Aug 23, 2019 at 12:55 AM Bruce Perens via License-review <
+license-review at lists.opensource.org> wrote:
+
+> OK, I feel the need to push back, Mr. Moderator.
+>
+> Just how are we to carry out one of the first days of evaluation of a new
+> version of a complicated license submission, with many differing opinions
+> and points discussed, when we are asked to restrict ourselves to so few
+> messages that the discussion won't be interactive? We can, and I fear that
+> OSI is constructing a means for us to, conduct ourselves as if we were
+> preschool kids at "parallel play". This does not seem to be a particularly
+> effective means of communication.
+>
+> AND having restricted ourselves to two or three messages, you want
+> one-liners? Let me assure you a lot of thought goes into participation on
+> the list, and I am bothered that this is characterized as "shooting from
+> the hip".
+>
+> I am pretty sure that all people here know that I am not on the OSI board,
+> and if I make an observation regarding what OSI does or has done, it's an
+> observation, not a Papal Bull.
+>
+> And I'm sorry for my obviously censurious reply to Van, but in my defense,
+> I don't wish to see rhetorical tactics like "you're alone in your opinion"
+> distract from the policy discussion.
+>
+>     Thanks
+>
+>     Bruce
+>
+> On Thu, Aug 22, 2019 at 4:34 PM Simon Phipps <webmink at opensource.org>
+> wrote:
+>
+>> With a moderator hat on, list members - especially in this thread -
+>> should note:

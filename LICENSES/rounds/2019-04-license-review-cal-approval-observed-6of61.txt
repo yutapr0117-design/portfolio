@@ -1,0 +1,750 @@
+> solved without it?
+>
+
+There are a couple reasons. First, when dealing with a network copyleft,
+there aren't a lot of options - only the AGPL. Thus the analysis started
+with "would the AGPL work" and proceeded from there. In this case, the AGPL
+was not considered a sufficient vehicle because:
+
+1. The network aspect of the AGPL only applies to network interaction with
+a modified version. There are issues with this: - It doesn't clearly provide attribution or source code for unmodified
+versions - Network interaction is gameable to avoid providing source (Just put a
+proxy in place - I have seen this happen many times) - In the context of protecting access to User Data, the AGPL's "network
+interaction with a modified version" would only be effective in the cases
+where the software was modified - a minority of the time.
+2. The AGPL is ambiguous in its application in a corporate context. For
+example, if a modified version of an AGPL program is used within a company,
+and not provided to any outsider, do employees have rights to the code to
+the modified version? I would argue that they do, and that the employer
+cannot prevent the spread of trade secret AGPL programs because to do so
+would be an additional restriction.
+
+Finally, I personally think that grounding the network interaction in a
+clearly articulated existing right, already written into copyright law, is
+superior to defining a new term like "network interaction" that is unique.
+
+
+> > If you take a look at the exact text, the text is very close to the
+> GPLv3. There was quite a bit of "borrowing" in exactly the way you suggest.
+> >
+>
+
+I am not sure how to respond to your question about the evolution of the
+GPLv3, maybe Richard can help there. But to be more explicit:
+
+GPLv3, Section 3: No covered work shall be deemed part of an effective
+technological measure under any applicable law...
+
+CAL 2.3(a): You may not, by means of cryptographic controls, technological
+protection measures, or any other method, limit a third party from
+independently Processing User Data in which they have a Lawful Interest
+
+GPLv3, Section 3: When you convey a covered work, you waive any legal power
+to forbid circumvention of technological measures to the extent such
+circumvention is effected by exercising rights under this License with
+respect to the covered work
+
+CAL, 2.3(d): You waive any legal power to forbid circumvention of technical
+protection measures that include use of the Work
+
+GPLv3, Section 3: You disclaim any intention to limit operation or
+modification of the work as a means of enforcing, against the work's users,
+your or third parties' legal rights to forbid circumvention of
+technological measures.
+
+CAL: 2.3(e): You waive any claim that the capabilities of the work were
+limited or modified as a means of enforcing the legal rights of third
+parties against Recipients
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190426/e44bf9ca/attachment.html>
+
+From van.lindberg at gmail.com  Fri Apr 26 15:19:30 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 26 Apr 2019 10:19:30 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEO3WMg7J--+RZ_ayaF+dL=2k0Pma_Ove84u491TPggBdg@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAKHykesABajrSO7urKNRL93cLUE4YwGZCUwLDiX4iAe=4Uab8Q@mail.gmail.com> <CAFQvZEOW3ZqS_yuyVK_q0CHrRSTMBpHTU5tfsi5M1ATLYrbMHg@mail.gmail.com> <CAKHyketBbodCX9QHZGoMsqxg+Dh68VZqoofMSxO9w7f5nJ_ZMQ@mail.gmail.com> <CAFQvZEO3WMg7J--+RZ_ayaF+dL=2k0Pma_Ove84u491TPggBdg@mail.gmail.com>
+Message-ID: <CAFQvZEPZosYvfppSnd1fzC5yht6EHy1UnjF1PdLut-k_AHG_0A@mail.gmail.com>
+
+I would also note that the formatting requirements are also in part
+inspired by the GPLv3:
+
+GPLv3: Corresponding Source conveyed, and Installation Information
+provided, in accord with this section must be in a format that is publicly
+documented (and with an implementation available to the public in source
+code form), and must require no special password or key for unpacking,
+reading or copying.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190426/367ff578/attachment.html>
+
+From kevin+osi at km6g.us  Fri Apr 26 21:21:34 2019
+From: kevin+osi at km6g.us (Kevin P. Fleming)
+Date: Fri, 26 Apr 2019 17:21:34 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEO3WMg7J--+RZ_ayaF+dL=2k0Pma_Ove84u491TPggBdg@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAKHykesABajrSO7urKNRL93cLUE4YwGZCUwLDiX4iAe=4Uab8Q@mail.gmail.com> <CAFQvZEOW3ZqS_yuyVK_q0CHrRSTMBpHTU5tfsi5M1ATLYrbMHg@mail.gmail.com> <CAKHyketBbodCX9QHZGoMsqxg+Dh68VZqoofMSxO9w7f5nJ_ZMQ@mail.gmail.com> <CAFQvZEO3WMg7J--+RZ_ayaF+dL=2k0Pma_Ove84u491TPggBdg@mail.gmail.com>
+Message-ID: <CAE+Udoo2dABHsvjMNp7Lwc0O7nfYJegrP9wKo6Na0Fq4xCfPJQ@mail.gmail.com>
+
+On Fri, Apr 26, 2019 at 11:15 AM VanL <van.lindberg at gmail.com> wrote:
+> 2. The AGPL is ambiguous in its application in a corporate context. For example, if a modified version of an AGPL program is used within a company, and not provided to any outsider, do employees have rights to the code to the modified version? I would argue that they do, and that the employer cannot prevent the spread of trade secret AGPL programs because to do so would be an additional restriction.
+
+You're not the only one; this is how our policy was decided, and we
+don't even bother treating modified and unmodified versions
+differently. If a user has direct access to the services provided by
+an AGPL-covered work, then as far as our policy is concerned we are
+obligated to provide the source code under those terms. (In this
+context 'we' and 'our' refer to my employer, Bloomberg, where I helped
+formulate this policy). I do wish that the license more directly
+addressed this situation, though.
+
+
+From van.lindberg at gmail.com  Fri Apr 26 21:49:46 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 26 Apr 2019 16:49:46 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAE+Udoo2dABHsvjMNp7Lwc0O7nfYJegrP9wKo6Na0Fq4xCfPJQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAKHykesABajrSO7urKNRL93cLUE4YwGZCUwLDiX4iAe=4Uab8Q@mail.gmail.com> <CAFQvZEOW3ZqS_yuyVK_q0CHrRSTMBpHTU5tfsi5M1ATLYrbMHg@mail.gmail.com> <CAKHyketBbodCX9QHZGoMsqxg+Dh68VZqoofMSxO9w7f5nJ_ZMQ@mail.gmail.com> <CAFQvZEO3WMg7J--+RZ_ayaF+dL=2k0Pma_Ove84u491TPggBdg@mail.gmail.com> <CAE+Udoo2dABHsvjMNp7Lwc0O7nfYJegrP9wKo6Na0Fq4xCfPJQ@mail.gmail.com>
+Message-ID: <CAFQvZENps9y8JXzU9gKyovFgYmOct35eBxamUgQQqdv=ReE=bA@mail.gmail.com>
+
+On Fri, Apr 26, 2019 at 4:22 PM Kevin P. Fleming <kevin+osi at km6g.us> wrote:
+
+> On Fri, Apr 26, 2019 at 11:15 AM VanL <van.lindberg at gmail.com> wrote:
+> > 2. The AGPL is ambiguous in its application in a corporate context. For
+> example, if a modified version of an AGPL program is used within a company,
+> and not provided to any outsider, do employees have rights to the code to
+> the modified version? I would argue that they do, and that the employer
+> cannot prevent the spread of trade secret AGPL programs because to do so
+> would be an additional restriction.
+>
+> You're not the only one; this is how our policy was decided, and we
+> don't even bother treating modified and unmodified versions
+> differently. If a user has direct access to the services provided by
+> an AGPL-covered work, then as far as our policy is concerned we are
+> obligated to provide the source code under those terms. (In this
+> context 'we' and 'our' refer to my employer, Bloomberg, where I helped
+> formulate this policy). I do wish that the license more directly
+> addressed this situation, though.
+>
+
+Do you mean that you wish that the CAL addressed this situation? If so,
+take a look at the standard-ish definition of "affiliate" as well as the
+clauses associated with "public performance" which were drafted in part
+with this issue in mind. Please let me know if you see ambiguity in the CAL
+similarly to the AGPL.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190426/941a317f/attachment.html>
+
+From pamela at chesteklegal.com  Sat Apr 27 14:29:49 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sat, 27 Apr 2019 10:29:49 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com>
+Message-ID: <cdc03475-5138-de56-82a2-14cbc0d911a1@chesteklegal.com>
+
+Hi Van,
+
+Below are some comments on the text itself.
+
+On 4/22/19 2:43 PM, VanL wrote:
+> We now present the CAL 1.0-Beta for approval at the next board meeting:
+> ? Google Docs link:
+> https://docs.google.com/document/d/1sWUREQN02YJ-q91gXOCflRB57Q1YcU1G7UMS_a8WOTI/edit#
+> ? PDF Link: https://www.processmechanics.com/static/CAL-1.0-Beta.pdf
+>
+>
+Section 2.2.1 and 2.4 are circular references so that it's not clear
+what the duty is. Section 2.2.1 says it is "Subject to the exception" of
+2.4. 2.4 says you have to comply with 2.2.1 "relative to the Source Code
+provided by You." First, I don't know what "relative" means. Couldn't
+the original code be considered "relative" to mine? And saying that I
+must provide my source code doesn't relieve me of the obligation of
+providing your source code. I assume that is what you are trying to
+accomplish but it's not clearly stated anywhere.
+
+Section 2.2.2: The predicate "With the exception in section 2.4" says
+the opposite of what I believe you mean to say. "With" can be read as a
+conjunction and "the exception" is read as a description of what is in
+Section 2.4. So it says "in conjunction with what is described in
+Section 2.4, you must provide ..." when I believe you mean to except out
+2.4 from the requirement of 2.2.2. If you don't mean to except it out,
+then the clause is unnecessary. The language is also different from
+2.2.1 ("Subject to the exception in 2.4") and I don't understand why
+they are different.
+
+"Access to Source Code" must be provided by "You," the Licensee. It
+doesn't make sense to me that the Licensee has to provide access to the
+source code.
+
+Section 2.3: It says "You must give the same permission received under
+this License to any Recipient...." However, Section 7.2 says the license
+is not sublicensable, so the Licensee doesn't have authority to grant
+permissions at all. The clause doesn't seem to have an effect and
+therefore only creates confusion.
+
+Section 2.3(e): missing capitalization of "Work"? I also don't
+understand what it's trying to say or stop.
+
+Section 4.1: I would insert the word "automatically" before "compliance"
+within 60 days to distinguish it from compliance after that, which
+requires the express restoration by the Licensor.
+
+You have defined "Public Performance" as using the Software to take any
+action that implicates the right of performance or public display under
+copyright law, and include as one use case of making an interface
+available. The license grant is for this full scope. However, your
+definition of "Modified Work" and "Recipient" refer only to "Public[ly]
+Perform[ance/ing] an interface." This creates ambiguity about the scope
+of the right for Modified Work and that Recipients have.
+
+Section 7.1.1: I don't understand why a reference to GDPR is required;
+it strikes me as a "you must comply with all applicable law"
+requirement. And why the GDPR and not any other or future laws? If a
+statement is needed that the requirements the law impose will override
+the license requirements, you can say that more generally.
+
+Pam
+
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+From pamela at chesteklegal.com  Sat Apr 27 14:30:22 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sat, 27 Apr 2019 10:30:22 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEPU8dRtUcVA1MwJmQ_HACxQXt30M4SUULiyfsGDC84i1Q@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <CAK2MWOvfUd+cf4_Lky3cqwSJQR-MdcJgF1zGs9wwph1GriA7bg@mail.gmail.com> <CAFQvZEPU8dRtUcVA1MwJmQ_HACxQXt30M4SUULiyfsGDC84i1Q@mail.gmail.com>
+Message-ID: <49972b09-6422-c091-b0ff-ac8a5df6fa5f@chesteklegal.com>
+
+
+On 4/23/19 10:15 PM, VanL wrote:
+> There is a particular way of locking down a program that is available
+> in hashchain applications; that particular method is addressed in a
+> single clause. That is exactly like anti-Tivoization (which is also
+> addressed in a single clause inspired by the GPLv3, and the
+> anti-circumvention, which is addressed in a third clause - again
+> parallel to the GPLv3).
+
+On 4/23/19 11:55 PM, Bruce Perens via License-review wrote:
+> Here you add data to the terms, which none of our other licenses
+> require, and you require it of /users /of the program who are not
+> developers. 
+
+Bruce does identify what strikes me as a distinction between your
+section 2.3 and the anti-Tivozation clause. The anti-Tivozation clause
+says that where object code is conveyed on certain devices where the
+device is transferred in a way equivalent to ownership, then you must
+give me what is needed to install and execute a modified version of the
+code on the device. That all relates to my right to modify code in a
+meaningful way. Your provision simply says that someone can get a copy
+of their data, as Bruce points out a burden that falls on someone who is
+only running the software. So I don't consider them analogous.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190427/10107beb/attachment.html>
+
+From pamela at chesteklegal.com  Sat Apr 27 14:37:34 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sat, 27 Apr 2019 10:37:34 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com>
+Message-ID: <78f34908-cdcf-3074-f700-5fe9a679186c@chesteklegal.com>
+
+
+On 4/23/19 6:18 PM, VanL wrote:
+> In this case, my client identified that it was in their business
+> interest to have a strong network copyleft license that was maximally
+> respecting of user freedom. 
+Any software that replicates APIs (e.g., Dalvik), even if entirely
+written from scratch, would have to be offered under the CAL. Is that
+your intention?
+
+I do NOT read this license as not having any copyleft effect on software
+that simply uses APIs. Is that correct? If my reading is incorrect, can
+you walk me through it?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+
+From pamela at chesteklegal.com  Sat Apr 27 16:18:38 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sat, 27 Apr 2019 12:18:38 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAKHykesABajrSO7urKNRL93cLUE4YwGZCUwLDiX4iAe=4Uab8Q@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAKHykesABajrSO7urKNRL93cLUE4YwGZCUwLDiX4iAe=4Uab8Q@mail.gmail.com>
+Message-ID: <7ff2a983-9d7a-3056-1304-83b472b5ceab@chesteklegal.com>
+
+
+On 4/24/2019 6:00 AM, Henrik Ingo wrote:
+> 1. The use of public performance in a software license is novel and
+> untested. It's hard to predict it's effect, but from the definition of
+> Public Performance it seems possible and even likely that both
+> developers and users can get sued inadvertently.
+The definition for "Public Performance" is "using the Software to take
+any action that implicates the rights of public performance or public
+display of a work under copyright law."? Query how this plays out under
+EU law specifically. I hope EU readers more knowledgeable than me chime
+in, but I don't read any equivalent right under EU law, so I don't know
+what an EU court would do with it. Ignore it because there is no such
+thing in the EU? Consider it equivalent to distribution?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+From opensource at lukasatkinson.de  Sat Apr 27 17:16:02 2019
+From: opensource at lukasatkinson.de (Lukas Atkinson)
+Date: Sat, 27 Apr 2019 19:16:02 +0200
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <7ff2a983-9d7a-3056-1304-83b472b5ceab@chesteklegal.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAKHykesABajrSO7urKNRL93cLUE4YwGZCUwLDiX4iAe=4Uab8Q@mail.gmail.com> <7ff2a983-9d7a-3056-1304-83b472b5ceab@chesteklegal.com>
+Message-ID: <CAJTYOd0hbCKxzaDRcXmCCQL-HdZTTS4OfooQe4mByP0+Qjr9_g@mail.gmail.com>
+
+>
+> The definition for "Public Performance" is "using the Software to take
+> any action that implicates the rights of public performance or public
+> display of a work under copyright law."  Query how this plays out under
+> EU law specifically. I hope EU readers more knowledgeable than me chime
+> in, but I don't read any equivalent right under EU law, so I don't know
+> what an EU court would do with it. Ignore it because there is no such
+> thing in the EU? Consider it equivalent to distribution?
+>
+
+NAL, but the WIPO treaty (Art 8) and the EU Copyright Directive 2001/29/EC
+(Art 3) and others contain an author's right of ?communication to the
+public? which seems broadly similar to a remote, user-initiated public
+performance. While I don't know about public performance of software,
+communication to the public has led to some novel conclusions in the EU,
+for example that hyperlinking a work constitutes communicating the work to
+the public. Applying a public performance right to software feels far less
+surprising, in comparison.
+
+I don't think the CAL should be amended to include jurisdiction-specific
+terms. It is sufficiently clear without them. But since WIPO is widely
+implemented international law, referencing it could be most useful. Note
+that WIPO also equates computer programs with literary works, which is
+important for the CAL to work.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190427/f1c91af7/attachment.html>
+
+From van.lindberg at gmail.com  Sun Apr 28 14:50:34 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Sun, 28 Apr 2019 09:50:34 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <78f34908-cdcf-3074-f700-5fe9a679186c@chesteklegal.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <78f34908-cdcf-3074-f700-5fe9a679186c@chesteklegal.com>
+Message-ID: <CAFQvZEM-F0Z8vEJNgtD270krDa_DB1T55rsxZMfnD-Y6gXB92w@mail.gmail.com>
+
+Hello Pam,
+
+Thanks for the questions and comments - I'll respond to all of them, but I
+will take some out of order as some take either more thought or more
+explanation.
+
+On Sat, Apr 27, 2019 at 9:38 AM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+>
+> On 4/23/19 6:18 PM, VanL wrote:
+> > In this case, my client identified that it was in their business
+> > interest to have a strong network copyleft license that was maximally
+> > respecting of user freedom.
+> Any software that replicates APIs (e.g., Dalvik), even if entirely
+> written from scratch, would have to be offered under the CAL. Is that
+> your intention?
+>
+
+Yes, that is correct in general - although note that reimplementations of
+an API (like Dalvik) could be offered under a Compatible Open Source
+License. So in a hypothetical scenario where Java were available under the
+CAL, Google's Apache-licensed Dalvik would be compliant.
+
+
+> I do NOT read this license as not having any copyleft effect on software
+> that simply uses APIs. Is that correct? If my reading is incorrect, can
+> you walk me through it?
+>
+
+That is correct. Barring constructed hypotheticals, consuming an API would
+not have any licensing implications.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190428/6700ca3b/attachment.html>
+
+From pamela at chesteklegal.com  Sun Apr 28 19:34:27 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sun, 28 Apr 2019 15:34:27 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEM-F0Z8vEJNgtD270krDa_DB1T55rsxZMfnD-Y6gXB92w@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <78f34908-cdcf-3074-f700-5fe9a679186c@chesteklegal.com> <CAFQvZEM-F0Z8vEJNgtD270krDa_DB1T55rsxZMfnD-Y6gXB92w@mail.gmail.com>
+Message-ID: <86761658-aa7f-edf3-0cac-d8af01d489c3@chesteklegal.com>
+
+
+On 4/28/2019 10:50 AM, VanL wrote:
+> Hello Pam,
+>
+> Thanks for the questions and comments - I'll respond to all of them,
+> but I will take some out of order as some take either more thought or
+> more explanation.
+>
+> On Sat, Apr 27, 2019 at 9:38 AM Pamela Chestek
+> <pamela at chesteklegal.com <mailto:pamela at chesteklegal.com>> wrote:
+>
+>
+>     On 4/23/19 6:18 PM, VanL wrote:
+>     > In this case, my client identified that it was in their business
+>     > interest to have a strong network copyleft license that was
+>     maximally
+>     > respecting of user freedom.
+>     Any software that replicates APIs (e.g., Dalvik), even if entirely
+>     written from scratch, would have to be offered under the CAL. Is that
+>     your intention?
+>
+>
+> Yes, that is correct in general - although note that reimplementations
+> of an API (like Dalvik) could be offered under a Compatible Open
+> Source License. So in a hypothetical scenario where Java were
+> available under the CAL, Google's Apache-licensed Dalvik would be
+> compliant.
+> ?
+>
+>     I do NOT read this license as not having any copyleft effect on
+>     software
+>     that simply uses APIs. Is that correct? If my reading is
+>     incorrect, can
+>     you walk me through it?
+>
+>
+> That is correct. Barring constructed hypotheticals, consuming an API
+> would not have any licensing implications.
+>
+> Thanks,
+> Van
+Hi Van,
+
+Thanks, and I appreciate your indulgence while I struggle with how the
+license is architected. So the design of the license (and perhaps the
+goal) is that (1) any software written to offer the same APIs has to be
+under a Compatible Open Source License and (2) the user's data is
+portable. Is that correct?
+
+If the Supreme Court were to hold that there is no copyright in API's,
+what happens to Public Performance under the CAL? Does it still survive?
+The copyright right at issue in Google v. Oracle is the right of
+reproduction, not public performance. As the definition is written, I
+believe it does survive. So writing software to offer the same APIs
+would be subject to the terms of the CAL, even though the Supreme Court
+said it was lawful. Do you agree?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190428/b369b7ec/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Mon Apr 29 09:13:54 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Mon, 29 Apr 2019 12:13:54 +0300
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEO3WMg7J--+RZ_ayaF+dL=2k0Pma_Ove84u491TPggBdg@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAKHykesABajrSO7urKNRL93cLUE4YwGZCUwLDiX4iAe=4Uab8Q@mail.gmail.com> <CAFQvZEOW3ZqS_yuyVK_q0CHrRSTMBpHTU5tfsi5M1ATLYrbMHg@mail.gmail.com> <CAKHyketBbodCX9QHZGoMsqxg+Dh68VZqoofMSxO9w7f5nJ_ZMQ@mail.gmail.com> <CAFQvZEO3WMg7J--+RZ_ayaF+dL=2k0Pma_Ove84u491TPggBdg@mail.gmail.com>
+Message-ID: <CAKHykevPDaMswy6c2YBQftgW0VfS0HZCvMKcdaa47Tb_Q9Rryw@mail.gmail.com>
+
+On Fri, Apr 26, 2019 at 6:14 PM VanL <van.lindberg at gmail.com> wrote:
+> On Fri, Apr 26, 2019 at 9:49 AM Henrik Ingo <henrik.ingo at avoinelama.fi> wrote:
+>> I was not very clear about it, but indirectly I was inviting you to
+>> justify why you think it is *necessary* to use the concept of Public
+>> Performance in CAL. What problem - other than just maximizing the
+>> power of copyright law - does it solve for you that wasn't adequately
+>> solved without it?
+>
+>
+> There are a couple reasons. First, when dealing with a network copyleft, there aren't a lot of options - only the AGPL. Thus the analysis started with "would the AGPL work" and proceeded from there. In this case, the AGPL was not considered a sufficient vehicle because:
+>
+> 1. The network aspect of the AGPL only applies to network interaction with a modified version. There are issues with this:
+>    - It doesn't clearly provide attribution or source code for unmodified versions
+>    - Network interaction is gameable to avoid providing source (Just put a proxy in place - I have seen this happen many times)
+>    - In the context of protecting access to User Data, the AGPL's "network interaction with a modified version" would only be effective in the cases where the software was modified - a minority of the time.
+
+So, I definitively agree that alternatives to AGPL are welcome. The
+proxy-loophole incarnates into a lot of different variations. More
+generally I would say the problem with the AGPL is that it inherits
+from the GPL the mindset that the covered work is executed as a single
+process in a single computer, into which there exists a network
+connection.
+
+> 2. The AGPL is ambiguous in its application in a corporate context. For example, if a modified version of an AGPL program is used within a company, and not provided to any outsider, do employees have rights to the code to the modified version? I would argue that they do, and that the employer cannot prevent the spread of trade secret AGPL programs because to do so would be an additional restriction.
+>
+
+Good point. (Without deciding whether I agree with the above...) An
+AGPL user is not the same as a recipient of a copy.
+
+> Finally, I personally think that grounding the network interaction in a clearly articulated existing right, already written into copyright law, is superior to defining a new term like "network interaction" that is unique.
+>
+
+This is really just were we disagree. I think public performance
+applied to software is completely uncharted territory. (And partly as
+a consequence...) the license in both cases would have to spend some
+effort in describing what exactly is protected or burdened with
+requirements. Your current proposal doesn't bound "public performance"
+at all, which feels very hazardous. (Thread on license discuss
+enumerated several scenarios of unintended legal hazard.)
+
+The AGPL inherits from GPL the sentence "This License explicitly
+affirms your unlimited permission to run the unmodified Program." The
+way I read FSFs motivations, this is to explicitly ensure that a
+regular user can not infringe and get into any legal trouble. Which is
+great, but contributes to why the AGPL is implemented in a somewhat
+awkward way: It describes functionality that the Program must have,
+rather than just saying that when you offer the Program (as a
+service'ish) to other users, you are required to offer corresponding
+source. (Among other things, this may limit the usefulness of AGPL to
+software with unusual user interfaces.)
+
+There's no requirement for all open source licenses to follow down
+this same awkward path. We obviously remain concerned about minimizing
+legal burden and risk to an ordinary user, but I would argue that
+simple and clear legal terms can also contribute to that goal! In this
+case, the existing tradition of copyright licenses for software
+already gives you virtually unlimited powers to put restrictions on
+someone executing CAL-licensed software on a network server. The
+invocation of a public performance right only adds uncertainty, but
+little practical value.
+
+Note btw, that "network interaction" needn't be defined in those terms
+either. Any user interacting with the software probably should have
+those rights, whether using it via a network, on some kind of kiosk,
+or whatever interface. It seems to me there's a more generic
+definition out there that is both simpler than focusing on the special
+case of "network interaction" and would also benefit a broader user
+base than users of SaaS or P2P (networked) software.
+
+>> > If you take a look at the exact text, the text is very close to the GPLv3. There was quite a bit of "borrowing" in exactly the way you suggest.
+>> >
+
+Thanks for the specific GPL extracts and mapping.
+
+This thread is maybe hard to pursue now that it turned out my memory
+was stuck on a GPL sentence that didn't survive the drafting process.
+
+Regardless of the GPL, I wanted to point out a common kind of DRM that
+doesn't seem fully addressed by the CAL. Possibly it could be a
+loophole.
+
+But in any case it's of course also true that loopholes - this one, at
+least - aren't a violation of the OSD. So this issue doesn't stand in
+the way of OSI approval for CAL.
+
+henrik
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+
+
+From henrik.ingo at avoinelama.fi  Mon Apr 29 09:50:42 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Mon, 29 Apr 2019 12:50:42 +0300
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEM-F0Z8vEJNgtD270krDa_DB1T55rsxZMfnD-Y6gXB92w@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <78f34908-cdcf-3074-f700-5fe9a679186c@chesteklegal.com> <CAFQvZEM-F0Z8vEJNgtD270krDa_DB1T55rsxZMfnD-Y6gXB92w@mail.gmail.com>
+Message-ID: <CAKHyketi-+rr7+=JQs+cTZdeAy4y8yCrSVY1z+0rgEONz2qUFQ@mail.gmail.com>
+
+On Sun, Apr 28, 2019 at 5:51 PM VanL <van.lindberg at gmail.com> wrote:
+> On Sat, Apr 27, 2019 at 9:38 AM Pamela Chestek <pamela at chesteklegal.com> wrote:
+>> On 4/23/19 6:18 PM, VanL wrote:
+>> > In this case, my client identified that it was in their business
+>> > interest to have a strong network copyleft license that was maximally
+>> > respecting of user freedom.
+>> Any software that replicates APIs (e.g., Dalvik), even if entirely
+>> written from scratch, would have to be offered under the CAL. Is that
+>> your intention?
+>
+>
+> Yes, that is correct in general - although note that reimplementations of an API (like Dalvik) could be offered under a Compatible Open Source License. So in a hypothetical scenario where Java were available under the CAL, Google's Apache-licensed Dalvik would be compliant.
+>
+>>
+>> I do NOT read this license as not having any copyleft effect on software
+>> that simply uses APIs. Is that correct? If my reading is incorrect, can
+>> you walk me through it?
+>
+>
+> That is correct. Barring constructed hypotheticals, consuming an API would not have any licensing implications.
+>
+
+Oh... I read this, but thought that surely I'm just misunderstanding
+and this couldn't possibly be your intention.
+
+This is then another copyright-maximalist feature that I hope the OSI
+won't and can't approve of. As long as there's a chance that the
+Supreme Court won't uphold that APIs are copyrightable, the OSI
+certainly has a policy interest in not approving a license that tries
+to advance that agenda by asserting those very claimed rights!
+
+Also note that even if the SC would uphold the current decision that
+APIs are copyrightable, it would still be a situation where there
+would be a fair use interest in allowing the full reproduction (aka
+copying) of an API for interoperability purposes. In this scenario the
+open source community will have an interest to promote a view that for
+practical purposes this fair use interest applies always, or as often
+as possible, and therefore trying to assert your copyright over an API
+is still copyright-maximalist and against this policy goal.
+
+Many years later, if also the above argument failed and APIs had
+become widely copyrighted and strongly protected, then it would be in
+the interest of copyleft licenses to also wield this power in favor of
+their agenda.
+
+Finally, note that if the OSI approved this license today, then Oracle
+lawyers could use that as evidence that their view is already
+supported and practiced by a significant industry body. (With a huge
+"good guys" stamp on their filing too!)
+
+henrik
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+
+
+From henrik.ingo at avoinelama.fi  Mon Apr 29 09:58:43 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Mon, 29 Apr 2019 12:58:43 +0300
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAJTYOd0hbCKxzaDRcXmCCQL-HdZTTS4OfooQe4mByP0+Qjr9_g@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAKHykesABajrSO7urKNRL93cLUE4YwGZCUwLDiX4iAe=4Uab8Q@mail.gmail.com> <7ff2a983-9d7a-3056-1304-83b472b5ceab@chesteklegal.com> <CAJTYOd0hbCKxzaDRcXmCCQL-HdZTTS4OfooQe4mByP0+Qjr9_g@mail.gmail.com>
+Message-ID: <CAKHykeuaqwLWuNyfXak9XDx_10XLFMbqNtDJXs8tWTDGndsWRg@mail.gmail.com>
+
+On Sat, Apr 27, 2019 at 8:17 PM Lukas Atkinson
+<opensource at lukasatkinson.de> wrote:
+>>
+>> The definition for "Public Performance" is "using the Software to take
+>> any action that implicates the rights of public performance or public
+>> display of a work under copyright law."  Query how this plays out under
+>> EU law specifically. I hope EU readers more knowledgeable than me chime
+>> in, but I don't read any equivalent right under EU law, so I don't know
+>> what an EU court would do with it. Ignore it because there is no such
+>> thing in the EU? Consider it equivalent to distribution?
+>
+>
+> NAL, but the WIPO treaty (Art 8) and the EU Copyright Directive 2001/29/EC (Art 3) and others contain an author's right of ?communication to the public? which seems broadly similar to a remote, user-initiated public performance. While I don't know about public performance of software, communication to the public has led to some novel conclusions in the EU, for example that hyperlinking a work constitutes communicating the work to the public. Applying a public performance right to software feels far less surprising, in comparison.
+>
+> I don't think the CAL should be amended to include jurisdiction-specific terms. It is sufficiently clear without them. But since WIPO is widely implemented international law, referencing it could be most useful. Note that WIPO also equates computer programs with literary works, which is important for the CAL to work.
+
+Just to clarify: I think there is consensus, or at least I don't
+dispute, that asserting public performance rights for software is
+legally possible. Also in the EU. The objections are:
+
+* The practical use of such assertion is untested and therefore
+outcome is unknown. And I don't worry about it being ineffective,
+rather the opposite extreme!
+(https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-March/020310.html)
+* The open source and free software communities consistently lobby
+against inventing new ways to restrict software with assertion of
+copyright rights. We don't want to be pioneering the application of a
+restrictive legal power that nobody else has used to date.
+
+henrik
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+
+
+From van.lindberg at gmail.com  Mon Apr 29 14:19:05 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Mon, 29 Apr 2019 09:19:05 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <86761658-aa7f-edf3-0cac-d8af01d489c3@chesteklegal.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <78f34908-cdcf-3074-f700-5fe9a679186c@chesteklegal.com> <CAFQvZEM-F0Z8vEJNgtD270krDa_DB1T55rsxZMfnD-Y6gXB92w@mail.gmail.com> <86761658-aa7f-edf3-0cac-d8af01d489c3@chesteklegal.com>
+Message-ID: <CAFQvZENTcas_yATUO7zpRDV82sBvkv7Rib=-BdvbQhvn982z0Q@mail.gmail.com>
+
+On Sun, Apr 28, 2019 at 2:35 PM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+> Hi Van,
+>
+> Thanks, and I appreciate your indulgence while I struggle with how the
+> license is architected. So the design of the license (and perhaps the goal)
+> is that (1) any software written to offer the same APIs has to be under a
+> Compatible Open Source License and (2) the user's data is portable. Is that
+> correct?
+>
+
+Yes, that is correct. It also addresses the customary derivative work
+situation as well, but you have identified the two primary distinctions.
+
+
+
+> If the Supreme Court were to hold that there is no copyright in API's,
+> what happens to Public Performance under the CAL? Does it still survive?
+> The copyright right at issue in Google v. Oracle is the right of
+> reproduction, not public performance. As the definition is written, I
+> believe it does survive. So writing software to offer the same APIs would

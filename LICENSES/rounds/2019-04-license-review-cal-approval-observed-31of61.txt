@@ -1,0 +1,750 @@
+>>
+>>    1. It is not appropriate to post excessively, The flood of messages
+>>    alienates other participants and shows a lack of respect. As a guideline,
+>>    posting more than 2-3 times in a day should be the exception
+>>    2. Some matters require long messages, but repeatedly sending lengthy
+>>    and complex replies is discouraged. Please take the time to write shorter
+>>    and simpler messages rather than "shooting from the hip" - the deadlines
+>>    are long here.
+>>    3. Please avoid censorious messages. If you believe a participant
+>>    needs instructing in etiquette please contact the moderators.
+>>    4. Please do not characterise your views as those of OSI, even if you
+>>    are a past or present director. The OSI Board will make it clear when such
+>>    a statement is made.
+>>
+>> We aim for a light touch, but repeated exceptional behaviour has been and
+>> will be treated as a code of conduct violation.
+>>
+>> Thanks,
+>>
+>> Simon
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>
+>
+> --
+> Bruce Perens - Partner, OSS.Capital.
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+
+-- 
+Simon Phipps*, Board Secretary, The Open Source Initiative*
++44 238 098 7027 or +1 415 683 7660 : www.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190823/863ba34e/attachment.html>
+
+From bruce at perens.com  Fri Aug 23 00:13:01 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 22 Aug 2019 17:13:01 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAMn5X_DP3XQUhHkZksnSKpO5s9UpeG4fBo+VTzEmFyvOh7gPxQ@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com> <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com> <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org> <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com> <CAFQvZEMmVMA3gcrTpP+gLzwfrfjWJ8Do9pCDdiggDYP+c-jsXA@mail.gmail.com> <CAK2MWOugGFGUC628qzA0euppgkD=bht1Kc8-p0ykFmtBM0ampg@mail.gmail.com> <CAA4ffp_6iaDuXF5EvOxg3MOYD67bNfZnCEt3uneG5LnYd3jAiw@mail.gmail.com> <CAK2MWOugDWTDrhO6FTFo=750Nv4VMyhDtVwXozEZQmiCxehauA@mail.gmail.com> <CAMn5X_DP3XQUhHkZksnSKpO5s9UpeG4fBo+VTzEmFyvOh7gPxQ@mail.gmail.com>
+Message-ID: <CAK2MWOuW2kxsepjiZA=otSz9QxYySoXZX0SJFPDeo+cfRNNNXA@mail.gmail.com>
+
+On Thu, Aug 22, 2019 at 5:08 PM Joshua R. Simmons <
+josh.simmons at opensource.org> wrote:
+
+> Characterizing an attempt to improve a difficult and imperfect process as
+> treating people like they're "preschool kids" is uncharitable, and
+> incorrect.
+>
+
+Not my intent, and of course I apologize.
+
+"Parallel play" is a phenomenon where the very young participants play
+alone in a room full of others, ignoring the people around them. My fear,
+and possibly an unfounded one since you haven't actually shown us what you
+are working upon, is that the system developed will break down a license
+into a set of "bug submissions" upon the text, in which we all orate
+monographs upon a particular few sentences rather than discussing the
+license with each other.
+
+Done for the day. 'bye.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/b930f4c7/attachment.html>
+
+From simon at webmink.com  Fri Aug 23 00:55:52 2019
+From: simon at webmink.com (Simon Phipps)
+Date: Fri, 23 Aug 2019 01:55:52 +0100
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <5eb4c36d-621d-0635-314e-60aa271b6244@chesteklegal.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com> <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com> <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org> <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com> <CAFQvZEMmVMA3gcrTpP+gLzwfrfjWJ8Do9pCDdiggDYP+c-jsXA@mail.gmail.com> <CAK2MWOugGFGUC628qzA0euppgkD=bht1Kc8-p0ykFmtBM0ampg@mail.gmail.com> <CAFQvZENRt=UEncBnhxrfkK=ss5ufOeumE-jeH5rdFHnYObnKwQ@mail.gmail.com> <4a66487e-9a45-0f4e-b8ba-598398c08946@chesteklegal.com> <CAA4ffp9QdcU866GOeUJc3enwKKA5SR3Abid=vD2FXbpPL_38Ag@mail.gmail.com> <5eb4c36d-621d-0635-314e-60aa271b6244@chesteklegal.com>
+Message-ID: <CAA4ffp-wH9twv41=pdSQo0x41b_8tUE=MbXkxCFpnSK85hgfqg@mail.gmail.com>
+
+On Fri, Aug 23, 2019 at 12:55 AM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+>
+> I don't follow your distinction. All objectionable impairments can be
+> framed as conditions on the license.
+
+
+I'm restating the earlier observation that the user data is not impacted
+outside its use by the software, so concerns that the license is somehow a
+data license seem over-reaching.
+
+
+> "This license is granted on the
+> condition that you water my plants on Thursday." So plant-watering is
+> properly the subject matter of an open source license?
+>
+
+Only if the software related to it. In this case the license is clearly
+designed for use-cases where the user data is material to the software and
+its deployment on the Internet, so a term relating to it does not seem
+inappropriate.
+
+I'm still lacking concern that the data dimension of this license is
+problematic in beta 2/3.
+
+S.
+(personal view)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190823/3a6e44fc/attachment-0001.html>
+
+From kevin+osi at km6g.us  Fri Aug 23 01:08:39 2019
+From: kevin+osi at km6g.us (Kevin P. Fleming)
+Date: Thu, 22 Aug 2019 18:08:39 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <0195fd7e-83bd-04e6-cd1c-d7f90ec57fbd@chesteklegal.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAFQvZEMLYcq6RsygvW_5Oq4yLCH7sLBduJmmMMsYXuxkL0HWoA@mail.gmail.com> <0195fd7e-83bd-04e6-cd1c-d7f90ec57fbd@chesteklegal.com>
+Message-ID: <CAE+Udopt9VJNt+3VOTbsE1ch+KF6FfGd48xWn7accr8zLDtTDQ@mail.gmail.com>
+
+On Thu, Aug 22, 2019 at 4:52 PM Pamela Chestek <pamela at chesteklegal.com> wrote:
+>
+>  It's not the ease of compliance, it's the fact that there is a compliance requirement at all when no other license has one in the same circumstance.
+
+The AGPL also imposes a compliance requirement in your hypothetical
+situation. If you install an AGPL-licensed plugin in your website (in
+any manner, even choosing it from a plugin repository offered by the
+website software project's operators), and the users of your website
+interact with that plugin over the network, then you are obligated to
+provide the source code to your users if the copy you are operating
+*has been modified*. It is not clear whether the license is only
+triggered by modifications that you made, or by modifications made by
+the party who provided the software to you, but if it is only
+triggered when *you* make modifications then there is a
+aircraft-carrier-sized escape hatch in the AGPL. In any case, as the
+operator of the website you would need to be aware of this requirement
+and be able to determine whether the copy you are operating can be
+considered *modified*.
+
+
+From bruce at perens.com  Fri Aug 23 01:12:02 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 22 Aug 2019 18:12:02 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAE+Udopt9VJNt+3VOTbsE1ch+KF6FfGd48xWn7accr8zLDtTDQ@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAFQvZEMLYcq6RsygvW_5Oq4yLCH7sLBduJmmMMsYXuxkL0HWoA@mail.gmail.com> <0195fd7e-83bd-04e6-cd1c-d7f90ec57fbd@chesteklegal.com> <CAE+Udopt9VJNt+3VOTbsE1ch+KF6FfGd48xWn7accr8zLDtTDQ@mail.gmail.com>
+Message-ID: <CAK2MWOtn+_3frqgCCga_GEVK6t+o=Mu7iZD=ZuYCfqDmEdb=eA@mail.gmail.com>
+
+But would it not be sufficient in this case to simply tell folks where you
+got the source, given that it's a public repository? You didn't modify it
+yourself.
+
+On Thu, Aug 22, 2019 at 6:09 PM Kevin P. Fleming <kevin+osi at km6g.us> wrote:
+
+> On Thu, Aug 22, 2019 at 4:52 PM Pamela Chestek <pamela at chesteklegal.com>
+> wrote:
+> >
+> >  It's not the ease of compliance, it's the fact that there is a
+> compliance requirement at all when no other license has one in the same
+> circumstance.
+>
+> The AGPL also imposes a compliance requirement in your hypothetical
+> situation. If you install an AGPL-licensed plugin in your website (in
+> any manner, even choosing it from a plugin repository offered by the
+> website software project's operators), and the users of your website
+> interact with that plugin over the network, then you are obligated to
+> provide the source code to your users if the copy you are operating
+> *has been modified*. It is not clear whether the license is only
+> triggered by modifications that you made, or by modifications made by
+> the party who provided the software to you, but if it is only
+> triggered when *you* make modifications then there is a
+> aircraft-carrier-sized escape hatch in the AGPL. In any case, as the
+> operator of the website you would need to be aware of this requirement
+> and be able to determine whether the copy you are operating can be
+> considered *modified*.
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens - Partner, OSS.Capital.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/5e17d54f/attachment.html>
+
+From van.lindberg at gmail.com  Fri Aug 23 01:29:20 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 22 Aug 2019 20:29:20 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAE+Udopt9VJNt+3VOTbsE1ch+KF6FfGd48xWn7accr8zLDtTDQ@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAFQvZEMLYcq6RsygvW_5Oq4yLCH7sLBduJmmMMsYXuxkL0HWoA@mail.gmail.com> <0195fd7e-83bd-04e6-cd1c-d7f90ec57fbd@chesteklegal.com> <CAE+Udopt9VJNt+3VOTbsE1ch+KF6FfGd48xWn7accr8zLDtTDQ@mail.gmail.com>
+Message-ID: <CAFQvZEPOy60coXFdy_cfjhzCoMb=YPT8rKSHw8bbZ9Kwz9DixQ@mail.gmail.com>
+
+On Thu, Aug 22, 2019 at 8:09 PM Kevin P. Fleming <kevin+osi at km6g.us> wrote:
+
+> On Thu, Aug 22, 2019 at 4:52 PM Pamela Chestek <pamela at chesteklegal.com>
+> wrote:
+> >
+> >  It's not the ease of compliance, it's the fact that there is a
+> compliance requirement at all when no other license has one in the same
+> circumstance.
+>
+> The AGPL also imposes a compliance requirement in your hypothetical
+> situation. If you install an AGPL-licensed plugin in your website (in
+> any manner, even choosing it from a plugin repository offered by the
+> website software project's operators), and the users of your website
+> interact with that plugin over the network, then you are obligated to
+> provide the source code to your users if the copy you are operating
+> *has been modified*.
+>
+
+Relevant to this discussion: I know some software authors who consider
+construe this requirement strictly: If the source as downloaded is not
+exactly the same as the source as deployed, it is "modified." This means
+that under the AGPL, even the minor changes needed for customization result
+in the software being "modified" and result in compliance requirements.
+
+While this is an aggressive interpretation, it is not clearly wrong, nor is
+it unsupported by the AGPL text. Thus, the compliance burden between the
+CAL and the AGPL would be identical for Pam's case.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/90cf56ab/attachment.html>
+
+From pamela at chesteklegal.com  Fri Aug 23 13:03:54 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Fri, 23 Aug 2019 09:03:54 -0400
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAK2MWOtn+_3frqgCCga_GEVK6t+o=Mu7iZD=ZuYCfqDmEdb=eA@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAFQvZEMLYcq6RsygvW_5Oq4yLCH7sLBduJmmMMsYXuxkL0HWoA@mail.gmail.com> <0195fd7e-83bd-04e6-cd1c-d7f90ec57fbd@chesteklegal.com> <CAE+Udopt9VJNt+3VOTbsE1ch+KF6FfGd48xWn7accr8zLDtTDQ@mail.gmail.com> <CAK2MWOtn+_3frqgCCga_GEVK6t+o=Mu7iZD=ZuYCfqDmEdb=eA@mail.gmail.com>
+Message-ID: <f36baaf5-8508-ce9a-90d3-0b484bfe4ff8@chesteklegal.com>
+
+
+On 8/22/2019 9:12 PM, Bruce Perens via License-review wrote:
+> But would it not be sufficient in this case to simply tell folks where
+> you got the source, given that it's a public repository? You didn't
+> modify it yourself.
+
+Not necessarily. The source code obligation says that the repository
+must persist as long as I am using the software and for a year after
+that. So do I keep checking the original source and make sure they
+haven' t changed it and it's still the same software that I used? What
+if they update and I don't? And to have to do that for a year after I'm
+not even using the software? This avenue for compliance is pretty
+burdensome.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+>
+> On Thu, Aug 22, 2019 at 6:09 PM Kevin P. Fleming <kevin+osi at km6g.us
+> <mailto:kevin%2Bosi at km6g.us>> wrote:
+>
+>     On Thu, Aug 22, 2019 at 4:52 PM Pamela Chestek
+>     <pamela at chesteklegal.com <mailto:pamela at chesteklegal.com>> wrote:
+>     >
+>     >? It's not the ease of compliance, it's the fact that there is a
+>     compliance requirement at all when no other license has one in the
+>     same circumstance.
+>
+>     The AGPL also imposes a compliance requirement in your hypothetical
+>     situation. If you install an AGPL-licensed plugin in your website (in
+>     any manner, even choosing it from a plugin repository offered by the
+>     website software project's operators), and the users of your website
+>     interact with that plugin over the network, then you are obligated to
+>     provide the source code to your users if the copy you are operating
+>     *has been modified*. It is not clear whether the license is only
+>     triggered by modifications that you made, or by modifications made by
+>     the party who provided the software to you, but if it is only
+>     triggered when *you* make modifications then there is a
+>     aircraft-carrier-sized escape hatch in the AGPL. In any case, as the
+>     operator of the website you would need to be aware of this requirement
+>     and be able to determine whether the copy you are operating can be
+>     considered *modified*.
+>
+>     _______________________________________________
+>     License-review mailing list
+>     License-review at lists.opensource.org
+>     <mailto:License-review at lists.opensource.org>
+>     http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+>
+> -- 
+> Bruce Perens - Partner, OSS.Capital <http://OSS.Capital>.
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190823/44a13625/attachment.html>
+
+From pamela at chesteklegal.com  Fri Aug 23 13:10:47 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Fri, 23 Aug 2019 09:10:47 -0400
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAA4ffp-wH9twv41=pdSQo0x41b_8tUE=MbXkxCFpnSK85hgfqg@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com> <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com> <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org> <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com> <CAFQvZEMmVMA3gcrTpP+gLzwfrfjWJ8Do9pCDdiggDYP+c-jsXA@mail.gmail.com> <CAK2MWOugGFGUC628qzA0euppgkD=bht1Kc8-p0ykFmtBM0ampg@mail.gmail.com> <CAFQvZENRt=UEncBnhxrfkK=ss5ufOeumE-jeH5rdFHnYObnKwQ@mail.gmail.com> <4a66487e-9a45-0f4e-b8ba-598398c08946@chesteklegal.com> <CAA4ffp9QdcU866GOeUJc3enwKKA5SR3Abid=vD2FXbpPL_38Ag@mail.gmail.com> <5eb4c36d-621d-0635-314e-60aa271b6244@chesteklegal.com> <CAA4ffp-wH9twv41=pdSQo0x41b_8tUE=MbXkxCFpnSK85hgfqg@mail.gmail.com>
+Message-ID: <3fa98498-a0ba-e968-157c-a026f721c12f@chesteklegal.com>
+
+
+On 8/22/2019 8:55 PM, Simon Phipps wrote:
+> In this case the license is clearly designed for use-cases where the
+> user data is material to the software and its deployment on the Internet, 
+Where are you getting this?
+
+If I saw a reason to think that the license could or will be used only
+for situations where the data is material to the software I might view
+it in a different light, but I don't see it. It has another appeal,
+which is the expansiveness of the copyleft. So it may be adopted for
+that reason too.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+From pamela at chesteklegal.com  Fri Aug 23 13:26:03 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Fri, 23 Aug 2019 09:26:03 -0400
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAE+Udopt9VJNt+3VOTbsE1ch+KF6FfGd48xWn7accr8zLDtTDQ@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAFQvZEMLYcq6RsygvW_5Oq4yLCH7sLBduJmmMMsYXuxkL0HWoA@mail.gmail.com> <0195fd7e-83bd-04e6-cd1c-d7f90ec57fbd@chesteklegal.com> <CAE+Udopt9VJNt+3VOTbsE1ch+KF6FfGd48xWn7accr8zLDtTDQ@mail.gmail.com>
+Message-ID: <ee86c129-7e34-0d35-9ac3-2ea6722a4de8@chesteklegal.com>
+
+
+On 8/22/2019 9:08 PM, Kevin P. Fleming wrote:
+> On Thu, Aug 22, 2019 at 4:52 PM Pamela Chestek <pamela at chesteklegal.com> wrote:
+>>  It's not the ease of compliance, it's the fact that there is a compliance requirement at all when no other license has one in the same circumstance.
+> The AGPL also imposes a compliance requirement in your hypothetical
+> situation. If you install an AGPL-licensed plugin in your website (in
+> any manner, even choosing it from a plugin repository offered by the
+> website software project's operators), and the users of your website
+> interact with that plugin over the network, then you are obligated to
+> provide the source code to your users if the copy you are operating
+> *has been modified*. It is not clear whether the license is only
+> triggered by modifications that you made, or by modifications made by
+> the party who provided the software to you, but if it is only
+> triggered when *you* make modifications then there is a
+> aircraft-carrier-sized escape hatch in the AGPL. In any case, as the
+> operator of the website you would need to be aware of this requirement
+> and be able to determine whether the copy you are operating can be
+> considered *modified*.
+You pointed out the difference, it has to be modified, plus it must be
+software that involves remote interaction. That suggests at least some
+degree of familiarity with software beyond simple use, so the compliance
+obligation perhaps isn't as unreasonable. You seem to be suggesting that
+an "aircraft-carrier-sized escape hatch" is a bad thing, but I assume
+it's for people like me. I don't have any compliance requirement for my
+Twitter widget, for two reasons, I didn't modify the software and it's
+not interactive. It's the exclusion that makes the AGPL consistent with
+a foundational aspect of the GPL licenses, the act of running the
+software is not restricted.
+
+Van, saying that an extreme interpretation of the AGPL is what your
+software's intended scope is doesn't win you any points in my book. Some
+people hold the view that the AGPL goes too far already, so saying that
+your license bakes that extreme view in only works against you IMO.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+Pam
+
+
+From pamela.chestek at opensource.org  Fri Aug 23 13:48:29 2019
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Fri, 23 Aug 2019 09:48:29 -0400
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 3)
+In-Reply-To: <CAFQvZENQk2O7iuPVHMTfqVT1y_gJ+7rNc=Mw5aKdhO2AkNkK6g@mail.gmail.com>
+References: <CAFQvZEPUyGfcqZDSwtvAJ92Ljb3U-Ac3ZQ7J9qOXqeHtO-JoYQ@mail.gmail.com> <CAFQvZENQk2O7iuPVHMTfqVT1y_gJ+7rNc=Mw5aKdhO2AkNkK6g@mail.gmail.com>
+Message-ID: <30b6338e-d01f-4df5-c2e0-7496f0af9776@opensource.org>
+
+Just a head's up that I don't think the Board can give a decision on
+this license until after its face-to-face board meeting scheduled for
+November 12-13.
+
+Pam
+
+Pamela Chestek
+Chair, License Review Committee
+Open Source Initiative
+
+On 8/22/2019 5:12 PM, VanL wrote:
+> Note that before final approval I may change the acceptable delay to
+> 30, 45, or 60 days based upon broader feedback, but would not expect
+> to make any other change. (BTW, I would welcome feedback on that
+> aspect on the license-discuss list.)
+>
+> Thanks,
+> Van
+>
+> On Thu, Aug 22, 2019 at 4:10 PM VanL <van.lindberg at gmail.com
+> <mailto:van.lindberg at gmail.com>> wrote:
+>
+>     I am withdrawing Beta 2 and substituting Beta 3. The only
+>     difference between the two is the addition of new provision 4.1.3:
+>
+>     #### 4.1.3. Coordinated Disclosure of Security Vulnerabilities
+>     You may delay providing the Source Code corresponding to a
+>     particular modification of the Work for up to ninety (90) days
+>     (the ?Embargo Period?) if: a) the modification is intended to
+>     address a newly-identified vulnerability or a security flaw in the
+>     Work, b) disclosure of the vulnerability or security flaw before
+>     the end of the Embargo Period would put the data, identity, or
+>     autonomy of one or more Recipients of the Work at significant
+>     risk, c) You are participating in a coordinated disclosure of the
+>     vulnerability or security flaw with one or more additional
+>     Licensees, and d) the Source Code pertaining to the modification
+>     is provided to all Recipients at the end of the Embargo Period.
+>
+>     All other discussion regarding CAL Beta 2 should apply. The
+>     following is copied from the Beta 2 submission:
+>
+>     /Rationale:/ The CAL is a new network copyleft license especially
+>     applicable for distributed systems. It is designed to be as
+>     protective as possible of downstream recipients of the software,
+>     providing them all that they need to create and use an independent
+>     copy of a licensed work without losing functionality or data./
+>     /
+>     /
+>     /
+>     /Distinguish:/ The CAL is most similar to the AGPL, and will have
+>     a similar scope of action in most cases. However, the CAL has
+>     provisions that require that operators provide recipients of the
+>     software with a copy of their user data, enhancing their ability
+>     to independently use the software. The CAL also allows the
+>     creation of mixed "Larger Works," provides for affiliate use, and
+>     does not specify a mechanism by which notice is given to recipients.
+>
+>     /Legal Analysis/: The CAL was drafted by legal counsel. Previous
+>     discussions have outlined many aspects of the legal analysis.
+>
+>     Following the rejection of CAL Beta 1, this version has been
+>     reworked to remove the reasons for rejection and to address the
+>     concerns that led into the ?further discussion? items. In
+>     particular, I worked on laying out the scope of the private right
+>     of use, clarifying when the conditions apply, and avoiding
+>     constructions that may result in adverse policy inferences. I also
+>     simplified the language to enhance interpretability.
+>
+>     The most controversial aspect of the CAL remains: it requires
+>     someone who is communicating the software (or a part of the
+>     software) to a "Recipient" (a non-affiliated third party), to also
+>     allow that Recipient access to the Recipient's own user data. To
+>     show how this fits into the broader concept of software freedom,
+>     the policy associated with this requirement is also laid out: to
+>     allow a Recipient to fully use an independent copy of the Work
+>     generated from the Source Code provided with the Recipient?s own
+>     User Data.
+>     /
+>     /
+>     /Previous Discussion/: For those only following this list, I also
+>     provided a changelog on license-discuss [1] which prompted some
+>     discussion. From that discussion, I'll note that Russell McOrmond
+>     is on record as believing that the CAL is part of a class of
+>     licenses - which includes the AGPL, and the GPL as applied) is not
+>     compliant with the OSD. Bruce Perens is on record as believing the
+>     any requirements that an operator provide user data is a violation
+>     of "no field of use" restriction in OSD 6. Bruce is also on record
+>     as believing that the identification of the private right of use
+>     is a field of use restriction.
+>
+>
+>     [1]
+>     http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-August/020937.html
+>
+>
+>     A copy of the license (now beta 3) in markdown-formatted plaintext
+>     is attached.
+>
+>     Thanks,
+>     Van
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190823/5c64053b/attachment-0001.html>
+
+From van.lindberg at gmail.com  Fri Aug 23 14:39:55 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 23 Aug 2019 09:39:55 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <f36baaf5-8508-ce9a-90d3-0b484bfe4ff8@chesteklegal.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAFQvZEMLYcq6RsygvW_5Oq4yLCH7sLBduJmmMMsYXuxkL0HWoA@mail.gmail.com> <0195fd7e-83bd-04e6-cd1c-d7f90ec57fbd@chesteklegal.com> <CAE+Udopt9VJNt+3VOTbsE1ch+KF6FfGd48xWn7accr8zLDtTDQ@mail.gmail.com> <CAK2MWOtn+_3frqgCCga_GEVK6t+o=Mu7iZD=ZuYCfqDmEdb=eA@mail.gmail.com> <f36baaf5-8508-ce9a-90d3-0b484bfe4ff8@chesteklegal.com>
+Message-ID: <CAFQvZEOcDvTeupvHm4tSiaiR-HN-ke=3VOQpmOSshenufGF-eg@mail.gmail.com>
+
+Hi Pam,
+
+You bring up a number of points across a couple email messages. I am going
+to try to consolidate my response.
+
+On Fri, Aug 23, 2019 at 8:04 AM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+> Van, saying that an extreme interpretation of the AGPL is what your
+> software's intended scope is doesn't win you any points in my book. Some
+> people hold the view that the AGPL goes too far already, so saying that
+> your license bakes that extreme view in only works against you IMO.
+>
+
+This is a fair point. But:
+
+1) We are making worst-case assumptions about the CAL in this forum. That
+is understood, it is for the purpose of stress-testing the license. But
+then is it not fair when comparing to the AGPL - the closest analogue - to
+show how the same assumptions would play out?
+
+2) More generally, I can make a number of simplifying assumptions about
+your use, or the Twitter widget, that would reduce or eliminate the
+compliance burden. For example, if your Twitter widget only worked on your
+server, and it didn't communicate any aspect of itself to a visitor to your
+website, the CAL wouldn't reach it. You would have no compliance burden at
+all. I can even argue that such an implementation might even be more
+probable.
+
+But that is fighting the hypothetical. I would submit that any copyleft
+license, regardless of the scope, has hard cases. The goal here is to
+analyze the cases as they are presented, in the light most unfavorable to
+the CAL, and present the results transparently. I don't flinch away from
+the hard cases, and I have tried to write the CAL so as to minimize them to
+the greatest extent possible.
+
+
+
+>
+> On 8/22/2019 9:12 PM, Bruce Perens via License-review wrote:
+>
+> But would it not be sufficient in this case to simply tell folks where you
+> got the source, given that it's a public repository? You didn't modify it
+> yourself.
+>
+> Not necessarily. The source code obligation says that the repository must
+> persist as long as I am using the software and for a year after that. So do
+> I keep checking the original source and make sure they haven' t changed it
+> and it's still the same software that I used? What if they update and I
+> don't? And to have to do that for a year after I'm not even using the
+> software? This avenue for compliance is pretty burdensome.
+>
+
+This is roughly equivalent to the "offer of source" in the A/GPL, and that
+has to persist for three years. By my reading, the CAL is less burdensome
+in that regard.
+
+
+
+> You pointed out the difference, it has to be modified, plus it must be
+> software that involves remote interaction. That suggests at least some
+> degree of familiarity with software beyond simple use, so the compliance
+> obligation perhaps isn't as unreasonable. You seem to be suggesting that
+> an "aircraft-carrier-sized escape hatch" is a bad thing, but I assume
+> it's for people like me. I don't have any compliance requirement for my
+> Twitter widget, for two reasons, I didn't modify the software and it's
+> not interactive. It's the exclusion that makes the AGPL consistent with
+> a foundational aspect of the GPL licenses, the act of running the
+> software is not restricted.
+>
+
+I'd disagree with your characterization here. By the standards of the AGPL,
+the twitter widget is "Interactive." Under an equivalent reading of the
+license, it is also modified. Thus, I would suggest that the compliance
+burdens are the same (or, as I point out with regard to the offer of
+source, actually less burdensome).
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190823/464f7c50/attachment.html>
+
+From pamela at chesteklegal.com  Fri Aug 23 14:57:15 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Fri, 23 Aug 2019 10:57:15 -0400
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAFQvZEOcDvTeupvHm4tSiaiR-HN-ke=3VOQpmOSshenufGF-eg@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAFQvZEMLYcq6RsygvW_5Oq4yLCH7sLBduJmmMMsYXuxkL0HWoA@mail.gmail.com> <0195fd7e-83bd-04e6-cd1c-d7f90ec57fbd@chesteklegal.com> <CAE+Udopt9VJNt+3VOTbsE1ch+KF6FfGd48xWn7accr8zLDtTDQ@mail.gmail.com> <CAK2MWOtn+_3frqgCCga_GEVK6t+o=Mu7iZD=ZuYCfqDmEdb=eA@mail.gmail.com> <f36baaf5-8508-ce9a-90d3-0b484bfe4ff8@chesteklegal.com> <CAFQvZEOcDvTeupvHm4tSiaiR-HN-ke=3VOQpmOSshenufGF-eg@mail.gmail.com>
+Message-ID: <db40068f-dec8-6644-5ae1-cbeb04c4f0c4@chesteklegal.com>
+
+
+On 8/23/2019 10:39 AM, VanL wrote:
+> For example, if your Twitter widget only worked on your server, and it
+> didn't communicate any aspect of itself to a visitor to your website,
+> the CAL wouldn't reach it. You would have no compliance burden at all.
+
+> By the standards of the AGPL, the twitter widget is "Interactive."
+> Under an equivalent reading of the license, it is also modified.
+
+How do you reconcile these two statements? It's a widget that displays a
+Twitter feed. A user only views it. How is it not "displayed" under the
+CAL yet there is a remote interaction under the AGPL? What is the
+interaction?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190823/e10f7ca1/attachment.html>
+
+From van.lindberg at gmail.com  Fri Aug 23 15:30:38 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 23 Aug 2019 10:30:38 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <db40068f-dec8-6644-5ae1-cbeb04c4f0c4@chesteklegal.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAFQvZEMLYcq6RsygvW_5Oq4yLCH7sLBduJmmMMsYXuxkL0HWoA@mail.gmail.com> <0195fd7e-83bd-04e6-cd1c-d7f90ec57fbd@chesteklegal.com> <CAE+Udopt9VJNt+3VOTbsE1ch+KF6FfGd48xWn7accr8zLDtTDQ@mail.gmail.com> <CAK2MWOtn+_3frqgCCga_GEVK6t+o=Mu7iZD=ZuYCfqDmEdb=eA@mail.gmail.com> <f36baaf5-8508-ce9a-90d3-0b484bfe4ff8@chesteklegal.com> <CAFQvZEOcDvTeupvHm4tSiaiR-HN-ke=3VOQpmOSshenufGF-eg@mail.gmail.com> <db40068f-dec8-6644-5ae1-cbeb04c4f0c4@chesteklegal.com>
+Message-ID: <CAFQvZENNa-rsrQCLF3EJKiNhwxbe5YBQ1hLuQsrfQsNSwM0ZKQ@mail.gmail.com>
+
+Hi Pam,
+
+I see that I was not clear. I was implicitly referring to two different
+scenarios.
+
+On Fri, Aug 23, 2019 at 9:58 AM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+>
+> On 8/23/2019 10:39 AM, VanL wrote:
+>
+> For example, if your Twitter widget only worked on your server, and it
+> didn't communicate any aspect of itself to a visitor to your website, the
+> CAL wouldn't reach it. You would have no compliance burden at all.
+>
+>
+In this scenario, the widget runs entirely server side. The widget creates
+an output that is consumed by a visitor to the website, but the widget
+itself does not interact with the user and does not include any of its own
+expression in the output.
+
+The result under this scenario is that no compliance actions are required,
+neither under the CAL nor under the AGPL.
+
+
+>
+> By the standards of the AGPL, the twitter widget is "Interactive." Under
+> an equivalent reading of the license, it is also modified.
+>
+>
+This is scenario #2. The widget directly interacts with the user in some
+way to deliver the Twitter content. This is the "most unfavorable scenario"
+for the CAL that I was referring to.
+
+But under this "unfavorable" scenario, the result across the AGPL and CAL
+is again consistent. The request-response required for your browser to
+fetch and receive the widget output is the "network interaction" that
+triggers AGPL compliance. The communication of the widget expression (the
+"response" of the HTTP request-response) is what triggers CAL compliance.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190823/33e509ee/attachment-0001.html>
+
+From kevin+osi at km6g.us  Fri Aug 23 16:00:06 2019
+From: kevin+osi at km6g.us (Kevin P. Fleming)
+Date: Fri, 23 Aug 2019 09:00:06 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAFQvZENNa-rsrQCLF3EJKiNhwxbe5YBQ1hLuQsrfQsNSwM0ZKQ@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAFQvZEMLYcq6RsygvW_5Oq4yLCH7sLBduJmmMMsYXuxkL0HWoA@mail.gmail.com> <0195fd7e-83bd-04e6-cd1c-d7f90ec57fbd@chesteklegal.com> <CAE+Udopt9VJNt+3VOTbsE1ch+KF6FfGd48xWn7accr8zLDtTDQ@mail.gmail.com> <CAK2MWOtn+_3frqgCCga_GEVK6t+o=Mu7iZD=ZuYCfqDmEdb=eA@mail.gmail.com> <f36baaf5-8508-ce9a-90d3-0b484bfe4ff8@chesteklegal.com> <CAFQvZEOcDvTeupvHm4tSiaiR-HN-ke=3VOQpmOSshenufGF-eg@mail.gmail.com> <db40068f-dec8-6644-5ae1-cbeb04c4f0c4@chesteklegal.com> <CAFQvZENNa-rsrQCLF3EJKiNhwxbe5YBQ1hLuQsrfQsNSwM0ZKQ@mail.gmail.com>
+Message-ID: <CAE+Udoq6bmHum=45ANPgps4t1BvoQHu2FM+rMvd2=Ok8NidYwg@mail.gmail.com>
+
+On Fri, Aug 23, 2019 at 8:31 AM VanL <van.lindberg at gmail.com> wrote:
+>>
+>>
+>> By the standards of the AGPL, the twitter widget is "Interactive." Under an equivalent reading of the license, it is also modified.
+>
+>
+> This is scenario #2. The widget directly interacts with the user in some way to deliver the Twitter content. This is the "most unfavorable scenario" for the CAL that I was referring to.
+>
+> But under this "unfavorable" scenario, the result across the AGPL and CAL is again consistent. The request-response required for your browser to fetch and receive the widget output is the "network interaction" that triggers AGPL compliance. The communication of the widget expression (the "response" of the HTTP request-response) is what triggers CAL compliance.
+
+Extending the hypothetical based on common usage: such a widget would
+almost certainly send JavaScript code to the client which would then
+reach out to Twitter in order to obtain the desired content, rather
+than obtaining the content on the server side. Because of this, the
+user of the widget needs to both know whether it qualifies as
+*modified* and also how it actually operates (whether there is any
+code or active content delivered to the user) in order to properly
+assess their compliance burden under any network-copyleft license.
+
+
+From van.lindberg at gmail.com  Fri Aug 23 16:11:40 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 23 Aug 2019 11:11:40 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAE+Udoq6bmHum=45ANPgps4t1BvoQHu2FM+rMvd2=Ok8NidYwg@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAFQvZEMLYcq6RsygvW_5Oq4yLCH7sLBduJmmMMsYXuxkL0HWoA@mail.gmail.com> <0195fd7e-83bd-04e6-cd1c-d7f90ec57fbd@chesteklegal.com> <CAE+Udopt9VJNt+3VOTbsE1ch+KF6FfGd48xWn7accr8zLDtTDQ@mail.gmail.com> <CAK2MWOtn+_3frqgCCga_GEVK6t+o=Mu7iZD=ZuYCfqDmEdb=eA@mail.gmail.com> <f36baaf5-8508-ce9a-90d3-0b484bfe4ff8@chesteklegal.com> <CAFQvZEOcDvTeupvHm4tSiaiR-HN-ke=3VOQpmOSshenufGF-eg@mail.gmail.com> <db40068f-dec8-6644-5ae1-cbeb04c4f0c4@chesteklegal.com> <CAFQvZENNa-rsrQCLF3EJKiNhwxbe5YBQ1hLuQsrfQsNSwM0ZKQ@mail.gmail.com> <CAE+Udoq6bmHum=45ANPgps4t1BvoQHu2FM+rMvd2=Ok8NidYwg@mail.gmail.com>
+Message-ID: <CAFQvZEMZDO5-LPoGchBUPTx6dU4Bu4hOqKL7fds+K-VLE+SPAQ@mail.gmail.com>
+
+On Fri, Aug 23, 2019, 11:01 AM Kevin P. Fleming <kevin+osi at km6g.us> wrote:
+
+>
+> Extending the hypothetical based on common usage: such a widget would
+> almost certainly send JavaScript code to the client which would then
+> reach out to Twitter in order to obtain the desired content, rather
+> than obtaining the content on the server side. Because of this, the
+> user of the widget needs to both know whether it qualifies as
+> *modified* and also how it actually operates (whether there is any

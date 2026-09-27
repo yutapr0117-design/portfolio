@@ -1,0 +1,750 @@
+
+
+On Sat, Mar 16, 2019 at 7:40 PM Bruce Perens <bruce at perens.com> wrote:
+
+> >  *First, would you please discuss whether there is a sufficient public
+> performance right for software defined in 17 USC 106 (4), (5) and (6)? I
+> read your discussion of Public Performance and was not enlightened.*
+>
+> The problem I'm having with this is that you tossed out "software is
+> defined as a literary work" without explanation. Where? By Nimmer, or the
+> Supreme Court? With existing case law of the use of public performance
+> rights for software?
+>
+>     Thanks
+>
+>     Bruce
+>
+>> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190317/d6b3d1fb/attachment.html>
+
+From bruce at perens.com  Sun Mar 17 23:34:24 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Sun, 17 Mar 2019 16:34:24 -0700
+Subject: [License-discuss] For Public Comment: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEPf1u0+c2XUW4ycMnnvT7S_siAEWxy-pvcALx2qHXKByw@mail.gmail.com>
+References: <CAFQvZEOUpfFJ7qLSJMjCdDW8P9Zt3-p5dz4YigQPt9OMJ7CHxA@mail.gmail.com> <CAK2MWOv+n8E2mafn9_O4BjBD_YuoEDKQtLdyaEwCEg-5LORhYA@mail.gmail.com> <CAFQvZEPf1u0+c2XUW4ycMnnvT7S_siAEWxy-pvcALx2qHXKByw@mail.gmail.com>
+Message-ID: <CAK2MWOuesGZWc+E1qEJF_fnfthvXWObsqgKvq+grVaWqX2nxNA@mail.gmail.com>
+
+On Sun, Mar 17, 2019 at 1:53 PM VanL <van.lindberg at gmail.com> wrote:
+
+> I agree with you on this one. However, the phrasing of this particular
+> element was important to my client. I did try to make  sure that the
+> broader language (as you suggest) was also present - see 2.3(a) and (b).
+>
+
+Could you ask your client to discuss what is important here, a bit more for
+us?
+
+I would like to see if cleaner wording will actually be acceptable. Right
+now it comes across as a software use restriction, and is possibly
+problematical within OSD #6, and I don't think there's any real intentional
+reason for that and what the customer wants can be done without any hint of
+trouble. Plus although you have added provisions to fill in, the sum is
+more complicated than is really necessary.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190317/965e9bdb/attachment.html>
+
+From van.lindberg at gmail.com  Mon Mar 18 14:14:42 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Mon, 18 Mar 2019 09:14:42 -0500
+Subject: [License-discuss] For Public Comment: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOuesGZWc+E1qEJF_fnfthvXWObsqgKvq+grVaWqX2nxNA@mail.gmail.com>
+References: <CAFQvZEOUpfFJ7qLSJMjCdDW8P9Zt3-p5dz4YigQPt9OMJ7CHxA@mail.gmail.com> <CAK2MWOv+n8E2mafn9_O4BjBD_YuoEDKQtLdyaEwCEg-5LORhYA@mail.gmail.com> <CAFQvZEPf1u0+c2XUW4ycMnnvT7S_siAEWxy-pvcALx2qHXKByw@mail.gmail.com> <CAK2MWOuesGZWc+E1qEJF_fnfthvXWObsqgKvq+grVaWqX2nxNA@mail.gmail.com>
+Message-ID: <CAFQvZENQZW=1NQo_VrTxiXX3JWMvkbLxwsQ4jhvVucMM9LmWJA@mail.gmail.com>
+
+This is best thought of as an extended anti-Tivoization clause. It concerns
+a particular type of attack on user freedom that can arise in the context
+of distributed systems that use cryptographic primitives as functional and
+addressing elements. It is related to, but broader than, the concept of
+capabilities in software.
+
+By analogy: Tivoization uses a cryptographic primitive to deny effective
+freedom to recipients of software. They can create derivative works, but
+they are unable to meaningfully exercise that freedom because the hardware
+will not run a non-signed version.
+
+In the context of Holochain, cryptographic primitives are used for identity
+and for processing data (they are literally part of the "virtual machine"
+that runs various types of mobile code). This clause is meant to ensure
+that each Recipient has the freedom to use the software to process their
+own data and to control their own identity. Thus, a negative limitation,
+analogous to the GPLv3 restriction on Tivoization, that is only meant to
+prevent a licensee from exercising the rights in a way that prejudices
+later Recipients and practically denies them the same permissions received.
+
+Thanks,
+Van
+
+
+On Sun, Mar 17, 2019 at 6:35 PM Bruce Perens <bruce at perens.com> wrote:
+
+> On Sun, Mar 17, 2019 at 1:53 PM VanL <van.lindberg at gmail.com> wrote:
+>
+>> I agree with you on this one. However, the phrasing of this particular
+>> element was important to my client. I did try to make  sure that the
+>> broader language (as you suggest) was also present - see 2.3(a) and (b).
+>>
+>
+> Could you ask your client to discuss what is important here, a bit more
+> for us?
+>
+> I would like to see if cleaner wording will actually be acceptable. Right
+> now it comes across as a software use restriction, and is possibly
+> problematical within OSD #6, and I don't think there's any real intentional
+> reason for that and what the customer wants can be done without any hint of
+> trouble. Plus although you have added provisions to fill in, the sum is
+> more complicated than is really necessary.
+>
+>     Thanks
+>
+>     Bruce
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190318/fa6f213a/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Mon Mar 18 17:47:07 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Mon, 18 Mar 2019 19:47:07 +0200
+Subject: [License-discuss] For Public Comment: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEPVK6iZgjLE=M5O=JtBBsSh0=6AmOLFpU54Wa+f8+1pHw@mail.gmail.com>
+References: <CAFQvZEOUpfFJ7qLSJMjCdDW8P9Zt3-p5dz4YigQPt9OMJ7CHxA@mail.gmail.com> <CAKHyketv71kTCcZFj-Kxp4gciqFkB-pW99HrtS0_g4gLUYBB5w@mail.gmail.com> <CAFQvZEPVK6iZgjLE=M5O=JtBBsSh0=6AmOLFpU54Wa+f8+1pHw@mail.gmail.com>
+Message-ID: <CAKHykeutUk3u_z_9NAZTiZ-SiVNJK7y2SpN67_P45KP5ghtMMg@mail.gmail.com>
+
+On Sun, Mar 17, 2019 at 10:36 PM VanL <van.lindberg at gmail.com> wrote:
+
+> Hi Henrik,
+>
+> Thanks for the commentary!
+>
+> On Sat, Mar 16, 2019 at 2:47 PM Henrik Ingo <henrik.ingo at avoinelama.fi>
+> wrote:
+>
+>>
+>> *About the main goal of this proposal, User Data:*
+>>
+>> It immediately stands out that this license also grants rights to third
+>> parties. This is also novel, isn't it? Potential OSD issues come to mind if
+>> this is seen as analogous to "you must also kill your cat" or "you must
+>> also pay a fee to the MPEG-LA".
+>>
+>
+> There are two slightly separate issues here that should be distinguished.
+>
+> - Granting rights to third parties
+> The CAL *does* grant rights to third parties, but only as intended third
+> party beneficiaries (similar to NASA-1.3) who have the right to request
+> copies of the Source Code and their own User Data. Other than this specific
+> right to enforce, third parties are not the subject of any grants.
+>
+>
+And to be clear, as a goal this is laudable, I just wanted to call it out
+as different.
+
+
+> - Protection of User Data
+> The protection of User Data portion is a limitation on the grant to the
+> licensee, not a grant of rights to a third party. It is similar in
+> structure although broader in intent than the GPLv3's anti-Tivoization
+> clause: You may not use the Work to deny these specific freedoms to your
+> Users.
+>
+
+Ok, so is this actually an answer to a question I had later: You may not
+use this software to deny users and third parties freedoms that they
+already have as a matter of law? This is the only way I can understand this
+as a limitation. And like I said, this limited scope feels a bit redundant
+since I expect the sanctions in the GDPR to be effective in themselves.
+
+
+>
+>
+>> But after sleeping on it, I do agree that there will exist third parties
+>> who have such GDPR rights to their User Data, without being users nor
+>> Licensees of the licensed work.
+>>
+>
+> It seems likely, though, that anyone for whom a licensee is holding User
+> Data will be a Recipient, and thus someone who should receive Access to
+> Source Code as well as their own User Data.
+>
+>
+This is not at all the case. Say you received this software, and use it to
+keep a log of correspondence you've had with me. YOUR log is now MY
+personal data/user data, and under GDPR I have a right to receive a copy of
+it. Yet, I have never been anywhere close to the software, so I am not a
+recipient or user of it. More on this in the next paragrpah...
+
+
+> The GDPR angle is *similar*, but don't overread it. The GDPR is about
+> privacy first, and data only second. The CAL is about User Autonomy, which
+> is the four freedoms of free software plus user data.
+>
+>
+Ok, let me draw a straight line here to underscore how your use of User
+Data and GDPR is confusing. This is kind of "proof by contradiction":
+
+1. In the GDPR, what is commonly called "user data", is actually the term
+"personal data". It is defined in Article 4
+<https://gdpr-info.eu/art-4-gdpr/> ?1, and a more prosaic description is on
+the GDPR website <https://gdpr-info.eu/issues/personal-data/>.
+
+2. Art 20 <https://gdpr-info.eu/art-20-gdpr/> is the right to data
+portability and Art 15 <https://gdpr-info.eu/art-15-gdpr/> right to access
+data and how it is used (for purpose of auditability). The scope of both of
+these obviously is "personal data" as in Art 4.
+
+3. CAL 7.1.1 explicitly says it should be interpreted as in the GDPR: "To
+the extent allowable under the Applicable Jurisdiction, section 2.3(a)
+shall be interpreted consistently with GDPR Art. 20 and section 2.3(b)
+should be interpreted consistently with GDPRArt. 15(3)."
+
+4. CAL2.3a and 2.3b are about User Data
+
+5. The definition of User Data is substantially different from "personal
+data" in GDPR Art 4.
+
+=> It's impossible to know what data CAL 2.3a and 2.3b even attempts to
+cover, given two contradictory clauses in the license itself.
+
+To use your specific example, the contents of an ebook are not GDPR
+personal data, so would be excluded from protection due to 7.1.1.
+
+
+
+>
+>
+>> The Lawful Interest concept seems like an odd entry point. As an EU
+>> citizen the GDPR grants me rights wrt my User Data, but a US citizen
+>> doesn't have such rights (at least not for data that you have stored in a
+>> US based company). Does this license grant me more rights than a US
+>> citizen? Or was the intent to grant GDPR-like rights globally? I don't read
+>> the latter.
+>>
+>
+> See the comment above about the GDPR. The intent is not to enforce
+> compliance with the GDPR or extend it globally. Rather, it is about
+> preventing the use of the work to deny freedoms to Recipients of the Work.
+> It just so happens that the GPDR also has some elements that talk about
+> that, so the CAL was drafted to talk about it consistently with those
+> specific provisions. But the CAL does nothing relative to the GPDR as a
+> whole.
+>
+> As for the specific "lawful interest," the motivating use case for that
+> was something like ebooks. I may have a right to possess a particular copy
+> of an ebook, even if I don't "own" the ebook (as per current US law). We
+> don't want the phrase "the _____ is licensed, not sold" to be effective in
+> denying someone access to something that they have a legal right to possess.
+>
+>
+To achieve this, I believe you need to address that separately, as the GDPR
+will not sufficiently help you. The current text clearly ties all of the
+User Data related rights to the GDPR, including then exclusion of anything
+not covered by the GDPR.
+
+
+
+>
+> Again, don't overread the comparison. All that you are talking about
+> GDPR-wise has to do with privacy, and not about User Data as contemplated
+> in the CAL. (If the law in the EU grants users ownership interests in their
+> tracking data, then it could be covered, but it would be because the law
+> made them an owner, not because it was *about* them.)
+>
+>
+But you specifically say it *shall* be interpreted consistently with the
+GDPR. How can that be overread?
+
+The GDPR gives me a lawful interest in my "personal data" precisely because
+it is about me, not because I am an owner, which in most cases I'm not.
+
+
+>
+>
+>> Btw, it's probably an oversight that the Licensee is not themselves a
+>> beneficiary of the User Data rights. I would expect to see similar anti-DRM
+>> measures as in GPLv3 to ensure that I can access both software and data on
+>> a device I bought that has software with this license.
+>>
+>
+> Those are present - see 2.3(d) and (e), which are directly analogous to
+> provisions in the GPLv3.
+>
+
+Those merely prevent licensee from preventing me from circumventing DRM.
+GPLv3 says I'm entitled to have the keys. Big difference.
+
+I could see how 2.3c was intended as an anti-Tivoization clause, and would
+be, except that currently CAL doesn't grant any permissions about ebook
+contents and also not about installing / upgrading the software itself. And
+again, even with those fixes, 2.3c is probably another example of being too
+terse and leaves us guessing what licensor intended.
+
+
+
+>
+>
+>> *About Public Performance*
+>>
+>> First:
+>>
+>> First reaction is like "Convey" in GPLv3: Why can't you use existing
+>> industry terminology instead of inventing new stuff that has no established
+>> precedent? I would much prefer simple language like "if SaaS, you must ...".
+>>
+>
+> I see your point, but I'm coming at it from a different angle: "public
+> performance" *is* existing industry terminology - just in the legal
+> industry. This is very closely tied to the specific copyright and patent
+> grants, not to types of businesses or types of uses.
+>
+
+Even in the legal field,
+
+1. What precedent is there to talk about public performance *for
+software??? *I'm not denying that the law wouldn't cover this, just that we
+have no context to predict the outcomes of walking down this path, and that
+makes such a license the copyright version of Russian roulette!
+2. I didn't know also patents can be publicly performed. How does that work?
+
+Links are welcome, including to your blog, which I didn't read, because the
+intro didn't give me confidence it would answer these questions.
+
+
+> (Restricting based on type of business or use would not be OSD compliant).
+>
+>
+Right. So clearly this is the real motivation behind all this, and thank
+you for opening this door so that we can talk about the real issue. I
+disagree with the notion that delivering software as a service to a user is
+a type of business. Analogously offering software for download or
+distributing it on a CD-ROM are not types of business, and in any case open
+source licenses clearly can regulate those activities in order to ensure
+user freedoms. In the case of SaaS, both GUI and API forms of delivery are
+used by non-profits, governments, car manufacturers and all kinds of
+corporations and individuals, who clearly are not "in the SaaS business".
+And if anything, this should be much more obvious for SaaS than for the
+CD-ROM case.
+
+Similarly the anti-tivoization clauses in the GPL are not discriminating
+against tivo, or mobile phone vendors for that matter, nor is the
+requirement to share all build files discriminating against compiler
+vendors. They are all there guaranteeing valid freedoms for the user /
+recipient of the license, that the distributor/publisher must fulfill.
+
+Trying to talk about SaaS indirectly, via inventing completely untested
+legal concepts, seems unproductive. SaaS is a form or delivering software
+(or its functionality) to users, and users' freedoms are best protected
+when a license can clearly and explicitly do so in clear language. And SaaS
+often implies also a certain system architecture, such as REST, which could
+also be addressed by a license without discriminating against a type of
+business. (AGPL being one obvious example that doesn't violate the OSD.)
+
+I assume this is not controversial, but I'll mention that copyright law
+itself does not necessitate this kind of trickery. Software licenses
+effectively limit software from being executed on more than 2 CPUs, in
+Iran, for commercial use and many other things. Of course, those specific
+examples are against the OSD, but copyright law itself definitively already
+provides sufficient power to effectively protect user freedoms also in OSD
+compliant ways.
+
+(As disclosure, but also pre-emptively: I'm employed by MongoDB. I don't
+work in legal or PR so am not authorized to speak about SSPL or MongoDB in
+public. If replies to this thread bring in the SSPL or MongoDB, I will
+ignore them, and may have to withdraw from this thread completely.)
+
+
+>
+>
+>> If you hadn't introduced this as a network copyleft license, it would not
+>> at all be obvious from the language. More specifically, "interface" can
+>> mean a lot of things: 1) a GUI, 2) a REST APi, 3) a traditional API as in
+>> Oracle vs Google.
+>>
+>
+> Interface in the CAL means any or all of those, to the extent that they
+> are protectable via IP law.
+>
+>
+
+If the meaning of interface was defined in the license, that would maybe
+address my concern here.
+
+
+> Second, about Public Performance:
+>>
+>> I don't think this approach will work. You want to create a license with
+>> conditions for SaaS usage. But Public Performance is much broader than
+>> that. [snip examples]
+>>
+>
+> Public performance can be broader than SaaS, it is true.  (I think you are
+> slightly too focused on the GUI aspect, but we can go with it because that
+> could be an aspect of public performance.) The difference between the CAL
+> and your collecting societies is that the collecting societies have
+> licenses that say "pay us or it is copyright infringement." You have to
+> engage with them in order to avoid infringement.
+>
+> In contrast, the CAL, like other reciprocal licenses, is actually kind of
+> a "pass forward" license: as long as you make the Source Code and
+> applicable User Data available to Recipients, no interaction with the
+> licensor is needed.
+>
+> So, looking at your GUI examples, a link in the GUI that gave people
+> Access to the Source Code would prevent infringement in all the situations
+> you identify. In this way, it isn't too different from the AGPL.
+>
+
+You are missing my point. A link in the GUI, such as a Help > About box, or
+a link in the website footer, does not suffice. It will not be visible on
+the screen in the park, nor can the passers by grab a mouse and navigate to
+it. So they will have been recipients of a public performance, and it's now
+your responsibility to run around the park to hand each of them a paper
+slip with the download url, but also all the necessary attributions.
+
+This is just meant as one example of what will happen when you try to
+extend legal words into unprecedented uses.
+
+
+>
+> *Smaller comments:*
+>>
+>> I basically fail to understand what you mean by "Compatible Open Source
+>> License". If it's "any OSI approved Open Source license", then why not say
+>> so? If you mean BSD and Apache style licenses, then compatibility is a
+>> property of those, and mentioning this seems redundant? In any case, saying
+>> "Open Source" without "OSI approved" feels undefined to me. A lot of people
+>> claim all kinds of licenses as open source.
+>>
+>
+> Look at the definitions: "Open Source License" means a license approved by
+> both the OSI and FSF.
+>
+
+Ah, I missed that even if I tried to look. I may need to sing the alphabet
+song as a refresher!
+
+Ok, so it is essentially the redundant case, but IMO it's actually positive
+that copyleft licenses explicitly mention that they're intended to be
+compatible with other open source licenses. That said, CAL doesn't actually
+make any licenses explicitly compatible, just says that an undefined set of
+licenses are compatible.
+
+
+>
+>> 2.4: Rather than an optional exception, I'd much prefer that you develop
+>> 2 or more separate licenses with clearly different names like is the case
+>> with LGPL, GP? and AGPL. Now if I see that some software is licensed under
+>> CAL, such as in a github label or search, I won't be able to tell what I
+>> can do with that software.
+>>
+>
+> I see your point, but in practice I think that they will be labeled
+> independently (such as GPL-with-classpath is labeled separately from GPL).
+>
+>
+I now see that the preamble actually specifies 2 different long form names,
+the other one being "with exception". That is a good start. But it would
+still be cleaner if I could omit ?2.4 completely, if I don't want to offer
+the exception.
+
+henrik
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190318/7a58361d/attachment-0001.html>
+
+From bruce at perens.com  Mon Mar 18 18:14:53 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 18 Mar 2019 11:14:53 -0700
+Subject: [License-discuss] For Public Comment: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZENQZW=1NQo_VrTxiXX3JWMvkbLxwsQ4jhvVucMM9LmWJA@mail.gmail.com>
+References: <CAFQvZEOUpfFJ7qLSJMjCdDW8P9Zt3-p5dz4YigQPt9OMJ7CHxA@mail.gmail.com> <CAK2MWOv+n8E2mafn9_O4BjBD_YuoEDKQtLdyaEwCEg-5LORhYA@mail.gmail.com> <CAFQvZEPf1u0+c2XUW4ycMnnvT7S_siAEWxy-pvcALx2qHXKByw@mail.gmail.com> <CAK2MWOuesGZWc+E1qEJF_fnfthvXWObsqgKvq+grVaWqX2nxNA@mail.gmail.com> <CAFQvZENQZW=1NQo_VrTxiXX3JWMvkbLxwsQ4jhvVucMM9LmWJA@mail.gmail.com>
+Message-ID: <CAK2MWOtSHKBU2LkcNByeT257L5YcFoFwCAgyny-32R-z_1yK0g@mail.gmail.com>
+
+OK. I will try to generate a two-sentence clause that preserves the
+customer's specific fears in their selected wording while being broader and
+not a use restriction, and submit it for your approval.
+ Thanks
+ Bruce
+
+On Mon, Mar 18, 2019 at 7:15 AM VanL <van.lindberg at gmail.com> wrote:
+
+> This is best thought of as an extended anti-Tivoization clause. It
+> concerns a particular type of attack on user freedom that can arise in the
+> context of distributed systems that use cryptographic primitives as
+> functional and addressing elements. It is related to, but broader than, the
+> concept of capabilities in software.
+>
+> By analogy: Tivoization uses a cryptographic primitive to deny effective
+> freedom to recipients of software. They can create derivative works, but
+> they are unable to meaningfully exercise that freedom because the hardware
+> will not run a non-signed version.
+>
+> In the context of Holochain, cryptographic primitives are used for
+> identity and for processing data (they are literally part of the "virtual
+> machine" that runs various types of mobile code). This clause is meant to
+> ensure that each Recipient has the freedom to use the software to process
+> their own data and to control their own identity. Thus, a negative
+> limitation, analogous to the GPLv3 restriction on Tivoization, that is only
+> meant to prevent a licensee from exercising the rights in a way that
+> prejudices later Recipients and practically denies them the same
+> permissions received.
+>
+> Thanks,
+> Van
+>
+>
+> On Sun, Mar 17, 2019 at 6:35 PM Bruce Perens <bruce at perens.com> wrote:
+>
+>> On Sun, Mar 17, 2019 at 1:53 PM VanL <van.lindberg at gmail.com> wrote:
+>>
+>>> I agree with you on this one. However, the phrasing of this particular
+>>> element was important to my client. I did try to make  sure that the
+>>> broader language (as you suggest) was also present - see 2.3(a) and (b).
+>>>
+>>
+>> Could you ask your client to discuss what is important here, a bit more
+>> for us?
+>>
+>> I would like to see if cleaner wording will actually be acceptable. Right
+>> now it comes across as a software use restriction, and is possibly
+>> problematical within OSD #6, and I don't think there's any real intentional
+>> reason for that and what the customer wants can be done without any hint of
+>> trouble. Plus although you have added provisions to fill in, the sum is
+>> more complicated than is really necessary.
+>>
+>>     Thanks
+>>
+>>     Bruce
+>> _______________________________________________
+>> License-discuss mailing list
+>> License-discuss at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190318/6653f117/attachment.html>
+
+From van.lindberg at gmail.com  Tue Mar 19 14:46:37 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Tue, 19 Mar 2019 09:46:37 -0500
+Subject: [License-discuss] For Public Comment: The Cryptographic Autonomy License
+In-Reply-To: <CAKHykeutUk3u_z_9NAZTiZ-SiVNJK7y2SpN67_P45KP5ghtMMg@mail.gmail.com>
+References: <CAFQvZEOUpfFJ7qLSJMjCdDW8P9Zt3-p5dz4YigQPt9OMJ7CHxA@mail.gmail.com> <CAKHyketv71kTCcZFj-Kxp4gciqFkB-pW99HrtS0_g4gLUYBB5w@mail.gmail.com> <CAFQvZEPVK6iZgjLE=M5O=JtBBsSh0=6AmOLFpU54Wa+f8+1pHw@mail.gmail.com> <CAKHykeutUk3u_z_9NAZTiZ-SiVNJK7y2SpN67_P45KP5ghtMMg@mail.gmail.com>
+Message-ID: <CAFQvZEMUr3AVoPEuAq3TRRhkqKwYHX5JqbVKzHYVq=4AvuoYEA@mail.gmail.com>
+ [Initially replied just to Henrik; resending to whole list. Thanks,
+Henrik, for catching that!]
+
+On Mon, Mar 18, 2019 at 12:47 PM Henrik Ingo <henrik.ingo at avoinelama.fi>
+wrote:
+
+>
+> - Protection of User Data
+>> The protection of User Data portion is a limitation on the grant to the
+>> licensee, not a grant of rights to a third party. It is similar in
+>> structure although broader in intent than the GPLv3's anti-Tivoization
+>> clause: You may not use the Work to deny these specific freedoms to your
+>> Users.
+>>
+>
+> Ok, so is this actually an answer to a question I had later: You may not
+> use this software to deny users and third parties freedoms that they
+> already have as a matter of law? This is the only way I can understand this
+> as a limitation. And like I said, this limited scope feels a bit redundant
+> since I expect the sanctions in the GDPR to be effective in themselves.
+>
+
+Two points. First, and as I hope will become clearer after this email, the
+CAL and GDPR have different scopes, so it is appropriate to have a
+different instrument. Second, *you* may have some rights under GDPR, but
+*I* don't.
+
+That said, I think I better understand your point. You suggest that, due to
+my phrasing and the consistent interpretation clause, I am suggesting that
+User Data == Personal Data, leading to some of the ambiguities you identify
+below. I have updated the language as follows:
+
+*To the extent allowable under the Applicable Jurisdiction, provision of
+User Data in compliance with the conditions in section 2.3(a) and 2.3(b) shall be interpreted consistently with the formatting and transmission
+requirements of General Data Protection Regulation (EU) 2016/679 ("GDPR")
+Arts. 15(3) and 20(1). The number of copies of User Data provided in
+compliance with the conditions in section 2.3(b) shall be at least the same
+number needed to comply with GDPR Art. 15(3).*
+
+This provision makes clear that the consistency provision makes reference
+to the number and format of User Data to be provided, and does not invite a
+comparison between User Data and Personal Data.
+
+
+> This is not at all the case. Say you received this software, and use it to
+> keep a log of correspondence you've had with me. YOUR log is now MY
+> personal data/user data, and under GDPR I have a right to receive a copy of
+> it. Yet, I have never been anywhere close to the software, so I am not a
+> recipient or user of it.
+>
+
+This is incorrect, because you are not a (cap-R) Recipient. Per the current
+clause 2.3:
+
+*You must give the same permissions received under this License to any
+Recipient, and You must refrain from using the permissions given under this
+License to interfere with Recipient?s quiet enjoyment of any Lawful
+Interest in their own User Data. *
+
+Snipping various GDPR things...
+
+
+> Those merely prevent licensee from preventing me from circumventing DRM.
+> GPLv3 says I'm entitled to have the keys. Big difference.
+>
+
+See 2.3(a) and 2.3(c). You have to provide the keys. The Recipient of the
+ebook software has a Lawful Interest in the ebook as User Data. So you
+can't lock it up.
+
+
+>
+> I could see how 2.3c was intended as an anti-Tivoization clause, and would
+> be, except that currently CAL doesn't grant any permissions about ebook
+> contents and also not about installing / upgrading the software itself. And
+> again, even with those fixes, 2.3c is probably another example of being too
+> terse and leaves us guessing what licensor intended.
+>
+>
+>
+>>
+>>
+>>> *About Public Performance*
+>>>
+>>> First:
+>>>
+>>> First reaction is like "Convey" in GPLv3: Why can't you use existing
+>>> industry terminology instead of inventing new stuff that has no established
+>>> precedent? I would much prefer simple language like "if SaaS, you must ...".
+>>>
+>>
+>> I see your point, but I'm coming at it from a different angle: "public
+>> performance" *is* existing industry terminology - just in the legal
+>> industry. This is very closely tied to the specific copyright and patent
+>> grants, not to types of businesses or types of uses.
+>>
+>
+> Even in the legal field,
+>
+> 1. What precedent is there to talk about public performance *for
+> software??? *I'm not denying that the law wouldn't cover this, just that
+> we have no context to predict the outcomes of walking down this path, and
+> that makes such a license the copyright version of Russian roulette!
+>
+
+You are correct. Public performance in software is not well defined. You
+are also correct that for some people that may increase the perceived risk
+of using the license (either as a licensor or licensee). I believe that the
+definitions provided - and incorporated directly into the license as a
+defined term (CAL 6(m)), significantly ameliorate that risk.
+
+
+
+> 2. I didn't know also patents can be publicly performed. How does that
+> work?
+>
+
+Patented inventions may be *used*, of which public performance is
+necessarily a subset.
+
+
+>
+> Links are welcome, including to your blog, which I didn't read, because
+> the intro didn't give me confidence it would answer these questions.
+>
+
+Well, I did say that the blog post was long and possibly boring. So I don't
+blame you for not reading it. However, I have an entire section addressing
+the question of public performance of software. (
+https://www.processmechanics.com/2019/03/15/the-cryptographic-autonomy-license/#copyleftandthepublicperformanceofsoftware
+)
+
+
+
+> (Restricting based on type of business or use would not be OSD compliant).
+>>
+>>
+> Right. So clearly this is the real motivation behind all this, and thank
+> you for opening this door so that we can talk about the real issue. I
+> disagree with the notion that delivering software as a service to a user is
+> a type of business. Analogously offering software for download or
+> distributing it on a CD-ROM are not types of business, and in any case open
+> source licenses clearly can regulate those activities in order to ensure
+> user freedoms. In the case of SaaS, both GUI and API forms of delivery are
+> used by non-profits, governments, car manufacturers and all kinds of
+> corporations and individuals, who clearly are not "in the SaaS business".
+> And if anything, this should be much more obvious for SaaS than for the
+> CD-ROM case.
+>
+
+You seem to be under the impression that this license is about SaaS use.
+That is not so. While it is intentionally written to be useful for the SaaS
+use case, the purpose of this license is to maximize user freedom in a
+distributed system. Again, as I wrote in my blogpost:
+
+*___*
+*Aside: Who is Holo and what is Holochain?*
+
+Holochain is a hashchain-based application framework for peer-to-peer
+applications. Holo (the company) provides software that enables commerce on
+top of Holochain, by acting as a bridge between Holochain apps and users
+and facilitating business services.
+
+*Holo's goal in developing a new license is to create a solid foundation
+that respects user freedom. By applying this to the Holochain framework,
+Holochain becomes a safe place for people and organizations to invest their
+time, money, and data. Holo's goal of maximizing user autonomy was a
+driving force in the development of the Cryptographic Autonomy License.*
+___
+
+No "trickery" (as you put it) here: The CAL is designed to give users a
+liberty-maximizing framework within which they can enter into their own
+varied and private economic arrangements. If Holochain created a system in
+which users did not have the expectation of autonomy, they would be
+strongly disincentivized from participating.
+
+Snipping stuff about SaaS/MongoDB/etc...
+
+You are missing my point. A link in the GUI, such as a Help > About box, or
+> a link in the website footer, does not suffice. It will not be visible on
+> the screen in the park, nor can the passers by grab a mouse and navigate to
+> it. So they will have been recipients of a public performance, and it's now
+> your responsibility to run around the park to hand each of them a paper
+> slip with the download url, but also all the necessary attributions.
+>
+
+This is incorrect. A link, just as with the AGPL case, provides sufficient
