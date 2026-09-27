@@ -66,6 +66,21 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        凍結対象に加わったのに、期待値が追従していなかった）。**`REVIEWERS.md` はこのコマンドを
        *"The last one is the important one"* と呼んでいる。** 散文側の「three files」「all three
        files」も同じ数に縛る。
+       (r) **`submission.md` の外に書かれた §B.0 の語数 ↔ 日付か「見出しが権威」の断り**。
+       §B.0 は審査者へ実際に貼る文面で、**改善のたびに伸びる派生値**である。(p) は正本を
+       実測と照合するが、**他文書へ手で写した値は誰も見ていなかった**。実測 (2026-09-26):
+       `READY-TO-SUBMIT.md` が「約 600 語」と述べ、**実測は 1,568 語**（2.6 倍のずれ）——
+       しかもそこは「人間が実際に何をするか」の手順書で、**stale が誤った印象ではなく
+       誤った行動を生む**面である（#81 と同じ class）。**導入した瞬間に、同じ形を 2 件**
+       （`against.md` #80 の status と、bottleneck の測定表）**追加で検出した。**
+       **縛るのは「裸の現在形の数値」だけ** ——日付を添えるか、「現在値は §B.0 の見出し」と
+       書くか、数値を消すか。**規範は既に 4 箇所が守っており、本 face はそれを機械化しただけである。**
+       (s) **散文の「Check 463 は N 項目を強制する」 ↔ その Check の実装から導出した数**。
+       実測 (2026-09-26): `READY-TO-SUBMIT.md` が「**10 項目**」と述べ、実装は **12**。
+       **同じ file の 4 行の中で、これと (r) の §B.0 語数が同時に古くなっていた** ——
+       **「要点」だけを書いた block は、一度書いたきり導出し直されない。**
+       `review-rules.md` と `OSI-APPROVAL-PLAN.md` は 12 と正しく書いており、
+       **正しい写しが 2 つあっても、間違った写しは直らない。**
        **この列挙は Check 469 (a) が実装と双方向で照合する** —— 実測 (2026-09-13): 本 inventory は
        (a)〜(k) の 11 面しか挙げていないのに実装は (a)〜(p) の **16 面**あり、
        `file-size-budget.md` は第 3 の値「12 面」を述べていた。**3 つの数が 3 つとも違い、
@@ -655,6 +670,70 @@ def run(ctx):
                     elif _got460r != _n460q:
                         _bad460.append(
                             f"{_nm460q}: 散文の凍結件数 {_raw460r} / FROZEN.md の digest 行 {_n460q} 件")
+
+        # (r) **`submission.md` の外に書かれた §B.0 の語数は、日付か「見出しが権威」の断りを伴うこと。**
+        #   §B.0 は審査者へ実際に貼る文面で、**改善のたびに伸びる派生値**である。
+        #   face (p) は正本（見出し）を実測と照合するが、**他文書へ手で写した値は誰も見ていなかった**。
+        #   実測 (2026-09-26): `READY-TO-SUBMIT.md` が **「約 600 語」**と述べていた ——
+        #   **実測 1,568 語で 2.6 倍のずれ**。しかも READY-TO-SUBMIT は
+        #   「人間が実際に何をするか」の手順書で、**stale が誤った印象ではなく誤った行動を生む**面である
+        #   (#81 がまさにその class)。
+        #   **規範は既に他の 4 箇所が守っていた** —— 日付を添える (「2026-09-24 時点では」) か、
+        #   「現在値は §B.0 の見出し」と書く。**本 face はその慣行を機械化するだけで、新しい規則ではない。**
+        #   数値を消す選択も正しい (READY-TO-SUBMIT はそうした)。**縛るのは「裸の現在形の数値」だけ。**
+        _DATE460R = re.compile(r"20\d\d-\d\d(-\d\d)?")
+        _PTR460R = ("§B.0 の見出し", "Check 460 (p)", "heading", "見出しが述べる")
+        for _p460r in sorted(_L460.glob("*.md")):
+            if _p460r.name == "ACD-1.0.submission.md":
+                continue          # 正本。face (p) が実測と照合する
+            _lines460r = _p460r.read_text(encoding="utf-8").splitlines()
+            for _i460r, _line460r in enumerate(_lines460r):
+                if "B.0" not in _line460r:
+                    continue
+                # 近傍 —— 表の行は、直下の散文が表全体に日付を与えるのが本 repo の慣行なので、
+                # 前後 3 行を窓に入れる (行だけを見ると、正しく日付が付いた表を誤検出する)
+                _near460r = "\n".join(_lines460r[max(0, _i460r - 3):_i460r + 4])
+                for _m460r2 in re.finditer(r"([0-9][0-9,]{2,}|約 ?[0-9][0-9,]*) ?(語|words)", _line460r):
+                    _seg460r = _line460r[max(0, _m460r2.start() - 160):_m460r2.end() + 160]
+                    if "B.0" not in _seg460r:
+                        continue
+                    if _DATE460R.search(_near460r) or any(_x in _near460r for _x in _PTR460R):
+                        continue
+                    _bad460.append(
+                        f"{_p460r.name}: §B.0 の語数 {_m460r2.group(0)!r} が裸の現在形で書かれている "
+                        "(日付を添えるか「現在値は §B.0 の見出し」と書くか、数値自体を消すこと —— "
+                        "§B.0 は改善のたびに伸びる派生値で、手で写した値は必ず古くなる)")
+
+        # (s) **散文が述べる「Check 463 は N 項目を強制する」が、その Check の実装から導出した数と一致すること。**
+        #   実測 (2026-09-26): `READY-TO-SUBMIT.md` が **「10 項目」**と述べ、実装は **12**。
+        #   **同じ file の 4 行の中に、これと §B.0 の語数（face (r)）の 2 つが同時に古くなっていた**
+        #   ——**「要点」だけを書いた block は、一度書いたきり導出し直されない。**
+        #   `review-rules.md` と `OSI-APPROVAL-PLAN.md` は 12 と正しく書いており、
+        #   **正しい写しが 2 つあっても、間違った写しは直らない。**
+        #   **⚠ 初版は inert だった** —— `_req463` は list なのに正規表現が tuple (`(...)`) を
+        #   探しており、**一度も一致せず、静かに素通りしていた**（非 vacuity 検証で判明）。
+        #   **導出元が見つからないこと自体を error にする**ことで、同じ形の沈黙を封じる。
+        _src463 = ROOT / ".github/scripts/checks_license_submission.py"
+        _n463s = 0
+        if _src463.exists():
+            _m463s = re.search(r"_req463\s*=\s*\[(.*?)\n\s*\]", _src463.read_text(encoding="utf-8"), re.S)
+            if not _m463s:
+                _bad460.append("(s) Check 463 の要求項目リスト `_req463` を実装から取り出せない "
+                               "(導出できないなら照合は沈黙する —— 形が変わったら本 face を直すこと)")
+            else:
+                _n463s = len(re.findall(r"(?m)^\s*\(\"", _m463s.group(1)))
+                if not _n463s:
+                    _bad460.append("(s) `_req463` から項目を 1 件も数えられない (抽出の形が合っていない)")
+        for _p463s in sorted(_L460.glob("*.md")) if _n463s else ():
+            for _l463s in _p463s.read_text(encoding="utf-8").splitlines():
+                if "Check 463" not in _l463s:
+                    continue
+                for _m in re.finditer(r"(\d+) ?項目", _l463s):
+                    if int(_m.group(1)) != _n463s:
+                        _bad460.append(
+                            f"{_p463s.name}: 散文の「{_m.group(1)} 項目」/ "
+                            f"Check 463 の実装は {_n463s} 項目 "
+                            "(数を写さず、Check の OK 行に述べさせること)")
 
         check(
             not _bad460,
