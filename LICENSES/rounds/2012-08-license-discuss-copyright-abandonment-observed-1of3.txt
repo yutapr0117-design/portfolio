@@ -1,0 +1,770 @@
+OBSERVED (not received by us) -- license-discuss public archive, 2012-08
+Fetched 2026-09-27 from the monthly mbox files at
+https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/
+Preserved verbatim, unmodified. NOT addressed to us and NOT about ACD-1.0.
+
+The thread "Can copyrights be abandoned to the public domain?" (2012-08, 34 messages),
+complete.
+
+Why this thread: ACD-1.0 Section 3 is a waiver and Section 10.4 says nothing terminates, so
+the two questions this thread asks -- can copyright be abandoned, and what survives a grant
+that says it is irrevocable -- are the two questions the instrument stands on. The dossier had
+analysed both from the statutes (jurisdictions.md 5a and 5b). It had not read the list's own
+treatment, which names the same US provision and adds a distributor's practical position on
+what a clear dedication does even where abandonment is uncertain.
+
+Split by LINE boundaries at 750 lines; concatenating the parts in order reproduces the
+selected bytes exactly (asserted before writing).
+
+=== part 1 of 3 (line-boundary split) ===
+
+From btilly at gmail.com  Tue Aug 14 15:24:23 2012
+From: btilly at gmail.com (Ben Tilly)
+Date: Tue, 14 Aug 2012 08:24:23 -0700
+Subject: [License-discuss] Can copyrights be abandoned to the public domain?
+Message-ID: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+
+Based on http://www.linuxjournal.com/article/6225 and similar
+articles, I'd long believed that a declaration that you were
+abandoning copyright was a meaningless farce.
+
+Then by accident today I ran across http://cr.yp.to/publicdomain.html
+which claims the opposite, and cites actual court decisions as
+evidence.
+
+Is D. J. Bernstein out of his depth here, or does he have a valid point?
+
+
+
+From tcallawa at redhat.com  Tue Aug 14 15:52:53 2012
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 14 Aug 2012 11:52:53 -0400
+Subject: [License-discuss] Can copyrights be abandoned to the public
+	domain?
+In-Reply-To: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+Message-ID: <502A7455.4020405@redhat.com>
+
+On 08/14/2012 11:24 AM, Ben Tilly wrote:
+> Based on http://www.linuxjournal.com/article/6225 and similar
+> articles, I'd long believed that a declaration that you were
+> abandoning copyright was a meaningless farce.
+> 
+> Then by accident today I ran across http://cr.yp.to/publicdomain.html
+> which claims the opposite, and cites actual court decisions as
+> evidence.
+> 
+> Is D. J. Bernstein out of his depth here, or does he have a valid point?
+
+This question is hotly debated, and the answer boils down to the worst
+sort of "maybe, sortof, kindof". Ask 10 different lawyers, and you'll
+probably get 10 different answers. (Not to mention that the answer
+almost certainly changes based on the jurisdiction.)
+
+Fedora used to spend a lot of time stressing out over this question, but
+recently, after counsel with Red Hat Legal, we concluded that if someone
+is explicitly and clearly abandoning their copyright on a work (as in
+CC-0, for example), treating that work in good faith as being in the
+public domain presented a very minimal amount of risk, especially since
+such a declaration, were it to go to trial, would likely limit the
+effectiveness of the copyright "holder" suing for infringement.
+
+~tom
+
+==
+Fedora Project
+
+
+
+From matthew.flaschen at gatech.edu  Tue Aug 14 17:10:49 2012
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Tue, 14 Aug 2012 13:10:49 -0400
+Subject: [License-discuss] Can copyrights be abandoned to the public
+	domain?
+In-Reply-To: <502A7455.4020405@redhat.com>
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+	<502A7455.4020405@redhat.com>
+Message-ID: <502A8699.5030900@gatech.edu>
+
+On 08/14/2012 11:52 AM, Tom Callaway wrote:
+> Fedora used to spend a lot of time stressing out over this question, but
+> recently, after counsel with Red Hat Legal, we concluded that if someone
+> is explicitly and clearly abandoning their copyright on a work (as in
+> CC-0, for example), treating that work in good faith as being in the
+> public domain presented a very minimal amount of risk, especially since
+> such a declaration, were it to go to trial, would likely limit the
+> effectiveness of the copyright "holder" suing for infringement.
+
+CC0 (http://creativecommons.org/publicdomain/zero/1.0/legalcode)
+actually has an explicit license fallback in section 3, for cases where
+the PD dedication fails.  I would be interested to hear if the counsel's
+conclusion would hold without such fallback.
+
+Matt Flaschen
+
+
+
+From rfontana at redhat.com  Tue Aug 14 17:43:05 2012
+From: rfontana at redhat.com (Richard Fontana)
+Date: Tue, 14 Aug 2012 13:43:05 -0400
+Subject: [License-discuss] Can copyrights be abandoned to the public
+ domain?
+In-Reply-To: <502A8699.5030900@gatech.edu>
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+	<502A7455.4020405@redhat.com> <502A8699.5030900@gatech.edu>
+Message-ID: <20120814174305.GA9414@redhat.com>
+
+On Tue, Aug 14, 2012 at 01:10:49PM -0400, Matthew Flaschen wrote:
+> On 08/14/2012 11:52 AM, Tom Callaway wrote:
+> > Fedora used to spend a lot of time stressing out over this question, but
+> > recently, after counsel with Red Hat Legal, we concluded that if someone
+> > is explicitly and clearly abandoning their copyright on a work (as in
+> > CC-0, for example), treating that work in good faith as being in the
+> > public domain presented a very minimal amount of risk, especially since
+> > such a declaration, were it to go to trial, would likely limit the
+> > effectiveness of the copyright "holder" suing for infringement.
+> 
+> CC0 (http://creativecommons.org/publicdomain/zero/1.0/legalcode)
+> actually has an explicit license fallback in section 3, for cases where
+> the PD dedication fails.  I would be interested to hear if the counsel's
+> conclusion would hold without such fallback.
+
+I believe I am the counsel Tom is referring to, though the Fedora
+policy conclusion Tom refers to was prepared by Tom. Nevertheless I
+would see it as Fedora adopting more or less the liberal and pragmatic
+view I have had on this subject for a long time. Since most of the
+self-described "public domain" code we encounter is not actually under
+CC0 (most of it is legacy code, in rarer cases it's whole packages
+like SQLite), CC0 is not directly relevant. However (modulo that "or
+patent" language :) CC0 approximates nicely the way I think we should
+analyze the more typical kinds of simple public domain dedications we
+encounter in FOSS code.
+
+  - RF
+
+
+
+
+From rick at linuxmafia.com  Tue Aug 14 18:22:05 2012
+From: rick at linuxmafia.com (Rick Moen)
+Date: Tue, 14 Aug 2012 11:22:05 -0700
+Subject: [License-discuss] Can copyrights be abandoned to the public
+ domain?
+In-Reply-To: <20120814174305.GA9414@redhat.com>
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+	<502A7455.4020405@redhat.com> <502A8699.5030900@gatech.edu>
+	<20120814174305.GA9414@redhat.com>
+Message-ID: <20120814182205.GG6238@linuxmafia.com>
+
+Quoting Richard Fontana (rfontana at redhat.com):
+
+> I believe I am the counsel Tom is referring to, though the Fedora
+> policy conclusion Tom refers to was prepared by Tom. Nevertheless I
+> would see it as Fedora adopting more or less the liberal and pragmatic
+> view I have had on this subject for a long time. 
+
+Seems reasonable to me.
+
+Correct me if I'm wrong (you're the professional), but I would imagine
+the relevant question for Red Hat, Inc. was not whether the erstwhile
+copyright owner actually succeeded in eradicating legal title to his/her
+copyright property (what is properly meant by 'public domain'), but
+rather whether Red Hat, Inc. will be reasonably protected against
+infringement claims by either the owner's success or by estoppel.  
+
+Since the policy conclusion you and Tom Calloway spoke of, any number of
+people have told me 'You must be mistaken on
+http://linuxmafia.com/faq/Licensing_and_Law/public-domain.html, because
+Red Hat Legal allowed Prasad J. Pandit to package ndjbdns for Fedora.'
+I've responded that of course I might be wrong, but not for non-sequitur
+reasons like that.  It's funny how many people cannot seem to grasp that
+corporate counsel's job is to protect company legal interests, not make
+pronouncements on points of legal theory.  ;->
+
+> However (modulo that "or patent" language :) CC0 approximates nicely
+> the way I think we should analyze the more typical kinds of simple
+> public domain dedications we encounter in FOSS code.
+
+Thank goodness, at least it's well written and with an eye to producing
+desired result via other means if the direct approach fails.
+
+-- 
+Cheers,                      "Overheard a hipster say 'Quinoa is kind of 2011',
+Rick Moen                    so I lit his beard on fire."      -- Kelly Oxford
+rick at linuxmafia.com
+McQ!  (4x80)
+
+
+
+From rick at linuxmafia.com  Tue Aug 14 18:24:30 2012
+From: rick at linuxmafia.com (Rick Moen)
+Date: Tue, 14 Aug 2012 11:24:30 -0700
+Subject: [License-discuss] Can copyrights be abandoned to the public
+ domain?
+In-Reply-To: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+Message-ID: <20120814182430.GH6238@linuxmafia.com>
+
+Quoting Ben Tilly (btilly at gmail.com):
+
+> Based on http://www.linuxjournal.com/article/6225 and similar
+> articles, I'd long believed that a declaration that you were
+> abandoning copyright was a meaningless farce.
+> 
+> Then by accident today I ran across http://cr.yp.to/publicdomain.html
+> which claims the opposite, and cites actual court decisions as
+> evidence.
+
+His cites simply do not support his conclusion, by the way.  I dissect
+that matter in passing on
+http://linuxmafia.com/faq/Licensing_and_Law/public-domain.html .
+
+
+
+
+From tcallawa at redhat.com  Tue Aug 14 19:20:19 2012
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 14 Aug 2012 15:20:19 -0400
+Subject: [License-discuss] Can copyrights be abandoned to the public
+	domain?
+In-Reply-To: <20120814182205.GG6238@linuxmafia.com>
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+	<502A7455.4020405@redhat.com> <502A8699.5030900@gatech.edu>
+	<20120814174305.GA9414@redhat.com>
+	<20120814182205.GG6238@linuxmafia.com>
+Message-ID: <502AA4F3.6090406@redhat.com>
+
+On 08/14/2012 02:22 PM, Rick Moen wrote:
+> I've responded that of course I might be wrong, but not for non-sequitur
+> reasons like that.  It's funny how many people cannot seem to grasp that
+> corporate counsel's job is to protect company legal interests, not make
+> pronouncements on points of legal theory.  ;->
+
+Indeed. If the question is: "Is this legally possible?", the answer
+might very well be "No", "Yes", or "Maybe", depending on the situation,
+the jurisdiction, and the case law at the time you ask the question.
+
+That doesn't meant that in practice, a clear and thorough public domain
+declaration (or copyright abandonment statement) isn't safe to act on,
+use, wear as a hat, etc. etc. Red Hat and Fedora think it is safe enough
+to trust. You can decide for yourself if you think it is.
+
+We're not attempting to pronounce that public domain declarations are
+legally possible everywhere, but we are saying that we think in
+situations where there is clear intent from a copyright holder for
+unrestricted permissions on works, we feel it is safe for us to treat
+them as if they were in the public domain.
+
+~tom
+
+P.S. C A L L A W A Y. Like the golf clubs.
+
+==
+Fedora Project
+
+
+
+From rfontana at redhat.com  Tue Aug 14 19:32:02 2012
+From: rfontana at redhat.com (Richard Fontana)
+Date: Tue, 14 Aug 2012 15:32:02 -0400
+Subject: [License-discuss] Can copyrights be abandoned to the public
+ domain?
+In-Reply-To: <20120814182205.GG6238@linuxmafia.com>
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+	<502A7455.4020405@redhat.com> <502A8699.5030900@gatech.edu>
+	<20120814174305.GA9414@redhat.com>
+	<20120814182205.GG6238@linuxmafia.com>
+Message-ID: <20120814193202.GA9644@redhat.com>
+
+On Tue, Aug 14, 2012 at 11:22:05AM -0700, Rick Moen wrote:
+> Quoting Richard Fontana (rfontana at redhat.com):
+> 
+> > I believe I am the counsel Tom is referring to, though the Fedora
+> > policy conclusion Tom refers to was prepared by Tom. Nevertheless I
+> > would see it as Fedora adopting more or less the liberal and pragmatic
+> > view I have had on this subject for a long time. 
+> 
+> Seems reasonable to me.
+> 
+> Correct me if I'm wrong (you're the professional), but I would imagine
+> the relevant question for Red Hat, Inc. was not whether the erstwhile
+> copyright owner actually succeeded in eradicating legal title to his/her
+> copyright property (what is properly meant by 'public domain'), 
+
+Yes. I agree with you that 'public domain' is a misnomer (but no more
+than, say, the use of 'proprietary' to mean 'not free-as-in-freedom
+software').
+
+> but rather whether Red Hat, Inc. will be reasonably protected
+> against infringement claims by either the owner's success or by
+> estoppel.
+
+Close enough, but I wouldn't want you to think Red Hat is just
+concerned about Red Hat. We presume that software we consider open
+source/free software allows certain permissions to everyone, not just
+Red Hat, or we'd classify it otherwise.[1] The "public domain"-labeled
+stuff we distribute in open source distribution contexts is code we
+consider open source software (equivalent, essentially, to what is now
+achievable through the quite detailed CC0). 
+
+There are strange things I've seen in my time, like "public domain for
+noncommercial purposes". We would treat that as
+nonfree/non-open-source.
+
+  - RF
+
+[1]Incidentally, I seem to remember encountering at least one case of
+a license that said the equivalent of "everyone *except* Red Hat is
+free to use this code". Also not free software/open source. :)
+
+
+
+From rick at linuxmafia.com  Tue Aug 14 19:47:08 2012
+From: rick at linuxmafia.com (Rick Moen)
+Date: Tue, 14 Aug 2012 12:47:08 -0700
+Subject: [License-discuss] Can copyrights be abandoned to the public
+ domain?
+In-Reply-To: <20120814193202.GA9644@redhat.com>
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+	<502A7455.4020405@redhat.com> <502A8699.5030900@gatech.edu>
+	<20120814174305.GA9414@redhat.com>
+	<20120814182205.GG6238@linuxmafia.com>
+	<20120814193202.GA9644@redhat.com>
+Message-ID: <20120814194708.GM6238@linuxmafia.com>
+
+Quoting Richard Fontana (rfontana at redhat.com):
+
+> Yes. I agree with you that 'public domain' is a misnomer (but no more
+> than, say, the use of 'proprietary' to mean 'not free-as-in-freedom
+> software').
+
+FWIW, I feel the latter has domain-specific meaning, here; i.e., that
+'proprietary' functions legitimately as a term of art within discussion
+of software.
+
+Yes, that's not what 'proprietary' means elsewhere (i.e., the qualtiy of
+being owned).  However, meanings have contexts.[1]
+
+> Close enough, but I wouldn't want you to think Red Hat is just
+> concerned about Red Hat.
+
+Truth, and a point well worth making.
+
+[1] I'd rather be pissed in London than in San Francisco.
+
+
+
+From kfogel at red-bean.com  Tue Aug 14 20:02:39 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Tue, 14 Aug 2012 15:02:39 -0500
+Subject: [License-discuss] Can copyrights be abandoned to the public
+	domain?
+In-Reply-To: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+	(Ben Tilly's message of "Tue, 14 Aug 2012 08:24:23 -0700")
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+Message-ID: <87obmdmecg.fsf@kwarm.red-bean.com>
+
+Ben Tilly <btilly at gmail.com> writes:
+>Based on http://www.linuxjournal.com/article/6225 and similar
+>articles, I'd long believed that a declaration that you were
+>abandoning copyright was a meaningless farce.
+>
+>Then by accident today I ran across http://cr.yp.to/publicdomain.html
+>which claims the opposite, and cites actual court decisions as
+>evidence.
+>
+>Is D. J. Bernstein out of his depth here, or does he have a valid point?
+
+I realize this thread has already developed, but FWIW:
+
+  http://opensource.org/faq#public-domain
+
+
+
+From rick at linuxmafia.com  Tue Aug 14 20:16:45 2012
+From: rick at linuxmafia.com (Rick Moen)
+Date: Tue, 14 Aug 2012 13:16:45 -0700
+Subject: [License-discuss] Can copyrights be abandoned to the public
+ domain?
+In-Reply-To: <502AA4F3.6090406@redhat.com>
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+	<502A7455.4020405@redhat.com> <502A8699.5030900@gatech.edu>
+	<20120814174305.GA9414@redhat.com>
+	<20120814182205.GG6238@linuxmafia.com>
+	<502AA4F3.6090406@redhat.com>
+Message-ID: <20120814201644.GR525@linuxmafia.com>
+
+Quoting Tom Callaway (tcallawa at redhat.com):
+
+> Indeed. If the question is: "Is this legally possible?", the answer
+> might very well be "No", "Yes", or "Maybe", depending on the situation,
+> the jurisdiction, and the case law at the time you ask the question.
+
+This is what I tried to get across on my Web page, basically (along with 
+pointing out that a simple permissive licence has more-deterministic
+effects, and also clarifying that copyright abandonment and public
+domain are distinct concepts).
+
+> P.S. C A L L A W A Y. Like the golf clubs.
+
+Yes, really sorry about that, Tom.  Naturally, I spotted it just after
+posting.
+
+
+
+From gavenkoa at gmail.com  Tue Aug 14 21:15:05 2012
+From: gavenkoa at gmail.com (Oleksandr Gavenko)
+Date: Wed, 15 Aug 2012 00:15:05 +0300
+Subject: [License-discuss] Can copyrights be abandoned to the public
+	domain?
+In-Reply-To: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+	(Ben Tilly's message of "Tue, 14 Aug 2012 08:24:23 -0700")
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+Message-ID: <87r4r9kwfa.fsf@gavenkoa.example.com>
+
+On 2012-08-14, Ben Tilly wrote:
+
+> Based on http://www.linuxjournal.com/article/6225 and similar
+> articles, I'd long believed that a declaration that you were
+> abandoning copyright was a meaningless farce.
+>
+> Then by accident today I ran across http://cr.yp.to/publicdomain.html
+> which claims the opposite, and cites actual court decisions as
+> evidence.
+>
+> Is D. J. Bernstein out of his depth here, or does he have a valid point?
+>
+Look to "Berne Convention for the Protection of Literary and Artistic Works"
+(my selections):
+
+  http://www.wipo.int/treaties/en/ip/berne/trtdocs_wo001.html#P123_20726
+
+      Article 6bis
+      Moral Rights:
+    1. To claim authorship; to object to certain modifications and other
+    derogatory actions; 2. After the author's death; 3. Means of redress
+
+  (1) Independently of the author's economic rights, and even after the
+  transfer of the said rights, the author shall have the right to claim
+  authorship of the work and to **object** to any distortion, mutilation or
+  other **modification** of, or other derogatory **action** in relation to,
+  the said work, which would be prejudicial to his honor or reputation.
+
+Ever with any possible licence agreement that fully grand you permission
+unlimitedly modify copyrighted work original author still can limit some
+changes to his work if you fall under the jurisdiction of the countries which
+sing "Berne Convention".
+
+Same applied to things that you state is in "Public Domain" in countries which
+sing "Berne Convention".
+
+So while author alive you may be litigated by him if changes to his work
+prejudicial his honour.
+
+-- 
+Best regards!
+
+
+
+From chris at metatrontech.com  Wed Aug 15 03:43:26 2012
+From: chris at metatrontech.com (Chris Travers)
+Date: Tue, 14 Aug 2012 20:43:26 -0700
+Subject: [License-discuss] Can copyrights be abandoned to the public
+	domain?
+In-Reply-To: <502A7455.4020405@redhat.com>
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+	<502A7455.4020405@redhat.com>
+Message-ID: <CAPKNUtdGZOgGZjO2NXpL-_ejSwCtpqjL73EJnmb8-trVrw6ikQ@mail.gmail.com>
+
+On Tue, Aug 14, 2012 at 8:52 AM, Tom Callaway <tcallawa at redhat.com> wrote:
+> On 08/14/2012 11:24 AM, Ben Tilly wrote:
+>> Based on http://www.linuxjournal.com/article/6225 and similar
+>> articles, I'd long believed that a declaration that you were
+>> abandoning copyright was a meaningless farce.
+>>
+>> Then by accident today I ran across http://cr.yp.to/publicdomain.html
+>> which claims the opposite, and cites actual court decisions as
+>> evidence.
+>>
+>> Is D. J. Bernstein out of his depth here, or does he have a valid point?
+>
+> This question is hotly debated, and the answer boils down to the worst
+> sort of "maybe, sortof, kindof". Ask 10 different lawyers, and you'll
+> probably get 10 different answers. (Not to mention that the answer
+> almost certainly changes based on the jurisdiction.)
+>
+
+It really depends.  I would assume that if you release anonymously and
+explicitly disclaim copyright, that the code can be effectively public
+domain.  I am not aware of any jurisdiction that forbids anonymous
+publication, especially when the author seeks to remain anonymous.
+
+I don't see how copyright can be enforced when it is both explicitly
+disclaimed and the link with the author is severed.  There would be no
+way to enforce it, nobody to go after for implicit warranties, etc.
+After all it would be like asking whether an anonymous pamphlet left
+at a college cafeteria was copyrighted.  IANAL though, but IIRC, the
+Bern convention makes it sufficient that the author's name is
+associated with the work for copyright to exist and this doesn't reach
+that level.
+
+Are there any cases where copyright could be enforced or required,
+where code was anonymously published through a means not directly
+traceable to the initial publication?  I mean if I put my code up on
+privatepaste, and then link to in anonymous Slashdot comments, is it
+still protected by copyright if it is not traceable to me?
+
+Best Wishes,
+Chris Travers
+
+
+
+From cowan at mercury.ccil.org  Wed Aug 15 03:55:59 2012
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Tue, 14 Aug 2012 23:55:59 -0400
+Subject: [License-discuss] Can copyrights be abandoned to the public
+ domain?
+In-Reply-To: <CAPKNUtdGZOgGZjO2NXpL-_ejSwCtpqjL73EJnmb8-trVrw6ikQ@mail.gmail.com>
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+	<502A7455.4020405@redhat.com>
+	<CAPKNUtdGZOgGZjO2NXpL-_ejSwCtpqjL73EJnmb8-trVrw6ikQ@mail.gmail.com>
+Message-ID: <20120815035559.GE7616@mercury.ccil.org>
+
+Chris Travers scripsit:
+
+> I don't see how copyright can be enforced when it is both explicitly
+> disclaimed and the link with the author is severed.  There would be no
+> way to enforce it, nobody to go after for implicit warranties, etc.
+
+You could claim that it was illicitly published without your consent.
+
+-- 
+John Cowan  <cowan at ccil.org>  http://ccil.org/~cowan
+Micropayment advocates mistakenly believe that efficient allocation of
+resources is the purpose of markets.  Efficiency is a byproduct of market
+systems, not their goal.  The reasons markets work are not because users
+have embraced efficiency but because markets are the best place to allow
+users to maximize their preferences, and very often their preferences are
+not for conservation of cheap resources.  --Clay Shirky
+
+
+
+From matthew.flaschen at gatech.edu  Wed Aug 15 04:34:28 2012
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Wed, 15 Aug 2012 00:34:28 -0400
+Subject: [License-discuss] Can copyrights be abandoned to the public
+	domain?
+In-Reply-To: <CAPKNUtdGZOgGZjO2NXpL-_ejSwCtpqjL73EJnmb8-trVrw6ikQ@mail.gmail.com>
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+	<502A7455.4020405@redhat.com>
+	<CAPKNUtdGZOgGZjO2NXpL-_ejSwCtpqjL73EJnmb8-trVrw6ikQ@mail.gmail.com>
+Message-ID: <502B26D4.50609@gatech.edu>
+
+On 08/14/2012 11:43 PM, Chris Travers wrote:
+
+> I don't see how copyright can be enforced when it is both explicitly
+> disclaimed and the link with the author is severed.  There would be no
+> way to enforce it, nobody to go after for implicit warranties, etc.
+> After all it would be like asking whether an anonymous pamphlet left
+> at a college cafeteria was copyrighted.
+
+Disclaiming it as PD is again the key topic.  Anonymous works are still
+copyrighted, at least in the U.S.
+(http://www.copyright.gov/title17/92chap3.html):
+
+"In the case of an anonymous work, a pseudonymous work, or a work made
+for hire, the copyright endures for a term of 95 years from the year of
+its first publication, or a term of 120 years from the year of its
+creation, whichever expires first."
+
+Not only that, but:
+
+"If, before the end of such term, the identity of one or more of the
+authors of an anonymous or pseudonymous work is revealed in the records
+of a registration made for that work under subsections (a) or (d) of
+section 408, or in the records provided by this subsection, the
+copyright in the work endures for the term specified by subsection (a)
+or (b), based on the life of the author or authors whose identity has
+been revealed."
+
+Of course, you have to provide evidence of who the anonymous author was,
+but without an effective PD dedication, that alleged revelation could
+open up a legal battle-field.
+
+Matt Flaschen
+
+
+
+From rick at linuxmafia.com  Wed Aug 15 04:47:38 2012
+From: rick at linuxmafia.com (Rick Moen)
+Date: Tue, 14 Aug 2012 21:47:38 -0700
+Subject: [License-discuss] Can copyrights be abandoned to the public
+ domain?
+In-Reply-To: <CAPKNUtdGZOgGZjO2NXpL-_ejSwCtpqjL73EJnmb8-trVrw6ikQ@mail.gmail.com>
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+	<502A7455.4020405@redhat.com>
+	<CAPKNUtdGZOgGZjO2NXpL-_ejSwCtpqjL73EJnmb8-trVrw6ikQ@mail.gmail.com>
+Message-ID: <20120815044737.GT6238@linuxmafia.com>
+
+Quoting Chris Travers (chris at metatrontech.com):
+
+> I would assume that if you release anonymously and explicitly disclaim
+> copyright, that the code can be effectively public domain. 
+
+If you would trust the provenance of code like that, you're a braver man
+than I am.
+
+-- 
+Cheers,                      "Overheard a hipster say 'Quinoa is kind of 2011',
+Rick Moen                    so I lit his beard on fire."      -- Kelly Oxford
+rick at linuxmafia.com
+McQ!  (4x80)
+
+
+
+From nelson at crynwr.com  Fri Aug 17 00:07:44 2012
+From: nelson at crynwr.com (Russ Nelson)
+Date: Thu, 16 Aug 2012 20:07:44 -0400
+Subject: [License-discuss] Can copyrights be abandoned to the public
+ domain?
+In-Reply-To: <20120814193202.GA9644@redhat.com>
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+	<502A7455.4020405@redhat.com> <502A8699.5030900@gatech.edu>
+	<20120814174305.GA9414@redhat.com>
+	<20120814182205.GG6238@linuxmafia.com>
+	<20120814193202.GA9644@redhat.com>
+Message-ID: <20525.35664.241081.831860@desk.crynwr.com>
+
+Richard Fontana writes:
+ > There are strange things I've seen in my time, like "public domain for
+ > noncommercial purposes". We would treat that as
+ > nonfree/non-open-source.
+
+I've seen "copyrighted public domain software".
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-600-8815
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+
+From nelson at crynwr.com  Fri Aug 17 00:15:37 2012
+From: nelson at crynwr.com (Russ Nelson)
+Date: Thu, 16 Aug 2012 20:15:37 -0400
+Subject: [License-discuss] Can copyrights be abandoned to the
+	public	domain?
+In-Reply-To: <87r4r9kwfa.fsf@gavenkoa.example.com>
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+	<87r4r9kwfa.fsf@gavenkoa.example.com>
+Message-ID: <20525.36137.551858.817985@desk.crynwr.com>
+
+Oleksandr Gavenko writes:
+ >       Moral Rights:
+
+Only some countries claim Moral Rights. And as you point out, this is
+very problemmatic for Open Source Software. We have traditionally held
+that a license is a license is a license, but it's clear that OSI
+Approved Open Source contributions from people who live in countries
+that claim Moral Rights is inferior to people who live in countries
+which don't.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-600-8815
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+
+From lrosen at rosenlaw.com  Fri Aug 17 00:45:49 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Thu, 16 Aug 2012 17:45:49 -0700
+Subject: [License-discuss] Can copyrights be abandoned to
+	the	public	domain?
+Message-ID: <8yf0hvsml237egfk6pv3guyo.1345164349588@email.android.com>
+
+Russ, have you ever experienced that inferiority in actual open source software? 
+
+/Larry (from my tablet and brief) 
+
+Russ Nelson <nelson at crynwr.com> wrote:
+
+>Oleksandr Gavenko writes:
+> >       Moral Rights:
+>
+>Only some countries claim Moral Rights. And as you point out, this is
+>very problemmatic for Open Source Software. We have traditionally held
+>that a license is a license is a license, but it's clear that OSI
+>Approved Open Source contributions from people who live in countries
+>that claim Moral Rights is inferior to people who live in countries
+>which don't.
+>
+>-- 
+>--my blog is at    http://blog.russnelson.com
+>Crynwr supports open source software
+>521 Pleasant Valley Rd. | +1 315-600-8815
+>Potsdam, NY 13676-3213  |     Sheepdog       
+>_______________________________________________
+>License-discuss mailing list
+>License-discuss at opensource.org
+>http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+
+
+From henrik.ingo at avoinelama.fi  Fri Aug 17 04:51:56 2012
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Fri, 17 Aug 2012 07:51:56 +0300
+Subject: [License-discuss] Can copyrights be abandoned to the public
+	domain?
+In-Reply-To: <201208170409.16799.johnny@solbu.net>
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+	<87r4r9kwfa.fsf@gavenkoa.example.com>
+	<20525.36137.551858.817985@desk.crynwr.com>
+	<201208170409.16799.johnny@solbu.net>
+Message-ID: <CAKHyket-uuEAQMCp0WbsxwEG-SABuq2YXR2cBSpxQQa+Vqodvg@mail.gmail.com>
+
+On Fri, Aug 17, 2012 at 5:09 AM, Johnny Solbu <johnny at solbu.net> wrote:
+> On Friday 17 August 2012 02:15, Russ Nelson wrote:
+>> but it's clear that OSI
+>> Approved Open Source contributions from people who live in countries
+>> that claim Moral Rights is inferior to people who live in countries
+>> which don't.
+>
+> Says who?
+> And why?
+
+I believe Finland has the concept of Moral Rights. As a IANAL summary,
+the concept seems to be that even if I license or sell away the
+commercial rights to my creation, I retain certain rights that I can
+never give away, such as the right to be correctly cited as the author
+of my works (which most FOSS licenses require anyway) and weird things
+like the right to forbid the use of my work for pornography or other
+things someone might find against my morality.
+
+I have never heard anyone actually asserting this for software.
+Further, some contracts I've signed, such as with Sun Microsystem,
+included language to the effect that if there are parts of my
+copyright that I cannot license away, I nevertheless irrevocably waive
+my right to assert the moral rights in court, even if they are still
+mine since they cannot be transferred/licensed. I have no idea if such
+a waiver would mean anything in court since the whole point of the law
+is quite the opposite.
+
+henrik
+
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-8211286 skype: henrik.ingo irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://www.linkedin.com/profile/view?id=9522559
+
+
+
+From henrik.ingo at avoinelama.fi  Fri Aug 17 04:53:44 2012
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Fri, 17 Aug 2012 07:53:44 +0300
+Subject: [License-discuss] Can copyrights be abandoned to the public
