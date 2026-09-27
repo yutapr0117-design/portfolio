@@ -1,0 +1,773 @@
+OBSERVED (not received by us) -- license-discuss public archive, 2005-2007
+Fetched 2026-09-27 from the monthly mbox files at
+https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/
+Preserved verbatim, unmodified. These messages are NOT addressed to us and are NOT about
+ACD-1.0.
+
+Subset, and the rule that made it: the "For Approval: Microsoft Permissive License" thread
+runs to 331 messages (2005-12-09 .. 2007-10-10). Saved here are the 26 written by the people
+who decide -- the OSI president (Michael Tiemann), the License Committee chair (Russ Nelson),
+a board member (Chris DiBona), Lawrence Rosen, and the submitter (Jon Rosenberg, Microsoft).
+The selection rule is stated so a reader can reproduce it: sender address matches one of
+tiemann / nelson / dibona / rosen / danese / cooper / opensource.org.
+
+Why a subset here and not the whole thread, when the CAL thread was saved whole: the CAL
+thread is itself the evidence (585 messages, a year, four versions), so selecting from it
+would have created room for "we chose". Here the evidence is what the decision-makers said,
+and the rule above is mechanical. The rest of the thread remains in the public archive.
+
+Split by LINE boundaries at 750 lines; concatenating the parts in order reproduces the
+selected bytes exactly (asserted before writing).
+
+=== part 2 of 3 (line-boundary split) ===
+
+encyclopedia, in which a number of contributions, constituting separate and
+independent works in themselves, are assembled into a collective whole.
+
+[2] A "compilation" is a work formed by the collection and assembling of
+preexisting materials or of data that are selected, coordinated, or arranged
+in such a way that the resulting work as a whole constitutes an original
+work of authorship. The term "compilation" includes collective works.
+
+
+> -----Original Message-----
+> From: Rick Moen [mailto:rick at linuxmafia.com]
+> Sent: Thursday, August 23, 2007 3:56 PM
+> To: license-discuss at opensource.org
+> Subject: Re: MS-PL/GPL compatibility, was Re: For Approval: Microsoft
+> Permissive License
+> 
+> Quoting Chris Travers (chris.travers at gmail.com):
+> 
+> > That was not my question.  If I create an ISO image of a collection of
+> > source works, that may effectively be copyrighted by me and is outside
+> the
+> > scope of the GPL v3 as you point out.
+> 
+> As Matt points out, you have fundamentally misunderstood the notion of
+> compilation copyright, and apparently confused it with that of
+> collective works.  I noted this trait in your postings a couple of
+> hundred long paragraphs ago, but didn't think it worth going into, in
+> context of other problems with your general approach.
+
+
+
+
+From lrosen at rosenlaw.com  Fri Aug 24 02:49:40 2007
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Thu, 23 Aug 2007 19:49:40 -0700
+Subject: MS-PL/GPL compatibility, was Re: For Approval: Microsoft Permissive License
+In-Reply-To: <46CE1A83.1020506@gatech.edu>
+References: <f5cca7ed0708211122y378fb2dbw981748e088ff30bf@mail.gmail.com> <20070822205635.GH24646@localhost.localdomain> <20070822213827.GI24646@localhost.localdomain> <f5cca7ed0708221508q474dd46as4686e5c84c57c9e6@mail.gmail.com> <46CDEBD3.2080208@gatech.edu> <f5cca7ed0708231322ocf9981x471690204d91298e@mail.gmail.com> <46CDF4FE.8000309@gatech.edu> <f5cca7ed0708231409i41da0ba1ic4981a5fdae9fd0c@mail.gmail.com> <20070823225537.GU5496@linuxmafia.com> <02af01c7e5dc$ca18b090$6401a8c0@LROSENTOSHIBA> <46CE1A83.1020506@gatech.edu>
+Message-ID: <02dc01c7e5f9$6b50e6f0$6401a8c0@LROSENTOSHIBA>
+
+> > Huh? The definitions of "collective work" [1] and "compilation" [2],
+> > while different in 17 U.S.C 101, are pretty similar.
+> 
+Matthew Flaschen asked:
+> But neither covers the actual code in the compilation/collective, right?
+
+I don't understand your question either. Do you mean this:
+
+17 USC 103(b): The copyright in a compilation or derivative work extends
+only to the material contributed by the author of such work, as
+distinguished from the preexisting material employed in the work, and does
+not imply any exclusive right in the preexisting material. The copyright in
+such work is independent of, and does not affect or enlarge the scope,
+duration, ownership, or subsistence of, any copyright protection in the
+preexisting material.
+
+/Larry
+
+> -----Original Message-----
+> From: Matthew Flaschen [mailto:matthew.flaschen at gatech.edu]
+> Sent: Thursday, August 23, 2007 4:39 PM
+> To: License Discuss
+> Subject: Re: MS-PL/GPL compatibility, was Re: For Approval: Microsoft
+> Permissive License
+> 
+> Lawrence Rosen wrote:
+> > Rick Moen wrote:
+> >> As Matt points out, you have fundamentally misunderstood the notion of
+> >> compilation copyright, and apparently confused it with that of
+> >> collective works.
+> >
+> > Huh? The definitions of "collective work" [1] and "compilation" [2],
+> while
+> > different in 17 U.S.C 101, are pretty similar.
+> 
+> But neither covers the actual code in the compilation/collective, right?
+> 
+> Matt Flaschen
+
+
+
+
+From nelson at crynwr.com  Fri Sep  7 03:24:50 2007
+From: nelson at crynwr.com (Russ Nelson)
+Date: Thu, 6 Sep 2007 23:24:50 -0400
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <2ea8b9770708221906q2bb5d669r838440b9b8b54bce@mail.gmail.com>
+References: <Pine.WNT.4.64.0708101700510.3664@ddesktop>
+	<46C53923.4060507@gatech.edu>
+	<1187426094.18654.266.camel@workshop>
+	<20070819014543.GC24512@mercury.ccil.org>
+	<1187493507.18654.403.camel@workshop>
+	<20070819041033.GH24512@mercury.ccil.org>
+	<1187709356.7453.27.camel@workshop>
+	<f5cca7ed0708211040m4f40af3dh6cb295c8c9cb5f89@mail.gmail.com>
+	<e74487e70708211143p2f4ed6e3j8399410e2525bf00@mail.gmail.com>
+	<90710EE7FAF3FA4F9C0B00608A1BF3C6586FA6E140@NA-EXMSG-C103.redmond.corp.microsoft.com>
+	<2ea8b9770708221906q2bb5d669r838440b9b8b54bce@mail.gmail.com>
+Message-ID: <18144.50306.335296.260118@desk.crynwr.com>
+
+This email is my summary of all the issues that people have raised
+with the Ms-PL:
+
+Zac Bowling would like the Ms-PL to be compatible with the Ms-CL.
+
+A number of people (Tobia Conforto, Rishab Ayer Ghosh, Matthew
+Flaschen, Andrew Wilson, Donovan Hawkins, Michael R. Bernstein and Jon
+Rosenberg--the submittor) have pointed out that the Ms-PL does not
+allow a redistributor to add restrictions to source distribution,
+compared to the BSDL which does.  A concern is that the name
+"Permissive" is misleading.
+
+Chris Travers says that while the original code remains under the
+Ms-PL, a combined work could be created which was only distributable
+under the terms of the GPLv3.  Later, he agreed that he was wrong.
+
+Chris Fagan interprets the Ms-PL, saying "A design goal of the MS-PL
+is to allow developers to choose to ensure that the specific rights in
+Section (2) continue to be available to downstream developers and
+users through generations of adoption and adaptation."
+
+Philip Hunt would like Microsoft to explicitly call out the answers to
+these questions:
+Is the MS-PL intended to be compatible with the MIT license?
+Is the MS-PL intended to be compatible with the GPLv2?
+Is the MS-PL intended to be compatible with the GPLv3?
+Jim Thatcher declined to explicitly say that.
+
+Personally, John Cowan speaks to my condition in this posting:
+   http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:13402:mkohfpmjekmjelobgffa
+
+Chris DiBona and Eric Raymond raise the issue of Microsoft
+simultaneously seeking Open Source approval, and attacking Open
+Source.  Bill Hilf says "that's not part of the approval process."
+
+Ross Mayfield suggests that the name implies that it's a vanity
+license -- but the OSI board does not give that argument much weight
+as long as the license is reusable.  We allow people to give and take
+credit in the name of the software, so applying the same principle to
+licenses seems appropriate.
+
+Be sure to read this thread since it contains authoriative
+replies by Jim Thatcher:
+http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:13725:200708:gphahghcdmjlcjmkjhec
+
+-- 
+--my blog is at    http://blog.russnelson.com   | People have strong opinions
+Crynwr sells support for free software  | PGPok | about economics even though
+521 Pleasant Valley Rd. | +1 315-323-1241       | they've never studied it.
+Potsdam, NY 13676-3213  |     Sheepdog          | Curious how that is!
+
+
+
+From cdibona at gmail.com  Fri Sep  7 05:49:02 2007
+From: cdibona at gmail.com (Chris DiBona)
+Date: Thu, 6 Sep 2007 22:49:02 -0700
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <46D0BFAC.5090000@metatrontech.com>
+References: <178B4B74A9BEEE469978ACE974D383081D26A4E53A@NA-EXMSG-C111.redmond.corp.microsoft.com>
+	 <1187458993.18654.304.camel@workshop>
+	 <1187473856.5617.61.camel@nl-desktop>
+	 <1187744209.7453.37.camel@workshop>
+	 <f5cca7ed0708211830s429023b1g43a49f477eea71af@mail.gmail.com>
+	 <46CBADF5.8060502@gatech.edu>
+	 <f5cca7ed0708212227i15a0abaegcc363a100e9ea6fe@mail.gmail.com>
+	 <CFC8CCBFB0D386448DE64EE85BA15C8D04C32370@orsmsx419.amr.corp.intel.com>
+	 <f5cca7ed0708220953vedcb4bfr2c150796659f3434@mail.gmail.com>
+	 <46D0BFAC.5090000@metatrontech.com>
+Message-ID: <7d9492d90709062249j7aacd978i6e8b61e5f8191fa8@mail.gmail.com>
+
+One thing that would make me pleased as punch would be if OSI would
+only approve a new license if an old one is deprecated.
+
+Chris
+
+On 8/25/07, Chris Travers <chris at metatrontech.com> wrote:
+> I have one concern that the board should evaluate regarding whether to
+> approve the MS-PL.
+>
+> I have recently been made aware of the report by the license
+> proliferation committee to the Board regarding the recommendations
+> relating to license proliferation.  I believe that the Board should be
+> free to apply those recommendations to license approval processes.
+>
+> I believe that the MS-PL (and the GPLv3 too-- note on the related For
+> Approval thread) fail one of the committee's key recommendations:
+> require certain things of approved licenses including that "the license
+> must be clearly written, simple, and understandable."
+>
+> Obviously if the GPL3 meets this criteria than so does the MS-PL (in
+> fact, one would be hard pressed to find an example that didn't).
+> However, I believe that the MS-PL of these licenses are quite difficult
+> to understand given the other discussions on the list, opinions of
+> different lawyers (some of which come to us second-hand), etc.  The key
+> questions include whether or "the software" in the MS-PL refers to mere
+> source code, or whether it extends to original copyrighted aspects of
+> the software (such as copyrighted graphical designs for screen output or
+> story lines), or extend in other ways to derivative works.  The MS-CL is
+> probably less ambiguous in this area and easier to avoid running into
+> trouble (in my view).  I think we would be well within our rights to
+> reject the MS-PL as "confusing" and ask Microsoft to resubmit after
+> including such a definition.
+>
+> This is not about favoritism.  I would actually like to see the GPL3
+> rejected on the same grounds.  Of course if the GPL3 were approved, I
+> would favor approving the MS-PL as well.
+>
+> Chris Dibona may have a point about license proliferation.  It may be
+> time to start using reasonable guidelines in the approval process in
+> this area provided that they are applied both reasonably and evenhandedly.
+>
+> Best Wishes,
+> Chris Travers
+>
+>
+
+
+-- 
+Open Source Programs Manager, Google Inc.
+Google's Open Source program can be found at http://code.google.com
+Personal Weblog: http://dibona.com
+
+
+
+From cdibona at gmail.com  Fri Sep  7 06:28:19 2007
+From: cdibona at gmail.com (Chris DiBona)
+Date: Thu, 6 Sep 2007 23:28:19 -0700
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <f5cca7ed0709062320i57d5b285m5ca8828a49c1e9e@mail.gmail.com>
+References: <178B4B74A9BEEE469978ACE974D383081D26A4E53A@NA-EXMSG-C111.redmond.corp.microsoft.com>
+	 <1187744209.7453.37.camel@workshop>
+	 <f5cca7ed0708211830s429023b1g43a49f477eea71af@mail.gmail.com>
+	 <46CBADF5.8060502@gatech.edu>
+	 <f5cca7ed0708212227i15a0abaegcc363a100e9ea6fe@mail.gmail.com>
+	 <CFC8CCBFB0D386448DE64EE85BA15C8D04C32370@orsmsx419.amr.corp.intel.com>
+	 <f5cca7ed0708220953vedcb4bfr2c150796659f3434@mail.gmail.com>
+	 <46D0BFAC.5090000@metatrontech.com>
+	 <7d9492d90709062249j7aacd978i6e8b61e5f8191fa8@mail.gmail.com>
+	 <f5cca7ed0709062320i57d5b285m5ca8828a49c1e9e@mail.gmail.com>
+Message-ID: <7d9492d90709062328p64a3f2f0gffe18c6c0953c7d4@mail.gmail.com>
+
+No, I didn't say which ones should be deprecated as new come in, there
+are plenty of less important licenses than v2.
+
+Chris
+
+On 9/6/07, Chris Travers <chris.travers at gmail.com> wrote:
+>
+>
+> On 9/6/07, Chris DiBona <cdibona at gmail.com> wrote:
+> > One thing that would make me pleased as punch would be if OSI would
+> > only approve a new license if an old one is deprecated.
+>
+>
+> So you think we should make the deprecation of the GPLv2 a criteria for
+> approving the GPLv3?
+>
+> It seems that most people on the list felt that the GPLv2 should not be
+> deprecated at least for now (and possibly for the forseable future).
+>
+> Best Wishes,
+> Chris Travers
+>
+>
+>
+
+
+-- 
+Open Source Programs Manager, Google Inc.
+Google's Open Source program can be found at http://code.google.com
+Personal Weblog: http://dibona.com
+
+
+
+From cdibona at gmail.com  Mon Sep 10 15:56:54 2007
+From: cdibona at gmail.com (Chris DiBona)
+Date: Mon, 10 Sep 2007 08:56:54 -0700
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <46E50E46.3020600@david-woolley.me.uk>
+References: <f5cca7ed0708212227i15a0abaegcc363a100e9ea6fe@mail.gmail.com>
+	 <46D0BFAC.5090000@metatrontech.com>
+	 <7d9492d90709062249j7aacd978i6e8b61e5f8191fa8@mail.gmail.com>
+	 <f5cca7ed0709062320i57d5b285m5ca8828a49c1e9e@mail.gmail.com>
+	 <7d9492d90709062328p64a3f2f0gffe18c6c0953c7d4@mail.gmail.com>
+	 <2ea8b9770709081658r12f87bdeka0bd1056cdcc9842@mail.gmail.com>
+	 <20070909101022.GW16248@linuxmafia.com>
+	 <46E3D398.6040800@david-woolley.me.uk>
+	 <20070909184136.GX16248@linuxmafia.com>
+	 <46E50E46.3020600@david-woolley.me.uk>
+Message-ID: <7d9492d90709100856n2ace6268i74aebfcc6be031e@mail.gmail.com>
+
+Hi David;
+
+np getting to catb.org from here....check your dns?
+
+Chris
+
+On 9/10/07, David Woolley <forums at david-woolley.me.uk> wrote:
+> > Please note that I said host "catb.org", not "www.catb.org".
+> >
+> bash-3.2$ nslookup catb.org
+> ;; connection timed out; no servers could be reached
+>
+> (The browser automatically tried www. when the plain domain failed, and
+> I noted the address from its address bar.  I cannot work out why the
+> name lookup is failing, although it only seems to fail for recursive
+> queries and the local BIND does have the correct nameservers cached.
+> digging step by step or with +trace works.  I've restarted named and it
+> seems to have made it work.)
+>
+>
+>
+> --
+> David Woolley
+> Emails are not formal business letters, whatever businesses may want.
+> RFC1855 says there should be an address here, but, in a world of spam,
+> that is no longer good advice, as archive address hiding may not work.
+>
+
+
+-- 
+Open Source Programs Manager, Google Inc.
+Google's Open Source program can be found at http://code.google.com
+Personal Weblog: http://dibona.com
+
+
+
+From tiemann at opensource.org  Mon Sep 24 20:06:54 2007
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Mon, 24 Sep 2007 16:06:54 -0400
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <e52efbe10709220359l78d44b75u8c6bf57aca79fc0f@mail.gmail.com>
+References: <178B4B74A9BEEE469978ACE974D383081D26A4E53A@NA-EXMSG-C111.redmond.corp.microsoft.com>
+	 <f5cca7ed0708211830s429023b1g43a49f477eea71af@mail.gmail.com>
+	 <46CBADF5.8060502@gatech.edu>
+	 <f5cca7ed0708212227i15a0abaegcc363a100e9ea6fe@mail.gmail.com>
+	 <CFC8CCBFB0D386448DE64EE85BA15C8D04C32370@orsmsx419.amr.corp.intel.com>
+	 <f5cca7ed0708220953vedcb4bfr2c150796659f3434@mail.gmail.com>
+	 <1187808221.5601.25.camel@nl-desktop>
+	 <f5cca7ed0708221235q5fcd4998jc930bae46c323ef0@mail.gmail.com>
+	 <f5cca7ed0709161034m2c128db7qdf2bcffa00452e7b@mail.gmail.com>
+	 <e52efbe10709220359l78d44b75u8c6bf57aca79fc0f@mail.gmail.com>
+Message-ID: <6cca531e0709241306j6d391c9dg43505528cc56bc3c@mail.gmail.com>
+
+On 9/22/07, Alexander Terekhov <alexander.terekhov at gmail.com> wrote:
+>
+> On 9/16/07, Chris Travers <chris.travers at gmail.com> wrote:
+> > Since the board is still considering this license, I wanted to provide
+> some
+> > information from my research that might help with this decision.
+> >
+> > One of the main issues people have on this list is the idea that other
+> > existing permissive licenses allow sublicensing.
+> >
+> > I am not a layer, but I believe that this is wrong as a matter of intent
+> > licenses such as the BSD-licenses and the that it is also wrong as a
+> matter
+> > of law.  In fact, most permissive licenses do not allow for sublicensing
+> and
+> > force the licnese to follow the original copyrightable elements
+> (including
+> > but not limited to code).
+
+
+If the sublicensing is not required, then the safe harbour makes them feel
+permissive.
+
+http://www.eweek.com/article2/0,1759,2185919,00.asp
+> (OSI Calls for Major Revisions to Microsoft Permissive License)
+
+
+I did not write this headline, and would not have characterized my comments
+as justifying such a headline.  I didn't call for anything, I gave a summary
+of what I read on license-discuss.
+
+--------
+> The MS-PL is also particularly restrictive, and is "uniquely
+> incompatible" with the maximum number of other open-source licenses,
+> Tiemann said, noting that in its examination of license proliferation,
+> the OSI had encouraged experimentation with license terms to encourage
+> new ones to be written that were better than what currently existed.
+>
+> "We certainly don't want to presume that we have already invented
+> everything there is to be invented. However, the specific innovation
+> of maximum incompatibility of the MS-PL is not what we were looking
+> for, so I think what we have is a submission that has two fairly major
+> strikes against it," Tiemann said.
+> --------
+>
+> Question to OSI Board of Directors:
+>
+> What is he (Mr. Tiemann) smoking and where can I get some?
+
+
+I was reading comments from a threat titled ",*License compatibility of
+MS-PL and MS-CL (Was: (RE: Groklaw's OSI item (was: When will CPAL actually
+be _used_?))"* which included this comment from *Jim Thatcher*, Of Counsel,
+*Woodcock Washburn LLP*:
+
+*Q7. Then this really isn't a "permissive" license, is it?*
+
+A. It's clear from this discussion that the term "permissive" in this
+context has a specific meaning to many. This is not really a legal issue,
+but the business folks at Microsoft have heard this feedback, and will
+continue to listen to the community to understand the issues that matter
+most to developers. Microsoft will carefully consider the concerns that have
+been raised regarding the title of the Ms-PL.
+And many other comments from the thread.  Again, I didn't call on Microsoft
+to do anything.  I just pointed out what I believed to be a widely held
+consensus, which is that the name and nature of the Microsoft Permissive
+License are not yet constructed in a way that makes them a compelling
+extension of the cadre of OSI-approved licenses.  The fact that Microsoft
+has acknowledged that consensus and is discussing it is a great sign that
+the license-discuss process is working, not that I'm smoking anything.
+
+M
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20070924/2d568b84/attachment.html>
+
+
+From jonr at microsoft.com  Wed Sep 26 00:18:13 2007
+From: jonr at microsoft.com (Jon Rosenberg (PBM))
+Date: Tue, 25 Sep 2007 17:18:13 -0700
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <e52efbe10709250812x7ea9bca9t926e8257384a6fca@mail.gmail.com>
+References: <178B4B74A9BEEE469978ACE974D383081D26A4E53A@NA-EXMSG-C111.redmond.corp.microsoft.com>
+	 <46CBADF5.8060502@gatech.edu>
+	 <f5cca7ed0708212227i15a0abaegcc363a100e9ea6fe@mail.gmail.com>
+	 <CFC8CCBFB0D386448DE64EE85BA15C8D04C32370@orsmsx419.amr.corp.intel.com>
+	 <f5cca7ed0708220953vedcb4bfr2c150796659f3434@mail.gmail.com>
+	 <1187808221.5601.25.camel@nl-desktop>
+	 <f5cca7ed0708221235q5fcd4998jc930bae46c323ef0@mail.gmail.com>
+	 <f5cca7ed0709161034m2c128db7qdf2bcffa00452e7b@mail.gmail.com>
+	 <e52efbe10709220359l78d44b75u8c6bf57aca79fc0f@mail.gmail.com>
+	 <6cca531e0709241306j6d391c9dg43505528cc56bc3c@mail.gmail.com>
+ <e52efbe10709250812x7ea9bca9t926e8257384a6fca@mail.gmail.com>
+Message-ID: <178B4B74A9BEEE469978ACE974D383081D298B3E56@NA-EXMSG-C111.redmond.corp.microsoft.com>
+
+The past 6 weeks have been a tremendous learning experience for Microsoft. The community has been passionate and insightful in its response to our submission of the MS-Community and MS-Permissive Licenses. We saw new perspectives on some of the issues that came up for us as we were drafting these licenses and we heard some brand new issues as well. The community comments on our license approval submission numbered over 400. That's an important number for us. We read every mail. We weighed every point. We thought hard about the issues that you raised. I want to thank you for being supportive, challenging and vocal. We submitted these licenses for approval in the belief that they comply with the ten criteria of the Open Source Definition and the strong response from the community indicates that they do.
+
+One of the more controversial points that has been raised during the course of this discussion is the need for clarity. You've told us loud and clear that you want more clarity around our usage of the submitted licenses and more clarity around what is Open Source and what is Shared Source. This is completely reasonable. To that end, we commit to making changes to our Open Source and Shared Source web sites that will greatly reduce any confusion between Microsoft's various licensing programs and our use of Open Source licenses. We'll also commit to publishing a summary of those changes to the alias for feedback before publishing to the web.
+
+We also heard varying points of view about the name of the license and some of the clauses in the license itself.  Today, we will also commit to involve the community in any future redrafting or renaming of these licenses. If in the future, we modify these licenses, we will engage in a conversation with the community through the license-discuss alias as part of the modification process rather than simply requesting approval after the fact.
+
+We look forward to the licensing committee's decision on these licenses and appreciate the contribution that this process has made to our thinking, regardless of the outcome.
+
+Jon
+
+
+
+
+From tiemann at opensource.org  Wed Sep 26 02:36:55 2007
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Tue, 25 Sep 2007 22:36:55 -0400
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <178B4B74A9BEEE469978ACE974D383081D298B3E56@NA-EXMSG-C111.redmond.corp.microsoft.com>
+References: <178B4B74A9BEEE469978ACE974D383081D26A4E53A@NA-EXMSG-C111.redmond.corp.microsoft.com>
+	 <CFC8CCBFB0D386448DE64EE85BA15C8D04C32370@orsmsx419.amr.corp.intel.com>
+	 <f5cca7ed0708220953vedcb4bfr2c150796659f3434@mail.gmail.com>
+	 <1187808221.5601.25.camel@nl-desktop>
+	 <f5cca7ed0708221235q5fcd4998jc930bae46c323ef0@mail.gmail.com>
+	 <f5cca7ed0709161034m2c128db7qdf2bcffa00452e7b@mail.gmail.com>
+	 <e52efbe10709220359l78d44b75u8c6bf57aca79fc0f@mail.gmail.com>
+	 <6cca531e0709241306j6d391c9dg43505528cc56bc3c@mail.gmail.com>
+	 <e52efbe10709250812x7ea9bca9t926e8257384a6fca@mail.gmail.com>
+	 <178B4B74A9BEEE469978ACE974D383081D298B3E56@NA-EXMSG-C111.redmond.corp.microsoft.com>
+Message-ID: <6cca531e0709251936q562635f6h12f9f58f43225630@mail.gmail.com>
+
+On 9/25/07, Jon Rosenberg (PBM) <jonr at microsoft.com> wrote:
+>
+> The past 6 weeks have been a tremendous learning experience for Microsoft.
+> The community has been passionate and insightful in its response to our
+> submission of the MS-Community and MS-Permissive Licenses. We saw new
+> perspectives on some of the issues that came up for us as we were drafting
+> these licenses and we heard some brand new issues as well. The community
+> comments on our license approval submission numbered over 400. That's an
+> important number for us. We read every mail. We weighed every point. We
+> thought hard about the issues that you raised. I want to thank you for being
+> supportive, challenging and vocal. We submitted these licenses for approval
+> in the belief that they comply with the ten criteria of the Open Source
+> Definition and the strong response from the community indicates that they
+> do.
+>
+> One of the more controversial points that has been raised during the
+> course of this discussion is the need for clarity. You've told us loud and
+> clear that you want more clarity around our usage of the submitted licenses
+> and more clarity around what is Open Source and what is Shared Source. This
+> is completely reasonable. To that end, we commit to making changes to our
+> Open Source and Shared Source web sites that will greatly reduce any
+> confusion between Microsoft's various licensing programs and our use of Open
+> Source licenses. We'll also commit to publishing a summary of those changes
+> to the alias for feedback before publishing to the web.
+>
+> We also heard varying points of view about the name of the license and
+> some of the clauses in the license itself.  Today, we will also commit to
+> involve the community in any future redrafting or renaming of these
+> licenses. If in the future, we modify these licenses, we will engage in a
+> conversation with the community through the license-discuss alias as part of
+> the modification process rather than simply requesting approval after the
+> fact.
+>
+> We look forward to the licensing committee's decision on these licenses
+> and appreciate the contribution that this process has made to our thinking,
+> regardless of the outcome.
+
+
+John, thanks for inserting a meaningful checkpoint into the process.  Here
+are the steps needed to appove a license:
+
+1.  The license committee chair, Russ Nelson, usually summarizes all the
+licensing discussions as input to each board meeting.  I will ask him
+specifically to prepare a report on what he believes the consensus and key
+points of contention are for your license submissions.
+
+2.  Russ will post that information to license-discuss, and also send a copy
+to the board.
+
+3.  The Board then discusses and votes on the recommendation of the chair
+and reports its vote to the list.
+
+4.  If the licenses are approved, we update relevant pages on our website.
+
+In the general case, we have situations where either there is not enough
+discussion to represent a strong consensus, or there is a polarized
+discussion that represents a split consensus.  Usually in those cases we
+either encourage more discussion or we make suggestions to the license
+submitter about how to help their cause (if we have any ideas about how to
+do so).  This has the effect of lengthening the license review cycle, but
+also can have the effect of ultimately approving more licenses.
+
+If I read your email correctly, you are saying "it is what it is--give us an
+up-or-down vote at your earliest convenience".  And because you talk about
+possible future redrafting, it sounds to me that if we do find cause to
+reject the licenses, you are open to remedying the flaws and resubmitting
+(either under the same name or under a different name).  Thus, you are
+interested in having the OSI lead the process by making rulings and letting
+you craft remedies rather than discussing until a common positive consensus
+is reached.  It is not the way we have done things in the past, but I am
+open to considering such a procedure.  I am asking this question publicly
+because I want not only your affirmation that I understand you correctly,
+but also to ask those on license-discuss what they think about doing things
+this way, either in the general case or in this particular case.
+
+M
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20070925/7e19e961/attachment.html>
+
+
+From jonr at microsoft.com  Thu Sep 27 00:25:44 2007
+From: jonr at microsoft.com (Jon Rosenberg (PBM))
+Date: Wed, 26 Sep 2007 17:25:44 -0700
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <46FAF241.5050702@gatech.edu>
+References: <e52efbe10709220359l78d44b75u8c6bf57aca79fc0f@mail.gmail.com>
+ <6cca531e0709241306j6d391c9dg43505528cc56bc3c@mail.gmail.com>
+ <e52efbe10709250812x7ea9bca9t926e8257384a6fca@mail.gmail.com>
+ <178B4B74A9BEEE469978ACE974D383081D298B3E56@NA-EXMSG-C111.redmond.corp.microsoft.com>
+ <6cca531e0709251936q562635f6h12f9f58f43225630@mail.gmail.com>
+ <46F9F1C3.10609@gatech.edu> <20070926201217.GC16248@linuxmafia.com>
+ <46FAC011.7010606@gatech.edu> <20070926211422.GG16248@linuxmafia.com>
+ <46FADE7B.3010902@gatech.edu> <20070926230023.GH16248@linuxmafia.com>
+ <46FAF241.5050702@gatech.edu>
+Message-ID: <178B4B74A9BEEE469978ACE974D383081D298B44B6@NA-EXMSG-C111.redmond.corp.microsoft.com>
+
+When I committed in my last posting to consulting the community on future license revisions, I really wasn't expecting that I'd be doing it this week. :-)  Nevertheless, it seems that opinion on the Permissive License name is divided and it's time to make good on that commitment.  While we also couldn't find anything in the OSD that mentions the license name, the fact remains that some folks do not feel that the contents of the license are clearly communicated by the term, "Permissive."  We have also sought feedback from the hundreds of licensors who are using the Microsoft licenses today.  They told us something quite different: that the Community License name did not adequately communicate the fact that this license was reciprocal.  As I stated in my previous post, our goal is clarity and transparency.  The goal of the license titles was clear differentiation between a reciprocal license and a permissive license, so I would like to propose a revision that I hope will get us closer to that goal.  I would like to get all of your feedback on the following name revisions:
+*       Microsoft Community License becomes Microsoft Reciprocal License
+*       Microsoft Permissive License becomes Microsoft Open License
+I look forward to your feedback.  Thanks.
+
+Jon
+
+-----Original Message-----
+From: Matthew Flaschen [mailto:matthew.flaschen at gatech.edu]
+Sent: Wednesday, September 26, 2007 4:59 PM
+To: License Discuss
+Subject: Re: For Approval: Microsoft Permissive License
+
+Rick Moen wrote:
+> Quoting Matthew Flaschen (matthew.flaschen at gatech.edu):
+>
+>> I'm talking about what they use, not what they're supposed to use.  I
+>> can give many examples of times OSI has been reluctant to approve an
+>> OSD-compliant license.  For instance, they held off on SimPL because it
+>> was (mistakenly) believed incompatible with GPLv2.
+>
+> I imagine Board members regard it as perfectly appropriate to delay
+> consideration of a licence where Board members wish to encourage the
+> drafter to consider some change, or to ponder some practial problem or
+> badly written wording.
+
+This is what I suggest in this case.
+
+> Let's face it:  Many new licences have been pretty dumb ideas in a variety of ways, and are likely to remain so
+> (human perversity, and in particular the perversity of many licence
+> drafters, being what it is).
+
+Agreed.
+
+  Were I on the Board, I'd probably be in
+> absolutely no hurry to vote on those, either -- and would regard that
+> fact as in no way contradictory of the process shown on
+> http://www.opensource.org/approval .
+
+Whether it's contradictory of the approval process, I can't say.  But
+it's certain that many dumb license ideas are in fact OSD-compliant.
+
+Matt Flaschen
+
+
+
+From tiemann at opensource.org  Thu Sep 27 00:37:54 2007
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Wed, 26 Sep 2007 20:37:54 -0400
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <46FADE7B.3010902@gatech.edu>
+References: <f5cca7ed0708221235q5fcd4998jc930bae46c323ef0@mail.gmail.com>
+	 <6cca531e0709241306j6d391c9dg43505528cc56bc3c@mail.gmail.com>
+	 <e52efbe10709250812x7ea9bca9t926e8257384a6fca@mail.gmail.com>
+	 <178B4B74A9BEEE469978ACE974D383081D298B3E56@NA-EXMSG-C111.redmond.corp.microsoft.com>
+	 <6cca531e0709251936q562635f6h12f9f58f43225630@mail.gmail.com>
+	 <46F9F1C3.10609@gatech.edu> <20070926201217.GC16248@linuxmafia.com>
+	 <46FAC011.7010606@gatech.edu> <20070926211422.GG16248@linuxmafia.com>
+	 <46FADE7B.3010902@gatech.edu>
+Message-ID: <6cca531e0709261737p7ff4134en63afeea65e9b1b2d@mail.gmail.com>
+
+On 9/26/07, Matthew Flaschen <matthew.flaschen at gatech.edu> wrote:
+>
+>
+> I'm talking about what they use, not what they're supposed to use.  I
+> can give many examples of times OSI has been reluctant to approve an
+> OSD-compliant license.  For instance, they held off on SimPL because it
+> was (mistakenly) believed incompatible with GPLv2.
+
+
+...and because the pretext of that license was to be "a simplified version
+of the GPL for people who wanted to use a reciprocal license but were not
+yet ready to comprehend the full complexity of the GPL".  I think the term
+"GPL with training wheels" was the way somebody put it.  In that case, a
+license whose stated goal was to be a gateway to the GPL had better be
+GPL-compatible, or it's not a very good gateway.  When the confusion was
+cleared up and compatibility was assured, we felt confident to approve it as
+the license did do what it promised to do.
+
+I do believe that if a license is submitted with promise X, then we should
+evaluate promise X as well as the OSD.  If the only promise of the license
+is "we meet the minimum terms of the OSD, and nothing more", then we should
+not hold it to a higher standard.  This is my personal opinion, not a
+defined board policy, but I think others use a similar evaluation function.
+
+Relevant to this, as I said in my interview with Peter Galli, I saw no
+reason to challenge the title of "The Microsoft Community License", because
+whether it is a community of one or one thousand, it's perfectly reasonable
+for anybody to state the aspiration of creating a community in the world of
+open source.  I am very liberal when it comes to descriptions that state
+aspirations (consider Tim Berners-Lee announcing "The World Wide Web"!), but
+very much less so when descriptions are deceptive, such as the claim of an
+open standard that, in fact, cannot be implemented or validated without
+using proprietary technology.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20070926/30a62c3c/attachment.html>
+
+
+From tiemann at opensource.org  Thu Sep 27 00:43:14 2007
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Wed, 26 Sep 2007 20:43:14 -0400
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <178B4B74A9BEEE469978ACE974D383081D298B44B6@NA-EXMSG-C111.redmond.corp.microsoft.com>
+References: <e52efbe10709220359l78d44b75u8c6bf57aca79fc0f@mail.gmail.com>
+	 <6cca531e0709251936q562635f6h12f9f58f43225630@mail.gmail.com>
+	 <46F9F1C3.10609@gatech.edu> <20070926201217.GC16248@linuxmafia.com>
+	 <46FAC011.7010606@gatech.edu> <20070926211422.GG16248@linuxmafia.com>
+	 <46FADE7B.3010902@gatech.edu> <20070926230023.GH16248@linuxmafia.com>
+	 <46FAF241.5050702@gatech.edu>
+	 <178B4B74A9BEEE469978ACE974D383081D298B44B6@NA-EXMSG-C111.redmond.corp.microsoft.com>
+Message-ID: <6cca531e0709261743y7711da75qf0e4f1c7b65b94aa@mail.gmail.com>
+
+On 9/26/07, Jon Rosenberg (PBM) <jonr at microsoft.com> wrote:
+>
+> When I committed in my last posting to consulting the community on future
+> license revisions, I really wasn't expecting that I'd be doing it this week.
+> :-)  Nevertheless, it seems that opinion on the Permissive License name is
+> divided and it's time to make good on that commitment.  While we also
+> couldn't find anything in the OSD that mentions the license name, the fact
+> remains that some folks do not feel that the contents of the license are
+> clearly communicated by the term, "Permissive."  We have also sought
+> feedback from the hundreds of licensors who are using the Microsoft licenses
+> today.  They told us something quite different: that the Community License
+> name did not adequately communicate the fact that this license was
+> reciprocal.  As I stated in my previous post, our goal is clarity and
+> transparency.  The goal of the license titles was clear differentiation
+> between a reciprocal license and a permissive license, so I would like to
+> propose a revision that I hope will get us closer to that goal.  I would
+> like to get all of your feedback on the following name revisions:
+> *       Microsoft Community License becomes Microsoft Reciprocal License
+> *       Microsoft Permissive License becomes Microsoft Open License
+> I look forward to your feedback.  Thanks.
+
+
+It is a great pleasure to work with somebody who makes their agenda clear.
+I applaud your efforts to achieve clarity and transparency.
+
+M
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20070926/73ffcd2e/attachment.html>
+
+
+From jonr at microsoft.com  Fri Sep 28 23:48:05 2007
+From: jonr at microsoft.com (Jon Rosenberg (PBM))
+Date: Fri, 28 Sep 2007 16:48:05 -0700
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <46FC6FD6.1020105@minimum.se>
+References: <e52efbe10709220359l78d44b75u8c6bf57aca79fc0f@mail.gmail.com>
+ <6cca531e0709241306j6d391c9dg43505528cc56bc3c@mail.gmail.com>
+ <e52efbe10709250812x7ea9bca9t926e8257384a6fca@mail.gmail.com>
+ <178B4B74A9BEEE469978ACE974D383081D298B3E56@NA-EXMSG-C111.redmond.corp.microsoft.com>
+ <6cca531e0709251936q562635f6h12f9f58f43225630@mail.gmail.com>
+ <46F9F1C3.10609@gatech.edu> <20070926201217.GC16248@linuxmafia.com>
+ <46FAC011.7010606@gatech.edu> <20070926211422.GG16248@linuxmafia.com>
+ <46FADE7B.3010902@gatech.edu> <20070926230023.GH16248@linuxmafia.com>
+ <46FAF241.5050702@gatech.edu>
+ <178B4B74A9BEEE469978ACE974D383081D298B44B6@NA-EXMSG-C111.redmond.corp.microsoft.com>
+ <46FC6FD6.1020105@minimum.se>
+Message-ID: <178B4B74A9BEEE469978ACE974D383081D29937D9C@NA-EXMSG-C111.redmond.corp.microsoft.com>
+
+Thank you to everyone who provided feedback on the proposed license names and thank you especially to Martin for pointing out the potential conflict with the Microsoft Open License name. Given that our goal in renaming the licenses is to reduce confusion, I think that using this name would take us in the wrong direction. I have a few new alternatives below for a rename of the Microsoft Permissive License on which I would like to again ask the community for feedback:
+
+Microsoft Free Reuse License
+Microsoft Open Code License
+Microsoft Simple License
+Microsoft Public License (One reservation that my colleagues and I have about this one is that most licenses with the word 'Public' in the name are reciprocal. Hence, using this name for our non-reciprocal license might generate confusion.)
+
+As ever, I look forward to hearing your thoughts.
+
+Jon
+
+-----Original Message-----
+From: Martin Olsson [mailto:mnemo at minimum.se]
+Sent: Thursday, September 27, 2007 8:07 PM
+To: Jon Rosenberg (PBM)
+Cc: License Discuss
+Subject: Re: For Approval: Microsoft Permissive License
+
+
+
+Jon Rosenberg (PBM) wrote:
+> When I committed in my last posting to consulting the community on future license revisions, I really wasn't expecting that I'd be doing it this week. :-)  Nevertheless, it seems that opinion on the Permissive License name is divided and it's time to make good on that commitment.  While we also couldn't find anything in the OSD that mentions the license name, the fact remains that some folks do not feel that the contents of the license are clearly communicated by the term, "Permissive."  We have also sought feedback from the hundreds of licensors who are using the Microsoft licenses today.  They told us something quite different: that the Community License name did not adequately communicate the fact that this license was reciprocal.  As I stated in my previous post, our goal is clarity and transparency.  The goal of the license titles was clear differentiation between a reciprocal license and a permissive license, so I would like to propose a revision that I hope will get
