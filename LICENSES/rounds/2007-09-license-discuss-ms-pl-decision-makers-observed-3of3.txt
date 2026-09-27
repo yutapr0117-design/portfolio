@@ -1,0 +1,182 @@
+OBSERVED (not received by us) -- license-discuss public archive, 2005-2007
+Fetched 2026-09-27 from the monthly mbox files at
+https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/
+Preserved verbatim, unmodified. These messages are NOT addressed to us and are NOT about
+ACD-1.0.
+
+Subset, and the rule that made it: the "For Approval: Microsoft Permissive License" thread
+runs to 331 messages (2005-12-09 .. 2007-10-10). Saved here are the 26 written by the people
+who decide -- the OSI president (Michael Tiemann), the License Committee chair (Russ Nelson),
+a board member (Chris DiBona), Lawrence Rosen, and the submitter (Jon Rosenberg, Microsoft).
+The selection rule is stated so a reader can reproduce it: sender address matches one of
+tiemann / nelson / dibona / rosen / danese / cooper / opensource.org.
+
+Why a subset here and not the whole thread, when the CAL thread was saved whole: the CAL
+thread is itself the evidence (585 messages, a year, four versions), so selecting from it
+would have created room for "we chose". Here the evidence is what the decision-makers said,
+and the rule above is mechanical. The rest of the thread remains in the public archive.
+
+Split by LINE boundaries at 750 lines; concatenating the parts in order reproduces the
+selected bytes exactly (asserted before writing).
+
+=== part 3 of 3 (line-boundary split) ===
+
+ us closer to that goal.  I would like to get all of your feedback on the following name revisions:
+> *       Microsoft Community License becomes Microsoft Reciprocal License
+> *       Microsoft Permissive License becomes Microsoft Open License
+> I look forward to your feedback.  Thanks.
+
+* Microsoft Reciprocal License is much more clear.
+
+* Microsoft Open License could very well be confused with:
+http://www.microsoft.com/licensing/programs/open/default.mspx
+
+
+
+Martin
+
+
+> -----Original Message-----
+> From: Matthew Flaschen [mailto:matthew.flaschen at gatech.edu]
+> Sent: Wednesday, September 26, 2007 4:59 PM
+> To: License Discuss
+> Subject: Re: For Approval: Microsoft Permissive License
+>
+> Rick Moen wrote:
+>> Quoting Matthew Flaschen (matthew.flaschen at gatech.edu):
+>>
+>>> I'm talking about what they use, not what they're supposed to use.  I
+>>> can give many examples of times OSI has been reluctant to approve an
+>>> OSD-compliant license.  For instance, they held off on SimPL because it
+>>> was (mistakenly) believed incompatible with GPLv2.
+>> I imagine Board members regard it as perfectly appropriate to delay
+>> consideration of a licence where Board members wish to encourage the
+>> drafter to consider some change, or to ponder some practial problem or
+>> badly written wording.
+>
+> This is what I suggest in this case.
+>
+>> Let's face it:  Many new licences have been pretty dumb ideas in a variety of ways, and are likely to remain so
+>> (human perversity, and in particular the perversity of many licence
+>> drafters, being what it is).
+>
+> Agreed.
+>
+>   Were I on the Board, I'd probably be in
+>> absolutely no hurry to vote on those, either -- and would regard that
+>> fact as in no way contradictory of the process shown on
+>> http://www.opensource.org/approval .
+>
+> Whether it's contradictory of the approval process, I can't say.  But
+> it's certain that many dumb license ideas are in fact OSD-compliant.
+>
+> Matt Flaschen
+>
+
+
+
+From nelson at crynwr.com  Sat Sep 29 04:22:11 2007
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sat, 29 Sep 2007 00:22:11 -0400
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <46F9F1C3.10609@gatech.edu>
+References: <178B4B74A9BEEE469978ACE974D383081D26A4E53A@NA-EXMSG-C111.redmond.corp.microsoft.com>
+	<CFC8CCBFB0D386448DE64EE85BA15C8D04C32370@orsmsx419.amr.corp.intel.com>
+	<f5cca7ed0708220953vedcb4bfr2c150796659f3434@mail.gmail.com>
+	<1187808221.5601.25.camel@nl-desktop>
+	<f5cca7ed0708221235q5fcd4998jc930bae46c323ef0@mail.gmail.com>
+	<f5cca7ed0709161034m2c128db7qdf2bcffa00452e7b@mail.gmail.com>
+	<e52efbe10709220359l78d44b75u8c6bf57aca79fc0f@mail.gmail.com>
+	<6cca531e0709241306j6d391c9dg43505528cc56bc3c@mail.gmail.com>
+	<e52efbe10709250812x7ea9bca9t926e8257384a6fca@mail.gmail.com>
+	<178B4B74A9BEEE469978ACE974D383081D298B3E56@NA-EXMSG-C111.redmond.corp.microsoft.com>
+	<6cca531e0709251936q562635f6h12f9f58f43225630@mail.gmail.com>
+	<46F9F1C3.10609@gatech.edu>
+Message-ID: <18173.54003.758781.367589@desk.crynwr.com>
+
+Matthew Flaschen writes:
+ > a. Is MS-PL a permissive license?  If not, should OSI ask/require that
+ > it be renamed?
+ > 
+ > I don't think it's permissive in a meaningful sense, because other
+ > permissive (as the term is generally understood in the FOSS community)
+ > licenses allow incorporating into source code works under other
+ > licenses, provided that the permissive license and copyright notice is
+ > preserved, and MS-PL does not.
+ > 
+ > Thus, I think Microsoft should rename the license.
+
+My opinion is that we should approve it regardless of the name.  Is it
+the Library General Public License or the Lesser General Public
+License?  In either case, the license didn't change.  I put MUCH LESS
+WEIGHT on the names of things than some well-known and hirsute free
+software advocates do.  The thing is the thing regardless of what you
+call it.  It's free and open source software whether you call it Free
+Software(tm) or Open Source(tm).
+
+Will the name mislead anybody?  Not after this discussion, it won't.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | People have strong opinions
+Crynwr sells support for free software  | PGPok | about economics even though
+521 Pleasant Valley Rd. | +1 315-323-1241       | they've never studied it.
+Potsdam, NY 13676-3213  |     Sheepdog          | Curious how that is!
+
+
+
+From nelson at crynwr.com  Sat Sep 29 04:52:35 2007
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sat, 29 Sep 2007 00:52:35 -0400
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <00c001c8020a$4e685cd0$0a01a8c0@rodage.dyndns.org>
+References: <6cca531e0709261737p7ff4134en63afeea65e9b1b2d@mail.gmail.com>
+	<001301c8011e$6f81e6d0$719a1cac@law.washington.edu>
+	<00c001c8020a$4e685cd0$0a01a8c0@rodage.dyndns.org>
+Message-ID: <18173.55827.308464.78981@desk.crynwr.com>
+
+Philippe Verdy writes:
+ > My main concern against the Microsoft proposed licences is in their name:
+ > they contain the copyrighted and severely restricted trademark name
+ > "Microsoft", which restricts the way it can be cited.
+
+A trademark may always be truthfully used without acknowledgement.
+
+Insert appropriate disclaimers about how I'm not a lawyer, and even if
+I was a lawyer, this wouldn't be legal advice, and even if it was
+legal advice, you shouldn't act on it anyway, because I might be wrong.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | People have strong opinions
+Crynwr sells support for free software  | PGPok | about economics even though
+521 Pleasant Valley Rd. | +1 315-323-1241       | they've never studied it.
+Potsdam, NY 13676-3213  |     Sheepdog          | Curious how that is!
+
+
+
+From nelson at crynwr.com  Wed Oct  3 20:12:32 2007
+From: nelson at crynwr.com (Russ Nelson)
+Date: Wed, 3 Oct 2007 16:12:32 -0400
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <001301c80284$a9ac0220$0a01a8c0@rodage.dyndns.org>
+References: <6cca531e0709261737p7ff4134en63afeea65e9b1b2d@mail.gmail.com>
+	<001301c8011e$6f81e6d0$719a1cac@law.washington.edu>
+	<00c001c8020a$4e685cd0$0a01a8c0@rodage.dyndns.org>
+	<18173.55827.308464.78981@desk.crynwr.com>
+	<001301c80284$a9ac0220$0a01a8c0@rodage.dyndns.org>
+Message-ID: <18179.63408.433724.877423@desk.crynwr.com>
+
+Philippe Verdy writes:
+ > A trademark you don't own can't be safely used for advertising another
+ > competing product in every country.
+
+Truthful use of a trademark is in line with every sane trademark law.
+My advice: don't advertise your product in insane countries.  Life is
+too short to put up with bullshit.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | People have strong opinions
+Crynwr sells support for free software  | PGPok | about economics even though
+521 Pleasant Valley Rd. | +1 315-323-1241       | they've never studied it.
+Potsdam, NY 13676-3213  |     Sheepdog          | Curious how that is!
+
+

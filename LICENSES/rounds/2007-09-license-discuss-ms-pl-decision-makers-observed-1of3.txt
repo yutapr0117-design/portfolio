@@ -1,0 +1,773 @@
+OBSERVED (not received by us) -- license-discuss public archive, 2005-2007
+Fetched 2026-09-27 from the monthly mbox files at
+https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/
+Preserved verbatim, unmodified. These messages are NOT addressed to us and are NOT about
+ACD-1.0.
+
+Subset, and the rule that made it: the "For Approval: Microsoft Permissive License" thread
+runs to 331 messages (2005-12-09 .. 2007-10-10). Saved here are the 26 written by the people
+who decide -- the OSI president (Michael Tiemann), the License Committee chair (Russ Nelson),
+a board member (Chris DiBona), Lawrence Rosen, and the submitter (Jon Rosenberg, Microsoft).
+The selection rule is stated so a reader can reproduce it: sender address matches one of
+tiemann / nelson / dibona / rosen / danese / cooper / opensource.org.
+
+Why a subset here and not the whole thread, when the CAL thread was saved whole: the CAL
+thread is itself the evidence (585 messages, a year, four versions), so selecting from it
+would have created room for "we chose". Here the evidence is what the decision-makers said,
+and the rule above is mechanical. The rest of the thread remains in the public archive.
+
+Split by LINE boundaries at 750 lines; concatenating the parts in order reproduces the
+selected bytes exactly (asserted before writing).
+
+=== part 1 of 3 (line-boundary split) ===
+
+From nelson at crynwr.com  Sun Dec 11 21:44:44 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Sun, 11 Dec 2005 16:44:44 -0500
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <20051209210705.GA12789@ccil.org>
+References: <20051209210705.GA12789@ccil.org>
+Message-ID: <17308.40396.564605.238473@desk.crynwr.com>
+
+John Cowan writes:
+ > Microsoft is adding new licenses to its Shared Source Initiative which I
+ > believe qualify as open-source licenses.  The first of these is a simple
+ > permissive license called the Microsoft Permissive License (MS-PL).
+
+For similar reasons to that given for the Microsoft Community License
+we should defer consideration of this license.
+
+-- 
+--my blog is at     blog.russnelson.com         | A computer without Python is
+Crynwr sells support for free software  | PGPok | like a CPU without memory:
+521 Pleasant Valley Rd. | +1 315-323-1241       | it runs, but you can't do
+Potsdam, NY 13676-3213  |     Sheepdog          | anything useful with it.
+
+
+
+From jonr at microsoft.com  Fri Aug 10 16:16:05 2007
+From: jonr at microsoft.com (Jon Rosenberg (PBM))
+Date: Fri, 10 Aug 2007 09:16:05 -0700
+Subject: For Approval: Microsoft Permissive License
+Message-ID: <178B4B74A9BEEE469978ACE974D383081D26A4E53A@NA-EXMSG-C111.redmond.corp.microsoft.com>
+
+Microsoft is pleased to submit the Microsoft Permissive License to the OSI for consideration as an OSI approved license.  Microsoft believes that this license provides unique value to the open source community by delivering simplicity, brevity, and permissive terms combined with intellectual property protection.
+The three sections below provide the information required for the discussion portion of the approval process.  We look forward to working with the OSI on this submission process and discussing this submission with the open source community.
+Jon Rosenberg
+Director, Source Program
+Microsoft Corporation
+
+----------------------------------
+
+Section  I:  Which OSI licenses are similar and why won't one of those do instead?
+Although one can assess similarity of license terms in numerous ways, the MS-PL has similarities to terms in both the New BSD license and Apache 2.0 license.  However, the new BSD license does not contain an explicit patent grant and only implicitly refers to trademark issues.  In addition, we sought to create a license that is simple, short, and easy-to-understand.
+
+Section II: Compatibilities and incompatibilities with other OSI licenses:  Source code distribution breaks down into two areas: Relicensing of MS-PL code and redistribution of MS-PL code with other code that is licensed under a different license.
+
+*         Can MS-PL code be redistributed under a different license?:
+No.  The license states that "If you distribute any portion of the software in source code form, you may do so only under this license..."  This restriction is similar to the restriction in the Mozilla Public License that states "You may not offer or impose any terms on any Source Code version that alters or restricts the applicable version of this License or the recipients' rights hereunder."  The MS-PL license explicitly prohibits relicensing of the original licensed code under a different license, regardless of whether the original code is redistributed in whole, in part or as part of a different piece of software.
+
+*         Can MS-PL code be redistributed in combination with other code that is licensed under a different license?
+As long as the original MS-PL licensed code is redistributed under the MS-PL license, then the MS-PL  places no restrictions on combining MS-PL code with other code that is licensed under another license.  Licenses that prohibit the distribution of code under any terms other than the terms of that license will not be compatible with the MS-PL.
+Section III: The License: A copy of the license is included below and also provided as a .txt file attachment.
+
+Microsoft Permissive License (Ms-PL)
+
+This license governs use of the accompanying software. If you use the software, you accept this
+license. If you do not accept the license, do not use the software.
+
+1. Definitions
+The terms "reproduce," "reproduction," "derivative works," and "distribution" have the same meaning here
+as under U.S. copyright law.
+A "contribution" is the original software, or any additions or changes to the software.
+A "contributor" is any person that distributes its contribution under this license.
+ "Licensed patents" are a contributor's patent claims that read directly on its contribution.
+
+2. Grant of Rights
+(A) Copyright Grant- Subject to the terms of this license, including the license conditions and limitations in
+section 3, each contributor grants you a non-exclusive, worldwide, royalty-free copyright license to
+reproduce its contribution, prepare derivative works of its contribution, and distribute its contribution or any
+derivative works that you create.
+(B) Patent Grant- Subject to the terms of this license, including the license conditions and limitations in
+section 3, each contributor grants you a non-exclusive, worldwide, royalty-free license under its licensed
+patents to make, have made, use, sell, offer for sale, import, and/or otherwise dispose of its contribution in
+the software or derivative works of the contribution in the software.
+
+3. Conditions and Limitations
+ (A) No Trademark License- This license does not grant you rights to use any contributors' name, logo, or
+trademarks.
+(B) If you bring a patent claim against any contributor over patents that you claim are infringed by the
+software, your patent license from such contributor to the software ends automatically.
+(C) If you distribute any portion of the software, you must retain all copyright, patent, trademark, and
+attribution notices that are present in the software.
+(D) If you distribute any portion of the software in source code form, you may do so only under this license
+by including a complete copy of this license with your distribution. If you distribute any portion of the
+software in compiled or object code form, you may only do so under a license that complies with this
+license.
+(E) The software is licensed "as-is." You bear the risk of using it. The contributors give no express
+warranties, guarantees or conditions. You may have additional consumer rights under your local laws which
+this license cannot change. To the extent permitted under your local laws, the contributors exclude the
+implied warranties of merchantability, fitness for a particular purpose and non-infringement.
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20070810/657140de/attachment.html>
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: MS-PL in TXT.txt
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20070810/657140de/attachment.txt>
+
+
+From jonr at microsoft.com  Sat Aug 11 05:56:19 2007
+From: jonr at microsoft.com (Jon Rosenberg (PBM))
+Date: Fri, 10 Aug 2007 22:56:19 -0700
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <cf976cd50708101758m59f2bf4am36267047a75e2f63@mail.gmail.com>
+References: <178B4B74A9BEEE469978ACE974D383081D26A4E53A@NA-EXMSG-C111.redmond.corp.microsoft.com>,<cf976cd50708101758m59f2bf4am36267047a75e2f63@mail.gmail.com>
+Message-ID: <178B4B74A9BEEE469978ACE974D383081D267E5F0F@NA-EXMSG-C111.redmond.corp.microsoft.com>
+
+Hi Ross - Thank you for the suggestion.  I'll take the opportunity of this e-mail to also thank others who have had advice on the names of the licenses.  There seems to be a pretty good discussion going on right now regarding the license names and we do wish to have them be as clear and communicative as possible.  I can't say where we'll come down on this in the end, but it's great to get this feedback, much of which we have not had the opportunity to hear before.
+
+In an effort to also address those on a related thread who were concerned about acronym overload of MPL with the Mozilla Public License,  I'll mention that we refer to the Microsoft Permissive Licences as the MS-PL.
+
+Jon
+________________________________
+From: goobox at gmail.com [goobox at gmail.com] On Behalf Of Ross Mayfield [ross.mayfield at socialtext.com]
+Sent: Friday, August 10, 2007 5:58 PM
+To: Jon Rosenberg (PBM)
+Cc: license-discuss at opensource.org
+Subject: Re: For Approval: Microsoft Permissive License
+
+Hi Jon --
+
+Great that Microsoft has taken the step to submit licenses to OSI.  One question.  Vanity licenses are a known and understood problem.  Would you consider submitting these licenses with more generic names?
+
+When we did this with CPAL it met a favorable response from the community.
+
+Ross
+
+On 8/10/07, Jon Rosenberg (PBM) < jonr at microsoft.com<mailto:jonr at microsoft.com>> wrote:
+
+Microsoft is pleased to submit the Microsoft Permissive License to the OSI for consideration as an OSI approved license.  Microsoft believes that this license provides unique value to the open source community by delivering simplicity, brevity, and permissive terms combined with intellectual property protection.
+
+The three sections below provide the information required for the discussion portion of the approval process.  We look forward to working with the OSI on this submission process and discussing this submission with the open source community.
+
+Jon Rosenberg
+
+Director, Source Program
+
+Microsoft Corporation
+
+
+
+----------------------------------
+
+Section  I:  Which OSI licenses are similar and why won't one of those do instead?
+
+Although one can assess similarity of license terms in numerous ways, the MS-PL has similarities to terms in both the New BSD license and Apache 2.0 license.  However, the new BSD license does not contain an explicit patent grant and only implicitly refers to trademark issues.  In addition, we sought to create a license that is simple, short, and easy-to-understand.
+
+
+
+Section II: Compatibilities and incompatibilities with other OSI licenses:  Source code distribution breaks down into two areas: Relicensing of MS-PL code and redistribution of MS-PL code with other code that is licensed under a different license.
+
+?         Can MS-PL code be redistributed under a different license?:
+
+No.  The license states that "If you distribute any portion of the software in source code form, you may do so only under this license?"  This restriction is similar to the restriction in the Mozilla Public License that states "You may not offer or impose any terms on any Source Code version that alters or restricts the applicable version of this License or the recipients' rights hereunder."  The MS-PL license explicitly prohibits relicensing of the original licensed code under a different license, regardless of whether the original code is redistributed in whole, in part or as part of a different piece of software.
+
+?         Can MS-PL code be redistributed in combination with other code that is licensed under a different license?
+
+As long as the original MS-PL licensed code is redistributed under the MS-PL license, then the MS-PL  places no restrictions on combining MS-PL code with other code that is licensed under another license.  Licenses that prohibit the distribution of code under any terms other than the terms of that license will not be compatible with the MS-PL.
+
+Section III: The License: A copy of the license is included below and also provided as a .txt file attachment.
+
+
+
+Microsoft Permissive License (Ms-PL)
+
+
+
+This license governs use of the accompanying software. If you use the software, you accept this
+
+license. If you do not accept the license, do not use the software.
+
+
+
+1. Definitions
+
+The terms "reproduce," "reproduction," "derivative works," and "distribution" have the same meaning here
+
+as under U.S. copyright law.
+
+A "contribution" is the original software, or any additions or changes to the software.
+
+A "contributor" is any person that distributes its contribution under this license.
+
+ "Licensed patents" are a contributor's patent claims that read directly on its contribution.
+
+
+
+2. Grant of Rights
+
+(A) Copyright Grant- Subject to the terms of this license, including the license conditions and limitations in
+
+section 3, each contributor grants you a non-exclusive, worldwide, royalty-free copyright license to
+
+reproduce its contribution, prepare derivative works of its contribution, and distribute its contribution or any
+
+derivative works that you create.
+
+(B) Patent Grant- Subject to the terms of this license, including the license conditions and limitations in
+
+section 3, each contributor grants you a non-exclusive, worldwide, royalty-free license under its licensed
+
+patents to make, have made, use, sell, offer for sale, import, and/or otherwise dispose of its contribution in
+
+the software or derivative works of the contribution in the software.
+
+
+
+3. Conditions and Limitations
+
+ (A) No Trademark License- This license does not grant you rights to use any contributors' name, logo, or
+
+trademarks.
+
+(B) If you bring a patent claim against any contributor over patents that you claim are infringed by the
+
+software, your patent license from such contributor to the software ends automatically.
+
+(C) If you distribute any portion of the software, you must retain all copyright, patent, trademark, and
+
+attribution notices that are present in the software.
+
+(D) If you distribute any portion of the software in source code form, you may do so only under this license
+
+by including a complete copy of this license with your distribution. If you distribute any portion of the
+
+software in compiled or object code form, you may only do so under a license that complies with this
+
+license.
+
+(E) The software is licensed "as-is." You bear the risk of using it. The contributors give no express
+
+warranties, guarantees or conditions. You may have additional consumer rights under your local laws which
+
+this license cannot change. To the extent permitted under your local laws, the contributors exclude the
+
+implied warranties of merchantability, fitness for a particular purpose and non-infringement.
+
+
+
+
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20070810/69fa3274/attachment.html>
+
+
+From cdibona at gmail.com  Thu Aug 16 20:48:05 2007
+From: cdibona at gmail.com (Chris DiBona)
+Date: Thu, 16 Aug 2007 13:48:05 -0700
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <FF4B7E9E-AA72-4FC2-B242-660F48D5AB02@codefab.com>
+References: <178B4B74A9BEEE469978ACE974D383081D26A4E53A@NA-EXMSG-C111.redmond.corp.microsoft.com>
+	 <Pine.WNT.4.64.0708101614420.1904@ddesktop>
+	 <2B7A2FE1-D3BA-4690-996C-C440E096E041@codefab.com>
+	 <Pine.WNT.4.64.0708101700510.3664@ddesktop>
+	 <AD9CF4E9-61AF-4F27-AA38-3FAA1014B4F6@codefab.com>
+	 <46BD2408.1020700@gatech.edu>
+	 <FF4B7E9E-AA72-4FC2-B242-660F48D5AB02@codefab.com>
+Message-ID: <7d9492d90708161348j40a781b7rd1b9aee7a6f373b6@mail.gmail.com>
+
+I would like to ask what might be perceived as a diversion and maybe
+even a mean spirited one. Does this submission to the OSI mean that
+Microsoft will:
+
+a) Stop using the market confusing term Shared Source
+b) Not place these licenses and the other, clearly non-free , non-osd
+licenses in the same place thus muddying the market further.
+c) Continue its path of spreading misinformation about the nature of
+open source software, especially that licensed under the GPL?
+d) Stop threatening with patents and oem pricing manipulation schemes
+to deter the use of open source software?
+
+If not, why should the OSI approve of your efforts? That of a company
+who has called those who use the licenses that OSI purports to defend
+a communist or a cancer? Why should we see this seeking of approval as
+anything but yet another attack in the guise of friendliness?
+
+Finally, why should yet another set of minority, vanity licenses be
+approved by an OSI that has been attempting to deter copycat licenses
+and reduce license proliferation? I'm asked this for all recent
+license-submitters and you are no different :-)
+
+Chris
+
+On 8/13/07, Chuck Swiger <chuck at codefab.com> wrote:
+> On Aug 10, 2007, at 7:50 PM, Matthew Flaschen wrote:
+> > Chuck Swiger wrote:
+> >> Really?  Why can't you take some files which were under the MSPL with
+> >> others under the MSCL, build and link 'em together, and distribute
+> >> the
+> >> resulting binary together with the various source files, preserving
+> >> their original licensing?
+> >
+> > You can if you keep them in separate files.  But this is less
+> > compatible
+> > than e.g. BSD, which allows you to include BSD code in a file under
+> > essentially any license as long as the BSD license notice remains
+> > intact.
+>
+> True.  You've made a set of points in partial reply to me and also to
+> Donovin which are well taken, so I won't reply to each individually,
+> but I do wish to acknowledge that I agree with your position in
+> them.  :-)
+>
+> --
+> -Chuck
+>
+>
+
+
+-- 
+Open Source Programs Manager, Google Inc.
+Google's Open Source program can be found at http://code.google.com
+Personal Weblog: http://dibona.com
+
+
+
+From cdibona at gmail.com  Thu Aug 16 21:48:16 2007
+From: cdibona at gmail.com (Chris DiBona)
+Date: Thu, 16 Aug 2007 14:48:16 -0700
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <46C4C4E3.4010403@metatrontech.com>
+References: <178B4B74A9BEEE469978ACE974D383081D26A4E53A@NA-EXMSG-C111.redmond.corp.microsoft.com>
+	 <Pine.WNT.4.64.0708101614420.1904@ddesktop>
+	 <2B7A2FE1-D3BA-4690-996C-C440E096E041@codefab.com>
+	 <Pine.WNT.4.64.0708101700510.3664@ddesktop>
+	 <AD9CF4E9-61AF-4F27-AA38-3FAA1014B4F6@codefab.com>
+	 <46BD2408.1020700@gatech.edu>
+	 <FF4B7E9E-AA72-4FC2-B242-660F48D5AB02@codefab.com>
+	 <7d9492d90708161348j40a781b7rd1b9aee7a6f373b6@mail.gmail.com>
+	 <46C4C4E3.4010403@metatrontech.com>
+Message-ID: <7d9492d90708161448l352ea469p7b42ccb437243d4@mail.gmail.com>
+
+I appreciate your answers (and largely agree with them) but I want to
+hear it from Microsoft. OSI deserves it.
+
+Also, I'd like to keep the FSF out of this set of questions. We're
+talking about Microsoft here, not the FSF. There is a different thread
+for that :-)
+
+Chris
+
+On 8/16/07, Chris Travers <chris at verkiel.metatrontech.com> wrote:
+> I can't speak for Microsoft though I have worked there in the past.  But
+> I can share what I think this means for open source in general.
+>
+> Chris DiBona wrote:
+> > I would like to ask what might be perceived as a diversion and maybe
+> > even a mean spirited one. Does this submission to the OSI mean that
+> > Microsoft will:
+> >
+> > a) Stop using the market confusing term Shared Source
+> > b) Not place these licenses and the other, clearly non-free , non-osd
+> > licenses in the same place thus muddying the market further.
+> > c) Continue its path of spreading misinformation about the nature of
+> > open source software, especially that licensed under the GPL?
+> > d) Stop threatening with patents and oem pricing manipulation schemes
+> > to deter the use of open source software?
+> >
+> In each of the above, almost certainly not in the short term.  Longer
+> run, who can say?
+> > If not, why should the OSI approve of your efforts?
+> Because it is consistent with the OSD and because for OSI to mean
+> something, I think the organization should be reasonably even handed for
+> a license whether or not it comes from the FSF or Microsoft.
+>
+> I would hate for OSI to leave the impression that open source licenses
+> are essentially an exclusive group where the rules for outsiders to
+> participate in developing approved licenses are different than for
+> insiders.  One of the reasons why I will not consider joining the FSF is
+> that the GPL v3 process left such an impression.  While the details of
+> this are not on-topic for this list, I would be happy to further discuss
+> my concerns off-list.
+>
+> >  That of a company
+> > who has called those who use the licenses that OSI purports to defend
+> > a communist or a cancer? Why should we see this seeking of approval as
+> > anything but yet another attack in the guise of friendliness?
+> >
+> Be careful what you ask for.   Do you really want everything RMS says
+> about the BSD and similar licenses to be on-topic for approval of future
+> FSF licenses?  Should it be?  Or should we do the right thing and
+> restrict our review to the licenses themselves?  Or should my process
+> concerns over the GPL v3 (not the final version but the stated reasons
+> for changes in the drafts) be on-topic and part of the review?  How
+> about other hard feelings towards the FSF?
+> > Finally, why should yet another set of minority, vanity licenses be
+> > approved by an OSI that has been attempting to deter copycat licenses
+> > and reduce license proliferation? I'm asked this for all recent
+> > license-submitters and you are no different :-)
+> >
+> >
+> I won't comment here except to say that having read both licenses, I
+> think this is a bigger issue for the Permissive license since the terms
+> seem pretty analogous to the new-style BSD license.  The MS-CL is
+> slightly different and seems to be compatible with a number of other
+> Free and non-Free open source licenses (included by my reading all
+> versions of the GPL and MPL).  The MS-CL license is simple, compatible
+> with a lot of licenses, and fairly easy to understand.
+>
+> So I guess I see value in the MS-CL.  The MS-PL question is valid,
+> however:  What makes other BSD-style licenses inadequate?  Is there
+> something that can be done to help address your concerns and move
+> towards license consolidation as opposed to proliferation?
+>
+> Note that the only works I have produced under either license are under
+> the MS-PL.
+>
+> Best Wishes,
+> Chris Travers
+>
+>
+
+
+-- 
+Open Source Programs Manager, Google Inc.
+Google's Open Source program can be found at http://code.google.com
+Personal Weblog: http://dibona.com
+
+
+
+From cdibona at gmail.com  Fri Aug 17 03:44:21 2007
+From: cdibona at gmail.com (Chris DiBona)
+Date: Thu, 16 Aug 2007 20:44:21 -0700
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <46C4CCCF.3040408@metatrontech.com>
+References: <178B4B74A9BEEE469978ACE974D383081D26A4E53A@NA-EXMSG-C111.redmond.corp.microsoft.com>
+	 <2B7A2FE1-D3BA-4690-996C-C440E096E041@codefab.com>
+	 <Pine.WNT.4.64.0708101700510.3664@ddesktop>
+	 <AD9CF4E9-61AF-4F27-AA38-3FAA1014B4F6@codefab.com>
+	 <46BD2408.1020700@gatech.edu>
+	 <FF4B7E9E-AA72-4FC2-B242-660F48D5AB02@codefab.com>
+	 <7d9492d90708161348j40a781b7rd1b9aee7a6f373b6@mail.gmail.com>
+	 <46C4C4E3.4010403@metatrontech.com>
+	 <7d9492d90708161448l352ea469p7b42ccb437243d4@mail.gmail.com>
+	 <46C4CCCF.3040408@metatrontech.com>
+Message-ID: <7d9492d90708162044t695062f4g8974cbf1ab788351@mail.gmail.com>
+
+On 8/16/07, Chris Travers <chris at verkiel.metatrontech.com> wrote:
+> Chris DiBona wrote:
+> > I appreciate your answers (and largely agree with them) but I want to
+> > hear it from Microsoft. OSI deserves it.
+> >
+> So would I but only one of your questions really centered around the
+> license so other questions seem irrelevant to approval of the license
+> per se.  IMHO, that is.
+
+Sort of? .I still would like them to reply to my questions for the
+good of the OSI. I know it sounds naive to expect that.
+
+> My only point is that if we don't keep the approval discussion to the
+> license itself, then we are going to have bigger issues than this.  The
+> basic issue is:  If we hold attacks against the GPL by Microsoft against
+> them in these procedings then it becomes reasonable to hold attacks
+> against *any other* OSI-approved license by any other submitting
+> organization.  Do we want to open this door even a little?
+
+I guess I'd like us to see the door for what it is, and maybe
+understand where it is going to lead us should we step through it with
+these two licenses from Microsoft. Bringing the FSF and the GPL into
+this discussion seems distracting and divisive to me.
+
+Chris
+
+
+
+From cdibona at gmail.com  Fri Aug 17 14:30:15 2007
+From: cdibona at gmail.com (Chris DiBona)
+Date: Fri, 17 Aug 2007 07:30:15 -0700
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <ujrlkcaxwrz.fsf@false.linpro.no>
+References: <178B4B74A9BEEE469978ACE974D383081D26A4E53A@NA-EXMSG-C111.redmond.corp.microsoft.com>
+	 <Pine.WNT.4.64.0708101614420.1904@ddesktop>
+	 <2B7A2FE1-D3BA-4690-996C-C440E096E041@codefab.com>
+	 <Pine.WNT.4.64.0708101700510.3664@ddesktop>
+	 <AD9CF4E9-61AF-4F27-AA38-3FAA1014B4F6@codefab.com>
+	 <46BD2408.1020700@gatech.edu>
+	 <FF4B7E9E-AA72-4FC2-B242-660F48D5AB02@codefab.com>
+	 <7d9492d90708161348j40a781b7rd1b9aee7a6f373b6@mail.gmail.com>
+	 <66D5CB5D6AB0694592FAF5487C50368B11C16D7686@NA-EXMSG-C111.redmond.corp.microsoft.com>
+	 <ujrlkcaxwrz.fsf@false.linpro.no>
+Message-ID: <7d9492d90708170730y56447b46m47bc65d664935d18@mail.gmail.com>
+
+Actually, if you read my original email, you'll see that I don't have
+a lot of issues with the licenses themselves, outside of their
+redundancy. But I think that Microsoft's behavior deserves discussion,
+because the reality is that Bill's employer will use OSI's approval
+against it.
+
+OSI should not trade on its reputation lightly. Again, this is not a
+discussion about licenses but whether or not it is wise for OSI to
+enable its most vicious competitor.
+
+You may want to try to paint this as personal disapproval, but if you
+look on any search engine you would be hard pressed to find anything
+from me personally about Microsoft outside of windows refund day in
+1998. Note that trying to turn this into a discussion about FSF or
+Google or me completely dodges the issue, so , you know, nice try and
+all. I'm more than happy to discuss Google's frankly incredibly
+awesome open source practices (including pr, press quotes, not
+creating new licenses, marketing and the rest) in a  different thread,
+
+Chris
+
+On 8/17/07, Dag-Erling Sm?rgrav <des at linpro.no> wrote:
+> Bill Hilf <billhilf at microsoft.com> writes:
+> > I'm unclear how some of your questions are related to our license
+> > submissions, which is what I believe this list and the submission
+> > process are designed to facilitate.  You're questioning things such
+> > as Microsoft's marketing terms, press quotes, where we put licenses
+> > on our web site, and how we work with OEMs - none of which I could
+> > find at http://opensource.org/docs/osd.
+>
+> Basically, Chris doesn't want the OSI do approve a license submitted
+> by an organization of which he personally disapproves, regardless of
+> the merits of the license itself.  Hey, I can sympathize - personally,
+> I really don't approve of the FSF, and I'd love to see the OSI turn
+> down the GPLv3.
+>
+> Except I wouldn't, really, because then the OSI would lose every shred
+> of credibility and quickly become irrelevant - just like it would if
+> it failed to carefully consider the licenses submitted by Microsoft,
+> or to approve them if they were found to adhere to the OSD.  I don't
+> want the OSI to lose its credibility and become irrelevant, and I
+> believe that both licenses submitted by Microsoft are OSD-compliant.
+>
+> > If you'd like to discuss this, I'd be happy to - and I have a number
+> > of questions for you about Google's use of and intentions with open
+> > source software as well.
+>
+> But Google is good!  Google can do no evil!  It says so right there in
+> the bylaws!
+>
+> *smack*
+>
+> DES
+> --
+> Dag-Erling Sm?rgrav
+> Senior Software Developer
+> Linpro AS - www.linpro.no
+>
+
+
+-- 
+Open Source Programs Manager, Google Inc.
+Google's Open Source program can be found at http://code.google.com
+Personal Weblog: http://dibona.com
+
+
+
+From cdibona at gmail.com  Fri Aug 17 14:46:58 2007
+From: cdibona at gmail.com (Chris DiBona)
+Date: Fri, 17 Aug 2007 07:46:58 -0700
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <7d9492d90708170730y56447b46m47bc65d664935d18@mail.gmail.com>
+References: <178B4B74A9BEEE469978ACE974D383081D26A4E53A@NA-EXMSG-C111.redmond.corp.microsoft.com>
+	 <2B7A2FE1-D3BA-4690-996C-C440E096E041@codefab.com>
+	 <Pine.WNT.4.64.0708101700510.3664@ddesktop>
+	 <AD9CF4E9-61AF-4F27-AA38-3FAA1014B4F6@codefab.com>
+	 <46BD2408.1020700@gatech.edu>
+	 <FF4B7E9E-AA72-4FC2-B242-660F48D5AB02@codefab.com>
+	 <7d9492d90708161348j40a781b7rd1b9aee7a6f373b6@mail.gmail.com>
+	 <66D5CB5D6AB0694592FAF5487C50368B11C16D7686@NA-EXMSG-C111.redmond.corp.microsoft.com>
+	 <ujrlkcaxwrz.fsf@false.linpro.no>
+	 <7d9492d90708170730y56447b46m47bc65d664935d18@mail.gmail.com>
+Message-ID: <7d9492d90708170746g1f8e6666v679e4dbb640fde29@mail.gmail.com>
+
+And by Personally, I mean "negative", and I'd assert that windows
+refund day was a pretty positive thing :-)
+
+Chris
+
+On 8/17/07, Chris DiBona <cdibona at gmail.com> wrote:
+> Actually, if you read my original email, you'll see that I don't have
+> a lot of issues with the licenses themselves, outside of their
+> redundancy. But I think that Microsoft's behavior deserves discussion,
+> because the reality is that Bill's employer will use OSI's approval
+> against it.
+>
+> OSI should not trade on its reputation lightly. Again, this is not a
+> discussion about licenses but whether or not it is wise for OSI to
+> enable its most vicious competitor.
+>
+> You may want to try to paint this as personal disapproval, but if you
+> look on any search engine you would be hard pressed to find anything
+> from me personally about Microsoft outside of windows refund day in
+> 1998. Note that trying to turn this into a discussion about FSF or
+> Google or me completely dodges the issue, so , you know, nice try and
+> all. I'm more than happy to discuss Google's frankly incredibly
+> awesome open source practices (including pr, press quotes, not
+> creating new licenses, marketing and the rest) in a  different thread,
+>
+> Chris
+>
+> On 8/17/07, Dag-Erling Sm?rgrav <des at linpro.no> wrote:
+> > Bill Hilf <billhilf at microsoft.com> writes:
+> > > I'm unclear how some of your questions are related to our license
+> > > submissions, which is what I believe this list and the submission
+> > > process are designed to facilitate.  You're questioning things such
+> > > as Microsoft's marketing terms, press quotes, where we put licenses
+> > > on our web site, and how we work with OEMs - none of which I could
+> > > find at http://opensource.org/docs/osd.
+> >
+> > Basically, Chris doesn't want the OSI do approve a license submitted
+> > by an organization of which he personally disapproves, regardless of
+> > the merits of the license itself.  Hey, I can sympathize - personally,
+> > I really don't approve of the FSF, and I'd love to see the OSI turn
+> > down the GPLv3.
+> >
+> > Except I wouldn't, really, because then the OSI would lose every shred
+> > of credibility and quickly become irrelevant - just like it would if
+> > it failed to carefully consider the licenses submitted by Microsoft,
+> > or to approve them if they were found to adhere to the OSD.  I don't
+> > want the OSI to lose its credibility and become irrelevant, and I
+> > believe that both licenses submitted by Microsoft are OSD-compliant.
+> >
+> > > If you'd like to discuss this, I'd be happy to - and I have a number
+> > > of questions for you about Google's use of and intentions with open
+> > > source software as well.
+> >
+> > But Google is good!  Google can do no evil!  It says so right there in
+> > the bylaws!
+> >
+> > *smack*
+> >
+> > DES
+> > --
+> > Dag-Erling Sm?rgrav
+> > Senior Software Developer
+> > Linpro AS - www.linpro.no
+> >
+>
+>
+> --
+> Open Source Programs Manager, Google Inc.
+> Google's Open Source program can be found at http://code.google.com
+> Personal Weblog: http://dibona.com
+>
+
+
+-- 
+Open Source Programs Manager, Google Inc.
+Google's Open Source program can be found at http://code.google.com
+Personal Weblog: http://dibona.com
+
+
+
+From cdibona at gmail.com  Fri Aug 17 18:43:56 2007
+From: cdibona at gmail.com (Chris DiBona)
+Date: Fri, 17 Aug 2007 11:43:56 -0700
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <46C5D8CA.6020104@metatrontech.com>
+References: <2B7A2FE1-D3BA-4690-996C-C440E096E041@codefab.com>
+	 <46BD2408.1020700@gatech.edu>
+	 <FF4B7E9E-AA72-4FC2-B242-660F48D5AB02@codefab.com>
+	 <7d9492d90708161348j40a781b7rd1b9aee7a6f373b6@mail.gmail.com>
+	 <66D5CB5D6AB0694592FAF5487C50368B11C16D7686@NA-EXMSG-C111.redmond.corp.microsoft.com>
+	 <ujrlkcaxwrz.fsf@false.linpro.no>
+	 <7d9492d90708170730y56447b46m47bc65d664935d18@mail.gmail.com>
+	 <46C5CFFC.9030306@metatrontech.com>
+	 <20070817170931.GS19464@linuxmafia.com>
+	 <46C5D8CA.6020104@metatrontech.com>
+Message-ID: <7d9492d90708171143v17213861sf234337c1fac6dd6@mail.gmail.com>
+
+> My only question is why Chris Dibona seems to think that an
+> organization whom many consider an "enemy" should be singled out for
+> special treatment.  I don't believe that they should.
+
+An I'm okay with us disagreeing, I promise :-) I think they should be
+asked to at the very least segregate the licenses and make abundantly
+clear which are 'open source' and which are not.  Bill seems okay with
+that, and that's a nice thing. No one else was asking so I took it
+upon myself to do it.
+
+Also and again I'm happy to chat about RMS in another thread but this
+is about Microsoft and not the FSF and If you are looking for real
+evidence of Microsoft's change of heart towards open source and open
+standards, I'd ask Peter Quinn what he thinks about that.
+
+Chris
+
+
+
+From tiemann at opensource.org  Thu Aug 23 12:10:44 2007
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Thu, 23 Aug 2007 08:10:44 -0400
+Subject: For Approval: Microsoft Permissive License
+In-Reply-To: <2ea8b9770708221906q2bb5d669r838440b9b8b54bce@mail.gmail.com>
+References: <Pine.WNT.4.64.0708101700510.3664@ddesktop>
+	 <1187426094.18654.266.camel@workshop>
+	 <20070819014543.GC24512@mercury.ccil.org>
+	 <1187493507.18654.403.camel@workshop>
+	 <20070819041033.GH24512@mercury.ccil.org>
+	 <1187709356.7453.27.camel@workshop>
+	 <f5cca7ed0708211040m4f40af3dh6cb295c8c9cb5f89@mail.gmail.com>
+	 <e74487e70708211143p2f4ed6e3j8399410e2525bf00@mail.gmail.com>
+	 <90710EE7FAF3FA4F9C0B00608A1BF3C6586FA6E140@NA-EXMSG-C103.redmond.corp.microsoft.com>
+	 <2ea8b9770708221906q2bb5d669r838440b9b8b54bce@mail.gmail.com>
+Message-ID: <6cca531e0708230510h22ce1beqf49a51770e94dd5b@mail.gmail.com>
+
+On 8/22/07, Zac Bowling <zac at zacbowling.com> wrote:
+>
+> Hi Chris,
+>
+> This is Zac Bowling, one of the developers on the Mono Project. We are
+> used to being on the border of Microsoft vs Open Source with our
+> project all the time so I have some different views about the MS-PL
+> and MS-CL.
+>
+> I blogged about it a few days ago as well on the ups and downs of
+> MS-PL and MS-CL and submitting to the OSI.
+>
+> http://zbowling.com/blog/2007/08/14/microsoft-to-make-ms-pl-and-ms-cl-osi-compliant/
+
+
+A good blog entry, and in agreement with another email on a similar thread
+that I just replied to.  I'm going to try to collect and quote these common
+threads into my own blog posting so that I, too, can point to a fixed
+reference point in the discussion.
+
+M
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20070823/36d00f98/attachment.html>
+
+
+From lrosen at rosenlaw.com  Thu Aug 23 23:24:44 2007
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Thu, 23 Aug 2007 16:24:44 -0700
+Subject: MS-PL/GPL compatibility, was Re: For Approval: Microsoft Permissive License
+In-Reply-To: <20070823225537.GU5496@linuxmafia.com>
+References: <f5cca7ed0708211122y378fb2dbw981748e088ff30bf@mail.gmail.com> <20070822205635.GH24646@localhost.localdomain> <20070822213827.GI24646@localhost.localdomain> <f5cca7ed0708221508q474dd46as4686e5c84c57c9e6@mail.gmail.com> <46CDEBD3.2080208@gatech.edu> <f5cca7ed0708231322ocf9981x471690204d91298e@mail.gmail.com> <46CDF4FE.8000309@gatech.edu> <f5cca7ed0708231409i41da0ba1ic4981a5fdae9fd0c@mail.gmail.com> <20070823225537.GU5496@linuxmafia.com>
+Message-ID: <02af01c7e5dc$ca18b090$6401a8c0@LROSENTOSHIBA>
+
+Rick Moen wrote:
+> As Matt points out, you have fundamentally misunderstood the notion of
+> compilation copyright, and apparently confused it with that of
+> collective works.  
+
+Huh? The definitions of "collective work" [1] and "compilation" [2], while
+different in 17 U.S.C 101, are pretty similar. Note that a "collective work"
+is but one form of "compilation." I prefer to just use the term "collective
+work" for software examples because folks tend to confuse "compilation" with
+the act of running source code through a compiler, which it doesn't mean. 
+
+What does your email mean? :-)
+
+/Larry
+
+[1] A "collective work" is a work, such as a periodical issue, anthology, or

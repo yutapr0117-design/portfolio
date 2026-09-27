@@ -650,3 +650,71 @@ metadata / audiovisual material を 1 語に束ねる。
 自分が 17 年前にその承認を後押ししたことを謝罪している**。
 **承認されたという事実は残るが、先例としての重さは、承認する側の 1 人がそう言っている分だけ軽い。**
 **有利な読みの反証を同じ段落で探した結果であり、探さなければ出なかった。**
+
+## 1.127 「提出されたライセンスは、OSD だけでなく*その約束*に照らしても評価される」—— Ms-PL 審査（2007）で当時の OSI 会長が述べた評価関数（2026-09-27）
+
+**#243 の census が挙げた最大の未読スレッド**（"For Approval: Microsoft Permissive License"・
+331 通・2005-12〜2007-10）から、**決める側の 26 通**を規則を明記して読んだ
+（逐語は `rounds/2007-09-license-discuss-ms-pl-decision-makers-observed-1of3.txt` ほか 3 部）。
+**優先順位を通数ではなく「決める側が何を述べたか」で決めた**のは #243 の潰し方に従ったものである。
+
+### 🔴 不利な側 —— gap は存在理由であると同時に、測られる基準にもなる
+
+Michael Tiemann 氏（当時の OSI 会長・2007-09-26）:
+
+> *"I do believe that **if a license is submitted with promise X, then we should evaluate
+> promise X as well as the OSD**. If the only promise of the license is 'we meet the minimum
+> terms of the OSD, and nothing more', then we should not hold it to a higher standard.
+> **This is my personal opinion, not a defined board policy**, but I think others use a
+> similar evaluation function."*
+
+**ACD は OSD の最低限だけを約束してはいない。** PREAMBLE と §6.5 は**機械が判定できる許諾**を、
+§3 + §4 は**公有化と等価な地位を、§3 の有効性に依存せずに**、§8.4 は**学習済みモデルと出力まで
+届く特許許諾**を約束する。**ドシエはこれらを「なぜ既存で埋まらないか（基準 7）」の側からだけ
+書いてきた** —— **それが同時に「我々が満たしているか測られる項目」でもある、とはどこにも書いて
+いなかった**（`against.md` #269）。
+
+**同じスレッドに、その評価が実際に働いた例がある** —— Tiemann 氏は、ある承認済みライセンスが
+*"GPL with training wheels"* を名乗った以上 **GPL 互換でなければ「約束したことをしていない」**
+ので、互換性が確認できて初めて承認した、と述べている。**約束の内容そのものが合否の一部になった。**
+
+**⚠ 逆側 3 つ。** **(1)** 本人が *"my personal opinion, not a defined board policy"* と明記している。
+**(2)** 2007 年の会長の発言であり、2026 年の委員会が同じ関数を使う保証は無い。
+**(3)** **同じ規則は有利にも働く** —— 最低限しか約束しないものを高い基準で測ってはならない、
+という半分は、**過剰な要求から提出者を守る向き**でもある。
+
+### 🟢 有利な側 —— vanity の異議には「再利用できるか」で答える
+
+Russ Nelson 氏（License Committee 委員長として、2007-09-06 の論点要約）:
+
+> *"Ross Mayfield suggests that the name implies that it's a vanity license -- but **the OSI
+> board does not give that argument much weight as long as the license is reusable**. We allow
+> people to give and take credit in the name of the software, so applying the same principle
+> to licenses seems appropriate."*
+
+**提出パケット §4b はこの項目に正面から答えている** —— 本文の固有名詞 0・条項の置換テキスト 0
+（§16.1 の notice 雛形の 1 欄を除く）・採用に本文編集が 1 箇所も要らない・利用者類型 5 つ。
+**vanity をめぐる我々の既存の材料は Kuhn 氏の 2 段テスト（*"widespread need"* ∧ *"wholly
+unserved"*）で、前半に我々は答えられない**（#255）。**本節はそれとは別の、より古く、
+かつ我々が満たせる定式である。**
+
+**⚠ 逆側 3 つ。** **(1)** *"not much weight"* は「無視する」ではない。
+**(2)** 2007 年の理事会であり、Kuhn 氏の定式は後年のものである ——**新しいほうが後で述べられた**。
+**(3)** Ms-PL の背後には Microsoft があり、**再利用可能性だけが通した要因ではない。**
+
+### 🟡 そして #268 の機構が、別の年・別の議長で再現している
+
+Nelson 氏は名称への異議にこう答えている ——
+*"Will the name mislead anybody? **Not after this discussion, it won't.**"*
+
+**#268 は CAL（曖昧さを容れて承認）と Project Tick GPL（曖昧さを理由に否決）の対から、
+「曖昧さ自体ではなく、議論で解けないことが致命である」を引き出した。**
+**本節はその機構の、2007 年・別の議長による独立した 2 例目である** ——
+**異議は議論を通ることで無害化される、と述べているのは我々ではなく決める側である。**
+**そして議論を通るには、議論の場に居なければならない（B14）。**
+
+### この節が establish しないこと
+
+**Ms-PL は承認された**が、**それは我々の類型の先例ではない**（許容型・企業 steward・採用は
+その時点で既に広い）。**本節が establish するのは 2 つの*規則の言い方*だけ**で、
+**どちらも、当てはめた結果を保証しない。**
