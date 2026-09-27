@@ -560,3 +560,92 @@ considered**."*
 CAL は弁護士（Van Lindberg 氏）が起草し、**beta 1 から beta 4 まで 4 版・約 11 か月**を要した。
 **§1.116（Open Logistics・法律事務所同伴・3 版・11 か月）、§1.110（IPA Font・弁護士・2 版）に続く。**
 **法的レビューは審査を短くしない** ——**それは #255 で記録した通りで、ここが 3 例目である。**
+
+## 1.126 委員会が「新規で、激しく争われた instrument」を承認した理由書を、全文で読んだ —— CAL（2019-03〜2020-02）（2026-09-27）
+
+**まず、何が既に在るかを確かめてから書いた。** #264 と §1.122 は既に、585 通を `rounds/` へ保存し、
+**委員長が反対意見を繰り返し条文と OSD へ差し戻していること**、理事会の票（8-0-1・欠席 2）、
+**勧告後の反対が再開を生まなかったこと**、**4 版 11 か月**を記録している。
+**本節が足すのは、理由書そのものである** —— 8 つの批判への答えの**形**、勧告した category、
+straw poll の実数、周知の手段、そして**曖昧さへの答え**。いずれもドシエに 1 件も無かった
+（`Uncategorized` / `not possible to anticipate` / `compliance burden` / `risk is tolerable` /
+`not pertinent to the substance` を全文検索して 0 件を実測）。
+
+**`against.md` #264 が記録した欠落を埋めた。** ドシエは CAL の**本文**を分析しながら、
+**その審査 585 通を一度も読んでいなかった**。逐語は `rounds/2019-04-license-review-cal-approval-observed-1of61.txt` から 61 分割で置いてある（**行境界で分割してあり、順に連結すれば取得した形に戻る**）。
+
+**なぜこれが最も重い先例か** —— 我々が使える道は **A（テキストが正しいこと）だけ**である
+（B = 既に使われていること、は採用 1 件の我々には無い）。**CAL は新規の道具で、
+1 年・585 通・4 版にわたって激しく争われ、それでも承認された。** つまり
+**「新規 ∧ 係争 ⇒ 承認されない」ではない**ことの、記録に残る反例である。
+
+### 手続きの実測
+
+| | |
+| :-- | :-- |
+| 期間 | **2019-03-15 → 2020-02-14（約 11 か月）** |
+| 通数 | **585**（理由書自身は *"over 350 emails"* と述べる —— 対象を `license-review` に限った数） |
+| 版 | **4**（原案 / Beta 2 / Beta 3 / Beta 4） |
+| 周知 | 理事会が **affiliate calls と Twitter** で参加を募った |
+| 最後の実質議論 | **2020-01-05**、その後 **02-06 に straw poll** |
+| straw poll の回答 | **賛成 3 / 「もっと議論が要る」1** |
+| 勧告 | *"approved for the **Uncategorized Licenses** category"* |
+| 理事会 | **2020-02-14・賛成 8 / 反対 0 / 棄権 1 / 欠席 2** |
+
+**理事会の一文が、終盤の作法を決めている** —— *"The Board discussed the additional emails sent
+after the License Committee made its recommendation to the Board and found that they **did not
+raise issues not previously considered**."* ——**勧告後に足された議論は、新しい論点でなければ
+結論を動かさない。**
+
+### 理由書は 8 つの批判に 1 つずつ答えており、答えの**形**が再利用できる
+
+**最も重要なのは、曖昧さへの答えである** ——
+
+> */The terms "fully use an independent copy" and "substantially identical use of the work" are
+> ambiguous/.* **"It is not possible to anticipate and then dictate the outcome for every
+> potential factual situation. Written legal documents commonly use words that allow for the
+> construction of a more exact scope when the context is known."**
+
+**⚠ そしてここが本節の核心である。** `board-decisions.md` は **Project Tick GPL** が
+*"**ambiguities in drafting make it impossible to determine whether or not it complies with the
+OSD**"* として**否決された**ことを記録している。**同じ委員会が、曖昧さを一方では容れ、
+他方では否決の理由にしている。****違いは曖昧さの有無ではない** ——
+**CAL の曖昧さは 585 通の議論の中で説明され、委員会が「論点は十分に議論された」と言える
+状態になっていた**（理由書は *"occasionally asking for additional information or clarification
+to ensure that the point was discussed fully"* と自ら述べる）。
+
+**帰結は我々にとって重い。****曖昧さそれ自体は致命ではない。議論で解けない曖昧さが致命である。**
+そして**議論で解くには、議論の場に居る必要がある** —— **B14（投稿停止）が奪っているのは
+まさにそれである。** 本文をどれだけ磨いても、**この経路だけは本文では代替できない。**
+
+**残る 7 つの答えの形**:
+
+| 批判 | 答えの形 |
+| :-- | :-- |
+| copyleft が API にまで及ぶ | **承認済みの先例と比べる** —— *"not conceptually any further than some other approved network copyleft licenses"* |
+| ソフトウェアでなくデータにも及ぶ | **条文の定義が狭く書けていることを示し**、承認済みの原則（GPLv3 の anti-Tivoization）に接続する |
+| 私的利用者にも義務がある | **事実として誤りだと述べる** —— *"This is incorrect"*（条番号つき） |
+| 特許で競合実装を妨げられる | **その批判はこの instrument に固有ではない** —— *"no matter what the open source license is"* |
+| 遵守しているか判定できない | **条文の適用範囲を示して「過度ではない」** |
+| 義務が重すぎる（特に非熟練者に）| *"All open source licenses have a compliance burden, some significant."* |
+| dual-licensing に悪用されうる | **利益と危険を明示的に秤にかける** —— *"the risk is **tolerable given the potential benefit** to software freedom this license offers"* |
+
+**そして審査手続きそのものへの異議は、はっきり切り離されている** ——
+*"There were also objections raised about the OSI's review process itself, **which are not
+pertinent to the substance of the license**."*
+
+### ⚠ この節が establish しないこと（4 つ）
+
+**(1) CAL には採用があった。** steward には client（Holochain）と実プロジェクトがあり、
+**B2 はゼロではなかった。**「新規 ∧ 係争 ⇒ 承認されうる」は言えるが、
+**「新規 ∧ 係争 ∧ 採用ゼロ ⇒ 承認されうる」は言えない。**
+
+**(2) "Uncategorized" は「推奨」ではない。** 承認の category そのものが、
+**広く使われる候補として推されてはいない**ことを表している。
+
+**(3) 11 か月・4 版は、いまの規則の下では更に遅くなりうる** ——
+**改訂のたびに時計が戻る**（`review-rules.md`・`board-decisions.md`）。
+
+**(4) straw poll の母数は 4 である。** 賛成 3 という数は、**合意の広さの証拠としては弱い**。
+**有利な読み（「反対が少なくても通る」）にも不利な読み（「少人数の空気で決まりうる」）にも
+使えるので、どちらの向きにも確定させない。**
