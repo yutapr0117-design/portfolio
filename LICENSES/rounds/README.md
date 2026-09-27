@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-27 時点・188 ファイル）
+## いまの状態（2026-09-27 時点・196 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -224,6 +224,14 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2022-03 | `license-review`（観測）| **YATeam Public License v1 の否決 9 通（2023-09-15 理事会） → 観測保存（5/5 部）** | **同じ束の 5/5 部。** 本文は無改変で、5 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2019-05 | `license-review`（観測）| **Master-Console's Open-Source Definitive License の取り下げ 15 通 → 観測保存（1/2 部）** | **非弁護士の起草に対する記録上いちばん鋭い警告** —— Perens 氏 *"**Jacobsen v. Katzer** ... **tens of thousands of dollars in losses and five years of hardship in court** ... an **active disservice to the programmers of the world** ... **So, please get a lawyer to write a license for you.**"*。**そして委員長が示した経路（取り下げ → license-discuss → 再提出）は、我々がいま辿っている経路そのもの**（#262） |
 | 2019-05 | `license-review`（観測）| **Master-Console's Open-Source Definitive License の取り下げ 15 通 → 観測保存（2/2 部）** | **同じ束の 2/2 部。** 本文は無改変で、2 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2008-12 | `license-review`（観測）| **Transitive Grace Period Public Licence の審査 134 通（未承認） → 観測保存（1/8 部）** | **「OSD 適合は十分条件ではない」の理由が、当時の OSI 会長の言葉で述べられている唯一の場所** —— Nelson 氏 *"There are **reasons beyond OSD conformance** ... **Because we have a trademark to preserve.** If you can figure out some way to **comply with the OSD in a way that does not achieve the desired open source effect** ... **then we MUST deny your license OSI approval (trademark law gives us no choice)**."* + *"**Somebody has to decide what OSD conformance means. It's us.**"*（#263） |
+| 2008-12 | `license-review`（観測）| **Transitive Grace Period Public Licence の審査 134 通（未承認） → 観測保存（2/8 部）** | **同じ束の 2/8 部。** 本文は無改変で、8 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2008-12 | `license-review`（観測）| **Transitive Grace Period Public Licence の審査 134 通（未承認） → 観測保存（3/8 部）** | **同じ束の 3/8 部。** 本文は無改変で、8 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2008-12 | `license-review`（観測）| **Transitive Grace Period Public Licence の審査 134 通（未承認） → 観測保存（4/8 部）** | **同じ束の 4/8 部。** 本文は無改変で、8 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2008-12 | `license-review`（観測）| **Transitive Grace Period Public Licence の審査 134 通（未承認） → 観測保存（5/8 部）** | **同じ束の 5/8 部。** 本文は無改変で、8 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2008-12 | `license-review`（観測）| **Transitive Grace Period Public Licence の審査 134 通（未承認） → 観測保存（6/8 部）** | **同じ束の 6/8 部。** 本文は無改変で、8 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2008-12 | `license-review`（観測）| **Transitive Grace Period Public Licence の審査 134 通（未承認） → 観測保存（7/8 部）** | **同じ束の 7/8 部。** 本文は無改変で、8 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2008-12 | `license-review`（観測）| **Transitive Grace Period Public Licence の審査 134 通（未承認） → 観測保存（8/8 部）** | **同じ束の 8/8 部。** 本文は無改変で、8 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2004-09 | `license-discuss`（観測）| **Allegro Giftware License の承認相談 11 通 → 観測保存（1/1 部）** | **proliferation の反対が「すべてを与える」ライセンスへ向けられている唯一の記録** —— Moen 氏 *"even an extremely permissive one like yours ... **needlessly putting it in a ghetto of your devising**"*。**そして「献呈 + 許諾の組み合わせ」を出すという発想が 2004 年に在る** —— Rousskov 氏 *"a **'Public Domain or whatever license you want' dedication/license combo** for OSI approval"*（#253）|
 | 2001-06 | `license-discuss`（観測）| **qmail のライセンスと OSD 4 21 通 → 観測保存（1/2 部）** | **OSD 3 の後半が実際に判定の決め手として使われている例**（Moen 氏 *"OSD clause #3, immediately preceding, strikes me as disambiguating this."*）。**条件一般について Cowan 氏** —— *"a claim that 'X must allow Y' is satisfied by a statement by X that 'Y is allowed under conditions Z' **can't be true in general, since the conditions Z can be arbitrarily restrictive**."*（#251） |
 | 2001-06 | `license-discuss`（観測）| **qmail のライセンスと OSD 4 21 通 → 観測保存（2/2 部）** | **同じ束の 2/2 部。** 本文は無改変で、2 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |

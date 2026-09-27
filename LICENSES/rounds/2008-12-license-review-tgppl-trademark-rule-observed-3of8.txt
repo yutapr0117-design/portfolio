@@ -1,0 +1,750 @@
+transitive recipients of their derived work.  This is the reason why  
+the TGPPL exists a licence at all instead of simply being a grant of  
+a waiver from some copyright holder to some recipient -- because it  
+is *transitive*.
+
+Problem 3:
+
+Because of Problem #1 and Problem #2, the licence is not going to be  
+called "Open Source License v3.0 plus the Transitive Grace Period  
+Waiver Clause", it will continue to be named "the Transitive Grace  
+Period Public Licence".  Therefore, the fellow from Problem #1, if he  
+were to find some software on an FTP site, err I mean on a web site,  
+under the Transitive Grace Period Public Licence, would look it up in  
+the OSI's list under T for TGPPL, not under "OSL plus added clauses".
+
+Problem 4:
+
+Because of Problem #2, the TGPPL cannot be licence-compatible with  
+the OSL nor with the GPL.  This is very unfortunate, and I deeply  
+wish that it were possible to have GPL-compatibility while retaining  
+the TGPPL's core, but barring changes to the GPL, it isn't.
+
+Therefore, while the idea of writing a new version of the TGPPL based  
+on re-use of the unmodified OSLv3.0 is an interesting idea that I  
+would be willing to explore, it would not relieve the OSI of the  
+responsibility of attesting to the OSD-conformance of the TGPPL, nor  
+would it solve the problem of licence-incompatibility between TGPPL  
+and OSL or between TGPPL and GPL.  Therefore, there is no benefit in  
+withholding the OSI's stamp of OSD-conformance from TGPPLv1 while  
+awaiting TGPPLv2, and I hereby renew my request that OSI include the  
+TGPPLv1 in the list of OSD-conformant licences.
+
+Thank you.
+
+Zooko Wilcox-O'Hearn
+---
+Tahoe, the Least-Authority Filesystem -- http://allmydata.org
+store your data: $10/month -- http://allmydata.com/?tracking=zsig
+
+
+
+From zooko at zooko.com  Sun Feb  1 04:43:15 2009
+From: zooko at zooko.com (zooko)
+Date: Sat, 31 Jan 2009 21:43:15 -0700
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <498519E4.90802@perens.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com>	<803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>	<4945D81C.6020600@perens.com>	<8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA>	<D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>	<49473F92.6020003@gatech.edu>	<E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>	<494C809B.7000007@perens.com>	<B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com>	<494D5655.4040201@perens.com>	<1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>	<18821.3647.494134.33860@desk.crynwr.com>	<498512B0.10305@perens.com> <18821.6124.199955.913521@desk.crynwr.com> <498519E4.90802@perens.com>
+Message-ID: <D4D39CD7-7F39-4219-ACCE-BF8C3BCDC447@zooko.com>
+
+On Jan 31, 2009, at 20:41 PM, Bruce Perens wrote:
+
+> PLUS they may not get a similar offer from any of the creators of  
+> derivative works, unless those folks opt to put the offer in place  
+> on their own. Whereas Zooko would have compelled those folks to  
+> make the offer. IMO, the world can live with that.
+
+Dear Bruce Perens:
+
+I didn't get into this in my previous letter to this list, because it  
+wasn't perfectly germane to the point of that letter, but I want you  
+to know that I get it.  I understand that you correctly understand  
+the effects of the TGPPL, and that in your opinion those effects are  
+not valuable, or that their value is less than the costs of having  
+another open source licence on the list of open source licences, or  
+than the costs of having open source software published under  
+mutually incompatible licences.
+
+It may come as a surprise, but even though you and I disagree about  
+the relative value of the TGPPL, I actually respect your opinion and  
+the opinions of the other members of this list on such topics, and I  
+know that other people do, too.  When such people come to you and ask  
+"Would it be a good idea to release my software under the TGPPL?", it  
+would be perfectly appropriate for you to advise them against.   
+However, when people come to you and ask "Is the TGPPL an open source  
+licence?" it would be inappropriate for you to reply to them "Never  
+heard of it.".
+
+Regards,
+
+Zooko
+---
+Tahoe, the Least-Authority Filesystem -- http://allmydata.org
+store your data: $10/month -- http://allmydata.com/?tracking=zsig
+
+
+From bruce at perens.com  Sun Feb  1 05:08:52 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 31 Jan 2009 21:08:52 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <D4D39CD7-7F39-4219-ACCE-BF8C3BCDC447@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com>	<803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>	<4945D81C.6020600@perens.com>	<8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA>	<D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>	<49473F92.6020003@gatech.edu>	<E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>	<494C809B.7000007@perens.com>	<B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com>	<494D5655.4040201@perens.com>	<1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>	<18821.3647.494134.33860@desk.crynwr.com>	<498512B0.10305@perens.com> <18821.6124.199955.913521@desk.crynwr.com> <498519E4.90802@perens.com> <D4D39CD7-7F39-4219-ACCE-BF8C3BCDC447@zooko.com>
+Message-ID: <49852E64.7070200@perens.com>
+
+zooko wrote:
+> When such people come to you and ask "Would it be a good idea to 
+> release my software under the TGPPL?", it would be perfectly 
+> appropriate for you to advise them against.  However, when people come 
+> to you and ask "Is the TGPPL an open source licence?" it would be 
+> inappropriate for you to reply to them "Never heard of it.".
+Let's hope that my memory for acronyms is good :-)
+
+For a long time, I have been able to point to a license and acknowledge 
+that it complies with the Open Source Definition, independent of whether 
+or not the OSI has approved it.
+
+I counsel my own clients to use no more than four licenses across all of 
+their Open Source work. The four are compatible with each other and 
+satisfy a range of different business purposes. There is some argument 
+about which four to use, but not about what they do. IMO, all other than 
+the four you happen to use are close to redundant and provide little value.
+ Thanks
+ Bruce
+
+
+From nelson at crynwr.com  Sun Feb  1 05:36:49 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sun, 1 Feb 2009 00:36:49 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <9445B406-4C57-4EFB-BD88-FB47C9209DF2@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <18821.3647.494134.33860@desk.crynwr.com> <498512B0.10305@perens.com> <18821.6124.199955.913521@desk.crynwr.com> <498519E4.90802@perens.com> <9445B406-4C57-4EFB-BD88-FB47C9209DF2@zooko.com>
+Message-ID: <18821.13553.735971.396757@desk.crynwr.com>
+
+zooko writes: > Me: "Well, it is just the OSL 3.0 plus an added clause." >  > Him: "That doesn't prove that it is open source!  Your added clause   > could have legal effects which render your licence non-Open-Source.   
+
+Except that it's the OSL 3.0 plus an added WAIVER.  They don't have to
+accept it.  They can always give up the freedom to not distribute.
+ > It is vitally important that people do not conflate TGPPL with OSL.   
+
+No, it isn't.  I explained why.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Cloudmade supports http://openstreetmap.org/    | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From nelson at crynwr.com  Sun Feb  1 06:03:27 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sun, 1 Feb 2009 01:03:27 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18821.13553.735971.396757@desk.crynwr.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <18821.3647.494134.33860@desk.crynwr.com> <498512B0.10305@perens.com> <18821.6124.199955.913521@desk.crynwr.com> <498519E4.90802@perens.com> <9445B406-4C57-4EFB-BD88-FB47C9209DF2@zooko.com> <18821.13553.735971.396757@desk.crynwr.com>
+Message-ID: <18821.15151.964365.330966@desk.crynwr.com>
+
+Russ Nelson writes: > zooko writes: >  > It is vitally important that people do not conflate TGPPL with OSL.    >  > No, it isn't.  I explained why.
+
+Ahhh, I see.  It's because licensee has the freedom to publish without
+the waiver.  I know that we live in a litageous society, where
+everything is thought to be subject to the whim of the courts.  Some
+things need to be solved through community.  Basically, if the
+licensee is actively hostile to the intent of this project, then
+perhaps you would rather do without their contribution.  Remember, at
+the point at which any of this matters, you've already gotten into a
+situation where the licensor has stopped accepting changes from the
+licensee.  There's got to be a reason for that.  To then force the
+licensee to give these unwanted changes back to the licensor .... if
+you don't want them, you don't want them.
+
+The way to do this is 1) with a waiver and 2) a contributor's
+agreement which says "We'll take your code, but only if you allow us
+to publish it with the TGPPL waiver".
+
+If somebody can't live with that, then perhaps your experiment has
+failed?  If it's to fail, better to find out before we approve the
+license, right?
+
+Run your experiment, using the OSL and a waiver.  Later on, if you
+have a licensee who doesn't see the value of the waiver, come back to
+us and when confronted with a real, as opposed to imagined, problem, I
+think you'll get a different reaction.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Cloudmade supports http://openstreetmap.org/    | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From zooko at zooko.com  Tue Feb  3 22:36:33 2009
+From: zooko at zooko.com (zooko)
+Date: Tue, 3 Feb 2009 15:36:33 -0700
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18821.15151.964365.330966@desk.crynwr.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <18821.3647.494134.33860@desk.crynwr.com> <498512B0.10305@perens.com> <18821.6124.199955.913521@desk.crynwr.com> <498519E4.90802@perens.com> <9445B406-4C57-4EFB-BD88-FB47C9209DF2@zooko.com> <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com>
+Message-ID: <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com>
+
+On Jan 31, 2009, at 23:03 PM, Russ Nelson wrote:
+
+> Ahhh, I see.  It's because licensee has the freedom to publish  
+> without the waiver.
+
+Right.
+
+> Run your experiment, using the OSL and a waiver.
+
+An experiment like this has already been run, by L. Peter Deutsch  
+with the Ghostscript business.  There is a nice interview by Stig  
+Hackvan:
+
+http://devlinux.org/deutsch-interview.html
+
+If anyone knows of other experiences like this, please let me know.
+
+However, the Transitive Grace Period Public Licence experiment is not  
+that one.  The TGPPL experiment attempts to encourage cooperative  
+software development by allowing anyone in the world to re-use source  
+code and distribute a proprietary derived work for up to twelve  
+months, *provided* that they extend the same grant of rights,  
+including the twelve month grace period, to everyone who uses their  
+derived work, and everyone who uses derived derived works, etc,  
+transitively.
+
+Please include the Transitive Grace Period Public Licence, v1.0, on  
+the list of OSD-conformant software licences.
+
+Regards,
+
+Zooko Wilcox-O'Hearn
+---
+Tahoe, the Least-Authority Filesystem -- http://allmydata.org
+store your data: $10/month -- http://allmydata.com/?tracking=zsig
+
+
+From zooko at zooko.com  Tue Feb  3 22:52:30 2009
+From: zooko at zooko.com (zooko)
+Date: Tue, 3 Feb 2009 15:52:30 -0700
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <49852E64.7070200@perens.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com>	<803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>	<4945D81C.6020600@perens.com>	<8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA>	<D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>	<49473F92.6020003@gatech.edu>	<E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>	<494C809B.7000007@perens.com>	<B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com>	<494D5655.4040201@perens.com>	<1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>	<18821.3647.494134.33860@desk.crynwr.com>	<498512B0.10305@perens.com> <18821.6124.199955.913521@desk.crynwr.com> <498519E4.90802@perens.com> <D4D39CD7-7F39-4219-ACCE-BF8C3BCDC447@zooko.com> <49852E64.7070200@perens.com>
+Message-ID: <716D38FD-FB47-4036-92B1-F75C2238E105@zooko.com>
+
+On Jan 31, 2009, at 22:08 PM, Bruce Perens wrote:
+
+> zooko wrote:
+>> When such people come to you and ask "Would it be a good idea to  
+>> release my software under the TGPPL?", it would be perfectly  
+>> appropriate for you to advise them against.  However, when people  
+>> come to you and ask "Is the TGPPL an open source licence?" it  
+>> would be inappropriate for you to reply to them "Never heard of it.".
+>
+> Let's hope that my memory for acronyms is good :-)
+
+;-)
+
+Actually I intended that statement to apply to the OSI itself and not  
+only to you personally, although I also meant much of what I wrote to  
+be about you personally.  I meant that when a person decides to seek  
+the OSI's opinion about whether the Transitive Grace Period Public  
+Licence is open source, then the way that they do that is to peruse  
+the OSI's web site and its list of OSD-conformant licences to see if  
+the TGPPL is there.  If the OSI omits the TGPPL from the list of OSD- 
+conformant licences even when OSI knows that it is, in fact, an open  
+source licence, then this is the equivalent of the "never heard of  
+it" conversation that I outlined above.
+
+Compare with the FSF's list of licences, where they clearly  
+distinguish between their opinion about whether a licence is Free  
+Software or not and their opinion about whether a licence is  
+advisable or not:
+
+http://www.fsf.org/licensing/licenses/
+
+(See, for example, what they have to say about the OSL.)
+
+> I counsel my own clients to use no more than four licenses across  
+> all of their Open Source work. The four are compatible with each  
+> other and satisfy a range of different business purposes. There is  
+> some argument about which four to use, but not about what they do.  
+> IMO, all other than the four you happen to use are close to  
+> redundant and provide little value.
+
+Do you mean that there is a specific set of four that you recommend,  
+or that you advise people to choose one each from four categories?   
+In either case, what are the four licences or categories that you  
+recommend?
+
+Regards,
+
+Zooko Wilcox-O'Hearn
+---
+Tahoe, the Least-Authority Filesystem -- http://allmydata.org
+store your data: $10/month -- http://allmydata.com/?tracking=zsig
+
+
+From bruce at perens.com  Tue Feb  3 23:26:35 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 03 Feb 2009 15:26:35 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <716D38FD-FB47-4036-92B1-F75C2238E105@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com>	<803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>	<4945D81C.6020600@perens.com>	<8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA>	<D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>	<49473F92.6020003@gatech.edu>	<E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>	<494C809B.7000007@perens.com>	<B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com>	<494D5655.4040201@perens.com>	<1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>	<18821.3647.494134.33860@desk.crynwr.com>	<498512B0.10305@perens.com> <18821.6124.199955.913521@desk.crynwr.com> <498519E4.90802@perens.com> <D4D39CD7-7F39-4219-ACCE-BF8C3BCDC447@zooko.com> <49852E64.7070200@perens.com> <716D38FD-FB47-4036-92B1-F75C2238E105@zooko.com>
+Message-ID: <4988D2AB.3080907@perens.com>
+
+zooko wrote:
+> Actually I intended that statement to apply to the OSI itself
+You can hope that someone on the OSI board other than Russ is reading, 
+but they sure don't speak up.
+ Bruce
+
+
+From nelson at crynwr.com  Thu Feb  5 11:19:54 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Thu, 5 Feb 2009 06:19:54 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <18821.3647.494134.33860@desk.crynwr.com> <498512B0.10305@perens.com> <18821.6124.199955.913521@desk.crynwr.com> <498519E4.90802@perens.com> <9445B406-4C57-4EFB-BD88-FB47C9209DF2@zooko.com> <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com>
+Message-ID: <18826.52058.247334.763582@desk.crynwr.com>
+
+zooko writes: > However, the Transitive Grace Period Public Licence experiment is not   > that one.  The TGPPL experiment attempts to encourage cooperative   > software development by allowing anyone in the world to re-use source   > code and distribute a proprietary derived work for up to twelve   > months, *provided* that they extend the same grant of rights,   > including the twelve month grace period, to everyone who uses their   > derived work, and everyone who uses derived derived works, etc,   > transitively.
+
+The board is not comfortable with the discussion of the transitive
+quality of this license, and would like more discussion by
+license-review members.  Thank you for the discussion so far.
+
+
+From zooko at zooko.com  Tue Feb 17 20:20:06 2009
+From: zooko at zooko.com (zooko)
+Date: Tue, 17 Feb 2009 13:20:06 -0700
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18826.52058.247334.763582@desk.crynwr.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <18821.3647.494134.33860@desk.crynwr.com> <498512B0.10305@perens.com> <18821.6124.199955.913521@desk.crynwr.com> <498519E4.90802@perens.com> <9445B406-4C57-4EFB-BD88-FB47C9209DF2@zooko.com> <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com>
+Message-ID: <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com>
+
+On Feb 5, 2009, at 4:19 AM, Russ Nelson wrote:
+
+> The board is not comfortable with the discussion of the transitive  
+> quality of this license, and would like more discussion by license- 
+> review members.  Thank you for the discussion so far.
+
+Okay, are there any questions for me?
+
+The web page about this process says that one of its purposes is to  
+"ensure a thorough, transparent, and timely review (e.g., within 60  
+days)".
+ From my perspective, this process has so far been thorough and  
+transparent, but not timely.  I initially posted the Request For  
+Approval on December 14, 2008, so 60 days from then was last week.   
+(I had been hoping to get the OSI's stamp of OSD-conformance for  
+Valentine's Day, but no such luck.)
+
+There was some confusion initially because I failed to make clear how  
+the TGPPL's requirement of transitivity made it different from  
+licensing practices that have used by e.g. L. Peter Deutsch of  
+Ghostscript, John Carmack of id Software, and Peter Braam of Cluster  
+Filesystems, Inc..  I'm sorry for that.
+
+The discussion to date as I understand it shows:
+
+1.  There is no doubt that the TGPPL is an open source licence,  
+conformant with the Open Source Definition.
+
+2.  Originally some contributors to the list thought that the TGPPL  
+was unnecessary because the same effect would be had by using a  
+transitive open source licence such as GPL or OSL, combined with a  
+time-limited waiver of certain requirements.  Subsequently it was  
+agreed that this does not have the same effect, because such a  
+practice does not necessarily result in a "grace period" right that  
+is transitively available to all recipients of derived works.
+
+3.  It might be the case that some contributors think that the  
+"proliferation" problems caused by the existence of another open  
+source licence exceeds the beneficial effects offered by the TGPPL.   
+(Bruce Perens recently wrote a nice essay on this topic entitled "How  
+Many Open Source Licenses Do You Need?".)
+
+I understand the motivation behind such an opinion, and I respect the  
+knowledge and experience of the contributors to this list.  That  
+opinion may turn out to be correct, but I am finding out by trying  
+it: explaining the potential value of the TGPPL to others,  
+distributing software under the TGPPL myself, and trying to observe  
+what value is gained.  In any case, the topic under discussion is not  
+whether the TGPPL should exist, but whether it is OSD-conformant.  I  
+am not asking OSI to recommend the TGPPL to others nor to classify it  
+as a popular and actively used licence, only to agree, in a public  
+and permanent form which I can reference, that the TGPPL is indeed  
+OSD-conformant.
+
+By the way, last week we released version 1.3 of the tahoe-lafs  
+secure decentralized cloud storage system.  I'm very pleased with  
+this project -- it is software of excellent quality and offers  
+interesting properties not offered elsewhere.  We have a growing  
+number of contributors from outside allmydata.com, all of whom have  
+readily agreed to license their contributions under the same terms as  
+tahoe-lafs itself.  For this release, I edited the explanatory text  
+about the licensing, in part because of the discussion from this  
+thread.  It now says:
+
+"""
+All of the source code is available under a choice of two Free  
+Software, Open Source licences.
+...
+You may use this package under the GNU General Public License,  
+version 2 or, at your option, any later version. See the file  
+COPYING.GPL for the terms of the GNU General Public License, version 2.
+You may use this package under the Transitive Grace Period Public  
+Licence, version 1.0. The Transitive Grace Period Public Licence has  
+requirements similar to the GPL except that it allows you to wait for  
+up to twelve months after you redistribute a derived work before  
+releasing the source code of your derived work. See the file  
+COPYING.TGPPL.html for the terms of the Transitive Grace Period  
+Public Licence, version 1.0.
+(You may choose to use this package under the terms of either  
+licence, at your option.)
+"""
+
+
+Please include the Transitive Grace Period Public Licence, v1.0, on  
+the list you maintain of Open Source Definition-conformant licences.
+
+Thank you for your time.
+
+Regards,
+
+Zooko Wilcox-O'Hearn
+---
+Tahoe, the Least-Authority Filesystem -- http://allmydata.org
+store your data: $10/month -- http://allmydata.com/?tracking=zsig
+
+
+From nelson at crynwr.com  Tue Feb 17 20:51:51 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Tue, 17 Feb 2009 15:51:51 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <18821.3647.494134.33860@desk.crynwr.com> <498512B0.10305@perens.com> <18821.6124.199955.913521@desk.crynwr.com> <498519E4.90802@perens.com> <9445B406-4C57-4EFB-BD88-FB47C9209DF2@zooko.com> <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com>
+Message-ID: <18843.9063.369990.149772@desk.crynwr.com>
+
+zooko writes: >  From my perspective, this process has so far been thorough and   > transparent, but not timely.
+
+Sorry.  You're asking for something which is not well-understood.
+Existing open source licenses either do, or don't do.  The TGPPL
+might, in a year.  No other license requires a covenant.
+ > 1.  There is no doubt that the TGPPL is an open source licence,   > conformant with the Open Source Definition.
+
+Here's how the discussion went:
+
+A licenses code under the TGPPL.
+B chooses to take advantage of the delay.
+C observes B's contribution to the world of proprietary software, and structures their actions to receive source in less than 12 months.
+B decides to renege on his promise to release source and decides to violate the license.
+A decides that he doesn't mind that B is violating his copyright (copyright is not like trademark; you can enforce selectively.)
+
+C has no recourse.  The board is not clear whether this could happen
+or not.  Clearly this it is risky for OSI to allow its trademark
+(which MUST be enforced consistently) to be used on software licensed
+in this manner.  More thought is needed.  It's possible that years of
+experience with this license may be needed before it can be approved.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Cloudmade supports http://openstreetmap.org/    | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From zooko at zooko.com  Tue Feb 17 23:32:56 2009
+From: zooko at zooko.com (zooko)
+Date: Tue, 17 Feb 2009 16:32:56 -0700
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18843.9063.369990.149772@desk.crynwr.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <18821.3647.494134.33860@desk.crynwr.com> <498512B0.10305@perens.com> <18821.6124.199955.913521@desk.crynwr.com> <498519E4.90802@perens.com> <9445B406-4C57-4EFB-BD88-FB47C9209DF2@zooko.com> <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com>
+Message-ID: <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com>
+
+On Feb 17, 2009, at 13:51 PM, Russ Nelson wrote:
+
+> Here's how the discussion went:
+...
+
+Was this discussion in a conference call, or in private e-mail, or what?
+
+Thank you for summarizing it for the list.
+
+> A licenses code under the TGPPL.
+> B chooses to take advantage of the delay.
+> C observes B's contribution to the world of proprietary software,  
+> and structures their actions to receive source in less than 12 months.
+> B decides to renege on his promise to release source and decides to  
+> violate the license.
+> A decides that he doesn't mind that B is violating his copyright  
+> (copyright is not like trademark; you can enforce selectively.)
+
+That's interesting!  I think you are right that this could be an issue.
+
+Something similar can happen with the GPL, can't it?
+
+A licenses code under the GPL.
+B chooses to use the code, produce a derived work from it, and ship  
+the derived work while stating they will release the GPL'ed source  
+code of their derived work any moment now.
+C observes that B is producing a product derived from A's GPL'ed work  
+and structures their actions assuming that B will indeed release the  
+source code.
+B decides to renege on his promise to release source code and decides  
+to violate the GPL.
+A decides that she doesn't mind that B is violating his copyright.
+
+In fact, I think that this pattern has been playing out over and over  
+with the GPL over the past years, especially in the market for  
+embedded devices.
+
+I think you are right that this sort of thing could be a problem with  
+the TGPPL.  With the GPL then C can at least wait to see B's actual  
+code release before making plans (and wise practitioners currently do  
+this with such situations), but the TGPPL's grace period makes it  
+harder for C to lay long-term plans.
+
+On the other hand, people don't usually plan around one-time code- 
+drop events.  They plan around the ongoing evolution of a codebase.   
+This makes the problem that much worse: B can release the first  
+version of his derived work under the GPL, then A can release new  
+versions of her original work under GPL, then B can release a new  
+version of his derived work, incorporating both A's changes and his  
+own changes, and decide at that point to stop satisfying the GPL  
+requirements.  Even if C was cautious and waited to see the first  
+GPL'ed code release from B before committing their strategy to that  
+product, then C may be surprised to learn that B has the legal  
+ability to continue to release new versions of that product while  
+withholding the source.
+
+So, while I don't think this sort of problem is unique to TGPPL, I do  
+think that it is important and I thank you for bringing it to my  
+attention.  I would be interested in further concerns that you  
+(plural) have and also ideas you may have for ameliorating such  
+problems, with GPL, OSL, or TGPPL.
+
+However, what does this have to do with the question of whether TGPPL  
+is Open-Source-Definition-conformant?
+
+
+> The board is not clear whether this could happen or not.  Clearly  
+> this it is risky for OSI to allow its trademark (which MUST be  
+> enforced consistently) to be used on software licensed in this  
+> manner.  More thought is needed.  It's possible that years of  
+> experience with this license may be needed before it can be approved.
+
+
+I have long since stated on the allmydata.org project's web site that  
+the TGPPL is an Open Source licence.  (See http://allmydata.org .)
+
+I made that statement because TGPPL *is* an Open Source licence, and  
+it is important for people who are considering using the  
+allmydata.org source code to know that fact.
+
+If you want to protect the trademark in the sense of prohibiting  
+people from using it without your permission, then you'll need to  
+either give me permission or sue me (and the other people who have  
+released software under TGPPL).  I don't think you'll sue me, and if  
+you did I don't think you would win, because the TGPPL is conformant  
+with the Open Source Definition.  If you want to protect the  
+trademark in the sense of prohibiting people from incorrectly using  
+it on OSD-non-conformant software, then it would probably help rather  
+than hinder your cause if you would go ahead and bless the use of the  
+trademark on a conformant licence which its author has patiently and  
+thoroughly submitted to your established Review Process.
+
+Please include the Transitive Grace Period Public Licence, v1.0, on  
+the list you maintain of Open Source Definition-conformant licences.
+
+Thank you for your time.
+
+Regards,
+
+Zooko Wilcox-O'Hearn
+---
+Tahoe, the Least-Authority Filesystem -- http://allmydata.org
+store your data: $10/month -- http://allmydata.com/?tracking=zsig
+
+
+From nelson at crynwr.com  Wed Feb 18 00:36:48 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Tue, 17 Feb 2009 19:36:48 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com> <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com> <494D5655.4040201@perens.com> <1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com> <18821.3647.494134.33860@desk.crynwr.com> <498512B0.10305@perens.com> <18821.6124.199955.913521@desk.crynwr.com> <498519E4.90802@perens.com> <9445B406-4C57-4EFB-BD88-FB47C9209DF2@zooko.com> <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com>
+Message-ID: <18843.22560.880077.311005@desk.crynwr.com>
+
+zooko writes: > I made that statement because TGPPL *is* an Open Source licence, and  
+
+Not until we say so.
+
+Period.
+ > I have long since stated on the allmydata.org project's web site that   > the TGPPL is an Open Source licence.  (See http://allmydata.org .)
+
+Given that you are already claiming Open Source compliance a priori, I
+fail to understand why you want our blessing posteriori.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Cloudmade supports http://openstreetmap.org/    | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From crschmidt at metacarta.com  Wed Feb 18 01:25:37 2009
+From: crschmidt at metacarta.com (Christopher Schmidt)
+Date: Tue, 17 Feb 2009 20:25:37 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <18843.22560.880077.311005@desk.crynwr.com>
+References: <498519E4.90802@perens.com> <9445B406-4C57-4EFB-BD88-FB47C9209DF2@zooko.com> <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com>
+Message-ID: <20090218012537.GR15275@metacarta.com>
+
+On Tue, Feb 17, 2009 at 07:36:48PM -0500, Russ Nelson wrote:
+> zooko writes:
+>  > I made that statement because TGPPL *is* an Open Source licence, and  
+> 
+> Not until we say so.
+
+How is that? Open source is a term. TGPPL is not an OSI Approved
+License, and until TGPPL is a OSI Approved, it is a violation of the
+trademark usage guidelines to use that, but thee is no similar trademark
+on "Open Source", according to anythign I've read.
+
+(Also, the image on http://www.opensource.org/trademark appears to be
+broken, linking to
+http://source-zone.org/images/OSI-graphics-approved-licence.png .)
+
+I release open souce (or Open Source) software that is not under an OSI
+Approved license, because that software meets the Open Source
+Definition. Whether the Open Source INitiative has approved that license
+is irrelevant to whether the software actually is or is not open source.
+
+Regards,
+-- 
+Christopher Schmidt
+MetaCarta
+
+
+From nelson at crynwr.com  Wed Feb 18 02:02:32 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Tue, 17 Feb 2009 21:02:32 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <20090218012537.GR15275@metacarta.com>
+References: <498519E4.90802@perens.com> <9445B406-4C57-4EFB-BD88-FB47C9209DF2@zooko.com> <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com>
+Message-ID: <18843.27704.74610.381257@desk.crynwr.com>
+
+Christopher Schmidt writes: > On Tue, Feb 17, 2009 at 07:36:48PM -0500, Russ Nelson wrote: > > Not until we say so. >  > How is that? Open source is a term.
+
+True.  It is a term with a generally-agreed meaning: OSI approval.
+ > I release open source (or Open Source) software that is not under an OSI > Approved license, because that software meets the Open Source > Definition.
+
+How is anyone to know that?  By this standard, "open source" means
+everything and nothing.  It means whatever the person who is saying it
+wants it to mean -- including people who are hostile to open source,
+free software, open data, and free anything.
+
+I reject that standard.
+
+If you don't want to use an OSI Approved license, then call it free
+software.  Open Source has a meaning: the use of an OSI Approved
+License.
+
+Do I have the legal ability to force you to use open source this way?
+No.  It is not a trademark.  But do I have to cooperate with you if
+you use it this way?  No, I do not.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Cloudmade supports http://openstreetmap.org/    | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From rick at linuxmafia.com  Wed Feb 18 02:11:24 2009
+From: rick at linuxmafia.com (Rick Moen)
+Date: Tue, 17 Feb 2009 18:11:24 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <20090218012537.GR15275@metacarta.com>
+References: <9445B406-4C57-4EFB-BD88-FB47C9209DF2@zooko.com> <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com>
+Message-ID: <20090218021124.GL19851@linuxmafia.com>
+
+Quoting Christopher Schmidt (crschmidt at metacarta.com):
+
+> How is that? Open source is a term. TGPPL is not an OSI Approved
+> License, and until TGPPL is a OSI Approved, it is a violation of the
+> trademark usage guidelines to use that, but thee is no similar trademark
+> on "Open Source", according to anythign I've read.
+
+I was _going_ to say:
+
+You would be making a grave mistake if you think that trying to call
+something with even _arguable_ OSD-compliance problems "open source" is
+in the interest of you or your firm.  I strongly suggest you not commit
+that error, if you don't wish to have a severe and ongoing public
+relations problem. 
+...and then I realised that this is a classic case of "let's you and him
+fight"; you're speaking of Zooko's licence, not yours, and you don't
+speak for him.  I'm pretty sure Zooko's been around long enough to avoid
+that error.
+
+
+
+From crschmidt at metacarta.com  Wed Feb 18 02:33:09 2009
+From: crschmidt at metacarta.com (Christopher Schmidt)
+Date: Tue, 17 Feb 2009 21:33:09 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <20090218021124.GL19851@linuxmafia.com>
+References: <18821.13553.735971.396757@desk.crynwr.com> <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com>
+Message-ID: <20090218023309.GT15275@metacarta.com>
+
+On Tue, Feb 17, 2009 at 06:11:24PM -0800, Rick Moen wrote:
+> Quoting Christopher Schmidt (crschmidt at metacarta.com):
+> 
+> > How is that? Open source is a term. TGPPL is not an OSI Approved
+> > License, and until TGPPL is a OSI Approved, it is a violation of the
+> > trademark usage guidelines to use that, but thee is no similar trademark
+> > on "Open Source", according to anythign I've read.
+> 
+> I was _going_ to say:
+> 
+> You would be making a grave mistake if you think that trying to call
+> something with even _arguable_ OSD-compliance problems "open source" is
+> in the interest of you or your firm.  I strongly suggest you not commit
+> that error, if you don't wish to have a severe and ongoing public
+> relations problem.
+
+I'm not sure how this is relevant to what I said? I said I release Open
+Source software, where the definition of "Open Source Software" is
+"software which is released under a license which is compliant with the
+Open Source Definition according to legal review". 
+
+It seems clear to me from watching this list over the past two years
+that there is a limited relationship between "Meeting the OSD" and
+"Being approved by OSI" -- because OSI has a policy of encouraging
+license submitters to not submit licenses which may be similar to
+existing ones. This is understandable, but given that, I can't
+(personally) seriously accept that the definition of 'open source'
+should be limited to a set of licenses that are managed by OSI. 
+
+It is possible that the TGPPL is arguably OSD-non-compliant. If that is
+the case, I apologize; my understanding was not that anyone has decided
+it is not complaint, but instead that it is not going to become an OSI
+approved license for other reasons. If the former is true -- that is,
+that the license is arguably non-complaint -- then I withdraw my
+statement with regard to calling it open source, because that would be a
+foolish thing to do. I still maintain that just because something is not
+yet approved by OSI does not make software under that license not open
+source if it is clearly compliant with the OSD.
+
+Regards,
+-- 
+Christopher Schmidt
+MetaCarta
+
+
+From rick at linuxmafia.com  Wed Feb 18 02:46:20 2009
+From: rick at linuxmafia.com (Rick Moen)
+Date: Tue, 17 Feb 2009 18:46:20 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <20090218023309.GT15275@metacarta.com>
+References: <18821.15151.964365.330966@desk.crynwr.com> <F65B85B7-F0D2-44E7-B023-A0EA21D706DE@zooko.com> <18826.52058.247334.763582@desk.crynwr.com> <260AE4E5-16A6-4C61-A223-B1D5B3F07E1F@zooko.com> <18843.9063.369990.149772@desk.crynwr.com> <3971F9C9-B688-41DB-B900-B7F1A66EFF9A@zooko.com> <18843.22560.880077.311005@desk.crynwr.com> <20090218012537.GR15275@metacarta.com> <20090218021124.GL19851@linuxmafia.com> <20090218023309.GT15275@metacarta.com>

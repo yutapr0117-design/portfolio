@@ -1,0 +1,246 @@
+> the license be modified to require that folks use that or some  
+> other equivalent escrow service to ensure (or at least increase the  
+> likelihood of) compliance with the license.  Bonus points for  
+> having the code encrypted in the repository so not even the site  
+> maintainers can see the code for a year.  You make a release or a  
+> patch for anyone and you need to check source for those changes  
+> into the repository at the same time so the clock starts.  Extra  
+> bonus points for having a software storefront as well.
+
+Those are several interesting ideas right there.
+
+Note that even if the source code were encrypted, then whoever held  
+the key would be able to determine when, if ever, the code is  
+publicized.  There is a notion of "time release crypto", originally  
+due to Rivest, Shamir, and Wagner, by which one could make it so that  
+the source code would eventually be released even if the original  
+creator reneged on their agreement to do so.  However, such a hack  
+could only be a technical "fail-safe" to back up social and legal  
+mechanisms.  (For one thing, it isn't all that precise -- the code  
+might turn out to be decryptable a few months earlier or several  
+months later than originally intended.)
+
+Further conversation along these lines probably belongs on license- 
+discuss.
+
+Regards,
+
+Zooko Wilcox-O'Hearn
+---
+Tahoe, the Least-Authority Filesystem -- http://allmydata.org
+store your data: $10/month -- http://allmydata.com/?tracking=zsig
+
+
+From hawkins at cephira.com  Fri Feb 27 03:09:16 2009
+From: hawkins at cephira.com (Donovan Hawkins)
+Date: Thu, 26 Feb 2009 19:09:16 -0800 (Pacific Standard Time)
+Subject: motivation Re: For Approval: Transitive Grace Period Public Licence, v1.0 
+In-Reply-To: <8035DD65-D82D-470F-B2D4-55561F3E5E15@zooko.com>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu> <8035DD65-D82D-470F-B2D4-55561F3E5E15@zooko.com>
+Message-ID: <alpine.WNT.1.10.0902261816470.1016@DDESKTOP>
+
+On Thu, 26 Feb 2009, zooko wrote:
+
+> Thank you for posting about the possibility that the TGPPL could engender 
+> greater production of open source software.  That is indeed exactly my 
+> motivation.
+>
+> What I call "the capitalist feedback loop" is that under capitalism the 
+> greater the magnitude of value created by something, then the greater the 
+> amount of resources that tend to get directed to making more of that thing.
+>
+> I used to call this by the economics jargon term "incentive", but this is 
+> misleading as it makes it sounds like people don't *want* to create open 
+> source software enough, and we're going to make them *want* to by paying 
+> them.  That's not it at all -- it's a question of resource allocation.
+
+I had a similar idea a couple years ago for a time-delayed GPL license 
+which would allow use in closed-source projects without source code 
+release for a fixed term (I was toying with 2-3 years). I was primarily 
+inspired by the fan projects trying to resurrect classic computer games 
+without access to the source code. The code has little or no commercial 
+value, but it is often lost or in ownership limbo because the company has 
+folded. Even if the company still exists, they generally have no incentive 
+to release it and will let it rot on a shelf rather than give it away. I 
+was hoping that the license I was working on could offer those companies a 
+body of software that would speed their own development in exchange for 
+giving us their programs after they were no longer of value to them.
+
+The posts you quoted were discussing source code escrow; I also decided 
+that some sort of escrow would be needed if such a license was going to 
+work. It's easy to agree to release your source code years in the future 
+when you are first starting a project, but it gets a lot harder when the 
+game you wrote turns out to be a blockbuster success and the source code 
+is suddenly worth millions if you can keep it from your competitors. I 
+tried to write some language that could force eventual release, but I 
+ultimately abandoned the whole thing believing that it would be nearly 
+impossible to ensure compliance. Towards the end I was considering having 
+some open source websites that would be certified to act as escrow agents 
+(for people who wanted the simplest and free option), together with very 
+strict legalese in order to use an uncertified bank or law firm (for 
+companies who want to be sure their code won't be released early). At that 
+point, I realized this was changing from a project I could put together 
+and get a laywer to read over and fix to something that would take a team 
+of lawyers to write and a judge somewhere down the line to decide if they 
+succeeded.
+
+I stuck a copy of the last version of the text I wrote on 
+http://www.cephira.com/Temp/CephiraLicense.txt for you to look at. As 
+always, I am not a lawyer and this is not legal advice. The license has 
+never been looked at by a lawyer and is probably not usable, but maybe you 
+will find something useful for your license. The text says it is version 3 
+because it was intended to be compatible with GPL v3.
+
+The license I was working on (which was to be called the Cephira Public 
+License or CPL) was basically the GPL with additional permissions to 
+release derived works under the CPL or a special license called the 
+Cephira Temporary License (CTL). CPL code would sit between the permissive 
+licenses and the GPL in terms of compatibility: CPL code could use 
+permissive code but not the reverse, and GPL code could use CPL code but 
+not the reverse. Developers extending CPL code would ideally release under 
+CPL, but GPL developers could also use it. Closed-source commercial 
+developers would use the CTL together with their own closed-source 
+restrictions to release their programs, but the CTL automatically grants 
+GPL rights after the temporary period has expired. That was the legal 
+mechanism I was trying to create with the license, and it seems like it 
+could work if you can figure out how to ensure compliance up front.
+
+There is some language on source code escrow in my draft, but it's 
+probably the weakest section. I'm not sure a bulletproof version is even 
+possible, but I wish you the best of luck in trying to work it all out.
+
+---------------------------------------------------------------------------
+Donovan Hawkins, PhD                 "The study of physics will always be
+Software Engineer                     safer than biology, for while the
+hawkins at cephira.com                   hazards of physics drop off as 1/r^2,
+http://www.cephira.com                biological ones grow exponentially."
+---------------------------------------------------------------------------
+
+
+
+From zooko at zooko.com  Fri Feb 27 21:04:46 2009
+From: zooko at zooko.com (zooko)
+Date: Fri, 27 Feb 2009 14:04:46 -0700
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <3F1780336FC5413F90D431796FDB3A2F@LROSENTOSHIBA>
+References: <1073897725056E4A944FC4FD0DB6EF716F86269164@aplesstar.dom1.jhuapl.edu>	 <529973B0-9A97-4A74-9222-78EF87F98DE2@funambol.com>	 <26982305.291881235051371630.JavaMail.root@engine234.deployzone.net>	 <6cca531e0902190645v64faa3d2k2f7b2847598c4083@mail.gmail.com>	 <10845305.293261235066497857.JavaMail.root@engine234.deployzone.net>	 <499DA0CB.9090609@perens.com> <6cca531e0902191019q1e2769ddwdfc8f4e9db7c5c62@mail.gmail.com> <499DA61C.80903@perens.com> <3F1780336FC5413F90D431796FDB3A2F@LROSENTOSHIBA>
+Message-ID: <64912247-8962-4C40-A4B2-9626E2411DD2@zooko.com>
+
+[adding To: license-discuss; I'm not sure about conventions on these  
+lists, but I would assume that this sub-thread is more germane to  
+license-discuss than to license-review, in which case further follow- 
+ups should probably be directed only to license-discuss.]
+
+Dear Larry Rosen:
+
+Thank you for describing the Aladdin Free Public License and the idea  
+of "eventual source".  Note that this idea is different from the  
+TGPPL in that the TGPPL is transitive (like the GPL and the OSL are),  
+but the "eventual source" strategy of the Aladdin Free Public License  
+was a one-shot deal from the original creators to original  
+recipients.  This difference is crucial, because in the non- 
+transitive case all that we are talking about is a copyright holder  
+choosing to release a work under a proprietary licence, and then  
+later choosing, for whatever reason, to release the same work under  
+an open source licence.  With the TGPPL, what we are talking about is  
+a recipient of a work choosing to create a derived work from it and  
+redistribute his derived work *on the condition* that he will  
+eventually (within twelve months) open the derived work.
+
+This is a different situation from the "eventual source" case,  
+because the actor is choosing whether to gain the advantage of re- 
+using someone else's work, on the condition of eventually  
+contributing to the world's library of open source software.  No such  
+decision enters into the "eventual source" case.
+
+However, even though these are very different legal and economic  
+situations, they're obviously related, and I've tried to learn what I  
+could about how "eventual source" has worked in practice.
+
+As I've previously mentioned, there was an interview with L. Peter  
+Deutsch by Stig Hackvan conducted in in 1997.  It is well worth  
+reading!  (A-ha -- and on this re-reading of it I notice that he says  
+Russ Nelson was considering using the AFPL.  :-))
+
+http://devlinux.org/deutsch-interview.html
+
+Also I inquired with my friend Raph Levien, who was partially  
+responsible for Ghostscript development and licensing at one point,  
+possibly even at the point that they dropped the "eventual source"  
+idea and went to straight GPL.
+
+He replied that the "eventual source" idea didn't work out that well,  
+and that things were much easier once they switched to GPL across the  
+board.  The major reason, he said, was that open source contributors  
+were picky about not contributing to the AFPL branch, only to the GPL  
+branch.  (Note that this is inconsistent with what LPD said in the  
+interview, but Raph's involvement began approximately five years  
+after that interview.)
+
+Raph said that the GPL branch didn't compete directly with the  
+licensing revenue from the AFPL branch (due to different use cases/ 
+customers), which was fortunate, but which also meant that the  
+Artifex company and the open source community weren't contributing to  
+each other's needs as much.
+
+As another data point, Id Software (makers of Doom and Quake) used to  
+release its #N-2 game under the GPL at the same time as it released  
+its #N game as a commercial product.  I don't know if they still do  
+that, nor even if they still make games.
+
+As another data point, I recently had a pleasant chat with Peter  
+Braam, who was founder and leader of Cluster File Systems, Inc.,  
+makers of the Lustre filesystem, during the entire period of its  
+independent existence before it was bought by Sun in 2007.  During  
+this period, CFS sold the latest version of Lustre to customers under  
+the GPL, while releasing the 12-month-older released to the public  
+under the GPL.  (Yes, you read that right. Here is an interview with  
+then-CEO Phil Schwan which mentions that licensing strategy: [1] .)
+
+Peter Braam told me that the customers didn't like the existence of  
+the commercial version and repeatedly insisted that the public should  
+be given access to the most recent release.  However, none of them  
+chose to exercise their GPL rights to redistribute the commercial  
+release to the public.  Due to this pressure he began releasing  
+Lustre to the public earlier, which he says greatly *increased*  
+revenue and "improved relationships with customers, but also led to a  
+considerable increase in non-paying users".
+
+Peter also stated that there was no way Lustre could ever have been  
+developed, at great monetary cost, if those same customers (almost  
+all from the government defense community) hadn't been paying to get  
+Lustre developed.  He said that if he had to do it again, he would  
+need serious funding from someone, and that if that funding would  
+come from investors, he thinks a plain proprietary approach might be  
+helpful.
+
+In 1997 Sun bought Lustre, and announced [2] that they would be  
+releasing everything to the public under the GPL and selling support,  
+which have they have proceeded to do.  If anyone has numbers about  
+Sun's profit from that strategy I would like to learn.
+
+I have a final data point: Tahoe.  It has been distributed under your  
+choice of GPL or TGPPL since its inception.  (Technically, a  
+predecessor to TGPPL v1.0 for the first few releases.)  The Free/Open  
+community seems happy to contribute to Tahoe so far.  It's a young,  
+small project, but we're having a lot of fun with it.  Here is the  
+CREDITS file which lists all of the people who've contributed  
+something to Tahoe: [3].
+
+By the way, my motivation in writing about these empirical  
+observations is not so much to persuade you to use TGPPL; it is more  
+just to state what I know for everyone's reference.
+
+Regards.
+
+Zooko Wilcox-O'Hearn
+
+[1] http://www.wwpi.com/archive2/300-12-questions-with-phil-schwan
+[2] http://www.sun.com/software/clusterfs/general_faq.jsp
+[3] http://allmydata.org/trac/tahoe/browser/CREDITS
+---
+Tahoe, the Least-Authority Filesystem -- http://allmydata.org
+store your data: $10/month -- http://allmydata.com/?tracking=zsig
+
+
+

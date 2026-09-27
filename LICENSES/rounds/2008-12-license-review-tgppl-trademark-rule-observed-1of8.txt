@@ -1,0 +1,750 @@
+From zooko at zooko.com  Mon Dec 15 03:19:46 2008
+From: zooko at zooko.com (zooko)
+Date: Sun, 14 Dec 2008 20:19:46 -0700
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com>
+Message-ID: <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>
+
+Dear license-review at opensource.org:
+
+Please approve the Transitive Grace Period Public Licence, v1.0, as  
+compliant with the Open Source Definition.
+
+Rationale for a new licence:
+
+If Alice gives Bob a work under a permissive licence such as a BSD- 
+style licence, then Bob may create a proprietary derived work and to  
+make his derived work available to others without revealing the  
+source code to them.  One could say that the "grace period" during  
+which he is allowed to distribute proprietary derived works and  
+before he is compelled to open source his derived work is endless.   
+If Alice gives Bob a work under a transitive licence such as the GPL  
+or the OSL, and Bob makes a derived work available to others, then he  
+is obligated to share the source code of his derived work with others  
+immediately.  One could say that the "grace period" offered to him is  
+zero minutes.
+
+I hypothesize that some duration of grace period more than zero and  
+less than infinity might yield greater social good.  By being less  
+than infinite (in fact, 12 months), it compels the producers of  
+derived works to share their source code.  By being greater than  
+zero, it facilitates the use of the capitalist feedback loop, in  
+which part of the value that the work produces for others is directed  
+to making more resources available for producing more of such work.   
+Hopefully the combination of these two properties will yield greater  
+aggregate social good than either property would alone.
+
+Please see Ping Yee's eloquent summary, which expresses the rationale  
+in a few sentences and pictures:
+
+https://zooko.com/tgppl.pdf
+
+
+Compare and contrast with the most similar OSI-approved licence:
+
+The Transitive Grace Period Public Licence, v1.0, is almost identical  
+to the Open Source License, v3.0, except for the following change  
+(ignoring naming and meta-licensing changes):
+
+Tue Nov  6 21:36:49 MST 2007  zooko at zooko.com * add grace period
+diff -rN -u old-tggpl/tggpl.txt new-tggpl/tggpl.txt
+--- old-tggpl/tggpl.txt 2008-12-14 19:51:13.000000000 -0700
++++ new-tggpl/tggpl.txt 2008-12-14 19:51:13.000000000 -0700
+@@ -11,7 +11,7 @@
+ 2. to translate, adapt, alter, transform, modify, or  
+arrange the Original Work, thereby creating derivative works  
+("Derivative Works") based upon the Original Work;
+
+-         3. to distribute or communicate copies of the Original Work  
+and Derivative Works to the public, with the proviso that copies of  
+Original Work or Derivative Works that You distribute or communicate  
+shall be licensed under this Transitive Grace Period Public Licence;
++         3. to distribute or communicate copies of the Original Work  
+and Derivative Works to the public, with the proviso that copies of  
+Original Work or Derivative Works that You distribute or communicate  
+shall be licensed under this Transitive Grace Period Public Licence  
+no later than 12 months after You distributed or communicated said  
+copies;
+ 4. to perform the Original Work publicly; and
+
+
+Provide results of any legal analysis available:
+
+I asked a friend who is a lawyer (and a long-time hacker and open  
+source proponent) what he thought and he thought it was a good idea.
+
+
+Recommend which licence proliferation category is appropriate:
+
+Other/Miscellaneous licenses
+
+(I hope that someday it will be popular and widely used and with  
+strong communities.)
+
+
+Thank you for your time.
+
+Sincerely,
+
+Zooko O'Whielacronx
+---
+http://allmydata.org -- Tahoe, the Least-Authority Filesystem
+http://allmydata.com -- back up all your files for $10/month
+
+
+From matthew.flaschen at gatech.edu  Mon Dec 15 03:51:40 2008
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Sun, 14 Dec 2008 22:51:40 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>
+Message-ID: <4945D44C.6040304@gatech.edu>
+
+zooko wrote:
+> Dear license-review at opensource.org:
+> 
+> Please approve the Transitive Grace Period Public Licence, v1.0, as
+> compliant with the Open Source Definition.
+
+It's compliant, but that doesn't mean the OSI should approve it.
+
+> I hypothesize that some duration of grace period more than zero and less
+> than infinity might yield greater social good.  By being less than
+> infinite (in fact, 12 months), it compels the producers of derived works
+> to share their source code.
+
+This requirement will make enforcement very difficult.  If I see that a
+fly-by-night operation has started distributing without source code, I
+have to wait 12 months to see if they start providing source.  By that
+time, it could be impossible to contact (or serve) them.
+
+> +         3. to distribute or communicate copies of the Original Work
+> and Derivative Works to the public, with the proviso that copies of
+> Original Work or Derivative Works that You distribute or communicate
+> shall be licensed under this Transitive Grace Period Public Licence no
+> later than 12 months after You distributed or communicated said copies;
+
+This doesn't require that the source of the derivative work is provided,
+while I believe you intend that this is a requirement.
+
+Matt Flaschen
+
+
+From bruce at perens.com  Mon Dec 15 04:07:56 2008
+From: bruce at perens.com (Bruce Perens)
+Date: Sun, 14 Dec 2008 20:07:56 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>
+Message-ID: <4945D81C.6020600@perens.com>
+
+Isn't it possible to write this in "exception" form rather than as a 
+direct modification of a license? Like this:
+
+You may apply the terms of the Open Software License, version 3.0, to 
+this work, with the exception that [your text inserted here] You must 
+convey this text, the right to use this exception, the OSL 3.0 and the 
+rights to apply that license, to any entity to which you distribute the 
+work.
+
+This is not lawyer-vetted text. Doing something like this would avoid 
+making you a contributor to the horrible license propagation already 
+evident here.
+ Thanks
+ Bruce
+
+zooko wrote:
+> Dear license-review at opensource.org:
+>
+> Please approve the Transitive Grace Period Public Licence, v1.0, as 
+> compliant with the Open Source Definition.
+>
+> Rationale for a new licence:
+>
+> If Alice gives Bob a work under a permissive licence such as a 
+> BSD-style licence, then Bob may create a proprietary derived work and 
+> to make his derived work available to others without revealing the 
+> source code to them.  One could say that the "grace period" during 
+> which he is allowed to distribute proprietary derived works and before 
+> he is compelled to open source his derived work is endless.  If Alice 
+> gives Bob a work under a transitive licence such as the GPL or the 
+> OSL, and Bob makes a derived work available to others, then he is 
+> obligated to share the source code of his derived work with others 
+> immediately.  One could say that the "grace period" offered to him is 
+> zero minutes.
+>
+> I hypothesize that some duration of grace period more than zero and 
+> less than infinity might yield greater social good.  By being less 
+> than infinite (in fact, 12 months), it compels the producers of 
+> derived works to share their source code.  By being greater than zero, 
+> it facilitates the use of the capitalist feedback loop, in which part 
+> of the value that the work produces for others is directed to making 
+> more resources available for producing more of such work.  Hopefully 
+> the combination of these two properties will yield greater aggregate 
+> social good than either property would alone.
+>
+> Please see Ping Yee's eloquent summary, which expresses the rationale 
+> in a few sentences and pictures:
+>
+> https://zooko.com/tgppl.pdf
+>
+>
+> Compare and contrast with the most similar OSI-approved licence:
+>
+> The Transitive Grace Period Public Licence, v1.0, is almost identical 
+> to the Open Source License, v3.0, except for the following change 
+> (ignoring naming and meta-licensing changes):
+>
+> Tue Nov  6 21:36:49 MST 2007  zooko at zooko.com
+>   * add grace period
+> diff -rN -u old-tggpl/tggpl.txt new-tggpl/tggpl.txt
+> --- old-tggpl/tggpl.txt 2008-12-14 19:51:13.000000000 -0700
+> +++ new-tggpl/tggpl.txt 2008-12-14 19:51:13.000000000 -0700
+> @@ -11,7 +11,7 @@
+>
+>           2. to translate, adapt, alter, transform, modify, or arrange 
+> the Original Work, thereby creating derivative works ("Derivative 
+> Works") based upon the Original Work;
+>
+> -         3. to distribute or communicate copies of the Original Work 
+> and Derivative Works to the public, with the proviso that copies of 
+> Original Work or Derivative Works that You distribute or communicate 
+> shall be licensed under this Transitive Grace Period Public Licence;
+> +         3. to distribute or communicate copies of the Original Work 
+> and Derivative Works to the public, with the proviso that copies of 
+> Original Work or Derivative Works that You distribute or communicate 
+> shall be licensed under this Transitive Grace Period Public Licence no 
+> later than 12 months after You distributed or communicated said copies;
+>
+>           4. to perform the Original Work publicly; and
+>
+>
+> Provide results of any legal analysis available:
+>
+> I asked a friend who is a lawyer (and a long-time hacker and open 
+> source proponent) what he thought and he thought it was a good idea.
+>
+>
+> Recommend which licence proliferation category is appropriate:
+>
+> Other/Miscellaneous licenses
+>
+> (I hope that someday it will be popular and widely used and with 
+> strong communities.)
+>
+>
+> Thank you for your time.
+>
+> Sincerely,
+>
+> Zooko O'Whielacronx
+> ---
+> http://allmydata.org -- Tahoe, the Least-Authority Filesystem
+> http://allmydata.com -- back up all your files for $10/month
+
+
+
+From lrosen at rosenlaw.com  Mon Dec 15 04:35:44 2008
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Sun, 14 Dec 2008 20:35:44 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <4945D81C.6020600@perens.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com>
+Message-ID: <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA>
+
+Bruce Perens suggested:
+> Isn't it possible to write this in "exception" form rather than as a
+> direct modification of a license? 
+
+That's a fine suggestion, Bruce.  This avoids license proliferation.
+
+So long as the Licensor *waives a condition* of the OSL 3.0 license that
+otherwise burdens the licensee, no formal OSI approval should be needed.
+After all, the Licensor is making license conditions less burdensome, not
+harsher, on his down-stream licensees.
+
+To provide a grace period before disclosure of source code, waive section
+1(c) of OSL 3.0 for a fixed period of time after distribution starts.
+
+As another example, to exempt licensees from the ASP provision of OSL 3.0,
+waive section 5.
+
+Such waivers can be conveniently stated in an Attribution Notice in the
+Source Code as provided by Section 6 of OSL 3.0. Licensing notices that are
+waivers of license conditions will be as binding on the Licensor as the
+original license is. (Because a waiver relieves a burden on the licensee, it
+is the Licensor who must be bound to that waiver by putting it in writing,
+and then the licensee can rely on it.)
+
+Of course, the Licensor must own the copyright or have permission from his
+up-stream licensors in order to waive any conditions of OSL 3.0. You can't
+waive someone else's license conditions!
+
+Note that you cannot use a waiver to *add a burden* on a licensee. That
+would require a new license and OSI approval. I interpret OSD #7 as
+prohibiting such additional burdens not otherwise in the OSL 3.0 license
+itself.
+
+/Larry
+
+
+
+> -----Original Message-----
+> From: Bruce Perens [mailto:bruce at perens.com]
+> Sent: Sunday, December 14, 2008 8:08 PM
+> To: zooko
+> Cc: license-review at opensource.org
+> Subject: Re: For Approval: Transitive Grace Period Public Licence, v1.0
+> 
+> Isn't it possible to write this in "exception" form rather than as a
+> direct modification of a license? Like this:
+> 
+> You may apply the terms of the Open Software License, version 3.0, to
+> this work, with the exception that [your text inserted here] You must
+> convey this text, the right to use this exception, the OSL 3.0 and the
+> rights to apply that license, to any entity to which you distribute the
+> work.
+> 
+> This is not lawyer-vetted text. Doing something like this would avoid
+> making you a contributor to the horrible license propagation already
+> evident here.
+> 
+>     Thanks
+> 
+>     Bruce
+> 
+> zooko wrote:
+> > Dear license-review at opensource.org:
+> >
+> > Please approve the Transitive Grace Period Public Licence, v1.0, as
+> > compliant with the Open Source Definition.
+> >
+> > Rationale for a new licence:
+> >
+> > If Alice gives Bob a work under a permissive licence such as a
+> > BSD-style licence, then Bob may create a proprietary derived work and
+> > to make his derived work available to others without revealing the
+> > source code to them.  One could say that the "grace period" during
+> > which he is allowed to distribute proprietary derived works and before
+> > he is compelled to open source his derived work is endless.  If Alice
+> > gives Bob a work under a transitive licence such as the GPL or the
+> > OSL, and Bob makes a derived work available to others, then he is
+> > obligated to share the source code of his derived work with others
+> > immediately.  One could say that the "grace period" offered to him is
+> > zero minutes.
+> >
+> > I hypothesize that some duration of grace period more than zero and
+> > less than infinity might yield greater social good.  By being less
+> > than infinite (in fact, 12 months), it compels the producers of
+> > derived works to share their source code.  By being greater than zero,
+> > it facilitates the use of the capitalist feedback loop, in which part
+> > of the value that the work produces for others is directed to making
+> > more resources available for producing more of such work.  Hopefully
+> > the combination of these two properties will yield greater aggregate
+> > social good than either property would alone.
+> >
+> > Please see Ping Yee's eloquent summary, which expresses the rationale
+> > in a few sentences and pictures:
+> >
+> > https://zooko.com/tgppl.pdf
+> >
+> >
+> > Compare and contrast with the most similar OSI-approved licence:
+> >
+> > The Transitive Grace Period Public Licence, v1.0, is almost identical
+> > to the Open Source License, v3.0, except for the following change
+> > (ignoring naming and meta-licensing changes):
+> >
+> > Tue Nov  6 21:36:49 MST 2007  zooko at zooko.com
+> >   * add grace period
+> > diff -rN -u old-tggpl/tggpl.txt new-tggpl/tggpl.txt
+> > --- old-tggpl/tggpl.txt 2008-12-14 19:51:13.000000000 -0700
+> > +++ new-tggpl/tggpl.txt 2008-12-14 19:51:13.000000000 -0700
+> > @@ -11,7 +11,7 @@
+> >
+> >           2. to translate, adapt, alter, transform, modify, or arrange
+> > the Original Work, thereby creating derivative works ("Derivative
+> > Works") based upon the Original Work;
+> >
+> > -         3. to distribute or communicate copies of the Original Work
+> > and Derivative Works to the public, with the proviso that copies of
+> > Original Work or Derivative Works that You distribute or communicate
+> > shall be licensed under this Transitive Grace Period Public Licence;
+> > +         3. to distribute or communicate copies of the Original Work
+> > and Derivative Works to the public, with the proviso that copies of
+> > Original Work or Derivative Works that You distribute or communicate
+> > shall be licensed under this Transitive Grace Period Public Licence no
+> > later than 12 months after You distributed or communicated said copies;
+> >
+> >           4. to perform the Original Work publicly; and
+> >
+> >
+> > Provide results of any legal analysis available:
+> >
+> > I asked a friend who is a lawyer (and a long-time hacker and open
+> > source proponent) what he thought and he thought it was a good idea.
+> >
+> >
+> > Recommend which licence proliferation category is appropriate:
+> >
+> > Other/Miscellaneous licenses
+> >
+> > (I hope that someday it will be popular and widely used and with
+> > strong communities.)
+> >
+> >
+> > Thank you for your time.
+> >
+> > Sincerely,
+> >
+> > Zooko O'Whielacronx
+> > ---
+> > http://allmydata.org -- Tahoe, the Least-Authority Filesystem
+> > http://allmydata.com -- back up all your files for $10/month
+
+
+
+From bruce at perens.com  Mon Dec 15 04:36:16 2008
+From: bruce at perens.com (Bruce Perens)
+Date: Sun, 14 Dec 2008 20:36:16 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <4945D44C.6040304@gatech.edu>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D44C.6040304@gatech.edu>
+Message-ID: <4945DEC0.7030101@perens.com>
+
+Matthew Flaschen wrote:
+> It's compliant, but that doesn't mean the OSI should approve it.
+This raises the question of whether OSI considers it important to 
+protect Open Source developers from foolishness in license writing 
+[Sorry Zooko]. From discussion of the last submission, I didn't get the 
+impression that was so. Certainly I think it's important.
+ Thanks
+ Bruce
+
+
+From zooko at zooko.com  Mon Dec 15 14:35:04 2008
+From: zooko at zooko.com (zooko)
+Date: Mon, 15 Dec 2008 07:35:04 -0700
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA>
+Message-ID: <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>
+
+Dear license-review:
+
+Thank you for your comments.
+
+Matthew Flaschen said that it might be easy for people to violate the  
+terms of this licence and withhold the source code of their derived  
+works when they have not been granted the right to do so.  I agree  
+that it is possible that people might try to do that.
+
+Matthew Flaschen also said that the TGPPL v1.0 doesn't require the  
+producer of a derived work to provide source code, but I don't think  
+this is correct -- TGPPL v1.0 should have the same effect as OSL 3.0  
+on that issue.  Please correct me if I'm wrong.
+
+Bruce Perens suggested that the goal of the TGPPL could be  
+accomplished by writing an exception to the OSL instead of a new  
+licence.  Lawrence Rosen concurred, explaining that waivers of rights  
+are easily added by the rights holders, but of course that added  
+burdens are not.
+
+This is the reason why TGPPL needs to be a separate licence: it  
+imposes the added burden that once the grace period has expired then  
+the producer of a derived work needs to release the source code of  
+the derived work under the terms of the TGPPL.  The licence does not  
+offer the producer of a derived work the option of distributing the  
+derived work for a grace period and then open sourcing the derived  
+work under some other licence such as GPL or OSL.
+
+Bruce Perens wondered whether it was the OSI's mandate to protect the  
+writers of open source licences from their own foolishness.  While I  
+appreciate criticisms and suggestions -- especially when they are  
+delivered respectfully -- my primary aim in submitting this licence  
+for approval is to certify that the licence is open source, not to  
+certify that it is a good idea.
+
+Regards,
+
+Zooko
+---
+http://allmydata.org -- Tahoe, the Least-Authority Filesystem
+http://allmydata.com -- back up all your files for $10/month
+
+
+From bruce at perens.com  Mon Dec 15 16:16:51 2008
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 15 Dec 2008 08:16:51 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>
+Message-ID: <494682F3.3010006@perens.com>
+
+zooko wrote:
+> This is the reason why TGPPL needs to be a separate licence
+Zooko,
+
+Larry is he lawyer who wrote the OSL, which you derived from. He says 
+that you can use the "exception" form. You didn't get any serious legal 
+review yourself, so IMO you should consider that he really might be right.
+
+I am not concerned with protecting license writers from their own 
+foolishness. I am concerned with protecting the _community_ of 
+_developers_ who might use the license and reap unintended consequences 
+from the foolishness of amateur license-writers. Given that there are 
+significant free legal resources available to Open Source developers 
+today, Nobody should submit a license that has not received a formal 
+legal review. "My friend who's a lawyer thought it was a good idea" just 
+doesn't cut it.
+ Thanks
+ Bruce
+
+
+
+
+From webmink at gmail.com  Mon Dec 15 19:09:56 2008
+From: webmink at gmail.com (Simon Phipps)
+Date: Mon, 15 Dec 2008 19:09:56 +0000
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>
+Message-ID: <910249FA-F573-4AC3-857C-BCF25B6C9354@gmail.com>
+
+
+On Dec 15, 2008, at 14:35, zooko wrote:
+
+>  my primary aim in submitting this licence for approval is to  
+> certify that the licence is open source, not to certify that it is a  
+> good idea.
+
+These days I believe the OSI Board is also interested in reasons why a  
+proposed license is a good idea in addition to meeting the OSD. If  
+Larry's assertion that the same ends you're anticipating can be met  
+just with exceptions is true, that would suggest the license is not  
+suitable for OSI approval on grounds of proliferation.
+
+> This is the reason why TGPPL needs to be a separate licence: it  
+> imposes the added burden
+
+Larry in fact said that for the copyright holder to waive a condition  
+of OSL 3.0 was the /removal/ of a burden, implying the re-appearance  
+of the condition at the end of the copyright-holder's chosen period  
+would not be the imposition of a burden. Larry's assertion, which  
+appears sound, was that this could thus be achieved by a copyright- 
+holder's license exception.
+
+Did you in fact consider the approach of using exceptions to an  
+existing license like OSL 3.0 before submission? If so I'd be  
+interested in why they don't work for you.
+
+S.
+
+
+
+From matthew.flaschen at gatech.edu  Tue Dec 16 05:41:38 2008
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Tue, 16 Dec 2008 00:41:38 -0500
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>
+Message-ID: <49473F92.6020003@gatech.edu>
+
+zooko wrote:
+> Matthew Flaschen also said that the TGPPL v1.0 doesn't require the
+> producer of a derived work to provide source code, but I don't think
+> this is correct -- TGPPL v1.0 should have the same effect as OSL 3.0 on
+> that issue.  Please correct me if I'm wrong.
+
+Sorry, you're correct.  I forgot that OSL uses the contract "style", and
+has "Licensor agrees to provide a machine-readable copy of the Source
+Code of the Original Work along with each copy of the Original Work that
+Licensor distributes."
+
+> This is the reason why TGPPL needs to be a separate licence: it imposes
+> the added burden that once the grace period has expired then the
+> producer of a derived work needs to release the source code of the
+> derived work under the terms of the TGPPL.  The licence does not offer
+> the producer of a derived work the option of distributing the derived
+> work for a grace period and then open sourcing the derived work under
+> some other licence such as GPL or OSL.
+
+Okay, would it be acceptable to allow either OSL derivatives with source
+released immediately or TGPPL derviatves with source released in 12
+months?  If so, I think it could be written as an exception.
+> Bruce Perens wondered whether it was the OSI's mandate to protect the
+> writers of open source licences from their own foolishness.  While I
+> appreciate criticisms and suggestions -- especially when they are
+> delivered respectfully -- my primary aim in submitting this licence for
+> approval is to certify that the licence is open source, not to certify
+> that it is a good idea.
+
+He said, "protect Open Source developers from foolishness in license
+writing"  That potentially means protecting the license writer as /well/
+as anyone who may use the license because it's OSI-approved.
+
+Matt Flaschen
+
+
+From zooko at zooko.com  Thu Dec 18 14:06:08 2008
+From: zooko at zooko.com (zooko)
+Date: Thu, 18 Dec 2008 07:06:08 -0700
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <49473F92.6020003@gatech.edu>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu>
+Message-ID: <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>
+
+Dear licence-review:
+
+Thank you for your comments.  Bruce Perens, Simon Phipps, and Matthew  
+Flaschen all asked about "an exception form".
+
+For a bit of history, earlier versions of my software were  
+distributed under just such an exception form, but as applied to the  
+GPLv2 instead of to OSLv3.  I spoke with Eben Moglen, who told me  
+that this couldn't work.  Specifically, the GPL declares itself to be  
+incompatible with any addition or exception that imposes an  
+additional requirement on the user.  The exception that I had written  
+imposed an additional requirement -- namely the requirement of  
+granting that same exception to your users (transitively).
+
+(Prof. Moglen also colorfully offered that he disapproved of the idea  
+and of my boldness in venturing to craft new licence terms without  
+being admitted to the bar.  He further mentioned that, if RMS so bade  
+him, he would sue me for using the GPL in this way.  I was curious  
+what legal principle, if any, backed that threat, but finding out is  
+lower on my list of things to do than quite a few other projects.)
+
+Therefore I copied the OSLv3 and amended it to include the grace  
+period clause in the text itself, resulting in the TGPPLv1.  The  
+TGPPLv1 makes it clear that the licence is conditioned on the  
+transitive grant of the TGPPL to derived works.  It is clear that the  
+TGPPLv1 does not grant the right to distribute a proprietary derived  
+work for 12 months and then to open source the derived work under  
+different licence terms than those of the TGPPL.  (During the process  
+of crafting the TGPPLv1 I sought the advice of Larry Rosen, who  
+offered a few words of advice, and a few more words of discouragement.)
+
+As I understand it, an exception to the OSLv3 would not have that  
+same consequence.  Even if someone argues that such a transitive  
+requirement could be crafted as an exception, it would be harmfully  
+ambiguous whether software was licensed under OSLv3 or under OSLv3- 
+with-1c-waived-for-12-months-and-transitively-requiring-that-waiver.
+
+I hope that this answers why I use TGPPL instead of an exception  
+clause to another licence.
+
+Regards,
+
+Zooko
+---
+Tahoe, the Least-Authority Filesystem -- http://allmydata.org
+backup all your files for $10/month -- http://allmydata.com/? 
+tracking=zsig
+
+
+From jonathon.blake at gmail.com  Thu Dec 18 17:13:51 2008
+From: jonathon.blake at gmail.com (jonathon)
+Date: Thu, 18 Dec 2008 17:13:51 +0000
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>
+Message-ID: <c4797ebf0812180913y92ced3q1eda723ed9d6a25d@mail.gmail.com>
+
+On Thu, Dec 18, 2008 at 14:06, zooko  wrote:
+
+> It is clear that the TGPPLv1 does not grant the right to distribute a proprietary derived work for 12 months and then to open source the derived work under different licence terms than those of the TGPPL.
+
+A less than scrupulous business person will instantly see how to use
+that license to claim that the software is open source, without having
+to _legally_ release the source code.
+
+a) I am not a lawyer;
+
+b) What I write has zero influence on anybody who actually votes for
+the acceptance/rejection of a proposed license.
+
+jonathon
+
+
+From bruce at perens.com  Sat Dec 20 05:20:27 2008
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 19 Dec 2008 21:20:27 -0800
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>
+Message-ID: <494C809B.7000007@perens.com>
+
+zooko wrote:
+> (Prof. Moglen also colorfully offered that he disapproved of the idea 
+> and of my boldness in venturing to craft new licence terms without 
+> being admitted to the bar. 
+The part that probably bothers Eben is that you are attempting to 
+encourage others to use a license you crafted without being qualified to 
+fully determine whether/how it could hurt them. If it could just hurt 
+you, he might simply consider that your expression of freedom.
+> As I understand it, an exception to the OSLv3 would not have that same 
+> consequence.  Even if someone argues that such a transitive 
+> requirement could be crafted as an exception, it would be harmfully 
+> ambiguous whether software was licensed under OSLv3 or under 
+> OSLv3-with-1c-waived-for-12-months-and-transitively-requiring-that-waiver.
+I still don't buy it. It's very clear if you state it this way.
+ Copyright (C) 2008 Bruce Perens LICENSE The terms of the Open Software License, version 3.0, in appendix A, are included by reference. In addition to those terms [your text here]. You must convey this license and all appendices along with the covered software, without modification. END OF LICENSE
+ APPENDIX A Open Software License text goes here.
+
+
+Of course you need to have your own attorney approve any such text.
+> I hope that this answers why I use TGPPL instead of an exception 
+> clause to another licence.
+It explains why you think it's necessary. But you don't have a real 
+attorney saying that it just can't be done by reference.
+ Thanks
+ Bruce
+
+From zooko at zooko.com  Sat Dec 20 15:13:27 2008
+From: zooko at zooko.com (zooko)
+Date: Sat, 20 Dec 2008 08:13:27 -0700
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <494C809B.7000007@perens.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com> <49473F92.6020003@gatech.edu> <E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com> <494C809B.7000007@perens.com>
+Message-ID: <B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com>
+
+Dear license-review:
+
+Thank you, Bruce Perens, for your example of how a grace period  
+clause could be written as an appendix to the OSLv3.  I like your  
+idea of re-using licensing text by reference instead of by copy-and- 
+modify.
+
+However, as I currently understand it, the text you suggested would  
+not have the same effect as the TGPPLv1 has.  Larry Rosen's post of  
+December 14 indicates that an "added burden" would requires a new  
+licence and not just a waiver appended to OSLv3.  This is consistent  
+with what I've learned from Prof. Moglen as well as from my own  
+analysis.  The requirement to transitively offer the grace period to  
+users of your derived work is an added burden.
+
+In any case, even if a licence with the same properties as the  
+TGPPLv1 could be constructed as combination of an existing licence  
+and added text, it would still need to have a separate name so that  
+people could refer to it succinctly and unambiguously, and so that  
+they could check whether bodies such as OSI have approved the  
+resulting combined text as being open source or not.  For code that  
+I've distributed and plan to distribute in the future, that name is  
+"Transitive Grace Period Public Licence", although the version number  
+could change, and I'm not opposed to future versions of TGPPL being  
+constructed by reference instead of by copy-and-modify, if the result  
+would have desirable properties.
+
+Regards,
+
+Zooko
+---
+Tahoe, the Least-Authority Filesystem -- http://allmydata.org
+backup all your files for $10/month -- http://allmydata.com/? 
+tracking=zsig
+
+
+From bruce at perens.com  Sat Dec 20 20:32:21 2008
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 20 Dec 2008 12:32:21 -0800
