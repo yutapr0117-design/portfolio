@@ -1,0 +1,145 @@
+OBSERVED (not received by us) — license-review public archive, 2026-09 monthly mbox
+Fetched 2026-09-27 from
+https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-September.txt
+Preserved verbatim, unmodified. These messages are NOT addressed to us and are NOT
+about ACD-1.0. They continue the OpenMDW-1.1 thread past 2026-09-12, which is where
+`review-corpus.md` §1.78 had read to, and each carries one statement that bears on us.
+
+=== (A) Michael Dolan (OpenMDW steward), 2026-09-14 — the bundling defence:
+    "The unit of open source licensing has always been the work as provided, not each
+    file measured separately against the policy that motivated each clause." Answers
+    Richard Fontana's escalation of 2026-09-11 ("flawed in its basic conception").
+=== (B) Josh Berkus, 2026-09-14 — how accidental infringing copying happens in practice,
+    in answer to the Licensing Committee chair's "Can you explain how?". The list
+    includes "GenAI & Autocomplete".
+
+From mdolan at linuxfoundation.org  Mon Sep 14 18:29:27 2026
+From: mdolan at linuxfoundation.org (Michael Dolan)
+Date: Mon, 14 Sep 2026 14:29:27 -0400
+Subject: [License-review] For Approval: OpenMDW License Agreement,
+ versions 1.1 (OpenMDW-1.1)
+In-Reply-To: 
+ <CAC1cPGwmWHcZ_5790CsboRtCFsfAxzWnD7axyMBt8RrbwTxxXw@mail.gmail.com>
+References: 
+ <CAFV=PSG=bsLTemzjyCKYYz9j=rX9dcNo6=2T6htbxTRgervMrA@mail.gmail.com>
+ <CAFV=PSH_wNaPuPQi5i6-JZP2wfyx5UpudQsrjao3TCCSE4jb9w@mail.gmail.com>
+ <CAC1cPGzpjtL=UyGT=bzu+6JmohsY567PPU=0ZxGJOrM7vNDdyw@mail.gmail.com>
+ <CAFV=PSE7swjqNpbLqLFoJJJOnf03khMJHa_FL_bP9ow40c0E2Q@mail.gmail.com>
+ <4d892328-fe83-471b-8714-bb0b818c54d9@chesteklegal.com>
+ <CAFV=PSEyd7Ly8aWtkdcm9X96bpTXBFZToKW0pADpwrhNhXPtog@mail.gmail.com>
+ <bd0fc092-4a3f-4e0a-a446-ccc1f344ee61@chesteklegal.com>
+ <f5ec169a-3f32-4631-a67b-075f18464ad0@berkus.org>
+ <CAC1cPGxNqTn=UhoB8pByXjdUKXicJE1r-bMVcOnRs1wxkzd_HQ@mail.gmail.com>
+ <f96c1d69-4491-41de-98c8-ed5a15fa67fd@berkus.org>
+ <CAC1cPGwkRamwK7cXtEw+5nH8-W2UpjboL1iko-L2sNLV2So1Jg@mail.gmail.com>
+ <253bd118-cda4-4dac-b7e2-9f22161ae2be@lexpan.law>
+ <8fddbccf-07b4-402b-83e3-9edc7db03fb9@chesteklegal.com>
+ <CAAvo7O7rVB3dxCJ3CuozdNT+X2vHVoJNcQPwjoZMXP47qa0Nkg@mail.gmail.com>
+ <CA+gCWQV8jOw0nfeWhr-rx6_OgO-yv7vYFihPRGk8tarOGc3EwQ@mail.gmail.com>
+ <90f5840b-617a-41bf-82b7-6b173a3e9b9f@chesteklegal.com>
+ <CAC1cPGwmWHcZ_5790CsboRtCFsfAxzWnD7axyMBt8RrbwTxxXw@mail.gmail.com>
+Message-ID: 
+ <CAFV=PSE8EVuxD0uRG7HxisTTTx8zGeCdH=fBZBH4GZXK=rE1QA@mail.gmail.com>
+
+On Fri, Sep 11, 2026 at 9:03 AM Richard Fontana via License-review <
+license-review at lists.opensource.org> wrote:
+
+> The asserted policy
+> justification for copyright-triggered termination has no relevance to
+> latex2html.py, and yet it is swept in improperly by this termination
+> provision.
+
+...
+
+> The OSI must consider how a submitted license will operate when
+> applied to ordinary software. OpenMDW-1.1 is flawed in its basic
+> conception, as a consequence of the termination provision. Its whole
+> raison d'être is to have a single license that applies to everything.
+>
+
+Richard, I understand that OpenMDW may seem novel in bundling disparate
+artifacts under one license, but that is how most technical packages (open
+and closed source) are licensed and received – e.g., a package or
+repository with a collection of software programs, documentation, and other
+types of assets. I suspect many other OSI-approved licenses with
+“litigation trigger” termination provisions would not limit termination to
+only the affected materials.
+
+If I take your concern and try to map it to a solution, it would require that
+a termination provision be justified artifact-by-artifact within the
+licensed work, and I suspect you might agree that is problematic as well.
+Apache-2.0's own patent termination applies to the entire Work, including
+documentation and build scripts that (presumably) face no patent exposure
+at all.
+
+The unit of open source licensing has always been the work as provided, not
+each file measured separately against the policy that motivated each
+clause. latex2html.py sits in a Model Materials release exactly where a
+borrowed build script sits in an Apache Work, and we have debated what "the
+Work" covers for twenty years without anyone suggesting their answer could
+also affect Apache-2.0's conformance with the OSD.
+
+I hope that helps clarify why, even though I understand the concern you're
+raising, I don't agree with the logic behind how you're applying it.
+
+Mike
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260914/dc59103e/attachment.htm>
+
+From josh at berkus.org  Mon Sep 14 23:43:56 2026
+From: josh at berkus.org (Josh Berkus)
+Date: Mon, 14 Sep 2026 16:43:56 -0700
+Subject: [License-review] For Approval: OpenMDW License Agreement,
+ versions 1.1 (OpenMDW-1.1)
+In-Reply-To: <9767d88f-ca49-4481-b8be-bba592dd173a@chesteklegal.com>
+References: 
+ <CAFV=PSG=bsLTemzjyCKYYz9j=rX9dcNo6=2T6htbxTRgervMrA@mail.gmail.com>
+ <CAFV=PSE7swjqNpbLqLFoJJJOnf03khMJHa_FL_bP9ow40c0E2Q@mail.gmail.com>
+ <4d892328-fe83-471b-8714-bb0b818c54d9@chesteklegal.com>
+ <CAFV=PSEyd7Ly8aWtkdcm9X96bpTXBFZToKW0pADpwrhNhXPtog@mail.gmail.com>
+ <bd0fc092-4a3f-4e0a-a446-ccc1f344ee61@chesteklegal.com>
+ <f5ec169a-3f32-4631-a67b-075f18464ad0@berkus.org>
+ <CAC1cPGxNqTn=UhoB8pByXjdUKXicJE1r-bMVcOnRs1wxkzd_HQ@mail.gmail.com>
+ <f96c1d69-4491-41de-98c8-ed5a15fa67fd@berkus.org>
+ <CAC1cPGwkRamwK7cXtEw+5nH8-W2UpjboL1iko-L2sNLV2So1Jg@mail.gmail.com>
+ <253bd118-cda4-4dac-b7e2-9f22161ae2be@lexpan.law>
+ <8fddbccf-07b4-402b-83e3-9edc7db03fb9@chesteklegal.com>
+ <CAAvo7O7rVB3dxCJ3CuozdNT+X2vHVoJNcQPwjoZMXP47qa0Nkg@mail.gmail.com>
+ <CA+gCWQV8jOw0nfeWhr-rx6_OgO-yv7vYFihPRGk8tarOGc3EwQ@mail.gmail.com>
+ <90f5840b-617a-41bf-82b7-6b173a3e9b9f@chesteklegal.com>
+ <b80f6494-5752-4af7-9ac5-77649310e0a0@berkus.org>
+ <9767d88f-ca49-4481-b8be-bba592dd173a@chesteklegal.com>
+Message-ID: <364e4ad1-792f-45c7-98d6-10c1395e3ded@berkus.org>
+
+On 9/11/26 12:23 PM, Pamela Chestek wrote:
+>> Speaking as a software developer, accidental infringing copying 
+>> happens all the time.
+> 
+> Can you explain how?
+
+Sure!  Here's a few ways I've seen folks accidentally copy code in a way 
+that's infringing, although most of the time nobody does anything about it:
+
+- Stack overflow
+- GenAI & Autocomplete
+- Copying code from a private project to a public one, forgetting where 
+you got it in the first place
+- Copying vendored code without attribution
+- Thinking that some code is too short/obvious to be copyrightable 
+(because most software developers are armchair IP lawyers)
+- Conference presentations & tutorials
+- Forgetting that some old code you wrote was under contract and doesn't 
+belong to you
+- Accidentally copying code from one project to another because you're 
+working on both at the same time
+
+Substantial software projects are made from thousands of lines of code 
+and hundreds of modules assembled over time by people who are generally 
+working on more than one project concurrently. Accidental (and 
+intentional) copying happens constantly.  It's just that the vast 
+majority of it isn't worth prosecuting.
+
+-- 
+Josh Berkus
+

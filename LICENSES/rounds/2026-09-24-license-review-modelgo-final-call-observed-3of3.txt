@@ -1,0 +1,583 @@
+OBSERVED (not received by us) — license-review public archive, 2026-09 monthly mbox
+Fetched 2026-09-27 from
+https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-September.txt
+Preserved verbatim, unmodified. These messages are NOT addressed to us and are NOT about
+ACD-1.0. They are the ModelGo Attribution 2.0 FINAL CALL FOR COMMENTS thread from
+2026-09-16 to 2026-09-24 — the part of that thread the dossier had not read (rounds/ holds
+2026-09-03 to 2026-09-08 already). ModelGo is the contemporary instrument closest to ACD in
+subject matter, and this stretch is the one where the Licensing Committee chair applies the
+published new-licence standard "does not have terms that structurally put the licensor in a
+more favored position than any licensee" to a concrete clause.
+
+Split by LINE boundaries at 750 lines, not by message boundaries: single messages here run to
+399 lines and the repository's hard ceiling is 1,000 (Check 365). Concatenating the parts in
+order reproduces the fetched bytes exactly; the assertion was run before writing.
+
+=== part 3 of 3 (line-boundary split) ===
+
+>>     patent against another user. Under OpenMDW-1.1, termination can
+>>     follow a copyright claim, a suit you voluntarily joined rather
+>>     than started, or a claim brought against anyone at all. Under
+>>     MG-BY, the clause fires on one thing only: a patent suit you
+>>     yourself initiate against the Licensor. It reaches nothing beyond
+>>     what our own grant covers.
+>>
+>>     On OSD 5 itself. Everyone who holds the license holds it on the
+>>     same terms and loses it the same way. I can't find a licensee who
+>>     gets less than another licensee. The Licensor is not a licensee;
+>>     it gives the license rather than holds it. Apache has the same
+>>     asymmetry between a Contributor, who grants patent rights and can
+>>     have them taken back, and a plain recipient, who grants nothing
+>>     and so has nothing to lose. I haven't seen anyone call that
+>>     discrimination. Our clause has that shape with one giver instead
+>>     of many, and I don't see a classification of persons in it, which
+>>     is what I understand OSD 5 to be about.
+>>
+>>     To press one point, respectfully: I am not aware that OSI has
+>>     ever held that a patent-termination shield must protect everyone
+>>     to satisfy OSD 5. That would be a new principle, and if the
+>>     review establishes it, I will revise the clause accordingly. Thanks.
+>>
+>>
+>>     Best,
+>>     Moming
+>>
+>>     Pamela Chestek <pamela at chesteklegal.com> 于2026年9月21日周一
+>>     11:44写道：
+>>
+>>         Moming,
+>>
+>>         I'm not following what you're saying. As I understand McCoy's
+>>         point, it is this:
+>>
+>>         - Licensor is any contributor who added copyrightable content;
+>>
+>>         - User A is someone who is using Licensor's version of the
+>>         software but has not contributed any copyrightable content
+>>         and is not distributing the software;
+>>
+>>         -User B is someone who is using Licensor's version of the
+>>         software, has not contributed any copyrightable content, but
+>>         is distributing the software, who you are characterizing as a
+>>         sublicensor of Licensor's rights;
+>>
+>>         - User C is the person who owns the allegedly infringed patent.
+>>
+>>         ===============
+>>
+>>         User C sues a Licensor for patent infringement - the license
+>>         terminates.
+>>
+>>         User C sues User A for for patent infringement - the license
+>>         does not terminate because User A is not a Licensor of
+>>         anything, they are just using the software.
+>>
+>>         User C sues User B for patent infringement - the license does
+>>         not terminate. First, characterizing User B as a sublicensor
+>>         may not be a correct assumption - why wouldn't User C say
+>>         "no, I'm not a sublicensee of User B, I'm a direct licensee
+>>         of Licensor who I haven't sued, so the license doesn't
+>>         terminate"? But even assuming User B is a sublicensor, it
+>>         doesn't terminate the license. User B is a sublicensor, not
+>>         */"the /*Licensor," i.e., the "rights owner" per your
+>>         definition, so the license doesn't terminate.
+>>
+>>         That is the discrimination that I understand McCoy to be
+>>         describing. The license only terminates if User C sues
+>>         someone who contributed copyrightable content, because those
+>>         are the only people (or companies) who have a license that
+>>         can be terminated. Everyone else can still be sued for
+>>         copyright infringement.
+>>
+>>         The use of the word "the" in "the Licensor" in the
+>>         termination section is problematic for another reason. The
+>>         corpus may have many licensors. I think the more natural
+>>         reading is that only the license from the person being sued
+>>         terminates, not all of them. If it said "any legal action
+>>         against */_a_/* Licensor alleging that the Licensed Materials
+>>         and/or Derivative Materials infringe any patent worldwide"
+>>         would terminate all of them. But that doesn't solve the
+>>         problem described above with mere users, not contributors,
+>>         being the defendant in the patent suit.
+>>
+>>         Pam
+>>
+>>         Pamela S. Chestek
+>>         Chestek Legal
+>>         4641 Post St.
+>>         <https://www.google.com/maps/search/4641+Post+St.+%0D%0A++++++Unit+4316+%0D%0A++++++El+Dorado+Hills,+CA+95762?entry=gmail&source=g>
+>>         <https://www.google.com/maps/search/4641+Post+St.+%0D%0A+++++++++++++++Unit+4316+%0D%0A+++++++++++++++El+Dorado+Hills,+CA+95762?entry=gmail&source=g>Unit
+>>         4316
+>>         <https://www.google.com/maps/search/4641+Post+St.+%0D%0A++++++Unit+4316+%0D%0A++++++El+Dorado+Hills,+CA+95762?entry=gmail&source=g>
+>>         <https://www.google.com/maps/search/4641+Post+St.+%0D%0A+++++++++++++++Unit+4316+%0D%0A+++++++++++++++El+Dorado+Hills,+CA+95762?entry=gmail&source=g>El
+>>         Dorado Hills, CA 95762
+>>         <https://www.google.com/maps/search/4641+Post+St.+%0D%0A++++++Unit+4316+%0D%0A++++++El+Dorado+Hills,+CA+95762?entry=gmail&source=g>
+>>         +1 919-800-8033 <tel:(919)%20800-8033>
+>>         pamela at chesteklegal.com
+>>         www.chesteklegal.com <http://www.chesteklegal.com>
+>>
+>>
+>>         On 9/18/2026 2:58 AM, Moming Duan wrote:
+>>>         Hi McCoy and all,
+>>>
+>>>
+>>>         OSD 5 says the license must not discriminate against any
+>>>         person or group of persons. Here, Licensor is a role in the
+>>>         license, not a person. And the license itself says how the
+>>>         role moves. The Section 2.1 grant is sublicensable, and
+>>>         2.2(a)(i) requires a copy of this License to travel with
+>>>         every Distribution. Even the definition of "Licensed
+>>>         Materials", things "Distributed by the Licensor", only
+>>>         really works if each distributor is the Licensor for what it
+>>>         distributes. So a licensee who passes the model or a
+>>>         Derivative Material on is granting the license onward. It
+>>>         stands as Licensor to the people it supplied, and a patent
+>>>         claim by those people does trigger termination.
+>>>
+>>>         About your May 2025 conclusion, I want to be precise. You
+>>>         wrote then that this termination provision was not an OSD
+>>>         violation but an uptake issue, and that conclusion was about
+>>>         the Derivative Materials part, which is your Q4:
+>>>         https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-May/005764.html
+>>>
+>>>         The OSD 5 question, whether the trigger should reach beyond
+>>>         the Licensor, is new in this final call, and you yourself
+>>>         put it as "arguably". So I read it as an open question
+>>>         rather than a settled one, and not something to concede on
+>>>         my own.
+>>>
+>>>         It's true that a user who never distributed anything, and
+>>>         sues another licensee, does not lose the license. That is
+>>>         deliberate. The patent grant has one source, and the promise
+>>>         not to assert runs to that source. A dispute between two
+>>>         people who never granted each other anything is outside that
+>>>         exchange.
+>>>
+>>>         So my reading is that the clause, as written, does not
+>>>         discriminate against any person or group, and I'd like to
+>>>         keep the current wording.
+>>>
+>>>
+>>>         Best,
+>>>         Moming
+>>>
+>>>         _______________________________________________
+>>>         The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from anopensource.org <http://opensource.org> email address.
+>>>
+>>>         License-review mailing list
+>>>         License-review at lists.opensource.org
+>>>         http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>         _______________________________________________
+>>         The opinions expressed in this email are those of the sender
+>>         and not necessarily those of the Open Source Initiative.
+>>         Communication from the Open Source Initiative will be sent
+>>         from an opensource.org <http://opensource.org> email address.
+>>
+>>         License-review mailing list
+>>         License-review at lists.opensource.org
+>>         http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>>
+>>     _______________________________________________
+>>     The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from anopensource.org <http://opensource.org> email address.
+>>
+>>     License-review mailing list
+>>     License-review at lists.opensource.org
+>>     http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>     _______________________________________________
+>     The opinions expressed in this email are those of the sender and
+>     not necessarily those of the Open Source Initiative. Communication
+>     from the Open Source Initiative will be sent from an
+>     opensource.org <http://opensource.org> email address.
+>
+>     License-review mailing list
+>     License-review at lists.opensource.org
+>     http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260923/34b840bf/attachment-0001.htm>
+
+From duanmoming at gmail.com  Wed Sep 23 16:05:08 2026
+From: duanmoming at gmail.com (Moming Duan)
+Date: Thu, 24 Sep 2026 00:05:08 +0800
+Subject: [License-review] ModelGo Attribution License, Version 2.0 FINAL
+ CALL FOR COMMENTS
+In-Reply-To: <e5b7dead-4e29-4ea0-9ce4-60f83f463aa8@lexpan.law>
+References: <883778D3-40CF-4DCF-B65F-AD07D9F427AD@gmail.com>
+ <e325347c-0c66-4294-bfe9-0d01dddbd58f@lexpan.law>
+ <5bca659c-c634-fa6d-5158-7799dc75d48e@chesteklegal.com>
+ <541EAF35-5686-48A5-8839-5808AA5E20FC@gmail.com>
+ <1B2ED380-0E90-4969-B9D6-B267F105BD2A@gmail.com>
+ <0197fe60-de0b-4ddb-8d42-99095ea228d3@chesteklegal.com>
+ <453E84A0-1DBE-4DB8-A61A-B178CFE348C5@gmail.com>
+ <3F3E65D0-B7A8-487F-B030-1ADB123CE4E8@gmail.com>
+ <7914b856-57b3-4ee2-8592-cc1c9836e94c@lexpan.law>
+ <TY7PR01MB157026E48BDBE28F282F0BCCDADB12@TY7PR01MB15702.jpnprd01.prod.outlook.com>
+ <80aae4ca-7491-4c0e-ae5b-b7486b9acf24@lexpan.law>
+ <CAE=aCWXT-aUiS3ZE1c9dmp7+QxKm41wWM4wtNH6ytH=A1uK1LQ@mail.gmail.com>
+ <023c0bb8-c028-4884-bc0f-fe4e565b7003@chesteklegal.com>
+ <CAE=aCWW=+hxYK6WiWGOTXc6Yee_-JWi1c6n7xCyX1hc8BKJf4w@mail.gmail.com>
+ <e19d2111-b555-4d61-802e-19970cb5776f@chesteklegal.com>
+ <CAE=aCWUwdBXC3Gwd_2vc1SonFQdHjoP7ooqTycj2+-F3ZYQ67Q@mail.gmail.com>
+ <e5b7dead-4e29-4ea0-9ce4-60f83f463aa8@lexpan.law>
+Message-ID: 
+ <CAE=aCWUA4q81Xq9TSp=iC3WrxapZYKqtNbvhWWwpnB7H4YjzQA@mail.gmail.com>
+
+Hi McCoy,
+
+My fault. I was in a meeting and had not updated the text yet.
+
+I have now updated the MG-BY-2.0 license text on GitHub:
+
+-MG-BY
+https://github.com/Xtra-Computing/ModelGo/blob/main/MGL/V2/MG-BY/LICENSE
+
+- MG0 does not contain a patent-assertion termination provision, so it has
+not been changed, FYI,
+https://github.com/Xtra-Computing/ModelGo/blob/main/MGL/V2/MG0/LICENSE
+
+*(Please disregard the text currently served from the ids.nus.edu.sg
+<http://ids.nus.edu.sg> URL.**That copy is hosted on a university server, *
+*and updating it requires approval from the project manager. **I will
+update it later.)*
+
+
+Best,
+Moming
+
+McCoy Smith <mccoy at lexpan.law> 于2026年9月23日周三 22:09写道：
+
+> Dr. Duan:
+>
+> Are you going to update ModelGo-BY-2.0 to reflect the new termination
+> language below, and would that be the version of the license that you  are
+> asking to be approved by OSI? The proposal below, which changes just the
+> termination provision, seems to be consistent with the other licenses which
+> I highlighted previously that have non-discriminatory patent assertion
+> termination clauses, and may address what may be the last concern that has
+> been expressed on this particular license.
+>
+> I looked at the GitHub and the website for ModelGo and I hadn't seen that
+> this revision had been made to the canonical versions of the license (which
+> is what, ultimately, OSI needs to be able to see in order to ensure we know
+> what it is is being approved/disapproved).
+>
+> McCoy
+> On 9/22/2026 10:56 PM, Moming Duan wrote:
+>
+> Hi Pam,
+>
+>
+> Here is the revised TERMINATION:
+>
+> 5. TERMINATION
+>
+>
+> This License shall terminate immediately if You breach any material term
+> and/or condition of this License. *The patent license granted to You
+> under this License shall terminate immediately if You initiate any legal
+> action against any person or entity alleging that the Licensed Materials
+> infringe any patent worldwide.* Sections 3, 4 and 6 shall survive the
+> termination of this License.
+>
+>
+> This keeps the existing rule that a material breach terminates the whole
+> License. For patent litigation, it removes Derivative Materials as a
+> trigger, applies regardless of who is sued, and ends only the patent
+> license.
+> I believe this revision strikes a better balance and may make the license
+> more attractive to potential adopters. The ModelGo licenses would not be
+> what they are today without the feedback from everyone in the OSI
+> community. Those discussions have also helped me continue to refine my
+> understanding of Open Source, and I’m sincerely grateful for that.
+>
+>
+> Best,
+> Moming
+>
+> Pamela Chestek <pamela at chesteklegal.com> 于2026年9月23日周三 01:46写道：
+>
+>> Hi Moming,
+>>
+>> Your response is quite troubling to me. I read it as saying that the
+>> disparate treatment of copyright owners versus mere users of the software
+>> is intentional.  As Joshua Gay described in the OpenMDW thread, the motive
+>> for the patent termination provision was because patents threatened the
+>> singular goal of the open source license, which is unfettered freedom to
+>> use the software. In other words, the open source license grants virtually
+>> unlimited right to use the software, but a patent aggressor can stop that
+>> use with a patent claim. The response was to withdraw the patent
+>> aggressor's patent (and sometimes copyright) license to use the software.
+>> So I find the intentional maintenance of the ability to sue a user
+>> troubling, given the historical basis for the patent termination clause.
+>>
+>> I also note that the one of the requirements for new licenses
+>> <https://opensource.org/licenses/review-process> is "The license does
+>> not have terms that structurally put the licensor in a more favored
+>> position than any licensee." This does put the licensor in a more favored
+>> position than a licensee.
+>>
+>> I also don't understand why you are characterizing this license as a
+>> "single-grantor license" and distinguish it from Apache on that basis. All
+>> licenses are "single grantor," Apache included, that is, a single
+>> contributor is granting a license to their own contribution. If you are
+>> saying that the Apache license may be a grant from multiple licensors
+>> because it may be sublicensing from inbound licensors, the same is true of
+>> the ModelGo Attribution License, which is also sublicensable. So I'm not
+>> following why you think that your situation is, can be, or should be
+>> different from how the Apache license works.
+>>
+>> Pam
+>>
+>> Pamela S. Chestek
+>> Chestek Legal
+>> 4641 Post St.
+>> <https://www.google.com/maps/search/4641+Post+St.+%0D%0A++++++Unit+4316+%0D%0A++++++El+Dorado+Hills,+CA+95762?entry=gmail&source=g>
+>> Unit 4316
+>> <https://www.google.com/maps/search/4641+Post+St.+%0D%0A++++++Unit+4316+%0D%0A++++++El+Dorado+Hills,+CA+95762?entry=gmail&source=g>
+>>
+>> <https://www.google.com/maps/search/4641+Post+St.+%0D%0A+++++++++++++++Unit+4316+%0D%0A+++++++++++++++El+Dorado+Hills,+CA+95762?entry=gmail&source=g>
+>> El Dorado Hills, CA 95762
+>> <https://www.google.com/maps/search/4641+Post+St.+%0D%0A++++++Unit+4316+%0D%0A++++++El+Dorado+Hills,+CA+95762?entry=gmail&source=g>
+>>
+>> <https://www.google.com/maps/search/4641+Post+St.+%0D%0A+++++++++++++++Unit+4316+%0D%0A+++++++++++++++El+Dorado+Hills,+CA+95762?entry=gmail&source=g>+1
+>> 919-800-8033 <(919)%20800-8033>
+>> pamela at chesteklegal.com
+>> www.chesteklegal.com
+>>
+>> On 9/21/2026 3:31 AM, Moming Duan wrote:
+>>
+>> Hi Pam and All,
+>>
+>>
+>> Thank you for walking through the scenarios. Let me try again with your
+>> own examples, and please tell me if I get any of this wrong.
+>>
+>> On my earlier point: that was my reading of the definitions (I'm not a
+>> lawyer), and I may have stretched it. I think your reading is the better
+>> one. Licensor is the rights owner whose grant is in Section 2.1. This also
+>> settles "the" versus "a" for me: for this clause there is one counterparty.
+>> This license has no mechanism for a distributor to pass on patent rights of
+>> its own; every patent right it grants comes from the Licensor. If someone
+>> downstream has patented their improvement, that grant happens outside this
+>> license. So far as this clause is concerned, there really is just the one.
+>>
+>> Your three cases, exactly as they operate:
+>>
+>> - C sues User A, who only runs the model: C keeps the license.
+>> - C sues User B, a distributor: C keeps the license.
+>> - C sues the Licensor: C loses the license.
+>>
+>> The license is one grant from one grantor, and the exchange inside it is
+>> bilateral. The Licensor grants the practice of the Licensed Materials and,
+>> by 2.1(a)(iii), of Derivative Materials too. The licensee's side of the
+>> exchange is not to turn a patent claim against the grantor. When the clause
+>> fires, the Licensor takes back the one thing that was given, from the one
+>> party who took it and then attacked the giver with it. The Derivative
+>> Materials part follows from the same place: 2.1(a)(iii) puts their practice
+>> inside the grant, so a claim that a Derivative infringes is a claim that
+>> the granted practice is unlawful.
+>>
+>> Apache-2.0 looks different because its shape is different. Its patent
+>> licenses come from many contributors, and any claim about the work, against
+>> anyone, even a cross-claim, ends the patent licenses You hold. A
+>> single-grantor license has no such machinery, so we chose the narrower
+>> trigger. You lose the license only by suing the grantor; nobody loses
+>> anything for enforcing a patent against another user. Under OpenMDW-1.1,
+>> termination can follow a copyright claim, a suit you voluntarily joined
+>> rather than started, or a claim brought against anyone at all. Under MG-BY,
+>> the clause fires on one thing only: a patent suit you yourself initiate
+>> against the Licensor. It reaches nothing beyond what our own grant covers.
+>>
+>> On OSD 5 itself. Everyone who holds the license holds it on the same
+>> terms and loses it the same way. I can't find a licensee who gets less than
+>> another licensee. The Licensor is not a licensee; it gives the license
+>> rather than holds it. Apache has the same asymmetry between a Contributor,
+>> who grants patent rights and can have them taken back, and a plain
+>> recipient, who grants nothing and so has nothing to lose. I haven't seen
+>> anyone call that discrimination. Our clause has that shape with one giver
+>> instead of many, and I don't see a classification of persons in it, which
+>> is what I understand OSD 5 to be about.
+>>
+>> To press one point, respectfully: I am not aware that OSI has ever held
+>> that a patent-termination shield must protect everyone to satisfy OSD 5.
+>> That would be a new principle, and if the review establishes it, I will
+>> revise the clause accordingly. Thanks.
+>>
+>>
+>> Best,
+>> Moming
+>>
+>> Pamela Chestek <pamela at chesteklegal.com> 于2026年9月21日周一 11:44写道：
+>>
+>>> Moming,
+>>>
+>>> I'm not following what you're saying. As I understand McCoy's point, it
+>>> is this:
+>>>
+>>> - Licensor is any contributor who added copyrightable content;
+>>>
+>>> - User A is someone who is using Licensor's version of the software but
+>>> has not contributed any copyrightable content and is not distributing the
+>>> software;
+>>>
+>>> -User B is someone who is using Licensor's version of the software, has
+>>> not contributed any copyrightable content, but is distributing the
+>>> software, who you are characterizing as a sublicensor of Licensor's rights;
+>>>
+>>> - User C is the person who owns the allegedly infringed patent.
+>>>
+>>> ===============
+>>>
+>>> User C sues a Licensor for patent infringement - the license terminates.
+>>>
+>>> User C sues User A for for patent infringement - the license does not
+>>> terminate because User A is not a Licensor of anything, they are just using
+>>> the software.
+>>>
+>>> User C sues User B for patent infringement - the license does not
+>>> terminate. First, characterizing User B as a sublicensor may not be a
+>>> correct assumption - why wouldn't User C say "no, I'm not a sublicensee of
+>>> User B, I'm a direct licensee of Licensor who I haven't sued, so the
+>>> license doesn't terminate"? But even assuming User B is a sublicensor, it
+>>> doesn't terminate the license. User B is a sublicensor, not *"the *Licensor,"
+>>> i.e., the "rights owner" per your definition, so the license doesn't
+>>> terminate.
+>>>
+>>> That is the discrimination that I understand McCoy to be describing. The
+>>> license only terminates if User C sues someone who contributed
+>>> copyrightable content, because those are the only people (or companies) who
+>>> have a license that can be terminated. Everyone else can still be sued for
+>>> copyright infringement.
+>>>
+>>> The use of the word "the" in "the Licensor" in the termination section
+>>> is problematic for another reason. The corpus may have many licensors. I
+>>> think the more natural reading is that only the license from the person
+>>> being sued terminates, not all of them. If it said "any legal action
+>>> against *_a_* Licensor alleging that the Licensed Materials and/or
+>>> Derivative Materials infringe any patent worldwide" would terminate all of
+>>> them. But that doesn't solve the problem described above with mere users,
+>>> not contributors, being the defendant in the patent suit.
+>>>
+>>> Pam
+>>> Pamela S. Chestek
+>>> Chestek Legal
+>>> 4641 Post St.
+>>> <https://www.google.com/maps/search/4641+Post+St.+%0D%0A++++++Unit+4316+%0D%0A++++++El+Dorado+Hills,+CA+95762?entry=gmail&source=g>
+>>>
+>>> <https://www.google.com/maps/search/4641+Post+St.+%0D%0A+++++++++++++++Unit+4316+%0D%0A+++++++++++++++El+Dorado+Hills,+CA+95762?entry=gmail&source=g>
+>>> Unit 4316
+>>> <https://www.google.com/maps/search/4641+Post+St.+%0D%0A++++++Unit+4316+%0D%0A++++++El+Dorado+Hills,+CA+95762?entry=gmail&source=g>
+>>>
+>>> <https://www.google.com/maps/search/4641+Post%0D%0A++++++++++++++++++++++++St.+%0D%0A+++++++++++++++++++++++Unit%0D%0A++++++++++++++++++++++++4316+%0D%0A+++++++++++++++++++++++El%0D%0A++++++++++++++++++++++++Dorado+Hills,+CA+95762?entry=gmail&source=g>
+>>> <https://www.google.com/maps/search/4641+Post+St.+%0D%0A+++++++++++++++Unit+4316+%0D%0A+++++++++++++++El+Dorado+Hills,+CA+95762?entry=gmail&source=g>
+>>> El Dorado Hills, CA 95762
+>>> <https://www.google.com/maps/search/4641+Post+St.+%0D%0A++++++Unit+4316+%0D%0A++++++El+Dorado+Hills,+CA+95762?entry=gmail&source=g>
+>>> +1 919-800-8033 <(919)%20800-8033>
+>>>
+>>> <https://www.google.com/maps/search/4641+Post%0D%0A++++++++++++++++++++++++St.+%0D%0A+++++++++++++++++++++++Unit%0D%0A++++++++++++++++++++++++4316+%0D%0A+++++++++++++++++++++++El%0D%0A++++++++++++++++++++++++Dorado+Hills,+CA+95762?entry=gmail&source=g>
+>>> pamela at chesteklegal.com
+>>> www.chesteklegal.com
+>>>
+>>>
+>>> On 9/18/2026 2:58 AM, Moming Duan wrote:
+>>>
+>>> Hi McCoy and all,
+>>>
+>>>
+>>> OSD 5 says the license must not discriminate against any person or group
+>>> of persons. Here, Licensor is a role in the license, not a person. And the
+>>> license itself says how the role moves. The Section 2.1 grant is
+>>> sublicensable, and 2.2(a)(i) requires a copy of this License to travel with
+>>> every Distribution. Even the definition of "Licensed Materials", things
+>>> "Distributed by the Licensor", only really works if each distributor is the
+>>> Licensor for what it distributes. So a licensee who passes the model or a
+>>> Derivative Material on is granting the license onward. It stands as
+>>> Licensor to the people it supplied, and a patent claim by those people does
+>>> trigger termination.
+>>>
+>>> About your May 2025 conclusion, I want to be precise. You wrote then
+>>> that this termination provision was not an OSD violation but an uptake
+>>> issue, and that conclusion was about the Derivative Materials part, which
+>>> is your Q4:
+>>> https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-May/005764.html
+>>> The OSD 5 question, whether the trigger should reach beyond the
+>>> Licensor, is new in this final call, and you yourself put it as "arguably".
+>>> So I read it as an open question rather than a settled one, and not
+>>> something to concede on my own.
+>>>
+>>> It's true that a user who never distributed anything, and sues another
+>>> licensee, does not lose the license. That is deliberate. The patent grant
+>>> has one source, and the promise not to assert runs to that source. A
+>>> dispute between two people who never granted each other anything is outside
+>>> that exchange.
+>>>
+>>> So my reading is that the clause, as written, does not discriminate
+>>> against any person or group, and I'd like to keep the current wording.
+>>>
+>>>
+>>> Best,
+>>> Moming
+>>>
+>>> _______________________________________________
+>>> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>>>
+>>> License-review mailing listLicense-review at lists.opensource.orghttp://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>
+>>> _______________________________________________
+>>> The opinions expressed in this email are those of the sender and not
+>>> necessarily those of the Open Source Initiative. Communication from the
+>>> Open Source Initiative will be sent from an opensource.org email
+>>> address.
+>>>
+>>> License-review mailing list
+>>> License-review at lists.opensource.org
+>>>
+>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>
+>>
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>>
+>> License-review mailing listLicense-review at lists.opensource.orghttp://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>>
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not
+>> necessarily those of the Open Source Initiative. Communication from the
+>> Open Source Initiative will be sent from an opensource.org email address.
+>>
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing listLicense-review at lists.opensource.orghttp://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Communication from the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260924/7d263496/attachment-0001.htm>
+
