@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-doctrine.md
 audience: OSI license-discuss / license-review participants, licence reviewers, 監査人
-last-updated: 2026-09-25
+last-updated: 2026-09-26
 canonical-ref: LICENSES/ACD-1.0.review-precedents.md (他の提出に何が起きたかの記録) / LICENSES/ACD-1.0.against.md
 ---
 
@@ -401,3 +401,62 @@ Russ Nelson 氏の答え —— *"Why isn't it approved? Because we got hideousl
 **我々の場合は moderator が「ACD-1.0 に関する further submissions の前に直接返信せよ」と
 求め、その後も投稿が通っていない**（B14 / `ACD-OSI-BOTTLENECKS-POSTING.md`）。
 **「再提出せよ」という処方が在ることと、我々がいま再提出できることは別である。**
+
+## 1.114 「使用の制限は OSD に無い」—— リストが自分でそう言い、正確な形まで出している（2026-09-26）
+
+一次資料は `rounds/2004-09-license-discuss-academic-citing-license-observed-*.txt`（36 通・3 部）と
+`rounds/2001-06-license-discuss-qmail-osd4-observed-*.txt`（21 通・2 部）。
+
+### OSD には「使用を制限してはならない」と書いていない
+
+2004 年、科学ソフトの作者が「このプログラムを使った論文は特定の論文を引用すること」という
+条件を付けたいと相談した。Evan Prodromou 氏の答え ——
+*"as the copyright holder, you have limited rights to tell people how they can use your software. ...
+**Why isn't it part of the OSD, you may ask? I'm not sure.** My guess is that it was assumed that
+since copyright holders don't have the right to tell people how to use their software, that
+shouldn't show up in licenses anyways."*
+
+**そして同じ人が、数日後に自分の言い方を正している** ——
+*"It's a mistake on my part to use the imprecise short phrase 'no restrictions on use'.
+**It'd be more accurate to say 'no restrictions on use not covered by copyright law.'**"*
+
+**ACD-1.0 にとっての意味は 2 つある。**
+**(1)** §10.1 は**どんな条件も付けない**ので、この線のどちら側かを判定する必要がない。
+**(2)** §1.5 の Covered Rights は *"rights in performances"* を**明示的に含んでいる** ——
+同じスレッドで Moen 氏と Poole 氏が「プログラムの実行は public performance か」で決着せず
+（Moen 氏「米国著作権法の performance rights は音楽・photoplay 等に限られ software には及ばない」/
+Poole 氏「WIPO 著作権条約は computer programs を literary works として保護し、Berne は
+literary works の public recitation を留保している」）、**Rosen 氏が実務的な答えを出している**
+—— *"If you want to 'perform' software, **the OSL expressly allows it just as it expressly allows
+'use'**, so there's no need to worry about whether it is a performance or a use."*
+**ACD-1.0 は §3・§4 が Covered Rights 全体を対象にし、その定義が performances を名指しするので、
+同じ「心配しなくてよい」側に立っている。**
+
+### 2004 年にも「OSD には適合する。だが承認はしない」が出ている
+
+Stephen North 氏 —— *"Though I'm not a fan of this proposal, **doesn't it conform to the Open
+Source Definition?**"* 提出者の返し —— *"Oh yes, someone please say '**It conforms to the OSD.
+Nevertheless, we won't approve it as it restricts the use.**'"*
+
+**#248（OSD 適合は十分条件ではない）の、13 年早い同じ形である。**
+
+### 条件は「あるかないか」ではなく「どこまで厳しくできるか」で見られている
+
+2001 年の qmail スレッド。Behlendorf 氏 *"Every license has a list of conditions attached to those
+rights they grant, even the BSD/MIT licenses."* に対し、John Cowan 氏 ——
+*"a claim that 'X must allow Y' is satisfied by a statement by X that 'Y is allowed under
+conditions Z' **can't be true in general, since the conditions Z can be arbitrarily restrictive**."*
+
+**ACD-1.0 §10.1 は条件を 1 つも持たないので、この議論の対象にならない。**
+**これは「強い」からではなく「議論の前提である条件が存在しない」からである** ——
+**§10.1 の価値は、争点を作らないことにある。**
+
+### OSD 3 の後半は、実際に判定の決め手として使われている
+
+Rick Moen 氏 2001-06-07 —— *"**OSD clause #3, immediately preceding, strikes me as disambiguating
+this.** ... Although a copy of qmail compiled from modified source is a derived work, **it may not
+be distributed under the same terms as the original** (as clause #3 says must be true for OSD
+compliance)."*
+
+**我々が 2026-09-13 に §16.3 で埋めたのは、この後半である**（`against.md` の「OSD 3 の後半に
+答えていなかった」件）。**25 年前の実例が、その後半が飾りではないことを示している。**

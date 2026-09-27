@@ -1,0 +1,750 @@
+> -- 
+> David Burley
+> Second Level Support Technician, SourceForge.net
+> burley at sourceforge.net
+
+
+
+From evan at wikitravel.org  Mon Sep 27 05:32:47 2004
+From: evan at wikitravel.org (Evan Prodromou)
+Date: Mon, 27 Sep 2004 01:32:47 -0400
+Subject: For Approval: Academic Citing License
+In-Reply-To: <ECABE550-103A-11D9-9556-000393B3C032@geo.unizh.ch>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096233475.9992.32.camel@bad> <ECABE550-103A-11D9-9556-000393B3C032@geo.unizh.ch>
+Message-ID: <1096263167.9992.79.camel@bad>
+
+On Mon, 2004-09-27 at 06:08 +0200, Johannes Kaiser wrote:
+> On 26 Sep 2004, at 23:17, Evan Prodromou wrote:
+
+> > This is where you're mistaken: this is _nothing_like_ the requirement 
+> > to have license notification. That's a restriction on the publication of
+> > the work itself. You're trying to restrict the publication of the 
+> > output of the program -- a very clear restriction on use.
+> 
+> OK, I see that the condition is a restriction on use *in general*.
+
+Yes. The problem is that, as the copyright holder, you have limited
+rights to tell people how they can use your software. You can keep them
+from distributing it or making modified versions and distributing those,
+but you can't really tell anyone how to use it day to day.
+
+At least, this is how I understand the "no restrictions on use" idea.
+Why isn't it part of the OSD, you may ask? I'm not sure. My guess is
+that it was assumed that since copyright holders don't have the right to
+tell people how to use their software, that shouldn't show up in
+licenses anyways.
+
+> > I would suggest that you license your work under one of the already-
+> > approved Open Source licenses, and add a _reminder_ in the 
+> > documentation for your work that scientists who use your code to
+> > make new discoveries
+> > are obliged through both professional courtesy and thoroughness of
+> > reference to cite your original article.
+> 
+> That is exactly what I think science should work like! Unfortunately, 
+> it does not far too often. At least, I know a couple of pretty bad 
+> stories.
+
+This is unfortunate. However, I don't think your license will solve the
+problem. If someone publishes a paper that uses your software but
+doesn't cite you, what will you do? Sue them? My guess is that your
+restriction is unenforceable, and you would lose in court.
+
+If you're not going to sue, or if you can't, then it's probably not a
+good idea to include the restriction in your license.
+
+~ESP
+
+-- 
+Evan Prodromou <evan at wikitravel.org>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: This is a digitally signed message part
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20040927/a5bcd8e2/attachment.sig>
+
+From rick at linuxmafia.com  Mon Sep 27 06:04:00 2004
+From: rick at linuxmafia.com (Rick Moen)
+Date: Sun, 26 Sep 2004 23:04:00 -0700
+Subject: For Approval: Academic Citing License
+In-Reply-To: <1096256040.31445.11.camel@localhost.localdomain>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096256040.31445.11.camel@localhost.localdomain>
+Message-ID: <20040927060400.GQ22041@linuxmafia.com>
+
+Quoting David Burley (burley at sourceforge.net):
+
+> Our stance (SourceForge.net) is straightforward. We require that the
+> software meet the Open Source Definition as provided by the Open
+> Source Initiative. 
+
+Hmm.  Searching the Trove database by licence category, one finds:
+ License OSI Approved (55076 projects) Other/Proprietary License (948 projects) Public Domain (1524 projects)
+
+That's 1524 + 948 = 2472 counter-examples.
+
+I used to believe what you said, too (as I'm sure you did when you said
+that), and so was surprised to get the above results in 2000 when I
+discovered it.  Just to save you the trouble, I brought the 
+matter to SourceForge management:  They very politely told me that it
+doesn't matter.
+
+-- 
+Cheers,                        Open-source SourceForge retakes the lead:
+Rick Moen                      http://gforge.org/  Thank you, Tim Perdue.
+rick at linuxmafia.com  
+
+
+From jcowan at reutershealth.com  Mon Sep 27 11:38:10 2004
+From: jcowan at reutershealth.com (John Cowan)
+Date: Mon, 27 Sep 2004 07:38:10 -0400
+Subject: For Approval: Academic Citing License
+In-Reply-To: <20040927060400.GQ22041@linuxmafia.com>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096256040.31445.11.camel@localhost.localdomain> <20040927060400.GQ22041@linuxmafia.com>
+Message-ID: <20040927113746.GA27514@skunk.reutershealth.com>
+
+Rick Moen scripsit:
+
+> Hmm.  Searching the Trove database by licence category, one finds:
+> 
+>   License
+>       OSI Approved (55076 projects)
+>       Other/Proprietary License (948 projects)
+>       Public Domain (1524 projects)
+> 
+> That's 1524 + 948 = 2472 counter-examples.
+
+Only 948.  Public domain projects don't have OSI-approved licenses
+for the very good reason that they aren't licensed at all.  But 
+they are clearly Open Source.
+
+> I used to believe what you said, too (as I'm sure you did when you said
+> that), and so was surprised to get the above results in 2000 when I
+> discovered it.  Just to save you the trouble, I brought the 
+> matter to SourceForge management:  They very politely told me that it
+> doesn't matter.
+
+I investigated just a trivial number of those projects.  First of all,
+some have (or claim to have) both OSI-approved and other/proprietary
+licenses.  Filtering those out (manually), I found miscategorized
+projects, projects with Creative Commons licenses, and idiosyncratic
+but plainly Open Source licenses like the license of gnuplot (which
+is BSD-ish but allows only patches, like the QPL).  So assuming that
+all 948 are in fact under proprietary licenses is incorrect.
+
+-- 
+Principles.  You can't say A is         John Cowan <jcowan at reutershealth.com>
+made of B or vice versa.  All mass      http://www.reutershealth.com
+is interaction.  --Richard Feynman      http://www.ccil.org/~cowan
+
+
+From north at research.att.com  Mon Sep 27 13:42:04 2004
+From: north at research.att.com (Stephen C. North)
+Date: Mon, 27 Sep 2004 09:42:04 -0400 (EDT)
+Subject: For Approval: Academic Citing License
+Message-ID: <200409271342.JAA87056@raptor.research.att.com>
+
+Dictating what other researchers write or cite in their
+own publications seems like an indirect form of wanting
+to be "paid" (by means of recognition that would not 
+otherwise have been given).  Doesn't the contributor of
+the software believe that the work is strong enough to
+stand on its own merits?  It's the job of referees to
+point out when authors have failed to cite the most relevant
+work.  Why tamper with the normal process?
+Stephen North
+
+
+
+From rick at linuxmafia.com  Mon Sep 27 14:48:53 2004
+From: rick at linuxmafia.com (Rick Moen)
+Date: Mon, 27 Sep 2004 07:48:53 -0700
+Subject: For Approval: Academic Citing License
+In-Reply-To: <20040927113746.GA27514@skunk.reutershealth.com>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096256040.31445.11.camel@localhost.localdomain> <20040927060400.GQ22041@linuxmafia.com> <20040927113746.GA27514@skunk.reutershealth.com>
+Message-ID: <20040927144853.GC32311@linuxmafia.com>
+
+Quoting John Cowan (jcowan at reutershealth.com):
+
+> Only 948.  Public domain projects don't have OSI-approved licenses
+> for the very good reason that they aren't licensed at all.  But 
+> they are clearly Open Source.
+
+You are (obviously) correct in the abstract, but I investigated quite a
+number of these as I was vetting PalmOS codebases for inclusion in my
+collection of all open-source PalmOS packages
+(http://linuxmafia.com/palmos/).  It turned out that basically _all_ of
+the packages I checked had various encumbrances by upstream copyright
+rights (e.g., prior authors), but that, in each case, basically the
+project lead developer was using "public domain" as shorthand to mean "I
+don't understand licensing and/or want the problem to go away".
+
+> I investigated just a trivial number of those projects.  First of all,
+> some have (or claim to have) both OSI-approved and other/proprietary
+> licenses.  Filtering those out (manually), I found miscategorized
+> projects, projects with Creative Commons licenses, and idiosyncratic
+> but plainly Open Source licenses like the license of gnuplot (which
+> is BSD-ish but allows only patches, like the QPL).  So assuming that
+> all 948 are in fact under proprietary licenses is incorrect.
+
+Actually, all _three_ of three of the categories I reported are riddled
+with miscategorised projects, etc.  So, you could equally well have objected
+that "assuming that all 55076 projects are OSI Approved is incorrect".
+
+I called this, too, to SourceForge.net management, and suggested that at
+least a cursory review that submitted projects' licensing was being
+accurately recorded might be a good idea.  They said no.
+
+-- 
+Cheers,                        Open-source SourceForge retakes the lead:
+Rick Moen                      http://gforge.org/  Thank you, Tim Perdue.
+rick at linuxmafia.com  
+
+
+From rousskov at measurement-factory.com  Mon Sep 27 16:30:24 2004
+From: rousskov at measurement-factory.com (Alex Rousskov)
+Date: Mon, 27 Sep 2004 10:30:24 -0600 (MDT)
+Subject: For Approval: Academic Citing License
+In-Reply-To: <20040927144853.GC32311@linuxmafia.com>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096256040.31445.11.camel@localhost.localdomain> <20040927060400.GQ22041@linuxmafia.com> <20040927113746.GA27514@skunk.reutershealth.com> <20040927144853.GC32311@linuxmafia.com>
+Message-ID: <20040927102300.V45860@measurement-factory.com>
+
+On Mon, 27 Sep 2004, Rick Moen wrote:
+
+> Quoting John Cowan (jcowan at reutershealth.com):
+>
+>> Only 948.  Public domain projects don't have OSI-approved licenses 
+>> for the very good reason that they aren't licensed at all.  But 
+>> they are clearly Open Source.
+>
+> You are (obviously) correct in the abstract, but [...] It turned out 
+> that basically _all_ of the packages I checked had various 
+> encumbrances by upstream copyright rights (e.g., prior authors), but 
+> that, in each case, basically the project lead developer was using 
+> "public domain" as shorthand to mean "I don't understand licensing 
+> and/or want the problem to go away".
+
+and/or as a shorthand to mean "my understanding of a Public Domain 
+concept differs from that of Rick Moen" :-/.
+
+Alex.
+
+
+From rick at linuxmafia.com  Mon Sep 27 16:36:29 2004
+From: rick at linuxmafia.com (Rick Moen)
+Date: Mon, 27 Sep 2004 09:36:29 -0700
+Subject: For Approval: Academic Citing License
+In-Reply-To: <20040927102300.V45860@measurement-factory.com>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096256040.31445.11.camel@localhost.localdomain> <20040927060400.GQ22041@linuxmafia.com> <20040927113746.GA27514@skunk.reutershealth.com> <20040927144853.GC32311@linuxmafia.com> <20040927102300.V45860@measurement-factory.com>
+Message-ID: <20040927163629.GF32311@linuxmafia.com>
+
+Quoting Alex Rousskov (rousskov at measurement-factory.com):
+
+> and/or as a shorthand to mean "my understanding of a Public Domain 
+> concept differs from that of Rick Moen" :-/.
+
+And how many of those projects did _you_ licence-audit, Alex?  I imagine
+that would be precisely zero, nicht wahr?
+
+-- 
+Cheers,
+Rick Moen                      "vi is my shepherd; I shall not font."
+rick at linuxmafia.com                               -- Psalm 0.1 beta
+
+
+From rick at linuxmafia.com  Mon Sep 27 16:56:25 2004
+From: rick at linuxmafia.com (Rick Moen)
+Date: Mon, 27 Sep 2004 09:56:25 -0700
+Subject: For Approval: Academic Citing License
+In-Reply-To: <20040927102300.V45860@measurement-factory.com>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096256040.31445.11.camel@localhost.localdomain> <20040927060400.GQ22041@linuxmafia.com> <20040927113746.GA27514@skunk.reutershealth.com> <20040927144853.GC32311@linuxmafia.com> <20040927102300.V45860@measurement-factory.com>
+Message-ID: <20040927165625.GG32311@linuxmafia.com>
+
+Quoting Alex Rousskov (rousskov at measurement-factory.com):
+> On Mon, 27 Sep 2004, Rick Moen wrote:
+
+> >...in each case, basically the project lead developer was using 
+> >"public domain" as shorthand to mean "I don't understand licensing 
+> >and/or want the problem to go away".
+> 
+> and/or as a shorthand to mean "my understanding of a Public Domain 
+> concept differs from that of Rick Moen" :-/.
+
+I've decided I'm not _quite_ done with you, Mr. Rousskov, so please
+don't slink off quite so quickly.  Let's consider one handy example of
+what you call "an understanding differing from that of Rick Moen",
+http://wabburami.sourceforge.net/ :
+
+This is a PalmOS game codebase that runs as bytecode in Waba, a Java-like 
+interpreter.  "License: Public Domain".  Developer is listed as "David
+M. Archer".
+
+Upon examination, docs state that it's derived from Sun's Rumor game
+distributed at the 1999 JavaOne developer conference, and on a C code
+version Archer found in SCO's Open License Software Supplement
+(Skunkware) archive, ftp://ftp.sco.com/skunkware/ .  Asked if he knew
+the licence terms for the predecessor works, Archer's response was to
+attack the motives of the questioner at length, call him names, and 
+suggest that the questioner should do any licence research deemed
+necessary.
+
+Ergo, it became obvious that, in this case ""an understanding differing
+from that of Rick Moen" meant "I grabbed this and am misrepresenting my
+derivative work as public domain despite not having permission from
+upstream authors... because I can".   
+
+-- 
+Cheers,               Everything is gone;
+Rick Moen             Your life's work has been destroyed.
+rick at linuxmafia.com   Squeeze trigger (yes/no)? -- David Carlson (winner, haiku error message contest)
+
+
+From rousskov at measurement-factory.com  Mon Sep 27 17:50:28 2004
+From: rousskov at measurement-factory.com (Alex Rousskov)
+Date: Mon, 27 Sep 2004 11:50:28 -0600 (MDT)
+Subject: For Approval: Academic Citing License
+In-Reply-To: <20040927163629.GF32311@linuxmafia.com>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096256040.31445.11.camel@localhost.localdomain> <20040927060400.GQ22041@linuxmafia.com> <20040927113746.GA27514@skunk.reutershealth.com> <20040927144853.GC32311@linuxmafia.com> <20040927102300.V45860@measurement-factory.com> <20040927163629.GF32311@linuxmafia.com>
+Message-ID: <20040927112350.L45860@measurement-factory.com>
+
+On Mon, 27 Sep 2004, Rick Moen wrote:
+
+> Quoting Alex Rousskov (rousskov at measurement-factory.com):
+>> and/or as a shorthand to mean "my understanding of a Public Domain 
+>> concept differs from that of Rick Moen" :-/.
+>
+> And how many of those projects did _you_ licence-audit, Alex?  I 
+> imagine that would be precisely zero, nicht wahr?
+
+I currently author/admin a couple of Public Domain projects on Source 
+Forge, so you would be precisely wrong. However, me eating my dog food 
+is not the point, of course.
+
+The point is that you are using your interpretation of Public Domain 
+status to portrait authors of Public Domain projects (other than US 
+government agents, I assume) as clueless about licensing problems. 
+Believe it or not, but disagreeing with you does not make somebody 
+clueless or ignorant.
+
+There are many clueless folks selecting distribution terms for their 
+software (regardless of the licensing model), and I believe it is 
+unfair to single out those who pick Public Domain. In fact, if a 
+legally-clueless person picks distribution terms, it is arguably 
+better to pick Public Domain: it might both match the intent better 
+(on average) and be a clear warning sign for folks that support your 
+point of view.
+
+
+I do agree that it would be great for OSI to write about Public Domain 
+software. I hope OSI description will be more balanced than yours.
+
+Alex.
+
+
+From rick at linuxmafia.com  Mon Sep 27 17:58:54 2004
+From: rick at linuxmafia.com (Rick Moen)
+Date: Mon, 27 Sep 2004 10:58:54 -0700
+Subject: For Approval: Academic Citing License
+In-Reply-To: <20040927112350.L45860@measurement-factory.com>
+References: <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096256040.31445.11.camel@localhost.localdomain> <20040927060400.GQ22041@linuxmafia.com> <20040927113746.GA27514@skunk.reutershealth.com> <20040927144853.GC32311@linuxmafia.com> <20040927102300.V45860@measurement-factory.com> <20040927163629.GF32311@linuxmafia.com> <20040927112350.L45860@measurement-factory.com>
+Message-ID: <20040927175854.GY22041@linuxmafia.com>
+
+Quoting Alex Rousskov (rousskov at measurement-factory.com):
+
+> >And how many of those projects did _you_ licence-audit, Alex?  I 
+> >imagine that would be precisely zero, nicht wahr?
+> 
+> I currently author/admin a couple of Public Domain projects on Source 
+> Forge, so you would be precisely wrong.
+
+Allow me to refresh your memory, Mr. Rousskov:
+
+I said:
+
+You are (obviously) correct in the abstract, but I investigated quite a
+number of these as I was vetting PalmOS codebases for inclusion in my
+collection of all open-source PalmOS packages
+(http://linuxmafia.com/palmos/).  It turned out that basically _all_ of
+the packages I checked had various encumbrances by upstream copyright
+rights (e.g., prior authors), but that, in each case, basically the
+project lead developer was using "public domain" as shorthand to mean "I
+don't understand licensing and/or want the problem to go away".
+
+Perhaps thinking yourself a comedian, you said:
+
+...and/or as a shorthand to mean "my understanding of a Public Domain
+concept differs from that of Rick Moen" :-/.
+
+To which I rejoined:  "And how many of those projects did _you_
+licence-audit, Alex?"
+
+Would you like to try the question again, or do you need the concept of
+"all of the [PalmOS] packages I checked" explained to you?
+
+
+> The point is that you are using your interpretation of Public Domain 
+> status to portrait authors of Public Domain projects (other than US 
+> government agents, I assume) as clueless about licensing problems. 
+
+I spoke of the ones I checked, sir.  Unlike some people I could name, I 
+attempt to be specific.
+
+> Believe it or not, but disagreeing with you does not make somebody 
+> clueless or ignorant.
+
+Don't look now, but Irony is checking your dance-card.
+
+> There are many clueless folks selecting distribution terms for their 
+> software (regardless of the licensing model), and I believe it is 
+> unfair to single out those who pick Public Domain.
+
+Statistical sampling thus far suggests that you lose.
+
+> I do agree that it would be great for OSI to write about Public Domain 
+> software.
+
+Is there some particular part of it not being a licence that you still
+aren't getting?
+
+-- 
+Cheers,   If C gives you enough rope to hang yourself, then C++ gives you enough
+Rick Moen    to bind and gag your neighbourhood, rig the sails on a small ship,
+rick at linuxmafia.com    and still have enough to hang yourself from the yardarm.
+
+
+From rousskov at measurement-factory.com  Mon Sep 27 18:03:53 2004
+From: rousskov at measurement-factory.com (Alex Rousskov)
+Date: Mon, 27 Sep 2004 12:03:53 -0600 (MDT)
+Subject: For Approval: Academic Citing License
+In-Reply-To: <20040927165625.GG32311@linuxmafia.com>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096256040.31445.11.camel@localhost.localdomain> <20040927060400.GQ22041@linuxmafia.com> <20040927113746.GA27514@skunk.reutershealth.com> <20040927144853.GC32311@linuxmafia.com> <20040927102300.V45860@measurement-factory.com> <20040927165625.GG32311@linuxmafia.com>
+Message-ID: <20040927115456.V45860@measurement-factory.com>
+
+On Mon, 27 Sep 2004, Rick Moen wrote:
+
+> I've decided I'm not _quite_ done with you, Mr. Rousskov, so please
+> don't slink off quite so quickly.  Let's consider one handy example of
+> what you call "an understanding differing from that of Rick Moen",
+> http://wabburami.sourceforge.net/ :
+[snip]
+> Ergo, it became obvious that, in this case ""an understanding 
+> differing from that of Rick Moen" meant "I grabbed this and am 
+> misrepresenting my derivative work as public domain despite not 
+> having permission from upstream authors... because I can".
+
+Which (a) confirms an obvious fact that many authors are clueless
+and (b) demonstrates "an understanding different from that of Rick Moen"
+
+Thus, I am not sure why you are using this particular case. In fact, as 
+I said earlier, we should be thankful that the author picked "public 
+domain" option because it prompted your [more careful] review of their 
+software status.
+
+I hope you are not implying that only Public Domain projects on Source 
+Forge misrepresent derivative work status?
+
+Alex.
+
+
+From rick at linuxmafia.com  Mon Sep 27 18:27:34 2004
+From: rick at linuxmafia.com (Rick Moen)
+Date: Mon, 27 Sep 2004 11:27:34 -0700
+Subject: For Approval: Academic Citing License
+In-Reply-To: <20040927115456.V45860@measurement-factory.com>
+References: <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096256040.31445.11.camel@localhost.localdomain> <20040927060400.GQ22041@linuxmafia.com> <20040927113746.GA27514@skunk.reutershealth.com> <20040927144853.GC32311@linuxmafia.com> <20040927102300.V45860@measurement-factory.com> <20040927165625.GG32311@linuxmafia.com> <20040927115456.V45860@measurement-factory.com>
+Message-ID: <20040927182734.GZ22041@linuxmafia.com>
+
+Quoting Alex Rousskov (rousskov at measurement-factory.com):
+
+> Which
+>   (a) confirms an obvious fact that many authors are clueless
+> and
+>   (b) demonstrates "an understanding different from that of Rick Moen"
+
+...an understanding that, moveover, differs from that of _copyright law_. 
+Thus my point.
+
+Did you have one, other than to demonstrate poor judgement in targets
+for badly conceived personal potshots?
+
+> I hope you are not implying that only Public Domain projects on Source 
+> Forge misrepresent derivative work status?
+
+I hope you are not unable to read and comprehend my earlier message in
+which I point out misclassifications in all _three_ categories (or 
+unable to notice yourself searching a change of topic after having
+miscalculated rather badly.)
+
+But, since you raise the question, in my licence-audit of about 800 PalmOS 
+works claimed to be open source (including "public domain"), "public
+domain" did indeed comprise an overwhelming majority of those with
+serious licensing problems.
+
+-- 
+Cheers,   "Why is the alphabet in that order?  Is it because of that song?"
+Rick Moen                                              -- Steven Wright
+rick at linuxmafia.com
+
+
+From jkaiser at geo.unizh.ch  Mon Sep 27 21:52:12 2004
+From: jkaiser at geo.unizh.ch (Johannes Kaiser)
+Date: Mon, 27 Sep 2004 23:52:12 +0200
+Subject: For Approval: Academic Citing License
+In-Reply-To: <1096263167.9992.79.camel@bad>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096233475.9992.32.camel@bad> <ECABE550-103A-11D9-9556-000393B3C032@geo.unizh.ch> <1096263167.9992.79.camel@bad>
+Message-ID: <7CCD3BD2-10CF-11D9-AC5A-000393B3C032@geo.unizh.ch>
+
+> On Mon, 2004-09-27 at 06:08 +0200, Johannes Kaiser wrote:
+>> On 26 Sep 2004, at 23:17, Evan Prodromou wrote:
+>
+>>> This is where you're mistaken: this is _nothing_like_ the requirement
+>>> to have license notification. That's a restriction on the 
+>>> publication of
+>>> the work itself. You're trying to restrict the publication of the
+>>> output of the program -- a very clear restriction on use.
+>>
+>> OK, I see that the condition is a restriction on use *in general*.
+>
+> Yes. The problem is that, as the copyright holder, you have limited
+> rights to tell people how they can use your software. You can keep them
+> from distributing it or making modified versions and distributing 
+> those,
+> but you can't really tell anyone how to use it day to day.
+
+You tell me and I've got to believe you. I understand that this holds 
+for open source licenses. But how about the creative commons licenses? 
+They are telling people how to use it, e.g. not commercially. So your 
+statement cannot be true in general.
+
+> At least, this is how I understand the "no restrictions on use" idea.
+> Why isn't it part of the OSD, you may ask? I'm not sure. My guess is
+> that it was assumed that since copyright holders don't have the right 
+> to
+> tell people how to use their software, that shouldn't show up in
+> licenses anyways.
+
+Yes, to get a better understanding how this opensource.org thing works, 
+I would be very interested in what the criterion for OSI approval is. 
+The web page says it is the OSD, but you are telling me it is (also) 
+the somewhat vague "no restrictions on use" idea. Is this consensus?
+
+>>> I would suggest that you license your work under one of the already-
+>>> approved Open Source licenses, and add a _reminder_ in the
+>>> documentation for your work that scientists who use your code to
+>>> make new discoveries
+>>> are obliged through both professional courtesy and thoroughness of
+>>> reference to cite your original article.
+>>
+>> That is exactly what I think science should work like! Unfortunately,
+>> it does not far too often. At least, I know a couple of pretty bad
+>> stories.
+>
+> This is unfortunate. However, I don't think your license will solve the
+> problem. If someone publishes a paper that uses your software but
+> doesn't cite you, what will you do? Sue them? My guess is that your
+> restriction is unenforceable, and you would lose in court.
+
+I agree that the license would not solve the problem entirely in 
+practice. Instead, I would think that it increases the awareness of the 
+user, thereby reducing the problem. And I am sure that my more 
+experience coworkers would never ever give any code out of their hands 
+before the recipient has signed a license agreement containing such a 
+citation condition (and much stronger one requiring prior notification 
+etc.)
+
+> If you're not going to sue, or if you can't, then it's probably not a
+> good idea to include the restriction in your license.
+
+Thanks for your explanations!
+Johannes
+
+
+
+From jkaiser at geo.unizh.ch  Mon Sep 27 21:52:16 2004
+From: jkaiser at geo.unizh.ch (Johannes Kaiser)
+Date: Mon, 27 Sep 2004 23:52:16 +0200
+Subject: For Approval: Academic Citing License
+In-Reply-To: <200409271342.JAA87056@raptor.research.att.com>
+References: <200409271342.JAA87056@raptor.research.att.com>
+Message-ID: <7F57AD9E-10CF-11D9-AC5A-000393B3C032@geo.unizh.ch>
+
+On 27 Sep 2004, at 15:42, Stephen C. North wrote:
+
+> Dictating what other researchers write or cite in their
+> own publications seems like an indirect form of wanting
+> to be "paid" (by means of recognition that would not
+> otherwise have been given).  Doesn't the contributor of
+> the software believe that the work is strong enough to
+> stand on its own merits?
+
+I had not expected an attack on my professional qualities in this 
+list...
+
+> It's the job of referees to
+> point out when authors have failed to cite the most relevant
+> work.  Why tamper with the normal process?
+
+Because I know cases where the normal process failed to ensure proper 
+credits for the code's author. Maybe ATT is (still) a scientific 
+heaven; environmental sciences certainly are not and I have not got a 
+permanent position to relax on.
+
+Johannes
+
+
+
+From evan at wikitravel.org  Mon Sep 27 23:13:47 2004
+From: evan at wikitravel.org (Evan Prodromou)
+Date: Mon, 27 Sep 2004 19:13:47 -0400
+Subject: For Approval: Academic Citing License
+In-Reply-To: <7CCD3BD2-10CF-11D9-AC5A-000393B3C032@geo.unizh.ch>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096233475.9992.32.camel@bad> <ECABE550-103A-11D9-9556-000393B3C032@geo.unizh.ch> <1096263167.9992.79.camel@bad> <7CCD3BD2-10CF-11D9-AC5A-000393B3C032@geo.unizh.ch>
+Message-ID: <1096326827.23001.29.camel@bad>
+
+On Mon, 2004-09-27 at 23:52 +0200, Johannes Kaiser wrote:
+
+> > Yes. The problem is that, as the copyright holder, you have limited
+> > rights to tell people how they can use your software. You can keep them
+> > from distributing it or making modified versions and distributing 
+> > those,
+> > but you can't really tell anyone how to use it day to day.
+> 
+> You tell me and I've got to believe you. I understand that this holds 
+> for open source licenses. But how about the creative commons licenses? 
+> They are telling people how to use it, e.g. not commercially. So your 
+> statement cannot be true in general.
+
+No, it's true in general. Some CC licenses say that you can't distribute
+or perform the work or derivative works for 'commercial advantage' --
+not that you can't _use_ them for commercial advantage. It's perfectly
+OK to listen to a Creative Commons Attribution-NonCommercial song to
+pump yourself up before going out to make a big sale.
+
+~ESP
+
+-- 
+Evan Prodromou <evan at wikitravel.org>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: This is a digitally signed message part
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20040927/941a11c9/attachment.sig>
+
+From north at research.att.com  Tue Sep 28 02:15:38 2004
+From: north at research.att.com (Stephen C. North)
+Date: Mon, 27 Sep 2004 22:15:38 -0400 (EDT)
+Subject: For Approval: Academic Citing License
+Message-ID: <200409280215.WAA30490@raptor.research.att.com>
+
+
+Though I'm not a fan of this proposal, doesn't it 
+conform to the Open Source Definition?
+
+
+From amado.alves at netcabo.pt  Tue Sep 28 07:16:56 2004
+From: amado.alves at netcabo.pt (Marius Amado Alves)
+Date: Tue, 28 Sep 2004 08:16:56 +0100
+Subject: For Approval: Academic Citing License
+In-Reply-To: <7F57AD9E-10CF-11D9-AC5A-000393B3C032@geo.unizh.ch>
+References: <200409271342.JAA87056@raptor.research.att.com> <7F57AD9E-10CF-11D9-AC5A-000393B3C032@geo.unizh.ch>
+Message-ID: <41590FE8.3000807@netcabo.pt>
+
+Johannes Kaiser wrote:
+
+> On 27 Sep 2004, at 15:42, Stephen C. North wrote:
+> 
+>> Dictating what other researchers write or cite in their
+>> own publications seems like an indirect form of wanting
+>> to be "paid" (by means of recognition that would not
+>> otherwise have been given).  Doesn't the contributor of
+>> the software believe that the work is strong enough to
+>> stand on its own merits?
+> 
+> I had not expected an attack on my professional qualities in this list...
+
+You can expect everything on this list :-)
+
+>> It's the job of referees to
+>> point out when authors have failed to cite the most relevant
+>> work.  Why tamper with the normal process?
+> 
+> Because I know cases where the normal process failed to ensure proper 
+> credits for the code's author. Maybe ATT is (still) a scientific heaven; 
+> environmental sciences certainly are not and I have not got a permanent 
+> position to relax on.
+
+I also know cases. First hand. In the computer science area.
+
+
+
+From amado.alves at netcabo.pt  Tue Sep 28 07:21:50 2004
+From: amado.alves at netcabo.pt (Marius Amado Alves)
+Date: Tue, 28 Sep 2004 08:21:50 +0100
+Subject: For Approval: Academic Citing License
+In-Reply-To: <1096326827.23001.29.camel@bad>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch>	 <16720.28655.119024.197604@desk.crynwr.com>	 <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch>	 <16720.48095.853232.958470@desk.crynwr.com>	 <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch>	 <1096233475.9992.32.camel@bad>	 <ECABE550-103A-11D9-9556-000393B3C032@geo.unizh.ch>	 <1096263167.9992.79.camel@bad>	 <7CCD3BD2-10CF-11D9-AC5A-000393B3C032@geo.unizh.ch> <1096326827.23001.29.camel@bad>
+Message-ID: <4159110E.4090303@netcabo.pt>
+
+
+Evan Prodromou wrote:
+> ... Some CC licenses say that you can't distribute
+> or perform the work or derivative works for 'commercial advantage' --
+> not that you can't _use_ them for commercial advantage.
+
+Duh? Perform is not use? I'm a composer. What other use of my work can 
+there be other than perform it?
+
+
+
+From atwork at infimum.dk  Tue Sep 28 08:48:46 2004
+From: atwork at infimum.dk (Lasse Reichstein Nielsen)
+Date: Tue, 28 Sep 2004 10:48:46 +0200
+Subject: For Approval: Academic Citing License
+In-Reply-To: <4159110E.4090303@netcabo.pt>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch>	 <16720.28655.119024.197604@desk.crynwr.com>	 <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch>	 <16720.48095.853232.958470@desk.crynwr.com>	 <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch>	 <1096233475.9992.32.camel@bad>	 <ECABE550-103A-11D9-9556-000393B3C032@geo.unizh.ch>	 <1096263167.9992.79.camel@bad>	 <7CCD3BD2-10CF-11D9-AC5A-000393B3C032@geo.unizh.ch> <1096326827.23001.29.camel@bad> <4159110E.4090303@netcabo.pt>
+Message-ID: <opse033kcvf0ffa2@aclre01w.acure.net>
+
+On Tue, 28 Sep 2004 08:21:50 +0100, Marius Amado Alves  
+<amado.alves at netcabo.pt> wrote:
+
+>
+> Evan Prodromou wrote:
+>> ... Some CC licenses say that you can't distribute
+>> or perform the work or derivative works for 'commercial advantage' --
+>> not that you can't _use_ them for commercial advantage.
+>
+> Duh? Perform is not use? I'm a composer. What other use of my work can  
+> there be other than perform it?
+
+Performance is use, Evan Prodromou didn't say otherwise. It's just that
+not all uses are performances in the terms of Copyright law.
+
+In copyright terms, a performance is *public*, it is one of the ways an
+author/copyright holder can publicise his work. Merely playing the music
+for yourself, or in a private setting, is not a performance. Even playing
+it for yourself, as a private person, in a commercial setting, is not a
+performance.
+
+/L
+-- 
+Lasse R. Nielsen - atwork at infimum.dk 'Faith without judgement merely degrades the spirit divine'
+
+
+From evan at bad.dynu.ca  Tue Sep 28 20:03:12 2004
+From: evan at bad.dynu.ca (Evan Prodromou)
+Date: Tue, 28 Sep 2004 16:03:12 -0400
+Subject: For Approval: Academic Citing License
+In-Reply-To: <4159110E.4090303@netcabo.pt>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096233475.9992.32.camel@bad> <ECABE550-103A-11D9-9556-000393B3C032@geo.unizh.ch> <1096263167.9992.79.camel@bad> <7CCD3BD2-10CF-11D9-AC5A-000393B3C032@geo.unizh.ch> <1096326827.23001.29.camel@bad>  <4159110E.4090303@netcabo.pt>
+Message-ID: <1096401792.19340.23.camel@bad>
+
+On Tue, 2004-09-28 at 08:21 +0100, Marius Amado Alves wrote:
+
+> > ... Some CC licenses say that you can't distribute
+> > or perform the work or derivative works for 'commercial advantage' --
+> > not that you can't _use_ them for commercial advantage.
+> 
+> Duh? Perform is not use? I'm a composer. What other use of my work can 

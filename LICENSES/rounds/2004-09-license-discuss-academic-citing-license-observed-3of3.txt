@@ -1,0 +1,395 @@
+> there be other than perform it?
+
+You're right. Performing a thing is a use of the thing -- just like
+selling or copying them is a use of the thing. I should have been more
+precise and said that "no restrictions on use _not covered by copyright
+law_" is the rule of thumb for the OSD. The uses that are reserved to
+the copyright holder are:
+ * reproduction and distribution * derivative works * public display or public performance
+
+If you are a composer, and you release sheet music under a Creative
+Commons NonCommercial license, I as a professional violinist may still
+use your work to practise and improve my technique and knowledge of
+music. That may be to my commercial advantage, but because it's not a
+public performance, it's not under your control.
+
+~ESP
+
+
+
+
+
+From evan at wikitravel.org  Tue Sep 28 20:39:23 2004
+From: evan at wikitravel.org (Evan Prodromou)
+Date: Tue, 28 Sep 2004 16:39:23 -0400
+Subject: For Approval: Academic Citing License
+In-Reply-To: <opse033kcvf0ffa2@aclre01w.acure.net>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096233475.9992.32.camel@bad> <ECABE550-103A-11D9-9556-000393B3C032@geo.unizh.ch> <1096263167.9992.79.camel@bad> <7CCD3BD2-10CF-11D9-AC5A-000393B3C032@geo.unizh.ch> <1096326827.23001.29.camel@bad> <4159110E.4090303@netcabo.pt> <opse033kcvf0ffa2@aclre01w.acure.net>
+Message-ID: <1096403963.14024.10.camel@bad>
+
+On Tue, 2004-09-28 at 10:48 +0200, Lasse Reichstein Nielsen wrote:
+
+> > Evan Prodromou wrote:
+> >> ... Some CC licenses say that you can't distribute
+> >> or perform the work or derivative works for 'commercial advantage' --
+> >> not that you can't _use_ them for commercial advantage.
+> >
+> > Duh? Perform is not use? I'm a composer. What other use of my work can  
+> > there be other than perform it?
+> 
+> Performance is use, Evan Prodromou didn't say otherwise. It's just that
+> not all uses are performances in the terms of Copyright law.
+
+Yes. It's a mistake on my part to use the imprecise short phrase "no
+restrictions on use". It'd be more accurate to say "no restrictions on
+use _not covered by copyright law_."
+
+In the realm of computer programs the difference between reading or
+executing a program and copying it are fairly clear, which is probably
+why we use the word "use" as shorthand for uses that aren't reserved to
+the copyright holder.
+
+~ESP
+
+-- 
+Evan Prodromou <evan at wikitravel.org>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: This is a digitally signed message part
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20040928/4f48fd5e/attachment.sig>
+
+From jkaiser at geo.unizh.ch  Tue Sep 28 21:04:14 2004
+From: jkaiser at geo.unizh.ch (Johannes Kaiser)
+Date: Tue, 28 Sep 2004 23:04:14 +0200
+Subject: For Approval: Academic Citing License
+In-Reply-To: <opse033kcvf0ffa2@aclre01w.acure.net>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch>	 <16720.28655.119024.197604@desk.crynwr.com>	 <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch>	 <16720.48095.853232.958470@desk.crynwr.com>	 <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch>	 <1096233475.9992.32.camel@bad>	 <ECABE550-103A-11D9-9556-000393B3C032@geo.unizh.ch>	 <1096263167.9992.79.camel@bad>	 <7CCD3BD2-10CF-11D9-AC5A-000393B3C032@geo.unizh.ch> <1096326827.23001.29.camel@bad> <4159110E.4090303@netcabo.pt> <opse033kcvf0ffa2@aclre01w.acure.net>
+Message-ID: <F4282920-1191-11D9-964B-000393B3C032@geo.unizh.ch>
+
+On 28 Sep 2004, at 10:48, Lasse Reichstein Nielsen wrote:
+
+> On Tue, 28 Sep 2004 08:21:50 +0100, Marius Amado Alves 
+> <amado.alves at netcabo.pt> wrote:
+>
+>>
+>> Evan Prodromou wrote:
+>>> ... Some CC licenses say that you can't distribute
+>>> or perform the work or derivative works for 'commercial advantage' --
+>>> not that you can't _use_ them for commercial advantage.
+>>
+>> Duh? Perform is not use? I'm a composer. What other use of my work 
+>> can there be other than perform it?
+>
+> Performance is use, Evan Prodromou didn't say otherwise. It's just that
+> not all uses are performances in the terms of Copyright law.
+>
+> In copyright terms, a performance is *public*, it is one of the ways an
+> author/copyright holder can publicise his work. Merely playing the 
+> music
+> for yourself, or in a private setting, is not a performance. Even 
+> playing
+> it for yourself, as a private person, in a commercial setting, is not a
+> performance.
+
+Thanks Evan and Lasse. I understand now that restricting 
+performance/publication is restricting use.
+
+Johannes
+
+
+
+From jkaiser at geo.unizh.ch  Tue Sep 28 21:15:46 2004
+From: jkaiser at geo.unizh.ch (Johannes Kaiser)
+Date: Tue, 28 Sep 2004 23:15:46 +0200
+Subject: For Approval: Academic Citing License
+In-Reply-To: <200409280215.WAA30490@raptor.research.att.com>
+References: <200409280215.WAA30490@raptor.research.att.com>
+Message-ID: <90434CCD-1193-11D9-964B-000393B3C032@geo.unizh.ch>
+
+On 28 Sep 2004, at 4:15, Stephen C. North wrote:
+>
+> Though I'm not a fan of this proposal, doesn't it
+> conform to the Open Source Definition?
+
+Oh yes, someone please say "It conforms to the OSD. Nevertheless, we 
+won't approve it as it restricts the use."
+
+
+
+From jkaiser at geo.unizh.ch  Tue Sep 28 21:17:30 2004
+From: jkaiser at geo.unizh.ch (Johannes Kaiser)
+Date: Tue, 28 Sep 2004 23:17:30 +0200
+Subject: For Approval: Academic Citing License
+In-Reply-To: <opse033kcvf0ffa2@aclre01w.acure.net>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch>	 <16720.28655.119024.197604@desk.crynwr.com>	 <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch>	 <16720.48095.853232.958470@desk.crynwr.com>	 <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch>	 <1096233475.9992.32.camel@bad>	 <ECABE550-103A-11D9-9556-000393B3C032@geo.unizh.ch>	 <1096263167.9992.79.camel@bad>	 <7CCD3BD2-10CF-11D9-AC5A-000393B3C032@geo.unizh.ch> <1096326827.23001.29.camel@bad> <4159110E.4090303@netcabo.pt> <opse033kcvf0ffa2@aclre01w.acure.net>
+Message-ID: <CE7A5D2A-1193-11D9-964B-000393B3C032@geo.unizh.ch>
+
+On 28 Sep 2004, at 10:48, Lasse Reichstein Nielsen wrote:
+
+> On Tue, 28 Sep 2004 08:21:50 +0100, Marius Amado Alves 
+> <amado.alves at netcabo.pt> wrote:
+>
+>>
+>> Evan Prodromou wrote:
+>>> ... Some CC licenses say that you can't distribute
+>>> or perform the work or derivative works for 'commercial advantage' --
+>>> not that you can't _use_ them for commercial advantage.
+>>
+>> Duh? Perform is not use? I'm a composer. What other use of my work 
+>> can there be other than perform it?
+>
+> Performance is use, Evan Prodromou didn't say otherwise. It's just that
+> not all uses are performances in the terms of Copyright law.
+>
+> In copyright terms, a performance is *public*, it is one of the ways an
+> author/copyright holder can publicise his work. Merely playing the 
+> music
+> for yourself, or in a private setting, is not a performance. Even 
+> playing
+> it for yourself, as a private person, in a commercial setting, is not a
+> performance.
+
+The analogy in the case of a computer program would be: Running it and 
+publishing the results would be "performance" and thus "use". Requiring 
+conditions for the publishing would therefore interfere with the "no 
+restrictions on use" idea.
+
+
+
+From rick at linuxmafia.com  Tue Sep 28 21:53:37 2004
+From: rick at linuxmafia.com (Rick Moen)
+Date: Tue, 28 Sep 2004 14:53:37 -0700
+Subject: For Approval: Academic Citing License
+In-Reply-To: <F4282920-1191-11D9-964B-000393B3C032@geo.unizh.ch>
+References: <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096233475.9992.32.camel@bad> <ECABE550-103A-11D9-9556-000393B3C032@geo.unizh.ch> <1096263167.9992.79.camel@bad> <7CCD3BD2-10CF-11D9-AC5A-000393B3C032@geo.unizh.ch> <1096326827.23001.29.camel@bad> <4159110E.4090303@netcabo.pt> <opse033kcvf0ffa2@aclre01w.acure.net> <F4282920-1191-11D9-964B-000393B3C032@geo.unizh.ch>
+Message-ID: <20040928215337.GU22041@linuxmafia.com>
+
+Quoting Johannes Kaiser (jkaiser at geo.unizh.ch):
+
+> Thanks Evan and Lasse. I understand now that restricting 
+> performance/publication is restricting use.
+
+FYI:  At least in the USA's Copyright Act, the provisions concerning
+performance rights are limited specifically to music, photoplay, and
+similar works -- not software.  Software copyright holders don't enjoy
+"performance rights" as to the execution of code (per se).
+
+
+
+
+From mdpoole at troilus.org  Tue Sep 28 23:05:11 2004
+From: mdpoole at troilus.org (Michael Poole)
+Date: 28 Sep 2004 19:05:11 -0400
+Subject: For Approval: Academic Citing License
+In-Reply-To: <20040928215337.GU22041@linuxmafia.com>
+References: <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096233475.9992.32.camel@bad> <ECABE550-103A-11D9-9556-000393B3C032@geo.unizh.ch> <1096263167.9992.79.camel@bad> <7CCD3BD2-10CF-11D9-AC5A-000393B3C032@geo.unizh.ch> <1096326827.23001.29.camel@bad> <4159110E.4090303@netcabo.pt> <opse033kcvf0ffa2@aclre01w.acure.net> <F4282920-1191-11D9-964B-000393B3C032@geo.unizh.ch> <20040928215337.GU22041@linuxmafia.com>
+Message-ID: <873c12f108.fsf@sanosuke.troilus.org>
+
+Rick Moen writes:
+
+> Quoting Johannes Kaiser (jkaiser at geo.unizh.ch):
+> 
+> > Thanks Evan and Lasse. I understand now that restricting 
+> > performance/publication is restricting use.
+> 
+> FYI:  At least in the USA's Copyright Act, the provisions concerning
+> performance rights are limited specifically to music, photoplay, and
+> similar works -- not software.  Software copyright holders don't enjoy
+> "performance rights" as to the execution of code (per se).
+
+US law is less clear than you imply.  From the WIPO Copyright Treaty:
+"Computer programs are protected as literary works within the meaning
+of Article 2 of the Berne Convention."  The Berne Convention reserves
+"public recitation" of literary works to the copyright holder, and
+Article 8 of the WIPO Copyright Treaty further expands the rights
+reserved to the author of a literary work.  For literary works, 17 USC
+106 does reserve the rights of public performance and public display
+to the copyright holder.
+
+This is not entirely incompatible with what you said: 17 USC does not
+elaborate on the overlap between execution of a program and its public
+performance or display.  Authors do not enjoy (in the US) performance
+rights on code's execution, but they do enjoy public performance
+rights as far as the term applies to their programs.
+
+Cf "external deployment" clauses such as those found in the Open
+Software License and RealNetworks Public Source License.
+
+Michael Poole
+
+
+From rick at linuxmafia.com  Tue Sep 28 23:51:12 2004
+From: rick at linuxmafia.com (Rick Moen)
+Date: Tue, 28 Sep 2004 16:51:12 -0700
+Subject: For Approval: Academic Citing License
+In-Reply-To: <873c12f108.fsf@sanosuke.troilus.org>
+References: <1096233475.9992.32.camel@bad> <ECABE550-103A-11D9-9556-000393B3C032@geo.unizh.ch> <1096263167.9992.79.camel@bad> <7CCD3BD2-10CF-11D9-AC5A-000393B3C032@geo.unizh.ch> <1096326827.23001.29.camel@bad> <4159110E.4090303@netcabo.pt> <opse033kcvf0ffa2@aclre01w.acure.net> <F4282920-1191-11D9-964B-000393B3C032@geo.unizh.ch> <20040928215337.GU22041@linuxmafia.com> <873c12f108.fsf@sanosuke.troilus.org>
+Message-ID: <20040928235112.GY22041@linuxmafia.com>
+
+Quoting Michael Poole (mdpoole at troilus.org):
+
+> US law is less clear than you imply.  From the WIPO Copyright Treaty:
+> "Computer programs are protected as literary works within the meaning
+> of Article 2 of the Berne Convention."  The Berne Convention reserves
+> "public recitation" of literary works to the copyright holder, and
+> Article 8 of the WIPO Copyright Treaty further expands the rights
+> reserved to the author of a literary work.  For literary works, 17 USC
+> 106 does reserve the rights of public performance and public display
+> to the copyright holder.
+
+It is unclear to me from the wording of the statute that the usual
+sorts of situations involving execution of code (per se) constitutes a
+"public performance" within the meaning of copyright law.
+
+> Authors do not enjoy (in the US) performance rights on code's
+> execution, but they do enjoy public performance rights as far as the
+> term applies to their programs.
+
+This sentence's ending qualifier seems to make it in agreement with my
+statement, not disagreement.  ;->  It may be that, if you own copyright
+to DeCSS and Placido Domingo holds public recitals of your C code onstage 
+at Carnegie Hall, he might owe you royalties.  Thus my own qualifier
+"per se", which seems to have snuck around behind both of us and shook
+hands with yours.
+
+> Cf "external deployment" clauses such as those found in the Open
+> Software License and RealNetworks Public Source License.
+
+OSLv 2.1's clause 1(d) purports to grant a licence "to perform the
+Original Work publicly".  Which begs the question of what it means to 
+perform the work.  But OSL needn't be used solely for software, but can
+be used for any "original work of authorship".
+
+Clause 5, the one you have in mind, says in part:  "As an express
+condition for the grants of license hereunder, You agree that any
+External Deployment by You of a Derivative Work shall be deemed a
+distribution and shall be licensed to all under the terms of this
+License, as prescribed in section 1(c) herein."
+
+Of course, the fact that a licence purports to regulate something
+doesn't actually establish that it does, whether in software or anything
+else.  Maybe Larry, who's both a Real Lawyer<tm> and the licence's
+author, will be kind enough to comment.
+
+RealNetworks Public Source License 1.0 likewise purports to cover either
+software or "other works", and likewise has that sort of "external
+deployment" clause, as you say -- _but_ makes no reference to
+"performance rights" in so doing.
+
+
+
+From lrosen at rosenlaw.com  Wed Sep 29 00:33:02 2004
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Tue, 28 Sep 2004 17:33:02 -0700
+Subject: For Approval: Academic Citing License
+In-Reply-To: <20040928235112.GY22041@linuxmafia.com>
+Message-ID: <01ad01c4a5bb$e162c330$9e7ba8c0@Rosenlaw>
+
+> OSLv 2.1's clause 1(d) purports to grant a licence "to perform the
+> Original Work publicly".  Which begs the question of what it means to
+> perform the work.  But OSL needn't be used solely for software, but can
+> be used for any "original work of authorship".
+> 
+> Clause 5, the one you have in mind, says in part:  "As an express
+> condition for the grants of license hereunder, You agree that any
+> External Deployment by You of a Derivative Work shall be deemed a
+> distribution and shall be licensed to all under the terms of this
+> License, as prescribed in section 1(c) herein."
+> 
+> Of course, the fact that a licence purports to regulate something
+> doesn't actually establish that it does, whether in software or anything
+> else.  Maybe Larry, who's both a Real Lawyer<tm> and the licence's
+> author, will be kind enough to comment.
+> 
+> RealNetworks Public Source License 1.0 likewise purports to cover either
+> software or "other works", and likewise has that sort of "external
+> deployment" clause, as you say -- _but_ makes no reference to
+> "performance rights" in so doing.
+
+Clause 1(d) has nothing directly to do with Clause 5. 
+
+As you suggested, Clause 1(d) of OSL v 2.1 is there primarily to cover other
+types of works that can be performed. But who cares? If you want to
+"perform" software, the OSL expressly allows it just as it expressly allows
+"use," so there's no need to worry about whether it is a performance or a
+use.
+
+As for Clause 5 of the OSL v 2.1 and the similar (but more draconian)
+provision in the RealNetworks license, those are conditions that must be met
+or the licensee has no right to "distribute" derivative works. Yes, the
+license purports to regulate that behavior. Would a substantial software
+company dare to test that provision in court? If the OSL v 2.1 or the
+RealNetworks licenses are formed as contracts, I'm confident they are
+enforceable.
+
+/Larry
+
+Lawrence Rosen 
+Rosenlaw & Einschlag, technology law offices (www.rosenlaw.com)
+3001 King Ranch Road, Ukiah, CA 95482 
+707-485-1242 * fax: 707-485-1243 
+email: lrosen at rosenlaw.com 
+
+
+
+> -----Original Message-----
+> From: Rick Moen [mailto:rick at linuxmafia.com]
+> Sent: Tuesday, September 28, 2004 4:51 PM
+> To: license-discuss at opensource.org
+> Subject: Re: For Approval: Academic Citing License
+> 
+> Quoting Michael Poole (mdpoole at troilus.org):
+> 
+> > US law is less clear than you imply.  From the WIPO Copyright Treaty:
+> > "Computer programs are protected as literary works within the meaning
+> > of Article 2 of the Berne Convention."  The Berne Convention reserves
+> > "public recitation" of literary works to the copyright holder, and
+> > Article 8 of the WIPO Copyright Treaty further expands the rights
+> > reserved to the author of a literary work.  For literary works, 17 USC
+> > 106 does reserve the rights of public performance and public display
+> > to the copyright holder.
+> 
+> It is unclear to me from the wording of the statute that the usual
+> sorts of situations involving execution of code (per se) constitutes a
+> "public performance" within the meaning of copyright law.
+> 
+> > Authors do not enjoy (in the US) performance rights on code's
+> > execution, but they do enjoy public performance rights as far as the
+> > term applies to their programs.
+> 
+> This sentence's ending qualifier seems to make it in agreement with my
+> statement, not disagreement.  ;->  It may be that, if you own copyright
+> to DeCSS and Placido Domingo holds public recitals of your C code onstage
+> at Carnegie Hall, he might owe you royalties.  Thus my own qualifier
+> "per se", which seems to have snuck around behind both of us and shook
+> hands with yours.
+> 
+> > Cf "external deployment" clauses such as those found in the Open
+> > Software License and RealNetworks Public Source License.
+> 
+> OSLv 2.1's clause 1(d) purports to grant a licence "to perform the
+> Original Work publicly".  Which begs the question of what it means to
+> perform the work.  But OSL needn't be used solely for software, but can
+> be used for any "original work of authorship".
+> 
+> Clause 5, the one you have in mind, says in part:  "As an express
+> condition for the grants of license hereunder, You agree that any
+> External Deployment by You of a Derivative Work shall be deemed a
+> distribution and shall be licensed to all under the terms of this
+> License, as prescribed in section 1(c) herein."
+> 
+> Of course, the fact that a licence purports to regulate something
+> doesn't actually establish that it does, whether in software or anything
+> else.  Maybe Larry, who's both a Real Lawyer<tm> and the licence's
+> author, will be kind enough to comment.
+> 
+> RealNetworks Public Source License 1.0 likewise purports to cover either
+> software or "other works", and likewise has that sort of "external
+> deployment" clause, as you say -- _but_ makes no reference to
+> "performance rights" in so doing.
+
+
+

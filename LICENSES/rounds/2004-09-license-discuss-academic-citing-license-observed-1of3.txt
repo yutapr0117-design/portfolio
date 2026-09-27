@@ -1,0 +1,750 @@
+From nelson at crynwr.com  Tue Sep 21 23:40:15 2004
+From: nelson at crynwr.com (Russell Nelson)
+Date: Tue, 21 Sep 2004 19:40:15 -0400
+Subject: new license "Academic Citing License"
+In-Reply-To: <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch>
+Message-ID: <16720.48095.853232.958470@desk.crynwr.com>
+
+Johannes Kaiser writes: > I absolutely agree with your point that there should be no restriction   > on use. However, most OSI-approved licenses require reproduction of the   > license itself in derived work. What I want is basically the same: You   > may do with it whatever you want, as long as you reproduction of a   > citation in the derived work, e.g. journal articles. Therefore, I do   > not see that your concern applies.
+
+A journal article is not a derived work.  Let's say that your software
+produces graphs.  If I use your software -- just use it -- to create
+graphs for a journal paper, that's not a derived work.  No part of
+your software appears in their paper or any software distributed with
+their paper.  You can't put a restriction on the use of your software
+that requires them to say "Graphs produced by Kaiserware Graphworks".
+
+And yet your language below implies that if they merely use your
+program to help them produce their publication, they have to
+acknowledge use of it.
+ > I would like to make one of my scientific programs publicly available  > as open source. In order to make sure that the program is properly  > acknowledged the license should include a condition demanding the  > citation of a specific reference publication in all publications  > prepared with the help of my program.
+
+Restrictions on use won't fly.
+ > Since there seem to be different opinions, it might be good idea to   > continue the discussion at license-discuss at opensource.org.
+
+Okay.
+
+-- 
+--My blog is at angry-economist.russnelson.com  | Violence never solves
+Crynwr sells support for free software  | PGPok | problems, it just changes
+521 Pleasant Valley Rd. | +1 212-202-2318 voice | them into more subtle
+Potsdam, NY 13676-3213  | FWD# 404529 via VOIP  | problems.
+
+
+From jkaiser at geo.unizh.ch  Sun Sep 26 20:55:54 2004
+From: jkaiser at geo.unizh.ch (Johannes Kaiser)
+Date: Sun, 26 Sep 2004 22:55:54 +0200
+Subject: For Approval: Academic Citing License
+In-Reply-To: <16720.48095.853232.958470@desk.crynwr.com>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com>
+Message-ID: <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch>
+
+Hi everybody,
+
+since Russell's CC to this list has not sparked any response yet, I 
+decided to give you the whole story in this mail.
+
+I have written a relatively large (about 5000 lines in C and F90) 
+scientific program and would like to distribute it to the wider 
+community by making it open source. However, acknowledgment is vital 
+for a scientific career these days. Thus the license would have to 
+include a condition that all (scientific) publications produced with 
+the help of my program or parts thereof must cite a specific journal 
+article. This condition is very similar to the widely adopted "you may 
+change this code but you must reproduce this license" as everybody 
+would be allowed to change my code and apply it to whatever they want 
+as long as resulting publications reproduce one part of the license, 
+i.e. the reference journal article's bibliographic data.
+
+I have already received two contradicting opinions on the compatibility 
+of the condition with the OSD by Russell Nelson (opensource, no) and 
+David Burley (sourceforge, yes). So, I am very interested in the 
+consensus of all of you.The critical question seems to be whether the 
+condition actually is a restriction on use or not.
+
+To make the discussion easier (and speed up the potential release of my 
+software), I have added the condition to the MIT license and ask your 
+approval for the resulting thing. Please find it attached to this mail. 
+The differences to the MIT license are:
+
+1. new name "Academic Citing License"
+2. added the reference to the header
+3. added paragraph 3 with the citing condition
+4. deleted "substantial" from paragraph 2 to avoid misinterpretations
+
+This should be compatible with all OSI-approved licenses. Combined work 
+would have to require whatever the other parts license states plus 
+citation according to the Academic Citing License.
+
+Thanks for taking the time to think about this!
+Cheers, Johannes
+
+PS: The program calculates, roughly speeking, the amount of ozone in 
+the "stratospheric ozone layer" from new satellite observations of the 
+Earth...think of the nicely colorful plots of the ozone hole over 
+Antarctica.
+____________________________________________________
+JOHANNES W. KAISER, Dr. rer. nat.
+Remote Sensing Laboratories,  University of Zurich
+Winterthurerstrasse 190, 8057 Zurich, Switzerland
+fon: +41 44 63 55149, fax: +41 44 63 56842
+http://www.geo.unizh.ch/~jkaiser
+
+On 22 Sep 2004, at 1:40, Russell Nelson wrote:
+
+> Johannes Kaiser writes:
+>> I absolutely agree with your point that there should be no restriction
+>> on use. However, most OSI-approved licenses require reproduction of 
+>> the
+>> license itself in derived work. What I want is basically the same: You
+>> may do with it whatever you want, as long as you reproduction of a
+>> citation in the derived work, e.g. journal articles. Therefore, I do
+>> not see that your concern applies.
+>
+> A journal article is not a derived work.  Let's say that your software
+> produces graphs.  If I use your software -- just use it -- to create
+> graphs for a journal paper, that's not a derived work.  No part of
+> your software appears in their paper or any software distributed with
+> their paper.  You can't put a restriction on the use of your software
+> that requires them to say "Graphs produced by Kaiserware Graphworks".
+>
+> And yet your language below implies that if they merely use your
+> program to help them produce their publication, they have to
+> acknowledge use of it.
+>
+>> I would like to make one of my scientific programs publicly available
+>> as open source. In order to make sure that the program is properly
+>> acknowledged the license should include a condition demanding the
+>> citation of a specific reference publication in all publications
+>> prepared with the help of my program.
+>
+> Restrictions on use won't fly.
+>
+>> Since there seem to be different opinions, it might be good idea to
+>> continue the discussion at license-discuss at opensource.org.
+>
+> Okay.
+>
+> -- 
+> --My blog is at angry-economist.russnelson.com  | Violence never solves
+> Crynwr sells support for free software  | PGPok | problems, it just 
+> changes
+> 521 Pleasant Valley Rd. | +1 212-202-2318 voice | them into more subtle
+> Potsdam, NY 13676-3213  | FWD# 404529 via VOIP  | problems.
+>
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: AcademicCitingLicense.txt
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20040926/88bd399b/attachment.txt>
+
+From evan at wikitravel.org  Sun Sep 26 21:17:55 2004
+From: evan at wikitravel.org (Evan Prodromou)
+Date: Sun, 26 Sep 2004 17:17:55 -0400
+Subject: For Approval: Academic Citing License
+In-Reply-To: <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch>
+Message-ID: <1096233475.9992.32.camel@bad>
+
+On Sun, 2004-09-26 at 22:55 +0200, Johannes Kaiser wrote:
+
+> Thus the license would have to include a condition that all (scientific) publications produced with 
+> the help of my program or parts thereof must cite a specific journal 
+> article. This condition is very similar to the widely adopted "you may 
+> change this code but you must reproduce this license" [...]
+
+This is where you're mistaken: this is _nothing_like_ the requirement to
+have license notification. That's a restriction on the publication of
+the work itself. You're trying to restrict the publication of the output
+of the program -- a very clear restriction on use.
+
+I would suggest that you license your work under one of the already-
+approved Open Source licenses, and add a _reminder_ in the documentation
+for your work that scientists who use your code to make new discoveries
+are obliged through both professional courtesy and thoroughness of
+reference to cite your original article.
+
+(I'd think this would only be the case if your work represented a
+significant scientific advance in a related field of study. I don't
+think an ornithologist should feel obligated to cite articles on the
+Nautilus file manager just because she used it to keep her records in
+order.)
+
+Good luck,
+
+~ESP
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: This is a digitally signed message part
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20040926/00de9c27/attachment.sig>
+
+From zathras at thwackety.com  Sun Sep 26 22:54:33 2004
+From: zathras at thwackety.com (Michael Sparks)
+Date: Sun, 26 Sep 2004 23:54:33 +0100 (BST)
+Subject: For Approval: Academic Citing License
+In-Reply-To: <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch>
+Message-ID: <Pine.LNX.4.44.0409262318080.16817-100000@pingu.thwackety.com>
+
+On Sun, 26 Sep 2004, Johannes Kaiser wrote:
+...
+> I have written a relatively large (about 5000 lines in C and F90)
+> scientific program and would like to distribute it to the wider
+> community by making it open source. However, acknowledgment is vital
+> for a scientific career these days. Thus the license would have to
+> include a condition that all (scientific) publications produced with
+> the help of my program or parts thereof must cite a specific journal
+> article.
+
+How do you define "(scientific) publications" ? Is it a magazine/journal
+that is considered scientific, any article that uses your program's
+output, or any article that is scientific? How about magazines which
+contain articles which cover science related material? (eg New Scientist
+contains lots of articles which might match, but rarely contains
+citations) How about a scientific article in a scientific magazine aimed
+at 7 year olds?
+
+To me the key point is you're restricting use of the program. Whilst (say)
+a GPL program is required by the license (2.c) to display a message to the
+user of that program the GPL under certain circumstances, this doesn't
+cover the *output* of the program, just the derived work - the program -
+itself. What your license states is that users of that program are
+restricted in which locations they can use the *results* of your program
+without citation.
+
+Suppose furthermore: * A diagram is produced using a program under this license * This diagram is included in a paper in (say) Nature, and the appropriate citation to your program occurs. * Suppose Reuters pick up the paper and place a summary of the paper on their newswire service, along with a reproduction of the image. * Further suppose that New Scientist (or similar) spot the story, and decide to summarise that story, but include the picture. (Various news sources do have standing arrangements to allow use in this manner base on contractual agreements) * Further suppose that CNN (or similar) spot the story, and decide to summarise that story, but include the picture....
+
+How would New Scientist be aware of the restriction on use of the image?
+(*Would* there be that restriction?) Would CNN hit the same restriction?
+Would Reuters? Who would be responsible for telling New Scientist, CNN &
+Reuters? Nature? Why would Nature know - the restriction is placed on the
+user of the program?
+
+Who owns the copyright on the image/output? One would assume that the
+person who owns the copyright would be the person running the program. As
+a result one would expect *they* get to decide use, not the person who
+produced the program.
+
+I'm not going to answer the questions, I'm asking you them to try to get
+you to think again about what you're asking.
+
+In my eyes it looks like a restriction of use, and an attempt to restrict
+to redistribution of works produced using your program. Whilst I've seen
+some proprietary software attempt this (such as cover disk versions of
+compilers), I've never seen any open source (or anything I'd call
+opensource) attempt it.
+
+Whilst I understand the sentiment, I would suggest you'd be better off
+*requesting* people cite your journal, rather than try *requiring* it. If
+you're paranoid about citations (I don't know your field), and if program
+produces images, you could *perhaps* include a tinyurl.com (or similar)
+url link in the image somewhere discreet. This would be trivial to remove
+is someone wanted to, but I doubt many would. After all, as I mention
+above, not all scientific publications contain citations (because it
+depends on the defintion of "scientific publication").
+
+FWIW, I'm not a lawyer, this isn't legal advice, I don't make any
+judgement (and it'd be unqualified if I did) on OSD compatibility, but
+hopefully you find it useful on some level :)
+
+Regards,
+
+
+Michael.
+
+
+
+From burley at sourceforge.net  Mon Sep 27 03:34:00 2004
+From: burley at sourceforge.net (David Burley)
+Date: Sun, 26 Sep 2004 23:34:00 -0400
+Subject: For Approval: Academic Citing License
+In-Reply-To: <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch>
+Message-ID: <1096256040.31445.11.camel@localhost.localdomain>
+
+Greetings,
+
+Our stance (SourceForge.net) is straightforward. We require that the
+software meet the Open Source Definition as provided by the Open Source
+Initiative. While we are quite familiar with what constitutes and Open
+Source License and what doesn't, in certain cases we defer the situation
+to a decision by the Open Source Initiative (better safe than sorry on
+the less frequent situations, such as this one). So, to make a long
+story short, you need to get approval by the OSI for such a licensing
+change before we will accept that as a valid license for hosting on
+SourceForge.net.
+
+Thank you,
+
+David Burley
+Second Level Support Technician, SourceForge.net
+burley at sourceforge.net
+
+On Sun, 2004-09-26 at 16:55, Johannes Kaiser wrote:
+> Hi everybody,
+> 
+> since Russell's CC to this list has not sparked any response yet, I 
+> decided to give you the whole story in this mail.
+> 
+> I have written a relatively large (about 5000 lines in C and F90) 
+> scientific program and would like to distribute it to the wider 
+> community by making it open source. However, acknowledgment is vital 
+> for a scientific career these days. Thus the license would have to 
+> include a condition that all (scientific) publications produced with 
+> the help of my program or parts thereof must cite a specific journal 
+> article. This condition is very similar to the widely adopted "you may 
+> change this code but you must reproduce this license" as everybody 
+> would be allowed to change my code and apply it to whatever they want 
+> as long as resulting publications reproduce one part of the license, 
+> i.e. the reference journal article's bibliographic data.
+> 
+> I have already received two contradicting opinions on the compatibility 
+> of the condition with the OSD by Russell Nelson (opensource, no) and 
+> David Burley (sourceforge, yes). So, I am very interested in the 
+> consensus of all of you.The critical question seems to be whether the 
+> condition actually is a restriction on use or not.
+> 
+> To make the discussion easier (and speed up the potential release of my 
+> software), I have added the condition to the MIT license and ask your 
+> approval for the resulting thing. Please find it attached to this mail. 
+> The differences to the MIT license are:
+> 
+> 1. new name "Academic Citing License"
+> 2. added the reference to the header
+> 3. added paragraph 3 with the citing condition
+> 4. deleted "substantial" from paragraph 2 to avoid misinterpretations
+> 
+> This should be compatible with all OSI-approved licenses. Combined work 
+> would have to require whatever the other parts license states plus 
+> citation according to the Academic Citing License.
+> 
+> Thanks for taking the time to think about this!
+> Cheers, Johannes
+> 
+> PS: The program calculates, roughly speeking, the amount of ozone in 
+> the "stratospheric ozone layer" from new satellite observations of the 
+> Earth...think of the nicely colorful plots of the ozone hole over 
+> Antarctica.
+> ____________________________________________________
+> JOHANNES W. KAISER, Dr. rer. nat.
+> Remote Sensing Laboratories,  University of Zurich
+> Winterthurerstrasse 190, 8057 Zurich, Switzerland
+> fon: +41 44 63 55149, fax: +41 44 63 56842
+> http://www.geo.unizh.ch/~jkaiser
+> 
+> On 22 Sep 2004, at 1:40, Russell Nelson wrote:
+> 
+> > Johannes Kaiser writes:
+> >> I absolutely agree with your point that there should be no restriction
+> >> on use. However, most OSI-approved licenses require reproduction of 
+> >> the
+> >> license itself in derived work. What I want is basically the same: You
+> >> may do with it whatever you want, as long as you reproduction of a
+> >> citation in the derived work, e.g. journal articles. Therefore, I do
+> >> not see that your concern applies.
+> >
+> > A journal article is not a derived work.  Let's say that your software
+> > produces graphs.  If I use your software -- just use it -- to create
+> > graphs for a journal paper, that's not a derived work.  No part of
+> > your software appears in their paper or any software distributed with
+> > their paper.  You can't put a restriction on the use of your software
+> > that requires them to say "Graphs produced by Kaiserware Graphworks".
+> >
+> > And yet your language below implies that if they merely use your
+> > program to help them produce their publication, they have to
+> > acknowledge use of it.
+> >
+> >> I would like to make one of my scientific programs publicly available
+> >> as open source. In order to make sure that the program is properly
+> >> acknowledged the license should include a condition demanding the
+> >> citation of a specific reference publication in all publications
+> >> prepared with the help of my program.
+> >
+> > Restrictions on use won't fly.
+> >
+> >> Since there seem to be different opinions, it might be good idea to
+> >> continue the discussion at license-discuss at opensource.org.
+> >
+> > Okay.
+> >
+> > -- 
+> > --My blog is at angry-economist.russnelson.com  | Violence never solves
+> > Crynwr sells support for free software  | PGPok | problems, it just 
+> > changes
+> > 521 Pleasant Valley Rd. | +1 212-202-2318 voice | them into more subtle
+> > Potsdam, NY 13676-3213  | FWD# 404529 via VOIP  | problems.
+> >
+-- 
+David Burley
+Second Level Support Technician, SourceForge.net
+burley at sourceforge.net
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: This is a digitally signed message part
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20040926/206abdea/attachment.sig>
+
+From jkaiser at geo.unizh.ch  Mon Sep 27 04:08:44 2004
+From: jkaiser at geo.unizh.ch (Johannes Kaiser)
+Date: Mon, 27 Sep 2004 06:08:44 +0200
+Subject: For Approval: Academic Citing License
+In-Reply-To: <1096233475.9992.32.camel@bad>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096233475.9992.32.camel@bad>
+Message-ID: <ECABE550-103A-11D9-9556-000393B3C032@geo.unizh.ch>
+
+On 26 Sep 2004, at 23:17, Evan Prodromou wrote:
+
+> On Sun, 2004-09-26 at 22:55 +0200, Johannes Kaiser wrote:
+>
+>> Thus the license would have to include a condition that all 
+>> (scientific) publications produced with
+>> the help of my program or parts thereof must cite a specific journal
+>> article. This condition is very similar to the widely adopted "you may
+>> change this code but you must reproduce this license" [...]
+>
+> This is where you're mistaken: this is _nothing_like_ the requirement 
+> to
+> have license notification. That's a restriction on the publication of
+> the work itself. You're trying to restrict the publication of the 
+> output
+> of the program -- a very clear restriction on use.
+
+OK, I see that the condition is a restriction on use *in general*. 
+However, I do not see that it needs to be interpreted as a restriction 
+on use *in the sense of the OSD*. We are talking about #6, don't we? I 
+have the impression that OSD #6 has certain punch-line: It says "[...] 
+must not restrict [...] use [..] in a specific field of endeavor." and 
+gives "business" and "genetic research" as examples. Accordingly, the 
+additional condition does not talk about (nor restrict) the field of 
+endeavor: Users are allowed to use the program in all scientific, 
+business, private, etc. fields. Therefore, I think the license violates 
+neither the wording nor the intention of OSD #6.
+
+> I would suggest that you license your work under one of the already-
+> approved Open Source licenses, and add a _reminder_ in the 
+> documentation
+> for your work that scientists who use your code to make new discoveries
+> are obliged through both professional courtesy and thoroughness of
+> reference to cite your original article.
+
+That is exactly what I think science should work like! Unfortunately, 
+it does not far too often. At least, I know a couple of pretty bad 
+stories.
+
+> (I'd think this would only be the case if your work represented a
+> significant scientific advance in a related field of study. I don't
+> think an ornithologist should feel obligated to cite articles on the
+> Nautilus file manager just because she used it to keep her records in
+> order.)
+
+no problem there :)
+
+Cheers, Johannes
+
+
+____________________________________________________
+JOHANNES W. KAISER, Dr. rer. nat.
+Remote Sensing Laboratories,  University of Zurich
+Winterthurerstrasse 190, 8057 Zurich, Switzerland
+fon: +41 44 63 55149, fax: +41 44 63 56842
+http://www.geo.unizh.ch/~jkaiser
+
+
+
+From jkaiser at geo.unizh.ch  Mon Sep 27 04:50:04 2004
+From: jkaiser at geo.unizh.ch (Johannes Kaiser)
+Date: Mon, 27 Sep 2004 06:50:04 +0200
+Subject: For Approval: Academic Citing License
+In-Reply-To: <Pine.LNX.4.44.0409262318080.16817-100000@pingu.thwackety.com>
+References: <Pine.LNX.4.44.0409262318080.16817-100000@pingu.thwackety.com>
+Message-ID: <B2A2AF5E-1040-11D9-9556-000393B3C032@geo.unizh.ch>
+
+On 27 Sep 2004, at 0:54, Michael Sparks wrote:
+
+> On Sun, 26 Sep 2004, Johannes Kaiser wrote:
+> ...
+>> I have written a relatively large (about 5000 lines in C and F90)
+>> scientific program and would like to distribute it to the wider
+>> community by making it open source. However, acknowledgment is vital
+>> for a scientific career these days. Thus the license would have to
+>> include a condition that all (scientific) publications produced with
+>> the help of my program or parts thereof must cite a specific journal
+>> article.
+>
+> How do you define "(scientific) publications" ? Is it a 
+> magazine/journal
+> that is considered scientific, any article that uses your program's
+> output, or any article that is scientific? How about magazines which
+> contain articles which cover science related material? (eg New 
+> Scientist
+> contains lots of articles which might match, but rarely contains
+> citations) How about a scientific article in a scientific magazine 
+> aimed
+> at 7 year olds?
+
+You've got a point here. I was thinking about those journals which are 
+used for communication between scientists of the field. In these, all 
+articles have citations. So, it would be Science but not New Scientist. 
+Obviously, the definition needs a more careful rephrasing.
+
+> To me the key point is you're restricting use of the program. Whilst 
+> (say)
+> a GPL program is required by the license (2.c) to display a message to 
+> the
+> user of that program the GPL under certain circumstances, this doesn't
+> cover the *output* of the program, just the derived work - the program 
+> -
+> itself. What your license states is that users of that program are
+> restricted in which locations they can use the *results* of your 
+> program
+> without citation.
+
+You are right, this is the crucial question. May I ask you to look at 
+my answer to Evan's mail?
+
+> Suppose furthermore:
+>    * A diagram is produced using a program under this license
+>    * This diagram is included in a paper in (say) Nature, and the
+>      appropriate citation to your program occurs.
+>    * Suppose Reuters pick up the paper and place a summary of the paper
+>      on their newswire service, along with a reproduction of the image.
+>    * Further suppose that New Scientist (or similar) spot the story, 
+> and
+>      decide to summarise that story, but include the picture. (Various
+>      news sources do have standing arrangements to allow use in this
+>      manner base on contractual agreements)
+>    * Further suppose that CNN (or similar) spot the story, and
+>      decide to summarise that story, but include the picture....
+>
+> How would New Scientist be aware of the restriction on use of the 
+> image?
+> (*Would* there be that restriction?) Would CNN hit the same 
+> restriction?
+> Would Reuters? Who would be responsible for telling New Scientist, CNN 
+> &
+> Reuters? Nature? Why would Nature know - the restriction is placed on 
+> the
+> user of the program?
+
+My intention is to require, in this example, a citation in Nature. 
+Reuters and the others would be free to use the diagram according to 
+Nature's regulations on copyright.
+
+> Who owns the copyright on the image/output? One would assume that the
+> person who owns the copyright would be the person running the program. 
+> As
+> a result one would expect *they* get to decide use, not the person who
+> produced the program.
+
+And they would be able to decide the use of all material which they 
+have published (citing my article in they original publication). BTW: 
+The program produces just the numbers (ASCII file or even Fortran 
+variable), not their graphical display.
+
+> I'm not going to answer the questions, I'm asking you them to try to 
+> get
+> you to think again about what you're asking.
+
+I am trying to think. However the ways of copyrights and licenses are 
+new for me.
+
+> In my eyes it looks like a restriction of use, and an attempt to 
+> restrict
+> to redistribution of works produced using your program. Whilst I've 
+> seen
+> some proprietary software attempt this (such as cover disk versions of
+> compilers), I've never seen any open source (or anything I'd call
+> opensource) attempt it.
+
+The wider the works would be distributed the better for me...as long as 
+it remains traceable to my program.
+
+> Whilst I understand the sentiment, I would suggest you'd be better off
+> *requesting* people cite your journal, rather than try *requiring* it.
+> If you're paranoid about citations (I don't know your field),
+
+I have got coworkers who are much more paranoid than I am. And I 
+understand them, considering their experiences, e.g. not being 
+mentioned in Nature even though they clearly did more of 50% of the 
+coding. Not a funny subject.
+
+> and if program
+> produces images, you could *perhaps* include a tinyurl.com (or similar)
+> url link in the image somewhere discreet. This would be trivial to 
+> remove
+> is someone wanted to, but I doubt many would.
+
+no graphics, just numbers. In almost all applications, the highest 
+level routines of my program would be called by the user's own code. 
+So, I have no control over the format of the output.
+
+> After all, as I mention
+> above, not all scientific publications contain citations (because it
+> depends on the defintion of "scientific publication").
+>
+> FWIW, I'm not a lawyer, this isn't legal advice, I don't make any
+> judgement (and it'd be unqualified if I did) on OSD compatibility, but
+> hopefully you find it useful on some level :)
+>
+> Regards,
+>
+>
+> Michael.
+>
+>
+
+
+____________________________________________________
+JOHANNES W. KAISER, Dr. rer. nat.
+Remote Sensing Laboratories,  University of Zurich
+Winterthurerstrasse 190, 8057 Zurich, Switzerland
+fon: +41 44 63 55149, fax: +41 44 63 56842
+http://www.geo.unizh.ch/~jkaiser
+
+
+
+From jkaiser at geo.unizh.ch  Mon Sep 27 04:55:26 2004
+From: jkaiser at geo.unizh.ch (Johannes Kaiser)
+Date: Mon, 27 Sep 2004 06:55:26 +0200
+Subject: For Approval: Academic Citing License
+In-Reply-To: <1096256040.31445.11.camel@localhost.localdomain>
+References: <F1037D99-0B50-11D9-B93E-000393B3C032@geo.unizh.ch> <16720.28655.119024.197604@desk.crynwr.com> <9FC634B6-0C0E-11D9-9340-000393B3C032@geo.unizh.ch> <16720.48095.853232.958470@desk.crynwr.com> <75026334-0FFE-11D9-9556-000393B3C032@geo.unizh.ch> <1096256040.31445.11.camel@localhost.localdomain>
+Message-ID: <728C42FA-1041-11D9-9556-000393B3C032@geo.unizh.ch>
+
+Hi David,
+
+I got you and I did not mean to complain or blame you for anything. On 
+the contrary: Thank you for the advice and directions!
+
+Regards, Johannes
+
+On 27 Sep 2004, at 5:34, David Burley wrote:
+
+> Greetings,
+>
+> Our stance (SourceForge.net) is straightforward. We require that the
+> software meet the Open Source Definition as provided by the Open Source
+> Initiative. While we are quite familiar with what constitutes and Open
+> Source License and what doesn't, in certain cases we defer the 
+> situation
+> to a decision by the Open Source Initiative (better safe than sorry on
+> the less frequent situations, such as this one). So, to make a long
+> story short, you need to get approval by the OSI for such a licensing
+> change before we will accept that as a valid license for hosting on
+> SourceForge.net.
+>
+> Thank you,
+>
+> David Burley
+> Second Level Support Technician, SourceForge.net
+> burley at sourceforge.net
+>
+> On Sun, 2004-09-26 at 16:55, Johannes Kaiser wrote:
+>> Hi everybody,
+>>
+>> since Russell's CC to this list has not sparked any response yet, I
+>> decided to give you the whole story in this mail.
+>>
+>> I have written a relatively large (about 5000 lines in C and F90)
+>> scientific program and would like to distribute it to the wider
+>> community by making it open source. However, acknowledgment is vital
+>> for a scientific career these days. Thus the license would have to
+>> include a condition that all (scientific) publications produced with
+>> the help of my program or parts thereof must cite a specific journal
+>> article. This condition is very similar to the widely adopted "you may
+>> change this code but you must reproduce this license" as everybody
+>> would be allowed to change my code and apply it to whatever they want
+>> as long as resulting publications reproduce one part of the license,
+>> i.e. the reference journal article's bibliographic data.
+>>
+>> I have already received two contradicting opinions on the 
+>> compatibility
+>> of the condition with the OSD by Russell Nelson (opensource, no) and
+>> David Burley (sourceforge, yes). So, I am very interested in the
+>> consensus of all of you.The critical question seems to be whether the
+>> condition actually is a restriction on use or not.
+>>
+>> To make the discussion easier (and speed up the potential release of 
+>> my
+>> software), I have added the condition to the MIT license and ask your
+>> approval for the resulting thing. Please find it attached to this 
+>> mail.
+>> The differences to the MIT license are:
+>>
+>> 1. new name "Academic Citing License"
+>> 2. added the reference to the header
+>> 3. added paragraph 3 with the citing condition
+>> 4. deleted "substantial" from paragraph 2 to avoid misinterpretations
+>>
+>> This should be compatible with all OSI-approved licenses. Combined 
+>> work
+>> would have to require whatever the other parts license states plus
+>> citation according to the Academic Citing License.
+>>
+>> Thanks for taking the time to think about this!
+>> Cheers, Johannes
+>>
+>> PS: The program calculates, roughly speeking, the amount of ozone in
+>> the "stratospheric ozone layer" from new satellite observations of the
+>> Earth...think of the nicely colorful plots of the ozone hole over
+>> Antarctica.
+>> ____________________________________________________
+>> JOHANNES W. KAISER, Dr. rer. nat.
+>> Remote Sensing Laboratories,  University of Zurich
+>> Winterthurerstrasse 190, 8057 Zurich, Switzerland
+>> fon: +41 44 63 55149, fax: +41 44 63 56842
+>> http://www.geo.unizh.ch/~jkaiser
+>>
+>> On 22 Sep 2004, at 1:40, Russell Nelson wrote:
+>>
+>>> Johannes Kaiser writes:
+>>>> I absolutely agree with your point that there should be no 
+>>>> restriction
+>>>> on use. However, most OSI-approved licenses require reproduction of
+>>>> the
+>>>> license itself in derived work. What I want is basically the same: 
+>>>> You
+>>>> may do with it whatever you want, as long as you reproduction of a
+>>>> citation in the derived work, e.g. journal articles. Therefore, I do
+>>>> not see that your concern applies.
+>>>
+>>> A journal article is not a derived work.  Let's say that your 
+>>> software
+>>> produces graphs.  If I use your software -- just use it -- to create
+>>> graphs for a journal paper, that's not a derived work.  No part of
+>>> your software appears in their paper or any software distributed with
+>>> their paper.  You can't put a restriction on the use of your software
+>>> that requires them to say "Graphs produced by Kaiserware Graphworks".
+>>>
+>>> And yet your language below implies that if they merely use your
+>>> program to help them produce their publication, they have to
+>>> acknowledge use of it.
+>>>
+>>>> I would like to make one of my scientific programs publicly 
+>>>> available
+>>>> as open source. In order to make sure that the program is properly
+>>>> acknowledged the license should include a condition demanding the
+>>>> citation of a specific reference publication in all publications
+>>>> prepared with the help of my program.
+>>>
+>>> Restrictions on use won't fly.
+>>>
+>>>> Since there seem to be different opinions, it might be good idea to
+>>>> continue the discussion at license-discuss at opensource.org.
+>>>
+>>> Okay.
+>>>
+>>> -- 
+>>> --My blog is at angry-economist.russnelson.com  | Violence never 
+>>> solves
+>>> Crynwr sells support for free software  | PGPok | problems, it just
+>>> changes
+>>> 521 Pleasant Valley Rd. | +1 212-202-2318 voice | them into more 
+>>> subtle
+>>> Potsdam, NY 13676-3213  | FWD# 404529 via VOIP  | problems.
+>>>
