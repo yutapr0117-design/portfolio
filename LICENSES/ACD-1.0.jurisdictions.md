@@ -211,6 +211,54 @@ Reduktion の制限もそのままには及ばない。**どちらであるか�
 **言えるのはここまで**: **§3 / §4 / §5 が並置されていることは、§203 に対しては
 「同じことを 3 回言っている」ではなく「効き方の違う 3 つを置いている」。**
 
+### 5c. リスト自身が同じ条文を「心配すべき橋」と呼び、同じスレッドで献呈の効果も述べている（2026-09-27 追加）
+
+**5a は §203 を statute から見つけた。** 2026-09-27 に `license-discuss` の
+"Can copyrights be abandoned to the public domain?"（2012-08・全 34 通・
+`rounds/2012-08-license-discuss-copyright-abandonment-observed-1of3.txt` ほか）を読むと、
+**同じ条文が、リスト上で実務弁護士の口から名指しされている。**
+
+**🔴 不利 —— §203 は「リストが知っている危険」である。**
+
+Lawrence Rosen 氏（オープンソース法の実務家）は、人格権の危険を論じる当時の
+License Committee 委員長 Russ Nelson 氏に対してこう返している:
+
+> *"If you want to worry about copyright law, **consider 17 USC 203**. [1] Tell me what you
+> experience as you drive over that bridge...."*（2012-08-18）
+
+Nelson 氏の返事は *"I'll tell you in 35 years."* ——**35 年という期間を、両者とも正確に
+理解したうえでの応酬である。**
+
+**5a の評価は変わらない**（§4 は licence なので §203 に届き、§15.4 / 次版 §15.2 が縮退を受ける）。
+**変わるのは位置づけだけである** —— **これは我々が文献から掘り出した理屈ではなく、
+リストの住人が「本当に心配すべきもの」として名前で呼んでいる条文**である。
+**審査で持ち出される可能性は、その分だけ高い。**
+
+**🟢 有利 —— 放棄の可否が不確かでも、明確な献呈は効果を持つ（§2.5 の外からの裏づけ）**
+
+Tom Callaway 氏（当時 Fedora の法務窓口）は、Red Hat Legal との検討結果としてこう述べている:
+
+> *"if someone is **explicitly and clearly abandoning** their copyright on a work (as in CC-0,
+> for example), treating that work in good faith as being in the public domain presented a
+> **very minimal amount of risk**, especially since **such a declaration, were it to go to
+> trial, would likely limit the effectiveness of the copyright 'holder' suing for
+> infringement**."*（2012-08-14）
+>
+> *"We're **not attempting to pronounce that public domain declarations are legally possible
+> everywhere**, but we are saying that … where there is **clear intent** from a copyright
+> holder for unrestricted permissions on works, we feel it is safe for us to treat them as if
+> they were in the public domain."*（同 08-14）
+
+**これは ACD-1.0 §2.5（estoppel）が本文の中で述べていることの、外からの裏づけである** ——
+**「放棄が有効か」を決めなくても、明確な意思表示は、後から翻す側の立場を弱める。**
+**しかも述べているのは、承認済みライセンスを大量に扱う頒布者の側**であり、
+**採用を判断する実務者が実際に使っている物差しでもある。**
+
+**⚠ 逆側 3 つ。** **(1)** Callaway 氏は *"very minimal"* であって *"none"* とは言っていない。
+**(2)** 述べているのは Fedora / Red Hat の**採用判断**であって、**OSI の承認基準ではない。**
+**(3)** 2012 年の発言で、**§203 の 35 年は当時まだ誰にとっても将来の話だった**
+（1978 年以降の grant が最初に終了可能になるのは 2013 年以降）。
+
 ### 5b. 人格権（17 U.S.C. §106A・VARA）—— §12.1 は米国では形式要件を満たさない。だから §12.2 がある
 
 **2026-09-19 に原典で確認した**（`https://www.law.cornell.edu/uscode/text/17/106A`）:

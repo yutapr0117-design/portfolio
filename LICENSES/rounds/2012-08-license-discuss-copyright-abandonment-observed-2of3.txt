@@ -1,0 +1,769 @@
+OBSERVED (not received by us) -- license-discuss public archive, 2012-08
+Fetched 2026-09-27 from the monthly mbox files at
+https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/
+Preserved verbatim, unmodified. NOT addressed to us and NOT about ACD-1.0.
+
+The thread "Can copyrights be abandoned to the public domain?" (2012-08, 34 messages),
+complete.
+
+Why this thread: ACD-1.0 Section 3 is a waiver and Section 10.4 says nothing terminates, so
+the two questions this thread asks -- can copyright be abandoned, and what survives a grant
+that says it is irrevocable -- are the two questions the instrument stands on. The dossier had
+analysed both from the statutes (jurisdictions.md 5a and 5b). It had not read the list's own
+treatment, which names the same US provision and adds a distributor's practical position on
+what a clear dedication does even where abandonment is uncertain.
+
+Split by LINE boundaries at 750 lines; concatenating the parts in order reproduces the
+selected bytes exactly (asserted before writing).
+
+=== part 2 of 3 (line-boundary split) ===
+
+	domain?
+In-Reply-To: <CAKHyket-uuEAQMCp0WbsxwEG-SABuq2YXR2cBSpxQQa+Vqodvg@mail.gmail.com>
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+	<87r4r9kwfa.fsf@gavenkoa.example.com>
+	<20525.36137.551858.817985@desk.crynwr.com>
+	<201208170409.16799.johnny@solbu.net>
+	<CAKHyket-uuEAQMCp0WbsxwEG-SABuq2YXR2cBSpxQQa+Vqodvg@mail.gmail.com>
+Message-ID: <CAKHykevC8brHV8FbKVfKPwe4fxU0q-oQSmmeAgL4Dyay6V5pPg@mail.gmail.com>
+
+On Fri, Aug 17, 2012 at 7:51 AM, Henrik Ingo <henrik.ingo at avoinelama.fi> wrote:
+> On Fri, Aug 17, 2012 at 5:09 AM, Johnny Solbu <johnny at solbu.net> wrote:
+>> On Friday 17 August 2012 02:15, Russ Nelson wrote:
+>>> but it's clear that OSI
+>>> Approved Open Source contributions from people who live in countries
+>>> that claim Moral Rights is inferior to people who live in countries
+>>> which don't.
+>>
+>> Says who?
+>> And why?
+>
+> I believe Finland has the concept of Moral Rights. As a IANAL summary,
+> the concept seems to be that even if I license or sell away the
+> commercial rights to my creation, I retain certain rights that I can
+> never give away, such as the right to be correctly cited as the author
+> of my works (which most FOSS licenses require anyway) and weird things
+> like the right to forbid the use of my work for pornography or other
+> things someone might find against my morality.
+>
+> I have never heard anyone actually asserting this for software.
+> Further, some contracts I've signed, such as with Sun Microsystem,
+> included language to the effect that if there are parts of my
+> copyright that I cannot license away, I nevertheless irrevocably waive
+> my right to assert the moral rights in court, even if they are still
+> mine since they cannot be transferred/licensed. I have no idea if such
+> a waiver would mean anything in court since the whole point of the law
+> is quite the opposite.
+
+Oh, one thing I've always wondered though is, what would happen if for
+instance the thousands of Nokia engineers who wrote code that went
+into a mobile phone started actually requiring that Nokia would
+acknowledge them by name as authors of the software. In open source
+this commonly happens, but for closed source software products it
+could be a lot of fun!
+
+henrik
+
+
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-8211286 skype: henrik.ingo irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://www.linkedin.com/profile/view?id=9522559
+
+
+
+From johnny at solbu.net  Fri Aug 17 05:40:00 2012
+From: johnny at solbu.net (Johnny Solbu)
+Date: Fri, 17 Aug 2012 06:40:00 +0100
+Subject: [License-discuss] Can copyrights be abandoned to the public
+	domain?
+In-Reply-To: <CAKHyket-uuEAQMCp0WbsxwEG-SABuq2YXR2cBSpxQQa+Vqodvg@mail.gmail.com>
+References: <CANoac9W4MFFcn_x=sefNL-xQB0pRWO4SP2WjWjS_yBpy3TPYHg@mail.gmail.com>
+	<201208170409.16799.johnny@solbu.net>
+	<CAKHyket-uuEAQMCp0WbsxwEG-SABuq2YXR2cBSpxQQa+Vqodvg@mail.gmail.com>
+Message-ID: <201208170740.03741.johnny@solbu.net>
+
+On Friday 17 August 2012 06:51, Henrik Ingo wrote:
+> I believe Finland has the concept of Moral Rights.
+
+As do Norway, and most if not all nordic countries.
+
+> weird things like the right to forbid the use of my work for pornography 
+
+If you make use of that right in a license, then it is not a free work or free software. if you license something using a Free license, then you are stating that Anyone can use your work as long as they adhere to the license.
+
+> or other things someone might find against my morality.
+
+What your morality happens to be has nothing to do with the "moral rights" under the law.
+
+-- 
+Johnny A. Solbu
+web site,   http://www.solbu.net
+PGP key ID: 0xFA687324
+********************************
+Kom Arbeidslyst og treng deg p?,
+her skal du motstand finne.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: This is a digitally signed message part.
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20120817/a4615c58/attachment.sig>
+
+
+From nelson at crynwr.com  Fri Aug 17 05:42:55 2012
+From: nelson at crynwr.com (Russ Nelson)
+Date: Fri, 17 Aug 2012 01:42:55 -0400
+Subject: [License-discuss] Can copyrights be abandoned
+	to	the	public	domain?
+In-Reply-To: <8yf0hvsml237egfk6pv3guyo.1345164349588@email.android.com>
+References: <8yf0hvsml237egfk6pv3guyo.1345164349588@email.android.com>
+Message-ID: <20525.55775.656757.93018@desk.crynwr.com>
+
+Larry, have you ever been driving over a bridge that collapsed?
+-russ
+
+Lawrence Rosen writes:
+ > Russ, have you ever experienced that inferiority in actual open source software? 
+ > 
+ > /Larry (from my tablet and brief) 
+ > 
+ > Russ Nelson <nelson at crynwr.com> wrote:
+ > 
+ > >Oleksandr Gavenko writes:
+ > > >       Moral Rights:
+ > >
+ > >Only some countries claim Moral Rights. And as you point out, this is
+ > >very problemmatic for Open Source Software. We have traditionally held
+ > >that a license is a license is a license, but it's clear that OSI
+ > >Approved Open Source contributions from people who live in countries
+ > >that claim Moral Rights is inferior to people who live in countries
+ > >which don't.
+ > >
+ > >-- 
+ > >--my blog is at    http://blog.russnelson.com
+ > >Crynwr supports open source software
+ > >521 Pleasant Valley Rd. | +1 315-600-8815
+ > >Potsdam, NY 13676-3213  |     Sheepdog       
+ > >_______________________________________________
+ > >License-discuss mailing list
+ > >License-discuss at opensource.org
+ > >http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+ > _______________________________________________
+ > License-discuss mailing list
+ > License-discuss at opensource.org
+ > http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+
+
+
+From lrosen at rosenlaw.com  Fri Aug 17 16:12:03 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Fri, 17 Aug 2012 09:12:03 -0700
+Subject: [License-discuss] Can copyrights be abandoned to the public
+	domain?
+Message-ID: <013d01cd7c93$0ac4aa70$204dff50$@rosenlaw.com>
+
+Russ Nelson asked:
+> Larry, have you ever been driving over a bridge that collapsed?
+
+Not that I can recall. :-) Out of fear of that very result, though, I
+support increased infrastructure spending by our government.
+
+But I don't stress out every time I drive over a bridge or when I use open
+source software that is owned by an individual who wants to reserve her
+moral rights. Indeed, I respect moral rights in the ways that I license and
+use open source software and I advise respectful attribution whenever
+appropriate. Does the protection of moral rights require anything onerous of
+you?
+
+Best,
+
+/Larry
+
+-----Original Message-----
+From: Russ Nelson [mailto:nelson at crynwr.com] 
+Sent: Thursday, August 16, 2012 10:43 PM
+To: license-discuss at opensource.org
+Subject: Re: [License-discuss] Can copyrights be abandoned to the public
+domain?
+
+Larry, have you ever been driving over a bridge that collapsed?
+-russ
+
+Lawrence Rosen writes:
+ > Russ, have you ever experienced that inferiority in actual open source
+software? 
+ >
+ > /Larry (from my tablet and brief)
+ >
+ > Russ Nelson <nelson at crynwr.com> wrote:
+ >
+ > >Oleksandr Gavenko writes:
+ > > >       Moral Rights:
+ > >
+ > >Only some countries claim Moral Rights. And as you point out, this is  >
+>very problemmatic for Open Source Software. We have traditionally held  >
+>that a license is a license is a license, but it's clear that OSI  >
+>Approved Open Source contributions from people who live in countries  >
+>that claim Moral Rights is inferior to people who live in countries  >
+>which don't.
+ > >
+ > >-- 
+ > >--my blog is at    http://blog.russnelson.com
+ > >Crynwr supports open source software  > >521 Pleasant Valley Rd. | +1
+315-600-8815
+ > >Potsdam, NY 13676-3213  |     Sheepdog       
+ > >_______________________________________________
+ > >License-discuss mailing list
+ > >License-discuss at opensource.org
+ > >http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+ > _______________________________________________
+ > License-discuss mailing list
+ > License-discuss at opensource.org
+ > http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+_______________________________________________
+License-discuss mailing list
+License-discuss at opensource.org
+http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+
+
+
+
+From btilly at gmail.com  Fri Aug 17 16:44:33 2012
+From: btilly at gmail.com (Ben Tilly)
+Date: Fri, 17 Aug 2012 09:44:33 -0700
+Subject: [License-discuss] Can copyrights be abandoned to the public
+	domain?
+In-Reply-To: <013d01cd7c93$0ac4aa70$204dff50$@rosenlaw.com>
+References: <013d01cd7c93$0ac4aa70$204dff50$@rosenlaw.com>
+Message-ID: <CANoac9V-4ZTBuicERyhLianP2Cw+AL5MYTsNnKQJWh7yWPm8+g@mail.gmail.com>
+
+On Fri, Aug 17, 2012 at 9:12 AM, Lawrence Rosen <lrosen at rosenlaw.com> wrote:
+> Russ Nelson asked:
+>> Larry, have you ever been driving over a bridge that collapsed?
+>
+> Not that I can recall. :-) Out of fear of that very result, though, I
+> support increased infrastructure spending by our government.
+>
+> But I don't stress out every time I drive over a bridge or when I use open
+> source software that is owned by an individual who wants to reserve her
+> moral rights. Indeed, I respect moral rights in the ways that I license and
+> use open source software and I advise respectful attribution whenever
+> appropriate. Does the protection of moral rights require anything onerous of
+> you?
+
+Let's see.  Linus Torvalds is Finnish and began Linux in Finland.  As
+Henrik pointed out, Finnish law has the concept of moral rights, and
+one of those rights is the right of integrity, which can allow the
+copyright holder to restrict the use of his copyrighted material in
+ways that infringe on his honor.  In particular you can say that you
+can't use that work for pornography.  Oleksandr pointed us to
+http://www.wipo.int/treaties/en/ip/berne/trtdocs_wo001.html#P123_20726
+which says that this moral right can be enforced even in countries
+which do not have moral rights in their copyright law.
+
+I am not a lawyer.  I know even less about international law.  My
+knowledge of this topic is, in fact, pretty much half an hour with
+Google following up references in this discussion.  But it looks to me
+like Linus might have the ability to sue a US pornography company that
+is using Linux to stream their porn based on his moral right rising
+from Finnish copyright law.  If so, then that would run directly
+counter to OSD #6.
+
+I trust that Linus never would do so.  But if he and many other
+European contributers to open source projects actually *could* do
+that, that's not exactly a small detail.  (Particularly if you were
+loving using open source to distribute your loving.)
+
+
+
+From lrosen at rosenlaw.com  Fri Aug 17 17:05:04 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Fri, 17 Aug 2012 10:05:04 -0700
+Subject: [License-discuss] Can copyrights be abandoned to the public
+	domain?
+In-Reply-To: <CANoac9V-4ZTBuicERyhLianP2Cw+AL5MYTsNnKQJWh7yWPm8+g@mail.gmail.com>
+References: <013d01cd7c93$0ac4aa70$204dff50$@rosenlaw.com>
+	<CANoac9V-4ZTBuicERyhLianP2Cw+AL5MYTsNnKQJWh7yWPm8+g@mail.gmail.com>
+Message-ID: <017101cd7c9a$73d74cf0$5b85e6d0$@rosenlaw.com>
+
+[This email best viewed in HTML format]
+
+ 
+
+Hi Ben,
+
+ 
+
+It would be difficult for Linus Torvalds to complain about porn when he
+intentionally released an operating system that is so ideally suited for the
+delivery of porn. It would be like Michelangelo complaining because
+derivatives of his statue of David revealed some private parts.
+
+ 
+
+/Larry
+
+ 
+
+ 
+
+ 
+
+Description: http://www.richardclover.co.uk/images/MichelangeloDavid2.jpg
+
+ 
+
+Source: http://www.richardclover.co.uk/node/39
+
+ 
+
+ 
+
+-----Original Message-----
+From: Ben Tilly [mailto:btilly at gmail.com] 
+Sent: Friday, August 17, 2012 9:45 AM
+To: lrosen at rosenlaw.com; license-discuss at opensource.org
+Subject: Re: [License-discuss] Can copyrights be abandoned to the public
+domain?
+
+ 
+
+On Fri, Aug 17, 2012 at 9:12 AM, Lawrence Rosen <
+<mailto:lrosen at rosenlaw.com> lrosen at rosenlaw.com> wrote:
+
+> Russ Nelson asked:
+
+>> Larry, have you ever been driving over a bridge that collapsed?
+
+> 
+
+> Not that I can recall. :-) Out of fear of that very result, though, I 
+
+> support increased infrastructure spending by our government.
+
+> 
+
+> But I don't stress out every time I drive over a bridge or when I use 
+
+> open source software that is owned by an individual who wants to 
+
+> reserve her moral rights. Indeed, I respect moral rights in the ways 
+
+> that I license and use open source software and I advise respectful 
+
+> attribution whenever appropriate. Does the protection of moral rights 
+
+> require anything onerous of you?
+
+ 
+
+Let's see.  Linus Torvalds is Finnish and began Linux in Finland.  As Henrik
+pointed out, Finnish law has the concept of moral rights, and one of those
+rights is the right of integrity, which can allow the copyright holder to
+restrict the use of his copyrighted material in ways that infringe on his
+honor.  In particular you can say that you can't use that work for
+pornography.  Oleksandr pointed us to
+
+ <http://www.wipo.int/treaties/en/ip/berne/trtdocs_wo001.html#P123_20726>
+http://www.wipo.int/treaties/en/ip/berne/trtdocs_wo001.html#P123_20726
+
+which says that this moral right can be enforced even in countries which do
+not have moral rights in their copyright law.
+
+ 
+
+I am not a lawyer.  I know even less about international law.  My knowledge
+of this topic is, in fact, pretty much half an hour with Google following up
+references in this discussion.  But it looks to me like Linus might have the
+ability to sue a US pornography company that is using Linux to stream their
+porn based on his moral right rising from Finnish copyright law.  If so,
+then that would run directly counter to OSD #6.
+
+ 
+
+I trust that Linus never would do so.  But if he and many other European
+contributers to open source projects actually *could* do that, that's not
+exactly a small detail.  (Particularly if you were loving using open source
+to distribute your loving.)
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20120817/20cb17b6/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: image001.jpg
+Type: image/jpeg
+Size: 21067 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20120817/20cb17b6/attachment.jpg>
+
+
+From nelson at crynwr.com  Sat Aug 18 05:06:23 2012
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sat, 18 Aug 2012 01:06:23 -0400
+Subject: [License-discuss] Can copyrights be abandoned to the
+	public	domain?
+In-Reply-To: <013d01cd7c93$0ac4aa70$204dff50$@rosenlaw.com>
+References: <013d01cd7c93$0ac4aa70$204dff50$@rosenlaw.com>
+Message-ID: <20527.8911.175820.823875@desk.crynwr.com>
+
+And yet we know that bridges collapse. Is it reasonable to take steps
+against bridges collapsing? We (mostly) don't build bridges out of
+wood (software from moral rights countries), but instead out of steel
+and concrete (countries where people cannot retroactively change the
+license on open source software).
+
+Lawrence Rosen writes:
+ > Russ Nelson asked:
+ > > Larry, have you ever been driving over a bridge that collapsed?
+ > 
+ > Not that I can recall. :-) Out of fear of that very result, though, I
+ > support increased infrastructure spending by our government.
+ > 
+ > But I don't stress out every time I drive over a bridge or when I use open
+ > source software that is owned by an individual who wants to reserve her
+ > moral rights. Indeed, I respect moral rights in the ways that I license and
+ > use open source software and I advise respectful attribution whenever
+ > appropriate. Does the protection of moral rights require anything onerous of
+ > you?
+ > 
+ > Best,
+ > 
+ > /Larry
+ > 
+ > -----Original Message-----
+ > From: Russ Nelson [mailto:nelson at crynwr.com] 
+ > Sent: Thursday, August 16, 2012 10:43 PM
+ > To: license-discuss at opensource.org
+ > Subject: Re: [License-discuss] Can copyrights be abandoned to the public
+ > domain?
+ > 
+ > Larry, have you ever been driving over a bridge that collapsed?
+ > -russ
+ > 
+ > Lawrence Rosen writes:
+ >  > Russ, have you ever experienced that inferiority in actual open source
+ > software? 
+ >  >
+ >  > /Larry (from my tablet and brief)
+ >  >
+ >  > Russ Nelson <nelson at crynwr.com> wrote:
+ >  >
+ >  > >Oleksandr Gavenko writes:
+ >  > > >       Moral Rights:
+ >  > >
+ >  > >Only some countries claim Moral Rights. And as you point out, this is  >
+ > >very problemmatic for Open Source Software. We have traditionally held  >
+ > >that a license is a license is a license, but it's clear that OSI  >
+ > >Approved Open Source contributions from people who live in countries  >
+ > >that claim Moral Rights is inferior to people who live in countries  >
+ > >which don't.
+ >  > >
+ >  > >-- 
+ >  > >--my blog is at    http://blog.russnelson.com
+ >  > >Crynwr supports open source software  > >521 Pleasant Valley Rd. | +1
+ > 315-600-8815
+ >  > >Potsdam, NY 13676-3213  |     Sheepdog       
+ >  > >_______________________________________________
+ >  > >License-discuss mailing list
+ >  > >License-discuss at opensource.org
+ >  > >http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+ >  > _______________________________________________
+ >  > License-discuss mailing list
+ >  > License-discuss at opensource.org
+ >  > http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+ > _______________________________________________
+ > License-discuss mailing list
+ > License-discuss at opensource.org
+ > http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+ > 
+ > _______________________________________________
+ > License-discuss mailing list
+ > License-discuss at opensource.org
+ > http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+
+
+
+From ben at reser.org  Sat Aug 18 05:47:07 2012
+From: ben at reser.org (Ben Reser)
+Date: Fri, 17 Aug 2012 22:47:07 -0700
+Subject: [License-discuss] Can copyrights be abandoned to the public
+	domain?
+In-Reply-To: <20527.8911.175820.823875@desk.crynwr.com>
+References: <013d01cd7c93$0ac4aa70$204dff50$@rosenlaw.com>
+	<20527.8911.175820.823875@desk.crynwr.com>
+Message-ID: <CADkdwvQwJ914dHFviunoCJq8JVDUAuqbxPgPUL+LPQhrm661GQ@mail.gmail.com>
+
+On Fri, Aug 17, 2012 at 10:06 PM, Russ Nelson <nelson at crynwr.com> wrote:
+> And yet we know that bridges collapse. Is it reasonable to take steps
+> against bridges collapsing? We (mostly) don't build bridges out of
+> wood (software from moral rights countries), but instead out of steel
+> and concrete (countries where people cannot retroactively change the
+> license on open source software).
+
+Can you provide a list of software for which the license has been
+invalidated or retroactively changed due to moral rights in any
+country?
+
+Please compare the list you come up with this for quantity of instances:
+http://en.wikipedia.org/wiki/List_of_bridge_failures
+
+Feel free to adjust the time frame on that list to those within the
+time frame that software has existed.
+
+
+
+From cowan at mercury.ccil.org  Sat Aug 18 06:19:29 2012
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Sat, 18 Aug 2012 02:19:29 -0400
+Subject: [License-discuss] Can copyrights be abandoned to the
+	public	domain?
+In-Reply-To: <20527.8911.175820.823875@desk.crynwr.com>
+References: <013d01cd7c93$0ac4aa70$204dff50$@rosenlaw.com>
+	<20527.8911.175820.823875@desk.crynwr.com>
+Message-ID: <20120818061929.GQ28517@mercury.ccil.org>
+
+Russ Nelson scripsit:
+
+> And yet we know that bridges collapse. Is it reasonable to take steps
+> against bridges collapsing? We (mostly) don't build bridges out of
+> wood (software from moral rights countries), but instead out of steel
+> and concrete (countries where people cannot retroactively change the
+> license on open source software).
+
+Has anyone tried to revoke their (or their predecessor's) license
+and lost in court?  I think not.  Indeed the Raymond/Olanich paper
+at http://www.catb.org/esr/Licensing-HOWTO.html#changing discusses
+changing the license on OSS, which of course involves revoking the
+previous license.
+
+-- 
+Using RELAX NG compact syntax to        John Cowan <cowan at ccil.org>
+develop schemas is one of the simple    http://www.ccil.org/~cowan
+pleasures in life....
+        --Jeni Tennison                 <cowan at ccil.org>
+
+
+
+From chris at metatrontech.com  Sat Aug 18 07:04:05 2012
+From: chris at metatrontech.com (Chris Travers)
+Date: Sat, 18 Aug 2012 00:04:05 -0700
+Subject: [License-discuss] Can copyrights be abandoned to the public
+	domain?
+In-Reply-To: <017101cd7c9a$73d74cf0$5b85e6d0$@rosenlaw.com>
+References: <013d01cd7c93$0ac4aa70$204dff50$@rosenlaw.com>
+	<CANoac9V-4ZTBuicERyhLianP2Cw+AL5MYTsNnKQJWh7yWPm8+g@mail.gmail.com>
+	<017101cd7c9a$73d74cf0$5b85e6d0$@rosenlaw.com>
+Message-ID: <CAPKNUtf1q7bNFKK+8M0MyLKZo1aNUpTtp0ujdsEY9kcyHrVkBw@mail.gmail.com>
+
+On Fri, Aug 17, 2012 at 10:05 AM, Lawrence Rosen <lrosen at rosenlaw.com>wrote:
+
+> [This email best viewed in HTML format]****
+>
+> ** **
+>
+> Hi Ben,****
+>
+> ** **
+>
+> It would be difficult for Linus Torvalds to complain about porn when he
+> intentionally released an operating system that is so ideally suited for
+> the delivery of porn. It would be like Michelangelo complaining because
+> derivatives of his statue of David revealed some private parts.****
+>
+>
+>
+IANAL, but the intent of moral rights is to provide for the author's
+reputation for his or her work and to ensure that the author maintains some
+control over how the image of the work is maintained.  For a practical tool
+this strikes me as somewhat of a mismatch just like protecting software as
+expression is a bit of a mismatch.
+
+For example, I don't know how Linus's moral rights would be interfered with
+if nobody knew that a specific porn site was being hosted on a service
+using the Linux kernel, although he'd seem to have a right to ask them to
+display a "powered by Linux" logo or refuse to let them use such a logo.
+
+Best Wishes,
+Chris Travers
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20120818/fed8a2cb/attachment.html>
+
+
+From nelson at crynwr.com  Sat Aug 18 14:31:37 2012
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sat, 18 Aug 2012 10:31:37 -0400
+Subject: [License-discuss] Can copyrights be abandoned to
+	the	public	domain?
+In-Reply-To: <20120818061929.GQ28517@mercury.ccil.org>
+References: <013d01cd7c93$0ac4aa70$204dff50$@rosenlaw.com>
+	<20527.8911.175820.823875@desk.crynwr.com>
+	<20120818061929.GQ28517@mercury.ccil.org>
+Message-ID: <20527.42825.521003.281631@desk.crynwr.com>
+
+John Cowan writes:
+ > Russ Nelson scripsit:
+ > 
+ > > And yet we know that bridges collapse. Is it reasonable to take steps
+ > > against bridges collapsing? We (mostly) don't build bridges out of
+ > > wood (software from moral rights countries), but instead out of steel
+ > > and concrete (countries where people cannot retroactively change the
+ > > license on open source software).
+ > 
+ > Has anyone tried to revoke their (or their predecessor's) license
+ > and lost in court?
+
+That's something different. I know that there's a theory which says
+that copyright permissions, even if granted "irrevokably", can be
+withdrawn. That's not what I'm talking about here. I'm talking about
+moral rights, where you can put something under an open source license
+which (at least in our theory) allow changes without limit and yet the
+law of the country where moral rights exist allows the copyright
+holder to *prohibit* changes without limit.
+
+I hear a lot of whistling past the graveyard here. As people point
+out, it's never happened yet, and so it never will happen. Not a cause
+for concern; move along, nothing to see here.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-600-8815
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+
+From lrosen at rosenlaw.com  Sat Aug 18 16:41:26 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Sat, 18 Aug 2012 09:41:26 -0700
+Subject: [License-discuss] Can copyrights be abandoned to the public
+	domain?
+Message-ID: <021501cd7d60$50017e60$f0047b20$@rosenlaw.com>
+
+Russ Nelson wrote:
+> I hear a lot of whistling past the graveyard here. As people point out,
+> it's never happened yet, and so it never will happen. Not a cause for 
+> concern; move along, nothing to see here.
+
+Russ, among the things I worry about in FOSS, moral rights are among the
+least worrisome. I'd almost welcome litigation about this issue so that we
+can expunge "morality" from "software". 
+
+If you want to worry about copyright law, consider 17 USC 203. [1] Tell me
+what you experience as you drive over that bridge....
+
+/Larry
+
+[1] http://www.law.cornell.edu/uscode/text/17/203 
+
+Lawrence Rosen
+Rosenlaw & Einschlag, a technology law firm (www.rosenlaw.com)
+3001 King Ranch Rd., Ukiah, CA 95482
+Office: 707-485-1242
+
+
+-----Original Message-----
+From: Russ Nelson [mailto:nelson at crynwr.com] 
+Sent: Saturday, August 18, 2012 7:32 AM
+To: license-discuss at opensource.org
+Subject: Re: [License-discuss] Can copyrights be abandoned to the public
+domain?
+
+John Cowan writes:
+ > Russ Nelson scripsit:
+ >
+ > > And yet we know that bridges collapse. Is it reasonable to take steps
+> > against bridges collapsing? We (mostly) don't build bridges out of  > >
+wood (software from moral rights countries), but instead out of steel  > >
+and concrete (countries where people cannot retroactively change the  > >
+license on open source software).
+ >
+ > Has anyone tried to revoke their (or their predecessor's) license  > and
+lost in court?
+
+That's something different. I know that there's a theory which says that
+copyright permissions, even if granted "irrevokably", can be withdrawn.
+That's not what I'm talking about here. I'm talking about moral rights,
+where you can put something under an open source license which (at least in
+our theory) allow changes without limit and yet the law of the country where
+moral rights exist allows the copyright holder to *prohibit* changes without
+limit.
+
+I hear a lot of whistling past the graveyard here. As people point out, it's
+never happened yet, and so it never will happen. Not a cause for concern;
+move along, nothing to see here.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-600-8815
+Potsdam, NY 13676-3213  |     Sheepdog       
+_______________________________________________
+License-discuss mailing list
+License-discuss at opensource.org
+http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+
+
+
+
+From nelson at crynwr.com  Sat Aug 18 23:28:05 2012
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sat, 18 Aug 2012 19:28:05 -0400
+Subject: [License-discuss] Can copyrights be abandoned to the
+	public	domain?
+In-Reply-To: <021501cd7d60$50017e60$f0047b20$@rosenlaw.com>
+References: <021501cd7d60$50017e60$f0047b20$@rosenlaw.com>
+Message-ID: <20528.9477.110512.710175@desk.crynwr.com>
+
+Lawrence Rosen writes:
+ > If you want to worry about copyright law, consider 17 USC 203. [1] Tell me
+ > what you experience as you drive over that bridge....
+
+I'll tell you in 35 years.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-600-8815
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+
+From chris at metatrontech.com  Sun Aug 19 11:05:28 2012
+From: chris at metatrontech.com (Chris Travers)
+Date: Sun, 19 Aug 2012 04:05:28 -0700
+Subject: [License-discuss] Can copyrights be abandoned to the public
+	domain?
+In-Reply-To: <021501cd7d60$50017e60$f0047b20$@rosenlaw.com>
+References: <021501cd7d60$50017e60$f0047b20$@rosenlaw.com>
+Message-ID: <CAPKNUtdjH-t6HYWgpuBLAG6qDNdvrFW1PnRzxqn7rT=VyNtxRg@mail.gmail.com>
+
+On Sat, Aug 18, 2012 at 9:41 AM, Lawrence Rosen <lrosen at rosenlaw.com> wrote:
+> Russ Nelson wrote:
+>> I hear a lot of whistling past the graveyard here. As people point out,
+>> it's never happened yet, and so it never will happen. Not a cause for
+>> concern; move along, nothing to see here.
+>
+> Russ, among the things I worry about in FOSS, moral rights are among the
+> least worrisome. I'd almost welcome litigation about this issue so that we
+> can expunge "morality" from "software".
+>
+> If you want to worry about copyright law, consider 17 USC 203. [1] Tell me
+> what you experience as you drive over that bridge....
+>
+Fascinating law.  I will admit not to worrying about moral rights, or
+this specific law.  For one I don't know that there is a lot of code
+that wouldn't be turned over in the course of 35 years.  However it
+does make you wonder once Linus passes on if his kids might decide to
+pull this sort of thing and if so what the effect would be.
+
+Best Wishes,
+Chris Travers
+

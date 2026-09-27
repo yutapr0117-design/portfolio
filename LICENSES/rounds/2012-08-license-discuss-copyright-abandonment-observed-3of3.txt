@@ -1,0 +1,21 @@
+OBSERVED (not received by us) -- license-discuss public archive, 2012-08
+Fetched 2026-09-27 from the monthly mbox files at
+https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/
+Preserved verbatim, unmodified. NOT addressed to us and NOT about ACD-1.0.
+
+The thread "Can copyrights be abandoned to the public domain?" (2012-08, 34 messages),
+complete.
+
+Why this thread: ACD-1.0 Section 3 is a waiver and Section 10.4 says nothing terminates, so
+the two questions this thread asks -- can copyright be abandoned, and what survives a grant
+that says it is irrevocable -- are the two questions the instrument stands on. The dossier had
+analysed both from the statutes (jurisdictions.md 5a and 5b). It had not read the list's own
+treatment, which names the same US provision and adds a distributor's practical position on
+what a clear dedication does even where abandonment is uncertain.
+
+Split by LINE boundaries at 750 lines; concatenating the parts in order reproduces the
+selected bytes exactly (asserted before writing).
+
+=== part 3 of 3 (line-boundary split) ===
+
+
