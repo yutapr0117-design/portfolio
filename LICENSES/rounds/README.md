@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-27 時点・178 ファイル）
+## いまの状態（2026-09-27 時点・181 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -214,6 +214,9 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（21/23 部）** | **同じ束の 21/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（22/23 部）** | **同じ束の 22/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（23/23 部）** | **同じ束の 23/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-11 | `license-review`（観測）| **Unicode の 2 つの承認 16 通（2018 legacy / 2023 v3） → 観測保存（1/3 部）** | **OSI は「data files」を主題に明記したライセンスを 2 度承認している**（2018 legacy / 2023 v3・どちらもカテゴリつき）——**B15 にとってフォントに続く 2 つ目の counterweight**（#259）。**2023 年の提出は「一般化」を目的に明記し、著作権表示を *"fill in the blanks"* にした本文で承認された** ——*"to **genericize it so that it may be used by entities other than the Unicode Consortium**"*（#260） |
+| 2017-11 | `license-review`（観測）| **Unicode の 2 つの承認 16 通（2018 legacy / 2023 v3） → 観測保存（2/3 部）** | **同じ束の 2/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2017-11 | `license-review`（観測）| **Unicode の 2 つの承認 16 通（2018 legacy / 2023 v3） → 観測保存（3/3 部）** | **同じ束の 3/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2004-09 | `license-discuss`（観測）| **Allegro Giftware License の承認相談 11 通 → 観測保存（1/1 部）** | **proliferation の反対が「すべてを与える」ライセンスへ向けられている唯一の記録** —— Moen 氏 *"even an extremely permissive one like yours ... **needlessly putting it in a ghetto of your devising**"*。**そして「献呈 + 許諾の組み合わせ」を出すという発想が 2004 年に在る** —— Rousskov 氏 *"a **'Public Domain or whatever license you want' dedication/license combo** for OSI approval"*（#253）|
 | 2001-06 | `license-discuss`（観測）| **qmail のライセンスと OSD 4 21 通 → 観測保存（1/2 部）** | **OSD 3 の後半が実際に判定の決め手として使われている例**（Moen 氏 *"OSD clause #3, immediately preceding, strikes me as disambiguating this."*）。**条件一般について Cowan 氏** —— *"a claim that 'X must allow Y' is satisfied by a statement by X that 'Y is allowed under conditions Z' **can't be true in general, since the conditions Z can be arbitrarily restrictive**."*（#251） |
 | 2001-06 | `license-discuss`（観測）| **qmail のライセンスと OSD 4 21 通 → 観測保存（2/2 部）** | **同じ束の 2/2 部。** 本文は無改変で、2 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
