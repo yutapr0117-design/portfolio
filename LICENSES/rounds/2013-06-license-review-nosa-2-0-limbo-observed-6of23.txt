@@ -1,0 +1,750 @@
+>> Thanks for the reply Nigel.
+>>
+>> I'm not trying to stir the pot right now, but I'm sure my questions
+>> make it seem that way. The reason I'm asking is that there was a
+>> suggestion on NASA's IdeaScale site that the NOSA should be revised to
+>> make it "more free".
+>>
+>> 
+>>http://opennasaplan.ideascale.com/a/dtd/Revise-NOSA-to-become-more-free/1
+>>23641-7200
+>>
+>> As I looked around, I noticed that at least some Linux distributions
+>> like Debian have World Wind (which is released under the NOSA) in
+>> their non-free repositories. Whether or not this is an accurate view
+>> of the NOSA license, my concern is that it could create a barrier to
+>> keep some open source developers from contributing to NOSA licensed
+>> software.
+>>
+>> My overall motivation for trying to understand this is that I'm
+>> interested in being more involved in NASA's open source efforts, and
+>> I'm trying to get a handle on the current state of things. It would be
+>> nice to weigh in on the "NOSA revision" idea on IdeaScale, but I'm
+>> hesitant to until I really grasp the implications of the NOSA license.
+>>
+>> Thanks,
+>>
+>> Jeremy
+>>
+>> On Thu, Apr 28, 2011 at 10:29 AM, Tzeng, Nigel H.
+>> <Nigel.Tzeng at jhuapl.edu> wrote:
+>>> There has never been a problem with combined works and NOSA to my
+>>> knowledge.  There are many projects that combine BSD, Apache, LGPL and
+>>> NOSA code.  This is clearly stated in:
+>>>
+>>> 3.I. A Recipient may create a Larger Work by combining Subject Software
+>>> with separate software not governed by the terms of this agreement and
+>>> distribute the Larger Work as a single product. In such case, the
+>>> Recipient must make sure Subject Software, or portions thereof,
+>>> included in the Larger Work is subject to this Agreement.
+>>>
+>>>
+>>> I've been a commiter on NOSA projects that include 3rd party open
+>>>source
+>>> code so even 3.G doesn't restrict the ability to modify the core code
+>>>with
+>>> third party open source software not of your creation so long as the
+>>> license is less restrictive than NOSA (aka permissive licenses).  Folks
+>>> have taken NOSA code and clearly forked it as a derived MPL project
+>>>with
+>>> NASA's blessings then added lots of 3rd party code.
+>>>
+>>> If "free" software "depends" on "combining" code from third parties
+>>>then
+>>> most copyleft licenses aren't "free" software either since I can't
+>>>combine
+>>> two copylefts either under the FSF interpretation of derivative works.
+>>> GPL is far more restrictive on that score than NOSA is on a practical
+>>> level.
+>>>
+>>> Are you stirring the pot or are you actually looking at using some NOSA
+>>> code?
+>>>
+>>> Nigel
+>>>
+>>> On 4/28/11 9:50 AM, "Jeremy Wright" <wrightjmf at gmail.com> wrote:
+>>>
+>>>>I searched the archive, but couldn't find this topic elsewhere.
+>>>>
+>>>>It's my understanding that the OSI has approved version 1.3 of the
+>>>>NASA Open Source Agreement (NOSA), but the FSF (Free Software
+>>>>Foundation) has a problem with section 3, paragraph G of the license.
+>>>>The issue that the FSF cites is as follows:
+>>>>
+>>>>"The NASA Open Source Agreement, version 1.3, is not a free software
+>>>>license because it includes a provision requiring changes to be your
+>>>>?original creation?. Free software development depends on combining
+>>>>code from third parties, and the NASA license doesn't permit this."
+>>>>
+>>>>http://www.gnu.org/licenses/license-list.html
+>>>>
+>>>>Does this mean that the OSI and FSF disagree on the interpretation of
+>>>>section 3-G, or is the ability to include third party software not an
+>>>>OSI requirement for an open source license? I couldn't find any
+>>>>specific mention to the inclusion of third party code in the Open
+>>>>Source Definition, so I wanted to clarify.
+>>>>
+>>>>http://opensource.org/docs/osd
+>>>>
+>>>>Here's a link to the NOSA license.
+>>>>
+>>>>http://opensource.gsfc.nasa.gov/documents/NASA_Open_Source_Agreement_1.
+>>>>3.p
+>>>>df
+>>>>
+>>>>Thanks,
+>>>>
+>>>>Jeremy
+>>>
+>>>
+>>
+
+
+From wrightjmf at gmail.com  Thu Apr 28 22:45:04 2011
+From: wrightjmf at gmail.com (Jeremy Wright)
+Date: Thu, 28 Apr 2011 18:45:04 -0400
+Subject: NASA Open Source Agreement v1.3
+In-Reply-To: <C9DF5422.C823%Nigel.Tzeng@jhuapl.edu>
+References: <BANLkTik2tVL-qQkJcwngNshsfN2Bpuk1VQ@mail.gmail.com> <C9DF5422.C823%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <BANLkTimzNeZUhJ6oG0j2k6eDr+job9NMKQ@mail.gmail.com>
+
+I just found the linked Google doc below, and it contains notes on
+licensing discussions from the 2011 NASA Open Source Summit. There are
+proposed solutions toward the top, and general discussion items toward
+the bottom. Out of the proposed solutions, the discussion seems to
+have leaned more toward replacement than revision. That's my take on
+it anyway. I'm almost wondering if revision might not be a better
+solution though, at least for now, rather than adopting an entirely
+new license like the BSD or LGPL. I'm not sure how much disruption
+switching to a new license would cause for an organization like NASA
+though, so maybe dumping NOSA in favor of something else (at least
+when dealing with an external community) would be fine.
+
+https://docs.google.com/document/pub?id=1TagS_gwDhDfxjr7WpG78_aIcfoPO1tMXBPeCMEE3-Us&pli=1
+
+2011/4/28 Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu>:
+> Ben,
+>
+> Your adjustment would be fine from my perspective. Whether NASA legal
+> agrees we'll see. :)
+>
+> It would be better though if there was some Federal Open Source Agreement
+> that addresses government needs and could be reused across many agencies
+> when just having code in the public domain wasn't good enough.
+>
+> Arguably, they could just reuse one of the many existing ones and they
+> often do. ?There are possibly some issues that might be somewhat unique
+> enough that might require a new license. ?Notice the plethora of weasel
+> words in the previous sentence...but given the often arcane federal
+> requisition rules I wouldn't be surprised if there wasn't something. :)
+>
+> Nothing I see addressed by NOSA though.
+>
+> Nigel
+>
+> On 4/28/11 4:10 PM, "Ben Tilly" <btilly at gmail.com> wrote:
+>
+>>Here is my understanding.
+>>
+>>NOSA is an OSI approved license. ?But not everyone agrees on how free
+>>it is. ?In particular some people think that the restriction in 3.G
+>>keeps people from copying sections of code from permissively licensed
+>>code into NOSA code because the result is not their original creation.
+>> Linking is allowed, copying is not. ?If I'm reading it correctly, you
+>>can't even legally copy functions from one NOSA project to another. ?I
+>>wouldn't be happy having to remember to be careful to not just move
+>>code from A to B if the structure of the codebase made that natural to
+>>do.
+>>
+>>Those objections should disappear if that paragraph was changed to
+>>something like:
+>>
+>> ?G. Each Contributor represents that Contributor has sufficient
+>> ? ? rights to grant the rights conveyed by this Agreement on
+>> ? ? their Modification, and doing so does not violate any
+>> ? ? existing agreements, regulations, statutes or rules.
+>>
+>>However to verify I would highly recommend asking somewhere like
+>>http://lists.debian.org/debian-legal/ where there are people who have
+>>more context on why the license is considered non-free, and what
+>>changes would make them call it free.
+>>
+>>Note that this change would make NOSA licensed code slightly easier to
+>>include in some distributions, but as a practical matter I don't think
+>>would make much of a difference for getting contributions. ?However
+>>you can probably get a nice press release out of it, and a little
+>>publicity, which is always nice.
+>>
+>>On Thu, Apr 28, 2011 at 12:49 PM, Jeremy Wright <wrightjmf at gmail.com>
+>>wrote:
+>>> Thanks for the reply Nigel.
+>>>
+>>> I'm not trying to stir the pot right now, but I'm sure my questions
+>>> make it seem that way. The reason I'm asking is that there was a
+>>> suggestion on NASA's IdeaScale site that the NOSA should be revised to
+>>> make it "more free".
+>>>
+>>>
+>>>http://opennasaplan.ideascale.com/a/dtd/Revise-NOSA-to-become-more-free/1
+>>>23641-7200
+>>>
+>>> As I looked around, I noticed that at least some Linux distributions
+>>> like Debian have World Wind (which is released under the NOSA) in
+>>> their non-free repositories. Whether or not this is an accurate view
+>>> of the NOSA license, my concern is that it could create a barrier to
+>>> keep some open source developers from contributing to NOSA licensed
+>>> software.
+>>>
+>>> My overall motivation for trying to understand this is that I'm
+>>> interested in being more involved in NASA's open source efforts, and
+>>> I'm trying to get a handle on the current state of things. It would be
+>>> nice to weigh in on the "NOSA revision" idea on IdeaScale, but I'm
+>>> hesitant to until I really grasp the implications of the NOSA license.
+>>>
+>>> Thanks,
+>>>
+>>> Jeremy
+>>>
+>>> On Thu, Apr 28, 2011 at 10:29 AM, Tzeng, Nigel H.
+>>> <Nigel.Tzeng at jhuapl.edu> wrote:
+>>>> There has never been a problem with combined works and NOSA to my
+>>>> knowledge. ?There are many projects that combine BSD, Apache, LGPL and
+>>>> NOSA code. ?This is clearly stated in:
+>>>>
+>>>> 3.I. A Recipient may create a Larger Work by combining Subject Software
+>>>> with separate software not governed by the terms of this agreement and
+>>>> distribute the Larger Work as a single product. In such case, the
+>>>> Recipient must make sure Subject Software, or portions thereof,
+>>>> included in the Larger Work is subject to this Agreement.
+>>>>
+>>>>
+>>>> I've been a commiter on NOSA projects that include 3rd party open
+>>>>source
+>>>> code so even 3.G doesn't restrict the ability to modify the core code
+>>>>with
+>>>> third party open source software not of your creation so long as the
+>>>> license is less restrictive than NOSA (aka permissive licenses). ?Folks
+>>>> have taken NOSA code and clearly forked it as a derived MPL project
+>>>>with
+>>>> NASA's blessings then added lots of 3rd party code.
+>>>>
+>>>> If "free" software "depends" on "combining" code from third parties
+>>>>then
+>>>> most copyleft licenses aren't "free" software either since I can't
+>>>>combine
+>>>> two copylefts either under the FSF interpretation of derivative works.
+>>>> GPL is far more restrictive on that score than NOSA is on a practical
+>>>> level.
+>>>>
+>>>> Are you stirring the pot or are you actually looking at using some NOSA
+>>>> code?
+>>>>
+>>>> Nigel
+>>>>
+>>>> On 4/28/11 9:50 AM, "Jeremy Wright" <wrightjmf at gmail.com> wrote:
+>>>>
+>>>>>I searched the archive, but couldn't find this topic elsewhere.
+>>>>>
+>>>>>It's my understanding that the OSI has approved version 1.3 of the
+>>>>>NASA Open Source Agreement (NOSA), but the FSF (Free Software
+>>>>>Foundation) has a problem with section 3, paragraph G of the license.
+>>>>>The issue that the FSF cites is as follows:
+>>>>>
+>>>>>"The NASA Open Source Agreement, version 1.3, is not a free software
+>>>>>license because it includes a provision requiring changes to be your
+>>>>>?original creation?. Free software development depends on combining
+>>>>>code from third parties, and the NASA license doesn't permit this."
+>>>>>
+>>>>>http://www.gnu.org/licenses/license-list.html
+>>>>>
+>>>>>Does this mean that the OSI and FSF disagree on the interpretation of
+>>>>>section 3-G, or is the ability to include third party software not an
+>>>>>OSI requirement for an open source license? I couldn't find any
+>>>>>specific mention to the inclusion of third party code in the Open
+>>>>>Source Definition, so I wanted to clarify.
+>>>>>
+>>>>>http://opensource.org/docs/osd
+>>>>>
+>>>>>Here's a link to the NOSA license.
+>>>>>
+>>>>>http://opensource.gsfc.nasa.gov/documents/NASA_Open_Source_Agreement_1.
+>>>>>3.p
+>>>>>df
+>>>>>
+>>>>>Thanks,
+>>>>>
+>>>>>Jeremy
+>>>>
+>>>>
+>>>
+>
+>
+
+
+From luis at tieguy.org  Thu Apr 28 23:38:57 2011
+From: luis at tieguy.org (Luis Villa)
+Date: Thu, 28 Apr 2011 16:38:57 -0700
+Subject: NASA Open Source Agreement v1.3
+In-Reply-To: <BANLkTimzNeZUhJ6oG0j2k6eDr+job9NMKQ@mail.gmail.com>
+References: <BANLkTik2tVL-qQkJcwngNshsfN2Bpuk1VQ@mail.gmail.com> <C9DF5422.C823%Nigel.Tzeng@jhuapl.edu> <BANLkTimzNeZUhJ6oG0j2k6eDr+job9NMKQ@mail.gmail.com>
+Message-ID: <BANLkTimYcSNN3_Wf8FY-_VUzk_OCcF7rTQ@mail.gmail.com>
+
+On Thu, Apr 28, 2011 at 3:45 PM, Jeremy Wright <wrightjmf at gmail.com> wrote:
+> I just found the linked Google doc below, and it contains notes on
+> licensing discussions from the 2011 NASA Open Source Summit. There are
+> proposed solutions toward the top, and general discussion items toward
+> the bottom. Out of the proposed solutions, the discussion seems to
+> have leaned more toward replacement than revision. That's my take on
+> it anyway. I'm almost wondering if revision might not be a better
+> solution though, at least for now, rather than adopting an entirely
+> new license like the BSD or LGPL. I'm not sure how much disruption
+> switching to a new license would cause for an organization like NASA
+> though, so maybe dumping NOSA in favor of something else (at least
+> when dealing with an external community) would be fine.
+
+Generally speaking, once lawyers are involved, even a small
+modification is a big deal. So I'd generally recommend taking the
+plunge all at once. That said, every organization is different in
+their approach to these things, so speak to your counsel directly.
+
+Luis (a lawyer, but not your lawyer)
+
+
+From Nigel.Tzeng at jhuapl.edu  Thu Apr 28 23:59:11 2011
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Thu, 28 Apr 2011 19:59:11 -0400
+Subject: NASA Open Source Agreement v1.3
+In-Reply-To: <BANLkTimzNeZUhJ6oG0j2k6eDr+job9NMKQ@mail.gmail.com>
+Message-ID: <C9DF73E7.C871%Nigel.Tzeng@jhuapl.edu>
+
+Gah...looking at those notes GPL would be a huge mistake for NASA
+especially for something like WorldWind.  Even LGPL isn't great.
+Fortunately there seemed to be a drift toward Apache 2 at that meeting.
+Apache 2 + Apache CLA seems like a good combo as a NOSA replacement.
+
+You want more of an Androidish ecosystem for NASA and government OSS as
+opposed to a GPL walled garden.
+
+Nigel
+
+On 4/28/11 6:45 PM, "Jeremy Wright" <wrightjmf at gmail.com> wrote:
+
+>I just found the linked Google doc below, and it contains notes on
+>licensing discussions from the 2011 NASA Open Source Summit. There are
+>proposed solutions toward the top, and general discussion items toward
+>the bottom. Out of the proposed solutions, the discussion seems to
+>have leaned more toward replacement than revision. That's my take on
+>it anyway. I'm almost wondering if revision might not be a better
+>solution though, at least for now, rather than adopting an entirely
+>new license like the BSD or LGPL. I'm not sure how much disruption
+>switching to a new license would cause for an organization like NASA
+>though, so maybe dumping NOSA in favor of something else (at least
+>when dealing with an external community) would be fine.
+>
+>https://docs.google.com/document/pub?id=1TagS_gwDhDfxjr7WpG78_aIcfoPO1tMXB
+>PeCMEE3-Us&pli=1
+>
+>2011/4/28 Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu>:
+>> Ben,
+>>
+>> Your adjustment would be fine from my perspective. Whether NASA legal
+>> agrees we'll see. :)
+>>
+>> It would be better though if there was some Federal Open Source
+>>Agreement
+>> that addresses government needs and could be reused across many agencies
+>> when just having code in the public domain wasn't good enough.
+>>
+>> Arguably, they could just reuse one of the many existing ones and they
+>> often do.  There are possibly some issues that might be somewhat unique
+>> enough that might require a new license.  Notice the plethora of weasel
+>> words in the previous sentence...but given the often arcane federal
+>> requisition rules I wouldn't be surprised if there wasn't something. :)
+>>
+>> Nothing I see addressed by NOSA though.
+>>
+>> Nigel
+>>
+>> On 4/28/11 4:10 PM, "Ben Tilly" <btilly at gmail.com> wrote:
+>>
+>>>Here is my understanding.
+>>>
+>>>NOSA is an OSI approved license.  But not everyone agrees on how free
+>>>it is.  In particular some people think that the restriction in 3.G
+>>>keeps people from copying sections of code from permissively licensed
+>>>code into NOSA code because the result is not their original creation.
+>>> Linking is allowed, copying is not.  If I'm reading it correctly, you
+>>>can't even legally copy functions from one NOSA project to another.  I
+>>>wouldn't be happy having to remember to be careful to not just move
+>>>code from A to B if the structure of the codebase made that natural to
+>>>do.
+>>>
+>>>Those objections should disappear if that paragraph was changed to
+>>>something like:
+>>>
+>>>  G. Each Contributor represents that Contributor has sufficient
+>>>     rights to grant the rights conveyed by this Agreement on
+>>>     their Modification, and doing so does not violate any
+>>>     existing agreements, regulations, statutes or rules.
+>>>
+>>>However to verify I would highly recommend asking somewhere like
+>>>http://lists.debian.org/debian-legal/ where there are people who have
+>>>more context on why the license is considered non-free, and what
+>>>changes would make them call it free.
+>>>
+>>>Note that this change would make NOSA licensed code slightly easier to
+>>>include in some distributions, but as a practical matter I don't think
+>>>would make much of a difference for getting contributions.  However
+>>>you can probably get a nice press release out of it, and a little
+>>>publicity, which is always nice.
+>>>
+>>>On Thu, Apr 28, 2011 at 12:49 PM, Jeremy Wright <wrightjmf at gmail.com>
+>>>wrote:
+>>>> Thanks for the reply Nigel.
+>>>>
+>>>> I'm not trying to stir the pot right now, but I'm sure my questions
+>>>> make it seem that way. The reason I'm asking is that there was a
+>>>> suggestion on NASA's IdeaScale site that the NOSA should be revised to
+>>>> make it "more free".
+>>>>
+>>>>
+>>>>http://opennasaplan.ideascale.com/a/dtd/Revise-NOSA-to-become-more-free
+>>>>/1
+>>>>23641-7200
+>>>>
+>>>> As I looked around, I noticed that at least some Linux distributions
+>>>> like Debian have World Wind (which is released under the NOSA) in
+>>>> their non-free repositories. Whether or not this is an accurate view
+>>>> of the NOSA license, my concern is that it could create a barrier to
+>>>> keep some open source developers from contributing to NOSA licensed
+>>>> software.
+>>>>
+>>>> My overall motivation for trying to understand this is that I'm
+>>>> interested in being more involved in NASA's open source efforts, and
+>>>> I'm trying to get a handle on the current state of things. It would be
+>>>> nice to weigh in on the "NOSA revision" idea on IdeaScale, but I'm
+>>>> hesitant to until I really grasp the implications of the NOSA license.
+>>>>
+>>>> Thanks,
+>>>>
+>>>> Jeremy
+>>>>
+>>>> On Thu, Apr 28, 2011 at 10:29 AM, Tzeng, Nigel H.
+>>>> <Nigel.Tzeng at jhuapl.edu> wrote:
+>>>>> There has never been a problem with combined works and NOSA to my
+>>>>> knowledge.  There are many projects that combine BSD, Apache, LGPL
+>>>>>and
+>>>>> NOSA code.  This is clearly stated in:
+>>>>>
+>>>>> 3.I. A Recipient may create a Larger Work by combining Subject
+>>>>>Software
+>>>>> with separate software not governed by the terms of this agreement
+>>>>>and
+>>>>> distribute the Larger Work as a single product. In such case, the
+>>>>> Recipient must make sure Subject Software, or portions thereof,
+>>>>> included in the Larger Work is subject to this Agreement.
+>>>>>
+>>>>>
+>>>>> I've been a commiter on NOSA projects that include 3rd party open
+>>>>>source
+>>>>> code so even 3.G doesn't restrict the ability to modify the core code
+>>>>>with
+>>>>> third party open source software not of your creation so long as the
+>>>>> license is less restrictive than NOSA (aka permissive licenses).
+>>>>>Folks
+>>>>> have taken NOSA code and clearly forked it as a derived MPL project
+>>>>>with
+>>>>> NASA's blessings then added lots of 3rd party code.
+>>>>>
+>>>>> If "free" software "depends" on "combining" code from third parties
+>>>>>then
+>>>>> most copyleft licenses aren't "free" software either since I can't
+>>>>>combine
+>>>>> two copylefts either under the FSF interpretation of derivative
+>>>>>works.
+>>>>> GPL is far more restrictive on that score than NOSA is on a practical
+>>>>> level.
+>>>>>
+>>>>> Are you stirring the pot or are you actually looking at using some
+>>>>>NOSA
+>>>>> code?
+>>>>>
+>>>>> Nigel
+>>>>>
+>>>>> On 4/28/11 9:50 AM, "Jeremy Wright" <wrightjmf at gmail.com> wrote:
+>>>>>
+>>>>>>I searched the archive, but couldn't find this topic elsewhere.
+>>>>>>
+>>>>>>It's my understanding that the OSI has approved version 1.3 of the
+>>>>>>NASA Open Source Agreement (NOSA), but the FSF (Free Software
+>>>>>>Foundation) has a problem with section 3, paragraph G of the license.
+>>>>>>The issue that the FSF cites is as follows:
+>>>>>>
+>>>>>>"The NASA Open Source Agreement, version 1.3, is not a free software
+>>>>>>license because it includes a provision requiring changes to be your
+>>>>>>?original creation?. Free software development depends on combining
+>>>>>>code from third parties, and the NASA license doesn't permit this."
+>>>>>>
+>>>>>>http://www.gnu.org/licenses/license-list.html
+>>>>>>
+>>>>>>Does this mean that the OSI and FSF disagree on the interpretation of
+>>>>>>section 3-G, or is the ability to include third party software not an
+>>>>>>OSI requirement for an open source license? I couldn't find any
+>>>>>>specific mention to the inclusion of third party code in the Open
+>>>>>>Source Definition, so I wanted to clarify.
+>>>>>>
+>>>>>>http://opensource.org/docs/osd
+>>>>>>
+>>>>>>Here's a link to the NOSA license.
+>>>>>>
+>>>>>>http://opensource.gsfc.nasa.gov/documents/NASA_Open_Source_Agreement_
+>>>>>>1.
+>>>>>>3.p
+>>>>>>df
+>>>>>>
+>>>>>>Thanks,
+>>>>>>
+>>>>>>Jeremy
+>>>>>
+>>>>>
+>>>>
+>>
+>>
+
+
+From wrightjmf at gmail.com  Sat Apr 30 21:49:07 2011
+From: wrightjmf at gmail.com (Jeremy Wright)
+Date: Sat, 30 Apr 2011 17:49:07 -0400
+Subject: NASA Open Source Agreement v1.3
+In-Reply-To: <C9DF73E7.C871%Nigel.Tzeng@jhuapl.edu>
+References: <BANLkTimzNeZUhJ6oG0j2k6eDr+job9NMKQ@mail.gmail.com> <C9DF73E7.C871%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <BANLkTi=cjU_36n-cEVpFLDvdwE=AReM1Pg@mail.gmail.com>
+
+> You want more of an Androidish ecosystem for NASA and government OSS as
+> opposed to a GPL walled garden.
+
+Sorry to be dense on this, but is the reason why an Adroid style
+ecosystem would be better for NASA because of the ability to combine
+software with varying licenses, whereas the GPL restricts that?
+
+2011/4/28 Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu>:
+> Gah...looking at those notes GPL would be a huge mistake for NASA
+> especially for something like WorldWind. ?Even LGPL isn't great.
+> Fortunately there seemed to be a drift toward Apache 2 at that meeting.
+> Apache 2 + Apache CLA seems like a good combo as a NOSA replacement.
+>
+> You want more of an Androidish ecosystem for NASA and government OSS as
+> opposed to a GPL walled garden.
+>
+> Nigel
+>
+> On 4/28/11 6:45 PM, "Jeremy Wright" <wrightjmf at gmail.com> wrote:
+>
+>>I just found the linked Google doc below, and it contains notes on
+>>licensing discussions from the 2011 NASA Open Source Summit. There are
+>>proposed solutions toward the top, and general discussion items toward
+>>the bottom. Out of the proposed solutions, the discussion seems to
+>>have leaned more toward replacement than revision. That's my take on
+>>it anyway. I'm almost wondering if revision might not be a better
+>>solution though, at least for now, rather than adopting an entirely
+>>new license like the BSD or LGPL. I'm not sure how much disruption
+>>switching to a new license would cause for an organization like NASA
+>>though, so maybe dumping NOSA in favor of something else (at least
+>>when dealing with an external community) would be fine.
+>>
+>>https://docs.google.com/document/pub?id=1TagS_gwDhDfxjr7WpG78_aIcfoPO1tMXB
+>>PeCMEE3-Us&pli=1
+>>
+>>2011/4/28 Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu>:
+>>> Ben,
+>>>
+>>> Your adjustment would be fine from my perspective. Whether NASA legal
+>>> agrees we'll see. :)
+>>>
+>>> It would be better though if there was some Federal Open Source
+>>>Agreement
+>>> that addresses government needs and could be reused across many agencies
+>>> when just having code in the public domain wasn't good enough.
+>>>
+>>> Arguably, they could just reuse one of the many existing ones and they
+>>> often do. ?There are possibly some issues that might be somewhat unique
+>>> enough that might require a new license. ?Notice the plethora of weasel
+>>> words in the previous sentence...but given the often arcane federal
+>>> requisition rules I wouldn't be surprised if there wasn't something. :)
+>>>
+>>> Nothing I see addressed by NOSA though.
+>>>
+>>> Nigel
+>>>
+>>> On 4/28/11 4:10 PM, "Ben Tilly" <btilly at gmail.com> wrote:
+>>>
+>>>>Here is my understanding.
+>>>>
+>>>>NOSA is an OSI approved license. ?But not everyone agrees on how free
+>>>>it is. ?In particular some people think that the restriction in 3.G
+>>>>keeps people from copying sections of code from permissively licensed
+>>>>code into NOSA code because the result is not their original creation.
+>>>> Linking is allowed, copying is not. ?If I'm reading it correctly, you
+>>>>can't even legally copy functions from one NOSA project to another. ?I
+>>>>wouldn't be happy having to remember to be careful to not just move
+>>>>code from A to B if the structure of the codebase made that natural to
+>>>>do.
+>>>>
+>>>>Those objections should disappear if that paragraph was changed to
+>>>>something like:
+>>>>
+>>>> ?G. Each Contributor represents that Contributor has sufficient
+>>>> ? ? rights to grant the rights conveyed by this Agreement on
+>>>> ? ? their Modification, and doing so does not violate any
+>>>> ? ? existing agreements, regulations, statutes or rules.
+>>>>
+>>>>However to verify I would highly recommend asking somewhere like
+>>>>http://lists.debian.org/debian-legal/ where there are people who have
+>>>>more context on why the license is considered non-free, and what
+>>>>changes would make them call it free.
+>>>>
+>>>>Note that this change would make NOSA licensed code slightly easier to
+>>>>include in some distributions, but as a practical matter I don't think
+>>>>would make much of a difference for getting contributions. ?However
+>>>>you can probably get a nice press release out of it, and a little
+>>>>publicity, which is always nice.
+>>>>
+>>>>On Thu, Apr 28, 2011 at 12:49 PM, Jeremy Wright <wrightjmf at gmail.com>
+>>>>wrote:
+>>>>> Thanks for the reply Nigel.
+>>>>>
+>>>>> I'm not trying to stir the pot right now, but I'm sure my questions
+>>>>> make it seem that way. The reason I'm asking is that there was a
+>>>>> suggestion on NASA's IdeaScale site that the NOSA should be revised to
+>>>>> make it "more free".
+>>>>>
+>>>>>
+>>>>>http://opennasaplan.ideascale.com/a/dtd/Revise-NOSA-to-become-more-free
+>>>>>/1
+>>>>>23641-7200
+>>>>>
+>>>>> As I looked around, I noticed that at least some Linux distributions
+>>>>> like Debian have World Wind (which is released under the NOSA) in
+>>>>> their non-free repositories. Whether or not this is an accurate view
+>>>>> of the NOSA license, my concern is that it could create a barrier to
+>>>>> keep some open source developers from contributing to NOSA licensed
+>>>>> software.
+>>>>>
+>>>>> My overall motivation for trying to understand this is that I'm
+>>>>> interested in being more involved in NASA's open source efforts, and
+>>>>> I'm trying to get a handle on the current state of things. It would be
+>>>>> nice to weigh in on the "NOSA revision" idea on IdeaScale, but I'm
+>>>>> hesitant to until I really grasp the implications of the NOSA license.
+>>>>>
+>>>>> Thanks,
+>>>>>
+>>>>> Jeremy
+>>>>>
+>>>>> On Thu, Apr 28, 2011 at 10:29 AM, Tzeng, Nigel H.
+>>>>> <Nigel.Tzeng at jhuapl.edu> wrote:
+>>>>>> There has never been a problem with combined works and NOSA to my
+>>>>>> knowledge. ?There are many projects that combine BSD, Apache, LGPL
+>>>>>>and
+>>>>>> NOSA code. ?This is clearly stated in:
+>>>>>>
+>>>>>> 3.I. A Recipient may create a Larger Work by combining Subject
+>>>>>>Software
+>>>>>> with separate software not governed by the terms of this agreement
+>>>>>>and
+>>>>>> distribute the Larger Work as a single product. In such case, the
+>>>>>> Recipient must make sure Subject Software, or portions thereof,
+>>>>>> included in the Larger Work is subject to this Agreement.
+>>>>>>
+>>>>>>
+>>>>>> I've been a commiter on NOSA projects that include 3rd party open
+>>>>>>source
+>>>>>> code so even 3.G doesn't restrict the ability to modify the core code
+>>>>>>with
+>>>>>> third party open source software not of your creation so long as the
+>>>>>> license is less restrictive than NOSA (aka permissive licenses).
+>>>>>>Folks
+>>>>>> have taken NOSA code and clearly forked it as a derived MPL project
+>>>>>>with
+>>>>>> NASA's blessings then added lots of 3rd party code.
+>>>>>>
+>>>>>> If "free" software "depends" on "combining" code from third parties
+>>>>>>then
+>>>>>> most copyleft licenses aren't "free" software either since I can't
+>>>>>>combine
+>>>>>> two copylefts either under the FSF interpretation of derivative
+>>>>>>works.
+>>>>>> GPL is far more restrictive on that score than NOSA is on a practical
+>>>>>> level.
+>>>>>>
+>>>>>> Are you stirring the pot or are you actually looking at using some
+>>>>>>NOSA
+>>>>>> code?
+>>>>>>
+>>>>>> Nigel
+>>>>>>
+>>>>>> On 4/28/11 9:50 AM, "Jeremy Wright" <wrightjmf at gmail.com> wrote:
+>>>>>>
+>>>>>>>I searched the archive, but couldn't find this topic elsewhere.
+>>>>>>>
+>>>>>>>It's my understanding that the OSI has approved version 1.3 of the
+>>>>>>>NASA Open Source Agreement (NOSA), but the FSF (Free Software
+>>>>>>>Foundation) has a problem with section 3, paragraph G of the license.
+>>>>>>>The issue that the FSF cites is as follows:
+>>>>>>>
+>>>>>>>"The NASA Open Source Agreement, version 1.3, is not a free software
+>>>>>>>license because it includes a provision requiring changes to be your
+>>>>>>>?original creation?. Free software development depends on combining
+>>>>>>>code from third parties, and the NASA license doesn't permit this."
+>>>>>>>
+>>>>>>>http://www.gnu.org/licenses/license-list.html
+>>>>>>>
+>>>>>>>Does this mean that the OSI and FSF disagree on the interpretation of
+>>>>>>>section 3-G, or is the ability to include third party software not an
+>>>>>>>OSI requirement for an open source license? I couldn't find any
+>>>>>>>specific mention to the inclusion of third party code in the Open
+>>>>>>>Source Definition, so I wanted to clarify.
+>>>>>>>
+>>>>>>>http://opensource.org/docs/osd
+>>>>>>>
+>>>>>>>Here's a link to the NOSA license.
+>>>>>>>
+>>>>>>>http://opensource.gsfc.nasa.gov/documents/NASA_Open_Source_Agreement_
+>>>>>>>1.
+>>>>>>>3.p
+>>>>>>>df
+>>>>>>>
+>>>>>>>Thanks,
+>>>>>>>
+>>>>>>>Jeremy
+>>>>>>
+>>>>>>
+>>>>>
+>>>
+>>>
+>
+>
+
+
+From bryan.a.geurts at nasa.gov  Fri Jun  7 15:24:03 2013
+From: bryan.a.geurts at nasa.gov (Geurts, Bryan A. (GSFC-1401))
+Date: Fri, 07 Jun 2013 15:24:03 -0000
+Subject: [License-review] For Approval:  NASA Open Source Agreement 2.0
+Message-ID: <B6165E1FE93E09499631207758A62BFDB7395E362D@NDMSSCC08.ndc.nasa.gov>
+
+Please accept for OSI review and approval the attached NASA Open Source Agreement 2.0 (NOSA 2.0) as a replacement for the existing NASA Open Source Agreement 1.3.
+
+NASA proposes that NOSA 2.0 be placed in the license proliferation category of SPECIAL PURPOSE LICENSES.  It is designed to be used by US Government Agencies releasing original software to the public.
+
+Accordingly, once NOSA 2.0 has been approved, NASA proposes that the current NOSA 1.3 be retired (with full government retirement benefits, such as they are).
+
+This new version of the NOSA retains clauses unique to government licensing e.g. choice of law, disclaimer of warranties and treatment of civil servant contributors, and yet removes some of the more unsavory requirements of the earlier version, such as the requirement of contributors to warrant that they are the original authors of their contribution.
+
+Please direct any questions about this submittal to me as License Steward for the NOSA 2.0 and 1.3.  Thank you for your consideration.
+
+Bryan A. Geurts
+Chief Patent Counsel
+NASA Goddard Space Flight Center
+Code 140.1, 8800 Greenbelt Road
+Greenbelt, MD 20771
+Phone:  301-286-7352
+Fax:  310-286-9502

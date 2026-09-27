@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-27 時点・155 ファイル）
+## いまの状態（2026-09-27 時点・178 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -191,6 +191,29 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2020-12 | `license-review`（観測）| **ViraTrace Public Source License と GDPR × ライセンス条項 35 通 → 観測保存（4/6 部）** | **同じ束の 4/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2020-12 | `license-review`（観測）| **ViraTrace Public Source License と GDPR × ライセンス条項 35 通 → 観測保存（5/6 部）** | **同じ束の 5/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2020-12 | `license-review`（観測）| **ViraTrace Public Source License と GDPR × ライセンス条項 35 通 → 観測保存（6/6 部）** | **同じ束の 6/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（1/23 部）** | **「承認でも否決でもない留め置き」の記録上いちばん長い実例** —— 委員長 Fontana 氏 2017-01-05 *"NOSA 2.0 has been **languishing in a limbo review state for an extremely long time**"*（提出から 3 年半）+ *"it was contrary to **de facto OSI policy to reject a license outright**"*（#257）。**copyfraud（17 U.S.C. §506(c)）の分析と、Glaser 氏の *"even US government work may be copyright-protected e.g. in Germany. So, in the end, we need a copyright licence period."* も在る** ——**§3 と §4 を並置する理由そのもの**（#258） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（2/23 部）** | **同じ束の 2/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（3/23 部）** | **同じ束の 3/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（4/23 部）** | **同じ束の 4/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（5/23 部）** | **同じ束の 5/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（6/23 部）** | **同じ束の 6/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（7/23 部）** | **同じ束の 7/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（8/23 部）** | **同じ束の 8/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（9/23 部）** | **同じ束の 9/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（10/23 部）** | **同じ束の 10/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（11/23 部）** | **同じ束の 11/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（12/23 部）** | **同じ束の 12/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（13/23 部）** | **同じ束の 13/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（14/23 部）** | **同じ束の 14/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（15/23 部）** | **同じ束の 15/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（16/23 部）** | **同じ束の 16/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（17/23 部）** | **同じ束の 17/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（18/23 部）** | **同じ束の 18/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（19/23 部）** | **同じ束の 19/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（20/23 部）** | **同じ束の 20/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（21/23 部）** | **同じ束の 21/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（22/23 部）** | **同じ束の 22/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（23/23 部）** | **同じ束の 23/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2004-09 | `license-discuss`（観測）| **Allegro Giftware License の承認相談 11 通 → 観測保存（1/1 部）** | **proliferation の反対が「すべてを与える」ライセンスへ向けられている唯一の記録** —— Moen 氏 *"even an extremely permissive one like yours ... **needlessly putting it in a ghetto of your devising**"*。**そして「献呈 + 許諾の組み合わせ」を出すという発想が 2004 年に在る** —— Rousskov 氏 *"a **'Public Domain or whatever license you want' dedication/license combo** for OSI approval"*（#253）|
 | 2001-06 | `license-discuss`（観測）| **qmail のライセンスと OSD 4 21 通 → 観測保存（1/2 部）** | **OSD 3 の後半が実際に判定の決め手として使われている例**（Moen 氏 *"OSD clause #3, immediately preceding, strikes me as disambiguating this."*）。**条件一般について Cowan 氏** —— *"a claim that 'X must allow Y' is satisfied by a statement by X that 'Y is allowed under conditions Z' **can't be true in general, since the conditions Z can be arbitrarily restrictive**."*（#251） |
 | 2001-06 | `license-discuss`（観測）| **qmail のライセンスと OSD 4 21 通 → 観測保存（2/2 部）** | **同じ束の 2/2 部。** 本文は無改変で、2 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |

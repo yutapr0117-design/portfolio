@@ -1,0 +1,750 @@
+other jurisdictions, it is fully protected by U.S. and foreign copyright.
+So a license is required to cover the remaining 98% of the planet, and this
+license has to be a single integrated instrument, not the disjunction of
+two potentially severable licenses.
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+A rabbi whose congregation doesn't want to drive him out of town isn't
+a rabbi, and a rabbi who lets them do it isn't a man.    --Jewish saying
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/eb7929f9/attachment.html>
+
+From nigel.2048 at gmail.com  Wed Jun 20 17:34:16 2018
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Wed, 20 Jun 2018 13:34:16 -0400
+Subject: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <CAK2MWOshAdEHk2NFKVg+7j8gGW7t17Q5bXdcHkdBkSrKkdJX+Q@mail.gmail.com>
+References: <CAK2MWOshAdEHk2NFKVg+7j8gGW7t17Q5bXdcHkdBkSrKkdJX+Q@mail.gmail.com>
+Message-ID: <CADaGzk4drCrhcBoZnGmPnaV1tJnhOULkL0G9T+waf0YZTFNgvw@mail.gmail.com>
+
+On Wed, Jun 20, 2018 at 12:01 PM, Bruce Perens <bruce at perens.com> wrote:
+
+>
+>
+> On Wed, Jun 20, 2018 at 8:48 AM, Nigel T <nigel.2048 at gmail.com> wrote:
+>
+>>
+>> You have deliberately ignored all the concerns of GOSS developers listed
+>> by Cem in the past
+>>
+>
+> No, I don't think I have this list. Remember, I did not participate in the
+> submission of the license, but joined the process late.
+>
+
+Cem mentioned that he discussed these concerns at length in the past.  If
+you are unaware of what the concerns are then how can you be so
+declaratively insistent in your assertions that they can just leave code in
+the public domain?
+
+
+>
+>> Also, while public domain may or may not meet the OSD it obviously isn't
+>> defined as Open Source by the OSI as JOSS refuses to accept public domain
+>> submissions.
+>>
+>
+> But this doesn't apply to NASA, is it would be releasing the software
+> under a license, which would use copyright terms to grant permissions for
+> the entire work.
+>
+> It's not this grant that concerns us, but the application of contractual
+> terms to "a horse already out of the barn" because it's in the public
+> domain.
+>
+
+It's not necessarily in the public domain in all jurisdictions.  This is
+one of the concerns that Cem and others have covered in the past.
+
+That you have joined the process late is not a requirement for THEM to
+bring you up to speed but for you to educate yourself on the topic before
+making pronouncements from on high of what is or is not necessary for
+GOSS.  In any case, I believe that Cem has posted the link to the GitHub
+discussions while you have been here where he covers many of the same
+topics if you find looking through the list archives too onerous.
+
+Here are a few:
+
+https://github.com/USArmyResearchLab/ARL-Open-Source-Guidance-and-Instructions
+https://github.com/Code-dot-mil/code.mil
+https://github.com/openjournals/joss/issues/179
+
+(see his comment on Jan 3, 2017 and subsequent discussions)
+
+You also keep dodging the point that one of your primary concerns of
+license proliferation does not apply in the case of NOSA.  It would be
+legitimate to ask for a single federal open source license agreement to
+address public domain issues but until that happens it is my opinion that
+iterating on existing licenses to make them better is a good thing.
+Getting multiple federal government entities to agree on anything takes a
+long time.
+
+Whatever your opinion NOSA 1.3 IS open source and NOSA 2.0 addresses some
+of the concerns that license committee had in the past.  Blocking NOSA 2.0
+for terms in NOSA 1.3 doesn't improve anything for anyone.
+
+You also keep implying that NOSA is my license.  It's not.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/5e185d88/attachment.html>
+
+From bruce at perens.com  Wed Jun 20 17:49:21 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 20 Jun 2018 10:49:21 -0700
+Subject: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <CAD2gp_RZO41V1XYrtLQxDqdXuhe4FHUz30O7vjXNfMNFzsMyNA@mail.gmail.com>
+References: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil> <CAK2MWOsW2JRK1Vp6YQn4z9=+_G0z9zirMSs1DqXmde+=Vr5iCA@mail.gmail.com> <CAD2gp_RZO41V1XYrtLQxDqdXuhe4FHUz30O7vjXNfMNFzsMyNA@mail.gmail.com>
+Message-ID: <CAK2MWOs8=j7V0CaM8JQ=4Df14_yNqAmUSxWjmCdkU46BSv6_yw@mail.gmail.com>
+
+On Wed, Jun 20, 2018 at 10:18 AM, John Cowan <cowan at ccil.org> wrote:
+
+>
+> In all other jurisdictions, it is fully protected by U.S. and foreign
+> copyright.
+>
+
+People are discussing this as if the problem was unique to NASA or the
+United States Government. Not so. In reality, it effects every Open Source
+program and all Open Source copyright holders. 17 USC 102(b) disallows the
+application of copyright to functional things, and there is much text in
+every program that is thus not subject to copyright. There is also the
+matter that much of the work in computer programs is not an original work
+or authorship (for example, some of it is the work of a machine) and thus
+can not be copyrighted. These portions are in the public domain.
+
+We take care of this in our licenses by granting permissions on the entire
+work, whether or not we actually have rights to grant on any particular
+part. And yet there has been no attack of an Open Source license on a
+severability basis that I know of. NASA can do the same thing, and grant
+permissions regarding the entire work. Or alternatively they can actually
+dedicate the public domain works to the public domain, removing the
+ambiguity of where they are and are not public domain.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/9d6cfcb4/attachment.html>
+
+From bruce at perens.com  Wed Jun 20 18:12:18 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 20 Jun 2018 11:12:18 -0700
+Subject: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <CADaGzk4drCrhcBoZnGmPnaV1tJnhOULkL0G9T+waf0YZTFNgvw@mail.gmail.com>
+References: <CAK2MWOshAdEHk2NFKVg+7j8gGW7t17Q5bXdcHkdBkSrKkdJX+Q@mail.gmail.com> <CADaGzk4drCrhcBoZnGmPnaV1tJnhOULkL0G9T+waf0YZTFNgvw@mail.gmail.com>
+Message-ID: <CAK2MWOsRo4JuFPtuE=kKEkg=LXqft=YPNkrJnEavKxV18JWSFQ@mail.gmail.com>
+
+On Wed, Jun 20, 2018 at 10:34 AM, Nigel T <nigel.2048 at gmail.com> wrote:
+>
+> Cem mentioned that he discussed these concerns at length in the past.  If
+> you are unaware of what the concerns are then how can you be so
+> declaratively insistent in your assertions that they can just leave code in
+> the public domain?
+>
+
+I was around for Bryan discussing this once. However, as I laid out in
+another message, the problem of public domain isn't unique to the
+government, and actually effects every Open Source program, simply because
+not all work can be copyrighted and all programs have portions that can not
+be copyrighted. And yet we haven't had a severability attack on an Open
+Source license that I am aware of.
+
+It's not necessarily in the public domain in all jurisdictions.  This is
+> one of the concerns that Cem and others have covered in the past.
+>
+That's correct. And as long as the license provides the required
+permissions for the entire work, that's not a problem.
+
+In contrast, the attempt to assert control over the public domain in the
+U.S. by applying contractual terms and terms regarding NASA as a secondary
+beneficiary create legal ambiguity as written, and also establishes a
+really harmful precedent that is damaging for Open Source. We need the
+public domain to be public domain without restrictions, or Open Source
+can't really function. If public domain material is contractually
+restricted, it takes away all potential to for Open Source to interoperate
+with proprietary software. So for us to accept those terms would be
+damaging to all Open Source.
+
+
+> https://github.com/USArmyResearchLab/ARL-Open-Source-
+> Guidance-and-Instructions
+>
+ This one accepts CC0 as a viable license for the public domain. CC0 is a
+dedication to the public domain with no restrictive contractual terms. I
+don't see why CC0 is acceptable here and the BSD license, for example, is
+not.
+
+https://github.com/Code-dot-mil/code.mil
+>
+
+What statement in there? It's the entire code.mil site.
+
+https://github.com/openjournals/joss/issues/179
+>
+
+This is regarding JOSS acceptance policy, they note that licenses exist and
+that it is better to use one even if you don't actually have rights to
+grant.
+
+
+> You also keep dodging the point that one of your primary concerns of
+> license proliferation does not apply in the case of NOSA.
+>
+
+This is predicated on the Open Source community not actually attempting to
+incorporate the work into anything.  I don't think it's realistic.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/d633929e/attachment-0001.html>
+
+From nigel.2048 at gmail.com  Wed Jun 20 19:10:20 2018
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Wed, 20 Jun 2018 15:10:20 -0400
+Subject: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <CAK2MWOsRo4JuFPtuE=kKEkg=LXqft=YPNkrJnEavKxV18JWSFQ@mail.gmail.com>
+References: <CAK2MWOshAdEHk2NFKVg+7j8gGW7t17Q5bXdcHkdBkSrKkdJX+Q@mail.gmail.com> <CADaGzk4drCrhcBoZnGmPnaV1tJnhOULkL0G9T+waf0YZTFNgvw@mail.gmail.com> <CAK2MWOsRo4JuFPtuE=kKEkg=LXqft=YPNkrJnEavKxV18JWSFQ@mail.gmail.com>
+Message-ID: <CADaGzk5apDdjhovFOde=eoLXVojWx4PKFK2C=GJbPLiqvX3qgg@mail.gmail.com>
+
+On Wed, Jun 20, 2018 at 2:12 PM, Bruce Perens <bruce at perens.com> wrote:
+
+> On Wed, Jun 20, 2018 at 10:34 AM, Nigel T <nigel.2048 at gmail.com> wrote:
+>
+> In contrast, the attempt to assert control over the public domain in the
+> U.S. by applying contractual terms and terms regarding NASA as a secondary
+> beneficiary create legal ambiguity as written, and also establishes a
+> really harmful precedent that is damaging for Open Source. We need the
+> public domain to be public domain without restrictions, or Open Source
+> can't really function. If public domain material is contractually
+> restricted, it takes away all potential to for Open Source to interoperate
+> with proprietary software. So for us to accept those terms would be
+> damaging to all Open Source.
+>
+
+You will have to explain how public domain code released under a specific
+agreement impacts other public domain code that isn't under the agreement.
+
+Public domain code doesn't have to be released to anyone and an agreement
+that allows more release of public domain code as open source is helpful.
+
+You also keep dodging the point that one of your primary concerns of
+>> license proliferation does not apply in the case of NOSA.
+>>
+>
+> This is predicated on the Open Source community not actually attempting to
+> incorporate the work into anything.  I don't think it's realistic.
+>
+
+That is an odd objection.  NOSA 1.3 code has been incorporated into other
+open source projects in the past and parts of the community have maintained
+NOSA code on their own without any license proliferation issues.
+
+There is no proliferation issue as NOSA 1.3 would be deprecated after NOSA
+2.0 gets approved.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/81030eb3/attachment.html>
+
+From cem.f.karan.civ at mail.mil  Wed Jun 20 19:30:12 2018
+From: cem.f.karan.civ at mail.mil (Karan, Cem F CIV USARMY RDECOM ARL (US))
+Date: Wed, 20 Jun 2018 19:30:12 +0000
+Subject: [License-review] [Non-DoD Source] Re: NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <CAK2MWOsW2JRK1Vp6YQn4z9=+_G0z9zirMSs1DqXmde+=Vr5iCA@mail.gmail.com>
+References: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil> <CAK2MWOsW2JRK1Vp6YQn4z9=+_G0z9zirMSs1DqXmde+=Vr5iCA@mail.gmail.com>
+Message-ID: <A677A9FB362B2F499BEFD6F80687FE97CC1E8FE1@UMECHPA7F.easf.csd.disa.mil>
+
+> -----Original Message-----
+> From: License-review [mailto:license-review-bounces at lists.opensource.org] On Behalf Of Bruce Perens
+> Sent: Wednesday, June 20, 2018 11:02 AM
+> To: License submissions for OSI review <license-review at lists.opensource.org>
+> Subject: [Non-DoD Source] Re: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some
+> notes for license submitters]]
+> 
+> On Wed, Jun 20, 2018 at 6:07 AM, Karan, Cem F CIV USARMY RDECOM ARL (US) <cem.f.karan.civ at mail.mil < Caution-
+> mailto:cem.f.karan.civ at mail.mil > > wrote:
+> 
+> 
+> 
+> 	In terms of the NOSA 2.0 license, the goal is to support the OSD despite not having copyright attached to most US government
+> works within US jurisdiction.
+> 
+> 
+> Simply having the software be in the public domain and available in source-code form is sufficient to comply with the OSD, if you don't
+> attempt to add contractual terms.
+
+No, it doesn't.  Public domain covers copyright, but it doesn't cover patent and other intellectual property rights.  Downstream users should be confident that the USG has given them the rights to reuse the material that we're giving them.
+
+Moreover, when others give the USG material to incorporate into USG projects, the USG needs to be confident that it has the rights to incorporate and redistribute the material.  This can be a truly serious problem if a patent troll gave the USG material, and then decided to sue both the USG and all downstream users for using the material without a license.  
+
+Finally, there is still the issue of warranty and liability, which doesn't go away just because you put something in the public domain.  As an example, if I put a dangerously poorly made piece of equipment on a public playground I'm responsible for it if someone gets hurt, even if I donated it to the public domain.
+
+> 
+> 	would OSI (or anyone else) be willing to indemnify the US Government, and all downstream users, against any OSI-approved
+> license being declared fully null and void solely because the license had copyright clauses in it that were declared invalid because the
+> covered work didn't have copyright attached?
+> 
+> 
+> What would we be indemnifying the US Government for? A good many of us are U.S. citizens and the software is our property. The
+> horse is already out of the barn in that copyright law doesn't protect it. NASA has seen fit to discard its trade-secret protection and any
+> protection applicable to government secrets. Having discarded these things, there is no obligation transmissible from the first licensee
+> to the second.
+> 
+> The solution for public-domain material is to simply leave it in the public domain.
+
+Once again, you're missing the point.  There are two groups here, the USG, and private citizens.  The USG doesn't allow itself copyright within the US, but it can get patents and trademarks on material.  Downstream users need to be certain that the USG is licensing the rights to the downstream users so that they can use the material.  Moreover, the USG's position is that USG materials CAN be copyrighted outside of the US; how are individuals outside of the US going to be sure that they are legally using the material the USG supplies unless there is a license to it?  That is one of the basic purposes of any good license, to give the end user the rights necessary to use the material.   And as I mentioned earlier, the USG is interested in collaborative development, which means that it needs to be sure that it has the rights necessary to accept, incorporate, and redistribute the material it has been given; that means that it needs a good license that will stand up in court.  That is what NOSA 2.0 is supposed to be; a solid license that ensures that everyone (the USG and downstream users) will keep their rights.  Just putting it all in the public domain won't do that.
+
+
+Thanks,
+Cem Karan
+
+---
+Other than quoted laws, regulations or officially published policies, the views expressed herein are not intended to be used as an authoritative state of the law nor do they reflect official positions of the U.S. Army, Department of Defense or U.S. Government.
+
+
+
+
+From bruce at perens.com  Wed Jun 20 19:43:42 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 20 Jun 2018 12:43:42 -0700
+Subject: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <CADaGzk5apDdjhovFOde=eoLXVojWx4PKFK2C=GJbPLiqvX3qgg@mail.gmail.com>
+References: <CAK2MWOshAdEHk2NFKVg+7j8gGW7t17Q5bXdcHkdBkSrKkdJX+Q@mail.gmail.com> <CADaGzk4drCrhcBoZnGmPnaV1tJnhOULkL0G9T+waf0YZTFNgvw@mail.gmail.com> <CAK2MWOsRo4JuFPtuE=kKEkg=LXqft=YPNkrJnEavKxV18JWSFQ@mail.gmail.com> <CADaGzk5apDdjhovFOde=eoLXVojWx4PKFK2C=GJbPLiqvX3qgg@mail.gmail.com>
+Message-ID: <CAK2MWOtt_Hw6FiqXHimd13unio0uA+fthpfunq7WtwnGKh70YA@mail.gmail.com>
+
+On Wed, Jun 20, 2018 at 12:10 PM, Nigel T <nigel.2048 at gmail.com> wrote:
+>
+> You will have to explain how public domain code released under a specific
+> agreement impacts other public domain code that isn't under the agreement.
+>
+
+OSI sets precedent by accepting the text, which can be used in court cases
+to stop Open Source developers from fighting assertions of contractual
+restrictions on public domain software where such would hurt
+interoperability with proprietary software.
+
+If you look at my own court case, you can see where statements of Richard
+Stallman, Bradley Kuhn, and I are used in the plaintiff's exhibits.
+
+Public domain code doesn't have to be released to anyone and an agreement
+> that allows more release of public domain code as open source is helpful.
+>
+
+Yes, but the terms are overall harmful to Open Source in a way that is not
+mitigated by the release of the software.
+
+
+> That is an odd objection.  NOSA 1.3 code has been incorporated into other
+> open source projects in the past and parts of the community have maintained
+> NOSA code on their own without any license proliferation issues.
+>
+
+Are you really sure? One would expect that there is at least some license
+combination in such projects.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/174885f0/attachment.html>
+
+From bruce at perens.com  Wed Jun 20 19:56:14 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 20 Jun 2018 12:56:14 -0700
+Subject: [License-review] [Non-DoD Source] Re: NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97CC1E8FE1@UMECHPA7F.easf.csd.disa.mil>
+References: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil> <CAK2MWOsW2JRK1Vp6YQn4z9=+_G0z9zirMSs1DqXmde+=Vr5iCA@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E8FE1@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <CAK2MWOtd=r3tipQjFLaTpvgfBVKWzRHYyTyFCX2K0cssP6YVNQ@mail.gmail.com>
+
+On Wed, Jun 20, 2018 at 12:30 PM, Karan, Cem F CIV USARMY RDECOM ARL (US) <
+cem.f.karan.civ at mail.mil> wrote:
+>
+> > Simply having the software be in the public domain and available in
+> source-code form is sufficient to comply with the OSD, if you don't
+> > attempt to add contractual terms.
+>
+> No, it doesn't.  Public domain covers copyright, but it doesn't cover
+> patent and other intellectual property rights.  Downstream users should be
+> confident that the USG has given them the rights to reuse the material that
+> we're giving them.
+>
+
+So, give them the rights. This does not mean you have to restrict public
+domain software. You just grant patent permissions as necessary. The "other
+intellectual property rights" would be trademark. In general, trademark
+licenses should be separate from the Open Source license.
+
+Moreover, when others give the USG material to incorporate into USG
+> projects, the USG needs to be confident that it has the rights to
+> incorporate and redistribute the material.  This can be a truly serious
+> problem if a patent troll gave the USG material, and then decided to sue
+> both the USG and all downstream users for using the material without a
+> license.
+>
+
+This is generally handled with a contributor license agreement. I am not
+seeing that the license as stated protects you or anyone else from this
+particular issue. If it does, please point out the text.
+
+
+> Finally, there is still the issue of warranty and liability, which doesn't
+> go away just because you put something in the public domain.
+
+
+I agree it does not. However, a warranty disclaimer is a unilateral
+declination in all of the Open Source licenses. We can't enforce it with
+copyright terms.
+ As an example, if I put a dangerously poorly made piece of equipment on a
+> public playground I'm responsible for it if someone gets hurt, even if I
+> donated it to the public domain.
+>
+
+Heartbleed is a better example.
+
+There just haven't been warranty lawsuits regarding Open Source, even after
+things like heartbleed. So, those unilateral warranty declinations seem to
+be working.
+
+Once again, you're missing the point.  There are two groups here, the USG,
+> and private citizens.  The USG doesn't allow itself copyright within the
+> US, but it can get patents and trademarks on material.  Downstream users
+> need to be certain that the USG is licensing the rights to the downstream
+> users so that they can use the material.  Moreover, the USG's position is
+> that USG materials CAN be copyrighted outside of the US;
+
+
+Do we have foreign case law where courts actually found material infringing
+outside of the US when it was simultaneously in the public domain in the
+US? Courts can and do consider the impact of foreign law.
+
+
+> how are individuals outside of the US going to be sure that they are
+> legally using the material the USG supplies unless there is a license to it?
+
+
+I'm not saying you should not grant rights under a copyright regime.
+Attempting to contractually control the public domain within the US,
+though, is too problematical.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/dfcc9eec/attachment-0001.html>
+
+From bruce at perens.com  Wed Jun 20 20:05:09 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 20 Jun 2018 13:05:09 -0700
+Subject: [License-review] [Non-DoD Source] Re: NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <CAK2MWOtd=r3tipQjFLaTpvgfBVKWzRHYyTyFCX2K0cssP6YVNQ@mail.gmail.com>
+References: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil> <CAK2MWOsW2JRK1Vp6YQn4z9=+_G0z9zirMSs1DqXmde+=Vr5iCA@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E8FE1@UMECHPA7F.easf.csd.disa.mil> <CAK2MWOtd=r3tipQjFLaTpvgfBVKWzRHYyTyFCX2K0cssP6YVNQ@mail.gmail.com>
+Message-ID: <CAK2MWOvhS9d03twz3jp2GAn5VaFHns3JNR8OcXLj12U7iqB68w@mail.gmail.com>
+
+>
+> This is generally handled with a contributor license agreement. I am not
+> seeing that the license as stated protects you or anyone else from this
+> particular issue. If it does, please point out the text.
+>
+
+No, I'm wrong about this point, the text is there. However, a contributor
+license agreement is better, because it has consent.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/ed612e5a/attachment.html>
+
+From cem.f.karan.civ at mail.mil  Wed Jun 20 20:11:46 2018
+From: cem.f.karan.civ at mail.mil (Karan, Cem F CIV USARMY RDECOM ARL (US))
+Date: Wed, 20 Jun 2018 20:11:46 +0000
+Subject: [License-review] [Non-DoD Source] Re: NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B51978BD8227@FMSMSX108.amr.corp.intel.com>
+References: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil> <2D52F7EE739F8542A700CAB96276B51978BD8227@FMSMSX108.amr.corp.intel.com>
+Message-ID: <A677A9FB362B2F499BEFD6F80687FE97CC1E9039@UMECHPA7F.easf.csd.disa.mil>
+
+> -----Original Message-----
+> From: License-review [mailto:license-review-bounces at lists.opensource.org] On Behalf Of Smith, McCoy
+> Sent: Wednesday, June 20, 2018 11:35 AM
+> To: License submissions for OSI review <license-review at lists.opensource.org>
+> Subject: [Non-DoD Source] Re: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some
+> notes for license submitters]]>
+> 
+> >So, let's put this to the real test; would OSI (or anyone else) be willing to indemnify the US Government, and all downstream users,
+> against any OSI-approved license being declared fully null and void solely because the license had copyright >clauses in it that were
+> declared invalid because the covered work didn't have copyright attached?  If you won't provide such indemnification (or find an
+> insurance company that would be willing to provide such indemnification), then you've >already answered the question of whether or
+> not the USG can use copyright-based licenses.  Everything else is just posturing.
+> 
+> I'm curious what sort of harm the government or downstream users would suffer in your scenario that would be addressable in
+> indemnity.  Let's say OSI decides to grant USG such an indemnity.  Under what conditions can the USG tender indemnity, and against
+> what USG losses would OSI be required to pay?
+
+That test was just a theoretical test; AFAIK, the USG is fully self-insured, so I don't think it would accept such an offer, even if it was made (this is where I put in my own disclaimers about not being a lawyer, and not representing the USG; in short, read my sig line).
+
+But, to answer your question, pretend that a patent troll contributes code to a USG project with the intention of suing the USG (cause that's where the money is), and anyone downstream that looks like they have money.  Whether or not the suit has merit is beside the point; it will need to be defended.  If the USG accepted the OSI tendering indemnity, the then OSI would be on the hook for defending against the suit, and paying for any damages that are awarded if the suit was lost.  The same could be said for warranty and liability claims, and copyright infringement claims.   If the courts uphold the license despite the lack of copyright, then that won't be a problem, but if they strike down the license because of the lack of copyright, then there is a real problem, which OSI has to deal with.
+
+Just to be clear, I'm NOT negotiating with OSI on this, I only intended the test to make everyone really *think* about the problems involved.  If you really believe that the USG can use OSI-approved licenses as-is, even though most USG works don't have copyright attached, then you wouldn't mind taking on the indemnity.  However, if you have any qualms, any concerns at all about the copyright issues that I've raised ad-nauseam, then you won't want to accept the indemnity.  In which case you're acknowledging that there is a problem here for works that don't have copyright attached, and that a better solution needs to be developed.
+
+Thanks,
+Cem Karan
+
+---
+Other than quoted laws, regulations or officially published policies, the views expressed herein are not intended to be used as an authoritative state of the law nor do they reflect official positions of the U.S. Army, Department of Defense or U.S. Government.
+
+
+From cem.f.karan.civ at mail.mil  Wed Jun 20 20:18:49 2018
+From: cem.f.karan.civ at mail.mil (Karan, Cem F CIV USARMY RDECOM ARL (US))
+Date: Wed, 20 Jun 2018 20:18:49 +0000
+Subject: [License-review] [Non-DoD Source] Re: NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <CAK2MWOsnAyscmr+jT9XqA6k3tW8dgt21NHs7m3F-_iY4EOh67A@mail.gmail.com>
+References: <CAK2MWOsnAyscmr+jT9XqA6k3tW8dgt21NHs7m3F-_iY4EOh67A@mail.gmail.com>
+Message-ID: <A677A9FB362B2F499BEFD6F80687FE97CC1E9051@UMECHPA7F.easf.csd.disa.mil>
+
+> -----Original Message-----
+> From: License-review [mailto:license-review-bounces at lists.opensource.org] On Behalf Of Bruce Perens
+> Sent: Wednesday, June 20, 2018 11:45 AM
+> To: License submissions for OSI review <license-review at lists.opensource.org>
+> Subject: [Non-DoD Source] Re: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some
+> notes for license submitters]]
+> 
+> 
+> 
+> On Wed, Jun 20, 2018 at 8:34 AM, Smith, McCoy
+> 
+> 	I'm curious what sort of harm the government or downstream users would suffer in your scenario
+> 
+> 
+> His comment about USG having lots of money for people to go after - the one with the repeated lines - indicates that liability is a
+> concern.
+> 
+> Even in a copyright-based license, the declination of warranty is not a copyright term. It's a unilateral declination. It's not really going to
+> work to tell the court that a party that sues you for liability damages commits copyright infringement by doing so.
+> 
+> A unilateral declination regarding public-domain software should work as well as one regarding copyrighted material.
+
+Are there any OSI-approved licenses that give such a declination?  That also handle patent and other IP issues?  And that will cover contributions from the outside which have copyright attached?
+
+If there are, please point me at them!  There are journals and other publications that really value OSI-approved licenses, and won't accept material that isn't under an OSI-approved license (JOSS is one).  That is a stumbling block for the USG.
+
+
+Thanks,
+Cem Karan
+
+---
+Other than quoted laws, regulations or officially published policies, the views expressed herein are not intended to be used as an authoritative state of the law nor do they reflect official positions of the U.S. Army, Department of Defense or U.S. Government.
+
+
+
+
+From nigel.2048 at gmail.com  Wed Jun 20 20:23:51 2018
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Wed, 20 Jun 2018 16:23:51 -0400
+Subject: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <CAK2MWOtt_Hw6FiqXHimd13unio0uA+fthpfunq7WtwnGKh70YA@mail.gmail.com>
+References: <CAK2MWOshAdEHk2NFKVg+7j8gGW7t17Q5bXdcHkdBkSrKkdJX+Q@mail.gmail.com> <CADaGzk4drCrhcBoZnGmPnaV1tJnhOULkL0G9T+waf0YZTFNgvw@mail.gmail.com> <CAK2MWOsRo4JuFPtuE=kKEkg=LXqft=YPNkrJnEavKxV18JWSFQ@mail.gmail.com> <CADaGzk5apDdjhovFOde=eoLXVojWx4PKFK2C=GJbPLiqvX3qgg@mail.gmail.com> <CAK2MWOtt_Hw6FiqXHimd13unio0uA+fthpfunq7WtwnGKh70YA@mail.gmail.com>
+Message-ID: <CADaGzk50R7zwisY3egxEsuzC4uVCdymjjh=4uzP+ZMha8xbPow@mail.gmail.com>
+
+On Wed, Jun 20, 2018 at 3:43 PM, Bruce Perens <bruce at perens.com> wrote:
+
+>
+>
+> On Wed, Jun 20, 2018 at 12:10 PM, Nigel T <nigel.2048 at gmail.com> wrote:
+>>
+>> You will have to explain how public domain code released under a specific
+>> agreement impacts other public domain code that isn't under the agreement.
+>>
+>
+> OSI sets precedent by accepting the text, which can be used in court cases
+> to stop Open Source developers from fighting assertions of contractual
+> restrictions on public domain software where such would hurt
+> interoperability with proprietary software.
+>
+>
+If you look at my own court case, you can see where statements of Richard
+> Stallman, Bradley Kuhn, and I are used in the plaintiff's exhibits.
+>
+
+That is already the case with NOSA 1.3 isn't it?
+
+
+> That is an odd objection.  NOSA 1.3 code has been incorporated into other
+>> open source projects in the past and parts of the community have maintained
+>> NOSA code on their own without any license proliferation issues.
+>>
+>
+> Are you really sure? One would expect that there is at least some license
+> combination in such projects.
+>
+>
+OpenVSP is a NOSA project being supported by the community (rather than
+NASA) I found via google.  I released code to the NASA WorldWind project
+under NOSA 1.3 and I had commit privs in the older C# repo.
+
+I also don't see the issue with license combination in terms of
+proliferation.  NOSA code has been used in Apache licensed projects and
+NOSA projects have used other open source licensed code.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/e2d89954/attachment.html>
+
+From cem.f.karan.civ at mail.mil  Wed Jun 20 20:23:57 2018
+From: cem.f.karan.civ at mail.mil (Karan, Cem F CIV USARMY RDECOM ARL (US))
+Date: Wed, 20 Jun 2018 20:23:57 +0000
+Subject: [License-review] [Non-DoD Source] Re: NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <0069bda9-d216-252a-8c8d-7e47f87e276b@postgresql.org>
+References: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil> <0069bda9-d216-252a-8c8d-7e47f87e276b@postgresql.org>
+Message-ID: <A677A9FB362B2F499BEFD6F80687FE97CC1E907C@UMECHPA7F.easf.csd.disa.mil>
+
+> -----Original Message-----
+> From: Josh berkus [mailto:josh at postgresql.org]
+> Sent: Wednesday, June 20, 2018 1:02 PM
+> To: License submissions for OSI review <license-review at lists.opensource.org>; Karan, Cem F CIV USARMY RDECOM ARL (US)
+> <cem.f.karan.civ at mail.mil>
+> Subject: [Non-DoD Source] Re: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some
+> notes for license submitters]]
+> 
+> On 06/20/2018 06:07 AM, Karan, Cem F CIV USARMY RDECOM ARL (US) wrote:
+> > Given all this, yes, there ARE additional reasons for approving new licenses beyond what you've listed above.  Help the community
+> solve these problems so that more people can fit in the Open Source tent.
+> 
+> Do note that Bruce's opinion on proliferation is just Bruce's opinion.  Influential, but not determinative.
+> 
+> --Josh Berkus
+
+I understand, but I also know that NOSA 2.0 has been in review for what, 5 years now?  The NASA guys are tearing their hair out in frustration over this...
+
+
+Thanks,
+Cem Karan
+
+---
+Other than quoted laws, regulations or officially published policies, the views expressed herein are not intended to be used as an authoritative state of the law nor do they reflect official positions of the U.S. Army, Department of Defense or U.S. Government.
+
+
+
+
+From cem.f.karan.civ at mail.mil  Wed Jun 20 20:44:23 2018
+From: cem.f.karan.civ at mail.mil (Karan, Cem F CIV USARMY RDECOM ARL (US))
+Date: Wed, 20 Jun 2018 20:44:23 +0000
+Subject: [License-review] [Non-DoD Source] Re: NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <CAK2MWOsRo4JuFPtuE=kKEkg=LXqft=YPNkrJnEavKxV18JWSFQ@mail.gmail.com>
+References: <CAK2MWOshAdEHk2NFKVg+7j8gGW7t17Q5bXdcHkdBkSrKkdJX+Q@mail.gmail.com> <CADaGzk4drCrhcBoZnGmPnaV1tJnhOULkL0G9T+waf0YZTFNgvw@mail.gmail.com> <CAK2MWOsRo4JuFPtuE=kKEkg=LXqft=YPNkrJnEavKxV18JWSFQ@mail.gmail.com>
+Message-ID: <A677A9FB362B2F499BEFD6F80687FE97CC1E90D0@UMECHPA7F.easf.csd.disa.mil>
+
+> -----Original Message-----
+> From: License-review [mailto:license-review-bounces at lists.opensource.org] On Behalf Of Bruce Perens
+> Sent: Wednesday, June 20, 2018 2:12 PM
+> To: License submissions for OSI review <license-review at lists.opensource.org>
+> Subject: [Non-DoD Source] Re: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some
+> notes for license submitters]]
+> 
+> On Wed, Jun 20, 2018 at 10:34 AM, Nigel T <nigel.2048 at gmail.com < Caution-mailto:nigel.2048 at gmail.com > > wrote:
+> 
+> 	Cem mentioned that he discussed these concerns at length in the past.  If you are unaware of what the concerns are then
+> how can you be so declaratively insistent in your assertions that they can just leave code in the public domain?
+> 
+> 
+> I was around for Bryan discussing this once. However, as I laid out in another message, the problem of public domain isn't unique to
+> the government, and actually effects every Open Source program, simply because not all work can be copyrighted and all programs
+> have portions that can not be copyrighted. And yet we haven't had a severability attack on an Open Source license that I am aware of.
+
+Money.  Patent trolls and other malevolent entities don't sue because it's fun, they sue as part of a business model.  If the projects you're talking about didn't have backers with deep pockets, then there wouldn't be any point in suing them.  The USG not only has a lot of money, it has the right to tax/print more.  That makes it a tempting target.
+
+> 	It's not necessarily in the public domain in all jurisdictions.  This is one of the concerns that Cem and others have covered in the
+> past.
+> 
+> That's correct. And as long as the license provides the required permissions for the entire work, that's not a problem.
+
+But under the model you're suggesting, the permissions change depending on the jurisdiction you're in; within US jurisdiction there are one set of rights, while outside there are other rights.  I want everyone to have a level playing field regardless of where they're located.
+
+> In contrast, the attempt to assert control over the public domain in the U.S. by applying contractual terms and terms regarding NASA
+> as a secondary beneficiary create legal ambiguity as written, and also establishes a really harmful precedent that is damaging for Open
+> Source. We need the public domain to be public domain without restrictions, or Open Source can't really function. If public domain
+> material is contractually restricted, it takes away all potential to for Open Source to interoperate with proprietary software. So for us
+> to accept those terms would be damaging to all Open Source.
+
+But the USG ALREADY has the ability to make these kinds of contracts!  We can limit who we share data and other materials with under NDAs and contracts with contractors, who are then required to bind any subcontractors to the same terms.  This is a recursive subcontractor clause.
+
+> 	Caution-https://github.com/USArmyResearchLab/ARL-Open-Source-Guidance-and-Instructions < Caution-
+> https://github.com/USArmyResearchLab/ARL-Open-Source-Guidance-and-Instructions >
+> 
+> 
+>  This one accepts CC0 as a viable license for the public domain. CC0 is a dedication to the public domain with no restrictive contractual
+> terms. I don't see why CC0 is acceptable here and the BSD license, for example, is not.
+
+If CC0 were declared invalid within the US on copyright grounds, then it would mean that material that is dedicated to the public domain is (wait for it) in the public domain.  In those areas where the material does have copyright attached (outside US jurisdiction) CC0 makes it be the same there as it is within US jurisdiction.  
+
+BSD doesn't have that behavior if declared null and void by the courts.
+
+> 
+> 	Caution-https://github.com/Code-dot-mil/code.mil < Caution-https://github.com/Code-dot-mil/code.mil >
+> 
+> 
+> What statement in there? It's the entire code.mil < Caution-http://code.mil >  site.
+> 
+> 
+> 	Caution-https://github.com/openjournals/joss/issues/179 < Caution-https://github.com/openjournals/joss/issues/179 >
+> 
+> 
+> This is regarding JOSS acceptance policy, they note that licenses exist and that it is better to use one even if you don't actually have
+> rights to grant.
+
+Which leads us back to the severability problem, which is why GOSS people keep hammering on the copyright problem.
+
+> 
+> 	You also keep dodging the point that one of your primary concerns of license proliferation does not apply in the case of NOSA.
+> 
+> 
+> This is predicated on the Open Source community not actually attempting to incorporate the work into anything.  I don't think it's
+> realistic.
+
+Are you worried that NOSA 1.3 and 2.0 will be active at the same time?  
+
+
+Thanks,
+Cem Karan
+
+---
+Other than quoted laws, regulations or officially published policies, the views expressed herein are not intended to be used as an authoritative state of the law nor do they reflect official positions of the U.S. Army, Department of Defense or U.S. Government.
+
+
+
+
+
+From simon at webmink.com  Wed Jun 20 20:48:45 2018
+From: simon at webmink.com (Simon Phipps)
+Date: Wed, 20 Jun 2018 21:48:45 +0100
+Subject: [License-review] [Non-DoD Source] Re: NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97CC1E90D0@UMECHPA7F.easf.csd.disa.mil>
+References: <CAK2MWOshAdEHk2NFKVg+7j8gGW7t17Q5bXdcHkdBkSrKkdJX+Q@mail.gmail.com> <CADaGzk4drCrhcBoZnGmPnaV1tJnhOULkL0G9T+waf0YZTFNgvw@mail.gmail.com> <CAK2MWOsRo4JuFPtuE=kKEkg=LXqft=YPNkrJnEavKxV18JWSFQ@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E90D0@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <CAA4ffp_zNctkkN0KyNKTwCSu++ksS6tHXs8WVHA9HENO+k4ROQ@mail.gmail.com>
+
+On Wed, Jun 20, 2018 at 9:44 PM, Karan, Cem F CIV USARMY RDECOM ARL (US) <
+cem.f.karan.civ at mail.mil> wrote:
+>
+>
+> Are you worried that NOSA 1.3 and 2.0 will be active at the same time?
+
+
+Remind me, are you proposing to retuire NOSA 1.3 on approval of NOSA 2.0?
+
+S.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/3040e4af/attachment.html>
+
+From bruce at perens.com  Wed Jun 20 20:51:01 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 20 Jun 2018 13:51:01 -0700
+Subject: [License-review] [Non-DoD Source] Re: NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97CC1E9051@UMECHPA7F.easf.csd.disa.mil>
+References: <CAK2MWOsnAyscmr+jT9XqA6k3tW8dgt21NHs7m3F-_iY4EOh67A@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E9051@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <CAK2MWOsCYYJbfacdvZVg5WsFLmWdNOLQWc2uruX1zxx=pVBM_Q@mail.gmail.com>
+
+On Wed, Jun 20, 2018 at 1:18 PM, Karan, Cem F CIV USARMY RDECOM ARL (US) <
+cem.f.karan.civ at mail.mil> wrote:
+>
+> > A unilateral declination regarding public-domain software should work as
+> well as one regarding copyrighted material.
+>
+
+Almost all of them. Every Open Source work has portions that can not be
+copyrighted due to its functional nature or not being an original work of
+authorship. I am talking about the standard "no warranty" statement that we

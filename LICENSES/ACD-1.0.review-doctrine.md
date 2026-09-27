@@ -320,7 +320,7 @@ Perens 氏 —— *"You could, however, construct a license that is 1) fully com
 potential revenue stream from non-commercially-licensed derivatives as much as it can.
 For example, **a patent grant that applies only to software under the AGPL3 license** ..."*
 
-**⚠ これは `review-precedents.md` §1.108 と #235 の読みに緊張を与える。**
+**⚠ これは `review-outcomes.md` §1.108 と #235 の読みに緊張を与える。**
 そこでは **Intel の 2001 年 BSD+Patent が「GPL 系 OS に条件づけた特許許諾」を理由に OSD 3 / 6 / 8 で
 争われ、無条件にした 2016 年版が承認された**と記録した。
 **ここでは OSD の起草者が、ライセンスに条件づけた特許許諾を「OSD に完全に適合する」と述べている。**

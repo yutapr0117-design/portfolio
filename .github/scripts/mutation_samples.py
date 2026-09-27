@@ -377,7 +377,9 @@ _MUTATIONS_TAIL.append({
     "name": "Check 471 (f): \u00a71.xx の共有採番を衝突させる —— この採番は 5 file に分かれており、"
             "**同じ番号を 2 つの file が使うと参照は「解決する」のに別の節へ着く。(d)(e) は解決性しか"
             "見ないので原理的に捕捉できない** (2026-09-15 に実際に重複を作った)",
-    "file": ROOT / "LICENSES" / "ACD-1.0.review-precedents.md",
+    # 2026-09-27: §1.88 は `ACD-1.0.review-outcomes.md` へ主題で分離した (Check 365 の 1,000 行上限)。
+    # **anchor は移動先を追う** —— 「解決する」だけでは正しい対象を打っている証拠にならない (#227 の class)。
+    "file": ROOT / "LICENSES" / "ACD-1.0.review-outcomes.md",
     "find": "## 1.88 \u627f\u8a8d\u306f\u53d6\u308a\u6d88\u305b\u306a\u3044",
     "replace": "## 1.87 \u627f\u8a8d\u306f\u53d6\u308a\u6d88\u305b\u306a\u3044",
     "check": CHECK,

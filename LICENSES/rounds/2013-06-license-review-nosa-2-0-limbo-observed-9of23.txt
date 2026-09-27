@@ -1,0 +1,750 @@
+>if it occurred at all in the past several years, was sometimes done
+>earlier in the OSI's history.
+>
+>A number of people, including the license steward and submitter, have
+>asked at various times out of understandable frustration that there be
+>an 'up or down' vote on NOSA 2.0 rather than a continuation of the
+>current situation. There is an OSI board meeting next Wednesday. I
+>will place the 'up or down' vote on the agenda, and (with reluctance)
+>I will recommend that the vote be 'down' out of concern for the
+>integrity of the OSD and the license approval process. It is
+>conceivable that the OSI board will wish to treat NOSA 2.0 in some
+>manner other than 'up or down' though.
+>
+>If anyone has comments on NOSA 2.0 that they'd like the OSI board to
+>consider please provide them before next Wednesday.
+>
+>Richard
+>
+>[1] See e.g.:
+>https://lists.opensource.org/pipermail/license-review/2013-June/001944.htm
+>l
+>(original submission)
+>https://lists.opensource.org/pipermail/license-review/2014-June/002177.htm
+>l
+>https://lists.opensource.org/pipermail/license-review/2014-December/002296
+>.html
+>https://lists.opensource.org/pipermail/license-review/2015-September/00247
+>8.html
+>https://lists.opensource.org/pipermail/license-review/2016-February/002716
+>.html
+>https://lists.opensource.org/pipermail/license-review/2016-February/thread
+>.html
+>https://lists.opensource.org/pipermail/license-review/2016-February/002718
+>.html
+>https://lists.opensource.org/pipermail/license-review/2016-March/002721.ht
+>ml
+>https://lists.opensource.org/pipermail/license-review/2016-March/002722.ht
+>ml
+>https://lists.opensource.org/pipermail/license-review/2016-March/002723.ht
+>ml
+>https://lists.opensource.org/pipermail/license-review/2016-March/002724.ht
+>ml
+>https://lists.opensource.org/pipermail/license-review/2016-March/002731.ht
+>ml
+>https://lists.opensource.org/pipermail/license-review/2016-April/002735.ht
+>ml
+>https://lists.opensource.org/pipermail/license-review/2016-April/002737.ht
+>ml
+>https://lists.opensource.org/pipermail/license-review/2016-April/002736.ht
+>ml
+>
+>[2] 
+>https://lists.opensource.org/pipermail/license-review/2013-October/001999.
+>html
+>_______________________________________________
+>License-review mailing list
+>License-review at opensource.org
+>https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+From fontana at opensource.org  Thu Jan  5 23:10:13 2017
+From: fontana at opensource.org (Richard Fontana)
+Date: Thu, 5 Jan 2017 18:10:13 -0500
+Subject: [License-review] NOSA 2.0 - 'Up or Down' vote
+In-Reply-To: <D4941E7A.33FC8%Nigel.Tzeng@jhuapl.edu>
+References: <20170105205711.lks6d5zyvafu34n4@antelope> <D4941E7A.33FC8%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <20170105231012.d4uydl3cvfkrjfm7@antelope>
+
+On Thu, Jan 05, 2017 at 10:34:03PM +0000, Tzeng, Nigel H. wrote:
+> Richard,
+> 
+> Are you also going to ask about asymmetry with permissive upstream and
+> copyleft downstream?  This was an action item from the UCL license
+> discussion.
+
+I will raise that issue, yes. 
+> It should be conveyed that no one else apparently had significant issue
+> with NOSA 2.0 and it is a special purpose license for government use.  I
+> believe that more people recommended approval (more than 1) than rejection
+> (1). I don?t believe that you convinced anyone else that NOSA v2 violated
+> OSD or that it would require ?substantial revision? to do so.
+
+I believe all that is correct. I will convey that. 
+> That you
+> disagreed with NASA?s interpretation of 51 USC 20141 is not a failure of
+> the process or indication that the license is too complex for the needs of
+> the Government Open Source Software (GOSS) community.
+
+I agree. I think the 51 USC 20141 issue was fairly minor.
+
+> I would ask that the review process be amended that licenses automatically
+> go to an up or down vote within 6 months of submission unless further
+> delay is requested by the submitter and that the recommendation to the
+> board as to the opinion of this list be as transparent as possible and in
+> the format that Luis used in his reports.
+
+Okay, those are good suggestions. I will propose those.
+
+Richard
+
+
+
+
+> 
+> Regards,
+> 
+> Nigel
+> 
+> 
+> 
+> On 1/5/17, 3:57 PM, "License-review on behalf of Richard Fontana"
+> <license-review-bounces at opensource.org on behalf of
+> fontana at opensource.org> wrote:
+> 
+> >As some know, NOSA 2.0 [1] has been languishing in a limbo review
+> >state for an extremely long time.
+> >
+> >In my opinion, NOSA 2.0 is, in its current form, an overly complex and
+> >badly drafted license. I cannot gain enough confidence that it meets
+> >the letter and spirit of the Open Source Definition, without
+> >substantial revision, which the license steward seems disinclined to
+> >undertake. This is just my view and does not reflect any sort of
+> >consensus view, although I am not sure one could really demonstrate a
+> >consensus view on the other side. (It should be noted that Luis Villa,
+> >a former OSI board member and one of my personal heroes, actually did
+> >recommend early on that the OSI approve NOSA 2.0, but this never went
+> >to a vote. [2])
+> >
+> >The reason I kept the review alive, in some sense, is twofold. I
+> >thought that we could somehow use this forum to collectively revise
+> >the license, but that did not work, in part because of the high
+> >complexity of the license. (This forum is by contrast not too bad at
+> >dealing with the more typical shorter, simpler license texts.) I also
+> >believed for a long time that it was contrary to de facto OSI policy
+> >to reject a license outright, as opposed to gently directing the
+> >license submitter to go back to the drawing board. I later discovered
+> >that outright license rejection, though it seems to have been uncommon
+> >if it occurred at all in the past several years, was sometimes done
+> >earlier in the OSI's history.
+> >
+> >A number of people, including the license steward and submitter, have
+> >asked at various times out of understandable frustration that there be
+> >an 'up or down' vote on NOSA 2.0 rather than a continuation of the
+> >current situation. There is an OSI board meeting next Wednesday. I
+> >will place the 'up or down' vote on the agenda, and (with reluctance)
+> >I will recommend that the vote be 'down' out of concern for the
+> >integrity of the OSD and the license approval process. It is
+> >conceivable that the OSI board will wish to treat NOSA 2.0 in some
+> >manner other than 'up or down' though.
+> >
+> >If anyone has comments on NOSA 2.0 that they'd like the OSI board to
+> >consider please provide them before next Wednesday.
+> >
+> >Richard
+> >
+> >[1] See e.g.:
+> >https://lists.opensource.org/pipermail/license-review/2013-June/001944.htm
+> >l
+> >(original submission)
+> >https://lists.opensource.org/pipermail/license-review/2014-June/002177.htm
+> >l
+> >https://lists.opensource.org/pipermail/license-review/2014-December/002296
+> >.html
+> >https://lists.opensource.org/pipermail/license-review/2015-September/00247
+> >8.html
+> >https://lists.opensource.org/pipermail/license-review/2016-February/002716
+> >.html
+> >https://lists.opensource.org/pipermail/license-review/2016-February/thread
+> >.html
+> >https://lists.opensource.org/pipermail/license-review/2016-February/002718
+> >.html
+> >https://lists.opensource.org/pipermail/license-review/2016-March/002721.ht
+> >ml
+> >https://lists.opensource.org/pipermail/license-review/2016-March/002722.ht
+> >ml
+> >https://lists.opensource.org/pipermail/license-review/2016-March/002723.ht
+> >ml
+> >https://lists.opensource.org/pipermail/license-review/2016-March/002724.ht
+> >ml
+> >https://lists.opensource.org/pipermail/license-review/2016-March/002731.ht
+> >ml
+> >https://lists.opensource.org/pipermail/license-review/2016-April/002735.ht
+> >ml
+> >https://lists.opensource.org/pipermail/license-review/2016-April/002737.ht
+> >ml
+> >https://lists.opensource.org/pipermail/license-review/2016-April/002736.ht
+> >ml
+> >
+> >[2] 
+> >https://lists.opensource.org/pipermail/license-review/2013-October/001999.
+> >html
+> >_______________________________________________
+> >License-review mailing list
+> >License-review at opensource.org
+> >https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+> 
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+From Nigel.Tzeng at jhuapl.edu  Fri Jan  6 14:45:58 2017
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Fri, 6 Jan 2017 14:45:58 +0000
+Subject: [License-review] NOSA 2.0 - 'Up or Down' vote
+In-Reply-To: <20170105231012.d4uydl3cvfkrjfm7@antelope>
+References: <20170105205711.lks6d5zyvafu34n4@antelope> <D4941E7A.33FC8%Nigel.Tzeng@jhuapl.edu> <20170105231012.d4uydl3cvfkrjfm7@antelope>
+Message-ID: <D49517C7.340A4%Nigel.Tzeng@jhuapl.edu>
+
+Thank you.
+
+
+On 1/5/17, 6:10 PM, "License-review on behalf of Richard Fontana"
+<license-review-bounces at opensource.org on behalf of
+fontana at opensource.org> wrote:
+
+>On Thu, Jan 05, 2017 at 10:34:03PM +0000, Tzeng, Nigel H. wrote:
+>> Richard,
+>> 
+>> Are you also going to ask about asymmetry with permissive upstream and
+>> copyleft downstream?  This was an action item from the UCL license
+>> discussion.
+>
+>I will raise that issue, yes.
+> 
+>> It should be conveyed that no one else apparently had significant issue
+>> with NOSA 2.0 and it is a special purpose license for government use.  I
+>> believe that more people recommended approval (more than 1) than
+>>rejection
+>> (1). I don?t believe that you convinced anyone else that NOSA v2
+>>violated
+>> OSD or that it would require ?substantial revision? to do so.
+>
+>I believe all that is correct. I will convey that.
+> 
+>> That you
+>> disagreed with NASA?s interpretation of 51 USC 20141 is not a failure of
+>> the process or indication that the license is too complex for the needs
+>>of
+>> the Government Open Source Software (GOSS) community.
+>
+>I agree. I think the 51 USC 20141 issue was fairly minor.
+>
+>> I would ask that the review process be amended that licenses
+>>automatically
+>> go to an up or down vote within 6 months of submission unless further
+>> delay is requested by the submitter and that the recommendation to the
+>> board as to the opinion of this list be as transparent as possible and
+>>in
+>> the format that Luis used in his reports.
+>
+>Okay, those are good suggestions. I will propose those.
+>
+>Richard
+>
+>
+>
+>
+>> 
+>> Regards,
+>> 
+>> Nigel
+>> 
+>> 
+>> 
+>> On 1/5/17, 3:57 PM, "License-review on behalf of Richard Fontana"
+>> <license-review-bounces at opensource.org on behalf of
+>> fontana at opensource.org> wrote:
+>> 
+>> >As some know, NOSA 2.0 [1] has been languishing in a limbo review
+>> >state for an extremely long time.
+>> >
+>> >In my opinion, NOSA 2.0 is, in its current form, an overly complex and
+>> >badly drafted license. I cannot gain enough confidence that it meets
+>> >the letter and spirit of the Open Source Definition, without
+>> >substantial revision, which the license steward seems disinclined to
+>> >undertake. This is just my view and does not reflect any sort of
+>> >consensus view, although I am not sure one could really demonstrate a
+>> >consensus view on the other side. (It should be noted that Luis Villa,
+>> >a former OSI board member and one of my personal heroes, actually did
+>> >recommend early on that the OSI approve NOSA 2.0, but this never went
+>> >to a vote. [2])
+>> >
+>> >The reason I kept the review alive, in some sense, is twofold. I
+>> >thought that we could somehow use this forum to collectively revise
+>> >the license, but that did not work, in part because of the high
+>> >complexity of the license. (This forum is by contrast not too bad at
+>> >dealing with the more typical shorter, simpler license texts.) I also
+>> >believed for a long time that it was contrary to de facto OSI policy
+>> >to reject a license outright, as opposed to gently directing the
+>> >license submitter to go back to the drawing board. I later discovered
+>> >that outright license rejection, though it seems to have been uncommon
+>> >if it occurred at all in the past several years, was sometimes done
+>> >earlier in the OSI's history.
+>> >
+>> >A number of people, including the license steward and submitter, have
+>> >asked at various times out of understandable frustration that there be
+>> >an 'up or down' vote on NOSA 2.0 rather than a continuation of the
+>> >current situation. There is an OSI board meeting next Wednesday. I
+>> >will place the 'up or down' vote on the agenda, and (with reluctance)
+>> >I will recommend that the vote be 'down' out of concern for the
+>> >integrity of the OSD and the license approval process. It is
+>> >conceivable that the OSI board will wish to treat NOSA 2.0 in some
+>> >manner other than 'up or down' though.
+>> >
+>> >If anyone has comments on NOSA 2.0 that they'd like the OSI board to
+>> >consider please provide them before next Wednesday.
+>> >
+>> >Richard
+>> >
+>> >[1] See e.g.:
+>> 
+>>>https://lists.opensource.org/pipermail/license-review/2013-June/001944.h
+>>>tm
+>> >l
+>> >(original submission)
+>> 
+>>>https://lists.opensource.org/pipermail/license-review/2014-June/002177.h
+>>>tm
+>> >l
+>> 
+>>>https://lists.opensource.org/pipermail/license-review/2014-December/0022
+>>>96
+>> >.html
+>> 
+>>>https://lists.opensource.org/pipermail/license-review/2015-September/002
+>>>47
+>> >8.html
+>> 
+>>>https://lists.opensource.org/pipermail/license-review/2016-February/0027
+>>>16
+>> >.html
+>> 
+>>>https://lists.opensource.org/pipermail/license-review/2016-February/thre
+>>>ad
+>> >.html
+>> 
+>>>https://lists.opensource.org/pipermail/license-review/2016-February/0027
+>>>18
+>> >.html
+>> 
+>>>https://lists.opensource.org/pipermail/license-review/2016-March/002721.
+>>>ht
+>> >ml
+>> 
+>>>https://lists.opensource.org/pipermail/license-review/2016-March/002722.
+>>>ht
+>> >ml
+>> 
+>>>https://lists.opensource.org/pipermail/license-review/2016-March/002723.
+>>>ht
+>> >ml
+>> 
+>>>https://lists.opensource.org/pipermail/license-review/2016-March/002724.
+>>>ht
+>> >ml
+>> 
+>>>https://lists.opensource.org/pipermail/license-review/2016-March/002731.
+>>>ht
+>> >ml
+>> 
+>>>https://lists.opensource.org/pipermail/license-review/2016-April/002735.
+>>>ht
+>> >ml
+>> 
+>>>https://lists.opensource.org/pipermail/license-review/2016-April/002737.
+>>>ht
+>> >ml
+>> 
+>>>https://lists.opensource.org/pipermail/license-review/2016-April/002736.
+>>>ht
+>> >ml
+>> >
+>> >[2] 
+>> 
+>>>https://lists.opensource.org/pipermail/license-review/2013-October/00199
+>>>9.
+>> >html
+>> >_______________________________________________
+>> >License-review mailing list
+>> >License-review at opensource.org
+>> >https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>> 
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at opensource.org
+>> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>_______________________________________________
+>License-review mailing list
+>License-review at opensource.org
+>https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+From fontana at opensource.org  Mon Jan  9 03:09:33 2017
+From: fontana at opensource.org (Richard Fontana)
+Date: Sun, 8 Jan 2017 22:09:33 -0500
+Subject: [License-review] NOSA 2.0 - 'Up or Down' vote
+In-Reply-To: <D49517C7.340A4%Nigel.Tzeng@jhuapl.edu>
+References: <20170105205711.lks6d5zyvafu34n4@antelope> <D4941E7A.33FC8%Nigel.Tzeng@jhuapl.edu> <20170105231012.d4uydl3cvfkrjfm7@antelope> <D49517C7.340A4%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <20170109030933.r7i7ksq2lk5prgjh@antelope>
+
+Responding here to Josh Berkus's message:
+
+> On 01/05/2017 12:57 PM, Richard Fontana wrote:
+> > If anyone has comments on NOSA 2.0 that they'd like the OSI board to
+> > consider please provide them before next Wednesday.
+
+> Can we have the issues withe the NOSA, in detail, doc'd somewhere?
+> Right now they're spread out over 3 years of email discussion
+> comments.  I doubt the submitter is clear on the problems with the
+> license, either, which makes it hard for them to resolve them.
+> 
+> I think NOSA really shows how a mailing list is not adequate to the
+> kinds of license discussions we need to have these days.
+
+I never made a full list. What happened was I'd periodically wade
+through the license text and find issues I hadn't seen before, and
+over time I developed the general view that the license was just too
+confusingly written.
+
+A big issue for me was that I believe under a fair reading of the
+license it seemed to exempt the original licensor (which will
+presumably typically be NASA) from patent licensing obligations
+imposed on licensees. This can be seen as yet another example of a
+concern about a possible legal asymmetry in the license (cf. the
+discussion of the UCL from a couple of months ago). I was not
+satisfied by Bryan's response to this. Of course it is possible that
+this was just a (significant) drafting error.
+
+Richard
+
+
+From Nigel.Tzeng at jhuapl.edu  Mon Jan  9 03:19:43 2017
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Mon, 9 Jan 2017 03:19:43 +0000
+Subject: [License-review] NOSA 2.0 - 'Up or Down' vote
+In-Reply-To: <20170109030933.r7i7ksq2lk5prgjh@antelope>
+References: <20170105205711.lks6d5zyvafu34n4@antelope> <D4941E7A.33FC8%Nigel.Tzeng@jhuapl.edu> <20170105231012.d4uydl3cvfkrjfm7@antelope> <D49517C7.340A4%Nigel.Tzeng@jhuapl.edu>, <20170109030933.r7i7ksq2lk5prgjh@antelope>
+Message-ID: <f0f2a42f99e24396b3737dffff075fba@aplex01.dom1.jhuapl.edu>
+
+Please note to the board that while UCL is assymetric that it's still fully OSD compliant in both directions since the two licenses used for upstream and downstream are both OSI approved.
+
+From: Richard Fontana <fontana at opensource.org<mailto:fontana at opensource.org>>
+Date: Sunday, Jan 08, 2017, 10:09 PM
+To: License submissions for OSI review <license-review at opensource.org<mailto:license-review at opensource.org>>
+Subject: Re: [License-review] NOSA 2.0 - 'Up or Down' vote
+
+Responding here to Josh Berkus's message:
+
+> On 01/05/2017 12:57 PM, Richard Fontana wrote:
+> > If anyone has comments on NOSA 2.0 that they'd like the OSI board to
+> > consider please provide them before next Wednesday.
+
+> Can we have the issues withe the NOSA, in detail, doc'd somewhere?
+> Right now they're spread out over 3 years of email discussion
+> comments.  I doubt the submitter is clear on the problems with the
+> license, either, which makes it hard for them to resolve them.
+>
+> I think NOSA really shows how a mailing list is not adequate to the
+> kinds of license discussions we need to have these days.
+
+I never made a full list. What happened was I'd periodically wade
+through the license text and find issues I hadn't seen before, and
+over time I developed the general view that the license was just too
+confusingly written.
+
+A big issue for me was that I believe under a fair reading of the
+license it seemed to exempt the original licensor (which will
+presumably typically be NASA) from patent licensing obligations
+imposed on licensees. This can be seen as yet another example of a
+concern about a possible legal asymmetry in the license (cf. the
+discussion of the UCL from a couple of months ago). I was not
+satisfied by Bryan's response to this. Of course it is possible that
+this was just a (significant) drafting error.
+
+Richard
+_______________________________________________
+License-review mailing list
+License-review at opensource.org
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170109/87b22ab8/attachment.html>
+
+From mccoy.smith at intel.com  Mon Jan  9 18:59:14 2017
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Mon, 9 Jan 2017 18:59:14 +0000
+Subject: [License-review] NOSA 2.0 - 'Up or Down' vote
+In-Reply-To: <20170109030933.r7i7ksq2lk5prgjh@antelope>
+References: <20170105205711.lks6d5zyvafu34n4@antelope> <D4941E7A.33FC8%Nigel.Tzeng@jhuapl.edu> <20170105231012.d4uydl3cvfkrjfm7@antelope> <D49517C7.340A4%Nigel.Tzeng@jhuapl.edu> <20170109030933.r7i7ksq2lk5prgjh@antelope>
+Message-ID: <2D52F7EE739F8542A700CAB96276B519342AA0D3@FMSMSX108.amr.corp.intel.com>
+
+Is there a link to the most recent version of this license (I think it was modified during the submission process)?
+
+If there is a patent license requirement to downstream contributors but not the original upstream author, I too would likely express reservations*, but that gap was not immediately apparent to me from the draft that was originally posted.
+
+Alternatively, is there a link to the part of the thread where this particular issue was addressed and where the portions of the text that created the problem or ambiguity were highlighted?
+
+McCoy
+
+*I have become of the opinion that the lack of an express patent license in an open source license is potentially a violation of OSD 7, although that opinion is inconsistent with the OSI-approved status of several existing licenses.  Even if it is not a violation of OSD 7, I believe as a matter of practice, it is something that should be a feature of any new licenses approved by OSI.
+-----Original Message-----
+From: License-review [mailto:license-review-bounces at opensource.org] On Behalf Of Richard Fontana
+Sent: Sunday, January 08, 2017 7:10 PM
+To: License submissions for OSI review
+Subject: Re: [License-review] NOSA 2.0 - 'Up or Down' vote
+
+Responding here to Josh Berkus's message:
+
+> On 01/05/2017 12:57 PM, Richard Fontana wrote:
+> > If anyone has comments on NOSA 2.0 that they'd like the OSI board to 
+> > consider please provide them before next Wednesday.
+
+> Can we have the issues withe the NOSA, in detail, doc'd somewhere?
+> Right now they're spread out over 3 years of email discussion 
+> comments.  I doubt the submitter is clear on the problems with the 
+> license, either, which makes it hard for them to resolve them.
+> 
+> I think NOSA really shows how a mailing list is not adequate to the 
+> kinds of license discussions we need to have these days.
+
+I never made a full list. What happened was I'd periodically wade through the license text and find issues I hadn't seen before, and over time I developed the general view that the license was just too confusingly written.
+
+A big issue for me was that I believe under a fair reading of the license it seemed to exempt the original licensor (which will presumably typically be NASA) from patent licensing obligations imposed on licensees. This can be seen as yet another example of a concern about a possible legal asymmetry in the license (cf. the discussion of the UCL from a couple of months ago). I was not satisfied by Bryan's response to this. Of course it is possible that this was just a (significant) drafting error.
+
+Richard
+_______________________________________________
+License-review mailing list
+License-review at opensource.org
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+From luis at lu.is  Mon Jan  9 22:05:35 2017
+From: luis at lu.is (Luis Villa)
+Date: Mon, 09 Jan 2017 22:05:35 +0000
+Subject: [License-review] on OSI review/rejection [was Re: NOSA 2.0 - 'Up or Down' vote]]
+In-Reply-To: <20170105205711.lks6d5zyvafu34n4@antelope>
+References: <20170105205711.lks6d5zyvafu34n4@antelope>
+Message-ID: <CAFjZtRe2dmNFAFTuPLHKGoNUcQXhqfGveKdnJ08O_X32HZXhhA@mail.gmail.com>
+
+On Thu, Jan 5, 2017 at 12:57 PM Richard Fontana <fontana at opensource.org>
+wrote:
+
+> As some know, NOSA 2.0 [1] has been languishing in a limbo review
+> state for an extremely long time.
+>
+> In my opinion, NOSA 2.0 is, in its current form, an overly complex and
+> badly drafted license. I cannot gain enough confidence that it meets
+> the letter and spirit of the Open Source Definition, without
+> substantial revision, which the license steward seems disinclined to
+> undertake. This is just my view and does not reflect any sort of
+> consensus view, although I am not sure one could really demonstrate a
+> consensus view on the other side. (It should be noted that Luis Villa,
+> a former OSI board member and one of my personal heroes,
+
+
+Hah! ;)
+
+
+> actually did recommend early on that the OSI approve NOSA 2.0, but this
+> never went to a vote. [2])
+>
+
+I have not looked at NOSA in some time so I can't speak to how I'd think
+about that specific license today.
+
+However, as some context to my previous push for approval: my sense was
+that, except in egregious cases, being poorly written and/or duplicative
+was sufficient to delay and push for improvements, but not (ultimately) to
+block adoption. In particular, since there was no political will to
+deprecate old licenses which did not meet "new" standards, I thought that
+the best route was to ultimately approve licenses that were professionally
+drafted, presented to OSI in good faith, and appeared to be in compliance
+with the OSD.
+
+I later discovered that outright license rejection, though it seems to have
+> been uncommon if it occurred at all in the past several years, was
+> sometimes done earlier in the OSI's history.
+>
+
+I think rejection is perfectly appropriate for licenses that obviously
+violate the OSD or other *clear, written, (ideally) objective* OSI
+policies. However, the OSD is frequently ambiguous or vague (e.g., patent
+grant?), other rules are completely unwritten (e.g., quality standards),
+and others were never actually adopted as rules (e.g., non-proliferation
+report). Rejecting on any of those grounds is problematic.
+
+Each of these have at least some fixes available (e.g., could address
+drafting by requiring professional legal involvement and/or a public
+drafting process). But ultimately any fixes must involve OSI saying "some
+OSD-compliant licenses are better than others", so unless the org indicates
+there is some stomach for that, I won't waste much time discussing the
+other fixes.
+
+Luis
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170109/f41a1a35/attachment.html>
+
+From cowan at ccil.org  Mon Jan  9 22:33:00 2017
+From: cowan at ccil.org (John Cowan)
+Date: Mon, 9 Jan 2017 17:33:00 -0500
+Subject: [License-review] on OSI review/rejection [was Re: NOSA 2.0 - 'Up or Down' vote]]
+In-Reply-To: <CAFjZtRe2dmNFAFTuPLHKGoNUcQXhqfGveKdnJ08O_X32HZXhhA@mail.gmail.com>
+References: <20170105205711.lks6d5zyvafu34n4@antelope> <CAFjZtRe2dmNFAFTuPLHKGoNUcQXhqfGveKdnJ08O_X32HZXhhA@mail.gmail.com>
+Message-ID: <CAD2gp_SaadBuY8Yhg3ZZp4K6xjp4eBOmfwtTcsm4KaaUOQwbSw@mail.gmail.com>
+
+On Mon, Jan 9, 2017 at 5:05 PM, Luis Villa <luis at lu.is> wrote:
+
+I think rejection is perfectly appropriate for licenses that obviously
+> violate the OSD or other *clear, written, (ideally) objective* OSI
+> policies.
+>
+
+Strictly speaking, AFAIK, the OSI never *rejects* anything.  It simply
+declines to approve it.  The submitter is always free to revise and
+resubmit.
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+Gules six bars argent on a canton azure 50 mullets argent
+six five six five six five six five and six --blazoning the U.S. flag <http://web.meson.org/blazonserver>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170109/baadecc7/attachment.html>
+
+From dialogpurpose at gmail.com  Tue Jan 10 10:56:05 2017
+From: dialogpurpose at gmail.com (dialog purpose)
+Date: Tue, 10 Jan 2017 13:56:05 +0300
+Subject: [License-review] NOSA 2.0 - 'Up or Down' vote
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B519342AA0D3@FMSMSX108.amr.corp.intel.com>
+References: <20170105205711.lks6d5zyvafu34n4@antelope> <D4941E7A.33FC8%Nigel.Tzeng@jhuapl.edu> <20170105231012.d4uydl3cvfkrjfm7@antelope> <D49517C7.340A4%Nigel.Tzeng@jhuapl.edu> <20170109030933.r7i7ksq2lk5prgjh@antelope> <2D52F7EE739F8542A700CAB96276B519342AA0D3@FMSMSX108.amr.corp.intel.com>
+Message-ID: <CAHEmoyDFGr6isWJALGNiSHiZKWVZQE8b0YMioDdNuCtrv070sA@mail.gmail.com>
+
+You all are taking about NOSA, which is probably one of the worst open
+source licene out there, but none of u talk about or review my license
+
+On Monday, January 9, 2017, Smith, McCoy <mccoy.smith at intel.com> wrote:
+
+> Is there a link to the most recent version of this license (I think it was
+> modified during the submission process)?
+>
+> If there is a patent license requirement to downstream contributors but
+> not the original upstream author, I too would likely express reservations*,
+> but that gap was not immediately apparent to me from the draft that was
+> originally posted.
+>
+> Alternatively, is there a link to the part of the thread where this
+> particular issue was addressed and where the portions of the text that
+> created the problem or ambiguity were highlighted?
+>
+> McCoy
+>
+> *I have become of the opinion that the lack of an express patent license
+> in an open source license is potentially a violation of OSD 7, although
+> that opinion is inconsistent with the OSI-approved status of several
+> existing licenses.  Even if it is not a violation of OSD 7, I believe as a
+> matter of practice, it is something that should be a feature of any new
+> licenses approved by OSI.
+> -----Original Message-----
+> From: License-review [mailto:license-review-bounces at opensource.org
+> <javascript:;>] On Behalf Of Richard Fontana
+> Sent: Sunday, January 08, 2017 7:10 PM
+> To: License submissions for OSI review
+> Subject: Re: [License-review] NOSA 2.0 - 'Up or Down' vote
+>
+> Responding here to Josh Berkus's message:
+>
+> > On 01/05/2017 12:57 PM, Richard Fontana wrote:
+> > > If anyone has comments on NOSA 2.0 that they'd like the OSI board to
+> > > consider please provide them before next Wednesday.
+>
+> > Can we have the issues withe the NOSA, in detail, doc'd somewhere?
+> > Right now they're spread out over 3 years of email discussion
+> > comments.  I doubt the submitter is clear on the problems with the
+> > license, either, which makes it hard for them to resolve them.
+> >
+> > I think NOSA really shows how a mailing list is not adequate to the
+> > kinds of license discussions we need to have these days.
+>
+> I never made a full list. What happened was I'd periodically wade through
+> the license text and find issues I hadn't seen before, and over time I
+> developed the general view that the license was just too confusingly
+> written.
+>
+> A big issue for me was that I believe under a fair reading of the license
+> it seemed to exempt the original licensor (which will presumably typically
+> be NASA) from patent licensing obligations imposed on licensees. This can
+> be seen as yet another example of a concern about a possible legal
+> asymmetry in the license (cf. the discussion of the UCL from a couple of
+> months ago). I was not satisfied by Bryan's response to this. Of course it
+> is possible that this was just a (significant) drafting error.
+>
+> Richard
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org <javascript:;>
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org <javascript:;>
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170110/7eee5aa8/attachment.html>
+
+From gerv at mozilla.org  Tue Jan 10 11:27:37 2017
+From: gerv at mozilla.org (Gervase Markham)
+Date: Tue, 10 Jan 2017 11:27:37 +0000
+Subject: [License-review] NOSA 2.0 - 'Up or Down' vote
+In-Reply-To: <CAHEmoyDFGr6isWJALGNiSHiZKWVZQE8b0YMioDdNuCtrv070sA@mail.gmail.com>
+References: <20170105205711.lks6d5zyvafu34n4@antelope> <D4941E7A.33FC8%Nigel.Tzeng@jhuapl.edu> <20170105231012.d4uydl3cvfkrjfm7@antelope> <D49517C7.340A4%Nigel.Tzeng@jhuapl.edu> <20170109030933.r7i7ksq2lk5prgjh@antelope> <2D52F7EE739F8542A700CAB96276B519342AA0D3@FMSMSX108.amr.corp.intel.com> <CAHEmoyDFGr6isWJALGNiSHiZKWVZQE8b0YMioDdNuCtrv070sA@mail.gmail.com>
+Message-ID: <079a298a-d0af-e800-4503-053146d6068e@mozilla.org>
+
+On 10/01/17 10:56, dialog purpose wrote:
+> You all are taking about NOSA, which is probably one of the worst open
+> source licene out there, but none of u talk about or review my license
+
+Because you said "I agree now that I don't need to try approve Octopus
+License,  since it has some mistakes".
+
+Gerv
+
+
+From dialogpurpose at gmail.com  Wed Jan 11 16:28:24 2017
+From: dialogpurpose at gmail.com (dialog purpose)
+Date: Wed, 11 Jan 2017 19:28:24 +0300
+Subject: [License-review] NOSA 2.0 - 'Up or Down' vote
+In-Reply-To: <079a298a-d0af-e800-4503-053146d6068e@mozilla.org>
+References: <20170105205711.lks6d5zyvafu34n4@antelope> <D4941E7A.33FC8%Nigel.Tzeng@jhuapl.edu> <20170105231012.d4uydl3cvfkrjfm7@antelope> <D49517C7.340A4%Nigel.Tzeng@jhuapl.edu> <20170109030933.r7i7ksq2lk5prgjh@antelope> <2D52F7EE739F8542A700CAB96276B519342AA0D3@FMSMSX108.amr.corp.intel.com> <CAHEmoyDFGr6isWJALGNiSHiZKWVZQE8b0YMioDdNuCtrv070sA@mail.gmail.com> <079a298a-d0af-e800-4503-053146d6068e@mozilla.org>
+Message-ID: <CAHEmoyAwAA8jtrstye1bt_VJQjF3G1MUK9LKPUtR-hgmeQGJ1Q@mail.gmail.com>
+
+No, I was wrong. I remembered that the license has simply does not say "you
+can recopyright it" and I remembered how much effort I made for the
+license. Octopus License is based on Tcl/Tk, so if Octopus has mistakes,
+then Tcl has also mistakes. But Octopus license fixed many technical
+mistakes (such as copyright format) by lawyers, and I am the one who paid a
+lot of money to those. Now either approve my license, or I can never
+release and collaborate my project using the Atlassian products.
+
+On Tuesday, January 10, 2017, Gervase Markham <gerv at mozilla.org> wrote:
+
+> On 10/01/17 10:56, dialog purpose wrote:
+> > You all are taking about NOSA, which is probably one of the worst open
+> > source licene out there, but none of u talk about or review my license
+>
+> Because you said "I agree now that I don't need to try approve Octopus
+> License,  since it has some mistakes".

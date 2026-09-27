@@ -1,0 +1,401 @@
+I'll press them to put together at least preliminary language ASAP that we can
+present and discuss on this mailing list.
+
+Thanks,
+Cem Karan
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180621/11365148/attachment-0001.html>
+
+From brendan.m.hickey at gmail.com  Thu Jun 21 20:46:39 2018
+From: brendan.m.hickey at gmail.com (Brendan Hickey)
+Date: Thu, 21 Jun 2018 16:46:39 -0400
+Subject: [License-review] [Non-DoD Source] Re: NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97CC1E94BB@UMECHPA7F.easf.csd.disa.mil>
+References: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil> <CAK2MWOsW2JRK1Vp6YQn4z9=+_G0z9zirMSs1DqXmde+=Vr5iCA@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E8FE1@UMECHPA7F.easf.csd.disa.mil> <CAK2MWOtd=r3tipQjFLaTpvgfBVKWzRHYyTyFCX2K0cssP6YVNQ@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E90F3@UMECHPA7F.easf.csd.disa.mil> <CAK2MWOsvfF6bpwgEijU9uJokG3t2+Ws_V=1xWa-T=KDumAkthA@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E91CF@UMECHPA7F.easf.csd.disa.mil> <CAK2MWOtipSwjjT31vo2XCS58J1HB7otyPyJEhM19RLFBDWc-vQ@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E9348@UMECHPA7F.easf.csd.disa.mil> <CA+xoNzG5nPVCgNUVK6FCVcwhGYA2spiE0qTczQBTwmqQqRoCEw@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E94BB@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <CAJ-h4vsT0-M3rPahvkngMqhrhj0BuzP01=SpWdw2azS3iFDM-Q@mail.gmail.com>
+
+Hi Cem,
+
+Could you give us an idea of how widely this is being discussed at the USG?
+As an outsider it's unclear if this is just the ARL and NASA or much
+broader. I'd expect attorneys with NASA to have a different set of concerns
+than those at the GSA or USPS. In particular, is the USDS in the loop?
+Coordinating OSS efforts within the US federal government seems like
+something that would naturally fall within their remit.
+
+As a staunch anti-proliferationist, I think the OSI should be hesitant to
+approve a narrowly tailored and legally novel license. It would be helpful
+to know if severability and contract concerns represent consensus legal
+opinions within the USG. I'm more than happy to be misinformed, but there's
+context that I don't have.
+
+Brendan
+
+On Thu, Jun 21, 2018, 3:38 PM Karan, Cem F CIV USARMY RDECOM ARL (US) <
+cem.f.karan.civ at mail.mil> wrote:
+
+> > From: License-review [license-review-bounces at lists.opensource.org] on
+> behalf of Richard Fontana [richard.fontana at opensource.org]
+> > Sent: Thursday, June 21, 2018 2:48 PM
+> > To: License submissions for OSI review
+> > Subject: Re: [License-review] [Non-DoD Source] Re: NOSA 2.0 and
+> Government licensing [was: moving to an issue tracker [was Re: Some notes
+> for license submitters]]
+> >
+> > All active links contained in this email were disabled. Please verify
+> the identity of the sender, and confirm the authenticity of all links
+> contained within the message prior to copying and pasting the address to a
+> Web browser.
+> >
+> > On Thu, Jun 21, 2018 at 12:53 PM, Karan, Cem F CIV USARMY RDECOM ARL
+> (US) <cem.f.karan.civ at mail.mil < Caution-mailto:cem.f.karan.civ at mail.mil
+> > > wrote:
+> >
+> >
+> >> The problem is that if that is one clause of a larger license, does the
+> fact
+> >> that one clause is unenforceable affect the rest of the license?
+> Different
+> >> lawyers have differing opinions, and as far as I know, it hasn't been
+> settled
+> >> by the courts yet.  This is the crux of why the government is looking to
+> >> create a new license that is not based on copyright.  So that it isn't
+> on the
+> >> hook for warranty and liability because it made a copyright claim that
+> it
+> >> doesn't have, and so that downstream users are protected when they use
+> >> and incorporate GOSS into their own projects.
+> >
+> > Do you mean protected from the US government itself?
+>
+> No, patent trolls and the like.  Since their basic business model is to
+> find
+> people and groups to sue over patent infringement, it is in their best
+> interest to increase the number of infractions.  The easy way is to
+> contribute
+> infringing material to the USG, wait for the USG to incorporate and
+> redistribute it, argue in court that the entire license is invalid because
+> the
+> USG doesn't have copyright, and then sue everyone they can for infringing.
+>  I
+> know that this sounds far-fetched, but the reason I'm worried is because of
+> this: https://en.wikipedia.org/wiki/Rambus#Lawsuits.
+>
+> Even if the courts throw it out, it will take time to defend against, and
+> will
+> be politically embarrassing.  The knee-jerk reaction of a bureaucracy when
+> faced with embarrassment is to stop the actions that lead to the
+> embarrassment, which in this case would be GOSS.  GOSS is still very, very
+> new, and like a seedling, it is easy to kill it.  Once there is a long
+> track
+> record of GOSS, it will be much stronger, and much better able to
+> withstand a
+> few blows, but until then, we have to nurture and protect it as far as
+> we're
+> able to.
+>
+> > Regarding the risks faced by the US government that you are describing,
+> I'd
+> > like to hear a US government lawyer walk us through how that would play
+> out in
+> > a real world case. I am having some trouble seeing it.
+> >
+> > Richard
+>
+> I understand, but I hope that the example above will explain things clearly
+> for you.
+>
+> That said, if the contract amendment idea is something that OSI is willing
+> to
+> at least look at and possibly vote on in the near future, I can look into
+> whether or not that will satisfy USG lawyers.  I've already called Rob
+> Padilla
+> at NASA, but he was running to a meeting so couldn't discuss it further.
+> I've
+> also run the idea past ARL's lawyers, and they're open to thinking about
+> it.
+> I'll press them to put together at least preliminary language ASAP that we
+> can
+> present and discuss on this mailing list.
+>
+> Thanks,
+> Cem Karan
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180621/156dd4ea/attachment.html>
+
+From cem.f.karan.civ at mail.mil  Thu Jun 21 21:34:53 2018
+From: cem.f.karan.civ at mail.mil (Karan, Cem F CIV USARMY RDECOM ARL (US))
+Date: Thu, 21 Jun 2018 21:34:53 +0000
+Subject: [License-review] [Non-DoD Source] Re: NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <CAJ-h4vsT0-M3rPahvkngMqhrhj0BuzP01=SpWdw2azS3iFDM-Q@mail.gmail.com>
+References: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil> <CAK2MWOsW2JRK1Vp6YQn4z9=+_G0z9zirMSs1DqXmde+=Vr5iCA@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E8FE1@UMECHPA7F.easf.csd.disa.mil> <CAK2MWOtd=r3tipQjFLaTpvgfBVKWzRHYyTyFCX2K0cssP6YVNQ@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E90F3@UMECHPA7F.easf.csd.disa.mil> <CAK2MWOsvfF6bpwgEijU9uJokG3t2+Ws_V=1xWa-T=KDumAkthA@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E91CF@UMECHPA7F.easf.csd.disa.mil> <CAK2MWOtipSwjjT31vo2XCS58J1HB7otyPyJEhM19RLFBDWc-vQ@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E9348@UMECHPA7F.easf.csd.disa.mil> <CA+xoNzG5nPVCgNUVK6FCVcwhGYA2spiE0qTczQBTwmqQqRoCEw@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E94BB@UMECHPA7F.easf.csd.disa.mil>, <CAJ-h4vsT0-M3rPahvkngMqhrhj0BuzP01=SpWdw2azS3iFDM-Q@mail.gmail.com>
+Message-ID: <A677A9FB362B2F499BEFD6F80687FE97CC1E94FD@UMECHPA7F.easf.csd.disa.mil>
+
+>
+> From: License-review [license-review-bounces at lists.opensource.org] on behalf of Brendan Hickey [brendan.m.hickey at gmail.com]
+> Sent: Thursday, June 21, 2018 4:46 PM
+> To: License submissions for OSI review
+> Subject: Re: [License-review] [Non-DoD Source] Re: NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+>
+> All active links contained in this email were disabled. Please verify the identity of the sender, and confirm the authenticity of all links contained within the message prior to copying and pasting the address to a Web browser.
+
+>
+>
+> Hi Cem,
+>
+> Could you give us an idea of how widely this is being discussed at the USG? As
+> an outsider it's unclear if this is just the ARL and NASA or much broader. I'd
+> expect attorneys with NASA to have a different set of concerns than those at
+> the GSA or USPS. In particular, is the USDS in the loop? Coordinating OSS
+> efforts within the US federal government seems like something that would
+> naturally fall within their remit.
+
+I'm part of code.gov, and have brought up the issues on our biweekly telecon
+there in the past.  Right at this moment, the idea of using amendments is only
+between ARL and NASA, but that's because I had the phone numbers of the
+relevant parties at hand and could call them fast.  Once our (NASA and ARL)
+lawyers  decide if this is something that we can do, I'll bring it up as a
+solution to the whole code.gov group.  I suspect that it will be accepted at
+that level, but I can't guarantee it; I don't speak for the USG as whole, and
+I'm not at the White House level (I'm WAAAYYY down the totem pole).
+
+> As a staunch anti-proliferationist, I think the OSI should be hesitant to
+> approve a narrowly tailored and legally novel license. It would be helpful to
+> know if severability and contract concerns represent consensus legal opinions
+> within the USG. I'm more than happy to be misinformed, but there's context
+> that I don't have.
+
+The USG is vast, as are the number of legal opinions within it.  I'm trying to
+herd anyone I can into having a consensus on what the issues are, and how we
+can safely and efficiently solve them.  I haven't succeeded yet.
+
+Thanks,
+Cem Karan
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180621/6389a44d/attachment-0001.html>
+
+From rick at linuxmafia.com  Fri Jun 22 00:20:22 2018
+From: rick at linuxmafia.com (Rick Moen)
+Date: Thu, 21 Jun 2018 17:20:22 -0700
+Subject: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97CC1E943B@UMECHPA7F.easf.csd.disa.mil>
+References: <CAK2MWOvQcaSi0LJo-s1aF+gKoVZTswxghM1CAjXL+Ke061XqAQ@mail.gmail.com> <C67753CC-0D03-4A07-8F15-84F0BFCA9148@jhuapl.edu> <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov> <CA+xoNzHEbv395Fb472mtScYWEdTSqw7082-JWJ6PYPRp75qq9A@mail.gmail.com> <E02B7513-53F1-4D2F-A116-BADFCCCE87B5@nasa.gov> <2D52F7EE739F8542A700CAB96276B51978BDD99A@FMSMSX108.amr.corp.intel.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E943B@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <20180622002021.GP32401@linuxmafia.com>
+
+Quoting Karan, Cem F CIV USARMY RDECOM ARL (US) (cem.f.karan.civ at mail.mil):
+
+> Actually, I have a slightly different idea; Bryan or Rob, would you be
+> willing to post the complete text on GitHub somewhere?  One of the
+> parallel conversations that has been happening is the use of new tools
+> to comment on and evaluate licenses; NOSA 2.0 could be the guinea pig
+> for the idea of using GitHub to do that.  If nothing else, we can
+> maintain a log of all the issues and comments in one place, so that
+> when we all forget what we were arguing over 5 years ago, we can look
+> up the issues quickly and see if anything has changed since.
+
+Just a note in passing:  If participation in OSI public outreach begins
+to require login accounts at -- and thus contractual agreements with -- 
+external firms such as GitHub, Inc., OSI will lose some participants.
+
+I long ago started saying 'no' when some community institutions started 
+expecting members to sign up for outsourced Internet services just to
+talk to the community institutions, e.g., when my fellow Board of
+Directors members at BayLISA, my local professional sysadmin guild, 
+persisted in expecting everyone including Directors and meeting
+attendees to coordinate with them via Meetup because the Board majority
+had become too lazy to operate their own Web site and Mailman lists, I 
+quietly served out the last of my approximately six terms of office and
+dropped out of both the Board and the group.[1]
+
+OSI management should please note that people who decline to participate
+in similar arrangements, because they're disinclined to sign up for yet
+another third-party outsourcing agreement, probably won't tell OSI that.
+They'll just be invisibly and quietly absent.
+
+[1] More at http://linuxmafia.com/faq/Essays/meetup.html
+
+-- 
+Cheers,
+Rick Moen             "History is a nightmare from which I am trying to awake."
+rick at linuxmafia.com                               -- Stephen Dedalus, _Ulysses_
+McQ! (4x80)
+
+
+From cem.f.karan.civ at mail.mil  Fri Jun 22 14:41:21 2018
+From: cem.f.karan.civ at mail.mil (Karan, Cem F CIV USARMY RDECOM ARL (US))
+Date: Fri, 22 Jun 2018 14:41:21 +0000
+Subject: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+In-Reply-To: <20180622002021.GP32401@linuxmafia.com>
+References: <CAK2MWOvQcaSi0LJo-s1aF+gKoVZTswxghM1CAjXL+Ke061XqAQ@mail.gmail.com> <C67753CC-0D03-4A07-8F15-84F0BFCA9148@jhuapl.edu> <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov> <CA+xoNzHEbv395Fb472mtScYWEdTSqw7082-JWJ6PYPRp75qq9A@mail.gmail.com> <E02B7513-53F1-4D2F-A116-BADFCCCE87B5@nasa.gov> <2D52F7EE739F8542A700CAB96276B51978BDD99A@FMSMSX108.amr.corp.intel.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E943B@UMECHPA7F.easf.csd.disa.mil> <20180622002021.GP32401@linuxmafia.com>
+Message-ID: <A677A9FB362B2F499BEFD6F80687FE97CC1E9569@UMECHPA7F.easf.csd.disa.mil>
+
+> -----Original Message-----
+> From: License-review [mailto:license-review-bounces at lists.opensource.org] On Behalf Of Rick Moen
+> Sent: Thursday, June 21, 2018 8:20 PM
+> To: license-review at lists.opensource.org
+> Subject: Re: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+> 
+> Quoting Karan, Cem F CIV USARMY RDECOM ARL (US) (cem.f.karan.civ at mail.mil):
+> 
+> > Actually, I have a slightly different idea; Bryan or Rob, would you be
+> > willing to post the complete text on GitHub somewhere?  One of the
+> > parallel conversations that has been happening is the use of new tools
+> > to comment on and evaluate licenses; NOSA 2.0 could be the guinea pig
+> > for the idea of using GitHub to do that.  If nothing else, we can
+> > maintain a log of all the issues and comments in one place, so that
+> > when we all forget what we were arguing over 5 years ago, we can look
+> > up the issues quickly and see if anything has changed since.
+> 
+> Just a note in passing:  If participation in OSI public outreach begins to require login accounts at -- and thus contractual agreements
+> with -- external firms such as GitHub, Inc., OSI will lose some participants.
+> 
+> I long ago started saying 'no' when some community institutions started expecting members to sign up for outsourced Internet
+> services just to talk to the community institutions, e.g., when my fellow Board of Directors members at BayLISA, my local professional
+> sysadmin guild, persisted in expecting everyone including Directors and meeting attendees to coordinate with them via Meetup
+> because the Board majority had become too lazy to operate their own Web site and Mailman lists, I quietly served out the last of my
+> approximately six terms of office and dropped out of both the Board and the group.[1]
+> 
+> OSI management should please note that people who decline to participate in similar arrangements, because they're disinclined to
+> sign up for yet another third-party outsourcing agreement, probably won't tell OSI that.
+> They'll just be invisibly and quietly absent.
+> 
+> [1] More at Caution-http://linuxmafia.com/faq/Essays/meetup.html
+> 
+> --
+> Cheers,
+> Rick Moen             "History is a nightmare from which I am trying to awake."
+> rick at linuxmafia.com                               -- Stephen Dedalus, _Ulysses_
+> McQ! (4x80)
+
+That's an interesting point, and one that I hadn't considered; I was only thinking that if we were going to the trouble of selecting tools, then we should test them experimentally.  But your point is a good one.
+
+And I just thought of another point;  OSI is a fairly long-lived organization, and is definitely older than Git*.  if Git* goes under, what happens to the issues, etc. on Git* servers? The git repositories would be reasonably safe due to everyone pulling from them continuously, but there is a lot of other metadata that could be lost.  It would be better to have everything under git (or other DVCS) so that there are enough copies around the net that if one person or organization dies/goes down/whatever, then the rest of the network can recover and rebuild.  
+
+Alternatively, we could explore Fossil (https://www.fossil-scm.org/index.html/doc/trunk/www/index.wiki) or Veracity (http://veracity-scm.com/downloads.html), or something similar that has bug tracking & wiki built in; I have no experience with either, so if anyone on here knows anything about either (or about some better system) please speak up!
+
+Thanks,
+Cem Karan
+
+
+From rick at linuxmafia.com  Sat Jun 23 07:41:48 2018
+From: rick at linuxmafia.com (Rick Moen)
+Date: Sat, 23 Jun 2018 00:41:48 -0700
+Subject: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97CC1E9569@UMECHPA7F.easf.csd.disa.mil>
+References: <CAK2MWOvQcaSi0LJo-s1aF+gKoVZTswxghM1CAjXL+Ke061XqAQ@mail.gmail.com> <C67753CC-0D03-4A07-8F15-84F0BFCA9148@jhuapl.edu> <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov> <CA+xoNzHEbv395Fb472mtScYWEdTSqw7082-JWJ6PYPRp75qq9A@mail.gmail.com> <E02B7513-53F1-4D2F-A116-BADFCCCE87B5@nasa.gov> <2D52F7EE739F8542A700CAB96276B51978BDD99A@FMSMSX108.amr.corp.intel.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E943B@UMECHPA7F.easf.csd.disa.mil> <20180622002021.GP32401@linuxmafia.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E9569@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <20180623074148.GG32401@linuxmafia.com>
+
+Quoting Karan, Cem F CIV USARMY RDECOM ARL (US) (cem.f.karan.civ at mail.mil):
+
+> And I just thought of another point;  OSI is a fairly long-lived
+> organization, and is definitely older than Git*.  if Git* goes under,
+> what happens to the issues, etc. on Git* servers? The git repositories
+> would be reasonably safe due to everyone pulling from them
+> continuously, but there is a lot of other metadata that could be lost.
+> It would be better to have everything under git (or other DVCS) so
+> that there are enough copies around the net that if one person or
+> organization dies/goes down/whatever, then the rest of the network can
+> recover and rebuild.  
+
+Your assessment seems like a good one.
+
+Having seen types of Internet service come and go, and likewise 
+particular hosting instances come and go, it's been apparent that only
+data in fairly simple commodity formats tend to persist online more
+than a few years:  When technology changes for more-sophisticated 
+data formatting, as it always does, the changeover is lossy.
+
+That is in _no_ way intended as an argument against adopting an issue
+tracker.  Mailing lists have many virtues, including support for very
+long collective memory (e.g., I trivially extended Silicon Valley
+Linux User Group's Mailman mailing list archive an extra year, not long
+ago, back to September 1997, by importing the earlier Majordomo
+incarnation's mbox -- so 21 years of continuous records and counting),
+but they're pretty terrible at the things for which issue trackers
+excel.
+
+Fossil looks intriguing at initial glance, hitting IMO a good middle
+ground for features, a small/modest/fast engine that might survive
+security auditing, and having no horrible misfeaures I can spot --
+although writing a new, one-off DVCS in a world with git, mercurial,
+monotone, darcs, and bzr seems quixotic.  (Author says existing DVCSes
+just didn't meet his needs.)
+
+I had some difficulty taking a closer look at Veracity because almost
+all of the information links on its Web site are 404, probably why
+Wikipedians comment 'Web site appears unmaintained'
+(https://en.wikipedia.org/wiki/Comparison_of_version_control_software).
+Ceteris paribus, that's a bad sign.  Also, there have been no releases
+for five years, and I see no development code at all other than a
+non-functional-for-me link to nightly builds.  Also, the Veracity-users
+mailing list that once existed 'is no longer active' (per the project
+pages) and the links to past archives at Gmane.org are dead because
+Gmane discontinued its Web interface in July 2016.  Veracity looks to me
+like a SourceGear, LLC product that firm produced 5-7 years ago behind
+closed doors without community involvement, and more than likely is no
+longer maintained at all.  (There are code tarballs under Apache Licence
+2.0, on the other hand.)
+
+(Apologies for not being immediately able to suggest others.  I'll see
+if I can find some.)
+
+-- 
+Cheers,                                           "A recursive .sig
+Rick Moen                                         Can impart wisdom and truth.
+rick at linuxmafia.com                               Call proc signature()"
+McQ! (4x80)                                       -- WalkingTheWalk on Slashdot
+
+
+From cowan at ccil.org  Sat Jun 23 15:59:17 2018
+From: cowan at ccil.org (John Cowan)
+Date: Sat, 23 Jun 2018 11:59:17 -0400
+Subject: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+In-Reply-To: <20180623074148.GG32401@linuxmafia.com>
+References: <CAK2MWOvQcaSi0LJo-s1aF+gKoVZTswxghM1CAjXL+Ke061XqAQ@mail.gmail.com> <C67753CC-0D03-4A07-8F15-84F0BFCA9148@jhuapl.edu> <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov> <CA+xoNzHEbv395Fb472mtScYWEdTSqw7082-JWJ6PYPRp75qq9A@mail.gmail.com> <E02B7513-53F1-4D2F-A116-BADFCCCE87B5@nasa.gov> <2D52F7EE739F8542A700CAB96276B51978BDD99A@FMSMSX108.amr.corp.intel.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E943B@UMECHPA7F.easf.csd.disa.mil> <20180622002021.GP32401@linuxmafia.com> <A677A9FB362B2F499BEFD6F80687FE97CC1E9569@UMECHPA7F.easf.csd.disa.mil> <20180623074148.GG32401@linuxmafia.com>
+Message-ID: <CAD2gp_SAJOcpex30VzoPZFA4xus8ObRNnGB3DRx=92ys0tPyYA@mail.gmail.com>
+
+(Private response)
+
+
+> Having seen types of Internet service come and go, and likewise
+> particular hosting instances come and go, it's been apparent that only
+> data in fairly simple commodity formats tend to persist online more
+> than a few years:  When technology changes for more-sophisticated
+> data formatting, as it always does, the changeover is lossy.
+>
+
+I think that's quite true, but the list of "fairly simple commodity formats"
+does grow over time, if slowly.  Once it was only ASCII plain text, but now
+UTF-8 plain text, any form of SGML including HTML, TeX, and JSON
+count as FSCFs, and any of the above with .gz, .zip, and .tar.gz encodings
+as well.  On the image side, GIF, JPEG, and probably PNG count too.  PDF
+is not simple, but it's so pervasive in so many domains that it is unlikely
+to be
+obsoleted.
+
+A fortiori, this means that at least the bare content of most ODF and OOXML
+documents are accessible, which goes a long way toward being all the
+commonly
+used document formats in the world.  (I have on occasion done a global
+formatting
+search and replace, for example to replace an unavailable font, by
+unzipping a
+Microsoft Word .docx document, editing the XML with a plain text editor,
+and rezipping it.)
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+In politics, obedience and support are the same thing.  --Hannah Arendt
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180623/bea3d685/attachment.html>
+

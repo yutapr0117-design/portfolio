@@ -1,0 +1,750 @@
+From Bryan.A.Geurts at nasa.gov  Thu Feb 12 19:28:03 2004
+From: Bryan.A.Geurts at nasa.gov (Bryan Geurts)
+Date: Thu, 12 Feb 2004 19:28:03 -0000
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+Message-ID: <mailman.27.1512593924.25929.license-discuss_lists.opensource.org@lists.opensource.org>
+
+This Email was prepared in satisfaction of OSI Certification Process Step 
+4. for OSI certification of the NASA Open Source Agreement Version 1.1 (NOSA).
+
+4.a.  Tell us which existing OSI-approved license is most similar to your 
+license. Explain why that license will not suffice for your needs. If your 
+proposed license is derived from a license we have already approved, 
+describe exactly what you have changed. This document is not part of the 
+license; it is solely to help the license-discuss understand and review 
+your license.
+ The OSI-approved license most similar to NOSA is the IBM Public 
+License.  Elements of the Mozilla Public License and the GNU General Public 
+License were incorporated as well.  None of these agreements suffice on its 
+own or combined together for purposes of NASA for the following reasons:
+ i.  NASA legal counsel requires that all NASA releases of software 
+include indemnification of the U.S. Government from any third party 
+liability arising from use or distribution of the software.  See 4.B.
+ ii.  Federal Statute mandates that the U.S. Government can only be 
+held subject to United States federal law.  See 5.C.
+ iii.  NASA policy requires an effort to accurately track usage of 
+released software for documentation and benefits realized?purposes.  See 3.F.
+ iv. Federeal Statutes and NASA regulations requires a prohibition 
+in NASA contracts against representations by others that may be deemed to 
+be an endorsement by NASA.  See 3.E.
+ v.  Because it is important that each of the aforementioned 
+clauses be a part of each open source agreement relating to NASA released 
+software, the proposed agreement must mandate that distribution and 
+redistribution of the software be done under the aegis of NOSA (mandatory 
+domination similar to GPL).  See 3.A.
+
+4.b.  Explain how software distributed under your license can be used in 
+conjunction with software distributed under other open source licenses. 
+Which license do you think will take precedence for derivative or combined 
+works? Is there any software license that is entirely incompatible with 
+your proposed license?
+ The intent is for NOSA is to be the controlling agreement for all 
+distribution and redistribution of software originated by NASA, including 
+derivative works.  If NOSA-governed software is combined with other 
+separate software, which operate under their own license agreements, then 
+NOSA need only govern the NASA-originated program(s).  In the case where 
+NASA accepts software already governed by the GPL, or any other open source 
+license requiring domination by that license, NASA will normally not 
+redistribute that software, since necessary clauses are not found in the GPL.
+
+4.c.  Include the plain text version of your license at the end of the 
+email, either as an insertion or as an attachment.
+ Attachment provided below.
+
+Furthermore, pursuant to OSI Certification Process Step 2., the following 
+web site contains a formatted version of NOSA:
+
+>http://www.nas.nasa.gov/Research/Software/Open-Source/NASA_Open_Source_Agreement_1.1.txt 
+>
+>http://www.nas.nasa.gov/Research/Software/Open-Source/NASA_Open_Source_Agreement_1.1.doc
+
+Thank you for your consideration.  Please address any questions or comments 
+to me via this Email address or at 301-286-7886.
+
+Bryan A. Geurts
+Patent Attorney
+NASA Goddard Space Flight Center
+Code 503.0
+8800 Greenbelt Road
+Greenbelt, MD 20771
+(301) 286-7886
+-------------- next part --------------
+NASA OPEN SOURCE AGREEMENT VERSION 1.1
+
+THIS OPEN SOURCE AGREEMENT ("AGREEMENT") DEFINES THE RIGHTS OF USE,
+REPRODUCTION, DISTRIBUTION, MODIFICATION AND REDISTRIBUTION OF CERTAIN
+COMPUTER SOFTWARE ORIGINALLY RELEASED BY THE UNITED STATES GOVERNMENT
+AS REPRESENTED BY THE NATIONAL AERONAUTICS AND SPACE ADMINISTRATION
+("NASA").  ANYONE WHO USES, REPRODUCES, DISTRIBUTES, MODIFIES OR
+REDISTRIBUTES THE SUBJECT SOFTWARE, AS DEFINED HEREIN, OR ANY PART
+THEREOF, IS, BY THAT ACTION, ACCEPTING IN FULL THE RESPONSIBILITIES
+AND OBLIGATIONS CONTAINED IN THIS AGREEMENT.
+
+NASA Original Software Designation: _____________________________________
+NASA Original Software Title: ___________________________________________
+User Registration requested, please visit http://www.____________________
+NASA Point of Contact for Original Software: ____________________________
+
+
+1. DEFINITIONS
+
+A. "Contributor" means NASA, as the developer of the Original
+Software, and any entity that makes a Modification.
+B. "Covered Patents" mean patent claims licensable by a Contributor
+that are necessarily infringed by the use or sale of its Modification
+alone or when combined with the Subject Software.
+C.  "Display" means the showing of a copy of the Subject Software,
+either directly or by means of an image, or any other device.
+D. "Distribution" means conveyance or transfer of the Subject
+Software, regardless of means, to another.
+E. "Larger Work" means computer software that combines Subject
+Software, or portions thereof, with software separate from the Subject
+Software that is not governed by the terms of this Agreement.
+F.  "Modification" means any alteration of, including addition to or
+deletion from, the substance or structure of either the Original
+Software or Subject Software, and includes derivative works, as that
+term is defined in the Copyright Statute, 17 USC 101.  However, the
+act of including Subject Software as part of a Larger Work does not in
+and of itself constitute a Modification.
+G. "Original Software" means the computer software first released
+under this Agreement by NASA with NASA designation ______________ and
+entitled _____________________________________________, including
+source code, object code and accompanying documentation, if any.
+H. "Recipient" means anyone who acquires the Subject Software under
+this Agreement, including all Contributors.
+I. "Redistribution" means Distribution of the Subject Software after a
+Modification has been made.
+J. "Reproduction" means the making of an image or copy of the Subject
+Software.
+K. "Sale" means the exchange of the Subject Software for money or
+equivalent value.
+L. "Subject Software" means the Original Software, Modifications, or
+any respective parts thereof.
+M. "Use" means the application or employment of the Subject Software
+for any purpose.
+
+2. GRANT OF RIGHTS
+
+A. Under Non-Patent Rights: Subject to the terms and conditions of
+this Agreement, each Contributor, with respect to its own contribution
+to the Subject Software, hereby grants to each Recipient a
+non-exclusive, world-wide, royalty-free license to engage in the
+following activities pertaining to the Subject Software:
+
+1. Use
+2. Distribution
+3. Reproduction
+4. Modification
+5. Redistribution
+6. Display
+
+B. Under Patent Rights: Subject to the terms and conditions of this
+Agreement, each Contributor, with respect to its own contribution to
+the Subject Software, hereby grants to each Recipient under Covered
+Patents a non-exclusive, world-wide, royalty-free license to engage in
+the following activities pertaining to the Subject Software:
+
+1. Use
+2. Distribution
+3. Reproduction
+4. Sale
+5. Offer for Sale
+
+C. The rights granted under Paragraph B. also apply to the combination
+of a Contributor's Modification and the Subject Software if, at the
+time the Modification is added by the Contributor, the addition of
+such Modification causes the combination to be covered by the Covered
+Patents.  It does not apply to any other combinations that include a
+Modification.
+
+D. The rights granted in Paragraphs A. and B. allow the Recipient to
+sublicense those same rights.  Such sublicense must be under the same
+terms and conditions of this Agreement.
+
+3. OBLIGATIONS OF RECIPIENT
+
+A. Distribution or Redistribution of the Subject Software must be made
+under this Agreement except for additions covered under paragraph 3H.
+
+1. Whenever a Recipient distributes or redistributes the Subject Software, a copy of this Agreement must be included with each copy of the Subject Software; and
+2. If Recipient distributes or redistributes the Subject Software in any form other than source code, Recipient must also make the source code freely available, and must provide with each copy of the Subject Software information on how to obtain the source code in a reasonable manner on or through a medium customarily used for software exchange.
+
+B. Each Recipient must ensure that the following copyright notice
+appears prominently in the Subject Software:
+
+[NASA will insert the applicable copyright notice in each agreement
+accompanying the initial distribution of original software.]
+
+[If created by a contractor pursuant to NASA contract and rights
+obtained from creator by assignment] Copyright ? {YEAR} United States
+Government as represented by the Administrator of the National
+Aeronautics and Space Administration.  All Rights Reserved.
+
+[If created by civil servants only] Copyright ? {YEAR} United States
+Government as represented by the Administrator of the National
+Aeronautics and Space Administration.  No copyright is claimed in the
+United States under Title 17, U.S.Code. All Other Rights Reserved.
+
+C. Each Contributor must characterize its alteration of the Subject
+Software as a Modification and must identify itself as the originator
+of its Modification in a manner that reasonably allows subsequent
+Recipients to identify the originator of the Modification.  In
+fulfillment of these requirements, Contributor must include a file
+(e.g., a change log file) that describes the alterations made and the
+date of the alterations, identifies Contributor as originator of the
+alterations, and consents to characterization of the alterations as a
+Modification, for example, by including a statement that the
+Modification is derived, directly or indirectly, from Original
+Software provided by NASA. Once consent is granted, it may not
+thereafter be revoked.
+
+D. A Contributor may add its own copyright notice to the Subject
+Software.  Once a copyright notice has been added to the Subject
+Software, a Recipient may not remove it without the express permission
+of the Contributor who added the notice.
+
+E. A Recipient may not make any representation in the Subject Software
+or in any promotional, advertising or other material that may be
+construed as an endorsement by NASA or by any prior Recipient of any
+product or service provided by Recipient, or that may seek to obtain
+commercial advantage by the fact of NASA's or a prior Recipient's
+participation in this Agreement.
+
+F. In an effort to track usage and maintain accurate records of the
+Subject Software, each Recipient, upon receipt of the Subject
+Software, is requested to register with NASA by visiting the following
+website: ______________________________.  Recipient's name and
+personal information shall be used for statistical purposes only. Once
+a Recipient makes a Modification available, it is requested that the
+Recipient inform NASA at the web site provided above how to access the
+Modification.
+
+[Alternative paragraph for use when a web site for release and
+monitoring of subject software will not be supported by releasing
+project or Center] In an effort to track usage and maintain accurate
+records of the Subject Software, each Recipient, upon receipt of the
+Subject Software, is requested to provide NASA, by e-mail to the NASA
+Point of Contact listed in clause 5.F., the following information:
+______________________________.  Recipient's name and personal
+information shall be used for statistical purposes only. Once a
+Recipient makes a Modification available, it is requested that the
+Recipient inform NASA, by e-mail to the NASA Point of Contact listed
+in clause 5.F., how to access the Modification.
+
+G. Each Contributor represents that that its Modification is believed
+to be Contributor's original creation and does not violate any
+existing agreements, regulations, statutes or rules, and further that
+Contributor has sufficient rights to grant the rights conveyed by this
+Agreement.
+
+H. A Recipient may choose to offer, and to charge a fee for, warranty,
+support, indemnity and/or liability obligations to one or more other
+Recipients of the Subject Software.  A Recipient may do so, however,
+only on its own behalf and not on behalf of NASA or any other
+Recipient.  Such a Recipient must make it absolutely clear that any
+such warranty, support, indemnity and/or liability obligation is
+offered by that Recipient alone.  Further, such Recipient agrees to
+indemnify NASA and every other Recipient for any liability incurred by
+them as a result of warranty, support, indemnity and/or liability
+offered by such Recipient.
+
+I. A Recipient may create a Larger Work by combining Subject Software
+with separate software not governed by the terms of this agreement and
+distribute the Larger Work as a single product. In such case, the
+Recipient must make sure Subject Software included in the Larger Work
+is subject to this Agreement.
+
+J. Notwithstanding any provisions contained herein, Recipient is
+hereby put on notice that export of any goods or technical data from
+the United States may require some form of export license from the
+U.S. Government.  Failure to obtain necessary export licenses may
+result in criminal liability under U.S. laws.  NASA neither represents
+that a license shall not be required nor that, if required, it shall
+be issued.  Nothing granted herein provides any such export license.
+
+4. DISCLAIMER OF WARRANTIES AND LIABILITIES; WAIVER AND INDEMNIFICATION
+
+A. No Warranty: THE SUBJECT SOFTWARE IS PROVIDED "AS IS" WITHOUT ANY
+WARRANTY OF ANY KIND, EITHER EXPRESSED, IMPLIED, OR STATUTORY,
+INCLUDING, BUT NOT LIMITED TO, ANY WARRANTY THAT THE SUBJECT SOFTWARE
+WILL CONFORM TO SPECIFICATIONS, ANY IMPLIED WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR FREEDOM FROM
+INFRINGEMENT, ANY WARRANTY THAT THE SUBJECT SOFTWARE WILL BE ERROR
+FREE, OR ANY WARRANTY THAT DOCUMENTATION, IF PROVIDED, WILL CONFORM TO
+THE SUBJECT SOFTWARE. THIS AGREEMENT DOES NOT, IN ANY MANNER,
+CONSTITUTE AN ENDORSEMENT BY NASA OR ANY PRIOR RECIPIENT OF ANY
+RESULTS, RESULTING DESIGNS, HARDWARE, SOFTWARE PRODUCTS OR ANY OTHER
+APPLICATIONS RESULTING FROM USE OF THE SUBJECT SOFTWARE.  FURTHER,
+NASA DISCLAIMS ALL WARRANTIES AND LIABILITIES REGARDING THIRD-PARTY
+SOFTWARE, IF PRESENT IN THE ORIGINAL SOFTWARE, AND DISTRIBUTES IT "AS
+IS."
+
+B. Waiver and Indemnity: RECIPIENT AGREES TO WAIVE ANY AND ALL CLAIMS
+AGAINST THE UNITED STATES GOVERNMENT, ITS CONTRACTORS AND
+SUBCONTRACTORS, AS WELL AS ANY PRIOR RECIPIENT AND SHALL INDEMNIFY AND
+HOLD HARMLESS THE UNITED STATES GOVERNMENT, ITS CONTRACTORS AND
+SUBCONTRACTORS, AS WELL AS ANY PRIOR RECIPIENT FOR ANY LIABILITIES,
+DEMANDS, DAMAGES, EXPENSES OR LOSSES THAT MAY ARISE FROM RECIPIENT'S
+USE OF THE SUBJECT SOFTWARE, INCLUDING ANY DAMAGES FROM PRODUCTS BASED
+ON, OR RESULTING FROM, THE USE THEREOF.  RECIPIENT'S SOLE REMEDY FOR
+ANY SUCH MATTER SHALL BE THE IMMEDIATE, UNILATERAL TERMINATION OF THIS
+AGREEMENT.
+
+
+5. GENERAL TERMS
+
+A. Termination: This Agreement and the rights granted hereunder will
+terminate automatically if a Recipient fails to comply with these
+terms and conditions, and fails to cure such noncompliance within
+thirty (30) days of becoming aware of such noncompliance.  Upon
+termination, a Recipient agrees to immediately cease use and
+distribution of the Subject Software.  All sublicenses to the Subject
+Software properly granted by the breaching Recipient shall survive any
+such termination of this Agreement.
+
+B. Severability: If any provision of this Agreement is invalid or
+unenforceable under applicable law, it shall not affect the validity
+or enforceability of the remainder of the terms of this Agreement.
+
+C. Applicable Law: This Agreement shall be subject to United States
+federal law only for all purposes, including, but not limited to,
+determining the validity of this Agreement, the meaning of its
+provisions and the rights, obligations and remedies of the parties.
+
+D. Entire Understanding: This Agreement constitutes the entire
+understanding and agreement of the parties relating to release of the
+Subject Software and may not be superseded, modified or amended except
+by further written agreement duly executed by the parties.
+
+E. Binding Authority: By accepting and using the Subject Software
+under this Agreement, a Recipient affirms its authority to bind the
+Recipient to all terms and conditions of this Agreement and that that
+Recipient hereby agrees to all terms and conditions herein.
+
+F. Point of Contact: Any Recipient contact with NASA is to be directed
+to the designated representative as follows:  ________________________.
+
+From lrosen at rosenlaw.com  Thu Feb 12 20:21:19 2004
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Thu, 12 Feb 2004 12:21:19 -0800
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+Message-ID: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN>
+
+Bryan,
+
+Thanks for your detailed explanation of the reasons for your new license. I
+haven't read the license itself yet, but I want to comment on the supposed
+differences you identified between the NASA license and other
+already-approved licenses:
+
+>          i.  NASA legal counsel requires that all NASA 
+> releases of software 
+> include indemnification of the U.S. Government from any third party 
+> liability arising from use or distribution of the software.  See 4.B.
+
+All open source licenses include very broad disclaimers of liability. Does
+the government also require indemnification? Why? I'm sorry, but I can't
+conceive of any open source distributor or contributor to NASA software who
+would dare to indemnify the US government or any of its agencies. You're the
+one with the deep pockets and with a Congress that can legislate any
+protections you need against tort, contract or intellectual property
+liability. Why should we assume those risks for you? :-) Please stick with a
+disclaimer of liability; every open source license has one.
+
+>          ii.  Federal Statute mandates that the U.S. 
+> Government can only be 
+> held subject to United States federal law.  See 5.C.
+
+The Open Software License (OSL, www.opensource.org/licenses/osl-2.0.php)
+establishes jurisdiction, venue and governing law for a US-based licensor
+(such as a US government agency) in the United States. See OSL ? 11.
+[Foreign readers of this email should take comfort that the OSL is not
+US-centric; jurisdiction under the OSL lies wherever the licensor "resides"
+or "conducts its primary business."]
+
+>          iii.  NASA policy requires an effort to accurately 
+> track usage of 
+> released software for documentation and benefits 
+> realized?purposes.  See 3.F.
+
+Such provisions are not allowed in an open source license. Reporting
+requirements are viewed as unreasonable limitations on the rights of
+licensees to do anything they want internally with open source software
+(e.g., make copies, derivative works, etc.). On the other hand, because of
+"reciprocity" (see my further comment below) you'll be able to see
+improvements to NASA software that are distributed by others, and benefit
+from them. That will be measurable.
+
+>          iv. Federeal Statutes and NASA regulations requires 
+> a prohibition 
+> in NASA contracts against representations by others that may 
+> be deemed to 
+> be an endorsement by NASA.  See 3.E.
+
+Various licenses do that. See, for example, OSL sections 4 [Exclusions from
+License Grant] and 6 [Attribution Rights].
+
+>          v.  Because it is important that each of the aforementioned 
+> clauses be a part of each open source agreement relating to 
+> NASA released 
+> software, the proposed agreement must mandate that distribution and 
+> redistribution of the software be done under the aegis of 
+> NOSA (mandatory 
+> domination similar to GPL).  See 3.A.
+
+I call this feature "reciprocity." Lots of licenses do that, including the
+GPL, MPL and CPL; similarly, the OSL contains a reciprocity condition that
+requires any licensee who distributes derivative works of OSL-licensed
+software to do so under the OSL. You don't need to write a new license to
+obtain that license feature.
+
+I'm sorry if I've misunderstood your license by relying on your summary of
+it rather than the license itself. I intend to read through the license
+itself soon, but I wanted to get these general questions on the table first.
+
+Regards, 
+
+/Larry Rosen
+
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rousskov at measurement-factory.com  Thu Feb 12 20:43:21 2004
+From: rousskov at measurement-factory.com (Alex Rousskov)
+Date: Thu, 12 Feb 2004 13:43:21 -0700 (MST)
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <200402121930.i1CJU64v053775@measurement-factory.com>
+References: <200402121930.i1CJU64v053775@measurement-factory.com>
+Message-ID: <Pine.BSF.4.58.0402121308040.44096@measurement-factory.com>
+
+
+On Thu, 12 Feb 2004, Bryan Geurts wrote:
+
+> 1H. "Recipient" means anyone who acquires the Subject Software under
+> this Agreement, including all Contributors.
+>
+> 1M. "Use" means the application or employment of the Subject
+> Software for any purpose.
+>
+> 3F. In an effort to track usage and maintain accurate records of the
+> Subject Software, each Recipient, upon receipt of the Subject
+> Software, is requested to register with NASA by visiting the
+> following website: ______________________________.
+
+Does the combination of the above imply that one have to register once
+one downloads NASA software? Downloading software package can be
+considered "Use" (the purpose would be occupying disk space, for
+example). And Use requires registration, right?
+
+Does reading software documentation covered by the NOSA license (e.g.,
+on a public Web site with a link to NOSA license) require
+registration?
+
+Is registration required for each downloaded version of the software?
+Each major version? Each patch? Each installation?
+
+If NASA registration web site is down, does one have to wait with
+Using software until the site is up and operational? What if recipient
+does not have Internet connectivity (she got NASA software on a CD via
+mail) or NASA site is being blocked by her ISP? What if specified web
+site has moved or does not exist (e.g., NASA has been shut down for
+good).
+
+Or does "requested to register" imply no mandatory action from the
+Recipient? After all, the license does not say "shall register".
+
+Would supplying wrong name to NASA.gov be considered a felony or just
+void the license?
+
+> Recipient's name and personal information shall be used for
+> statistical purposes only.
+
+The above does not seem to create any conditions for or require any
+actions from the Recipient. Why include this phrase? Is the intent to
+render the license void if NASA uses personal information for
+nonstatistical purposes?
+
+Is publishing a list of names with the number of registrations per
+month for each name a statistical purpose? How about identifying the
+user that registered more times than all other users (statistical
+maximum)?
+
+Thanks,
+
+Alex.
+
+P.S. Not sure why, but I am surprised that a government organization
+would want to establish extreme tracking measures which are likely to
+hinder its tax-funded software.
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From jcowan at reutershealth.com  Thu Feb 12 21:03:59 2004
+From: jcowan at reutershealth.com (jcowan at reutershealth.com)
+Date: Thu, 12 Feb 2004 16:03:59 -0500
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN>
+Message-ID: <20040212204556.GA2538@skunk.reutershealth.com>
+
+Lawrence E. Rosen scripsit:
+
+> >          iii.  NASA policy requires an effort to accurately 
+> > track usage of 
+> > released software for documentation and benefits 
+> > realized?purposes.  See 3.F.
+> 
+> Such provisions are not allowed in an open source license. Reporting
+> requirements are viewed as unreasonable limitations on the rights of
+> licensees to do anything they want internally with open source software
+> (e.g., make copies, derivative works, etc.). On the other hand, because of
+> "reciprocity" (see my further comment below) you'll be able to see
+> improvements to NASA software that are distributed by others, and benefit
+> from them. That will be measurable.
+
+Note the wording "requires an effort to accurately track".  It is the
+effort, not the tracking, that is mandatory, and indeed the draft NOSA
+"requests" rather than "requires" users to register with NASA.
+
+-- 
+"They tried to pierce your heart                John Cowan
+with a Morgul-knife that remains in the         http://www.ccil.org/~cowan
+wound.  If they had succeeded, you would        http://www.reutershealth.com
+become a wraith under the domination of the Dark Lord."         --Gandalf
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rousskov at measurement-factory.com  Thu Feb 12 21:25:02 2004
+From: rousskov at measurement-factory.com (Alex Rousskov)
+Date: Thu, 12 Feb 2004 14:25:02 -0700 (MST)
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040212204556.GA2538@skunk.reutershealth.com>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040212204556.GA2538@skunk.reutershealth.com>
+Message-ID: <Pine.BSF.4.58.0402121418170.44096@measurement-factory.com>
+
+
+On Thu, 12 Feb 2004 jcowan at reutershealth.com wrote:
+
+> Note the wording "requires an effort to accurately track".  It is
+> the effort, not the tracking, that is mandatory, and indeed the
+> draft NOSA "requests" rather than "requires" users to register with
+> NASA.
+
+If the intent is to show an effort, the corresponding informative
+clauses should be moved from the license to a Web site and/or software
+README file. Many license readers, especially those who are not native
+English speakers, will not see the difference you identify above or,
+regardless of their mother tongue, will not be sure whether the
+difference is legally significant.
+
+If the intent is to track users, the corresponding normative clauses
+should be rewarded to better match the intent.
+
+Alex.
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From russell at flora.ca  Thu Feb 12 23:43:35 2004
+From: russell at flora.ca (Russell McOrmond)
+Date: Thu, 12 Feb 2004 18:43:35 -0500 (EST)
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040212204556.GA2538@skunk.reutershealth.com>
+Message-ID: <Pine.LNX.4.44.0402121832410.18604-100000@calcutta.flora.ca>
+
+(just to the list)
+
+On Thu, 12 Feb 2004 jcowan at reutershealth.com wrote:
+
+> Note the wording "requires an effort to accurately track".  It is the
+> effort, not the tracking, that is mandatory, and indeed the draft NOSA
+> "requests" rather than "requires" users to register with NASA.
+ Does this really belong in the license agreement where the question of
+why a "requests" is in there at all?  This seems like it should be in the
+user documentation and is outside the context of the license agreement.  
+With it in the license agreement people may simply not use the software at 
+all if they do not wish to register and don't want to consult a lawyer 
+about the legality of that.
+ With this clause in there it seems vague whether it is Open Source or
+not.  Beyond the legal issues I think it will be harmful to the goals of
+NASA in releasing software to have this in the license.
+
+--- Russell McOrmond, Internet Consultant: <http://www.flora.ca/>  Perspective of a digital copyright reformer on Sheila Copps, MP. http://www.flora.ca/russell/drafts/copps-ndp.html Discuss at: http://www.lulu.com/forums/viewtopic.php?t=2757
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rschi at rsmba.biz  Fri Feb 13 01:46:12 2004
+From: rschi at rsmba.biz (Richard Schilling)
+Date: Thu, 12 Feb 2004 17:46:12 -0800
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN>; from lrosen@rosenlaw.com on Thu, Feb 12, 2004 at 12:21:19 -0800
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN>
+Message-ID: <20040213014612.GC6404@foghorn.dmz.rsmba.biz>
+
+O.K. - I'm going to rant.  Nothing personal here Bryan, but NASA put 
+some good time into this so I'm going to pick apart your resonse as a 
+non-NASA person.  Specifically, you state some views that are 
+misguided.  So, I post my response because so many times on this list 
+people try to play "armchair lawyer" and pick apart a license.  It's 
+not appropriate and degrades the value of the discussion.  Lawyers most 
+likely write NASA licenses and that's something to respect.  When you 
+read NASA's license, you may very well be reading the best license that 
+money can buy.
+
+I hope that opensource.org applies some sensible legal criteria when 
+reviewing submissions - especially this one.  All other discussions are 
+just hot air.
+
+see below for some of my own hot air ...
+
+On 2004.02.12 12:21 Lawrence E. Rosen wrote:
+
+[snip]
+
+> 
+> >          i.  NASA legal counsel requires that all NASA
+> > releases of software
+> > include indemnification of the U.S. Government from any third party
+> > liability arising from use or distribution of the software.  See
+> 4.B.
+> 
+> All open source licenses include very broad disclaimers of liability.
+> Does
+> the government also require indemnification? Why? I'm sorry, but I
+> can't
+> conceive of any open source distributor or contributor to NASA
+
+This is a liability issue.  Why should the government be responsible 
+for the misuse of the software they write?  Why should anyone expose 
+themselves to third party lawsuits when all they want to do is provide 
+some benefit to the public?  Anyone who doesn't understand this part of 
+the license has no business using the associated software in the first 
+place.
+
+> software who
+> would dare to indemnify the US government or any of its agencies.
+> You're the
+> one with the deep pockets and with a Congress that can legislate any
+> protections you need against tort, contract or intellectual property
+> liability. Why should we assume those risks for you? :-) Please stick
+> with a
+> disclaimer of liability; every open source license has one.
+
+You have it backwards.  Why should NASA accept the risk of you using 
+their product?  That would put my (however small) tax contribution to 
+NASA at risk!  Not O.K.
+
+NASA obviously spent a lot of time putting that license together, and 
+those who have even an ounce of a clue about licensing recognize the 
+importance of this wording.
+
+Better question: Why should the NASA license stoop to the lower level 
+of other open source licenses that are just pseudo legal terms written 
+up by a bunch of non-legal people?
+
+The onus to provide a "suitable-for-US-courts" license is on the people 
+who wrote the original licenses.  Specifically, the folks who wrote the 
+existing licenses endorced by opensource.org have the responsibility to 
+show their writing is up to par with what NASA puts out - not the other 
+way around.  Is NASA perfect? no, but at least they're open to 
+discussing the license in public on this list.  And they'll address 
+*legitimate* licensing issues as they come up.
+
+"Big brother" ranting just doesn't belong in a discussion about 
+licenses.  I'm glad NASA's got big pockets, and I'm glad they're 
+protecting it with their licenses so they can worry about space 
+exploration.  
+> 
+> >          ii.  Federal Statute mandates that the U.S.
+> > Government can only be
+> > held subject to United States federal law.  See 5.C.
+> 
+> The Open Software License (OSL, 
+> www.opensource.org/licenses/osl-2.0.php)
+> establishes jurisdiction, venue and governing law for a US-based
+> licensor
+> (such as a US government agency) in the United States. See OSL ? 11.
+> [Foreign readers of this email should take comfort that the OSL is not
+> US-centric; jurisdiction under the OSL lies wherever the licensor
+> "resides"
+> or "conducts its primary business."]
+
+In any license, specifying a venue is up to the writer.  Take it or 
+don't use the license.  Or how about asking the folks at NASA, "Would 
+you also consider <<venue>> as a suitable venue in your license?"  That 
+would at least be POLITE.  Chances are the presently stated venue has 
+the best chance of making sure NASA can fend off frivilous and silly 
+lawsuits.  Just a guess. . .
+
+> 
+> >          iii.  NASA policy requires an effort to accurately
+> > track usage of
+> > released software for documentation and benefits
+> > realized?purposes.  See 3.F.
+> 
+> Such provisions are not allowed in an open source license. Reporting
+> requirements are viewed as unreasonable limitations on the rights of
+> licensees to do anything they want internally with open source
+
+Biggest problem of all here - who in all of creation has the authority 
+on blessing open source licenses?  I don't even think that half of the 
+existing opensource.org endorsed licenses are capable of achieving 
+their self-stated goals.  Asking NASA to adopt license language that 
+might not serve its intended purpose is just flat out wierd.
+
+I maintain that an open source license has certain characteristics and 
+achieves some well defined goals - the primary one being quick, open 
+distribution or source code and documentation to the end user without 
+charging a license fee.  It is entirely unappropriate to specify what 
+belongs and doesn't belong in an open source license.  Either the 
+license achieves it's own goals or it doesn't.
+
+The NASA license strives to deal with legal issues, not moral "Open 
+Source will save your grandmother and the free world" issues.  The 
+beauty is, the NASA license may do that someday :-)
+
+
+> software
+> (e.g., make copies, derivative works, etc.). On the other hand,
+> because of
+> "reciprocity" (see my further comment below) you'll be able to see
+> improvements to NASA software that are distributed by others, and
+> benefit
+> from them. That will be measurable.
+
+I don't want some hack trying to "improve" NASA software.  There's no 
+benefit in having untrained engineers who don't understand NASA trying 
+to improve NASA products.  It's like having the boy scouts try to 
+improve the Mars rover.  NASA owens the bragging rights on their 
+software, and I think it's important to keep it that way.  
+> 
+> >          iv. Federeal Statutes and NASA regulations requires
+> > a prohibition
+> > in NASA contracts against representations by others that may
+> > be deemed to
+> > be an endorsement by NASA.  See 3.E.
+> 
+> Various licenses do that. See, for example, OSL sections 4 [Exclusions
+> from
+> License Grant] and 6 [Attribution Rights].
+
+Obviously, NASA's well paid lawyers disagree with what's there.  My 
+money's on the NASA lawyers.
+
+> 
+> >          v.  Because it is important that each of the aforementioned
+> 
+> > clauses be a part of each open source agreement relating to
+> > NASA released
+> > software, the proposed agreement must mandate that distribution and
+> > redistribution of the software be done under the aegis of
+> > NOSA (mandatory
+> > domination similar to GPL).  See 3.A.
+> 
+> I call this feature "reciprocity." Lots of licenses do that, including
