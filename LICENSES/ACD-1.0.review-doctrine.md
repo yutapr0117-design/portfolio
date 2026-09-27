@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-doctrine.md
 audience: OSI license-discuss / license-review participants, licence reviewers, 監査人
-last-updated: 2026-09-26
+last-updated: 2026-09-27
 canonical-ref: LICENSES/ACD-1.0.review-precedents.md (他の提出に何が起きたかの記録) / LICENSES/ACD-1.0.against.md
 ---
 
@@ -460,3 +460,56 @@ compliance)."*
 
 **我々が 2026-09-13 に §16.3 で埋めたのは、この後半である**（`against.md` の「OSD 3 の後半に
 答えていなかった」件）。**25 年前の実例が、その後半が飾りではないことを示している。**
+
+## 1.117 データ保護法にライセンサーは登場しない —— §1.5 がデータ保護を Covered Rights に含めない理由が、外から裏づく（2026-09-27）
+
+一次資料は `rounds/2020-12-license-review-viratrace-gdpr-observed-*.txt`（35 通・6 部）。
+ViraTrace Public Source License（COVID 接触追跡・2020-12）は「GDPR / HIPAA 準拠のために
+ライセンスで下流を制御する」ことを目的として提出され、OSD 違反を複数指摘された。
+**委員長が議論を `license-discuss` へ移し、「GDPR とライセンス条項の交点」という一般論になった。**
+
+### 実務家の一文
+
+Roland Turner 氏（Chief Privacy Officer・2020-12-11）——
+
+> *"It is my understanding that **data protection law in most jurisdictions is about the legal
+> obligations of organisations in control of personal data** both with respect to that data and to
+> people that it relates to (and often to regulators), and legal/contractual obligations of other
+> organisations **processing that data on their behalf**; **software licensors are not part of the
+> picture**."*
+
+**ACD-1.0 §1.5 は Covered Rights に著作権・実演・放送録音・sui generis データベース権・
+不公正抽出に対する権利を挙げ、データ保護・privacy・publicity・personality を挙げていない。**
+**§11.4 は *"It reaches nothing else. It grants no permission ..."* と述べる。**
+**これは欠落ではなく、権利の種類の違いである、という読みをこの一文が支える** ——
+**ライセンサーとしての地位は、データ保護法が規律する地位（controller / processor）ではない。**
+
+**⚠ そのまま安心しない。** Turner 氏が述べているのは **licensor qua licensor** についてであり、
+**ACD が対象にする Work にはデータセットが含まれうる**（§1.2 の列挙）。
+**個人データを含む Work を公開する者は controller になりうる** ——
+**そのとき義務は ACD の外で発生し、ACD は何も与えず何も免除しない。**
+**この区別を提出文で述べていない**（errata が「列挙に無い」と記録しているだけ）。
+
+### 「規制準拠のためにライセンスが要る」は、この場では通らなかった
+
+Brian Behlendorf 氏 —— *"**boutique licenses are not required for either GDPR or HIPAA
+compliance**"*。Lukas Atkinson 氏 —— 下流の製品にまで同じ水準を課すことは
+*"clearly has a **discriminatory effect** (e.g. when considering use in jurisdictions where neither
+GDPR nor HIPAA applies)"*。
+
+**ACD-1.0 には当たらない** —— **§10.1 は何の条件も課さず、下流に何も要求しない。**
+**だが「規制が動機なら新しいライセンスが要る」という形の主張は、この場で否定されている**ことは
+覚えておく価値がある ——**我々の gap の一部（TDM の留保・学習の許諾）は規制に隣接する。**
+**我々の主張は「規制準拠のために要る」ではなく「既存の許諾が機械に読めない」である**
+（§6.5）。**この違いを崩さないこと。**
+
+### 「OSD には書かれていないが内在する」を、委員がもう一度述べている
+
+McCoy Smith 氏 2020-12-10 —— *"definition of 'Deploy' includes internal only use. This violates
+**Freedom Zero**, which I believe is, and have argued before is, **inherently, part of the OSD**.
+Given this question has come up more than once recently, **might it be time for OSI to clarify
+this point?**"*
+
+**#248（Cowan 氏 / Perens 氏 / Villa 氏）と #251（Prodromou 氏）に続く 5 人目で、
+Licensing Committee の委員である。** **そして氏自身が「明確化すべきでは」と問うている** ——
+**書かれていない基準が在ることは、内部でも認識されている。**

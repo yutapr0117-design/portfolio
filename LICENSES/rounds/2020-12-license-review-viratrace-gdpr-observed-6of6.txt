@@ -1,0 +1,703 @@
+
+On Fri, 11 Dec 2020, Wayne Thornton wrote:
+> You raise an interesting set of questions and I will admit that when it 
+> comes to the ?ins-and-outs? of GDPR and HIPPA compliance, I am probably 
+> not as well versed as yourself or our attorneys. That being said, we at 
+> ViraTrace have from the very beginning sought to ensure that the 
+> products we develop for automated contact tracing are the most secure 
+> and privacy-protective on the market.?
+
+I can speak with a fair bit of experience and authority on this front that 
+boutique licenses are not required for either GDPR or HIPAA compliance, 
+nor are they required by the unique circumstances of contact tracing or 
+exposure notification.
+
+Linux Foundation Public Health has two projects, COVID Green (used in 
+Ireland, NYC, NJ, Penn, DE, and others on the way) and COVID Shield (used 
+in Canada), both licensed under the Apache license. https://lfph.io/ 
+Wayne, come work with us if you're interested in this space, lots going on 
+and we can save you time and hassle over DIY, especially as we've already 
+addressed many of the concerns of public health authorities while also 
+meeting a high bar for privacy protection.
+
+Certification, data management practices, or other regulatory processes 
+are the domain of the people who deploy these apps and manage the servers 
+the data from those apps feed, and do not encumber the distribution of 
+source code software. Put another way, Viratrace has no liability when a 
+downstream recipient of your software deploys it and fails to meet their 
+regulatory obligations.
+
+But IANAL, TINLA, etc.
+
+Brian
+
+From josh at berkus.org  Fri Dec 11 19:15:34 2020
+From: josh at berkus.org (Josh Berkus)
+Date: Fri, 11 Dec 2020 11:15:34 -0800
+Subject: [License-review] GDPR compliance through software license terms? (Re: Approval Request - ViraTrace Public Source License 1.0)
+In-Reply-To: <17652c29feb.cac3d03b172917.1329415902216210181@viratrace.us>
+References: <1761b38511b.ea4b6887232365.2424304861618741903@viratrace.us> <2539a9f8-0c2c-b306-1383-21877bcf8ec5@opensource.org> <040a01d6ce98$ea79f3e0$bf6ddba0$@lexpan.law> <CAE+UdopnoYq1vmWS75VOzSLTw+Ld2XjA_KyaoE5YY5D2ZxTtXA@mail.gmail.com> <1764a910a39.e14846f8839613.2781088703153336734@viratrace.us> <2220a7ff-58a2-52b9-b9f4-2f45c4374943@rolandturner.com> <17652c29feb.cac3d03b172917.1329415902216210181@viratrace.us>
+Message-ID: <bc07d17e-96d5-68e3-e7c5-013aa4706f77@berkus.org>
+
+On 12/11/20 9:04 AM, Wayne Thornton wrote:
+> The software we have, are and will release under the proposed license
+> has undergone stringent legal review for both HIPPA and GDPR compliance
+> in terms of automated contact tracing applications. It has been
+> determined to be fully compliant with both regulations by the
+> Information Commissioner?s Office for the EU and the Attorney General?s
+> Office of the United States.?
+> 
+> By including the provisions at issue within our license, we ensure that
+> we remain responsible for legal compliance with data privacy regulations
+> and that end users have a central point of contact for questions or
+> concerns regardless of where or how, or by whom the technology is deployed.
+
+I'm confused, because this is simply not how software works.
+
+If I make a copy of Viratrace and deploy it, its adherence to privacy
+standards is based on how I carry out that deployment, much more than
+what's in the code.  You can write the most secure, privacy-conscious
+contact tracing application in the world and it won't matter if I post
+the main administration credentials on Twitter, or run the software on a
+machine that the world can telnet into.
+
+>From my perspective, you are trying to address something through a
+license that *cannot* be meaningfully addressed through a license,
+whether open source or proprietary.  What you want is a compliance
+program, not a license. That is, let people do whatever they want with
+the code, but they can only call it Viratrace if it's certified
+privacy-compliant by your company.  That's the way to handle this, and I
+work for a company that currently makes a lot of money doing exactly that.
+
+Also ... the CAL was specifically written to be compatible with the
+GDPR, so I don't think you correctly understood 4.2.1.
+
+-- 
+Josh Berkus
+
+
+From roland at rolandturner.com  Sat Dec 12 08:10:43 2020
+From: roland at rolandturner.com (Roland Turner)
+Date: Sat, 12 Dec 2020 16:10:43 +0800
+Subject: [License-review] GDPR compliance through software license terms? (Re: Approval Request - ViraTrace Public Source License 1.0)
+In-Reply-To: <17652c29feb.cac3d03b172917.1329415902216210181@viratrace.us>
+References: <1761b38511b.ea4b6887232365.2424304861618741903@viratrace.us> <2539a9f8-0c2c-b306-1383-21877bcf8ec5@opensource.org> <040a01d6ce98$ea79f3e0$bf6ddba0$@lexpan.law> <CAE+UdopnoYq1vmWS75VOzSLTw+Ld2XjA_KyaoE5YY5D2ZxTtXA@mail.gmail.com> <1764a910a39.e14846f8839613.2781088703153336734@viratrace.us> <2220a7ff-58a2-52b9-b9f4-2f45c4374943@rolandturner.com> <17652c29feb.cac3d03b172917.1329415902216210181@viratrace.us>
+Message-ID: <d174bbba-0fac-0f3d-a00d-82f636c0e99a@rolandturner.com>
+
+Hi Wayne,
+
+Thanks for your reply.
+
+In fact I only asked one question and ? although you referred to it in 
+your reply ? you don't appear to have addressed it. In particular, GDPR 
+creates non-delegable obligations for several classes of actors 
+(controllers, processors, authorities, DPOs, EDPB, ...), none of which 
+you appear to have addressed. So far as I've been able to determine 
+you've also not published elsewhere an analysis of the compliance basis 
+that you're claiming. You have asserted without evidence a compliance 
+determination of your software by the "Information Commissioner?s Office 
+for the EU" (which doesn't exist; presumably you mean the UK?). I can 
+find no evidence of such a determination, nor of any legal basis for the 
+ICO to make such a determination outside of a formal investigation into 
+a suspected infringement, and even then only into compliance by a 
+controller or processor, not by a piece of software. Have you been the 
+subject of a formal investigation? Is documentary evidence of the 
+determination public? Is it possible that you are instead referring to 
+simply registering a data processing operation with the ICO, an 
+operation which does not imply any GDPR compliance finding on the ICO's 
+part, whether of the registering organisation or a piece of software?
+
+You are quite properly concerned about the protection of individuals in 
+the face of poorly-designed tracing support systems (or straight-out 
+tracking systems), even in places where health authorities really should 
+know better[1], let alone places lacking technical, ethical, and legal 
+expertise in personal data protection. Unfortunately your approach 
+amounts to an unaccountable private sector actor seeking to insert 
+itself into a position of control ? over national health authorities no 
+less ? while not taking on the obligations of a data controller, an 
+approach that is not at all compatible with GDPR. Even the FSF refers to 
+variants of the arrangement that you have in mind as instruments of 
+unjust power. Quite what government would be willing to operate under 
+these conditions is not clear. More likely they'll (a) write their own, 
+(b) approach you for a more appropriate license, or in some cases (c) 
+ignore your license.
+
+I'd suggest therefore that, even if borderline ODS-compatibility were 
+established, there isn't some enormous potential benefit to individual 
+or developer freedoms to weigh against a general unwillingness to 
+stretch the definition. Per the rest of the discussion, however, the 
+incompatibility with OSD appears extensive and likely insurmountable 
+anyway. I'd hazard a guess that part of the problem is that no matter 
+how well-intentioned your approach, it stems from basic 
+misunderstandings about what OSI is about; in particular your repeated 
+reference to a "spirit of open source", rather than to OSD and the 
+freedoms that it seeks to sustain, etc. I'd guess that what you're after 
+is closer to various non-open-source "source-available" schemes (e.g. 
+Microsoft's Shared Source Initiative) in which source is made available 
+publicly with an automatic (non-negotiated, non-registered) license 
+grant, but under a license which keeps control very much in its 
+developer's hands. These are perfectly reasonable schemes of course, but 
+are not at all compatible with OSI's objectives and the associated 
+licenses are not candidates for OSI approval.
+
+Although I don't agree with it, your approach is an interesting one and 
+far less objectionable than the approaches that I critiqued in my OSI 
+SOTS talk[2] earlier this year. Thank you again for your reply.
+
+- Roland
+
+
+1: Norway 
+<https://edpb.europa.eu/news/national-news/2020/temporary-suspension-norwegian-covid-19-contact-tracing-app_en> 
+springs to mind.
+
+2: The critical importance of use-neutrality in F/OSS licensing 
+<https://rolandturner.com/sots/>
+
+------------------------------------------------------------------------
+
+On 12/12/20 1:04 am, Wayne Thornton wrote:
+>
+> Hello Roland,
+>
+>
+> You raise an interesting set of questions and I will admit that when 
+> it comes to the ?ins-and-outs? of GDPR and HIPPA compliance, I am 
+> probably not as well versed as yourself or our attorneys. That being 
+> said, we at ViraTrace have from the very beginning sought to ensure 
+> that the products we develop for automated contact tracing are the 
+> most secure and privacy-protective on the market.
+>
+>
+> As you may be aware from your work with TraceTogether, there is a 
+> large percentage of the populations across the globe who object to the 
+> concept of automated contact tracing. These objections are generally 
+> centered around privacy. Here in the United States, everyone is 
+> concerned with government eavesdropping and monitoring ? they think 
+> that by using an automated contact tracing application they are 
+> providing the government with a means to track their day-to-day 
+> activities and to glean nefarious insights into that data. This is of 
+> course an oversimplification of the issues, but I believe it is 
+> nonetheless a powerful one.
+>
+>
+> My co-founders are citizens of former Eastern Bloc countries and these 
+> concerns are just as real for them as they are for everyone else, if 
+> not more so. Their countries are seeking to release automated contact 
+> tracing applications which have little to no privacy protections for 
+> users and then to make these applications mandatory, and this has led 
+> to backlash from the population. Although some of this is a result of 
+> rampant political corruption, a large portion of it is the result of a 
+> lack of knowledge on how to release something that is more secure and 
+> privacy-centric. This provided an opening for ViraTrace to engage in 
+> ongoing negotiations with these governments to develop and maintain an 
+> automated contact tracing solution.
+>
+>
+> The solutions and frameworks we have developed are designed from the 
+> ground-up to ensure end-users that their data is safe and that 
+> automated contact tracing is confidential, private and secure from 
+> governmental intrusion.
+>
+>
+> Thus far, we have developed:
+>
+>
+> 1)A cross-platform mobile application.
+>
+> 2)A cross-platform BLE/GPS/WiFi-baseddevice-to-device communications 
+> protocol for use in third-party automated contact tracing applications.
+>
+> 3)A secure, delay tolerant communications protocol for 
+> device-to-secure enclave communications.
+>
+> 4)A second-generation mutli-node propogation infection model which 
+> utilizes distributed simulations to determine infection risk for 
+> users. This model has been peer reviewed by professors at Oxford and 
+> University of Torino and proven to be 85% more effective than other 
+> models and has already been deployed to over 150+ million users via 
+> the Aarogya Setu app.
+>
+> 5)A secure enclave processing environment which is designed to strip 
+> confidential data obtained from the infection model and our 
+> communications protocol and output a cleansed and sanitized data set 
+> for analysis.
+>
+> 6)A web dashboard which allows government health workers to utilize 
+> the cleansed and sanitized data set and communicate anonymously with 
+> end users.
+>
+>
+> We have released (or are planning to release) each and every one of 
+> these technologies as open source for implementation by anyone 
+> developing contact tracing platforms. Because of the nature of each 
+> component being separate and designed to operate independently, there 
+> are a number of potential data privacy violations that could be 
+> introduced by downstream developers.
+>
+>
+> As the maintainer and inventor of the underlying technologies, 
+> ViraTrace believe we are responsible for ensuring that data privacy 
+> violations are not introduced and that end users of automated contact 
+> tracing applications enjoy aconsistent level of data security and privacy.
+>
+>
+> This brings me to your specific question regarding software license 
+> terms as an element of compliance.
+>
+>
+> Our software is used as a means of processing data that is protected 
+> by GDPR and HIPPA.
+>
+> It is the position of ViraTrace that as a maintainer and inventor of 
+> these underlying technologies, the only way we can ensure a consistent 
+> level of data security and privacy for end users is to include 
+> provisions within our license that provide for oversight consistent 
+> with our goals.
+>
+>
+> The software we have, are and will release under the proposed license 
+> has undergone stringent legal review for both HIPPA and GDPR 
+> compliance in terms of automated contact tracing applications. It has 
+> been determined to be fully compliant with both regulations by the 
+> Information Commissioner?s Office for the EU and the Attorney 
+> General?s Office of the United States.
+>
+>
+> By including the provisions at issue within our license, we ensure 
+> that we remain responsible for legal compliance with data privacy 
+> regulations and that end users have a central point of contact for 
+> questions or concerns regardless of where or how, or by whom the 
+> technology is deployed.
+>
+>
+> Our review process as specified for in the proposed license is used to 
+> review the modifications and implementation of our software source 
+> code and to determine if it meets compliance standards at every point 
+> in a developer?s implementation. If it does not, the license provides 
+> a process by which the developer must rectify the deficiencies or 
+> withdraw the software from the market upon license termination.
+>
+>
+> Although one could argue that it is the responsibility of the party 
+> deploying the automated contact tracing solution to comply with data 
+> privacy regulations in the means you describe, we fully believe that 
+> it is our responsibility to the end users, as the maintainer and 
+> inventor of the underlying technologies used for data processing, to 
+> ensure that the software we provide and that is deployed basedon our 
+> technologies remains fully compliant with GDPR and HIPPA.
+>
+> We would acknowledge that this is not normal practice within the 
+> industry, but neither is it precluded.
+>
+>
+> Hopefully that helps answer questions. If not, you can of course 
+> respond within this thread or if you have other questions or comments, 
+> you may contact me directly at the number/email within my signature below.
+>
+>
+> Best to you and yours.
+>
+>
+> Regards,
+>
+> Wayne M. Thornton, B.S., CPDT
+> Co-Founder & Project Manager
+> VIRATRACE?
+> 720-766-0254 ??Direct
+>
+> https://www.viratrace.o <https://www.viratrace.org/>rg
+>
+> ?
+> Be sure to join our Microsoft Teams 
+> <https://teams.microsoft.com/join/lw83179ktnqf>?channel for updates 
+> and to contribute!
+>
+> This message is intended only for the individual or entity to which it 
+> is addressed. It may contain privileged, confidential information 
+> which is exempt from disclosure under applicable laws. If you are not 
+> the intended recipient, please note that you are strictly 
+> prohibited?from disseminating or distributing this information (other 
+> than to the intended recipient) or copying this information. If you 
+> have received this communication in error, please notify us 
+> immediately by e-mail. Thank you.
+>
+>
+>
+> ---- On Thu, 10 Dec 2020 20:39:10 -0700 *Roland Turner 
+> <roland at rolandturner.com>* wrote ----
+>
+>     Hi Wayne,
+>
+>         First, regarding rationale: Our company is in the business of
+>         creating frameworks and software products which facilitate
+>         automated contact tracing initiatives across the globe. These
+>         frameworks and products must be GDPR- and HIPPA-compliant and
+>         have been designed to be such, with strict, ongoing legal
+>         review processes undertaken to ensure this. The frameworks and
+>         products that we create are designed to be utilized by
+>         governmental agencies and private corporations in the creation
+>         of applications and platforms which aid in the fight against
+>         COVID-19 and future pandemic scenarios. In order for this to
+>         be of benefit, the frameworks and software we develop must be
+>         open source, so that the governmental agencies and private
+>         corporations can be free to utilize them. Unfortunately, due
+>         to the legal compliance issues vis-a-vis GDPR and HIPPA, a
+>         level of control regarding development must be maintained. It
+>         is our position that the GNU and other OSI-approved licenses
+>         do not provide this level of control.
+>
+>     Others are addressing the appearance of a profound incompatibility
+>     between what you're proposing ("free to utilise" vs. "level of
+>     control [by Viratrace]") and the Open Source Definition.
+>
+>     I'm interested in the concept of software license terms as an
+>     element of GDPR compliance. Can you explain how you see license
+>     terms being a relevant part of this? It is my understanding that
+>     data protection law in most jurisdictions is about the legal
+>     obligations of organisations in control of personal data both with
+>     respect to that data and to people that it relates to (and often
+>     to regulators), and legal/contractual obligations of other
+>     organisations processing that data on their behalf; software
+>     licensors are not part of the picture. As neither Viratrace nor
+>     likely licensees would be looking to establish a
+>     controller/processor relationship[1] through the license, the
+>     relevance is not immediately clear to me.
+>
+>     (For a sense of where I'm coming from:
+>
+>       * Although this is my first ever post to license-review, I've
+>         been involved in open-source license advocacy for rather a
+>         long time. It was I who initially proposed late last century
+>         (!) a multi-license approach for Mozilla.
+>       * I serve as Chief Privacy Officer for my employer ? a
+>         specialist processor of personal data ? and in that capacity
+>         have assisted customers with data protection obligations
+>         across a dozen jurisdictions on four continents.
+>       * Although the specific concerns of Free Software are largely
+>         out of scope here, I am an advocate of the approach and have
+>         spoken in public about the overlapping objectives of Software
+>         Freedom and of GDPR data subject rights.
+>       * I am tangentially involved in Singapore's TraceTogether
+>         program as an independent expert, both on the technology and
+>         on personal data protection.
+>       * I am working on a design for a system to extend TraceTogether
+>         which coincidentally also uses secure enclaves, although for a
+>         much simpler purpose that the one that you appear to be pursuing.)
+>
+>
+>     - Roland
+>
+>
+>     1: nor the analogous relationships in other jurisdictions
+>
+>
+>
+>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20201212/6d02272c/attachment-0001.html>
+
+From pamela.chestek at opensource.org  Sun Dec 13 22:59:51 2020
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Sun, 13 Dec 2020 17:59:51 -0500
+Subject: [License-discuss] [License-review] GDPR compliance through software license terms? (Re: Approval Request - ViraTrace Public Source License 1.0)
+In-Reply-To: <2220a7ff-58a2-52b9-b9f4-2f45c4374943@rolandturner.com>
+References: <1761b38511b.ea4b6887232365.2424304861618741903@viratrace.us> <2539a9f8-0c2c-b306-1383-21877bcf8ec5@opensource.org> <040a01d6ce98$ea79f3e0$bf6ddba0$@lexpan.law> <CAE+UdopnoYq1vmWS75VOzSLTw+Ld2XjA_KyaoE5YY5D2ZxTtXA@mail.gmail.com> <1764a910a39.e14846f8839613.2781088703153336734@viratrace.us> <2220a7ff-58a2-52b9-b9f4-2f45c4374943@rolandturner.com>
+Message-ID: <7b24a408-5983-a922-aa0b-d7c3aa34ddee@opensource.org>
+
+Moving the conversation to license-discuss, since it's not about the 
+terms of this license specifically but more generally about the 
+intersection of GDPR compliance and software licensing.
+
+Pam
+
+Pamela Chestek
+Chair, License Committee
+Open Source Initiative
+
+On 12/10/20 10:39 PM, Roland Turner via License-review wrote:
+> Hi Wayne,
+>
+>> First, regarding rationale: Our company is in the business of 
+>> creating frameworks and software products which facilitate automated 
+>> contact tracing initiatives across the globe. These frameworks and 
+>> products must be GDPR- and HIPPA-compliant and have been designed to 
+>> be such, with strict, ongoing legal review processes undertaken to 
+>> ensure this. The frameworks and products that we create are designed 
+>> to be utilized by governmental agencies and private corporations in 
+>> the creation of applications and platforms which aid in the fight 
+>> against COVID-19 and future pandemic scenarios. In order for this to 
+>> be of benefit, the frameworks and software we develop must be open 
+>> source, so that the governmental agencies and private corporations 
+>> can be free to utilize them. Unfortunately, due to the legal 
+>> compliance issues vis-a-vis GDPR and HIPPA, a level of control 
+>> regarding development must be maintained. It is our position that the 
+>> GNU and other OSI-approved licenses do not provide this level of 
+>> control.
+>
+> Others are addressing the appearance of a profound incompatibility 
+> between what you're proposing ("free to utilise" vs. "level of control 
+> [by Viratrace]") and the Open Source Definition.
+>
+> I'm interested in the concept of software license terms as an element 
+> of GDPR compliance. Can you explain how you see license terms being a 
+> relevant part of this? It is my understanding that data protection law 
+> in most jurisdictions is about the legal obligations of organisations 
+> in control of personal data both with respect to that data and to 
+> people that it relates to (and often to regulators), and 
+> legal/contractual obligations of other organisations processing that 
+> data on their behalf; software licensors are not part of the picture. 
+> As neither Viratrace nor likely licensees would be looking to 
+> establish a controller/processor relationship[1] through the license, 
+> the relevance is not immediately clear to me.
+>
+> (For a sense of where I'm coming from:
+>
+>   * Although this is my first ever post to license-review, I've been
+>     involved in open-source license advocacy for rather a long time.
+>     It was I who initially proposed late last century (!) a
+>     multi-license approach for Mozilla.
+>   * I serve as Chief Privacy Officer for my employer ? a specialist
+>     processor of personal data ? and in that capacity have assisted
+>     customers with data protection obligations across a dozen
+>     jurisdictions on four continents.
+>   * Although the specific concerns of Free Software are largely out of
+>     scope here, I am an advocate of the approach and have spoken in
+>     public about the overlapping objectives of Software Freedom and of
+>     GDPR data subject rights.
+>   * I am tangentially involved in Singapore's TraceTogether program as
+>     an independent expert, both on the technology and on personal data
+>     protection.
+>   * I am working on a design for a system to extend TraceTogether
+>     which coincidentally also uses secure enclaves, although for a
+>     much simpler purpose that the one that you appear to be pursuing.)
+>
+>
+> - Roland
+>
+>
+> 1: nor the analogous relationships in other jurisdictions
+>
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+-- 
+Pamela S. Chestek
+Chair, License Committee
+Open Source Initiative
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20201213/8366d5c5/attachment.html>
+
+From roland at rolandturner.com  Tue Dec 15 03:01:11 2020
+From: roland at rolandturner.com (Roland Turner)
+Date: Tue, 15 Dec 2020 11:01:11 +0800
+Subject: [License-discuss] GDPR compliance through software license terms?
+In-Reply-To: <7b24a408-5983-a922-aa0b-d7c3aa34ddee@opensource.org>
+References: <1761b38511b.ea4b6887232365.2424304861618741903@viratrace.us> <2539a9f8-0c2c-b306-1383-21877bcf8ec5@opensource.org> <040a01d6ce98$ea79f3e0$bf6ddba0$@lexpan.law> <CAE+UdopnoYq1vmWS75VOzSLTw+Ld2XjA_KyaoE5YY5D2ZxTtXA@mail.gmail.com> <1764a910a39.e14846f8839613.2781088703153336734@viratrace.us> <2220a7ff-58a2-52b9-b9f4-2f45c4374943@rolandturner.com> <7b24a408-5983-a922-aa0b-d7c3aa34ddee@opensource.org>
+Message-ID: <206789e4-29c1-4d2b-e1f8-0f7689306392@rolandturner.com>
+
+Thanks Pam,
+
+I was conscious of the scope problem when I posted, but figured that a 
+short excursion into the novel benefit claimed of the proposed license 
+was probably reasonable within the review, given that that claim was the 
+basis for its design. Do you feel that opening that discussion here 
+instead would have been a better approach?
+
+For the benefit of those not watching license-review: Viratrace withdrew 
+its proposal without providing a basis for the 
+GDPR-compliance-determination claim, and so far as I can tell there can 
+be no basis for such a thing. I suspect that they have confused 
+mandatory registration of a data processing operation with compliance 
+certification of their software.
+
+Were such a compliance basis to exist I think there would be a most 
+interesting discussion for OSI. I still think that it would probably be 
+a non-starter, but it would address many of the problems with the 
+approaches that I critiqued in my SOTS talk earlier in the year. While 
+much of the debate quite properly punts "comply with the law" to the law 
+instead of embedding it in licenses, there's a definite cross-border 
+concern here. I really don't buy use-discriminatory licensing as 
+compatible with OSD, but I can see that there's going to be a concern 
+for some developers in highly-developed regulatory environments who are 
+comfortable with deferring to law for licensees in their own 
+jurisdiction as a harm-mitigation approach, nonetheless being quite 
+uncomfortable about the lack of comparable protections elsewhere and 
+looking to embedding compliance obligations in licenses to assuage this 
+(e.g. compliance with data protection law in the licensor's 
+jurisdiction, not the licensee's).
+
+- Roland
+
+------------------------------------------------------------------------
+
+On 14/12/20 6:59 am, Pamela Chestek wrote:
+>
+> Moving the conversation to license-discuss, since it's not about the 
+> terms of this license specifically but more generally about the 
+> intersection of GDPR compliance and software licensing.
+>
+> Pam
+>
+> Pamela Chestek
+> Chair, License Committee
+> Open Source Initiative
+>
+> On 12/10/20 10:39 PM, Roland Turner via License-review wrote:
+>> Hi Wayne,
+>>
+>>> First, regarding rationale: Our company is in the business of 
+>>> creating frameworks and software products which facilitate automated 
+>>> contact tracing initiatives across the globe. These frameworks and 
+>>> products must be GDPR- and HIPPA-compliant and have been designed to 
+>>> be such, with strict, ongoing legal review processes undertaken to 
+>>> ensure this. The frameworks and products that we create are designed 
+>>> to be utilized by governmental agencies and private corporations in 
+>>> the creation of applications and platforms which aid in the fight 
+>>> against COVID-19 and future pandemic scenarios. In order for this to 
+>>> be of benefit, the frameworks and software we develop must be open 
+>>> source, so that the governmental agencies and private corporations 
+>>> can be free to utilize them. Unfortunately, due to the legal 
+>>> compliance issues vis-a-vis GDPR and HIPPA, a level of control 
+>>> regarding development must be maintained. It is our position that 
+>>> the GNU and other OSI-approved licenses do not provide this level of 
+>>> control.
+>>
+>> Others are addressing the appearance of a profound incompatibility 
+>> between what you're proposing ("free to utilise" vs. "level of 
+>> control [by Viratrace]") and the Open Source Definition.
+>>
+>> I'm interested in the concept of software license terms as an element 
+>> of GDPR compliance. Can you explain how you see license terms being a 
+>> relevant part of this? It is my understanding that data protection 
+>> law in most jurisdictions is about the legal obligations of 
+>> organisations in control of personal data both with respect to that 
+>> data and to people that it relates to (and often to regulators), and 
+>> legal/contractual obligations of other organisations processing that 
+>> data on their behalf; software licensors are not part of the picture. 
+>> As neither Viratrace nor likely licensees would be looking to 
+>> establish a controller/processor relationship[1] through the license, 
+>> the relevance is not immediately clear to me.
+>>
+>> (For a sense of where I'm coming from:
+>>
+>>   * Although this is my first ever post to license-review, I've been
+>>     involved in open-source license advocacy for rather a long time.
+>>     It was I who initially proposed late last century (!) a
+>>     multi-license approach for Mozilla.
+>>   * I serve as Chief Privacy Officer for my employer ? a specialist
+>>     processor of personal data ? and in that capacity have assisted
+>>     customers with data protection obligations across a dozen
+>>     jurisdictions on four continents.
+>>   * Although the specific concerns of Free Software are largely out
+>>     of scope here, I am an advocate of the approach and have spoken
+>>     in public about the overlapping objectives of Software Freedom
+>>     and of GDPR data subject rights.
+>>   * I am tangentially involved in Singapore's TraceTogether program
+>>     as an independent expert, both on the technology and on personal
+>>     data protection.
+>>   * I am working on a design for a system to extend TraceTogether
+>>     which coincidentally also uses secure enclaves, although for a
+>>     much simpler purpose that the one that you appear to be pursuing.)
+>>
+>>
+>> - Roland
+>>
+>>
+>> 1: nor the analogous relationships in other jurisdictions
+>>
+>>
+>>
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>>
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+> -- 
+> Pamela S. Chestek
+> Chair, License Committee
+> Open Source Initiative
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20201215/60b7ae8b/attachment.html>
+
+From josh at berkus.org  Tue Dec 15 19:09:02 2020
+From: josh at berkus.org (Josh Berkus)
+Date: Tue, 15 Dec 2020 11:09:02 -0800
+Subject: [License-discuss] GDPR compliance through software license terms?
+In-Reply-To: <206789e4-29c1-4d2b-e1f8-0f7689306392@rolandturner.com>
+References: <1761b38511b.ea4b6887232365.2424304861618741903@viratrace.us> <2539a9f8-0c2c-b306-1383-21877bcf8ec5@opensource.org> <040a01d6ce98$ea79f3e0$bf6ddba0$@lexpan.law> <CAE+UdopnoYq1vmWS75VOzSLTw+Ld2XjA_KyaoE5YY5D2ZxTtXA@mail.gmail.com> <1764a910a39.e14846f8839613.2781088703153336734@viratrace.us> <2220a7ff-58a2-52b9-b9f4-2f45c4374943@rolandturner.com> <7b24a408-5983-a922-aa0b-d7c3aa34ddee@opensource.org> <206789e4-29c1-4d2b-e1f8-0f7689306392@rolandturner.com>
+Message-ID: <23684734-e1e4-2e86-5b2a-ef9cd9352dcb@berkus.org>
+
+On 12/14/20 7:01 PM, Roland Turner via License-discuss wrote:
+> Were such a compliance basis to exist I think there would be a most
+> interesting discussion for OSI. I still think that it would probably be
+> a non-starter, but it would address many of the problems with the
+> approaches that I critiqued in my SOTS talk earlier in the year. While
+> much of the debate quite properly punts "comply with the law" to the law
+> instead of embedding it in licenses, there's a definite cross-border
+> concern here. I really don't buy use-discriminatory licensing as
+> compatible with OSD, but I can see that there's going to be a concern
+> for some developers in highly-developed regulatory environments who are
+> comfortable with deferring to law for licensees in their own
+> jurisdiction as a harm-mitigation approach, nonetheless being quite
+> uncomfortable about the lack of comparable protections elsewhere and
+> looking to embedding compliance obligations in licenses to assuage this
+> (e.g. compliance with data protection law in the licensor's
+> jurisdiction, not the licensee's).
+
+We may have actually approved special-purpose -- specifically,
+government agency -- licenses with legal compliance language in them
+before.  I haven't done a review of those licenses anytime recently, and
+that's where I would expect to see such language.
+
+However, "must comply with the law" is very different from "must comply
+with this specific law in this specific country regardless of where the
+software is used".  That's effectively asking to extend the legal
+dominion of one country over other countries through nothing other than
+a software license.  However laudable the goals of the license author
+may be, the actual attempt is both futile and harmful as a side effect.
+
+Aside from the legal issues of trying to override national law, there's
+also the issue of "who decides?"  When we're talking about international
+copyright law or complying with the law of your home country, a court,
+presumably a neutral third party, decides.  If we're talking about
+compliance with something like a privacy policy, though, there is no
+neutral third party to decide; the copyright holder must decide.  And
+the problem with that is that nothing prevents their decisions from
+being wholly arbitrary.
+
+Like, I have no personal experience with Viratrace and no business
+relationship with them.  If they can revoke my license to their software
+at any time based on whether they think, in their sole judgement, that
+I've violated their privacy polices?  That's not an open source license,
+it's a "shared source" license.
+
+Ultimately, tacking the GDPR onto a license is just another "unrelated
+conditions" license, and thus a clear violation of OSD5/6.  We have OSD5
+and 6 for good reasons.
+
+-- 
+Josh Berkus
+
+

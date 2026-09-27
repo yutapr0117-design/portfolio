@@ -1,0 +1,750 @@
+>
+>
+>
+>
+> _______________________________________________
+>
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+>
+>
+> License-review mailing list
+>
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+From wayne at viratrace.us  Thu Dec 10 02:53:08 2020
+From: wayne at viratrace.us (Wayne Thornton)
+Date: Wed, 09 Dec 2020 19:53:08 -0700
+Subject: [License-review] Approval Request - ViraTrace Public Source License 1.0
+In-Reply-To: <CAE+UdopnoYq1vmWS75VOzSLTw+Ld2XjA_KyaoE5YY5D2ZxTtXA@mail.gmail.com>
+References: <1761b38511b.ea4b6887232365.2424304861618741903@viratrace.us> <2539a9f8-0c2c-b306-1383-21877bcf8ec5@opensource.org> <040a01d6ce98$ea79f3e0$bf6ddba0$@lexpan.law> <CAE+UdopnoYq1vmWS75VOzSLTw+Ld2XjA_KyaoE5YY5D2ZxTtXA@mail.gmail.com>
+Message-ID: <1764a910a39.e14846f8839613.2781088703153336734@viratrace.us>
+
+In reference to the original thread created by Pamela, please allow me to address the questions posed.
+
+
+
+First, regarding rationale: Our company is in the business of creating frameworks and software products which facilitate automated contact tracing initiatives across the globe. These frameworks and products must be GDPR- and HIPPA-compliant and have been designed to be such, with strict, ongoing legal review processes undertaken to ensure this. The frameworks and products that we create are designed to be utilized by governmental agencies and private corporations in the creation of applications and platforms which aid in the fight against COVID-19 and future pandemic scenarios. In order for this to be of benefit, the frameworks and software we develop must be open source, so that the governmental agencies and private corporations can be free to utilize them. Unfortunately, due to the legal compliance issues vis-a-vis GDPR and HIPPA, a level of control regarding development must be maintained. It is our position that the GNU and other OSI-approved licenses do not provide this level of control.?
+
+
+
+Regarding the APSL: The APSL as currently approved is considered both an OSI and FSF license. Developers are free to utilize and modify the code without sharing the changes they create. This is wholly incompatible with the compliance issues previously discussed. Because of these issues, ViraTrace MUST have the ability to strictly control the usage and modifications made to the software code, and to undertake actions to revoke usage permissions for those governmental agencies and private corporations who make changes that substantially undermine the legal compliance. Such actions necessarily include the ability to obtain legal injunctions which force the removal of a product utilizing the modified and offending frameworks from the market so long as they use ViraTrace intellectual property. We have therefore modeled the ViraTrace Public Source License on the original APSL v. 1.0 which imposed the very limitations we are seeking to apply to our products.
+
+
+
+As far as usability: The APSL is a license that grants Apple, Inc. the very rights we are seeking to apply to our products. It is our position that this would be considered a vanity, or non-reusable license which only applies to products released by Apple, Inc. This type of license has already been approved in various forms as a non-reusable license As such, we seek to have our license approved for similar reasons.
+
+
+Regards,
+
+
+
+Wayne M. Thornton, B.S., CPDT
+Co-Founder & Project Manager
+VIRATRACE?
+720-766-0254 ??Direct
+https://www.viratrace.org/rg
+
+?
+Be sure to join our?https://teams.microsoft.com/join/lw83179ktnqf?channel for updates and to contribute!
+
+This message is intended only for the individual or entity to which it is addressed. It may contain privileged, confidential information which is exempt from disclosure under applicable laws. If you are not the intended recipient, please note that you are strictly prohibited?from disseminating or distributing this information (other than to the intended recipient) or copying this information. If you have received this communication in error, please notify us immediately by e-mail. Thank you.
+
+
+
+
+
+
+
+---- On Wed, 09 Dec 2020 19:19:47 -0700 Kevin P. Fleming <kevin+osi at km6g.us> wrote ----
+
+
+
+My non-lawyer reading is that this is the AGPL 'on steroids'; if you 
+use the code 'to provide a service' of any form, to anyone, and you 
+have modified the code, you must make the modified code available.  
+On Wed, Dec 9, 2020 at 9:06 PM McCoy Smith <mailto:mccoy at lexpan.law> wrote: 
+> 
+> I?m interested in the statement on legal review: ?NONE? 
+> 
+> I don?t think this is required, but generally recommended. Do you intend at any point to have legal review? 
+> 
+> 
+> 
+> FWIW, this license appears to be based substantially on the FedTax Public Source License: https://dev.taxcloud.net/ftpsl/ (which, AFAIK, has never been reviewed by OSI). 
+> 
+> 
+> 
+> From: License-review <mailto:license-review-bounces at lists.opensource.org> On Behalf Of Pamela Chestek 
+> Sent: Wednesday, December 9, 2020 5:56 PM 
+> To: mailto:license-review at lists.opensource.org; mailto:wayne at viratrace.us 
+> Subject: Re: [License-review] Approval Request - ViraTrace Public Source License 1.0 
+> 
+> 
+> 
+> Hi Wayne, 
+> 
+> Under "Rationale," can you explain what about this license is suited for your business model when other existing licenses aren't? What does it accomplish that no other license does? 
+> 
+> Can you tell us how it differs from the APSL? 
+> 
+> Why is the license category "non-reusable"? That's not a category we are inclined to use for a new license. One of the value of the licenses is that they are reusable, so it would be helpful to understand why your license isn't designed for others to use yet is covers a situation that no other license covers. 
+> 
+> Thanks, 
+> 
+> Pamela Chestek 
+> Chair, License Committee 
+> Open Source Initiative 
+> 
+> On 11/30/2020 5:14 PM, Wayne Thornton wrote: 
+> 
+> Attached is the Plaintext copy of the proposed ViraTrace Public Source License (v 1.0). 
+> 
+> 
+> 
+> 
+> 
+> Rationale: ViraTrace is an independent software development company with proprietary and open source code which may be used commercially by the company. No other license fits our business model closely enough to be of benefit. 
+> 
+> 
+> 
+> Distinguish: This license is very similar in context to the APSL (v 1.0). 
+> 
+> 
+> 
+> Legal Review: NONE 
+> 
+> 
+> 
+> Proliferation Category: Non-Reusable License 
+> 
+> 
+> 
+> 
+> _______________________________________________ 
+> 
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address. 
+> 
+> 
+> 
+> License-review mailing list 
+> 
+> mailto:License-review at lists.opensource.org 
+> 
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org 
+> 
+> 
+> 
+> _______________________________________________ 
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address. 
+> 
+> License-review mailing list 
+> mailto:License-review at lists.opensource.org 
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20201209/e546d840/attachment.html>
+
+From mccoy at lexpan.law  Thu Dec 10 02:59:06 2020
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Wed, 9 Dec 2020 18:59:06 -0800
+Subject: [License-review] Approval Request - ViraTrace Public Source License 1.0
+In-Reply-To: <1764a910a39.e14846f8839613.2781088703153336734@viratrace.us>
+References: <1764a910a39.e14846f8839613.2781088703153336734@viratrace.us>
+Message-ID: <0FFD7CB2-946B-4AF4-9CBD-F03A3F70A6A4@lexpan.law>
+
+If your submission is a variant on APSL, it might help to point out how it differs (other than changing ?Apple? to ?Virutrace.?)
+
+> On Dec 9, 2020, at 6:53 PM, Wayne Thornton <wayne at viratrace.us> wrote:
+> 
+> ?
+> In reference to the original thread created by Pamela, please allow me to address the questions posed.
+> 
+> First, regarding rationale: Our company is in the business of creating frameworks and software products which facilitate automated contact tracing initiatives across the globe. These frameworks and products must be GDPR- and HIPPA-compliant and have been designed to be such, with strict, ongoing legal review processes undertaken to ensure this. The frameworks and products that we create are designed to be utilized by governmental agencies and private corporations in the creation of applications and platforms which aid in the fight against COVID-19 and future pandemic scenarios. In order for this to be of benefit, the frameworks and software we develop must be open source, so that the governmental agencies and private corporations can be free to utilize them. Unfortunately, due to the legal compliance issues vis-a-vis GDPR and HIPPA, a level of control regarding development must be maintained. It is our position that the GNU and other OSI-approved licenses do not provide this level of control. 
+> 
+> Regarding the APSL: The APSL as currently approved is considered both an OSI and FSF license. Developers are free to utilize and modify the code without sharing the changes they create. This is wholly incompatible with the compliance issues previously discussed. Because of these issues, ViraTrace MUST have the ability to strictly control the usage and modifications made to the software code, and to undertake actions to revoke usage permissions for those governmental agencies and private corporations who make changes that substantially undermine the legal compliance. Such actions necessarily include the ability to obtain legal injunctions which force the removal of a product utilizing the modified and offending frameworks from the market so long as they use ViraTrace intellectual property. We have therefore modeled the ViraTrace Public Source License on the original APSL v. 1.0 which imposed the very limitations we are seeking to apply to our products.
+> 
+> As far as usability: The APSL is a license that grants Apple, Inc. the very rights we are seeking to apply to our products. It is our position that this would be considered a vanity, or non-reusable license which only applies to products released by Apple, Inc. This type of license has already been approved in various forms as a non-reusable license As such, we seek to have our license approved for similar reasons.
+> 
+> Regards,
+> 
+> Wayne M. Thornton, B.S., CPDT
+> Co-Founder & Project Manager
+> VIRATRACE?
+> 720-766-0254 ? Direct
+> https://www.viratrace.org
+> ?
+> Be sure to join our Microsoft Teams channel for updates and to contribute!
+> 
+> This message is intended only for the individual or entity to which it is addressed. It may contain privileged, confidential information which is exempt from disclosure under applicable laws. If you are not the intended recipient, please note that you are strictly prohibited from disseminating or distributing this information (other than to the intended recipient) or copying this information. If you have received this communication in error, please notify us immediately by e-mail. Thank you.
+> 
+> 
+> 
+> ---- On Wed, 09 Dec 2020 19:19:47 -0700 Kevin P. Fleming <kevin+osi at km6g.us> wrote ----
+> 
+> My non-lawyer reading is that this is the AGPL 'on steroids'; if you 
+> use the code 'to provide a service' of any form, to anyone, and you 
+> have modified the code, you must make the modified code available. 
+> 
+> On Wed, Dec 9, 2020 at 9:06 PM McCoy Smith <mccoy at lexpan.law> wrote: 
+> > 
+> > I?m interested in the statement on legal review: ?NONE? 
+> > 
+> > I don?t think this is required, but generally recommended. Do you intend at any point to have legal review? 
+> > 
+> > 
+> > 
+> > FWIW, this license appears to be based substantially on the FedTax Public Source License: https://dev.taxcloud.net/ftpsl/ (which, AFAIK, has never been reviewed by OSI). 
+> > 
+> > 
+> > 
+> > From: License-review <license-review-bounces at lists.opensource.org> On Behalf Of Pamela Chestek 
+> > Sent: Wednesday, December 9, 2020 5:56 PM 
+> > To: license-review at lists.opensource.org; wayne at viratrace.us 
+> > Subject: Re: [License-review] Approval Request - ViraTrace Public Source License 1.0 
+> > 
+> > 
+> > 
+> > Hi Wayne, 
+> > 
+> > Under "Rationale," can you explain what about this license is suited for your business model when other existing licenses aren't? What does it accomplish that no other license does? 
+> > 
+> > Can you tell us how it differs from the APSL? 
+> > 
+> > Why is the license category "non-reusable"? That's not a category we are inclined to use for a new license. One of the value of the licenses is that they are reusable, so it would be helpful to understand why your license isn't designed for others to use yet is covers a situation that no other license covers. 
+> > 
+> > Thanks, 
+> > 
+> > Pamela Chestek 
+> > Chair, License Committee 
+> > Open Source Initiative 
+> > 
+> > On 11/30/2020 5:14 PM, Wayne Thornton wrote: 
+> > 
+> > Attached is the Plaintext copy of the proposed ViraTrace Public Source License (v 1.0). 
+> > 
+> > 
+> > 
+> > 
+> > 
+> > Rationale: ViraTrace is an independent software development company with proprietary and open source code which may be used commercially by the company. No other license fits our business model closely enough to be of benefit. 
+> > 
+> > 
+> > 
+> > Distinguish: This license is very similar in context to the APSL (v 1.0). 
+> > 
+> > 
+> > 
+> > Legal Review: NONE 
+> > 
+> > 
+> > 
+> > Proliferation Category: Non-Reusable License 
+> > 
+> > 
+> > 
+> > 
+> > _______________________________________________ 
+> > 
+> > The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address. 
+> > 
+> > 
+> > 
+> > License-review mailing list 
+> > 
+> > License-review at lists.opensource.org 
+> > 
+> > http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org 
+> > 
+> > 
+> > 
+> > _______________________________________________ 
+> > The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address. 
+> > 
+> > License-review mailing list 
+> > License-review at lists.opensource.org 
+> > http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org 
+> 
+> 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20201209/d23b3417/attachment-0001.html>
+
+From wayne at viratrace.us  Thu Dec 10 03:09:13 2020
+From: wayne at viratrace.us (Wayne Thornton)
+Date: Wed, 09 Dec 2020 20:09:13 -0700
+Subject: [License-review] Approval Request - ViraTrace Public Source License 1.0
+In-Reply-To: <0FFD7CB2-946B-4AF4-9CBD-F03A3F70A6A4@lexpan.law>
+References: <1764a910a39.e14846f8839613.2781088703153336734@viratrace.us> <0FFD7CB2-946B-4AF4-9CBD-F03A3F70A6A4@lexpan.law>
+Message-ID: <1764a9fc74f.119ca843d840664.6113853826979239499@viratrace.us>
+
+The currently approved APSL is OSI and FSF compatible. Developers are free to use and modify code without sharing the results and changes with Apple or other developers. Our license differs from this license in that:
+
+
+
+1. Restrictions are placed on how anyone outside of ViraTrace is permitted to utilize the software and frameworks which are considered ViraTrace intellectual property.?
+
+
+
+2. ViraTrace will be permitted to revoke or suspend the license for violations by software developers seeking to utilize the software and frameworks we have developed, when those violations substantially undermine the legal compliance with GDPR and HIPPA.
+
+
+
+3. Software developers seeking to utilize the the software are required to share the changes with ViraTrace for review and approval. If this review determines that action must be taken to maintain legal compliance, suspension or revocation of the license may occur.?
+
+
+
+The APSL as currently approved does NOT include these provisions and thus our license is significantly different from current license models.
+
+
+Regards,
+
+
+
+Wayne M. Thornton, B.S., CPDT
+Co-Founder & Project Manager
+VIRATRACE?
+720-766-0254 ??Direct
+https://www.viratrace.org/rg
+
+?
+Be sure to join our?https://teams.microsoft.com/join/lw83179ktnqf?channel for updates and to contribute!
+
+This message is intended only for the individual or entity to which it is addressed. It may contain privileged, confidential information which is exempt from disclosure under applicable laws. If you are not the intended recipient, please note that you are strictly prohibited?from disseminating or distributing this information (other than to the intended recipient) or copying this information. If you have received this communication in error, please notify us immediately by e-mail. Thank you.
+
+
+
+
+
+
+
+---- On Wed, 09 Dec 2020 19:59:06 -0700 McCoy Smith <mccoy at lexpan.law> wrote ----
+
+
+
+If your submission is a variant on APSL, it might help to point out how it differs (other than changing ?Apple? to ?Virutrace.?)
+
+
+
+On Dec 9, 2020, at 6:53 PM, Wayne Thornton <mailto:wayne at viratrace.us> wrote:
+
+
+
+?
+
+In reference to the original thread created by Pamela, please allow me to address the questions posed.
+
+
+
+First, regarding rationale: Our company is in the business of creating frameworks and software products which facilitate automated contact tracing initiatives across the globe. These frameworks and products must be GDPR- and HIPPA-compliant and have been designed to be such, with strict, ongoing legal review processes undertaken to ensure this. The frameworks and products that we create are designed to be utilized by governmental agencies and private corporations in the creation of applications and platforms which aid in the fight against COVID-19 and future pandemic scenarios. In order for this to be of benefit, the frameworks and software we develop must be open source, so that the governmental agencies and private corporations can be free to utilize them. Unfortunately, due to the legal compliance issues vis-a-vis GDPR and HIPPA, a level of control regarding development must be maintained. It is our position that the GNU and other OSI-approved licenses do not provide this level of control.?
+
+
+
+Regarding the APSL: The APSL as currently approved is considered both an OSI and FSF license. Developers are free to utilize and modify the code without sharing the changes they create. This is wholly incompatible with the compliance issues previously discussed. Because of these issues, ViraTrace MUST have the ability to strictly control the usage and modifications made to the software code, and to undertake actions to revoke usage permissions for those governmental agencies and private corporations who make changes that substantially undermine the legal compliance. Such actions necessarily include the ability to obtain legal injunctions which force the removal of a product utilizing the modified and offending frameworks from the market so long as they use ViraTrace intellectual property. We have therefore modeled the ViraTrace Public Source License on the original APSL v. 1.0 which imposed the very limitations we are seeking to apply to our products.
+
+
+
+As far as usability: The APSL is a license that grants Apple, Inc. the very rights we are seeking to apply to our products. It is our position that this would be considered a vanity, or non-reusable license which only applies to products released by Apple, Inc. This type of license has already been approved in various forms as a non-reusable license As such, we seek to have our license approved for similar reasons.
+
+
+
+Regards,
+
+
+
+Wayne M. Thornton, B.S., CPDT
+Co-Founder & Project Manager
+VIRATRACE?
+720-766-0254 ??Direct
+https://www.viratrace.org/rg
+
+?
+Be sure to join our?https://teams.microsoft.com/join/lw83179ktnqf?channel for updates and to contribute!
+
+This message is intended only for the individual or entity to which it is addressed. It may contain privileged, confidential information which is exempt from disclosure under applicable laws. If you are not the intended recipient, please note that you are strictly prohibited?from disseminating or distributing this information (other than to the intended recipient) or copying this information. If you have received this communication in error, please notify us immediately by e-mail. Thank you.
+
+
+
+
+
+
+
+---- On Wed, 09 Dec 2020 19:19:47 -0700 Kevin P. Fleming <mailto:kevin+osi at km6g.us> wrote ----
+
+
+
+My non-lawyer reading is that this is the AGPL 'on steroids'; if you 
+use the code 'to provide a service' of any form, to anyone, and you 
+have modified the code, you must make the modified code available.  
+On Wed, Dec 9, 2020 at 9:06 PM McCoy Smith <mailto:mccoy at lexpan.law> wrote: 
+> 
+> I?m interested in the statement on legal review: ?NONE? 
+> 
+> I don?t think this is required, but generally recommended. Do you intend at any point to have legal review? 
+> 
+> 
+> 
+> FWIW, this license appears to be based substantially on the FedTax Public Source License: https://dev.taxcloud.net/ftpsl/ (which, AFAIK, has never been reviewed by OSI). 
+> 
+> 
+> 
+> From: License-review <mailto:license-review-bounces at lists.opensource.org> On Behalf Of Pamela Chestek 
+> Sent: Wednesday, December 9, 2020 5:56 PM 
+> To: mailto:license-review at lists.opensource.org; mailto:wayne at viratrace.us 
+> Subject: Re: [License-review] Approval Request - ViraTrace Public Source License 1.0 
+> 
+> 
+> 
+> Hi Wayne, 
+> 
+> Under "Rationale," can you explain what about this license is suited for your business model when other existing licenses aren't? What does it accomplish that no other license does? 
+> 
+> Can you tell us how it differs from the APSL? 
+> 
+> Why is the license category "non-reusable"? That's not a category we are inclined to use for a new license. One of the value of the licenses is that they are reusable, so it would be helpful to understand why your license isn't designed for others to use yet is covers a situation that no other license covers. 
+> 
+> Thanks, 
+> 
+> Pamela Chestek 
+> Chair, License Committee 
+> Open Source Initiative 
+> 
+> On 11/30/2020 5:14 PM, Wayne Thornton wrote: 
+> 
+> Attached is the Plaintext copy of the proposed ViraTrace Public Source License (v 1.0). 
+> 
+> 
+> 
+> 
+> 
+> Rationale: ViraTrace is an independent software development company with proprietary and open source code which may be used commercially by the company. No other license fits our business model closely enough to be of benefit. 
+> 
+> 
+> 
+> Distinguish: This license is very similar in context to the APSL (v 1.0). 
+> 
+> 
+> 
+> Legal Review: NONE 
+> 
+> 
+> 
+> Proliferation Category: Non-Reusable License 
+> 
+> 
+> 
+> 
+> _______________________________________________ 
+> 
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address. 
+> 
+> 
+> 
+> License-review mailing list 
+> 
+> mailto:License-review at lists.opensource.org 
+> 
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org 
+> 
+> 
+> 
+> _______________________________________________ 
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address. 
+> 
+> License-review mailing list 
+> mailto:License-review at lists.opensource.org 
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20201209/8b787655/attachment-0001.html>
+
+From wayne at viratrace.us  Thu Dec 10 03:29:21 2020
+From: wayne at viratrace.us (Wayne Thornton)
+Date: Wed, 09 Dec 2020 20:29:21 -0700
+Subject: [License-review] Approval Request - ViraTrace Public Source License 1.0
+In-Reply-To: <0FFD7CB2-946B-4AF4-9CBD-F03A3F70A6A4@lexpan.law>
+References: <1764a910a39.e14846f8839613.2781088703153336734@viratrace.us> <0FFD7CB2-946B-4AF4-9CBD-F03A3F70A6A4@lexpan.law>
+Message-ID: <1764ab2360b.b8bcf7752763.7097554657715954775@viratrace.us>
+
+We would also point out that although we require developers utilizing our frameworks and software to share modifications for review purposes, we do not sell or have there use profit from these open-source components. We do not merge or otherwise utilize modified code n our products - the requirement that code be shared for review is there to allow us to revoke the licensees use when the modifications undermine GDPR and HIPPA compliance. ?
+
+Regards,
+
+
+
+Wayne M. Thornton, B.S., CPDT
+Co-Founder & Project Manager
+VIRATRACE?
+720-766-0254 ??Direct
+https://www.viratrace.org/rg
+
+?
+Be sure to join our?https://teams.microsoft.com/join/lw83179ktnqf?channel for updates and to contribute!
+
+This message is intended only for the individual or entity to which it is addressed. It may contain privileged, confidential information which is exempt from disclosure under applicable laws. If you are not the intended recipient, please note that you are strictly prohibited?from disseminating or distributing this information (other than to the intended recipient) or copying this information. If you have received this communication in error, please notify us immediately by e-mail. Thank you.
+
+
+
+
+
+---- On Wed, 09 Dec 2020 19:59:06 -0700 McCoy Smith <mccoy at lexpan.law> wrote ----
+
+
+If your submission is a variant on APSL, it might help to point out how it differs (other than changing ?Apple? to ?Virutrace.?)
+
+
+On Dec 9, 2020, at 6:53 PM, Wayne Thornton <mailto:wayne at viratrace.us> wrote:
+
+
+
+?In reference to the original thread created by Pamela, please allow me to address the questions posed.
+
+
+
+First, regarding rationale: Our company is in the business of creating frameworks and software products which facilitate automated contact tracing initiatives across the globe. These frameworks and products must be GDPR- and HIPPA-compliant and have been designed to be such, with strict, ongoing legal review processes undertaken to ensure this. The frameworks and products that we create are designed to be utilized by governmental agencies and private corporations in the creation of applications and platforms which aid in the fight against COVID-19 and future pandemic scenarios. In order for this to be of benefit, the frameworks and software we develop must be open source, so that the governmental agencies and private corporations can be free to utilize them. Unfortunately, due to the legal compliance issues vis-a-vis GDPR and HIPPA, a level of control regarding development must be maintained. It is our position that the GNU and other OSI-approved licenses do not provide this level of control.?
+
+
+
+Regarding the APSL: The APSL as currently approved is considered both an OSI and FSF license. Developers are free to utilize and modify the code without sharing the changes they create. This is wholly incompatible with the compliance issues previously discussed. Because of these issues, ViraTrace MUST have the ability to strictly control the usage and modifications made to the software code, and to undertake actions to revoke usage permissions for those governmental agencies and private corporations who make changes that substantially undermine the legal compliance. Such actions necessarily include the ability to obtain legal injunctions which force the removal of a product utilizing the modified and offending frameworks from the market so long as they use ViraTrace intellectual property. We have therefore modeled the ViraTrace Public Source License on the original APSL v. 1.0 which imposed the very limitations we are seeking to apply to our products.
+
+
+
+As far as usability: The APSL is a license that grants Apple, Inc. the very rights we are seeking to apply to our products. It is our position that this would be considered a vanity, or non-reusable license which only applies to products released by Apple, Inc. This type of license has already been approved in various forms as a non-reusable license As such, we seek to have our license approved for similar reasons.
+
+
+
+Regards,
+
+
+
+Wayne M. Thornton, B.S., CPDT
+Co-Founder & Project Manager
+VIRATRACE?
+720-766-0254 ??Direct
+https://www.viratrace.org/rg
+
+?
+Be sure to join our?https://teams.microsoft.com/join/lw83179ktnqf?channel for updates and to contribute!
+
+This message is intended only for the individual or entity to which it is addressed. It may contain privileged, confidential information which is exempt from disclosure under applicable laws. If you are not the intended recipient, please note that you are strictly prohibited?from disseminating or distributing this information (other than to the intended recipient) or copying this information. If you have received this communication in error, please notify us immediately by e-mail. Thank you.
+
+
+
+
+
+
+
+---- On Wed, 09 Dec 2020 19:19:47 -0700 Kevin P. Fleming <mailto:kevin+osi at km6g.us> wrote ----
+
+
+
+My non-lawyer reading is that this is the AGPL 'on steroids'; if you 
+use the code 'to provide a service' of any form, to anyone, and you 
+have modified the code, you must make the modified code available.  
+On Wed, Dec 9, 2020 at 9:06 PM McCoy Smith <mailto:mccoy at lexpan.law> wrote: 
+> 
+> I?m interested in the statement on legal review: ?NONE? 
+> 
+> I don?t think this is required, but generally recommended. Do you intend at any point to have legal review? 
+> 
+> 
+> 
+> FWIW, this license appears to be based substantially on the FedTax Public Source License: https://dev.taxcloud.net/ftpsl/ (which, AFAIK, has never been reviewed by OSI). 
+> 
+> 
+> 
+> From: License-review <mailto:license-review-bounces at lists.opensource.org> On Behalf Of Pamela Chestek 
+> Sent: Wednesday, December 9, 2020 5:56 PM 
+> To: mailto:license-review at lists.opensource.org; mailto:wayne at viratrace.us 
+> Subject: Re: [License-review] Approval Request - ViraTrace Public Source License 1.0 
+> 
+> 
+> 
+> Hi Wayne, 
+> 
+> Under "Rationale," can you explain what about this license is suited for your business model when other existing licenses aren't? What does it accomplish that no other license does? 
+> 
+> Can you tell us how it differs from the APSL? 
+> 
+> Why is the license category "non-reusable"? That's not a category we are inclined to use for a new license. One of the value of the licenses is that they are reusable, so it would be helpful to understand why your license isn't designed for others to use yet is covers a situation that no other license covers. 
+> 
+> Thanks, 
+> 
+> Pamela Chestek 
+> Chair, License Committee 
+> Open Source Initiative 
+> 
+> On 11/30/2020 5:14 PM, Wayne Thornton wrote: 
+> 
+> Attached is the Plaintext copy of the proposed ViraTrace Public Source License (v 1.0). 
+> 
+> 
+> 
+> 
+> 
+> Rationale: ViraTrace is an independent software development company with proprietary and open source code which may be used commercially by the company. No other license fits our business model closely enough to be of benefit. 
+> 
+> 
+> 
+> Distinguish: This license is very similar in context to the APSL (v 1.0). 
+> 
+> 
+> 
+> Legal Review: NONE 
+> 
+> 
+> 
+> Proliferation Category: Non-Reusable License 
+> 
+> 
+> 
+> 
+> _______________________________________________ 
+> 
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address. 
+> 
+> 
+> 
+> License-review mailing list 
+> 
+> mailto:License-review at lists.opensource.org 
+> 
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org 
+> 
+> 
+> 
+> _______________________________________________ 
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address. 
+> 
+> License-review mailing list 
+> mailto:License-review at lists.opensource.org 
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20201209/0888a0e0/attachment.html>
+
+From mccoy at lexpan.law  Thu Dec 10 04:51:19 2020
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Wed, 9 Dec 2020 20:51:19 -0800
+Subject: [License-review] Approval Request - ViraTrace Public Source License 1.0
+In-Reply-To: <1764ab2360b.b8bcf7752763.7097554657715954775@viratrace.us>
+References: <1764a910a39.e14846f8839613.2781088703153336734@viratrace.us> <0FFD7CB2-946B-4AF4-9CBD-F03A3F70A6A4@lexpan.law> <1764ab2360b.b8bcf7752763.7097554657715954775@viratrace.us>
+Message-ID: <049301d6ceb0$1a729090$4f57b1b0$@lexpan.law>
+
+I did a compare of APSL 2.0 versus the license you submitted for approval. It is attached.
+
+As far as I can tell from this compare, the APSLv2.0 and VPSLv1 licenses are identical, but for changing references from ?Apple? to ?Viratrace.?
+ 
+
+The statements you make below about sharing modifications and license revocation aren?t in the license you submitted for approval. As an aside, some of those statements describe a license that would violate OSD 6.
+ 
+
+Since, if I recall correctly, OSI doesn?t approve mere name-change variants of existing approved licenses, this seems like one that should be rejected, or it should be resubmitted with changes (and I would suggest a compare like the above should be done highlighting what those changes are versus APSLv2.0).
+ 
+
+From: Wayne Thornton <wayne at viratrace.us> 
+Sent: Wednesday, December 9, 2020 7:29 PM
+To: McCoy Smith <mccoy at lexpan.law>
+Cc: Kevin P. Fleming <kevin+osi at km6g.us>; License submissions for OSI review <license-review at lists.opensource.org>
+Subject: Re: [License-review] Approval Request - ViraTrace Public Source License 1.0
+ 
+
+We would also point out that although we require developers utilizing our frameworks and software to share modifications for review purposes, we do not sell or have there use profit from these open-source components. We do not merge or otherwise utilize modified code n our products - the requirement that code be shared for review is there to allow us to revoke the licensees use when the modifications undermine GDPR and HIPPA compliance.  
+ 
+
+Regards,
+ 
+
+Wayne M. Thornton, B.S., CPDT
+Co-Founder & Project Manager
+VIRATRACE?
+720-766-0254 ? Direct
+ <https://www.viratrace.org/> https://www.viratrace.org
+
+
+
+?
+Be sure to join our  <https://teams.microsoft.com/join/lw83179ktnqf> Microsoft Teams channel for updates and to contribute!
+
+This message is intended only for the individual or entity to which it is addressed. It may contain privileged, confidential information which is exempt from disclosure under applicable laws. If you are not the intended recipient, please note that you are strictly prohibited from disseminating or distributing this information (other than to the intended recipient) or copying this information. If you have received this communication in error, please notify us immediately by e-mail. Thank you.
+ 
+ 
+ 
+
+---- On Wed, 09 Dec 2020 19:59:06 -0700 McCoy Smith <mccoy at lexpan.law <mailto:mccoy at lexpan.law> > wrote ----
+ 
+
+If your submission is a variant on APSL, it might help to point out how it differs (other than changing ?Apple? to ?Virutrace.?)
+ 
+
+On Dec 9, 2020, at 6:53 PM, Wayne Thornton <wayne at viratrace.us <mailto:wayne at viratrace.us> > wrote:
+
+?
+
+In reference to the original thread created by Pamela, please allow me to address the questions posed.
+ 
+
+First, regarding rationale: Our company is in the business of creating frameworks and software products which facilitate automated contact tracing initiatives across the globe. These frameworks and products must be GDPR- and HIPPA-compliant and have been designed to be such, with strict, ongoing legal review processes undertaken to ensure this. The frameworks and products that we create are designed to be utilized by governmental agencies and private corporations in the creation of applications and platforms which aid in the fight against COVID-19 and future pandemic scenarios. In order for this to be of benefit, the frameworks and software we develop must be open source, so that the governmental agencies and private corporations can be free to utilize them. Unfortunately, due to the legal compliance issues vis-a-vis GDPR and HIPPA, a level of control regarding development must be maintained. It is our position that the GNU and other OSI-approved licenses do not provide this level of control. 
+ 
+
+Regarding the APSL: The APSL as currently approved is considered both an OSI and FSF license. Developers are free to utilize and modify the code without sharing the changes they create. This is wholly incompatible with the compliance issues previously discussed. Because of these issues, ViraTrace MUST have the ability to strictly control the usage and modifications made to the software code, and to undertake actions to revoke usage permissions for those governmental agencies and private corporations who make changes that substantially undermine the legal compliance. Such actions necessarily include the ability to obtain legal injunctions which force the removal of a product utilizing the modified and offending frameworks from the market so long as they use ViraTrace intellectual property. We have therefore modeled the ViraTrace Public Source License on the original APSL v. 1.0 which imposed the very limitations we are seeking to apply to our products.
+ 
+
+As far as usability: The APSL is a license that grants Apple, Inc. the very rights we are seeking to apply to our products. It is our position that this would be considered a vanity, or non-reusable license which only applies to products released by Apple, Inc. This type of license has already been approved in various forms as a non-reusable license As such, we seek to have our license approved for similar reasons.
+ 
+
+Regards,
+ 
+
+Wayne M. Thornton, B.S., CPDT
+Co-Founder & Project Manager
+VIRATRACE?
+720-766-0254 ? Direct
+ <https://www.viratrace.org/> https://www.viratrace.org
+
+
+
+?
+Be sure to join our  <https://teams.microsoft.com/join/lw83179ktnqf> Microsoft Teams channel for updates and to contribute!
+
+This message is intended only for the individual or entity to which it is addressed. It may contain privileged, confidential information which is exempt from disclosure under applicable laws. If you are not the intended recipient, please note that you are strictly prohibited from disseminating or distributing this information (other than to the intended recipient) or copying this information. If you have received this communication in error, please notify us immediately by e-mail. Thank you.
+ 
+ 
+ 
+
+---- On Wed, 09 Dec 2020 19:19:47 -0700 Kevin P. Fleming <kevin+osi at km6g.us <mailto:kevin+osi at km6g.us> > wrote ----
+ 
+
+My non-lawyer reading is that this is the AGPL 'on steroids'; if you 
+use the code 'to provide a service' of any form, to anyone, and you 
+have modified the code, you must make the modified code available. 
+
+On Wed, Dec 9, 2020 at 9:06 PM McCoy Smith <mccoy at lexpan.law <mailto:mccoy at lexpan.law> > wrote: 
+> 
+> I?m interested in the statement on legal review: ?NONE? 
+> 
+> I don?t think this is required, but generally recommended. Do you intend at any point to have legal review? 
+> 
+> 
+> 
+> FWIW, this license appears to be based substantially on the FedTax Public Source License: https://dev.taxcloud.net/ftpsl/ (which, AFAIK, has never been reviewed by OSI). 
+> 
+> 
+> 
+> From: License-review <license-review-bounces at lists.opensource.org <mailto:license-review-bounces at lists.opensource.org> > On Behalf Of Pamela Chestek 
+> Sent: Wednesday, December 9, 2020 5:56 PM 
+> To: license-review at lists.opensource.org <mailto:license-review at lists.opensource.org> ; wayne at viratrace.us <mailto:wayne at viratrace.us>  
+> Subject: Re: [License-review] Approval Request - ViraTrace Public Source License 1.0 
+> 
