@@ -259,7 +259,7 @@ against this dossier's own records. *"Nearest approved licences"* listed CC0, wh
 named Apache-2.0 as the nearest patent machinery, where the census found three permissive licences with an
 express patent grant (`review-responses.md` §6). *"The incumbents do not attempt"* moral rights was
 false for EUPL, which `submission-reference.md` already quoted against us. **Both had been corrected in the
-reference material and not in the message** — the surface that is read first was the one left stale.
+reference material and not in the message** — the surface that is read first was the one left stale. *(2026-09-27: not entirely — the Apache-2.0 half was still in the reference material's own heading and in the entry page `REVIEWERS.md`; both corrected that day.)*
 
 **And 1,568 the same day, last of the three**, when the OSD affirmation gained **OSD 1 and OSD 7**. The review-process
 page asks for 3, 5, 6 and 9, and those were there; **the archive shows 1 and 7 are the criteria a
