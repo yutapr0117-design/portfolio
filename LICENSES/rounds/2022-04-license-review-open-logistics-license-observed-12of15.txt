@@ -1,0 +1,750 @@
+ 
+
+/Larry
+ 
+
+Lawrence Rosen
+
+707-478-8932
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20221216/562c58dd/attachment.html>
+
+From lrosen at rosenlaw.com  Sat Dec 17 18:24:03 2022
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Sat, 17 Dec 2022 10:24:03 -0800
+Subject: [License-discuss] [License-review] in opposition of 'choice of law' provisions in FOSS licenses (was: For Approval: Open Logistics License v1.2)
+In-Reply-To: <007101d9116d$8f075470$ad15fd50$@rosenlaw.com>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu> <801dd2fc-ed2e-f513-4f56-54cced9eb8b5@chesteklegal.com> <Y5abKjN9zrKTMO7D@ebb.org> <d0597774-8d00-a442-252c-3a665e305900@chesteklegal.com> <Y5dYFGfsRUupJVVH@ebb.org> <e8f58d53-28ed-47cc-b8ca-7d08759c53f2@chesteklegal.com> <9840997c-f9cb-1854-e56c-c18869e3a29e@opensource.org> <68a2c3b9-9ce4-40d6-e91e-4f5688328261@chesteklegal.com> <7700f56a-0348-776a-aad9-a06a8dddadf5@opensource.org> <aa409cf4-dc07-1514-056e-8a109c6a973d@opensource.org> <007101d9116d$8f075470$ad15fd50$@rosenlaw.com>
+Message-ID: <053601d91244$bfbf6d50$3f3e47f0$@rosenlaw.com>
+
+Mike Milinkovich wrote: ?Many lawyers don't like them. In my experience there were lots of lawyers who found the EPL-1.0 USA-centric because of its choice of law provision and avoided it as a result. E.g. why would a German automaker want to contribute code under a license that stipulates US law when they go to great lengths to shield their company from US law? Telling them that the lawsuit could still proceed in a German court did not give them much comfort.?
+ 
+
+Pam and others, 
+
+Does anyone on here believe that omitting a ?choice of law? provision entirely from a software license will necessarily result in the license being sent to the licensee?s jurisdiction for court enforcement? How does that default work? Is it magic?
+ 
+
+/Larry
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20221217/bca433e9/attachment.html>
+
+From pe.schmitz at googlemail.com  Wed Dec 21 10:50:29 2022
+From: pe.schmitz at googlemail.com (Patrice-Emmanuel Schmitz)
+Date: Wed, 21 Dec 2022 11:50:29 +0100
+Subject: [License-discuss] [License-review] in opposition of 'choice of law' provisions in FOSS licenses (was: For Approval: Open Logistics License v1.2)
+In-Reply-To: <053601d91244$bfbf6d50$3f3e47f0$@rosenlaw.com>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu> <801dd2fc-ed2e-f513-4f56-54cced9eb8b5@chesteklegal.com> <Y5abKjN9zrKTMO7D@ebb.org> <d0597774-8d00-a442-252c-3a665e305900@chesteklegal.com> <Y5dYFGfsRUupJVVH@ebb.org> <e8f58d53-28ed-47cc-b8ca-7d08759c53f2@chesteklegal.com> <9840997c-f9cb-1854-e56c-c18869e3a29e@opensource.org> <68a2c3b9-9ce4-40d6-e91e-4f5688328261@chesteklegal.com> <7700f56a-0348-776a-aad9-a06a8dddadf5@opensource.org> <aa409cf4-dc07-1514-056e-8a109c6a973d@opensource.org> <007101d9116d$8f075470$ad15fd50$@rosenlaw.com> <053601d91244$bfbf6d50$3f3e47f0$@rosenlaw.com>
+Message-ID: <CAB4rVPZ8By8sy6s4ifT_o9NvFnAOcVyud2VBnP_O+tBGU5m5qA@mail.gmail.com>
+
+I must tell everyone having serious doubts about the utility of omitting
+(or banning !!!) choice of law clauses.
+Venue (the competent court) is something different and it could be anywhere
+indeed, i.e. in the defendant country, but a clear reference to applicable
+law looks important when the case requests some interpretation.
+In particular, the European Union law (500 million inhabitants and main
+contributor to Open Source) applies software copyright in a specific manner
+concerning moral rights, information due to the public, liability,
+interoperability (= copyright exception on interfaces, invalidating the FSF
+opinion that "linking creates a derivative") and other points.
+I believe that all licenses originated in the EU do have some choice of law
+provision.
+ - CeCILL-2.1 (one of the oldest) refers to French law - D-FSL-1.0 (Written by Axel Metzger and Till Jaeger from the Institute for Legal Questions on Free and Open Source Software - ifrOSS) refers to German law - EUPL-1.2 (currently the most used) refers to "the law of the European Union Member State where the Licensor has his seat, resides or has his registered office" (or Belgian law in other cases, knowing that all EU Member State laws are similar because resulting from the same EU directive).
+
+So any idea of banning choice of law clauses will raise serious issues, at
+least in the EU.
+Best wishes,
+Patrice-Emmanuel
+legal expert - www.joinup.eu
+
+Le sam. 17 d?c. 2022 ? 19:25, Lawrence Rosen <lrosen at rosenlaw.com> a ?crit :
+
+> Mike Milinkovich wrote: ?Many lawyers don't like them. In my experience
+> there were lots of lawyers who found the EPL-1.0 USA-centric because of its
+> choice of law provision and avoided it as a result. E.g. why would a German
+> automaker want to contribute code under a license that stipulates US law
+> when they go to great lengths to shield their company from US law? Telling
+> them that the lawsuit could still proceed in a German court did not give
+> them much comfort.?
+>
+>
+>
+> Pam and others,
+>
+> Does anyone on here believe that omitting a ?choice of law? provision
+> entirely from a software license will necessarily result in the license
+> being sent to the licensee?s jurisdiction for court enforcement? How does
+> that default work? Is it magic?
+>
+>
+>
+> /Larry
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+Patrice-Emmanuel Schmitz
+pe.schmitz at gmail.com
+tel. + 32 478 50 40 65
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20221221/2e091d14/attachment.html>
+
+From forums at david-woolley.me.uk  Wed Dec 21 11:34:31 2022
+From: forums at david-woolley.me.uk (David Woolley)
+Date: Wed, 21 Dec 2022 11:34:31 +0000
+Subject: [License-discuss] [License-review] in opposition of 'choice of law' provisions in FOSS licenses (was: For Approval: Open Logistics License v1.2)
+In-Reply-To: <CAB4rVPZ8By8sy6s4ifT_o9NvFnAOcVyud2VBnP_O+tBGU5m5qA@mail.gmail.com>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu> <801dd2fc-ed2e-f513-4f56-54cced9eb8b5@chesteklegal.com> <Y5abKjN9zrKTMO7D@ebb.org> <d0597774-8d00-a442-252c-3a665e305900@chesteklegal.com> <Y5dYFGfsRUupJVVH@ebb.org> <e8f58d53-28ed-47cc-b8ca-7d08759c53f2@chesteklegal.com> <9840997c-f9cb-1854-e56c-c18869e3a29e@opensource.org> <68a2c3b9-9ce4-40d6-e91e-4f5688328261@chesteklegal.com> <7700f56a-0348-776a-aad9-a06a8dddadf5@opensource.org> <aa409cf4-dc07-1514-056e-8a109c6a973d@opensource.org> <007101d9116d$8f075470$ad15fd50$@rosenlaw.com> <053601d91244$bfbf6d50$3f3e47f0$@rosenlaw.com> <CAB4rVPZ8By8sy6s4ifT_o9NvFnAOcVyud2VBnP_O+tBGU5m5qA@mail.gmail.com>
+Message-ID: <c3cb147b-8587-fc52-a7ee-43c342249cb3@david-woolley.me.uk>
+
+On 21/12/2022 10:50, Patrice-Emmanuel Schmitz via License-discuss wrote:
+> So any idea of banning choice of law clauses will raise serious issues, at
+> least in the EU.
+
+Laws can change.  I wonder if, if choice of law is allowed, whether 
+there should be a requirement to specify the point in time from which 
+those laws should be drawn.
+
+I don't know what the default is, but I suspect it might be the contract 
+date.  Whether contracts exist at all in the supply of Open Source, is 
+an open question, but if they do, I'd suggest that the contract isn't 
+formed by when the software is released, but when it is downloaded, 
+etc., meaning that a later recipient may have different laws applied.
+
+
+From pe.schmitz at googlemail.com  Wed Dec 21 14:47:32 2022
+From: pe.schmitz at googlemail.com (Patrice-Emmanuel Schmitz)
+Date: Wed, 21 Dec 2022 15:47:32 +0100
+Subject: [License-discuss] [License-review] in opposition of 'choice of law' provisions in FOSS licenses (was: For Approval: Open Logistics License v1.2)
+In-Reply-To: <c3cb147b-8587-fc52-a7ee-43c342249cb3@david-woolley.me.uk>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu> <801dd2fc-ed2e-f513-4f56-54cced9eb8b5@chesteklegal.com> <Y5abKjN9zrKTMO7D@ebb.org> <d0597774-8d00-a442-252c-3a665e305900@chesteklegal.com> <Y5dYFGfsRUupJVVH@ebb.org> <e8f58d53-28ed-47cc-b8ca-7d08759c53f2@chesteklegal.com> <9840997c-f9cb-1854-e56c-c18869e3a29e@opensource.org> <68a2c3b9-9ce4-40d6-e91e-4f5688328261@chesteklegal.com> <7700f56a-0348-776a-aad9-a06a8dddadf5@opensource.org> <aa409cf4-dc07-1514-056e-8a109c6a973d@opensource.org> <007101d9116d$8f075470$ad15fd50$@rosenlaw.com> <053601d91244$bfbf6d50$3f3e47f0$@rosenlaw.com> <CAB4rVPZ8By8sy6s4ifT_o9NvFnAOcVyud2VBnP_O+tBGU5m5qA@mail.gmail.com> <c3cb147b-8587-fc52-a7ee-43c342249cb3@david-woolley.me.uk>
+Message-ID: <CAB4rVPYU3vcat1vgwtPZLZZYSCXLnh95z3mfjnqebxAOa-gjDA@mail.gmail.com>
+
+> David Wooley wrote:  "Laws can change..".
+
+Indeed, but note that copyright law is quite remarkably stable. In EU,
+principles were fixed more than 30 years ago by the first Directive
+1991/250/EEC on the legal protection of computer program.
+
+> David Wooley wrote that depending on when the contract was formed
+(downloading date, according to him), "a later recipient may have different
+laws applied".
+
+If this is true, this applies in all circumstances, with or without
+specifying a choice of law. But in fact it is not true: when entering into
+force, new regulations (like, i.e., the GDPR) apply to all running
+contracts, regardless of their date of formation. In addition, in the the
+open source practice, a licence and all of its terms and conditions
+(including choice of law, if any) is accepted by exercising any rights
+granted to the recipient, meaning that the initial downloading date is not
+especially relevant.
+
+
+
+Le mer. 21 d?c. 2022 ? 12:35, David Woolley <forums at david-woolley.me.uk> a
+?crit :
+
+> On 21/12/2022 10:50, Patrice-Emmanuel Schmitz via License-discuss wrote:
+> > So any idea of banning choice of law clauses will raise serious issues,
+> at
+> > least in the EU.
+>
+> Laws can change.  I wonder if, if choice of law is allowed, whether
+> there should be a requirement to specify the point in time from which
+> those laws should be drawn.
+>
+> I don't know what the default is, but I suspect it might be the contract
+> date.  Whether contracts exist at all in the supply of Open Source, is
+> an open question, but if they do, I'd suggest that the contract isn't
+> formed by when the software is released, but when it is downloaded,
+> etc., meaning that a later recipient may have different laws applied.
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+Patrice-Emmanuel Schmitz
+pe.schmitz at gmail.com
+tel. + 32 478 50 40 65
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20221221/7eecaeec/attachment.html>
+
+From forums at david-woolley.me.uk  Wed Dec 21 16:32:20 2022
+From: forums at david-woolley.me.uk (David Woolley)
+Date: Wed, 21 Dec 2022 16:32:20 +0000
+Subject: [License-discuss] [License-review] in opposition of 'choice of law' provisions in FOSS licenses (was: For Approval: Open Logistics License v1.2)
+In-Reply-To: <CAB4rVPYU3vcat1vgwtPZLZZYSCXLnh95z3mfjnqebxAOa-gjDA@mail.gmail.com>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu> <801dd2fc-ed2e-f513-4f56-54cced9eb8b5@chesteklegal.com> <Y5abKjN9zrKTMO7D@ebb.org> <d0597774-8d00-a442-252c-3a665e305900@chesteklegal.com> <Y5dYFGfsRUupJVVH@ebb.org> <e8f58d53-28ed-47cc-b8ca-7d08759c53f2@chesteklegal.com> <9840997c-f9cb-1854-e56c-c18869e3a29e@opensource.org> <68a2c3b9-9ce4-40d6-e91e-4f5688328261@chesteklegal.com> <7700f56a-0348-776a-aad9-a06a8dddadf5@opensource.org> <aa409cf4-dc07-1514-056e-8a109c6a973d@opensource.org> <007101d9116d$8f075470$ad15fd50$@rosenlaw.com> <053601d91244$bfbf6d50$3f3e47f0$@rosenlaw.com> <CAB4rVPZ8By8sy6s4ifT_o9NvFnAOcVyud2VBnP_O+tBGU5m5qA@mail.gmail.com> <c3cb147b-8587-fc52-a7ee-43c342249cb3@david-woolley.me.uk> <CAB4rVPYU3vcat1vgwtPZLZZYSCXLnh95z3mfjnqebxAOa-gjDA@mail.gmail.com>
+Message-ID: <5a5ed3ab-3b15-b75c-48de-20a589fbf7f4@david-woolley.me.uk>
+
+On 21/12/2022 14:47, Patrice-Emmanuel Schmitz via License-discuss wrote:
+> But in fact it is not true: when entering into
+> force, new regulations (like, i.e., the GDPR) apply to all running
+> contracts, regardless of their date of formation. In addition, in the the
+
+But isn't the GDPR closer to criminal law, rather than civil law, i.e. 
+you cannot contract out of it, and it can be enforced by government, or 
+at least quasi-governmental bodies, unrelated to the parties involved.
+
+
+From bruce at perens.com  Thu Dec 22 03:45:48 2022
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 21 Dec 2022 19:45:48 -0800
+Subject: [License-discuss] [License-review] in opposition of 'choice of law' provisions in FOSS licenses (was: For Approval: Open Logistics License v1.2)
+In-Reply-To: <CAC1cPGz_cG_biPLOo83Hn2_XR2kk=UOTb4rdEpBDrcpbOntjxA@mail.gmail.com>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <FRYP281MB0237CA1D3BF506964D57EAF39BE39@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu> <801dd2fc-ed2e-f513-4f56-54cced9eb8b5@chesteklegal.com> <Y5abKjN9zrKTMO7D@ebb.org> <d0597774-8d00-a442-252c-3a665e305900@chesteklegal.com> <Y5dYFGfsRUupJVVH@ebb.org> <e8f58d53-28ed-47cc-b8ca-7d08759c53f2@chesteklegal.com> <9840997c-f9cb-1854-e56c-c18869e3a29e@opensource.org> <87cz8nykvg.fsf_-_@ebb.org> <C7F7080B-A00D-4E99-87CD-999E6F9638A6@wwahammy.com> <Y5ilG2UYXiMffsu2@ebb.org> <CAC1cPGz_cG_biPLOo83Hn2_XR2kk=UOTb4rdEpBDrcpbOntjxA@mail.gmail.com>
+Message-ID: <CAK2MWOv4fkMm=qHewWC586jPt92ypmtgvjhxtU1k38=_SeBrag@mail.gmail.com>
+
+I have seen a reasonably-well-funded United States company use QPL, when it
+had no legal presence in Norway and no attorney admitted to Norway's
+courts. This is another problem with choice of venue. The users don't
+understand it (or just don't look that hard) and commit to something that
+would actually be more expensive than normal for them to enforce.
+
+Yes, it's really simple to you and me. Most folks just have no context for
+it.
+ Thanks
+ Bruce
+
+On Tue, Dec 13, 2022 at 10:10 AM Richard Fontana <rfontana at redhat.com>
+wrote:
+
+> (moving this reply to license-discuss)
+>
+> On Tue, Dec 13, 2022 at 11:41 AM Bradley M. Kuhn <bkuhn at ebb.org> wrote:
+> >
+> > Eric Schultz wrote:
+> > > We already have a number of approved licenses with a choice of law
+> clauses.
+> >
+> > First, is there an approved license that chooses a *specific*, *named*
+> > jurisdiction? (There may be, it's just hard to find if there is, as OSI's
+> > website seems to have no discussion of ?choice of law?, and/or why some
+> > licenses have it and others don't?  Or did I miss it?)  The ?precedents?
+> > mentioned so far in this thread: CDDL (in some ways worse, in some ways
+> > better) has a ?each new project chooses its own jurisdiction?; Mike
+> already
+> > noted that EPL has dropped is ?choice of law? clause; Larry already noted
+> > that his license anchors choice of law to ?Licensor? location.
+>
+> Aside from EPL 1.0 (and I assume its ancestors), probably the most
+> significant one historically is MPL 1.1 and its ancestors (California)
+> and, without checking, I'd assume most or all of its mostly forgotten
+> OSI-approved vanity license derivatives. However, MPL 2.0 says "Any
+> litigation relating to this License may be brought only in the courts
+> of a jurisdiction where the defendant maintains its principal place of
+> business and such litigation shall be governed by laws of that
+> jurisdiction, without reference to its conflict-of-law provisions."
+>
+> There are probably also choice-of-law provisions naming specific
+> jurisdictions in various less significant or otherwise more or less
+> obsolete OSI-approved licenses. For example, the Q Public License has
+> the following choice of law and venue clause: "This license is
+> governed by the Laws of Norway. Disputes shall be settled by Oslo City
+> Court." The variant of the QPL that was formerly used by OCaml (long
+> after Qt stopped using the QPL), Fedora recently discovered, changes
+> this to say "This license is governed by the Laws of France." (SPDX
+> has an open issue to see whether this justifies the need for a new
+> license identifier. While OCaml switched away from the QPL derivative
+> several years ago, OCaml-QPL-licensed source code survives in other
+> projects.)
+>
+> > Second, while you do point out a problem with the OSI process that is
+> indeed
+> > unfair to submitters, the unfairness is baked into OSI's design of this
+> > process.  Specifically, (AFAICT from <https://opensource.org/approval>)
+> there
+> > is *still* no way to appeal decisions of license approval once OSI makes
+> > them.  IOW, there is no appeals or supreme court of OSI license approval
+> > (despite many suggestions, including from past OSI Directors, over the
+> years
+> > that one be created).  There is *just* this process, on this mailing
+> list,
+> > that happens *only* when a license is submitted for approval.  After a
+> > license is approved, it's approved forever, and then it can be used as
+> > precedent forever without any opportunity for reconsideration [0].  OSI
+> > Directors and leadership leave, the reasoning that a given license was
+> > acceptable isn't published, and various terms get grandfathered in
+> without
+> > any justification or treatise published.  The next submitter comes along
+> and
+> > says: ?I should get this clause OSI-approved because this other one is?.
+>
+> These are good criticisms, but just want to note that Pam has done a
+> good job of trying to articulate rationale for approval decisions over
+> the past couple of years.
+>
+> > [0] Admittedly, the license steward can submit to ?delist? their own
+> >     license(s), but the license steward is obviously a biased party.  I
+> also
+> >     note the process as a whole is somewhat biased in another direction:
+> >     toward licenses that have a traditional, single-organizational
+> license
+> >     steward.
+>
+> I've been suggesting that the OSI should have a dis-approval or
+> delisting process, capable of being initiated by someone other than
+> the license steward, for a long time, but the OSI has been pretty
+> resistant to this idea.
+>
+> Richard
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens K6BP
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20221221/f776f5be/attachment.html>
+
+From Janneke.vandeWestelaken at de.bosch.com  Thu Dec 22 16:49:35 2022
+From: Janneke.vandeWestelaken at de.bosch.com (van de Westelaken Janneke (C/LSC-IPL2))
+Date: Thu, 22 Dec 2022 16:49:35 +0000
+Subject: [License-discuss] [License-review] in opposition of 'choice of law' provisions in FOSS licenses (was: For Approval: Open Logistics License v1.2)
+In-Reply-To: <5a5ed3ab-3b15-b75c-48de-20a589fbf7f4@david-woolley.me.uk>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu> <801dd2fc-ed2e-f513-4f56-54cced9eb8b5@chesteklegal.com> <Y5abKjN9zrKTMO7D@ebb.org> <d0597774-8d00-a442-252c-3a665e305900@chesteklegal.com> <Y5dYFGfsRUupJVVH@ebb.org> <e8f58d53-28ed-47cc-b8ca-7d08759c53f2@chesteklegal.com> <9840997c-f9cb-1854-e56c-c18869e3a29e@opensource.org> <68a2c3b9-9ce4-40d6-e91e-4f5688328261@chesteklegal.com> <7700f56a-0348-776a-aad9-a06a8dddadf5@opensource.org> <aa409cf4-dc07-1514-056e-8a109c6a973d@opensource.org> <007101d9116d$8f075470$ad15fd50$@rosenlaw.com> <053601d91244$bfbf6d50$3f3e47f0$@rosenlaw.com> <CAB4rVPZ8By8sy6s4ifT_o9NvFnAOcVyud2VBnP_O+tBGU5m5qA@mail.gmail.com> <c3cb147b-8587-fc52-a7ee-43c342249cb3@david-woolley.me.uk> <CAB4rVPYU3vcat1vgwtPZLZZYSCXLnh95z3mfjnqebxAOa-gjDA@mail.gmail.com> <5a5ed3ab-3b15-b75c-48de-20a589fbf7f4@david-woolley.me.uk>
+Message-ID: <AS4PR10MB5197294E1CC0AA3FD97CA645C4E89@AS4PR10MB5197.EURPRD10.PROD.OUTLOOK.COM>
+
+Dear David,
+____________
+> But in fact it is not true: when entering into force, new regulations 
+> (like, i.e., the GDPR) apply to all running contracts, regardless of 
+> their date of formation. In addition, in the the
+
+But isn't the GDPR closer to criminal law, rather than civil law, i.e. 
+you cannot contract out of it, and it can be enforced by government, or at least quasi-governmental bodies, unrelated to the parties involved.
+___________
+
+I tend to say the GDPR is neither nor, at least in my jurisdiction one would most probably refer to the GDPR as being administrative law, with a different specific set of rules and regulations to obey to in case of disputes.
+
+Mit freundlichen Gr??en / Best regards
+
+Janneke van de Westelaken
+
+Intellectual Property, Contracts and Legal Consulting (C/LSC-IPL2)
+Robert Bosch GmbH | Postfach 30 02 20 | 70442 Stuttgart | GERMANY | www.bosch.com
+Tel. +49 711 811 18503 | Mobil +49 173 7082864 | Telefax +49 711 811 33182 | Janneke.vandeWestelaken at de.bosch.com
+
+Sitz: Stuttgart, Registergericht: Amtsgericht Stuttgart, HRB 14000;
+Aufsichtsratsvorsitzender: Prof. Dr. Stefan Asenkerschbaumer; Gesch?ftsf?hrung: Dr. Stefan Hartung, 
+Dr. Christian Fischer, Filiz Albrecht, Dr. Markus Forschner, Dr. Markus Heyn, Rolf Najork
+
+-----Original Message-----
+From: License-discuss <license-discuss-bounces at lists.opensource.org> On Behalf Of David Woolley
+Sent: Mittwoch, 21. Dezember 2022 17:32
+To: license-discuss at lists.opensource.org
+Subject: Re: [License-discuss] [License-review] in opposition of 'choice of law' provisions in FOSS licenses (was: For Approval: Open Logistics License v1.2)
+
+On 21/12/2022 14:47, Patrice-Emmanuel Schmitz via License-discuss wrote:
+> But in fact it is not true: when entering into force, new regulations 
+> (like, i.e., the GDPR) apply to all running contracts, regardless of 
+> their date of formation. In addition, in the the
+
+But isn't the GDPR closer to criminal law, rather than civil law, i.e. 
+you cannot contract out of it, and it can be enforced by government, or at least quasi-governmental bodies, unrelated to the parties involved.
+
+_______________________________________________
+The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Official statements by the Open Source Initiative will be sent from an opensource.org email address.
+
+License-discuss mailing list
+License-discuss at lists.opensource.org
+https://eur03.safelinks.protection.outlook.com/?url=http%3A%2F%2Flists.opensource.org%2Fmailman%2Flistinfo%2Flicense-discuss_lists.opensource.org&data=05%7C01%7Cjanneke.vandewestelaken%40de.bosch.com%7C5d0a5e9cee8440c771fe08dae378b38e%7C0ae51e1907c84e4bbb6d648ee58410f4%7C0%7C0%7C638072404789346466%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=AYaT7MMZnIEaJ9i8ciFlq4QVzypnqJd9BbEjSQz7Yzk%3D&reserved=0
+
+
+From andreas.nettstraeter at openlogisticsfoundation.org  Fri Dec 23 14:01:24 2022
+From: andreas.nettstraeter at openlogisticsfoundation.org (=?iso-8859-1?Q?Andreas_Nettstr=E4ter?=)
+Date: Fri, 23 Dec 2022 14:01:24 +0000
+Subject: [License-review] For Approval: Open Logistics License v1.2
+In-Reply-To: <80f2dc24-262e-d08f-24c5-a0e11681ce93@chesteklegal.com>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu> <fbb54b90-5110-2f3c-0d40-1dce5391355a@chesteklegal.com> <1340141333.6545939.1671020681645.JavaMail.zimbra@piana.eu> <80f2dc24-262e-d08f-24c5-a0e11681ce93@chesteklegal.com>
+Message-ID: <FRYP281MB02375062C4FFB696052C77EB9BE99@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM>
+
+Dear Pam, dear Carlo,
+
+
+the last bulletpoint of Article 4 was meant to implement an obligation to flow down the obligations of the other bulletpoints of Article 4; if the provision requires modification to make this clear, we can make the respective amendments.
+
+
+How could we formulate it in a better way?
+
+Regards
+Andreas
+
+
+Von: License-review <license-review-bounces at lists.opensource.org> Im Auftrag von Pamela Chestek
+Gesendet: Mittwoch, 14. Dezember 2022 18:05
+An: license-review at lists.opensource.org
+Betreff: Re: [License-review] For Approval: Open Logistics License v1.2
+
+
+On 12/14/2022 4:24 AM, Carlo Piana wrote:
+On 12/5/2022 2:45 PM, Carlo Piana wrote:
+
+You must ensure that the recipients of the Subject Matter of the License or
+
+Derivative Works are obligated to incorporate the provisions of this Section 4
+
+into any license under which they distribute the Subject Matter of the License
+
+or Derivative Works to any other recipients.
+
+
+
+This provision requires the "You" to a legal effect. As a general remark, this is an open ended obligation and IMVHO a bad design decision, since the legal effect depends on many different circumstances outside the control of the "You", including intent, capacity, errors, lack of proper form etc. You can surely include perform an obligation as a condition of the grant, but including a legal effect is to me really really seeking for trouble.
+
+
+Carlo, I'm not following what you're saying. Are you saying that the Licensor has some liability if the user doesn't actually incorporate the provisions of Section 4 into their downstream license?
+
+Sorry Pam, I have written poorly
+
+I meant "This provision requires the "You" to **achieve** a legal effect." The obligation requires that *the recipients** be "obligated".  Here it is more of a guarantee, something that you are liable for and not necessarily control, so the risk  is on you whatever it happens.
+
+Thanks, that's very helpful.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com<mailto:pamela at chesteklegal.com>
+(919) 800-8033
+www.chesteklegal.com<https://deu01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.chesteklegal.com%2F&data=05%7C01%7Candreas.nettstraeter%40openlogisticsfoundation.org%7Cf8d1c3a7b6c3497a1b2008daddf56a24%7Cb346d634acfb42c7bd44f1557ee89b1b%7C1%7C0%7C638066343365425048%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=mkOKR7GkzVnwxG4YgGLoaJWmhUlwqS0dOME0E81Qb9Y%3D&reserved=0>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20221223/1f4c6f91/attachment.html>
+
+From andreas.nettstraeter at openlogisticsfoundation.org  Fri Dec 23 14:05:32 2022
+From: andreas.nettstraeter at openlogisticsfoundation.org (=?utf-8?B?QW5kcmVhcyBOZXR0c3Ryw6R0ZXI=?=)
+Date: Fri, 23 Dec 2022 14:05:32 +0000
+Subject: [License-review] Disclaimer of warranty under German law (was For Approval: Open Logistics License v1.2)
+In-Reply-To: <b7726c1c-7a89-1314-9fb9-2076848062f5@chesteklegal.com>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu> <b7726c1c-7a89-1314-9fb9-2076848062f5@chesteklegal.com>
+Message-ID: <FRYP281MB023765C74EBC90FDF6A72AB89BE99@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM>
+
+Hi Pam,
+
+I?ve got some feedback from our lawyer:
+?In Germany, but also in other EU member states, a provision in general terms and conditions that restricts the rights of the contractual partner "to the extent permitted by law" is invalid. The rationale behind this is that the party using general terms and conditions must inform the contractual partner in a transparent manner of the conditions that apply and the contractual partner cannot be required to check the extent to which a permissible deviation from the statutory rule is possible. Ineffectiveness leads to the law applicable in the absence of a contractual provision being applicable.?
+
+Of course, this do not need to lead to concrete problems and in the end, I guess, it could have the same outcome. But we wanted to make the formulation as unambiguous and explicit as possible.
+
+Regards
+Andreas
+
+
+Von: License-review <license-review-bounces at lists.opensource.org> Im Auftrag von Pamela Chestek
+Gesendet: Sonntag, 11. Dezember 2022 17:24
+An: license-review at lists.opensource.org
+Betreff: [License-review] Disclaimer of warranty under German law (was For Approval: Open Logistics License v1.2)
+
+On 12/5/2022 2:45 PM, Carlo Piana wrote:
+
+
+Rationale:
+
+This new license is intended to represent the rights and obligations of an
+
+established license, such as Apache v2, while respecting the differences
+
+between US and German law. The changes were mainly done in the paragraphs
+
+regarding warranty (limitation of the warranty to comply with legal
+
+requirements) and liability (intent cannot be excluded under German law).
+
+Indeed this is true also under Italian Law and to my understanding a few other laws.
+
+
+I'm just curious. This is true under US law as well. We generally address it in the way that the Apache license does, with something like "Unless required by applicable law or agreed to in writing," any warranty is disclaimed. Why doesn't that work in Germany, and what would be the outcome in Germany if the license didn't expressly exclude intentional or grossly negligent conduct? Is the entire paragraph discarded, and so someone who has a claim for mere negligence has a warranty despite the effort to disclaim it?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com<mailto:pamela at chesteklegal.com>
++1 919-800-8033
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20221223/9b2351d1/attachment-0001.html>
+
+From pamela at chesteklegal.com  Fri Dec 23 17:50:16 2022
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Fri, 23 Dec 2022 09:50:16 -0800
+Subject: [License-review] Disclaimer of warranty under German law (was For Approval: Open Logistics License v1.2)
+In-Reply-To: <FRYP281MB023765C74EBC90FDF6A72AB89BE99@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu> <b7726c1c-7a89-1314-9fb9-2076848062f5@chesteklegal.com> <FRYP281MB023765C74EBC90FDF6A72AB89BE99@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM>
+Message-ID: <aa25dc7e-302b-5d50-85a8-ac277887022a@chesteklegal.com>
+
+Thanks Andreas, that's very helpful.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com
+(919) 800-8033
+www.chesteklegal.com
+
+On 12/23/2022 6:05 AM, Andreas Nettstr?ter wrote:
+>
+> Hi Pam,
+>
+> I?ve got some feedback from our lawyer:
+>
+> ?In Germany, but also in other EU member states, a provision in 
+> general terms and conditions that restricts the rights of the 
+> contractual partner "to the extent permitted by law" is invalid. The 
+> rationale behind this is that the party using general terms and 
+> conditions must inform the contractual partner in a transparent manner 
+> of the conditions that apply and the contractual partner cannot be 
+> required to check the extent to which a permissible deviation from the 
+> statutory rule is possible. Ineffectiveness leads to the law 
+> applicable in the absence of a contractual provision being applicable.?
+>
+> Of course, this do not need to lead to concrete problems and in the 
+> end, I guess, it could have the same outcome. But we wanted to make 
+> the formulation as unambiguous and explicit as possible.
+>
+> Regards
+>
+> Andreas
+>
+> *Von:* License-review <license-review-bounces at lists.opensource.org> 
+> *Im Auftrag von *Pamela Chestek
+> *Gesendet:* Sonntag, 11. Dezember 2022 17:24
+> *An:* license-review at lists.opensource.org
+> *Betreff:* [License-review] Disclaimer of warranty under German law 
+> (was For Approval: Open Logistics License v1.2)
+>
+> On 12/5/2022 2:45 PM, Carlo Piana wrote:
+>
+>         Rationale:
+>
+>         This new license is intended to represent the rights and
+>         obligations of an
+>
+>         established license, such as Apache v2, while respecting the
+>         differences
+>
+>         between US and German law. The changes were mainly done in the
+>         paragraphs
+>
+>         regarding warranty (limitation of the warranty to comply with
+>         legal
+>
+>         requirements) and liability (intent cannot be excluded under
+>         German law).
+>
+>     Indeed this is true also under Italian Law and to my understanding a few other laws.
+>
+> I'm just curious. This is true under US law as well. We generally 
+> address it in the way that the Apache license does, with something 
+> like "Unless required by applicable law or agreed to in writing," any 
+> warranty is disclaimed. Why doesn't that work in Germany, and what 
+> would be the outcome in Germany if the license didn't expressly 
+> exclude intentional or grossly negligent conduct? Is the entire 
+> paragraph discarded, and so someone who has a claim for mere 
+> negligence has a warranty despite the effort to disclaim it?
+>
+> Pam
+>
+> Pamela S. Chestek
+> Chestek Legal
+> PO Box 2492
+> Raleigh, NC 27602
+> pamela at chesteklegal.com
+> +1 919-800-8033
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20221223/abfd73b8/attachment.html>
+
+From josh at berkus.org  Fri Dec 23 22:31:03 2022
+From: josh at berkus.org (Josh Berkus)
+Date: Fri, 23 Dec 2022 14:31:03 -0800
+Subject: [License-review] For Approval: Open Logistics License v1.2
+In-Reply-To: <90724cbc-360b-46d4-b7e0-79eb4d2eb921@chesteklegal.com>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <36575c16-b87a-cc9e-46b8-125f9d1f3cc9@chesteklegal.com> <FRYP281MB0237294CC3358EE5DDE914C29BE09@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <90724cbc-360b-46d4-b7e0-79eb4d2eb921@chesteklegal.com>
+Message-ID: <7eb50be0-be1b-97c7-cf43-d52b87441825@berkus.org>
+
+All,
+
+As before, developer feedback on this license is limited; its entire 
+reason for existance depends on legal interpretation, and I have nothing 
+to contribute to that.
+
+My one request is: from a developer perspective, somewhere this license 
+needs a FAQ that explains in developer (non-lawyer) terms when I would 
+want to use it, in preference to the standard APL, and why.
+
+-- 
+Josh Berkus
+
+
+
+From bkuhn at ebb.org  Fri Dec 23 23:10:11 2022
+From: bkuhn at ebb.org (Bradley M. Kuhn)
+Date: Fri, 23 Dec 2022 15:10:11 -0800
+Subject: [License-review] For Approval: Open Logistics License v1.2
+In-Reply-To: <7eb50be0-be1b-97c7-cf43-d52b87441825@berkus.org>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <36575c16-b87a-cc9e-46b8-125f9d1f3cc9@chesteklegal.com> <FRYP281MB0237294CC3358EE5DDE914C29BE09@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <90724cbc-360b-46d4-b7e0-79eb4d2eb921@chesteklegal.com> <7eb50be0-be1b-97c7-cf43-d52b87441825@berkus.org>
+Message-ID: <Y6Y1U2nVxj1YVgjc@ebb.org>
+
+Josh Berkus wrote:
+> My one request is: from a developer perspective, somewhere this license
+> needs a FAQ that explains in developer (non-lawyer) terms when I would want
+> to use it, in preference to the standard APL, and why.
+
+This is a very good request; I'd like to see that that FAQ as described, too.
+
+If a license submitter cannot make a clear and compelling case as to why
+their license serves a *widespread* need for many different FOSS communities,
+*and* explain how that need is wholly unserved by all existing FOSS licenses ?
+then the license almost surely just a vanity license.
+
+IOW, I believe Open Logistics Foundation when they tell us they need this
+license for their own needs; heck, I even believed MongoDB when they said
+they needed the SS Public License for their own needs.  But both
+organizations aren't held back from promulgating a license; they can do
+that without OSI.  They come to OSI for its endorsement and to build
+their own licensing credibility upon a foundation of OSI's credibility.
+
+OSI-approval should always include the question that Josh is getting at:
+whether the license is in service to a broader FOSS community beyond the
+organization submitting it.  I hope that the OSI Board of Directors considers
+this criterion before it declares a license as OSI-approved.  I'd love
+to see Josh's question answered retroactively for other already-approved
+but-almost-never-used licenses as well.  If the license submitter doesn't
+provide that FAQ, OSI should really write it as part of the approval document.
+ -- bkuhn
+
+
+From carlo at piana.eu  Sat Dec 31 10:27:17 2022
+From: carlo at piana.eu (Carlo Piana)
+Date: Sat, 31 Dec 2022 11:27:17 +0100 (CET)
+Subject: [License-review] For Approval: Open Logistics License v1.2
+In-Reply-To: <FRYP281MB02375062C4FFB696052C77EB9BE99@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu> <fbb54b90-5110-2f3c-0d40-1dce5391355a@chesteklegal.com> <1340141333.6545939.1671020681645.JavaMail.zimbra@piana.eu> <80f2dc24-262e-d08f-24c5-a0e11681ce93@chesteklegal.com> <FRYP281MB02375062C4FFB696052C77EB9BE99@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM>
+Message-ID: <155036857.723453.1672482437939.JavaMail.zimbra@piana.eu>
+
+Andreas, 
+
+definitely not authoritative, but since I am the one who raised the subject, I feel an obligation to provide a potential solution. 
+
+I would not depart from the common practice of requesting that the recipients of distributed software be notified of the legal language in some form, by including the whole text of the license along the distribution, or by making reference to a canonical online resource, and by requesting an appropriate legal notice. There are plenty of examples out there, all remixing the same concepts and language. See e.g. the GNU *GPLv3. 
+
+All the best, 
+
+Carlo 
+
+> Da: "Andreas Nettstr?ter" <andreas.nettstraeter at openlogisticsfoundation.org>
+> A: "License submissions for OSI review" <license-review at lists.opensource.org>
+> Inviato: Venerd?, 23 dicembre 2022 15:01:24
+> Oggetto: Re: [License-review] For Approval: Open Logistics License v1.2
+
+> Dear Pam, dear Carlo,
+
+> the last bulletpoint of Article 4 was meant to implement an obligation to flow
+> down the obligations of the other bulletpoints of Article 4; if the provision
+> requires modification to make this clear, we can make the respective
+> amendments.
+
+> How could we formulate it in a better way?
+
+> Regards
+
+> Andreas
+
+> Von: License-review <license-review-bounces at lists.opensource.org> Im Auftrag von
+> Pamela Chestek
+> Gesendet: Mittwoch, 14. Dezember 2022 18:05
+> An: license-review at lists.opensource.org
+> Betreff: Re: [License-review] For Approval: Open Logistics License v1.2
+
+> On 12/14/2022 4:24 AM, Carlo Piana wrote:
+
+>>> On 12/5/2022 2:45 PM, Carlo Piana wrote:
+
+>>>>> You must ensure that the recipients of the Subject Matter of the License or
+>>>>> Derivative Works are obligated to incorporate the provisions of this Section 4
+>>>>> into any license under which they distribute the Subject Matter of the License
+>>>>> or Derivative Works to any other recipients.
+
+>>>> This provision requires the "You" to a legal effect. As a general remark, this
+>>>> is an open ended obligation and IMVHO a bad design decision, since the legal
+>>>> effect depends on many different circumstances outside the control of the
+>>>> "You", including intent, capacity, errors, lack of proper form etc. You can
+>>>> surely include perform an obligation as a condition of the grant, but including
+>>>> a legal effect is to me really really seeking for trouble.
+
+>>> Carlo, I'm not following what you're saying. Are you saying that the Licensor
+>>> has some liability if the user doesn't actually incorporate the provisions of
+>>> Section 4 into their downstream license?
+
+>> Sorry Pam, I have written poorly
+
+>> I meant "This provision requires the "You" to **achieve** a legal effect." The
+>> obligation requires that *the recipients** be "obligated". Here it is more of a
+>> guarantee, something that you are liable for and not necessarily control, so
+>> the risk is on you whatever it happens.
+
+> Thanks, that's very helpful.
+
+> Pam
+
+> Pamela S. Chestek
+> Chestek Legal
+> PO Box 2492
+> Raleigh, NC 27602
+> [ mailto:pamela at chesteklegal.com | pamela at chesteklegal.com ]
+> (919) 800-8033
+> [
+> https://deu01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.chesteklegal.com%2F&data=05%7C01%7Candreas.nettstraeter%40openlogisticsfoundation.org%7Cf8d1c3a7b6c3497a1b2008daddf56a24%7Cb346d634acfb42c7bd44f1557ee89b1b%7C1%7C0%7C638066343365425048%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=mkOKR7GkzVnwxG4YgGLoaJWmhUlwqS0dOME0E81Qb9Y%3D&reserved=0
+> | www.chesteklegal.com ]

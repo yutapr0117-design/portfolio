@@ -1,0 +1,750 @@
+precedent). 
+
+> -----Original Message-----
+> From: License-review <license-review-bounces at lists.opensource.org> On
+> Behalf Of Bradley M. Kuhn
+> Sent: Sunday, December 11, 2022 9:38 AM
+> To: License submissions for OSI review <license-
+> review at lists.opensource.org>
+> Subject: Re: [License-review] For Approval: Open Logistics License v1.2
+> 
+> Pam and Carlo have made some good legal critiques.  My critiques are
+purely
+> policy-related (IANAL):
+> 
+> Andreas Nettstr?ter wrote:
+> > The Open Logistics License is based on Apache v2 but has been modified
+> > to comply with German law (as a representative for "European" law).
+> 
+> If it really is true that existing FOSS licenses such as ASLv2 (or for
+that matter,
+> copyleft-next or GPL) do not comply with German law, then we should focus
+> our efforts to redraft those licenses and release new versions so that
+they
+> comply with German law.
+> 
+> > Proliferation category:
+> > Our proposal would be: Special purpose license.
+> 
+> What's the special purpose?  Compliance with German Law?  Again, if
+> existing FOSS licenses are determined to *not* comply with German law, we
+> have a huge problem in a major municipality in the world.  If existing
+FOSS
+> licenses *do* comply with German law, then this is pure license
+proliferation.
+> 
+> --
+> Bradley M. Kuhn - he/him
+> 
+> Pls. support the charity where I work, Software Freedom Conservancy:
+> https://sfconservancy.org/supporter/
+> 
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Communication from the
+> Open Source Initiative will be sent from an opensource.org email address.
+> 
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-
+> review_lists.opensource.org
+
+
+
+From bkuhn at ebb.org  Sun Dec 11 18:34:12 2022
+From: bkuhn at ebb.org (Bradley M. Kuhn)
+Date: Sun, 11 Dec 2022 10:34:12 -0800
+Subject: [License-review] For Approval: Open Logistics License v1.2
+In-Reply-To: <01b601d90d8b$6e1cd9a0$4a568ce0$@lexpan.law>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <Y5YVi57Mq2wYPwe2@ebb.org> <01b601d90d8b$6e1cd9a0$4a568ce0$@lexpan.law>
+Message-ID: <Y5YipMgweIPJGuLP@ebb.org>
+
+McCoy Smith wrote:
+> I'm not a German attorney, but it's my understanding that certain
+> warranties or liabilities cannot be disclaimed in German law. This is the
+> same in other law, including the US. The end result of most FOSS licenses
+> is they have the effect of disclaiming whatever under the local law can be
+> disclaimed, but the local law will impose liabilities where they cannot be
+> disclaimed.
+
+Indeed.  This has been an issue regularly discussed about FOSS licenses since
+their inception ? I remember such discussions about this as far back as 1997.
+Of course FOSS licenses can't disclaim what one cannot disclaim in a given
+jurisdiction.  That's why every good FOSS license already tries very hard to
+disclaim the maximum permitted by jurisdiction.  If there is a bug in those
+?get to the maximum disclaimable under this law? text, it should be fixed by
+*modifying those licenses* ? not by proliferating the license set that OSI
+recommends.
+
+> It might be helpful for this discussion if there were some reference to
+> something (statute, case law) that obligates that a disclaimer in Germany
+> be styled in the particular way this license, since it certainly impacts
+> the enforcement of FOSS licenses in Germany (for which there is quite a bit
+> of precedent).
+
+? which, again, if such evidence existed, it would mean we should redraft all
+FOSS licenses so they work better in Germany.  A special purpose license to
+address such an issue is pure license proliferation.
+
+In addition to what McCoy asks for, I'd ask for a specific analysis of what
+harm can be caused to an individual user, consumer, or contributor if they
+can't disclaim a particular warranty in Germany under existing FOSS licenses,
+and specifically how this draft corrects that harm.
+
+Relatedly, it seems to me that ? even *if* in Germany there is a slight
+increase in the amount of warranties that for-profit operators in FOSS can't
+disclaim under existing FOSS licenses, then it's not much of a tragedy, as
+long as individual users, consumers and/or contributors are not impacted.
+
+It's worth noting in this regard that the push toward maximal warranty
+disclaimer in copyleft licenses ? historically speaking ? had only two goals
+(a) to make sure individual contributors didn't take on liability they
+couldn't handle, and (b) to encourage adoption by for-profit companies of
+projects that had such individual contributions.  We don't have any problem
+in FOSS with (b): companies continue to adopt FOSS in record numbers.
+
+Thus, if the (a) can't be show to be a problem in Germany in some real,
+non-hypothetical terms, I think this proposal is a waste of time.  If (a) is
+shown to be a serious problem in Germany, we need to launch a wide-reaching
+redraft of all disclaimer clauses in all FOSS licenses ? right away.
+ *  * *
+
+Side point: if this Germany warranty disclaimer thing is the primary impetus
+of this license, why is the name ?Open Logistics License??  Why not call it
+what it is intended to be: ?Extra Warranty Disclaimer for Germany License??
+What part of the license has to do with opening the logistics of a project?
+--
+Bradley M. Kuhn - he/him
+
+Pls. support the charity where I work, Software Freedom Conservancy:
+https://sfconservancy.org/supporter/
+
+
+From tg at mirbsd.de  Sun Dec 11 21:24:42 2022
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Sun, 11 Dec 2022 21:24:42 +0000 (UTC)
+Subject: [License-review] For Approval: Open Logistics License v1.2
+In-Reply-To: <01b601d90d8b$6e1cd9a0$4a568ce0$@lexpan.law>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <Y5YVi57Mq2wYPwe2@ebb.org> <01b601d90d8b$6e1cd9a0$4a568ce0$@lexpan.law>
+Message-ID: <Pine.BSM.4.64L.2212112114500.26454@herc.mirbsd.org>
+
+McCoy Smith dixit:
+
+>This is what Andreas said back in May:
+[?]
+
+IANAL but this is what I?ve always heard as well.
+
+>law, including the US. The end result of most FOSS licenses is they have the
+>effect of disclaiming whatever under the local law can be disclaimed, but
+>the local law will impose liabilities where they cannot be disclaimed.
+
+AIUI, the problem is that trying to disclaim ?everything? may result
+in broad ?product liability? applying for ?consumer protection?, and
+not in disclaiming the minimum possible. I?m not sure whether simple
+?gifting? licences may be endangered like this, but those that pose
+conditions on licensees, e.g. copyleft licences, may very well be.
+(I?d love for an actual German lawyer to provide ?official? rulings.)
+
+This is the reason licences originating from here and people who write
+code here tend to try to not explicitly, or explicitly not, disclaim
+intent and gross negligence. Foreign licences on code by foreigners
+tends to be interpreted favourably (i.e. matching licensor?s intent)?
+but then, courts are known to do odd weird rulings, so we better be
+careful. As n?n-foreigners, we may be expected to know more about this
+(or at least those acting commercially may be???although for several
+purposes even a private homepage can be considered commercial, so?)
+
+bye,
+//mirabilos
+-- 
+I believe no one can invent an algorithm. One just happens to hit upon it
+when God enlightens him. Or only God invents algorithms, we merely copy them.
+If you don't believe in God, just consider God as Nature if you won't deny
+existence.		-- Coywolf Qi Hunt
+
+
+From pamela at chesteklegal.com  Mon Dec 12 02:18:23 2022
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sun, 11 Dec 2022 18:18:23 -0800
+Subject: [License-review] For Approval: Open Logistics License v1.2
+In-Reply-To: <01b601d90d8b$6e1cd9a0$4a568ce0$@lexpan.law>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <Y5YVi57Mq2wYPwe2@ebb.org> <01b601d90d8b$6e1cd9a0$4a568ce0$@lexpan.law>
+Message-ID: <eb6e0eeb-7f71-c8de-65e8-75862090960e@chesteklegal.com>
+
+This is the language from the submitted license: "Except in cases of 
+intentional and grossly negligent conduct, ..."
+
+This is the language from the EUPL: "Except in the cases of wilful 
+misconduct or damages directly caused to natural persons, ...."
+
+They are different and I would expect that the EUPL tried to be as 
+universal as possible. Perhaps it doesn't matter since this license is 
+to be construed under German law, and this standard is (I assume) 
+correct under German law.
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com
++1 919-800-8033
+
+On 12/11/2022 1:07 PM, McCoy Smith wrote:
+> This is what Andreas said back in May:
+>
+> "According to German law, one can only deviate from or limit liability to a
+> very limited extent by means of general terms and conditions. Assuming that
+> open source software is handed over as a gift, we fortunately no longer have
+> comprehensive liability for simple negligence, but "only" the liability
+> specified in the licence (under German laws). However, it is not possible to
+> further deviate from this liability in favour of the potentially liable
+> party."
+>
+> https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2
+> 022-May/005256.html
+>
+> I'm not a German attorney, but it's my understanding that certain warranties
+> or liabilities cannot be disclaimed in German law. This is the same in other
+> law, including the US. The end result of most FOSS licenses is they have the
+> effect of disclaiming whatever under the local law can be disclaimed, but
+> the local law will impose liabilities where they cannot be disclaimed.
+>
+> It might be helpful for this discussion if there were some reference to
+> something (statute, case law) that obligates that a disclaimer in Germany be
+> styled in the particular way this license, since it certainly impacts the
+> enforcement of FOSS licenses in Germany (for which there is quite a bit of
+> precedent).
+>
+>> -----Original Message-----
+>> From: License-review <license-review-bounces at lists.opensource.org> On
+>> Behalf Of Bradley M. Kuhn
+>> Sent: Sunday, December 11, 2022 9:38 AM
+>> To: License submissions for OSI review <license-
+>> review at lists.opensource.org>
+>> Subject: Re: [License-review] For Approval: Open Logistics License v1.2
+>>
+>> Pam and Carlo have made some good legal critiques.  My critiques are
+> purely
+>> policy-related (IANAL):
+>>
+>> Andreas Nettstr?ter wrote:
+>>> The Open Logistics License is based on Apache v2 but has been modified
+>>> to comply with German law (as a representative for "European" law).
+>> If it really is true that existing FOSS licenses such as ASLv2 (or for
+> that matter,
+>> copyleft-next or GPL) do not comply with German law, then we should focus
+>> our efforts to redraft those licenses and release new versions so that
+> they
+>> comply with German law.
+>>
+>>> Proliferation category:
+>>> Our proposal would be: Special purpose license.
+>> What's the special purpose?  Compliance with German Law?  Again, if
+>> existing FOSS licenses are determined to *not* comply with German law, we
+>> have a huge problem in a major municipality in the world.  If existing
+> FOSS
+>> licenses *do* comply with German law, then this is pure license
+> proliferation.
+>> --
+>> Bradley M. Kuhn - he/him
+>>
+>> Pls. support the charity where I work, Software Freedom Conservancy:
+>> https://sfconservancy.org/supporter/
+>>
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not
+>> necessarily those of the Open Source Initiative. Communication from the
+>> Open Source Initiative will be sent from an opensource.org email address.
+>>
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-
+>> review_lists.opensource.org
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+
+From pamela at chesteklegal.com  Mon Dec 12 02:25:32 2022
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sun, 11 Dec 2022 18:25:32 -0800
+Subject: [License-review] For Approval: Open Logistics License v1.2
+In-Reply-To: <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu>
+Message-ID: <801dd2fc-ed2e-f513-4f56-54cced9eb8b5@chesteklegal.com>
+
+
+On 12/5/2022 2:45 PM, Carlo Piana wrote:
+> The choice to include a choice-of-law provision is really a no-go for me personally. What if someone would change it from Germany to France? And someone else to Japan? What would the applicable law be? Would it be possible or impossible? In case it was impossible, you will have unnecessary friction (and quasi-copyleft), in case it was possible, you will not be better off than without a choice-of-law
+Someone recently persuaded me that a choice of law provision is 
+beneficial to the extent it provides certainty. Without it, you have no 
+idea what law might apply and therefore no way to evaluate the risk.
+
+What do you mean by changing it? Within the same code base, so that some 
+of it is under German law and some of it under Japanese law? Is that a 
+higher risk problem than someone using a different license altogether?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com
++1 919-800-8033
+
+
+From tg at mirbsd.de  Mon Dec 12 02:46:12 2022
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Mon, 12 Dec 2022 02:46:12 +0000 (UTC)
+Subject: [License-review] For Approval: Open Logistics License v1.2
+In-Reply-To: <801dd2fc-ed2e-f513-4f56-54cced9eb8b5@chesteklegal.com>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu> <801dd2fc-ed2e-f513-4f56-54cced9eb8b5@chesteklegal.com>
+Message-ID: <Pine.BSM.4.64L.2212120239400.8085@herc.mirbsd.org>
+
+Pamela Chestek dixit:
+
+> This is the language from the submitted license: "Except in cases of
+> intentional and grossly negligent conduct, ..."
+>
+> This is the language from the EUPL: "Except in the cases of wilful
+> misconduct or damages directly caused to natural persons, ...."
+>
+> They are different
+
+Both sound to my na?ve ears like translations of what we?d use in
+German to English using the closest words we could find with certain
+concepts in mind. I?ve heard both the intentional and the damages
+directly done to natural persons variants? probably 15+ years ago,
+I think. I wonder whether the EU has official terms for things like
+that?
+
+> On 12/5/2022 2:45 PM, Carlo Piana wrote:
+>> The choice to include a choice-of-law provision is really a no-go for me
+[?]
+> Someone recently persuaded me that a choice of law provision is beneficial to
+> the extent it provides certainty. Without it, you have no idea what law might
+> apply and therefore no way to evaluate the risk.
+
+This is something that will appeal to companies. However, in
+general business with end users, consumer protection normally
+says that the law to be used is that of the end user, if it?s
+not B2B anyway. Isn?t this kinda the same with the licences?
+Whom does OSI wish to protect more, considering both sides may
+be either private individuals or big companies? (no weighing
+from my side, just providing food for thought).
+
+And isn?t the Berne Convention already making the country of
+the *recipient* of the licence the binding one anyway? AIUI,
+it states that a work from country A does receive the same
+protections in country B as a native B?s work enjoys. So, for
+licences (as opposed to business contracts), this probably is
+already specified?
+
+Still IANAL, but I probably should goto bed;
+//mirabilos
+--  ?Having a smoking section in a restaurant is like having a peeing section in a swimming pool.? -- Edward Burr
+
+
+From bkuhn at ebb.org  Mon Dec 12 03:08:26 2022
+From: bkuhn at ebb.org (Bradley M. Kuhn)
+Date: Sun, 11 Dec 2022 19:08:26 -0800
+Subject: [License-review] For Approval: Open Logistics License v1.2
+In-Reply-To: <801dd2fc-ed2e-f513-4f56-54cced9eb8b5@chesteklegal.com>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu> <801dd2fc-ed2e-f513-4f56-54cced9eb8b5@chesteklegal.com>
+Message-ID: <Y5abKjN9zrKTMO7D@ebb.org>
+
+Pamela Chestek wrote:
+> Someone recently persuaded me that a choice of law provision is beneficial
+> to the extent it provides certainty. Without it, you have no idea what law
+> might apply and therefore no way to evaluate the risk.
+
+Choice of law clauses have always tempted FOSS license drafters.  Good FOSS
+license drafters resist the temptation ? knowing that it'll cause more
+trouble than help.  It's actually a shame (IMO) that OSI considers any
+?choice of law? clause acceptable at all in FOSS licenses.
+
+Thorsten Glaser wrote:
+>> However, in
+>> general business with end users, consumer protection normally
+>> says that the law to be used is that of the end user, if it?s
+>> not B2B anyway. Isn?t this kinda the same with the licences?
+>> Whom does OSI wish to protect more, considering both sides may
+>> be either private individuals or big companies?
+
+A ?choice of law? clause is frankly an unbelievably easy way to disrupt
+egalitarian FOSS license enforcement around the world, be it by consumers
+or anyone else.  Original licensors and/or license drafters shouldn't have
+that kind of power in the FOSS community.  It's a pity the FOSS licensing
+community didn't start saying earlier that choice of law was a non-starter.
+We'd have been saved from the disaster of Oracle's CDDL, among other
+bad licenses.
+ -- bkuhn
+
+
+From matija at suklje.name  Mon Dec 12 12:34:35 2022
+From: matija at suklje.name (Matija =?utf-8?B?xaB1a2xqZQ==?=)
+Date: Mon, 12 Dec 2022 13:34:35 +0100
+Subject: [License-review] For Approval: Open Logistics License v1.2
+In-Reply-To: <01b601d90d8b$6e1cd9a0$4a568ce0$@lexpan.law>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <Y5YVi57Mq2wYPwe2@ebb.org> <01b601d90d8b$6e1cd9a0$4a568ce0$@lexpan.law>
+Message-ID: <4895046.GXAFRqVoOG@hermes>
+
+Dne nedelja, 11. december 2022 ob 19:07:27 CET je McCoy Smith napisal(a):
+> It might be helpful for this discussion if there were some reference to
+> something (statute, case law) that obligates that a disclaimer in Germany be
+> styled in the particular way this license, since it certainly impacts the
+> enforcement of FOSS licenses in Germany (for which there is quite a bit of
+> precedent).
+
+It?s not been updated in quite some time, but this might be a good start:
+https://github.com/IFOSSLawBook/ifosslawbook/blob/master/src/50-Germany.markdown#waiver-and-liability
+
+
+cheers,
+Matija
+-- 
+gsm:	tel:+386.41.849.552
+www:	https://matija.suklje.name
+xmpp:	matija.suklje at gabbler.org
+matrix:	@silverhook:matrix.org
+
+
+
+
+From pamela at chesteklegal.com  Mon Dec 12 16:15:51 2022
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Mon, 12 Dec 2022 08:15:51 -0800
+Subject: [License-review] For Approval: Open Logistics License v1.2
+In-Reply-To: <Y5abKjN9zrKTMO7D@ebb.org>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu> <801dd2fc-ed2e-f513-4f56-54cced9eb8b5@chesteklegal.com> <Y5abKjN9zrKTMO7D@ebb.org>
+Message-ID: <d0597774-8d00-a442-252c-3a665e305900@chesteklegal.com>
+
+
+On 12/11/2022 7:08 PM, Bradley M. Kuhn wrote:
+> Pamela Chestek wrote:
+>> Someone recently persuaded me that a choice of law provision is beneficial
+>> to the extent it provides certainty. Without it, you have no idea what law
+>> might apply and therefore no way to evaluate the risk.
+> Choice of law clauses have always tempted FOSS license drafters.  Good FOSS
+> license drafters resist the temptation ? knowing that it'll cause more
+> trouble than help.  It's actually a shame (IMO) that OSI considers any
+> ?choice of law? clause acceptable at all in FOSS licenses.
+How?
+>
+> Thorsten Glaser wrote:
+>>> However, in
+>>> general business with end users, consumer protection normally
+>>> says that the law to be used is that of the end user, if it?s
+>>> not B2B anyway. Isn?t this kinda the same with the licences?
+>>> Whom does OSI wish to protect more, considering both sides may
+>>> be either private individuals or big companies?
+> A ?choice of law? clause is frankly an unbelievably easy way to disrupt
+> egalitarian FOSS license enforcement around the world, be it by consumers
+> or anyone else.  Original licensors and/or license drafters shouldn't have
+> that kind of power in the FOSS community.  It's a pity the FOSS licensing
+> community didn't start saying earlier that choice of law was a non-starter.
+> We'd have been saved from the disaster of Oracle's CDDL, among other
+> bad licenses.
+How?
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com
+(919) 800-8033
+www.chesteklegal.com
+
+
+From bkuhn at ebb.org  Mon Dec 12 16:34:28 2022
+From: bkuhn at ebb.org (Bradley M. Kuhn)
+Date: Mon, 12 Dec 2022 08:34:28 -0800
+Subject: [License-review] For Approval: Open Logistics License v1.2
+In-Reply-To: <d0597774-8d00-a442-252c-3a665e305900@chesteklegal.com>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu> <801dd2fc-ed2e-f513-4f56-54cced9eb8b5@chesteklegal.com> <Y5abKjN9zrKTMO7D@ebb.org> <d0597774-8d00-a442-252c-3a665e305900@chesteklegal.com>
+Message-ID: <Y5dYFGfsRUupJVVH@ebb.org>
+
+> > Pamela Chestek wrote:
+> > > Someone recently persuaded me that a choice of law provision is beneficial
+> > > to the extent it provides certainty. Without it, you have no idea what law
+> > > might apply and therefore no way to evaluate the risk.
+
+I replied:
+> > Choice of law clauses have always tempted FOSS license drafters.  Good
+> > FOSS license drafters resist the temptation ? knowing that it'll cause
+> > more trouble than help.
+
+Pam asked:
+> How?
+
+IMO, it's pretty obvious.  If I want to enforce a license with a choice of
+law clause, *either* I end up asking a court in one jurisdiction to
+understand the laws of a foreign jurisdiction (i.e., a USA Court trying to
+interpret the laws of Germany, in the case of the so-called ?Open Logistics
+License?), or I have to take action in that jurisdiction, not my own.
+
+This kind of cross jurisdictional mess may be just ?another day at the
+office? for lawyers, but for individuals who aren't lawyers, this is a
+daunting and confusing proposition.  FOSS licenses are for the people,
+not for the lawyers.
+
+Also, if the laws (or precedents) of that jurisdiction change in a way that
+is not friendly to FOSS, it locks all FOSS under that license into a bad
+legal regime.  This reason was one of the many reasons why copyleft license
+drafters have historically rejected choice of law.  Copyleft never wants all
+its eggs in a single jurisdictional basket.
+ * * *
+
+CDDL, of course, had a choice of law (in part) to force it to be
+incompatible with all FOSS licenses that didn't have them.  Certain
+incompatibility with the GPL is now known to have been a planned design
+goal of the CDDL.  Is that also a design goal of the Open Logistics
+License, one wonders?
+ -- bkuhn
+
+
+From pamela at chesteklegal.com  Mon Dec 12 19:35:34 2022
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Mon, 12 Dec 2022 11:35:34 -0800
+Subject: [License-review] For Approval: Open Logistics License v1.2
+In-Reply-To: <Y5dYFGfsRUupJVVH@ebb.org>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu> <801dd2fc-ed2e-f513-4f56-54cced9eb8b5@chesteklegal.com> <Y5abKjN9zrKTMO7D@ebb.org> <d0597774-8d00-a442-252c-3a665e305900@chesteklegal.com> <Y5dYFGfsRUupJVVH@ebb.org>
+Message-ID: <e8f58d53-28ed-47cc-b8ca-7d08759c53f2@chesteklegal.com>
+
+On 12/12/2022 8:34 AM, Bradley M. Kuhn wrote:
+>>> Pamela Chestek wrote:
+>>>> Someone recently persuaded me that a choice of law provision is beneficial
+>>>> to the extent it provides certainty. Without it, you have no idea what law
+>>>> might apply and therefore no way to evaluate the risk.
+> I replied:
+>>> Choice of law clauses have always tempted FOSS license drafters.  Good
+>>> FOSS license drafters resist the temptation ? knowing that it'll cause
+>>> more trouble than help.
+> Pam asked:
+>> How?
+> IMO, it's pretty obvious.  If I want to enforce a license with a choice of
+> law clause, *either* I end up asking a court in one jurisdiction to
+> understand the laws of a foreign jurisdiction (i.e., a USA Court trying to
+> interpret the laws of Germany, in the case of the so-called ?Open Logistics
+> License?), or I have to take action in that jurisdiction, not my own.
+You're confusing two things, choice of law and venue/jurisdiction. I am 
+only speaking of the former. As to the former, it is not infrequent that 
+US courts decide matters under foreign law, and very common in a similar 
+situation, decided a case under a different state's laws. For foreign 
+law, typically the parties provide dueling experts on what the foreign 
+law is. I understand that the same happens in other countries. It's not 
+that hard.
+>
+> This kind of cross jurisdictional mess may be just ?another day at the
+> office? for lawyers, but for individuals who aren't lawyers, this is a
+> daunting and confusing proposition.  FOSS licenses are for the people,
+> not for the lawyers.
+Somehow it's better to not have a clue what law would be applied than to 
+have something you could go look up? Or are you saying that we should 
+avoid covering important topics in licenses because non-lawyers might 
+not care about it or they're not bright enough to understand? It is 
+indeed another day at the office for lawyers, we take care of the 
+details that our non-lawyer clients may not be aware of or think about 
+but that are important.
+> Also, if the laws (or precedents) of that jurisdiction change in a way that
+> is not friendly to FOSS, it locks all FOSS under that license into a bad
+> legal regime.  This reason was one of the many reasons why copyleft license
+> drafters have historically rejected choice of law.  Copyleft never wants all
+> its eggs in a single jurisdictional basket.
+Or, you could have locked into a jurisdiction because of its 
+Constitutionally based protections, like the First Amendment. You also 
+seem to assume that one can shop around for a favorable jurisdiction, 
+but it's not that easy. You have to have jurisdiction over the person, 
+which will limit your choices. And you therefore may be limited to 
+jurisdictions that have less favorable laws.
+
+What might happen under an unstated choice of law is a spin of the 
+roulette wheel. You seem to prefer uncertainty to certainty but others 
+may prefer certainty.
+>
+>   * * *
+>
+> CDDL, of course, had a choice of law (in part) to force it to be
+> incompatible with all FOSS licenses that didn't have them.  Certain
+> incompatibility with the GPL is now known to have been a planned design
+> goal of the CDDL.  Is that also a design goal of the Open Logistics
+> License, one wonders?
+It's quite a surprise to me that the CDDL is incompatible with all FOSS 
+licenses that don't have a choice of law provision. You can't blend CDDL 
+and MIT? Or do you mean just the GPL licenses? If one wants to create an 
+incompatibility with the GPL licenses you're limited only by creativity. 
+You're blaming the tool, which might be a good tool when used for its 
+intended purposes.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com
+(919) 800-8033
+www.chesteklegal.com
+
+
+From tg at mirbsd.de  Mon Dec 12 20:14:00 2022
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Mon, 12 Dec 2022 20:14:00 +0000 (UTC)
+Subject: [License-review] For Approval: Open Logistics License v1.2
+In-Reply-To: <4895046.GXAFRqVoOG@hermes>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <Y5YVi57Mq2wYPwe2@ebb.org> <01b601d90d8b$6e1cd9a0$4a568ce0$@lexpan.law> <4895046.GXAFRqVoOG@hermes>
+Message-ID: <Pine.BSM.4.64L.2212122013360.17791@herc.mirbsd.org>
+
+Matija ?uklje dixit:
+
+>It?s not been updated in quite some time, but this might be a good start:
+>https://github.com/IFOSSLawBook/ifosslawbook/blob/master/src/50-Germany.markdown#waiver-and-liability
+
+It is, and the authors are renowned. Thank you!
+
+bye,
+//mirabilos
+-- 
+I believe no one can invent an algorithm. One just happens to hit upon it
+when God enlightens him. Or only God invents algorithms, we merely copy them.
+If you don't believe in God, just consider God as Nature if you won't deny
+existence.		-- Coywolf Qi Hunt
+
+
+From mike.milinkovich at opensource.org  Mon Dec 12 22:01:10 2022
+From: mike.milinkovich at opensource.org (Mike Milinkovich)
+Date: Mon, 12 Dec 2022 17:01:10 -0500
+Subject: [License-review] For Approval: Open Logistics License v1.2
+In-Reply-To: <e8f58d53-28ed-47cc-b8ca-7d08759c53f2@chesteklegal.com>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu> <801dd2fc-ed2e-f513-4f56-54cced9eb8b5@chesteklegal.com> <Y5abKjN9zrKTMO7D@ebb.org> <d0597774-8d00-a442-252c-3a665e305900@chesteklegal.com> <Y5dYFGfsRUupJVVH@ebb.org> <e8f58d53-28ed-47cc-b8ca-7d08759c53f2@chesteklegal.com>
+Message-ID: <9840997c-f9cb-1854-e56c-c18869e3a29e@opensource.org>
+
+Pam,
+
+Just to pipe in as a practitioner, not a lawyer. One of the major 
+differences between EPL-1.0 and EPL-2.0 was the removal of the license's 
+choice of law provision. We spent something like 15 years arguing that 
+the certainty provided by the choice of law provision was valuable. I 
+don't remember winning that argument once in all that time. In my 
+experience, both adopters and contributors viewed the choice of law as a 
+negative.
+
+I would also add that if you sort open source licenses by usage you will 
+find that something like 95%++ of all free and open source software is 
+currently made available under licenses which do not have a choice of 
+law provision. So as a purely practical matter I consider this debate 
+settled in favor of do not have a choice of law provision.
+
+On 2022-12-12 2:35 p.m., Pamela Chestek wrote:
+> On 12/12/2022 8:34 AM, Bradley M. Kuhn wrote:
+>>>> Pamela Chestek wrote:
+>>>>> Someone recently persuaded me that a choice of law provision is 
+>>>>> beneficial
+>>>>> to the extent it provides certainty. Without it, you have no idea 
+>>>>> what law
+>>>>> might apply and therefore no way to evaluate the risk.
+>> I replied:
+>>>> Choice of law clauses have always tempted FOSS license drafters.? Good
+>>>> FOSS license drafters resist the temptation ? knowing that it'll cause
+>>>> more trouble than help.
+>> Pam asked:
+>>> How?
+>> IMO, it's pretty obvious.? If I want to enforce a license with a 
+>> choice of
+>> law clause, *either* I end up asking a court in one jurisdiction to
+>> understand the laws of a foreign jurisdiction (i.e., a USA Court 
+>> trying to
+>> interpret the laws of Germany, in the case of the so-called ?Open 
+>> Logistics
+>> License?), or I have to take action in that jurisdiction, not my own.
+> You're confusing two things, choice of law and venue/jurisdiction. I 
+> am only speaking of the former. As to the former, it is not infrequent 
+> that US courts decide matters under foreign law, and very common in a 
+> similar situation, decided a case under a different state's laws. For 
+> foreign law, typically the parties provide dueling experts on what the 
+> foreign law is. I understand that the same happens in other countries. 
+> It's not that hard.
+>>
+>> This kind of cross jurisdictional mess may be just ?another day at the
+>> office? for lawyers, but for individuals who aren't lawyers, this is a
+>> daunting and confusing proposition.? FOSS licenses are for the people,
+>> not for the lawyers.
+> Somehow it's better to not have a clue what law would be applied than 
+> to have something you could go look up? Or are you saying that we 
+> should avoid covering important topics in licenses because non-lawyers 
+> might not care about it or they're not bright enough to understand? It 
+> is indeed another day at the office for lawyers, we take care of the 
+> details that our non-lawyer clients may not be aware of or think about 
+> but that are important.
+>> Also, if the laws (or precedents) of that jurisdiction change in a 
+>> way that
+>> is not friendly to FOSS, it locks all FOSS under that license into a bad
+>> legal regime.? This reason was one of the many reasons why copyleft 
+>> license
+>> drafters have historically rejected choice of law.? Copyleft never 
+>> wants all
+>> its eggs in a single jurisdictional basket.
+> Or, you could have locked into a jurisdiction because of its 
+> Constitutionally based protections, like the First Amendment. You also 
+> seem to assume that one can shop around for a favorable jurisdiction, 
+> but it's not that easy. You have to have jurisdiction over the person, 
+> which will limit your choices. And you therefore may be limited to 
+> jurisdictions that have less favorable laws.
+>
+> What might happen under an unstated choice of law is a spin of the 
+> roulette wheel. You seem to prefer uncertainty to certainty but others 
+> may prefer certainty.
+>>
+>> ? * * *
+>>
+>> CDDL, of course, had a choice of law (in part) to force it to be
+>> incompatible with all FOSS licenses that didn't have them. Certain
+>> incompatibility with the GPL is now known to have been a planned design
+>> goal of the CDDL.? Is that also a design goal of the Open Logistics
+>> License, one wonders?
+> It's quite a surprise to me that the CDDL is incompatible with all 
+> FOSS licenses that don't have a choice of law provision. You can't 
+> blend CDDL and MIT? Or do you mean just the GPL licenses? If one wants 
+> to create an incompatibility with the GPL licenses you're limited only 
+> by creativity. You're blaming the tool, which might be a good tool 
+> when used for its intended purposes.
+>
+> Pam
+>
+> Pamela S. Chestek
+> Chestek Legal
+> PO Box 2492
+> Raleigh, NC 27602
+> pamela at chesteklegal.com
+> (919) 800-8033
+> www.chesteklegal.com
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not 
+> necessarily those of the Open Source Initiative. Communication from 
+> the Open Source Initiative will be sent from an opensource.org email 
+> address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org 
+>
+
+
+From pamela at chesteklegal.com  Mon Dec 12 22:40:08 2022
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Mon, 12 Dec 2022 14:40:08 -0800
+Subject: [License-review] For Approval: Open Logistics License v1.2
+In-Reply-To: <9840997c-f9cb-1854-e56c-c18869e3a29e@opensource.org>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM> <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu> <801dd2fc-ed2e-f513-4f56-54cced9eb8b5@chesteklegal.com> <Y5abKjN9zrKTMO7D@ebb.org> <d0597774-8d00-a442-252c-3a665e305900@chesteklegal.com> <Y5dYFGfsRUupJVVH@ebb.org> <e8f58d53-28ed-47cc-b8ca-7d08759c53f2@chesteklegal.com> <9840997c-f9cb-1854-e56c-c18869e3a29e@opensource.org>
+Message-ID: <68a2c3b9-9ce4-40d6-e91e-4f5688328261@chesteklegal.com>
+
+
+On 12/12/2022 2:01 PM, Mike Milinkovich wrote:
