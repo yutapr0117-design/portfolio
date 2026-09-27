@@ -470,3 +470,45 @@ only recommend it"* も、R2〜R5 の 4 規則も、**既定では発言者個�
 - **有利な側**: 既定が「個人の意見」であることは、**我々に不利な発言にも等しく掛かる** ——
   McCoy 氏の *"waivers/disclaimers of IP rights は自力では難しい"*（B1 に不利・§1.51）も、
   Landley 氏の #84 も、既定では個人の意見である。**この規則は片側だけを削らない。**
+
+## 1.124 「OSI が実際に見られる canonical なテキスト」が手続上の要件である —— 改訂を告げた submitter が、その場で確かめられた（2026-09-27）
+
+**逐語は `rounds/2026-09-24-license-review-modelgo-final-call-observed-3of3.txt`。**
+ModelGo の steward が終了条項の置換文をリスト上に示したあと、McCoy Smith 氏は
+2026-09-23 にこう書いた:
+
+> *"Are you going to **update** ModelGo-BY-2.0 to reflect the new termination language below,
+> and **would that be the version of the license that you are asking to be approved** by OSI? …
+> I looked at the GitHub and the website for ModelGo and I hadn't seen that this revision had
+> been made to the **canonical versions of the license** (which is what, ultimately, **OSI needs
+> to be able to see in order to ensure we know what it is is being approved/disapproved**)."*
+
+**steward の答えが、この規則の実務上の重さを示している** —— GitHub の本文は更新したが、
+*"the text currently served from the ids.nus.edu.sg URL … is hosted on a **university server**,
+and updating it **requires approval from the project manager**"* として**もう 1 つの公開複製が
+古いまま残ることを自分から述べた**。
+
+### ACD の側で何が答えているか
+
+**この規則は、我々が既に機械強制している性質そのものである。**
+
+| 要求 | 我々の層 |
+| :-- | :-- |
+| canonical なテキストが 1 つ決まっていること | `LICENSES/FROZEN.md` + **Check 453**（sha256 pin・対象 path 集合も pin） |
+| 審査中に動かないこと | 同上 + `REVISION-PROTOCOL.md` §2（1.0 は永久凍結・次版は併置） |
+| **配信されている形が、その 1 つと一致すること** | 週次の配信検査（`check_deployed_freshness.py`・提出パケットが "the text" として示す URL を `FROZEN.md` の pin と照合。動機は `against.md` #68 —— **repo 内の複製しか見ない層では、配信が変質したとき repo は全部緑のまま審査者だけ別のテキストを読む**） |
+| **実際に審査者へ送った本文が、その 1 つと一致すること** | **Check 477**（`rounds/` の送信控えに貼り付けた本文 ↔ 凍結テキスト） |
+
+**最後の 1 行が、本節を読むまで存在しなかった層である。**
+2026-08-26 に送った本文は `rounds/2026-08-26-license-discuss-sent.txt` に逐語で保存してあり、
+実測すると**貼り付け部分は正規化して語単位で完全一致**する（差は保存時に付けた終端行のみ）。
+**だが、それを確かめている層は 1 つも無かった** —— つまり ModelGo が現に踏んでいる失敗
+（複数の複製が食い違う）を、我々は**偶然回避していただけ**だった。
+
+### ⚠ この節が establish しないこと
+
+**規則を満たすことは承認の条件を 1 つ満たすだけである。** McCoy 氏は同じ文で
+*"may address what may be **the last concern**"* と述べており、**それは ModelGo についての
+見込みであって一般則ではない。** また **Check 477 は「テキストが一致する」ことしか見ない** ——
+**届いたかどうかは別の層**であり、我々の投稿が 3 通以上 moderation で拒否されている事実
+（`against.md` #215 / #222）は、この層では一切救えない。

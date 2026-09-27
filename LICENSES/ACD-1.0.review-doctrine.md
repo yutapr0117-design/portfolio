@@ -513,3 +513,67 @@ this point?**"*
 **#248（Cowan 氏 / Perens 氏 / Villa 氏）と #251（Prodromou 氏）に続く 5 人目で、
 Licensing Committee の委員である。** **そして氏自身が「明確化すべきでは」と問うている** ——
 **書かれていない基準が在ることは、内部でも認識されている。**
+
+## 1.123 公表されている新規ライセンスの基準「licensor を構造的に優位に置く条項を持たない」が、実際に条項へ当てられた —— ModelGo Attribution 2.0（2026-09-20〜22）（2026-09-27）
+
+**`review-rules.md` は OSI の review-process ページから 8 条の基準を逐語で記録していたが、
+そのうち「構造的優位」条が実際に適用された例を我々は 1 つも持っていなかった。**
+2026-09-16〜09-24 の FINAL CALL にそれが在る（逐語は
+`rounds/2026-09-24-license-review-modelgo-final-call-observed-{1,2,3}of3.txt`）。
+
+**経緯は 3 手である。**
+
+**(1) McCoy Smith 氏（2026-09-16）が OSD 5 として立てた。** ModelGo の終了条項は
+*"if You initiate any legal action **against the Licensor** alleging that the Licensed Materials
+and/or Derivative Materials infringe any patent worldwide"* と書く。氏は「Licensor は許諾する
+権利者だけを指すので、**Licensee に対する特許主張では終了しない**」と読み、
+*"This puts Licensors & Licensees in **different positions** vis a vis patent assertions, and
+therefore **arguably violates OSD 5**"* と述べた。**対照として、Apache-2.0 / MPL-2.0 / EPL-2.0 /
+GPL-3.0 はいずれも引き金を *"any entity"*（＝当事者ではなく**対象著作物**）に置いていることを
+逐語で並べている。**
+
+**(2) steward は「Licensor は役割であって人ではない」と答え、現行文言の維持を求めた。**
+
+**(3) 委員長 Pamela Chestek 氏（2026-09-20 / 09-22）が、その答えを退けた。**
+まず当事者を 4 類型（Licensor / 非頒布の利用者 A / 頒布する利用者 B / 特許権者 C）に分解し、
+C が A や B を訴えても終了しないことを示して *"**That is the discrimination**"* と書く。
+そのうえで **09-22 に基準を名指しした**:
+
+> *"I also note that the one of the requirements for new licenses is "The license does not have
+> terms that **structurally put the licensor in a more favored position than any licensee**."
+> **This does put the licensor in a more favored position than a licensee.**"*
+
+### ACD はこの基準にどう当たるか
+
+**当たらない。理由は「条件が 1 つも無い」ことに尽きる。**
+§10.1 が条件を置かず、§10.4 が終了を置かないので、**終了しうる地位を持つ当事者の類型が
+そもそも存在しない**。ACD の構造は **Dedicator が一方的に与え、受領者に何も要求しない**
+（§3 の献呈 / §4 の無条件並行付与 / §8 の特許許諾はいずれも一方向）。
+**基準が禁じるのは licensor が*優位*に立つことであり、ACD で非対称なのは Dedicator が
+*不利*に立つ向きである。**
+
+### ⚠ 逆側（3 つ・同じ音量で書く）
+
+**(a) §13 / §14 は Dedicator の側を守る。** 無保証と責任制限は Dedicator にだけ利益がある。
+**委員長の適用は*権利*の非対称に向いており免責条項には届いていないが、それは沈黙であって
+判断ではない**（承認済み 141 本すべてが同種の条項を持つことは**「皆やっている」型の弁護**で、
+本ドシエが他所では信用しない形である）。
+
+**(b) 「意図的だ」という答えは事態を悪くする。** 委員長は steward の説明に対し
+*"Your response is **quite troubling to me**. I read it as saying that the disparate treatment …
+is **intentional**"* と応じた。**ACD-1.0 §8.2 は特許報復の不在を *"deliberate"* と明記している。**
+向きは逆（ACD が意図的に手放しているのは *licensor を守る*機構の方）だが、
+**「意図的である」は適合の問いへの答えにならない**という一般形はそのまま我々に当たる。
+
+**(c) 自分の instrument を承認済みライセンスから構造で区別する主張は退けられうる。**
+委員長は *"**All licenses are "single grantor,"** Apache included"* と、steward の区別立てを
+正面から否定した。**提出パケットが ACD の構造的な新しさを述べる箇所は、この読みに耐える
+必要がある。**
+
+### この節が establish しないこと
+
+**ModelGo の帰結はまだ出ていない**（2026-09-24 に steward が GitHub のテキストを更新した
+段階で、**大学サーバー上の複製は古いまま**だと自ら述べている）。
+**「当たらない」と確かめられることは、ACD が承認されることを意味しない**（`board-decisions.md`
+の 2 つの天井 —— *"even where they cannot identify a specific aspect of the OSD"* と
+*"prior approval … does not bind"* —— は動かない）。
