@@ -1,0 +1,750 @@
+that would prevent the execution of the code. The CAL recognizes that user
+freedom also includes the provision of the user's data so that the program
+functions completely and fully in a context of the user's choice.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190423/fabd31f3/attachment-0001.html>
+
+From bruce at perens.com  Wed Apr 24 03:55:21 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 23 Apr 2019 20:55:21 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEPU8dRtUcVA1MwJmQ_HACxQXt30M4SUULiyfsGDC84i1Q@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <CAK2MWOvfUd+cf4_Lky3cqwSJQR-MdcJgF1zGs9wwph1GriA7bg@mail.gmail.com> <CAFQvZEPU8dRtUcVA1MwJmQ_HACxQXt30M4SUULiyfsGDC84i1Q@mail.gmail.com>
+Message-ID: <CAK2MWOs4NZYS=0rH7cFevoZGgQd1-pRjpbGtxWyD39+P9AhwwQ@mail.gmail.com>
+
+On Tue, Apr 23, 2019 at 7:16 PM VanL <van.lindberg at gmail.com> wrote:
+
+> Hello Bruce,
+>
+> On Tue, Apr 23, 2019 at 6:27 PM Bruce Perens <bruce at perens.com> wrote:
+> No disrespect intended, and I am sorry for any that was communicated.
+>
+
+Well said. Thank you.
+
+>
+>
+>
+>> On Tue, Apr 23, 2019 at 3:18 PM VanL <van.lindberg at gmail.com> wrote:
+>>
+> There is a particular way of locking down a program that is available in
+> hashchain applications; that particular method is addressed in a single
+> clause.
+>
+
+Can you tell us more about this? I am not at all clear what your customer
+is worried about, and thus I am unclear about the motivation behind terms.
+
+
+> "Compliance with section 2" consists of:
+>    ...
+>    - Making a user's data available (2.3).
+>
+
+
+> ...
+>
+
+
+> People invest time and energy putting information into online platforms,
+> only to find that their data gets held "hostage" against them.
+>
+
+I agree that this is a social problem suffered by computer users. OSI has
+previously rejected licenses that attempted to use their terms to remedy
+social issues beyond sharing software freely. It's out of scope of OSI's
+mission, *and *OSI's stated mission for  Open Source software.
+
+The previously proposed licenses with similar terms have in general been
+rejected because of the increase in legal load for the *passive user.* The
+person who doesn't create derivative works or redistribute, but just runs
+the program. They shouldn't have to read the license just to run the
+program.
+
+The CAL breaks that. Passive users of software under the CAL would face
+real legal questions regarding data release in conjunction with the terms,
+which they could not handle adequately without counsel. This, IMO, is an
+unacceptable burden on the user.
+
+It's really difficult for anyone not an attorney to parse the terms of this
+license and arrive at what their obligation is, figure out where ownership
+interests and possessive interests are involved, etc. There is nothing
+approaching plain language that states the obligation. And I suspect there
+is some uncertainty even regarding attorney's opinions.
+
+Ummm... to the best of my knowledge, unreadable and irretrievable data has
+> *nothing* to do with blockchains.
+>
+
+Blockchain requires use of one-way functions, as does any algorithm that
+supports a verifiable public signature. The input to such functions is
+necessarily irretrievable and requires some sort of secret, usually in the
+form of a private key. Private keys (usually in the "wallet") must
+*remain *private,
+or the basis of trust in the system is destroyed. So, be sure your license
+doesn't require their disclosure. It seems to me that under the present
+terms it might do so.
+
+
+> The license compels an action by the licensee - to make the source code
+> and data available. This is exactly the same type of action required under
+> every copyleft license.
+>
+
+It's not the same action. Our other approved licenses require conveyance of
+the source code only. And in a meaningful way only from *developers *who
+create derivative works. Here you add data to the terms, which none of our
+other licenses require, and you require it of *users *of the program who
+are not developers. Vastly increasing the legal burden of users.
+
+The terms do include use restrictions: by your own statement they restrict
+the user from denying their customers access to their data without a
+continued payment. You may consider this socially beneficial, but it's
+pretty clearly a use restriction. I don't see how this is different from
+the previously rejected licenses with other social goals implemented as use
+restrictions.
+
+Just because I have ownership of the data doesn't mean that you have an
+> existing legal responsibility to give it to me. This is exactly the problem
+> addressed by the CAL.
+>
+
+Yes. IMO, it's over-reaching.
+ The insight is that, increasingly, the data and the code are needed
+>> together to realize the program's function.
+>>
+>
+This is proposing that the data previously used for an arbitrary run of the
+program is essential to use the program at all. I can see this for data
+which defines fundamental characteristics of the world around us, for
+example a book of physical constants of the universe. But you are extending
+this to transactional data of a specific market, and denying that the
+program could be used in an alternate market. It's not logical.
+
+
+>> Existing open source licenses, such as the GPLv3 family, recognize this
+>> and requires the provision of cryptographic keys that would prevent the
+>> execution of the code.
+>>
+>
+Yes, but a lack of specific market data doesn't actually prevent the
+execution of the code, as a key in a "trusted" boot system would.
+
+The CAL recognizes that user freedom also includes the provision of the
+>> user's data so that the program functions completely and fully in a context
+>> of the user's choice.
+>>
+>
+Thus, someone who wishes to have the freedom to sequester the data of their
+customer users *must be deprived of that freedom. *We restrict people from
+keeping derivative works private in some cases, because we're the Open
+Source Initiative. But now, we are going to restrict people from keeping
+data private too, because we're now the Open Source and People's Data
+Initiative?
+It's over-reach. Sorry.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190423/dba7f9b1/attachment.html>
+
+From josh at berkus.org  Wed Apr 24 04:19:01 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Tue, 23 Apr 2019 21:19:01 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEPU8dRtUcVA1MwJmQ_HACxQXt30M4SUULiyfsGDC84i1Q@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <CAK2MWOvfUd+cf4_Lky3cqwSJQR-MdcJgF1zGs9wwph1GriA7bg@mail.gmail.com> <CAFQvZEPU8dRtUcVA1MwJmQ_HACxQXt30M4SUULiyfsGDC84i1Q@mail.gmail.com>
+Message-ID: <623f677c-1b35-5e6a-098e-2e4fb9e6a02c@berkus.org>
+
+Van,
+
+My apologies that you're not getting review from additional committee
+members.  It's deep conference season, and many of us travel for our
+employers.  I suspect that you'll get more feedback in a month or so.
+
+
+-- 
+Josh Berkus
+
+
+From bruce at perens.com  Wed Apr 24 04:30:00 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 23 Apr 2019 21:30:00 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <623f677c-1b35-5e6a-098e-2e4fb9e6a02c@berkus.org>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <CAK2MWOvfUd+cf4_Lky3cqwSJQR-MdcJgF1zGs9wwph1GriA7bg@mail.gmail.com> <CAFQvZEPU8dRtUcVA1MwJmQ_HACxQXt30M4SUULiyfsGDC84i1Q@mail.gmail.com> <623f677c-1b35-5e6a-098e-2e4fb9e6a02c@berkus.org>
+Message-ID: <CAK2MWOs48rmfjw_=BDr95QTFuWb9jy0Dfz+fot03ZwBTsfWJ7A@mail.gmail.com>
+
+I am lucky to have been able to challenge Van's assumptions today. I felt a
+need to do so quickly, to be fair to him and to the OSI board who are being
+asked to rule on this - even if only to delay the decision - during their *May
+6-7 board meeting.* This has been a significant burden, obviously hours of
+work, and was entered into for no possible personal purpose. I wish you'd
+acknowledge that, Josh.
+ Thanks
+ Bruce
+
+On Tue, Apr 23, 2019 at 9:19 PM Josh Berkus <josh at berkus.org> wrote:
+
+> Van,
+>
+> My apologies that you're not getting review from additional committee
+> members.  It's deep conference season, and many of us travel for our
+> employers.  I suspect that you'll get more feedback in a month or so.
+>
+>
+> --
+> Josh Berkus
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190423/13d5f6ac/attachment.html>
+
+From josh at berkus.org  Wed Apr 24 04:41:34 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Tue, 23 Apr 2019 21:41:34 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOs48rmfjw_=BDr95QTFuWb9jy0Dfz+fot03ZwBTsfWJ7A@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <CAK2MWOvfUd+cf4_Lky3cqwSJQR-MdcJgF1zGs9wwph1GriA7bg@mail.gmail.com> <CAFQvZEPU8dRtUcVA1MwJmQ_HACxQXt30M4SUULiyfsGDC84i1Q@mail.gmail.com> <623f677c-1b35-5e6a-098e-2e4fb9e6a02c@berkus.org> <CAK2MWOs48rmfjw_=BDr95QTFuWb9jy0Dfz+fot03ZwBTsfWJ7A@mail.gmail.com>
+Message-ID: <b6f468b1-b9b8-fcb1-6e6c-54c6b1609cc4@berkus.org>
+
+On 4/23/19 9:30 PM, Bruce Perens wrote:
+> I am lucky to have been able to challenge Van's assumptions today. I
+> felt a need to do so quickly, to be fair to him and to the OSI board who
+> are being asked to rule on this - even if only to delay the decision -
+> during their *May 6-7 board meeting.*?This has been a significant
+> burden, obviously hours of work, and was entered into for no possible
+> personal purpose. I wish you'd acknowledge that, Josh.
+
+Your feedback is valuable and detailed; I had no intention of implying
+otherwise.
+
+However, it's normal for submitters to get feedback from a variety of
+viewpoints and group members.
+
+Given that nobody else is available, I suspect that "delay" is going to
+be the vote, which is fine.
+
+-- 
+Josh Berkus
+
+
+From henrik.ingo at avoinelama.fi  Wed Apr 24 10:00:01 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Wed, 24 Apr 2019 13:00:01 +0300
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com>
+Message-ID: <CAKHykesABajrSO7urKNRL93cLUE4YwGZCUwLDiX4iAe=4Uab8Q@mail.gmail.com>
+
+I already reviewed this when you presented the license for discussion
+in March: http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-March/020310.html
+
+To summarize my concerns (that still remain):
+
+1. The use of public performance in a software license is novel and
+untested. It's hard to predict it's effect, but from the definition of
+Public Performance it seems possible and even likely that both
+developers and users can get sued inadvertently.
+2. From a policy point of view, it is not in OSI interest to expand
+the use of copyright legislation to restrict software.
+3. It is not necessary for you to use Public Performance to achieve
+your goals of the license. Both from a copyright law, and an Open
+Source Definition point of view, you can use legal methods that are
+more boring, but better tested and safer, to achieve your goals.
+
+I should emphasize that I think this license would be a net new
+addition to the scope of copyleft licensing options, both in terms of
+how to address "network copyleft", and the anti-tivoization aspect of
+User Data. As such it would be great if a revised, less hazardous
+version of this license can eventually be approved by the OSI.
+
+
+As a brief comment on the angle Bruce is focusing on, it is a valuable
+tradition that a goal for open source licenses is to grant rights to
+users and at the same time also protect users from unnecessary legal
+risk or burden. In this case Bruce's dilemma seems to arise from using
+CAL for p2p software, where all participants are both users and
+"vendors/providers". While this is a valid area of concern, it also
+seems like a relatively narrow problem. In particular I wanted to
+state that obviously restrictions on DRM in general are not a
+violation of OSD. Quite the contrary, they are  a great example of
+protecting user rights against new technical means of restricting
+users.
+
+Another remaining point from my previous review: CAL 2.3 c-e cover the
+use of DRM within the software licensed by CAL. It doesn't cover the
+use of DRM in the hardware or OS to restrict installation and use of
+the CAL licensed software. This seems like an unfortunate loophole
+that can be fixed by borrowing a few sentences from GPLv3.
+
+For 2.4, I still wonder whether you are willing to consider some more
+explicit option to flag that I didn't choose to use the option. For
+example, when I apply CAL to my software, can I remove ?2.4 from the
+license text?
+
+henrik
+
+On Mon, Apr 22, 2019 at 9:44 PM VanL <van.lindberg at gmail.com> wrote:
+>
+> I'd like to thank everyone who provided feedback on earlier drafts of the Cryptographic Autonomy License (CAL). Since we presented the draft license in February, we have received hundreds of comments and suggestions, all of which have helped us fine-tune the license.
+>
+> We now present the CAL 1.0-Beta for approval at the next board meeting:
+>   Google Docs link: https://docs.google.com/document/d/1sWUREQN02YJ-q91gXOCflRB57Q1YcU1G7UMS_a8WOTI/edit#
+>   PDF Link: https://www.processmechanics.com/static/CAL-1.0-Beta.pdf
+>
+> The CAL is still open for revision until it is approved by the Board, and the links above will be updated as appropriate.
+>
+> I also refer everyone here again to the blog post describing the legal foundations of the license (https://www.processmechanics.com/2019/03/15/the-cryptographic-autonomy-license/) as well as the discussion on license-discuss, summarized by Lukas Atkinson here: http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-April/020394.html
+>
+> Thanks,
+> Van
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+
+
+From rfontana at redhat.com  Wed Apr 24 15:29:41 2019
+From: rfontana at redhat.com (Richard Fontana)
+Date: Wed, 24 Apr 2019 11:29:41 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <b6f468b1-b9b8-fcb1-6e6c-54c6b1609cc4@berkus.org>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <CAK2MWOvfUd+cf4_Lky3cqwSJQR-MdcJgF1zGs9wwph1GriA7bg@mail.gmail.com> <CAFQvZEPU8dRtUcVA1MwJmQ_HACxQXt30M4SUULiyfsGDC84i1Q@mail.gmail.com> <623f677c-1b35-5e6a-098e-2e4fb9e6a02c@berkus.org> <CAK2MWOs48rmfjw_=BDr95QTFuWb9jy0Dfz+fot03ZwBTsfWJ7A@mail.gmail.com> <b6f468b1-b9b8-fcb1-6e6c-54c6b1609cc4@berkus.org>
+Message-ID: <CAC1cPGzjpD0JoLT6kcKZyLNc9zV3nR-EMBbuFbw5=RZ5jWroAw@mail.gmail.com>
+
+On Wed, Apr 24, 2019 at 12:42 AM Josh Berkus <josh at berkus.org> wrote:
+>
+> On 4/23/19 9:30 PM, Bruce Perens wrote:
+> > I am lucky to have been able to challenge Van's assumptions today. I
+> > felt a need to do so quickly, to be fair to him and to the OSI board who
+> > are being asked to rule on this - even if only to delay the decision -
+> > during their *May 6-7 board meeting.* This has been a significant
+> > burden, obviously hours of work, and was entered into for no possible
+> > personal purpose. I wish you'd acknowledge that, Josh.
+>
+> Your feedback is valuable and detailed; I had no intention of implying
+> otherwise.
+>
+> However, it's normal for submitters to get feedback from a variety of
+> viewpoints and group members.
+>
+> Given that nobody else is available, I suspect that "delay" is going to
+> be the vote, which is fine.
+
+Van - can you clarify why you seemed to expect a decision on the
+license at the next OSI board meeting? The board generally meets once
+a month. Under the license review process
+(https://opensource.org/approval), normally a decision on a newly
+submitted license is due 60 days after submission, which would be
+sometime in late June.
+
+Richard
+
+
+From van.lindberg at gmail.com  Wed Apr 24 21:23:37 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Wed, 24 Apr 2019 16:23:37 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAC1cPGzjpD0JoLT6kcKZyLNc9zV3nR-EMBbuFbw5=RZ5jWroAw@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <CAK2MWOvfUd+cf4_Lky3cqwSJQR-MdcJgF1zGs9wwph1GriA7bg@mail.gmail.com> <CAFQvZEPU8dRtUcVA1MwJmQ_HACxQXt30M4SUULiyfsGDC84i1Q@mail.gmail.com> <623f677c-1b35-5e6a-098e-2e4fb9e6a02c@berkus.org> <CAK2MWOs48rmfjw_=BDr95QTFuWb9jy0Dfz+fot03ZwBTsfWJ7A@mail.gmail.com> <b6f468b1-b9b8-fcb1-6e6c-54c6b1609cc4@berkus.org> <CAC1cPGzjpD0JoLT6kcKZyLNc9zV3nR-EMBbuFbw5=RZ5jWroAw@mail.gmail.com>
+Message-ID: <CAFQvZEPrZfP=EUt1QwQ+SNe9e+YpMc97UaPr4o9rb-E15k789w@mail.gmail.com>
+
+Richard: Because I didn't read the wiki page carefully enough. :)
+
+I am eager to get this before the board and would appreciate a response as
+soon as they are willing to give one, but I am happy to work within
+existing protocols and timelines. It is an important goal of mine to
+respect the process here.
+
+Thanks,
+Van
+
+
+On Wed, Apr 24, 2019 at 10:30 AM Richard Fontana <rfontana at redhat.com>
+wrote:
+
+> On Wed, Apr 24, 2019 at 12:42 AM Josh Berkus <josh at berkus.org> wrote:
+> >
+> > On 4/23/19 9:30 PM, Bruce Perens wrote:
+> > > I am lucky to have been able to challenge Van's assumptions today. I
+> > > felt a need to do so quickly, to be fair to him and to the OSI board
+> who
+> > > are being asked to rule on this - even if only to delay the decision -
+> > > during their *May 6-7 board meeting.* This has been a significant
+> > > burden, obviously hours of work, and was entered into for no possible
+> > > personal purpose. I wish you'd acknowledge that, Josh.
+> >
+> > Your feedback is valuable and detailed; I had no intention of implying
+> > otherwise.
+> >
+> > However, it's normal for submitters to get feedback from a variety of
+> > viewpoints and group members.
+> >
+> > Given that nobody else is available, I suspect that "delay" is going to
+> > be the vote, which is fine.
+>
+> Van - can you clarify why you seemed to expect a decision on the
+> license at the next OSI board meeting? The board generally meets once
+> a month. Under the license review process
+> (https://opensource.org/approval), normally a decision on a newly
+> submitted license is due 60 days after submission, which would be
+> sometime in late June.
+>
+> Richard
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190424/3f8b0790/attachment.html>
+
+From webmink at opensource.org  Fri Apr 26 00:55:05 2019
+From: webmink at opensource.org (Simon Phipps)
+Date: Thu, 25 Apr 2019 17:55:05 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEPrZfP=EUt1QwQ+SNe9e+YpMc97UaPr4o9rb-E15k789w@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <CAK2MWOvfUd+cf4_Lky3cqwSJQR-MdcJgF1zGs9wwph1GriA7bg@mail.gmail.com> <CAFQvZEPU8dRtUcVA1MwJmQ_HACxQXt30M4SUULiyfsGDC84i1Q@mail.gmail.com> <623f677c-1b35-5e6a-098e-2e4fb9e6a02c@berkus.org> <CAK2MWOs48rmfjw_=BDr95QTFuWb9jy0Dfz+fot03ZwBTsfWJ7A@mail.gmail.com> <b6f468b1-b9b8-fcb1-6e6c-54c6b1609cc4@berkus.org> <CAC1cPGzjpD0JoLT6kcKZyLNc9zV3nR-EMBbuFbw5=RZ5jWroAw@mail.gmail.com> <CAFQvZEPrZfP=EUt1QwQ+SNe9e+YpMc97UaPr4o9rb-E15k789w@mail.gmail.com>
+Message-ID: <CAA4ffp_pqv8SsS=9252CJoofmxHrM1dbtbYLRzMauAKet8nrdg@mail.gmail.com>
+
+On Wed, Apr 24, 2019 at 2:24 PM VanL <van.lindberg at gmail.com> wrote:
+
+> I am eager to get this before the board and would appreciate a response as
+> soon as they are willing to give one, but I am happy to work within
+> existing protocols and timelines. It is an important goal of mine to
+> respect the process here.
+>
+
+Note that because Richard has now left the board after fully and
+excellently serving out his term, there will be no director to oversee this
+activity until after our May meeting so a decision would be impossible
+until at least the June meeting.
+
+S.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190425/47f6b8d6/attachment.html>
+
+From van.lindberg at gmail.com  Fri Apr 26 13:58:32 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 26 Apr 2019 08:58:32 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOs4NZYS=0rH7cFevoZGgQd1-pRjpbGtxWyD39+P9AhwwQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <CAK2MWOvfUd+cf4_Lky3cqwSJQR-MdcJgF1zGs9wwph1GriA7bg@mail.gmail.com> <CAFQvZEPU8dRtUcVA1MwJmQ_HACxQXt30M4SUULiyfsGDC84i1Q@mail.gmail.com> <CAK2MWOs4NZYS=0rH7cFevoZGgQd1-pRjpbGtxWyD39+P9AhwwQ@mail.gmail.com>
+Message-ID: <CAFQvZEM+Wp8p+-g+L1e3DTMdy0j-6QqosBvnE3s5D8a7sVsKxg@mail.gmail.com>
+
+Sorry for the delay responding to various concerns.
+
+On Tue, Apr 23, 2019 at 10:55 PM Bruce Perens <bruce at perens.com> wrote:
+
+>
+> People invest time and energy putting information into online platforms,
+>> only to find that their data gets held "hostage" against them.
+>>
+>
+> I agree that this is a social problem suffered by computer users. OSI has
+> previously rejected licenses that attempted to use their terms to remedy
+> social issues beyond sharing software freely. It's out of scope of OSI's
+> mission, *and *OSI's stated mission for  Open Source software.
+>
+
+The CAL is not of the same sort as the 996 license, or the JSON "Do no
+evil" license. While it does address a social issue, it does so in the
+exact same way the GPL addresses the social issue of software freedom.
+
+
+> The previously proposed licenses with similar terms have in general been
+> rejected because of the increase in legal load for the *passive user.*
+>
+The person who doesn't create derivative works or redistribute, but just
+> runs the program. They shouldn't have to read the license just to run the
+> program.
+>
+
+This is an interesting point, but I don't think it is applicable in the
+general case. If the CAL were applied to a music player like VLC, or a
+graphics program like Gimp, the legal load would be precisely the same as
+for any other user. The only additional legal load is for an entity that
+wants to use CAL-licensed software to provide services over a network to
+others. This is exactly the same context in which the AGPL applies an
+additional legal load - and I would argue that if you are providing
+services to others, you have already taken upon you substantial legal
+liability.
+
+
+
+> Blockchain requires use of one-way functions, as does any algorithm that
+> supports a verifiable public signature. The input to such functions is
+> necessarily irretrievable and requires some sort of secret, usually in the
+> form of a private key. Private keys (usually in the "wallet") must *remain
+> *private, or the basis of trust in the system is destroyed. So, be sure
+> your license doesn't require their disclosure. It seems to me that under
+> the present terms it might do so.
+>
+
+I understand this point now. However, the application to the CAL is only
+speculative ("under the present terms it might do so.") I would argue that
+the CAL is very careful in its definitions, such that the only required
+disclosures are of source code and data in which the user has a preexisting
+legal right. I cannot see a situation in which a first person, "Alice,"
+could use the CAL to request disclosure of "Bob's" private key, where Alice
+does not have a preexisting right of control of Bob's key regardless of the
+CAL.  The CAL does not create any new rights in any unrelated Works.
+
+
+
+> The terms do include use restrictions: by your own statement they restrict
+> the user from denying their customers access to their data without a
+> continued payment. You may consider this socially beneficial, but it's
+> pretty clearly a use restriction. I don't see how this is different from
+> the previously rejected licenses with other social goals implemented as use
+> restrictions.
+>
+
+The difference gets back to user freedom and the ability to "exit."
+Operators of CAL-licensed software can refuse to continue hosting a user's
+data without further payment. But licenses that  defend user freedom
+prevent an operator from denying the user the opportunity to exit a
+situation so as to run the program in another context. That is the same
+freedom protected by the CAL.
+
+
+This is proposing that the data previously used for an arbitrary run of the
+> program....
+>
+
+This is incorrect. It is not an "arbitrary" run of the program; it is only
+an invocation of the program with the user's data, so that the user can run
+the program in another context with their same data and get the same
+result.
+
+
+
+>
+>
+>>> Existing open source licenses, such as the GPLv3 family, recognize this
+>>> and requires the provision of cryptographic keys that would prevent the
+>>> execution of the code.
+>>>
+>>
+> Yes, but a lack of specific market data doesn't actually prevent the
+> execution of the code, as a key in a "trusted" boot system would.
+>
+
+I am unsure where you are identifying "specific market data" in the CAL.
+But more fundamentally, in many systems, particularly those that deal with
+cryptographic primitives as a part of their operation, you would not get
+the same result (if it did indeed "boot").
+
+
+
+>
+> The CAL recognizes that user freedom also includes the provision of the
+>>> user's data so that the program functions completely and fully in a context
+>>> of the user's choice.
+>>>
+>>
+> Thus, someone who wishes to have the freedom to sequester the data of
+> their customer users *must be deprived of that freedom. *We restrict
+> people from keeping derivative works private in some cases, because we're
+> the Open Source Initiative. But now, we are going to restrict people from
+> keeping data private too, because we're now the Open Source and People's
+> Data Initiative?
+>
+
+This overstatement continues to conflate "the People's Data" with a user's
+own data. Further, it strikes me as strange that the core argument is that
+you wish to preserve for operators "the freedom to sequester the data of
+their customer users." That freedom is definitely granted under some more
+permissive licenses, but preserving the rights of users is a core aspect of
+Free Software, which is the tradition addressed by the CAL.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190426/967bf243/attachment.html>
+
+From van.lindberg at gmail.com  Fri Apr 26 14:08:09 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 26 Apr 2019 09:08:09 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAKHykesABajrSO7urKNRL93cLUE4YwGZCUwLDiX4iAe=4Uab8Q@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAKHykesABajrSO7urKNRL93cLUE4YwGZCUwLDiX4iAe=4Uab8Q@mail.gmail.com>
+Message-ID: <CAFQvZEOW3ZqS_yuyVK_q0CHrRSTMBpHTU5tfsi5M1ATLYrbMHg@mail.gmail.com>
+
+Thank you Henrik.
+
+On Wed, Apr 24, 2019 at 5:01 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+wrote:
+
+> To summarize my concerns (that still remain):
+>
+> 1. The use of public performance in a software license is novel and
+> untested. It's hard to predict it's effect, but from the definition of
+> Public Performance it seems possible and even likely that both
+> developers and users can get sued inadvertently.
+>
+
+I see this point, but disagree about the likelihood of inadvertent suit.
+This is probably an irreconcilable difference, as I see the public
+performance aspect as being key to the CAL.
+
+
+> 2. From a policy point of view, it is not in OSI interest to expand
+> the use of copyright legislation to restrict software.
+>
+
+I see this also. But in the context of copyright law as it is currently
+written and interpreted, I don't think it is an extension to use legal
+terminology and case law which already presumptively applies to software.
+
+
+> 3. It is not necessary for you to use Public Performance to achieve
+> your goals of the license. Both from a copyright law, and an Open
+> Source Definition point of view, you can use legal methods that are
+> more boring, but better tested and safer, to achieve your goals.
+>
+
+See above.
+ In particular I wanted to
+> state that obviously restrictions on DRM in general are not a
+> violation of OSD. Quite the contrary, they are  a great example of
+> protecting user rights against new technical means of restricting
+> users.
+>
+
+I also agree with this point.
+
+
+>
+> Another remaining point from my previous review: CAL 2.3 c-e cover the
+> use of DRM within the software licensed by CAL. It doesn't cover the
+> use of DRM in the hardware or OS to restrict installation and use of
+> the CAL licensed software. This seems like an unfortunate loophole
+> that can be fixed by borrowing a few sentences from GPLv3.
+>
+
+If you take a look at the exact text, the text is very close to the GPLv3.
+There was quite a bit of "borrowing" in exactly the way you suggest.
+
+
+> For 2.4, I still wonder whether you are willing to consider some more
+> explicit option to flag that I didn't choose to use the option. For
+> example, when I apply CAL to my software, can I remove ?2.4 from the
+> license text?
+>
+
+I see this point, but I think that you are covered: 2.4 is an opt-in
+provision that applies only if it is explicitly called out by the license
+author. If you don't see the particular text specifically invoking it, it
+does not apply.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190426/d73b4063/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Fri Apr 26 14:49:33 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Fri, 26 Apr 2019 17:49:33 +0300
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEOW3ZqS_yuyVK_q0CHrRSTMBpHTU5tfsi5M1ATLYrbMHg@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAKHykesABajrSO7urKNRL93cLUE4YwGZCUwLDiX4iAe=4Uab8Q@mail.gmail.com> <CAFQvZEOW3ZqS_yuyVK_q0CHrRSTMBpHTU5tfsi5M1ATLYrbMHg@mail.gmail.com>
+Message-ID: <CAKHyketBbodCX9QHZGoMsqxg+Dh68VZqoofMSxO9w7f5nJ_ZMQ@mail.gmail.com>
+
+On Fri, Apr 26, 2019 at 5:08 PM VanL <van.lindberg at gmail.com> wrote:
+> I see this point, but disagree about the likelihood of inadvertent suit. This is probably an irreconcilable difference, as I see the public performance aspect as being key to the CAL.
+>
+>> 3. It is not necessary for you to use Public Performance to achieve
+>> your goals of the license. Both from a copyright law, and an Open
+>> Source Definition point of view, you can use legal methods that are
+>> more boring, but better tested and safer, to achieve your goals.
+>
+>
+> See above.
+
+I was not very clear about it, but indirectly I was inviting you to
+justify why you think it is *necessary* to use the concept of Public
+Performance in CAL. What problem - other than just maximizing the
+power of copyright law - does it solve for you that wasn't adequately
+solved without it?
+
+Or is your answer just that it isn't necessary, but there is also no
+reason to be concerned?
+
+>> Another remaining point from my previous review: CAL 2.3 c-e cover the
+>> use of DRM within the software licensed by CAL. It doesn't cover the
+>> use of DRM in the hardware or OS to restrict installation and use of
+>> the CAL licensed software. This seems like an unfortunate loophole
+>> that can be fixed by borrowing a few sentences from GPLv3.
+>
+>
+> If you take a look at the exact text, the text is very close to the GPLv3. There was quite a bit of "borrowing" in exactly the way you suggest.
+>
+
+Hmm... I only now realize that the final text of GPL3 doesn't include
+the draft text: "any encryption or authorization codes necessary to
+install and/or execute the source code of the work"? Why was it
+removed, does anyone know?
+
+Anyway, I'm just a simple engineer here. Can you tell me which part of
+the CAL ensures this outcome?
+
+>> For 2.4, I still wonder whether you are willing to consider some more
+>> explicit option to flag that I didn't choose to use the option. For
+>> example, when I apply CAL to my software, can I remove ?2.4 from the
+>> license text?
+>
+>
+> I see this point, but I think that you are covered: 2.4 is an opt-in provision that applies only if it is explicitly called out by the license author. If you don't see the particular text specifically invoking it, it does not apply.
+>
+
+I agree it is already provided for. I think it could be more explicit.
+Clearly this is a minor point compared to all others.
+
+henrik
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+
+
+From van.lindberg at gmail.com  Fri Apr 26 15:14:07 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 26 Apr 2019 10:14:07 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAKHyketBbodCX9QHZGoMsqxg+Dh68VZqoofMSxO9w7f5nJ_ZMQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAKHykesABajrSO7urKNRL93cLUE4YwGZCUwLDiX4iAe=4Uab8Q@mail.gmail.com> <CAFQvZEOW3ZqS_yuyVK_q0CHrRSTMBpHTU5tfsi5M1ATLYrbMHg@mail.gmail.com> <CAKHyketBbodCX9QHZGoMsqxg+Dh68VZqoofMSxO9w7f5nJ_ZMQ@mail.gmail.com>
+Message-ID: <CAFQvZEO3WMg7J--+RZ_ayaF+dL=2k0Pma_Ove84u491TPggBdg@mail.gmail.com>
+
+Hello Henrik,
+
+On Fri, Apr 26, 2019 at 9:49 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+wrote:
+
+> I was not very clear about it, but indirectly I was inviting you to
+> justify why you think it is *necessary* to use the concept of Public
+> Performance in CAL. What problem - other than just maximizing the
+> power of copyright law - does it solve for you that wasn't adequately

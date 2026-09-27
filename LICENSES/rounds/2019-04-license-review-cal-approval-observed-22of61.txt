@@ -1,0 +1,750 @@
+does not retract such notice before the time at which performance upon his
+part is due, such other party is entitled to enforce the obligation without
+previously performing or offering to perform any conditions upon his part
+in favor of the former party.
+(Enacted 1872.)
+
+1441.  A condition in a contract, the fulfillment of which is impossible or
+unlawful, within the meaning of the Article on the Object of Contracts, or
+which is repugnant to the nature of the interest created by the contract,
+is void.
+(Enacted 1872.)
+
+1442.  A condition involving a forfeiture must be strictly interpreted
+against the party for whose benefit it is created.
+(Enacted 1872.)
+
+Am Mi., 24. Juli 2019 um 03:54 Uhr schrieb VanL <van.lindberg at gmail.com>:
+
+> Various individuals at my client, including Arthur, are reviewing a second
+> draft of the CAL before it is widely shared. When they ate done with their
+> review, the new draft will be posted here.
+>
+> As for Arthur, it is his prerogative to join or not join any discussion he
+> would like. He is definitely aware of the discussions here.
+>
+> Also, I would note that while my day job is as a lawyer, I understand the
+> technical details underlying the things I discuss.
+>
+> Thanks,
+> Van
+>
+>
+>
+> __________________________
+> Van Lindberg
+> van.lindberg at gmail.com
+> m: 214.364.7985
+>
+> On Tue, Jul 23, 2019, 2:37 PM Bruce Perens via License-discuss <
+> license-discuss at lists.opensource.org> wrote:
+>
+>> Are we finished discussing the Cryptographic Autonomy License?
+>>
+>> I am disappointed that Arthur Brock did not step up to explain his
+>> license and left all of the representation to Van. Van is not really an
+>> expert in the technical needs that motivated Arthur to ask him to work on
+>> that license, and in my private correspondence with Arthur, it seemed he
+>> had something to say.
+>>
+>> Van, this is not a court of law and I don't think there is a downside in
+>> having the client talk with us. Could you invite him to?
+>>
+>>     Thanks
+>>
+>>     Bruce
+>> _______________________________________________
+>> License-discuss mailing list
+>> License-discuss at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190724/8961b0ba/attachment.html>
+
+From van.lindberg at gmail.com  Wed Jul 24 17:46:20 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Wed, 24 Jul 2019 12:46:20 -0500
+Subject: [License-discuss] End of CAL discussion? Paging Arthur Brock.
+In-Reply-To: <CAGkaBH3yi0wudAWKDPXyNpVgjGTAG9jtKFAwUBxon_9mM77Nhw@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org> <CAK2MWOumvYSOGW9=Jn_MQcNOqaxcHqXNoD+U8x+WN7z5LFH3kg@mail.gmail.com> <CAK2MWOtpGcetuQgOnK-9bU=sZEgG_HOGxSRdVh_MvzR4MA2zZQ@mail.gmail.com> <CAGi9AuWfr1BrRrGU76Qbu8F_u9dzXPuiByVbi_N42MHmrTAkiA@mail.gmail.com> <CAD2gp_QCNR1LKj_a1jhXgdDasVznRMj+49d=FKxxhJ8Z58R_Jg@mail.gmail.com> <CAGi9AuVSRYk5Y4A6etu8RRWyePnU4r2yR1SP66pppYHHBcWyQQ@mail.gmail.com> <CAD2gp_Q6B5mLE50KD59_Egnbo5mfr-bNf3hW3MJjzAw-aK8Biw@mail.gmail.com> <CAGi9AuUQbYURHx32136-M+d3XWREodP_XWdz-u6UwY1XMhxgXQ@mail.gmail.com> <CAK2MWOuAjeCQSy-GN0OeE8zQdPhwdHCb0EgoQdLF8NWWUnd-pQ@mail.gmail.com> <CAFQvZEN3AUxgzAnVgk=1wPDwZt=JTKnT_vq6pMPuy8ie7AZAxA@mail.gmail.com> <CAGkaBH3yi0wudAWKDPXyNpVgjGTAG9jtKFAwUBxon_9mM77Nhw@mail.gmail.com>
+Message-ID: <CAFQvZEM3qU8=9diC1TvjDz+MGVfMoWASFiQEzUni1nxgovTPSg@mail.gmail.com>
+
+"Conditions" is the proper term of art for a license.
+
+Thanks,
+Van
+
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+
+On Wed, Jul 24, 2019, 8:49 AM Alexander Terekhov <herr.alter at gmail.com>
+wrote:
+
+> It would be really nice if CAL.next would stop calling unconditional
+> covenants/duties/obligations "conditions".
+>
+> https://medium.com/policy/medium-terms-of-service-9db0094a1e0f
+>
+> "...in a court located in San Francisco, California."
+>
+>
+> https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=CIV&division=3.&title=2.&part=1.&chapter=3.&article=
+>
+>
+> CHAPTER 3. Conditional Obligations [1434 - 1442]  ( Chapter 3 enacted
+> 1872. )
+>
+> 1434.  An obligation is conditional, when the rights or duties of any
+> party thereto depend upon the occurrence of an uncertain event.
+> (Enacted 1872.)
+>
+> 1435.  Conditions may be precedent, concurrent, or subsequent.
+> (Enacted 1872.)
+>
+> 1436.  A condition precedent is one which is to be performed before some
+> right dependent thereon accrues, or some act dependent thereon is performed.
+> (Enacted 1872.)
+>
+> 1437.  Conditions concurrent are those which are mutually dependent, and
+> are to be performed at the same time.
+> (Enacted 1872.)
+>
+> 1438.  A condition subsequent is one referring to a future event, upon the
+> happening of which the obligation becomes no longer binding upon the other
+> party, if he chooses to avail himself of the condition.
+> (Enacted 1872.)
+>
+> 1439.  Before any party to an obligation can require another party to
+> perform any act under it, he must fulfill all conditions precedent thereto
+> imposed upon himself; and must be able and offer to fulfill all conditions
+> concurrent so imposed upon him on the like fulfillment by the other party,
+> except as provided by the next section.
+> (Enacted 1872.)
+>
+> 1440.  If a party to an obligation gives notice to another, before the
+> latter is in default, that he will not perform the same upon his part, and
+> does not retract such notice before the time at which performance upon his
+> part is due, such other party is entitled to enforce the obligation without
+> previously performing or offering to perform any conditions upon his part
+> in favor of the former party.
+> (Enacted 1872.)
+>
+> 1441.  A condition in a contract, the fulfillment of which is impossible
+> or unlawful, within the meaning of the Article on the Object of Contracts,
+> or which is repugnant to the nature of the interest created by the
+> contract, is void.
+> (Enacted 1872.)
+>
+> 1442.  A condition involving a forfeiture must be strictly interpreted
+> against the party for whose benefit it is created.
+> (Enacted 1872.)
+>
+> Am Mi., 24. Juli 2019 um 03:54 Uhr schrieb VanL <van.lindberg at gmail.com>:
+>
+>> Various individuals at my client, including Arthur, are reviewing a
+>> second draft of the CAL before it is widely shared. When they ate done with
+>> their review, the new draft will be posted here.
+>>
+>> As for Arthur, it is his prerogative to join or not join any discussion
+>> he would like. He is definitely aware of the discussions here.
+>>
+>> Also, I would note that while my day job is as a lawyer, I understand the
+>> technical details underlying the things I discuss.
+>>
+>> Thanks,
+>> Van
+>>
+>>
+>>
+>> __________________________
+>> Van Lindberg
+>> van.lindberg at gmail.com
+>> m: 214.364.7985
+>>
+>> On Tue, Jul 23, 2019, 2:37 PM Bruce Perens via License-discuss <
+>> license-discuss at lists.opensource.org> wrote:
+>>
+>>> Are we finished discussing the Cryptographic Autonomy License?
+>>>
+>>> I am disappointed that Arthur Brock did not step up to explain his
+>>> license and left all of the representation to Van. Van is not really an
+>>> expert in the technical needs that motivated Arthur to ask him to work on
+>>> that license, and in my private correspondence with Arthur, it seemed he
+>>> had something to say.
+>>>
+>>> Van, this is not a court of law and I don't think there is a downside in
+>>> having the client talk with us. Could you invite him to?
+>>>
+>>>     Thanks
+>>>
+>>>     Bruce
+>>> _______________________________________________
+>>> License-discuss mailing list
+>>> License-discuss at lists.opensource.org
+>>>
+>>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>>
+>> _______________________________________________
+>> License-discuss mailing list
+>> License-discuss at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190724/b7117346/attachment-0001.html>
+
+From herr.alter at gmail.com  Wed Jul 24 21:38:00 2019
+From: herr.alter at gmail.com (Alexander Terekhov)
+Date: Wed, 24 Jul 2019 23:38:00 +0200
+Subject: [License-discuss] End of CAL discussion? Paging Arthur Brock.
+In-Reply-To: <CAFQvZEM3qU8=9diC1TvjDz+MGVfMoWASFiQEzUni1nxgovTPSg@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org> <CAK2MWOumvYSOGW9=Jn_MQcNOqaxcHqXNoD+U8x+WN7z5LFH3kg@mail.gmail.com> <CAK2MWOtpGcetuQgOnK-9bU=sZEgG_HOGxSRdVh_MvzR4MA2zZQ@mail.gmail.com> <CAGi9AuWfr1BrRrGU76Qbu8F_u9dzXPuiByVbi_N42MHmrTAkiA@mail.gmail.com> <CAD2gp_QCNR1LKj_a1jhXgdDasVznRMj+49d=FKxxhJ8Z58R_Jg@mail.gmail.com> <CAGi9AuVSRYk5Y4A6etu8RRWyePnU4r2yR1SP66pppYHHBcWyQQ@mail.gmail.com> <CAD2gp_Q6B5mLE50KD59_Egnbo5mfr-bNf3hW3MJjzAw-aK8Biw@mail.gmail.com> <CAGi9AuUQbYURHx32136-M+d3XWREodP_XWdz-u6UwY1XMhxgXQ@mail.gmail.com> <CAK2MWOuAjeCQSy-GN0OeE8zQdPhwdHCb0EgoQdLF8NWWUnd-pQ@mail.gmail.com> <CAFQvZEN3AUxgzAnVgk=1wPDwZt=JTKnT_vq6pMPuy8ie7AZAxA@mail.gmail.com> <CAGkaBH3yi0wudAWKDPXyNpVgjGTAG9jtKFAwUBxon_9mM77Nhw@mail.gmail.com> <CAFQvZEM3qU8=9diC1TvjDz+MGVfMoWASFiQEzUni1nxgovTPSg@mail.gmail.com>
+Message-ID: <CAGkaBH2poZEVp0e0jhVh4i_yOGyg87DGNkxjyvn9EyRscx4S3Q@mail.gmail.com>
+
+"Conditions" is the proper term of art for qualifications that are placed
+on licensee's obligations/covenants and/or licensor's grant of right(a)
+(i.e. covenant not to sue for infringement) in a license agreement. But CAL
+has no conditions. Nor has it any scope limitations, BTW. CAL's wording
+"You agree that either the Licensor or a Recipient (as an intended
+third-party beneficiary) may enforce these conditions via specific
+performance" confounds conditions with covenants.
+
+US Federal Circuit showed utter incompetence in Jacobsen vs. Katzer, don't
+try to capitalize on that silliness, please.
+
+* * *
+
+https://naturez-vous.com/conditions-in-contracts-definition-forms/
+
+"A condition is an act or event that affects a party?s contractual duty. It
+is a qualification that is placed on an obligation. For instance, let?s say
+that I promise my brother that I?ll wash the dog if he?ll clean my room.
+This agreement has a condition. I?m not obligated to wash the dog unless my
+brother cleans my room.
+
+There are three different forms of conditions. These conditions are
+categorized by the point in time that the condition must occur. There are
+conditions that must occur:
+
+Before
+During, or
+After the contractual duty
+
+Let?s look at each of these forms of conditions.
+
+Condition Precedent
+
+Sometimes a contract will require that a certain act or event occur before
+some other act or event. This form of condition is known as a condition
+precedent. A condition precedent is something that must occur before a
+party is obligated under the contract. The condition precedes the party?s
+obligation.
+
+This type of condition is common. Contracts often stipulate that a party?s
+obligation occurs once another act or event occurs. For example, let?s take
+a look at my oral agreement with my brother. I promise my brother that I?ll
+wash the dog if he?ll clean my room. This agreement has a condition
+precedent. I?m not obligated to wash the dog unless my brother cleans my
+room. My brother must clean my room before I?m obligated to wash the dog.
+The clean room is a condition precedent. Once my brother cleans my room,
+I?m obligated to wash the dog. Until then, I have no obligation.
+
+Condition Concurrent
+
+The second form of contract condition is one that must occur at the same
+time as some other act or event. This is known as a condition concurrent. A
+condition concurrent is something that must occur simultaneously with
+another condition. Each party?s obligation acts as a condition precedent
+for the other.
+
+When there is a condition concurrent, the parties? obligations are mutually
+dependent on each other. Neither party has an obligation until the other
+party performs his or her obligation. For example, let?s say that I make an
+oral agreement with my brother. As long as he cleans my room every week,
+I?ll wash the dog every week. This is a condition concurrent because we are
+mutually obligated to one another and our obligations are mutually
+dependent on each other. As long as he?s cleaning my room, I?m obligated to
+wash the dog. As long as I?m washing the dog, he?s obligated to clean my
+room.
+
+This is a common contract condition in the sale of goods or services. When
+I buy a new shirt in a store, I?m obligated to pay the storekeeper and
+she?s obligated to give me the shirt. Or, if I purchase the shirt online,
+I?m obligated to send payment to the store and the store is obligated to
+send me the shirt. The obligations are concurrently contingent on one
+another.
+
+Condition Subsequent
+
+The third form of contract condition is one that occurs after some other
+act or event. This is known as a condition subsequent. A condition
+subsequent is something that occurs after another condition. This type of
+condition terminates the parties? obligations and ends the contract.
+
+Many business contracts contain conditions subsequent. Often, the condition
+is included in a contract clause that outlines what happens when, or if, a
+certain act or event occurs. A condition subsequent will normally be an act
+or event that occurs during the duration of the contract.
+
+For example, let?s look at my oral agreement with my brother. Let?s say
+that we agree that he?ll clean my room every week, and I?ll wash the dog
+every week, until our mom reassigns our chores. This is a condition
+subsequent because our obligations to one another will terminate once our
+mom reassigns our chores. If, next month, I?m assigned to wash the dog
+every week anyway, then I?m no longer obligated to my brother.
+
+This is a common condition in business contracts, such as supply contracts.
+For example, say Bridget?s Bread Company agrees to buy all of its flour
+from Fred?s Flour Supply. This contract contains a clause saying that Fred
+is no longer obligated to supply flour to Bridget if she closes, sells, or
+moves her bread company. This is a condition subsequent and terminates the
+parties? obligations to one another.
+
+Lesson Summary
+
+Let?s review. Many business contracts contain conditions. The contract
+conditions determine the parties? obligations. A condition is an act or
+event that affects a party?s contractual duty. A condition is a
+qualification that is placed on an obligation. There are three different
+forms of conditions. These are:
+
+Conditions precedent
+Conditions concurrent, and
+Conditions subsequent
+
+A condition precedent is something that must occur before a party is
+obligated under the contract. The condition precedes the party?s
+obligation. A condition concurrent is something that must occur
+simultaneously with another condition. Each party?s obligation acts as a
+condition precedent for the other. A condition subsequent is something that
+occurs after another condition. This type of condition terminates the
+parties? obligations and ends the contract.
+
+Am Mi., 24. Juli 2019 um 19:49 Uhr schrieb VanL <van.lindberg at gmail.com>:
+
+> "Conditions" is the proper term of art for a license.
+>
+> Thanks,
+> Van
+>
+> __________________________
+> Van Lindberg
+> van.lindberg at gmail.com
+> m: 214.364.7985
+>
+> On Wed, Jul 24, 2019, 8:49 AM Alexander Terekhov <herr.alter at gmail.com>
+> wrote:
+>
+>> It would be really nice if CAL.next would stop calling unconditional
+>> covenants/duties/obligations "conditions".
+>>
+>> https://medium.com/policy/medium-terms-of-service-9db0094a1e0f
+>>
+>> "...in a court located in San Francisco, California."
+>>
+>>
+>> https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=CIV&division=3.&title=2.&part=1.&chapter=3.&article=
+>>
+>>
+>> CHAPTER 3. Conditional Obligations [1434 - 1442]  ( Chapter 3 enacted
+>> 1872. )
+>>
+>> 1434.  An obligation is conditional, when the rights or duties of any
+>> party thereto depend upon the occurrence of an uncertain event.
+>> (Enacted 1872.)
+>>
+>> 1435.  Conditions may be precedent, concurrent, or subsequent.
+>> (Enacted 1872.)
+>>
+>> 1436.  A condition precedent is one which is to be performed before some
+>> right dependent thereon accrues, or some act dependent thereon is performed.
+>> (Enacted 1872.)
+>>
+>> 1437.  Conditions concurrent are those which are mutually dependent, and
+>> are to be performed at the same time.
+>> (Enacted 1872.)
+>>
+>> 1438.  A condition subsequent is one referring to a future event, upon
+>> the happening of which the obligation becomes no longer binding upon the
+>> other party, if he chooses to avail himself of the condition.
+>> (Enacted 1872.)
+>>
+>> 1439.  Before any party to an obligation can require another party to
+>> perform any act under it, he must fulfill all conditions precedent thereto
+>> imposed upon himself; and must be able and offer to fulfill all conditions
+>> concurrent so imposed upon him on the like fulfillment by the other party,
+>> except as provided by the next section.
+>> (Enacted 1872.)
+>>
+>> 1440.  If a party to an obligation gives notice to another, before the
+>> latter is in default, that he will not perform the same upon his part, and
+>> does not retract such notice before the time at which performance upon his
+>> part is due, such other party is entitled to enforce the obligation without
+>> previously performing or offering to perform any conditions upon his part
+>> in favor of the former party.
+>> (Enacted 1872.)
+>>
+>> 1441.  A condition in a contract, the fulfillment of which is impossible
+>> or unlawful, within the meaning of the Article on the Object of Contracts,
+>> or which is repugnant to the nature of the interest created by the
+>> contract, is void.
+>> (Enacted 1872.)
+>>
+>> 1442.  A condition involving a forfeiture must be strictly interpreted
+>> against the party for whose benefit it is created.
+>> (Enacted 1872.)
+>>
+>> Am Mi., 24. Juli 2019 um 03:54 Uhr schrieb VanL <van.lindberg at gmail.com>:
+>>
+>>> Various individuals at my client, including Arthur, are reviewing a
+>>> second draft of the CAL before it is widely shared. When they ate done with
+>>> their review, the new draft will be posted here.
+>>>
+>>> As for Arthur, it is his prerogative to join or not join any discussion
+>>> he would like. He is definitely aware of the discussions here.
+>>>
+>>> Also, I would note that while my day job is as a lawyer, I understand
+>>> the technical details underlying the things I discuss.
+>>>
+>>> Thanks,
+>>> Van
+>>>
+>>>
+>>>
+>>> __________________________
+>>> Van Lindberg
+>>> van.lindberg at gmail.com
+>>> m: 214.364.7985
+>>>
+>>> On Tue, Jul 23, 2019, 2:37 PM Bruce Perens via License-discuss <
+>>> license-discuss at lists.opensource.org> wrote:
+>>>
+>>>> Are we finished discussing the Cryptographic Autonomy License?
+>>>>
+>>>> I am disappointed that Arthur Brock did not step up to explain his
+>>>> license and left all of the representation to Van. Van is not really an
+>>>> expert in the technical needs that motivated Arthur to ask him to work on
+>>>> that license, and in my private correspondence with Arthur, it seemed he
+>>>> had something to say.
+>>>>
+>>>> Van, this is not a court of law and I don't think there is a downside
+>>>> in having the client talk with us. Could you invite him to?
+>>>>
+>>>>     Thanks
+>>>>
+>>>>     Bruce
+>>>> _______________________________________________
+>>>> License-discuss mailing list
+>>>> License-discuss at lists.opensource.org
+>>>>
+>>>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>>>
+>>> _______________________________________________
+>>> License-discuss mailing list
+>>> License-discuss at lists.opensource.org
+>>>
+>>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>>
+>> _______________________________________________
+>> License-discuss mailing list
+>> License-discuss at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190724/d0365878/attachment-0001.html>
+
+From luis at lu.is  Thu Jul 25 04:09:32 2019
+From: luis at lu.is (Luis Villa)
+Date: Wed, 24 Jul 2019 21:09:32 -0700
+Subject: [License-discuss] End of CAL discussion? Paging Arthur Brock.
+In-Reply-To: <CAK2MWOsuspXVcONu72XgHML+P6OU50Msu2gNrikcq8zMHnytrw@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org> <CAK2MWOumvYSOGW9=Jn_MQcNOqaxcHqXNoD+U8x+WN7z5LFH3kg@mail.gmail.com> <CAK2MWOtpGcetuQgOnK-9bU=sZEgG_HOGxSRdVh_MvzR4MA2zZQ@mail.gmail.com> <CAGi9AuWfr1BrRrGU76Qbu8F_u9dzXPuiByVbi_N42MHmrTAkiA@mail.gmail.com> <CAD2gp_QCNR1LKj_a1jhXgdDasVznRMj+49d=FKxxhJ8Z58R_Jg@mail.gmail.com> <CAGi9AuVSRYk5Y4A6etu8RRWyePnU4r2yR1SP66pppYHHBcWyQQ@mail.gmail.com> <CAD2gp_Q6B5mLE50KD59_Egnbo5mfr-bNf3hW3MJjzAw-aK8Biw@mail.gmail.com> <CAGi9AuUQbYURHx32136-M+d3XWREodP_XWdz-u6UwY1XMhxgXQ@mail.gmail.com> <CAK2MWOuAjeCQSy-GN0OeE8zQdPhwdHCb0EgoQdLF8NWWUnd-pQ@mail.gmail.com> <CAFQvZEN3AUxgzAnVgk=1wPDwZt=JTKnT_vq6pMPuy8ie7AZAxA@mail.gmail.com> <CAK2MWOsuspXVcONu72XgHML+P6OU50Msu2gNrikcq8zMHnytrw@mail.gmail.com>
+Message-ID: <CAFjZtRdHZqGuqo3PMVyGZXgNnwmYF8gWn=hKa-mus-4TM2av4A@mail.gmail.com>
+
+On Tue, Jul 23, 2019 at 6:51 PM Bruce Perens via License-discuss <
+license-discuss at lists.opensource.org> wrote:
+
+> Van,
+>
+> Sorry! I did not mean to show disrespect for your technical competence.
+>
+
+Did you specify anywhere which technical questions Van has been unable to
+answer? If so I missed it.
+
+Luis
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190724/ba22cc9d/attachment.html>
+
+From bruce at perens.com  Thu Jul 25 05:34:29 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 24 Jul 2019 22:34:29 -0700
+Subject: [License-discuss] End of CAL discussion? Paging Arthur Brock.
+In-Reply-To: <CAFjZtRdHZqGuqo3PMVyGZXgNnwmYF8gWn=hKa-mus-4TM2av4A@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org> <CAK2MWOumvYSOGW9=Jn_MQcNOqaxcHqXNoD+U8x+WN7z5LFH3kg@mail.gmail.com> <CAK2MWOtpGcetuQgOnK-9bU=sZEgG_HOGxSRdVh_MvzR4MA2zZQ@mail.gmail.com> <CAGi9AuWfr1BrRrGU76Qbu8F_u9dzXPuiByVbi_N42MHmrTAkiA@mail.gmail.com> <CAD2gp_QCNR1LKj_a1jhXgdDasVznRMj+49d=FKxxhJ8Z58R_Jg@mail.gmail.com> <CAGi9AuVSRYk5Y4A6etu8RRWyePnU4r2yR1SP66pppYHHBcWyQQ@mail.gmail.com> <CAD2gp_Q6B5mLE50KD59_Egnbo5mfr-bNf3hW3MJjzAw-aK8Biw@mail.gmail.com> <CAGi9AuUQbYURHx32136-M+d3XWREodP_XWdz-u6UwY1XMhxgXQ@mail.gmail.com> <CAK2MWOuAjeCQSy-GN0OeE8zQdPhwdHCb0EgoQdLF8NWWUnd-pQ@mail.gmail.com> <CAFQvZEN3AUxgzAnVgk=1wPDwZt=JTKnT_vq6pMPuy8ie7AZAxA@mail.gmail.com> <CAK2MWOsuspXVcONu72XgHML+P6OU50Msu2gNrikcq8zMHnytrw@mail.gmail.com> <CAFjZtRdHZqGuqo3PMVyGZXgNnwmYF8gWn=hKa-mus-4TM2av4A@mail.gmail.com>
+Message-ID: <CAK2MWOuwE0zoTtZxHHkW+2KiNu8vkmtQKM4AMmh27aG1wkA8rg@mail.gmail.com>
+
+Luis,
+
+Please don't try to throw fuel on a fire. Van was obviously discomfited,
+and I apologized just as soon as I could. You were not any part of the
+discussion and will remain not a part.
+ Thanks
+ Bruce
+
+On Wed, Jul 24, 2019 at 9:09 PM Luis Villa <luis at lu.is> wrote:
+
+> On Tue, Jul 23, 2019 at 6:51 PM Bruce Perens via License-discuss <
+> license-discuss at lists.opensource.org> wrote:
+>
+>> Van,
+>>
+>> Sorry! I did not mean to show disrespect for your technical competence.
+>>
+>
+> Did you specify anywhere which technical questions Van has been unable to
+> answer? If so I missed it.
+>
+> Luis
+>
+
+
+-- 
+Bruce Perens - Partner, OSS.Capital.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190724/ae35e1f5/attachment.html>
+
+From andrew.dema at gmail.com  Thu Jul 25 08:30:54 2019
+From: andrew.dema at gmail.com (Andrew DeMarsh)
+Date: Thu, 25 Jul 2019 04:30:54 -0400
+Subject: [License-discuss] End of CAL discussion? Paging Arthur Brock.
+In-Reply-To: <CAK2MWOuwE0zoTtZxHHkW+2KiNu8vkmtQKM4AMmh27aG1wkA8rg@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org> <CAK2MWOumvYSOGW9=Jn_MQcNOqaxcHqXNoD+U8x+WN7z5LFH3kg@mail.gmail.com> <CAK2MWOtpGcetuQgOnK-9bU=sZEgG_HOGxSRdVh_MvzR4MA2zZQ@mail.gmail.com> <CAGi9AuWfr1BrRrGU76Qbu8F_u9dzXPuiByVbi_N42MHmrTAkiA@mail.gmail.com> <CAD2gp_QCNR1LKj_a1jhXgdDasVznRMj+49d=FKxxhJ8Z58R_Jg@mail.gmail.com> <CAGi9AuVSRYk5Y4A6etu8RRWyePnU4r2yR1SP66pppYHHBcWyQQ@mail.gmail.com> <CAD2gp_Q6B5mLE50KD59_Egnbo5mfr-bNf3hW3MJjzAw-aK8Biw@mail.gmail.com> <CAGi9AuUQbYURHx32136-M+d3XWREodP_XWdz-u6UwY1XMhxgXQ@mail.gmail.com> <CAK2MWOuAjeCQSy-GN0OeE8zQdPhwdHCb0EgoQdLF8NWWUnd-pQ@mail.gmail.com> <CAFQvZEN3AUxgzAnVgk=1wPDwZt=JTKnT_vq6pMPuy8ie7AZAxA@mail.gmail.com> <CAK2MWOsuspXVcONu72XgHML+P6OU50Msu2gNrikcq8zMHnytrw@mail.gmail.com> <CAFjZtRdHZqGuqo3PMVyGZXgNnwmYF8gWn=hKa-mus-4TM2av4A@mail.gmail.com> <CAK2MWOuwE0zoTtZxHHkW+2KiNu8vkmtQKM4AMmh27aG1wkA8rg@mail.gmail.com>
+Message-ID: <CAORThyojOOAcHvYXau8x86_tKDtvKFouNa01q=R9P0p9J=PeJw@mail.gmail.com>
+
+I'd like to ask that we all follow basic netiquette. being rude and
+"throwing shade" is extremely unprofessional. with that said @Bruce If you
+do have any questions for Arthur it may be best to ask them in the open and
+let Arthur decide if he wants to answer them. To put yourself in his shes
+can you blame him for not wanting to wade into a discussion he has no idea
+what the questions will be about and has obtained a lawyer to represent him
+on a list that is almost universally lawyers or people of immense knowledge
+in a legal field? I can say from personal experience although I believe
+that everyone here has the best of intentions such a question sounds like a
+crocodile offering passage across the river in his mouth. I say this as
+someone with no vested interest in this specific discussion.
+
+On Thu, Jul 25, 2019 at 1:51 AM Bruce Perens via License-discuss <
+license-discuss at lists.opensource.org> wrote:
+
+> Luis,
+>
+> Please don't try to throw fuel on a fire. Van was obviously discomfited,
+> and I apologized just as soon as I could. You were not any part of the
+> discussion and will remain not a part.
+>
+>     Thanks
+>
+>     Bruce
+>
+> On Wed, Jul 24, 2019 at 9:09 PM Luis Villa <luis at lu.is> wrote:
+>
+>> On Tue, Jul 23, 2019 at 6:51 PM Bruce Perens via License-discuss <
+>> license-discuss at lists.opensource.org> wrote:
+>>
+>>> Van,
+>>>
+>>> Sorry! I did not mean to show disrespect for your technical competence.
+>>>
+>>
+>> Did you specify anywhere which technical questions Van has been unable to
+>> answer? If so I missed it.
+>>
+>> Luis
+>>
+>
+>
+> --
+> Bruce Perens - Partner, OSS.Capital.
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190725/16fc816e/attachment.html>
+
+From bruce at perens.com  Thu Jul 25 15:48:41 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 25 Jul 2019 08:48:41 -0700
+Subject: [License-discuss] End of CAL discussion? Paging Arthur Brock.
+In-Reply-To: <CAORThyojOOAcHvYXau8x86_tKDtvKFouNa01q=R9P0p9J=PeJw@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org> <CAK2MWOumvYSOGW9=Jn_MQcNOqaxcHqXNoD+U8x+WN7z5LFH3kg@mail.gmail.com> <CAK2MWOtpGcetuQgOnK-9bU=sZEgG_HOGxSRdVh_MvzR4MA2zZQ@mail.gmail.com> <CAGi9AuWfr1BrRrGU76Qbu8F_u9dzXPuiByVbi_N42MHmrTAkiA@mail.gmail.com> <CAD2gp_QCNR1LKj_a1jhXgdDasVznRMj+49d=FKxxhJ8Z58R_Jg@mail.gmail.com> <CAGi9AuVSRYk5Y4A6etu8RRWyePnU4r2yR1SP66pppYHHBcWyQQ@mail.gmail.com> <CAD2gp_Q6B5mLE50KD59_Egnbo5mfr-bNf3hW3MJjzAw-aK8Biw@mail.gmail.com> <CAGi9AuUQbYURHx32136-M+d3XWREodP_XWdz-u6UwY1XMhxgXQ@mail.gmail.com> <CAK2MWOuAjeCQSy-GN0OeE8zQdPhwdHCb0EgoQdLF8NWWUnd-pQ@mail.gmail.com> <CAFQvZEN3AUxgzAnVgk=1wPDwZt=JTKnT_vq6pMPuy8ie7AZAxA@mail.gmail.com> <CAK2MWOsuspXVcONu72XgHML+P6OU50Msu2gNrikcq8zMHnytrw@mail.gmail.com> <CAFjZtRdHZqGuqo3PMVyGZXgNnwmYF8gWn=hKa-mus-4TM2av4A@mail.gmail.com> <CAK2MWOuwE0zoTtZxHHkW+2KiNu8vkmtQKM4AMmh27aG1wkA8rg@mail.gmail.com> <CAORThyojOOAcHvYXau8x86_tKDtvKFouNa01q=R9P0p9J=PeJw@mail.gmail.com>
+Message-ID: <CAK2MWOvCUAwzgtGbejOXYoCjSn0tL96Topq73rkqaD0jiwWOTg@mail.gmail.com>
+
+I don't have questions, because I think I understand what Holonet is
+intended to do. But Arthur reached out to me privately a while back,
+expressing dismay that the technical reasons for the license weren't aired
+to the degree he would have liked. IMO even if they were, this would not
+have justified accepting the license as submitted. So, the attempt might
+have been discarded as moot to the purpose of getting the license accepted.
+But you will notice we seem to be at the end of the CAL 1 discussion,
+leaving only that not addressed.
+ Thanks
+ Bruce
+
+On Thu, Jul 25, 2019 at 1:31 AM Andrew DeMarsh <andrew.dema at gmail.com>
+wrote:
+
+> I'd like to ask that we all follow basic netiquette. being rude and
+> "throwing shade" is extremely unprofessional. with that said @Bruce If you
+> do have any questions for Arthur it may be best to ask them in the open and
+> let Arthur decide if he wants to answer them. To put yourself in his shes
+> can you blame him for not wanting to wade into a discussion he has no idea
+> what the questions will be about and has obtained a lawyer to represent him
+> on a list that is almost universally lawyers or people of immense knowledge
+> in a legal field? I can say from personal experience although I believe
+> that everyone here has the best of intentions such a question sounds like a
+> crocodile offering passage across the river in his mouth. I say this as
+> someone with no vested interest in this specific discussion.
+>
+> On Thu, Jul 25, 2019 at 1:51 AM Bruce Perens via License-discuss <
+> license-discuss at lists.opensource.org> wrote:
+>
+>> Luis,
+>>
+>> Please don't try to throw fuel on a fire. Van was obviously discomfited,
+>> and I apologized just as soon as I could. You were not any part of the
+>> discussion and will remain not a part.
+>>
+>>     Thanks
+>>
+>>     Bruce
+>>
+>> On Wed, Jul 24, 2019 at 9:09 PM Luis Villa <luis at lu.is> wrote:
+>>
+>>> On Tue, Jul 23, 2019 at 6:51 PM Bruce Perens via License-discuss <
+>>> license-discuss at lists.opensource.org> wrote:
+>>>
+>>>> Van,
+>>>>
+>>>> Sorry! I did not mean to show disrespect for your technical competence.
+>>>>
+>>>
+>>> Did you specify anywhere which technical questions Van has been unable
+>>> to answer? If so I missed it.
+>>>
+>>> Luis
+>>>
+>>
+>>
+>> --
+>> Bruce Perens - Partner, OSS.Capital.
+>> _______________________________________________
+>> License-discuss mailing list
+>> License-discuss at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens - Partner, OSS.Capital.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190725/2a1b53ca/attachment.html>
+
+From herr.alter at gmail.com  Sun Jul 28 09:07:32 2019
+From: herr.alter at gmail.com (Alexander Terekhov)
+Date: Sun, 28 Jul 2019 11:07:32 +0200
+Subject: [License-discuss] CAL Termination for Non-Compliance and New York law
+Message-ID: <CAGkaBH1GsCnnOzSNtuc1qDaZ+9uGimjuYvaOFRFm5MQ3OeeoCg@mail.gmail.com>
+
+The problematic wording is this:
+
+"This License terminates automatically if You fail to comply with any of
+the conditions in section 2."
+
+Two problems:
+
+1. New York law does not allow automatic termination.
+
+"Even assuming Graham materially breached the licensing agreement and that
+James was entitled to rescission, such rescission did not occur
+automatically without some affirmative steps on James's part. 22A N.Y.
+Jur.2d Contracts ? 497 (1996) (?The failure of a party to perform his part
+of a contract does not per se rescind it. The other party must manifest his
+intention to rescind within a reasonable time.?); see also Jacob Maxwell,
+Inc., 110 F.3d at 753 (?Such a breach would do no more than entitle [the
+composer] to rescind the agreement and revoke its permission to play the
+song in the future, actions [the composer] did not take during the relevant
+period. One party's breach does not automatically cause [rescission] of a
+bilateral contract.?) (emphasis omitted). Similarly, although James
+sometimes characterizes the licensing agreement as abandoned, abandonment
+of a contract can be accomplished only through mutual assent of the
+parties, as demonstrated by positive and unequivocal conduct inconsistent
+with an intent to be bound. See Armour & Co. v. Celic, 294 F.2d 432, 435-36
+(2d Cir.1961). New York law does not presume the rescission or abandonment
+of a contract and the party asserting rescission or abandonment has the
+burden of proving it. See id. at 436."
+
+2. As I've previously mentioned, calling something "condition" does not
+make it so.
+
+"... because contract obligations that are to be performed after partial
+performance by the other party are not treated as conditions. 22 N.Y.
+Jur.2d Contracts ? 265 (1996); see also Jacob Maxwell, Inc., 110 F.3d at
+754 (holding that payment of royalties and crediting of author were
+covenants because ?[the composer] expressly granted [the licensee]
+permission to play the song before payment was tendered or recognition
+received?); I.A.E., Inc., 74 F.3d at 778 (holding that full payment was not
+a condition precedent when the licensee received the copyrighted drawings
+after tendering only half the required payment)."
+
+Both points are reflected in the following C++ code:
+
+#include <algorithm>
+
+// see  https://caselaw.findlaw.com/us-2nd-circuit/1011522.html
+
+bool a_license_agreement::is_licensee_chargeable_as_ infringer(a_person &
+licensee) {
+ // blacklisted bad guy or 17 U.S. Code ??203 scenario if (this->has_been_irrevocably_terminated(licensee)) return true;
+ // I am not yet bound by my covenant not to sue for infringement? if (std::any_of(this->conditions.begin(), this->conditions.end(), unsatisfied_condition_precedent(licensee)) return true;
+ // I am bound by my covenant not to sue for infringement return false;
+

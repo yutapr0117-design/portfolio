@@ -1,0 +1,750 @@
+>>> particular piece of data is needed for the software to function in the same
+>>> way in a self-hosted situation, then it must be provided.
+>>>
+>>> To guide your thoughts here, think about the "desert island test." There
+>>> is a desert island, with two people, Alice and Bob, and helpfully, two
+>>> identical computer systems. Alice provides your genealogical service to
+>>> Bob, her only customer, on the first computer. After a while, Bob becomes
+>>> dissatisfied, and wants to be able to run the software himself.
+>>>
+>>> Alice must provide to Bob the software itself, together with anything
+>>> needed to use all the functions in the software. Alice must also provide
+>>> Bob a copy of Bob's information, so that when Bob loads the information
+>>> into his new copy of the software on his own computer, it has the
+>>> information he expects, and the functionality associated with organizing or
+>>> analyzing his information is also available.
+>>>
+>>> There is one big caveat, though: Alice only needs to turn over
+>>> information that Bob has some preexisting right to. If Alice also held her
+>>> own information in the software, Alice doesn't need to turn over her own
+>>> information to Bob.
+>>>
+>>>
+>>>>
+>>>> Take this in the context of something like a genealogy service.  The
+>>>> user data includes my account information (data I provided), profile (data
+>>>> I provided), my family tree (data I provided)...
+>>>>
+>>>
+>>> Yes, Alice would provide Bob all this information.
+>>>
+>>>
+>>>> ... my DNA information (data generated for me) and potential DNA
+>>>> matches (data generated for me) and links to historical data and public
+>>>> records (data generated for me).
+>>>>
+>>>
+>>> This example is underspecified, so this part cannot be answered given
+>>> the information provided. If this information is solely based on the
+>>> processing of Bob's information, then Alice would need to provide it. If
+>>> this is based upon other information owned by Alice, then there is no
+>>> requirement to provide information owned by Alice.
+>>>
+>>> Thanks,
+>>> Van
+>>>
+>>> _______________________________________________
+>>> License-review mailing list
+>>> License-review at lists.opensource.org
+>>>
+>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191209/34b5dc11/attachment.html>
+
+From bruce at perens.com  Mon Dec  9 18:45:13 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 9 Dec 2019 10:45:13 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAKHyketTX1AdVeH4Kict+Y812zaCcet4-eFCCAx-gEK_iYG4Dg@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CADaGzk6Q_DGaqW-gTuUE8CF8ZEu5bfodguy5fBJN6FrZUPO1HQ@mail.gmail.com> <CAFQvZEP85_v9_SverXi3oYmTsMg3xE1WL6s9W5-oMaiWEDv87w@mail.gmail.com> <CADaGzk4v8nLrs8-nY7r+jzkr-EuR83ZXrhio21o-umrztZAygQ@mail.gmail.com> <CAKHykevVXZTsngfYb6XXEmUNObZCO-4Ok0Tnd2qm5oO+GCa=yA@mail.gmail.com> <B324DC1C-C6A7-4184-B0B0-D7940646E6F7@gmail.com> <CAKHyketTX1AdVeH4Kict+Y812zaCcet4-eFCCAx-gEK_iYG4Dg@mail.gmail.com>
+Message-ID: <CAK2MWOtyC7v4XqYo0HuOZb5KKGzssnKF_kPupmdW6_dFuZTe0g@mail.gmail.com>
+
+Lawyers? You haven't even thought about juries.
+
+I don't think this is unreasonable. As we have recently seen in cases like
+Oracle v. Google, there can be really harmful decisions by juries that are
+poorly informed on the topic. Lawyers and judges, no matter how
+professional they are - about the law - can be out of their depth when
+considering technology issues.
+
+We should endeavor to tell them clearly and without omission what we
+actually want to happen. Not wave our hands about it, calling valid
+criticism unreasonable because we make invalid assumptions about the future
+performance of courts and juries.
+
+There's obviously an exception case here that needs to be handled in the
+license. One-directional encryption does not provide for releasing user
+data back to the user. Either the license has two prohibit it, or make an
+exception for it.
+
+
+On Mon, Dec 9, 2019, 10:34 AM Henrik Ingo <henrik.ingo at avoinelama.fi> wrote:
+
+> Ok, I see your point now. While you're being unreasonable, it's a valid
+> nitpick in a legal analysis to say that hashing could be a form of DRM in
+> some intentionally dumb lawyer's imagination.
+>
+> henrik
+>
+> On Mon, Dec 9, 2019 at 6:27 PM Nigel T <nigel.2048 at gmail.com> wrote:
+>
+>> Where does it say that there is no obligation?
+>>
+>> Show me in the license text where it implies or states that the plain
+>> text password that was provided by the user to the system is not considered
+>> user data?
+>>
+>> That it?s not stored in plain text on the system is covered under 4.2
+>> where I can?t keep data from the user via encryption.
+>>
+>> Sent from my iPhone
+>>
+>> On Dec 6, 2019, at 7:29 PM, Henrik Ingo <henrik.ingo at avoinelama.fi>
+>> wrote:
+>>
+>> Nigel,
+>>
+>> Let's not get carried away here. If a plain text password isn't stored by
+>> the system, then there is obviously no obligation to produce a copy. This
+>> would be the case also for any other data not stored by the system.
+>>
+>> Henrik
+>>
+>> On Fri, 6 Dec 2019, 23:39 Nigel T, <nigel.2048 at gmail.com> wrote:
+>>
+>>> Again, where in the license text does it delineate what is required to
+>>> be meet 4.2?  I can return an encrypted password to the user but the plain
+>>> text was provided by the user at some point.  I have either not returned
+>>> all the data given to me by the user or have obfuscated it using a
+>>> cryptographic means.
+>>>
+>>> Bob has preexisting rights to US census data records because it is
+>>> public information.  Alice has spent time and money cataloging that
+>>> information so it could be found in a name search.  The service provides
+>>> linkage from people in his tree to the historical US census data.  What
+>>> needs to be provided?
+>>>
+>>> Answers that states with "as a general rule" or "your example is
+>>> underspecified" means Alice has to spend lots of effort to make sure that
+>>> the software complies with 4.2 even if she has made zero changes to that
+>>> software.
+>>>
+>>> In the context of your company that means any would be competitor is at
+>>> a huge disadvantage in using any of your offerings because at any point it
+>>> could be determined that they are in non-compliance with 4.2 and only have
+>>> 60 days to fix it or cease operations.  It doesn't matter at all to you if
+>>> you are compliant.  You don't need a license.
+>>>
+>>> On Fri, Dec 6, 2019 at 10:49 AM VanL <van.lindberg at gmail.com> wrote:
+>>>
+>>>> Hi Nigel,
+>>>>
+>>>> On Fri, Dec 6, 2019 at 8:52 AM Nigel T <nigel.2048 at gmail.com> wrote:
+>>>>
+>>>>> 3.2.a seems to imply to me that there is no patent grant when the work
+>>>>> is used as part of a combination or modification.
+>>>>>
+>>>>
+>>>> This is known as a combination carveout. Patent claims are covered for
+>>>> what is provided to you. If you modify the software in some way so that it
+>>>> infringes a patent *solely because of your modification or combination*,
+>>>> then your actions are not specifically licensed.
+>>>>
+>>>> The rationale is clear: The licensor is only responsible for what they
+>>>> provide to other people, not those peoples' subsequent actions. Otherwise
+>>>> someone could include a single line from someone's software ("#include
+>>>> <stdio.h>") and claim that all the patents owned by that person were
+>>>> licensed.
+>>>>
+>>>>
+>>>>
+>>>>> IANAL but this strikes me as a license I wouldn't touch with someone
+>>>>> else's 10 foot pole.
+>>>>>
+>>>>
+>>>> I would imagine that the CAL would not be for everyone.
+>>>>
+>>>>
+>>>>>
+>>>>> The new version also does not appear to address the issue that if CAL
+>>>>> licensed software does not meet the requirements of 4.2 then the burden of
+>>>>> meeting 4.2 falls on the user even if they had made no changes to the
+>>>>> software.
+>>>>>
+>>>>
+>>>> The CAL does not mandate a particular software architecture.
+>>>> Presumably, as with any other copyleft license, anyone wanting to use
+>>>> CAL-licensed software will consider whether they are willing to comply with
+>>>> the terms.
+>>>>
+>>>>
+>>>>> A strict reading could imply that 4.2 would require that the user of
+>>>>> the software provide clients with their plain text password.  Does it?  If
+>>>>> not, why not?
+>>>>>
+>>>>
+>>>> As a *general* rule, this is incorrect. Nothing in the CAL requires a
+>>>> party to engage in poor software design so as to keep a plaintext password
+>>>> available, nor does anything in the CAL require or suggest that a licensee
+>>>> should decrypt the user's password. More broadly, I would hope that the
+>>>> user's plain text password would not be "available to [the licensee]", but
+>>>> no one can anticipate all the ways in which people will create software.
+>>>>
+>>>>
+>>>>> The user of the software is the service provider and it strikes me as
+>>>>> this license is a potential minefield for any user other than the original
+>>>>> authors.  What does "fully use an independent copy" or "substantially
+>>>>> identical use of the work" mean in the contexts of the license?
+>>>>>
+>>>>
+>>>> The easiest way to think about this is by analogy to the GPL3's
+>>>> anti-Tivoization and "complete corresponding source" provisions, If a
+>>>> particular piece of data is needed for the software to function in the same
+>>>> way in a self-hosted situation, then it must be provided.
+>>>>
+>>>> To guide your thoughts here, think about the "desert island test."
+>>>> There is a desert island, with two people, Alice and Bob, and helpfully,
+>>>> two identical computer systems. Alice provides your genealogical service to
+>>>> Bob, her only customer, on the first computer. After a while, Bob becomes
+>>>> dissatisfied, and wants to be able to run the software himself.
+>>>>
+>>>> Alice must provide to Bob the software itself, together with anything
+>>>> needed to use all the functions in the software. Alice must also provide
+>>>> Bob a copy of Bob's information, so that when Bob loads the information
+>>>> into his new copy of the software on his own computer, it has the
+>>>> information he expects, and the functionality associated with organizing or
+>>>> analyzing his information is also available.
+>>>>
+>>>> There is one big caveat, though: Alice only needs to turn over
+>>>> information that Bob has some preexisting right to. If Alice also held her
+>>>> own information in the software, Alice doesn't need to turn over her own
+>>>> information to Bob.
+>>>>
+>>>>
+>>>>>
+>>>>> Take this in the context of something like a genealogy service.  The
+>>>>> user data includes my account information (data I provided), profile (data
+>>>>> I provided), my family tree (data I provided)...
+>>>>>
+>>>>
+>>>> Yes, Alice would provide Bob all this information.
+>>>>
+>>>>
+>>>>> ... my DNA information (data generated for me) and potential DNA
+>>>>> matches (data generated for me) and links to historical data and public
+>>>>> records (data generated for me).
+>>>>>
+>>>>
+>>>> This example is underspecified, so this part cannot be answered given
+>>>> the information provided. If this information is solely based on the
+>>>> processing of Bob's information, then Alice would need to provide it. If
+>>>> this is based upon other information owned by Alice, then there is no
+>>>> requirement to provide information owned by Alice.
+>>>>
+>>>> Thanks,
+>>>> Van
+>>>>
+>>>> _______________________________________________
+>>>> License-review mailing list
+>>>> License-review at lists.opensource.org
+>>>>
+>>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>>
+>>> _______________________________________________
+>>> License-review mailing list
+>>> License-review at lists.opensource.org
+>>>
+>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>>
+>
+> --
+> henrik.ingo at avoinelama.fi
+> +358-40-5697354        skype: henrik.ingo            irc: hingo
+> www.openlife.cc
+>
+> My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191209/8e026aa0/attachment-0001.html>
+
+From van.lindberg at gmail.com  Tue Dec 10 01:02:59 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Mon, 9 Dec 2019 19:02:59 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <B324DC1C-C6A7-4184-B0B0-D7940646E6F7@gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CADaGzk6Q_DGaqW-gTuUE8CF8ZEu5bfodguy5fBJN6FrZUPO1HQ@mail.gmail.com> <CAFQvZEP85_v9_SverXi3oYmTsMg3xE1WL6s9W5-oMaiWEDv87w@mail.gmail.com> <CADaGzk4v8nLrs8-nY7r+jzkr-EuR83ZXrhio21o-umrztZAygQ@mail.gmail.com> <CAKHykevVXZTsngfYb6XXEmUNObZCO-4Ok0Tnd2qm5oO+GCa=yA@mail.gmail.com> <B324DC1C-C6A7-4184-B0B0-D7940646E6F7@gmail.com>
+Message-ID: <CAFQvZEO8hAOk+9xBGZ=CykgSu_c4_DsD-s-cH0VhKjr3M2U61A@mail.gmail.com>
+
+Nigel -
+
+I'll answer both your emails here.
+
+First, with regard to passwords: If someone doesn't store the plaintext
+password, it is not "available" to be provided. Note that the user data
+only needs to be provided if it is available to the operator for use with
+the Work. Further, using a password hash also doesn't prevent the use of
+the data in the context of the system. If a program is set up to use a
+password hash to validate someone's password, then the hashed password is
+actually what is necessary.
+
+This gets to your second point: What if some software is not "4.2
+compliant" as you put it? It is straightforward - someone can know what
+they received from the third party Recipient in order to make things work.
+Did you receive a password and username so that the person could log in?
+Then you give it back. You don't need to forensically examine the software
+in order to watch and make sure that you give back the things that the user
+gave to you.
+
+As an analogy, think about the software as a safety deposit box. You are
+the bank. When you run the software, you get an empty box.  If you choose
+to make the software available to a user, then the user can put something
+in the box. You can put something in the box for the user. When the user
+wants to leave, they get their own box and whatever was in their box.
+
+Thanks,
+Van
+
+
+
+
+
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191209/3a8be642/attachment.html>
+
+From nigel.2048 at gmail.com  Tue Dec 10 14:41:55 2019
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Tue, 10 Dec 2019 09:41:55 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEO8hAOk+9xBGZ=CykgSu_c4_DsD-s-cH0VhKjr3M2U61A@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CADaGzk6Q_DGaqW-gTuUE8CF8ZEu5bfodguy5fBJN6FrZUPO1HQ@mail.gmail.com> <CAFQvZEP85_v9_SverXi3oYmTsMg3xE1WL6s9W5-oMaiWEDv87w@mail.gmail.com> <CADaGzk4v8nLrs8-nY7r+jzkr-EuR83ZXrhio21o-umrztZAygQ@mail.gmail.com> <CAKHykevVXZTsngfYb6XXEmUNObZCO-4Ok0Tnd2qm5oO+GCa=yA@mail.gmail.com> <B324DC1C-C6A7-4184-B0B0-D7940646E6F7@gmail.com> <CAFQvZEO8hAOk+9xBGZ=CykgSu_c4_DsD-s-cH0VhKjr3M2U61A@mail.gmail.com>
+Message-ID: <CADaGzk52LMwNuOuh0_jqBcX8jX4nwrdUK95PdqiV2hKrNS0v=A@mail.gmail.com>
+
+Van,
+
+Point 1:  So under 4.2 you are required to return the hashed password and
+the salt (if any) in addition to any other information in the user profile
+that is required to run the system.  M'kay.
+
+Point 2:  It is not straightforward for the non-programmer to determine if
+the software is compliant with 4.2 even within the context of Point 1.  The
+user provided the password.  Whether a salt is used or not is an
+implementation detail.  Did the export provide a salt?  Was it needed?  How
+do I know without looking at the code?
+
+The *software is not a safety deposit box* because of the requirement that
+you must also return *"**data has been generated by, for, or has been
+assigned to the Recipient". *Safety deposit boxes don't generate new
+content for users. Software often does.
+
+Even ignoring generated data that you'd have go though each and every UI
+screen and make sure all inputs provided by user are correctly mapped to an
+export field...and you have to do this every time you update from upstream.
+
+*If the original software cannot export all of the data required to meet
+the requirements of 4.2 then all subsequent users of the software are in
+breach of the license.*  *This is a point that you continue to dance
+around. *You are handwaving significant legal and technical burden you are
+placing on users of CAL licensed software because you want to extend
+licensing requirements beyond open *source* into open *data *and
+non-technical users who just use the software out of the box don't control
+that at all. There are no exceptions for non-compliance of the original
+code in this license so it's *a compliance nightmare** for every downstream
+user whether they change the code or not*.
+
+This license appears to work only for the most simplest of use cases
+(namely yours) and not in general and would be hugely harmful if attempted
+to be used on larger, more complex data systems because many users would
+invariably be in breach as most software can't actually export user data to
+the required level without resorting to database tools.
+
+And don't try to tell me folks wouldn't try to use CAL on software they
+shouldn't because a big selling point for CAL is "open data". I'm all for
+open data but having written software to manage large amounts of user data
+and I can tell you the challenge to provide the user data required to
+"fully use an independent copy of the Work" is very demanding for all but
+the simplest of systems even when it's something you want to do.
+
+At best this is a special purpose license that needs huge warnings on it as
+it is written today.
+
+Nigel
+
+On Mon, Dec 9, 2019 at 8:03 PM VanL <van.lindberg at gmail.com> wrote:
+
+> Nigel -
+>
+> I'll answer both your emails here.
+>
+> First, with regard to passwords: If someone doesn't store the plaintext
+> password, it is not "available" to be provided. Note that the user data
+> only needs to be provided if it is available to the operator for use with
+> the Work. Further, using a password hash also doesn't prevent the use of
+> the data in the context of the system. If a program is set up to use a
+> password hash to validate someone's password, then the hashed password is
+> actually what is necessary.
+>
+> This gets to your second point: What if some software is not "4.2
+> compliant" as you put it? It is straightforward - someone can know what
+> they received from the third party Recipient in order to make things work.
+> Did you receive a password and username so that the person could log in?
+> Then you give it back. You don't need to forensically examine the software
+> in order to watch and make sure that you give back the things that the user
+> gave to you.
+>
+> As an analogy, think about the software as a safety deposit box. You are
+> the bank. When you run the software, you get an empty box.  If you choose
+> to make the software available to a user, then the user can put something
+> in the box. You can put something in the box for the user. When the user
+> wants to leave, they get their own box and whatever was in their box.
+>
+> Thanks,
+> Van
+>
+>
+>
+>
+>
+>
+> Thanks,
+> Van
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191210/065d9460/attachment.html>
+
+From pamela at chesteklegal.com  Tue Dec 10 15:11:14 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Tue, 10 Dec 2019 10:11:14 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CADaGzk52LMwNuOuh0_jqBcX8jX4nwrdUK95PdqiV2hKrNS0v=A@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CADaGzk6Q_DGaqW-gTuUE8CF8ZEu5bfodguy5fBJN6FrZUPO1HQ@mail.gmail.com> <CAFQvZEP85_v9_SverXi3oYmTsMg3xE1WL6s9W5-oMaiWEDv87w@mail.gmail.com> <CADaGzk4v8nLrs8-nY7r+jzkr-EuR83ZXrhio21o-umrztZAygQ@mail.gmail.com> <CAKHykevVXZTsngfYb6XXEmUNObZCO-4Ok0Tnd2qm5oO+GCa=yA@mail.gmail.com> <B324DC1C-C6A7-4184-B0B0-D7940646E6F7@gmail.com> <CAFQvZEO8hAOk+9xBGZ=CykgSu_c4_DsD-s-cH0VhKjr3M2U61A@mail.gmail.com> <CADaGzk52LMwNuOuh0_jqBcX8jX4nwrdUK95PdqiV2hKrNS0v=A@mail.gmail.com>
+Message-ID: <109c48ab-3e93-9838-1c39-ee6a41a99500@chesteklegal.com>
+
+
+On 12/10/2019 9:41 AM, Nigel T wrote:
+> The *software is not a safety deposit box* because of the requirement
+> that you must also return /"//data has been generated by, for, or has
+> been assigned to the Recipient". /Safety deposit boxes don't generate
+> new content for users. Software often does. ?
+> Even ignoring generated data that you'd have go though each and every
+> UI screen and make sure all inputs provided by user are correctly
+> mapped to an export field...and you have to do this every time you
+> update from upstream.
+> *If the original software cannot export all of the data required to
+> meet the requirements of 4.2 then all subsequent users of the software
+> are in breach of the license.* ?*This is a point that you continue to
+> dance around.?*You are handwaving significant legal and technical
+> burden you are placing on users of CAL licensed software because you
+> want to extend licensing requirements beyond open *source*into open
+> *data *and non-technical users who just use the software out of the
+> box don't control that at all. There are no exceptions for
+> non-compliance of the original code in this license so it's *a
+> compliance nightmare**for every downstream user whether they change
+> the code or not*.
+Hi Nigel,
+
+Can you help me understand your point better? Section 4.2.1 says
+"Throughout any period in which You exercise any of the permissions
+granted to You under this License, You must also provide to any
+Recipient /to whom you provide services via the Work/, ... the
+Recipient's User Data in your possession, /to the extent that such User
+Data is available to You/ for use in conjunction with the Work."
+
+I acknowledge your dislike of the ambiguity of "to the extent that such
+User Data is available to You," but I'd like to put that point aside.
+For the purposes of argument let's assume that it is an easily
+ascertainable set of data, something like "any User Data you received in
+plain text." The scenario is that I have received data about a Recipient
+from upstream, and now I am providing services to that same Recipient,
+which is the only situation in which I would have to provide User Data.
+Is your point that the program architecture may make it too difficult to
+extract and provide the plain text that upstream provided to me? Is your
+argument that there is something that is not open source about this
+arrangement, or is it that the license will be used in situations for
+which it is poorly suited?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191210/280fd6f9/attachment-0001.html>
+
+From van.lindberg at gmail.com  Tue Dec 10 15:39:02 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Tue, 10 Dec 2019 07:39:02 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CADaGzk52LMwNuOuh0_jqBcX8jX4nwrdUK95PdqiV2hKrNS0v=A@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAK2MWOszjVdtsfrXXKnx5g-=fVypsgUzKVH9Yj5wxqNqtWu-BA@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CADaGzk6Q_DGaqW-gTuUE8CF8ZEu5bfodguy5fBJN6FrZUPO1HQ@mail.gmail.com> <CAFQvZEP85_v9_SverXi3oYmTsMg3xE1WL6s9W5-oMaiWEDv87w@mail.gmail.com> <CADaGzk4v8nLrs8-nY7r+jzkr-EuR83ZXrhio21o-umrztZAygQ@mail.gmail.com> <CAKHykevVXZTsngfYb6XXEmUNObZCO-4Ok0Tnd2qm5oO+GCa=yA@mail.gmail.com> <B324DC1C-C6A7-4184-B0B0-D7940646E6F7@gmail.com> <CAFQvZEO8hAOk+9xBGZ=CykgSu_c4_DsD-s-cH0VhKjr3M2U61A@mail.gmail.com> <CADaGzk52LMwNuOuh0_jqBcX8jX4nwrdUK95PdqiV2hKrNS0v=A@mail.gmail.com>
+Message-ID: <CAFQvZEPyfDFb_YCELAGeA6B7iRkuTi6vjFkwKxEjU+0XpHTceA@mail.gmail.com>
+
+Hi Nigel,
+
+The most fundamental issue you bring up is this idea that someone may run
+software and not be compliant. But it is not the running of the software
+that would create noncompliance. Just as with other open source licenses,
+it is the providing the software to other people that gives rise to the
+duty to follow the license. People don't trip and fall and find that they
+are offering a service over the Internet; they make a choice to adopt
+particular software according to a particular license, and to offer that
+software to others in a particular way.
+
+If people don't want to comply with the CAL, then I agree that they should
+not use CAL-licensed software.
+
+Turning to your more specific points, you are not alone in having written
+software here. The point that you seem to be missing is that anyone can
+look at the software as they received it, then the software as it exists
+after they add a user, and determine the difference. That is the point of
+the safe deposit box analogy.  It doesn't really matter whether the
+Recipient/user put the things in the box, or someone/something else put the
+items in the box.
+
+You also spend time worrying about mapping fields to export elements - or
+to restate more generally, insisting that there needs to be a particular
+technical implementation for data export. But software can be designed in
+different ways - some better and some worse. I am not going to say that a
+particular technically implementation is required.
+
+For example, you claim it would be a real problem that someone might need
+to use "database operations" to get data out of their system. I don't see
+that accessing a database in your control is too much a burden. In fact, I
+think in some cases that may be a good way to be compliant.
+
+Thanks,
+Van
+
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191210/5e4232fa/attachment.html>
+
+From nigel.2048 at gmail.com  Tue Dec 10 16:48:46 2019
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Tue, 10 Dec 2019 11:48:46 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <109c48ab-3e93-9838-1c39-ee6a41a99500@chesteklegal.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CADaGzk6Q_DGaqW-gTuUE8CF8ZEu5bfodguy5fBJN6FrZUPO1HQ@mail.gmail.com> <CAFQvZEP85_v9_SverXi3oYmTsMg3xE1WL6s9W5-oMaiWEDv87w@mail.gmail.com> <CADaGzk4v8nLrs8-nY7r+jzkr-EuR83ZXrhio21o-umrztZAygQ@mail.gmail.com> <CAKHykevVXZTsngfYb6XXEmUNObZCO-4Ok0Tnd2qm5oO+GCa=yA@mail.gmail.com> <B324DC1C-C6A7-4184-B0B0-D7940646E6F7@gmail.com> <CAFQvZEO8hAOk+9xBGZ=CykgSu_c4_DsD-s-cH0VhKjr3M2U61A@mail.gmail.com> <CADaGzk52LMwNuOuh0_jqBcX8jX4nwrdUK95PdqiV2hKrNS0v=A@mail.gmail.com> <109c48ab-3e93-9838-1c39-ee6a41a99500@chesteklegal.com>
+Message-ID: <CADaGzk5OEczmsFXO8iD0PVRGb_hma2DUpiFU=ktUGZ+VuyenEA@mail.gmail.com>
+
+Pam,
+
+My concern is that most software that takes in user data isn't very well
+equipped to export that user data back out.
+
+If the *code* you received from upstream (not user data) can not comply
+with the user data export requirements of 4.2...whatever those may
+be...then the downstream user of that code is automatically not in
+compliance with the license on day 1.
+
+A simple scenario is I open source a system that lets my clients make
+appointments with me, see their billing statements, communicate with me,
+etc under the CAL license.  You see this and like it because of open data
+and transparency and get a copy of my software and begin to use it for your
+own clients.  It's really easy to do as I provided you (or whomever sets up
+your web site for you) step by step instructions on how to set it up on
+your own host.
+
+No need to compile anything, just run my installer, pick a password, fill
+in some preferences, add your logo and you're ready to go.
+
+For any other open source license if you provide the source code of my
+software to your clients you are, as far as I can tell, always in
+compliance.
+
+But say I had neglected to provide a way to export some data fields that
+the client gives me when interacting with the system.  You are in breach of
+the license as is everyone else who used my open source software to serve
+their own clients.
+
+All the client user data is certainly available to you as the downstream
+provider of the software to your clients...it may just a simple SQL
+statement away or it may require a lot of code changes to make available
+but either way you DO have it.
+
+As a potential downstream user looking at my software web page, running on
+my demo site, etc, how do you know you are actually in compliance without
+more careful analysis of the system inputs and outputs?  Do you not have to
+remake this assessment every time you upgrade to my latest version?
+
+I also do not believe that we can assume that the required data is easily
+ascertainable nor do I believe that you could provide a simple criteria
+like "received in plain text" given that often the most valuable user
+inputs are the relationships between data and data groupings they create.
+
+Also the requirement to export *"**data has been generated by, for, or has
+been assigned to the Recipient"* makes the required export data not easily
+ascertainable.
+
+Regards,
+
+Nigel
+
+
+On Tue, Dec 10, 2019 at 10:12 AM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+>
+> On 12/10/2019 9:41 AM, Nigel T wrote:
+>
+> The *software is not a safety deposit box* because of the requirement
+> that you must also return *"**data has been generated by, for, or has
+> been assigned to the Recipient". *Safety deposit boxes don't generate new
+> content for users. Software often does.
+> Even ignoring generated data that you'd have go though each and every UI
+> screen and make sure all inputs provided by user are correctly mapped to an
+> export field...and you have to do this every time you update from upstream.
+> *If the original software cannot export all of the data required to meet
+> the requirements of 4.2 then all subsequent users of the software are in
+> breach of the license.*  *This is a point that you continue to dance
+> around. *You are handwaving significant legal and technical burden you
+> are placing on users of CAL licensed software because you want to extend
+> licensing requirements beyond open *source* into open *data *and
+> non-technical users who just use the software out of the box don't control
+> that at all. There are no exceptions for non-compliance of the original
+> code in this license so it's *a compliance nightmare** for every
+> downstream user whether they change the code or not*.
+>
+> Hi Nigel,
+>
+> Can you help me understand your point better? Section 4.2.1 says
+> "Throughout any period in which You exercise any of the permissions granted
+> to You under this License, You must also provide to any Recipient *to
+> whom you provide services via the Work*, ... the Recipient's User Data in
+> your possession, *to the extent that such User Data is available to You*
+> for use in conjunction with the Work."
+>
+> I acknowledge your dislike of the ambiguity of "to the extent that such
+> User Data is available to You," but I'd like to put that point aside. For
+> the purposes of argument let's assume that it is an easily ascertainable
+> set of data, something like "any User Data you received in plain text." The
+> scenario is that I have received data about a Recipient from upstream, and
+> now I am providing services to that same Recipient, which is the only
+> situation in which I would have to provide User Data. Is your point that
+> the program architecture may make it too difficult to extract and provide
+> the plain text that upstream provided to me? Is your argument that there is
+> something that is not open source about this arrangement, or is it that the
+> license will be used in situations for which it is poorly suited?
+>
+> Pam
+>
+> Pamela S. Chestek
+> Chestek Legal
+> PO Box 2492
+> Raleigh, NC 27602
+> 919-800-8033
+> pamela at chesteklegal.com
+> www.chesteklegal.com
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191210/a8c282d9/attachment-0001.html>
+
+From van.lindberg at gmail.com  Tue Dec 10 17:12:09 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Tue, 10 Dec 2019 09:12:09 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CADaGzk5OEczmsFXO8iD0PVRGb_hma2DUpiFU=ktUGZ+VuyenEA@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <CAFQvZEPEx9OmXQ4rwbfh7A6-8HL7pkMvn7g2WCXj9XPKqK2Ehg@mail.gmail.com> <CAK2MWOvGN8HuHPXrH7TrcQ+GctHdr+2s4923urApNK0gN8YZxQ@mail.gmail.com> <CAFQvZEPUD=3Zmx6eJ13PNaPaYk3h9O3oJyAKiZPS+1xShA_osQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CADaGzk6Q_DGaqW-gTuUE8CF8ZEu5bfodguy5fBJN6FrZUPO1HQ@mail.gmail.com> <CAFQvZEP85_v9_SverXi3oYmTsMg3xE1WL6s9W5-oMaiWEDv87w@mail.gmail.com> <CADaGzk4v8nLrs8-nY7r+jzkr-EuR83ZXrhio21o-umrztZAygQ@mail.gmail.com> <CAKHykevVXZTsngfYb6XXEmUNObZCO-4Ok0Tnd2qm5oO+GCa=yA@mail.gmail.com> <B324DC1C-C6A7-4184-B0B0-D7940646E6F7@gmail.com> <CAFQvZEO8hAOk+9xBGZ=CykgSu_c4_DsD-s-cH0VhKjr3M2U61A@mail.gmail.com> <CADaGzk52LMwNuOuh0_jqBcX8jX4nwrdUK95PdqiV2hKrNS0v=A@mail.gmail.com> <109c48ab-3e93-9838-1c39-ee6a41a99500@chesteklegal.com> <CADaGzk5OEczmsFXO8iD0PVRGb_hma2DUpiFU=ktUGZ+VuyenEA@mail.gmail.com>
+Message-ID: <CAFQvZENXQDNa=Ntsf0HPht6KjoQ-a3dXxRURhQh0FYrQiTnHdQ@mail.gmail.com>
+
+Nigel,
+
+Why are you presupposing that distributions you receive are noncompliant?
+That seems key to your argument. It is the same as saying, "If I get some
+software without complete corresponding source, and then give it to someone
+else, I won't be compliant."
+
+Van
+
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+
+On Tue, Dec 10, 2019, 8:49 AM Nigel T <nigel.2048 at gmail.com> wrote:
+
+> Pam,
+>
+> My concern is that most software that takes in user data isn't very well
+> equipped to export that user data back out.
+>
+> If the *code* you received from upstream (not user data) can not comply
+> with the user data export requirements of 4.2...whatever those may
+> be...then the downstream user of that code is automatically not in
+> compliance with the license on day 1.
+>
+> A simple scenario is I open source a system that lets my clients make
+> appointments with me, see their billing statements, communicate with me,
+> etc under the CAL license.  You see this and like it because of open data
+> and transparency and get a copy of my software and begin to use it for your
+> own clients.  It's really easy to do as I provided you (or whomever sets up
+> your web site for you) step by step instructions on how to set it up on
+> your own host.
+>
+> No need to compile anything, just run my installer, pick a password, fill
+> in some preferences, add your logo and you're ready to go.
+>
+> For any other open source license if you provide the source code of my
+> software to your clients you are, as far as I can tell, always in
+> compliance.
+>
+> But say I had neglected to provide a way to export some data fields that

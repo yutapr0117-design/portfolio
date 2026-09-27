@@ -1,0 +1,750 @@
+> data. The user may also have an obligation to guard data from being
+> disclosed to the wrong people, because this would endanger the user's
+> privacy rights or those of other users, or break the market. So, this can
+> be a very large legal obligation to properly verify requests and distribute
+> data.
+>
+> Now, I can guess that Van intended these terms to apply only to a large
+> operator of a financial network of the sort theorized. But as written they
+> apply to every user.
+>
+> The user is very poorly informed regarding user data. When does another
+> user actually have a *legal interest* in it? And where, since this is
+> European law? Why are we using a term from real estate law: "quiet
+> enjoyment", which we can not expect the user to understand regarding
+> software? Since GDPR is referenced, the user needs to understand that too,
+> even if it doesn't apply where they live.
+>
+> If the user data is stored using a one-way hash, and we also have terms
+> regarding cryptographic hashes, must the specifics of the one-way hash be
+> revealed, even when they would put the security of other users at risk?
+>
+> So, it strikes me that overall, this is a license that requires a lawyer
+> simply to *use *the software, and that a user without legal counsel would
+> not practically be able to exercise their responsibility regarding the
+> license terms.
+>
+> I am not recommending approval until the actual complexity of the license
+> as faced by a non-developer user is much better bounded than it is by the
+> current terms.
+>
+>     Thanks
+>
+>     Bruce
+>
+> On Mon, Apr 22, 2019 at 11:44 AM VanL <van.lindberg at gmail.com> wrote:
+>
+>> I'd like to thank everyone who provided feedback on earlier drafts of the
+>> Cryptographic Autonomy License (CAL). Since we presented the draft license
+>> in February, we have received hundreds of comments and suggestions, all of
+>> which have helped us fine-tune the license.
+>>
+>> We now present the CAL 1.0-Beta for approval at the next board meeting:
+>>   Google Docs link:
+>> https://docs.google.com/document/d/1sWUREQN02YJ-q91gXOCflRB57Q1YcU1G7UMS_a8WOTI/edit#
+>>   PDF Link: https://www.processmechanics.com/static/CAL-1.0-Beta.pdf
+>>
+>> The CAL is still open for revision until it is approved by the Board, and
+>> the links above will be updated as appropriate.
+>>
+>> I also refer everyone here again to the blog post describing the legal
+>> foundations of the license (
+>> https://www.processmechanics.com/2019/03/15/the-cryptographic-autonomy-license/)
+>> as well as the discussion on license-discuss, summarized by Lukas Atkinson
+>> here:
+>> http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-April/020394.html
+>>
+>> Thanks,
+>> Van
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190422/1d548ca7/attachment-0001.html>
+
+From van.lindberg at gmail.com  Tue Apr 23 17:44:20 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Tue, 23 Apr 2019 12:44:20 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com>
+Message-ID: <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com>
+
+Hello Bruce,
+
+There are a number of misapprehensions in your post.
+
+On Mon, Apr 22, 2019 at 7:59 PM Bruce Perens via License-review <
+license-review at lists.opensource.org> wrote:
+
+>
+> The purpose of the license is to implement a sort of market and to protect
+> the operation *of the market,* rather than simply *the rights regarding
+> the program.*
+>
+
+You are correct that there is a business purpose that we believe will be
+furthered by this license. But you are fundamentally incorrect in your
+assertion: the license itself is written to be completely independent of
+the business purpose. It can be used in many different ways by many
+different users.
+
+This necessarily requires that the terms of the license go substantially
+> beyond  terms regarding the software itself.
+>
+
+Again this is incorrect. The license only and exclusively 1) grants
+permissions to the Work, and 2) places conditions on the use of the Work.
+
+
+> Thus, we have the terms regarding user data, which apply to *any data
+> whatsoever* which the program has touched in some way:
+>
+> *b) Throughout any period in which You exercise any of the permissions
+> granted to You under this License, You must also provide to any third party
+> with which you have an enforceable legal agreement, a no-charge copy,
+> provided in a commonly used electronic form, of the User Data in your
+> possession in which that third party has a Lawful Interest;*
+>
+> And then we define user data this way:
+>
+>
+> *l) ?User Data? means any data that is either a) an input to, or b) an
+> output from, the Work or a Modified Work, in which a third party other than
+> the Licensee has a Lawful Interest in the data.*
+>
+>
+> But we never define* lawful interest. *We refer to GDPR and, I guess,
+> vaguely wave at the body of law entire.
+>
+
+Again incorrect. Lawful Interest is a defined term (as indicated by the
+capitalization). It is defined in 6(e):
+
+?Lawful Interest? means either 1) an ownership interest or 2) a
+non-ownership property or possessory interest, including but not limited to
+lawful possession of a particular copy of a work.
+
+[snip]
+
+The further commentary is moot due to its depending on not noticing the
+provided definition of Lawful Interest. User Data is data that a user a)
+owns, or b) has a property interest in, or c) has a possessory interest in.
+These are known legal terms and concepts.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190423/1226412f/attachment.html>
+
+From bruce at perens.com  Tue Apr 23 21:31:48 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 23 Apr 2019 14:31:48 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com>
+Message-ID: <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com>
+
+On Tue, Apr 23, 2019 at 10:45 AM VanL <van.lindberg at gmail.com> wrote:
+
+> On Mon, Apr 22, 2019 at 7:59 PM Bruce Perens via License-review <
+> license-review at lists.opensource.org> wrote:
+> You are correct that there is a business purpose that we believe will be
+> furthered by this license. But you are fundamentally incorrect in your
+> assertion: the license itself is written to be completely independent of
+> the business purpose. It can be used in many different ways by many
+> different users.
+>
+
+I suppose it is *possible *for different users to use it for other
+purposes, and your statement would apply to any license, no matter how
+contrived it is to fulfill a particular purpose. But there isn't really any
+getting around the fact that this was designed for a specific purpose of
+your customer.
+
+Again this is incorrect. The license only and exclusively 1) grants
+> permissions to the Work, and 2) places conditions on the use of the Work
+>
+
+No, we have terms regarding User Data, which is only related to the work in
+that the work has some role in processing it - not necessarily a large or
+significant role, the work nearly has to be involved in some way. A
+transmission through the software which did not alter the data nor derive
+information from it would be sufficient, under the terms. So, I think we
+should consider User Data to be *an entirely separate piece of property
+which is encumbered simply because you make use of this software.*
+
+This *should *raise concern, since no Open Source license allowed to
+date *encumbers
+data which is simply processed through it,* and I would submit that a
+violation of OSD #6 and #9 is inherent in such encumbrance.
+
+?Lawful Interest? means either 1) an ownership interest or 2) a
+> non-ownership property or possessory interest, including but not limited to
+> lawful possession of a particular copy of a work.
+>
+
+This doesn't really tell us much at all. As far as *ownership *interests
+go, we need a theory regarding ownership of data. This other than trade
+secret, which would obviously not apply to the person seeking access to the
+data. We might try a copyright applying to organization of data, which
+doesn't seem to apply to anyone but the software author who created that
+organization.
+
+Possessory interest is also not applicable to the person *seeking* the
+data, unless the license seeks to grant a *very broad *right regarding
+processed data which is derived *in any way* from data for which someone
+has a possessory interest. Given that a cryptographic chain is the target
+here, where all data are derived from predecessor data, you might be saying
+that all people have a right to all data processed with the program, and
+that it is the user's obligation to make that data public.
+
+This leaves us with GDPR, which does not actually settle the question of
+data ownership, only of such things as right to access, correct, or to be
+forgotten.
+
+Thus, I don't think we can actually define for the user what the legal
+interest is. There are opinions, and little case law. We have only the most
+shaky idea of what our obligation is, and little protection other than
+reliance on an attorney's opinion. The passive user must hire an attorney
+to have a hope of actually complying with the license, and even then just
+what compliance is would still be in doubt.
+
+One wonders why you don't simply fabricate a contract applying to
+participants in your market, rather than contriving to protect the market
+data through the software license. The software license could obviously be
+defeated through a reverse-engineering process, yielding an interoperable
+software without license conditions which protected the market.
+
+Obviously, a contract regarding the market itself would remove the need for
+a new Open Source license at all. It thus seems like you aren't really
+attempting to protect your customer's market, but to prevent the use of the
+software to operate a similar market not owned by your customer without
+placing all of the users of *that* market under potentially odious
+requirements to disclose data. Thus bringing in a potential OSD#6 issue.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190423/43f627fe/attachment.html>
+
+From van.lindberg at gmail.com  Tue Apr 23 22:18:00 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Tue, 23 Apr 2019 17:18:00 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com>
+Message-ID: <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com>
+
+Hello Bruce,
+
+It seems that there are still misapprehensions.
+
+
+On Mon, Apr 22, 2019 at 7:59 PM Bruce Perens via License-review <
+>> license-review at lists.opensource.org> wrote:
+>> You are correct that there is a business purpose that we believe will be
+>> furthered by this license. But you are fundamentally incorrect in your
+>> assertion: the license itself is written to be completely independent of
+>> the business purpose. It can be used in many different ways by many
+>> different users.
+>>
+>
+> I suppose it is *possible *for different users to use it for other
+> purposes, and your statement would apply to any license, no matter how
+> contrived it is to fulfill a particular purpose. But there isn't really any
+> getting around the fact that this was designed for a specific purpose of
+> your customer.
+>
+
+I don't really understand what you are going for here: Every license was
+designed to fulfill a specific purpose. The GPL was designed to preserve
+software freedom; the ISC license was written to be as short as possible;
+the MPL was written to allow a the joint compilation of separate works into
+a single binary.
+
+In this case, my client identified that it was in their business interest
+to have a strong network copyleft license that was maximally respecting of
+user freedom. Preserving user freedom is at the core of Free Software,
+which is highly related to open source. To the extent that this benefits my
+client it is because preserving user freedom and autonomy is seen as a
+prerequisite for establishing user trust. I refer you to my writeup,
+referenced above, for more explanation.
+
+
+>
+> Again this is incorrect. The license only and exclusively 1) grants
+>> permissions to the Work, and 2) places conditions on the use of the Work
+>>
+>
+> No, we have terms regarding User Data, which is only related to the work
+> in that the work has some role in processing it - not necessarily a large
+> or significant role, the work nearly has to be involved in some way. A
+> transmission through the software which did not alter the data nor derive
+> information from it would be sufficient, under the terms. So, I think we
+> should consider User Data to be *an entirely separate piece of property
+> which is encumbered simply because you make use of this software.*
+>
+
+The User Data is not encumbered. *This is a fundamental point*. There are
+no additional restrictions placed on any User Data that were not there in
+the first place. Users own or have the right to possess their own User
+Data. The CAL just denies a licensee the right to lock up a User's Data and
+make it irretrievable or unreadable. It is exactly analogous to the
+anti-Tivoization clause in the GPLv3.
+
+Let's say the CAL was applied to something like a photo storage site where
+you store your photos. *The CAL does not apply any licensing requirements
+on your photos*. *It does not encumber them at all*. It only states that
+the photo storage site using the software cannot encrypt *your *photos and
+prevent *you* from retrieving them.
+
+If allowing a person to retrieve their own data is an encumbrance, then the
+AGPL provides a similar encumbrance, in that it ensures that a site
+operator also offer users a copy of the source code to which they are
+entitled.
+
+
+>
+> ?Lawful Interest? means either 1) an ownership interest or 2) a
+>> non-ownership property or possessory interest, including but not limited to
+>> lawful possession of a particular copy of a work.
+>>
+>
+> This doesn't really tell us much at all. As far as *ownership *interests
+> go, we need a theory regarding ownership of data.
+>
+
+We don't need any such theory. Ownership of intellectual property is
+mediated by the laws of a jurisdiction. For example,a photographer has an
+ownership interest in photos that she takes because of the operation of
+copyright law. I have an "mp3 locker" where I store copies of songs that I
+legally possess - I have non-ownership possessory interest.
+
+Generally, if the law grants an ownership interest, it exists. If the law
+does not recognize an ownership interest, it does not exist.
+
+Possessory interest is also not applicable to the person *seeking* the
+> data, unless the license seeks to grant a *very broad *right regarding
+> processed data which is derived *in any way* from data for which someone
+> has a possessory interest.
+>
+
+This invents a hypothetical contrary to the terms of the license under
+discussion. The license doesn't grant the "very broad right" you are afraid
+of, and so the accompanying parade of horribles doesn't apply. If I don't
+have an ownership or possessory interest - both again, normal legal terms -
+then I can't ask for the data.
+
+
+
+> This leaves us with GDPR, which does not actually settle the question of
+> data ownership, only of such things as right to access, correct, or to be
+> forgotten.
+>
+
+The GDPR has some similar concepts, but is mostly irrelevant to the license
+here. The GDPR could go away and it would not matter one bit to the CAL.
+The only connection is to say that the "formatting and transmission
+requirement" and "number of copies" provided should be interpreted
+consistently. I refer you to the extensive discussion on this point in
+license-discuss, where this exact point of confusion was raised and
+addressed.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190423/605793be/attachment-0001.html>
+
+From bruce at perens.com  Tue Apr 23 23:27:26 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 23 Apr 2019 16:27:26 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com>
+Message-ID: <CAK2MWOvfUd+cf4_Lky3cqwSJQR-MdcJgF1zGs9wwph1GriA7bg@mail.gmail.com>
+
+Van,
+
+Please do me the courtesy of assuming that my arguments are not always
+misapprehensions, but may be valid objections to your license.
+
+On Tue, Apr 23, 2019 at 3:18 PM VanL <van.lindberg at gmail.com> wrote:
+
+> I don't really understand what you are going for here: Every license was
+> designed to fulfill a specific purpose. The GPL was designed to preserve
+> software freedom; the ISC license was written to be as short as possible;
+> the MPL was written to allow a the joint compilation of separate works into
+> a single binary.
+>
+
+Yes. But none of GPL, ISC, and MPL are specific to an application. The only
+one that really mentions specific technology at all is GPL3, and that does
+so specifically regarding license circumvention devices. In contrast, this
+is the Cryptographic Autonomy License, the application is right in the
+title. The software is for implementing cryptography in a carefully
+controlled manner, where the user may be compelled to disclose a
+significant amount of the data which is processed. I'm having trouble
+understanding what application *other *than blockchain works with both
+those conditions.
+
+In this case, my client identified that it was in their business interest
+> to have a strong network copyleft license that was maximally respecting of
+> user freedom.
+>
+
+I am not yet convinced that a compulsion to reveal the data processed by
+the program is maximally respecting of user freedom. I do note that other
+well-known licenses promoted as freedom-respecting have very clearly stated
+that you can run the software for any purpose, and that the actual running
+of the program is *unencumbered by the license. *CAL clearly encumbers the
+act of running the program and the data processed by that running.
+
+It also appears that the license is clothed in the language and law of
+protecting people from the effects of others holding their personal data.
+This, however, seems a false impression, because the terms require a
+potentially very broad compulsion to disclosure that does not respect
+individual privacy - anyone with a possessory interest or a chain of
+derivation regarding their data potentially has a right to *your *data.
+
+And then we compel disclosure of data even in contexts that do not protect
+people. Rather than personal data, the application of the program is
+blockchain data used to implement a market. This sort of data is still
+encumbered with disclosure compulsion regardless of whether it is actually
+personal or not.
+
+Since the user data release obligation is stated so unclearly that counsel
+is necessary to determine just what it is, I believe the legal burden
+necessary simply to comply with this license could also be unrespecting of
+user freedom.
+
+
+> The User Data is not encumbered. *This is a fundamental point*. There are
+> no additional restrictions placed on any User Data that were not there in
+> the first place. Users own or have the right to possess their own User Data.
+>
+
+But this seems self-contradictory. If users have the right to compel
+disclosure of their user data separately from the license, why does the
+license need to have language to compel disclosure of that data at all?
+
+
+> The CAL just denies a licensee the right to lock up a User's Data and make
+> it irretrievable or unreadable.
+>
+
+So, you're saying that it is in violation of the license for me to, for
+example, encode passwords with a one-way hash. And that doesn't seem a use
+restriction? For example, by making it impossible to properly implement
+access control software under the license.
+
+And what *other *purpose than access validation does unreadable or
+irretrievable data have, that we must prevent a software user from ever
+doing that? I guess that's implementing a blockchain. Doesn't that bring us
+back to use restrictions?
+
+
+> It is exactly analogous to the anti-Tivoization clause in the GPLv3.
+>
+
+I don't think so. The anti-Tivoization clause was designed to protect our
+access to hardware upon which we could run Free Software, in the world *beyond
+*desktop computers based on the IBM PC architecture, which we are rapidly
+entering. In contrast, this requires disclosure of data for... keeping you
+from making it unreadable. Even by yourself? I'm not sure that's even
+"locking it down".
+
+Let's say the CAL was applied to something like a photo storage site where
+> you store your photos. *The CAL does not apply any licensing requirements
+> on your photos*. *It does not encumber them at all*. It only states that
+> the photo storage site using the software cannot encrypt *your *photos
+> and prevent *you* from retrieving them.
+>
+
+That's not a use restriction?
+
+If allowing a person to retrieve their own data is an encumbrance, then the
+> AGPL provides a similar encumbrance, in that it ensures that a site
+> operator also offer users a copy of the source code to which they are
+> entitled.
+>
+
+Not so. The AGPL only applies to the program and its language is very
+careful not to reach beyond the program. It requires that a person who
+modifies the program must offer to distribute a copy of the program,
+potentially a modified version, if they perform activities similar to
+public performance. In contrast, the CAL *reaches **beyond the program* to
+apply terms to data which is simply processed by the program. This is *not *an
+encumberance like the AGPL!
+
+We don't need any such theory. Ownership of intellectual property is
+> mediated by the laws of a jurisdiction. For example,a photographer has an
+> ownership interest in photos that she takes because of the operation of
+> copyright law. I have an "mp3 locker" where I store copies of songs that I
+> legally possess - I have non-ownership possessory interest.
+>
+
+So as the operator of a music or photo site, I either have an existing
+legal responsibility to give you your data upon request, in which case the
+license does not need to compel me to do that, or I don't, and the license
+needs to compel me to do that. Which one are you stating is true?
+
+This invents a hypothetical contrary to the terms of the license under
+> discussion. The license doesn't grant the "very broad right" you are afraid
+> of, and so the accompanying parade of horribles doesn't apply. If I don't
+> have an ownership or possessory interest - both again, normal legal terms -
+> then I can't ask for the data.
+>
+
+I am still hearing that you have an interest in law, and that the license
+must still go beyond what your interest in law *is,* to compel the site
+operator to distribute files to you that are *not *the program under the
+license, and that she would not otherwise have to distribute to you.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190423/ff446faf/attachment.html>
+
+From van.lindberg at gmail.com  Wed Apr 24 02:15:37 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Tue, 23 Apr 2019 21:15:37 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOvfUd+cf4_Lky3cqwSJQR-MdcJgF1zGs9wwph1GriA7bg@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CAK2MWOsGALLyn2u-wL3-543CwTtYKGYvn+L2XZnsUuEBvfydew@mail.gmail.com> <CAFQvZEOg19zx0g9SZYXrCkswiXD055WEY35-hJwyPOi2YQ9O2Q@mail.gmail.com> <CAK2MWOsmeB=R39HK=rUtjvPPK9Dha1=XJjtw_Wa+Df6FNmYW0Q@mail.gmail.com> <CAFQvZEMx_J9-GifCp98tPjgw2xiNtGZp=i7a_jNej=m-HZhF8g@mail.gmail.com> <CAK2MWOvfUd+cf4_Lky3cqwSJQR-MdcJgF1zGs9wwph1GriA7bg@mail.gmail.com>
+Message-ID: <CAFQvZEPU8dRtUcVA1MwJmQ_HACxQXt30M4SUULiyfsGDC84i1Q@mail.gmail.com>
+
+Hello Bruce,
+
+On Tue, Apr 23, 2019 at 6:27 PM Bruce Perens <bruce at perens.com> wrote:
+
+>
+> Please do me the courtesy of assuming that my arguments are not always
+> misapprehensions, but may be valid objections to your license.
+>
+
+No disrespect intended, and I am sorry for any that was communicated.
+
+
+
+> On Tue, Apr 23, 2019 at 3:18 PM VanL <van.lindberg at gmail.com> wrote:
+>
+>> I don't really understand what you are going for here: Every license was
+>> designed to fulfill a specific purpose. The GPL was designed to preserve
+>> software freedom; the ISC license was written to be as short as possible;
+>> the MPL was written to allow a the joint compilation of separate works into
+>> a single binary.
+>>
+>
+> Yes. But none of GPL, ISC, and MPL are specific to an application. The
+> only one that really mentions specific technology at all is GPL3...
+>
+
+There is a particular way of locking down a program that is available in
+hashchain applications; that particular method is addressed in a single
+clause. That is exactly like anti-Tivoization (which is also addressed in a
+single clause inspired by the GPLv3, and the anti-circumvention, which is
+addressed in a third clause - again parallel to the GPLv3).
+
+
+
+>
+> In this case, my client identified that it was in their business interest
+>> to have a strong network copyleft license that was maximally respecting of
+>> user freedom.
+>>
+>
+> I am not yet convinced that a compulsion to reveal the data processed by
+> the program is maximally respecting of user freedom. I do note that other
+> well-known licenses promoted as freedom-respecting have very clearly stated
+> that you can run the software for any purpose....
+>
+
+Ability to run the program is clearly granted. Quoting the CAL:
+1.1. Conditioned on compliance with section 2, and subject to the
+reservations of section 1.2,* you have world-wide, royalty-free,
+non-exclusive permission to:* a) *Take any action with the Work or a Modified Work that would
+infringe the copyright or database protection laws of an Applicable
+Jurisdiction* applying to the Work, including Publicly Performing any
+interface derived from the Work; and b) *Take any action with the Work or a Modified Work that would
+infringe any patent claims Licensable by Licensor,* to the extent that
+those claims are embodied in the Work as distributed by Licensor.
+
+"Compliance with section 2" consists of: - Attribution (2.1) - Making source code available (2.2) - Making a user's data available (2.3).
+
+That's the meat of it.
+
+
+It also appears that the license is clothed in the language and law of
+> protecting people from the effects of others holding their personal data.
+> This, however, seems a false impression, because the terms require a
+> potentially very broad compulsion to disclosure that does not respect
+> individual privacy - anyone with a possessory interest or a chain of
+> derivation regarding their data potentially has a right to *your *data.
+>
+
+You assert this, but you can't end up with rights data that you did not
+already have. No rights or obligations are created in any other work.
+
+And then we compel disclosure of data even in contexts that do not protect
+> people. Rather than personal data, the application of the program is
+> blockchain data used to implement a market. This sort of data is still
+> encumbered with disclosure compulsion regardless of whether it is actually
+> personal or not.
+>
+
+
+
+> The User Data is not encumbered. *This is a fundamental point*. There are
+>> no additional restrictions placed on any User Data that were not there in
+>> the first place. Users own or have the right to possess their own User Data.
+>>
+>
+> But this seems self-contradictory. If users have the right to compel
+> disclosure of their user data separately from the license, why does the
+> license need to have language to compel disclosure of that data at all?
+>
+
+On the contrary, this happens all the time. People invest time and energy
+putting information into online platforms, only to find that their data
+gets held "hostage" against them. Want to continue to have access to your
+data? Keep paying.
+
+The CAL recognizes that modern computing is about both the program *and*
+the data. I may *own* my data. I may be able to get a copy of the source
+code. But unless I can run the program (no Tivoization, no "effectively
+controlling access to a copyrighted work," no control of the cryptographic
+keys used to process the data) I don't have freedom. And unless I can use
+the software to process my own data, I also don't have effective freedom.
+
+
+
+>
+>
+>> The CAL just denies a licensee the right to lock up a User's Data and
+>> make it irretrievable or unreadable.
+>>
+>
+> So, you're saying that it is in violation of the license for me to, for
+> example, encode passwords with a one-way hash. And that doesn't seem a use
+> restriction? For example, by making it impossible to properly implement
+> access control software under the license.
+>
+
+This is a good point. I could argue that there are ways of negotiating
+access control that don't require the transmission of passwords or similar
+information (e.g., public keys). But to avoid this issue, note the changed
+2.3(b):
+
+b) Throughout any period in which You exercise any of the permissions
+granted to You under this License, You must also provide to any third party
+with which you have an enforceable legal agreement, a no-charge copy,
+provided in a commonly used electronic form, of the User Data in your
+possession in which that third party has a Lawful Interest,* to the extent
+that such User Data is available to You for use in conjunction with the
+Work*;
+
+If I store passwords in plaintext (boo!) then I need to give you back your
+password. If I only have a hash, I may need to give you back that hash if
+doing so is necessary for me to use the Work.
+
+
+And what *other *purpose than access validation does unreadable or
+> irretrievable data have, that we must prevent a software user from ever
+> doing that? I guess that's implementing a blockchain. Doesn't that bring us
+> back to use restrictions?
+>
+
+Ummm... to the best of my knowledge, unreadable and irretrievable data has
+*nothing* to do with blockchains. In fact, the entire point of a blockchain
+is that the data is retrievable and publicly verifiable (which implies
+readable). You are imagining motives and technology which have no basis in
+fact.
+
+
+
+>
+> Let's say the CAL was applied to something like a photo storage site where
+>> you store your photos. *The CAL does not apply any licensing
+>> requirements on your photos*. *It does not encumber them at all*. It
+>> only states that the photo storage site using the software cannot encrypt *your
+>> *photos and prevent *you* from retrieving them.
+>>
+>
+> That's not a use restriction?
+>
+
+No, but I recognize that I was unclear. You can encrypt the photos. You can
+use the software in whatever what you would like. You just cannot refuse to
+decrypt them for me if you have the ability to do so. See 2.3(b) above.
+
+
+
+>
+> If allowing a person to retrieve their own data is an encumbrance, then
+>> the AGPL provides a similar encumbrance, in that it ensures that a site
+>> operator also offer users a copy of the source code to which they are
+>> entitled.
+>>
+>
+> Not so. The AGPL only applies to the program and its language is very
+> careful not to reach beyond the program. It requires that a person who
+> modifies the program must offer to distribute a copy of the program,
+> potentially a modified version, if they perform activities similar to
+> public performance. In contrast, the CAL *reaches **beyond the program*
+> to apply terms to data which is simply processed by the program. This is *not
+> *an encumberance like the AGPL!
+>
+
+You have asserted this multiple times. Please quote, specifically, any
+terms are applied to any data beyond the program. It is not there. No
+person gains or loses any rights in any data that they did not previously
+possess. No license terms are applied to anything other than the Work
+(including derivative works). The license compels an action by the licensee
+- to make the source code and data available. This is exactly the same type
+of action required under every copyleft license.
+
+We don't need any such theory. Ownership of intellectual property is
+>> mediated by the laws of a jurisdiction. For example,a photographer has an
+>> ownership interest in photos that she takes because of the operation of
+>> copyright law. I have an "mp3 locker" where I store copies of songs that I
+>> legally possess - I have non-ownership possessory interest.
+>>
+>
+> So as the operator of a music or photo site, I either have an existing
+> legal responsibility to give you your data upon request, in which case the
+> license does not need to compel me to do that, or I don't, and the license
+> needs to compel me to do that. Which one are you stating is true?
+>
+
+Just because I have ownership of the data doesn't mean that you have an
+existing legal responsibility to give it to me. This is exactly the problem
+addressed by the CAL.
+
+This invents a hypothetical contrary to the terms of the license under
+>> discussion. The license doesn't grant the "very broad right" you are afraid
+>> of, and so the accompanying parade of horribles doesn't apply. If I don't
+>> have an ownership or possessory interest - both again, normal legal terms -
+>> then I can't ask for the data.
+>>
+>
+> I am still hearing that you have an interest in law, and that the license
+> must still go beyond what your interest in law *is,* to compel the site
+> operator to distribute files to you that are *not *the program under the
+> license, and that she would not otherwise have to distribute to you.
+>
+
+I don't fully understand this comment. Trying to respond, though: The CAL
+requires the operator to make available to a user the files corresponding
+to the program as it is used by that user. The insight is that,
+increasingly, the data and the code are needed together to realize the
+program's function. Existing open source licenses, such as the GPLv3
+family, recognize this and requires the provision of cryptographic keys

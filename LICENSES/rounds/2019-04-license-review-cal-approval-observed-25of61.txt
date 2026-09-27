@@ -1,0 +1,750 @@
+>
+
+This differs in important points from the similar clause in Apache 2
+(emphasis mine):
+
+If You institute patent litigation *against any entity* (*including a
+> cross-claim or counterclaim* in a lawsuit) alleging that the Work or a
+> Contribution incorporated within the Work constitutes direct or
+> contributory patent infringement, *then any patent licenses* granted to
+> You under this License for that Work shall terminate as of the date such
+> litigation is filed.
+
+
+For reference, the corresponding part in GPLv3:
+
+
+> [?] you may not initiate litigation (including a cross-claim or
+> counterclaim in a lawsuit) alleging that any patent claim is infringed by
+> making, using, selling, offering for sale, or importing the Program or any
+> portion of it.
+>
+
+Summary of differences between CAL and Apache 2:
+ - Apache discourages patent litigation against any entity, CAL only against parties to the license. These groups are not necessarily identical if the patent is incorporated in a differently-licensed contribution that's used by multiple programs, and the patent litigation addresses an unrelated program using the same contribution.
+ - CAL's termination only triggers when patent litigation is *initiated*, Apache also discourages counterclaims that assert that the Work is infringing. Here, the CAL has weaker protections.
+ - CAL terminates all licensed rights (incl. copyright licenses), Apache only the patent licenses. Here, the CAL has stronger protections against aggressors.
+
+Given these differences, it seems that Apache 2 might not be a Compatible
+Open Source license for the CAL.
+ - What is your take on these differences? - What is the rationale for allowing counterclaims that assert that the CAL-covered software is infringing? - Is this incompatibility intended? Without access to the Apache 2 ecosystem, it would be much more difficult to create CAL-covered software.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190814/6ebad44b/attachment-0001.html>
+
+From henrik.ingo at avoinelama.fi  Wed Aug 14 13:01:41 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Wed, 14 Aug 2019 16:01:41 +0300
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAFQvZEPkSH_Ryg=HGGM-MgF6yJoArkT1o31iLiitxaUkhh6eQQ@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAFQvZEPkSH_Ryg=HGGM-MgF6yJoArkT1o31iLiitxaUkhh6eQQ@mail.gmail.com>
+Message-ID: <CAKHykevkB0iA1fGeqWonoK9O8v4JNwhr0fj_OX5Zqnk7m3HWBA@mail.gmail.com>
+
+I was just reading the new version wondering whether you won with "defeat
+by exhaustion". But seems like you were able to get some attention today.
+Below are my own thoughts, not a response to anyone else but you.
+
+Overall this is definitively an improvement. For example, the anti-DRM
+provision is not only simpler, but as a result can probably apply more
+broadly to the use cases I felt were excluded by previous version.
+
+Data autonomy
+
+Wrt the discussion of not encumbering mere use / private use with any
+obligations, I notice there's first of all a very explicit carve out for
+"your private purposes". Also the first paragraph of 4.2 is in the same
+spirit I think. But I think 4.2.1 still falls a bit short of drawing the
+right boundary. I think the reasonable boundary is: 1) If the software you
+received includes functionality for the user to download his data, you
+cannot remove or encumber this functionality. 2) When you add functionality
+that causes more data to be stored, it must be available through the same
+or similar functionality.
+
+What I think is unreasonable but still allowed by this language is to trap
+operator users with the following submarine: I develop SOFTWARE and release
+it under CAL. SOFTWARE is designed to store user input, but doesn't allow
+to download it as required by 4.2.1. You download SOFTWARE and provide
+access to 3rd parties. When you inevitably fail to provide some recipient
+with data, I can sue you for copyright infringement.
+
+Assuming that you are open to make such modification, we would arrive at a
+license that could be considered to be OSD compliant. The remaining
+question of course is whether the idea of "copyleft for data" can be OSD
+compliant in the first place? The way I have suggested to implement the
+license requirement above, it no longer burdens the operator user with any
+unreasonable obligation, since the functionality to get your data is
+automatic in the software itself. Otoh it *does* restrict the operator user
+from modifying or removing some code - seemingly incompatible with the very
+idea of open source.
+
+Then again, the OSI has approved the badgeware CPAL-1.0 license and I think
+the restriction to provide a user his own data is 100 times more justified.
+(This is also analogous with the GPL requirements that you cannot omit
+build scripts or DRM keys, even if you otherwise can remove anything freely
+from the software.) As a result, I'm starting to come down on the side that
+- assuming a good formulation is found - the idea of copyleft for data can
+be compliant with OSD and software freedom.
+
+
+API copyleft
+
+You no longer make any references to "public performance", so the issue of
+pioneering a new evil copyright power is avoided. Similarly there doesn't
+appear to be a direct claim on API copyright.
+
+*"4. If You exercise any permission granted by this License, such that the
+Work, or any part, aspect, or element of the Work, is distributed,
+communicated, made available, or made perceptible to a non-Affiliate third
+party (a ?Recipient?), either via physical delivery or via a network
+connection to the Recipient, You must comply with the following conditions"*
+
+There is no question that a software license can claim rights in all of the
+above things. Also, since you are granting these rights, there's no OSD
+issue as such.
+
+While this is narrower than the previous version, I think my practical
+questions still remain: If the work is "made perceptible" via a video
+screen in the park, do the photons emitted by the screen still fall within
+"physical delivery"?
+
+Rather than nit picking on that, let's go to the real issue: Since you
+didn't say anything about APIs or interfaces, it seems to me words like
+"aspect", "perceptible" and maybe "elaborate" remain in the license because
+the goal of your client clearly still remains to assert copyleft on an
+independent work implementing a compatible API. Clearly such an idea is
+directly against OSD#9. (Probably also EU law?)
+
+Making the license even less vague on this issue doesn't help. This is
+clearly an example of a case where a license must either be very clear or
+at least the license steward must be trusted in the community not to
+interpret any imperfections or complexities against the open source
+community's interests. Speaking as a former employee of the MySQL sales
+team, I hope my words carry some weight. To make progress with CAL, I think
+you will need to clearly reject the idea of API copyright both in the
+license text and your eventual submission.
+
+Minor
+
+I think 5.3 would benefit from following clarification: " In the event of
+termination due to litigation initiated by You,"
+
+henrik
+
+
+On Tue, Aug 13, 2019 at 7:41 PM VanL <van.lindberg at gmail.com> wrote:
+
+> There has been a lot of noise on this list recently. Bumping this thread
+> to give anyone who wishes a chance to comment.
+>
+> Thanks,
+> Van
+>
+> On Thu, Aug 8, 2019 at 4:18 PM VanL <van.lindberg at gmail.com> wrote:
+>
+>> Subject: Cryptographic Autonomy License Beta 2
+>>
+>> Thanks again to the license-review committee for the response to Beta 1.
+>> I have reworked the CAL to remove the reasons for rejection and to address
+>> some of the concerns that led into the ?further discussion? items. I have
+>> also privately discussed these with various people and received positive
+>> feedback, and so am posting CAL beta 2 for discussion.
+>>
+>> The link to CAL Beta 2 is here:
+>> https://docs.google.com/document/d/1PFX7PtPoSbSe7cC7BEoh44OjbWN91-IQOyGzO5Zr-1Q/edit?usp=sharing
+>>
+>> I debated providing a redline, but this is a significant reworking of the
+>> license ? dealing not just with the exact issues raised, but also working
+>> to simplify the language as much as possible. The result was such that a
+>> redline would be so noisy as to be uninformative. However, for those who
+>> are interested, the remainder of this message is a changelog describing the
+>> changes made in response to the discussions previously held.
+>>
+>> Thanks,
+>>
+>> Van
+>>
+>> ====
+>>
+>> Changelog:
+>>
+>> Overall:
+>>
+>> 1. Use of Legal language
+>>
+>> CAL Beta 1 was criticized for its use of legal terms, idioms, and
+>> constructions. These criticisms both focused on interpretability for
+>> developers as well as the lack of a few explicit positive grants, which
+>> were present in CAL Beta 1 through negative implication. The entire license
+>> has been reworked with an eye toward reducing complexity.
+>>
+>> 2. Private right of use
+>>
+>> One criticism of CAL Beta 1 was that it did not include an explicit
+>> positive grant of a private right of use. (It was present, but not
+>> explicit.) CAL Beta 2 has been updated to include a positive grant for
+>> private use, as well as to describe its scope. As long as the use is truly
+>> "private", there is an unlimited right to use CAL-licensed software. See
+>> Section 1:
+>>
+>> > 1. Purpose
+>>
+>> > This License gives You unlimited permission to use and modify the
+>>
+>> > software to which it applies (the ?Work?), either as-is or in
+>>
+>> > modified form, for Your private purposes, while protecting the
+>>
+>> > owners and contributors to the software from liability. If any
+>>
+>> > non-affiliated third party receives any part, aspect, or element
+>>
+>> > of the Work from You, this License also requires that You provide
+>>
+>> >that third party all the permissions and materials needed to
+>>
+>> > independently use and modify the Work without a loss of data or
+>>
+>> > capability.
+>>
+>> As with other licenses, obligations are incurred only when a third party
+>> becomes involved.
+>>
+>> 3.    Specific provision for GDPR
+>>
+>> Comment: This provision was always an interpretive aid, not a fundamental
+>> part of the license. I have removed it.
+>>
+>> 4.    The mechanism of ?public performance?
+>>
+>> Comment: While I still believe that the use of the term "public
+>> performance" was fine, this mechanism has been reworked significantly to
+>> remove this concern. Specifically:
+>>
+>> - There was some question as to whether any sort of "public performance"
+>> - regardless of the use of the specific term of art - could be a trigger
+>> for applying copyleft obligations. Bruce Perens advocated that some sort of
+>> "public performance" is acceptable [1] and noted that it has been an
+>> accepted part of other licenses. To address the concern, the mechanism was
+>> reworked to focus on the transfer of "any part, aspect, or element of the
+>> Work" to a third party. See CAL Section 4:
+>>
+>> > 4. Conditions
+>>
+>> > If You exercise any permission granted by this License, such that the
+>> Work,
+>>
+>> > or any part, aspect, or element of the Work, is distributed,
+>> communicated,
+>>
+>> > displayed, made available, or made perceptible to a non-Affiliate third
+>> party
+>>
+>> >  (a ?Recipient?), either directly or via a network connection to the
+>> Recipient,
+>>
+>> > You must comply with the following conditions: [...]
+>>
+>> This parallels existing licenses where the transfer of the *whole* work
+>> is used as the trigger for copyleft obligations. The concept was proposed
+>> on-list and did not attract debate. [2]
+>>
+>> [1]
+>> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-June/004261.html
+>>
+>> [2]
+>> http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-July/020715.html
+>>
+>> 5. Scope of copyleft.
+>>
+>> - Beta 2 has been reworked to focus on the transfer of "licenseable"
+>> parts of the Work. This limits the application to what can be properly
+>> reached by a license, regardless of what the scope of copyleft turns out to
+>> be. See Section 2.1 of CAL Beta 2:
+>>
+>> > 2.1 Application
+>>
+>> > The terms of this License apply to the Work as you receive it from
+>> Licensor,
+>>
+>> > as well as to any modifications, elaborations, or implementations
+>> created by
+>>
+>> > You that contain any licenseable portion of the Work (a ?Modified
+>> Work?).
+>>
+>> > Unless specified, any reference to the Work also applies to a Modified
+>> Work.
+>>
+>>
+>> 6. At what point the licensor can oblige licensee behavior.
+>>
+>> In CAL Beta 2 (quoted above relative to the ?public performance?
+>> objection), I have tried to recast this as the ?communication? of some
+>> part, aspect, or element of the Work. This aligns the trigger
+>> philosophically with previous work, while still retaining the network
+>> aspect that we want.
+>>
+>> 7. A license that requires data portability.
+>>
+>> As described in various email threads, the point of the data provision is
+>> to enable Recipients to make use of the software with their own data. This
+>> was not evident to some participants in the discussion, who incorrectly
+>> referred to "licensing" of data.
+>>
+>> I refocused the discussion and language in the CAL to focus on the
+>> ability of Recipients to use the software without any loss of functionality
+>> or data. See Section 4.3:
+>>
+>> > 4.3 Maintain User Autonomy
+>>
+>> > In addition to providing each Recipient the opportunity to have
+>>
+>> > Access to the Source Code, You cannot use the permissions given
+>>
+>> > under this License to interfere with a Recipient?s ability to
+>>
+>> > fully use an independent copy of the Work generated from the
+>>
+>> > Source Code You provide with the Recipient?s own User Data.
+>>
+>> This should be clearer in its application and intent, by noting that the
+>> freedom being preserved is specific to a Recipient's ability to
+>> independently run the Work as received from the Licensee.
+>>
+>> 8. Definitions
+>>
+>> While the use of a ?Definitions? section is typical in a license or other
+>> legal document, its use in the CAL was criticized. Instead, some necessary
+>> definitions have been placed in-line and the standalone section was removed.
+>>
+>> 9. ?Affiliates?
+>>
+>> While CAL Beta 1 already included the concept of ?Affiliates,? CAL Beta 2
+>> slightly expands the notion so as to deal with a common occurrence:
+>> independent contractors dedicated to a single employer. These dedicated
+>> contractors are also affiliates under Beta 2. See Section 7.1.
+>>
+>> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190814/ffe9476e/attachment-0001.html>
+
+From russellmcormond at gmail.com  Wed Aug 14 13:26:23 2019
+From: russellmcormond at gmail.com (Russell McOrmond)
+Date: Wed, 14 Aug 2019 09:26:23 -0400
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAK2MWOtdAT0QoVbBPfGT3a-1KUsYDYEtNf4gB1ZdS2_SjhEoCg@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com> <CAFQvZEMM-j_fVuZDRhPD+_WWykt_f4gi--x9tRSoMTUBVAGYZA@mail.gmail.com> <CAK2MWOu1LCprU+oiJK2M6ucdHm4ak3a3=rBsNjj-Own+CAxB_A@mail.gmail.com> <CAFQvZEOfroghN+vq=uwXOY3mXBngn_Zv2zoWby_YDJu+4_QxBQ@mail.gmail.com> <CAK2MWOtfhq_UZWTxyn-PCdq1Bt_soTjOpghN08ze39n3uRkUMQ@mail.gmail.com> <CAGi9AuUphdhA+wpuAUWtiyt7gwQ9kq=aY8ARDEfi7FCcpC8p2g@mail.gmail.com> <CAK2MWOtdAT0QoVbBPfGT3a-1KUsYDYEtNf4gB1ZdS2_SjhEoCg@mail.gmail.com>
+Message-ID: <CAGi9AuXBkKAeWYVin6CRERkAAYEacKuevH=ecXazH1tKpzg0xw@mail.gmail.com>
+
+On Wed, Aug 14, 2019 at 12:30 AM Bruce Perens via License-discuss <
+license-discuss at lists.opensource.org> wrote:
+
+>
+>
+> On Tue, Aug 13, 2019 at 8:15 PM Russell McOrmond <
+> russellmcormond at gmail.com> wrote:
+>
+>> I am left puzzled how the Affero clauses, which also target SaaS (or
+>> what RMS likes to call Service as a Software Substitute - SaaSS), passed
+>> the OSD #6 test?
+>>
+>
+> I wasn't around when this license was argued, so other folks can represent
+> what they thought at the time better than I.
+>
+
+
+Those thoughts became precedent and opened the door to other similar minded
+licenses, so having someone document the thinking would be very helpful.
+
+While I'm replying to you, I'm not arguing against you personally in this.
+I'm trying my best to have people re-think the precedent that was set by
+approving licenses which treated cloud and other distributed computing as a
+threat.
+
+
+That said, I would say because the only effect of the terms is to activate
+> the source code distribution requirement, which is considered to be a
+> fundamental purpose of Open Source. If you look at Larry Rosen's OSL terms
+> regarding "deploy", the explanation is the same.
+>
+
+
+A fundamental purpose of Open Source is to ensure that those who receive
+software receive it in the most modifiable/transparent/etc form possible.
+
+I believe in software transparency far beyond Open Source, and have
+suggested to politicians and other law-makers that software needs to become
+far more transparent and accountable than it is now.  I've even suggested
+to politicians that maybe only software that is distributed along with
+corresponding source be offered copyright protection (Note: Being
+distributed with corresponding source alone does not make something open
+source).
+
+
+When third parties don't receive software in any form, there is no software
+to need to be received in the most modifiable form.  Forcing private
+software to be published because it is privately deployed in a way that
+people don't like doesn't seem to colour within the lines of Open Source.
+
+I consider treating so-called "external deployment" as the same as
+distribution to be a large departure from what Open Source was previously
+about, as it extends the concept of who the user of the software is from
+the people who run the software to those who use the services of the people
+who run the software.  This is a dangerous and counter-productive extension
+of the concept of who the user is that I strongly believe will ultimately
+harm the Open Source movement.
+
+Like using an Open Source license as a tool to disagree with the energy
+sector (companies involved in oil/gas can't use the software), this is an
+attempt to restrict a specific way to privately deploy software in a
+LAN/VPN setting that some people disagree with.  (Note: I'm a long-time
+environmentalist who has strong concerns about the climate crisis, but
+believe mixing my views on the climate crisis and open source is
+counterproductive for both).
+
+Whether someone does or doesn't use any specific software in the provision
+of a service (with a human and/or computer interface, in physically
+proximate or geographically distributed computers) all feel like fields of
+endeavour to me, and shouldn't be restricted in an Open Source license.
+
+the acceptance of that fear is leading parts of the movement to grasp for
+>> very proprietor-focused licensing tactics of ensuring that software authors
+>> (or more often copyright/patent owners) have a high level of control over
+>> software users when they are subjectively deemed "bad software users".
+>>
+>
+> Yes. And I have Sunil Deshpande speaking at our conference, where he will
+> make the case for exactly that, and I will make the opposite case in my own
+> talk. In summary: do that if you want, but please don't call it Open
+> Source. I guess Heather is speaking too, she would make a gentler case for
+> Polyform, which they know not to call Open Source.
+>
+
+I did a google search and looked at a sample of what he has written.  It
+read like a group within the Green Party of Ontario back in the mid 1990's
+who wanted to create Green software licenses where the software was
+prohibited to be used by entities that harmed the environment (in what I
+thought were rather subjective ways).  That same group wanted to also
+prohibit the software from being used by other political parties, since in
+their mind their very existence was harming the environment.
+
+I had and still have an entirely different mindset.  The more you encourage
+people to share their software (and with Free Software in the most
+modifiable way possible), the more knowledge sharing becomes the norm.
+Then, and now, I believe that knowledge sharing of energy efficient
+technology with majority-world countries is the only way to solve global
+environmental crisis.  Making efficient technology more expensive for
+anyone makes it even more expensive as a percentage of their income of the
+majority of people on this planet.   I believed we needed to transform
+other political parties and "grey" companies to participating with Free
+Software, rather than trying to restrict their using the tiny amount of
+software that Green Party members would produce.
+
+The arguments against cloud infrastructure providers, and other service
+providers who happen to use software in the provision of their service,
+seem to be the threat to open source that those who fear the cloud believe
+the cloud itself is.
+
+To link the two, I believe locating server computers in the north to reduce
+the cost of cooling would have an important positive influence on the
+environmental costs of computing.  The devices we bring with us to warm
+climates don't need to be smart, and the majority of the smarts would be
+elsewhere.  Governments will need to regulate these entities such that our
+use of computing resources in the north grant users as similar rights as
+when we run software on our own computers.   This isn't something that can
+be accomplished in a strong-proprietor software license, but through
+regulating the service providers such that these providers don't have
+excessive control over those computer users.
+
+
+The more we accept the concept of "bad software users" as something that
+>> should be regulated in "open source" licenses, the less ability we will
+>> have to protect the software freedom of any software users.
+>>
+>
+> Yes. I have been making this case for about 25 years, before there was
+> Open Source, and it was fundamental to why the OSD includes #5 and #6. The
+> first example I came to know, you've probably heard, was a Berkeley SPICE
+> license with terms regarding the police of South Africa, that persisted
+> long after the end of apartheid. Obviously I hated apartheid, it didn't
+> seem very different from the way that nazis had treated Jews. But I felt
+> those terms belonged elsewhere, and they still do today. Otherwise, we can
+> start to entertain anti-Trump and anti-Clinton licenses, etc. and it will
+> get very noisy fast.
+>
+
+And thank you for that.
+
+I think in the 1990's there was more clarity around the purpose and goals
+of the Free Software movement.   I think RMS's worries about cloud
+computing has clouded his thinking about the harm that having strong
+software proprietors has on the interests of *software* (vs service)
+users.  I've written to him about my concerns, but haven't been receiving
+replies back since this became the topic of my messages.
+
+-- 
+Russell McOrmond, Internet Consultant: <http://www.flora.ca/>
+
+Please help us tell the Canadian Parliament to protect our property rights
+as owners of Information Technology. Sign the petition! http://l.c11.ca/ict/
+
+"The government, lobbied by legacy copyright holders and hardware
+manufacturers, can pry my camcorder, computer, home theatre, or portable
+media player from my cold dead hands!" http://c11.ca/own
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190814/b825227a/attachment.html>
+
+From van.lindberg at gmail.com  Wed Aug 14 14:16:33 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Wed, 14 Aug 2019 09:16:33 -0500
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAJTYOd0jajJO-0ZFU=qV1gwsZ4tegtt_aFrxXSt8gCRO8ZGufQ@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAJTYOd0jajJO-0ZFU=qV1gwsZ4tegtt_aFrxXSt8gCRO8ZGufQ@mail.gmail.com>
+Message-ID: <CAFQvZENNJQevzxUGAtNePinOeGDWS0GFT0NrTGaPY8XVfcjtRA@mail.gmail.com>
+
+Hi Lukas,
+
+Thanks for your comments.In general, the patent termination provision was
+crafted to deal with the actual types of patent attacks I most usually see
+around open source - a company, frequently an NPE, will assert a patent
+against a large number of users of a common open source application. I
+wanted to discourage any patent attacks on CAL-licensed software against
+anyone.
+
+Looking at the Apache license, for example, the primary entities protected
+are the *contributors.* The CAL protects both the contributors *and* the
+Recipients. So if a patent aggressor initiates litigation against a
+downstream user, a patent-holding contributor can act on behalf of the user
+(because the license is terminated as to the patent aggressor).
+
+On Wed, Aug 14, 2019 at 4:38 AM Lukas Atkinson <opensource at lukasatkinson.de>
+wrote:
+
+> Summary of differences between CAL and Apache 2:
+>
+>    - Apache discourages patent litigation against any entity, CAL only
+>    against parties to the license. These groups are not necessarily identical
+>    if the patent is incorporated in a differently-licensed contribution that's
+>    used by multiple programs, and the patent litigation addresses an unrelated
+>    program using the same contribution.
+>
+> I don't think this ends up being a difference. Patents only matter if
+someone is making/using/selling the software. As a result, anyone with
+patent exposure would be a Recipient under the CAL.
+
+In your example of a mixed work, you would have to posit that the
+patent-infringing material is only in the other-licensed part, not in the
+CAL-licensed part - in which case,  the CAL would not apply.
+
+
+>
+>    - CAL's termination only triggers when patent litigation is *initiated*,
+>    Apache also discourages counterclaims that assert that the Work is
+>    infringing. Here, the CAL has weaker protections.
+>
+>
+Yes, this is by design. We hear about companies that need to play the
+patent game "for defensive purposes only" - but the Apache-style
+termination makes that dangerous to do. This allows companies to act in
+their self-defense without incurring collateral damage. It also creates a
+self-defense mechanism that other licenses don't allow.
+
+
+>
+>    - CAL terminates all licensed rights (incl. copyright licenses),
+>    Apache only the patent licenses. Here, the CAL has stronger protections
+>    against aggressors.
+>
+>
+Not every contributor is a patent holder, but every contributor is a
+copyright holder. Thus, a wider class of entities would be empowered to act
+against a patent aggressor, even if they were not directly threatened.
+
+
+> Given these differences, it seems that Apache 2 might not be a Compatible
+> Open Source license for the CAL.
+>
+
+There is no inherent incompatibility that would prevent the licensing of a
+larger work under the CAL, nor the use of an Apache-licensed subcomponent
+of a CAL-licensed work.
+
+It is true that if someone wanted to assert a patent counterclaim in a case
+where there was Apache-licensed software in the mix, it would require some
+analysis. But I analyzed these interactions pretty carefully. It is
+possible that some actions (e.g., a counterclaim) would preserve a CAL
+license but not an Apache license, but only in the case where the "Work"
+was effectively dual licensed - it was covered under the Apache termination
+provision and the CAL provision. In that case, the more restrictive license
+would govern.
+
+More specifically:
+CAL subcomponent of an Apache-licensed Larger Work: - CAL subcomponent is claimed: The CAL governs. The Apache termination
+provision can be avoided through careful drafting of a counterclaim. - Apache-licensed portion infringes, or the Larger Work as a whole
+infringes: Apache governs. CAL-licensed portion by itself is insufficient
+to assert, and so CAL doesn't apply anyway.
+
+Dual Licensing: Both licenses apply. Actual effect on someone asserting a
+counterclaim would depend on the contribution clauses in a CLA. Asserting a
+counterclaim could cause the termination of patent licenses for
+Apache-licensed-only contributors, but a dual-licensing (Apache/CAL) CLA
+would preserve patent rights under the CAL side.
+
+Apache subcomponent of a CAL-licensed work: - Apache subcomponent is claimed: Apache governs. - CAL program (as a whole, or only CAL-licensed portions) are claimed:
+The CAL governs.
+
+Thanks,
+Van
+
+_______________________________________________
+
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190814/605d5a57/attachment-0001.html>
+
+From opensource at lukasatkinson.de  Wed Aug 14 14:25:39 2019
+From: opensource at lukasatkinson.de (Lukas Atkinson)
+Date: Wed, 14 Aug 2019 16:25:39 +0200
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAKHykevkB0iA1fGeqWonoK9O8v4JNwhr0fj_OX5Zqnk7m3HWBA@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAFQvZEPkSH_Ryg=HGGM-MgF6yJoArkT1o31iLiitxaUkhh6eQQ@mail.gmail.com> <CAKHykevkB0iA1fGeqWonoK9O8v4JNwhr0fj_OX5Zqnk7m3HWBA@mail.gmail.com>
+Message-ID: <CAJTYOd2gva5yNU1oJs6yUpwdu_o3W=w0WqEKYD+LFjSte4+_bg@mail.gmail.com>
+
+On Wed, 14 Aug 2019 at 15:33, Henrik Ingo <?> wrote:
+
+> What I think is unreasonable but still allowed by this language is to trap
+> operator users with the following submarine: I develop SOFTWARE and release
+> it under CAL. SOFTWARE is designed to store user input, but doesn't allow
+> to download it as required by 4.2.1. You download SOFTWARE and provide
+> access to 3rd parties. When you inevitably fail to provide some recipient
+> with data, I can sue you for copyright infringement.
+>
+
+Per my understanding, no such trap exists. The 4.2.1 obligation to provide
+user data only applies ?to the extent that such User Data is available to
+You for use in conjunction with the Work.? User data that isn't
+persistently stored by the software wouldn't have to be provided.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190814/092af671/attachment.html>
+
+From van.lindberg at gmail.com  Wed Aug 14 14:35:22 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Wed, 14 Aug 2019 09:35:22 -0500
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAKHykevkB0iA1fGeqWonoK9O8v4JNwhr0fj_OX5Zqnk7m3HWBA@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAFQvZEPkSH_Ryg=HGGM-MgF6yJoArkT1o31iLiitxaUkhh6eQQ@mail.gmail.com> <CAKHykevkB0iA1fGeqWonoK9O8v4JNwhr0fj_OX5Zqnk7m3HWBA@mail.gmail.com>
+Message-ID: <CAFQvZEO5Lx55e5taAg-4H--=55+y-XVf8c2pAsa3LktatpF4HQ@mail.gmail.com>
+
+Hi Henrik,
+
+Thanks for your comments.
+
+On Wed, Aug 14, 2019 at 8:02 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+wrote:
+
+> Data autonomy
+>
+> Wrt the discussion of not encumbering mere use / private use with any
+> obligations, I notice there's first of all a very explicit carve out for
+> "your private purposes". Also the first paragraph of 4.2 is in the same
+> spirit I think. But I think 4.2.1 still falls a bit short of drawing the
+> right boundary. I think the reasonable boundary is: 1) If the software you
+> received includes functionality for the user to download his data, you
+> cannot remove or encumber this functionality. 2) When you add functionality
+> that causes more data to be stored, it must be available through the same
+> or similar functionality.
+>
+
+[snip]
+
+I see where you are going by this, but I don't think that works.
+
+First, as you note, your proposed modification would have the result of
+making certain parts of the software un-modifiable, which I think is a
+no-go.
+
+Second, it doesn't seem proper to me to dictate the structure of someone's
+program. I want to identify the policy that needs to be upheld, not the
+mechanism.[1] There are a million ways to be compliant with the CAL; I
+don't want to bake something in where it would not be appropriate. For
+example, even "I tar up the files and email them to you" may not be
+efficient, but it would be compliant.
+
+Third, there are examples of later-added "user data download" functionality
+(e.g., Google Takeout) that would be hypothetically compliant with the CAL.
+So it doesn't seem unreasonable to say that functionality could be added to
+assist with compliance, if necessary.
+
+Fourth, termination is not immediate; termination due to non-compliance
+only occurs if the licensee does not comply within 60 days of being
+notified of non-compliance. That gives adequate time for even inefficient
+measures, and prevents this from being a "submarine" issue.
+
+
+
+
+
+>
+> API copyleft
+>
+> You no longer make any references to "public performance", so the issue of
+> pioneering a new evil copyright power is avoided. Similarly there doesn't
+> appear to be a direct claim on API copyright.
+>
+> *"4. If You exercise any permission granted by this License, such that the
+> Work, or any part, aspect, or element of the Work, is distributed,
+> communicated, made available, or made perceptible to a non-Affiliate third
+> party (a ?Recipient?), either via physical delivery or via a network
+> connection to the Recipient, You must comply with the following conditions"*
+>
+> There is no question that a software license can claim rights in all of
+> the above things. Also, since you are granting these rights, there's no OSD
+> issue as such.
+>
+> While this is narrower than the previous version, I think my practical
+> questions still remain: If the work is "made perceptible" via a video
+> screen in the park, do the photons emitted by the screen still fall within
+> "physical delivery"?
+>
+
+I thought very hard about your "public park" example, and that is why I
+chose those specific words. I don't think a walk-by would result in
+"physical delivery" of the software under any reasonable standard. If this
+ended up being the only issue, I would consider "tangible physical
+delivery," but I don't think it is necessary.
+
+
+
+>
+> Rather than nit picking on that, let's go to the real issue: Since you
+> didn't say anything about APIs or interfaces, it seems to me words like
+> "aspect", "perceptible" and maybe "elaborate" remain in the license because
+> the goal of your client clearly still remains to assert copyleft on an
+> independent work implementing a compatible API.
+>
+
+This depends. If the independent work contained protectable, licenseable
+portions of the CAL-licensed work, then it is not "independent," it is
+derivative.

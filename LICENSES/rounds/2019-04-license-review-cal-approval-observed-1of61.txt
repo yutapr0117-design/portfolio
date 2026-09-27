@@ -1,0 +1,750 @@
+From van.lindberg at gmail.com  Fri Mar 15 16:11:47 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Fri, 15 Mar 2019 11:11:47 -0500
+Subject: [License-discuss] For Public Comment: The Cryptographic Autonomy License
+Message-ID: <CAFQvZEOUpfFJ7qLSJMjCdDW8P9Zt3-p5dz4YigQPt9OMJ7CHxA@mail.gmail.com>
+ I have mentioned some time back that I was working on a new strong network
+copyleft license. The result is the Cryptographic Autonomy License, which I
+described at CopyleftConf. I wrote up an explainer laying out the legal
+rationales behind the CAL:
+
+https://www.processmechanics.com/2019/03/15/the-cryptographic-autonomy-license/
+
+Specifically of note are a) the use of patent rights to enforce copyleft,
+b) the use of the public performance right as the hook, and c) the
+definition of the "Work" as including interfaces.
+
+The CAL is a strongly pro-software-freedom license, and so, I would
+particularly welcome criticism by anyone coming from that perspective.
+
+Thanks,
+Van
+
+PS: The page at my blog is free software-friendly. There is no proprietary
+Javascript loaded by the page, and I have also included a PDF copy of the
+license for anyone who would prefer not to use the Google Docs link.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190315/28642fbd/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Sat Mar 16 19:46:25 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Sat, 16 Mar 2019 21:46:25 +0200
+Subject: [License-discuss] For Public Comment: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEOUpfFJ7qLSJMjCdDW8P9Zt3-p5dz4YigQPt9OMJ7CHxA@mail.gmail.com>
+References: <CAFQvZEOUpfFJ7qLSJMjCdDW8P9Zt3-p5dz4YigQPt9OMJ7CHxA@mail.gmail.com>
+Message-ID: <CAKHyketv71kTCcZFj-Kxp4gciqFkB-pW99HrtS0_g4gLUYBB5w@mail.gmail.com>
+
+Hi Van
+
+Thanks for sharing such an interesting and fresh proposal for our
+discussion. I choose this over Finnish Saturday Night Live any time!
+
+
+*About the main goal of this proposal, User Data:*
+
+It immediately stands out that this license also grants rights to third
+parties. This is also novel, isn't it? Potential OSD issues come to mind if
+this is seen as analogous to "you must also kill your cat" or "you must
+also pay a fee to the MPEG-LA". But after sleeping on it, I do agree that
+there will exist third parties who have such GDPR rights to their User
+Data, without being users nor Licensees of the licensed work.
+
+The Lawful Interest concept seems like an odd entry point. As an EU citizen
+the GDPR grants me rights wrt my User Data, but a US citizen doesn't have
+such rights (at least not for data that you have stored in a US based
+company). Does this license grant me more rights than a US citizen? Or was
+the intent to grant GDPR-like rights globally? I don't read the latter.
+
+If the intent is the former, why is this license needed at all? EU already
+ensures I have these rights.
+
+Finally, if the intent is to enforce compliance with the GDPR, is that
+against OSD#6? Can an open source license forbid use for illegal acts?
+
+My conclusion: It would be better to write the license such that it grants
+GDPR-like rights globally, also in cases where no Lawful Interest exists. I
+don't know if that is feasible though. In particular, the license should be
+able to stand on its own, and not sound like "you cannot break the law".
+
+The definition of "User Data" could easily be misunderstood too narrowly as
+data I have actively input into the system, such as via a form. I'm not so
+familiar with the GDPR that I could propose better wording, sorry. But for
+example, data Google collected about me, including from news sites, etc, is
+surely covered by the GDPR. Also, I expect that GDPR also includes data
+about me that the system has developed internally? (E.g. even if I had
+never input such a fact into Facebook, and Facebook never output it, some
+ML algorithm has probably inferred that I'm married to another FB user
+called Sanna Ingo. This is User Data in European law.)
+
+Btw, it's probably an oversight that the Licensee is not themselves a
+beneficiary of the User Data rights. I would expect to see similar anti-DRM
+measures as in GPLv3 to ensure that I can access both software and data on
+a device I bought that has software with this license.
+
+
+*About Public Performance*
+
+First:
+
+First reaction is like "Convey" in GPLv3: Why can't you use existing
+industry terminology instead of inventing new stuff that has no established
+precedent? I would much prefer simple language like "if SaaS, you must ...".
+
+If you hadn't introduced this as a network copyleft license, it would not
+at all be obvious from the language. More specifically, "interface" can
+mean a lot of things: 1) a GUI, 2) a REST APi, 3) a traditional API as in
+Oracle vs Google.
+
+1) seems like something for which Public Performance can apply. I can see
+the GUI on my screen, much like a movie.
+3) it's not at all obvious that you want or don't want this to be covered.
+Note especially that such an "interface" may be copyrighted even if it
+contains zero code from the licensed work. You'd probably have to spend a
+few more words to explain what is affected by this license and how.
+
+Second, about Public Performance:
+
+I don't think this approach will work. You want to create a license with
+conditions for SaaS usage. But Public Performance is much broader than
+that. In Europe we have these collecting societies, several per country,
+who have full time lawyers working to maximize compulsory licensing
+revenue. In pursuit of this, they have been able to establish solid case
+law, that the following are examples of public performance: * The GUI of the work is visible on a screen in the park and seen by a
+hundred passers by * At a local programming club, I show a demo of my project that includes
+the licensed work to 5 participants * The display in a Taxi is visible to the passanger, showing a GUI of a
+CAL licensed Work * Same, but a pizza place and the GUI of the cash register * The TV menu in a hotel room
+
+If any of the above "performers" failed to offer a copy of the source code
+(and remember the attribution too!) to the passers by, passengers and hotel
+guests, I can sue them for copyright infringement.
+
+
+*Smaller comments:*
+
+I basically fail to understand what you mean by "Compatible Open Source
+License". If it's "any OSI approved Open Source license", then why not say
+so? If you mean BSD and Apache style licenses, then compatibility is a
+property of those, and mentioning this seems redundant? In any case, saying
+"Open Source" without "OSI approved" feels undefined to me. A lot of people
+claim all kinds of licenses as open source.
+
+You'd better spell out General Data Protection Regulation and also add "of
+the European Union".
+
+2.4: Rather than an optional exception, I'd much prefer that you develop 2
+or more separate licenses with clearly different names like is the case
+with LGPL, GP? and AGPL. Now if I see that some software is licensed under
+CAL, such as in a github label or search, I won't be able to tell what I
+can do with that software.
+
+Didn't read your entire blog post, but since this license clearly arises
+out of EU context, at least some EU countries (maybe all?) don't register
+copyrights as you can in the US.
+
+Good night :-)
+henrik
+
+On Fri, Mar 15, 2019 at 6:32 PM VanL <van.lindberg at gmail.com> wrote:
+
+> I have mentioned some time back that I was working on a new strong network
+> copyleft license. The result is the Cryptographic Autonomy License, which I
+> described at CopyleftConf. I wrote up an explainer laying out the legal
+> rationales behind the CAL:
+>
+>
+> https://www.processmechanics.com/2019/03/15/the-cryptographic-autonomy-license/
+>
+> Specifically of note are a) the use of patent rights to enforce copyleft,
+> b) the use of the public performance right as the hook, and c) the
+> definition of the "Work" as including interfaces.
+>
+> The CAL is a strongly pro-software-freedom license, and so, I would
+> particularly welcome criticism by anyone coming from that perspective.
+>
+> Thanks,
+> Van
+>
+> PS: The page at my blog is free software-friendly. There is no proprietary
+> Javascript loaded by the page, and I have also included a PDF copy of the
+> license for anyone who would prefer not to use the Google Docs link.
+>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190316/1bc10725/attachment-0001.html>
+
+From bruce at perens.com  Sun Mar 17 00:16:56 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 16 Mar 2019 17:16:56 -0700
+Subject: [License-discuss] For Public Comment: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEOUpfFJ7qLSJMjCdDW8P9Zt3-p5dz4YigQPt9OMJ7CHxA@mail.gmail.com>
+References: <CAFQvZEOUpfFJ7qLSJMjCdDW8P9Zt3-p5dz4YigQPt9OMJ7CHxA@mail.gmail.com>
+Message-ID: <CAK2MWOv+n8E2mafn9_O4BjBD_YuoEDKQtLdyaEwCEg-5LORhYA@mail.gmail.com>
+
+*As reigning honcho of the Open Source Initiative, I have come to oppress
+your license :-)*
+
+
+*First, would you please discuss whether there is a sufficient public
+performance right for software defined in 17 USC 106 (4), (5) and (6)? I
+read your discussion of Public Performance and was not enlightened.*
+*I'm going to discuss a number of things that aren't necessarily blockers
+for approval, because you've asked for opinions on license quality, etc.*
+
+
+
+
+
+
+
+
+
+*...Conditioned on compliance with section 2, and subject to the
+reservations of section 1.2, you have the world-wide, royalty-free,
+non-exclusive permission to:Take any action with the Work or a Modified
+Work that would infringe the copyright or database protection laws of an
+Applicable Jurisdiction applying to the Work, including Publicly Performing
+any interface derived from the Work; andTake any action with the Work or a
+Modified Work that would infringe any patent claims Licensable by Licensor,
+to the extent that those claims are embodied in the Work as distributed by
+Licensor.**It strikes me that the above grant is incomplete, in that there
+will be additional necessary rights separate from copyright and patent in
+various jurisdictions, such as moral rights, mask rights, broadcast rights,
+etc. For assurance that the grant is sufficient and will survive changes in
+venue and evolution of law, you should make a general grant of other
+necessary rights excluding trademark. *
+
+
+
+
+
+
+
+
+
+
+
+*Limitations on GrantsThe permissions in Section 1.1 are the only
+permissions granted under this license. The following reservations
+apply:Licensor does not grant any patent license for Code that the Licensor
+has removed from the Work.Licensor does not grant any patent license for
+claims that are only infringed due to the modification of the Work or the
+combination of the Work, directly or indirectly, with any other component,
+including other Software or hardware.Licensor does not grant any license to
+the trademarks, service marks, or logos of Licensor, except to the extent
+necessary i) to comply with the attribution conditions in section 2.1 of
+this License; and ii) to describe a Modified Work as being compatible or
+not compatible with the Work.*
+
+*I think this works better as a positive grant:Each Licensor grants the
+right to exercise their patent claims that are necessarily infringed by
+each version of the software which that Licensor has licensed, distributed,
+made available, modified, or performed.*
+
+...
+
+*You may not use the Software to control any cryptographic keys, seeds, or
+hashes pertaining to third parties where such control would prevent the
+third party from independently exercising the permissions granted under
+this License;*
+
+*This is problematic in that DRM is often implemented using other software
+than "the Software", for example the operating system, or is implemented
+with hardware. And as written this is a use restriction on the software.
+And it's too specific regarding the means. How about:*
+
+*You may not use technical means to prevent the third party from
+independently exercising the permissions granted under this License.*
+
+*You must waive any legal power to forbid circumvention of technical
+protection measures that include use of the Work; and*
+
+*You must disclaim any intention to limit operation or modification of the
+Work as a means of enforcing the legal rights of third parties against
+Recipients.*
+
+*Other than the conditions requiring You to a) provide Recipients no-charge
+access to the Source Code of the Work or a Modified Work, and b) provide a
+copy at no charge of any User Data in Your possession to legally-engaged
+third parties having a Lawful Interest in the User Data, nothing in this
+License requires You to provide processing services to anyoneany Recipient
+or any other third party.*
+
+*Combined Work Exception*
+
+*As an exception to the conditions in sections 2.2.1 and 2.2.2, any Source
+Code marked by the Licensor as having the ?Combined Work Exception,? or any
+Object Code created from Source Code so marked, may be combined with other
+Software into a larger work, and the resulting larger work may be licensed
+under any other termsused, distributed, or sold under any other license, so
+long as You: a) comply with the notice conditions of section 2.1; b) comply
+with the distribution conditions of 2.2.1 and 2.2.2, relative to the Source
+Code provided to You; and c) comply with section 2.3.*
+
+*I don't understand why you add this complexity rather than simply allowing
+creators of modifications to license their modifications separately, as
+independent works. Is it because they may be derivative?*
+
+*    Thanks*
+
+*    Bruce*
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190316/e9d460e6/attachment-0001.html>
+
+From bruce at perens.com  Sun Mar 17 00:24:52 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 16 Mar 2019 17:24:52 -0700
+Subject: [License-discuss] For Public Comment: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOv+n8E2mafn9_O4BjBD_YuoEDKQtLdyaEwCEg-5LORhYA@mail.gmail.com>
+References: <CAFQvZEOUpfFJ7qLSJMjCdDW8P9Zt3-p5dz4YigQPt9OMJ7CHxA@mail.gmail.com> <CAK2MWOv+n8E2mafn9_O4BjBD_YuoEDKQtLdyaEwCEg-5LORhYA@mail.gmail.com>
+Message-ID: <CAK2MWOsngXy-GvjgNWYfz_6S_-4dyF9=m2fp_b0tznEu1t-RgA@mail.gmail.com>
+
+I noticed that Pipermail rendered my commentary on Van's license horribly.
+If anyone has trouble reading it, tell me and I'll attempt to resend in a
+different format.
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190316/9ea5c5a9/attachment.html>
+
+From bruce at perens.com  Sun Mar 17 00:39:47 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 16 Mar 2019 17:39:47 -0700
+Subject: [License-discuss] For Public Comment: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOv+n8E2mafn9_O4BjBD_YuoEDKQtLdyaEwCEg-5LORhYA@mail.gmail.com>
+References: <CAFQvZEOUpfFJ7qLSJMjCdDW8P9Zt3-p5dz4YigQPt9OMJ7CHxA@mail.gmail.com> <CAK2MWOv+n8E2mafn9_O4BjBD_YuoEDKQtLdyaEwCEg-5LORhYA@mail.gmail.com>
+Message-ID: <CAK2MWOtdXFqWMOXJeqPyCAoCeN5upLbm9n4bKwvHocvAMJ6Mzg@mail.gmail.com>
+
+>  *First, would you please discuss whether there is a sufficient public
+performance right for software defined in 17 USC 106 (4), (5) and (6)? I
+read your discussion of Public Performance and was not enlightened.*
+
+The problem I'm having with this is that you tossed out "software is
+defined as a literary work" without explanation. Where? By Nimmer, or the
+Supreme Court? With existing case law of the use of public performance
+rights for software?
+ Thanks
+ Bruce
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190316/2b405f04/attachment.html>
+
+From van.lindberg at gmail.com  Sun Mar 17 20:36:19 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Sun, 17 Mar 2019 15:36:19 -0500
+Subject: [License-discuss] For Public Comment: The Cryptographic Autonomy License
+In-Reply-To: <CAKHyketv71kTCcZFj-Kxp4gciqFkB-pW99HrtS0_g4gLUYBB5w@mail.gmail.com>
+References: <CAFQvZEOUpfFJ7qLSJMjCdDW8P9Zt3-p5dz4YigQPt9OMJ7CHxA@mail.gmail.com> <CAKHyketv71kTCcZFj-Kxp4gciqFkB-pW99HrtS0_g4gLUYBB5w@mail.gmail.com>
+Message-ID: <CAFQvZEPVK6iZgjLE=M5O=JtBBsSh0=6AmOLFpU54Wa+f8+1pHw@mail.gmail.com>
+
+Hi Henrik,
+
+Thanks for the commentary!
+
+On Sat, Mar 16, 2019 at 2:47 PM Henrik Ingo <henrik.ingo at avoinelama.fi>
+wrote:
+
+>
+> *About the main goal of this proposal, User Data:*
+>
+> It immediately stands out that this license also grants rights to third
+> parties. This is also novel, isn't it? Potential OSD issues come to mind if
+> this is seen as analogous to "you must also kill your cat" or "you must
+> also pay a fee to the MPEG-LA".
+>
+
+There are two slightly separate issues here that should be distinguished.
+
+- Granting rights to third parties
+The CAL *does* grant rights to third parties, but only as intended third
+party beneficiaries (similar to NASA-1.3) who have the right to request
+copies of the Source Code and their own User Data. Other than this specific
+right to enforce, third parties are not the subject of any grants.
+
+- Protection of User Data
+The protection of User Data portion is a limitation on the grant to the
+licensee, not a grant of rights to a third party. It is similar in
+structure although broader in intent than the GPLv3's anti-Tivoization
+clause: You may not use the Work to deny these specific freedoms to your
+Users.
+
+
+> But after sleeping on it, I do agree that there will exist third parties
+> who have such GDPR rights to their User Data, without being users nor
+> Licensees of the licensed work.
+>
+
+It seems likely, though, that anyone for whom a licensee is holding User
+Data will be a Recipient, and thus someone who should receive Access to
+Source Code as well as their own User Data.
+
+The GDPR angle is *similar*, but don't overread it. The GDPR is about
+privacy first, and data only second. The CAL is about User Autonomy, which
+is the four freedoms of free software plus user data.
+
+
+
+> The Lawful Interest concept seems like an odd entry point. As an EU
+> citizen the GDPR grants me rights wrt my User Data, but a US citizen
+> doesn't have such rights (at least not for data that you have stored in a
+> US based company). Does this license grant me more rights than a US
+> citizen? Or was the intent to grant GDPR-like rights globally? I don't read
+> the latter.
+>
+
+See the comment above about the GDPR. The intent is not to enforce
+compliance with the GDPR or extend it globally. Rather, it is about
+preventing the use of the work to deny freedoms to Recipients of the Work.
+It just so happens that the GPDR also has some elements that talk about
+that, so the CAL was drafted to talk about it consistently with those
+specific provisions. But the CAL does nothing relative to the GPDR as a
+whole.
+
+As for the specific "lawful interest," the motivating use case for that was
+something like ebooks. I may have a right to possess a particular copy of
+an ebook, even if I don't "own" the ebook (as per current US law). We don't
+want the phrase "the _____ is licensed, not sold" to be effective in
+denying someone access to something that they have a legal right to possess.
+
+The definition of "User Data" could easily be misunderstood too narrowly as
+> data I have actively input into the system, such as via a form. I'm not so
+> familiar with the GDPR that I could propose better wording, sorry. But for
+> example, data Google collected about me, including from news sites, etc, is
+> surely covered by the GDPR. Also, I expect that GDPR also includes data
+> about me that the system has developed internally? (E.g. even if I had
+> never input such a fact into Facebook, and Facebook never output it, some
+> ML algorithm has probably inferred that I'm married to another FB user
+> called Sanna Ingo. This is User Data in European law.)
+>
+
+Again, don't overread the comparison. All that you are talking about
+GDPR-wise has to do with privacy, and not about User Data as contemplated
+in the CAL. (If the law in the EU grants users ownership interests in their
+tracking data, then it could be covered, but it would be because the law
+made them an owner, not because it was *about* them.)
+
+
+
+> Btw, it's probably an oversight that the Licensee is not themselves a
+> beneficiary of the User Data rights. I would expect to see similar anti-DRM
+> measures as in GPLv3 to ensure that I can access both software and data on
+> a device I bought that has software with this license.
+>
+
+Those are present - see 2.3(d) and (e), which are directly analogous to
+provisions in the GPLv3.
+
+
+> *About Public Performance*
+>
+> First:
+>
+> First reaction is like "Convey" in GPLv3: Why can't you use existing
+> industry terminology instead of inventing new stuff that has no established
+> precedent? I would much prefer simple language like "if SaaS, you must ...".
+>
+
+I see your point, but I'm coming at it from a different angle: "public
+performance" *is* existing industry terminology - just in the legal
+industry. This is very closely tied to the specific copyright and patent
+grants, not to types of businesses or types of uses. (Restricting based on
+type of business or use would not be OSD compliant).
+
+
+
+> If you hadn't introduced this as a network copyleft license, it would not
+> at all be obvious from the language. More specifically, "interface" can
+> mean a lot of things: 1) a GUI, 2) a REST APi, 3) a traditional API as in
+> Oracle vs Google.
+>
+
+Interface in the CAL means any or all of those, to the extent that they are
+protectable via IP law.
+
+
+> 1) seems like something for which Public Performance can apply. I can see
+> the GUI on my screen, much like a movie.
+> 3) it's not at all obvious that you want or don't want this to be covered.
+> Note especially that such an "interface" may be copyrighted even if it
+> contains zero code from the licensed work. You'd probably have to spend a
+> few more words to explain what is affected by this license and how.
+>
+> Second, about Public Performance:
+>
+> I don't think this approach will work. You want to create a license with
+> conditions for SaaS usage. But Public Performance is much broader than
+> that. [snip examples]
+>
+
+Public performance can be broader than SaaS, it is true.  (I think you are
+slightly too focused on the GUI aspect, but we can go with it because that
+could be an aspect of public performance.) The difference between the CAL
+and your collecting societies is that the collecting societies have
+licenses that say "pay us or it is copyright infringement." You have to
+engage with them in order to avoid infringement.
+
+In contrast, the CAL, like other reciprocal licenses, is actually kind of a
+"pass forward" license: as long as you make the Source Code and applicable
+User Data available to Recipients, no interaction with the licensor is
+needed.
+
+So, looking at your GUI examples, a link in the GUI that gave people Access
+to the Source Code would prevent infringement in all the situations you
+identify. In this way, it isn't too different from the AGPL.
+
+*Smaller comments:*
+>
+> I basically fail to understand what you mean by "Compatible Open Source
+> License". If it's "any OSI approved Open Source license", then why not say
+> so? If you mean BSD and Apache style licenses, then compatibility is a
+> property of those, and mentioning this seems redundant? In any case, saying
+> "Open Source" without "OSI approved" feels undefined to me. A lot of people
+> claim all kinds of licenses as open source.
+>
+
+Look at the definitions: "Open Source License" means a license approved by
+both the OSI and FSF.
+
+
+> You'd better spell out General Data Protection Regulation and also add "of
+> the European Union".
+>
+
+Good idea, I'll add that.
+
+
+>
+> 2.4: Rather than an optional exception, I'd much prefer that you develop 2
+> or more separate licenses with clearly different names like is the case
+> with LGPL, GP? and AGPL. Now if I see that some software is licensed under
+> CAL, such as in a github label or search, I won't be able to tell what I
+> can do with that software.
+>
+
+I see your point, but in practice I think that they will be labeled
+independently (such as GPL-with-classpath is labeled separately from GPL).
+
+
+
+> Didn't read your entire blog post, but since this license clearly arises
+> out of EU context, at least some EU countries (maybe all?) don't register
+> copyrights as you can in the US.
+>
+
+That may be true.
+
+
+>
+> Good night :-)
+>
+
+Thanks!
+
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190317/35c01136/attachment-0001.html>
+
+From van.lindberg at gmail.com  Sun Mar 17 20:52:09 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Sun, 17 Mar 2019 15:52:09 -0500
+Subject: [License-discuss] For Public Comment: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOv+n8E2mafn9_O4BjBD_YuoEDKQtLdyaEwCEg-5LORhYA@mail.gmail.com>
+References: <CAFQvZEOUpfFJ7qLSJMjCdDW8P9Zt3-p5dz4YigQPt9OMJ7CHxA@mail.gmail.com> <CAK2MWOv+n8E2mafn9_O4BjBD_YuoEDKQtLdyaEwCEg-5LORhYA@mail.gmail.com>
+Message-ID: <CAFQvZEPf1u0+c2XUW4ycMnnvT7S_siAEWxy-pvcALx2qHXKByw@mail.gmail.com>
+
+Hello Bruce,
+
+On Sat, Mar 16, 2019 at 7:17 PM Bruce Perens <bruce at perens.com> wrote:
+
+> *As reigning honcho of the Open Source Initiative, I have come to oppress
+> your license :-)*
+>
+
+<montypython type="serf"> Help! Help! I'm being oppressed!</montypython>
+
+
+
+>
+> *First, would you please discuss whether there is a sufficient public
+> performance right for software defined in 17 USC 106 (4), (5) and (6)? I
+> read your discussion of Public Performance and was not enlightened.*
+>
+
+Under both US and international law, copyright applies to software by
+virtue of software being considered a literary work. See:
+
+"The Copyright Act of 1976, which became effective on January 1, 1978, made
+it clear that Congress intended software to be copyrightable. The
+definition of literary works in Section 101 states that they are:
+
+works, other than audiovisual works, expressed in words, numbers, or other
+verbal or numerical symbols or indicia, regardless of the nature of the
+material objects, such as books, periodicals, manuscripts, phonorecords,
+film, tapes, disks, or cards, in which they are embodied. {FN7: 17 U.S.C.
+?101 <http://www4.law.cornell.edu/uscode/17/101.html>}
+
+Furthermore, the House Report discussing the Act states:
+
+The term ?literary works? does not connote any criterion of literary merit
+or qualitative value: it includes catalogs, directories, and similar
+factual, reference, or instructional works and compilations of data. It
+also includes computer data bases, and computer programs to the extent that
+they incorporate authorship in the programmer?s expression of original
+ideas, as distinguished from the ideas themselves. {FN8: H.R. Rep. No.
+94-1476 at 54 <http://digital-law-online.info/lpdi1.0/quotes/fn2-8.htm#q>}"
+http://digital-law-online.info/lpdi1.0/treatise17.html
+
+"For the purpose of copyright, the term ?literary works? is not confined to
+works of literature in the commonly understood sense, but is taken to
+include all works expressed in writing, regardless of whether they have
+literary merit or not.... Computer software is also considered a ?literary
+work? and is thus given all of the protections of the copyright law."
+https://copyright.uslegal.com/enumerated-categories-of-copyrightable-works/copyright-for-literary-work
+
+"Can I copyright my software or mobile app?
+<https://www.wipo.int/copyright/en/faq_copyright.html#accordion__collapse__10>
+
+Computer programs and other types of software are considered as literary
+works for copyright purposes. Therefore they receive automatic protection
+without the need for registration. In some countries, the process of voluntary
+registration
+<https://www.wipo.int/copyright/en/faq_copyright.html#accordion__collapse__05_a>
+for software may differ from that for other types of work."
+
+https://www.wipo.int/copyright/en/faq_copyright.html
+
+
+>
+> *I'm going to discuss a number of things that aren't necessarily blockers
+> for approval, because you've asked for opinions on license quality, etc.*
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> *...Conditioned on compliance with section 2, and subject to the
+> reservations of section 1.2, you have the world-wide, royalty-free,
+> non-exclusive permission to:Take any action with the Work or a Modified
+> Work that would infringe the copyright or database protection laws of an
+> Applicable Jurisdiction applying to the Work, including Publicly Performing
+> any interface derived from the Work; andTake any action with the Work or a
+> Modified Work that would infringe any patent claims Licensable by Licensor,
+> to the extent that those claims are embodied in the Work as distributed by
+> Licensor.*
+>
+> *It strikes me that the above grant is incomplete, in that there will be
+> additional necessary rights separate from copyright and patent in various
+> jurisdictions, such as moral rights, mask rights, broadcast rights, etc.
+> For assurance that the grant is sufficient and will survive changes in
+> venue and evolution of law, you should make a general grant of other
+> necessary rights excluding trademark. *
+>
+
+I can certainly broaden this in order to encompass any other type of IP
+excluding trademark.
+
+
+>
+> *Limitations on Grants*
+>
+> *[snip]*
+>
+>
+> *I think this works better as a positive grant:Each Licensor grants the
+> right to exercise their patent claims that are necessarily infringed by
+> each version of the software which that Licensor has licensed, distributed,
+> made available, modified, or performed.*
+>
+
+I see your point. Let me play around and see if I can come up with
+something a little better. The language here was inspired by Mozilla 2.0,
+section 2.3.
+
+
+
+>
+> ...
+>
+> *You may not use the Software to control any cryptographic keys, seeds, or
+> hashes pertaining to third parties where such control would prevent the
+> third party from independently exercising the permissions granted under
+> this License;*
+>
+> *This is problematic in that DRM is often implemented using other software
+> than "the Software", for example the operating system, or is implemented
+> with hardware. And as written this is a use restriction on the software.
+> And it's too specific regarding the means. How about:*
+>
+
+[snip]
+
+I agree with you on this one. However, the phrasing of this particular
+element was important to my client. I did try to make  sure that the
+broader language (as you suggest) was also present - see 2.3(a) and (b).
+
+
+
+*Combined Work Exception*
+>
+> *As an exception to the conditions in sections 2.2.1 and 2.2.2, any Source
+> Code marked by the Licensor as having the ?Combined Work Exception,? or any
+> Object Code created from Source Code so marked, may be combined with other
+> Software into a larger work, and the resulting larger work may be licensed
+> under any other termsused, distributed, or sold under any other license, so
+> long as You: a) comply with the notice conditions of section 2.1; b) comply
+> with the distribution conditions of 2.2.1 and 2.2.2, relative to the Source
+> Code provided to You; and c) comply with section 2.3.*
+>
+> *I don't understand why you add this complexity rather than simply
+> allowing creators of modifications to license their modifications
+> separately, as independent works. Is it because they may be derivative?*
+>
+
+Yes. And we wanted the option to have certain elements to have limited
+application, while preserving the user rights elements of the license.
+
+Thank you for the feedback!
+
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190317/0e4bd9d4/attachment.html>
+
+From van.lindberg at gmail.com  Sun Mar 17 20:54:34 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Sun, 17 Mar 2019 15:54:34 -0500
+Subject: [License-discuss] For Public Comment: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOtdXFqWMOXJeqPyCAoCeN5upLbm9n4bKwvHocvAMJ6Mzg@mail.gmail.com>
+References: <CAFQvZEOUpfFJ7qLSJMjCdDW8P9Zt3-p5dz4YigQPt9OMJ7CHxA@mail.gmail.com> <CAK2MWOv+n8E2mafn9_O4BjBD_YuoEDKQtLdyaEwCEg-5LORhYA@mail.gmail.com> <CAK2MWOtdXFqWMOXJeqPyCAoCeN5upLbm9n4bKwvHocvAMJ6Mzg@mail.gmail.com>
+Message-ID: <CAFQvZENZCQxa0f_eqE+haWrwPjGOBEUsYD_95THZhsF6besfNg@mail.gmail.com>
+
+See the few references I added in response to your first message. I believe
+the ultimate source n the US is the 1976 act + CONTU recommendations that
+were enacted into law, but I would have to double check. Note that one of
+the references is a WIPO publication, referring to international law.
+
+Thanks,
+Van

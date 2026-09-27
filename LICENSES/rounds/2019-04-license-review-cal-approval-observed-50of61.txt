@@ -1,0 +1,750 @@
+> Maybe it would be better for OSI to have the expectation that license
+> review will only take place some months or years after a license is
+> already in practical use. Users of new licenses could be expected to
+> make clear that the licenses are not OSI-approved.
+
+This is a really brilliant proposal that I think we should accept. It
+would help with license proliferation, and it would probably help
+prove that we only need five licenses for new works: MIT, ALv2,
+[A|L]GPLv3+.
+
+Thanks,
+James
+
+>
+> Richard
+>
+
+
+From henrik.ingo at avoinelama.fi  Sun Jan  5 09:13:34 2020
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Sun, 5 Jan 2020 11:13:34 +0200
+Subject: [License-discuss] [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAC1cPGzA=50jKMM6CSnjfTes0HC+o7fKdsAkW_a5b-N1NKOcEQ@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com> <CAFQvZEO0ktV5DK62E-r8ZwAn4=VvD8nXAkvq7h4b-3rZ532q1w@mail.gmail.com> <CAC1cPGzA=50jKMM6CSnjfTes0HC+o7fKdsAkW_a5b-N1NKOcEQ@mail.gmail.com>
+Message-ID: <CAKHyketgc5b_8HoT2Rcz7Gap32y4PmMcNmbBYKmTYHMUd0p3Gw@mail.gmail.com>
+
+On Sun, Jan 5, 2020 at 7:38 AM Richard Fontana <rfontana at redhat.com> wrote:
+>
+> (Moved to license-discuss)
+>
+> On Thu, Jan 2, 2020 at 5:06 PM VanL <van.lindberg at gmail.com> wrote:
+>
+> >  Is one takeaway here that people should start by ignoring the OSI process and just start using the license?
+>
+> Maybe. Not ignoring, but postponing.
+>
+
+6 years is a long time. In practical effect, postponing here means
+ignoring. Also, if people start using a license because it is "open
+source just not approved yet", they are not going to uninstall it 6
+years later. Especially as there won't be a solid deadline when the
+trial phase ends, so the postponing really is indefinite.
+
+
+> The handful or so of the first licenses recognized by the OSI as 'open
+> source' had already been in wide use for years at the time the OSI was
+> founded in 1998. Looking back (over a ~21 year period), I believe the
+> OSI may have taken the wrong path very early on by developing a
+> process that encouraged submission of novel, community-untested
+> licenses. This gave us, at various points in history, the corporate
+> vanity licenses, the "crayon" and bad-thought-experiment licenses, and
+> possibly licenses motivated largely by individual-author ego.
+>
+> Maybe it would be better for OSI to have the expectation that license
+> review will only take place some months or years after a license is
+> already in practical use. Users of new licenses could be expected to
+> make clear that the licenses are not OSI-approved.
+>
+
+I want to make two comments here, the second with several parts:
+
+First... The suggestion that OSI would only certify licenses that have
+already seen years of use is a major, 180 degree policy change.
+Related to the current discussion, my wish is that such a policy
+change not be made in the margins of, or as a side effect of, one
+particular license being reviewed. If anything, this is the case where
+a broad and lengthy discussion would be needed!
+
+As for the CAL, I think Van has followed the existing process,
+including all the unwritten rules, very much by the book. It seems
+only fair to expect that he will be able to complete the process he
+has started over a year ago. I don't agree that there's anything
+fundamentally wrong with the current OSI that giving up and admitting
+defeat right now is the wise decision. Essentially that would then be
+the policy change without discussion, and THAT decision does come with
+a risk of adverse consequences.
+
+
+Second...
+
+While I can see there's a lot of support for this new idea, I
+personally think you are focusing on the wrong things in your
+analysis. The problems you list aren't real problems in practice. At
+all. More importantly, you are completely forgetting the huge
+victories the current OSI approach has had in defending software
+freedom. For the OSI to allow new licenses to call themselves "open
+source but we didn't submit it to OSI (yet/ever)", would be a retreat
+from these positions. It would be exactly what all those rejected open
+core licenses wished for all the time.
+
+
+1. In reality, all of those IBM, Nokia, Sun licenses are not a
+problem. (Today, at least.) Nobody uses them. They never were a
+significant problem - if anything Sun only hurt itself with the SISSL.
+
+Yes, it may seem schizophrenic to advocate against license
+proliferation while at the same time approving every new license that
+conforms to the OSD. But if we want to claim that software can only be
+called "open source" if it is under an OSI approved license, then this
+is the only way. The moment OSI admits that a license may be open
+source but we just don't want to approve more licenses, then OSI has
+lost any monopoly it may still have in policing that term.
+
+
+2. OSI is not the supreme court of software freedom. These are not
+life or death decisions where the open source world will implode if
+someone presses the wrong button.
+
+The FSF maintains a similar list of licenses considered free software.
+(And as this thread has shown, that process can be very fast and
+lightweight!) At least Debian and Fedora actively maintain their own
+lists anyway. And importantly, many companies have a list of approved
+licenses from their own legal departments. Where, for example, the
+AGPL might not be approved, even if we clearly believe it conforms to
+the OSD in every way.
+
+When I evaluate whether software is open source, I would consider at
+least the OSI and FSF lists, but possibly even other sources on
+commentary for the license. In 99% of cases I expect these bodies to
+agree. And when they don't, the software in question usually isn't
+important anyway.
+
+And to provide even more of a reality check: While I belong to the
+group of people who highly value OSIs authority both in defining open
+source and approving licenses, most people out there are rather on the
+level of "Microsoft will close source Github". So really, I don't
+think the OSI has that much at risk here. The only thing I worry about
+is that OSI becomes paralyzed and stops doing what it has been doing
+really well for 20+ years!
+
+
+3. In the discussion about license proliferation, one thing that I
+rarely see mentioned is that all those licenses actually served a very
+valuable purpose: They provided a channel for big tech lawyers to
+become familiar with open source licenses, the OSD, and the community.
+At the end of that process they learned not to use their own licenses!
+All of this was and is very core to OSIs mission: promoting open
+source adoption, especially by commercial corporations. (Which was the
+opportunity that opened in 1998.)
+
+I remember when Microsoft submitted the MS-PL. Some people who were
+also vocal in this thread, were strongly against approving it, because
+although the license was OSD compliant, Microsoft was an evil company.
+Luckily it was approved, and look at Microsoft's progress since.
+
+So I really want to endorse Josh Simmons' position in this thread,
+that authors of new licenses should engage with the OSI process early
+on (including via license-discuss), and the OSI on its part should
+continue to facilitate the dialogue and remain at the center of it,
+rather than diminishing itself to just rubber stamping licenses after
+they have first been approved by some other authority outside the OSI.
+
+
+On all of the above points, rather than a 180 degree turnabout, maybe
+some small refinements to OSI practices could be helpful. For example,
+maybe the OSI should start actively retiring licenses. This should
+make the approval of new licenses less stressful, as they would not be
+irreversible. (The threshold to reverse would of course still be high,
+but so is the threshold to approve.) There could also be an "open
+source but not recommended" category for licenses that were approved
+but only used by 1 or 2 projects/vendors. And maybe we should retry
+the effort to primarily highlight a short list of most popular
+licenses on the website.
+
+henrik
+
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+
+
+From cowan at ccil.org  Sun Jan  5 16:14:08 2020
+From: cowan at ccil.org (John Cowan)
+Date: Sun, 5 Jan 2020 11:14:08 -0500
+Subject: [License-discuss] [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEOU70jkRREVMW+afpYONtoxY+2_+iDrLp1T5gRwZtgP4g@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com> <CAFQvZEO0ktV5DK62E-r8ZwAn4=VvD8nXAkvq7h4b-3rZ532q1w@mail.gmail.com> <CAC1cPGzA=50jKMM6CSnjfTes0HC+o7fKdsAkW_a5b-N1NKOcEQ@mail.gmail.com> <CAFQvZEOU70jkRREVMW+afpYONtoxY+2_+iDrLp1T5gRwZtgP4g@mail.gmail.com>
+Message-ID: <CAD2gp_Q6G_dnZ_MmRzN3ZO+JY9cXQukynxs_aEJPKL9BGP-Uzg@mail.gmail.com>
+
+On Sun, Jan 5, 2020 at 1:31 AM VanL <van.lindberg at gmail.com> wrote:
+
+No, the OSI is something different - it is a certifier. There is a
+> definition of "open source" and the OSI maintains it. The OSI reviews
+> submissions for conformance with the definition.
+>
+
+But it does not certify anything and everything that complies with the
+OSD.  For example, the informal rule against certifying duplicative
+licenses (which the CAL may or may not be) is also taken into account.
+
+It also so happens that many of the submissions will recognize and reflect
+> existing practice - but not always.
+>
+
+I agree that discussing the CAL to see if it warrants OSI cert is a Good
+Thing, and dismissing it on the grounds that nobody uses it is a mistake.
+
+Speaking generally, if there is failure on the part of the OSI, it is that
+> people have been unwilling to work out and put into place the rules
+> necessary to exclude licenses that "fit" the OSD but aren't acceptable for
+> some other reason. Instead, we have a bunch of half-understood,
+> under-the-radar norms that change from person to person and situation to
+> situation.
+>
+
+That's called "exercise of sound discretion".  To put things in terms of
+legal history, not all equity rules become codified.
+
+
+> I am still astounded that there seems to be substantial resistance to the
+> idea that we should define and write down these norms - as if writing them
+> down would somehow undermine them!
+>
+
+I think the sense of the community is that writing them down would (a) be
+divisive (it was hard enough to get everyone to sign on to the OSD) and (b)
+make them easier for bad actors (not meaning you) to game.
+
+
+
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+I am he that buries his friends alive and drowns them and draws them
+alive again from the water. I came from the end of a bag, but no bag
+went over me.  I am the friend of bears and the guest of eagles. I am
+Ringwinner and Luckwearer; and I am Barrel-rider.  --Bilbo to Smaug
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20200105/ef95a191/attachment.html>
+
+From cowan at ccil.org  Sun Jan  5 16:29:59 2020
+From: cowan at ccil.org (John Cowan)
+Date: Sun, 5 Jan 2020 11:29:59 -0500
+Subject: [License-discuss] [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAKHyketgc5b_8HoT2Rcz7Gap32y4PmMcNmbBYKmTYHMUd0p3Gw@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com> <CAFQvZEO0ktV5DK62E-r8ZwAn4=VvD8nXAkvq7h4b-3rZ532q1w@mail.gmail.com> <CAC1cPGzA=50jKMM6CSnjfTes0HC+o7fKdsAkW_a5b-N1NKOcEQ@mail.gmail.com> <CAKHyketgc5b_8HoT2Rcz7Gap32y4PmMcNmbBYKmTYHMUd0p3Gw@mail.gmail.com>
+Message-ID: <CAD2gp_T2J7ALLRoW=9sVhp3zvvrUCBpAPsf--mPuGzqHvRhfSg@mail.gmail.com>
+
+On Sun, Jan 5, 2020 at 4:14 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+wrote:
+
+But if we want to claim that software can only be
+> called "open source" if it is under an OSI approved license,
+
+
+We don't, haven't, and can't claim this.  "OSI Certified" is a cert mark
+which OSI owns and has to police.  "Open source" is just a public-domain
+phrase we can try to discourage people from using for their badgeware or
+do-no-evil licenses.
+
+
+> When I evaluate whether software is open source, I would consider at
+> least the OSI and FSF lists, but possibly even other sources on
+> commentary for the license.
+>
+
+Good.  You could always ask me while you are at it.  :-)
+
+
+> most people out there are rather on the
+> level of "Microsoft will close source Github".
+
+
+I thought Github's software was closed-source already.
+
+
+> I remember when Microsoft submitted the MS-PL. Some people who were
+>
+also vocal in this thread, were strongly against approving it, because
+> although the license was OSD compliant, Microsoft was an evil company.
+> Luckily it was approved, and look at Microsoft's progress since.
+>
+
+Perhaps you also remember when I submitted MS-PL and another MS license a
+few years before.  They were rejected on the perfectly correct process
+grounds that I could propose them but I couldn't change them if the OSI
+requested changes (they were too new to fit under the "legacy" category).
+I accepted that and withdrew them, but I continued to maintain (in the face
+of attacks on Groklaw) that the licenses were nevertheless open source, and
+eventually OSI agreed with me.  I was not intruding on OSI's monopoly on
+"open source", because it has none.
+
+
+> There could also be an "open
+> source but not recommended" category for licenses that were approved
+> but only used by 1 or 2 projects/vendors.
+
+
+Some of the existing categories, which were absolute murder to get
+agreement on, were intended to serve that purpose.  A *lot* of mailing-list
+participants did *not* want OSI to be in the position of saying "License A
+is better than license B."  I don't think that's changed.  Of course,
+anyone else can set up a license wizard that does make such recommendations.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20200105/650adde4/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Sun Jan  5 16:59:31 2020
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Sun, 5 Jan 2020 18:59:31 +0200
+Subject: [License-discuss] [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAD2gp_T2J7ALLRoW=9sVhp3zvvrUCBpAPsf--mPuGzqHvRhfSg@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com> <CAFQvZEO0ktV5DK62E-r8ZwAn4=VvD8nXAkvq7h4b-3rZ532q1w@mail.gmail.com> <CAC1cPGzA=50jKMM6CSnjfTes0HC+o7fKdsAkW_a5b-N1NKOcEQ@mail.gmail.com> <CAKHyketgc5b_8HoT2Rcz7Gap32y4PmMcNmbBYKmTYHMUd0p3Gw@mail.gmail.com> <CAD2gp_T2J7ALLRoW=9sVhp3zvvrUCBpAPsf--mPuGzqHvRhfSg@mail.gmail.com>
+Message-ID: <CAKHykeuho6o1==5HbD_iodmX9ynGoApFeC8w4WsbCJHQb0YEqg@mail.gmail.com>
+
+On Sun, Jan 5, 2020 at 6:30 PM John Cowan <cowan at ccil.org> wrote:
+>> most people out there are rather on the
+>> level of "Microsoft will close source Github".
+>
+>
+> I thought Github's software was closed-source already.
+>
+
+Yes. That's why it's funny.
+
+>>
+>> I remember when Microsoft submitted the MS-PL. Some people who were
+>>
+>> also vocal in this thread, were strongly against approving it, because
+>> although the license was OSD compliant, Microsoft was an evil company.
+>> Luckily it was approved, and look at Microsoft's progress since.
+>
+>
+> Perhaps you also remember when I submitted MS-PL and another MS license a few years before.  They were rejected on the perfectly correct process grounds that I could propose them but I couldn't change them if the OSI requested changes (they were too new to fit under the "legacy" category).  I accepted that and withdrew them, but I continued to maintain (in the face of attacks on Groklaw) that the licenses were nevertheless open source, and eventually OSI agreed with me.  I was not intruding on OSI's monopoly on "open source", because it has none.
+>
+
+I wasn't very active at the time, so don't remember details. From a
+distance I thought it was Microsoft that submitted it.
+
+Thanks for doing it if it was you. It was the right thing to do!
+
+>>
+>> There could also be an "open
+>> source but not recommended" category for licenses that were approved
+>> but only used by 1 or 2 projects/vendors.
+>
+>
+> Some of the existing categories, which were absolute murder to get agreement on, were intended to serve that purpose.  A *lot* of mailing-list participants did *not* want OSI to be in the position of saying "License A is better than license B."  I don't think that's changed.  Of course, anyone else can set up a license wizard that does make such recommendations.
+
+I know. I personally don't have a strong opinion one way or another.
+It's fairly easy to statistically show a small set of licenses are
+used for like 99% of software, and the top 3 - 5 probably cover
+something like 60-90 %. But if people get upset when the license with
+their fingerprints doesn't get included, OSI can also keep a neutral
+alphabetized list. What I don't think makes sense is to keep an
+alphabetized list and then argue that we can't approve new licenses
+because list is too long.
+
+henrik
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+
+
+From pamela at chesteklegal.com  Sun Jan  5 19:40:59 2020
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sun, 5 Jan 2020 14:40:59 -0500
+Subject: [License-discuss] [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAKHykeuho6o1==5HbD_iodmX9ynGoApFeC8w4WsbCJHQb0YEqg@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com> <CAFQvZEO0ktV5DK62E-r8ZwAn4=VvD8nXAkvq7h4b-3rZ532q1w@mail.gmail.com> <CAC1cPGzA=50jKMM6CSnjfTes0HC+o7fKdsAkW_a5b-N1NKOcEQ@mail.gmail.com> <CAKHyketgc5b_8HoT2Rcz7Gap32y4PmMcNmbBYKmTYHMUd0p3Gw@mail.gmail.com> <CAD2gp_T2J7ALLRoW=9sVhp3zvvrUCBpAPsf--mPuGzqHvRhfSg@mail.gmail.com> <CAKHykeuho6o1==5HbD_iodmX9ynGoApFeC8w4WsbCJHQb0YEqg@mail.gmail.com>
+Message-ID: <6ec2c534-196b-744f-628e-e59869ac8ba9@chesteklegal.com>
+
+
+
+On 1/5/2020 11:59 AM, Henrik Ingo wrote:
+> On Sun, Jan 5, 2020 at 6:30 PM John Cowan <cowan at ccil.org> wrote:
+>>> most people out there are rather on the
+>>> level of "Microsoft will close source Github".
+>> I thought Github's software was closed-source already.
+>>
+> Yes. That's why it's funny.
+>
+I was very amused by it. And BTW Microsoft is going to close source all
+the projects on GitHub, too, I hear.? ;-)
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20200105/4902174c/attachment-0001.html>
+
+From cowan at ccil.org  Sun Jan  5 21:05:52 2020
+From: cowan at ccil.org (John Cowan)
+Date: Sun, 5 Jan 2020 16:05:52 -0500
+Subject: [License-discuss] [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAKHykeuho6o1==5HbD_iodmX9ynGoApFeC8w4WsbCJHQb0YEqg@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com> <CAFQvZEO0ktV5DK62E-r8ZwAn4=VvD8nXAkvq7h4b-3rZ532q1w@mail.gmail.com> <CAC1cPGzA=50jKMM6CSnjfTes0HC+o7fKdsAkW_a5b-N1NKOcEQ@mail.gmail.com> <CAKHyketgc5b_8HoT2Rcz7Gap32y4PmMcNmbBYKmTYHMUd0p3Gw@mail.gmail.com> <CAD2gp_T2J7ALLRoW=9sVhp3zvvrUCBpAPsf--mPuGzqHvRhfSg@mail.gmail.com> <CAKHykeuho6o1==5HbD_iodmX9ynGoApFeC8w4WsbCJHQb0YEqg@mail.gmail.com>
+Message-ID: <CAD2gp_S8xjoyiOyeOzQmctRbSH2uzP5CJes3N7dxwruvrOOFxw@mail.gmail.com>
+
+On Sun, Jan 5, 2020 at 11:59 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+wrote:
+
+
+> I wasn't very active at the time, so don't remember details. From a
+> distance I thought it was Microsoft that submitted it.
+>
+
+To clarify:  I submitted the MS-PL and the other license myself, having no
+connection with MS, and I was persuaded to withdraw it for administrative
+reasons.  Some years later, MS submitted them and they were eventually
+certified.
+
+
+
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+Mos Eisley spaceport.  You will never see a more wretched hive of scum
+and villainy --unless you watch the Jerry Springer Show. --georgettesworld.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20200105/a8612b16/attachment.html>
+
+From nelson at crynwr.com  Mon Jan  6 15:22:50 2020
+From: nelson at crynwr.com (Russell Nelson)
+Date: Mon, 6 Jan 2020 10:22:50 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+Message-ID: <ea5a5c05-cd25-9c7f-bb2f-e4aa613fc807@crynwr.com>
+
+On 12/7/19 7:18 PM, bruce at perens.com (Bruce Perens) wrote:
+> On Fri, Dec 6, 2019, 9:33 PM VanL <van.lindberg at gmail.com> wrote:
+>
+>> But as has been pointed out by several people, the scenario you describe
+>> could happen with any license.
+> The difference in this case is that a fundamental feature of the  network
+> breaks if you allow interoperable software under another Open Source
+> license on the network. Because that network node operator is not bound by
+> any anti-sequestration terms. So as far as I can tell, you have to assert
+> your patents, you can't tolerate having that operator continue.
+
+I must note two things:
+ ? 1) This, THIS, is exactly why we decided long ago to ignore software 
+patents. Indeed:
+
+The Open Source Definition (Annotated) .... [search box containing 
+"patent 0/0"]
+ ? 2) We have never judged open source licenses based on their ability 
+to achieve their author's goals. The FDA (US medication licensing 
+bureau) has gone down the wrong route by requiring that a medicine be 
+effective. A new medication has to go through billions of dollars of 
+testing, all of which have to be paid-for by people who partake of these 
+medicines. Consequently, medicines that may be life-saving take years 
+and are expensive. The process doesn't work very well. Some medicines 
+thought to be safe (Tylenol) turn out to destroy your liver with an 
+overdose of merely 3X. Some medicines thought to be useful are harmful 
+(statins) for all women and most men with no history of heart attacks. 
+And don't get me started on sugar, which shouldn't even be legal to put 
+in foods. No. They should just require that a medicine have a documented 
+set of side-effects.
+
+Similarly, we don't judge whether a license is going to "work". We just 
+say whether a license is open source.
+
+In this case, the CALb4 is a well-written (nod to Van) license which 
+is[1] compliant with the Open Source Definition. I haven't read every 
+email in December and January, but from what I've seen, the objections 
+seems to be of the form of whether two or three angels can dance on the 
+head of a pin, when it's merely necessary to show that a pin head is 
+angel-compatible.
+
+[1] Okay, so maybe it's not obvious to everyone, but some of us have 
+read every open source license multiple times, and helped to write the 
+current OSD.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200106/62ff04fb/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: kmgfnkidlacohmao.png
+Type: image/png
+Size: 11180 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200106/62ff04fb/attachment.png>
+
+From nweinsto at qti.qualcomm.com  Mon Jan  6 17:45:38 2020
+From: nweinsto at qti.qualcomm.com (Nicholas Matthew Neft Weinstock)
+Date: Mon, 6 Jan 2020 17:45:38 +0000
+Subject: [License-discuss] [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAC1cPGzA=50jKMM6CSnjfTes0HC+o7fKdsAkW_a5b-N1NKOcEQ@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com> <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com> <CAFQvZEM+=XxYb8TQF=pF-4+y1mCU39=Du9Ej+pXFcoW9HXeMrw@mail.gmail.com> <86a220ab-2d62-ad77-bcf7-a03ce42ffcd5@berkus.org> <CAFQvZEO6+LEubkb6isSjZ7JTj-FN9dCgPy9hij7B5VfhOt__Gw@mail.gmail.com> <fdad0efd-bbbf-8565-c98f-99d6b7e6d889@berkus.org> <CAKHykeuizeub-FtC+4=r3XkgcS1uPNmuXdr05sFdynnRMQGtNg@mail.gmail.com> <12e2b24f-3d35-e4b0-adb4-463bf127bcf9@chesteklegal.com> <5b4e24ec-2da7-28a8-d6c9-d8fb61eb61d8@berkus.org> <CAFQvZEOc1CvU44YOK=FYAHM2T=7=UiUT-k4Fk7CF8uBytZ2Z5w@mail.gmail.com> <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com> <CAFQvZEO0ktV5DK62E-r8ZwAn4=VvD8nXAkvq7h4b-3rZ532q1w@mail.gmail.com> <CAC1cPGzA=50jKMM6CSnjfTes0HC+o7fKdsAkW_a5b-N1NKOcEQ@mail.gmail.com>
+Message-ID: <MWHPR02MB2349F132412DF889A86B3502E13C0@MWHPR02MB2349.namprd02.prod.outlook.com>
+
+If OSI pursues this approach, what do you call these licenses that are just starting to be used in the real world but have not yet been reviewed and approved by OSI?  Can they be called Open Source?  If not, it seems like a significant obstacle to getting these licenses into practical use.  How can a project call itself Open Source if its license can't be called Open Source because it is too new for OSI to be willing to review it?
+
+-Nick
+
+> -----Original Message-----
+> From: License-discuss <license-discuss-bounces at lists.opensource.org> On
+> Behalf Of Richard Fontana
+> Sent: Saturday, January 4, 2020 8:47 PM
+> To: License-discuss at lists.opensource.org
+> Subject: [EXT] Re: [License-discuss] [License-review] For approval: The
+> Cryptographic Autonomy License (Beta 4)
+>
+> (Moved to license-discuss)
+>
+> On Thu, Jan 2, 2020 at 5:06 PM VanL <van.lindberg at gmail.com> wrote:
+>
+> >  Is one takeaway here that people should start by ignoring the OSI process
+> and just start using the license?
+>
+> Maybe. Not ignoring, but postponing.
+>
+> The handful or so of the first licenses recognized by the OSI as 'open source'
+> had already been in wide use for years at the time the OSI was founded in
+> 1998. Looking back (over a ~21 year period), I believe the OSI may have taken
+> the wrong path very early on by developing a process that encouraged
+> submission of novel, community-untested licenses. This gave us, at various
+> points in history, the corporate vanity licenses, the "crayon" and bad-
+> thought-experiment licenses, and possibly licenses motivated largely by
+> individual-author ego.
+>
+> Maybe it would be better for OSI to have the expectation that license review
+> will only take place some months or years after a license is already in practical
+> use. Users of new licenses could be expected to make clear that the licenses
+> are not OSI-approved.
+>
+> Richard
+>
+>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-
+> discuss_lists.opensource.org
+
+
+From cowan at ccil.org  Mon Jan  6 18:00:11 2020
+From: cowan at ccil.org (John Cowan)
+Date: Mon, 6 Jan 2020 13:00:11 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <ea5a5c05-cd25-9c7f-bb2f-e4aa613fc807@crynwr.com>
+References: <ea5a5c05-cd25-9c7f-bb2f-e4aa613fc807@crynwr.com>
+Message-ID: <CAD2gp_QBaRLS1WnNAiEn-H8svvq9qcMZOkA4ZvnkosKuxuovEA@mail.gmail.com>
+
+On Mon, Jan 6, 2020 at 10:23 AM Russell Nelson <nelson at crynwr.com> wrote:
+
+whether two or three angels can dance on the head of a pin,
+>
+
+It's never been about an actual number.  It's whether the number is finite
+or infinite, and can be paraphrased as "Is (non-divine) intelligence
+possible without a physical substrate?"
+
+
+
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+So they play that [tune] on their fascist banjos, eh? --Great-Souled Sam
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200106/bed6553b/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: kmgfnkidlacohmao.png
+Type: image/png
+Size: 11180 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200106/bed6553b/attachment.png>
+
+From rick at linuxmafia.com  Tue Jan  7 06:56:28 2020
+From: rick at linuxmafia.com (Rick Moen)
+Date: Mon, 6 Jan 2020 22:56:28 -0800
+Subject: [License-discuss] [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAD2gp_T2J7ALLRoW=9sVhp3zvvrUCBpAPsf--mPuGzqHvRhfSg@mail.gmail.com>
+References: <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com> <CAFQvZEO0ktV5DK62E-r8ZwAn4=VvD8nXAkvq7h4b-3rZ532q1w@mail.gmail.com> <CAC1cPGzA=50jKMM6CSnjfTes0HC+o7fKdsAkW_a5b-N1NKOcEQ@mail.gmail.com> <CAKHyketgc5b_8HoT2Rcz7Gap32y4PmMcNmbBYKmTYHMUd0p3Gw@mail.gmail.com> <CAD2gp_T2J7ALLRoW=9sVhp3zvvrUCBpAPsf--mPuGzqHvRhfSg@mail.gmail.com>
+Message-ID: <20200107065628.GP18108@linuxmafia.com>
+
+Quoting John Cowan (cowan at ccil.org):
+
+> Perhaps you also remember when I submitted MS-PL and another MS
+> license a few years before.  They were rejected on the perfectly
+> correct process grounds that I could propose them but I couldn't
+> change them if the OSI requested changes (they were too new to fit
+> under the "legacy" category).  I accepted that and withdrew them, but
+> I continued to maintain (in the face of attacks on Groklaw) that the
+> licenses were nevertheless open source, and eventually OSI agreed with
+> me.
+
+FWIW, I dealt with the attacks on the Groklaw site by posting at length,
+there, rebutting local critics, pointing out that Ms-PL and Ms-CL
+(Microsoft Community License, the reciprocal one) were clearly
+OSD-compliant on their merits, going through particulars repeatedly,
+rejecting irrelevant objections as irrelevant, and noting the
+irrelevancy of some stabs at argumentum ad hominem.  It took a few days,
+but the point seemed to then get through.
+
+To the best of my recollection, there were only three such 'Shared
+Source' licences MSFT produced on that occasion (2007, launched into the
+world by Mr. Bill Hilf via an OSCON keynote), the third one (Microsoft
+Reference License, Ms-RL) omitting rights of modification and
+redistribution, intended e.g., for reference copies of software libs --
+obviously not open source.
+
+-- 
+Cheers,                          "Maybe the law ain?t perfect, but it?s the only
+Rick Moen                        one we got, and without it we got nuthin'."
+rick at linuxmafia.com              -- U.S. Deputy Marshal Bass Reeves, circa 1875
+McQ! (4x80)        
+
+
+From rfontana at redhat.com  Tue Jan  7 18:35:02 2020
+From: rfontana at redhat.com (Richard Fontana)
+Date: Tue, 7 Jan 2020 13:35:02 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com>
+Message-ID: <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com>
+
+For the OSI board members on the license review committee: What is the
+current timeframe for a decision on CAL?
+
+Richard
+
+
+
+From pamela.chestek at opensource.org  Tue Jan  7 19:00:36 2020
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Tue, 7 Jan 2020 14:00:36 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com>
+Message-ID: <9332d75f-0b27-c021-549c-e6f261647158@opensource.org>
+
+The discussion is still active so it will not be considered at the next
+Board meeting, which is this Friday. The soonest would be the February
+Board meeting.
+
+Pam
+
+Pamela Chestek
+Chair, License Review Committee
+Open Source Initiative
+
+On 1/7/2020 1:35 PM, Richard Fontana wrote:
+> For the OSI board members on the license review committee: What is the
+> current timeframe for a decision on CAL?
+>
+> Richard
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+
+From nweinsto at qti.qualcomm.com  Tue Jan  7 19:24:14 2020
+From: nweinsto at qti.qualcomm.com (Nicholas Matthew Neft Weinstock)
+Date: Tue, 7 Jan 2020 19:24:14 +0000
+Subject: [License-discuss] [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <20200107065628.GP18108@linuxmafia.com>
+References: <d08d2b52-3acd-0b17-91b7-b308234c08bc@chesteklegal.com> <CAFQvZEMkyu2hRhYaK-zdLCbzs+A2h7s6LnJNNDWxamNJL4XmTg@mail.gmail.com> <9ff6d0a9-101c-4559-1681-fcf36448355c@chesteklegal.com> <CAFQvZENuigyDPosZ8Vz-ORbz47z2=AEmUn-byosrPmKML2TR7Q@mail.gmail.com> <87sgkymw32.fsf@ebb.org> <CAC1cPGy49JjR3V8KAM6OpW3re4NFFHht=94-W6A39q86BcaDCw@mail.gmail.com> <CAFQvZEO0ktV5DK62E-r8ZwAn4=VvD8nXAkvq7h4b-3rZ532q1w@mail.gmail.com> <CAC1cPGzA=50jKMM6CSnjfTes0HC+o7fKdsAkW_a5b-N1NKOcEQ@mail.gmail.com> <CAKHyketgc5b_8HoT2Rcz7Gap32y4PmMcNmbBYKmTYHMUd0p3Gw@mail.gmail.com> <CAD2gp_T2J7ALLRoW=9sVhp3zvvrUCBpAPsf--mPuGzqHvRhfSg@mail.gmail.com> <20200107065628.GP18108@linuxmafia.com>
+Message-ID: <CY4PR02MB234369D12E2509392D20E956E13F0@CY4PR02MB2343.namprd02.prod.outlook.com>
+
+For completeness, there is also a slight variation of MS-PL that I have seen called MS-LPL, the Microsoft Limited Public License.  It adds a platform limitation (e.g., "This software may only be used to develop an application intended to be run on the Microsoft Windows Operating System").  The wording of that limitation evolved over time for different Microsoft platforms.
+
+For a while, this was the default license for all the sample code on MSDN, although this is no longer the case.
+
+-Nick
+
+> -----Original Message-----
+> From: License-discuss <license-discuss-bounces at lists.opensource.org> On
+> Behalf Of Rick Moen
+> Sent: Monday, January 6, 2020 10:56 PM
+> To: license-discuss at lists.opensource.org
+> Subject: [EXT] Re: [License-discuss] [License-review] For approval: The
+> Cryptographic Autonomy License (Beta 4)
+>
+> Quoting John Cowan (cowan at ccil.org):
+>
+> > Perhaps you also remember when I submitted MS-PL and another MS
+> > license a few years before.  They were rejected on the perfectly
+> > correct process grounds that I could propose them but I couldn't
+> > change them if the OSI requested changes (they were too new to fit
+> > under the "legacy" category).  I accepted that and withdrew them, but
+> > I continued to maintain (in the face of attacks on Groklaw) that the
+> > licenses were nevertheless open source, and eventually OSI agreed with
+> > me.
+>
+> FWIW, I dealt with the attacks on the Groklaw site by posting at length,
+> there, rebutting local critics, pointing out that Ms-PL and Ms-CL (Microsoft
+> Community License, the reciprocal one) were clearly OSD-compliant on their
+> merits, going through particulars repeatedly, rejecting irrelevant objections
+> as irrelevant, and noting the irrelevancy of some stabs at argumentum ad
+> hominem.  It took a few days, but the point seemed to then get through.
+>
+> To the best of my recollection, there were only three such 'Shared Source'
+> licences MSFT produced on that occasion (2007, launched into the world by
+> Mr. Bill Hilf via an OSCON keynote), the third one (Microsoft Reference
+> License, Ms-RL) omitting rights of modification and redistribution, intended
+> e.g., for reference copies of software libs -- obviously not open source.
+>
+> --
+> Cheers,                          "Maybe the law ain?t perfect, but it?s the only
+> Rick Moen                        one we got, and without it we got nuthin'."
+> rick at linuxmafia.com              -- U.S. Deputy Marshal Bass Reeves, circa 1875
+> McQ! (4x80)
+>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-
+> discuss_lists.opensource.org
+
+From josh at berkus.org  Thu Feb  6 23:59:37 2020
+From: josh at berkus.org (Josh Berkus)
+Date: Thu, 6 Feb 2020 15:59:37 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <9332d75f-0b27-c021-549c-e6f261647158@opensource.org>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org>
+Message-ID: <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org>
+
+On 1/7/20 11:00 AM, Pamela Chestek wrote:
+> The discussion is still active so it will not be considered at the next
+> Board meeting, which is this Friday. The soonest would be the February
+> Board meeting.
+
+So, it's been a month since there's been any discussion about the CAL.
+Pamela, can we take a poll of how people feel about the license?
+Pass/Reject/MoreDiscussionNeeded?
+
+
+-- 
+Josh Berkus
+
+
+From rfontana at redhat.com  Fri Feb  7 16:52:03 2020
+From: rfontana at redhat.com (Richard Fontana)
+Date: Fri, 7 Feb 2020 11:52:03 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com>
+Message-ID: <CAC1cPGwS72STU1PxtrYk2RiqSEbBe83tUGK-HqghuHpDFB+qAw@mail.gmail.com>
+
+On Wed, Dec 4, 2019 at 3:31 PM VanL <van.lindberg at gmail.com> wrote:
+
+> Based upon ongoing discussions with the license review committee, I am

@@ -1,0 +1,750 @@
+From simon at webmink.com  Tue Aug 13 16:42:13 2019
+From: simon at webmink.com (Simon Phipps)
+Date: Tue, 13 Aug 2019 17:42:13 +0100
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAK2MWOv4D4O=9Goi7kqgC2zOjv7NXjRjs_=_O0xYjLKSMtHk9w@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAC1cPGzW_HrcoKmg_Fci3AfqeX=y9c7pO_oZCpnd6EcQKVfK_Q@mail.gmail.com> <CAA4ffp_XVoDP=tGHrPKiyHsvkYx4++zVRsUKTP+R6zDJuhsEnQ@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5199F402659@fmsmsx117.amr.corp.intel.com> <CAK2MWOv4D4O=9Goi7kqgC2zOjv7NXjRjs_=_O0xYjLKSMtHk9w@mail.gmail.com>
+Message-ID: <CAA4ffp-036NcvpukN3bwRVASD8OoUpz3pz5XMfFedaLA1mveJw@mail.gmail.com>
+
+Calling user data "software" is a massive stretch. That's calling the user
+data clauses both outside the scope of open source licensing and so
+integral they can trigger an OSD violation, both at the same time. I don't
+agree with either, but if I was persuaded by either it would inherently
+exclude the other.
+
+S.
+
+
+On Tue, Aug 13, 2019 at 5:34 PM Bruce Perens via License-discuss <
+license-discuss at lists.opensource.org> wrote:
+
+> I concur with Richard. To the extent that the user data can be considered
+> to be software, the license imposes terms upon software which is merely
+> processed by the program. Thus, it runs awry of #9
+>
+> On Tue, Aug 13, 2019 at 9:21 AM Smith, McCoy <mccoy.smith at intel.com>
+> wrote:
+>
+>> >>*From:* License-discuss [mailto:
+>> license-discuss-bounces at lists.opensource.org] *On Behalf Of *Simon Phipps
+>> *>>Sent:* Tuesday, August 13, 2019 9:06 AM
+>> *>>To:* license-discuss at lists.opensource.org
+>> *>>Subject:* Re: [License-discuss] For Discussion: Cryptographic
+>> Autonomy License (CAL) Beta 2
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>> >>Can you explain why this is "problematic" in relation to OSD 9 please
+>> Richard? To my eyes the phrase "any modifications, elaborations, or
+>> implementations created by You that contain any licenseable >>portion of
+>> the Work" clearly bounds the effect to derivations of the licensed software
+>> and not to unrelated software distributed alongside.
+>>
+>> That was my reaction as well.
+>>
+>> Although I dislike use of the noun ?elaborations? (what is that intended
+>> to encompass?) and assume ?implementations? is intended to capture a
+>> reciprocal effect via patents?
+>>
+>
+> --
+> Bruce Perens - Partner, OSS.Capital.
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190813/88f11d7e/attachment.html>
+
+From bruce at perens.com  Tue Aug 13 16:47:14 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 13 Aug 2019 09:47:14 -0700
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAA4ffp-036NcvpukN3bwRVASD8OoUpz3pz5XMfFedaLA1mveJw@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAC1cPGzW_HrcoKmg_Fci3AfqeX=y9c7pO_oZCpnd6EcQKVfK_Q@mail.gmail.com> <CAA4ffp_XVoDP=tGHrPKiyHsvkYx4++zVRsUKTP+R6zDJuhsEnQ@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5199F402659@fmsmsx117.amr.corp.intel.com> <CAK2MWOv4D4O=9Goi7kqgC2zOjv7NXjRjs_=_O0xYjLKSMtHk9w@mail.gmail.com> <CAA4ffp-036NcvpukN3bwRVASD8OoUpz3pz5XMfFedaLA1mveJw@mail.gmail.com>
+Message-ID: <CAK2MWOt+qVPhVAHaKhbqjPNFt8U=Xc87f72EzbuJjkHiNZSnTQ@mail.gmail.com>
+
+On Tue, Aug 13, 2019 at 9:42 AM Simon Phipps <simon at webmink.com> wrote:
+
+> That's calling the user data clauses both outside the scope of open source
+> licensing and so integral they can trigger an OSD violation, both at the
+> same time.
+>
+
+Terms which are outside of the scope of Open Source licensing *are *likely
+to trigger an OSD violation. Maybe you can state your objection more
+clearly.
+
+And there isn't really any reason the user data could not be actual
+software.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190813/77ea1294/attachment.html>
+
+From van.lindberg at gmail.com  Tue Aug 13 18:32:05 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Tue, 13 Aug 2019 13:32:05 -0500
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5199F402659@fmsmsx117.amr.corp.intel.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAC1cPGzW_HrcoKmg_Fci3AfqeX=y9c7pO_oZCpnd6EcQKVfK_Q@mail.gmail.com> <CAA4ffp_XVoDP=tGHrPKiyHsvkYx4++zVRsUKTP+R6zDJuhsEnQ@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5199F402659@fmsmsx117.amr.corp.intel.com>
+Message-ID: <CAFQvZEPqirEq+e+Q_xdY+1SgteBTSQiebexU7E=cyNaQ055WsQ@mail.gmail.com>
+
+Hi McCoy,
+
+On Tue, Aug 13, 2019 at 11:21 AM Smith, McCoy <mccoy.smith at intel.com> wrote:
+
+>
+>
+> >>Can you explain why this is "problematic" in relation to OSD 9 please
+> Richard? To my eyes the phrase "any modifications, elaborations, or
+> implementations created by You that contain any licenseable >>portion of
+> the Work" clearly bounds the effect to derivations of the licensed software
+> and not to unrelated software distributed alongside.
+>
+> That was my reaction as well.
+>
+> Although I dislike use of the noun ?elaborations? (what is that intended
+> to encompass?) and assume ?implementations? is intended to capture a
+> reciprocal effect via patents?
+>
+> <http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org>
+
+
+"Elaborations" is from 17 U.S.C. 101: " A work consisting of editorial
+revisions, annotations,* elaborations*, or other modifications which, as a
+whole, represent an original work of authorship, is a 'derivative work.'"
+
+Current language (from live link above): "The terms of this License apply
+to the Work as you receive it from Licensor, as well as to any revisions,
+modifications, elaborations, or implementations created by You that contain
+any licenseable portion of the Work (a ?Modified Work?)."
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190813/930fe716/attachment.html>
+
+From van.lindberg at gmail.com  Tue Aug 13 18:38:10 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Tue, 13 Aug 2019 13:38:10 -0500
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAC1cPGzW_HrcoKmg_Fci3AfqeX=y9c7pO_oZCpnd6EcQKVfK_Q@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAC1cPGzW_HrcoKmg_Fci3AfqeX=y9c7pO_oZCpnd6EcQKVfK_Q@mail.gmail.com>
+Message-ID: <CAFQvZEO90K5wFCpsaC9dM=dgzXBs+tJhMKCu_-VECEavEKCkaw@mail.gmail.com>
+
+Hi Richard,
+
+On Tue, Aug 13, 2019 at 10:56 AM Richard Fontana <rfontana at redhat.com>
+wrote:
+
+> On Thu, Aug 8, 2019 at 5:19 PM VanL <van.lindberg at gmail.com> wrote:
+>
+> If I understand correctly, this has the effect of replacing the
+> language in the earlier version that would have imposed copyleft
+> obligations on APIs by choosing not to address the issue head on
+> (contrary to what I think you recommended that license drafters ought
+> to do in an earlier thread).
+>
+
+Well, I dealt with it head on and you (among others) objected, so I looked
+at other ways to accomplish my purpose. The language above is designed to
+be absolutely clear as to the scope of the license, regardless of how OvG
+turns out. Thus, regardless of any prognostication as to how things will
+turn out, no one can argue that I am pushing a policy point that is
+contrary to the OSI's interest.
+
+
+
+> However, leaving aside the notion of API copyrightability, isn't this
+> problematically broad? How do you reconcile it with OSD 9 ("The
+> license must not place restrictions on other software that is
+> distributed along with the licensed software.")?
+>
+
+I'll defer that answer to Simon and McCoy, below. The language tracks very
+closely to what is a "derivative work" under US law, thus placing it
+squarely within the bounds of what has been already accepted.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190813/ebacb646/attachment.html>
+
+From van.lindberg at gmail.com  Tue Aug 13 18:46:17 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Tue, 13 Aug 2019 13:46:17 -0500
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com>
+Message-ID: <CAFQvZEMM-j_fVuZDRhPD+_WWykt_f4gi--x9tRSoMTUBVAGYZA@mail.gmail.com>
+
+Hi Bruce,
+
+On Tue, Aug 13, 2019 at 11:05 AM Bruce Perens via License-discuss <
+license-discuss at lists.opensource.org> wrote:
+
+> It looks like this is the main reason for objection:
+>
+> *No Withholding User Data*
+>
+> *Throughout any period in which You exercise any of the permissions
+> granted to You under this License, You must also provide to any Recipient
+> to whom you provide services via the Work, a no-charge copy, provided in a
+> commonly used electronic form, of the Recipient?s User Data in your
+> possession, to the extent that such User Data is available to You for use
+> in conjunction with the Work. *
+>
+>
+> As in the previous version of the license, this attempts to extend the
+> reciprocal license paradigm to data which is merely processed by the
+> program.
+>
+> [snip]
+>
+> The ownership of the data *distracts from the main issue,* however, which
+> is that the license attempts to *encumber data which is processed by the
+> program.* This is a slippery slope which OSI should not embark upon, it
+> ends with licenses like Kyle's which attempt to encumber all software
+> processed by the program and force placement of that software under an Open
+> Source license.
+>
+
+
+This is incorrect. I have corrected you on this point repeatedly, but you
+continue to make this unsupported argument.
+
+The CAL does not encumber any data. It does not change the licensing on any
+data. Please respond with the specific text that "encumber[s] data
+processed by the program."
+
+I also challenge your assertion regarding OSD #6. The CAL is not specific
+to any particular field of endeavor. "Withholding user data" isn't a field
+of endeavor, just like "withholding source code" isn't a field of endeavor.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190813/b7e8a26d/attachment-0001.html>
+
+From bruce at perens.com  Tue Aug 13 19:08:49 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 13 Aug 2019 12:08:49 -0700
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAFQvZEMM-j_fVuZDRhPD+_WWykt_f4gi--x9tRSoMTUBVAGYZA@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com> <CAFQvZEMM-j_fVuZDRhPD+_WWykt_f4gi--x9tRSoMTUBVAGYZA@mail.gmail.com>
+Message-ID: <CAK2MWOu1LCprU+oiJK2M6ucdHm4ak3a3=rBsNjj-Own+CAxB_A@mail.gmail.com>
+
+On Tue, Aug 13, 2019 at 11:46 AM VanL <van.lindberg at gmail.com> wrote:
+
+>
+> This is incorrect. I have corrected you on this point repeatedly, but you
+> continue to make this unsupported argument.
+>
+
+Van,
+
+In a discussion like this, you can expect people to disagree, and to *continue
+*to disagree. It seems to me that if we are all going get along, the
+appropriate response to such disagreement is *not *to take a strident tone
+and recount how many times you have attempted to correct me, as if you were
+a harried school teacher facing a recalcitrant pupil.
+
+The CAL does not encumber any data. It does not change the licensing on any
+> data. Please respond with the specific text that "encumber[s] data
+> processed by the program."
+>
+
+The terms very obviously require the licensee to perform a specific action
+with the data. If this is not "encumberance", what is it?
+
+"Withholding user data" isn't a field of endeavor, just like "withholding
+> source code" isn't a field of endeavor.
+>
+
+Of course development of proprietary software, sequestration of its source
+code, and making use of copyright and trade-secret protection is a *very
+popular* business method in the industry and can indeed be considered to be
+a field of endeavor. We have already discussed on this list, and
+license-review, why OSD #6 does not prohibit reciprocal licensing even
+though this is so. I doubt that you really mean to open that discussion
+again.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190813/f81887cf/attachment.html>
+
+From van.lindberg at gmail.com  Tue Aug 13 19:50:15 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Tue, 13 Aug 2019 14:50:15 -0500
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAK2MWOu1LCprU+oiJK2M6ucdHm4ak3a3=rBsNjj-Own+CAxB_A@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com> <CAFQvZEMM-j_fVuZDRhPD+_WWykt_f4gi--x9tRSoMTUBVAGYZA@mail.gmail.com> <CAK2MWOu1LCprU+oiJK2M6ucdHm4ak3a3=rBsNjj-Own+CAxB_A@mail.gmail.com>
+Message-ID: <CAFQvZEOfroghN+vq=uwXOY3mXBngn_Zv2zoWby_YDJu+4_QxBQ@mail.gmail.com>
+
+Hi Bruce,
+
+On Tue, Aug 13, 2019 at 2:09 PM Bruce Perens <bruce at perens.com> wrote:
+
+>
+> In a discussion like this, you can expect people to disagree, and to *continue
+> *to disagree. It seems to me that if we are all going get along, the
+> appropriate response to such disagreement is *not *to take a strident
+> tone and recount how many times you have attempted to correct me, as if you
+> were a harried school teacher facing a recalcitrant pupil.
+>
+
+This is a completely fair point, and I apologize for the tone.
+
+
+
+> The CAL does not encumber any data. It does not change the licensing on
+>> any data. Please respond with the specific text that "encumber[s] data
+>> processed by the program."
+>>
+>
+> The terms very obviously require the licensee to perform a specific action
+> with the data. If this is not "encumberance", what is it?
+>
+
+I understand the term "encumber" to place a continuing obligation on the
+data, such that each subsequent holder of the data would also be bound by
+the obligation. This is the way in which this term is used in
+legal/licensing parlance.
+
+The CAL does require that a licensee make available the user's data to the
+user, but it does not impose restrictions on how the data is used, nor do
+any obligations persist after any transfer of the data. Thus, the CAL has a
+condition on the license, but not an encumbrance on the data.
+
+"Withholding user data" isn't a field of endeavor, just like "withholding
+>> source code" isn't a field of endeavor.
+>>
+>
+> Of course development of proprietary software, sequestration of its source
+> code, and making use of copyright and trade-secret protection is a *very
+> popular* business method in the industry and can indeed be considered to
+> be a field of endeavor. We have already discussed on this list, and
+> license-review, why OSD #6 does not prohibit reciprocal licensing even
+> though this is so. I doubt that you really mean to open that discussion
+> again.
+>
+
+I am not reopening that discussion, but merely referring to it as being
+analogous.
+
+But with reference to the "field of endeavor," I go again to OSD #6: "6. No
+Discrimination Against Fields of Endeavor: The license must not restrict
+anyone from making use of the program in a specific field of endeavor. For
+example, it may not restrict the program from being used in a business, or
+from being used for genetic research."
+
+I understand the irony of quoting this to you. But looking at what was
+written, use "in a business" or "for genetic research" clearly refer to
+overriding purposes of the use, and not to any particular tactics. If
+"field of endeavor" is defined as a tactic, and not a purpose, then we fall
+afoul of Fontana's* reducto ad absurdum *where any restriction can be cast
+as a violation of OSD #6 because it could potentially interfere with a
+hypothetical licensee's permission to do the opposite.
+
+The CAL does not prohibit (or even mention) any purposes for which the
+software can be used; it is completely agnostic in that fashion.
+
+So I would challenge you: What is an articulable, non-gerrymandered rule
+that says "you may use this for any field of endeavor" that allows current
+licenses, but disallows the CAL?
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190813/f83445b0/attachment.html>
+
+From bruce at perens.com  Tue Aug 13 21:27:18 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 13 Aug 2019 14:27:18 -0700
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAFQvZEOfroghN+vq=uwXOY3mXBngn_Zv2zoWby_YDJu+4_QxBQ@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com> <CAFQvZEMM-j_fVuZDRhPD+_WWykt_f4gi--x9tRSoMTUBVAGYZA@mail.gmail.com> <CAK2MWOu1LCprU+oiJK2M6ucdHm4ak3a3=rBsNjj-Own+CAxB_A@mail.gmail.com> <CAFQvZEOfroghN+vq=uwXOY3mXBngn_Zv2zoWby_YDJu+4_QxBQ@mail.gmail.com>
+Message-ID: <CAK2MWOtfhq_UZWTxyn-PCdq1Bt_soTjOpghN08ze39n3uRkUMQ@mail.gmail.com>
+
+On Tue, Aug 13, 2019 at 12:50 PM VanL <van.lindberg at gmail.com> wrote:
+
+> This is a completely fair point, and I apologize for the tone.
+>
+
+Well spoken, and accepted of course!
+
+
+> The CAL does require that a licensee make available the user's data to the
+> user, but it does not impose restrictions on how the data is used, nor do
+> any obligations persist after any transfer of the data. Thus, the CAL has a
+> condition on the license, but not an encumbrance on the data.
+>
+
+Please excuse me for repeating previous discussion, it's obviously
+necessary to discuss this new version.
+
+You are attempting to extend the reciprocal licensing paradigm, to require
+that the licensee distribute the data to a specific party (the user). It's
+my contention that neither Free Software nor Open Source contain or allow
+this specific requirement.
+
+But looking at what was written, use "in a business" or "for genetic
+> research" clearly refer to overriding purposes of the use, and not to any
+> particular tactics.
+>
+
+Those are examples. They don't restrict "field of endeavor" to exclude all
+of the very many decisions necessary to carry out your business. It's
+really obvious that SaaS providers have lock-in strategies as a major part
+of their business, otherwise it would not be a an explicit goal of the CAL,
+and apparently this version's sole remaining significant difference from
+accepted Open Source licenses, to *defeat* lock-in terms. The businesses
+that use such terms are fields of endeavor, and would be different fields
+of endeavor if they operated differently.
+
+I sympathize with the goal of CAL, while still not believing that the
+implementation of that goal is well-placed as a software license term. It
+belongs in law regarding online business. This seems to me to be the same
+as all of the discussions of license additions to achieve an ethical
+purpose - which we've just iterated again. They attempt to extend the Open
+Source paradigm to address some other issue.
+
+
+> any restriction can be cast as a violation of OSD #6 because it could
+> potentially interfere with a hypothetical licensee's permission to do the
+> opposite.
+>
+
+I have to differ with Richard's theorizing, which I think Pam has also
+commented that she shares. We have the restrictions that achieve the
+purpose of Open Source, as stated by the definition, and we have *all other
+restrictions.* The OSD specifically says that distribution of source code
+must be allowed. The OSD implicitly provides you with a way to separate
+restrictions into two categories, one that achieves the purpose of Open
+Source as defined, and one that does not. Having made that separation,
+there is no *reducto ad absurdum. *There are simply permitted restrictions,
+and those not permitted.
+
+The CAL does not prohibit (or even mention) any purposes for which the
+> software can be used; it is completely agnostic in that fashion.
+>
+
+It just tells me I can't make the user data trade secret, or simply
+sequester it and thwart the user's desire to see it returned. And my
+business may succeed or fail over that one thing. I'm not saying that it's
+nice.
+
+So I would challenge you: What is an articulable, non-gerrymandered rule
+> that says "you may use this for any field of endeavor" that allows current
+> licenses, but disallows the CAL?
+>
+
+I would simply say "You may use the software for any purpose" is a
+sufficient filter. I would say that OSD #6 states this same rule, in
+different language.
+ Thanks
+ Bruce
+
+
+-- 
+Bruce Perens - Partner, OSS.Capital.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190813/d6ad054c/attachment-0001.html>
+
+From van.lindberg at gmail.com  Tue Aug 13 22:31:46 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Tue, 13 Aug 2019 17:31:46 -0500
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAK2MWOtfhq_UZWTxyn-PCdq1Bt_soTjOpghN08ze39n3uRkUMQ@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com> <CAFQvZEMM-j_fVuZDRhPD+_WWykt_f4gi--x9tRSoMTUBVAGYZA@mail.gmail.com> <CAK2MWOu1LCprU+oiJK2M6ucdHm4ak3a3=rBsNjj-Own+CAxB_A@mail.gmail.com> <CAFQvZEOfroghN+vq=uwXOY3mXBngn_Zv2zoWby_YDJu+4_QxBQ@mail.gmail.com> <CAK2MWOtfhq_UZWTxyn-PCdq1Bt_soTjOpghN08ze39n3uRkUMQ@mail.gmail.com>
+Message-ID: <CAFQvZEMga40T9EOxz1FKv-L+FZfBfwTb2_No8jp1xVXVbfo9xA@mail.gmail.com>
+
+There is not a 1:1 correspondence between a tactic and a field of endeavor.
+Otherwise, there is no rule - as you describe:
+
+
+> We have the restrictions that achieve the purpose of Open Source, as
+> stated by the definition, and we have *all other restrictions.* The OSD
+> specifically says that distribution of source code must be allowed. The OSD
+> implicitly provides you with a way to separate restrictions into two
+> categories, one that achieves the purpose of Open Source as defined, and
+> one that does not. Having made that separation, there is no *reducto ad
+> absurdum. *There are simply permitted restrictions, and those not
+> permitted.
+>
+
+This is where I think we fundamentally disagree. While this is artfully
+stated, the result is to gerrymander the line in such a way as to reduce it
+only to a series of rules. It invites "no true open source license
+restricts X" arguments - because without an articulable, general-purpose
+rule, that is all that is left.
+
+Or in your words, "allowed restrictions" and "anything else."
+
+What is an articulable, non-gerrymandered rule that says "you may use this
+>> for any field of endeavor" that allows current licenses, but disallows the
+>> CAL?
+>>
+>
+> I would simply say "You may use the software for any purpose" is a
+> sufficient filter. I would say that OSD #6 states this same rule, in
+> different language.
+>
+
+If that is the articulable rule, then CAL complies:
+
+"*This License gives You unlimited permission to use and modify the
+software to which it applies (the ?Work?), either as-is or in modified
+form, for Your private purposes*... This License also strives to protect
+the freedom and autonomy of third parties who receive the Work from you.
+If any non-affiliated third party receives any part, aspect, or element of
+the Work from You, this License requires that You provide that third party
+all the permissions and materials needed to independently use and modify
+the Work without that third party having a loss of data or capability due
+to your actions."
+
+Run the software on your own server, for your own use, for any purpose
+whatsoever. Your permission to do so is unlimited. You only need to conform
+with any conditions if you start providing the software, in whole or in
+part, to another person.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190813/4d118e98/attachment.html>
+
+From bruce at perens.com  Wed Aug 14 02:07:01 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 13 Aug 2019 19:07:01 -0700
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAFQvZEMga40T9EOxz1FKv-L+FZfBfwTb2_No8jp1xVXVbfo9xA@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com> <CAFQvZEMM-j_fVuZDRhPD+_WWykt_f4gi--x9tRSoMTUBVAGYZA@mail.gmail.com> <CAK2MWOu1LCprU+oiJK2M6ucdHm4ak3a3=rBsNjj-Own+CAxB_A@mail.gmail.com> <CAFQvZEOfroghN+vq=uwXOY3mXBngn_Zv2zoWby_YDJu+4_QxBQ@mail.gmail.com> <CAK2MWOtfhq_UZWTxyn-PCdq1Bt_soTjOpghN08ze39n3uRkUMQ@mail.gmail.com> <CAFQvZEMga40T9EOxz1FKv-L+FZfBfwTb2_No8jp1xVXVbfo9xA@mail.gmail.com>
+Message-ID: <CAK2MWOvNRS-JgMdsUoMC_5XYM_RDQ8A64qHh5JHRgbrUdGF_-A@mail.gmail.com>
+
+On Tue, Aug 13, 2019 at 3:32 PM VanL <van.lindberg at gmail.com> wrote:
+
+>
+> There is not a 1:1 correspondence between a tactic and a field of endeavor.
+>
+
+I submit that a field of endeavor incorporates all visible details of the
+operation of a business. Does that mean there is a 1:1 correspondence
+between tactics and fields of endeavor? I don't believe that it is
+necessary to come up with a ratio. A tactical decision is part of the whole.
+
+
+> This is where I think we fundamentally disagree. While this is artfully
+> stated, the result is to gerrymander the line in such a way as to reduce it
+> only to a series of rules.
+>
+
+It's easy to refer to any interpretation of a rule that you don't like as
+"gerrymandering", and I could, if I wished to replace argument with
+something closer to name-calling, say the same for the obvious attempt to
+stretch the meaning of Open Source to take on the cause of data rights.
+
+It invites "no true open source license restricts X" arguments - because
+> without an articulable, general-purpose rule, that is all that is left.
+>
+
+We can make a number of obviously true statements of the form "no true Open
+Source license restricts X", whether or not the rule is articulated to your
+satisfaction. We have a 22-year history of interpreting #6 as prohibiting
+use restrictions, and I continue to see the implementation of the data
+return term as a use restriction.
+
+"*This License gives You unlimited permission to use...* this License
+> requires that You provide that third party all the permissions and
+> materials needed to independently use and modify the Work without that
+> third party having a loss of data or capability due to your actions."
+>
+
+The cited text does not entirely express the data term, but I submit that
+it is self-contradictory, in that it states that the licensee has unlimited
+permission to use, and then limits that permission by specifying a
+particular way in which the software can *not* be used.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190813/26e56e3a/attachment.html>
+
+From russellmcormond at gmail.com  Wed Aug 14 03:14:44 2019
+From: russellmcormond at gmail.com (Russell McOrmond)
+Date: Tue, 13 Aug 2019 23:14:44 -0400
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAK2MWOtfhq_UZWTxyn-PCdq1Bt_soTjOpghN08ze39n3uRkUMQ@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com> <CAFQvZEMM-j_fVuZDRhPD+_WWykt_f4gi--x9tRSoMTUBVAGYZA@mail.gmail.com> <CAK2MWOu1LCprU+oiJK2M6ucdHm4ak3a3=rBsNjj-Own+CAxB_A@mail.gmail.com> <CAFQvZEOfroghN+vq=uwXOY3mXBngn_Zv2zoWby_YDJu+4_QxBQ@mail.gmail.com> <CAK2MWOtfhq_UZWTxyn-PCdq1Bt_soTjOpghN08ze39n3uRkUMQ@mail.gmail.com>
+Message-ID: <CAGi9AuUphdhA+wpuAUWtiyt7gwQ9kq=aY8ARDEfi7FCcpC8p2g@mail.gmail.com>
+
+On Tue, Aug 13, 2019 at 5:31 PM Bruce Perens via License-discuss
+<license-discuss at lists.opensource.org> wrote:
+
+> Those are examples. They don't restrict "field of endeavor" to exclude all
+> of the very many decisions necessary to carry out your business. It's
+> really obvious that SaaS providers have lock-in strategies as a major part
+> of their business, otherwise it would not be a an explicit goal of the CAL,
+> and apparently this version's sole remaining significant difference from
+> accepted Open Source licenses, to *defeat* lock-in terms. The businesses
+> that use such terms are fields of endeavor, and would be different fields
+> of endeavor if they operated differently.
+>
+> I sympathize with the goal of CAL, while still not believing that the
+> implementation of that goal is well-placed as a software license term. It
+> belongs in law regarding online business. This seems to me to be the same
+> as all of the discussions of license additions to achieve an ethical
+> purpose - which we've just iterated again. They attempt to extend the Open
+> Source paradigm to address some other issue.
+>
+
+Bruce,
+
+I agree that the business models of SaaS providers are fields of endeavour,
+and that OSD #6 should cause the OSI to reject licenses which specifically
+target SaaS providers.
+
+I am left puzzled how the Affero clauses, which also target SaaS (or what
+RMS likes to call Service as a Software Substitute - SaaSS), passed the OSD
+#6 test?   I understand there are many people who are fearful of SaaS
+and/or SaaSS, but the acceptance of that fear is leading parts of the
+movement to grasp for very proprietor-focused licensing tactics of ensuring
+that software authors (or more often copyright/patent owners) have a high
+level of control over software users when they are subjectively deemed "bad
+software users".
+
+The more we accept the concept of "bad software users" as something that
+should be regulated in "open source" licenses, the less ability we will
+have to protect the software freedom of any software users.
+
+
+I also sympathize with the goals. I believe all service providers,
+including SaaS and SaaSS, should be regulated by government. Protecting the
+interests of citizens requires the enactment of appropriate laws, and
+proprietary software licenses masquerading as "open source" can't solve any
+of those important problems.  Enacting appropriate laws requires that
+technologists who understand how the technology actually works be involved
+in the legislative process.  Even if I didn't think these
+proprietor-focused terms would backfire and provide precedent to
+strengthen software proprietor interests against all software users, I
+would still consider using public policy inspired licensing as a substitute
+for participation in the actual legislative process to be an entirely
+ineffective strategy.
+
+Anyone willing to spend the time to author and/or argue in favour of one of
+these public policy inspired proprietary licenses easily has the time to
+author and/or forward letters to their elected representative describing
+the problem to help provide real solutions to these problems.  If someone
+in the US writes such a letter, I'll spend the time to translate it to
+Canadian legal concepts -- we are about to have a federal election, which
+is when all candidates will be listening more than usual.  (But all that
+needs to be coordinated outside this list, as OSI itself can't be seen to
+be lobbying any government),
+
+-- 
+Russell McOrmond, Internet Consultant: <http://www.flora.ca/>
+
+Please help us tell the Canadian Parliament to protect our property rights
+as owners of Information Technology. Sign the petition! http://l.c11.ca/ict/
+
+"The government, lobbied by legacy copyright holders and hardware
+manufacturers, can pry my camcorder, computer, home theatre, or portable
+media player from my cold dead hands!" http://c11.ca/own
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190813/de61302f/attachment.html>
+
+From bruce at perens.com  Wed Aug 14 03:53:38 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 13 Aug 2019 20:53:38 -0700
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAGi9AuUphdhA+wpuAUWtiyt7gwQ9kq=aY8ARDEfi7FCcpC8p2g@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com> <CAK2MWOuaTBpU3_0wZpOwRABft+EuHkH8aa3Y+XfG8Oi9ja2krw@mail.gmail.com> <CAFQvZEMM-j_fVuZDRhPD+_WWykt_f4gi--x9tRSoMTUBVAGYZA@mail.gmail.com> <CAK2MWOu1LCprU+oiJK2M6ucdHm4ak3a3=rBsNjj-Own+CAxB_A@mail.gmail.com> <CAFQvZEOfroghN+vq=uwXOY3mXBngn_Zv2zoWby_YDJu+4_QxBQ@mail.gmail.com> <CAK2MWOtfhq_UZWTxyn-PCdq1Bt_soTjOpghN08ze39n3uRkUMQ@mail.gmail.com> <CAGi9AuUphdhA+wpuAUWtiyt7gwQ9kq=aY8ARDEfi7FCcpC8p2g@mail.gmail.com>
+Message-ID: <CAK2MWOtdAT0QoVbBPfGT3a-1KUsYDYEtNf4gB1ZdS2_SjhEoCg@mail.gmail.com>
+
+On Tue, Aug 13, 2019 at 8:15 PM Russell McOrmond <russellmcormond at gmail.com>
+wrote:
+
+> I am left puzzled how the Affero clauses, which also target SaaS (or what
+> RMS likes to call Service as a Software Substitute - SaaSS), passed the
+> OSD #6 test?
+>
+
+I wasn't around when this license was argued, so other folks can represent
+what they thought at the time better than I.
+
+That said, I would say because the only effect of the terms is to activate
+the source code distribution requirement, which is considered to be a
+fundamental purpose of Open Source. If you look at Larry Rosen's OSL terms
+regarding "deploy", the explanation is the same.
+
+the acceptance of that fear is leading parts of the movement to grasp for
+> very proprietor-focused licensing tactics of ensuring that software authors
+> (or more often copyright/patent owners) have a high level of control over
+> software users when they are subjectively deemed "bad software users".
+>
+
+Yes. And I have Sunil Deshpande speaking at our conference, where he will
+make the case for exactly that, and I will make the opposite case in my own
+talk. In summary: do that if you want, but please don't call it Open
+Source. I guess Heather is speaking too, she would make a gentler case for
+Polyform, which they know not to call Open Source.
+
+The more we accept the concept of "bad software users" as something that
+> should be regulated in "open source" licenses, the less ability we will
+> have to protect the software freedom of any software users.
+>
+
+Yes. I have been making this case for about 25 years, before there was Open
+Source, and it was fundamental to why the OSD includes #5 and #6. The first
+example I came to know, you've probably heard, was a Berkeley SPICE license
+with terms regarding the police of South Africa, that persisted long after
+the end of apartheid. Obviously I hated apartheid, it didn't seem very
+different from the way that nazis had treated Jews. But I felt those terms
+belonged elsewhere, and they still do today. Otherwise, we can start to
+entertain anti-Trump and anti-Clinton licenses, etc. and it will get very
+noisy fast.
+
+It's within OSI the 501(c)3's purview to say that many social goals are
+laudable while they do not belong in Open Source licensing. And that's the
+end of *that* discussion on the mailing list. We all have each other's
+personal emails if we wish to pursue the matter farther.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190813/a7dc1545/attachment.html>
+
+From opensource at lukasatkinson.de  Wed Aug 14 09:37:39 2019
+From: opensource at lukasatkinson.de (Lukas Atkinson)
+Date: Wed, 14 Aug 2019 11:37:39 +0200
+Subject: [License-discuss] For Discussion: Cryptographic Autonomy License (CAL) Beta 2
+In-Reply-To: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com>
+References: <CAFQvZEMix1d9oAkUbkfaZreqJSWrbMV-8svbdXdyHP1rF2URAQ@mail.gmail.com>
+Message-ID: <CAJTYOd0jajJO-0ZFU=qV1gwsZ4tegtt_aFrxXSt8gCRO8ZGufQ@mail.gmail.com>
+
+Leaving aside the debate about user data, I think the CAL is an extremely
+well crafted license. But I do have some questions about the patent
+termination clause. The same paragraph was present in the first beta, but I
+just noticed it now.
+
+The CAL says (emphasis mine):
+
+If You initiate litigation *against Licensor, or any Recipient of the Work*,
+> either direct or indirect, asserting that the Work directly or indirectly
+> infringes any patent, *then all permissions* granted to You by this
+> License *shall terminate*. In the event of termination due to litigation,
+> all permissions validly granted by You under this License, directly or
+> indirectly, shall survive termination. Administrative review procedures,
+> declaratory judgment actions, and *counterclaims* in response to patent
+> litigation *do not cause termination *due to litigation.

@@ -1,0 +1,750 @@
+right place, as they can be updated more easily, allow for competition 
+between networks with different policies, and be adjudicated in 
+non-governmental ways.
+
+Brian
+
+
+
+From pamela at chesteklegal.com  Tue Dec 10 19:02:29 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Tue, 10 Dec 2019 14:02:29 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CADaGzk4Mp4x+cNv=7T6uWabu70m08rGO_nEKmr5W0o-Jh7DSOw@mail.gmail.com>
+References: <CAFQvZENh-iZjN-FZ1UROZy94XuUYzSwVrgxSwKve5X1Hjxx6bQ@mail.gmail.com> <37b100a3-3a83-b71c-3dbe-101fa51c4f93@chesteklegal.com> <CAK2MWOvQseuA3EfP7wLnNn7L=w=x9EJQy7djVqPHL=CKzjPkkQ@mail.gmail.com> <1a7d7433-0776-4916-a281-a1c6f4300344@chesteklegal.com> <CADaGzk6Q_DGaqW-gTuUE8CF8ZEu5bfodguy5fBJN6FrZUPO1HQ@mail.gmail.com> <CAFQvZEP85_v9_SverXi3oYmTsMg3xE1WL6s9W5-oMaiWEDv87w@mail.gmail.com> <CADaGzk4v8nLrs8-nY7r+jzkr-EuR83ZXrhio21o-umrztZAygQ@mail.gmail.com> <CAKHykevVXZTsngfYb6XXEmUNObZCO-4Ok0Tnd2qm5oO+GCa=yA@mail.gmail.com> <B324DC1C-C6A7-4184-B0B0-D7940646E6F7@gmail.com> <CAFQvZEO8hAOk+9xBGZ=CykgSu_c4_DsD-s-cH0VhKjr3M2U61A@mail.gmail.com> <CADaGzk52LMwNuOuh0_jqBcX8jX4nwrdUK95PdqiV2hKrNS0v=A@mail.gmail.com> <109c48ab-3e93-9838-1c39-ee6a41a99500@chesteklegal.com> <CADaGzk5OEczmsFXO8iD0PVRGb_hma2DUpiFU=ktUGZ+VuyenEA@mail.gmail.com> <4f72ca8c-51a8-c0f2-0ac0-18efe771bc43@chesteklegal.com> <CADaGzk4Mp4x+cNv=7T6uWabu70m08rGO_nEKmr5W0o-Jh7DSOw@mail.gmail.com>
+Message-ID: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com>
+
+
+
+On 12/10/2019 1:04 PM, Nigel T wrote:
+> Pam,
+>
+> It may or may not be an open source license according to the OSD but I
+> will quote Van here because he said it well:
+>
+>     /"Regardless, I don't think that the Vaccine License is an
+>     appropriate OSS license. My primary objection to the vaccine
+>     license is that it imposes conditions that are logically separate
+>     from and wholly unrelated to the scope of the intellectual
+>     property rights that are licensed."/
+>
+> Replace vaccinations with open data. While I support both open data
+> and vaccinations, I am disinclined to mix requirements for those with
+> the terms of an OSI approved software license. Open data is arguably
+> more related to open source than vaccinations but I would argue they
+> are still separate.
+This isn't an apt comparison, the CAL is not a data license. The CAL was
+amended specifically to ensure that the data requirement only goes as
+far as necessary to allow operation of the software. It is therefore
+tightly tied to the ability to use the software.
+
+If I were to try to describe the difference, the Vaccine License uses
+restrictions to accomplish a goal different than ensuring that the
+software can be used. The CAL's restrictions are designed only to ensure
+the software can be used.
+> And yes, I believe there are cases where it would be very difficult to
+> comply with CAL and is a significant departure from prior licenses in
+> terms of obligations to the user of OSS software for both being
+> compliant and determining if you are in compliance. ?
+I appreciate the comment, which is a line of questioning I followed too
+many months ago (there was this red square ....). The difficulty of
+claiming "ease of compliance" as a criterion for approval is that it's
+product-specific, plus the line between "ok" and "too hard" is going to
+be different for every user.
+
+>
+> I also do not believe that we can rely on a more forgiving reading of
+> license terms but a stricter one...part of the review process here is
+> hopefully to figure out possible failure modes from both benign and
+> malevolent actors.
+It's a balance for sure, trying to figure out whether someone is trying
+to game the system in pursuit of goals that do nothing for software
+freedom or whether instead the license has a legitimate application that
+advances software freedom but that may allow misuse as a side effect.
+
+Comments are all my own and not made on behalf of OSI.
+
+Pam
+> Regards,
+> Nigel
+>
+> On Tue, Dec 10, 2019 at 12:26 PM Pamela Chestek
+> <pamela at chesteklegal.com <mailto:pamela at chesteklegal.com>> wrote:
+>
+>     You haven't answered my last question, which is whether you
+>     believe this is not an open source license or simply that it a
+>     license that will be difficult to comply with in some use cases.
+>     If you believe it is not an open source license, what would be
+>     your explanation of the rationale for refusing it?
+>
+>     Pam
+>
+>     Pamela S. Chestek
+>     Chestek Legal
+>     PO Box 2492
+>     Raleigh, NC 27602
+>     919-800-8033
+>     pamela at chesteklegal.com <mailto:pamela at chesteklegal.com>
+>     www.chesteklegal.com <http://www.chesteklegal.com>
+>
+>     On 12/10/2019 11:48 AM, Nigel T wrote:
+>>     Pam,
+>>
+>>     My concern is that most software that takes in user data isn't
+>>     very well equipped to export that user data back out. ?
+>>
+>>     If the *code* you received?from upstream (not user data) can not
+>>     comply with the user data export requirements of 4.2...whatever
+>>     those may be...then the downstream user of that code is
+>>     automatically not in compliance with the license on day 1.
+>>
+>>     A simple scenario is I open source a system that lets my clients
+>>     make appointments with me, see their billing statements,
+>>     communicate with me, etc under the CAL license.? You see this and
+>>     like it because of open data and transparency and get a copy of
+>>     my software and begin to use it for your own clients.? It's
+>>     really easy to do as I provided you (or whomever sets up your web
+>>     site for you) step by step instructions on how to set it up on
+>>     your own host. ?
+>>
+>>     No need to compile anything, just run my installer, pick a
+>>     password, fill in some preferences, add your logo and you're
+>>     ready to go. ?
+>>
+>>     For any other open source license if you provide the source code
+>>     of my software to your clients you are, as far as I can tell,
+>>     always in compliance.
+>>
+>>     But say I had neglected to provide a way to export some data
+>>     fields that the client gives me when interacting with the
+>>     system.? You are in breach of the license as is everyone else who
+>>     used my open source software to serve their own clients.
+>>
+>>     All the client user data is certainly available to you as the
+>>     downstream provider of the software to your clients...it may just
+>>     a simple SQL statement away or it may require a lot of code
+>>     changes to make available but either way you DO have it.
+>>
+>>     As a potential downstream user looking at my software web page,
+>>     running on my demo site, etc, how do you know you are actually in
+>>     compliance without more careful analysis of the system inputs and
+>>     outputs?? Do you not have to remake this assessment every time
+>>     you upgrade to my latest version??
+>>
+>>     I also do not believe that we can assume that the required data
+>>     is easily ascertainable nor do I believe that you could provide a
+>>     simple criteria like "received in plain text" given that often
+>>     the most valuable user inputs are the relationships between data
+>>     and data groupings they create.
+>>
+>>     Also the requirement to export /"//data has been generated by,
+>>     for, or has been assigned to the Recipient"/makes the required
+>>     export data not easily ascertainable.
+>>
+>>     Regards,
+>>
+>>     Nigel
+>>
+>>
+>>     On Tue, Dec 10, 2019 at 10:12 AM Pamela Chestek
+>>     <pamela at chesteklegal.com <mailto:pamela at chesteklegal.com>> wrote:
+>>
+>>
+>>         On 12/10/2019 9:41 AM, Nigel T wrote:
+>>>         The *software is not a safety deposit box* because of the
+>>>         requirement that you must also return /"//data has been
+>>>         generated by, for, or has been assigned to the Recipient".
+>>>         /Safety deposit boxes don't generate new content for users.
+>>>         Software often does. ?
+>>>         Even ignoring generated data that you'd have go though each
+>>>         and every UI screen and make sure all inputs provided by
+>>>         user are correctly mapped to an export field...and you have
+>>>         to do this every time you update from upstream.
+>>>         *If the original software cannot export all of the data
+>>>         required to meet the requirements of 4.2 then all subsequent
+>>>         users of the software are in breach of the license.* ?*This
+>>>         is a point that you continue to dance around.?*You are
+>>>         handwaving significant legal and technical burden you are
+>>>         placing on users of CAL licensed software because you want
+>>>         to extend licensing requirements beyond open *source*into
+>>>         open *data *and non-technical users who just use the
+>>>         software out of the box don't control that at all. There are
+>>>         no exceptions for non-compliance of the original code in
+>>>         this license so it's *a compliance nightmare**for every
+>>>         downstream user whether they change the code or not*.
+>>         Hi Nigel,
+>>
+>>         Can you help me understand your point better? Section 4.2.1
+>>         says "Throughout any period in which You exercise any of the
+>>         permissions granted to You under this License, You must also
+>>         provide to any Recipient /to whom you provide services via
+>>         the Work/, ... the Recipient's User Data in your possession,
+>>         /to the extent that such User Data is available to You/ for
+>>         use in conjunction with the Work."
+>>
+>>         I acknowledge your dislike of the ambiguity of "to the extent
+>>         that such User Data is available to You," but I'd like to put
+>>         that point aside. For the purposes of argument let's assume
+>>         that it is an easily ascertainable set of data, something
+>>         like "any User Data you received in plain text." The scenario
+>>         is that I have received data about a Recipient from upstream,
+>>         and now I am providing services to that same Recipient, which
+>>         is the only situation in which I would have to provide User
+>>         Data. Is your point that the program architecture may make it
+>>         too difficult to extract and provide the plain text that
+>>         upstream provided to me? Is your argument that there is
+>>         something that is not open source about this arrangement, or
+>>         is it that the license will be used in situations for which
+>>         it is poorly suited?
+>>
+>>         Pam
+>>
+>>         Pamela S. Chestek
+>>         Chestek Legal
+>>         PO Box 2492
+>>         Raleigh, NC 27602
+>>         919-800-8033
+>>         pamela at chesteklegal.com <mailto:pamela at chesteklegal.com>
+>>         www.chesteklegal.com <http://www.chesteklegal.com>
+>>         _______________________________________________
+>>         License-review mailing list
+>>         License-review at lists.opensource.org
+>>         <mailto:License-review at lists.opensource.org>
+>>         http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>>
+>>     _______________________________________________
+>>     License-review mailing list
+>>     License-review at lists.opensource.org <mailto:License-review at lists.opensource.org>
+>>     http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>     _______________________________________________
+>     License-review mailing list
+>     License-review at lists.opensource.org
+>     <mailto:License-review at lists.opensource.org>
+>     http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191210/0fee0994/attachment-0001.html>
+
+From nigel.2048 at gmail.com  Tue Dec 10 22:30:50 2019
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Tue, 10 Dec 2019 17:30:50 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com>
+Message-ID: <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com>
+
+Comments in line.
+
+> On Dec 10, 2019, at 2:03 PM, Pamela Chestek <pamela at chesteklegal.com> wrote:
+> 
+>> On 12/10/2019 1:04 PM, Nigel T wrote:
+>> Pam,
+>> 
+>> It may or may not be an open source license according to the OSD but I will quote Van here because he said it well:
+>> 
+>> "Regardless, I don't think that the Vaccine License is an appropriate OSS license. My primary objection to the vaccine license is that it imposes conditions that are logically separate from and wholly unrelated to the scope of the intellectual property rights that are licensed."
+>> 
+>> Replace vaccinations with open data.  While I support both open data and vaccinations, I am disinclined to mix requirements for those with the terms of an OSI approved software license.  Open data is arguably more related to open source than vaccinations but I would argue they are still separate.
+> This isn't an apt comparison, the CAL is not a data license. The CAL was amended specifically to ensure that the data requirement only goes as far as necessary to allow operation of the software. It is therefore tightly tied to the ability to use the software. 
+
+The use or operation of the software is not dependent on user?s customer provided data being present or the software system wouldn?t work when first installed before there are any clients.
+
+> If I were to try to describe the difference, the Vaccine License uses restrictions to accomplish a goal different than ensuring that the software can be used. The CAL's restrictions are designed only to ensure the software can be used.
+
+The user of the software is the SaaS provider.  Requiring that the source code be made available to their clients falls within the scope of a software license.
+
+To require that the software user has to provide their customer?s data back to them, even if the original software doesn?t make it available, strikes me as overreaching for a software license.
+
+>> And yes, I believe there are cases where it would be very difficult to comply with CAL and is a significant departure from prior licenses in terms of obligations to the user of OSS software for both being compliant and determining if you are in compliance.  
+> I appreciate the comment, which is a line of questioning I followed too many months ago (there was this red square ....). The difficulty of claiming "ease of compliance" as a criterion for approval is that it's product-specific, plus the line between "ok" and "too hard" is going to be different for every user. 
+
+The criteria for compliance with open source software has at most ever been to make sure all the code required to make the software work be made available.
+
+If I provide everything I got from upstream and any code I changed or added to downstream I?m compliant.
+
+This is different not in degree but in kind.
+
+In the scenario I provided to you (client management site), how would you determine if you could be in compliance with CAL?
+
+>> I also do not believe that we can rely on a more forgiving reading of license terms but a stricter one...part of the review process here is hopefully to figure out possible failure modes from both benign and malevolent actors.
+>> 
+> It's a balance for sure, trying to figure out whether someone is trying to game the system in pursuit of goals that do nothing for software freedom or whether instead the license has a legitimate application that advances software freedom but that may allow misuse as a side effect. 
+> 
+> Comments are all my own and not made on behalf of OSI.
+> 
+> Pam
+>> Regards,
+>> 
+>> Nigel
+>> 
+>> On Tue, Dec 10, 2019 at 12:26 PM Pamela Chestek <pamela at chesteklegal.com> wrote:
+>>> You haven't answered my last question, which is whether you believe this is not an open source license or simply that it a license that will be difficult to comply with in some use cases. If you believe it is not an open source license, what would be your explanation of the rationale for refusing it?
+>>> 
+>>> Pam
+>>> 
+>>> Pamela S. Chestek
+>>> Chestek Legal
+>>> PO Box 2492
+>>> Raleigh, NC 27602
+>>> 919-800-8033
+>>> pamela at chesteklegal.com
+>>> www.chesteklegal.com
+>>> 
+>>>> On 12/10/2019 11:48 AM, Nigel T wrote:
+>>>> Pam,
+>>>> 
+>>>> My concern is that most software that takes in user data isn't very well equipped to export that user data back out.  
+>>>> 
+>>>> If the code you received from upstream (not user data) can not comply with the user data export requirements of 4.2...whatever those may be...then the downstream user of that code is automatically not in compliance with the license on day 1.
+>>>> 
+>>>> A simple scenario is I open source a system that lets my clients make appointments with me, see their billing statements, communicate with me, etc under the CAL license.  You see this and like it because of open data and transparency and get a copy of my software and begin to use it for your own clients.  It's really easy to do as I provided you (or whomever sets up your web site for you) step by step instructions on how to set it up on your own host.  
+>>>> 
+>>>> No need to compile anything, just run my installer, pick a password, fill in some preferences, add your logo and you're ready to go.  
+>>>> 
+>>>> For any other open source license if you provide the source code of my software to your clients you are, as far as I can tell, always in compliance.
+>>>> 
+>>>> But say I had neglected to provide a way to export some data fields that the client gives me when interacting with the system.  You are in breach of the license as is everyone else who used my open source software to serve their own clients.
+>>>> 
+>>>> All the client user data is certainly available to you as the downstream provider of the software to your clients...it may just a simple SQL statement away or it may require a lot of code changes to make available but either way you DO have it.
+>>>> 
+>>>> As a potential downstream user looking at my software web page, running on my demo site, etc, how do you know you are actually in compliance without more careful analysis of the system inputs and outputs?  Do you not have to remake this assessment every time you upgrade to my latest version? 
+>>>> 
+>>>> I also do not believe that we can assume that the required data is easily ascertainable nor do I believe that you could provide a simple criteria like "received in plain text" given that often the most valuable user inputs are the relationships between data and data groupings they create.
+>>>> 
+>>>> Also the requirement to export "data has been generated by, for, or has been assigned to the Recipient" makes the required export data not easily ascertainable.
+>>>> 
+>>>> Regards,
+>>>> 
+>>>> Nigel
+>>>> 
+>>>> 
+>>>> On Tue, Dec 10, 2019 at 10:12 AM Pamela Chestek <pamela at chesteklegal.com> wrote:
+>>>>> 
+>>>>>> On 12/10/2019 9:41 AM, Nigel T wrote:
+>>>>>> The software is not a safety deposit box because of the requirement that you must also return "data has been generated by, for, or has been assigned to the Recipient". Safety deposit boxes don't generate new content for users.  Software often does.  
+>>>>>> 
+>>>>>> Even ignoring generated data that you'd have go though each and every UI screen and make sure all inputs provided by user are correctly mapped to an export field...and you have to do this every time you update from upstream.
+>>>>>> 
+>>>>>> If the original software cannot export all of the data required to meet the requirements of 4.2 then all subsequent users of the software are in breach of the license.  This is a point that you continue to dance around. You are handwaving significant legal and technical burden you are placing on users of CAL licensed software because you want to extend licensing requirements beyond open source into open data and non-technical users who just use the software out of the box don't control that at all.  There are no exceptions for non-compliance of the original code in this license so it's a compliance nightmare for every downstream user whether they change the code or not.
+>>>>>> 
+>>>>> Hi Nigel,
+>>>>> 
+>>>>> Can you help me understand your point better? Section 4.2.1 says "Throughout any period in which You exercise any of the permissions granted to You under this License, You must also provide to any Recipient to whom you provide services via the Work, ... the Recipient's User Data in your possession, to the extent that such User Data is available to You for use in conjunction with the Work." 
+>>>>> 
+>>>>> I acknowledge your dislike of the ambiguity of "to the extent that such User Data is available to You," but I'd like to put that point aside. For the purposes of argument let's assume that it is an easily ascertainable set of data, something like "any User Data you received in plain text." The scenario is that I have received data about a Recipient from upstream, and now I am providing services to that same Recipient, which is the only situation in which I would have to provide User Data. Is your point that the program architecture may make it too difficult to extract and provide the plain text that upstream provided to me? Is your argument that there is something that is not open source about this arrangement, or is it that the license will be used in situations for which it is poorly suited?
+>>>>> 
+>>>>> Pam
+>>>>> 
+>>>>> Pamela S. Chestek
+>>>>> Chestek Legal
+>>>>> PO Box 2492
+>>>>> Raleigh, NC 27602
+>>>>> 919-800-8033
+>>>>> pamela at chesteklegal.com
+>>>>> www.chesteklegal.com
+>>>>> _______________________________________________
+>>>>> License-review mailing list
+>>>>> License-review at lists.opensource.org
+>>>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>> 
+>>>> 
+>>>> _______________________________________________
+>>>> License-review mailing list
+>>>> License-review at lists.opensource.org
+>>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>> 
+>>> _______________________________________________
+>>> License-review mailing list
+>>> License-review at lists.opensource.org
+>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>> 
+>> 
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+> 
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191210/90043d2b/attachment-0001.html>
+
+From van.lindberg at gmail.com  Wed Dec 11 01:28:18 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Tue, 10 Dec 2019 17:28:18 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com>
+Message-ID: <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com>
+
+>
+> The use or operation of the software is not dependent on user?s customer
+> provided data being present...
+
+
+This is not really correct, if you think about it.
+
+I don't think it is debatable to say that some (most?) software works
+differently in the presence of particular data. The subroutines the run are
+different; the displayed interface may be different; the state of the
+software is *different.* Because the accumulated state is different, the
+actual functioning of the software, as experienced by the user, is
+different.
+
+I agree that the user has the ability to get back to the place where they
+were by re-entering the data and re-doing any associations made. But the
+latent potential for the software to work the same way is not the same as
+the software actually functioning the exact same way.
+
+(Note that it may not be exactly the same; the CAL limits this to the data
+assigned to the Recipient, so as to not to impose licensing on additional
+data. But to the extent possible, the CAL tries to make it so that the
+software actually works the same way, it doesn't just have the latent
+capability to work the same way.).
+
+Hence the binding of the user data provision to the substantially
+equivalent *operation* of the Work.
+
+
+
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191210/c9a2b2cb/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Wed Dec 11 05:36:35 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Wed, 11 Dec 2019 07:36:35 +0200
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com>
+Message-ID: <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com>
+
+On Wed, 11 Dec 2019, 03:29 VanL, <van.lindberg at gmail.com> wrote:
+
+> The use or operation of the software is not dependent on user?s customer
+>> provided data being present...
+>
+>
+> This is not really correct, if you think about it.
+>
+> I don't think it is debatable to say that some (most?) software works
+> differently in the presence of particular data. The subroutines the run are
+> different; the displayed interface may be different; the state of the
+> software is *different.* Because the accumulated state is different, the
+> actual functioning of the software, as experienced by the user, is
+> different.
+>
+> I agree that the user has the ability to get back to the place where they
+> were by re-entering the data and re-doing any associations made. But the
+> latent potential for the software to work the same way is not the same as
+> the software actually functioning the exact same way.
+>
+>
+Taking this argument further, the user can also rewrite all the code from
+scratch, and therefore all copyleft licenses (and open source) are
+unnecessary in general.
+
+Henrik
+
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191211/72801433/attachment-0001.html>
+
+From nigel.2048 at gmail.com  Wed Dec 11 17:12:52 2019
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Wed, 11 Dec 2019 12:12:52 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com>
+Message-ID: <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com>
+
+The bar is being moved here.  CAL does not require that the software be
+able to import any data to get back to a running state...or (according to
+Van) even need to export any data so a SQL dump is acceptable in meeting
+the CAL requirement.
+
+So the user's "ability to get back to the place they were" probably
+requires that they re-enter the data and re-doing any associations by hand
+anyway. The data doesn't even have to be in any kind of layout to
+facilitate re-entering the data.  Here you go...a SQL dump of your data,
+enjoy.  I could even just create a single PNG of all the data and meet CAL
+requirements.
+
+If the objective really is for the user to be able to get back to where
+they were with a clean copy of the system then CAL should specify that CAL
+software should support import/export round tripping of user data.
+
+In any case, the operation of the software is not dependent on the user's
+customer data being present or your software is broken.
+
+I take it you do not like the suggestion that the downstream software user
+is under no obligation to provide any customer data that the original code
+did not provide as export?
+
+On Wed, Dec 11, 2019 at 12:37 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+wrote:
+
+>
+>
+> On Wed, 11 Dec 2019, 03:29 VanL, <van.lindberg at gmail.com> wrote:
+>
+>> The use or operation of the software is not dependent on user?s customer
+>>> provided data being present...
+>>
+>>
+>> This is not really correct, if you think about it.
+>>
+>> I don't think it is debatable to say that some (most?) software works
+>> differently in the presence of particular data. The subroutines the run are
+>> different; the displayed interface may be different; the state of the
+>> software is *different.* Because the accumulated state is different, the
+>> actual functioning of the software, as experienced by the user, is
+>> different.
+>>
+>> I agree that the user has the ability to get back to the place where they
+>> were by re-entering the data and re-doing any associations made. But the
+>> latent potential for the software to work the same way is not the same as
+>> the software actually functioning the exact same way.
+>>
+>>
+> Taking this argument further, the user can also rewrite all the code from
+> scratch, and therefore all copyleft licenses (and open source) are
+> unnecessary in general.
+>
+> Henrik
+>
+>>
+>> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191211/d812a017/attachment.html>
+
+From van.lindberg at gmail.com  Wed Dec 11 17:36:35 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Wed, 11 Dec 2019 09:36:35 -0800
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com>
+Message-ID: <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com>
+
+Hi Nigel,
+
+You are correct that the CAL does not mandate any particular functionality
+or method of compliance. History has shown that mandating a particular
+technical structure is unwise. Instead, the CAL simply describes what is
+required and uses the standard tool of open source licensing - the denial
+or termination of the license - to motivate compliance.
+
+You can argue that the CAL may be difficult to comply with in some cases,
+or that ot would not be well-suited to some types of applications. But
+those are not marks against the CAL. Different licenses address different
+needs.
+
+Thanks,
+Van
+
+
+On Wed, Dec 11, 2019, 9:13 AM Nigel T <nigel.2048 at gmail.com> wrote:
+
+> The bar is being moved here.  CAL does not require that the software be
+> able to import any data to get back to a running state...or (according to
+> Van) even need to export any data so a SQL dump is acceptable in meeting
+> the CAL requirement.
+>
+> So the user's "ability to get back to the place they were" probably
+> requires that they re-enter the data and re-doing any associations by hand
+> anyway. The data doesn't even have to be in any kind of layout to
+> facilitate re-entering the data.  Here you go...a SQL dump of your data,
+> enjoy.  I could even just create a single PNG of all the data and meet CAL
+> requirements.
+>
+> If the objective really is for the user to be able to get back to where
+> they were with a clean copy of the system then CAL should specify that CAL
+> software should support import/export round tripping of user data.
+>
+> In any case, the operation of the software is not dependent on the user's
+> customer data being present or your software is broken.
+>
+> I take it you do not like the suggestion that the downstream software user
+> is under no obligation to provide any customer data that the original code
+> did not provide as export?
+>
+> On Wed, Dec 11, 2019 at 12:37 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+> wrote:
+>
+>>
+>>
+>> On Wed, 11 Dec 2019, 03:29 VanL, <van.lindberg at gmail.com> wrote:
+>>
+>>> The use or operation of the software is not dependent on user?s customer
+>>>> provided data being present...
+>>>
+>>>
+>>> This is not really correct, if you think about it.
+>>>
+>>> I don't think it is debatable to say that some (most?) software works
+>>> differently in the presence of particular data. The subroutines the run are
+>>> different; the displayed interface may be different; the state of the
+>>> software is *different.* Because the accumulated state is different, the
+>>> actual functioning of the software, as experienced by the user, is
+>>> different.
+>>>
+>>> I agree that the user has the ability to get back to the place where
+>>> they were by re-entering the data and re-doing any associations made. But
+>>> the latent potential for the software to work the same way is not the same
+>>> as the software actually functioning the exact same way.
+>>>
+>>>
+>> Taking this argument further, the user can also rewrite all the code from
+>> scratch, and therefore all copyleft licenses (and open source) are
+>> unnecessary in general.
+>>
+>> Henrik
+>>
+>>>
+>>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191211/a7b3ab95/attachment.html>
+
+From nigel.2048 at gmail.com  Wed Dec 11 18:48:50 2019
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Wed, 11 Dec 2019 13:48:50 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com>
+References: <c87fd799-84e6-34f8-ef56-f0853e69990d@chesteklegal.com> <5549E095-5BB9-4991-95A5-705057E3DC40@gmail.com> <CAFQvZEM=DCzRTyrdu=PhxHjVzJdRH2WmgU7_TD_Tevae7idOvA@mail.gmail.com> <CAKHykeveNH=6yzJNEDMUzRdyw+XevmvYfr0a9612pgLXPDSKWg@mail.gmail.com> <CADaGzk6wftzdShHq+jMESG=n1fJsfvKqVsCKctx06KzqBQ=K4g@mail.gmail.com> <CAFQvZEOjENurxY3U1OvfQ9pgKB0Hs71SxbZ1B728Ke4GPUZEkw@mail.gmail.com>
+Message-ID: <CADaGzk7uW=uc9WdFPun4T=KAQOWUWqfs1PY-h5k=THmZmnO9vQ@mail.gmail.com>
+
+Van,
+
+What issue do you have with not requiring the downstream user to provide
+any user data that the original CAL licensed software doesn't make
+available to the non-technical user?
+
+If the original software doesn't provide a user accessible export feature
+then there should be no downstream requirement for the user to provide any
+user data.  You cannot assume that the user is a developer so the assertion
+that they can just do a SQL dump or some other convoluted technical
+mechanism is an excessive burden to place on users.
+
+You can make it a requirement that any modification that adds user data
+must be accompanied by a user accessible export feature of some kind.
+
+Nigel
+
+On Wed, Dec 11, 2019 at 12:37 PM VanL <van.lindberg at gmail.com> wrote:
+
+> Hi Nigel,
+>
+> You are correct that the CAL does not mandate any particular functionality
+> or method of compliance. History has shown that mandating a particular
+> technical structure is unwise. Instead, the CAL simply describes what is
+> required and uses the standard tool of open source licensing - the denial
+> or termination of the license - to motivate compliance.
+>
+> You can argue that the CAL may be difficult to comply with in some cases,
+> or that ot would not be well-suited to some types of applications. But
+> those are not marks against the CAL. Different licenses address different
+> needs.
+>
+> Thanks,
+> Van
+>
+>
+> On Wed, Dec 11, 2019, 9:13 AM Nigel T <nigel.2048 at gmail.com> wrote:
+>
+>> The bar is being moved here.  CAL does not require that the software be
+>> able to import any data to get back to a running state...or (according to
+>> Van) even need to export any data so a SQL dump is acceptable in meeting
+>> the CAL requirement.
+>>
+>> So the user's "ability to get back to the place they were" probably
+>> requires that they re-enter the data and re-doing any associations by hand
+>> anyway. The data doesn't even have to be in any kind of layout to
+>> facilitate re-entering the data.  Here you go...a SQL dump of your data,
+>> enjoy.  I could even just create a single PNG of all the data and meet CAL
+>> requirements.
+>>
+>> If the objective really is for the user to be able to get back to where
+>> they were with a clean copy of the system then CAL should specify that CAL
+>> software should support import/export round tripping of user data.
+>>
+>> In any case, the operation of the software is not dependent on the user's
+>> customer data being present or your software is broken.
+>>
+>> I take it you do not like the suggestion that the downstream software
+>> user is under no obligation to provide any customer data that the original
+>> code did not provide as export?
+>>
+>> On Wed, Dec 11, 2019 at 12:37 AM Henrik Ingo <henrik.ingo at avoinelama.fi>
+>> wrote:
+>>
+>>>
+>>>
+>>> On Wed, 11 Dec 2019, 03:29 VanL, <van.lindberg at gmail.com> wrote:
+>>>
+>>>> The use or operation of the software is not dependent on user?s
+>>>>> customer provided data being present...
+>>>>
+>>>>
+>>>> This is not really correct, if you think about it.
+>>>>
+>>>> I don't think it is debatable to say that some (most?) software works
+>>>> differently in the presence of particular data. The subroutines the run are
+>>>> different; the displayed interface may be different; the state of the
+>>>> software is *different.* Because the accumulated state is different, the
+>>>> actual functioning of the software, as experienced by the user, is
+>>>> different.
+>>>>
+>>>> I agree that the user has the ability to get back to the place where
+>>>> they were by re-entering the data and re-doing any associations made. But
+>>>> the latent potential for the software to work the same way is not the same
+>>>> as the software actually functioning the exact same way.
+>>>>
+>>>>
+>>> Taking this argument further, the user can also rewrite all the code
+>>> from scratch, and therefore all copyleft licenses (and open source) are
+>>> unnecessary in general.
+>>>
+>>> Henrik
+>>>
+>>>>
+>>>> _______________________________________________
+>>> License-review mailing list
+>>> License-review at lists.opensource.org
+>>>
+>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>
+>> _______________________________________________

@@ -1,0 +1,750 @@
+the complete and corresponding work.  In my talk last year I was making
+an argument that we could see emacs lisp as being both configuration
+information and code (but the lack of network requirement permitted
+private modification).  Here that argument need not even be made since
+the CAL *explicitly* requires configuration information.
+
+I'm definitely worried then about: - The introduction of a requirement for documentation for *use* - The introduction of a requirement for configuration information, *especially in the context of network distribution requirements*.
+
+These concerns compound with the following section.
+
+> The second substantive place where cryptographic keys are mentioned is in
+> the user autonomy provisions, specifically 4.2.2:
+>
+> You may not, by the use of cryptographic methods applied to anything
+> provided to the Recipient, by possession or control of cryptographic keys,
+> seeds, or hashes, by other technological protection measures, or by any
+> other method, limit a Recipient's ability to access any functionality
+> present in the Recipient's independent copy of the Work, or deny a
+> Recipient full control of the Recipient's User Data.
+>
+> This is where the distinction arises. An operator must not use any
+> technical measure, including the use of cryptographic protocols, to "limit
+> a Recipient's ability to access any functionality" or to "deny a Recipient
+> full control of the Recipient's User Data." However, securely transmitting
+> information to the Recipient (e.g. using TLS) does nothing to "limit a
+> Recipient's ability to access any functionality" or "deny a Recipient full
+> control of the Recipient's User Data."
+
+Here is where I am very concerned.  Recipient is very broad.
+
+The use of the word "operator" tells me that the intended use of this
+license has been seen within the scope of a client-server style
+architecture, or has been flavored by the experience of seeing that
+rolled out as the primary way we've seen networked applications in the
+last couple of decades.  I explain in the above email to cap-talk why I
+think this is going to be big trouble: I believe it *actually* prevents
+applications and protocols that are persuing cryptographic autonomy.  In
+particular:
+ - It does not seem to anticipate that *every user* should be running their own application... not client-to-server, but peer-to-peer, so these are not "server operator requirements", they are requirements for every user, including potentially ones just running some software on their phone or laptop.  If Bob holds some small amount of data on Alice's machine, is Bob able to persue an enforcement request from Alice's usage of her phone?  I do not see a good way to present this requirement to ordinary users, and it may even result in accidental privacy leaks.
+ - Assume that object access is managed by capability security.  This is to say, if you have a reference to an object, you can access its resources, but otherwise you cannot.  In order to uphold the Principle of Least Authority, varied and attenuated access is given out to many different objects in the system.  Which of them are "users", and what rights for what data do they have to extract which information?  This is not theoretical, this is the direction that sophisticated peer-to-peer, cryptographically secure distributed programs are going (eg the programming language E, the work that the Agoric company is doing, and my own work on Spritely Goblins).  While I (and many other security researchers) believe this is the healthiest direction for network security to go, I do not see a good way to be able to uphold this with the requirements for recipient data distribution and key distribution.
+
+Perhaps this sounds too technically abstract.  Let me put it more
+simply: I believe I could use this license to coerce someone into giving
+up private data or encryption keys in a peer to peer network.
+
+> Thus, the information that needs to be provided, including cryptographic
+> keys, is limited to that information that would prevent compilation or
+> access to functionality, or would deny the Recipient full control over the
+> Recipient's own user data. The normal system uses of cryptography are not
+> implicated. Nor are the uses of cryptography in a distributed systems for
+> addressing or authentication, excepting the use of a user's keys to
+> validate an agent's actions (which belong to the user anyway).
+
+You seem more confident than I am in terms of what these categories are,
+so I think it would be useful for you to give us some scenarios, then we
+can work through them:
+ - A requirement for distributing "recipient data". - A situation where two peers communicate, but a requirement for recipient data distribution does not become invoked. - A scenario by which cryptographic key material, in relationship to user data, must be provided. - A scenario where the remote program has cryptographic key material that is not required to be distributed.  This one is very important in that the question must be asked: "what part of the license makes this categorically excluded from its requirement"?
+
+With those in place I think we can have a better analysis.
+
+Finally, I am going to repeat part of what I said in the cap-talk
+thread: the choice of the license name is ironic, because though the
+goals are good (ensure autonomy of users), it may actually create
+difficulties in complying in the kinds of systems that actually are
+doing so through cryptography and protocols (ocap actor model systems,
+encrypted data vaults).  The problem is one that must be addressed for
+the sake of user freedom, but I believe it is being addressed on the
+incorrect layer.  Here we see an attempt to address it on the license
+layer, but IMO this is wrong: there are active systems that exist and
+are addressing this in such a way that the cryptographic tooling and
+protocols themselves are the ones that help ensure greater user
+autonomy.
+
+Thank you, - Chris
+
+> Thanks,
+> Van
+>
+>
+>
+> On Tue, Feb 11, 2020 at 6:54 AM Christopher Lemmer Webber <
+> cwebber at dustycloud.org> wrote:
+>
+>> Where in the license is this distinction made?
+>>
+>> At any rate, I'm not convinced such a distinction exists.  I
+>> increasingly work with peer to peer systems where the distinction
+>> between "user" and "system" and even "client" and "server" no longer
+>> exist.  I don't believe it is possible to make a sound distinction, and
+>> at any rate I don't see one in the license.  But perhaps I am missing
+>> something?
+>>
+>> Regardless, these are not my only concerns.  I will write them up today.
+>>
+>>
+>> VanL writes:
+>>
+>> > I definitely want to hear any concerns... but I will also note that the
+>> > crypto portions of the license were reviewed by a number of people who
+>> are
+>> > expert in that space and they approved.
+>> >
+>> > My best guess is that you are concerned that this requires the disclosure
+>> > of user-specific keys, and so you think that means that traditional
+>> crypto
+>> > which relies on a private key or private cert would need to be disclosed.
+>> > This is incorrect.
+>> >
+>> > They difference is between user keys and system keys. User keys form the
+>> > basis of a user's identity and control over computation or data. Under
+>> the
+>> > license, they must be controlled by the user alone.
+>> >
+>> > System keys, however, used for things like TLS and SSH, are not User Data
+>> > within the scope of that term. They may be kept confidential and secure.
+>> >
+>> > Thanks,
+>> > Van
+>> >
+>> > __________________________
+>> > Van Lindberg
+>> > van.lindberg at gmail.com
+>> > m: 214.364.7985
+>> >
+>> > On Mon, Feb 10, 2020, 7:17 PM Christopher Lemmer Webber <
+>> > cwebber at dustycloud.org> wrote:
+>> >
+>> >> Josh Berkus writes:
+>> >>
+>> >> > On 1/7/20 11:00 AM, Pamela Chestek wrote:
+>> >> >> The discussion is still active so it will not be considered at the
+>> next
+>> >> >> Board meeting, which is this Friday. The soonest would be the
+>> February
+>> >> >> Board meeting.
+>> >> >
+>> >> > So, it's been a month since there's been any discussion about the CAL.
+>> >> > Pamela, can we take a poll of how people feel about the license?
+>> >> > Pass/Reject/MoreDiscussionNeeded?
+>> >>
+>> >> I'm not very sure if I'm in the right place to state this, but I'd say
+>> >> "Reject" or at least "MoreDiscussionNeeded".  I believe there are very
+>> >> serious problems in the license that will (ironically, due to its name)
+>> >> prevent the ability to have safely private networks on cryptographically
+>> >> secure peer to peer networks.  I believe I can demonstrate the privacy
+>> >> risks, and spend most of tomorrow doing a detailed and longer writeup
+>> >> about my concerns.  Note that I don't think it's any malicious intention
+>> >> of the author to introduce these problems; I think Van is acting in good
+>> >> faith and interest there, but nonetheless I think the concerns exist and
+>> >> are very grave, if I understand correctly.
+>> >>
+>> >> If I am going to air them before the board meeting, am I doing it in the
+>> >> right place here?  If so, I will follow up on the thread here tomorrow.
+>> >>
+>> >>  - Chris
+>> >>
+>> >> PS: I'm sorry I haven't aired my very serious concerns earlier.  Van
+>> >> asked me personally to review at last year's CopyleftConf and I never
+>> >> got around to writing up my thoughts.  I regret that, and wish I had
+>> >> done so sooner... maybe I could have prevented a lot of trouble.
+>> >> Nonetheless I think it's important that I write them up now; I'm
+>> >> guessing we're in the "speak now or forever hold your peace" moment
+>> >> though, so I'm trying to articulate my concerns before it's too late.
+>> >>
+>> >> _______________________________________________
+>> >> License-review mailing list
+>> >> License-review at lists.opensource.org
+>> >>
+>> >>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>> >>
+>> > _______________________________________________
+>> > License-review mailing list
+>> > License-review at lists.opensource.org
+>> >
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+From van.lindberg at gmail.com  Wed Feb 12 01:03:38 2020
+From: van.lindberg at gmail.com (VanL)
+Date: Tue, 11 Feb 2020 19:03:38 -0600
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <878sl84qi5.fsf@dustycloud.org>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <87h7zx53fc.fsf@dustycloud.org> <CAFQvZEMni7-atzwHG1Y=gggLHGN-8v-QCX+SoWTMNTh=FCy+=A@mail.gmail.com> <87eev1475l.fsf@dustycloud.org> <CAFQvZEPVL=_sCp0sjkBrFtiyHETMCmUyByAzf3YTShLeA-tJ=A@mail.gmail.com> <878sl84qi5.fsf@dustycloud.org>
+Message-ID: <CAFQvZEOSUm8TzPcqoDPx05_PqJvZSU0ei+L89fcqv6HOwdvyMQ@mail.gmail.com>
+
+Hi Chris,
+
+Thanks for sharing your concerns.
+
+Let me start with your last point first:
+
+Finally, I am going to repeat part of what I said in the cap-talk
+> thread: the choice of the license name is ironic, because though the
+> goals are good (ensure autonomy of users), it may actually create
+> difficulties in complying in the kinds of systems that actually are
+> doing so through cryptography and protocols (ocap actor model systems,
+> encrypted data vaults).  The problem is one that must be addressed for
+> the sake of user freedom, but I believe it is being addressed on the
+> incorrect layer.  Here we see an attempt to address it on the license
+> layer, but IMO this is wrong: there are active systems that exist and
+> are addressing this in such a way that the cryptographic tooling and
+> protocols themselves are the ones that help ensure greater user
+> autonomy.
+>
+
+You may be interested to know that I did not choose this name. It was
+specified by my client, whose founders have spent their professional life
+working on Cryptographic Autonomy - and this license was specifically
+designed in part to deal with issues that the technical layer can't handle
+well. The legal layer isn't sufficient, but neither is the technical layer.
+Code has bugs; protocols can be subverted. The license is a backstop and
+tool to stop an entirely different set of adversaries that are not well
+addressed by using code alone.
+
+Now, addressing your more-specific concerns, my response in brief is that
+you are incorrect as to the scope of what is required by the CAL.
+
+First, with regard to the source code requirement: The easy response is
+that there is nothing in the CAL that would require someone to generate new
+documentation. More generally, you are confusing configuration information
+generally with configuration information needed to install and use, which
+is the context of this provision.
+
+In my talk last year I was making
+> an argument that we could see emacs lisp as being both configuration
+> information and code (but the lack of network requirement permitted
+> private modification).  Here that argument need not even be made since
+> the CAL *explicitly* requires configuration information.
+>
+> I'm definitely worried then about:
+>  - The introduction of a requirement for documentation for *use*
+>  - The introduction of a requirement for configuration information,
+>    *especially in the context of network distribution requirements*.
+>
+
+I... confess I don't follow your argument here. I am aware of the LISPy
+"code is data is configuration"-type context - but I am having trouble
+imagining a network-aware Emacs creating any burden at all. Even if you
+look at typical network interactions that have been built into Emacs (news
+reader, email, etc), you would have to evaluate whether your interaction
+via Emacs turned the other party into a Recipient by transmitting a
+licensable element to the other party. In all the cases I am aware of,
+Emacs would be a client (in the typical client-server sense). In the case
+where one party is acting as a client, the terms of the interaction are
+generally set by the party acting as the server in a particular network
+transaction. I am not sure how requesting information from a third party,
+on terms set by the third party, would involve the sharing of *your*
+copyrightable/licensable material. Accordingly, the third party is not a
+"Recipient" according to the terms of the CAL and your Emacs configuration
+is safe - and private to you.
+
+If you modified Emacs to be a server, and serve up information, then that
+would be something else - but in that case it is no different than any
+other server.
+
+The use of the word "operator" tells me that the intended use of this
+> license has been seen within the scope of a client-server style
+> architecture, or has been flavored by the experience of seeing that
+> rolled out as the primary way we've seen networked applications in the
+> last couple of decades.
+>
+
+You are mistaken. The CAL was written specifically for a peer-to-peer
+application, but was designed to be compatible with client-server
+interactions, as they are the most common. Nevertheless, even in a
+peer-to-peer interaction, you can still talk about a "Recipient" because
+each peer acts sometimes as a client and sometimes as a server, and those
+different roles give rise to different types of sharing (and thus different
+requirements).
+
+In particular:
+>
+>  - It does not seem to anticipate that *every user* should be running
+>    their own application... not client-to-server, but peer-to-peer .[...]
+
+
+
+>   - Assume that object access is managed by capability security.  [...]
+
+
+I am familiar with actor-model ocap systems, and this does not cause them
+any issue. The CAL is very careful to limit disclosure to the Recipient's
+user data; it does not require disclosure of the operator's private data.
+
+In order to uphold the Principle of Least Authority, varied and attenuated
+> access is given out to many different objects in the system.  Which of them
+> are "users", and what rights for what data do they have to extract which
+> information?
+
+
+This comment shows a key misunderstanding: A user is a *person*, not an
+object that has been granted authority. This is one of the benefits of
+acting at the legal layer; we can apply legal reasoning to the
+people-actors, not the object-actors that live in the system.
+
+This is not theoretical, this is the direction that sophisticated
+> peer-to-peer, cryptographically secure distributed programs are going (eg
+> the programming language E, the work that the
+>    Agoric company is doing, and my own work on Spritely Goblins).  While I
+> (and many other security researchers) believe this is the healthiest
+> direction for network security to go, I do not see a good
+>    way to be able to uphold this with the requirements for recipient data
+> distribution and key distribution.
+>
+
+I don't really think this is the place to dive deep into software
+architecture, so I'll just say that this reflects a misunderstanding of the
+requirements of the CAL. Least authority system or not, the analysis is: 1) Is there a Recipient - a human being that has received licensable
+material? 2) Do I have the Recipient's User Data? Meaning, do I have data that a
+User has a legal right to in my possession? 3) Is that User Data available to me? (For example, not encrypted beyond
+my ability to identify it?)
+
+If all three of these questions are true, then you need to provide the
+Recipient's User Data back to the Recipient.
+
+I will return again to the main point: I have a pretty good knowledge of,
+and deep respect for, the leading edge of capability-based systems. We
+definitely need further technical work in this area in order to provide
+better guarantees to users. But that doesn't mean that the legal layer is
+unnecessary! The legal layer is orthogonal to the technical layer, and each
+reinforces the other. It is a fundamental mistake to only look at one or
+the other.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200211/e97f3a0f/attachment-0001.html>
+
+From bcotton at funnelfiasco.com  Wed Feb 12 20:18:00 2020
+From: bcotton at funnelfiasco.com (Ben Cotton)
+Date: Wed, 12 Feb 2020 15:18:00 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+Message-ID: <CAJox1156H9VCZkpQiNjOUqKkH+JYh9w747MFbWMMTs=1VZd2_w@mail.gmail.com>
+
+On Thu, Jan 2, 2020 at  5:04 PM VanL <van.lindberg at gmail.com> wrote:
+
+> As I have stated a number of times, my client's long-term business model is
+> to provide business-fulfillment services on top of a free software platform
+> - think "Stripe," or "Fulfillment by Amazon," but for digital goods in a
+> distributed network. My client believes that a strong copyleft license,
+> including the provisions for protection of users, is a necessary step for
+> many people to feel trust in a distributed and decentralized
+> compute/storage/services system. Thus Holo is putting user freedoms first,
+> accepting the same restrictions that would apply to other operators, ahead
+> of its own short-term ability to commercially license Holochain.
+
+I apologize if I've missed this in previous discussion, but wouldn't
+it make sense to bake that protection into the license, similar to
+what copyleft-next does:
+https://github.com/copyleft-next/copyleft-next/blob/master/Drafts/copyleft-next#L100-L108
+
+You've acted in good faith throughout the process so I have no reason
+to doubt about your client's intentions. But if other people will use
+the license, I think it is reasonable to enshrine that value into the
+license itself. This protects the users from less benevolent actors
+(including a future iteration of your client that has been acquired by
+Doofenshmirtz Evil Incorporated, for example).
+
+-- 
+Ben Cotton
+
+
+From cwebber at dustycloud.org  Wed Feb 12 20:18:40 2020
+From: cwebber at dustycloud.org (Christopher Lemmer Webber)
+Date: Wed, 12 Feb 2020 15:18:40 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <CAFQvZEOSUm8TzPcqoDPx05_PqJvZSU0ei+L89fcqv6HOwdvyMQ@mail.gmail.com>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <87h7zx53fc.fsf@dustycloud.org> <CAFQvZEMni7-atzwHG1Y=gggLHGN-8v-QCX+SoWTMNTh=FCy+=A@mail.gmail.com> <87eev1475l.fsf@dustycloud.org> <CAFQvZEPVL=_sCp0sjkBrFtiyHETMCmUyByAzf3YTShLeA-tJ=A@mail.gmail.com> <878sl84qi5.fsf@dustycloud.org> <CAFQvZEOSUm8TzPcqoDPx05_PqJvZSU0ei+L89fcqv6HOwdvyMQ@mail.gmail.com>
+Message-ID: <8736bf4l0f.fsf@dustycloud.org>
+
+VanL writes:
+
+> Hi Chris,
+>
+> Thanks for sharing your concerns.
+>
+> Let me start with your last point first:
+>
+>> Finally, I am going to repeat part of what I said in the cap-talk
+>> thread: the choice of the license name is ironic, because though the
+>> goals are good (ensure autonomy of users), it may actually create
+>> difficulties in complying in the kinds of systems that actually are
+>> doing so through cryptography and protocols (ocap actor model systems,
+>> encrypted data vaults).  The problem is one that must be addressed for
+>> the sake of user freedom, but I believe it is being addressed on the
+>> incorrect layer.  Here we see an attempt to address it on the license
+>> layer, but IMO this is wrong: there are active systems that exist and
+>> are addressing this in such a way that the cryptographic tooling and
+>> protocols themselves are the ones that help ensure greater user
+>> autonomy.
+>>
+>
+> You may be interested to know that I did not choose this name. It was
+> specified by my client, whose founders have spent their professional life
+> working on Cryptographic Autonomy - and this license was specifically
+> designed in part to deal with issues that the technical layer can't handle
+> well. The legal layer isn't sufficient, but neither is the technical layer.
+> Code has bugs; protocols can be subverted. The license is a backstop and
+> tool to stop an entirely different set of adversaries that are not well
+> addressed by using code alone.
+
+Could you specify what those problems are?
+
+> Now, addressing your more-specific concerns, my response in brief is that
+> you are incorrect as to the scope of what is required by the CAL.
+>
+> First, with regard to the source code requirement: The easy response is
+> that there is nothing in the CAL that would require someone to generate new
+> documentation. More generally, you are confusing configuration information
+> generally with configuration information needed to install and use, which
+> is the context of this provision.
+
+The language of the section talks about use rather than execution, which
+is broader.  Starting up and running a program is different than being
+able to understand how to use its features.  I'd suggest adjusting the
+language of the license to follow the GPL and say "execute" rather than
+"use".
+
+This is especially important since the CAL is giving the impression that
+it is being developed so that an entity on the other end is given enough
+of a toolkit to be able to comparatively run the same service.  So being
+unambiguous here is a good idea, I think.
+
+> In my talk last year I was making
+>> an argument that we could see emacs lisp as being both configuration
+>> information and code (but the lack of network requirement permitted
+>> private modification).  Here that argument need not even be made since
+>> the CAL *explicitly* requires configuration information.
+>>
+>> I'm definitely worried then about:
+>>  - The introduction of a requirement for documentation for *use*
+>>  - The introduction of a requirement for configuration information,
+>>    *especially in the context of network distribution requirements*.
+>>
+>
+> I... confess I don't follow your argument here. I am aware of the LISPy
+> "code is data is configuration"-type context - but I am having trouble
+> imagining a network-aware Emacs creating any burden at all. Even if you
+> look at typical network interactions that have been built into Emacs (news
+> reader, email, etc), you would have to evaluate whether your interaction
+> via Emacs turned the other party into a Recipient by transmitting a
+> licensable element to the other party. In all the cases I am aware of,
+> Emacs would be a client (in the typical client-server sense). In the case
+> where one party is acting as a client, the terms of the interaction are
+> generally set by the party acting as the server in a particular network
+> transaction. I am not sure how requesting information from a third party,
+> on terms set by the third party, would involve the sharing of *your*
+> copyrightable/licensable material. Accordingly, the third party is not a
+> "Recipient" according to the terms of the CAL and your Emacs configuration
+> is safe - and private to you.
+>
+> If you modified Emacs to be a server, and serve up information, then that
+> would be something else - but in that case it is no different than any
+> other server.
+
+The AGPL makes no distinction between client and server, so a server
+realistically can make similar requests of clients participating in a
+network connection (though afaik nobody has done this).  To quote:
+ Notwithstanding any other provision of this License, if you modify the Program, your modified version must prominently offer all users interacting with it remotely through a computer network (if your version supports such interaction) an opportunity to receive the Corresponding Source of your version by providing access to the Corresponding Source from a network server at no charge, through some standard or customary means of facilitating copying of software.
+
+But most clients are not written under the AGPL so this doesn't really
+come up.  If they were, the license would technically obligate an offer
+of source from a client to a server.  (Due to the heirarchical nature of
+client-to-server systems, this isn't something much thought about
+either, I think.)  So I do think an emacs mail client connecting to a
+mail server, if it were under the AGPL, could be compelled to release
+its emacs configuration, including what mail filtering a user has
+configured through emacs lisp.  By contrast, by being under the GPL,
+there is no requirement for distribution on network communication, so
+this "privacy vulnerability" does not exist.
+
+For this reason, I do not recommend usage of the AGPL for clients,
+particularly ones with no distinction between code and data.  At any
+rate, again, in the kind of actor ocap systems I am talking about there
+is no distinction between client and server either.  This is why I
+discourage usage of the AGPL for the new kinds of actor-ocap systems I
+work on, despite having used and advocated it in the past.
+
+The AGPL made sense to me when I thought of the world in terms of
+fighting the heirarchies imposed by Web 2.0 style client-server systems.
+It does not make sense in peer-to-peer networked systems where this
+hierarchy does not exist.
+
+>> The use of the word "operator" tells me that the intended use of this
+>> license has been seen within the scope of a client-server style
+>> architecture, or has been flavored by the experience of seeing that
+>> rolled out as the primary way we've seen networked applications in the
+>> last couple of decades.
+>>
+>
+> You are mistaken. The CAL was written specifically for a peer-to-peer
+> application,
+
+In that case, I think my above point applies strongly to the CAL as
+well.  However, since the CAL explicitly calls out configuration and
+encryption materials, the kind of "privacy attack" I have described is
+more easily made, not just in the case of comparatively rare
+code-and-data-blended systems.
+
+> but was designed to be compatible with client-server interactions, as
+> they are the most common. Nevertheless, even in a peer-to-peer
+> interaction, you can still talk about a "Recipient" because each peer
+> acts sometimes as a client and sometimes as a server, and those
+> different roles give rise to different types of sharing (and thus
+> different requirements).
+
+That's true, though in an actor ocap style system the granularity of
+such interactions is very small.  Does a recipient or user require a
+human behind the wheel, or does it apply to every object in the system?
+
+> In particular:
+>>
+>>  - It does not seem to anticipate that *every user* should be running
+>>    their own application... not client-to-server, but peer-to-peer .[...]
+>
+>
+>
+>>   - Assume that object access is managed by capability security.  [...]
+>
+>
+> I am familiar with actor-model ocap systems
+
+Great, then I will not hesitate to go into a common actor model ocap
+system usage pattern below.
+
+> and this does not cause them any issue. The CAL is very careful to
+> limit disclosure to the Recipient's user data; it does not require
+> disclosure of the operator's private data.
+
+How does it do this?  I see no clear guidelines that would help me
+distinguish the kinds of programs I am working on today.
+
+To use actor model language, say object A1 on Alice's phone is
+communicating with object B1 on some other computer somewhere (could be
+on another phone, could be on a VPS, doesn't matter much) which we will
+say is run by Bob.  A1 invokes a method of B1, passing in reference to
+A2, which also lives on Alice's phone.  To keep things simple, let's
+assume A2 is a mutable cell, from which A1 holds a capability to revoke
+access if it deems appropriate to B2.  In other words, Alice passed in a
+small storage location on her phone to B1.
+
+Since you are familiar with actor ocap systems, you will realize this
+kind of pattern is extremely common and will often happen millions of
+times a day, spanning many machines.
+
+Now let's examine what happens.
+ - Say B1 puts some interesting information of value in the mutable cell of A2.  So this is now used as a remote storage location.
+ - Question: is B1 a recipient worthy of an obligation to provide remote data access?  You will observe that answering either way will give you problems:
+ - If you answer no, then what I have described is the most abstract and minimal object storage system, and all object storage systems can be built upon such a storage system.  Therefore, the license does nothing with respect to user data at all.
+ - If you say yes, several problems arise. - Full revocation of access to the cell cannot be provided.  If a process running on Bob's machine misbehaves (perhaps due to intentional or unintentional action of Bob), how can revocation of access occur? - Revoking write access while retaining read access to the old value is one potential answer, but is insufficient if the data is problematic or abusive. - What happens if Alice's phone is lost, stolen, her program breaks, etc... is Alice vulnerable to a legal attack by Bob for not being able to provide information? - At what time is garbage collection of unused cells permitted, especially when network access has not been established for some time?
+ - If you are familiar enough with peer to peer actor-model ocap systems, you are then also familiar with how common being a recipient of fine-grained information access is.  With the kind of mutable cell description I have given above, are we expected to introduce extrapolation behaviour throughout every program?  Answering "no" means that an incomplete amount of information may be ble to be produced for a user to be able to get an equivalent experience running on their computer.  Answering "yes" can introduce two separate problems:
+ - Figuring out how to do so can be an onerous amount of work, and is subject to the challenges already described above regarding revocation and garbage collection.
+ - Doing so incorrectly could result in data leakage, particularly since users' data rarely live in isolation.  One only need look at how common "anonymized" data ends up actually being able to be tracked to a specific individual to see this.
+
+>> In order to uphold the Principle of Least Authority, varied and attenuated
+>> access is given out to many different objects in the system.  Which of them
+>> are "users", and what rights for what data do they have to extract which
+>> information?
+>
+> This comment shows a key misunderstanding: A user is a *person*, not an
+> object that has been granted authority. This is one of the benefits of
+> acting at the legal layer; we can apply legal reasoning to the
+> people-actors, not the object-actors that live in the system.
+
+Even if this is the case, the program is presumably acting on behalf of
+a person or institution which does have legal standing.  Bob still can
+presumably apply legal force against Alice for a program running on her
+phone if some behavior of his is not retained if her phone goes in the
+toilet.
+
+We should be building our systems to have failsafes for systems like
+this, rather than imposing additional legal constraints on everyday
+users who may not be able to comply, including not having the technical
+expertise to know how to do so.
+
+An encrypted content-addressed system is a good example of an
+alternative approach: the data can live anywhere without the server
+knowing what its contents are (barring some vulnerability in the
+underlying cryptography).  Thus we can get around data-hoarding problems
+-- users can always "move" their data location -- and backups are
+possible.  Individual contractual relationships can indeed be set up
+between hosting providers; I can pay someone to keep a Tahoe LAFS node
+live with my content and sue them if they fail to comply.  But that does
+not need to go into the software license itself.
+
+>> This is not theoretical, this is the direction that sophisticated
+>> peer-to-peer, cryptographically secure distributed programs are going (eg
+>> the programming language E, the work that the
+>>    Agoric company is doing, and my own work on Spritely Goblins).  While I
+>> (and many other security researchers) believe this is the healthiest
+>> direction for network security to go, I do not see a good
+>>    way to be able to uphold this with the requirements for recipient data
+>> distribution and key distribution.
+>>
+>
+> I don't really think this is the place to dive deep into software
+> architecture, so I'll just say that this reflects a misunderstanding of the
+> requirements of the CAL. Least authority system or not, the analysis is:
+>   1) Is there a Recipient - a human being that has received licensable
+>      material?
+>   2) Do I have the Recipient's User Data? Meaning, do I have data that a
+>      User has a legal right to in my possession?
+>   3) Is that User Data available to me? (For example, not encrypted beyond
+>      my ability to identify it?)
+>
+> If all three of these questions are true, then you need to provide the
+> Recipient's User Data back to the Recipient.
+
+I believe I have already described why this is not so simple above.
+
+> I will return again to the main point: I have a pretty good knowledge of,
+> and deep respect for, the leading edge of capability-based systems. We
+> definitely need further technical work in this area in order to provide
+> better guarantees to users. But that doesn't mean that the legal layer is
+> unnecessary! The legal layer is orthogonal to the technical layer, and each
+> reinforces the other. It is a fundamental mistake to only look at one or
+> the other.
+
+I believe you are trying to do the right thing and "close the loop" for
+the fairness of users, which is important work.  In that sense, we have
+the same goal.  But I nonetheless also believe that software licenses
+are not the right place to do it.  At any rate, even if they are,
+unfortunately I don't see assurance that my concerns with this approach
+are addressed.
+
+
+From simon at webmink.com  Wed Feb 12 20:30:44 2020
+From: simon at webmink.com (Simon Phipps)
+Date: Wed, 12 Feb 2020 20:30:44 +0000
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 4)
+In-Reply-To: <878sl84qi5.fsf@dustycloud.org>
+References: <CAMkzgA5agDH_=B8g=aiLBETsc7ug3CMcO1q4Q_g4q+jObGe-PA@mail.gmail.com> <CAC1cPGyodV=26P-nSJv9qTTSk7zsAz_QM8ixnHoFh9V=v3WBbw@mail.gmail.com> <9332d75f-0b27-c021-549c-e6f261647158@opensource.org> <c3b1d503-cba7-00ee-0a85-57d31d2341d9@berkus.org> <87h7zx53fc.fsf@dustycloud.org> <CAFQvZEMni7-atzwHG1Y=gggLHGN-8v-QCX+SoWTMNTh=FCy+=A@mail.gmail.com> <87eev1475l.fsf@dustycloud.org> <CAFQvZEPVL=_sCp0sjkBrFtiyHETMCmUyByAzf3YTShLeA-tJ=A@mail.gmail.com> <878sl84qi5.fsf@dustycloud.org>
+Message-ID: <CAA4ffp_A2asvHkdTZpMn4pEtk_hX4GMCM9FB8ddUXGNdraZvEw@mail.gmail.com>
+
+Chris,
+
+Thanks for the engagement. For those of us who are not specialists in the
+computer science topics you're discussing, please can you summarise why you
+believe CAL does not satisfy the OSD, specifically citing the clauses
+involved?
+
+Thanks
+
+Simon
+(in-role)
+
+On Wed, Feb 12, 2020 at 12:08 AM Christopher Lemmer Webber <
+cwebber at dustycloud.org> wrote:
+
+> Hi Van,
+>
+> First of all, I have asked for review from a community I collaborate
+> with which actually works on cryptographic autonomy here:
+>
+>   https://groups.google.com/forum/#!topic/cap-talk/VE6nNhfwp_w
+>
+> The above thread outlines my concerns in detail.  It may be desirable
+> for me to bullet-point them in a follow-up email, but I'd encourage
+> reading that email.
+>
+> I will respond to some parts below.
+>
+> VanL writes:
+>
+> > I look forward to responding to your other concerns. But to respond
+> above:
+> >
+> > There are only two substantive locations where cryptographic keys are
+> > required. In the definition of source code, section 4.1:
+> >
+> > The ?Source Code? of the Work means the form of the Work preferred for
+> > making modifications, including any comments, configuration information,
+> > documentation, help materials, installation instructions, cryptographic
+> > seeds or keys, and any information reasonably necessary for the Recipient
+> > to independently compile and use the Source Code and to have full access
+> to
+> > the functionality contained in the Work.
+> >
+> > This is essentially equivalent to the "complete corresponding source" of
+> > the GPL3. Quoting specifically from the GPL3: "'Installation Information'
+> > for a User Product means any methods, procedures,* authorization keys,*
+> or
+> > other information required to install and execute modified versions of a
+> > covered work in that User Product from a modified version of its
+> > Corresponding Source."
+> >
+> > So this first element is tied to the ability to "independently compile
+> and
+> > use the Source Code and have full access to the functionality contained
+> in
+> > the Work" -- i.e., no Tivoization.
+>
+> I agree that it is similar to GPLv3 in this particular section, however
+> there are some key differences.  The GPLv3 appears to specify the
+> requirement to "install and execute".  This is not the same as the
+> requirement to provide a broader requirement for documentation for
+> "use".  Usage is significantly broader than mere execution... how much
+> documentation need there be?  Is it a violation to add a feature then
+> not document how to use it?  There is also a broader number of
+> requirements here, including the requirements for configuration
+> information.
+>
+> This isn't the primary part I am concerned about, but it does concern
+> me.  As I expressed in the email above to cap-talk (and in my Copyleft
+> Conference talk last year), I am *already* concerned about the
+> requirements that network copyleft introduces in the AGPL for a
+> circumstance where there is little distinction between code and data,
+> and thus private configuration information might be considered part of
+> the complete and corresponding work.  In my talk last year I was making
+> an argument that we could see emacs lisp as being both configuration
+> information and code (but the lack of network requirement permitted
+> private modification).  Here that argument need not even be made since
+> the CAL *explicitly* requires configuration information.
+>
+> I'm definitely worried then about:
+>  - The introduction of a requirement for documentation for *use*
+>  - The introduction of a requirement for configuration information,
+>    *especially in the context of network distribution requirements*.
+>
+> These concerns compound with the following section.
+>
+> > The second substantive place where cryptographic keys are mentioned is in
+> > the user autonomy provisions, specifically 4.2.2:
+> >
+> > You may not, by the use of cryptographic methods applied to anything
+> > provided to the Recipient, by possession or control of cryptographic
+> keys,
+> > seeds, or hashes, by other technological protection measures, or by any
+> > other method, limit a Recipient's ability to access any functionality
+> > present in the Recipient's independent copy of the Work, or deny a
+> > Recipient full control of the Recipient's User Data.
+> >
+> > This is where the distinction arises. An operator must not use any
+> > technical measure, including the use of cryptographic protocols, to
+> "limit
+> > a Recipient's ability to access any functionality" or to "deny a
+> Recipient

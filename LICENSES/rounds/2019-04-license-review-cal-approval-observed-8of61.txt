@@ -1,0 +1,750 @@
+Date: Tue, 30 Apr 2019 14:43:32 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com>
+Message-ID: <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com>
+
+Let's try that again.
+
+Van's response was a reply to this question:
+
+>* First, would you please discuss whether there is a sufficient public
+*>* performance right for software defined in 17 USC 106 (4), (5) and (6)? I
+*>* read your discussion of Public Performance and was not enlightened.*
+*
+
+Upon re-reading, it appears that Van read my question as asking whether
+software was copyrightable at all, and did not really answer the question
+about the public performance right. This is either misunderstanding, or
+squirrely lawyer stuff :-)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/2a090aaa/attachment.html>
+
+From mccoy.smith at intel.com  Tue Apr 30 21:49:11 2019
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Tue, 30 Apr 2019 21:49:11 +0000
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com>
+
+FWIW, there is a discussion of this question in the following article:  https://scholarship.law.berkeley.edu/cgi/viewcontent.cgi?referer=&httpsredir=1&article=2046&context=btlj, specifically in Sections III.C.6 & III.C.7.
+
+From: License-review [mailto:license-review-bounces at lists.opensource.org] On Behalf Of Bruce Perens via License-review
+Sent: Tuesday, April 30, 2019 2:44 PM
+To: License submissions for OSI review <license-review at lists.opensource.org>
+Cc: Bruce Perens <bruce at perens.com>
+Subject: Re: [License-review] For Approval: The Cryptographic Autonomy License
+
+Let's try that again.
+
+Van's response was a reply to this question:
+
+> First, would you please discuss whether there is a sufficient public
+
+> performance right for software defined in 17 USC 106 (4), (5) and (6)? I
+
+> read your discussion of Public Performance and was not enlightened.*
+
+
+Upon re-reading, it appears that Van read my question as asking whether software was copyrightable at all, and did not really answer the question about the public performance right. This is either misunderstanding, or squirrely lawyer stuff :-)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/ce394f98/attachment-0001.html>
+
+From bruce at perens.com  Tue Apr 30 22:00:19 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 30 Apr 2019 15:00:19 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com>
+Message-ID: <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com>
+
+Interesting opinion by Lothar Determann:
+
+Under ? 106(4), the copyright owner has the exclusive right to, ?in the
+case of literary, musical, dramatic, and choreographic works, pantomimes,
+and motion pictures and other audiovisual works, perform the copyrighted
+work publicly.? Software source and object code typically qualifies as a
+literary work because it consists of numbers and letters. When executed, it
+causes computers to display user-generated output?which the software
+copyright owner does not own?and a GUI?which the software copyright owner
+typically does own. GUIs contain words, numbers, and graphics and qualify
+as literary, pictorial, or graphic works under ? 102(a). GUIs do not
+?consist of a series of related images which are intrinsically intended to
+be shown?; thus, they do not qualify as audio-visual works.57 Section
+106(4) does not cover pictorial and graphic works in its enumeration of
+protected works.58 Thus, the right to public performance under ? 106(4)
+cannot apply to Scenarios 1 through 5 or 7, unless the literary works
+elements of the underlying code or GUI are ?performed.?
+
+?To ?perform? a work means to recite, render, play, dance, or act it,
+either directly or by means of any device or process or, in the case of a
+motion picture or other audiovisual work, to show its images in any
+sequence or to make the sounds accompanying it audible.?59 The enumerated
+activities (recite, render, play, dance, act) all require as a common
+feature that the work be presented to a human audience in a manner that the
+work can be perceived visually or audibly.60 The execution of code
+internally within a computer does not cause or allow perception by a human
+audience and thus does not constitute performance.61 The text elements of a
+GUI are displayed statically for viewing and interacting with the program,
+but usually not shown in a sequence or made audible. Therefore, software as
+such is not susceptible to public performance under ? 106(4).
+
+
+There's more in the article.
+
+So, we have some interesting questions. Van might wish to try to rebut
+Lothar's opinion. Is it in OSI's interest to approve licenses which assert
+the public performance right for purposes *other* than requiring
+publication of the source code? I note that although FSF disapproves of the
+assertion of a public performance right in software (or any more rights
+whatsoever), they did try to make use of something similar in AGPL, and OSI
+approved the license after some argument.
+ Thanks
+ Bruce
+
+On Tue, Apr 30, 2019 at 2:49 PM Smith, McCoy <mccoy.smith at intel.com> wrote:
+
+> FWIW, there is a discussion of this question in the following article:
+> https://scholarship.law.berkeley.edu/cgi/viewcontent.cgi?referer=&httpsredir=1&article=2046&context=btlj,
+> specifically in Sections III.C.6 & III.C.7.
+>
+>
+>
+> *From:* License-review [mailto:license-review-bounces at lists.opensource.org]
+> *On Behalf Of *Bruce Perens via License-review
+> *Sent:* Tuesday, April 30, 2019 2:44 PM
+> *To:* License submissions for OSI review <
+> license-review at lists.opensource.org>
+> *Cc:* Bruce Perens <bruce at perens.com>
+> *Subject:* Re: [License-review] For Approval: The Cryptographic Autonomy
+> License
+>
+>
+>
+> Let's try that again.
+>
+>
+>
+> Van's response was a reply to this question:
+>
+> >* First, would you please discuss whether there is a sufficient public*
+>
+> >* performance right for software defined in 17 USC 106 (4), (5) and (6)? I*
+>
+> >* read your discussion of Public Performance and was not enlightened.**
+>
+>
+>
+> Upon re-reading, it appears that Van read my question as asking whether
+> software was copyrightable at all, and did not really answer the question
+> about the public performance right. This is either misunderstanding, or
+> squirrely lawyer stuff :-)
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/8647df44/attachment.html>
+
+From mccoy.smith at intel.com  Tue Apr 30 22:07:00 2019
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Tue, 30 Apr 2019 22:07:00 +0000
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com> <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5198B0F097C@fmsmsx117.amr.corp.intel.com>
+
+Also, FWIW:
+
+?The Author thanks Bruce Perens for contributions and explanations on technical details?
+
+From: Bruce Perens [mailto:bruce at perens.com]
+Sent: Tuesday, April 30, 2019 3:00 PM
+To: Smith, McCoy <mccoy.smith at intel.com>
+Cc: License submissions for OSI review <license-review at lists.opensource.org>
+Subject: Re: [License-review] For Approval: The Cryptographic Autonomy License
+
+Interesting opinion by Lothar Determann:
+
+Under ? 106(4), the copyright owner has the exclusive right to, ?in the case of literary, musical, dramatic, and choreographic works, pantomimes, and motion pictures and other audiovisual works, perform the copyrighted work publicly.? Software source and object code typically qualifies as a literary work because it consists of numbers and letters. When executed, it causes computers to display user-generated output?which the software copyright owner does not own?and a GUI?which the software copyright owner typically does own. GUIs contain words, numbers, and graphics and qualify as literary, pictorial, or graphic works under ? 102(a). GUIs do not ?consist of a series of related images which are intrinsically intended to be shown?; thus, they do not qualify as audio-visual works.57 Section 106(4) does not cover pictorial and graphic works in its enumeration of protected works.58 Thus, the right to public performance under ? 106(4) cannot apply to Scenarios 1 through 5 or 7, unless the literary works elements of the underlying code or GUI are ?performed.?
+
+?To ?perform? a work means to recite, render, play, dance, or act it, either directly or by means of any device or process or, in the case of a motion picture or other audiovisual work, to show its images in any sequence or to make the sounds accompanying it audible.?59 The enumerated activities (recite, render, play, dance, act) all require as a common feature that the work be presented to a human audience in a manner that the work can be perceived visually or audibly.60 The execution of code internally within a computer does not cause or allow perception by a human audience and thus does not constitute performance.61 The text elements of a GUI are displayed statically for viewing and interacting with the program, but usually not shown in a sequence or made audible. Therefore, software as such is not susceptible to public performance under ? 106(4).
+
+There's more in the article.
+
+So, we have some interesting questions. Van might wish to try to rebut Lothar's opinion. Is it in OSI's interest to approve licenses which assert the public performance right for purposes other than requiring publication of the source code? I note that although FSF disapproves of the assertion of a public performance right in software (or any more rights whatsoever), they did try to make use of something similar in AGPL, and OSI approved the license after some argument.
+ Thanks
+ Bruce
+
+On Tue, Apr 30, 2019 at 2:49 PM Smith, McCoy <mccoy.smith at intel.com<mailto:mccoy.smith at intel.com>> wrote:
+FWIW, there is a discussion of this question in the following article:  https://scholarship.law.berkeley.edu/cgi/viewcontent.cgi?referer=&httpsredir=1&article=2046&context=btlj, specifically in Sections III.C.6 & III.C.7.
+
+From: License-review [mailto:license-review-bounces at lists.opensource.org<mailto:license-review-bounces at lists.opensource.org>] On Behalf Of Bruce Perens via License-review
+Sent: Tuesday, April 30, 2019 2:44 PM
+To: License submissions for OSI review <license-review at lists.opensource.org<mailto:license-review at lists.opensource.org>>
+Cc: Bruce Perens <bruce at perens.com<mailto:bruce at perens.com>>
+Subject: Re: [License-review] For Approval: The Cryptographic Autonomy License
+
+Let's try that again.
+
+Van's response was a reply to this question:
+
+> First, would you please discuss whether there is a sufficient public
+
+> performance right for software defined in 17 USC 106 (4), (5) and (6)? I
+
+> read your discussion of Public Performance and was not enlightened.*
+
+
+Upon re-reading, it appears that Van read my question as asking whether software was copyrightable at all, and did not really answer the question about the public performance right. This is either misunderstanding, or squirrely lawyer stuff :-)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/59601eeb/attachment-0001.html>
+
+From bruce at perens.com  Tue Apr 30 22:25:34 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 30 Apr 2019 15:25:34 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5198B0F097C@fmsmsx117.amr.corp.intel.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com> <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F097C@fmsmsx117.amr.corp.intel.com>
+Message-ID: <CAK2MWOvTBMD8cUdKY67VvjmkmoiapMQm2gmgL0+3tFM=W72AnA@mail.gmail.com>
+
+I'm responsible for things like "how many ephemeral copies are there within
+the Intel processor", rather than the lawyering. I don't do so many
+university collaborations any longer, having grown weary of speaking at
+elite institutions that never in a million years would have admitted me.
+
+On Tue, Apr 30, 2019 at 3:07 PM Smith, McCoy <mccoy.smith at intel.com> wrote:
+
+> Also, FWIW:
+>
+> ?The Author thanks Bruce Perens for contributions and explanations on
+> technical details?
+>
+>
+>
+> *From:* Bruce Perens [mailto:bruce at perens.com]
+> *Sent:* Tuesday, April 30, 2019 3:00 PM
+> *To:* Smith, McCoy <mccoy.smith at intel.com>
+> *Cc:* License submissions for OSI review <
+> license-review at lists.opensource.org>
+> *Subject:* Re: [License-review] For Approval: The Cryptographic Autonomy
+> License
+>
+>
+>
+> Interesting opinion by Lothar Determann:
+>
+>
+>
+> Under ? 106(4), the copyright owner has the exclusive right to, ?in the
+> case of literary, musical, dramatic, and choreographic works, pantomimes,
+> and motion pictures and other audiovisual works, perform the copyrighted
+> work publicly.? Software source and object code typically qualifies as a
+> literary work because it consists of numbers and letters. When executed, it
+> causes computers to display user-generated output?which the software
+> copyright owner does not own?and a GUI?which the software copyright owner
+> typically does own. GUIs contain words, numbers, and graphics and qualify
+> as literary, pictorial, or graphic works under ? 102(a). GUIs do not
+> ?consist of a series of related images which are intrinsically intended to
+> be shown?; thus, they do not qualify as audio-visual works.57 Section
+> 106(4) does not cover pictorial and graphic works in its enumeration of
+> protected works.58 Thus, the right to public performance under ? 106(4)
+> cannot apply to Scenarios 1 through 5 or 7, unless the literary works
+> elements of the underlying code or GUI are ?performed.?
+>
+>
+>
+> ?To ?perform? a work means to recite, render, play, dance, or act it,
+> either directly or by means of any device or process or, in the case of a
+> motion picture or other audiovisual work, to show its images in any
+> sequence or to make the sounds accompanying it audible.?59 The enumerated
+> activities (recite, render, play, dance, act) all require as a common
+> feature that the work be presented to a human audience in a manner that the
+> work can be perceived visually or audibly.60 The execution of code
+> internally within a computer does not cause or allow perception by a human
+> audience and thus does not constitute performance.61 The text elements of a
+> GUI are displayed statically for viewing and interacting with the program,
+> but usually not shown in a sequence or made audible. Therefore, software as
+> such is not susceptible to public performance under ? 106(4).
+>
+>
+>
+> There's more in the article.
+>
+>
+>
+> So, we have some interesting questions. Van might wish to try to rebut
+> Lothar's opinion. Is it in OSI's interest to approve licenses which assert
+> the public performance right for purposes *other* than requiring
+> publication of the source code? I note that although FSF disapproves of the
+> assertion of a public performance right in software (or any more rights
+> whatsoever), they did try to make use of something similar in AGPL, and OSI
+> approved the license after some argument.
+>
+>
+>
+>     Thanks
+>
+>
+>
+>     Bruce
+>
+>
+>
+> On Tue, Apr 30, 2019 at 2:49 PM Smith, McCoy <mccoy.smith at intel.com>
+> wrote:
+>
+> FWIW, there is a discussion of this question in the following article:
+> https://scholarship.law.berkeley.edu/cgi/viewcontent.cgi?referer=&httpsredir=1&article=2046&context=btlj,
+> specifically in Sections III.C.6 & III.C.7.
+>
+>
+>
+> *From:* License-review [mailto:license-review-bounces at lists.opensource.org]
+> *On Behalf Of *Bruce Perens via License-review
+> *Sent:* Tuesday, April 30, 2019 2:44 PM
+> *To:* License submissions for OSI review <
+> license-review at lists.opensource.org>
+> *Cc:* Bruce Perens <bruce at perens.com>
+> *Subject:* Re: [License-review] For Approval: The Cryptographic Autonomy
+> License
+>
+>
+>
+> Let's try that again.
+>
+>
+>
+> Van's response was a reply to this question:
+>
+> >* First, would you please discuss whether there is a sufficient public*
+>
+> >* performance right for software defined in 17 USC 106 (4), (5) and (6)? I*
+>
+> >* read your discussion of Public Performance and was not enlightened.**
+>
+>
+>
+> Upon re-reading, it appears that Van read my question as asking whether
+> software was copyrightable at all, and did not really answer the question
+> about the public performance right. This is either misunderstanding, or
+> squirrely lawyer stuff :-)
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/23af3427/attachment.html>
+
+From pamela at chesteklegal.com  Tue Apr 30 23:46:28 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Tue, 30 Apr 2019 19:46:28 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com> <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com>
+Message-ID: <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com>
+
+Assume that there is a right of public performance in an API.[^1] What
+section of the OSD, or well-settled rationale for not approving a
+license, does this particular provision of the CAL fail?[^2] It
+exercises no rights outside of copyright law. It serves to make more
+software available under open source licenses. Why is this not
+considered "open source"?
+
+My point here is the understandable complaint that the OSI
+decisionmaking process can be unpredictable. I'm seeing statements that
+this provision is unusual, or new, or beyond what the FSF was trying to
+accomplish, but not a reason why it therefore fails the definition.
+
+Pam
+
+[^1]: There is an escape hatch in the definition. It says "'Public
+Performance; (or 'Publicly Performing') means any action that implicates
+the rights of public performance or public display of a work under
+copyright law." I can argue, or perhaps it can be clarified, that the
+definition says if there isn't such a thing under copyright law, then
+this provision isn't operational. However, I don't believe that /Google
+v. Oracle/ will have the result of closing the door on the right of
+public performance for APIs, since /Google v. Oracle /is about the right
+of reproduction, not the right of public performance. Personally I
+believe it is a non-frivolous theory.
+
+[^2]: I personally question the data possession provisions, but I'm
+putting that aside for now.
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+On 4/30/19 6:00 PM, Bruce Perens via License-review wrote:
+> Interesting opinion by Lothar Determann:
+>
+>     Under ? 106(4), the copyright owner has the exclusive right to,
+>     ?in the case of literary, musical, dramatic, and choreographic
+>     works, pantomimes, and motion pictures and other audiovisual
+>     works, perform the copyrighted work publicly.? Software source and
+>     object code typically qualifies as a literary work because it
+>     consists of numbers and letters. When executed, it causes
+>     computers to display user-generated output?which the software
+>     copyright owner does not own?and a GUI?which the software
+>     copyright owner typically does own. GUIs contain words, numbers,
+>     and graphics and qualify as literary, pictorial, or graphic works
+>     under ? 102(a). GUIs do not ?consist of a series of related images
+>     which are intrinsically intended to be shown?; thus, they do not
+>     qualify as audio-visual works.57 Section 106(4) does not cover
+>     pictorial and graphic works in its enumeration of protected
+>     works.58 Thus, the right to public performance under ? 106(4)
+>     cannot apply to Scenarios 1 through 5 or 7, unless the literary
+>     works elements of the underlying code or GUI are ?performed.?
+>
+>     ?To ?perform? a work means to recite, render, play, dance, or act
+>     it, either directly or by means of any device or process or, in
+>     the case of a motion picture or other audiovisual work, to show
+>     its images in any sequence or to?make the sounds accompanying it
+>     audible.?59 The enumerated activities (recite, render, play,
+>     dance, act) all require as a common feature that the work be
+>     presented to a human audience in a manner that the work can be
+>     perceived visually or audibly.60 The execution of code internally
+>     within a computer does not cause or allow perception by a human
+>     audience and thus does not constitute performance.61 The text
+>     elements of a GUI are displayed statically for viewing and
+>     interacting with the program, but usually not shown in a sequence
+>     or made audible. Therefore, software as such is not susceptible to
+>     public performance under ? 106(4).
+>
+>
+> There's more in the article.
+>
+> So, we have some interesting questions. Van might wish to try to rebut
+> Lothar's opinion. Is it in OSI's interest to approve licenses which
+> assert the public performance right for purposes /other/ than
+> requiring publication of the source code? I note that although FSF
+> disapproves of the assertion of a public performance right in software
+> (or any more rights whatsoever), they did try to make use of something
+> similar in AGPL, and OSI approved the license after some argument.
+>
+> ? ? Thanks
+>
+> ? ? Bruce
+>
+> On Tue, Apr 30, 2019 at 2:49 PM Smith, McCoy <mccoy.smith at intel.com
+> <mailto:mccoy.smith at intel.com>> wrote:
+>
+>     FWIW, there is a discussion of this question in the following
+>     article:?
+>     https://scholarship.law.berkeley.edu/cgi/viewcontent.cgi?referer=&httpsredir=1&article=2046&context=btlj,
+>     specifically in Sections III.C.6 & III.C.7.
+>
+>     ?
+>
+>     *From:*License-review
+>     [mailto:license-review-bounces at lists.opensource.org
+>     <mailto:license-review-bounces at lists.opensource.org>] *On Behalf
+>     Of *Bruce Perens via License-review
+>     *Sent:* Tuesday, April 30, 2019 2:44 PM
+>     *To:* License submissions for OSI review
+>     <license-review at lists.opensource.org
+>     <mailto:license-review at lists.opensource.org>>
+>     *Cc:* Bruce Perens <bruce at perens.com <mailto:bruce at perens.com>>
+>     *Subject:* Re: [License-review] For Approval: The Cryptographic
+>     Autonomy License
+>
+>     ?
+>
+>     Let's try that again.
+>
+>     ?
+>
+>     Van's response was a reply to this question:?
+>
+>     >/First, would you please discuss whether there is a sufficient public/
+>
+>     >/performance right for software defined in 17 USC 106 (4), (5) and
+>     (6)? I/
+>
+>     >/read your discussion of Public Performance and was not enlightened.*/
+>
+>     ?
+>
+>     Upon re-reading, it appears that Van read my question as asking
+>     whether software was copyrightable at all, and did not really
+>     answer the question about the public performance right. This is
+>     either misunderstanding, or squirrely lawyer stuff :-)
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/c9ed92d3/attachment-0001.html>
+
+From bruce at perens.com  Wed May  1 00:11:53 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 30 Apr 2019 17:11:53 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com> <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com> <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com>
+Message-ID: <CAK2MWOuzSux_n4B8A7XGFoMvo3H7vEaWUcObw-eJZVE42_2Wug@mail.gmail.com>
+
+On Tue, Apr 30, 2019 at 4:47 PM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+> My point here is the understandable complaint that the OSI decisionmaking
+> process can be unpredictable.
+>
+
+To which the appropriate response is "sorry, we like it that way". The
+point is that OSI takes the interest of the Open Source community into
+account, and the day it stops doing that in the interest of mechanically
+implementing pseudo-law is the day that the community would, and should,
+stop taking it seriously.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/4a24909a/attachment.html>
+
+From bruce at perens.com  Wed May  1 00:23:11 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 30 Apr 2019 17:23:11 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOuzSux_n4B8A7XGFoMvo3H7vEaWUcObw-eJZVE42_2Wug@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com> <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com> <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com> <CAK2MWOuzSux_n4B8A7XGFoMvo3H7vEaWUcObw-eJZVE42_2Wug@mail.gmail.com>
+Message-ID: <CAK2MWOvFKMQhtq76uLHa32YxVW7RQhCWKn5=+Fkhphf9BYgV=Q@mail.gmail.com>
+
+Having already stated the overriding public interest:
+
+Public performance terms inherently are a use restriction incompatible with
+OSD #6. If you can use the software in some contexts and not others, for
+example privately but not in a public performance, it's a field-of-endeavor
+restriction.
+ Thanks
+ Bruce
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/6e878285/attachment.html>
+
+From bruce at perens.com  Wed May  1 00:34:16 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 30 Apr 2019 17:34:16 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com> <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com> <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com>
+Message-ID: <CAK2MWOsNNr++3qDAMyn8mYmWpu5xtBaFRtXydFyQt0HHXt9Meg@mail.gmail.com>
+
+On Tue, Apr 30, 2019 at 4:47 PM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+> It exercises no rights outside of copyright law.
+>
+
+Are you sure of that? It seems to me the data sharing terms are required
+performance, and contractual in nature (not simply rights in copyright
+law). The theory that the user already owns the data is a red herring, they
+don't have a right in law to request a copy until these license terms come
+along.
+
+So, we get a result like "if you refuse to convey certain data, you can't
+publicly perform the program". This is a compulsion that goes pretty far
+beyond "you must share the source code and the right to use, modify, and
+redistribute".
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/bad0c068/attachment.html>
+
+From van.lindberg at gmail.com  Wed May  1 01:00:23 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Tue, 30 Apr 2019 20:00:23 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <cdc03475-5138-de56-82a2-14cbc0d911a1@chesteklegal.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <cdc03475-5138-de56-82a2-14cbc0d911a1@chesteklegal.com>
+Message-ID: <CAFQvZEM2Cgh23Koad83DHAicAdjExAK3VQQcdexZS5fi5YHbJw@mail.gmail.com>
+
+Hi Pam,
+
+Sorry for the delay replying.
+
+On Sat, Apr 27, 2019 at 9:30 AM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+> Hi Van,
+>
+> Below are some comments on the text itself.
+> > Section 2.2.1 and 2.4 are circular references so that it's not clear
+> what the duty is.
+
+
+The intention is that it can function either like MPL's per-file licensing,
+or like the LGPL. But reading this, I understand the confusion. I have
+updated the draft to try to address this issue. Does this make it clearer?2.4.
+Combined Work Exception
+
+As an exception to the conditions in sections 2.2.1 and 2.2.2, any Source
+Code files marked by the Licensor as having the ?Combined Work Exception,?
+or any Object Code exclusively resulting from Source Code files so marked,
+may be combined with other Software into a ?Larger Work.? So long as you
+comply with the conditions in 2.1, 2.2, and 2.3 relative to the Source Code
+provided to you by Licensor, any other Software in the Larger Work as well
+as the Larger Work as a whole may be licensed under the terms of your
+choice.
+
+
+I hope that this also clears up the use of the term "relative." It is here
+essentially a synonym for "regarding" or "with respect to."
+
+
+> "Access to Source Code" must be provided by "You," the Licensee. It
+> doesn't make sense to me that the Licensee has to provide access to the
+> source code.
+>
+
+This is roughly equivalent to the GPL's "Complete Corresponding Source." In
+this case, like in the GPL, the Licensee ("You") must pass the source code
+on to further recipients.
+
+
+>
+> Section 2.3: It says "You must give the same permission received under
+> this License to any Recipient...." However, Section 7.2 says the license
+> is not sublicensable, so the Licensee doesn't have authority to grant
+> permissions at all. The clause doesn't seem to have an effect and
+> therefore only creates confusion.
+>
+
+This is intended to reflect a similar concept to the GPL's "no further
+restrictions" clause. I am open to ways to improve this to make it clearer.
+
+
+
+>
+> Section 2.3(e): missing capitalization of "Work"? I also don't
+> understand what it's trying to say or stop.
+>
+
+Thanks, capitalization fixed. With regard to the meaning, this is an
+anti-DMCA clause. See my email to Henrik on this list identifying the
+parallel GPLv3 clause.
+
+
+>
+> Section 4.1: I would insert the word "automatically" before "compliance"
+> within 60 days to distinguish it from compliance after that, which
+> requires the express restoration by the Licensor.
+>
+
+Is this what you mean? "As a special exception to termination for
+non-compliance, Your permissions for the Work under this License will
+*automatically* be reinstated if You come into compliance with all the
+conditions in section 2 within sixty days of being notified by Licensor or
+an intended third party beneficiary of Your noncompliance."
+
+
+
+> You have defined "Public Performance" as using the Software to take any
+> action that implicates the right of performance or public display under
+> copyright law, and include as one use case of making an interface
+> available. The license grant is for this full scope. However, your
+> definition of "Modified Work" and "Recipient" refer only to "Public[ly]
+> Perform[ance/ing] an interface." This creates ambiguity about the scope
+> of the right for Modified Work and that Recipients have.
+>
+
+If you look at the header to 2.3, it encompasses all ways in which a
+Licensee can communicate the Work to a Recipient.
+
+
+> Section 7.1.1: I don't understand why a reference to GDPR is required;
+> it strikes me as a "you must comply with all applicable law"
+> requirement. And why the GDPR and not any other or future laws? If a
+> statement is needed that the requirements the law impose will override
+> the license requirements, you can say that more generally.
+>
+
+This clause is not about complying with the GDPR. Rather, it is the
+reverse: It is a limitation saying that if you comply with those specific
+subsets of the GDPR, that is also good enough to count as compliance with
+CAL 2.3(b). It is intended to streamline CAL compliance by hooking into an
+already-existing enforcement regime.
+
+Thanks, and thanks for the feedback,
+
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/8eb179a3/attachment-0001.html>
+
+From rfontana at redhat.com  Wed May  1 01:57:23 2019
+From: rfontana at redhat.com (Richard Fontana)
+Date: Tue, 30 Apr 2019 21:57:23 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com> <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com> <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com>
+Message-ID: <CAC1cPGw_osifivuxpA=5ty8x_EaYE_KCah7euXA_Gv5rQfOr6Q@mail.gmail.com>
+
+On Tue, Apr 30, 2019 at 7:47 PM Pamela Chestek <pamela at chesteklegal.com> wrote:
+>
+> Assume that there is a right of public performance in an API.[^1] What section of the OSD, or well-settled rationale for not approving a license, does this particular provision of the CAL fail?[^2] It exercises no rights outside of copyright law. It serves to make more software available under open source licenses. Why is this not considered "open source"?
+
+As far as I currently understand, it forces source code distribution,
+and licensing under a limited set of licenses (probably excluding the
+GPL family), under some circumstances, upon someone who creates an
+independent implementation of the CAL-licensed API.
+
+Recently I made a sort of joke on Twitter to the effect that any
+criticism of a submitted-to-OSI license can be couched as a violation
+of OSD 5/6. Well, maybe it's not a joke. In the context of some
+recently-submitted licenses (L0-R, SSPL) I and some others have argued
+that it is wrong to read the OSD with excessive literalism, or
+legalism or pedanticism. But if one insists on a literal reading of
+the OSD, CAL seems to violate OSD 5 and 6. It discriminates against
+the class of persons that wish to create re-implementations of APIs,
+that wish not to be forced to distribute the source code for such
+implementations, and that (if they do distribute the source code) that
+wish not to be restricted in terms of the licenses they can use. Now
+of course practically all licenses can be accused of discriminating in
+some way. The GPL sure does. So perhaps the OSD 5/6 inquiry goes to
+figuring out whether the nature of the discrimination is worse than
+that done by the widely-used/popular licenses, particularly the GPL (I
+can go into that further but assume that makes sense). The GPL
+historically was never read by its license steward or by the majority
+of the GPL-using community as extending in any meaningful way to API
+copyright as such (I don't think the public performance right vs.
+distribution distinction matters here). I believe that reading would
+have been met with widespread condemnation, even by the strongest
+supporters of the FSF's interpretation of GPL copyleft. I think the
+overwhelmingly negative reaction to the copyrightability result in
+Oracle v. Google in the open source community supports this. From a
+software freedom perspective, extending a copyleft requirement to an
+interface is unjust. It has the character of a requirement that I
+believe historically would have been considered going too far, for a
+supposed free software license.
+
+I also think it may violate the spirit of OSD 9, somewhat like the
+case of SSPL.
+
+Also, the OSI has clarified recently that the purpose of the license
+approval process is to "Ensure approved licenses conform to the Open
+Source Definition and provide software freedom". So the license
+submitter need not merely show that the license meets the OSD, but
+also that it provides software freedom. And I will say as someone who
+was on the board at the time that one of the reasons that language was
+used was because of growing concern about "gaming" of the license
+review process through literalist or legalistic readings of the OSD.
+In reality they shouldn't be seen as two requirements -- rather the
+OSD is an imperfect, mostly-1990s-drafted guide to the more
+fundamental inquiry which is whether the license provides software
+freedom. In my view, and as you can see I like to look to history and
+cultural intuition to reach my understanding, the unreasonable burden
+it places on the re-implementor of an API is a violation of software
+freedom. At least that's my current view, based on my current reading

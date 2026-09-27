@@ -1,0 +1,750 @@
+of the last CAL draft I looked at.
+
+I also want to take issue with a couple of things you said there:
+
+> It exercises no rights outside of copyright law
+
+The fact that a license limits itself to exercising rights within
+copyright law isn't a guarantee that it provides software freedom.
+
+> It serves to make more software available under open source licenses.
+
+Not necessarily (beyond the mere fact of approval, if CAL were
+approved as an open source license). If you mean the effect of the
+copyleft requirement, whether this results in more software available
+under open source licenses depends on how the CAL licensor uses the
+license, how widely adopted it is, and also the reaction of potential
+users. I think a number of people in the course of the SSPL (and maybe
+L0-R) discussion expressed the view that it is improper to consider
+the way a particular licensor would be likely to use the license in
+connection with an open source license-centered business model. I am
+pretty sure I disagree with that. In this case, we have a situation I
+see as similar to SSPL: it seems really unlikely that this license --
+which is relatively complex, seemingly special-purpose and proposed by
+a business entity -- would see any adoption by any other licensors
+(perhaps not itself a reason for nonapproval but I think worth
+thinking about). Also I am fairly sure I heard Van say at CopyleftConf
+that his client was contemplating using this license as the basis of a
+proprietary/copyleft dual-licensing scheme (Van if I misheard that
+please correct me). If that's so, then the only likely user of this
+license will be using it not in the hope that it will result in more
+open source software but rather that it will result in *less* open
+source software, and may even strategize to make that the more likely
+outcome. See Chris Webber's recent license-discuss posting, where he
+points out that "proprietary relicensors" want noncompliance, not
+compliance.
+
+> [^1]: There is an escape hatch in the definition. It says "'Public Performance; (or 'Publicly Performing') means any action that implicates the rights of public performance or public display of a work under copyright law." I can argue, or perhaps it can be clarified, that the definition says if there isn't such a thing under copyright law, then this provision isn't operational. However, I don't believe that Google v. Oracle will have the result of closing the door on the right of public performance for APIs, since Google v. Oracle is about the right of reproduction, not the right of public performance. Personally I believe it is a non-frivolous theory.
+
+I don't think it's frivolous in a litigant argument sense. However, I
+question what it could possibly mean to publicly perform an *API*. I
+can sort of see how the visual interface in a graphical executable
+program or web application could be likened to public performance.
+That's maybe public performance of *software* in general.  But for a
+SaaS application, say, what aspect of the user's experience
+constitutes the perception of the performance specifically of the API?
+Typically, the API is perceptually hidden from the user.
+
+Richard
+
+
+From pamela at chesteklegal.com  Wed May  1 03:35:06 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Tue, 30 Apr 2019 23:35:06 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAC1cPGw_osifivuxpA=5ty8x_EaYE_KCah7euXA_Gv5rQfOr6Q@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com> <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com> <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com> <CAC1cPGw_osifivuxpA=5ty8x_EaYE_KCah7euXA_Gv5rQfOr6Q@mail.gmail.com>
+Message-ID: <0a4d9f5c-2a4e-2f44-f514-f690443f0c04@chesteklegal.com>
+
+On 4/30/19 9:57 PM, Richard Fontana wrote:
+> On Tue, Apr 30, 2019 at 7:47 PM Pamela Chestek <pamela at chesteklegal.com> wrote:
+>> Assume that there is a right of public performance in an API.[^1] What section of the OSD, or well-settled rationale for not approving a license, does this particular provision of the CAL fail?[^2] It exercises no rights outside of copyright law. It serves to make more software available under open source licenses. Why is this not considered "open source"?
+> As far as I currently understand, it forces source code distribution,
+> and licensing under a limited set of licenses (probably excluding the
+> GPL family), under some circumstances, upon someone who creates an
+> independent implementation of the CAL-licensed API.
+That is also the way I understand it.
+>
+> Recently I made a sort of joke on Twitter to the effect that any
+> criticism of a submitted-to-OSI license can be couched as a violation
+> of OSD 5/6. 
+Darn, I thought I thought of that. Well, I just thought it was OSD6.
+> Well, maybe it's not a joke. In the context of some
+> recently-submitted licenses (L0-R, SSPL) I and some others have argued
+> that it is wrong to read the OSD with excessive literalism, or
+> legalism or pedanticism. But if one insists on a literal reading of
+> the OSD, CAL seems to violate OSD 5 and 6. It discriminates against
+> the class of persons that wish to create re-implementations of APIs,
+> that wish not to be forced to distribute the source code for such
+> implementations, and that (if they do distribute the source code) that
+> wish not to be restricted in terms of the licenses they can use. Now
+> of course practically all licenses can be accused of discriminating in
+> some way. The GPL sure does. So perhaps the OSD 5/6 inquiry goes to
+> figuring out whether the nature of the discrimination is worse than
+> that done by the widely-used/popular licenses, particularly the GPL (I
+> can go into that further but assume that makes sense). The GPL 
+> historically was never read by its license steward or by the majority
+> of the GPL-using community as extending in any meaningful way to API
+> copyright as such (I don't think the public performance right vs.
+> distribution distinction matters here). 
+I don't see this as even slightly different from the GPL in reach, at
+least if the S. Ct. concludes that APIs are copyrightable to some
+extent. Dalvik was largely written from scratch but, to the extent it
+implements the Java APIs, it is an infringement, the corollary being
+that if lawfully made it would be a derivative work of Java. Have I
+erred in my reasoning somewhere? I'm just trying to find some rationale
+for why this is any different from A/GPL and I haven't seen it yet.
+
+As Scott pointed out, scope is what it is (or what the S. Ct. says it
+is), and the right of public performance may not actually change
+anything. What troubles me more about the right of public performance
+here, though, is how it will be interpreted outside of the US.
+> I believe that reading would
+> have been met with widespread condemnation, even by the strongest
+> supporters of the FSF's interpretation of GPL copyleft. I think the
+> overwhelmingly negative reaction to the copyrightability result in
+> Oracle v. Google in the open source community supports this. From a
+> software freedom perspective, extending a copyleft requirement to an
+> interface is unjust. It has the character of a requirement that I
+> believe historically would have been considered going too far, for a
+> supposed free software license.
+So, an originalist. ;-)
+>
+> I also think it may violate the spirit of OSD 9, somewhat like the
+> case of SSPL.
+I think the difference is that the SSPL didn't have any colorable theory
+that its reach was only as far as copyright law, but there is a theory here.
+>
+> Also, the OSI has clarified recently that the purpose of the license
+> approval process is to "Ensure approved licenses conform to the Open
+> Source Definition and provide software freedom". So the license
+> submitter need not merely show that the license meets the OSD, but
+> also that it provides software freedom. And I will say as someone who
+> was on the board at the time that one of the reasons that language was
+> used was because of growing concern about "gaming" of the license
+> review process through literalist or legalistic readings of the OSD.
+> In reality they shouldn't be seen as two requirements -- rather the
+> OSD is an imperfect, mostly-1990s-drafted guide to the more
+> fundamental inquiry which is whether the license provides software
+> freedom. In my view, and as you can see I like to look to history and
+> cultural intuition to reach my understanding, the unreasonable burden
+> it places on the re-implementor of an API is a violation of software
+> freedom. At least that's my current view, based on my current reading
+> of the last CAL draft I looked at.
+>
+> I also want to take issue with a couple of things you said there:
+>
+>> It exercises no rights outside of copyright law
+> The fact that a license limits itself to exercising rights within
+> copyright law isn't a guarantee that it provides software freedom.
+I'm just trying to figure out where you and others believe the boundary
+is. I thought it was the scope of copyright (and related rights that
+interfere with the exercise of of the grant), but it now appears that
+copyright isn't where the boundary is either.
+>
+>> It serves to make more software available under open source licenses.
+> Not necessarily (beyond the mere fact of approval, if CAL were
+> approved as an open source license). If you mean the effect of the
+> copyleft requirement, whether this results in more software available
+> under open source licenses depends on how the CAL licensor uses the
+> license, how widely adopted it is, and also the reaction of potential
+> users. I think a number of people in the course of the SSPL (and maybe
+> L0-R) discussion expressed the view that it is improper to consider
+> the way a particular licensor would be likely to use the license in
+> connection with an open source license-centered business model. I am
+> pretty sure I disagree with that. In this case, we have a situation I
+> see as similar to SSPL: it seems really unlikely that this license --
+> which is relatively complex, seemingly special-purpose and proposed by
+> a business entity -- would see any adoption by any other licensors
+> (perhaps not itself a reason for nonapproval but I think worth
+> thinking about). Also I am fairly sure I heard Van say at CopyleftConf
+> that his client was contemplating using this license as the basis of a
+> proprietary/copyleft dual-licensing scheme (Van if I misheard that
+> please correct me). If that's so, then the only likely user of this
+> license will be using it not in the hope that it will result in more
+> open source software but rather that it will result in *less* open
+> source software, and may even strategize to make that the more likely
+> outcome. See Chris Webber's recent license-discuss posting, where he
+> points out that "proprietary relicensors" want noncompliance, not
+> compliance.y d
+This is a rehash of the philosophical divide exposed during the
+discussion of the SSPL, but I think a bit of a straw argument. By its
+express terms CAL forces more software into an open source license, in
+the same way that AGPL and GPL do. If that effect means that less people
+choose it, and so in actual fact less software is free, that's no
+different than how the the AGPL or GPL operate -- by their words more
+software should be free, but in reality less software is free because of
+the perceived negative effect of copyleft, which we know exists because
+of their use in dual licensing schemes. If you believe that not all
+copyleft licenses have a negative effect on the amount of software
+released under open source licenses, then where is the tipping point and
+why?
+>  
+>
+>> [^1]: There is an escape hatch in the definition. It says "'Public Performance; (or 'Publicly Performing') means any action that implicates the rights of public performance or public display of a work under copyright law." I can argue, or perhaps it can be clarified, that the definition says if there isn't such a thing under copyright law, then this provision isn't operational. However, I don't believe that Google v. Oracle will have the result of closing the door on the right of public performance for APIs, since Google v. Oracle is about the right of reproduction, not the right of public performance. Personally I believe it is a non-frivolous theory.
+> I don't think it's frivolous in a litigant argument sense. However, I
+> question what it could possibly mean to publicly perform an *API*. I
+> can sort of see how the visual interface in a graphical executable
+> program or web application could be likened to public performance.
+> That's maybe public performance of *software* in general.  But for a
+> SaaS application, say, what aspect of the user's experience
+> constitutes the perception of the performance specifically of the API?
+> Typically, the API is perceptually hidden from the user.
+We could enjoy long conversations musing on the hypothetical, but as
+much as I would enjoy it I'll avoid wasting the list's time. At any
+rate, it's unlikely we would have a definitive answer anytime soon.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+From bruce at perens.com  Wed May  1 04:04:24 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 30 Apr 2019 21:04:24 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAC1cPGw_osifivuxpA=5ty8x_EaYE_KCah7euXA_Gv5rQfOr6Q@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com> <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com> <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com> <CAC1cPGw_osifivuxpA=5ty8x_EaYE_KCah7euXA_Gv5rQfOr6Q@mail.gmail.com>
+Message-ID: <CAK2MWOsQyS0q5QjLTfp2GEY9pN28QxjZnDbEc22af_U6Jsq6BQ@mail.gmail.com>
+
+On Tue, Apr 30, 2019 at 6:58 PM Richard Fontana <rfontana at redhat.com> wrote:
+
+> It discriminates against
+> the class of persons that wish to create re-implementations of APIs,
+> that wish not to be forced to distribute the source code for such
+> implementations, and that (if they do distribute the source code) that
+> wish not to be restricted in terms of the licenses they can use.
+
+
+Terms that require modifications to our own software to be shared are
+viewed very differently than terms that require other things, because
+sharing modifications achieves the goal of Free Software / Open Source, and
+sharing modifications to our own software is something that it's fair for
+us to ask for. Before Open Source came about, we drew a line in the sand
+about *running* software for any purpose, etc., and codified that in the
+licenses that Debian was using when the DFSG was written. That our rules
+don't have total sympathy for proprietary software developers is necessary.
+But they have sympathy for everyone else.
+
+What I am finding bothersome about most of the network copyright proposals
+is that they change the fundamental deal of Free Software / Open Source. No
+more running for any use, no more sympathy for eveyone but proprietary
+software makers - there is a new set of evils including, in this case, data
+hoarders. Approving the network copyright licenses would be a slippery
+slope to approving a whole family of worse ones and IMO, people would
+abscond and we would end with FSF being looked to as the arbiter of
+licenses. Which wouldn't be so bad for the community and FSF, just for OSI.
+The new generation of leadership at FSF and SFC is pretty cool.
+
+API copyrights are politically a bad idea for us to stand behind right now,
+because we don't want them used against us. However, if we do end up being
+forced to live with API copyrights, we will in turn adopt licenses that
+require that people who copy our APIs share their software. It's going to
+be our only defense. The asymmetry of having everyone else share our APIs
+with impunity while we can share none of theirs would be unworkable for
+Open Source / Free Software. So, the Supreme Court might fundamentally
+change Open Source / Free Software. Be warned.
+
+
+> Also, the OSI has clarified recently that the purpose of the license
+> approval process is to "Ensure approved licenses conform to the Open
+> Source Definition and provide software freedom".
+
+
+And I will say as someone who
+> was on the board at the time that one of the reasons that language was
+> used was because of growing concern about "gaming" of the license
+> review process through literalist or legalistic readings of the OSD.
+>
+
+So, we can do this in one of two ways: we can have a court and legislature
+and a "living" OSD that is treated like a body of law, have the court
+interpret it literally to approve licenses and the legislature add to it
+every time somebody games the process and gets a license by us. Or we can
+be intelligent interpreters rather than literal ones. We aren't a court or
+legislature and aren't compelled to act as one.
+
+
+>  it seems really unlikely that this license --
+> which is relatively complex, seemingly special-purpose and proposed by
+> a business entity -- would see any adoption by any other licensors
+> (perhaps not itself a reason for nonapproval but I think worth
+> thinking about).
+
+
+The danger here is that people see its probable non-use by anyone but Van's
+customer as a reason to approve it because it won't do much harm. OSI
+should guard its imprimatur better than that.
+
+
+> Also I am fairly sure I heard Van say at CopyleftConf
+> that his client was contemplating using this license as the basis of a
+> proprietary/copyleft dual-licensing scheme (Van if I misheard that
+> please correct me). If that's so, then the only likely user of this
+> license will be using it not in the hope that it will result in more
+> open source software but rather that it will result in *less* open
+> source software, and may even strategize to make that the more likely
+> outcome. See Chris Webber's recent license-discuss posting, where he
+> points out that "proprietary relicensors" want noncompliance, not
+> compliance.
+>
+
+If the vendor covenants to keep issuing all of their work as Open Source,
+they are being paid by people who want proprietary software to make more
+Open Source. This is not necessarily a bad thing.
+
+I don't think it's frivolous in a litigant argument sense. However, I
+> question what it could possibly mean to publicly perform an *API*.
+
+
+To use it at all.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/fd1c5786/attachment-0001.html>
+
+From van.lindberg at gmail.com  Wed May  1 05:11:26 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Wed, 1 May 2019 00:11:26 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOsQyS0q5QjLTfp2GEY9pN28QxjZnDbEc22af_U6Jsq6BQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com> <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com> <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com> <CAC1cPGw_osifivuxpA=5ty8x_EaYE_KCah7euXA_Gv5rQfOr6Q@mail.gmail.com> <CAK2MWOsQyS0q5QjLTfp2GEY9pN28QxjZnDbEc22af_U6Jsq6BQ@mail.gmail.com>
+Message-ID: <CAFQvZEO8_HUgVjjPvZKybyTmLEFCFvZ_dEy0gtKSioNP7_n3Sg@mail.gmail.com>
+
+>
+> Bruce wrote:
+> > However, if we do end up being forced to live with API copyrights, we
+> will in turn adopt licenses that require that people who copy our APIs
+> share their software. It's going to be our only defense. The asymmetry of
+> having everyone else share our APIs with impunity while we can share none
+> of theirs would be unworkable for Open Source / Free Software. So, the
+> Supreme Court might fundamentally change Open Source / Free Software. Be
+> warned.
+>
+
+I've been saying this for years - that Oracle v. Google could fundamentally
+changing open source law. While many on this list get it, I don't think
+that realization has sunk in for most people. Put aside the network aspect.
+How many reimplementations of the GNU readline interface are there? How
+many bashisms have made it into other shells?Under Oracle v. Google, those
+are derivative works.
+
+The CAL reflects my belief - in which I would be thrilled to be wrong -
+that we have already entered the world in which licenses like the CAL are
+necessary, and that the CAL only reflects the law as it has been revealed
+to be.
+
+Thanks,
+Van
+
+
+
+
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+
+
+
+> I've been saying this for years - that Oracle v. Google has the
+> possibility of fundamentally changing open source law. While many on this
+> list get it, I don't think that realization has sink in most places. For
+> example, put aside the network aspect. How many reimplementations of the
+> GNU readline interface ate there?
+>
+>
+> __________________________
+> Van Lindberg
+> van.lindberg at gmail.com
+> m: 214.364.7985
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190501/9c4563e6/attachment.html>
+
+From bruce at perens.com  Wed May  1 05:22:07 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 30 Apr 2019 22:22:07 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEO8_HUgVjjPvZKybyTmLEFCFvZ_dEy0gtKSioNP7_n3Sg@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com> <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com> <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com> <CAC1cPGw_osifivuxpA=5ty8x_EaYE_KCah7euXA_Gv5rQfOr6Q@mail.gmail.com> <CAK2MWOsQyS0q5QjLTfp2GEY9pN28QxjZnDbEc22af_U6Jsq6BQ@mail.gmail.com> <CAFQvZEO8_HUgVjjPvZKybyTmLEFCFvZ_dEy0gtKSioNP7_n3Sg@mail.gmail.com>
+Message-ID: <CAK2MWOuqUEEG9A2xLKz4SziB8+m38J2ZsoaWY4Hzn37UJa99fA@mail.gmail.com>
+
+Van, I suggest that you *not* anticipate the crash by pushing the car off
+of the cliff.
+
+
+
+
+We *may* lose. We presently have a single court decision, and nobody can
+tell what the supes will do. By approving a license with API copyright
+terms, OSI would concede the fight before it's lost.
+
+On Tue, Apr 30, 2019 at 10:11 PM VanL <van.lindberg at gmail.com> wrote:
+
+> Bruce wrote:
+>> > However, if we do end up being forced to live with API copyrights, we
+>> will in turn adopt licenses that require that people who copy our APIs
+>> share their software. It's going to be our only defense. The asymmetry of
+>> having everyone else share our APIs with impunity while we can share none
+>> of theirs would be unworkable for Open Source / Free Software. So, the
+>> Supreme Court might fundamentally change Open Source / Free Software. Be
+>> warned.
+>>
+>
+> I've been saying this for years - that Oracle v. Google could
+> fundamentally changing open source law. While many on this list get it, I
+> don't think that realization has sunk in for most people. Put aside the
+> network aspect. How many reimplementations of the GNU readline interface
+> are there? How many bashisms have made it into other shells?Under Oracle v.
+> Google, those are derivative works.
+>
+> The CAL reflects my belief - in which I would be thrilled to be wrong -
+> that we have already entered the world in which licenses like the CAL are
+> necessary, and that the CAL only reflects the law as it has been revealed
+> to be.
+>
+> Thanks,
+> Van
+>
+>
+>
+>
+> __________________________
+> Van Lindberg
+> van.lindberg at gmail.com
+> m: 214.364.7985
+>
+>
+>
+>> I've been saying this for years - that Oracle v. Google has the
+>> possibility of fundamentally changing open source law. While many on this
+>> list get it, I don't think that realization has sink in most places. For
+>> example, put aside the network aspect. How many reimplementations of the
+>> GNU readline interface ate there?
+>>
+>>
+>> __________________________
+>> Van Lindberg
+>> van.lindberg at gmail.com
+>> m: 214.364.7985
+>>
+>>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/94b9ba35/attachment.html>
+
+From van.lindberg at gmail.com  Wed May  1 05:36:33 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Wed, 1 May 2019 00:36:33 -0500
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOuqUEEG9A2xLKz4SziB8+m38J2ZsoaWY4Hzn37UJa99fA@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com> <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com> <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com> <CAC1cPGw_osifivuxpA=5ty8x_EaYE_KCah7euXA_Gv5rQfOr6Q@mail.gmail.com> <CAK2MWOsQyS0q5QjLTfp2GEY9pN28QxjZnDbEc22af_U6Jsq6BQ@mail.gmail.com> <CAFQvZEO8_HUgVjjPvZKybyTmLEFCFvZ_dEy0gtKSioNP7_n3Sg@mail.gmail.com> <CAK2MWOuqUEEG9A2xLKz4SziB8+m38J2ZsoaWY4Hzn37UJa99fA@mail.gmail.com>
+Message-ID: <CAFQvZEP6bn4j14_RygAHj_UHYNzb_PT4KOUpVMLu=hsc+YMAug@mail.gmail.com>
+
+It's not just that, though. It's the network aspect, which currently only
+had one option: the AGPL. But the AGPL's hook is infirm, as discussed
+above. It is ambiguous as to when and to whom it applies in some very
+common situations, and for many parties it doesn't solve the "problem" it
+was designed to solve.
+
+APIs plus public performance is intelligible, has applicable case law to
+reason from, at least by analogy, and is firmly grounded in the reserved
+rights under copyright.
+
+Thanks,
+Van
+
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+
+On Wed, May 1, 2019, 12:22 AM Bruce Perens <bruce at perens.com> wrote:
+
+> Van, I suggest that you *not* anticipate the crash by pushing the car off
+> of the cliff.
+>
+>
+>
+>
+> We *may* lose. We presently have a single court decision, and nobody can
+> tell what the supes will do. By approving a license with API copyright
+> terms, OSI would concede the fight before it's lost.
+>
+> On Tue, Apr 30, 2019 at 10:11 PM VanL <van.lindberg at gmail.com> wrote:
+>
+>> Bruce wrote:
+>>> > However, if we do end up being forced to live with API copyrights, we
+>>> will in turn adopt licenses that require that people who copy our APIs
+>>> share their software. It's going to be our only defense. The asymmetry of
+>>> having everyone else share our APIs with impunity while we can share none
+>>> of theirs would be unworkable for Open Source / Free Software. So, the
+>>> Supreme Court might fundamentally change Open Source / Free Software. Be
+>>> warned.
+>>>
+>>
+>> I've been saying this for years - that Oracle v. Google could
+>> fundamentally changing open source law. While many on this list get it, I
+>> don't think that realization has sunk in for most people. Put aside the
+>> network aspect. How many reimplementations of the GNU readline interface
+>> are there? How many bashisms have made it into other shells?Under Oracle v.
+>> Google, those are derivative works.
+>>
+>> The CAL reflects my belief - in which I would be thrilled to be wrong -
+>> that we have already entered the world in which licenses like the CAL are
+>> necessary, and that the CAL only reflects the law as it has been revealed
+>> to be.
+>>
+>> Thanks,
+>> Van
+>>
+>>
+>>
+>>
+>> __________________________
+>> Van Lindberg
+>> van.lindberg at gmail.com
+>> m: 214.364.7985
+>>
+>>
+>>
+>>> I've been saying this for years - that Oracle v. Google has the
+>>> possibility of fundamentally changing open source law. While many on this
+>>> list get it, I don't think that realization has sink in most places. For
+>>> example, put aside the network aspect. How many reimplementations of the
+>>> GNU readline interface ate there?
+>>>
+>>>
+>>> __________________________
+>>> Van Lindberg
+>>> van.lindberg at gmail.com
+>>> m: 214.364.7985
+>>>
+>>>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190501/aedd5c5c/attachment-0001.html>
+
+From bruce at perens.com  Wed May  1 05:41:43 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 30 Apr 2019 22:41:43 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEP6bn4j14_RygAHj_UHYNzb_PT4KOUpVMLu=hsc+YMAug@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com> <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com> <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com> <CAC1cPGw_osifivuxpA=5ty8x_EaYE_KCah7euXA_Gv5rQfOr6Q@mail.gmail.com> <CAK2MWOsQyS0q5QjLTfp2GEY9pN28QxjZnDbEc22af_U6Jsq6BQ@mail.gmail.com> <CAFQvZEO8_HUgVjjPvZKybyTmLEFCFvZ_dEy0gtKSioNP7_n3Sg@mail.gmail.com> <CAK2MWOuqUEEG9A2xLKz4SziB8+m38J2ZsoaWY4Hzn37UJa99fA@mail.gmail.com> <CAFQvZEP6bn4j14_RygAHj_UHYNzb_PT4KOUpVMLu=hsc+YMAug@mail.gmail.com>
+Message-ID: <CAK2MWOtJoTKPUBygzD+CokskZxd--Xuqeft_v6ojJmdrgjUXkg@mail.gmail.com>
+
+And we don't need courts, because lawyers all agree with each other. :-)
+
+On Tue, Apr 30, 2019 at 10:36 PM VanL <van.lindberg at gmail.com> wrote:
+
+> It's not just that, though. It's the network aspect, which currently only
+> had one option: the AGPL. But the AGPL's hook is infirm, as discussed
+> above. It is ambiguous as to when and to whom it applies in some very
+> common situations, and for many parties it doesn't solve the "problem" it
+> was designed to solve.
+>
+> APIs plus public performance is intelligible, has applicable case law to
+> reason from, at least by analogy, and is firmly grounded in the reserved
+> rights under copyright.
+>
+> Thanks,
+> Van
+>
+> __________________________
+> Van Lindberg
+> van.lindberg at gmail.com
+> m: 214.364.7985
+>
+> On Wed, May 1, 2019, 12:22 AM Bruce Perens <bruce at perens.com> wrote:
+>
+>> Van, I suggest that you *not* anticipate the crash by pushing the car
+>> off of the cliff.
+>>
+>>
+>>
+>>
+>> We *may* lose. We presently have a single court decision, and nobody can
+>> tell what the supes will do. By approving a license with API copyright
+>> terms, OSI would concede the fight before it's lost.
+>>
+>> On Tue, Apr 30, 2019 at 10:11 PM VanL <van.lindberg at gmail.com> wrote:
+>>
+>>> Bruce wrote:
+>>>> > However, if we do end up being forced to live with API copyrights,
+>>>> we will in turn adopt licenses that require that people who copy our APIs
+>>>> share their software. It's going to be our only defense. The asymmetry of
+>>>> having everyone else share our APIs with impunity while we can share none
+>>>> of theirs would be unworkable for Open Source / Free Software. So, the
+>>>> Supreme Court might fundamentally change Open Source / Free Software. Be
+>>>> warned.
+>>>>
+>>>
+>>> I've been saying this for years - that Oracle v. Google could
+>>> fundamentally changing open source law. While many on this list get it, I
+>>> don't think that realization has sunk in for most people. Put aside the
+>>> network aspect. How many reimplementations of the GNU readline interface
+>>> are there? How many bashisms have made it into other shells?Under Oracle v.
+>>> Google, those are derivative works.
+>>>
+>>> The CAL reflects my belief - in which I would be thrilled to be wrong -
+>>> that we have already entered the world in which licenses like the CAL are
+>>> necessary, and that the CAL only reflects the law as it has been revealed
+>>> to be.
+>>>
+>>> Thanks,
+>>> Van
+>>>
+>>>
+>>>
+>>>
+>>> __________________________
+>>> Van Lindberg
+>>> van.lindberg at gmail.com
+>>> m: 214.364.7985
+>>>
+>>>
+>>>
+>>>> I've been saying this for years - that Oracle v. Google has the
+>>>> possibility of fundamentally changing open source law. While many on this
+>>>> list get it, I don't think that realization has sink in most places. For
+>>>> example, put aside the network aspect. How many reimplementations of the
+>>>> GNU readline interface ate there?
+>>>>
+>>>>
+>>>> __________________________
+>>>> Van Lindberg
+>>>> van.lindberg at gmail.com
+>>>> m: 214.364.7985
+>>>>
+>>>>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190430/ffd7dc9b/attachment.html>
+
+From pamela at chesteklegal.com  Wed May  1 12:59:57 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Wed, 1 May 2019 08:59:57 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZEO8_HUgVjjPvZKybyTmLEFCFvZ_dEy0gtKSioNP7_n3Sg@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com> <CAK2MWOvixGJq73w4Uu0J1hTMGtHuAp3BVYNFBDswEZ0_eu_kNQ@mail.gmail.com> <CAK2MWOsgforA9bZGtE20SqKNufFQ9Vahby9pX9w9aRe6h2PDnQ@mail.gmail.com> <CAK2MWOtu=mz97LAmRvTfHcawkpO1iMVkpgpNJRA=XyD1HGbmCg@mail.gmail.com> <2D52F7EE739F8542A700CAB96276B5198B0F07A9@fmsmsx117.amr.corp.intel.com> <CAK2MWOuuxq7WaYzZr-7bnb09N2nUCFgs0RpcGxBaNHCoOKgmuw@mail.gmail.com> <a868f40f-9ea9-b93d-bee0-f6847f5904b7@chesteklegal.com> <CAC1cPGw_osifivuxpA=5ty8x_EaYE_KCah7euXA_Gv5rQfOr6Q@mail.gmail.com> <CAK2MWOsQyS0q5QjLTfp2GEY9pN28QxjZnDbEc22af_U6Jsq6BQ@mail.gmail.com> <CAFQvZEO8_HUgVjjPvZKybyTmLEFCFvZ_dEy0gtKSioNP7_n3Sg@mail.gmail.com>
+Message-ID: <f43cd30d-1eda-92bc-d6c6-7af6aa0dc030@chesteklegal.com>
+
+
+
+On 5/1/2019 1:11 AM, VanL wrote:
+> The CAL reflects my belief - in which I would be thrilled to be wrong
+> - that we have already entered the world in which licenses like the
+> CAL are necessary, and that the CAL only reflects the law as it has
+> been revealed to be.
+>
+Then why is the right of public performance necessary? Why open this can
+of worms that has the potential effect of extending copyleft beyond its
+current boundaries and beyond boundaries that the S. Ct. might set?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+From speterso at redhat.com  Wed May  1 15:08:08 2019
+From: speterso at redhat.com (Scott Peterson)
+Date: Wed, 1 May 2019 11:08:08 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <CALORxPk4JAApCyBjx4x0_iuiPU2v6FASyZ0MibVm6xNTPD9wAQ@mail.gmail.com> <CALORxP=R0oekv-ZTzer3U9RxbeEmSMkLN_OjJ3BW7ru4_jKUEA@mail.gmail.com>
+Message-ID: <CALORxPm4M0f8GcnzT4iOW9VZZZH_Succ=xiUd020LrXOehyA=A@mail.gmail.com>
+
+It is clear to me that software does not, by interoperating with other
+software, engage in a "performance", as that term is meant in the US
+copyright law; that was never intended; and, it does not fall within the
+scope of what the statute says.
+
+The word "perform" has multiple meanings: to carry out, such as an action
+or function; to present, such as to an audience. The definition in 17 USC
+101 refers to the second of those two meanings: "To 'perform' a work means
+to recite, render, play, dance, or act it, either directly or by means of
+any device or process or, in the case of a motion picture or other
+audiovisual work, to show its images in any sequence or to make the sounds
+accompanying it audible."
+
+But, that's just my view.
+
+One might build an argument for finding such a right on the statute.
+
+Continuing to express my view: the addition of an exclusive right in "...
+making aspects of the Software, including any interfaces ... directly or
+indirectly available to the public" is most likely to be contrary to the
+interests of free and open source software.
+
+My view, of course, is not what matters, here. The OSI should consider the
+implications of endorsing a license that asserts that such a right exists.
+
+There may be benefit in having a new tool to extend the reach of copyleft.
+However, that tool comes at a cost that is shared by others -- including,
+others who seek to build software in a highly interoperable world. This
+adds a tool for those interests that prefer barriers to interoperability.
+Free software has a long history of growth by interoperating with
+proprietary software. Increasing the extent to which interoperability
+between computing systems becomes a licensing event is yet one more
+impediment to such interoperability.
+
+The proposed license demonstrates the view of some that such a right exists
+or should exist. As one license, what might its significance be? However,
+OSI's endorsement of a license that asserts the existence of such right
+will enhance the advocacy impact of that license.
+
+OSI should consider the implications of such new right.
+
+-- Scott
+
+
+On Tue, Apr 30, 2019 at 4:36 PM Scott Peterson <speterso at redhat.com> wrote:
+
+> Here is a context in which to consider my earlier comment about
+> introducing a new exclusive right for software.
+>
+> The state of copyright law as it applies to software is a shared resource.
+>
+> As with public laws generally, one copyright owner or a community of
+> developers or some other subset of those who create or use software does
+> not get to have its own version of copyright law. We all need to share.
+>
+> Actions that impact the interpretation of copyright law as it applies to
+> software ought to be considered for their impact more broadly, not only on
+> the situation that is the immediate subject of the actions.
+>
+> Of course, there is an opportunity for customization: each copyright owner
+> can offer licenses under unique terms that that copyright owner creates.
+> But, those license terms still share the underlying copyright law that
+> creates the rights being licensed. (But note that there is a shared
+> interest in interpretation of widely-used license texts. <
+> https://opensource.com/law/16/11/licenses-are-shared-resources> )
+>
+> -- Scott
+>
+>
+> On Tue, Apr 30, 2019 at 4:06 PM Scott Peterson <speterso at redhat.com>
+> wrote:
+>
+>> I arrive late to this discussion. I am sorry. I should have paid
+>> attention earlier.
+>>
+>> I have just realized that this license asserts that:
+>> "... making aspects of the Software, including any interfaces used for
+>> access to or manipulation of User Data, directly or indirectly available to

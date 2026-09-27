@@ -1,0 +1,750 @@
+
+The CAL applies when some aspect of the program itself is sent to a third
+party.
+
+So I can't say that the CAL would never apply to your widget. It depends on
+the implementation. But for your red square program, it would probably not
+apply.
+
+Thanks,
+Van
+
+
+
+
+
+__________________________
+Van Lindberg
+van.lindberg at gmail.com
+m: 214.364.7985
+
+On Sun, Aug 25, 2019, 9:12 PM VanL <van.lindberg at gmail.com> wrote:
+
+> Hi Pam,
+>
+> You are interpreting the CAL beyond where it would go. In particular:
+>
+> Assume I downloaded code to my web server that creates a display on my
+>> website, a red square. It was easy for me to install, I just went to
+>> WordPress Plugins and, voila! I do not distribute any code to the viewer
+>> of my website, no Javascript, nothing. It is just displayed on my
+>> website.
+>
+>
+> The key question is whether this red square is part of the expression of
+> the downloaded code, and if that expression is sent to your website visitor.
+>
+> If the red square is just the output of the code, then you don't need to
+> do anything. The CAL does not impose any restrictions on you whatsoever.
+>
+> If you send "red square generating code" to your website visitor, then the
+> CAL requires you to provide source code.
+>
+> This is actually identical to what you would be required to do under the
+> vanilla GPL.
+>
+> Also, work regard to my comments about the AGPL: I am simply commenting on
+> interpretations I have seen in the wild.
+>
+> For example:
+> https://github.com/algorand/go-algorand/blob/master/COPYING_FAQ
+>
+> Thanks,
+> Van
+>
+>
+>
+>
+>>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190825/b73924a9/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Mon Aug 26 09:04:53 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Mon, 26 Aug 2019 12:04:53 +0300
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <3f205b0b-86b4-d7e8-b41e-d1a1ed6a709e@chesteklegal.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAKHykevbYeSG7Wo5P5GTHZ7fu2az1_0EToOFwwJm-Nnk7AZSxA@mail.gmail.com> <d6440d72-148b-8ac3-60ad-c2ef6aa16cf2@chesteklegal.com> <CAKHykevh0dbOHVBOJPk8FjES_FZdnMzUP7aSmDZWxqwQL9UjjQ@mail.gmail.com> <3f205b0b-86b4-d7e8-b41e-d1a1ed6a709e@chesteklegal.com>
+Message-ID: <CAKHykevpMc1qZ7Ao+zYQP75JKp-BNK=WLA76_9va2fpepW4evQ@mail.gmail.com>
+
+On Sun, Aug 25, 2019 at 10:38 PM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+>
+> Assume I downloaded code to my web server that creates a display on my
+> website, a red square. It was easy for me to install, I just went to
+> WordPress Plugins and, voila! I do not distribute any code to the viewer
+> of my website, no Javascript, nothing. It is just displayed on my
+> website. (Maybe that's not a realistic hypothetical, I don't know - does
+> everything have Javascript?)
+
+
+As Bruce clarified, a Wordpress plugin is still likely to send some
+fragments of HTML and CSS that may be part of the copyrightable work. But I
+understand your intent. Let's say the server side code really produces a
+red PNG image that is 100% generated, definitively not copyrightable (or at
+least a separate work, let's leave it at that), and you include this red
+square on your web page.
+
+
+
+
+> Under the CAL, just because when you look
+> at my website you see the red square, I have to provide the source code,
+> the attribution, the license, etc. So I have to figure out how to make
+> that all happen on my website when all I know how to do is download
+> plugins because I'm a duffer.
+>
+> My point is this is well beyond the AGPL. For the AGPL, two more things
+> have to happen before I have to provide the source code, I have to have
+> modified the code and a user has to be able to interact with the
+> program. For those who think that the AGPL is too far, or the outermost
+> appropriate reach for copyleft, the CAL is beyond that.
+>
+>
+WRT AGPL I disagree on the first point. In my opinion the AGPL does apply
+to the red square. It is a user interface element and it was sent to your
+browser over the network, and you interacted with the server using HTTP. If
+you successfully argue that I have not interacted with the server side
+program over the network, then this is a loophole in the AGPL, not a
+desired property. (And yes, it is a real weakness of the AGPL. This is why
+we need alternatives.)
+
+The only reason the AGPL doesn't cause any legal obligation to you is the
+phrase "if you modify the Program", which you haven't.
+
+Wrt the CAL, I think there are 2 issues here:
+
+1. You are responsible for source availability even when using the
+unmodified software. It seems to me this is not a fundamental requirement
+for Van and it's possible to relax it.
+
+2. You are responsible to fulfill obligations wrt user data. This is the
+fundamental idea of this license. I've explored ideas on license-discuss to
+implement this more analogously to AGPL, to be more friendly to use of
+unmodified software. It was a good discussions but I'm not sure my
+alternatives were preferable. For my part I welcome more discussion and
+better ideas.
+
+The idea to not encumber (naive) users of unmodified versions  is a
+worthwhile discussion to have. But I also wouldn't want to overdo it. It is
+certainly within the spirit of (network) copyleft that you as the creator
+of the website may have obligations toward your viewers/users, and
+ignorance doesn't absolve you. Also, it is not at all unlikely that even
+the duffer makes some trivial modifications to the source - this is the
+miracle of open source after all! For example, you may be capable of
+finding the word "red" and changing it to "green" and now you have modified
+the program. We should note that ?4.2 seems fairly flexible wrt the time it
+may take for the duffer to fulfill his obligations, and in any case there
+is a 60 day general grace period to come into compliance. So these
+requirements seem very reasonable to me at least, as we are securing
+freedom for users of the website.
+
+The example I find more interesting would be users that download an
+unmodified app to their laptops and phones. From a user experience point of
+view, this is private use. But if it is a peer-to-peer app - which is what
+CAL is designed for - then the app is in fact acting behind the users back
+as a network server and receiving data from other users. Here it seems the
+users are rightfully unsuspecting and shouldn't be burdened with the
+obligations of a SaaS vendor. (Both 1 and 2 apply.)
+
+
+For completeness, I'll repeat myself with:
+
+3. If I manually create an identical red PNG file for my website, it seems
+the CAL is claiming that I'm now infringing on your website. This is
+obviously absurd, yet that's what those words seem to say.
+
+henrik
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190826/7114d5ea/attachment-0001.html>
+
+From pamela at chesteklegal.com  Mon Aug 26 13:04:56 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Mon, 26 Aug 2019 09:04:56 -0400
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAFQvZEMXbuf9YA2qo+puJZePUCfn_A80ZAqOf1cXTa+YtGz6Fg@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAKHykevbYeSG7Wo5P5GTHZ7fu2az1_0EToOFwwJm-Nnk7AZSxA@mail.gmail.com> <d6440d72-148b-8ac3-60ad-c2ef6aa16cf2@chesteklegal.com> <CAKHykevh0dbOHVBOJPk8FjES_FZdnMzUP7aSmDZWxqwQL9UjjQ@mail.gmail.com> <3f205b0b-86b4-d7e8-b41e-d1a1ed6a709e@chesteklegal.com> <CAFQvZEMXbuf9YA2qo+puJZePUCfn_A80ZAqOf1cXTa+YtGz6Fg@mail.gmail.com>
+Message-ID: <bbe87a57-6fe2-7b6d-a8e2-635ecb8630ca@chesteklegal.com>
+
+Combining your two emails.
+
+On 8/25/2019 10:12 PM, VanL wrote:
+> Hi Pam,
+>
+> You are interpreting the CAL beyond where it would go. In particular:
+>
+>     Assume I downloaded code to my web server that creates a display on my
+>     website, a red square. It was easy for me to install, I just went to
+>     WordPress Plugins and, voila! I do not distribute any code to the
+>     viewer
+>     of my website, no Javascript, nothing. It is just displayed on my
+>     website.
+>
+>
+> The key question is whether this red square is part of the expression
+> of the downloaded code, and if that expression is sent to your website
+> visitor.
+>
+> If the red square is just the output of the code, then you don't need
+> to do anything. The CAL does not impose any restrictions on you
+> whatsoever.
+>
+> If you send "red square generating code" to your website visitor, then
+> the CAL requires you to provide source code.
+>
+> This is actually identical to what you would be required to do under
+> the vanilla GPL.
+>
+> Also, work regard to my comments about the AGPL: I am simply
+> commenting on interpretations I have seen in the wild.
+>
+> For example:?
+> https://github.com/algorand/go-algorand/blob/master/COPYING_FAQ
+>
+>
+>
+>
+and
+
+> Reading again, I think I need to further develop this point.
+>
+> Under most circumstances, the CAL would not reach the output of a
+> program. For example, if you had an image generator program (like your
+> red square) the CAL would not apply to the output. If you had a CAL
+> licensed Emacs, the CAL would not apply to the programs you wrote.
+>
+> The CAL applies when some aspect of the program itself is sent to a
+> third party.?
+>
+> So I can't say that the CAL would never apply to your widget. It
+> depends on the implementation. But for your red square program, it
+> would probably not apply.
+
+You have described "distributing." What, then, do "displaying,"
+"communicating," or "making perceptible" "any part, aspect, or element
+of the Work" mean if they don't mean simply having a red square show up
+on my website? If I have CAL-licensed code that provides instructions
+for creating a red square on a web page, how is that not "making
+perceptible" the Work?
+
+Have you forgone your theory that making an API available is
+"displaying," "communicating," or "making perceptible" "any part,
+aspect, or element of the Work"? No one is getting the literal code
+there either.? Why is the display of a red square not just an
+abstraction of the literal code in the same way an API is?
+
+More importantly, why do you think a court would necessarily exclude it
+as a possible interpretation? For starters, I am only stating the view
+of the U.S. Copyright Office: "As a general rule, a computer program and
+the screen displays generated by that program are considered the same
+work, because the program code contains fixed expression that produces
+the screen displays." Copyright Compendium ? 721.10(A).
+
+I was referring to your position that installation and configuration of
+software creates a derivative work. I don't disagree with you that it's
+a plausible argument that copyleft can reach new implementations of your
+API under the CAL or the GPL.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190826/52aa756f/attachment.html>
+
+From van.lindberg at gmail.com  Mon Aug 26 14:09:20 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Mon, 26 Aug 2019 09:09:20 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <bbe87a57-6fe2-7b6d-a8e2-635ecb8630ca@chesteklegal.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAKHykevbYeSG7Wo5P5GTHZ7fu2az1_0EToOFwwJm-Nnk7AZSxA@mail.gmail.com> <d6440d72-148b-8ac3-60ad-c2ef6aa16cf2@chesteklegal.com> <CAKHykevh0dbOHVBOJPk8FjES_FZdnMzUP7aSmDZWxqwQL9UjjQ@mail.gmail.com> <3f205b0b-86b4-d7e8-b41e-d1a1ed6a709e@chesteklegal.com> <CAFQvZEMXbuf9YA2qo+puJZePUCfn_A80ZAqOf1cXTa+YtGz6Fg@mail.gmail.com> <bbe87a57-6fe2-7b6d-a8e2-635ecb8630ca@chesteklegal.com>
+Message-ID: <CAFQvZEObwCRL-EE_Gy_vxQPSz6FQPCWFM8PmyXbpfEatFTfN5g@mail.gmail.com>
+
+Hi Pam,
+
+[snip discussion]
+
+I think it really gets down to the implementation. I think my problem - at
+least in part - that I hear your description of a plugin and I mentally
+fill in a bunch of presumed technical details. I try to engage fairly with
+the hypothetical, but I think that I get too caught up in details that are
+truly not present in the hypothetical.
+
+I have to fall back on what I said before: It is impossible to say in the
+general case. Could your red square plugin result in obligations under the
+CAL? Yes. Would every implementation of "red square" result in obligations
+under the CAL? No.
+
+There are corner cases in copyleft licenses. For a network copyleft
+license, it is not surprising that there are corner cases involve network
+interactions.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190826/d5665a19/attachment.html>
+
+From lrosen at rosenlaw.com  Mon Aug 26 15:00:39 2019
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Mon, 26 Aug 2019 08:00:39 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <bbe87a57-6fe2-7b6d-a8e2-635ecb8630ca@chesteklegal.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAKHykevbYeSG7Wo5P5GTHZ7fu2az1_0EToOFwwJm-Nnk7AZSxA@mail.gmail.com> <d6440d72-148b-8ac3-60ad-c2ef6aa16cf2@chesteklegal.com> <CAKHykevh0dbOHVBOJPk8FjES_FZdnMzUP7aSmDZWxqwQL9UjjQ@mail.gmail.com> <3f205b0b-86b4-d7e8-b41e-d1a1ed6a709e@chesteklegal.com> <CAFQvZEMXbuf9YA2qo+puJZePUCfn_A80ZAqOf1cXTa+YtGz6Fg@mail.gmail.com> <bbe87a57-6fe2-7b6d-a8e2-635ecb8630ca@chesteklegal .com>
+Message-ID: <004b01d55c1f$07916b90$16b442b0$@rosenlaw.com>
+
+Pam Chestek wrote:
+
+> More importantly, why do you think a court would necessarily exclude it as a possible interpretation? For starters, I am only stating the view of the U.S. Copyright Office: "As a general rule, a computer program and the screen displays generated by that program are considered the same work, because the program code contains fixed expression that produces the screen displays." Copyright Compendium ? 721.10(A). 
+
+
+
+Pam, now I am confused by you and by the Copyright Office. Forget CAL and forget AGPL. If a normal GPL program on your computer causes my computer to display a red square, have you distributed your GPL program to my computer? That sounds like a real reach for copyleft, even for a sophisticated API that makes computers do things. I now worry about that so-called "general rule" for GPL email programs! 
+ 
+
+I think Van's description of network interaction is much more logical and much less frightening about overreach of copyleft. Distributing the code is what counts, not distributing the data or the output. /Larry
+ 
+
+From: License-review <license-review-bounces at lists.opensource.org> On Behalf Of Pamela Chestek
+Sent: Monday, August 26, 2019 6:05 AM
+To: license-review at lists.opensource.org
+Subject: Re: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+ 
+
+Combining your two emails.
+
+On 8/25/2019 10:12 PM, VanL wrote:
+
+Hi Pam, 
+ 
+
+You are interpreting the CAL beyond where it would go. In particular:
+
+Assume I downloaded code to my web server that creates a display on my
+website, a red square. It was easy for me to install, I just went to
+WordPress Plugins and, voila! I do not distribute any code to the viewer
+of my website, no Javascript, nothing. It is just displayed on my
+website.
+ 
+
+The key question is whether this red square is part of the expression of the downloaded code, and if that expression is sent to your website visitor.
+ 
+
+If the red square is just the output of the code, then you don't need to do anything. The CAL does not impose any restrictions on you whatsoever.
+ 
+
+If you send "red square generating code" to your website visitor, then the CAL requires you to provide source code.
+ 
+
+This is actually identical to what you would be required to do under the vanilla GPL.
+ 
+
+Also, work regard to my comments about the AGPL: I am simply commenting on interpretations I have seen in the wild.
+ 
+
+For example: 
+
+https://github.com/algorand/go-algorand/blob/master/COPYING_FAQ
+ 
+ 
+ 
+ 
+
+and 
+
+
+
+
+Reading again, I think I need to further develop this point. 
+ 
+
+Under most circumstances, the CAL would not reach the output of a program. For example, if you had an image generator program (like your red square) the CAL would not apply to the output. If you had a CAL licensed Emacs, the CAL would not apply to the programs you wrote.
+ 
+
+The CAL applies when some aspect of the program itself is sent to a third party. 
+ 
+
+So I can't say that the CAL would never apply to your widget. It depends on the implementation. But for your red square program, it would probably not apply.
+
+
+You have described "distributing." What, then, do "displaying," "communicating," or "making perceptible" "any part, aspect, or element of the Work" mean if they don't mean simply having a red square show up on my website? If I have CAL-licensed code that provides instructions for creating a red square on a web page, how is that not "making perceptible" the Work? 
+
+Have you forgone your theory that making an API available is "displaying," "communicating," or "making perceptible" "any part, aspect, or element of the Work"? No one is getting the literal code there either.  Why is the display of a red square not just an abstraction of the literal code in the same way an API is? 
+
+More importantly, why do you think a court would necessarily exclude it as a possible More importantly, why do you think a court would necessarily exclude it as a possible interpretation? For starters, I am only stating the view of the U.S. Copyright Office: "As a general rule, a computer program and the screen displays generated by that program are considered the same work, because the program code contains fixed expression that produces the screen displays." Copyright Compendium ? 721.10(A). 
+interpretation? For starters, I am only stating the view of the U.S. Copyright Office: "As a general rule, a computer program and the screen displays generated by that program are considered the same work, because the program code contains fixed expression that produces the screen displays." Copyright Compendium ? 721.10(A). 
+
+I was referring to your position that installation and configuration of software creates a derivative work. I don't disagree with you that it's a plausible argument that copyleft can reach new implementations of your API under the CAL or the GPL.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com <mailto:pamela at chesteklegal.com> 
+www.chesteklegal.com <http://www.chesteklegal.com> 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190826/48a6a6a9/attachment-0001.html>
+
+From henrik.ingo at avoinelama.fi  Mon Aug 26 15:28:39 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Mon, 26 Aug 2019 18:28:39 +0300
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <004b01d55c1f$07916b90$16b442b0$@rosenlaw.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAKHykevbYeSG7Wo5P5GTHZ7fu2az1_0EToOFwwJm-Nnk7AZSxA@mail.gmail.com> <d6440d72-148b-8ac3-60ad-c2ef6aa16cf2@chesteklegal.com> <CAKHykevh0dbOHVBOJPk8FjES_FZdnMzUP7aSmDZWxqwQL9UjjQ@mail.gmail.com> <3f205b0b-86b4-d7e8-b41e-d1a1ed6a709e@chesteklegal.com> <CAFQvZEMXbuf9YA2qo+puJZePUCfn_A80ZAqOf1cXTa+YtGz6Fg@mail.gmail.com> <bbe87a57-6fe2-7b6d-a8e2-635ecb8630ca@chesteklegal.com> <004b01d55c1f$07916b90$16b442b0$@rosenlaw.com>
+Message-ID: <CAKHyket+93r6GxJRvXpMHJDYLb8yObkc-uY08CZ5a8YvY1gz9Q@mail.gmail.com>
+
+On Mon, Aug 26, 2019 at 6:13 PM Lawrence Rosen <lrosen at rosenlaw.com> wrote:
+
+> Pam Chestek wrote:
+>
+> > More importantly, why do you think a court would necessarily exclude it
+> as a possible interpretation? For starters, I am only stating the view of
+> the U.S. Copyright Office: "As a general rule, a computer program and the
+> screen displays generated by that program are considered the same work,
+> because the program code contains fixed expression that produces the screen
+> displays." Copyright Compendium ? 721.10(A).
+>
+> Pam, now I am confused by you and by the Copyright Office. Forget CAL and
+> forget AGPL. If a normal GPL program on *your* computer causes *my*
+> computer to display a red square, have you distributed *your* GPL program
+> to *my* computer? That sounds like a real reach for copyleft, even for a
+> sophisticated API that makes computers do things. I now worry about that
+> so-called "general rule" for GPL email programs!
+>
+>
+Why should it matter whether there are 1 or 2 computers involved? What if I
+have 1 computer but two screens? What if my screen is a video projector and
+I beam the user interface into your office through the window? What if, in
+your example your computer displays a red square because you opened an X
+session to Pam's computer?
+
+Typically it's not difficult to know what is the user interface of a
+program, including a web app. It's also not difficult to know that data
+such as email content is not that.
+
+henrik
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190826/7e9ee983/attachment.html>
+
+From pamela at chesteklegal.com  Mon Aug 26 15:58:23 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Mon, 26 Aug 2019 11:58:23 -0400
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <004b01d55c1f$07916b90$16b442b0$@rosenlaw.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAKHykevbYeSG7Wo5P5GTHZ7fu2az1_0EToOFwwJm-Nnk7AZSxA@mail.gmail.com> <d6440d72-148b-8ac3-60ad-c2ef6aa16cf2@chesteklegal.com> <CAKHykevh0dbOHVBOJPk8FjES_FZdnMzUP7aSmDZWxqwQL9UjjQ@mail.gmail.com> <3f205b0b-86b4-d7e8-b41e-d1a1ed6a709e@chesteklegal.com> <CAFQvZEMXbuf9YA2qo+puJZePUCfn_A80ZAqOf1cXTa+YtGz6Fg@mail.gmail.com> <bbe87a57-6fe2-7b6d-a8e2-635ecb8630ca@chesteklegal .com> <004b01d55c1f$07916b90$16b442b0$@rosenlaw.com>
+Message-ID: <81a50cc0-15e3-3bf0-bafd-501d208b8b8a@chesteklegal.com>
+
+
+On 8/26/2019 11:00 AM, Lawrence Rosen wrote:
+> Pam, now I am confused by you and by the Copyright Office. Forget CAL
+> and forget AGPL. If a normal GPL program on _your_ computer causes
+> _my_ computer to display a red square, have you distributed _your_ GPL
+> program to _my_ computer? That sounds like a real reach for copyleft,
+> even for a sophisticated API that makes computers do things. I now
+> worry about that so-called "general rule" for GPL email programs! 
+
+No, I haven't distributed it, I have only displayed it. The
+copyleft/source code requirements of GPL are implicated on distribution,
+not on display. It's not an issue under the GPL.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190826/5124e1d9/attachment.html>
+
+From lrosen at rosenlaw.com  Wed Aug 28 01:14:21 2019
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Tue, 27 Aug 2019 18:14:21 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <81a50cc0-15e3-3bf0-bafd-501d208b8b8a@chesteklegal.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAKHykevbYeSG7Wo5P5GTHZ7fu2az1_0EToOFwwJm-Nnk7AZSxA@mail.gmail.com> <d6440d72-148b-8ac3-60ad-c2ef6aa16cf2@chesteklegal.com> <CAKHykevh0dbOHVBOJPk8FjES_FZdnMzUP7aSmDZWxqwQL9UjjQ@mail.gmail.com> <3f205b0b-86b4-d7e8-b41e-d1a1ed6a709e@chesteklegal.com> <CAFQvZEMXbuf9YA2qo+puJZePUCfn_A80ZAqOf1cXTa+YtGz6Fg@mail.gmail.com> <bbe87a57-6fe2-7b6d-a8e2-635ecb8630ca@chesteklegal .com> <004b01d55c1f$07916b90$16b442b0$@rosenlaw.c om> <81a50cc0-15e3-3bf 0-bafd-501d208b8b8a@chesteklegal.com>
+Message-ID: <018301d55d3d$f0be9df0$d23bd9d0$@rosenlaw.com>
+
+Pam Chestek wrote:
+> The copyleft/source code requirements of GPL are implicated on distribution, not on display. It's not an issue under the GPL.
+ 
+
+Pam, I remain confused. Perhaps I have not read and understood clearly the recent flood of emails about CPL. How does a display of code differ from a distribution of code? These are both distributions. Neither of those alternatives have anything to do with the display of a red box on your screen, unless you received code to display a red box rather than an order to use your own code to do the display.
+ 
+
+I addressed this issue in OSL 3.0, which also deals with network distribution. The mere distribution of the result of a program or the data used to create that result does not create a distribution of the program itself. Is CPL different? 
+ 
+
+As I understand it, open source has to do with distribution of software, not distribution of other things. The apparent requirement of CPL that a recipient of software must also receive his/her own data that he/she provided to run that software is a license condition that apparently also must be met. That by itself isn't copyleft, merely a (perhaps reasonable) license burden.
+ 
+
+Am I still confused? Van and you, please help me understand. 
+ 
+
+/Larry
+ 
+ 
+
+From: License-review <license-review-bounces at lists.opensource.org> On Behalf Of Pamela Chestek
+Sent: Monday, August 26, 2019 8:58 AM
+To: license-review at lists.opensource.org
+Subject: Re: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+ 
+ 
+
+On 8/26/2019 11:00 AM, Lawrence Rosen wrote:
+
+Pam, now I am confused by you and by the Copyright Office. Forget CAL and forget AGPL. If a normal GPL program on your computer causes my computer to display a red square, have you distributed your GPL program to my computer? That sounds like a real reach for copyleft, even for a sophisticated API that makes computers do things. I now worry about that so-called "general rule" for GPL email programs! 
+
+
+No, I haven't distributed it, I have only displayed it. The copyleft/source code requirements of GPL are implicated on distribution, not on display. It's not an issue under the GPL.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com <mailto:pamela at chesteklegal.com> 
+www.chesteklegal.com <http://www.chesteklegal.com> 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190827/9a009b4d/attachment.html>
+
+From van.lindberg at gmail.com  Wed Aug 28 12:40:51 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Wed, 28 Aug 2019 07:40:51 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <018301d55d3d$f0be9df0$d23bd9d0$@rosenlaw.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAKHykevbYeSG7Wo5P5GTHZ7fu2az1_0EToOFwwJm-Nnk7AZSxA@mail.gmail.com> <d6440d72-148b-8ac3-60ad-c2ef6aa16cf2@chesteklegal.com> <CAKHykevh0dbOHVBOJPk8FjES_FZdnMzUP7aSmDZWxqwQL9UjjQ@mail.gmail.com> <3f205b0b-86b4-d7e8-b41e-d1a1ed6a709e@chesteklegal.com> <CAFQvZEMXbuf9YA2qo+puJZePUCfn_A80ZAqOf1cXTa+YtGz6Fg@mail.gmail.com> <81a50cc0-15e3-3bf0-bafd-501d208b8b8a@chesteklegal.com> <018301d55d3d$f0be9df0$d23bd9d0$@rosenlaw.com>
+Message-ID: <CAFQvZEPCby0T8R2qsJxRHt8bPs0ZWWavCaEJv5Me_cVFL8gyBA@mail.gmail.com>
+
+Hi Larry,
+
+I don't think you are confused. The issue is that the hypothetical is
+underspecified. To make a determination as to whether/how the CAL would
+apply, a person needs to assume implementation details that are not given.
+Thus, for the "red square" plugin, it is both possible that the CAL would
+give rise to obligations, and possible that it would not; it depends on the
+technical details of what exactly is happening.
+
+Thanks,
+Van
+
+
+On Tue, Aug 27, 2019 at 8:15 PM Lawrence Rosen <lrosen at rosenlaw.com> wrote:
+
+> Pam Chestek wrote:
+> > The copyleft/source code requirements of GPL are implicated on
+> distribution, not on display. It's not an issue under the GPL.
+>
+>
+>
+> Pam, I remain confused. Perhaps I have not read and understood clearly the
+> recent flood of emails about CPL. How does a display of code differ from a
+> distribution of code? These are both distributions. Neither of those
+> alternatives have anything to do with the display of a red box on your
+> screen, unless you received *code* to display a red box rather than an *order
+> to use your own code* to do the display.
+>
+>
+>
+> I addressed this issue in OSL 3.0, which also deals with network
+> distribution. The mere distribution of the *result* of a program or the
+> *data* used to create that result* does not create a distribution of the
+> program itself.* Is CPL different?
+>
+>
+>
+> As I understand it, open source has to do with distribution of software,
+> not distribution of other things. The apparent requirement of CPL that a
+> recipient of software must also receive his/her own data that he/she
+> provided to run that software is a license condition that apparently also
+> must be met. That by itself isn't copyleft, merely a (perhaps reasonable)
+> license burden.
+>
+>
+>
+> Am I still confused? Van and you, please help me understand.
+>
+>
+>
+> /Larry
+>
+>
+>
+>
+>
+> *From:* License-review <license-review-bounces at lists.opensource.org> *On
+> Behalf Of *Pamela Chestek
+> *Sent:* Monday, August 26, 2019 8:58 AM
+> *To:* license-review at lists.opensource.org
+> *Subject:* Re: [License-review] For approval: The Cryptographic Autonomy
+> License (Beta 2)
+>
+>
+>
+>
+>
+> On 8/26/2019 11:00 AM, Lawrence Rosen wrote:
+>
+> Pam, now I am confused by you and by the Copyright Office. Forget CAL and
+> forget AGPL. If a normal GPL program on *your* computer causes *my*
+> computer to display a red square, have you distributed *your* GPL program
+> to *my* computer? That sounds like a real reach for copyleft, even for a
+> sophisticated API that makes computers do things. I now worry about that
+> so-called "general rule" for GPL email programs!
+>
+>
+> No, I haven't distributed it, I have only displayed it. The
+> copyleft/source code requirements of GPL are implicated on distribution,
+> not on display. It's not an issue under the GPL.
+>
+> Pam
+>
+> Pamela S. Chestek
+> Chestek Legal
+> PO Box 2492
+> Raleigh, NC 27602
+> 919-800-8033
+> pamela at chesteklegal.com
+> www.chesteklegal.com
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190828/5544a35c/attachment.html>
+
+From pamela at chesteklegal.com  Wed Aug 28 15:45:25 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Wed, 28 Aug 2019 11:45:25 -0400
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <018301d55d3d$f0be9df0$d23bd9d0$@rosenlaw.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <1bc50f55-0337-ae9d-7f98-4aff97678288@chesteklegal.com> <CAKHykevbYeSG7Wo5P5GTHZ7fu2az1_0EToOFwwJm-Nnk7AZSxA@mail.gmail.com> <d6440d72-148b-8ac3-60ad-c2ef6aa16cf2@chesteklegal.com> <CAKHykevh0dbOHVBOJPk8FjES_FZdnMzUP7aSmDZWxqwQL9UjjQ@mail.gmail.com> <3f205b0b-86b4-d7e8-b41e-d1a1ed6a709e@chesteklegal.com> <CAFQvZEMXbuf9YA2qo+puJZePUCfn_A80ZAqOf1cXTa+YtGz6Fg@mail.gmail.com> <bbe87a57-6fe2-7b6d-a8e2-635ecb8630ca@chesteklegal .com> <004b01d55c1f$07916b90$16b442b0$@rosenlaw.c om> <81a50cc0-15e3-3bf 0-bafd-501d208b8b8a@chesteklegal.com> <018301d55d3d$f0be9df0$d23bd9d0$@rosenlaw.com>
+Message-ID: <f92191c2-8282-81f4-cffe-7fdcae0f04d7@chesteklegal.com>
+
+On 8/27/2019 9:14 PM, Lawrence Rosen wrote:
+>
+> Pam Chestek wrote:
+> > The copyleft/source code requirements of GPL are implicated on
+> distribution, not on display. It's not an issue under the GPL.
+>
+> ?
+>
+> Pam, I remain confused. Perhaps I have not read and understood clearly
+> the recent flood of emails about CPL. How does a display of code
+> differ from a distribution of code? These are both distributions.
+> Neither of those alternatives have anything to do with the display of
+> a red box on your screen, unless you received _code_ to display a red
+> box rather than an _order to use your own code_ to do the display.
+>
+You've misidentified the copyrighted work. The statutory term is
+"computer program." You are describing it as limited to the code, but
+the Copyright Office's view is that the screen displays are part of the
+"computer program." Your distinction between the literal code on your
+end and the instructions it sends to render a display is not one the
+Copyright Office currently agrees with. I receive information generated
+by your computer program that tells my computer, acting as a remote
+terminal, what will appear on the screen. I have not received a tangible
+copy of the computer program, so there is no distribution, but there has
+been a display of the computer program. If you want to argue that the
+Copyright Office's view on screen displays also means the software has
+bee distributed, and therefore the requirements of the GPL must be met,
+we can go there.
+
+Let's move to the proprietary world for a moment. I have given you a
+copy of a computer program with a browser-based graphical user
+interface. I have licensed it to you for your sole use on a single
+computer. You install it on a server and make it available to the world.
+I hope we agree that there is a breach of the license that results in a
+claim of copyright infringement. What is the infringed right? It's not
+the rights of reproduction (you made the one copy you were licensed to
+make) or distribution (because the public, interacting through a
+browser, doesn't ever get a copy of the computer program). Public
+performance? Possibly. Why is inconceivable that it's an infringement of
+the right of display? Remote viewing, including on computers, is exactly
+what the drafters of the Copyright Act of 1976 were thinking about when
+they added display as an exclusive right of an author:
+
+"Since ? 1961, we have become increasingly aware of the enormous
+potential importance of showing, rather than distributing, copies as a
+means of disseminating an author's work. In addition to improved
+projection equipment, the use of closed- and open-circuit television for
+presenting images of graphic and textual material to large audiences of
+spectators could, in the near future, have drastic effects upon
+copyright owners' rights. Equally if not more significant for the future
+are the implications of information storage and retrieval devices; when
+linked together by communications satellites or other means, these could
+eventually provide libraries and individuals throughout the world with
+access to a single copy of a work by transmission of electronic images.
+It is not inconceivable that, in certain areas at least, 'exhibition'
+may take over from 'reproduction' of 'copies' as the means of presenting
+authors' works to the public, and we are now convinced that a basic
+right of public exhibition should be expressly recognized in the statute."
+
+Supplementary Report of the Register of Copyrights on the General
+Revision of the U.S. Copyright Law: 1965 Revision Bill, 89th Cong., 1st
+Sess. 20 to 21 (House Comm. Print 1965).
+>
+> ?
+>
+> I addressed this issue in OSL 3.0, which also deals with network
+> distribution. The mere distribution of the _result_ of a program or
+> the _data_ used to create that result_does not create a distribution
+> of the program itself._ Is CPL different?
+>
+I don't see what you're referring to in the OSL, but what you've
+described is a situation where you have simply defined "distribution" in
+a way that may differ from the legal meaning in the Copyright Act, as
+you are perfectly free to do. Nothing is coming to mind in the CAL as
+defining terms differently from their meaning under the copyright law of
+the enforcing jurisdiction. As an aside though, if the meaning of
+"distribution" was clear under copyright law, why would you need to add
+any proviso about it?
+
+What is different about the CAL and the OSL is that the OSL only imposes
+obligations on exercise of one of the exclusive rights of authors, the
+right to create derivative works (1(c), 6). The GPL only imposed
+obligations when the exclusive right of distribution has been exercised.
+The CAL imposes obligations on the exercise of any exclusive right of an
+author ("4. Conditions. If You exercise any permission granted by this
+License ... You must comply with the following conditions ...").
+
+Pam
+

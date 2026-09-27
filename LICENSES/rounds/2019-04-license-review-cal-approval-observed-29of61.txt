@@ -1,0 +1,750 @@
+license-review at lists.opensource.org> wrote:
+
+> It seems to me that this new submission has repaired some of the more
+> trivial reasons for rejection of the license, while preserving the main one.
+>
+> #### 4.2.1. No Withholding User Data
+>
+>
+[snip]
+
+This is correct. The autonomy provisions, including the user data
+provisions, are central to the CAL.
+
+
+> While this particular submission places a very narrow limit on what data
+> must be disclosed: giving it back to "it's owner", it's obvious that it
+> could be followed by licenses regarding a more significant license term to
+> be placed on the data processed....So, I am really most concerned with the
+> precedent that this license would establish, which would lead to more
+> severe terms being applied to the data processed. And thus I suggest that
+> OSI not accept any such terms at all.
+>
+
+As you note, the CAL provisions are narrowly targeted. While I can
+appreciate the existence of slippery slopes, the OSI has proved very
+resilient to approving licenses based upon the existence of prior
+"analogous" license provisions.
+
+
+>
+> Regarding how to reject the license within the tems of the OSD: the terms
+> proposed work out to be a restriction on use. One can not use the program
+> to sequester the customer's data. Such sequestration is a strategy in the
+> implementation of software-as-a-service companies - I'm not saying that
+> it's nice, just that they do it. Thus, I believe this runs awry of OSD#6, *No
+> Discrimination Against Fields of Endeavor.*
+>
+
+Thank you for confirming your view in this respect. I would challenge this
+thinking, however, based upon the observation that there exist SaaS
+companies that provide user data for other reasons (such as Google Takeout,
+Facebook's data download, etc). Thus I submit that this is not incompatible
+with providing a SaaS service, and thus not a field of use restriction.
+
+
+
+> OSI has affirmed that it supports Software Freedom, of the specific form
+> defined by the Free Software Foundation and OSI's member the Software
+> Freedom Conservancy. Thus, the Four Freedoms of the Free Software
+> Foundation apply, and Freedom 0 is more specific to usage restrictions: *The
+> freedom to run the program as you wish, for any purpose**. *In this case,
+> the proposed terms withhold the freedom to run the program while
+> sequestering the information processed.
+>
+
+Again, thanks for your statement of the case. I submit that the private use
+provisions within the CAL are consistent with Freedom 0.
+
+
+
+> There are other problems with practical use of the license. Open Source
+> software is intended for everyone to use, not just everyone who can afford
+> an attorney and a programming staff. It thus should be the case that the
+> "naive user", who simply runs Open Source software and does not modify it,
+> should *not *need to read and understand the license, and certainly
+> should not need a lawyer to tell them how to run the program in a compliant
+> manner.
+>
+
+Partially in response to this point, the CAL has been written to be much
+simpler for a non-lawyer to understand. More specifically, however, the
+provisions of the CAL would not apply unless the user decided to become an
+operator, serving other people and providing them with aspects of the
+software.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/0af82cde/attachment-0001.html>
+
+From van.lindberg at gmail.com  Thu Aug 22 21:10:06 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 22 Aug 2019 16:10:06 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 3)
+Message-ID: <CAFQvZEPUyGfcqZDSwtvAJ92Ljb3U-Ac3ZQ7J9qOXqeHtO-JoYQ@mail.gmail.com>
+ I am withdrawing Beta 2 and substituting Beta 3. The only difference
+between the two is the addition of new provision 4.1.3:
+
+#### 4.1.3. Coordinated Disclosure of Security Vulnerabilities
+You may delay providing the Source Code corresponding to a particular
+modification of the Work for up to ninety (90) days (the ?Embargo Period?)
+if: a) the modification is intended to address a newly-identified
+vulnerability or a security flaw in the Work, b) disclosure of the
+vulnerability or security flaw before the end of the Embargo Period would
+put the data, identity, or autonomy of one or more Recipients of the Work
+at significant risk, c) You are participating in a coordinated disclosure
+of the vulnerability or security flaw with one or more additional
+Licensees, and d) the Source Code pertaining to the modification is
+provided to all Recipients at the end of the Embargo Period.
+
+All other discussion regarding CAL Beta 2 should apply. The following is
+copied from the Beta 2 submission:
+
+*Rationale:* The CAL is a new network copyleft license especially
+applicable for distributed systems. It is designed to be as protective as
+possible of downstream recipients of the software, providing them all that
+they need to create and use an independent copy of a licensed work without
+losing functionality or data.
+
+*Distinguish:* The CAL is most similar to the AGPL, and will have a similar
+scope of action in most cases. However, the CAL has provisions that require
+that operators provide recipients of the software with a copy of their user
+data, enhancing their ability to independently use the software. The CAL
+also allows the creation of mixed "Larger Works," provides for affiliate
+use, and does not specify a mechanism by which notice is given to
+recipients.
+
+*Legal Analysis*: The CAL was drafted by legal counsel. Previous
+discussions have outlined many aspects of the legal analysis.
+
+Following the rejection of CAL Beta 1, this version has been reworked to
+remove the reasons for rejection and to address the concerns that led into
+the ?further discussion? items. In particular, I worked on laying out the
+scope of the private right of use, clarifying when the conditions apply,
+and avoiding constructions that may result in adverse policy inferences. I
+also simplified the language to enhance interpretability.
+
+The most controversial aspect of the CAL remains: it requires someone who
+is communicating the software (or a part of the software) to a "Recipient"
+(a non-affiliated third party), to also allow that Recipient access to the
+Recipient's own user data. To show how this fits into the broader concept
+of software freedom, the policy associated with this requirement is also
+laid out: to allow a Recipient to fully use an independent copy of the Work
+generated from the Source Code provided with the Recipient?s own User Data.
+
+*Previous Discussion*: For those only following this list, I also provided
+a changelog on license-discuss [1] which prompted some discussion. From
+that discussion, I'll note that Russell McOrmond is on record as believing
+that the CAL is part of a class of licenses - which includes the AGPL, and
+the GPL as applied) is not compliant with the OSD. Bruce Perens is on
+record as believing the any requirements that an operator provide user data
+is a violation of "no field of use" restriction in OSD 6. Bruce is also on
+record as believing that the identification of the private right of use is
+a field of use restriction.
+
+
+[1]
+http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-August/020937.html
+
+A copy of the license (now beta 3) in markdown-formatted plaintext is
+attached.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/b4a3f2de/attachment-0001.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Cryptographic Autonomy License v1.0-Beta 3.md
+Type: application/octet-stream
+Size: 16400 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/b4a3f2de/attachment-0001.md>
+
+From van.lindberg at gmail.com  Thu Aug 22 21:12:52 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 22 Aug 2019 16:12:52 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 3)
+In-Reply-To: <CAFQvZEPUyGfcqZDSwtvAJ92Ljb3U-Ac3ZQ7J9qOXqeHtO-JoYQ@mail.gmail.com>
+References: <CAFQvZEPUyGfcqZDSwtvAJ92Ljb3U-Ac3ZQ7J9qOXqeHtO-JoYQ@mail.gmail.com>
+Message-ID: <CAFQvZENQk2O7iuPVHMTfqVT1y_gJ+7rNc=Mw5aKdhO2AkNkK6g@mail.gmail.com>
+
+Note that before final approval I may change the acceptable delay to 30,
+45, or 60 days based upon broader feedback, but would not expect to make
+any other change. (BTW, I would welcome feedback on that aspect on the
+license-discuss list.)
+
+Thanks,
+Van
+
+On Thu, Aug 22, 2019 at 4:10 PM VanL <van.lindberg at gmail.com> wrote:
+
+> I am withdrawing Beta 2 and substituting Beta 3. The only difference
+> between the two is the addition of new provision 4.1.3:
+>
+> #### 4.1.3. Coordinated Disclosure of Security Vulnerabilities
+> You may delay providing the Source Code corresponding to a particular
+> modification of the Work for up to ninety (90) days (the ?Embargo Period?)
+> if: a) the modification is intended to address a newly-identified
+> vulnerability or a security flaw in the Work, b) disclosure of the
+> vulnerability or security flaw before the end of the Embargo Period would
+> put the data, identity, or autonomy of one or more Recipients of the Work
+> at significant risk, c) You are participating in a coordinated disclosure
+> of the vulnerability or security flaw with one or more additional
+> Licensees, and d) the Source Code pertaining to the modification is
+> provided to all Recipients at the end of the Embargo Period.
+>
+> All other discussion regarding CAL Beta 2 should apply. The following is
+> copied from the Beta 2 submission:
+>
+> *Rationale:* The CAL is a new network copyleft license especially
+> applicable for distributed systems. It is designed to be as protective as
+> possible of downstream recipients of the software, providing them all that
+> they need to create and use an independent copy of a licensed work without
+> losing functionality or data.
+>
+> *Distinguish:* The CAL is most similar to the AGPL, and will have a
+> similar scope of action in most cases. However, the CAL has provisions that
+> require that operators provide recipients of the software with a copy of
+> their user data, enhancing their ability to independently use the software.
+> The CAL also allows the creation of mixed "Larger Works," provides for
+> affiliate use, and does not specify a mechanism by which notice is given to
+> recipients.
+>
+> *Legal Analysis*: The CAL was drafted by legal counsel. Previous
+> discussions have outlined many aspects of the legal analysis.
+>
+> Following the rejection of CAL Beta 1, this version has been reworked to
+> remove the reasons for rejection and to address the concerns that led into
+> the ?further discussion? items. In particular, I worked on laying out the
+> scope of the private right of use, clarifying when the conditions apply,
+> and avoiding constructions that may result in adverse policy inferences. I
+> also simplified the language to enhance interpretability.
+>
+> The most controversial aspect of the CAL remains: it requires someone who
+> is communicating the software (or a part of the software) to a "Recipient"
+> (a non-affiliated third party), to also allow that Recipient access to the
+> Recipient's own user data. To show how this fits into the broader concept
+> of software freedom, the policy associated with this requirement is also
+> laid out: to allow a Recipient to fully use an independent copy of the Work
+> generated from the Source Code provided with the Recipient?s own User Data.
+>
+> *Previous Discussion*: For those only following this list, I also
+> provided a changelog on license-discuss [1] which prompted some discussion.
+> From that discussion, I'll note that Russell McOrmond is on record as
+> believing that the CAL is part of a class of licenses - which includes the
+> AGPL, and the GPL as applied) is not compliant with the OSD. Bruce Perens
+> is on record as believing the any requirements that an operator provide
+> user data is a violation of "no field of use" restriction in OSD 6. Bruce
+> is also on record as believing that the identification of the private right
+> of use is a field of use restriction.
+>
+>
+> [1]
+> http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-August/020937.html
+>
+> A copy of the license (now beta 3) in markdown-formatted plaintext is
+> attached.
+>
+> Thanks,
+> Van
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/81d9387b/attachment.html>
+
+From bruce at perens.com  Thu Aug 22 21:18:23 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 22 Aug 2019 14:18:23 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org>
+Message-ID: <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com>
+
+On Thu, Aug 22, 2019 at 1:41 PM Josh Berkus <josh at berkus.org> wrote:
+
+> On 8/22/19 1:13 PM, Bruce Perens via License-review wrote:
+>
+> This is a "slippery slope" argument, and as such a fallacy.
+>
+
+This is a simplistic argument which assumes that all statements of a class
+branded as fallacious are *always *fallacious.
+
+In the case of slippery-slope arguments, there is a good deal of argument
+by logicians for non-fallacious use. I was very tempted to reproduce an
+entire screen-full of such argument from Wikipedia, but will leave that for
+the reader to look up.
+
+One of the key purposes of open source software -- particularly copyleft
+> -- is to preserve user and downstream developer freedom.  In many kinds
+> of software, being able to effectively use that software independent of
+> the original vendor requires not just access to the source code bits,
+> but access to the data stored by the software as well.  As such, this
+> kind of requirement to distribute the data on the same terms as the
+> software is a natural, and probably inevitable, extension of copyleft
+> principles.
+>
+
+Perhaps it is. But there is a step between it being perceived  a natural
+extension and being an actual extension: that groups like FSF and OSI
+decide that Free Software and Open Source now include Data Freedom as well,
+and change things like the Four Freedoms and the OSD to reflect that. They
+have not done so. They might consider that this is properly the territory
+of some successor movement. While they consider this, they might also
+consider very, very many things that might preserve downstream developer
+freedom that are not part of the Free Software and Open Source brands
+today, and are not in the Four Freedoms and the OSD. But more likely they
+would decide to limit them to things that we can agree upon and keep
+compact.
+
+
+>
+> As an example, imagine that I have a geodata processing program, which I
+> support by running a hosted version, and all user data is PK-encrypted
+> using a key only I control.  If the software is under the GPL (because
+> it depends on, say, PostGIS), the user still doesn't have the freedom to
+> run the software themselves unless they are willing to recreate all of
+> their data.  The CAL would protect user freedom in this case.
+>
+
+Maybe I will understand this if you state it better. It sounds like you own
+the data, it's under your key, and you are arguing that if you used another
+license you would be forced to provide the data to others, and that this
+would be a good thing. One would think that the user would have the freedom
+to create their own geospatial data as you did. The way you state it, it
+sounds like the user should have a right to work that you did, arbitrarily.
+Perhaps you can explain this more clearly?
+
+
+>
+> Calling this an OSD6 violation is a huge stretch.  By that argument, all
+> copyleft licenses -- in fact, every license except BSD and MIT -- would
+> violate OSD#6 because it restricts proprietary software companies.
+>
+
+The OSD requirements do not prohibit the main purposes of the Open Source
+and the OSD, which certainly include sharing source. We have discussed that
+one here many times over the past two decades.
+
+
+> While it is not the OSI's job to challenge Amazon's business model, it
+> is not our job to protect it either.
+>
+
+We're indifferent to it. Which is *why* we are also indifferent to data
+rights. It's out of scope for the organization. It is not our job to
+protect your data rights, or to protect their abusers.
+
+
+> So if the CAL only applied to *modified* versions of the original
+> software, you would have no objections under these terms?
+
+
+You seem to be saying that removing one objection is the same as removing *all
+*objections.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/5b038fd3/attachment.html>
+
+From bruce at perens.com  Thu Aug 22 21:30:19 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 22 Aug 2019 14:30:19 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com>
+Message-ID: <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com>
+
+Josh,
+
+OK, you are trying to say that the user stupidly trusted their geospatial
+data to you, and you won't give it back, and that's the problem the
+software license should protect the user from.
+
+At the risk of being flip, it's not our responsibility to protect the user
+from their own conduct. In a broader context, there is a perception that
+the user can not function in modern society without providing their data to
+software-as-a-service providers, and they can't do so in a way that they
+could retain a copy or get it back by themselves. But I am still having a
+hard time seeing their incapability of preserving their own access to their
+own data as a factual statement.
+
+On Thu, Aug 22, 2019 at 2:18 PM Bruce Perens <bruce at perens.com> wrote:
+
+>
+>
+> On Thu, Aug 22, 2019 at 1:41 PM Josh Berkus <josh at berkus.org> wrote:
+>
+>>
+>> As an example, imagine that I have a geodata processing program, which I
+>> support by running a hosted version, and all user data is PK-encrypted
+>> using a key only I control.  If the software is under the GPL (because
+>> it depends on, say, PostGIS), the user still doesn't have the freedom to
+>> run the software themselves unless they are willing to recreate all of
+>> their data.  The CAL would protect user freedom in this case.
+>>
+>
+> Maybe I will understand this if you state it better. It sounds like you
+> own the data, it's under your key, and you are arguing that if you used
+> another license you would be forced to provide the data to others, and that
+> this would be a good thing. One would think that the user would have the
+> freedom to create their own geospatial data as you did. The way you state
+> it, it sounds like the user should have a right to work that you did,
+> arbitrarily. Perhaps you can explain this more clearly?
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/b61b2e3c/attachment-0001.html>
+
+From bruce at perens.com  Thu Aug 22 22:04:10 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 22 Aug 2019 15:04:10 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com>
+Message-ID: <CAK2MWOtvQWV5G6f1DM5=6+7-eYtUxus_LqQDpEHZLCPEodi9Mw@mail.gmail.com>
+
+On Thu, Aug 22, 2019 at 1:50 PM Lukas Atkinson <opensource at lukasatkinson.de>
+wrote:
+
+> On Thu, 22 Aug 2019 at 22:14, Bruce Perens via License-review <
+> license-review at lists.opensource.org> wrote:
+>
+>> Importantly, the CAL does not encumber the data.
+>>
+>
+This is a semantic argument about the meaning of legal terms. It doesn't
+"encumber" the data, but it asserts a requirement for specific action
+regarding the data upon the licensee with as large and odious an effect as
+something called "encumberance" might have.
+
+
+> It does not require any license for the data. It does not restrict how
+>> data may be processed. It merely compels a software operator to perform
+>> certain actions regarding the data, and only if they are able to do so.
+>>
+>
+It doesn't say "only if you are able to do so". It says "to the extent that
+such User Data is available to You for use in conjunction with the Work."
+It can very easily be the fact that the data is available for you to use in
+conjunction with the work, but not for you to extract from the program
+without soliciting the work of a more technically-skilled person.
+
+I agree that the CAL restricts use in a very small way, but think that this
+> restriction is appropriate, similar to how requiring source disclosure is
+> considered appropriate in copyleft licenses.
+>
+
+OK, so a restriction of use is OK if it achieves a *similar *purpose to
+requirements that you distribute source code, even though it's data, not
+source code. So, what happens when the next license comes along, and
+requires that you distribute your *own private *data to the software
+author, with appropriate rights? How is that fundamentally different from
+the requirement here? We then get to stating a whole rule-set for data
+freedom that maintains your privacy too, which isn't currently in the OSD
+and doesn't belong there.
+
+
+> SaaS as a field does not require user data to be locked up.
+>
+
+I reject the proposition that #6 protects *classes *of endeavor and does
+not at the same time protect any of the million implementation details of
+that endeavor. I could then come out with an anti-vegetable-oil license
+that requires the use of lard, and that would, under your analysis, protect
+the field of endeavor of baking. A field of endeavor is the whole of the
+large set of decisions that make it up, not some Platonic Ideal version of
+the same endeavor.
+
+As the end user's freedom so crucially depends on access to their data, I
+> think that on balance, a software operator's freedom must take the backseat
+> here.
+>
+
+Actually, OSI hasn't gotten into the business of protecting one party at
+the other's expense except in the case of anything so fundamental as
+responsibility to distribute source code. This shows the problem OSI would
+be entering here - the need to weigh each party's rights and decide *which
+is more worthy than the other. *Certainly not everyone agrees that the user
+is more worthy than the business. This is a sort of micromanaging social
+engineering that we have wisely stayed away from.
+
+An end user is free to run the software for themselves or their affiliates
+> without restriction
+>
+
+That's actually not a factual statement. There is a restriction in legal
+terms, backed by the potential of prosecution for copyright infringement.
+
+
+> , and will certainly not have to consult a lawyer for that. You are
+> painting an overly dramatic picture here.
+>
+
+What happens when someone asks for their data? Whether or not to give it,
+and how to give it without violating anyone else's privacy, are not trivial
+decisions.
+
+
+> In general, I also find the CAL to be more comprehensible for lay persons
+> than e.g. the GPLv3.
+>
+
+I don't actually. But this is irrelevant, because the naive user does not
+have to read the GPL. It doesn't place any restrictions upon them.
+
+If compliance doesn't matter for some people, and isn't a noticeable burden
+> for the rest, and increases software freedom, is that provision really so
+> objectionable?
+>
+
+We must keep in our minds that Open Source involves lots of licenses, not
+just the one under consideration. The aggregate of license obligations can
+become intolerable for practical use while a single license might be
+tolerable for some arbitrarily selected person.
+
+At the risk of being criticized for the slippery-slope fallacy, where do
+you stop? How do we define what is not so much trouble, and who do we
+define that for, and what about everyone else?
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/2390eb03/attachment.html>
+
+From josh at berkus.org  Thu Aug 22 22:12:19 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Thu, 22 Aug 2019 15:12:19 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com> <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com>
+Message-ID: <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org>
+
+On 8/22/19 2:30 PM, Bruce Perens wrote:
+> OK, you are trying to say that the user stupidly trusted their
+> geospatial data to you, and you won't give it back, and that's the
+> problem the software license should protect the user from.
+
+No, I'm not.
+
+So, let's outline the three parties in this equation.
+
+Let's imagine that OpenStreetMap releases a piece of geodata software
+that proves extremely popular and useful to vendors.  There are "OSM" in
+this.
+
+Next, let's imagine that there's a vendor ("Vendor") who takes a copy fo
+this OSM software and embeds it in their larger software package. It
+could be SaaS, it could be on-prem, it could be on a device.
+
+Finally, lets take a researcher ("User") who has been using Vendor's
+software.
+
+One day, the User decides that Vendor's software isn't adequate for
+their research, and they want to take their data and the original OSM
+software, and extend the OSM software in a way to suit their needs.
+But, the Vendor has encrypted the User's data, and encased it in legal
+protections, in such a way that the User cannot take their data and leave.
+
+As I understand it, the CAL argues that the OSM should have the right to
+release its software under a license that says that Vendor isn't allowed
+to do that.  If they want to use the OSM's bits, the data has the same
+distribution requirements as the source code.
+
+You seem to be arguing that, in this story, the freedom of Vendor is
+paramount, and the freedoms of OSM and User are insignificant.  Why
+would the rights of the intermediate Vendor trump everyone else?
+
+All of this is also leaving aside the other form of data -- things like
+configurations and similar that are required for the software to even
+run, which I believe that the CAL is also designed to protect.
+
+-- 
+Josh Berkus
+
+
+From van.lindberg at gmail.com  Thu Aug 22 22:22:20 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 22 Aug 2019 15:22:20 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAK2MWOtvQWV5G6f1DM5=6+7-eYtUxus_LqQDpEHZLCPEodi9Mw@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <CAK2MWOtvQWV5G6f1DM5=6+7-eYtUxus_LqQDpEHZLCPEodi9Mw@mail.gmail.com>
+Message-ID: <CAFQvZEPF8DpwJe1tzkUOfV2PR8Jo_Jj+uNc4cDd4tw5DqCAEzQ@mail.gmail.com>
+
+Hi Bruce,
+
+In response to Luksas' statement, quoted below, you say:
+
+An end user is free to run the software for themselves or their affiliates
+without restriction
+
+
+That's actually not a factual statement. There is a restriction in legal
+terms, backed by the potential of prosecution for copyright infringement.
+
+Lukas is correct, and you are incorrect. There is an explicit carve-out for
+running the software for yourself or for an affiliate.
+
+See sections 1, 7.1, and 4.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/7976f9d1/attachment.html>
+
+From bruce at perens.com  Thu Aug 22 22:29:06 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 22 Aug 2019 15:29:06 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com> <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com> <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org>
+Message-ID: <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com>
+
+On Thu, Aug 22, 2019 at 3:12 PM Josh Berkus <josh at berkus.org> wrote:
+
+> they want to take their data
+
+
+Which they provided.
+
+
+> But, the Vendor has encrypted the User's data, and encased it in legal
+> protections, in such a way that the User cannot take their data and leave.
+>
+> As I understand it, the CAL argues that the OSM should have the right to
+> release its software under a license that says that Vendor isn't allowed
+> to do that.
+
+If they want to use the OSM's bits, the data has the same
+> distribution requirements as the source code.
+>
+
+This is a contractually-required performance requirement which attempts to
+synthesize a data right which does not actually exist in the local
+jurisdiction. And thus it is the same as every approach to OSI with a
+license that attempts to enforce something that might properly be a law,
+but isn't, so we'll try to make it a license term instead. These have often
+been moral things like "no use for war" or "no use by the Police of South
+Africa".
+
+You are attempting to make an argument that data rights are so important
+that Open Source includes them by implication, when in fact for most of the
+existence of Open Source they weren't that much of a consideration. It
+doesn't work that way. The rules don't automatically expand to include the
+issue of the day, they are consciously changed to explicitly include them
+if necessary. I am reminded of that argument of how important badgeware
+was, and how irrelevant OSI would be if they rejected it, which someone
+apparently bought.
+
+>
+> You seem to be arguing that, in this story, the freedom of Vendor is
+> paramount, and the freedoms of OSM and User are insignificant.  Why
+> would the rights of the intermediate Vendor trump everyone else?
+>
+
+Actually, I am declining to say that one party is more important than the
+other. I can't see that I have much of a right to say one law-abiding
+person is more important than another.
+
+All of this is also leaving aside the other form of data -- things like
+> configurations and similar that are required for the software to even
+> run, which I believe that the CAL is also designed to protect.
+
+
+So, my specific configuration is something I now have to disclose too? It's
+not a derivative work, and it's not the user's.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/9030208b/attachment-0001.html>
+
+From bruce at perens.com  Thu Aug 22 22:36:05 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 22 Aug 2019 15:36:05 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAFQvZEPF8DpwJe1tzkUOfV2PR8Jo_Jj+uNc4cDd4tw5DqCAEzQ@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com> <CAK2MWOtvQWV5G6f1DM5=6+7-eYtUxus_LqQDpEHZLCPEodi9Mw@mail.gmail.com> <CAFQvZEPF8DpwJe1tzkUOfV2PR8Jo_Jj+uNc4cDd4tw5DqCAEzQ@mail.gmail.com>
+Message-ID: <CAK2MWOsfCoN5v2Jebjau_L0MaaUGOjWj6CamPdzt8WrxC5L-EA@mail.gmail.com>
+
+Van,
+
+By your definition, "run for yourself without restriction" means "but not
+serving anyone else". That seems like such a large restriction that the
+statement "you can run the program for yourself without restriction" is
+obviously not true.
+ Thanks
+ Bruce
+
+On Thu, Aug 22, 2019 at 3:22 PM VanL <van.lindberg at gmail.com> wrote:
+
+> Hi Bruce,
+>
+> In response to Luksas' statement, quoted below, you say:
+>
+> An end user is free to run the software for themselves or their affiliates
+> without restriction
+>
+>
+> That's actually not a factual statement. There is a restriction in legal
+> terms, backed by the potential of prosecution for copyright infringement.
+>
+> Lukas is correct, and you are incorrect. There is an explicit carve-out
+> for running the software for yourself or for an affiliate.
+>
+> See sections 1, 7.1, and 4.
+>
+> Thanks,
+> Van
+>
+
+
+-- 
+Bruce Perens - Partner, OSS.Capital.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/033a8dfa/attachment.html>
+
+From van.lindberg at gmail.com  Thu Aug 22 22:37:34 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 22 Aug 2019 15:37:34 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com> <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org> <CAK2MWOun8V2Q_W3=H89=1jnUgVamQk0SZ8g1UFaZDLrkrRsYWQ@mail.gmail.com> <CAK2MWOvNRnphGWZrSeUXgz1c+xZG=KRqA_sgC3VuTkDjo_CaTA@mail.gmail.com> <ee00f4ac-a2e9-7266-1f94-dad3025048c6@berkus.org> <CAK2MWOtvNUd3v6dqG4zcKzdA5hjV2KtXn+hv3Ofyvx7T-whZxA@mail.gmail.com>
+Message-ID: <CAFQvZEMmVMA3gcrTpP+gLzwfrfjWJ8Do9pCDdiggDYP+c-jsXA@mail.gmail.com>
+
+Hi Bruce,
+
+On Thu, Aug 22, 2019, 3:30 PM Bruce Perens via License-review <
+license-review at lists.opensource.org> wrote:
+
+>
+>
+> These have often been moral things like "no use for war" or "no use by the
+> Police of South Africa".
+>
+
+You are mixing apples and oranges. The examples you provide are clearly
+field of use restrictions. Every person here would agree.
+
+I know you consider the CAL's user autonomy provisions to be a field of use
+restriction as well, but you seem to be alone in that view.
+
+Thanks,
+Van
+
+
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/185e915a/attachment.html>
+
+From bruce at perens.com  Thu Aug 22 22:41:53 2019
+From: bruce at perens.com (Bruce Perens)

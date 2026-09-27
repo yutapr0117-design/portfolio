@@ -1,0 +1,750 @@
+
+
+From josh at berkus.org  Fri Jun 28 15:22:56 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Fri, 28 Jun 2019 08:22:56 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAC1cPGz421SeN6Ln_XZ9fT056mN3sxjdtt39Xi02MF0O152ezQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org> <3f23b4ac-671a-0dd2-20e6-2c679e1dfcc3@berkus.org> <CAC1cPGz421SeN6Ln_XZ9fT056mN3sxjdtt39Xi02MF0O152ezQ@mail.gmail.com>
+Message-ID: <ba3e6e4a-171e-6f3c-a756-5b0b3151e80a@berkus.org>
+
+On 6/27/19 8:51 PM, Richard Fontana wrote:
+> On Thu, Jun 27, 2019 at 10:53 PM Josh Berkus <josh at berkus.org> wrote:
+>>
+>> On 6/27/19 6:02 AM, Pamela Chestek wrote:
+>>> Below is the License Review Committee's recommendation to the OSI Board
+>>> on the Cryptographic Autonomy License.
+>>
+>> Thanks for this great summary.  I think it brings everyone up to date on
+>> the issues with the license.
+> 
+> +1. I happen to think that non-approval was the correct decision
+> (possibly not for all of the same reasons given by the committee), but
+> regardless, the clear (and timely) explanation of the issues and
+> rationale for the decision are a great step forward for the OSI's
+> license review process.
+
+You know what would be an awesome thing for OSI to have?  Web pages with
+these summaries.  They would both provide a future reference for when
+licenses substantially like these show up again, *and* a good guide for
+submitters on what isn't going to work.  (And a handy reference for the
+future Reddit threads on why a license was rejected)
+
+
+-- 
+Josh Berkus
+
+
+From josh at berkus.org  Fri Jun 28 15:33:00 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Fri, 28 Jun 2019 08:33:00 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <481908e3-4cc1-1d79-f8b6-80df3a3af822@chesteklegal.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org> <CAK2MWOsowJKmarM_5MgTbT2k235bgqRffZENGe6EESgP4TCRgA@mail.gmail.com> <481908e3-4cc1-1d79-f8b6-80df3a3af822@chesteklegal.com>
+Message-ID: <08318a9e-67ab-0d79-1def-b90b905c05f1@berkus.org>
+
+Bruce, Pamela:
+
+>> One of the main reasons given by the committee is that there was
+>> /insufficient discussion/ on license-review. In your message
+>> <8d5fb3a8-86f5-89fa-4f3e-1ac5978af3b1 at opensource.org
+>> <mailto:8d5fb3a8-86f5-89fa-4f3e-1ac5978af3b1 at opensource.org>>, of Fri,
+>> May 10, 5:51 PM you wrote "Thank you very much, your opinions have
+>> been noted", which I took as the chair's? direction for me to
+>> terminate discussion of the license. This is ironic given the response
+>> of the committee.
+> One person stating the same point over and over again doesn't indicate
+> anything.? We need more diversity of opinion, or at least more voices
+> with the same opinion so that we know the opinion is commonly held.
+
+Not sure about that; this list is noisy enough that I think most of us
+hold back if we agree with an already-stated viewpoint.  If you really
+want to get a straw poll of agreement, it would be far better to have a
+tool that let us vote up/down critiques of proposed licenses than wait
+for "me, too" posts on a mailing list.
+
+For my part, the CAL already had enough substantial objections to it
+recorded that it didn't feel like it needed any further discussion. I
+mean, if the engine is on fire, I'm not gonna check the tires for air.
+
+>> Of course, we would also have more discussion if additional
+>> well-informed people with a diversity of opinions actually joined the
+>> list. Which I believe was the intent of the restructuring of the
+>> license committee. But I don't see them yet. Until we find a way to
+>> persuade them to show up, a temporary fix might be for the OSI board
+>> to become more active participants on this list.
+> It's only been a month or two. It will take time.
+
+Again, switching away from a freeform mailing list to some form of more
+structured markup (such as an issue tracker, VCS, or document
+collaboration platform) is the only way you're going to get broader
+participation.  This list is currently limited to the tiny slice of
+folks who have both the time and the motivation to read all of it.  If I
+wasn't able to spend work time here, I couldn't contribute either.
+
+And "restructuring" that you attempt to do that keeps L-R as purely a
+freeform list is going to be completely futile, and you're better off
+not bothering.
+
+-- 
+Josh Berkus
+
+
+From josh at berkus.org  Fri Jun 28 15:33:59 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Fri, 28 Jun 2019 08:33:59 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAFQvZENsayVB8ZPRBOvwUJvUyfEyvHof8Z_02Ln1V+N-5Smz=g@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org> <CAFQvZENsayVB8ZPRBOvwUJvUyfEyvHof8Z_02Ln1V+N-5Smz=g@mail.gmail.com>
+Message-ID: <c5578fb0-7e74-fd50-dafa-3584359029d7@berkus.org>
+
+On 6/27/19 3:03 PM, VanL wrote:
+> 
+> One point of clarification: What does "elicit further discussion" mean,
+> exactly? The way this is phrased it sounds like it is my responsibility
+> to make sure that other people take the time to express their opinions.
+> 
+
+I think it means "hey, maybe discuss these points further before you
+re-write the license because the verdict on them isn't clear".
+
+-- 
+Josh Berkus
+
+
+From bruce at perens.com  Fri Jun 28 19:26:01 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 28 Jun 2019 12:26:01 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <08318a9e-67ab-0d79-1def-b90b905c05f1@berkus.org>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org> <CAK2MWOsowJKmarM_5MgTbT2k235bgqRffZENGe6EESgP4TCRgA@mail.gmail.com> <481908e3-4cc1-1d79-f8b6-80df3a3af822@chesteklegal.com> <08318a9e-67ab-0d79-1def-b90b905c05f1@berkus.org>
+Message-ID: <CAK2MWOt8rcqdjPWBgQ0kdn7+LJGeHHqO_JFUFGvTPW_Jj6C4qA@mail.gmail.com>
+
+If you'd like to put up a prototype, I'd be happy to try it.
+ Thanks
+ Bruce
+
+On Fri, Jun 28, 2019 at 8:33 AM Josh Berkus <josh at berkus.org> wrote:
+
+> Bruce, Pamela:
+>
+> >> One of the main reasons given by the committee is that there was
+> >> /insufficient discussion/ on license-review. In your message
+> >> <8d5fb3a8-86f5-89fa-4f3e-1ac5978af3b1 at opensource.org
+> >> <mailto:8d5fb3a8-86f5-89fa-4f3e-1ac5978af3b1 at opensource.org>>, of Fri,
+> >> May 10, 5:51 PM you wrote "Thank you very much, your opinions have
+> >> been noted", which I took as the chair's  direction for me to
+> >> terminate discussion of the license. This is ironic given the response
+> >> of the committee.
+> > One person stating the same point over and over again doesn't indicate
+> > anything.  We need more diversity of opinion, or at least more voices
+> > with the same opinion so that we know the opinion is commonly held.
+>
+> Not sure about that; this list is noisy enough that I think most of us
+> hold back if we agree with an already-stated viewpoint.  If you really
+> want to get a straw poll of agreement, it would be far better to have a
+> tool that let us vote up/down critiques of proposed licenses than wait
+> for "me, too" posts on a mailing list.
+>
+> For my part, the CAL already had enough substantial objections to it
+> recorded that it didn't feel like it needed any further discussion. I
+> mean, if the engine is on fire, I'm not gonna check the tires for air.
+>
+> >> Of course, we would also have more discussion if additional
+> >> well-informed people with a diversity of opinions actually joined the
+> >> list. Which I believe was the intent of the restructuring of the
+> >> license committee. But I don't see them yet. Until we find a way to
+> >> persuade them to show up, a temporary fix might be for the OSI board
+> >> to become more active participants on this list.
+> > It's only been a month or two. It will take time.
+>
+> Again, switching away from a freeform mailing list to some form of more
+> structured markup (such as an issue tracker, VCS, or document
+> collaboration platform) is the only way you're going to get broader
+> participation.  This list is currently limited to the tiny slice of
+> folks who have both the time and the motivation to read all of it.  If I
+> wasn't able to spend work time here, I couldn't contribute either.
+>
+> And "restructuring" that you attempt to do that keeps L-R as purely a
+> freeform list is going to be completely futile, and you're better off
+> not bothering.
+>
+> --
+> Josh Berkus
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens - Partner, OSS.Capital.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190628/569410a1/attachment.html>
+
+From bruce at perens.com  Sat Jun 29 02:58:48 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 28 Jun 2019 19:58:48 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOt8rcqdjPWBgQ0kdn7+LJGeHHqO_JFUFGvTPW_Jj6C4qA@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org> <CAK2MWOsowJKmarM_5MgTbT2k235bgqRffZENGe6EESgP4TCRgA@mail.gmail.com> <481908e3-4cc1-1d79-f8b6-80df3a3af822@chesteklegal.com> <08318a9e-67ab-0d79-1def-b90b905c05f1@berkus.org> <CAK2MWOt8rcqdjPWBgQ0kdn7+LJGeHHqO_JFUFGvTPW_Jj6C4qA@mail.gmail.com>
+Message-ID: <CAK2MWOui-i4eWFxEkmn8_yqcVZF7k9kAPD6fZ7iO_Yi9KXoJGw@mail.gmail.com>
+
+Pamela wrote:
+
+> >We need more diversity of opinion, or at least more voices
+>> > with the same opinion so that we know the opinion is commonly held.
+>>
+>
+Josh wrote:
+
+> Not sure about that; this list is noisy enough that I think most of us
+>> hold back if we agree with an already-stated viewpoint.  If you really
+>> want to get a straw poll of agreement, it would be far better to have a
+>> tool that let us vote up/down critiques of proposed licenses than wait
+>> for "me, too" posts on a mailing list.
+>
+>
+I suppose there is a point in having a straw poll of *agreement.* But I
+think license approval *shouldn't be based upon a popular vote,* but on
+whether the license preserves software freedom and meets the OSD. And I
+would add, is a good deal for the developer and user community. Some of the
+recent submissions seemed to me to to be hostile to the developer or user
+community.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190628/a9b18789/attachment-0001.html>
+
+From bruce at perens.com  Sat Jun 29 03:39:27 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 28 Jun 2019 20:39:27 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org>
+Message-ID: <CAK2MWOumvYSOGW9=Jn_MQcNOqaxcHqXNoD+U8x+WN7z5LFH3kg@mail.gmail.com>
+
+I have brought this discussion to license-discuss, as requested by Pam.
+
+*The mechanism of ?public performance?: The health of an open source
+software project relies on a predictable and consistent understanding of
+what the license permits and what it requires for compliance. However, this
+license uses a term specific to US law, which is ?public performance.?*
+
+There are a few issues here.
+
+1. The license is being held to a standard for universal applicability of
+terms of art that I am not aware has been applied to Open Source licenses
+before. That said, license quality is important, and this may simply
+reflect the fact that more trained attorneys are participating in
+license-review. But where are globally-accepted terms defined? Shall OSI at
+least informally adopt a particular dictionary of Legal English? Will the
+objection to local terms of art influence license drafters to avoid terms
+of art in general, and would that detrimental?
+
+2. In the Affero family of licenses, the drafters went to some lengths to
+synthesize a public performance right, I think in the belief that no such
+thing applied to software in at least one administration. At the time I
+thought that administration was the USA. I heard, during consideration of
+this license, continuing disagreement among attorneys regarding whether a
+protected public performance right exists for software today in US law.
+Larry Rosen can give you a lecture on his use of "External Deployment" in
+OSL.
+
+3. I don't personally find it objectionable for license terms requiring
+source code distribution to trigger upon public performance. It seems
+reasonable in the age of SaaS, and licenses with some form of this right
+have been previously accepted by OSI.
+
+* Until now, the principle of copyleft has only been applied to literal
+> code, not APIs. The license submitter?s proposal is for a copyleft effect
+> that would apply to new implementations of the API even when the underlying
+> has been written from scratch.
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004056.html
+> <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004056.html>.
+> The license also makes this extension even if the legal system would not
+> extend copyright (and therefore copyleft) so far. During the license-review
+> process some commentators objected to this extension of the copyleft
+> principle this far. However, the license review committee does not believe
+> that there was sufficient discussion representing all points of view on the
+> license-review list and so does not reject the license for this reason. The
+> license submitter should also be aware that the OSI was a signatory on a
+> brief submitted to the U.S. Supreme Court advocating against the
+> copyrightability of APIs. APIs are also known to be outside the scope of
+> copyright under European law. We are consequently uncomfortable endorsing
+> an application of copyright law to APIs in any form without further
+> discussion.*
+>
+
+The successful application of copyright to APIs would be a disaster for
+Open Source software, in that we would no longer be able to create Open
+versions of existing APIs or languages. Consider that the GNU C compiler is
+the bootstrap tool of Open Source. Now, consider what would have happened
+if copyright protection had prevented independent implementations of the C
+language.
+
+So, it's a bad idea for us to in any way accept the application of API
+copyright today.
+
+If we actually *get *API copyrights enforced against us broadly, we would
+obviously have to change our strategy. But until then, we shouldn't go
+there.
+
+
+>
+> 2.    *At what point the licensor can oblige licensee behavior*.
+> The trigger for meeting license obligations can differ across licenses.
+> The most common, almost universal trigger, is distribution of software. The
+> AGPL license triggers upon allowing network interaction with modified
+> software. The CAL license implements a new trigger, which is the obligation
+> to make unmodified software available to anyone interacting with an
+> interface for the software. In other words, someone might install a program
+> that allows for interaction with the website (perhaps providing a webform
+> to sign up for a newsletter) and would now be obliged to make the source
+> code available to any person who filled out the webform.
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004113.html
+> The License Review Committee does not believe that there has been adequate
+> airing of this issue from a variety of viewpoints on the license-review
+> discussion about this aspect of the license, so has not reached a
+> conclusion about at what point imposing license obligations is appropriate.
+>
+
+I'm not sure I agree with the committee here, this is the public
+performance issue and a *synthetic *public performance right exists in an
+accepted license.
+
+
+> 3.    *A license that requires data portability*.
+> Section 2.3(b) obliges the user of a software to ?provide to any third
+> party with which you have an enforceable legal agreement, a no-charge copy
+> ? of the User Data in your possession in which that third party has a
+> Lawful Interest ?.? The license submitter confirmed in this sequence of
+> emails that the intent of this provision is to expand the scope of software
+> freedom:
+>
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004123.html
+>
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004124.html
+>
+> http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-May/004126.html
+> The members of the License Review Committee do not agree whether this is
+> appropriate for an open source license. It therefore requires extensive
+> additional public discussion before the OSI will be able to reach a
+> conclusion on this point.
+>
+
+It's my opinion that this is out of scope for an Open Source license. My
+argument is on the record above and I'm glad to elaborate. I think Arthur
+(Van's customer) could explain what he wants to do with this and why he
+thinks it's important. But even if I end up approving of the sentiment, so
+far I think it would remain out of scope for an OSI approved Open Source
+license. Of course, you don't need OSI's approval to use any license you
+wish.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190628/58041ec5/attachment.html>
+
+From bruce at perens.com  Sat Jun 29 03:40:43 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 28 Jun 2019 20:40:43 -0700
+Subject: [License-discuss] [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOumvYSOGW9=Jn_MQcNOqaxcHqXNoD+U8x+WN7z5LFH3kg@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org> <CAK2MWOumvYSOGW9=Jn_MQcNOqaxcHqXNoD+U8x+WN7z5LFH3kg@mail.gmail.com>
+Message-ID: <CAK2MWOtpGcetuQgOnK-9bU=sZEgG_HOGxSRdVh_MvzR4MA2zZQ@mail.gmail.com>
+
+I have brought this discussion to license-discuss, as requested by Pam.
+
+*The mechanism of ?public performance?: The health of an open source
+software project relies on a predictable and consistent understanding of
+what the license permits and what it requires for compliance. However,
+this license uses a term specific to US law, which is ?public performance.?*
+
+There are a few issues here.
+
+1. The license is being held to a standard for universal applicability of
+terms of art that I am not aware has been applied to Open Source licenses
+before. That said, license quality is important, and this may simply
+reflect the fact that more trained attorneys are participating in
+license-review.
+But where are globally-accepted terms defined? Shall OSI at least
+informally adopt a particular dictionary of Legal English? Will the
+objection to local terms of art influence license drafters to avoid terms
+of art in general, and would that detrimental?
+
+2. In the Affero family of licenses, the drafters went to some lengths to
+synthesize a public performance right, I think in the belief that no such
+thing applied to software in at least one administration. At the time I
+thought that administration was the USA. I heard, during consideration of
+this license, continuing disagreement among attorneys regarding whether a
+protected public performance right exists for software today in US law.
+Larry Rosen can give you a lecture on his use of "External Deployment" in
+OSL.
+
+3. I don't personally find it objectionable for license terms requiring
+source code distribution to trigger upon public performance. It seems
+reasonable in the age of SaaS, and licenses with some form of this right
+have been previously accepted by OSI.
+
+*Until now, the principle of copyleft has only been applied to literal
+> code, not APIs. The license submitter?s proposal is for a copyleft effect
+> that would apply to new implementations of the API even when the underlying
+> has been written from
+> scratch. http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004056.html
+> <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-April/004056.html>.
+> The license also makes this extension even if the legal system would not
+> extend copyright (and therefore copyleft) so far. During the license-review
+> process some commentators objected to this extension of the copyleft
+> principle this far. However, the license review committee does not believe
+> that there was sufficient discussion representing all points of view on
+> the license-review list and so does not reject the license for this reason.
+> The license submitter should also be aware that the OSI was a signatory on
+> a brief submitted to the U.S. Supreme Court advocating against the
+> copyrightability of APIs. APIs are also known to be outside the scope of
+> copyright under European law. We are consequently uncomfortable endorsing
+> an application of copyright law to APIs in any form without further
+> discussion.*
+>
+
+The successful application of copyright to APIs would be a disaster for
+Open Source software, in that we would no longer be able to create Open
+versions of existing APIs or languages. Consider that the GNU C compiler is
+the bootstrap tool of Open Source. Now, consider what would have happened
+if copyright protection had prevented independent implementations of the C
+language.
+
+So, it's a bad idea for us to in any way accept the application of API
+copyright today.
+
+If we actually *get *API copyrights enforced against us broadly, we would
+obviously have to change our strategy. But until then, we shouldn't go
+there.
+
+
+>
+> 2.    *At what point the licensor can oblige licensee behavior*.
+> The trigger for meeting license obligations can differ across licenses.
+> The most common, almost universal trigger, is distribution of software. The
+> AGPL license triggers upon allowing network interaction with modified
+> software. The CAL license implements a new trigger, which is the
+> obligation to make unmodified software available to anyone interacting with
+> an interface for the software. In other words, someone might install a
+> program that allows for interaction with the website (perhaps providing a
+> webform to sign up for a newsletter) and would now be obliged to make the
+> source code available to any person who filled out the webform.
+> http://lists.opensource.org/pipermail/license
+> -review_lists.opensource.org/2019-May/004113.html The License Review
+> Committee does not believe that there has been adequate airing of this
+> issue from a variety of viewpoints on the license-review discussion about
+> this aspect of the license, so has not reached a conclusion about at what
+> point imposing license obligations is appropriate.
+>
+
+I'm not sure I agree with the committee here, this is the public
+performance issue and a *synthetic *public performance right exists in an
+accepted license.
+
+
+> 3.    *A license that requires data portability*.
+> Section 2.3(b) obliges the user of a software to ?provide to any third
+> party with which you have an enforceable legal agreement, a no-charge copy
+> ? of the User Data in your possession in which that third party has a
+> Lawful Interest ?.? The license submitter confirmed in this sequence of
+> emails that the intent of this provision is to expand the scope of software
+> freedom:
+> http://lists.opensource.org/pipermail/license
+> -review_lists.opensource.org/2019-May/004123.html
+> http://lists.opensource.org/pipermail/license
+> -review_lists.opensource.org/2019-May/004124.html
+> http://lists.opensource.org/pipermail/license
+> -review_lists.opensource.org/2019-May/004126.html
+> The members of the License Review Committee do not agree whether this is
+> appropriate for an open source license. It therefore requires extensive
+> additional public discussion before the OSI will be able to reach a
+> conclusion on this point.
+>
+
+It's my opinion that this is out of scope for an Open Source license. My
+argument is on the record above and I'm glad to elaborate. I think Arthur
+(Van's customer) could explain what he wants to do with this and why he
+thinks it's important. But even if I end up approving of the sentiment, so
+far I think it would remain out of scope for an OSI approved Open Source
+license. Of course, you don't need OSI's approval to use any license you
+wish.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190628/c5e3534f/attachment-0001.html>
+
+From bruce at perens.com  Sat Jun 29 03:41:30 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 28 Jun 2019 20:41:30 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOumvYSOGW9=Jn_MQcNOqaxcHqXNoD+U8x+WN7z5LFH3kg@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org> <CAK2MWOumvYSOGW9=Jn_MQcNOqaxcHqXNoD+U8x+WN7z5LFH3kg@mail.gmail.com>
+Message-ID: <CAK2MWOuA0TH+b3QRiLf3MhO8L9y8-HSu-=huSUa5+GVyOQt_VQ@mail.gmail.com>
+
+Well, at least I *meant *to send that to license-discuss. Copy re-posted
+there, don't reply to this thread.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190628/5b79f9c1/attachment.html>
+
+From pamela at chesteklegal.com  Sat Jun 29 17:56:14 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sat, 29 Jun 2019 13:56:14 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <08318a9e-67ab-0d79-1def-b90b905c05f1@berkus.org>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org> <CAK2MWOsowJKmarM_5MgTbT2k235bgqRffZENGe6EESgP4TCRgA@mail.gmail.com> <481908e3-4cc1-1d79-f8b6-80df3a3af822@chesteklegal.com> <08318a9e-67ab-0d79-1def-b90b905c05f1@berkus.org>
+Message-ID: <338d5c83-3bac-54cc-91d0-d7ebff47ae42@chesteklegal.com>
+
+On 6/28/19 11:33 AM, Josh Berkus wrote:
+> Not sure about that; this list is noisy enough that I think most of us
+> hold back if we agree with an already-stated viewpoint.  If you really
+> want to get a straw poll of agreement, it would be far better to have a
+> tool that let us vote up/down critiques of proposed licenses than wait
+> for "me, too" posts on a mailing list.
+I don't understand how "silence means agreement" can be a meaningful way
+to understand a community's views. Assume there are 100 people, 99 of
+which are in agreement and 1 who holds the opposite view. One person
+expresses the view of the 99 and the one person with the opposite view
+expresses the contrary view. The 98 don't say anything because their
+view has been expressed, but to an outsider it looks like no agreement
+whatsoever. "Silence means agreement" can only be true if only one
+opinion has been stated.
+
+These are also not questions that are as easy as yes/no. And the goal is
+consensus, not majority rule. What I find informative and helpful is
+where people give their reasons about why they share the view, or
+explain why the opposite view is poorly conceived. Which might change
+minds and aid in reaching consensus.
+>
+> For my part, the CAL already had enough substantial objections to it
+> recorded that it didn't feel like it needed any further discussion. I
+> mean, if the engine is on fire, I'm not gonna check the tires for air.
+Fair enough, but the OSI needs to do better than that. There has been a
+lot of criticism of OSI for not explaining its reasoning for its
+decisions, and the absence of any explanation doesn't help the license
+submitter if they are just left to guess at what needs to change for a
+revised version to be accepted.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+
+
+From bruce at perens.com  Sat Jun 29 18:34:13 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 29 Jun 2019 11:34:13 -0700
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <338d5c83-3bac-54cc-91d0-d7ebff47ae42@chesteklegal.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org> <CAK2MWOsowJKmarM_5MgTbT2k235bgqRffZENGe6EESgP4TCRgA@mail.gmail.com> <481908e3-4cc1-1d79-f8b6-80df3a3af822@chesteklegal.com> <08318a9e-67ab-0d79-1def-b90b905c05f1@berkus.org> <338d5c83-3bac-54cc-91d0-d7ebff47ae42@chesteklegal.com>
+Message-ID: <CAK2MWOthSb5qCSu4vdma+BTJmm3NmXqAo2PNvMWioewFovH8bQ@mail.gmail.com>
+
+At Pixar, I learned how easy it was for people to criticize our work, how
+very many critics there were, and how few people are actually able to make
+good feature film. The situation here is analogous. While there are many
+people who express exasperation over perceived problems in OSI's function,
+only a handful seem to be actually inclined to do the work. Entering a +1
+somewhere is not doing the work and *provides no accounting of what
+thought, if any, went into that vote.* Staying in the wings for an entire
+license discussion as contentious as CAL isn't doing the work. Discussion
+is the only way to prove that you have an opinion with *thought and
+understanding behind it.*
+ Thanks
+ *Bruce*
+
+On Sat, Jun 29, 2019 at 10:57 AM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+> On 6/28/19 11:33 AM, Josh Berkus wrote:
+> > Not sure about that; this list is noisy enough that I think most of us
+> > hold back if we agree with an already-stated viewpoint.  If you really
+> > want to get a straw poll of agreement, it would be far better to have a
+> > tool that let us vote up/down critiques of proposed licenses than wait
+> > for "me, too" posts on a mailing list.
+> I don't understand how "silence means agreement" can be a meaningful way
+> to understand a community's views. Assume there are 100 people, 99 of
+> which are in agreement and 1 who holds the opposite view. One person
+> expresses the view of the 99 and the one person with the opposite view
+> expresses the contrary view. The 98 don't say anything because their
+> view has been expressed, but to an outsider it looks like no agreement
+> whatsoever. "Silence means agreement" can only be true if only one
+> opinion has been stated.
+>
+> These are also not questions that are as easy as yes/no. And the goal is
+> consensus, not majority rule. What I find informative and helpful is
+> where people give their reasons about why they share the view, or
+> explain why the opposite view is poorly conceived. Which might change
+> minds and aid in reaching consensus.
+> >
+> > For my part, the CAL already had enough substantial objections to it
+> > recorded that it didn't feel like it needed any further discussion. I
+> > mean, if the engine is on fire, I'm not gonna check the tires for air.
+> Fair enough, but the OSI needs to do better than that. There has been a
+> lot of criticism of OSI for not explaining its reasoning for its
+> decisions, and the absence of any explanation doesn't help the license
+> submitter if they are just left to guess at what needs to change for a
+> revised version to be accepted.
+>
+> Pam
+>
+> Pamela S. Chestek
+> Chestek Legal
+> PO Box 2492
+> Raleigh, NC 27602
+> +1 919-800-8033
+> pamela at chesteklegal.com
+> www.chesteklegal.com
+>
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens - Partner, OSS.Capital.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190629/79cf4dff/attachment.html>
+
+From luis at lu.is  Fri Jul  5 21:08:27 2019
+From: luis at lu.is (Luis Villa)
+Date: Fri, 5 Jul 2019 14:08:27 -0700
+Subject: [License-discuss] [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org>
+Message-ID: <CAFjZtReY8kjXXVvCVoPN2PKSo78AeQarEwM6Egy=-F4ueZupBw@mail.gmail.com>
+
+[Drafted weeks ago, but never sent; I think under the circumstances still
+worth sending]
+
+On Thu, Jun 27, 2019 at 6:03 AM Pamela Chestek <
+pamela.chestek at opensource.org> wrote:
+
+> License Review Committee Recommendation:
+>
+
+My great thanks to Pam, the committee, and the full board for this
+excellent summary. I don't agree with all of it but this is a *massive*
+step towards a more robust, healthy OSI, and I genuinely applaud everyone
+for the work that went into it. The discussions it has started are exactly
+the kinds of conversations OSI needs to be having, and can only be had with
+this sort of serious, thoughtful underlying work to capture the issues.
+
+Thanks-
+Luis
+
+Luis
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190705/d26e12f5/attachment.html>
+
+From cowan at ccil.org  Fri Jul  5 22:32:07 2019
+From: cowan at ccil.org (John Cowan)
+Date: Fri, 5 Jul 2019 18:32:07 -0400
+Subject: [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOthSb5qCSu4vdma+BTJmm3NmXqAo2PNvMWioewFovH8bQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org> <CAK2MWOsowJKmarM_5MgTbT2k235bgqRffZENGe6EESgP4TCRgA@mail.gmail.com> <481908e3-4cc1-1d79-f8b6-80df3a3af822@chesteklegal.com> <08318a9e-67ab-0d79-1def-b90b905c05f1@berkus.org> <338d5c83-3bac-54cc-91d0-d7ebff47ae42@chesteklegal.com> <CAK2MWOthSb5qCSu4vdma+BTJmm3NmXqAo2PNvMWioewFovH8bQ@mail.gmail.com>
+Message-ID: <CAD2gp_SQZsuMJhD0_5CcrhVSrhppck1KJxO_rm9tDuufAJKJgQ@mail.gmail.com>
+
+On Sat, Jun 29, 2019 at 2:35 PM Bruce Perens via License-review <
+license-review at lists.opensource.org> wrote:
+
+At Pixar, I learned how easy it was for people to criticize our work, how
+> very many critics there were, and how few people are actually able to make
+> good feature film.
+>
+
+Aw, it wasn't your fault that one person's "stunningly realistic" is
+another person's Uncanny Valley.
+
+
+> While there are many people who express exasperation over perceived
+> problems in OSI's function, only a handful seem to be actually inclined to
+> do the work.
+>
+
+?You may abuse a tragedy, though you cannot write one. You may scold a
+carpenter who has made you a bad table, though you cannot make a table. It
+is not your trade to make tables.?  ?Sam: Johnson
+
+Per contra:
+
+"The part-time help of wits is no better than the full-time help of
+halfwits."  ?Wolcott Gibbs
+
+
+
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+Values of beeta will give rise to dom!
+(5th/6th edition 'mv' said this if you tried to rename '.' or
+'..' entries; see http://9p.io/who/dmr/odd.html)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190705/eeca1f8c/attachment.html>
+
+From russellmcormond at gmail.com  Fri Jul 12 18:10:39 2019
+From: russellmcormond at gmail.com (Russell McOrmond)
+Date: Fri, 12 Jul 2019 14:10:39 -0400
+Subject: [License-discuss] [License-review] For Approval: The Cryptographic Autonomy License
+In-Reply-To: <CAK2MWOtpGcetuQgOnK-9bU=sZEgG_HOGxSRdVh_MvzR4MA2zZQ@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com> <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org> <CAK2MWOumvYSOGW9=Jn_MQcNOqaxcHqXNoD+U8x+WN7z5LFH3kg@mail.gmail.com> <CAK2MWOtpGcetuQgOnK-9bU=sZEgG_HOGxSRdVh_MvzR4MA2zZQ@mail.gmail.com>
+Message-ID: <CAGi9AuWfr1BrRrGU76Qbu8F_u9dzXPuiByVbi_N42MHmrTAkiA@mail.gmail.com>
+
+On Sat, Jun 29, 2019 at 12:33 AM Bruce Perens via License-discuss <
+license-discuss at lists.opensource.org> wrote:
+
+> 3. I don't personally find it objectionable for license terms requiring
+> source code distribution to trigger upon public performance. It seems
+> reasonable in the age of SaaS, and licenses with some form of this right
+> have been previously accepted by OSI.
+>
+...
+
+> The successful application of copyright to APIs would be a disaster for
+> Open Source software, in that we would no longer be able to create Open
+> versions of existing APIs or languages. Consider that the GNU C compiler is
+> the bootstrap tool of Open Source. Now, consider what would have happened
+> if copyright protection had prevented independent implementations of the C
+> language.
+>
+> So, it's a bad idea for us to in any way accept the application of API
+> copyright today.
+>
+
+
+Can you explain to me what you see as different in seeking to regulate a
+so-called "public performance" of software and the application of copyright
+to API's?
+
+What is a "public performance" other than an interaction with software
+through some public interface?
+
+Are you trying to differentiate an API and an interface which is "human
+readable".  All "human readable" data is merely communication over an API
+which client software renders for a human to read (even if it is accessing
+a text file over a socket using HTTP).
+
+
+

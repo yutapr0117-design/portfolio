@@ -1,0 +1,750 @@
+licensee. This is the "offer" part of contract law.
+
+But because I don't want to individually sign an agreement with every
+possible licensor, I need some way for someone who wants to use software
+under this license to show that they have accepted it. That's the next part:
+
+> You show that you accept this License and agree to its conditions by
+taking any action with the Work that, absent this License, would infringe
+any intellectual property right held by Licensor.
+
+This means that if you do something that, absent the license, you would not
+have the right to do, we will both agree to interpret that as you
+"accepting" the license, including all of its terms.
+
+This also establishes the "consideration" - you get software, I get your
+compliance with the terms.
+
+>### 2.3. Compliance and Remedies
+> Any failure to act according to the terms and conditions of this License
+places Your use of the Work outside the scope of the License and infringes
+the intellectual property rights of the Licensor. In the event of
+infringement, the terms and conditions of this License may be enforced by
+Licensor under the intellectual property laws of any jurisdiction to which
+You are subject.
+
+This sentence ties the enforceability of the license back to intellectual
+property law. IP law has stronger remedies than contract law, so we want to
+be able to use IP as a tool when enforcing the CAL. But note that only the
+IP owner can sue under the IP laws. What about everyone else? What about a
+Recipient - a user - who wants a copy of the source and their data?
+
+> You also agree that either the Licensor or a Recipient (as an intended
+third-party beneficiary) may enforce the terms and conditions of this
+License against You via specific performance.
+
+This calls out to a doctrine in contract law that recognizes that sometimes
+third parties, not named in a contract, also may have a stake in the
+contract being enforced. These are "third party beneficiaries." A third
+party beneficiary doesn't have all the rights that the IP holder does. But
+they can sue, using this clause, for "specific performance" - a legal term
+that means "you must comply with the license terms".
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190819/cbe89928/attachment-0001.html>
+
+From pamela.chestek at opensource.org  Mon Aug 19 23:17:07 2019
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Mon, 19 Aug 2019 19:17:07 -0400
+Subject: [License-review] [PAUSE] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com>
+Message-ID: <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org>
+
+Hi all,
+
+I'd like to pause this discussion for a few days. As everyone knows and
+I think agrees, email is poorly suited for this process. The License
+Committee has been discussing trying out a different tool, probably just
+a simple issue tracker. If y'all could give us a few days to figure out
+if we want to try it out with this discussion, that would be very
+greatly appreciated.
+
+Van, if you would prefer we NOT try a tool other than email, please let
+me know.
+
+Thanks,
+Pam
+
+Pamela Chestek
+Chair, License Review Committee
+Open Source Initiative
+
+On 8/19/2019 5:09 PM, VanL wrote:
+> Hi Josh,
+>
+> Looking again, I didn't really address your question about the "offer
+> an acceptance" language. So here goes:
+>
+> License terms such as these are interpreted as contracts. Contracts
+> require 1) an offer, 2) an acceptance, and 3) consideration.
+>
+> > ### 2.2. Offer and Acceptance
+> > This License is automatically offered to every person and organization.
+>
+> This establishes that the license is being offered as-is to every
+> possible licensee. This is the "offer" part of contract law.
+>
+> But because I don't want to individually sign an agreement with every
+> possible licensor, I need some way for someone who wants to use
+> software under this license to show that they have accepted it. That's
+> the next part:
+>
+> > You show that you accept this License and agree to its conditions by
+> taking any action with the Work that, absent this License, would
+> infringe any intellectual property right held by Licensor.
+>
+> This means that if you do something that, absent the license, you
+> would not have the right to do, we will both agree to interpret that
+> as you "accepting" the license, including all of its terms.
+>
+> This also establishes the "consideration" - you get software, I get
+> your compliance with the terms.
+>
+> >### 2.3. Compliance and Remedies
+> > Any failure to act according to the terms and conditions of this
+> License places Your use of the Work outside the scope of the License
+> and infringes the intellectual property rights of the Licensor. In the
+> event of infringement, the terms and conditions of this License may be
+> enforced by Licensor under the intellectual property laws of any
+> jurisdiction to which You are subject.
+>
+> This sentence ties the enforceability of the license back to
+> intellectual property law. IP law has stronger remedies than contract
+> law, so we want to be able to use IP as a tool when enforcing the CAL.
+> But note that only the IP owner can sue under the IP laws. What about
+> everyone else? What about a Recipient - a user - who wants a copy of
+> the source and their data?
+>
+> > You also agree that either the Licensor or a Recipient (as an
+> intended third-party beneficiary) may enforce the terms and conditions
+> of this License against You via specific performance.
+>
+> This calls out to a doctrine in contract law that recognizes that
+> sometimes third parties, not named in a contract, also may have a
+> stake in the contract being enforced. These are "third party
+> beneficiaries." A third party beneficiary doesn't have all the rights
+> that the IP holder does. But they can sue, using this clause, for
+> "specific performance" - a legal term that means "you must comply with
+> the license terms".
+>
+> Thanks,
+> Van
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190819/6cd530d2/attachment.html>
+
+From josh at berkus.org  Mon Aug 19 23:20:02 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Mon, 19 Aug 2019 16:20:02 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAFQvZEN_J_vU=Hjd=O9N3NEDbTSTsHgKd_L4-g=kL1ByZVEMvw@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEN_J_vU=Hjd=O9N3NEDbTSTsHgKd_L4-g=kL1ByZVEMvw@mail.gmail.com>
+Message-ID: <c4ecaccd-a0ef-ff42-5765-0831a7e79224@berkus.org>
+
+On 8/19/19 1:54 PM, VanL wrote:
+> Hi Josh,
+> 
+> Thanks for the questions.
+> 
+> On Mon, Aug 19, 2019 at 3:31 PM Josh Berkus <josh at berkus.org
+> <mailto:josh at berkus.org>> wrote:
+> 
+> 
+>     ### 2.2. Offer and Acceptance
+> 
+>     - I cannot make heads or tails of this paragraph.? What is it supposed
+>     to mean?? Would there be a way to state that in language that would be
+>     clearer to a layman?
+> 
+> 
+> This paragraph is legalese that helps establish enforceability.
+
+Thanks for the more detailed explanation of this.
+
+>     #### 4.2.2. No Technical Measures that Limit Access
+> 
+>     - This paragraph seems ripe for inadvertent violation.? For example, a
+>     strict interpretation of this seems to read that you're not allow to
+>     place any copy of the code under private-key encryption, even for your
+>     own organization's use.? I'd love to see some of the "withold" or other
+>     intent language here.
+> 
+> 
+> I would point you to the language near the end of this clause: "You may
+> not... limit a Recipient?s ability to access any functionality
+> present**in Recipient's independent copy** of the Work, or to deny**a
+> Recipient** full control of the **Recipient?s User Data*.*"
+
+Ah, I missed those words.  Makes sense, thanks.
+
+>     ### 5.3. Termination Due to Litigation
+> 
+>     - Do you want to limit this to patent infringement?? What about other
+>     types of legal action, such as claims for damages?
+> 
+> 
+> Right now I am inclined to say no. First, patent litigation seems
+> especially damaging, and worth calling out specifically. Second, some
+> types of claims we want to allow (such as trademark claims).
+
+Well, I was specifically thinking of warranty suits per (6).  Seems like
+those should also terminate any license rights, and (6) does not
+specifically say that.
+
+>     ### 7.2. Choice of Jurisdiction and Governing Law
+> 
+>     - This seems like it could be used to circumvent some of the provisions
+>     of the license.? Comment?
+> 
+> 
+> No, I don't think so. This applies to a licensee (the person receiving
+> the software) suing the licensor (the contributor). The licensor has the
+> ability to bring a claim wherever necessary.
+
+Ah, yeah.  And if the licensor wants to mess with the openness of the
+source using a compliant jurisdiction, you have to rely on *their*
+upstream licensor to bring suit.  Got it.
+
+-- 
+Josh Berkus
+
+
+From pamela.chestek at opensource.org  Tue Aug 20 12:10:09 2019
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Tue, 20 Aug 2019 08:10:09 -0400
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org>
+Message-ID: <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org>
+
+We don't think we can get anything ready in time to review the CAL
+license, so unfortunately we shall carry on with email.
+
+Thanks,
+
+Pam
+
+Pamela Chestek
+Chair, License Review Committee
+Open Source Initiative
+
+On 8/19/2019 7:17 PM, Pamela Chestek wrote:
+> Hi all,
+>
+> I'd like to pause this discussion for a few days. As everyone knows
+> and I think agrees, email is poorly suited for this process. The
+> License Committee has been discussing trying out a different tool,
+> probably just a simple issue tracker. If y'all could give us a few
+> days to figure out if we want to try it out with this discussion, that
+> would be very greatly appreciated.
+>
+> Van, if you would prefer we NOT try a tool other than email, please
+> let me know.
+>
+> Thanks,
+> Pam
+>
+> Pamela Chestek
+> Chair, License Review Committee
+> Open Source Initiative
+>
+> On 8/19/2019 5:09 PM, VanL wrote:
+>> Hi Josh,
+>>
+>> Looking again, I didn't really address your question about the "offer
+>> an acceptance" language. So here goes:
+>>
+>> License terms such as these are interpreted as contracts. Contracts
+>> require 1) an offer, 2) an acceptance, and 3) consideration.
+>>
+>> > ### 2.2. Offer and Acceptance
+>> > This License is automatically offered to every person and
+>> organization.
+>>
+>> This establishes that the license is being offered as-is to every
+>> possible licensee. This is the "offer" part of contract law.
+>>
+>> But because I don't want to individually sign an agreement with every
+>> possible licensor, I need some way for someone who wants to use
+>> software under this license to show that they have accepted it.
+>> That's the next part:
+>>
+>> > You show that you accept this License and agree to its conditions
+>> by taking any action with the Work that, absent this License, would
+>> infringe any intellectual property right held by Licensor.
+>>
+>> This means that if you do something that, absent the license, you
+>> would not have the right to do, we will both agree to interpret that
+>> as you "accepting" the license, including all of its terms.
+>>
+>> This also establishes the "consideration" - you get software, I get
+>> your compliance with the terms.
+>>
+>> >### 2.3. Compliance and Remedies
+>> > Any failure to act according to the terms and conditions of this
+>> License places Your use of the Work outside the scope of the License
+>> and infringes the intellectual property rights of the Licensor. In
+>> the event of infringement, the terms and conditions of this License
+>> may be enforced by Licensor under the intellectual property laws of
+>> any jurisdiction to which You are subject.
+>>
+>> This sentence ties the enforceability of the license back to
+>> intellectual property law. IP law has stronger remedies than contract
+>> law, so we want to be able to use IP as a tool when enforcing the
+>> CAL. But note that only the IP owner can sue under the IP laws. What
+>> about everyone else? What about a Recipient - a user - who wants a
+>> copy of the source and their data?
+>>
+>> > You also agree that either the Licensor or a Recipient (as an
+>> intended third-party beneficiary) may enforce the terms and
+>> conditions of this License against You via specific performance.
+>>
+>> This calls out to a doctrine in contract law that recognizes that
+>> sometimes third parties, not named in a contract, also may have a
+>> stake in the contract being enforced. These are "third party
+>> beneficiaries." A third party beneficiary doesn't have all the rights
+>> that the IP holder does. But they can sue, using this clause, for
+>> "specific performance" - a legal term that means "you must comply
+>> with the license terms".
+>>
+>> Thanks,
+>> Van
+>>
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190820/480f777b/attachment.html>
+
+From bruce at perens.com  Thu Aug 22 20:13:55 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 22 Aug 2019 13:13:55 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org>
+Message-ID: <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com>
+
+It seems to me that this new submission has repaired some of the more
+trivial reasons for rejection of the license, while preserving the main one.
+
+#### 4.2.1. No Withholding User Data
+
+Throughout any period in which You exercise any of the permissions granted to
+
+You under this License, You must also provide to any Recipient to whom you
+
+provide services via the Work, a no-charge copy, provided in a commonly used
+
+electronic form, of the Recipient?s User Data in your possession, to the extent
+
+that such User Data is available to You for use in conjunction with the Work.
+
+
+The license attaches terms to the data processed through the program,
+rather than the software of the program itself. These terms compel a
+specific action regarding the data, that the licensee surrender a copy of
+that data to a specific third party.
+
+In this case the party may actually have right to that data, having created
+it themselves. This, however, is a distraction from the main point, which
+is the attempt to expand the copyleft paradigm to include *the data
+processed by the program,* such that the licensee must disclose that data
+or perform other mandated actions upon it. While this particular submission
+places a very narrow limit on what data must be disclosed: giving it back
+to "it's owner", it's obvious that it could be followed by licenses
+regarding a more significant license term to be placed on the data
+processed, for example the one that Kyle Mitchell submitted last year,
+which required that data simply processed by the program be placed under an
+Open Source license, or the old BitMover license which required that the
+running program communicate a public log of the program run to a specific
+BitMover log server.
+
+So, I am really most concerned with the precedent that this license would
+establish, which would lead to more severe terms being applied to the data
+processed. And thus I suggest that OSI not accept any such terms at all.
+
+Regarding how to reject the license within the tems of the OSD: the terms
+proposed work out to be a restriction on use. One can not use the program
+to sequester the customer's data. Such sequestration is a strategy in the
+implementation of software-as-a-service companies - I'm not saying that
+it's nice, just that they do it. Thus, I believe this runs awry of OSD#6, *No
+Discrimination Against Fields of Endeavor. *#6 has generally been found by
+the OSI board to prohibit usage restrictions.
+
+OSI has affirmed that it supports Software Freedom, of the specific form
+defined by the Free Software Foundation and OSI's member the Software
+Freedom Conservancy. Thus, the Four Freedoms of the Free Software
+Foundation apply, and Freedom 0 is more specific to usage restrictions: *The
+freedom to run the program as you wish, for any purpose**. *In this case,
+the proposed terms withhold the freedom to run the program while
+sequestering the information processed.
+
+There are other problems with practical use of the license. Open Source
+software is intended for everyone to use, not just everyone who can afford
+an attorney and a programming staff. It thus should be the case that the
+"naive user", who simply runs Open Source software and does not modify it,
+should *not *need to read and understand the license, and certainly should
+not need a lawyer to tell them how to run the program in a compliant
+manner. The submitted license, however, applies terms to this naive user,
+who will potentially need a lawyer to explain to her what data to
+distribute and what can be kept, and a programmer to actually extract the
+data.
+
+OSI, more than a decade ago, accepted a "badgeware" license, the Common
+Public Attribution License, which required attribution on a web site,
+potentially making the same demands that the user have a lawyer and at
+least a web designer in order to be in compliance. Debian rejected the same
+license as being incompatible with the DFSG, which has essentially the same
+text as the OSD. The CPAL was not successful, the submitter appears to be
+out of business, I can find no evidence of users of the license today, and
+searches for "badgeware" yield only decade-old pages. Yet, at the time, one
+commentator wrote, entertainingly in retrospect: *Badgeware is certainly
+not going away, and my fear is that if the OSI chooses to ignore it, or
+worse, refuses to approve the licenses, they will find themselves as
+irrelevant as the UN in short time. *(
+http://www.royrusso.com/blog/2007/01/11/badgeware-and-open-source/).
+Accepting badgeware was a contentious decision for OSI, received a lot of
+press coverage, and was ultimately a wrong decision as well as a useless
+and ineffective one. OSI should not repeat past mistakes.
+
+The Open Source brand has, so far, stood for licenses which do not include
+terms applied to data simply processed by the licensed program. A
+significant part of that brand's value is the public perception that Open
+Source licenses *don't *do that. Thus, I suggest that the OSI board
+maintain the brand by rejecting this license and similar licenses that
+apply terms to the data simply processed by the program.
+ Thanks
+ Bruce
+
+On Tue, Aug 20, 2019 at 5:10 AM Pamela Chestek <
+pamela.chestek at opensource.org> wrote:
+
+> We don't think we can get anything ready in time to review the CAL
+> license, so unfortunately we shall carry on with email.
+>
+> Thanks,
+>
+> Pam
+>
+> Pamela Chestek
+> Chair, License Review Committee
+> Open Source Initiative
+>
+> On 8/19/2019 7:17 PM, Pamela Chestek wrote:
+>
+> Hi all,
+>
+> I'd like to pause this discussion for a few days. As everyone knows and I
+> think agrees, email is poorly suited for this process. The License
+> Committee has been discussing trying out a different tool, probably just a
+> simple issue tracker. If y'all could give us a few days to figure out if we
+> want to try it out with this discussion, that would be very greatly
+> appreciated.
+>
+> Van, if you would prefer we NOT try a tool other than email, please let me
+> know.
+>
+> Thanks,
+> Pam
+>
+> Pamela Chestek
+> Chair, License Review Committee
+> Open Source Initiative
+>
+> On 8/19/2019 5:09 PM, VanL wrote:
+>
+> Hi Josh,
+>
+> Looking again, I didn't really address your question about the "offer an
+> acceptance" language. So here goes:
+>
+> License terms such as these are interpreted as contracts. Contracts
+> require 1) an offer, 2) an acceptance, and 3) consideration.
+>
+> > ### 2.2. Offer and Acceptance
+> > This License is automatically offered to every person and organization.
+>
+> This establishes that the license is being offered as-is to every possible
+> licensee. This is the "offer" part of contract law.
+>
+> But because I don't want to individually sign an agreement with every
+> possible licensor, I need some way for someone who wants to use software
+> under this license to show that they have accepted it. That's the next part:
+>
+> > You show that you accept this License and agree to its conditions by
+> taking any action with the Work that, absent this License, would infringe
+> any intellectual property right held by Licensor.
+>
+> This means that if you do something that, absent the license, you would
+> not have the right to do, we will both agree to interpret that as you
+> "accepting" the license, including all of its terms.
+>
+> This also establishes the "consideration" - you get software, I get your
+> compliance with the terms.
+>
+> >### 2.3. Compliance and Remedies
+> > Any failure to act according to the terms and conditions of this License
+> places Your use of the Work outside the scope of the License and infringes
+> the intellectual property rights of the Licensor. In the event of
+> infringement, the terms and conditions of this License may be enforced by
+> Licensor under the intellectual property laws of any jurisdiction to which
+> You are subject.
+>
+> This sentence ties the enforceability of the license back to intellectual
+> property law. IP law has stronger remedies than contract law, so we want to
+> be able to use IP as a tool when enforcing the CAL. But note that only the
+> IP owner can sue under the IP laws. What about everyone else? What about a
+> Recipient - a user - who wants a copy of the source and their data?
+>
+> > You also agree that either the Licensor or a Recipient (as an intended
+> third-party beneficiary) may enforce the terms and conditions of this
+> License against You via specific performance.
+>
+> This calls out to a doctrine in contract law that recognizes that
+> sometimes third parties, not named in a contract, also may have a stake in
+> the contract being enforced. These are "third party beneficiaries." A third
+> party beneficiary doesn't have all the rights that the IP holder does. But
+> they can sue, using this clause, for "specific performance" - a legal term
+> that means "you must comply with the license terms".
+>
+> Thanks,
+> Van
+>
+>
+> _______________________________________________
+> License-review mailing listLicense-review at lists.opensource.orghttp://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens - Partner, OSS.Capital.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/353bbb2c/attachment.html>
+
+From josh at berkus.org  Thu Aug 22 20:41:08 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Thu, 22 Aug 2019 13:41:08 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com>
+Message-ID: <3e5383bb-27b4-20e8-361d-b5e7a1506a75@berkus.org>
+
+On 8/22/19 1:13 PM, Bruce Perens via License-review wrote:
+
+> The license attaches terms to the data processed through the program,
+> rather than the software of the program itself. These terms compel a
+> specific action regarding the data, that the licensee surrender a copy
+> of that data to a specific third party.
+> 
+> In this case the party may actually have right to that data, having
+> created it themselves. This, however, is a distraction from the main
+> point, which is the attempt to expand the copyleft paradigm to include
+> /the data processed by the program,/ such that the licensee must
+> disclose that data or perform other mandated actions upon it. While this
+> particular submission places a very narrow limit on what data must be
+> disclosed: giving it back to "it's owner", it's obvious that it could be
+> followed by licenses regarding a more significant license term to be
+> placed on the data processed, for example the one that Kyle Mitchell
+> submitted last year, which required that data simply processed by the
+> program be placed under an Open Source license, or the old BitMover
+> license which required that the running program communicate a public log
+> of the program run to a specific BitMover log server.
+
+This is a "slippery slope" argument, and as such a fallacy.
+
+One of the key purposes of open source software -- particularly copyleft
+-- is to preserve user and downstream developer freedom.  In many kinds
+of software, being able to effectively use that software independent of
+the original vendor requires not just access to the source code bits,
+but access to the data stored by the software as well.  As such, this
+kind of requirement to distribute the data on the same terms as the
+software is a natural, and probably inevitable, extension of copyleft
+principles.
+
+As an example, imagine that I have a geodata processing program, which I
+support by running a hosted version, and all user data is PK-encrypted
+using a key only I control.  If the software is under the GPL (because
+it depends on, say, PostGIS), the user still doesn't have the freedom to
+run the software themselves unless they are willing to recreate all of
+their data.  The CAL would protect user freedom in this case.
+
+> Regarding how to reject the license within the tems of the OSD: the
+> terms proposed work out to be a restriction on use. One can not use the
+> program to sequester the customer's data. Such sequestration is a
+> strategy in the implementation of software-as-a-service companies - I'm
+> not saying that it's nice, just that they do it. Thus, I believe this
+> runs awry of OSD#6, /No Discrimination Against Fields of Endeavor. /#6
+> has generally been found by the OSI board to prohibit usage restrictions.
+
+Calling this an OSD6 violation is a huge stretch.  By that argument, all
+copyleft licenses -- in fact, every license except BSD and MIT -- would
+violate OSD#6 because it restricts proprietary software companies.
+Heck, even the BSD license could be said to restrict plaintiff's
+attorneys, if you want to make enough of a case of it.
+
+While it is not the OSI's job to challenge Amazon's business model, it
+is not our job to protect it either.
+
+> There are other problems with practical use of the license. Open Source
+> software is intended for everyone to use, not just everyone who can
+> afford an attorney and a programming staff. It thus should be the case
+> that the "naive user", who simply runs Open Source software and does not
+> modify it, should /not /need to read and understand the license, and
+> certainly should not need a lawyer to tell them how to run the program
+> in a compliant manner. The submitted license, however, applies terms to
+> this naive user, who will potentially need a lawyer to explain to her
+> what data to distribute and what can be kept, and a programmer to
+> actually extract the data.
+
+So if the CAL only applied to *modified* versions of the original
+software, you would have no objections under these terms?
+
+-- 
+Josh Berkus
+
+
+From opensource at lukasatkinson.de  Thu Aug 22 20:49:13 2019
+From: opensource at lukasatkinson.de (Lukas Atkinson)
+Date: Thu, 22 Aug 2019 22:49:13 +0200
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com>
+Message-ID: <CAJTYOd0YLp_2GiQk-oyd=t=GdAhOab0+=poWS=gB5BUFL-F9tQ@mail.gmail.com>
+
+On Thu, 22 Aug 2019 at 22:14, Bruce Perens via License-review <
+license-review at lists.opensource.org> wrote:
+
+> The license attaches terms to the data processed through the program,
+> rather than the software of the program itself. These terms compel a
+> specific action regarding the data, that the licensee surrender a copy of
+> that data to a specific third party.
+>
+> [This is an] attempt to expand the copyleft paradigm to include *the data
+> processed by the program,* such that the licensee must disclose that data
+> or perform other mandated actions upon it. While this particular submission
+> places a very narrow limit on what data must be disclosed: giving it back
+> to "it's owner", it's obvious that it could be followed by licenses
+> regarding a more significant license term to be placed on the data
+> processed, for example the one that Kyle Mitchell submitted last year,
+> which required that data simply processed by the program be placed under an
+> Open Source license, [?]
+>
+> So, I am really most concerned with the precedent that this license would
+> establish, which would lead to more severe terms being applied to the data
+> processed. And thus I suggest that OSI not accept any such terms at all.
+>
+
+I don't buy the slippery slope argument. Importantly, the CAL does not
+encumber the data. It does not require any license for the data. It does
+not restrict how data may be processed. It merely compels a software
+operator to perform certain actions regarding the data, and only if they
+are able to do so.
+
+
+> Regarding how to reject the license within the tems of the OSD: the terms
+> proposed work out to be a restriction on use. One can not use the program
+> to sequester the customer's data. Such sequestration is a strategy in the
+> implementation of software-as-a-service companies - I'm not saying that
+> it's nice, just that they do it. Thus, I believe this runs awry of OSD#6, *No
+> Discrimination Against Fields of Endeavor. *#6 has generally been found
+> by the OSI board to prohibit usage restrictions.
+>
+
+I agree that the CAL restricts use in a very small way, but think that this
+restriction is appropriate, similar to how requiring source disclosure is
+considered appropriate in copyleft licenses.
+
+There is no discrimination against *fields* of endeavor here. SaaS as a
+field does not require user data to be locked up. It is perfectly possible
+to do SaaS and to comply with this term of the license ? that's very close
+to what any GDPR-compliant SaaS operator will already be doing.
+
+
+> OSI has affirmed that it supports Software Freedom, of the specific form
+> defined by the Free Software Foundation and OSI's member the Software
+> Freedom Conservancy. Thus, the Four Freedoms of the Free Software
+> Foundation apply, and Freedom 0 is more specific to usage restrictions: *The
+> freedom to run the program as you wish, for any purpose**. *In this case,
+> the proposed terms withhold the freedom to run the program while
+> sequestering the information processed.
+>
+
+I interpret Freedom 0 to be very concerned about the end user of the
+software, and think that this viewpoint is consistent with the history of
+the software freedom movement. VanL has given a good rationale that true
+end user freedom doesn't just require access to the source, but also access
+to the data. As the end user's freedom so crucially depends on access to
+their data, I think that on balance, a software operator's freedom must
+take the backseat here.
+
+
+> There are other problems with practical use of the license. Open Source
+> software is intended for everyone to use, not just everyone who can afford
+> an attorney and a programming staff. It thus should be the case that the
+> "naive user", who simply runs Open Source software and does not modify it,
+> should *not *need to read and understand the license, and certainly
+> should not need a lawyer to tell them how to run the program in a compliant
+> manner.
+>
+
+An end user is free to run the software for themselves or their affiliates
+without restriction, and will certainly not have to consult a lawyer for
+that. You are painting an overly dramatic picture here. In general, I also
+find the CAL to be more comprehensible for lay persons than e.g. the GPLv3.
+
+If anyone operates a service for other people to use, they already are
+subject to so many legal obligations in their respective jurisdiction that
+the CAL's provisions will really not matter that much. For example, CAL
+compliance is trivial compared with GDPR compliance, and GDPR compliance is
+not inherently difficult. I would assume that even in the US significant
+legal issues around liability etc would exist for a service operator.
+
+If compliance doesn't matter for some people, and isn't a noticeable burden
+for the rest, and increases software freedom, is that provision really so
+objectionable?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190822/4f46da92/attachment.html>
+
+From van.lindberg at gmail.com  Thu Aug 22 20:53:02 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Thu, 22 Aug 2019 15:53:02 -0500
+Subject: [License-review] For approval: The Cryptographic Autonomy License (Beta 2)
+In-Reply-To: <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com> <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org> <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com> <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org> <CAFQvZEO92npqZwVp+ohX14PRq0ef3cGHMRaioB9ir7BQnVFTag@mail.gmail.com> <28c66a4f-445d-d6f6-7106-93d333c55ed5@opensource.org> <42cca395-e6ea-2220-57f3-fa9a3f4908b2@opensource.org> <CAK2MWOugpYpNN0v8sGSF=UOLA6BFWdLVLcV6T5OOEz+tKe54=g@mail.gmail.com>
+Message-ID: <CAFQvZEMYAvdQO+W=FSaDRGs66NrYksS9J99+zd41kLi2q_CmAA@mail.gmail.com>
+
+Hi Bruce,
+
+I appreciate your succinct statement of what you find problematic about the
+CAL. I don't believe that our views are compatible. Thus, I am presenting
+my comments to similarlly succinctly respond for the benefit of the others
+on the list, who may have tired of our back-and-forth, This is not an
+effort to reopen particular elements of the debate.
+
+On Thu, Aug 22, 2019 at 3:14 PM Bruce Perens via License-review <

@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-27 時点・196 ファイル）
+## いまの状態（2026-09-27 時点・257 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -232,6 +232,67 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2008-12 | `license-review`（観測）| **Transitive Grace Period Public Licence の審査 134 通（未承認） → 観測保存（6/8 部）** | **同じ束の 6/8 部。** 本文は無改変で、8 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2008-12 | `license-review`（観測）| **Transitive Grace Period Public Licence の審査 134 通（未承認） → 観測保存（7/8 部）** | **同じ束の 7/8 部。** 本文は無改変で、8 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2008-12 | `license-review`（観測）| **Transitive Grace Period Public Licence の審査 134 通（未承認） → 観測保存（8/8 部）** | **同じ束の 8/8 部。** 本文は無改変で、8 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（1/61 部）** | **アーカイブ中で最大の提出スレッド。** ドシエは CAL-1.0 の**本文**を分析していたが、その**審査**は一度も読んでいなかった（**「言及 ≠ 読了」**・#264）。**委員長が反対意見を繰り返し条文と OSD へ差し戻している** —— *"Can you explain **what OSD is not met and where you find that in the license**?"*。**2020-02-14 の理事会で承認**（賛成 8・反対 0・棄権 1・欠席 2） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（2/61 部）** | **同じ束の 2/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（3/61 部）** | **同じ束の 3/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（4/61 部）** | **同じ束の 4/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（5/61 部）** | **同じ束の 5/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（6/61 部）** | **同じ束の 6/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（7/61 部）** | **同じ束の 7/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（8/61 部）** | **同じ束の 8/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（9/61 部）** | **同じ束の 9/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（10/61 部）** | **同じ束の 10/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（11/61 部）** | **同じ束の 11/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（12/61 部）** | **同じ束の 12/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（13/61 部）** | **同じ束の 13/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（14/61 部）** | **同じ束の 14/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（15/61 部）** | **同じ束の 15/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（16/61 部）** | **同じ束の 16/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（17/61 部）** | **同じ束の 17/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（18/61 部）** | **同じ束の 18/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（19/61 部）** | **同じ束の 19/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（20/61 部）** | **同じ束の 20/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（21/61 部）** | **同じ束の 21/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（22/61 部）** | **同じ束の 22/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（23/61 部）** | **同じ束の 23/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（24/61 部）** | **同じ束の 24/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（25/61 部）** | **同じ束の 25/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（26/61 部）** | **同じ束の 26/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（27/61 部）** | **同じ束の 27/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（28/61 部）** | **同じ束の 28/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（29/61 部）** | **同じ束の 29/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（30/61 部）** | **同じ束の 30/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（31/61 部）** | **同じ束の 31/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（32/61 部）** | **同じ束の 32/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（33/61 部）** | **同じ束の 33/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（34/61 部）** | **同じ束の 34/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（35/61 部）** | **同じ束の 35/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（36/61 部）** | **同じ束の 36/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（37/61 部）** | **同じ束の 37/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（38/61 部）** | **同じ束の 38/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（39/61 部）** | **同じ束の 39/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（40/61 部）** | **同じ束の 40/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（41/61 部）** | **同じ束の 41/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（42/61 部）** | **同じ束の 42/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（43/61 部）** | **同じ束の 43/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（44/61 部）** | **同じ束の 44/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（45/61 部）** | **同じ束の 45/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（46/61 部）** | **同じ束の 46/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（47/61 部）** | **同じ束の 47/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（48/61 部）** | **同じ束の 48/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（49/61 部）** | **同じ束の 49/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（50/61 部）** | **同じ束の 50/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（51/61 部）** | **同じ束の 51/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（52/61 部）** | **同じ束の 52/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（53/61 部）** | **同じ束の 53/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（54/61 部）** | **同じ束の 54/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（55/61 部）** | **同じ束の 55/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（56/61 部）** | **同じ束の 56/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（57/61 部）** | **同じ束の 57/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（58/61 部）** | **同じ束の 58/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（59/61 部）** | **同じ束の 59/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（60/61 部）** | **同じ束の 60/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2019-04 | `license-review`（観測）| **Cryptographic Autonomy License の承認審査 585 通 → 観測保存（61/61 部）** | **同じ束の 61/61 部。** 本文は無改変で、61 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2004-09 | `license-discuss`（観測）| **Allegro Giftware License の承認相談 11 通 → 観測保存（1/1 部）** | **proliferation の反対が「すべてを与える」ライセンスへ向けられている唯一の記録** —— Moen 氏 *"even an extremely permissive one like yours ... **needlessly putting it in a ghetto of your devising**"*。**そして「献呈 + 許諾の組み合わせ」を出すという発想が 2004 年に在る** —— Rousskov 氏 *"a **'Public Domain or whatever license you want' dedication/license combo** for OSI approval"*（#253）|
 | 2001-06 | `license-discuss`（観測）| **qmail のライセンスと OSD 4 21 通 → 観測保存（1/2 部）** | **OSD 3 の後半が実際に判定の決め手として使われている例**（Moen 氏 *"OSD clause #3, immediately preceding, strikes me as disambiguating this."*）。**条件一般について Cowan 氏** —— *"a claim that 'X must allow Y' is satisfied by a statement by X that 'Y is allowed under conditions Z' **can't be true in general, since the conditions Z can be arbitrarily restrictive**."*（#251） |
 | 2001-06 | `license-discuss`（観測）| **qmail のライセンスと OSD 4 21 通 → 観測保存（2/2 部）** | **同じ束の 2/2 部。** 本文は無改変で、2 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
