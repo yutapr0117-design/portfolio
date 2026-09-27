@@ -477,6 +477,30 @@ licensee's obligations to clear rights are addressed"*）、**Fontana 氏の OSD
 解消していない。** **同時代 instrument の経過観察として、決定が出たら読み直す**
 （`PEER-REVIEW-WATCH.md` の 4 分岐）。
 
+### 追記（2026-09-27 に読み直して測った）
+
+**本節は 2026-09-12 までしか読んでいなかった。** 取り直すと 3 通が外側にあり、
+**その後 13 日間このスレッドは沈黙している**（最終 2026-09-14・取得 2026-09-27 05:55 UTC。
+**1 度の取得は「無いこと」を示さないので、取得時刻を併記する** ——#117 の規律）。
+
+- **Fontana 氏の批判は 09-11 に OSD 9 より広い形へ上がっていた** ——
+  *"OpenMDW-1.1 is **flawed in its basic conception**, as a consequence of the termination
+  provision. **Its whole raison d'être is to have a single license that applies to everything**"*。
+  **(a) は「ACD には当たらない」と書いたが、その理由は終了の不在という 1 点だけである。**
+  その 1 点を外して**構想**だけを見る読みは、§1.2 が 6 種の素材を 1 語に束ねる ACD に届く
+  （`against.md` #266 に立てた）。
+- **steward の反論は ACD にとって有利で、かつ steward 自身の弁明である** ——
+  *"The **unit of open source licensing has always been the work as provided**"* /
+  *"**Apache-2.0's own patent termination applies to the entire Work**"*。
+- **Piana 氏（2026-09-14）が de-listing 論を打ち切った**のと、**Berkus 氏（同日）が
+  偶発的な侵害コピーの 8 経路を挙げた**（*"GenAI & Autocomplete"* を含む）のも同じ区間にある。
+  後者は **#134（「何が Work か」の判定が運用に乗っている）の重さを裏づける**。
+  **⚠ ただし ACD 固有の欠陥ではない** —— MIT を含む承認済みの寛容ライセンスが共有する性質である。
+
+**逐語は `rounds/2026-09-14-license-review-openmdw-bundling-defence-observed.txt`
+（Dolan / Berkus）と `rounds/2026-09-14-license-review-openmdw-thread-observed.txt`
+（Piana / Fontana）。**
+
 ## 1.79 `license-discuss` に「CC0 に特許許諾を足した」提出が既にあった（2024-04）—— 我々の §8.1 と同じ語が「正しい文言」と呼ばれている
 
 **`license-discuss` 2024-01〜2026-09（443 通・76 スレッド）を全数で件名列挙し、我々の設計に
