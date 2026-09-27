@@ -718,3 +718,64 @@ Nelson 氏は名称への異議にこう答えている ——
 **Ms-PL は承認された**が、**それは我々の類型の先例ではない**（許容型・企業 steward・採用は
 その時点で既に広い）。**本節が establish するのは 2 つの*規則の言い方*だけ**で、
 **どちらも、当てはめた結果を保証しない。**
+
+## 1.128 依拠している先例に逆らった側を読んだ —— 反対は「テキストが通るか落ちるかの試験」の形で述べられており、ACD-1.0 はそれに通る（2026-09-27）
+
+**Unlicense は本ドシエが依拠している唯一の「献呈 + 許諾」型の承認先例**である。
+**その理由書は `AS-OF.md` が逐語で持っていたが、逆らった側の議論は持っていなかった**
+（`veto against Unlicense`・2020-05-16〜06-03・全 17 通を
+`rounds/2020-05-license-review-unlicense-veto-observed.txt` に保存）。
+
+### 反対は試験の形で述べられている
+
+Stuart Langley 氏（実務弁護士・自らそう名乗っている）:
+
+> *"Unlicense falls on the side of '**this is not a license**' to me largely because I read the
+> second paragraph as **a description of what the author thinks public domain means, not a
+> clear intent to convey rights**."*
+>
+> *"I would never advise a client to sign a commercial license that did not have
+> **conventional, well-trodden language of license such as 'Licensor grants X rights....'**"*
+
+**これは意見ではなく、当てれば答えが出る試験である。** 当てた結果:
+
+| | |
+| :-- | :-- |
+| **ACD-1.0 §4.1** | *"**The Dedicator grants You** a worldwide, royalty-free, non-exclusive, irrevocable, perpetual, sublicensable, and transferable licence to exercise all Covered Rights in the Work for any purpose whatsoever."* |
+| **§8.1 / §8.4**（特許）| 同じ動詞 —— *"The Dedicator grants You …"* / *"The Dedicator further grants You …"* |
+| 本文中の `grant` 系の語 | **12 箇所**（実測） |
+
+**Unlicense が落ちたと言われた当の点で、ACD-1.0 は落ちない。**
+しかも **§4.4 は許諾が §3 の有効性に依存しないと明言する**ので、
+**「献呈の意思の記述」と読まれる余地は、Unlicense より構造的に狭い。**
+
+### ⚠ 逆側 4 つ —— この試験に通ることは、承認の予測ではない
+
+**(1) 同じ反対者が、別の要素も挙げている** —— *"risk perception is relative and **wide use
+without any problems is a big factor** in getting comfortable with any particular wording"*。
+**そちらに我々は答えられない**（B2・採用 1 件）。
+
+**(2) 反対は承認を止めなかった** —— Unlicense は 2020-06-12 の理事会で承認され、
+**Langley 氏は最後まで *"I still will advise against using software encumbered with the
+Unlicense"* と述べている。****有力な反対が残ったまま承認は通る**（有利）が、
+**同じことは「我々に有利な意見が残っても否決は通る」を意味する**（不利）。
+
+**(3) 承認を運んだのは弁護士たちの一致であって、テキストの形だけではない** ——
+委員会の理由書は *"**The lawyers who opined on the issue, both US and non-US, agreed** that
+the document would most likely be interpreted as a license and that the license met the OSD"*
+と述べる。**B1（法的レビュー不在）に対する最も鋭い形がここにある** ——
+**我々が依拠する先例は、まさに我々が欠いているものによって線を越えた。**
+そして**その一致はリスト上の議論で生まれた**ので、**#268 の機構の 3 例目**でもある
+（CAL 2020 / Ms-PL 2007 に続く）——**議論の場に居られないこと（B14）の費用がまた 1 段上がる。**
+
+**(4) category は提出者の希望どおりにならなかった** —— 提出者は
+*"Popular and Widely-Used or With Strong Communities"* を求めたが、委員会は
+*"**because of its intended nature as a dedication to the public domain**, that it be placed
+in the '**Special Purpose**' category"* と勧告した。**献呈という性質そのものが category を
+決めている**ので、**ACD も同じ扱いを受けうる**と見ておくべきである（CAL は *"Uncategorized"*）。
+
+### この節が establish しないこと
+
+**「試験に通る」は「承認される」ではない。** Langley 氏の試験は**彼の**試験であり、
+委員会の基準ではない。**確立するのは 1 点だけ** —— **Unlicense に向けられた最も具体的な
+起草上の異議は、ACD-1.0 の条文には当たらない。**

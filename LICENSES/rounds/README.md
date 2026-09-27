@@ -61,10 +61,11 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-27 時点・264 ファイル）
+## いまの状態（2026-09-27 時点・265 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
+| 2020-05〜06 | `license-review` | **観測（Unlicense への反対・全 17 通）** | **依拠している先例に逆らった側の議論を、我々は持っていなかった**（理由書は `AS-OF.md` が逐語で持っていた）。実務弁護士 Stuart Langley 氏 *"**this is not a license** … a description of what the author thinks public domain means, **not a clear intent to convey rights**"* / *"conventional, **well-trodden language of license such as 'Licensor grants X rights....'**"*。**ACD-1.0 §4.1 はその形そのもの**（*"The Dedicator **grants You** …"*）で、**試験に通る**（`review-doctrine.md` §1.128）。**⚠ ただし同じ反対者は *"wide use without any problems is a big factor"* とも述べており、そちらに我々は答えられない。****⚠ そして反対は承認を止めなかった。** |
 | 2005〜2007 | `license-discuss` | **観測（Ms-PL 審査・決める側 26 通・3 分割の 1/3 部）** | **#243 の census が挙げた最大の未読スレッド（331 通）から、決める側の 26 通だけを規則を明記して抜いた。****有利 1 件**: vanity の異議に理事会が *"does not give that argument much weight **as long as the license is reusable**"* と答えている（提出パケット §4b が答えている当の項目）。**不利 1 件**: Tiemann 氏（当時の会長）の評価関数 *"if a license is submitted with **promise X**, then we should **evaluate promise X as well as the OSD**"* ——**ACD の gap は存在理由であると同時に、測られる基準にもなる**（`review-doctrine.md` §1.127） |
 | 2005〜2007 | `license-discuss` | **観測（Ms-PL 審査・決める側 26 通・3 分割の 2/3 部）** | **同じ束の 2/3 部。** 本文は無改変で、3 部を順に結合すれば抜き出した形に戻る（分割は Check 365 の 1,000 行上限のため・**行境界**） |
 | 2005〜2007 | `license-discuss` | **観測（Ms-PL 審査・決める側 26 通・3 分割の 3/3 部）** | **同じ束の 3/3 部。** 本文は無改変で、3 部を順に結合すれば抜き出した形に戻る（分割は Check 365 の 1,000 行上限のため・**行境界**） |
