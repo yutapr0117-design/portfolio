@@ -1,7 +1,7 @@
 ---
 file: LICENSES/rounds/README.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-discuss・license-review participants / 監査人
-last-updated: 2026-09-26
+last-updated: 2026-09-27
 canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲート 1) / LICENSES/ACD-1.0.discussion-log.md (分解と分類はこちら)
 ---
 
@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-26 時点・133 ファイル）
+## いまの状態（2026-09-27 時点・134 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -170,6 +170,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（20/22 部）** | **同じ束の 20/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（21/22 部）** | **同じ束の 21/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2017-09 | `license-review`（観測）| **License Zero Reciprocal (L0-R) の承認審査 220 通 → 観測保存（22/22 部）** | **同じ束の 22/22 部。** 本文は無改変で、22 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2004-09 | `license-discuss`（観測）| **Allegro Giftware License の承認相談 11 通 → 観測保存（1/1 部）** | **proliferation の反対が「すべてを与える」ライセンスへ向けられている唯一の記録** —— Moen 氏 *"even an extremely permissive one like yours ... **needlessly putting it in a ghetto of your devising**"*。**そして「献呈 + 許諾の組み合わせ」を出すという発想が 2004 年に在る** —— Rousskov 氏 *"a **'Public Domain or whatever license you want' dedication/license combo** for OSI approval"*（#253）|
 | 2001-06 | `license-discuss`（観測）| **qmail のライセンスと OSD 4 21 通 → 観測保存（1/2 部）** | **OSD 3 の後半が実際に判定の決め手として使われている例**（Moen 氏 *"OSD clause #3, immediately preceding, strikes me as disambiguating this."*）。**条件一般について Cowan 氏** —— *"a claim that 'X must allow Y' is satisfied by a statement by X that 'Y is allowed under conditions Z' **can't be true in general, since the conditions Z can be arbitrarily restrictive**."*（#251） |
 | 2001-06 | `license-discuss`（観測）| **qmail のライセンスと OSD 4 21 通 → 観測保存（2/2 部）** | **同じ束の 2/2 部。** 本文は無改変で、2 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2004-09 | `license-discuss`（観測）| **Academic Citing License の相談 36 通 → 観測保存（1/3 部）** | **「使用の制限は OSD に無い」ことをリストが自分で認めている場所** —— Prodromou 氏 *"It'd be more accurate to say **'no restrictions on use not covered by copyright law.'**"*。**そして我々の類型についての知覚が記録されている** —— Moen 氏の 800 件の audit で *"'public domain' did indeed comprise an **overwhelming majority of those with serious licensing problems**"*、逆側に Cowan 氏 *"they aren't licensed at all. **But they are clearly Open Source.**"*（#250 / #251） |

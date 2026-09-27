@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-precedents.md
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人
-last-updated: 2026-09-25
+last-updated: 2026-09-27
 canonical-ref: LICENSES/ACD-1.0.comparison.md (条項レベルの比較はこちら) / LICENSES/PEER-REVIEW-WATCH.md (手続きの観測) / LICENSES/AS-OF.md (日付つきの外部事実)
 ---
 
@@ -798,3 +798,62 @@ challenge to the license's status**."*
 **ドシエは佐渡氏を 9 file で引用しながら、このスレッドを引いていなかった。**
 **承認は取り消せない**（§1.88）という事実と、**承認後に「本当に open source か」と問われうる**
 という事実は両立する ——**そしてその問いに答えたのは OSI ではなく、その言語圏の当事者だった。**
+
+## 1.115 proliferation の反対は「すべてを与える」ライセンスにも向く —— そして「献呈 + 許諾の組み合わせ」は 2004 年に構想されていた（2026-09-27）
+
+一次資料は `rounds/2004-09-license-discuss-allegro-giftware-observed-1of1.txt`（11 通）。
+**Allegro ライブラリの "giftware" ライセンス** ——zlib ライセンスから 3 つの制限を全部外し、
+*"the source is completely free to use for whatever you want"* と作者自身が述べる、
+**条件をほぼ持たない一枚もの**である。
+
+### 「極端に寛容であること」は proliferation への抗弁にならない
+
+Rick Moen 氏 2004-09-22 ——
+
+> *"When a codebase uses a one-off licence, **even an extremely permissive one like yours**,
+> cautious people will not be able to assess its fitness for their needs and compatibility matrix
+> without studying it carefully. Whereas, if for example you use the standard MIT/X licence, those
+> characteristics are already known, and **newcomers need see only the licence's name to know them
+> implicitly**. **Inventing one-off licences without a really, really compelling reason is pretty
+> much always a bad idea, and hurts your project over the long term by needlessly putting it in a
+> ghetto of your devising.**"*
+
+**これは #84（Landley 氏の fungibility）と同じ問いだが、向けられた相手が違う** ——
+**あちらは「PD 等価はすでに 0BSD がある」、こちらは「どれほど寛容でも、新しい名前は読む費用を作る」。**
+**ACD-1.0 は 16 節 82 条であり、Allegro の一枚ものより読む費用がはるかに高い。**
+氏が名指しした費用（*"assess its fitness ... without studying it carefully"*）は、
+**我々の B13（reviewer の理解コスト）と B2（採用）そのものである。**
+
+**我々の答えは「寛容だから」ではありえない** —— gap（B10）でしか立たない。
+**この 2004 年の一文は、その一本足であることを外から確認させる。**
+
+### 「献呈 + 許諾の組み合わせ」は、2004 年に構想されて提出されなかった
+
+同じスレッドで Alex Rousskov 氏 2004-09-24 ——
+
+> *"A Public Domain dedication is not on the OSI licenses list **because it is not a license**.
+> As with virtually any legal document, **enforceability of Public Domain dedications have been
+> questioned**. ... When they add a few hours to the day, **I might submit a 'Public Domain or
+> whatever license you want' dedication/license combo for OSI approval**."*
+
+**ACD-1.0 §3 + §4 は、その combo である。**
+**有利な読み**: 我々の構造は奇をてらったものではなく、**この問題を見た人が 22 年前に
+「出すとしたらこの形」と述べた当のもの**である。
+**⚠ 逆側を同じ重さで**: **構想されたが出されていない**ことは、
+**「誰も必要としなかった」とも「誰も時間を割かなかった」とも読める。**
+氏自身が理由として挙げたのは後者（*"When they add a few hours to the day"*）だが、
+**それは本人の弁であって、22 年のあいだ誰も出さなかったことの説明ではない。**
+
+### §3 の中核問題が、ここでも同じ形で出ている
+
+John Cowan 氏 —— *"It's a matter of dispute whether **it's even possible to make something public
+domain**, at least in the U.S., except by operation of law (that is, the passage of time).
+**Actual public-domain code, like that written by U.S. government employees, actually is Open
+Source**, though."*
+Rick Moen 氏 —— *"works without explicit licence indications are **not (any more) public domain,
+but rather are proprietary by default**"*（Berne 以降、著作権は創作と同時に自動発生する）。
+
+**前半は Engelfriet 氏 2004-02 の人格権論（`review-precedents.md` 既収）と同じ問題**で、
+**後半は §3 が「何もしない」ことと違う理由**である ——
+**黙っていれば public domain になるのではなく、黙っていれば proprietary になる。**
+**§3 が在ることの必要性は、この一文が最も短く説明している。**
