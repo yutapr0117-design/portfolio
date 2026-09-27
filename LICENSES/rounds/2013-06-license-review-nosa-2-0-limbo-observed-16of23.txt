@@ -1,0 +1,750 @@
+this Agreement.*
+
+So, here we're defining a larger work as *either *aggregation (for example,
+storage of separate programs on a disk medium) or a program that is linked
+(static or dynamic does not matter, apparently). Thus applying one word to
+two entirely different things. What you should do here is define
+aggregation, and then make your language on separability above make it
+clear that an API is the boundary of a separable module. This language is
+also circular several times. Larger Work is included in the definition of
+Derivative Works. What is *governed by the terms of this agreement* is the
+Subject Software, which includes the definition of Derivative Works and
+Larger Work (for negation). And so on. You can say Subject Software (or I
+would prefer Combined Work) instead of relying on whether the module is
+governed by the terms of this agreement.
+
+*F. ?Original Software? means the software first released under this
+Agreement by Government Agency with the Government Agency designation and
+title listed above, including source code, object code and accompanying
+documentation, if any.*
+
+I think "Initial Work" is less confusing. Other licenses use that term.
+Also, this definition is exclusive to Government and I don't see that this
+is necessary simply to define an initial work.
+
+*G.  ?Subject Software? means the Original Software, Derivative Works, or Contributions, and any combination or respective parts thereof.*
+
+What you mean to do here is define a Combined Work. If you did that and
+used "Combined Work" rather than "Subject Software" throughout the license
+text, people would understand better what you are talking about.
+
+*H. ?Work? means an original work of authorship fixed in a tangible medium
+of expression,*
+
+*now known or later developed, from which it can be perceived, reproduced,
+or otherwise communicated, either directly or with the aid of a machine or
+device, including Derivative Works.*
+
+I would have thought that *"Work" means an original work of authorship
+fixed in a tangible medium of expression" *was sufficient, and that you
+would not have to go on to attempt to define fixation for yourself,
+including mentioning that some media might not yet exist but that this
+license would still apply to them, as if someone could create a new storage
+medium that copyright did not apply to.
+
+*A work is original if it is independently created by You, as opposed to
+copied from other works, and it possesses at least some minimal degree of
+creativity. *
+
+This is only necessary because you're trying to define derivative works
+separately from existing legislation and case law. If you use "Combined
+Work" you don't have to argue about originality, and you can separately
+define what is separable and be done with it.
+
+*I. ?You? or ?Your? means an individual or a legal entity exercising rights
+under, and complying with all the terms of, this Agreement. For legal
+entities, ?You? or ?Your? includes an entity and any other entity that
+controls, is controlled by, or is under common control with such entity.
+For the purposes of this definition, ?control? means (i) the power, direct
+or indirect, to cause the direction or management of such entity, whether
+by contract or otherwise, or (ii) ownership of fifty percent (50%) or more
+of the outstanding shares, or (iii) beneficial ownership of such entity.*
+
+*2. GRANT OF RIGHTS YOU RECEIVE (FROM UPSTREAM CONTRIBUTORS) ALONG WITH
+YOUR GRANT OF RIGHTS AND OBLIGATIONS IF YOU MAKE DERIVATIVE WORKS OF OR
+REDISTRIBUTE THE SUBJECT SOFTWARE (TO DOWNSTREAM RECIPIENTS)*
+*A. Subject to, and, so long as You comply with, the terms and conditions
+of this Agreement, the Government hereby grants permission to You to use
+civil servant authored U.S. Government Work (17 U.S.C. ? 105) portions of
+the Subject Software, if any, in the United States.*
+
+17 USC * ? *105 says this:
+
+*Copyright protection under this title is not available for any work of the
+United States Government
+<https://www.law.cornell.edu/definitions/uscode.php?width=840&height=800&iframe=true&def_id=17-USC-590005605-364936160&term_occur=2&term_src=title:17:chapter:1:section:105>,
+but the United States Government is not precluded from receiving and
+holding copyrights transferred to it by assignment, bequest, or otherwise. *
+
+This particular section of copyright law *does not* establish that NASA has
+any right to *deny *permission to use civil servant authored U.S.
+Government Work that is not classified. If you want to give that
+permission, please show us what law establishes that right for the U.S.
+Government.
+
+
+
+*B. Under Non Patent Rights/Copyright License:  Subject to, and, so long as
+You comply with, the terms and conditions of this Agreement, each
+Contributor hereby grants to You (with respect to the Subject Software and
+its Contributions to or Derivative Works of the Subject Software) and You
+hereby grant to each recipient (with respect to Your Contributions to and
+Derivative Works of the Subject Software, as defined in Paragraphs 1.B and
+1.C) a non-exclusive, worldwide, royalty-free, irrevocable (except as
+stated in Paragraphs 3.J and 5.A) license to use,  reproduce, modify,
+redistribute, prepare Derivative Works of, publicly display, publicly
+perform, and sublicense the Subject Software.*
+
+*C. Under Patent Rights:  Subject to, and, so long as You comply with, the
+terms and conditions of this Agreement, each Contributor hereby grants to
+You (with respect to the Subject Software and its Contributions to or
+Derivative Works of the Subject Software) and You grant to each recipient
+(with respect to Your Contributions to and Derivative Works of the Subject
+Software, as defined in Paragraphs 1.B and 1.C) a non-exclusive, worldwide,
+royalty-free, irrevocable (except as stated in Paragraphs 3.J and 5.A)
+license with respect to its Covered Patents to make, have made, use,
+redistribute, reproduce, sell, offer to sell, import, sublicense and
+otherwise transfer the Subject Software.*
+This is the strong patent clause. See Larry's comments at
+https://www.rosenlaw.com/lj9.htm
+
+*Irrevocable except* is awkward. If someone sues, just terminate their
+license. State here that the patent grant terminates if the license
+terminates.
+
+*3. ADDITIONAL OBLIGATIONS IF YOU MAKE DERIVATIVE WORKS OF OR REDISTRIBUTE
+THE SUBJECT SOFTWARE*
+*A. Contributions.*
+
+
+*1.  Submission. Unless You explicitly state otherwise, any Contribution
+intentionally submitted for inclusion in Subject Software by You to the
+Government Agency shall be governed by the terms and conditions of this
+Agreement, without any additional terms or conditions. Notwithstanding the
+above, nothing herein shall supersede or modify the terms of any separate
+agreement you may have executed with the U.S. Government regarding such
+Contributions.*
+Please explain what happens to the global Open Source community other than
+the U.S. Government when a the contributor has a separate agreement with
+the Government. What license applies to everyone else?
+
+
+
+*2.  Representation.  You represent that each of Your Contributions is Your
+own Work or is the Work of another Contributor that You are authorized to
+submit.*
+By "authorized to submit", are you saying that I can contribute a work by
+someone else that is under a compatible Open Source license? Because that
+would solve one fundamental objection to the license. Or do you simply mean
+that I can contribute my employer's work if they've explicitly authorized
+me to do so (in which case they should really be the ones entering into the
+license, because they own the patent rights, and we want to make sure those
+come under the license).
+
+*You represent that Your submission(s) of Contributions that are the Work
+of another Contributor, that You are authorized to submit, include complete
+details of any agreements, licenses, or other restriction (including, but
+not limited to, related copyright, patents and trademarks) of which You are
+aware that will impose additional terms and conditions on the Subject
+Software. *
+
+*B. Redistribution.  You may redistribute the Subject Software, with or
+without Your Derivative Works or Contributions, provided that You meet the
+following conditions:  *
+*   1. Whenever You redistribute the Subject Software, You must include a
+copy of this Agreement with each copy of the Subject Software; and*
+*   2. You may redistribute Your Derivative Works or Your Contributions
+under this Agreement or under a license that includes additional or
+different terms provided it otherwise complies with the terms and
+conditions provided in this Agreement; and*
+
+
+*   3. If You redistribute the Subject Software in any form other than
+source code, You must also make the source code freely available, and must
+provide with each copy of the Subject Software information on how to obtain
+the source code in a reasonable manner on or through a medium customarily
+used for software exchange; and*
+
+
+*4. If You choose to offer services under Paragraph 3.G, such services must
+be covered under a separate agreement.*
+This is advisory*, *because this agreement does not offer services.
+
+*C. You must ensure that the following copyright notice appears prominently
+in the Subject Software:*
+*[GOVERNMENT AGENCY WILL INSERT THE APPLICABLE COPYRIGHT NOTICE ALONG WITH
+ANY OTHER REQUIRED NOTICES IN EACH AGREEMENT ACCOMPANYING THE INITIAL
+DISTRIBUTION OF ORIGINAL SOFTWARE AND REMOVE THIS BRACKETED LANGUAGE.]*
+*[The following copyright notice may be used if created in whole or in part
+by a non-federal entity and rights obtained from author/copyright holder by
+assignment.  Government Agency will insert the year and its Agency
+designation and remove the bracketed language.]  *
+*      Copyright  {YEAR} United States Government as represented by
+_______________________________.  All Rights Reserved.*
+*[The following copyright notice may be used if created by civil servants
+only. Government Agency will insert the year and its Agency designation and
+remove the bracketed language.]  *
+*      Copyright  {YEAR} United States Government as represented by
+__________________________________________.  No copyright is claimed in the
+United States under Title 17, U.S. Code. All Other Rights Reserved.*
+
+Can you please come up with one statement that works for everyone?
+Otherwise, we have the issue of "Invariant Sections" which could include
+arbitrary rants, advertising, etc. And it makes it difficult to use the
+license because developers don't know which block to use where. How about:
+
+Copyright (C) {YEAR}. Where work is the product of a civil servant employed
+by the U.S. Government, The U.S. Government does not claim copyright. Where
+work is created by a non-federal entity or assigned to the U.S. Government
+by a non-federal entity, copyright is claimed and all rights are reserved
+except as granted by the NASA Open Source License version 2.0 .
+
+Go ahead and rewrite that, but make it one text only, please.
+
+*D. You must include in any of Your Derivative Works or Contributions a
+notice that describes the alterations made and the date of the alterations,
+identifies You as Contributor of the Derivative Work or Contribution, and
+includes a statement that the Derivative Work or Contribution is derived,
+directly or indirectly, from Original Software provided by Government
+Agency. *
+
+I notice that some licenses require this, and in general developers *do not
+comply* and write in the dates and description of the alterations. But they
+*do* use revision control systems like *git *which provide this
+information, so it's not terribly useful to ask for it to be entered
+manually in the license. It's enough for ask them to get the attribution
+and the copyright statements right. You need to help them as much as
+possible just to get them to do that, they don't have intellectual property
+training. Thus the single text block I ask for above.
+
+*E. Once a copyright notice has been added to the Subject Software, You may
+not remove it without the express permission of the Contributor who added
+the notice.  You may add Your own copyright notice to the Subject Software.
+*
+
+So, I can't correct the attribution and copyright notice when they're
+wrong? Change this to "you must maintain correct attribution and copyright
+notices, and you may add your own".
+
+*F. You may not make any representation in the Subject Software or in any
+promotional, advertising or other material that may be construed as an
+endorsement by Government Agency or by any other Contributor or recipient
+of any product or service provided by You, or that may seek to obtain
+commercial advantage of Government Agency's or any other recipient?s
+participation in this Agreement.*
+
+*G. You may choose to offer, and to charge a fee for, warranty, indemnity
+and/or liability obligations to one or more other recipients of the Subject
+Software.  You may do so, however, only on Your own behalf and not on
+behalf of Government Agency or any other Contributor.  You must make it
+absolutely clear that any such warranty, indemnity and/or liability
+obligation is offered by You alone.  Further, You agree to indemnify
+Government Agency and every other Contributor for any liability incurred by
+them as a result of warranty, indemnity and/or liability offered by You.*
+
+*H. You may create a Larger Work by combining Subject Software with
+separate software not governed by the terms and conditions of this
+Agreement and redistribute the Larger Work as a single product. In such
+case, You must make sure Subject Software, or portions thereof, included in
+the Larger Work is licensed under this Agreement or a license that complies
+with the terms and conditions provided in this Agreement.*
+
+
+
+*I. Notwithstanding any provisions contained herein, You are hereby put on
+notice that export of any goods or technical data containing all or part of
+the Subject Software from the United States may require some form of export
+license from the U.S. Government.  Government Agency makes no
+representation as to whether an export license is required nor that, if
+required, it will be issued.  Nothing granted herein provides any such
+export license.*
+This is much more likely for physical goods. Without going into a longer
+explanation, technical data that is Open Source is in general "public
+domain" under ITAR 120.11 and "published" under EAR 734.7 (with the caveat
+that cryptography software must have available source and a notification
+must be made under EAR 742.15). It might be more acceptable to advise them
+to specifically check ITAR and EAR in the U.S. and then phrase this as that
+there is no *guarantee *that export won't require a government license or
+that one will be issued, wherever you are, not just the U.S.
+
+
+*J. If any recipient institutes patent or copyright litigation against
+Government Agency or any other recipient (including a cross-claim or
+counterclaim in a lawsuit) alleging that the Subject Software, part of the
+Subject Software, or a Contribution incorporated within the Subject
+Software constitutes direct or indirect patent infringement or copyright
+infringement, then any patent and copyright licenses granted to the
+litigating recipient under this Agreement for the Subject Software shall
+terminate as of the date such litigation is filed.*
+
+
+
+*K. [This paragraph may be included or deleted at the option of the
+Government Agency releasing the Original Software.] In an effort to track
+usage and maintain accurate records of the Subject Software, You, upon
+receipt of the Subject Software, are requested to register with Government
+Agency by visiting the website provided above (if any) or by e-mail to the
+Point of Contact listed above.  Your name and personal information shall
+not be disclosed outside of the Government and its contractors. Once You
+make a Derivative Work or Contribution available, it is requested that You
+inform Government Agency, through the website or Point of Contact provided
+above, how to access the Derivative Work or Contribution.*
+Please make the paragraph permanent, and make the request conditional on
+whether the licensor filled in the URL at the top of the license text.
+
+*4. DISCLAIMER OF WARRANTIES, NON-ENDORSEMENT AND LIMITATION OF LIABILITIES*
+
+
+*A. Disclaimer of Warranty:  GOVERNMENT AGENCY PROVIDES THE SUBJECT
+SOFTWARE (AND EACH CONTRIBUTOR PROVIDES ITS DERIVATIVE WORK OR
+CONTRIBUTION) ?AS IS? WITHOUT ANY WARRANTY OF ANY KIND, EITHER EXPRESSED,
+IMPLIED, OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, ANY WARRANTY THAT THE
+SUBJECT SOFTWARE WILL CONFORM TO SPECIFICATIONS, ANY IMPLIED WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR FREEDOM FROM
+INFRINGEMENT, ANY WARRANTY THAT THE SUBJECT SOFTWARE WILL BE ERROR FREE, OR
+ANY WARRANTY THAT DOCUMENTATION, IF PROVIDED, WILL CONFORM TO THE SUBJECT
+SOFTWARE. FURTHER, GOVERNMENT AGENCY DISCLAIMS ALL WARRANTIES AND
+LIABILITIES REGARDING THIRD-PARTY SOFTWARE, IF PRESENT IN THE ORIGINAL
+SOFTWARE, AND DISTRIBUTES IT ?AS IS.?*
+
+
+*B. Non-Endorsement:  THIS AGREEMENT DOES NOT, IN ANY MANNER, CONSTITUTE AN
+ENDORSEMENT BY GOVERNMENT AGENCY OR ANY OTHER CONTRIBUTOR OF ANY RESULTS,
+RESULTING DESIGNS, HARDWARE, SOFTWARE PRODUCTS OR ANY OTHER APPLICATIONS
+RESULTING FROM USE OF THE SUBJECT SOFTWARE.  *
+
+
+*C. Limitation of Liability: YOU AGREE TO WAIVE ANY AND ALL CLAIMS AGAINST
+THE UNITED STATES GOVERNMENT, ITS CONTRACTORS AND SUBCONTRACTORS, AS WELL
+AS ANY OTHER CONTRIBUTOR, ARISING FROM OR RELATED TO USE OR REDISTRIBUTION
+OF THE SUBJECT SOFTWARE. YOU ARE SOLELY RESPONSIBLE FOR DETERMINING THE
+APPROPRIATENESS OF USING OR REDISTRIBUTING THE SUBJECT SOFTWARE AND ASSUME
+ANY RISK ASSOCIATED WITH YOUR EXERCISE OF RIGHTS GRANTED UNDER THIS
+AGREEMENT.*
+There are some cases in which requiring that the licensee waive all claims
+might not be lawful. For example, if U.S. Government infringes someone
+else's copyright in the Initial Work. Many licenses limit this with "*TO
+THE EXTENT ALLOWED BY LAW,* YOU AGREE..."
+
+*5. GENERAL TERMS*
+*A. Termination:  This Agreement and the rights granted hereunder will
+terminate automatically if You fail to comply with these terms and
+conditions and fail to cure such noncompliance within thirty (30) days of
+such noncompliance.  Upon termination, You agree to immediately cease use
+and redistribution of the Subject Software.  All sublicenses to the Subject
+Software properly granted by You shall survive any such termination of this
+Agreement.*
+*B. Applicable Law:  This Agreement shall be subject to United States
+Federal law for all purposes, including, but not limited to, determining
+the validity of this Agreement, the meaning of its provisions and the
+rights, obligations and remedies of the parties.*
+
+
+*NOSA Ver 2 final draft clean 2013Mar26*
+Sorry this is so much. Thanks for asking.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180221/47aafa1c/attachment-0001.html>
+
+From bruce at perens.com  Thu Feb 22 18:40:32 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 22 Feb 2018 10:40:32 -0800
+Subject: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+In-Reply-To: <CAK2MWOvayZJEN3e4E3e+jdtE-UMRtO+88u+-5N2R1kjXSoC9uA@mail.gmail.com>
+References: <CAK2MWOvQcaSi0LJo-s1aF+gKoVZTswxghM1CAjXL+Ke061XqAQ@mail.gmail.com> <C67753CC-0D03-4A07-8F15-84F0BFCA9148@jhuapl.edu> <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov> <CA+xoNzHEbv395Fb472mtScYWEdTSqw7082-JWJ6PYPRp75qq9A@mail.gmail.com> <E02B7513-53F1-4D2F-A116-BADFCCCE87B5@nasa.gov> <CAK2MWOvKQVsNxj8LHkSS4zyH+Wu3GyH=6YuRWV82rMDkwgJ7bg@mail.gmail.com> <CAK2MWOvayZJEN3e4E3e+jdtE-UMRtO+88u+-5N2R1kjXSoC9uA@mail.gmail.com>
+Message-ID: <CAK2MWOuBmpjMJYs8_i7xtv_xjcHwgQMAKP8s5ghFYs3xCm7Jpw@mail.gmail.com>
+
+Here is my second pass at marking up the NASA license 2.0 . It's only
+different from the first in a few comments.
+
+*NASA OPEN SOURCE AGREEMENT VERSION 2.0*
+
+*This open source agreement (?Agreement?) defines the rights of use,
+reproduction, modification and redistribution of certain software*
+*released by the United States Government (?Government?) as represented by
+the Government Agency listed below (?Government Agency?).*
+
+Although I would not actually *recommend *that any entity other than the
+United States Government make use of this license, it doesn't make sense to
+have a license that* requires *that the project be originated by only one
+legal entity, the United States Government. Should OSI then accept licenses
+that require the project to be originated by Canada and 210 other nations,
+and by IBM and a large number of other corporations? It wouldn't make sense
+for OSI or the developer community. I think you can make this text work for
+the government or another contributor without losing any of the legal
+protection you wish to have.
+
+*The United States Government, as represented by Government Agency, is an
+intended third-party beneficiary of all subsequent redistributions of the
+Subject Software.*
+
+Please explain what "intended third-party beneficiary" means in this
+context. Why is it necessary for the U.S. Government to be this
+beneficiary, rather than all of the contributors?
+
+*Anyone who uses, reproduces, modifies or redistributes the Subject
+Software, as defined herein, or any part thereof, is, by that action,
+accepting in full the responsibilities and obligations contained in this
+Agreement. *
+
+*Government Agency: ______________________________________________________ *
+*Government Agency Original Software Designation:
+_____________________________*
+*Government Agency Original Software Title & Ver. No. :
+_________________________*
+*Government Agency Point of Contact:
+________________________________________*
+
+
+*User Registration Requested.  Please Visit
+http://________________________________*
+How about:
+Government Agency or Other Entity:
+Original Software Designation:
+Original Software Title and Version Number:
+Point of Contact:
+User Registration Requested. Please Visit https://
+
+*1. DEFINITIONS*
+
+*A. ?Contributor? means Government Agency and any other person or entity
+that creates or contributes to the creation of Subject Software.*
+
+Shouldn't "and" be "or" here? Otherwise, it rules out any contribution
+without participation of a Government Agency.
+
+
+
+*B. ?Contribution? means any Work, including Your own Works and Works of
+other Contributors, that are Derivative Works of the Subject Software and
+that are intentionally submitted by You or other Contributors to Government
+Agency for inclusion in, or documentation of, the Subject Software.*
+This is connected with your re-definition of Derivative Works later in the
+document. But when you define Subject Software, you define it in part as
+"Derivative Works and Contributions", where here you define that a
+Contribution *is *a derivative work. See criticism later in the document
+regarding re-defining "Derivative Works" when it exists in law and case law.
+
+*C. ?Covered Patents? means any patent claims licensable by a Contributor
+that are necessarily infringed by the manufacture, import, use, offer for
+sale, or sale of a Contributor?s Derivative Works or Contributions alone or
+when combined with the Subject Software.*
+
+Is this intended to be a strong or a weak patent clause? If it's on the
+strong side, any modification of the subject software *after *the
+contribution that necessarily makes use of the patent claim is covered. If
+weak, only the patent claim *exactly *as exercised in the contribution by
+the patent holder is covered. Some corporations that own patent portfolios
+are loath to join into licenses with strong patent clauses, but will accept
+weak ones. I am no fan of software patents, it's just my duty to inform you.
+
+
+D. ?Derivative Work? means a Work that is based on (or derived from) the
+Subject Software and for which the revisions, annotations, or other
+modifications, as a whole, represent an original work of authorship.
+
+This is circular: *derivative work* is *derived from. *A derivative work
+combines two or more original works of authorship. GPL 3 specifically
+avoids defining anything that legislation or case law would define for the
+court. So, it uses "combined work" and "modifications". You have already
+defined Contribution and can probably define a Combined Work of the Initial
+Work (you call it "Original Software", but "Initial Work" is less
+confusing) and Contributions without contradicting some court on what is or
+is not derivative.
+
+
+
+*Derivative Works shall not include (i) Works that remain separate from, or
+merely link to, the Subject Software,*
+Here you talk about two things: aggregation (just placing two unrelated
+programs on a storage medium), and linking. And you apply terms to linking
+that would not apply to textual inclusion of the same software, which has
+the exact same effect. The problem here is that you need to define
+separable modules better, using language about APIs, and then you need not
+talk about linking. Define Aggregation separately. Your language about
+linking and derivative works, as written, contradicts the appeals court's
+ruling in *Oracle v. Google *on whether calls to an API can be derivative,
+which is why it's better to define a Combined Work than a Derivative Work.
+The next case may rule differently, but it's a gray area right now*. *The
+license text should avoid argument with courts, especially on recent cases.
+
+
+
+*or (ii) additions to the Subject Software which are separable modules of
+software distributed in conjunction with the Subject Software,*
+You need a better definition of a separable module, or this is going to be
+reason for long argument at great expense regarding what is or is not
+separable, if this license goes to court. Arguably it's Open Source and
+everything is separable since it can be edited into separate units by using
+spme finite number of edits. Talk about APIs being the boundary of a
+separable module.
+
+
+
+*or parts of the Subject Software, under their own license agreement.*
+I think you mean to talk about Aggregation here. This text is unclear as
+written and will work better if you define Aggregation.
+
+*Including Subject Software or parts thereof in a Larger Work is not in and
+of itself a Derivative Work.*
+
+This definition incorporates "Larger Work" before you have defined it.
+
+*E. ?Larger Work? means software that combines Subject Software, or
+portions thereof, with software that remains separate from, or is merely
+linked to, the Subject Software and that is not governed by the terms of
+this Agreement.*
+
+So, here we're defining a larger work as *either *Aggregation (for example,
+storage of separate programs on a disk medium) or a program that is linked
+(static or dynamic does not matter, apparently). Thus applying one word to
+two entirely different things. What you should do here is define
+Aggregation, and then make your language on separability above make it
+clear that an API is the boundary of a separable module. This language is
+also circular several times. Larger Work is included in the definition of
+Derivative Works. What is *governed by the terms of this agreement* is the
+Subject Software, which includes the definition of Derivative Works and
+Larger Work (for negation). And so on. You can say Subject Software (or I
+would prefer Combined Work) instead of relying on whether the module is
+governed by the terms of this agreement.
+
+*F. ?Original Software? means the software first released under this
+Agreement by Government Agency with the Government Agency designation and
+title listed above, including source code, object code and accompanying
+documentation, if any.*
+
+I think "Initial Work" is less confusing. Other licenses use that term.
+Also, this definition is exclusive to Government and I don't see that this
+is necessary simply to define an initial work.
+
+*G.  ?Subject Software? means the Original Software, Derivative Works, or Contributions, and any combination or respective parts thereof.*
+
+What you mean to do here is define a Combined Work. If you did that and
+used "Combined Work" rather than "Subject Software" throughout the license
+text, people would understand better what you are talking about.
+
+*H. ?Work? means an original work of authorship fixed in a tangible medium
+of expression,*
+
+*now known or later developed, from which it can be perceived, reproduced,
+or otherwise communicated, either directly or with the aid of a machine or
+device, including Derivative Works.*
+
+I would have thought that *"Work" means an original work of authorship
+fixed in a tangible medium of expression" *was sufficient, and that you
+would not have to go on to attempt to define fixation for yourself,
+including mentioning that some media might not yet exist but that this
+license would still apply to them, as if someone could create a new storage
+medium that copyright did not apply to.
+
+*A work is original if it is independently created by You, as opposed to
+copied from other works, and it possesses at least some minimal degree of
+creativity. *
+
+This is only necessary because you're trying to define derivative works
+separately from existing legislation and case law. If you use "Combined
+Work" you don't have to argue about originality, and you can separately
+define what is separable and be done with it.
+
+*I. ?You? or ?Your? means an individual or a legal entity exercising rights
+under, and complying with all the terms of, this Agreement. For legal
+entities, ?You? or ?Your? includes an entity and any other entity that
+controls, is controlled by, or is under common control with such entity.
+For the purposes of this definition, ?control? means (i) the power, direct
+or indirect, to cause the direction or management of such entity, whether
+by contract or otherwise, or (ii) ownership of fifty percent (50%) or more
+of the outstanding shares, or (iii) beneficial ownership of such entity.*
+
+*2. GRANT OF RIGHTS YOU RECEIVE (FROM UPSTREAM CONTRIBUTORS) ALONG WITH
+YOUR GRANT OF RIGHTS AND OBLIGATIONS IF YOU MAKE DERIVATIVE WORKS OF OR
+REDISTRIBUTE THE SUBJECT SOFTWARE (TO DOWNSTREAM RECIPIENTS)*
+*A. Subject to, and, so long as You comply with, the terms and conditions
+of this Agreement, the Government hereby grants permission to You to use
+civil servant authored U.S. Government Work (17 U.S.C. ? 105) portions of
+the Subject Software, if any, in the United States.*
+
+17 USC * ? *105 says this:
+
+*Copyright protection under this title is not available for any work of the
+United States Government
+<https://www.law.cornell.edu/definitions/uscode.php?width=840&height=800&iframe=true&def_id=17-USC-590005605-364936160&term_occur=2&term_src=title:17:chapter:1:section:105>,
+but the United States Government is not precluded from receiving and
+holding copyrights transferred to it by assignment, bequest, or otherwise. *
+
+This particular section of copyright law *does not* establish that NASA has
+any right to *deny *permission to use civil servant authored U.S.
+Government Work that is not classified. If you want to give that
+permission, please show us what law establishes that right for the U.S.
+Government.
+
+
+
+*B. Under Non Patent Rights/Copyright License:  Subject to, and, so long as
+You comply with, the terms and conditions of this Agreement, each
+Contributor hereby grants to You (with respect to the Subject Software and
+its Contributions to or Derivative Works of the Subject Software) and You
+hereby grant to each recipient (with respect to Your Contributions to and
+Derivative Works of the Subject Software, as defined in Paragraphs 1.B and
+1.C) a non-exclusive, worldwide, royalty-free, irrevocable (except as
+stated in Paragraphs 3.J and 5.A) license to use,  reproduce, modify,
+redistribute, prepare Derivative Works of, publicly display, publicly
+perform, and sublicense the Subject Software.*
+
+*C. Under Patent Rights:  Subject to, and, so long as You comply with, the
+terms and conditions of this Agreement, each Contributor hereby grants to
+You (with respect to the Subject Software and its Contributions to or
+Derivative Works of the Subject Software) and You grant to each recipient
+(with respect to Your Contributions to and Derivative Works of the Subject
+Software, as defined in Paragraphs 1.B and 1.C) a non-exclusive, worldwide,
+royalty-free, irrevocable (except as stated in Paragraphs 3.J and 5.A)
+license with respect to its Covered Patents to make, have made, use,
+redistribute, reproduce, sell, offer to sell, import, sublicense and
+otherwise transfer the Subject Software.*
+This is the strong patent clause. See Larry's comments at
+https://www.rosenlaw.com/lj9.htm
+
+*Irrevocable except* is awkward. If someone sues, just terminate their
+license. State here that the patent grant terminates if the license
+terminates.
+
+*3. ADDITIONAL OBLIGATIONS IF YOU MAKE DERIVATIVE WORKS OF OR REDISTRIBUTE
+THE SUBJECT SOFTWARE*
+*A. Contributions.*
+
+
+*1.  Submission. Unless You explicitly state otherwise, any Contribution
+intentionally submitted for inclusion in Subject Software by You to the
+Government Agency shall be governed by the terms and conditions of this
+Agreement, without any additional terms or conditions. Notwithstanding the
+above, nothing herein shall supersede or modify the terms of any separate
+agreement you may have executed with the U.S. Government regarding such
+Contributions.*
+Please explain what happens to the global Open Source community other than
+the U.S. Government when a the contributor has a separate agreement with
+the Government. What license applies to everyone else? That must be clear
+in the text.
+
+
+
+*2.  Representation.  You represent that each of Your Contributions is Your
+own Work or is the Work of another Contributor that You are authorized to
+submit.*
+By "authorized to submit", are you saying that I can contribute a work by
+someone else that is under a compatible Open Source license? Because that
+would solve one fundamental objection to the license. Or do you simply mean
+that I can contribute my employer's work if they've explicitly authorized
+me to do so (in which case they should really be the ones entering into the
+license, because they own the patent rights, and we want to make sure those
+come under the license).
+
+*You represent that Your submission(s) of Contributions that are the Work
+of another Contributor, that You are authorized to submit, include complete
+details of any agreements, licenses, or other restriction (including, but
+not limited to, related copyright, patents and trademarks) of which You are
+aware that will impose additional terms and conditions on the Subject
+Software. *
+
+*B. Redistribution.  You may redistribute the Subject Software, with or
+without Your Derivative Works or Contributions, provided that You meet the
+following conditions:  *
+*   1. Whenever You redistribute the Subject Software, You must include a
+copy of this Agreement with each copy of the Subject Software; and*
+*   2. You may redistribute Your Derivative Works or Your Contributions
+under this Agreement or under a license that includes additional or
+different terms provided it otherwise complies with the terms and
+conditions provided in this Agreement; and*
+
+
+*   3. If You redistribute the Subject Software in any form other than
+source code, You must also make the source code freely available, and must
+provide with each copy of the Subject Software information on how to obtain
+the source code in a reasonable manner on or through a medium customarily
+used for software exchange; and*
+
+
+*4. If You choose to offer services under Paragraph 3.G, such services must
+be covered under a separate agreement.*
+This is advisory*, *because this agreement does not offer services.
+
+*C. You must ensure that the following copyright notice appears prominently
+in the Subject Software:*
+*[GOVERNMENT AGENCY WILL INSERT THE APPLICABLE COPYRIGHT NOTICE ALONG WITH
+ANY OTHER REQUIRED NOTICES IN EACH AGREEMENT ACCOMPANYING THE INITIAL
+DISTRIBUTION OF ORIGINAL SOFTWARE AND REMOVE THIS BRACKETED LANGUAGE.]*
+*[The following copyright notice may be used if created in whole or in part
+by a non-federal entity and rights obtained from author/copyright holder by
+assignment.  Government Agency will insert the year and its Agency
+designation and remove the bracketed language.]  *
+*      Copyright  {YEAR} United States Government as represented by
+_______________________________.  All Rights Reserved.*
+*[The following copyright notice may be used if created by civil servants
+only. Government Agency will insert the year and its Agency designation and
+remove the bracketed language.]  *
+*      Copyright  {YEAR} United States Government as represented by
+__________________________________________.  No copyright is claimed in the
+United States under Title 17, U.S. Code. All Other Rights Reserved.*
+
+Can you please come up with one statement that works for everyone?
+Otherwise, we have the issue of "Invariant Sections" which could include
+arbitrary rants, advertising, etc. And it makes it difficult to use the
+license because developers don't know which block to use where. How about:
+
+Copyright (C) {YEAR}. Where work is the product of a civil servant employed
+by the U.S. Government, The U.S. Government does not claim copyright. Where
+work is created by a non-federal entity or assigned to the U.S. Government
+by a non-federal entity, copyright is claimed and all rights are reserved
+except as granted by the NASA Open Source License version 2.0 .
+
+Go ahead and rewrite that, but make it one text only, please.
+
+*D. You must include in any of Your Derivative Works or Contributions a
+notice that describes the alterations made and the date of the alterations,
+identifies You as Contributor of the Derivative Work or Contribution, and
+includes a statement that the Derivative Work or Contribution is derived,
+directly or indirectly, from Original Software provided by Government
+Agency. *
+
+I notice that some licenses require this, and in general developers *do not
+comply* and write in the dates and description of the alterations. But they
+*do* use revision control systems like *git *which provide this
+information, so it's not terribly useful to ask for it to be entered
+manually in the license. It's enough for ask them to get the attribution
+and the copyright statements right. You need to help them as much as
+possible just to get them to do that, they don't have intellectual property
+training. Thus the single text block I ask for above.
+
+*E. Once a copyright notice has been added to the Subject Software, You may
+not remove it without the express permission of the Contributor who added
+the notice.  You may add Your own copyright notice to the Subject Software.
+*
+
+So, I can't correct the attribution and copyright notice when they're
+wrong? Change this to "you must maintain correct attribution and copyright
+notices, and you may add your own".
+
+*F. You may not make any representation in the Subject Software or in any
+promotional, advertising or other material that may be construed as an
+endorsement by Government Agency or by any other Contributor or recipient
+of any product or service provided by You, or that may seek to obtain
+commercial advantage of Government Agency's or any other recipient?s
+participation in this Agreement.*
+
+*G. You may choose to offer, and to charge a fee for, warranty, indemnity
+and/or liability obligations to one or more other recipients of the Subject
+Software.  You may do so, however, only on Your own behalf and not on
+behalf of Government Agency or any other Contributor.  You must make it
+absolutely clear that any such warranty, indemnity and/or liability
+obligation is offered by You alone.  Further, You agree to indemnify
+Government Agency and every other Contributor for any liability incurred by
+them as a result of warranty, indemnity and/or liability offered by You.*
+
+*H. You may create a Larger Work by combining Subject Software with
+separate software not governed by the terms and conditions of this
+Agreement and redistribute the Larger Work as a single product. In such
+case, You must make sure Subject Software, or portions thereof, included in
+the Larger Work is licensed under this Agreement or a license that complies
+with the terms and conditions provided in this Agreement.*
+
+

@@ -1,0 +1,750 @@
+
+> As long as the experts from the open source community understands that
+> this is a special purpose license for the USG and that they may not fully
+> or correctly understand the complexities and requirements on the USG as
+> understood by USG lawyers that seems useful.
+>
+>
+>
+> I see no need to make NOSA a general purpose reusable license for anyone
+> outside of the USG (i.e. ?works for everyone?).  There is a special purpose
+> license category for a reason.  This point seems completely lost on
+> opponents of any movement forward by the Government Open Source Software
+> community.
+>
+>
+>
+> Code.gov is moving along and frankly, having a large catalog of code under
+> the government-wide reuse category fulfills a large portion of the needs of
+> government.  Making it harder to go to the next step and open sourcing the
+> code seems counterproductive.
+>
+>
+>
+>
+>
+> On 3/13/18, 10:53 AM, "License-review on behalf of Simon Phipps" <
+> license-review-bounces at lists.opensource.org on behalf of simon at webmink.com>
+> wrote:
+>
+>
+>
+> Bruce:  Thanks for all the time you have invested in this.
+>
+>
+>
+> Bryan:  I concur with Bruce and also hope you'll take the comments on
+> textual complexity into account. I would suggest that in addition to
+> attorneys you retain an expert in open source community matters from
+> outside NASA (in fact from outside US government circles generally) to
+> assist with review. I am sure members of this list can make recommendations
+> if you need them.
+>
+>
+>
+> Best regards
+>
+>
+>
+> Simon
+>
+>
+>
+> On Tue, Mar 13, 2018 at 3:03 AM, Bruce Perens <bruce at perens.com> wrote:
+>
+> Hi Bryan,
+>
+> I reviewed the NASA Open Source Agreement about 20 days ago. I have
+> continued to develop my understanding of the license, including from
+> discussion with Nigel and John Cowan. I could do a third pass of review
+> based on my improved understanding, but the result would still be that I
+> concur with the OSI board's decision to decline to accept the license as
+> written. I would encourage you to work on 3.0 and to do peer review with
+> other attorneys before submitting it, but I'm eager to see 3.0 and hope
+> that you can arrive at a license that works for everyone.
+>
+>     Thanks
+>
+>     Bruce Perens
+>
+>
+>
+>
+> --
+>
+> *Simon Phipps*  http://webmink.com
+>
+>
+>
+> *in a personal capacity*
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-
+> review_lists.opensource.org
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180313/dfc134f6/attachment-0001.html>
+
+From mark.p.dvorscak at nasa.gov  Mon Apr 30 17:46:00 2018
+From: mark.p.dvorscak at nasa.gov (Dvorscak, Mark P. (HQ-MC000))
+Date: Mon, 30 Apr 2018 17:46:00 +0000
+Subject: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+In-Reply-To: <CAK2MWOupfG1-dBJZH1CwD2sTHEGtJwXgPCbxWumeTsMC5J-mnA@mail.gmail.com>
+References: <CAK2MWOvQcaSi0LJo-s1aF+gKoVZTswxghM1CAjXL+Ke061XqAQ@mail.gmail.com> <C67753CC-0D03-4A07-8F15-84F0BFCA9148@jhuapl.edu> <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov> <CA+xoNzHEbv395Fb472mtScYWEdTSqw7082-JWJ6PYPRp75qq9A@mail.gmail.com> <E02B7513-53F1-4D2F-A116-BADFCCCE87B5@nasa.gov> <CAK2MWOvKQVsNxj8LHkSS4zyH+Wu3GyH=6YuRWV82rMDkwgJ7bg@mail.gmail.com> <CAK2MWOvayZJEN3e4E3e+jdtE-UMRtO+88u+-5N2R1kjXSoC9uA@mail.gmail.com> <CAK2MWOuBmpjMJYs8_i7xtv_xjcHwgQMAKP8s5ghFYs3xCm7Jpw@mail.gmail.com> <E32546DA-1DF3-4DD5-949B-D65AC3516C0A@jhuapl.edu> <CAK2MWOuLRB105k04EWFktiPyY5pjDcuPhodk6VkcqKue593+wA@mail.gmail.com> <D0A3B5FA-6C5E-41B7-9E84-64DB04396919@jhuapl.edu> <CAK2MWOuSRzPtDXb0ropDnDMspecG8o+UbaHWYgjX5wGE2273rw@mail.gmail.com> <CAD2gp_RnbN6nq+xn8c5Xx8WKefiRnB4GH4DsK0n50P5CBZseSA@mail.gmail.com> <CAK2MWOsi2cA+vDQBu+EADkT3mFqpAiJzcuH6yjjcHuaU25n2Zg@mail.gmail.com> <CAD2gp_S_BpMfqdnmtLh-KdLkTRoObHxUAAPAH-qv+BYk+=i-RA@mail.gmail.com> <CAK2MWOvuVbdhkVCGfoBUcMKVsoX1zbGWs4FykD7+=q2v03jAHQ@mail.gmail.com> <CAK2MWOuofrxZzvReGqLqYJDBKKAO_-87fyb_BxZd9qU=irBN0Q@mail.gmail.com> <CAA4ffp_coHpLFU+0=MLx_YJTPbY3-=VMxhng_c8kf+=A6SM2Zw@mail.gmail.com> <7911DAF7-B18D-4DC4-9909-ED49609C98C6@jhuapl.edu> <CAK2MWOupfG1-dBJZH1CwD2sTHEGtJwXgPCbxWumeTsMC5J-mnA@mail.gmail.com>
+Message-ID: <C93A1B296F96E4428C30F0AFDCB1F242143308AD@NDMSMBX304.ndc.nasa.gov>
+
+Good afternoon all,
+
+Apologies for the delay in responding to the questions posed by OSI related to NASA?s request for approval of NOSA 2.0 We have had some internal software policy issues that needed attention and took priority. I have asked Rob Padilla, who leads our Open Source Software legal team, to re-engage with you on the outstanding issues. You can expect Rob to provide explanations and answer the questions posed. Please continue to copy Bryan Geurts and myself on future correspondence with Rob.
+
+Thank you for your consideration of our request, and we look forward to resolution of the remaining issues.
+
+Regards,
+Mark Dvorscak
+
+
+Mark P. Dvorscak
+Agency Counsel for Intellectual Property
+Office of General Counsel
+NASA
+O (202) 358-0646
+C  (202) 308-4337
+
+
+From: License-review [mailto:license-review-bounces at lists.opensource.org] On Behalf Of Bruce Perens
+Sent: Tuesday, March 13, 2018 12:13 PM
+To: License submissions for OSI review <license-review at lists.opensource.org>
+Cc: Padilla, Rob (ARC-DL) <robert.m.padilla at nasa.gov>; Geurts, Bryan A. (GSFC-1401) <bryan.a.geurts at nasa.gov>
+Subject: Re: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+
+> and that they may not fully or correctly understand the complexities and requirements on the USG as understood by USG lawyers
+
+I am not admitted to the Bar and am likely to miss some issues. When that is the problem, we would like to see those things explained.
+
+On Tue, Mar 13, 2018 at 9:03 AM, Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu<mailto:Nigel.Tzeng at jhuapl.edu>> wrote:
+As long as the experts from the open source community understands that this is a special purpose license for the USG and that they may not fully or correctly understand the complexities and requirements on the USG as understood by USG lawyers that seems useful.
+
+I see no need to make NOSA a general purpose reusable license for anyone outside of the USG (i.e. ?works for everyone?).  There is a special purpose license category for a reason.  This point seems completely lost on opponents of any movement forward by the Government Open Source Software community.
+
+Code.gov is moving along and frankly, having a large catalog of code under the government-wide reuse category fulfills a large portion of the needs of government.  Making it harder to go to the next step and open sourcing the code seems counterproductive.
+
+
+On 3/13/18, 10:53 AM, "License-review on behalf of Simon Phipps" <license-review-bounces at lists.opensource.org<mailto:license-review-bounces at lists.opensource.org> on behalf of simon at webmink.com<mailto:simon at webmink.com>> wrote:
+
+Bruce:  Thanks for all the time you have invested in this.
+
+Bryan:  I concur with Bruce and also hope you'll take the comments on textual complexity into account. I would suggest that in addition to attorneys you retain an expert in open source community matters from outside NASA (in fact from outside US government circles generally) to assist with review. I am sure members of this list can make recommendations if you need them.
+
+Best regards
+
+Simon
+
+On Tue, Mar 13, 2018 at 3:03 AM, Bruce Perens <bruce at perens.com<mailto:bruce at perens.com>> wrote:
+Hi Bryan,
+I reviewed the NASA Open Source Agreement about 20 days ago. I have continued to develop my understanding of the license, including from discussion with Nigel and John Cowan. I could do a third pass of review based on my improved understanding, but the result would still be that I concur with the OSI board's decision to decline to accept the license as written. I would encourage you to work on 3.0 and to do peer review with other attorneys before submitting it, but I'm eager to see 3.0 and hope that you can arrive at a license that works for everyone. Thanks Bruce Perens
+
+
+--
+Simon Phipps  http://webmink.com<http://webmink.com/>
+
+in a personal capacity
+
+_______________________________________________
+License-review mailing list
+License-review at lists.opensource.org<mailto:License-review at lists.opensource.org>
+http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180430/fdc550ca/attachment.html>
+
+From bruce at perens.com  Mon Apr 30 19:58:33 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 30 Apr 2018 19:58:33 +0000
+Subject: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+In-Reply-To: <C93A1B296F96E4428C30F0AFDCB1F242143308AD@NDMSMBX304.ndc.nasa.gov>
+References: <CAK2MWOvQcaSi0LJo-s1aF+gKoVZTswxghM1CAjXL+Ke061XqAQ@mail.gmail.com> <C67753CC-0D03-4A07-8F15-84F0BFCA9148@jhuapl.edu> <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov> <CA+xoNzHEbv395Fb472mtScYWEdTSqw7082-JWJ6PYPRp75qq9A@mail.gmail.com> <E02B7513-53F1-4D2F-A116-BADFCCCE87B5@nasa.gov> <CAK2MWOvKQVsNxj8LHkSS4zyH+Wu3GyH=6YuRWV82rMDkwgJ7bg@mail.gmail.com> <CAK2MWOvayZJEN3e4E3e+jdtE-UMRtO+88u+-5N2R1kjXSoC9uA@mail.gmail.com> <CAK2MWOuBmpjMJYs8_i7xtv_xjcHwgQMAKP8s5ghFYs3xCm7Jpw@mail.gmail.com> <E32546DA-1DF3-4DD5-949B-D65AC3516C0A@jhuapl.edu> <CAK2MWOuLRB105k04EWFktiPyY5pjDcuPhodk6VkcqKue593+wA@mail.gmail.com> <D0A3B5FA-6C5E-41B7-9E84-64DB04396919@jhuapl.edu> <CAK2MWOuSRzPtDXb0ropDnDMspecG8o+UbaHWYgjX5wGE2273rw@mail.gmail.com> <CAD2gp_RnbN6nq+xn8c5Xx8WKefiRnB4GH4DsK0n50P5CBZseSA@mail.gmail.com> <CAK2MWOsi2cA+vDQBu+EADkT3mFqpAiJzcuH6yjjcHuaU25n2Zg@mail.gmail.com> <CAD2gp_S_BpMfqdnmtLh-KdLkTRoObHxUAAPAH-qv+BYk+=i-RA@mail.gmail.com> <CAK2MWOvuVbdhkVCGfoBUcMKVsoX1zbGWs4FykD7+=q2v03jAHQ@mail.gmail.com> <CAK2MWOuofrxZzvReGqLqYJDBKKAO_-87fyb_BxZd9qU=irBN0Q@mail.gmail.com> <CAA4ffp_coHpLFU+0=MLx_YJTPbY3-=VMxhng_c8kf+=A6SM2Zw@mail.gmail.com> <7911DAF7-B18D-4DC4-9909-ED49609C98C6@jhuapl.edu> <CAK2MWOupfG1-dBJZH1CwD2sTHEGtJwXgPCbxWumeTsMC5J-mnA@mail.gmail.com> <C93A1B296F96E4428C30F0AFDCB1F242143308AD@NDMSMBX304.ndc.nasa.gov>
+Message-ID: <CAK2MWOui=4=x7NvP3fmYkLGWf9w4x7orS1cMd1ZJMDgFWbJ2Sw@mail.gmail.com>
+
+Mark,
+
+Thank you very much for re-engaging. I am looking forward to hearing your
+discussion and explanations. I hope you and the group are open to the
+possibility of re-drafting. Besides the issues on which you can enlighten
+us, I believe that an increase in clarity of the actual license document is
+possible.
+
+Many Thanks
+
+Bruce Perens
+License Committee Member
+Standards Chair
+
+On Mon, Apr 30, 2018, 10:46 AM Dvorscak, Mark P. (HQ-MC000) <
+mark.p.dvorscak at nasa.gov> wrote:
+
+> Good afternoon all,
+>
+>
+>
+> Apologies for the delay in responding to the questions posed by OSI
+> related to NASA?s request for approval of NOSA 2.0 We have had some
+> internal software policy issues that needed attention and took priority. I
+> have asked Rob Padilla, who leads our Open Source Software legal team, to
+> re-engage with you on the outstanding issues. You can expect Rob to provide
+> explanations and answer the questions posed. Please continue to copy Bryan
+> Geurts and myself on future correspondence with Rob.
+>
+>
+>
+> Thank you for your consideration of our request, and we look forward to
+> resolution of the remaining issues.
+>
+>
+>
+> Regards,
+>
+> Mark Dvorscak
+>
+>
+>
+>
+>
+> *Mark P. Dvorscak*
+>
+> Agency Counsel for Intellectual Property
+>
+> Office of General Counsel
+>
+> NASA
+>
+> O (202) 358-0646
+>
+> C  (202) 308-4337
+>
+>
+>
+>
+>
+> *From:* License-review [mailto:license-review-bounces at lists.opensource.org]
+> *On Behalf Of *Bruce Perens
+> *Sent:* Tuesday, March 13, 2018 12:13 PM
+>
+>
+> *To:* License submissions for OSI review <
+> license-review at lists.opensource.org>
+>
+> *Cc:* Padilla, Rob (ARC-DL) <robert.m.padilla at nasa.gov>; Geurts, Bryan A.
+> (GSFC-1401) <bryan.a.geurts at nasa.gov>
+>
+>
+> *Subject:* Re: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA
+> 2.0
+>
+>
+>
+> > and that they may not fully or correctly understand the complexities
+> and requirements on the USG as understood by USG lawyers
+>
+>
+>
+> I am not admitted to the Bar and am likely to miss some issues. When that
+> is the problem, we would like to see those things explained.
+>
+>
+>
+> On Tue, Mar 13, 2018 at 9:03 AM, Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu>
+> wrote:
+>
+> As long as the experts from the open source community understands that
+> this is a special purpose license for the USG and that they may not fully
+> or correctly understand the complexities and requirements on the USG as
+> understood by USG lawyers that seems useful.
+>
+>
+>
+> I see no need to make NOSA a general purpose reusable license for anyone
+> outside of the USG (i.e. ?works for everyone?).  There is a special purpose
+> license category for a reason.  This point seems completely lost on
+> opponents of any movement forward by the Government Open Source Software
+> community.
+>
+>
+>
+> Code.gov is moving along and frankly, having a large catalog of code under
+> the government-wide reuse category fulfills a large portion of the needs of
+> government.  Making it harder to go to the next step and open sourcing the
+> code seems counterproductive.
+>
+>
+>
+>
+>
+> On 3/13/18, 10:53 AM, "License-review on behalf of Simon Phipps" <
+> license-review-bounces at lists.opensource.org on behalf of simon at webmink.com>
+> wrote:
+>
+>
+>
+> Bruce:  Thanks for all the time you have invested in this.
+>
+>
+>
+> Bryan:  I concur with Bruce and also hope you'll take the comments on
+> textual complexity into account. I would suggest that in addition to
+> attorneys you retain an expert in open source community matters from
+> outside NASA (in fact from outside US government circles generally) to
+> assist with review. I am sure members of this list can make recommendations
+> if you need them.
+>
+>
+>
+> Best regards
+>
+>
+>
+> Simon
+>
+>
+>
+> On Tue, Mar 13, 2018 at 3:03 AM, Bruce Perens <bruce at perens.com> wrote:
+>
+> Hi Bryan,
+>
+> I reviewed the NASA Open Source Agreement about 20 days ago. I have
+> continued to develop my understanding of the license, including from
+> discussion with Nigel and John Cowan. I could do a third pass of review
+> based on my improved understanding, but the result would still be that I
+> concur with the OSI board's decision to decline to accept the license as
+> written. I would encourage you to work on 3.0 and to do peer review with
+> other attorneys before submitting it, but I'm eager to see 3.0 and hope
+> that you can arrive at a license that works for everyone.
+>
+>     Thanks
+>
+>     Bruce Perens
+>
+>
+>
+>
+> --
+>
+> *Simon Phipps*  http://webmink.com
+>
+>
+>
+> *in a personal capacity*
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180430/2f0a2d0c/attachment-0001.html>
+
+From bruce at perens.com  Mon Apr 30 20:03:44 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 30 Apr 2018 20:03:44 +0000
+Subject: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+In-Reply-To: <CAK2MWOui=4=x7NvP3fmYkLGWf9w4x7orS1cMd1ZJMDgFWbJ2Sw@mail.gmail.com>
+References: <CAK2MWOvQcaSi0LJo-s1aF+gKoVZTswxghM1CAjXL+Ke061XqAQ@mail.gmail.com> <C67753CC-0D03-4A07-8F15-84F0BFCA9148@jhuapl.edu> <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov> <CA+xoNzHEbv395Fb472mtScYWEdTSqw7082-JWJ6PYPRp75qq9A@mail.gmail.com> <E02B7513-53F1-4D2F-A116-BADFCCCE87B5@nasa.gov> <CAK2MWOvKQVsNxj8LHkSS4zyH+Wu3GyH=6YuRWV82rMDkwgJ7bg@mail.gmail.com> <CAK2MWOvayZJEN3e4E3e+jdtE-UMRtO+88u+-5N2R1kjXSoC9uA@mail.gmail.com> <CAK2MWOuBmpjMJYs8_i7xtv_xjcHwgQMAKP8s5ghFYs3xCm7Jpw@mail.gmail.com> <E32546DA-1DF3-4DD5-949B-D65AC3516C0A@jhuapl.edu> <CAK2MWOuLRB105k04EWFktiPyY5pjDcuPhodk6VkcqKue593+wA@mail.gmail.com> <D0A3B5FA-6C5E-41B7-9E84-64DB04396919@jhuapl.edu> <CAK2MWOuSRzPtDXb0ropDnDMspecG8o+UbaHWYgjX5wGE2273rw@mail.gmail.com> <CAD2gp_RnbN6nq+xn8c5Xx8WKefiRnB4GH4DsK0n50P5CBZseSA@mail.gmail.com> <CAK2MWOsi2cA+vDQBu+EADkT3mFqpAiJzcuH6yjjcHuaU25n2Zg@mail.gmail.com> <CAD2gp_S_BpMfqdnmtLh-KdLkTRoObHxUAAPAH-qv+BYk+=i-RA@mail.gmail.com> <CAK2MWOvuVbdhkVCGfoBUcMKVsoX1zbGWs4FykD7+=q2v03jAHQ@mail.gmail.com> <CAK2MWOuofrxZzvReGqLqYJDBKKAO_-87fyb_BxZd9qU=irBN0Q@mail.gmail.com> <CAA4ffp_coHpLFU+0=MLx_YJTPbY3-=VMxhng_c8kf+=A6SM2Zw@mail.gmail.com> <7911DAF7-B18D-4DC4-9909-ED49609C98C6@jhuapl.edu> <CAK2MWOupfG1-dBJZH1CwD2sTHEGtJwXgPCbxWumeTsMC5J-mnA@mail.gmail.com> <C93A1B296F96E4428C30F0AFDCB1F242143308AD@NDMSMBX304.ndc.nasa.gov> <CAK2MWOui=4=x7NvP3fmYkLGWf9w4x7orS1cMd1ZJMDgFWbJ2Sw@mail.gmail.com>
+Message-ID: <CAK2MWOs9Yim1G9z0e=7iZAXCZ2uzxFP1W6zOP=Bs=gHPFbOmDw@mail.gmail.com>
+
+P.S. I am at the Cal Poly Cubesat Developers conference through Wednesday.
+If any of your staff happen to be there, I would be happy to meet with them.
+
+Thanks
+
+Bruce
+
+On Mon, Apr 30, 2018, 12:58 PM Bruce Perens <bruce at perens.com> wrote:
+
+> Mark,
+>
+> Thank you very much for re-engaging. I am looking forward to hearing your
+> discussion and explanations. I hope you and the group are open to the
+> possibility of re-drafting. Besides the issues on which you can enlighten
+> us, I believe that an increase in clarity of the actual license document is
+> possible.
+>
+> Many Thanks
+>
+> Bruce Perens
+> License Committee Member
+> Standards Chair
+>
+>
+> On Mon, Apr 30, 2018, 10:46 AM Dvorscak, Mark P. (HQ-MC000) <
+> mark.p.dvorscak at nasa.gov> wrote:
+>
+>> Good afternoon all,
+>>
+>>
+>>
+>> Apologies for the delay in responding to the questions posed by OSI
+>> related to NASA?s request for approval of NOSA 2.0 We have had some
+>> internal software policy issues that needed attention and took priority. I
+>> have asked Rob Padilla, who leads our Open Source Software legal team, to
+>> re-engage with you on the outstanding issues. You can expect Rob to provide
+>> explanations and answer the questions posed. Please continue to copy Bryan
+>> Geurts and myself on future correspondence with Rob.
+>>
+>>
+>>
+>> Thank you for your consideration of our request, and we look forward to
+>> resolution of the remaining issues.
+>>
+>>
+>>
+>> Regards,
+>>
+>> Mark Dvorscak
+>>
+>>
+>>
+>>
+>>
+>> *Mark P. Dvorscak*
+>>
+>> Agency Counsel for Intellectual Property
+>>
+>> Office of General Counsel
+>>
+>> NASA
+>>
+>> O (202) 358-0646
+>>
+>> C  (202) 308-4337
+>>
+>>
+>>
+>>
+>>
+>> *From:* License-review [mailto:
+>> license-review-bounces at lists.opensource.org] *On Behalf Of *Bruce Perens
+>> *Sent:* Tuesday, March 13, 2018 12:13 PM
+>>
+>>
+>> *To:* License submissions for OSI review <
+>> license-review at lists.opensource.org>
+>>
+>> *Cc:* Padilla, Rob (ARC-DL) <robert.m.padilla at nasa.gov>; Geurts, Bryan
+>> A. (GSFC-1401) <bryan.a.geurts at nasa.gov>
+>>
+>>
+>> *Subject:* Re: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA
+>> 2.0
+>>
+>>
+>>
+>> > and that they may not fully or correctly understand the complexities
+>> and requirements on the USG as understood by USG lawyers
+>>
+>>
+>>
+>> I am not admitted to the Bar and am likely to miss some issues. When that
+>> is the problem, we would like to see those things explained.
+>>
+>>
+>>
+>> On Tue, Mar 13, 2018 at 9:03 AM, Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu>
+>> wrote:
+>>
+>> As long as the experts from the open source community understands that
+>> this is a special purpose license for the USG and that they may not fully
+>> or correctly understand the complexities and requirements on the USG as
+>> understood by USG lawyers that seems useful.
+>>
+>>
+>>
+>> I see no need to make NOSA a general purpose reusable license for anyone
+>> outside of the USG (i.e. ?works for everyone?).  There is a special purpose
+>> license category for a reason.  This point seems completely lost on
+>> opponents of any movement forward by the Government Open Source Software
+>> community.
+>>
+>>
+>>
+>> Code.gov is moving along and frankly, having a large catalog of code
+>> under the government-wide reuse category fulfills a large portion of the
+>> needs of government.  Making it harder to go to the next step and open
+>> sourcing the code seems counterproductive.
+>>
+>>
+>>
+>>
+>>
+>> On 3/13/18, 10:53 AM, "License-review on behalf of Simon Phipps" <
+>> license-review-bounces at lists.opensource.org on behalf of
+>> simon at webmink.com> wrote:
+>>
+>>
+>>
+>> Bruce:  Thanks for all the time you have invested in this.
+>>
+>>
+>>
+>> Bryan:  I concur with Bruce and also hope you'll take the comments on
+>> textual complexity into account. I would suggest that in addition to
+>> attorneys you retain an expert in open source community matters from
+>> outside NASA (in fact from outside US government circles generally) to
+>> assist with review. I am sure members of this list can make recommendations
+>> if you need them.
+>>
+>>
+>>
+>> Best regards
+>>
+>>
+>>
+>> Simon
+>>
+>>
+>>
+>> On Tue, Mar 13, 2018 at 3:03 AM, Bruce Perens <bruce at perens.com> wrote:
+>>
+>> Hi Bryan,
+>>
+>> I reviewed the NASA Open Source Agreement about 20 days ago. I have
+>> continued to develop my understanding of the license, including from
+>> discussion with Nigel and John Cowan. I could do a third pass of review
+>> based on my improved understanding, but the result would still be that I
+>> concur with the OSI board's decision to decline to accept the license as
+>> written. I would encourage you to work on 3.0 and to do peer review with
+>> other attorneys before submitting it, but I'm eager to see 3.0 and hope
+>> that you can arrive at a license that works for everyone.
+>>
+>>     Thanks
+>>
+>>     Bruce Perens
+>>
+>>
+>>
+>>
+>> --
+>>
+>> *Simon Phipps*  http://webmink.com
+>>
+>>
+>>
+>> *in a personal capacity*
+>>
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180430/9d217325/attachment.html>
+
+From bruce at perens.com  Fri May  4 00:22:00 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 3 May 2018 17:22:00 -0700
+Subject: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+In-Reply-To: <1E7449DC3319BF42BC76414D53B56D630FA68120@NDJSMBX203.ndc.nasa.gov>
+References: <CAK2MWOvQcaSi0LJo-s1aF+gKoVZTswxghM1CAjXL+Ke061XqAQ@mail.gmail.com> <C67753CC-0D03-4A07-8F15-84F0BFCA9148@jhuapl.edu> <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov> <CA+xoNzHEbv395Fb472mtScYWEdTSqw7082-JWJ6PYPRp75qq9A@mail.gmail.com> <E02B7513-53F1-4D2F-A116-BADFCCCE87B5@nasa.gov> <CAK2MWOvKQVsNxj8LHkSS4zyH+Wu3GyH=6YuRWV82rMDkwgJ7bg@mail.gmail.com> <CAK2MWOvayZJEN3e4E3e+jdtE-UMRtO+88u+-5N2R1kjXSoC9uA@mail.gmail.com> <CAK2MWOuBmpjMJYs8_i7xtv_xjcHwgQMAKP8s5ghFYs3xCm7Jpw@mail.gmail.com> <E32546DA-1DF3-4DD5-949B-D65AC3516C0A@jhuapl.edu> <CAK2MWOuLRB105k04EWFktiPyY5pjDcuPhodk6VkcqKue593+wA@mail.gmail.com> <D0A3B5FA-6C5E-41B7-9E84-64DB04396919@jhuapl.edu> <CAK2MWOuSRzPtDXb0ropDnDMspecG8o+UbaHWYgjX5wGE2273rw@mail.gmail.com> <CAD2gp_RnbN6nq+xn8c5Xx8WKefiRnB4GH4DsK0n50P5CBZseSA@mail.gmail.com> <CAK2MWOsi2cA+vDQBu+EADkT3mFqpAiJzcuH6yjjcHuaU25n2Zg@mail.gmail.com> <CAD2gp_S_BpMfqdnmtLh-KdLkTRoObHxUAAPAH-qv+BYk+=i-RA@mail.gmail.com> <CAK2MWOvuVbdhkVCGfoBUcMKVsoX1zbGWs4FykD7+=q2v03jAHQ@mail.gmail.com> <CAK2MWOuofrxZzvReGqLqYJDBKKAO_-87fyb_BxZd9qU=irBN0Q@mail.gmail.com> <CAA4ffp_coHpLFU+0=MLx_YJTPbY3-=VMxhng_c8kf+=A6SM2Zw@mail.gmail.com> <7911DAF7-B18D-4DC4-9909-ED49609C98C6@jhuapl.edu> <CAK2MWOupfG1-dBJZH1CwD2sTHEGtJwXgPCbxWumeTsMC5J-mnA@mail.gmail.com> <C93A1B296F96E4428C30F0AFDCB1F242143308AD@NDMSMBX304.ndc.nasa.gov> <CAK2MWOui=4=x7NvP3fmYkLGWf9w4x7orS1cMd1ZJMDgFWbJ2Sw@mail.gmail.com> <CAK2MWOs9Yim1G9z0e=7iZAXCZ2uzxFP1W6zOP=Bs=gHPFbOmDw@mail.gmail.com> <1E7449DC3319BF42BC76414D53B56D630FA68120@NDJSMBX203.ndc.nasa.gov>
+Message-ID: <CAK2MWOvU4yCis4BHscQCR=Daa8u+V_2ZefCi+FQcevRU188STA@mail.gmail.com>
+
+Hi Rob,
+
+On Thu, May 3, 2018 at 3:59 PM, Padilla, Rob (ARC-DL) <
+robert.m.padilla at nasa.gov> wrote:
+
+
+
+
+> That?s important because (as mentioned above) there is a lot of confusion
+> that all Government software is in the public domain.  This decision
+> [Gilmore v. DOE] clarified that is not the case.
+>
+
+John Gilmore, coincidentally, is a participant in the Open Source community
+and funder of organizations like OSI, I think we first met in '87.
+
+We want to be very careful about this interpretation. If it works as you
+believe, it creates another intellectual property protection. Such is not
+in the interest of the Open Source community or  the general public, IMO.
+So, I'm going to push back on this a bit here. And I may get a lawyer to
+push more:
+
+FOIA is meant to expose the operation of the US Government to the view of
+the people. In the cited case, it was deemed that the government had the
+right to *keep the CLERVER software secret, *because the software itself
+did not construe part of the decision-making process of government which
+the people have a right to see. It might be taking the interpretation
+farther than the court actually ruled to believe that this establishes a
+protection that persists after the material is *no longer secret.*
+
+If the Government can withhold release of its software under a FOIA
+> request, then even without copyright in the U.S. it can provide that
+> software under terms that provide conditions on how recipients can use the
+> software. That ability to provide software under terms removes the notion
+> that such software is in the public domain.
+>
+
+While I have previously heard the theory that public domain software can be
+contractually restricted, I am not aware of someone ever bringing a breach
+of contract case regarding a work in the public domain and not covered by
+some sort of droit d'auteur in law. Can you cite such a case?
+
+What is the consideration of such a contract that extends to *the entire
+public*? The government might contract to release information from secret
+once, in return for some contractual obligation by some party. Having made
+that release, the work is no longer secret and does not seem to have any
+further protection in law at that point. What obligates *the rest of the
+public* to join themselves to such a contract in order to have a right to
+make use of copyright-like rights on the same software? The consideration
+of releasing the material from secret protection was not made to them. If
+this agreement is with the entire public, who has the right to join into
+such an agreement with the government on behalf of the entire public?
+
+
+
+> A group of NASA patent attorneys drafted, submitted and received OSI
+> approval for the NOSA (which issued as 1.3) as a special purpose license
+> back in 2003-2004.  The purpose was to address the above uncertainty about
+> the Government?s ability to enforce the terms, ownership, etc. over
+> software we would release as OSS.  It provides a framework or tool for the
+> Government to disseminate taxpayer funded software in an open source
+> manner.  And, it addresses those situations where Government software
+> includes Government employee authored code where there is no U.S. copyright.
+>
+
+Yes. OSI policy is that we are not required to make the same mistake twice.
+
+
+> The attorneys crafted the NOSA with language that specifies, under
+> contract law, that the Government is a third-party beneficiary of all
+> down-stream distributions.
+>
+
+Right. So, the government has a right to sue someone for breach of contract
+who is not directly a party to a contract with the government. And thus it
+seems to me that you are attempting to propagate the obligation from that
+very first person who received the software in the act of the government's
+releasing it from secret. But I am still not seeing that such a party
+actually has any consideration to offer to the next party in this chain.
+
+So, ultimately what you are asking me to do here is to lend the credence of
+OSI to a new intellectual property regime which I am not yet at all sure
+actually exists and may still not be in our interest if it does. I will now
+have a chat with some lawyers.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180503/29c719c7/attachment.html>
+
+From bruce at perens.com  Fri May  4 13:30:19 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 4 May 2018 06:30:19 -0700
+Subject: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+In-Reply-To: <1E7449DC3319BF42BC76414D53B56D630FA68201@NDJSMBX203.ndc.nasa.gov>
+References: <CAK2MWOvQcaSi0LJo-s1aF+gKoVZTswxghM1CAjXL+Ke061XqAQ@mail.gmail.com> <C67753CC-0D03-4A07-8F15-84F0BFCA9148@jhuapl.edu> <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov> <CA+xoNzHEbv395Fb472mtScYWEdTSqw7082-JWJ6PYPRp75qq9A@mail.gmail.com> <E02B7513-53F1-4D2F-A116-BADFCCCE87B5@nasa.gov> <CAK2MWOvKQVsNxj8LHkSS4zyH+Wu3GyH=6YuRWV82rMDkwgJ7bg@mail.gmail.com> <CAK2MWOvayZJEN3e4E3e+jdtE-UMRtO+88u+-5N2R1kjXSoC9uA@mail.gmail.com> <CAK2MWOuBmpjMJYs8_i7xtv_xjcHwgQMAKP8s5ghFYs3xCm7Jpw@mail.gmail.com> <E32546DA-1DF3-4DD5-949B-D65AC3516C0A@jhuapl.edu> <CAK2MWOuLRB105k04EWFktiPyY5pjDcuPhodk6VkcqKue593+wA@mail.gmail.com> <D0A3B5FA-6C5E-41B7-9E84-64DB04396919@jhuapl.edu> <CAK2MWOuSRzPtDXb0ropDnDMspecG8o+UbaHWYgjX5wGE2273rw@mail.gmail.com> <CAD2gp_RnbN6nq+xn8c5Xx8WKefiRnB4GH4DsK0n50P5CBZseSA@mail.gmail.com> <CAK2MWOsi2cA+vDQBu+EADkT3mFqpAiJzcuH6yjjcHuaU25n2Zg@mail.gmail.com> <CAD2gp_S_BpMfqdnmtLh-KdLkTRoObHxUAAPAH-qv+BYk+=i-RA@mail.gmail.com> <CAK2MWOvuVbdhkVCGfoBUcMKVsoX1zbGWs4FykD7+=q2v03jAHQ@mail.gmail.com> <CAK2MWOuofrxZzvReGqLqYJDBKKAO_-87fyb_BxZd9qU=irBN0Q@mail.gmail.com> <CAA4ffp_coHpLFU+0=MLx_YJTPbY3-=VMxhng_c8kf+=A6SM2Zw@mail.gmail.com> <7911DAF7-B18D-4DC4-9909-ED49609C98C6@jhuapl.edu> <CAK2MWOupfG1-dBJZH1CwD2sTHEGtJwXgPCbxWumeTsMC5J-mnA@mail.gmail.com> <C93A1B296F96E4428C30F0AFDCB1F242143308AD@NDMSMBX304.ndc.nasa.gov> <CAK2MWOui=4=x7NvP3fmYkLGWf9w4x7orS1cMd1ZJMDgFWbJ2Sw@mail.gmail.com> <CAK2MWOs9Yim1G9z0e=7iZAXCZ2uzxFP1W6zOP=Bs=gHPFbOmDw@mail.gmail.com> <1E7449DC3319BF42BC76414D53B56D630FA68120@NDJSMBX203.ndc.nasa.gov> <CAK2MWOvU4yCis4BHscQCR=Daa8u+V_2ZefCi+FQcevRU188STA@mail.gmail.com> <1E7449DC3319BF42BC76414D53B56D630FA68201@NDJSMBX203.ndc.nasa.gov>
+Message-ID: <CAK2MWOv=YaGMbssyK2mqDskHWCPC9w2a6zhZiuYmDOWodMcgqg@mail.gmail.com>
+
+On Fri, May 4, 2018 at 1:05 AM, Padilla, Rob (ARC-DL) <
+robert.m.padilla at nasa.gov> wrote:
+
+> Hello Bruce,
+>
+>
+>
+> Please do talk with other attorneys about the interpretation.  I?ve cc:ed
+> Mark Radcliffe.
+>
+
+Mark has to be be disqualified on this particular issue, on the basis of
+his having already formed and stated an opinion years ago. I have access to
+other counsel.
+
+
+> The federal judge in the Gilmore case decided that the software wasn?t an
+> agency record subject to FOIA because it didn?t provide any insight into
+> agency decision making or otherwise reflect or show the structure,
+> operation, or decision-making functions of the agency.
+>
+
+FOIA is not necessarily relevant here. Even if we accept that the software
+is not an agency record, that interpretation is regarding whether FOIA
+mandated a release of the software from secrecy. Extending that
+interpretation into a thesis that the software is somehow not in the public
+domain once no longer secret seems far beyond what is there in the ruling.
+
+OSI's imprimatur does not block NASA from making releases. It only advises
+the Open Source community that the license should be accepted, meaning that
+it fulfilled the OSD requirements and is otherwise reasonable and likely
+not to yield surprises in court.
+
+This thesis of contractually restricted material in the public domain,
+however, is still undetermined law. Attorneys have opinions but courts have
+not ruled. So, I can't say that the license will behave as intended in
+court. Nor can I recommend before a court finds on the issue that OSI
+promote this interpretation over one that the software is unrestricted.
+It's not in their interest.
+
+So, there is a high bar for me to recommend that OSI accept the license,
+and I understand fully why the board has so far declined to do so. I will
+continue to look into the issue, but I have to say that the probability
+that I will recommend that OSI rescind their opinion is low.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180504/bb6887b8/attachment.html>
+
+From marc at joneslaw.io  Mon May  7 19:40:22 2018
+From: marc at joneslaw.io (Marc Jones)
+Date: Mon, 07 May 2018 19:40:22 +0000
+Subject: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+In-Reply-To: <CAK2MWOvU4yCis4BHscQCR=Daa8u+V_2ZefCi+FQcevRU188STA@mail.gmail.com>
+References: <CAK2MWOvQcaSi0LJo-s1aF+gKoVZTswxghM1CAjXL+Ke061XqAQ@mail.gmail.com> <C67753CC-0D03-4A07-8F15-84F0BFCA9148@jhuapl.edu> <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov> <CA+xoNzHEbv395Fb472mtScYWEdTSqw7082-JWJ6PYPRp75qq9A@mail.gmail.com> <E02B7513-53F1-4D2F-A116-BADFCCCE87B5@nasa.gov> <CAK2MWOvKQVsNxj8LHkSS4zyH+Wu3GyH=6YuRWV82rMDkwgJ7bg@mail.gmail.com> <CAK2MWOvayZJEN3e4E3e+jdtE-UMRtO+88u+-5N2R1kjXSoC9uA@mail.gmail.com> <CAK2MWOuBmpjMJYs8_i7xtv_xjcHwgQMAKP8s5ghFYs3xCm7Jpw@mail.gmail.com> <E32546DA-1DF3-4DD5-949B-D65AC3516C0A@jhuapl.edu> <CAK2MWOuLRB105k04EWFktiPyY5pjDcuPhodk6VkcqKue593+wA@mail.gmail.com> <D0A3B5FA-6C5E-41B7-9E84-64DB04396919@jhuapl.edu> <CAK2MWOuSRzPtDXb0ropDnDMspecG8o+UbaHWYgjX5wGE2273rw@mail.gmail.com> <CAD2gp_RnbN6nq+xn8c5Xx8WKefiRnB4GH4DsK0n50P5CBZseSA@mail.gmail.com> <CAK2MWOsi2cA+vDQBu+EADkT3mFqpAiJzcuH6yjjcHuaU25n2Zg@mail.gmail.com> <CAD2gp_S_BpMfqdnmtLh-KdLkTRoObHxUAAPAH-qv+BYk+=i-RA@mail.gmail.com> <CAK2MWOvuVbdhkVCGfoBUcMKVsoX1zbGWs4FykD7+=q2v03jAHQ@mail.gmail.com> <CAK2MWOuofrxZzvReGqLqYJDBKKAO_-87fyb_BxZd9qU=irBN0Q@mail.gmail.com> <CAA4ffp_coHpLFU+0=MLx_YJTPbY3-=VMxhng_c8kf+=A6SM2Zw@mail.gmail.com> <7911DAF7-B18D-4DC4-9909-ED49609C98C6@jhuapl.edu> <CAK2MWOupfG1-dBJZH1CwD2sTHEGtJwXgPCbxWumeTsMC5J-mnA@mail.gmail.com> <C93A1B296F96E4428C30F0AFDCB1F242143308AD@NDMSMBX304.ndc.nasa.gov> <CAK2MWOui=4=x7NvP3fmYkLGWf9w4x7orS1cMd1ZJMDgFWbJ2Sw@mail.gmail.com> <CAK2MWOs9Yim1G9z0e=7iZAXCZ2uzxFP1W6zOP=Bs=gHPFbOmDw@mail.gmail.com> <1E7449DC3319BF42BC76414D53B56D630FA68120@NDJSMBX203.ndc.nasa.gov> <CAK2MWOvU4yCis4BHscQCR=Daa8u+V_2ZefCi+FQcevRU188STA@mail.gmail.com>
+Message-ID: <CAF3y9Oi8J9mHhBjG157B8zQ2eyiAceZjpccpdLEHhWmgOSV7Dw@mail.gmail.com>
+
+>
+>
+>
+>> The attorneys crafted the NOSA with language that specifies, under
+>> contract law, that the Government is a third-party beneficiary of all
+>> down-stream distributions.
+>>
+>
+> Right. So, the government has a right to sue someone for breach of
+> contract who is not directly a party to a contract with the government. And
+> thus it seems to me that you are attempting to propagate the obligation
+> from that very first person who received the software in the act of the
+> government's releasing it from secret. But I am still not seeing that such
+> a party actually has any consideration to offer to the next party in this
+> chain.
+>
+>
+Just because material is not protected by copyright, it doesn't mean you
+cannot restrict its use by contract. The terms of contracts are not
+generally preempted by copyright law. To oversimplify things, the contents
+of a phone book are not protected by copyright. See, Feist Publications,

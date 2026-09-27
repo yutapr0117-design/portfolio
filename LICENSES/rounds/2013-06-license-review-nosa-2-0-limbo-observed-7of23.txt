@@ -1,0 +1,750 @@
+
+This document, including any attachments, contains information that is confidential, protected by the attorney-client or other privileges, or constitutes non-public information.  It is intended only for the intended recipients.  If you are not an intended recipient, please take appropriate steps to destroy this document in its entirety and notify the sender of its destruction.  Use, dissemination, distribution or reproduction of this information by unintended recipients is not authorized and may be unlawful.
+
+This communication should only be used for the particular matter discussed herein.  Changes in circumstances and changes in law can greatly alter any current legal advice.
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20130607/0d342a59/attachment.html>
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: NOSA Ver 2.0 OSI submitted draft 2013June13.txt
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20130607/0d342a59/attachment.txt>
+
+From osi-review at piana.eu  Mon Jun 24 14:43:55 2013
+From: osi-review at piana.eu (Carlo Piana)
+Date: Mon, 24 Jun 2013 16:43:55 +0200
+Subject: [License-review] For Approval:  NASA Open Source Agreement 2.0
+In-Reply-To: <B6165E1FE93E09499631207758A62BFDB7395E362D@NDMSSCC08.ndc.nasa.gov>
+References: <B6165E1FE93E09499631207758A62BFDB7395E362D@NDMSSCC08.ndc.nasa.gov>
+Message-ID: <51C85B2B.8020004@piana.eu>
+
+A couple of quick remarks:
+
+* Paragraph K (optional) requires the recipient to register themselves
+as a condition to use the software, and this seems an OSD incompatible
+requirement to me.
+
+* Since this license strikes me as being sort of a counterpart of the
+EUPL in Europe, and since it seems a weak copyleft, GPL incompatible
+license too, have you considered an express GPL* compatibility clause
+(which is not a requirement to be OSD-compliant, just asking)?
+
+with best regards.
+
+Carlo Piana
+
+
+
+On 07/06/2013 17:23, Geurts, Bryan A. (GSFC-1401) wrote:
+>
+> Please accept for OSI review and approval the attached NASA Open
+> Source Agreement 2.0 (NOSA 2.0) as a replacement for the existing NASA
+> Open Source Agreement 1.3.
+>
+>  
+>
+> NASA proposes that NOSA 2.0 be placed in the license proliferation
+> category of SPECIAL PURPOSE LICENSES.  It is designed to be used by US
+> Government Agencies releasing original software to the public.
+>
+>  
+>
+> Accordingly, once NOSA 2.0 has been approved, NASA proposes that the
+> current NOSA 1.3 be retired (with full government retirement benefits,
+> such as they are).
+>
+>  
+>
+> This new version of the NOSA retains clauses unique to government
+> licensing e.g. choice of law, disclaimer of warranties and treatment
+> of civil servant contributors, and yet removes some of the more
+> unsavory requirements of the earlier version, such as the requirement
+> of contributors to warrant that they are the original authors of their
+> contribution.
+>
+>  
+>
+> Please direct any questions about this submittal to me as License
+> Steward for the NOSA 2.0 and 1.3.  Thank you for your consideration.
+>
+>  
+>
+> *Bryan A. Geurts*
+>
+> Chief Patent Counsel
+>
+> NASA Goddard Space Flight Center
+>
+> Code 140.1, 8800 Greenbelt Road
+>
+> Greenbelt, MD 20771
+>
+> Phone:  301-286-7352
+>
+> Fax:  310-286-9502
+>
+>  
+>
+> This document, including any attachments, contains information that is
+> confidential, protected by the attorney-client or other privileges, or
+> constitutes non-public information.  It is intended only for the
+> intended recipients.  If you are not an intended recipient, please
+> take appropriate steps to destroy this document in its entirety and
+> notify the sender of its destruction.  Use, dissemination,
+> distribution or reproduction of this information by unintended
+> recipients is not authorized and may be unlawful.
+>
+>  
+>
+> This communication should only be used for the particular matter
+> discussed herein.  Changes in circumstances and changes in law can
+> greatly alter any current legal advice.
+>
+>  
+>
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20130624/a56840cd/attachment.html>
+
+From kfogel at red-bean.com  Mon Jun 24 14:46:31 2013
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Mon, 24 Jun 2013 09:46:31 -0500
+Subject: [License-review] For Approval:  NASA Open Source Agreement 2.0
+In-Reply-To: <B6165E1FE93E09499631207758A62BFDB7395E362D@NDMSSCC08.ndc.nasa.gov> (Bryan A. Geurts's message of "Fri, 7 Jun 2013 10:23:56 -0500")
+References: <B6165E1FE93E09499631207758A62BFDB7395E362D@NDMSSCC08.ndc.nasa.gov>
+Message-ID: <871u7r4ldk.fsf@ktab.red-bean.com>
+
+"Geurts, Bryan A. (GSFC-1401)" <bryan.a.geurts at nasa.gov> writes:
+>Please accept for OSI review and approval the attached NASA Open
+>Source Agreement 2.0 (NOSA 2.0) as a replacement for the existing NASA
+>Open Source Agreement 1.3.
+>
+>NASA proposes that NOSA 2.0 be placed in the license proliferation
+>category of SPECIAL PURPOSE LICENSES. It is designed to be used by US
+>Government Agencies releasing original software to the public.
+>
+>Accordingly, once NOSA 2.0 has been approved, NASA proposes that the
+>current NOSA 1.3 be retired (with full government retirement benefits,
+>such as they are).
+>
+>This new version of the NOSA retains clauses unique to government
+>licensing e.g. choice of law, disclaimer of warranties and treatment
+>of civil servant contributors, and yet removes some of the more
+>unsavory requirements of the earlier version, such as the requirement
+>of contributors to warrant that they are the original authors of their
+>contribution.
+>
+>Please direct any questions about this submittal to me as License
+>Steward for the NOSA 2.0 and 1.3. Thank you for your consideration.
+
+Thanks for the submission, Bryan -- as well as the extremely clear
+explanation of the new version's purpose & how it differs from the
+previous version.
+
+I have a question about the name of the license.  I'm not a lawyer
+(others here are, of course) so it might be that there is no cause for
+concern, but I thought I'd check:
+
+One of the things that always worried about about the NASA Open Source
+Agreement was the word "Agreement" in its name.  "Agreement" might
+imply, to some degree, that the license is more of a contract -- albeit
+a non-negotiated one, like a web site Terms of Service -- and less of a
+copyright license.  If so, could that affect the types of law &
+precedent under which it is interpreted?  (And if so, was that a
+deliberate goal of the license?)
+
+Again, it may be that merely having the word "Agreement" in the name
+does not necessarily tilt things from copyright law to contract law; or
+it may be that such tilt would be irrelevant even if present.  I don't
+know -- just thought it was worth checking.
+
+Thanks,
+-Karl
+
+>Bryan A. Geurts
+>Chief Patent Counsel
+>NASA Goddard Space Flight Center
+>Code 140.1, 8800 Greenbelt Road
+>Greenbelt, MD 20771
+>Phone: 301-286-7352
+>Fax: 310-286-9502
+
+
+From kfogel at red-bean.com  Mon Jun 24 14:49:29 2013
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Mon, 24 Jun 2013 09:49:29 -0500
+Subject: [License-review] For Approval:  NASA Open Source Agreement 2.0
+In-Reply-To: <51C85B2B.8020004@piana.eu> (Carlo Piana's message of "Mon, 24 Jun 2013 16:43:55 +0200")
+References: <B6165E1FE93E09499631207758A62BFDB7395E362D@NDMSSCC08.ndc.nasa.gov> <51C85B2B.8020004@piana.eu>
+Message-ID: <87wqpj36o6.fsf@ktab.red-bean.com>
+
+Carlo Piana <osi-review at piana.eu> writes:
+>A couple of quick remarks:
+>
+>* Paragraph K (optional) requires the recipient to register themselves
+>as a condition to use the software, and this seems an OSD incompatible
+>requirement to me.
+
+I thought it only "requests", not requires.  (The language could be
+even more emphatic about how it's merely a request, but it does seem
+pretty unambiguous even as it's currently worded).
+
+>* Since this license strikes me as being sort of a counterpart of the
+>EUPL in Europe, and since it seems a weak copyleft, GPL incompatible
+>license too, have you considered an express GPL* compatibility clause
+>(which is not a requirement to be OSD-compliant, just asking)?
+
+Interesting question!
+
+-K
+
+>On 07/06/2013 17:23, Geurts, Bryan A. (GSFC-1401) wrote:
+>
+>        Please accept for OSI review and approval the attached NASA
+>    Open Source Agreement 2.0 (NOSA 2.0) as a replacement for the
+>    existing NASA Open Source Agreement 1.3.
+>
+>        NASA proposes that NOSA 2.0 be placed in the license
+>    proliferation category of SPECIAL PURPOSE LICENSES. It is designed
+>    to be used by US Government Agencies releasing original software
+>    to the public.
+>
+>        Accordingly, once NOSA 2.0 has been approved, NASA proposes
+>    that the current NOSA 1.3 be retired (with full government
+>    retirement benefits, such as they are).
+>
+>        This new version of the NOSA retains clauses unique to
+>    government licensing e.g. choice of law, disclaimer of warranties
+>    and treatment of civil servant contributors, and yet removes some
+>    of the more unsavory requirements of the earlier version, such as
+>    the requirement of contributors to warrant that they are the
+>    original authors of their contribution.
+>
+>        Please direct any questions about this submittal to me as
+>    License Steward for the NOSA 2.0 and 1.3. Thank you for your
+>    consideration.
+>
+>        Bryan A. Geurts
+>
+>        Chief Patent Counsel
+>
+>        NASA Goddard Space Flight Center
+>
+>        Code 140.1, 8800 Greenbelt Road
+>
+>        Greenbelt, MD 20771
+>
+>        Phone: 301-286-7352
+>
+>        Fax: 310-286-9502
+>
+>        This document, including any attachments, contains information
+>    that is confidential, protected by the attorney-client or other
+>    privileges, or constitutes non-public information. It is intended
+>    only for the intended recipients. If you are not an intended
+>    recipient, please take appropriate steps to destroy this document
+>    in its entirety and notify the sender of its destruction. Use,
+>    dissemination, distribution or reproduction of this information by
+>    unintended recipients is not authorized and may be unlawful.
+>
+>        This communication should only be used for the particular
+>    matter discussed herein. Changes in circumstances and changes in
+>    law can greatly alter any current legal advice.
+>
+>    
+>
+>    
+>    
+>    _______________________________________________
+>License-review mailing list
+>License-review at opensource.org
+>http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+>
+>_______________________________________________
+>License-review mailing list
+>License-review at opensource.org
+>http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+From pe.schmitz at googlemail.com  Mon Jun 24 21:19:25 2013
+From: pe.schmitz at googlemail.com (Patrice-Emmanuel Schmitz)
+Date: Mon, 24 Jun 2013 23:19:25 +0200
+Subject: [License-review] For Approval: NASA Open Source Agreement 2.0
+In-Reply-To: <87wqpj36o6.fsf@ktab.red-bean.com>
+References: <B6165E1FE93E09499631207758A62BFDB7395E362D@NDMSSCC08.ndc.nasa.gov> <51C85B2B.8020004@piana.eu> <87wqpj36o6.fsf@ktab.red-bean.com>
+Message-ID: <CAB4rVPaFwBM-A2_2bBy-=1FwkX_Eh70MBzfKdV+fjaXNNE=9Dg@mail.gmail.com>
+
+The difference between "requests" and "requires" is subtile :-).
+By the way, which OSD principle could possibly been violated here?
+
+>Since this license strikes me as being sort of a counterpart of the
+>EUPL in Europe, and since it seems a weak copyleft, GPL incompatible
+>license too, have you considered an express GPL* compatibility clause
+
+While submissions to the original project must be "governed by the terms
+and conditions of this Agreement, without any additional terms or
+conditions", it seems indeed that:
+- Redistribution of derivatives;
+- Larger Work obtained by combining Subject Software with separate software
+not governed by the terms and conditions of the license;
+may be done under any licence providing different terms, provide it
+otherwise complies "with the terms and conditions provided in this
+agreement"
+
+Therefore do we really need an express GPL (or EUPL) compatibility clause?
+It seems that both licences could be used when redistributing derivatives
+or larger works as a whole...
+This is indeed outside OSD requirements, but good to know for
+interoperability...
+Best,
+P-E
+
+
+
+2013/6/24 Karl Fogel <kfogel at red-bean.com>
+
+> Carlo Piana <osi-review at piana.eu> writes:
+> >A couple of quick remarks:
+> >
+> >* Paragraph K (optional) requires the recipient to register themselves
+> >as a condition to use the software, and this seems an OSD incompatible
+> >requirement to me.
+>
+> I thought it only "requests", not requires.  (The language could be
+> even more emphatic about how it's merely a request, but it does seem
+> pretty unambiguous even as it's currently worded).
+>
+> >* Since this license strikes me as being sort of a counterpart of the
+> >EUPL in Europe, and since it seems a weak copyleft, GPL incompatible
+> >license too, have you considered an express GPL* compatibility clause
+> >(which is not a requirement to be OSD-compliant, just asking)?
+>
+> Interesting question!
+>
+> -K
+>
+> >On 07/06/2013 17:23, Geurts, Bryan A. (GSFC-1401) wrote:
+> >
+> >        Please accept for OSI review and approval the attached NASA
+> >    Open Source Agreement 2.0 (NOSA 2.0) as a replacement for the
+> >    existing NASA Open Source Agreement 1.3.
+> >
+> >        NASA proposes that NOSA 2.0 be placed in the license
+> >    proliferation category of SPECIAL PURPOSE LICENSES. It is designed
+> >    to be used by US Government Agencies releasing original software
+> >    to the public.
+> >
+> >        Accordingly, once NOSA 2.0 has been approved, NASA proposes
+> >    that the current NOSA 1.3 be retired (with full government
+> >    retirement benefits, such as they are).
+> >
+> >        This new version of the NOSA retains clauses unique to
+> >    government licensing e.g. choice of law, disclaimer of warranties
+> >    and treatment of civil servant contributors, and yet removes some
+> >    of the more unsavory requirements of the earlier version, such as
+> >    the requirement of contributors to warrant that they are the
+> >    original authors of their contribution.
+> >
+> >        Please direct any questions about this submittal to me as
+> >    License Steward for the NOSA 2.0 and 1.3. Thank you for your
+> >    consideration.
+> >
+> >        Bryan A. Geurts
+> >
+> >        Chief Patent Counsel
+> >
+> >        NASA Goddard Space Flight Center
+> >
+> >        Code 140.1, 8800 Greenbelt Road
+> >
+> >        Greenbelt, MD 20771
+> >
+> >        Phone: 301-286-7352
+> >
+> >        Fax: 310-286-9502
+> >
+> >        This document, including any attachments, contains information
+> >    that is confidential, protected by the attorney-client or other
+> >    privileges, or constitutes non-public information. It is intended
+> >    only for the intended recipients. If you are not an intended
+> >    recipient, please take appropriate steps to destroy this document
+> >    in its entirety and notify the sender of its destruction. Use,
+> >    dissemination, distribution or reproduction of this information by
+> >    unintended recipients is not authorized and may be unlawful.
+> >
+> >        This communication should only be used for the particular
+> >    matter discussed herein. Changes in circumstances and changes in
+> >    law can greatly alter any current legal advice.
+> >
+> >
+> >
+> >
+> >
+> >    _______________________________________________
+> >License-review mailing list
+> >License-review at opensource.org
+> >http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+> >
+> >
+> >_______________________________________________
+> >License-review mailing list
+> >License-review at opensource.org
+> >http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+
+
+
+-- 
+Patrice-Emmanuel Schmitz
+legal expert - Joinup.eu
+pe.schmitz at googlemail.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20130624/42d11f9c/attachment.html>
+
+From josh at postgresql.org  Tue Jun 25 03:58:39 2013
+From: josh at postgresql.org (Josh Berkus)
+Date: Mon, 24 Jun 2013 20:58:39 -0700
+Subject: [License-review] For Approval:  NASA Open Source Agreement 2.0
+In-Reply-To: <87wqpj36o6.fsf@ktab.red-bean.com>
+References: <B6165E1FE93E09499631207758A62BFDB7395E362D@NDMSSCC08.ndc.nasa.gov> <51C85B2B.8020004@piana.eu> <87wqpj36o6.fsf@ktab.red-bean.com>
+Message-ID: <51C9156F.7040305@postgresql.org>
+
+On 06/24/2013 07:49 AM, Karl Fogel wrote:
+> Carlo Piana <osi-review at piana.eu> writes:
+>> A couple of quick remarks:
+>>
+>> * Paragraph K (optional) requires the recipient to register themselves
+>> as a condition to use the software, and this seems an OSD incompatible
+>> requirement to me.
+> 
+> I thought it only "requests", not requires.  (The language could be
+> even more emphatic about how it's merely a request, but it does seem
+> pretty unambiguous even as it's currently worded).
+
+Yes, I have to wonder: what does "request" mean in terms of a license?
+It seems like it's saying "if you want to", which means that that clause
+3.K. is without real force, but I'd like to hear an attorney tell us
+what "request" means in legalese.
+
+The para in question:
+
+K. [This paragraph may be included or deleted at the option of the
+Government Agency releasing the Original Software.] In an effort to
+track usage and maintain accurate records of the Subject Software, You,
+upon receipt of the Subject Software, are requested to register with
+Government Agency by visiting the website provided above (if any) or by
+e-mail to the Point of Contact listed above.  Your name and personal
+information shall not be disclosed outside of the Government and its
+contractors. Once You make a Derivative Work or Contribution available,
+it is requested that You inform Government Agency, through the website
+or Point of Contact provided above, how to access the Derivative Work or
+Contribution.
+
+
+
+
+From luis at lu.is  Tue Jul  9 05:38:04 2013
+From: luis at lu.is (Luis Villa)
+Date: Mon, 8 Jul 2013 22:38:04 -0700
+Subject: [License-review] For Approval: NASA Open Source Agreement 2.0
+In-Reply-To: <51C9156F.7040305@postgresql.org>
+References: <B6165E1FE93E09499631207758A62BFDB7395E362D@NDMSSCC08.ndc.nasa.gov> <51C85B2B.8020004@piana.eu> <87wqpj36o6.fsf@ktab.red-bean.com> <51C9156F.7040305@postgresql.org>
+Message-ID: <CAFPTOkXgCqLuPGg_Hwv+2iKk4UDo9AfkfWwJxgKPzwPvZik9Tg@mail.gmail.com>
+
+On Mon, Jun 24, 2013 at 8:58 PM, Josh Berkus <josh at postgresql.org> wrote:
+>
+> Yes, I have to wonder: what does "request" mean in terms of a license?
+> It seems like it's saying "if you want to", which means that that clause
+> 3.K. is without real force, but I'd like to hear an attorney tell us
+> what "request" means in legalese.
+
+It would be ideal to have Bryan answer this in the context of NASA,
+but in the meantime, I know of no precedent where "request" would have
+anything other than the plain language meaning you'd expect it to
+have. That would be doubly so in this context, which is described as
+part of an "effort" rather than a requirement or obligation, and uses
+"please" in the opening section.
+
+Bryan, I'm trying to understand the interaction between 2(A) and 2(B)
+and was hoping you could answer. Specifically, is the idea that 2(A)
+covers works covered by 17 USC 105, while 2(B) covers anything not
+covered by 17 USC 105?
+
+Anyone else have any concerns/thoughts/etc. about the license?
+
+Luis
+
+
+From engel.nyst at gmail.com  Tue Jul  9 10:57:31 2013
+From: engel.nyst at gmail.com (Engel Nyst)
+Date: Tue, 09 Jul 2013 13:57:31 +0300
+Subject: [License-review] For Approval: NASA Open Source Agreement 2.0
+In-Reply-To: <CAFPTOkXgCqLuPGg_Hwv+2iKk4UDo9AfkfWwJxgKPzwPvZik9Tg@mail.gmail.com>
+References: <B6165E1FE93E09499631207758A62BFDB7395E362D@NDMSSCC08.ndc.nasa.gov> <51C85B2B.8020004@piana.eu> <87wqpj36o6.fsf@ktab.red-bean.com> <51C9156F.7040305@postgresql.org> <CAFPTOkXgCqLuPGg_Hwv+2iKk4UDo9AfkfWwJxgKPzwPvZik9Tg@mail.gmail.com>
+Message-ID: <51DBEC9B.1070108@gmail.com>
+
+On 07/09/2013 08:38 AM, Luis Villa wrote:
+> I know of no precedent where "request" would have
+> anything other than the plain language meaning you'd expect it to
+> have.
+> 
+
+PortAudio license in its current form[1] reads: "The text above
+constitutes the entire PortAudio license; however, the PortAudio
+community also makes the following non-binding requests".
+The previous version's license[2] has changed this text from a license
+condition: "Any person wishing to distribute modifications to the
+Software is *requested* to send the modifications to the original
+developer so that they can be incorporated into the canonical version."
+
+Indeed, to me the previous version reads clearly the "request" as
+license condition.
+Which is why (I assume) the current version language attempts to make
+clear that it's not legally binding. I don't know the background of
+PortAudio community and license, the comparison of the contents is very
+clear though.
+
+I would note, the NASA agreement text also reads to me as license condition.
+I'm not sure why exactly it would be there if it's not meant as
+condition, or it can be very explicitly delimited as not part of
+conditions. Obligatory note: IANAL.
+
+
+[1] http://www.portaudio.com/license.html
+[2] http://www.portaudio.com/docs/portaudio_h_v18.txt
+
+
+From Nigel.Tzeng at jhuapl.edu  Tue Jul  9 12:50:34 2013
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Tue, 9 Jul 2013 08:50:34 -0400
+Subject: [License-review] For Approval: NASA Open Source Agreement 2.0
+In-Reply-To: <CAFPTOkXgCqLuPGg_Hwv+2iKk4UDo9AfkfWwJxgKPzwPvZik9Tg@mail.gmail.com>
+Message-ID: <CE017EEA.251DD%Nigel.Tzeng@jhuapl.edu>
+
+I have a few questions regarding NOSA 2.0:
+ *  Can you explain to me the implications of section 2.A in comparison
+to 2.B?  NOSA 1.3 only had the equivalent to the new 2.B.
+ *  3.A.1 is an interesting addition.  Could you provide some
+background regarding the inclusion?  Also your opinion on how this plays
+with FAR clause 52.227-14 or DFARS clauses 252.227-7013/7014.
+ *  Regarding a mixture of NOSA 1.3 and NOSA 2.0 code.  Notices in the
+source files have no indication of license, just agency copyright.  Are
+there any requirements on derivative works to further identify which is
+which even when no changes have been made to the original code?  Changing
+Section 3.C to indicate the license version in addition to copyright would
+be helpful for some downstream users if there are.
+ *  Does 2.A wording regarding "portions of the Subject Software"
+coupled with the new 3.C civil servant copyright notice imply that we
+would expect to see this copyright header on a source file basis? 
+ *  Are current NOSA 1.3 projects expected to transition to NOSA 2.0
+quickly assuming OSI approval?
+
+
+Thanks.
+
+On 7/9/13 1:38 AM, "Luis Villa" <luis at lu.is> wrote:
+
+>On Mon, Jun 24, 2013 at 8:58 PM, Josh Berkus <josh at postgresql.org> wrote:
+>>
+>> Yes, I have to wonder: what does "request" mean in terms of a license?
+>> It seems like it's saying "if you want to", which means that that clause
+>> 3.K. is without real force, but I'd like to hear an attorney tell us
+>> what "request" means in legalese.
+>
+>It would be ideal to have Bryan answer this in the context of NASA,
+>but in the meantime, I know of no precedent where "request" would have
+>anything other than the plain language meaning you'd expect it to
+>have. That would be doubly so in this context, which is described as
+>part of an "effort" rather than a requirement or obligation, and uses
+>"please" in the opening section.
+>
+>Bryan, I'm trying to understand the interaction between 2(A) and 2(B)
+>and was hoping you could answer. Specifically, is the idea that 2(A)
+>covers works covered by 17 USC 105, while 2(B) covers anything not
+>covered by 17 USC 105?
+>
+>Anyone else have any concerns/thoughts/etc. about the license?
+>
+>Luis
+>_______________________________________________
+>License-review mailing list
+>License-review at opensource.org
+>http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+From cowan at mercury.ccil.org  Tue Jul  9 15:50:24 2013
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Tue, 9 Jul 2013 11:50:24 -0400
+Subject: [License-review] For Approval: NASA Open Source Agreement 2.0
+In-Reply-To: <51DBEC9B.1070108@gmail.com>
+References: <B6165E1FE93E09499631207758A62BFDB7395E362D@NDMSSCC08.ndc.nasa.gov> <51C85B2B.8020004@piana.eu> <87wqpj36o6.fsf@ktab.red-bean.com> <51C9156F.7040305@postgresql.org> <CAFPTOkXgCqLuPGg_Hwv+2iKk4UDo9AfkfWwJxgKPzwPvZik9Tg@mail.gmail.com> <51DBEC9B.1070108@gmail.com>
+Message-ID: <20130709155024.GF9153@mercury.ccil.org>
+
+Engel Nyst scripsit:
+
+> Indeed, to me the previous version reads clearly the "request" as
+> license condition.
+
+"Request" can never be a condition; it would have to be "require".  When
+you "request" something, you merely ask for it without any conditions
+whatsoever.
+
+-- 
+How comes city and country to be filled with drones         John Cowan
+and rogues, our highways with hackers, and all          cowan at ccil.org
+places with sloth and wickedness?           http://www.ccil.org/~cowan --W. Blith, Eng. Improver Improved, 1652
+
+
+From josh at postgresql.org  Tue Jul  9 17:20:28 2013
+From: josh at postgresql.org (Josh Berkus)
+Date: Tue, 09 Jul 2013 10:20:28 -0700
+Subject: [License-review] For Approval: NASA Open Source Agreement 2.0
+In-Reply-To: <CAFPTOkXgCqLuPGg_Hwv+2iKk4UDo9AfkfWwJxgKPzwPvZik9Tg@mail.gmail.com>
+References: <B6165E1FE93E09499631207758A62BFDB7395E362D@NDMSSCC08.ndc.nasa.gov> <51C85B2B.8020004@piana.eu> <87wqpj36o6.fsf@ktab.red-bean.com> <51C9156F.7040305@postgresql.org> <CAFPTOkXgCqLuPGg_Hwv+2iKk4UDo9AfkfWwJxgKPzwPvZik9Tg@mail.gmail.com>
+Message-ID: <51DC465C.20603@postgresql.org>
+
+
+> Bryan, I'm trying to understand the interaction between 2(A) and 2(B)
+> and was hoping you could answer. Specifically, is the idea that 2(A)
+> covers works covered by 17 USC 105, while 2(B) covers anything not
+> covered by 17 USC 105?
+> 
+> Anyone else have any concerns/thoughts/etc. about the license?
+
+I haven't seen any answer about 3.K. per my earlier post.
+
+--Josh Berkus
+
+
+
+From osi-review at piana.eu  Wed Jul 10 05:45:47 2013
+From: osi-review at piana.eu (Carlo Piana)
+Date: Wed, 10 Jul 2013 07:45:47 +0200
+Subject: [License-review] For Approval: NASA Open Source Agreement 2.0
+In-Reply-To: <51DBEC9B.1070108@gmail.com>
+References: <B6165E1FE93E09499631207758A62BFDB7395E362D@NDMSSCC08.ndc.nasa.gov> <51C85B2B.8020004@piana.eu> <87wqpj36o6.fsf@ktab.red-bean.com> <51C9156F.7040305@postgresql.org> <CAFPTOkXgCqLuPGg_Hwv+2iKk4UDo9AfkfWwJxgKPzwPvZik9Tg@mail.gmail.com> <51DBEC9B.1070108@gmail.com>
+Message-ID: <51DCF50B.7090404@piana.eu>
+
+On 09/07/2013 12:57, Engel Nyst wrote:
+> On 07/09/2013 08:38 AM, Luis Villa wrote:
+>> I know of no precedent where "request" would have
+>> anything other than the plain language meaning you'd expect it to
+>> have.
+>>
+> PortAudio license in its current form[1] reads: "The text above
+> constitutes the entire PortAudio license; however, the PortAudio
+> community also makes the following non-binding requests".
+> The previous version's license[2] has changed this text from a license
+> condition: "Any person wishing to distribute modifications to the
+> Software is *requested* to send the modifications to the original
+> developer so that they can be incorporated into the canonical version."
+>
+> Indeed, to me the previous version reads clearly the "request" as
+> license condition.
+> Which is why (I assume) the current version language attempts to make
+> clear that it's not legally binding. I don't know the background of
+> PortAudio community and license, the comparison of the contents is very
+> clear though.
+>
+> I would note, the NASA agreement text also reads to me as license condition.
+> I'm not sure why exactly it would be there if it's not meant as
+> condition, or it can be very explicitly delimited as not part of
+> conditions. Obligatory note: IANAL.
+>
+>
+
+Despite the language correctly interpreted is not a condition, as many
+pointed out, the clause is open to ambiguity. Ambiguity that shall be
+resolved by the submitter, IMHO.
+
+Cheers
+
+Carlo
+
+
+From bryan.a.geurts at nasa.gov  Thu Jul 11 16:05:31 2013
+From: bryan.a.geurts at nasa.gov (Geurts, Bryan A. (GSFC-1401))
+Date: Thu, 11 Jul 2013 11:05:31 -0500
+Subject: [License-review] For Approval: NASA Open Source Agreement 2.0
+In-Reply-To: <CAFPTOkXgCqLuPGg_Hwv+2iKk4UDo9AfkfWwJxgKPzwPvZik9Tg@mail.gmail.com>
+References: <B6165E1FE93E09499631207758A62BFDB7395E362D@NDMSSCC08.ndc.nasa.gov> <51C85B2B.8020004@piana.eu>	<87wqpj36o6.fsf@ktab.red-bean.com> <51C9156F.7040305@postgresql.org> <CAFPTOkXgCqLuPGg_Hwv+2iKk4UDo9AfkfWwJxgKPzwPvZik9Tg@mail.gmail.com>
+Message-ID: <B6165E1FE93E09499631207758A62BFDB73AC527CE@NDMSSCC08.ndc.nasa.gov>
+
+OK, I'm finally back from an extended vacation, where I turned out to be more incommunicado than expected.  Apologies for tardiness, but let's get to it:
+
+Section 3.K. is included as a nod to the NASA Software Release Program (see generally NASA Procedural Requirements 2210.1C), which requires that all NASA software that is released to others, whether to another NASA or government project or to the public, be tracked for metrics regarding interest generated by the software (see in particular paragraph 3.6 of NPR 2210.1C).  More specifically, paragraph 3.6.2 requires that, in the case of a release that is "solely by electronic means," "each recipient shall be requested to register with a NASA point of contact for all transfers of . . . Open Source software for which no Software Release Record was required (e.g., release by click wrap agreement)."  Thus, all NASA released OS software that is governed by the NOSA must include Section 3.K.  However, realizing that other government agencies using the NOSA may not require the same efforts to track released software, we decided to make Section 3.K. optional according to the particular needs/requirements of the agency.  Understanding that a requirement to register or provide recipient information would violate the OS Definition, this step is entirely voluntary.  Luis is absolutely correct in observing that nothing more than the plain meaning of "request" is applied here.
+
+Sections 2.A. and 2.B. point out the basic differences between the NOSA and other more mainstream OS licenses:  Section 2.A. is designed to be used in connection with US government created software.  With regards to section 2.B., this is a standard license grant based upon copyright legal theory and which is found in any other OS license.  When a contractor creates software for and in behalf of NASA, NASA can require the contractor to "assert and assign" copyright in that software to NASA, which makes NASA the owner/controller of the software.  This copyright is then licensed through section 2.B., in standard fashion.  With regards to section 2.A., this applies to the case of US usage of software that is entirely created by a civil servant/federal employee within the scope of their official duties to whom section 105 of the US Copyright Statute applies.  In this case, "copyright protection under this title [17 USC 105] is not available for any work of the United States Government."  So, while under the Copyright Statute there is no US copyright in civil servant only created software, there are two important points to make: First, even if there is no US copyright protecting a government work, there is no legal obligation by the government to release software it has created to the public; at NASA this decision is made carefully and according to the requirements of NPR 2210.1C.  Second, even though there is no US copyright on government works, NASA does lay claim to copyrights on its software that are available in other countries.  Hence, government created software is not in the "public domain" and yet is different from the standard copyrighted software that is covered by section 2.B.; it is meant to give specific permission to use civil servant created software in the US in the absence of a US copyright.
+
+I hope this helps.  Please feel free to write back or call me if you have any questions.  Thanks for listening.
+
+Bryan A. Geurts
+Chief Patent Counsel
+NASA Goddard Space Flight Center
+Code 140.1, 8800 Greenbelt Road
+Greenbelt, MD 20771
+Phone:  301-286-7352
+Fax:  310-286-9502
+
+This document, including any attachments, contains information that is confidential, protected by the attorney-client or other privileges, or constitutes non-public information.  It is intended only for the intended recipients.  If you are not an intended recipient, please take appropriate steps to destroy this document in its entirety and notify the sender of its destruction.  Use, dissemination, distribution or reproduction of this information by unintended recipients is not authorized and may be unlawful.
+
+This communication should only be used for the particular matter discussed herein.  Changes in circumstances and changes in law can greatly alter any current legal advice.
+
+
+-----Original Message-----
+From: luis.villa at gmail.com [mailto:luis.villa at gmail.com] On Behalf Of Luis Villa
+Sent: Tuesday, July 09, 2013 1:38 AM
+To: License submissions for OSI review; Geurts, Bryan A. (GSFC-1401)
+Subject: Re: [License-review] For Approval: NASA Open Source Agreement 2.0
+
+On Mon, Jun 24, 2013 at 8:58 PM, Josh Berkus <josh at postgresql.org> wrote:
+>
+> Yes, I have to wonder: what does "request" mean in terms of a license?
+> It seems like it's saying "if you want to", which means that that 
+> clause 3.K. is without real force, but I'd like to hear an attorney 
+> tell us what "request" means in legalese.
+
+It would be ideal to have Bryan answer this in the context of NASA, but in the meantime, I know of no precedent where "request" would have anything other than the plain language meaning you'd expect it to have. That would be doubly so in this context, which is described as part of an "effort" rather than a requirement or obligation, and uses "please" in the opening section.
+
+Bryan, I'm trying to understand the interaction between 2(A) and 2(B) and was hoping you could answer. Specifically, is the idea that 2(A) covers works covered by 17 USC 105, while 2(B) covers anything not covered by 17 USC 105?
+
+Anyone else have any concerns/thoughts/etc. about the license?
+
+Luis
+
+
+From bryan.a.geurts at nasa.gov  Thu Jul 11 16:27:45 2013
+From: bryan.a.geurts at nasa.gov (Geurts, Bryan A. (GSFC-1401))
+Date: Thu, 11 Jul 2013 11:27:45 -0500
+Subject: [License-review] For Approval: NASA Open Source Agreement 2.0
+In-Reply-To: <CE017EEA.251DD%Nigel.Tzeng@jhuapl.edu>
+References: <CAFPTOkXgCqLuPGg_Hwv+2iKk4UDo9AfkfWwJxgKPzwPvZik9Tg@mail.gmail.com> <CE017EEA.251DD%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <B6165E1FE93E09499631207758A62BFDB73AC527F9@NDMSSCC08.ndc.nasa.gov>
+
+Please see below for my comments.
+
+Bryan A. Geurts
+Chief Patent Counsel
+NASA Goddard Space Flight Center
+Code 140.1, 8800 Greenbelt Road
+Greenbelt, MD 20771
+Phone:  301-286-7352
+Fax:  310-286-9502
+
+This document, including any attachments, contains information that is confidential, protected by the attorney-client or other privileges, or constitutes non-public information.  It is intended only for the intended recipients.  If you are not an intended recipient, please take appropriate steps to destroy this document in its entirety and notify the sender of its destruction.  Use, dissemination, distribution or reproduction of this information by unintended recipients is not authorized and may be unlawful.
+

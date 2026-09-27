@@ -1,0 +1,750 @@
+>>
+>>
+>> 		 As has been pointed out before, I think, in software (including
+>but not
+>> 		 limited to open source) copyright notices are commonly juxtaposed
+>> 		 with material that is clearly or likely not subject to copyright.
+>>
+>> 		 Anyway, the theoretical risk here could be eliminated in lots of
+>ways, it
+>> 		 seems to me (even without getting into what would be required to
+>> 		 show 'fraudulent intent'). For example, the US government could
+>include a
+>> 		 copyright and license notice like the following:
+>>
+>> 		   The following material may not be subject to copyright in the
+>United
+>> 		   States under 17 U.S.C. 105. To the extent it is subject to
+>> 		   copyright, it is released under the following open source
+>license:
+>> [...]
+>>
+>> 		 There's also the approach that is seen in
+>>
+>>
+>Caution-Caution-https://github.com/deptofdefense/code.mil/blob/master/Proposal/INTENT.md
+>> < Caution-
+>>
+>https://github.com/deptofdefense/code.mil/blob/master/Proposal/INTENT.md
+>> .
+>>
+>>
+>> 			 So, given that we had come up with the idea of using two licenses
+>in
+>> 			 projects
+>> 			 (CC0 for portions of a work that don't have copyright, and an
+>> 			 OSI-approved license for portions of a work that do have
+>copyright
+>> 			 attached), why should OSI care?  The problem is that CC0 is still
+>not
+>> 			 OSI-approved (at least, it isn't on the list at
+>> 			 Caution-Caution-https://opensource.org/licenses/alphabetical <
+>Caution-
+>> https://opensource.org/licenses/alphabetical > ).  That means
+>> 			 that the Government could be putting out works that are in some
+>kind
+>> 			 of zombie-like state, half-Open Source, and half not.  If OSI
+>approved
+>> 			 CC0 as being an Open Source license, or if NOSA 2.0 was approved,
+>then
+>> the
+>> 			 problems could be fixed.  So, where are we in either case?
+>>
+>>
+>> 		 As I've pointed out before, CC0 itself does not eliminate the
+>problem
+>> your
+>> 		 colleagues say they are concerned about, because CC0 assumes
+>> 		 copyright ownership. If they sincerely think it's dangerous to use
+>the
+>> MIT
+>> 		 license then they should be consistent and say it's dangerous to
+>> 		 use CC0 too.
+>>
+>> 		 I think the use you are suggesting for use of CC0 is not actually
+>how
+>> 		 CC0 is meant to be used. CC0 is designed for the case where
+>copyright
+>> 		 ownership is likely or plausibly present but the owner wishes to
+>get
+>> 		 as close as possible to waiving all of their rights. I think you
+>are
+>> saying
+>> 		 you want CC0 to be used to ceremonially declare (possibly in some
+>> 		 cases incorrectly or misleadingly) that something that is not
+>subject to
+>> 		 copyright ownership in the first place is indeed ... not subject
+>to
+>> 		 copyright ownership in the first place -- which is not what
+>> 		 CC0 says.
+>>
+>> 		 Richard
+>>
+>>
+>> 	I see what you're saying, and I understand how it may appear
+>ceremonial,
+>> but
+>> 	there is an added wrinkle of copyright in non-US jurisdictions.  By
+>using
+>> CC0
+>> 	in this way, it solves the question and 'levels the playing field'
+>for
+>> 	everyone, if that makes sense.
+>>
+>> 	However, I *DO* see the point you're making about how CC0 may not be
+>> useable
+>> 	in this way.  I'll see what our lawyers say about this.
+>>
+>> 	Thanks,
+>> 	Cem Karan
+>>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20170829/9a3c9e36/attachment.html>
+
+From cem.f.karan.civ at mail.mil  Tue Aug 29 18:24:27 2017
+From: cem.f.karan.civ at mail.mil (Karan, Cem F CIV USARMY RDECOM ARL (US))
+Date: Tue, 29 Aug 2017 18:24:27 +0000
+Subject: [License-discuss] [Non-DoD Source] Re:  NOSA 2.0, Copyfraud and the US Government
+In-Reply-To: <4df16ca53e4944c1b5c7b0eaef303ea6@aplex01.dom1.jhuapl.edu>
+References: <A677A9FB362B2F499BEFD6F80687FE97C44EAC38@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708281430430.3471@herc.mirbsd.org> <A677A9FB362B2F499BEFD6F80687FE97C44EAC67@UMECHPA7F.easf.csd.disa.mil>, <Pine.BSM.4.64L.1708282026010.20889@herc.mirbsd.org> <4df16ca53e4944c1b5c7b0eaef303ea6@aplex01.dom1.jhuapl.edu>
+Message-ID: <A677A9FB362B2F499BEFD6F80687FE97C44EB00F@UMECHPA7F.easf.csd.disa.mil>
+
+> -----Original Message-----
+> From: License-discuss [mailto:license-discuss-bounces at opensource.org] On 
+> Behalf Of Tzeng, Nigel H.
+> Sent: Tuesday, August 29, 2017 11:03 AM
+> To: license-discuss at opensource.org
+> Cc: license-discuss at opensource.org
+> Subject: Re: [License-discuss] [Non-DoD Source] Re: NOSA 2.0, Copyfraud and 
+> the US Government
+>
+> I think that given that the USG is already saying that CC0 is a valid Open 
+> Source license for the purposes of open source release on
+> Code.gov the CC0 train has already left the station without OSI approval.
+>
+> The FSF recommends it for public domain releases and states it is GPL 
+> compatible.
+>
+> CC states it is suitable for software when a public domain software release 
+> is desired.
+>
+> You guys can debate this all you like but it doesn't appear to me to matter 
+> much any more.
+
+Thank you Nigel!  Given all that, can we PLEASE have a vote on approving CC0 
+as being Open Source, and add it to the approved list?
+
+Thanks,
+Cem Karan
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 6419 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20170829/31d1a1f9/attachment.p7s>
+
+From Nigel.Tzeng at jhuapl.edu  Tue Aug 29 18:31:43 2017
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Tue, 29 Aug 2017 18:31:43 +0000
+Subject: [License-discuss] [Non-DoD Source] Re:  NOSA 2.0, Copyfraud and the US Government
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97C44EB00F@UMECHPA7F.easf.csd.disa.mil>
+References: <A677A9FB362B2F499BEFD6F80687FE97C44EAC38@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708281430430.3471@herc.mirbsd.org> <A677A9FB362B2F499BEFD6F80687FE97C44EAC67@UMECHPA7F.easf.csd.disa.mil>, <Pine.BSM.4.64L.1708282026010.20889@herc.mirbsd.org> <4df16ca53e4944c1b5c7b0eaef303ea6@aplex01.dom1.jhuapl.edu>, <A677A9FB362B2F499BEFD6F80687FE97C44EB00F@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <d2d61c95f8b0454083d70cd371089c24@aplex01.dom1.jhuapl.edu>
+
+
+CC has to submit CC0 according to tradition/rules. For them to bother, since they won't amend CC0 itself, probably there needs to be some assurance it will at least get a vote at the next board meeting, if not assurance it would pass.
+
+Neither seems likely.
+
+Easier to just to shrug their shoulders and ignore the whole OSI approval thing.
+
+From: Karan, Cem F CIV USARMY RDECOM ARL (US) <cem.f.karan.civ at mail.mil<mailto:cem.f.karan.civ at mail.mil>>
+Date: Tuesday, Aug 29, 2017, 11:25 AM
+To: license-discuss at opensource.org <license-discuss at opensource.org<mailto:license-discuss at opensource.org>>
+Subject: Re: [License-discuss] [Non-DoD Source] Re: NOSA 2.0, Copyfraud and the US Government
+
+> -----Original Message-----
+> From: License-discuss [mailto:license-discuss-bounces at opensource.org] On
+> Behalf Of Tzeng, Nigel H.
+> Sent: Tuesday, August 29, 2017 11:03 AM
+> To: license-discuss at opensource.org
+> Cc: license-discuss at opensource.org
+> Subject: Re: [License-discuss] [Non-DoD Source] Re: NOSA 2.0, Copyfraud and
+> the US Government
+>
+> I think that given that the USG is already saying that CC0 is a valid Open
+> Source license for the purposes of open source release on
+> Code.gov the CC0 train has already left the station without OSI approval.
+>
+> The FSF recommends it for public domain releases and states it is GPL
+> compatible.
+>
+> CC states it is suitable for software when a public domain software release
+> is desired.
+>
+> You guys can debate this all you like but it doesn't appear to me to matter
+> much any more.
+
+Thank you Nigel!  Given all that, can we PLEASE have a vote on approving CC0
+as being Open Source, and add it to the approved list?
+
+Thanks,
+Cem Karan
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20170829/f8da6d15/attachment.html>
+
+From cem.f.karan.civ at mail.mil  Tue Aug 29 20:44:41 2017
+From: cem.f.karan.civ at mail.mil (Karan, Cem F CIV USARMY RDECOM ARL (US))
+Date: Tue, 29 Aug 2017 20:44:41 +0000
+Subject: [License-discuss] [Non-DoD Source] Re:  NOSA 2.0, Copyfraud and the US Government
+In-Reply-To: <d2d61c95f8b0454083d70cd371089c24@aplex01.dom1.jhuapl.edu>
+References: <A677A9FB362B2F499BEFD6F80687FE97C44EAC38@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708281430430.3471@herc.mirbsd.org> <A677A9FB362B2F499BEFD6F80687FE97C44EAC67@UMECHPA7F.easf.csd.disa.mil>, <Pine.BSM.4.64L.1708282026010.20889@herc.mirbsd.org> <4df16ca53e4944c1b5c7b0eaef303ea6@aplex01.dom1.jhuapl.edu>, <A677A9FB362B2F499BEFD6F80687FE97C44EB00F@UMECHPA7F.easf.csd.disa.mil> <d2d61c95f8b0454083d70cd371089c24@aplex01.dom1.jhuapl.edu>
+Message-ID: <A677A9FB362B2F499BEFD6F80687FE97C44EB089@UMECHPA7F.easf.csd.disa.mil>
+
+> -----Original Message-----
+> From: License-discuss [mailto:license-discuss-bounces at opensource.org] On 
+> Behalf Of Tzeng, Nigel H.
+> Sent: Tuesday, August 29, 2017 2:32 PM
+> To: license-discuss at opensource.org
+> Subject: Re: [License-discuss] [Non-DoD Source] Re: NOSA 2.0, Copyfraud and 
+> the US Government
+>
+> CC has to submit CC0 according to tradition/rules. For them to bother, since 
+> they won't amend CC0 itself, probably there needs to be
+> some assurance it will at least get a vote at the next board meeting, if not 
+> assurance it would pass.
+>
+> Neither seems likely.
+>
+> Easier to just to shrug their shoulders and ignore the whole OSI approval 
+> thing.
+
+Well, that's a pain.  In that case, unless NOSA 2.0 gets approved, I suspect 
+that at least some Government code is going to be zombie code, partly Open 
+Source and partly CC0.
+
+Thanks,
+Cem Karan
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 6419 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20170829/79fbe92b/attachment.p7s>
+
+From marc at joneslaw.io  Thu Aug 31 18:04:55 2017
+From: marc at joneslaw.io (Marc Jones)
+Date: Thu, 31 Aug 2017 18:04:55 +0000
+Subject: [License-discuss] [Non-DoD Source] Re: NOSA 2.0, Copyfraud and the US Government
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97C44EB089@UMECHPA7F.easf.csd.disa.mil>
+References: <A677A9FB362B2F499BEFD6F80687FE97C44EAC38@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708281430430.3471@herc.mirbsd.org> <A677A9FB362B2F499BEFD6F80687FE97C44EAC67@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708282026010.20889@herc.mirbsd.org> <4df16ca53e4944c1b5c7b0eaef303ea6@aplex01.dom1.jhuapl.edu> <A677A9FB362B2F499BEFD6F80687FE97C44EB00F@UMECHPA7F.easf.csd.disa.mil> <d2d61c95f8b0454083d70cd371089c24@aplex01.dom1.jhuapl.edu> <A677A9FB362B2F499BEFD6F80687FE97C44EB089@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <CAF3y9OhGo=8JEZUNRqvK0XH0JV7EWJTXdopZsJAoWB5e5z8+aw@mail.gmail.com>
+
+Cem,
+
+Has your organization considered using the approach that the Defense
+Digital Service is taking. It seems like their use of a INTENT file that
+clearly calls out the fact that the code written by federal employees as
+not being subject to copyright would address the "copyfraud" concern.
+
+> Licensing Intent
+>
+> The intent is that this software and documentation ("Project") should be
+treated as if it is licensed under the license associated with the Project
+("License") in the LICENSE.md file. However, because we are part of the
+United States (U.S.) Federal Government, it is not that simple.
+>
+> The portions of this Project written by United States (U.S.) Federal
+government employees within the scope of their federal employment are
+ineligible for copyright protection in the U.S.; this is generally
+understood to mean that these portions of the Project are placed in the
+public domain.
+>
+> In countries where copyright protection is available (which does not
+include the U.S.), contributions made by U.S. Federal government employees
+are released under the License. Merged contributions from private
+contributors are released under the License.
+https://github.com/deptofdefense/code.mil/blob/master/Proposal/INTENT.md
+
+
+In regards to the second issue, if I recall your organization has expressed
+pretty strongly that they prefer to have a license approved by OSI before
+regarding it as "open source." I do not mean to rehash the argument that
+OSI does not have any right to control the use of the phrase "open source."
+So I will leave that aside.
+
+But to take your concern seriously I did recently encounter a situation
+where a client's funding was dependent on releasing the software under a
+"open source license as defined by the Open Source Initiative or as Free
+Software as defined by the Free Software Foundation." Perhaps if your
+organization is facing a similar situation and they are looking for a
+external arbitrator of what counts as FOSS, they should consider looking at
+other lists of FOSS licenses. Creative Commons  is listed as a "free
+software" license by the Free Software Foundation. So in that situation if
+they wanted to use CCO I would probably argue 1) you can use public domain
+software in a "Open source" licensed under a OSI approved license, as DDS
+is asserting. And 2) CC0 is considered "free software" by FSF.  (
+https://www.gnu.org/licenses/license-list.html#CC0)
+
+Not sure if reframing the issue in those terms is an option for your
+organization.
+
+-Marc
+
+On Tue, Aug 29, 2017 at 4:45 PM Karan, Cem F CIV USARMY RDECOM ARL (US) <
+cem.f.karan.civ at mail.mil> wrote:
+
+> > -----Original Message-----
+> > From: License-discuss [mailto:license-discuss-bounces at opensource.org] On
+> > Behalf Of Tzeng, Nigel H.
+> > Sent: Tuesday, August 29, 2017 2:32 PM
+> > To: license-discuss at opensource.org
+> > Subject: Re: [License-discuss] [Non-DoD Source] Re: NOSA 2.0, Copyfraud
+> and
+> > the US Government
+> >
+> > CC has to submit CC0 according to tradition/rules. For them to bother,
+> since
+> > they won't amend CC0 itself, probably there needs to be
+> > some assurance it will at least get a vote at the next board meeting, if
+> not
+> > assurance it would pass.
+> >
+> > Neither seems likely.
+> >
+> > Easier to just to shrug their shoulders and ignore the whole OSI approval
+> > thing.
+>
+> Well, that's a pain.  In that case, unless NOSA 2.0 gets approved, I
+> suspect
+> that at least some Government code is going to be zombie code, partly Open
+> Source and partly CC0.
+>
+> Thanks,
+> Cem Karan
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20170831/6ee31802/attachment.html>
+
+From cem.f.karan.civ at mail.mil  Thu Aug 31 18:47:57 2017
+From: cem.f.karan.civ at mail.mil (Karan, Cem F CIV USARMY RDECOM ARL (US))
+Date: Thu, 31 Aug 2017 18:47:57 +0000
+Subject: [License-discuss] [Non-DoD Source] Re: NOSA 2.0, Copyfraud and the US Government
+In-Reply-To: <CAF3y9OhGo=8JEZUNRqvK0XH0JV7EWJTXdopZsJAoWB5e5z8+aw@mail.gmail.com>
+References: <A677A9FB362B2F499BEFD6F80687FE97C44EAC38@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708281430430.3471@herc.mirbsd.org> <A677A9FB362B2F499BEFD6F80687FE97C44EAC67@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708282026010.20889@herc.mirbsd.org> <4df16ca53e4944c1b5c7b0eaef303ea6@aplex01.dom1.jhuapl.edu> <A677A9FB362B2F499BEFD6F80687FE97C44EB00F@UMECHPA7F.easf.csd.disa.mil> <d2d61c95f8b0454083d70cd371089c24@aplex01.dom1.jhuapl.edu> <A677A9FB362B2F499BEFD6F80687FE97C44EB089@UMECHPA7F.easf.csd.disa.mil> <CAF3y9OhGo=8JEZUNRqvK0XH0JV7EWJTXdopZsJAoWB5e5z8+aw@mail.gmail.com>
+Message-ID: <A677A9FB362B2F499BEFD6F80687FE97C44F48D3@UMECHPA7F.easf.csd.disa.mil>
+
+We're doing something very close to, but not quite the same as what DDS is 
+suggesting; we're stating that if a work (or portion of a work) does not have 
+copyright attached within the US, then that work (or portion of a work) is 
+licensed world-wide under CC0.  All other works are licensed under an 
+OSI-approved license of some type.  To get a better sense of what I'm talking 
+about, clone 
+https://github.com/USArmyResearchLab/ARL-Open-Source-Guidance-and-Instructions 
+and checkout the 'develop' branch.  The reason for doing it this way is to 
+ensure that the license for a chunk of code remains the same regardless of 
+where it is in the world; without that guarantee, users would have to know 
+where they are to know if they are in compliance or not (under the DDS scheme, 
+flying from the lower 48 states through Canada to Alaska would mean that code 
+could go from being public domain, to copyrighted, to public domain 
+midflight).
+
+All that said, your second point is EXACTLY the kind of issues I'm worried 
+about.  JOSS (http://joss.theoj.org/) is one journal that will only accept 
+code under OSI-approved licenses.  There may be others as well, but I haven't 
+done my homework on that.
+
+In addition, there are projects (like Debian) that will only accept software 
+that is Open Source.  In the case of Debian, I think that CC0 + a patent 
+waiver would be sufficient (I haven't pushed this on the Debian lists, and I 
+can't speak for the Debian project, it is just my personal belief that it 
+would be OK), but I suspect that there are other projects where this isn't 
+possible, and your code has to be under an OSI-approved license to be 
+accepted.
+
+Making CC0 + a patent release officially OSI-approved would solve a lot of 
+problems.  If you want an example of what ARL is doing, clone 
+https://github.com/USArmyResearchLab/ARL-Open-Source-Guidance-and-Instructions, 
+checkout the 'develop' branch, and look at LICENSE.txt.  It is an example of 
+where ARL is trying to go (note that the develop branch is not yet official 
+policy, and won't be until and unless it goes through ARL's official channels, 
+so take it as a possible direction we're going in).  I've combined CC0 and 
+Apache 2.0, explained which portions of the code are under which license, and 
+I've included the patent clause from the Apache license as a new clause 
+overriding the CC0 patent clause.  That might be sufficient for OSI as well.
+
+Thanks,
+Cem Karan
+
+PS, I'm actively (as in whenever I'm not typing out emails today) working on 
+the develop branch, so depending on what time you clone it, you might see 
+different stuff up there.
+
+> -----Original Message-----
+> From: License-discuss [mailto:license-discuss-bounces at opensource.org] On 
+> Behalf Of Marc Jones
+> Sent: Thursday, August 31, 2017 2:05 PM
+> To: license-discuss at opensource.org
+> Subject: Re: [License-discuss] [Non-DoD Source] Re: NOSA 2.0, Copyfraud and 
+> the US Government
+>
+> Cem,
+>
+> Has your organization considered using the approach that the Defense Digital 
+> Service is taking. It seems like their use of a INTENT file that
+> clearly calls out the fact that the code written by federal employees as not 
+> being subject to copyright would address the "copyfraud"
+> concern.
+>
+> > Licensing Intent
+> >
+> > The intent is that this software and documentation ("Project") should be 
+> > treated as if it is licensed under the license associated with the
+> Project ("License") in the LICENSE.md file. However, because we are part of 
+> the United States (U.S.) Federal Government, it is not that
+> simple.
+> >
+> > The portions of this Project written by United States (U.S.) Federal 
+> > government employees within the scope of their federal employment
+> are ineligible for copyright protection in the U.S.; this is generally 
+> understood to mean that these portions of the Project are placed in the
+> public domain.
+> >
+> > In countries where copyright protection is available (which does not 
+> > include the U.S.), contributions made by U.S. Federal government
+> employees are released under the License. Merged contributions from private 
+> contributors are released under the License.
+> Caution-https://github.com/deptofdefense/code.mil/blob/master/Proposal/INTENT.md 
+> < Caution-
+> https://github.com/deptofdefense/code.mil/blob/master/Proposal/INTENT.md >
+>
+>
+>
+> In regards to the second issue, if I recall your organization has expressed 
+> pretty strongly that they prefer to have a license approved by OSI
+> before regarding it as "open source." I do not mean to rehash the argument 
+> that OSI does not have any right to control the use of the
+> phrase "open source." So I will leave that aside.
+>
+> But to take your concern seriously I did recently encounter a situation 
+> where a client's funding was dependent on releasing the software
+> under a "open source license as defined by the Open Source Initiative or as 
+> Free Software as defined by the Free Software Foundation."
+> Perhaps if your organization is facing a similar situation and they are 
+> looking for a external arbitrator of what counts as FOSS, they should
+> consider looking at other lists of FOSS licenses. Creative Commons  is 
+> listed as a "free software" license by the Free Software Foundation.
+> So in that situation if they wanted to use CCO I would probably argue 1) you 
+> can use public domain software in a "Open source" licensed
+> under a OSI approved license, as DDS is asserting. And 2) CC0 is considered 
+> "free software" by FSF.  (Caution-
+> https://www.gnu.org/licenses/license-list.html#CC0 < 
+> Caution-https://www.gnu.org/licenses/license-list.html#CC0 > )
+>
+> Not sure if reframing the issue in those terms is an option for your 
+> organization.
+>
+> -Marc
+>
+> On Tue, Aug 29, 2017 at 4:45 PM Karan, Cem F CIV USARMY RDECOM ARL (US) 
+> <cem.f.karan.civ at mail.mil < Caution-
+> mailto:cem.f.karan.civ at mail.mil > > wrote:
+>
+>
+> 	> -----Original Message-----
+> 	> From: License-discuss 
+> [Caution-mailto:license-discuss-bounces at opensource.org < 
+> Caution-mailto:license-discuss-
+> bounces at opensource.org > ] On
+> 	> Behalf Of Tzeng, Nigel H.
+> 	> Sent: Tuesday, August 29, 2017 2:32 PM
+> 	> To: license-discuss at opensource.org < 
+> Caution-mailto:license-discuss at opensource.org >
+> 	> Subject: Re: [License-discuss] [Non-DoD Source] Re: NOSA 2.0, Copyfraud 
+> and
+> 	> the US Government
+> 	>
+> 	> CC has to submit CC0 according to tradition/rules. For them to bother, 
+> since
+> 	> they won't amend CC0 itself, probably there needs to be
+> 	> some assurance it will at least get a vote at the next board meeting, if 
+> not
+> 	> assurance it would pass.
+> 	>
+> 	> Neither seems likely.
+> 	>
+> 	> Easier to just to shrug their shoulders and ignore the whole OSI approval
+> 	> thing.
+>
+> 	Well, that's a pain.  In that case, unless NOSA 2.0 gets approved, I 
+> suspect
+> 	that at least some Government code is going to be zombie code, partly Open
+> 	Source and partly CC0.
+>
+> 	Thanks,
+> 	Cem Karan
+> 	_______________________________________________
+> 	License-discuss mailing list
+> 	License-discuss at opensource.org < 
+> Caution-mailto:License-discuss at opensource.org >
+> 
+> Caution-https://lists.opensource.org/cgi-bin/mailman/listinfo/license-discuss 
+> < Caution-https://lists.opensource.org/cgi-
+> bin/mailman/listinfo/license-discuss >
+>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 6419 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20170831/3103358a/attachment.p7s>
+
+From tg at mirbsd.de  Thu Aug 31 19:50:08 2017
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Thu, 31 Aug 2017 19:50:08 +0000 (UTC)
+Subject: [License-discuss] [Non-DoD Source] Re: NOSA 2.0, Copyfraud and the US Government
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97C44F48D3@UMECHPA7F.easf.csd.disa.mil>
+References: <A677A9FB362B2F499BEFD6F80687FE97C44EAC38@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708281430430.3471@herc.mirbsd.org> <A677A9FB362B2F499BEFD6F80687FE97C44EAC67@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708282026010.20889@herc.mirbsd.org> <4df16ca53e4944c1b5c7b0eaef303ea6@aplex01.dom1.jhuapl.edu> <A677A9FB362B2F499BEFD6F80687FE97C44EB00F@UMECHPA7F.easf.csd.disa.mil> <d2d61c95f8b0454083d70cd371089c24@aplex01.dom1.jhuapl.edu> <A677A9FB362B2F499BEFD6F80687FE97C44EB089@UMECHPA7F.easf.csd.disa.mil> <CAF3y9OhGo=8JEZUNRqvK0XH0JV7EWJTXdopZsJAoWB5e5z8+aw@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97C44F48D3@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <Pine.BSM.4.64L.1708311946460.22762@herc.mirbsd.org>
+
+Hi list,
+
+during this discussion I re-read CC0 and came to the conclusion that
+it does not license the work itself but the right to act in the stead
+of the author (e.g. issue licences on it). That?s interesting and
+allows for a _lot_ of possibilities.
+
+
+Of course?
+
+>Making CC0 + a patent release officially OSI-approved would solve a lot of
+
+? the explicit patent exclusion remains a problem, as there is not
+only no licence on the work saying one gets permission to use it
+but also an explicit exclusion of patents from the grant.
+
+But this helps with e.g. the question of sublicensing (both in the
+EU and USA sense which apparently, another thing I learnt yesternight,
+differ from each other) and the question of what exactly a derivative
+of a CC0 work needs to be put under.
+
+JFYI, IANAL, etc.
+//mirabilos
+-- 
+I believe no one can invent an algorithm. One just happens to hit upon it
+when God enlightens him. Or only God invents algorithms, we merely copy them.
+If you don't believe in God, just consider God as Nature if you won't deny
+existence.		-- Coywolf Qi Hunt
+
+
+From cem.f.karan.civ at mail.mil  Fri Sep  1 12:08:04 2017
+From: cem.f.karan.civ at mail.mil (Karan, Cem F CIV USARMY RDECOM ARL (US))
+Date: Fri, 1 Sep 2017 12:08:04 +0000
+Subject: [License-discuss] [Non-DoD Source] Re: NOSA 2.0, Copyfraud and the US Government
+In-Reply-To: <Pine.BSM.4.64L.1708311946460.22762@herc.mirbsd.org>
+References: <A677A9FB362B2F499BEFD6F80687FE97C44EAC38@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708281430430.3471@herc.mirbsd.org> <A677A9FB362B2F499BEFD6F80687FE97C44EAC67@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708282026010.20889@herc.mirbsd.org> <4df16ca53e4944c1b5c7b0eaef303ea6@aplex01.dom1.jhuapl.edu> <A677A9FB362B2F499BEFD6F80687FE97C44EB00F@UMECHPA7F.easf.csd.disa.mil> <d2d61c95f8b0454083d70cd371089c24@aplex01.dom1.jhuapl.edu> <A677A9FB362B2F499BEFD6F80687FE97C44EB089@UMECHPA7F.easf.csd.disa.mil> <CAF3y9OhGo=8JEZUNRqvK0XH0JV7EWJTXdopZsJAoWB5e5z8+aw@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97C44F48D3@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708311946460.22762@herc.mirbsd.org>
+Message-ID: <A677A9FB362B2F499BEFD6F80687FE97C44F492C@UMECHPA7F.easf.csd.disa.mil>
+
+> -----Original Message-----
+> From: License-discuss [mailto:license-discuss-bounces at opensource.org] On Behalf Of Thorsten Glaser
+> Sent: Thursday, August 31, 2017 3:50 PM
+> To: license-discuss at opensource.org
+> Subject: Re: [License-discuss] [Non-DoD Source] Re: NOSA 2.0, Copyfraud and the US Government
+> 
+> 
+> Hi list,
+> 
+> during this discussion I re-read CC0 and came to the conclusion that it does not license the work itself but the right to act in the stead of
+> the author (e.g. issue licences on it). That?s interesting and allows for a _lot_ of possibilities.
+>
+
+What possibilities?
+
+> 
+> Of course?
+> 
+> >Making CC0 + a patent release officially OSI-approved would solve a lot
+> >of
+> 
+> ? the explicit patent exclusion remains a problem, as there is not only no licence on the work saying one gets permission to use it but also
+> an explicit exclusion of patents from the grant.
+> 
+> But this helps with e.g. the question of sublicensing (both in the EU and USA sense which apparently, another thing I learnt yesternight,
+> differ from each other) and the question of what exactly a derivative of a CC0 work needs to be put under.
+
+Does the EU define copyright and other IP rights for all member states?  That is, are the IP rights exactly the same between France and Germany simply because they are both a part of the EU?  When Brexit happens, what then?
+
+> JFYI, IANAL, etc.
+> //mirabilos
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 6419 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20170901/bfb5b4b6/attachment.p7s>
+
+From tg at mirbsd.de  Fri Sep  1 12:25:37 2017
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Fri, 1 Sep 2017 12:25:37 +0000 (UTC)
+Subject: [License-discuss] [Non-DoD Source] Re: NOSA 2.0, Copyfraud and the US Government
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97C44F492C@UMECHPA7F.easf.csd.disa.mil>
+References: <A677A9FB362B2F499BEFD6F80687FE97C44EAC38@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708281430430.3471@herc.mirbsd.org> <A677A9FB362B2F499BEFD6F80687FE97C44EAC67@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708282026010.20889@herc.mirbsd.org> <4df16ca53e4944c1b5c7b0eaef303ea6@aplex01.dom1.jhuapl.edu> <A677A9FB362B2F499BEFD6F80687FE97C44EB00F@UMECHPA7F.easf.csd.disa.mil> <d2d61c95f8b0454083d70cd371089c24@aplex01.dom1.jhuapl.edu> <A677A9FB362B2F499BEFD6F80687FE97C44EB089@UMECHPA7F.easf.csd.disa.mil> <CAF3y9OhGo=8JEZUNRqvK0XH0JV7EWJTXdopZsJAoWB5e5z8+aw@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97C44F48D3@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708311946460.22762@herc.mirbsd.org> <A677A9FB362B2F499BEFD6F80687FE97C44F492C@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <Pine.BSM.4.64L.1709011223250.30507@herc.mirbsd.org>
+
+Karan, Cem F CIV USARMY RDECOM ARL (US) dixit:
+
+>Does the EU define copyright and other IP rights for all member
+
+Only guidelines that have to be implemented in national law.
+The various countries still differ, even in the duration of
+the protection (France, for example, has an extra clause to
+extend protection of some works for the duration of the two
+world wars), but not much.
+
+AIUI the UK copyright law is much closer to US law than to
+that of other EU member countries which have a French/German-
+style droit d?auteur law.
+
+bye,
+//mirabilos
+-- 
+11:56??liwakura:#!/bin/mksh? also, i wanted to add mksh to my own distro ?
+i was disappointed that there is no makefile ? but somehow the Build.sh is
+the least painful built system i've ever seen ? honours CC, {CPP,C,LD}FLAGS
+properly ? looks cleary like done by someone who knows what they are doing
+
+
+From cem.f.karan.civ at mail.mil  Fri Sep  1 14:44:05 2017
+From: cem.f.karan.civ at mail.mil (Karan, Cem F CIV USARMY RDECOM ARL (US))
+Date: Fri, 1 Sep 2017 14:44:05 +0000
+Subject: [License-discuss] [Non-DoD Source] Re: NOSA 2.0, Copyfraud and the US Government
+In-Reply-To: <Pine.BSM.4.64L.1709011223250.30507@herc.mirbsd.org>
+References: <A677A9FB362B2F499BEFD6F80687FE97C44EAC38@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708281430430.3471@herc.mirbsd.org> <A677A9FB362B2F499BEFD6F80687FE97C44EAC67@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708282026010.20889@herc.mirbsd.org> <4df16ca53e4944c1b5c7b0eaef303ea6@aplex01.dom1.jhuapl.edu> <A677A9FB362B2F499BEFD6F80687FE97C44EB00F@UMECHPA7F.easf.csd.disa.mil> <d2d61c95f8b0454083d70cd371089c24@aplex01.dom1.jhuapl.edu> <A677A9FB362B2F499BEFD6F80687FE97C44EB089@UMECHPA7F.easf.csd.disa.mil> <CAF3y9OhGo=8JEZUNRqvK0XH0JV7EWJTXdopZsJAoWB5e5z8+aw@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97C44F48D3@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708311946460.22762@herc.mirbsd.org> <A677A9FB362B2F499BEFD6F80687FE97C44F492C@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1709011223250.30507@herc.mirbsd.org>
+Message-ID: <A677A9FB362B2F499BEFD6F80687FE97C44F49A8@UMECHPA7F.easf.csd.disa.mil>
+
+> -----Original Message-----
+> From: License-discuss [mailto:license-discuss-bounces at opensource.org] On Behalf Of Thorsten Glaser
+> Sent: Friday, September 01, 2017 8:26 AM
+> To: license-discuss at opensource.org
+> Subject: Re: [License-discuss] [Non-DoD Source] Re: NOSA 2.0, Copyfraud and the US Government
+> 
+> Karan, Cem F CIV USARMY RDECOM ARL (US) dixit:
+> 
+> >Does the EU define copyright and other IP rights for all member
+> 
+> Only guidelines that have to be implemented in national law.
+> The various countries still differ, even in the duration of the protection (France, for example, has an extra clause to extend protection of
+> some works for the duration of the two world wars), but not much.
+
+Wait... what??? You mean the copyright goes on until the next two world wars occur? How do they define a world war?  What if we luck out and no world wars occur?
+
+> AIUI the UK copyright law is much closer to US law than to that of other EU member countries which have a French/German- style droit d?auteur law.
+> 
+> bye,
+> //mirabilo
+
+Just to double check, droit d?auteur is the equivalent of moral rights, correct?
+
+Thanks,
+Cem Karan
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 6419 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20170901/75ade46c/attachment.p7s>
+
+From cowan at ccil.org  Fri Sep  1 17:22:15 2017
+From: cowan at ccil.org (John Cowan)
+Date: Fri, 1 Sep 2017 13:22:15 -0400
+Subject: [License-discuss] [Non-DoD Source] Re: NOSA 2.0, Copyfraud and the US Government
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97C44F49A8@UMECHPA7F.easf.csd.disa.mil>
+References: <A677A9FB362B2F499BEFD6F80687FE97C44EAC38@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708281430430.3471@herc.mirbsd.org> <A677A9FB362B2F499BEFD6F80687FE97C44EAC67@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708282026010.20889@herc.mirbsd.org> <4df16ca53e4944c1b5c7b0eaef303ea6@aplex01.dom1.jhuapl.edu> <A677A9FB362B2F499BEFD6F80687FE97C44EB00F@UMECHPA7F.easf.csd.disa.mil> <d2d61c95f8b0454083d70cd371089c24@aplex01.dom1.jhuapl.edu> <A677A9FB362B2F499BEFD6F80687FE97C44EB089@UMECHPA7F.easf.csd.disa.mil> <CAF3y9OhGo=8JEZUNRqvK0XH0JV7EWJTXdopZsJAoWB5e5z8+aw@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97C44F48D3@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708311946460.22762@herc.mirbsd.org> <A677A9FB362B2F499BEFD6F80687FE97C44F492C@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1709011223250.30507@herc.mirbsd.org> <A677A9FB362B2F499BEFD6F80687FE97C44F49A8@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <CAD2gp_RdussW_te7m9ct1S5pJytnBtNWvt490PNh0fv8Ywo22A@mail.gmail.com>
+
+On Fri, Sep 1, 2017 at 10:44 AM, Karan, Cem F CIV USARMY RDECOM ARL (US) <
+cem.f.karan.civ at mail.mil> wrote:
+
+Wait... what??? You mean the copyright goes on until the next two world
+> wars occur? How do they define a world war?  What if we luck out and no
+> world wars occur?
+>
+
+No, it's that the expiration of copyright was retroactively tolled by
+specific French legislation (one for WWI, one for WWII) for the time that
+publication in France was under military censorship, preventing French
+authors from fully exploiting their commercial rights.  Presumably if
+France was occupied again, a similar law would be passed when the
+occupation was lifted.  The status of these increases under the current
+life + 70 years regime is not very clear, since that added 20 years and the
+maximum extension was only 15 years.
+
+In addition, authors who are "mort pour la France" (either as soldiers or
+as civilians killed in war) are granted an additional 30 years of copyright
+(thus life + 100) in compensation for whatever works they did not get to
+create.  There are only about 35 creators in this position officially, but
+new ones could in principle be recognized at any time.
+
+
+> Just to double check, droit d?auteur is the equivalent of moral rights,
+> correct?
+>
+
+Yes, but it generally extends to all types of works.
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+Verbogeny is one of the pleasurettes of a creatific thinkerizer. --Peter da Silva
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20170901/8fcc1dce/attachment.html>
+
+From cem.f.karan.civ at mail.mil  Tue Sep  5 12:03:54 2017
+From: cem.f.karan.civ at mail.mil (Karan, Cem F CIV USARMY RDECOM ARL (US))
+Date: Tue, 5 Sep 2017 12:03:54 +0000
+Subject: [License-discuss] [Non-DoD Source] Re: NOSA 2.0, Copyfraud and the US Government
+In-Reply-To: <CAD2gp_RdussW_te7m9ct1S5pJytnBtNWvt490PNh0fv8Ywo22A@mail.gmail.com>
+References: <A677A9FB362B2F499BEFD6F80687FE97C44EAC38@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708281430430.3471@herc.mirbsd.org> <A677A9FB362B2F499BEFD6F80687FE97C44EAC67@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708282026010.20889@herc.mirbsd.org> <4df16ca53e4944c1b5c7b0eaef303ea6@aplex01.dom1.jhuapl.edu> <A677A9FB362B2F499BEFD6F80687FE97C44EB00F@UMECHPA7F.easf.csd.disa.mil> <d2d61c95f8b0454083d70cd371089c24@aplex01.dom1.jhuapl.edu> <A677A9FB362B2F499BEFD6F80687FE97C44EB089@UMECHPA7F.easf.csd.disa.mil> <CAF3y9OhGo=8JEZUNRqvK0XH0JV7EWJTXdopZsJAoWB5e5z8+aw@mail.gmail.com> <A677A9FB362B2F499BEFD6F80687FE97C44F48D3@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1708311946460.22762@herc.mirbsd.org> <A677A9FB362B2F499BEFD6F80687FE97C44F492C@UMECHPA7F.easf.csd.disa.mil> <Pine.BSM.4.64L.1709011223250.30507@herc.mirbsd.org> <A677A9FB362B2F499BEFD6F80687FE97C44F49A8@UMECHPA7F.easf.csd.disa.mil> <CAD2gp_RdussW_te7m9ct1S5pJytnBtNWvt490PNh0fv8Ywo22A@mail.gmail.com>
+Message-ID: <A677A9FB362B2F499BEFD6F80687FE97C44FAC9C@UMECHPA7F.easf.csd.disa.mil>
+
+> -----Original Message-----
+> From: License-discuss [mailto:license-discuss-bounces at opensource.org] On Behalf Of John Cowan
+> Sent: Friday, September 01, 2017 1:22 PM
+> To: license-discuss at opensource.org
+> Subject: Re: [License-discuss] [Non-DoD Source] Re: NOSA 2.0, Copyfraud and the US Government
+> 
+> 
+> On Fri, Sep 1, 2017 at 10:44 AM, Karan, Cem F CIV USARMY RDECOM ARL (US) <cem.f.karan.civ at mail.mil < Caution-
+> mailto:cem.f.karan.civ at mail.mil > > wrote:
+> 
+> 
+> 	Wait... what??? You mean the copyright goes on until the next two world wars occur? How do they define a world war?  What if
+> we luck out and no world wars occur?
+> 
+> 
+> 
+> No, it's that the expiration of copyright was retroactively tolled by specific French legislation (one for WWI, one for WWII) for the time
+> that publication in France was under military censorship, preventing French authors from fully exploiting their commercial rights.
+> Presumably if France was occupied again, a similar law would be passed when the occupation was lifted.  The status of these increases
+> under the current life + 70 years regime is not very clear, since that added 20 years and the maximum extension was only 15 years.
+> 
+> In addition, authors who are "mort pour la France" (either as soldiers or as civilians killed in war) are granted an additional 30 years of
+> copyright (thus life + 100) in compensation for whatever works they did not get to create.  There are only about 35 creators in this
+> position officially, but new ones could in principle be recognized at any time.
+

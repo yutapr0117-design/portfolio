@@ -1,0 +1,750 @@
+Inc. v. Rural Telephone Service Co., 499 U.S. 340 (1991). Nevertheless at
+least one court has held that an individual's right to distribute those
+facts can be restricted by contract. Procd, v. Zeidenberg, 86 F.3d 1447
+(7th Cir. 1996). I do not think that is particularly remarkable since NDA's
+are routinely enforced and are generally meant to restrict  a party to the
+contract's ability to share facts. The parties in ProCD were both private
+parties, but unless there is a statute denying the federal government the
+ability to do so, I would be surprised to find out the federal government
+can't do what a private party could do. For that reason without
+specifically researching the topic, I do not doubt the Federal Government's
+ability to enter into a contract that limits a person's ability to
+distribute source code not protected by copyright.
+
+I do think the point Bruce raises about binding downstream users to the
+contract terms is interesting. This problem I think is commonly encountered
+by the authors of open data "licenses." Many open data licenses are
+explicitly defined to be contracts, because - I have always assumed - the
+authors of the licenses expect the license to be used in the distribution
+of material that has little or no copyright protection. Although the trend
+is for more open data publishers to just use a public domain dedication
+like CC0, there are still organizations that prefer to use contracts to
+distribute their open data. For instance the Community Data License
+Agreement is explicitly a contract and that was published just this past
+year. [1] Most of the licenses published by Open Knowledge International
+are also contracts. [2] Related to open data licenses, many of the Creative
+Commons licenses are designed to be be licenses but with a fall back to
+contract law in case the jurisdiction will recognize it as a contract.[4] I
+acknowledge many of the open data licenses also deal with EU database
+rights, but they are intended to work in the United States as well in the
+absence of database rights.
+
+I am unaware of any cases showing how effective these open data licenses
+are at binding downstream users to a contract. I would think the main
+problem is how to form contracts on redistribution. How do you ensure that
+the party receiving the material intends to agree to the contract terms?
+And do so reliably so that everyone who comes into possession of it as it
+is redistributed also agrees. Establishing the original publisher as being
+a beneficiary of any subsequent contracts might solve the privity issues
+required to enforce contracts, but it won't cause a contract to exist if
+the elements required to form a contract do not otherwise exist.
+
+Considering the nature of how FOSS is distributed, I don't think you can
+rely on the exact same arguments in ProCD either since it is unlikely that
+people using FOSS source code will ever click a button saying I agree, nor
+will there be a box to ship the terms with. It's not clear to me that
+shrink-wrap or click-wrap agreements are applicable, or that browser-wrap
+agreements are generally effective. Perhaps requiring by contract that a
+notice of the terms of the contract at the top of each file reproducing any
+of the text covered by the agreement would be sufficient notice to bind
+subsequent users. But once someone violated that contract and published the
+uncopyrighted text, is there any recourse? And would NASA or any open data
+publisher care? I would expect that the users of open data license,
+generally accept the risk that at least some portion data will escape the
+terms of the agreement and are comfortable with that.
+
+-Marc
+
+[1] https://cdla.io/permissive-1-0/
+[2] Section 2.0 of the ODBL license says "This License is: ...  c. An
+agreement in contract between You and the Licensor."
+https://opendatacommons.org/licenses/odbl/1.0/
+[3] "To the extent this Public License may be interpreted as a contract,
+You are granted the Licensed Rights in consideration of Your acceptance of
+these terms and conditions, and the Licensor grants You such rights in
+consideration of benefits the Licensor receives from making the Licensed
+Material available under these terms and conditions." Creative Commons
+Attribution-ShareAlike 4.0 International Public License available at
+https://creativecommons.org/licenses/by-sa/4.0/legalcode
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180507/d8372591/attachment-0001.html>
+
+From bruce at perens.com  Mon May  7 20:02:52 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 7 May 2018 13:02:52 -0700
+Subject: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+In-Reply-To: <CAF3y9Oi8J9mHhBjG157B8zQ2eyiAceZjpccpdLEHhWmgOSV7Dw@mail.gmail.com>
+References: <CAK2MWOvQcaSi0LJo-s1aF+gKoVZTswxghM1CAjXL+Ke061XqAQ@mail.gmail.com> <C67753CC-0D03-4A07-8F15-84F0BFCA9148@jhuapl.edu> <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov> <CA+xoNzHEbv395Fb472mtScYWEdTSqw7082-JWJ6PYPRp75qq9A@mail.gmail.com> <E02B7513-53F1-4D2F-A116-BADFCCCE87B5@nasa.gov> <CAK2MWOvKQVsNxj8LHkSS4zyH+Wu3GyH=6YuRWV82rMDkwgJ7bg@mail.gmail.com> <CAK2MWOvayZJEN3e4E3e+jdtE-UMRtO+88u+-5N2R1kjXSoC9uA@mail.gmail.com> <CAK2MWOuBmpjMJYs8_i7xtv_xjcHwgQMAKP8s5ghFYs3xCm7Jpw@mail.gmail.com> <E32546DA-1DF3-4DD5-949B-D65AC3516C0A@jhuapl.edu> <CAK2MWOuLRB105k04EWFktiPyY5pjDcuPhodk6VkcqKue593+wA@mail.gmail.com> <D0A3B5FA-6C5E-41B7-9E84-64DB04396919@jhuapl.edu> <CAK2MWOuSRzPtDXb0ropDnDMspecG8o+UbaHWYgjX5wGE2273rw@mail.gmail.com> <CAD2gp_RnbN6nq+xn8c5Xx8WKefiRnB4GH4DsK0n50P5CBZseSA@mail.gmail.com> <CAK2MWOsi2cA+vDQBu+EADkT3mFqpAiJzcuH6yjjcHuaU25n2Zg@mail.gmail.com> <CAD2gp_S_BpMfqdnmtLh-KdLkTRoObHxUAAPAH-qv+BYk+=i-RA@mail.gmail.com> <CAK2MWOvuVbdhkVCGfoBUcMKVsoX1zbGWs4FykD7+=q2v03jAHQ@mail.gmail.com> <CAK2MWOuofrxZzvReGqLqYJDBKKAO_-87fyb_BxZd9qU=irBN0Q@mail.gmail.com> <CAA4ffp_coHpLFU+0=MLx_YJTPbY3-=VMxhng_c8kf+=A6SM2Zw@mail.gmail.com> <7911DAF7-B18D-4DC4-9909-ED49609C98C6@jhuapl.edu> <CAK2MWOupfG1-dBJZH1CwD2sTHEGtJwXgPCbxWumeTsMC5J-mnA@mail.gmail.com> <C93A1B296F96E4428C30F0AFDCB1F242143308AD@NDMSMBX304.ndc.nasa.gov> <CAK2MWOui=4=x7NvP3fmYkLGWf9w4x7orS1cMd1ZJMDgFWbJ2Sw@mail.gmail.com> <CAK2MWOs9Yim1G9z0e=7iZAXCZ2uzxFP1W6zOP=Bs=gHPFbOmDw@mail.gmail.com> <1E7449DC3319BF42BC76414D53B56D630FA68120@NDJSMBX203.ndc.nasa.gov> <CAK2MWOvU4yCis4BHscQCR=Daa8u+V_2ZefCi+FQcevRU188STA@mail.gmail.com> <CAF3y9Oi8J9mHhBjG157B8zQ2eyiAceZjpccpdLEHhWmgOSV7Dw@mail.gmail.com>
+Message-ID: <CAK2MWOuUw3SY+CP5CmPzugXAp1zTNhAa-mJ6pZ0UG_4jJ_cyzw@mail.gmail.com>
+
+Marc,
+
+Open Hardware licenses also have the issue of attempting to license what is
+not clearly protected, in a way that can be enforced between two parties
+but not necessarily in the chain of redistribution common to Open Source.
+
+I was an early proponent of Open Hardware licensing, and eventually
+distanced myself from it. The reason was that I did not wish to create new
+norms in the industry which courts would then cite in creating  protection
+where it did not previously exist. The creeping expansion of intellectual
+property protection that we can cause by developing new norms is against
+the interest of the very communities which have been using Open Hardware
+and Open Data licenses. Consider, for example, the effect if the schematic
+diagrams in a century of electronics magazines suddenly acquired protection
+which could be extended to manufactured objects, rather than just
+publications.
+
+Open Data licensing and the license under discussion also present this
+potential to create new norms which aren't really in the interest of the
+various open communities. Their own work would be protected more
+effectively, but at the cost of losing access to work which is presently in
+the public domain.
+
+The effect is similar to the problem with the recent decision regarding
+APIs in *Oracle v. Google *overturning what we thought we knew from *CAI v.
+Altai. *We acquire the potential to enforce the GPL more reliably across an
+API boundary, eliminating (IMO always wrong) arguments about dynamic
+linking insulating against the GPL obligation. However, we potentially lose
+the ability to make free versions of proprietary languages and APIs.
+ Thanks
+ Bruce
+
+On Mon, May 7, 2018 at 12:40 PM, Marc Jones <marc at joneslaw.io> wrote:
+
+>
+>>
+>>> The attorneys crafted the NOSA with language that specifies, under
+>>> contract law, that the Government is a third-party beneficiary of all
+>>> down-stream distributions.
+>>>
+>>
+>> Right. So, the government has a right to sue someone for breach of
+>> contract who is not directly a party to a contract with the government. And
+>> thus it seems to me that you are attempting to propagate the obligation
+>> from that very first person who received the software in the act of the
+>> government's releasing it from secret. But I am still not seeing that such
+>> a party actually has any consideration to offer to the next party in this
+>> chain.
+>>
+>>
+> Just because material is not protected by copyright, it doesn't mean you
+> cannot restrict its use by contract. The terms of contracts are not
+> generally preempted by copyright law. To oversimplify things, the contents
+> of a phone book are not protected by copyright. See, Feist Publications,
+> Inc. v. Rural Telephone Service Co., 499 U.S. 340 (1991). Nevertheless at
+> least one court has held that an individual's right to distribute those
+> facts can be restricted by contract. Procd, v. Zeidenberg, 86 F.3d 1447
+> (7th Cir. 1996). I do not think that is particularly remarkable since NDA's
+> are routinely enforced and are generally meant to restrict  a party to the
+> contract's ability to share facts. The parties in ProCD were both private
+> parties, but unless there is a statute denying the federal government the
+> ability to do so, I would be surprised to find out the federal government
+> can't do what a private party could do. For that reason without
+> specifically researching the topic, I do not doubt the Federal Government's
+> ability to enter into a contract that limits a person's ability to
+> distribute source code not protected by copyright.
+>
+> I do think the point Bruce raises about binding downstream users to the
+> contract terms is interesting. This problem I think is commonly encountered
+> by the authors of open data "licenses." Many open data licenses are
+> explicitly defined to be contracts, because - I have always assumed - the
+> authors of the licenses expect the license to be used in the distribution
+> of material that has little or no copyright protection. Although the trend
+> is for more open data publishers to just use a public domain dedication
+> like CC0, there are still organizations that prefer to use contracts to
+> distribute their open data. For instance the Community Data License
+> Agreement is explicitly a contract and that was published just this past
+> year. [1] Most of the licenses published by Open Knowledge International
+> are also contracts. [2] Related to open data licenses, many of the Creative
+> Commons licenses are designed to be be licenses but with a fall back to
+> contract law in case the jurisdiction will recognize it as a contract.[4] I
+> acknowledge many of the open data licenses also deal with EU database
+> rights, but they are intended to work in the United States as well in the
+> absence of database rights.
+>
+> I am unaware of any cases showing how effective these open data licenses
+> are at binding downstream users to a contract. I would think the main
+> problem is how to form contracts on redistribution. How do you ensure that
+> the party receiving the material intends to agree to the contract terms?
+> And do so reliably so that everyone who comes into possession of it as it
+> is redistributed also agrees. Establishing the original publisher as being
+> a beneficiary of any subsequent contracts might solve the privity issues
+> required to enforce contracts, but it won't cause a contract to exist if
+> the elements required to form a contract do not otherwise exist.
+>
+> Considering the nature of how FOSS is distributed, I don't think you can
+> rely on the exact same arguments in ProCD either since it is unlikely that
+> people using FOSS source code will ever click a button saying I agree, nor
+> will there be a box to ship the terms with. It's not clear to me that
+> shrink-wrap or click-wrap agreements are applicable, or that browser-wrap
+> agreements are generally effective. Perhaps requiring by contract that a
+> notice of the terms of the contract at the top of each file reproducing any
+> of the text covered by the agreement would be sufficient notice to bind
+> subsequent users. But once someone violated that contract and published the
+> uncopyrighted text, is there any recourse? And would NASA or any open data
+> publisher care? I would expect that the users of open data license,
+> generally accept the risk that at least some portion data will escape the
+> terms of the agreement and are comfortable with that.
+>
+> -Marc
+>
+> [1] https://cdla.io/permissive-1-0/
+> [2] Section 2.0 of the ODBL license says "This License is: ...  c. An
+> agreement in contract between You and the Licensor."
+> https://opendatacommons.org/licenses/odbl/1.0/
+> [3] "To the extent this Public License may be interpreted as a contract,
+> You are granted the Licensed Rights in consideration of Your acceptance of
+> these terms and conditions, and the Licensor grants You such rights in
+> consideration of benefits the Licensor receives from making the Licensed
+> Material available under these terms and conditions." Creative Commons
+> Attribution-ShareAlike 4.0 International Public License available at
+> https://creativecommons.org/licenses/by-sa/4.0/legalcode
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-
+> review_lists.opensource.org
+>
+>
+
+
+-- 
+Bruce Perens K6BP - CEO, Legal Engineering
+Standards committee chair, license review committee member, co-founder,
+Open Source Initiative
+President, Open Research Institute; Board Member, Fashion Freedom
+Initiative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180507/2029d812/attachment.html>
+
+From bruce at perens.com  Wed Jun 20 00:39:25 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 19 Jun 2018 17:39:25 -0700
+Subject: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+In-Reply-To: <CAK2MWOuUw3SY+CP5CmPzugXAp1zTNhAa-mJ6pZ0UG_4jJ_cyzw@mail.gmail.com>
+References: <CAK2MWOvQcaSi0LJo-s1aF+gKoVZTswxghM1CAjXL+Ke061XqAQ@mail.gmail.com> <C67753CC-0D03-4A07-8F15-84F0BFCA9148@jhuapl.edu> <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov> <CA+xoNzHEbv395Fb472mtScYWEdTSqw7082-JWJ6PYPRp75qq9A@mail.gmail.com> <E02B7513-53F1-4D2F-A116-BADFCCCE87B5@nasa.gov> <CAK2MWOvKQVsNxj8LHkSS4zyH+Wu3GyH=6YuRWV82rMDkwgJ7bg@mail.gmail.com> <CAK2MWOvayZJEN3e4E3e+jdtE-UMRtO+88u+-5N2R1kjXSoC9uA@mail.gmail.com> <CAK2MWOuBmpjMJYs8_i7xtv_xjcHwgQMAKP8s5ghFYs3xCm7Jpw@mail.gmail.com> <E32546DA-1DF3-4DD5-949B-D65AC3516C0A@jhuapl.edu> <CAK2MWOuLRB105k04EWFktiPyY5pjDcuPhodk6VkcqKue593+wA@mail.gmail.com> <D0A3B5FA-6C5E-41B7-9E84-64DB04396919@jhuapl.edu> <CAK2MWOuSRzPtDXb0ropDnDMspecG8o+UbaHWYgjX5wGE2273rw@mail.gmail.com> <CAD2gp_RnbN6nq+xn8c5Xx8WKefiRnB4GH4DsK0n50P5CBZseSA@mail.gmail.com> <CAK2MWOsi2cA+vDQBu+EADkT3mFqpAiJzcuH6yjjcHuaU25n2Zg@mail.gmail.com> <CAD2gp_S_BpMfqdnmtLh-KdLkTRoObHxUAAPAH-qv+BYk+=i-RA@mail.gmail.com> <CAK2MWOvuVbdhkVCGfoBUcMKVsoX1zbGWs4FykD7+=q2v03jAHQ@mail.gmail.com> <CAK2MWOuofrxZzvReGqLqYJDBKKAO_-87fyb_BxZd9qU=irBN0Q@mail.gmail.com> <CAA4ffp_coHpLFU+0=MLx_YJTPbY3-=VMxhng_c8kf+=A6SM2Zw@mail.gmail.com> <7911DAF7-B18D-4DC4-9909-ED49609C98C6@jhuapl.edu> <CAK2MWOupfG1-dBJZH1CwD2sTHEGtJwXgPCbxWumeTsMC5J-mnA@mail.gmail.com> <C93A1B296F96E4428C30F0AFDCB1F242143308AD@NDMSMBX304.ndc.nasa.gov> <CAK2MWOui=4=x7NvP3fmYkLGWf9w4x7orS1cMd1ZJMDgFWbJ2Sw@mail.gmail.com> <CAK2MWOs9Yim1G9z0e=7iZAXCZ2uzxFP1W6zOP=Bs=gHPFbOmDw@mail.gmail.com> <1E7449DC3319BF42BC76414D53B56D630FA68120@NDJSMBX203.ndc.nasa.gov> <CAK2MWOvU4yCis4BHscQCR=Daa8u+V_2ZefCi+FQcevRU188STA@mail.gmail.com> <CAF3y9Oi8J9mHhBjG157B8zQ2eyiAceZjpccpdLEHhWmgOSV7Dw@mail.gmail.com> <CAK2MWOuUw3SY+CP5CmPzugXAp1zTNhAa-mJ6pZ0UG_4jJ_cyzw@mail.gmail.com>
+Message-ID: <CAK2MWOu8SZ4S5UEjHHHxvL26t0TEHs=yKFbeH50x4gMVYgQjNQ@mail.gmail.com>
+
+We last discussed the NASA 2.0 license on May 7. This was a different
+discussion from the usual, as OSI had already voted to disapprove the
+license, without providing much in the way of feedback.
+
+At that point, the license *wasn't really in consideration any longer.* I
+offered to look at the license and provide that feedback, and did so. I
+concluded that OSI had made the correct decision. NASA's lawyer
+subsequently explained some of the language, and I spoke with my own
+counsel, but this did not change my conclusion.
+
+My storied "weight" was not at all in play when the license was
+disapproved, my participation was all after that time.
+ Thanks
+ Bruce
+
+On Mon, May 7, 2018 at 1:02 PM, Bruce Perens <bruce at perens.com> wrote:
+
+> Marc,
+>
+> Open Hardware licenses also have the issue of attempting to license what
+> is not clearly protected, in a way that can be enforced between two parties
+> but not necessarily in the chain of redistribution common to Open Source.
+>
+> I was an early proponent of Open Hardware licensing, and eventually
+> distanced myself from it. The reason was that I did not wish to create new
+> norms in the industry which courts would then cite in creating  protection
+> where it did not previously exist. The creeping expansion of intellectual
+> property protection that we can cause by developing new norms is against
+> the interest of the very communities which have been using Open Hardware
+> and Open Data licenses. Consider, for example, the effect if the schematic
+> diagrams in a century of electronics magazines suddenly acquired protection
+> which could be extended to manufactured objects, rather than just
+> publications.
+>
+> Open Data licensing and the license under discussion also present this
+> potential to create new norms which aren't really in the interest of the
+> various open communities. Their own work would be protected more
+> effectively, but at the cost of losing access to work which is presently in
+> the public domain.
+>
+> The effect is similar to the problem with the recent decision regarding
+> APIs in *Oracle v. Google *overturning what we thought we knew from *CAI
+> v. Altai. *We acquire the potential to enforce the GPL more reliably
+> across an API boundary, eliminating (IMO always wrong) arguments about
+> dynamic linking insulating against the GPL obligation. However, we
+> potentially lose the ability to make free versions of proprietary languages
+> and APIs.
+>
+>     Thanks
+>
+>     Bruce
+>
+> On Mon, May 7, 2018 at 12:40 PM, Marc Jones <marc at joneslaw.io> wrote:
+>
+>>
+>>>
+>>>> The attorneys crafted the NOSA with language that specifies, under
+>>>> contract law, that the Government is a third-party beneficiary of all
+>>>> down-stream distributions.
+>>>>
+>>>
+>>> Right. So, the government has a right to sue someone for breach of
+>>> contract who is not directly a party to a contract with the government. And
+>>> thus it seems to me that you are attempting to propagate the obligation
+>>> from that very first person who received the software in the act of the
+>>> government's releasing it from secret. But I am still not seeing that such
+>>> a party actually has any consideration to offer to the next party in this
+>>> chain.
+>>>
+>>>
+>> Just because material is not protected by copyright, it doesn't mean you
+>> cannot restrict its use by contract. The terms of contracts are not
+>> generally preempted by copyright law. To oversimplify things, the contents
+>> of a phone book are not protected by copyright. See, Feist Publications,
+>> Inc. v. Rural Telephone Service Co., 499 U.S. 340 (1991). Nevertheless at
+>> least one court has held that an individual's right to distribute those
+>> facts can be restricted by contract. Procd, v. Zeidenberg, 86 F.3d 1447
+>> (7th Cir. 1996). I do not think that is particularly remarkable since NDA's
+>> are routinely enforced and are generally meant to restrict  a party to the
+>> contract's ability to share facts. The parties in ProCD were both private
+>> parties, but unless there is a statute denying the federal government the
+>> ability to do so, I would be surprised to find out the federal government
+>> can't do what a private party could do. For that reason without
+>> specifically researching the topic, I do not doubt the Federal Government's
+>> ability to enter into a contract that limits a person's ability to
+>> distribute source code not protected by copyright.
+>>
+>> I do think the point Bruce raises about binding downstream users to the
+>> contract terms is interesting. This problem I think is commonly encountered
+>> by the authors of open data "licenses." Many open data licenses are
+>> explicitly defined to be contracts, because - I have always assumed - the
+>> authors of the licenses expect the license to be used in the distribution
+>> of material that has little or no copyright protection. Although the trend
+>> is for more open data publishers to just use a public domain dedication
+>> like CC0, there are still organizations that prefer to use contracts to
+>> distribute their open data. For instance the Community Data License
+>> Agreement is explicitly a contract and that was published just this past
+>> year. [1] Most of the licenses published by Open Knowledge International
+>> are also contracts. [2] Related to open data licenses, many of the Creative
+>> Commons licenses are designed to be be licenses but with a fall back to
+>> contract law in case the jurisdiction will recognize it as a contract.[4] I
+>> acknowledge many of the open data licenses also deal with EU database
+>> rights, but they are intended to work in the United States as well in the
+>> absence of database rights.
+>>
+>> I am unaware of any cases showing how effective these open data licenses
+>> are at binding downstream users to a contract. I would think the main
+>> problem is how to form contracts on redistribution. How do you ensure that
+>> the party receiving the material intends to agree to the contract terms?
+>> And do so reliably so that everyone who comes into possession of it as it
+>> is redistributed also agrees. Establishing the original publisher as being
+>> a beneficiary of any subsequent contracts might solve the privity issues
+>> required to enforce contracts, but it won't cause a contract to exist if
+>> the elements required to form a contract do not otherwise exist.
+>>
+>> Considering the nature of how FOSS is distributed, I don't think you can
+>> rely on the exact same arguments in ProCD either since it is unlikely that
+>> people using FOSS source code will ever click a button saying I agree, nor
+>> will there be a box to ship the terms with. It's not clear to me that
+>> shrink-wrap or click-wrap agreements are applicable, or that browser-wrap
+>> agreements are generally effective. Perhaps requiring by contract that a
+>> notice of the terms of the contract at the top of each file reproducing any
+>> of the text covered by the agreement would be sufficient notice to bind
+>> subsequent users. But once someone violated that contract and published the
+>> uncopyrighted text, is there any recourse? And would NASA or any open data
+>> publisher care? I would expect that the users of open data license,
+>> generally accept the risk that at least some portion data will escape the
+>> terms of the agreement and are comfortable with that.
+>>
+>> -Marc
+>>
+>> [1] https://cdla.io/permissive-1-0/
+>> [2] Section 2.0 of the ODBL license says "This License is: ...  c. An
+>> agreement in contract between You and the Licensor."
+>> https://opendatacommons.org/licenses/odbl/1.0/
+>> [3] "To the extent this Public License may be interpreted as a contract,
+>> You are granted the Licensed Rights in consideration of Your acceptance of
+>> these terms and conditions, and the Licensor grants You such rights in
+>> consideration of benefits the Licensor receives from making the Licensed
+>> Material available under these terms and conditions." Creative Commons
+>> Attribution-ShareAlike 4.0 International Public License available at
+>> https://creativecommons.org/licenses/by-sa/4.0/legalcode
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_
+>> lists.opensource.org
+>>
+>>
+>
+>
+> --
+> Bruce Perens K6BP - CEO, Legal Engineering
+> Standards committee chair, license review committee member, co-founder,
+> Open Source Initiative
+> President, Open Research Institute; Board Member, Fashion Freedom
+> Initiative.
+>
+
+
+
+-- 
+Bruce Perens K6BP - CEO, Legal Engineering
+Standards committee chair, license review committee member, co-founder,
+Open Source Initiative
+President, Open Research Institute; Board Member, Fashion Freedom
+Initiative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180619/07f4703a/attachment.html>
+
+From cem.f.karan.civ at mail.mil  Wed Jun 20 13:07:05 2018
+From: cem.f.karan.civ at mail.mil (Karan, Cem F CIV USARMY RDECOM ARL (US))
+Date: Wed, 20 Jun 2018 13:07:05 +0000
+Subject: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+Message-ID: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil>
+
+> -----Original Message-----
+> From: License-review [mailto:license-review-bounces at lists.opensource.org] On Behalf Of Bruce Perens
+> Sent: Tuesday, June 19, 2018 9:03 PM
+> To: License submissions for OSI review <license-review at lists.opensource.org>
+> Subject: [Non-DoD Source] Re: [License-review] moving to an issue tracker [was Re: Some notes for license submitters]
+> 
+> Allison,
+> 
+> The biggest problem here is not that OSI is slow to approve licenses, that they provide insufficient feedback, or that they are using the
+> wrong software.
+> 
+> It's a greater problem that OSI continues to approve licenses on a regular basis, twenty years after the process started.
+> 
+> There aren't that many actually useful variations on the licenses that actually pass the OSD. There are actually only three useful
+> licenses, a gift-style, a sharing-with-rules-style, and something in between. Given Affero and GPL3 terms on those three, essentially
+> all purposes for Open Source can be carried out. All else is embellishment.
+> 
+> What we are seeing now are licenses that satisfy a particular attorney. These are often introduced as being necessary for the specific
+> needs of the venue (Europe, for example) or a particular organization (NASA, focusing on restrictions on the public domain). It's
+> arguable that these licenses are more useful than existing well-tested ones, even for those organizations. For example, I don't see
+> how NASA can really benefit from imposing terms upon public-domain works or making itself a secondary beneficiary of licenses
+> executed by others.
+> 
+> The license reviewers aren't waiting to be surprised by some worthy innovation in Open Source licensing. No such thing is coming by.
+> They are mainly working to make sure that OSI understands when a license should be rejected, and why.
+> 
+> If OSI were to conclude that licenses, at this point, should be approved only when there are compelling reasons to do so, the
+> community would benefit.
+> 
+>     Thanks
+> 
+>     Bruce
+
+In terms of the NOSA 2.0 license, the goal is to support the OSD despite not having copyright attached to most US government works within US jurisdiction.  I've gone on at length about this in the past, but the issue of using copyright-based licenses on material that doesn't have copyright attached could open up both the US Government AND any downstream users to litigation due to severability[1].
+
+So, let's put this to the real test; would OSI (or anyone else) be willing to indemnify the US Government, and all downstream users, against any OSI-approved license being declared fully null and void solely because the license had copyright clauses in it that were declared invalid because the covered work didn't have copyright attached?  If you won't provide such indemnification (or find an insurance company that would be willing to provide such indemnification), then you've already answered the question of whether or not the USG can use copyright-based licenses.  Everything else is just posturing.
+
+At least for ARL, we'd prefer to use the regular OSI-approved licenses; it would solve a lot of headaches for us.  However, our interpretation is that doing so would not only expose the USG to legal issues, it would also expose our downstream users to legal issues.  And I personally am not willing to poison Open Source in that way, even by accident.
+
+Given all this, yes, there ARE additional reasons for approving new licenses beyond what you've listed above.  Help the community solve these problems so that more people can fit in the Open Source tent.
+
+[1] https://en.wikipedia.org/wiki/Severability
+
+
+Thanks,
+Cem Karan
+
+---
+Other than quoted laws, regulations or officially published policies, the views expressed herein are not intended to be used as an authoritative state of the law nor do they reflect official positions of the U.S. Army, Department of Defense or U.S. Government.
+
+
+
+From bruce at perens.com  Wed Jun 20 15:01:59 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 20 Jun 2018 08:01:59 -0700
+Subject: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil>
+References: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <CAK2MWOsW2JRK1Vp6YQn4z9=+_G0z9zirMSs1DqXmde+=Vr5iCA@mail.gmail.com>
+
+On Wed, Jun 20, 2018 at 6:07 AM, Karan, Cem F CIV USARMY RDECOM ARL (US) <
+cem.f.karan.civ at mail.mil> wrote:
+
+>
+> In terms of the NOSA 2.0 license, the goal is to support the OSD despite
+> not having copyright attached to most US government works within US
+> jurisdiction.
+
+
+Simply having the software be in the public domain and available in
+source-code form is sufficient to comply with the OSD, if you don't attempt
+to add contractual terms.
+
+would OSI (or anyone else) be willing to indemnify the US Government, and
+> all downstream users, against any OSI-approved license being declared fully
+> null and void solely because the license had copyright clauses in it that
+> were declared invalid because the covered work didn't have copyright
+> attached?
+
+
+What would we be indemnifying the US Government for? A good many of us are
+U.S. citizens and the software is our property. The horse is already out of
+the barn in that copyright law doesn't protect it. NASA has seen fit to
+discard its trade-secret protection and any protection applicable to
+government secrets. Having discarded these things, there is no obligation
+transmissible from the first licensee to the second.
+
+The solution for public-domain material is to simply leave it in the public
+domain.
+ Thanks
+ Bruce
+-- 
+Bruce Perens K6BP - CEO, Legal Engineering
+Standards committee chair, license review committee member, co-founder,
+Open Source Initiative
+President, Open Research Institute; Board Member, Fashion Freedom
+Initiative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/9e026631/attachment.html>
+
+From mccoy.smith at intel.com  Wed Jun 20 15:34:34 2018
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Wed, 20 Jun 2018 15:34:34 +0000
+Subject: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil>
+References: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <2D52F7EE739F8542A700CAB96276B51978BD8227@FMSMSX108.amr.corp.intel.com>
+
+
+>So, let's put this to the real test; would OSI (or anyone else) be willing to indemnify the US Government, and all downstream users, against any OSI-approved license being declared fully null and void solely because the license had copyright >clauses in it that were declared invalid because the covered work didn't have copyright attached?  If you won't provide such indemnification (or find an insurance company that would be willing to provide such indemnification), then you've >already answered the question of whether or not the USG can use copyright-based licenses.  Everything else is just posturing.
+
+I'm curious what sort of harm the government or downstream users would suffer in your scenario that would be addressable in indemnity.  Let's say OSI decides to grant USG such an indemnity.  Under what conditions can the USG tender indemnity, and against what USG losses would OSI be required to pay?
+
+
+
+From bruce at perens.com  Wed Jun 20 15:44:43 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 20 Jun 2018 08:44:43 -0700
+Subject: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+Message-ID: <CAK2MWOsnAyscmr+jT9XqA6k3tW8dgt21NHs7m3F-_iY4EOh67A@mail.gmail.com>
+
+On Wed, Jun 20, 2018 at 8:34 AM, Smith, McCoy
+>
+> I'm curious what sort of harm the government or downstream users would
+> suffer in your scenario
+
+
+His comment about USG having lots of money for people to go after - the one
+with the repeated lines - indicates that liability is a concern.
+
+Even in a copyright-based license, the declination of warranty is not a
+copyright term. It's a unilateral declination. It's not really going to
+work to tell the court that a party that sues you for liability damages
+commits copyright infringement by doing so.
+
+A unilateral declination regarding public-domain software should work as
+well as one regarding copyrighted material.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/2ace865d/attachment.html>
+
+From nigel.2048 at gmail.com  Wed Jun 20 15:48:27 2018
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Wed, 20 Jun 2018 11:48:27 -0400
+Subject: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <CAK2MWOsW2JRK1Vp6YQn4z9=+_G0z9zirMSs1DqXmde+=Vr5iCA@mail.gmail.com>
+References: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil> <CAK2MWOsW2JRK1Vp6YQn4z9=+_G0z9zirMSs1DqXmde+=Vr5iCA@mail.gmail.com>
+Message-ID: <CADaGzk6aWre2P+nuAYVWpPFb95aWALygM6_uJZbRRTmKXQ7Czg@mail.gmail.com>
+
+> On 6/20/18, 11:02 AM, "License-review on behalf of Bruce Perens" <mailto:
+license-review-bounces at lists.opensource.org on behalf of mailto:
+bruce at perens.com> wrote:
+
+
+
+>> On Wed, Jun 20, 2018 at 6:07 AM, Karan, Cem F CIV USARMY RDECOM ARL (US)
+<mailto:cem.f.karan.civ at mail.mil> wrote:
+
+
+
+>> In terms of the NOSA 2.0 license, the goal is to support the OSD despite
+not having copyright attached to most US government works within US
+jurisdiction.
+
+
+
+> Simply having the software be in the public domain and available in
+source-code form is sufficient to comply with the OSD, if you don't attempt
+to add contractual terms.
+
+
+
+You have deliberately ignored all the concerns of GOSS developers listed by
+Cem in the past and handwaved them away.  Bravo.
+
+
+
+Also, while public domain may or may not meet the OSD it obviously isn't
+defined as Open Source by the OSI as JOSS refuses to accept public domain
+submissions.  While this isn't of importance to me it is to other GOSS
+developers.
+
+
+
+https://opensource.org/node/878
+
+
+And public domain may not be public domain somewhere else.
+
+
+>>would OSI (or anyone else) be willing to indemnify the US Government, and
+all downstream users, against any OSI-approved license being declared fully
+null and void solely because the license had copyright clauses in it that
+were declared invalid because the covered work didn't have copyright
+attached?
+
+
+
+> What would we be indemnifying the US Government for? A good many of us
+are U.S. citizens and the software is our property. The horse is already
+out of the barn in that copyright law doesn't protect it. NASA has seen fit
+to discard its trade-secret protection and any protection applicable to
+government secrets. Having discarded these things, there is no obligation
+transmissible from the first licensee to the second.
+
+
+
+The question of indemnity comes up because you poo-poo the concerns of
+government lawyers and agencies as unimportant or not required.  If this is
+a true statement then indemnifying someone of something that isn't, in your
+opinion and why you block GOSS licenses, a real problem should be a
+no-brainer.
+
+
+
+> The solution for public-domain material is to simply leave it in the
+public domain.
+
+
+
+Which does not meet the concerns of GOSS developers nor OSI guidance:
+
+
+
+"Thus we recommend that you always apply an approved Open Source license to
+software you are releasing,"
+
+
+
+https://opensource.org/faq#public-domain
+
+
+On the subject of NOSA, there isn't even an issue with proliferation.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/1f003912/attachment.html>
+
+From bruce at perens.com  Wed Jun 20 16:01:28 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 20 Jun 2018 09:01:28 -0700
+Subject: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+Message-ID: <CAK2MWOshAdEHk2NFKVg+7j8gGW7t17Q5bXdcHkdBkSrKkdJX+Q@mail.gmail.com>
+
+On Wed, Jun 20, 2018 at 8:48 AM, Nigel T <nigel.2048 at gmail.com> wrote:
+
+>
+> You have deliberately ignored all the concerns of GOSS developers listed
+> by Cem in the past
+>
+
+No, I don't think I have this list. Remember, I did not participate in the
+submission of the license, but joined the process late.
+
+
+> Also, while public domain may or may not meet the OSD it obviously isn't
+> defined as Open Source by the OSI as JOSS refuses to accept public domain
+> submissions.
+>
+
+But this doesn't apply to NASA, is it would be releasing the software under
+a license, which would use copyright terms to grant permissions for the
+entire work.
+
+It's not this grant that concerns us, but the application of contractual
+terms to "a horse already out of the barn" because it's in the public
+domain.
+
+The question of indemnity comes up because you poo-poo the concerns of
+> government lawyers and agencies as unimportant or not required.
+>
+
+In the case of public domain material, yes.
+
+
+> If this is a true statement then indemnifying someone of something that
+> isn't, in your opinion and why you block GOSS licenses, a real problem
+> should be a no-brainer.
+>
+ I am happy to accept NASA's declination of warranty regarding that public
+domain software. Having me or OSI indemnify NASA is absurd, and posed only
+as a discussion device.
+
+
+-- 
+Bruce Perens K6BP - CEO, Legal Engineering
+Standards committee chair, license review committee member, co-founder,
+Open Source Initiative
+President, Open Research Institute; Board Member, Fashion Freedom
+Initiative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/ccb853e5/attachment.html>
+
+From josh at postgresql.org  Wed Jun 20 17:01:46 2018
+From: josh at postgresql.org (Josh berkus)
+Date: Wed, 20 Jun 2018 10:01:46 -0700
+Subject: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil>
+References: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <0069bda9-d216-252a-8c8d-7e47f87e276b@postgresql.org>
+
+On 06/20/2018 06:07 AM, Karan, Cem F CIV USARMY RDECOM ARL (US) wrote:
+> Given all this, yes, there ARE additional reasons for approving new licenses beyond what you've listed above.  Help the community solve these problems so that more people can fit in the Open Source tent.
+
+Do note that Bruce's opinion on proliferation is just
+Bruce's opinion.  Influential, but not determinative.
+
+--Josh Berkus
+
+
+From bruce at perens.com  Wed Jun 20 17:08:43 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 20 Jun 2018 10:08:43 -0700
+Subject: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <0069bda9-d216-252a-8c8d-7e47f87e276b@postgresql.org>
+References: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil> <0069bda9-d216-252a-8c8d-7e47f87e276b@postgresql.org>
+Message-ID: <CAK2MWOuuJhm5cR+JEUGLdSEYLMtK0E68meR8fKR5Quv9s5JDDQ@mail.gmail.com>
+
+As Alison reminded us, we also have the proliferation report at
+https://opensource.org/proliferation-report which the board accepted.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/0340d10a/attachment.html>
+
+From cowan at ccil.org  Wed Jun 20 17:18:36 2018
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 20 Jun 2018 13:18:36 -0400
+Subject: [License-review] NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <CAK2MWOsW2JRK1Vp6YQn4z9=+_G0z9zirMSs1DqXmde+=Vr5iCA@mail.gmail.com>
+References: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil> <CAK2MWOsW2JRK1Vp6YQn4z9=+_G0z9zirMSs1DqXmde+=Vr5iCA@mail.gmail.com>
+Message-ID: <CAD2gp_RZO41V1XYrtLQxDqdXuhe4FHUz30O7vjXNfMNFzsMyNA@mail.gmail.com>
+
+On Wed, Jun 20, 2018 at 11:01 AM, Bruce Perens <bruce at perens.com> wrote:
+
+Simply having the software be in the public domain and available in
+> source-code form is sufficient to comply with the OSD, if you don't attempt
+> to add contractual terms.
+>
+
+Alas, things are not so simple.  U.S. government-created software (or other
+copyrightable materials) is in the public domain in the U.S. only.  In all

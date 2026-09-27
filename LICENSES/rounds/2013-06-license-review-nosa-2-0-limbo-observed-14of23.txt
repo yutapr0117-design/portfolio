@@ -1,0 +1,750 @@
+>> Subject: Re: [License-review] [Non-DoD Source] Resolution on NOSA 2.0
+>> To: License submissions for OSI review <license-review at opensource.org>, <
+>> cem.f.karan.civ at mail.mil>, <bryan.a.geurts at nasa.gov>
+>>
+>>
+>>
+>> > Could you (meaning you and the board) please give us a breakdown of
+>> what the issues were?
+>>
+>> and
+>>
+>>
+>> > If we resubmit, will we be engaged or simply ignored, as before?
+>>
+>> I didn't see any public response to these questions. I am not a member of
+>> the OSI board, but I am the creator of the Open Source Definition. As a
+>> member of the license review committee (admission being equivalent to being
+>> granted a subscription to this mailing list) I would be willing to look at
+>> a new submission and make a recommendation.
+>>
+>>
+>>
+>> I think the missing piece in your previous submissions is that they were
+>> not a good deal for the Open Source developer community, only a license
+>> engineered to grant maximal protection to NASA. The board cited legal
+>> ambiguities in their response, these are of course to the disadvantage of
+>> the community. Individual developers do not have the easy access to counsel
+>> and the legal budget that NASA has, and it's an even worse day for *them
+>> *when they are sued. To give a personal example, my recent participation
+>> in an Open-source-related lawsuit will probably exceed my year's income in
+>> legal fees. So, I believe that both NASA and OSI should place the
+>> individual developer's protection before that of NASA if we are all to
+>> pursue Open Source fairly.
+>>
+>>
+>>
+>> In addition, the language in 1.3 that prevents combination of Open Source
+>> that is not an original work of authorship of the contributor seems to me
+>> to be inimical to the concept of Open Source. I would not have recommended
+>> its approval. I would be especially interested in seeing a submission that
+>> removed that language.
+>>
+>>
+>>
+>>     Thanks
+>>
+>>
+>>
+>>     Bruce
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_
+>> lists.opensource.org
+>>
+>>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180220/7944afb4/attachment-0001.html>
+
+From bryan.a.geurts at nasa.gov  Wed Feb 21 22:41:06 2018
+From: bryan.a.geurts at nasa.gov (Geurts, Bryan A. (GSFC-1401))
+Date: Wed, 21 Feb 2018 22:41:06 +0000
+Subject: [License-review] Fwd:  [Non-DoD Source] Resolution on NOSA 2.0
+In-Reply-To: <C67753CC-0D03-4A07-8F15-84F0BFCA9148@jhuapl.edu>
+References: <CAK2MWOvQcaSi0LJo-s1aF+gKoVZTswxghM1CAjXL+Ke061XqAQ@mail.gmail.com> <C67753CC-0D03-4A07-8F15-84F0BFCA9148@jhuapl.edu>
+Message-ID: <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov>
+
+All,
+
+I am just now seeing this after having been out over the long weekend, so apologies for a slow response.  We at NASA are very pleased to have someone finally express a willingness to work with us on certifying NOSA 2.0!  Apologies that I didn?t respond to Bruce?s December email, but, in looking back over my emails from that period, I couldn?t find it.  Believe me, we at NASA are more than ready to engage any and all interested parties in order to come to a resolution; whatever you need, we will provide as quickly as possible.  As you know, NASA first applied for certification nearly five years ago and has been baffled by a lack of action on the part of OSI ever since.  We responded to every comment from the license-review group as well as from the OSI license-review coordinator (Richard Fontana), but nothing has come of it so far.  In all honesty, we are now discussing the need to upgrade from NOSA 2.0 to NOSA 3.0, but that?s a discussion for another day, assuming we can get approval for 2.0 in short order.  Nigel Tzeng at AFL (below), Cem Karan at ARL, and others have been vocal advocates for NOSA 2.0 (many thanks to them) as some of the many persons and organizations, in particular government organizations, in need of the unique application of an open source license tailored for government created works.  From a legal perspective, government works are in a different category than other software because of a section of the US Copyright Statute (17 USC 105), which precludes the US federal government from creating works covered by a US copyright (foreign copyrights are allowed, as are copyrights assigned or licensed to the government).  Since copyright is the core legal theory under which open source software licenses operate, special accommodations must be made if government created works are to be protectable at all.  The NOSA is all about those special accommodations for government works; no other OSD compliant license addresses these issues.  NOSA 1.3, approved well over a decade ago, is admittedly a bit klunky by today?s standards, but represents a huge step forward for the times; NOSA 2.0 is several steps closer to the ?mainstream? OSI-approved licenses.  Both licenses were designed to be fully compliant with the OSD.
+
+Please help me understand the next step forward.  We have an open source legal team at NASA that wrote both NOSA 1.3 and 2.0, that meets regularly and is anxious to address any concerns.  We are happy to engage by email, by phone or even in person if that will move the process forward.
+
+Regards,
+Bryan
+
+Bryan A. Geurts
+Chief Patent Counsel
+NASA Goddard Space Flight Center
+Code 140.1, 8800 Greenbelt Road
+Greenbelt, MD 20771
+Phone:  301-286-7352
+Fax:  301-286-9502
+
+This document, including any attachments, contains information that is confidential, protected by the attorney-client or other privileges, or constitutes non-public information.  It is intended only for the intended recipients.  If you are not an intended recipient, please take appropriate steps to destroy this document in its entirety and notify the sender of its destruction.  Use, dissemination, distribution or reproduction of this information by unintended recipients is not authorized and may be unlawful.
+
+This communication should only be used for the particular matter discussed herein.  Changes in circumstances and changes in law can greatly alter any current legal advice.
+
+From: Tzeng, Nigel H. [mailto:Nigel.Tzeng at jhuapl.edu]
+Sent: Tuesday, February 20, 2018 9:43 AM
+To: License submissions for OSI review <license-review at lists.opensource.org>; cem.f.karan.civ at mail.mil; Geurts, Bryan A. (GSFC-1401) <bryan.a.geurts at nasa.gov>
+Subject: Re: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+
+Bruce,
+
+There was no reply on license review because you didn?t send it to either license review or Bryan.
+
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2017-December/thread.html
+
+It?s been over FOUR YEARS since NOSA 2.0 was submitted in June of 2013.  Maybe you should have asked these questions in 2013 rather than 2017?
+
+In any case, according to the archive of the license-review lists from November 2017 to February 2018, NASA was ignored.  If the board has formally rejected the NOSA 2.0 submission in the meantime that?s just awesome communication on the lists.
+
+By blocking the approval of NOSA 2.0 the OSI has blocked the fix for the section that you have an issue with in v1.3 (original work of authorship clause).  If you were interested in seeing that language removed then you should have advocated for approval of NOSA 2.0.
+
+As I noted in License-Discuss, if one the agencies that has been forward thinking and generating GOSS code for public use as part of their strategy for nearly two decades under the NOSA license (https://open.nasa.gov and https://code.nasa.gov ) and likely has released one of the oldest GOSS/PD codebases around (https://github.com/chrislgarry/Apollo-11) believes it needs to update that license then the OSI shouldn?t continue to be a roadblock for improving that already approved special purpose license but instead be helpful and responsive.
+
+According to Open Nasa they have:
+
+ *   39,054 Open Data Sets *   356 Open Code Repositories (155 on GitHub under the NASA account) *   41 Open APIs
+
+I think NASA has met and exceeded any ?higher standard? set for Open Source and Open Data advocacy and performance.
+
+Regards,
+
+Nigel
+
+
+On 2/16/18, 4:38 PM, "License-review on behalf of Bruce Perens" <license-review-bounces at lists.opensource.org<mailto:license-review-bounces at lists.opensource.org> on behalf of bruce at perens.com<mailto:bruce at perens.com>> wrote:
+
+I did not get any reply from NASA when I first sent this, in early December. Thanks Bruce
+
+---------- Forwarded message ---------
+From: Bruce Perens <bruce at perens.com<mailto:bruce at perens.com>>
+Date: Fri, Dec 8, 2017, 21:39
+Subject: Re: [License-review] [Non-DoD Source] Resolution on NOSA 2.0
+To: License submissions for OSI review <license-review at opensource.org<mailto:license-review at opensource.org>>, <cem.f.karan.civ at mail.mil<mailto:cem.f.karan.civ at mail.mil>>, <bryan.a.geurts at nasa.gov<mailto:bryan.a.geurts at nasa.gov>>
+
+> Could you (meaning you and the board) please give us a breakdown of what the issues were?
+and
+
+> If we resubmit, will we be engaged or simply ignored, as before?
+I didn't see any public response to these questions. I am not a member of the OSI board, but I am the creator of the Open Source Definition. As a member of the license review committee (admission being equivalent to being granted a subscription to this mailing list) I would be willing to look at a new submission and make a recommendation.
+
+I think the missing piece in your previous submissions is that they were not a good deal for the Open Source developer community, only a license engineered to grant maximal protection to NASA. The board cited legal ambiguities in their response, these are of course to the disadvantage of the community. Individual developers do not have the easy access to counsel and the legal budget that NASA has, and it's an even worse day for them when they are sued. To give a personal example, my recent participation in an Open-source-related lawsuit will probably exceed my year's income in legal fees. So, I believe that both NASA and OSI should place the individual developer's protection before that of NASA if we are all to pursue Open Source fairly.
+
+In addition, the language in 1.3 that prevents combination of Open Source that is not an original work of authorship of the contributor seems to me to be inimical to the concept of Open Source. I would not have recommended its approval. I would be especially interested in seeing a submission that removed that language.
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180221/e04b67a8/attachment-0001.html>
+
+From bruce at perens.com  Wed Feb 21 23:06:30 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 21 Feb 2018 15:06:30 -0800
+Subject: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+In-Reply-To: <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov>
+References: <CAK2MWOvQcaSi0LJo-s1aF+gKoVZTswxghM1CAjXL+Ke061XqAQ@mail.gmail.com> <C67753CC-0D03-4A07-8F15-84F0BFCA9148@jhuapl.edu> <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov>
+Message-ID: <CAK2MWOskR=NyEYqJSiv70YZLyoZztCJGrTzfHNfym8Hh=HP1EA@mail.gmail.com>
+
+Hi Bryan,
+
+Sorry. We had a list server issue at opensource.org, but I'm at a loss
+regarding why the message wouldn't have been delivered to the addresses I
+copied, which were you and Cem. But onwards...
+
+I'm happy to look at 2.0, if you have 3.0 text that you can release it
+might be best to send that along as well, as I am very likely to request
+changes and it would be good to see if those changes already exist in the
+3.0 text.
+
+My understanding regarding copyright and U.S. government is that works
+produced by government contractors rather than the government itself are
+copyrighted by the contractors. I'm interested to hear if you have a legal
+theory that allows work that is a direct product of the government to be
+protected - and if so why that's a good idea.
+
+My organization is involved in building a digital space communications
+system for use with FEMA and AMSAT satellites, as Open Source. FEMA is
+having some trouble with their satellite, but I am confident that it will
+at least fly with AMSAT. I've put in some effort of late to make that fit
+within ITAR and EAR. You can read about us at http://openresearch.institute/
+
+Could you send your 2.0 text again, please, just so that I know I have the
+right version, and the 3.0 if possible, and I'll mark up the 2.0 .
+ Thanks
+ Bruce Perens President Open Research Institute
+
+
+
+On Wed, Feb 21, 2018 at 2:41 PM, Geurts, Bryan A. (GSFC-1401) <
+bryan.a.geurts at nasa.gov> wrote:
+
+> All,
+>
+>
+>
+> I am just now seeing this after having been out over the long weekend, so
+> apologies for a slow response.  We at NASA are very pleased to have someone
+> finally express a willingness to work with us on certifying NOSA 2.0!
+> Apologies that I didn?t respond to Bruce?s December email, but, in looking
+> back over my emails from that period, I couldn?t find it.  Believe me, we
+> at NASA are more than ready to engage any and all interested parties in
+> order to come to a resolution; whatever you need, we will provide as
+> quickly as possible.  As you know, NASA first applied for certification
+> nearly five years ago and has been baffled by a lack of action on the part
+> of OSI ever since.  We responded to every comment from the license-review
+> group as well as from the OSI license-review coordinator (Richard Fontana),
+> but nothing has come of it so far.  In all honesty, we are now discussing
+> the need to upgrade from NOSA 2.0 to NOSA 3.0, but that?s a discussion for
+> another day, assuming we can get approval for 2.0 in short order.  Nigel
+> Tzeng at AFL (below), Cem Karan at ARL, and others have been vocal
+> advocates for NOSA 2.0 (many thanks to them) as some of the many persons
+> and organizations, in particular government organizations, in need of the
+> unique application of an open source license tailored for government
+> created works.  From a legal perspective, government works are in a
+> different category than other software because of a section of the US
+> Copyright Statute (17 USC 105), which precludes the US federal government
+> from creating works covered by a US copyright (foreign copyrights are
+> allowed, as are copyrights assigned or licensed to the government).  Since
+> copyright is the core legal theory under which open source software
+> licenses operate, special accommodations must be made if government created
+> works are to be protectable at all.  The NOSA is all about those special
+> accommodations for government works; no other OSD compliant license
+> addresses these issues.  NOSA 1.3, approved well over a decade ago, is
+> admittedly a bit klunky by today?s standards, but represents a huge step
+> forward for the times; NOSA 2.0 is several steps closer to the ?mainstream?
+> OSI-approved licenses.  Both licenses were designed to be fully compliant
+> with the OSD.
+>
+>
+>
+> Please help me understand the next step forward.  We have an open source
+> legal team at NASA that wrote both NOSA 1.3 and 2.0, that meets regularly
+> and is anxious to address any concerns.  We are happy to engage by email,
+> by phone or even in person if that will move the process forward.
+>
+>
+>
+> Regards,
+>
+> Bryan
+>
+>
+>
+> *Bryan A. Geurts*
+>
+> Chief Patent Counsel
+>
+> NASA Goddard Space Flight Center
+>
+> Code 140.1, 8800 Greenbelt Road
+>
+> Greenbelt, MD 20771
+>
+> Phone:  301-286-7352 <(301)%20286-7352>
+>
+> Fax:  301-286-9502 <(301)%20286-9502>
+>
+>
+>
+> This document, including any attachments, contains information that is
+> confidential, protected by the attorney-client or other privileges, or
+> constitutes non-public information.  It is intended only for the intended
+> recipients.  If you are not an intended recipient, please take appropriate
+> steps to destroy this document in its entirety and notify the sender of its
+> destruction.  Use, dissemination, distribution or reproduction of this
+> information by unintended recipients is not authorized and may be unlawful.
+>
+>
+>
+> This communication should only be used for the particular matter discussed
+> herein.  Changes in circumstances and changes in law can greatly alter any
+> current legal advice.
+>
+>
+>
+> *From:* Tzeng, Nigel H. [mailto:Nigel.Tzeng at jhuapl.edu]
+> *Sent:* Tuesday, February 20, 2018 9:43 AM
+> *To:* License submissions for OSI review <license-review at lists.
+> opensource.org>; cem.f.karan.civ at mail.mil; Geurts, Bryan A. (GSFC-1401) <
+> bryan.a.geurts at nasa.gov>
+> *Subject:* Re: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA
+> 2.0
+>
+>
+>
+> Bruce,
+>
+>
+>
+> There was no reply on license review because you didn?t send it to either
+> license review or Bryan.
+>
+>
+>
+> http://lists.opensource.org/pipermail/license-review_
+> lists.opensource.org/2017-December/thread.html
+>
+>
+>
+> It?s been over FOUR YEARS since NOSA 2.0 was submitted in June of 2013.
+> Maybe you should have asked these questions in 2013 rather than 2017?
+>
+>
+>
+> In any case, according to the archive of the license-review lists from
+> November 2017 to February 2018, NASA was ignored.  If the board has
+> formally rejected the NOSA 2.0 submission in the meantime that?s just
+> awesome communication on the lists.
+>
+>
+>
+> By blocking the approval of NOSA 2.0 the OSI has blocked the fix for the
+> section that you have an issue with in v1.3 (original work of authorship
+> clause).  If you were interested in seeing that language removed then you
+> should have advocated for approval of NOSA 2.0.
+>
+>
+>
+> As I noted in License-Discuss, if one the agencies that has been forward
+> thinking and generating GOSS code for public use as part of their strategy
+> for nearly two decades under the NOSA license (https://open.nasa.gov and
+> https://code.nasa.gov ) and likely has released one of the oldest GOSS/PD
+> codebases around (https://github.com/chrislgarry/Apollo-11) believes it
+> needs to update that license then the OSI shouldn?t continue to be a
+> roadblock for improving that *already approved special purpose license *but
+> instead be helpful and *responsive*.
+>
+>
+>
+> According to Open Nasa they have:
+>
+>
+>
+>    - 39,054 Open Data Sets
+>    - 356 Open Code Repositories (155 on GitHub under the NASA account)
+>    - 41 Open APIs
+>
+>
+>
+> I think NASA has met and exceeded any ?higher standard? set for Open
+> Source and Open Data advocacy and performance.
+>
+>
+>
+> Regards,
+>
+>
+>
+> Nigel
+>
+>
+>
+>
+>
+> On 2/16/18, 4:38 PM, "License-review on behalf of Bruce Perens" <
+> license-review-bounces at lists.opensource.org on behalf of bruce at perens.com>
+> wrote:
+>
+>
+>
+> I did not get any reply from NASA when I first sent this, in early
+> December.
+>
+>     Thanks
+>
+>     Bruce
+>
+>
+>
+> ---------- Forwarded message ---------
+> From: Bruce Perens <bruce at perens.com>
+> Date: Fri, Dec 8, 2017, 21:39
+> Subject: Re: [License-review] [Non-DoD Source] Resolution on NOSA 2.0
+> To: License submissions for OSI review <license-review at opensource.org>, <
+> cem.f.karan.civ at mail.mil>, <bryan.a.geurts at nasa.gov>
+>
+>
+>
+> > Could you (meaning you and the board) please give us a breakdown of what
+> the issues were?
+>
+> and
+>
+>
+> > If we resubmit, will we be engaged or simply ignored, as before?
+>
+> I didn't see any public response to these questions. I am not a member of
+> the OSI board, but I am the creator of the Open Source Definition. As a
+> member of the license review committee (admission being equivalent to being
+> granted a subscription to this mailing list) I would be willing to look at
+> a new submission and make a recommendation.
+>
+>
+>
+> I think the missing piece in your previous submissions is that they were
+> not a good deal for the Open Source developer community, only a license
+> engineered to grant maximal protection to NASA. The board cited legal
+> ambiguities in their response, these are of course to the disadvantage of
+> the community. Individual developers do not have the easy access to counsel
+> and the legal budget that NASA has, and it's an even worse day for *them *when
+> they are sued. To give a personal example, my recent participation in an
+> Open-source-related lawsuit will probably exceed my year's income in legal
+> fees. So, I believe that both NASA and OSI should place the individual
+> developer's protection before that of NASA if we are all to pursue Open
+> Source fairly.
+>
+>
+>
+> In addition, the language in 1.3 that prevents combination of Open Source
+> that is not an original work of authorship of the contributor seems to me
+> to be inimical to the concept of Open Source. I would not have recommended
+> its approval. I would be especially interested in seeing a submission that
+> removed that language.
+>
+>
+>
+>     Thanks
+>
+>
+>
+>     Bruce
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-
+> review_lists.opensource.org
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180221/52416e40/attachment-0001.html>
+
+From richard.fontana at opensource.org  Thu Feb 22 00:49:41 2018
+From: richard.fontana at opensource.org (Richard Fontana)
+Date: Wed, 21 Feb 2018 19:49:41 -0500
+Subject: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+In-Reply-To: <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov>
+References: <CAK2MWOvQcaSi0LJo-s1aF+gKoVZTswxghM1CAjXL+Ke061XqAQ@mail.gmail.com> <C67753CC-0D03-4A07-8F15-84F0BFCA9148@jhuapl.edu> <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov>
+Message-ID: <CA+xoNzHEbv395Fb472mtScYWEdTSqw7082-JWJ6PYPRp75qq9A@mail.gmail.com>
+
+Hi Bryan,
+
+My general impression in the past has been that NASA has been unwilling to
+consider making changes to NOSA 2.0. If you are willing to submit a revised
+draft that:
+* is written with a view to maximizing clarity and comprehensibility,
+particularly for individual software developers
+* takes care not to give, or have the appearance of giving, special legal
+privileges to NASA over other licensors and licensees (or else to give a
+clear justification to us of why that sort of structure is necessary) then
+I think we can make progress, perhaps rapid progress, towards approval.
+
+Richard
+
+
+
+
+On Wed, Feb 21, 2018 at 5:41 PM, Geurts, Bryan A. (GSFC-1401) <
+bryan.a.geurts at nasa.gov> wrote:
+
+> All,
+>
+>
+>
+> I am just now seeing this after having been out over the long weekend, so
+> apologies for a slow response.  We at NASA are very pleased to have someone
+> finally express a willingness to work with us on certifying NOSA 2.0!
+> Apologies that I didn?t respond to Bruce?s December email, but, in looking
+> back over my emails from that period, I couldn?t find it.  Believe me, we
+> at NASA are more than ready to engage any and all interested parties in
+> order to come to a resolution; whatever you need, we will provide as
+> quickly as possible.  As you know, NASA first applied for certification
+> nearly five years ago and has been baffled by a lack of action on the part
+> of OSI ever since.  We responded to every comment from the license-review
+> group as well as from the OSI license-review coordinator (Richard Fontana),
+> but nothing has come of it so far.  In all honesty, we are now discussing
+> the need to upgrade from NOSA 2.0 to NOSA 3.0, but that?s a discussion for
+> another day, assuming we can get approval for 2.0 in short order.  Nigel
+> Tzeng at AFL (below), Cem Karan at ARL, and others have been vocal
+> advocates for NOSA 2.0 (many thanks to them) as some of the many persons
+> and organizations, in particular government organizations, in need of the
+> unique application of an open source license tailored for government
+> created works.  From a legal perspective, government works are in a
+> different category than other software because of a section of the US
+> Copyright Statute (17 USC 105), which precludes the US federal government
+> from creating works covered by a US copyright (foreign copyrights are
+> allowed, as are copyrights assigned or licensed to the government).  Since
+> copyright is the core legal theory under which open source software
+> licenses operate, special accommodations must be made if government created
+> works are to be protectable at all.  The NOSA is all about those special
+> accommodations for government works; no other OSD compliant license
+> addresses these issues.  NOSA 1.3, approved well over a decade ago, is
+> admittedly a bit klunky by today?s standards, but represents a huge step
+> forward for the times; NOSA 2.0 is several steps closer to the ?mainstream?
+> OSI-approved licenses.  Both licenses were designed to be fully compliant
+> with the OSD.
+>
+>
+>
+> Please help me understand the next step forward.  We have an open source
+> legal team at NASA that wrote both NOSA 1.3 and 2.0, that meets regularly
+> and is anxious to address any concerns.  We are happy to engage by email,
+> by phone or even in person if that will move the process forward.
+>
+>
+>
+> Regards,
+>
+> Bryan
+>
+>
+>
+> *Bryan A. Geurts*
+>
+> Chief Patent Counsel
+>
+> NASA Goddard Space Flight Center
+>
+> Code 140.1, 8800 Greenbelt Road
+>
+> Greenbelt, MD 20771
+>
+> Phone:  301-286-7352 <(301)%20286-7352>
+>
+> Fax:  301-286-9502 <(301)%20286-9502>
+>
+>
+>
+> This document, including any attachments, contains information that is
+> confidential, protected by the attorney-client or other privileges, or
+> constitutes non-public information.  It is intended only for the intended
+> recipients.  If you are not an intended recipient, please take appropriate
+> steps to destroy this document in its entirety and notify the sender of its
+> destruction.  Use, dissemination, distribution or reproduction of this
+> information by unintended recipients is not authorized and may be unlawful.
+>
+>
+>
+> This communication should only be used for the particular matter discussed
+> herein.  Changes in circumstances and changes in law can greatly alter any
+> current legal advice.
+>
+>
+>
+> *From:* Tzeng, Nigel H. [mailto:Nigel.Tzeng at jhuapl.edu]
+> *Sent:* Tuesday, February 20, 2018 9:43 AM
+> *To:* License submissions for OSI review <license-review at lists.
+> opensource.org>; cem.f.karan.civ at mail.mil; Geurts, Bryan A. (GSFC-1401) <
+> bryan.a.geurts at nasa.gov>
+> *Subject:* Re: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA
+> 2.0
+>
+>
+>
+> Bruce,
+>
+>
+>
+> There was no reply on license review because you didn?t send it to either
+> license review or Bryan.
+>
+>
+>
+> http://lists.opensource.org/pipermail/license-review_
+> lists.opensource.org/2017-December/thread.html
+>
+>
+>
+> It?s been over FOUR YEARS since NOSA 2.0 was submitted in June of 2013.
+> Maybe you should have asked these questions in 2013 rather than 2017?
+>
+>
+>
+> In any case, according to the archive of the license-review lists from
+> November 2017 to February 2018, NASA was ignored.  If the board has
+> formally rejected the NOSA 2.0 submission in the meantime that?s just
+> awesome communication on the lists.
+>
+>
+>
+> By blocking the approval of NOSA 2.0 the OSI has blocked the fix for the
+> section that you have an issue with in v1.3 (original work of authorship
+> clause).  If you were interested in seeing that language removed then you
+> should have advocated for approval of NOSA 2.0.
+>
+>
+>
+> As I noted in License-Discuss, if one the agencies that has been forward
+> thinking and generating GOSS code for public use as part of their strategy
+> for nearly two decades under the NOSA license (https://open.nasa.gov and
+> https://code.nasa.gov ) and likely has released one of the oldest GOSS/PD
+> codebases around (https://github.com/chrislgarry/Apollo-11) believes it
+> needs to update that license then the OSI shouldn?t continue to be a
+> roadblock for improving that *already approved special purpose license *but
+> instead be helpful and *responsive*.
+>
+>
+>
+> According to Open Nasa they have:
+>
+>
+>
+>    - 39,054 Open Data Sets
+>    - 356 Open Code Repositories (155 on GitHub under the NASA account)
+>    - 41 Open APIs
+>
+>
+>
+> I think NASA has met and exceeded any ?higher standard? set for Open
+> Source and Open Data advocacy and performance.
+>
+>
+>
+> Regards,
+>
+>
+>
+> Nigel
+>
+>
+>
+>
+>
+> On 2/16/18, 4:38 PM, "License-review on behalf of Bruce Perens" <
+> license-review-bounces at lists.opensource.org on behalf of bruce at perens.com>
+> wrote:
+>
+>
+>
+> I did not get any reply from NASA when I first sent this, in early
+> December.
+>
+>     Thanks
+>
+>     Bruce
+>
+>
+>
+> ---------- Forwarded message ---------
+> From: Bruce Perens <bruce at perens.com>
+> Date: Fri, Dec 8, 2017, 21:39
+> Subject: Re: [License-review] [Non-DoD Source] Resolution on NOSA 2.0
+> To: License submissions for OSI review <license-review at opensource.org>, <
+> cem.f.karan.civ at mail.mil>, <bryan.a.geurts at nasa.gov>
+>
+>
+>
+> > Could you (meaning you and the board) please give us a breakdown of what
+> the issues were?
+>
+> and
+>
+>
+> > If we resubmit, will we be engaged or simply ignored, as before?
+>
+> I didn't see any public response to these questions. I am not a member of
+> the OSI board, but I am the creator of the Open Source Definition. As a
+> member of the license review committee (admission being equivalent to being
+> granted a subscription to this mailing list) I would be willing to look at
+> a new submission and make a recommendation.
+>
+>
+>
+> I think the missing piece in your previous submissions is that they were
+> not a good deal for the Open Source developer community, only a license
+> engineered to grant maximal protection to NASA. The board cited legal
+> ambiguities in their response, these are of course to the disadvantage of
+> the community. Individual developers do not have the easy access to counsel
+> and the legal budget that NASA has, and it's an even worse day for *them *when
+> they are sued. To give a personal example, my recent participation in an
+> Open-source-related lawsuit will probably exceed my year's income in legal
+> fees. So, I believe that both NASA and OSI should place the individual
+> developer's protection before that of NASA if we are all to pursue Open
+> Source fairly.
+>
+>
+>
+> In addition, the language in 1.3 that prevents combination of Open Source
+> that is not an original work of authorship of the contributor seems to me
+> to be inimical to the concept of Open Source. I would not have recommended
+> its approval. I would be especially interested in seeing a submission that
+> removed that language.
+>
+>
+>
+>     Thanks
+>
+>
+>
+>     Bruce
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-
+> review_lists.opensource.org
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180221/e2eb482c/attachment.html>
+
+From bryan.a.geurts at nasa.gov  Thu Feb 22 01:08:58 2018
+From: bryan.a.geurts at nasa.gov (Geurts, Bryan A. (GSFC-1401))
+Date: Thu, 22 Feb 2018 01:08:58 +0000
+Subject: [License-review] Fwd: [Non-DoD Source] Resolution on NOSA 2.0
+In-Reply-To: <CA+xoNzHEbv395Fb472mtScYWEdTSqw7082-JWJ6PYPRp75qq9A@mail.gmail.com>
+References: <CAK2MWOvQcaSi0LJo-s1aF+gKoVZTswxghM1CAjXL+Ke061XqAQ@mail.gmail.com> <C67753CC-0D03-4A07-8F15-84F0BFCA9148@jhuapl.edu> <EEA0F71EB77D4141B3E9ABFB96C6EB54AC1B2A@NDMSMBX404.ndc.nasa.gov>, <CA+xoNzHEbv395Fb472mtScYWEdTSqw7082-JWJ6PYPRp75qq9A@mail.gmail.com>
+Message-ID: <E02B7513-53F1-4D2F-A116-BADFCCCE87B5@nasa.gov>
+
+Not a problem. Can you be more specific?  Any extraordinary limitations in 2.0 are necessitated by statute and/or regulation. Having said that, however, I don?t think there is anything that either is unclear or unduly favorable to NASA. Happy to discuss.
+Bryan
+
+Sent from my iPhone
+
+On Feb 21, 2018, at 7:49 PM, Richard Fontana <richard.fontana at opensource.org<mailto:richard.fontana at opensource.org>> wrote:
+
+Hi Bryan,
+
+My general impression in the past has been that NASA has been unwilling to consider making changes to NOSA 2.0. If you are willing to submit a revised draft that:
+* is written with a view to maximizing clarity and comprehensibility, particularly for individual software developers
+* takes care not to give, or have the appearance of giving, special legal privileges to NASA over other licensors and licensees (or else to give a clear justification to us of why that sort of structure is necessary) then I think we can make progress, perhaps rapid progress, towards approval.
+
+Richard
+
+
+
+
+On Wed, Feb 21, 2018 at 5:41 PM, Geurts, Bryan A. (GSFC-1401) <bryan.a.geurts at nasa.gov<mailto:bryan.a.geurts at nasa.gov>> wrote:
+All,
+
+I am just now seeing this after having been out over the long weekend, so apologies for a slow response.  We at NASA are very pleased to have someone finally express a willingness to work with us on certifying NOSA 2.0!  Apologies that I didn?t respond to Bruce?s December email, but, in looking back over my emails from that period, I couldn?t find it.  Believe me, we at NASA are more than ready to engage any and all interested parties in order to come to a resolution; whatever you need, we will provide as quickly as possible.  As you know, NASA first applied for certification nearly five years ago and has been baffled by a lack of action on the part of OSI ever since.  We responded to every comment from the license-review group as well as from the OSI license-review coordinator (Richard Fontana), but nothing has come of it so far.  In all honesty, we are now discussing the need to upgrade from NOSA 2.0 to NOSA 3.0, but that?s a discussion for another day, assuming we can get approval for 2.0 in short order.  Nigel Tzeng at AFL (below), Cem Karan at ARL, and others have been vocal advocates for NOSA 2.0 (many thanks to them) as some of the many persons and organizations, in particular government organizations, in need of the unique application of an open source license tailored for government created works.  From a legal perspective, government works are in a different category than other software because of a section of the US Copyright Statute (17 USC 105), which precludes the US federal government from creating works covered by a US copyright (foreign copyrights are allowed, as are copyrights assigned or licensed to the government).  Since copyright is the core legal theory under which open source software licenses operate, special accommodations must be made if government created works are to be protectable at all.  The NOSA is all about those special accommodations for government works; no other OSD compliant license addresses these issues.  NOSA 1.3, approved well over a decade ago, is admittedly a bit klunky by today?s standards, but represents a huge step forward for the times; NOSA 2.0 is several steps closer to the ?mainstream? OSI-approved licenses.  Both licenses were designed to be fully compliant with the OSD.
+
+Please help me understand the next step forward.  We have an open source legal team at NASA that wrote both NOSA 1.3 and 2.0, that meets regularly and is anxious to address any concerns.  We are happy to engage by email, by phone or even in person if that will move the process forward.
+
+Regards,
+Bryan
+
+Bryan A. Geurts
+Chief Patent Counsel
+NASA Goddard Space Flight Center
+Code 140.1, 8800 Greenbelt Road
+Greenbelt, MD 20771
+Phone:  301-286-7352<tel:(301)%20286-7352>
+Fax:  301-286-9502<tel:(301)%20286-9502>
+
+This document, including any attachments, contains information that is confidential, protected by the attorney-client or other privileges, or constitutes non-public information.  It is intended only for the intended recipients.  If you are not an intended recipient, please take appropriate steps to destroy this document in its entirety and notify the sender of its destruction.  Use, dissemination, distribution or reproduction of this information by unintended recipients is not authorized and may be unlawful.
+
+This communication should only be used for the particular matter discussed herein.  Changes in circumstances and changes in law can greatly alter any current legal advice.
+
+From: Tzeng, Nigel H. [mailto:Nigel.Tzeng at jhuapl.edu<mailto:Nigel.Tzeng at jhuapl.edu>]
+Sent: Tuesday, February 20, 2018 9:43 AM
+To: License submissions for OSI review <license-review at lists.opensource.org<mailto:license-review at lists.opensource.org>>; cem.f.karan.civ at mail.mil<mailto:cem.f.karan.civ at mail.mil>; Geurts, Bryan A. (GSFC-1401) <bryan.a.geurts at nasa.gov<mailto:bryan.a.geurts at nasa.gov>>

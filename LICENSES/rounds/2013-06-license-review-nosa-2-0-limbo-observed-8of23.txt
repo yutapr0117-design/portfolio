@@ -1,0 +1,750 @@
+This communication should only be used for the particular matter discussed herein.  Changes in circumstances and changes in law can greatly alter any current legal advice.
+
+
+-----Original Message-----
+From: Tzeng, Nigel H. [mailto:Nigel.Tzeng at jhuapl.edu] 
+Sent: Tuesday, July 09, 2013 8:51 AM
+To: License submissions for OSI review; Geurts, Bryan A. (GSFC-1401)
+Subject: Re: [License-review] For Approval: NASA Open Source Agreement 2.0
+
+I have a few questions regarding NOSA 2.0:
+ *  Can you explain to me the implications of section 2.A in comparison to 2.B?  NOSA 1.3 only had the equivalent to the new 2.B.
+
+I just answered this in a reply to the list, so I won't repeat it here.  Let me know if you didn't see it or if you have any other questions about it.  We added 2.A. to specifically address the situation of civil servant code writers.
+ *  3.A.1 is an interesting addition.  Could you provide some background regarding the inclusion?  Also your opinion on how this plays with FAR clause 52.227-14 or DFARS clauses 252.227-7013/7014.
+
+The cited FAR and DFAR clauses are exactly the reason for the addition of 3.A.1.  The requirements of an existing contract under the FAR or DFAR are meant to take precedence over the requirements of the NOSA.  For example, if, in fulfillment of a NASA contract, a contractor modifies software governed by the NOSA, it may argue, citing this clause, that under the NOSA it has the right, or even the obligation, to release its contribution under the NOSA.  While in most foreseeable circumstances NASA would agree with that pathway, NASA reserves the right to control that decision per the FAR.
+ *  Regarding a mixture of NOSA 1.3 and NOSA 2.0 code.  Notices in the source files have no indication of license, just agency copyright.  Are there any requirements on derivative works to further identify which is which even when no changes have been made to the original code?  Changing Section 3.C to indicate the license version in addition to copyright would be helpful for some downstream users if there are.
+
+Good point, and one we have not thought through.  Your suggestion may be the best approach.
+ *  Does 2.A wording regarding "portions of the Subject Software"
+coupled with the new 3.C civil servant copyright notice imply that we would expect to see this copyright header on a source file basis?
+
+Yes.  That seems to be the only way to make the distinction between civil servant and non-civil servant contributions.
+ *  Are current NOSA 1.3 projects expected to transition to NOSA 2.0 quickly assuming OSI approval?
+
+Yes, that is the plan.
+
+
+Thanks.
+
+On 7/9/13 1:38 AM, "Luis Villa" <luis at lu.is> wrote:
+
+>On Mon, Jun 24, 2013 at 8:58 PM, Josh Berkus <josh at postgresql.org> wrote:
+>>
+>> Yes, I have to wonder: what does "request" mean in terms of a license?
+>> It seems like it's saying "if you want to", which means that that 
+>> clause 3.K. is without real force, but I'd like to hear an attorney 
+>> tell us what "request" means in legalese.
+>
+>It would be ideal to have Bryan answer this in the context of NASA, but 
+>in the meantime, I know of no precedent where "request" would have 
+>anything other than the plain language meaning you'd expect it to have. 
+>That would be doubly so in this context, which is described as part of 
+>an "effort" rather than a requirement or obligation, and uses "please" 
+>in the opening section.
+>
+>Bryan, I'm trying to understand the interaction between 2(A) and 2(B) 
+>and was hoping you could answer. Specifically, is the idea that 2(A) 
+>covers works covered by 17 USC 105, while 2(B) covers anything not 
+>covered by 17 USC 105?
+>
+>Anyone else have any concerns/thoughts/etc. about the license?
+>
+>Luis
+>_______________________________________________
+>License-review mailing list
+>License-review at opensource.org
+>http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+From bryan.a.geurts at nasa.gov  Thu Jul 11 16:29:19 2013
+From: bryan.a.geurts at nasa.gov (Geurts, Bryan A. (GSFC-1401))
+Date: Thu, 11 Jul 2013 11:29:19 -0500
+Subject: [License-review] For Approval: NASA Open Source Agreement 2.0
+In-Reply-To: <51DC465C.20603@postgresql.org>
+References: <B6165E1FE93E09499631207758A62BFDB7395E362D@NDMSSCC08.ndc.nasa.gov> <51C85B2B.8020004@piana.eu> <87wqpj36o6.fsf@ktab.red-bean.com> <51C9156F.7040305@postgresql.org> <CAFPTOkXgCqLuPGg_Hwv+2iKk4UDo9AfkfWwJxgKPzwPvZik9Tg@mail.gmail.com> <51DC465C.20603@postgresql.org>
+Message-ID: <B6165E1FE93E09499631207758A62BFDB73AC527FB@NDMSSCC08.ndc.nasa.gov>
+
+Response with regards to 3.K. is in my earlier post.  Let me know if you don't have it.
+
+Bryan A. Geurts
+Chief Patent Counsel
+NASA Goddard Space Flight Center
+Code 140.1, 8800 Greenbelt Road
+Greenbelt, MD 20771
+Phone:  301-286-7352
+Fax:  310-286-9502
+
+This document, including any attachments, contains information that is confidential, protected by the attorney-client or other privileges, or constitutes non-public information.  It is intended only for the intended recipients.  If you are not an intended recipient, please take appropriate steps to destroy this document in its entirety and notify the sender of its destruction.  Use, dissemination, distribution or reproduction of this information by unintended recipients is not authorized and may be unlawful.
+
+This communication should only be used for the particular matter discussed herein.  Changes in circumstances and changes in law can greatly alter any current legal advice.
+
+
+-----Original Message-----
+From: Josh Berkus [mailto:josh at postgresql.org] 
+Sent: Tuesday, July 09, 2013 1:20 PM
+To: License submissions for OSI review
+Cc: Luis Villa; Geurts, Bryan A. (GSFC-1401)
+Subject: Re: [License-review] For Approval: NASA Open Source Agreement 2.0
+
+
+> Bryan, I'm trying to understand the interaction between 2(A) and 2(B) 
+> and was hoping you could answer. Specifically, is the idea that 2(A) 
+> covers works covered by 17 USC 105, while 2(B) covers anything not 
+> covered by 17 USC 105?
+> 
+> Anyone else have any concerns/thoughts/etc. about the license?
+
+I haven't seen any answer about 3.K. per my earlier post.
+
+--Josh Berkus
+
+
+From engel.nyst at gmail.com  Fri Jul 12 00:39:07 2013
+From: engel.nyst at gmail.com (Engel Nyst)
+Date: Fri, 12 Jul 2013 03:39:07 +0300
+Subject: [License-review] For Approval: NASA Open Source Agreement 2.0
+In-Reply-To: <20130709155024.GF9153@mercury.ccil.org>
+References: <B6165E1FE93E09499631207758A62BFDB7395E362D@NDMSSCC08.ndc.nasa.gov> <51C85B2B.8020004@piana.eu> <87wqpj36o6.fsf@ktab.red-bean.com> <51C9156F.7040305@postgresql.org> <CAFPTOkXgCqLuPGg_Hwv+2iKk4UDo9AfkfWwJxgKPzwPvZik9Tg@mail.gmail.com> <51DBEC9B.1070108@gmail.com> <20130709155024.GF9153@mercury.ccil.org>
+Message-ID: <51DF502B.6080107@gmail.com>
+
+On 07/09/2013 06:50 PM, John Cowan wrote:
+>> Indeed, to me the previous version reads clearly the "request" as
+>> license condition.
+>
+> "Request" can never be a condition; it would have to be "require".  When
+> you "request" something, you merely ask for it without any conditions
+> whatsoever.
+>
+
+I stand corrected, and I apologize. Thanks to the list answers and upon
+further thought, I believe my previous statement has been an unjustified
+leap, and provably incorrect as stated.
+
+On 06/25/2013 12:19 AM, Patrice-Emmanuel Schmitz wrote:
+> The difference between "requests" and "requires" is subtile :-).
+> By the way, which OSD principle could possibly been violated here?
+>
+
+The website or email of the originating entity is not technology-neutral 
+(OSD 10). A website can be down, an email can be abandoned, a downstream 
+user can have no internet access, or the entity originating the software 
+can no longer exist.
+Non-discrimination against users or groups, OSD 5, is arguably at odds 
+with identification of recipients and downstream distributors of the 
+software. I think anonymous or pseudonymous receipt and distribution is 
+implied in the OSD.
+OSD 7 would be even more relevant, in the sense that the rights of the 
+recipient to use or modify the software for their needs should not 
+depend on the user doing additional actions like registration. The 
+paragraph applies to any person or entity upon receipt, as far as I can 
+tell, not only to those who download it from NASA site.
+I think requiring registration for tracking usage, or some other form of 
+calling back to the licensor for the rights to use or distribute, is not 
+consistent with an open source license. IMHO this has nothing to do with 
+registration on the licensor's site, or integration of a request in the 
+software or documentation, only with it as a clause of a license.
+
+On 07/10/2013 08:45 AM, Carlo Piana wrote: > Despite the language correctly interpreted is not a condition, as many > pointed out, the clause is open to ambiguity. Ambiguity that shall be > resolved by the submitter, IMHO. >
+
+Thank you for expressing it much better than I could.
+
+
+From bryan.a.geurts at nasa.gov  Wed Feb  4 18:32:00 2015
+From: bryan.a.geurts at nasa.gov (Geurts, Bryan A. (GSFC-1401))
+Date: Wed, 4 Feb 2015 18:32:00 +0000
+Subject: [License-review] FW: For Approval: NASA Open Source Agreement 2.0
+In-Reply-To: <8A5F109E20872E4F91C12E0ABF615A5AA0EA1E3A1D@NDMSSCC08.ndc.nasa.gov>
+References: <8A5F109E20872E4F91C12E0ABF615A5AA0EA1E3A1D@NDMSSCC08.ndc.nasa.gov>
+Message-ID: <EEA0F71EB77D4141B3E9ABFB96C6EB54332F33@NDMSMBX404.ndc.nasa.gov>
+
+I am re-submitting this request for certification since the original request (see below) will be two years old in June, and we have not heard anything from OSI in some time.  We are anxious to get approval of the NASA Open Source Agreement 2.0 and look forward to assisting with what is necessary.
+
+Please let me know how I can help.
+
+Bryan
+
+Bryan A. Geurts
+Chief Patent Counsel
+NASA Goddard Space Flight Center
+Code 140.1, 8800 Greenbelt Road
+Greenbelt, MD 20771
+Phone:  301-286-7352
+Fax:  301-286-9502
+
+This document, including any attachments, contains information that is confidential, protected by the attorney-client or other privileges, or constitutes non-public information.  It is intended only for the intended recipients.  If you are not an intended recipient, please take appropriate steps to destroy this document in its entirety and notify the sender of its destruction.  Use, dissemination, distribution or reproduction of this information by unintended recipients is not authorized and may be unlawful.
+
+This communication should only be used for the particular matter discussed herein.  Changes in circumstances and changes in law can greatly alter any current legal advice.
+
+From: Geurts, Bryan A. (GSFC-1401)
+Sent: Friday, June 07, 2013 11:24 AM
+To: license-review at opensource.org
+Subject: For Approval: NASA Open Source Agreement 2.0
+
+Please accept for OSI review and approval the attached NASA Open Source Agreement 2.0 (NOSA 2.0) as a replacement for the existing NASA Open Source Agreement 1.3.
+
+NASA proposes that NOSA 2.0 be placed in the license proliferation category of SPECIAL PURPOSE LICENSES.  It is designed to be used by US Government Agencies releasing original software to the public.
+
+Accordingly, once NOSA 2.0 has been approved, NASA proposes that the current NOSA 1.3 be retired (with full government retirement benefits, such as they are).
+
+This new version of the NOSA retains clauses unique to government licensing e.g. choice of law, disclaimer of warranties and treatment of civil servant contributors, and yet removes some of the more unsavory requirements of the earlier version, such as the requirement of contributors to warrant that they are the original authors of their contribution.
+
+Please direct any questions about this submittal to me as License Steward for the NOSA 2.0 and 1.3.  Thank you for your consideration.
+
+Bryan A. Geurts
+Chief Patent Counsel
+NASA Goddard Space Flight Center
+Code 140.1, 8800 Greenbelt Road
+Greenbelt, MD 20771
+Phone:  301-286-7352
+Fax:  310-286-9502
+
+This document, including any attachments, contains information that is confidential, protected by the attorney-client or other privileges, or constitutes non-public information.  It is intended only for the intended recipients.  If you are not an intended recipient, please take appropriate steps to destroy this document in its entirety and notify the sender of its destruction.  Use, dissemination, distribution or reproduction of this information by unintended recipients is not authorized and may be unlawful.
+
+This communication should only be used for the particular matter discussed herein.  Changes in circumstances and changes in law can greatly alter any current legal advice.
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20150204/a59e1e04/attachment.html>
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: NOSA Ver 2.0 OSI submitted draft 2013June13.txt
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20150204/a59e1e04/attachment.txt>
+
+From josh at postgresql.org  Wed Feb 11 22:33:31 2015
+From: josh at postgresql.org (Josh Berkus)
+Date: Wed, 11 Feb 2015 14:33:31 -0800
+Subject: [License-review] FW: For Approval: NASA Open Source Agreement 2.0
+In-Reply-To: <EEA0F71EB77D4141B3E9ABFB96C6EB54332F33@NDMSMBX404.ndc.nasa.gov>
+References: <8A5F109E20872E4F91C12E0ABF615A5AA0EA1E3A1D@NDMSSCC08.ndc.nasa.gov> <EEA0F71EB77D4141B3E9ABFB96C6EB54332F33@NDMSMBX404.ndc.nasa.gov>
+Message-ID: <54DBD8BB.3010402@postgresql.org>
+
+On 02/04/2015 10:32 AM, Geurts, Bryan A. (GSFC-1401) wrote:
+> I am re-submitting this request for certification since the original
+> request (see below) will be two years old in June, and we have not heard
+> anything from OSI in some time.  We are anxious to get approval of the
+> NASA Open Source Agreement 2.0 and look forward to assisting with what
+> is necessary.
+
+Speaking for the developer wing of this committee, you've satisfied me. But I can't speak for the legal wing.
+
+--Josh Berkus
+
+
+
+From fontana at opensource.org  Thu Feb  4 20:01:43 2016
+From: fontana at opensource.org (Richard Fontana)
+Date: Thu, 4 Feb 2016 15:01:43 -0500
+Subject: [License-review] NOSA 2.0
+Message-ID: <20160204200143.GA5066@sharpeleven.org>
+
+I am going to just start going through the license by way of posts to
+this list. I hope no one minds this approach (and I'll abandon it if
+it becomes unworkable for whatever reason). I will use the version
+submitted in February 2015 (which I believe was the same as that
+originally submitted in 2013, although Bryan offered to tweak certain
+aspects of the license in response to some commentary on the list).
+
+The license starts out with this:
+
+[begin]
+
+NASA OPEN SOURCE AGREEMENT VERSION 2.0
+
+This open source agreement (?Agreement?) defines the rights of use,
+reproduction, modification and redistribution of certain software
+released by the United States Government (?Government?) as represented
+by the Government Agency listed below (?Government Agency?).  The
+United States Government, as represented by Government Agency, is an
+intended third-party beneficiary of all subsequent redistributions of
+the Subject Software.  Anyone who uses, reproduces, modifies or
+redistributes the Subject Software, as defined herein, or any part
+thereof, is, by that action, accepting in full the responsibilities
+and obligations contained in this Agreement.
+
+Government Agency: ______________________________________________________ 
+Government Agency Original Software Designation: _____________________________
+Government Agency Original Software Title & Ver. No. : _________________________
+Government Agency Point of Contact: ________________________________________
+User Registration Requested.  Please Visit http://________________________________
+
+[end]
+
+So, no issues with anything there, leaving aside the definition of
+'Subject Software' which I'll get to in some subsequent post. :)
+
+Richard
+
+
+From fontana at opensource.org  Thu Feb  4 21:41:47 2016
+From: fontana at opensource.org (Richard Fontana)
+Date: Thu, 4 Feb 2016 16:41:47 -0500
+Subject: [License-review] NOSA 2.0
+In-Reply-To: <20160204200143.GA5066@sharpeleven.org>
+References: <20160204200143.GA5066@sharpeleven.org>
+Message-ID: <20160204214147.GA6065@sharpeleven.org>
+
+On Thu, Feb 04, 2016 at 03:01:43PM -0500, Richard Fontana wrote:
+> The
+> United States Government, as represented by Government Agency, is an
+> intended third-party beneficiary of all subsequent redistributions of
+> the Subject Software.  Anyone who uses, reproduces, modifies or
+> redistributes the Subject Software, as defined herein, or any part
+> thereof, is, by that action, accepting in full the responsibilities
+> and obligations contained in this Agreement.
+
+While I'm not certain yet there's a problem here, I have the feeling
+that 'Original Software' would have made more sense there than
+'Subject Software' (a superset of 'Original Software').
+
+I also question whether 'or any part thereof' is necessary and wonder
+whether that could lead to some problematic consequence. Maybe it
+would be better if the reference to 'any part thereof' were restricted
+to 'Original Software'.
+
+
+
+
+
+
+
+From fontana at opensource.org  Thu Feb  4 22:07:21 2016
+From: fontana at opensource.org (Richard Fontana)
+Date: Thu, 4 Feb 2016 17:07:21 -0500
+Subject: [License-review] NOSA 2.0
+In-Reply-To: <20160204214147.GA6065@sharpeleven.org>
+References: <20160204200143.GA5066@sharpeleven.org> <20160204214147.GA6065@sharpeleven.org>
+Message-ID: <20160204220721.GA6141@sharpeleven.org>
+
+Here's the 'DEFINITIONS' section of NOSA 2.0 in full, with comments
+from me (without looking at how these are used in the body of the
+license):
+
+1. DEFINITIONS
+
+A. ?Contributor? means Government Agency and any other person or
+entity that creates or contributes to the creation of Subject
+Software.
+
+COMMENT: Potentially confusing, because 'Subject Software' can include
+downstream Derivative Works. Not sure yet if there is a problem here.
+
+B. ?Contribution? means any Work, including Your own Works and Works
+of other Contributors, that are Derivative Works of the Subject
+Software and that are intentionally submitted by You or other
+Contributors to Government Agency for inclusion in, or documentation
+of, the Subject Software.
+
+C. ?Covered Patents? means any patent claims licensable by a
+Contributor that are necessarily infringed by the manufacture, import,
+use, offer for sale, or sale of a Contributor?s Derivative Works or
+Contributions alone or when combined with the Subject Software.
+
+COMMENT: This seems to mean that Covered Patents will never include
+patents held by 'Government Agency'. While 'Contributor' includes
+'Government Agency', what if all the Government Agency distributes is
+'Original Software'? This might be a major problem (not sure
+yet). Apart from that this definition is confusing given the umbrella
+definition of 'Subject Software'.
+
+D. ?Derivative Work? means a Work that is based on (or derived from)
+the Subject Software
+
+COMMENT: Why 'Subject Software' (which includes Derivative Works,
+which includes Contributions) rather than 'Original Software'? Not
+sure if this is a problem, but potentially confusing.
+
+and for which the revisions, annotations, or other modifications, as a
+whole, represent an original work of authorship. Derivative Works
+shall not include (i) Works that remain separate from, or merely link
+to, the Subject Software, or (ii) additions to the Subject Software
+which are separable modules of software distributed in conjunction
+with the Subject Software, or parts of the Subject Software, under
+their own license agreement. Including Subject Software or parts
+thereof in a Larger Work is not in and of itself a Derivative Work.
+
+E. ?Larger Work? means software that combines Subject Software, or
+portions thereof, with software that remains separate from, or is
+merely linked to, the Subject Software and that is not governed by the
+terms of this Agreement.
+
+F. ?Original Software? means the software first released under this
+Agreement by Government Agency with the Government Agency designation
+and title listed above, including source code, object code and
+accompanying documentation, if any.
+
+G.  ?Subject Software? means the Original Software, Derivative Works,
+or Contributions, and any combination or respective parts thereof.
+
+COMMENT: I have the feeling that the attempted comprehensiveness of
+this definition leads to problems.
+
+H. ?Work? means an original work of authorship fixed in a tangible
+medium of expression, now known or later developed, from which it can
+be perceived, reproduced, or otherwise communicated, either directly
+or with the aid of a machine or device, including Derivative Works.  A
+work is original if it is independently created by You, as opposed to
+copied from other works, and it possesses at least some minimal degree
+of creativity.
+
+I. ?You? or ?Your? means an individual or a legal entity exercising
+rights under, and complying with all the terms of, this Agreement. For
+legal entities, ?You? or ?Your? includes an entity and any other
+entity that controls, is controlled by, or is under common control
+with such entity. For the purposes of this definition, ?control? means
+(i) the power, direct or indirect, to cause the direction or
+management of such entity, whether by contract or otherwise, or (ii)
+ownership of fifty percent (50%) or more of the outstanding shares, or
+(iii) beneficial ownership of such entity.
+
+
+From fontana at opensource.org  Wed Mar 23 21:04:28 2016
+From: fontana at opensource.org (Richard Fontana)
+Date: Wed, 23 Mar 2016 17:04:28 -0400
+Subject: [License-review] Some more comments on NOSA 2.0
+Message-ID: <20160323210428.GA9321@sharpeleven.org>
+
+This is based on a draft message I wrote some time ago but never sent
+to license-review because I hadn't completed it. If it reads a bit
+oddly I think it is because I was intending to proceed with my effort
+to go through NOSA 2.0 in sequence, here addressing section 2. (I do
+not remember why I passed over 2B -- either I saw nothing worthy of
+comment on it or I meant to examine whether there was a problem in 2B
+comparable to the problem I seemed to have detected in 2C.) I'm just
+sending it now with light editing and will try to elaborate on it
+further, at least to the extent there is interest.
+
+There may be some inconsistency in my tentative conclusion at the end
+and what I've said recently on this list. But the basic point is that
+I do not know how to interpret the NOSA patent license grant and I
+believe one interpretation raises a difficult policy issue for OSI.
+
+I ask NASA to say whether I am reading the license correctly or
+not. If I'm not I nonetheless think the license has to be revised to
+address this significant lack of clarity. If I *am* then we need to
+address the OSD conformance issue. I am not sure there is much point
+to addressing other problems with NOSA 2.0 before this one is
+resolved.
+
+
+Here's section 2 of NOSA 2.0:
+
+= begin =
+
+2. GRANT OF RIGHTS YOU RECEIVE (FROM UPSTREAM CONTRIBUTORS) ALONG WITH
+YOUR GRANT OF RIGHTS AND OBLIGATIONS IF YOU MAKE DERIVATIVE WORKS OF
+OR REDISTRIBUTE THE SUBJECT SOFTWARE (TO DOWNSTREAM RECIPIENTS)
+
+A. Subject to, and, so long as You comply with, the terms and
+conditions of this Agreement, the Government hereby grants permission
+to You to use civil servant authored U.S. Government Work (17 U.S.C. ?
+105) portions of the Subject Software, if any, in the United States.
+
+B. Under Non Patent Rights/Copyright License: Subject to, and, so long
+as You comply with, the terms and conditions of this Agreement, each
+Contributor hereby grants to You (with respect to the Subject Software
+and its Contributions to or Derivative Works of the Subject Software)
+and You hereby grant to each recipient (with respect to Your
+Contributions to and Derivative Works of the Subject Software, as
+defined in Paragraphs 1.B and 1.C) a non-exclusive, worldwide,
+royalty-free, irrevocable (except as stated in Paragraphs 3.J and 5.A)
+license to use, reproduce, modify, redistribute, prepare Derivative
+Works of, publicly display, publicly perform, and sublicense the
+Subject Software.
+
+C. Under Patent Rights: Subject to, and, so long as You comply with,
+the terms and conditions of this Agreement, each Contributor hereby
+grants to You (with respect to the Subject Software and its
+Contributions to or Derivative Works of the Subject Software) and You
+grant to each recipient (with respect to Your Contributions to and
+Derivative Works of the Subject Software, as defined in Paragraphs 1.B
+and 1.C) a non-exclusive, worldwide, royalty-free, irrevocable (except
+as stated in Paragraphs 3.J and 5.A) license with respect to its
+Covered Patents to make, have made, use, redistribute, reproduce,
+sell, offer to sell, import, sublicense and otherwise transfer the
+Subject Software.
+
+= end =
+
+Here's what 17 USC 105 says:
+ Copyright protection under this title is not available for any work of the United States Government, but the United States Government is not precluded from receiving and holding copyrights transferred to it by assignment, bequest, or otherwise.
+
+Thus I believe the intent of NOSA 2.0 2A is to say "here's software
+that is by statute material we can't restrict within the US as a
+matter of copyright, and you can use it subject to the terms of this
+agreement".
+
+Regarding 2C, I contend that given the way 'Covered Patents' is
+defined, the Government Agency has no 'Covered Patents' reading on
+'Original Software' by definition. Therefore that Government Agency is
+never subject to 2C with respect to 'Original Software'.  So, for
+example, if NASA releases some new code under NOSA 2.0, NASA is not
+granting any patent licenses under 2C. Thus it looks like NASA is
+creating a license that results in it (and sibling federal agencies)
+granting fewer patent licenses than entities in the private sector who
+might be NOSA 2.0 licensees. 
+
+One possibility is that this feature was not intended, and is rather
+the understandable result of the one-sided drafting of an unusually
+complex (for open source purposes) license. Or perhaps I am giving the
+license an unreasonable or unjustified reading. But it would be easy
+to believe that it is in NASA's interests to grant narrower rather
+than broader patent licenses through a mechanism such as this license. 
+
+Assuming my reading of the license is correct, whether there is an OSD
+problem here, I'm not sure, but I'm inclined to think so. I won't say
+there is no OSI precedent for licenses that reserve special privileges
+for classes of initial licensors with respect to copyright and/or
+patent license grants,[1] but I am skeptical that any such licenses
+would be approved by OSI today, and there's probably a good argument
+that such licenses are inconsistent with the anti-discrimination
+planks of the OSD. If this was intentional, it is disturbing to me
+because this point escaped the attention of anyone during the earlier
+discussion of this license and NASA itself has not called attention to
+it.
+
+Richard
+
+[1]I have intentionally avoided looking at NOSA 1.3 when considering
+NOSA 2.0, so I have not attempted to see whether this feature is
+present in the earlier version. 
+
+
+
+
+From love.nystrom at gmail.com  Sat Mar 26 06:59:22 2016
+From: love.nystrom at gmail.com (Love Nystrom)
+Date: Sat, 26 Mar 2016 13:59:22 +0700
+Subject: [License-review] Some more comments on NOSA 2.0
+In-Reply-To: <20160323210428.GA9321@sharpeleven.org>
+References: <20160323210428.GA9321@sharpeleven.org>
+Message-ID: <56F6334A.5060109@gmail.com>
+
+A penny to the pot...
+
+On 2016-03-24 04.04, Richard Fontana wrote:
+> 2 ...
+> A. Subject to, and, so long as You comply with, the terms and
+> conditions of this Agreement, the Government hereby grants permission
+> to You to use civil servant authored U.S. Government Work (17 U.S.C. ?
+> 105) portions of the Subject Software, if any, in the United States.
+
+"in the United States" ... That can't be right, can it?
+Should export restrictions, if any, really be applicable to open source 
+software ?
+That would make it "half open" at best.
+
+IMHO, deleting that particular regional limitation would be better.
+
+// Neo
+
+
+From fontana at opensource.org  Sun Mar 27 03:55:58 2016
+From: fontana at opensource.org (Richard Fontana)
+Date: Sat, 26 Mar 2016 23:55:58 -0400
+Subject: [License-review] Some more comments on NOSA 2.0
+In-Reply-To: <56F6334A.5060109@gmail.com>
+References: <20160323210428.GA9321@sharpeleven.org> <56F6334A.5060109@gmail.com>
+Message-ID: <20160327035558.GA11943@sharpeleven.org>
+
+Note: NOSA 2.0 as submitted is at:
+https://lists.opensource.org/pipermail/license-review/attachments/20130607/0d342a59/attachment.txt
+(should have posted that upthread)
+
+On Sat, Mar 26, 2016 at 01:59:22PM +0700, Love Nystrom wrote:
+> A penny to the pot...
+> 
+> On 2016-03-24 04.04, Richard Fontana wrote:
+> >2 ...
+> >A. Subject to, and, so long as You comply with, the terms and
+> >conditions of this Agreement, the Government hereby grants permission
+> >to You to use civil servant authored U.S. Government Work (17 U.S.C. ?
+> >105) portions of the Subject Software, if any, in the United States.
+> 
+> "in the United States" ... That can't be right, can it?
+> Should export restrictions, if any, really be applicable to open source
+> software ?
+> That would make it "half open" at best.
+> 
+> IMHO, deleting that particular regional limitation would be better.
+
+I don't believe this has to do with export restrictions nor is it a
+regional limitation. It has to be read in connection with 2B:
+ Under Non Patent Rights/Copyright License: Subject to, and, so long as You comply with, the terms and conditions of this Agreement, each Contributor hereby grants to You (with respect to the Subject Software and its Contributions to or Derivative Works of the Subject Software) and You hereby grant to each recipient (with respect to Your Contributions to and Derivative Works of the Subject Software, as defined in Paragraphs 1.B and 1.C) a non-exclusive, worldwide, royalty-free, irrevocable (except as stated in Paragraphs 3.J and 5.A) license to use, reproduce, modify, redistribute, prepare Derivative Works of, publicly display, publicly perform, and sublicense the Subject Software.
+
+Under 17 USC 105, referenced in 2A, "Copyright protection under this
+title is not available for any work of the United States Government",
+i.e. US government works (work for hire by US government civil
+servants) is by statute in the public domain as to copyright, but
+qualify for copyright in other jurisdictions.
+
+The apparent position of NASA (and, I know from past experience, some
+lawyers at other federal agencies) is that 17 USC 105 is effectively a
+kind of mandate that the agency not enter into any sort of license
+agreement which could possibly be read as suggesting that the federal
+agency could claim copyright on a US civil servant work inside the
+United States, and which does not therefore explicitly carve out US
+civil servant works from any sort of (intra-US) copyright license
+grant. 
+
+Richard
+
+
+
+
+From fontana at opensource.org  Thu Jan  5 20:57:12 2017
+From: fontana at opensource.org (Richard Fontana)
+Date: Thu, 5 Jan 2017 15:57:12 -0500
+Subject: [License-review] NOSA 2.0 - 'Up or Down' vote
+Message-ID: <20170105205711.lks6d5zyvafu34n4@antelope>
+
+As some know, NOSA 2.0 [1] has been languishing in a limbo review
+state for an extremely long time.
+
+In my opinion, NOSA 2.0 is, in its current form, an overly complex and
+badly drafted license. I cannot gain enough confidence that it meets
+the letter and spirit of the Open Source Definition, without
+substantial revision, which the license steward seems disinclined to
+undertake. This is just my view and does not reflect any sort of
+consensus view, although I am not sure one could really demonstrate a
+consensus view on the other side. (It should be noted that Luis Villa,
+a former OSI board member and one of my personal heroes, actually did
+recommend early on that the OSI approve NOSA 2.0, but this never went
+to a vote. [2])
+
+The reason I kept the review alive, in some sense, is twofold. I
+thought that we could somehow use this forum to collectively revise
+the license, but that did not work, in part because of the high
+complexity of the license. (This forum is by contrast not too bad at
+dealing with the more typical shorter, simpler license texts.) I also
+believed for a long time that it was contrary to de facto OSI policy
+to reject a license outright, as opposed to gently directing the
+license submitter to go back to the drawing board. I later discovered
+that outright license rejection, though it seems to have been uncommon
+if it occurred at all in the past several years, was sometimes done
+earlier in the OSI's history.
+
+A number of people, including the license steward and submitter, have
+asked at various times out of understandable frustration that there be
+an 'up or down' vote on NOSA 2.0 rather than a continuation of the
+current situation. There is an OSI board meeting next Wednesday. I
+will place the 'up or down' vote on the agenda, and (with reluctance)
+I will recommend that the vote be 'down' out of concern for the
+integrity of the OSD and the license approval process. It is
+conceivable that the OSI board will wish to treat NOSA 2.0 in some
+manner other than 'up or down' though.
+
+If anyone has comments on NOSA 2.0 that they'd like the OSI board to
+consider please provide them before next Wednesday.
+
+Richard
+
+[1] See e.g.:
+https://lists.opensource.org/pipermail/license-review/2013-June/001944.html
+(original submission)
+https://lists.opensource.org/pipermail/license-review/2014-June/002177.html
+https://lists.opensource.org/pipermail/license-review/2014-December/002296.html
+https://lists.opensource.org/pipermail/license-review/2015-September/002478.html
+https://lists.opensource.org/pipermail/license-review/2016-February/002716.html
+https://lists.opensource.org/pipermail/license-review/2016-February/thread.html
+https://lists.opensource.org/pipermail/license-review/2016-February/002718.html
+https://lists.opensource.org/pipermail/license-review/2016-March/002721.html
+https://lists.opensource.org/pipermail/license-review/2016-March/002722.html
+https://lists.opensource.org/pipermail/license-review/2016-March/002723.html
+https://lists.opensource.org/pipermail/license-review/2016-March/002724.html
+https://lists.opensource.org/pipermail/license-review/2016-March/002731.html
+https://lists.opensource.org/pipermail/license-review/2016-April/002735.html
+https://lists.opensource.org/pipermail/license-review/2016-April/002737.html
+https://lists.opensource.org/pipermail/license-review/2016-April/002736.html
+
+[2] https://lists.opensource.org/pipermail/license-review/2013-October/001999.html
+
+
+From josh at postgresql.org  Thu Jan  5 21:00:24 2017
+From: josh at postgresql.org (Josh berkus)
+Date: Thu, 5 Jan 2017 13:00:24 -0800
+Subject: [License-review] NOSA 2.0 - 'Up or Down' vote
+In-Reply-To: <20170105205711.lks6d5zyvafu34n4@antelope>
+References: <20170105205711.lks6d5zyvafu34n4@antelope>
+Message-ID: <842bc658-6143-348c-1e29-bcd920abdc7a@postgresql.org>
+
+On 01/05/2017 12:57 PM, Richard Fontana wrote:
+> If anyone has comments on NOSA 2.0 that they'd like the OSI board to
+> consider please provide them before next Wednesday.
+
+Can we have the issues withe the NOSA, in detail, doc'd somewhere?
+Right now they're spread out over 3 years of email discussion comments.
+I doubt the submitter is clear on the problems with the license, either,
+which makes it hard for them to resolve them.
+
+I think NOSA really shows how a mailing list is not adequate to the
+kinds of license discussions we need to have these days.
+
+
+From Nigel.Tzeng at jhuapl.edu  Thu Jan  5 22:34:03 2017
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Thu, 5 Jan 2017 22:34:03 +0000
+Subject: [License-review] NOSA 2.0 - 'Up or Down' vote
+In-Reply-To: <20170105205711.lks6d5zyvafu34n4@antelope>
+References: <20170105205711.lks6d5zyvafu34n4@antelope>
+Message-ID: <D4941E7A.33FC8%Nigel.Tzeng@jhuapl.edu>
+
+Richard,
+
+Are you also going to ask about asymmetry with permissive upstream and
+copyleft downstream?  This was an action item from the UCL license
+discussion.
+
+It should be conveyed that no one else apparently had significant issue
+with NOSA 2.0 and it is a special purpose license for government use.  I
+believe that more people recommended approval (more than 1) than rejection
+(1). I don?t believe that you convinced anyone else that NOSA v2 violated
+OSD or that it would require ?substantial revision? to do so.
+
+This is not the same thing as being unable to achieve a consensus view or
+a failure of the review process to adjudicate complex licenses.  That you
+disagreed with NASA?s interpretation of 51 USC 20141 is not a failure of
+the process or indication that the license is too complex for the needs of
+the Government Open Source Software (GOSS) community.
+
+I would ask that the review process be amended that licenses automatically
+go to an up or down vote within 6 months of submission unless further
+delay is requested by the submitter and that the recommendation to the
+board as to the opinion of this list be as transparent as possible and in
+the format that Luis used in his reports.
+
+Regards,
+
+Nigel
+
+
+
+On 1/5/17, 3:57 PM, "License-review on behalf of Richard Fontana"
+<license-review-bounces at opensource.org on behalf of
+fontana at opensource.org> wrote:
+
+>As some know, NOSA 2.0 [1] has been languishing in a limbo review
+>state for an extremely long time.
+>
+>In my opinion, NOSA 2.0 is, in its current form, an overly complex and
+>badly drafted license. I cannot gain enough confidence that it meets
+>the letter and spirit of the Open Source Definition, without
+>substantial revision, which the license steward seems disinclined to
+>undertake. This is just my view and does not reflect any sort of
+>consensus view, although I am not sure one could really demonstrate a
+>consensus view on the other side. (It should be noted that Luis Villa,
+>a former OSI board member and one of my personal heroes, actually did
+>recommend early on that the OSI approve NOSA 2.0, but this never went
+>to a vote. [2])
+>
+>The reason I kept the review alive, in some sense, is twofold. I
+>thought that we could somehow use this forum to collectively revise
+>the license, but that did not work, in part because of the high
+>complexity of the license. (This forum is by contrast not too bad at
+>dealing with the more typical shorter, simpler license texts.) I also
+>believed for a long time that it was contrary to de facto OSI policy
+>to reject a license outright, as opposed to gently directing the
+>license submitter to go back to the drawing board. I later discovered
+>that outright license rejection, though it seems to have been uncommon

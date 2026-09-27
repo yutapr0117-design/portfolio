@@ -1,0 +1,750 @@
+> the
+
+you and anyone else with a similar opinion are most likely not trained 
+to call that anything.  *I'm* not even trained to call it anything and 
+I've spent a lot of time studying law.  I won't even try.  Spend a few 
+years doing nothing but government licensing and arguing cases then try 
+labeling it.
+
+
+> GPL, MPL and CPL; similarly, the OSL contains a reciprocity condition
+> that
+> requires any licensee who distributes derivative works of OSL-licensed
+> software to do so under the OSL. You don't need to write a new license
+> to
+> obtain that license feature.
+> 
+> I'm sorry if I've misunderstood your license by relying on your
+> summary of
+> it rather than the license itself. I intend to read through the
+> license
+> itself soon, but I wanted to get these general questions on the table
+> first.
+
+I think you not only misunderstood the license, but you may only have 
+succeeded in bringing out the armchair lawyers in force to debate these 
+misguided points.  It just doesn't do anyone any good.
+
+
+Richard Schilling
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From lichengtai at yahoo.com  Fri Feb 13 04:05:10 2004
+From: lichengtai at yahoo.com (Andy Tai)
+Date: Thu, 12 Feb 2004 20:05:10 -0800 (PST)
+Subject: The NASA license may be unconstitutional?  Re: For Approval: NASA Open Source Agreement Version 1.1
+Message-ID: <20040213040510.63770.qmail@web10508.mail.yahoo.com>
+
+The NASA license as proposed may be against the law in
+many locations.  For example, in Taiwan the
+Constitution of the Republic of China is the supreme
+law of the land.  The NASA license demands that it is
+governed by US Federal Law, which conflicts with the
+ROC's sovereignty and copyright laws and this
+requirement is unconstitutional.  
+
+The same probably is true for most locations outside
+the US.
+
+--- Bryan Geurts <Bryan.A.Geurts at nasa.gov> wrote:
+> This Email was prepared in satisfaction of OSI
+> Certification Process Step 
+> 
+>          ii.  Federal Statute mandates that the U.S.
+> Government can only be 
+> held subject to United States federal law.  See 5.C.
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From ian at airs.com  Fri Feb 13 04:42:10 2004
+From: ian at airs.com (Ian Lance Taylor)
+Date: 12 Feb 2004 23:42:10 -0500
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213014612.GC6404@foghorn.dmz.rsmba.biz>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz>
+Message-ID: <m3n07npp3x.fsf@gossamer.airs.com>
+
+Richard Schilling <rschi at rsmba.biz> writes:
+
+> > Such provisions are not allowed in an open source license. Reporting
+> > requirements are viewed as unreasonable limitations on the rights of
+> > licensees to do anything they want internally with open source
+> 
+> Biggest problem of all here - who in all of creation has the authority
+> on blessing open source licenses?
+
+Huh?  The point of this mailing list is to advise OSI on blessing open
+source licenses.  You don't have to believe that OSI's blessing has
+any value.  But there isn't much point to joining this mailing list if
+you reject the whole concept of OSI blessing a license.
+
+> I maintain that an open source license has certain characteristics and
+> achieves some well defined goals - the primary one being quick, open
+> distribution or source code and documentation to the end user without
+> charging a license fee.  It is entirely unappropriate to specify what
+> belongs and doesn't belong in an open source license.  Either the
+> license achieves it's own goals or it doesn't.
+
+OSI will only bless licenses that meet the Open Source Definition: http://opensource.org/docs/definition.php
+
+Lawrence is correctly saying that if the NASA license requires
+tracking of released software, that license does not conform to the
+OSD, and therefore the OSI should not bless it.
+
+That would not mean that the license is a bad license.  It would
+merely mean that software released under the license is not OSI
+Certified Open Source Software.
+
+Ian
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From ben at reser.org  Fri Feb 13 04:42:50 2004
+From: ben at reser.org (Ben Reser)
+Date: Thu, 12 Feb 2004 20:42:50 -0800
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <200402121928.i1CJSBpS020173@stroke.of.genius.brain.org>
+References: <200402121928.i1CJSBpS020173@stroke.of.genius.brain.org>
+Message-ID: <20040213044250.GD21663@occipital.brain.org>
+
+First of all general comments.  I see real problems for this license in
+cases where the software was written entirely by civil servents.  In
+such a case it can't be a bare license.  It'd have to be a contract.
+But if it's a contract aren't you trying to create a copyright for the
+work through the contract that Title 17 specifically says you can't
+have?  Don't you start running into all the privity problems that have
+been discussed lately surrounding the GPL?
+
+On Thu, Feb 12, 2004 at 11:28:11AM -0800, Bryan Geurts wrote:
+> E. "Larger Work" means computer software that combines Subject
+> Software, or portions thereof, with software separate from the Subject
+> Software that is not governed by the terms of this Agreement.
+
+> I. A Recipient may create a Larger Work by combining Subject Software
+> with separate software not governed by the terms of this agreement and
+> distribute the Larger Work as a single product. In such case, the
+> Recipient must make sure Subject Software included in the Larger Work
+> is subject to this Agreement.
+
+I see this as a problem.  There's no mere aggregation exception here.  A
+Linux distribution that included your software on their CD could be
+considered as distributing "a single product."  And according to your
+license would have to be licensed in its entirety under the NOSA.  I'd
+argue that this violates section 9 of the OSD.
+
+> F.  "Modification" means any alteration of, including addition to or
+> deletion from, the substance or structure of either the Original
+> Software or Subject Software, and includes derivative works, as that
+> term is defined in the Copyright Statute, 17 USC 101.  However, the
+> act of including Subject Software as part of a Larger Work does not in
+> and of itself constitute a Modification.
+
+> C. Each Contributor must characterize its alteration of the Subject
+> Software as a Modification and must identify itself as the originator
+> of its Modification in a manner that reasonably allows subsequent
+> Recipients to identify the originator of the Modification.  In
+> fulfillment of these requirements, Contributor must include a file
+> (e.g., a change log file) that describes the alterations made and the
+> date of the alterations, identifies Contributor as originator of the
+> alterations, and consents to characterization of the alterations as a
+> Modification, for example, by including a statement that the
+> Modification is derived, directly or indirectly, from Original
+> Software provided by NASA. Once consent is granted, it may not
+> thereafter be revoked.
+
+This seems contradictory to me.  You define "Modification" in a way that
+would include things that might not necessarily be considered derivative
+works.  But then seem to require people to include a statement
+stipulating that their "Modification" is a derivative.  This may not be
+your intent here, but it seems someone could read it that way.  Granted
+you didn't use the term "derivative work" but rather "derived" as well.
+
+I think the way the GPL handles this better.  Separating the changes
+made from the file can create a real mess when creating derivative works
+(especially since it's not really clear if you can remove these
+notifications under this license, you later note that you can't remove a
+copyright notice without specific permission and a statement that its a
+derviative would seem to imply a copyright).  I'd say that the
+Modifications must be noted in the file and the change log file if one
+exists.  That way if the change log file were to get seperated from the
+file you'd still have the record.  Or you could just do what the GPL
+does and require the notification to be added to the file.  I'll note
+though that a lot of projects completely ignore this requirement of the
+GPL and use separate change log files.
+
+For that matter I think requiring a written statement of it being a
+derivative is unnecessary.  I can just see this huge mess of written
+statements in the change log file.  Which would make the change log file
+less than useful.  Especially if every change would require such a
+declaration.  Incidentally, if NASA accepts contributions then they'd be
+bound by these terms as well.
+
+Also while probably OSD compliant, I'll point out that Debian would
+probably not consider this as meeting the DFSG.  By requiring
+identification of the contributor it would fail their "Chinese
+dissident" test.  
+
+> F. In an effort to track usage and maintain accurate records of the
+> Subject Software, each Recipient, upon receipt of the Subject
+> Software, is requested to register with NASA by visiting the following
+> website: ______________________________.  Recipient's name and
+> personal information shall be used for statistical purposes only. Once
+> a Recipient makes a Modification available, it is requested that the
+> Recipient inform NASA at the web site provided above how to access the
+> Modification.
+> 
+> [Alternative paragraph for use when a web site for release and
+> monitoring of subject software will not be supported by releasing
+> project or Center] In an effort to track usage and maintain accurate
+> records of the Subject Software, each Recipient, upon receipt of the
+> Subject Software, is requested to provide NASA, by e-mail to the NASA
+> Point of Contact listed in clause 5.F., the following information:
+> ______________________________.  Recipient's name and personal
+> information shall be used for statistical purposes only. Once a
+> Recipient makes a Modification available, it is requested that the
+> Recipient inform NASA, by e-mail to the NASA Point of Contact listed
+> in clause 5.F., how to access the Modification.
+
+I have to agree with previous comments, I don't think this clause
+belongs in the license if it isn't intended as a requirement.  
+
+> B. Waiver and Indemnity: RECIPIENT AGREES TO WAIVE ANY AND ALL CLAIMS
+> AGAINST THE UNITED STATES GOVERNMENT, ITS CONTRACTORS AND
+> SUBCONTRACTORS, AS WELL AS ANY PRIOR RECIPIENT AND SHALL INDEMNIFY AND
+> HOLD HARMLESS THE UNITED STATES GOVERNMENT, ITS CONTRACTORS AND
+> SUBCONTRACTORS, AS WELL AS ANY PRIOR RECIPIENT FOR ANY LIABILITIES,
+> DEMANDS, DAMAGES, EXPENSES OR LOSSES THAT MAY ARISE FROM RECIPIENT'S
+> USE OF THE SUBJECT SOFTWARE, INCLUDING ANY DAMAGES FROM PRODUCTS BASED
+> ON, OR RESULTING FROM, THE USE THEREOF.  RECIPIENT'S SOLE REMEDY FOR
+> ANY SUCH MATTER SHALL BE THE IMMEDIATE, UNILATERAL TERMINATION OF THIS
+> AGREEMENT.
+
+I also have to agree with Larry.  I don't like the idea of idemnifying
+the United States Government.  Plus this indemnification clause seems to
+only apply to the US Government, its contractors and subcontractors and
+prior recipients.  If by prior recipients you mean those that passed the
+software on to you, then I think its unclear if this indemnification
+applies to contributors.  I don't think that's really fair.
+
+> A. Termination: This Agreement and the rights granted hereunder will
+> terminate automatically if a Recipient fails to comply with these
+> terms and conditions, and fails to cure such noncompliance within
+> thirty (30) days of becoming aware of such noncompliance.  Upon
+> termination, a Recipient agrees to immediately cease use and
+> distribution of the Subject Software.  All sublicenses to the Subject
+> Software properly granted by the breaching Recipient shall survive any
+> such termination of this Agreement.
+
+This is bad.  You give the right to sublicense.  If someone sublicenses
+the software then this termination clause would terminate their
+sublicenses if they violated the terms.  This would seem to apply even
+if the sublicensors follow the terms of your license.  I think this
+would qualify as discrimination of a group or persons, simply on the
+basis of whom they received the software from.
+
+Standard disclaimers: IANAL, TINLA
+
+-- 
+Ben Reser <ben at reser.org>
+http://ben.reser.org
+
+"Conscience is the inner voice which warns us somebody may be looking."
+- H.L. Mencken
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From cowan at ccil.org  Fri Feb 13 06:11:54 2004
+From: cowan at ccil.org (John Cowan)
+Date: Fri, 13 Feb 2004 01:11:54 -0500
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <m3n07npp3x.fsf@gossamer.airs.com>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com>
+Message-ID: <20040213061154.GI21109@ccil.org>
+
+Ian Lance Taylor scripsit:
+
+> Lawrence is correctly saying that if the NASA license requires
+> tracking of released software, that license does not conform to the
+> OSD, and therefore the OSI should not bless it.
+
+However, the NASA license does *not* require it.
+
+-- 
+Eric Raymond is the Margaret Mead               John Cowan
+of the Open Source movement.                    jcowan at reutershealth.com --Lloyd A. Conway,                      http://www.ccil.org/~cowan amazon.com review                     http://www.reutershealth.com
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rschi at rsmba.biz  Fri Feb 13 07:46:35 2004
+From: rschi at rsmba.biz (Richard Schilling)
+Date: Thu, 12 Feb 2004 23:46:35 -0800
+Subject: The NASA license may be unconstitutional?  Re: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213040510.63770.qmail@web10508.mail.yahoo.com>; from lichengtai@yahoo.com on Thu, Feb 12, 2004 at 20:05:10 -0800
+References: <20040213040510.63770.qmail@web10508.mail.yahoo.com>
+Message-ID: <20040213074635.GA8361@foghorn.dmz.rsmba.biz>
+
+On 2004.02.12 20:05 Andy Tai wrote:
+> The NASA license as proposed may be against the law in
+> many locations.  For example, in Taiwan the
+> Constitution of the Republic of China is the supreme
+> law of the land.  The NASA license demands that it is
+> governed by US Federal Law, which conflicts with the
+> ROC's sovereignty and copyright laws and this
+> requirement is unconstitutional.
+
+These are serious issuees with respect to international licensing, but 
+I doubt the NASA license is unconsitiutional in the US.  Perhaps in 
+other countries, but most likely not here :-)
+
+Licenses always must be specific to the country in which they are used 
+for them to be effective.
+
+The World Trade Organization provides a common framework for licensing 
+and Intellectual Property standards.  Since China is a member of the 
+WTO it should help address these types of international differences.
+
+Richard Schilling
+
+
+
+> 
+> The same probably is true for most locations outside
+> the US.
+> 
+> --- Bryan Geurts <Bryan.A.Geurts at nasa.gov> wrote:
+> > This Email was prepared in satisfaction of OSI
+> > Certification Process Step
+> >
+> >          ii.  Federal Statute mandates that the U.S.
+> > Government can only be
+> > held subject to United States federal law.  See 5.C.
+> --
+> license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+> 
+> 
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rschi at rsmba.biz  Fri Feb 13 08:05:08 2004
+From: rschi at rsmba.biz (Richard Schilling)
+Date: Fri, 13 Feb 2004 00:05:08 -0800
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <m3n07npp3x.fsf@gossamer.airs.com>; from ian@airs.com on Thu, Feb 12, 2004 at 20:42:10 -0800
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com>
+Message-ID: <20040213080508.GC8361@foghorn.dmz.rsmba.biz>
+
+On 2004.02.12 20:42 Ian Lance Taylor wrote:
+> Richard Schilling <rschi at rsmba.biz> writes:
+> 
+> > > Such provisions are not allowed in an open source license.
+> Reporting
+> > > requirements are viewed as unreasonable limitations on the rights
+> of
+> > > licensees to do anything they want internally with open source
+> >
+> > Biggest problem of all here - who in all of creation has the
+> authority
+> > on blessing open source licenses?
+> 
+> Huh?  The point of this mailing list is to advise OSI on blessing open
+> source licenses.  You don't have to believe that OSI's blessing has
+> any value.  But there isn't much point to joining this mailing list if
+> you reject the whole concept of OSI blessing a license.
+
+
+I'm just saying that a stance that NASA, a US government agency with 
+"deep pockets", should remove imdenification wording is a haneous 
+idea.  And in general bashing the license on non-licensing issues 
+doesn't do any good.  It actually hurts open source license 
+development.  It's just my opinion.
+
+The OSI can do what it wants.  My preference is to see all discussions 
+the OSI endorses regarding licenses be done in the context of 
+legitimate legal analysis (which is done by lawyers) and well trained 
+laypeople.
+
+It's one thing if someone asks why a part of a license is important, 
+and then tries to apply the answer to some licensing goal.   It's quite 
+another if we just blast away at a new license on uninformed and 
+misguided knowledge.
+
+
+> 
+> > I maintain that an open source license has certain characteristics
+> and
+> > achieves some well defined goals - the primary one being quick, open
+> > distribution or source code and documentation to the end user
+> without
+> > charging a license fee.  It is entirely unappropriate to specify
+> what
+> > belongs and doesn't belong in an open source license.  Either the
+> > license achieves it's own goals or it doesn't.
+> 
+> OSI will only bless licenses that meet the Open Source Definition:
+>     http://opensource.org/docs/definition.php
+
+
+Absoutely.  No argument there.  They should.  The NASA license, 
+however, presents a unique opportunity for opensource.org.  The 
+organization can look at the language and concerns the license 
+addresses and use that as an acid test to see if their criteria needs 
+revising (a good standards body does that - and I have the impression 
+opensource.org does).
+
+opensource.org has several licenses written by industry leaders like 
+Sun, IBM, MIT, and others who have a lot of experience writing great 
+open source licenses.  The NASA license is a wonderful opportunity to 
+add a US government agency's license to that list.  When opensource.org 
+puts all of them side by side and study what makes them unique, but 
+still qualify as open source, then opensource.org has advanced the 
+state of open source licensing.
+
+> 
+> Lawrence is correctly saying that if the NASA license requires
+> tracking of released software, that license does not conform to the
+> OSD, and therefore the OSI should not bless it.
+
+I believe that is a misguided concept in open source licensing that 
+some hold to.  Tracking the use of a product does not make a license 
+non-open source.  Open Source licensing deals with accessibility and 
+cost, but tracking, per se, is not even relevant to that 
+characteristic.  In fact, tracking the uses of open source is a *key* 
+marketing tool and the only way we can judge if an investment of time 
+into open source is paying off, is it not?
+
+> 
+> That would not mean that the license is a bad license.  It would
+> merely mean that software released under the license is not OSI
+> Certified Open Source Software.
+> 
+
+right.  See, that's objective - what you just said.
+
+I got the sense from the original poster overtones of "big bad big 
+brother."  Too much work goes into these licenses to take the 
+conversation in that direction - I felt the need to call him on it, and 
+I hope I called everyone making similar arguments on that point.
+
+Richard
+
+
+
+> Ian
+> 
+> 
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From ben at reser.org  Fri Feb 13 08:34:08 2004
+From: ben at reser.org (Ben Reser)
+Date: Fri, 13 Feb 2004 00:34:08 -0800
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213080508.GC8361@foghorn.dmz.rsmba.biz>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz>
+Message-ID: <20040213083408.GE21663@occipital.brain.org>
+
+On Fri, Feb 13, 2004 at 12:05:08AM -0800, Richard Schilling wrote:
+> The OSI can do what it wants.  My preference is to see all discussions 
+> the OSI endorses regarding licenses be done in the context of 
+> legitimate legal analysis (which is done by lawyers) and well trained 
+> laypeople.
+
+You mean like Larry?  From what I understand he practices law in this
+very subject matter.  I find it odd that you keep going on about
+legitimate legal analysis.
+
+Why don't you provide your analysis as to why you think it complies with
+the OSD?  That's a hell of a lot more constructive than ripping on
+someone elses intial thoughts.
+
+> It's one thing if someone asks why a part of a license is important, 
+> and then tries to apply the answer to some licensing goal.   It's quite 
+> another if we just blast away at a new license on uninformed and 
+> misguided knowledge.
+
+Larry asked why it was necessary, I don't think he was blasting away
+at their license.
+
+> Absoutely.  No argument there.  They should.  The NASA license, 
+> however, presents a unique opportunity for opensource.org.  The 
+> organization can look at the language and concerns the license 
+> addresses and use that as an acid test to see if their criteria needs 
+> revising (a good standards body does that - and I have the impression 
+> opensource.org does).
+>
+> opensource.org has several licenses written by industry leaders like 
+> Sun, IBM, MIT, and others who have a lot of experience writing great 
+> open source licenses.  The NASA license is a wonderful opportunity to 
+> add a US government agency's license to that list.  When opensource.org 
+> puts all of them side by side and study what makes them unique, but 
+> still qualify as open source, then opensource.org has advanced the 
+> state of open source licensing.
+
+That's nice.  It's an opportunity.  But if the license doesn't comply
+with the OSD then no matter how wonderful of an opportunity it is we
+shouldn't certify the license.  This list exists to discuss potential
+issues.
+
+Larry's response is by no mean a definitive review of the license.  He
+gave his initial thoughts.  Largely based up on the rationale for the
+different license.  One thing that there is a general sense of is that
+we don't tend to want to encourage the use of zillions of different
+licenses when there is already a license that serves the same purpose.
+Larry's response was going to the heart of that.  He was suggesting that
+perhaps and existing license would really serve their needs.
+
+> I believe that is a misguided concept in open source licensing that 
+> some hold to.  Tracking the use of a product does not make a license 
+> non-open source.  Open Source licensing deals with accessibility and 
+> cost, but tracking, per se, is not even relevant to that 
+> characteristic.  In fact, tracking the uses of open source is a *key* 
+> marketing tool and the only way we can judge if an investment of time 
+> into open source is paying off, is it not?
+
+Complying with a registration system is not necessarily without costs.
+While those of us that live in countries with inexpensive internet
+access take net access for granted, not everyone has the same level of
+access.  If such a registration requirement was included then it could
+effectively stop the free distribution of the software to some people.
+
+These sorts of issues have been discussed many times before.  There is
+sound logic behind the complaints with clauses like this.  And it's
+grounded in the priciples that you say it has nothing to do with.
+
+> right.  See, that's objective - what you just said.
+> 
+> I got the sense from the original poster overtones of "big bad big 
+> brother."  Too much work goes into these licenses to take the 
+> conversation in that direction - I felt the need to call him on it, and 
+> I hope I called everyone making similar arguments on that point.
+
+I don't think Larry was doing any such thing.  Hell he put a smiley in
+there.  But seriously I don't think there is an OSI certified license
+that includes an indemnification clause.  I don't think it's really
+unreasonable to ask NASA to justify why they really need this clause.  
+
+I think Larry's point was that the OSL would probably meet their needs
+and is already approved.
+
+Personally, I found it odd that they wanted indemnification but are
+unwilling to provide it to contributors.  That doesn't seem right to me.
+But perhaps that's just an oversight.
+
+-- 
+Ben Reser <ben at reser.org>
+http://ben.reser.org
+
+"Conscience is the inner voice which warns us somebody may be looking."
+- H.L. Mencken
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rschi at rsmba.biz  Fri Feb 13 09:09:47 2004
+From: rschi at rsmba.biz (Richard Schilling)
+Date: Fri, 13 Feb 2004 01:09:47 -0800
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <004801c3f1ee$b06e8790$927ba8c0@ROSENGARDEN>; from lrosen@rosenlaw.com on Thu, Feb 12, 2004 at 21:03:15 -0800
+References: <004801c3f1ee$b06e8790$927ba8c0@ROSENGARDEN>
+Message-ID: <20040213090947.GE8361@foghorn.dmz.rsmba.biz>
+
+Maybe it's just me, but I keep getting back to open source software 
+licenses as a means to efficiently distribute software and allow people 
+ready access to the knowledge it represents, and not so much as a 
+mechanism to try a get license-savvy organizations to let their guard 
+down.
+
+On 2004.02.12 21:03 Lawrence E. Rosen wrote:
+> I'll reply off-list.
+> 
+> I'm not ignorant about licenses or law. I'm an attorney. I'm general
+> counsel
+> of Open Source Initiative. I have written a book about open source
+> licensing
+> that will be published in a few months. And so I was not responding to
+> NASA
+> and its lawyers out of ignorance or as an "armchair lawyer."
+> 
+> They (and you) don't have to agree with me, but please respect my
+> right to
+> express myself. I'm not just spouting hot air.
+
+I didn't see a many points in your original posting that served any 
+purpose other than to "call on the carpet" the motives and approach of 
+the authors.
+
+If you are a lawyer, of all people, I would expect to see more 
+constructive discussion about the license itself and how it can be made 
+to comply with opensource.org's requirements.  You should know, with 
+all due respect to you and your profession, that providing specific 
+reasons/alternatives, and avoiding taunting questions, is appropriate 
+in helping NASA get their license to meet opensource.org requirements.  
+If you're acting as council, please council on what they can do, not 
+what they should have done.  We would all learn from that approach.
+
+And, yes, I'm offended at the tone of the response NASA got to their 
+posting.  They've done more for open source work than many other 
+organizations would even dream.  They invented Beowulf cluters, for 
+heaven's sake.
+
+Did I misread your response?  Perhaps, but read it as such I did.  I 
+certainly respect what you do, but I also expect to see more respect 
+directed to submitters of new licenses.
+
+Now, with respect to the INDEMIFY clause (section 8), which says :
+
+B. Waiver and Indemnity: RECIPIENT AGREES TO WAIVE ANY AND ALL CLAIMS
+AGAINST THE UNITED STATES GOVERNMENT, ITS CONTRACTORS AND
+SUBCONTRACTORS, AS WELL AS ANY PRIOR RECIPIENT AND SHALL INDEMNIFY AND
+HOLD HARMLESS THE UNITED STATES GOVERNMENT, ITS CONTRACTORS AND
+SUBCONTRACTORS, AS WELL AS ANY PRIOR RECIPIENT FOR ANY LIABILITIES,
+DEMANDS, DAMAGES, EXPENSES OR LOSSES THAT MAY ARISE FROM RECIPIENT'S
+USE OF THE SUBJECT SOFTWARE, INCLUDING ANY DAMAGES FROM PRODUCTS BASED
+ON, OR RESULTING FROM, THE USE THEREOF.  RECIPIENT'S SOLE REMEDY FOR
+ANY SUCH MATTER SHALL BE THE IMMEDIATE, UNILATERAL TERMINATION OF THIS
+AGREEMENT.
+
+There is nothing in opensource.org's criteria that says the licensing 
+party shall refrain from waivers and indeminification.  NASA's policies 
+require specific wording in section 8, and if that wording is not 
+significantly different than what has been accepted before, then I 
+don't see a problem.  It's an administrative detail, really.
+
+I would like to see specific argument as to why, in NASA's case this 
+wording does not need to apply to their sub-contractors.  To me this is 
+more appropriate to NASA's sub-contracting needs than what's in the 
+other licenses.  They know what's best for them, so let them 
+demonstrate that.
+
+And if opensource.org throws out a license on this issue, I think it 
+would be wise for opensource.org to review its criteria.  I would 
+suggest separating (in opensource.org's criteria) certain areas when 
+evaluating new licenses.  For example, develop clear criteria for the 
+following and specify which items make/break an open source designation:
+ distribution, re-distribution, deriverative works, copyright, waivers, deriverative works, related services, quality controls.
+
+
+opensource.org says what a license should have, but the website doesn't 
+say enough about what the authors *can* do with their license.
+
+Specifically, I maintain that copyright and waivers are *not* 
+determinants of an open source license, and I think it's improtant (if 
+that's opensource.org criteria as well) to clearly state that.  I would 
+also suggest that as long as distribution is met, regardless of it's 
+means, with or without re-distribution, the license be considered open 
+source.
+ From the end user's perspective getting a software product from one 
+place -vs- 1,000 places and having the software tracked are not 
+determinants of an open source license, per se.  They get freedom of 
+availability, use, modification and a means to submit changes.  And 
+that's what defines a collaborative project.  All else is optional.
+
+Availability of the code and documentation, and the right to modify for 
+personal use seem to me to be the baseline criteria to any open source 
+license. 
+
+Richard 
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From ben at reser.org  Fri Feb 13 09:41:45 2004
+From: ben at reser.org (Ben Reser)
+Date: Fri, 13 Feb 2004 01:41:45 -0800
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213090947.GE8361@foghorn.dmz.rsmba.biz>
+References: <004801c3f1ee$b06e8790$927ba8c0@ROSENGARDEN> <20040213090947.GE8361@foghorn.dmz.rsmba.biz>
+Message-ID: <20040213094145.GH21663@occipital.brain.org>
+
+On Fri, Feb 13, 2004 at 01:09:47AM -0800, Richard Schilling wrote:
+> Maybe it's just me, but I keep getting back to open source software 
+> licenses as a means to efficiently distribute software and allow people 
+> ready access to the knowledge it represents, and not so much as a 
+> mechanism to try a get license-savvy organizations to let their guard 
+> down.
+
+I don't think that's Larry's intent.  I think he's trying to get a
+justification for a deparature form the norm of open source licenses.  I
+don't think this is a huge deal.
+
+> On 2004.02.12 21:03 Lawrence E. Rosen wrote:
+> >I'll reply off-list.
+
+I hope you realize it's generally considered rude to quote someones
+private email to you on a public list without their specific permission
+to do so.  Considering that Larry is an active contributor to this list,
+I'm sure he would have sent his email to the list if he'd intended to
+publish it to the world.
+
+> I didn't see a many points in your original posting that served any 
+> purpose other than to "call on the carpet" the motives and approach of 
+> the authors.
+>
+> If you are a lawyer, of all people, I would expect to see more 
+> constructive discussion about the license itself and how it can be made 
+> to comply with opensource.org's requirements.  You should know, with 
+> all due respect to you and your profession, that providing specific 
+> reasons/alternatives, and avoiding taunting questions, is appropriate 
+> in helping NASA get their license to meet opensource.org requirements.  
+> If you're acting as council, please council on what they can do, not 
+> what they should have done.  We would all learn from that approach.
+> 
+> And, yes, I'm offended at the tone of the response NASA got to their 
+> posting.  They've done more for open source work than many other 
+> organizations would even dream.  They invented Beowulf cluters, for 
+> heaven's sake.
+> 
+> Did I misread your response?  Perhaps, but read it as such I did.  I 
+> certainly respect what you do, but I also expect to see more respect 
+> directed to submitters of new licenses.
+
+Yes you misread his email.  He gave some initial thoughts with a clear
+statement that he intends to follow up with a more detailed review
+later.  I think he wanted to get some questions out in the open to have
+them answered between when he posted his email and hopefully when he
+found the time to do a detailed review.
+
+I'm certain Larry would have given specific analysis on the exact text
+of the license later.
+
+> Now, with respect to the INDEMIFY clause (section 8), which says :
+> 
+> B. Waiver and Indemnity: RECIPIENT AGREES TO WAIVE ANY AND ALL CLAIMS
+> AGAINST THE UNITED STATES GOVERNMENT, ITS CONTRACTORS AND
+> SUBCONTRACTORS, AS WELL AS ANY PRIOR RECIPIENT AND SHALL INDEMNIFY AND
+> HOLD HARMLESS THE UNITED STATES GOVERNMENT, ITS CONTRACTORS AND
+> SUBCONTRACTORS, AS WELL AS ANY PRIOR RECIPIENT FOR ANY LIABILITIES,
+> DEMANDS, DAMAGES, EXPENSES OR LOSSES THAT MAY ARISE FROM RECIPIENT'S
+> USE OF THE SUBJECT SOFTWARE, INCLUDING ANY DAMAGES FROM PRODUCTS BASED
+> ON, OR RESULTING FROM, THE USE THEREOF.  RECIPIENT'S SOLE REMEDY FOR
+> ANY SUCH MATTER SHALL BE THE IMMEDIATE, UNILATERAL TERMINATION OF THIS
+> AGREEMENT.
+> 
+> There is nothing in opensource.org's criteria that says the licensing 
+> party shall refrain from waivers and indeminification.  NASA's policies 
+> require specific wording in section 8, and if that wording is not 
+> significantly different than what has been accepted before, then I 
+> don't see a problem.  It's an administrative detail, really.
+> 
+> I would like to see specific argument as to why, in NASA's case this 
+> wording does not need to apply to their sub-contractors.  To me this is 
+> more appropriate to NASA's sub-contracting needs than what's in the 
+> other licenses.  They know what's best for them, so let them 
+> demonstrate that.
+
+The only comments made regarding this was that we didn't particularly
+like it and that we wanted a explanation as to why they thought it was
+necessary in addition to a traditional warranty disclaimer.
+
+> And if opensource.org throws out a license on this issue, I think it 
+> would be wise for opensource.org to review its criteria.  I would 
+> suggest separating (in opensource.org's criteria) certain areas when 
+> evaluating new licenses.  For example, develop clear criteria for the 

@@ -1,0 +1,750 @@
+> following and specify which items make/break an open source designation:
+> 
+> 	distribution,
+> 	re-distribution,
+> 	deriverative works,
+> 	copyright,
+> 	waivers,
+> 	deriverative works,
+> 	related services,
+> 	quality controls.
+> 
+> 
+> opensource.org says what a license should have, but the website doesn't 
+> say enough about what the authors *can* do with their license.
+> 
+> Specifically, I maintain that copyright and waivers are *not* 
+> determinants of an open source license, and I think it's improtant (if 
+> that's opensource.org criteria as well) to clearly state that.  I would 
+> also suggest that as long as distribution is met, regardless of it's 
+> means, with or without re-distribution, the license be considered open 
+> source.
+
+Nobody said it was a reason to reject the license yet.  I've identified
+a couple situations with the license that I do think violate the OSD.
+I'm not sure the indemnification would in and of itself violate the OSD.
+
+However, while reading these licenses we notice things that may simply
+be an oversight on the part of the drafters.  We often point them out in
+the hope that they will clarify them to be more clear or change them to
+be "better."  Since this license is being put before us before its used,
+now is the time to bring such issues up.
+
+> From the end user's perspective getting a software product from one 
+> place -vs- 1,000 places and having the software tracked are not 
+> determinants of an open source license, per se.  They get freedom of 
+> availability, use, modification and a means to submit changes.  And 
+> that's what defines a collaborative project.  All else is optional.
+
+Not really entirely true.  Only being able to get it from "one place"
+would mean a restriction that would violate the OSD.  I presume from
+this you mean from the original author (e.g. NASA in this case).
+Problem is the original author may decide to stop distributing the
+software, might take the registration site down, etc etc etc....  Such
+situations create problems for the continued free distribution of the
+software. 
+> Availability of the code and documentation, and the right to modify for 
+> personal use seem to me to be the baseline criteria to any open source 
+> license. 
+
+Maybe in your opinion but the OSD goes beyond that.  Read through the
+archives of the list to get an idea of how the OSD is interpreted.
+
+I think you need to relax.  NASA hasn't been given an official
+response.  The process of reviewing the license includes asking
+questions and making suggestions.  It's not over.  I suspect that this
+license will eventually get approval after possibly some minor
+modifications.
+
+-- 
+Ben Reser <ben at reser.org>
+http://ben.reser.org
+
+"Conscience is the inner voice which warns us somebody may be looking."
+- H.L. Mencken
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From TEREKHOV at de.ibm.com  Fri Feb 13 12:00:47 2004
+From: TEREKHOV at de.ibm.com (Alexander Terekhov)
+Date: Fri, 13 Feb 2004 13:00:47 +0100
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213083408.GE21663@occipital.brain.org>
+Message-ID: <OFB9319881.8D8BFCFC-ONC1256E39.0041C671-C1256E39.0041F7A2@de.ibm.com>
+
+Ben Reser wrote:
+[...]
+> But seriously I don't think there is an OSI certified license
+> that includes an indemnification clause. 
+
+Hmm. IPL/CPL section 4?
+
+regards,
+alexander.
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From slash at dotnetslash.net  Fri Feb 13 13:46:21 2004
+From: slash at dotnetslash.net (Mark W. Alexander)
+Date: Fri, 13 Feb 2004 08:46:21 -0500
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213080508.GC8361@foghorn.dmz.rsmba.biz>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz>
+Message-ID: <20040213134621.GB4880@dotnetslash.net>
+
+On Fri, Feb 13, 2004 at 12:05:08AM -0800, Richard Schilling wrote:
+> I'm just saying that a stance that NASA, a US government agency with 
+> "deep pockets", should remove imdenification wording is a haneous 
+> idea.  And in general bashing the license on non-licensing issues 
+> doesn't do any good.  It actually hurts open source license 
+> development.  It's just my opinion.
+
+Ok, I'm new here, but I've been a U.S. citizen for some time, and I'm confused.
+(I don't know if that's a cause and effect thing or not ;)
+
+The original request stated:
+ "The intent is for NOSA is to be the controlling agreement for all distribution and redistribution of software originated by NASA, including derivative works."
+
+Title 17, section 101 states:
+ (C)
+ any work not subject to copyright protection under this title.
+ 'A ''work of the United States Government'' is a work prepared by an officer or employee of the United States Government as part of that person's official duties.'
+
+Title 17, section 105 states:
+ "Copyright protection under this title is not available for any work of the United States Government, but the United States Government is not precluded from receiving and holding copyrights transferred to it by assignment, bequest, or otherwise"
+
+Therefore "work originated at NASA", at least by NASA employees cannot
+be copyrighted. If they are not copyrighted, there is not only no need
+for a license, any such license would be trumped by copyright law.
+
+Back to the original request:
+ "i. NASA legal counsel requires that all NASA releases of software  include indemnification of the U.S. Government from any third party  liability arising from use or distribution of the software.
+ ii. Federal Statute mandates that the U.S. Government can only be  held subject to United States federal law. 
+ iii.  NASA policy requires an effort to accurately track usage of  released software for documentation and benefits realized?purposes. (sic)"
+
+NASA legal counsel doesn't seem to be aware of the Title 17 restrictions
+on government works. Policy cannot trump Title 17 requirements.
+Adherence to ii, precludes i and iii.
+
+Title 17 does state that the U.S. government can hold copyrights when
+the are transfered to them, so the _can_ maintain copyrighted works
+either performed as a "work for hire" or purchased by the goverernment.
+In such cases, as an open source advocate I can see how an appropriate
+open source license would be useful. As a citizen and taxpayer, however,
+I can also see the point of view that the U.S. citenzenry paid for it so
+they should have unrestricted access to it.
+
+I'm not trying to be combative, here. I'm just trying to understand how
+all these points jive with NASA's intentions. As it stands now, any code
+that NASA produces that is not subject to security classification is
+probably already available for any use to anyone who files an FOI
+request. The response to such a request would be devoid of any
+indemnification or tracking restrictions.
+
+Can anyone make NASA's policy, Title 17, and the proposed license all
+make sense to me at the same time?
+
+mwa
+-- 
+Mark W. Alexander
+slash at dotnetslash.net
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From cowan at ccil.org  Fri Feb 13 14:18:30 2004
+From: cowan at ccil.org (John Cowan)
+Date: Fri, 13 Feb 2004 09:18:30 -0500
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213134621.GB4880@dotnetslash.net>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz> <20040213134621.GB4880@dotnetslash.net>
+Message-ID: <20040213141830.GF8636@ccil.org>
+
+Mark W. Alexander scripsit:
+
+> NASA legal counsel doesn't seem to be aware of the Title 17 restrictions
+> on government works. Policy cannot trump Title 17 requirements.
+> Adherence to ii, precludes i and iii.
+
+The actual license (is anyone looking at it but me??) says that no copyright
+is claimed within the U.S. for works written by civil servants, as is the
+law.  That implies that copyright *is* claimed for such works *outside*
+the U.S., which AFAIK is an entirely novel point, which is why I posted
+a query about it last night.
+
+-- 
+"While staying with the Asonu, I met a man from     John Cowan
+the Candensian plane, which is very much like       jcowan at reutershealth.com
+ours, only more of it consists of Toronto."         http://:www.ccil.org/~cowan --the unnamed narrator of Le Guin's _Changing Planes_
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From ian at wasabisystems.com  Fri Feb 13 15:38:37 2004
+From: ian at wasabisystems.com (Ian Lance Taylor)
+Date: 13 Feb 2004 10:38:37 -0500
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213080508.GC8361@foghorn.dmz.rsmba.biz>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz>
+Message-ID: <m38yj7ng5e.fsf@gossamer.airs.com>
+
+Richard Schilling <rschi at rsmba.biz> writes:
+
+> I'm just saying that a stance that NASA, a US government agency with
+> "deep pockets", should remove imdenification wording is a haneous
+> idea.  And in general bashing the license on non-licensing issues
+> doesn't do any good.  It actually hurts open source license
+> development.  It's just my opinion.
+
+I really think that you misread Lawrence's post.  He is a long-time
+and respected contributor to this mailing list.  But enough said about
+that.
+
+> > Lawrence is correctly saying that if the NASA license requires
+> > tracking of released software, that license does not conform to the
+> > OSD, and therefore the OSI should not bless it.
+> 
+> I believe that is a misguided concept in open source licensing that
+> some hold to.  Tracking the use of a product does not make a license
+> non-open source.  Open Source licensing deals with accessibility and
+> cost, but tracking, per se, is not even relevant to that
+> characteristic.  In fact, tracking the uses of open source is a *key*
+> marketing tool and the only way we can judge if an investment of time
+> into open source is paying off, is it not?
+
+First let me say that I understand that NASA's proposed license
+doesn't require tracking, it merely encourages it.
+
+I, and others, think that a tracking requirement would not be
+appropriate in an open source license.
+
+1) Tracking presumably requires reporting back to some organization. What happens if that organization disappears?  Does it then become impossible to distribute the code?  If it does, the code would clearly no longer be open source.
+
+2) It is generally considered to be desirable to permit open source software to be used anonymously, such as by a dissident under your least favorite form of government.  Arguably preventing the possibility of anonymous use violates OSD #5.
+
+3) While free software is not identical to open source software, they are generally congruous.  The FSF specifically forbids tracking: http://www.fsf.org/philosophy/free-sw.html:
+ You should also have the freedom to make modifications and use them privately in your own work or play, without even mentioning that they exist. If you do publish your changes, you should not be required to notify anyone in particular, or in any particular way.
+
+Ian
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From ian at wasabisystems.com  Fri Feb 13 15:42:13 2004
+From: ian at wasabisystems.com (Ian Lance Taylor)
+Date: 13 Feb 2004 10:42:13 -0500
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213090947.GE8361@foghorn.dmz.rsmba.biz>
+References: <004801c3f1ee$b06e8790$927ba8c0@ROSENGARDEN> <20040213090947.GE8361@foghorn.dmz.rsmba.biz>
+Message-ID: <m34qtvnfze.fsf@gossamer.airs.com>
+
+Richard Schilling <rschi at rsmba.biz> writes:
+
+> Specifically, I maintain that copyright and waivers are *not*
+> determinants of an open source license, and I think it's improtant (if
+> that's opensource.org criteria as well) to clearly state that.  I
+> would also suggest that as long as distribution is met, regardless of
+> it's means, with or without re-distribution, the license be considered
+> open source.
+
+Well, no.  The OSD imposes additional requirements, and they are
+generally considered to be desirable.
+
+If you want to propose a modification to the OSD, try proposing
+specific changes.
+
+Ian
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From slash at dotnetslash.net  Fri Feb 13 15:45:54 2004
+From: slash at dotnetslash.net (Mark W. Alexander)
+Date: Fri, 13 Feb 2004 10:45:54 -0500
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213141830.GF8636@ccil.org>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz> <20040213134621.GB4880@dotnetslash.net> <20040213141830.GF8636@ccil.org>
+Message-ID: <20040213154553.GB5218@dotnetslash.net>
+
+On Fri, Feb 13, 2004 at 09:18:30AM -0500, John Cowan wrote:
+> Mark W. Alexander scripsit:
+> 
+> > NASA legal counsel doesn't seem to be aware of the Title 17 restrictions
+> > on government works. Policy cannot trump Title 17 requirements.
+> > Adherence to ii, precludes i and iii.
+> 
+> The actual license (is anyone looking at it but me??) says that no copyright
+> is claimed within the U.S. for works written by civil servants, as is the
+> law.  That implies that copyright *is* claimed for such works *outside*
+> the U.S., which AFAIK is an entirely novel point, which is why I posted
+> a query about it last night.
+
+So I'm not alone in my confusion...
+
+By my reading, Title 17 says that government works are not protected by
+copyright. Period. NASA also notes that they are only under the
+jurisdiction of U.S. federal law. No U.S. law does, or can, subject
+government works to foreign copyright authority.
+
+Therefore: No copyright, no right to license. Not here. Not there. Not
+in a box, and not with a fox. (Unless, you're represented by The SCO
+Group attorneys.) It's simply public domain.
+
+mwa
+-- 
+Mark W. Alexander
+slash at dotnetslash.net
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From jcowan at reutershealth.com  Fri Feb 13 16:36:04 2004
+From: jcowan at reutershealth.com (jcowan at reutershealth.com)
+Date: Fri, 13 Feb 2004 11:36:04 -0500
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213154553.GB5218@dotnetslash.net>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz> <20040213134621.GB4880@dotnetslash.net> <20040213141830.GF8636@ccil.org> <20040213154553.GB5218@dotnetslash.net>
+Message-ID: <20040213163604.GH2538@skunk.reutershealth.com>
+
+Mark W. Alexander scripsit:
+
+> By my reading, Title 17 says that government works are not protected by
+> copyright. Period. NASA also notes that they are only under the
+> jurisdiction of U.S. federal law. No U.S. law does, or can, subject
+> government works to foreign copyright authority.
+
+Well, I'm with you up to the last sentence.  But by acceding to the
+Berne Convention, which is part of the supreme law of the land, on all
+fours with the Constitution and federal legislation, we do indeed subject
+ourselves to foreign copyright authority.
+
+Now a work can uncontroversially be in the public domain in one place
+and copyrighted in another:  Australia's on life+50, the U.S. rule is
+"everything after 1923" (with the exception of U.S. government works and
+a few others).  Thus certain works by Edgar Rice Burroughs, F. Scott
+Fitzgerald, Sinclair Lewis, and Margaret Mitchell among many other
+Americans are still in copyright in the U.S. but not in Australia.
+
+But all those works were once in Australian copyright.  The question is,
+can a work which is born into the public domain in its country of origin
+be in copyright anywhere at any time?
+
+The conflict of laws is an ugly and rather primitive subject (my father
+wrote an article about it once).
+
+-- 
+"You know, you haven't stopped talking          John Cowan
+since I came here. You must have been           http://www.reutershealth.com
+vaccinated with a phonograph needle."           jcowan at reutershealth.com --Rufus T. Firefly                      http://www.ccil.org/~cowan
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From robin at roblimo.com  Fri Feb 13 17:42:11 2004
+From: robin at roblimo.com (Robin 'Roblimo' Miller)
+Date: Fri, 13 Feb 2004 23:12:11 +0530
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <m3ptcik9rf.fsf@gossamer.airs.com>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN>	<20040213014612.GC6404@foghorn.dmz.rsmba.biz>	<m3n07npp3x.fsf@gossamer.airs.com>	<20040213080508.GC8361@foghorn.dmz.rsmba.biz>	<m38yj7ng5e.fsf@gossamer.airs.com>	<20040213195759.GA1061@foghorn.dmz.rsmba.biz> <m3ptcik9rf.fsf@gossamer.airs.com>
+Message-ID: <402D0C73.4040707@roblimo.com>
+
+
+
+>     F. In an effort to track usage and maintain accurate records of the
+>     Subject Software, each Recipient, upon receipt of the Subject
+>     Software, is requested to register with NASA by visiting the following
+>     website: ______________________________.  
+> 
+> Note that each recipient is requested to register, not merely each
+> recipient who downloads the software directly from NASA.  If this were
+> a requirement rather than a request, then I think the license would
+> not be OSD-compliant.
+
+I have no personal problem with this. I'm sure NASA's reasons for 
+gathering user information are totally benign, and that if their people 
+can show that many individuals and companies benefit from thei work, it 
+will help them get scarce budget dollars from Congress.
+
+But I don't think this really belongs in the license itself, any more 
+than a request for all users of your software to (voluntarily) smile at 
+their neighbor once a day, even though it certainly would be nice if we 
+all smiled at each other a little more.
+
+I like licenses to be as simple and clear as possible. Therefore, I ask 
+NASA, please, to consider removing the "tracking" clause from the 
+license itself and make the request elsewhere. Another person thought it 
+should be in the "readme" file. I agree. The documentation is probably 
+the best place for this request.
+
+On the indemnification clause... Isn't a simple "no warrenty" disclaimer 
+of liability enough? I'll defer to Larry and the other lawyers as to 
+whether or not this clause has anything to do with the license's 
+OSI-worthiness, but in the interests of simplification I would 
+personally rather see it removed.
+
+- Robin 'Roblimo' Miller U.S. Taxpayer
+
+
+
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From ben at reser.org  Fri Feb 13 18:08:26 2004
+From: ben at reser.org (Ben Reser)
+Date: Fri, 13 Feb 2004 10:08:26 -0800
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <OFB9319881.8D8BFCFC-ONC1256E39.0041C671-C1256E39.0041F7A2@de.ibm.com>
+References: <20040213083408.GE21663@occipital.brain.org> <OFB9319881.8D8BFCFC-ONC1256E39.0041C671-C1256E39.0041F7A2@de.ibm.com>
+Message-ID: <20040213180826.GI21663@occipital.brain.org>
+
+On Fri, Feb 13, 2004 at 01:00:47PM +0100, Alexander Terekhov wrote:
+> Ben Reser wrote:
+> [...]
+> > But seriously I don't think there is an OSI certified license
+> > that includes an indemnification clause. 
+> 
+> Hmm. IPL/CPL section 4?
+
+I guess that is an indemnification clause.  But it's also pretty much
+the same as 3H in NOSA which I don't think anyone has really objected
+to.  Though the IPL and CPL do go farther than the NOSA 3H clause.
+
+I'm more comfortable with 3H, and the IPL/CPL section 4 than I am with
+the general waiver, indemnification clause.  I can accept that if I'm
+going to make a commercial product I need to accept some liability, but
+I'm not fond of the idea of being in the position of indemnifying the US
+Government by simplying downloading and using their software.
+
+However, while I'm not fond of it, I don't think it rises to the level
+of OSD rejection.  This is most certainly not the only license that is
+approved that has cluases I don't really care for... 
+
+-- 
+Ben Reser <ben at reser.org>
+http://ben.reser.org
+
+"Conscience is the inner voice which warns us somebody may be looking."
+- H.L. Mencken
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rschi at rsmba.biz  Fri Feb 13 19:57:59 2004
+From: rschi at rsmba.biz (Richard Schilling)
+Date: Fri, 13 Feb 2004 11:57:59 -0800
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <m38yj7ng5e.fsf@gossamer.airs.com>; from ian@wasabisystems.com on Fri, Feb 13, 2004 at 07:38:37 -0800
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz> <m38yj7ng5e.fsf@gossamer.airs.com>
+Message-ID: <20040213195759.GA1061@foghorn.dmz.rsmba.biz>
+
+On 2004.02.13 07:38 Ian Lance Taylor wrote:
+[snip]
+
+> > I believe that is a misguided concept in open source licensing that
+> > some hold to.  Tracking the use of a product does not make a license
+> > non-open source.  Open Source licensing deals with accessibility and
+> > cost, but tracking, per se, is not even relevant to that
+> > characteristic.  In fact, tracking the uses of open source is a
+> *key*
+> > marketing tool and the only way we can judge if an investment of
+> time
+> > into open source is paying off, is it not?
+> 
+> First let me say that I understand that NASA's proposed license
+> doesn't require tracking, it merely encourages it.
+> 
+> I, and others, think that a tracking requirement would not be
+> appropriate in an open source license.
+> 
+> 1) Tracking presumably requires reporting back to some organization.
+>    What happens if that organization disappears?  Does it then become
+>    impossible to distribute the code?  If it does, the code would
+>    clearly no longer be open source.
+
+Detailed tracking is done anyway through web logs.  And, companies 
+dissappear all the time - no big deal there.  It's their data so they 
+can discard it if they like.  I would rather know that more details 
+about the product's use are being tracked than not.  When a company 
+tracks the usage of their product they have an easier time gaining 
+support from onlookers, which is good for the product.
+
+I want to write to my congress people and make a case for NASA spending 
+a lot of money on open source development.  It's more compelling to do 
+that if I can point out where the product is being used.
+
+Perhaps you're nervous because of the hype that licensing lawsuits get 
+in the press?  The rest of the NASA license guarantees free, unhampered 
+use so tracking does not present a discrimination issue.
+
+Tracking information is meant to be held private, so it wouldn't be 
+appropriate to release that inforamtion to the public anyway.  Tracking 
+information is absoutely key to a developer's ability to guage the 
+success of their product.  For example, if you have reliable numbers to 
+compare your downloads with, say sales figures from a comperable 
+well-known product (e.g. MS Office), then you can promote that product 
+more effectively.
+
+
+> 
+> 2) It is generally considered to be desirable to permit open source
+>    software to be used anonymously, such as by a dissident under your
+>    least favorite form of government.  Arguably preventing the
+>    possibility of anonymous use violates OSD #5.
+
+Once a product under GNU is initially downloaded, the person can 
+distribute it anonymously.  OSD #5 simply states non-descrimination - 
+which means that you won't restrict the availability of your product to 
+a particular group/caste/class/industry, etc...   I maintain that as 
+long as non-restricted access is granted non-descrimination is complied 
+with.  Besides, non-descrimination typically is not meant to ensure 
+that you cannot know where your product is used.
+
+
+> 
+> 3) While free software is not identical to open source software, they
+>    are generally congruous.  The FSF specifically forbids tracking:
+>        http://www.fsf.org/philosophy/free-sw.html:
+
+I think what I was pointing out before was that the standards for open 
+source definitions are arbitrary and varied.  I would like to stick to 
+opensource.org's criteria on this list.
+
+
+
+
+> 
+>        You should also have the freedom to make modifications and use
+>        them privately in your own work or play, without even
+>        mentioning that they exist. If you do publish your changes, you
+>        should not be required to notify anyone in particular, or in
+>        any particular way.
+
+GNU specifically states that changes will be submitted back to the 
+authors.  That requirement, if enforced, provides much more stringent 
+tracking than what NASA proposes.  But, I also point out that this 
+requirement in GNU is not enforced at all, generally, making that 
+provision useless, and makes the language in the GNU license an empty 
+requirement on its face.  For the GNU license it means the requirement 
+might not be enforced by a judge even though the requirements are 
+there.  Why put such a requirement in the license if it's not going to 
+be enforced?
+
+This is a key difference between NASA's license and the existing ones - 
+enforcement of the requirement.  If NASA requires registration, then 
+fine, but I expect NASA to make an effort to actually enforce the 
+requirement.  And, the efforts to do that are clearly stated in the 
+license itself, making the license more consistent between intent and 
+implementation than many other licenses (on that point).
+
+Richard
+
+
+> 
+> Ian
+> --
+> license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+> 
+> 
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From galactus at stack.nl  Fri Feb 13 20:03:31 2004
+From: galactus at stack.nl (Arnoud Engelfriet)
+Date: Fri, 13 Feb 2004 21:03:31 +0100
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213163604.GH2538@skunk.reutershealth.com>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz> <20040213134621.GB4880@dotnetslash.net> <20040213141830.GF8636@ccil.org> <20040213154553.GB5218@dotnetslash.net> <20040213163604.GH2538@skunk.reutershealth.com>
+Message-ID: <20040213200331.GA97536@stack.nl>
+
+jcowan at reutershealth.com wrote:
+> But all those works were once in Australian copyright.  The question is,
+> can a work which is born into the public domain in its country of origin
+> be in copyright anywhere at any time?
+
+As far as I understand the Berne Convention, the answer is yes.
+Article 5(3) of the BC says: "The enjoyment and the exercise of 
+these rights ... shall be independent of the existence of protection 
+in the country of origin of the work."
+Article 7(1) puts the duration of protection at life+50, but
+article 5(1) states that an author enjoys longer protection in
+countries that have a longer term.
+
+http://www.law.cornell.edu/treaties/berne/overview.html
+
+Arnoud
+
+-- 
+Arnoud Engelfriet, Dutch patent attorney - Speaking only for myself
+Patents, copyright and IPR explained for techies: http://www.iusmentis.com/
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From ian at airs.com  Fri Feb 13 20:24:52 2004
+From: ian at airs.com (Ian Lance Taylor)
+Date: 13 Feb 2004 15:24:52 -0500
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213195759.GA1061@foghorn.dmz.rsmba.biz>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz> <m38yj7ng5e.fsf@gossamer.airs.com> <20040213195759.GA1061@foghorn.dmz.rsmba.biz>
+Message-ID: <m3ptcik9rf.fsf@gossamer.airs.com>
+
+Richard Schilling <rschi at rsmba.biz> writes:
+
+Again, I understand that NASA's proposed license does not require
+tracking, it merely encourages it.  We are discussing tracking in the
+abstract.
+
+I could write a much longer response, but I'll try to stick to most
+salient points.  If you think that I dropped something important, let
+me know.
+
+> > 1) Tracking presumably requires reporting back to some organization.
+> >    What happens if that organization disappears?  Does it then become
+> >    impossible to distribute the code?  If it does, the code would
+> >    clearly no longer be open source.
+> 
+> Detailed tracking is done anyway through web logs.
+
+That merely tracks the people who downloaded it directly from your web
+site.  It does not track the people to whom those people redistributed
+it.  If that is all you mean by tracking--keeping track of the
+original downloaders--then I agree that that is benign.
+
+However, I note that that is not the form of tracking which the NASA
+license requests (not requires).  The NASA license states
+ F. In an effort to track usage and maintain accurate records of the Subject Software, each Recipient, upon receipt of the Subject Software, is requested to register with NASA by visiting the following website: ______________________________.  
+
+Note that each recipient is requested to register, not merely each
+recipient who downloads the software directly from NASA.  If this were
+a requirement rather than a request, then I think the license would
+not be OSD-compliant.
+
+> And, companies
+> dissappear all the time - no big deal there.
+
+In this example, the company which I am concerned about disappearing
+is NASA itself.  If the license had a tracking requirement, then
+suppose the above web site disappeared.  It would no longer be
+possible to legally receive the software, as it would no longer be
+possible to comply with the license.  It is probably possible to
+adjust the license to not require tracking if NASA disappears, but
+there are a lot of cases to consider, like a private spin-off, or
+incorporation into another government entity.  For that matter, if the
+license were to really mention a web site, what would happen when we
+would no longer use the web, but use the next big thing instead?  It's
+important to ensure that such potential problems down the road do not
+cause the software to no longer be open source at that time.
+
+> GNU specifically states that changes will be submitted back to the
+> authors.
+
+No, it doesn't.
+
+If it did, software under that license would be neither free nor open
+source.
+
+Ian
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From jcowan at reutershealth.com  Fri Feb 13 20:27:52 2004
+From: jcowan at reutershealth.com (jcowan at reutershealth.com)
+Date: Fri, 13 Feb 2004 15:27:52 -0500
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213200331.GA97536@stack.nl>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz> <20040213134621.GB4880@dotnetslash.net> <20040213141830.GF8636@ccil.org> <20040213154553.GB5218@dotnetslash.net> <20040213163604.GH2538@skunk.reutershealth.com> <20040213200331.GA97536@stack.nl>
+Message-ID: <20040213202752.GW2538@skunk.reutershealth.com>
+
+Arnoud Engelfriet scripsit:
+
+> Article 5(3) of the BC says: "The enjoyment and the exercise of 
+> these rights ... shall be independent of the existence of protection 
+> in the country of origin of the work."
+> Article 7(1) puts the duration of protection at life+50, but
+> article 5(1) states that an author enjoys longer protection in
+> countries that have a longer term.
+
+Thanks; that looks definitive.  So a U.S. government work is born into the
+public domain in the U.S., but is in copyright for 50 years after its
+publication date in Australia.  Amazing.
+
+So Americans can ignore the civil-servant version of the NOSA license with
+impunity, but not so Australians.
+
+-- 
+John Cowan       http://www.ccil.org/~cowan        <jcowan at reutershealth.com> You tollerday donsk?  N.  You tolkatiff scowegian?  Nn. You spigotty anglease?  Nnn.  You phonio saxo?  Nnnn. Clear all so!  `Tis a Jute.... (Finnegans Wake 16.5)
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rousskov at measurement-factory.com  Fri Feb 13 21:10:31 2004
+From: rousskov at measurement-factory.com (Alex Rousskov)
+Date: Fri, 13 Feb 2004 14:10:31 -0700 (MST)
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213195759.GA1061@foghorn.dmz.rsmba.biz>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz> <m38yj7ng5e.fsf@gossamer.airs.com> <20040213195759.GA1061@foghorn.dmz.rsmba.biz>
+Message-ID: <Pine.BSF.4.58.0402131354090.99625@measurement-factory.com>
+
+On Fri, 13 Feb 2004, Richard Schilling wrote:
+
+> I would rather know that more details about the product's use are
+> being tracked than not.  When a company tracks the usage of their
+> product they have an easier time gaining support from onlookers,
+> which is good for the product.
+>
+> I want to write to my congress people and make a case for NASA
+> spending a lot of money on open source development.  It's more
+> compelling to do that if I can point out where the product is being
+> used.
+>
+> Tracking information is meant to be held private, so it wouldn't be
+> appropriate to release that inforamtion to the public anyway.
+> Tracking information is absoutely key to a developer's ability to
+> guage the success of their product.  For example, if you have
+> reliable numbers to compare your downloads with, say sales figures
+> from a comperable well-known product (e.g. MS Office), then you can
+> promote that product more effectively.
+
+Even if the above rhetoric makes sense on your planet, the above has
+nothing to do with licensing discussion on this list. Here is the
+registration-related summary:
+ - If NASA wants to kindly ask users to register, license is not the right place to do that. NASA should change the license before OSI approves it (a simple quality control issue)
+ - If NASA wants to trick users into registering (while not legally requiring that), then NASA should change the license before OSI approves it (a simple honesty/openness of intent issue).
+ - If NASA wants to legally require registration, then NASA should change the license to make that legal requirement clear (a simple quality control issue). This change is likely to reduce changes of NOSA being OSI certified, I guess.
+
+Alex.
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From russell at flora.ca  Sat Feb 14 19:44:10 2004
+From: russell at flora.ca (Russell McOrmond)
+Date: Sat, 14 Feb 2004 14:44:10 -0500 (EST)
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213080508.GC8361@foghorn.dmz.rsmba.biz>
+Message-ID: <Pine.LNX.4.44.0402141433320.7726-100000@calcutta.flora.ca>
+
+On Fri, 13 Feb 2004, Richard Schilling wrote:
+
+> I believe that is a misguided concept in open source licensing that 
+> some hold to.  Tracking the use of a product does not make a license 
+> non-open source.  Open Source licensing deals with accessibility and 
+> cost, but tracking, per se, is not even relevant to that 
+> characteristic.  In fact, tracking the uses of open source is a *key* 
+> marketing tool and the only way we can judge if an investment of time 
+> into open source is paying off, is it not?
+ Are you deliberately trying to open a can-of-worms here, or do you 
+really not understand the problem?
+ Back in 1998 there was a claim that "Open Source" was intended to be a
+marketing term for Free Software.  Since that time there have been many
+attempts to make it into something extremely different such that it was no
+longer a marketing term for the "freedom to run, copy, distribute, study,
+change and improve the software".  In order for these to be freedoms it
+should be obvious that these things be able to be done without additional

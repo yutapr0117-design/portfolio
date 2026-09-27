@@ -1,0 +1,750 @@
+fee and for citizens to do so anonymously.
+ Whether a critical feature of the Free/Libre and Open Source Software
+movement runs contrary to the marketing goal of a specific organization is
+largely irrelevant.  As soon as you track software is it no longer FLOSS,
+and I would hate to see the OSI change the definition of Open Source to
+the level that I could no longer trust its endorsement of any license.  
+The value of the OSI to the community would effectively be gone at that
+point.
+
+ Please don't push this can of worms into this conference any further
+than it is already there.  The OSI has a very good definition to match
+against licensing currently, and I would hope that the OSI would not erode
+them to the level you suggest.  Your suggestions that the lawyers at NASA
+would know better than OSI how to meet the goals of Open Source is
+entirely backwards.
+
+--- Russell McOrmond, Internet Consultant: <http://www.flora.ca/>  Perspective of a digital copyright reformer on Sheila Copps, MP. http://www.flora.ca/russell/drafts/copps-ndp.html Discuss at: http://www.lulu.com/forums/viewtopic.php?t=2757
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From nelson at crynwr.com  Mon Feb 16 20:53:31 2004
+From: nelson at crynwr.com (Russell Nelson)
+Date: Mon, 16 Feb 2004 15:53:31 -0500
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <Pine.BSF.4.58.0402131354090.99625@measurement-factory.com>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz> <m38yj7ng5e.fsf@gossamer.airs.com> <20040213195759.GA1061@foghorn.dmz.rsmba.biz> <Pine.BSF.4.58.0402131354090.99625@measurement-factory.com>
+Message-ID: <16433.11723.48212.764234@desk.crynwr.com>
+
+Alex Rousskov writes: > 	- If NASA wants to kindly ask users to register, license is > 	  not the right place to do that. NASA should change the > 	  license before OSI approves it (a simple quality control > 	  issue)
+
+On the other hand, if NASA wants to require redistributors to kindly
+ask users to register, the license is the right place to do that.
+Consider that the GPL REQUIRES that an interactive startup of a
+program print out a certain bit of text.  You cannot remove that code
+from the program without violating the GPL.  NASA isn't requiring any
+fixed bits of code that cannot be changed.  Requiring redistributors
+to ask is not unreasonable, and doesn't violate any part of the OSD
+that I can see.
+
+-- 
+--My blog is at angry-economist.russnelson.com  | Coding in Python
+Crynwr sells support for free software  | PGPok |     is like
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | sucking on sugar.
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |     Sweet!
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rousskov at measurement-factory.com  Mon Feb 16 21:05:46 2004
+From: rousskov at measurement-factory.com (Alex Rousskov)
+Date: Mon, 16 Feb 2004 14:05:46 -0700 (MST)
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <16433.11723.48212.764234@desk.crynwr.com>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz> <m38yj7ng5e.fsf@gossamer.airs.com> <20040213195759.GA1061@foghorn.dmz.rsmba.biz> <Pine.BSF.4.58.0402131354090.99625@measurement-factory.com> <16433.11723.48212.764234@desk.crynwr.com>
+Message-ID: <Pine.BSF.4.58.0402161403090.58525@measurement-factory.com>
+
+On Mon, 16 Feb 2004, Russell Nelson wrote:
+
+> Alex Rousskov writes:
+>  > 	- If NASA wants to kindly ask users to register, license is
+>  > 	  not the right place to do that. NASA should change the
+>  > 	  license before OSI approves it (a simple quality control
+>  > 	  issue)
+>
+> On the other hand, if NASA wants to require redistributors to kindly
+> ask users to register, the license is the right place to do that.
+
+Agreed. For cases where NASA wants to _require_ something, see the
+other bullet in my original e-mail. I believe it applies just fine in
+the above case.
+
+Alex.
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From nelson at crynwr.com  Mon Feb 16 22:00:39 2004
+From: nelson at crynwr.com (Russell Nelson)
+Date: Mon, 16 Feb 2004 17:00:39 -0500
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213202752.GW2538@skunk.reutershealth.com>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz> <20040213134621.GB4880@dotnetslash.net> <20040213141830.GF8636@ccil.org> <20040213154553.GB5218@dotnetslash.net> <20040213163604.GH2538@skunk.reutershealth.com> <20040213200331.GA97536@stack.nl> <20040213202752.GW2538@skunk.reutershealth.com>
+Message-ID: <16433.15751.902942.889695@desk.crynwr.com>
+
+jcowan at reutershealth.com writes: > So Americans can ignore the civil-servant version of the NOSA license with > impunity, but not so Australians.
+
+Interesting ... so what happens if an American citizen takes public
+domain US Government software into Australia and starts redistributing
+it there?  But I suppose that's a problem that the NOSA will fix, so
+at least for this discussion it's a moot point.
+
+-- 
+--My blog is at angry-economist.russnelson.com  | Coding in Python
+Crynwr sells support for free software  | PGPok |     is like
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | sucking on sugar.
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |     Sweet!
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From ben at reser.org  Tue Feb 17 08:48:33 2004
+From: ben at reser.org (Ben Reser)
+Date: Tue, 17 Feb 2004 00:48:33 -0800
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213202752.GW2538@skunk.reutershealth.com>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz> <20040213134621.GB4880@dotnetslash.net> <20040213141830.GF8636@ccil.org> <20040213154553.GB5218@dotnetslash.net> <20040213163604.GH2538@skunk.reutershealth.com> <20040213200331.GA97536@stack.nl> <20040213202752.GW2538@skunk.reutershealth.com>
+Message-ID: <20040217084833.GL21663@occipital.brain.org>
+
+On Fri, Feb 13, 2004 at 03:27:52PM -0500, jcowan at reutershealth.com wrote:
+> So Americans can ignore the civil-servant version of the NOSA license with
+> impunity, but not so Australians.
+
+Depends.  If there are patent rights then no.  NOSA covers more than
+just copyrights.  I don't believe there's a restriction on patent
+ownership by the US Government.
+
+-- 
+Ben Reser <ben at reser.org>
+http://ben.reser.org
+
+"Conscience is the inner voice which warns us somebody may be looking."
+- H.L. Mencken
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From brian at collab.net  Tue Feb 17 16:02:38 2004
+From: brian at collab.net (Brian Behlendorf)
+Date: Tue, 17 Feb 2004 08:02:38 -0800 (PST)
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040213202752.GW2538@skunk.reutershealth.com>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN> <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz> <20040213134621.GB4880@dotnetslash.net> <20040213141830.GF8636@ccil.org> <20040213154553.GB5218@dotnetslash.net> <20040213163604.GH2538@skunk.reutershealth.com> <20040213200331.GA97536@stack.nl> <20040213202752.GW2538@skunk.reutershealth.com>
+Message-ID: <20040215105146.F5293@fez.hyperreal.org>
+
+On Fri, 13 Feb 2004 jcowan at reutershealth.com wrote:
+> Thanks; that looks definitive.  So a U.S. government work is born into the
+> public domain in the U.S., but is in copyright for 50 years after its
+> publication date in Australia.  Amazing.
+>
+> So Americans can ignore the civil-servant version of the NOSA license with
+> impunity, but not so Australians.
+
+So what happens when I download the code under a FOIA/public domain issue,
+and then relicense under a BSD license?  Don't I have the right to
+relicense PD works?
+ Brian
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From jcowan at reutershealth.com  Tue Feb 17 17:06:40 2004
+From: jcowan at reutershealth.com (jcowan at reutershealth.com)
+Date: Tue, 17 Feb 2004 12:06:40 -0500
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040215105146.F5293@fez.hyperreal.org>
+References: <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz> <20040213134621.GB4880@dotnetslash.net> <20040213141830.GF8636@ccil.org> <20040213154553.GB5218@dotnetslash.net> <20040213163604.GH2538@skunk.reutershealth.com> <20040213200331.GA97536@stack.nl> <20040213202752.GW2538@skunk.reutershealth.com> <20040215105146.F5293@fez.hyperreal.org>
+Message-ID: <20040217170640.GG2538@skunk.reutershealth.com>
+
+Brian Behlendorf scripsit:
+
+> So what happens when I download the code under a FOIA/public domain issue,
+> and then relicense under a BSD license?  Don't I have the right to
+> relicense PD works?
+
+You can do anything you want to with a public domain work except try to assert
+a valid copyright on it, which is one of the incidents of the BSD or any
+other open-source license.  So, no.
+
+-- 
+John Cowan  jcowan at reutershealth.com  www.reutershealth.com  www.ccil.org/~cowan
+"You cannot enter here.  Go back to the abyss prepared for you!  Go back!
+Fall into the nothingness that awaits you and your Master.  Go!" --Gandalf
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From brian at collab.net  Tue Feb 17 19:14:55 2004
+From: brian at collab.net (Brian Behlendorf)
+Date: Tue, 17 Feb 2004 11:14:55 -0800 (PST)
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040217170640.GG2538@skunk.reutershealth.com>
+References: <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz> <20040213134621.GB4880@dotnetslash.net> <20040213141830.GF8636@ccil.org> <20040213154553.GB5218@dotnetslash.net> <20040213163604.GH2538@skunk.reutershealth.com> <20040213200331.GA97536@stack.nl> <20040213202752.GW2538@skunk.reutershealth.com> <20040215105146.F5293@fez.hyperreal.org> <20040217170640.GG2538@skunk.reutershealth.com>
+Message-ID: <20040217111354.Y5293@fez.hyperreal.org>
+
+On Tue, 17 Feb 2004 jcowan at reutershealth.com wrote:
+> Brian Behlendorf scripsit:
+>
+> > So what happens when I download the code under a FOIA/public domain issue,
+> > and then relicense under a BSD license?  Don't I have the right to
+> > relicense PD works?
+>
+> You can do anything you want to with a public domain work except try to assert
+> a valid copyright on it, which is one of the incidents of the BSD or any
+> other open-source license.  So, no.
+
+So I have no right to create a derivative work of a public domain work and
+release that derivative work under a license of my choice?  For example, I
+can not take PD code and incorporate it into Apache httpd? I must
+misunderstand what public domain means, then.
+ Brian
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From galactus at stack.nl  Tue Feb 17 19:33:18 2004
+From: galactus at stack.nl (Arnoud Engelfriet)
+Date: Tue, 17 Feb 2004 20:33:18 +0100
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040217111354.Y5293@fez.hyperreal.org>
+References: <20040213080508.GC8361@foghorn.dmz.rsmba.biz> <20040213134621.GB4880@dotnetslash.net> <20040213141830.GF8636@ccil.org> <20040213154553.GB5218@dotnetslash.net> <20040213163604.GH2538@skunk.reutershealth.com> <20040213200331.GA97536@stack.nl> <20040213202752.GW2538@skunk.reutershealth.com> <20040215105146.F5293@fez.hyperreal.org> <20040217170640.GG2538@skunk.reutershealth.com> <20040217111354.Y5293@fez.hyperreal.org>
+Message-ID: <20040217193317.GA95862@stack.nl>
+
+Brian Behlendorf wrote:
+> On Tue, 17 Feb 2004 jcowan at reutershealth.com wrote:
+> > Brian Behlendorf scripsit:
+> > > So what happens when I download the code under a FOIA/public domain issue,
+> > > and then relicense under a BSD license?  Don't I have the right to
+> > > relicense PD works?
+> >
+> > You can do anything you want to with a public domain work except try to assert
+> > a valid copyright on it, which is one of the incidents of the BSD or any
+> > other open-source license.  So, no.
+> 
+> So I have no right to create a derivative work of a public domain work and
+> release that derivative work under a license of my choice?  
+
+Sure you can. It's just that you can't claim a copyright to the
+original public domain work itself. You seemed to suggest doing
+that (rather than creating a derivative work) above when you
+said "downloading public domain code and relicensing it under BSD".
+
+The interesting question is whether I can then take your BSD'ed
+work and extract the public domain parts. It seems logical I
+should be able to do that, but there have been lots of lawsuits
+about "restored" versions of PD works and whether the result is
+copyright-protected.
+
+Arnoud
+
+-- 
+Arnoud Engelfriet, Dutch patent attorney - Speaking only for myself
+Patents, copyright and IPR explained for techies: http://www.iusmentis.com/
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From jcowan at reutershealth.com  Tue Feb 17 19:37:19 2004
+From: jcowan at reutershealth.com (jcowan at reutershealth.com)
+Date: Tue, 17 Feb 2004 14:37:19 -0500
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040217111354.Y5293@fez.hyperreal.org>
+References: <20040213080508.GC8361@foghorn.dmz.rsmba.biz> <20040213134621.GB4880@dotnetslash.net> <20040213141830.GF8636@ccil.org> <20040213154553.GB5218@dotnetslash.net> <20040213163604.GH2538@skunk.reutershealth.com> <20040213200331.GA97536@stack.nl> <20040213202752.GW2538@skunk.reutershealth.com> <20040215105146.F5293@fez.hyperreal.org> <20040217170640.GG2538@skunk.reutershealth.com> <20040217111354.Y5293@fez.hyperreal.org>
+Message-ID: <20040217193719.GA28109@skunk.reutershealth.com>
+
+Brian Behlendorf scripsit:
+
+> So I have no right to create a derivative work of a public domain work and
+> release that derivative work under a license of my choice?  For example, I
+> can not take PD code and incorporate it into Apache httpd? I must
+> misunderstand what public domain means, then.
+
+Oh yes, you can do that.  But the derivative work must be genuinely a derivative
+work, and not just a minor touch-up of the public-domain original.
+
+-- 
+"They tried to pierce your heart                John Cowan
+with a Morgul-knife that remains in the         http://www.ccil.org/~cowan
+wound.  If they had succeeded, you would        http://www.reutershealth.com
+become a wraith under the domination of the Dark Lord."         --Gandalf
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rodd at cyberspaces.org  Tue Feb 17 19:52:48 2004
+From: rodd at cyberspaces.org (Rod Dixon)
+Date: Tue, 17 Feb 2004 14:52:48 -0500 (EST)
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040217170640.GG2538@skunk.reutershealth.com>
+References: <20040213014612.GC6404@foghorn.dmz.rsmba.biz> <m3n07npp3x.fsf@gossamer.airs.com> <20040213080508.GC8361@foghorn.dmz.rsmba.biz> <20040213134621.GB4880@dotnetslash.net> <20040213141830.GF8636@ccil.org> <20040213154553.GB5218@dotnetslash.net> <20040213163604.GH2538@skunk.reutershealth.com> <20040213200331.GA97536@stack.nl> <20040213202752.GW2538@skunk.reutershealth.com> <20040215105146.F5293@fez.hyperreal.org> <20040217170640.GG2538@skunk.reutershealth.com>
+Message-ID: <Pine.BSF.4.58.0402171443490.52685@gamma.pair.com>
+
+Technically, you could slap a license on the work (and, thereby,
+assert copyright), but no one may care about your licensed version
+since the work remains in the public domain. As a practical matter, you
+could "add value" to the public domain work and then license it. Or, you
+could create a derivative work. Or, you could do nothing to the work, but
+distribute the work "better" than the federal government does (this last
+choice is a frequent use of public domain works). Consequently, Brian is
+correct.
+
+Rod
+
+rod at cyberspaces.org
+opensource.cyberspaces.org
+
+
+
+
+On Tue, 17 Feb 2004 jcowan at reutershealth.com wrote:
+
+> Brian Behlendorf scripsit:
+>
+> > So what happens when I download the code under a FOIA/public domain issue,
+> > and then relicense under a BSD license?  Don't I have the right to
+> > relicense PD works?
+>
+> You can do anything you want to with a public domain work except try to assert
+> a valid copyright on it, which is one of the incidents of the BSD or any
+> other open-source license.  So, no.
+>
+> --
+> John Cowan  jcowan at reutershealth.com  www.reutershealth.com  www.ccil.org/~cowan
+> "You cannot enter here.  Go back to the abyss prepared for you!  Go back!
+> Fall into the nothingness that awaits you and your Master.  Go!" --Gandalf
+> --
+> license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+>
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From lrosen at rosenlaw.com  Tue Feb 17 20:58:26 2004
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Tue, 17 Feb 2004 12:58:26 -0800
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040217111354.Y5293@fez.hyperreal.org>
+Message-ID: <021501c3f598$f25e3440$927ba8c0@ROSENGARDEN>
+
+> > You can do anything you want to with a public domain work 
+> except try 
+> > to assert a valid copyright on it, which is one of the incidents of 
+> > the BSD or any other open-source license.  So, no.
+> 
+> So I have no right to create a derivative work of a public 
+> domain work and release that derivative work under a license 
+> of my choice?  For example, I can not take PD code and 
+> incorporate it into Apache httpd? I must misunderstand what 
+> public domain means, then.
+
+What does the word "it" mean? :-) I think there is a confusion of antecedent
+basis here. 
+
+In the original sentence, John suggested that nobody can assert a copyright
+on a public domain work. True. Its copyright has presumably expired (or
+perhaps it is a US Government work in the United States). It reqires no
+license at all to distribute a public domain work. 
+
+Brian is also right. Anybody can create a derivative work of a public domain
+work and distribute that derivative work under the Apache or any other
+license.
+
+/Larry Rosen
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From lrosen at rosenlaw.com  Tue Feb 17 21:11:45 2004
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Tue, 17 Feb 2004 13:11:45 -0800
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <20040217193719.GA28109@skunk.reutershealth.com>
+Message-ID: <022001c3f59a$a6fb6d90$927ba8c0@ROSENGARDEN>
+
+> > So I have no right to create a derivative work of a public 
+> domain work 
+> > and release that derivative work under a license of my choice?  For 
+> > example, I can not take PD code and incorporate it into 
+> Apache httpd? 
+> > I must misunderstand what public domain means, then.
+> 
+> Oh yes, you can do that.  But the derivative work must be 
+> genuinely a derivative work, and not just a minor touch-up of 
+> the public-domain original.
+
+I don't think so, John. Anyone can do ANYTHING to a public domain work. No
+license is required, whether it is to do plastic surgery or simply to put on
+lipstick. If anything, the proper question is whether the degree of
+creativity in the "derivative work" is sufficient to actually create a new
+copyrightable work. If not, that so-called derivative work will be an
+uncopyrightable public domain work too.
+
+/Larry Rosen
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From jcowan at reutershealth.com  Tue Feb 17 22:16:43 2004
+From: jcowan at reutershealth.com (jcowan at reutershealth.com)
+Date: Tue, 17 Feb 2004 17:16:43 -0500
+Subject: For Approval: NASA Open Source Agreement Version 1.1
+In-Reply-To: <022001c3f59a$a6fb6d90$927ba8c0@ROSENGARDEN>
+References: <20040217193719.GA28109@skunk.reutershealth.com> <022001c3f59a$a6fb6d90$927ba8c0@ROSENGARDEN>
+Message-ID: <20040217221643.GD28109@skunk.reutershealth.com>
+
+Lawrence E. Rosen scripsit:
+
+> I don't think so, John. Anyone can do ANYTHING to a public domain work. No
+> license is required, whether it is to do plastic surgery or simply to put on
+> lipstick. If anything, the proper question is whether the degree of
+> creativity in the "derivative work" is sufficient to actually create a new
+> copyrightable work. If not, that so-called derivative work will be an
+> uncopyrightable public domain work too.
+
+I agree that that is the issue, though your wording is better than mine.
+
+Brian can't just take an arbitrary piece of public domain software (for
+concreteness, let us take the TZ library, whose author is one Arthur
+David Olson, a U.S. government employee) and slap a "Copyright 2004
+Brian Behlendorf" on it: that would be fraudulent, though admittedly
+it's not clear to me who would have standing to sue.  He could, however,
+do what the FSF has done: create a derivative work like GNU libc, which
+incorporates code originally written by Olson, and put his own copyright
+and license on that.
+
+-- 
+"You know, you haven't stopped talking          John Cowan
+since I came here. You must have been           http://www.reutershealth.com
+vaccinated with a phonograph needle."           jcowan at reutershealth.com --Rufus T. Firefly                      http://www.ccil.org/~cowan
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rdixon at cyberspaces.org  Wed Feb 18 16:00:16 2004
+From: rdixon at cyberspaces.org (Rod Dixon, J.D., LL.M.)
+Date: Wed, 18 Feb 2004 11:00:16 -0500
+Subject: License Committee report - regarding NASA Open Source Agreement Version 1.1
+References: <16434.48625.960597.184574@desk.crynwr.com>
+Message-ID: <002e01c3f638$4d637130$6901a8c0@AIBO2>
+
+I think the NASA Open Source Agreement is worthy of OSI's approval - - with
+revision, but it also raises issues worthy of discussion and, perhaps,
+adjustment to the OSD since the internationalization of intellectual
+property law will likely raise similar open source licensing issues for
+other governments.
+
+Regarding the issue concerning whether NASA may license software it cannot
+copyright in the U.S., the answer is yes, notwithstanding that significant
+harm to the conception of public domain for digital works is likely to
+follow.
+
+More generally, there may be good reason to add an article to the OSD
+regarding government open source licensing. Since it might be prudent to
+encourage open source licensing by governments for a number of reasons, OSI
+may want to consider under what conditions that this may be done. For
+instance, government bodies could be permitted/required to add a clause to
+the license safeguarding public domain rights where applicable. Further, it
+may be worth noting that government agencies like NASA could be encouraged
+to seek out open source developers when developing software rather than
+outsource development strictly to non-open source developers, which means
+the software is neither public domain (a government contractor may assert
+copyright), nor
+open source.
+
+With regard to the NASA license, I have three points. [1] The license
+contains an ambitious definition of "display" under section 1, which,
+effectively, imposes a restriction on the use of the software that I doubt
+is consistent with the spirit of a number of articles of the OSD. This
+definition may need revision to be more consistent with traditional
+Copyright law conceptions of display of a computer program. The user
+registration requirement/request line at the beginning of the license seems
+unclear as to purpose and, therefore, it is difficult to determine whether
+it is in compliance with article 7 of the OSD. Why is the government
+collecting user names, and is this part of the license intended to reach
+those licensees/sublicensees receiving the work as part of a redistribution?
+I do not view section 3.F of the license as answering my question since it
+is not clear why tracking registrations is needed either.
+
+[2] Regarding section 3.J, in all fairness, open source licenses used to
+distribute online software initially created by the U.S. government ought to
+carry a provision clearly indicating whether the export license from the
+Commerce department has been obtained and/or whether such a license is
+required. Notably, NASA IS ostensibly exporting the software since the open
+source license is not necessary, if the program is distributed within the
+United States or to U.S. citizens. Section 3.J should be revised.
+
+[3] Section 5.F should also be posted on NASA's website since the designated
+representative listed on any particular license in the hands of a licensee
+is likely to be outdated long before the license terminates.
+ - Rod
+Rod Dixon
+Blog: http://opensource.cyberspaces.org
+
+
+
+
+: --
+:
+: There is much discussion spent deciding whether NASA can copyright
+: software at all.  The license itself says that no copyright is claimed
+: in the United States.
+:
+: The only serious concern that I can see is that the license requires
+: the recipient to indemnify the Government of the United States against
+: third party lawsuits.
+:
+: Title: NASA Open Source Agreement Version 1.1
+: Submission:
+http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7698:200402:jfdgbalgdhgblndpmljm
+: License:
+http://www.nas.nasa.gov/Research/Software/Open-Source/NASA_Open_Source_Agreement_1.1.txt
+: Comments: ongoing as of this writing.
+: Recommend: more discussion.
+:
+: -- 
+: --My blog is at angry-economist.russnelson.com  | Coding in Python
+: Crynwr sells support for free software  | PGPok |     is like
+: 521 Pleasant Valley Rd. | +1 315 268 1925 voice | sucking on sugar.
+: Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |     Sweet!
+: --
+: license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From brian at collab.net  Wed Feb 18 16:56:16 2004
+From: brian at collab.net (Brian Behlendorf)
+Date: Wed, 18 Feb 2004 08:56:16 -0800 (PST)
+Subject: License Committee report - regarding NASA Open Source Agreement Version 1.1
+In-Reply-To: <002e01c3f638$4d637130$6901a8c0@AIBO2>
+References: <16434.48625.960597.184574@desk.crynwr.com> <002e01c3f638$4d637130$6901a8c0@AIBO2>
+Message-ID: <20040218085345.H5293@fez.hyperreal.org>
+
+On Wed, 18 Feb 2004, Rod Dixon, J.D., LL.M. wrote:
+> Regarding the issue concerning whether NASA may license software it cannot
+> copyright in the U.S., the answer is yes, notwithstanding that significant
+> harm to the conception of public domain for digital works is likely to
+> follow.
+
+And if there's anything actually useful in what they release, they should
+expect U.S. developers to acquire under PD, derive, and sublicense,
+thereby avoiding the NOSA requirements altogether.  But sure, go ahead and
+approve it.
+ Brian
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From Bryan.A.Geurts at nasa.gov  Fri Mar 12 23:15:13 2004
+From: Bryan.A.Geurts at nasa.gov (Bryan Geurts)
+Date: Fri, 12 Mar 2004 18:15:13 -0500
+Subject: Revisions to NASA Open Source Agreement (NOSA)
+Message-ID: <6.0.1.1.2.20040312173319.0201cfa0@pop500.gsfc.nasa.gov>
+
+Attached is a revised version of NOSA, which implements the following changes:
+
+- In general -- "NASA" is changed to "Government Agency" throughout the 
+agreement to make NOSA available as a template for use by any federal 
+government agency
+- Opening Paragraph -- A sentence is added making the government agency an 
+"intended third-party beneficiary" to any distribution or redistribution of 
+the subject software.
+- Second Paragraph -- A line is added to identify the government agency 
+which is developer of the original software.
+- Paragraph 3.B. is amended to give more explicit instructions regarding 
+copyright notices.
+- Paragraph 4.B. is amended to make it clear that indemnification is 
+extended not only to the government, but to all prior recipients as well.
+
+Thanks for your attention and comments.
+
+Bryan A. Geurts
+Patent Attorney
+NASA Goddard Space Flight Center
+Code 503.0
+8800 Greenbelt Road
+Greenbelt, MD 20771
+(301) 286-7886
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: NASA_Open_Source_Agmt031204final 2.rtf
+Type: application/rtf
+Size: 59842 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20040312/27de8d8f/attachment.rtf>
+
+From nelson at crynwr.com  Sat Mar 13 05:48:22 2004
+From: nelson at crynwr.com (Russell Nelson)
+Date: Sat, 13 Mar 2004 00:48:22 -0500
+Subject: Revisions to NASA Open Source Agreement (NOSA)
+In-Reply-To: <6.0.1.1.2.20040312173319.0201cfa0@pop500.gsfc.nasa.gov>
+References: <6.0.1.1.2.20040312173319.0201cfa0@pop500.gsfc.nasa.gov>
+Message-ID: <16466.41126.9368.321260@desk.crynwr.com>
+
+Bryan Geurts writes: > Attached is a revised version of NOSA, which implements the following changes:
+
+This looks excellent!  For easier reading, could you render it in text
+form rather than RTF form, and send a copy to license-discuss?
+They're volunteers and I don't want any barriers in the way of their
+commentary.
+ > - Paragraph 4.B. is amended to make it clear that indemnification is  > extended not only to the government, but to all prior recipients as well.
+
+You also made it clear that You are indemnifying the government and
+all prior recipients against claims brought against damage caused by
+YOUR OWN ACTIONS.  If you shoot yourself in the foot using
+NOSA-licensed software, you must sue yourself instead of the
+government or any other user.
+
+-- 
+--My blog is at angry-economist.russnelson.com  | I'm giving a short
+Crynwr sells support for free software  | PGPok | talk at WTF, Isen's
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | stupid net conference:
+Potsdam, NY 13676-3213  | FWD# 404529 via VOIP  | http://stupidnet.com
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From robert.m.padilla at nasa.gov  Mon Mar 15 15:57:31 2004
+From: robert.m.padilla at nasa.gov (Robert Padilla)
+Date: Mon, 15 Mar 2004 07:57:31 -0800
+Subject: Revisions to NASA Open Source Agreement (NOSA)
+In-Reply-To: <16466.41126.9368.321260@desk.crynwr.com>
+References: <6.0.1.1.2.20040312173319.0201cfa0@pop500.gsfc.nasa.gov> <16466.41126.9368.321260@desk.crynwr.com>
+Message-ID: <p05210609bc7b8269cae3@[192.168.0.102]>
+
+I'll try to get both a text and MS Word copy of the revised version 
+onto the web site today so that it will be available.  Will send a 
+confirmation along with the link.  Thanks,
+
+Rob Padilla
+
+At 12:48 AM -0500 3/13/04, Russell Nelson wrote:
+>Bryan Geurts writes:
+>  > Attached is a revised version of NOSA, which implements the 
+>following changes:
+>
+>This looks excellent!  For easier reading, could you render it in text
+>form rather than RTF form, and send a copy to license-discuss?
+>They're volunteers and I don't want any barriers in the way of their
+>commentary.
+>
+>  > - Paragraph 4.B. is amended to make it clear that indemnification is
+>  > extended not only to the government, but to all prior recipients as well.
+>
+>You also made it clear that You are indemnifying the government and
+>all prior recipients against claims brought against damage caused by
+>YOUR OWN ACTIONS.  If you shoot yourself in the foot using
+>NOSA-licensed software, you must sue yourself instead of the
+>government or any other user.
+>
+>--
+>--My blog is at angry-economist.russnelson.com  | I'm giving a short
+>Crynwr sells support for free software  | PGPok | talk at WTF, Isen's
+>521 Pleasant Valley Rd. | +1 315 268 1925 voice | stupid net conference:
+>Potsdam, NY 13676-3213  | FWD# 404529 via VOIP  | http://stupidnet.com
+
+
+-- 
+
+===============================================
+Robert Padilla
+Chief Patent Counsel
+NASA-Ames Research Center
+MS-202A-4
+Moffett Field, CA  94035-1000
+(650) 604-5104 Phone
+(650) 604-2767 Facsimile
+robert.m.padilla at nasa.gov
+http://technology.arc.nasa.gov
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From wrightjmf at gmail.com  Thu Apr 28 13:50:24 2011
+From: wrightjmf at gmail.com (Jeremy Wright)
+Date: Thu, 28 Apr 2011 09:50:24 -0400
+Subject: NASA Open Source Agreement v1.3
+Message-ID: <BANLkTinTGDoL5dq=Gq24BKV7AJoQ_faWmg@mail.gmail.com>
+
+I searched the archive, but couldn't find this topic elsewhere.
+
+It's my understanding that the OSI has approved version 1.3 of the
+NASA Open Source Agreement (NOSA), but the FSF (Free Software
+Foundation) has a problem with section 3, paragraph G of the license.
+The issue that the FSF cites is as follows:
+
+"The NASA Open Source Agreement, version 1.3, is not a free software
+license because it includes a provision requiring changes to be your
+?original creation?. Free software development depends on combining
+code from third parties, and the NASA license doesn't permit this."
+
+http://www.gnu.org/licenses/license-list.html
+
+Does this mean that the OSI and FSF disagree on the interpretation of
+section 3-G, or is the ability to include third party software not an
+OSI requirement for an open source license? I couldn't find any
+specific mention to the inclusion of third party code in the Open
+Source Definition, so I wanted to clarify.
+
+http://opensource.org/docs/osd
+
+Here's a link to the NOSA license.
+
+http://opensource.gsfc.nasa.gov/documents/NASA_Open_Source_Agreement_1.3.pdf
+
+Thanks,
+
+Jeremy
+
+
+From Nigel.Tzeng at jhuapl.edu  Thu Apr 28 14:29:32 2011
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Thu, 28 Apr 2011 10:29:32 -0400
+Subject: NASA Open Source Agreement v1.3
+In-Reply-To: <BANLkTinTGDoL5dq=Gq24BKV7AJoQ_faWmg@mail.gmail.com>
+Message-ID: <C9DEE96D.C6FE%Nigel.Tzeng@jhuapl.edu>
+
+There has never been a problem with combined works and NOSA to my
+knowledge.  There are many projects that combine BSD, Apache, LGPL and
+NOSA code.  This is clearly stated in:
+
+3.I. A Recipient may create a Larger Work by combining Subject Software
+with separate software not governed by the terms of this agreement and
+distribute the Larger Work as a single product. In such case, the
+Recipient must make sure Subject Software, or portions thereof,
+included in the Larger Work is subject to this Agreement.
+
+
+I've been a commiter on NOSA projects that include 3rd party open source
+code so even 3.G doesn't restrict the ability to modify the core code with
+third party open source software not of your creation so long as the
+license is less restrictive than NOSA (aka permissive licenses).  Folks
+have taken NOSA code and clearly forked it as a derived MPL project with
+NASA's blessings then added lots of 3rd party code.
+
+If "free" software "depends" on "combining" code from third parties then
+most copyleft licenses aren't "free" software either since I can't combine
+two copylefts either under the FSF interpretation of derivative works.
+GPL is far more restrictive on that score than NOSA is on a practical
+level.
+
+Are you stirring the pot or are you actually looking at using some NOSA
+code?
+
+Nigel
+
+On 4/28/11 9:50 AM, "Jeremy Wright" <wrightjmf at gmail.com> wrote:
+
+>I searched the archive, but couldn't find this topic elsewhere.
+>
+>It's my understanding that the OSI has approved version 1.3 of the
+>NASA Open Source Agreement (NOSA), but the FSF (Free Software
+>Foundation) has a problem with section 3, paragraph G of the license.
