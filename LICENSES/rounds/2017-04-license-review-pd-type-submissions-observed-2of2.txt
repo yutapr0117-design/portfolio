@@ -1,0 +1,212 @@
+OBSERVED (not received by us) -- license-review public archive, 2010-04 and 2017-04/05
+Fetched 2026-09-28 from the monthly mbox files at
+https://lists.opensource.org/pipermail/license-review_lists.opensource.org/
+Preserved verbatim, unmodified. NOT addressed to us and NOT about ACD-1.0.
+
+Two threads, complete:
+
+  (A) "For approval, by license steward, a license recognizing public domain derivation"
+      (2010-04-11, one message, no replies).
+  (B) "Proposal for OSI Approval track: Modified MIT License for Public Domain software"
+      (2017-04-13 .. 2017-05-30, nine messages).
+
+Why these two: the full-span census of license-review (199 months, run 2026-09-28) lists 27
+threads whose subject matches our type. These two were the ones the dossier had never
+mentioned. (B) matters because the first substantive reply is a committee member asking the
+question Rob Landley later put to us -- how is this different from 0BSD -- and because McCoy
+Smith states, in terms, the test a public-domain dedication is measured against: whether its
+wording is as comprehensive as CC0's. (A) matters because it is a submission of our type that
+received no reply at all.
+
+Split by LINE boundaries at 700 lines; concatenating the parts in order reproduces the
+selected bytes exactly (asserted before writing). The split exists because one file over 800
+lines trips the repository's early-warning budget check, and preserved primary sources are
+kept under it rather than given budget rows.
+
+=== part 2 of 2 (line-boundary split) ===
+
+dedications for the betterment of society as a whole.  Of course, if 
+that ever happens, the solution will thus plainly present itself.  This 
+proposal is perhaps a bit ahead of its time.
+
+-- 
+Thomas Hruska
+CubicleSoft President
+
+I've got great, time saving software that you will find useful.
+
+http://cubiclesoft.com/
+
+
+From rick at linuxmafia.com  Tue May 30 18:18:55 2017
+From: rick at linuxmafia.com (Rick Moen)
+Date: Tue, 30 May 2017 11:18:55 -0700
+Subject: [License-review] Proposal for OSI Approval track: Modified MIT
+ License for Public Domain software
+In-Reply-To: <e9aa580c-c726-75bd-f727-728097b1af1b@cubiclesoft.com>
+References: <6009cf2c-f074-2031-c57a-9166804aa8a0@cubiclesoft.com>
+ <20170413170257.GA5301@clifford>
+ <78ca0cea-8164-8fd5-2152-2e416203f157@cubiclesoft.com>
+ <1f5b7c34-f6d7-f8c8-3022-7ab8af697c3c@cubiclesoft.com>
+ <20170529164613.GU5811@linuxmafia.com>
+ <e9aa580c-c726-75bd-f727-728097b1af1b@cubiclesoft.com>
+Message-ID: <20170530181855.GB5811@linuxmafia.com>
+
+Quoting Thomas Hruska (thruska at cubiclesoft.com):
+
+> On 5/29/2017 9:46 AM, Rick Moen wrote:
+> >Thomas, your licence purports to contribute covered software into the
+> >public domain, but then purports to require recipients to accept the
+> >"Releasors'" condition of there being no warranty.  But if it's public
+> >domain, then the Releasors have no power to impose such a condition:
+> >If your licence succeeds at its aim, they no longer have an ownership
+> >interest.
+> 
+> If it is public domain, as intended, then there is no one to sue for
+> warranty liability in the first place since there is no ownership.
+
+Clearly there would in that hypothetical (by definition) no longer be a 
+copyright ownership interest, but your conclusion that eradicating
+ownership interest also erases warranty liability doesn't actually follow.
+
+(Thomas, you say you've studied licences and software law for a long
+time, and I'm doing the courtesy of taking that as given.  I would
+appreciate if you would extend a similar courtesy as a starting point
+for discussion.  Both of us making that assumption will, I hope, reduce
+the need to recap basics.)
+
+
+> >Of course, commendably, your licence acknowledges that it might fail of
+> >its primary aim (perhaps in some jurisdictions if not in others).  Like
+> >CC0, you thus aim to have a fallback, what you term an 'agreement'.  But
+> >the basis of that agreement is actually the Releasor's copyright
+> >interest, which you tortuously avoid mentioning by name as if that made
+> >it go away.  You cannot magick away copyright by avoiding the word.
+> 
+> Quite true.  However, simply saying the word copyright always throws
+> a monkey wrench into the works.
+
+Again, you draw this conclusion, but it doesn't visibly follow from
+your premises.  
+
+And, no, I would say it very much doesn't.  For someone to grant rights
+or condition that grant on acceptance of conditions such as warranty
+waiver, it is useful and necessary to state the basis of the grant.
+Look at this from the perspective of a codebase recipient, please.  The
+code instance has an attached statement puporting to (alternatively)
+declare either that the work has been contributed into the public domain
+or that someone grants a MIT-like set of rights conditioned on warranty
+disclaimer, which is all well and good, but who is this someone, and on
+what basis is the grant meaningful?  
+
+You go out of your way to have this someone identify himself/herself as
+a 'Releasor' making this declaration on a particular date.  By what
+right is this someone able to speak meaningfully concerning the work?  
+
+MIT License declares that basis correctly:  It states that the licensor
+speaks on the basis of copyright ownership that arose during a declared
+year, thus permitting all recipients to operate in good-faith reliance
+on a reasonably declared permission grant from a reasonably identified 
+stakeholder whose interest will expire in future year $COPYRIGHT_YEAR + n,
+copyright term extensions permitting.
+
+Even a successful public domain declaration (if there are any, and there
+are good reasons to believe them to have no effect in some identified
+jurisdictions at least) starts with a proper identification of the
+copyright holder and the year his/her interest arose -- and then does
+whatever suffices to eradicate that ownership interest.  It does not
+start with carefully avoiding mention of that interest.
+
+> Avoidance was a reasonable strategy not to magically get rid of
+> copyright but make it easier to work around. Maybe it's not a viable
+> strategy, but certainly reasonable.  (CC0's length and verbosity is a
+> testament to that monkey wrench.)
+
+In my view, CC0's length and verbosity are a testament to the drafters
+having taken their responsibilities seriously.  More to the immediate
+point, so did the drafters of MIT License.  And my point is that there
+are exceptionally compelling reasons why it and all similar licences 
+(and for that matter, PD declarations) should and do start with an
+identification of the owner and the year of his/her ownership interest.
+Omitting that is IMO actively harmful to recipients -- and to your aims.
+
+> Maybe one day the relevant laws will change to favor public domain
+> dedications for the betterment of society as a whole.  Of course, if
+> that ever happens, the solution will thus plainly present itself.
+> This proposal is perhaps a bit ahead of its time.
+
+Well said.  To be clear, I think it would be a fine and good thing for
+it to be easy and effective to place software works by fiat into the
+public domain.  To my knowledge, CC0 is the best-drafted attempt to
+provide an instrument for that purpose, and primarily because of the
+fallback permissive licence provided inline.   (To be clear, many people
+would deem a PD dedication successful even if ownership interest has not
+technically been eradicated provided the result is functionally similar,
+such as existence of a global, irrevocable licence to use the work for
+any purpose.)
+
+
+
+From thruska at cubiclesoft.com  Wed May 31 03:39:44 2017
+From: thruska at cubiclesoft.com (Thomas Hruska)
+Date: Tue, 30 May 2017 20:39:44 -0700
+Subject: [License-review] Proposal for OSI Approval track: Modified MIT
+ License for Public Domain software
+In-Reply-To: <20170530181855.GB5811@linuxmafia.com>
+References: <6009cf2c-f074-2031-c57a-9166804aa8a0@cubiclesoft.com>
+ <20170413170257.GA5301@clifford>
+ <78ca0cea-8164-8fd5-2152-2e416203f157@cubiclesoft.com>
+ <1f5b7c34-f6d7-f8c8-3022-7ab8af697c3c@cubiclesoft.com>
+ <20170529164613.GU5811@linuxmafia.com>
+ <e9aa580c-c726-75bd-f727-728097b1af1b@cubiclesoft.com>
+ <20170530181855.GB5811@linuxmafia.com>
+Message-ID: <b3173559-cf93-7080-67a9-32d6d686281c@cubiclesoft.com>
+
+On 5/30/2017 11:18 AM, Rick Moen wrote:
+> Quoting Thomas Hruska (thruska at cubiclesoft.com):
+> 
+>> Avoidance was a reasonable strategy not to magically get rid of
+>> copyright but make it easier to work around. Maybe it's not a viable
+>> strategy, but certainly reasonable.  (CC0's length and verbosity is a
+>> testament to that monkey wrench.)
+> 
+> In my view, CC0's length and verbosity are a testament to the drafters
+> having taken their responsibilities seriously.  More to the immediate
+> point, so did the drafters of MIT License.  And my point is that there
+> are exceptionally compelling reasons why it and all similar licences
+> (and for that matter, PD declarations) should and do start with an
+> identification of the owner and the year of his/her ownership interest.
+> Omitting that is IMO actively harmful to recipients -- and to your aims.
+> 
+>> Maybe one day the relevant laws will change to favor public domain
+>> dedications for the betterment of society as a whole.  Of course, if
+>> that ever happens, the solution will thus plainly present itself.
+>> This proposal is perhaps a bit ahead of its time.
+> 
+> Well said.  To be clear, I think it would be a fine and good thing for
+> it to be easy and effective to place software works by fiat into the
+> public domain.  To my knowledge, CC0 is the best-drafted attempt to
+> provide an instrument for that purpose, and primarily because of the
+> fallback permissive licence provided inline.   (To be clear, many people
+> would deem a PD dedication successful even if ownership interest has not
+> technically been eradicated provided the result is functionally similar,
+> such as existence of a global, irrevocable licence to use the work for
+> any purpose.)
+
+In light of the current analysis, I doubt a simple declaration of public 
+domain dedication is able to be made possible without the risks of 
+warranty exposure.  I hereby retract the proposal.
+
+All:  Thank you for your time and consideration in this matter.  I will 
+be updating the blog post shortly.
+
+-- 
+Thomas Hruska
+CubicleSoft President
+
+I've got great, time saving software that you will find useful.
+
+http://cubiclesoft.com/
+
+
+
