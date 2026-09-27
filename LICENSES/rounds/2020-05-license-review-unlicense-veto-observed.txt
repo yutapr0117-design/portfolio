@@ -1,0 +1,649 @@
+OBSERVED (not received by us) -- license-review public archive, 2020-05 / 2020-06
+Fetched 2026-09-27 from the monthly mbox files at
+https://lists.opensource.org/pipermail/license-review_lists.opensource.org/
+Preserved verbatim, unmodified. NOT addressed to us and NOT about ACD-1.0.
+
+The thread "veto against Unlicense" (17 messages, 2020-05-16 .. 2020-06-03), complete.
+
+Why this thread: the Unlicense is the precedent this dossier leans on -- a dedication that
+was approved because it also carried licence-grant wording. The dossier held the Committee's
+rationale (AS-OF.md quotes it verbatim) but not the objection that ran against it. The
+objection is from a practising attorney and is stated as a test a text either passes or fails,
+which makes it checkable against ACD-1.0 rather than merely quotable.
+
+From Stuart.Langley at disney.com  Sat May 16 22:30:23 2020
+From: Stuart.Langley at disney.com (Langley, Stuart)
+Date: Sat, 16 May 2020 22:30:23 +0000
+Subject: [License-review] veto against Unlicense
+Message-ID: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+
+Josh Berkus wrote:
+
+> So, two things:
+> 
+> 1. The Unlicense is already in wide use, as opposed to proposed but new
+> licenses
+> 
+> 2. YOU ARE NOT AN ATTORNEY, and no amount of arguing on this list can
+> make you one.
+> 
+> The attorneys on this list seem to be satisfied that, contrary to your
+> position, the Unlicense does not expose downstream users to criminal
+> charges.  If you want to dispute that, you need to get a *legal* opinion
+> that says otherwise.  Not YOUR opinion, which to be blunt, doesn't count
+> because you are not an expert.
+> 
+> So -- get an attorney, or please be silent. You have made your
+> arguments.  Making them repeatedly in 800 different emails does not make
+> them any more true than they were the first time.
+> 
+[
+For what it is worth, I am an attorney and I share some but not all of the stated concerns of the Unlicense.  I am not concerned of criminal charges or felony convictions from a practical standpoint.  The PD dedication is clear enough that I doubt a court would find that an infringer had the necessary intent to have committed a crime (but I'm not a German or EU, or even a US criminal attorney, so that is just my opinion).  However, you don't always need that intent to prove a civil violation.
+
+In my opinion its uncertain whether a court would treat it as a license.  Reasonable minds disagree.  It's more likely that a court would look at the intent of the dedicator, but because the Unlicense is written rather poorly there remains a non-remote chance it would be treated as just a failed transfer and leave the dedicator, but more likely their heirs, with a right to sue in some jurisdictions.  I could argue either side, but from a practical standpoint, that non-remote chance is enough that I do not advise clients to distribute software under the Unlicense.  
+
+Pragmatically, if I end up in court to settle an uncertainty, I've already lost.  I may win on the merits, but that is not cheap.  If a license does not give me certainty that I won't have to go to court to defend myself, it's not a worthwhile license.  Similarly, I would never advise a client to sign a commercial license that did not have conventional, well-trodden language of license such as "Licensor grants X rights...."
+
+
+
+From mccoy at lexpan.law  Sat May 16 23:21:29 2020
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Sat, 16 May 2020 16:21:29 -0700
+Subject: [License-review] veto against Unlicense
+In-Reply-To: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+References: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+Message-ID: <087701d62bd8$bb145310$313cf930$@lexpan.law>
+
+> -----Original Message-----
+> From: License-review <license-review-bounces at lists.opensource.org> On
+> Behalf Of Langley, Stuart
+> Sent: Saturday, May 16, 2020 3:30 PM
+> To: License submissions for OSI review <license-
+> review at lists.opensource.org>; Thorsten Glaser <tg at mirbsd.de>
+> Subject: Re: [License-review] veto against Unlicense
+
+
+> Pragmatically, if I end up in court to settle an uncertainty, I've already
+lost.  I may win on the merits, but that is not cheap.  If a license does
+not give me certainty that I won't have to go to court to defend > myself,
+it's not a worthwhile license.  Similarly, I would never advise a client to
+sign a commercial license that did not have conventional, well-trodden
+language of license such as "Licensor grants X 
+> rights...."
+
+Everyone assesses and accepts risks differently, but I wonder whether this
+same rationale would lead one to advise clients to avoid, e.g., BSD (in its
+various clause iterations),* which uses neither "licensor," "license,"
+"copyright," "patent," nor "grant," and uses none (or one, if you equate
+"redistribution" with 17 USC 106(3) "distribute ... copies") of the
+statutory copyright verbs and only one of the statutory patent verbs
+("use").
+
+*BSD+Patent corrects some of these issues, at least with respect to patent
+rights.
+
+
+
+
+From pamela at chesteklegal.com  Sun May 17 13:58:54 2020
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sun, 17 May 2020 09:58:54 -0400
+Subject: [License-review] veto against Unlicense
+In-Reply-To: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+References: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+Message-ID: <9e9e7ffd-9d62-5972-ae73-d24e46270cff@chesteklegal.com>
+
+
+On 5/16/20 6:30 PM, Langley, Stuart wrote:
+> In my opinion its uncertain whether a court would treat it as a license.  Reasonable minds disagree.  It's more likely that a court would look at the intent of the dedicator, but because the Unlicense is written rather poorly there remains a non-remote chance it would be treated as just a failed transfer and leave the dedicator, but more likely their heirs, with a right to sue in some jurisdictions.  I could argue either side, but from a practical standpoint, that non-remote chance is enough that I do not advise clients to distribute software under the Unlicense.
+These risks also exist for other open source licenses and this doesn't 
+look quantitatively different, or so high that we can't say that the 
+document does a reasonably good job of ensuring software freedom. Under 
+other licenses there have been licensees who have tried to withdraw 
+their grant, most recently when Linux added a code of conduct. There 
+could be heirs that want the code used in some different way, but we 
+already have that risk in the US because of termination rights. Here we 
+have a very clear statement from the copyright owner that they have no 
+intention of exercising copyright rights in the work. One could have an 
+unfaithful grantor who later changes their mind, or heirs who think they 
+see a pot of gold, but this clear statement would be a pretty high 
+hurdle to get over. Assuming this would be treated as an abandonment 
+under US law, the events you describe are less likely to occur than in 
+the case of a license because the legal effect of the abandonment is 
+that there is no copyright.
+> If a license does not give me certainty that I won't have to go to court to defend myself, it's not a worthwhile license.
+
+Our task here isn't to decide whether it's a good license, only whether 
+it's an open source license. There are a number of approved licenses 
+that have a great deal of ambiguity, including some widely used ones. 
+This one appears to me to be within an acceptable range of ambiguity. (I 
+also give more latitude to licenses in widespread use than new ones.) It 
+isn't pretty, but I think it works.
+
+This does bring up a question. The submission asked for placement in the 
+"Licenses that are popular and widely used or with strong communities" 
+category. I don't think that category is correct given that a dedication 
+to the public domain, not licensing, is the primary goal. There aren't 
+any other appropriate categories that I see, so I would then default to 
+"uncategorized."
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com
+919-800-8033
+www.chesteklegal.com
+
+
+
+From mccoy at lexpan.law  Sun May 17 14:09:40 2020
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Sun, 17 May 2020 07:09:40 -0700
+Subject: [License-review] veto against Unlicense
+In-Reply-To: <9e9e7ffd-9d62-5972-ae73-d24e46270cff@chesteklegal.com>
+References: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <9e9e7ffd-9d62-5972-ae73-d24e46270cff@chesteklegal.com>
+Message-ID: <001101d62c54$ceca5590$6c5f00b0$@lexpan.law>
+
+> -----Original Message-----
+> From: License-review <license-review-bounces at lists.opensource.org> On
+> Behalf Of Pamela Chestek
+> Sent: Sunday, May 17, 2020 6:59 AM
+> To: license-review at lists.opensource.org
+> Subject: Re: [License-review] veto against Unlicense
+> 
+> This does bring up a question. The submission asked for placement in the
+> "Licenses that are popular and widely used or with strong communities"
+> category. I don't think that category is correct given that a dedication
+to the
+> public domain, not licensing, is the primary goal. There aren't any other
+> appropriate categories that I see, so I would then default to
+"uncategorized."
+> 
+Yeah, as someone who was on the license proliferation committee when this
+categorization was formulated (and which was very highly debated both within
+that committee and by the mailing lists when it was proposed), I'd say that
+*no* new license (other than updates of licenses on that list, like
+EPLv1.0->EPLv2.0) should be proposed to be slotted into that category upon
+submission.  In fact, I think there should be a separate board vote to
+either place a license into that category, or to take one off of it, given
+that that category was intended to really reflect the gold standard licenses
+that really have gotten widespread adoption across many many projects over a
+long time.
+
+
+
+
+From josh at berkus.org  Sun May 17 18:57:56 2020
+From: josh at berkus.org (Josh Berkus)
+Date: Sun, 17 May 2020 11:57:56 -0700
+Subject: [License-review] veto against Unlicense
+In-Reply-To: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+References: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+Message-ID: <05149fb5-d169-fba7-6536-dbf4737b1fe5@berkus.org>
+
+On 5/16/20 3:30 PM, Langley, Stuart wrote:
+> In my opinion its uncertain whether a court would treat it as a license.  Reasonable minds disagree.  It's more likely that a court would look at the intent of the dedicator, but because the Unlicense is written rather poorly there remains a non-remote chance it would be treated as just a failed transfer and leave the dedicator, but more likely their heirs, with a right to sue in some jurisdictions.  I could argue either side, but from a practical standpoint, that non-remote chance is enough that I do not advise clients to distribute software under the Unlicense.  
+
+Oh, thank you.  Is this unique to the Unlicense, or a problem it shares
+with the other very short licenses (e.g. BSD, MIT, etc.)?
+
+-- 
+Josh Berkus
+
+
+
+From rfontana at redhat.com  Sun May 17 20:00:58 2020
+From: rfontana at redhat.com (Richard Fontana)
+Date: Sun, 17 May 2020 16:00:58 -0400
+Subject: [License-review] veto against Unlicense
+In-Reply-To: <001101d62c54$ceca5590$6c5f00b0$@lexpan.law>
+References: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <9e9e7ffd-9d62-5972-ae73-d24e46270cff@chesteklegal.com>
+ <001101d62c54$ceca5590$6c5f00b0$@lexpan.law>
+Message-ID: <CAC1cPGxOQBJEp9AMAWcwS5+uoCYW2=sRO=WgbiRP2wdbAUEHoA@mail.gmail.com>
+
+On Sun, May 17, 2020 at 10:10 AM McCoy Smith <mccoy at lexpan.law> wrote:
+>
+> > -----Original Message-----
+> > From: License-review <license-review-bounces at lists.opensource.org> On
+> > Behalf Of Pamela Chestek
+> > Sent: Sunday, May 17, 2020 6:59 AM
+> > To: license-review at lists.opensource.org
+> > Subject: Re: [License-review] veto against Unlicense
+> >
+> > This does bring up a question. The submission asked for placement in the
+> > "Licenses that are popular and widely used or with strong communities"
+> > category. I don't think that category is correct given that a dedication
+> to the
+> > public domain, not licensing, is the primary goal. There aren't any other
+> > appropriate categories that I see, so I would then default to
+> "uncategorized."
+> >
+> Yeah, as someone who was on the license proliferation committee when this
+> categorization was formulated (and which was very highly debated both within
+> that committee and by the mailing lists when it was proposed), I'd say that
+> *no* new license (other than updates of licenses on that list, like
+> EPLv1.0->EPLv2.0) should be proposed to be slotted into that category upon
+> submission.  In fact, I think there should be a separate board vote to
+> either place a license into that category, or to take one off of it, given
+> that that category was intended to really reflect the gold standard licenses
+> that really have gotten widespread adoption across many many projects over a
+> long time.
+
+I basically agree with that, though I'm a longtime critic of that list
+and believe the OSI ought to replace it with an updated list based on
+data and objective criteria on present-day license adoption.
+
+While I agree with Pam that "Uncategorized" is the right category for
+the Unlicense, I don't agree that the
+popular-widely-used-strong-communities list is inherently not correct
+"given that a dedication to the public domain, not licensing, is the
+primary goal". I think that attaches too much significance to the
+Unlicense authors' choice of terminology and style (including the
+fanciful name of the Unlicense itself), which seems related to what is
+causing angst for the formalist critics. Leaving those critics'
+objections aside, the Unlicense functions in practice as a license, no
+differently from the licenses on the
+popular-widely-used-strong-communities list. If it got as popular and
+widely used, and produced communities as strong as those associated
+with, the MIT license or the Apache License 2.0 or the GPL, it will
+have earned a place on that list -- assuming it otherwise meets the
+criteria for being an OSD-conformant, software-freedom-providing open
+source license (which I believe it does).
+
+Richard
+
+
+
+
+From mccoy at lexpan.law  Sun May 17 21:59:01 2020
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Sun, 17 May 2020 14:59:01 -0700
+Subject: [License-review] veto against Unlicense
+In-Reply-To: <CAC1cPGxOQBJEp9AMAWcwS5+uoCYW2=sRO=WgbiRP2wdbAUEHoA@mail.gmail.com>
+References: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <9e9e7ffd-9d62-5972-ae73-d24e46270cff@chesteklegal.com>
+ <001101d62c54$ceca5590$6c5f00b0$@lexpan.law>
+ <CAC1cPGxOQBJEp9AMAWcwS5+uoCYW2=sRO=WgbiRP2wdbAUEHoA@mail.gmail.com>
+Message-ID: <006401d62c96$6048d230$20da7690$@lexpan.law>
+
+> -----Original Message-----
+> From: Richard Fontana <rfontana at redhat.com>
+> Sent: Sunday, May 17, 2020 1:01 PM
+> To: mccoy at lexpan.law; License submissions for OSI review <license-
+> review at lists.opensource.org>
+> Subject: Re: [License-review] veto against Unlicense
+
+> If it got as popular and widely used, and produced communities as
+> strong as those associated with, the MIT license or the Apache License 2.0 or
+> the GPL, it will have earned a place on that list -- assuming it otherwise meets
+> the criteria for being an OSD-conformant, software-freedom-providing open
+> source license (which I believe it does).
+> 
+Yes, I agree with all that.  I just think submitters of licenses probably shouldn't be able to insist that their license is "popular and widely used," and demand that it be categorized as such (I seem to recall the submitter of the Mulan license tried that, and then asked "when will it be moved into that category?" I also recall that there were several license stewards who felt hard done when their license didn't get on that list when it was first put together).  If there's going to be a category like that (and I also am somewhat skeptical of the category, and what is and isn't on it), I really feel like the Board needs to decide that, based on -- as you note -- objective data.
+
+
+
+
+From Stuart.Langley at disney.com  Sun May 17 22:57:36 2020
+From: Stuart.Langley at disney.com (Langley, Stuart)
+Date: Sun, 17 May 2020 22:57:36 +0000
+Subject: [License-review] veto against Unlicense
+In-Reply-To: <05149fb5-d169-fba7-6536-dbf4737b1fe5@berkus.org>
+References: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <05149fb5-d169-fba7-6536-dbf4737b1fe5@berkus.org>
+Message-ID: <CY4PR03MB276031A32DBF1CB41B8F27BEF6BB0@CY4PR03MB2760.namprd03.prod.outlook.com>
+
+Josh Berkus wrote:
+> 
+> 
+> Oh, thank you.  Is this unique to the Unlicense, or a problem it shares
+> with the other very short licenses (e.g. BSD, MIT, etc.)?
+> 
+> --
+> Josh Berkus
+
+I honestly have not read every OSI approved license...bless those people who have.  Its not length of the license, just the words.  As McCoy pointed out, BSD doesn't use the familiar "grant" verb but I've become comfortable with "are permitted" as words that convey something that sounds like a license.  MIT uses "permission is hereby granted"...it doesn't get easier than that.  And as Pam and McCoy both point out, risk perception is relative and wide use without any problems is a big factor in getting comfortable with any particular wording.  
+
+Unlicense falls on the side of "this is not a license" to me largely because I read the second paragraph as a description of what the author thinks public domain means, not a clear intent to convey rights.  If it becomes an OSI approved license, I still will advise against using software encumbered with the Unlicense.    
+
+
+From jim at jimjag.com  Tue May 19 12:05:24 2020
+From: jim at jimjag.com (Jim Jagielski)
+Date: Tue, 19 May 2020 08:05:24 -0400
+Subject: [License-review] veto against Unlicense
+In-Reply-To: <CY4PR03MB276031A32DBF1CB41B8F27BEF6BB0@CY4PR03MB2760.namprd03.prod.outlook.com>
+References: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <05149fb5-d169-fba7-6536-dbf4737b1fe5@berkus.org>
+ <CY4PR03MB276031A32DBF1CB41B8F27BEF6BB0@CY4PR03MB2760.namprd03.prod.outlook.com>
+Message-ID: <0348C217-6037-421A-948F-1AE59A0260A0@jimjag.com>
+
+
+
+> On May 17, 2020, at 6:57 PM, Langley, Stuart <Stuart.Langley at disney.com> wrote:
+> 
+> 
+> Unlicense falls on the side of "this is not a license" to me largely because I read the second paragraph as a description of what the author thinks public domain means, not a clear intent to convey rights.
+
+FWIW, I see it differently. The way I read it is that the goal of the author describing what they think public domain means is because they want the content to be licensed and released to completely match that understanding. Their conveyance of rights, or the direct an explicit disavowal of rights, is whatever is required to have said content be compliant with said description.
+
+
+From josh at berkus.org  Mon Jun  1 22:01:26 2020
+From: josh at berkus.org (Josh Berkus)
+Date: Mon, 1 Jun 2020 15:01:26 -0700
+Subject: [License-review] veto against Unlicense
+In-Reply-To: <CY4PR03MB276031A32DBF1CB41B8F27BEF6BB0@CY4PR03MB2760.namprd03.prod.outlook.com>
+References: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <05149fb5-d169-fba7-6536-dbf4737b1fe5@berkus.org>
+ <CY4PR03MB276031A32DBF1CB41B8F27BEF6BB0@CY4PR03MB2760.namprd03.prod.outlook.com>
+Message-ID: <ef4827f0-0c6a-20f7-0d85-ea224a8134d0@berkus.org>
+
+On 5/17/20 3:57 PM, Langley, Stuart wrote:
+> Unlicense falls on the side of "this is not a license" to me largely because I read the second paragraph as a description of what the author thinks public domain means, not a clear intent to convey rights.  If it becomes an OSI approved license, I still will advise against using software encumbered with the Unlicense.    
+
+Huh.  It honestly hadn't occured to me to see it that way.  From a
+developer perspective the unlicense is pretty clear.  If I was to fault
+it on something, it's the fact that there's no requirement to include
+the license on redistribution, making me wonder how effective the
+warranty disclaimer is.
+
+You're certainly correct that it doesn't contain the terms "grant" or
+"permission" though.  Neither does the BSD license, though.
+
+-- 
+Josh Berkus
+
+
+
+From Stuart.Langley at disney.com  Mon Jun  1 23:39:14 2020
+From: Stuart.Langley at disney.com (Langley, Stuart)
+Date: Mon, 1 Jun 2020 23:39:14 +0000
+Subject: [License-review] veto against Unlicense
+In-Reply-To: <ef4827f0-0c6a-20f7-0d85-ea224a8134d0@berkus.org>
+References: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <05149fb5-d169-fba7-6536-dbf4737b1fe5@berkus.org>
+ <CY4PR03MB276031A32DBF1CB41B8F27BEF6BB0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <ef4827f0-0c6a-20f7-0d85-ea224a8134d0@berkus.org>
+Message-ID: <CY4PR03MB27602C852FBEAF393CE26D53F68A0@CY4PR03MB2760.namprd03.prod.outlook.com>
+
+Josh Berkus wrote:
+> 
+> Huh.  It honestly hadn't occured to me to see it that way.  From a
+> developer perspective the unlicense is pretty clear.  If I was to fault
+> it on something, it's the fact that there's no requirement to include
+> the license on redistribution, making me wonder how effective the
+> warranty disclaimer is.
+
+[STL] I think your perspective is important.  What developers intend when they use the license is important. 
+
+
+> You're certainly correct that it doesn't contain the terms "grant" or
+> "permission" though.  Neither does the BSD license, though.
+
+[STL] 
+Every time I see this statement I go back and look at BSD.  BSD clearly has "are permitted" language.  
+
+
+From josh at berkus.org  Tue Jun  2 16:51:45 2020
+From: josh at berkus.org (Josh Berkus)
+Date: Tue, 2 Jun 2020 09:51:45 -0700
+Subject: [License-review] veto against Unlicense
+In-Reply-To: <CY4PR03MB27602C852FBEAF393CE26D53F68A0@CY4PR03MB2760.namprd03.prod.outlook.com>
+References: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <05149fb5-d169-fba7-6536-dbf4737b1fe5@berkus.org>
+ <CY4PR03MB276031A32DBF1CB41B8F27BEF6BB0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <ef4827f0-0c6a-20f7-0d85-ea224a8134d0@berkus.org>
+ <CY4PR03MB27602C852FBEAF393CE26D53F68A0@CY4PR03MB2760.namprd03.prod.outlook.com>
+Message-ID: <4392a144-47c6-8582-de80-947111f46e3f@berkus.org>
+
+On 6/1/20 4:39 PM, Langley, Stuart wrote:
+> Josh Berkus wrote:
+>> Huh.  It honestly hadn't occured to me to see it that way.  From a
+>> developer perspective the unlicense is pretty clear.  If I was to fault
+>> it on something, it's the fact that there's no requirement to include
+>> the license on redistribution, making me wonder how effective the
+>> warranty disclaimer is.
+> [STL] I think your perspective is important.  What developers intend when they use the license is important. 
+> 
+> 
+
+The developer side of this list was always OK with the unlicense, I
+think.  It got blocked because the attorneys said it wouldn't fly with
+international law.
+
+-- 
+Josh Berkus
+
+
+
+From mccoy at lexpan.law  Tue Jun  2 17:23:27 2020
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Tue, 2 Jun 2020 10:23:27 -0700
+Subject: [License-review] veto against Unlicense
+In-Reply-To: <4392a144-47c6-8582-de80-947111f46e3f@berkus.org>
+References: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <05149fb5-d169-fba7-6536-dbf4737b1fe5@berkus.org>
+ <CY4PR03MB276031A32DBF1CB41B8F27BEF6BB0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <ef4827f0-0c6a-20f7-0d85-ea224a8134d0@berkus.org>
+ <CY4PR03MB27602C852FBEAF393CE26D53F68A0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <4392a144-47c6-8582-de80-947111f46e3f@berkus.org>
+Message-ID: <083201d63902$878fbbb0$96af3310$@lexpan.law>
+
+> -----Original Message-----
+> From: License-review <license-review-bounces at lists.opensource.org> On
+> Behalf Of Josh Berkus
+> Sent: Tuesday, June 2, 2020 9:52 AM
+> To: Langley, Stuart <Stuart.Langley at disney.com>; License submissions for
+> OSI review <license-review at lists.opensource.org>
+> Subject: Re: [License-review] veto against Unlicense
+> 
+> The developer side of this list was always OK with the unlicense, I think.
+It
+> got blocked because the attorneys said it wouldn't fly with international
+law.
+> 
+I'm not sure that's consistent with the discussion.  IIRC, Til Jaeger, an
+attorney licensed in Germany (one of the jurisdictions identified as not
+allowing dedications to the public domain) seemed to believe the license
+would be OK under German law:
+https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2
+020-May/004870.html
+Matija Skulje also opined the same, under Slovenian law:
+https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2
+020-May/004858.html
+
+Did any lawyers from non-US jurisdictions say that the second paragraph of
+Unlicense would be ineffective as a backstop license if the public domain
+dedication was not operative under local law?
+
+
+
+
+From josh at berkus.org  Tue Jun  2 21:51:12 2020
+From: josh at berkus.org (Josh Berkus)
+Date: Tue, 2 Jun 2020 14:51:12 -0700
+Subject: [License-review] veto against Unlicense
+In-Reply-To: <083201d63902$878fbbb0$96af3310$@lexpan.law>
+References: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <05149fb5-d169-fba7-6536-dbf4737b1fe5@berkus.org>
+ <CY4PR03MB276031A32DBF1CB41B8F27BEF6BB0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <ef4827f0-0c6a-20f7-0d85-ea224a8134d0@berkus.org>
+ <CY4PR03MB27602C852FBEAF393CE26D53F68A0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <4392a144-47c6-8582-de80-947111f46e3f@berkus.org>
+ <083201d63902$878fbbb0$96af3310$@lexpan.law>
+Message-ID: <6c8958f3-8916-4c55-c4c0-2a76584e5ccd@berkus.org>
+
+On 6/2/20 10:23 AM, McCoy Smith wrote:
+> Did any lawyers from non-US jurisdictions say that the second paragraph of
+> Unlicense would be ineffective as a backstop license if the public domain
+> dedication was not operative under local law?
+
+Oh, no, I'm talking about when the unlicense was introduced, ten years ago.
+
+This time around, everyone has cleared it, although a couple of folks
+have said they'd still recommend against it even if they thought it was
+technically open source.
+
+-- 
+Josh Berkus
+
+
+
+From tg at mirbsd.de  Tue Jun  2 22:08:19 2020
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Tue, 2 Jun 2020 22:08:19 +0000 (UTC)
+Subject: [License-review] veto against Unlicense
+In-Reply-To: <6c8958f3-8916-4c55-c4c0-2a76584e5ccd@berkus.org>
+References: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <05149fb5-d169-fba7-6536-dbf4737b1fe5@berkus.org>
+ <CY4PR03MB276031A32DBF1CB41B8F27BEF6BB0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <ef4827f0-0c6a-20f7-0d85-ea224a8134d0@berkus.org>
+ <CY4PR03MB27602C852FBEAF393CE26D53F68A0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <4392a144-47c6-8582-de80-947111f46e3f@berkus.org>
+ <083201d63902$878fbbb0$96af3310$@lexpan.law>
+ <6c8958f3-8916-4c55-c4c0-2a76584e5ccd@berkus.org>
+Message-ID: <Pine.BSM.4.64L.2006022205190.5694@herc.mirbsd.org>
+
+Josh Berkus dixit:
+
+>have said they'd still recommend against it even if they thought it was
+>technically open source.
+
+No, they sais they?d still recommend against it even if OSI were to
+approve it. Quite the distinction, it?s a vote against approval in
+my interpretation.
+
+bye,
+//mirabilos, somewhat fed up with earlier licence discussions today,
+	not meaning to be rude or anything, if this comes over as;
+	I don?t suppose you have anything on synthesiser output being
+	derivative works of not only the scores (e.g. MIDIs) but also
+	of the soundfont(s)/samples used, which I could use to beat
+	some sense into people not even wanting to honour the *one*
+	requirement of the MIT licence? sorry, that?s offtopic?
+-- 
+15:41?<Lo-lan-do:#fusionforge> Somebody write a testsuite for helloworld :-)
+
+
+
+From josh at berkus.org  Tue Jun  2 22:54:50 2020
+From: josh at berkus.org (Josh Berkus)
+Date: Tue, 2 Jun 2020 15:54:50 -0700
+Subject: [License-review] veto against Unlicense
+In-Reply-To: <Pine.BSM.4.64L.2006022205190.5694@herc.mirbsd.org>
+References: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <05149fb5-d169-fba7-6536-dbf4737b1fe5@berkus.org>
+ <CY4PR03MB276031A32DBF1CB41B8F27BEF6BB0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <ef4827f0-0c6a-20f7-0d85-ea224a8134d0@berkus.org>
+ <CY4PR03MB27602C852FBEAF393CE26D53F68A0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <4392a144-47c6-8582-de80-947111f46e3f@berkus.org>
+ <083201d63902$878fbbb0$96af3310$@lexpan.law>
+ <6c8958f3-8916-4c55-c4c0-2a76584e5ccd@berkus.org>
+ <Pine.BSM.4.64L.2006022205190.5694@herc.mirbsd.org>
+Message-ID: <13abf628-7d47-73c5-1488-893578cdd002@berkus.org>
+
+On 6/2/20 3:08 PM, Thorsten Glaser wrote:
+> No, they sais they?d still recommend against it even if OSI were to
+> approve it. Quite the distinction, it?s a vote against approval in
+> my interpretation.
+
+It's not.
+
+Like, I personally recommend against using the AGPL all the time.  That
+doesn't mean that I don't think it's OSS or that OSI shouldn't have
+approved it.
+
+That said, what we have outstanding is:
+
+- Several attorneys who think the Unlicense is fine;
+- One attorney who says that the license is missing critical wording
+required to make it safe to use;
+- One developer who thinks it's fine;
+- One developer who thinks it's terrible.
+
+Am I missing anyone?
+
+Note that, at this point, we haven't had anyone with standing actually
+make a formal proposal to approve the Unlicense.
+
+-- 
+Josh Berkus
+
+
+
+From henrik.ingo at avoinelama.fi  Wed Jun  3 08:45:57 2020
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Wed, 3 Jun 2020 11:45:57 +0300
+Subject: [License-review] veto against Unlicense
+In-Reply-To: <13abf628-7d47-73c5-1488-893578cdd002@berkus.org>
+References: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <05149fb5-d169-fba7-6536-dbf4737b1fe5@berkus.org>
+ <CY4PR03MB276031A32DBF1CB41B8F27BEF6BB0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <ef4827f0-0c6a-20f7-0d85-ea224a8134d0@berkus.org>
+ <CY4PR03MB27602C852FBEAF393CE26D53F68A0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <4392a144-47c6-8582-de80-947111f46e3f@berkus.org>
+ <083201d63902$878fbbb0$96af3310$@lexpan.law>
+ <6c8958f3-8916-4c55-c4c0-2a76584e5ccd@berkus.org>
+ <Pine.BSM.4.64L.2006022205190.5694@herc.mirbsd.org>
+ <13abf628-7d47-73c5-1488-893578cdd002@berkus.org>
+Message-ID: <CAKHykesqtFC2ptzB_B5ddHG0y9FTxB09JCDmzC9y6hLaQ_hWKw@mail.gmail.com>
+
+- European developer wanted to hear European lawyer's opinion on the
+matter, which happened.
+
+On Wed, Jun 3, 2020 at 1:55 AM Josh Berkus <josh at berkus.org> wrote:
+
+> On 6/2/20 3:08 PM, Thorsten Glaser wrote:
+> > No, they sais they?d still recommend against it even if OSI were to
+> > approve it. Quite the distinction, it?s a vote against approval in
+> > my interpretation.
+>
+> It's not.
+>
+> Like, I personally recommend against using the AGPL all the time.  That
+> doesn't mean that I don't think it's OSS or that OSI shouldn't have
+> approved it.
+>
+> That said, what we have outstanding is:
+>
+> - Several attorneys who think the Unlicense is fine;
+> - One attorney who says that the license is missing critical wording
+> required to make it safe to use;
+> - One developer who thinks it's fine;
+> - One developer who thinks it's terrible.
+>
+> Am I missing anyone?
+>
+> Note that, at this point, we haven't had anyone with standing actually
+> make a formal proposal to approve the Unlicense.
+>
+> --
+> Josh Berkus
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Communication from the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200603/81a32d61/attachment.html>
+
+
