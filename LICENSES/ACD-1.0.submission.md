@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.submission.md
 audience: OSI license-discuss / license-review participants, SPDX submitters, the human who sends the message
-last-updated: 2026-09-26
+last-updated: 2026-09-27
 canonical-ref: LICENSES/ACD-1.0.txt (the text being submitted) / LICENSES/REVIEWERS.md (English entry point) / LICENSES/ACD-1.0.against.md (the adverse case)
 ---
 
@@ -237,7 +237,7 @@ paragraph — moral rights, which the chairman of Open Source Group Japan argued
 leaves licences that speak only of copyright unable to guarantee modification in Japan
 (`review-precedents.md` §1.59).; **1,048** on 2026-09-10, when the gap paragraph stopped asserting that no approved licence does these things and started **stating the measurement** —— all 149 OSI-approved texts searched, four strings at zero （**+77 語。長さは B3 の争点であり、足すたびに理由を書く**）
 
-**And 1,098 on 2026-09-11**, when the gap paragraph gained **a one-sentence form before the detail**. The reason is a precedent rather than a preference: **the only new licence approved in 33 months whose submitter was an individual** — the OSC License, a lawyer submitting for the city of Solingen — **stated its gap in one sentence** (*"the versatile MIT license does not contain a limitation of liability that is effective under German law"*) and reached a decision in three months (`review-corpus.md` §1.68). **Ours named three areas before it named one.**
+**And 1,098 on 2026-09-11**, when the gap paragraph gained **a one-sentence form before the detail**. The reason is a precedent rather than a preference: **one of the four licences approved in those 33 months** — the OSC License, which a lawyer submitted on behalf of the city of Solingen — **stated its gap in one sentence** (*"the versatile MIT license does not contain a limitation of liability that is effective under German law"*) and reached a decision in three months (`review-corpus.md` §1.68). *(Corrected 2026-09-27: this note previously called the OSC License "the only **new** licence approved in 33 months whose submitter was an **individual**". Both halves were wrong by this dossier's own record — `review-corpus.md` §1.68 and `ACD-OSI-BOTTLENECKS.md` classify it as MIT plus one paragraph, i.e. not a new instrument, and its submitter acted for a city. The precedent for a one-sentence gap stands without either.)* **Ours named three areas before it named one.**
 
 **And 1,456 on 2026-09-25**, when a subject-matter paragraph was added. **The first draft of it ran
 223 words and was cut to 94 before it was kept.** The reason is this section's own design: the
