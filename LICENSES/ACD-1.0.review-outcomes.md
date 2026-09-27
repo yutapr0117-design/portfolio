@@ -307,7 +307,9 @@ Certified License in the **Special Purpose category** of licenses at its Board m
 ### 「一般化」を目的として明記した提出が、承認されている
 
 McCoy Smith 氏 2023-08-23（Unicode Consortium を代理して）—— 改訂の目的として
-*"to address certain suboptimal terms in the license, and **to genericize it so that it may be used
+*"to address certain suboptimal terms in the license, and **to genercize it so that it may be used
+
+**（*genercize* は原文どおりの綴りである** ——**逐語の中で他人の誤字を直さない。**2026-09-27 に公開アーカイブで確認。**同じ形の誤りを本日 2 件見つけた**ので、`against.md` #271 に class として立てた）
 by entities other than the Unicode Consortium**"*。
 
 **提出パケット §4b（本文に固有名詞ゼロ・採用に本文編集が不要）は、
