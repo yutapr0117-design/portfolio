@@ -65,6 +65,12 @@ def norm(text):
     """
     text = text.replace("=\n", "")
     text = re.sub(r"=[0-9A-F]{2}", " ", text)
+    # **pipermail の HTML→text 変換は、リンクされた語の直後に `<http://...>` を挿入する。**
+    # 実例 (2026-09-27 実測): *"the text currently served from the ids.nus.edu.sg URL"* は
+    # source 側で `ids.nus.edu.sg\n<http://ids.nus.edu.sg> URL` になっており、**語の並びが
+    # 割られて一致しない**。落とすのは `<scheme://…>` の形だけにする ——素の URL まで消すと、
+    # **URL そのものについての引用**（"the URL was as the specification says" 等）を照合できなくなる。
+    text = re.sub(r"<[a-z][a-z0-9+.-]*://[^>]*>", " ", text)
     return " ".join(re.sub(r"[^A-Za-z0-9]+", " ", text.lower()).split())
 
 
