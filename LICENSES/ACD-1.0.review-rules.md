@@ -497,7 +497,7 @@ and updating it **requires approval from the project manager**"* として**も�
 | canonical なテキストが 1 つ決まっていること | `LICENSES/FROZEN.md` + **Check 453**（sha256 pin・対象 path 集合も pin） |
 | 審査中に動かないこと | 同上 + `REVISION-PROTOCOL.md` §2（1.0 は永久凍結・次版は併置） |
 | **配信されている形が、その 1 つと一致すること** | 週次の配信検査（`check_deployed_freshness.py`・提出パケットが "the text" として示す URL を `FROZEN.md` の pin と照合。動機は `against.md` #68 —— **repo 内の複製しか見ない層では、配信が変質したとき repo は全部緑のまま審査者だけ別のテキストを読む**） |
-| **実際に審査者へ送った本文が、その 1 つと一致すること** | **Check 477**（`rounds/` の送信控えに貼り付けた本文 ↔ 凍結テキスト） |
+| **実際に審査者へ送った本文が、その 1 つと一致すること** | **Check 477**（`rounds/` の送信控えに貼り付けた本文 ↔ リポジトリの正本。**候補には凍結されていない次版の草案も入るので「凍結テキスト」とは言わない**） |
 
 **最後の 1 行が、本節を読むまで存在しなかった層である。**
 2026-08-26 に送った本文は `rounds/2026-08-26-license-discuss-sent.txt` に逐語で保存してあり、
