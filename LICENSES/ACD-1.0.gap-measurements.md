@@ -186,3 +186,52 @@ gate の穴ではない。** 空き番号を実測してから付けること。
 **Check は作らない。** 外部本文はリポジトリに無く、取得を CI に入れるのは壊れやすい
 （`PEER-REVIEW-WATCH.md` が外部フォーラムの定期取得について同じ判断をしている）。
 **次に gap 論を書き換えるときは、この 6 行を手で当て直すこと。**
+
+## 1.129 献呈の文言が「CC0 並みに comprehensive か」は、委員会側が言葉にした試験である —— 当てると 5 要素中 4 つが被覆、1 つが未対応（2026-09-28）
+
+**`license-review` の全期間 census（199 か月・2026-09-28 実行）が挙げた我々の類型 27 件のうち、
+ドシエ未言及だった 2 件を読んだ**（逐語は
+`rounds/2017-04-license-review-pd-type-submissions-observed-1of2.txt` ほか）。
+そこに **公有化の献呈が測られる試験**が、言葉で置かれている。
+
+McCoy Smith 氏（2017-04-14・PD 用の Modified MIT を提出した者へ）:
+
+> *"The current draft just says ' Public Domain or legal equivalent ' Have you confirmed that
+> that statement is **legally effective to result in a dedication to the public domain**? I know
+> CC did a lot of work and research into how (in many jurisdictions) one goes about making a
+> legally effective public domain dedication, and **the wording they use in CC0 is much more
+> comprehensive in the language it uses (in Sec. 2)**. The language you use is **quite brief** …"*
+
+**同じスレッドの最初の実質返信は、Rob Landley 氏が後に我々へ向けたのと同じ問いである** ——
+Richard Fontana 氏 *"Are you aware of the Free Public License 1.0.0, also known as the
+Zero-Clause BSD license? … **Do you see anything distinctive about your license relative to
+FPL/0BSD?**"*（2017-04-13）。**#84 は 2026 年に初めて出た問いではない。**
+
+### 当てた結果
+
+| | 語数 |
+| :-- | :-- |
+| **CC0 §2（Waiver）** | **173 語**（SPDX の `licenseText` から実測・2026-09-28）|
+| **ACD-1.0 §3（放棄）** | **114 語**（3 条）|
+
+**語数では短い。** だが**要素で当てるのが正しい測り方**である ——
+CC0 §2 が明文で挙げる 5 要素を ACD の全文へ当てると:
+
+| CC0 §2 の要素 | ACD ではどこか |
+| :-- | :-- |
+| 全世界・最大期間（延長・復活を含む）| **§3.1「各法域の法が許す最大限まで」＋ §3.2「延長・回復・復活を含む全期間」**。**さらに ACD は §3.2 で補償金・使用料・徴収金まで明示しており、CC0 §2 にはこの語が無い** |
+| 現在または将来のあらゆる媒体・形式 | **§4.2** *"in object form, or in any other form, in any medium, and by any means now known or later devised"* |
+| 目的を問わない | **§4.1** *"for any purpose whatsoever"* |
+| 相続人・承継人に及ぶ | **§2.8**（§3 / §4 / §6 / §8 が承継人・譲受人・相続人を拘束する）|
+| **付随する請求権および訴訟原因（既知・未知を問わない）** | **無い。§5.1 の不行使の約束は Covered Rights に限られる**（`against.md` #272）|
+
+**⚠ 5 要素のうち 4 つは、§3 の外に在るが在る。** **「§3 が短い」は「文書が言っていない」ではない。**
+**残る 1 つは実際に無い** —— しかも **§1.5 は Covered Rights から特許を除いている**ので、
+**そこから外れる請求権（不当利得・不正競争など）には §5.1 が届かない。**
+
+### この節が establish しないこと
+
+**McCoy 氏の試験は 2017 年の 1 通であり、委員会の公式基準ではない。**
+**そして「4 つ被覆」は我々の読みであって、審査者の読みではない** ——
+**審査者は §3 だけを読んで「quite brief」と判定しうる**（危険は構造ではなく読まれ方に在る、
+という `ACD-OSI-BOTTLENECKS-EXTERNAL.md` の B15 節と同じ形）。

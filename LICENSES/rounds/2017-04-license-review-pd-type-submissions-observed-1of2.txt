@@ -1,0 +1,727 @@
+OBSERVED (not received by us) -- license-review public archive, 2010-04 and 2017-04/05
+Fetched 2026-09-28 from the monthly mbox files at
+https://lists.opensource.org/pipermail/license-review_lists.opensource.org/
+Preserved verbatim, unmodified. NOT addressed to us and NOT about ACD-1.0.
+
+Two threads, complete:
+
+  (A) "For approval, by license steward, a license recognizing public domain derivation"
+      (2010-04-11, one message, no replies).
+  (B) "Proposal for OSI Approval track: Modified MIT License for Public Domain software"
+      (2017-04-13 .. 2017-05-30, nine messages).
+
+Why these two: the full-span census of license-review (199 months, run 2026-09-28) lists 27
+threads whose subject matches our type. These two were the ones the dossier had never
+mentioned. (B) matters because the first substantive reply is a committee member asking the
+question Rob Landley later put to us -- how is this different from 0BSD -- and because McCoy
+Smith states, in terms, the test a public-domain dedication is measured against: whether its
+wording is as comprehensive as CC0's. (A) matters because it is a submission of our type that
+received no reply at all.
+
+Split by LINE boundaries at 700 lines; concatenating the parts in order reproduces the
+selected bytes exactly (asserted before writing). The split exists because one file over 800
+lines trips the repository's early-warning budget check, and preserved primary sources are
+kept under it rather than given budget rows.
+
+=== part 1 of 2 (line-boundary split) ===
+
+From joel_rees at sannet.ne.jp  Sun Apr 11 08:14:43 2010
+From: joel_rees at sannet.ne.jp (Joel Rees)
+Date: Sun, 11 Apr 2010 17:14:43 +0900
+Subject: For approval, by license steward, a license recognizing public domain derivation
+Message-ID: <D6C2BB96-7C05-42DC-BA4C-B26CCE27933F@sannet.ne.jp>
+
+I am using this license in distributing an implementation of FORTH  
+derived mostly from the public domain fig-FORTH models.
+
+The repository is at
+
+http://bif-c.svn.sourceforge.net/viewvc/bif-c/
+
+Because of the current ambiguities about the public domain, I want to  
+claim copyright, and I could use the MIT license or a BSD templated  
+license, but I want the license to make it clear that I respect the  
+public domain, and that I expect others to do so, too.
+
+I suppose that makes this a special purpose license, of sorts,  
+primarily applicable to the present political difficulties involving  
+the public domain.
+
+The primary differences between this and the MIT license, I think,  
+are stated in the explanatory notes, that this recognizes the public  
+domain derivation and sets a wall between.
+
+I'm not sure about the "hidden or obscured" phrasing. If this license  
+were to be presented in a splash screen or as a launch-time pre-amble  
+to a command-line interpreter, it would definitely present problems.  
+I think the context takes care of itself, however.
+
+This is the text of the license (from the file LICENSE.TXT):
+
+
+     5 ------------------------------------ 
+LICENSE-------------------------------------
+     6
+     7 The author or authors grant permission to use and/or  
+redistribute (convey)
+     8 this work in either source or object form under the following  
+terms:
+     9
+    10
+    11 LICENSE:
+    12
+    13 When redistributing or conveying the code for any purpose, all  
+included
+    14 notices of copyright and/or authorship must be faithfully  
+retained in
+    15 clear and referenceable form.
+    16
+    17 This license must also be included, as is, neither hidden nor  
+obscured.
+    18
+    19 Any accompanying files to which other licenses apply shall  
+exlicitly so
+    20 specify in a prominent position within the file.
+    21
+    22 If this work contains code copied or derived from works  
+assigned to the
+    23 public domain, neither this license nor claims of authorship  
+in this work
+    24 shall be construed to extend to those works.
+    25
+    26
+    27 DISCLAIMER:
+    28
+    29 This license SHALL NOT be construed as either endorsement or  
+warranty.
+    30
+    31 Under this license, THIS SOFTWARE IS PROVIDED AS IT IS, AT NO  
+COST,
+    32 WITHOUT ANY EXPRESS OR IMPLIED WARRANTY OF ANY SORT,  
+INCLUDING, BUT NOT
+    33 LIMITED TO, WARRANTIES OF MERCHANTABILITY OR FITNESS OF PURPOSE.
+    34
+    35 Specifically, under this license, THE AUTHOR OR AUTHORS SHALL  
+NOT BE
+    36 LIABLE FOR ANY DAMAGES WHATSOEVER, DIRECT OR INDIRECT, ARISING  
+FROM THE
+    37 USE THEREOF, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    38
+    39 USE ENTIRELY AT YOUR OWN RISK!
+    40
+    41
+    42 Explanatory notes:
+    43
+    44 * Use:
+    45
+    46 Use should be understood to include any reasonable, moral,  
+eithical,
+    47 and legal use.
+    48
+    49 This license, of course, does not attempt to deal with illegal  
+use,
+    50 leaving that topic to the applicable laws.
+    51
+    52 Moral and ethical use should be considered to be between the  
+user and
+    53 whomever or whatever the user holds to be supreme in such  
+matters.
+    54
+    55 Reasonable use is left to the user's sense of judgement, with  
+a note
+    56 that the author or authors cannot be held accountable for the  
+user or
+    57 users' lack thereof.
+    58
+    59 * Rights of ownership and keeping records:
+    60
+    61 It is expected that those who modify either source or object  
+will have
+    62 enough sense to keep records of the original, unmodified form 
+(s), and of
+    63 the modifications they have made. Some sort of source code  
+control is
+    64 recommended.
+    65
+    66 At any rate, keeping a copy of the original code used as a  
+starting
+    67 point should help in untangling questions of ownership of  
+code, not to
+    68 mention being invaluable in debugging.
+    69
+    70 * Public domain work and borrowed code:
+    71
+    72 At the time of the first release, this work contains significant
+    73 portions of code that are simple translations, in the  
+mathematical sense
+    74 of a regular transformation grammar, from public domain work.  
+Copyright
+    75 on the results of simple translation is very limited, very  
+much dependent
+    76 on the copyrights in the original code.
+    77
+    78 While the author(s) claim limited copyright to the resultant  
+translation
+    79 in this case, and full copyright to the use thereof in this  
+work, it
+    80 would be an indefensible display of ingratitude, not to  
+mention unethical,
+    81 to attempt to make claims on the borrowed code itself.
+    82
+    83 Unfortunately, there are many who seem to assume that they can  
+slap their
+    84 own copyright on public domain work, as children calling out  
+"Dibs! I saw
+    85 it first!"
+    86
+    87 For this reason, the license makes special mention of what  
+should be
+    88 obvious about borrowed code in general, that copyright  
+transitivity
+    89 operates in one direction only, and that neither this work nor  
+the
+    90 license thereof can or ought to be used to attempt to reverse  
+that
+    91 transitivity.
+    92
+    93
+    94 --------------------------------END-OF- 
+LICENSE----------------------------------
+
+
+Joel Rees
+(waiting for a 3+GHz ARM processor to come out,
+to test Steve's willingness to switch again.)
+
+
+
+
+From thruska at cubiclesoft.com  Thu Apr 13 15:12:59 2017
+From: thruska at cubiclesoft.com (Thomas Hruska)
+Date: Thu, 13 Apr 2017 08:12:59 -0700
+Subject: [License-review] Proposal for OSI Approval track: Modified MIT
+ License for Public Domain software
+Message-ID: <6009cf2c-f074-2031-c57a-9166804aa8a0@cubiclesoft.com>
+
+A while back I reached out via your website's commenting form with a 
+proposed OSI license for covering works that an individual would like to 
+release into the Public Domain but still retain sufficient protections 
+from legal action.  Deb Bryant responded but then I got distracted by a 
+project and forgot about it.  I ran across an old reminder today and so 
+I'm now starting the approval process.
+
+Before I begin, I need to preface that I am not a lawyer.  However, I 
+have an extensive understanding of Copyright, Patent, and Trademark law.
+
+Without further ado, the OSI has a FAQ on its website and one of the 
+questions and answers is about a OSI Public Domain license:
+
+https://opensource.org/faq#public-domain
+
+I perceive Copyright law with its protections of IP and legal protection 
+from a wide variety of nasty lawsuits as being two extremely distinct 
+things.  I view supposedly "Public [Domain?]" licenses like the WTFPL as 
+absolutely reckless from a legal perspective, unnecessarily opening 
+developers up to a wide variety of data loss, liability, and other 
+lawsuits.  The WTFPL is an example of a Public Domain type of license 
+done poorly (at best).  In the best interests of the larger community, I 
+would like to see the OSI endeavor to back a Public Domain license that 
+still protects developers.
+
+For a project I worked on a few years ago, I needed a license that would 
+excuse Copyright wherever possible while simultaneously offering the 
+legal protections of other licenses.  None of the existing OSI licenses 
+or license models particularly fit my needs.  So I started with the MIT 
+license, an already OSI approved license, as a base.  At the time, I 
+already utilized the MIT license extensively with my own software and 
+knew it very well.  It was and still is a well-written document with 
+strong legal defenses in a succinct package.  It is also the closest 
+thing to a Public Domain license that OSI has to date.  All of those are 
+highly desirable baseline attributes.
+
+The following is what was carefully considered, documented and 
+annotated, and eventually put into production:
+
+-------
+Modified MIT License for Public Domain software
+
+Public Domain or legal equivalent
+Original authorship by [authors] (the "Authors") in [year]
+
+Permission is hereby granted, free of charge, to any person obtaining a 
+copy of this software and associated documentation files (the 
+"Software"), to deal in the Software without restriction, including 
+without limitation the rights to use, copy, modify, merge, publish, 
+distribute, sublicense, and/or sell copies of the Software, and to 
+permit persons to whom the Software is furnished to do so.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+DEALINGS IN THE SOFTWARE.
+-------
+
+There are three important differences from the MIT license:
+
+1) The actual start of the license has been carefully altered.  I'll get 
+into this momentarily.
+
+2)  The requirement to include the license in all copies of the software 
+has been removed since it isn't relevant in Public Domain scenarios. 
+Anyone who might choose to remove the license takes on the associated 
+legal responsibilities therein upon themselves (i.e. they still need to 
+apply a license to protect themselves).
+
+3) The phrase " OR COPYRIGHT HOLDERS" has been removed.  The list of 
+authors should already include any relevant Copyright holders and are 
+therefore already referenced with the parenthetical assignment '(the 
+"Authors")' earlier on.  Those submitting patches to a project using 
+this license should submit the above Public Domain license using their 
+name(s) and year alongside each patch they submit so that their work is 
+also clearly placed into the public domain.  Point #2 above applies here.
+
+The most critical change is the first two lines of the actual license, 
+so let's look at them closely:
+
+"Public Domain or legal equivalent"
+
+This line declares the software to be placed into the Public Domain OR a 
+legal equivalent if one can be found/adopted OR the license text itself 
+can act as a sufficient definition (i.e. the first of the two longer 
+paragraphs).  The OSI FAQ says that it would take a long time to 
+determine whether or not each locale has a sufficient Public Domain 
+definition.  While I could be wrong about this, with an introduction 
+line such as the above, the effort is not particularly necessary even if 
+it could be useful.  Specifically, the phrase "or legal equivalent" may 
+seem ambiguous but is actually carefully considered as the next 
+paragraph of the license defines what the "legal equivalent" actually 
+means if a sufficiently similar definition is unavailable in the locale 
+in which it is read.
+
+"Original authorship by [authors] (the "Authors") in [year]"
+
+This line forms what may be perceived in some locales as a Copyright 
+fallback position without using the legally entangling word "Copyright" 
+or other legally-construed indicators (e.g. (C)) anywhere in the body of 
+the text.  For locales offering Public Domain, the first line ends up 
+taking precedence.  Otherwise, Copyright may be the only valid fallback 
+position.  The assignment of a list of authors to the singular word 
+"Authors" is useful in the license as it uses classic associativity to 
+assign the list of authors for specific protection later on (i.e. 
+"AUTHORS" in the second of the two longer paragraphs).
+
+The license itself clarifies the intentions of the author(s) in regards 
+to their hold on Copyright.  Even if Copyright still applies, 
+attribution is included with the license to indicate who the Copyright 
+claimants actually are and then direct subsequent release from all 
+possible claims.  Someone with intention to place their software into 
+the Public Domain has no plans to ever claim ownership of Copyright over 
+the work in the first place.  At the same time, the full body of text of 
+the license protects the author(s) from damaging lawsuits, which I 
+consider to be of greater significance.
+
+
+Legal review:  This license has NOT been reviewed by legal counsel. 
+However, it is strongly in line with at least one existing OSI approved 
+license.  If there is something specific I must do here as the promoter 
+of this license, let me know.
+
+Proliferation categories:  There are two proliferation categories that 
+the license may fit into - Special purpose licenses OR 
+Other/Miscellaneous licenses.
+
+
+Additional, somewhat less formal commentary on this license and its text 
+is available in a post I wrote in March 2014:
+
+http://cubicspot.blogspot.com/2014/03/writing-software-without-copyright.html
+
+It may offer additional insight and it is possible that I overlooked 
+something in my e-mail to this group that I covered there.
+
+I realize this is a lengthy e-mail.  Thank you for taking the time to 
+read it and your consideration of this license, or one like it, for the 
+Approval track.
+
+-- 
+Thomas Hruska
+CubicleSoft President
+
+I've got great, time saving software that you will find useful.
+
+http://cubiclesoft.com/
+
+
+
+From fontana at opensource.org  Thu Apr 13 17:02:57 2017
+From: fontana at opensource.org (Richard Fontana)
+Date: Thu, 13 Apr 2017 13:02:57 -0400
+Subject: [License-review] Proposal for OSI Approval track: Modified MIT
+ License for Public Domain software
+In-Reply-To: <6009cf2c-f074-2031-c57a-9166804aa8a0@cubiclesoft.com>
+References: <6009cf2c-f074-2031-c57a-9166804aa8a0@cubiclesoft.com>
+Message-ID: <20170413170257.GA5301@clifford>
+
+On Thu, Apr 13, 2017 at 08:12:59AM -0700, Thomas Hruska wrote:
+> For a project I worked on a few years ago, I needed a license that would
+> excuse Copyright wherever possible while simultaneously offering the legal
+> protections of other licenses.  None of the existing OSI licenses or license
+> models particularly fit my needs.  So I started with the MIT license, an
+> already OSI approved license, as a base.  At the time, I already utilized
+> the MIT license extensively with my own software and knew it very well.  It
+> was and still is a well-written document with strong legal defenses in a
+> succinct package.  It is also the closest thing to a Public Domain license
+> that OSI has to date.  All of those are highly desirable baseline
+> attributes.
+
+Are you aware of the Free Public License 1.0.0, also known as the
+Zero-Clause BSD license?
+
+https://opensource.org/licenses/FPL-1.0.0
+
+It appears to do the same thing you are trying to do, except that it
+is based on the ISC license rather than the MIT license.
+
+Do you see anything distinctive about your license relative to
+FPL/0BSD?
+
+Richard
+
+
+From thruska at cubiclesoft.com  Fri Apr 14 03:56:59 2017
+From: thruska at cubiclesoft.com (Thomas Hruska)
+Date: Thu, 13 Apr 2017 20:56:59 -0700
+Subject: [License-review] Proposal for OSI Approval track: Modified MIT
+ License for Public Domain software
+In-Reply-To: <20170413170257.GA5301@clifford>
+References: <6009cf2c-f074-2031-c57a-9166804aa8a0@cubiclesoft.com>
+ <20170413170257.GA5301@clifford>
+Message-ID: <78ca0cea-8164-8fd5-2152-2e416203f157@cubiclesoft.com>
+
+On 4/13/2017 10:02 AM, Richard Fontana wrote:
+> On Thu, Apr 13, 2017 at 08:12:59AM -0700, Thomas Hruska wrote:
+>> For a project I worked on a few years ago, I needed a license that would
+>> excuse Copyright wherever possible while simultaneously offering the legal
+>> protections of other licenses.  None of the existing OSI licenses or license
+>> models particularly fit my needs.  So I started with the MIT license, an
+>> already OSI approved license, as a base.  At the time, I already utilized
+>> the MIT license extensively with my own software and knew it very well.  It
+>> was and still is a well-written document with strong legal defenses in a
+>> succinct package.  It is also the closest thing to a Public Domain license
+>> that OSI has to date.  All of those are highly desirable baseline
+>> attributes.
+>
+> Are you aware of the Free Public License 1.0.0, also known as the
+> Zero-Clause BSD license?
+>
+> https://opensource.org/licenses/FPL-1.0.0
+>
+> It appears to do the same thing you are trying to do, except that it
+> is based on the ISC license rather than the MIT license.
+>
+> Do you see anything distinctive about your license relative to
+> FPL/0BSD?
+>
+> Richard
+
+Three things:
+
+1)  The FPL does not indicate an intent of Public Domain by using that 
+exact phrase.  As pointed out in the OSI FAQ, it's a legally defined 
+phrase in some locales.  Someone can say something is public but that 
+does not place it into the public domain.  Public could just mean 
+publicly available and still under copyright.
+
+2)  The MIT license does not include the overly broad phrase "for any 
+purpose" and clearly spells out the allowed actions instead.  When 
+defining what Public Domain means to a locale without such a definition, 
+the approach that the MIT license takes is such that there is no ambiguity.
+
+3)  The FPL assumes a singular AUTHOR but does not indicate by legal 
+associativity who that is anywhere, which, depending on circumstances, 
+could render the claimed protections by the license as void (e.g. 
+someone submits a patch to a FPL repo and later claims that the license 
+protects them and not the repo owner).  If the protections section is 
+ever determined to be void for some situation, the original owner may be 
+left with a license that effectively says "use ... for any purpose", 
+which includes things like lawsuits.
+
+-- 
+Thomas Hruska
+CubicleSoft President
+
+I've got great, time saving software that you will find useful.
+
+http://cubiclesoft.com/
+
+
+
+From mccoy.smith at intel.com  Fri Apr 14 15:20:20 2017
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Fri, 14 Apr 2017 15:20:20 +0000
+Subject: [License-review] Proposal for OSI Approval track: Modified MIT
+ License for Public Domain software
+In-Reply-To: <78ca0cea-8164-8fd5-2152-2e416203f157@cubiclesoft.com>
+References: <6009cf2c-f074-2031-c57a-9166804aa8a0@cubiclesoft.com>
+ <20170413170257.GA5301@clifford>
+ <78ca0cea-8164-8fd5-2152-2e416203f157@cubiclesoft.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B519343B6436@FMSMSX108.amr.corp.intel.com>
+
+>>Some comments on your comments below.<<
+
+Three things:
+
+1)  The FPL does not indicate an intent of Public Domain by using that exact phrase.  As pointed out in the OSI FAQ, it's a legally defined phrase in some locales.  Someone can say something is public but that does not place it into the public domain.  Public could just mean publicly available and still under copyright.
+
+>>The current draft just says " Public Domain or legal equivalent "  Have you confirmed that that statement is legally effective to result in a dedication to the public domain?  I know CC did a lot of work and research into how (in many jurisdictions) one goes about making a legally effective public domain dedication, and the wording they use in CC0 is much more comprehensive in the language it uses (in Sec. 2).  The language you use is quite brief and I'm curious if that's all that's required in the jurisdictions that allow public domain dedications.<<
+
+2)  The MIT license does not include the overly broad phrase "for any purpose" and clearly spells out the allowed actions instead.  When defining what Public Domain means to a locale without such a definition, the approach that the MIT license takes is such that there is no ambiguity.
+
+>>I didn't see the phrase "for any purpose" in the text of the license you submitted.  You might want to update the draft to include that if that is intended (and if it is an addition to the license grant, explain how that phraseology makes a difference to the "without restriction" language already in MIT.<<
+
+3)  The FPL assumes a singular AUTHOR but does not indicate by legal associativity who that is anywhere, which, depending on circumstances, could render the claimed protections by the license as void (e.g. 
+someone submits a patch to a FPL repo and later claims that the license protects them and not the repo owner).  If the protections section is ever determined to be void for some situation, the original owner may be left with a license that effectively says "use ... for any purpose", which includes things like lawsuits.
+
+>>I think you need to be careful in using the term "author" in this license (although I think you believe it not to be a license, although that's not clear to me, and given the way that CC0 is structured, I'd think you'd want a back up license); that's a term of art in copyright law (as well as in the US Constitution) and by using that terminology, you might be preserving an argument that it does indeed preserve some copyright rights or does not act as a complete public domain dedication.  CC0 uses "affirmer."<<
+
+
+
+
+
+From thruska at cubiclesoft.com  Mon May 29 06:11:10 2017
+From: thruska at cubiclesoft.com (Thomas Hruska)
+Date: Sun, 28 May 2017 23:11:10 -0700
+Subject: [License-review] Proposal for OSI Approval track: Modified MIT
+ License for Public Domain software
+In-Reply-To: <78ca0cea-8164-8fd5-2152-2e416203f157@cubiclesoft.com>
+References: <6009cf2c-f074-2031-c57a-9166804aa8a0@cubiclesoft.com>
+ <20170413170257.GA5301@clifford>
+ <78ca0cea-8164-8fd5-2152-2e416203f157@cubiclesoft.com>
+Message-ID: <1f5b7c34-f6d7-f8c8-3022-7ab8af697c3c@cubiclesoft.com>
+
+On 4/13/2017 8:56 PM, Thomas Hruska wrote:
+> On 4/13/2017 10:02 AM, Richard Fontana wrote:
+>> On Thu, Apr 13, 2017 at 08:12:59AM -0700, Thomas Hruska wrote:
+>>> For a project I worked on a few years ago, I needed a license that would
+
+Somehow I missed getting the reply from McCoy Smith:
+
+https://lists.opensource.org/pipermail/license-review/2017-April/003034.html
+
+
+ >>Some comments on your comments below.<<
+
+ >>The current draft just says " Public Domain or legal equivalent " 
+Have you confirmed that that statement is legally effective to result in 
+a dedication to the public domain?<<
+
+The blog post addressed this.  It will depend highly on the locale.  The 
+first paragraph of the license deals with locales in which such a 
+statement does not apply and may clarify/reiterate what Public Domain 
+means even in those that do.
+
+
+ >>I know CC did a lot of work and research into how (in many 
+jurisdictions) one goes about making a legally effective public domain 
+dedication, and the wording they use in CC0 is much more comprehensive 
+in the language it uses (in Sec. 2).  The language you use is quite 
+brief and I'm curious if that's all that's required in the jurisdictions 
+that allow public domain dedications.<<
+
+CC0 is concerning to me.  The preamble and Section 1 proceed to define 
+and claim copyright protections with limitations.  Doing so may void the 
+rest of the license in its entirety.  Particularly Section 4a may void 
+CC0 at the starting gate as patents and trademarks are frequently 
+intertwined with copyright and it is likely impossible to extricate one 
+from the other.  It may be inferrable that since 4a withholds patents 
+and trademarks that Sections 2 and 3 could be subsequently void.  In 
+such a case, the licensee is left with what amounts to an affirmation of 
+copyright and trademark/patent law with some personal desires in the 
+preamble but no actual permissions conferred.  CC0 is also designed for 
+a wide range of works, not focused solely on software and may not 
+actually be suitable for software even though the FSF has approved it 
+(e.g. no rules regarding modifications and possibly restricts sublicensing).
+
+Moral rights may appear to be pertinent but only Europe cares, 
+particularly France.  They can't be waived in Europe and no one else 
+generally enforces them, so CC0's attempt to waive them is rather 
+pointless and the fallback will be in effect.
+
+Reading CC0 formally shows there could also be problems where successors 
+and/or abandoned/unclaimed property are concerned in the draft of the 
+license I originally submitted.
+
+I propose adding "in perpetuity" to the draft.  CC0 goes to great 
+lengths to spell out that the rules governing the license are intended 
+to be for all time and may not be revoked.  The word "perpetuity" is a 
+nice clean summary of all of the CC0's wordiness.
+
+
+ >>I didn't see the phrase "for any purpose" in the text of the license 
+you submitted.  You might want to update the draft to include that if 
+that is intended (and if it is an addition to the license grant, explain 
+how that phraseology makes a difference to the "without restriction" 
+language already in MIT.<<
+
+The FPL has it, MIT does not.  The phrase in MIT of "deal in the 
+Software without restriction" is NOT the same thing as FPL's "Permission 
+to use...for any purpose".  I perceive the wording in FPL as opening up 
+the possibility of lawsuits while the wording in the MIT license does 
+not.  Sorry for any confusion.
+
+
+ >>I think you need to be careful in using the term "author" in this 
+license (although I think you believe it not to be a license, although 
+that's not clear to me, and given the way that CC0 is structured, I'd 
+think you'd want a back up license); that's a term of art in copyright 
+law (as well as in the US Constitution) and by using that terminology, 
+you might be preserving an argument that it does indeed preserve some 
+copyright rights or does not act as a complete public domain dedication. 
+  CC0 uses "affirmer."<<
+
+It is most definitely a license.  I'm not sure why you think that I 
+think it isn't.
+
+At any rate, in looking at your concern here, I'm in agreement.  To that 
+end and considering various options, "Released by" and "Releasors" are 
+better terms with less likelihood for confusion with any existing 
+frameworks.
+
+
+With the above adjustments, the new draft is thus:
+
+------
+Modified MIT License for Public Domain software
+
+Public Domain or legal equivalent
+Released by [authors] (the "Releasors") in [year]
+
+Permission is hereby granted in perpetuity, free of charge, to any 
+person obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without restriction, 
+including without limitation the rights to use, copy, modify, merge, 
+publish, distribute, sublicense, and/or sell copies of the Software, and 
+to permit persons to whom the Software is furnished to do so.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE RELEASORS BE LIABLE FOR ANY CLAIM, DAMAGES OR 
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
+OTHER DEALINGS IN THE SOFTWARE.
+------
+
+Also updated here:
+
+http://cubicspot.blogspot.com/2014/03/writing-software-without-copyright.html
+
+-- 
+Thomas Hruska
+CubicleSoft President
+
+I've got great, time saving software that you will find useful.
+
+http://cubiclesoft.com/
+
+
+
+From rick at linuxmafia.com  Mon May 29 16:46:13 2017
+From: rick at linuxmafia.com (Rick Moen)
+Date: Mon, 29 May 2017 09:46:13 -0700
+Subject: [License-review] Proposal for OSI Approval track: Modified MIT
+ License for Public Domain software
+In-Reply-To: <1f5b7c34-f6d7-f8c8-3022-7ab8af697c3c@cubiclesoft.com>
+References: <6009cf2c-f074-2031-c57a-9166804aa8a0@cubiclesoft.com>
+ <20170413170257.GA5301@clifford>
+ <78ca0cea-8164-8fd5-2152-2e416203f157@cubiclesoft.com>
+ <1f5b7c34-f6d7-f8c8-3022-7ab8af697c3c@cubiclesoft.com>
+Message-ID: <20170529164613.GU5811@linuxmafia.com>
+
+Thomas, your licence purports to contribute covered software into the
+public domain, but then purports to require recipients to accept the
+"Releasors'" condition of there being no warranty.  But if it's public
+domain, then the Releasors have no power to impose such a condition:
+If your licence succeeds at its aim, they no longer have an ownership
+interest.
+
+Of course, commendably, your licence acknowledges that it might fail of
+its primary aim (perhaps in some jurisdictions if not in others).  Like
+CC0, you thus aim to have a fallback, what you term an 'agreement'.  But
+the basis of that agreement is actually the Releasor's copyright
+interest, which you tortuously avoid mentioning by name as if that made
+it go away.  You cannot magick away copyright by avoiding the word.
+Moreover, if developers wish to be protected against warranty
+liabiility, their safety is best protected by clearly stating the basis
+for requiring warranty waiver -- exactly what you are at pains to avoid
+doing.
+
+IMO, all you've done is slightly damage the text of MIT License, and 
+putting at risk any developer adopting your variant.
+
+-- 
+Cheers,                       Do not believe you'll get the chance to choose.
+Rick Moen                     Regret, by definition, comes too late;
+rick at linuxmafia.com           Say what you mean.  Bear witness.  Iterate.
+McQ! (4x80)                          Sonnet:  Against Entropy, John M. Ford
+
+
+From thruska at cubiclesoft.com  Tue May 30 14:11:57 2017
+From: thruska at cubiclesoft.com (Thomas Hruska)
+Date: Tue, 30 May 2017 07:11:57 -0700
+Subject: [License-review] Proposal for OSI Approval track: Modified MIT
+ License for Public Domain software
+In-Reply-To: <20170529164613.GU5811@linuxmafia.com>
+References: <6009cf2c-f074-2031-c57a-9166804aa8a0@cubiclesoft.com>
+ <20170413170257.GA5301@clifford>
+ <78ca0cea-8164-8fd5-2152-2e416203f157@cubiclesoft.com>
+ <1f5b7c34-f6d7-f8c8-3022-7ab8af697c3c@cubiclesoft.com>
+ <20170529164613.GU5811@linuxmafia.com>
+Message-ID: <e9aa580c-c726-75bd-f727-728097b1af1b@cubiclesoft.com>
+
+On 5/29/2017 9:46 AM, Rick Moen wrote:
+> Thomas, your licence purports to contribute covered software into the
+> public domain, but then purports to require recipients to accept the
+> "Releasors'" condition of there being no warranty.  But if it's public
+> domain, then the Releasors have no power to impose such a condition:
+> If your licence succeeds at its aim, they no longer have an ownership
+> interest.
+
+If it is public domain, as intended, then there is no one to sue for 
+warranty liability in the first place since there is no ownership. 
+Otherwise, it implicitly falls back to existing legal frameworks - in 
+this case copyright which assigns an owner and so warranty liability 
+comes into play.  The agreement with no warranty only applies if 
+copyright applies.
+
+
+> Of course, commendably, your licence acknowledges that it might fail of
+> its primary aim (perhaps in some jurisdictions if not in others).  Like
+> CC0, you thus aim to have a fallback, what you term an 'agreement'.  But
+> the basis of that agreement is actually the Releasor's copyright
+> interest, which you tortuously avoid mentioning by name as if that made
+> it go away.  You cannot magick away copyright by avoiding the word.
+
+Quite true.  However, simply saying the word copyright always throws a 
+monkey wrench into the works.  Avoidance was a reasonable strategy not 
+to magically get rid of copyright but make it easier to work around. 
+Maybe it's not a viable strategy, but certainly reasonable.  (CC0's 
+length and verbosity is a testament to that monkey wrench.)
+
+
+> Moreover, if developers wish to be protected against warranty
+> liability, their safety is best protected by clearly stating the basis
+> for requiring warranty waiver -- exactly what you are at pains to avoid
+> doing.
+> 
+> IMO, all you've done is slightly damage the text of MIT License, and
+> putting at risk any developer adopting your variant.
+
+Well put.  As I've said all along, this is an attempt to satisfy, within 
+an existing legal framework, something that may not be possible but 
+worth attempting anyway.
+
+Maybe one day the relevant laws will change to favor public domain 

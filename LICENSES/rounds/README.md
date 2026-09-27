@@ -61,10 +61,12 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-27 時点・268 ファイル）
+## いまの状態（2026-09-28 時点・270 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
+| 2010-04 / 2017-04〜05 | `license-review` | **観測（我々の類型の提出 2 件・全 10 通・2 分割の 1/2 部）** | **全期間 census（199 か月）が挙げた 27 件のうち、ドシエ未言及だった 2 件。** **(B) の最初の実質返信は Fontana 氏の *"Do you see anything distinctive about your license relative to FPL/0BSD?"*** ——**Landley 氏が後に我々へ向けたのと同じ問いが 9 年前に在った**。**そして McCoy 氏が試験を言葉にしている** —— *"the wording they use in CC0 is **much more comprehensive** … The language you use is **quite brief**"*。**当てた結果は 5 要素中 4 つ被覆・1 つ未対応**（`review-doctrine.md` §1.129）。**(A) は我々の類型で返信ゼロの 1 例。** |
+| 2010-04 / 2017-04〜05 | `license-review` | **観測（我々の類型の提出 2 件・2 分割の 2/2 部）** | **同じ束の 2/2 部。** 本文は無改変で、2 部を順に結合すれば元に戻る（分割は早期警告 800 行のため・**行境界**。**一次資料に予算行を与えるのではなく、下に収める**）|
 | 2012-08 | `license-discuss` | **観測（著作権の放棄可能性・全 34 通・3 分割の 1/3 部）** | **ACD が立っている 2 問（著作権は放棄できるか / 「irrevocable」に何が残るか）を、リスト自身がどう扱ったか。****不利**: 実務弁護士 Lawrence Rosen 氏が *"If you want to worry about copyright law, consider **17 USC 203**"* と、我々が `jurisdictions.md` 5a で statute から見つけた当の条文を「心配すべき橋」として名指ししている。**有利**: Tom Callaway 氏（Fedora）が Red Hat Legal の結論として *"such a declaration, were it to go to trial, would likely **limit the effectiveness of the copyright 'holder' suing for infringement**"* ——**放棄の可否が不確かでも、明確な献呈は効果を持つ**（`jurisdictions.md` 5c） |
 | 2012-08 | `license-discuss` | **観測（著作権の放棄可能性・全 34 通・3 分割の 2/3 部）** | **同じスレッドの 2/3 部。** 本文は無改変で、3 部を順に結合すれば元に戻る（分割は Check 365 の 1,000 行上限のため・**行境界**） |
 | 2012-08 | `license-discuss` | **観測（著作権の放棄可能性・全 34 通・3 分割の 3/3 部）** | **同じスレッドの 3/3 部。** 本文は無改変で、3 部を順に結合すれば元に戻る（分割は Check 365 の 1,000 行上限のため・**行境界**） |
