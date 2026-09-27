@@ -29,6 +29,28 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `shall` / `must` の裸形を足す ——**草案の被覆が凍結済み 1.0 の被覆より狭くてはならない。**
        **ヘッダは対象外** ——実測で草案の `must` 2 件は条文ではなく草案についての注記で、
        **file 全体で数えるとヘッダの散文が条文の性質として報告される。**
+  477. **審査者へ実際に送った本文が、凍結されている canonical テキストと一致すること**
+       (BLOCKING): `LICENSES/rounds/*-sent.txt` はリストへ送った文面を逐語で保存した file で、
+       そのうち本文を貼り付けたものは **審査者が実際に読んだテキスト**である。Check 453 は
+       repo 内の複製の sha256 を pin し、週次の配信検査は公開 URL を pin と照合するが、
+       **「送った 1 通の中身」を見ている層は 1 つも無かった。**
+       動機は外部の一次資料 (`review-rules.md` §1.124): McCoy Smith 氏が ModelGo の steward へ
+       *"the **canonical versions** of the license (which is what, ultimately, **OSI needs to be
+       able to see** in order to ensure we know what it is is being approved/disapproved)"* と
+       述べ、その submitter は **大学サーバー上の複製が古いまま残る**ことを自ら述べた。
+       判定は**空白を正規化した語単位の一致**で行う (メールの折り返しは byte を変えるが
+       テキストの同一性を変えないため)。**版は file 自身から導出する** —— 貼り付け部分の
+       先頭が一致する `LICENSES/ACD-<版>.txt` を探し、見つからなければ RED。
+       ⚠ **射程を正直に書く**: 本 Check は**一致**しか見ない。**届いたかどうかは別の層**であり、
+       我々の投稿が moderation で拒否されている事実 (`against.md` #215 / #222) は救えない。
+       ⚠ **mutation は登録しない（理由を残す）**: 非 vacuity は手で 2 通り実測してある
+       （貼り付け本文の 1 語を書き換える → 「語 15 番目で食い違う」で RED / 末尾 120 行を削る →
+       「途中で切れている」で RED）。**登録しないのは、この Check の対象が `rounds/` だから**で、
+       probe は mutate → 復元の順に動くが **SIGTERM で中断すると mutated のまま残る**
+       （memory `feedback_mutation_probe_verify_race` に実例がある）。**無改変保存の場所に
+       byte を残す危険は、安全網 1 件の自動検証より重い。** 代わりに `ACD-1.0.txt` を mutate
+       する形も検討したが、**Check 453 が同時に RED になるので帰属が曖昧になる**（#885 の
+       帰属規律）。
   472. **提出側の文書の `§N.M` 引用が、`SUBMISSION-TARGET` が宣言する版の条文に実在すること** (BLOCKING):
        **条番号は版をまたいで保存されない。** 1.0 の §15.5 / §15.7 / §15.8 は 1.1 以降に無く、
        §16.4〜§16.6 は番号が同じまま意味が違う。**提出対象を切り替えた瞬間に、提出物が
@@ -606,3 +628,65 @@ def run(ctx):
         blocking=True,
     )
 
+    # ── 477. 審査者へ実際に送った本文が、凍結テキストと一致すること (BLOCKING) ──────────
+    # `rounds/*-sent.txt` はリストへ送った文面の逐語保存で、本文を貼り付けたものは
+    # **審査者が実際に読んだテキスト**である。Check 453 は repo 内の複製を pin し、週次の
+    # 配信検査は公開 URL を pin と照合する。**送った 1 通の中身を見る層だけが無かった。**
+    #
+    # なぜ層が要るか (外部の一次資料・`review-rules.md` §1.124): Licensing Committee の
+    # McCoy Smith 氏は ModelGo の steward へ *"the canonical versions of the license (which is
+    # what, ultimately, OSI needs to be able to see …)"* と述べ、その submitter は
+    # **もう 1 つの公開複製が古いまま残る**と自ら述べた。**複製が食い違う失敗は現に起きている。**
+    #
+    # 判定を byte でなく**空白正規化した語単位**にする理由: メールの折り返しは byte を変えるが
+    # テキストの同一性を変えない。byte 比較にすると**必ず RED になる brittle gate** になる。
+    #
+    # 版を決め打ちしない理由: 次に送る 1 通は 1.0 ではない (`REVISION-PROTOCOL.md` §3.6 分岐 B)。
+    # 貼り付け部分の先頭と一致する `ACD-<版>.txt` を探す形なら、そのまま働く。
+    _sent477 = sorted((ROOT / "LICENSES" / "rounds").glob("*-sent.txt"))
+    _texts477 = sorted((ROOT / "LICENSES").glob("ACD-[0-9]*.txt"))
+    _bad477, _checked477 = [], 0
+
+    def _norm477(s):
+        return re.sub(r"\s+", " ", s).strip()
+
+    for _s477 in _sent477:
+        try:
+            _body477 = _s477.read_text(encoding="utf-8")
+        except Exception as _e477:
+            _bad477.append(f"{_s477.name}: 読めない ({_e477})")
+            continue
+        for _c477 in _texts477:
+            _canon477 = _c477.read_text(encoding="utf-8")
+            # 貼り付けの開始点は、canonical 側の最初の見出し行で決める
+            _head477 = next((ln for ln in _canon477.splitlines()
+                             if ln.strip() and not ln.startswith(("#", "-"))), "")
+            if len(_head477) < 20 or _head477 not in _body477:
+                continue
+            _checked477 += 1
+            _a477 = _norm477(_canon477[_canon477.index(_head477):]).split(" ")
+            _b477 = _norm477(_body477[_body477.index(_head477):]).split(" ")
+            _n477 = min(len(_a477), len(_b477))
+            _diff477 = next((i for i in range(_n477) if _a477[i] != _b477[i]), None)
+            if _diff477 is not None:
+                _bad477.append(
+                    f"{_s477.name} が貼り付けた {_c477.name} の本文が、凍結テキストと"
+                    f"語 {_diff477} 番目で食い違う "
+                    f"(凍結={_a477[_diff477]!r} / 送信={_b477[_diff477]!r})")
+            elif len(_b477) < len(_a477):
+                _bad477.append(
+                    f"{_s477.name} が貼り付けた {_c477.name} の本文は凍結テキストより短い "
+                    f"({len(_b477)} 語 / 凍結 {len(_a477)} 語) —— **途中で切れている**")
+            break
+
+    check(
+        not _bad477,
+        f"Check 477: 送信控え {len(_sent477)} 件・本文を貼り付けた {_checked477} 件が凍結テキストと一致",
+        (f"Check 477: 送った本文が凍結テキストと食い違う: {_bad477}。"
+         "**審査者が読むのは送った 1 通であって repo の複製ではない。** "
+         "直す方向は 2 つとも禁じられている —— `rounds/` は無改変保存であり "
+         "(`rounds/README.md`)、凍結テキストは Check 453 が pin している。"
+         "**食い違いを見つけたら直さずオーナーへ報告せよ** "
+         "(`review-rules.md` §1.124 が、この規則を述べた一次資料である)"),
+        blocking=True,
+    )
