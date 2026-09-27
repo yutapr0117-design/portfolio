@@ -577,3 +577,64 @@ is **intentional**"* と応じた。**ACD-1.0 §8.2 は特許報復の不在を 
 **「当たらない」と確かめられることは、ACD が承認されることを意味しない**（`board-decisions.md`
 の 2 つの天井 —— *"even where they cannot identify a specific aspect of the OSD"* と
 *"prior approval … does not bind"* —— は動かない）。
+
+## 1.125 「1 本で全部を覆う」への批判を、ACD の条へ 1 つずつ当て直した —— 当たらないが、理由は「束ねていない」ことではない（2026-09-27）
+
+**`against.md` #266 が要求した作業である。** §1.78 (a) は「束ねの OSD 9 は ACD に当たらない」と
+書いたが、**根拠を 1 行で済ませていた**。Fontana 氏の 2026-09-11 の本体
+（`rounds/2026-09-14-license-review-openmdw-thread-observed.txt`）を読み直すと、
+**批判の形は「束ねること」ではない。**
+
+> *"The **asserted policy justification** for copyright-triggered termination **has no relevance
+> to latex2html.py**, and yet it is **swept in improperly** by this termination provision. …
+> OpenMDW-1.1 is **flawed in its basic conception**, as a consequence of the termination
+> provision. **Its whole raison d'être is to have a single license that applies to everything.**"*
+
+**一般形はこうである** ——
+**(i) instrument が異種の素材を 1 語に束ね、(ii) その中に「一部の素材にしか正当化が及ばない
+条項」があると、(iii) 束ねがその条項を正当化の及ばない素材まで運ぶ。**
+OpenMDW では (ii) が**終了**で、運ばれた先は「事前学習済みの重みとは無関係な Python script」だった。
+
+### ACD の条へ 1 つずつ当てる
+
+**(i) は ACD にも当たる。** §1.2 は source code / object code / documentation / data /
+metadata / audiovisual material を 1 語に束ねる。
+
+**(ii) が当たらない。** 素材ごとに正当化が違う条は ACD にもあるが、**その全部が
+「義務を外す」か「許諾を足す」側にしか働かない**:
+
+| 条 | 正当化が及ぶ素材 | 及ばない素材に運ばれると何が起きるか |
+| :-- | :-- | :-- |
+| §6（機械生成物・出力） | AI の出力 | **何も起きない。** §6.4 は *"You owe nothing in respect of any of them"* ——**外す側**である |
+| §7（データベース権） | データ集合 | **空振りする。** sui generis 権が生じない素材では対象が無い |
+| §9（機械生成著作物の権利の存否） | 機械生成物 | **空振りする。** 不確実性を除く条で、義務を作らない |
+| §12（人格権） | 著作物 | **Dedicator 側が更に手放すだけ。** 受領者は何も失わない |
+| §8（特許） | 全素材 | **素材固有ではない**（Apache-2.0 も Work 全体に及ぶ・Dolan 氏 2026-09-14） |
+
+**したがって (iii) が起こらない。** ACD が束ねて運ぶのは**許諾だけ**で、
+**受領者から何かを取り上げる条が 1 つも無い**（§10.1 が条件を、§10.4 が終了を置かない）。
+**批判は「不利益が正当化の外へ運ばれること」を問題にしているので、運ぶ不利益が無ければ成立しない。**
+
+**⚠ 「束ねているから安全」ではない。安全なのは「不利益が無いから」である。**
+§1.78 (a) の一行の根拠は正しかったが、**正しい理由を述べていなかった** ——
+「終了が無い」は結論であって、**なぜそれで十分かは上の表を書くまで示されていなかった。**
+
+### ⚠ 逆側 3 つ
+
+**(a) 過剰に広い*許諾*は、別の種類の欠陥になりうる。** 持っていない権利について献呈すること
+（§2.7 が Dedicator 自身の権利に限り、§2.6 が第三者素材の特定を Dedicator の義務とする）。
+**Berkus 氏が同日に挙げた 8 経路**（*"GenAI & Autocomplete"* を含む・偶発的な混入は常時起きる）
+は、**束ねが運ぶのが不利益ではなく*リスク*である**ことを示す。**これが実際の残余で、#134 そのものである。**
+
+**(b) Fontana 氏は OSAID を引いて、素材の種類で線を引いている** ——
+*"the OSI contemplates that things other than OSI-approved licenses might be suitable for
+**model parameters**, but **that does not apply to code or model architecture materials**"*。
+**B15（主題適格）に直接効く**: パラメータ側については「そもそも OSI 承認ライセンスの仕事ではない
+かもしれない」という読みが、審査者の側から出ている。
+
+**(c) そして B15 の counterweight の 1 つが、同じ 1 通で弱められている。**
+`against.md` #237 は「OSI はフォント（IPA）とデータを名に持つライセンス（Unicode）を承認している」
+を counterweight に使っているが、**Fontana 氏は OFL-1.1 を名指しで *"wrongly approved"* と述べ、
+自分が 17 年前にその承認を後押ししたことを謝罪している**。
+**承認されたという事実は残るが、先例としての重さは、承認する側の 1 人がそう言っている分だけ軽い。**
+**有利な読みの反証を同じ段落で探した結果であり、探さなければ出なかった。**
