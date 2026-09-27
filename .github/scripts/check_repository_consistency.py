@@ -149,6 +149,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_license_submission.py",  # split: 審査者が受け取る面 (463/472/473)
     ROOT / ".github" / "scripts" / "checks_license_draft.py",  # split: 次版の草案 (468)
     ROOT / ".github" / "scripts" / "checks_license_self_reporting.py",  # split: 自己申告件数 (460)
+    ROOT / ".github" / "scripts" / "checks_license_register_structure.py",  # split: register の構造 (469/474/475)
     ROOT / ".github" / "scripts" / "checks_license_quotation.py",  # split: 引用の忠実性 (470)
     ROOT / ".github" / "scripts" / "checks_license_references.py",  # split: 参照の解決 (471)
     ROOT / ".github" / "scripts" / "checks_seo_meta.py",  # split: AIO/SEO meta + canonical URL + resource-resolution (149-166 minus 152/165)
@@ -382,6 +383,10 @@ _checks_license_draft.run(_ctx)
 #  ここに書くと module 側の本物と二重計上され Check 45b が RED になる（隣の 458-461b も同じ理由）。
 import checks_license_self_reporting as _checks_license_self_reporting
 _checks_license_self_reporting.run(_ctx)
+
+# ── 469 / 474 / 475 (register の構造) → checks_license_register_structure.py ──
+import checks_license_register_structure as _checks_license_register_structure
+_checks_license_register_structure.run(_ctx)
 
 # ── 470 (引用の忠実性) → checks_license_quotation.py ──
 import checks_license_quotation as _checks_license_quotation

@@ -17,6 +17,18 @@ canonical-ref: LICENSES/ACD-1.0.submission-reference.md (切り出し元・§1�
 
 ### 3. Open Source Definition conformance
 
+**Stated first, because the archive says it should be.** Conformance with the Definition is the
+floor of this process and not the whole of it. Russ Nelson, then president, put the reason on the
+list in 2009: *"There are reasons beyond OSD conformance why we might not want to approve the
+license. Why? Because we have a trademark to preserve. If you can figure out some way to comply
+with the OSD in a way that does not achieve the desired open source effect ... then we MUST deny
+your license OSI approval."* I am not offering the clause-by-clause analysis below as a
+sufficient condition, and the question I take to be live is the one behind it: whether this
+instrument achieves the effect, not merely the form. **My answer is that it has no conditions at
+all (Section 10.1), so it has nowhere to put a discrepancy between form and effect** — the
+evasions that provision guards against live inside conditions, and there are none here. That is
+an argument, not a proof, and it is the part of this submission I would most like you to test.
+
 ACD-1.0 imposes no conditions at all, so conformance is straightforward. Addressing the
 criteria the committee asks submitters to speak to directly:
 
