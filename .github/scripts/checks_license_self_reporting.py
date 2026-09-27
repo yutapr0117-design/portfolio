@@ -683,16 +683,36 @@ def run(ctx):
         #   数値を消す選択も正しい (READY-TO-SUBMIT はそうした)。**縛るのは「裸の現在形の数値」だけ。**
         _DATE460R = re.compile(r"20\d\d-\d\d(-\d\d)?")
         _PTR460R = ("§B.0 の見出し", "Check 460 (p)", "heading", "見出しが述べる")
-        for _p460r in sorted(_L460.glob("*.md")):
+        #   **2026-09-27 に 2 つ直した。**
+        #   **(1) 走査先が `LICENSES/` だけで、`docs/architecture/` を見ていなかった** ——
+        #   `check-repository-consistency-map.md` の Check 463 の説明が **「~600 語」のまま**残り、
+        #   **外部監視に指摘されて初めて分かった**（実測 1,701・2.8 倍）。
+        #   **(2) 近傍 ±3 行の窓は、Check の説明が並ぶ密な表では必ず日付を拾って素通りする** ——
+        #   **表の行 (`|` 始まり) は単独で引用されるので、同じ行に日付か権威が無ければ落とす。**
+        #   **⚠ 窓を広く取ると「正しく日付が付いた表」を守れるが、「日付が隣の行にあるだけの表」も
+        #   守ってしまう。** どちらを取るかは、**その行が単独で読まれるか**で決まる。
+        _scan460r = sorted(_L460.glob("*.md")) + sorted((ROOT / "docs" / "architecture").glob("*.md"))
+        for _p460r in _scan460r:
             if _p460r.name == "ACD-1.0.submission.md":
                 continue          # 正本。face (p) が実測と照合する
             _lines460r = _p460r.read_text(encoding="utf-8").splitlines()
             for _i460r, _line460r in enumerate(_lines460r):
                 if "B.0" not in _line460r:
                     continue
-                # 近傍 —— 表の行は、直下の散文が表全体に日付を与えるのが本 repo の慣行なので、
-                # 前後 3 行を窓に入れる (行だけを見ると、正しく日付が付いた表を誤検出する)
-                _near460r = "\n".join(_lines460r[max(0, _i460r - 3):_i460r + 4])
+                # 表の行は **その行 + その表の見出し行** で読む。
+                # **「隣の行に日付がある」では足りない**（Check の説明が並ぶ表では必ず当たる）が、
+                # **「表自身が測定日を宣言している」なら足りる** ——行は見出しと一緒に読まれるので。
+                if _line460r.lstrip().startswith("|"):
+                    _hdr460r = ""
+                    for _k460r in range(_i460r - 1, max(-1, _i460r - 40), -1):
+                        if not _lines460r[_k460r].lstrip().startswith("|"):
+                            break
+                        if re.match(r"\s*\|[\s:|-]+\|\s*$", _lines460r[_k460r]):
+                            _hdr460r = _lines460r[_k460r - 1] if _k460r else ""
+                            break
+                    _near460r = _line460r + "\n" + _hdr460r
+                else:
+                    _near460r = "\n".join(_lines460r[max(0, _i460r - 3):_i460r + 4])
                 for _m460r2 in re.finditer(r"([0-9][0-9,]{2,}|約 ?[0-9][0-9,]*) ?(語|words)", _line460r):
                     _seg460r = _line460r[max(0, _m460r2.start() - 160):_m460r2.end() + 160]
                     if "B.0" not in _seg460r:

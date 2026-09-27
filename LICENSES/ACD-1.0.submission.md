@@ -202,12 +202,20 @@ Open Source Definition, and to say where the licence is used.
 > **次に何を送るか、そもそも送るかはオーナーの判断であり、AI はそれを代行しない。**
 > **開示（§E.1）を薄めて回避してはならない。**
 
-**Why this section exists.** Everything below §B.0 — §1 through §5 — runs to **7,500 words**. The
-list's code of conduct asks for "concise and low-volume" and that was restated in the August 2026
-review (`REVISION-PROTOCOL.md` §3.7). **A 7,500-word opening post contradicts the design this
-dossier is built on**, which is that the repository holds the depth so the message can be short.
-§1–§5 are not deleted: they are the reference material the short message points at, and they are
-where a reviewer who asks a specific question is sent. **Send §B.0. Do not paste §1–§5.**
+**Why this section exists.** The reference material this message points at — §1 through §5, which
+moved to `ACD-1.0.submission-reference.md` and `ACD-1.0.submission-osd.md` on 2026-09-09 — is
+**close to an order of magnitude longer than the message** (14,651 words against 1,701, measured
+2026-09-27; the authority for the message's own length is the §B.0 heading, and Check 460 (p)
+checks it against the text). The list's code of conduct asks for "concise and low-volume" and that
+was restated in the August 2026 review (`REVISION-PROTOCOL.md` §3.7). **Pasting the reference
+material would contradict the design this dossier is built on**, which is that the repository holds
+the depth so the message can be short. §1–§5 are not deleted: they are where a reviewer who asks a
+specific question is sent. **Send §B.0. Do not paste §1–§5.**
+
+> **⚠ この段落は 2026-09-27 に是正した。** 旧文は *"Everything below §B.0 — §1 through §5 — runs to
+> **7,500 words**"* と述べていたが、**§1〜§5 は 2026-09-09 に別 file へ移っており「§B.0 の下」には
+> 無く**、実測は **14,651 語**だった（`against.md` #80 が記録する 7,505 語は**切り出し前の 2026-09-09
+> 時点の値**で、歴史記述としては正しい）。**現在値を固定値で書いた説明文は、正本が動くと嘘になる。**
 
 **Length, stated rather than rounded.** 577 words when written on 2026-09-06; **660** after two
 additions the same day; **685** on 2026-09-07, when the enforcement sentence was changed to say what
