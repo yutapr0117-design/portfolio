@@ -282,3 +282,66 @@ copyright-protected e.g. in Germany**. So, in the end, **we need a copyright lic
 2017 年に別の人が別の文脈で同じ結論として述べている。**
 **⚠ ただし氏が述べたのは「だから著作権ライセンスが要る」までで、
 「献呈と許諾を並置せよ」ではない。** **並置の設計は我々のもので、裏づけは半分である。**
+
+## 1.119 OSI は「data files」を主題に明記したライセンスを 2 度承認している —— そして「一般化」と「空欄つき本文」で通った先例が在る（2026-09-27）
+
+一次資料は `rounds/2017-11-license-review-unicode-data-files-observed-*.txt`（16 通・3 部）。
+
+### 承認は 2 度
+
+**(1) 2018-09-03**、Richard Fontana 氏 —— *"The OSI board approved, for **Legacy Approval**, the
+**Unicode Data Files and Software License** ... to be associated with the proliferation category
+**'Licenses that are redundant with more popular licenses'**."*
+
+**(2) 2023-11-28**、Pamela Chestek 氏 —— *"The **Unicode License v3** was approved as an OSI
+Certified License in the **Special Purpose category** of licenses at its Board meeting on November
+17, 2023. **The previous version of the license will be marked as superseded.**"*
+
+**主題は名前に書いてある** ——*Data Files and Software*。
+**B15（主題適格）にとって、フォント（`review-precedents.md` §1.110）に続く 2 つ目の counterweight。**
+**2023 年の Mulan 不承認（*"open culture licenses are outside the purview"*）と並べると、
+線は「コードか否か」ではなく、Chestek 氏の言う *"tied to software"* に引かれていることが
+2 例で見える。** **⚠ それでも線の位置は分からない** —— Unicode のデータは
+**ソフトウェアが消費する技術的データ**で、§1.2 が名指しする *"audiovisual material"* とは距離がある。
+
+### 「一般化」を目的として明記した提出が、承認されている
+
+McCoy Smith 氏 2023-08-23（Unicode Consortium を代理して）—— 改訂の目的として
+*"to address certain suboptimal terms in the license, and **to genericize it so that it may be used
+by entities other than the Unicode Consortium**"*。
+
+**提出パケット §4b（本文に固有名詞ゼロ・採用に本文編集が不要）は、
+「一般化されていること」を承認に向けた美点として述べている。**
+**ここにそれを目的として掲げて通った先例が在る。**
+
+### 空欄のある本文が、そのまま承認対象になっている
+
+同じ提出文 —— *"note that that copy is slightly different than the copy submitted for approval,
+in that it contains a Unicode copyright notice with relevant years; **for the text submitted for
+approval by OSI, the copyright notice and years have been indicated as 'fill in the blanks.'**"*
+Fontana 氏も 2017 年に同じ方向を示している —— *"the appropriate thing to do ... would be to
+**templatize the date** (as has been done with certain OSI-approved licenses)"*。
+
+**ACD-1.0 §16.1 の notice 雛形には 1 欄の空欄が在り、
+提出パケット §4b はそれを「唯一の例外」として明示している**（2026-09-24 訂正）。
+**その例外が異例ではないことの先例である。**
+
+### 名前の条項がどこまで及ぶか —— 2 人の読みが割れている
+
+Bruce Perens 氏 2017-11-29 —— *"the name of a copyright holder shall not be used in advertising ...
+If we consider that 'Unicode' alone is also the protected name of the copyright holder, this would
+appear to **prohibit anyone from stating in advertising that their product is compatible with
+Unicode**. Certainly this is not what you want."* ——ただし *"I would not ask to block it upon that
+point"*。
+Richard Fontana 氏 —— *"**I did not read it as a blanket prohibition** on mentioning 'Unicode' in
+an advertisement. I see it as equivalent to the ... 3-clause BSD"* の endorsement 条項。
+
+**ACD-1.0 §11 は名称と商標を扱い、唯一撤回していない制限が
+「entity 名で endorsement を偽装すること」である。**
+**この往復は、その種の条項が「広すぎる」と読まれうることと、
+それでも BSD-3 と同等なら通ることの、両方を示している。**
+
+### 手続きの再確認
+
+*"Decision date: due no later than the first Board meeting after October 23, 2023"*
+（2023-08-23 提出の 60 日後）——**§1.116 で見た運用と同じ。**

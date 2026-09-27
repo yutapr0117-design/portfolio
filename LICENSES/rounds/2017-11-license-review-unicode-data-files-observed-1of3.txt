@@ -1,0 +1,750 @@
+From sascha at brawer.ch  Wed Nov 29 09:22:06 2017
+From: sascha at brawer.ch (Sascha Brawer)
+Date: Wed, 29 Nov 2017 10:22:06 +0100
+Subject: [License-review] Request for Legacy Approval: Unicode Data Files and Software License
+Message-ID: <CABKQ4ESEGdWP=U-bA0dkLnNciGQ7DUZkm0=Ra_xOvrE9R4HYXQ@mail.gmail.com>
+
+Type of submission: Request for Legacy Approval
+License name: Unicode Data Files and Software License
+License URL: http://www.unicode.org/copyright.html#LICENSE
+
+Background information: The Unicode license is applied to data files and
+software from Unicode.org. Since the mid 1990s, probably every computer
+system in existence has been including Unicode data files. In addition to
+the Unicode character database, the license is also applied to the source
+code of the ICU internationalization library [icu-project.org], to data
+from Unicode CLDR [cldr.unicode.org], and to other Unicode projects such as
+data collection tools and test suites. However, at least to our knowledge,
+nobody outside Unicode.org has adopted this license for their own projects.
+At some point in the future, Unicode might retire this license and switch
+to one of the more popular open-source licenses such as BSD or MIT;
+however, this will need discussion among Unicode members, so any license
+change/retirement might take a long time. In the meantime, we?d like to
+request Legacy Approval from opensource.org.
+
+Proposed entry in https://opensource.org/proliferation-report:
+File under ?Licenses that are redundant with more popular licenses?.
+Probably it is redundant with BSD or MIT ? thanks for helping with the
+exact classification here. Or, alternatively, perhaps it could be filed
+under ?Special purpose licenses? (only suitable for data and software from
+Unicode.org).
+
+Thanks, and best regards,
+
+? Sascha
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171129/597b199d/attachment.html>
+
+From richard.evan.fontana at gmail.com  Thu Nov 30 04:53:40 2017
+From: richard.evan.fontana at gmail.com (Richard Fontana)
+Date: Wed, 29 Nov 2017 23:53:40 -0500
+Subject: [License-review] Request for Legacy Approval: Unicode Data Files and Software License
+In-Reply-To: <CABKQ4ESEGdWP=U-bA0dkLnNciGQ7DUZkm0=Ra_xOvrE9R4HYXQ@mail.gmail.com>
+References: <CABKQ4ESEGdWP=U-bA0dkLnNciGQ7DUZkm0=Ra_xOvrE9R4HYXQ@mail.gmail.com>
+Message-ID: <CAExdoGBD-LD2LUTOMJeNZ_kR6hTLbF=Kqeo6zWZj724gs6b-wQ@mail.gmail.com>
+
+Hi,
+
+I notice the SPDX group have identifiers for two Unicode licenses:
+https://spdx.org/licenses/Unicode-DFS-2016.html
+https://spdx.org/licenses/Unicode-DFS-2015.html
+
+At least one difference between those two is that the 2015 license has
+a condition "(c) there is clear notice in each modified Data File or
+in the Software as well as in the documentation associated with the
+Data File(s) or Software that the data or software has been modified."
+which is not in the 2016 license. The currently published license
+which you have referenced may be identical to Unicode-DFS-2016 but I
+have not actually checked this.
+
+Assuming there are just two such licenses, do you see a value in
+legacy approval for the one version but not the other?
+
+Richard
+
+
+On Wed, Nov 29, 2017 at 4:22 AM, Sascha Brawer <sascha at brawer.ch> wrote:
+> Type of submission: Request for Legacy Approval
+> License name: Unicode Data Files and Software License
+> License URL: http://www.unicode.org/copyright.html#LICENSE
+>
+> Background information: The Unicode license is applied to data files and
+> software from Unicode.org. Since the mid 1990s, probably every computer
+> system in existence has been including Unicode data files. In addition to
+> the Unicode character database, the license is also applied to the source
+> code of the ICU internationalization library [icu-project.org], to data from
+> Unicode CLDR [cldr.unicode.org], and to other Unicode projects such as data
+> collection tools and test suites. However, at least to our knowledge, nobody
+> outside Unicode.org has adopted this license for their own projects. At some
+> point in the future, Unicode might retire this license and switch to one of
+> the more popular open-source licenses such as BSD or MIT; however, this will
+> need discussion among Unicode members, so any license change/retirement
+> might take a long time. In the meantime, we?d like to request Legacy
+> Approval from opensource.org.
+>
+> Proposed entry in https://opensource.org/proliferation-report:
+> File under ?Licenses that are redundant with more popular licenses?.
+> Probably it is redundant with BSD or MIT ? thanks for helping with the exact
+> classification here. Or, alternatively, perhaps it could be filed under
+> ?Special purpose licenses? (only suitable for data and software from
+> Unicode.org).
+>
+> Thanks, and best regards,
+>
+> ? Sascha
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+
+
+From bruce at perens.com  Thu Nov 30 05:11:32 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 29 Nov 2017 21:11:32 -0800
+Subject: [License-review] Request for Legacy Approval: Unicode Data Files and Software License
+In-Reply-To: <CAExdoGBD-LD2LUTOMJeNZ_kR6hTLbF=Kqeo6zWZj724gs6b-wQ@mail.gmail.com>
+References: <CABKQ4ESEGdWP=U-bA0dkLnNciGQ7DUZkm0=Ra_xOvrE9R4HYXQ@mail.gmail.com> <CAExdoGBD-LD2LUTOMJeNZ_kR6hTLbF=Kqeo6zWZj724gs6b-wQ@mail.gmail.com>
+Message-ID: <CAK2MWOuCMoo7A6SEzDQ+5+ZnBE=kvOeygVxnOgU4ZChEXgf-Dw@mail.gmail.com>
+
+I understand these are legacy licenses. There is what appears to be an
+interesting complication in the text:
+
+*Except as contained in this notice, the name of a copyright holder shall
+not be used in advertising or otherwise to promote the sale, use or other
+dealings in these Data Files or Software without prior written
+authorization of the copyright holder.*
+
+The protected copyright holder's name is "Unicode, Inc." If we consider
+that "Unicode" alone is also the protected name of the copyright holder,
+this would appear to prohibit anyone from stating in advertising that their
+product is compatible with Unicode. Certainly this is not what you want.
+
+We were just talking about trademark restrictions in Open Source licenses
+earlier today. Note my email at
+https://lists.opensource.org/pipermail/license-review/2017-November/003299.html
+My advice applies just as well to this example.
+ Thanks
+ Bruce
+
+On Wed, Nov 29, 2017 at 8:53 PM, Richard Fontana <
+richard.evan.fontana at gmail.com> wrote:
+
+>
+> https://spdx.org/licenses/Unicode-DFS-2016.html
+> https://spdx.org/licenses/Unicode-DFS-2015.html
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171129/bdc95804/attachment.html>
+
+From sascha at brawer.ch  Thu Nov 30 18:27:17 2017
+From: sascha at brawer.ch (Sascha Brawer)
+Date: Thu, 30 Nov 2017 19:27:17 +0100
+Subject: [License-review] Request for Legacy Approval: Unicode Data Files and Software License
+In-Reply-To: <CAK2MWOuCMoo7A6SEzDQ+5+ZnBE=kvOeygVxnOgU4ZChEXgf-Dw@mail.gmail.com>
+References: <CABKQ4ESEGdWP=U-bA0dkLnNciGQ7DUZkm0=Ra_xOvrE9R4HYXQ@mail.gmail.com> <CAExdoGBD-LD2LUTOMJeNZ_kR6hTLbF=Kqeo6zWZj724gs6b-wQ@mail.gmail.com> <CAK2MWOuCMoo7A6SEzDQ+5+ZnBE=kvOeygVxnOgU4ZChEXgf-Dw@mail.gmail.com>
+Message-ID: <CABKQ4EQLCKp=Mmr9kfR=GKw-C0de0LeO1syjCGw48geq2BEzGg@mail.gmail.com>
+
+Perhaps Unicode-DFS-2015 could be classified as ?superseded? by
+Unicode-DFS-2016?
+
+The difference between https://spdx.org/licenses/Unicode-DFS-2016.html and
+https://unicode.org/copyright.html#License is a change from ?Copyright ?
+1991-2016? to ?Copyright ? 1991-2017?, otherwise they?s been no change. So,
+Unicode-DFS-2016 is still current. (If a change in copyright year has any
+implications for OSI or SPDX, it would be good to know.)
+
+About the last paragraph, we?ll check within Unicode what the intention was
+behind the wording, and then circle back to the list. (Would it matter for
+the OSI classification?)
+
+? Sascha
+
+2017-11-30 6:11 GMT+01:00 Bruce Perens <bruce at perens.com>:
+
+> I understand these are legacy licenses. There is what appears to be an
+> interesting complication in the text:
+>
+> *Except as contained in this notice, the name of a copyright holder shall
+> not be used in advertising or otherwise to promote the sale, use or other
+> dealings in these Data Files or Software without prior written
+> authorization of the copyright holder.*
+>
+> The protected copyright holder's name is "Unicode, Inc." If we consider
+> that "Unicode" alone is also the protected name of the copyright holder,
+> this would appear to prohibit anyone from stating in advertising that their
+> product is compatible with Unicode. Certainly this is not what you want.
+>
+> We were just talking about trademark restrictions in Open Source licenses
+> earlier today. Note my email at https://lists.opensource.
+> org/pipermail/license-review/2017-November/003299.html
+> My advice applies just as well to this example.
+>
+>     Thanks
+>
+>     Bruce
+>
+> On Wed, Nov 29, 2017 at 8:53 PM, Richard Fontana <
+> richard.evan.fontana at gmail.com> wrote:
+>
+>>
+>> https://spdx.org/licenses/Unicode-DFS-2016.html
+>> https://spdx.org/licenses/Unicode-DFS-2015.html
+>>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171130/875aa6dc/attachment.html>
+
+From bruce at perens.com  Thu Nov 30 18:50:45 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 30 Nov 2017 10:50:45 -0800
+Subject: [License-review] Request for Legacy Approval: Unicode Data Files and Software License
+In-Reply-To: <CABKQ4EQLCKp=Mmr9kfR=GKw-C0de0LeO1syjCGw48geq2BEzGg@mail.gmail.com>
+References: <CABKQ4ESEGdWP=U-bA0dkLnNciGQ7DUZkm0=Ra_xOvrE9R4HYXQ@mail.gmail.com> <CAExdoGBD-LD2LUTOMJeNZ_kR6hTLbF=Kqeo6zWZj724gs6b-wQ@mail.gmail.com> <CAK2MWOuCMoo7A6SEzDQ+5+ZnBE=kvOeygVxnOgU4ZChEXgf-Dw@mail.gmail.com> <CABKQ4EQLCKp=Mmr9kfR=GKw-C0de0LeO1syjCGw48geq2BEzGg@mail.gmail.com>
+Message-ID: <CAK2MWOt01dT_BiYFhsE2zWcKyqpmhsnhApT8D7r5LFSgV69Lmg@mail.gmail.com>
+
+On Thu, Nov 30, 2017 at 10:27 AM, Sascha Brawer <sascha at brawer.ch> wrote:
+>
+> About the last paragraph, we?ll check within Unicode what the intention
+> was behind the wording, and then circle back to the list. (Would it matter
+> for the OSI classification?)
+>
+
+I would not ask to block it upon that point, especially since it's a legacy
+license. But I would suggest that it's another reason you *should *work to
+replace the license within your own organization. And I'm going to save
+this as an example of how perfectly smart people can shoot themselves in
+the foot while writing licenses. :-)
+ Thanks
+ Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171130/e12b4588/attachment.html>
+
+From cowan at ccil.org  Thu Nov 30 18:57:54 2017
+From: cowan at ccil.org (John Cowan)
+Date: Thu, 30 Nov 2017 13:57:54 -0500
+Subject: [License-review] Request for Legacy Approval: Unicode Data Files and Software License
+In-Reply-To: <CABKQ4EQLCKp=Mmr9kfR=GKw-C0de0LeO1syjCGw48geq2BEzGg@mail.gmail.com>
+References: <CABKQ4ESEGdWP=U-bA0dkLnNciGQ7DUZkm0=Ra_xOvrE9R4HYXQ@mail.gmail.com> <CAExdoGBD-LD2LUTOMJeNZ_kR6hTLbF=Kqeo6zWZj724gs6b-wQ@mail.gmail.com> <CAK2MWOuCMoo7A6SEzDQ+5+ZnBE=kvOeygVxnOgU4ZChEXgf-Dw@mail.gmail.com> <CABKQ4EQLCKp=Mmr9kfR=GKw-C0de0LeO1syjCGw48geq2BEzGg@mail.gmail.com>
+Message-ID: <CAD2gp_Sh7LwQ4phkdaCmWfcdDnbxqJJS_qq+GGQ2gGYXdKE7Pw@mail.gmail.com>
+
+On Thu, Nov 30, 2017 at 1:27 PM, Sascha Brawer <sascha at brawer.ch> wrote:
+
+The difference between https://spdx.org/licenses/Unicode-DFS-2016.html and
+> https://unicode.org/copyright.html#License is a change from ?Copyright ?
+> 1991-2016? to ?Copyright ? 1991-2017?, otherwise they?s been no change. So,
+> Unicode-DFS-2016 is still current. (If a change in copyright year has any
+> implications for OSI or SPDX, it would be good to know.)
+>
+
+I do wish people would stop abusing the copyright date as a last-updated
+date.  It cannot possibly matter to the Unicode Consortium whether the text
+of its license enters the public domain in 2111 or in 2112!  Indeed, 2086
+should be quite long enough to warrant leaving the copyright notice as
+"Copyright ? 1991" for good and all.
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+BALIN FUNDINUL          UZBAD KHAZADDUMU
+BALIN SON OF FUNDIN     LORD OF KHAZAD-DUM
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171130/61fda98a/attachment.html>
+
+From fontana at sharpeleven.org  Thu Nov 30 18:59:56 2017
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Thu, 30 Nov 2017 13:59:56 -0500
+Subject: [License-review] Request for Legacy Approval: Unicode Data Files and Software License
+In-Reply-To: <CABKQ4EQLCKp=Mmr9kfR=GKw-C0de0LeO1syjCGw48geq2BEzGg@mail.gmail.com>
+References: <CABKQ4ESEGdWP=U-bA0dkLnNciGQ7DUZkm0=Ra_xOvrE9R4HYXQ@mail.gmail.com> <CAExdoGBD-LD2LUTOMJeNZ_kR6hTLbF=Kqeo6zWZj724gs6b-wQ@mail.gmail.com> <CAK2MWOuCMoo7A6SEzDQ+5+ZnBE=kvOeygVxnOgU4ZChEXgf-Dw@mail.gmail.com> <CABKQ4EQLCKp=Mmr9kfR=GKw-C0de0LeO1syjCGw48geq2BEzGg@mail.gmail.com>
+Message-ID: <1512068396.3001510.1189759712.2DDF48E6@webmail.messagingengine.com>
+
+A mere change in the copyright year is considered immaterial for
+purposes of SPDX (for its notion of license text matching). That should
+also be true of OSI approval though I think the appropriate thing to do,
+should this license be approved, would be to templatize the date (as has
+been done with certain OSI-approved licenses, though I can think of one
+legacy-approval license where this wasn't done -- eCos 2.0). 
+
+Regarding the last paragraph: I am not sure if Bruce is suggesting that
+this paragraph ought to render the license non-open-source, or if he
+sees it as acceptable but poorly drafted or considered. FWIW I did not
+read it as a blanket prohibition on mentioning "Unicode" in an
+advertisement. I see it as equivalent to the following clause in the
+3-clause BSD license:
+
+"Neither the name of the copyright holder nor the names of its
+contributors may be used to endorse or promote products derived from
+this software without specific prior written permission."
+
+The Unicode license clause is:
+
+"Except as contained in this notice, the name of a copyright holder
+shall not be used in advertising or otherwise to promote the sale,
+use or other dealings in these Data Files or Software without prior
+written authorization of the copyright holder."
+
+Richard
+
+
+
+
+On Thu, Nov 30, 2017, at 01:27 PM, Sascha Brawer wrote:
+> Perhaps Unicode-DFS-2015 could be classified as ?superseded? by Unicode-DFS-2016?
+> 
+> The difference between?https://spdx.org/licenses/Unicode-DFS-2016.html and https://unicode.org/copyright.html#License is a change from ?Copyright ? 1991-2016? to ?Copyright ? 1991-2017?, otherwise they?s been no change. So, Unicode-DFS-2016 is still current. (If a change in copyright year has any implications for OSI or SPDX, it would be good to know.)
+> 
+> About the last paragraph, we?ll check within Unicode what the intention was behind the wording, and then circle back to the list. (Would it matter for the OSI classification?)
+> 
+> ? Sascha
+> 
+> 2017-11-30 6:11 GMT+01:00 Bruce Perens <bruce at perens.com>:
+>> I understand these are legacy licenses. There is what appears to be an interesting complication in the text:
+>> 
+>>> *Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.*
+>>> **
+>> The protected copyright holder's name is "Unicode, Inc." If we consider that "Unicode" alone is also the protected name of the copyright holder, this would appear to prohibit anyone from stating in advertising that their product is compatible with Unicode. Certainly this is not what you want.
+>> 
+>> We were just talking about trademark restrictions in Open Source licenses earlier today. Note my email at?https://lists.opensource.org/pipermail/license-review/2017-November/003299.html
+>> My advice applies just as well to this example.
+>> 
+>> ? ? Thanks
+>> 
+>> ? ? Bruce
+>> 
+>> On Wed, Nov 29, 2017 at 8:53 PM, Richard Fontana <richard.evan.fontana at gmail.com> wrote:
+>>> 
+>>> https://spdx.org/licenses/Unicode-DFS-2016.html
+>>>  https://spdx.org/licenses/Unicode-DFS-2015.html
+>> 
+>> _______________________________________________
+>>  License-review mailing list
+>>  License-review at opensource.org
+>>  https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>>  
+> _________________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+From richard.fontana at opensource.org  Tue Sep  4 03:21:14 2018
+From: richard.fontana at opensource.org (Richard Fontana)
+Date: Mon, 3 Sep 2018 23:21:14 -0400
+Subject: [License-review] Request for Legacy Approval: Unicode Data Files and Software License
+Message-ID: <20180904032114.GA9357@bluenote.lan>
+
+Good (though egregiously belated) news everyone!
+
+The OSI board approved, for Legacy Approval, the Unicode Data Files
+and Software License: http://www.unicode.org/copyright.html#LICENSE ,
+to be associated with the proliferation category "Licenses that are
+redundant with more popular licenses".
+
+Richard
+
+
+From mccoy at lexpan.law  Wed Aug 23 22:00:24 2023
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Wed, 23 Aug 2023 15:00:24 -0700
+Subject: [License-review] Request for Approval: Unicode License v3; Request for "Retirement": Unicode Inc License Agreement-Data Files and Software
+In-Reply-To: <CAMpSvBfMtGeotwsUWW2WGeuDGR1Fs1UpYjwnxOdK2PjF3GoK+Q@mail.gmail.com>
+References: <CAMpSvBcM99+MD5mMQd2cLgVS2w-FWCRWNerxygfD+Cn_+J0nYw@mail.gmail.com> <F13A48DF-070D-434C-9DA7-8AA65C9F1167@lexpan.law> <CAMpSvBeUH9YFG6+=GCVsrTh-NVU_5zgG8Qp5EYEYkQ2fXNMZcg@mail.gmail.com> <PH7PR84MB158274EC29AA0CB78EB866DDF71AA@PH7PR84MB1582.NAMPRD84.PROD.OUTLOOK.COM> <CAMpSvBfMtGeotwsUWW2WGeuDGR1Fs1UpYjwnxOdK2PjF3GoK+Q@mail.gmail.com>
+Message-ID: <14a001d9d60d$3877e240$a967a6c0$@lexpan.law>
+
+The following request is for both an approval of an updated version of an already-approved license, and a superseding of a currently-approved license. 
+I am submitting this request on behalf of the Unicode Consortium, the License Steward of both licenses, who I represent. 
+Summary: the Unicode Consortium is the License Steward of an existing OSI-approved license, the Unicode Inc. License Agreement ? Data Files and Software: https://opensource.org/license/unicode-inc-license-agreement-data-files-and-software/ A new version of that license has been created, to address certain suboptimal terms in the license, and to genercize it so that it may be used by entities other than the Unicode Consortium. The new version is being renamed the ?Unicode License v3? to shorten the name and to address the fact that a slightly revised version of the OSI-approved text has been used since the approval of the text by OSI. The current text can be found here: https://www.unicode.org/license.txt (note that that copy is slightly different than the copy submitted for approval, in that it contains a Unicode copyright notice with relevant years; for the text submitted for approval by OSI, the copyright notice and years have been indicated as "fill in the blanks."). It is also currently being used in Unicode's Github repository, for example, here: https://github.com/unicode-org/cldr/blob/main/LICENSE 
+
+The Unicode Consortium is seeking approval of the new license. At the same time, the Unicode Consortium is seeking superseding of the currently-approved license text on the OSI website. For sake of completeness, I have filled out both the ?For Approval? information for the new license, and the ?For Retirement? information for the old license (even though this is not a retirement but instead a supersedence: i.e., the new version is the preferable version of the license going forward, but any code using the old license remains under an OSI approved license). 
+For Approval 
+Rationale: The new license was created in order to address certain drafting ambiguities and implementation complexities in the currently-approved license with OSI. Namely, the following changes have been made (I have attached a marked up version of the license in LibreOffice and Adobe Acrobat so that the changes can be more easily seen):
+1. The ?Copyright and Permission Notice? has been moved to the top of the license, to make clear that the ?Notice to User? must be reproduced with any distribution of software or data licensed under the license, per the permission section.
+2. The copyright notice has been genericized so as to not be specific to the Unicode Consortium or the recited years (which themselves are out of date).
+3. The ?All rights reserved? statement has been removed, as it is no longer required under Berne and is also misleading given the permissive nature of the license.
+4. The references to links to Unicode?s website have been removed, to genericize the license and also make the license not dependent upon an external source for its defined terms (and also prevent defined terms from leading to dead links or modified links that could be altered in a way contrary to the OSD).
+5. The recitation of ?Unicode? data files and ?Unicode? software has been removed to genericize the license for use by entities other than Unicode.
+6. The defined terms ?Data Files? and ?Software? have been genericized to apply to any data files or software to which the license is applied. 
+Distinguish: Compare to and contrast with the most similar OSI-approved license(s)
+The most similar OSI-approved license is the predecessor Unicode Consortium, Inc. License Agreement ? Data Files and Software. The manner in which the submitted license differs is set forth above and in the attached mark-up.
+Legal review: Describe any legal review the license has been through, and provide results of any legal analysis if available.
+The license has been reviewed by Unicode external counsel (me) as well as Unicode?s general counsel.
+Proliferation category: Recommend which license proliferation category is appropriate
+This license should be in the same category as its predecessor (?Special Purpose?), given that it addresses both software and data files.
+
+License Text:
+The license text requested to be approved is reproduced below (for those of you who to not wish to review, or do not receive the attachments).
+
+========================================================================================================================================================
+UNICODE LICENSE V3
+
+COPYRIGHT AND PERMISSION NOTICE
+
+Copyright ? <YEAR(S)> <COPYRIGHT HOLDER>
+
+NOTICE TO USER: Carefully read the following legal agreement. BY DOWNLOADING, INSTALLING, COPYING OR OTHERWISE USING DATA FILES, AND/OR SOFTWARE, YOU UNEQUIVOCALLY ACCEPT, AND AGREE TO BE BOUND BY, ALL OF THE TERMS AND CONDITIONS OF THIS AGREEMENT. IF YOU DO NOT AGREE, DO NOT DOWNLOAD, INSTALL, COPY, DISTRIBUTE OR USE THE DATA FILES OR SOFTWARE.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of data files and any associated documentation (the "Data Files") or software and any associated documentation (the "Software") to deal in the Data Files or Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and/or sell copies of the Data Files or Software, and to permit persons to whom the Data Files or Software are furnished to do so, provided that either (a) this copyright and permission notice appear with all copies of the Data Files or Software, or (b) this copyright and permission notice appear in associated Documentation.
+
+THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS.
+
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA FILES OR SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written
+authorization of the copyright holder. 
+===========================================================================================================================================================
+
+For Retirement
+Version: Specify exactly which version is being retired
+The current OSI-approved version, found here: https://opensource.org/license/unicode-inc-license-agreement-data-files-and-software/
+Successor: Identify successor license(s), if any.
+The new version of the license, submitted at the same time with the request for retirement/supersedence, above. 
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Unicode License v3 compare Unicode Inc. License Agreement - Data Files and Software.odt
+Type: application/vnd.oasis.opendocument.text
+Size: 23511 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20230823/59f00c35/attachment-0001.odt>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Unicode License v3 compare Unicode Inc. License Agreement - Data Files and Software.pdf
+Type: application/pdf
+Size: 45385 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20230823/59f00c35/attachment-0001.pdf>
+
+From mccoy at lexpan.law  Wed Aug 30 22:48:17 2023
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Wed, 30 Aug 2023 15:48:17 -0700
+Subject: [License-review] Request for Approval: Unicode License v3; Request for "Retirement": Unicode Inc License Agreement-Data Files and Software
+References: <CAMpSvBcM99+MD5mMQd2cLgVS2w-FWCRWNerxygfD+Cn_+J0nYw@mail.gmail.com> <F13A48DF-070D-434C-9DA7-8AA65C9F1167@lexpan.law> <CAMpSvBeUH9YFG6+=GCVsrTh-NVU_5zgG8Qp5EYEYkQ2fXNMZcg@mail.gmail.com> <PH7PR84MB158274EC29AA0CB78EB866DDF71AA@PH7PR84MB1582.NAMPRD84.PROD.OUTLOOK.COM> <CAMpSvBfMtGeotwsUWW2WGeuDGR1Fs1UpYjwnxOdK2PjF3GoK+Q@mail.gmail.com> 
+Message-ID: <0eb601d9db94$11b18670$35149350$@lexpan.law>
+
+I'm resending this since I looks like it has not gotten through to some people on the list (although did make it to archives).
+Also, I'm not including the attachments which might be the cause of the problem. If anyone is interested in a redline contact me directly.
+
+> -----Original Message-----
+> From: McCoy Smith <mccoy at lexpan.law>
+> Sent: Wednesday, August 23, 2023 3:00 PM
+> To: 'License submissions for OSI review' <license-
+> review at lists.opensource.org>
+> Subject: Request for Approval: Unicode License v3; Request for "Retirement":
+> Unicode Inc License Agreement-Data Files and Software
+> 
+> The following request is for both an approval of an updated version of an
+> already-approved license, and a superseding of a currently-approved license.
+> 
+> I am submitting this request on behalf of the Unicode Consortium, the
+> License Steward of both licenses, who I represent.
+> 
+> Summary: the Unicode Consortium is the License Steward of an existing OSI-
+> approved license, the Unicode Inc. License Agreement ? Data Files and
+> Software: https://opensource.org/license/unicode-inc-license-agreement-
+> data-files-and-software/ A new version of that license has been created, to
+> address certain suboptimal terms in the license, and to genercize it so that it
+> may be used by entities other than the Unicode Consortium. The new version
+> is being renamed the ?Unicode License v3? to shorten the name and to
+> address the fact that a slightly revised version of the OSI-approved text has
+> been used since the approval of the text by OSI. The current text can be
+> found here: https://www.unicode.org/license.txt (note that that copy is
+> slightly different than the copy submitted for approval, in that it contains a
+> Unicode copyright notice with relevant years; for the text submitted for
+> approval by OSI, the copyright notice and years have been indicated as "fill in
+> the blanks."). It is also currently being used in Unicode's Github repository,
+> for example, here: https://github.com/unicode-org/cldr/blob/main/LICENSE
+> 
+> The Unicode Consortium is seeking approval of the new license. At the same
+> time, the Unicode Consortium is seeking superseding of the currently-
+> approved license text on the OSI website. For sake of completeness, I have
+> filled out both the ?For Approval? information for the new license, and the
+> ?For Retirement? information for the old license (even though this is not a
+> retirement but instead a supersedence: i.e., the new version is the preferable
+> version of the license going forward, but any code using the old license
+> remains under an OSI approved license).
+> 
+> For Approval
+> 
+> Rationale: The new license was created in order to address certain drafting
+> ambiguities and implementation complexities in the currently-approved
+> license with OSI. Namely, the following changes have been made (I have
+> attached a marked up version of the license in LibreOffice and Adobe
+> Acrobat so that the changes can be more easily seen):
+> 1. The ?Copyright and Permission Notice? has been moved to the top of the
+> license, to make clear that the ?Notice to User? must be reproduced with any
+> distribution of software or data licensed under the license, per the
+> permission section.
+> 2. The copyright notice has been genericized so as to not be specific to the
+> Unicode Consortium or the recited years (which themselves are out of date).
+> 3. The ?All rights reserved? statement has been removed, as it is no longer
+> required under Berne and is also misleading given the permissive nature of
+> the license.
+> 4. The references to links to Unicode?s website have been removed, to
+> genericize the license and also make the license not dependent upon an
+> external source for its defined terms (and also prevent defined terms from
+> leading to dead links or modified links that could be altered in a way contrary
+> to the OSD).
+> 5. The recitation of ?Unicode? data files and ?Unicode? software has been
+> removed to genericize the license for use by entities other than Unicode.
+> 6. The defined terms ?Data Files? and ?Software? have been genericized to
+> apply to any data files or software to which the license is applied.
+> 
+> Distinguish: Compare to and contrast with the most similar OSI-approved
+> license(s) The most similar OSI-approved license is the predecessor Unicode
+> Consortium, Inc. License Agreement ? Data Files and Software. The manner
+> in which the submitted license differs is set forth above and in the attached
+> mark-up.
+> Legal review: Describe any legal review the license has been through, and
+> provide results of any legal analysis if available.
+> The license has been reviewed by Unicode external counsel (me) as well as
+> Unicode?s general counsel.
+> Proliferation category: Recommend which license proliferation category is
+> appropriate This license should be in the same category as its predecessor
+> (?Special Purpose?), given that it addresses both software and data files.
+> 
+> License Text:
+> The license text requested to be approved is reproduced below (for those of
+> you who to not wish to review, or do not receive the attachments).
+> 
+> ================================================================
+> ================================================================
+> ========================
+> UNICODE LICENSE V3
+> 
+> COPYRIGHT AND PERMISSION NOTICE
+> 
+> Copyright ? <YEAR(S)> <COPYRIGHT HOLDER>
+> 
+> NOTICE TO USER: Carefully read the following legal agreement. BY
+> DOWNLOADING, INSTALLING, COPYING OR OTHERWISE USING DATA FILES,
+> AND/OR SOFTWARE, YOU UNEQUIVOCALLY ACCEPT, AND AGREE TO BE
+> BOUND BY, ALL OF THE TERMS AND CONDITIONS OF THIS AGREEMENT. IF
+> YOU DO NOT AGREE, DO NOT DOWNLOAD, INSTALL, COPY, DISTRIBUTE OR
+> USE THE DATA FILES OR SOFTWARE.
+> 
+> Permission is hereby granted, free of charge, to any person obtaining a copy
+> of data files and any associated documentation (the "Data Files") or software
+> and any associated documentation (the "Software") to deal in the Data Files
+> or Software without restriction, including without limitation the rights to use,
+> copy, modify, merge, publish, distribute, and/or sell copies of the Data Files
+> or Software, and to permit persons to whom the Data Files or Software are
+> furnished to do so, provided that either (a) this copyright and permission
+> notice appear with all copies of the Data Files or Software, or (b) this
+> copyright and permission notice appear in associated Documentation.
+> 
+> THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT
+> WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+> LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+> PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS.
+> 
+> IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS
+> NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR
+> CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING
+> FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF
+> CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+> IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA FILES OR
+> SOFTWARE.
+> 
+> Except as contained in this notice, the name of a copyright holder shall not
+> be used in advertising or otherwise to promote the sale, use or other
+> dealings in these Data Files or Software without prior written authorization
+> of the copyright holder.
+> 
+> ================================================================
+> ================================================================
+> ===========================
+> 
+> For Retirement
+> Version: Specify exactly which version is being retired The current OSI-
+> approved version, found here: https://opensource.org/license/unicode-inc-
+> license-agreement-data-files-and-software/
+> Successor: Identify successor license(s), if any.
+> The new version of the license, submitted at the same time with the request
+> for retirement/supersedence, above.
+> 
+
+
+
+From rfontana at redhat.com  Thu Aug 31 00:37:51 2023
+From: rfontana at redhat.com (Richard Fontana)
+Date: Wed, 30 Aug 2023 20:37:51 -0400
+Subject: [License-review] Request for Approval: Unicode License v3; Request for "Retirement": Unicode Inc License Agreement-Data Files and Software
+In-Reply-To: <0eb601d9db94$11b18670$35149350$@lexpan.law>
+References: <CAMpSvBcM99+MD5mMQd2cLgVS2w-FWCRWNerxygfD+Cn_+J0nYw@mail.gmail.com> <F13A48DF-070D-434C-9DA7-8AA65C9F1167@lexpan.law> <CAMpSvBeUH9YFG6+=GCVsrTh-NVU_5zgG8Qp5EYEYkQ2fXNMZcg@mail.gmail.com> <PH7PR84MB158274EC29AA0CB78EB866DDF71AA@PH7PR84MB1582.NAMPRD84.PROD.OUTLOOK.COM> <CAMpSvBfMtGeotwsUWW2WGeuDGR1Fs1UpYjwnxOdK2PjF3GoK+Q@mail.gmail.com> <0eb601d9db94$11b18670$35149350$@lexpan.law>
+Message-ID: <CAC1cPGypyB3fzgXQ7RP-Dm3-yiTN8oCkW_w0UvzkbLFXQHcafA@mail.gmail.com>
+
+It seems acceptable to me.
+
+BTW you may want to keep an eye on
+github.com/spdx/license-list-XML/issues since this license has (today)
+been submitted for review in Fedora, and if Fedora approves it someone
+associated with Fedora will then probably ask SPDX to add it to the
+SPDX license list and assign a license identifier.
+
+Richard
+
+On Wed, Aug 30, 2023 at 6:49?PM McCoy Smith <mccoy at lexpan.law> wrote:
+>
+> I'm resending this since I looks like it has not gotten through to some people on the list (although did make it to archives).
+> Also, I'm not including the attachments which might be the cause of the problem. If anyone is interested in a redline contact me directly.
+>
+> > -----Original Message-----
+> > From: McCoy Smith <mccoy at lexpan.law>
+> > Sent: Wednesday, August 23, 2023 3:00 PM
+> > To: 'License submissions for OSI review' <license-
+> > review at lists.opensource.org>
+> > Subject: Request for Approval: Unicode License v3; Request for "Retirement":
+> > Unicode Inc License Agreement-Data Files and Software
+> >
+> > The following request is for both an approval of an updated version of an
+> > already-approved license, and a superseding of a currently-approved license.
+> >
+> > I am submitting this request on behalf of the Unicode Consortium, the
+> > License Steward of both licenses, who I represent.
+> >
+> > Summary: the Unicode Consortium is the License Steward of an existing OSI-
+> > approved license, the Unicode Inc. License Agreement ? Data Files and
+> > Software: https://opensource.org/license/unicode-inc-license-agreement-
+> > data-files-and-software/ A new version of that license has been created, to
+> > address certain suboptimal terms in the license, and to genercize it so that it
+> > may be used by entities other than the Unicode Consortium. The new version
+> > is being renamed the ?Unicode License v3? to shorten the name and to
+> > address the fact that a slightly revised version of the OSI-approved text has
+> > been used since the approval of the text by OSI. The current text can be
+> > found here: https://www.unicode.org/license.txt (note that that copy is
+> > slightly different than the copy submitted for approval, in that it contains a
+> > Unicode copyright notice with relevant years; for the text submitted for
+> > approval by OSI, the copyright notice and years have been indicated as "fill in
+> > the blanks."). It is also currently being used in Unicode's Github repository,
+> > for example, here: https://github.com/unicode-org/cldr/blob/main/LICENSE
+> >
+> > The Unicode Consortium is seeking approval of the new license. At the same
+> > time, the Unicode Consortium is seeking superseding of the currently-
+> > approved license text on the OSI website. For sake of completeness, I have
+> > filled out both the ?For Approval? information for the new license, and the
+> > ?For Retirement? information for the old license (even though this is not a
+> > retirement but instead a supersedence: i.e., the new version is the preferable
+> > version of the license going forward, but any code using the old license
+> > remains under an OSI approved license).
+> >
+> > For Approval
+> >
+> > Rationale: The new license was created in order to address certain drafting
+> > ambiguities and implementation complexities in the currently-approved
+> > license with OSI. Namely, the following changes have been made (I have
+> > attached a marked up version of the license in LibreOffice and Adobe
+> > Acrobat so that the changes can be more easily seen):
+> > 1. The ?Copyright and Permission Notice? has been moved to the top of the
+> > license, to make clear that the ?Notice to User? must be reproduced with any
+> > distribution of software or data licensed under the license, per the
+> > permission section.
+> > 2. The copyright notice has been genericized so as to not be specific to the
+> > Unicode Consortium or the recited years (which themselves are out of date).
+> > 3. The ?All rights reserved? statement has been removed, as it is no longer
+> > required under Berne and is also misleading given the permissive nature of
+> > the license.
+> > 4. The references to links to Unicode?s website have been removed, to
+> > genericize the license and also make the license not dependent upon an
+> > external source for its defined terms (and also prevent defined terms from
+> > leading to dead links or modified links that could be altered in a way contrary
+> > to the OSD).
+> > 5. The recitation of ?Unicode? data files and ?Unicode? software has been
+> > removed to genericize the license for use by entities other than Unicode.
+> > 6. The defined terms ?Data Files? and ?Software? have been genericized to
+> > apply to any data files or software to which the license is applied.
+> >
+> > Distinguish: Compare to and contrast with the most similar OSI-approved
+> > license(s) The most similar OSI-approved license is the predecessor Unicode
+> > Consortium, Inc. License Agreement ? Data Files and Software. The manner
+> > in which the submitted license differs is set forth above and in the attached
+> > mark-up.
+> > Legal review: Describe any legal review the license has been through, and
+> > provide results of any legal analysis if available.
+> > The license has been reviewed by Unicode external counsel (me) as well as
+> > Unicode?s general counsel.
+> > Proliferation category: Recommend which license proliferation category is
+> > appropriate This license should be in the same category as its predecessor
+> > (?Special Purpose?), given that it addresses both software and data files.
+> >
+> > License Text:
+> > The license text requested to be approved is reproduced below (for those of
+> > you who to not wish to review, or do not receive the attachments).
+> >
+> > ================================================================
+> > ================================================================
+> > ========================
+> > UNICODE LICENSE V3
+> >
+> > COPYRIGHT AND PERMISSION NOTICE
+> >
+> > Copyright ? <YEAR(S)> <COPYRIGHT HOLDER>
+> >
+> > NOTICE TO USER: Carefully read the following legal agreement. BY
+> > DOWNLOADING, INSTALLING, COPYING OR OTHERWISE USING DATA FILES,
+> > AND/OR SOFTWARE, YOU UNEQUIVOCALLY ACCEPT, AND AGREE TO BE
+> > BOUND BY, ALL OF THE TERMS AND CONDITIONS OF THIS AGREEMENT. IF
+> > YOU DO NOT AGREE, DO NOT DOWNLOAD, INSTALL, COPY, DISTRIBUTE OR
+> > USE THE DATA FILES OR SOFTWARE.
+> >
+> > Permission is hereby granted, free of charge, to any person obtaining a copy
+> > of data files and any associated documentation (the "Data Files") or software
+> > and any associated documentation (the "Software") to deal in the Data Files
+> > or Software without restriction, including without limitation the rights to use,
+> > copy, modify, merge, publish, distribute, and/or sell copies of the Data Files
+> > or Software, and to permit persons to whom the Data Files or Software are
+> > furnished to do so, provided that either (a) this copyright and permission
+> > notice appear with all copies of the Data Files or Software, or (b) this
+> > copyright and permission notice appear in associated Documentation.
+> >
+> > THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT
+> > WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+> > LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+> > PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS.
+> >
+> > IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS
+> > NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR
+> > CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING
+> > FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF
+> > CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+> > IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA FILES OR
+> > SOFTWARE.
+> >
+> > Except as contained in this notice, the name of a copyright holder shall not
+> > be used in advertising or otherwise to promote the sale, use or other
+> > dealings in these Data Files or Software without prior written authorization
+> > of the copyright holder.
+> >
+> > ================================================================
+> > ================================================================
+> > ===========================
+> >
+> > For Retirement
+> > Version: Specify exactly which version is being retired The current OSI-
+> > approved version, found here: https://opensource.org/license/unicode-inc-
+> > license-agreement-data-files-and-software/
+> > Successor: Identify successor license(s), if any.
+> > The new version of the license, submitted at the same time with the request
+> > for retirement/supersedence, above.
+> >
+
+
+
+From mccoy at lexpan.law  Thu Aug 31 00:48:24 2023
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Thu, 31 Aug 2023 00:48:24 +0000
+Subject: [License-review] Request for Approval: Unicode License v3; Request for "Retirement": Unicode Inc License Agreement-Data Files and Software
+In-Reply-To: <CAC1cPGypyB3fzgXQ7RP-Dm3-yiTN8oCkW_w0UvzkbLFXQHcafA@mail.gmail.com>
+References: <CAMpSvBcM99+MD5mMQd2cLgVS2w-FWCRWNerxygfD+Cn_+J0nYw@mail.gmail.com> <F13A48DF-070D-434C-9DA7-8AA65C9F1167@lexpan.law> <CAMpSvBeUH9YFG6+=GCVsrTh-NVU_5zgG8Qp5EYEYkQ2fXNMZcg@mail.gmail.com> <PH7PR84MB158274EC29AA0CB78EB866DDF71AA@PH7PR84MB1582.NAMPRD84.PROD.OUTLOOK.COM> <CAMpSvBfMtGeotwsUWW2WGeuDGR1Fs1UpYjwnxOdK2PjF3GoK+Q@mail.gmail.com> <0eb601d9db94$11b18670$35149350$@lexpan.law> <CAC1cPGypyB3fzgXQ7RP-Dm3-yiTN8oCkW_w0UvzkbLFXQHcafA@mail.gmail.com>
+Message-ID: <PH7PR84MB158257BDC7B159C5ACCA82D6F7E5A@PH7PR84MB1582.NAMPRD84.PROD.OUTLOOK.COM>
