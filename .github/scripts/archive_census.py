@@ -19,6 +19,8 @@ import pathlib, re, collections, json, re, collections, json
 from email.header import decode_header, make_header
 SP = pathlib.Path(os.environ.get("DOSSIER_ARCHIVE_CACHE", "archive-cache"))
 FROM = re.compile(r"^From .*\b(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)\b")
+# mailman のダイジェストは 1 通ごとに別題になり、必ず「返信ゼロ」として数えられる。
+DIGEST = re.compile(r"^license-(discuss|review) digest, vol ")
 
 def unfold(lines, i):
     """折り返しを畳んでヘッダ値を返す。"""
@@ -62,7 +64,17 @@ def run(lst, lo=0, hi=9999):
         if not (lo <= y <= hi): continue
         months += 1
         for m in parse(p):
-            th[norm(m["s"])] += 1; msgs += 1
+            s = norm(m["s"])
+            # **ダイジェストはスレッドではない。** mailman の `<list> digest, vol N, issue M` は
+            # 1 通ごとに別題になるので、**必ず「返信ゼロのスレッド」として数えられる**。
+            # 実測 (2026-09-28): これを含めると #109 の窓で 76 スレッド / 27.6%、
+            # **除くと 69 / 23.2% で、#109 が記録した 68 / 22% をほぼ再現する。**
+            # **対照が合わない理由はこれだった** —— docstring は v1 の折り返しバグを直した
+            # と述べているが、**対照は依然として合っていなかった**。
+            # **向きが重要**: ダイジェストは基準率を*上げる*ので、
+            # 「沈黙は普通だ」という我々に**有利な**読みを水増しする (#87 / #88 の class)。
+            if DIGEST.match(s): continue
+            th[s] += 1; msgs += 1
     z = sum(1 for v in th.values() if v == 1)
     return months, msgs, len(th), z, (round(z/len(th)*100, 1) if th else 0)
 
