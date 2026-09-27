@@ -61,10 +61,14 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-27 時点・257 ファイル）
+## いまの状態（2026-09-27 時点・261 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
+| 2026-09-24 | `license-review` | **観測（ModelGo Attribution 2.0 FINAL CALL・9 通・3 分割の 1/3 部）** | **主題が最も近い同時代 instrument の、決定段階の区間。** `rounds/` は 09-08 までしか持っていなかった。**委員長が公表基準 *"does not have terms that structurally put the licensor in a more favored position than any licensee"* を具体条項へ当てている唯一の実例**で、*"**This does put the licensor in a more favored position than a licensee**"* と述べている。McCoy 氏は *"the **canonical versions** of the license (which is what, ultimately, **OSI needs to be able to see** in order to ensure we know what it is is being approved/disapproved)"* と、**審査対象テキストが見える形で一致していること**を要求した（`review-doctrine.md` / `review-rules.md`）|
+| 2026-09-24 | `license-review` | **観測（ModelGo Attribution 2.0 FINAL CALL・9 通・3 分割の 2/3 部）** | **同じスレッドの 2/3 部。** 本文は無改変で、3 部を順に結合すれば取得したバイト列が復元される（分割は Check 365 の 1,000 行上限のため・**行境界**で切ってある —— ここには 399 行の 1 通があり、メッセージ境界では 1,000 行を超える）|
+| 2026-09-24 | `license-review` | **観測（ModelGo Attribution 2.0 FINAL CALL・9 通・3 分割の 3/3 部）** | **同じスレッドの 3/3 部。** 本文は無改変で、3 部を順に結合すれば取得したバイト列が復元される（分割は Check 365 の 1,000 行上限のため・**行境界**で切ってある —— ここには 399 行の 1 通があり、メッセージ境界では 1,000 行を超える）|
+| 2026-09-14 | `license-review` | **観測（OpenMDW・2 通）** | **§1.78 が読んだ 2026-09-12 より後の区間。** Dolan 氏の束ね擁護 *"The **unit of open source licensing has always been the work as provided**"*（Apache-2.0 の特許終了は Work 全体に及ぶ、を論拠にする）と、Berkus 氏の「偶発的な侵害コピーはどう起きるか」8 経路（*"GenAI & Autocomplete"* を含む）。**どちらも両刃**で、前者は ACD の束ねに有利だが **Fontana 氏の *"flawed in its basic conception"* は終了より広い**、後者は #134 の重さを裏づける |
 | 2026-09-15 | **OSI のメーリングリスト CoC** | 一次資料 → 自己取得 | **我々は 2 つある CoC のうち別の方を pin していた。**リストを規律するのは `/code-of-conduct`（"Code of Conduct for OSI Mailing Lists"）で、本文はほぼ同一だが**条を引かれた相手はこちら**。**予告された AI 関連の更新は 6 日経っても起きていない**（自称更新日 2023-05-04 のまま）|
 | 2026-09-15 | **リスト外（off-list）** | **送信** | **moderator の 3 問への返信。steward が自分で書いた**（本リポジトリは文面を起草していない）。**271 語・62.4 パーセンタイル** ——「長い」と言われた問いに短い文で答えている。不利な数を先に出し、貼り付け→添付の是正を自分で名指しし、**素直な読みを自分に当てて "so I will change my approach" と先に述べている** |
 | 2026-09-07 〜 15 | **リスト外（off-list）** | **受領 + 送信（moderator 往復・第 3 ラウンド）** | **moderator の 5 問 → steward の回答 → 「ゲーム」の提案 → steward の長文説明（身元証拠の PDF 2 通を添付・**本リポジトリには置かない**）→ **moderator が Code of Conduct の *"Respect time and attention"* との整合と、メールの長さ・密度の実測比較を求めた**（2026-09-15）。**測定は `review-corpus.md` §1.85**、道具は `measure_list_verbosity.py` |
