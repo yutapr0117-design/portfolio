@@ -1,7 +1,7 @@
 ---
 file: LICENSES/REVIEWERS.md
 audience: OSI license-discuss / license-review participants, licence reviewers, anyone arriving from the mailing list
-last-updated: 2026-09-25
+last-updated: 2026-09-27
 canonical-ref: LICENSES/ACD-1.0.txt (the text posted, and the one this repository applies) / LICENSES/ACD-1.1.txt (the frozen successor) / LICENSES/FROZEN.md (freeze + venue, single source) / LICENSES/rounds/2026-08-26-license-discuss-sent.txt (what was actually sent) / LICENSES/ACD-1.0.submission.md (the packet prepared for license-review)
 ---
 
@@ -70,11 +70,13 @@ decide what is worth translating, and gives you the commands to check the claims
   reaches **models and outputs** of computational use (§8.4); and makes your permissions
   independent of whether copyright subsists in machine-generated material at all (§9).
 - **Nearest approved licences.** Closest in effect to the Unlicense, MIT-0 and 0BSD (and to CC0,
-  which is **not** OSI-approved); closest in patent machinery to Apache-2.0. What it adds to each
-  is the three items above. **Against three it adds less**: UPL-1.0, BlueOak-1.0.0 and
-  BSD-2-Clause-Patent already combine a permissive grant with an express patent grant under one
-  notice condition — there the difference is that condition, not the patent grant
-  ([`submission-reference.md`](ACD-1.0.submission-reference.md) §2).
+  which is **not** OSI-approved), and in patent terms to UPL-1.0, BlueOak-1.0.0 and
+  BSD-2-Clause-Patent, which already combine a permissive grant with an express patent grant under
+  one notice condition — **against those three it adds less**: the difference is that condition, not
+  the patent grant ([`submission-reference.md`](ACD-1.0.submission-reference.md) §2). What it adds
+  to the zero-condition three is the three items above. *(Corrected 2026-09-27: this line still
+  named Apache-2.0 as the closest patent machinery two days after the message in
+  [`submission.md`](ACD-1.0.submission.md) §B.0 had been corrected for the same error.)*
 - **The two weaknesses, first.** **No lawyer has read it**, and **it has one adopter — this
   repository**. Both are stated at length below and neither is repaired anywhere in this directory.
 - **Anyone can adopt it.** Zero project names, no placeholders in the clauses (only §16.1's notice template has a blank, filled in the adopter's own notice), no editing of the licence text required — the

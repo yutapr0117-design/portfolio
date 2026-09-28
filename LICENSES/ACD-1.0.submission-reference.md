@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.submission-reference.md
 audience: OSI license-review participants / licence reviewers / 監査人 / 次のセッションの実装者
-last-updated: 2026-09-25
+last-updated: 2026-09-27
 canonical-ref: LICENSES/ACD-1.0.submission.md (送る文面は §B.0。**これを貼らない**) / LICENSES/ACD-1.0.against.md / LICENSES/AS-OF.md
 ---
 
@@ -386,7 +386,7 @@ with the work, and a downstream recipient has no assurance it exists. The point 
 6.5 — that a permission an automated system cannot determine is, for a work meant to be
 learned from, no permission at all — applies to patents as much as to training.
 
-**Closest on "express patent licence": Apache-2.0.** Apache-2.0 conditions its grant on
+**The best-known express patent licence: Apache-2.0.** *(Corrected 2026-09-27: this heading called Apache-2.0 "closest" on this axis. It is not — UPL-1.0, BlueOak-1.0.0 and BSD-2-Clause-Patent, below, pair an express patent grant with one condition, and Apache-2.0 carries several. It stays here because it is the comparison most reviewers will make first.)* Apache-2.0 conditions its grant on
 notice retention, change notices and NOTICE propagation; ACD-1.0 imposes no condition
 (4.3, 10.1). Apache-2.0 terminates the patent licence on patent litigation; ACD-1.0
 contains no retaliation provision and says so expressly (8.2). Apache-2.0's patent grant
