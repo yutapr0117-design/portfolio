@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.1-SELF-AUDIT.md
 audience: a future 1.1 drafter, OSI license-review participants, licence reviewers
-last-updated: 2026-09-24
+last-updated: 2026-09-28
 canonical-ref: LICENSES/ACD-1.1.txt (the draft) / LICENSES/ACD-1.1-CHANGELIST.md (all other changes) / LICENSES/ACD-1.0.errata.md (defects in 1.0)
 ---
 
@@ -419,8 +419,8 @@ to determine whether or not it complies with the OSD"* である**（Project Tic
 ### なぜこれが重いか
 
 **理事会が記録した否決理由は *"ambiguities in drafting make it impossible to determine whether or
-not it complies with the OSD"* である。** 文の長さと従属節では**我々は比較群の良い側にいた**
-（`review-rules.md` §1.85）。**相互参照の密度では、比較群の中で最も重い。**
+not it complies with the OSD"* である。** 文の長さでは**我々は比較群の良い側にいる**が、従属節は
+**高い側**である（`review-rules.md` §1.70b・方法を記録した測定。*2026-09-28 訂正: この行は「文の長さと従属節では良い側」と、§1.70b が撤回した結論を述べ、参照先も存在しない §1.85 を指していた*）。**相互参照の密度では、比較群の中で最も重い。**
 **「読みやすさ」を 1 つの量で測ってきたことの誤りが、ここで出た。**
 
 ### ⚠ 逆側 —— この表が establish しないこと
