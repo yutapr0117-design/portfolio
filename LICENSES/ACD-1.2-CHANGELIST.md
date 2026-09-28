@@ -1,14 +1,16 @@
 ---
 file: LICENSES/ACD-1.2-CHANGELIST.md
 audience: OSI license-discuss / license-review participants, licence reviewers, a future drafter
-last-updated: 2026-09-24
+last-updated: 2026-09-28
 canonical-ref: LICENSES/ACD-1.2-DRAFT.txt (草案) / LICENSES/ACD-1.1.txt (議論に付した確定テキスト・凍結) / LICENSES/ACD-1.1-CHANGELIST.md (1.0 → 1.1 の記録) / LICENSES/ACD-1.0.errata.md
 ---
 
 # ACD-1.2 で変えるもの
 
-**この一覧は空である。空であることが現在の正しい状態であって、記録の欠落ではない。**
-ACD-1.1 は 2026-09-17 に確定・凍結し、**改善はここから先で行う。**
+ACD-1.1 は 2026-09-17 に確定・凍結し、**改善はここから先で行う。** 変更は下の 2 つの表に在る
+（条文の変更と、errata 由来の扱い）。*（2026-09-28 訂正: この冒頭は「この一覧は空である。空であることが現在の正しい状態」と
+述べ続けていたが、表には 2026-09-22 以降変更が入っていた。一覧が伸びたあとも、それを説明する現在形の文だけが
+更新されていなかった —— `rounds/README.md` が「空である」と述べ続けた #89 と同じ型。）*
 
 ## 入力は 3 系統ある
 
