@@ -163,7 +163,7 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       Rights as every right "however arising" and Section 15.1 asks for the
       widest reading. Nothing a recipient may do changes; the definition now
       states its own boundary instead of leaving it to be inferred.
-    * ACD-1.1: 5051 words, 78 clauses. This draft: 5365 words, 80 clauses.
+    * ACD-1.1: 5051 words, 78 clauses. This draft: 5398 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -409,7 +409,9 @@ PREAMBLE (informative; not part of the operative terms)
 
   5.1  The Dedicator covenants not to assert, and not to authorise or assist
        any other person to assert, any Covered Right against You in respect of
-       any use of the Work.
+       any use of the Work, and further covenants not to assert against You any
+       claim or cause of action, whether now known or unknown, arising from or
+       relating to a use of the Work that this Dedication permits.
 
   5.2  The Dedicator further covenants that the Dedicator will not, in respect
        of the Work:
