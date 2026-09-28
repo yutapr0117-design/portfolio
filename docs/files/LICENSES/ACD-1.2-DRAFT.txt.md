@@ -20,8 +20,8 @@ canonical-ref: LICENSES/ACD-1.1.txt (議論に付した確定テキスト・凍�
 
 ## How
 
-- **Check 468 / 468d / 468e がこの file を見る**（身分表明・純 ASCII・節の連番・参照の解決・
-  申告語数と条数の一致・gap 条項の生存・「まだ open な errata」の一致）
+- **Check 468 / 468d / 468e / 468i がこの file を見る**（身分表明・純 ASCII・節の連番・参照の解決・
+  申告語数と条数の一致・gap 条項の生存・「まだ open な errata」の一致・**この草案で閉じた errata が冒頭の変更一覧にすべて載ること**）
 - **変更は `ACD-1.2-CHANGELIST.md` へ**、**この草案が自分で持ち込んだ欠陥は
   `ACD-1.1-SELF-AUDIT.md` へ**（後者は版ではなく**我々の掃引**の登録簿）
 - 確定させる手順は `ACD-1.0.submission.md` §B.0 と `ACD-1.1-CHANGELIST.md` §0.13

@@ -24,7 +24,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        **468e は「まだ open な errata」の宣言を errata の現物と照合し、468f は冒頭が主張する
        「1.1 との同一性」をすぐ下の変更一覧と照合する** ——**どちらも「やることリストは項目を
        消化した瞬間に古くなり、消化しているその瞬間こそ一覧を見ていない」class** で、
-       468f は **2026-09-22 に外部の AI レビューが見つけた** (`against.md` #207)。 (BLOCKING)
+       468f は **2026-09-22 に外部の AI レビューが見つけた** (`against.md` #207)。
+       **468i はその逆側** —— errata が「この草案で閉じた」とする entry がすべて冒頭の変更一覧に載ることを見る
+       (2026-09-28 に E34 の記録漏れを実測)。 (BLOCKING)
 """
 import json
 import re
@@ -211,6 +213,28 @@ def run(ctx):
                         f"preamble の「Still open」が errata と食い違う: "
                         f"宣言のみ {sorted(_declared468 - _openset468)} / "
                         f"errata のみ {sorted(_openset468 - _declared468)}")
+
+        # ── 468i: この草案で閉じた errata が、すべて冒頭の変更一覧に載っていること ────────
+        # 冒頭は「a list with entries in it is the whole of the difference」と自分で宣言している。
+        # 実測 (2026-09-28): errata E34 は 2026-09-25 に「1.2 草案で閉じた」(§2.5 を +36 語で変更) のに
+        # 変更一覧に無く、**3 日間、草案が自分と 1.1 の差について偽の宣言を持っていた**。
+        # 468e は「まだ open」の側しか照合せず、閉じた側の記録漏れは見ていなかった (対になる face)。
+        # **版番号を決め打ちしない** —— 草案の file 名から導出する (468e と同じ規律)。
+        _mv468i = re.match(r"ACD-(\d+\.\d+)-DRAFT\.txt$", _dr468.name)
+        _er468i = ROOT / "LICENSES" / "ACD-1.0.errata.md"
+        if _mv468i and _er468i.exists():
+            _pre468i = _t468.split(_sep468, 1)[0]
+            _listed468i = set(re.findall(r"\bE\d+\b", _pre468i))
+            _closed468i = set()
+            for _ln468i in _er468i.read_text(encoding="utf-8").splitlines():
+                _m468i = re.match(r"\|\s*\*{0,2}(E\d+)\*{0,2}\s*\|", _ln468i)
+                if _m468i and (_mv468i.group(1) + " 草案で閉じた") in _ln468i:
+                    _closed468i.add(_m468i.group(1))
+            _miss468i = sorted(_closed468i - _listed468i, key=lambda _e: int(_e[1:]))
+            if _miss468i:
+                _bad468.append(
+                    f"errata が「{_mv468i.group(1)} 草案で閉じた」とする {_miss468i} が冒頭の変更一覧に無い "
+                    f"(冒頭は一覧が差分のすべてだと宣言している)")
 
         # ── 468h: 版ごとの機械可読 descriptor が、この instrument の*唯一の制限*を述べること ──
         #   **`against.md` #59 / errata E10。** `reservationsAndLimits` は「しないこと」を 6 つ

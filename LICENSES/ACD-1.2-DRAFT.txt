@@ -163,6 +163,15 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       Rights as every right "however arising" and Section 15.1 asks for the
       widest reading. Nothing a recipient may do changes; the definition now
       states its own boundary instead of leaving it to be inferred.
+    * Section 2.5 restores two elements of the reliance clause that ACD-1.1's
+      compression dropped (errata E34): that reliance is the purpose of this
+      Dedication and not merely a foreseeable consequence of it, and that the
+      Dedicator is estopped from asserting revocability or want of
+      consideration to the extent the law of a jurisdiction gives that
+      principle effect. Nothing a recipient must do changes; what moves is the
+      strength of the fallback if Section 3 fails. This entry was missing when
+      the clause changed, so for three days this list did not state the whole
+      of the difference, as it says it does.
     * ACD-1.1: 5051 words, 78 clauses. This draft: 5398 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
