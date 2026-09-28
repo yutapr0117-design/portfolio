@@ -1,0 +1,166 @@
+OBSERVED (not received by us) -- license-review public archive, 2018-12
+Fetched 2026-09-28 from the monthly mbox files at
+https://lists.opensource.org/pipermail/license-review_lists.opensource.org/
+Preserved verbatim, unmodified. NOT addressed to us and NOT about ACD-1.0.
+
+Two messages from the Convertible Free Software License thread (2018-09 .. 2019-03, 126
+messages), selected by a stated rule: sender is an opensource.org address AND the body
+contains "withhold" or "clarified process".
+
+Why these two: board-decisions.md established from board minutes that there is a third
+outcome besides approval and rejection -- a licence may "stay in a status where it is not
+approved". These two messages are the list-side instance of that outcome being chosen, by
+name, over a recommendation to reject, with a reference to a "clarified process". The second
+also states, from the OSI President, what a submitter may not expect from the Board.
+
+From richard.fontana at opensource.org  Fri Dec  7 06:15:19 2018
+From: richard.fontana at opensource.org (Richard Fontana)
+Date: Fri, 7 Dec 2018 01:15:19 -0500
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+Message-ID: <CA+xoNzG=5bNFU0BGj+BOEvvmRK_h-d6=q+qai--Y8NrBOSRoSQ@mail.gmail.com>
+
+In my most recent License Committee Report I recommended that the OSI
+reject the Convertible Free Software License.
+
+Subsequently, however, at its November board meeting, the OSI decided
+to withhold approval of the Convertible Free Software License, pending
+submission of a redrafted version.
+
+Richard
+
+On Wed, Sep 26, 2018 at 3:58 AM Elmar Stellnberger <estellnb at elstel.org> wrote:
+>
+> Full Name: Convertible Free Software License Version 1.1
+> Short Identifier: C-FSL v1.1
+> URL: https://www.elstel.org/license/C-FSL-v1.1.txt
+>
+> Rationale and Distinguish:
+> While the BSD license allows the whole world to re-license and while
+> re-licensing is virtually impossible with GPL since every contributor
+> would need to consent the C-FSL license goes a practical intermediate
+> way restricting the right to re-license to a group called the original
+> authors. That way open source developers are not excluded from making
+> business with others who want to base a proprietary product on the given
+> piece of open source software.
+>
+> Proliferation Category & Legal Review:
+> Other/Miscellaneous
+> A lawyer from the EPA (Environmental Protection Agency, USA) has already
+> checked C-FSL for its proliferation properties. He has found the license
+> to be compatible with other open source licenses. He decided that C-FSL
+> can be used together with the CC0 license in the FDtool (functional
+> dependency mining tool) project.
+>
+> list of software which uses C-FSL v1.1.:
+> qcoan: https://www.elstel.org/coan
+> xchroot, confinedrv, bundsteg, debcheckroot, dbschemacmd: also found at
+> www.elstel.org
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+From webmink at opensource.org  Mon Dec 10 10:50:47 2018
+From: webmink at opensource.org (Simon Phipps)
+Date: Mon, 10 Dec 2018 10:50:47 +0000
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <de2f88fa-10b5-0cd9-b5a0-7400973a84d3@elstel.org>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <CA+xoNzG=5bNFU0BGj+BOEvvmRK_h-d6=q+qai--Y8NrBOSRoSQ@mail.gmail.com>
+ <de2f88fa-10b5-0cd9-b5a0-7400973a84d3@elstel.org>
+Message-ID: <CAA4ffp91SUQ2DJPPnCT8p1=G2ygq5Ahm0FsDvYFkgzQRLKTMgw@mail.gmail.com>
+
+Hi Elmar,
+
+That's not going to happen. OSI's Board does not give legal advice,
+practice law or design licenses. We were recommended to reject your license
+following review by the community on this list, but as there seemed to be
+plenty of comment to you on the mailing list on how you might improve your
+license we opted to withhold approval instead (under the clarified process)
+so you could act on it if you wanted to. You do not have to do so if you
+don't want to.
+
+Regards,
+
+Simon
+(in role as OSI President)
+
+On Mon, Dec 10, 2018 at 8:58 AM Elmar Stellnberger <estellnb at elstel.org>
+wrote:
+
+> Before I can buy a lawyer to rework the license I would need an
+> agreement with OSI on what needs to change about the license.
+>
+> On 07.12.18 07:15, Richard Fontana wrote:
+> > In my most recent License Committee Report I recommended that the OSI
+> > reject the Convertible Free Software License.
+> >
+> > Subsequently, however, at its November board meeting, the OSI decided
+> > to withhold approval of the Convertible Free Software License, pending
+> > submission of a redrafted version.
+> >
+> > Richard
+> >
+> > On Wed, Sep 26, 2018 at 3:58 AM Elmar Stellnberger <estellnb at elstel.org>
+> wrote:
+> >>
+> >> Full Name: Convertible Free Software License Version 1.1
+> >> Short Identifier: C-FSL v1.1
+> >> URL: https://www.elstel.org/license/C-FSL-v1.1.txt
+> >>
+> >> Rationale and Distinguish:
+> >> While the BSD license allows the whole world to re-license and while
+> >> re-licensing is virtually impossible with GPL since every contributor
+> >> would need to consent the C-FSL license goes a practical intermediate
+> >> way restricting the right to re-license to a group called the original
+> >> authors. That way open source developers are not excluded from making
+> >> business with others who want to base a proprietary product on the given
+> >> piece of open source software.
+> >>
+> >> Proliferation Category & Legal Review:
+> >> Other/Miscellaneous
+> >> A lawyer from the EPA (Environmental Protection Agency, USA) has already
+> >> checked C-FSL for its proliferation properties. He has found the license
+> >> to be compatible with other open source licenses. He decided that C-FSL
+> >> can be used together with the CC0 license in the FDtool (functional
+> >> dependency mining tool) project.
+> >>
+> >> list of software which uses C-FSL v1.1.:
+> >> qcoan: https://www.elstel.org/coan
+> >> xchroot, confinedrv, bundsteg, debcheckroot, dbschemacmd: also found at
+> >> www.elstel.org
+> >>
+> >> _______________________________________________
+> >> License-review mailing list
+> >> License-review at lists.opensource.org
+> >>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+> >
+> > _______________________________________________
+> > License-review mailing list
+> > License-review at lists.opensource.org
+> >
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+> >
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+
+-- 
+Simon Phipps*, President, The Open Source Initiative*
++44 238 098 7027 or +1 415 683 7660 : www.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20181210/67ea01d5/attachment.html>
+

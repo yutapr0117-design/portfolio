@@ -130,6 +130,20 @@ Apache-2.0 は 1 文書で著作権と特許（§3）を扱って承認されて
 
 ## 1.52 「弁護士が要る」への実務的な答えは、審査そのものである
 
+**⚠ 2026-09-28 追記 —— 言い方を狭める。** **Board は法律実務をしないと、OSI の President 自身が
+提出者へ述べている** —— *"**OSI's Board does not give legal advice, practice law or design
+licenses.**"*（Simon Phipps 氏・2018-12-10・`rounds/2018-12-license-review-withhold-approval-observed.txt`）。
+
+**本節の主張は否定されない** —— 現に弁護士が条文を読んで論評し、**Unlicense はその一致で承認された**
+（#270 の *"The lawyers who opined on the issue, both US and non-US, agreed"*）。
+**だが「提出すれば助言が得られる」と読んではならない。****得られるのは *コミュニティの論評* であって
+*助言* ではなく、提出者はそれに従う義務も無い**（同じ文が *"You do not have to do so if you don't
+want to."* と続く）。
+
+**したがって本節の言い方は「弁護士の目に触れる」ではなく「弁護士が論評する場に置かれる」である**
+（`against.md` #274）。**B1 に対する答えとしての強さは、その分だけ弱い。**
+
+
 §1.51 の McCoy 氏の発言（この類型で弁護士なしは *"isn't likely to result in something functional"*）は
 **我々に反論の材料が無い**指摘だった。**だが同じアーカイブに、その指摘の実務的な帰結が書いてある。**
 
