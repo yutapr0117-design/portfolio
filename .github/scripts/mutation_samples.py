@@ -468,6 +468,25 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 471 (d): 短い名前の節参照を、分割で節が移る前の file 名へ戻す —— 旧実装は見出し辞書の"
+            "フル名としか照合せず、短い名前の参照 (ドシエで普通の書き方) を全部読み飛ばしていた。"
+            "移転漏れが 43 件たまっていた (2026-09-28)",
+    "file": ROOT / "LICENSES" / "AS-OF.md",
+    "find": "`review-precedents.md` §1.46",
+    "replace": "`comparison.md` §1.46",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 471 (d): リンク形式の節参照を、提出参考資料に無い §9 へ向ける —— 条番号への言及の例外を"
+            "「の」でつないだ形に限らないと、ライセンスの節番号と同じ数字を持つ文書ではこの誤りを素通しする (2026-09-28)",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "(ACD-1.0.submission-reference.md) §1–§4",
+    "replace": "(ACD-1.0.submission-reference.md) §9–§4",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

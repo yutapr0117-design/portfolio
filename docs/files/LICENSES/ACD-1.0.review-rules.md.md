@@ -35,7 +35,7 @@ canonical-ref: LICENSES/ACD-1.0.review-corpus.md (切り出し元・アーカイ
 ## How
 
 **節番号は動かしていない。** §1.70 は §1.70 のまま本 file にある ——**既存の参照をすべて
-有効に保つため**。名指しの参照（`` `review-corpus.md` §1.81 ``）は **Check 471 face (d) が
+有効に保つため**。名指しの参照（`` `review-rules.md` §1.81 ``）は **Check 471 face (d) が
 即座に RED にした**ので、7 file を追従させた。**gate が移動の後始末を列挙してくれた形である。**
 
 **新しい節をどこに足すかの規則**:

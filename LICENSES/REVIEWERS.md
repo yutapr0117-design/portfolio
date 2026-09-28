@@ -157,7 +157,7 @@ meaningless.
 ## The case, and the strongest thing against each part of it
 
 Nothing here is new; it is the argument from
-[`ACD-1.0.submission.md`](ACD-1.0.submission.md) §1–§4 compressed, with the best counter to each
+[`ACD-1.0.submission-reference.md`](ACD-1.0.submission-reference.md) §1–§4 compressed, with the best counter to each
 line placed beside it rather than further down. **The adverse case is the longer document and it
 is the one to read first** — this is only a map of where the argument runs.
 

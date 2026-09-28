@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-rules.md
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人
-last-updated: 2026-09-24
+last-updated: 2026-09-28
 canonical-ref: LICENSES/ACD-1.0.review-corpus.md (アーカイブ全体の測定) / LICENSES/ACD-1.0.review-precedents.md (個別スレッドの読み) / LICENSES/ACD-1.0.board-decisions.md (理事会の決定) / LICENSES/rounds/ (原典の保存)
 ---
 
@@ -113,7 +113,7 @@ corpus は**メーリングリストのアーカイブ全体を測った記録**
 **決められるのは「方法を書いた指標では、上の 3 つの結論は支持されない」ということだけ**である
 （`against.md` #273 ／ 提出パケット §4c は実測へ差し替え済み）。
 
-**訂正後の読み**:
+**訂正後の読み**（**⚠ 2026-09-13 の第 1 訂正時点の読みである。** 下の 4 点のうち「最長文は最も短い」と「従属節 0 件・最も軽い」の 2 点は、方法を記録した測定により **§1.70b で撤回済み**。残るのは平均・45 語超の割合が良い側にあることだけ。この注記が無いと、撤回の直後に撤回された結論が現行の読みとして並んで見えた —— 2026-09-28 追記）:
 
 - **平均文長は比較した 5 本のうち 4 本より短い**（27.3 —— CDDL-1.0 の 26.3 に次ぐ）。
 - **最長文は 6 本中で最も短い**（85 語。次点は CDDL-1.0 の 151、EPL-2.0 は 195）。

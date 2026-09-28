@@ -40,7 +40,7 @@ canonical-ref: LICENSES/ACD-1.0.review-precedents.md (個別スレッドの読�
 | R2 | *"OSI will not approve licenses that are **not self-contained** because of the high likelihood that the added content will not comply with the OSD or OSAID"* | Chestek 氏・2025-02-14・MGB 1.0（annex を許す構造への指摘） | **通る。実測: ACD-1.0 本文に外部参照は 0 件**（`http` / `annex` / `available at` / `incorporated by reference` のいずれも 0）。**付属文書も、後から差し替わる余地もない** |
 | R3 | *"The OSI **will not approve a license that attempts to describe which claims are licensed and which are not by what type of rights the user is exercising** - they must be allowed to exercise them all"* | Chestek 氏・2025-02-14・MGB 1.0。MGB は特許許諾を「再現・派生に必要な範囲」に限っており、**ソフトウェアを実行するだけの人に許諾が届かない**ため OSD 6 違反と判断された | **当たらない。** §8.1 の限定は**行使する権利の種類**ではなく **Work との関係**である —— *"every patent claim … that would be infringed by making, having made, **using**, offering to sell, selling, importing, or otherwise transferring the Work"*。**"using" が入っているので、実行するだけの受領者にも届く**（MGB が落ちた当の点） |
 | R4 | *"The OSI **will accept** a patent grant that is limited to only the claims that are **necessarily infringed by the patentee's contribution** (alone or in combination with the preexisting software) and temporally limited to only what was granted at the time of the contribution"* | 同上（R3 の直後・**受け入れる形を名指しした唯一の発言**） | **この形に一致する。** §8.1 末尾は *"where the infringement is caused by subject matter contained in the Work as made available by the Dedicator"* ——**寄与によって必然的に侵害される請求項に限る**という同じ限定である。**ただし ACD は時点による限定を置いていない**（*"now or in future"*）—— これは受け入れ条件より**広い**方向の差であり、狭い方向の差ではない |
-| R5 | *"OSI will not approve licenses where the **title refers to a particular person, entity or software** or that have them 'hard coded' into the license (see **'Standard for New Licenses' para. 1**)"* | Chestek 氏・2026-04-18・CNPL-1.0（名称に "CompanioNation" を含むことへの指摘） | **通る。** 名称に人・団体・ソフトウェアの名は無く、**本文の固有名詞は 0 件・置換テキストも 0 件**（`submission.md` §4b の実測）。**B6 が扱っているのは別の懸念**（"Commons" が CC/ODC の house mark と衝突しうること）で、**この規則そのものには当たらない** |
+| R5 | *"OSI will not approve licenses where the **title refers to a particular person, entity or software** or that have them 'hard coded' into the license (see **'Standard for New Licenses' para. 1**)"* | Chestek 氏・2026-04-18・CNPL-1.0（名称に "CompanioNation" を含むことへの指摘） | **通る。** 名称に人・団体・ソフトウェアの名は無く、**本文の固有名詞は 0 件・置換テキストも 0 件**（`submission-reference.md` §4b の実測）。**B6 が扱っているのは別の懸念**（"Commons" が CC/ODC の house mark と衝突しうること）で、**この規則そのものには当たらない** |
 
 **同じ 2026-04-18 の CNPL への指摘には、規則の形をとっていないがもう 1 つ重要な点がある**:
 *"The license does not grant all the rights under copyright, at least under US law. US law also
@@ -149,7 +149,7 @@ category である** —— MIT-CMU は *"redundant"* と名指しされたう�
 **改訂版はこちらが書いて出す**（`REVISION-PROTOCOL.md` §1 の ⑤⑥ に規則として足した）。
 **(2)** 同じ決議の Exhibit A は、そのライセンスが *"Project:(project name here)"* のような
 **空欄を持つ様式**だったことを示している —— **ACD-1.0 は固有名詞 0・置換テキスト 0**（§16.1 の推奨 notice の雛形 1 欄 `<location of this file>` を除く —— 採用者が自分の notice に書く欄で、本文は編集しない）
-（`submission.md` §4b）で、**採用に本文の編集を 1 箇所も要しない。** これは §4b が
+（`submission-reference.md` §4b）で、**採用に本文の編集を 1 箇所も要しない。** これは §4b が
 「提出者専用ではない」ために書かれた測定だが、**同時に「様式ではない」ことの測定でもある。**
 
 ## 1.71 `license-discuss` を先に通すのは、例外である —— 20 件中 15 件が直接 `license-review` へ出している
@@ -402,7 +402,7 @@ an automated system cannot determine is … no permission at all**."*
 **"Dedication"** は「公有への献呈」を意味する語で、**本文がそれに一致しているかが問われうる。**
 **一致している** —— §3 が献呈であり、**§10.1 が条件を 1 つも持たない**（ModelGo Zero が
 *"at least one obligation"* で指摘された当の点を、ACD は持たない）。
-**`submission.md` §4b の「本文の固有名詞 0・置換テキスト 0（§16.1 の推奨 notice の雛形 1 欄 `<location of this file>` を除く —— 採用者が自分の notice に書く欄で、本文は編集しない）・採用に編集不要」は、
+**`submission-reference.md` §4b の「本文の固有名詞 0・置換テキスト 0（§16.1 の推奨 notice の雛形 1 欄 `<location of this file>` を除く —— 採用者が自分の notice に書く欄で、本文は編集しない）・採用に編集不要」は、
 この照合に耐えることの一部の証拠になる。**
 
 ### (c) 審査が長引いた理由を、委員がその場で述べている

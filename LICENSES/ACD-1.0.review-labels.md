@@ -123,7 +123,7 @@ significantly reduce the risk of a return to vanity license proliferation"* と�
 
 | Jones 氏の除外基準（逐語） | ACD-1.2 | 根拠 |
 | :-- | :-- | :-- |
-| *"licenses that **hard code a specific person/company as being the licensor and the code base** being licensed"* | **当たらない** | §16.3 *"may be applied by anyone, to any work in which they hold rights, without permission from, notice to, or any relationship with the authors of this Dedication"*。**固有名詞 0・置換テキスト 0**（§16.1 の推奨 notice の雛形 1 欄を除く・`submission.md` §4b の実測）|
+| *"licenses that **hard code a specific person/company as being the licensor and the code base** being licensed"* | **当たらない** | §16.3 *"may be applied by anyone, to any work in which they hold rights, without permission from, notice to, or any relationship with the authors of this Dedication"*。**固有名詞 0・置換テキスト 0**（§16.1 の推奨 notice の雛形 1 欄を除く・`submission-reference.md` §4b の実測）|
 | *"licenses that **hard code the licensor being in an unreasonably privileged position**"* | **🔴 唯一、綺麗には抜けない** | 下の項 |
 | *"licenses that required **significant changes or modifications to the license text** to be used by others"* | **当たらない** | **採用に本文の編集が 1 箇所も要らない**（同 §4b）|
 | *"if only the company sponsoring the license is **capable of complying** with the license, the code is not really open source"* | **当たらない。ここが最も強い** | **§10.1 により条件が 1 つも無いので、遵守できない者が存在しない**（`submission-reference.md` の *"possible to comply on submission"* と同じ構造）|
@@ -171,7 +171,7 @@ by a single organization"* と述べている** ——**名前についての異
 
 **つまり vanity は、テキストの純度ではなく *gap の説明* で外れる label である。**
 **これは `against.md` #84（「なぜもう一つ？」）と、承認基準 7（gap は要件）と、同じ 1 点を指している。**
-**我々はその説明を持っている**（`submission.md` §1b / §4a、`comparison.md` §1）
+**我々はその説明を持っている**（`submission-reference.md` §1b / §4a、`comparison.md` §1）
 **——持っていなかったのは、その説明が *この label に対する答えでもある* という接続だけである。**
 
 ### ⚠ この節が establish しないこと、そして最も不利な 1 通
