@@ -232,7 +232,7 @@ previously approved licenses that would not be approved if submitted today**."*
 
 **当たるのは、先例を合否の予測に使うときだけである。** 我々が Unlicense を引く用途は
 「承認されたのだから我々も通る」ではなく「**献呈 + 許諾の併置という形が審査対象になりうる**」
-ことを示すためで（`submission.md` §1b）、その用途には当たらない。
+ことを示すためで（`submission-reference.md` §1b）、その用途には当たらない。
 **だが我々自身が Unlicense を「起草が粗いと広く合意されつつ承認された」と書いており、
 それはまさに Dillard 氏が名指しした種類の承認である。**
 

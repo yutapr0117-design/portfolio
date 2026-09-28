@@ -295,7 +295,7 @@ Licensing Committee の報告が理事会の議事録に逐語で入っている
 
 **B3（長さ 4,896 語）と B13（審査者の理解コスト）が、抽象的な懸念ではないことを示す決議である。**
 **「OSD に適合しない」ではなく「適合を確かめられない」で止まっている** ——
-`review-corpus.md` §1.82 が記録した Project Tick GPL の *"ambiguities in drafting make it
+`review-rules.md` §1.82 が記録した Project Tick GPL の *"ambiguities in drafting make it
 impossible to determine whether or not it complies with the OSD"* と**同じ構造**で、
 **こちらは 2017 年、あちらは近年**。**橋は 1 本ではなく 2 本架かっている。**
 **⚠ 逆側**: NOSA は**条件と義務を持つ長い契約**で、ACD は §10.1 により条件を持たない。
