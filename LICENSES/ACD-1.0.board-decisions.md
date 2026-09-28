@@ -70,6 +70,25 @@ the minutes here, check the wiki"* と述べ、**索引に並ぶ最古が 2025-0
 **「reject は OSD 違反に限るが、承認しないことは OSD 違反を要しない」**である。
 **その読みが正しければ、我々にとって天井は下がっていない。名前が変わっただけである。**
 
+**⚠ 2026-09-28 追記 —— この天井は 2003 年からある。** #243 の census が残していた
+Open Source Software Alliance License（2003-09・119 通）を、通数ではなく決める側の発言で絞って
+読んだところ、**同じ問題がリスト上で 23 年前に述べられていた**:
+
+> *"Some people think licenses that are ideologically anti-GPL *ought* to be not open source,
+> but **nobody can point to a specific OSD that is violated**. This is not necessarily conclusive:
+> **if the OSI Board thinks a particular license is not open source but doesn't fit under anything
+> in the OSD, it can change the OSD.**"* —— John Cowan 氏・2003-09-29
+
+**確立するのは 1 点だけ** —— **「OSD の条文を指せないが承認したくない」という状況は、
+最近の運用上の工夫ではなく、リストが最初期から抱えていた問題である。**
+**§1.67 の引用（review-process ページ）と §2 の議事録は、その古い問題の現在の言い方である。**
+
+**⚠ 確立しないこと 2 つ。** **(1) 後半（理事会は OSD を変えられる）は Cowan 氏の見解であって
+OSI の声明ではない** ——氏は理事ではなく、リストの参加者である。**我々はこの主張をオフラインで
+検証できない**ので、**「そう述べられた」までしか書かない。** **(2) OSSAL 固有の争点（反 GPL 的で
+あること）は ACD に当たらない** ——ACD は §10.1 により条件を持たず、互換性の争いを生まない。
+**転用できるのは天井の古さだけである。**
+
 ### 2a. 逆から読む —— この 3 文には、我々に有利な面が 2 つある（そして片方は、同じ記録に潰される）
 
 **上の段落は、有利な材料を見つけた直後に不利な結論で閉じている。** オーナーからの依頼
