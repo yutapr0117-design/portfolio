@@ -9,7 +9,7 @@ canonical-ref: LICENSES/ACD-1.0.errata.md / LICENSES/REVISION-PROTOCOL.md (§1 �
 
 ## What
 
-次版 ACD-1.1 に反映する候補を集める**単一の集約点**。errata・他文書に散っていた候補・
+**ACD-1.1 の変更記録（1.1 は 2026-09-17 に凍結済み・この文書は閉じている）。** 起草中は 1.1 に反映する候補を集める**単一の集約点**だった。**いまの集約点は `ACD-1.2-CHANGELIST.md`**。errata・他文書に散っていた候補・
 届いた指摘の 3 系統を 1 つの表に集める。**内容は複製せず `E<n>` を引く**。
 
 ## Why
