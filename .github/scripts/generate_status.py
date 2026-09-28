@@ -187,16 +187,26 @@ def build_status() -> str:
             if m_note:
                 lic_lines.append(f"- **この件の最新**: {' '.join(m_note.group(1).split())}")
         elif m_post:
-            lic_lines.append("- **発信の状態**: 通常（`FROZEN.md` の POSTING-STATUS が `active`）。")
+            lic_lines.append("- **発信の状態**: 通常（`FROZEN.md` の POSTING-STATUS が `active`）。"
+                             "**`active` は「我々の側で止めていない」であって「リストに届く」ではない** "
+                             "—— moderation の拒否は `LICENSES/ACD-OSI-BOTTLENECKS-POSTING.md`（B14）に記録する。")
     else:
         lic_lines.append("- **本文の状態**: 凍結は解除されている（`LICENSES/FROZEN.md` が無い）。")
     against = _read("LICENSES/ACD-1.0.against.md")
     errata = _read("LICENSES/ACD-1.0.errata.md")
     n_adv = len(re.findall(r"(?m)^\| (\d+) \|", against))
     n_err = len(re.findall(r"(?m)^\| (E\d+) \|", errata))
+    # **閉じた件数も導出する。** 旧文は「全件未修正＝凍結中のため」とだけ述べ、1.0 について正しい一方で、
+    # 34 件中 32 件が 1.1 / 1.2 草案で閉じている事実を唯一の BLUF 面から消していた (2026-09-28)。
+    # 「閉じた」の判定は Check 468e と同じ規則 (行に「N.N 草案で閉じた」) —— 規則を 2 つにしない。
+    n_err_closed = sum(1 for ln in errata.splitlines()
+                       if re.match(r"\|\s*\*{0,2}E\d+\*{0,2}\s*\|", ln)
+                       and re.search(r"\d+\.\d+ 草案で閉じた", ln))
     if n_adv or n_err:
         lic_lines.append(f"- **自分で書いた不利な事実**: {n_adv} 件（`LICENSES/ACD-1.0.against.md`・"
-                         f"不利なものを先に並べる）／**既知の欠陥**: {n_err} 件（`ACD-1.0.errata.md`・全件未修正＝凍結中のため）。")
+                         f"不利なものを先に並べる）／**既知の欠陥**: {n_err} 件（`ACD-1.0.errata.md`）—— "
+                         f"**1.0 では全件未修正**（凍結中のため）、**うち {n_err_closed} 件は次版の草案で閉じた**"
+                         f"（残る {n_err - n_err_closed} 件は errata の状態欄が理由を述べる）。")
     if slug:
         lic_lines.append(f"- **審査者向けの入口**: {site_url}LICENSES/REVIEWERS.md")
     lic_lines.append("- **外部レビューの観測・手続き・期限**: `LICENSES/PEER-REVIEW-WATCH.md`"
