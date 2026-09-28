@@ -1,7 +1,7 @@
 ---
 file: LICENSES/AUDIT-LEDGER.md
 audience: 次のセッションの実装者（一次読者）/ 監査人
-last-updated: 2026-09-14
+last-updated: 2026-09-28
 canonical-ref: LICENSES/ACD-1.0.against.md (不利な事実の本体) / LICENSES/BLIND-SPOTS.md (探索の次元) / .github/scripts/verify_dossier_quotations.py (引用照合の道具)
 ---
 

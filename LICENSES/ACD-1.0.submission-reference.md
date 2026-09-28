@@ -371,8 +371,10 @@ seven respects, each of which is operative rather than stylistic:
 not — *"In the countries where moral rights apply, the Licensor waives his right to exercise his
 moral right to the extent allowed by law"*. The structure of Section 12 (waive where possible,
 do not exercise where not) therefore has an approved precedent; what Section 12 adds is naming
-whom the covenant protects (12.2) and binding successors (12.4). EUPL is the only approved
-licence of 141 that mentions moral rights ([`ACD-1.0.gap-census.md`](ACD-1.0.gap-census.md)).
+whom the covenant protects (12.2) and binding successors (12.4). EUPL — two of the 141
+approved texts, its versions 1.1 and 1.2 — is the only approved licence that mentions moral rights
+([`ACD-1.0.gap-census.md`](ACD-1.0.gap-census.md); re-measured 2026-09-28 with German, Italian,
+Spanish and Quebec-French terms as well: no other text refers to them).
 
 The enumerated acts also differ: 0BSD's four verbs do not cover sublicensing, communication
 to the public, public performance or display, rental, or adaptation, which ACD-1.0 Section
