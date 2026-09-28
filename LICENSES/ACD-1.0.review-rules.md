@@ -333,7 +333,7 @@ all or most of a message"* —— **は Code of Conduct には無い。** modera
 
 | | 条文（要点）| 我々の実測 | 判定 |
 |---|---|---|---|
-| **1** | *"we value concision and clarity. Emails that are brief and to the point…"* | **散文の中央値 683 語 対 他 188 語。6 通すべてが 69〜95 パーセンタイル** | **🔴 当たる**（§1.85）|
+| **1** | *"we value concision and clarity. Emails that are brief and to the point…"* | **散文の中央値 683 語 対 他 188 語（3 か月窓）／他 115 語（78 か月窓）。6 通すべてが 69〜95（3 か月）／81〜97（78 か月）パーセンタイル。**⚠ 窓を広げると悪くなる。****ただし段落は我々のほうが短く（21.5 対 26.0 語）、corpus 占有は 271 名中 42 位・全 prose 語数の 0.5%** | **🔴 当たる**（§1.85 と、その 78 か月の追記）|
 | **2** | *"Conversations should remain focused and on-topic … **avoid flooding the list with long threads** by reading the entire thread first, instead of **responding quickly to many emails in a short period of time**"* | **6 通 / 活動 4 日 / 1 日最大 2 通 / 24 時間内に 3 通以上が 1 回**（2026-09-03 23:36・23:56 と 09-04 18:54 の 19.3 時間）。同じ窓で **Fontana 氏 13 回・Chestek 氏 5 回・McCoy 氏 5 回・Dolan 氏 1 回** | **🟢 当たらない（低い側）。ただし 0 ではない** |
 | **3** | *"New members … should be careful to respect the time and energy of long-time list members by **doing research** … before asking questions"* | **6 通に条項・OSD の引用が計 55 件**（8/26 の投稿だけで OSD 十条中 11 の一意参照、9/6 の 1 通で条項 25 件）。**機械的に測れるのはここまで**で、「研究したか」そのものは測れない | **🟢 当たらない方向の証拠はある** |
 
