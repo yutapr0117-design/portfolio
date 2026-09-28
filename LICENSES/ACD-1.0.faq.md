@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.faq.md
 audience: 採用検討者, 法務, ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-09-27
+last-updated: 2026-09-28
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (逐条リファレンス) / LICENSES/ACD-1.0.comparison.md (族ごとの比較) / LICENSES/ACD-1.0.jurisdictions.md (法域別の問い)
 ---
 
@@ -552,7 +552,7 @@ SPDX も未提出である。**承認の手続きはまだ何も始まってい�
 > 1 行目は **FROZEN TEXT. NOT SUBMITTED FOR APPROVAL. NOT APPLIED TO THIS REPOSITORY.** になった。
 > 閉じた欠陥の数も 7 件から増えている（数は 1.1 自身の冒頭が述べる）。次版の作業場は `ACD-1.2-DRAFT.txt`。
 >
-> **⚠ 2026-09-10 追記 —— 草案は既に在る。** `LICENSES/ACD-1.1.txt`
+> **⚠ 2026-09-10 追記 —— 草案は既に在る。** `LICENSES/ACD-1.1-DRAFT.txt`（**2026-09-28 訂正**: 当時の file 名。確定時の一括置換が `ACD-1.1.txt` へ書き換えていたが、凍結後の `ACD-1.1.txt` の 1 行目は FROZEN TEXT であって下の文言ではない）
 > （**NOT IN FORCE / NOT SUBMITTED / NOT APPLIED** と 1 行目で述べる）。
 > **「いつ作るのか」への答えは、いまや「作ってあるが、版としては確定していない」である。**
 > **7 件の記録済み欠陥を閉じてある**（E3 / E5 / E12 / E13 / E14 / E15 / E16）。

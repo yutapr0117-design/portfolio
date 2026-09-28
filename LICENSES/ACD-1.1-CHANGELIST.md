@@ -48,8 +48,8 @@ canonical-ref: LICENSES/ACD-1.0.errata.md (欠陥の一次記録) / LICENSES/REV
 > 生成したもので、確定した 1.1 と 3 行食い違っていた**（`MACHINE-SURFACES-AUDIT.md` M5）—— 2026-09-24 に
 > 確定版へ当て直して訂正済み（§0.5 の注記）。
 
-**`LICENSES/ACD-1.1.txt`** —— **NOT IN FORCE / NOT SUBMITTED / NOT APPLIED** と
-自分で述べる草案。**オーナーが 2026-09-10 に「現行ライセンスはそのまま保持する必要があるが、
+**`LICENSES/ACD-1.1-DRAFT.txt`** —— **NOT IN FORCE / NOT SUBMITTED / NOT APPLIED** と
+自分で述べる草案（**2026-09-28 訂正**: 当時の file 名。2026-09-17 に `ACD-1.1.txt` として確定し、1 行目は FROZEN TEXT へ書き換えた。確定時の一括置換がこの file 名まで変えていた）。**オーナーが 2026-09-10 に「現行ライセンスはそのまま保持する必要があるが、
 次版を作成して改善し続けるのは問題ない」と述べた**ので、設計だけで止めていたものを実物にした
 （`REVISION-PROTOCOL.md` §2 が最初から定めていた「1.0 は永久凍結・次版は併置」の形）。
 
@@ -408,6 +408,8 @@ open だった理由が 4 件とも違った。** 宣言ではなく errata の�
 根拠として引くのは *"§4 does not wait for §3 to fail"* の趣旨で、**1.1 の §4.4 は
 *"granted independently of Section 3 and does not depend on Section 3 being ineffective"* と
 述べており、そこは残っている**（E11 で落としたのは*過大な主張*のほうだけである）。
+
+**🔴 改名は一括置換しない（2026-09-28 追記・1.1 確定で実際に踏んだ）**: 1.1 の確定コミットは `ACD-1.1-DRAFT.txt` → `ACD-1.1.txt` を一括置換した。そのため、**当時の状態を述べた文**（「1 行目で NOT IN FORCE と述べる」「まだ `ACD-1.1.txt` ではない」）までが新しい名前を主語にし、3 文書で偽または自己矛盾になった（`BLIND-SPOTS-LOG.md` 2026-09-28 §8）。**1.2 を確定するとき**は、`grep -rn "ACD-1.2-DRAFT" LICENSES docs` の各行を「いまの file を指す参照」か「当時の状態の記述」かで振り分ける。置換するのは前者だけにする。
 
 **なぜ先に書くか**: **CI が最も止まってほしくない日は、版を確定させて提出する日である。**
 **その日に原因を探すのは、探さなくてよい探索である。**
