@@ -382,3 +382,14 @@ Check 461b が `FROZEN.md` / `faq.md` の日付が 19 日古いと鳴った。�
 同じ文が「弁護士が市の代理で提出」と述べている）。**論点（gap を 1 文で先に述べる形は先例に倣った）は、
 2 点を外しても成り立つ**ので根拠だけを狭めた。**前の掃引は *first* / *novel* を見ており、*only new* は見ていなかった** ——
 **「clean」の記録は、その掃引が使った語の集合についての記録であって、主張の集合についての記録ではない。**
+
+## 2026-09-28 — census の検出語は、census が自分で書いた限界まで広げて測る
+
+census は「英語のキーワードで数えるとドイツ語とフランス語の本文で誤る」と自分で記録しているのに、人格権の検出語は
+英語 `moral right(s)` とフランス語 `droit moral` だけだった。**ドイツ語（`Persönlichkeit`）・イタリア語・スペイン語・
+ケベック仏語（`droits moraux`）・英語の同義語（`right of attribution` / `integrity of the work` / `paternity`）へ広げて
+141 本を測り直した**（2026-09-28・SPDX 3.29.0 を再取得）。**結果は clean** ——新たに当たったのは AFL-1.1 の
+*"Right of Attribution"* と LiLiQ の *"paternité"* だけで、どちらも**表示の保持義務であって人格権ではない**。
+「人格権に触れるのは EUPL-1.1 / 1.2 だけ」は正しい。**広げた語が別の本に当たったこと自体が、走査が動いていた control になった。**
+直したのは英語の数え方だけ（`submission-reference.md` の "the only approved licence of 141" は census の「2 本」と
+食い違って読めたので、2 版であることを明記した）。
