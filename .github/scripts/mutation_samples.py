@@ -484,6 +484,12 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "LICENSES" / "REVIEWERS.md",
     "find": "(ACD-1.0.submission-reference.md) §1–§4",
     "replace": "(ACD-1.0.submission-reference.md) §9–§4",
+    "name": "Check 413c: runbook §9 が引用する Check 108 の件数だけを古い値へ戻す —— 4 つの数 "
+            "(総数 / source / mirror / 行末の合計) は 413/413b が守るが、同じ行の 5 つ目の数である"
+            "**引用の中の数**は誰も見ていなかった (実測 2026-09-28: 284 と 636 を同時に主張していた)",
+    "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
+    "find": "all 636 tracked files have a 1-to-1 docs/files mirror",
+    "replace": "all 284 tracked files have a 1-to-1 docs/files mirror",
     "check": CHECK,
 })
 

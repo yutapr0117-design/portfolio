@@ -468,6 +468,38 @@ def run(ctx):
         # BLOCKING にできる — file を足せば全部の数が一緒に動くだけで、和の性質は常に成り立つ。
         # 逆に「1 つだけ更新して他を忘れる」という現実の drift 経路をちょうど捕まえる。
         # (Check 60 と同じ「ADVISORY 早期警告 + BLOCKING hard gate」二層設計の hard gate 側。)
+        # 413c — 同じ行が**引用する Check 108 の OK メッセージ**の数も、source と同じ量である
+        # こと (BLOCKING)。413b は行の中の 4 つの数 (総数 / source / mirror / 行末の合計) しか
+        # 見ておらず、**5 つ目の数を誰も見ていなかった**。実測 (2026-09-28): 4 つを同期した直後の
+        # 行が `all 284 tracked files have a 1-to-1 docs/files mirror` を引用しており、実際の
+        # Check 108 の出力は `all 636 ...` = **2.2 倍のズレ**だった。Check 108 の bijection 数は
+        # 定義上「docs/files 配下でない source の数」そのものなので、これは絶対値に依存しない
+        # **純粋な内部整合**で、volatile な baseline でも BLOCKING にできる (413b と同じ理由)。
+        # **一般形: ある行を守る Check を足すとき、守る数の集合は「気付いた数」ではなく
+        # 「その行が主張する数の全部」で取る。** 引用の中の数は、引用であるがゆえに
+        # 「他所の出力だから正しいはず」と読まれ、いちばん検算されない。
+        _m_c108q413 = re.search(r"all (\d+) tracked files have a 1-to-1 docs/files mirror", _rb413)
+        if _m_src413 and _m_c108q413:
+            _q413 = int(_m_c108q413.group(1))
+            _s413 = int(_m_src413.group(1))
+            check(
+                _q413 == _s413,
+                f"Check 413c: runbook §9 が引用する Check 108 の件数が source と一致 ({_q413})",
+                f"Check 413c: runbook §9 が引用する Check 108 の OK メッセージが {_q413} 件と述べているが、"
+                f"同じ行の「非 docs/files source」は {_s413} 件 — Check 108 の bijection 数は定義上"
+                "「docs/files 配下でない source の数」そのものなので、この 2 つは必ず一致する。"
+                "**引用の中の数は「他所の出力だから正しいはず」と読まれ、いちばん検算されない** "
+                "(実測 2026-09-28: 4 つの数を同期した直後の行が 284 と 636 を同時に主張していた)。"
+                "同一 commit で揃えよ",
+                blocking=True,
+            )
+        else:
+            check(False, "",
+                  "Check 413c: runbook §9 の Check 108 引用を parse できない — "
+                  "`all N tracked files have a 1-to-1 docs/files mirror` の記載形式を保つこと "
+                  "(形式を変えるならこの Check の正規表現も同一 commit で更新せよ)",
+                  blocking=True)
+
         _m_mirror413 = re.search(r"mirror が \*\*(\d+)\*\*", _rb413)
         _m_sum413 = re.search(r"_template\.md` の \*\*(\d+)\*\* = \*\*(\d+)\*\*", _rb413)
         if _m_total413 and _m_src413 and _m_mirror413 and _m_sum413:
