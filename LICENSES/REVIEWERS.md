@@ -1,7 +1,7 @@
 ---
 file: LICENSES/REVIEWERS.md
 audience: OSI license-discuss / license-review participants, licence reviewers, anyone arriving from the mailing list
-last-updated: 2026-09-27
+last-updated: 2026-09-28
 canonical-ref: LICENSES/ACD-1.0.txt (the text posted, and the one this repository applies) / LICENSES/ACD-1.1.txt (the frozen successor) / LICENSES/FROZEN.md (freeze + venue, single source) / LICENSES/rounds/2026-08-26-license-discuss-sent.txt (what was actually sent) / LICENSES/ACD-1.0.submission.md (the packet prepared for license-review)
 ---
 
@@ -9,23 +9,25 @@ canonical-ref: LICENSES/ACD-1.0.txt (the text posted, and the one this repositor
 
 ## The short path, and what it costs you
 
-**You are a volunteer. Nothing here is required reading.** Measured 2026-09-24, this directory
-is **295,277 words** — **60 times the licence** — and that figure *understates* it: it splits on
-whitespace, and much of the directory is Japanese, which is not space-delimited (a further
-~359,000 Japanese characters are not counted as words at all). The whole of it exists so that a
-claim we make can be checked, **not so that it must be**. *(The count grows with every entry;
-it was 251,824 two days earlier. To re-measure: `git ls-files -z LICENSES | xargs -0 cat | wc -w` —
-the `-z` matters, because three file names are Japanese and the plain form silently skips them.)*
+**You are a volunteer. Nothing here is required reading.** Measured 2026-09-28, the analysis in
+this directory — everything except `rounds/` — is **254,371 words**, **52 times the licence**, and
+that figure *understates* it: it splits on whitespace, and much of it is Japanese, which is not
+space-delimited (a further ~353,000 Japanese characters are not counted as words at all).
+`rounds/` holds the primary sources verbatim (**1,247,380 words** on the same date — list threads,
+board minutes) so that every quotation can be checked against what was actually sent; **nobody is
+asked to read it.** The whole of it exists so that a claim we make can be checked, **not so that it
+must be**. *(Earlier figures counted `rounds/` too. Re-measure:
+`git ls-files -z LICENSES ':!LICENSES/rounds' | xargs -0 cat | wc -w`.)*
 
 **If you read three things you have checked the parts that decide the question:**
 
 | | words | why |
 | :-- | --: | :-- |
 | [`ACD-1.0.txt`](ACD-1.0.txt) | **4,896** | the licence. Nothing outside it fixes it |
-| the two facts at the top of [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~400 | **no lawyer has read this text**, and **the only project using it is the author's**. Either is a sufficient reason to decline |
-| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **949** | every objection we found on these lists in 24 months, and whether it lands |
+| the two facts **#1 and #4** in [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~220 | **no lawyer has read this text**, and **the only project using it is the author's**. Either is a sufficient reason to decline |
+| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **827** | every objection we found on these lists in 24 months, and whether it lands |
 
-**≈ 6,250 words.** **What you give up by stopping there**: the clause-by-clause reasoning, the
+**≈ 5,950 words** *(`wc -w`, 2026-09-28)*. **What you give up by stopping there**: the clause-by-clause reasoning, the
 jurisdiction analysis, and the archive measurements — **all of which are evidence for claims,
 not claims themselves.** The four commands below check the licence text without trusting any
 of it.
