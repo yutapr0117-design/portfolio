@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-review participants / 監査人
-last-updated: 2026-09-25
+last-updated: 2026-09-28
 canonical-ref: LICENSES/ACD-OSI-BOTTLENECKS.md (索引・分類・集計はあちらが canonical) / LICENSES/ACD-1.0.against.md / LICENSES/AS-OF.md
 ---
 
@@ -638,7 +638,7 @@ appropriate, I send them as written."*
 #### ⚠ 測ったが、答えには使わない材料（2026-09-15）
 
 **moderator は我々の他ライセンス審査が本物かを問うた。** その行動がリストで普通かどうかを
-測った結果が `review-corpus.md` §1.89 にある（**19 年の提出者 76 人中 48 人＝63% が、
+測った結果が `review-venue.md` §1.89 にある（**19 年の提出者 82 人中 53 人＝65% が、
 自分の提出以外のスレッドにも投稿している**）。
 
 **この数を返信に使ってはならない。** 理由は 3 つで、どれも独立に効く:
