@@ -488,6 +488,15 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 468i: 草案の変更一覧から、errata が「1.2 草案で閉じた」とする E34 を外す —— 冒頭は一覧が"
+            "差分のすべてだと宣言しているので、閉じた errata の記録漏れは草案の自己記述を偽にする (2026-09-28)",
+    "file": ROOT / "LICENSES" / "ACD-1.2-DRAFT.txt",
+    "find": "compression dropped (errata E34):",
+    "replace": "compression dropped (errata):",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

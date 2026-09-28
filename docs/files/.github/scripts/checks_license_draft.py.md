@@ -13,6 +13,9 @@ canonical-ref: .github/scripts/check_repository_consistency.py (集約器) / LIC
 Check **468**（草案が NOT IN FORCE / NOT SUBMITTED / NOT APPLIED を述べること・純 ASCII・節の連番・
 参照の解決・申告語数と条数の一致・ヘッダの箇条書き・descriptor の記述ほか）を持つ。
 
+**468i**（2026-09-28）: errata が「この草案で閉じた」とする entry が、すべて冒頭の変更一覧に載ること。冒頭は「一覧が差分のすべて」と宣言しており、E34（§2.5 を +36 語で変更）が 3 日間一覧から漏れていた。468e（まだ open な側）の対になる face。
+**⚠ 既知の表記上の重複**: code 内の section コメントで `468f` が 2 箇所（ヘッダの箇条書き / 冒頭の同一性主張）に使われている。他文書と mutation 名が番号で参照している可能性があるので、改名はせずここに記録する。
+
 ## Why
 
 `checks_license_submission.py` が 801 行になり Check 52 の advisory (800) を越えた（2026-09-24）。
