@@ -1,7 +1,7 @@
 ---
 file: LICENSES/REVIEWERS.md
 audience: OSI license-discuss / license-review participants, licence reviewers, anyone arriving from the mailing list
-last-updated: 2026-09-27
+last-updated: 2026-09-28
 canonical-ref: LICENSES/ACD-1.0.txt (the text posted, and the one this repository applies) / LICENSES/ACD-1.1.txt (the frozen successor) / LICENSES/FROZEN.md (freeze + venue, single source) / LICENSES/rounds/2026-08-26-license-discuss-sent.txt (what was actually sent) / LICENSES/ACD-1.0.submission.md (the packet prepared for license-review)
 ---
 
@@ -9,13 +9,18 @@ canonical-ref: LICENSES/ACD-1.0.txt (the text posted, and the one this repositor
 
 ## The short path, and what it costs you
 
-**You are a volunteer. Nothing here is required reading.** Measured 2026-09-24, this directory
-is **295,277 words** — **60 times the licence** — and that figure *understates* it: it splits on
-whitespace, and much of the directory is Japanese, which is not space-delimited (a further
-~359,000 Japanese characters are not counted as words at all). The whole of it exists so that a
-claim we make can be checked, **not so that it must be**. *(The count grows with every entry;
-it was 251,824 two days earlier. To re-measure: `git ls-files -z LICENSES | xargs -0 cat | wc -w` —
-the `-z` matters, because three file names are Japanese and the plain form silently skips them.)*
+**You are a volunteer. Nothing here is required reading.** Measured 2026-09-28, the analysis in
+this directory — everything except `rounds/` — is **254,371 words**, **52 times the licence**, and
+that figure *understates* it: it splits on whitespace, and much of it is Japanese, which is not
+space-delimited (a further ~353,000 Japanese characters are not counted as words at all).
+`rounds/` holds the primary sources verbatim (**1,247,380 words** on the same date — list threads,
+board minutes) so that every quotation can be checked against what was actually sent; **nobody is
+asked to read it.** The whole of it exists so that a claim we make can be checked, **not so that it
+must be**. *(The count grows with every entry. Earlier figures — 251,824 on 2026-09-22 and 295,277
+on 2026-09-24 — counted `rounds/` too; by 2026-09-28 the whole directory was 1,501,751 words, almost
+all of it primary sources, so a single figure had stopped describing the reading burden. To
+re-measure the analysis: `git ls-files -z LICENSES ':!LICENSES/rounds' | xargs -0 cat | wc -w` —
+the `-z` matters, because some file names are Japanese and the plain form mangles them.)*
 
 **If you read three things you have checked the parts that decide the question:**
 
