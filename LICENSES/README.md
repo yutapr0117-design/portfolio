@@ -47,7 +47,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 | 同・起草の出自 / 名称 / 運用（**LLM 起草の扱い・撤回条件**） | [`ACD-1.0.review-responses-meta.md`](ACD-1.0.review-responses-meta.md) |
 | **実際に来た指摘**とその答え | [`ACD-1.0.discussion-log.md`](ACD-1.0.discussion-log.md) |
 | **審査者が最初に読む英語の入口**（license-discuss から来た人向け） | [`REVIEWERS.md`](REVIEWERS.md) |
-| **受け取った議論の原文**（無改変で置く場所・いまは空） | [`rounds/`](rounds/README.md) |
+| **受け取った議論の原文**（無改変で置く場所。**2026-09-28 訂正**: 旧文は「いまは空」だった —— 実際は 2026-08-26 の送信文以来ファイルが在り、在庫の申告は `rounds/README.md` が持ち Check 465 が実ファイルと照合する） | [`rounds/`](rounds/README.md) |
 | **疑問から引く索引（審査者向け・英語）** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) |
 | **不利な事実の網羅（先に読ませる用・英語）** | [`ACD-1.0.against.md`](ACD-1.0.against.md) |
 | **既知の欠陥と、直さない理由（英語）** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) |
@@ -68,7 +68,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 | 提出文の背後にある参考資料（**貼らない**・§1〜§5） | [`ACD-1.0.submission-reference.md`](ACD-1.0.submission-reference.md) |
 | その参考資料のうち OSD の節（§3〜§3d・**貼らない**） | [`ACD-1.0.submission-osd.md`](ACD-1.0.submission-osd.md) |
 | **承認阻害ボトルネックの一覧（canonical）** | [`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md) |
-| 「**外の答えを待っている項目は何か**」 | [`ACD-OSI-BOTTLENECKS-EXTERNAL.md`](ACD-OSI-BOTTLENECKS-EXTERNAL.md) —— 我々の作業では動かせない 7 項目の深い分析（法的レビュー / 実使用 / §4.4 の外部回答待ち / 特許射程 / gap / SPDX / 主題適格）。**索引と集計は上の register が canonical** |
+| 「**外の答えを待っている項目は何か**」 | [`ACD-OSI-BOTTLENECKS-EXTERNAL.md`](ACD-OSI-BOTTLENECKS-EXTERNAL.md) —— 我々の作業では動かせない 8 項目（7 節）の深い分析（法的レビュー / 実使用 / 献呈と許諾の並存 / §4.4（起草は 1.1 で閉じ設計の問いが外部）/ 特許射程 / gap / SPDX / 主題適格 —— B1・B2・B4・B5・B7・B10・B11・B15。**2026-09-28 訂正**: 旧文は「7 項目」で B4 が列挙から落ちていた）。**索引と集計は上の register が canonical** |
 | 「**そもそも投稿できるのか**」 | [`ACD-OSI-BOTTLENECKS-POSTING.md`](ACD-OSI-BOTTLENECKS-POSTING.md) —— **B14 のみ**。2026-09-09 に OSI Moderators が両リストへ「AI が全部または大半を書いた投稿は拒否する」と投稿して以降の経過。**instrument の中身ではなく手続きの問題**なので 2026-09-25 に分離した。**行動（投稿停止・本文凍結・リスト上でこの件を論じない）はここが単一の所在である** |
 | 既知の反論が当たるか（**1 表・審査者が最初に読む**） | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) |
 | 審査者は主題について何と言っているか（人格権 / 特許 / 長さ / 構造 …） | [`ACD-1.0.reviewer-positions.md`](ACD-1.0.reviewer-positions.md) |
