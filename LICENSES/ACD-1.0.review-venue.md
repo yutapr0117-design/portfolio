@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-venue.md
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人
-last-updated: 2026-09-26
+last-updated: 2026-09-28
 canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの審査者の立場) / LICENSES/ACD-1.0.review-corpus.md (アーカイブ全体の測定) / LICENSES/ACD-1.0.against.md
 ---
 
@@ -469,3 +469,83 @@ the license from consideration**."*
 **220 通・15 か月・弁護士である単独起草者・複数回の本文改訂の末に、決定は出ていない。**
 **`board-decisions.md` §2b が記録した「取り下げは終端ではなく経路」と、
 #139 の「第 3 の帰結（承認でも否決でもない留め置き）」の、3 つ目の形である。**
+
+**以下の 2 節は `ACD-1.0.review-corpus.md` から 2026-09-28 に移した**（節番号は不変・移転の理由は移転元の末尾）。
+
+## 1.73 Licensing Committee 委員長が、我々を名指しで謝辞した（2026-09-10）—— そして、それが何を示さないか
+
+**逐語**（`rounds/2026-09-10-license-review-chestek-names-us.txt`・OpenMDW-1.1 の審査スレッド）:
+
+> *"I would like to thank **Yuta-san** for their **insightful view on the termination provision**,
+> which I find helpful."* —— Pamela Chestek（**Licensing Committee 委員長**・2026-09-10 18:07）
+
+**これで `license-review` 上で我々の投稿に反応した人は 6 人になった**（2026-09-13 に全数で確認）:
+Michael Dolan 氏（LF・OpenMDW steward・名指しで回答）/ Moming Duan 氏（ModelGo steward・条文に即した
+回答 + 2026-09-08 に参照リストへ採録）/ Shuji Sado 氏（我々の質問を引いて議論を進めた）/
+Ruby Anna 氏（*"Hi Yuta … You have interpreted …"*）/ **Pamela Chestek 氏（委員長）**。
+
+**示すこと（狭く書く）**:
+
+- **委員長は我々の寄与を読み、有用だと述べ、承認リスト上で名指しした。**
+- **それは moderator 通知（2026-09-09）の翌日である。** ——**通知の後も、委員長による実質的な
+  やり取りは続いている。**
+
+**示さないこと（同じ精度で書く）**:
+
+- **ACD-1.0 について何も言っていない。** 発言は**他者の提出**（OpenMDW-1.1）の審査中のもので、
+  **我々の提出への応答ではない。ACD-1.0 への返信は依然としてゼロである**（2026-09-13 時点・
+  `license-discuss` 2026-09 は 9 通のままで、我々の 2 通に返信は無い）。
+- **我々が moderator 通知の名宛人だったかを決めない。** 翌日に委員長が謝辞したことは、
+  **「通知は我々のことではなかった」とも「我々は問題視されていない」とも読めない。**
+  通知は moderators が出し、謝辞は委員長が出した ——**別の人が、別のことについて述べている。**
+- **B1（法的レビュー無し）と B2（採用 1 件）を 1 ミリも動かさない。**
+
+**議論の中身も記録しておく（ACD の設計に直接あたる）。** このスレッドの争点は
+**「著作権の主張を引き金にした許諾の終了」が open source と両立するか**である。委員長は
+*"I do find it inconsistent with my understanding of open source … that someone who intentionally
+committed a wrongful act should be allowed to avoid the consequences"* と述べ、
+Josh Berkus 理事は逆に *"accidental infringing copying happens all the time"* と述べ、
+Richard Fontana 氏は *"OpenMDW-1.1 is different in this respect because its copyright-triggered
+termination reaches **all** sorts of copyright claims"* と述べている。
+**ACD-1.0 はこの争点の外にある** ——**終了条項を持たず（§10.4）、報復条項も持たない（§8.2）。**
+**ただしこれは「だから承認される」ではない**: 争点の外にあることは失格を 1 つ免れることであって、
+**承認の理由にはならない**（§1.70 の天井 —— 必要条件は十分条件にならない）。
+
+## 1.89 提出者が他人のライセンスも審査するのは、例外ではない（199 か月・提出者 82 人）
+
+**moderator は 2026-09-14 に、我々の他ライセンス審査が本物かを問うた** ——
+*"My reviews of other licenses are genuine reviews … not fake activity designed to make ACD appear
+more credible"* と steward が答えた当の論点である（`rounds/2026-09-15-offlist-…txt`）。
+
+**その行動が、このリストで普通かどうかは測れる。** 全期間の提出スレッド 105 件について、
+**1 通目の差出人＝提出者**を取り、**その人が自分の提出以外のスレッドに何本投稿したか**を数えた。
+
+| | 値 |
+|---|---|
+| 19 年間の提出者（延べではなく人数）| **82 人** |
+| **自分の提出以外のスレッドにも投稿した** | **53 人 = 65%** |
+| **他スレッド 3 本以上に投稿した** | **31 人 = 38%** |
+| 他スレッド数の中央値 | **1 本** |
+
+**上位は審査の常連と重なる** —— McCoy Smith 氏 82 本 / Carlo Piana 氏 34 本 /
+Luis Villa 氏 20 本（いずれも提出も 1〜2 件持っている）。
+
+### ⚠ この測定が我々について establish しないこと（3 点・先に書く）
+
+1. **我々はこの母集団に入っていない。** 我々の提出は **`license-discuss`** に在り、
+   本測定は **`license-review`** の提出者を数えている。**比較できるのは「membership」ではなく
+   「pattern」だけである。**
+2. **頻度は動機について何も言わない。** 65% が他人のライセンスにも投稿しているという事実は、
+   **その投稿が誠実かどうかを一切決めない。** 我々の 3 本（OpenMDW / ModelGo / BOS）についても同じで、
+   **「普通の行動だ」は「本物だ」ではない。**
+3. **弁明に使わないこと。** moderator が問うたのは行動の分布ではなく、**我々の意図**である。
+   **分布で答えるのは、問いをすり替えることになる。**
+
+### それでも確立すること
+
+**「自分の提出を抱えたまま他人のライセンスを審査する」は、このリストでは少数派の行動ではない**
+——**19 年で 82 人中 53 人がそうしている。** 提出者が審査にも参加するのは、
+**このリストの設計どおりの姿**である（process ページは *"Anyone can join the license-review
+mailing list and participate in the license review process"* と書いている）。
+
+**そして 82 人という数そのものが小さい。** **19 年でライセンスを提出した人は 82 人しかいない。**
