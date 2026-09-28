@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.1-CHANGELIST.md
 audience: ai, 監査人, OSI license-review / license-discuss participants, 第三者全般
-last-updated: 2026-09-26
+last-updated: 2026-09-28
 canonical-ref: LICENSES/ACD-1.0.errata.md (欠陥の一次記録) / LICENSES/REVISION-PROTOCOL.md (§1 ラウンドの流れ・§2 版管理) / LICENSES/FROZEN.md (1.0 が動かないことの機械強制)
 ---
 
@@ -35,6 +35,7 @@ canonical-ref: LICENSES/ACD-1.0.errata.md (欠陥の一次記録) / LICENSES/REV
   2026-09-06 だけで 6 件見つけた class）。`E<n>` を引き、状態だけをここで持つ。
 - **Check 464 (BLOCKING)** が `errata.md` の全 `E<n>` がこの表に現れることを強制する。
   **落とすことを機械的に不可能にするのが、この文書の唯一の実効部分**である。
+  **2026-09-28 注**: 2026-09-18 以降の Check 464 は**この表ではなく、全版の `ACD-*-CHANGELIST.md` を横断して**「どこにも載っていない `E<n>` が無いこと」を見る（1.2 で閉じた errata がここに無くても RED にならない）。上の 2 文は 1.1 が作業場だった時点の記述である。
 - 届いた指摘は `rounds/` に無改変で保存し、分解と分類は `discussion-log.md`。そこで
   **帰結が `1.1 候補` になったものを、ここへ移す。**
 - **1.0 の本文・`spdx.xml`・`machine.json` は編集しない。** Check 453 が sha256 で止める。
@@ -729,6 +730,7 @@ gap 部 1,041 語を削れば届くが、**それは新規性の根拠を捨て�
 
 `errata.md` に entry を足したら、この表にも同じ `E<n>` を足す（Check 464 が強制）。
 `discussion-log.md` で帰結が `1.1 候補` になったら §3 へ移す。
+**2026-09-28 注**: 1.1 は閉じたので、上の 2 行はいまはこの文書ではなく [`ACD-1.2-CHANGELIST.md`](ACD-1.2-CHANGELIST.md) に当てはまる（分類値も `次版候補` へ改めた・`discussion-log.md`）。
 
 ## Audience-specific notes
 
