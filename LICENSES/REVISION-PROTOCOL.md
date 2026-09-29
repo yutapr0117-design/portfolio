@@ -1,7 +1,7 @@
 ---
 file: LICENSES/REVISION-PROTOCOL.md
 audience: 次のセッションの実装者（一次読者） / OSI license-discuss・license-review の参加者（§0 の英文）
-last-updated: 2026-09-26
+last-updated: 2026-09-28
 canonical-ref: LICENSES/FROZEN.md (凍結と venue の単一ソース) / LICENSES/ACD-1.0.discussion-log.md (指摘の記録) / LICENSES/ACD-1.0.errata.md (既知の欠陥)
 ---
 
@@ -88,7 +88,7 @@ courtesy — a discussion whose subject changes underneath it is not a review of
 > **「全部取り込んだ改善版を 1 回で出す」は、我々が選んだ流儀ではなく OSI の明文の推奨である。**
 
 > **実体化した（2026-09-10）。** オーナーが「現行は保持、次版を作って改善し続けるのは問題ない」と
-> 述べたので **`LICENSES/ACD-1.1.txt`** を置いた。**まだ `ACD-1.1.txt` ではない** ——
+> 述べたので **`LICENSES/ACD-1.1-DRAFT.txt`** を置いた（**2026-09-28 訂正**: 当時の file 名は `ACD-1.1-DRAFT.txt`。2026-09-17 の確定で `ACD-1.1.txt` へ改名し 1 行目は FROZEN TEXT になった。確定時の一括置換がこの文の file 名まで書き換え、「`ACD-1.1.txt` を置いた。まだ `ACD-1.1.txt` ではない」という自己矛盾を残していた）。**まだ `ACD-1.1.txt` ではない** ——
 > **草案は 1 行目で NOT IN FORCE / NOT SUBMITTED / NOT APPLIED を述べ、`FROZEN.md` にも
 > `LICENSE` にも AIO 層にも登録していない。** 下の手順（FREEZE-DATA に行を足す / `LICENSE` と
 > AIO を新版へ向ける）は、**版として確定するときに初めて行う。**

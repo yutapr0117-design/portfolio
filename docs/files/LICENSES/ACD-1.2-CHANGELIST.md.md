@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.2-CHANGELIST.md
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-09-17
+last-updated: 2026-09-28
 canonical-ref: LICENSES/ACD-1.2-DRAFT.txt / LICENSES/ACD-1.1.txt / LICENSES/ACD-1.1-CHANGELIST.md / LICENSES/ACD-1.0.errata.md
 ---
 
@@ -10,7 +10,7 @@ canonical-ref: LICENSES/ACD-1.2-DRAFT.txt / LICENSES/ACD-1.1.txt / LICENSES/ACD-
 ## What
 
 **ACD-1.2 に入れるものを集める単一の集約点。** 作成時点では**空**で、
-**空であることが正しい状態**である（1.1 を確定した直後だから）。
+**空であることが正しい状態**だった（1.1 を確定した直後だから。2026-09-28 時点では空ではない）。
 
 ## Why
 
@@ -38,5 +38,5 @@ canonical-ref: LICENSES/ACD-1.2-DRAFT.txt / LICENSES/ACD-1.1.txt / LICENSES/ACD-
 
 ## Audience-specific notes
 
-- **審査者**: 議論の対象は `ACD-1.1.txt` であり、本書はその次に何が入るかの記録である
-- **後任 AI**: **空の表を「記録が無い」と読まないこと。** 空が正しい状態である
+- **審査者**: list 上の議論と提出の対象は `ACD-1.0.txt`（`submission.md` の `SUBMISSION-TARGET`）であり、`ACD-1.1.txt` は凍結済み・未提出の後継テキストである（**2026-09-28 訂正**: 旧文は「議論の対象は `ACD-1.1.txt`」と述べていた）。本書はその次に何が入るかの記録である
+- **後任 AI**: 作成直後（2026-09-17）は空が正しい状態だったが、いまは 1.2 草案で閉じた errata と次版候補が載っている（2026-09-28 訂正: 旧文は現在形で「空が正しい状態である」と述べていた）

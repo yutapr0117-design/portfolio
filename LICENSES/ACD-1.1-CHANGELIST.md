@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.1-CHANGELIST.md
 audience: ai, 監査人, OSI license-review / license-discuss participants, 第三者全般
-last-updated: 2026-09-26
+last-updated: 2026-09-28
 canonical-ref: LICENSES/ACD-1.0.errata.md (欠陥の一次記録) / LICENSES/REVISION-PROTOCOL.md (§1 ラウンドの流れ・§2 版管理) / LICENSES/FROZEN.md (1.0 が動かないことの機械強制)
 ---
 
@@ -35,6 +35,7 @@ canonical-ref: LICENSES/ACD-1.0.errata.md (欠陥の一次記録) / LICENSES/REV
   2026-09-06 だけで 6 件見つけた class）。`E<n>` を引き、状態だけをここで持つ。
 - **Check 464 (BLOCKING)** が `errata.md` の全 `E<n>` がこの表に現れることを強制する。
   **落とすことを機械的に不可能にするのが、この文書の唯一の実効部分**である。
+  **2026-09-28 注**: 2026-09-18 以降の Check 464 は**この表ではなく、全版の `ACD-*-CHANGELIST.md` を横断して**「どこにも載っていない `E<n>` が無いこと」を見る（1.2 で閉じた errata がここに無くても RED にならない）。上の 2 文は 1.1 が作業場だった時点の記述である。
 - 届いた指摘は `rounds/` に無改変で保存し、分解と分類は `discussion-log.md`。そこで
   **帰結が `1.1 候補` になったものを、ここへ移す。**
 - **1.0 の本文・`spdx.xml`・`machine.json` は編集しない。** Check 453 が sha256 で止める。
@@ -47,8 +48,8 @@ canonical-ref: LICENSES/ACD-1.0.errata.md (欠陥の一次記録) / LICENSES/REV
 > 生成したもので、確定した 1.1 と 3 行食い違っていた**（`MACHINE-SURFACES-AUDIT.md` M5）—— 2026-09-24 に
 > 確定版へ当て直して訂正済み（§0.5 の注記）。
 
-**`LICENSES/ACD-1.1.txt`** —— **NOT IN FORCE / NOT SUBMITTED / NOT APPLIED** と
-自分で述べる草案。**オーナーが 2026-09-10 に「現行ライセンスはそのまま保持する必要があるが、
+**`LICENSES/ACD-1.1-DRAFT.txt`** —— **NOT IN FORCE / NOT SUBMITTED / NOT APPLIED** と
+自分で述べる草案（**2026-09-28 訂正**: 当時の file 名。2026-09-17 に `ACD-1.1.txt` として確定し、1 行目は FROZEN TEXT へ書き換えた。確定時の一括置換がこの file 名まで変えていた）。**オーナーが 2026-09-10 に「現行ライセンスはそのまま保持する必要があるが、
 次版を作成して改善し続けるのは問題ない」と述べた**ので、設計だけで止めていたものを実物にした
 （`REVISION-PROTOCOL.md` §2 が最初から定めていた「1.0 は永久凍結・次版は併置」の形）。
 
@@ -408,6 +409,8 @@ open だった理由が 4 件とも違った。** 宣言ではなく errata の�
 *"granted independently of Section 3 and does not depend on Section 3 being ineffective"* と
 述べており、そこは残っている**（E11 で落としたのは*過大な主張*のほうだけである）。
 
+**🔴 改名は一括置換しない（2026-09-28 追記・1.1 確定で実際に踏んだ）**: 1.1 の確定コミットは `ACD-1.1-DRAFT.txt` → `ACD-1.1.txt` を一括置換した。そのため、**当時の状態を述べた文**（「1 行目で NOT IN FORCE と述べる」「まだ `ACD-1.1.txt` ではない」）までが新しい名前を主語にし、3 文書で偽または自己矛盾になった（`BLIND-SPOTS-LOG.md` 2026-09-28 §8）。**1.2 を確定するとき**は、`grep -rn "ACD-1.2-DRAFT" LICENSES docs` の各行を「いまの file を指す参照」か「当時の状態の記述」かで振り分ける。置換するのは前者だけにする。
+
 **なぜ先に書くか**: **CI が最も止まってほしくない日は、版を確定させて提出する日である。**
 **その日に原因を探すのは、探さなくてよい探索である。**
 
@@ -729,6 +732,7 @@ gap 部 1,041 語を削れば届くが、**それは新規性の根拠を捨て�
 
 `errata.md` に entry を足したら、この表にも同じ `E<n>` を足す（Check 464 が強制）。
 `discussion-log.md` で帰結が `1.1 候補` になったら §3 へ移す。
+**2026-09-28 注**: 1.1 は閉じたので、上の 2 行はいまはこの文書ではなく [`ACD-1.2-CHANGELIST.md`](ACD-1.2-CHANGELIST.md) に当てはまる（分類値も `次版候補` へ改めた・`discussion-log.md`）。
 
 ## Audience-specific notes
 

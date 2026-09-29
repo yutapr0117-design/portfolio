@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.2-DRAFT.txt
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人, 後任 AI
-last-updated: 2026-09-17
+last-updated: 2026-09-28
 canonical-ref: LICENSES/ACD-1.1.txt (議論に付した確定テキスト・凍結) / LICENSES/ACD-1.2-CHANGELIST.md (何をなぜ変えるかの集約点) / LICENSES/ACD-1.0.errata.md (各変更が閉じる欠陥) / LICENSES/REVISION-PROTOCOL.md §2 (旧版は永久凍結・次版は併置)
 ---
 
@@ -39,5 +39,5 @@ canonical-ref: LICENSES/ACD-1.1.txt (議論に付した確定テキスト・凍�
 
 ## Audience-specific notes
 
-- **審査者**: これは議論の対象ではない。**議論の対象は `ACD-1.1.txt`**（凍結・sha256 pin 済み）
+- **審査者**: これは議論の対象ではない。list 上の議論と提出の対象は `ACD-1.0.txt`（`submission.md` の `SUBMISSION-TARGET`）であり、`ACD-1.1.txt` は凍結済み・未提出の後継テキストである（**2026-09-28 訂正**: 旧文は「議論の対象は `ACD-1.1.txt`」と述べていた）
 - **後任 AI**: **1.1 を直したくなったら、直すのは 1.2 である。** 1.1 は byte が pin されている
