@@ -106,21 +106,30 @@ def run(ctx):
     _mainjs43 = ROOT / "main.js"
     if _mainjs43.exists():
         _src43 = _mainjs43.read_text(encoding="utf-8")
-        # 43a — kernel demarcation header must remain.
-        check("DO NOT EDIT: AIDK Isolated Kernel" in _src43,
+        # 43a — kernel demarcation header must remain. **枠線 (║) の中の見出しとして**探す。
+        # 素の部分文字列だと、見出しの下にある WHY コメントがこの文字列を引用している
+        # (「43a = "DO NOT EDIT: AIDK Isolated Kernel" header 文字列の存在」) ため、見出しそのものを
+        # 消しても緑のままだった (2026-09-29 に mutation で実測)。
+        check(re.search(r"║\s*DO NOT EDIT: AIDK Isolated Kernel", _src43) is not None,
               "Check 43a: main.js retains the AIDK Isolated Kernel 'DO NOT EDIT' header marker",
               "Check 43a: main.js is missing the 'DO NOT EDIT: AIDK Isolated Kernel' header — "
               "the kernel demarcation (C2/P0-4) has been removed or relabeled",
               blocking=True)
+        # 43b / 43c は **コメントを除いた実行コード**で探す。main.js の WHY コメント自身が
+        # 「Check 43b が "startViewTransitionProxy" 文字列の存在を監視」「Check 43c が
+        # trustedTypes.createPolicy('default' の存在を監視」と検査文字列を引用しているため、
+        # 素の部分文字列では実装の行を消しても緑のままだった (2026-09-29 に実測)。
+        _code43 = re.sub(r"/\*.*?\*/", "", _src43, flags=re.DOTALL)
+        _code43 = re.sub(r"^\s*//.*$", "", _code43, flags=re.MULTILINE)
         # 43b — startViewTransition proxy installer must remain (View Transition safety).
-        check("startViewTransitionProxy" in _src43,
+        check("startViewTransitionProxy" in _code43,
               "Check 43b: main.js retains the startViewTransition proxy (View Transition safety device)",
               "Check 43b: main.js is missing the startViewTransition proxy installer — "
               "the kernel's View Transition / ErrorBoundary safety device (C3) is gone",
               blocking=True)
         # 43c — Trusted Types 'default' policy must remain (innerHTML/XSS block, CSP-linked).
-        check(("trustedTypes.createPolicy('default'" in _src43)
-              or ('trustedTypes.createPolicy("default"' in _src43),
+        check(("trustedTypes.createPolicy('default'" in _code43)
+              or ('trustedTypes.createPolicy("default"' in _code43),
               "Check 43c: main.js retains the Trusted Types 'default' policy (innerHTML/XSS block)",
               "Check 43c: main.js is missing the Trusted Types 'default' policy — "
               "the kernel's innerHTML/XSS defense (C5, CSP-linked) is gone",

@@ -567,7 +567,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 29 | Playwright baseline 生成リンク健全（snapshot workflow ↔ spec env signal） | BLOCKING |
 | 30 | v80+ 保守性アンカー文書が存在（repository-maintainability-map / main-js-extraction-map） | BLOCKING |
 | 42 | docs/ アーティファクト配置・命名衛生（42a: incident-artifacts 直下の命名規約 / 42b: decision・improvement-notes の配置） | BLOCKING |
-| 43 | main.js AIDK Isolated Kernel の構造健全性（43a: ヘッダマーカー / 43b: startViewTransition proxy / 43c: Trusted Types default policy / 43d: 単一トップレベル IIFE） | BLOCKING |
+| 43 | main.js AIDK Isolated Kernel の構造健全性（43a: ヘッダマーカー / 43b: startViewTransition proxy / 43c: Trusted Types default policy / 43d: 単一トップレベル IIFE）。**43a は枠線 (║) 内の見出しとして、43b / 43c はコメントを除いた実行コードで照合する** —— main.js の WHY コメント自身が 3 つの検査文字列を引用しており、素の部分文字列では実装を消しても緑だった（2026-09-29 に mutation で実測） | BLOCKING |
 | 45 | 本チェックファイルの docstring インベントリ ↔ コードセクション見出しの自己整合（45a/45b/45c） | BLOCKING |
 | 52 | file-size budget advisory（BUDGET-DATA ブロックと現行行数の照合・main.js は strong-advisory） | **ADVISORY** |
 
