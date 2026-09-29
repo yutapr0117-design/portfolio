@@ -357,4 +357,194 @@ MUTATIONS_ARCHIVE3 = [
     "find": ".github/scripts/check_repository_consistency.py | 950 | advisory\n",
     "replace": "",
 },
+    {
+    "name": "Check 455 (strong-advisory の tightness): main.js の予算を Stage 5 前の 6,400 へ戻す —— "
+            "実測 1,356 に対し 4.7 倍で **advisory が永久に鳴らない**状態。main.js は Check 365 の "
+            "hard ceiling 対象外ゆえ、この予算が**唯一のサイズ信号**であり、緩めた瞬間にサイズの "
+            "観測手段が完全に失われる。§1 の分類表が strong-advisory に与えた定義 "
+            "(「現行行数に近い tight な上限」) と実態が真逆になる drift の回帰防止 "
+            "(帰属実測済: 発火するのは 455 のみ)",
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": "\nmain.js | 1500 | strong-advisory\n",
+    "replace": "\nmain.js | 6400 | strong-advisory\n",
+},
+    {
+    "name": "Check 456 (__main__ ガード後の def): rotate ツールのガード直後に関数定義を足す —— "
+            "ガード本体 (sys.exit(main())) はその場で実行されるので、後ろの def は"
+            "**スクリプト実行時にはまだ束縛されていない**。import すると定義されるため "
+            "import 経由のテストでは動くのに CLI では NameError になる非対称。実測 (2026-08-26): "
+            "`_wire_new_archive` がこの位置にあり「受け皿が埋まったら次を起こす」機能が "
+            "npm run rotate-mutations からは一度も動いていなかった (帰属実測済: 456 のみ発火)",
+    "file": ROOT / ".github" / "scripts" / "rotate_mutation_samples.py",
+    "find": "if __name__ == \"__main__\":\n    sys.exit(main())\n",
+    "replace": "if __name__ == \"__main__\":\n    sys.exit(main())\n\n\ndef _unreachable_after_guard():\n    return None\n",
+},
+    {
+    "name": "Check 457 (配線 ⟹ 配信面の照合): freshness tool の照合対象を index.html 由来の "
+            "導出からハードコード 3 件へ戻す —— **aio-guard.js / theme-init.js / karte-init.js / "
+            "error-suppressor.js が配信面で一度も検証されない**状態へ回帰する。Check 133/134/135 は "
+            "リポジトリ内の配線しか見ないので、公開されているのが古い/壊れた版という失敗モードは "
+            "原理的に見えない (帰属実測済: 発火するのは 457 のみ)",
+    "file": ROOT / ".github" / "scripts" / "check_deployed_freshness.py",
+    "find": "    return sorted(set(root_js) | set(root_css) | {\"sw.js\", \"index.html\"}) + sorted(",
+    "replace": "    return [\"style.css\", \"main.js\", \"sw.js\"] + sorted(",
+},
+    {
+    "name": "Check 457b (導出の起点の検証): 照合対象から index.html だけを外す —— "
+            "版数 (ai:version / ai:last-modified) は**中身が変わっても動かない** "
+            "(実測: 直近 30 日で index.html は 7 commit 変更・版数 bump は 0 件) ので、"
+            "外した瞬間に **JSON-LD / CSP / meta / script 配線 / sr-only entity anchor を載せる "
+            "最も影響の大きい file** が配信面で silent に古いままになりうる状態へ戻る "
+            "(帰属実測済: 発火するのは 457b のみ)",
+    "file": ROOT / ".github" / "scripts" / "check_deployed_freshness.py",
+    "find": "{\"sw.js\", \"index.html\"}",
+    "replace": "{\"sw.js\"}",
+},
+    {
+    "name": "Check 457c (機械向け宣言面の配信検証): discovery 照合対象から .well-known/** の "
+            "導出を外す —— **200 が返ることと中身が最新であることは別**で、古い robots.txt は "
+            "クローラの到達範囲を変え、古い .well-known/* は agent が読む契約そのものを変え、"
+            "古い aio-manifest.json は agent へ誤った digest を宣言する。しかも人間には"
+            "何も見えない。実測 (2026-08-26): 導入前は discovery 層 13 件中 10 件が"
+            "存在確認どまりだった (帰属実測済: 発火するのは 457c のみ)",
+    "file": ROOT / ".github" / "scripts" / "check_deployed_freshness.py",
+    "find": "    out = set(_wellknown_paths())",
+    "replace": "    out = set()",
+},
+    {
+    "name": "Check 458b (venue の誤主張): CLAUDE.md §7 の投稿先を `license-review` へ投稿済みと"
+            "書き換える —— **取り違えには実害がある**。`license-discuss` は OSI の一般的な議論"
+            "リストで承認申請の窓口ではないので、「申請済み」と記録すると **まだ何も申請して"
+            "いない**ことに誰も気付けなくなる。2026-08-26 の 1 日で 2 度 drift した class "
+            "(帰属実測済: 発火するのは 458b のみ)",
+    "file": ROOT / "CLAUDE.md",
+    "find": "OSI `license-discuss` へ投稿済み・結果待ち",
+    "replace": "OSI `license-review` へ投稿済み・結果待ち",
+},
+    {
+    "name": "Check 461: 予算ラチェットの累積記録を stale に戻す —— 個々のラチェットに理由を書いても、"
+            "累積が更新されなければ「今日で合計いくら増えたか」が視界に入らない。予算は自分で上げられる"
+            "ので、歯止めは累積を見ることにしかない (2026-08-27 に実際 5 回分 stale 化していた)",
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    # [FIX] anchor をラチェットのたび動く値から不変部分へ移す。旧 anchor は `current=726300` を
+    #   直接掴んでおり、**次のラチェットで必ず orphan 化**した (実際に 2026-09-06 に Check 362 が検出)。
+    #   末尾に数字を足すだけで current が別値になり Check 461 が RED になる。
+    "find": "session-start=716800 current=",
+    "replace": "session-start=716800 current=9",
+    "check": CHECK,
+},
+    {
+    "name": "Check 462: Zenn 記事数の自己申告だけを動かす —— 記事の増減で文言が取り残されると、"
+            "公開面が silent に嘘の本数を名乗る。機械可読な権威シグナルを正しく保つことが主眼の"
+            "リポジトリで、公開文言の事実誤りは中核の毀損にあたる",
+    "file": ROOT / "js" / "components.js",
+    "find": "全11本の記事",
+    "replace": "全12本の記事",
+    "check": CHECK,
+},
+    {
+    "name": "Check 460 (g): 入口ページから規模の申告そのものを消す —— REVIEWERS.md は "
+            "reviewer が最初に読む英語ページで、そこが 'All N adverse facts' と完全性を主張する。"
+            "2026-09-05 に実測すると 118/14/Five と書いてあり実体は 144/57/9 で、3 つとも過少だった。"
+            "「全部開示する」と述べるドシエが開示量を小さく言うのは、間違える向きとして最悪である",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    # anchor は **数字を含めない** —— 件数は増分ごとに動くので、数字を釘にすると
+    # 次の増分で Check 362 が orphan として RED にする (本 mutation で実際に踏んだ)。
+    # "All " を落として申告そのものを消す形にすると、face (g) の「申告が見つからない」
+    # 枝を突ける —— 維持が面倒になった誰かが文ごと消す、という現実的な退行でもある。
+    # 2026-09-09 再アンカー (2 度目)。前の釘は "**Read this first.** All " で、#120 が
+    # その一文を書き換えた瞬間 orphan になった。**教訓は「数字を釘にするな」だけでは
+    # 足りない —— 説明文そのものが動く。** そこで今度は **Check 460 (g) が探す正規表現の
+    # 文字列そのもの**を釘にする: face (g) は `(\d+) worked entries, indexed by the question`
+    # を探すので、その語順を壊せば「申告が見つからない」枝が必ず発火する。
+    # **釘と検査対象が同一なので、検査が在る限り釘も在る。**
+    "find": "worked entries, indexed by the question",
+    "replace": "worked entries, listed by the question",
+    "check": CHECK,
+},
+    {
+    "name": "Check 464: 次版の変更リストから errata を 1 件落とす —— 1.0 は凍結中で「欠陥は直さず"
+            "記録する」運用なので、記録が集約点に載らなければそのまま忘れられる。1.1 の入力は "
+            "errata / review-responses-meta / review-responses-clauses / discussion-log の 4 か所に"
+            "散っており、議論後に回って集める手順は必ず落とす",
+    # [FIX 2026-09-29] 旧 anchor は 1.1 の表の E9 だった。Check 464 は 2026-09-18 から全版の変更リストを
+    # 横断して見るので、E9 が 1.2 の対応表にも現れる限り 464 は発火せず、460 / 469 が拾うだけの
+    # 帰属違いだった。全変更リストで 1 回しか現れない E23 に付け替え、464 が RED になるのを実測した。
+    "file": ROOT / "LICENSES" / "ACD-1.2-CHANGELIST.md",
+    "find": "| E23 | §2.8 |",
+    "replace": "| X23 | §2.8 |",
+    "check": CHECK,
+},
+    {
+    "name": "Check 465: rounds/ の在庫申告を実測より小さくする —— 記録が drift しないためだけに"
+            "在るディレクトリの入口が、中身の量について偽を述べる形。2026-09-06 まで実際に"
+            "「いまの状態: 空である」と書かれ続けており (against.md #89)、審査者は証拠の量を"
+            "その入口から受け取るので、小さく言うのは開示の主張を嘘にする",
+    "file": ROOT / "LICENSES" / "rounds" / "README.md",
+    # [FIX] 初版は find を「…7 ファイル」に釘付けしていた。**件数は増分のたびに動く値**なので、
+    #   翌日 8 件目を置いた時点で anchor が消え Check 362 が orphan として RED にした
+    #   (CLAUDE.md §7「安全網の anchor は『たまたま近くにある文字列』を掴みやすい」の 6 度目)。
+    #   在庫表の先頭行 —— **最初の送信であり、以後動かない** —— の行頭 `|` を落として
+    #   「行として数えられない」状態を作る形へ移した。件数見出しではなく行数の面を打つ。
+    "find": "\n| 2026-08-26 | ",
+    "replace": "\n2026-08-26 | ",
+    "check": CHECK,
+},
+    {
+    "name": "Check 466: 表紙から審査者への案内を消す —— 送った文面は GitHub リポジトリを指すので "
+            "README.md は審査者の入口である。案内が無ければ、`LICENSES/` の 24 文書は在っても"
+            "到達されない。2026-09-07 まで実際にこの案内は 214 行下にあり、手前は AI 向けブロックと"
+            "日本語の節だった (against.md #94)",
+    "file": ROOT / "README.md",
+    "find": "> **[`LICENSES/REVIEWERS.md`](LICENSES/REVIEWERS.md)** \u2014 it is in English and states the",
+    "replace": "> **the reviewer guide in this repository** \u2014 it is in English and states the",
+    "check": CHECK,
+},
+    {
+    "name": "Check 463: 送る文面から OSD 3/5/6/9 の名指しを落とす —— OSI の review-process は"
+            "「OSD に準拠する」ではなく「**3, 5, 6, 9 を満たすと specifically 明言する**」を求める。"
+            "2026-09-07 に Carlo Piana 氏が別の提出へ『required information が無いので解決するまで"
+            "コメントしない』と述べた (against.md #97) ため、欠落は議論の遅れではなく不成立を招く",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": "**OSD 5 and OSD 6**",
+    "replace": "**OSD 5/6**",
+    "check": CHECK,
+},
+    {
+    "name": "Check 467: 単一ソースだけ `paused` へ戻す —— 状態は面に散らばっており、**両方向に危険である**。"
+            "止めたのに面が残っていなければ次のセッションが送りかねず、再開したのにバナーが残れば"
+            "送れるのに送らない。marker と面が食い違ったら必ず RED になること。"
+            "**2026-09-17 に発信が再開したので、mutation の向きを逆にした** ——"
+            "**anchor が解決することは、正しい向きを打っている証拠ではない**",
+    "file": ROOT / "LICENSES" / "FROZEN.md",
+    "find": "<!-- POSTING-STATUS: active -->",
+    "replace": "<!-- POSTING-STATUS: paused 2026-09-09 -->",
+    "check": CHECK,
+},
+    {
+    "name": "Check 460 (m): register の集計行を古い値に戻す —— 項目を足すたび列は増えるのに集計行は"
+            "動かない。**しかも過少申告は #58 と同じ向きの誤りで、読み手は残作業を少なく見積もる**",
+    "file": ROOT / "LICENSES" / "ACD-OSI-BOTTLENECKS.md",
+    # **anchor は可変値に釘付けにしない。** 初版は宣言側の数 ("… 要る 6") を find にしていたが、
+    # **その数は項目を足すたび動く**ので、2026-09-13 に B2 へ OSI の ○ を足した瞬間 orphan 化した
+    # (Check 362 が捕捉)。**表の側の不変なラベルを打ち、○ を落として導出値を 1 減らす** ——
+    # 宣言と導出がずれるので Check 460 (m) は同じように RED になり、**anchor は数から独立する。**
+    # **⚠ 最初の書き直しは、解決するのに発火しなかった。** 行の途中に列を挿し込んだため、
+    # face (m) が見る「末尾 3 列」がずれず導出値が動かなかった ——**anchor が解決することは、
+    # 正しい対象を打っていることを意味しない** (Check 362 / 420 はどちらも前者しか見ない)。
+    # **○ そのものを落とす形にして RED を実測した。**
+    # 2026-09-28: B5 の status 文を E11 の実態（1.1 で閉じた）へ訂正したので anchor を追従 (Check 362 が捕捉)。
+    "find": "1.0 には文が残る。**2026-09-28 訂正**）| — | — | ○ |",
+    "replace": "1.0 には文が残る。**2026-09-28 訂正**）| — | — | — |",
+    "check": CHECK,
+},
+    {
+    "name": "Check 460 (n): §4c の「機械的に確かめた」数字を 1 つずらす —— この表は審査者に"
+            "「弁護士がいなくても機械で確かめられること」を示す面で、**表自身が『nothing enforces it』と"
+            "書いていた**（2026-09-06 の再導出では実際に 3 行が誤っていた）",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission-reference.md",
+    "find": "| 10 terms, all in §1.1",
+    "replace": "| 11 terms, all in §1.1",
+    "check": CHECK,
+},
 ]

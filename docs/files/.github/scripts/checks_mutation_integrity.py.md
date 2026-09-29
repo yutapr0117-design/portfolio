@@ -21,7 +21,7 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 | 409 | mutation の登録先（consistency / e2e）が分離されている |
 | 420 | E2E_MUTATIONS の `find` が対象 file 内で一意（probe が的を外さない） |
 | 430 | 登録した mutation が連結済みリストへ届いている（probe に乗る） |
-| 479 | **名指しする mutation が 1 件も無い Check を増やさない**（2026-09-29 実測で 138 件が未検証。既存分は「測った時点で未検証」として凍結した ratchet） |
+| 479 | **名指しする mutation が 1 件も無い Check を増やさない**（2026-09-29 実測で 138 件が未検証。既存分は「測った時点で未検証」として凍結した ratchet）。**479b** = 全 `check()` の失敗文言が自分の番号を持つ（無いと probe が帰属できない） |
 | 409 / 409b | consistency / behavior の登録先分離（`test` キーの有無 + 命名規約） |
 
 ## Why

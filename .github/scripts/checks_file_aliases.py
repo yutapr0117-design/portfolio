@@ -39,7 +39,7 @@ def run(ctx):
             check(
                 b == ref_bytes,
                 f"{p} is byte-identical to {ref_path}",
-                f"llms alias mismatch: {p} differs from {ref_path}",
+                f"Check 4: llms alias mismatch: {p} differs from {ref_path}",
             )
 
     # ── 5. .well-known/index.json == agent-skills/index.json ─────────────────────
@@ -48,7 +48,7 @@ def run(ctx):
     check(
         idx_bytes == ask_bytes,
         ".well-known/index.json == .well-known/agent-skills/index.json",
-        ".well-known/index.json and .well-known/agent-skills/index.json differ",
+        "Check 5: .well-known/index.json and .well-known/agent-skills/index.json differ",
     )
 
     # ── 190. .nojekyll file presence (GitHub Pages Jekyll bypass) (BLOCKING) ──────

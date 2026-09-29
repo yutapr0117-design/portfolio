@@ -114,7 +114,7 @@ def run(ctx):
         check(
             "baselineExists" in spec or "test.skip" in spec,
             "e2e/portfolio.spec.js: screenshot test has baseline-skip guard",
-            "e2e/portfolio.spec.js: toHaveScreenshot() without baseline-skip guard — add test.skip when no baseline exists",
+            "Check 16: e2e/portfolio.spec.js: toHaveScreenshot() without baseline-skip guard — add test.skip when no baseline exists",
         )
     else:
         print("WARNING: e2e/portfolio.spec.js not found — Playwright spec check skipped")
@@ -194,7 +194,7 @@ def run(ctx):
         check(
             _has_ttt,
             "e2e/*.spec.js: 'No Trusted Types or CSP violations in console' test exists",
-            "e2e/*.spec.js: 'No Trusted Types or CSP violations in console' test is missing",
+            "Check 28: e2e/*.spec.js: 'No Trusted Types or CSP violations in console' test is missing",
         )
 
         # Detect test() nested inside another test() by tracking brace depth (per file).
@@ -242,7 +242,7 @@ def run(ctx):
         check(
             len(_nesting_errors_28) == 0,
             f"e2e/*.spec.js ({len(_specs_28)}): all test() definitions are top-level (no nesting detected)",
-            "e2e/*.spec.js: nested test() detected — " + "; ".join(_nesting_errors_28[:3]),
+            "Check 28: e2e/*.spec.js: nested test() detected — " + "; ".join(_nesting_errors_28[:3]),
         )
     else:
         warnings.append("P0-02: e2e/*.spec.js not found — test-nesting check skipped")
@@ -260,12 +260,12 @@ def run(ctx):
         check(
             "PLAYWRIGHT_UPDATE_SNAPSHOTS" in _wf_txt,
             "update-playwright-snapshots.yml: passes PLAYWRIGHT_UPDATE_SNAPSHOTS env",
-            "update-playwright-snapshots.yml: PLAYWRIGHT_UPDATE_SNAPSHOTS env missing — baseline generation will skip the screenshot test (P0-01 deadlock)",
+            "Check 29: update-playwright-snapshots.yml: PLAYWRIGHT_UPDATE_SNAPSHOTS env missing — baseline generation will skip the screenshot test (P0-01 deadlock)",
         )
         check(
             "PLAYWRIGHT_UPDATE_SNAPSHOTS" in _spec_txt,
             "e2e/portfolio.spec.js: reads PLAYWRIGHT_UPDATE_SNAPSHOTS (baseline-generation mode aware)",
-            "e2e/portfolio.spec.js: does not read PLAYWRIGHT_UPDATE_SNAPSHOTS — screenshot test cannot run in baseline-generation mode (P0-01 deadlock)",
+            "Check 29: e2e/portfolio.spec.js: does not read PLAYWRIGHT_UPDATE_SNAPSHOTS — screenshot test cannot run in baseline-generation mode (P0-01 deadlock)",
         )
         # The screenshot skip-guard must not be closed by baselineExists() alone:
         # it must also allow the snapshot-update mode to bypass the skip.
@@ -278,7 +278,7 @@ def run(ctx):
         check(
             _guard_ok,
             "e2e/portfolio.spec.js: screenshot skip-guard combines baselineExists() with isSnapshotUpdateMode()",
-            "e2e/portfolio.spec.js: screenshot skip-guard is not gated by isSnapshotUpdateMode() — baseline can never be generated (P0-01 deadlock)",
+            "Check 29: e2e/portfolio.spec.js: screenshot skip-guard is not gated by isSnapshotUpdateMode() — baseline can never be generated (P0-01 deadlock)",
         )
     else:
         warnings.append("P0-01: update-playwright-snapshots.yml or e2e/portfolio.spec.js not found — baseline-linkage check skipped")
@@ -293,7 +293,7 @@ def run(ctx):
         check(
             (ROOT / _arch_doc).exists(),
             f"{_arch_doc} present (v80+ maintainability anchor)",
-            f"{_arch_doc} missing — v80+ staged maintainability doc absent",
+            f"Check 30: {_arch_doc} missing — v80+ staged maintainability doc absent",
         )
 
     # ── 364. store.js ingestion normalizer array-op safety (BLOCKING) ─────────────

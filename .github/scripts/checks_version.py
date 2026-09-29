@@ -38,7 +38,7 @@ def run(ctx):
     check(
         html_v is not None and ai2ai_v is not None and html_v == ai2ai_v,
         f"ai:version ({html_v}) == Pipeline-Version ({ai2ai_v})",
-        f"ai:version mismatch: index.html={html_v}, AI2AI.md={ai2ai_v}",
+        f"Check 1: ai:version mismatch: index.html={html_v}, AI2AI.md={ai2ai_v}",
     )
 
     # ── 2. main.js VERSION string ────────────────────────────────────────────────
@@ -47,7 +47,7 @@ def run(ctx):
         check(
             html_v == mainjs_v,
             f"main.js VERSION ({mainjs_v}) == ai:version ({html_v})",
-            f"main.js VERSION mismatch: main.js={mainjs_v}, index.html={html_v}",
+            f"Check 2: main.js VERSION mismatch: main.js={mainjs_v}, index.html={html_v}",
         )
 
     # ── 3. mcp.json server.version major ─────────────────────────────────────────
@@ -57,7 +57,7 @@ def run(ctx):
     check(
         mcp_major is not None and mcp_major == html_major,
         f"mcp.json server.version major ({mcp_major}) == ai:version major ({html_major})",
-        f"mcp.json server.version major ({mcp_major}) != ai:version major ({html_major})",
+        f"Check 3: mcp.json server.version major ({mcp_major}) != ai:version major ({html_major})",
     )
 
     # ── 19. sw.js CACHE_NAME matches app version ──────────────────────────────────
@@ -66,5 +66,5 @@ def run(ctx):
     check(
         sw_cache is not None and html_v is not None and sw_cache == html_v,
         f"sw.js CACHE_NAME version ({sw_cache}) == ai:version ({html_v})",
-        f"sw.js CACHE_NAME mismatch: sw.js={sw_cache}, index.html ai:version={html_v}",
+        f"Check 19: sw.js CACHE_NAME mismatch: sw.js={sw_cache}, index.html ai:version={html_v}",
     )

@@ -42,14 +42,14 @@ def run(ctx):
         check(
             f"'{_sup_hash}'" in html,
             f"index.html CSP authorizes inline suppressor (content hash {_sup_hash})",
-            f"index.html CSP does NOT authorize inline suppressor — computed {_sup_hash} "
+            f"Check 7: index.html CSP does NOT authorize inline suppressor — computed {_sup_hash} "
             f"is absent from script-src. Inline content and CSP hash are out of sync.",
         )
     else:
         check(
             False,
             "",
-            "index.html: inline suppressor <script> block not found "
+            "Check 7: index.html: inline suppressor <script> block not found "
             "(expected a plain <script> containing 'unhandledrejection').",
         )
 
@@ -60,7 +60,7 @@ def run(ctx):
         check(
             f"'{_spec_hash}'" in html,
             f"index.html CSP authorizes inline speculation rules (content hash {_spec_hash})",
-            f"index.html CSP does NOT authorize inline speculation rules — computed {_spec_hash} "
+            f"Check 7: index.html CSP does NOT authorize inline speculation rules — computed {_spec_hash} "
             f"is absent from script-src. Chrome will block prerender with "
             f'"Applying inline speculation rules violates ... script-src". '
             f"Add '{_spec_hash}' to script-src (recompute if the JSON was edited).",

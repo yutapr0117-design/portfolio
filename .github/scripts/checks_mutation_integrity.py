@@ -149,6 +149,10 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        その場で mutation を足した）。既存分は `_BASE479` に**「理由があって免除」ではなく
        「測った時点で未検証だった」**として凍結し、**それ以外の Check が名指し 0 件なら RED**。
        既存リストの Check に mutation が付いたら ADVISORY で「リストから外せ」と出す（減る向きの ratchet）。
+       **479b**: 全 `check()` の失敗文言が自分の番号 (`Check N`) を持つ。probe の帰属判定
+       (`named_check_fired`) は `::error::Check N` を探すので、番号の無い失敗文言は mutation を
+       足しても**必ず MISATTRIBUTED になる** —— 2026-09-29 に測ると 1〜35 番の 33 Check がそうで、
+       `_BASE479` から構造的に外せない状態だった (番号を付けて解消)。
        (BLOCKING)
 """
 import re
@@ -461,7 +465,7 @@ def run(ctx):
     # 構造上 mutation を登録できないと分かったもの (2026-09-29 に確かめた): 430 = 対象が
     # mutation_samples.py 自身 (自己参照 trap・find が自 entry に先に当たる) / 442 = 対象が
     # MP3/WebP の binary で probe は text として置換する / 477 = 対象が rounds/ か凍結テキスト。
-    _BASE479 = ("1-44,47-67,69-100,104-110,113,116,117,120-123,190,191,362,363,365,379,380,"
+    _BASE479 = ("1,4-8,10,12-18,21,22,24,26-28,30-34,36-44,47-67,69-100,104-110,113,116,117,120-123,190,191,362,363,365,379,380,"
                 "386-389,394,397,430,442,469,477")
     _base479 = set()
     for _tok479 in _BASE479.split(","):
@@ -502,3 +506,34 @@ def run(ctx):
     except Exception as _e479:
         check(False, "Check 479: mutation_samples import",
               f"Check 479: 検証できない ({_e479})", blocking=True)
+    # 479b — 失敗文言が番号を持つこと。番号が無いと、その Check を名指しする mutation は
+    # probe で必ず MISATTRIBUTED になり、上の ratchet を縮める手段が構造的に無くなる。
+    # 空文字 (成立時だけ呼ぶ OK 専用の check) は対象外。
+    import ast as _ast479
+    _unnum479 = []
+    for _cf479b in sorted((ROOT / ".github" / "scripts").glob("checks_*.py")) + [
+            ROOT / ".github" / "scripts" / "check_repository_consistency.py"]:
+        _s479b = _cf479b.read_text(encoding="utf-8")
+        _hdr479b = [(_i + 1, int(_m.group(1))) for _i, _l in enumerate(_s479b.split("\n"))
+                    for _m in [re.match(r"\s*#\s*──\s*(\d+)[a-z]?[.(\s]", _l)] if _m]
+        for _nd479b in _ast479.walk(_ast479.parse(_s479b)):
+            if not (isinstance(_nd479b, _ast479.Call) and getattr(_nd479b.func, "id", None) == "check"
+                    and len(_nd479b.args) >= 3):
+                continue
+            _sec479b = None
+            for _ln479b, _n479b in _hdr479b:
+                if _ln479b <= _nd479b.lineno:
+                    _sec479b = _n479b
+            _seg479b = _ast479.get_source_segment(_s479b, _nd479b.args[2]) or ""
+            if _sec479b is None or _seg479b in ('""', "''"):
+                continue
+            if not re.search(r"Check %d[a-z]?\b" % _sec479b, _seg479b):
+                _unnum479.append(f"{_cf479b.name}:{_nd479b.lineno} (Check {_sec479b})")
+    check(
+        not _unnum479,
+        "Check 479b: 全 check() の失敗文言が自分の番号を持つ (probe が帰属できる)",
+        (f"Check 479b: 失敗文言に番号 `Check N` が無い check() がある: {_unnum479[:8]}。"
+         "probe の帰属判定は `::error::Check N` を探すので、この Check を名指しする mutation は "
+         "必ず MISATTRIBUTED になる。失敗文言の先頭に `Check N: ` を付けよ"),
+        blocking=True,
+    )
