@@ -142,6 +142,14 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        どの出現を壊しても捕捉され、非一意でも害が無い（実際 sitemap.xml / index.html には
        正当な非一意 anchor が複数ある）。behavior 側だけが「特定の実行経路に当てる」性質を持つ。
        (BLOCKING)
+  479. **名指しする mutation が 1 件も無い Check を増やさない**（ratchet）。週次 probe が検証するのは
+       mutation が名指しした Check だけで、名指しが 0 件の Check は**一度も検証されない**。
+       2026-09-29 に実測すると実装済み 478 件中 **138 件**がそうだった（大半は mutation の規律が
+       できる前の 1〜123。最近の 453 / 469 / 473b / 477 / 478 も含む —— 473b は掃引で見つけて
+       その場で mutation を足した）。既存分は `_BASE479` に**「理由があって免除」ではなく
+       「測った時点で未検証だった」**として凍結し、**それ以外の Check が名指し 0 件なら RED**。
+       既存リストの Check に mutation が付いたら ADVISORY で「リストから外せ」と出す（減る向きの ratchet）。
+       (BLOCKING)
 """
 import re
 
@@ -444,3 +452,50 @@ def run(ctx):
         check(False, "Check 430: mutation_samples import",
               f"Check 430: mutation_samples を import できない ({_e430}) — 登録経路を検証できない",
               blocking=True)
+
+    # ── 479. 名指しする mutation が無い Check を増やさない (BLOCKING ratchet) ────────────
+    # probe は mutation 名の "Check N" で帰属を判定する (named_check_fired・2026-09-29)。
+    # 名指し 0 件の Check は週次 probe に一度も検証されない。既存分は下の範囲に凍結した
+    # (2026-09-29 実測 138 件から、同日に mutation を足した 473 / 478 を除く)。
+    # **この一覧は「免除の理由がある」ではなく「測った時点で未検証だった」の記録である。**
+    _BASE479 = ("1-44,47-67,69-100,104-110,113,116,117,120-123,190,191,362,363,365,379,380,"
+                "386-389,394,397,409,410,420,430,442,451-453,459,469,474,475,477")
+    _base479 = set()
+    for _tok479 in _BASE479.split(","):
+        _a479, _, _b479 = _tok479.partition("-")
+        _base479.update(range(int(_a479), int(_b479 or _a479) + 1))
+    try:
+        import importlib as _il479, sys as _sys479
+        if str(ROOT / ".github" / "scripts") not in _sys479.path:
+            _sys479.path.insert(0, str(ROOT / ".github" / "scripts"))
+        _ms479 = _il479.import_module("mutation_samples")
+        _named479 = {int(_mm.group(1)) for _x in _ms479.MUTATIONS
+                     for _mm in [re.search(r"Check (\d+)", _x["name"])] if _mm}
+        _impl479 = set()
+        for _cf479 in sorted((ROOT / ".github" / "scripts").glob("checks_*.py")) + [
+                ROOT / ".github" / "scripts" / "check_repository_consistency.py"]:
+            for _mh479 in re.finditer(r"^\s*#\s*──\s*(\d+)[a-z]?[.(\s]",
+                                      _cf479.read_text(encoding="utf-8"), re.M):
+                _impl479.add(int(_mh479.group(1)))
+        _new479 = sorted(_impl479 - _named479 - _base479)
+        check(
+            bool(_impl479) and not _new479,
+            f"Check 479: 名指しする mutation が無い Check は既存の {len(_base479 & _impl479 - _named479)} 件だけ "
+            f"(新規 0 件・実装 {len(_impl479)} 件)",
+            (f"Check 479: 名指しする mutation が 1 件も無い Check がある: {_new479}。"
+             "週次 probe は mutation 名の \"Check N\" で帰属を判定するので、名指し 0 件の Check は"
+             "**一度も検証されない**。その Check を壊す mutation を mutation_samples.py に足し、"
+             "名指しどおり RED になることを確かめよ (帰属は named_check_fired が強制する)"),
+            blocking=True,
+        )
+        _stale479 = sorted(_base479 & _named479)
+        check(
+            not _stale479,
+            "Check 479 (ADVISORY): 既存の未検証リストに、もう mutation を持つ Check は残っていない",
+            (f"Check 479 (ADVISORY): 既存の未検証リストの {_stale479} には mutation が付いた。"
+             "`_BASE479` から外してリストを縮めよ (減る向きの ratchet)"),
+            blocking=False,
+        )
+    except Exception as _e479:
+        check(False, "Check 479: mutation_samples import",
+              f"Check 479: 検証できない ({_e479})", blocking=True)

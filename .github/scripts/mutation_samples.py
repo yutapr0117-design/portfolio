@@ -510,6 +510,25 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 478: check-map の所在列を分割前の module へ戻す —— 468 の行が checks_license_dossier.py を"
+            "指していた 2026-09-28 の実例そのもの。Check 105 は番号しか見ないので、所在の誤りは 478 だけが捕まえる",
+    "file": ROOT / "docs" / "architecture" / "check-repository-consistency-map.md",
+    "find": "| BLOCKING | `checks_license_draft.py` |",
+    "replace": "| BLOCKING | `checks_license_dossier.py` |",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 479: 未検証 Check の既存リストから 1 件消す —— そのまま名指し 0 件の Check が「新規」として"
+            "現れる形。ratchet が効いていることの非 vacuity (対象は checks_mutation_integrity.py なので"
+            " mutation_samples.py の自己参照 trap に当たらない)",
+    "file": ROOT / ".github" / "scripts" / "checks_mutation_integrity.py",
+    "find": '_BASE479 = ("1-44,',
+    "replace": '_BASE479 = ("2-44,',
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

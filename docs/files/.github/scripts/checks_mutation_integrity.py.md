@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/checks_mutation_integrity.py
 audience: ai, human (新卒), 監査人, 学術研究者, 第三者全般
-last-updated: 2026-08-10
+last-updated: 2026-09-29
 canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK_SOURCE_FILES) / .github/scripts/mutation_probe.py (runner) / .github/scripts/mutation_samples.py (データ)
 ---
 
@@ -9,7 +9,7 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 
 ## What
 
-**mutation 安全網そのものの完全性**を守る Check 群（362 / 379 / 380 / 397 / 399 / 409・すべて BLOCKING）を所有する split module。`checks_maintainability.py` から「meta-QA」カテゴリとして切り出した。
+**mutation 安全網そのものの完全性**を守る Check 群（362 / 379 / 380 / 397 / 399 / 409 / 420 / 430 / 479・すべて BLOCKING）を所有する split module。`checks_maintainability.py` から「meta-QA」カテゴリとして切り出した。
 
 | Check | 守る面 |
 | :-- | :-- |
@@ -17,7 +17,11 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 | 379 | E2E_MUTATIONS の `test` フィールドが実在の e2e title に解決する（≥1） |
 | 380 | `replace` ≠ `find`（no-op mutation は必ず SURVIVED する偽陰性） |
 | 397 | `test` フィールドが**ただ一つ**の test に解決する（帰属の曖昧化防止） |
-| 399 | mutation-probe の catch 判定が Check 362 の副作用で自動成立しない |
+| 399 | mutation-probe の catch 判定が Check 362 の副作用で自動成立せず、**名前に書かれた Check 自身の発火を要求する**（`named_check_fired`・2026-09-29） |
+| 409 | mutation の登録先（consistency / e2e）が分離されている |
+| 420 | E2E_MUTATIONS の `find` が対象 file 内で一意（probe が的を外さない） |
+| 430 | 登録した mutation が連結済みリストへ届いている（probe に乗る） |
+| 479 | **名指しする mutation が 1 件も無い Check を増やさない**（2026-09-29 実測で 138 件が未検証。既存分は「測った時点で未検証」として凍結した ratchet） |
 | 409 / 409b | consistency / behavior の登録先分離（`test` キーの有無 + 命名規約） |
 
 ## Why
