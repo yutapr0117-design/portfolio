@@ -500,6 +500,35 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 473b: 否定済みの起草主体の句を、訂正の印なしで審査者向けの面へ戻す —— 2026-09-23 に steward 本人の"
+            "手紙で覆った「ライセンスは頼まれていない」型の記述が、現在形の面に再び現れる形。2026-09-29 まで"
+            "この Check を狙う mutation は 0 件だった (全件帰属掃引で判明)",
+    "file": ROOT / "LICENSES" / "QUESTION-INDEX.md",
+    "find": "`review-responses-meta.md` Q32d; `against.md` #62 |",
+    "replace": "`review-responses-meta.md` Q32d; `against.md` #62 |\n\nThe owner did not commission it.",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 478: check-map の所在列を分割前の module へ戻す —— 468 の行が checks_license_dossier.py を"
+            "指していた 2026-09-28 の実例そのもの。Check 105 は番号しか見ないので、所在の誤りは 478 だけが捕まえる",
+    "file": ROOT / "docs" / "architecture" / "check-repository-consistency-map.md",
+    "find": "| BLOCKING | `checks_license_draft.py` |",
+    "replace": "| BLOCKING | `checks_license_dossier.py` |",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 479: 未検証 Check の既存リストから 1 件消す —— そのまま名指し 0 件の Check が「新規」として"
+            "現れる形。ratchet が効いていることの非 vacuity (対象は checks_mutation_integrity.py なので"
+            " mutation_samples.py の自己参照 trap に当たらない)",
+    "file": ROOT / ".github" / "scripts" / "checks_mutation_integrity.py",
+    "find": '_BASE479 = ("1-44,',
+    "replace": '_BASE479 = ("2-44,',
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
@@ -555,57 +584,11 @@ _E2E_TAIL = [
 
 
 
-_E2E_TAIL.append({
-    "name": "settings の aria-labelledby が dangling になる —— 支援技術がその参照を辿ると存在しない要素へ着地し、グループ名が失われる。視覚には一切出ないので screenshot でも目視でも気付けない",
-    "file": ROOT / "js" / "settings-page.js",
-    "find": "'aria-labelledby': 'settingsIncludeGroupLabel'",
-    "replace": "'aria-labelledby': 'settingsIncludeGroupLabelZZ'",
-    "test": "全ルートの aria-* id 参照が実在要素へ解決する",
-})
 
-_E2E_TAIL.append({
-    "name": "data-ai-state を JSON.stringify でなく文字列連結で組む —— filter は URL の query をそのまま echo するので、引用符を含む query 1 つで属性全体が壊れた JSON になり agent は route も loading も読めなくなる。視覚に一切出ない機械可読面の silent failure",
-    "file": ROOT / "main.js",
-    "find": """                document.body.setAttribute('data-ai-state', JSON.stringify({
-                    route: route.name || 'home',
-                    // [FIX] 従来は `''` 決め打ちで絞り込みを宣言できなかった (router の単一ソースへ)。""",
-    "replace": """                document.body.setAttribute('data-ai-state', '{"route":"' + (route.name || 'home') + '","filter":"' + Router.getFilterString() + '","loading":false}'); void JSON.stringify({
-                    route: route.name || 'home',
-                    // [FIX] 従来は `''` 決め打ちで絞り込みを宣言できなかった (router の単一ソースへ)。""",
-    "test": "data-ai-state は敵対的な query でも valid JSON であり続ける",
-})
 
-_E2E_TAIL.append({
-    "name": "quiz の動的 import に cache-buster が付く —— ESM のモジュールキャッシュが効かなくなり、開くたびに 83KB を再ダウンロードする。体感は速いままなので気付きにくいが通信量とバッテリーには効く",
-    "file": ROOT / "main.js",
-    "find": "import('./js/quiz/aws-quiz-data.js').then(m => m.awsQuizData)",
-    "replace": "import('./js/quiz/aws-quiz-data.js?v=' + Date.now()).then(m => m.awsQuizData)",
-    "test": "Revisiting the quiz does not re-download the question set",
-})
 
-_E2E_TAIL.append({
-    "name": "「全リセット」が appsData を戻さなくなる —— 稼働中タイマー / quiz 検索語 / 未送信ノートが取り残され、「初期化したのに前の状態が残っている」一貫性の破れになる",
-    "file": ROOT / "js" / "settings-page.js",
-    "find": "            State.set(Store.createDefaultStore());",
-    "replace": "            State.update(s => { s.projects = Store.createDefaultStore().projects; });",
-    "test": "Full reset clears pomodoro / quiz search / notes together",
-})
 
-_E2E_TAIL.append({
-    "name": "ダークテーマの前景トークン (--on-tint-success) が暗背景に暗い色になる —— 全ブランド x ダークの全ページでコントラストが落ちるが、既定のライトでは何も起きないので気付きにくい",
-    "file": ROOT / "style.css",
-    "find": """                --on-tint-success: #4ade80;""",
-    "replace": """                --on-tint-success: #1f3d2a;""",
-    "test": "indigo ダークの全ページで color-contrast",
-})
 
-_E2E_TAIL.append({
-    "name": "nav リンクの aria-current が付かなくなる —— SR 利用者は「今どこにいるか」を失う。視覚は active スタイルが残るので目視でも screenshot でも気付けない (sidebar と drawer が同じ navLink を共有するため両方が同時に壊れる)",
-    "file": ROOT / "js" / "components.js",
-    "find": "'aria-current': item.active ? 'page' : undefined",
-    "replace": "'aria-current': undefined",
-    "test": "aria-current marks exactly the active nav item",
-})
 
 _E2E_TAIL.append({
     "name": "Lab トグルの開閉状態が永続化されなくなる —— 開いておいた利用者はルート遷移やリロードのたびに畳まれた状態へ戻る。1 回の操作では気付けず「たまに閉じている」としか見えない",

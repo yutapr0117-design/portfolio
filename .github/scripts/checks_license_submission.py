@@ -562,10 +562,13 @@ def run(ctx):
         # 行は register の 1 entry に、段落は折り返された散文に対応する。
         _paras473b = _raw473b.split("\n\n")
         _units473b = _raw473b.splitlines() + _paras473b
+        # 単位の正規化は句に依存しないので file ごとに 1 回だけ (2026-09-29: 旧実装は句 × 単位で
+        # 毎回 re.sub し、1 回の gate で約 18 万回・gate 全体の約 2 割を使っていた)。
+        _norm_units473b = [(_u, re.sub(r"\s+", " ", _u)) for _u in _units473b]
         for _d in _dead473b:
             _dn = re.sub(r"\s+", " ", _d)
-            for _u in _units473b:
-                if _dn not in re.sub(r"\s+", " ", _u):
+            for _u, _un in _norm_units473b:
+                if _dn not in _un:
                     continue
                 if not _mark473b.search(_u):
                     _bad473b.append(f"{_f473b.relative_to(ROOT)}: 否定済みの句 {_d!r} が"
