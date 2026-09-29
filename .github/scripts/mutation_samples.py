@@ -267,8 +267,8 @@ _MUTATIONS_TAIL.append({
             "現れる形。ratchet が効いていることの非 vacuity (対象は checks_mutation_integrity.py なので"
             " mutation_samples.py の自己参照 trap に当たらない)",
     "file": ROOT / ".github" / "scripts" / "checks_mutation_integrity.py",
-    "find": '_BASE479 = ("1,4-8,',
-    "replace": '_BASE479 = ("4-8,',
+    "find": '_BASE479 = ("6,7,10,',
+    "replace": '_BASE479 = ("7,10,',
     "check": CHECK,
 })
 
@@ -435,6 +435,94 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "robots.txt",
     "find": "Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml",
     "replace": "Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.txt",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 1: index.html の ai:version を AI2AI.md の Pipeline-Version からずらす (2026-09-29 まで名指し 0 件)",
+    "file": ROOT / "index.html",
+    "find": "<meta name=\"ai:version\" content=\"v74\" />",
+    "replace": "<meta name=\"ai:version\" content=\"v75\" />",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 4: llms.txt を llms-full.txt と byte 不一致にする (2026-09-29 まで名指し 0 件)",
+    "file": ROOT / "llms.txt",
+    "find": "# AI-Driven PM Portfolio: Yuta Yokoi",
+    "replace": "# AI-Driven PM Portfolio: Yuta  Yokoi",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 5: .well-known/index.json を agent-skills/index.json と食い違わせる (2026-09-29 まで名指し 0 件)",
+    "file": ROOT / ".well-known" / "index.json",
+    "find": "  \"skills\": [",
+    "replace": "  \"skillz\": [],\n  \"skills\": [",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 8: header 専用の X-Content-Type-Options を meta で入れる (2026-09-29 まで名指し 0 件)",
+    "file": ROOT / "index.html",
+    "find": "    <meta charset=\"utf-8\" />",
+    "replace": "    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-Content-Type-Options\" content=\"nosniff\" />",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 17: main.js の LAST_UPDATED を ai:last-modified からずらす (2026-09-29 まで名指し 0 件)",
+    "file": ROOT / "main.js",
+    "find": "            LAST_UPDATED:  '2026-05-31',",
+    "replace": "            LAST_UPDATED:  '2026-05-30',",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 22: Session Record の見出しを降順にする (2026-09-29 まで名指し 0 件)",
+    "file": ROOT / "AI2AI.md",
+    "find": "## [HANDOFF] Session Record #37 —",
+    "replace": "## [HANDOFF] Session Record #3 —",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 33: robots.txt から PRIMARY の Zenn slug を落とす (2026-09-29 まで名指し 0 件)",
+    "file": ROOT / "robots.txt",
+    "find": "# 0.  https://zenn.dev/yuta_yokoi/articles/5d1d7a7438d48d",
+    "replace": "# 0.  https://zenn.dev/yuta_yokoi/articles/5d1d7a7438d48x",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 39: sitemap の <loc> を存在しない file へ (2026-09-29 まで名指し 0 件)",
+    "file": ROOT / "sitemap.xml",
+    "find": "<loc>https://yutapr0117-design.github.io/portfolio/llms.txt</loc>",
+    "replace": "<loc>https://yutapr0117-design.github.io/portfolio/llms-missing.txt</loc>",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 43a: kernel の見出しそのものを消す (WHY コメントの引用だけが残る = 旧判定では緑だった形) (2026-09-29 まで名指し 0 件)",
+    "file": ROOT / "main.js",
+    "find": "║  DO NOT EDIT: AIDK Isolated Kernel — AIDK Architecture",
+    "replace": "║  (kernel header removed) — AIDK Architecture",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 43b: VT proxy の実装から名前を消す (コメントの引用だけが残る = 旧判定では緑だった形) (2026-09-29 まで名指し 0 件)",
+    "file": ROOT / "main.js",
+    "find": "            document.startViewTransition = function startViewTransitionProxy(callback) {",
+    "replace": "            document.startViewTransition = function vtProxy(callback) {",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 43c: Trusted Types の default policy を別名にする (コメントの引用だけが残る = 旧判定では緑だった形) (2026-09-29 まで名指し 0 件)",
+    "file": ROOT / "main.js",
+    "find": "                trustedTypes.createPolicy('default', {",
+    "replace": "                trustedTypes.createPolicy('defaultx', {",
     "check": CHECK,
 })
 

@@ -11,7 +11,7 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 
 `check_repository_consistency.py` 分割トラックの 38 個目の split module。kernel/canary structural integrity と CI lint-coupling を守る非連続クラスタ Check **43/44/46/53/54/55/58** を内包し、`run(ctx)` で monolith から呼ばれる。
 
-- 43(main.js AIDK Isolated Kernel structural integrity) / 44(AIO provenance canary token cross-surface) / 46(package.json lint scripts JS-set coverage) / 53(index.html modulepreload href resolution) / 54(ESLint ↔ @eslint/js major coupling) / 55(CI lint-target authoritative coupling) / 58(e2e ALL_ROUTES ↔ main.js switch set equality)。
+- 43(main.js AIDK Isolated Kernel structural integrity・43a は枠線 ║ 内の見出し / 43b・43c はコメントを除いた実行コードで照合 —— WHY コメントが検査文字列を引用しているため、素の部分文字列では実装を消しても緑だった) / 44(AIO provenance canary token cross-surface) / 46(package.json lint scripts JS-set coverage) / 53(index.html modulepreload href resolution) / 54(ESLint ↔ @eslint/js major coupling) / 55(CI lint-target authoritative coupling) / 58(e2e ALL_ROUTES ↔ main.js switch set equality)。
 
 ## Why
 
