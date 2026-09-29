@@ -270,9 +270,12 @@ _MUTATIONS_TAIL.append({
             "記録する」運用なので、記録が集約点に載らなければそのまま忘れられる。1.1 の入力は "
             "errata / review-responses-meta / review-responses-clauses / discussion-log の 4 か所に"
             "散っており、議論後に回って集める手順は必ず落とす",
-    "file": ROOT / "LICENSES" / "ACD-1.1-CHANGELIST.md",
-    "find": "| E9 | §10.4 |",
-    "replace": "| E99 | §10.4 |",
+    # [FIX 2026-09-29] 旧 anchor は 1.1 の表の E9 だった。Check 464 は 2026-09-18 から全版の変更リストを
+    # 横断して見るので、E9 が 1.2 の対応表にも現れる限り 464 は発火せず、460 / 469 が拾うだけの
+    # 帰属違いだった。全変更リストで 1 回しか現れない E23 に付け替え、464 が RED になるのを実測した。
+    "file": ROOT / "LICENSES" / "ACD-1.2-CHANGELIST.md",
+    "find": "| E23 | §2.8 |",
+    "replace": "| X23 | §2.8 |",
     "check": CHECK,
 })
 

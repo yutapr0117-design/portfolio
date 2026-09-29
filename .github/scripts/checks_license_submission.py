@@ -261,6 +261,9 @@ def run(ctx):
                                    if _c in _universe472 and _c not in _have472)
                     if _miss:
                         _bad472.append(f"{_rel472}: {_miss}")
+                _cls472 = sorted((ROOT / "LICENSES").glob("ACD-*-CHANGELIST.md"),
+                                 key=lambda _p: [int(_x) for _x in re.findall(r"\d+", _p.name)])
+                _latest_cl472 = _cls472[-1].name if _cls472 else "ACD-<版>-CHANGELIST.md"
                 check(
                     not _bad472,
                     f"Check 472: 提出側 {len(_faces472)} 面の条項引用が {_ver472} に実在する",
@@ -269,7 +272,8 @@ def run(ctx):
                      "1.1 以降に無く、§16.4〜§16.6 は番号が同じまま意味が違う。"
                      "**提出物が「何も述べていない条」へ審査者を送るのは、最初に確かめられる種類の誤りである** "
                      "(`against.md` #144)。SUBMISSION-TARGET を切り替えたら引用も写像せよ "
-                     "(対応表は `ACD-1.1-CHANGELIST.md` の条項対応節)"),
+                     f"(対応表は最新版の変更リスト `{_latest_cl472}` の「条項の対応表」節。"
+                     "旧文は閉じた 1.1 の変更リストを指していた —— 2026-09-29 訂正)"),
                     blocking=True,
                 )
 
