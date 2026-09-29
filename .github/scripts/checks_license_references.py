@@ -150,6 +150,17 @@ def run(ctx):
 
         _bad471 = []
         _files471 = sorted(_lic471.glob("*.md")) + sorted((ROOT / "docs" / "files" / "LICENSES").glob("*.md"))
+        # [2026-09-29] 系列の節番号集合はファイルにも行にも依存しないので、行ループの外で 1 回だけ作る。
+        # 旧実装は行ごとに glob + sorted を回しており、1 回の gate で glob が約 69 万回呼ばれて
+        # gate 全体の約 3 割を占めていた (週次 probe は mutation ごとに gate を回すので、その分が全件に乗る)。
+        _series471 = set()
+        # **2026-09-24: 決め打ちの 5 file から導出へ。** face (f) は 09-19 に導出へ直したが
+        # この (e) は残っていた ——**同じ系列を見る 2 つの face が別の file 集合を見ていた。**
+        # 分割で生まれた `review-venue.md` の節を指す裸の参照が、ここだけで未解決になる。
+        for _sf471 in sorted(_p.name for _p in _lic471.glob("ACD-1.0.*.md")):
+            _series471 |= _headnum471.get(_sf471, set())
+        _pack471 = (_headnum471.get("ACD-1.0.submission.md", set())
+                    | _headnum471.get("ACD-1.0.submission-reference.md", set()))
         for _f471 in _files471:
             for _i471, _l471 in enumerate(_f471.read_text(encoding="utf-8").split("\n"), 1):
                 # (a) rounds/ —— 拡張子で終端を決める。**行の折り返しや省略記号 (…) を
@@ -204,14 +215,6 @@ def run(ctx):
                 # 外国法の条番号 `§365` `§309` / 想定問答の `§31` `§32` = Q 記法）。
                 # **残る 1 箇所が実欠陥だった** —— どこにも存在しない `§27` を「失敗」として引いていた。
                 # **一般形: 「機械で判定できない」と結論する前に、その形が単一の形かを見る。**
-                _series471 = set()
-                # **2026-09-24: 決め打ちの 5 file から導出へ。** face (f) は 09-19 に導出へ直したが
-                # この (e) は残っていた ——**同じ系列を見る 2 つの face が別の file 集合を見ていた。**
-                # 分割で生まれた `review-venue.md` の節を指す裸の参照が、ここだけで未解決になる。
-                for _sf471 in sorted(_p.name for _p in _lic471.glob("ACD-1.0.*.md")):
-                    _series471 |= _headnum471.get(_sf471, set())
-                _pack471 = (_headnum471.get("ACD-1.0.submission.md", set())
-                            | _headnum471.get("ACD-1.0.submission-reference.md", set()))
                 for _m471 in _bare471.finditer(_l471):
                     _sid471 = _m471.group(1)
                     if _named471.search(_l471[:_m471.start()]):

@@ -391,11 +391,13 @@ def run(ctx):
     # (`.claude/agents/aio-guardian.md` の "**Orchestrator approval recorded?** … REFUSE") が
     # **先頭大文字ゆえに素通り**した —— scope は届いていたのに照合が届いていなかった。
     _viol436 = []
+    _defer_lo436 = [_p.lower() for _p in _DEFER436]   # 行ごとに lower() し直さない (2026-09-29)
+    _ok_lo436 = [_o.lower() for _o in _OK436]
     for _f in _files436:
         for _n, _line in _normative_lines436(_f):
             _lo = _line.lower()
-            if any(_p.lower() in _lo for _p in _DEFER436) and not any(
-                _o.lower() in _lo for _o in _OK436
+            if any(_p in _lo for _p in _defer_lo436) and not any(
+                _o in _lo for _o in _ok_lo436
             ):
                 _viol436.append(f"{_f.relative_to(ROOT)}:{_n}")
     # 436b: オーナーの発話を「指示」「命令」と書いていないこと。**窓は行内 60 字**で取る ——
