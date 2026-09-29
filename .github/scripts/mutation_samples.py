@@ -494,6 +494,52 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 409: consistency 側の mutation に e2e の `test` キーを混ぜる —— e2e probe では走らず "
+            "consistency probe では恒久 SURVIVED になる登録ミスの形 (対象は archive なので自己参照 trap に当たらない)",
+    "file": ROOT / ".github" / "scripts" / "mutation_samples_archive.py",
+    "find": '        "name": "Check 45 (docstring↔section bijection): break a section-header number",',
+    "replace": '        "test": "x",\n        "name": "Check 45 (docstring↔section bijection): break a section-header number",',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 410: notes editor の maxlength を外す —— 入力できる文字数と保存される文字数がずれ、"
+            "超過分がリロードで黙って消える形 (2026-09-29 まで名指し 0 件)",
+    "file": ROOT / "js" / "apps.js",
+    "find": "            maxlength: CONSTANTS.LIMITS.NOTES_TEXT,\n",
+    "replace": "",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 420: e2e mutation の find が対象 file 内で 2 箇所になる —— probe は先頭 1 件しか置換しないので"
+            "別の箇所を壊して silent SURVIVED になる形",
+    "file": ROOT / "js" / "ai-page.js",
+    "find": "                                'aria-label': 'AI アシスタントへの依頼を入力',\n",
+    "replace": "                                'aria-label': 'AI アシスタントへの依頼を入力',\n"
+               "                                'aria-label': 'AI アシスタントへの依頼を入力',\n",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 451c: 公開 manifest の ai_training_permitted を反転 —— 機械可読記述子と公開面が食い違い、"
+            "agent が 1 回の fetch で受け取る許諾判定が偽になる形 (451a は凍結 file を触るので 453 と帰属が重なる・"
+            "こちらを選んだ)",
+    "file": ROOT / ".well-known" / "aio-manifest.json",
+    "find": '    "ai_training_permitted": true,',
+    "replace": '    "ai_training_permitted": false,',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 452: 提出準備マーカーの項数を 1 つずらす —— 「達した」という判断を別のテキストについて読ませる形",
+    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
+    "find": "(16 節 / 82 項 / 597 行",
+    "replace": "(16 節 / 81 項 / 597 行",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
