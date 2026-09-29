@@ -80,7 +80,9 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        review-responses-clauses の「1.1 候補」/ discussion-log の帰結値）。オーナーの運用方針は
        「**届いた議論をそのまま全部取り込んだ改善版を出す**」で、**議論中に貯めたものも同じ入力**
        である。議論が終わってから 4 か所を回って集める手順は必ず落とすので、
-       `ACD-1.1-CHANGELIST.md` を単一の集約点とし、**errata の全件がそこに現れること**を強制する。
+       `ACD-<版>-CHANGELIST.md` を集約点とし、**errata の全件がいずれかの版の変更リストに現れること**を
+       強制する（2026-09-18 から版に依らない形。1.1 を確定した後は 1.2 で閉じた errata が 1.1 の表に
+       無いのが正しいため。旧 docstring は 1.1 決め打ちのまま残っていた —— 2026-09-29 訂正）。
        内容の複製は要求しない（複製は drift する）—— **落ちていないこと**だけを見る。(BLOCKING)
 
   461c. **`LICENSES/*.md` がすべて `last-updated` を宣言していること** (BLOCKING):

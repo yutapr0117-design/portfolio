@@ -171,7 +171,7 @@ def run(ctx):
                 "Check 468d: gap を担う条項 (§6 / §9 / §8.4 の射程語) が successor でも生きている",
                 (f"Check 468d: 次版で gap が失われている: {_lost468}。**この instrument が新規である"
                  "理由は §6 / §8.4 / §9 の 3 点であり、短くする圧力がかかったとき最初に削られうるのが"
-                 "ここである。** 意図的に変えるなら `ACD-1.1-CHANGELIST.md` に記録し、"
+                 f"ここである。** 意図的に変えるなら `{_dr468.name.replace('-DRAFT.txt', '-CHANGELIST.md')}` に記録し、"
                  "**register B10 の主張も同時に書き換えること**"),
                 blocking=True,
             )
