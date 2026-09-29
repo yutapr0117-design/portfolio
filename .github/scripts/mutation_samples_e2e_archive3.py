@@ -762,4 +762,50 @@ E2E_MUTATIONS_ARCHIVE3 = [
     "replace": "h('h2', { class: 'h3' }, '\U0001F4CB Executive Summary')",
     "test": "全ルートで英語だけの文に lang=",
 },
+    {
+    "name": "settings の aria-labelledby が dangling になる —— 支援技術がその参照を辿ると存在しない要素へ着地し、グループ名が失われる。視覚には一切出ないので screenshot でも目視でも気付けない",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "'aria-labelledby': 'settingsIncludeGroupLabel'",
+    "replace": "'aria-labelledby': 'settingsIncludeGroupLabelZZ'",
+    "test": "全ルートの aria-* id 参照が実在要素へ解決する",
+},
+    {
+    "name": "data-ai-state を JSON.stringify でなく文字列連結で組む —— filter は URL の query をそのまま echo するので、引用符を含む query 1 つで属性全体が壊れた JSON になり agent は route も loading も読めなくなる。視覚に一切出ない機械可読面の silent failure",
+    "file": ROOT / "main.js",
+    "find": """                document.body.setAttribute('data-ai-state', JSON.stringify({
+                    route: route.name || 'home',
+                    // [FIX] 従来は `''` 決め打ちで絞り込みを宣言できなかった (router の単一ソースへ)。""",
+    "replace": """                document.body.setAttribute('data-ai-state', '{"route":"' + (route.name || 'home') + '","filter":"' + Router.getFilterString() + '","loading":false}'); void JSON.stringify({
+                    route: route.name || 'home',
+                    // [FIX] 従来は `''` 決め打ちで絞り込みを宣言できなかった (router の単一ソースへ)。""",
+    "test": "data-ai-state は敵対的な query でも valid JSON であり続ける",
+},
+    {
+    "name": "quiz の動的 import に cache-buster が付く —— ESM のモジュールキャッシュが効かなくなり、開くたびに 83KB を再ダウンロードする。体感は速いままなので気付きにくいが通信量とバッテリーには効く",
+    "file": ROOT / "main.js",
+    "find": "import('./js/quiz/aws-quiz-data.js').then(m => m.awsQuizData)",
+    "replace": "import('./js/quiz/aws-quiz-data.js?v=' + Date.now()).then(m => m.awsQuizData)",
+    "test": "Revisiting the quiz does not re-download the question set",
+},
+    {
+    "name": "「全リセット」が appsData を戻さなくなる —— 稼働中タイマー / quiz 検索語 / 未送信ノートが取り残され、「初期化したのに前の状態が残っている」一貫性の破れになる",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "            State.set(Store.createDefaultStore());",
+    "replace": "            State.update(s => { s.projects = Store.createDefaultStore().projects; });",
+    "test": "Full reset clears pomodoro / quiz search / notes together",
+},
+    {
+    "name": "ダークテーマの前景トークン (--on-tint-success) が暗背景に暗い色になる —— 全ブランド x ダークの全ページでコントラストが落ちるが、既定のライトでは何も起きないので気付きにくい",
+    "file": ROOT / "style.css",
+    "find": """                --on-tint-success: #4ade80;""",
+    "replace": """                --on-tint-success: #1f3d2a;""",
+    "test": "indigo ダークの全ページで color-contrast",
+},
+    {
+    "name": "nav リンクの aria-current が付かなくなる —— SR 利用者は「今どこにいるか」を失う。視覚は active スタイルが残るので目視でも screenshot でも気付けない (sidebar と drawer が同じ navLink を共有するため両方が同時に壊れる)",
+    "file": ROOT / "js" / "components.js",
+    "find": "'aria-current': item.active ? 'page' : undefined",
+    "replace": "'aria-current': undefined",
+    "test": "aria-current marks exactly the active nav item",
+},
 ]
