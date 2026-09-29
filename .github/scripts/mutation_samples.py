@@ -71,78 +71,11 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 448 (Agent Skills 仕様適合): 必須 field `description` を落とす —— 仕様の設計は "
-            "「agent は起動時に name と description だけを読んで関連性を判断する」progressive "
-            "disclosure なので、欠けると **agent は中身を取ってみるまで用途が判らない**。"
-            "2026-08-23 まで実際に全 entry で欠落しており、宣言した $schema で検証する agent は "
-            "index ごと拒否していた",
-    "file": ROOT / ".well-known" / "agent-skills" / "index.json",
-    "find": '"description": "Read the authoritative machine-readable context',
-    "replace": '"_description_removed_by_probe": "Read the authoritative machine-readable context',
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 449a (RFC 9727 関係型): カタログのメンバーを `item` ではなく `api-catalog` "
-            "関係で列挙する —— RFC 9727 でこの関係は「**別の API カタログへの入れ子**」を意味する "
-            "ので、`llms-full.txt` などカタログでないリソースを「これらは全てカタログだ」と偽って "
-            "宣言することになり、**仕様に従う agent はそれらを linkset として parse しようとして "
-            "失敗する**。2026-08-23 まで実際に 7 件すべてがこの状態で、Check 165 は JSON 構造と "
-            "anchor しか見ないため検出層が存在しなかった",
-    "file": ROOT / ".well-known" / "api-catalog",
-    "find": '"item": [',
-    "replace": '"api-catalog": [',
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 450 (非日本語スクリプト混入): 規範層の「権威テキスト」前半 3 字をキリル文字へ "
-            "戻す —— 字形が近いため目視では気付けず、spell-check は走らず lint は JS しか読まず "
-            "prose は何とも比較されないので **どの層も検出しない**。2026-08-23 まで実際に規範層 "
-            "(C6 を説明する行) と decision record の 2 箇所に残存していた",
-    "file": ROOT / "docs" / "architecture" / "repository-maintainability-map.md",
-    "find": "\u6a29\u5a01\u30c6\u30ad\u30b9\u30c8",
-    "replace": "\u6a29\u5a01\u0442\u0435\u043a\u30b9\u30c8",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 436 (裁可待ち文言・scope + 綴り拡張): agent 定義の pre-edit checklist を "
-            "「承認が記録されていなければ REFUSE」へ戻す —— `.claude/agents/` は**エージェントの "
-            "挙動を実際に駆動する層**で、ここに承認ゲートがあると AIO 編集を通すたびに canon が "
-            "存在しないと明記した「裁可待ち」を再生産する。旧 scope は `.claude/` を一度も見て "
-            "おらず、しかも照合が case-sensitive だったため先頭大文字の実在文言を素通りしていた",
-    "file": ROOT / ".claude" / "agents" / "aio-guardian.md",
-    "find": "1. **Is every claim true and non-fabricated?**",
-    "replace": "1. **Orchestrator approval recorded?** If not, REFUSE.",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 436 (mirror 面 scope): docs/files/ mirror の C6 記述を承認ゲート型へ戻す —— "
-            "mirror doc は「この file を編集するとき何を満たすか」を述べる規範面として読まれる。"
-            "2026-08-23 に手作業で 9 枚を掃引したが **綴りを 3 つ見落として 4 枚が残った** ゆえ、"
-            "per-instance では閉じない class として構造封じへ昇華した",
-    "file": ROOT / "docs" / "files" / "llms-full.txt.md",
-    "find": "semantic \u7de8\u96c6\u306f C6 \u306e 3 \u4e0d\u5909\u6761\u4ef6",
-    "replace": "semantic \u7de8\u96c6\u306f orchestrator \u660e\u793a\u627f\u8a8d\u5fc5\u9808",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 454 (危険域 file の予算登録): BUDGET-DATA から check_repository_consistency.py の "
-            "登録行を除去 → その file は Check 52 の advisory 対象から外れ、**早期警告が一度も出ないまま** "
-            "Check 365 の 1,000 行 BLOCKING へ飛ぶ状態へ戻る。導入時に実在の未登録 5 file を検出した "
-            "class の回帰防止 (帰属実測済: 発火するのは 454 のみ。52/59/365 は緑のまま —— "
-            "エラー本文中の参照を grep が拾って 4 件と誤読しかけたので、先頭の Check 番号で帰属し直した)。"
-            "\n\n    NOTE: **この mutation の前提はデータ条件** (対象 file が >800 行であること) である。"
-            "対象を分割・圧縮すると Check 454 が対象外と判断し、mutation は **silent に vacuous 化する**。"
-            "実際 2026-08-26 に checks_behavioral.py (924 → 589 行) を指しており、同じセッションの後続 PR で"
-            "分割した結果 probe が SURVIVED を報告した。**Check 362 (anchor 解決) も 420 (一意性) も"
-            "これを捕捉しない** —— anchor は解決するし一意でもあり、ただ load-bearing でなくなるだけだから。"
-            "捕捉層は probe だけである。SURVIVED になったら、危険域に残っている file へ**指し直す**こと"
-            "(対象は `git ls-files` で >800 行の登録済み file を数えれば分かる)。"
-            "現在の対象は分割トラック完遂後の薄い dispatcher なので、これ以上縮む予定は無い",
-    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
-    "find": ".github/scripts/check_repository_consistency.py | 950 | advisory\n",
-    "replace": "",
-})
 
 
 _MUTATIONS_TAIL.append({
@@ -526,6 +459,38 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / ".github" / "scripts" / "checks_mutation_integrity.py",
     "find": '_BASE479 = ("1-44,',
     "replace": '_BASE479 = ("2-44,',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 453: 凍結対象の pin を書き換える —— FROZEN.md の FREEZE-DATA の sha256 を 1 桁変える。凍結は「触らない」を記憶に委ねないための機械強制なので、pin と実体の食い違いは必ず止まらなければならない (2026-09-29 まで名指し 0 件)',
+    "file": ROOT / "LICENSES" / "FROZEN.md",
+    "find": 'a9cdf425929af1afbf6b854204eea9df3199c8759bc05b411ab327c90932d00e  LICENSES/ACD-1.0.spdx.xml',
+    "replace": 'b9cdf425929af1afbf6b854204eea9df3199c8759bc05b411ab327c90932d00e  LICENSES/ACD-1.0.spdx.xml',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 459: 索引から 1 file へのリンクを消す —— 到達できない文書は無いのと同じ。入口の README から落ちると、審査者も次のセッションもその file に辿り着かない (2026-09-29 まで名指し 0 件)',
+    "file": ROOT / "LICENSES" / "README.md",
+    "find": '[`ACD-1.0.dig-2026-09.md`](ACD-1.0.dig-2026-09.md)',
+    "replace": 'dig',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 474: 不利な事実 register の状態トークンを語彙に無い値へ変える —— register は「潰すための backlog」として機械可読でなければならず、未知のトークンは集計から黙って落ちる (2026-09-29 まで名指し 0 件)',
+    "file": ROOT / "LICENSES" / "ACD-1.0.against.md",
+    "find": '| **[CLOSED]** **Corrected in place and mechanised.**',
+    "replace": '| **[FIXED]** **Corrected in place and mechanised.**',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 475: AS-OF の反証表の行から状態の印を消す —— 反証表は「観測が来たら、まずここを見る」表で、状態と日付の無い行は、いつの読みかが分からなくなる (2026-09-29 まで名指し 0 件)',
+    "file": ROOT / "LICENSES" / "AS-OF.md",
+    "find": '🟡 未充足（2026-09-25 確認・全数で再測定済み）',
+    "replace": '未充足（2026-09-25 確認・全数で再測定済み）',
     "check": CHECK,
 })
 
