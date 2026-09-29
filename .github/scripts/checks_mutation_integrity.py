@@ -92,7 +92,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        attribution. (BLOCKING)
 
   399. mutation-probe の catch 帰属 (attribution): `mutation_probe.py` の consistency mode は
-       catch を **Check 362 (anchor orphan) 以外の error** で判定しなければならない
+       catch を **Check 362 (anchor orphan) 以外の error** で判定し、さらに**名前に書かれた Check
+       自身が発火したこと** (`named_check_fired()`・2026-09-29 追加) を要求しなければならない
+       (362 以外が拾っても狙った Check ではない例が全件掃引で 3 件あった: 464 / 119b / 402)
        (`ANCHOR_ORPHAN_MARKER = "Check 362:"` 定数 + `caught_by_real_check()` を持ち、旧判定
        `if run_gate() == 0:` を残さない)。probe は mutation を適用してから gate を走らせるが、
        適用によりその mutation 自身の find-anchor が対象 file から消えるため Check 362 (全 mutation
@@ -353,15 +355,19 @@ def run(ctx):
     _src399 = _probe399.read_text(encoding="utf-8") if _probe399.exists() else ""
     _marker399 = re.search(r'^ANCHOR_ORPHAN_MARKER\s*=\s*"Check 362:"', _src399, re.M)
     _attrib399 = "caught_by_real_check(" in _src399
+    # [2026-09-29] 名指しの帰属も要る: 362 以外の error が出ても、それが**狙った Check ではない**
+    # ことがある (全件掃引で 464 / 119b / 402 の 3 件)。named_check_fired() が定義され、かつ
+    # 判定分岐で使われていること (定義だけ残して呼ばない形は vacuous)。
+    _named399 = "def named_check_fired(" in _src399 and "not named_check_fired(" in _src399
     # 旧 vacuous 判定 (`if run_gate() == 0:`) が残っていないこと。run_gate は tuple を返すため
     # 残存すると常に False = 全件 caught へ静かに戻る (退行の実体をピンポイントで禁止する)。
     _legacy399 = re.search(r"if\s+run_gate\(\)\s*==\s*0\s*:", _src399)
     check(
-        bool(_src399) and bool(_marker399) and _attrib399 and not _legacy399,
+        bool(_src399) and bool(_marker399) and _attrib399 and _named399 and not _legacy399,
         "Check 399: mutation-probe の catch 判定が Check 362 (anchor orphan) を除外して帰属する",
         "Check 399: mutation_probe.py の consistency mode が catch を Check 362 以外の error で "
         "帰属していない (ANCHOR_ORPHAN_MARKER 定数 / caught_by_real_check() のいずれかが欠落、または "
-        "旧判定 `if run_gate() == 0:` が残存)。mutation 適用は必ず自身の find-anchor を消して Check 362 "
+        "旧判定 `if run_gate() == 0:` が残存、または名指し帰属 named_check_fired() が未使用)。mutation 適用は必ず自身の find-anchor を消して Check 362 "
         "を RED にするため、exit code だけの判定では全 mutation が自動的に caught になり probe が "
         "「意図した Check が捕捉するか」を検証しない vacuous な meta-QA へ退行する",
     )

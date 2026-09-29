@@ -222,7 +222,7 @@ def run(ctx):
     #   NotFound に落ちないことを検査する重要な gate が未検出だった)。matcher 自体を検出対象にし、
     #   行全体がコメントの行は producer/settle 判定から除外する (説明文中の記述で誤検出しないため)。
     _abs402 = re.compile(r"(?<!not\.)(?:toHaveCount\(0\)|not\.toBeVisible\(\)|not\.toBeAttached\(\))")
-    _pos402 = re.compile(r"(?:toBeVisible|toHaveText|toContainText|toBeFocused|toHaveAttribute|toHaveURL|toHaveValue|toBeEnabled|toBeDisabled|toBeChecked)\(")
+    _pos402 = re.compile(r"(?:waitForFunction|toBeVisible|toHaveText|toContainText|toBeFocused|toHaveAttribute|toHaveURL|toHaveValue|toBeEnabled|toBeDisabled|toBeChecked)\(")
     _poscount402 = re.compile(r"toHaveCount\((?!0\))")
     _inter402 = re.compile(r"(?<!keyboard)\.(?:click|fill|type|check|uncheck|selectOption|hover|dblclick)\(")
     _nav402 = re.compile(r"page\.(?:goto|reload)\(")
@@ -236,9 +236,16 @@ def run(ctx):
                 if _cmt402.match(_l402) or not _abs402.search(_l402):
                     continue
                 _nav_at, _settle_at = -1, -1
-                for _j402 in range(max(0, _i402 - 14), _i402):
-                    if _cmt402.match(_lines402[_j402]):
-                        continue
+                # [FIX 2026-09-29] 窓は「コメント以外の 14 行」で数える。旧実装は生の 14 行で、
+                #   navigation-a11y.spec.js の nav ループに説明コメントが足された結果 goto が 27 行上へ
+                #   押し出され、settle を消しても goto が窓外で**判定そのものが起きなかった**。
+                #   waitForFunction も settle とみなす (同ループの描画確定を実際に担っている)。
+                _win402, _k402 = [], _i402 - 1
+                while _k402 >= 0 and len(_win402) < 14:
+                    if not _cmt402.match(_lines402[_k402]):
+                        _win402.append(_k402)
+                    _k402 -= 1
+                for _j402 in sorted(_win402):
                     if _nav402.search(_lines402[_j402]):
                         _nav_at = _j402
                     if (_pos402.search(_lines402[_j402]) or _poscount402.search(_lines402[_j402])

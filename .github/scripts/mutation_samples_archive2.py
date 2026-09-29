@@ -736,10 +736,10 @@ MUTATIONS_ARCHIVE2 = [
         "replace": "            zzUnusedProbe: `<path d=\"M1 1h2\"/>`,\n            trash: ",
     },
     {
-        "name": "Check 119b (docstring ⟹ 署名の逆方向 drift): js/ai-page.js の docstring【依存】節へ factory 署名に無い架空依存 (Router) を宣言 → 次の AI が onboarding substrate として読む docstring が誤った依存契約を教える (実装を読むまで気付けない)。119a は署名 ⟹ docstring 方向しか見ず本 drift を素通りしていた実測 gap の回帰防止",
+        "name": "Check 119b (docstring ⟹ 署名の逆方向 drift): js/ai-page.js の docstring【依存】節へ factory 署名に無い架空依存 (Theme) を宣言 [2026-09-29 付け替え: 旧 anchor は Router だったが、後の改修で Router が ai-page.js の実依存になり、119b は正しく緑のまま = mutation が空振りしていた。発火したのは行数の Check 424 だけ] → 次の AI が onboarding substrate として読む docstring が誤った依存契約を教える (実装を読むまで気付けない)。119a は署名 ⟹ docstring 方向しか見ず本 drift を素通りしていた実測 gap の回帰防止",
         "file": ROOT / "js" / "ai-page.js",
         "find": " *   - announce: 唯一の SR 通知チャネル (js/ui-components.js) — 応答完了の status message",
-        "replace": " *   - announce: 唯一の SR 通知チャネル (js/ui-components.js) — 応答完了の status message\n *   - Router: ルーター (js/router.js)",
+        "replace": " *   - announce: 唯一の SR 通知チャネル (js/ui-components.js) — 応答完了の status message\n *   - Theme: テーマ切替 (js/theme.js)",
     },
     {
         "name": "Check 407 (SR 通知チャネルの単一 writer): js/ai-page.js の announce() 呼び出しを #action-announcement への直書きへ戻す → 書き込み口が分散し、同じ内容が複数経路で流れる二重読み上げ (#901) と、チャネル実装変更時に取り残される bypass を招く。導入時に実在した bypass の回帰防止",
@@ -802,9 +802,9 @@ MUTATIONS_ARCHIVE2 = [
         "replace": "if (e.code === 'Enter') {",
     },
     {
-        "name": "Check 402 (多行 assertion 面): navigation-a11y.spec.js の nav-link ループから settle (#content h1 の toBeVisible) を除去 [2026-08-24 再アンカー: セレクタを h1 → #content h1 へ是正したため] → goto 直後に多行 assertion で toHaveCount(0) を評価する形へ戻る。多行に折り返した assertion は Check 402 初版 (await expect と matcher が同一行であることを要求) の検出から漏れており、全 sidebar リンクが NotFound に落ちないことを検査する重要な gate が未保護だった。matcher 行ベース検出への拡張の非 vacuity 検証",
+        "name": "Check 402 (多行 assertion 面): navigation-a11y.spec.js の nav-link ループから settle (#content h1 の toBeVisible) を除去 [2026-08-24 再アンカー: セレクタを h1 → #content h1 へ是正したため] → goto 直後に多行 assertion で toHaveCount(0) を評価する形へ戻る。多行に折り返した assertion は Check 402 初版 (await expect と matcher が同一行であることを要求) の検出から漏れており、全 sidebar リンクが NotFound に落ちないことを検査する重要な gate が未保護だった。matcher 行ベース検出への拡張の非 vacuity 検証 [2026-09-29 付け替え: 2026-08-24 に waitForFunction の settle が前段に足され、toBeVisible だけを消しても settle は残る = 回帰にならない。しかも説明コメントで goto が 402 の 14 行窓の外へ押し出され、402 は判定すら起きていなかった (発火は行数の Check 424 のみ)。402 の窓を非コメント行で数え waitForFunction を settle と認める形へ直し、settle を両方消す形へ付け替えて RED を実測]",
         "file": ROOT / "e2e" / "navigation-a11y.spec.js",
-        "find": "    await expect(page.locator('#content h1').first(), `nav href ${href} でページが描画されない`).toBeVisible();\n",
+        "find": "    const expected = href === '#/' ? 'home' : href.replace(/^#\\//, '').split('?')[0];\n    await page.waitForFunction(\n      (want) => {\n        try {\n          const st = JSON.parse(document.body.dataset.aiState || '{}');\n          return st.route === want || st.route === 'not-found';\n        } catch { return false; }\n      },\n      expected,\n      { timeout: 5000 }\n    );\n    await expect(page.locator('#content h1').first(), `nav href ${href} でページが描画されない`).toBeVisible();\n",
         "replace": "",
     },
     {
