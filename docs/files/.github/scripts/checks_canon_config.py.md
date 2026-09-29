@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/checks_canon_config.py
 audience: ai, human (新卒), 監査人, 学術研究者, 第三者全般
-last-updated: 2026-07-06
+last-updated: 2026-09-28
 canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK_SOURCE_FILES) / docs/incident-artifacts/decision-v80-phase4-bloat-reduction-1000-line-threshold.md (C-first split protocol) / docs/incident-artifacts/improvement-notes-claude-v80-phase4-checkpy-split-track-full-handoff.md
 ---
 
@@ -9,9 +9,9 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 
 ## What
 
-`check_repository_consistency.py` 分割トラックの 41 個目の split module。canon-policy / config / meta-governance を守る非連続クラスタ Check **100/102/104/106/107/109/112/113** を内包し、`run(ctx)` で monolith から呼ばれる。
+`check_repository_consistency.py` 分割トラックの 41 個目の split module。canon-policy / config / meta-governance を守る非連続クラスタ Check **100/102/104/106/107/109/112/113/478** を内包し、`run(ctx)` で monolith から呼ばれる。
 
-- 100(theme-init.js hardcoded storage keys ↔ constants/brand) / 102(core operating-model policy in canon・102a-f) / 104(verify-gate scripts Python 3.10+ guard) / 106(.nvmrc ↔ CI node single-major) / 107(runbook §11 CI-workflow inventory bijection) / 109(living-doc Check-count hardcode drift guard) / 112(shipped-JS IME composition guard) / 113(commit/PR handoff discipline in canon)。
+- 100(theme-init.js hardcoded storage keys ↔ constants/brand) / 102(core operating-model policy in canon・102a-f) / 104(verify-gate scripts Python 3.10+ guard) / 106(.nvmrc ↔ CI node single-major) / 107(runbook §11 CI-workflow inventory bijection) / 109(living-doc Check-count hardcode drift guard) / 112(shipped-JS IME composition guard) / 113(commit/PR handoff discipline in canon) / 478(check-map の所在列 ↔ 実装 module・2026-09-28 追加)。
 
 ## Why
 

@@ -115,6 +115,11 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        commit/PR discipline (theme-batched PRs, `gh pr merge --rebase`, commit-count-is-output-
        not-target). The owner adopted this as a repo-core rule; this Check enforces the rebase +
        no-padding markers in both docs so it cannot silently drift out of either. (BLOCKING)
+  478. check-map location column ↔ implementing module: a check-repository-consistency-map.md row
+       that carries a location column (`| BLOCKING | `module.py` |`) must name a module that
+       actually holds that Check's `# ── N.` section. Check 105 matches numbers only, so a row
+       left pointing at the pre-split module stays GREEN; on 2026-09-28 two of the four rows
+       with this column (468 / 469) named the wrong module. (BLOCKING)
 """
 import re
 import json
@@ -522,5 +527,27 @@ def run(ctx):
         not _miss113,
         "Check 113: CLAUDE.md と AI2AI.md の双方が handoff-first commit/PR 規律 (rebase + no-padding) を保持",
         f"Check 113: commit/PR 規律マーカー欠落: {_miss113} — CLAUDE.md §5 / AI2AI.md STEP 5.5 の規律を復元せよ",
+        blocking=True,
+    )
+
+    # ── 478. check-map location column ↔ implementing module (BLOCKING) ───────────
+    # Check 105 は map ↔ 実装の「番号」だけを照合する。所在列を持つ行が分割前の module を
+    # 指したままでも緑のまま —— 2026-09-28 に 4 行中 2 行 (468 / 469) がそうだった。
+    # 読み手は存在しない場所で実装を探す。所在列が 0 行になったら (書式が変わったら) RED。
+    _map478 = ROOT / "docs" / "architecture" / "check-repository-consistency-map.md"
+    _rows478 = re.findall(
+        r"^\|\s*(\d+)[a-z]?\s*\|.*\|\s*(?:BLOCKING|ADVISORY)[^|]*\|\s*`((?:checks_[a-z_0-9]+|check_repository_consistency)\.py)`\s*\|",
+        _map478.read_text(encoding="utf-8") if _map478.exists() else "", re.MULTILINE)
+    _bad478 = []
+    for _n478, _mod478 in _rows478:
+        _p478 = ROOT / ".github" / "scripts" / _mod478
+        _t478 = _p478.read_text(encoding="utf-8") if _p478.exists() else ""
+        if not re.search(rf"^\s*#\s*──\s*{_n478}[a-z]?[.(\s]", _t478, re.MULTILINE):
+            _bad478.append(f"{_n478}→{_mod478}")
+    check(
+        bool(_rows478) and not _bad478,
+        f"Check 478: check-map の所在列 {len(_rows478)} 行がすべて、実際に `# ── N.` を持つ module を指す",
+        f"Check 478: check-map の所在列が実体と食い違う (または所在列を持つ行が 0): {_bad478}。"
+        "分割・移設のあとで map の所在を追従させ忘れると、読み手は存在しない場所で実装を探す",
         blocking=True,
     )
