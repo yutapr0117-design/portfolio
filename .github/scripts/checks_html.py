@@ -99,24 +99,24 @@ def run(ctx):
     check(
         '<meta http-equiv="X-Content-Type-Options"' not in html,
         "index.html: no X-Content-Type-Options meta (header-only control)",
-        "index.html: X-Content-Type-Options meta present (must be removed; it's a header-only control)",
+        "Check 8: index.html: X-Content-Type-Options meta present (must be removed; it's a header-only control)",
     )
 
     # ── 20. og:image:width / og:image:height / og:image:alt present ──────────────
     check(
         'property="og:image:width"' in html,
         "index.html: og:image:width present",
-        "index.html: og:image:width missing (add <meta property=og:image:width>)",
+        "Check 20: index.html: og:image:width missing (add <meta property=og:image:width>)",
     )
     check(
         'property="og:image:height"' in html,
         "index.html: og:image:height present",
-        "index.html: og:image:height missing (add <meta property=og:image:height>)",
+        "Check 20: index.html: og:image:height missing (add <meta property=og:image:height>)",
     )
     check(
         'property="og:image:alt"' in html,
         "index.html: og:image:alt present",
-        "index.html: og:image:alt missing (add <meta property=og:image:alt>)",
+        "Check 20: index.html: og:image:alt missing (add <meta property=og:image:alt>)",
     )
 
     # ── 115. index.html CSP hardening baseline (BLOCKING) ─────────────────────────

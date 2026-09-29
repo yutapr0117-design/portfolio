@@ -137,8 +137,8 @@ def run(ctx):
         ET.parse(ROOT / "sitemap.xml")
         print("OK: sitemap.xml valid XML")
     except ET.ParseError as e:
-        errors.append(f"sitemap.xml XML parse error: {e}")
-        print(f"ERROR: sitemap.xml XML parse error: {e}")
+        errors.append(f"Check 9: sitemap.xml XML parse error: {e}")
+        print(f"ERROR: Check 9: sitemap.xml XML parse error: {e}")
 
     # ── 10. .github/scripts/*.py syntax ──────────────────────────────────────────
     for py_path in sorted((ROOT / ".github/scripts").glob("*.py")):
@@ -146,8 +146,8 @@ def run(ctx):
             ast.parse(py_path.read_text(encoding="utf-8"))
             print(f"OK: {py_path.name} — Python syntax valid")
         except SyntaxError as e:
-            errors.append(f"{py_path.name}: Python syntax error: {e}")
-            print(f"ERROR: {py_path.name}: Python syntax error: {e}")
+            errors.append(f"Check 10: {py_path.name}: Python syntax error: {e}")
+            print(f"ERROR: Check 10: {py_path.name}: Python syntax error: {e}")
 
     # ── 12. No stale 72回/72回以上 in current-description context ─────────────────
     # History records (e2e comments, version history lines) are exempt — we only
@@ -173,7 +173,7 @@ def run(ctx):
     check(
         len(stale_72_hits) == 0,
         "No stale '72回/72回以上' in current-description files",
-        f"Stale 72回 found in current-description files: {stale_72_hits}",
+        f"Check 12: Stale 72回 found in current-description files: {stale_72_hits}",
     )
 
     # ── 13. 70超 only in history/log context ─────────────────────────────────────
@@ -192,7 +192,7 @@ def run(ctx):
     check(
         len(stale_70_hits) == 0,
         "No current-description '70超' outside history context",
-        f"'70超' found outside history context: {stale_70_hits}",
+        f"Check 13: '70超' found outside history context: {stale_70_hits}",
     )
 
     # ── 15. Project Pages robots/.well-known constraint documented ───────────────
@@ -205,7 +205,7 @@ def run(ctx):
     check(
         has_constraint,
         "Project Pages robots/.well-known constraint documented in llms-full.txt / AI2AI.md / README.md",
-        "Project Pages robots/.well-known constraint not documented — add explanation to llms-full.txt, AI2AI.md, or README.md",
+        "Check 15: Project Pages robots/.well-known constraint not documented — add explanation to llms-full.txt, AI2AI.md, or README.md",
     )
 
     # ── 121. STATUS.md freshness (regenerate-and-compare) (BLOCKING) ──────────────

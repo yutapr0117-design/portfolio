@@ -58,19 +58,21 @@ def run(ctx):
     check(
         pos_csp != -1 and pos_err != -1 and pos_csp < pos_err,
         f"CSP meta (pos {pos_csp}) appears before inline suppressor (pos {pos_err})",
-        f"CSP meta must appear before inline suppressor (CSP={pos_csp}, inline={pos_err})",
+        f"Check 7: CSP meta must appear before inline suppressor (CSP={pos_csp}, inline={pos_err})",
     )
 
     # ── 11. aio_monitoring.py summary dict ───────────────────────────────────────
+    # dict の**キー**として探す。素の部分文字列だと同名のローカル変数 (`enabled_engines = []`)
+    # だけで満たされ、要約 dict からキーを消しても緑のままだった (2026-09-29 に mutation で実測)。
     check(
-        "enabled_engines" in aio_mon,
+        '"enabled_engines":' in aio_mon,
         "aio_monitoring.py: 'enabled_engines' present in summary",
-        "aio_monitoring.py: 'enabled_engines' missing from summary (P0-06)",
+        "Check 11: aio_monitoring.py: 'enabled_engines' missing from summary (P0-06)",
     )
     check(
-        "total_cited_count" in aio_mon,
+        '"total_cited_count":' in aio_mon,
         "aio_monitoring.py: 'total_cited_count' present in summary",
-        "aio_monitoring.py: 'total_cited_count' missing from summary (P0-06)",
+        "Check 11: aio_monitoring.py: 'total_cited_count' missing from summary (P0-06)",
     )
 
     # ── 14. v1→v74 / 73 transitions consistency ─────────────────────────────────
@@ -78,7 +80,7 @@ def run(ctx):
     check(
         has_v74_declaration,
         "v1→v74 canonical declaration present in index.html or AI2AI.md",
-        "v1→v74 canonical declaration missing — add to index.html or AI2AI.md",
+        "Check 14: v1→v74 canonical declaration missing — add to index.html or AI2AI.md",
     )
 
     # ── 350. inline onload handler CSP hash present + matches content (BLOCKING) ──

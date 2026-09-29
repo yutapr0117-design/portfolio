@@ -34,7 +34,7 @@ def run(ctx):
     check(
         html_date is not None and mainjs_date is not None and html_date == mainjs_date,
         f"ai:last-modified ({html_date}) == SITE_CONFIG.LAST_UPDATED ({mainjs_date})",
-        f"Date sync mismatch: index.html ai:last-modified={html_date}, main.js LAST_UPDATED={mainjs_date}",
+        f"Check 17: Date sync mismatch: index.html ai:last-modified={html_date}, main.js LAST_UPDATED={mainjs_date}",
     )
 
     # ── 18. sitemap.xml: root <lastmod> == ai:last-modified (per-URL policy) ──────
@@ -59,7 +59,7 @@ def run(ctx):
             check(
                 root_lastmod == html_date,
                 f"sitemap.xml root <lastmod> ({root_lastmod}) == ai:last-modified ({html_date})",
-                f"Date sync: sitemap.xml root lastmod={root_lastmod} vs ai:last-modified={html_date}",
+                f"Check 18: Date sync: sitemap.xml root lastmod={root_lastmod} vs ai:last-modified={html_date}",
             )
         elif html_date:
             warnings.append("sitemap.xml: root URL entry not found for per-URL lastmod check")

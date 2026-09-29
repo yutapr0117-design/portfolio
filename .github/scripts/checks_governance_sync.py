@@ -114,7 +114,7 @@ def run(ctx):
         check(
             False,
             "llms alias files Last-Updated are in sync",
-            f"llms alias files Last-Updated mismatch: {llms_dates}",
+            f"Check 21: llms alias files Last-Updated mismatch: {llms_dates}",
         )
     else:
         d = list(llms_dates.values())[0] if llms_dates else "N/A"
@@ -129,7 +129,7 @@ def run(ctx):
     check(
         order_ok,
         f"AI2AI.md Session Record headers are in ascending order: {record_nums}",
-        f"AI2AI.md Session Record headers out of order: {record_nums}",
+        f"Check 22: AI2AI.md Session Record headers out of order: {record_nums}",
     )
 
     # ── 23. YAML syntax: .github/workflows/*.yml and dependabot.yml ───────────────
@@ -148,7 +148,7 @@ def run(ctx):
         check(
             len(yaml_errors) == 0,
             f"All GitHub Actions YAML files parse successfully ({len(yaml_targets)} files)",
-            "YAML parse errors: " + "; ".join(yaml_errors),
+            "Check 23: YAML parse errors: " + "; ".join(yaml_errors),
         )
     except ImportError:
         print("WARNING: PyYAML not available — YAML syntax check skipped")
@@ -167,7 +167,7 @@ def run(ctx):
         check(
             diff_days <= 7,
             f"llms-full.txt Last-Updated ({llms_full_date}) is within 7 days of AI2AI.md Last-Updated ({ai2ai_date})",
-            f"llms-full.txt Last-Updated ({llms_full_date}) differs from AI2AI.md Last-Updated ({ai2ai_date}) by {diff_days} days (>7)"
+            f"Check 24: llms-full.txt Last-Updated ({llms_full_date}) differs from AI2AI.md Last-Updated ({ai2ai_date}) by {diff_days} days (>7)"
         )
         llms_full_text = read("llms-full.txt")
         has_maintenance = any(f"v{n}" in llms_full_text for n in ["75", "76", "77", "78"])
@@ -175,7 +175,7 @@ def run(ctx):
             check(
                 llms_full_date >= _dt.date(2026, 5, 28),
                 f"llms-full.txt Last-Updated ({llms_full_date}) >= 2026-05-28 (v75-v78 content detected)",
-                f"llms-full.txt Last-Updated ({llms_full_date}) is stale: v75-v78 content detected but date < 2026-05-28"
+                f"Check 24: llms-full.txt Last-Updated ({llms_full_date}) is stale: v75-v78 content detected but date < 2026-05-28"
             )
     else:
         warnings.append("P1-01: Could not parse Last-Updated from AI2AI.md or llms-full.txt")
@@ -188,7 +188,7 @@ def run(ctx):
             check(
                 "evidence_policy" in aio_log,
                 "aio-monitoring-log.json: evidence_policy key present",
-                "aio-monitoring-log.json: evidence_policy key missing — add to clarify attempt_log_only status"
+                "Check 25: aio-monitoring-log.json: evidence_policy key missing — add to clarify attempt_log_only status"
             )
         except Exception as _e:
             warnings.append(f"P1-04: Could not parse aio-monitoring-log.json: {_e}")
@@ -285,7 +285,7 @@ def run(ctx):
         check(
             len(found_stale) == 0,
             "llms-full.txt: no stale C1\u2013C6 in current-constraint context",
-            f"llms-full.txt: stale C1\u2013C6 found (should be C1\u2013C7): {found_stale}",
+            f"Check 27: llms-full.txt: stale C1\u2013C6 found (should be C1\u2013C7): {found_stale}",
         )
 
     # ── 436. 規範層に「オーナー裁可待ち」型の defer 理由を残さない (BLOCKING) ────────

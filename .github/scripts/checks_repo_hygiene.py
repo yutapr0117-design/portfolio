@@ -67,7 +67,7 @@ def run(ctx):
             check(
                 f"#{_max31}" in _c2c_txt31,
                 f"Claude2Claude.md references AI2AI.md current max Session Record #{_max31}",
-                f"Claude2Claude.md does not reference AI2AI.md max Session Record #{_max31} — bump its 現在状態 section (Claude2Claude.md 本文書の更新タイミング rule)",
+                f"Check 31: Claude2Claude.md does not reference AI2AI.md max Session Record #{_max31} — bump its 現在状態 section (Claude2Claude.md 本文書の更新タイミング rule)",
             )
         else:
             warnings.append("Check 31: no Session Record number found in AI2AI.md")
@@ -94,7 +94,7 @@ def run(ctx):
                 _json32.loads(_b32)
                 check(True, f"index.html JSON-LD block #{_i32} parses as valid JSON", "")
             except Exception as _e32:  # noqa: BLE001
-                check(False, "", f"index.html JSON-LD block #{_i32} is INVALID JSON: {_e32}")
+                check(False, "", f"Check 32: index.html JSON-LD block #{_i32} is INVALID JSON: {_e32}")
     else:
         warnings.append("Check 32: index.html not found — JSON-LD parse check skipped")
 
@@ -187,12 +187,12 @@ def run(ctx):
         check(
             not _missing33,
             f"{_layer_label33}: contains all {len(_CANON_SLUGS)} canonical Zenn article slugs",
-            f"{_layer_label33}: missing Zenn slug(s) {_missing33} — featuring layers have drifted out of sync (repository-maintainability-map.md §6)",
+            f"Check 33: {_layer_label33}: missing Zenn slug(s) {_missing33} — featuring layers have drifted out of sync (repository-maintainability-map.md §6)",
         )
         check(
             _PRIMARY_SLUG in _txt33,
             f"{_layer_label33}: contains the PRIMARY Zenn slug ({_PRIMARY_SLUG})",
-            f"{_layer_label33}: missing the PRIMARY Zenn slug ({_PRIMARY_SLUG})",
+            f"Check 33: {_layer_label33}: missing the PRIMARY Zenn slug ({_PRIMARY_SLUG})",
         )
 
     # ── 34. honest per-file dating: doc Last-Updated == its sitemap <lastmod> (WARNING) ──
@@ -242,14 +242,14 @@ def run(ctx):
         check(
             bool(_sm_directive35),
             "robots.txt: advertises a Sitemap: directive",
-            "robots.txt: no Sitemap: directive — crawlers cannot discover sitemap.xml",
+            "Check 35: robots.txt: no Sitemap: directive — crawlers cannot discover sitemap.xml",
         )
         if _sm_directive35:
             _sm_url35 = _sm_directive35.group(1)
             check(
                 _sm_url35.endswith("/sitemap.xml") and (ROOT / "sitemap.xml").exists(),
                 "robots.txt: Sitemap: directive points at the existing sitemap.xml",
-                f"robots.txt: Sitemap: directive '{_sm_url35}' does not resolve to an existing sitemap.xml",
+                f"Check 35: robots.txt: Sitemap: directive '{_sm_url35}' does not resolve to an existing sitemap.xml",
             )
     else:
         warnings.append("Check 35: robots.txt not found — Sitemap directive check skipped")

@@ -195,12 +195,12 @@ def run(ctx):
     check(
         "Current release: v73" not in style,
         "style.css: no stale 'Current release: v73' marker",
-        "style.css: stale 'Current release: v73' marker found",
+        "Check 6: style.css: stale 'Current release: v73' marker found",
     )
     check(
         "NEXT_PLANNED_RELEASE" not in style,
         "style.css: no 'NEXT_PLANNED_RELEASE' marker",
-        "style.css: stale 'NEXT_PLANNED_RELEASE' marker found",
+        "Check 6: style.css: stale 'NEXT_PLANNED_RELEASE' marker found",
     )
 
     # ── 73. index.html accessibility/CWV HTML-attribute contract (BLOCKING) ──────
