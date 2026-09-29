@@ -80,6 +80,12 @@ jobs:
   #   **また 1 件あたりの所要は分割で下がらず上がる** —— 単一ジョブ 4.9 秒/件に対し
   #   4 分割の総和は 2,369 秒 / 372 件 = **6.4 秒/件**（各 shard が checkout と
   #   python setup を独立に払うため）。**分割は wall-clock を買うのであって総量ではない。**
+  #   **2026-09-29 の再実測（380 件・run #46）: 907 / 895 / 680 / 902 秒 = 最大 15.1 分**
+  #   （timeout に対する余裕は 2.5 倍 → 約 2 倍）。**件数は +8 件しか増えていないのに、
+  #   1 件あたりが 6.4 → 8.9 秒へ伸びた** ——各 mutation が consistency gate 全体を 1 回走らせる
+  #   ので、**伸びているのは件数ではなく gate 自身の所要**（Check が増えるたびに全件が遅くなる）。
+  #   **分割数を上げても 1 件あたりの伸びは止まらない**ので、次に余裕が 1.5 倍を切ったら
+  #   分割ではなく「mutation ごとに gate 全体を走らせる」構造の方を見直すこと。
   consistency:
     name: Consistency safety-net self-check (shard ${{ matrix.shard }}/4)
     runs-on: ubuntu-latest
