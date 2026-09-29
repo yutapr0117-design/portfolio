@@ -81,6 +81,22 @@ def caught_by_real_check(out: str) -> bool:
     return any(ANCHOR_ORPHAN_MARKER not in ln for ln in errs)
 
 
+def named_check_fired(name: str, out: str) -> bool:
+    """True iff the Check the mutation is named after is among the errors (or the name names none).
+
+    caught_by_real_check() だけでは「別の Check が偶然拾った」と「狙った Check が捕捉した」を
+    区別できない。2026-09-29 の全件帰属掃引で 3 件 (464 / 119b / 402) が、狙った Check を一度も
+    発火させずに「caught」と数えられていた —— 464 は別の 2 Check が、119b / 402 は mutation が
+    変えた行数に反応する Check 424 だけが拾っていた。**安全網の自己検証が、検証対象そのものを
+    検証していなかった**。比較は整数部で行う (468i の失敗は "Check 468:" の見出しで出る)。
+    """
+    m = re.search(r"Check (\d+)", name)
+    if not m:
+        return True
+    fired = set(re.findall(r"::error::Check (\d+)", out))
+    return m.group(1) in fired
+
+
 def run_e2e_test(pattern: str) -> int:
     """Run a single Playwright behavior test by -g pattern; return exit code (0 = pass/green)."""
     # re.escape ensures test titles with regex metacharacters (e.g. '(?q=)', '+', '.')
@@ -120,6 +136,7 @@ def main() -> int:
     survived: list[str] = []
     drifted: list[str] = []
     crashed: list[str] = []
+    misattributed: list[str] = []
 
     # [FIX 2026-09-24・#224] consistency 側にも shard を配線した。
     #   behavior 側は 2026-08-17 に 55 分で cancelled になり 8 分割したが、**兄弟である
@@ -145,7 +162,10 @@ def main() -> int:
             # 「捕捉」は Check 362 (anchor orphan) 以外の error があることで判定する。
             # exit code だけを見ると mutation 適用の副作用で必ず RED になり全件 caught になる。
             _rc, _out = run_gate()
-            if caught_by_real_check(_out):
+            if caught_by_real_check(_out) and not named_check_fired(m["name"], _out):
+                misattributed.append(m["name"])
+                print(f"  MISATTR : {m['name']}  <-- 別の Check だけが拾った (狙った Check は未発火)")
+            elif caught_by_real_check(_out):
                 print(f"  caught  : {m['name']}")
             elif _rc != 0 and "Traceback (most recent call last)" in _out:
                 # gate は RED だが Check ではなく **traceback** で停止した。merge は止まるものの
@@ -174,6 +194,11 @@ def main() -> int:
         print(f"{len(crashed)} mutation(s) CRASHED the gate (traceback instead of a Check verdict):")
         for c in crashed:
             print(f"  - {c}")
+        return 1
+    if misattributed:
+        print(f"{len(misattributed)} mutation(s) MISATTRIBUTED — caught only by a Check other than the one named:")
+        for s in misattributed:
+            print(f"  - {s}")
         return 1
     if survived:
         print(f"{len(survived)} mutation(s) SURVIVED — the safety net has a gap:")
