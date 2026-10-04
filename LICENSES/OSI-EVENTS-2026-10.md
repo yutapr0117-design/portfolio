@@ -33,6 +33,16 @@ canonical-ref: LICENSES/PEER-REVIEW-WATCH.md（「2026 年 10 月の OSI 関連�
 | Code & Compliance（Brussels） | 10/27 | オーナー共有 | — | 一次未確認 |
 | Mozilla Festival（Barcelona） | 10/28–30 | オーナー共有 | — | 一次未確認 |
 
+## 常設の観測対象 —— 10 月中に動きうるが、日付の決まったイベントではないもの
+
+イベント表だけを見ていると、**日付の無い変化**を取りこぼす。10 月中に動きうるものを、**最後に確かめた日と、そのとき何が分かったか**で並べる（数字や結論はリンク先が権威で、ここには書き写さない）。
+
+| 対象 | 最後に確かめた日 | そのとき分かったこと | 次に確かめるときに見るもの |
+| :-- | :-- | :-- | :-- |
+| **OSI が予告した Code of Conduct の AI 条項の更新**（2026-09-09 の moderator 通知） | 2026-09-15（`AS-OF.md` の該当行・`rounds/2026-09-15-osi-mailing-list-code-of-conduct-snapshot.txt`） | **更新されていなかった**（両ページとも自称更新日は 2023 年のまま） | `/code-of-conduct` と `/codeofconduct` の自称更新日と本文。**更新されていたら逐語で `rounds/` へ置き、我々の運用（`FROZEN.md` の発信状態）に当たるかを読む** |
+| **理事会議事録の公開範囲** | 2026-09-13（`AS-OF.md`・`ACD-1.0.board-decisions.md`） | 公開されていた最新の会合は 2026-06-29 | 索引に 2026-06-29 より後の会合が載ったか。**とくに 2026-09-24 の理事会**（OpenMDW / ModelGo の扱いの日付は `PEER-REVIEW-WATCH.md` が権威） |
+| **OpenMDW / ModelGo の審査の結末** | 2026-09-27 05:55 UTC（`PEER-REVIEW-WATCH.md` §3.9） | OpenMDW は 09-14 以降沈黙、ModelGo は 09-24 の steward の GitHub 更新で止まっていた | 両リストのアーカイブと理事会の告知。**承認・否決・留め置きのどれかで、ACD の何を変えるかは `PEER-REVIEW-WATCH.md` の 4 分岐が先に決めてある** |
+
 ## 取り込みログ（新しい行を下へ足す）
 
 | 日付（UTC） | 対象 | 取れたもの | 取れなかったもの・理由 | ACD への還元 |
@@ -41,6 +51,7 @@ canonical-ref: LICENSES/PEER-REVIEW-WATCH.md（「2026 年 10 月の OSI 関連�
 | 2026-10-04 | ネットワーク | — | **このコンテナから `opensource.org` / `lists.opensource.org` / `discuss.opensource.org` / `allthingsopen.org` / `example.com` / `en.wikipedia.org` がすべて 403**（プロキシの記録で確認・github.com だけ通る）。オーナーは環境を「すべてのドメイン」に設定済みと述べているので、**このコンテナが起動時の古い制限のまま動いている**と見ている（推測・確かめられていない）。次に新しいコンテナで動いたら測り直す | なし |
 | 2026-10-04 | ATO / State of the Source | 検索結果の要約のみ（上の表） | 本文・プログラム・登壇者 | **まだ何も還元しない。** 「ライセンスとコンプライアンスの実務入門」「Open Source AI の現状」が当日の論点なら、`PEER-REVIEW-WATCH.md` の「取りに行くもの」1・2 に当たる。確かめるのは録画かスライドが出てから |
 | 2026-10-04 | 両アーカイブ（license-review / license-discuss） | — | 上と同じ 403 で取得できず。**「新着が無い」とは書かない** —— 取れなかっただけである | なし |
+| 2026-10-04（10:05 UTC 頃） | 常設の観測対象 3 件 | 上の表を新設し、最後に確かめた日と結論を 1 か所に集めた（中身は既存の記録を指すだけで、新しい事実は無い） | **3 件とも今日は確かめられていない** —— 同じコンテナで再測しても `opensource.org` / `lists.opensource.org` / `example.com` は 403 のまま。**「CoC はまだ更新されていない」「理事会の結論は未公開」とは書かない**（最後に確かめた日の結論であって今日の結論ではない） | なし |
 
 ## この file が establish しないこと
 
