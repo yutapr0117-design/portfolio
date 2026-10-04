@@ -526,6 +526,16 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 413c: runbook §9 が引用する Check 108 の件数だけを古い値へ戻す —— 4 つの数 "
+            "(総数 / source / mirror / 行末の合計) は 413/413b が守るが、同じ行の 5 つ目の数である"
+            "**引用の中の数**は誰も見ていなかった (実測 2026-09-28: 284 と 636 を同時に主張していた)",
+    "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
+    "find": "all 636 tracked files have a 1-to-1 docs/files mirror",
+    "replace": "all 284 tracked files have a 1-to-1 docs/files mirror",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
