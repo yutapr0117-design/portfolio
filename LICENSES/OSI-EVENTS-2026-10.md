@@ -52,6 +52,7 @@ canonical-ref: LICENSES/PEER-REVIEW-WATCH.md（「2026 年 10 月の OSI 関連�
 | 2026-10-04 | ATO / State of the Source | 検索結果の要約のみ（上の表） | 本文・プログラム・登壇者 | **まだ何も還元しない。** 「ライセンスとコンプライアンスの実務入門」「Open Source AI の現状」が当日の論点なら、`PEER-REVIEW-WATCH.md` の「取りに行くもの」1・2 に当たる。確かめるのは録画かスライドが出てから |
 | 2026-10-04 | 両アーカイブ（license-review / license-discuss） | — | 上と同じ 403 で取得できず。**「新着が無い」とは書かない** —— 取れなかっただけである | なし |
 | 2026-10-04（10:05 UTC 頃） | 常設の観測対象 3 件 | 上の表を新設し、最後に確かめた日と結論を 1 か所に集めた（中身は既存の記録を指すだけで、新しい事実は無い） | **3 件とも今日は確かめられていない** —— 同じコンテナで再測しても `opensource.org` / `lists.opensource.org` / `example.com` は 403 のまま。**「CoC はまだ更新されていない」「理事会の結論は未公開」とは書かない**（最後に確かめた日の結論であって今日の結論ではない） | なし |
+| 2026-10-04（10:25 UTC 頃） | アーカイブ由来の未採掘（他セッションから引き継ぎ） | `against.md` #243 の残り 2 件 —— **Convertible Free Software License**（129 通・決定権者の発言 2 通）と **Open Source Software Alliance License**（122 通・同 33 通）。`rounds/` に保存は無く、ドシエに読みも無い（2026-10-04 に実測で確認）。並べ方は #243 の規則に従い、通数ではなく決定権者の発言数で決める。取得経路（ブラウザ相当の User-Agent で月次 `.txt`）は `PEER-REVIEW-WATCH.md` §3.9 と `census_license_review_archive.py` の docstring に書いてある | 本文は未取得 —— このコンテナからは `lists.opensource.org` が 403。**アーカイブに届く環境で最初に掘る項目** | なし（取得前） |
 
 ## この file が establish しないこと
 
