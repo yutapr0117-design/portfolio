@@ -1,0 +1,134 @@
+From Max.Mehl at deutschebahn.com  Mon Sep 28 06:41:15 2026
+From: Max.Mehl at deutschebahn.com (Max Mehl)
+Date: Mon, 28 Sep 2026 06:41:15 +0000
+Subject: [License-review] Python licenses: Python-2.0.1, PSF-2.0,
+ CNRI-Python-GPL-Compatible
+In-Reply-To: <fae9e6972a51b150f79ea76e4f7d13fbdd30e0a9.camel@nicorikken.eu>
+References: <2c32085f11c064b769d88d250c17901715956102.camel@nicorikken.eu>
+	 <CAC1cPGxeddHDHkkhc-G6WxUQXXfYTWAKSKYKGiTHf3h75jjvjg@mail.gmail.com>
+	 <ad6379eb24674a55b34e15fa38302a04f04155d4.camel@nicorikken.eu>
+	 <1eae78dc-14c4-40dc-9aec-b1670c24ce9f@chesteklegal.com>
+	 <6ad081cd-9c80-4f63-a99d-e55f5e8efb12@lexpan.law>
+	 <AS8PR06MB75279840097C08C4D4E89826FBA92@AS8PR06MB7527.eurprd06.prod.outlook.com>
+ <fae9e6972a51b150f79ea76e4f7d13fbdd30e0a9.camel@nicorikken.eu>
+Message-ID: 
+ <AS8PR06MB752793CA486CBE1B4D7DB415FB8D2@AS8PR06MB7527.eurprd06.prod.outlook.com>
+
+On 27.09.26, 09:09, "Nico Rikken" <nico at nicorikken.eu> wrote:
+> I noticed that the entry on the OSI licenses page lists an incorrect
+> SPDX ID 'Python-2-0-1' instead of correct SPDX ID 'Python-2.0.1'. So
+> that will probably have to be corrected.
+
+Good point about the wrong SPDX identifier for Python-2.0.1. @Nick, could you please correct that?
+
+> Given the remark by Pamela, should I/we file a separate email?
+
+For PSF-2.0, I have filed a submission for review a few weeks ago, with no replies so far: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-September/006255.html
+
+________________________________
+
+Pflichtangaben anzeigen<https://www.deutschebahn.com/pflichtangaben/20260909>
+
+N?here Informationen zur Datenverarbeitung im DB-Konzern finden Sie hier: https://www.deutschebahn.com/de/konzern/datenschutz
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260928/832a8dc3/attachment.htm>
+
+From nico at nicorikken.eu  Sun Sep 27 07:09:05 2026
+From: nico at nicorikken.eu (Nico Rikken)
+Date: Sun, 27 Sep 2026 09:09:05 +0200
+Subject: [License-review] Python licenses: Python-2.0.1, PSF-2.0,
+ CNRI-Python-GPL-Compatible
+In-Reply-To: 
+ <AS8PR06MB75279840097C08C4D4E89826FBA92@AS8PR06MB7527.eurprd06.prod.outlook.com>
+References: <2c32085f11c064b769d88d250c17901715956102.camel@nicorikken.eu>
+	 <CAC1cPGxeddHDHkkhc-G6WxUQXXfYTWAKSKYKGiTHf3h75jjvjg@mail.gmail.com>
+	 <ad6379eb24674a55b34e15fa38302a04f04155d4.camel@nicorikken.eu>
+	 <1eae78dc-14c4-40dc-9aec-b1670c24ce9f@chesteklegal.com>
+	 <6ad081cd-9c80-4f63-a99d-e55f5e8efb12@lexpan.law>
+	 <AS8PR06MB75279840097C08C4D4E89826FBA92@AS8PR06MB7527.eurprd06.prod.outlook.com>
+Message-ID: <fae9e6972a51b150f79ea76e4f7d13fbdd30e0a9.camel@nicorikken.eu>
+
+Hi all,
+
+Thanks for the approval and addition of Python-2.0.1 and CNRI-Python-
+GPL-Compatible.
+
+I noticed that the entry on the OSI licenses page lists an incorrect
+SPDX ID 'Python-2-0-1' instead of correct SPDX ID 'Python-2.0.1'. So
+that will probably have to be corrected.
+
+Regarding PSF-2.0, yes I'd very much like to have that reviewed.
+Especially given that it is used stand-alone in the popular Matplot lib
+project. Meaning that license compliance persons have a reasonable
+chance of encountering this license.
+
+Given the remark by Pamela, should I/we file a separate email?
+
+Kind regards,
+Nico Rikken
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 228 bytes
+Desc: This is a digitally signed message part
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260927/a7cea103/attachment.sig>
+
+From nick.vidal at opensource.org  Mon Sep 28 12:47:37 2026
+From: nick.vidal at opensource.org (Nick Vidal)
+Date: Mon, 28 Sep 2026 09:47:37 -0300
+Subject: [License-review] Python licenses: Python-2.0.1, PSF-2.0,
+ CNRI-Python-GPL-Compatible
+In-Reply-To: 
+ <AS8PR06MB752793CA486CBE1B4D7DB415FB8D2@AS8PR06MB7527.eurprd06.prod.outlook.com>
+References: <2c32085f11c064b769d88d250c17901715956102.camel@nicorikken.eu>
+ <CAC1cPGxeddHDHkkhc-G6WxUQXXfYTWAKSKYKGiTHf3h75jjvjg@mail.gmail.com>
+ <ad6379eb24674a55b34e15fa38302a04f04155d4.camel@nicorikken.eu>
+ <1eae78dc-14c4-40dc-9aec-b1670c24ce9f@chesteklegal.com>
+ <6ad081cd-9c80-4f63-a99d-e55f5e8efb12@lexpan.law>
+ <AS8PR06MB75279840097C08C4D4E89826FBA92@AS8PR06MB7527.eurprd06.prod.outlook.com>
+ <fae9e6972a51b150f79ea76e4f7d13fbdd30e0a9.camel@nicorikken.eu>
+ <AS8PR06MB752793CA486CBE1B4D7DB415FB8D2@AS8PR06MB7527.eurprd06.prod.outlook.com>
+Message-ID: 
+ <CAFifBTq6gx775zcLUJvE6shfaD3p5ohxD9PEL_V-WwFXfWNnoQ@mail.gmail.com>
+
+Hi Nico and all,
+
+> I noticed that the entry on the OSI licenses page lists an incorrect
+> SPDX ID 'Python-2-0-1' instead of correct SPDX ID 'Python-2.0.1'. So
+> that will probably have to be corrected.
+
+Yes, sorry about that. I got it fixed now.
+
+Thanks,
+Nick
+
+On Mon, Sep 28, 2026 at 3:41 AM Max Mehl <Max.Mehl at deutschebahn.com> wrote:
+
+> On 27.09.26, 09:09, "Nico Rikken" <nico at nicorikken.eu> wrote:
+> > I noticed that the entry on the OSI licenses page lists an incorrect
+> > SPDX ID 'Python-2-0-1' instead of correct SPDX ID 'Python-2.0.1'. So
+> > that will probably have to be corrected.
+>
+> Good point about the wrong SPDX identifier for Python-2.0.1. @Nick, could
+> you please correct that?
+>
+> > Given the remark by Pamela, should I/we file a separate email?
+>
+> For PSF-2.0, I have filed a submission for review a few weeks ago, with no
+> replies so far:
+> https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-September/006255.html
+>
+> ------------------------------
+>
+> Pflichtangaben anzeigen
+> <https://www.deutschebahn.com/pflichtangaben/20260909>
+>
+> Nähere Informationen zur Datenverarbeitung im DB-Konzern finden Sie hier:
+> https://www.deutschebahn.com/de/konzern/datenschutz
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260928/4d2b48b7/attachment.htm>
+
