@@ -8,7 +8,7 @@ canonical-ref: LICENSES/PEER-REVIEW-WATCH.md（「2026 年 10 月の OSI 関連�
 # 2026 年 10 月の OSI 関連イベント —— 取り込みログ
 
 **オーナー依頼（2026-10-04）**: 10 月のイベントすべて（アーカイブの新着を含む）からの取り込みは
-**session_01JWFTyE29hFssV7oB2zVSfM の単独任務**である。他のセッションはその自走が止まっていないかを
+**単独任務**である（2026-10-04 は session_01JWFTyE29hFssV7oB2zVSfM、**2026-10-05 から session_013Kdn4bghBLyPuCBZS7uyAL**。クラウドから外部が取れない間、**取得だけはオーナーの MacBook 上のローカルセッションが担当**し、生データをブランチ `claude/osi-oct-fetch-raw` へ push する）。他のセッションはその自走が止まっていないかを
 監視するだけである。**方針（何を取りに行くか・行かないか・記録の規律）は `PEER-REVIEW-WATCH.md` の
 同名の節が持つ**ので、ここには書き写さない。この file は**何をいつ確かめ、何が取れて、何が取れなかったか**だけを持つ。
 
@@ -55,6 +55,7 @@ canonical-ref: LICENSES/PEER-REVIEW-WATCH.md（「2026 年 10 月の OSI 関連�
 | 2026-10-04（10:25 UTC 頃） | アーカイブ由来の未採掘（他セッションから引き継ぎ） | `against.md` #243 の残り 2 件 —— **Convertible Free Software License**（129 通・決定権者の発言 2 通）と **Open Source Software Alliance License**（122 通・同 33 通）。`rounds/` に保存は無く、ドシエに読みも無い（2026-10-04 に実測で確認）。並べ方は #243 の規則に従い、通数ではなく決定権者の発言数で決める。取得経路（ブラウザ相当の User-Agent で月次 `.txt`）は `PEER-REVIEW-WATCH.md` §3.9 と `census_license_review_archive.py` の docstring に書いてある | 本文は未取得 —— このコンテナからは `lists.opensource.org` が 403。**アーカイブに届く環境で最初に掘る項目** | なし（取得前） |
 | 2026-10-04（13:50〜14:00 UTC） | ネットワーク（新しいコンテナで再測定） | — | **このセッションのコンテナでも、引き継ぎ用に新しく立ち上げたセッション（session_013Kdn4bghBLyPuCBZS7uyAL）のコンテナでも、`example.com` / `opensource.org` / `lists.opensource.org` の 3 つとも 403。** 同日最初の「ネットワーク」の行で書いた「古いコンテナが起動時の制限のまま動いている」という推測は**否定された** —— 新しいコンテナでも同じなので、原因は環境側のネットワーク方針にある。引き継ぎは予定どおり付け替えをせずに止め、単独任務はこのセッションが続ける | なし |
 | 2026-10-04（23:51 UTC・日次ルーティン 1 回目） | 両アーカイブ・10 月イベント・常設の観測対象 | 検索結果のみ（本文未取得）: (a) Open Technology Research Symposium は 10/26–27・Barcelona と出ており、イベント表の日付と一致する。(b) Mailing list の Code of Conduct として、我々の 09-15 スナップショットに無い URL `/codeofconduct/code-of-conduct-for-osi-mailing-lists` が検索結果の見出しに出ている。**これが新しいページなのか、既存ページの別名なのかは分からない**。検索要約の「last modified May 4, 2023」は**索引の時点が分からないので、今日の状態の確認には使えない** | **`example.com` / `opensource.org` / `lists.opensource.org` の 4 URL がすべて 403**（23:51 UTC）。両アーカイブは取得できず、**「新着ゼロ」とは書かない**。10/7 以降のイベントはまだ開催前 | なし。(b) は届く環境で最初に確かめる項目に足す |
+| 2026-10-05（03:35〜03:57 UTC） | ネットワークの原因の切り分け・分担・引き継ぎ | **拒否の主体を特定した**: 送信プロキシへの CONNECT の応答本文が `request blocked: no rule or allowlist entry allows host "<host>"`（03:35 / 03:44 UTC）。通るのは `github.com` / `api.github.com` / `raw.githubusercontent.com` / `registry.npmjs.org`、拒否は `example.com` / `www.google.com` / `opensource.org` / `lists.opensource.org` / `yutapr0117-design.github.io`。WebFetch も `EGRESS_BLOCKED`。**環境 `Default`（env_011HGJfp4npz463RaugVxcmb）は UI では「すべてのドメイン」だが、実際に効いているのは許可リスト方式**で、旧セッション（web 起動）も同じ環境で同じ 403。**分担**: 取得はローカルセッション session_0144GHyQNbwJuw39oYKJhPeR へ依頼（03:55 UTC 発火・受け渡し先 `claude/osi-oct-fetch-raw`・PR は作らない）。**付け替え**: 日次ルーティン `trig_01NSkz5hrkMqHneMhrrz5irv` を無効化し、`trig_01Q2vnjCUJUj8dhyzSM1k7AF`（毎日 23:50 UTC・新担当宛・403 ならローカルへ取得を依頼する手順を含む）を新設。監視担当 2 セッションと旧セッションへ交代を通知（03:57 UTC 発火） | **監視担当の 1 つ session_01Rg8dUsXjnvkV96k83A9eDV はアーカイブ済みで通知を送れなかった**（トリガは active なセッションにしか結べない）。**ローカルの取得結果はこの行の時点ではまだ届いていない** —— 両アーカイブも 10 月イベントの一次資料も、**今日はまだ確かめていない**（「新着ゼロ」とは書かない）。新しく作ったという環境は一覧に現れず、未検証 | なし（体制のみ） |
 
 ## この file が establish しないこと
 
