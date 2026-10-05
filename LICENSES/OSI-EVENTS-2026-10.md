@@ -9,7 +9,7 @@ canonical-ref: LICENSES/PEER-REVIEW-WATCH.md（「2026 年 10 月の OSI 関連�
 
 **オーナー依頼（2026-10-04）**: 10 月のイベントすべて（アーカイブの新着を含む）からの取り込みは
 **session_01JWFTyE29hFssV7oB2zVSfM の単独任務**である。他のセッションはその自走が止まっていないかを
-監視するだけである。**方針（何を取りに行くか・行かないか・記録の規律）は `PEER-REVIEW-WATCH.md` の
+監視するだけである。**⚠ 2026-10-04 に担当がローカルセッションへ移った**（クラウドのトークン枯渇・オーナー依頼。経緯は取り込みログの同日の行。上の文は当時の体制の記録として残す）。**方針（何を取りに行くか・行かないか・記録の規律）は `PEER-REVIEW-WATCH.md` の
 同名の節が持つ**ので、ここには書き写さない。この file は**何をいつ確かめ、何が取れて、何が取れなかったか**だけを持つ。
 
 ## 読み方の規律（3 つ）
@@ -39,9 +39,9 @@ canonical-ref: LICENSES/PEER-REVIEW-WATCH.md（「2026 年 10 月の OSI 関連�
 
 | 対象 | 最後に確かめた日 | そのとき分かったこと | 次に確かめるときに見るもの |
 | :-- | :-- | :-- | :-- |
-| **OSI が予告した Code of Conduct の AI 条項の更新**（2026-09-09 の moderator 通知） | 2026-09-15（`AS-OF.md` の該当行・`rounds/2026-09-15-osi-mailing-list-code-of-conduct-snapshot.txt`） | **更新されていなかった**（両ページとも自称更新日は 2023 年のまま） | `/code-of-conduct` と `/codeofconduct` の自称更新日と本文。**更新されていたら逐語で `rounds/` へ置き、我々の運用（`FROZEN.md` の発信状態）に当たるかを読む** |
-| **理事会議事録の公開範囲** | 2026-09-13（`AS-OF.md`・`ACD-1.0.board-decisions.md`） | 公開されていた最新の会合は 2026-06-29 | 索引に 2026-06-29 より後の会合が載ったか。**とくに 2026-09-24 の理事会**（OpenMDW / ModelGo の扱いの日付は `PEER-REVIEW-WATCH.md` が権威） |
-| **OpenMDW / ModelGo の審査の結末** | 2026-09-27 05:55 UTC（`PEER-REVIEW-WATCH.md` §3.9） | OpenMDW は 09-14 以降沈黙、ModelGo は 09-24 の steward の GitHub 更新で止まっていた | 両リストのアーカイブと理事会の告知。**承認・否決・留め置きのどれかで、ACD の何を変えるかは `PEER-REVIEW-WATCH.md` の 4 分岐が先に決めてある** |
+| **OSI が予告した Code of Conduct の AI 条項の更新**（2026-09-09 の moderator 通知） | **2026-10-04 11:41 UTC（取り込みログ）** ← 2026-09-15（`AS-OF.md` の該当行・`rounds/2026-09-15-osi-mailing-list-code-of-conduct-snapshot.txt`） | **更新されていなかった**（両ページとも自称更新日は 2023 年のまま） | `/code-of-conduct` と `/codeofconduct` の自称更新日と本文。**更新されていたら逐語で `rounds/` へ置き、我々の運用（`FROZEN.md` の発信状態）に当たるかを読む** |
+| **理事会議事録の公開範囲** | **2026-10-04 11:41 UTC（取り込みログ）** ← 2026-09-13（`AS-OF.md`・`ACD-1.0.board-decisions.md`） | 公開されていた最新の会合は 2026-06-29 | 索引に 2026-06-29 より後の会合が載ったか。**とくに 2026-09-24 の理事会**（OpenMDW / ModelGo の扱いの日付は `PEER-REVIEW-WATCH.md` が権威） |
+| **OpenMDW / ModelGo の審査の結末** | **2026-10-04 11:41 UTC（取り込みログ）** ← 2026-09-27 05:55 UTC（`PEER-REVIEW-WATCH.md` §3.9） | OpenMDW は 09-14 以降沈黙、ModelGo は 09-24 の steward の GitHub 更新で止まっていた | 両リストのアーカイブと理事会の告知。**承認・否決・留め置きのどれかで、ACD の何を変えるかは `PEER-REVIEW-WATCH.md` の 4 分岐が先に決めてある** |
 
 ## 取り込みログ（新しい行を下へ足す）
 
@@ -53,6 +53,12 @@ canonical-ref: LICENSES/PEER-REVIEW-WATCH.md（「2026 年 10 月の OSI 関連�
 | 2026-10-04 | 両アーカイブ（license-review / license-discuss） | — | 上と同じ 403 で取得できず。**「新着が無い」とは書かない** —— 取れなかっただけである | なし |
 | 2026-10-04（10:05 UTC 頃） | 常設の観測対象 3 件 | 上の表を新設し、最後に確かめた日と結論を 1 か所に集めた（中身は既存の記録を指すだけで、新しい事実は無い） | **3 件とも今日は確かめられていない** —— 同じコンテナで再測しても `opensource.org` / `lists.opensource.org` / `example.com` は 403 のまま。**「CoC はまだ更新されていない」「理事会の結論は未公開」とは書かない**（最後に確かめた日の結論であって今日の結論ではない） | なし |
 | 2026-10-04（10:25 UTC 頃） | アーカイブ由来の未採掘（他セッションから引き継ぎ） | `against.md` #243 の残り 2 件 —— **Convertible Free Software License**（129 通・決定権者の発言 2 通）と **Open Source Software Alliance License**（122 通・同 33 通）。`rounds/` に保存は無く、ドシエに読みも無い（2026-10-04 に実測で確認）。並べ方は #243 の規則に従い、通数ではなく決定権者の発言数で決める。取得経路（ブラウザ相当の User-Agent で月次 `.txt`）は `PEER-REVIEW-WATCH.md` §3.9 と `census_license_review_archive.py` の docstring に書いてある | 本文は未取得 —— このコンテナからは `lists.opensource.org` が 403。**アーカイブに届く環境で最初に掘る項目** | なし（取得前） |
+| 2026-10-04（11:41 UTC） | 役割の付け替え（2 度目） | **担当をローカルセッション（Mac）へ移した。** 理由はクラウドのトークン枯渇・オーナー依頼。上の「このセッションへ集約」の行と冒頭の文は当時の体制の記録として消さずに残す。監視は別のローカルセッションが行う | — | なし（体制のみ） |
+| 2026-10-04（11:41 UTC） | ネットワーク（このマシン） | **ローカルの Mac からは取得できた**（python urllib + ブラウザ相当 UA）: review 2026-09 400,071 B / discuss 2026-09 29,005 B / 索引 / CoC 2 頁 / 議事録索引 / ライセンス一覧。**上の 403 はクラウドのコンテナの記録であって、このマシンの記録ではない** | `2026-October.txt` は両リストとも 404・索引にも 10 月の行が無い —— mailman は投稿のある月だけファイルを作るので、**取得時点で 10 月の投稿は 0 通**と読む（取得時刻つき） | なし |
+| 2026-10-04（11:41 UTC） | 両アーカイブの新着 | 前回（2026-09-27 05:55 UTC）以降は **`license-review` の 3 通だけ**（Python ライセンスのスレッド・09-27〜28）。`rounds/2026-09-28-license-review-python-licenses-followup-observed.txt` に逐語保存。`license-discuss` は 10 通のまま新着なし。**ModelGo / OpenMDW / ACD への新着は 0 通** | — | **還元は 1 点だけ**: Mehl 氏 *"For PSF-2.0, I have filed a submission for review a few weeks ago, with no replies so far"* —— **採用実績で通る経路（B）の提出も約 3 週間沈黙している**。#109 の「沈黙は普通」の側の 1 例で、**我々の沈黙を有利にも不利にも読ませない**。**⚠ 逆側**: PSF-2.0 は 3 本を 1 通に束ねた提出で、Chestek 氏の「1 ライセンス 1 メール」に当たる可能性があり、沈黙の理由が形式にある読みを排除できない。**register には足さない**（新しい論点ではなく既存 #109 の 1 例） |
+| 2026-10-04（11:41 UTC） | 常設 (a) CoC の AI 条項 | `/code-of-conduct` は自称更新 **May 4, 2023**（`article:modified_time` 2023-05-04）、`/codeofconduct` は **November 2, 2023** —— 本文に AI への言及 0 件 | — | **まだ更新されていない（この取得時刻の結論）。** 発信状態（`FROZEN.md`）は変わらない |
+| 2026-10-04（11:41 UTC） | 常設 (b) 理事会議事録 | `https://opensource.org/minutes` の最新は **2026-06-29** のまま（2026-09-13 と同じ） | 2026-09-24 の理事会の議事録は未掲載 | なし |
+| 2026-10-04（11:41 UTC） | 常設 (c) OpenMDW / ModelGo | 両リストに 09-23 16:05 UTC（Duan 氏）以降の投稿なし。OSI のライセンス一覧に `ModelGo` / `OpenMDW` の語は 0 件、`/license/modelgo` `/license/openmdw` は 404 | 結末を示す一次資料は無い | **4 分岐のどれにも入れない**（一覧に無いことは否決を意味しない —— 留め置きも長期化もありうる）。**誤推論を 1 つ止めた**: Python-2.0.1 の「承認への謝意」は 09-24 の理事会の結果に見えたが、ライセンス頁は **Approved: June 29, 2026**（Submitted: March 20, 2026）で、09-24 とは無関係 |
 
 ## この file が establish しないこと
 
