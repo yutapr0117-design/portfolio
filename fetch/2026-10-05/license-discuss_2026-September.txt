@@ -1,0 +1,757 @@
+From viatrix-26278 at purelymail.com  Sat Sep  5 19:04:24 2026
+From: viatrix-26278 at purelymail.com (viatrix-26278 at purelymail.com)
+Date: Sat, 5 Sep 2026 12:04:24 -0700
+Subject: [License-discuss] Weak copyleft license with network use
+ requirement?
+Message-ID: <20260905120424.4a729af8@lm-Satellite-Pro-C70-B>
+
+Hello license-discuss,
+
+Is there a license or combination of licenses which apply to the
+following situation, and if not, would it be a good idea to create such
+a license?
+Situation: Someone writes a software library, wishes to mandate its
+source code be available to users including users over a network (à la
+AGPL), but otherwise wishes to make it weak-copyleft.
+
+I cannot find a license which would always satisfy this.
+Licenses I have considered but which may present problems:
+
+• AGPL with a classpath exception: Potential for incompatibility if the
+  library itself includes code under a license incompatible with AGPL.
+• EUPL: Potential for a derived work to no longer be beholden to the
+  network use requirement.
+
+If creating a new license would be a good idea, I was thinking a
+modification of the MPL 2.0 would work.
+
+From bruce at perens.com  Sat Sep  5 23:09:17 2026
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 5 Sep 2026 16:09:17 -0700
+Subject: [License-discuss] Weak copyleft license with network use
+ requirement?
+In-Reply-To: <20260905120424.4a729af8@lm-Satellite-Pro-C70-B>
+References: <20260905120424.4a729af8@lm-Satellite-Pro-C70-B>
+Message-ID: 
+ <CAK2MWOs31PdRUABwiR7X2+0Et2hcYkM=1LECC1s1b7wDCQPJEQ@mail.gmail.com>
+
+Just as an exercise, take any Open Source you like, tell an AI to do a
+clean-room re-implementation, put it under a different license, and wonder
+how much meaning copyright and licensing have for Open Source any
+logner. For example, I did this yesterday with Codec2 for technical, not
+licensing, reasons, to make it use fixed-point instead of floating point.
+The resulting CODEC is within 0.99996 conformance with the original for its
+bitstream. See
+https://github.com/BrucePerens/hams_open/tree/main/daemons/ham_digital_modes/src/codec2_3200
+
+I started filing patents. I have 46! I don't see that any other protection
+is valid for Open Source any longer.
+
+    Thanks
+
+    Bruce
+
+
+On Sat, Sep 5, 2026 at 3:21 PM Viatrix via License-discuss <
+license-discuss at lists.opensource.org> wrote:
+
+> Hello license-discuss,
+>
+> Is there a license or combination of licenses which apply to the
+> following situation, and if not, would it be a good idea to create such
+> a license?
+> Situation: Someone writes a software library, wishes to mandate its
+> source code be available to users including users over a network (à la
+> AGPL), but otherwise wishes to make it weak-copyleft.
+>
+> I cannot find a license which would always satisfy this.
+> Licenses I have considered but which may present problems:
+>
+> • AGPL with a classpath exception: Potential for incompatibility if the
+>   library itself includes code under a license incompatible with AGPL.
+> • EUPL: Potential for a derived work to no longer be beholden to the
+>   network use requirement.
+>
+> If creating a new license would be a good idea, I was thinking a
+> modification of the MPL 2.0 would work.
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens K6BP
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260905/a63d4b45/attachment.htm>
+
+From matija at suklje.email  Mon Sep  7 18:40:22 2026
+From: matija at suklje.email (=?UTF-8?Q?Matija_=C5=A0uklje?=)
+Date: Mon, 7 Sep 2026 20:40:22 +0200
+Subject: [License-discuss] Weak copyleft license with network use
+ requirement?
+In-Reply-To: <20260905120424.4a729af8@lm-Satellite-Pro-C70-B>
+References: <20260905120424.4a729af8@lm-Satellite-Pro-C70-B>
+Message-ID: <5af2a821-f1f2-4924-bf6a-e68cf6e55781@suklje.email>
+
+Viatrix via License-discuss je 5. 9. 2026 ob 21:04 napisal:
+> • AGPL with a classpath exception: Potential for incompatibility if the
+>    library itself includes code under a license incompatible with AGPL.
+
+I would rather try to apply LGPL-3.0 to AGPL-3.0. IMHO with a reasonable 
+reading of both, it should work.
+
+
+cheers,
+
+Matija
+
+-- 
+gsm:    tel:+386.41.849.552
+www:    https://matija.suklje.name
+xmpp:   hook at campfire.wheremymonkeyis.at
+matrix: @hook:kompot.si
+
+
+From viatrix-26278 at purelymail.com  Sun Sep  6 00:16:46 2026
+From: viatrix-26278 at purelymail.com (viatrix-26278 at purelymail.com)
+Date: Sat, 5 Sep 2026 17:16:46 -0700
+Subject: [License-discuss] Weak copyleft license with network use
+ requirement?
+In-Reply-To: 
+ <CAK2MWOs31PdRUABwiR7X2+0Et2hcYkM=1LECC1s1b7wDCQPJEQ@mail.gmail.com>
+References: <20260905120424.4a729af8@lm-Satellite-Pro-C70-B>
+ <CAK2MWOs31PdRUABwiR7X2+0Et2hcYkM=1LECC1s1b7wDCQPJEQ@mail.gmail.com>
+Message-ID: <20260905171646.6c1b2901@lm-Satellite-Pro-C70-B>
+
+Bruce, I don't see how this is relevant to my message. Your reply seems
+to be about open source licenses in general, not anything specific to
+my message.
+
+From yuta.yokoi.r at gmail.com  Sun Sep  6 08:12:11 2026
+From: yuta.yokoi.r at gmail.com (=?UTF-8?B?5qiq5LqV6ZuE5aSq?=)
+Date: Sun, 6 Sep 2026 04:12:11 -0400
+Subject: [License-discuss] =?utf-8?q?Discussion_Request=3A_Autonomous_C?=
+	=?utf-8?q?ommons_Dedication_1=2E0_=28ACD-1=2E0=29_=E2=80=94_one_threshold_q?=
+	=?utf-8?q?uestion_on_Sections_3_and_4?=
+Message-ID: 
+ <CANXZM58rCZacUiMBYRjHUnTzRETGe68SaxQPWs8DNo_vyekQ=w@mail.gmail.com>
+
+All,
+
+Rather than simply bumping my earlier request for broad feedback, I would
+like to narrow the discussion to one threshold question about Sections 3
+and 4.
+
+Even a brief view on this one point would be useful. I think it can be
+considered independently of the patent, machine-learning, moral-rights, and
+license-proliferation questions.
+
+Since my original post, I have been reading the 2020 License Review
+discussion concerning the Unlicense.
+
+I do not regard approval of the Unlicense as controlling precedent for
+ACD-1.0, particularly because it was considered as a legacy license rather
+than as a new-license submission.
+
+The discussion is nevertheless useful because it exposes both sides of the
+problem ACD-1.0 is trying to address:
+
+   - a public-domain dedication may not operate effectively in every
+   jurisdiction; but
+   - where a dedication does operate fully, there may no longer be a right
+   remaining in the Dedicator’s hands over which a licence needs to operate.
+
+ACD-1.0 attempts to avoid making the recipient resolve the first question
+before knowing whether the Work may be used.
+
+Section 2.4 says:
+
+«“Sections 3, 4, 5, and 6 are independent of one another. Each is granted
+on its own footing and none is conditioned on the failure of another.”»
+
+Section 3 attempts to surrender the Covered Rights.
+
+Section 4.1 separately makes a complete present grant:
+
+«“The Dedicator grants You a worldwide, royalty-free, non-exclusive,
+irrevocable, perpetual, sublicensable, and transferable licence to exercise
+all Covered Rights in the Work for any purpose whatsoever.”»
+
+Section 4.4 then says:
+
+«“The licence in Section 4.1 is granted independently of Section 3 and does
+not depend on Section 3 being ineffective. Where Section 3 is effective,
+this Section is redundant but not void, and it remains available to be
+relied upon by You.”»
+
+The intended recipient-facing result is simple:
+
+a recipient should not have to determine whether Section 3 succeeded in a
+particular jurisdiction before relying on the freedoms expressed by ACD-1.0.
+
+My threshold question is whether the current text reaches that result using
+a legally coherent description of the relationship between the dedication
+and the licence.
+
+I see two possible analyses.
+
+Reading A — the licence remains independently available.
+
+Section 4.1 is granted presently and unconditionally. Its existence never
+depends on failure of Section 3.
+
+If Section 3 fails, Section 4 supplies the permission.
+
+If Section 3 succeeds only partly, Section 4 applies to whatever Covered
+Rights remain.
+
+If Section 3 succeeds fully, Section 4 has no practical work to do, but the
+prior independent grant is not thereby invalidated.
+
+That is what the present phrase “redundant but not void” is intended to
+express.
+
+Reading B — the grant is independent, but successful surrender removes the
+right on which it would operate.
+
+Under this reading, Section 4.1 is still a present and unconditional grant,
+and it still solves the recipient-facing problem wherever any Covered Right
+remains.
+
+But once a particular Covered Right has actually been surrendered, it may
+be inaccurate to say that the licence over that right remains “available to
+be relied upon,” because there is no longer an exclusive right requiring
+permission.
+
+The practical result for the recipient is the same under both readings:
+
+   - if the right is gone, permission is unnecessary;
+   - if the right remains, Section 4.1 supplies it.
+
+So my concern is not whether the recipient remains free.
+
+It is whether Section 4.4 describes the legal route accurately.
+
+The narrow question I would especially welcome views on is therefore:
+
+Is “redundant but not void, and it remains available to be relied upon” a
+sound description of an independently granted licence after the
+corresponding Covered Right has successfully been surrendered?
+
+If not, would the better analysis be that the architecture itself is sound,
+but Section 4.4 should simply avoid making a claim about continued
+operation over rights that no longer exist?
+
+Put another way, I am trying to distinguish between two possible problems:
+
+   1. Architectural: a dedication and an unconditional present licence
+   should not be structured as independent concurrent footings at all; or
+   2. Drafting: the independent architecture is sound, but Section 4.4
+   describes the successful-dedication case too strongly.
+
+If the first is the problem, I would rather know that before refining
+secondary provisions.
+
+If the second is the problem, that suggests a much narrower revision.
+
+And if the present wording is already coherent, I would rather leave the
+fixed text alone than revise it unnecessarily.
+
+I have deliberately left Section 5’s covenant not to assert, the patent
+provisions, machine-learning provisions, machine-generated material,
+moral-rights provisions, and the separate license-proliferation question
+outside this message so that they do not obscure this one point.
+
+The ACD-1.0 text remains the same fixed text circulated with my original
+discussion request:
+
+https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt
+
+I am not reattaching it because the text has not changed, and I do not want
+a new attachment to suggest that a revised version is being circulated.
+
+Even a short reaction to the Section 3 / Section 4 relationship would be
+very helpful.
+
+Best regards,
+
+Yuta Yokoi
+License Steward
+Autonomous Commons Dedication 1.0 (ACD-1.0)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260906/bc58ee19/attachment.htm>
+
+From yuta.yokoi.r at gmail.com  Sun Sep  6 08:47:20 2026
+From: yuta.yokoi.r at gmail.com (=?UTF-8?B?5qiq5LqV6ZuE5aSq?=)
+Date: Sun, 6 Sep 2026 04:47:20 -0400
+Subject: [License-discuss] =?utf-8?q?Network_copyleft_=E2=80=94_separat?=
+	=?utf-8?q?ing_the_trigger_from_the_reciprocity_scope?=
+Message-ID: 
+ <CANXZM5-0PXcFSNH8J9U-xza5Cs-xi1Mv=pn=Vg8yobjb3KFcdA@mail.gmail.com>
+
+All,
+
+I think one distinction may simplify the design question considerably:
+
+the event that triggers reciprocity and the code to which reciprocity
+applies are separate drafting dimensions.
+
+Put more simply:
+
+   1. Trigger — what event causes the reciprocity obligation to apply?
+   2. Scope — once triggered, what code is subject to that obligation?
+
+A network-use provision can expand the first without necessarily expanding
+the second.
+
+After looking through several OSI-approved licenses and some older
+license-discuss history, I think CPAL-1.0 provides a particularly useful
+example.
+
+CPAL uses the MPL 1.1-style distinction between “Covered Code” and a
+“Larger Work.”
+
+A Larger Work may combine Covered Code with code not governed by CPAL.
+
+Section 3.7 expressly permits that arrangement:
+
+«“You may create a Larger Work by combining Covered Code with other code
+not governed by the terms of this License and distribute the Larger Work as
+a single product.”»
+
+The same provision requires CPAL’s requirements to continue to be satisfied
+for the Covered Code.
+
+So the scope boundary already exists before network use enters the analysis.
+
+Section 15 then introduces “External Deployment,” including making the
+Original Code or Modifications available as an application intended for use
+over a network.
+
+The important structural point is what happens next.
+
+Section 15 does not say that External Deployment causes the entire Larger
+Work to become Covered Code.
+
+Instead, External Deployment of the Original Code or Modifications is
+treated as distribution for purposes of Sections 3.1 and 3.2.
+
+For the source-reciprocity mechanism, the architecture therefore appears to
+be:
+
+Covered Code / Modification scope
++
+External Deployment trigger
+
+rather than:
+
+External Deployment
+↓
+new reciprocity boundary for the entire Larger Work
+
+That makes CPAL useful as an example of what I would describe as a
+scope-preserving network trigger.
+
+The network provision expands when the existing reciprocity obligation
+activates without, merely by doing so, expanding what code that obligation
+governs.
+
+OSL-3.0 provides a second useful comparison, although its reciprocity
+architecture is different from CPAL’s.
+
+Section 5 treats External Deployment of the Original Work or a Derivative
+Work as distribution under the license.
+
+What makes OSL especially useful here is the older license-discuss history.
+
+During discussion of the External Deployment provision in 2005, Lawrence
+Rosen addressed whether proprietary systems linked to externally deployed
+OSL software would consequently have to be disclosed.
+
+His explanation was that linking was not the relevant reciprocity boundary
+and that proprietary systems merely linked to the OSL software would not
+thereby become subject to disclosure; at most, modifications to the
+OSL-licensed software would have to be disclosed.
+
+That seems to illustrate the same separation:
+
+External Deployment answers whether the obligation is triggered.
+
+The definitions of Original Work and Derivative Work answer what the
+obligation reaches.
+
+There was also a license-discuss exchange in 2023 concerning network
+copyleft without some of AGPLv3’s additional requirements in which OSL-3.0
+Section 5 was specifically identified as an existing OSI-approved
+alternative.
+
+So I think the threshold question here can be made narrower than whether
+“weak network copyleft” is possible in the abstract.
+
+The labels “weak” and “strong” are useful shorthand, but I would not make
+them carry the whole analysis.
+
+The more precise question is:
+
+«Does the proposed network clause only add a new event that activates the
+license’s existing reciprocity rule, or does it also redefine the boundary
+of the code governed by that rule?»
+
+Consider a minimal example.
+
+   - File A is within the license’s existing reciprocal scope.
+   - A is modified.
+   - Files B and C are independently written and outside that scope.
+   - A, B, and C operate together as one network service.
+   - Remote users interact with that service.
+
+A scope-preserving network rule could produce:
+
+remote interaction
+↓
+reciprocity trigger occurs
+↓
+source for A and the modifications to A must be made available
+
+while preserving:
+
+B and C remain outside the reciprocity boundary
+
+assuming B and C were outside that boundary under the license’s ordinary
+scope rules in the first place.
+
+I think that final qualification is important.
+
+The network clause should not need to decide again whether B or C is a
+Modification, Derivative Work, Covered Code, part of the licensed Work, or
+otherwise within the reciprocal scope.
+
+That question should already have been answered by the license’s underlying
+reciprocity rules.
+
+The network provision should ideally answer only the new question:
+
+has an event occurred that activates those existing obligations?
+
+That suggests a simple drafting test.
+
+First determine the set of code subject to reciprocity without the network
+provision.
+
+Then add the network event.
+
+If the set of code governed by reciprocity remains the same and only the
+obligation changes from inactive to active, the provision is
+trigger-expanding but scope-preserving.
+
+If the network event also changes the set of code that falls within
+reciprocity, then the clause is doing two things:
+
+   1. expanding the trigger; and
+   2. expanding the scope.
+
+That may be intentional, but if so I think it should be explicit.
+
+This is the part of CPAL Section 15 that I find particularly useful.
+
+It names “Original Code or Modifications” as the subject of External
+Deployment and routes the consequence back into the existing source
+obligations, while Section 3.7 separately preserves the Larger Work
+distinction.
+
+In compact form:
+
+trigger expansion ≠ scope expansion
+
+If the intended design is MPL-style or Covered-Code reciprocity with remote
+network interaction added as another trigger for the same pre-existing
+reciprocity obligation, I would examine CPAL-1.0 especially closely.
+
+I would use OSL-3.0 as a second comparison because its license-discuss
+history makes the trigger/scope distinction unusually explicit.
+
+EUPL-1.2 is also relevant as secondary evidence because its definition of
+Distribution or Communication includes making functionality accessible over
+a network, while the operative subject matter remains defined elsewhere in
+the license. Its reciprocity architecture is sufficiently different that I
+would not treat it as the closest model.
+
+One caution about CPAL: its Section 14 attribution provisions have their
+own treatment of Larger Works.
+
+So I would not use CPAL as shorthand for the broader proposition that every
+CPAL obligation necessarily stops at the Covered Code boundary.
+
+The narrower proposition is sufficient:
+
+CPAL’s Section 15 source-reciprocity mechanism does not, merely by
+introducing External Deployment, erase the Covered Code / Larger Work
+distinction established elsewhere in the license.
+
+That seems to me the most useful precedent for the drafting question here.
+
+CPAL-1.0:
+https://opensource.org/license/cpal-1.0
+
+OSL-3.0:
+https://opensource.org/license/osl-3.0
+
+EUPL-1.2:
+https://opensource.org/license/eupl-1.2
+
+OSL / External Deployment discussion (2005):
+https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2005-September/010996.html
+
+Network copyleft discussion (2023):
+https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2023-May/022101.html
+
+Best regards,
+
+Yuta Yokoi
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260906/507f3645/attachment-0001.htm>
+
+From bruce at perens.com  Wed Sep  9 12:56:53 2026
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 9 Sep 2026 05:56:53 -0700
+Subject: [License-discuss] Weak copyleft license with network use
+ requirement?
+In-Reply-To: <20260905171646.6c1b2901@lm-Satellite-Pro-C70-B>
+References: <20260905120424.4a729af8@lm-Satellite-Pro-C70-B>
+ <CAK2MWOs31PdRUABwiR7X2+0Et2hcYkM=1LECC1s1b7wDCQPJEQ@mail.gmail.com>
+ <20260905171646.6c1b2901@lm-Satellite-Pro-C70-B>
+Message-ID: 
+ <CAK2MWOsjTSkk69Ojksai_R9q5YEcoXjY--zseT=abz0C2iUucw@mail.gmail.com>
+
+LGPL-3.0 would be closest to what you wish except that it is lacking the
+network provision of AGPL. Since LGPL-3 includes GPL-3 by reference,
+it seems pretty easy to make a version including AGPL instead.. My comment
+was indeed about the relevance of Open Source licenses in general at this
+point.
+
+    Thanks
+
+    Bruce
+
+
+On Wed, Sep 9, 2026 at 1:22 AM Viatrix via License-discuss <
+license-discuss at lists.opensource.org> wrote:
+
+> Bruce, I don't see how this is relevant to my message. Your reply seems
+> to be about open source licenses in general, not anything specific to
+> my message.
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens K6BP
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260909/cc85ccd9/attachment.htm>
+
+From nick.vidal at opensource.org  Wed Sep  9 12:57:47 2026
+From: nick.vidal at opensource.org (Nick Vidal)
+Date: Wed, 9 Sep 2026 09:57:47 -0300
+Subject: [License-discuss] AI-generated emails
+Message-ID: 
+ <CAFifBToDDaB8r-t+gQStEd+-NPT-CLgKaCR4=ohSojpsVAMiEQ@mail.gmail.com>
+
+Hi everyone,
+
+We would like to apologize for the various emails that were sent recently,
+which were found to be AI generated.
+
+We do not allow posts generated by AI without careful review from the
+author and will reject posts where we suspect that an AI has been
+responsible for all or most of a message.
+
+The use of AI to help members to better understand and respond to a complex
+topic, especially when the discussions are in a foreign language and very
+legalese, is appropriate for the purpose of making the discussions more
+accessible.
+
+However, we have identified that license-discuss and license-review are
+being used as a proof-of-concept to demonstrate that an AI system can
+autonomously engage and even draft an open source license for review.
+
+We believe that this behavior goes against the "Respect time and attention"
+from our Code of Conduct <https://opensource.org/codeofconduct>. We'll be
+updating it to better reflect the use of AI.
+
+We would like to thank one of our members who provided valuable feedback on
+this matter. We'll share more details soon.
+
+Thank you all for your comprehension.
+
+Kind regards,
+OSI Moderators
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260909/55f00a22/attachment.htm>
+
+From bruce at perens.com  Wed Sep  9 18:55:44 2026
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 9 Sep 2026 11:55:44 -0700
+Subject: [License-discuss] AI-generated emails
+In-Reply-To: 
+ <CAFifBToDDaB8r-t+gQStEd+-NPT-CLgKaCR4=ohSojpsVAMiEQ@mail.gmail.com>
+References: 
+ <CAFifBToDDaB8r-t+gQStEd+-NPT-CLgKaCR4=ohSojpsVAMiEQ@mail.gmail.com>
+Message-ID: 
+ <CAK2MWOu=b8B00mR2R-DujeuwTc0xLqT8-Bu-CJpQ-DCVA3M=LA@mail.gmail.com>
+
+I did notice a recent poster was using a latin parody of my name.
+
+On Wed, Sep 9, 2026 at 6:00 AM Nick Vidal <nick.vidal at opensource.org> wrote:
+
+> Hi everyone,
+>
+> We would like to apologize for the various emails that were sent recently,
+> which were found to be AI generated.
+>
+> We do not allow posts generated by AI without careful review from the
+> author and will reject posts where we suspect that an AI has been
+> responsible for all or most of a message.
+>
+> The use of AI to help members to better understand and respond to a
+> complex topic, especially when the discussions are in a foreign language
+> and very legalese, is appropriate for the purpose of making the discussions
+> more accessible.
+>
+> However, we have identified that license-discuss and license-review are
+> being used as a proof-of-concept to demonstrate that an AI system can
+> autonomously engage and even draft an open source license for review.
+>
+> We believe that this behavior goes against the "Respect time and
+> attention" from our Code of Conduct <https://opensource.org/codeofconduct>.
+> We'll be updating it to better reflect the use of AI.
+>
+> We would like to thank one of our members who provided valuable feedback
+> on this matter. We'll share more details soon.
+>
+> Thank you all for your comprehension.
+>
+> Kind regards,
+> OSI Moderators
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens K6BP
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260909/642ca253/attachment.htm>
+
+From matija at suklje.email  Thu Sep 17 20:06:20 2026
+From: matija at suklje.email (Matija =?UTF-8?B?xaB1a2xqZQ==?=)
+Date: Thu, 17 Sep 2026 22:06:20 +0200
+Subject: [License-discuss] Call for feedback on FLA-2.1_RC
+Message-ID: <W7TaUf2FTk-mTTMvc70Yfw@suklje.email>
+
+Dear all,
+
+something different for a change – I am looking for feedback on an _inbound_ 
+license agreement. Specifically, the newest revision of the Fiduciary License 
+Agreement, which originates with the FSFE.
+
+In case you missed it, the Fiduciary License Agreement – a/the balanced CLA  – 
+version 2.1 has a release candidate ready and we would welcome feedback from 
+this wonderful crowd of experts, to make sure the final version is as best as 
+it can be.
+
+To help with the brainstorming, here are some topics to consider:
+
+• double-check the patent section – expert eyes welcome
+
+• a better term for non-code contributions to replace “documentation” would be 
+great, as well as having a fall-back (outbound) license option for that
+
+• with “generative AI” looming over all of us, is there anything in the text 
+that needs to be improved to account for that too?
+
+• some have expressed concerns about FOSS licenses being defined as“terms of 
+any licenses that qualify as [Free Software](https://www.gnu.org/philosophy/
+free-sw.html) as defined by the Free Software Foundation and at the same time 
+qualify as [Open Source](https://opensource.org/osd) as defined by the Open 
+Source Initiative.” instead of OSI-approved AND/OR FSF-Free – the consensus in 
+the room seems to have been, that there are no good options and we need to 
+find consensus on what’s the least bad option.
+So, what _is_ the least bad option? :)
+
+We intend to release the FLA-2.1 to the general public soon (in fact it is 
+already passed our original plans), so .
+
+For your convenience, I am attaching my slides from the LLW presentation.
+
+Relevant links:
+
+• current draft (click “changes” tab for a better overview) as changes to the 
+FLA-2.0:
+<https://github.com/contributoragreements/ca-cla-chooser/pull/94/>
+
+• a diff viewer for different (2.1_RC) options selected in the CLA chooser – 
+both for the FLA and beyond the FLA (kudos: Florian):
+<https://contributoragreements.org/ca-cla-chooser/viewer.html>
+
+• the standard way of obtaining the FLA-2.1(_RC) is to go to 
+ContributorAgreements.org and going through the CLA chooser by keeping the 
+defaults as they are – they default to FSFE’s FLA:
+<https://contributoragreements.org/ca-cla-chooser/>
+
+• issues that are still open (some can be postponed to 3.0):
+<https://github.com/contributoragreements/ca-cla-chooser/issues>
+
+
+kind regards,
+Matija
+—
+P.S. If anyone wants to be deeply involved with the FLA, we have a separate 
+mailing list too.
+P.P.S. Before anyone complains: I’m not saying you need a CLA, but I’m saying 
+that if you do happen to need a CLA, the FLA is arguably the best option for a 
+FOSS (or dual-licensed) project. Please don’t roll your own, and definitely 
+not a CAA.
+-- 
+gsm:    tel:+386.41.849.552
+www:    https://matija.suklje.name
+xmpp:   hook at campfire.wheremymonkeyis.at
+matrix: @hook:kompot.si 
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: FLA-2.1.pdf
+Type: application/pdf
+Size: 55677 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260917/0ab75693/attachment-0001.pdf>
+

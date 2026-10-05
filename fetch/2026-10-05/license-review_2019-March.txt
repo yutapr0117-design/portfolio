@@ -1,0 +1,3384 @@
+From opensource at lukasatkinson.de  Mon Mar  4 20:01:42 2019
+From: opensource at lukasatkinson.de (Lukas Atkinson)
+Date: Mon, 4 Mar 2019 21:01:42 +0100
+Subject: [License-review] February 2019 Summary
+Message-ID: <CAJTYOd0jMF=-EZz-cjkmdc=TpK0N62k8+OaVR3Rn-+QKvd1kPg@mail.gmail.com>
+
+In February, the License-Review mailing list discussed:
+
+   - Convertible Free Software License (C-FSL)
+   - Twente License
+   - Server Side Public License, Version 2 (SSPL v2)
+   - Review process, governance, and the OSD
+
+This summary can also be read online at
+https://opensource.org/LicenseReview022019
+
+The corresponding License-Discuss summary is online at
+https://opensource.org/LicenseDiscuss022019 and covers discussions on how
+to keep the mailing lists civil, and to what degree the business model of a
+license submitter should be relevant.
+
+*License Committee Report*
+
+Richard Fontana provides the license committee report. Currently, three
+licenses are under review:
+
+   - C-FSL 1.4: A decision is due 2019-02-22.
+   - SSPL v2: A decision is due 2019-02-18.
+   - Twente License: A decision is due 2019-04-05.
+
+*Convertible Free Software License*
+
+In response to last month?s review, Elmar Stellnberger clarifies that the
+Original Authors have to decide via consensus or set up their own statutes
+that cover their decision process.
+
+Rob Landley points out that copyright transfers must be written and signed
+(at least in the US), so that a license like the C-FSL that tries to
+circumvent this requirement might not hold up in court.
+
+*Twente License*
+
+Anand Chowdhary submits his Twente License for approval. It is an MIT-style
+license, except that it also tries to ensure ?European values? and privacy:
+derivatives of the software may only collect and share personal data with
+the user?s prior consent.
+
+Nigel Tzeng points out that this fails OSD #6 ?No Discrimination Against
+Fields of Endeavor?, while Josh Berkus disagrees. Lawrence Rosen criticizes
+that the license tries to enforce values: ?far more ambitious than software
+can protect with its mere open source licenses.? Eric Schultz suggests
+other ways than licenses for open source projects to express values, for
+example by refusing to support unethical use cases.
+
+Bruce Perens adds a bit of historical background to the OSD: it was written
+to with anti apartheid licenses in mind that ended up hurting innocent
+people after the apartheid had ended. (Note: e.g. see Computers and the
+Apartheid Regime in South Africa
+<http://www-cs-students.stanford.edu/~cale/cs201/index.html>)
+
+Josh Berkus criticizes that licenses should not mandate values because the
+interpretation of these values can be quite subjective ? thus making it
+unclear whether the license has been violated. Anand Chowdhary responds
+that while expressing certain values is the rationale of this license, the
+text of the license only contains a specific, unambiguous condition.
+
+Carlo Piana argues that it is not the job of licenses to ensure compliance
+with legal obligations: ?the entire concept is wrong? and fails to account
+for changing laws over time.
+
+Lukas Atkinson argues that data protection is not inherent in a software
+but depends on how the software is used. Therefore, a copyright license
+doesn?t offer a suitable enforcement tool. And while the license seems to
+emulate the GDPR, it is both more narrow and more restrictive. Atkinson
+suggests that it might be a better approach to combine the MIT-like
+attribution requirement with a GDPR-like transparency requirement, but
+without directly restricting the use of the software. Carlo Piana thinks
+this is a good idea in principle, but that correctly implementing such a
+requirement in a license would be rather difficult. In response to this,
+Anand Chowdhary clarifies their goals and starts drafting a transparency
+clause.
+
+*Server Side Public License, Version 2*
+
+Eliot Horowitz (MongoDB) responds to criticism of the SSPL?s section 13,
+and provides some clarifications. Horowitz proposes a rewritten section
+that explicitly defines ?Software as a Service? as ?enabling a user to
+interact with software remotely through a computer network.?
+
+Bruce Perens appreciates this clarification, but notes that this definition
+was not subject to major objections. Instead, Perens suggest removing the
+concept of ?Service Source Code? in favour of sticking with the AGPL?s
+Corresponding Source concept. Perens summarizes his objections: that the
+Service Source Code concept attempts to encumber unrelated programs thus
+running into OSD #9, and that section 13 as written restricts fields of
+endeavour such as offering the software as a service, thus running into OSD
+#6.
+
+I don?t see how you can change this while keeping the intent of your
+license [?] subsequent alterations to the license text have not
+substantially addressed [these objections].
+
+Similarly, Brendan Hickey finds that the central objections have not been
+addressed, though Hickey also points out the SSPL?s use of ?value? and
+?primary purpose? as problematic. ?What?s so special about these claims
+versus others? Simply, a license that doesn?t conform to the OSD must be
+rejected. As long as these problems are unresolved everything else ? like
+the definition of SAAS ? is just window dressing.? In contrast, Kyle
+Mitchell finds that Horowitz? clarifications address the objections he had.
+
+*Review process, governance, and the OSD*
+
+In the context of the SSPL review, Kyle Mitchell criticizes the OSI?s
+license review process, in particular the weight given to Peren?s voice.
+?I?ve lost confidence in this body?s ability to make rigorous decisions, or
+even facilitate focused debate, on any remotely interesting new copyleft
+license.? Rick Moen quips: ?I think Bruce is permitted to be correct and
+listened to, despite the admitted difficulty of his having credibility on
+the subject.?
+
+Perens responds to Mitchell that he founds his SSPL criticism solely on the
+question whether the license can be Open Source: ?This is not an issue of
+my being a honcho, but of clearly stated rules in the OSD that the license
+intent very obviously came into conflict with.? Perens is also happy to
+engage with new licensing ideas when they don?t purport to be Open Source.
+In turn, Mitchell disagrees that the OSD would be so clear. ?If OSD 6
+banned any kind of [discrimination], GPLv2 discriminated against
+proprietary software makers.? ?There should be a new, crips, clear rule on
+open source copyleft scope. OSD 9 isn?t it.? Perens responds to individual
+points in Mitchell?s message. ?Free Software and Open Source drew a line in
+the sand, gave it a brand, and have defended that line. There will always
+be attempts to push it elsewhere, and they will always be resisted.?
+
+Lawrence Rosen shares some of Mitchell?s concerns regarding the scopes of
+the OSD versus SSPL, but thinks the discussion on these should be separated
+from the SSPL. In particular:
+
+
+   -
+
+   What components or other aspects of server applications are potentially
+   subject to open source copyleft?
+   -
+
+   Is ?corresponding source? more than only the Original Work and
+   Derivative Works as defined in copyright law? How much more?
+
+There?s also some debate about the ?silent majority? who do not participate
+on the license-review list. Do they approve of everything and would speak
+up otherwise? Or are they absent because they disagree with the review?
+Bruce Perens suggests a third option:
+
+Very few people in the world want to be involved with license approval. Not
+even a majority of OSI directors. That?s why what happens on this list is
+important. They?re all trusting us to get it right.
+
+Note: If you?d like to participate on the lists, head over to
+https://opensource.org/lists for information on how to subscribe.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190304/b5bd49a3/attachment.html>
+
+From eliot at mongodb.com  Sat Mar  9 00:44:48 2019
+From: eliot at mongodb.com (Eliot Horowitz)
+Date: Fri, 8 Mar 2019 19:44:48 -0500
+Subject: [License-review] Approval: Server Side Public License,
+ Version 2 (SSPL v2)
+In-Reply-To: <CAJ6sj3fo0DtLM9VTUoDM7++hXYOz7cdppADP0qSXOwFhnSA5FA@mail.gmail.com>
+References: <CAJ6sj3eKuX=KkgA=_dqmSp_wUgRqG===dMQJexTgX4bF45ax+Q@mail.gmail.com>
+ <CAJ6sj3fo0DtLM9VTUoDM7++hXYOz7cdppADP0qSXOwFhnSA5FA@mail.gmail.com>
+Message-ID: <CAJ6sj3eN4NjDbeRo11=C6Hr-56+csjfAg+GfJVMD_Z2mnSxhLg@mail.gmail.com>
+
+We continue to believe that the SSPL complies with the Open Source
+Definition and the four essential software freedoms.  However, based on its
+reception by the members of this list and the greater open source
+community, the community consensus required to support OSI approval does
+not currently appear to exist regarding the copyleft provision of SSPL.
+Thus, in order to be respectful of the time and efforts of the OSI board
+and this list?s members, we are hereby withdrawing the SSPL from OSI
+consideration.
+
+The copyleft provision of the SSPL updates the GPL/AGPL framework to
+reflect the reality of how modern software applications are built and the
+software-as-a-service model.  While this proposal hasn?t yet gained broad
+support in the community, we have made headway and learned a lot from our
+discussions with the OSI, the broader community, and other companies over
+the past few months since submitting the SSPL.  The number of parties
+voicing concern about the same issue confirm that a new licensing model is
+needed to address the threats facing those, especially smaller,
+up-and-coming companies, that want to make significant investments in open
+source in the modern cloud era.
+
+We have already had several discussions with other stakeholders concerned
+with ?SaaS capture? of innovative open source technology.  We are big
+believers in the importance of open source and we intend to continue to
+work with these parties to either refine the SSPL or develop an alternative
+license that addresses this issue in a way that will be accepted by the
+broader FOSS community.
+
+In the meantime, current and future versions of MongoDB Community will
+continue to be offered under the SSPL.  Over the coming days, we will
+update the messaging on our website to make it clear that the SSPL has not
+been approved under the OSI?s definition of ?open source.?  However,
+MongoDB remains free to use and source available under the SSPL, meaning
+users are free to review, modify, and distribute the software or
+redistribute modifications to the software in compliance with the license.
+
+-Eliot
+
+On Sun, Feb 17, 2019 at 12:33 AM Eliot Horowitz <eliot at mongodb.com> wrote:
+
+> A major theme that has emerged from the feedback regarding the SSPL is
+> uncertainty over what Section 13 means when it refers to making the
+> functionality of a program available as as a service.  As explained in my
+> January post, we intended this trigger to be both narrow and specific.
+> Having considered and digested the comments to date, we acknowledge that
+> there may be a gap between that intent and the language in versions 1 and 2
+> of the license.  We are therefore proposing a new version of Section 13 for
+> this list?s review and feedback.
+>
+> At the outset of Section 13, this version makes ?Software As A Service?
+> (SAAS) a defined term, which means ?enabling a user to interact with
+> software remotely through a computer network.?  This definition makes use
+> of existing language in AGPL and is intended to align with the commonplace
+> understanding of SAAS.
+>
+> We then describe the copyleft trigger in two ways.  As applied to MongoDB,
+> part (a) means that a licensee who uses MongoDB as the backend database for
+> their own SAAS application that does not have the same primary purpose or
+> features as MongoDB does not trigger Section 13.  As applied to MongoDB,
+> part (b) means that a licensee who uses MongoDB as the backend database for
+> their own value-added SAAS application does not trigger Section 13.  We
+> view purpose, features, and value as concepts that can be easily evaluated
+> by reference to objective evidence.
+>
+> The full text of the new proposal for Section 13 of the SSPL is below.
+> The new proposal impacts only the first paragraph of Section 13, but I have
+> provided the entire section for completeness.
+> ----
+> ?For the purposes of this section 13, offering ?Software As A Service?
+> means enabling a user to interact with software remotely through a computer
+> network. If you use the Program or a modified version in offering to third
+> parties Software As A Service and: (a) the primary purpose or features of
+> such Software As A Service is the same as or substantially similar to that
+> of the Program or modified version, or (b) the value of the software
+> component of such Software As A Service is primarily derived from the
+> Program or modified version, then you must make the Service Source Code
+> available via network download to everyone at no charge, under the terms of
+> this License or, solely with respect to any programs (other than the
+> Program or a modified version) for which you do not have the right to make
+> the Corresponding Source available under the terms of this License, under
+> the terms of a license that has been approved by the Open Source Initiative
+> or categorized by the Free Software Foundation as free.
+>
+> ?Service Source Code? means the Corresponding Source for the Program or a
+> modified version, and the Corresponding Source for all programs (other than
+> programs that are Major Components or System Libraries) that you use to
+> make the Program or modified version available as a service, including,
+> without limitation, management software, user interfaces, application
+> program interfaces, automation software, monitoring software, backup
+> software, and host orchestration software, all such that a user could run
+> an instance of the service using the Service Source Code you make
+> available.?
+>
+>
+>
+>
+>
+> On Wed, Nov 21, 2018 at 5:37 PM Eliot Horowitz <eliot at mongodb.com> wrote:
+>
+>> Thank you for your comments on the Server Side Public License.  Below is
+>> an updated version of the Server Side Public License, which we are
+>> submitting for review in lieu of version 1.0.  If this version is approved
+>> by OSI, we plan to apply it to the next release of our MongoDB software,
+>> which is currently available under version 1.0.
+>>
+>> In this version, we have made several significant substantive changes in
+>> Section 13, we well as certain conforming and non-substantive changes.
+>>
+>> Members of the list expressed concerns that compliance with the source
+>> code sharing conditions of Section 13 would not be feasible, because in
+>> common technology environments today, some parts of the Service Source Code
+>> would be proprietary, or subject to incompatible open source licenses.  To
+>> address this concern, we have clarified that the source code sharing
+>> condition of Section 13 does not require delivery of Major Components or
+>> System Libraries. We have also added the option to make the Service Source
+>> Code (other than the Corresponding Source for the Program itself) available
+>> under OSI or FSF approved licenses, to the extent that the licensee does
+>> not have the right to share the Service Source Code under the terms of the
+>> SSPL.
+>>
+>> Members had also expressed concerns about whether the SSPL meets OSD 9 --
+>> that the license must not restrict other software.  While we think version
+>> 1 met with this plank of the definition, and explained why in our initial
+>> submission, we made the changes described above in part to further address
+>> this concern, by limiting the source code that must be made available
+>> subject to this license and adding the option to make the source code
+>> available under other open source licenses.
+>>
+>> Below is a list of changes.  The revised license appears after the listed
+>> changes, in plaintext.
+>>
+>> Substantive changes:
+>>
+>> --Version number changed from 1 to 2
+>> --Date changed to November [____] 2018
+>> --Section 13, first sentence: added ?or, solely with respect to any
+>> programs (other than the Program or a modified version) for which you do
+>> not have the right to make the Corresponding Source available under the
+>> terms of this License, under the terms of a license that has been approved
+>> by the Open Source Initiative or categorized by the Free Software
+>> Foundation as free?
+>> --Section 13, second paragraph: added ?(other than programs that are
+>> Major Components or System Libraries)? after ?all programs?
+>> --Section 13, second paragraph: ?storage software and hosting software?
+>> changed to ?host orchestration software?
+>>
+>> Non-substantive and conforming changes:
+>>
+>> --Definition of This License: added ?the?
+>> --Section 5, last sentence: ?Without limiting section 13,? added
+>> --Section 8: ?or otherwise use? added in two places
+>> --Section 9: added ?single? before ?copy?
+>> --Section 9: ?use? added to ?propagate or modify? and ?using? added to
+>> ?modifying or propagating?
+>> --Section 13: ?a? replaces ?the? in first line of Service Source Code
+>> definition
+>>
+>> A PLAINTEXT VERSION OF THE LICENSE FOLLOWS:
+>>
+>> ======================================================================
+>>
+>> Server Side Public License
+>> VERSION 2, NOVEMBER [XX], 2018
+>>
+>> Copyright ? 2018 MongoDB, Inc.
+>>
+>> Everyone is permitted to copy and distribute verbatim copies of this
+>> license document, but changing it is not allowed.
+>> TERMS AND CONDITIONS
+>> 0. Definitions.
+>> ?This License? refers to the Server Side Public License.
+>> ?Copyright? also means copyright-like laws that apply to other kinds of
+>> works, such as semiconductor masks.
+>> ?The Program? refers to any copyrightable work licensed under this
+>> License. Each licensee is addressed as ?you?. ?Licensees? and ?recipients?
+>> may be individuals or organizations.
+>> To ?modify? a work means to copy from or adapt all or part of the work in
+>> a fashion requiring copyright permission, other than the making of an exact
+>> copy. The resulting work is called a ?modified version? of the earlier work
+>> or a work ?based on? the earlier work.
+>> A ?covered work? means either the unmodified Program or a work based on
+>> the Program.
+>> To ?propagate? a work means to do anything with it that, without
+>> permission, would make you directly or secondarily liable for infringement
+>> under applicable copyright law, except executing it on a computer or
+>> modifying a private copy. Propagation includes copying, distribution (with
+>> or without modification), making available to the public, and in some
+>> countries other activities as well.
+>> To ?convey? a work means any kind of propagation that enables other
+>> parties to make or receive copies. Mere interaction with a user through a
+>> computer network, with no transfer of a copy, is not conveying.
+>> An interactive user interface displays ?Appropriate Legal Notices? to the
+>> extent that it includes a convenient and prominently visible feature that
+>> (1) displays an appropriate copyright notice, and (2) tells the user that
+>> there is no warranty for the work (except to the extent that warranties are
+>> provided), that licensees may convey the work under this License, and how
+>> to view a copy of this License. If the interface presents a list of user
+>> commands or options, such as a menu, a prominent item in the list meets
+>> this criterion.
+>> 1. Source Code.
+>> The ?source code? for a work means the preferred form of the work for
+>> making modifications to it. ?Object code? means any non-source form of a
+>> work.
+>> A ?Standard Interface? means an interface that either is an official
+>> standard defined by a recognized standards body, or, in the case of
+>> interfaces specified for a particular programming language, one that is
+>> widely used among developers working in that language.
+>> The ?System Libraries? of an executable work include anything, other than
+>> the work as a whole, that (a) is included in the normal form of packaging a
+>> Major Component, but which is not part of that Major Component, and (b)
+>> serves only to enable use of the work with that Major Component, or to
+>> implement a Standard Interface for which an implementation is available to
+>> the public in source code form. A ?Major Component?, in this context, means
+>> a major essential component (kernel, window system, and so on) of the
+>> specific operating system (if any) on which the executable work runs, or a
+>> compiler used to produce the work, or an object code interpreter used to
+>> run it.
+>> The ?Corresponding Source? for a work in object code form means all the
+>> source code needed to generate, install, and (for an executable work) run
+>> the object code and to modify the work, including scripts to control those
+>> activities. However, it does not include the work's System Libraries, or
+>> general-purpose tools or generally available free programs which are used
+>> unmodified in performing those activities but which are not part of the
+>> work. For example, Corresponding Source includes interface definition files
+>> associated with source files for the work, and the source code for shared
+>> libraries and dynamically linked subprograms that the work is specifically
+>> designed to require, such as by intimate data communication or control flow
+>> between those subprograms and other parts of the work.
+>> The Corresponding Source need not include anything that users can
+>> regenerate automatically from other parts of the Corresponding Source.
+>> The Corresponding Source for a work in source code form is that same work.
+>> 2. Basic Permissions.
+>> All rights granted under this License are granted for the term of
+>> copyright on the Program, and are irrevocable provided the stated
+>> conditions are met. This License explicitly affirms your unlimited
+>> permission to run the unmodified Program, subject to section 13. The output
+>> from running a covered work is covered by this License only if the output,
+>> given its content, constitutes a covered work. This License acknowledges
+>> your rights of fair use or other equivalent, as provided by copyright law.
+>> Subject to section 13, you may make, run and propagate covered works that
+>> you do not convey, without conditions so long as your license otherwise
+>> remains in force. You may convey covered works to others for the sole
+>> purpose of having them make modifications exclusively for you, or provide
+>> you with facilities for running those works, provided that you comply with
+>> the terms of this License in conveying all material for which you do not
+>> control copyright. Those thus making or running the covered works for you
+>> must do so exclusively on your behalf, under your direction and control, on
+>> terms that prohibit them from making any copies of your copyrighted
+>> material outside their relationship with you.
+>> Conveying under any other circumstances is permitted solely under the
+>> conditions stated below. Sublicensing is not allowed; section 10 makes it
+>> unnecessary.
+>> 3. Protecting Users' Legal Rights From Anti-Circumvention Law.
+>> No covered work shall be deemed part of an effective technological
+>> measure under any applicable law fulfilling obligations under article 11 of
+>> the WIPO copyright treaty adopted on 20 December 1996, or similar laws
+>> prohibiting or restricting circumvention of such measures.
+>> When you convey a covered work, you waive any legal power to forbid
+>> circumvention of technological measures to the extent such circumvention is
+>> effected by exercising rights under this License with respect to the
+>> covered work, and you disclaim any intention to limit operation or
+>> modification of the work as a means of enforcing, against the work's users,
+>> your or third parties' legal rights to forbid circumvention of
+>> technological measures.
+>> 4. Conveying Verbatim Copies.
+>> You may convey verbatim copies of the Program's source code as you
+>> receive it, in any medium, provided that you conspicuously and
+>> appropriately publish on each copy an appropriate copyright notice; keep
+>> intact all notices stating that this License and any non-permissive terms
+>> added in accord with section 7 apply to the code; keep intact all notices
+>> of the absence of any warranty; and give all recipients a copy of this
+>> License along with the Program.
+>> You may charge any price or no price for each copy that you convey, and
+>> you may offer support or warranty protection for a fee.
+>> 5. Conveying Modified Source Versions.
+>> You may convey a work based on the Program, or the modifications to
+>> produce it from the Program, in the form of source code under the terms of
+>> section 4, provided that you also meet all of these conditions:
+>> a) The work must carry prominent notices stating that you modified it,
+>> and giving a relevant date.
+>> b) The work must carry prominent notices stating that it is released
+>> under this License and any conditions added under section 7. This
+>> requirement modifies the requirement in section 4 to ?keep intact all
+>> notices?.
+>> c) You must license the entire work, as a whole, under this License to
+>> anyone who comes into possession of a copy. This License will therefore
+>> apply, along with any applicable section 7 additional terms, to the whole
+>> of the work, and all its parts, regardless of how they are packaged. This
+>> License gives no permission to license the work in any other way, but it
+>> does not invalidate such permission if you have separately received it.
+>> d) If the work has interactive user interfaces, each must display
+>> Appropriate Legal Notices; however, if the Program has interactive
+>> interfaces that do not display Appropriate Legal Notices, your work need
+>> not make them do so.
+>> A compilation of a covered work with other separate and independent
+>> works, which are not by their nature extensions of the covered work, and
+>> which are not combined with it such as to form a larger program, in or on a
+>> volume of a storage or distribution medium, is called an ?aggregate? if the
+>> compilation and its resulting copyright are not used to limit the access or
+>> legal rights of the compilation's users beyond what the individual works
+>> permit. Without limiting section 13, inclusion of a covered work in an
+>> aggregate does not cause this License to apply to the other parts of the
+>> aggregate.
+>> 6. Conveying Non-Source Forms.
+>> You may convey a covered work in object code form under the terms of
+>> sections 4 and 5, provided that you also convey the machine-readable
+>> Corresponding Source under the terms of this License, in one of these ways:
+>> a) Convey the object code in, or embodied in, a physical product
+>> (including a physical distribution medium), accompanied by the
+>> Corresponding Source fixed on a durable physical medium customarily used
+>> for software interchange.
+>> b) Convey the object code in, or embodied in, a physical product
+>> (including a physical distribution medium), accompanied by a written offer,
+>> valid for at least three years and valid for as long as you offer spare
+>> parts or customer support for that product model, to give anyone who
+>> possesses the object code either (1) a copy of the Corresponding Source for
+>> all the software in the product that is covered by this License, on a
+>> durable physical medium customarily used for software interchange, for a
+>> price no more than your reasonable cost of physically performing this
+>> conveying of source, or (2) access to copy the Corresponding Source from a
+>> network server at no charge.
+>> c) Convey individual copies of the object code with a copy of the written
+>> offer to provide the Corresponding Source. This alternative is allowed only
+>> occasionally and noncommercially, and only if you received the object code
+>> with such an offer, in accord with subsection 6b.
+>> d) Convey the object code by offering access from a designated place
+>> (gratis or for a charge), and offer equivalent access to the Corresponding
+>> Source in the same way through the same place at no further charge. You
+>> need not require recipients to copy the Corresponding Source along with the
+>> object code. If the place to copy the object code is a network server, the
+>> Corresponding Source may be on a different server (operated by you or a
+>> third party) that supports equivalent copying facilities, provided you
+>> maintain clear directions next to the object code saying where to find the
+>> Corresponding Source. Regardless of what server hosts the Corresponding
+>> Source, you remain obligated to ensure that it is available for as long as
+>> needed to satisfy these requirements.
+>> e) Convey the object code using peer-to-peer transmission, provided you
+>> inform other peers where the object code and Corresponding Source of the
+>> work are being offered to the general public at no charge under subsection
+>> 6d.
+>> A separable portion of the object code, whose source code is excluded
+>> from the Corresponding Source as a System Library, need not be included in
+>> conveying the object code work.
+>> A ?User Product? is either (1) a ?consumer product?, which means any
+>> tangible personal property which is normally used for personal, family, or
+>> household purposes, or (2) anything designed or sold for incorporation into
+>> a dwelling. In determining whether a product is a consumer product,
+>> doubtful cases shall be resolved in favor of coverage. For a particular
+>> product received by a particular user, ?normally used? refers to a typical
+>> or common use of that class of product, regardless of the status of the
+>> particular user or of the way in which the particular user actually uses,
+>> or expects or is expected to use, the product. A product is a consumer
+>> product regardless of whether the product has substantial commercial,
+>> industrial or non-consumer uses, unless such uses represent the only
+>> significant mode of use of the product.
+>> ?Installation Information? for a User Product means any methods,
+>> procedures, authorization keys, or other information required to install
+>> and execute modified versions of a covered work in that User Product from a
+>> modified version of its Corresponding Source. The information must suffice
+>> to ensure that the continued functioning of the modified object code is in
+>> no case prevented or interfered with solely because modification has been
+>> made.
+>> If you convey an object code work under this section in, or with, or
+>> specifically for use in, a User Product, and the conveying occurs as part
+>> of a transaction in which the right of possession and use of the User
+>> Product is transferred to the recipient in perpetuity or for a fixed term
+>> (regardless of how the transaction is characterized), the Corresponding
+>> Source conveyed under this section must be accompanied by the Installation
+>> Information. But this requirement does not apply if neither you nor any
+>> third party retains the ability to install modified object code on the User
+>> Product (for example, the work has been installed in ROM).
+>> The requirement to provide Installation Information does not include a
+>> requirement to continue to provide support service, warranty, or updates
+>> for a work that has been modified or installed by the recipient, or for the
+>> User Product in which it has been modified or installed. Access to a
+>> network may be denied when the modification itself materially and adversely
+>> affects the operation of the network or violates the rules and protocols
+>> for communication across the network.
+>> Corresponding Source conveyed, and Installation Information provided, in
+>> accord with this section must be in a format that is publicly documented
+>> (and with an implementation available to the public in source code form),
+>> and must require no special password or key for unpacking, reading or
+>> copying.
+>> 7. Additional Terms.
+>> ?Additional permissions? are terms that supplement the terms of this
+>> License by making exceptions from one or more of its conditions. Additional
+>> permissions that are applicable to the entire Program shall be treated as
+>> though they were included in this License, to the extent that they are
+>> valid under applicable law. If additional permissions apply only to part of
+>> the Program, that part may be used separately under those permissions, but
+>> the entire Program remains governed by this License without regard to the
+>> additional permissions.
+>> When you convey a copy of a covered work, you may at your option remove
+>> any additional permissions from that copy, or from any part of it.
+>> (Additional permissions may be written to require their own removal in
+>> certain cases when you modify the work.) You may place additional
+>> permissions on material, added by you to a covered work, for which you have
+>> or can give appropriate copyright permission.
+>> Notwithstanding any other provision of this License, for material you add
+>> to a covered work, you may (if authorized by the copyright holders of that
+>> material) supplement the terms of this License with terms:
+>> a) Disclaiming warranty or limiting liability differently from the terms
+>> of sections 15 and 16 of this License; or
+>> b) Requiring preservation of specified reasonable legal notices or author
+>> attributions in that material or in the Appropriate Legal Notices displayed
+>> by works containing it; or
+>> c) Prohibiting misrepresentation of the origin of that material, or
+>> requiring that modified versions of such material be marked in reasonable
+>> ways as different from the original version; or
+>> d) Limiting the use for publicity purposes of names of licensors or
+>> authors of the material; or
+>> e) Declining to grant rights under trademark law for use of some trade
+>> names, trademarks, or service marks; or
+>> f) Requiring indemnification of licensors and authors of that material by
+>> anyone who conveys the material (or modified versions of it) with
+>> contractual assumptions of liability to the recipient, for any liability
+>> that these contractual assumptions directly impose on those licensors and
+>> authors.
+>> All other non-permissive additional terms are considered ?further
+>> restrictions? within the meaning of section 10. If the Program as you
+>> received it, or any part of it, contains a notice stating that it is
+>> governed by this License along with a term that is a further restriction,
+>> you may remove that term. If a license document contains a further
+>> restriction but permits relicensing or conveying under this License, you
+>> may add to a covered work material governed by the terms of that license
+>> document, provided that the further restriction does not survive such
+>> relicensing or conveying.
+>> If you add terms to a covered work in accord with this section, you must
+>> place, in the relevant source files, a statement of the additional terms
+>> that apply to those files, or a notice indicating where to find the
+>> applicable terms.
+>> Additional terms, permissive or non-permissive, may be stated in the form
+>> of a separately written license, or stated as exceptions; the above
+>> requirements apply either way.
+>> 8. Termination.
+>> You may not propagate or modify or otherwise use a covered work except as
+>> expressly provided under this License. Any attempt otherwise to propagate
+>> or modify or otherwise use it is void, and will automatically terminate
+>> your rights under this License (including any patent licenses granted under
+>> the third paragraph of section 11).
+>> However, if you cease all violation of this License, then your license
+>> from a particular copyright holder is reinstated (a) provisionally, unless
+>> and until the copyright holder explicitly and finally terminates your
+>> license, and (b) permanently, if the copyright holder fails to notify you
+>> of the violation by some reasonable means prior to 60 days after the
+>> cessation.
+>> Moreover, your license from a particular copyright holder is reinstated
+>> permanently if the copyright holder notifies you of the violation by some
+>> reasonable means, this is the first time you have received notice of
+>> violation of this License (for any work) from that copyright holder, and
+>> you cure the violation prior to 30 days after your receipt of the notice.
+>> Termination of your rights under this section does not terminate the
+>> licenses of parties who have received copies or rights from you under this
+>> License. If your rights have been terminated and not permanently
+>> reinstated, you do not qualify to receive new licenses for the same
+>> material under section 10.
+>> 9. Acceptance Not Required for Having Copies.
+>> You are not required to accept this License in order to receive or run a
+>> single copy of the Program. Ancillary propagation of a covered work
+>> occurring solely as a consequence of using peer-to-peer transmission to
+>> receive a copy likewise does not require acceptance. However, nothing other
+>> than this License grants you permission to use, propagate or modify any
+>> covered work. These actions infringe copyright if you do not accept this
+>> License. Therefore, by using, modifying or propagating a covered work, you
+>> indicate your acceptance of this License to do so.
+>> 10. Automatic Licensing of Downstream Recipients.
+>> Each time you convey a covered work, the recipient automatically receives
+>> a license from the original licensors, to run, modify and propagate that
+>> work, subject to this License. You are not responsible for enforcing
+>> compliance by third parties with this License.
+>> An ?entity transaction? is a transaction transferring control of an
+>> organization, or substantially all assets of one, or subdividing an
+>> organization, or merging organizations. If propagation of a covered work
+>> results from an entity transaction, each party to that transaction who
+>> receives a copy of the work also receives whatever licenses to the work the
+>> party's predecessor in interest had or could give under the previous
+>> paragraph, plus a right to possession of the Corresponding Source of the
+>> work from the predecessor in interest, if the predecessor has it or can get
+>> it with reasonable efforts.
+>> You may not impose any further restrictions on the exercise of the rights
+>> granted or affirmed under this License. For example, you may not impose a
+>> license fee, royalty, or other charge for exercise of rights granted under
+>> this License, and you may not initiate litigation (including a cross-claim
+>> or counterclaim in a lawsuit) alleging that any patent claim is infringed
+>> by making, using, selling, offering for sale, or importing the Program or
+>> any portion of it.
+>> 11. Patents.
+>> A ?contributor? is a copyright holder who authorizes use under this
+>> License of the Program or a work on which the Program is based. The work
+>> thus licensed is called the contributor's ?contributor version?.
+>> A contributor's ?essential patent claims? are all patent claims owned or
+>> controlled by the contributor, whether already acquired or hereafter
+>> acquired, that would be infringed by some manner, permitted by this
+>> License, of making, using, or selling its contributor version, but do not
+>> include claims that would be infringed only as a consequence of further
+>> modification of the contributor version. For purposes of this definition,
+>> ?control? includes the right to grant patent sublicenses in a manner
+>> consistent with the requirements of this License.
+>> Each contributor grants you a non-exclusive, worldwide, royalty-free
+>> patent license under the contributor's essential patent claims, to make,
+>> use, sell, offer for sale, import and otherwise run, modify and propagate
+>> the contents of its contributor version.
+>> In the following three paragraphs, a ?patent license? is any express
+>> agreement or commitment, however denominated, not to enforce a patent (such
+>> as an express permission to practice a patent or covenant not to sue for
+>> patent infringement). To ?grant? such a patent license to a party means to
+>> make such an agreement or commitment not to enforce a patent against the
+>> party.
+>> If you convey a covered work, knowingly relying on a patent license, and
+>> the Corresponding Source of the work is not available for anyone to copy,
+>> free of charge and under the terms of this License, through a publicly
+>> available network server or other readily accessible means, then you must
+>> either (1) cause the Corresponding Source to be so available, or (2)
+>> arrange to deprive yourself of the benefit of the patent license for this
+>> particular work, or (3) arrange, in a manner consistent with the
+>> requirements of this License, to extend the patent license to downstream
+>> recipients. ?Knowingly relying? means you have actual knowledge that, but
+>> for the patent license, your conveying the covered work in a country, or
+>> your recipient's use of the covered work in a country, would infringe one
+>> or more identifiable patents in that country that you have reason to
+>> believe are valid.
+>> If, pursuant to or in connection with a single transaction or
+>> arrangement, you convey, or propagate by procuring conveyance of, a covered
+>> work, and grant a patent license to some of the parties receiving the
+>> covered work authorizing them to use, propagate, modify or convey a
+>> specific copy of the covered work, then the patent license you grant is
+>> automatically extended to all recipients of the covered work and works
+>> based on it.
+>> A patent license is ?discriminatory? if it does not include within the
+>> scope of its coverage, prohibits the exercise of, or is conditioned on the
+>> non-exercise of one or more of the rights that are specifically granted
+>> under this License. You may not convey a covered work if you are a party to
+>> an arrangement with a third party that is in the business of distributing
+>> software, under which you make payment to the third party based on the
+>> extent of your activity of conveying the work, and under which the third
+>> party grants, to any of the parties who would receive the covered work from
+>> you, a discriminatory patent license (a) in connection with copies of the
+>> covered work conveyed by you (or copies made from those copies), or (b)
+>> primarily for and in connection with specific products or compilations that
+>> contain the covered work, unless you entered into that arrangement, or that
+>> patent license was granted, prior to 28 March 2007.
+>> Nothing in this License shall be construed as excluding or limiting any
+>> implied license or other defenses to infringement that may otherwise be
+>> available to you under applicable patent law.
+>> 12. No Surrender of Others' Freedom.
+>> If conditions are imposed on you (whether by court order, agreement or
+>> otherwise) that contradict the conditions of this License, they do not
+>> excuse you from the conditions of this License. If you cannot use,
+>> propagate or convey a covered work so as to satisfy simultaneously your
+>> obligations under this License and any other pertinent obligations, then as
+>> a consequence you may not use, propagate or convey it at all. For example,
+>> if you agree to terms that obligate you to collect a royalty for further
+>> conveying from those to whom you convey the Program, the only way you could
+>> satisfy both those terms and this License would be to refrain entirely from
+>> conveying the Program.
+>> 13. Offering the Program as a Service.
+>> If you make the functionality of the Program or a modified version
+>> available to third parties as a service, you must make the Service Source
+>> Code available via network download to everyone at no charge, under the
+>> terms of this License or, solely with respect to any programs (other than
+>> the Program or a modified version) for which you do not have the right to
+>> make the Corresponding Source available under the terms of this License,
+>> under the terms of a license that has been approved by the Open Source
+>> Initiative or categorized by the Free Software Foundation as free. Making
+>> the functionality of the Program or modified version available to third
+>> parties as a service includes, without limitation, enabling third parties
+>> to interact with the functionality of the Program or modified version
+>> remotely through a computer network, offering a service the value of which
+>> entirely or primarily derives from the value of the Program or modified
+>> version, or offering a service that accomplishes for users the primary
+>> purpose of the Program or modified version.
+>> ?Service Source Code? means the Corresponding Source for the Program or a
+>> modified version, and the Corresponding Source for all programs (other than
+>> programs that are Major Components or System Libraries) that you use to
+>> make the Program or modified version available as a service, including,
+>> without limitation, management software, user interfaces, application
+>> program interfaces, automation software, monitoring software, backup
+>> software, and host orchestration software, all such that a user could run
+>> an instance of the service using the Service Source Code you make
+>> available.
+>> 14. Revised Versions of this License.
+>> MongoDB, Inc. may publish revised and/or new versions of the Server Side
+>> Public License from time to time. Such new versions will be similar in
+>> spirit to the present version, but may differ in detail to address new
+>> problems or concerns.
+>> Each version is given a distinguishing version number. If the Program
+>> specifies that a certain numbered version of the Server Side Public License
+>> ?or any later version? applies to it, you have the option of following the
+>> terms and conditions either of that numbered version or of any later
+>> version published by MongoDB, Inc. If the Program does not specify a
+>> version number of the Server Side Public License, you may choose any
+>> version ever published by MongoDB, Inc.
+>> If the Program specifies that a proxy can decide which future versions of
+>> the Server Side Public License can be used, that proxy's public statement
+>> of acceptance of a version permanently authorizes you to choose that
+>> version for the Program.
+>> Later license versions may give you additional or different permissions.
+>> However, no additional obligations are imposed on any author or copyright
+>> holder as a result of your choosing to follow a later version.
+>> 15. Disclaimer of Warranty.
+>> THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+>> APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+>> HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM ?AS IS? WITHOUT WARRANTY
+>> OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+>> THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+>> PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
+>> IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL
+>> NECESSARY SERVICING, REPAIR OR CORRECTION.
+>> 16. Limitation of Liability.
+>> IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+>> WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS
+>> THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
+>> GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
+>> USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF
+>> DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD
+>> PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),
+>> EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
+>> SUCH DAMAGES.
+>> 17. Interpretation of Sections 15 and 16.
+>> If the disclaimer of warranty and limitation of liability provided above
+>> cannot be given local legal effect according to their terms, reviewing
+>> courts shall apply local law that most closely approximates an absolute
+>> waiver of all civil liability in connection with the Program, unless a
+>> warranty or assumption of liability accompanies a copy of the Program in
+>> return for a fee.
+>> END OF TERMS AND CONDITIONS
+>>
+>>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190308/02ff8a4c/attachment-0001.html>
+
+From martijnverburg at gmail.com  Sat Mar  9 09:30:46 2019
+From: martijnverburg at gmail.com (Martijn Verburg)
+Date: Sat, 9 Mar 2019 09:30:46 +0000
+Subject: [License-review] Approval: Server Side Public License,
+ Version 2 (SSPL v2)
+In-Reply-To: <CAJ6sj3eN4NjDbeRo11=C6Hr-56+csjfAg+GfJVMD_Z2mnSxhLg@mail.gmail.com>
+References: <CAJ6sj3eKuX=KkgA=_dqmSp_wUgRqG===dMQJexTgX4bF45ax+Q@mail.gmail.com>
+ <CAJ6sj3fo0DtLM9VTUoDM7++hXYOz7cdppADP0qSXOwFhnSA5FA@mail.gmail.com>
+ <CAJ6sj3eN4NjDbeRo11=C6Hr-56+csjfAg+GfJVMD_Z2mnSxhLg@mail.gmail.com>
+Message-ID: <CAP7YuAQWqzRO=S5bcDDeheXQc6+_kBMbqnXpPLABhORZYPP=ww@mail.gmail.com>
+
+Thanks for the update Eliot - the clarity is much appreciated.
+
+On Sat, 9 Mar 2019 at 00:45, Eliot Horowitz via License-review <
+license-review at lists.opensource.org> wrote:
+
+> We continue to believe that the SSPL complies with the Open Source
+> Definition and the four essential software freedoms.  However, based on its
+> reception by the members of this list and the greater open source
+> community, the community consensus required to support OSI approval does
+> not currently appear to exist regarding the copyleft provision of SSPL.
+> Thus, in order to be respectful of the time and efforts of the OSI board
+> and this list?s members, we are hereby withdrawing the SSPL from OSI
+> consideration.
+>
+> The copyleft provision of the SSPL updates the GPL/AGPL framework to
+> reflect the reality of how modern software applications are built and the
+> software-as-a-service model.  While this proposal hasn?t yet gained broad
+> support in the community, we have made headway and learned a lot from our
+> discussions with the OSI, the broader community, and other companies over
+> the past few months since submitting the SSPL.  The number of parties
+> voicing concern about the same issue confirm that a new licensing model is
+> needed to address the threats facing those, especially smaller,
+> up-and-coming companies, that want to make significant investments in open
+> source in the modern cloud era.
+>
+> We have already had several discussions with other stakeholders concerned
+> with ?SaaS capture? of innovative open source technology.  We are big
+> believers in the importance of open source and we intend to continue to
+> work with these parties to either refine the SSPL or develop an alternative
+> license that addresses this issue in a way that will be accepted by the
+> broader FOSS community.
+>
+> In the meantime, current and future versions of MongoDB Community will
+> continue to be offered under the SSPL.  Over the coming days, we will
+> update the messaging on our website to make it clear that the SSPL has not
+> been approved under the OSI?s definition of ?open source.?  However,
+> MongoDB remains free to use and source available under the SSPL, meaning
+> users are free to review, modify, and distribute the software or
+> redistribute modifications to the software in compliance with the license.
+>
+> -Eliot
+>
+> On Sun, Feb 17, 2019 at 12:33 AM Eliot Horowitz <eliot at mongodb.com> wrote:
+>
+>> A major theme that has emerged from the feedback regarding the SSPL is
+>> uncertainty over what Section 13 means when it refers to making the
+>> functionality of a program available as as a service.  As explained in my
+>> January post, we intended this trigger to be both narrow and specific.
+>> Having considered and digested the comments to date, we acknowledge that
+>> there may be a gap between that intent and the language in versions 1 and 2
+>> of the license.  We are therefore proposing a new version of Section 13 for
+>> this list?s review and feedback.
+>>
+>> At the outset of Section 13, this version makes ?Software As A Service?
+>> (SAAS) a defined term, which means ?enabling a user to interact with
+>> software remotely through a computer network.?  This definition makes use
+>> of existing language in AGPL and is intended to align with the commonplace
+>> understanding of SAAS.
+>>
+>> We then describe the copyleft trigger in two ways.  As applied to
+>> MongoDB, part (a) means that a licensee who uses MongoDB as the backend
+>> database for their own SAAS application that does not have the same primary
+>> purpose or features as MongoDB does not trigger Section 13.  As applied to
+>> MongoDB, part (b) means that a licensee who uses MongoDB as the backend
+>> database for their own value-added SAAS application does not trigger
+>> Section 13.  We view purpose, features, and value as concepts that can be
+>> easily evaluated by reference to objective evidence.
+>>
+>> The full text of the new proposal for Section 13 of the SSPL is below.
+>> The new proposal impacts only the first paragraph of Section 13, but I have
+>> provided the entire section for completeness.
+>> ----
+>> ?For the purposes of this section 13, offering ?Software As A Service?
+>> means enabling a user to interact with software remotely through a computer
+>> network. If you use the Program or a modified version in offering to third
+>> parties Software As A Service and: (a) the primary purpose or features of
+>> such Software As A Service is the same as or substantially similar to that
+>> of the Program or modified version, or (b) the value of the software
+>> component of such Software As A Service is primarily derived from the
+>> Program or modified version, then you must make the Service Source Code
+>> available via network download to everyone at no charge, under the terms of
+>> this License or, solely with respect to any programs (other than the
+>> Program or a modified version) for which you do not have the right to make
+>> the Corresponding Source available under the terms of this License, under
+>> the terms of a license that has been approved by the Open Source Initiative
+>> or categorized by the Free Software Foundation as free.
+>>
+>> ?Service Source Code? means the Corresponding Source for the Program or a
+>> modified version, and the Corresponding Source for all programs (other than
+>> programs that are Major Components or System Libraries) that you use to
+>> make the Program or modified version available as a service, including,
+>> without limitation, management software, user interfaces, application
+>> program interfaces, automation software, monitoring software, backup
+>> software, and host orchestration software, all such that a user could run
+>> an instance of the service using the Service Source Code you make
+>> available.?
+>>
+>>
+>>
+>>
+>>
+>> On Wed, Nov 21, 2018 at 5:37 PM Eliot Horowitz <eliot at mongodb.com> wrote:
+>>
+>>> Thank you for your comments on the Server Side Public License.  Below is
+>>> an updated version of the Server Side Public License, which we are
+>>> submitting for review in lieu of version 1.0.  If this version is approved
+>>> by OSI, we plan to apply it to the next release of our MongoDB software,
+>>> which is currently available under version 1.0.
+>>>
+>>> In this version, we have made several significant substantive changes in
+>>> Section 13, we well as certain conforming and non-substantive changes.
+>>>
+>>> Members of the list expressed concerns that compliance with the source
+>>> code sharing conditions of Section 13 would not be feasible, because in
+>>> common technology environments today, some parts of the Service Source Code
+>>> would be proprietary, or subject to incompatible open source licenses.  To
+>>> address this concern, we have clarified that the source code sharing
+>>> condition of Section 13 does not require delivery of Major Components or
+>>> System Libraries. We have also added the option to make the Service Source
+>>> Code (other than the Corresponding Source for the Program itself) available
+>>> under OSI or FSF approved licenses, to the extent that the licensee does
+>>> not have the right to share the Service Source Code under the terms of the
+>>> SSPL.
+>>>
+>>> Members had also expressed concerns about whether the SSPL meets OSD 9
+>>> -- that the license must not restrict other software.  While we think
+>>> version 1 met with this plank of the definition, and explained why in our
+>>> initial submission, we made the changes described above in part to further
+>>> address this concern, by limiting the source code that must be made
+>>> available subject to this license and adding the option to make the source
+>>> code available under other open source licenses.
+>>>
+>>> Below is a list of changes.  The revised license appears after the
+>>> listed changes, in plaintext.
+>>>
+>>> Substantive changes:
+>>>
+>>> --Version number changed from 1 to 2
+>>> --Date changed to November [____] 2018
+>>> --Section 13, first sentence: added ?or, solely with respect to any
+>>> programs (other than the Program or a modified version) for which you do
+>>> not have the right to make the Corresponding Source available under the
+>>> terms of this License, under the terms of a license that has been approved
+>>> by the Open Source Initiative or categorized by the Free Software
+>>> Foundation as free?
+>>> --Section 13, second paragraph: added ?(other than programs that are
+>>> Major Components or System Libraries)? after ?all programs?
+>>> --Section 13, second paragraph: ?storage software and hosting software?
+>>> changed to ?host orchestration software?
+>>>
+>>> Non-substantive and conforming changes:
+>>>
+>>> --Definition of This License: added ?the?
+>>> --Section 5, last sentence: ?Without limiting section 13,? added
+>>> --Section 8: ?or otherwise use? added in two places
+>>> --Section 9: added ?single? before ?copy?
+>>> --Section 9: ?use? added to ?propagate or modify? and ?using? added to
+>>> ?modifying or propagating?
+>>> --Section 13: ?a? replaces ?the? in first line of Service Source Code
+>>> definition
+>>>
+>>> A PLAINTEXT VERSION OF THE LICENSE FOLLOWS:
+>>>
+>>> ======================================================================
+>>>
+>>> Server Side Public License
+>>> VERSION 2, NOVEMBER [XX], 2018
+>>>
+>>> Copyright ? 2018 MongoDB, Inc.
+>>>
+>>> Everyone is permitted to copy and distribute verbatim copies of this
+>>> license document, but changing it is not allowed.
+>>> TERMS AND CONDITIONS
+>>> 0. Definitions.
+>>> ?This License? refers to the Server Side Public License.
+>>> ?Copyright? also means copyright-like laws that apply to other kinds of
+>>> works, such as semiconductor masks.
+>>> ?The Program? refers to any copyrightable work licensed under this
+>>> License. Each licensee is addressed as ?you?. ?Licensees? and ?recipients?
+>>> may be individuals or organizations.
+>>> To ?modify? a work means to copy from or adapt all or part of the work
+>>> in a fashion requiring copyright permission, other than the making of an
+>>> exact copy. The resulting work is called a ?modified version? of the
+>>> earlier work or a work ?based on? the earlier work.
+>>> A ?covered work? means either the unmodified Program or a work based on
+>>> the Program.
+>>> To ?propagate? a work means to do anything with it that, without
+>>> permission, would make you directly or secondarily liable for infringement
+>>> under applicable copyright law, except executing it on a computer or
+>>> modifying a private copy. Propagation includes copying, distribution (with
+>>> or without modification), making available to the public, and in some
+>>> countries other activities as well.
+>>> To ?convey? a work means any kind of propagation that enables other
+>>> parties to make or receive copies. Mere interaction with a user through a
+>>> computer network, with no transfer of a copy, is not conveying.
+>>> An interactive user interface displays ?Appropriate Legal Notices? to
+>>> the extent that it includes a convenient and prominently visible feature
+>>> that (1) displays an appropriate copyright notice, and (2) tells the user
+>>> that there is no warranty for the work (except to the extent that
+>>> warranties are provided), that licensees may convey the work under this
+>>> License, and how to view a copy of this License. If the interface presents
+>>> a list of user commands or options, such as a menu, a prominent item in the
+>>> list meets this criterion.
+>>> 1. Source Code.
+>>> The ?source code? for a work means the preferred form of the work for
+>>> making modifications to it. ?Object code? means any non-source form of a
+>>> work.
+>>> A ?Standard Interface? means an interface that either is an official
+>>> standard defined by a recognized standards body, or, in the case of
+>>> interfaces specified for a particular programming language, one that is
+>>> widely used among developers working in that language.
+>>> The ?System Libraries? of an executable work include anything, other
+>>> than the work as a whole, that (a) is included in the normal form of
+>>> packaging a Major Component, but which is not part of that Major Component,
+>>> and (b) serves only to enable use of the work with that Major Component, or
+>>> to implement a Standard Interface for which an implementation is available
+>>> to the public in source code form. A ?Major Component?, in this context,
+>>> means a major essential component (kernel, window system, and so on) of the
+>>> specific operating system (if any) on which the executable work runs, or a
+>>> compiler used to produce the work, or an object code interpreter used to
+>>> run it.
+>>> The ?Corresponding Source? for a work in object code form means all the
+>>> source code needed to generate, install, and (for an executable work) run
+>>> the object code and to modify the work, including scripts to control those
+>>> activities. However, it does not include the work's System Libraries, or
+>>> general-purpose tools or generally available free programs which are used
+>>> unmodified in performing those activities but which are not part of the
+>>> work. For example, Corresponding Source includes interface definition files
+>>> associated with source files for the work, and the source code for shared
+>>> libraries and dynamically linked subprograms that the work is specifically
+>>> designed to require, such as by intimate data communication or control flow
+>>> between those subprograms and other parts of the work.
+>>> The Corresponding Source need not include anything that users can
+>>> regenerate automatically from other parts of the Corresponding Source.
+>>> The Corresponding Source for a work in source code form is that same
+>>> work.
+>>> 2. Basic Permissions.
+>>> All rights granted under this License are granted for the term of
+>>> copyright on the Program, and are irrevocable provided the stated
+>>> conditions are met. This License explicitly affirms your unlimited
+>>> permission to run the unmodified Program, subject to section 13. The output
+>>> from running a covered work is covered by this License only if the output,
+>>> given its content, constitutes a covered work. This License acknowledges
+>>> your rights of fair use or other equivalent, as provided by copyright law.
+>>> Subject to section 13, you may make, run and propagate covered works
+>>> that you do not convey, without conditions so long as your license
+>>> otherwise remains in force. You may convey covered works to others for the
+>>> sole purpose of having them make modifications exclusively for you, or
+>>> provide you with facilities for running those works, provided that you
+>>> comply with the terms of this License in conveying all material for which
+>>> you do not control copyright. Those thus making or running the covered
+>>> works for you must do so exclusively on your behalf, under your direction
+>>> and control, on terms that prohibit them from making any copies of your
+>>> copyrighted material outside their relationship with you.
+>>> Conveying under any other circumstances is permitted solely under the
+>>> conditions stated below. Sublicensing is not allowed; section 10 makes it
+>>> unnecessary.
+>>> 3. Protecting Users' Legal Rights From Anti-Circumvention Law.
+>>> No covered work shall be deemed part of an effective technological
+>>> measure under any applicable law fulfilling obligations under article 11 of
+>>> the WIPO copyright treaty adopted on 20 December 1996, or similar laws
+>>> prohibiting or restricting circumvention of such measures.
+>>> When you convey a covered work, you waive any legal power to forbid
+>>> circumvention of technological measures to the extent such circumvention is
+>>> effected by exercising rights under this License with respect to the
+>>> covered work, and you disclaim any intention to limit operation or
+>>> modification of the work as a means of enforcing, against the work's users,
+>>> your or third parties' legal rights to forbid circumvention of
+>>> technological measures.
+>>> 4. Conveying Verbatim Copies.
+>>> You may convey verbatim copies of the Program's source code as you
+>>> receive it, in any medium, provided that you conspicuously and
+>>> appropriately publish on each copy an appropriate copyright notice; keep
+>>> intact all notices stating that this License and any non-permissive terms
+>>> added in accord with section 7 apply to the code; keep intact all notices
+>>> of the absence of any warranty; and give all recipients a copy of this
+>>> License along with the Program.
+>>> You may charge any price or no price for each copy that you convey, and
+>>> you may offer support or warranty protection for a fee.
+>>> 5. Conveying Modified Source Versions.
+>>> You may convey a work based on the Program, or the modifications to
+>>> produce it from the Program, in the form of source code under the terms of
+>>> section 4, provided that you also meet all of these conditions:
+>>> a) The work must carry prominent notices stating that you modified it,
+>>> and giving a relevant date.
+>>> b) The work must carry prominent notices stating that it is released
+>>> under this License and any conditions added under section 7. This
+>>> requirement modifies the requirement in section 4 to ?keep intact all
+>>> notices?.
+>>> c) You must license the entire work, as a whole, under this License to
+>>> anyone who comes into possession of a copy. This License will therefore
+>>> apply, along with any applicable section 7 additional terms, to the whole
+>>> of the work, and all its parts, regardless of how they are packaged. This
+>>> License gives no permission to license the work in any other way, but it
+>>> does not invalidate such permission if you have separately received it.
+>>> d) If the work has interactive user interfaces, each must display
+>>> Appropriate Legal Notices; however, if the Program has interactive
+>>> interfaces that do not display Appropriate Legal Notices, your work need
+>>> not make them do so.
+>>> A compilation of a covered work with other separate and independent
+>>> works, which are not by their nature extensions of the covered work, and
+>>> which are not combined with it such as to form a larger program, in or on a
+>>> volume of a storage or distribution medium, is called an ?aggregate? if the
+>>> compilation and its resulting copyright are not used to limit the access or
+>>> legal rights of the compilation's users beyond what the individual works
+>>> permit. Without limiting section 13, inclusion of a covered work in an
+>>> aggregate does not cause this License to apply to the other parts of the
+>>> aggregate.
+>>> 6. Conveying Non-Source Forms.
+>>> You may convey a covered work in object code form under the terms of
+>>> sections 4 and 5, provided that you also convey the machine-readable
+>>> Corresponding Source under the terms of this License, in one of these ways:
+>>> a) Convey the object code in, or embodied in, a physical product
+>>> (including a physical distribution medium), accompanied by the
+>>> Corresponding Source fixed on a durable physical medium customarily used
+>>> for software interchange.
+>>> b) Convey the object code in, or embodied in, a physical product
+>>> (including a physical distribution medium), accompanied by a written offer,
+>>> valid for at least three years and valid for as long as you offer spare
+>>> parts or customer support for that product model, to give anyone who
+>>> possesses the object code either (1) a copy of the Corresponding Source for
+>>> all the software in the product that is covered by this License, on a
+>>> durable physical medium customarily used for software interchange, for a
+>>> price no more than your reasonable cost of physically performing this
+>>> conveying of source, or (2) access to copy the Corresponding Source from a
+>>> network server at no charge.
+>>> c) Convey individual copies of the object code with a copy of the
+>>> written offer to provide the Corresponding Source. This alternative is
+>>> allowed only occasionally and noncommercially, and only if you received the
+>>> object code with such an offer, in accord with subsection 6b.
+>>> d) Convey the object code by offering access from a designated place
+>>> (gratis or for a charge), and offer equivalent access to the Corresponding
+>>> Source in the same way through the same place at no further charge. You
+>>> need not require recipients to copy the Corresponding Source along with the
+>>> object code. If the place to copy the object code is a network server, the
+>>> Corresponding Source may be on a different server (operated by you or a
+>>> third party) that supports equivalent copying facilities, provided you
+>>> maintain clear directions next to the object code saying where to find the
+>>> Corresponding Source. Regardless of what server hosts the Corresponding
+>>> Source, you remain obligated to ensure that it is available for as long as
+>>> needed to satisfy these requirements.
+>>> e) Convey the object code using peer-to-peer transmission, provided you
+>>> inform other peers where the object code and Corresponding Source of the
+>>> work are being offered to the general public at no charge under subsection
+>>> 6d.
+>>> A separable portion of the object code, whose source code is excluded
+>>> from the Corresponding Source as a System Library, need not be included in
+>>> conveying the object code work.
+>>> A ?User Product? is either (1) a ?consumer product?, which means any
+>>> tangible personal property which is normally used for personal, family, or
+>>> household purposes, or (2) anything designed or sold for incorporation into
+>>> a dwelling. In determining whether a product is a consumer product,
+>>> doubtful cases shall be resolved in favor of coverage. For a particular
+>>> product received by a particular user, ?normally used? refers to a typical
+>>> or common use of that class of product, regardless of the status of the
+>>> particular user or of the way in which the particular user actually uses,
+>>> or expects or is expected to use, the product. A product is a consumer
+>>> product regardless of whether the product has substantial commercial,
+>>> industrial or non-consumer uses, unless such uses represent the only
+>>> significant mode of use of the product.
+>>> ?Installation Information? for a User Product means any methods,
+>>> procedures, authorization keys, or other information required to install
+>>> and execute modified versions of a covered work in that User Product from a
+>>> modified version of its Corresponding Source. The information must suffice
+>>> to ensure that the continued functioning of the modified object code is in
+>>> no case prevented or interfered with solely because modification has been
+>>> made.
+>>> If you convey an object code work under this section in, or with, or
+>>> specifically for use in, a User Product, and the conveying occurs as part
+>>> of a transaction in which the right of possession and use of the User
+>>> Product is transferred to the recipient in perpetuity or for a fixed term
+>>> (regardless of how the transaction is characterized), the Corresponding
+>>> Source conveyed under this section must be accompanied by the Installation
+>>> Information. But this requirement does not apply if neither you nor any
+>>> third party retains the ability to install modified object code on the User
+>>> Product (for example, the work has been installed in ROM).
+>>> The requirement to provide Installation Information does not include a
+>>> requirement to continue to provide support service, warranty, or updates
+>>> for a work that has been modified or installed by the recipient, or for the
+>>> User Product in which it has been modified or installed. Access to a
+>>> network may be denied when the modification itself materially and adversely
+>>> affects the operation of the network or violates the rules and protocols
+>>> for communication across the network.
+>>> Corresponding Source conveyed, and Installation Information provided, in
+>>> accord with this section must be in a format that is publicly documented
+>>> (and with an implementation available to the public in source code form),
+>>> and must require no special password or key for unpacking, reading or
+>>> copying.
+>>> 7. Additional Terms.
+>>> ?Additional permissions? are terms that supplement the terms of this
+>>> License by making exceptions from one or more of its conditions. Additional
+>>> permissions that are applicable to the entire Program shall be treated as
+>>> though they were included in this License, to the extent that they are
+>>> valid under applicable law. If additional permissions apply only to part of
+>>> the Program, that part may be used separately under those permissions, but
+>>> the entire Program remains governed by this License without regard to the
+>>> additional permissions.
+>>> When you convey a copy of a covered work, you may at your option remove
+>>> any additional permissions from that copy, or from any part of it.
+>>> (Additional permissions may be written to require their own removal in
+>>> certain cases when you modify the work.) You may place additional
+>>> permissions on material, added by you to a covered work, for which you have
+>>> or can give appropriate copyright permission.
+>>> Notwithstanding any other provision of this License, for material you
+>>> add to a covered work, you may (if authorized by the copyright holders of
+>>> that material) supplement the terms of this License with terms:
+>>> a) Disclaiming warranty or limiting liability differently from the terms
+>>> of sections 15 and 16 of this License; or
+>>> b) Requiring preservation of specified reasonable legal notices or
+>>> author attributions in that material or in the Appropriate Legal Notices
+>>> displayed by works containing it; or
+>>> c) Prohibiting misrepresentation of the origin of that material, or
+>>> requiring that modified versions of such material be marked in reasonable
+>>> ways as different from the original version; or
+>>> d) Limiting the use for publicity purposes of names of licensors or
+>>> authors of the material; or
+>>> e) Declining to grant rights under trademark law for use of some trade
+>>> names, trademarks, or service marks; or
+>>> f) Requiring indemnification of licensors and authors of that material
+>>> by anyone who conveys the material (or modified versions of it) with
+>>> contractual assumptions of liability to the recipient, for any liability
+>>> that these contractual assumptions directly impose on those licensors and
+>>> authors.
+>>> All other non-permissive additional terms are considered ?further
+>>> restrictions? within the meaning of section 10. If the Program as you
+>>> received it, or any part of it, contains a notice stating that it is
+>>> governed by this License along with a term that is a further restriction,
+>>> you may remove that term. If a license document contains a further
+>>> restriction but permits relicensing or conveying under this License, you
+>>> may add to a covered work material governed by the terms of that license
+>>> document, provided that the further restriction does not survive such
+>>> relicensing or conveying.
+>>> If you add terms to a covered work in accord with this section, you must
+>>> place, in the relevant source files, a statement of the additional terms
+>>> that apply to those files, or a notice indicating where to find the
+>>> applicable terms.
+>>> Additional terms, permissive or non-permissive, may be stated in the
+>>> form of a separately written license, or stated as exceptions; the above
+>>> requirements apply either way.
+>>> 8. Termination.
+>>> You may not propagate or modify or otherwise use a covered work except
+>>> as expressly provided under this License. Any attempt otherwise to
+>>> propagate or modify or otherwise use it is void, and will automatically
+>>> terminate your rights under this License (including any patent licenses
+>>> granted under the third paragraph of section 11).
+>>> However, if you cease all violation of this License, then your license
+>>> from a particular copyright holder is reinstated (a) provisionally, unless
+>>> and until the copyright holder explicitly and finally terminates your
+>>> license, and (b) permanently, if the copyright holder fails to notify you
+>>> of the violation by some reasonable means prior to 60 days after the
+>>> cessation.
+>>> Moreover, your license from a particular copyright holder is reinstated
+>>> permanently if the copyright holder notifies you of the violation by some
+>>> reasonable means, this is the first time you have received notice of
+>>> violation of this License (for any work) from that copyright holder, and
+>>> you cure the violation prior to 30 days after your receipt of the notice.
+>>> Termination of your rights under this section does not terminate the
+>>> licenses of parties who have received copies or rights from you under this
+>>> License. If your rights have been terminated and not permanently
+>>> reinstated, you do not qualify to receive new licenses for the same
+>>> material under section 10.
+>>> 9. Acceptance Not Required for Having Copies.
+>>> You are not required to accept this License in order to receive or run a
+>>> single copy of the Program. Ancillary propagation of a covered work
+>>> occurring solely as a consequence of using peer-to-peer transmission to
+>>> receive a copy likewise does not require acceptance. However, nothing other
+>>> than this License grants you permission to use, propagate or modify any
+>>> covered work. These actions infringe copyright if you do not accept this
+>>> License. Therefore, by using, modifying or propagating a covered work, you
+>>> indicate your acceptance of this License to do so.
+>>> 10. Automatic Licensing of Downstream Recipients.
+>>> Each time you convey a covered work, the recipient automatically
+>>> receives a license from the original licensors, to run, modify and
+>>> propagate that work, subject to this License. You are not responsible for
+>>> enforcing compliance by third parties with this License.
+>>> An ?entity transaction? is a transaction transferring control of an
+>>> organization, or substantially all assets of one, or subdividing an
+>>> organization, or merging organizations. If propagation of a covered work
+>>> results from an entity transaction, each party to that transaction who
+>>> receives a copy of the work also receives whatever licenses to the work the
+>>> party's predecessor in interest had or could give under the previous
+>>> paragraph, plus a right to possession of the Corresponding Source of the
+>>> work from the predecessor in interest, if the predecessor has it or can get
+>>> it with reasonable efforts.
+>>> You may not impose any further restrictions on the exercise of the
+>>> rights granted or affirmed under this License. For example, you may not
+>>> impose a license fee, royalty, or other charge for exercise of rights
+>>> granted under this License, and you may not initiate litigation (including
+>>> a cross-claim or counterclaim in a lawsuit) alleging that any patent claim
+>>> is infringed by making, using, selling, offering for sale, or importing the
+>>> Program or any portion of it.
+>>> 11. Patents.
+>>> A ?contributor? is a copyright holder who authorizes use under this
+>>> License of the Program or a work on which the Program is based. The work
+>>> thus licensed is called the contributor's ?contributor version?.
+>>> A contributor's ?essential patent claims? are all patent claims owned or
+>>> controlled by the contributor, whether already acquired or hereafter
+>>> acquired, that would be infringed by some manner, permitted by this
+>>> License, of making, using, or selling its contributor version, but do not
+>>> include claims that would be infringed only as a consequence of further
+>>> modification of the contributor version. For purposes of this definition,
+>>> ?control? includes the right to grant patent sublicenses in a manner
+>>> consistent with the requirements of this License.
+>>> Each contributor grants you a non-exclusive, worldwide, royalty-free
+>>> patent license under the contributor's essential patent claims, to make,
+>>> use, sell, offer for sale, import and otherwise run, modify and propagate
+>>> the contents of its contributor version.
+>>> In the following three paragraphs, a ?patent license? is any express
+>>> agreement or commitment, however denominated, not to enforce a patent (such
+>>> as an express permission to practice a patent or covenant not to sue for
+>>> patent infringement). To ?grant? such a patent license to a party means to
+>>> make such an agreement or commitment not to enforce a patent against the
+>>> party.
+>>> If you convey a covered work, knowingly relying on a patent license, and
+>>> the Corresponding Source of the work is not available for anyone to copy,
+>>> free of charge and under the terms of this License, through a publicly
+>>> available network server or other readily accessible means, then you must
+>>> either (1) cause the Corresponding Source to be so available, or (2)
+>>> arrange to deprive yourself of the benefit of the patent license for this
+>>> particular work, or (3) arrange, in a manner consistent with the
+>>> requirements of this License, to extend the patent license to downstream
+>>> recipients. ?Knowingly relying? means you have actual knowledge that, but
+>>> for the patent license, your conveying the covered work in a country, or
+>>> your recipient's use of the covered work in a country, would infringe one
+>>> or more identifiable patents in that country that you have reason to
+>>> believe are valid.
+>>> If, pursuant to or in connection with a single transaction or
+>>> arrangement, you convey, or propagate by procuring conveyance of, a covered
+>>> work, and grant a patent license to some of the parties receiving the
+>>> covered work authorizing them to use, propagate, modify or convey a
+>>> specific copy of the covered work, then the patent license you grant is
+>>> automatically extended to all recipients of the covered work and works
+>>> based on it.
+>>> A patent license is ?discriminatory? if it does not include within the
+>>> scope of its coverage, prohibits the exercise of, or is conditioned on the
+>>> non-exercise of one or more of the rights that are specifically granted
+>>> under this License. You may not convey a covered work if you are a party to
+>>> an arrangement with a third party that is in the business of distributing
+>>> software, under which you make payment to the third party based on the
+>>> extent of your activity of conveying the work, and under which the third
+>>> party grants, to any of the parties who would receive the covered work from
+>>> you, a discriminatory patent license (a) in connection with copies of the
+>>> covered work conveyed by you (or copies made from those copies), or (b)
+>>> primarily for and in connection with specific products or compilations that
+>>> contain the covered work, unless you entered into that arrangement, or that
+>>> patent license was granted, prior to 28 March 2007.
+>>> Nothing in this License shall be construed as excluding or limiting any
+>>> implied license or other defenses to infringement that may otherwise be
+>>> available to you under applicable patent law.
+>>> 12. No Surrender of Others' Freedom.
+>>> If conditions are imposed on you (whether by court order, agreement or
+>>> otherwise) that contradict the conditions of this License, they do not
+>>> excuse you from the conditions of this License. If you cannot use,
+>>> propagate or convey a covered work so as to satisfy simultaneously your
+>>> obligations under this License and any other pertinent obligations, then as
+>>> a consequence you may not use, propagate or convey it at all. For example,
+>>> if you agree to terms that obligate you to collect a royalty for further
+>>> conveying from those to whom you convey the Program, the only way you could
+>>> satisfy both those terms and this License would be to refrain entirely from
+>>> conveying the Program.
+>>> 13. Offering the Program as a Service.
+>>> If you make the functionality of the Program or a modified version
+>>> available to third parties as a service, you must make the Service Source
+>>> Code available via network download to everyone at no charge, under the
+>>> terms of this License or, solely with respect to any programs (other than
+>>> the Program or a modified version) for which you do not have the right to
+>>> make the Corresponding Source available under the terms of this License,
+>>> under the terms of a license that has been approved by the Open Source
+>>> Initiative or categorized by the Free Software Foundation as free. Making
+>>> the functionality of the Program or modified version available to third
+>>> parties as a service includes, without limitation, enabling third parties
+>>> to interact with the functionality of the Program or modified version
+>>> remotely through a computer network, offering a service the value of which
+>>> entirely or primarily derives from the value of the Program or modified
+>>> version, or offering a service that accomplishes for users the primary
+>>> purpose of the Program or modified version.
+>>> ?Service Source Code? means the Corresponding Source for the Program or
+>>> a modified version, and the Corresponding Source for all programs (other
+>>> than programs that are Major Components or System Libraries) that you use
+>>> to make the Program or modified version available as a service, including,
+>>> without limitation, management software, user interfaces, application
+>>> program interfaces, automation software, monitoring software, backup
+>>> software, and host orchestration software, all such that a user could run
+>>> an instance of the service using the Service Source Code you make
+>>> available.
+>>> 14. Revised Versions of this License.
+>>> MongoDB, Inc. may publish revised and/or new versions of the Server Side
+>>> Public License from time to time. Such new versions will be similar in
+>>> spirit to the present version, but may differ in detail to address new
+>>> problems or concerns.
+>>> Each version is given a distinguishing version number. If the Program
+>>> specifies that a certain numbered version of the Server Side Public License
+>>> ?or any later version? applies to it, you have the option of following the
+>>> terms and conditions either of that numbered version or of any later
+>>> version published by MongoDB, Inc. If the Program does not specify a
+>>> version number of the Server Side Public License, you may choose any
+>>> version ever published by MongoDB, Inc.
+>>> If the Program specifies that a proxy can decide which future versions
+>>> of the Server Side Public License can be used, that proxy's public
+>>> statement of acceptance of a version permanently authorizes you to choose
+>>> that version for the Program.
+>>> Later license versions may give you additional or different permissions.
+>>> However, no additional obligations are imposed on any author or copyright
+>>> holder as a result of your choosing to follow a later version.
+>>> 15. Disclaimer of Warranty.
+>>> THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+>>> APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+>>> HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM ?AS IS? WITHOUT WARRANTY
+>>> OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+>>> THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+>>> PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
+>>> IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL
+>>> NECESSARY SERVICING, REPAIR OR CORRECTION.
+>>> 16. Limitation of Liability.
+>>> IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+>>> WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS
+>>> THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
+>>> GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
+>>> USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF
+>>> DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD
+>>> PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),
+>>> EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
+>>> SUCH DAMAGES.
+>>> 17. Interpretation of Sections 15 and 16.
+>>> If the disclaimer of warranty and limitation of liability provided above
+>>> cannot be given local legal effect according to their terms, reviewing
+>>> courts shall apply local law that most closely approximates an absolute
+>>> waiver of all civil liability in connection with the Program, unless a
+>>> warranty or assumption of liability accompanies a copy of the Program in
+>>> return for a fee.
+>>> END OF TERMS AND CONDITIONS
+>>>
+>>> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-- 
+Cheers, Martijn (Sent from Gmail Mobile)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190309/39e3bd66/attachment-0001.html>
+
+From richard.fontana at opensource.org  Mon Mar 11 02:57:40 2019
+From: richard.fontana at opensource.org (Richard Fontana)
+Date: Sun, 10 Mar 2019 22:57:40 -0400
+Subject: [License-review] License Committee Report
+Message-ID: <CA+xoNzGBc2V8zJ5LoCEv0CT__L5UBDRsr_O0gH5wEV4P+75BRA@mail.gmail.com>
+
+Here is a status update on licenses in review. The previous License
+Committee Report [1] is incorporated by reference.
+
+
+Convertible Free Software License, Version 1.4
+
+Submission date:  2019-01-22. [2]
+
+As Lukas Atkinson pointed out, version 1.4 ?does not fundamentally
+address criticism on the previous version?. Several commenters had
+previously argued that the basic policy feature of this license is
+discriminatory in violation of the OSD. I myself think that even with
+the revisions made in version 1.4, the license continues to be very
+confusingly drafted. There appear to be other OSD-conformance problems
+as well (for example, though I don?t think it was previously noted by
+anyone, it appears to restrict commercial distribution). I do not
+believe constructive further revision is possible.
+
+Recommendation: Reject.
+
+
+Server Side Public License, Version 2
+
+MongoDB, Inc. withdrew this license from consideration by OSI a couple
+of days ago [3].
+
+
+Twente License
+
+Submission date: 2019-02-05 [4]
+
+The last word from the license author, on 2019-02-06, was that they
+were ?highly motivated to make changes to this proposal and have a
+license people can actually use, promotes good (tm), and perhaps be
+OSI-compliant.? [5]
+
+Recommendation: No action at this time. A decision by OSI is due on or
+about 2019-04-05.
+
+
+[1] http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-February/003974.html
+[2] http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-January/003928.html
+[3] http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-March/003989.html
+[4] http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-February/003945.html
+[5] http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-February/003965.html
+
+-- 
+Richard Fontana
+Open Source Initiative
+
+
+From josh at berkus.org  Tue Mar 12 17:30:19 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Tue, 12 Mar 2019 10:30:19 -0700
+Subject: [License-review] Approval: Server Side Public License,
+ Version 2 (SSPL v2)
+In-Reply-To: <CAJ6sj3eN4NjDbeRo11=C6Hr-56+csjfAg+GfJVMD_Z2mnSxhLg@mail.gmail.com>
+References: <CAJ6sj3eKuX=KkgA=_dqmSp_wUgRqG===dMQJexTgX4bF45ax+Q@mail.gmail.com>
+ <CAJ6sj3fo0DtLM9VTUoDM7++hXYOz7cdppADP0qSXOwFhnSA5FA@mail.gmail.com>
+ <CAJ6sj3eN4NjDbeRo11=C6Hr-56+csjfAg+GfJVMD_Z2mnSxhLg@mail.gmail.com>
+Message-ID: <1401978a-b6df-5dc9-27e4-7908293e18da@berkus.org>
+
+On 3/8/19 4:44 PM, Eliot Horowitz via License-review wrote:
+> We continue to believe that the SSPL complies with the Open Source
+> Definition and the four essential software freedoms.? However, based on
+> its reception by the members of this list and the greater open source
+> community, the community consensus required to support OSI approval does
+> not currently appear to exist regarding the copyleft provision of SSPL.?
+> Thus, in order to be respectful of the time and efforts of the OSI board
+> and this list?s members, we are hereby withdrawing the SSPL from OSI
+> consideration.?
+
+I'm very disappointed in this.  While I don't care for the way the SSPL
+was introduced, this license poses interesting questions about how
+copyleft can be extended (or not) and how the OSD's clauses about
+software packaging need to change in a SaaS world.
+
+If nothing else, SSPL was a serious license proposal and deserved
+serious consideration it didn't get.  THis was a dramatic failure of the
+license-review process, and I think shows that this group needs to be
+reconstituted.
+
+Where was the report back from CopyleftConf?  Where was the legal
+discussion around whether the things that Mongo wants are actually
+licensable?  Instead of review, this ended in an endurance race of ad
+hominem attacks against MongoDB Inc.  It's frankly embarassing.
+
+We need a real process around license approval that isn't "outlast the
+licensing wonks with the most free time."  This clearly isn't working,
+and SSPL, like several other licenses over the last year, deserves a
+fair hearing on the merits of the license itself.
+
+-- 
+Josh Berkus
+
+
+From mccoy.smith at intel.com  Tue Mar 12 17:44:36 2019
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Tue, 12 Mar 2019 17:44:36 +0000
+Subject: [License-review] Approval: Server Side Public License,
+ Version 2 (SSPL v2)
+In-Reply-To: <1401978a-b6df-5dc9-27e4-7908293e18da@berkus.org>
+References: <CAJ6sj3eKuX=KkgA=_dqmSp_wUgRqG===dMQJexTgX4bF45ax+Q@mail.gmail.com>
+ <CAJ6sj3fo0DtLM9VTUoDM7++hXYOz7cdppADP0qSXOwFhnSA5FA@mail.gmail.com>
+ <CAJ6sj3eN4NjDbeRo11=C6Hr-56+csjfAg+GfJVMD_Z2mnSxhLg@mail.gmail.com>
+ <1401978a-b6df-5dc9-27e4-7908293e18da@berkus.org>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5198B0797E0@fmsmsx117.amr.corp.intel.com>
+
+>>-----Original Message-----
+>>From: License-review [mailto:license-review-bounces at lists.opensource.org] On Behalf Of Josh Berkus
+>>Sent: Tuesday, March 12, 2019 10:30 AM
+>>To: License submissions for OSI review <license-review at lists.opensource.org>
+>>Subject: Re: [License-review] Approval: Server Side Public License, Version 2 (SSPL v2)
+
+>>I'm very disappointed in this.  While I don't care for the way the SSPL was introduced, this license poses interesting questions about how copyleft can be extended (or not) and how the OSD's clauses about software packaging need to change in a SaaS world.
+
+How would you propose the OSD be changed?  I think there were various objections to SSPL over the course of discussion, mainly around OSD 9 (with differing opinions on the interpretation and effect of OSD 9), but many of the other objections were around drafting clarity or legal issues like copyright misuse.  I'm not sure any of those were directed at a SaaS business models, although some were directed on the perceived business model of MongoDB.
+
+>>If nothing else, SSPL was a serious license proposal and deserved serious consideration it didn't get.  This was a dramatic failure of the license-review process, and I think shows that this group needs to be reconstituted.
+
+>>Where was the report back from CopyleftConf?  Where was the legal discussion around whether the things that Mongo wants are actually licensable?  Instead of review, this ended in an endurance race of ad hominem attacks against MongoDB Inc.  It's frankly embarassing.
+
+I believe that all of the presentations at CopyleftConf were recorded, but I don't see on their website any recorded content.   Karen Sandler or Bradley Kuhn might know if/when content will be available.  I don't recall a specific discussion of SSPL at that conference, although there were some general discussions (including my presentation) about the evolution of copyleft and how to approach it.
+
+>>We need a real process around license approval that isn't "outlast the licensing wonks with the most free time."  This clearly isn't working, and SSPL, like several other licenses over the last year, deserves a fair hearing on the merits of the license itself.
+
+Is there a different process you think would be fairer?  How would it work?
+FWIW I don't have a lot of free time, but I do post on this list with some frequency.  And I probably qualify as a licensing wonk.
+
+
+From richard.fontana at opensource.org  Tue Mar 12 18:18:43 2019
+From: richard.fontana at opensource.org (Richard Fontana)
+Date: Tue, 12 Mar 2019 14:18:43 -0400
+Subject: [License-review] Approval: Server Side Public License,
+ Version 2 (SSPL v2)
+In-Reply-To: <1401978a-b6df-5dc9-27e4-7908293e18da@berkus.org>
+References: <CAJ6sj3eKuX=KkgA=_dqmSp_wUgRqG===dMQJexTgX4bF45ax+Q@mail.gmail.com>
+ <CAJ6sj3fo0DtLM9VTUoDM7++hXYOz7cdppADP0qSXOwFhnSA5FA@mail.gmail.com>
+ <CAJ6sj3eN4NjDbeRo11=C6Hr-56+csjfAg+GfJVMD_Z2mnSxhLg@mail.gmail.com>
+ <1401978a-b6df-5dc9-27e4-7908293e18da@berkus.org>
+Message-ID: <CA+xoNzEHoh=1dQjukkCQ9rCeqExMB+fYROeO2wBZvLFb9AKbjg@mail.gmail.com>
+
+On Tue, Mar 12, 2019 at 1:31 PM Josh Berkus <josh at berkus.org> wrote:
+>
+> On 3/8/19 4:44 PM, Eliot Horowitz via License-review wrote:
+> >
+> > Thus, in order to be respectful of the time and efforts of the OSI board
+> > and this list?s members, we are hereby withdrawing the SSPL from OSI
+> > consideration.
+>
+> I'm very disappointed in this.  While I don't care for the way the SSPL
+> was introduced, this license poses interesting questions about how
+> copyleft can be extended (or not) and how the OSD's clauses about
+> software packaging need to change in a SaaS world.
+>
+> If nothing else, SSPL was a serious license proposal and deserved
+> serious consideration it didn't get.  THis was a dramatic failure of the
+> license-review process, and I think shows that this group needs to be
+> reconstituted.
+
+Josh, I'm honestly really puzzled at your reaction. Looking at the
+license-review archives from the point in time SSPLv1 was submitted, I
+believe there was quite an energetic and serious discussion about the
+OSD conformance of SSPL from an unusually wide variety of commenters
+including several who don't normally post here (which continued to
+some degree after SSPLv2 was submitted). Look at Lukas Atkinson's
+summaries of the discussions. I just don't see a dramatic failure in
+*this* case.
+
+> Where was the report back from CopyleftConf?
+
+I attended CopyleftConf and as far as I can tell there was not much
+specific interest in SSPL among attendees there. There was no
+SSPL-focused talk on the agenda.
+
+> Where was the legal
+> discussion around whether the things that Mongo wants are actually
+> licensable?
+
+But that's not the question we face here, although it was certainly
+touched on by a number of commenters. Rather, it's whether the license
+"conforms to the Open Source Definition and provides software
+freedom."  General discussions about how far it would be appropriate
+or legally practicable to take copyleft (without leaving free
+software/open source behind) might be appropriate for license-discuss.
+
+> Instead of review, this ended in an endurance race of ad
+> hominem attacks against MongoDB Inc.  It's frankly embarassing.
+
+Very little if any of the comments on SSPL even verged on being ad
+hominem / ad personam, in my assessment. Criticism of MongoDB, Inc.'s
+business model came up in some comments, but I consider that to be
+basically unavoidable (and I was actually surprised it was so
+limited), as the merits of the license from a software freedom
+perspective cannot entirely be separated from the nature of MongoDB's
+traditional business model or the likely business competition motives
+behind the license (I realize others may take a different view).
+Anyway I simply cannot see the basis for saying that the discussion of
+SSPL in general was "an endurance race of ad hominem attacks".  The
+license-review archives bear me out, I believe.
+
+-- 
+Richard Fontana
+Open Source Initiative
+
+
+From josh at berkus.org  Tue Mar 12 18:43:51 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Tue, 12 Mar 2019 11:43:51 -0700
+Subject: [License-review] Approval: Server Side Public License,
+ Version 2 (SSPL v2)
+In-Reply-To: <CA+xoNzEHoh=1dQjukkCQ9rCeqExMB+fYROeO2wBZvLFb9AKbjg@mail.gmail.com>
+References: <CAJ6sj3eKuX=KkgA=_dqmSp_wUgRqG===dMQJexTgX4bF45ax+Q@mail.gmail.com>
+ <CAJ6sj3fo0DtLM9VTUoDM7++hXYOz7cdppADP0qSXOwFhnSA5FA@mail.gmail.com>
+ <CAJ6sj3eN4NjDbeRo11=C6Hr-56+csjfAg+GfJVMD_Z2mnSxhLg@mail.gmail.com>
+ <1401978a-b6df-5dc9-27e4-7908293e18da@berkus.org>
+ <CA+xoNzEHoh=1dQjukkCQ9rCeqExMB+fYROeO2wBZvLFb9AKbjg@mail.gmail.com>
+Message-ID: <3acda47d-d490-8719-0117-f2980abe1f50@berkus.org>
+
+On 3/12/19 11:18 AM, Richard Fontana wrote:
+> On Tue, Mar 12, 2019 at 1:31 PM Josh Berkus <josh at berkus.org> wrote:
+>>
+>> On 3/8/19 4:44 PM, Eliot Horowitz via License-review wrote:
+>>>
+>>> Thus, in order to be respectful of the time and efforts of the OSI board
+>>> and this list?s members, we are hereby withdrawing the SSPL from OSI
+>>> consideration.
+>>
+>> I'm very disappointed in this.  While I don't care for the way the SSPL
+>> was introduced, this license poses interesting questions about how
+>> copyleft can be extended (or not) and how the OSD's clauses about
+>> software packaging need to change in a SaaS world.
+>>
+>> If nothing else, SSPL was a serious license proposal and deserved
+>> serious consideration it didn't get.  THis was a dramatic failure of the
+>> license-review process, and I think shows that this group needs to be
+>> reconstituted.
+> 
+> Josh, I'm honestly really puzzled at your reaction. Looking at the
+> license-review archives from the point in time SSPLv1 was submitted, I
+> believe there was quite an energetic and serious discussion about the
+> OSD conformance of SSPL from an unusually wide variety of commenters
+> including several who don't normally post here (which continued to
+> some degree after SSPLv2 was submitted). Look at Lukas Atkinson's
+> summaries of the discussions. I just don't see a dramatic failure in
+> *this* case.
+
+I'm talking about the last month of discussions, before the SSPL was
+withdrawn.  I don't think the submitters consider that serious
+discussion, and I *know* that folks who have been following L-R don't.
+I'm at OSLS now, and literally within 10 minutes of posting that I got
+two people coming up to me and saying "thank you for posting that".
+Further, within the last month, I've had folks pinging me on social
+media, asking me WTF is wrong with the OSI.  I've even reviewed (and
+talked a significant OSS contributor out of posting) a polemic on why
+the OSI should be shut down on the basis of this thread.
+
+The OSI only has authority to the extent that we are widely regarded as
+an impartial arbiter of what is and is not open source.  It's important.
+And on the SSPL, we are *not* widely perceived as fair or impartial.
+
+> 
+>> Where was the report back from CopyleftConf?
+> 
+> I attended CopyleftConf and as far as I can tell there was not much
+> specific interest in SSPL among attendees there. There was no
+> SSPL-focused talk on the agenda.
+
+That's disappointing; given that SSPL is an attempt to expand the scope
+of Copyleft, I was really hoping that the CL crew would have opinions on
+it, or at least the ideas behind it.
+
+> 
+>> Where was the legal
+>> discussion around whether the things that Mongo wants are actually
+>> licensable?
+> 
+> But that's not the question we face here, although it was certainly
+> touched on by a number of commenters. Rather, it's whether the license
+> "conforms to the Open Source Definition and provides software
+> freedom."  General discussions about how far it would be appropriate
+> or legally practicable to take copyleft (without leaving free
+> software/open source behind) might be appropriate for license-discuss
+
+I don't see these as separable; "how far can/should we extend copyleft"
+is directly related to any discussions around OSD compliance, especially
+6, 9 and 10.
+
+> 
+>> Instead of review, this ended in an endurance race of ad
+>> hominem attacks against MongoDB Inc.  It's frankly embarassing.
+> 
+> Very little if any of the comments on SSPL even verged on being ad
+> hominem / ad personam, in my assessment. Criticism of MongoDB, Inc.'s
+> business model came up in some comments, but I consider that to be
+> basically unavoidable (and I was actually surprised it was so
+> limited), as the merits of the license from a software freedom
+> perspective cannot entirely be separated from the nature of MongoDB's
+> traditional business model or the likely business competition motives
+> behind the license (I realize others may take a different view).> Anyway I simply cannot see the basis for saying that the discussion of
+> SSPL in general was "an endurance race of ad hominem attacks".  The
+> license-review archives bear me out, I believe.
+
+Again, review the last month of posts on this thread.
+
+
+-- 
+Josh Berkus
+
+
+From mccoy.smith at intel.com  Tue Mar 12 19:07:59 2019
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Tue, 12 Mar 2019 19:07:59 +0000
+Subject: [License-review] Approval: Server Side Public License,
+ Version 2 (SSPL v2)
+In-Reply-To: <3acda47d-d490-8719-0117-f2980abe1f50@berkus.org>
+References: <CAJ6sj3eKuX=KkgA=_dqmSp_wUgRqG===dMQJexTgX4bF45ax+Q@mail.gmail.com>
+ <CAJ6sj3fo0DtLM9VTUoDM7++hXYOz7cdppADP0qSXOwFhnSA5FA@mail.gmail.com>
+ <CAJ6sj3eN4NjDbeRo11=C6Hr-56+csjfAg+GfJVMD_Z2mnSxhLg@mail.gmail.com>
+ <1401978a-b6df-5dc9-27e4-7908293e18da@berkus.org>
+ <CA+xoNzEHoh=1dQjukkCQ9rCeqExMB+fYROeO2wBZvLFb9AKbjg@mail.gmail.com>
+ <3acda47d-d490-8719-0117-f2980abe1f50@berkus.org>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5198B079D4A@fmsmsx117.amr.corp.intel.com>
+
+>>From: License-review [mailto:license-review-bounces at lists.opensource.org] On Behalf Of Josh Berkus
+>>Sent: Tuesday, March 12, 2019 11:44 AM
+>>To: License submissions for OSI review <license-review at lists.opensource.org>; Richard Fontana <richard.fontana at opensource.org>
+>>Subject: Re: [License-review] Approval: Server Side Public License, Version 2 (SSPL v2)
+
+>>That's disappointing; given that SSPL is an attempt to expand the scope of Copyleft, I was really hoping that the CL crew would have opinions on it, or at least the ideas behind it.
+
+FWIW I did mention SSPL (and LZPL) in my presentation, and posited the following:
+
+* Licenses should be evaluated solely on their fidelity to the standards of freedom/openness, and the quality of their drafting in meeting those standards
+* Experimentation is not necessarily a bad thing
+                   *Even failed experimentation
+*The business model, much like their philosophy, of the drafter should be immaterial to evaluating the merit of their license
+
+There were some people in attendance who did not agree with the last proposition
+
+>>I don't see these as separable; "how far can/should we extend copyleft" is directly related to any discussions around OSD compliance, especially 6, 9 and 10.
+
+AGPL (v1 & v3) both reach, at least in some ways, a SaaS business model.  So there is not a bias against a SaaS model in OSI.  I raised the question about whether the next step in copyleft is to extend copyleft past AGPLv3 (which I think is the most far-reaching copyleft license).  I don't recall anyone saying, no, AGPLv3 is the line in the sand over which no future license must pass.
+
+I also, as a thought experiment, I proposed something I called the " Extreme Copyleft Public License (ECPL) " (I proposed something similar on the mailing list in response to either LZPL or SSPL) which said, in essence, "if I, the author, can legally require you to copyleft something, you must copyleft it"  This generated a lot of discussion with people after the presentation (mostly around how such a license would be drafted) but I don't recall anyone saying "such a license should not exist" or "such a license is not copyleft" or "such a license does not conform with the OSD"
+
+
+
+From richard.fontana at opensource.org  Tue Mar 12 19:39:19 2019
+From: richard.fontana at opensource.org (Richard Fontana)
+Date: Tue, 12 Mar 2019 15:39:19 -0400
+Subject: [License-review] Approval: Server Side Public License,
+ Version 2 (SSPL v2)
+In-Reply-To: <3acda47d-d490-8719-0117-f2980abe1f50@berkus.org>
+References: <CAJ6sj3eKuX=KkgA=_dqmSp_wUgRqG===dMQJexTgX4bF45ax+Q@mail.gmail.com>
+ <CAJ6sj3fo0DtLM9VTUoDM7++hXYOz7cdppADP0qSXOwFhnSA5FA@mail.gmail.com>
+ <CAJ6sj3eN4NjDbeRo11=C6Hr-56+csjfAg+GfJVMD_Z2mnSxhLg@mail.gmail.com>
+ <1401978a-b6df-5dc9-27e4-7908293e18da@berkus.org>
+ <CA+xoNzEHoh=1dQjukkCQ9rCeqExMB+fYROeO2wBZvLFb9AKbjg@mail.gmail.com>
+ <3acda47d-d490-8719-0117-f2980abe1f50@berkus.org>
+Message-ID: <CA+xoNzFRMvR0wgQWDhJdrMKEmepkm3sUOt=u9kEr_1qn=3a8vw@mail.gmail.com>
+
+788977On Tue, Mar 12, 2019 at 2:43 PM Josh Berkus <josh at berkus.org> wrote:
+>
+> On 3/12/19 11:18 AM, Richard Fontana wrote:
+
+> > Josh, I'm honestly really puzzled at your reaction. Looking at the
+> > license-review archives from the point in time SSPLv1 was submitted, I
+> > believe there was quite an energetic and serious discussion about the
+> > OSD conformance of SSPL from an unusually wide variety of commenters
+> > including several who don't normally post here (which continued to
+> > some degree after SSPLv2 was submitted). Look at Lukas Atkinson's
+> > summaries of the discussions. I just don't see a dramatic failure in
+> > *this* case.
+>
+> I'm talking about the last month of discussions, before the SSPL was
+> withdrawn.  I don't think the submitters consider that serious
+> discussion, and I *know* that folks who have been following L-R don't.
+
+Okay, I've quickly looked at the last month or so, and what I see is
+that substantive discussion of SSPL was largely dying down by that
+time (despite Eliot's efforts to propose a further modification of
+Section 13) and the remaining discussion was basically a tussle
+between Bruce Perens and Kyle Mitchell, most of which I thought was on
+topic but maybe not all of it. I guess that's what you're talking
+about then but I'm not sure.
+
+> I'm at OSLS now, and literally within 10 minutes of posting that I got
+> two people coming up to me and saying "thank you for posting that".
+> Further, within the last month, I've had folks pinging me on social
+> media, asking me WTF is wrong with the OSI.  I've even reviewed (and
+> talked a significant OSS contributor out of posting) a polemic on why
+> the OSI should be shut down on the basis of this thread.
+>
+> The OSI only has authority to the extent that we are widely regarded as
+> an impartial arbiter of what is and is not open source.  It's important.
+> And on the SSPL, we are *not* widely perceived as fair or impartial.
+
+You or those you're referring to seem to be equating OSI with "people
+who participate on license-review", a public mailing list open to
+public participation subject to the code of conduct. I know that OSI
+itself somewhat encourages this conflation of OSI with the communities
+around its public mailing lists, but at a certain point we have to
+keep them distinct. If I don't limit the scope of the criticism to the
+past month, this sounds to me like a complaint that most of the active
+participants in the license-review threads on SSPL were hostile to
+SSPL. It is obviously true that most license-review commenters on SSPL
+were critical of the license, though it had its defenders. Eliot
+acknowledged this in saying "based on its reception by the members of
+this list and the greater open source community, the community
+consensus required to support OSI approval does not currently appear
+to exist regarding the copyleft provision of SSPL".  Participants on
+license-review are expected to adhere to the code of conduct, but they
+are not expected to be neutral or non-opinionated, and I don't think
+it is fair to expect everyone to abandon all previously-held views on
+a license submitter's business model if it has some relevance to how a
+license will likely be used in practice.
+
+In this case, OSI never acted as an arbiter, because MongoDB, Inc.
+removed the opportunity to do so.
+
+> >> Where was the legal
+> >> discussion around whether the things that Mongo wants are actually
+> >> licensable?
+> >
+> > But that's not the question we face here, although it was certainly
+> > touched on by a number of commenters. Rather, it's whether the license
+> > "conforms to the Open Source Definition and provides software
+> > freedom."  General discussions about how far it would be appropriate
+> > or legally practicable to take copyleft (without leaving free
+> > software/open source behind) might be appropriate for license-discuss
+>
+> I don't see these as separable; "how far can/should we extend copyleft"
+> is directly related to any discussions around OSD compliance, especially
+> 6, 9 and 10.
+
+I think as to "should" I agree with you, but if "can" means "can a
+copyleft license do this in some way that works in some relevant legal
+system", I think that is less central (I may have made this point in
+connection with Van Lindberg's paper critiquing SSPLv1). In any case
+there was discussion of both "can" and "should", I thought.
+
+-- 
+Richard Fontana
+Open Source Initiative
+
+
+From bruce at perens.com  Tue Mar 12 20:10:15 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 12 Mar 2019 14:10:15 -0600
+Subject: [License-review] Approval: Server Side Public License,
+ Version 2 (SSPL v2)
+In-Reply-To: <CA+xoNzFRMvR0wgQWDhJdrMKEmepkm3sUOt=u9kEr_1qn=3a8vw@mail.gmail.com>
+References: <CAJ6sj3eKuX=KkgA=_dqmSp_wUgRqG===dMQJexTgX4bF45ax+Q@mail.gmail.com>
+ <CAJ6sj3fo0DtLM9VTUoDM7++hXYOz7cdppADP0qSXOwFhnSA5FA@mail.gmail.com>
+ <CAJ6sj3eN4NjDbeRo11=C6Hr-56+csjfAg+GfJVMD_Z2mnSxhLg@mail.gmail.com>
+ <1401978a-b6df-5dc9-27e4-7908293e18da@berkus.org>
+ <CA+xoNzEHoh=1dQjukkCQ9rCeqExMB+fYROeO2wBZvLFb9AKbjg@mail.gmail.com>
+ <3acda47d-d490-8719-0117-f2980abe1f50@berkus.org>
+ <CA+xoNzFRMvR0wgQWDhJdrMKEmepkm3sUOt=u9kEr_1qn=3a8vw@mail.gmail.com>
+Message-ID: <CAK2MWOsO5=p=z=fewmH7grJPZrmuB9C7L34jWWq2f_WQFqj77A@mail.gmail.com>
+
+Josh, we are providing a way for  at least one license that extends the
+model to be explored in practice without the open source imprimatur. We've
+invested significant resources in branding, and significant time of good
+lawyers in developing it. We've reached out to the companies that wish to
+go in this direction. If you just wait a while you can see that go public.
+
+Although I sincerely do not believe these particular extensions of copy
+left fit the open source model, I would not impede their being used when
+they are not called open source and I'm actually assisting the project.
+
+Thanks
+
+Bruce
+
+On Tue, Mar 12, 2019, 13:40 Richard Fontana <richard.fontana at opensource.org>
+wrote:
+
+> 788977On Tue, Mar 12, 2019 at 2:43 PM Josh Berkus <josh at berkus.org> wrote:
+> >
+> > On 3/12/19 11:18 AM, Richard Fontana wrote:
+>
+> > > Josh, I'm honestly really puzzled at your reaction. Looking at the
+> > > license-review archives from the point in time SSPLv1 was submitted, I
+> > > believe there was quite an energetic and serious discussion about the
+> > > OSD conformance of SSPL from an unusually wide variety of commenters
+> > > including several who don't normally post here (which continued to
+> > > some degree after SSPLv2 was submitted). Look at Lukas Atkinson's
+> > > summaries of the discussions. I just don't see a dramatic failure in
+> > > *this* case.
+> >
+> > I'm talking about the last month of discussions, before the SSPL was
+> > withdrawn.  I don't think the submitters consider that serious
+> > discussion, and I *know* that folks who have been following L-R don't.
+>
+> Okay, I've quickly looked at the last month or so, and what I see is
+> that substantive discussion of SSPL was largely dying down by that
+> time (despite Eliot's efforts to propose a further modification of
+> Section 13) and the remaining discussion was basically a tussle
+> between Bruce Perens and Kyle Mitchell, most of which I thought was on
+> topic but maybe not all of it. I guess that's what you're talking
+> about then but I'm not sure.
+>
+> > I'm at OSLS now, and literally within 10 minutes of posting that I got
+> > two people coming up to me and saying "thank you for posting that".
+> > Further, within the last month, I've had folks pinging me on social
+> > media, asking me WTF is wrong with the OSI.  I've even reviewed (and
+> > talked a significant OSS contributor out of posting) a polemic on why
+> > the OSI should be shut down on the basis of this thread.
+> >
+> > The OSI only has authority to the extent that we are widely regarded as
+> > an impartial arbiter of what is and is not open source.  It's important.
+> > And on the SSPL, we are *not* widely perceived as fair or impartial.
+>
+> You or those you're referring to seem to be equating OSI with "people
+> who participate on license-review", a public mailing list open to
+> public participation subject to the code of conduct. I know that OSI
+> itself somewhat encourages this conflation of OSI with the communities
+> around its public mailing lists, but at a certain point we have to
+> keep them distinct. If I don't limit the scope of the criticism to the
+> past month, this sounds to me like a complaint that most of the active
+> participants in the license-review threads on SSPL were hostile to
+> SSPL. It is obviously true that most license-review commenters on SSPL
+> were critical of the license, though it had its defenders. Eliot
+> acknowledged this in saying "based on its reception by the members of
+> this list and the greater open source community, the community
+> consensus required to support OSI approval does not currently appear
+> to exist regarding the copyleft provision of SSPL".  Participants on
+> license-review are expected to adhere to the code of conduct, but they
+> are not expected to be neutral or non-opinionated, and I don't think
+> it is fair to expect everyone to abandon all previously-held views on
+> a license submitter's business model if it has some relevance to how a
+> license will likely be used in practice.
+>
+> In this case, OSI never acted as an arbiter, because MongoDB, Inc.
+> removed the opportunity to do so.
+>
+> > >> Where was the legal
+> > >> discussion around whether the things that Mongo wants are actually
+> > >> licensable?
+> > >
+> > > But that's not the question we face here, although it was certainly
+> > > touched on by a number of commenters. Rather, it's whether the license
+> > > "conforms to the Open Source Definition and provides software
+> > > freedom."  General discussions about how far it would be appropriate
+> > > or legally practicable to take copyleft (without leaving free
+> > > software/open source behind) might be appropriate for license-discuss
+> >
+> > I don't see these as separable; "how far can/should we extend copyleft"
+> > is directly related to any discussions around OSD compliance, especially
+> > 6, 9 and 10.
+>
+> I think as to "should" I agree with you, but if "can" means "can a
+> copyleft license do this in some way that works in some relevant legal
+> system", I think that is less central (I may have made this point in
+> connection with Van Lindberg's paper critiquing SSPLv1). In any case
+> there was discussion of both "can" and "should", I thought.
+>
+> --
+> Richard Fontana
+> Open Source Initiative
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190312/0eeaaaf1/attachment.html>
+
+From richard.fontana at opensource.org  Thu Mar 14 17:30:32 2019
+From: richard.fontana at opensource.org (Richard Fontana)
+Date: Thu, 14 Mar 2019 13:30:32 -0400
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.4 (C-FSL v1.4)
+In-Reply-To: <7622c6f5-43a3-5fa4-0290-5abc4b1694ea@elstel.org>
+References: <7622c6f5-43a3-5fa4-0290-5abc4b1694ea@elstel.org>
+Message-ID: <CA+xoNzG=us4j=HH7-8PAAkxG0QJiUbMmk-TU4PyOVJCkAf=kCg@mail.gmail.com>
+
+On Tue, Jan 22, 2019 at 1:00 PM Elmar Stellnberger <estellnb at elstel.org> wrote:
+>
+> Full Name: Convertible Free Software License Version 1.4
+> Short Identifier: C-FSL v1.4
+> URL1: https://www.elstel.org/license/C-FSL-v1.4.pdf
+> URL2: https://www.elstel.org/license/C-FSL-v1.4.txt
+
+At its most recent board meeting, the OSI board decided to reject the
+Convertible Free Software License Version 1.4, in accordance with the
+consensus view of the community as expressed on this list, and because
+further constructive revision of the license to cause it to conform to
+the OSD does not seem likely.
+
+
+-- 
+Richard Fontana
+Open Source Initiative
+
+
+From adrelanos at riseup.net  Fri Mar 15 19:49:00 2019
+From: adrelanos at riseup.net (Patrick Schleizer)
+Date: Fri, 15 Mar 2019 19:49:00 +0000
+Subject: [License-review] For Approval: GPL-3+-with-whonix-additional-terms
+ - GPLv3 with improved, legal protections as per GNU GPL version 3 section 7
+Message-ID: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+
+# Name
+
+GPL-3+-with-whonix-additional-terms
+
+# Rationale
+
+The GPL exclusion of warranties clause may not include infringement
+claims. Other Libre Software licenses do include this. [1]
+
+Many projects do add additional permissions or terms to the GPL. [2]
+This is possible as per GNU GPL version 3 section 7.
+
+The text of the GPLv3 remains completely unmodified. A pure use of GNU
+GPL version 3 section 7.
+
+Includes improved legal protections:
+
+- improved disclaimer of warranty,
+
+- improved limitation of warranty,
+
+- indemnification: "Requiring indemnification of licensors and authors
+of that material by anyone who conveys the material (or modified
+versions of it) with contractual assumptions of liability to the
+recipient, for any liability that these contractual assumptions directly
+impose on those licensors and authors." [3]
+
+- improved trademark/attribution/misrepresentation protection.
+
+# Distinguish
+
+doom3 / Return to Castle Wolfenstein by id Software and micropolis by
+Electronic Arts use a very similar license, but these contain text
+specific to those companies and software. Therefore unsuitable for reuse
+by third parties. GPL-3+-with-whonix-additional-terms has the intent
+to be reusable by third parties in their projects since it does not
+contain language specific to Whonix. [4]
+
+GPL-3+-with-whonix-additional-terms minimal changes to it:
+
+* Change "The Doom 3 BFG Edition GPL Source Code" wording to the more
+common "this program" which is used throughout the GPL.
+* Added a "trump clause]" [5], in other words, any conflicts or disputes
+between the additional terms and the GPLv3 shall be resolved in favor of
+the GPLv3 by adding "Notwithstanding any other provision of this
+License" (as mentioned in GPL FAQ [6]) at the beginning of the
+additional terms.
+* License: "GPL-3+-with-whonix-additional-terms"
+
+# Legal review
+
+It is probably reasonable to assume that id Software and Electronic Arts
+had their license checked by their lawyers but there is no public
+information available on this.
+
+micropolis which uses a very similar language is available in Debian
+main [7], this was discussed and no complaints raised related to DFSG
+(The Debian Free Software Guidelines). [8] [9] But I am not aware who's
+the lawyer.
+
+No legal review.
+
+# Proliferation category
+
+Other/Miscellaneous licenses
+
+# Footnotes
+
+[1]
+https://cpb-us-e1.wpmucdn.com/sites.suffolk.edu/dist/5/1153/files/2014/12/McJohn-THE-GPL-MEETS-THE-UCC.pdf
+[2]
+http://www.mmmtechlaw.com/wp-content/uploads/2014/03/PLI-Open-Source-2014-Extra-provisions-of-FSF-licenses.pdf
+[3] Quote from GPLv3
+[4] The name of the license includes "whonix" but that could be changed
+if offending.
+[5] https://www.fsf.org/news/canonical-updated-licensing-terms
+[6] https://www.gnu.org/licenses/gpl-faq.html#v3Notwithstanding
+[7] https://packages.debian.org/buster/micropolis
+[8] https://lists.debian.org/debian-legal/2014/10/msg00002.html
+[9] https://lists.debian.org/debian-legal/2014/10/msg00003.html
+
+# Appendix: The license text
+
+ License: GPL-3+-with-whonix-additional-terms
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 3 can be found in the file
+ `/usr/share/common-licenses/GPL-3'.
+ .
+ ADDITIONAL TERMS APPLICABLE per GNU GPL version 3 section 7
+ .
+ Notwithstanding any other provision of this License,
+ in addition, the this program is also subject to certain additional terms.
+ .
+ 1. Replacement of Section 15.  Section 15 of the GPL shall be deleted
+in its
+ entirety and replaced with the following:
+ .
+ 15. Disclaimer of Warranty.
+ .
+ THE PROGRAM IS PROVIDED WITHOUT ANY WARRANTIES, WHETHER EXPRESSED OR
+IMPLIED,
+ INCLUDING, WITHOUT LIMITATION, IMPLIED WARRANTIES OF FITNESS FOR A
+PARTICULAR
+ PURPOSE, NON-INFRINGEMENT, TITLE AND MERCHANTABILITY.  THE PROGRAM IS BEING
+ DELIVERED OR MADE AVAILABLE 'AS IS', 'WITH ALL FAULTS' AND WITHOUT
+WARRANTY OR
+ REPRESENTATION.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE
+ PROGRAM IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME
+THE COST OF
+ ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+ .
+ 2. Replacement of Section 16.  Section 16 of the GPL shall be deleted
+in its
+ entirety and replaced with the following:
+ .
+ 16. LIMITATION OF LIABILITY.
+ .
+ UNDER NO CIRCUMSTANCES SHALL ANY COPYRIGHT HOLDER OR ITS AFFILIATES, OR ANY
+ OTHER PARTY WHO MODIFIES AND/OR CONVEYS THE PROGRAM AS PERMITTED ABOVE, BE
+ LIABLE TO YOU, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, FOR ANY
+ DAMAGES OR OTHER LIABILITY, INCLUDING ANY GENERAL, DIRECT, INDIRECT,
+SPECIAL,
+ INCIDENTAL, CONSEQUENTIAL OR PUNITIVE DAMAGES ARISING FROM, OUT OF OR IN
+ CONNECTION WITH THE USE OR INABILITY TO USE THE PROGRAM OR OTHER
+DEALINGS WITH
+ THE PROGRAM(INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING
+RENDERED
+ INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE
+ PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), WHETHER OR NOT ANY
+COPYRIGHT HOLDER
+ OR SUCH OTHER PARTY RECEIVES NOTICE OF ANY SUCH DAMAGES AND WHETHER OR
+NOT SUCH
+ DAMAGES COULD HAVE BEEN FORESEEN.
+ .
+ 3. LEGAL NOTICES; NO TRADEMARK LICENSE; ORIGIN.  You must reproduce
+faithfully
+ all trademark, copyright and other proprietary and legal notices on any
+copies
+ of the Program or any other required author attributions.  This license
+does not
+ grant you rights to use any copyright holder or any other party's name,
+logo, or
+ trademarks.  Neither the name of the copyright holder or its
+affiliates, or any
+ other party who modifies and/or conveys the Program may be used to
+endorse or
+ promote products derived from this software without specific prior written
+ permission.  The origin of the Program must not be misrepresented; you
+must not
+ claim that you wrote the original Program.  Altered source versions must be
+ plainly marked as such, and must not be misrepresented as being the
+original
+ Program.
+ .
+ 4. INDEMNIFICATION.  IF YOU CONVEY A COVERED WORK AND AGREE WITH ANY
+RECIPIENT
+ OF THAT COVERED WORK THAT YOU WILL ASSUME ANY LIABILITY FOR THAT
+COVERED WORK,
+ YOU HEREBY AGREE TO INDEMNIFY, DEFEND AND HOLD HARMLESS THE OTHER
+LICENSORS AND
+ AUTHORS OF THAT COVERED WORK FOR ANY DAMAGES, DEMANDS, CLAIMS, LOSSES,
+CAUSES OF
+ ACTION, LAWSUITS, JUDGMENTS EXPENSES (INCLUDING WITHOUT LIMITATION
+REASONABLE
+ ATTORNEYS' FEES AND EXPENSES) OR ANY OTHER LIABILITY ARISING FROM,
+RELATED TO OR
+ IN CONNECTION WITH YOUR ASSUMPTIONS OF LIABILITY.
+
+
+From bruce at perens.com  Fri Mar 15 20:06:30 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 15 Mar 2019 13:06:30 -0700
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+Message-ID: <CAK2MWOsXJfCiv1x6acKwCb-MeaagU8G4sqcgs_=CS5oTS0rT2w@mail.gmail.com>
+
+On Fri, Mar 15, 2019 at 12:50 PM Patrick Schleizer <adrelanos at riseup.net>
+wrote:
+
+> No legal review.
+>
+
+Patrick,
+
+I don't immediately see any non-compliance with the OSD. However, there is
+another good reason why I feel the license should be rejected.
+
+I submit that you place developers in danger by promoting a license without
+legal review, since they have no idea of what its actual effect might be in
+court, and this is thus what we have generally referred to with the
+purposefully deprecatory declaration "Crayon License". That you are making
+a mashup of what is presumably the work of lawyers isn't really sufficient.
+
+Foregoing the legal review was excusable long ago, indeed the OSD had no
+legal review because no lawyer would help us. Today we have folks like Kyle
+and Van on this list who have given of their time and are properly admitted
+to the Bar. I thus suggest that you actually get a lawyer volunteer to help
+you, and resubmit after that.
+
+    Thanks
+
+    Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190315/5299e32f/attachment.html>
+
+From brendan.m.hickey at gmail.com  Sat Mar 16 15:09:00 2019
+From: brendan.m.hickey at gmail.com (Brendan Hickey)
+Date: Sat, 16 Mar 2019 11:09:00 -0400
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+Message-ID: <CAJ-h4vvfJGRV=zoPYd4LPa30F1douGwXagryXS5bfXR+XZvRPA@mail.gmail.com>
+
+Patrick,
+
+I like the idea, putting aside questions of legal review. Have you run this
+by the FSF? I can't speak to their appetite for revising the GPL, but
+improvements to indemnification language might be of interest to them.
+
+Brendan
+
+
+On Fri, Mar 15, 2019, 15:50 Patrick Schleizer <adrelanos at riseup.net> wrote:
+
+> # Name
+>
+> GPL-3+-with-whonix-additional-terms
+>
+> # Rationale
+>
+> The GPL exclusion of warranties clause may not include infringement
+> claims. Other Libre Software licenses do include this. [1]
+>
+> Many projects do add additional permissions or terms to the GPL. [2]
+> This is possible as per GNU GPL version 3 section 7.
+>
+> The text of the GPLv3 remains completely unmodified. A pure use of GNU
+> GPL version 3 section 7.
+>
+> Includes improved legal protections:
+>
+> - improved disclaimer of warranty,
+>
+> - improved limitation of warranty,
+>
+> - indemnification: "Requiring indemnification of licensors and authors
+> of that material by anyone who conveys the material (or modified
+> versions of it) with contractual assumptions of liability to the
+> recipient, for any liability that these contractual assumptions directly
+> impose on those licensors and authors." [3]
+>
+> - improved trademark/attribution/misrepresentation protection.
+>
+> # Distinguish
+>
+> doom3 / Return to Castle Wolfenstein by id Software and micropolis by
+> Electronic Arts use a very similar license, but these contain text
+> specific to those companies and software. Therefore unsuitable for reuse
+> by third parties. GPL-3+-with-whonix-additional-terms has the intent
+> to be reusable by third parties in their projects since it does not
+> contain language specific to Whonix. [4]
+>
+> GPL-3+-with-whonix-additional-terms minimal changes to it:
+>
+> * Change "The Doom 3 BFG Edition GPL Source Code" wording to the more
+> common "this program" which is used throughout the GPL.
+> * Added a "trump clause]" [5], in other words, any conflicts or disputes
+> between the additional terms and the GPLv3 shall be resolved in favor of
+> the GPLv3 by adding "Notwithstanding any other provision of this
+> License" (as mentioned in GPL FAQ [6]) at the beginning of the
+> additional terms.
+> * License: "GPL-3+-with-whonix-additional-terms"
+>
+> # Legal review
+>
+> It is probably reasonable to assume that id Software and Electronic Arts
+> had their license checked by their lawyers but there is no public
+> information available on this.
+>
+> micropolis which uses a very similar language is available in Debian
+> main [7], this was discussed and no complaints raised related to DFSG
+> (The Debian Free Software Guidelines). [8] [9] But I am not aware who's
+> the lawyer.
+>
+> No legal review.
+>
+> # Proliferation category
+>
+> Other/Miscellaneous licenses
+>
+> # Footnotes
+>
+> [1]
+>
+> https://cpb-us-e1.wpmucdn.com/sites.suffolk.edu/dist/5/1153/files/2014/12/McJohn-THE-GPL-MEETS-THE-UCC.pdf
+> [2]
+>
+> http://www.mmmtechlaw.com/wp-content/uploads/2014/03/PLI-Open-Source-2014-Extra-provisions-of-FSF-licenses.pdf
+> [3] Quote from GPLv3
+> [4] The name of the license includes "whonix" but that could be changed
+> if offending.
+> [5] https://www.fsf.org/news/canonical-updated-licensing-terms
+> [6] https://www.gnu.org/licenses/gpl-faq.html#v3Notwithstanding
+> [7] https://packages.debian.org/buster/micropolis
+> [8] https://lists.debian.org/debian-legal/2014/10/msg00002.html
+> [9] https://lists.debian.org/debian-legal/2014/10/msg00003.html
+>
+> # Appendix: The license text
+>
+>  License: GPL-3+-with-whonix-additional-terms
+>  This program is free software: you can redistribute it and/or modify
+>  it under the terms of the GNU General Public License as published by
+>  the Free Software Foundation, either version 3 of the License, or
+>  (at your option) any later version.
+>  .
+>  This program is distributed in the hope that it will be useful,
+>  but WITHOUT ANY WARRANTY; without even the implied warranty of
+>  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+>  GNU General Public License for more details.
+>  .
+>  You should have received a copy of the GNU General Public License
+>  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+>  .
+>  On Debian systems, the full text of the GNU General Public
+>  License version 3 can be found in the file
+>  `/usr/share/common-licenses/GPL-3'.
+>  .
+>  ADDITIONAL TERMS APPLICABLE per GNU GPL version 3 section 7
+>  .
+>  Notwithstanding any other provision of this License,
+>  in addition, the this program is also subject to certain additional terms.
+>  .
+>  1. Replacement of Section 15.  Section 15 of the GPL shall be deleted
+> in its
+>  entirety and replaced with the following:
+>  .
+>  15. Disclaimer of Warranty.
+>  .
+>  THE PROGRAM IS PROVIDED WITHOUT ANY WARRANTIES, WHETHER EXPRESSED OR
+> IMPLIED,
+>  INCLUDING, WITHOUT LIMITATION, IMPLIED WARRANTIES OF FITNESS FOR A
+> PARTICULAR
+>  PURPOSE, NON-INFRINGEMENT, TITLE AND MERCHANTABILITY.  THE PROGRAM IS
+> BEING
+>  DELIVERED OR MADE AVAILABLE 'AS IS', 'WITH ALL FAULTS' AND WITHOUT
+> WARRANTY OR
+>  REPRESENTATION.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE
+>  PROGRAM IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME
+> THE COST OF
+>  ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+>  .
+>  2. Replacement of Section 16.  Section 16 of the GPL shall be deleted
+> in its
+>  entirety and replaced with the following:
+>  .
+>  16. LIMITATION OF LIABILITY.
+>  .
+>  UNDER NO CIRCUMSTANCES SHALL ANY COPYRIGHT HOLDER OR ITS AFFILIATES, OR
+> ANY
+>  OTHER PARTY WHO MODIFIES AND/OR CONVEYS THE PROGRAM AS PERMITTED ABOVE, BE
+>  LIABLE TO YOU, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, FOR
+> ANY
+>  DAMAGES OR OTHER LIABILITY, INCLUDING ANY GENERAL, DIRECT, INDIRECT,
+> SPECIAL,
+>  INCIDENTAL, CONSEQUENTIAL OR PUNITIVE DAMAGES ARISING FROM, OUT OF OR IN
+>  CONNECTION WITH THE USE OR INABILITY TO USE THE PROGRAM OR OTHER
+> DEALINGS WITH
+>  THE PROGRAM(INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING
+> RENDERED
+>  INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE
+>  PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), WHETHER OR NOT ANY
+> COPYRIGHT HOLDER
+>  OR SUCH OTHER PARTY RECEIVES NOTICE OF ANY SUCH DAMAGES AND WHETHER OR
+> NOT SUCH
+>  DAMAGES COULD HAVE BEEN FORESEEN.
+>  .
+>  3. LEGAL NOTICES; NO TRADEMARK LICENSE; ORIGIN.  You must reproduce
+> faithfully
+>  all trademark, copyright and other proprietary and legal notices on any
+> copies
+>  of the Program or any other required author attributions.  This license
+> does not
+>  grant you rights to use any copyright holder or any other party's name,
+> logo, or
+>  trademarks.  Neither the name of the copyright holder or its
+> affiliates, or any
+>  other party who modifies and/or conveys the Program may be used to
+> endorse or
+>  promote products derived from this software without specific prior written
+>  permission.  The origin of the Program must not be misrepresented; you
+> must not
+>  claim that you wrote the original Program.  Altered source versions must
+> be
+>  plainly marked as such, and must not be misrepresented as being the
+> original
+>  Program.
+>  .
+>  4. INDEMNIFICATION.  IF YOU CONVEY A COVERED WORK AND AGREE WITH ANY
+> RECIPIENT
+>  OF THAT COVERED WORK THAT YOU WILL ASSUME ANY LIABILITY FOR THAT
+> COVERED WORK,
+>  YOU HEREBY AGREE TO INDEMNIFY, DEFEND AND HOLD HARMLESS THE OTHER
+> LICENSORS AND
+>  AUTHORS OF THAT COVERED WORK FOR ANY DAMAGES, DEMANDS, CLAIMS, LOSSES,
+> CAUSES OF
+>  ACTION, LAWSUITS, JUDGMENTS EXPENSES (INCLUDING WITHOUT LIMITATION
+> REASONABLE
+>  ATTORNEYS' FEES AND EXPENSES) OR ANY OTHER LIABILITY ARISING FROM,
+> RELATED TO OR
+>  IN CONNECTION WITH YOUR ASSUMPTIONS OF LIABILITY.
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190316/79d9d472/attachment.html>
+
+From adrelanos at riseup.net  Sat Mar 16 16:35:00 2019
+From: adrelanos at riseup.net (Patrick Schleizer)
+Date: Sat, 16 Mar 2019 16:35:00 +0000
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <CAJ-h4vvfJGRV=zoPYd4LPa30F1douGwXagryXS5bfXR+XZvRPA@mail.gmail.com>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+ <CAJ-h4vvfJGRV=zoPYd4LPa30F1douGwXagryXS5bfXR+XZvRPA@mail.gmail.com>
+Message-ID: <6d5926ef-aa94-934c-6c5b-b4498033fe29@riseup.net>
+
+Brendan Hickey:
+> [...] Have you run this
+> by the FSF? I can't speak to their appetite for revising the GPL, but
+> improvements to indemnification language might be of interest to them.
+
+I've sent a request about a similar inquiry but haven't heard back yet.
+A copy of the message I sent can be found here. [1]
+
+Indemnification is clearly a thing.
+
+Other Open Source licenses mention indemnification.
+
+Quote opensource.org Terms of Service [2]:
+
+> INDEMNITY
+> You agree to indemnify and hold OSI and its subsidiaries, affiliates, officers, agents, employees, partners and licensors harmless from any claim or demand, including but not limited to reasonable attorneys' fees, made by any third party due to or arising out of Content you submit, post, transmit or otherwise make available through the Service, your use of the OSI Service, your connection to the Service, your violation of the TOS, or your violation of any rights of another.
+
+Quote GPLv3:
+
+>   Notwithstanding any other provision of this License, for material you
+> add to a covered work, you may (if authorized by the copyright holders of
+> that material) supplement the terms of this License with terms:
+> 
+> [...]
+> 
+>     f) Requiring indemnification of licensors and authors of that
+>     material by anyone who conveys the material (or modified versions of
+>     it) with contractual assumptions of liability to the recipient, for
+>     any liability that these contractual assumptions directly impose on
+> those licensors and authors.
+
+I wounder why GPLv3 allows to supplement terms related to
+indemnification, but didn't add such an indemnification clause by default?
+
+I'll ask FSF and cc license-discuss.
+
+Kind regards,
+Patrick
+
+[1] https://www.whonix.org/pipermail/whonix-devel/2019-March/001340.html
+[2] https://opensource.org/ToS
+
+
+From adrelanos at riseup.net  Sat Mar 16 18:27:00 2019
+From: adrelanos at riseup.net (Patrick Schleizer)
+Date: Sat, 16 Mar 2019 18:27:00 +0000
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <CAK2MWOsXJfCiv1x6acKwCb-MeaagU8G4sqcgs_=CS5oTS0rT2w@mail.gmail.com>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+ <CAK2MWOsXJfCiv1x6acKwCb-MeaagU8G4sqcgs_=CS5oTS0rT2w@mail.gmail.com>
+Message-ID: <8b578b70-bac0-c494-17eb-e5499f1b3169@riseup.net>
+
+Bruce Perens:
+> On Fri, Mar 15, 2019 at 12:50 PM Patrick Schleizer <adrelanos at riseup.net>
+> wrote:
+>
+>> No legal review.
+>>
+>
+> Patrick,
+>
+> I don't immediately see any non-compliance with the OSD. However, there is
+> another good reason why I feel the license should be rejected.
+>
+> I submit that you place developers in danger by promoting a license
+without
+> legal review, since they have no idea of what its actual effect might
+be in
+> court, and this is thus what we have generally referred to with the
+> purposefully deprecatory declaration "Crayon License". That you are making
+> a mashup of what is presumably the work of lawyers isn't really
+sufficient.
+>
+> Foregoing the legal review was excusable long ago, indeed the OSD had no
+> legal review because no lawyer would help us. Today we have folks like
+Kyle
+> and Van on this list who have given of their time and are properly
+admitted
+> to the Bar. I thus suggest that you actually get a lawyer volunteer to
+help
+> you, and resubmit after that.
+
+I'll ask.
+
+Linking to the other thread which was opened on license-discuss related
+to that discussion. [1]
+
+Did I create my own license at all?
+
+Quote GPLv3:
+
+> Notwithstanding any other provision of this License, for material you
+> add to a covered work, you may (if authorized by the copyright holders
+of that material) supplement the terms of this License with terms:
+
+- A) Did I create my own license at all, or
+- B) did I only supplement the GPLv3 with terms as GPLv3 allows anyhow?
+
+Quote GPLv3:
+
+>     a) [...]> [...]>     f) [...]
+>
+>   All other non-permissive additional terms are considered "further
+> restrictions" within the meaning of section 10.  If the Program as you
+> received it, or any part of it, contains a notice stating that it is
+> governed by this License along with a term that is a further
+> restriction, you may remove that term.  [...]
+
+As I understand, if one added a non-permissive additional term, it could
+be removed by the licensee. So as long as the text of the GPLv3 is
+unmodified (as it is), one can't add anything that would make the
+license nonfree.
+
+Isn't this therefore a simplified case?
+
+Looks like FSF foresaw with GPLv3 the need for options and certain
+non-permissive additional term and dedicated a huge clause 7 "Additional
+Terms" to it. It would be nice to have an approved license that makes
+good use of GPLv3 clause 7.
+
+Kind regards,
+Patrick
+
+[1]
+http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-March/020289.html
+
+
+
+From richard.fontana at opensource.org  Sun Mar 17 03:42:44 2019
+From: richard.fontana at opensource.org (Richard Fontana)
+Date: Sat, 16 Mar 2019 23:42:44 -0400
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+Message-ID: <CA+xoNzEQcRwbaiZ4NhBA_HmWqKTEgMqC72qLeoeALm2dkqfK3g@mail.gmail.com>
+
+On Fri, Mar 15, 2019 at 3:50 PM Patrick Schleizer <adrelanos at riseup.net> wrote:
+>
+> # Name
+>
+> GPL-3+-with-whonix-additional-terms
+>
+> # Rationale
+>
+> The GPL exclusion of warranties clause may not include infringement
+> claims. Other Libre Software licenses do include this. [1]
+>
+> Many projects do add additional permissions or terms to the GPL. [2]
+> This is possible as per GNU GPL version 3 section 7.
+>
+> The text of the GPLv3 remains completely unmodified. A pure use of GNU
+> GPL version 3 section 7.
+
+These terms are basically an attempt to make maximum usage of the
+allowed additional restrictions stated in section 7 of GPLv3.
+
+I don't think OSI should be considering GPLv3 additional restrictions.
+AFAIK OSI has never approved or considered approval of such a
+"license".  OSI has approved GPL additional *permissions* in at least
+two cases, but they both involved what were conceptually standalone
+licenses, in one case having a special pedigree (GNU LGPLv3), and the
+other was a submission for legacy approval (eCos License v2.0).
+Additional restrictions raise different concerns. OSI should generally
+defer to the FSF as to their legitimacy in relation to GPLv3.
+
+I believe this submission is out of scope for OSI license approval and
+as such should not be considered by the OSI.
+
+> * Added a "trump clause]" [5], in other words, any conflicts or disputes
+> between the additional terms and the GPLv3 shall be resolved in favor of
+> the GPLv3 by adding "Notwithstanding any other provision of this
+> License" (as mentioned in GPL FAQ [6]) at the beginning of the
+> additional terms.
+
+That is not what the "Notwithstanding ..." language means -- it has
+the opposite effect, as the GPL FAQ you cite makes clear.
+
+I don't see the value of standardizing on these terms. I suggest you
+talk to the FSF and see what they say.
+
+Richard
+
+
+From richard.fontana at opensource.org  Sun Mar 17 03:55:18 2019
+From: richard.fontana at opensource.org (Richard Fontana)
+Date: Sat, 16 Mar 2019 23:55:18 -0400
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <6d5926ef-aa94-934c-6c5b-b4498033fe29@riseup.net>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+ <CAJ-h4vvfJGRV=zoPYd4LPa30F1douGwXagryXS5bfXR+XZvRPA@mail.gmail.com>
+ <6d5926ef-aa94-934c-6c5b-b4498033fe29@riseup.net>
+Message-ID: <CA+xoNzH-Hz-fO9t3n=-RuceNLa5mzAkL1KfipiwYTUcwDm62pg@mail.gmail.com>
+
+On Sat, Mar 16, 2019 at 12:36 PM Patrick Schleizer <adrelanos at riseup.net> wrote:
+
+> Indemnification is clearly a thing.
+>
+> Other Open Source licenses mention indemnification.
+
+A few others have indemnification clauses, yes.
+
+> Quote opensource.org Terms of Service [2]:
+>
+> > INDEMNITY
+> > You agree to indemnify and hold OSI and its subsidiaries, affiliates, officers, agents, employees, partners and licensors harmless from any claim or demand, including but not limited to reasonable attorneys' fees, made by any third party due to or arising out of Content you submit, post, transmit or otherwise make available through the Service, your use of the OSI Service, your connection to the Service, your violation of the TOS, or your violation of any rights of another.
+
+That's not an open source license.
+
+> Quote GPLv3:
+>
+> >   Notwithstanding any other provision of this License, for material you
+> > add to a covered work, you may (if authorized by the copyright holders of
+> > that material) supplement the terms of this License with terms:
+> >
+> > [...]
+> >
+> >     f) Requiring indemnification of licensors and authors of that
+> >     material by anyone who conveys the material (or modified versions of
+> >     it) with contractual assumptions of liability to the recipient, for
+> >     any liability that these contractual assumptions directly impose on
+> > those licensors and authors.
+>
+> I wounder why GPLv3 allows to supplement terms related to
+> indemnification, but didn't add such an indemnification clause by default?
+
+This was added solely to ensure that the Apache License 2.0 would be
+compatible with GPLv3. (For some history see p. 33 of
+http://gplv3.fsf.org/gpl3-dd3-rationale.pdf and p. 9 of
+http://gplv3.fsf.org/gpl3-dd4-rationale.pdf .)
+
+Richard
+
+
+From richard.fontana at opensource.org  Sun Mar 17 04:00:20 2019
+From: richard.fontana at opensource.org (Richard Fontana)
+Date: Sun, 17 Mar 2019 00:00:20 -0400
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <8b578b70-bac0-c494-17eb-e5499f1b3169@riseup.net>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+ <CAK2MWOsXJfCiv1x6acKwCb-MeaagU8G4sqcgs_=CS5oTS0rT2w@mail.gmail.com>
+ <8b578b70-bac0-c494-17eb-e5499f1b3169@riseup.net>
+Message-ID: <CA+xoNzFu9ibc113o+nGXP4ztPkXKAkoBHFjKqZ5rxHQm=AF3EQ@mail.gmail.com>
+
+On Sat, Mar 16, 2019 at 2:28 PM Patrick Schleizer <adrelanos at riseup.net> wrote:
+
+> Did I create my own license at all?
+>
+> Quote GPLv3:
+>
+> > Notwithstanding any other provision of this License, for material you
+> > add to a covered work, you may (if authorized by the copyright holders
+> of that material) supplement the terms of this License with terms:
+>
+> - A) Did I create my own license at all, or
+> - B) did I only supplement the GPLv3 with terms as GPLv3 allows anyhow?
+
+If you're taking the position that you didn't actually create a
+license, just a GPLv3 "supplement", that supports my view that these
+terms are out of scope for OSI review .
+
+Richard
+
+
+From bruce at perens.com  Sun Mar 17 06:22:21 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 16 Mar 2019 23:22:21 -0700
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <8b578b70-bac0-c494-17eb-e5499f1b3169@riseup.net>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+ <CAK2MWOsXJfCiv1x6acKwCb-MeaagU8G4sqcgs_=CS5oTS0rT2w@mail.gmail.com>
+ <8b578b70-bac0-c494-17eb-e5499f1b3169@riseup.net>
+Message-ID: <CAK2MWOt0LOSJBc5rw9bSJ5Bwos5jF6kHgJEU51o7vnHr4P3GsQ@mail.gmail.com>
+
+On Sat, Mar 16, 2019 at 11:28 AM Patrick Schleizer <adrelanos at riseup.net>
+wrote:
+
+> Did I create my own license at all?
+
+
+Yes. Your text changes the effect of the previous license significantly,
+such that it can only be considered a different license from the original.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190316/b3718419/attachment.html>
+
+From bruce at perens.com  Sun Mar 17 06:29:52 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 16 Mar 2019 23:29:52 -0700
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <CA+xoNzEQcRwbaiZ4NhBA_HmWqKTEgMqC72qLeoeALm2dkqfK3g@mail.gmail.com>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+ <CA+xoNzEQcRwbaiZ4NhBA_HmWqKTEgMqC72qLeoeALm2dkqfK3g@mail.gmail.com>
+Message-ID: <CAK2MWOsjcAy9Y1t5Sa5EF2x86xsntM-93a5PFEjxfmBiNUHkZw@mail.gmail.com>
+
+On Sat, Mar 16, 2019 at 8:43 PM Richard Fontana <
+richard.fontana at opensource.org> wrote:
+
+> I don't think OSI should be considering GPLv3 additional restrictions.
+>  ... OSI should generally defer to the FSF as to their legitimacy in
+> relation to GPLv3.
+>
+
+We shouldn't create a special status for FSF which makes us deny
+consideration entirely, without doing so for all license creators. We can
+and should, however, protect FSF's trademarks and their authority in
+controlling the text of the version of the license that is *called *GPLv3.
+We should probably thus not consider this combination of two texts for
+approval without first removing the name of FSF and the name GPLv3 from the
+combination.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190316/01623206/attachment.html>
+
+From adrelanos at riseup.net  Sun Mar 17 06:43:00 2019
+From: adrelanos at riseup.net (Patrick Schleizer)
+Date: Sun, 17 Mar 2019 06:43:00 +0000
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <CA+xoNzH-Hz-fO9t3n=-RuceNLa5mzAkL1KfipiwYTUcwDm62pg@mail.gmail.com>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+ <CAJ-h4vvfJGRV=zoPYd4LPa30F1douGwXagryXS5bfXR+XZvRPA@mail.gmail.com>
+ <6d5926ef-aa94-934c-6c5b-b4498033fe29@riseup.net>
+ <CA+xoNzH-Hz-fO9t3n=-RuceNLa5mzAkL1KfipiwYTUcwDm62pg@mail.gmail.com>
+Message-ID: <59968b24-79d8-9e6e-68f0-64f4dad168a2@riseup.net>
+
+Richard Fontana:
+> On Sat, Mar 16, 2019 at 12:36 PM Patrick Schleizer <adrelanos at riseup.net> wrote:
+> 
+>> Indemnification is clearly a thing.
+>>
+>> Other Open Source licenses mention indemnification.
+> 
+> A few others have indemnification clauses, yes.
+> 
+>> Quote opensource.org Terms of Service [2]:
+>>
+>>> INDEMNITY
+>>> You agree to indemnify and hold OSI and its subsidiaries, affiliates, officers, agents, employees, partners and licensors harmless from any claim or demand, including but not limited to reasonable attorneys' fees, made by any third party due to or arising out of Content you submit, post, transmit or otherwise make available through the Service, your use of the OSI Service, your connection to the Service, your violation of the TOS, or your violation of any rights of another.
+> 
+> That's not an open source license.
+
+Indeed, that was only to make my point "Indemnification is clearly a thing."
+
+Kind regards,
+Patrick
+
+
+From adrelanos at riseup.net  Sun Mar 17 06:44:00 2019
+From: adrelanos at riseup.net (Patrick Schleizer)
+Date: Sun, 17 Mar 2019 06:44:00 +0000
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <CA+xoNzFu9ibc113o+nGXP4ztPkXKAkoBHFjKqZ5rxHQm=AF3EQ@mail.gmail.com>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+ <CAK2MWOsXJfCiv1x6acKwCb-MeaagU8G4sqcgs_=CS5oTS0rT2w@mail.gmail.com>
+ <8b578b70-bac0-c494-17eb-e5499f1b3169@riseup.net>
+ <CA+xoNzFu9ibc113o+nGXP4ztPkXKAkoBHFjKqZ5rxHQm=AF3EQ@mail.gmail.com>
+Message-ID: <34b1dc11-1c92-8247-41f0-221a01e727f9@riseup.net>
+
+Richard Fontana:
+> On Sat, Mar 16, 2019 at 2:28 PM Patrick Schleizer <adrelanos at riseup.net> wrote:
+> 
+>> Did I create my own license at all?
+>>
+>> Quote GPLv3:
+>>
+>>> Notwithstanding any other provision of this License, for material you
+>>> add to a covered work, you may (if authorized by the copyright holders
+>> of that material) supplement the terms of this License with terms:
+>>
+>> - A) Did I create my own license at all, or
+>> - B) did I only supplement the GPLv3 with terms as GPLv3 allows anyhow?
+> 
+> If you're taking the position that you didn't actually create a
+> license, just a GPLv3 "supplement", that supports my view that these
+> terms are out of scope for OSI review .
+> 
+> Richard
+
+I am wondering what the OSI's view on A) vs B) is.
+
+Kind regards,
+Patrick
+
+
+From bruce at perens.com  Sun Mar 17 06:52:55 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 16 Mar 2019 23:52:55 -0700
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <59968b24-79d8-9e6e-68f0-64f4dad168a2@riseup.net>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+ <CAJ-h4vvfJGRV=zoPYd4LPa30F1douGwXagryXS5bfXR+XZvRPA@mail.gmail.com>
+ <6d5926ef-aa94-934c-6c5b-b4498033fe29@riseup.net>
+ <CA+xoNzH-Hz-fO9t3n=-RuceNLa5mzAkL1KfipiwYTUcwDm62pg@mail.gmail.com>
+ <59968b24-79d8-9e6e-68f0-64f4dad168a2@riseup.net>
+Message-ID: <CAK2MWOvzKu9MPMSOxF4Eka+XKOFSB6fSKhTowjLrmAXtT300oA@mail.gmail.com>
+
+On Sat, Mar 16, 2019 at 11:43 PM Patrick Schleizer <adrelanos at riseup.net>
+wrote:
+
+> Indeed, that was only to make my point "Indemnification is clearly a
+> thing."
+>
+
+We know. Many of the folks on the list review licenses as part of their
+daily work.
+
+GPLv3 had a review team including about 40 lawyers. I mostly watched.
+
+So, the problem that I have is that I am totally at a loss whether your
+addition is actually *better, *while I was really confident in the
+brain-trust of lawyers reviewing GPLv3.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190316/4353d5e4/attachment.html>
+
+From adrelanos at riseup.net  Sun Mar 17 07:09:00 2019
+From: adrelanos at riseup.net (Patrick Schleizer)
+Date: Sun, 17 Mar 2019 07:09:00 +0000
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <CAK2MWOsjcAy9Y1t5Sa5EF2x86xsntM-93a5PFEjxfmBiNUHkZw@mail.gmail.com>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+ <CA+xoNzEQcRwbaiZ4NhBA_HmWqKTEgMqC72qLeoeALm2dkqfK3g@mail.gmail.com>
+ <CAK2MWOsjcAy9Y1t5Sa5EF2x86xsntM-93a5PFEjxfmBiNUHkZw@mail.gmail.com>
+Message-ID: <8fbfad61-da65-c0ba-c011-a4611ddc33c9@riseup.net>
+
+Bruce Perens:
+> On Sat, Mar 16, 2019 at 8:43 PM Richard Fontana <
+> richard.fontana at opensource.org> wrote:
+> 
+>> I don't think OSI should be considering GPLv3 additional restrictions.
+>>  ... OSI should generally defer to the FSF as to their legitimacy in
+>> relation to GPLv3.
+>>
+> 
+> We shouldn't create a special status for FSF which makes us deny
+> consideration entirely, without doing so for all license creators.
+
+> We can
+> and should, however, protect FSF's trademarks and their authority in
+> controlling the text of the version of the license that is *called *GPLv3.
+
+> We should probably thus not consider this combination of two texts for
+> approval without first removing the name of FSF and the name GPLv3 from the
+> combination.
+
+Generally a good idea but in this specific case, this might be beyond
+the wishes expressed by FSF?
+
+GPLv3 clause "7. Additional Terms." explicitly allows such combination.
+
+GPL FAQ entry "Can I modify the GPL and make a modified license?" [1]
+
+>      It is possible to make modified versions of the GPL, but it tends to have practical consequences.
+> 
+>     You can legally use the GPL terms (possibly modified) in another license provided that you call your license by another name and do not include the GPL preamble, and provided you modify the instructions-for-use at the end enough to make it clearly different in wording and not mention GNU (though the actual procedure you describe may be similar).
+> 
+>     If you want to use our preamble in a modified license, please write to <licensing at gnu.org> for permission. For this purpose we would want to check the actual license requirements to see if we approve of them.
+> 
+>     Although we will not raise legal objections to your making a modified license in this way, we hope you will think twice and not do it. Such a modified license is almost certainly incompatible with the GNU GPL, and that incompatibility blocks useful combinations of modules. The mere proliferation of different free software licenses is a burden in and of itself.
+> 
+>     Rather than modifying the GPL, please use the exception mechanism offered by GPL version 3.
+
+So there's two mechanisms:
+1) modifying the GPL,
+2) exception mechanism offered by GPL version 3
+
+When 1) modifying the GPL: remove preamble (or ask for permission),
+remove GNU, remove FSF, instructions-for-use at the end enough to make
+it clearly different in wording
+
+1) modifying the GPL: doesn't apply here, not a modification.
+
+2) exception mechanism offered by GPL version 3: The exception mechanism
+was used in this submission. GPLv3 clause "7. Additional Terms." and the
+GPL FAQ entry "Can I modify the GPL and make a modified license?" [1]
+does not ask for removal of FSF, GPL, GNU, etc.
+
+So removal of FSF and the name GPLv3 from the combination might be
+beyond the wishes expressed by FSF in this case?
+
+Kind regards,
+Patrick
+
+[1] https://www.gnu.org/licenses/gpl-faq.html#ModifyGPL
+
+
+From bruce at perens.com  Sun Mar 17 07:17:05 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Sun, 17 Mar 2019 00:17:05 -0700
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <8fbfad61-da65-c0ba-c011-a4611ddc33c9@riseup.net>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+ <CA+xoNzEQcRwbaiZ4NhBA_HmWqKTEgMqC72qLeoeALm2dkqfK3g@mail.gmail.com>
+ <CAK2MWOsjcAy9Y1t5Sa5EF2x86xsntM-93a5PFEjxfmBiNUHkZw@mail.gmail.com>
+ <8fbfad61-da65-c0ba-c011-a4611ddc33c9@riseup.net>
+Message-ID: <CAK2MWOtjW30wt1BSMa1pEL_Wa0oZPqzVGY+NFbsrYzE=XpZ1DQ@mail.gmail.com>
+
+On Sun, Mar 17, 2019 at 12:10 AM Patrick Schleizer <adrelanos at riseup.net>
+wrote:
+
+> Generally a good idea but in this specific case, this might be beyond the
+> wishes expressed by FSF?
+>
+
+We do have to protect their right to attribution, even if we remove
+trademarks.
+
+The problem is that we can't give FSF a *veto power *on license review,
+nobody would consider *that *fair. So, we have to take lesser measures,
+like protecting their trademarks. And we have to do that for everyone
+equally.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190317/31c1deda/attachment.html>
+
+From adrelanos at riseup.net  Sun Mar 17 07:22:00 2019
+From: adrelanos at riseup.net (Patrick Schleizer)
+Date: Sun, 17 Mar 2019 07:22:00 +0000
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <CAK2MWOt0LOSJBc5rw9bSJ5Bwos5jF6kHgJEU51o7vnHr4P3GsQ@mail.gmail.com>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+ <CAK2MWOsXJfCiv1x6acKwCb-MeaagU8G4sqcgs_=CS5oTS0rT2w@mail.gmail.com>
+ <8b578b70-bac0-c494-17eb-e5499f1b3169@riseup.net>
+ <CAK2MWOt0LOSJBc5rw9bSJ5Bwos5jF6kHgJEU51o7vnHr4P3GsQ@mail.gmail.com>
+Message-ID: <6aa6e471-c3f4-eeef-9a67-35ac8b89a23d@riseup.net>
+
+Bruce Perens:
+> On Sat, Mar 16, 2019 at 11:28 AM Patrick Schleizer <adrelanos at riseup.net>
+> wrote:
+> 
+>> Did I create my own license at all?
+> 
+> 
+> Yes. Your text changes the effect of the previous license significantly,
+> such that it can only be considered a different license from the original.
+
+Does any quote "supplement the terms" as per GPLv3 clause "7. Additional
+Terms." result in a difference license?
+
+Is it possible to quote "supplement the terms" as per GPLv3 clause "7.
+Additional Terms." without creation of a different license?
+
+Kind regards
+Patrick
+
+
+From bruce at perens.com  Sun Mar 17 07:28:23 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Sun, 17 Mar 2019 00:28:23 -0700
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <34b1dc11-1c92-8247-41f0-221a01e727f9@riseup.net>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+ <CAK2MWOsXJfCiv1x6acKwCb-MeaagU8G4sqcgs_=CS5oTS0rT2w@mail.gmail.com>
+ <8b578b70-bac0-c494-17eb-e5499f1b3169@riseup.net>
+ <CA+xoNzFu9ibc113o+nGXP4ztPkXKAkoBHFjKqZ5rxHQm=AF3EQ@mail.gmail.com>
+ <34b1dc11-1c92-8247-41f0-221a01e727f9@riseup.net>
+Message-ID: <CAK2MWOvNmZjbHZQwC5MkFKnCDLxes966gBVrL212Fj-mfpm2wA@mail.gmail.com>
+
+On Sat, Mar 16, 2019 at 11:45 PM Patrick Schleizer <adrelanos at riseup.net>
+wrote:
+
+> >> - A) Did I create my own license at all, or
+> >> - B) did I only supplement the GPLv3 with terms as GPLv3 allows anyhow?
+>
+> I am wondering what the OSI's view on A) vs B) is.
+>
+
+Although OSI's attorney is here discussing this issue, I don't think he has
+made statement *on behalf of OSI *yet, and I personally haven't heard that
+any opinion exists.
+
+Were I in your place, I'd try to convince Richard Stallman that
+indemnification is a good idea, and take it from there. But that is
+entirely separate from OSI's license approval process, and as far as I can
+tell OSI can't, and shouldn't, require Richard's blessing.
+
+Patrick:
+
+Does any quote "supplement the terms" as per GPLv3 clause "7. Additional
+Terms." result in a difference license?
+
+Is it possible to quote "supplement the terms" as per GPLv3 clause "7.
+Additional Terms." without creation of a different license?
+
+I just can't think of any way to handle this other than as a separate
+license. Once you add language to a license, its effect is not the same any
+longer. There was a recent example called the "Commons Clause" where when
+that additional text was combined with the Apache license, the effect was
+very different (and IMO not an Open Source license).
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190317/e02ebcbb/attachment.html>
+
+From adrelanos at riseup.net  Sun Mar 17 07:33:00 2019
+From: adrelanos at riseup.net (Patrick Schleizer)
+Date: Sun, 17 Mar 2019 07:33:00 +0000
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <CA+xoNzEQcRwbaiZ4NhBA_HmWqKTEgMqC72qLeoeALm2dkqfK3g@mail.gmail.com>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+ <CA+xoNzEQcRwbaiZ4NhBA_HmWqKTEgMqC72qLeoeALm2dkqfK3g@mail.gmail.com>
+Message-ID: <768168b6-acb6-a1b2-bf06-e2d8278e2f6b@riseup.net>
+
+Richard Fontana:
+> On Fri, Mar 15, 2019 at 3:50 PM Patrick Schleizer <adrelanos at riseup.net> wrote:
+>>
+>> # Name
+>>
+>> GPL-3+-with-whonix-additional-terms
+>>
+>> # Rationale
+>>
+>> The GPL exclusion of warranties clause may not include infringement
+>> claims. Other Libre Software licenses do include this. [1]
+>>
+>> Many projects do add additional permissions or terms to the GPL. [2]
+>> This is possible as per GNU GPL version 3 section 7.
+>>
+>> The text of the GPLv3 remains completely unmodified. A pure use of GNU
+>> GPL version 3 section 7.
+> 
+> These terms are basically an attempt to make maximum usage of the
+> allowed additional restrictions stated in section 7 of GPLv3.
+
+Basically, yes, however a nitpick:
+
+Quote GPLv3:
+
+> d) Limiting the use for publicity purposes of names of licensors or
+authors of the material; or
+
+This is not included.
+
+Kind regards,
+Patrick
+
+
+From richard.fontana at opensource.org  Sun Mar 17 19:27:37 2019
+From: richard.fontana at opensource.org (Richard Fontana)
+Date: Sun, 17 Mar 2019 15:27:37 -0400
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <6aa6e471-c3f4-eeef-9a67-35ac8b89a23d@riseup.net>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+ <CAK2MWOsXJfCiv1x6acKwCb-MeaagU8G4sqcgs_=CS5oTS0rT2w@mail.gmail.com>
+ <8b578b70-bac0-c494-17eb-e5499f1b3169@riseup.net>
+ <CAK2MWOt0LOSJBc5rw9bSJ5Bwos5jF6kHgJEU51o7vnHr4P3GsQ@mail.gmail.com>
+ <6aa6e471-c3f4-eeef-9a67-35ac8b89a23d@riseup.net>
+Message-ID: <CA+xoNzHQN1OQL6W9-YrT5ukqA5=7ZE30bBzMBQx+Yqvk1yBirg@mail.gmail.com>
+
+On Sun, Mar 17, 2019 at 3:23 AM Patrick Schleizer <adrelanos at riseup.net> wrote:
+
+> Does any quote "supplement the terms" as per GPLv3 clause "7. Additional
+> Terms." result in a difference license?
+>
+> Is it possible to quote "supplement the terms" as per GPLv3 clause "7.
+> Additional Terms." without creation of a different license?
+
+Perhaps this is not a helpful way to look at the issue. In a sense,
+sure, you have drafted a new license by supplementing the terms of
+GPLv3 with some additional restrictions (maybe in a way which is
+consistent with the text of GPLv3, maybe in a way which the FSF would
+tolerate or approve, maybe not).
+
+But if OSI starts reviewing for approval GPLv3 additional terms, that
+may result in a proliferation of such license approval submissions,
+and use of such terms in the first place, which may not be something
+we want to encourage. I'm not saying your terms are guilty of this,
+but there's a history of misuse of the GPLv3 section 7 mechanism
+(principally in the badgeware setting). I could see the point of
+having the OSI consider a widely-used set of GPLv3 additional terms,
+but as I understand it (correct me if I'm wrong) what you've submitted
+isn't in actual use anywhere (rather, you've generalized or otherwise
+modified some terms used by a couple of companies).
+
+Richard
+
+
+From adrelanos at riseup.net  Mon Mar 18 09:45:00 2019
+From: adrelanos at riseup.net (Patrick Schleizer)
+Date: Mon, 18 Mar 2019 09:45:00 +0000
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <CA+xoNzHQN1OQL6W9-YrT5ukqA5=7ZE30bBzMBQx+Yqvk1yBirg@mail.gmail.com>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+ <CAK2MWOsXJfCiv1x6acKwCb-MeaagU8G4sqcgs_=CS5oTS0rT2w@mail.gmail.com>
+ <8b578b70-bac0-c494-17eb-e5499f1b3169@riseup.net>
+ <CAK2MWOt0LOSJBc5rw9bSJ5Bwos5jF6kHgJEU51o7vnHr4P3GsQ@mail.gmail.com>
+ <6aa6e471-c3f4-eeef-9a67-35ac8b89a23d@riseup.net>
+ <CA+xoNzHQN1OQL6W9-YrT5ukqA5=7ZE30bBzMBQx+Yqvk1yBirg@mail.gmail.com>
+Message-ID: <ac578eb3-3aff-d3c2-f40a-698f19927cdb@riseup.net>
+
+Richard Fontana:
+> On Sun, Mar 17, 2019 at 3:23 AM Patrick Schleizer <adrelanos at riseup.net> wrote:
+>> Does any quote "supplement the terms" as per GPLv3 clause "7. Additional
+>> Terms." result in a difference license?
+>>
+>> Is it possible to quote "supplement the terms" as per GPLv3 clause "7.
+>> Additional Terms." without creation of a different license?
+> 
+> Perhaps this is not a helpful way to look at the issue. In a sense,
+> sure, you have drafted a new license by supplementing the terms of
+> GPLv3 with some additional restrictions (maybe in a way which is
+> consistent with the text of GPLv3, maybe in a way which the FSF would
+> tolerate or approve, maybe not).
+> 
+> But if OSI starts reviewing for approval GPLv3 additional terms, that
+> may result in a proliferation of such license approval submissions,
+> and use of such terms in the first place, which may not be something
+> we want to encourage. I'm not saying your terms are guilty of this,
+> but there's a history of misuse of the GPLv3 section 7 mechanism
+> (principally in the badgeware setting). I could see the point of
+> having the OSI consider a widely-used set of GPLv3 additional terms,
+> but as I understand it (correct me if I'm wrong) what you've submitted
+> isn't in actual use anywhere (rather, you've generalized or otherwise
+> modified some terms used by a couple of companies).
+
+Isn't this a chicken/egg dilemma? People won't use it, until approved,
+but no approval, until widely used?
+
+Kind regards,
+Patrick
+
+
+From adrelanos at riseup.net  Mon Mar 18 10:08:00 2019
+From: adrelanos at riseup.net (Patrick Schleizer)
+Date: Mon, 18 Mar 2019 10:08:00 +0000
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <CA+xoNzEQcRwbaiZ4NhBA_HmWqKTEgMqC72qLeoeALm2dkqfK3g@mail.gmail.com>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+ <CA+xoNzEQcRwbaiZ4NhBA_HmWqKTEgMqC72qLeoeALm2dkqfK3g@mail.gmail.com>
+Message-ID: <5215adc5-0014-923f-5e3a-68cc115804db@riseup.net>
+
+Richard Fontana:
+> On Fri, Mar 15, 2019 at 3:50 PM Patrick Schleizer <adrelanos at riseup.net> wrote:
+>> * Added a "trump clause]" [5], in other words, any conflicts or disputes
+>> between the additional terms and the GPLv3 shall be resolved in favor of
+>> the GPLv3 by adding "Notwithstanding any other provision of this
+>> License" (as mentioned in GPL FAQ [6]) at the beginning of the
+>> additional terms.
+> 
+> That is not what the "Notwithstanding ..." language means -- it has
+> the opposite effect, as the GPL FAQ you cite makes clear.
+
+Thank you!
+
+I will remove that clause in the next revision.
+
+It's superfluous anyhow since GPLv3 says:
+
+> All other non-permissive additional terms are considered "further
+> restrictions" within the meaning of section 10.  If the Program as you
+> received it, or any part of it, contains a notice stating that it is
+> governed by this License along with a term that is a further
+> restriction, you may remove that term.
+
+Kind regards,
+Patrick
+
+
+From adrelanos at riseup.net  Mon Mar 18 10:55:00 2019
+From: adrelanos at riseup.net (Patrick Schleizer)
+Date: Mon, 18 Mar 2019 10:55:00 +0000
+Subject: [License-review] [Whonix-devel] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+Message-ID: <7f0bee9b-c3dd-9fda-bc4d-b9e67654c813@riseup.net>
+
+I am withdrawing GPL-3+-with-whonix-additional-terms from approval to
+incorporate feedback received in a revision.
+
+Any further comments are appreciated!
+
+Kind regards,
+Patrick
+
+
+From fw at deneb.enyo.de  Tue Mar 19 23:38:16 2019
+From: fw at deneb.enyo.de (Florian Weimer)
+Date: Wed, 20 Mar 2019 00:38:16 +0100
+Subject: [License-review] Encouraging discussion around the
+ technicalities of licensing
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5198A5E016B@FMSMSX108.amr.corp.intel.com>
+ (McCoy Smith's message of "Wed, 6 Feb 2019 22:19:03 +0000")
+References: <CAP7YuAT64bZoEQUp3kxQ2ZFHaoYq2sKCD48qr7Cb=S7yJpf7yQ@mail.gmail.com>
+ <CAA4ffp91WcLwEzxPgaqU5wepyJtrKwbMFUzXTtmxwEb-1KTRuQ@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5198A5DFD1A@FMSMSX108.amr.corp.intel.com>
+ <036901d4be68$d0453620$70cfa260$@rosenlaw.com>
+ <2D52F7EE739F8542A700CAB96276B5198A5E016B@FMSMSX108.amr.corp.intel.com>
+Message-ID: <87zhpqe8pj.fsf@mid.deneb.enyo.de>
+
+* McCoy Smith:
+
+> I?m not sure there is *any* license that does not prevent certain
+> types of exploitation of the licensed software. Even BSD & MIT require
+> preservation of copyright statements and preservation of the license,
+> which precludes exploitation by not doing so.
+> IMO, the business model of the submitter should be completely
+> immaterial, and the license should stand or fall based on whether it
+> conforms to the OSD & whether the drafting is sufficiently rigorous
+> and clear.  This is one of several propositions I proposed during my
+> talk at CopyleftConf on Monday.
+
+If certain conditions are met, like these:
+
+* A new license is proposed for a certain work.
+
+* The work has one copyright owner.
+
+* The new license is proposed by the same copyright owner.
+
+* The copyright owner, being the owner, would not be bound by the
+  license, and is thus not subject to some of the incentives that are
+  normally associated with licensing decisions.
+
+Then I think it is reasonable to ask the following:
+
+  Could the copyright owner reasonably come into compliance with the
+  license if they desired to do so?
+
+The point being that if it is impractical for the folks who control
+the code and know it best to achieve formal compliance with the
+license, then nobody else could be reasonably expected to pull it off.
+
+And being able to comply doesn't mean to make a business out of it,
+just the technical aspects of meeting (copyleft) obligations, and
+figuring out what the legal text actual means in a certain setting.
+
+

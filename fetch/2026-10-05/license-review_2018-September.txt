@@ -1,0 +1,3196 @@
+From richard.fontana at opensource.org  Tue Sep  4 03:21:14 2018
+From: richard.fontana at opensource.org (Richard Fontana)
+Date: Mon, 3 Sep 2018 23:21:14 -0400
+Subject: [License-review] Request for Legacy Approval: Unicode Data Files
+ and Software License
+Message-ID: <20180904032114.GA9357@bluenote.lan>
+
+Good (though egregiously belated) news everyone!
+
+The OSI board approved, for Legacy Approval, the Unicode Data Files
+and Software License: http://www.unicode.org/copyright.html#LICENSE ,
+to be associated with the proliferation category "Licenses that are
+redundant with more popular licenses".
+
+Richard
+
+
+From matija at suklje.name  Tue Sep 25 06:38:58 2018
+From: matija at suklje.name (Matija =?utf-8?B?xaB1a2xqZQ==?=)
+Date: Tue, 25 Sep 2018 08:38:58 +0200
+Subject: [License-review] Retire CUA-OPL-1.0
+Message-ID: <4793201.IvJyyjjpIf@ducky>
+
+Dear all,
+
+I?ve stumbled upon CUA-OPL-1.0 lately and found it to be 
+essentially a rebranded MPL-1.1 with some stylistic changes 
+(different style of bullet points) and a different name. Even 
+Exhibit A is in both cases the same.
+
+It seems the CUA Office project lead has already in 2008 requested 
+that OSI retire CUA-OPL-1.0, but it seems there was no follow-up 
+on this:
+
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2008-April/000201.html
+
+It seems to me that after a decade after the (only?) project to 
+use it, it would be high time to retire this license to avoid 
+confusion with MPL-1.1.
+
+Or is there any good reason to keep it?
+
+I have also requested to pull it from SPDX:
+https://github.com/spdx/license-list-XML/issues/690
+
+
+cheers,
+Matija ?uklje
+-- 
+gsm:    +386 41 849 552
+www:    http://matija.suklje.name
+xmpp:   matija.suklje at gabbler.org
+sip:    matija_suklje at ippi.fr
+
+
+
+
+
+From estellnb at elstel.org  Wed Sep 26 07:57:18 2018
+From: estellnb at elstel.org (Elmar Stellnberger)
+Date: Wed, 26 Sep 2018 09:57:18 +0200
+Subject: [License-review] For Approval: Convertible Free Software License,
+ Version 1.1 (C-FSL v1.1)
+Message-ID: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+
+Full Name: Convertible Free Software License Version 1.1
+Short Identifier: C-FSL v1.1
+URL: https://www.elstel.org/license/C-FSL-v1.1.txt
+
+Rationale and Distinguish:
+While the BSD license allows the whole world to re-license and while 
+re-licensing is virtually impossible with GPL since every contributor 
+would need to consent the C-FSL license goes a practical intermediate 
+way restricting the right to re-license to a group called the original 
+authors. That way open source developers are not excluded from making 
+business with others who want to base a proprietary product on the given 
+piece of open source software.
+
+Proliferation Category & Legal Review:
+Other/Miscellaneous
+A lawyer from the EPA (Environmental Protection Agency, USA) has already 
+checked C-FSL for its proliferation properties. He has found the license 
+to be compatible with other open source licenses. He decided that C-FSL 
+can be used together with the CC0 license in the FDtool (functional 
+dependency mining tool) project.
+
+list of software which uses C-FSL v1.1.:
+qcoan: https://www.elstel.org/coan
+xchroot, confinedrv, bundsteg, debcheckroot, dbschemacmd: also found at 
+www.elstel.org
+
+-------------- next part --------------
+CONVERTIBLE FREE SOFTWARE LICENSE
+	Version 1.1, 2016-08-11
+copyright 2016, by Elmar Stellnberger
+Everyone is permitted to copy and distribute verbatim copies of this license document. You must not modify the license itself.
+This license applies to any software containing a notice by the copyright holder saying that it may be used under the terms of the Convertible Free Software License. If a specific version number is mentioned then usage rights include this version as well as any newer version which will always be similar in spirit to this license. The term Convertible Free Software license may be abbreviated as C-FSL.
+
+1. Any work under this license comes completely without any warranty or any kind of liability such as lost revenues, profits, harm or damage of any kind even if the authors should have been advised of the possibility of such harm or damage. It may be seen as research work and does not claim for fitness to any particular usage purpose.
+
+2. The term 'source code' applies to the preferred form that is used to develop or apply changes to a work under this license referred to herein as 'the work'. You are allowed to modify or change the source code if you accept that the resulting changed work will become subject to this license. As soon as you apply any change this is an implicit consent to fully comply with this license and a consent that the work may be used under this license. 
+
+3. It is your obligation that the changed version of your sources will be available to the public for free within the time frame of a month at least if there is no undue hindrance by the authors to make it available. Modifications which result in a broken or unusable program which the authors do not plan to continue their work on are considered dead end and do not need to be published. Available for free means that there will be no undue hindrance in obtaining the given item like a registration of the person who wants to download or obtain the given item. Available for free also means that you must not charge for the given item itself apart from the possibility to require a reasonable charge for the physical reproduction of the data.
+
+4. You are allowed to issue an 'automatic derivation process' on the source code which will result in so called 'object code'. You are obligated to provide sufficient data, tools and utilities so that a functionally equivalent object code can be compiled merely from programs and work licensed either under any open source license approved by opensource.org or under C-FSL. The given data and utilities for obtaining functionally equivalent results need to be available to the public for free.
+
+5. When applying changes to the source code you need to leave your name, your email address and the date of your modifications so that other people may contact you. If a contributor should not have a steady access to the internet or a satisfying access to an emailing service he may leave another way by which he can be contacted. We suggest to list all changes by contributors either in a separate changelog file or in the header of the changed file. Several consecutive changes may be collapsed. Furthermore you need to give your changed version a 'marker' which may be used to distinguish it from the upstream version when being distributed to other people. The distributed product needs to be of the form upstream name - dash upstream version - dash your marker optionally followed by a version number under your control. If there should be a chain of upstream contributors there only needs to be one marker by the party which is at the end of the chain as long as that chain remains to be documented in some place where it is shipped with your software. The marker needs to be unique, at least two letters in size. We suggest it to reflect the name of your company or distribution. You may always distribute an upstream version in unchanged form either with your own marker or without.
+
+6. You may choose to create a fork of a work under C-FSL by giving it a completely different name. However you need to assert that people will know that your fork is based on the original work. If your program has a graphical user interface the whole C-FSL license must be referenced via the GUI. Otherwise a plain text copy of this license needs to be given and packed alongside the distributed product. A complete reference to the base product including email address and web presence must be referenced via the GUI for any GUI program that is a fork of another C-FSL program. If your program has a comprehensive help, manual or info page and is a fork a similar reference to the base product must be given there. It does not apply to quick or short command line help output as long as a more comprehensive help page is also available. Any program under C-FSL which is a fork of another C-FSL program must ship with a reference to the base product. 
+
+7. Contributing to a work under C-FSL means that you will give a group called the 'original authors' a consensus based right to re-license your derived work so that it will be available under both licenses: the C-FSL and the newly applied license. In order to re-license consensus is only required between these original authors. The original authors are the group of people who have initially started to create a work. They shall be mentioned at the beginning of the changelog or the file header of changes. As soon as there is a consensus to do so by all original authors the work may either be re-licensed, published as upstream version without a marker or new people may be accepted and mentioned as 'original authors'. 
+
+8. No work under C-FSL shall be deemed part of an effective measure under anti-circumvention laws like under article 11 of the WIPO copyright treaty adopted on 1996-12-20 or any similar law. By your consent to work under this license you waive any legal power to forbid such circumventions regarding the work under C-FSL or any work combined with it. You must assert that the right to use, modify, generate object code and distribute any software under C-FSL will not be infringed by patent claims or similar law. If you modify a work under C-FSL so that it will knowingly rely on a patent license then it means that you will thereby grant to extend the patent license to any recipient of the work. Every contributor grants by the act of contributing to a work under C-FSL a non-exclusive, worldwide and royalty-free patent license to any prospective contributor or user of the given work applicable to all his 'essential patent claims'. The essential patent claims comprise all claims owned or controlled by the contributor.
+
+9. A work under C-FSL which has another component or plug-in as well as a work under C-FSL which is used itself as a component, plug-in, add-on of another product, any product under C-FSL which is combined or which links against another work requires that the other work will either be put under an open source license as approved by opensource.org or it needs to be put under C-FSL as well. Usage of proprietary libraries and kernel modules pose an exception to this rule. There must be a functionally equivalent open source library for any proprietary library so that a work under C-FSL can run and execute even without any proprietary library. No such restriction applies to kernel modules. The term 'kernel' refers to the core of an operating system. Libraries are separate components which link against the given work or other components. The term 'linking' refers to the relocation of references or addresses when the library is combined with another component in order to make the combined aggregate executable or runnable. Such references are bound to symbols which are part of the common interface between the library and the component which the library is combined with at runtime. Libraries which provide operating system services use a well defined binary interface but do not 'link' against the kernel.
+
+10. This license is either governed by the Laws of Austria or by the laws of the country where the first mentioned original author lives or is a resident. Disputes shall be settled by the nearest proper court given the home town or location of the first original author unless there is a common consensus for another place of court by all original authors. If any of the terms stated in this license were not in accordance with the law of the country that governs this license all other parts of the license shall remain valid.
+
+
+
+From osi-review at piana.eu  Wed Sep 26 09:22:20 2018
+From: osi-review at piana.eu (Carlo Piana)
+Date: Wed, 26 Sep 2018 11:22:20 +0200
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+Message-ID: <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+
+Ellmar, all,
+
+I remain quite puzzled by the main feature of the license, namely, the
+right of *some* copyright holders in the initial work to decide on the
+licensing of the *other* follow-on developers who are also copyright
+holders. Isn't it a sort of discrimination, therefore against #5?
+
+I know that the same practical effect would be achieved by assigning the
+code to a single project, but that it's always an option for any forker,
+not a legal effect of the license. Here you give up your rights on your
+copyright as a condition of the very license, which does quite limit the
+rights of some versus the rights of others.
+
+My initial and non meditated reaction is that this license should be
+rejected as long as Section 7 is concerned.
+
+A remark on the need to retain the ability of relicense or to "make
+business" (AKA proprietary exploit) with the software. That's achieved
+with a liberal, non copyleft license. But restricting others from doing
+something that the initial developers can do, siphoning in the formers'
+code and copyright, that does not seem acceptable.
+
+Or am I mistaken on the working of the condition?
+
+
+Carlo
+
+
+
+On 26/09/2018 09:57, Elmar Stellnberger wrote:
+> Full Name: Convertible Free Software License Version 1.1
+> Short Identifier: C-FSL v1.1
+> URL: https://www.elstel.org/license/C-FSL-v1.1.txt
+>
+> Rationale and Distinguish:
+> While the BSD license allows the whole world to re-license and while
+> re-licensing is virtually impossible with GPL since every contributor
+> would need to consent the C-FSL license goes a practical intermediate
+> way restricting the right to re-license to a group called the original
+> authors. That way open source developers are not excluded from making
+> business with others who want to base a proprietary product on the
+> given piece of open source software.
+>
+> Proliferation Category & Legal Review:
+> Other/Miscellaneous
+> A lawyer from the EPA (Environmental Protection Agency, USA) has
+> already checked C-FSL for its proliferation properties. He has found
+> the license to be compatible with other open source licenses. He
+> decided that C-FSL can be used together with the CC0 license in the
+> FDtool (functional dependency mining tool) project.
+>
+> list of software which uses C-FSL v1.1.:
+> qcoan: https://www.elstel.org/coan
+> xchroot, confinedrv, bundsteg, debcheckroot, dbschemacmd: also found
+> at www.elstel.org
+>
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180926/a08dfc51/attachment.html>
+
+From bruce at perens.com  Wed Sep 26 09:29:10 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 26 Sep 2018 11:29:10 +0200
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+Message-ID: <CAK2MWOvcBBNZ-whcA=eP7piCAoY30b7vXD+dx7-PT1SsQBmJew@mail.gmail.com>
+
+I don't recommend approval.
+
+The main reason to reject is that this license allows an arbitrarily chosen
+group (the original licensors are not necessarily the ones who do the most
+work, etc.) to take the work of others private and release it under a
+non-open-source licence, without using the more legally sound process of a
+contributor license agreement. In particular, it allows the "original"
+group to take forks private without the approval of anyone on the forked
+project. Since Open Source projects can spawn entirely different, but
+derivative, projects, this power can grow arbitrarily large.
+
+This appears to be the stated goal of the license from the rationale
+included in the submission.
+
+I am currently working with a high-profile national laboratory on adding a
+license to a federally-sponsored  currently GPL work. We just contact the
+known authors asking for approval or objection and then we publish for
+opposition, as was done for Mozilla, Wikipedia, etc. It has never been a
+difficult process, it just takes some work and time. It worked for two of
+our very largest projects.
+
+The proposed license seeks to put this relicensing power in the hands of a
+group that will surely be dead, if you wait long enough. it doesn't really
+help with the continuing management of the project.
+
+Despite the stated involvement of an attorney in _evaluating_ the license,
+the language construction is sometimes vague and contradictory. Perhaps
+this is due to an effort to make it simpler for non-attorneys. But it is
+not clear to me that this is a work of authorship of a lawyer, or is that
+an attorney, understanding the other tools available, would have felt this
+licence is necessary. Thus rejection as a "crayon licence" is also possible.
+
+Thanks
+
+Bruce
+
+On Wed, Sep 26, 2018, 9:58 AM Elmar Stellnberger <estellnb at elstel.org>
+wrote:
+
+> Full Name: Convertible Free Software License Version 1.1
+> Short Identifier: C-FSL v1.1
+> URL: https://www.elstel.org/license/C-FSL-v1.1.txt
+>
+> Rationale and Distinguish:
+> While the BSD license allows the whole world to re-license and while
+> re-licensing is virtually impossible with GPL since every contributor
+> would need to consent the C-FSL license goes a practical intermediate
+> way restricting the right to re-license to a group called the original
+> authors. That way open source developers are not excluded from making
+> business with others who want to base a proprietary product on the given
+> piece of open source software.
+>
+> Proliferation Category & Legal Review:
+> Other/Miscellaneous
+> A lawyer from the EPA (Environmental Protection Agency, USA) has already
+> checked C-FSL for its proliferation properties. He has found the license
+> to be compatible with other open source licenses. He decided that C-FSL
+> can be used together with the CC0 license in the FDtool (functional
+> dependency mining tool) project.
+>
+> list of software which uses C-FSL v1.1.:
+> qcoan: https://www.elstel.org/coan
+> xchroot, confinedrv, bundsteg, debcheckroot, dbschemacmd: also found at
+> www.elstel.org
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180926/e748d325/attachment-0001.html>
+
+From bruce at perens.com  Wed Sep 26 09:47:56 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 26 Sep 2018 11:47:56 +0200
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+Message-ID: <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+
+Other accepted licenses have "original contributor" language, but not
+granting so much power. OSI policy is they don't have to do something
+stupid because they've done it in the past. They would not be required to
+approve this language on the basis of usage in prior licenses.
+
+On Wed, Sep 26, 2018, 11:23 AM Carlo Piana <osi-review at piana.eu> wrote:
+
+> Ellmar, all,
+>
+> I remain quite puzzled by the main feature of the license, namely, the
+> right of *some* copyright holders in the initial work to decide on the
+> licensing of the *other* follow-on developers who are also copyright
+> holders. Isn't it a sort of discrimination, therefore against #5?
+>
+> I know that the same practical effect would be achieved by assigning the
+> code to a single project, but that it's always an option for any forker,
+> not a legal effect of the license. Here you give up your rights on your
+> copyright as a condition of the very license, which does quite limit the
+> rights of some versus the rights of others.
+>
+> My initial and non meditated reaction is that this license should be
+> rejected as long as Section 7 is concerned.
+>
+> A remark on the need to retain the ability of relicense or to "make
+> business" (AKA proprietary exploit) with the software. That's achieved with
+> a liberal, non copyleft license. But restricting others from doing
+> something that the initial developers can do, siphoning in the formers'
+> code and copyright, that does not seem acceptable.
+>
+> Or am I mistaken on the working of the condition?
+>
+>
+> Carlo
+>
+>
+>
+> On 26/09/2018 09:57, Elmar Stellnberger wrote:
+>
+> Full Name: Convertible Free Software License Version 1.1
+> Short Identifier: C-FSL v1.1
+> URL: https://www.elstel.org/license/C-FSL-v1.1.txt
+>
+> Rationale and Distinguish:
+> While the BSD license allows the whole world to re-license and while
+> re-licensing is virtually impossible with GPL since every contributor would
+> need to consent the C-FSL license goes a practical intermediate way
+> restricting the right to re-license to a group called the original authors.
+> That way open source developers are not excluded from making business with
+> others who want to base a proprietary product on the given piece of open
+> source software.
+>
+> Proliferation Category & Legal Review:
+> Other/Miscellaneous
+> A lawyer from the EPA (Environmental Protection Agency, USA) has already
+> checked C-FSL for its proliferation properties. He has found the license to
+> be compatible with other open source licenses. He decided that C-FSL can be
+> used together with the CC0 license in the FDtool (functional dependency
+> mining tool) project.
+>
+> list of software which uses C-FSL v1.1.:
+> qcoan: https://www.elstel.org/coan
+> xchroot, confinedrv, bundsteg, debcheckroot, dbschemacmd: also found at
+> www.elstel.org
+>
+>
+>
+> _______________________________________________
+> License-review mailing listLicense-review at lists.opensource.orghttp://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180926/d0f3524b/attachment.html>
+
+From axjslack at gmail.com  Wed Sep 26 09:51:30 2018
+From: axjslack at gmail.com (Alexjan Carraturo)
+Date: Wed, 26 Sep 2018 11:51:30 +0200
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CAK2MWOvcBBNZ-whcA=eP7piCAoY30b7vXD+dx7-PT1SsQBmJew@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <CAK2MWOvcBBNZ-whcA=eP7piCAoY30b7vXD+dx7-PT1SsQBmJew@mail.gmail.com>
+Message-ID: <CACR8Qs-Tg-g0w1H2Yp06kKH+sOWDv0A9vTZVLymTTSqDsc53zg@mail.gmail.com>
+
+Hi All
+
+I'm not entitled to talk here, but this license sound dangerous. Company
+could use this kind of license to use open source developers as
+contributors and then closing all to use for their own profit. Would not be
+the first case, sure, but better to not encourage this kind of behavior.
+I'm talking only as Free and Open Source Software user.
+
+my 2c.
+
+Alexjan
+
+
+Il giorno mer 26 set 2018 alle ore 11:30 Bruce Perens <bruce at perens.com> ha
+scritto:
+
+> I don't recommend approval.
+>
+> The main reason to reject is that this license allows an arbitrarily
+> chosen group (the original licensors are not necessarily the ones who do
+> the most work, etc.) to take the work of others private and release it
+> under a non-open-source licence, without using the more legally sound
+> process of a contributor license agreement. In particular, it allows the
+> "original"  group to take forks private without the approval of anyone on
+> the forked project. Since Open Source projects can spawn entirely
+> different, but derivative, projects, this power can grow arbitrarily large.
+>
+> This appears to be the stated goal of the license from the rationale
+> included in the submission.
+>
+> I am currently working with a high-profile national laboratory on adding a
+> license to a federally-sponsored  currently GPL work. We just contact the
+> known authors asking for approval or objection and then we publish for
+> opposition, as was done for Mozilla, Wikipedia, etc. It has never been a
+> difficult process, it just takes some work and time. It worked for two of
+> our very largest projects.
+>
+> The proposed license seeks to put this relicensing power in the hands of a
+> group that will surely be dead, if you wait long enough. it doesn't really
+> help with the continuing management of the project.
+>
+> Despite the stated involvement of an attorney in _evaluating_ the license,
+> the language construction is sometimes vague and contradictory. Perhaps
+> this is due to an effort to make it simpler for non-attorneys. But it is
+> not clear to me that this is a work of authorship of a lawyer, or is that
+> an attorney, understanding the other tools available, would have felt this
+> licence is necessary. Thus rejection as a "crayon licence" is also possible.
+>
+> Thanks
+>
+> Bruce
+>
+> On Wed, Sep 26, 2018, 9:58 AM Elmar Stellnberger <estellnb at elstel.org>
+> wrote:
+>
+>> Full Name: Convertible Free Software License Version 1.1
+>> Short Identifier: C-FSL v1.1
+>> URL: https://www.elstel.org/license/C-FSL-v1.1.txt
+>>
+>> Rationale and Distinguish:
+>> While the BSD license allows the whole world to re-license and while
+>> re-licensing is virtually impossible with GPL since every contributor
+>> would need to consent the C-FSL license goes a practical intermediate
+>> way restricting the right to re-license to a group called the original
+>> authors. That way open source developers are not excluded from making
+>> business with others who want to base a proprietary product on the given
+>> piece of open source software.
+>>
+>> Proliferation Category & Legal Review:
+>> Other/Miscellaneous
+>> A lawyer from the EPA (Environmental Protection Agency, USA) has already
+>> checked C-FSL for its proliferation properties. He has found the license
+>> to be compatible with other open source licenses. He decided that C-FSL
+>> can be used together with the CC0 license in the FDtool (functional
+>> dependency mining tool) project.
+>>
+>> list of software which uses C-FSL v1.1.:
+>> qcoan: https://www.elstel.org/coan
+>> xchroot, confinedrv, bundsteg, debcheckroot, dbschemacmd: also found at
+>> www.elstel.org
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+
+-- 
+Alexjan Carraturo
+--
+Twitter/Facebook/Identica/flickr: axjslack
+Personal site: http://axjslack.wordpress.com
+--
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180926/77d6f6b3/attachment.html>
+
+From osi-review at piana.eu  Wed Sep 26 10:03:29 2018
+From: osi-review at piana.eu (Carlo Piana)
+Date: Wed, 26 Sep 2018 12:03:29 +0200
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+Message-ID: <10df1617-122f-bedc-adb5-d31a93ab198c@piana.eu>
+
+Thanks Bruce,
+
+I see that we hold a similar position here. The "Original contributor"
+language exposes a kind of fallacy, that the contribute by the
+originator is more "important" than the one of the other contributors.
+Just because it happens before, does not mean it's more important.? It
+might be. It might be not.
+
+An open source project should belong to the commons. If it's "commons
+with a leash in the hands of somebody only" as I said WRT patents, it's
+not commons.
+
+Carlo
+
+
+?
+
+On 26/09/2018 11:47, Bruce Perens wrote:
+> Other accepted licenses have "original contributor" language, but not
+> granting so much power. OSI policy is they don't have to do something
+> stupid because they've done it in the past. They would not be required
+> to approve this language on the basis of usage in prior licenses.
+>
+> On Wed, Sep 26, 2018, 11:23 AM Carlo Piana <osi-review at piana.eu
+> <mailto:osi-review at piana.eu>> wrote:
+>
+>     Ellmar, all,
+>
+>     I remain quite puzzled by the main feature of the license, namely,
+>     the right of *some* copyright holders in the initial work to
+>     decide on the licensing of the *other* follow-on developers who
+>     are also copyright holders. Isn't it a sort of discrimination,
+>     therefore against #5?
+>
+>     I know that the same practical effect would be achieved by
+>     assigning the code to a single project, but that it's always an
+>     option for any forker, not a legal effect of the license. Here you
+>     give up your rights on your copyright as a condition of the very
+>     license, which does quite limit the rights of some versus the
+>     rights of others.
+>
+>     My initial and non meditated reaction is that this license should
+>     be rejected as long as Section 7 is concerned.
+>
+>     A remark on the need to retain the ability of relicense or to
+>     "make business" (AKA proprietary exploit) with the software.
+>     That's achieved with a liberal, non copyleft license. But
+>     restricting others from doing something that the initial
+>     developers can do, siphoning in the formers' code and copyright,
+>     that does not seem acceptable.
+>
+>     Or am I mistaken on the working of the condition?
+>
+>
+>     Carlo
+>
+>
+>
+>     On 26/09/2018 09:57, Elmar Stellnberger wrote:
+>>     Full Name: Convertible Free Software License Version 1.1
+>>     Short Identifier: C-FSL v1.1
+>>     URL: https://www.elstel.org/license/C-FSL-v1.1.txt
+>>
+>>     Rationale and Distinguish:
+>>     While the BSD license allows the whole world to re-license and
+>>     while re-licensing is virtually impossible with GPL since every
+>>     contributor would need to consent the C-FSL license goes a
+>>     practical intermediate way restricting the right to re-license to
+>>     a group called the original authors. That way open source
+>>     developers are not excluded from making business with others who
+>>     want to base a proprietary product on the given piece of open
+>>     source software.
+>>
+>>     Proliferation Category & Legal Review:
+>>     Other/Miscellaneous
+>>     A lawyer from the EPA (Environmental Protection Agency, USA) has
+>>     already checked C-FSL for its proliferation properties. He has
+>>     found the license to be compatible with other open source
+>>     licenses. He decided that C-FSL can be used together with the CC0
+>>     license in the FDtool (functional dependency mining tool) project.
+>>
+>>     list of software which uses C-FSL v1.1.:
+>>     qcoan: https://www.elstel.org/coan
+>>     xchroot, confinedrv, bundsteg, debcheckroot, dbschemacmd: also
+>>     found at www.elstel.org <http://www.elstel.org>
+>>
+>>
+>>
+>>     _______________________________________________
+>>     License-review mailing list
+>>     License-review at lists.opensource.org
+>>     <mailto:License-review at lists.opensource.org>
+>>     http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+>     _______________________________________________
+>     License-review mailing list
+>     License-review at lists.opensource.org
+>     <mailto:License-review at lists.opensource.org>
+>     http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180926/73d5d8a0/attachment-0001.html>
+
+From estellnb at elstel.org  Wed Sep 26 10:10:38 2018
+From: estellnb at elstel.org (Elmar Stellnberger)
+Date: Wed, 26 Sep 2018 12:10:38 +0200
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+Message-ID: <072aabfc-f0a3-622b-e0e4-b09daf7b6713@elstel.org>
+
+I don`t see it as a discrimination if it is not the whole world who can 
+re-license under a proprietary license. In a fact it is more just if 
+those who have contributed the most to a software project have the 
+responsibility to decide about re-licensing. Just consider what has 
+happened to FreeBSD by Apple. Apple is using the BSD/Darwin kernel but 
+did never give any contribution back to the FreeBSD project. To me this 
+is an uprageing fact and the cause why BSD has never grown as popular as 
+Linux has.
+
+   Besides this the author always has the right to publish his work 
+under another license (guaranteed by copyright law) at any time. This is 
+not a discrimination either.
+
+ > I know that the same practical effect would be achieved by assigning the
+ > code to a single project, but that it's always an option for any forker,
+
+   If the same effect can be achieved in another way then it can not be 
+seen as a undue discrimination or as a discrimination per se.
+
+   I don`t believe it is an infringement of an Open Source software if 
+somebody can not re-license under a proprietary license so it should not 
+apply with regards to OSS compliance.
+
+   Last but not least I see paragraph #5 the way that it applies to 
+discrimination against special groups of people with regards to equality 
+or certain fields of endeavor. This is not the case - or can all people 
+except the original author be seen as a special group?
+
+
+On 9/26/18 11:22 AM, Carlo Piana wrote:
+> Ellmar, all,
+> 
+> I remain quite puzzled by the main feature of the license, namely, the 
+> right of *some* copyright holders in the initial work to decide on the 
+> licensing of the *other* follow-on developers who are also copyright 
+> holders. Isn't it a sort of discrimination, therefore against #5?
+> 
+> I know that the same practical effect would be achieved by assigning the 
+> code to a single project, but that it's always an option for any forker, 
+> not a legal effect of the license. Here you give up your rights on your 
+> copyright as a condition of the very license, which does quite limit the 
+> rights of some versus the rights of others.
+> 
+> My initial and non meditated reaction is that this license should be 
+> rejected as long as Section 7 is concerned.
+> 
+> A remark on the need to retain the ability of relicense or to "make 
+> business" (AKA proprietary exploit) with the software. That's achieved 
+> with a liberal, non copyleft license. But restricting others from doing 
+> something that the initial developers can do, siphoning in the formers' 
+> code and copyright, that does not seem acceptable.
+
+The group of original authors can be extended any time if someone gives 
+a major contribution to a project under C-FSL. The only issue about it 
+is that if someone is planning a major contribution he must communicate 
+to do so before in order to make her/him accepted as original author.
+
+> 
+> Or am I mistaken on the working of the condition?
+> 
+> 
+> Carlo
+> 
+> 
+> 
+> On 26/09/2018 09:57, Elmar Stellnberger wrote:
+>> Full Name: Convertible Free Software License Version 1.1
+>> Short Identifier: C-FSL v1.1
+>> URL: https://www.elstel.org/license/C-FSL-v1.1.txt
+>>
+>> Rationale and Distinguish:
+>> While the BSD license allows the whole world to re-license and while 
+>> re-licensing is virtually impossible with GPL since every contributor 
+>> would need to consent the C-FSL license goes a practical intermediate 
+>> way restricting the right to re-license to a group called the original 
+>> authors. That way open source developers are not excluded from making 
+>> business with others who want to base a proprietary product on the 
+>> given piece of open source software.
+>>
+>> Proliferation Category & Legal Review:
+>> Other/Miscellaneous
+>> A lawyer from the EPA (Environmental Protection Agency, USA) has 
+>> already checked C-FSL for its proliferation properties. He has found 
+>> the license to be compatible with other open source licenses. He 
+>> decided that C-FSL can be used together with the CC0 license in the 
+>> FDtool (functional dependency mining tool) project.
+>>
+>> list of software which uses C-FSL v1.1.:
+>> qcoan: https://www.elstel.org/coan
+>> xchroot, confinedrv, bundsteg, debcheckroot, dbschemacmd: also found 
+>> at www.elstel.org
+>>
+>>
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+> 
+> 
+> 
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+> 
+
+
+From brendan.m.hickey at gmail.com  Wed Sep 26 10:16:57 2018
+From: brendan.m.hickey at gmail.com (Brendan Hickey)
+Date: Wed, 26 Sep 2018 06:16:57 -0400
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <10df1617-122f-bedc-adb5-d31a93ab198c@piana.eu>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <10df1617-122f-bedc-adb5-d31a93ab198c@piana.eu>
+Message-ID: <CAJ-h4vvJhieBxL8p6xOSm6rYjLr-NBDKwfD2KcFafUPKe2LxXg@mail.gmail.com>
+
+On Wed, Sep 26, 2018, 06:04 Carlo Piana <osi-review at piana.eu> wrote:
+
+> Thanks Bruce,
+>
+> I see that we hold a similar position here. The "Original contributor"
+> language exposes a kind of fallacy, that the contribute by the originator
+> is more "important" than the one of the other contributors. Just because it
+> happens before, does not mean it's more important.  It might be. It might
+> be not.
+>
+
+> An open source project should belong to the commons. If it's "commons with
+> a leash in the hands of somebody only" as I said WRT patents, it's not
+> commons.
+>
+> Carlo
+>
+
+Not only that, but even if this were a good idea the entire choice of law
+clause is farcical. It enables some very adventurous jurisdiction shopping.
+And that's just the tip of the iceberg.
+
+This license should be rejected as a crayon license. It's so frought with
+issues that I can't imagine it underwent serious legal review. An
+environmental lawyer can tell you all about wetlands law, but they're
+scarcely more qualified than me to assert that a license is well formed.
+
+Brendan
+
+
+On 26/09/2018 11:47, Bruce Perens wrote:
+>
+> Other accepted licenses have "original contributor" language, but not
+> granting so much power. OSI policy is they don't have to do something
+> stupid because they've done it in the past. They would not be required to
+> approve this language on the basis of usage in prior licenses.
+>
+> On Wed, Sep 26, 2018, 11:23 AM Carlo Piana <osi-review at piana.eu> wrote:
+>
+>> Ellmar, all,
+>>
+>> I remain quite puzzled by the main feature of the license, namely, the
+>> right of *some* copyright holders in the initial work to decide on the
+>> licensing of the *other* follow-on developers who are also copyright
+>> holders. Isn't it a sort of discrimination, therefore against #5?
+>>
+>> I know that the same practical effect would be achieved by assigning the
+>> code to a single project, but that it's always an option for any forker,
+>> not a legal effect of the license. Here you give up your rights on your
+>> copyright as a condition of the very license, which does quite limit the
+>> rights of some versus the rights of others.
+>>
+>> My initial and non meditated reaction is that this license should be
+>> rejected as long as Section 7 is concerned.
+>>
+>> A remark on the need to retain the ability of relicense or to "make
+>> business" (AKA proprietary exploit) with the software. That's achieved with
+>> a liberal, non copyleft license. But restricting others from doing
+>> something that the initial developers can do, siphoning in the formers'
+>> code and copyright, that does not seem acceptable.
+>>
+>> Or am I mistaken on the working of the condition?
+>>
+>>
+>> Carlo
+>>
+>>
+>>
+>> On 26/09/2018 09:57, Elmar Stellnberger wrote:
+>>
+>> Full Name: Convertible Free Software License Version 1.1
+>> Short Identifier: C-FSL v1.1
+>> URL: https://www.elstel.org/license/C-FSL-v1.1.txt
+>>
+>> Rationale and Distinguish:
+>> While the BSD license allows the whole world to re-license and while
+>> re-licensing is virtually impossible with GPL since every contributor would
+>> need to consent the C-FSL license goes a practical intermediate way
+>> restricting the right to re-license to a group called the original authors.
+>> That way open source developers are not excluded from making business with
+>> others who want to base a proprietary product on the given piece of open
+>> source software.
+>>
+>> Proliferation Category & Legal Review:
+>> Other/Miscellaneous
+>> A lawyer from the EPA (Environmental Protection Agency, USA) has already
+>> checked C-FSL for its proliferation properties. He has found the license to
+>> be compatible with other open source licenses. He decided that C-FSL can be
+>> used together with the CC0 license in the FDtool (functional dependency
+>> mining tool) project.
+>>
+>> list of software which uses C-FSL v1.1.:
+>> qcoan: https://www.elstel.org/coan
+>> xchroot, confinedrv, bundsteg, debcheckroot, dbschemacmd: also found at
+>> www.elstel.org
+>>
+>>
+>>
+>> _______________________________________________
+>> License-review mailing listLicense-review at lists.opensource.orghttp://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>
+>
+> _______________________________________________
+> License-review mailing listLicense-review at lists.opensource.orghttp://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180926/76a754fb/attachment.html>
+
+From estellnb at elstel.org  Wed Sep 26 10:20:35 2018
+From: estellnb at elstel.org (Elmar Stellnberger)
+Date: Wed, 26 Sep 2018 12:20:35 +0200
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CACR8Qs-Tg-g0w1H2Yp06kKH+sOWDv0A9vTZVLymTTSqDsc53zg@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <CAK2MWOvcBBNZ-whcA=eP7piCAoY30b7vXD+dx7-PT1SsQBmJew@mail.gmail.com>
+ <CACR8Qs-Tg-g0w1H2Yp06kKH+sOWDv0A9vTZVLymTTSqDsc53zg@mail.gmail.com>
+Message-ID: <ef5833d9-3406-0829-f50a-d7cae0d5eb56@elstel.org>
+
+
+
+On 9/26/18 11:51 AM, Alexjan Carraturo wrote:
+> Hi All
+> 
+> I'm not entitled to talk here, but this license sound dangerous. Company 
+> could use this kind of license to use open source developers as 
+> contributors and then closing all to use for their own profit. Would not 
+> be the first case, sure, but better to not encourage this kind of behavior.
+> I'm talking only as Free and Open Source Software user.
+> 
+
+The same applies to software licensed under BSD like licenses so this 
+can not really be an issue.
+
+
+> my 2c.
+> 
+> Alexjan
+> 
+> 
+
+
+From estellnb at elstel.org  Wed Sep 26 10:23:55 2018
+From: estellnb at elstel.org (Elmar Stellnberger)
+Date: Wed, 26 Sep 2018 12:23:55 +0200
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <10df1617-122f-bedc-adb5-d31a93ab198c@piana.eu>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <10df1617-122f-bedc-adb5-d31a93ab198c@piana.eu>
+Message-ID: <8c98d248-73b2-f988-b264-4843d5d77ce0@elstel.org>
+
+
+
+On 9/26/18 12:03 PM, Carlo Piana wrote:
+> Thanks Bruce,
+> 
+> I see that we hold a similar position here. The "Original contributor" 
+> language exposes a kind of fallacy, that the contribute by the 
+> originator is more "important" than the one of the other contributors. 
+> Just because it happens before, does not mean it's more important.? It 
+> might be. It might be not.
+> 
+
+  This is certainly an issue. However to my believe a prospective 
+contributor can communicate his intention if he plans a major 
+contribution before doing so. That will allow him to be accepted as 
+original author/contributor later on. If not, nobody shall be forced to 
+contribute.
+
+
+> An open source project should belong to the commons. If it's "commons 
+> with a leash in the hands of somebody only" as I said WRT patents, it's 
+> not commons.
+> 
+> Carlo
+> 
+> 
+> 
+
+
+From osi-review at piana.eu  Wed Sep 26 10:30:25 2018
+From: osi-review at piana.eu (Carlo Piana)
+Date: Wed, 26 Sep 2018 12:30:25 +0200
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <072aabfc-f0a3-622b-e0e4-b09daf7b6713@elstel.org>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <072aabfc-f0a3-622b-e0e4-b09daf7b6713@elstel.org>
+Message-ID: <182d6bcc-857d-0f01-ef03-ffadd3c88a33@piana.eu>
+
+Thanks, Elmar,
+
+your points are worthy, but I must take strong exception. See
+inline--pardon me if brevity can be exchanged for roughness, I just mean
+to counter arguments, not to disqualify them.
+
+On 26/09/2018 12:10, Elmar Stellnberger wrote:
+> I don`t see it as a discrimination if it is not the whole world who can
+> re-license under a proprietary license. In a fact it is more just if
+> those who have contributed the most to a software project have the
+> responsibility to decide about re-licensing. Just consider what has
+> happened to FreeBSD by Apple. Apple is using the BSD/Darwin kernel but
+> did never give any contribution back to the FreeBSD project. To me this
+> is an uprageing fact and the cause why BSD has never grown as popular as
+> Linux has.
+
+You assume that those putting up themselves as "Original" have brought a
+higher impact on the project. That's entirely preposterous.
+
+I also use BSD/Darwin as an example why copyleft shall be preferred over
+liberal licenses. But you can't have the cake and eat it. If you want
+the project to remain in the open, use copyleft, if you don't care, you
+don't care. But if you care and you want to give yourself the right to
+withdraw it from the commons, while others can't, that's an issue!
+
+> 
+> ? Besides this the author always has the right to publish his work under
+> another license (guaranteed by copyright law) at any time. This is not a
+> discrimination either.
+
+That's immaterial. Under this license, I can of course use my copyright
+as I want, but that goes for any single contribution for any license.
+This is not the point where I claim discrimination. Discrimination is
+that I can take your code and license under the terms I want, and you
+can't with mine. That's discriminatory.
+
+> 
+>> I know that the same practical effect would be achieved by assigning the
+>> code to a single project, but that it's always an option for any forker,
+> 
+> ? If the same effect can be achieved in another way then it can not be
+> seen as a undue discrimination or as a discrimination per se.
+
+I said, that's an option. As I can use my copyright as I want, I can
+decide to assign it or not. Here it is tantamount to have it assigned,
+even if it's not technically "contributed" (I can fork off and start an
+independent project).
+
+> 
+> ? I don`t believe it is an infringement of an Open Source software if
+> somebody can not re-license under a proprietary license so it should not
+> apply with regards to OSS compliance.
+
+Again, this is not the point. The point is that some can and some other
+cannot on specular grounds.
+
+
+> 
+> ? Last but not least I see paragraph #5 the way that it applies to
+> discrimination against special groups of people with regards to equality
+> or certain fields of endeavor. This is not the case - or can all people
+> except the original author be seen as a special group?
+> 
+
+Under all possible definitions, the "Original contributors" ARE a
+special group of people, they call themselves out. All other copyright
+holders are ANOTHER group of people. Yes indeed. All those who are not
+original developers and who have also contributed their copyright in the
+code and whose copyright is treated as less important on licensing
+grounds. Not by their common, democratic decision, but out of the very
+licensing.
+
+The language of OSD is not against race or ethnicity or political
+beliefs or numerosity. It's against a person or a group of persons. Here
+we have two.
+
+Best
+
+Carlo
+
+> 
+> On 9/26/18 11:22 AM, Carlo Piana wrote:
+>> Ellmar, all,
+>>
+>> I remain quite puzzled by the main feature of the license, namely, the
+>> right of *some* copyright holders in the initial work to decide on the
+>> licensing of the *other* follow-on developers who are also copyright
+>> holders. Isn't it a sort of discrimination, therefore against #5?
+>>
+>> I know that the same practical effect would be achieved by assigning
+>> the code to a single project, but that it's always an option for any
+>> forker, not a legal effect of the license. Here you give up your
+>> rights on your copyright as a condition of the very license, which
+>> does quite limit the rights of some versus the rights of others.
+>>
+>> My initial and non meditated reaction is that this license should be
+>> rejected as long as Section 7 is concerned.
+>>
+>> A remark on the need to retain the ability of relicense or to "make
+>> business" (AKA proprietary exploit) with the software. That's achieved
+>> with a liberal, non copyleft license. But restricting others from
+>> doing something that the initial developers can do, siphoning in the
+>> formers' code and copyright, that does not seem acceptable.
+> 
+> The group of original authors can be extended any time if someone gives
+> a major contribution to a project under C-FSL. The only issue about it
+> is that if someone is planning a major contribution he must communicate
+> to do so before in order to make her/him accepted as original author.
+> 
+>>
+>> Or am I mistaken on the working of the condition?
+>>
+>>
+>> Carlo
+>>
+>>
+>>
+>> On 26/09/2018 09:57, Elmar Stellnberger wrote:
+>>> Full Name: Convertible Free Software License Version 1.1
+>>> Short Identifier: C-FSL v1.1
+>>> URL: https://www.elstel.org/license/C-FSL-v1.1.txt
+>>>
+>>> Rationale and Distinguish:
+>>> While the BSD license allows the whole world to re-license and while
+>>> re-licensing is virtually impossible with GPL since every contributor
+>>> would need to consent the C-FSL license goes a practical intermediate
+>>> way restricting the right to re-license to a group called the
+>>> original authors. That way open source developers are not excluded
+>>> from making business with others who want to base a proprietary
+>>> product on the given piece of open source software.
+>>>
+>>> Proliferation Category & Legal Review:
+>>> Other/Miscellaneous
+>>> A lawyer from the EPA (Environmental Protection Agency, USA) has
+>>> already checked C-FSL for its proliferation properties. He has found
+>>> the license to be compatible with other open source licenses. He
+>>> decided that C-FSL can be used together with the CC0 license in the
+>>> FDtool (functional dependency mining tool) project.
+>>>
+>>> list of software which uses C-FSL v1.1.:
+>>> qcoan: https://www.elstel.org/coan
+>>> xchroot, confinedrv, bundsteg, debcheckroot, dbschemacmd: also found
+>>> at www.elstel.org
+>>>
+>>>
+>>>
+>>> _______________________________________________
+>>> License-review mailing list
+>>> License-review at lists.opensource.org
+>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>
+>>
+>>
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>>
+
+
+
+From estellnb at elstel.org  Wed Sep 26 10:36:30 2018
+From: estellnb at elstel.org (Elmar Stellnberger)
+Date: Wed, 26 Sep 2018 12:36:30 +0200
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CAK2MWOvcBBNZ-whcA=eP7piCAoY30b7vXD+dx7-PT1SsQBmJew@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <CAK2MWOvcBBNZ-whcA=eP7piCAoY30b7vXD+dx7-PT1SsQBmJew@mail.gmail.com>
+Message-ID: <9d35a2e4-d8da-ffc0-e734-f5df4e16729d@elstel.org>
+
+
+
+On 9/26/18 11:29 AM, Bruce Perens wrote:
+> I don't recommend approval.
+> 
+> The main reason to reject is that this license allows an arbitrarily 
+> chosen group (the original licensors are not necessarily the ones who do 
+> the most work, etc.) to take the work of others private and release it 
+> under a non-open-source licence, without using the more legally sound 
+> process of a contributor license agreement. In particular, it allows the 
+> "original"? group to take forks private without the approval of anyone 
+> on the forked project. 
+I do not see it as a mistake that no contributor agreement is necessary 
+because of a clause of implicit consent. Anyone who wants to contribute 
+can read the license and then decide if he wants to contribute.
+
+It is just more likely that the development process centers around the 
+original authors with a license like this because the encouragement of 
+these two groups of people may be different.
+
+Nonetheless I see this license as an encouragement to people who would 
+otherwise not publish their software under an OSS license because it 
+allows them to retain certain rights at least for the first time. If 
+this should further encourage contributions the software can any time be 
+re-published under a GPL or BSD like license.
+
+
+From brendan.m.hickey at gmail.com  Wed Sep 26 10:55:20 2018
+From: brendan.m.hickey at gmail.com (Brendan Hickey)
+Date: Wed, 26 Sep 2018 06:55:20 -0400
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <9d35a2e4-d8da-ffc0-e734-f5df4e16729d@elstel.org>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <CAK2MWOvcBBNZ-whcA=eP7piCAoY30b7vXD+dx7-PT1SsQBmJew@mail.gmail.com>
+ <9d35a2e4-d8da-ffc0-e734-f5df4e16729d@elstel.org>
+Message-ID: <CAJ-h4vuCSa8ENQTousM20qEkMQnegtPO9DMvfuyaoNhsipsMdA@mail.gmail.com>
+
+On Wed, Sep 26, 2018 at 6:36 AM, Elmar Stellnberger <estellnb at elstel.org>
+wrote:
+
+>
+>
+> On 9/26/18 11:29 AM, Bruce Perens wrote:
+>
+>> I don't recommend approval.
+>>
+>> The main reason to reject is that this license allows an arbitrarily
+>> chosen group (the original licensors are not necessarily the ones who do
+>> the most work, etc.) to take the work of others private and release it
+>> under a non-open-source licence, without using the more legally sound
+>> process of a contributor license agreement. In particular, it allows the
+>> "original"  group to take forks private without the approval of anyone on
+>> the forked project.
+>>
+> I do not see it as a mistake that no contributor agreement is necessary
+> because of a clause of implicit consent. Anyone who wants to contribute can
+> read the license and then decide if he wants to contribute.
+>
+> It is just more likely that the development process centers around the
+> original authors with a license like this because the encouragement of
+> these two groups of people may be different.
+>
+> Nonetheless I see this license as an encouragement to people who would
+> otherwise not publish their software under an OSS license because it allows
+> them to retain certain rights at least for the first time. If this should
+> further encourage contributions the software can any time be re-published
+> under a GPL or BSD like license.
+
+
+There are at least three major problems with this license:
+
+1. It violates the OSD.
+2. It is not properly drafted and there's no indication that it was vetted
+by an attorney familiar with software licensing.
+3. It is redundant with existing licenses.
+
+Even if this license was properly drafted, as Bruce and others have pointed
+out it obviously fails prong 5 of the OSD:
+
+5. No Discrimination Against Persons or Groups
+
+The license must not discriminate against any person or group of persons.
+
+
+The C-FSL privileges one group ("original authors") over all others,
+thereby failing to conform with the OSD. The facts being what they are this
+license simply cannot be approved barring a complete rewrite and proper
+legal review. Even with those things it should still be rejected on
+proliferation grounds.
+
+Brendan
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180926/05f354e5/attachment.html>
+
+From rob at landley.net  Wed Sep 26 11:37:53 2018
+From: rob at landley.net (Rob Landley)
+Date: Wed, 26 Sep 2018 06:37:53 -0500
+Subject: [License-review] Please rename "Free Public License-1.0.0" to 0BSD.
+Message-ID: <99849bb5-7152-5787-acf0-d9f735a1966c@landley.net>
+
+Last year there was a discussion of Github adopting 0BSD, which was derailed by
+the name confusion.
+
+  https://github.com/github/choosealicense.com/issues/464
+
+That thread contains a discussion between myself (who uses 0BSD in toybox and
+got SPDX approval under the original name) and the person who sent the license
+to OSI under a different name after SPDX had already approved 0BSD.
+
+Unfortunately, due to the name confusion, Github took no action on the request.
+Similarly wikipedia reproduces this confusion in its
+https://en.wikipedia.org/wiki/Public_domain_equivalent_license page. There are
+multiple other examples of this negatively impacting the adoption of the license.
+
+I copied my two contributions to the above github thread to my blog, with
+slightly cleaned up formatting. They explain the issue at length:
+
+  http://landley.net/notes-2017.html#26-03-2017
+
+  http://landley.net/notes-2017.html#27-03-2017
+
+I also spoke to one of OSI's board members (I forget who, he had black hair?) at
+linuxconf.au a year ago, who suggested I take it up with the board. How do I do
+that?
+
+Rob
+
+
+From mccoy.smith at intel.com  Wed Sep 26 16:06:45 2018
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Wed, 26 Sep 2018 16:06:45 +0000
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+
+
+
+>>Other accepted licenses have "original contributor" language, but not granting so much power. OSI policy is they don't have to do something stupid because they've done it in the past. They would not be required to approve this language on the basis of usage in prior licenses.<<
+I think it would be very useful for the OSI to make this policy more explicit, perhaps by announcing it on the license submission page.  This is not the first time within the past year or so where a license has been submitted, to quite a bit of negative reaction, and the response from the submitter has been ?I?m just doing something that an already-approved OSI license is doing ? you can?t reject me for that reason, because of precedent?
+I tend to be of a more radical persuasion that there are some provisions of the OSD that can be a bit ambiguous in the way that they are currently drafted, and the practice around applying those definitions is more rigorous than the wording of the definitions themselves, which leads to submitters who rely much more on the words of the OSD than the interpretive history.  I believe there should be room for some clarification on the OSD wording (possibly even some revision of the OSD ? ?OSD 2.0,? perhaps?, or at least some more explicit interpretive history presented on the OSD, and license submission, webpages, so that current readers of the OSD, and future license drafters attempting to conform to the OSD, have better guidance.
+If I had the time, and the inclination, I might be motivated to write a paper on this topic ? taking the OSD, pulling apart the currently-presented language around it and analyzing how it has been interpreted over various years of license analysis (pre-, and perhaps post-, submission).  That?d take a lot of work (and would require some access to 20 years of submission history).  I?m wondering if anyone is interested in taking up such a task?  I know a law journal that would likely be interested in publishing something like that.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180926/f349d71d/attachment.html>
+
+From kyle at kemitchell.com  Wed Sep 26 16:52:13 2018
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Wed, 26 Sep 2018 09:52:13 -0700
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+Message-ID: <20180926165213.GK15538@dev.kemitchell.com>
+
+I strongly second McCoy's proposal to make the policy
+explicit, whatever it is.  And I'd extend to any rule by
+which OSI decides that's concrete enough to call a policy.
+
+But I'd stress here, as others stressed to me during my own
+submission, that it's not necessarily about OSD.  As a
+general matter, I'm told, licenses can conform to OSD and
+get the boot.
+
+There are documented proliferation reasons.  And there is an
+undocumented crayon rule, hinted in the submission format.
+But there are also reasons which, for lack of a better word,
+you might term "policy positions".  Others have put it
+differently: that approval requires consensus, and any
+participant can object at their discretion.  OSI can either
+own the last publicly, or rehash it privately, over and over
+again, in responses to a slow parade of honest but doomed
+submissions that waste everybody's time.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From mccoy.smith at intel.com  Wed Sep 26 17:34:31 2018
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Wed, 26 Sep 2018 17:34:31 +0000
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CAJ-h4vvJhieBxL8p6xOSm6rYjLr-NBDKwfD2KcFafUPKe2LxXg@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <10df1617-122f-bedc-adb5-d31a93ab198c@piana.eu>
+ <CAJ-h4vvJhieBxL8p6xOSm6rYjLr-NBDKwfD2KcFafUPKe2LxXg@mail.gmail.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5197F76DFA1@FMSMSX108.amr.corp.intel.com>
+
+
+
+>>From: License-review [mailto:license-review-bounces at lists.opensource.org] On Behalf Of Brendan Hickey
+>>Sent: Wednesday, September 26, 2018 3:17 AM
+>>To: License submissions for OSI review <license-review at lists.opensource.org>
+>>Subject: Re: [License-review] For Approval: Convertible Free Software License, Version 1.1 (C-FSL v1.1)
+
+
+>>This license should be rejected as a crayon license. It's so frought with issues that I can't imagine it underwent serious legal review. An environmental lawyer can tell you all about wetlands law, but they're scarcely more qualified than me to assert that a license is well formed.
+
+>>Brendan
+
+
+I dislike the term ?crayon license? as it seems fairly pejorative, but I share the skepticism about the drafting rigor of this license.  Just after a quick look through of this I see the following problems which make the license legally fatal (or so legally problematic I think most lawyers would avoid code using this license):
+
+
+?         Section 3. ?It is your obligation that the changed version of your sources will be available to the public for free within the time frame of a month at least if there is no undue hindrance by the authors to make it available.?  This would implicate private changes.  As I think we have debated in the past (I believe wrt LZPL), this would remove Freedom Zero rights from users, which I think generally is a bad idea, causes massive compliance issues for users, and is outside of the spirit ? if not the letter ? of the OSD.
+
+?         Section 4. ?You are obligated to provide sufficient data, tools and utilities so that a functionally equivalent object code can be compiled merely from programs and work licensed either under any open source license approved by opensource.org or under C-FSL. The given data and utilities for obtaining functionally equivalent results need to be available to the public for free.?  This goes beyond the requirements of GPL in the obligation to provide tools, as GPL allows one to rely upon publicly available tools.  The way I read this, you need to provide the tool chain (even if the user already has it or can readily get it) with any distribution.  That?s also a huge compliance issue.
+
+?         Section 5. ?When applying changes to the source code you need to leave your name, your email address and the date of your modifications so that other people may contact you. If a contributor should not have a steady access to the internet or a satisfying access to an emailing service he may leave another way by which he can be contacted.?  This seems to fall afoul of lots of privacy law and possibly GDPR (note this is a positive obligation, not a negative requirement a la ?you may not remove identification information? per many OSI approved licenses).
+
+?         Section 6. ?If your program has a graphical user interface the whole C-FSL license must be referenced via the GUI. Otherwise a plain text copy of this license needs to be given and packed alongside the distributed product. A complete reference to the base product including email address and web presence must be referenced via the GUI for any GUI program that is a fork of another C-FSL program. If your program has a comprehensive help, manual or info page and is a fork a similar reference to the base product must be given there.?  This looks like badgeware to me, which most users find disfavorable and a big compliance issue.
+
+?         Section 7.  As others have already stated, I believe this violates OSD 5 as it discriminates between ?original authors? and subsequent authors in the rights conveyed.
+
+?         Section 8.  ?You must assert that the right to use, modify, generate object code and distribute any software under C-FSL will not be infringed by patent claims or similar law. If you modify a work under C-FSL so that it will knowingly rely on a patent license then it means that you will thereby grant to extend the patent license to any recipient of the work. Every contributor grants by the act of contributing to a work under C-FSL a non-exclusive, worldwide and royalty-free patent license to any prospective contributor or user of the given work applicable to all his 'essential patent claims'. The essential patent claims comprise all claims owned or controlled by the contributor.?  The first sentence appears to a broad warranty against any 3rd party patent infringement; this is something that very few distributors would agree to (and is contrary to the general handling of warranty and indemnity in Section 1.  The second sentence does not, per GPLv2 and GPLv3 (which have similar language) provide a description of what one can/must do if they do not have the right to ?extend the patent license.?  The definition of ?essential patent claims? is a unbounded patent license to the distributor?s entire portfolio with no boundaries as to scope.
+
+?         Section 10.  Others have pointed out the jurisdiction and venue problems with this provision, but I will point out a couple of hypotheticals to tease them out:  a) what if the ?first mentioned original author? is deceased, or cannot be located? b) what is venue if the ?first mentioned original author? has a different ?hometown? from his/her ?location??  c) what if they ?first mentioned original author? moves, dies, or is not able to be located after suit is filed?
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180926/a0b95dfc/attachment-0001.html>
+
+From kyle at kemitchell.com  Wed Sep 26 19:11:13 2018
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Wed, 26 Sep 2018 12:11:13 -0700
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5197F76DFA1@FMSMSX108.amr.corp.intel.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <10df1617-122f-bedc-adb5-d31a93ab198c@piana.eu>
+ <CAJ-h4vvJhieBxL8p6xOSm6rYjLr-NBDKwfD2KcFafUPKe2LxXg@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76DFA1@FMSMSX108.amr.corp.intel.com>
+Message-ID: <20180926191113.GM15538@dev.kemitchell.com>
+
+On 2018-09-26 17:09, Smith, McCoy wrote:
+> I dislike the term ?crayon license? as it seems fairly
+> pejorative, but I share the skepticism about the drafting
+> rigor of this license.
+
+I second both points, though I'm troubled that some of my
+impression might reflect native-speaker-style bias.
+
+> Section 3. ?It is your obligation that the changed version
+> of your sources will be available to the public for free
+> within the time frame of a month at least if there is no
+> undue hindrance by the authors to make it available.? This
+> would implicate private changes.  As I think we have
+> debated in the past (I believe wrt LZPL), this would
+> remove Freedom Zero rights from users, which I think
+> generally is a bad idea, causes massive compliance issues
+> for users, and is outside of the spirit ? if not the
+> letter ? of the OSD.
+
+I'm not here to reopen debate on my own submission.  But
+following on from our prior messages about publicizing
+unwritten rules, I'd like to point out private changes as a
+candidate.  There is an apparent schism with FSF on that
+point, evident in OSI approval and FSF rejection of at least
+Plan 9, RPL, and Open Watcom.  If that schism is mended,
+because OSI has officially acceded to FSF's position, that
+ought to be made known, as well as what's to become of the
+old licenses.
+
+> Section 5. ?When applying changes to the source code you
+> need to leave your name, your email address and the date
+> of your modifications so that other people may contact
+> you. If a contributor should not have a steady access to
+> the internet or a satisfying access to an emailing service
+> he may leave another way by which he can be contacted.?
+> This seems to fall afoul of lots of privacy law and
+> possibly GDPR (note this is a positive obligation, not a
+> negative requirement a la ?you may not remove
+> identification information? per many OSI approved
+> licenses).
+
+Compare (d) of the Developer Certificate of Origin, added in
+version 1.1.
+
+> Section 7.  As others have already stated, I believe this
+> violates OSD 5 as it discriminates between ?original
+> authors? and subsequent authors in the rights conveyed.
+
+A few provisions come to mind:
+
+- "Standard Version" protections in Artistic 2.
+
+- "Initial Developer" terms under CDDL.
+
+- Initial developer terms under QPL.
+
+All are free software licenses per "Various Licenses and
+Comments about Them".
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From Nigel.Tzeng at jhuapl.edu  Wed Sep 26 19:43:02 2018
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Wed, 26 Sep 2018 19:43:02 +0000
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <20180926165213.GK15538@dev.kemitchell.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+ <20180926165213.GK15538@dev.kemitchell.com>
+Message-ID: <25E8FB13-DC9A-45D5-8D2B-6AF113F2E673@jhuapl.edu>
+
+Given the discussion here I was curious how the OSI would change/amend/"clarify" the OSD and went to peek at the ByLaws to see if that was delineated there.
+
+I didn't see anything but one thing did jump out at me:
+
+ARTICLE IV MEMBERS
+Section 1. MEMBERSHIP. This corporation shall have no members.
+
+https://opensource.org/bylaws
+
+Which amusingly was just after I looked at the Membership page and paid my $40 for this year.  Hmmm...which makes me wonder if I just paid for 4 month's worth of membership or 12 months.  Or maybe just a week's worth if membership status goes on by FY rather than CY.
+
+Anyway, is there a description of the process of how the OSI would change the OSD?  Would OSI members get a say?  Or is it simply voted on by the board?
+?
+    
+
+
+From estellnb at elstel.org  Thu Sep 27 07:54:55 2018
+From: estellnb at elstel.org (Elmar Stellnberger)
+Date: Thu, 27 Sep 2018 09:54:55 +0200
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <20180926191113.GM15538@dev.kemitchell.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <10df1617-122f-bedc-adb5-d31a93ab198c@piana.eu>
+ <CAJ-h4vvJhieBxL8p6xOSm6rYjLr-NBDKwfD2KcFafUPKe2LxXg@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76DFA1@FMSMSX108.amr.corp.intel.com>
+ <20180926191113.GM15538@dev.kemitchell.com>
+Message-ID: <e5cc750e-c47c-ffda-1424-5baac9614c05@elstel.org>
+
+
+>> Section 5. ?When applying changes to the source code you
+>> need to leave your name, your email address and the date
+>> of your modifications so that other people may contact
+>> you. If a contributor should not have a steady access to
+>> the internet or a satisfying access to an emailing service
+>> he may leave another way by which he can be contacted.?
+>> This seems to fall afoul of lots of privacy law and
+>> possibly GDPR 
+
+   Nobody is forced to contribute. If a contributor has read the license 
+he can then decide thereupon whether he wants to contribute or not. i.e. 
+I don`t think this would fall short with privacy laws.
+   This statement is crucial for maintaining the quality of the 
+software. If someone has contributed various times introducing blatant 
+security risks future contributions of that author may f.i. need to be 
+examined in detail.
+
+
+From bruce at perens.com  Thu Sep 27 23:27:54 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 27 Sep 2018 16:27:54 -0700
+Subject: [License-review] Please rename "Free Public License-1.0.0" to
+ 0BSD.
+In-Reply-To: <99849bb5-7152-5787-acf0-d9f735a1966c@landley.net>
+References: <99849bb5-7152-5787-acf0-d9f735a1966c@landley.net>
+Message-ID: <CAK2MWOuLK0_Pz5rGf-UmQpMX4fuLfkZ4jYoVMKt7XDHU_=z9Vw@mail.gmail.com>
+
+Approve that the solicited action be taken. IMO the officers should just do
+it, I don't see that the board has to micromanage this one.
+
+Academic point not a reason for rejection:
+
+BSD stands for Berkeley System Distribution and this license is sort of
+derivative of theirs but not made by them. They didn't trademark "BSD" or
+"Berkeley System Distribution" and IMO this usage is fair.
+
+-- 
+Bruce Perens K6BP - CEO, Legal Engineering
+Standards committee chair, license review committee member, co-founder,
+Open Source Initiative
+President, Open Research Institute; Board Member, Fashion Freedom
+Initiative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180927/f5713787/attachment.html>
+
+From bruce at perens.com  Thu Sep 27 23:45:08 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 27 Sep 2018 16:45:08 -0700
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <e5cc750e-c47c-ffda-1424-5baac9614c05@elstel.org>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <10df1617-122f-bedc-adb5-d31a93ab198c@piana.eu>
+ <CAJ-h4vvJhieBxL8p6xOSm6rYjLr-NBDKwfD2KcFafUPKe2LxXg@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76DFA1@FMSMSX108.amr.corp.intel.com>
+ <20180926191113.GM15538@dev.kemitchell.com>
+ <e5cc750e-c47c-ffda-1424-5baac9614c05@elstel.org>
+Message-ID: <CAK2MWOsJQ333MaG2Oad0yU7T-LxD4PZCwUno3ZXSxNS2nTt_Ag@mail.gmail.com>
+
+>
+>
+> >> This seems to fall afoul of lots of privacy law and possibly GDPR
+>
+
+I don't know much about GDPR yet, but this is yet another reason that we
+use contributor license agreements. Nobody's going to rule that you can't
+require the identity of a party to an agreement.
+
+Elmar wrote:
+
+>    Nobody is forced to contribute. If a contributor has read the license
+> he can then decide thereupon whether he wants to contribute or not.
+
+
+It is an unfortunate fact that most of the developers do not have access to
+legal counsel, and are poorly equipped to parse the license on their own.
+So "caveat emptor" isn't a really good argument here. OSI should not
+approve a license with language that works as a trap for the unwary
+developer.
+
+
+> This statement is crucial for maintaining the quality of the
+> software. If someone has contributed various times introducing blatant
+> security risks future contributions of that author may f.i. need to be
+> examined in detail.
+>
+
+This is why projects like Debian establish a cryptographic web of trust for
+their developers. No check-in goes unidentified, and if something malicious
+is done, it can be traced (and the law enforced, if necessary). If you
+really want to enforce this sort of security, you should do it as part of
+your operational process, not in your license.
+
+And finally, the entire purpose of a license is for a judge to parse it
+correctly in court and thus decide whether a party has complied with its
+terms (and thus avoided infringing copyright) or not. "you need to leave
+your name" is not the sort of legal language that we could ever count on a
+judge parsing correctly.
+
+Another license, the original Artistic License written by a non-attorney
+got to court and the lower court parsed it in a completely unintended
+fashion, costing an Open Source developer some money and years of pain, and
+requiring various lawyers and I to spend a lot of time helping the appeals
+court get it straight. So, OSI should not accept licenses written by
+non-attorneys any longer.
+
+    Thanks
+
+    Bruce
+-- 
+Bruce Perens K6BP - CEO, Legal Engineering
+Standards committee chair, license review committee member, co-founder,
+Open Source Initiative
+President, Open Research Institute; Board Member, Fashion Freedom
+Initiative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180927/08c1143b/attachment.html>
+
+From bruce at perens.com  Thu Sep 27 23:52:45 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 27 Sep 2018 16:52:45 -0700
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CACR8Qs-Tg-g0w1H2Yp06kKH+sOWDv0A9vTZVLymTTSqDsc53zg@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <CAK2MWOvcBBNZ-whcA=eP7piCAoY30b7vXD+dx7-PT1SsQBmJew@mail.gmail.com>
+ <CACR8Qs-Tg-g0w1H2Yp06kKH+sOWDv0A9vTZVLymTTSqDsc53zg@mail.gmail.com>
+Message-ID: <CAK2MWOu9mmkbHsnOavkEQRYS7f=oGcyPCA20toXM3aTiu6w-XA@mail.gmail.com>
+
+On Wed, Sep 26, 2018 at 2:52 AM Alexjan Carraturo <axjslack at gmail.com>
+wrote:
+
+> I'm not entitled to talk here
+>
+
+Sure you are. I am not a lawyer and knew nothing more than you when I
+created the OSD :-)
+-- 
+Bruce Perens K6BP - CEO, Legal Engineering
+Standards committee chair, license review committee member, co-founder,
+Open Source Initiative
+President, Open Research Institute; Board Member, Fashion Freedom
+Initiative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180927/040f84b3/attachment.html>
+
+From rick at linuxmafia.com  Fri Sep 28 02:07:46 2018
+From: rick at linuxmafia.com (Rick Moen)
+Date: Thu, 27 Sep 2018 19:07:46 -0700
+Subject: [License-review] Please rename "Free Public License-1.0.0" to
+ 0BSD.
+In-Reply-To: <99849bb5-7152-5787-acf0-d9f735a1966c@landley.net>
+References: <99849bb5-7152-5787-acf0-d9f735a1966c@landley.net>
+Message-ID: <20180928020746.GC26001@linuxmafia.com>
+
+Quoting Rob Landley (rob at landley.net):
+
+> Last year there was a discussion of Github adopting 0BSD, which was
+> derailed by the name confusion.
+> 
+>   https://github.com/github/choosealicense.com/issues/464
+> 
+> That thread contains a discussion between myself (who uses 0BSD in
+> toybox and got SPDX approval under the original name) and the person
+> who sent the license to OSI under a different name after SPDX had
+> already approved 0BSD.
+> 
+> Unfortunately, due to the name confusion, Github took no action on the
+> request.  Similarly wikipedia reproduces this confusion in its
+> https://en.wikipedia.org/wiki/Public_domain_equivalent_license page.
+> There are multiple other examples of this negatively impacting the
+> adoption of the license.
+> 
+> I copied my two contributions to the above github thread to my blog,
+> with slightly cleaned up formatting. They explain the issue at length:
+> 
+>   http://landley.net/notes-2017.html#26-03-2017
+> 
+>   http://landley.net/notes-2017.html#27-03-2017
+
+I applaud you for taking this very useful step, Rob, and appreciate
+Bruce having spoken to encourage OSI to certify 0BSD.  FWIW, I heartily
+concur.  This licence is clearly well drafted, non-duplicative, and so
+on.
+
+I'm actually about to revise my
+http://linuxmafia.com/faq/Licensing_and_Law/public-domain.html page,
+to strongly recommend 0BSD for anyone seeking maximally permissive
+licensing  (It already says 'Rob Landley's BSD Zero Clause License
+[link] is also excellent if obscure', but I can do better than that.)
+
+
+Please pardon a bit of legal pedantry, but 0BSD is not 'equivalent to
+placing code in the public domain' (as you say on
+https://landley.net/toybox/license.html and elsewhere).  Copyright title 
+continues to exist in the abstract ownable property in question from the
+date of creation to when copyright expires -- whereas the defining trait 
+of actual PD is ownable title having expired or been expunged.  You
+might feel that this distinction doesn't matter:  We would all hope this
+is the case.  The assurance third-party reusers have that they aren't
+committing copyright torts is that they're doing so in good-faith
+reliance on a copyright notice with permissions grant, knowing they're
+either inside the copyright runtime but exercising that grant or past
+the copyright runtime in which case the work is _truly_ public domain.
+
+And another reason this isn't equivalent to PD is that the legal
+obligation[1] to retain the copyright notice (e.g., the 'Copyright (C)
+2006 by Rob Landley <rob at landley.net>' example on your toybox page)
+until copyright expires -- which for reasons mentioned above is for
+everyone's benefit.  
+
+Yes, we get that coders would like to magick all of this hassle away --
+but wishing doesn't make it so.  Your licence, CC0, MIT License, 
+ISC License, and Fair License are IMO about the closest one can safely
+get that I've so far seen.
+
+
+[1] In the USA, covered by 17 U.S.C. ? 1202(b).
+
+-- 
+Cheers,              "I am a member of a civilization (IAAMOAC).  Step back
+Rick Moen            from anger.  Study how awful our ancestors had it, yet
+rick at linuxmafia.com  they struggled to get you here.  Repay them by appreciating
+McQ! (4x80)          the civilization you inherited."           -- David Brin
+
+
+From bruce at perens.com  Fri Sep 28 03:52:00 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 27 Sep 2018 20:52:00 -0700
+Subject: [License-review] Please rename "Free Public License-1.0.0" to
+ 0BSD.
+In-Reply-To: <20180928020746.GC26001@linuxmafia.com>
+References: <99849bb5-7152-5787-acf0-d9f735a1966c@landley.net>
+ <20180928020746.GC26001@linuxmafia.com>
+Message-ID: <CAK2MWOsbwJQzKhmBKLJ0P1oXJT8Y8m-8PqFgBC=XBWFBthM_DQ@mail.gmail.com>
+
+Rick Moen:
+> appreciate Bruce having spoken to encourage OSI to certify 0BSD
+It's already certified, the requested action is simply a name change.
+
+And while you are waxing pedantic at great length about it not being
+equivalent to the public domain, there is also the warranty waiver.
+
+But none of this is reason to deny the requested name change.
+
+On Thu, Sep 27, 2018 at 7:11 PM Rick Moen <rick at linuxmafia.com> wrote:
+
+> Quoting Rob Landley (rob at landley.net):
+>
+> > Last year there was a discussion of Github adopting 0BSD, which was
+> > derailed by the name confusion.
+> >
+> >   https://github.com/github/choosealicense.com/issues/464
+> >
+> > That thread contains a discussion between myself (who uses 0BSD in
+> > toybox and got SPDX approval under the original name) and the person
+> > who sent the license to OSI under a different name after SPDX had
+> > already approved 0BSD.
+> >
+> > Unfortunately, due to the name confusion, Github took no action on the
+> > request.  Similarly wikipedia reproduces this confusion in its
+> > https://en.wikipedia.org/wiki/Public_domain_equivalent_license page.
+> > There are multiple other examples of this negatively impacting the
+> > adoption of the license.
+> >
+> > I copied my two contributions to the above github thread to my blog,
+> > with slightly cleaned up formatting. They explain the issue at length:
+> >
+> >   http://landley.net/notes-2017.html#26-03-2017
+> >
+> >   http://landley.net/notes-2017.html#27-03-2017
+>
+> I applaud you for taking this very useful step, Rob, and appreciate
+> Bruce having spoken to encourage OSI to certify 0BSD.  FWIW, I heartily
+> concur.  This licence is clearly well drafted, non-duplicative, and so
+> on.
+>
+> I'm actually about to revise my
+> http://linuxmafia.com/faq/Licensing_and_Law/public-domain.html page,
+> to strongly recommend 0BSD for anyone seeking maximally permissive
+> licensing  (It already says 'Rob Landley's BSD Zero Clause License
+> [link] is also excellent if obscure', but I can do better than that.)
+>
+>
+> Please pardon a bit of legal pedantry, but 0BSD is not 'equivalent to
+> placing code in the public domain' (as you say on
+> https://landley.net/toybox/license.html and elsewhere).  Copyright title
+> continues to exist in the abstract ownable property in question from the
+> date of creation to when copyright expires -- whereas the defining trait
+> of actual PD is ownable title having expired or been expunged.  You
+> might feel that this distinction doesn't matter:  We would all hope this
+> is the case.  The assurance third-party reusers have that they aren't
+> committing copyright torts is that they're doing so in good-faith
+> reliance on a copyright notice with permissions grant, knowing they're
+> either inside the copyright runtime but exercising that grant or past
+> the copyright runtime in which case the work is _truly_ public domain.
+>
+> And another reason this isn't equivalent to PD is that the legal
+> obligation[1] to retain the copyright notice (e.g., the 'Copyright (C)
+> 2006 by Rob Landley <rob at landley.net>' example on your toybox page)
+> until copyright expires -- which for reasons mentioned above is for
+> everyone's benefit.
+>
+> Yes, we get that coders would like to magick all of this hassle away --
+> but wishing doesn't make it so.  Your licence, CC0, MIT License,
+> ISC License, and Fair License are IMO about the closest one can safely
+> get that I've so far seen.
+>
+>
+> [1] In the USA, covered by 17 U.S.C. ? 1202(b).
+>
+> --
+> Cheers,              "I am a member of a civilization (IAAMOAC).  Step back
+> Rick Moen            from anger.  Study how awful our ancestors had it, yet
+> rick at linuxmafia.com  they struggled to get you here.  Repay them by
+> appreciating
+> McQ! (4x80)          the civilization you inherited."           -- David
+> Brin
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens K6BP - CEO, Legal Engineering
+Standards committee chair, license review committee member, co-founder,
+Open Source Initiative
+President, Open Research Institute; Board Member, Fashion Freedom
+Initiative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180927/3dac794d/attachment-0001.html>
+
+From estellnb at elstel.org  Fri Sep 28 08:47:20 2018
+From: estellnb at elstel.org (Elmar Stellnberger)
+Date: Fri, 28 Sep 2018 10:47:20 +0200
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CAK2MWOsJQ333MaG2Oad0yU7T-LxD4PZCwUno3ZXSxNS2nTt_Ag@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <10df1617-122f-bedc-adb5-d31a93ab198c@piana.eu>
+ <CAJ-h4vvJhieBxL8p6xOSm6rYjLr-NBDKwfD2KcFafUPKe2LxXg@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76DFA1@FMSMSX108.amr.corp.intel.com>
+ <20180926191113.GM15538@dev.kemitchell.com>
+ <e5cc750e-c47c-ffda-1424-5baac9614c05@elstel.org>
+ <CAK2MWOsJQ333MaG2Oad0yU7T-LxD4PZCwUno3ZXSxNS2nTt_Ag@mail.gmail.com>
+Message-ID: <e4243bf3-a2b8-99a9-cc88-24bd20cde432@elstel.org>
+
+
+
+On 9/28/18 1:45 AM, Bruce Perens wrote:
+> 
+>      ? ?Nobody is forced to contribute. If a contributor has read the
+>     license
+>     he can then decide thereupon whether he wants to contribute or not.
+> 
+> 
+> It is an unfortunate fact that most of the developers do not have access 
+> to legal counsel, and are poorly equipped to parse the license on their 
+> own. So "caveat emptor" isn't a really good argument here. OSI should 
+> not approve a license with language that works as a trap for the unwary 
+> developer.
+> 
+
+The opposite is true. The license has intendedly been written in a way 
+so that programmers not only lawyers can understand it. To me it is a 
+crucial fact because the programmers are those who will need to know how 
+the license works in order to do their programming work.
+
+ > Another license, the original Artistic License written by a non-attorney
+ > got to court and the lower court parsed it in a completely unintended
+ > fashion, costing an Open Source developer some money and years of pain,
+ > and requiring various lawyers and I to spend a lot of time helping the
+ > appeals court get it straight. So, OSI should not accept licenses
+ > written by non-attorneys any longer.
+
+It may be the way that US juristication is somewhat odd with regards to 
+common sense. I believe we have a better legal system here in Europe and 
+especially in Austria. If any of the original authors comes from Europe 
+it is an option to apply European law.
+
+
+From bruce at perens.com  Fri Sep 28 15:25:00 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 28 Sep 2018 08:25:00 -0700
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <e4243bf3-a2b8-99a9-cc88-24bd20cde432@elstel.org>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <10df1617-122f-bedc-adb5-d31a93ab198c@piana.eu>
+ <CAJ-h4vvJhieBxL8p6xOSm6rYjLr-NBDKwfD2KcFafUPKe2LxXg@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76DFA1@FMSMSX108.amr.corp.intel.com>
+ <20180926191113.GM15538@dev.kemitchell.com>
+ <e5cc750e-c47c-ffda-1424-5baac9614c05@elstel.org>
+ <CAK2MWOsJQ333MaG2Oad0yU7T-LxD4PZCwUno3ZXSxNS2nTt_Ag@mail.gmail.com>
+ <e4243bf3-a2b8-99a9-cc88-24bd20cde432@elstel.org>
+Message-ID: <CAK2MWOsbrwPxEGkZZg-MB+xY=AbzHt4sX1vWVUhs6enWAed-gw@mail.gmail.com>
+
+:-)
+
+Perhaps you can explain to us how a court practicing European law would
+parse your license as you intend, while a court in the United States would
+not.
+
+But I am only being sarcastic. You can't do that.
+
+
+On Fri, Sep 28, 2018 at 1:47 AM Elmar Stellnberger <estellnb at elstel.org>
+wrote:
+
+>
+>
+> On 9/28/18 1:45 AM, Bruce Perens wrote:
+> >
+> >         Nobody is forced to contribute. If a contributor has read the
+> >     license
+> >     he can then decide thereupon whether he wants to contribute or not.
+> >
+> >
+> > It is an unfortunate fact that most of the developers do not have access
+> > to legal counsel, and are poorly equipped to parse the license on their
+> > own. So "caveat emptor" isn't a really good argument here. OSI should
+> > not approve a license with language that works as a trap for the unwary
+> > developer.
+> >
+>
+> The opposite is true. The license has intendedly been written in a way
+> so that programmers not only lawyers can understand it. To me it is a
+> crucial fact because the programmers are those who will need to know how
+> the license works in order to do their programming work.
+>
+>  > Another license, the original Artistic License written by a non-attorney
+>  > got to court and the lower court parsed it in a completely unintended
+>  > fashion, costing an Open Source developer some money and years of pain,
+>  > and requiring various lawyers and I to spend a lot of time helping the
+>  > appeals court get it straight. So, OSI should not accept licenses
+>  > written by non-attorneys any longer.
+>
+> It may be the way that US juristication is somewhat odd with regards to
+> common sense. I believe we have a better legal system here in Europe and
+> especially in Austria. If any of the original authors comes from Europe
+> it is an option to apply European law.
+>
+
+
+-- 
+Bruce Perens K6BP - CEO, Legal Engineering
+Standards committee chair, license review committee member, co-founder,
+Open Source Initiative
+President, Open Research Institute; Board Member, Fashion Freedom
+Initiative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180928/29f59aaa/attachment.html>
+
+From brendan.m.hickey at gmail.com  Fri Sep 28 15:30:41 2018
+From: brendan.m.hickey at gmail.com (Brendan Hickey)
+Date: Fri, 28 Sep 2018 11:30:41 -0400
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <e4243bf3-a2b8-99a9-cc88-24bd20cde432@elstel.org>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <10df1617-122f-bedc-adb5-d31a93ab198c@piana.eu>
+ <CAJ-h4vvJhieBxL8p6xOSm6rYjLr-NBDKwfD2KcFafUPKe2LxXg@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76DFA1@FMSMSX108.amr.corp.intel.com>
+ <20180926191113.GM15538@dev.kemitchell.com>
+ <e5cc750e-c47c-ffda-1424-5baac9614c05@elstel.org>
+ <CAK2MWOsJQ333MaG2Oad0yU7T-LxD4PZCwUno3ZXSxNS2nTt_Ag@mail.gmail.com>
+ <e4243bf3-a2b8-99a9-cc88-24bd20cde432@elstel.org>
+Message-ID: <CAJ-h4vtrdbd_SciMW1MPTRMFsxa6U9rvz0OnQEgRAdf=5RZp2Q@mail.gmail.com>
+
+On Fri, Sep 28, 2018, 04:48 Elmar Stellnberger <estellnb at elstel.org> wrote:
+
+> On 9/28/18 1:45 AM, Bruce Perens wrote:
+> >
+> >         Nobody is forced to contribute. If a contributor has read the
+> >     license
+> >     he can then decide thereupon whether he wants to contribute or not.
+> >
+> >
+> > It is an unfortunate fact that most of the developers do not have access
+> > to legal counsel, and are poorly equipped to parse the license on their
+> > own. So "caveat emptor" isn't a really good argument here. OSI should
+> > not approve a license with language that works as a trap for the unwary
+> > developer.
+> >
+>
+> The opposite is true. The license has intendedly been written in a way
+> so that programmers not only lawyers can understand it. To me it is a
+> crucial fact because the programmers are those who will need to know how
+> the license works in order to do their programming work.
+>
+
+It bears repeating: Software licenses are not project management tools.
+They are legal artifacts which facilitate the distribution and reuse of
+code within a legal system that didn't foresee this. It is unlikely that a
+court will interpret an ambiguous license in a way that coincides with your
+intent or understanding of the text. This is a bad outcome for everyone.
+
+It's useful for laypeople to understand licenses at a high level, even if
+they don't have the training required to understand all the nuance in the
+text. I can use the Apache License, GPL or MIT License and be confident in
+the rights I've conveying to third parties. Likewise, I can use code
+distributed under these licenses without undue worry. It is inessential for
+me to understand every word in the GPL governing source distribution, for
+example.
+
+If any of the original authors comes from Europe
+> it is an option to apply European law.
+>
+
+Here's an example of ambiguity in this license. What do you mean by "come
+from" and "hometown"? I hold two passports. I've lived in a number of
+places. Does this entitle me to apply English law? Does my place of birth
+dictate the jurisdiction regardless of where I live? Choice of law isn't
+necessarily bad, but this particular implementation is problematic and is
+indicative of flaws throughout.
+
+You can use any license you want, but as written this one should not be
+approved. It violates the OSD in one or more ways. It contains undesirable
+clauses (ex. badgeware). It appears largely redundant with the CDDL. It's
+ambiguous.
+
+Brendan
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180928/21f5f6a5/attachment.html>
+
+From brlcad at mac.com  Fri Sep 28 15:34:28 2018
+From: brlcad at mac.com (Christopher Sean Morrison)
+Date: Fri, 28 Sep 2018 11:34:28 -0400
+Subject: [License-review] Please rename "Free Public License-1.0.0" to
+ 0BSD.
+In-Reply-To: <mailman.247.1538106776.14196.license-review_lists.opensource.org@lists.opensource.org>
+References: <mailman.247.1538106776.14196.license-review_lists.opensource.org@lists.opensource.org>
+Message-ID: <64B2CCCA-1031-4603-94E5-6A1F306527EF@mac.com>
+
+
+Big thumbs up to just rename FPL to 0BSD!  As OSI?s role is to reduce marketplace confusion and limit (perceived or real) proliferation, and a rename will do exactly that for both, I think it?s a really great idea.  Moreover, particularly as a license consumer in the federal government space, I think BSD0 has outstanding potential to garner adoption more than it will/would with the FPL name simply due to legacy familiarity.  Doubt there?s many other licenses where one could come close to correctly guessing the text just by hearing 4 letters.
+
+Cheers!
+Sean
+BRL-CAD
+
+
+
+
+From bruce at perens.com  Fri Sep 28 15:56:08 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 28 Sep 2018 08:56:08 -0700
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+Message-ID: <CAK2MWOtRofqWzp1PtOm+e92QqEXmi30taeOuOc-1RK+gueZoPA@mail.gmail.com>
+
+On Wed, Sep 26, 2018 at 9:07 AM Smith, McCoy <mccoy.smith at intel.com> wrote:
+
+>
+> I think it would be very useful for the OSI to make this policy more
+> explicit, perhaps by announcing it on the license submission page.
+>
+I don't really have a problem with OSI stating that approved licenses are
+not precedential. But McCoy, none of these submitted licenses are doing
+*exactly* what the others are, so in general the arguments about precedent
+are a stretch.
+
+Also, OSI has accepted some crayon licenses during its history for
+ill-advised political more than legal reasons. So, we very definitely don't
+want to give some of those garbage licenses the power of precedent.
+
+>
+> I tend to be of a more radical persuasion that there are some provisions
+> of the OSD that can be a bit ambiguous in the way that they are currently
+> drafted,
+>
+No lawyer would help me (or the Debian project for which this was drafted)
+at the time, and it's held up very well considering that. It is not the
+language I would write today, but it achieves the same purpose I would
+still have today.
+
+
+> I believe there should be room for some clarification on the OSD wording
+> (possibly even some revision of the OSD ? ?OSD 2.0,? perhaps?, or at least
+> some more explicit interpretive history presented on the OSD, and license
+> submission, webpages, so that current readers of the OSD, and future
+> license drafters attempting to conform to the OSD, have better guidance.
+>
+Unfortunately, I think you would find that latitude among the approvers
+would still be necessary to prevent gaming of the OSD to introduce
+unfortunate elements into the ecology of Open Source. The vast body of
+professionally-written law in the United States, including the Constitution
+itself, does not work stand-alone in courts. It is dependent upon a much
+larger body of case law, expert testimony, and scholarship. So, the fact
+that license approval rests upon interpretation of the OSD doesn't make it
+particularly different from civil and criminal law.
+
+But I have a simpler solution for you. Draw up your own rules and call it
+anything but "Open Source" (well, the Free Software folks don't want you
+calling it that either). Nobody is stopping you. Let the better process win.
+
+> If I had the time, and the inclination, I might be motivated to write a
+> paper on this topic ? taking the OSD, pulling apart the currently-presented
+> language around it and analyzing how it has been interpreted over various
+> years of license analysis (pre-, and perhaps post-, submission).  That?d
+> take a lot of work (and would require some access to 20 years of submission
+> history).  I?m wondering if anyone is interested in taking up such a task?
+> I know a law journal that would likely be interested in publishing
+> something like that.
+>
+We don't have access to board deliberation, internal correspondence, and
+even unbroken access to the record of this mailing list. There are a number
+of people who could be interviewed, some of us are getting long in the
+tooth.
+
+Certainly I participated in this process only as an outsider (not a board
+member) for most of my history with it, and even in my case there is a
+decade-long break in participation. During much of that period I was
+persona non grata with the board or at least its president, and their
+thoughts on licensing were not available to me.
+
+    Thanks
+
+    Bruce
+
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens K6BP - CEO, Legal Engineering
+Standards committee chair, license review committee member, co-founder,
+Open Source Initiative
+President, Open Research Institute; Board Member, Fashion Freedom
+Initiative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180928/58cd21f2/attachment-0001.html>
+
+From chris.lamb at opensource.org  Fri Sep 28 16:08:16 2018
+From: chris.lamb at opensource.org (Chris Lamb)
+Date: Fri, 28 Sep 2018 17:08:16 +0100
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CAK2MWOvcBBNZ-whcA=eP7piCAoY30b7vXD+dx7-PT1SsQBmJew@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <CAK2MWOvcBBNZ-whcA=eP7piCAoY30b7vXD+dx7-PT1SsQBmJew@mail.gmail.com>
+Message-ID: <1538150896.3152525.1524054776.3B1C9606@webmail.messagingengine.com>
+
+Bruce Perens wrote:
+
+> Thus rejection as a "crayon licence" is also possible.
+
+For those somewhat-newer to the lexicon of this list (and in the spirit
+of not being afraid to ask "dumb questions") could you clarify this
+term for me?
+
+
+Best wishes,
+
+-- 
+Chris Lamb
+Open Source Initiative
+Email: chris.lamb at opensource.org
+Website: www.opensource.org
+
+
+From mccoy.smith at intel.com  Fri Sep 28 16:10:56 2018
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Fri, 28 Sep 2018 16:10:56 +0000
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <1538150896.3152525.1524054776.3B1C9606@webmail.messagingengine.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <CAK2MWOvcBBNZ-whcA=eP7piCAoY30b7vXD+dx7-PT1SsQBmJew@mail.gmail.com>
+ <1538150896.3152525.1524054776.3B1C9606@webmail.messagingengine.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5197F776BF3@FMSMSX108.amr.corp.intel.com>
+
+https://en.wiktionary.org/wiki/crayon_license
+
+
+-----Original Message-----
+From: License-review [mailto:license-review-bounces at lists.opensource.org] On Behalf Of Chris Lamb
+Sent: Friday, September 28, 2018 9:08 AM
+To: license-review at lists.opensource.org
+Subject: Re: [License-review] For Approval: Convertible Free Software License, Version 1.1 (C-FSL v1.1)
+
+Bruce Perens wrote:
+
+> Thus rejection as a "crayon licence" is also possible.
+
+For those somewhat-newer to the lexicon of this list (and in the spirit of not being afraid to ask "dumb questions") could you clarify this term for me?
+
+
+Best wishes,
+
+--
+Chris Lamb
+Open Source Initiative
+Email: chris.lamb at opensource.org
+Website: www.opensource.org
+
+_______________________________________________
+License-review mailing list
+License-review at lists.opensource.org
+http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+From bruce at perens.com  Fri Sep 28 16:32:04 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 28 Sep 2018 09:32:04 -0700
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <20180926191113.GM15538@dev.kemitchell.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <10df1617-122f-bedc-adb5-d31a93ab198c@piana.eu>
+ <CAJ-h4vvJhieBxL8p6xOSm6rYjLr-NBDKwfD2KcFafUPKe2LxXg@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76DFA1@FMSMSX108.amr.corp.intel.com>
+ <20180926191113.GM15538@dev.kemitchell.com>
+Message-ID: <CAK2MWOt6S-5ZFa1BYLHHM4xwqc0V=d2qUca8HEu7vEE+42RjJQ@mail.gmail.com>
+
+On Wed, Sep 26, 2018 at 12:10 PM Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+> On 2018-09-26 17:09, Smith, McCoy wrote:
+> > I dislike the term ?crayon license? as it seems fairly
+> > pejorative
+
+
+It's taken from a Monty Python sketch and sure, it's pejorative. Over the
+20 year history of Open Source we have learned the value of legal
+practitioners, perhaps you shouldn't complain :-)
+
+
+> I'm troubled that some of my impression might reflect native-speaker-style
+> bias.
+>
+
+He's handling the English language excellently. Just not legal language.
+Attempting this without a lawyer just isn't a good idea any longer (we only
+used to do it because we had no choice). That's the root issue with the
+license.
+
+There is an apparent schism with FSF on that point, evident in OSI approval
+> and FSF rejection of at least Plan 9, RPL, and Open Watcom.
+
+
+The Three Freedoms don't call for a freedom from terms compelling
+redistribution of "private" modifications. Nor does Freedom Zero, which was
+added after drafting of the OSD. So, here the FSF is operating on policy
+not stated in the Four Freedoms. And it would be a totally wrong decision
+to implement protection of so-called "private" modifications in the cloud
+era, where the original redistribution terms that FSF so heavily leaned
+upon are obsolete and "private" works are performed for the general public.
+
+If that schism is mended, because OSI has officially acceded to FSF's
+> position, that ought to be made known, as well as what's to become of the
+> old licenses.
+>
+
+In general, this has been handled by multiple licensing among projects
+where it was an issue. I'm not hearing strong protests from the community
+or even FSF. IMO, FSF needs to revisit the concept of private modification
+for the cloud era.
+
+
+>
+> Compare (d) of the Developer Certificate of Origin, added in
+> version 1.1.
+>
+
+Agree that requirements to identify developers and copyright holders (who
+are sometimes not the same entity) are clearly permissible and in general
+essential.
+
+-- 
+Bruce Perens K6BP - CEO, Legal Engineering
+Standards committee chair, license review committee member, co-founder,
+Open Source Initiative
+President, Open Research Institute; Board Member, Fashion Freedom
+Initiative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180928/833bc824/attachment.html>
+
+From bruce at perens.com  Fri Sep 28 16:36:03 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 28 Sep 2018 09:36:03 -0700
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5197F776BF3@FMSMSX108.amr.corp.intel.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <CAK2MWOvcBBNZ-whcA=eP7piCAoY30b7vXD+dx7-PT1SsQBmJew@mail.gmail.com>
+ <1538150896.3152525.1524054776.3B1C9606@webmail.messagingengine.com>
+ <2D52F7EE739F8542A700CAB96276B5197F776BF3@FMSMSX108.amr.corp.intel.com>
+Message-ID: <CAK2MWOsUtBS6rRBkSiQL_6ohu7PCrtxTrmxJ+q1fBrevxV5H1Q@mail.gmail.com>
+
+https://www.youtube.com/watch?v=8nmfRzRlhMw
+
+On Fri, Sep 28, 2018 at 9:11 AM Smith, McCoy <mccoy.smith at intel.com> wrote:
+
+> https://en.wiktionary.org/wiki/crayon_license
+>
+>
+> -----Original Message-----
+> From: License-review [mailto:license-review-bounces at lists.opensource.org]
+> On Behalf Of Chris Lamb
+> Sent: Friday, September 28, 2018 9:08 AM
+> To: license-review at lists.opensource.org
+> Subject: Re: [License-review] For Approval: Convertible Free Software
+> License, Version 1.1 (C-FSL v1.1)
+>
+> Bruce Perens wrote:
+>
+> > Thus rejection as a "crayon licence" is also possible.
+>
+> For those somewhat-newer to the lexicon of this list (and in the spirit of
+> not being afraid to ask "dumb questions") could you clarify this term for
+> me?
+>
+>
+> Best wishes,
+>
+> --
+> Chris Lamb
+> Open Source Initiative
+> Email: chris.lamb at opensource.org
+> Website: www.opensource.org
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens K6BP - CEO, Legal Engineering
+Standards committee chair, license review committee member, co-founder,
+Open Source Initiative
+President, Open Research Institute; Board Member, Fashion Freedom
+Initiative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180928/11fd21f3/attachment.html>
+
+From kyle at kemitchell.com  Fri Sep 28 18:17:18 2018
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Fri, 28 Sep 2018 11:17:18 -0700
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CAK2MWOt6S-5ZFa1BYLHHM4xwqc0V=d2qUca8HEu7vEE+42RjJQ@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <10df1617-122f-bedc-adb5-d31a93ab198c@piana.eu>
+ <CAJ-h4vvJhieBxL8p6xOSm6rYjLr-NBDKwfD2KcFafUPKe2LxXg@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76DFA1@FMSMSX108.amr.corp.intel.com>
+ <20180926191113.GM15538@dev.kemitchell.com>
+ <CAK2MWOt6S-5ZFa1BYLHHM4xwqc0V=d2qUca8HEu7vEE+42RjJQ@mail.gmail.com>
+Message-ID: <20180928181718.GG15538@dev.kemitchell.com>
+
+On 2018-09-28 09:09, Bruce Perens wrote:
+> On Wed, Sep 26, 2018 at 12:10 PM Kyle Mitchell <kyle at kemitchell.com> wrote:
+> > On 2018-09-26 17:09, Smith, McCoy wrote:
+> > > I dislike the term ?crayon license? as it seems fairly
+> > > pejorative
+>
+> It's taken from a Monty Python sketch and sure, it's pejorative. Over the
+> 20 year history of Open Source we have learned the value of legal
+> practitioners, perhaps you shouldn't complain :-)
+
+Perhaps "amateur license", and _then_ mention Monty Python?
+
+I'm all for good lawyers lawyering goodly, and appreciate
+being appreciated.  But I've also learned the value that
+savvy non-legal practitioners bring.
+
+> > There is an apparent schism with FSF on that point,
+> > evident in OSI approval and FSF rejection of at least
+> > Plan 9, RPL, and Open Watcom.
+>
+> The Three Freedoms don't call for a freedom from terms compelling
+> redistribution of "private" modifications. Nor does Freedom Zero, which was
+> added after drafting of the OSD. So, here the FSF is operating on policy
+> not stated in the Four Freedoms. And it would be a totally wrong decision
+> to implement protection of so-called "private" modifications in the cloud
+> era, where the original redistribution terms that FSF so heavily leaned
+> upon are obsolete and "private" works are performed for the general public.
+
+To their credit, they've mentioned it directly in What is
+free software?:
+
+  You should also have the freedom to make modifications and
+  use them privately in your own work or play, without even
+  mentioning that they exist.  If you do publish your
+  changes, you should not be required to notify anyone in
+  particular, or in any particular way.
+
+I'm not sure when that change first appeared, but I've taken
+to calling it Freedom 4, and explaining it as the freedom to
+exercise Freedom 1 without exercising Freedom 3.
+
+As far as I can tell, the FSF position that "private
+changes" has to extend to sharing changes "within your
+organization" is still scattered around pages on fsf.org.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Fri Sep 28 18:42:15 2018
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Fri, 28 Sep 2018 11:42:15 -0700
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CAK2MWOtRofqWzp1PtOm+e92QqEXmi30taeOuOc-1RK+gueZoPA@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+ <CAK2MWOtRofqWzp1PtOm+e92QqEXmi30taeOuOc-1RK+gueZoPA@mail.gmail.com>
+Message-ID: <20180928184215.GH15538@dev.kemitchell.com>
+
+Declaring approved licenses non-precedential would reject
+the common-law mechanism by which US law develops, which you
+describe.  That system relies on precedent, not just to
+decide new cases that retread old, but also novel cases, by
+analogy and abstracting out rules.
+
+The alternative, civil-law approach would entail an active
+process of OSD revision and supplementation, along the lines
+McCoy proposes.
+
+As it stands, OSI practices neither consistently.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From rick at linuxmafia.com  Fri Sep 28 19:04:30 2018
+From: rick at linuxmafia.com (Rick Moen)
+Date: Fri, 28 Sep 2018 12:04:30 -0700
+Subject: [License-review] Please rename "Free Public License-1.0.0" to
+ 0BSD.
+In-Reply-To: <CAK2MWOsbwJQzKhmBKLJ0P1oXJT8Y8m-8PqFgBC=XBWFBthM_DQ@mail.gmail.com>
+References: <99849bb5-7152-5787-acf0-d9f735a1966c@landley.net>
+ <20180928020746.GC26001@linuxmafia.com>
+ <CAK2MWOsbwJQzKhmBKLJ0P1oXJT8Y8m-8PqFgBC=XBWFBthM_DQ@mail.gmail.com>
+Message-ID: <20180928190430.GE26001@linuxmafia.com>
+
+Quoting Bruce Perens (bruce at perens.com):
+
+> Rick Moen:
+> > appreciate Bruce having spoken to encourage OSI to certify 0BSD
+> It's already certified, the requested action is simply a name change.
+
+Might I suggest that when OSI creates a 
+https://opensource.org/licenses/0BSD-1.0.0 page, that 
+https://opensource.org/licenses/FPL-1.0.0 be turned into a 
+redirect page that continues to cross-references the (several) names?  
+Thanks.
+
+(The existing cross-reference text helped clear up my own confusion on
+the matter, so thanks for that, too.)
+
+-- 
+Rick Moen                               "We believe you mean 'dundant', ma'am."
+rick at linuxmafia.com                                        -- @FakeAPStylebook
+McQ!  (4x80)
+
+
+From bruce at perens.com  Fri Sep 28 19:45:54 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 28 Sep 2018 12:45:54 -0700
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <20180928184215.GH15538@dev.kemitchell.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+ <CAK2MWOtRofqWzp1PtOm+e92QqEXmi30taeOuOc-1RK+gueZoPA@mail.gmail.com>
+ <20180928184215.GH15538@dev.kemitchell.com>
+Message-ID: <CAK2MWOsw704voSbH=UwPh5zc+7SGGny1B5-vixOH2NSk3Qtn+g@mail.gmail.com>
+
+On Fri, Sep 28, 2018 at 11:41 AM Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+> Declaring approved licenses non-precedential would reject
+> the common-law mechanism by which US law develops, which you
+> describe.
+>
+
+OSI does not and has never practiced law, and is not going to start doing
+so going forward.
+-- 
+Bruce Perens K6BP - CEO, Legal Engineering
+Standards committee chair, license review committee member, co-founder,
+Open Source Initiative
+President, Open Research Institute; Board Member, Fashion Freedom
+Initiative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180928/46682af9/attachment.html>
+
+From cowan at ccil.org  Fri Sep 28 20:18:56 2018
+From: cowan at ccil.org (John Cowan)
+Date: Fri, 28 Sep 2018 16:18:56 -0400
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <20180928184215.GH15538@dev.kemitchell.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+ <CAK2MWOtRofqWzp1PtOm+e92QqEXmi30taeOuOc-1RK+gueZoPA@mail.gmail.com>
+ <20180928184215.GH15538@dev.kemitchell.com>
+Message-ID: <CAD2gp_QzzK0ujtsoEtrjAjOwkz1genhAJ0LddMs+QYczBaRaYw@mail.gmail.com>
+
+On Fri, Sep 28, 2018 at 2:41 PM Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+Declaring approved licenses non-precedential would reject
+> the common-law mechanism by which US law develops, which you
+> describe.  That system relies on precedent, not just to
+> decide new cases that retread old, but also novel cases, by
+> analogy and abstracting out rules.
+>
+
+Stare decisis has never meant a mechanical adherence to precedent,
+nor a requirement that precedent overrule reason, justice, and common sense.
+Here's James Kent, the first Chancellor (head of the Court of Chancery,
+a court of equity and not law) in New York after the Revolution:
+
+ But I wish not to be understood to press too strongly the doctrine
+> of stare decisis, when I recollect that there are one thousand cases
+> to be pointed out in the English and American books of reports,
+> which have been overruled, doubted or limited in their application.
+> It is probable that the records of many of the courts in this country
+> are replete with hasty and crude decisions; and such cases ought
+> to be examined without fear, and revised without reluctance,
+>  rather than to have the character of our law impaired, and the beauty
+>  and harmony of the system destroyed by the perpetuity of error.
+
+
+A lot of the early OSI decisions were indeed crude and hasty, though
+well-intentioned, and by nobody's fault in particular.
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+People go through the bother of Christmas because Christmas helps them
+to understand why they go through the bother of living out their lives
+the rest of the year. For one brief instant, we see human society as it
+should and could be, a world in which business has become the exchanging
+of presents and in which nothing is important except the happiness and
+well-being of the ultimate consumer.  --Northrop Frye (1948)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180928/e8623a2c/attachment.html>
+
+From kyle at kemitchell.com  Fri Sep 28 20:34:50 2018
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Fri, 28 Sep 2018 13:34:50 -0700
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CAK2MWOsw704voSbH=UwPh5zc+7SGGny1B5-vixOH2NSk3Qtn+g@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+ <CAK2MWOtRofqWzp1PtOm+e92QqEXmi30taeOuOc-1RK+gueZoPA@mail.gmail.com>
+ <20180928184215.GH15538@dev.kemitchell.com>
+ <CAK2MWOsw704voSbH=UwPh5zc+7SGGny1B5-vixOH2NSk3Qtn+g@mail.gmail.com>
+Message-ID: <20180928203450.GD24138@dev.kemitchell.com>
+
+On 2018-09-28 12:09, Bruce Perens wrote:
+> On Fri, Sep 28, 2018 at 11:41 AM Kyle Mitchell <kyle at kemitchell.com> wrote:
+>
+> > Declaring approved licenses non-precedential would reject
+> > the common-law mechanism by which US law develops, which you
+> > describe.
+> >
+>
+> OSI does not and has never practiced law, and is not going to start doing
+> so going forward.
+
+It was your analogy.  I merely extended it.  But I didn't
+take it literally in your original form, either, because
+there is nothing close to law here to make.
+
+My point is that it isn't externally clear _how_ OSI goes
+about this process.  A high proportion of license
+submissions turning into discussions of the process and how
+to clarify it is symptomatic.  And wasteful.
+
+I think we both agree that learnings on predictability and
+legitimacy from law could help there.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From cem.f.karan.civ at mail.mil  Fri Sep 28 20:35:32 2018
+From: cem.f.karan.civ at mail.mil (Karan, Cem F CIV USARMY RDECOM ARL (US))
+Date: Fri, 28 Sep 2018 20:35:32 +0000
+Subject: [License-review] [Non-DoD Source] Re: For Approval: Convertible
+ Free Software License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5197F776BF3@FMSMSX108.amr.corp.intel.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <CAK2MWOvcBBNZ-whcA=eP7piCAoY30b7vXD+dx7-PT1SsQBmJew@mail.gmail.com>
+ <1538150896.3152525.1524054776.3B1C9606@webmail.messagingengine.com>
+ <2D52F7EE739F8542A700CAB96276B5197F776BF3@FMSMSX108.amr.corp.intel.com>
+Message-ID: <A677A9FB362B2F499BEFD6F80687FE97CC25F2FC@UMECHPA7F.easf.csd.disa.mil>
+
+To add to what you'd find in Wiktionary... a derisive term for licenses written by non-professionals that has serious deficiencies on one or more fronts; a license that professionals will reject immediately because of its deficiencies.
+
+Thanks,
+Cem Karan
+
+> -----Original Message-----
+> From: License-review [mailto:license-review-bounces at lists.opensource.org] On Behalf Of Smith, McCoy
+> Sent: Friday, September 28, 2018 12:11 PM
+> To: License submissions for OSI review <license-review at lists.opensource.org>
+> Subject: [Non-DoD Source] Re: [License-review] For Approval: Convertible Free Software License, Version 1.1 (C-FSL v1.1)
+> 
+> All active links contained in this email were disabled.  Please verify the identity of the sender, and confirm the authenticity of all links
+> contained within the message prior to copying and pasting the address to a Web browser.
+> 
+> 
+> 
+> 
+> ----
+> 
+> Caution-https://en.wiktionary.org/wiki/crayon_license
+> 
+> 
+> -----Original Message-----
+> From: License-review [Caution-mailto:license-review-bounces at lists.opensource.org] On Behalf Of Chris Lamb
+> Sent: Friday, September 28, 2018 9:08 AM
+> To: license-review at lists.opensource.org
+> Subject: Re: [License-review] For Approval: Convertible Free Software License, Version 1.1 (C-FSL v1.1)
+> 
+> Bruce Perens wrote:
+> 
+> > Thus rejection as a "crayon licence" is also possible.
+> 
+> For those somewhat-newer to the lexicon of this list (and in the spirit of not being afraid to ask "dumb questions") could you clarify this
+> term for me?
+> 
+> 
+> Best wishes,
+> 
+> --
+> Chris Lamb
+> Open Source Initiative
+> Email: chris.lamb at opensource.org
+> Website: Caution-www.opensource.org
+> 
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> Caution-http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+> 
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> Caution-http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+From bruce at perens.com  Fri Sep 28 20:48:27 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 28 Sep 2018 13:48:27 -0700
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <20180928203450.GD24138@dev.kemitchell.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+ <CAK2MWOtRofqWzp1PtOm+e92QqEXmi30taeOuOc-1RK+gueZoPA@mail.gmail.com>
+ <20180928184215.GH15538@dev.kemitchell.com>
+ <CAK2MWOsw704voSbH=UwPh5zc+7SGGny1B5-vixOH2NSk3Qtn+g@mail.gmail.com>
+ <20180928203450.GD24138@dev.kemitchell.com>
+Message-ID: <CAK2MWOuvbbAhF_O8Ak17qb5OnYgu4PQCf6isQ+S7fHaGJLgxmg@mail.gmail.com>
+
+>
+> A high proportion of license submissions turning into discussions of the
+> process and how to clarify it is symptomatic.  And wasteful.
+
+
+Some of it is just training new participants.
+
+There may someday come a court decision that forces us to revise many
+licenses, and thus accept many new ones. If we were to accept 10 new ones
+this year without some compelling legal disaster, it would probably be an
+overall detriment to the community. So, I'm not sure we really need this
+process to be more efficient.
+
+    Thanks
+
+    Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180928/3be4b9b3/attachment.html>
+
+From kyle at kemitchell.com  Fri Sep 28 20:51:13 2018
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Fri, 28 Sep 2018 13:51:13 -0700
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CAD2gp_QzzK0ujtsoEtrjAjOwkz1genhAJ0LddMs+QYczBaRaYw@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+ <CAK2MWOtRofqWzp1PtOm+e92QqEXmi30taeOuOc-1RK+gueZoPA@mail.gmail.com>
+ <20180928184215.GH15538@dev.kemitchell.com>
+ <CAD2gp_QzzK0ujtsoEtrjAjOwkz1genhAJ0LddMs+QYczBaRaYw@mail.gmail.com>
+Message-ID: <20180928205113.GE24138@dev.kemitchell.com>
+
+On 2018-09-28 16:09, John Cowan wrote:
+> On Fri, Sep 28, 2018 at 2:41 PM Kyle Mitchell <kyle at kemitchell.com> wrote:
+>
+> Declaring approved licenses non-precedential would reject
+> > the common-law mechanism by which US law develops, which you
+> > describe.  That system relies on precedent, not just to
+> > decide new cases that retread old, but also novel cases, by
+> > analogy and abstracting out rules.
+> >
+>
+> Stare decisis has never meant a mechanical adherence to precedent,
+> nor a requirement that precedent overrule reason, justice, and common sense.
+
+Straw Man.  I've never argued for slavish adherence to
+precedent.  Only that the logic of prior license approvals
+be acknowledged, choices to reject them now be made
+explicit, and the reasons be made transparent.
+
+If you'd like a concrete proposal, take the offending
+licenses off the list, or place them in a new, deprecated
+subcategory, and publish a rationale for doing so.  Or do
+these things preliminarily, invite comment, and reassess.
+
+To continue the analogy:  Old cases aren't overruled
+silently, but by new, published decisions accompanied by
+opinions.  Invalidated records get annotated as such. And
+overruling opinions are themselves subject to
+reconsideration.  In every case, reconsideration means not
+just revisiting rationale, but the extent to which others
+have relied and built upon on the outcome.
+
+Speaking now a little closer to my own interest:  If you
+throw the small-business reciprocal license movement circa
+'02 off the boat, own up to that decision.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From kyle at kemitchell.com  Fri Sep 28 21:02:41 2018
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Fri, 28 Sep 2018 14:02:41 -0700
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CAK2MWOuvbbAhF_O8Ak17qb5OnYgu4PQCf6isQ+S7fHaGJLgxmg@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+ <CAK2MWOtRofqWzp1PtOm+e92QqEXmi30taeOuOc-1RK+gueZoPA@mail.gmail.com>
+ <20180928184215.GH15538@dev.kemitchell.com>
+ <CAK2MWOsw704voSbH=UwPh5zc+7SGGny1B5-vixOH2NSk3Qtn+g@mail.gmail.com>
+ <20180928203450.GD24138@dev.kemitchell.com>
+ <CAK2MWOuvbbAhF_O8Ak17qb5OnYgu4PQCf6isQ+S7fHaGJLgxmg@mail.gmail.com>
+Message-ID: <20180928210241.GF24138@dev.kemitchell.com>
+
+On 2018-09-28 13:09, Bruce Perens wrote:
+> There may someday come a court decision that forces us to revise many
+> licenses, and thus accept many new ones. If we were to accept 10 new ones
+> this year without some compelling legal disaster, it would probably be an
+> overall detriment to the community. So, I'm not sure we really need this
+> process to be more efficient.
+
+An efficient process could efficiently reach both kinds of
+results: definitively approved and definitively rejected.
+If indeed OSI ends up with a flood of new and necessary
+licenses, OSI will need an efficient path to approval.
+
+In the meantime, wouldn't the no-more-licenses faction
+prefer a more efficient path to rejection?
+
+Tolerating degenerative process problems to avoid lingering
+substance problems is a bright red flag.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933
+
+
+From brendan.m.hickey at gmail.com  Fri Sep 28 21:26:45 2018
+From: brendan.m.hickey at gmail.com (Brendan Hickey)
+Date: Fri, 28 Sep 2018 17:26:45 -0400
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <20180928210241.GF24138@dev.kemitchell.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+ <CAK2MWOtRofqWzp1PtOm+e92QqEXmi30taeOuOc-1RK+gueZoPA@mail.gmail.com>
+ <20180928184215.GH15538@dev.kemitchell.com>
+ <CAK2MWOsw704voSbH=UwPh5zc+7SGGny1B5-vixOH2NSk3Qtn+g@mail.gmail.com>
+ <20180928203450.GD24138@dev.kemitchell.com>
+ <CAK2MWOuvbbAhF_O8Ak17qb5OnYgu4PQCf6isQ+S7fHaGJLgxmg@mail.gmail.com>
+ <20180928210241.GF24138@dev.kemitchell.com>
+Message-ID: <CAJ-h4vt_iQkRHrPxpNzaNgEf80NjHr5WVrT5tZ=TkXMzi2uXQA@mail.gmail.com>
+
+On Fri, Sep 28, 2018, 16:50 Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+If you'd like a concrete proposal, take the offending
+licenses off the list, or place them in a new, deprecated
+subcategory, and publish a rationale for doing so.  Or do
+these things preliminarily, invite comment, and reassess.
+
+
+I think this is a great idea, though I don't have any proposals for
+licenses to put on the chopping block. At the most extreme I can imagine
+deprecating BSD-3 and one of BSD-2 or MIT/Expat.
+
+On Fri, Sep 28, 2018, 17:01 Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+> In the meantime, wouldn't the no-more-licenses faction
+> prefer a more efficient path to rejection?
+>
+
+As someone firmly in the non-proliferationist camp, I'm not sure our
+problem is efficiency. There just isn't a flood of well-formed,
+non-duplicative licenses. For every license debated on the merits (ex. UPL)
+there might be ten that can be rejected out of hand.
+
+What are the downsides to being inefficient? We might chase off folks
+submitting bad licenses in earnest. This isn't a great experience. Perhaps
+this avoidable with a preflight checklist, or a more structured tracking
+system as others have suggested.
+
+Brendan
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180928/9c3e71f8/attachment.html>
+
+From estellnb at elstel.org  Sat Sep 29 07:42:52 2018
+From: estellnb at elstel.org (Elmar Stellnberger)
+Date: Sat, 29 Sep 2018 09:42:52 +0200
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CAJ-h4vtrdbd_SciMW1MPTRMFsxa6U9rvz0OnQEgRAdf=5RZp2Q@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <10df1617-122f-bedc-adb5-d31a93ab198c@piana.eu>
+ <CAJ-h4vvJhieBxL8p6xOSm6rYjLr-NBDKwfD2KcFafUPKe2LxXg@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76DFA1@FMSMSX108.amr.corp.intel.com>
+ <20180926191113.GM15538@dev.kemitchell.com>
+ <e5cc750e-c47c-ffda-1424-5baac9614c05@elstel.org>
+ <CAK2MWOsJQ333MaG2Oad0yU7T-LxD4PZCwUno3ZXSxNS2nTt_Ag@mail.gmail.com>
+ <e4243bf3-a2b8-99a9-cc88-24bd20cde432@elstel.org>
+ <CAJ-h4vtrdbd_SciMW1MPTRMFsxa6U9rvz0OnQEgRAdf=5RZp2Q@mail.gmail.com>
+Message-ID: <0ff41c18-4bc4-7c6d-3f60-8039962880c9@elstel.org>
+
+
+
+On 9/28/18 5:30 PM, Brendan Hickey wrote:
+> On Fri, Sep 28, 2018, 04:48 Elmar Stellnberger <estellnb at elstel.org 
+> <mailto:estellnb at elstel.org>> wrote:
+> ...
+> undesirable clauses (ex. badgeware). It appears largely redundant with 
+> the CDDL. It's ambiguous.
+> 
+
+I can not see that C-FSL should have much in common with CDDL. Besides 
+this a clause that the licensee looses all rights on the software if 
+he/she sues the licensor seems to be somehow illegal to me.
+
+
+From nigel.2048 at gmail.com  Sat Sep 29 14:23:32 2018
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Sat, 29 Sep 2018 10:23:32 -0400
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CAJ-h4vt_iQkRHrPxpNzaNgEf80NjHr5WVrT5tZ=TkXMzi2uXQA@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+ <CAK2MWOtRofqWzp1PtOm+e92QqEXmi30taeOuOc-1RK+gueZoPA@mail.gmail.com>
+ <20180928184215.GH15538@dev.kemitchell.com>
+ <CAK2MWOsw704voSbH=UwPh5zc+7SGGny1B5-vixOH2NSk3Qtn+g@mail.gmail.com>
+ <20180928203450.GD24138@dev.kemitchell.com>
+ <CAK2MWOuvbbAhF_O8Ak17qb5OnYgu4PQCf6isQ+S7fHaGJLgxmg@mail.gmail.com>
+ <20180928210241.GF24138@dev.kemitchell.com>
+ <CAJ-h4vt_iQkRHrPxpNzaNgEf80NjHr5WVrT5tZ=TkXMzi2uXQA@mail.gmail.com>
+Message-ID: <23A61FD8-80E1-43F1-832E-507BF15BD5DA@gmail.com>
+
+In my opinion the retroactive removal of licenses as open source would not be a good idea.  I would vote no.
+
+?Deprecation? seems like the first step to removal.
+
+Clarifying the current approval metrics may be more challenging but a better solution.  Reviewing board minutes isn?t there some activity in this area?
+ 
+From the Fall 2017 Face to Face 
+
+* Simon to develop "OSD License Review" FAQ
+* Motion (Simon): Approve Open Source and Standards Working Group Software
+
+Also, if someone from OSI can point me to the current bylaws that would be appreciated.  The 2013 one seems to indicate that the OSI has no members.
+
+Sent from my iPhone
+
+> On Sep 28, 2018, at 5:26 PM, Brendan Hickey <brendan.m.hickey at gmail.com> wrote:
+> 
+> On Fri, Sep 28, 2018, 16:50 Kyle Mitchell <kyle at kemitchell.com> wrote:
+> If you'd like a concrete proposal, take the offending
+> licenses off the list, or place them in a new, deprecated
+> subcategory, and publish a rationale for doing so.  Or do
+> these things preliminarily, invite comment, and reassess.
+> 
+> I think this is a great idea, though I don't have any proposals for licenses to put on the chopping block. At the most extreme I can imagine deprecating BSD-3 and one of BSD-2 or MIT/Expat.
+> 
+>> On Fri, Sep 28, 2018, 17:01 Kyle Mitchell <kyle at kemitchell.com> wrote:
+>> In the meantime, wouldn't the no-more-licenses faction
+>> prefer a more efficient path to rejection?
+> 
+> 
+> As someone firmly in the non-proliferationist camp, I'm not sure our problem is efficiency. There just isn't a flood of well-formed, non-duplicative licenses. For every license debated on the merits (ex. UPL) there might be ten that can be rejected out of hand.
+> 
+> What are the downsides to being inefficient? We might chase off folks submitting bad licenses in earnest. This isn't a great experience. Perhaps this avoidable with a preflight checklist, or a more structured tracking system as others have suggested.
+> 
+> Brendan
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180929/98039ef1/attachment.html>
+
+From bruce at perens.com  Sat Sep 29 14:53:50 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 29 Sep 2018 07:53:50 -0700
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <23A61FD8-80E1-43F1-832E-507BF15BD5DA@gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+ <CAK2MWOtRofqWzp1PtOm+e92QqEXmi30taeOuOc-1RK+gueZoPA@mail.gmail.com>
+ <20180928184215.GH15538@dev.kemitchell.com>
+ <CAK2MWOsw704voSbH=UwPh5zc+7SGGny1B5-vixOH2NSk3Qtn+g@mail.gmail.com>
+ <20180928203450.GD24138@dev.kemitchell.com>
+ <CAK2MWOuvbbAhF_O8Ak17qb5OnYgu4PQCf6isQ+S7fHaGJLgxmg@mail.gmail.com>
+ <20180928210241.GF24138@dev.kemitchell.com>
+ <CAJ-h4vt_iQkRHrPxpNzaNgEf80NjHr5WVrT5tZ=TkXMzi2uXQA@mail.gmail.com>
+ <23A61FD8-80E1-43F1-832E-507BF15BD5DA@gmail.com>
+Message-ID: <CAK2MWOs4-20SDzOFjTcZCpubTEN_c5b2+Qk=GxHNXuApFwz8Bw@mail.gmail.com>
+
+Nigel, it doesn't really look like the motion you copied has anything to do
+with license-review. I am the standards chair and am representing OSI to
+standards bodies.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180929/c48ddf97/attachment.html>
+
+From nigel.2048 at gmail.com  Sat Sep 29 18:45:38 2018
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Sat, 29 Sep 2018 14:45:38 -0400
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CAK2MWOs4-20SDzOFjTcZCpubTEN_c5b2+Qk=GxHNXuApFwz8Bw@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+ <CAK2MWOtRofqWzp1PtOm+e92QqEXmi30taeOuOc-1RK+gueZoPA@mail.gmail.com>
+ <20180928184215.GH15538@dev.kemitchell.com>
+ <CAK2MWOsw704voSbH=UwPh5zc+7SGGny1B5-vixOH2NSk3Qtn+g@mail.gmail.com>
+ <20180928203450.GD24138@dev.kemitchell.com>
+ <CAK2MWOuvbbAhF_O8Ak17qb5OnYgu4PQCf6isQ+S7fHaGJLgxmg@mail.gmail.com>
+ <20180928210241.GF24138@dev.kemitchell.com>
+ <CAJ-h4vt_iQkRHrPxpNzaNgEf80NjHr5WVrT5tZ=TkXMzi2uXQA@mail.gmail.com>
+ <23A61FD8-80E1-43F1-832E-507BF15BD5DA@gmail.com>
+ <CAK2MWOs4-20SDzOFjTcZCpubTEN_c5b2+Qk=GxHNXuApFwz8Bw@mail.gmail.com>
+Message-ID: <F3342B80-F0D1-412F-A92B-AAABE9808918@gmail.com>
+
+Okay, that makes sense.
+
+How about the license review faq?  That seems like a good place for this clarifying information that appears to be opaque or ?unwritten? for some submitters.
+
+I would also like to know if changing the OSD and the interpretation of the OSD for license approval is simply a board decision or something the entire membership has a vote.
+
+I don?t know where this discussion really belongs here but seems relevant to the participants on license-review if the criteria has or is changing.  
+
+> On Sep 29, 2018, at 10:53 AM, Bruce Perens <bruce at perens.com> wrote:
+> 
+> Nigel, it doesn't really look like the motion you copied has anything to do with license-review. I am the standards chair and am representing OSI to standards bodies.
+> 
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+From bruce at perens.com  Sat Sep 29 18:59:09 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 29 Sep 2018 11:59:09 -0700
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <F3342B80-F0D1-412F-A92B-AAABE9808918@gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+ <CAK2MWOtRofqWzp1PtOm+e92QqEXmi30taeOuOc-1RK+gueZoPA@mail.gmail.com>
+ <20180928184215.GH15538@dev.kemitchell.com>
+ <CAK2MWOsw704voSbH=UwPh5zc+7SGGny1B5-vixOH2NSk3Qtn+g@mail.gmail.com>
+ <20180928203450.GD24138@dev.kemitchell.com>
+ <CAK2MWOuvbbAhF_O8Ak17qb5OnYgu4PQCf6isQ+S7fHaGJLgxmg@mail.gmail.com>
+ <20180928210241.GF24138@dev.kemitchell.com>
+ <CAJ-h4vt_iQkRHrPxpNzaNgEf80NjHr5WVrT5tZ=TkXMzi2uXQA@mail.gmail.com>
+ <23A61FD8-80E1-43F1-832E-507BF15BD5DA@gmail.com>
+ <CAK2MWOs4-20SDzOFjTcZCpubTEN_c5b2+Qk=GxHNXuApFwz8Bw@mail.gmail.com>
+ <F3342B80-F0D1-412F-A92B-AAABE9808918@gmail.com>
+Message-ID: <CAK2MWOtNfuU8jwpVMg-c=7cE9mPyeuV_fUXTBncQNCf6KcLCtg@mail.gmail.com>
+
+Simon hasn't shown me any proposed text for such a FAQ and I'm afraid he'll
+want me to write it.
+
+Can I bring up the NASA license? I have now been to the Cal Poly Cubesat
+Workshop, the NASA Planetary Cubesat Symposium at Goddard Space Flight
+Center, and the Open Source Cubesat Workshop at ESA Madrid. At each of
+these conferences I have met NASA scientists who are creating Open Source
+software. They haven't ever been favorable about the NASA license, and
+those who chose their own licenses have in general avoided it. Indeed, on
+Tuesday in Madrid, Jay Trimble of Ames and the Open Mission Control
+Technologies project was quite dismissive of it, basing his choice on
+familiarity of the Apache license to the community rather than the terms of
+the NASA license.
+
+    Thanks
+
+    Bruce
+
+
+On Sat, Sep 29, 2018 at 11:46 AM Nigel T <nigel.2048 at gmail.com> wrote:
+
+> Okay, that makes sense.
+>
+> How about the license review faq?  That seems like a good place for this
+> clarifying information that appears to be opaque or ?unwritten? for some
+> submitters.
+>
+> I would also like to know if changing the OSD and the interpretation of
+> the OSD for license approval is simply a board decision or something the
+> entire membership has a vote.
+>
+> I don?t know where this discussion really belongs here but seems relevant
+> to the participants on license-review if the criteria has or is changing.
+>
+> > On Sep 29, 2018, at 10:53 AM, Bruce Perens <bruce at perens.com> wrote:
+> >
+> > Nigel, it doesn't really look like the motion you copied has anything to
+> do with license-review. I am the standards chair and am representing OSI to
+> standards bodies.
+> >
+> > _______________________________________________
+> > License-review mailing list
+> > License-review at lists.opensource.org
+> >
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens K6BP - CEO, Legal Engineering
+Standards committee chair, license review committee member, co-founder,
+Open Source Initiative
+President, Open Research Institute; Board Member, Fashion Freedom
+Initiative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180929/6baaeeae/attachment-0001.html>
+
+From nigel.2048 at gmail.com  Sat Sep 29 22:17:19 2018
+From: nigel.2048 at gmail.com (Nigel T)
+Date: Sat, 29 Sep 2018 18:17:19 -0400
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CAK2MWOtNfuU8jwpVMg-c=7cE9mPyeuV_fUXTBncQNCf6KcLCtg@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+ <CAK2MWOtRofqWzp1PtOm+e92QqEXmi30taeOuOc-1RK+gueZoPA@mail.gmail.com>
+ <20180928184215.GH15538@dev.kemitchell.com>
+ <CAK2MWOsw704voSbH=UwPh5zc+7SGGny1B5-vixOH2NSk3Qtn+g@mail.gmail.com>
+ <20180928203450.GD24138@dev.kemitchell.com>
+ <CAK2MWOuvbbAhF_O8Ak17qb5OnYgu4PQCf6isQ+S7fHaGJLgxmg@mail.gmail.com>
+ <20180928210241.GF24138@dev.kemitchell.com>
+ <CAJ-h4vt_iQkRHrPxpNzaNgEf80NjHr5WVrT5tZ=TkXMzi2uXQA@mail.gmail.com>
+ <23A61FD8-80E1-43F1-832E-507BF15BD5DA@gmail.com>
+ <CAK2MWOs4-20SDzOFjTcZCpubTEN_c5b2+Qk=GxHNXuApFwz8Bw@mail.gmail.com>
+ <F3342B80-F0D1-412F-A92B-AAABE9808918@gmail.com>
+ <CAK2MWOtNfuU8jwpVMg-c=7cE9mPyeuV_fUXTBncQNCf6KcLCtg@mail.gmail.com>
+Message-ID: <9C58A6CA-0684-4200-864E-0710DA956B71@gmail.com>
+
+Bruce,
+
+If NASA officially goes with some other license that would be fine for me personally (I would prefer ECLv2) but that?s not the point.  Some significant NASA projects are on NOSA and an updated license would be useful.
+
+Also, not all the engineers and scientists are aware of all the legal implications.  I have seen people release code under GPL even though they didn?t have the authority or legal rights to do so. 
+
+Nigel
+
+> On Sep 29, 2018, at 2:59 PM, Bruce Perens <bruce at perens.com> wrote:
+> 
+> Simon hasn't shown me any proposed text for such a FAQ and I'm afraid he'll want me to write it.
+> 
+> Can I bring up the NASA license? I have now been to the Cal Poly Cubesat Workshop, the NASA Planetary Cubesat Symposium at Goddard Space Flight Center, and the Open Source Cubesat Workshop at ESA Madrid. At each of these conferences I have met NASA scientists who are creating Open Source software. They haven't ever been favorable about the NASA license, and those who chose their own licenses have in general avoided it. Indeed, on Tuesday in Madrid, Jay Trimble of Ames and the Open Mission Control Technologies project was quite dismissive of it, basing his choice on familiarity of the Apache license to the community rather than the terms of the NASA license.
+> 
+>     Thanks
+> 
+>     Bruce
+> 
+> 
+>> On Sat, Sep 29, 2018 at 11:46 AM Nigel T <nigel.2048 at gmail.com> wrote:
+>> Okay, that makes sense.
+>> 
+>> How about the license review faq?  That seems like a good place for this clarifying information that appears to be opaque or ?unwritten? for some submitters.
+>> 
+>> I would also like to know if changing the OSD and the interpretation of the OSD for license approval is simply a board decision or something the entire membership has a vote.
+>> 
+>> I don?t know where this discussion really belongs here but seems relevant to the participants on license-review if the criteria has or is changing.  
+>> 
+>> > On Sep 29, 2018, at 10:53 AM, Bruce Perens <bruce at perens.com> wrote:
+>> > 
+>> > Nigel, it doesn't really look like the motion you copied has anything to do with license-review. I am the standards chair and am representing OSI to standards bodies.
+>> > 
+>> > _______________________________________________
+>> > License-review mailing list
+>> > License-review at lists.opensource.org
+>> > http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>> 
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+> 
+> 
+> -- 
+> Bruce Perens K6BP - CEO, Legal Engineering
+> Standards committee chair, license review committee member, co-founder, Open Source Initiative
+> President, Open Research Institute; Board Member, Fashion Freedom Initiative.
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180929/c2691883/attachment.html>
+
+From georg.fuetsch at gmx.at  Sun Sep 30 16:48:06 2018
+From: georg.fuetsch at gmx.at (Georg Fuetsch)
+Date: Sun, 30 Sep 2018 18:48:06 +0200
+Subject: [License-review] C-FSL license approval request
+Message-ID: <trinity-9bb88aa8-2cda-4645-baee-92d5b6dffb19-1538326086163@msvc-mesg-gmx023>
+
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180930/60ceeeaf/attachment.html>
+

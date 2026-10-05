@@ -1,0 +1,17 @@
+fetched_at_utc	url	http_status	sha256	file
+2026-10-05T03:55:52Z	https://lists.opensource.org/pipermail/license-review_lists.opensource.org/	200	5c39956f0b28a7553e29a87ae1e41ab773d39567d2e555111eff778ead8537a5	license-review_index.html
+2026-10-05T03:55:54Z	https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-September.txt	200	bb7b6fc5de799aa96c924963464d17be1120eabf3b4b3e0ecc9048606a366978	license-review_2026-September.txt
+2026-10-05T03:55:58Z	https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-October.txt	404		
+2026-10-05T03:55:58Z	https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/	200	8cb5ec96b4d0e4b7a06eda96e23ea5ae3493fd33effab4cf76e54e49b36dfd4a	license-discuss_index.html
+2026-10-05T03:55:59Z	https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2026-September.txt	200	aaef3c782edc42a0886a353d40bd0ca10ef27a13324cf84927344479d29edfbf	license-discuss_2026-September.txt
+2026-10-05T03:56:00Z	https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2026-October.txt	404		
+2026-10-05T03:56:00Z	https://opensource.org/code-of-conduct	200	9d9fc8d76383635065d4f6e1c3b20628052c3eb7db7174be5c5c2cb973629919	opensource.org_code-of-conduct.html
+2026-10-05T03:56:01Z	https://opensource.org/board-of-directors/minutes	404		
+2026-10-05T03:56:13Z	https://opensource.org/meeting-minutes/	200	9f74d7beab5506014503895c56db4fcab521fc63dce9fded9bd964877d0dfc0e	opensource.org_meeting-minutes.html
+2026-10-05T03:56:15Z	https://opensource.org/minutes	200	ff6b8558c17726df00dc007324e0e9134e4700f8a434454a68376ec47ae1d5b5	opensource.org_minutes.html
+2026-10-05T04:03:05Z	https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2018-December.txt	200	2032b2fe64b01e2c25e8e69afa5c43cbd8369ce901b1822629a71a7d85600f6c	license-review_2018-December.txt
+2026-10-05T04:03:06Z	https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2018-October.txt	200	ca1d29ad287b22017f17bd7cfda5e25e58f34f1f67c3d09b98a162a38050ecab	license-review_2018-October.txt
+2026-10-05T04:03:09Z	https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2018-September.txt	200	43a26fea498d7fb5f302cd2edddb83ea845a93c1e806d17e971b1be0eebc007f	license-review_2018-September.txt
+2026-10-05T04:03:10Z	https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-January.txt	200	d7a13a7a4076bbf7b9354b1f8bff44671cb6a6712b6c381171ae8fb2544bb371	license-review_2019-January.txt
+2026-10-05T04:03:12Z	https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2019-March.txt	200	5c20924a34c4a77ca436640aab5c401245057168d86391c55f3b930f97ccb6e0	license-review_2019-March.txt
+2026-10-05T04:03:14Z	https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2003-September.txt	200	ef79fe9aa4e02d85de6f74f5ece23812062f9498f7cc58b6734363fe4ee67a0c	license-discuss_2003-September.txt
