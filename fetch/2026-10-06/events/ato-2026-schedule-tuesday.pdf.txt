@@ -1,0 +1,670 @@
+LIGHTNING 
+TALKS
+Ballroom B
+1:00pm - 2:10pm
+Lightning Talks 
+Coming Soon!
+MACHINE 
+LEARNING/AI 1
+Made possible by Salesforce
+Ballroom A
+10:30am - 11:00pm
+The Future of Apps is Open 
+Source and Agentic
+Andrew Brogdon, Marc 
+Dougherty, Mark Techson, 
+Google
+11:15am - 11:45am
+Supply Chain Security in 
+the Age of the AI Hacker
+Stephen Husak, Capital One
+12:00pm - 12:30pm
+Designing Production-
+Grade Agentic Systems: 
+From Prototype to Scalable 
+Infrastructure
+Siddhi Patil, Amazon
+1:00pm -2:10pm
+FEATURED SESSION
+Efficient Agents in Minutes
+Gabe Goodhart, IBM 
+Research
+2:30pm - 3:00pm
+AI Systems Fail Silently — 
+Building Trust Layers with 
+Open Source for Reliable AI
+Rishabh Banga, Kampd
+3:15pm - 3:45pm
+Talk Coming Soon!
+4:00pm - 4:30 pm
+Talk Coming Soon!
+DATABASES
+Made possible by VeloDB
+Room 306A
+10:30am - 11:00pm
+Confidently Wrong: 
+Handing a Coding Agent an 
+API Tier Anyway
+Michael Aglietti, MariaDB
+11:15am - 11:45am
+Building a 
+MongoDB-Compatible 
+Database in the Open
+Patty Chow, Microsoft
+12:00pm - 12:30pm
+pg_lake: Unifying 
+transactional and analytical 
+data with Postgres
+Elizabeth Christensen, 
+Snowflake
+2:30pm - 3:00pm
+The Spec is Just the Tip
+Amy Chen
+3:15pm - 3:45pm
+From Source Code to 
+Source of Truth: 30 Years 
+of Open Source Database 
+Evolution
+Alkin Tezuysal, Altinity
+4:00pm - 4:30 pm
+The Agent Is the New 
+Database User: What Agent 
+Workloads Demand from 
+Analytics Infrastructure
+Kevin Shen, VeloDB
+AI/OPEN SOURCE 
+ARCHITECTURE
+Made possible by 
+Tag1 Consulting, Inc.
+Room 306B
+10:30am - 11:00pm
+A Retry Loop Is Harder to 
+Find Than a Forgotten VM
+Robert Walters, Kestra 
+Technoligies
+11:15am - 11:45am
+Talk Coming Soon!r
+12:00pm - 12:30pm
+Talk Coming Soon!
+2:30pm - 3:00pm
+Talk Coming Soon!
+3:15pm - 3:45pm
+Talk Coming Soon!
+4:00pm - 4:30 pm
+Talk Coming Soon!
+AI/OPEN SOURCE 
+INFRASTRUCTURE
+Made possible by Kestra
+Room 306C
+10:30am - 11:00pm
+The Hardware Hunger 
+Games: Why Your AI 
+Training Depends on 
+Infrastructure SLOs
+Sania Alex & Swetha 
+Vijayaraghavan, Google
+11:15am - 11:45am
+Talk Coming Soon!
+12:00pm - 12:30pm
+Your AI Agents Have T oo 
+Many Keys: An Open Source 
+Network for Autonomous 
+Software
+Brandon Hopkins 
+& Misha Bragin, NetBird
+2:30pm - 3:00pm
+Talk Coming Soon!
+3:15pm - 3:45pm
+Talk Coming Soon!
+4:00pm - 4:30 pm
+Talk Coming Soon!
+AI/OPEN SOURCE 
+PROJECTS & 
+PROCESSES
+Made possible by Mezmo
+Room 307
+10:30am - 11:00pm
+Fluxnova: Powering 
+your Business Process with 
+Open Source
+Andrew Bonham, 
+Capital One
+11:15am - 11:45am
+One Engine, Every 
+Ecosystem: The 
+architecture of a platform-
+agnostic open source 
+product
+Moshe Weitzman, Tag1 
+Consulting
+12:00pm - 12:30pm
+This Sh*t Don't Just Happen: 
+The Invisible Work of Open 
+Source Stewardship
+benny Vasquez,
+AlmaLinux OS Foundation
+2:30pm - 3:00pm
+Building Data Catcher: A 
+(former) intern's guide to 
+designing video games with 
+open source tools
+Asim Raja, SAS Institute Inc.
+3:15pm - 3:45pm
+Building Accessibility into 
+Open Source, One Practical 
+Step at a Time
+Maria Lamardo, GitHub
+4:00pm - 4:30 pm
+Talk Coming Soon!
+OPEN SOURCE 
+INITIATIVE (OSI)
+Made possible by OSI
+Room 204
+10:30am - 11:00pm
+The State Of The Open 
+Source Initiative
+Duane O’Brien, OSI
+11:15am - 11:45am
+Open Source Licensing 101
+McCoy Smith, OSI
+12:00pm - 12:30pm
+Sharing is caring: Open 
+data for Open Source 
+compliance
+Nick Vidal,  OSI
+1:00pm - 2:10pm
+Is Open Source Dying? 
+Short film and open 
+discussion
+Jonathan Starr, SciOS & 
+Nick Vidal, OSI
+2:30pm - 3:00pm
+The Latest on Public Policy 
+and Open Source
+Katie Steen-James, OSI
+3:15pm - 3:45pm
+The State of Open Source 
+AI in 2026
+Gabriel Toscano, OSI
+4:00pm - 4:30 pm
+The OSI Must Do More 
+When It Comes T o Open 
+Source Education and 
+Advocacy
+Duane O’Brien, OSI & Ruth 
+Suehle, Apache Software 
+Foundation
+COMMUNITY
+Made possible by OpenSearch
+Room 201
+10:30am - 11:00pm
+Building Open Source 
+Volunteer Infrastructure: 
+How Industry T eamwork 
+Sustains OSS
+Alyssa Wright, Bloomberg & 
+Juanita Gomez, NVIDIA
+11:15am - 11:45am
+AI Can Contribute. 
+It Can’t Lead.
+Lahari Chowtoori, AWS
+12:00pm - 12:30pm
+Contributors in Crisis: Why 
+AI Spam Is Killing Open 
+Source Onboarding (And 
+What We Do About It)
+Tyler Menezes, CodeDay
+2:30pm - 3:00pm
+What Does “Open” Mean 
+Anyway?
+Jim Jagielski, Salesforce
+3:15pm - 3:45pm
+Repeat or Reweave? The 
+History and Future of 
+Women in T echnology
+Ruth Suehle, Apache 
+Software Foundation
+4:00pm - 4:30 pm
+AI Tinkerers Raleigh: T op 
+Demos of the Year and Their 
+Community Impact
+Danny Castro, AI Tinkerers
+BUSINESS
+Room 206
+10:30am - 11:00pm
+When AI Writes the Code, 
+Humans Must Write the 
+Rules
+Guy Martin, NVIDIA
+11:15am - 11:45am
+The State of AI: Navigating 
+the GenAI Divide with 
+Enterprise Guardrails and 
+Responsible Innovation
+David Ellison, Lenovo 
+& Sanjay Mishra, 
+Fidelity Investments
+12:00pm - 12:30pm
+Why the GPL is Great for 
+Business
+Frank Karlitschek, Nextcloud
+2:30pm - 3:00pm
+You Never Know When 
+You Need a Fork: Lessons 
+learned building Valkey
+Madelyn Olson, AWS
+3:15pm - 3:45pm
+Talk Coming Soon!
+4:00pm - 4:30 pm
+No Trust, No AI: What Has 
+to Be True Before Your AI 
+Initiative Goes Live
+Thais Cooke
+LINUX/
+NETWORKING/
+INFRASTRUCTURE
+Made possible by NetBird
+Room 302A
+10:30am - 11:00pm
+Talk Coming Soon!
+11:15am - 11:45am
+The Self-Hosted Stack: 
+Building Your Own Cloud 
+with Open Source
+Brandon Hopkins, NetBird
+12:00pm - 12:30pm
+Talk Coming Soon!
+2:30pm - 3:00pm
+The Rise of Personal 
+Infrastructure
+Alex Kretzschmar, Tailscale
+3:15pm - 3:45pm
+Threading the Needle: 
+Balancing Open Source 
+Philosophy Against 
+Corporate Responsibility
+Leigh Hennig, Rocky Linux
+4:00pm - 4:30 pm
+Talk Coming Soon!
+CLOUD
+Made possible by Akamai
+Room 302C
+10:30am - 11:00pm
+Kubernetes Under Fire: 
+Igniting Performance 
+and Burning Through 
+Bottlenecks with 
+Kube-Burner
+Joe Talerico & Vishnu Challa, 
+Red Hat
+11:15am - 11:45am
+The AI Governance Gap: 
+What Cloud Architects 
+Must Build Before GenAI 
+Goes to Production
+Megha Singh, Oracle
+12:00pm - 12:30pm
+AI Sandboxes: Running 
+Coding Agents Safely 
+in Production-Grade 
+Environments
+Shivay Lamba, Qualcomm
+2:30pm - 3:00pm
+Talk Coming Soon!
+3:15pm - 3:45pm
+Scaling AI: Operational 
+Lessons from 500 GPUs
+Chris Williams, Six Feet Up
+4:00pm - 4:30 pm
+Talk Coming Soon!
+BIG DATA
+Made possible by IBM Bob
+Room 302B
+10:30am - 11:00pm
+Your Data Has a Supply 
+Chain, And Nobody’s 
+Securing It
+David Aronchick, Expanso
+11:15am - 11:45am
+Orchestrating Autonomous 
+AI Agents with Apache 
+Kafka and Apache Flink
+Sandon Jacobs, Confluent
+12:00pm - 12:30pm
+Building a Columnar Data 
+Plane with OpenSearch 
+using Arrow Flight 
+Streaming, Parquet and 
+Datafusion
+Dotan Horovits & Saurabh 
+Singh, OpenSearch
+2:30pm - 3:00pm
+Apache Spark Real-Time 
+Mode: How Spark Is 
+Evolving for Low-Latency 
+Streaming
+Abhilash Nagilla & Uday 
+Satapathy, Databricks
+3:15pm - 3:45pm
+Beyond the Table: Data 
+Strategy and Governance in 
+the Age of Apache Iceberg
+Christina Salmi, Analytics8 & 
+Matthew Mullins, Coginiti
+4:00pm - 4:30 pm
+Talk Coming Soon!
+SECURITY
+Room 303
+10:30am - 11:00pm
+Are you in my Green Zone?
+Lisa Bradley, Dell 
+Technologies
+11:15am - 11:45am
+Fine-Grained Access 
+Control for Hosted MCP 
+Servers You Don’t Own
+Nick Taylor, Pomerium
+12:00pm - 12:30pm
+Two Years to a Backdoor: 
+Lessons from the XZ Utils 
+Supply Chain Attack – an 
+attempt to compromise 
+OpenSSH
+Kedar Kulkarni, Apple Inc.
+2:30pm - 3:00pm
+Security Things: How 
+OpenSSF’s T echnical 
+Initiatives Keep You Safe 
+from the Upside Down!
+Katherine Druckman, 
+Jetrbrains & Stacey Potter, 
+OpenSSF
+3:15pm - 3:45pm
+Zero Slack Security: Playing 
+Defense in an Age of Agents
+Patrick Smyth, Chainguard
+4:00pm - 4:30 pm
+Identity Crisis: Why Your 
+Security Fails in an Agentic 
+World
+Shrikant Sonparote, Lowe's 
+Companies, Inc.
+DEVOPS
+Made possible by Unkey
+Room 304
+10:30am - 11:00pm
+eBPF for AI-Powered Root 
+Cause Analysis
+Peter Zaitsev, Percona
+11:15am - 11:45am
+Talk Coming Soon!
+12:00pm - 12:30pm
+Your Production-Ready OSS 
+AI Assistant
+Michael Levan, Solo.io
+2:30pm - 3:00pm
+Beyond Upgrades: 
+Continuous Modernization 
+at Scale
+Dipanjan Haldar & 
+Karthikeyan Chinnaraj, 
+Fidelity Investments
+3:15pm - 3:45pm
+Three Projects, One Stack: 
+How Foundation-Led 
+Collaboration Is Reshaping 
+Open Source Observability
+Dotan Horovits, OpenSearch
+4:00pm - 4:30 pm
+Bring Your Kubernetes 
+Game to the Next Level 
+with These 
+Open-source T ools
+Frédéric Harper, TinyMCE
+DEVELOPER 2
+Made possible by Dynatrace
+Room 305A
+10:30am - 11:00pm
+AI Wrote the Code – Is It 
+Secure?
+Adhithi Ravichandran,
+Surya Consulting, Inc.
+11:15am - 11:45am
+My AI-Driven React 
+Workflow: Building faster 
+with Agents
+Aileen Villanueva,
+Independent
+12:00pm - 12:30pm
+An Agent Is Just a Directory
+Amy Egan, Vercel
+2:30pm - 3:00pm
+Agents, T ools, and MCP, oh 
+my! Next-level AI concepts 
+for developers
+Jennifer Reif, Neo4j
+3:15pm - 3:45pm
+Talk Coming Soon!
+4:00pm - 4:30 pm
+Talk Coming Soon!
+DEVELOPER 1
+Made possible by IBM
+Ballroom B
+10:30am - 11:00pm
+Skill Issue: Why Your AI 
+Agent Still Sucks
+Angie Jones, Agentic AI 
+Foundation
+11:15am - 11:45am
+You Don’t Need a GPU 
+for That: Rethinking AI 
+Workloads in the Cloud 
+Native Stack
+Ruckus Voxi, Akamai Cloud
+12:00pm - 12:30pm
+Talk Coming Soon!
+2:30pm - 3:00pm
+30 Years of OSS Version 
+Control: What Actually 
+Forced Each Change
+Lee Faus, Atomic 
+Software, Co.
+3:15pm - 3:45pm
+Building the Same AI Agent 
+with LangGraph, CrewAI, 
+and a Language You 
+Haven’t Heard Of
+Jason Mars, University of 
+Michigan
+4:00pm - 4:30 pm
+Talk Coming Soon!
+MACHINE 
+LEARNING/AI 2
+Made possible by Red Hat
+Ballroom C
+10:30am - 11:00pm
+Findings from the Survey on 
+Generative AI and Open Source 
+Software Development
+Brian Proffitt, Red Hat, Hilary Carter 
+& Sam Boysel, Linux Foundation
+11:15am - 11:45am
+Hierarchical Memory: Context 
+management in agents
+Laurie Voss, Arize AI
+12:00pm - 12:30pm
+Agentic AI is a Black 
+Box and What Open 
+Source Can Do About It
+Sayantika Banik, DataJourneyHQ
+1:00pm -2:10pm
+FEATURED SESSION
+PostgreSQL for the AI Era: From 
+Open Source to Cloud-Native Scale
+Bob Ward, Microsoft
+2:30pm - 3:00pm
+The Architecture of AI Agents: 
+Patterns, Protocols, and Pitfalls 
+in 2026
+Arturo Parra, JPMorgan Chase
+3:15pm - 3:45pm
+Running Agents Locally with 
+Open Source: From Laptop to 
+Kubernetes
+Grace Ableidinger &
+Legare Kerrison, Red Hat
+4:00pm - 4:30 pm
+The Beginners Guide to Training 
+Your Own AI Coding Model on 
+Your Own Data
+Brian Douglas, The Paper  
+Compute Company
+DEVREL
+Room 305B
+10:30am - 11:00pm
+Don’t Let the Chocolate Pile 
+Up: Scaling DevRel Content 
+with AI Agents
+Nitya Narasimhan, Microsoft
+11:15am - 11:45am
+Open Source Developer 
+Relations: A Field Guide
+Danica Fine, Snowflake
+12:00pm - 12:30pm
+Stop Scrolling: 
+How to Make Developers 
+Care About Your Open 
+Source Project
+Brooke Jamieson, AWS
+2:30pm - 3:00pm
+Points, Levels, and Merge 
+Requests: Gamifying the 
+Contributor Experience
+Arianna Haradon, GitLab
+3:15pm - 3:45pm
+When Information Isn’t 
+Enough
+Jason Torres, JetBrains
+4:00pm - 4:30 pm
+Talk Coming Soon!
+MACHINE 
+LEARNING/AI 3
+Made possible by Google
+Room 301A
+10:30am - 11:00pm
+T o Boldly Go: Data Science 
+Exploration with AI Agents 
+(ft Star Trek’s LCARS theme)
+Dawn Wages, Anaconda
+11:15am - 11:45am
+Sandboxing AI Agents 
+in the Enterprise: A 
+Practitioner’s Guide to 
+Isolation T echnologies
+Balu Mathew, Cisco
+12:00pm - 12:30pm
+Who Authorized That? 
+Fine-Grained Authorization 
+for AI Agents
+Michael Liendo, Auth0
+2:30pm - 3:00pm
+From Embeddings to 
+GEMM: Building a 50ms 
+Visual Search Engine 
+Without a Vector Database
+Alex Leung, Akamai 
+Technologies Inc.
+3:15pm - 3:45pm
+Talk Coming Soon!
+4:00pm - 4:30 pm
+Talk Coming Soon!
+101
+Room 301B
+10:30am - 11:00pm
+Getting People to Actually 
+Contribute: How OSPOs Can 
+Lower the Barrier to Entry
+Apurva Gandhi, Fidelity 
+Investments
+11:15am - 11:45am
+Demystifying AI: A Practical 
+Introduction for Developers
+Michael Hall, Arm
+12:00pm - 12:30pm
+Code Reviews: Compassion 
+vs Criticism
+Alex Oladele, Red Hat
+2:30pm - 3:00pm
+Becoming a More Effective 
+Open Source Contributor 
+Using AI T ooling
+Brad Topol, IBM
+3:15pm - 3:45pm
+AI 101 to Building a Custom 
+Agent in 30 minutes
+Ryan Swift, Major League 
+Hacking
+4:00pm - 4:30 pm
+Beyond “Good First Issues”: 
+How to Make Your First 
+Open Source Contribution 
+Actually Matter
+Nihal Kaul, Revscale AI
+OVERVIEW
+ 
+ 7:30am CHECK-IN OPENS
+ 8:45am MORNING KEYNOTES
+  Ballrooms A, B, & C
+  Welcome
+  Todd Lewis, All Things Open
+  Emcee - Jono Bacon, Stateshift
+  The Maintainer’s Dilemma: Ban AI or Build for It
+  Angie Jones, Agentic AI Foundation
+  This is Software’s iPhone Moment
+  Swift, Major League Hacking
+  The Anything Trap: What to Build When  
+  Agents Can Build Anything
+  Lena Hall, Akamai
+  Title Coming Soon!
+  Matt Asay, Oracle
+  Open Meets Frontier: A More Efficient  
+  Way to Build Agents
+  Gabe Goodhart, IBM Research
+  Where Is My Futuristic App? Generative UI 
+  and the Open Future
+  Andrew Brogdon, Marc Dougherty, 
+  & Mark Techson, Google
+ 10:15am BREAK
+ 10:30am BREAKOUT SESSIONS 
+ 11:00am BREAK
+ 11:15am BREAKOUT SESSIONS 
+ 11:45am BREAK
+ 12:00pm BREAKOUT SESSIONS 
+ 12:30pm LUNCH & NETWORKING
+ 1:00pm LIGHTNING TALKS 
+ 2:15pm BREAK
+ 2:30pm BREAKOUT SESSIONS 
+ 3:00pm BREAK
+ 3:15pm BREAKOUT SESSIONS 
+ 3:45pm BREAK
+ 4:00pm BREAKOUT SESSIONS 
+ 4:30pm BREAK
+ 4:45pm CLOSING KEYNOTES
+  Ballrooms A, B, & C
+  How to Use Scaffolding to Make Your 
+  Coding Agents Less Dumb
+  Quincy Larson, freeCodeCamp.org
+  Wrap-up & Thank you's
+  Todd Lewis, All Things Open
+ 5:00pm FAREWELL SOCIAL
+  BOXCAR BAR + ARCADE 
+  330 W Davie St, Raleigh, NC 27601
+  CRANK ARM BREWERY
+  319 W Davie St, Raleigh, NC 27601
+  (both a short walk from the 
+  Convention Center)
+SCHEDULE
+TUESDAY, OCTOBER 20, 2026
+Raleigh Convention Center  /  2026.allthingsopen.org
+This schedule was last updated 9/10/26. In the event of last minute 
+changes, please visit: 2026.allthingsopen.org/schedule
