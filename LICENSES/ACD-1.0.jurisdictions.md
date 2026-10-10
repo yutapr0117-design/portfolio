@@ -643,6 +643,10 @@ OLG の press release は *"Eine anonymisierte Volltextfassung der Entscheidung 
 **取得元**: `https://justiz.hamburg.de/gerichte/hanseatisches-oberlandesgericht/gerichtspressestelle/
 ki-und-urheberrecht-hanseatisches-oberlandesgericht-weist-berufung-zurueck-1126528`
 （2026-09-20 に自己取得・ページ自身の日付は *Stand: 10.12.2025, 12:00*）。
+**⚠ 2026-10-10 14:5x UTC 時点で、上の HTML ページは 404 になっていた**（Mac から完全な URL で再取得して確認・リポジトリ全体のリンク検査で発見）。
+**同じ発表の裁判所自身の PDF 版**が `https://justiz.hamburg.de/resource/blob/1126574/2495057737fed4883eec42dce4d2430b/ki-und-urheberrecht-hanseatisches-oberlandesgericht-weist-berufung-zurueck-data.pdf`
+にある（2 ページ・130,312 B・sha256 `ff96c0c33486a581…715c795e`・日付欄 *Hamburg, 10. Dezember 2025*）。**下に引いたドイツ語の逐語 8 箇所は、この PDF の抽出テキストと全件一致した**
+（差は PDF 抽出に由来する空白とページ番号だけ）。PDF 本体は commit しない（Check 122）。**HTML 版が消えた理由（移転か削除か）は分からない。**
 **`rounds/` には置かない** ——同ディレクトリの規則 6 が述べるとおり、そこは**我々のやり取りと、
 我々を名指しした短い観測**のための場所であって、公開されている第三者ページの複製ではない。
 **決定的な箇所を発言者（ここでは裁判所）と日付つきで引く**のが、この種の資料の扱いである。
