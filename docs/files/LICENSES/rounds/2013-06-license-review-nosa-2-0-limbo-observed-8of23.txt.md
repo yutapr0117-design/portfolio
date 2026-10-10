@@ -16,7 +16,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約) / LICENSES/ACD-1.0
 ## Why
 
 **「承認でも否決でもない留め置き」の、記録上いちばん長い実例である** ——
-当時の委員長 Richard Fontana 氏 2017-01-05 *"NOSA 2.0 has been **languishing in a limbo review
+当時の委員長 Richard Fontana 氏 2017-01-05 *"NOSA 2.0 [1] has been **languishing in a limbo review
 state for an extremely long time**"*（提出から 3 年半）。
 **そして *"it was contrary to **de facto OSI policy to reject a license outright**"* とも述べている**（#257）。
 

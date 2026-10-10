@@ -304,7 +304,7 @@ engagement が得られる」とは言えない。** 上の 3 件が示すのは
 **ただし `license-discuss` は提出の窓口ではないので、同じ要求が働く場ではない**（#83 / §1.71）。
 
 **併せて記録する不利な材料**: Piana 氏は BOS v1.3 を *"the **10,354th** submitted MIT derivative"*
-と呼び、Misty に対しては *"**Why another MIT-style license, the hundredth or so?**"* と書いている。
+と呼び、Misty に対しては *"**Why another MIT-style license [0], the hundredth or so?**"* と書いている。
 **proliferation への疲れは、条文とは独立に、提出そのものへの心証として存在する** ——
 #84 / B6 と同じ族で、**我々の答え（この類型に 1 件足す費用が低い）は、この心証には届かない。**
 
