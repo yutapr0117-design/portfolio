@@ -226,7 +226,7 @@ submitted** ... and (b) **30 days after submission of a revised version**"*。
 
 当時の委員長 Richard Fontana 氏 2017-01-05 ——
 
-> *"As some know, NOSA 2.0 has been **languishing in a limbo review state for an extremely long
+> *"As some know, NOSA 2.0 [1] has been **languishing in a limbo review state for an extremely long
 > time**. In my opinion, NOSA 2.0 is, in its current form, **an overly complex and badly drafted
 > license**. ... I also believed for a long time that **it was contrary to de facto OSI policy to
 > reject a license outright**, as opposed to gently directing [submitters elsewhere]."*
