@@ -248,13 +248,17 @@ def fetch(months, limit=200):
     for (y, m), _ in months.most_common(limit):
         for lst in ("license-review", "license-discuss"):
             dest = f"{CACHE}/{lst}-{y}-{m}.txt"
-            if os.path.exists(dest):
+            # [FIX 2026-10-10] 0 バイトの file は「取得済み」ではない。旧実装は open() を urlopen()
+            # より先に呼んでいたため、存在しない月（未来の月・投稿の無い月）で空 file が残り、
+            # 以後その月は二度と取りに行かれなかった —— 後から投稿が載っても照合に入らない。
+            if os.path.exists(dest) and os.path.getsize(dest) > 0:
                 continue
             url = (f"https://lists.opensource.org/pipermail/"
                    f"{lst}_lists.opensource.org/{y}-{m}.txt")
             try:
                 req = urllib.request.Request(url, headers={"User-Agent": UA})
-                open(dest, "wb").write(urllib.request.urlopen(req, timeout=60).read())
+                data = urllib.request.urlopen(req, timeout=60).read()   # 取得に成功してから書く
+                open(dest, "wb").write(data)
                 got += 1
             except Exception:      # noqa: BLE001 — 存在しない月は普通に起きる
                 continue
