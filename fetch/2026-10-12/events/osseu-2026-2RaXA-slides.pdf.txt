@@ -1,0 +1,221 @@
+How Open Source Communities and OSPOs Are 
+Responding to AI-Assisted Contributions
+Alin Jerpelea, Sony Europe Limited
+Norio Kobota, Sony Group Corporation
+
+Speakers
+Alin Jerpelea
+Sony Group OSPO / Senior Software Architect /local OSPO member at Sony, located in Lund, Sweden.
+Alin has been part of Sony since 2010 when Alin joined Sony Mobile as a community manager for the 
+Xperia Open Source initiative and has sinceworked in numerous projects and Open Source collaboration.
+Currently working together with the ASF NuttX community serving as Project Management Committee 
+member, TODO Group as an Ambassador and Linux Open Chain working groups.
+Kobota Norio
+Sony Group OSPO / Senior Open Source Strategist / local OSPO member at Sony, located in Tokyo, Japan.
+Norio Kobota is a senior Open Source strategist at Sony Group Corporation. 
+He is working to improve compliance with Open Source licenses and strengthen relationships with Open 
+Source communities as an OSPO member. Additionally, he represents Sony as a board member of the 
+OpenChain project and chairs its SBOM Working Group.
+
+
+AI-Assisted Contributions Are Already Happening
+AI is becoming part of contribution workflows.
+• Code, tests, documentation, and issue responses may be created with AI assistance
+• AI involvement can range from light assistance to substantial generation
+• Communities need reviewable and accountable contributions
+• Companies need explainable contributions before sending them upstream
+The challenge is not simply whether AI was used.
+The challenge is how to preserve trust.
+
+AI contributions to Open Source communities
+Developers using AI tools
+● Developers knowing the code and using AI as a tool
+● Developers with low codebase knowledge trying to join a project
+● Developers with no codebase knowledge trying to score a CV(curriculum 
+vitae) entry
+AI Agents acting independent
+● Create code independent without human supervision
+
+Early AI slop complains and evolution
+https://www.youtube.com/watch?v=6n2eDcRjSsk
+ AI creates maintainer workload increase
+
+Community steps in to regulate AI contributions
+
+
+Community response to AI assisted contributions
+The community creates guidelines regarding AI assisted contributions
+
+AI assisted contributions appear on projects hosted by all major software foundations
+
+AI assisted contributions are used by all technologies
+
+From Community Signals to an Internal Operating Model
+Community Can we trust it? Company Can we explain and support it?
+The goal is to make AI-assisted contributions trustworthy and 
+reviewable, without shifting unnecessary work to maintainers.
+What maintainers need What companies must build
+• Reviewable, accountable contributions
+• Project-specific AI rules respected
+• Clear rationale and test evidence
+• Guardrails before contribution
+• Evidence captured during development
+• A human who can explain and support the change
+
+Classify AI Use Before Setting the Review
+AI-assisted
+Human-led 
+change
+Normal review +
+checks as needed
+AI-generated
+Substantial 
+code generation​
+Provenance + 
+deeper review​
+AI-transformed
+Port or rewrite
+Original source +
+license
+AI-reviewed
+AI supports 
+review
+Human makes the 
+final judgement
+Agent-executed
+Creates, modifies 
+or merges  
+changes 
+Scoped permissions 
++ logs + 
+approval gates​
+More autonomy or uncertainty means more evidence and earlier escalation.
+
+Three Foundations, in Plain Language
+ISO/IEC 5230
+Are we organized?
+A management-system 
+standard for open source 
+license compliance.
+Defines policy, roles, 
+review, approval, training, 
+and evidence.
+SLSA v1.2
+Can we trust the build?
+A framework for incrementally 
+improving software supply 
+chain security.
+Connects source, build 
+process, provenance, and 
+artifact verification.
+ISO/IEC 18974
+Can we respond?
+A management-system 
+standard for open source 
+security assurance.
+Supports vulnerability 
+monitoring, impact assessment, 
+remediation, and records.
+5230 supports process governance. SLSA strengthens the source-to-artifact 
+path. 18974 supports continuing security response.
+
+One Attack Chain, Four Governance Layers
+No single framework addresses the entire attack chain.
+Actual incident: cline@2.3.0 installed OpenClaw through a postinstall script; the package was live for about eight hours.
+Sources: Snyk, “How Clinejection Turned an AI Bot into a Supply Chain Attack” (Feb. 19, 2026); The Hacker News (Feb. 20, 2026)
+Untrusted input
+Malicious content 
+entered the AI prompt
+› › ›
+Privileged AI agent
+The agent could 
+execute commands
+CI/CD and 
+release boundary crossed
+The attack reached 
+release credentials
+Unauthorized artifact 
+published
+A compromised 
+package reached users
+AI-specific controls
+Treat external text as 
+untrusted. Limit tools, 
+secrets, and execution.
+ISO/IEC 5230
+Define scope, owner, 
+review, approval, and 
+retained evidence.
+SLSA v1.2
+Generate and verify 
+provenance. Strengthen 
+source-to-artifact integrity.
+ISO/IEC 18974
+Monitor known 
+vulnerabilities, assess 
+impact, remediate, and 
+retain response records.
+
+Layered Governance for AI-Assisted Contributions​
+Layer / Foundation Governance Question AI-assisted contribution practice
+Policy & Scope
+ISO/IEC 5230
+What is covered, and who is 
+accountable?
+Define acceptable AI use, input restrictions, 
+agent scope and approval conditions
+Review & Stewardship
+ISO/IEC 5230
+How is the change reviewed, 
+authorized, and supported upstream?​
+Consider a human owner, project-specific rules, 
+agent permissions, rationale, test evidence, and 
+risk-based escalation.
+Evidence & Provenance​
+ISO/IEC 5230 + SLSA What must be retained and verifiable?​
+Preserve AI-use declarations, source revision, 
+agent logs, review and test evidence, SLSA 
+provenance, and approval records.​
+Security Assurance​
+SLSA + ISO/IEC 18974
+How are build integrity and continuing 
+response maintained?​
+Use SLSA for source-to-artifact integrity.
+Monitor known vulnerabilities, assess impact, 
+remediate, and record the response.
+Shared Governance​
+All layers + AI controls​ When is joint assessment required?​
+Bring in OSPO, engineering, legal/IP, security, 
+DevOps, and AI governance when provenance, 
+permissions, release, or vulnerability triggers 
+apply.​
+Five practical questions connect contribution governance, provenance, security response, and AI-specific controls.​.​.
+
+Key Takeaways
+• Project maintainers are seeing a workload increase driven by AI 
+which reflects in a negative technology impact and maintainer 
+burnout.
+• AI benefits are discovered by Open Source community and 
+contribution guidelines are updated to reflect the new way of 
+working.
+• We see potential to adapt existing frameworks to AI-assisted 
+contributions, together with AI-specific controls.
+• We believe governance should reflect AI autonomy, maintainer 
+impact, and associated supply chain risk.
+
+Thank you!
+Questions?
+
+
+
+
+
+
+
+
+
+
+
+22
+
+
