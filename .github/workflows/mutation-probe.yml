@@ -103,6 +103,12 @@ jobs:
         with:
           python-version: '3.12'
 
+      # [FIX 2026-10-13] setup-python の 3.12 には PyYAML が無く、Check 23 (workflow YAML の構文)
+      #   が skip されて mutation が SURVIVED していた (run 38224080131)。PR ゲートは runner 同梱の
+      #   python3 (python3-yaml あり) で走るので、gate と probe で検査される集合が食い違っていた。
+      - name: Install PyYAML (Check 23 needs it)
+        run: python3 -m pip install --disable-pip-version-check 'pyyaml==6.0.2'
+
       # consistency probe は playwright を起動しないので npm ci / browser install は不要。
       # (behavior 側だけが node/chromium を要る = 分割によって consistency の起動コストも減る)
       - name: Run consistency probe
