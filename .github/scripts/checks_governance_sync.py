@@ -151,8 +151,17 @@ def run(ctx):
             "Check 23: YAML parse errors: " + "; ".join(yaml_errors),
         )
     except ImportError:
-        print("WARNING: PyYAML not available — YAML syntax check skipped")
-        warnings.append("PyYAML not available — YAML syntax check skipped")
+        # [FIX 2026-10-13] CI では skip せず RED にする。mutation-probe の consistency job は
+        #   setup-python の素の 3.12 (PyYAML 無し) で走っていたため、ここが WARNING で通過し
+        #   Check 23 の mutation が 2026-10-05 / 10-12 の 2 週連続で SURVIVED した (run 38224080131)。
+        #   PR ゲートは runner 同梱の python3 (python3-yaml あり) なので気付けなかった。
+        #   道具が欠けたら検査を黙って飛ばす経路は、CI では許さない。
+        import os as _os23
+        if _os23.environ.get("CI"):
+            check(False, "", "Check 23: PyYAML not available in CI — YAML syntax check cannot run (install pyyaml in this job)")
+        else:
+            print("WARNING: PyYAML not available — YAML syntax check skipped")
+            warnings.append("PyYAML not available — YAML syntax check skipped")
 
     # ── 24. P1-01: llms-full.txt Last-Updated freshness vs AI2AI.md ──────────────
     import re as _re2, datetime as _dt
