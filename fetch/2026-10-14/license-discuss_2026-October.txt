@@ -1,0 +1,200 @@
+From podumatos.dev at gmail.com  Sun Oct 11 10:21:06 2026
+From: podumatos.dev at gmail.com (=?UTF-8?B?0JzQuNGF0LDQuNC7INCn0LXRgNC90L7Qsg==?=)
+Date: Sun, 11 Oct 2026 17:21:06 +0700
+Subject: [License-discuss] Pre-submission discussion: Zero-Clause BSD with
+ Patent Grant (0BSD-P)
+Message-ID: 
+ <CAM_TyZBOiGGDRjfYhcG4zW9YnCgHf+X4m5Nc9F+r0VttS5mtRw@mail.gmail.com>
+
+Subject: Pre-submission discussion: Zero-Clause BSD with Patent Grant
+(0BSD-P)
+
+Hello,
+
+I am considering submitting the Zero-Clause BSD with Patent Grant (0BSD-P)
+to OSI for approval. Before doing so, I would like to get feedback from the
+community.
+
+I am not a lawyer, and I am not trying to draft a novel license from
+scratch.
+What I am proposing is a strict combination of two already-approved
+licenses:
+the Zero-Clause BSD License (0BSD) and the patent grant from the
+BSD-2-Clause
+Plus Patent License (BSD-2-Clause-Patent).
+
+The gap I see is this: no OSI-approved license currently combines zero
+attribution requirements with an express patent grant.
+
+Today, a developer who wants to release code without any attribution
+obligation has two OSI-approved options: 0BSD and MIT-0. Neither of them
+contains a patent grant. A developer who wants patent protection has options
+like BSD-2-Clause-Patent and Apache-2.0, but both require attribution, and
+Apache-2.0 additionally includes a patent termination clause that makes it
+incompatible with GPLv2.
+
+This means that for small utilities, scripts, generated code, or similar
+artifacts where attribution is impractical or undesirable, there is no
+OSI-approved way to also grant patent protection. The 0BSD-P is meant to
+fill
+exactly that gap.
+
+The license text is a direct combination of two approved texts. The
+permissive
+paragraph is taken verbatim from 0BSD. The patent grant paragraph is taken
+from BSD-2-Clause-Patent, with one adaptation: references to "contributor"
+and
+"Contribution" have been removed, because 0BSD has no conditions that would
+create a contributor in the legal sense. The patent grant remains
+irrevocable
+and does not include a termination clause, which preserves the GPLv2
+compatibility that BSD-2-Clause-Patent is known for.
+
+I have attached the full text. I would appreciate any feedback, especially
+on:
+
+1. Whether this gap is real and worth filling.
+2. Whether the combination is correct.
+3. Whether there are any concerns about OSD compliance.
+
+Thank you for your time.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20261011/ce6d71e6/attachment.htm>
+-------------- next part --------------
+Zero-Clause BSD with Patent Grant (0BSD-P)
+Version 1.0
+
+Copyright (C) YEAR by AUTHOR EMAIL
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+Subject to the terms and conditions of this license, the copyright holder
+hereby grants to those receiving rights under this license a perpetual,
+worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except
+for failure to satisfy the conditions of this license) patent license
+to make, have made, use, offer to sell, sell, import, and otherwise transfer
+this software, where such license applies only to those patent claims,
+already acquired or hereafter acquired, licensable by the copyright holder
+that are necessarily infringed by this software alone or by combination of
+this software with the work to which such software was added.
+The patent license shall not apply to any other combinations which include
+this software.
+Except as expressly stated above, no other rights or licenses from the
+copyright holder are granted under this license, whether expressly, by
+implication, estoppel or otherwise.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+
+From matija at suklje.email  Wed Oct 14 13:23:07 2026
+From: matija at suklje.email (Matija =?UTF-8?B?xaB1a2xqZQ==?=)
+Date: Wed, 14 Oct 2026 15:23:07 +0200
+Subject: [License-discuss] Call for feedback on FLA-2.1_RC
+In-Reply-To: <W7TaUf2FTk-mTTMvc70Yfw@suklje.email>
+References: <W7TaUf2FTk-mTTMvc70Yfw@suklje.email>
+Message-ID: <W9EkReOuRSy8vqAwQ9OfQg@suklje.email>
+
+Hi all,
+
+as things seem to have slowed down (read: I received no feedback) and at LLW 
+the only thing attendees at the LLW had a heated debate over was how the 
+current FLA-2.1_RC changes how we handle the definition of FOSS, I started a 
+quick poll:
+
+https://bigwhoop.wheremymonkeyis.at/apps/forms/s/TA7Gz3koWBmxXjS34df8cX5r
+
+It is just one multiple-choice question, so please take the 2 minutes and vote 
+for your fave.
+
+As a gentle reminder, the discussion during the Q&A came to the conclusion 
+that there is no good solution, we are simply looking for something that works 
+and is the least bad option, so we can wrap it up.
+
+
+cheers,
+Matija
+
+Dne četrtek, 17. september 2026 ob 22:06:20 Srednjeevropski poletni čas je 
+Matija Šuklje napisal(a):
+> Dear all,
+> 
+> something different for a change – I am looking for feedback on an _inbound_
+> license agreement. Specifically, the newest revision of the Fiduciary
+> License Agreement, which originates with the FSFE.
+> 
+> In case you missed it, the Fiduciary License Agreement – a/the balanced CLA 
+> – version 2.1 has a release candidate ready and we would welcome feedback
+> from this wonderful crowd of experts, to make sure the final version is as
+> best as it can be.
+> 
+> To help with the brainstorming, here are some topics to consider:
+> 
+> • double-check the patent section – expert eyes welcome
+> 
+> • a better term for non-code contributions to replace “documentation” would
+> be great, as well as having a fall-back (outbound) license option for that
+> 
+> • with “generative AI” looming over all of us, is there anything in the text
+> that needs to be improved to account for that too?
+> 
+> • some have expressed concerns about FOSS licenses being defined as“terms of
+> any licenses that qualify as [Free
+> Software](https://www.gnu.org/philosophy/ free-sw.html) as defined by the
+> Free Software Foundation and at the same time qualify as [Open
+> Source](https://opensource.org/osd) as defined by the Open Source
+> Initiative.” instead of OSI-approved AND/OR FSF-Free – the consensus in the
+> room seems to have been, that there are no good options and we need to find
+> consensus on what’s the least bad option.
+> So, what _is_ the least bad option? :)
+> 
+> We intend to release the FLA-2.1 to the general public soon (in fact it is
+> already passed our original plans), so .
+> 
+> For your convenience, I am attaching my slides from the LLW presentation.
+> 
+> Relevant links:
+> 
+> • current draft (click “changes” tab for a better overview) as changes to
+> the FLA-2.0:
+> <https://github.com/contributoragreements/ca-cla-chooser/pull/94/>
+> 
+> • a diff viewer for different (2.1_RC) options selected in the CLA chooser –
+> both for the FLA and beyond the FLA (kudos: Florian):
+> <https://contributoragreements.org/ca-cla-chooser/viewer.html>
+> 
+> • the standard way of obtaining the FLA-2.1(_RC) is to go to
+> ContributorAgreements.org and going through the CLA chooser by keeping the
+> defaults as they are – they default to FSFE’s FLA:
+> <https://contributoragreements.org/ca-cla-chooser/>
+> 
+> • issues that are still open (some can be postponed to 3.0):
+> <https://github.com/contributoragreements/ca-cla-chooser/issues>
+> 
+> 
+> kind regards,
+> Matija
+> —
+> P.S. If anyone wants to be deeply involved with the FLA, we have a separate
+> mailing list too.
+> P.P.S. Before anyone complains: I’m not saying you need a CLA, but I’m
+> saying that if you do happen to need a CLA, the FLA is arguably the best
+> option for a FOSS (or dual-licensed) project. Please don’t roll your own,
+> and definitely not a CAA.
+
+
+-- 
+gsm:    tel:+386.41.849.552
+www:    https://matija.suklje.name
+xmpp:   hook at campfire.wheremymonkeyis.at
+matrix: @hook:kompot.si
+
+
+
+
