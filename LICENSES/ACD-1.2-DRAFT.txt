@@ -172,7 +172,13 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       strength of the fallback if Section 3 fails. This entry was missing when
       the clause changed, so for three days this list did not state the whole
       of the difference, as it says it does.
-    * ACD-1.1: 5051 words, 78 clauses. This draft: 5398 words, 80 clauses.
+    * Section 6.1 now says "for any purpose, whether or not commercial" where
+      ACD-1.0 and ACD-1.1 say "commercial or non-commercial". The permission
+      is the same. The old words were the reason a widely used licence
+      scanner (ScanCode 32.5.0, rule proprietary-license_544, "Non
+      Commercial") reported this text as containing a proprietary licence;
+      no OSI-approved licence text triggers that rule.
+    * ACD-1.1: 5051 words, 78 clauses. This draft: 5399 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -455,7 +461,7 @@ PREAMBLE (informative; not part of the operative terms)
 6. MACHINE LEARNING, TEXT AND DATA MINING, AND MODEL TRAINING
 
   6.1  Computational Use of the Work is expressly permitted, for any purpose,
-       commercial or non-commercial, by any person or automated system, without
+       whether or not commercial, by any person or automated system, without
        condition, so far as the Covered Rights and patent claims of the
        Dedicator are concerned (Section 2.7).
 
