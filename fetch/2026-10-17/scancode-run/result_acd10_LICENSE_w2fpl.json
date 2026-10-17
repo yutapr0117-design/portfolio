@@ -1,0 +1,188 @@
+{
+ "acd10.txt": [
+  {
+   "license_expression": "public-domain",
+   "rule": "public-domain_bare_words.RULE",
+   "score": 70.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 19,
+   "end_line": 19
+  },
+  {
+   "license_expression": "public-domain",
+   "rule": "public-domain_256.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 32,
+   "end_line": 32
+  },
+  {
+   "license_expression": "public-domain",
+   "rule": "public-domain_298.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 175,
+   "end_line": 175
+  },
+  {
+   "license_expression": "proprietary-license",
+   "rule": "proprietary-license_544.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 262,
+   "end_line": 262
+  },
+  {
+   "license_expression": "unknown",
+   "rule": "unknown_35.RULE",
+   "score": 99.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 361,
+   "end_line": 361
+  },
+  {
+   "license_expression": "fsf-unlimited-no-warranty AND other-copyleft",
+   "rule": "fsf-unlimited-no-warranty_and_other-copyleft_1.RULE",
+   "score": 5.07,
+   "coverage": 5.33,
+   "matcher": "3-seq",
+   "start_line": 450,
+   "end_line": 450
+  },
+  {
+   "license_expression": "warranty-disclaimer",
+   "rule": "warranty-disclaimer_24.RULE",
+   "score": 90.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 481,
+   "end_line": 481
+  },
+  {
+   "license_expression": "unknown-license-reference",
+   "rule": "unknown-license-reference_351.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 497,
+   "end_line": 497
+  },
+  {
+   "license_expression": "fsf-unlimited-no-warranty AND other-copyleft",
+   "rule": "fsf-unlimited-no-warranty_and_other-copyleft_1.RULE",
+   "score": 5.07,
+   "coverage": 5.33,
+   "matcher": "3-seq",
+   "start_line": 499,
+   "end_line": 499
+  },
+  {
+   "license_expression": "robert-hubley",
+   "rule": "robert-hubley.LICENSE",
+   "score": 9.43,
+   "coverage": 9.43,
+   "matcher": "3-seq",
+   "start_line": 502,
+   "end_line": 503
+  },
+  {
+   "license_expression": "unknown-license-reference",
+   "rule": "license-intro_2.RULE",
+   "score": 50.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 534,
+   "end_line": 534
+  },
+  {
+   "license_expression": "unknown-spdx",
+   "rule": "spdx-license-identifier-unknown_spdx-12cd02c80c8fdaafce159a7711fab49599338cbf",
+   "score": 83.33,
+   "coverage": 100.0,
+   "matcher": "1-spdx-id",
+   "start_line": 562,
+   "end_line": 562
+  },
+  {
+   "license_expression": "unknown-spdx",
+   "rule": "spdx-license-identifier-unknown_spdx-a5befcfc15c952856cca65c71608494d57deda60",
+   "score": 91.67,
+   "coverage": 100.0,
+   "matcher": "1-spdx-id",
+   "start_line": 565,
+   "end_line": 565
+  },
+  {
+   "license_expression": "unknown-license-reference",
+   "rule": "license-intro_9.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 580,
+   "end_line": 580
+  }
+ ],
+ "repo_LICENSE.txt": [
+  {
+   "license_expression": "unknown-spdx",
+   "rule": "spdx-license-identifier-unknown_spdx-12cd02c80c8fdaafce159a7711fab49599338cbf",
+   "score": 83.33,
+   "coverage": 100.0,
+   "matcher": "1-spdx-id",
+   "start_line": 1,
+   "end_line": 1
+  },
+  {
+   "license_expression": "warranty-disclaimer",
+   "rule": "warranty-disclaimer_24.RULE",
+   "score": 90.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 118,
+   "end_line": 118
+  },
+  {
+   "license_expression": "unknown-license-reference",
+   "rule": "unknown-license-reference_351.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 121,
+   "end_line": 121
+  }
+ ],
+ "w2fpl.txt": [
+  {
+   "license_expression": "wtfnmfpl-1.0",
+   "rule": "wtfnmfpl-1.0.RULE",
+   "score": 49.12,
+   "coverage": 49.12,
+   "matcher": "3-seq",
+   "start_line": 9,
+   "end_line": 19
+  },
+  {
+   "license_expression": "warranty-disclaimer",
+   "rule": "warranty-disclaimer_24.RULE",
+   "score": 90.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 29,
+   "end_line": 29
+  },
+  {
+   "license_expression": "zlib",
+   "rule": "zlib_variant.RULE",
+   "score": 3.79,
+   "coverage": 3.79,
+   "matcher": "3-seq",
+   "start_line": 29,
+   "end_line": 30
+  }
+ ]
+}
