@@ -195,7 +195,7 @@ Endeavor clause. **I wrote that clause.**"* ——ACD-1.0 §4.3 / §10.1 は利�
 | 57 | Bruce Perens | あり |
 | 27 | McCoy Smith | あり |
 | 25 | Josh Berkus | あり |
-| 25 | Pamela Chestek（Licensing Committee 委員長）| あり |
+| 25 | Pamela Chestek（2025-03 まで Licensing Committee 委員長・以後委員）| あり |
 | 15 | David Woolley | あり |
 | 11 | Kevin P. Fleming | あり |
 | **11** | **Roland Turner** | **🔴 無し** |
@@ -279,7 +279,7 @@ Endeavor clause. **I wrote that clause.**"* ——ACD-1.0 §4.3 / §10.1 は利�
 （**85 通・85,884 語・2026-08-13〜08-31** と 9 月の続き）と ModelGo。
 **読み方は「この反論は我々に当たるか」ではなく「彼らが作業した結果は何か」。**
 
-### (A) 委員長の一般則 —— 冗長な条項は無害ではない。そして ACD は最後の鎖で切れている
+### (A) Chestek 氏（委員・元委員長）の一般則 —— 冗長な条項は無害ではない。そして ACD は最後の鎖で切れている
 
 > *"The licensor has a typical statement that the materials are provided as-is (and disclaimers of
 > warranty and liability) so the above clause is, in my opinion, **redundant or unnecessary**.
@@ -350,7 +350,7 @@ would in any event permit"*）。**答えは no-condition mesh**（§10.1 / §10
 社会的に強制されていることは別で、**後者を示す一次資料をこれまで持っていなかった。**
 
 **(2) 同じ機構が、別の人物から独立にもう一度述べられている。** *"The people we most need on this
-list are those whose time is very precious"* は、**委員長が 3,888 語 / 約 4,500 語の提出に
+list are those whose time is very precious"* は、**Chestek 氏が 3,888 語 / 約 4,500 語の提出に
 engage しなかった記録（#116）と同じ論理**である。**#116 は行動からの推定だったが、これは
 明示された規範である。**
 
@@ -472,22 +472,22 @@ the license from consideration**."*
 
 **以下の 2 節は `ACD-1.0.review-corpus.md` から 2026-09-28 に移した**（節番号は不変・移転の理由は移転元の末尾）。
 
-## 1.73 Licensing Committee 委員長が、我々を名指しで謝辞した（2026-09-10）—— そして、それが何を示さないか
+## 1.73 Licensing Committee 委員（元委員長）が、我々を名指しで謝辞した（2026-09-10）—— そして、それが何を示さないか
 
 **逐語**（`rounds/2026-09-10-license-review-chestek-names-us.txt`・OpenMDW-1.1 の審査スレッド）:
 
 > *"I would like to thank **Yuta-san** for their **insightful view on the termination provision**,
-> which I find helpful."* —— Pamela Chestek（**Licensing Committee 委員長**・2026-09-10 18:07）
+> which I find helpful."* —— Pamela Chestek（**Licensing Committee 委員・元委員長**・2026-09-10 18:07）
 
 **これで `license-review` 上で我々の投稿に反応した人は 6 人になった**（2026-09-13 に全数で確認）:
 Michael Dolan 氏（LF・OpenMDW steward・名指しで回答）/ Moming Duan 氏（ModelGo steward・条文に即した
 回答 + 2026-09-08 に参照リストへ採録）/ Shuji Sado 氏（我々の質問を引いて議論を進めた）/
-Ruby Anna 氏（*"Hi Yuta … You have interpreted …"*）/ **Pamela Chestek 氏（委員長）**。
+Ruby Anna 氏（*"Hi Yuta … You have interpreted …"*）/ **Pamela Chestek 氏（委員・元委員長）**。
 
 **示すこと（狭く書く）**:
 
-- **委員長は我々の寄与を読み、有用だと述べ、承認リスト上で名指しした。**
-- **それは moderator 通知（2026-09-09）の翌日である。** ——**通知の後も、委員長による実質的な
+- **Chestek 氏（委員・元委員長）は我々の寄与を読み、有用だと述べ、承認リスト上で名指しした。**
+- **それは moderator 通知（2026-09-09）の翌日である。** ——**通知の後も、Chestek 氏（委員・元委員長）による実質的な
   やり取りは続いている。**
 
 **示さないこと（同じ精度で書く）**:
@@ -495,16 +495,16 @@ Ruby Anna 氏（*"Hi Yuta … You have interpreted …"*）/ **Pamela Chestek �
 - **ACD-1.0 について何も言っていない。** 発言は**他者の提出**（OpenMDW-1.1）の審査中のもので、
   **我々の提出への応答ではない。ACD-1.0 への返信は依然としてゼロである**（2026-09-13 時点・
   `license-discuss` 2026-09 は 9 通のままで、我々の 2 通に返信は無い）。
-- **我々が moderator 通知の名宛人だったかを決めない。** 翌日に委員長が謝辞したことは、
+- **我々が moderator 通知の名宛人だったかを決めない。** 翌日にChestek 氏（委員・元委員長）が謝辞したことは、
   **「通知は我々のことではなかった」とも「我々は問題視されていない」とも読めない。**
-  通知は moderators が出し、謝辞は委員長が出した ——**別の人が、別のことについて述べている。**
+  通知は moderators が出し、謝辞はChestek 氏（委員・元委員長）が出した ——**別の人が、別のことについて述べている。**
 - **B1（法的レビュー無し）と B2（採用 1 件）を 1 ミリも動かさない。**
 
 **議論の中身も記録しておく（ACD の設計に直接あたる）。** このスレッドの争点は
 **「著作権の主張を引き金にした許諾の終了」が open source と両立するか**である。委員長は
 *"I do find it inconsistent with my understanding of open source … that someone who intentionally
 committed a wrongful act should be allowed to avoid the consequences"* と述べ、
-Josh Berkus 理事は逆に *"accidental infringing copying happens all the time"* と述べ、
+Josh Berkus 氏（2026-02 まで理事・委員長）は逆に *"accidental infringing copying happens all the time"* と述べ、
 Richard Fontana 氏は *"OpenMDW-1.1 is different in this respect because its copyright-triggered
 termination reaches **all** sorts of copyright claims"* と述べている。
 **ACD-1.0 はこの争点の外にある** ——**終了条項を持たず（§10.4）、報復条項も持たない（§8.2）。**

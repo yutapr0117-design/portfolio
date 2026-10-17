@@ -36,7 +36,7 @@ canonical-ref: LICENSES/ACD-1.0.review-corpus.md (アーカイブ全体の件数
 
 **⚠ 逆側（同じ段落で書く）**: **アーカイブは公開記録であり、そこを読む人は 5,808 語に出会う。**
 **添付という形式そのものを嫌う審査者もいる**（URL を好む）。そして **B3 の本体は無傷である** ——
-委員長が engage しなかった 2 例（3,888 語 / 約 4,500 語）は**ライセンス本文の長さ**についてであって、
+Chestek 氏が engage しなかった 2 例（3,888 語 / 約 4,500 語）は**ライセンス本文の長さ**についてであって、
 送り状の長さについてではない。**崩れたのは「8 月の*メール*が長すぎた」だけである。**
 
 ### 測定 1 —— 長さは、返信が付くかを予測しない
@@ -98,7 +98,7 @@ canonical-ref: LICENSES/ACD-1.0.review-corpus.md (アーカイブ全体の件数
 ### 測定 5 —— 誰が実際に答えているか（返信数・上位）
 
 Bruce Perens 184 / McCoy Smith 102 / John Cowan 76 / Thorsten Glaser 76 /
-**Pamela Chestek 76**（Licensing Committee 委員長）/ Russell McOrmond 71 / Richard Fontana 71 /
+**Pamela Chestek 76**（2025-03 まで Licensing Committee 委員長・2025-04 から委員）/ Russell McOrmond 71 / Richard Fontana 71 /
 Josh Berkus 65 / Rick Moen 57 / Van Lindberg 55 / Russ Nelson 50 / Larry Rosen 46。
 
 **返信は少数の常連が書いている。** 我々のドシエが既に追っている名前と重なる。

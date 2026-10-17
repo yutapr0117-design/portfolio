@@ -177,14 +177,14 @@ E15（§8.4 の程度の限定 ——**入れれば gap が縮む**ので設計�
 ## 0.7 草案で **直さないと決めた** errata と、その理由（2026-09-10）
 
 **追加（2026-09-13）—— §6（出力への言及）も、直さないと決めた。**
-**理由は errata と違い、外部の見解との対立である。** Licensing Committee 委員長は 2025-12-15 に
+**理由は errata と違い、外部の見解との対立である。** Licensing Committee 委員（元委員長）は 2025-12-15 に
 ModelGo に対し *"you have created ambiguity about the legal status of the output **by mentioning
 it**"* / *"**it's not worth including Output at all in the license**"* と述べている
 （`review-corpus.md` §1.77・`against.md` #133）。**ACD §6.4 は意図的に言及している。**
 
 **削らない理由は 2 つ。** **(1)** §6 は **gap の主張の 3 分の 1** を担っており、
 **gap は「あれば良いもの」ではなく承認の要件である**（"Standard for new licenses" 項目 7）。
-**(2)** 委員長自身が *"I wouldn't reject the license for that reason"* と明記しており、
+**(2)** Chestek 氏（委員・元委員長）自身が *"I wouldn't reject the license for that reason"* と明記しており、
 **失格事由ではない。**
 
 **かわりにやったこと**: **提出文（§B.0）でこの対立を自分から名指しした**（2026-09-13）。
@@ -575,7 +575,7 @@ English text prevails, is not a modified text for this purpose"*）。
 
 ### そして、これで足りないことが分かった
 
-**改定後は本体 4,268・全体で約 4,590 語。** 委員長が engage しなかった 2 例は
+**改定後は本体 4,268・全体で約 4,590 語。** Chestek 氏が engage しなかった 2 例は
 **3,888 語**と**約 4,500 語**である（#116）。**機構部だけを削っても、その 2 つを下回らない。**
 
 **したがって B3 は「無駄を削る」問題ではない。** 下回るには次のどちらかが要る ——
@@ -648,7 +648,7 @@ English text prevails, is not a modified text for this purpose"*）。
 **(c) 本文の中で圧縮する。** 対象は **§1（573）+ §2（554）+ §15（324）+ §16（346）= 1,797 語、
 本体の 39%**。**§2.6 の 306 語はすでにこの領域から取っている。**
 
-**そして、正直に書いておくべきことがある** ——**3,888 語（委員長が "excessively wordy" と述べた
+**そして、正直に書いておくべきことがある** ——**3,888 語（Chestek 氏（委員・元委員長）が "excessively wordy" と述べた
 提出物）を下回るには、この 1,797 語を半分以下にする必要がある。**
 定義 10 件はすべて使われており（§4c・最少でも 3 箇所）、**削るのではなく書き直すことになる。**
 **それが gap を損なわずに可能かどうかは、まだ実証していない。** §2.6 の教訓
@@ -700,7 +700,7 @@ English text prevails, is not a modified text for this purpose"*）。
 既に締まっている条ほど率は下がる**）。§2.6 の 306 語と合わせて **約 666 語**、
 **4,896 → 約 4,230 語。**
 
-**委員長が *"excessively wordy"* と述べた提出物は 3,888 語である（#116）。届かない。**
+**Chestek 氏（委員・元委員長）が *"excessively wordy"* と述べた提出物は 3,888 語である（#116）。届かない。**
 
 ### したがって B3 の結論
 
@@ -732,7 +732,7 @@ gap 部 1,041 語を削れば届くが、**それは新規性の根拠を捨て�
 
 | 出所 | 原理 | 当たる場所 | 1.1 での扱い |
 |---|---|---|---|
-| Pamela Chestek 氏（委員長）・`license-review` 2026-09-11（OpenMDW の終了条項について）—— *"You're putting the **burden on the potentially wronged party** … You are also assuming the licensee **has knowledge** that will allow them to make an informed choice, but **that's not the reality**"* | **負担を、知り得ない側に置いていないか** | **§6.3** ——**ACD 全体でただ一つ、第三者がした行為に対して働くと述べる条項**（実測: §5.1 / §8.6 / §8.2 / §2.7 はいずれも Dedicator 自身の行為しか縛らない）。*"to the fullest extent the Dedicator is able"* は**読んだ時点では何も確定させない限定**で、届いていないことを知る負担は第三者と受領者に残る | **既に閉じている（本 file §1 の (1)・2026-09-14）。** 草案の §6.3 は *"the Dedicator has **no power to withdraw it** and this Section does not purport to give one; the disclaimer of reliance operates in every case"* を持つ。**つまりこの原理は、前日に入れた修正が*なぜ*価値があったのかを外から名指ししている** ——処方（「狭めよ」）ではなく**負担の置き場所**が理由だった。**残るのは 1.0 の側だけ**で、そこは凍結中につき直さず記録する（`review-doctrine.md` §1.84 / `against.md` #147）。**⚠ この行の初版は「未決」と書いていた —— 草案を開かずに。** |
+| Pamela Chestek 氏（委員・元委員長）・`license-review` 2026-09-11（OpenMDW の終了条項について）—— *"You're putting the **burden on the potentially wronged party** … You are also assuming the licensee **has knowledge** that will allow them to make an informed choice, but **that's not the reality**"* | **負担を、知り得ない側に置いていないか** | **§6.3** ——**ACD 全体でただ一つ、第三者がした行為に対して働くと述べる条項**（実測: §5.1 / §8.6 / §8.2 / §2.7 はいずれも Dedicator 自身の行為しか縛らない）。*"to the fullest extent the Dedicator is able"* は**読んだ時点では何も確定させない限定**で、届いていないことを知る負担は第三者と受領者に残る | **既に閉じている（本 file §1 の (1)・2026-09-14）。** 草案の §6.3 は *"the Dedicator has **no power to withdraw it** and this Section does not purport to give one; the disclaimer of reliance operates in every case"* を持つ。**つまりこの原理は、前日に入れた修正が*なぜ*価値があったのかを外から名指ししている** ——処方（「狭めよ」）ではなく**負担の置き場所**が理由だった。**残るのは 1.0 の側だけ**で、そこは凍結中につき直さず記録する（`review-doctrine.md` §1.84 / `against.md` #147）。**⚠ この行の初版は「未決」と書いていた —— 草案を開かずに。** |
 
 ## Constraints
 

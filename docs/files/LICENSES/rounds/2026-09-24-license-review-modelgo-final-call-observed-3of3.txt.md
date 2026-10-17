@@ -19,7 +19,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約) / LICENSES/ACD-1.0
 ## Why
 
 **ModelGo は主題が ACD に最も近い同時代の instrument** で、`rounds/` には 2026-09-03〜09-08
-までしか無かった。この区間が重要なのは、**Licensing Committee の委員長が、公表されている
+までしか無かった。この区間が重要なのは、**Licensing Committee の委員（元委員長）が、公表されている
 新規ライセンスの基準** *"The license does not have terms that **structurally put the licensor
 in a more favored position than any licensee**"* **を具体的な条項へ実際に当てている**からである
 （`review-rules.md` 行 2 が **2026-09-24 に別セッションの手で結論と結末を記録済み**。**この区間の価値は逐語の導出と逆側であって、事実の新規性ではない** —— 本 mirror の初版は「適用された実例は一度も持っていなかった」と書いており、それは誤りだった）。

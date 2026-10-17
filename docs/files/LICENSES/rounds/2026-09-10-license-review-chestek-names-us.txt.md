@@ -9,7 +9,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約) / LICENSES/ACD-1.0
 
 ## What
 
-**Pamela Chestek 氏（OSI Licensing Committee 委員長）が 2026-09-10 に `license-review` へ投稿した
+**Pamela Chestek 氏（OSI Licensing Committee 委員・元委員長）が 2026-09-10 に `license-review` へ投稿した
 1 通の逐語。** OpenMDW-1.1 の審査スレッドの中で、**我々（Yuta-san）を名指しで謝辞している**:
 
 > *"I would like to thank **Yuta-san** for their **insightful view on the termination provision**,
@@ -27,7 +27,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約) / LICENSES/ACD-1.0
 **引用元の本文がリポジトリに無ければ、読み手は我々の要約しか確かめられない**（#82 の教訓）。
 
 **(2) 日付が意味を持つため。** **これは moderator 通知（2026-09-09）の翌日である。**
-通知の後も委員長による実質的なやり取りが続いたという事実は、**保存しておかなければ
+通知の後もChestek 氏（委員・元委員長）による実質的なやり取りが続いたという事実は、**保存しておかなければ
 後から「いつだったか」を巡って争いになる。**
 
 **(3) 過大に読まれないため。** 本文を読めば、**これが ACD-1.0 についての発言ではない**ことが
