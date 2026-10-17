@@ -985,6 +985,18 @@
 | osi-github/osi_license_by_spdx_BlueOak-1.0.0.html | https://opensource.org/license/BlueOak-1.0.0 | https://opensource.org/license/BlueOak-1.0.0 | 200 | 186480 | 8890e8f720b4c386 | 2026-10-17T10:42:57Z |
 | osi-github/osi_license_by_spdx_Apache-2.0.html | https://opensource.org/license/Apache-2.0 | https://opensource.org/license/Apache-2.0 | 200 | 197117 | a4c81a375821b0d9 | 2026-10-17T10:42:57Z |
 
+
+## 17. `thirdparty/` — FSF のライセンス一覧・Blue Oak Council の評価リスト・choosealicense の付録・Debian の DFSG ライセンス wiki
+
+| file | 要求 URL | 最終 URL | status | bytes | sha256[:16] | 取得時刻（UTC） |
+|---|---|---|---|---|---|---|
+| thirdparty/fsf_license_list.html | https://www.gnu.org/licenses/license-list.html | https://www.gnu.org/licenses/license-list.html | 200 | 145962 | 707acf1e856210bf | 2026-10-17T10:44:20Z |
+| thirdparty/fsf_license_list_data_repo.json | https://api.github.com/repos/spdx/fsf-api | https://api.github.com/repos/spdx/fsf-api | 200 | 17583 | 89497a88b71d0b57 | 2026-10-17T10:44:21Z |
+| thirdparty/blueoak_list.json | https://blueoakcouncil.org/list.json | https://blueoakcouncil.org/list.json | 200 | 24197 | 297781e229eb912a | 2026-10-17T10:44:22Z |
+| thirdparty/blueoak_list.html | https://blueoakcouncil.org/list | https://blueoakcouncil.org/list | 200 | 42546 | 053073591e7485a4 | 2026-10-17T10:44:22Z |
+| thirdparty/choosealicense_appendix.html | https://choosealicense.com/appendix/ | https://choosealicense.com/appendix/ | 200 | 321973 | 32ae005490a2583a | 2026-10-17T10:44:23Z |
+| thirdparty/debian_dfsg_licenses.html | https://wiki.debian.org/DFSGLicenses | https://wiki.debian.org/.internal/challenge.html?original=%2fDFSGLicenses&referer= | 200 | 3319 | d19b9ef1e716a61d | 2026-10-17T10:44:23Z |
+
 ## 観測メモ（事実の指し先だけ・読みはクラウド側）
 
 1. **license-discuss 10 月に 3 通増えた**（Message-ID 基準）。(a) 2026-10-14 **Josh Berkus 氏**（0BSD-P スレッド）: Landley 氏の異議に全面同意したうえで、名前に "0BSD" を使うには BSD 側の許可が要ると指摘し、*"It's not the goal of the OSI to have licenses for every possible combination of conditions; if they wanted that, the OSI could just build its own license-generating LLM and be done with it. So, do you have a specific use for a license with patent grants and no attribution? Can you describe that use?"* (b) 2026-10-16 提出予定者が 0BSD-P を**取り下げ**（*"I could not describe a real project that needs this combination, and I understand why this looks like license proliferation."*）。(c) 同日、同じ人が **Model Chain Attribution License (MCAL)** の pre-submission を新規スレッドで開始（AI のデータセット→モデル→アプリの帰属を機械可読な Attribution Record で伝播させる AI 向けライセンス。本文は添付として配信）。2026-10-17 02:57 UTC に Roland Turner 氏が「SPDX と CycloneDX の既存仕事の再現に近い」と返信。
@@ -1029,3 +1041,6 @@
 40. `dotOrg` #219（closed）: ライセンス URL を SPDX ID（ドット入り）にする件は、2026-03-10 に Nick Vidal 氏がリダイレクトで解決（`/license/Apache-2-0` → `/license/apache-2.0`）。#220 はスラッグ自体にドットを保持する PR で open のまま（リダイレクトが効くなら不要と 03-27 に整理）。`/license/MIT-0`・`/license/BlueOak-1.0.0`・`/license/Apache-2.0` はどれも 200。
 41. **SPDX の申請手順（`request-new-license.md`）の改訂 PR #3078 版**: 「3 人以上の SPDX-legal メンバー（うち弁護士 1 人以上）が同意し、異議が無ければ承認」は維持（fast-track 以外に適用と明記）。現行の "a non-FOSS license only used for a small or personal project" を例に挙げた注意書きは消え、収録基準側の "used only by the license drafter" に移った形。**GitHub アカウントを持たない人は spdx-legal メーリングリストへ送ってよい**という経路が新設された。現行にある Fedora / Debian 由来の「2 人で承認」は手順書からは消え、収録基準の fast-track に移った。
 42. **SPDX legal team の議事録は `spdx/meetings` の `legal/` に 2024 年分までしか無い**（2025・2026 は年フォルダ自体が無い・最後のコミットは 2025-06-11）。2025〜2026 の legal call の議事は、この経路からは**取得できなかった**（issue のコメントに「X 月 Y 日の legal call で議論」とだけ残っている）。
+43. **Blue Oak Council の評価リスト（`blueoak_list.json`・version 16）**: Model 1 / Gold 1 / Silver 30 / Bronze 121 / Lead 72。公有に近い型と特許の比較対象: BSD-2-Clause-Patent = **Gold** / Apache-2.0・UPL-1.0 = Silver / **0BSD・CC0-1.0・MIT-0・Unlicense = Bronze** / **WTFPL = Lead**（W2FPL の元になったライセンス）。
+44. FSF のライセンス一覧（`fsf_license_list.html`）の版表示は `$Date: 2026/04/22 06:55:32 $`。`W2FPL` / `ACD-1` / `OpenMDW` / `ModelGo` の文字列は 0 件。
+45. Debian の `wiki.debian.org/DFSGLicenses` は proof-of-work のボット判定ページ（"I Challenge Thee"）で、中身は**取得できなかった**。
