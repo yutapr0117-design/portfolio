@@ -610,8 +610,8 @@ test('アプリ一覧のボタン名が行き先ごとに一意になる', async
 
 
 // ===== WCAG 2.5.3 (Label in Name) — 可視テキスト ⊆ アクセシブル名 =====
-// axe には該当ルール label-content-name-mismatch があるが `enabled: false`（experimental）
-// なので、上の withTags(['wcag21a', ...]) スキャンでは**一度も走らない**。つまり Level A の
+// axe には該当ルール label-content-name-mismatch があるが、4.13 までは `enabled: false`（experimental）
+// で、上の withTags(['wcag21a', ...]) スキャンでは**一度も走らなかった**（4.14.0 で既定有効になった）。つまり Level A の
 // この SC はリポジトリ全体で未検査だった。明示的に enabled: true にして走らせる。
 //
 // なぜ実害があるか: 音声入力の利用者は「画面に見えている文字」を読み上げて操作する。
@@ -696,8 +696,10 @@ test('可視テキストがアクセシブル名に含まれる (WCAG 2.5.3) —
 // 上げて新しい disabled ルールが増えたときに黙って未検査のまま残る (Check 415 が
 // STATUS.md の workflow 網羅を生成器と独立に導出するのと同じ設計)。
 const AXE_AA_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22a', 'wcag22aa'];
+// axe-core 4.14.0 で label-content-name-mismatch が既定で有効になり、この集合から外れた
+// （WCAG 2.5.3 は上の専用テストが明示的に走らせ続けている）。
 const DISABLED_AA_RULES = ['aria-roledescription', 'audio-caption', 'css-orientation-lock',
-  'label-content-name-mismatch', 'p-as-heading', 'table-fake-caption', 'target-size', 'td-has-header'];
+  'p-as-heading', 'table-fake-caption', 'target-size', 'td-has-header'];
 test('既定で無効な axe ルール (Level A/AA) を全ルートで走らせる', async ({ page }) => {
   // (1) 対象集合が axe の現状と一致しているか (axe 更新への追従を機械化)
   const derived = require('axe-core').getRules()
