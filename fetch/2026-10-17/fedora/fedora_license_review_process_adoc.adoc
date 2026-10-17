@@ -1,0 +1,282 @@
+= License Review Process
+
+If you find a license that covers part of a Fedora package, a proposed
+Fedora package, or some other Fedora Project artifact, that is not
+listed in the xref:allowed-licenses.adoc[allowed] or
+xref:not-allowed-licenses.adoc[not-allowed] license lists, please
+submit the license for review. Licenses are classified as allowed, allowed for certain types of
+material, or not allowed for inclusion in Fedora as discussed in
+xref:license-approval.adoc[License Approval]. 
+
+Fedora has adopted the
+use of SPDX expressions along with the SPDX matching guidelines as a
+standard system for representing and classifying licenses. In most cases where a license is classified as allowed, Fedora
+prefers to use standard SPDX license identifiers (contained in the
+SPDX License List) rather than custom-defined identifiers.
+
+The license review process typically involves these three steps:
+
+. Open a https://gitlab.com/fedora/legal/fedora-license-data/-/issues[fedora-license-data issue] for review of a license.  
+. Open an https://github.com/spdx/license-list-XML/issues[SPDX license-list-XML] issue (usually to request addition of an identifier for the license to the SPDX License List). This step is not needed if the license matches to a license already on the SPDX License List or if the license is determined to be _not-allowed_.
+. Once Fedora has decided how to classify the license, open a https://gitlab.com/fedora/legal/fedora-license-data/-/merge_requests[merge request] to add a TOML file for the license at fedora-license-data.
+
+The first step is typically initiated by a Fedora package maintainer,
+although any Fedora contributor is encouraged to request review of a
+license. We prefer that the person who initiates the first step also
+takes responsibility for the second and third steps, as this reduces
+the burden on the Fedora License Data maintainers and makes the
+license review process more efficient.
+
+Community software licenses that are apparently intended as jokes
+(https://github.com/ErikMcClure/bad-licenses[examples]) are generally analyzed
+as though they were serious.
+
+== Opening a Fedora License Data license review issue
+
+To request review of a license, you must be a Fedora contributor and
+become part of the Fedora Gitlab group. 
+
+Open a
+https://gitlab.com/fedora/legal/fedora-license-data/-/issues/new[new
+issue] for Fedora License Data using the license review issue
+template. You should ordinarily create one issue per license, rather
+than submit an issue referencing multiple licenses for review.
+
+TIP: If you need general help with identifying the licenses that apply
+to an entire package, we encourage you to submit an issue for this
+purpose. We will apply the `package inquiry` label to such issues.
+
+Title the issue `License Review: <identifying name>`. (The issue
+template function in Gitlab does not provide for an automatic issue
+title.) For the "identifying name", use an SPDX identifier, if
+applicable and known. If the license is not on the SPDX License List, 
+then use an official or commonly applied license name or
+a placeholder identifier. In any case, something unique and identifiable 
+makes it easier to track issues in the repository. The vast
+majority of license review issues use a placeholder name. This is
+usually not the identifier that ends up being used to represent the
+license in Fedora License Data.
+
+The license review issue template will ask you to provide the
+following information:
+
+* License name (required) -- you can use the "identifying name" that
+  you used in the issue title, or "None" if you prefer
+  
+* Text of license (required) -- please provide a link to the license
+  text or where it can be downloaded; also include the license 
+  text in a comment after creating the issue (particularly if it is
+  relatively brief license)
+
+* Fedora package name and link to upstream source code of the package
+  (required)
+
+* Is the license (or an exception, if your issue is requesting review
+  of a `WITH` expression) on the https://spdx.org/licenses[SPDX
+  License List]? (required) -- if yes, then include the applicable
+  SPDX license expression
+  
+* Reason for the license review (optional) -- for example, a link to the Bugzilla ticket for the package review
+
+All discussion related to the license review will occur in the issue
+thread and an official decision, based on application of the Fedora
+xref:license-approval.adoc[license approval criteria], will be noted
+there. A decision may sometimes be noted solely by application of an
+appropriate scoped label referring to the license classification.
+
+=== How to determine if a license or exception is on the SPDX License List
+
+The SPDX License List has an established set of https://spdx.github.io/spdx-spec/v2.3/license-matching-guidelines-and-templates/[guidelines] that define what constitutes a match to a https://spdx.org/licenses[license] or https://spdx.org/licenses/exceptions-index.html[exception] on the SPDX License List. This is intended to ensure that SPDX license identifiers and expressions mean the same thing wherever they are used.
+
+SPDX has some https://github.com/spdx/license-list-XML/blob/main/DOCS/license-match.md[guidance] for how to detect and match license texts you find
+to licenses on the SPDX License List.
+
+You can also find information about various xref:license-audit-tools.adoc[license detection tools] 
+in this documentation.
+
+== Opening an SPDX License List issue
+
+If the Fedora License Data maintainers conclude that the license is
+allowed, and they apply the `SPDX::submit issue` label, then the next
+step is to
+https://github.com/spdx/license-list-XML/blob/main/DOCS/request-new-license.md[create
+an issue for the SPDX license-list-XML repository]. In most cases, the
+purpose of the issue is to request addition of a new license
+identifier representing the license in the SPDX License List, but it may also 
+be to request a determination as to whether additional markup can be added
+to an existing SPDX license to match to the license you found. You do not need to 
+determine this when you submit the issue.
+
+TIP: If the license does not seem to match an identifier already on
+the SPDX License List, you do not have to wait for a Fedora License
+Data decision on the license before opening an SPDX issue. Usually,
+however, an SPDX issue is not opened until the Fedora License Data
+maintainers have decided the license is allowed for Fedora. 
+
+In addition to the required information, add a link to the
+related Fedora License Data issue. If there has already been a Fedora
+decision regarding the license please note that as well.
+
+In some cases, the license you've found may not match an existing SPDX
+license according to the SPDX matching guidelines, but it
+will be sufficiently close that the SPDX legal team may determine that
+your variant can be accommodated by revising the XML file for the
+existing SPDX license in question. The Fedora License Data maintainers may
+instruct you to create an SPDX License List issue for this purpose upon their review.
+
+If SPDX approves the license for inclusion as an identifier on the
+SPDX License List, please help create the SPDX files for your
+submission in accordance with the
+https://github.com/spdx/license-list-XML/blob/main/DOCS/request-new-license.md#accepted-license-process[SPDX
+license list process].
+
+If you've submitted an SPDX issue before there is a decision on the
+Fedora side, and the Fedora License Data maintainers later decide that
+the license is _not-allowed_, you should offer to close the SPDX issue
+if it is still pending.
+
+TIP: For allowed licenses, we want to use SPDX identifiers to
+represent the license, and to request a new SPDX identifier if an
+applicable one does not exist. For _not-allowed_ licenses, we will use
+an SPDX identifier to represent the license if it is already on the
+SPDX License List, but otherwise we will create a
+`LicenseRef-` identifier to ensure all license expressions in Fedora 
+are valid with the SPDX Specification.
+
+The submission and approval process for inclusion on the SPDX License List can
+be lengthy. As a temporary measure to mitigate delays in the workflow, the
+Fedora Project will provision a temporary license identifier with the syntax
+`LicenseRef-Fedora-Temporary-*` that you may use. Or
+`AdditionRef-Fedora-Temporary-*` for exceptions. Once SPDX assigns the final ID,
+you have to change this temporary ID to the final one.
+
+== Opening a Fedora License Data merge request
+
+Once (1) Fedora has made a decision to allow or not allow the license,
+and (2) (if applicable) the SPDX License List process is also
+complete, create a merge request to add a new TOML file for the
+license using the
+https://gitlab.com/fedora/legal/fedora-license-data/-/blob/master/TEMPLATE.toml[TOML
+file format] according the determined status (_allowed_,
+_not-allowed_, _allowed-fonts_, _allowed-documentation_,
+_allowed-content_, _allowed-firmware_).
+
+The TOML file corresponding to a given license contains an
+`expression` key whose value must be a valid SPDX license expression,
+and the name of the TOML file incorporates this SPDX expression (for
+example, the `expression` value in the `MIT.toml` file is "MIT").
+
+What SPDX license expression to use for a new Fedora License Data TOML
+file depends on the Fedora classification of the license as well as
+how (if at all) the license has been dealt with by SPDX. There are
+three typical cases:
+
+* If your license already matches an identifier on the SPDX License List
+(i.e., it was not necessary to create an SPDX License List issue), use
+that identifier as the expression in the new TOML file.
+
+* If an SPDX License List issue was created, SPDX has decided to add your
+license as an identifier to the SPDX License List, and a pull request
+for your license submission has been merged in the
+https://github.com/spdx/license-list-XML[SPDX license-list-XML
+repository], use this new SPDX identifier as the expression in the new
+TOML file.
+
+* If Fedora has decided that the license is _not-allowed_, and the
+license does not match an identifier on the SPDX License List, use the
+SPDX `LicenseRef-` construct to create a custom-defined identifier for
+the license and use that identifier as the expression in the new TOML
+file.
+
+There are special cases where Fedora may use a Fedora-defined
+`LicenseRef-` identifier to represent an allowed license. Some of the
+reasons why this may occur include:
+
+* The license is believed to be unlikely to meet SPDX's license
+  inclusion guidelines, so the Fedora License Data maintainers have
+  indicated that an SPDX issue should not be created. This is expected
+  to be fairly uncommon but may occur for some _allowed-content_ licenses and
+  most _allowed-firmware_ licenses. For more info on _allowed-firmware_, see 
+  xref:update-existing-packages[Update Existing Packages]
+
+* An SPDX issue for an allowed license was created but SPDX ultimately
+  decided not to add the license to the SPDX License List. This is
+  expected to be very rare. Also, in cases where Fedora has a pressing need to publish
+  an update to a spec file and SPDX hasn't completed its review, Fedora may temporarily
+  use a `LicenseRef-`, to be replaced when SPDX adopts a new identifier for the license.
+
+* The license qualifies to be covered by the umbrella license
+  identifiers `LicenseRef-Fedora-Public-Domain` or
+  `LicenseRef-Fedora-UltraPermissive`. For more on these scenarios,
+  see xref:update-existing-packages[Update Existing Packages]
+
+* The license could be represented with a complex composite SPDX
+  license expression making use of one or more SPDX License List
+  identifiers, but it is simpler to represent it with a `LicenseRef-`
+  expression. These will generally be cases where there is also some
+  benefit to the use of a `LicenseRef-` to signal that something is
+  problematic about the license, even though Fedora has decided to
+  allow it. For a good example, see the TOML file for
+  https://gitlab.com/fedora/legal/fedora-license-data/-/blob/main/data/LicenseRef-Bacula.toml?ref_type=heads[`LicenseRef-Bacula`]
+  and the related
+  https://gitlab.com/fedora/legal/fedora-license-data/-/issues/277[issue].
+
+* The license was classified as "good" under the (pre-SPDX) Callaway system,
+but is believed to no longer be present in supported releases of Fedora.
+
+If a license given a `LicenseRef-` identifier is later identified as a
+match to a license on the SPDX License List (for example, because of a
+later addition to the SPDX License List), then the Fedora License Data
+repository should ideally be updated by replacing the TOML file with
+a new TOML file using the SPDX identifier.
+
+NOTE: In any case where a `LicenseRef-` is used, it is necessary to
+copy the text of the license in the TOML file as the value of the
+`text` key.
+
+== Changes to licensing of Fedora Linux packages
+
+Fedora package maintainers are responsible for regularly monitoring
+the upstream source code of their packages for any changes or
+additions to licenses. When a license changes upstream, or a new
+license is introduced, the following guidelines apply:
+
+* If the project adds material under a license that hasn't yet been
+  reviewed for inclusion in Fedora, then submit the new license for
+  review following the process described above.
+  
+* If the project adds material under a _not-allowed_ license, then the
+  package can no longer be included in Fedora Linux, unless you remove
+  the material covered by the _not-allowed_ license so that Fedora
+  will not be distributing anything under that license, including in
+  the source code of the
+  package. https://docs.fedoraproject.org/en-US/fesco/[FESCo] has the
+  authority to block upgrades of packages to versions with new
+  licenses that are not allowed for Fedora.
+
+* If the new license is allowed, update the appropriate spec file
+  License tag, unless there is some reason why the license does not
+  have to be accounted for in the License tag. Refer to the page on
+  xref:license-field.adoc[populating spec file License tags] for
+  details.
+
+Historically, Fedora package maintainers were expected to announce
+upstream license changes that they became aware of on the
+https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/[Fedora
+devel list]. This expectation was probably based on the assumption
+that any upstream license change would be a change to all or
+substantially all the code in the project, but this is not always the
+case.
+
+If you are unsure about the status of a new license in a package,
+please ask on the
+https://lists.fedoraproject.org/archives/list/legal@lists.fedoraproject.org/[Fedora
+legal list]. 
+
+
+
+
+
+
+
+

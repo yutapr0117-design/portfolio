@@ -1,0 +1,309 @@
+= License Approval
+
+== Overview
+
+In order to meet the goal of creating a complete, general purpose
+operating system exclusively from free and open source software, all
+software and other content made available by Fedora must be under
+licenses determined to be allowed in Fedora, with only limited,
+conditional exceptions.
+
+Fedora applies different license approval criteria for different
+categories of material: code, documentation, content, fonts, and
+firmware. The corresponding status names for approved licenses are:
+_allowed_, _allowed-documentation_, _allowed-content_,
+_allowed-fonts_, and _allowed-firmware_. The strictest license
+approval standards apply to code, while somewhat relaxed standards
+apply to the other categories. Licenses that are not allowed for any
+category are classified as _not-allowed_.
+
+IMPORTANT: Fedora's license approval standards apply to everything
+that is made available by the Fedora Project, not just installable
+binary packages in Fedora Linux. For example, everything available at
+https://pagure.io[Fedora Pagure], https://src.fedoraproject.org[Fedora Source Packages], https://koji.fedoraproject.org[Fedora Koji],
+https://docs.fedoraproject.org[Fedora documentation] and
+https://copr.fedorainfracloud.org/[Copr repositories] is subject to
+the same licensing rules as Fedora Linux packages.
+
+The Fedora legal documentation includes lists of
+xref:allowed-licenses.adoc[allowed] and
+xref:not-allowed-licenses.adoc[not-allowed] licenses for Fedora. These
+lists are generated from the data maintained in the
+https://gitlab.com/fedora/legal/fedora-license-data[Fedora License
+Data] repository. In case of any discrepancy between the generated Fedora license lists
+and the data in Fedora License Data, the latter is considered
+authoritative. For some purposes you may find it more useful to refer
+to the repository (particularly the TOML files in the `data/`
+directory), rather than the generated lists.
+
+Fedora uses xref:spdx.adoc[SPDX license expressions] to
+represent allowed and not-allowed licenses in TOML files in the Fedora
+License Data `data/` directory and in the generated Fedora license
+lists. 
+
+If a license that covers something in Fedora, or in a package that has
+been or is intended to be proposed for inclusion in Fedora Linux, is
+not listed on the allowed and not-allowed lists, then it must be
+xref:license-review-process.adoc[reviewed].
+
+Whether a license is allowed or not allowed for Fedora is ultimately
+determined by the Fedora Council. Today, this decision is normally
+delegated to members of the Red Hat legal team who are specialists in
+free software / open source licensing and who are very familiar with
+and committed to supporting Fedora's
+https://docs.fedoraproject.org/en-US/project/[mission and
+foundations].
+
+== Allowed Licenses
+
+A license is _allowed_ if Fedora determines that the license is a free
+software / open source license. At a high level, the inquiry involves
+determining whether the license provides software freedom, and
+(equivalently) making sure that the license does not place burdens on
+users' exercise of its permissions that are inconsistent with evolving
+community norms and traditions around what is acceptable in a free
+software / open source license.
+
+As a general rule, all code made available by Fedora must be governed
+by an _allowed_ license. A license that is in the general _allowed_
+category can be used for anything in Fedora, not just code.
+
+TIP: Fedora treats spec files as "code". Normally, spec files have no
+explicit license, and, to the extent they were authored by Fedora
+contributors and are copyrightable, they are available under the MIT license by virtue of the https://docs.fedoraproject.org/en-US/legal/fpca/[FPCA].
+
+== Licenses Allowed for Documentation
+
+Fedora will designate a license as allowed for documentation
+(_allowed-documentation_) if it meets the criteria for _allowed_
+licenses and it seems to be specifically designed for documentation
+and not for code.
+
+In addition, Fedora classifies the following licenses as
+_allowed-documentation_ (even though they do not meet the above
+criteria):
+
+* Creative Commons Attribution 4.0 International Public License and
+  its predecessor versions
+
+* Creative Commons Attribution-ShareAlike 4.0 International Public
+  License and its predecessor versions
+
+* The GNU Free Documentation License version 2.1 and its predecessor
+  versions
+
+== Licenses Allowed for Content
+
+For purposes of Fedora license classification, “content” means any
+material that is not clearly code, documentation, fonts or firmware.  
+Here are some examples of content:
+
+* graphic image files
+* audio files
+* nonfunctional data sets
+* AppStream metainfo.xml files
+* standards documents
+* certain files relating to functionality and management of markup languages, 
+including XML schema files and resource resolution files, XSL files, SGML declaration files,
+and ancillary informal documentation accompanying such files
+* checkpoints or comparable machine learning model files containing trained parameters
+* non-script slide presentation resources, except to the extent slide presentation content functions as documentation
+* game engine package files that contain game data
+
+Fedora will designate a license as allowed for content
+(_allowed-content_) if it meets the criteria for _allowed_ licenses
+with the following exceptions:
+
+* The license may restrict or prohibit modification
+* The license may say that it does not cover patents or grant any patent licenses
+
+TIP: When we say that a standards document is subject to the relaxed
+license criteria for content, we are referring to the
+copyright-oriented license for the document itself, not licenses
+covering implementation of the technology specified by the document.
+
+TIP: Man pages are considered documentation, not content, even when
+they are derived from standards documents.
+
+IMPORTANT: `CC0-1.0`, which has a clause that says that it does not license
+or otherwise "affect" patent rights, is no longer _allowed_, but it
+continues to be _allowed-content_.
+
+Fedora's decision to treat a particular category of material as "content" 
+generally reflects a pragmatic judgment. The main focus for Fedora is free 
+software; in some cases, for free software to be fully useful, it must be 
+accompanied by non-software items that unfortunately are covered by non-libre 
+terms. Fedora may be more likely to conclude that a given category of material 
+is "content" if such material is (as a general matter) likely of doubtful or 
+"thin" copyrightability. 
+
+== Licenses Allowed for Fonts
+
+Fedora may designate a license as allowed for fonts
+(_allowed-fonts_) if it meets the criteria for _allowed_ licenses
+with the following exception:
+
+* The license may contain a nominal prohibition on resale or
+  distribution in isolation
+
+In addition, Fedora classifies the following licenses as _allowed-fonts_ (even 
+though at least some of them do not meet the above criteria):
+
+* Creative Commons Attribution 4.0 International Public License and its 
+predecessor versions
+
+* Creative Commons Attribution-ShareAlike 4.0 International Public License and 
+its predecessor versions
+
+A good example of what we mean by a "nominal prohibition on resale or
+distribution in isolation" is found in the following condition in the
+https://spdx.org/licenses/OFL-1.1.html[SIL Open Font License 1.1]:
+
+`Neither the Font Software nor any of its individual components, in
+Original or Modified Versions, may be sold by itself.`
+
+This kind of prohibition would not be acceptable in a license
+applicable to code (see, for example, the
+https://spot.livejournal.com/315383.html[Sun RPC license]).
+
+NOTE: The prohibition in the SIL OFL is "nominal" because in FOSS
+legal culture it has occasionally been cleverly asserted that one can
+get around this kind of provision by bundling a trivial 'Hello world'
+program with the fonts (and there is actually some reason to believe
+the authors of the SIL OFL intended this). If we were to encounter a
+license that had such a provision but we believed a 'Hello world'
+solution was not even arguably viable, we might not consider the
+license allowable for fonts.
+
+== Licenses Allowed for Firmware
+
+Some applications, drivers, and hardware require binary firmware
+images to boot Fedora Linux or function properly. Fedora permits
+inclusion of these files as long as they meet the following license
+and technical requirements:
+
+=== License requirements for firmware
+
+Fedora may designate a license as allowed for firmware
+(_allowed-firmware_) if it meets the criteria for _allowed_
+licenses with the following exceptions:
+
+* The license may prohibit modification, reverse engineering,
+  disassembly or decompilation.
+
+* The license may require that the firmware be used only in
+  conjunction with specified hardware.
+
+* The license may require that the firmware be redistributed only as
+  incorporated in the redistributor's product (or as a maintenance
+  update for existing end users of the redistributor's product). This
+  may be limited further to those products of the redistributor that
+  support or contain the hardware associated with the licensed
+  firmware.
+
+* The license may require a redistributor to pass on or impose
+  conditions on users that are no more restrictive than those
+  authorized by Fedora itself with respect to firmware licenses.
+  
+=== Technical firmware requirements
+
+While these technical requirements for firmware have nothing to do
+with licensing, they are included here for convenience.
+
+* The files must be non-executable within the Fedora Linux context
+  (note: this means that the files cannot run on their own, not that
+  they are just `+chmod -x+`)
+
+* The files must not be libraries, within the Fedora Linux context
+
+* The files must be standalone, not embedded in executable or library
+  code (within the Fedora Linux context)
+
+* The files must be necessary for the functionality of open source
+  code being included in Fedora Linux or to enable Fedora Linux to
+  boot on a specific device, where no other reliable and supported
+  mechanisms exist
+
+== 'Not allowed' Licenses
+
+Any license that does not meet the criteria above for allowed licenses
+(including allowed for a specific category) will be classified as
+_not-allowed_.
+
+NOTE: In extremely rare cases we may have some reason to designate a
+license as _not-allowed_ even though it might meet the formal criteria
+for the relevant category. An example is
+https://gitlab.com/fedora/legal/fedora-license-data/-/blob/main/data/LicenseRef-wrk.toml?ref_type=heads[`LicenseRef-wrk`],
+which represents a license based on the Apache License 2.0 and named
+"Modified Apache License 2.0", presumably without permission from the
+Apache Software Foundation, which has said that derivatives of the
+Apache License cannot have "Apache" in their name.
+
+=== `usage` exceptions
+
+For some _not-allowed_ licenses, or licenses allowed only for a
+specific category, an exception is recorded in the Fedora License Data
+TOML file for the license, as the value of the `usage` key (and
+displayed in the "Usage" column of the
+xref:not-allowed-licenses.adoc[not-allowed] list). The exception will
+indicate that Fedora tolerates the license under limited conditions
+(for example, for a specific package, or for a defined time period).
+
+For example, here is the `usage` exception for `OPUBL-1.0`:
+
+[example]
+Allowed for documentation if the copyright holder does not
+exercise any of the “LICENSE OPTIONS” listed in Section VI
+
+NOTE: `OPUBL-1.0` represents the Open Publication License version 1.0,
+which was classified as "good" for documentation under the Callaway
+system provided no "options" are exercised. For administrative
+convenience we now classify it as _not-allowed_ with the `usage`
+exception noted above.
+
+== Changes in License Status
+
+Fedora aims for stability in its license classifications, but its
+treatment of a particular license or license type may change as
+community standards and expectations around acceptable licensing
+evolve or as new issues and concerns come to light. In rare cases, an
+allowed license may be reclassified as _not-allowed_, or an _allowed_
+license may be reclassified as allowed only for a specific category of
+material, as when `CC0-1.0` was reclassified from _allowed_ to
+_allowed-content_. When this sort of reclassification is done, we
+will try to minimize disruption, including by defining appropriate
+`usage` exceptions.
+
+== Background to Fedora licensing policy
+
+Over several decades, norms concerning acceptable standards for
+software (and other content) licensing developed out of communities
+associated with free software and open source projects. Fedora builds
+upon and contributes to the development of this community
+tradition. Most of the philosophical and practical groundwork for
+Fedora's policies on licensing was developed over many years by
+https://fedoraproject.org/wiki/User:Spot[Tom 'spot' Callaway], often
+working in collaboration with members of Red Hat's legal team.
+
+The two most influential efforts to distill FOSS licensing norms are
+the Free Software Foundation's maintenance and interpretation of the
+https://www.gnu.org/philosophy/free-sw.en.html#fs-definition[Free
+Software Definition], and the Open Source Initiative's maintenance and
+interpretation of the https://opensource.org/osd[Open Source
+Definition]. For much of its earlier history, Fedora tended to regard
+the FSF's interpretation as highly authoritative, while viewing the
+OSI's license review decisions with greater skepticism. However, even
+at the high point of that period of skepticism, Fedora treated the OSD
+and OSI decisions as one source of persuasive authority. Fedora has
+also sometimes taken into account the decisions of other major
+community Linux distributions and other important community efforts to
+define and apply software freedom-related legal norms. Fedora's
+license approval decisions are both principled and pragmatic.
+
+Out of necessity, Fedora has passed judgment on hundreds of licenses
+never considered by the FSF or the OSI. In a small number of cases,
+Fedora has disagreed with decisions of the FSF and OSI regarding
+whether particular licenses are FOSS. Over time, Fedora has built up
+an informal body of interpretation and policymaking regarding
+free/open licensing which has itself influenced the larger FOSS
+community outside of Fedora.
