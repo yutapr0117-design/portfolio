@@ -1,0 +1,1704 @@
+[
+ {
+  "id": "0BSD",
+  "n": 1,
+  "exprs": [
+   "bsd-zero"
+  ],
+  "spdx_keys": [
+   "bsd-zero"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AAL",
+  "n": 1,
+  "exprs": [
+   "attribution"
+  ],
+  "spdx_keys": [
+   "attribution"
+  ],
+  "max_cov": 99.2,
+  "proprietary": []
+ },
+ {
+  "id": "AFL-1.1",
+  "n": 1,
+  "exprs": [
+   "afl-1.1"
+  ],
+  "spdx_keys": [
+   "afl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AFL-1.2",
+  "n": 1,
+  "exprs": [
+   "afl-1.2"
+  ],
+  "spdx_keys": [
+   "afl-1.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AFL-2.0",
+  "n": 1,
+  "exprs": [
+   "afl-2.0"
+  ],
+  "spdx_keys": [
+   "afl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AFL-2.1",
+  "n": 1,
+  "exprs": [
+   "afl-2.1"
+  ],
+  "spdx_keys": [
+   "afl-2.1"
+  ],
+  "max_cov": 99.9,
+  "proprietary": []
+ },
+ {
+  "id": "AFL-3.0",
+  "n": 1,
+  "exprs": [
+   "afl-3.0"
+  ],
+  "spdx_keys": [
+   "afl-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AGPL-3.0-only",
+  "n": 1,
+  "exprs": [
+   "agpl-3.0"
+  ],
+  "spdx_keys": [
+   "agpl-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AGPL-3.0-or-later",
+  "n": 1,
+  "exprs": [
+   "agpl-3.0"
+  ],
+  "spdx_keys": [
+   "agpl-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ALGLIB-Documentation",
+  "n": 1,
+  "exprs": [
+   "freebsd-doc"
+  ],
+  "spdx_keys": [
+   "freebsd-doc"
+  ],
+  "max_cov": 72.4,
+  "proprietary": []
+ },
+ {
+  "id": "Apache-1.1",
+  "n": 1,
+  "exprs": [
+   "apache-1.1"
+  ],
+  "spdx_keys": [
+   "apache-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Apache-2.0",
+  "n": 1,
+  "exprs": [
+   "apache-2.0"
+  ],
+  "spdx_keys": [
+   "apache-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "APL-1.0",
+  "n": 1,
+  "exprs": [
+   "adapt-1.0"
+  ],
+  "spdx_keys": [
+   "adapt-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "APSL-1.0",
+  "n": 1,
+  "exprs": [
+   "apsl-1.0"
+  ],
+  "spdx_keys": [
+   "apsl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "APSL-1.1",
+  "n": 1,
+  "exprs": [
+   "apsl-1.1"
+  ],
+  "spdx_keys": [
+   "apsl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "APSL-1.2",
+  "n": 2,
+  "exprs": [
+   "apsl-1.2"
+  ],
+  "spdx_keys": [
+   "apsl-1.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "APSL-2.0",
+  "n": 1,
+  "exprs": [
+   "apsl-2.0"
+  ],
+  "spdx_keys": [
+   "apsl-2.0"
+  ],
+  "max_cov": 99.8,
+  "proprietary": []
+ },
+ {
+  "id": "Artistic-1.0",
+  "n": 1,
+  "exprs": [
+   "artistic-1.0"
+  ],
+  "spdx_keys": [
+   "artistic-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Artistic-1.0-cl8",
+  "n": 1,
+  "exprs": [
+   "artistic-1.0-cl8"
+  ],
+  "spdx_keys": [
+   "artistic-1.0-cl8"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Artistic-1.0-Perl",
+  "n": 1,
+  "exprs": [
+   "artistic-perl-1.0"
+  ],
+  "spdx_keys": [
+   "artistic-perl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Artistic-2.0",
+  "n": 1,
+  "exprs": [
+   "artistic-2.0"
+  ],
+  "spdx_keys": [
+   "artistic-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BlueOak-1.0.0",
+  "n": 1,
+  "exprs": [
+   "blueoak-1.0.0"
+  ],
+  "spdx_keys": [
+   "blueoak-1.0.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-1-Clause",
+  "n": 1,
+  "exprs": [
+   "bsd-1-clause"
+  ],
+  "spdx_keys": [
+   "bsd-1-clause"
+  ],
+  "max_cov": 98.7,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-2-Clause",
+  "n": 1,
+  "exprs": [
+   "bsd-simplified"
+  ],
+  "spdx_keys": [
+   "bsd-simplified"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-2-Clause-Patent",
+  "n": 1,
+  "exprs": [
+   "bsd-plus-patent"
+  ],
+  "spdx_keys": [
+   "bsd-plus-patent"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause",
+  "n": 1,
+  "exprs": [
+   "bsd-new"
+  ],
+  "spdx_keys": [
+   "bsd-new"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause-LBNL",
+  "n": 1,
+  "exprs": [
+   "lbnl-bsd"
+  ],
+  "spdx_keys": [
+   "lbnl-bsd"
+  ],
+  "max_cov": 98.9,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause-Open-MPI",
+  "n": 1,
+  "exprs": [
+   "bsd-3-clause-open-mpi"
+  ],
+  "spdx_keys": [
+   "bsd-3-clause-open-mpi"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-ask-to-endorse",
+  "n": 1,
+  "exprs": [
+   "bsd-source-code"
+  ],
+  "spdx_keys": [
+   "bsd-source-code"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSL-1.0",
+  "n": 1,
+  "exprs": [
+   "boost-1.0"
+  ],
+  "spdx_keys": [
+   "boost-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CAL-1.0",
+  "n": 1,
+  "exprs": [
+   "cal-1.0"
+  ],
+  "spdx_keys": [
+   "cal-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CAL-1.0-Combined-Work-Exception",
+  "n": 1,
+  "exprs": [
+   "cal-1.0"
+  ],
+  "spdx_keys": [
+   "cal-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CATOSL-1.1",
+  "n": 1,
+  "exprs": [
+   "ca-tosl-1.1"
+  ],
+  "spdx_keys": [
+   "ca-tosl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CDDL-1.0",
+  "n": 1,
+  "exprs": [
+   "cddl-1.0"
+  ],
+  "spdx_keys": [
+   "cddl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CDDL-1.1",
+  "n": 1,
+  "exprs": [
+   "cddl-1.1"
+  ],
+  "spdx_keys": [
+   "cddl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CECILL-2.1",
+  "n": 1,
+  "exprs": [
+   "cecill-2.1"
+  ],
+  "spdx_keys": [
+   "cecill-2.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CERN-OHL-P-2.0",
+  "n": 1,
+  "exprs": [
+   "cern-ohl-p-2.0"
+  ],
+  "spdx_keys": [
+   "cern-ohl-p-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CERN-OHL-S-2.0",
+  "n": 1,
+  "exprs": [
+   "cern-ohl-s-2.0"
+  ],
+  "spdx_keys": [
+   "cern-ohl-s-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CERN-OHL-W-2.0",
+  "n": 1,
+  "exprs": [
+   "cern-ohl-w-2.0"
+  ],
+  "spdx_keys": [
+   "cern-ohl-w-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CNRI-Python",
+  "n": 1,
+  "exprs": [
+   "cnri-python-1.6"
+  ],
+  "spdx_keys": [
+   "cnri-python-1.6"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CNRI-Python-GPL-Compatible",
+  "n": 1,
+  "exprs": [
+   "cnri-python-1.6.1"
+  ],
+  "spdx_keys": [
+   "cnri-python-1.6.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CPAL-1.0",
+  "n": 1,
+  "exprs": [
+   "cpal-1.0"
+  ],
+  "spdx_keys": [
+   "cpal-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CPL-1.0",
+  "n": 1,
+  "exprs": [
+   "cpl-1.0"
+  ],
+  "spdx_keys": [
+   "cpl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CUA-OPL-1.0",
+  "n": 1,
+  "exprs": [
+   "cua-opl-1.0"
+  ],
+  "spdx_keys": [
+   "cua-opl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "curl",
+  "n": 2,
+  "exprs": [
+   "curl",
+   "unknown-license-reference"
+  ],
+  "spdx_keys": [
+   "curl",
+   "unknown-license-reference"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ECL-1.0",
+  "n": 1,
+  "exprs": [
+   "ecl-1.0"
+  ],
+  "spdx_keys": [
+   "ecl-1.0"
+  ],
+  "max_cov": 99.5,
+  "proprietary": []
+ },
+ {
+  "id": "ECL-2.0",
+  "n": 1,
+  "exprs": [
+   "ecl-2.0"
+  ],
+  "spdx_keys": [
+   "ecl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "EFL-1.0",
+  "n": 1,
+  "exprs": [
+   "efl-1.0"
+  ],
+  "spdx_keys": [
+   "efl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "EFL-2.0",
+  "n": 1,
+  "exprs": [
+   "efl-2.0"
+  ],
+  "spdx_keys": [
+   "efl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Entessa",
+  "n": 1,
+  "exprs": [
+   "entessa-1.0"
+  ],
+  "spdx_keys": [
+   "entessa-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "EPL-1.0",
+  "n": 1,
+  "exprs": [
+   "epl-1.0"
+  ],
+  "spdx_keys": [
+   "epl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "EPL-2.0",
+  "n": 1,
+  "exprs": [
+   "epl-2.0"
+  ],
+  "spdx_keys": [
+   "epl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "EUDatagrid",
+  "n": 1,
+  "exprs": [
+   "eu-datagrid"
+  ],
+  "spdx_keys": [
+   "eu-datagrid"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "EUPL-1.1",
+  "n": 1,
+  "exprs": [
+   "eupl-1.1"
+  ],
+  "spdx_keys": [
+   "eupl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "EUPL-1.2",
+  "n": 1,
+  "exprs": [
+   "eupl-1.2"
+  ],
+  "spdx_keys": [
+   "eupl-1.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Fair",
+  "n": 2,
+  "exprs": [
+   "fair"
+  ],
+  "spdx_keys": [
+   "fair"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Frameworx-1.0",
+  "n": 1,
+  "exprs": [
+   "frameworx-1.0"
+  ],
+  "spdx_keys": [
+   "frameworx-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GPL-2.0-only",
+  "n": 1,
+  "exprs": [
+   "gpl-2.0"
+  ],
+  "spdx_keys": [
+   "gpl-2.0"
+  ],
+  "max_cov": 98.2,
+  "proprietary": []
+ },
+ {
+  "id": "GPL-2.0-or-later",
+  "n": 1,
+  "exprs": [
+   "gpl-2.0"
+  ],
+  "spdx_keys": [
+   "gpl-2.0"
+  ],
+  "max_cov": 98.2,
+  "proprietary": []
+ },
+ {
+  "id": "GPL-3.0-only",
+  "n": 1,
+  "exprs": [
+   "gpl-3.0"
+  ],
+  "spdx_keys": [
+   "gpl-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GPL-3.0-or-later",
+  "n": 1,
+  "exprs": [
+   "gpl-3.0"
+  ],
+  "spdx_keys": [
+   "gpl-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND",
+  "n": 2,
+  "exprs": [
+   "historical"
+  ],
+  "spdx_keys": [
+   "historical"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ICU",
+  "n": 2,
+  "exprs": [
+   "x11"
+  ],
+  "spdx_keys": [
+   "x11"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Intel",
+  "n": 2,
+  "exprs": [
+   "intel-bsd-export-control"
+  ],
+  "spdx_keys": [
+   "intel-bsd-export-control"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "IPA",
+  "n": 1,
+  "exprs": [
+   "ipa-font"
+  ],
+  "spdx_keys": [
+   "ipa-font"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "IPL-1.0",
+  "n": 1,
+  "exprs": [
+   "ibmpl-1.0"
+  ],
+  "spdx_keys": [
+   "ibmpl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ISC",
+  "n": 2,
+  "exprs": [
+   "isc"
+  ],
+  "spdx_keys": [
+   "isc"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Jam",
+  "n": 1,
+  "exprs": [
+   "jam"
+  ],
+  "spdx_keys": [
+   "jam"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LGPL-2.0-only",
+  "n": 1,
+  "exprs": [
+   "lgpl-2.0"
+  ],
+  "spdx_keys": [
+   "lgpl-2.0"
+  ],
+  "max_cov": 99.9,
+  "proprietary": []
+ },
+ {
+  "id": "LGPL-2.0-or-later",
+  "n": 1,
+  "exprs": [
+   "lgpl-2.0"
+  ],
+  "spdx_keys": [
+   "lgpl-2.0"
+  ],
+  "max_cov": 99.9,
+  "proprietary": []
+ },
+ {
+  "id": "LGPL-2.1-only",
+  "n": 1,
+  "exprs": [
+   "lgpl-2.1"
+  ],
+  "spdx_keys": [
+   "lgpl-2.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LGPL-2.1-or-later",
+  "n": 1,
+  "exprs": [
+   "lgpl-2.1"
+  ],
+  "spdx_keys": [
+   "lgpl-2.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LGPL-3.0-only",
+  "n": 2,
+  "exprs": [
+   "gpl-3.0",
+   "lgpl-3.0"
+  ],
+  "spdx_keys": [
+   "gpl-3.0",
+   "lgpl-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LGPL-3.0-or-later",
+  "n": 2,
+  "exprs": [
+   "gpl-3.0",
+   "lgpl-3.0"
+  ],
+  "spdx_keys": [
+   "gpl-3.0",
+   "lgpl-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LiLiQ-P-1.1",
+  "n": 1,
+  "exprs": [
+   "liliq-p-1.1"
+  ],
+  "spdx_keys": [
+   "liliq-p-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LiLiQ-R-1.1",
+  "n": 1,
+  "exprs": [
+   "liliq-r-1.1"
+  ],
+  "spdx_keys": [
+   "liliq-r-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LiLiQ-Rplus-1.1",
+  "n": 1,
+  "exprs": [
+   "liliq-rplus-1.1"
+  ],
+  "spdx_keys": [
+   "liliq-rplus-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LPL-1.0",
+  "n": 1,
+  "exprs": [
+   "lucent-pl-1.0"
+  ],
+  "spdx_keys": [
+   "lucent-pl-1.0"
+  ],
+  "max_cov": 98.2,
+  "proprietary": []
+ },
+ {
+  "id": "LPL-1.02",
+  "n": 1,
+  "exprs": [
+   "lucent-pl-1.02"
+  ],
+  "spdx_keys": [
+   "lucent-pl-1.02"
+  ],
+  "max_cov": 99.7,
+  "proprietary": []
+ },
+ {
+  "id": "LPPL-1.3c",
+  "n": 1,
+  "exprs": [
+   "lppl-1.3c"
+  ],
+  "spdx_keys": [
+   "lppl-1.3c"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MirOS",
+  "n": 2,
+  "exprs": [
+   "mir-os"
+  ],
+  "spdx_keys": [
+   "mir-os"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MIT",
+  "n": 2,
+  "exprs": [
+   "mit"
+  ],
+  "spdx_keys": [
+   "mit"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MIT-0",
+  "n": 2,
+  "exprs": [
+   "mit-0"
+  ],
+  "spdx_keys": [
+   "mit-0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MIT-Modern-Variant",
+  "n": 1,
+  "exprs": [
+   "mit-modern"
+  ],
+  "spdx_keys": [
+   "mit-modern"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Motosoto",
+  "n": 3,
+  "exprs": [
+   "free-unknown",
+   "motosoto-0.9.1",
+   "warranty-disclaimer"
+  ],
+  "spdx_keys": [
+   "free-unknown",
+   "motosoto-0.9.1",
+   "warranty-disclaimer"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MPL-1.0",
+  "n": 1,
+  "exprs": [
+   "mpl-1.0"
+  ],
+  "spdx_keys": [
+   "mpl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MPL-1.1",
+  "n": 1,
+  "exprs": [
+   "mpl-1.1"
+  ],
+  "spdx_keys": [
+   "mpl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MPL-2.0",
+  "n": 1,
+  "exprs": [
+   "mpl-2.0"
+  ],
+  "spdx_keys": [
+   "mpl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MPL-2.0-no-copyleft-exception",
+  "n": 1,
+  "exprs": [
+   "mpl-2.0"
+  ],
+  "spdx_keys": [
+   "mpl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MS-PL",
+  "n": 1,
+  "exprs": [
+   "ms-pl"
+  ],
+  "spdx_keys": [
+   "ms-pl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MS-RL",
+  "n": 1,
+  "exprs": [
+   "ms-rl"
+  ],
+  "spdx_keys": [
+   "ms-rl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MulanPSL-2.0",
+  "n": 1,
+  "exprs": [
+   "mulanpsl-2.0"
+  ],
+  "spdx_keys": [
+   "mulanpsl-2.0"
+  ],
+  "max_cov": 99.6,
+  "proprietary": []
+ },
+ {
+  "id": "Multics",
+  "n": 1,
+  "exprs": [
+   "multics"
+  ],
+  "spdx_keys": [
+   "multics"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NASA-1.3",
+  "n": 1,
+  "exprs": [
+   "nasa-1.3"
+  ],
+  "spdx_keys": [
+   "nasa-1.3"
+  ],
+  "max_cov": 99.8,
+  "proprietary": []
+ },
+ {
+  "id": "Naumen",
+  "n": 1,
+  "exprs": [
+   "naumen"
+  ],
+  "spdx_keys": [
+   "naumen"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NCSA",
+  "n": 1,
+  "exprs": [
+   "uoi-ncsa"
+  ],
+  "spdx_keys": [
+   "uoi-ncsa"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NGPL",
+  "n": 1,
+  "exprs": [
+   "ngpl"
+  ],
+  "spdx_keys": [
+   "ngpl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Nokia",
+  "n": 1,
+  "exprs": [
+   "nokos-1.0a"
+  ],
+  "spdx_keys": [
+   "nokos-1.0a"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NPOSL-3.0",
+  "n": 1,
+  "exprs": [
+   "nosl-3.0"
+  ],
+  "spdx_keys": [
+   "nosl-3.0"
+  ],
+  "max_cov": 99.8,
+  "proprietary": []
+ },
+ {
+  "id": "NTP",
+  "n": 2,
+  "exprs": [
+   "mit-old-style-no-advert"
+  ],
+  "spdx_keys": [
+   "mit-old-style-no-advert"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OCLC-2.0",
+  "n": 1,
+  "exprs": [
+   "oclc-2.0"
+  ],
+  "spdx_keys": [
+   "oclc-2.0"
+  ],
+  "max_cov": 99.9,
+  "proprietary": []
+ },
+ {
+  "id": "OFL-1.1",
+  "n": 1,
+  "exprs": [
+   "ofl-1.1"
+  ],
+  "spdx_keys": [
+   "ofl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OFL-1.1-no-RFN",
+  "n": 1,
+  "exprs": [
+   "ofl-1.1"
+  ],
+  "spdx_keys": [
+   "ofl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OFL-1.1-RFN",
+  "n": 1,
+  "exprs": [
+   "ofl-1.1"
+  ],
+  "spdx_keys": [
+   "ofl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OGTSL",
+  "n": 1,
+  "exprs": [
+   "opengroup"
+  ],
+  "spdx_keys": [
+   "opengroup"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLDAP-2.8",
+  "n": 1,
+  "exprs": [
+   "openldap-2.8"
+  ],
+  "spdx_keys": [
+   "openldap-2.8"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLFL-1.3",
+  "n": 1,
+  "exprs": [
+   "olfl-1.3"
+  ],
+  "spdx_keys": [
+   "olfl-1.3"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OSC-1.0",
+  "n": 0,
+  "exprs": [],
+  "spdx_keys": [],
+  "max_cov": 0,
+  "proprietary": []
+ },
+ {
+  "id": "OSET-PL-2.1",
+  "n": 1,
+  "exprs": [
+   "oset-pl-2.1"
+  ],
+  "spdx_keys": [
+   "oset-pl-2.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OSL-1.0",
+  "n": 1,
+  "exprs": [
+   "osl-1.0"
+  ],
+  "spdx_keys": [
+   "osl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OSL-2.0",
+  "n": 1,
+  "exprs": [
+   "osl-2.0"
+  ],
+  "spdx_keys": [
+   "osl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OSL-2.1",
+  "n": 1,
+  "exprs": [
+   "osl-2.1"
+  ],
+  "spdx_keys": [
+   "osl-2.1"
+  ],
+  "max_cov": 99.7,
+  "proprietary": []
+ },
+ {
+  "id": "OSL-3.0",
+  "n": 1,
+  "exprs": [
+   "osl-3.0"
+  ],
+  "spdx_keys": [
+   "osl-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "PHP-3.0",
+  "n": 1,
+  "exprs": [
+   "php-3.0"
+  ],
+  "spdx_keys": [
+   "php-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "PHP-3.01",
+  "n": 1,
+  "exprs": [
+   "php-3.01"
+  ],
+  "spdx_keys": [
+   "php-3.01"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "PostgreSQL",
+  "n": 1,
+  "exprs": [
+   "postgresql"
+  ],
+  "spdx_keys": [
+   "postgresql"
+  ],
+  "max_cov": 83.1,
+  "proprietary": []
+ },
+ {
+  "id": "Python-2.0",
+  "n": 1,
+  "exprs": [
+   "python"
+  ],
+  "spdx_keys": [
+   "python"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Python-2.0.1",
+  "n": 1,
+  "exprs": [
+   "python-2.0.1"
+  ],
+  "spdx_keys": [
+   "python-2.0.1"
+  ],
+  "max_cov": 93.5,
+  "proprietary": []
+ },
+ {
+  "id": "QPL-1.0",
+  "n": 1,
+  "exprs": [
+   "qpl-1.0"
+  ],
+  "spdx_keys": [
+   "qpl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "RPL-1.1",
+  "n": 1,
+  "exprs": [
+   "rpl-1.1"
+  ],
+  "spdx_keys": [
+   "rpl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "RPL-1.5",
+  "n": 1,
+  "exprs": [
+   "rpl-1.5"
+  ],
+  "spdx_keys": [
+   "rpl-1.5"
+  ],
+  "max_cov": 99.9,
+  "proprietary": []
+ },
+ {
+  "id": "RPSL-1.0",
+  "n": 1,
+  "exprs": [
+   "rpsl-1.0"
+  ],
+  "spdx_keys": [
+   "rpsl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "RSCPL",
+  "n": 1,
+  "exprs": [
+   "ricoh-1.0"
+  ],
+  "spdx_keys": [
+   "ricoh-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SimPL-2.0",
+  "n": 1,
+  "exprs": [
+   "simpl-2.0"
+  ],
+  "spdx_keys": [
+   "simpl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SISSL",
+  "n": 1,
+  "exprs": [
+   "sun-sissl-1.1"
+  ],
+  "spdx_keys": [
+   "sun-sissl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Sleepycat",
+  "n": 4,
+  "exprs": [
+   "bsd-new",
+   "sleepycat"
+  ],
+  "spdx_keys": [
+   "bsd-new",
+   "sleepycat"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SPL-1.0",
+  "n": 1,
+  "exprs": [
+   "spl-1.0"
+  ],
+  "spdx_keys": [
+   "spl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "UCL-1.0",
+  "n": 1,
+  "exprs": [
+   "ucl-1.0"
+  ],
+  "spdx_keys": [
+   "ucl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Unicode-3.0",
+  "n": 2,
+  "exprs": [
+   "unicode-v3",
+   "unknown-license-reference"
+  ],
+  "spdx_keys": [
+   "unicode-v3",
+   "unknown-license-reference"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Unicode-DFS-2016",
+  "n": 1,
+  "exprs": [
+   "unicode-dfs-2016"
+  ],
+  "spdx_keys": [
+   "unicode-dfs-2016"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Unlicense",
+  "n": 1,
+  "exprs": [
+   "unlicense"
+  ],
+  "spdx_keys": [
+   "unlicense"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "UPL-1.0",
+  "n": 1,
+  "exprs": [
+   "upl-1.0"
+  ],
+  "spdx_keys": [
+   "upl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "VSL-1.0",
+  "n": 1,
+  "exprs": [
+   "vsl-1.0"
+  ],
+  "spdx_keys": [
+   "vsl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "W3C",
+  "n": 1,
+  "exprs": [
+   "w3c"
+  ],
+  "spdx_keys": [
+   "w3c"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "W3C-20150513",
+  "n": 1,
+  "exprs": [
+   "w3c-software-doc-20150513"
+  ],
+  "spdx_keys": [
+   "w3c-software-doc-20150513"
+  ],
+  "max_cov": 97.5,
+  "proprietary": []
+ },
+ {
+  "id": "Watcom-1.0",
+  "n": 1,
+  "exprs": [
+   "sybase"
+  ],
+  "spdx_keys": [
+   "sybase"
+  ],
+  "max_cov": 99.8,
+  "proprietary": []
+ },
+ {
+  "id": "WordNet",
+  "n": 1,
+  "exprs": [
+   "wordnet"
+  ],
+  "spdx_keys": [
+   "wordnet"
+  ],
+  "max_cov": 99.6,
+  "proprietary": []
+ },
+ {
+  "id": "Xnet",
+  "n": 1,
+  "exprs": [
+   "xnet"
+  ],
+  "spdx_keys": [
+   "xnet"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Zlib",
+  "n": 2,
+  "exprs": [
+   "zlib"
+  ],
+  "spdx_keys": [
+   "zlib"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ZPL-2.0",
+  "n": 1,
+  "exprs": [
+   "zpl-2.0"
+  ],
+  "spdx_keys": [
+   "zpl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ZPL-2.1",
+  "n": 1,
+  "exprs": [
+   "zpl-2.1"
+  ],
+  "spdx_keys": [
+   "zpl-2.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ }
+]

@@ -1054,6 +1054,14 @@
 | scancode-run/inputs/mit0.txt | https://raw.githubusercontent.com/spdx/license-list-data/main/text/MIT-0.txt | https://raw.githubusercontent.com/spdx/license-list-data/main/text/MIT-0.txt | 200 | 915 | 59746d6285ffa44b | 2026-10-17T10:53:04Z |
 
 
+
+## 22. `peer-texts/` — 比較対象の本文（OpenMDW-1.1・MIT-PoU v1.2.0）
+
+| file | 要求 URL | 最終 URL | status | bytes | sha256[:16] | 取得時刻（UTC） |
+|---|---|---|---|---|---|---|
+| peer-texts/openmdw-1.1.txt | https://raw.githubusercontent.com/OpenMDW/OpenMDW/main/1.1/LICENSE.OpenMDW-1.1 | https://raw.githubusercontent.com/OpenMDW/OpenMDW/main/1.1/LICENSE.OpenMDW-1.1 | 200 | 2619 | 2ab44b68365473c1 | 2026-10-17T10:56:39Z |
+| peer-texts/mit-pou-1.2.0.md | https://raw.githubusercontent.com/origami-ltd/mit-proof-of-usage-license/v1.2.0/LICENSE.md | https://raw.githubusercontent.com/origami-ltd/mit-proof-of-usage-license/v1.2.0/LICENSE.md | 200 | 4617 | 4846dd816885cb79 | 2026-10-17T10:56:40Z |
+
 ## 観測メモ（事実の指し先だけ・読みはクラウド側）
 
 1. **license-discuss 10 月に 3 通増えた**（Message-ID 基準）。(a) 2026-10-14 **Josh Berkus 氏**（0BSD-P スレッド）: Landley 氏の異議に全面同意したうえで、名前に "0BSD" を使うには BSD 側の許可が要ると指摘し、*"It's not the goal of the OSI to have licenses for every possible combination of conditions; if they wanted that, the OSI could just build its own license-generating LLM and be done with it. So, do you have a specific use for a license with patent grants and no attribution? Can you describe that use?"* (b) 2026-10-16 提出予定者が 0BSD-P を**取り下げ**（*"I could not describe a real project that needs this combination, and I understand why this looks like license proliferation."*）。(c) 同日、同じ人が **Model Chain Attribution License (MCAL)** の pre-submission を新規スレッドで開始（AI のデータセット→モデル→アプリの帰属を機械可読な Attribution Record で伝播させる AI 向けライセンス。本文は添付として配信）。2026-10-17 02:57 UTC に Roland Turner 氏が「SPDX と CycloneDX の既存仕事の再現に近い」と返信。
@@ -1108,3 +1116,5 @@
 50. **`proprietary-license` は ACD-1.0 の 262 行目 "commercial or non-commercial, by any person or automated system," に当たっている。** 一致したルール `proprietary-license_544.RULE`（`scancode-run/rules/`）の本文は "Non Commercial" の 2 語だけ（`is_license_reference: yes`・relevance 100）。**ACD-1.1（293 行目）と ACD-1.2-DRAFT（458 行目）でも同じ文に同じルールが当たる。** 対照: 同じ "commercial or non-commercial" を含む Unlicense と、CC0-1.0 / 0BSD / MIT-0 は、それぞれ 1 本のライセンス（unlicense / cc0-1.0 / bsd-zero / mit-0）として丸ごと一致し、`proprietary-license` は出ない。**誤検出の原因は文言そのものより「ScanCode が ACD の全文ルールを持たない」ことにある**ように見える（観測メモ 24: LicenseDB に `acd` は無い）。CLI ではなく照合 API を直接呼んだ測定なので、CLI の検出結果（`detected_license_expression` の合成）がこの断片一覧と同じとは限らない。
 51. `scancode-run/inputs/acd10.txt` の sha256 は `LICENSES/FROZEN.md` の pin と一致する（凍結された本文そのものを測った）。
 52. **言い回しの試験（スクラッチの写しで 1 か所だけ置換・`scancode-run/variants/`）**: ACD-1.2-DRAFT の "commercial or non-commercial" を "whether or not commercial" / "including commercial" / "for any purpose" に替えると `proprietary-license` は消え、"commercial or noncommercial"（ハイフンを取っただけ）では 458 行目に残る。**逆側**: ScanCode が ACD の全文ルールを持てば、文言を変えなくても丸ごと一致して断片照合が起きない可能性がある（Unlicense が同じ言い回しで出ない理由と同じ形）が、それは試していない。どちらにするか・するかどうかはここでは決めない。
+53. **ScanCode の対照（全数）**: OSI 承認済み・非 deprecated の 141 本（SPDX text）のうち、**`proprietary-license` の断片が出たものは 0 本**。131 本は coverage 99% 以上の一致を 1 つ以上持つ。coverage 90% 以上の一致が無い（断片照合になった）のは ALGLIB-Documentation / OSC-1.0 / PostgreSQL の 3 本。
+54. **比較対象（ScanCode 32.5.0）**: OpenMDW-1.0 → `openmdw-1.0` 1 件で丸ごと一致 / **OpenMDW-1.1 → `openmdw-1.0`（coverage 99%）として一致**（LicenseDB に 1.1 が無く、追加申請は open のまま＝観測メモ 24）/ MIT-PoU → `mit`・`mit-0`（最大 coverage 55%）/ MCAL → apache-2.0・mit・bsd-new AND other-permissive・google-patent-license-golang ほか 11 断片。**4 本とも `proprietary-license` は出ない。測った範囲（141 + 4 + ACD 3 版）で `proprietary-license` が出るのは ACD だけ。**

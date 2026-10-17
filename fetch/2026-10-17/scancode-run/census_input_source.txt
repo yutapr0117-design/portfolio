@@ -1,0 +1,1 @@
+lld2 = spdx/license-list-data 31ba1a50e5397e00a304dbadc76531740e89ee48 2026-09-16T17:08:56Z (shallow clone; texts not copied here — 141 inputs = lld2/text/<licenseId>.txt for isOsiApproved && !isDeprecatedLicenseId)
