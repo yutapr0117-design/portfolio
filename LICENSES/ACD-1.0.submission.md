@@ -166,7 +166,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1701 words**, measured 2026-09-27)
+### B.0 The message as it should actually be sent (**1710 words**, measured 2026-10-17)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -210,7 +210,7 @@ Open Source Definition, and to say where the licence is used.
 **Why this section exists.** The reference material this message points at — §1 through §5, which
 moved to `ACD-1.0.submission-reference.md` and `ACD-1.0.submission-osd.md` on 2026-09-09 — is
 **close to an order of magnitude longer than the message** (14,651 words against 1,701, measured
-2026-09-27; the authority for the message's own length is the §B.0 heading, and Check 460 (p)
+2026-09-27 — the message is 1,710 since 2026-10-17; the authority for the message's own length is the §B.0 heading, and Check 460 (p)
 checks it against the text). The list's code of conduct asks for "concise and low-volume" and that
 was restated in the August 2026 review (`REVISION-PROTOCOL.md` §3.7). **Pasting the reference
 material would contradict the design this dossier is built on**, which is that the repository holds
@@ -271,6 +271,8 @@ Bradley Kuhn's 2022 formulation has two parts and the archive shows the list app
 (`review-outcomes.md` §1.116); the packet answered *"wholly unserved"* at length and said nothing
 about *"widespread need"*. **Saying nothing about the half you cannot evidence reads, to a reviewer
 who knows the test, as not knowing the test.** **+133 words**（段落そのものも 133 語 —— 最初にここへ「+94」と書いたのは見積もりで、**実測すると 1.4 倍だった**。見積もりは書いた本人に甘い）。
+
+**And 1,710 on 2026-10-17**, when the ModelGo disagreement stopped calling its author "the chair". The quotation is from 2025-12, and the Licensing Committee chair then was Josh Berkus; Pamela Chestek had been chair until 2025-03 and has been a committee member since (board minutes 2025-01-17 and 2025-04-18). **+9 words, spent on getting a title right** —— 審査者は肩書きを自分で確かめられる人々なので、ここを誤ると引用全体の信頼が落ちる（`against.md` #186 の 2026-10-17 訂正注記）。
 
 **Why that last addition earns its words.** *"Why another public-domain-equivalent?"* is the opening
 move in this category — Rob Landley put it as fungibility (#84), David Woolley put it to the
@@ -364,7 +366,7 @@ transparency duties, attribution, notice on outputs — and that is where they h
 representation about whether copyright subsists in machine-generated material (§9.2), so a
 recipient never has to decide that question. It is the opposite bet on the same problem.
 
-**A disagreement I should name rather than let you find.** On the ModelGo thread the chair wrote
+**A disagreement I should name rather than let you find.** On the ModelGo thread Pamela Chestek, a member (and former chair) of the Licensing Committee, wrote
 that mentioning model Output at all creates *"ambiguity about the legal status of the output"* and
 is *"not worth including"* (15 December 2025). ACD-1.0 mentions it anyway, in §6.4, for the reason
 §6.5 gives: silence has proved ambiguous, and a permission an automated system cannot determine is

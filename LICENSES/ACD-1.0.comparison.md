@@ -371,7 +371,7 @@ rule of thumb であって規則でもない。**
 > > that there was a need to clearly waive something into the public domain **without also waiving
 > > patents in the process**."
 >
-> **Both halves of this section were confirmed by the current chair, in a different thread, nine
+> **Both halves of this section were confirmed by the then chair (2023-08), in a different thread, nine
 > years later (found 2026-09-25).** Pamela Chestek, chairing the License Committee, on the Mulan
 > Open Works Licenses, 10 August 2023:
 >
@@ -383,7 +383,7 @@ rule of thumb であって規則でもない。**
 > **One sentence carries both.** The *cause* is the patent carve-out, which is what this section
 > reconstructed from the 2012 archive. The *status* is that nothing was decided, which is the
 > correction the heading above now carries — and which until today rested on Simon Phipps's 2014
-> remark alone. **Two independent sources, a decade apart, and the later one is the sitting chair
+> remark alone. **Two independent sources, a decade apart, and the later one is the chair at the time (2023-08)
 > of the committee that would decide ours.**
 >
 > **What it does not establish.** That ACD-1.0 clears the bar. It says the bar CC0 failed to clear

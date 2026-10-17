@@ -404,7 +404,7 @@ incumbent は「著作者がいつでも改変を止められる」状態を残�
 ## 1.60 委員長が 3 か月前に「長さ」を承認しない理由として述べている —— そして我々はその数を測っていなかった
 
 **Linkumori Free License への Pamela Chestek 氏の返信**（`license-discuss` 2026-06-23）。
-**Licensing Committee 委員（元委員長）**であり、`license-review` の審査を主導している人物である。
+**Licensing Committee 委員（元委員長）**であり、2025-03 までは委員長として `license-review` の審査を主導していた人物である（2026-06 の時点の委員長は McCoy Smith 氏）。
 
 > That said, your license seems to be undergoing substantial **mission creep**. You originally said
 > it was to address the problem of attribution in a web-based context, but now you have added
@@ -436,7 +436,7 @@ incumbent は「著作者がいつでも改変を止められる」状態を残�
 
 **ACD-1.0 は GPLv3 より長くない。** 本体で **43 語短く**、全文で **748 語短い**。
 
-**そしてChestek 氏（委員・元委員長）の比較は、我々が測れるどの測り方でも成り立たない** ——
+**そして Chestek 氏（委員・元委員長）の比較は、我々が測れるどの測り方でも成り立たない** ——
 3,888 は GPLv3 の本体 4,617 より短く、全文 5,644 より短い。
 **これを「Chestek 氏（委員・元委員長）が間違えた」と使ってはならない。** 別の数え方（節の一部だけ、あるいは別の版）を
 していた可能性があり、**我々は本人の測り方を知らない**。記録するのは我々の測定であって、
