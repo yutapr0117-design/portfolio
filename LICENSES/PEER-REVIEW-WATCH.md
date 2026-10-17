@@ -383,7 +383,7 @@ ACD-1.0 が持つ表面の集合が、交わらない**ことの直接の観測�
 `comparison.md` §1.45 / §1.48 / §3.x の結論（条件を足す AI ライセンスが止まっている）と同じ向き。
 
 **副次的な観測 2 つ**:
-- **委員長ですらスレッド内に本文を求める** —— Chestek 氏は McCoy 氏の募集に対し即座に
+- **Chestek 氏（委員・元委員長）ですらスレッド内に本文を求める** —— Chestek 氏は McCoy 氏の募集に対し即座に
   *"Can you provide a link or copy of the text of each license?"* と返した。
   **「plain text で添付せよ」という要件の実務的な意味がここに出ている**（`READY-TO-SUBMIT.md` 手順 2）。
 - **審査者は自分で差分を作る** —— McCoy 氏は 2 つの ModelGo を突き合わせた redline を

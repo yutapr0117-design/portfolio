@@ -21,9 +21,10 @@ canonical-ref: LICENSES/ACD-1.0.review-precedents.md (個別スレッドの読�
 **2024-01〜2026-09（30 か月・3 か月は投稿ゼロ）**。ブラウザ相当の UA で月次 `.txt` を取得し、
 **折り返しヘッダを先に展開してから**解析している（#99 の教訓）。
 
-## 1.67 委員長が述べた「承認しない／受け入れる」規則の全数（2024-01〜2026-09）と、ACD-1.0 の当たり方
+## 1.67 委員長と委員が述べた「承認しない／受け入れる」規則の全数（2024-01〜2026-09）と、ACD-1.0 の当たり方
 
 > **⚠ 2026-09-21 に見出しを「委員会が実際に述べた」から「委員長が述べた」へ狭めた（#188）。**
+> **⚠ 2026-10-17 に「委員長と委員が述べた」へ改めた** —— R5（2026-04-18）の時点で Chestek 氏は委員長ではなく委員だった（委員長の推移は `against.md` #186 の 2026-10-17 訂正注記）。
 > **R2〜R5 は Chestek 氏の発言だが、そのメッセージに資格表示が在るかを確認していない。**
 > リストの自動フッタは、明示の表示が無いかぎり**発言は発言者個人の意見**だと定めている
 > （`review-rules.md` §1.103）。**確認していない資格で「委員会が述べた」と書いてはならない。**
@@ -32,11 +33,11 @@ canonical-ref: LICENSES/ACD-1.0.review-precedents.md (個別スレッドの読�
 **引用行を除いた本文**から `OSI will/does not approve` / `OSI will accept` / `OSI requires` /
 `cannot be approved` の形を全数抽出した。**名称検索ではなく形の全数列挙である**（#87 / #99 の
 「名前で数えると母集団を数えたことにならない」を避けるため）。**得られたのは 5 件**で、
-うち 4 件は Licensing Committee 委員長（Pamela Chestek 氏）の発言である。
+うち 4 件は Pamela Chestek 氏の発言である（R2〜R4 は委員長在任中の 2025-02、R5 は委員長任期の後に委員として述べた 2026-04 —— 委員長の推移は 2026-10-17 に議事録で訂正・`against.md` #186 の訂正注記）。
 
 | # | 述べられた規則（逐語） | 出典 | ACD-1.0 の位置 |
 |---|---|---|---|
-| R1 | *"OSI **requires prior review by a lawyer** because there are things that a layman very likely cannot consider, not just to enrich lawyers (who mostly do this job **pro bono**, as we are doing now)"* | Carlo Piana 氏・2024-12-18・PBZC スレッド。**"in his own capacity" と自ら明記している。Piana 氏は OSI 理事**（`rounds/2026-09-13-osi-board-meeting-minutes-2025-06-to-2026-06.txt` の名簿 12 回すべてに在り、ライセンス承認動議に second もしている。**ただし確認できたのは 2025-06〜2026-06 の窓で、この発言の 2024-12 は窓の外である**） | **⚠ 我々に不利。そして 2026-09-22 まで、我々はこれを誤った理由で軽く扱っていた（#186）。** B1 は委員長の *"recommended … not a blocker"*（同じ 2024-12 の PBZC スレッド）と Berkus 理事の同趣旨（2025-05）に依っている。**旧文はここで「委員長は委員会として述べ、Piana 氏は個人の資格と明記している」を根拠に disposition を据えていた。この読みは反転する** —— process ページは *"Board members and employees of OSI **may participate in license review in their individual capacity**"* と定めており、**"in his own capacity" は立場が低いことの印ではなく、理事が参加するときに付ける印である。** **disposition は変わらないが、支える根拠が変わる**: 同じページが *"**no one person, including a Board member, has the authority to approve or reject a license** nor require a change, no matter how strongly they may state their position"* と定めており、**個人か委員会かという我々の推論ではなく、公表された規則が B1 を precondition でないと言っている**（`AS-OF.md`「個人の発言はどこまで効くか」）。**さらに Piana 氏は同日に撤回している** ——撤回は、発言者が理事であるほど強い。**残る不利**: 理事は理事会で票を投じ、委員長は投じない（同ページ *"The Board will then vote on whether to adopt the recommendation of the License Committee"*）。**つまり最も好意的な言明は、票を持たない人から来ている** |
+| R1 | *"OSI **requires prior review by a lawyer** because there are things that a layman very likely cannot consider, not just to enrich lawyers (who mostly do this job **pro bono**, as we are doing now)"* | Carlo Piana 氏・2024-12-18・PBZC スレッド。**"in his own capacity" と自ら明記している。Piana 氏は OSI 理事**（`rounds/2026-09-13-osi-board-meeting-minutes-2025-06-to-2026-06.txt` の名簿 12 回すべてに在り、ライセンス承認動議に second もしている。**ただし確認できたのは 2025-06〜2026-06 の窓で、この発言の 2024-12 は窓の外である**） | **⚠ 我々に不利。そして 2026-09-22 まで、我々はこれを誤った理由で軽く扱っていた（#186）。** B1 は委員長の *"recommended … not a blocker"*（同じ 2024-12 の PBZC スレッド）と Berkus 理事の同趣旨（2025-05）に依っている。**旧文はここで「委員長は委員会として述べ、Piana 氏は個人の資格と明記している」を根拠に disposition を据えていた。この読みは反転する** —— process ページは *"Board members and employees of OSI **may participate in license review in their individual capacity**"* と定めており、**"in his own capacity" は立場が低いことの印ではなく、理事が参加するときに付ける印である。** **disposition は変わらないが、支える根拠が変わる**: 同じページが *"**no one person, including a Board member, has the authority to approve or reject a license** nor require a change, no matter how strongly they may state their position"* と定めており、**個人か委員会かという我々の推論ではなく、公表された規則が B1 を precondition でないと言っている**（`AS-OF.md`「個人の発言はどこまで効くか」）。**さらに Piana 氏は同日に撤回している** ——撤回は、発言者が理事であるほど強い。**⚠ 2026-10-17 訂正 —— 旧文はここに「残る不利: 理事は理事会で票を投じ、委員長は投じない。つまり最も好意的な言明は、票を持たない人から来ている」と書いていたが、誤りだった。** 2024-12 の Chestek 氏は**理事（任期 2022-04〜2025-03）かつ委員長**で（理事会ページの月次スナップショット 2023-04〜2025-03 版 "Director, Chair of License Committee"）、交代時の議事録 2025-01-17 は委員長について *"The new chair should be part of the board"* と述べている。**最も好意的な言明も、票を持つ人から来ていた。** **⚠ この訂正は我々に有利な向きである**（だから軽く書かない）。**同時に逆側**: 2025-04 以降の Chestek 氏は理事ではなく **License Committee の委員**であり（議事録 2025-04-18 "invite McCoy Smith and Pam Chestek to join the license committee"）、**本ドシエが 2025-04 以降の発言として引く Chestek 氏の言葉は、いずれも票を持たない委員の発言である** —— 不利な言葉（2025-10 *"Which is it"* / 2026-06 *"excessively wordy"* など）も、有利な言葉（2025-12 *"I wouldn't reject the license for that reason"*）も同じ。一次資料は `claude/osi-oct-fetch-raw` の `fetch/2026-10-17/`（`minutes/`・`wayback/board/`・MANIFEST 観測メモ 59）|
 | R2 | *"OSI will not approve licenses that are **not self-contained** because of the high likelihood that the added content will not comply with the OSD or OSAID"* | Chestek 氏・2025-02-14・MGB 1.0（annex を許す構造への指摘） | **通る。実測: ACD-1.0 本文に外部参照は 0 件**（`http` / `annex` / `available at` / `incorporated by reference` のいずれも 0）。**付属文書も、後から差し替わる余地もない** |
 | R3 | *"The OSI **will not approve a license that attempts to describe which claims are licensed and which are not by what type of rights the user is exercising** - they must be allowed to exercise them all"* | Chestek 氏・2025-02-14・MGB 1.0。MGB は特許許諾を「再現・派生に必要な範囲」に限っており、**ソフトウェアを実行するだけの人に許諾が届かない**ため OSD 6 違反と判断された | **当たらない。** §8.1 の限定は**行使する権利の種類**ではなく **Work との関係**である —— *"every patent claim … that would be infringed by making, having made, **using**, offering to sell, selling, importing, or otherwise transferring the Work"*。**"using" が入っているので、実行するだけの受領者にも届く**（MGB が落ちた当の点） |
 | R4 | *"The OSI **will accept** a patent grant that is limited to only the claims that are **necessarily infringed by the patentee's contribution** (alone or in combination with the preexisting software) and temporally limited to only what was granted at the time of the contribution"* | 同上（R3 の直後・**受け入れる形を名指しした唯一の発言**） | **この形に一致する。** §8.1 末尾は *"where the infringement is caused by subject matter contained in the Work as made available by the Dedicator"* ——**寄与によって必然的に侵害される請求項に限る**という同じ限定である。**ただし ACD は時点による限定を置いていない**（*"now or in future"*）—— これは受け入れ条件より**広い**方向の差であり、狭い方向の差ではない |
@@ -195,8 +196,8 @@ Los Alamos / ESA-PL / Milenium / BOS / PSF-2.0 / CompanioNation / NIST / UPD）�
 
 **なぜ測るか。** 経路 B を採るなら「出してから、いつ答えが出るか」が計画の前提になる。
 **これまで我々が持っていたのは 2 つの言明だけだった** —— McCoy Smith 氏
-（**OSI 理事**。当該メールは *"[on behalf of the Licensing Committee]"* と付している。
-**委員長は Pamela Chestek 氏であり、McCoy 氏ではない** ——2026-09-22 の資格監査で訂正・#186）の
+（**OSI 理事、そして 2026-03 頃から License Committee 委員長**。当該メールは *"[on behalf of the Licensing Committee]"* と付している。
+**2026-09-22 にここを「委員長は Pamela Chestek 氏であり、McCoy 氏ではない」と訂正したが、その訂正のほうが誤りだった** —— 議事録 2026-02-20 が Berkus 氏の委員長職を過去形で労い、2026-03-20 に *"McCoy reports for the Licensing Committee"*。2026-10-17 に再訂正・#186 の訂正注記）の
 *"We work on a **two-month review cycle**"*（2026-08-28）と、process ページの
 *"Decision date: due no later than the first Board meeting after \<提出 + 60 日\>"*。
 **どちらも規則であって実績ではない。**
@@ -231,14 +232,14 @@ Los Alamos / ESA-PL / Milenium / BOS / PSF-2.0 / CompanioNation / NIST / UPD）�
 「時間がかかった」ではなく「決まらなかった」であり、この中央値には現れない。**
 **したがってこれは「決まった場合の所要時間」であって「出せば 3 か月で決まる」ではない。**
 
-## 1.74 **モデルの出力に条件を課すことは OSD 9 違反である**と委員長が述べている —— ACD は条件ではなく放棄で扱っている
+## 1.74 **モデルの出力に条件を課すことは OSD 9 違反である**とChestek 氏（委員・元委員長）が述べている —— ACD は条件ではなく放棄で扱っている
 
 **ドシエはこの論点を一度も扱っていなかった**（2026-09-13 に `grep` で確認 ——
 `OSD 9` と `output` を同時に含む行が LICENSES/ 全体で 0 件だった）。**逐語は 2 件ある。**
 
 > *"I do not believe that **putting conditions on output of a model is workable** and, where the
 > output is **not a derivative work** under copyright law, **it violates OSD9, 'License Must Not
-> Restrict Other Software.'**"* —— **Pamela Chestek 氏（Licensing Committee 委員長）**・2025-12-05・
+> Restrict Other Software.'**"* —— **Pamela Chestek 氏（Licensing Committee 委員・元委員長）**・2025-12-05・
 > MG-BY-2.0 / MG-BY-SA 宛。同じメールで、派生物の定義を「モデルと**機能的に似た振る舞いを achieve する**
 > ために」と狭めた改訂について *"does not address this problem and, in fact, **exacerbates** it"*
 > と述べている ——**狭めても、著作権法上の派生物でない出力に届く限り同じ問題である。**
@@ -250,7 +251,7 @@ Los Alamos / ESA-PL / Milenium / BOS / PSF-2.0 / CompanioNation / NIST / UPD）�
 **ACD-1.0 の位置（有利な側）**: **出力に条件を 1 つも課していない。** §6.4 は
 *"No model, parameter set, weight, embedding, or output derived from Computational Use of the Work
 is encumbered … and **You owe nothing** in respect of any of them. **Nothing in this Dedication
-requires You to license, disclose, or attribute any such thing.**"* ——**委員長が「workable でない」
+requires You to license, disclose, or attribute any such thing.**"* ——**Chestek 氏（委員・元委員長）が「workable でない」
 と述べた設計（出力に条件）の、ちょうど反対側である。** §9.2 / §9.3 も同じ向きで、
 **受領者は「どの部分が機械生成か」を判定する必要がない。**
 
@@ -265,7 +266,7 @@ committee 側が認めている記録でもある** ——*"OSD 9 talks about 'o
 be the justification for rejecting a license **even where they cannot identify a specific aspect of
 the OSD** … that is not met"*。**争点の外にいることは、失格を 3 つ免れることであって、承認の理由ではない。**
 
-**副次的に確かめたこと**: 委員長は 2026-05-04 に、**OSD 9 と「新規ライセンスの基準 1（再利用可能性）」を
+**副次的に確かめたこと**: Chestek 氏（委員・元委員長）は 2026-05-04 に、**OSD 9 と「新規ライセンスの基準 1（再利用可能性）」を
 同じ段落で併用している**（Milenium License が、そのライセンスを使う**他人のプロジェクト**に
 起草者の著作権表示を要求していた件）。**#129 で我々が literal に読んで不安に思った基準 1 が、
 実際に適用された唯一の例はこれである** ——**適用対象は「本文に起草者固有のものが埋め込まれている」
@@ -308,12 +309,12 @@ engagement が得られる」とは言えない。** 上の 3 件が示すのは
 **proliferation への疲れは、条文とは独立に、提出そのものへの心証として存在する** ——
 #84 / B6 と同じ族で、**我々の答え（この類型に 1 件足す費用が低い）は、この心証には届かない。**
 
-## 1.77 ModelGo Zero の審査から —— 我々の §6 に**直撃する**委員長の見解と、名称規約についての有利な先例
+## 1.77 ModelGo Zero の審査から —— 我々の §6 に**直撃する**Chestek 氏（委員・元委員長）の見解と、名称規約についての有利な先例
 
 **ModelGo は 2025-02 から 2026-09 まで 19 か月・124 通・3 度の再提出を経て、まだ決定されていない。**
 **我々に最も近い候補（Zero ＝ 最も条件の少ない版）**に絞って、steward 以外の 20 通を読んだ。
 
-### (a) 🔴 委員長は「出力に言及すること自体が曖昧さを作る」と述べている —— これは §6 への直撃である
+### (a) 🔴 Chestek 氏（委員・元委員長）は「出力に言及すること自体が曖昧さを作る」と述べている —— これは §6 への直撃である
 
 > *"But does the fact that **you mention it in the first place lead to a negative implication** that
 > you haven't granted the necessary rights to create Output? With software it's been a fairly bright
@@ -324,23 +325,23 @@ engagement が得られる」とは言えない。** 上の 3 件が示すのは
 > —— Pamela Chestek 氏・2025-12-15
 
 **ACD-1.0 は出力に明示的に言及している**（§6.4 —— モデル・パラメータ・重み・埋め込み・出力は
-encumbered でなく、受領者は何も負わない）。**つまり委員長が「やらない方がよい」と述べた設計を、
+encumbered でなく、受領者は何も負わない）。**つまりChestek 氏（委員・元委員長）が「やらない方がよい」と述べた設計を、
 我々は意図的に採っている。**
 
 **我々の答えは本文の中にある。** §6.5:
 *"Section 6 states expressly what Sections 3 to 5 would in any event permit. It is stated expressly
 because **silence on this subject has proved ambiguous in practice**, and because **a permission that
 an automated system cannot determine is … no permission at all**."*
-**前提が正面から逆である** —— 委員長は「言及が曖昧さを作る」と言い、§6.5 は「沈黙が曖昧さを作る」と言う。
+**前提が正面から逆である** —— Chestek 氏（委員・元委員長）は「言及が曖昧さを作る」と言い、§6.5 は「沈黙が曖昧さを作る」と言う。
 
 **この対立について、正直に言えること 3 つ**:
 
-1. **委員長自身が「それを理由に却下はしない」と明記している**（*"I wouldn't reject the license for
+1. **Chestek 氏（委員・元委員長）自身が「それを理由に却下はしない」と明記している**（*"I wouldn't reject the license for
    that reason"*）。**したがってこれは失格事由ではなく、設計の良し悪しについての見解である。**
-2. **対象が違う可能性がある。** 委員長が問題にしたのは **MG-BY の責任制限の中の出力への言及**で、
+2. **対象が違う可能性がある。** Chestek 氏（委員・元委員長）が問題にしたのは **MG-BY の責任制限の中の出力への言及**で、
    *"The only liability you might be avoiding is from the person creating the output"* と続いている
    ——**義務や責任の側の言及**である。**§6.4 は義務を課さず、むしろ取り除く方向の言及である。**
-   **ただしこれは我々の読みであって、委員長がそう区別する保証はない。**
+   **ただしこれは我々の読みであって、Chestek 氏（委員・元委員長）がそう区別する保証はない。**
 3. **negative implication の議論は我々にも当たりうる。** 出力について「encumbered でない」と
    書けば、**書いていない何かについては encumbered なのかという読みを招く**。
    **ACD にはこれを塞ぐ一般条項がある**（§10.1 が条件を一切持たず、§4.1 が *"all Covered Rights …
@@ -380,7 +381,7 @@ an automated system cannot determine is … no permission at all**."*
 ## 1.78 OpenMDW-1.1 の審査（117 通・1 か月）の中心論点と、ACD が当たるか当たらないか
 
 **2026-08-13 から 2026-09-12 までの 117 通を読み、steward 以外の発言から論点を抽出した。**
-**参加者は 12 人**で、内訳は Richard Fontana 氏 22 / Pamela Chestek 氏（委員長）19 /
+**参加者は 12 人**で、内訳は Richard Fontana 氏 22 / Pamela Chestek 氏（委員・元委員長）19 /
 McCoy Smith 氏 11 / Shuji Sado 氏 9 / Luis Villa 氏 8 / Rob Landley 氏 7 ほか。
 **現時点で最も活発な審査であり、ACD と同じ「AI 時代の新規ライセンス」である。**
 
@@ -433,7 +434,7 @@ notice である —— 本文の写しが付いていなくても」と述べ�
 
 **OpenMDW の論点が ACD に当たらないことは、ACD が承認されることを意味しない。**
 **また、OpenMDW がどう決まるかもまだ分からない** —— 2026-09-12 時点で審査は継続中で、
-**委員長は条件付きで賛成しうると述べ**（*"if my concerns about the paragraph enumerating the
+**Chestek 氏（委員・元委員長）は条件付きで賛成しうると述べ**（*"if my concerns about the paragraph enumerating the
 licensee's obligations to clear rights are addressed"*）、**Fontana 氏の OSD 9 の疑いは
 解消していない。** **同時代 instrument の経過観察として、決定が出たら読み直す**
 （`PEER-REVIEW-WATCH.md` の 4 分岐）。
@@ -588,7 +589,7 @@ on the Dedicator … and so is **not executory**."*
 **期間も 2001〜2026 と広く、§1.80 の 2024-01〜2026-09 とは別の時代を含む。**
 
 **B3 との関係を混同しないこと（ここが重要）**: **B3 は本文（4,896 語）の長さであって、
-提出メールの長さではない。** 委員長が engage しなかった 2 例（3,888 語 / 約 4,500 語）は
+提出メールの長さではない。** Chestek 氏が engage しなかった 2 例（3,888 語 / 約 4,500 語）は
 **いずれもライセンス本文**の長さである。**本節は提出メールについてだけの測定であり、
 B3 を緩めるものではない。** ——**2 つを同じ「長さ」で括ると、片方の測定が他方の弁護に流用される。**
 

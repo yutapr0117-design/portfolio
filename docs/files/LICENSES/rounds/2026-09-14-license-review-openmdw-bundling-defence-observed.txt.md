@@ -15,7 +15,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約) / LICENSES/ACD-1.0
 | | 発言者 / 日付 | 要点 |
 | :-- | :-- | :-- |
 | (A) | **Michael Dolan 氏**（OpenMDW steward） 2026-09-14 | Fontana 氏の *"flawed in its **basic conception**"* への反論。*"The **unit of open source licensing has always been the work as provided**, not each file measured separately against the policy that motivated each clause"* / *"**Apache-2.0's own patent termination applies to the entire Work**, including documentation and build scripts that (presumably) face no patent exposure at all"* |
-| (B) | **Josh Berkus 氏** 2026-09-14 | 委員長の *"Can you explain how?"*（偶発的な侵害コピーはどう起きるのか）への回答。8 つの経路を挙げ、その 1 つが *"**GenAI & Autocomplete**"* |
+| (B) | **Josh Berkus 氏** 2026-09-14 | Chestek 氏（委員・元委員長）の *"Can you explain how?"*（偶発的な侵害コピーはどう起きるのか）への回答。8 つの経路を挙げ、その 1 つが *"**GenAI & Autocomplete**"* |
 
 ## Why
 

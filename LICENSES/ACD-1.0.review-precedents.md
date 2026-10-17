@@ -468,7 +468,7 @@ rough consensus… Abstain."*）。手続きの記録として: **Simon Phipps �
 **(1) 名前は審査される。** ドシエは条文を隅々まで敵対的に読んできたが、
 **「Autonomous Commons Dedication」という名前そのものを一度も検査していなかった**（#112）。
 
-**(2) 名前が「どちらか一方」を宣言している。** #110 で記録したとおり、委員長は
+**(2) 名前が「どちらか一方」を宣言している。** #110 で記録したとおり、Chestek 氏（委員・元委員長）は
 *"Which is it, a dedication to the public domain or a license? You can't have it both ways."*
 と問う。**我々の名前は "Dedication" と言い切っている** —— 一方 §4 は licence であり、
 §4.4 は独立の許諾だと述べる。**反論が来る前に、名前の側で片方に賭けてしまっている。**

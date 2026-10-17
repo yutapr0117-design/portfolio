@@ -21,18 +21,18 @@ canonical-ref: LICENSES/ACD-1.0.review-precedents.md (他の提出に何が起�
 顛末でありながら、その論拠が ACD の条文になっている。**境界は読み手の用途で引いてあり、
 論理的に排他な分類ではない。** 迷ったら両方見る。
 
-## 1.84 委員長が OpenMDW に当てている原理を、我々の §6.3 に当てると刺さる（2026-09-15）
+## 1.84 Chestek 氏（委員・元委員長）が OpenMDW に当てている原理を、我々の §6.3 に当てると刺さる（2026-09-15）
 
 **§1.88 と同じスレッドの読み。** 2026-09-10〜09-14 の争点は**終了条項**であり、
 **ACD には終了が無い**（§10.1 / §10.4）ので**表面は当たらない**。
-**だが委員長が使っている原理は、条項の種類に依存していない。**
+**だがChestek 氏（委員・元委員長）が使っている原理は、条項の種類に依存していない。**
 
 > **You're putting the burden on the potentially wronged party to limit their choices rather than
 > on the licensor to avoid wrongful conduct.** … You are also assuming the licensee has knowledge
 > that will allow them to make an informed choice, **but that's not the reality**. The OpenMDW-1.1
 > licensee is asked to agree to the license **without having any knowledge about whether it
 > infringes**
-> —— Pamela Chestek 氏（Licensing Committee 委員長）、`license-review` 2026-09-11
+> —— Pamela Chestek 氏（Licensing Committee 委員・元委員長）、`license-review` 2026-09-11
 
 ### 🔴 この原理が当たる場所が、ACD に 1 つだけある
 
@@ -64,12 +64,12 @@ canonical-ref: LICENSES/ACD-1.0.review-precedents.md (他の提出に何が起�
 
 **弱いところは、それが読み手の作業になることである。** 3 条（§2.7 / §6.2 / §6.3）を
 **この順で読んだ人にしか成立しない**。**そして #99 が既に記録しているとおり、読み順は我々が
-決められない。** 委員長の言い方を借りれば、**我々は「届かないと分かるはずだ」という前提で
+決められない。** Chestek 氏（委員・元委員長）の言い方を借りれば、**我々は「届かないと分かるはずだ」という前提で
 負担を読み手に置いている。**
 
 ### この節が establish しないこと
 
-**委員長は ACD-1.0 について何も述べていない。** これは**他者の提出に当てている原理を、
+**Chestek 氏（委員・元委員長）は ACD-1.0 について何も述べていない。** これは**他者の提出に当てている原理を、
 我々が自分に当てた結果**であって、指摘を受けたのではない。
 **そして逆側**: 原理が当たることと、**それが OSD 違反であること**は別である ——
 §6.3 は条件でも制限でもなく、**誰の自由も減らしていない**（減らしうるのは第三者の Reservation の
@@ -88,7 +88,7 @@ canonical-ref: LICENSES/ACD-1.0.review-precedents.md (他の提出に何が起�
 
 **それでもこの節に価値がある理由は 2 つ。** (1) **前日の修正は「狭めよ」という処方への
 対案として入れた**もので、*なぜ*入れる価値があったのかは書いていなかった ——
-**委員長の原理が、その理由を外から名指しする**（負担を、知り得ない側に置いていた）。
+**Chestek 氏（委員・元委員長）の原理が、その理由を外から名指しする**（負担を、知り得ない側に置いていた）。
 (2) **1.0 の側は依然として読み順に依存している**ことが、これで明確になった。
 
 **⚠ そして本日 9 度目の同じ失敗である。** 「未決」と書く前に草案を開いていない ——
@@ -148,7 +148,7 @@ steward が正面から争っており、委員会の裁定でも理事会の決
 スレッドで、議論は「著作権の主張を引き金に許諾を切ってよいか」へ移った。**
 **我々宛でも ACD-1.0 についてでもない。**
 
-**Pamela Chestek 氏（Licensing Committee 委員長・2026-09-10）**:
+**Pamela Chestek 氏（Licensing Committee 委員・元委員長・2026-09-10）**:
 
 > What I find distinguishable about a termination of the copyright license versus the patent
 > license is that copyright infringement doesn't happen by accident. There is no copyright
@@ -539,7 +539,7 @@ GPL-3.0 はいずれも引き金を *"any entity"*（＝当事者ではなく**�
 
 **(2) steward は「Licensor は役割であって人ではない」と答え、現行文言の維持を求めた。**
 
-**(3) 委員長 Pamela Chestek 氏（2026-09-20 / 09-22）が、その答えを退けた。**
+**(3) Pamela Chestek 氏（委員・元委員長・2026-09-20 / 09-22）が、その答えを退けた。**
 まず当事者を 4 類型（Licensor / 非頒布の利用者 A / 頒布する利用者 B / 特許権者 C）に分解し、
 C が A や B を訴えても終了しないことを示して *"**That is the discrimination**"* と書く。
 そのうえで **09-22 に基準を名指しした**:
@@ -560,18 +560,18 @@ C が A や B を訴えても終了しないことを示して *"**That is the d
 ### ⚠ 逆側（3 つ・同じ音量で書く）
 
 **(a) §13 / §14 は Dedicator の側を守る。** 無保証と責任制限は Dedicator にだけ利益がある。
-**委員長の適用は*権利*の非対称に向いており免責条項には届いていないが、それは沈黙であって
+**Chestek 氏（委員・元委員長）の適用は*権利*の非対称に向いており免責条項には届いていないが、それは沈黙であって
 判断ではない**（承認済み 141 本すべてが同種の条項を持つことは**「皆やっている」型の弁護**で、
 本ドシエが他所では信用しない形である）。
 
-**(b) 「意図的だ」という答えは事態を悪くする。** 委員長は steward の説明に対し
+**(b) 「意図的だ」という答えは事態を悪くする。** Chestek 氏（委員・元委員長）は steward の説明に対し
 *"Your response is **quite troubling to me**. I read it as saying that the disparate treatment …
 is **intentional**"* と応じた。**ACD-1.0 §8.2 は特許報復の不在を *"deliberate"* と明記している。**
 向きは逆（ACD が意図的に手放しているのは *licensor を守る*機構の方）だが、
 **「意図的である」は適合の問いへの答えにならない**という一般形はそのまま我々に当たる。
 
 **(c) 自分の instrument を承認済みライセンスから構造で区別する主張は退けられうる。**
-委員長は *"**All licenses are "single grantor,"** Apache included"* と、steward の区別立てを
+Chestek 氏（委員・元委員長）は *"**All licenses are "single grantor,"** Apache included"* と、steward の区別立てを
 正面から否定した。**提出パケットが ACD の構造的な新しさを述べる箇所は、この読みに耐える
 必要がある。**
 

@@ -10,14 +10,14 @@ canonical-ref: LICENSES/rounds/README.md (規則 6) / LICENSES/REVISION-PROTOCOL
 ## What
 
 **要求と応答の 2 通。** McCoy Smith 氏の CALL FOR COMMENTS（2 つの ModelGo ライセンスへの
-最終意見募集）に対し、**Pamela Chestek 氏 —— OSI Licensing Committee 委員長、
+最終意見募集）に対し、**Pamela Chestek 氏 —— OSI Licensing Committee 委員（元委員長）、
 2025 年からこの審査に関与している当人 —— が最初に返したのは
 "Can you provide a link or copy of the text of each license?"** である。
 約 1 時間後に McCoy 氏が GitHub の URL 2 本を返している。
 
 ## Why
 
-**本文の届け方は、審査の内容と同じくらい実務的な論点である。** 委員長ですら、
+**本文の届け方は、審査の内容と同じくらい実務的な論点である。** Chestek 氏（委員・元委員長）ですら、
 自分が過去に論評したライセンスについて、**本文を探しに行かずに要求している**。
 **審査者に 1 ホップでも探させると、そこで止まりうる。**
 
@@ -35,7 +35,7 @@ canonical-ref: LICENSES/rounds/README.md (規則 6) / LICENSES/REVISION-PROTOCOL
 ## Constraints
 
 - 逐語部分は無改変（規則 1）
-- **これを「委員長が不熱心である」と読まない。** 読めるのは
+- **これを「Chestek 氏（委員・元委員長）が不熱心である」と読まない。** 読めるのは
   「**本文が手元に無い状態が現に起きる**」という 1 点だけである
 
 ## Change impact

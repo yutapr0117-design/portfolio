@@ -225,14 +225,14 @@ embedding / output にまで特許許諾を及ぼす。** 射程はこの発言�
 
 ## B1 + B2 —— この 2 つは、リスト上では**別々ではなく 1 文で**争われている
 
-> **🆕 2026-09-22 追記 —— B2 の板挟みを、委員長自身が「Catch-22」と呼んでいた。**
+> **🆕 2026-09-22 追記 —— B2 の板挟みを、Chestek 氏（委員・元委員長）自身が「Catch-22」と呼んでいた。**
 >
 > > *"Yes, the review process certainly creates a **Catch-22**. **We want to see licenses early to
 > > correct them, but are less inclined to approve a license that doesn't have a track record.**"*
 > > —— Pamela Chestek 氏・`license-review` 2026-08-26（OpenMDW 審査）
 >
 > **この register は B2 を「解消可能・未実施（discoverability のみ制御可）」と書いてきたが、
-> *その板挟みが OSI の側にも在り、委員長がそう認めている* ことを記録していなかった。**
+> *その板挟みが OSI の側にも在り、Chestek 氏（委員・元委員長）がそう認めている* ことを記録していなかった。**
 > **我々の側の困難としてだけ書いていた。**
 >
 > **⚠ 過大に読まない。** これは「実績が無くても承認する」ではない。
@@ -241,7 +241,7 @@ embedding / output にまで特許許諾を及ぼす。** 射程はこの発言�
 > 手続きの性質である**という一点である。
 >
 > **⚠ 文脈**: これは steward が「本文を改訂しても、既に配布されたモデルは出荷時の文言のまま」
-> と述べたことへの返信であり、**続けて委員長は「steward の見解は契約解釈に関係しないかもしれない」
+> と述べたことへの返信であり、**続けてChestek 氏（委員・元委員長）は「steward の見解は契約解釈に関係しないかもしれない」
 > とも述べている**（#124 と同じ論点）。**有利な半分だけを取らない。**
 
 **分けて書かない理由**: ドシエは長らく「法的レビューが無い」(#5 / #79) と「採用が 1 件」(#2) を
@@ -410,7 +410,7 @@ obvious faults that a legal professional would know to avoid."*
 
 ## B4 —— §3 献呈と §4 許諾の並存。class 12 候補として検証し、否定した
 
-**なぜ承認上の問題か（事実）**: Licensing Committee 委員長が
+**なぜ承認上の問題か（事実）**: Licensing Committee 委員（元委員長）が
 *"Which is it, a dedication to the public domain or a license? **You can't have it both ways.**
 … The document is internally contradictory."*（2025-10-16）と述べている。
 ACD-1.0 の中核はまさにその並置である（§2.4 / §4.4）。
