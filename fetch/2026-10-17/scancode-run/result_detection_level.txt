@@ -1,0 +1,56 @@
+== /Users/yokoiyuuta/osi-fetch/fetch/2026-10-17/scancode-run/inputs/acd10.txt | detected_license_expression: public-domain AND proprietary-license AND unknown AND warranty-disclaimer AND unknown-license-reference AND unknown-spdx | spdx: LicenseRef-scancode-public-domain AND LicenseRef-scancode-proprietary-license AND LicenseRef-scancode-unknown AND LicenseRef-scancode-warranty-disclaimer AND LicenseRef-scancode-unknown-license-reference AND LicenseRef-scancode-unknown-spdx
+   det: public-domain | None | n_matches 1
+   det: public-domain | None | n_matches 1
+   det: proprietary-license | None | n_matches 1
+   det: unknown | None | n_matches 1
+   det: warranty-disclaimer | None | n_matches 1
+   det: unknown-license-reference | None | n_matches 1
+   det: unknown-spdx | None | n_matches 3
+   det: unknown-license-reference | None | n_matches 1
+   clues: [('public-domain', 19)]
+== /Users/yokoiyuuta/osi-fetch/fetch/2026-10-17/scancode-run/inputs/acd11.txt | detected_license_expression: public-domain AND proprietary-license AND unknown AND warranty-disclaimer AND unknown-license-reference AND unknown-spdx | spdx: LicenseRef-scancode-public-domain AND LicenseRef-scancode-proprietary-license AND LicenseRef-scancode-unknown AND LicenseRef-scancode-warranty-disclaimer AND LicenseRef-scancode-unknown-license-reference AND LicenseRef-scancode-unknown-spdx
+   det: public-domain | None | n_matches 1
+   det: public-domain | None | n_matches 1
+   det: proprietary-license | None | n_matches 1
+   det: unknown | None | n_matches 1
+   det: warranty-disclaimer | None | n_matches 1
+   det: unknown-license-reference | None | n_matches 1
+   det: unknown-spdx | None | n_matches 1
+   det: unknown-license-reference | None | n_matches 1
+   clues: [('public-domain', 51)]
+== /Users/yokoiyuuta/osi-fetch/fetch/2026-10-17/scancode-run/inputs/acd12draft.txt | detected_license_expression: (unlicense AND bsd-zero) AND unknown AND public-domain AND proprietary-license AND warranty-disclaimer AND unknown-license-reference AND unknown-spdx | spdx: (Unlicense AND 0BSD) AND LicenseRef-scancode-unknown AND LicenseRef-scancode-public-domain AND LicenseRef-scancode-proprietary-license AND LicenseRef-scancode-warranty-disclaimer AND LicenseRef-scancode-unknown-license-reference AND LicenseRef-scancode-unknown-spdx
+   det: unlicense AND bsd-zero | None | n_matches 3
+   det: unknown | None | n_matches 1
+   det: public-domain | None | n_matches 1
+   det: public-domain | None | n_matches 1
+   det: proprietary-license | None | n_matches 1
+   det: unknown | None | n_matches 1
+   det: warranty-disclaimer | None | n_matches 1
+   det: unknown-license-reference | None | n_matches 1
+   det: unknown-spdx | None | n_matches 1
+   det: unknown-license-reference | None | n_matches 1
+   clues: [('public-domain', 203)]
+== /Users/yokoiyuuta/osi-fetch/fetch/2026-10-17/scancode-run/inputs/repo_LICENSE.txt | detected_license_expression: unknown-spdx AND (warranty-disclaimer AND unknown-license-reference) | spdx: LicenseRef-scancode-unknown-spdx AND (LicenseRef-scancode-warranty-disclaimer AND LicenseRef-scancode-unknown-license-reference)
+   det: unknown-spdx | None | n_matches 1
+   det: warranty-disclaimer AND unknown-license-reference | None | n_matches 2
+   clues: []
+== /Users/yokoiyuuta/osi-fetch/fetch/2026-10-17/scancode-run/inputs/unlicense.txt | detected_license_expression: unlicense | spdx: Unlicense
+   det: unlicense | None | n_matches 1
+   clues: []
+== /Users/yokoiyuuta/osi-fetch/fetch/2026-10-17/scancode-run/inputs/cc0.txt | detected_license_expression: cc0-1.0 | spdx: CC0-1.0
+   det: cc0-1.0 | None | n_matches 1
+   clues: []
+== /Users/yokoiyuuta/osi-fetch/fetch/2026-10-17/scancode-run/inputs/0bsd.txt | detected_license_expression: bsd-zero | spdx: 0BSD
+   det: bsd-zero | None | n_matches 1
+   clues: []
+== /Users/yokoiyuuta/osi-fetch/fetch/2026-10-17/scancode-run/variants/v_whether_or_not_commercial.txt | detected_license_expression: (unlicense AND bsd-zero) AND unknown AND public-domain AND warranty-disclaimer AND unknown-license-reference AND unknown-spdx | spdx: (Unlicense AND 0BSD) AND LicenseRef-scancode-unknown AND LicenseRef-scancode-public-domain AND LicenseRef-scancode-warranty-disclaimer AND LicenseRef-scancode-unknown-license-reference AND LicenseRef-scancode-unknown-spdx
+   det: unlicense AND bsd-zero | None | n_matches 3
+   det: unknown | None | n_matches 1
+   det: public-domain | None | n_matches 1
+   det: public-domain | None | n_matches 1
+   det: unknown | None | n_matches 1
+   det: warranty-disclaimer | None | n_matches 1
+   det: unknown-license-reference | None | n_matches 1
+   det: unknown-spdx | None | n_matches 1
+   det: unknown-license-reference | None | n_matches 1
+   clues: [('public-domain', 203)]

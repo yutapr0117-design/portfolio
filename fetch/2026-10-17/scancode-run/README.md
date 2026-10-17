@@ -9,6 +9,8 @@
 
 - `result_osi_approved_141_census.json` は SPDX license-list-data（`census_input_source.txt` の commit）の **OSI 承認済み・非 deprecated の 141 本**を同じ照合 API に当てた結果。`result_peers.json` は OpenMDW-1.0（SPDX text）/ OpenMDW-1.1（`peer-texts/`）/ MIT-PoU v1.2.0（`peer-texts/`）/ MCAL（license-discuss 10 月アーカイブ内の添付本文を切り出したもの・`inputs/peers/mcal_from_archive.txt`）。
 
+- `sc_detect.py` / `result_detection_level.txt` は **CLI と同じ検出の合成（`scancode.api.get_licenses`）**を通した結果（同じスタブ）。照合 API の断片一覧ではなく、スキャン報告に載る `detected_license_expression` を見るためのもの。敵対的検証役（同セッションのサブエージェント・読み取りのみ）が書いたスクリプトを、入力を固定して再実行した。
+
 | file | sha256[:16] |
 |---|---|
 | ./census_input_source.txt | c44c69549e77c4c0 |
@@ -27,12 +29,14 @@
 | ./result_acd10_LICENSE_w2fpl.json | d4d8ed6e53b90ca0 |
 | ./result_acd11_acd12draft_controls.json | b78a053ffffae977 |
 | ./result_acd12draft_variants.json | c61fd2248a6368a5 |
+| ./result_detection_level.txt | fd342a7dc880fae0 |
 | ./result_osi_approved_141_census.json | eed0d49aa04bf537 |
 | ./result_peers.json | e9f6c0ae20234496 |
 | ./rules/proprietary-license_544.RULE | dcd84f8e2fac4b16 |
 | ./rules/public-domain_bare_words.RULE | 1b8d5398dca432cd |
 | ./rules/unknown_35.RULE | 08425579caaa0f3b |
 | ./sc_census.py | 71ea8d629cfc5b33 |
+| ./sc_detect.py | ca8e712683574c60 |
 | ./sc_match.py | 34a553a9dd353c00 |
 | ./variants/v_any_purpose.txt | f3c56e28f4dadd20 |
 | ./variants/v_commercial_or_noncommercial_nohyphen.txt | 6ac33e0166106833 |
