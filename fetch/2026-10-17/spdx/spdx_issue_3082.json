@@ -1,0 +1,82 @@
+{
+  "url": "https://api.github.com/repos/spdx/license-list-XML/issues/3082",
+  "repository_url": "https://api.github.com/repos/spdx/license-list-XML",
+  "labels_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3082/labels{/name}",
+  "comments_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3082/comments",
+  "events_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3082/events",
+  "html_url": "https://github.com/spdx/license-list-XML/issues/3082",
+  "id": 5426349853,
+  "node_id": "I_kwDOA0JFE88AAAABQ2-HHQ",
+  "number": 3082,
+  "title": "New license request: POL-1.0 [SPDX-Online-Tools]",
+  "user": {
+    "login": "kljj04",
+    "id": 277057546,
+    "node_id": "U_kgDOEIOQCg",
+    "avatar_url": "https://avatars.githubusercontent.com/u/277057546?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/kljj04",
+    "html_url": "https://github.com/kljj04",
+    "followers_url": "https://api.github.com/users/kljj04/followers",
+    "following_url": "https://api.github.com/users/kljj04/following{/other_user}",
+    "gists_url": "https://api.github.com/users/kljj04/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/kljj04/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/kljj04/subscriptions",
+    "organizations_url": "https://api.github.com/users/kljj04/orgs",
+    "repos_url": "https://api.github.com/users/kljj04/repos",
+    "events_url": "https://api.github.com/users/kljj04/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/kljj04/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "labels": [
+
+  ],
+  "state": "open",
+  "locked": false,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 2,
+  "created_at": "2026-09-11T15:56:38Z",
+  "updated_at": "2026-09-18T07:16:07Z",
+  "closed_at": null,
+  "assignee": null,
+  "author_association": "NONE",
+  "issue_field_values": [
+
+  ],
+  "type": null,
+  "active_lock_reason": null,
+  "sub_issues_summary": {
+    "total": 0,
+    "completed": 0,
+    "percent_completed": 0
+  },
+  "issue_dependencies_summary": {
+    "blocked_by": 0,
+    "total_blocked_by": 0,
+    "blocking": 0,
+    "total_blocking": 0
+  },
+  "body": "**1.** License name: Preservation of Origin License\n**2.** Short identifier: POL-1.0\n**3.** License author or steward: kljj04\n**4.** Comments: The Preservation of Origin License 1.0 is a permissive software license with stable license text. It allows use, copying, modification, incorporation into other software, and distribution in source-code or closed-source form, while requiring preservation of origin information for copied software. It is not a license exception and does not match an existing SPDX-listed license because its central requirement is preservation of Original Author and Original Project information through an InfoHeader or external notice.\n**5.** License request Url: https://tools.spdx.org/app/license_requests/535\n**6.** URL(s): https://github.com/kljj04/POL/blob/master/versions/1.0.txt\n**7.** OSI status: Not Submitted\n**8.** Example projects: https://github.com/kljj04/LineOS",
+  "closed_by": null,
+  "reactions": {
+    "url": "https://api.github.com/repos/spdx/license-list-XML/issues/3082/reactions",
+    "total_count": 0,
+    "+1": 0,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "timeline_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3082/timeline",
+  "performed_via_github_app": null,
+  "state_reason": null,
+  "pinned_comment": null
+}

@@ -1,0 +1,49 @@
+[
+  {
+    "url": "https://api.github.com/repos/spdx/license-list-XML/issues/comments/5801770993",
+    "html_url": "https://github.com/spdx/license-list-XML/issues/3086#issuecomment-5801770993",
+    "issue_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3086",
+    "id": 5801770993,
+    "node_id": "IC_kwDOA0JFE88AAAABWc__8Q",
+    "user": {
+      "login": "swinslow",
+      "id": 678569,
+      "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swinslow",
+      "html_url": "https://github.com/swinslow",
+      "followers_url": "https://api.github.com/users/swinslow/followers",
+      "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+      "organizations_url": "https://api.github.com/users/swinslow/orgs",
+      "repos_url": "https://api.github.com/users/swinslow/repos",
+      "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swinslow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "created_at": "2026-09-23T19:46:43Z",
+    "updated_at": "2026-09-23T19:46:43Z",
+    "body": "The text file you shared indicates that this is not intended to be an open source (ish) license; it is solely for your own organizational use and not other licensors (given the definition and use of \"VGT\" throughout); and I see no evidence of its use in the wild beyond your own personal projects. \n\nAdditionally, the license text includes the following note at the top (_emphasis added_):\n\n> Notice on Status: This text is an independently drafted license intended for use by VisionGaiaTechnology. It implements a strong copyleft and network-copyleft model and additionally contains an express restriction on military and intelligence use. Because of this field-of-use restriction, it is not intended to be an OSI-certified open-source license. _Before production rollout, a final review by legal counsel specializing in IT, copyright, and software licensing law is recommended._\n\nwhich strongly suggests to me that this license is not in final form.\n\nIn any case, this does not appear to align with the license inclusion guidelines and I am not in favor of its inclusion on the SPDX license list.",
+    "author_association": "MEMBER",
+    "pin": null,
+    "reactions": {
+      "url": "https://api.github.com/repos/spdx/license-list-XML/issues/comments/5801770993/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "performed_via_github_app": null,
+    "minimized": null
+  }
+]

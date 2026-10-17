@@ -1,0 +1,419 @@
+[
+  {
+    "url": "https://api.github.com/repos/spdx/license-list-XML/pulls/comments/3926819921",
+    "pull_request_review_id": 5104670706,
+    "id": 3926819921,
+    "node_id": "PRRC_kwDOA0JFE87qDoRR",
+    "diff_hunk": "@@ -1,48 +1,79 @@\n # License Inclusion Principles\n-Determining whether a candidate license should be included on the SPDX License List requires the SPDX Legal Team to engage in a case-by-case evaluation of each candidate license based on a number of factors. The list below attempts to set out an order of priority to that end. However, the list of factors here is not necessarily exhaustive. The ultimate decision will be based on the totality of the factors and SPDX's goals and objectives. \n+The SPDX License List contains licenses that: are commonly found in the supply chain; are open or allow for collaborative development; and may cover a variety of distributable content, for example software, data, hardware, documentation, AI models, etc.",
+    "path": "DOCS/license-inclusion-principles.md",
+    "commit_id": "1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3",
+    "original_commit_id": "1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3",
+    "user": {
+      "login": "richardfontana",
+      "id": 1179636,
+      "node_id": "MDQ6VXNlcjExNzk2MzY=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1179636?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/richardfontana",
+      "html_url": "https://github.com/richardfontana",
+      "followers_url": "https://api.github.com/users/richardfontana/followers",
+      "following_url": "https://api.github.com/users/richardfontana/following{/other_user}",
+      "gists_url": "https://api.github.com/users/richardfontana/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/richardfontana/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/richardfontana/subscriptions",
+      "organizations_url": "https://api.github.com/users/richardfontana/orgs",
+      "repos_url": "https://api.github.com/users/richardfontana/repos",
+      "events_url": "https://api.github.com/users/richardfontana/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/richardfontana/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "The licenses themselves are not necessarily \"open or allow for collaborative development\"; you probably mean the stuff the licenses cover, but this is not true of everything in the list today and will become less true if you expand it to cover stuff like firmware licenses. ",
+    "created_at": "2026-09-03T17:03:59Z",
+    "updated_at": "2026-09-03T17:03:59Z",
+    "html_url": "https://github.com/spdx/license-list-XML/pull/3078#discussion_r3926819921",
+    "pull_request_url": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/spdx/license-list-XML/pulls/comments/3926819921"
+      },
+      "html": {
+        "href": "https://github.com/spdx/license-list-XML/pull/3078#discussion_r3926819921"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078"
+      }
+    },
+    "reactions": {
+      "url": "https://api.github.com/repos/spdx/license-list-XML/pulls/comments/3926819921/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "start_line": null,
+    "original_start_line": null,
+    "start_side": null,
+    "line": null,
+    "original_line": 2,
+    "side": "RIGHT",
+    "author_association": "CONTRIBUTOR",
+    "original_position": 3,
+    "position": 1,
+    "subject_type": "line"
+  },
+  {
+    "url": "https://api.github.com/repos/spdx/license-list-XML/pulls/comments/3926836176",
+    "pull_request_review_id": 5104689000,
+    "id": 3926836176,
+    "node_id": "PRRC_kwDOA0JFE87qDsPQ",
+    "diff_hunk": "@@ -1,48 +1,79 @@\n # License Inclusion Principles\n-Determining whether a candidate license should be included on the SPDX License List requires the SPDX Legal Team to engage in a case-by-case evaluation of each candidate license based on a number of factors. The list below attempts to set out an order of priority to that end. However, the list of factors here is not necessarily exhaustive. The ultimate decision will be based on the totality of the factors and SPDX's goals and objectives. \n+The SPDX License List contains licenses that: are commonly found in the supply chain; are open or allow for collaborative development; and may cover a variety of distributable content, for example software, data, hardware, documentation, AI models, etc.\n \n-## Candidate License Analysis\n+Determining whether a candidate license or exception should be included on the SPDX License List requires the SPDX Legal Team to engage in a case-by-case evaluation of each submission based on a number of factors, generally prioritized as set out below. The ultimate decision will be based on the totality of the factors and in consideration of the [SPDX Project's mission and vision](https://spdx.dev/about/overview/). \n \n-**Definitive factors:**\n-<ol type=\"A\">\n- <li>The submitted license must not match another license already on the SPDX License List as per the <a href=\"https://spdx.github.io/spdx-spec/v2.3/license-matching-guidelines-and-templates/\">SPDX matching guidelines</a>.</li>\n- <li>All OSI-approved licenses will be included on the SPDX License List.</li>\n- <li>Software licenses that apply only to executables and do not provide for the availability of the source code will not be included on the SPDX License List.</li>\n- <li>The license has identifiable and stable text; it is not in the midst of drafting.</li>\n- <li>The license steward, if any, is committed to not modifying after addition to the list and to versioning new versions in the future.</li>\n-</ol>\n+Note: Once a license is added to the SPDX License List, the SPDX license id is immutable.\n+\n+For a description of the review process, see LINK. For more on the historical background of these guidelines see LINK.\n+\n+## License Submission Factors\n+\n+### Prerequisitives:\n+1. The submitted license does not match another license already on the SPDX License List as per the <a href=\"https://spdx.github.io/spdx-spec/v2.3/license-matching-guidelines-and-templates/\">SPDX matching guidelines</a>.\n+2. The license has been finalized and will not be revised any further; and the license text is publicly available.\n+\n+### Fast-track inclusion:\n+For the following cases,  a license will be added to the SPDX License List without a full review under the “Key Factors” and “Other Factors” described further below.\n+ \n+1. As per SPDX License List historical policy, all OSI-approved licenses will be included on the SPDX License List.\n+    1. If a license is submitted to and approved by the OSI, then SPDX does not need to review it under the SPDX license inclusion guidelines. ",
+    "path": "DOCS/license-inclusion-principles.md",
+    "commit_id": "72e0d79ef62cdc6fe5f658548bbbe615a876b730",
+    "original_commit_id": "1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3",
+    "user": {
+      "login": "richardfontana",
+      "id": 1179636,
+      "node_id": "MDQ6VXNlcjExNzk2MzY=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1179636?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/richardfontana",
+      "html_url": "https://github.com/richardfontana",
+      "followers_url": "https://api.github.com/users/richardfontana/followers",
+      "following_url": "https://api.github.com/users/richardfontana/following{/other_user}",
+      "gists_url": "https://api.github.com/users/richardfontana/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/richardfontana/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/richardfontana/subscriptions",
+      "organizations_url": "https://api.github.com/users/richardfontana/orgs",
+      "repos_url": "https://api.github.com/users/richardfontana/repos",
+      "events_url": "https://api.github.com/users/richardfontana/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/richardfontana/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "\"submitted to\" probably unnecessary (also, OSI could approve a license that hasn't been \"submitted\" by someone outside the OSI, though that hasn't happened really since the initial population of the OSI approved license list).",
+    "created_at": "2026-09-03T17:06:02Z",
+    "updated_at": "2026-09-03T17:06:02Z",
+    "html_url": "https://github.com/spdx/license-list-XML/pull/3078#discussion_r3926836176",
+    "pull_request_url": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/spdx/license-list-XML/pulls/comments/3926836176"
+      },
+      "html": {
+        "href": "https://github.com/spdx/license-list-XML/pull/3078#discussion_r3926836176"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078"
+      }
+    },
+    "reactions": {
+      "url": "https://api.github.com/repos/spdx/license-list-XML/pulls/comments/3926836176/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "start_line": null,
+    "original_start_line": null,
+    "start_side": null,
+    "line": 22,
+    "original_line": 20,
+    "side": "RIGHT",
+    "author_association": "CONTRIBUTOR",
+    "original_position": 30,
+    "position": 59,
+    "subject_type": "line"
+  },
+  {
+    "url": "https://api.github.com/repos/spdx/license-list-XML/pulls/comments/3926863707",
+    "pull_request_review_id": 5104719732,
+    "id": 3926863707,
+    "node_id": "PRRC_kwDOA0JFE87qDy9b",
+    "diff_hunk": "@@ -1,48 +1,79 @@\n # License Inclusion Principles\n-Determining whether a candidate license should be included on the SPDX License List requires the SPDX Legal Team to engage in a case-by-case evaluation of each candidate license based on a number of factors. The list below attempts to set out an order of priority to that end. However, the list of factors here is not necessarily exhaustive. The ultimate decision will be based on the totality of the factors and SPDX's goals and objectives. \n+The SPDX License List contains licenses that: are commonly found in the supply chain; are open or allow for collaborative development; and may cover a variety of distributable content, for example software, data, hardware, documentation, AI models, etc.\n \n-## Candidate License Analysis\n+Determining whether a candidate license or exception should be included on the SPDX License List requires the SPDX Legal Team to engage in a case-by-case evaluation of each submission based on a number of factors, generally prioritized as set out below. The ultimate decision will be based on the totality of the factors and in consideration of the [SPDX Project's mission and vision](https://spdx.dev/about/overview/). \n \n-**Definitive factors:**\n-<ol type=\"A\">\n- <li>The submitted license must not match another license already on the SPDX License List as per the <a href=\"https://spdx.github.io/spdx-spec/v2.3/license-matching-guidelines-and-templates/\">SPDX matching guidelines</a>.</li>\n- <li>All OSI-approved licenses will be included on the SPDX License List.</li>\n- <li>Software licenses that apply only to executables and do not provide for the availability of the source code will not be included on the SPDX License List.</li>\n- <li>The license has identifiable and stable text; it is not in the midst of drafting.</li>\n- <li>The license steward, if any, is committed to not modifying after addition to the list and to versioning new versions in the future.</li>\n-</ol>\n+Note: Once a license is added to the SPDX License List, the SPDX license id is immutable.\n+\n+For a description of the review process, see LINK. For more on the historical background of these guidelines see LINK.\n+\n+## License Submission Factors\n+\n+### Prerequisitives:\n+1. The submitted license does not match another license already on the SPDX License List as per the <a href=\"https://spdx.github.io/spdx-spec/v2.3/license-matching-guidelines-and-templates/\">SPDX matching guidelines</a>.\n+2. The license has been finalized and will not be revised any further; and the license text is publicly available.\n+\n+### Fast-track inclusion:\n+For the following cases,  a license will be added to the SPDX License List without a full review under the “Key Factors” and “Other Factors” described further below.\n+ \n+1. As per SPDX License List historical policy, all OSI-approved licenses will be included on the SPDX License List.\n+    1. If a license is submitted to and approved by the OSI, then SPDX does not need to review it under the SPDX license inclusion guidelines. \n+    2. Note: If a license is submitted to OSI and not approved or is withdrawn, then SPDX will consider inclusion under the SPDX license inclusion guidelines like any other submitted license.\n+\n+2. If a license has already been determined to meet free/open license criteria for a widely used community Linux distribution or similar project (“major distro”) and the code under that license is present in the current major distro version, it will be added to the SPDX License List. The approval is subject to confirmation that the license does not match an existing license, and agreement on the SPDX ID. \n+    1. The major distro criteria currently includes:\n+        * Fedora:  licenses that have been assessed as [allowed](https://docs.fedoraproject.org/en-US/legal/license-approval/#_allowed_licenses), [allowed-documentation](https://docs.fedoraproject.org/en-US/legal/license-approval/#_licenses_allowed_for_documentation), [allowed-content](https://docs.fedoraproject.org/en-US/legal/license-approval/#_licenses_allowed_for_content), or [allowed-fonts](https://docs.fedoraproject.org/en-US/legal/license-approval/#_licenses_allowed_for_fonts); or</li>\n+       * Debian: licenses used for free software in the [‘main’](https://www.debian.org/doc/debian-policy/ch-archive.html#the-main-archive-area) or [‘contrib’](https://www.debian.org/doc/debian-policy/ch-archive.html#the-contrib-archive-area) archive.\n+    2. The rationale here is that the combination of the nature of the project's free/open license criteria and the license being in a major distro (e.g., substantial use) means that the license already meets the two key factors for inclusion on the SPDX License List. ",
+    "path": "DOCS/license-inclusion-principles.md",
+    "commit_id": "1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3",
+    "original_commit_id": "1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3",
+    "user": {
+      "login": "richardfontana",
+      "id": 1179636,
+      "node_id": "MDQ6VXNlcjExNzk2MzY=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1179636?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/richardfontana",
+      "html_url": "https://github.com/richardfontana",
+      "followers_url": "https://api.github.com/users/richardfontana/followers",
+      "following_url": "https://api.github.com/users/richardfontana/following{/other_user}",
+      "gists_url": "https://api.github.com/users/richardfontana/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/richardfontana/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/richardfontana/subscriptions",
+      "organizations_url": "https://api.github.com/users/richardfontana/orgs",
+      "repos_url": "https://api.github.com/users/richardfontana/repos",
+      "events_url": "https://api.github.com/users/richardfontana/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/richardfontana/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "I assume you're comfortable with the fact that, for example, Fedora \"allowed-content\" licenses can prohibit modification (which means they do not meet Fedora's own understanding of \"free/open license criteria\" - Fedora would not contend that such a license is free or open). Essentially I think the way you've expressed this rationale is flawed. There could still be a good reason to include all the Fedora \"allowed-\" licenses based on the substantial use factor and the fact that the distro as a whole is aimed at free/open software.",
+    "created_at": "2026-09-03T17:09:30Z",
+    "updated_at": "2026-09-03T17:09:30Z",
+    "html_url": "https://github.com/spdx/license-list-XML/pull/3078#discussion_r3926863707",
+    "pull_request_url": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/spdx/license-list-XML/pulls/comments/3926863707"
+      },
+      "html": {
+        "href": "https://github.com/spdx/license-list-XML/pull/3078#discussion_r3926863707"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078"
+      }
+    },
+    "reactions": {
+      "url": "https://api.github.com/repos/spdx/license-list-XML/pulls/comments/3926863707/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "start_line": null,
+    "original_start_line": null,
+    "start_side": null,
+    "line": null,
+    "original_line": 27,
+    "side": "RIGHT",
+    "author_association": "CONTRIBUTOR",
+    "original_position": 37,
+    "position": 1,
+    "subject_type": "line"
+  },
+  {
+    "url": "https://api.github.com/repos/spdx/license-list-XML/pulls/comments/3981470270",
+    "pull_request_review_id": 5169934209,
+    "id": 3981470270,
+    "node_id": "PRRC_kwDOA0JFE87tUGo-",
+    "diff_hunk": "@@ -1,48 +1,79 @@\n # License Inclusion Principles\n-Determining whether a candidate license should be included on the SPDX License List requires the SPDX Legal Team to engage in a case-by-case evaluation of each candidate license based on a number of factors. The list below attempts to set out an order of priority to that end. However, the list of factors here is not necessarily exhaustive. The ultimate decision will be based on the totality of the factors and SPDX's goals and objectives. \n+The SPDX License List contains licenses that: are commonly found in the supply chain; are open or allow for collaborative development; and may cover a variety of distributable content, for example software, data, hardware, documentation, AI models, etc.",
+    "path": "DOCS/license-inclusion-principles.md",
+    "commit_id": "1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3",
+    "original_commit_id": "1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3",
+    "user": {
+      "login": "jlovejoy",
+      "id": 5048659,
+      "node_id": "MDQ6VXNlcjUwNDg2NTk=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5048659?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jlovejoy",
+      "html_url": "https://github.com/jlovejoy",
+      "followers_url": "https://api.github.com/users/jlovejoy/followers",
+      "following_url": "https://api.github.com/users/jlovejoy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jlovejoy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jlovejoy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jlovejoy/subscriptions",
+      "organizations_url": "https://api.github.com/users/jlovejoy/orgs",
+      "repos_url": "https://api.github.com/users/jlovejoy/repos",
+      "events_url": "https://api.github.com/users/jlovejoy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jlovejoy/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "added \"generally\" as a qualifier - good here unless Richard comes up with improved actual wording :)",
+    "created_at": "2026-09-10T16:50:16Z",
+    "updated_at": "2026-09-10T16:50:16Z",
+    "html_url": "https://github.com/spdx/license-list-XML/pull/3078#discussion_r3981470270",
+    "pull_request_url": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/spdx/license-list-XML/pulls/comments/3981470270"
+      },
+      "html": {
+        "href": "https://github.com/spdx/license-list-XML/pull/3078#discussion_r3981470270"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078"
+      }
+    },
+    "reactions": {
+      "url": "https://api.github.com/repos/spdx/license-list-XML/pulls/comments/3981470270/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "start_line": null,
+    "original_start_line": null,
+    "start_side": null,
+    "line": null,
+    "original_line": 2,
+    "side": "RIGHT",
+    "in_reply_to_id": 3926819921,
+    "author_association": "MEMBER",
+    "original_position": 3,
+    "position": 1,
+    "subject_type": "line"
+  },
+  {
+    "url": "https://api.github.com/repos/spdx/license-list-XML/pulls/comments/3981479042",
+    "pull_request_review_id": 5169945132,
+    "id": 3981479042,
+    "node_id": "PRRC_kwDOA0JFE87tUIyC",
+    "diff_hunk": "@@ -1,48 +1,79 @@\n # License Inclusion Principles\n-Determining whether a candidate license should be included on the SPDX License List requires the SPDX Legal Team to engage in a case-by-case evaluation of each candidate license based on a number of factors. The list below attempts to set out an order of priority to that end. However, the list of factors here is not necessarily exhaustive. The ultimate decision will be based on the totality of the factors and SPDX's goals and objectives. \n+The SPDX License List contains licenses that: are commonly found in the supply chain; are open or allow for collaborative development; and may cover a variety of distributable content, for example software, data, hardware, documentation, AI models, etc.\n \n-## Candidate License Analysis\n+Determining whether a candidate license or exception should be included on the SPDX License List requires the SPDX Legal Team to engage in a case-by-case evaluation of each submission based on a number of factors, generally prioritized as set out below. The ultimate decision will be based on the totality of the factors and in consideration of the [SPDX Project's mission and vision](https://spdx.dev/about/overview/). \n \n-**Definitive factors:**\n-<ol type=\"A\">\n- <li>The submitted license must not match another license already on the SPDX License List as per the <a href=\"https://spdx.github.io/spdx-spec/v2.3/license-matching-guidelines-and-templates/\">SPDX matching guidelines</a>.</li>\n- <li>All OSI-approved licenses will be included on the SPDX License List.</li>\n- <li>Software licenses that apply only to executables and do not provide for the availability of the source code will not be included on the SPDX License List.</li>\n- <li>The license has identifiable and stable text; it is not in the midst of drafting.</li>\n- <li>The license steward, if any, is committed to not modifying after addition to the list and to versioning new versions in the future.</li>\n-</ol>\n+Note: Once a license is added to the SPDX License List, the SPDX license id is immutable.\n+\n+For a description of the review process, see LINK. For more on the historical background of these guidelines see LINK.\n+\n+## License Submission Factors\n+\n+### Prerequisitives:\n+1. The submitted license does not match another license already on the SPDX License List as per the <a href=\"https://spdx.github.io/spdx-spec/v2.3/license-matching-guidelines-and-templates/\">SPDX matching guidelines</a>.\n+2. The license has been finalized and will not be revised any further; and the license text is publicly available.\n+\n+### Fast-track inclusion:\n+For the following cases,  a license will be added to the SPDX License List without a full review under the “Key Factors” and “Other Factors” described further below.\n+ \n+1. As per SPDX License List historical policy, all OSI-approved licenses will be included on the SPDX License List.\n+    1. If a license is submitted to and approved by the OSI, then SPDX does not need to review it under the SPDX license inclusion guidelines. ",
+    "path": "DOCS/license-inclusion-principles.md",
+    "commit_id": "72e0d79ef62cdc6fe5f658548bbbe615a876b730",
+    "original_commit_id": "1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3",
+    "user": {
+      "login": "jlovejoy",
+      "id": 5048659,
+      "node_id": "MDQ6VXNlcjUwNDg2NTk=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5048659?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jlovejoy",
+      "html_url": "https://github.com/jlovejoy",
+      "followers_url": "https://api.github.com/users/jlovejoy/followers",
+      "following_url": "https://api.github.com/users/jlovejoy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jlovejoy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jlovejoy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jlovejoy/subscriptions",
+      "organizations_url": "https://api.github.com/users/jlovejoy/orgs",
+      "repos_url": "https://api.github.com/users/jlovejoy/repos",
+      "events_url": "https://api.github.com/users/jlovejoy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jlovejoy/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "removed \"submitted to\"",
+    "created_at": "2026-09-10T16:51:19Z",
+    "updated_at": "2026-09-10T16:51:19Z",
+    "html_url": "https://github.com/spdx/license-list-XML/pull/3078#discussion_r3981479042",
+    "pull_request_url": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/spdx/license-list-XML/pulls/comments/3981479042"
+      },
+      "html": {
+        "href": "https://github.com/spdx/license-list-XML/pull/3078#discussion_r3981479042"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078"
+      }
+    },
+    "reactions": {
+      "url": "https://api.github.com/repos/spdx/license-list-XML/pulls/comments/3981479042/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "start_line": null,
+    "original_start_line": null,
+    "start_side": null,
+    "line": 22,
+    "original_line": 20,
+    "side": "RIGHT",
+    "in_reply_to_id": 3926836176,
+    "author_association": "MEMBER",
+    "original_position": 30,
+    "position": 59,
+    "subject_type": "line"
+  },
+  {
+    "url": "https://api.github.com/repos/spdx/license-list-XML/pulls/comments/3981540028",
+    "pull_request_review_id": 5170016603,
+    "id": 3981540028,
+    "node_id": "PRRC_kwDOA0JFE87tUXq8",
+    "diff_hunk": "@@ -1,48 +1,79 @@\n # License Inclusion Principles\n-Determining whether a candidate license should be included on the SPDX License List requires the SPDX Legal Team to engage in a case-by-case evaluation of each candidate license based on a number of factors. The list below attempts to set out an order of priority to that end. However, the list of factors here is not necessarily exhaustive. The ultimate decision will be based on the totality of the factors and SPDX's goals and objectives. \n+The SPDX License List contains licenses that: are commonly found in the supply chain; are open or allow for collaborative development; and may cover a variety of distributable content, for example software, data, hardware, documentation, AI models, etc.\n \n-## Candidate License Analysis\n+Determining whether a candidate license or exception should be included on the SPDX License List requires the SPDX Legal Team to engage in a case-by-case evaluation of each submission based on a number of factors, generally prioritized as set out below. The ultimate decision will be based on the totality of the factors and in consideration of the [SPDX Project's mission and vision](https://spdx.dev/about/overview/). \n \n-**Definitive factors:**\n-<ol type=\"A\">\n- <li>The submitted license must not match another license already on the SPDX License List as per the <a href=\"https://spdx.github.io/spdx-spec/v2.3/license-matching-guidelines-and-templates/\">SPDX matching guidelines</a>.</li>\n- <li>All OSI-approved licenses will be included on the SPDX License List.</li>\n- <li>Software licenses that apply only to executables and do not provide for the availability of the source code will not be included on the SPDX License List.</li>\n- <li>The license has identifiable and stable text; it is not in the midst of drafting.</li>\n- <li>The license steward, if any, is committed to not modifying after addition to the list and to versioning new versions in the future.</li>\n-</ol>\n+Note: Once a license is added to the SPDX License List, the SPDX license id is immutable.\n+\n+For a description of the review process, see LINK. For more on the historical background of these guidelines see LINK.\n+\n+## License Submission Factors\n+\n+### Prerequisitives:\n+1. The submitted license does not match another license already on the SPDX License List as per the <a href=\"https://spdx.github.io/spdx-spec/v2.3/license-matching-guidelines-and-templates/\">SPDX matching guidelines</a>.\n+2. The license has been finalized and will not be revised any further; and the license text is publicly available.\n+\n+### Fast-track inclusion:\n+For the following cases,  a license will be added to the SPDX License List without a full review under the “Key Factors” and “Other Factors” described further below.\n+ \n+1. As per SPDX License List historical policy, all OSI-approved licenses will be included on the SPDX License List.\n+    1. If a license is submitted to and approved by the OSI, then SPDX does not need to review it under the SPDX license inclusion guidelines. \n+    2. Note: If a license is submitted to OSI and not approved or is withdrawn, then SPDX will consider inclusion under the SPDX license inclusion guidelines like any other submitted license.\n+\n+2. If a license has already been determined to meet free/open license criteria for a widely used community Linux distribution or similar project (“major distro”) and the code under that license is present in the current major distro version, it will be added to the SPDX License List. The approval is subject to confirmation that the license does not match an existing license, and agreement on the SPDX ID. \n+    1. The major distro criteria currently includes:\n+        * Fedora:  licenses that have been assessed as [allowed](https://docs.fedoraproject.org/en-US/legal/license-approval/#_allowed_licenses), [allowed-documentation](https://docs.fedoraproject.org/en-US/legal/license-approval/#_licenses_allowed_for_documentation), [allowed-content](https://docs.fedoraproject.org/en-US/legal/license-approval/#_licenses_allowed_for_content), or [allowed-fonts](https://docs.fedoraproject.org/en-US/legal/license-approval/#_licenses_allowed_for_fonts); or</li>\n+       * Debian: licenses used for free software in the [‘main’](https://www.debian.org/doc/debian-policy/ch-archive.html#the-main-archive-area) or [‘contrib’](https://www.debian.org/doc/debian-policy/ch-archive.html#the-contrib-archive-area) archive.\n+    2. The rationale here is that the combination of the nature of the project's free/open license criteria and the license being in a major distro (e.g., substantial use) means that the license already meets the two key factors for inclusion on the SPDX License List. ",
+    "path": "DOCS/license-inclusion-principles.md",
+    "commit_id": "1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3",
+    "original_commit_id": "1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3",
+    "user": {
+      "login": "jlovejoy",
+      "id": 5048659,
+      "node_id": "MDQ6VXNlcjUwNDg2NTk=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5048659?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jlovejoy",
+      "html_url": "https://github.com/jlovejoy",
+      "followers_url": "https://api.github.com/users/jlovejoy/followers",
+      "following_url": "https://api.github.com/users/jlovejoy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jlovejoy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jlovejoy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jlovejoy/subscriptions",
+      "organizations_url": "https://api.github.com/users/jlovejoy/orgs",
+      "repos_url": "https://api.github.com/users/jlovejoy/repos",
+      "events_url": "https://api.github.com/users/jlovejoy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jlovejoy/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "resolved with some re-wording on the call",
+    "created_at": "2026-09-10T16:58:38Z",
+    "updated_at": "2026-09-10T16:58:39Z",
+    "html_url": "https://github.com/spdx/license-list-XML/pull/3078#discussion_r3981540028",
+    "pull_request_url": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/spdx/license-list-XML/pulls/comments/3981540028"
+      },
+      "html": {
+        "href": "https://github.com/spdx/license-list-XML/pull/3078#discussion_r3981540028"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078"
+      }
+    },
+    "reactions": {
+      "url": "https://api.github.com/repos/spdx/license-list-XML/pulls/comments/3981540028/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "start_line": null,
+    "original_start_line": null,
+    "start_side": null,
+    "line": null,
+    "original_line": 27,
+    "side": "RIGHT",
+    "in_reply_to_id": 3926863707,
+    "author_association": "MEMBER",
+    "original_position": 37,
+    "position": 1,
+    "subject_type": "line"
+  }
+]

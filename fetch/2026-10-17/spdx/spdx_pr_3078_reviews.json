@@ -1,0 +1,242 @@
+[
+  {
+    "id": 5104670706,
+    "node_id": "PRR_kwDOA0JFE88AAAABMEMX8g",
+    "user": {
+      "login": "richardfontana",
+      "id": 1179636,
+      "node_id": "MDQ6VXNlcjExNzk2MzY=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1179636?u=9f230785f700f24a0349413d12389fdb1a89e9d6&v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/richardfontana",
+      "html_url": "https://github.com/richardfontana",
+      "followers_url": "https://api.github.com/users/richardfontana/followers",
+      "following_url": "https://api.github.com/users/richardfontana/following{/other_user}",
+      "gists_url": "https://api.github.com/users/richardfontana/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/richardfontana/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/richardfontana/subscriptions",
+      "organizations_url": "https://api.github.com/users/richardfontana/orgs",
+      "repos_url": "https://api.github.com/users/richardfontana/repos",
+      "events_url": "https://api.github.com/users/richardfontana/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/richardfontana/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "",
+    "state": "COMMENTED",
+    "html_url": "https://github.com/spdx/license-list-XML/pull/3078#pullrequestreview-5104670706",
+    "pull_request_url": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078",
+    "author_association": "CONTRIBUTOR",
+    "_links": {
+      "html": {
+        "href": "https://github.com/spdx/license-list-XML/pull/3078#pullrequestreview-5104670706"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078"
+      }
+    },
+    "submitted_at": "2026-09-03T17:03:59Z",
+    "commit_id": "1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3"
+  },
+  {
+    "id": 5104689000,
+    "node_id": "PRR_kwDOA0JFE88AAAABMENfaA",
+    "user": {
+      "login": "richardfontana",
+      "id": 1179636,
+      "node_id": "MDQ6VXNlcjExNzk2MzY=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1179636?u=9f230785f700f24a0349413d12389fdb1a89e9d6&v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/richardfontana",
+      "html_url": "https://github.com/richardfontana",
+      "followers_url": "https://api.github.com/users/richardfontana/followers",
+      "following_url": "https://api.github.com/users/richardfontana/following{/other_user}",
+      "gists_url": "https://api.github.com/users/richardfontana/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/richardfontana/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/richardfontana/subscriptions",
+      "organizations_url": "https://api.github.com/users/richardfontana/orgs",
+      "repos_url": "https://api.github.com/users/richardfontana/repos",
+      "events_url": "https://api.github.com/users/richardfontana/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/richardfontana/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "",
+    "state": "COMMENTED",
+    "html_url": "https://github.com/spdx/license-list-XML/pull/3078#pullrequestreview-5104689000",
+    "pull_request_url": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078",
+    "author_association": "CONTRIBUTOR",
+    "_links": {
+      "html": {
+        "href": "https://github.com/spdx/license-list-XML/pull/3078#pullrequestreview-5104689000"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078"
+      }
+    },
+    "submitted_at": "2026-09-03T17:06:01Z",
+    "commit_id": "1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3"
+  },
+  {
+    "id": 5104719732,
+    "node_id": "PRR_kwDOA0JFE88AAAABMEPXdA",
+    "user": {
+      "login": "richardfontana",
+      "id": 1179636,
+      "node_id": "MDQ6VXNlcjExNzk2MzY=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1179636?u=9f230785f700f24a0349413d12389fdb1a89e9d6&v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/richardfontana",
+      "html_url": "https://github.com/richardfontana",
+      "followers_url": "https://api.github.com/users/richardfontana/followers",
+      "following_url": "https://api.github.com/users/richardfontana/following{/other_user}",
+      "gists_url": "https://api.github.com/users/richardfontana/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/richardfontana/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/richardfontana/subscriptions",
+      "organizations_url": "https://api.github.com/users/richardfontana/orgs",
+      "repos_url": "https://api.github.com/users/richardfontana/repos",
+      "events_url": "https://api.github.com/users/richardfontana/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/richardfontana/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "",
+    "state": "COMMENTED",
+    "html_url": "https://github.com/spdx/license-list-XML/pull/3078#pullrequestreview-5104719732",
+    "pull_request_url": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078",
+    "author_association": "CONTRIBUTOR",
+    "_links": {
+      "html": {
+        "href": "https://github.com/spdx/license-list-XML/pull/3078#pullrequestreview-5104719732"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078"
+      }
+    },
+    "submitted_at": "2026-09-03T17:09:30Z",
+    "commit_id": "1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3"
+  },
+  {
+    "id": 5169934209,
+    "node_id": "PRR_kwDOA0JFE88AAAABNCbvgQ",
+    "user": {
+      "login": "jlovejoy",
+      "id": 5048659,
+      "node_id": "MDQ6VXNlcjUwNDg2NTk=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5048659?u=6afbcc14e513e60591393e05f39abefc8378f8ff&v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jlovejoy",
+      "html_url": "https://github.com/jlovejoy",
+      "followers_url": "https://api.github.com/users/jlovejoy/followers",
+      "following_url": "https://api.github.com/users/jlovejoy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jlovejoy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jlovejoy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jlovejoy/subscriptions",
+      "organizations_url": "https://api.github.com/users/jlovejoy/orgs",
+      "repos_url": "https://api.github.com/users/jlovejoy/repos",
+      "events_url": "https://api.github.com/users/jlovejoy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jlovejoy/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "",
+    "state": "COMMENTED",
+    "html_url": "https://github.com/spdx/license-list-XML/pull/3078#pullrequestreview-5169934209",
+    "pull_request_url": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078",
+    "author_association": "MEMBER",
+    "_links": {
+      "html": {
+        "href": "https://github.com/spdx/license-list-XML/pull/3078#pullrequestreview-5169934209"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078"
+      }
+    },
+    "submitted_at": "2026-09-10T16:50:16Z",
+    "commit_id": "1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3"
+  },
+  {
+    "id": 5169945132,
+    "node_id": "PRR_kwDOA0JFE88AAAABNCcaLA",
+    "user": {
+      "login": "jlovejoy",
+      "id": 5048659,
+      "node_id": "MDQ6VXNlcjUwNDg2NTk=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5048659?u=6afbcc14e513e60591393e05f39abefc8378f8ff&v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jlovejoy",
+      "html_url": "https://github.com/jlovejoy",
+      "followers_url": "https://api.github.com/users/jlovejoy/followers",
+      "following_url": "https://api.github.com/users/jlovejoy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jlovejoy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jlovejoy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jlovejoy/subscriptions",
+      "organizations_url": "https://api.github.com/users/jlovejoy/orgs",
+      "repos_url": "https://api.github.com/users/jlovejoy/repos",
+      "events_url": "https://api.github.com/users/jlovejoy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jlovejoy/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "",
+    "state": "COMMENTED",
+    "html_url": "https://github.com/spdx/license-list-XML/pull/3078#pullrequestreview-5169945132",
+    "pull_request_url": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078",
+    "author_association": "MEMBER",
+    "_links": {
+      "html": {
+        "href": "https://github.com/spdx/license-list-XML/pull/3078#pullrequestreview-5169945132"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078"
+      }
+    },
+    "submitted_at": "2026-09-10T16:51:19Z",
+    "commit_id": "1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3"
+  },
+  {
+    "id": 5170016603,
+    "node_id": "PRR_kwDOA0JFE88AAAABNCgxWw",
+    "user": {
+      "login": "jlovejoy",
+      "id": 5048659,
+      "node_id": "MDQ6VXNlcjUwNDg2NTk=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5048659?u=6afbcc14e513e60591393e05f39abefc8378f8ff&v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jlovejoy",
+      "html_url": "https://github.com/jlovejoy",
+      "followers_url": "https://api.github.com/users/jlovejoy/followers",
+      "following_url": "https://api.github.com/users/jlovejoy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jlovejoy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jlovejoy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jlovejoy/subscriptions",
+      "organizations_url": "https://api.github.com/users/jlovejoy/orgs",
+      "repos_url": "https://api.github.com/users/jlovejoy/repos",
+      "events_url": "https://api.github.com/users/jlovejoy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jlovejoy/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "",
+    "state": "COMMENTED",
+    "html_url": "https://github.com/spdx/license-list-XML/pull/3078#pullrequestreview-5170016603",
+    "pull_request_url": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078",
+    "author_association": "MEMBER",
+    "_links": {
+      "html": {
+        "href": "https://github.com/spdx/license-list-XML/pull/3078#pullrequestreview-5170016603"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/spdx/license-list-XML/pulls/3078"
+      }
+    },
+    "submitted_at": "2026-09-10T16:58:38Z",
+    "commit_id": "1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3"
+  }
+]

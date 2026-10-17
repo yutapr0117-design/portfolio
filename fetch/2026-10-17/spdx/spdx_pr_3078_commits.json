@@ -1,0 +1,904 @@
+[
+  {
+    "sha": "1915b37ac7a48d7681f8efa69ea67d1ab3bdefa7",
+    "node_id": "C_kwDOA0JFE9oAKDE5MTViMzdhYzdhNDhkNzY4MWY4ZWZhNjllYTY3ZDFhYjNiZGVmYTc",
+    "commit": {
+      "author": {
+        "name": "Jilayne Lovejoy",
+        "email": "opensource@jilayne.com",
+        "date": "2026-09-02T21:06:59Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-09-02T21:06:59Z"
+      },
+      "message": "Doc updates related to inclusion guidelines\n\npreliminary updates related to pending update to inclusion guidelines. May need further changes (regarding applicability of making text file instructions)\r\n\r\nSigned-off-by: Jilayne Lovejoy",
+      "tree": {
+        "sha": "4a0394169c1fd09730c9c7734b20017c85aa5bec",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/git/trees/4a0394169c1fd09730c9c7734b20017c85aa5bec"
+      },
+      "url": "https://api.github.com/repos/spdx/license-list-XML/git/commits/1915b37ac7a48d7681f8efa69ea67d1ab3bdefa7",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqmI/zCRC1aQ7uu5UhlAAA1mgQAJXabM4iREEnHn2I4bTNKvsk\n6IZ/cOfHkmwFDjob05PEzFVQW/ez2OAmt6l+pS3HhDVJJekx8UkeF85xI8oR2ZnU\nKUmgGPYhId7AJRAP5n5R4x6Y+mu1vRRrrPS8sXcuRAgDl6v6oqJW0METGcAtMDKW\n+EoTtTgAShpr9tEwJDNxXuXCuLHNmziDc/Tkr2OSaZN/ycYRxxuhe1oHj9Cb1m9i\nxtMAa3oOE0dE7Dwx4Rj/KEV+Ud/nkwsguipK/TUifuKLknrZUTa7rlpsKQ3x2dy3\nvJEZya8u1C/NiKOj9V/kTpDP1Kj8xjcO7sRyqRChss+Wbl8mmSkmqHEQHaZ6wk+H\naH1+5MunrIFm1bMa7dF4NpQ3/pEETknt9y0ItK/6L8AEd3odRl+2lJP4ScMYDex4\noYDwevEOUFOQRDxqNZzqVackYP4hWpqwn7K+X02xIfTFI41vH9rDuHGdt7xdP5ZI\nTNYS8Uk2+Vb1RfaDF5oDd2cFIyYXf1lv+i3D3qZU4gBLvmWvKKgFS7WIUo7XjtCL\nQsNhCfQCX5oNPW0Vmg7ZnBPFVyjgcOIin+4oQ9++ZB4wOczKBz62B6PkQ0QYl/2r\nXv51eTK4+C5w3bHgak2lk3/TljsXE7cJcoH9s8HizVH1iP3YD2OIWSpBlOp6b+WV\n+ONh5xSUKSyUq1cq8tBD\n=dTtz\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 4a0394169c1fd09730c9c7734b20017c85aa5bec\nparent b885de798a136d607bdcbcde1aef144a50231664\nauthor Jilayne Lovejoy <opensource@jilayne.com> 1788383219 -0600\ncommitter GitHub <noreply@github.com> 1788383219 -0600\n\nDoc updates related to inclusion guidelines\n\npreliminary updates related to pending update to inclusion guidelines. May need further changes (regarding applicability of making text file instructions)\r\n\r\nSigned-off-by: Jilayne Lovejoy",
+        "verified_at": "2026-09-02T21:07:00Z"
+      }
+    },
+    "url": "https://api.github.com/repos/spdx/license-list-XML/commits/1915b37ac7a48d7681f8efa69ea67d1ab3bdefa7",
+    "html_url": "https://github.com/spdx/license-list-XML/commit/1915b37ac7a48d7681f8efa69ea67d1ab3bdefa7",
+    "comments_url": "https://api.github.com/repos/spdx/license-list-XML/commits/1915b37ac7a48d7681f8efa69ea67d1ab3bdefa7/comments",
+    "author": {
+      "login": "jlovejoy",
+      "id": 5048659,
+      "node_id": "MDQ6VXNlcjUwNDg2NTk=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5048659?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jlovejoy",
+      "html_url": "https://github.com/jlovejoy",
+      "followers_url": "https://api.github.com/users/jlovejoy/followers",
+      "following_url": "https://api.github.com/users/jlovejoy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jlovejoy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jlovejoy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jlovejoy/subscriptions",
+      "organizations_url": "https://api.github.com/users/jlovejoy/orgs",
+      "repos_url": "https://api.github.com/users/jlovejoy/repos",
+      "events_url": "https://api.github.com/users/jlovejoy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jlovejoy/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "b885de798a136d607bdcbcde1aef144a50231664",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/commits/b885de798a136d607bdcbcde1aef144a50231664",
+        "html_url": "https://github.com/spdx/license-list-XML/commit/b885de798a136d607bdcbcde1aef144a50231664"
+      }
+    ]
+  },
+  {
+    "sha": "1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3",
+    "node_id": "C_kwDOA0JFE9oAKDFiOWZjZDQ2ZDAxMDNmZjg0YTQ4MTZiODFlZTVhMmZhYzA0YWU2ZDM",
+    "commit": {
+      "author": {
+        "name": "Jilayne Lovejoy",
+        "email": "opensource@jilayne.com",
+        "date": "2026-09-02T21:52:20Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-09-02T21:52:20Z"
+      },
+      "message": "Update license-inclusion-principles.md\n\ninitial updates from working Gdoc",
+      "tree": {
+        "sha": "4c5c004ca81b2f10bb626c75dc0df1cace78b76c",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/git/trees/4c5c004ca81b2f10bb626c75dc0df1cace78b76c"
+      },
+      "url": "https://api.github.com/repos/spdx/license-list-XML/git/commits/1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqmJqUCRC1aQ7uu5UhlAAAta4QACyJUNGr2+e861X1402hsbyz\nIsX8ksvJRN38DBNX2wGTds+B/hH62bcDtU1numsZSt7b9J1IlnjYAieFkZ1lZaBs\nZz8WzbXelaJRji6O1I1zsB8ZFaZ44eCNrgpIUpvCLT2poAO/AUyHtSVUI+1fJfx3\n/lRaKpNDBxeUR650YPzw843eFUwYIwsyAzcEixPz5eUYY+3LEJEth6z4mod+LWZF\nHM5/6Mgc2wxSUGYGf+j8/V5r+L0evfeWf4tzf6IrnVazTnoqFK5QkiiWVEi1NP2G\n1gK2Kr8gWY2QYUW1JVplGeZURDJ2kCkaoV1ODH4HnvDblpxvP0XY4+2lGSHeUKMD\nzU0/gfGCsOBSiKTzGDGBTkDCnYpAloUVcFYOJuGBshNA9WRlQXVZWfbk3w2Es5oP\nnWzyRyBQturJ4rEqM6aWUrRaeX/6U1UXjXkd70hongtoMCvjLvl0ZzRGh3fViUDj\n6N/4Hu514RFiGbZark/wgu9KgGrI4zcNuRC1Zolmo4la1bEP5kkjk0+gbF2vJWxr\ndvEaDOcEEWghbR6Wqb+C5QfhSdH6ryt9aGUZp7K8ZEaXBckOm2z5EJmFilAVXXGo\n5h2/m+W56/kCjHASko+C5iquhq4230J2MmODmb1Tyzuxa536z5jTmvH1+x0oOAN0\nqjV4muRrYsg7CAre1UpQ\n=eXby\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 4c5c004ca81b2f10bb626c75dc0df1cace78b76c\nparent 1915b37ac7a48d7681f8efa69ea67d1ab3bdefa7\nauthor Jilayne Lovejoy <opensource@jilayne.com> 1788385940 -0600\ncommitter GitHub <noreply@github.com> 1788385940 -0600\n\nUpdate license-inclusion-principles.md\n\ninitial updates from working Gdoc",
+        "verified_at": "2026-09-02T21:52:21Z"
+      }
+    },
+    "url": "https://api.github.com/repos/spdx/license-list-XML/commits/1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3",
+    "html_url": "https://github.com/spdx/license-list-XML/commit/1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3",
+    "comments_url": "https://api.github.com/repos/spdx/license-list-XML/commits/1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3/comments",
+    "author": {
+      "login": "jlovejoy",
+      "id": 5048659,
+      "node_id": "MDQ6VXNlcjUwNDg2NTk=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5048659?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jlovejoy",
+      "html_url": "https://github.com/jlovejoy",
+      "followers_url": "https://api.github.com/users/jlovejoy/followers",
+      "following_url": "https://api.github.com/users/jlovejoy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jlovejoy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jlovejoy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jlovejoy/subscriptions",
+      "organizations_url": "https://api.github.com/users/jlovejoy/orgs",
+      "repos_url": "https://api.github.com/users/jlovejoy/repos",
+      "events_url": "https://api.github.com/users/jlovejoy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jlovejoy/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1915b37ac7a48d7681f8efa69ea67d1ab3bdefa7",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/commits/1915b37ac7a48d7681f8efa69ea67d1ab3bdefa7",
+        "html_url": "https://github.com/spdx/license-list-XML/commit/1915b37ac7a48d7681f8efa69ea67d1ab3bdefa7"
+      }
+    ]
+  },
+  {
+    "sha": "ec725371e6f41761e07be6e4f12f5229c519252c",
+    "node_id": "C_kwDOA0JFE9oAKGVjNzI1MzcxZTZmNDE3NjFlMDdiZTZlNGYxMmY1MjI5YzUxOTI1MmM",
+    "commit": {
+      "author": {
+        "name": "Jilayne Lovejoy",
+        "email": "opensource@jilayne.com",
+        "date": "2026-10-08T15:52:43Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-08T15:52:43Z"
+      },
+      "message": "updates based on community discussion",
+      "tree": {
+        "sha": "5054853ab0cd460944b96f86d5b4575dc43e8795",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/git/trees/5054853ab0cd460944b96f86d5b4575dc43e8795"
+      },
+      "url": "https://api.github.com/repos/spdx/license-list-XML/git/commits/ec725371e6f41761e07be6e4f12f5229c519252c",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqx7xLCRC1aQ7uu5UhlAAADd8QAEu+9kgmd7n6Nyrz/XPxckcK\ntPHO3V8IpLblB0o5XEnPRB0paFgxUlokrgPaQfAdbeZkRjTU5CEOSJkikXmCQqpv\n9v0bXxDvivcBgpVhDT+ICD/bLDrHru7l8iBkKhxfCCtf3j9uIq2J6O6UBDbiP/N8\nIDhdirnAdOVjpDoJ+A0GENvYKlDaeJRycsbJ2uhhJjhzDh5duhfJkGuLn6j/UGLt\n4f9Mw33VXbNSBXzIwPV+Ko9XRbf35JrWf34LU7TLWVERh4hcA3DWM6frcfwCzTmU\nT2IHy4YbjxhNVhGXVr5ALEBz8O/A+o94OkNeZbU8DPyuaAiCfYEg5zBmYJx9yD46\nJIpIaGCeZS7sZC84D4qhSX5oqb9CXUZbDbcDybSplaW1dbA6eIVQIelNiZi30c17\nXp9Aj+4jVmFjbMf+eGF60JzxYCPVwbTeM1XUcn6GgSD7+7u911FT3cATYMse4j75\noKEXO0mNpG9cgD2Ug05ZreId4cPfctgJ2oKiXF8cJr0oucap63kMocTbB6HZvsuz\nzWP9jD7vTa3c7Gqyn23H0frhvi6L663eliDq4eYKSMv4DpDnAtK00QVNe3VgNGVw\nXvvo4H+5rYCcqj3pJuW4iTRK7oFDjhoZdbbE6psBJI3Q5cgaKam7rBgnxhof/7KO\nu/GOjcI+lHmrzxV00QvM\n=ZyIo\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 5054853ab0cd460944b96f86d5b4575dc43e8795\nparent 1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3\nauthor Jilayne Lovejoy <opensource@jilayne.com> 1791474763 -0600\ncommitter GitHub <noreply@github.com> 1791474763 -0600\n\nupdates based on community discussion",
+        "verified_at": "2026-10-08T15:52:44Z"
+      }
+    },
+    "url": "https://api.github.com/repos/spdx/license-list-XML/commits/ec725371e6f41761e07be6e4f12f5229c519252c",
+    "html_url": "https://github.com/spdx/license-list-XML/commit/ec725371e6f41761e07be6e4f12f5229c519252c",
+    "comments_url": "https://api.github.com/repos/spdx/license-list-XML/commits/ec725371e6f41761e07be6e4f12f5229c519252c/comments",
+    "author": {
+      "login": "jlovejoy",
+      "id": 5048659,
+      "node_id": "MDQ6VXNlcjUwNDg2NTk=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5048659?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jlovejoy",
+      "html_url": "https://github.com/jlovejoy",
+      "followers_url": "https://api.github.com/users/jlovejoy/followers",
+      "following_url": "https://api.github.com/users/jlovejoy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jlovejoy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jlovejoy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jlovejoy/subscriptions",
+      "organizations_url": "https://api.github.com/users/jlovejoy/orgs",
+      "repos_url": "https://api.github.com/users/jlovejoy/repos",
+      "events_url": "https://api.github.com/users/jlovejoy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jlovejoy/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/commits/1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3",
+        "html_url": "https://github.com/spdx/license-list-XML/commit/1b9fcd46d0103ff84a4816b81ee5a2fac04ae6d3"
+      }
+    ]
+  },
+  {
+    "sha": "047ad779e2f14491fe39067cb4d00803208d3b0e",
+    "node_id": "C_kwDOA0JFE9oAKDA0N2FkNzc5ZTJmMTQ0OTFmZTM5MDY3Y2I0ZDAwODAzMjA4ZDNiMGU",
+    "commit": {
+      "author": {
+        "name": "Jilayne Lovejoy",
+        "email": "opensource@jilayne.com",
+        "date": "2026-10-08T16:00:50Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-08T16:00:50Z"
+      },
+      "message": "more updates to request-new-license.md",
+      "tree": {
+        "sha": "8f127755a2cb80dd5c4c72052648a84ad16cf745",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/git/trees/8f127755a2cb80dd5c4c72052648a84ad16cf745"
+      },
+      "url": "https://api.github.com/repos/spdx/license-list-XML/git/commits/047ad779e2f14491fe39067cb4d00803208d3b0e",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqx74yCRC1aQ7uu5UhlAAAv3sQADqh+wHQBxi32uhxFl3qDqy1\nsAdim+fVHPMPPWnjV4tlsiNL6RKM2vx0E6gl7oa0XY0zZUyheLvO3BIKYC86Uxjv\ngdMxiLPXvBpljIyaEAHkoe4o3S/yXt6u1MMd/IJ0P96wwVWhzflLRhULXAkl6ocm\nifaU2U7oHPXlvy9fur3JFSbUqmtuFiaKI1omjqYwYX7f4Ehk87gEQZTUg5HuJ5PQ\nNPewM0RaAQ5+XYDj909cNZGSk4eSBdY4k2u6mSrOYG/J/grDlPtwq1r05ph/OoJ3\npig8AQ0vuvK3/J8fuNCJKAlU67q+XSOp12i9ML+VwPy1K+qqFz0jZgdosxfUgNl0\nYkYcZp88ogiurESGhquWPIxsyS7bqrLcY9A0jRBjYBjFzDQgg3RCeXbyVFBxUnkx\nusUHmW969iD/SsJEY+0YlB5rksVnhMcE86pcLS4SfMo7X6Tzq0V2y1inImGWRibh\nfeksmq7tufeRyE2bN1IL7fDtJJtr+q8lmeq78dgkHI9rQOXCVTy1qzAfKO9FQlqD\nnpEfA3iXGe+tfT1X6H2WE7Yh/mL+eBKK8fA78OW+R0dops1d6S/5Kyf5Jnq8gxdK\nVgWPfblZtEsE9vLAus8AEIXQZfVIMXk3oxKVfZqzkfmlbA8H9707NBL5XWS8AE1g\nIuj5fOlRCG58TIwp03lm\n=pKhp\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 8f127755a2cb80dd5c4c72052648a84ad16cf745\nparent ec725371e6f41761e07be6e4f12f5229c519252c\nauthor Jilayne Lovejoy <opensource@jilayne.com> 1791475250 -0600\ncommitter GitHub <noreply@github.com> 1791475250 -0600\n\nmore updates to request-new-license.md",
+        "verified_at": "2026-10-08T16:00:52Z"
+      }
+    },
+    "url": "https://api.github.com/repos/spdx/license-list-XML/commits/047ad779e2f14491fe39067cb4d00803208d3b0e",
+    "html_url": "https://github.com/spdx/license-list-XML/commit/047ad779e2f14491fe39067cb4d00803208d3b0e",
+    "comments_url": "https://api.github.com/repos/spdx/license-list-XML/commits/047ad779e2f14491fe39067cb4d00803208d3b0e/comments",
+    "author": {
+      "login": "jlovejoy",
+      "id": 5048659,
+      "node_id": "MDQ6VXNlcjUwNDg2NTk=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5048659?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jlovejoy",
+      "html_url": "https://github.com/jlovejoy",
+      "followers_url": "https://api.github.com/users/jlovejoy/followers",
+      "following_url": "https://api.github.com/users/jlovejoy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jlovejoy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jlovejoy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jlovejoy/subscriptions",
+      "organizations_url": "https://api.github.com/users/jlovejoy/orgs",
+      "repos_url": "https://api.github.com/users/jlovejoy/repos",
+      "events_url": "https://api.github.com/users/jlovejoy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jlovejoy/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "ec725371e6f41761e07be6e4f12f5229c519252c",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/commits/ec725371e6f41761e07be6e4f12f5229c519252c",
+        "html_url": "https://github.com/spdx/license-list-XML/commit/ec725371e6f41761e07be6e4f12f5229c519252c"
+      }
+    ]
+  },
+  {
+    "sha": "e1480df03bab879361b5e8f8d1828c59e86922d6",
+    "node_id": "C_kwDOA0JFE9oAKGUxNDgwZGYwM2JhYjg3OTM2MWI1ZThmOGQxODI4YzU5ZTg2OTIyZDY",
+    "commit": {
+      "author": {
+        "name": "Jilayne Lovejoy",
+        "email": "opensource@jilayne.com",
+        "date": "2026-10-08T16:33:52Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-08T16:33:52Z"
+      },
+      "message": "more updates to submission section",
+      "tree": {
+        "sha": "6f150624a5574fddb50200cfba2a76157c1b5aaa",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/git/trees/6f150624a5574fddb50200cfba2a76157c1b5aaa"
+      },
+      "url": "https://api.github.com/repos/spdx/license-list-XML/git/commits/e1480df03bab879361b5e8f8d1828c59e86922d6",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqx8XxCRC1aQ7uu5UhlAAAeVcQAAI9ddBYuMvcstWpe9MtVnud\n0cLyCgElXyLlp9ovPKFEXypaNSpOwYlFr76wRet1o6yRDRkb8VbP8edCjb2NRjJn\n1TjJQDVZK/ObUL1kVbFWRynBUR+DTAhH+88mNo0Yqqe2CCcaDKFyYWdqA0r4st7r\nOmslwhvLYcjro3kvHjxagJs8xahg4jj3c9e2OhwNj7JCs04ElX6jvlgY5BTrUMRS\n7GR4VIBbPpnmbDjaoCvU0J6bZVv/nLlD9Wkzp9EBHhKGVrVbRa9oITp3rJLu12pJ\nIZY8yRHIqTLT5CHf9ShEOPyP9Y5hQL8LCd4SjhMZ01Z8dfmQPSsRyMU9GYv6Enyt\n/O0MYOZeo4tW5Ts2XQL9h4AnNjTQj+1llpBIpzeYo+tR24Wy1LTU6yqn0v5nm8h4\nG1RtIEwigLeteVXq1RKxU5C68uK0z3Aipocp/kwsyx6o2xThpU9A3605b7xdQ5Ck\nITWrmUbBsvJrPFcgitNQMzdXklTQT4WqpwPorHq1QX9K35K3orX42RhGeX3cFKsi\nScTE20Of+wM7KHafykCg8KBpiddGdOftPRgqAW3cksX0/EIe49VI0Q6fEoREzvsU\nWpo7rrhIx+edOmih+dZWppEaYA9x3JqAJaM8pnyyz9xGVs0uDlRErtutR0Vi48HV\naaQc0yHBinm3D81QrDel\n=TaPS\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 6f150624a5574fddb50200cfba2a76157c1b5aaa\nparent 047ad779e2f14491fe39067cb4d00803208d3b0e\nauthor Jilayne Lovejoy <opensource@jilayne.com> 1791477232 -0600\ncommitter GitHub <noreply@github.com> 1791477232 -0600\n\nmore updates to submission section",
+        "verified_at": "2026-10-08T16:33:54Z"
+      }
+    },
+    "url": "https://api.github.com/repos/spdx/license-list-XML/commits/e1480df03bab879361b5e8f8d1828c59e86922d6",
+    "html_url": "https://github.com/spdx/license-list-XML/commit/e1480df03bab879361b5e8f8d1828c59e86922d6",
+    "comments_url": "https://api.github.com/repos/spdx/license-list-XML/commits/e1480df03bab879361b5e8f8d1828c59e86922d6/comments",
+    "author": {
+      "login": "jlovejoy",
+      "id": 5048659,
+      "node_id": "MDQ6VXNlcjUwNDg2NTk=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5048659?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jlovejoy",
+      "html_url": "https://github.com/jlovejoy",
+      "followers_url": "https://api.github.com/users/jlovejoy/followers",
+      "following_url": "https://api.github.com/users/jlovejoy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jlovejoy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jlovejoy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jlovejoy/subscriptions",
+      "organizations_url": "https://api.github.com/users/jlovejoy/orgs",
+      "repos_url": "https://api.github.com/users/jlovejoy/repos",
+      "events_url": "https://api.github.com/users/jlovejoy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jlovejoy/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "047ad779e2f14491fe39067cb4d00803208d3b0e",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/commits/047ad779e2f14491fe39067cb4d00803208d3b0e",
+        "html_url": "https://github.com/spdx/license-list-XML/commit/047ad779e2f14491fe39067cb4d00803208d3b0e"
+      }
+    ]
+  },
+  {
+    "sha": "8ae34cc2db44b6b7a96546eb143722cc345af7db",
+    "node_id": "C_kwDOA0JFE9oAKDhhZTM0Y2MyZGI0NGI2YjdhOTY1NDZlYjE0MzcyMmNjMzQ1YWY3ZGI",
+    "commit": {
+      "author": {
+        "name": "Jilayne Lovejoy",
+        "email": "opensource@jilayne.com",
+        "date": "2026-10-08T16:50:31Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-08T16:50:31Z"
+      },
+      "message": "more updates to formatting, consolidation",
+      "tree": {
+        "sha": "0a8e420278c10cfb8a35ca89b2bfbf221223775b",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/git/trees/0a8e420278c10cfb8a35ca89b2bfbf221223775b"
+      },
+      "url": "https://api.github.com/repos/spdx/license-list-XML/git/commits/8ae34cc2db44b6b7a96546eb143722cc345af7db",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqx8nXCRC1aQ7uu5UhlAAAC/YQAGE1gwE7sJ0qiTy8gqf+Msof\nWRTbiaVCJPy2h+k0riXdxHcRkGJDxpmIhqx9UduTRORa1E+osMbMn/TitkTneK03\ncXQwCY7/iNE4MUeZPtsscLn/Pwi6s6IQeGwawovZkhwt1Wbe1/PtwT2j6mXVfd4A\nVJn8rCviaX3Ph5TuLtA9cvxYJWV7O61kPNO+2SLaDfWsC5NsexBgBJDz1LELodHI\nsmN+Af8S4wkvDz640TGYduFjdvheIVDVLFbv0ArtI1Q+nS/igsJYj4/OPiGBYhd8\ncVjjCO259KjeEYwH3eUQIsIsne60a5Drf2jJdNHm1T176eFtlhepK2V37nWWDosC\n1UTSbQN3isIav7XqWwxwhO7Ur1kk7ZDdEuj+7dsopx+f2foJYss4FQ338cEL4ufp\nJu8tPqkHX+4qQapnQJWAasUCOanM8p+Md/3S+hqSPAyTOXlcNyH1Z4ey2R489wzM\nV3en9D/AgmVBXFGMFeFl2Ym+mdroYxoOsrujuyNSd+Z5DJq2rjJp3CJsY5+gq0El\nlL9Pofyd9RSJDj4/9hVvBcKZYaBft/nKrBNe/vpNj09CRhC1ufwl+4TXcjZesYr6\nobk9JtnW40dXSBxqjmO2G1UFvS9rY+1TjBipJEIX3pe8gnpChDM0EBLOsfd4uz7d\nAUAYOaeke2yTMe3DXfi6\n=2Hnk\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 0a8e420278c10cfb8a35ca89b2bfbf221223775b\nparent e1480df03bab879361b5e8f8d1828c59e86922d6\nauthor Jilayne Lovejoy <opensource@jilayne.com> 1791478231 -0600\ncommitter GitHub <noreply@github.com> 1791478231 -0600\n\nmore updates to formatting, consolidation",
+        "verified_at": "2026-10-08T16:50:32Z"
+      }
+    },
+    "url": "https://api.github.com/repos/spdx/license-list-XML/commits/8ae34cc2db44b6b7a96546eb143722cc345af7db",
+    "html_url": "https://github.com/spdx/license-list-XML/commit/8ae34cc2db44b6b7a96546eb143722cc345af7db",
+    "comments_url": "https://api.github.com/repos/spdx/license-list-XML/commits/8ae34cc2db44b6b7a96546eb143722cc345af7db/comments",
+    "author": {
+      "login": "jlovejoy",
+      "id": 5048659,
+      "node_id": "MDQ6VXNlcjUwNDg2NTk=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5048659?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jlovejoy",
+      "html_url": "https://github.com/jlovejoy",
+      "followers_url": "https://api.github.com/users/jlovejoy/followers",
+      "following_url": "https://api.github.com/users/jlovejoy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jlovejoy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jlovejoy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jlovejoy/subscriptions",
+      "organizations_url": "https://api.github.com/users/jlovejoy/orgs",
+      "repos_url": "https://api.github.com/users/jlovejoy/repos",
+      "events_url": "https://api.github.com/users/jlovejoy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jlovejoy/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "e1480df03bab879361b5e8f8d1828c59e86922d6",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/commits/e1480df03bab879361b5e8f8d1828c59e86922d6",
+        "html_url": "https://github.com/spdx/license-list-XML/commit/e1480df03bab879361b5e8f8d1828c59e86922d6"
+      }
+    ]
+  },
+  {
+    "sha": "5274a4e0db8f6e42a39c50fe45936e65a8d02fde",
+    "node_id": "C_kwDOA0JFE9oAKDUyNzRhNGUwZGI4ZjZlNDJhMzljNTBmZTQ1OTM2ZTY1YThkMDJmZGU",
+    "commit": {
+      "author": {
+        "name": "Jilayne Lovejoy",
+        "email": "opensource@jilayne.com",
+        "date": "2026-10-14T02:10:38Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-14T02:10:38Z"
+      },
+      "message": "Create history-license-inclusion.md",
+      "tree": {
+        "sha": "040b3bfd02f99816899147d118561c23612c2a0a",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/git/trees/040b3bfd02f99816899147d118561c23612c2a0a"
+      },
+      "url": "https://api.github.com/repos/spdx/license-list-XML/git/commits/5274a4e0db8f6e42a39c50fe45936e65a8d02fde",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqzuSfCRC1aQ7uu5UhlAAArFcQAIC8w7DsEtpSHB0fYQ9uCLvo\nxbd4eeIZOxOCdg8gEM51JJv8a9HGTtceGcLtGlTy7K+X51S06L5sdNjoY2jnfbEC\nZorRbEq5X7j2N90BU/yHhl4KNNPnqtGj2nec74TNZ44CQviKQZg/WYfoH2CfF1pR\n1ve9//kXSuUm8AapDYj9wWmCy2ZmQx4NPC2G+FUvqrjHazugSK/9V3KmhIEGXk2h\nEZ/lj+japaxTU1P5/aIj8h8VF9AF5YW5xhWoF20phbSfrrNbeuZ1VGRnEnQRMPmt\nNINbPxWgM54RWvUPBsr7kTbYqbJQL9i+FVr/cme9tJuXzPbdimq5dPOU1qITuka0\nTBfAnkSsgN1Yk+e6sv6rbk7EG2LcG7hcgXwgIh/Vp8woYf75w+UCq6NlmNmduPKo\n/PhCJlVP5kAXbrFRd4IMHa9y5Gml0uLpuhqiqx9ylmNfR7ZaubSoNDEQ4NMVcvbT\nGtmcccbqtcEFOe6RSVyivOjZXbnShSyO0ovN4j0hpgCiVMA63ljtKISJr1O0lv8z\neyjpZwSBbvJcH/pid5cZEjYwllDtQvFXI7iOFfyX9cicynCJVulptErgdRbyxGEP\n+EMjSVTXklewLzeRUbjuFcKdB+DoSHpjfL5tXRB8NKOxD/h4NY0y/DdXBo2A00um\nBMRL2F+REJmyPVQXeZ3J\n=6mzI\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 040b3bfd02f99816899147d118561c23612c2a0a\nparent 8ae34cc2db44b6b7a96546eb143722cc345af7db\nauthor Jilayne Lovejoy <opensource@jilayne.com> 1791943838 -0600\ncommitter GitHub <noreply@github.com> 1791943838 -0600\n\nCreate history-license-inclusion.md",
+        "verified_at": "2026-10-14T02:10:40Z"
+      }
+    },
+    "url": "https://api.github.com/repos/spdx/license-list-XML/commits/5274a4e0db8f6e42a39c50fe45936e65a8d02fde",
+    "html_url": "https://github.com/spdx/license-list-XML/commit/5274a4e0db8f6e42a39c50fe45936e65a8d02fde",
+    "comments_url": "https://api.github.com/repos/spdx/license-list-XML/commits/5274a4e0db8f6e42a39c50fe45936e65a8d02fde/comments",
+    "author": {
+      "login": "jlovejoy",
+      "id": 5048659,
+      "node_id": "MDQ6VXNlcjUwNDg2NTk=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5048659?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jlovejoy",
+      "html_url": "https://github.com/jlovejoy",
+      "followers_url": "https://api.github.com/users/jlovejoy/followers",
+      "following_url": "https://api.github.com/users/jlovejoy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jlovejoy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jlovejoy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jlovejoy/subscriptions",
+      "organizations_url": "https://api.github.com/users/jlovejoy/orgs",
+      "repos_url": "https://api.github.com/users/jlovejoy/repos",
+      "events_url": "https://api.github.com/users/jlovejoy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jlovejoy/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8ae34cc2db44b6b7a96546eb143722cc345af7db",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/commits/8ae34cc2db44b6b7a96546eb143722cc345af7db",
+        "html_url": "https://github.com/spdx/license-list-XML/commit/8ae34cc2db44b6b7a96546eb143722cc345af7db"
+      }
+    ]
+  },
+  {
+    "sha": "1e4641f9777e221b8b289fd0f3fbd0334af7890f",
+    "node_id": "C_kwDOA0JFE9oAKDFlNDY0MWY5Nzc3ZTIyMWI4YjI4OWZkMGYzZmJkMDMzNGFmNzg5MGY",
+    "commit": {
+      "author": {
+        "name": "Jilayne Lovejoy",
+        "email": "opensource@jilayne.com",
+        "date": "2026-10-14T02:12:18Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-14T02:12:18Z"
+      },
+      "message": "remove history section",
+      "tree": {
+        "sha": "ce107b0a6d7c9768b4133f6c505d97aa3f64710f",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/git/trees/ce107b0a6d7c9768b4133f6c505d97aa3f64710f"
+      },
+      "url": "https://api.github.com/repos/spdx/license-list-XML/git/commits/1e4641f9777e221b8b289fd0f3fbd0334af7890f",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqzuUCCRC1aQ7uu5UhlAAAEd0QAEvdP+ATRqM/c3/kyw3U6vnD\n1XtTi6afWg1nWn6P2N7XEMHDapr8lSorvvMYU9CIbnIiheWCEaEIJcn3YeJdGhuC\nNp+3ZQhWjaPT/81JeAf72JdLONyG4Yf8nzg5pkmIvWP6J1s+FRnibxT2OgZc7OPv\n/9JpeuK7DuYbPb3gz+mp6vOqcDhmupA0dTlAb15+R5INkYMa+lvuW5J9G9Jcq7jG\ns3+y4iUfvLNxpxaUADCChSijnLXhuinFCaSo/jQ0yDvWW0DuuVXdBlo3e/5Hjxj0\nNgxAFQAJ9ig6lxVaqs/nTkFQpjYNAB2bZIoNWQz0ZRdmkrtU+s2fAJs57j3yiTTe\nL7ehsXzOuiFb8GnNUTeBqAXK9drTuddYt4A8driPIPugE9o4y95SKsLXLIB97k/a\n9D0E/NfWWCEzlEZz+GqiXpp67tr8stunrXwz6oJJTSWJdqbXu0qOg9YRlLn899QM\n3V36PaKljkL8r/HuXOeop/5k0Cv0qu0sw0sKvKHey+aNxmdhz8h/JGSaj3nR2wEp\nPQbvktm/GtEeoI8J8gcqW9aSn1SiNHugjhdwhrsHJ/UEp0tcumADgGz1vEGbWAG1\nZueKUey5l/aEPCd7mJTbJPrKhFxGGw5rlhMqkztjetrB16Xyr1BbQ9KwvJxTKAaZ\n+9wX7+78ONGw6qR9z+Wj\n=S5D7\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree ce107b0a6d7c9768b4133f6c505d97aa3f64710f\nparent 5274a4e0db8f6e42a39c50fe45936e65a8d02fde\nauthor Jilayne Lovejoy <opensource@jilayne.com> 1791943938 -0600\ncommitter GitHub <noreply@github.com> 1791943938 -0600\n\nremove history section",
+        "verified_at": "2026-10-14T02:12:19Z"
+      }
+    },
+    "url": "https://api.github.com/repos/spdx/license-list-XML/commits/1e4641f9777e221b8b289fd0f3fbd0334af7890f",
+    "html_url": "https://github.com/spdx/license-list-XML/commit/1e4641f9777e221b8b289fd0f3fbd0334af7890f",
+    "comments_url": "https://api.github.com/repos/spdx/license-list-XML/commits/1e4641f9777e221b8b289fd0f3fbd0334af7890f/comments",
+    "author": {
+      "login": "jlovejoy",
+      "id": 5048659,
+      "node_id": "MDQ6VXNlcjUwNDg2NTk=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5048659?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jlovejoy",
+      "html_url": "https://github.com/jlovejoy",
+      "followers_url": "https://api.github.com/users/jlovejoy/followers",
+      "following_url": "https://api.github.com/users/jlovejoy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jlovejoy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jlovejoy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jlovejoy/subscriptions",
+      "organizations_url": "https://api.github.com/users/jlovejoy/orgs",
+      "repos_url": "https://api.github.com/users/jlovejoy/repos",
+      "events_url": "https://api.github.com/users/jlovejoy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jlovejoy/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5274a4e0db8f6e42a39c50fe45936e65a8d02fde",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/commits/5274a4e0db8f6e42a39c50fe45936e65a8d02fde",
+        "html_url": "https://github.com/spdx/license-list-XML/commit/5274a4e0db8f6e42a39c50fe45936e65a8d02fde"
+      }
+    ]
+  },
+  {
+    "sha": "b4952773a1f41ca3b4c4d19d3354d571b9c3a266",
+    "node_id": "C_kwDOA0JFE9oAKGI0OTUyNzczYTFmNDFjYTNiNGM0ZDE5ZDMzNTRkNTcxYjljM2EyNjY",
+    "commit": {
+      "author": {
+        "name": "Jilayne Lovejoy",
+        "email": "opensource@jilayne.com",
+        "date": "2026-10-14T03:40:15Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-14T03:40:15Z"
+      },
+      "message": "Update history-license-inclusion.md",
+      "tree": {
+        "sha": "01673efa0112b1f140faec4563156587bc6e2280",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/git/trees/01673efa0112b1f140faec4563156587bc6e2280"
+      },
+      "url": "https://api.github.com/repos/spdx/license-list-XML/git/commits/b4952773a1f41ca3b4c4d19d3354d571b9c3a266",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqzvmgCRC1aQ7uu5UhlAAAaHkQAI9/CxaNJKFfEeeoKOyA4q5m\noOjJJMPLdE0IFG9B1u7RZRQa7PaYZCD3oO1xJM8+S0KQ4sLgO3Ou0b4G8qxH4Y5S\nEXig8xfinsCk2m1e8mmqr3VLsV+3scpoEsiLflHejMnasuBwf0q7chEz6OXCcFBU\nLUM/QkUvtB0NZcxBcX2U8J85KupfDaXLsUAMNjocADdz2+pI4wDtk4NKo0JIvRnh\nbLGFIF8IrOT+cZouo5hSQNn4bZ8pQHevmaEiEi5jlSkY+FnM85ObUmkjzrV+h98y\ndk4lfRNYeCCHLLCagrWbg3+5Fmn00xJhlOUqgM7is7CliUzvXO4WZjyYa/5gwiqH\nGDnMcdBxgbJ0bNUsPdQtHg3Og2I5TULZyjccUd+ZhQDvuFfueKhh+LUmAPbMawqZ\ndG4lCjwvgcShS/8Ib+7rhpMP0YFJMxrOTnZ5TO7oWizQlWK82bSVdbfAuBb9siwP\nY+EW5KhDI0NrKa0YeTK2DQI09fK+Cq/s0HX+FAzZiEl9DUCYZLfLG3Myz6se8ayU\n1G1UTrJY5JUWDkfaFtt5cZ6zJz3oeM2Bv2Fj/o+zzJAfZXPHfBv/YAAkATtP4T4e\nipiXuvOSuzt/T0WAzf8iCJR9VUMPdWVZ+U+qbuCZFTaIUz9+1lsAaUGZ9FMM/J1S\n7ke/q4qHvZZoxSJvLWIC\n=0HRQ\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 01673efa0112b1f140faec4563156587bc6e2280\nparent 1e4641f9777e221b8b289fd0f3fbd0334af7890f\nauthor Jilayne Lovejoy <opensource@jilayne.com> 1791949215 -0600\ncommitter GitHub <noreply@github.com> 1791949215 -0600\n\nUpdate history-license-inclusion.md",
+        "verified_at": "2026-10-14T03:40:17Z"
+      }
+    },
+    "url": "https://api.github.com/repos/spdx/license-list-XML/commits/b4952773a1f41ca3b4c4d19d3354d571b9c3a266",
+    "html_url": "https://github.com/spdx/license-list-XML/commit/b4952773a1f41ca3b4c4d19d3354d571b9c3a266",
+    "comments_url": "https://api.github.com/repos/spdx/license-list-XML/commits/b4952773a1f41ca3b4c4d19d3354d571b9c3a266/comments",
+    "author": {
+      "login": "jlovejoy",
+      "id": 5048659,
+      "node_id": "MDQ6VXNlcjUwNDg2NTk=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5048659?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jlovejoy",
+      "html_url": "https://github.com/jlovejoy",
+      "followers_url": "https://api.github.com/users/jlovejoy/followers",
+      "following_url": "https://api.github.com/users/jlovejoy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jlovejoy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jlovejoy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jlovejoy/subscriptions",
+      "organizations_url": "https://api.github.com/users/jlovejoy/orgs",
+      "repos_url": "https://api.github.com/users/jlovejoy/repos",
+      "events_url": "https://api.github.com/users/jlovejoy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jlovejoy/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1e4641f9777e221b8b289fd0f3fbd0334af7890f",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/commits/1e4641f9777e221b8b289fd0f3fbd0334af7890f",
+        "html_url": "https://github.com/spdx/license-list-XML/commit/1e4641f9777e221b8b289fd0f3fbd0334af7890f"
+      }
+    ]
+  },
+  {
+    "sha": "39848e6e4a3a09070aece91656e67bf24c1c1b47",
+    "node_id": "C_kwDOA0JFE9oAKDM5ODQ4ZTZlNGEzYTA5MDcwYWVjZTkxNjU2ZTY3YmYyNGMxYzFiNDc",
+    "commit": {
+      "author": {
+        "name": "Jilayne Lovejoy",
+        "email": "opensource@jilayne.com",
+        "date": "2026-10-14T03:58:12Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-14T03:58:12Z"
+      },
+      "message": "add link to FAQ for license-ref",
+      "tree": {
+        "sha": "6956544f89ec519dcebbe44c9c397a5ad93b4993",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/git/trees/6956544f89ec519dcebbe44c9c397a5ad93b4993"
+      },
+      "url": "https://api.github.com/repos/spdx/license-list-XML/git/commits/39848e6e4a3a09070aece91656e67bf24c1c1b47",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqzv3UCRC1aQ7uu5UhlAAA1C4QACWJr2BY0K3xHJEls2uV/f4P\nc3CG3ocPYnp72IC4ZAsUPkP1ahZ5VslFgG1IHY2MnLohBL0YUAJIhXEBs4biCJuj\nNYDbfETJg+paOmEx17DsMFFuu7ERNXejqqc6kNix/y85Zz7OpvQOu87Lvo6wyKly\n6YZFY452s7tIVpJ6sFlIywaR8syiaZlkJIBnqSYGWceMVb9aB3TWDic37/hfoWWJ\npQnp40HwdWrA+xLqV5hALZRbrLbuKRRTtGFFOKEVHiZGW34lDhTtwclNWkNuIZ2n\nwz9Iw+L68MjanngkNYPwHlW/PZL3SLyrfN+mqt6/uCme/GlqTUtI18lemvSdx0uO\n2Ggmn0Jt4dUkCfsU9ECfQVMDnGol+qzIbrCP5RERcL0mMNvOcdH/yQ966pqxN+QS\nkM5f0aO2WJsZHRWLoDVRc7W9pTR/Bnbl2cocigpYBltNtsw3WtH3TKc9GvtnZonU\nNNj1cY1IG37wd2ve2ntlzBW0miYwRT6mVYvCNxMq0bMR9kg2iI+S78NyatYwPTxl\nOdrR7V6zZsn78xtoN0x0MdUvFz9WteSRl6EqbHr4QS6HQfJ5X3jwquVfteuY73IX\nXozdklJxKRwBqWFB6nvl6c6K0obxSRVXDAwE1fcmP5rYz/zubOqKS0z/yojFZujM\nqO6yBngA2Ie9xX1LnCF9\n=gkRb\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 6956544f89ec519dcebbe44c9c397a5ad93b4993\nparent b4952773a1f41ca3b4c4d19d3354d571b9c3a266\nauthor Jilayne Lovejoy <opensource@jilayne.com> 1791950292 -0600\ncommitter GitHub <noreply@github.com> 1791950292 -0600\n\nadd link to FAQ for license-ref",
+        "verified_at": "2026-10-14T03:58:13Z"
+      }
+    },
+    "url": "https://api.github.com/repos/spdx/license-list-XML/commits/39848e6e4a3a09070aece91656e67bf24c1c1b47",
+    "html_url": "https://github.com/spdx/license-list-XML/commit/39848e6e4a3a09070aece91656e67bf24c1c1b47",
+    "comments_url": "https://api.github.com/repos/spdx/license-list-XML/commits/39848e6e4a3a09070aece91656e67bf24c1c1b47/comments",
+    "author": {
+      "login": "jlovejoy",
+      "id": 5048659,
+      "node_id": "MDQ6VXNlcjUwNDg2NTk=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5048659?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jlovejoy",
+      "html_url": "https://github.com/jlovejoy",
+      "followers_url": "https://api.github.com/users/jlovejoy/followers",
+      "following_url": "https://api.github.com/users/jlovejoy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jlovejoy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jlovejoy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jlovejoy/subscriptions",
+      "organizations_url": "https://api.github.com/users/jlovejoy/orgs",
+      "repos_url": "https://api.github.com/users/jlovejoy/repos",
+      "events_url": "https://api.github.com/users/jlovejoy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jlovejoy/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "b4952773a1f41ca3b4c4d19d3354d571b9c3a266",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/commits/b4952773a1f41ca3b4c4d19d3354d571b9c3a266",
+        "html_url": "https://github.com/spdx/license-list-XML/commit/b4952773a1f41ca3b4c4d19d3354d571b9c3a266"
+      }
+    ]
+  },
+  {
+    "sha": "72e0d79ef62cdc6fe5f658548bbbe615a876b730",
+    "node_id": "C_kwDOA0JFE9oAKDcyZTBkNzllZjYyY2RjNmZlNWY2NTg1NDhiYmJlNjE1YTg3NmI3MzA",
+    "commit": {
+      "author": {
+        "name": "Jilayne Lovejoy",
+        "email": "opensource@jilayne.com",
+        "date": "2026-10-14T04:00:16Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-14T04:00:16Z"
+      },
+      "message": "fix double link",
+      "tree": {
+        "sha": "e4fe568efecbaa8d4d92bbc05bcadb346438070a",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/git/trees/e4fe568efecbaa8d4d92bbc05bcadb346438070a"
+      },
+      "url": "https://api.github.com/repos/spdx/license-list-XML/git/commits/72e0d79ef62cdc6fe5f658548bbbe615a876b730",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqzv5QCRC1aQ7uu5UhlAAA2nAQAKuu7/fpsootu4GXtg/gBH1q\n7VHoxl/lNG9oeWqfDwTRU2U3ySIHXB4rASyYc4RbnwRob0/HAF/ZuH8JZ7wf6yIq\nKWFvBKqhRWwQPm+HeCTqWWBI9G3oPiATozKWJjBy1bqISlk92HcVYNaTTyl2ZBg3\nHNedNkrOsTk5/BaRC+VQ8XGT22qrSqbE8DMxtCSml86qqwiA2lmTaW/Dtfh94uVW\n7VyZGFqF5rCKsXNAIYHrXVbjz+rHpjEabqVZHNSHLQBq+f0cmFW0pnj9afODyrlB\nHKvM6avmC8IiSPbodQ49EWO+Gu/4qFHcGIk+7aYoWr5UIjIHRLWeAYf9m8ZSolrK\nJNuNchvhk6DD3slRp4E0vFuoopcpK6fbmT4v34iZG0q0vuaNUzrDtCy61txYithv\ncqtZnqxeoN0pu1BbSFJtzzbx61mfy9/6RJH8wgH7xPllo2SGr9K7fkKSpBP7BZS0\n6Skuz7GU7S7wGQl2Fu9M845eJIxpbDxSzBAuz015vRSj9IBa86YNiaUQ4v/0Zeva\n10nti89ypkveGrKtJz6PY3yGKIxP5OueqfRvKWrcTMeE1qZ3i3SDBKOjzOhLmY8m\nT11X4u5AYtL5iDfIB7CaTGEvW6eX5REWjqlGf68OhBkCsT2OIuhlpW1Emmi8qYxW\nPUJz0gfp3TSBdUYXOEg1\n=CJUG\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree e4fe568efecbaa8d4d92bbc05bcadb346438070a\nparent 39848e6e4a3a09070aece91656e67bf24c1c1b47\nauthor Jilayne Lovejoy <opensource@jilayne.com> 1791950416 -0600\ncommitter GitHub <noreply@github.com> 1791950416 -0600\n\nfix double link",
+        "verified_at": "2026-10-14T04:00:17Z"
+      }
+    },
+    "url": "https://api.github.com/repos/spdx/license-list-XML/commits/72e0d79ef62cdc6fe5f658548bbbe615a876b730",
+    "html_url": "https://github.com/spdx/license-list-XML/commit/72e0d79ef62cdc6fe5f658548bbbe615a876b730",
+    "comments_url": "https://api.github.com/repos/spdx/license-list-XML/commits/72e0d79ef62cdc6fe5f658548bbbe615a876b730/comments",
+    "author": {
+      "login": "jlovejoy",
+      "id": 5048659,
+      "node_id": "MDQ6VXNlcjUwNDg2NTk=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5048659?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jlovejoy",
+      "html_url": "https://github.com/jlovejoy",
+      "followers_url": "https://api.github.com/users/jlovejoy/followers",
+      "following_url": "https://api.github.com/users/jlovejoy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jlovejoy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jlovejoy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jlovejoy/subscriptions",
+      "organizations_url": "https://api.github.com/users/jlovejoy/orgs",
+      "repos_url": "https://api.github.com/users/jlovejoy/repos",
+      "events_url": "https://api.github.com/users/jlovejoy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jlovejoy/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "39848e6e4a3a09070aece91656e67bf24c1c1b47",
+        "url": "https://api.github.com/repos/spdx/license-list-XML/commits/39848e6e4a3a09070aece91656e67bf24c1c1b47",
+        "html_url": "https://github.com/spdx/license-list-XML/commit/39848e6e4a3a09070aece91656e67bf24c1c1b47"
+      }
+    ]
+  }
+]

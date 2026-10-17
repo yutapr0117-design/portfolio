@@ -1,0 +1,112 @@
+{
+  "url": "https://api.github.com/repos/spdx/license-list-XML/issues/3086",
+  "repository_url": "https://api.github.com/repos/spdx/license-list-XML",
+  "labels_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3086/labels{/name}",
+  "comments_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3086/comments",
+  "events_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3086/events",
+  "html_url": "https://github.com/spdx/license-list-XML/issues/3086",
+  "id": 5530320548,
+  "node_id": "I_kwDOA0JFE88AAAABSaH-pA",
+  "number": 3086,
+  "title": "New License Request: VGT-OL-1.0 (VGT Open License V1)",
+  "user": {
+    "login": "visiongaiatechnology",
+    "id": 31537456,
+    "node_id": "MDQ6VXNlcjMxNTM3NDU2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/31537456?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/visiongaiatechnology",
+    "html_url": "https://github.com/visiongaiatechnology",
+    "followers_url": "https://api.github.com/users/visiongaiatechnology/followers",
+    "following_url": "https://api.github.com/users/visiongaiatechnology/following{/other_user}",
+    "gists_url": "https://api.github.com/users/visiongaiatechnology/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/visiongaiatechnology/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/visiongaiatechnology/subscriptions",
+    "organizations_url": "https://api.github.com/users/visiongaiatechnology/orgs",
+    "repos_url": "https://api.github.com/users/visiongaiatechnology/repos",
+    "events_url": "https://api.github.com/users/visiongaiatechnology/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/visiongaiatechnology/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "labels": [
+    {
+      "id": 789268956,
+      "node_id": "MDU6TGFiZWw3ODkyNjg5NTY=",
+      "url": "https://api.github.com/repos/spdx/license-list-XML/labels/new%20license/exception:%20Not%20Accepted",
+      "name": "new license/exception: Not Accepted",
+      "color": "d4c5f9",
+      "default": false,
+      "description": null,
+      "archived_at": null,
+      "archived_by": null
+    }
+  ],
+  "state": "closed",
+  "locked": false,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 1,
+  "created_at": "2026-09-21T17:28:39Z",
+  "updated_at": "2026-09-23T19:46:48Z",
+  "closed_at": "2026-09-23T19:46:43Z",
+  "assignee": null,
+  "author_association": "NONE",
+  "issue_field_values": [
+
+  ],
+  "type": null,
+  "active_lock_reason": null,
+  "sub_issues_summary": {
+    "total": 0,
+    "completed": 0,
+    "percent_completed": 0
+  },
+  "issue_dependencies_summary": {
+    "blocked_by": 0,
+    "total_blocked_by": 0,
+    "blocking": 0,
+    "total_blocking": 0
+  },
+  "body": "### 1. License Name\nVGT Open License V1\n\n### 2. Short Identifier\nVGT-OL-1.0\n\n### 3. License Author / Steward\nVisionGaiaTechnology (VGT)\nWebsite: https://visiongaiatechnology.de\nContact: security@visiongaia.de\n\n### 4. Canonical URL / Source of Text\n- Official HTML Specification: https://visiongaiatechnology.de/licenses/VGT-Open-License.html\n- Official PDF Publication: https://visiongaiatechnology.de/licenses/VGT-Open-License.pdf\n- Upstream Project Usage: https://github.com/visiongaiatechnology/AstraeaOS  (Open to the public starting in October)\n\n### 5. Rationale & Use Case\nThe VGT Open License V1 (VGT-OL-1.0) is a European Strong-Copyleft and Network-Copyleft license designed for sovereign, privacy-preserving desktop and cloud software (specifically the AstraeaOS ecosystem and Astraea Workspace suite).\n\nIt combines:\n- Strong copyleft for distributed binaries and user products (anti-tivoization).\n- Network copyleft for software operated over networks as a service (SaaS/API).\n- An explicit ethical field-of-use restriction under Section 13 prohibiting military, intelligence, and weapons-related use without prior written VGT Special Authorization.\n\nPursuant to Section 18, the German version is the legally controlling version, accompanied by an authorized complete English translation.\n\n### 6. SPDX Inclusion Criteria Confirmation\n- [x] The license is not already on the SPDX License List.\n- [x] The license text is definitive and stable (Version 1.0, dated 7 September 2026).\n- [x] The steward is committed to not changing this version and using semantic versioning for any future revisions.\n- [x] The license applies to source code and provides complete access to Corresponding Source.\n- [x] The license is actively used in public projects (AstraeaOS, Astraea Workspace, GaiaCom, VGT Infinity).\n\n### 7. Attached Files\nWe have prepared the full SPDX XML specification and test text matching the official schema:\n- `VGT-OL-1.0.xml` (ready for `src/`)\n[VGT-OL-1.0.xml](https://github.com/user-attachments/files/32479613/VGT-OL-1.0.xml)\n- `VGT-OL-1.0.txt` (ready for `test/`)\n[VGT-OL-1.0.txt](https://github.com/user-attachments/files/32479637/VGT-OL-1.0.txt)",
+  "closed_by": {
+    "login": "swinslow",
+    "id": 678569,
+    "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/swinslow",
+    "html_url": "https://github.com/swinslow",
+    "followers_url": "https://api.github.com/users/swinslow/followers",
+    "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+    "organizations_url": "https://api.github.com/users/swinslow/orgs",
+    "repos_url": "https://api.github.com/users/swinslow/repos",
+    "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/swinslow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "reactions": {
+    "url": "https://api.github.com/repos/spdx/license-list-XML/issues/3086/reactions",
+    "total_count": 1,
+    "+1": 0,
+    "-1": 1,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "timeline_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3086/timeline",
+  "performed_via_github_app": null,
+  "state_reason": "completed",
+  "pinned_comment": null
+}

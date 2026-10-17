@@ -1,0 +1,103 @@
+{
+  "url": "https://api.github.com/repos/spdx/license-list-XML/issues/3049",
+  "repository_url": "https://api.github.com/repos/spdx/license-list-XML",
+  "labels_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3049/labels{/name}",
+  "comments_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3049/comments",
+  "events_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3049/events",
+  "html_url": "https://github.com/spdx/license-list-XML/issues/3049",
+  "id": 4968103036,
+  "node_id": "I_kwDOA0JFE88AAAABKB88fA",
+  "number": 3049,
+  "title": "New license request: PDL-1.0 [SPDX-Online-Tools]",
+  "user": {
+    "login": "yuyamamo-da",
+    "id": 258970741,
+    "node_id": "U_kgDOD2-UdQ",
+    "avatar_url": "https://avatars.githubusercontent.com/u/258970741?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/yuyamamo-da",
+    "html_url": "https://github.com/yuyamamo-da",
+    "followers_url": "https://api.github.com/users/yuyamamo-da/followers",
+    "following_url": "https://api.github.com/users/yuyamamo-da/following{/other_user}",
+    "gists_url": "https://api.github.com/users/yuyamamo-da/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/yuyamamo-da/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/yuyamamo-da/subscriptions",
+    "organizations_url": "https://api.github.com/users/yuyamamo-da/orgs",
+    "repos_url": "https://api.github.com/users/yuyamamo-da/repos",
+    "events_url": "https://api.github.com/users/yuyamamo-da/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/yuyamamo-da/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "labels": [
+    {
+      "id": 789268746,
+      "node_id": "MDU6TGFiZWw3ODkyNjg3NDY=",
+      "url": "https://api.github.com/repos/spdx/license-list-XML/labels/new%20license/exception:%20Accepted",
+      "name": "new license/exception: Accepted",
+      "color": "bfd4f2",
+      "default": false,
+      "description": null,
+      "archived_at": null,
+      "archived_by": null
+    },
+    {
+      "id": 4888970774,
+      "node_id": "LA_kwDOA0JFE88AAAABI2fGFg",
+      "url": "https://api.github.com/repos/spdx/license-list-XML/labels/needs%20files%20made",
+      "name": "needs files made",
+      "color": "F23C7F",
+      "default": false,
+      "description": "",
+      "archived_at": null,
+      "archived_by": null
+    }
+  ],
+  "state": "open",
+  "locked": false,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 2,
+  "created_at": "2026-07-24T11:44:46Z",
+  "updated_at": "2026-10-09T09:49:27Z",
+  "closed_at": null,
+  "assignee": null,
+  "author_association": "NONE",
+  "issue_field_values": [
+
+  ],
+  "type": null,
+  "active_lock_reason": null,
+  "sub_issues_summary": {
+    "total": 0,
+    "completed": 0,
+    "percent_completed": 0
+  },
+  "issue_dependencies_summary": {
+    "blocked_by": 0,
+    "total_blocked_by": 0,
+    "blocking": 0,
+    "total_blocking": 0
+  },
+  "body": "**1.** License name: Public Data License 1.0 (PDL 1.0)\n**2.** Short identifier: PDL-1.0\n**3.** License author or steward: Digital Agency, Government of Japan\n**4.** Comments: PDL 1.0 (Public Data License Version 1.0) is an open data license published on July 5, 2024 by Japan's Digital Agency as the standard terms of use for open data published by Japanese national and local government institutions (https://www.digital.go.jp/resources/open_data/public_data_license_v1.0).\r\n\r\n(A) PDL 1.0 does not match any license currently on the SPDX License List.\r\n(D) The license text is stable and publicly available at a permanent URL hosted by Japan's Digital Agency.\r\n(E) The license is versioned as \"Version 1.0\", and section 1.7.2 confirms that future modifications will result in a new version.\r\n(Factor 1) Section 1.7.3 explicitly states compatibility with CC BY 4.0, which conforms to the Open Definition from the Open Knowledge Foundation.\r\n(Factor 3) PDL 1.0 is adopted as the standard open data license across Japanese national and local government websites, representing substantial real-world use.\r\n(Factor 5) The license steward is Japan's Digital Agency, which authored, published, and actively promotes adoption of this license.\r\nNote: A few points worth flagging for review: (1) Jurisdiction is limited to Japan (section 1.5.2), though this is also common in other accepted licenses such as CC variants. (2) PDL 1.0 is a content/data license rather than a software license; however, SPDX already includes CC-family licenses covering similar use cases. (3) PDL 1.0 is not OSI-approved, but OSI approval is not a prerequisite for inclusion under the other factors. These points are not believed to be disqualifying given the license's substantial use, stable text, and explicit CC BY 4.0 compatibility.\n**5.** License request Url: https://tools.spdx.org/app/license_requests/528\n**6.** URL(s): https://www.digital.go.jp/resources/open_data/public_data_license_v1.0, https://www.digital.go.jp/en/resources/open_data/public_data_license_v1.0\n**7.** OSI status: Not Submitted\n**8.** Example projects: https://github.com/digital-go-jp/lawqa_jp, https://www.digital.go.jp/copyright-policy, https://www.digital.go.jp/en/site-policy, https://www.soumu.go.jp/menu_kyotsuu/policy/tyosaku.html#tyosakuken, https://www.soumu.go.jp/english/terms_use.html, https://www.mlit.go.jp/link.html, https://www.mlit.go.jp/page/kanbo01_hy_003776.html, https://www.pref.okayama.jp/page/detail-4318.html, https://www.keishicho.metro.tokyo.lg.jp/about/kenri_link.html, https://www.city.minamikyushu.lg.jp/soshikikarasagasu/kikakuka/ijyuteijyusokushin/5/1607.html, https://www.town.hokkaido-mori.lg.jp/soshiki/kikakushinko/3109.html, https://www.fujisan-climb.jp/copyright/, https://minna-tunagaru.jp/policy/",
+  "closed_by": null,
+  "reactions": {
+    "url": "https://api.github.com/repos/spdx/license-list-XML/issues/3049/reactions",
+    "total_count": 0,
+    "+1": 0,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "timeline_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3049/timeline",
+  "performed_via_github_app": null,
+  "state_reason": null,
+  "pinned_comment": null
+}

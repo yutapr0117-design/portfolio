@@ -1,0 +1,1566 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Open Source Initiative</title>
+	<atom:link href="https://opensource.org/feed" rel="self" type="application/rss+xml" />
+	<link>https://opensource.org</link>
+	<description>The steward of the Open Source Definition, setting the foundation for the Open Source Software ecosystem.</description>
+	<lastBuildDate>Fri, 16 Oct 2026 19:52:41 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	
+
+<image>
+	<url>https://i0.wp.com/opensource.org/wp-content/uploads/2023/01/cropped-cropped-OSI_Horizontal_Logo_0-e1674081292667.png?fit=32%2C32&#038;quality=80&#038;ssl=1</url>
+	<title>Open Source Initiative</title>
+	<link>https://opensource.org</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<atom:link rel="hub" href="https://pubsubhubbub.appspot.com"/>
+<atom:link rel="hub" href="https://pubsubhubbub.superfeedr.com"/>
+<atom:link rel="hub" href="https://websubhub.com/hub"/>
+<atom:link rel="self" href="https://opensource.org/feed"/>
+<site xmlns="com-wordpress:feed-additions:1">210318891</site>	<item>
+		<title>Announcing the 2027 State of Open Source Survey</title>
+		<link>https://opensource.org/blog/announcing-the-2027-state-of-open-source-survey</link>
+					<comments>https://opensource.org/blog/announcing-the-2027-state-of-open-source-survey#comments</comments>
+		
+		<dc:creator><![CDATA[Nick Vidal]]></dc:creator>
+		<pubDate>Fri, 16 Oct 2026 19:42:30 +0000</pubDate>
+				<category><![CDATA[News]]></category>
+		<category><![CDATA[survey]]></category>
+		<guid isPermaLink="false">https://opensource.org/?p=491881</guid>
+
+					<description><![CDATA[The OSI has teamed up again with Perforce Zend and OpenLogic, as well as the Eclipse Foundation, for the 2027 State of Open Source Survey.]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">The Open Source Initiative (OSI) has teamed up again with Perforce Zend and OpenLogic, as well as the Eclipse Foundation, for the <a target="_blank" href="https://www.research.net/r/ZXKYJRM">2027 State of Open Source Survey</a>.</p>
+
+
+
+<p class="wp-block-paragraph">This annual survey, now in its sixth year, brings together perspectives from OSS developers, administrators, and IT leaders around the world. It examines what technologies organizations are deploying, where teams are investing, and what challenges they’re facing. In 2027, that includes taking a closer look at AI, with questions covering adoption, development priorities, and how organizations are responding to a rapidly evolving regulatory environment and increased scrutiny.</p>
+
+
+
+<h2 class="wp-block-heading">Top Findings from 2026</h2>
+
+
+
+<p class="wp-block-paragraph">The <a href="https://opensource.org/blog/the-2026-state-of-open-source-report">2026 State of Open Source Survey</a> showed how firmly open source has become established within organizational technology stacks:</p>
+
+
+
+<ul class="wp-block-list">
+<li>98% of respondents said their organizations had either increased or maintained their use of open source software over the previous year, up from 96% in 2025.</li>
+
+
+
+<li>Avoiding vendor lock-in was cited as the most common driver of adoption, particularly for European OSS users.</li>
+
+
+
+<li>The largest enterprises (5,000+ employees) reported spending at least half of their time on maintenance, production issues, and bug fixes rather than feature development.</li>
+
+
+
+<li>Security updates and patching remained the most persistent challenge, regardless of organization size.</li>
+
+
+
+<li>55% of organizations that failed a compliance audit last year had end-of-life OSS in their stacks.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">These findings show that while OSS adoption keeps growing, the work of governing, securing, and maintaining it has grown with it. Organizations are asking harder questions about ownership, risk, and long-term control.</p>
+
+
+
+<h2 class="wp-block-heading">Take the 2027 State of Open Source Survey</h2>
+
+
+
+<p class="wp-block-paragraph">If you use, develop, support, manage, or make decisions about open source software, we want to hear from you.</p>
+
+
+
+<p class="wp-block-paragraph">By participating in the <a target="_blank" href="https://www.research.net/r/ZXKYJRM">2027 State of Open Source Survey</a>, you’ll contribute to research on how organizations are using open source and AI, where resources are going, and which technical and operational challenges deserve greater attention. Your responses will give the open source community data it can use to understand how the landscape is changing.</p>
+
+
+
+<p class="wp-block-paragraph">Plus, your participation helps support the OSS community. For every 500 responses, Perforce will increase its donation to <a target="_blank" href="https://www.wearebgc.org/">Black Girls Code</a>, an organization dedicated to building the next generation of tech leaders, by $1000.</p>
+
+
+
+<p class="wp-block-paragraph"><a target="_blank" href="https://www.research.net/r/ZXKYJRM">Take the 2027 State of Open Source Survey</a></p>
+
+
+
+<figure class="wp-block-image size-large has-lightbox"><a target="_blank" href="https://www.research.net/r/ZXKYJRM"><img data-recalc-dims="1" fetchpriority="high" decoding="async" width="640" height="336" src="https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/openlogic-social-state-open-source-survey-2027.jpg?resize=640%2C336&#038;quality=89&#038;ssl=1" alt="" class="wp-image-491885" srcset="https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/openlogic-social-state-open-source-survey-2027.jpg?resize=1024%2C538&amp;quality=89&amp;ssl=1 1024w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/openlogic-social-state-open-source-survey-2027.jpg?resize=300%2C158&amp;quality=89&amp;ssl=1 300w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/openlogic-social-state-open-source-survey-2027.jpg?resize=768%2C403&amp;quality=89&amp;ssl=1 768w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/openlogic-social-state-open-source-survey-2027.jpg?w=1200&amp;quality=89&amp;ssl=1 1200w" sizes="(max-width: 640px) 100vw, 640px" /></a></figure>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://opensource.org/blog/announcing-the-2027-state-of-open-source-survey/feed</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">491881</post-id>	</item>
+		<item>
+		<title>Open Enables a Lot: The OSI at UNGA81</title>
+		<link>https://opensource.org/blog/open-enables-a-lot-the-osi-at-unga81</link>
+					<comments>https://opensource.org/blog/open-enables-a-lot-the-osi-at-unga81#comments</comments>
+		
+		<dc:creator><![CDATA[Nick Vidal]]></dc:creator>
+		<pubDate>Thu, 08 Oct 2026 11:24:31 +0000</pubDate>
+				<category><![CDATA[Events]]></category>
+		<category><![CDATA[advocacy]]></category>
+		<category><![CDATA[ai]]></category>
+		<guid isPermaLink="false">https://opensource.org/?p=482857</guid>
+
+					<description><![CDATA[At UNGA81, OSI joined conversations on Open Source AI, digital sovereignty, and digital public infrastructure. Open by itself does very little but enables a lot.]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">On Monday, September 21, with the high-level week of the 81st UN General Assembly (UNGA81) underway in New York, OSI Executive Director Duane O’Brien spoke on a UN panel about Open Source AI and joined a Creative Commons symposium on openness and digital sovereignty. The OSI also attended the inaugural 50-in-5 Awards for digital public infrastructure. Different people filled each room, but many of them were circling the same question: what does openness give people, and what does it take to make good on it?</p>
+
+
+
+<p class="wp-block-paragraph">At the Creative Commons event, Duane offered a ten-word answer: “Open by itself does very little but enables a lot.” Creative Commons later called it the line of the day. Most of what the OSI said at UNGA81 was about the distance between the two halves of that sentence.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>Shared definitions for Open Source AI</strong></h2>
+
+
+
+<p class="wp-block-paragraph">At <a target="_blank" href="https://www.un.org/digital-emerging-technologies/content/un-digital-cooperation-day-2026">UN Digital Cooperation Day</a>, organized by the UN Office for Digital and Emerging Technologies (ODET), Duane joined the panel “What is Open Source AI? Applications, Strategies and Global Cooperation.” Sarah Myers West of the AI Now Institute moderated a conversation with Duane, Kari Briski of NVIDIA, Marzieh Fadaee of Cohere Labs, Jim Zemlin of the Linux Foundation, and Rumman Chowdhury of Humane Intelligence.</p>
+
+
+
+<p class="wp-block-paragraph">West put the first question to Duane. Governments are starting to negotiate language about Open Source AI for the UN’s Global Dialogue on AI Governance, so what should delegates consider, and what happens if the terms go undefined? Duane started with history. As Open Source software took hold, some companies wanted its good reputation and attached the label to products that restricted the freedoms to use, study, modify, and share. The OSI’s work on which licenses qualify turned “Open Source” into shorthand the whole industry understood. It’s the reason a lawyer can tell you whether a given license is Open Source. AI brought the same pressure back. “You need these kinds of common definitions when you’re crafting policy,” he said, “or else everyone is speaking a completely different language.”</p>
+
+
+
+<p class="wp-block-paragraph">He was just as direct about how the OSI arrived at the <a href="https://opensource.org/ai/open-source-ai-definition">Open Source AI Definition</a>. As he described it, the OSI’s role is to convene the global community and help it reach consensus. Over two years, that meant workshops and conversations in 18 countries, plus online town halls, before version 1.0 was published in October 2024. The <a href="https://opensource.org/blog/open-source-ai-fellowship-announced-at-un-open-source-week">Open Source AI Fellowship</a>, launched in June with Duke University’s Sanford School of Public Policy, is now looking at how well the definition serves the people who use it and who was missing from those first conversations. Duane reminded the room that the Open Source Definition took about ten years to settle into the principles we rely on today. The AI definition is still early in that process.</p>
+
+
+
+<p class="wp-block-paragraph">Governments are already putting that work to use. During the Member State interventions, France’s Ambassador for Digital Affairs pointed to the <a href="https://opensource.org/blog/open-source-initiative-helps-g7-deliver-vision-on-ai-openness">G7 Vision on AI Openness</a>, which G7 digital ministers adopted in May under the French presidency after the OSI helped draft it as a knowledge partner. The ambassador asked that the work inform the UN’s Global Dialogue and called the UN a natural forum for making those principles universal. After years spent on definitions, it was good to hear a government ask for exactly that.</p>
+
+
+
+<p class="wp-block-paragraph">Questions from the floor went to the hard parts. Asked how open models deal with data that can’t be released, Duane explained that the Open Source AI Definition requires developers to release the data they can and accurately describe the data they can’t, and that the G7 vision made that language stronger.</p>
+
+
+
+<p class="wp-block-paragraph">Near the end, a delegate asked the panel what to tell their child about Open Source and AI. Zemlin said, “Be a maker, not a user.” Duane said Open Source technologies are “built by the people who show up,” and that kids should feel included in that.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>Openness and sovereignty at Open @ UNGA81</strong></h2>
+
+
+
+<p class="wp-block-paragraph">Creative Commons and the NYU Engelberg Center hosted Open @ UNGA81, a day of conversation about what openness can and can’t do for communities and countries pursuing digital sovereignty. In her <a target="_blank" href="https://creativecommons.org/2026/09/30/openness-digital-sovereignty-who-sustains-the-commons/">recap of the event</a>, Creative Commons CEO Anna Tumadóttir draws out a few themes. Openness widens people’s choices, and sovereignty depends on having the capacity to use those choices and keep them over time.</p>
+
+
+
+<p class="wp-block-paragraph">Duane joined the Open Source panel with Amanda Casari of Google Open Source Programs Office, Madiha Zahrah Choksi of Columbia University, Ben Moskowitz of Two Planets, and Ilan Strauss of AI Disclosures Project. The panel looked at how market forces shape Open Source and how Open Source can reshape markets and public infrastructure in return. When the conversation kept circling back to whether openness would cause or prevent particular outcomes, Duane named its limits. Openness brings transparency and reproducibility, he said, but no go-to-market strategy of its own, and people who love open technology sometimes lose sight of that. The line of the day came out of that exchange.</p>
+
+
+
+<p class="wp-block-paragraph">Asked what it would take for open alternatives to flourish, he pointed to Linux, which got where it is through decades of sustained investment. Thirty years ago, he said, it seemed inconceivable that anyone could compete with the incumbents, just as it once seemed impossible to disrupt Unix or unseat Internet Explorer. “If we want these kinds of markets to flourish in Europe or anywhere,” he said, “we have to invest in creating those markets.” Creative Commons reached a similar conclusion in its recap, arguing that maintainers and shared infrastructure belong in public funding strategies.</p>
+
+
+
+<p class="wp-block-paragraph">The Open Source AI Definition came up twice during the panel, including a researcher’s question about whether one definition can cover both reproducing a model and reusing it. Duane acknowledged that the definition “is not without criticism” and that a lot has changed since it was published. Then he invited anyone who wants a say in its future to get involved, because the OSI will begin those conversations soon.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>Digital public infrastructure at the 50-in-5 Awards</strong></h2>
+
+
+
+<p class="wp-block-paragraph">The inaugural <a target="_blank" href="https://50in5.net/winners-of-inaugural-50-in-5-awards-recognised-for-impact-collaboration-and-leadership-in-digital-public-infrastructure/">50-in-5 Awards</a>, held at The Morgan Library &amp; Museum, recognized countries and people building digital public infrastructure (DPI). The Digital Public Goods Alliance (DPGA) coordinated the ceremony with Co-Develop as part of 50-in-5, a country-led campaign to help 50 countries launch and scale parts of their DPI by 2028.</p>
+
+
+
+<p class="wp-block-paragraph">The winners showed what DPI looks like at national scale. Benin took the Impact Award for an integrated system that has registered nearly 13.75 million people, about 99% of its population, and connects more than 60 government entities through a national interoperability platform. Indonesia won the Collaboration Award for QRIS Cross-Border, a payment system that works across seven countries and supports more than 45 million businesses, most of them micro, small, and medium enterprises. The Leadership Award went to Esther Dweck, Brazil’s Minister of Management and Innovation in Public Services, whose government used GOV.BR and PIX to deliver emergency assistance to flood-affected communities in as little as six days. Italy used the ceremony to announce it was joining as the campaign’s 40th country.</p>
+
+
+
+<p class="wp-block-paragraph">For the OSI, the connection is concrete. Under the <a target="_blank" href="https://digitalpublicgoods.net/standard">DPG Standard</a>, software qualifies as a digital public good only if it carries an OSI-approved license, so every software DPG rests on licenses reviewed against the Open Source Definition. When countries build DPI with digital public goods, they are building on Open Source as the community has defined it. In the OSI’s <a href="https://opensource.org/blog/linuxs-35th-anniversary-and-the-open-frontier">September members newsletter</a>, Duane named the DPGA among the organizations the OSI is working with as AI tools test licenses and processes built for software.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>What comes next</strong></h2>
+
+
+
+<p class="wp-block-paragraph">Much of what UNGA81 asked of the Open Source community is slow work: refining definitions, describing data honestly, reviewing licenses, and finding money for the people who maintain shared infrastructure. The OSI will keep bringing the community’s experience into rooms where governments set AI and digital policy, and we’d like more of you in those conversations.</p>
+
+
+
+<p class="wp-block-paragraph">If you want a voice in the next phase of the Open Source AI Definition, watch this blog for upcoming conversations, or find us at the <a href="https://opensource.org/blog/osi-brings-the-state-of-the-source-to-all-things-open-2026">OSI track at All Things Open</a> in Raleigh on October 20. If you’d like to support the OSI’s policy work, you can <a href="https://opensource.org/get-involved">become a member or donate</a>.</p>
+
+
+
+<h2 class="wp-block-heading">References</h2>
+
+
+
+<ul class="wp-block-list">
+<li><a target="_blank" href="https://www.youtube.com/live/N5kfbHeqChE?t=1422">Video recording of UN Digital Cooperation Day</a></li>
+
+
+
+<li><a href="https://opensource.org/wp-content/uploads/2026/10/Digital_Cooperation_Day_2026.pdf">Transcript of UN Digital Cooperation Day</a></li>
+
+
+
+<li><a href="https://opensource.org/wp-content/uploads/2026/10/Open_UNGA81.pdf">Transcript of Open @ UNGA81</a></li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Photos</h2>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" decoding="async" width="640" height="427" src="https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/Digital-Cooperation-Day-2026-22.jpg?resize=640%2C427&#038;quality=89&#038;ssl=1" alt="" class="wp-image-482866" srcset="https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/Digital-Cooperation-Day-2026-22-scaled.jpg?resize=1024%2C683&amp;quality=89&amp;ssl=1 1024w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/Digital-Cooperation-Day-2026-22-scaled.jpg?resize=300%2C200&amp;quality=89&amp;ssl=1 300w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/Digital-Cooperation-Day-2026-22-scaled.jpg?resize=768%2C512&amp;quality=89&amp;ssl=1 768w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/Digital-Cooperation-Day-2026-22-scaled.jpg?resize=1536%2C1024&amp;quality=89&amp;ssl=1 1536w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/Digital-Cooperation-Day-2026-22-scaled.jpg?resize=2048%2C1365&amp;quality=89&amp;ssl=1 2048w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/Digital-Cooperation-Day-2026-22-scaled.jpg?w=1280&amp;quality=89&amp;ssl=1 1280w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/Digital-Cooperation-Day-2026-22-scaled.jpg?w=1920&amp;quality=89&amp;ssl=1 1920w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption class="wp-element-caption">UN Digital Cooperation Day</figcaption></figure>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" decoding="async" width="640" height="480" src="https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/IMG_20260921_143829576_HDR-1.jpg?resize=640%2C480&#038;quality=89&#038;ssl=1" alt="" class="wp-image-482867" srcset="https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/IMG_20260921_143829576_HDR-1-scaled.jpg?resize=1024%2C768&amp;quality=89&amp;ssl=1 1024w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/IMG_20260921_143829576_HDR-1-scaled.jpg?resize=300%2C225&amp;quality=89&amp;ssl=1 300w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/IMG_20260921_143829576_HDR-1-scaled.jpg?resize=768%2C576&amp;quality=89&amp;ssl=1 768w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/IMG_20260921_143829576_HDR-1-scaled.jpg?resize=2048%2C1536&amp;quality=89&amp;ssl=1 2048w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/IMG_20260921_143829576_HDR-1-scaled.jpg?resize=1536%2C1152&amp;quality=89&amp;ssl=1 1536w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/IMG_20260921_143829576_HDR-1-scaled.jpg?w=1280&amp;quality=89&amp;ssl=1 1280w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/IMG_20260921_143829576_HDR-1-scaled.jpg?w=1920&amp;quality=89&amp;ssl=1 1920w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption class="wp-element-caption">Open @ UNGA81</figcaption></figure>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="640" height="480" src="https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/IMG_20260921_173602141_HDR2.jpg?resize=640%2C480&#038;quality=89&#038;ssl=1" alt="" class="wp-image-482868" srcset="https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/IMG_20260921_173602141_HDR2-scaled.jpg?resize=1024%2C768&amp;quality=89&amp;ssl=1 1024w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/IMG_20260921_173602141_HDR2-scaled.jpg?resize=300%2C225&amp;quality=89&amp;ssl=1 300w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/IMG_20260921_173602141_HDR2-scaled.jpg?resize=768%2C576&amp;quality=89&amp;ssl=1 768w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/IMG_20260921_173602141_HDR2-scaled.jpg?resize=1536%2C1152&amp;quality=89&amp;ssl=1 1536w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/IMG_20260921_173602141_HDR2-scaled.jpg?resize=2048%2C1536&amp;quality=89&amp;ssl=1 2048w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/IMG_20260921_173602141_HDR2-scaled.jpg?w=1280&amp;quality=89&amp;ssl=1 1280w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/IMG_20260921_173602141_HDR2-scaled.jpg?w=1920&amp;quality=89&amp;ssl=1 1920w" sizes="auto, (max-width: 640px) 100vw, 640px" /><figcaption class="wp-element-caption">DPGA&#8217;s 50-in-5 Awards</figcaption></figure>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="640" height="427" src="https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/dpga_50-in-5.png?resize=640%2C427&#038;quality=80&#038;ssl=1" alt="" class="wp-image-482869" srcset="https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/dpga_50-in-5.png?resize=1024%2C683&amp;quality=80&amp;ssl=1 1024w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/dpga_50-in-5.png?resize=300%2C200&amp;quality=80&amp;ssl=1 300w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/dpga_50-in-5.png?resize=767%2C512&amp;quality=80&amp;ssl=1 767w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/10/dpga_50-in-5.png?w=1280&amp;quality=80&amp;ssl=1 1280w" sizes="auto, (max-width: 640px) 100vw, 640px" /><figcaption class="wp-element-caption">Liv Marte Nordhaug from the DPGA, Queen Máxima of the Netherlands, and Brazilian Minister Esther Dweck</figcaption></figure>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://opensource.org/blog/open-enables-a-lot-the-osi-at-unga81/feed</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">482857</post-id>	</item>
+		<item>
+		<title>Linux&#8217;s 35th Anniversary and the Open Frontier</title>
+		<link>https://opensource.org/blog/linuxs-35th-anniversary-and-the-open-frontier</link>
+					<comments>https://opensource.org/blog/linuxs-35th-anniversary-and-the-open-frontier#comments</comments>
+		
+		<dc:creator><![CDATA[Nick Vidal]]></dc:creator>
+		<pubDate>Wed, 16 Sep 2026 15:36:46 +0000</pubDate>
+				<category><![CDATA[Newsletter archive]]></category>
+		<guid isPermaLink="false">https://opensource.org/?p=453301</guid>
+
+					<description><![CDATA[Members Newsletter – September 2026: Open Source is what it is because of the people who led us here, and keep us here. We all joined the community for different reasons, but many of us stayed because of the relationships and partnerships we built along the way, connections that run deeper than the code.]]></description>
+										<content:encoded><![CDATA[
+<h1 class="wp-block-heading">Members Newsletter – September 2026</h1>
+
+
+
+<p class="wp-block-paragraph">Dear OSI community,</p>
+
+
+
+<p class="wp-block-paragraph">I’d be remiss if I didn’t open by wishing Linux a happy 35th birthday. I can’t pretend to have accomplished nearly as much by the age of 35 as Linux has, but neither was I nurtured by such a vast community of contributors and supporters. We can’t lose sight of that. Open Source is what it is because of the people who led us here, and keep us here. We all joined the community for different reasons, but many of us stayed because of the relationships and partnerships we built along the way, connections that run deeper than the code.</p>
+
+
+
+<p class="wp-block-paragraph">I get asked almost every day about the future of Open Source. One of my consistent answers is that people who love writing code will keep wanting to write code together. I believe that’s as true today as it was before AI tools, Git, the OSI, the World Wide Web, Perl, or C entered the chat. But we’re also passing through a moment of unquestionable transition. AI tools and agents are testing our processes, policies, laws, licenses, and beliefs in real time.</p>
+
+
+
+<p class="wp-block-paragraph">That’s why the OSI is engaged with several stakeholders, including the Mozilla Foundation, the Digital Public Goods Alliance, the Linux Foundation, and the Open Forum for AI. We recently encouraged the Linux Foundation to submit the <a target="_blank" href="https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-August/thread.html">OpenMDW License for review</a> and we worked together with the Open Forum for AI on a <a href="https://opensource.org/blog/we-must-open-the-frontier-osi-ofai-support-calls-for-the-u-s-to-develop-more-open-models">statement in supporting calls for the U.S. to develop more open models</a>. We need to understand whether the licenses and processes we’ve historically used for software will serve us as we think about Models and AI Systems. That process will be messy. It requires discussion, debate, and working through the problem. That’s a feature, not a bug.</p>
+
+
+
+<p class="wp-block-paragraph">And that brings me back to the people. We’ll be hosting an OSI track at All Things Open on October 20 in Raleigh, where we’ll share an overview of our work over the last year, a look at what we’re thinking about for 2027, and some thought-provoking content for newcomers and seasoned veterans alike. I hope you’ll join us. <a href="https://opensource.org/blog/osi-brings-the-state-of-the-source-to-all-things-open-2026">You can view the schedule here</a>.</p>
+
+
+
+<div class="wp-block-jetpack-markdown"><p>Warm regards,<br>
+Duane O’Brien<br>
+Executive Director, OSI</p>
+</div>
+
+
+
+<p class="wp-block-paragraph">PS: If you’ll be celebrating Linux’s 35th Anniversary at <a target="_blank" href="https://events.linuxfoundation.org/open-source-summit-europe/">Open Source Summit Europe</a> on October 9-10 in Prague, I’ll be there celebrating with you. Let’s have a chat!</p>
+
+
+
+<h2 class="wp-block-heading">News from the OSI</h2>
+
+
+
+<h3 class="wp-block-heading"><a href="https://opensource.org/blog/hello-from-the-new-executive-director"></a><a href="https://opensource.org/blog/osi-welcomes-the-european-unions-tech-sovereignty-package"></a><a href="https://opensource.org/blog/the-osi-2025-annual-report-is-now-available"></a><a href="https://opensource.org/blog/openness-made-all-of-this-possible"></a><a href="https://opensource.org/blog/we-must-open-the-frontier-osi-ofai-support-calls-for-the-u-s-to-develop-more-open-models">We Must Open the Frontier: OSI, OFAI Support Calls for the U.S. to Develop More Open Models</a></h3>
+
+
+
+<p class="wp-block-paragraph">The OSI joins the Open Forum for AI (OFAI) in supporting calls for the U.S. to develop more open models.</p>
+
+
+
+<h3 class="wp-block-heading"><a href="https://opensource.org/blog/hello-from-the-new-executive-director"></a><a href="https://opensource.org/blog/osi-welcomes-the-european-unions-tech-sovereignty-package"></a><a href="https://opensource.org/blog/the-osi-2025-annual-report-is-now-available"></a><a href="https://opensource.org/blog/openness-made-all-of-this-possible"></a><a href="https://opensource.org/blog/we-must-open-the-frontier-osi-ofai-support-calls-for-the-u-s-to-develop-more-open-models"></a><a href="https://opensource.org/blog/open-weights-are-good-open-source-is-better">Open Weights Are Good. Open Source Is Better.</a></h3>
+
+
+
+<p class="wp-block-paragraph">With openness in AI making headlines, we must educate policymakers, producers, and users of these technologies about what open-weight and Open Source AI mean for the four software freedoms: the freedom to use, study, modify, and share without the need to ask for permission from the rights holder.</p>
+
+
+
+<h3 class="wp-block-heading"><a href="https://opensource.org/blog/hello-from-the-new-executive-director"></a><a href="https://opensource.org/blog/osi-welcomes-the-european-unions-tech-sovereignty-package"></a><a href="https://opensource.org/blog/the-osi-2025-annual-report-is-now-available"></a><a href="https://opensource.org/blog/openness-made-all-of-this-possible"></a><a href="https://opensource.org/blog/we-must-open-the-frontier-osi-ofai-support-calls-for-the-u-s-to-develop-more-open-models"></a><a href="https://opensource.org/blog/osi-brings-the-state-of-the-source-to-all-things-open-2026">OSI brings the State of the Source to All Things Open 2026</a></h3>
+
+
+
+<p class="wp-block-paragraph">The OSI is coming to All Things Open with a track designed to connect developers with the big policy conversations shaping our ecosystem.</p>
+
+
+
+<h3 class="wp-block-heading">OSI in the news</h3>
+
+
+
+<ul class="wp-block-list">
+<li><a target="_blank" href="https://www.openforumai.org/news/us-needs-more-open-models">The U.S. Needs More Open Models</a> &#8211; Open Forum for AI</li>
+
+
+
+<li><a target="_blank" href="https://www.nytimes.com/2026/08/24/technology/hugging-face-open-source-ai-attack.html">Attacked by A.I. Agents, This Start-Up Embarked on a Crusade</a> &#8211; The New York Times</li>
+
+
+
+<li><a target="_blank" href="https://venturebeat.com/infrastructure/nvidia-acquires-hugging-face-after-stripe-nabs-openrouter-heres-what-open-source-ai-builders-should-do">Nvidia acquires Hugging Face after Stripe nabs OpenRouter: here’s what open source AI builders should do</a> &#8211; VentureBeat</li>
+
+
+
+<li><a target="_blank" href="https://www.reuters.com/practical-law-the-journal/transactional/open-weight-ai-model-licensing-2026-09-01/">Open-Weight AI Model Licensing</a> &#8211; Reuters</li>
+
+
+
+<li><a target="_blank" href="https://www.computerworld.com/article/4213156/what-are-open-ai-models.html">What are ‘open’ AI models?</a> &#8211; Computerworld</li>
+
+
+
+<li><a target="_blank" href="https://www.fastcompany.com/91594272/what-is-the-difference-between-proprietary-open-weight-open-source-ai-llm-openai-anthropic-llama-deepseek">What’s the difference between proprietary, open weight, and open source AI?</a> &#8211; Fast Company</li>
+
+
+
+<li><a target="_blank" href="https://www.gov.uk/government/publications/a-study-of-cybersecurity-literature-on-open-source-software-and-ai/a-study-of-cybersecurity-literature-on-open-source-software-and-ai">A study of cybersecurity literature on open-source software and AI</a> &#8211; UK Government</li>
+
+
+
+<li><a target="_blank" href="https://techstrong.ai/articles/linux-foundation-submits-openmdw-ai-license-to-open-source-initiative/">Linux Foundation Submits OpenMDW AI License to Open Source Initiative</a> &#8211; Techstrong.ai</li>
+
+
+
+<li><a target="_blank" href="https://www.forbes.com/sites/patrickmoorhead/2026/09/11/open-weights-are-not-open-source-and-it-matters-now-in-the-boardroom/">Open Weights Are Not Open Source, And It Matters Now In The Boardroom</a> &#8211; Forbes</li>
+
+
+
+<li><a target="_blank" href="https://www.theregister.com/columnists/2026/09/15/open-weights-are-not-open-source-why-ais-favorite-label-is-under-dispute/5295436">Open weights are not open source: Why AI&#8217;s favorite label is under dispute</a> &#8211; The Register</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">News from OSI affiliates and community</h2>
+
+
+
+<h3 class="wp-block-heading">News from OSI affiliates and partners</h3>
+
+
+
+<ul class="wp-block-list">
+<li><strong>ASF</strong>: <a target="_blank" href="https://apache.org/foundation/docs/FY2026AnnualReport.pdf">Annual report for the 2026 fiscal year</a></li>
+
+
+
+<li><strong>Creative Commons</strong>: <a target="_blank" href="https://creativecommons.org/2026/09/03/guidance-on-using-cc-licenses-in-an-ai-ecosystem">Guidance on Using CC Licenses in an AI Ecosystem</a></li>
+
+
+
+<li><strong>CURIOSS</strong>: <a target="_blank" href="https://curioss.org/news/closing-the-skills-gap--how-academic-ospos-are-leading-the-way-with-open-source-internships/">Closing the Skills Gap&#8211; How Academic OSPOs are leading the way with Open Source Internships</a></li>
+
+
+
+<li><strong>Debian</strong>: <a target="_blank" href="https://www.theregister.com/ai-and-ml/2026/08/30/debian-votes-to-let-contributors-code-with-ai/5293421">Debian votes to let contributors code with AI</a></li>
+
+
+
+<li><strong>Digital Infrastructure Insights Fund</strong>: <a target="_blank" href="https://newsletter.infrastructureinsights.fund/digital-infrastructure-insights-fund-missive-1-2026/">Digital Infrastructure Insights Fund Missive 1/2026</a></li>
+
+
+
+<li><strong>Eclipse Foundation</strong>: <a target="_blank" href="https://newsroom.eclipse.org/news/announcements/eclipse-foundation-releases-free-toolkit-help-smes-prepare-eu-cyber-resilience">EF Releases Free Toolkit to Help SMEs Prepare for the EU Cyber Resilience Act</a></li>
+
+
+
+<li><strong>FSFE</strong>: <a target="_blank" href="https://fsfe.org/news/2026/news-20260825-01.html">Copyrightability of LLM-generated code: Can we license “vibe code” into Free Software?</a></li>
+
+
+
+<li><strong>FSFE</strong>: <a target="_blank" href="https://fsfe.org/news/2026/news-20260904-01.en.html">Free Your Android: Let&#8217;s test Free Software android distributions</a></li>
+
+
+
+<li><strong>Linux Foundation</strong>: <a target="_blank" href="https://www.linux.com/linux35th">35th anniversary of Linux</a></li>
+
+
+
+<li><strong>Linux Foundation</strong>: <a target="_blank" href="https://www.linuxfoundation.org/blog/open-secure-ai-alliance-joins-the-linux-foundation-to-build-a-shared-open-defense-stack-for-the-ai-era">Open Secure AI Alliance Joins the Linux Foundation to Build a Shared, Open Defense Stack for the AI Era</a></li>
+
+
+
+<li><strong>Mozilla Foundation</strong>: <a target="_blank" href="https://blog.mozilla.org/netpolicy/2026/08/31/how-challengers-thrive-and-competition-survives-in-todays-ecosystem/">How Challengers Thrive and Competition Survives In Today’s Ecosystem</a></li>
+
+
+
+<li><strong>Mozilla Foundation</strong>: <a target="_blank" href="https://www.theguardian.com/commentisfree/2026/aug/13/mark-zuckerberg-future-of-ai">Mark Zuckerberg says the future of AI is for everyone. But who owns it?</a></li>
+
+
+
+<li><strong>Open Forum for AI</strong>: <a target="_blank" href="https://www.openforumai.org/news/strategy-report-2026">Two-Year Retrospective &amp; Prospective Roadmap</a></li>
+
+
+
+<li><strong>OpenChain</strong>: <a target="_blank" href="https://cra-compliance.openchainproject.org/CRA_Checklist_latest.html">CRA Compliance Requirements &amp; Checklist</a></li>
+
+
+
+<li><strong>Open Knowledge Foundation</strong>: <a target="_blank" href="https://govinsider.asia/intl-en/article/why-ai-governance-starts-with-data-management">Why AI governance starts with data management</a></li>
+
+
+
+<li><strong>OpenLLM Europe</strong>: <a target="_blank" href="https://openllm-europe.github.io/European-OpenLLM-Projects/">Who is building open language models in Europe</a></li>
+
+
+
+<li><strong>OpenSSF</strong>: <a target="_blank" href="https://openssf.org/blog/2026/09/15/grow-cra-readiness-find-your-path-through-the-european-union-cyber-resilience-act/">Grow CRA Readiness: Find Your Path Through the European Union Cyber Resilience Act</a></li>
+
+
+
+<li><strong>OpenUK</strong>: <a target="_blank" href="https://openuk.uk/mappingtheopensourcevaluechain/">Survey &#8211; Mapping the open source value chain (and who sits where)</a></li>
+
+
+
+<li><strong>OSTIF</strong>: <a target="_blank" href="https://ostif.org/100th-audit-publication/">OSTIF Reaches 100th Audit Publication!</a></li>
+
+
+
+<li><strong>Python Software Foundation</strong>: <a target="_blank" href="https://pyfound.blogspot.com/2026/09/announcing-psf-strategic-plan-2026.html">Announcing the PSF Strategic Plan 2026</a></li>
+
+
+
+<li><strong>Software Heritage</strong>: <a target="_blank" href="https://www.softwareheritage.org/2026/08/13/open-source-connective-tissue-open-science/">Open Source: The connective tissue of Open Science</a></li>
+
+
+
+<li><strong>The PHP Foundation</strong>: <a target="_blank" href="https://thephp.foundation/blog/2026/09/02/digital-sovereignty-is-written-in-php/">Digital Sovereignty Is Written in PHP</a></li>
+
+
+
+<li><strong>Tor Project</strong>: <a target="_blank" href="https://blog.torproject.org/funding-internet-freedom-together/">Funding internet freedom together: results from our first participatory funding round</a></li>
+
+
+
+<li><strong>WordPress Foundation</strong>: <a target="_blank" href="https://wordpress.org/news/2026/08/wcus-2026-recap/">AI Creates Opportunity While Artists Ship at WordCamp US 2026</a></li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">News from community members</h3>
+
+
+
+<ul class="wp-block-list">
+<li><a target="_blank" href="https://www.youtube.com/watch?v=Ffl2DFHoZdY">How Linux Took Over the World: 35 Years in 35 Facts</a> &#8211; Jono Bacon</li>
+
+
+
+<li><a target="_blank" href="https://sunnydeveloper.com/tracking-trends-in-open-source-ai-policy">Tracking trends in AI policy across open source communities</a> &#8211; Emma Irwin</li>
+
+
+
+<li><a target="_blank" href="https://www.techpolicy.press/supporting-openness-safety-lessons-from-recent-state-laws/">Supporting Openness &amp; Safety — Lessons From Recent State Laws</a> &#8211; Derek Slater</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Research and white papers</h2>
+
+
+
+<h3 class="wp-block-heading">Open Science, Sovereignty, Licensing, and AI</h3>
+
+
+
+<ul class="wp-block-list">
+<li><a target="_blank" href="https://book.the-turing-way.org/">The Turing Way handbook to reproducible, ethical and collaborative data science</a> (The Alan Turing Institute)</li>
+
+
+
+<li><a target="_blank" href="https://giswatch.org/2026-special-edition-freelibre-and-open-source-software-visions-openness-global-south">Free/libre and open source software: Visions of openness from the Global South</a> (GISWatch)</li>
+
+
+
+<li><a target="_blank" href="https://infrastructureinsights.fund/projects/isp-oss/">Building Sustainable Connectivity: Free and Open Source Software Adoption for Community-based Internet Providers</a> (Connect Humanity &#8211; D//F)</li>
+
+
+
+<li><a target="_blank" href="https://www.gov.uk/government/publications/a-study-of-cybersecurity-literature-on-open-source-software-and-ai/a-study-of-cybersecurity-literature-on-open-source-software-and-ai">A study of cybersecurity literature on open-source software and AI</a> (UK Government)</li>
+
+
+
+<li><a target="_blank" href="https://researchbriefings.files.parliament.uk/documents/POST-PN-0777/POST-PN-0777.pdf">Digital sovereignty</a> (UK Parliament Post)</li>
+
+
+
+<li><a target="_blank" href="https://www.linaker.se/blog/new-report-national-support-structures-and-capabilities-for-growing-digital-sovereignty-through-sharing-and-reuse-of-open-source-software-in-the-public-sector/">National Support Structures and Capabilities for growing Digital Sovereignty through Sharing and Reuse of Open Source Software in the Public Sector</a> (Digitaliseringsstyrelsen)</li>
+
+
+
+<li><a target="_blank" href="https://casrai.org/guides/open-source-software-licensing-tech-transfer">Open Source Software Licensing in University Technology Transfer</a> (CASRAI)</li>
+
+
+
+<li><a target="_blank" href="https://dl.acm.org/doi/10.1145/3774748.3793628">Catching License Changes Before They Cost: Leveraging LLMs to Analyze License Evolution in Open Source Software</a> (ICSE-Companion &#8217;26)</li>
+
+
+
+<li><a target="_blank" href="https://onlinelibrary.wiley.com/doi/10.1111/isj.70060">Freeriding and Rebellion: An Investigation of Open Source Vendor Relicensing and Member Hard Forking Events</a> (Information Systems Journal)</li>
+
+
+
+<li><a target="_blank" href="https://arxiv.org/abs/2609.07542v1">“We Permit the Use of AI, but [&#8230;]”: The Landscape of AI Policies in Popular Open Source Projects</a> (ACM TOSEM &#8211; under review)</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Events</h2>
+
+
+
+<h3 class="wp-block-heading">Upcoming events</h3>
+
+
+
+<ul class="wp-block-list">
+<li><a target="_blank" href="https://creativecommons.org/event/open-unga-81-a-conversation-on-collaboration/">OPEN @ UNGA 81</a> (September 21, New York)</li>
+
+
+
+<li><a target="_blank" href="https://www.un.org/digital-emerging-technologies/content/un-digital-cooperation-day">UN Digital Cooperation Day</a> (September 21, New York)</li>
+
+
+
+<li><a target="_blank" href="https://opensourcecongress.org/">Open Source Congress and Stakeholder Day</a> (September 22-23, Halifax)</li>
+
+
+
+<li><a target="_blank" href="https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/event/join-osor-webinar-public-administrations-and-eu-open-source-strategy-24-september">European Commission’s Open Source Observatory (OSOR) Webinar</a> (September 24 &#8211; Online)</li>
+
+
+
+<li><a target="_blank" href="https://events.linuxfoundation.org/open-source-summit-europe/">Open Source Summit Europe</a> (October 7-9, Prague)</li>
+
+
+
+<li><a target="_blank" href="https://conference.opensource.lu/">Open Source Conference</a> (October 7, Luxembourg)</li>
+
+
+
+<li><a target="_blank" href="https://2026.allthingsopen.org/">All Things Open</a> (October 18-20, Raleigh)</li>
+
+
+
+<li><a target="_blank" href="https://symposium.opentechresearch.org/">Open Technology Research Symposium</a> (October 26-27, Barcelona)</li>
+
+
+
+<li><a target="_blank" href="https://codeandcompliance.orcwg.org/">Code &amp; Compliance</a> (October 27, Brussels)</li>
+
+
+
+<li><a target="_blank" href="https://www.mozillafoundation.org/en/festival/">Mozilla Festival</a> (October 28-30, Barcelona)</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">Check the&nbsp;<a href="https://opensource.org/blog/top-50-open-source-conferences-in-2026">top 50+ Open Source conferences of 2026</a>&nbsp;that the OSI is tracking, including events that intersect with AI, cloud, cybersecurity, and policy.</p>
+
+
+
+<h2 class="wp-block-heading">Thanks to our sponsors</h2>
+
+
+
+<h3 class="wp-block-heading">New sponsors and renewals</h3>
+
+
+
+<ul class="wp-block-list">
+<li>Automattic</li>
+
+
+
+<li>Socket.dev</li>
+
+
+
+<li><a href="https://opensource.org/sponsors">See all sponsors</a></li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><strong>Interested in sponsoring, or partnering with, the OSI?</strong> Please see our <strong><a href="https://opensource.org/wp-content/uploads/2026/03/OSI_Sponsor_2026.pdf">Sponsorship Prospectus</a></strong> and our <strong><a href="https://opensource.org/2025-annual-report" data-type="page" data-id="116104">Annual Report</a></strong>. Please <a href="https://opensource.org/contact-us/"><strong>contact the OSI</strong> </a>to find out more about how your company can promote open source development, communities and software.</p>
+
+
+
+<h2 class="wp-block-heading">Support OSI by becoming a full member</h2>
+
+
+
+<p class="wp-block-paragraph">Hundreds of individuals and organizations worldwide join as members and support as donors or sponsors of the OSI. They trust in our neutral stewardship of open source licensing and our role in enabling a global community. <a href="https://opensource.org/get-involved">Get involved!</a></p>
+
+
+
+<p class="wp-block-paragraph"></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://opensource.org/blog/linuxs-35th-anniversary-and-the-open-frontier/feed</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">453301</post-id>	</item>
+		<item>
+		<title>Open Weights Are Good. Open Source Is Better.</title>
+		<link>https://opensource.org/blog/open-weights-are-good-open-source-is-better</link>
+					<comments>https://opensource.org/blog/open-weights-are-good-open-source-is-better#comments</comments>
+		
+		<dc:creator><![CDATA[Katie Steen-James]]></dc:creator>
+		<pubDate>Wed, 16 Sep 2026 15:18:35 +0000</pubDate>
+				<category><![CDATA[News]]></category>
+		<category><![CDATA[ai]]></category>
+		<category><![CDATA[policy]]></category>
+		<guid isPermaLink="false">https://opensource.org/?p=453296</guid>
+
+					<description><![CDATA[With openness in AI making headlines, we must educate policymakers, producers, and users of these technologies about what open-weight and Open Source AI mean for the four software freedoms: the freedom to use, study, modify, and share without the need to ask for permission from the rights holder.]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">By this point, you’ve seen the <a target="_blank" href="https://www.axios.com/2026/07/27/nvidia-anthropic-openai-open-weight-debate">news</a> about open-weight AI models and the debate over their security, efficiency, and impact on both local and national economies. Scores of businesses have <a target="_blank" href="https://www.microsoft.com/en-us/corporate-responsibility/topics/open-weight/">come out</a> in support of open-weights, highlighting how they increase access to advanced AI and maintain competition in the market. This is all true, and shedding light on these arguments benefits the Open Source community.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">At the same time, we must take this moment, when openness in AI is making headlines, to educate policymakers, producers, and users of these technologies about what open-weight and Open Source AI mean for the four software freedoms: the freedom to use, study, modify, and share without the need to ask for permission from the rights holder. Those are the core tenets of the Open Source movement that power the technology we use every day. Those are the tenets that built the Open Source ecosystem with a <a target="_blank" href="https://www.library.hbs.edu/working-knowledge/open-source-software-the-nine-trillion-resource-companies-take-for-granted">demand-side value of $8.8 trillion</a>. It’s those tenets that we should strive to uphold in this next phase of technological development.&nbsp;</p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p class="wp-block-paragraph"><strong><em>Open-weights allow you to exercise some freedoms, but not all, and only to a certain degree. True Open Source AI allows you to exercise all four without restriction.&nbsp;</em></strong></p>
+</blockquote>
+
+
+
+<p class="wp-block-paragraph">AI models consist of three main components: training data, weights/parameters, and code (for data preparation and training). A user’s ability to access the model components determines if the AI is closed, open-weight, or Open Source.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">As the name indicates, open-weight models release their weights, allowing you to adjust some of the information in the model and its subsequent behavior. The ability to adjust the weights unlocks more choice than what is afforded in closed models. With open-weights, you can choose to run a model locally, paying only for the electricity and hardware, or you can work with a third-party provider to host it. You can also fine-tune the model with your own data, allowing you to maintain control of the data and train the model for your specific use case. Whatever you choose, it is more customizable than relying on a closed model where you are locked into one provider, using their infrastructure and paying their fees.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">However, open-weight models don’t share any other model components. While they allow you to do more than you could with a fully closed model (ChatGPT, Claude, many autonomous driving systems), you are still not able to fully exercise the four software freedoms which are critical for using the model without restriction. Open-weight models limit your ability to <em>modify</em> the model, and you cannot fully <em>study</em> it. Imagine you want to understand why an AI model is giving you a certain output or verify that you can trust the output. You have some insight with the weights, but if you don’t have access to the code and the training data or information, you can’t fully inspect the model to answer these questions. The incorporation of AI into more of our everyday lives and the rising <a target="_blank" href="https://www.reuters.com/legal/litigation/openai-anthropic-ai-agents-implicated-new-security-breaches-2026-08-05/">cybersecurity incidents</a> make these questions of trust and verification even more important.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">This is where <a href="https://opensource.org/ai">Open Source AI</a>, as defined by the Open Source Initiative, provides even more benefits. In addition to releasing the weights, these models also release the code used to train the model, and either the training data or a detailed account of how the data was built. With these components, you can use, study, modify, and share the model. Open Source AI gives you the freedom to innovate with others, collaborate with new partners, and explore questions about how these models work in both development and deployment. For example, a large language model by Ai2 called Olmo enabled researchers to evaluate how a model “learns” through the use of the full training dataset and model checkpoints. The study injected new information into the training data and then observed how the model “memorized” or “forgot” the information. This study into how models work is critical and is only possible because Olmo is released as Open Source AI.&nbsp;&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">The mainstream focus on openness in AI is a welcome development, shedding light on what it means to see an AI model labeled as such. The case for open-weights has been made and its benefits over closed models are clear. This next phase of technological development will depend on our realization that Open Source AI is where the real innovation lies.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://opensource.org/blog/open-weights-are-good-open-source-is-better/feed</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">453296</post-id>	</item>
+		<item>
+		<title>We Must Open the Frontier: OSI, OFAI Support Calls for the U.S. to Develop More Open Models</title>
+		<link>https://opensource.org/blog/we-must-open-the-frontier-osi-ofai-support-calls-for-the-u-s-to-develop-more-open-models</link>
+					<comments>https://opensource.org/blog/we-must-open-the-frontier-osi-ofai-support-calls-for-the-u-s-to-develop-more-open-models#respond</comments>
+		
+		<dc:creator><![CDATA[Katie Steen-James]]></dc:creator>
+		<pubDate>Tue, 15 Sep 2026 16:43:12 +0000</pubDate>
+				<category><![CDATA[News]]></category>
+		<category><![CDATA[ai]]></category>
+		<category><![CDATA[policy]]></category>
+		<category><![CDATA[research]]></category>
+		<guid isPermaLink="false">https://opensource.org/?p=453135</guid>
+
+					<description><![CDATA[The OSI joins the Open Forum for AI (OFAI) in supporting calls for the U.S. to develop more open models.]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">The Open Source Initiative joins the <a target="_blank" href="https://www.openforumai.org/">Open Forum for AI</a> (OFAI) in supporting calls for the U.S. to develop more open models because they promote competition in AI through local control and lower costs. The OFAI is a university-led, collaborative initiative that aims to bend the arc toward human-centered, responsible, transparent, and ethical AI. Led by Carnegie Mellon University, the OFAI includes university representatives from across the country as well as nonprofit voices and individual fellows from industry and government. As the policy lead, we collaborated with other OFAI members to lay out the benefits of Open Source AI and open-weight models in comparison to closed, proprietary ones.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">The statement asserts that the U.S. needs more “focus, investment, and collaboration from the full breadth of the innovation pipeline to accelerate the development of open models. This will require a strategic approach that moves beyond the status quo, bringing together new partners, both technical and non-technical, from across industry, academia, and government.”</p>
+
+
+
+<figure class="wp-block-image size-large has-lightbox"><a target="_blank" href="https://www.openforumai.org/news/us-needs-more-open-models"><img data-recalc-dims="1" loading="lazy" decoding="async" width="640" height="329" src="https://i0.wp.com/opensource.org/wp-content/uploads/2026/09/ofai_statement.png?resize=640%2C329&#038;quality=80&#038;ssl=1" alt="" class="wp-image-453139" srcset="https://i0.wp.com/opensource.org/wp-content/uploads/2026/09/ofai_statement.png?resize=1024%2C526&amp;quality=80&amp;ssl=1 1024w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/09/ofai_statement.png?resize=300%2C154&amp;quality=80&amp;ssl=1 300w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/09/ofai_statement.png?resize=768%2C394&amp;quality=80&amp;ssl=1 768w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/09/ofai_statement.png?resize=1536%2C789&amp;quality=80&amp;ssl=1 1536w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/09/ofai_statement.png?w=1710&amp;quality=80&amp;ssl=1 1710w, https://i0.wp.com/opensource.org/wp-content/uploads/2026/09/ofai_statement.png?w=1280&amp;quality=80&amp;ssl=1 1280w" sizes="auto, (max-width: 640px) 100vw, 640px" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">Link to statement:&nbsp; <a target="_blank" href="https://www.openforumai.org/news/us-needs-more-open-models">https://www.openforumai.org/news/us-needs-more-open-models</a></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://opensource.org/blog/we-must-open-the-frontier-osi-ofai-support-calls-for-the-u-s-to-develop-more-open-models/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">453135</post-id>	</item>
+		<item>
+		<title>OSI brings the State of the Source to All Things Open 2026</title>
+		<link>https://opensource.org/blog/osi-brings-the-state-of-the-source-to-all-things-open-2026</link>
+					<comments>https://opensource.org/blog/osi-brings-the-state-of-the-source-to-all-things-open-2026#respond</comments>
+		
+		<dc:creator><![CDATA[Nick Vidal]]></dc:creator>
+		<pubDate>Thu, 10 Sep 2026 13:23:05 +0000</pubDate>
+				<category><![CDATA[Events]]></category>
+		<category><![CDATA[ato2026]]></category>
+		<guid isPermaLink="false">https://opensource.org/?p=452097</guid>
+
+					<description><![CDATA[The OSI is coming to All Things Open with a track designed to connect developers with the big policy conversations shaping our ecosystem.]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">The Open Source Initiative (OSI) is coming to All Things Open with a track designed to connect developers with the big policy conversations shaping our ecosystem. This year’s State of the Source looks at Open Source from several perspectives. Hear about OSI’s priorities for 2027, get a practical introduction to Open Source licensing and compliance, and discuss Open Source sustainability. We’ll also explore the latest public policy developments affecting Open Source, examine the state of Open Source AI, and discuss how OSI can strengthen Open Source education and advocacy.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>About All Things Open</strong></h2>
+
+
+
+<p class="wp-block-paragraph"><a target="_blank" href="https://2026.allthingsopen.org/">All Things Open</a> is one of the largest Open Source technology conferences in the United States, bringing together a technical and engaged audience of developers, engineers, community leaders, students, educators, executives, and other Open Source practitioners.</p>
+
+
+
+<p class="wp-block-paragraph">All Things Open 2026 takes place October 19–20 in Raleigh, North Carolina, part of the Research Triangle, one of the country’s leading centers for technology and Open Source innovation.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>State of the Source schedule</strong></h2>
+
+
+
+<p class="wp-block-paragraph">OSI’s State of the Source track will take place on Tuesday, October 20, during the second day of All Things Open 2026. Join us for a full day of sessions examining the priorities, policies, technologies, and community conversations shaping the future of Open Source.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>10:30 a.m. — The State of the Open Source Initiative</strong></h3>
+
+
+
+<p class="wp-block-paragraph"><strong>Duane O’Brien, Executive Director, Open Source Initiative</strong></p>
+
+
+
+<p class="wp-block-paragraph">2026 has been an important year of transition for the Open Source Initiative, with a new Executive Director and multiple initiatives across licensing, policy, standards, Open Source AI, and more. In this session, Executive Director Duane O’Brien will present an overview of OSI’s plans for 2027 and provide an update on the organization’s mission, vision, and programs.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>11:15 a.m. — Open Source Licensing 101</strong></h3>
+
+
+
+<p class="wp-block-paragraph"><strong>McCoy Smith</strong></p>
+
+
+
+<p class="wp-block-paragraph">This essential session offers a practical introduction to the Open Source Initiative, the Open Source licenses it approves, and the broader categories into which those licenses fall. Participants will learn about the OSI license-review process, the Open Source Definition, and the Open Source AI Definition. The session will also introduce several prominent OSI-approved licenses and provide best practices, resources, and other useful information for working with Open Source software.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>12:00 p.m. — Sharing is caring: Open data for Open Source compliance</strong></h3>
+
+
+
+<p class="wp-block-paragraph"><strong>Nick Vidal, Alyssa Wright, and Brian Duran</strong></p>
+
+
+
+<p class="wp-block-paragraph">Open Source compliance depends on accurate data about millions of software components, yet organizations often duplicate efforts and build isolated datasets. ClearlyDefined offers a better approach: shared, community-verified open data about software-component provenance, licenses, and vulnerabilities. This collaborative model improves accuracy, reduces duplicated work, and enables compliance automation at scale.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>1:30 p.m. — Is Open Source Dying? Short film and open discussion</strong></h3>
+
+
+
+<p class="wp-block-paragraph"><strong>Jonathan Starr, Nick Vidal</strong></p>
+
+
+
+<p class="wp-block-paragraph">The idea that AI could bring about the end of Open Source is provocative, but it distracts from the real issue: sustainability. This short film and open discussion will explore how foundations, funding platforms, grants, and corporate contributions can evolve to support maintainers and build a more resilient Open Source ecosystem in the age of AI.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>2:30 p.m. — The Latest on Public Policy and Open Source</strong></h3>
+
+
+
+<p class="wp-block-paragraph"><strong>Katie Steen-James</strong></p>
+
+
+
+<p class="wp-block-paragraph">Open Source is making news at both the local and national levels. From openness in AI to age verification, Open Source—and what it means—is a pressing topic in capitals around the world. This session will outline the key public policy issues affecting Open Source today. Audience members will also have an opportunity to ask questions and raise additional policy topics of interest.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>3:15 p.m. — The State of Open Source AI in 2026</strong></h3>
+
+
+
+<p class="wp-block-paragraph"><strong>Gabriel Toscano</strong></p>
+
+
+
+<p class="wp-block-paragraph">Open Source is having a moment in 2026. Its growing prominence is breathing new life into debates about the standards, technical decisions, licenses, governance structures, and regulatory processes that shape technological development. This session brings together evidence-driven insights into what it means to build Open Source AI, who is developing these systems, and the data and licenses involved. It places these findings within the broader technical, institutional, and policy context surrounding AI.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>4:00 p.m. — The OSI Must Do More When It Comes to Open Source Education and Advocacy</strong></h3>
+
+
+
+<p class="wp-block-paragraph"><strong>Ruth Suehle and Duane O’Brien</strong></p>
+
+
+
+<p class="wp-block-paragraph">Debates around AI, digital sovereignty, cybersecurity, and regulation are growing, but misconceptions about what Open Source means—and why the Open Source Definition matters—persist among developers, companies, policymakers, and the broader public. This session will explore where current education and advocacy efforts fall short, which audiences OSI needs to reach, and how OSI can strengthen its role as both the steward of the Open Source Definition and a leading voice for Open Source worldwide in an era of profound technological change.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>Opening Convening for Open Source AI</strong></h2>
+
+
+
+<p class="wp-block-paragraph">Following All Things Open, the conversation will continue on October 21 with the Opening Convening for Open Source AI, organized by OSI in partnership with Duke University. The convening will bring participants together to explore key questions surrounding the application of Open Source AI, helping to seed OSI’s research agenda and advance the practical implementation of the Open Source AI Definition (OSAID). More information will be announced soon.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>Join us in Raleigh</strong></h2>
+
+
+
+<p class="wp-block-paragraph">Whether you work in development, licensing, compliance, policy, AI, education, or community building, the <a target="_blank" href="https://2026.allthingsopen.org/the-state-of-the-source">State of the Source</a> track offers an opportunity to understand the forces shaping Open Source and to take part in the conversation about what comes next.</p>
+
+
+
+<p class="wp-block-paragraph">Join OSI and thousands of Open Source practitioners at All Things Open in Raleigh on October 19–20. Can’t make it in person? Stay tuned: video recordings of the sessions will be made available following the event.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://opensource.org/blog/osi-brings-the-state-of-the-source-to-all-things-open-2026/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">452097</post-id>	</item>
+		<item>
+		<title>OSI Governance Survey</title>
+		<link>https://opensource.org/blog/osi-governance-survey</link>
+					<comments>https://opensource.org/blog/osi-governance-survey#respond</comments>
+		
+		<dc:creator><![CDATA[Ruth Suehle]]></dc:creator>
+		<pubDate>Mon, 17 Aug 2026 18:09:17 +0000</pubDate>
+				<category><![CDATA[News]]></category>
+		<category><![CDATA[elections]]></category>
+		<category><![CDATA[OSI board]]></category>
+		<guid isPermaLink="false">https://opensource.org/?p=440685</guid>
+
+					<description><![CDATA[We invite the Open Source community to participate in the OSI Governance Survey and help inform the future of OSI’s governance.]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">We invite the Open Source community to participate in the <a href="https://opensource.org/osi-governance-survey">OSI Governance Survey</a> and help inform the future of OSI’s governance. The survey is an opportunity for community members and stakeholders to share their perspectives on how OSI’s Board of Directors should be selected and seated.</p>
+
+
+
+<p class="wp-block-paragraph">The Open Source Initiative (OSI) is a 501(c)(3) non-profit public benefit organization. Its&nbsp;<a href="https://opensource.org/about/board-of-directors" target="_blank" rel="noopener">Board of Directors</a>&nbsp;owes primary legal and fiduciary duties to the organization and its mission to ensure strategic alignment, financial integrity, and legal compliance in stewarding the Open Source Definition (OSD) and educating/supporting/advocating for the ecosystem.</p>
+
+
+
+<p class="wp-block-paragraph">The OSI Board has created a&nbsp;<a href="https://opensource.org/blog/2026-osi-elections-update" target="_blank" rel="noopener">Governance Working Group</a>&nbsp;to evaluate how directors are selected and seated. Following an elections pause in early 2026, this study will inform recommendations presented to the full board in September 2026 to ensure an engaged, representative, and effective governing body that works in partnership with the staff of OSI to fulfill the mission and vision of OSI.</p>
+
+
+
+<p class="wp-block-paragraph">Your input is vital. Individual responses will remain confidential to the working group unless specifically and explicitly requested to be shared, and data will be analyzed across stakeholder categories.</p>
+
+
+
+<p class="wp-block-paragraph">Take the <a href="https://opensource.org/osi-governance-survey">OSI Governance Survey</a> </p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://opensource.org/blog/osi-governance-survey/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">440685</post-id>	</item>
+		<item>
+		<title>Why Openness Matters More Than Ever</title>
+		<link>https://opensource.org/blog/why-openness-matters-more-than-ever</link>
+					<comments>https://opensource.org/blog/why-openness-matters-more-than-ever#comments</comments>
+		
+		<dc:creator><![CDATA[Nick Vidal]]></dc:creator>
+		<pubDate>Thu, 13 Aug 2026 15:06:58 +0000</pubDate>
+				<category><![CDATA[Newsletter archive]]></category>
+		<guid isPermaLink="false">https://opensource.org/?p=439405</guid>
+
+					<description><![CDATA[Members Newsletter – August 2026: Every model making headlines today, open or closed, sits on top of Open Source code, runs on Open Source infrastructure, and is based on openly shared research. That's not sentiment, it's just the history of how we got here. None of this exists without the Open Source community.]]></description>
+										<content:encoded><![CDATA[
+<h1 class="wp-block-heading">Members Newsletter – August 2026</h1>
+
+
+
+<p class="wp-block-paragraph">Dear OSI community,</p>
+
+
+
+<p class="wp-block-paragraph">I know it seems like it’s all any of us are hearing about lately, but I need a minute to talk about Open Source and AI.</p>
+
+
+
+<p class="wp-block-paragraph">Every model making headlines today, open or closed, sits on top of Open Source code, runs on Open Source infrastructure, and is based on openly shared research. That&#8217;s not sentiment, it&#8217;s just the history of how we got here. None of this exists without the Open Source community. So when I read that Washington is weighing trade block-lists and executive orders aimed at Open Weights and Open Source AI, I don&#8217;t read it as a technology story. I read it as a question about whether the commons this community built is going to be treated as a powerful strength we need to protect, or a potential threat we need to deter.</p>
+
+
+
+<p class="wp-block-paragraph">We&#8217;ve spent this year making the case that it&#8217;s the former, in our <a href="https://opensource.org/blog/open-forum-for-ai-open-source-initiative-respond-to-white-house-on-ai-rd-strategy">comments to the White House</a>, in our work with the G7 on its <a href="https://opensource.org/blog/open-source-initiative-helps-g7-deliver-vision-on-ai-openness">Vision on AI Openness</a>, and in conversations with our global community. The argument isn&#8217;t complicated: openness doesn&#8217;t check passports, restricting American access to Open Weights and Open Source AI doesn&#8217;t make them disappear, it just makes us less able to study and secure the ones the rest of the world keeps using. And the people who&#8217;d pay for that mistake first aren&#8217;t the big labs in the headlines, they&#8217;re the startups and small teams who rely on being able to see, modify, and run what they depend on.</p>
+
+
+
+<p class="wp-block-paragraph">I wrote more about this in a <a href="https://opensource.org/blog/openness-made-all-of-this-possible">blog post</a> recently, as did our Open Source AI fellow <a href="https://opensource.org/blog/the-ai-era-arcs-toward-openness">Gabriel Toscano</a>. As a member of this community, the OSI will keep fighting to defend Open Source. If you&#8217;re weighing in on this debate yourself, or just want to talk it through, my <a target="_blank" href="https://calendar.app.google/6hRkYLFo8tKC2GFo9">office hours</a> are always open.</p>
+
+
+
+<p class="wp-block-paragraph">Warm regards,</p>
+
+
+
+<p class="wp-block-paragraph">Duane O&#8217;Brien</p>
+
+
+
+<p class="wp-block-paragraph">Executive Director, OSI&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading">News from the OSI</h2>
+
+
+
+<h3 class="wp-block-heading"><a href="https://opensource.org/blog/hello-from-the-new-executive-director"></a><a href="https://opensource.org/blog/osi-welcomes-the-european-unions-tech-sovereignty-package"></a><a href="https://opensource.org/blog/the-osi-2025-annual-report-is-now-available"></a><a href="https://opensource.org/blog/openness-made-all-of-this-possible">Openness Made All of This Possible</a></h3>
+
+
+
+<p class="wp-block-paragraph">Every AI system in the headlines today, whether proprietary or Open Source, exists because researchers shared their work openly. That openly shared research produced Open Source software: the frameworks used to train these models, the libraries used to evaluate them, the operating systems, orchestration layers, and inference engines used to run them.</p>
+
+
+
+<h3 class="wp-block-heading">Other highlights</h3>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://opensource.org/blog/the-ai-era-arcs-toward-openness">The AI Era Arcs Toward Openness</a></li>
+
+
+
+<li><a href="https://opensource.org/blog/eu-ai-act-and-cra-timelines-and-resources">EU AI Act and CRA: Timelines and Resources</a></li>
+
+
+
+<li><a href="https://opensource.org/blog/preliminary-agenda-announced-for-the-open-technology-research-symposium-2026">Preliminary agenda announced for the Open Technology Research Symposium 2026</a></li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Podcast and video</h3>
+
+
+
+<ul class="wp-block-list">
+<li><a target="_blank" href="https://openchannels.fm/understanding-open-source-law-and-ai-impacts-in-modern-software-development/">Understanding Open Source Law and AI Impacts in Modern Software Development</a> (Carlo Piana)</li>
+
+
+
+<li><a target="_blank" href="https://www.youtube.com/watch?v=s9Rc7IIzwgk">POSAIS 2026 &#8211; Round Table : “Open Models, Trusted AI: How Open Source Changes the Research Game”</a> (Gaël Blondele)</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">OSI in the news</h3>
+
+
+
+<ul class="wp-block-list">
+<li><a target="_blank" href="https://www.zdnet.com/article/open-weight-ai-civil-war/">Open weights vs. closed: An AI civil war&#8217;s afoot, and the stakes are existential</a> (ZDNet)</li>
+
+
+
+<li><a target="_blank" href="https://www.techpolicy.press/open-washing-is-everywhere-in-ai-four-criteria-cut-through-it/">‘Open-Washing’ Is Everywhere in AI. Four Criteria Cut Through It</a> (Tech Policy Press)</li>
+
+
+
+<li><a target="_blank" href="https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/news/g7-establishes-shared-language-open-source-ai">G7 releases vision paper on openness in AI</a> (Open Source Observatory)</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">News from OSI affiliates and community</h2>
+
+
+
+<h3 class="wp-block-heading">News from OSI affiliates and partners</h3>
+
+
+
+<ul class="wp-block-list">
+<li><strong>AI2</strong>: <a target="_blank" href="https://allenai.org/blog/who-gets-to-understand-ai">Who gets to understand AI?</a></li>
+
+
+
+<li><strong>Center for Open Science</strong>: <a target="_blank" href="https://www.cos.io/blog/osf-changes-a-note-to-users">OSF Changes: A Note to Users</a></li>
+
+
+
+<li><strong>Common European data space</strong>: <a target="_blank" href="https://www.dataspace-culturalheritage.eu/en/news/making-public-ai-reality-how-cultural-heritage-can-lead-the-way">Making Public AI reality: How cultural heritage can lead the way</a></li>
+
+
+
+<li><strong>Creative Commons</strong>: <a target="_blank" href="https://creativecommons.org/2026/07/16/cc-open-heritage-companion/">Introducing the CC Open Heritage Companion</a></li>
+
+
+
+<li><strong>Creative Commons</strong>: <a target="_blank" href="https://creativecommons.org/2026/07/24/attribution-in-the-age-of-ai">Attribution in the Age of AI</a></li>
+
+
+
+<li><strong>Current AI</strong>: <a target="_blank" href="https://www.currentai.org/blogs/join-the-ai-potluck">Join the AI Potluck</a></li>
+
+
+
+<li><strong>Data Rescue Project</strong>: <a target="_blank" href="https://www.datarescueproject.org/open-for-community-comment-coalition-for-resilient-research-data-infrastructure-crrdi-strategic-plan/">Open for Community Comment: Coalition for Resilient Research Data Infrastructure (CRRDI) Strategic Plan</a></li>
+
+
+
+<li><strong>DPGA</strong>: <a target="_blank" href="https://www.digitalpublicgoods.net/blog/navigating-the-paradox-of-open">Navigating the Paradox of Open: New Resources for Defending Data and Content DPGs in the Age of AI</a></li>
+
+
+
+<li><strong>Drupal Association</strong>: <a target="_blank" href="https://www.drupal.org/association/blog/tiffany-farriss-to-lead-the-drupal-association">Tiffany Farriss to lead the DA</a></li>
+
+
+
+<li><strong>Eclipse Foundation</strong>: <a target="_blank" href="https://www.eclipse.org/org/foundation/annual-reports/2026/">Eclipse Foundation 2026 annual Community report</a></li>
+
+
+
+<li><strong>Eclipse Foundation</strong>: <a target="_blank" href="https://newsroom.eclipse.org/news/announcements/eclipse-foundation-and-owasp-join-forces-strengthen-open-source-security-and-cra">Eclipse Foundation and OWASP Join Forces to Strengthen Open Source Security and CRA Readiness</a></li>
+
+
+
+<li><strong>ETH AI Center</strong>: <a target="_blank" href="https://ai.ethz.ch/news-and-events/ai-center-news/2026/07/apertus-15-building-the-next-generation-of-open-ai-infrastructure.html">Apertus 1.5: Building the next generation of open AI infrastructure</a></li>
+
+
+
+<li><strong>ETSI</strong>: <a target="_blank" href="https://www.etsi.org/newsroom/press-releases/etsi-launches-approval-process-for-17-european-standards-supporting-the-cyber-resilience-act/">ETSI launches approval process for 17 European Standards supporting the Cyber Resilience Act</a></li>
+
+
+
+<li><strong>European Commission</strong>: <a target="_blank" href="https://digital-strategy.ec.europa.eu/en/library/commission-publishes-new-guidance-support-timely-cyber-resilience-act-implementation">Commission publishes new guidance to support timely Cyber Resilience Act implementation</a></li>
+
+
+
+<li><strong>European Commission</strong>: <a target="_blank" href="https://digital-strategy.ec.europa.eu/en/news/commission-starts-enforcing-ai-act-rules-and-new-transparency-requirements-2-august">Commission starts enforcing AI Act rules and new transparency requirements on 2 August</a></li>
+
+
+
+<li><strong>European Open Source Academy</strong>: <a target="_blank" href="https://europeanopensource.academy/european-open-source-academy-summer-school-2026">Summer School 2026</a></li>
+
+
+
+<li><strong>FSFE</strong>: <a target="_blank" href="https://fsfe.org/news/2026/news-20260803-01.en.html">A quarter-century of Software Freedom: the FSFE turns 25</a></li>
+
+
+
+<li><strong>ITU</strong>: <a target="_blank" href="https://opensource.unicc.org/un/itu/genie-ai">Trustworthy GENIE.AI as an open source foundation for public sector genAI</a></li>
+
+
+
+<li><strong>Java community</strong>: <a target="_blank" href="https://www.youtube.com/watch?v=ZqGSg4b_cZA">The Java Story | The Official Documentary</a></li>
+
+
+
+<li><strong>Linux Foundation</strong>: <a target="_blank" href="https://www.linuxfoundation.org/press/linux-foundation-announces-intent-to-launch-open-health-stack-software-foundation-to-advance-open-source-digital-health-innovation">Linux Foundation Announces Intent to Launch Open Health Stack Software Foundation to Advance Open Source Digital Health Innovation</a></li>
+
+
+
+<li><strong>Linux Foundation</strong>: <a target="_blank" href="https://www.linuxfoundation.org/blog/open-models-and-open-weights-are-foundational-to-secure-ai">Open Models and Open Weights Are Foundational to Secure AI</a></li>
+
+
+
+<li><strong>Mozilla Foundation</strong>: <a target="_blank" href="https://www.techpolicy.press/is-open-source-ai-really-the-dangerous-path/">Is Open-Source AI Really the Dangerous Path?</a></li>
+
+
+
+<li><strong>ODSI</strong>: <a target="_blank" href="https://odsi.africa/">Launch of Open Digital Sovereignty Initiative</a></li>
+
+
+
+<li><strong>OpenForum Europe</strong>: <a target="_blank" href="https://openforumeurope.org/from-recommendations-to-actions/">From Recommendations to Actions</a></li>
+
+
+
+<li><strong>OpenSSF</strong>: <a target="_blank" href="https://openssf.org/cra-ebook">Built to Last: Understanding the European Cyber Resilience Act (CRA)</a></li>
+
+
+
+<li><strong>Software Heritage</strong>: <a target="_blank" href="https://www.softwareheritage.org/2026/07/01/public_code_2026_launch/">The world’s first government open source insights report launches at UN Open Source Week</a></li>
+
+
+
+<li><strong>Software Stewardship Lab</strong>: <a target="_blank" href="https://stewardshiplab.org/ideas/a-research-lab-for-open-source/">A Research Lab for Open Source</a></li>
+
+
+
+<li><strong>The Document Foundation</strong>: <a target="_blank" href="https://blog.documentfoundation.org/blog/2026/08/06/truly-open-document-standard-format/">The characteristics of a truly open document standard format</a></li>
+
+
+
+<li><strong>TODO Group</strong>: <a target="_blank" href="https://todogroup.org/blog/2026-07-20-lessons-from-industry-leading-ospo/">Lessons from the Industry&#8217;s Leading OSPOs</a></li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">News from community members</h3>
+
+
+
+<ul class="wp-block-list">
+<li><a target="_blank" href="https://shujisado.org/2026/07/15/mongodb-v-ferretdb-when-open-source-compatibility-becomes-a-patent-risk/">MongoDB v. FerretDB: When Open Source Compatibility Becomes a Patent Risk</a> (Shuji Sado)</li>
+
+
+
+<li><a target="_blank" href="https://dri.es/license-only-versus-stewarded-open-source">License-only versus Stewarded Open Source</a> (Dries Buytaert)</li>
+
+
+
+<li><a target="_blank" href="https://www.oreilly.com/radar/why-open-source-matters-for-ai/">Why Open Source Matters for AI</a> (Tim O’Reilly)</li>
+
+
+
+<li><a target="_blank" href="https://garymarcus.substack.com/p/open-source-is-not-the-same-as-open">Open-source is NOT the same as open-weight</a> (Gary Marcus)</li>
+
+
+
+<li><a target="_blank" href="https://www.interconnects.ai/p/kimi-k3-the-open-weights-escalation">Kimi K3: The open-weights escalation</a> (Nathan Lambert)</li>
+
+
+
+<li><a target="_blank" href="https://matthewdwhite.substack.com/p/distillation-is-not-ip-theft">Distillation Is Not IP Theft</a> (Matt White)</li>
+
+
+
+<li><a target="_blank" href="https://www.techpolicy.press/data-sovereignty-doesnt-mean-data-isolationism/">Data Sovereignty Doesn’t Mean Data Isolationism</a> (Luca Belli)</li>
+
+
+
+<li><a target="_blank" href="https://www.linuxfoundation.org/blog/what-agentic-ai-asks-of-open-source-strategy-a-new-layer-for-ospos">What Agentic AI Asks of Open Source Strategy: A New Layer for OSPOs</a> (Ana Jiménez Santamaría)</li>
+
+
+
+<li><a target="_blank" href="https://www.zdnet.com/article/linus-torvalds-puts-his-foot-down-tells-anti-ai-programmers-to-fork-it/">Linus Torvalds puts his foot down, tells anti-AI programmers to &#8216;fork it&#8217;</a> (Steven Vaughan-Nichols)</li>
+
+
+
+<li><a target="_blank" href="https://europeanopensource.academy/defining-open-source-ai-principles-perspectives-and-practical-challenges">Defining Open Source AI: Principles, Perspectives, and Practical Challenges</a> (Alfonso Cancellara)</li>
+
+
+
+<li><a target="_blank" href="https://www.youtube.com/watch?v=a9hTuCYwgz0">Battle Royale: Who Owns Intelligence?</a> (Taunya Brown)</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">News from sponsors</h3>
+
+
+
+<ul class="wp-block-list">
+<li><a target="_blank" href="https://codeforthepeople.com/">Code for the People</a> (Automattic)</li>
+
+
+
+<li><a target="_blank" href="https://github.blog/open-source/maintainers/100-million-for-open-source-a-milestone-built-by-the-community/">$100 million for open source: A milestone built by the community</a> (GitHub)</li>
+
+
+
+<li><a target="_blank" href="https://opensource.googleblog.com/2026/08/adapting-open-source-practices-to-an-ai-first-world-a-retrospective-on-2025.html?m=1">Adapting open source practices to an AI-first world: A retrospective on 2025</a> (Google)</li>
+
+
+
+<li><a target="_blank" href="https://www.microsoft.com/en-us/corporate-responsibility/topics/open-weight/">Open Weights and American AI Leadership</a> (Microsoft)</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Research and white papers</h2>
+
+
+
+<h3 class="wp-block-heading">Open Source AI</h3>
+
+
+
+<ul class="wp-block-list">
+<li><a target="_blank" href="https://www.ens.psl.eu/sites/default/files/2026-08/Europe%20and%20Open%20Source%20AI_%20Beyond%20Licenses.pdf">Europe and Open Source AI: Beyond Licenses</a> (AI and Society Institute)</li>
+
+
+
+<li><a target="_blank" href="https://stateofopensource.ai/">The state of open source AI</a> (Mozilla)</li>
+
+
+
+<li><a target="_blank" href="https://dl.acm.org/doi/full/10.1145/3778264">Unpacking Open Source Artificial Intelligence: Toward a Framework for Openness in Foundation Models</a> (Communications of the ACM)</li>
+
+
+
+<li><a target="_blank" href="https://arxiv.org/abs/2607.09424v1">A Sovereign, Open-Source Foundation Model for German and English</a> (Soofi)</li>
+
+
+
+<li><a target="_blank" href="https://i-lex.unibo.it/article/view/23382">Perspectives for Open Source AI: Regulatory approaches of the EU, U.S., and China</a> (i-lex &#8211; Journal of Law, Cognitive Science and Artificial Intelligence)</li>
+
+
+
+<li><a target="_blank" href="https://link.springer.com/epdf/10.1007/s43681-026-01190-4?sharing_token=YnfRZfolrysfco5dvO0Dqve4RwlQNchNByi7wbcMAY68Uk7wzrCZYRKOxXfD4Gf8ON4wsHfYOX6sAjsMPUtPXXiFARlIG_9k5362nTLhp8et3naPTjJKUR6mCfzLqwjdj9G392cDufKmlAO5a6oRzLB8RH9O5XFMjO2wH4Jdk4A%3D">The Open-Source Advantage in Large Language Models</a> (AI and Ethics)</li>
+
+
+
+<li><a target="_blank" href="https://www.degruyterbrill.com/document/doi/10.1515/ijdlg-2026-0007/html">Innovation Accelerator or “Venus Flytrap” Strategy? The Antitrust Perspective on Open Source AI Regulation</a> (International Journal of Digital Law and Governance)</li>
+
+
+
+<li><a target="_blank" href="https://www.dbresearch.com/PROD/IE-PROD/PDFVIEWER.calias?pdfViewerPdfUrl=PROD0000000000634010&amp;rwnode=REPORT">Open-source AI 101: the battle for the future of AI</a> (Deutsche Bank Research Institute)</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Open Source Software</h3>
+
+
+
+<ul class="wp-block-list">
+<li><a target="_blank" href="https://www.nature.com/articles/s41562-026-02526-0.epdf?sharing_token=WTu4i-8lmax9O3yAQjqOGdRgN0jAjWel9jnR3ZoTv0OE6s3eP0Xv-N5SO4n-CW1FGUQ5Mx_B5crz9Xr-fCamcnawZANOmT2V1NuzGmGG3aqVRDJniGetN_9wL28o3Sqb_UeIVecoHIM01TKfsGFtR9vUOo-rocm8WZMPh4fpde4%3D">Open practices across science, software, education and other domains</a> (Nature Human Behaviour)</li>
+
+
+
+<li><a target="_blank" href="https://www.sciencedirect.com/science/article/pii/S0164121226002645">Advancing Digital Government through Open Source Indicators</a> (Journal of Systems and Software)</li>
+
+
+
+<li><a target="_blank" href="https://www.cisa.gov/resources-tools/resources/open-source-software-security-principles-and-practices">Open Source Software: Security Principles and Practices</a> (CISA)</li>
+
+
+
+<li><a target="_blank" href="https://infrastructureinsights.fund/projects/what-comes-after-foss/">What comes after FOSS?</a> (Leiden University / Digital Infrastructure Insights Fund)</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Dashboards</h3>
+
+
+
+<ul class="wp-block-list">
+<li><a target="_blank" href="https://www.aipotluck.org/">AI Potluck</a> (Current AI)</li>
+
+
+
+<li><a target="_blank" href="https://morningd.github.io/license.atlas/">LicenseAtlas</a> (Moming Duan)</li>
+
+
+
+<li><a target="_blank" href="https://morningd.github.io/license.atlas/tracker">License Review Tracker</a> (Moming Duan)</li>
+
+
+
+<li><a target="_blank" href="https://artifactshub.ai/">Artifacts Hub</a> (Interconnects)</li>
+
+
+
+<li><a target="_blank" href="https://dashboard.interconnects.ai/">Adoption Dashboard</a> (Interconnects)</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Events</h2>
+
+
+
+<h3 class="wp-block-heading">Upcoming events</h3>
+
+
+
+<ul class="wp-block-list">
+<li><a target="_blank" href="https://opensourcecongress.org/">Open Source Congress and Stakeholder Day</a> (September 22-23, Halifax)</li>
+
+
+
+<li><a target="_blank" href="https://events.linuxfoundation.org/open-source-summit-europe/">Open Source Summit Europe</a> (October 7-9, Prague)</li>
+
+
+
+<li><a target="_blank" href="https://2026.allthingsopen.org/">All Things Open</a> (October 18-20, Raleigh)</li>
+
+
+
+<li><a target="_blank" href="https://symposium.opentechresearch.org/">Open Technology Research Symposium</a> (October 26-27, Barcelona)</li>
+
+
+
+<li><a target="_blank" href="https://www.mozillafoundation.org/en/festival/">Mozilla Festival</a> (October 28-30, Barcelona)</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">Check the&nbsp;<a href="https://opensource.org/blog/top-50-open-source-conferences-in-2026">top 50+ Open Source conferences of 2026</a>&nbsp;that the OSI is tracking, including events that intersect with AI, cloud, cybersecurity, and policy.</p>
+
+
+
+<h2 class="wp-block-heading">Thanks to our sponsors</h2>
+
+
+
+<h3 class="wp-block-heading">New sponsors and renewals</h3>
+
+
+
+<ul class="wp-block-list">
+<li>Google</li>
+
+
+
+<li>AWS</li>
+
+
+
+<li><a href="https://opensource.org/sponsors">See all sponsors</a></li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><strong>Interested in sponsoring, or partnering with, the OSI?</strong> Please see our <strong><a href="https://opensource.org/wp-content/uploads/2026/03/OSI_Sponsor_2026.pdf">Sponsorship Prospectus</a></strong> and our <strong><a href="https://opensource.org/2025-annual-report" data-type="page" data-id="116104">Annual Report</a></strong>. Please <a href="https://opensource.org/contact-us/"><strong>contact the OSI</strong> </a>to find out more about how your company can promote open source development, communities and software.</p>
+
+
+
+<h2 class="wp-block-heading">Support OSI by becoming a full member</h2>
+
+
+
+<p class="wp-block-paragraph">Hundreds of individuals and organizations worldwide join as members and support as donors or sponsors of the OSI. They trust in our neutral stewardship of open source licensing and our role in enabling a global community. <a href="https://opensource.org/get-involved">Get involved!</a></p>
+
+
+
+<p class="wp-block-paragraph"></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://opensource.org/blog/why-openness-matters-more-than-ever/feed</wfw:commentRss>
+			<slash:comments>7</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">439405</post-id>	</item>
+		<item>
+		<title>EU AI Act and CRA: Timelines and Resources</title>
+		<link>https://opensource.org/blog/eu-ai-act-and-cra-timelines-and-resources</link>
+					<comments>https://opensource.org/blog/eu-ai-act-and-cra-timelines-and-resources#comments</comments>
+		
+		<dc:creator><![CDATA[Jordan Maris]]></dc:creator>
+		<pubDate>Thu, 13 Aug 2026 12:45:34 +0000</pubDate>
+				<category><![CDATA[News]]></category>
+		<category><![CDATA[ai]]></category>
+		<category><![CDATA[cra]]></category>
+		<category><![CDATA[policy]]></category>
+		<guid isPermaLink="false">https://opensource.org/?p=439366</guid>
+
+					<description><![CDATA[Over the last month, the EU has passed two milestones in implementing its Cyber Resilience (CRA) and AI acts. The OSI has been engaged with European policymakers over the past two years to ensure those laws don’t inadvertently harm Open Source.]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">Summer is normally quiet in Brussels, but this year might just be the exception: over the last month, the EU has passed two milestones in implementing its Cyber Resilience (CRA) and AI acts. The OSI has been engaged with European policymakers over the past two years to ensure those laws don’t inadvertently harm Open Source.</p>
+
+
+
+<p class="wp-block-paragraph">For Open Source developers, maintainers, and organizations, these developments raise important questions about how new regulatory frameworks apply across the software ecosystem. Clear, practical information is essential to help the community understand new requirements, distinguish applicable obligations, and continue building and sharing open technologies.</p>
+
+
+
+<p class="wp-block-paragraph">The first milestone comes in the form of <a target="_blank" href="https://digital-strategy.ec.europa.eu/en/library/commission-publishes-new-guidance-support-timely-cyber-resilience-act-implementation">Commission guidance on the Cyber Resilience Act.</a> The law establishes cybersecurity requirements for products with digital elements, including vulnerability handling, security updates, and lifecycle responsibilities. The European Commission’s guidance provides answers to many of the burning questions about the CRA. The guidance contains sections both on Open Source software and Open Source software stewards, which both offer important clarifications on how the CRA will impact Open Source in practice.</p>
+
+
+
+<p class="wp-block-paragraph">Since it was proposed in 2022, the OSI has been <a href="https://opensource.org/blog/tag/cra">working</a> with European policymakers to ensure the CRA is written with Open Source in mind. The guidance is a direct result of the dialogue Open Source communities have had with the Commission, both bilaterally, and through Eclipse’s <a target="_blank" href="https://orcwg.org/">Open Regulatory Compliance Working Group</a> (ORC WG). In combination with ORC WG’s own resources, this guidance now gives Open Source developers, communities, and companies an overview of what the CRA means for them.</p>
+
+
+
+<p class="wp-block-paragraph">The OSI has also sought to make it easier for Open Source developers who have to comply with the CRA to do so, bringing Open Source voices into the standardisation process by working as a key partner with <a target="_blank" href="https://www.etsi.org/">ETSI</a>, who are responsible for the Standards developers must adhere to to comply with the CRA. ETSI recently <a target="_blank" href="https://www.etsi.org/newsroom/press-releases/etsi-launches-approval-process-for-17-european-standards-supporting-the-cyber-resilience-act/">announced</a> the availability of the 17 vertical final draft standards developed in the framework of the CRA and which are currently under Public Enquiry.</p>
+
+
+
+<p class="wp-block-paragraph">The second milestone is the coming into force of most of the provisions of the <a target="_blank" href="https://digital-strategy.ec.europa.eu/en/policies/guidelines-gpai-providers">EU’s AI act</a>. The law introduces a risk-based framework for artificial intelligence, with obligations being introduced progressively. Among other areas, the regulation includes provisions related to general-purpose AI models, transparency, documentation, and governance.</p>
+
+
+
+<p class="wp-block-paragraph">Here, again, the OSI has been deeply <a href="https://opensource.org/blog/tag/ai">involved</a>. Most recently, we were invited by the European Commission to support the development of the AI Act &amp; AI Transparency Code of Practices, which set out ways by which AI developers can meet the requirements of the AI act, in particular the transparency requirements, which have just recently come into force.</p>
+
+
+
+<p class="wp-block-paragraph">Open Source communities have an important role to play in these discussions. Not every developer or maintainer will have the same responsibilities under these frameworks, and understanding where obligations apply is key to ensuring that regulation supports innovation while protecting users and developers.</p>
+
+
+
+<p class="wp-block-paragraph">As implementation of the EU AI Act progresses, OSI will continue working with European policymakers and the broader Open Source community to provide education, share expertise, and advocate for approaches that recognize the importance of Open Source AI for innovation, transparency, and collaboration.</p>
+
+
+
+<p class="wp-block-paragraph">With regards to the CRA, the OSI will also continue to collaborate with organizations across the Open Source ecosystem, while also engaging with and educating policymakers. Through ETSI and ORC WG, OSI and the community have been collecting resources, facilitating discussions, and developing practical guidance related to Open Source compliance and emerging European regulations.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>EU AI Act Timeline:</strong></p>
+
+
+
+<figure class="wp-block-table"><table><tbody><tr><td><strong>Date</strong></td><td><strong>What happens</strong></td></tr><tr><td>1 Aug 2024</td><td>AI Act enters into force</td></tr><tr><td>2 Feb 2025</td><td>Definitions, AI literacy, and prohibited AI practices apply</td></tr><tr><td>2 Aug 2025</td><td>General-purpose AI (GPAI) obligations apply; EU AI governance becomes operational</td></tr><tr><td>2 Aug 2026</td><td>Majority of the Act applies; enforcement begins; Article 50 transparency rules apply</td></tr><tr><td>2 Dec 2026</td><td>Additional prohibitions and certain transition requirements apply</td></tr><tr><td>2 Aug 2027</td><td>Member States should have AI regulatory sandboxes operational</td></tr><tr><td>2 Dec 2027</td><td>Rules for certain high-risk AI systems (Annex III) apply</td></tr><tr><td>2 Aug 2028</td><td>Rules for high-risk AI embedded in regulated products (Annex I) apply</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph"><strong>EU CRA Timeline:</strong></p>
+
+
+
+<figure class="wp-block-table"><table><tbody><tr><td><strong>Date</strong></td><td><strong>What happens</strong></td></tr><tr><td>10 Dec 2024</td><td>CRA enters into force</td></tr><tr><td>11 Jun 2026</td><td>Provisions on notification of conformity assessment bodies apply</td></tr><tr><td>27 Jul 2026</td><td>European Commission publishes practical implementation guidance</td></tr><tr><td>August 2026</td><td>Vertical standards start public review</td></tr><tr><td>11 Sep 2026</td><td>Vulnerability and severe incident reporting obligations begin</td></tr><tr><td>11 Dec 2026</td><td>Member States should have sufficient conformity assessment bodies notified</td></tr><tr><td>30 Oct 2027</td><td>Further standards expected</td></tr><tr><td>11 Dec 2027</td><td>Full application of the CRA; main obligations apply</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph"><strong>Resources:</strong></p>
+
+
+
+<ul class="wp-block-list">
+<li><a target="_blank" href="https://digital-strategy.ec.europa.eu/en/policies/guidelines-gpai-providers">European Commission guidance on general-purpose AI models and the AI Act</a></li>
+
+
+
+<li><a href="https://opensource.org/ai">OSI’s resources on Open Source AI and the Open Source AI Definition</a></li>
+
+
+
+<li><a target="_blank" href="https://digital-strategy.ec.europa.eu/en/library/commission-publishes-new-guidance-support-timely-cyber-resilience-act-implementation">European Commission guidance on the CRA</a></li>
+
+
+
+<li><a target="_blank" href="https://orcwg.org/cra/resources/">Open Regulatory Compliance Working Group CRA resources</a></li>
+
+
+
+<li><a target="_blank" href="https://www.stan4cra.eu/etsi-tc-cyber">ETSI Technical Committee on Cyber Security resources</a></li>
+
+
+
+<li><a target="_blank" href="https://www.etsi.org/newsroom/press-releases/etsi-launches-approval-process-for-17-european-standards-supporting-the-cyber-resilience-act/">ETSI vertical standards of the CRA</a></li>
+</ul>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://opensource.org/blog/eu-ai-act-and-cra-timelines-and-resources/feed</wfw:commentRss>
+			<slash:comments>10</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">439366</post-id>	</item>
+		<item>
+		<title>The AI Era Arcs Toward Openness</title>
+		<link>https://opensource.org/blog/the-ai-era-arcs-toward-openness</link>
+					<comments>https://opensource.org/blog/the-ai-era-arcs-toward-openness#respond</comments>
+		
+		<dc:creator><![CDATA[Gabriel Toscano]]></dc:creator>
+		<pubDate>Wed, 12 Aug 2026 20:15:43 +0000</pubDate>
+				<category><![CDATA[News]]></category>
+		<category><![CDATA[ai]]></category>
+		<category><![CDATA[research]]></category>
+		<guid isPermaLink="false">https://opensource.org/?p=439090</guid>
+
+					<description><![CDATA[A surge of openness in AI has defined 2026. Amid calls for both caution and support, prevailing trends point to a future in which models are built and released openly. Recent research offers new insight into the adoption of open AI systems, who benefits, and the role of Open Source across the AI technology stack. The success of open-weight and Open Source AI reflects growing adoption, lower costs, narrowing performance gaps, and a desire for greater control over how AI is designed and implemented.]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">A surge of openness in AI has defined 2026. Amid calls for both caution and support, prevailing trends point to a future in which models are built and released openly. Recent research offers new insight into the adoption of open AI systems, who benefits, and the role of Open Source across the AI technology stack. The success of open-weight and Open Source AI reflects growing adoption, lower costs, narrowing performance gaps, and a desire for greater control over how AI is designed and implemented.</p>
+
+
+
+<p class="wp-block-paragraph">Recent reports document a considerable increase in the number of open AI projects on popular platforms such as GitHub, Hugging Face, and OpenRouter. The scale of AI development on public platforms is striking, even if public availability does not necessarily imply meaningful openness. Data from the <a target="_blank" href="https://hai.stanford.edu/assets/files/ai_index_report_2026.pdf">2026 Stanford AI Index Report</a> shows that over 5 million AI-related projects were available on GitHub as of late 2025, up from a million in 2020. Similarly, the number of models available on HuggingFace has grown to over two million. This upward trend is likely to continue, seeing vocal calls in <a target="_blank" href="https://www.politico.com/news/2026/07/24/big-tech-companies-defend-open-weight-ai-models-01010981">support of Open Source</a> by a growing number of governments and organizations.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">Several interrelated factors are driving the shift toward openness. Open weights and Open Source are attractive to those seeking a greater control surface. Auditability, modifiability, data privacy, security, and the ability to own and control implementation decisions are driving adoption. Additionally, a significant share of the growth in adoption can be explained by a <a target="_blank" href="https://mitsloan.mit.edu/ideas-made-to-matter/ai-open-models-have-benefits-so-why-arent-they-more-widely-used">cost-performance calculus</a> that favors open-weight and Open Source AI over closed, proprietary models.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">According to data from Mozilla’s inaugural <a target="_blank" href="https://blog.mozilla.org/en/mozilla/mozilla-state-of-open-source-ai-report/">State of Open Source AI report</a>, open models are approaching performance parity on certain tasks, including coding, with the gap narrowing to 3% by some measures. At the same time, inference costs for open models have decreased between six and fifty fold over the last three years.</p>
+
+
+
+<p class="wp-block-paragraph">Mozilla’s report also highlights positive usage trends. The most popular open-weight models saw usage increase by more than 90% month-over-month in June 2026. Yet, while open models account for 20% of usage by token volume, they capture only 4% of revenue. These figures highlight both sides of open-model economics: adopters benefit from lower costs, while maintainers of widely used models may have fewer resources to sustain them. For now, the status quo is subject to imbalances between the benefits of developing AI in the open and the costs of sustaining it.&nbsp;</p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<h2 class="wp-block-heading">Open-weights is Opportune; Open Source is Quintessential</h2>
+</blockquote>
+
+
+
+<p class="wp-block-paragraph">Among the ten models with the highest usage in the Mozilla report, half are released under an OSI-approved license. While this does not mean they meet the <a href="https://opensource.org/ai/open-source-ai-definition">Open Source AI Definition (OSAID)</a>, it suggests that developers are choosing to signal openness in ways that align with community expectations.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">Importantly, while open-weights and Open Source AI are often used interchangeably, Open Source AI models provide distinct <a href="https://opensource.org/ai/open-weights">benefits over open-weights</a>. For adopters and developers, open-weights provide immediate value, enabling adoption outside the sphere of a specific vendor or technology stack.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">But weights alone <a target="_blank" href="https://hai.stanford.edu/news/open-weight-models-arent-enough-we-need-truly-open-source-ai-models-for-science-and-society">do not provide the access</a> needed to use, study, share, and modify AI systems. If neither data nor code are shared as prescribed by the OSAID, upstream development decisions become the defaults downstream. The centralization of design decisions––and the consequences therein––are heightened by the concentration of downloads and reuse of AI models. According to <a target="_blank" href="https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026">data from Hugging Face</a>, a small minority of models, about 200 or 0.01% of models, account for nearly half of all downloads on the platform.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">For many, limited disclosures within open-weights provide grounds for mistrust, as both what is withheld and the rationale for withholding are unknown. Without the materials needed to make meaningful modifications, downstream users may be unable to fully audit, adapt, improve, or secure AI systems.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">In the present, past, and future, Open Source offers a strategic path to digital innovation, competition, and security. Open Source enables collaboration and control over how technologies are developed, governed, and deployed. Looking ahead, there are ample opportunities for Open Source to impact not only AI models but the many software layers between models, developers, and users.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">A growing body of evidence suggests that openness is a pillar of the AI ecosystem, presenting a compelling and timely path for AI development. While the tendency toward openness is clear, robust Open Source standards remain essential to ensuring that AI evolves in ways that ensure anyone can use, study, modify, and share these technologies. Through the <a href="https://opensource.org/fellowship">Open Source AI fellowship</a>, OSI will expand on this work by conducting original research, measuring trends, and building community consensus around what it means for an AI system to carry the Open Source label. We invite you to engage with us and help inform our research and advocacy.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://opensource.org/blog/the-ai-era-arcs-toward-openness/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">439090</post-id>	</item>
+	</channel>
+</rss>

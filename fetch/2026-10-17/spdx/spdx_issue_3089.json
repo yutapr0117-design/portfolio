@@ -1,0 +1,112 @@
+{
+  "url": "https://api.github.com/repos/spdx/license-list-XML/issues/3089",
+  "repository_url": "https://api.github.com/repos/spdx/license-list-XML",
+  "labels_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3089/labels{/name}",
+  "comments_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3089/comments",
+  "events_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3089/events",
+  "html_url": "https://github.com/spdx/license-list-XML/issues/3089",
+  "id": 5633686982,
+  "node_id": "I_kwDOA0JFE88AAAABT8s9xg",
+  "number": 3089,
+  "title": "New license request: ZSL-2.0.0 [SPDX-Online-Tools]",
+  "user": {
+    "login": "onelpawarai-X",
+    "id": 278779105,
+    "node_id": "U_kgDOEJ3U4Q",
+    "avatar_url": "https://avatars.githubusercontent.com/u/278779105?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/onelpawarai-X",
+    "html_url": "https://github.com/onelpawarai-X",
+    "followers_url": "https://api.github.com/users/onelpawarai-X/followers",
+    "following_url": "https://api.github.com/users/onelpawarai-X/following{/other_user}",
+    "gists_url": "https://api.github.com/users/onelpawarai-X/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/onelpawarai-X/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/onelpawarai-X/subscriptions",
+    "organizations_url": "https://api.github.com/users/onelpawarai-X/orgs",
+    "repos_url": "https://api.github.com/users/onelpawarai-X/repos",
+    "events_url": "https://api.github.com/users/onelpawarai-X/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/onelpawarai-X/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "labels": [
+    {
+      "id": 789268956,
+      "node_id": "MDU6TGFiZWw3ODkyNjg5NTY=",
+      "url": "https://api.github.com/repos/spdx/license-list-XML/labels/new%20license/exception:%20Not%20Accepted",
+      "name": "new license/exception: Not Accepted",
+      "color": "d4c5f9",
+      "default": false,
+      "description": null,
+      "archived_at": null,
+      "archived_by": null
+    }
+  ],
+  "state": "closed",
+  "locked": false,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 1,
+  "created_at": "2026-09-29T16:25:14Z",
+  "updated_at": "2026-09-29T16:34:57Z",
+  "closed_at": "2026-09-29T16:34:53Z",
+  "assignee": null,
+  "author_association": "NONE",
+  "issue_field_values": [
+
+  ],
+  "type": null,
+  "active_lock_reason": null,
+  "sub_issues_summary": {
+    "total": 0,
+    "completed": 0,
+    "percent_completed": 0
+  },
+  "issue_dependencies_summary": {
+    "blocked_by": 0,
+    "total_blocked_by": 0,
+    "blocking": 0,
+    "total_blocking": 0
+  },
+  "body": "**1.** License name: Zyraxon Source License\n**2.** Short identifier: ZSL-2.0.0\n**3.** License author or steward: Zyraxon AI Team\n**4.** Comments: Zyraxon Source License (ZSL) is a custom source-available license designed for high-performance, autonomous multi-agent orchestration frameworks. It meets the SPDX inclusion principles as it is a publicly released license used in open repositories to regulate decentralized multi-agent swarm deployments and derivative works.\n**5.** License request Url: https://tools.spdx.org/app/license_requests/536\n**6.** URL(s): https://github.com/onelpawarai-X/ZSL/blob/main/ZSL-X-LICENSE\n**7.** OSI status: Not Submitted\n**8.** Example projects: https://github.com/onelpawarai-X/ZYRAXON-AI.git",
+  "closed_by": {
+    "login": "swinslow",
+    "id": 678569,
+    "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/swinslow",
+    "html_url": "https://github.com/swinslow",
+    "followers_url": "https://api.github.com/users/swinslow/followers",
+    "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+    "organizations_url": "https://api.github.com/users/swinslow/orgs",
+    "repos_url": "https://api.github.com/users/swinslow/repos",
+    "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/swinslow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "reactions": {
+    "url": "https://api.github.com/repos/spdx/license-list-XML/issues/3089/reactions",
+    "total_count": 0,
+    "+1": 0,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "timeline_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3089/timeline",
+  "performed_via_github_app": null,
+  "state_reason": "completed",
+  "pinned_comment": null
+}

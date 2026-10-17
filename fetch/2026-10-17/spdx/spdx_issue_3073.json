@@ -1,0 +1,82 @@
+{
+  "url": "https://api.github.com/repos/spdx/license-list-XML/issues/3073",
+  "repository_url": "https://api.github.com/repos/spdx/license-list-XML",
+  "labels_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3073/labels{/name}",
+  "comments_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3073/comments",
+  "events_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3073/events",
+  "html_url": "https://github.com/spdx/license-list-XML/issues/3073",
+  "id": 5199902419,
+  "node_id": "I_kwDOA0JFE88AAAABNfA20w",
+  "number": 3073,
+  "title": "Mark Python-2.0.1, PSF-2.0, CNRI-Python-GPL-Compatible and CNRI-Python as FSF Free/Libre",
+  "user": {
+    "login": "nicorikken",
+    "id": 7458098,
+    "node_id": "MDQ6VXNlcjc0NTgwOTg=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/7458098?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/nicorikken",
+    "html_url": "https://github.com/nicorikken",
+    "followers_url": "https://api.github.com/users/nicorikken/followers",
+    "following_url": "https://api.github.com/users/nicorikken/following{/other_user}",
+    "gists_url": "https://api.github.com/users/nicorikken/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/nicorikken/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/nicorikken/subscriptions",
+    "organizations_url": "https://api.github.com/users/nicorikken/orgs",
+    "repos_url": "https://api.github.com/users/nicorikken/repos",
+    "events_url": "https://api.github.com/users/nicorikken/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/nicorikken/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "labels": [
+
+  ],
+  "state": "open",
+  "locked": false,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 5,
+  "created_at": "2026-08-20T05:07:49Z",
+  "updated_at": "2026-09-28T17:21:29Z",
+  "closed_at": null,
+  "assignee": null,
+  "author_association": "CONTRIBUTOR",
+  "issue_field_values": [
+
+  ],
+  "type": null,
+  "active_lock_reason": null,
+  "sub_issues_summary": {
+    "total": 0,
+    "completed": 0,
+    "percent_completed": 0
+  },
+  "issue_dependencies_summary": {
+    "blocked_by": 0,
+    "total_blocked_by": 0,
+    "blocking": 0,
+    "total_blocking": 0
+  },
+  "body": "The FSF page on licensing covers the different Python licenses.\n\nBoth [License of Python 1.6a2 and earlier versions](https://directory.fsf.org/wiki?title=License:Python1.6a2) and [License of Python 2.0.1, 2.1.1, and newer versions](https://directory.fsf.org/wiki?title=License:Python2.0.1) are included in the list of licenses that \"qualify as free software licenses, and are compatible with the GNU GPL\".\nThe [License of Python 1.6b1 through 2.0 and 2.1](https://directory.fsf.org/wiki/License:Python1.6b1) is included in the list of licenses that \"are free software licenses, but are not compatible with the GNU GPL.\n\n[FSF's entry for Python 2.0.1, 2.1.1](https://directory.fsf.org/wiki/License:Python-2.0.1) identically matches text of `Python-2.0.1` and contains the following licenses with separate SPDX-identifiers: `PSF-2.0`, `CNRI-Python-GPL-Compatible`.\n\nI conclude that `Python-2.0.1`, `PSF-2.0` and `CNRI-Python-GPL-Compatible` are GPL-compatible Free Software licenses.\n\n[FSF's entry for Python 1.6.b1](https://directory.fsf.org/wiki/License:Python-1.6b1) closely matches the text of `CNRI-Python`. It is not exactly the same as FSF lists the license of Python 1.6 (non-beta) and SPDX entry for `NCRI-Python` contains the 1.6-beta-1 version. The key distinction with `CNRI-Python-GPL-Compatible` is article 7 that specifies applicable law. Article 7 is equal between FSF's entry for Python 1.6.b1 and `CNRI-Python`.\n\nI conclude that `CNRI-Python` is a Free Software license that is not GPL-compatible, but it should still get the 'y' in the 'FSF Free/Libre' column.\n\nFor completeness, the `Python-2.0` license is already marked OSI-approved and Free Software and contains the license texts of `PSF-2.0` and `CNRI-Python-GPL-Compatible`.\n\nI was triggered to submit this issue by [discussions for choosing the appropriate license identifier for the Argparse NPM package](https://github.com/nodeca/argparse/pull/188).\n\nI couldn't figure out the source of the 'FSF Free/Libre'-column. Perhaps it can be improved in the documentation.",
+  "closed_by": null,
+  "reactions": {
+    "url": "https://api.github.com/repos/spdx/license-list-XML/issues/3073/reactions",
+    "total_count": 0,
+    "+1": 0,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "timeline_url": "https://api.github.com/repos/spdx/license-list-XML/issues/3073/timeline",
+  "performed_via_github_app": null,
+  "state_reason": null,
+  "pinned_comment": null
+}

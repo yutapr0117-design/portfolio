@@ -1,0 +1,49 @@
+[
+  {
+    "url": "https://api.github.com/repos/spdx/license-list-XML/issues/comments/5818260409",
+    "html_url": "https://github.com/spdx/license-list-XML/issues/2991#issuecomment-5818260409",
+    "issue_url": "https://api.github.com/repos/spdx/license-list-XML/issues/2991",
+    "id": 5818260409,
+    "node_id": "IC_kwDOA0JFE88AAAABWsubuQ",
+    "user": {
+      "login": "JimVitrano",
+      "id": 4322194,
+      "node_id": "MDQ6VXNlcjQzMjIxOTQ=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4322194?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/JimVitrano",
+      "html_url": "https://github.com/JimVitrano",
+      "followers_url": "https://api.github.com/users/JimVitrano/followers",
+      "following_url": "https://api.github.com/users/JimVitrano/following{/other_user}",
+      "gists_url": "https://api.github.com/users/JimVitrano/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/JimVitrano/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/JimVitrano/subscriptions",
+      "organizations_url": "https://api.github.com/users/JimVitrano/orgs",
+      "repos_url": "https://api.github.com/users/JimVitrano/repos",
+      "events_url": "https://api.github.com/users/JimVitrano/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/JimVitrano/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "created_at": "2026-09-24T16:42:14Z",
+    "updated_at": "2026-09-24T16:42:14Z",
+    "body": "Reviewed at today's SPDX legal team meeting.  +1 to add given the license's open nature and the wide distribution of these fonts via TeX.  We're considering capitalizing the final short identifier as \"BaKoMa\" to match how it's usually capitalized.",
+    "author_association": "CONTRIBUTOR",
+    "pin": null,
+    "reactions": {
+      "url": "https://api.github.com/repos/spdx/license-list-XML/issues/comments/5818260409/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "performed_via_github_app": null,
+    "minimized": null
+  }
+]
