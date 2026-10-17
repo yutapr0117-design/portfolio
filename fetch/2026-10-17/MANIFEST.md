@@ -966,6 +966,25 @@
 | wayback/rp_20260808184052.html | https://web.archive.org/web/20260808184052id_/https://opensource.org/licenses/review-process | https://web.archive.org/web/20260808184052id_/https://opensource.org/licenses/review-process | 200 | 37325 | ec91caaeb0ee7106 | 2026-10-17T10:41:10Z |
 | wayback/rp_20261012131248.html | https://web.archive.org/web/20261012131248id_/https://opensource.org/licenses/review-process | https://web.archive.org/web/20261012131248id_/https://opensource.org/licenses/review-process | 200 | 37433 | 41f7908484bcd2e4 | 2026-10-17T10:41:13Z |
 
+
+## 16. `osi-github/` — OSI の GitHub 組織（OpenSourceOrg）のリポジトリ一覧・サイトの公開 issue トラッカー dotOrg 全 245 件・ai-model-meta-data-analysis・SPDX ID 形式のライセンス URL の確認
+
+| file | 要求 URL | 最終 URL | status | bytes | sha256[:16] | 取得時刻（UTC） |
+|---|---|---|---|---|---|---|
+| osi-github/osi_org_repos.json | https://api.github.com/orgs/OpenSourceOrg/repos?per_page=100&sort=pushed (gh api) | — | 200 | 103403 | 7550a211410c1f41 | 2026-10-17T10:42:14Z |
+| osi-github/dotorg_issues_all_p1.json | https://api.github.com/repos/OpenSourceOrg/dotOrg/issues?state=all&per_page=100&page=1 (gh api) | — | 200 | 433021 | 90952ab020162530 | 2026-10-17T10:42:33Z |
+| osi-github/dotorg_issues_all_p2.json | https://api.github.com/repos/OpenSourceOrg/dotOrg/issues?state=all&per_page=100&page=2 (gh api) | — | 200 | 395650 | 2b70858d09f0f1fe | 2026-10-17T10:42:34Z |
+| osi-github/dotorg_issues_all_p3.json | https://api.github.com/repos/OpenSourceOrg/dotOrg/issues?state=all&per_page=100&page=3 (gh api) | — | 200 | 186114 | cc4048b05d5f88f0 | 2026-10-17T10:42:35Z |
+| osi-github/aimeta_repo.json | https://api.github.com/repos/OpenSourceOrg/ai-model-meta-data-analysis (gh api) | — | 200 | 7431 | 9747746e3d612975 | 2026-10-17T10:42:36Z |
+| osi-github/aimeta_contents.json | https://api.github.com/repos/OpenSourceOrg/ai-model-meta-data-analysis/contents (gh api) | — | 200 | 2710 | 0167bc5d56c12f0b | 2026-10-17T10:42:36Z |
+| osi-github/aimeta_commits.json | https://api.github.com/repos/OpenSourceOrg/ai-model-meta-data-analysis/commits?per_page=100 (gh api) | — | 200 | 3102 | 42aa906480fc02bc | 2026-10-17T10:42:37Z |
+| osi-github/aimeta_tree.json | https://api.github.com/repos/OpenSourceOrg/ai-model-meta-data-analysis/git/trees/HEAD?recursive=1 (gh api) | — | 200 | 933 | 7c04a67ae8034784 | 2026-10-17T10:42:37Z |
+| osi-github/dotorg_issue_219_comments.json | https://api.github.com/repos/OpenSourceOrg/dotOrg/issues/219/comments (gh api) | — | 200 | 8655 | 1c79f1ece8038505 | 2026-10-17T10:42:56Z |
+| osi-github/dotorg_issue_220_comments.json | https://api.github.com/repos/OpenSourceOrg/dotOrg/issues/220/comments (gh api) | — | 200 | 1647 | d1e70f756b367f70 | 2026-10-17T10:42:56Z |
+| osi-github/osi_license_by_spdx_MIT-0.html | https://opensource.org/license/MIT-0 | https://opensource.org/license/MIT-0 | 200 | 184994 | 7a1fc15e330a76b6 | 2026-10-17T10:42:57Z |
+| osi-github/osi_license_by_spdx_BlueOak-1.0.0.html | https://opensource.org/license/BlueOak-1.0.0 | https://opensource.org/license/BlueOak-1.0.0 | 200 | 186480 | 8890e8f720b4c386 | 2026-10-17T10:42:57Z |
+| osi-github/osi_license_by_spdx_Apache-2.0.html | https://opensource.org/license/Apache-2.0 | https://opensource.org/license/Apache-2.0 | 200 | 197117 | a4c81a375821b0d9 | 2026-10-17T10:42:57Z |
+
 ## 観測メモ（事実の指し先だけ・読みはクラウド側）
 
 1. **license-discuss 10 月に 3 通増えた**（Message-ID 基準）。(a) 2026-10-14 **Josh Berkus 氏**（0BSD-P スレッド）: Landley 氏の異議に全面同意したうえで、名前に "0BSD" を使うには BSD 側の許可が要ると指摘し、*"It's not the goal of the OSI to have licenses for every possible combination of conditions; if they wanted that, the OSI could just build its own license-generating LLM and be done with it. So, do you have a specific use for a license with patent grants and no attribution? Can you describe that use?"* (b) 2026-10-16 提出予定者が 0BSD-P を**取り下げ**（*"I could not describe a real project that needs this combination, and I understand why this looks like license proliferation."*）。(c) 同日、同じ人が **Model Chain Attribution License (MCAL)** の pre-submission を新規スレッドで開始（AI のデータセット→モデル→アプリの帰属を機械可読な Attribution Record で伝播させる AI 向けライセンス。本文は添付として配信）。2026-10-17 02:57 UTC に Roland Turner 氏が「SPDX と CycloneDX の既存仕事の再現に近い」と返信。
@@ -1006,3 +1025,7 @@
 36. **メーリングリスト用の行動規範（`/codeofconduct/code-of-conduct-for-osi-mailing-lists`）とサイトの行動規範（`/codeofconduct`）は、2026-08-10 から今日の取得まで本文が変わっていない。** Wayback のスナップショット（前者 3 件: 08-10 / 08-21 / 09-01、後者 10 件: 08-10〜09-22）と今日の取得を、`<main>` のテキストを 30 字超の文に切って双方向に照合し、すべて差分 0。表示は前者 "Last modified on May 4, 2023"、後者 "Last modified on November 2, 2023"。2026-09-09 の moderator 通知は CoC の更新を予告していたが、**公開面ではまだ変わっていない**（取得時点・38 日後）。メーリングリスト用のページは 09-01 より後のスナップショットが Wayback に無いので、09-01〜10-05 の間はこの経路からは確かめられない（日次取得は 10-05 以降のみ）。
 37. **審査手続きページ（`/licenses/review-process`）**: 2024 年以降の CDX は 616 版（`collapse=digest` だが HTML は動的なのでこの数は内容の変化を意味しない）。7 版を抜き出して今日と照合: 2024-01-10 版（"Last modified on August 22, 2023"）と今日の差は「最終更新日の表記 2 文」だけで、2025-07-30 以降の 5 版は今日と完全一致。**つまり 2024-03-13 の更新は、30 字超の文の単位では日付以外を変えていない**（短い断片の変更までは見ていない）。
 38. Wayback CDX の `blog/common-reasons-for-rejection-of-licenses` は 0 件（スナップショットが無い）。
+39. OSI の GitHub `OpenSourceOrg/ai-model-meta-data-analysis`（説明 "Analysis of AI model metadata using the Hugging Face API"）は 2026-09-14 の "Initial commit" 1 件だけで、中身は `.gitattributes` / `LICENSE` / `README.md`（87 bytes）の 3 ファイル（取得時点）。
+40. `dotOrg` #219（closed）: ライセンス URL を SPDX ID（ドット入り）にする件は、2026-03-10 に Nick Vidal 氏がリダイレクトで解決（`/license/Apache-2-0` → `/license/apache-2.0`）。#220 はスラッグ自体にドットを保持する PR で open のまま（リダイレクトが効くなら不要と 03-27 に整理）。`/license/MIT-0`・`/license/BlueOak-1.0.0`・`/license/Apache-2.0` はどれも 200。
+41. **SPDX の申請手順（`request-new-license.md`）の改訂 PR #3078 版**: 「3 人以上の SPDX-legal メンバー（うち弁護士 1 人以上）が同意し、異議が無ければ承認」は維持（fast-track 以外に適用と明記）。現行の "a non-FOSS license only used for a small or personal project" を例に挙げた注意書きは消え、収録基準側の "used only by the license drafter" に移った形。**GitHub アカウントを持たない人は spdx-legal メーリングリストへ送ってよい**という経路が新設された。現行にある Fedora / Debian 由来の「2 人で承認」は手順書からは消え、収録基準の fast-track に移った。
+42. **SPDX legal team の議事録は `spdx/meetings` の `legal/` に 2024 年分までしか無い**（2025・2026 は年フォルダ自体が無い・最後のコミットは 2025-06-11）。2025〜2026 の legal call の議事は、この経路からは**取得できなかった**（issue のコメントに「X 月 Y 日の legal call で議論」とだけ残っている）。
