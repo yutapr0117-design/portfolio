@@ -594,6 +594,86 @@
 | osi-wp/wp_minutes_p3.json | https://opensource.org/wp-json/wp/v2/meeting-minutes?orderby=modified&order=desc&per_page=100&page=3 | https://opensource.org/wp-json/wp/v2/meeting-minutes?orderby=modified&order=desc&per_page=100&page=3 | 200 | 1493931 | 8d25789c1f47c0f5 | 2026-10-17T10:22:40Z |
 | osi-wp/wp_board_member.json | https://opensource.org/wp-json/wp/v2/board-member?per_page=100 | https://opensource.org/wp-json/wp/v2/board-member?per_page=100 | 200 | 266930 | 2889ee33531d1112 | 2026-10-17T10:22:43Z |
 
+
+## 7. `spdx/accepted_comments/` — "Accepted" ラベルのうち 2025-01-01 以降に作成された issue（PR を除く）57 件のコメント
+
+| file | 要求 URL | 最終 URL | status | bytes | sha256[:16] | 取得時刻（UTC） |
+|---|---|---|---|---|---|---|
+| spdx/accepted_comments/spdx_issue_3055_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/3055/comments?per_page=100 (gh api) | — | 200 | 1881 | 1892b7d14e24035b | 2026-10-17T10:23:41Z |
+| spdx/accepted_comments/spdx_issue_3049_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/3049/comments?per_page=100 (gh api) | — | 200 | 4412 | e12b9ce6bdba6800 | 2026-10-17T10:23:41Z |
+| spdx/accepted_comments/spdx_issue_3007_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/3007/comments?per_page=100 (gh api) | — | 200 | 20668 | e0489b2cc077d86f | 2026-10-17T10:23:42Z |
+| spdx/accepted_comments/spdx_issue_3001_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/3001/comments?per_page=100 (gh api) | — | 200 | 8249 | 8fae9c28dcf14928 | 2026-10-17T10:23:42Z |
+| spdx/accepted_comments/spdx_issue_3000_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/3000/comments?per_page=100 (gh api) | — | 200 | 13247 | 98d92764392c0804 | 2026-10-17T10:23:43Z |
+| spdx/accepted_comments/spdx_issue_2998_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2998/comments?per_page=100 (gh api) | — | 200 | 11461 | 3bd2adbdac4e6819 | 2026-10-17T10:23:43Z |
+| spdx/accepted_comments/spdx_issue_2993_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2993/comments?per_page=100 (gh api) | — | 200 | 13153 | f37f78fb53298309 | 2026-10-17T10:23:44Z |
+| spdx/accepted_comments/spdx_issue_2967_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2967/comments?per_page=100 (gh api) | — | 200 | 11909 | f5a3a761631f8a79 | 2026-10-17T10:23:44Z |
+| spdx/accepted_comments/spdx_issue_2966_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2966/comments?per_page=100 (gh api) | — | 200 | 10788 | 3a1be6dd0a812e5d | 2026-10-17T10:23:45Z |
+| spdx/accepted_comments/spdx_issue_2955_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2955/comments?per_page=100 (gh api) | — | 200 | 9984 | 9873afc4414f5a02 | 2026-10-17T10:23:45Z |
+| spdx/accepted_comments/spdx_issue_2951_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2951/comments?per_page=100 (gh api) | — | 200 | 12526 | a1670f27acd58149 | 2026-10-17T10:23:46Z |
+| spdx/accepted_comments/spdx_issue_2943_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2943/comments?per_page=100 (gh api) | — | 200 | 11604 | b8663881731e216b | 2026-10-17T10:23:47Z |
+| spdx/accepted_comments/spdx_issue_2939_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2939/comments?per_page=100 (gh api) | — | 200 | 50113 | 0e49e3ce266ef8ba | 2026-10-17T10:23:47Z |
+| spdx/accepted_comments/spdx_issue_2931_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2931/comments?per_page=100 (gh api) | — | 200 | 23426 | 5b878d56411a4634 | 2026-10-17T10:23:48Z |
+| spdx/accepted_comments/spdx_issue_2922_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2922/comments?per_page=100 (gh api) | — | 200 | 6546 | d79c73ccb98b9bcf | 2026-10-17T10:23:48Z |
+| spdx/accepted_comments/spdx_issue_2889_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2889/comments?per_page=100 (gh api) | — | 200 | 21981 | 6df3418cc2b7a202 | 2026-10-17T10:23:49Z |
+| spdx/accepted_comments/spdx_issue_2887_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2887/comments?per_page=100 (gh api) | — | 200 | 17506 | 829fd7ff9469fb35 | 2026-10-17T10:23:49Z |
+| spdx/accepted_comments/spdx_issue_2875_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2875/comments?per_page=100 (gh api) | — | 200 | 8474 | 8db7948c658cda40 | 2026-10-17T10:23:50Z |
+| spdx/accepted_comments/spdx_issue_2872_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2872/comments?per_page=100 (gh api) | — | 200 | 12093 | 1c8fbd350fc17dac | 2026-10-17T10:23:50Z |
+| spdx/accepted_comments/spdx_issue_2845_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2845/comments?per_page=100 (gh api) | — | 200 | 16996 | 12758a9802b12a53 | 2026-10-17T10:23:51Z |
+| spdx/accepted_comments/spdx_issue_2844_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2844/comments?per_page=100 (gh api) | — | 200 | 12752 | 6f10b794e721298b | 2026-10-17T10:23:52Z |
+| spdx/accepted_comments/spdx_issue_2840_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2840/comments?per_page=100 (gh api) | — | 200 | 14190 | 410d2e140642517b | 2026-10-17T10:23:52Z |
+| spdx/accepted_comments/spdx_issue_2839_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2839/comments?per_page=100 (gh api) | — | 200 | 17565 | 724a896f9505c4f8 | 2026-10-17T10:23:53Z |
+| spdx/accepted_comments/spdx_issue_2831_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2831/comments?per_page=100 (gh api) | — | 200 | 12734 | 5c491f46181cb41f | 2026-10-17T10:23:53Z |
+| spdx/accepted_comments/spdx_issue_2830_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2830/comments?per_page=100 (gh api) | — | 200 | 14885 | 85804ff5bdeef6b9 | 2026-10-17T10:23:54Z |
+| spdx/accepted_comments/spdx_issue_2829_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2829/comments?per_page=100 (gh api) | — | 200 | 14959 | 8667682c45db0d15 | 2026-10-17T10:23:54Z |
+| spdx/accepted_comments/spdx_issue_2828_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2828/comments?per_page=100 (gh api) | — | 200 | 15405 | cbfb19ae6ac43026 | 2026-10-17T10:23:55Z |
+| spdx/accepted_comments/spdx_issue_2827_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2827/comments?per_page=100 (gh api) | — | 200 | 13657 | 8a75c4aa9af4aed9 | 2026-10-17T10:23:55Z |
+| spdx/accepted_comments/spdx_issue_2825_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2825/comments?per_page=100 (gh api) | — | 200 | 15572 | 2e78561b7dc7aa99 | 2026-10-17T10:23:56Z |
+| spdx/accepted_comments/spdx_issue_2822_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2822/comments?per_page=100 (gh api) | — | 200 | 12457 | ce4d1c32aa85a7a7 | 2026-10-17T10:23:57Z |
+| spdx/accepted_comments/spdx_issue_2791_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2791/comments?per_page=100 (gh api) | — | 200 | 24237 | 84cbfb7d4b3270ce | 2026-10-17T10:23:57Z |
+| spdx/accepted_comments/spdx_issue_2783_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2783/comments?per_page=100 (gh api) | — | 200 | 13487 | 5549b501f61534fd | 2026-10-17T10:23:58Z |
+| spdx/accepted_comments/spdx_issue_2763_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2763/comments?per_page=100 (gh api) | — | 200 | 12192 | 89fc496a62cf331f | 2026-10-17T10:23:58Z |
+| spdx/accepted_comments/spdx_issue_2757_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2757/comments?per_page=100 (gh api) | — | 200 | 13477 | 1fbd7b3e70eff46e | 2026-10-17T10:23:59Z |
+| spdx/accepted_comments/spdx_issue_2755_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2755/comments?per_page=100 (gh api) | — | 200 | 22047 | 59a3b8565aea594d | 2026-10-17T10:23:59Z |
+| spdx/accepted_comments/spdx_issue_2749_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2749/comments?per_page=100 (gh api) | — | 200 | 16946 | 596bac83410d538f | 2026-10-17T10:24:00Z |
+| spdx/accepted_comments/spdx_issue_2746_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2746/comments?per_page=100 (gh api) | — | 200 | 15763 | f13f59c80d14ee42 | 2026-10-17T10:24:00Z |
+| spdx/accepted_comments/spdx_issue_2745_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2745/comments?per_page=100 (gh api) | — | 200 | 12453 | 6b2b23a3c021a6db | 2026-10-17T10:24:01Z |
+| spdx/accepted_comments/spdx_issue_2739_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2739/comments?per_page=100 (gh api) | — | 200 | 14757 | f514bb0b8abb1ae2 | 2026-10-17T10:24:01Z |
+| spdx/accepted_comments/spdx_issue_2737_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2737/comments?per_page=100 (gh api) | — | 200 | 16274 | e0b170d6e5bf03db | 2026-10-17T10:24:02Z |
+| spdx/accepted_comments/spdx_issue_2735_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2735/comments?per_page=100 (gh api) | — | 200 | 12160 | 43ccd4c616afb5df | 2026-10-17T10:24:02Z |
+| spdx/accepted_comments/spdx_issue_2732_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2732/comments?per_page=100 (gh api) | — | 200 | 44202 | 1f9b6ab0552bc716 | 2026-10-17T10:24:03Z |
+| spdx/accepted_comments/spdx_issue_2722_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2722/comments?per_page=100 (gh api) | — | 200 | 18857 | e120123db1291d7f | 2026-10-17T10:24:03Z |
+| spdx/accepted_comments/spdx_issue_2721_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2721/comments?per_page=100 (gh api) | — | 200 | 13090 | 09cd4b2c8048dd71 | 2026-10-17T10:24:04Z |
+| spdx/accepted_comments/spdx_issue_2720_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2720/comments?per_page=100 (gh api) | — | 200 | 12924 | 27c08cbd97158230 | 2026-10-17T10:24:05Z |
+| spdx/accepted_comments/spdx_issue_2719_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2719/comments?per_page=100 (gh api) | — | 200 | 18320 | b98a0fdbbc72478a | 2026-10-17T10:24:05Z |
+| spdx/accepted_comments/spdx_issue_2718_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2718/comments?per_page=100 (gh api) | — | 200 | 16639 | 75e316de38c16893 | 2026-10-17T10:24:05Z |
+| spdx/accepted_comments/spdx_issue_2702_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2702/comments?per_page=100 (gh api) | — | 200 | 38199 | 44fc84145a64d4f0 | 2026-10-17T10:24:06Z |
+| spdx/accepted_comments/spdx_issue_2687_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2687/comments?per_page=100 (gh api) | — | 200 | 14077 | c743fe16aae8ddaf | 2026-10-17T10:24:07Z |
+| spdx/accepted_comments/spdx_issue_2686_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2686/comments?per_page=100 (gh api) | — | 200 | 27327 | 0720d2f0fedfc01d | 2026-10-17T10:24:07Z |
+| spdx/accepted_comments/spdx_issue_2684_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2684/comments?per_page=100 (gh api) | — | 200 | 19161 | d02ef6d56810a051 | 2026-10-17T10:24:08Z |
+| spdx/accepted_comments/spdx_issue_2683_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2683/comments?per_page=100 (gh api) | — | 200 | 9944 | bc3293bf0ba6efe5 | 2026-10-17T10:24:08Z |
+| spdx/accepted_comments/spdx_issue_2675_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2675/comments?per_page=100 (gh api) | — | 200 | 13328 | 0aac1f02090bfb5d | 2026-10-17T10:24:09Z |
+| spdx/accepted_comments/spdx_issue_2670_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2670/comments?per_page=100 (gh api) | — | 200 | 15270 | c2f5ca0237bfafda | 2026-10-17T10:24:09Z |
+| spdx/accepted_comments/spdx_issue_2660_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2660/comments?per_page=100 (gh api) | — | 200 | 12613 | 00eb0d9fa3f3efd3 | 2026-10-17T10:24:10Z |
+| spdx/accepted_comments/spdx_issue_2656_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2656/comments?per_page=100 (gh api) | — | 200 | 18946 | df68262295cc151c | 2026-10-17T10:24:10Z |
+| spdx/accepted_comments/spdx_issue_2651_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/2651/comments?per_page=100 (gh api) | — | 200 | 25329 | 3007fe1133d3b5ab | 2026-10-17T10:24:11Z |
+
+## 8. `peers/` — OpenMDW / ModelGo の側の公開面
+
+| file | 要求 URL | 最終 URL | status | bytes | sha256[:16] | 取得時刻（UTC） |
+|---|---|---|---|---|---|---|
+| peers/openmdw_site.html | https://openmdw.ai/ | https://openmdw.ai/ | 200 | 72976 | e8f037d4d8d30198 | 2026-10-17T10:24:49Z |
+| peers/openmdw_repo.json | https://api.github.com/repos/OpenMDW/OpenMDW | https://api.github.com/repos/OpenMDW/OpenMDW | 200 | 6436 | cd24b1040b659428 | 2026-10-17T10:24:49Z |
+| peers/openmdw_commits.json | https://api.github.com/repos/OpenMDW/OpenMDW/commits?per_page=30 | https://api.github.com/repos/OpenMDW/OpenMDW/commits?per_page=30 | 200 | 125451 | ef09a69e3671c67b | 2026-10-17T10:24:50Z |
+| peers/openmdw_readme.md | https://raw.githubusercontent.com/OpenMDW/OpenMDW/main/README.md | https://raw.githubusercontent.com/OpenMDW/OpenMDW/main/README.md | 200 | 2846 | 0fba63ae924718e4 | 2026-10-17T10:24:51Z |
+| peers/modelgo_site.html | https://www.modelgo.li/ | https://www.modelgo.li/ | 200 | 35284 | 98079789cdee79d3 | 2026-10-17T10:24:51Z |
+| peers/modelgo_github_search.json | https://api.github.com/search/repositories?q=ModelGo+license | https://api.github.com/search/repositories?q=ModelGo+license | 200 | 12854 | 1ac3ff8690245364 | 2026-10-17T10:24:52Z |
+| (未取得) peers/osi_license_openmdw.html | https://opensource.org/license/openmdw-1-1 | — | HTTP Error 404: Not Found | — | — | 2026-10-17T10:24:52Z |
+| (未取得) peers/osi_license_modelgo.html | https://opensource.org/license/modelgo-attribution-2-0 | — | HTTP Error 404: Not Found | — | — | 2026-10-17T10:24:53Z |
+| peers/lf_openmdw_news.html | https://www.linuxfoundation.org/press?search=openmdw | https://www.linuxfoundation.org/press?search=openmdw | 200 | 5692852 | aa78ed4f41c21ddb | 2026-10-17T10:24:55Z |
+| peers/modelgo_licenses_commits.json | https://api.github.com/repos/morningD/modelgo-licenses/commits?per_page=30 (gh api) | — | 200 | 73749 | d084e0124661bca6 | 2026-10-17T10:25:07Z |
+| peers/modelgo_licenses_repo.json | https://api.github.com/repos/morningD/modelgo-licenses (gh api) | — | 200 | 5603 | 8248f3d109c0ef5c | 2026-10-17T10:25:08Z |
+| peers/modelgo_licenses_contents.json | https://api.github.com/repos/morningD/modelgo-licenses/contents (gh api) | — | 200 | 6157 | 7cd17dee8532ec1e | 2026-10-17T10:25:08Z |
+
 ## 観測メモ（事実の指し先だけ・読みはクラウド側）
 
 1. **license-discuss 10 月に 3 通増えた**（Message-ID 基準）。(a) 2026-10-14 **Josh Berkus 氏**（0BSD-P スレッド）: Landley 氏の異議に全面同意したうえで、名前に "0BSD" を使うには BSD 側の許可が要ると指摘し、*"It's not the goal of the OSI to have licenses for every possible combination of conditions; if they wanted that, the OSI could just build its own license-generating LLM and be done with it. So, do you have a specific use for a license with patent grants and no attribution? Can you describe that use?"* (b) 2026-10-16 提出予定者が 0BSD-P を**取り下げ**（*"I could not describe a real project that needs this combination, and I understand why this looks like license proliferation."*）。(c) 同日、同じ人が **Model Chain Attribution License (MCAL)** の pre-submission を新規スレッドで開始（AI のデータセット→モデル→アプリの帰属を機械可読な Attribution Record で伝播させる AI 向けライセンス。本文は添付として配信）。2026-10-17 02:57 UTC に Roland Turner 氏が「SPDX と CycloneDX の既存仕事の再現に近い」と返信。
@@ -612,3 +692,6 @@
 14. **OSI の WordPress `meeting-minutes` 型は 286 件で、索引と一致**（隠れた新しい議事録は無い）。最新は 2026-06-29 の会合で、投稿日は 2026-08-03（会合から 35 日後）。その前の 2026-05-22 / 04-17 / 03-20 分はいずれも 2026-07-21 にまとめて投稿されている。
 15. `license` 型（126 件）の更新日時の上位: python-2-0-1（09-28）/ **olfl-1-3（09-15・作成 2023-03-21）** / cnri-python-gpl-compatible・nist-software・cnri-python・python-2-0（いずれも 09-09）/ curl（07-22）。olfl-1-3 で何が変わったかは、前の状態を持っていないのでここからは分からない。
 16. `pages` 型の更新日時の上位は教育ページ群（09-18 にまとめて更新）と AI Salon 関連（10-02〜10-06）。**審査手続きのページ（review-process / approval）は上位 200 件に入っていない**（"Last modified on March 13, 2024" の表示と矛盾しない）。
+17. **逆側（受理された新規ライセンス）**: `accepted_comments/` の 57 件のうち、ACD と同じく「新しく起草された・実使用がまだ薄い」状態で議論されたものが 2 件ある。(a) **OpenMDW-1.0（#2732）** —— 2025-05-15 に Richard Fontana 氏が、満たしていないかもしれない唯一の基準として現行 Other factor 3 の *"For new licenses, there are definitive plans …"* を名指しし、*"Given the common organizational connections with SPDX I wouldn't want to see this license treated inconsistently with the way SPDX has dealt with other new licenses having no Linux Foundation association"* と述べた。Steve Winslow 氏（共著者）は評価を棄権。受理（2026-01-15）は **Hugging Face 上の実使用の一覧が出てから**で、申請から 8 か月。その間に Pizza-Ria 氏が *"we're likely to see more of this than less and may need to consider more holistically how to deal with these types of licenses"* / *"Reluctant +1"*。(b) **Hippocratic-3.0-core（#2931）** —— 2022 年の #1393 は「オープンでない・実使用が無い」で不受理、2026 に再申請し、Lovejoy 氏 *"the latter may have [changed], which makes it ripe for re-review"*。2026-09-02 受理。**どちらも「実使用が後から付いた」経路で、「使用予定」だけで受理された例はこの 57 件の中には見当たらない**（粗い読み・全件の精読ではない）。
+18. `peers/`: OpenMDW の GitHub は 2026-05-19（1.1 の追加）以降コミットなし。ModelGo のサイト（`www.modelgo.li`）の "Recent Updates" は 2026.2「MG0 と MG-BY を改訂して OSI に再提出・MG-BY-SA は取り下げ」が最新で、**9/24 理事会の結果に当たる記述は無い**（取得時点）。サイトのリポジトリ `morningD/modelgo-licenses` は 2026-09-24 03:36 UTC に SEO メタデータの更新があるが、ライセンス本文の変更ではない。OSI のライセンスページを推測 URL で叩いた 2 件（`/license/openmdw-1-1` / `/license/modelgo-attribution-2-0`）は 404（推測 URL なので、承認されていないことの証拠ではない）。`api/licenses`（126 件）にも両者は無い。
+19. **license-review の 10 月分は取得時点（2026-10-17 08:52 UTC）で 404**。9 月最後の投稿は 2026-09-28 09:47（Nick Vidal 氏・Python ライセンス）で、以降 19 日間、アーカイブに新しい月が立っていない。

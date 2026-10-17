@@ -1,0 +1,2329 @@
+[
+  {
+    "sha": "b26b32b34ad2edcc29a7707abb68dcfb25a538c1",
+    "node_id": "C_kwDOOcRxA9oAKGIyNmIzMmIzNGFkMmVkY2MyOWE3NzA3YWJiNjhkY2ZiMjVhNTM4YzE",
+    "commit": {
+      "author": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2026-05-19T05:55:15Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-05-19T05:55:15Z"
+      },
+      "message": "Merge pull request #7 from swinslow/openmdw-1.1",
+      "tree": {
+        "sha": "c7755a1eda9f52e0e4f6753afc16877e66f526ce",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/c7755a1eda9f52e0e4f6753afc16877e66f526ce"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/b26b32b34ad2edcc29a7707abb68dcfb25a538c1",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqC/tDCRC1aQ7uu5UhlAAA380QAIrs+KNMmHOKn3qSmHdrsIcU\nBR1ktQbX+fwowdgY4n27twiaIx6w7MnoeqK2Ee+Yh4AKrDyx2wu0odPpPeq8kn2A\nx/nt9mR+5xPoxRT/db/86+YupYFizFtO3u9wvoNzyePSp5r6/n1kmzR8I4SgcXEi\n5MjgtII/uoBPkkKmK+mEoW0K8frp+7xXGXwn8QAQU/QggSfp/LfDN8q2xWPOuUsI\n3Wtph0T3cYVIw6tIHVa4BDQM/5cuRBG6MBoNgE+F1IfP5a+jWwLWXfPyQf8LUGvm\nYUBmDQ3rp5OfXaa7rTxWPtCcnWvPGSYCyZmdH8ZuKzl8OWcnOXLOuiTpcjp8b9En\nKpbZDNpzakrlVKlq2ZBYMG5h6Lz2v7BqJOdq+CRLDEDsHS7vd8jkwoH/RkBMR37I\ng1JsNBqShCj9j/tCqUO4UspcoIe5HqtRxRTnVBbj9ww4vQ9P7EJe//HX/Hj7m4Zj\nhskh0vViTfmU7lOUOZeLca6SmJwWl/i1TsPxs1tL3kxfElHAkSPQxvRLUUkd78vo\nCxtP95LRelWS67rM6pzgHRQpl06i0hAlG6HJ+zz6n3ms+CMk1wv0Zx8OZBTFbAq3\n+WpcOwgQscQofF1sVMfGulPadGP2CEbPq5ssEYI1g1JzoBannDGu331wUa8mjS3p\nd8dBMDecDuDAefzZJqgG\n=HHdX\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree c7755a1eda9f52e0e4f6753afc16877e66f526ce\nparent 69ac658d2c856a4fcc85091959b4ea5b0399007f\nparent 2a0fbf70141a19e9b172903f63c2c253cf85c7b6\nauthor Matt White <me@matt-white.com> 1779170115 -0700\ncommitter GitHub <noreply@github.com> 1779170115 -0700\n\nMerge pull request #7 from swinslow/openmdw-1.1",
+        "verified_at": "2026-05-19T05:55:16Z"
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/b26b32b34ad2edcc29a7707abb68dcfb25a538c1",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/b26b32b34ad2edcc29a7707abb68dcfb25a538c1",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/b26b32b34ad2edcc29a7707abb68dcfb25a538c1/comments",
+    "author": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "69ac658d2c856a4fcc85091959b4ea5b0399007f",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/69ac658d2c856a4fcc85091959b4ea5b0399007f",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/69ac658d2c856a4fcc85091959b4ea5b0399007f"
+      },
+      {
+        "sha": "2a0fbf70141a19e9b172903f63c2c253cf85c7b6",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/2a0fbf70141a19e9b172903f63c2c253cf85c7b6",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/2a0fbf70141a19e9b172903f63c2c253cf85c7b6"
+      }
+    ]
+  },
+  {
+    "sha": "2a0fbf70141a19e9b172903f63c2c253cf85c7b6",
+    "node_id": "C_kwDOOcRxA9oAKDJhMGZiZjcwMTQxYTE5ZTliMTcyOTAzZjYzYzJjMjUzY2Y4NWM3YjY",
+    "commit": {
+      "author": {
+        "name": "Steve Winslow",
+        "email": "steve@swinslow.net",
+        "date": "2026-05-19T02:28:02Z"
+      },
+      "committer": {
+        "name": "Steve Winslow",
+        "email": "steve@swinslow.net",
+        "date": "2026-05-19T02:28:02Z"
+      },
+      "message": "Fix typo in URL\n\nSigned-off-by: Steve Winslow <steve@swinslow.net>",
+      "tree": {
+        "sha": "c7755a1eda9f52e0e4f6753afc16877e66f526ce",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/c7755a1eda9f52e0e4f6753afc16877e66f526ce"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/2a0fbf70141a19e9b172903f63c2c253cf85c7b6",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/2a0fbf70141a19e9b172903f63c2c253cf85c7b6",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/2a0fbf70141a19e9b172903f63c2c253cf85c7b6",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/2a0fbf70141a19e9b172903f63c2c253cf85c7b6/comments",
+    "author": {
+      "login": "swinslow",
+      "id": 678569,
+      "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swinslow",
+      "html_url": "https://github.com/swinslow",
+      "followers_url": "https://api.github.com/users/swinslow/followers",
+      "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+      "organizations_url": "https://api.github.com/users/swinslow/orgs",
+      "repos_url": "https://api.github.com/users/swinslow/repos",
+      "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swinslow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "swinslow",
+      "id": 678569,
+      "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swinslow",
+      "html_url": "https://github.com/swinslow",
+      "followers_url": "https://api.github.com/users/swinslow/followers",
+      "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+      "organizations_url": "https://api.github.com/users/swinslow/orgs",
+      "repos_url": "https://api.github.com/users/swinslow/repos",
+      "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swinslow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "b16d70adfd253997f16746f99ad5cf52b754af95",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/b16d70adfd253997f16746f99ad5cf52b754af95",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/b16d70adfd253997f16746f99ad5cf52b754af95"
+      }
+    ]
+  },
+  {
+    "sha": "b16d70adfd253997f16746f99ad5cf52b754af95",
+    "node_id": "C_kwDOOcRxA9oAKGIxNmQ3MGFkZmQyNTM5OTdmMTY3NDZmOTlhZDVjZjUyYjc1NGFmOTU",
+    "commit": {
+      "author": {
+        "name": "Steve Winslow",
+        "email": "steve@swinslow.net",
+        "date": "2026-05-19T02:21:56Z"
+      },
+      "committer": {
+        "name": "Steve Winslow",
+        "email": "steve@swinslow.net",
+        "date": "2026-05-19T02:21:56Z"
+      },
+      "message": "Merge branch 'main' into openmdw-1.1",
+      "tree": {
+        "sha": "4a354af9a5c2aba2ef8480b81fcd53a9565efee9",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/4a354af9a5c2aba2ef8480b81fcd53a9565efee9"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/b16d70adfd253997f16746f99ad5cf52b754af95",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/b16d70adfd253997f16746f99ad5cf52b754af95",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/b16d70adfd253997f16746f99ad5cf52b754af95",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/b16d70adfd253997f16746f99ad5cf52b754af95/comments",
+    "author": {
+      "login": "swinslow",
+      "id": 678569,
+      "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swinslow",
+      "html_url": "https://github.com/swinslow",
+      "followers_url": "https://api.github.com/users/swinslow/followers",
+      "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+      "organizations_url": "https://api.github.com/users/swinslow/orgs",
+      "repos_url": "https://api.github.com/users/swinslow/repos",
+      "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swinslow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "swinslow",
+      "id": 678569,
+      "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swinslow",
+      "html_url": "https://github.com/swinslow",
+      "followers_url": "https://api.github.com/users/swinslow/followers",
+      "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+      "organizations_url": "https://api.github.com/users/swinslow/orgs",
+      "repos_url": "https://api.github.com/users/swinslow/repos",
+      "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swinslow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "9067ba54b2f84bc9e15a05734f570ec88e9f445d",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/9067ba54b2f84bc9e15a05734f570ec88e9f445d",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/9067ba54b2f84bc9e15a05734f570ec88e9f445d"
+      },
+      {
+        "sha": "69ac658d2c856a4fcc85091959b4ea5b0399007f",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/69ac658d2c856a4fcc85091959b4ea5b0399007f",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/69ac658d2c856a4fcc85091959b4ea5b0399007f"
+      }
+    ]
+  },
+  {
+    "sha": "9067ba54b2f84bc9e15a05734f570ec88e9f445d",
+    "node_id": "C_kwDOOcRxA9oAKDkwNjdiYTU0YjJmODRiYzllMTVhMDU3MzRmNTcwZWM4OGU5ZjQ0NWQ",
+    "commit": {
+      "author": {
+        "name": "Steve Winslow",
+        "email": "steve@swinslow.net",
+        "date": "2026-05-19T02:13:03Z"
+      },
+      "committer": {
+        "name": "Steve Winslow",
+        "email": "steve@swinslow.net",
+        "date": "2026-05-19T02:13:03Z"
+      },
+      "message": "Add OpenMDW-1.1 and make conforming updates\n\nSigned-off-by: Steve Winslow <steve@swinslow.net>",
+      "tree": {
+        "sha": "33dc14044bec02d0c0f7420320af4a25867bdb2c",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/33dc14044bec02d0c0f7420320af4a25867bdb2c"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/9067ba54b2f84bc9e15a05734f570ec88e9f445d",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/9067ba54b2f84bc9e15a05734f570ec88e9f445d",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/9067ba54b2f84bc9e15a05734f570ec88e9f445d",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/9067ba54b2f84bc9e15a05734f570ec88e9f445d/comments",
+    "author": {
+      "login": "swinslow",
+      "id": 678569,
+      "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swinslow",
+      "html_url": "https://github.com/swinslow",
+      "followers_url": "https://api.github.com/users/swinslow/followers",
+      "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+      "organizations_url": "https://api.github.com/users/swinslow/orgs",
+      "repos_url": "https://api.github.com/users/swinslow/repos",
+      "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swinslow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "swinslow",
+      "id": 678569,
+      "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swinslow",
+      "html_url": "https://github.com/swinslow",
+      "followers_url": "https://api.github.com/users/swinslow/followers",
+      "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+      "organizations_url": "https://api.github.com/users/swinslow/orgs",
+      "repos_url": "https://api.github.com/users/swinslow/repos",
+      "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swinslow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8071a7d2235d699dc39cb0d78d5280998647cfec",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/8071a7d2235d699dc39cb0d78d5280998647cfec",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/8071a7d2235d699dc39cb0d78d5280998647cfec"
+      }
+    ]
+  },
+  {
+    "sha": "69ac658d2c856a4fcc85091959b4ea5b0399007f",
+    "node_id": "C_kwDOOcRxA9oAKDY5YWM2NThkMmM4NTZhNGZjYzg1MDkxOTU5YjRlYTViMDM5OTAwN2Y",
+    "commit": {
+      "author": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2026-03-06T15:45:45Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-03-06T15:45:45Z"
+      },
+      "message": "Merge pull request #6 from swinslow/spdx-id\n\nUpdate FAQ question 12 for SPDX License List inclusion",
+      "tree": {
+        "sha": "152f523a3967a2b10d07c3092be058214adfbac1",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/152f523a3967a2b10d07c3092be058214adfbac1"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/69ac658d2c856a4fcc85091959b4ea5b0399007f",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpqvapCRC1aQ7uu5UhlAAAM5oQAI9deBes93zA1SDyTDfPxfhQ\nURO5tDhbX86u2DS4MWiBWjdthvc5+YDZF5JynBneJR3gGZnBICszeDgPpnlFF3vZ\nWbNSCCY/wzNBAMlbWJL4jayeqOMxqkBJkNOmjmwPha3Y7d+z6KKEyFARTUBwO4s5\nhep65WjrBcHgnTGxKxrIcuL35R+CHluSfSvWytJd7RcNUqe3BMJJt/+babgZk6Cg\nJPogS3/8n7HXD6uQRg2LXrs0gODoDaWX1+Ev26DxGXoHmVtlTGhUIIhhLxum7HB7\nUfobmPc/W5xbt6NyOQA7XKCQ2i70h5vdCUFwfV62vaqt6abn16TFHiyV2vw0hBEk\nv+OOp0GV5sowuC3p/DyQr09xLQYq6qonpkUXjQCYcVneVuDIBdbjmAxFqedJNGFR\nba+j/MoTDJL2dRUmmKmsAHAeBFp3pkwD0nZG7cozyPMgBWoEX2gwdR1QMtDRfJFs\nKoBiuuWHfx2siTGleLV74rFDiavdemoov/AHgHdHxAvSGvgSv/6zR3BOp9Fo5GmF\nhaTEr0+IlVWYP6COttGxkAI0IUAJV/4MRKVFE7YgNwj6xQt21GVACo4TG8DoE1sL\nklebMHhI+NgiYResHmmdQohbj3jbmovI7AoK3va0A5lUAImTG4UYRjEE//TaRI+o\nY3VZnjl/pn13wXnsyCSH\n=GES1\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 152f523a3967a2b10d07c3092be058214adfbac1\nparent 8071a7d2235d699dc39cb0d78d5280998647cfec\nparent 42fd2e1528b1297850310b3a5488c7e69fad78a3\nauthor Matt White <me@matt-white.com> 1772811945 -0700\ncommitter GitHub <noreply@github.com> 1772811945 -0700\n\nMerge pull request #6 from swinslow/spdx-id\n\nUpdate FAQ question 12 for SPDX License List inclusion",
+        "verified_at": "2026-03-06T15:45:47Z"
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/69ac658d2c856a4fcc85091959b4ea5b0399007f",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/69ac658d2c856a4fcc85091959b4ea5b0399007f",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/69ac658d2c856a4fcc85091959b4ea5b0399007f/comments",
+    "author": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8071a7d2235d699dc39cb0d78d5280998647cfec",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/8071a7d2235d699dc39cb0d78d5280998647cfec",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/8071a7d2235d699dc39cb0d78d5280998647cfec"
+      },
+      {
+        "sha": "42fd2e1528b1297850310b3a5488c7e69fad78a3",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/42fd2e1528b1297850310b3a5488c7e69fad78a3",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/42fd2e1528b1297850310b3a5488c7e69fad78a3"
+      }
+    ]
+  },
+  {
+    "sha": "42fd2e1528b1297850310b3a5488c7e69fad78a3",
+    "node_id": "C_kwDOOcRxA9oAKDQyZmQyZTE1MjhiMTI5Nzg1MDMxMGIzYTU0ODhjN2U2OWZhZDc4YTM",
+    "commit": {
+      "author": {
+        "name": "Steve Winslow",
+        "email": "steve@swinslow.net",
+        "date": "2026-02-25T20:01:46Z"
+      },
+      "committer": {
+        "name": "Steve Winslow",
+        "email": "steve@swinslow.net",
+        "date": "2026-02-25T20:01:46Z"
+      },
+      "message": "Update FAQ question 12 for SPDX License List inclusion\n\nSigned-off-by: Steve Winslow <steve@swinslow.net>",
+      "tree": {
+        "sha": "152f523a3967a2b10d07c3092be058214adfbac1",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/152f523a3967a2b10d07c3092be058214adfbac1"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/42fd2e1528b1297850310b3a5488c7e69fad78a3",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/42fd2e1528b1297850310b3a5488c7e69fad78a3",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/42fd2e1528b1297850310b3a5488c7e69fad78a3",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/42fd2e1528b1297850310b3a5488c7e69fad78a3/comments",
+    "author": {
+      "login": "swinslow",
+      "id": 678569,
+      "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swinslow",
+      "html_url": "https://github.com/swinslow",
+      "followers_url": "https://api.github.com/users/swinslow/followers",
+      "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+      "organizations_url": "https://api.github.com/users/swinslow/orgs",
+      "repos_url": "https://api.github.com/users/swinslow/repos",
+      "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swinslow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "swinslow",
+      "id": 678569,
+      "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swinslow",
+      "html_url": "https://github.com/swinslow",
+      "followers_url": "https://api.github.com/users/swinslow/followers",
+      "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+      "organizations_url": "https://api.github.com/users/swinslow/orgs",
+      "repos_url": "https://api.github.com/users/swinslow/repos",
+      "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swinslow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8071a7d2235d699dc39cb0d78d5280998647cfec",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/8071a7d2235d699dc39cb0d78d5280998647cfec",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/8071a7d2235d699dc39cb0d78d5280998647cfec"
+      }
+    ]
+  },
+  {
+    "sha": "8071a7d2235d699dc39cb0d78d5280998647cfec",
+    "node_id": "C_kwDOOcRxA9oAKDgwNzFhN2QyMjM1ZDY5OWRjMzljYjBkNzhkNTI4MDk5ODY0N2NmZWM",
+    "commit": {
+      "author": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-09-22T19:27:04Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-09-22T19:27:04Z"
+      },
+      "message": "Merge pull request #4 from anajsana/patch-1\n\nExpand FAQ (academic citation, derivative works, model card)",
+      "tree": {
+        "sha": "068446c8a3b5a4e066c43498487b7915ba6f6e81",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/068446c8a3b5a4e066c43498487b7915ba6f6e81"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/8071a7d2235d699dc39cb0d78d5280998647cfec",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJo0aMICRC1aQ7uu5UhlAAASrkQAKM4LK+1q7y6r3R+QD8Qk4Ai\ne7eZuvcU6H2q86ZrjBhLDG+HRSYT2JMhxstHy4XsGWbLLnppx4N+nhLcs8X8g0+E\n/edElpuH6Hqu3pnQu2eczeXc6etITx69ydsGp6YMVZ+ZuT1Y4DWZVIJlYbPRmsti\n8gWq1JvhlaHfHfNEvSOv++bebGopLd6W4+9Gf+5Tna0MHnBgGnTblZ/OmAWZ01tU\nRbx+mJe89fzl7un9EU4UQweJPcC1OR4FOLjFyo2rTe+/gGcBJTomNmTzbfV1LKu6\nyaRBscxVDj7D6FPd0EKtE6aVTgEikEUJsPxpKZ+EkYVj4awNUApfn3glpYqv6wqT\n3/lPfMXQ1Fhy95+f/KcTJNQQOgSdE3HDbbf2KDqpJUzsx5vlWdqXNS2sXnAFNoD3\nYYwse1bAZMB3x8mlO56PxMrwPv3iDE8gPtOiJ4RvQOuHqvCco6bV6w0GM7mDI4yD\ncFILa0k4GUKlzJotlpE1wSWrINeCQcGvB3FX4ruHbTYRSkovz0EALFQC0eEnKX2G\nitrEkivZPCecmRXEvLyMy3uZICSI/Y9Z58Ac8ErGngxRxjXrWNEbc1s8yLuHyI8b\n2RS269LQQAJ09x7Ju2dIumIDi6oyRkwkhXMkv08Lia8T+evQl5RnHeZ5AtHBPfR1\niIWscpA78XYbC0WrYKez\n=lkE7\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 068446c8a3b5a4e066c43498487b7915ba6f6e81\nparent eeb4ce11a80f1c42732b5c56f976174e6533ddb6\nparent e62823e078bdee7afcaf7780b80ff248043a12ed\nauthor Matt White <me@matt-white.com> 1758569224 -0600\ncommitter GitHub <noreply@github.com> 1758569224 -0600\n\nMerge pull request #4 from anajsana/patch-1\n\nExpand FAQ (academic citation, derivative works, model card)",
+        "verified_at": "2025-09-22T19:27:04Z"
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/8071a7d2235d699dc39cb0d78d5280998647cfec",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/8071a7d2235d699dc39cb0d78d5280998647cfec",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/8071a7d2235d699dc39cb0d78d5280998647cfec/comments",
+    "author": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "eeb4ce11a80f1c42732b5c56f976174e6533ddb6",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/eeb4ce11a80f1c42732b5c56f976174e6533ddb6",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/eeb4ce11a80f1c42732b5c56f976174e6533ddb6"
+      },
+      {
+        "sha": "e62823e078bdee7afcaf7780b80ff248043a12ed",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/e62823e078bdee7afcaf7780b80ff248043a12ed",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/e62823e078bdee7afcaf7780b80ff248043a12ed"
+      }
+    ]
+  },
+  {
+    "sha": "e62823e078bdee7afcaf7780b80ff248043a12ed",
+    "node_id": "C_kwDOOcRxA9oAKGU2MjgyM2UwNzhiZGVlN2FmY2FmNzc4MGI4MGZmMjQ4MDQzYTEyZWQ",
+    "commit": {
+      "author": {
+        "name": "Ana Jimenez Santamaria",
+        "email": "asantamaria@linuxfoundation.org",
+        "date": "2025-09-22T11:35:29Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-09-22T11:35:29Z"
+      },
+      "message": "correct answer on question 14",
+      "tree": {
+        "sha": "068446c8a3b5a4e066c43498487b7915ba6f6e81",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/068446c8a3b5a4e066c43498487b7915ba6f6e81"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/e62823e078bdee7afcaf7780b80ff248043a12ed",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJo0TSCCRC1aQ7uu5UhlAAAkUIQAKmGRItFD74ku7FYKnaEYzts\n2MxrdjDVj//oOsEWNno1iHAN5BEDk6Mfei1JPN4YaKqky1e8hxBzpqWNq+6m3L9D\nMgFIBejzgZMwxB38yw58zqu5y91PA7UhYU19ShAt3zNglGwTCGUHLRTj6iNROJ5+\nasZQNyDzTjZCl75VbC1jemQ+2SZg/+K/za0fAbGEhhk9UgN6WaqstjGVInDXvaPj\nbBKNC2bPvLjfmXoqtDh0+1kh0l4C0awVZqmGFVee2/4Zv2J1q70t0CyIzQqU/8Ea\nGRFP3ym4ZxLg19OJa6gyGCOGPNKsAAVT2W43Ve0kyoi7ihuQiue7CuO8q+/yqhTj\nMEAW++xahDu4K9AuZcKTi+EVc8q133SCrtbfe3ujk0F2Stor9GvwxT/cT6kFWtx5\nrLRBozlyi5Ux6uW3tHdMU2P8+7/YNeWawscYFWqBIE9vR8Wcj/WHHtWsDi8HomgZ\n2U5apmfEUpiYE25r7Ic2L+Rr3E8oKuWIHQW6XCyHyQtoS4ckZDqmft/0iFVZrBnr\nQoeLf1cYcjf/z6gkWHBpxzt4nTaKbDAGIDt8Sx5UFxEYVTT4PyxqO110ahfxMkHc\nrri7J0hmZZ0sxfeac9KZK1f8/ehLPQfyADUp2J0Dfn19LXvBgTJe8a9j5lDY+ItP\nOmuEoxSy8u/AAEEKssOR\n=LMJq\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 068446c8a3b5a4e066c43498487b7915ba6f6e81\nparent 45d30b9bd573cee7c4de1923eafa3ab3ad5290ed\nauthor Ana Jimenez Santamaria <asantamaria@linuxfoundation.org> 1758540929 +0200\ncommitter GitHub <noreply@github.com> 1758540929 +0200\n\ncorrect answer on question 14",
+        "verified_at": "2025-09-22T11:35:30Z"
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/e62823e078bdee7afcaf7780b80ff248043a12ed",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/e62823e078bdee7afcaf7780b80ff248043a12ed",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/e62823e078bdee7afcaf7780b80ff248043a12ed/comments",
+    "author": {
+      "login": "anajsana",
+      "id": 43671777,
+      "node_id": "MDQ6VXNlcjQzNjcxNzc3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/43671777?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/anajsana",
+      "html_url": "https://github.com/anajsana",
+      "followers_url": "https://api.github.com/users/anajsana/followers",
+      "following_url": "https://api.github.com/users/anajsana/following{/other_user}",
+      "gists_url": "https://api.github.com/users/anajsana/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/anajsana/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/anajsana/subscriptions",
+      "organizations_url": "https://api.github.com/users/anajsana/orgs",
+      "repos_url": "https://api.github.com/users/anajsana/repos",
+      "events_url": "https://api.github.com/users/anajsana/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/anajsana/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "45d30b9bd573cee7c4de1923eafa3ab3ad5290ed",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/45d30b9bd573cee7c4de1923eafa3ab3ad5290ed",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/45d30b9bd573cee7c4de1923eafa3ab3ad5290ed"
+      }
+    ]
+  },
+  {
+    "sha": "45d30b9bd573cee7c4de1923eafa3ab3ad5290ed",
+    "node_id": "C_kwDOOcRxA9oAKDQ1ZDMwYjliZDU3M2NlZTdjNGRlMTkyM2VhZmEzYWIzYWQ1MjkwZWQ",
+    "commit": {
+      "author": {
+        "name": "Ana Jimenez Santamaria",
+        "email": "asantamaria@linuxfoundation.org",
+        "date": "2025-09-17T09:50:24Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-09-17T09:50:24Z"
+      },
+      "message": "Expand FAQ (academic citation, derivative works, model card)\n\nThis PR adds three new FAQ entries (Q13–Q15) to address a few questions raised by academia and industry OSPOs. Changes introduced include:\r\n\r\n- Q13: guidance on how researchers can reference or cite models released under OpenMDW-1.0\r\n- Q14: expectations and recommendations for licensing fine-tuned or modified models.\r\n- Q15: Instructions for referencing OpenMDW-1.0 in model cards\r\n\r\nMotivation:\r\n\r\n- Help adoption in academic and open research contexts\r\n- Provide advice for researchers publishing models with model cards",
+      "tree": {
+        "sha": "821c2c61042ab9db7a70affe61329820deda57a5",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/821c2c61042ab9db7a70affe61329820deda57a5"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/45d30b9bd573cee7c4de1923eafa3ab3ad5290ed",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJoyoRgCRC1aQ7uu5UhlAAARYgQABr5P3P2UP/C9HRz6dd19IFG\nZuL+jx9sMcnQSzSV7M+7ls+thLBuvZRe2/I7DCimaeTjRibHwVTOX+/YP79/DEtR\nbSnosuwzv/WAMtnVvwmpV1CKASSblkH5n+6hqO6G0GdJ+iHWhEtnCIHvynVOT6IW\nFSRQmZQPtjG6wT7yWpm6wuq/Am/Au/iENM9Mw6Y/vQzbeoPadGkjEU8FukEdCGOG\nMNu2U/pbZwduiT78LrJzbamOCKyHMZLjPOKdOpqW9resq5/WdSPrtAnJEdqno0Uf\nM8Es1I6uRiFswqw6hN9A2cvyiRn4iSGdPZySd5Q1w1xnxW1XreTjl/88SFhkMpLp\nbJ7gMw1tas96PWSry0gN4k6DGHUrxMu3czUb013LLIb92HokjPGAO7wYY53MFw4q\nKu8K0SZ4DAwdYjq9+L/WWiLI3zvH7eChl7vrLgHuM5X+3Giaq6hzCfycylRspdbw\nR6Bq/3OXKVttyLS15o1D4mt/5uxhLN9L2hy//v0/j44nRmMs3iyGk/Va6o+lnHzT\ns1yYeN7TGHX5quvZpwtNALN/TFV/mZrR0LnScAuHtlYYsGrAf60/XFTFycbK40ls\nhpeRjbJt4FPWsZbtikLQHGDVBLhqMLlkgAZk82QdNF4RfcqhMXm31lsjta7HmjUR\nEpzEtykOHNvNr+TXITWX\n=ZNMS\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 821c2c61042ab9db7a70affe61329820deda57a5\nparent eeb4ce11a80f1c42732b5c56f976174e6533ddb6\nauthor Ana Jimenez Santamaria <asantamaria@linuxfoundation.org> 1758102624 +0200\ncommitter GitHub <noreply@github.com> 1758102624 +0200\n\nExpand FAQ (academic citation, derivative works, model card)\n\nThis PR adds three new FAQ entries (Q13–Q15) to address a few questions raised by academia and industry OSPOs. Changes introduced include:\r\n\r\n- Q13: guidance on how researchers can reference or cite models released under OpenMDW-1.0\r\n- Q14: expectations and recommendations for licensing fine-tuned or modified models.\r\n- Q15: Instructions for referencing OpenMDW-1.0 in model cards\r\n\r\nMotivation:\r\n\r\n- Help adoption in academic and open research contexts\r\n- Provide advice for researchers publishing models with model cards",
+        "verified_at": "2025-09-17T09:50:25Z"
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/45d30b9bd573cee7c4de1923eafa3ab3ad5290ed",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/45d30b9bd573cee7c4de1923eafa3ab3ad5290ed",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/45d30b9bd573cee7c4de1923eafa3ab3ad5290ed/comments",
+    "author": {
+      "login": "anajsana",
+      "id": 43671777,
+      "node_id": "MDQ6VXNlcjQzNjcxNzc3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/43671777?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/anajsana",
+      "html_url": "https://github.com/anajsana",
+      "followers_url": "https://api.github.com/users/anajsana/followers",
+      "following_url": "https://api.github.com/users/anajsana/following{/other_user}",
+      "gists_url": "https://api.github.com/users/anajsana/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/anajsana/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/anajsana/subscriptions",
+      "organizations_url": "https://api.github.com/users/anajsana/orgs",
+      "repos_url": "https://api.github.com/users/anajsana/repos",
+      "events_url": "https://api.github.com/users/anajsana/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/anajsana/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "eeb4ce11a80f1c42732b5c56f976174e6533ddb6",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/eeb4ce11a80f1c42732b5c56f976174e6533ddb6",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/eeb4ce11a80f1c42732b5c56f976174e6533ddb6"
+      }
+    ]
+  },
+  {
+    "sha": "eeb4ce11a80f1c42732b5c56f976174e6533ddb6",
+    "node_id": "C_kwDOOcRxA9oAKGVlYjRjZTExYTgwZjFjNDI3MzJiNWM1NmY5NzYxNzRlNjUzM2RkYjY",
+    "commit": {
+      "author": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-06-19T22:56:57Z"
+      },
+      "committer": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-06-19T22:56:57Z"
+      },
+      "message": "Update README.md",
+      "tree": {
+        "sha": "2c782548a2d75b71a9d657810e98d8f38c2fe3a6",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/2c782548a2d75b71a9d657810e98d8f38c2fe3a6"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/eeb4ce11a80f1c42732b5c56f976174e6533ddb6",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/eeb4ce11a80f1c42732b5c56f976174e6533ddb6",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/eeb4ce11a80f1c42732b5c56f976174e6533ddb6",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/eeb4ce11a80f1c42732b5c56f976174e6533ddb6/comments",
+    "author": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "62e6bdcf2d836ec7ea4fa5f291b9080cf963e690",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/62e6bdcf2d836ec7ea4fa5f291b9080cf963e690",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/62e6bdcf2d836ec7ea4fa5f291b9080cf963e690"
+      }
+    ]
+  },
+  {
+    "sha": "62e6bdcf2d836ec7ea4fa5f291b9080cf963e690",
+    "node_id": "C_kwDOOcRxA9oAKDYyZTZiZGNmMmQ4MzZlYzdlYTRmYTVmMjkxYjkwODBjZjk2M2U2OTA",
+    "commit": {
+      "author": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-05-04T08:24:14Z"
+      },
+      "committer": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-05-04T08:24:14Z"
+      },
+      "message": "Update README.md",
+      "tree": {
+        "sha": "1e50b215a3d10a6fed54581aad08aeebc9529d72",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/1e50b215a3d10a6fed54581aad08aeebc9529d72"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/62e6bdcf2d836ec7ea4fa5f291b9080cf963e690",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/62e6bdcf2d836ec7ea4fa5f291b9080cf963e690",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/62e6bdcf2d836ec7ea4fa5f291b9080cf963e690",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/62e6bdcf2d836ec7ea4fa5f291b9080cf963e690/comments",
+    "author": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "cf40d804ca77dbbdf1683d94b6679cbe0b09e380",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/cf40d804ca77dbbdf1683d94b6679cbe0b09e380",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/cf40d804ca77dbbdf1683d94b6679cbe0b09e380"
+      }
+    ]
+  },
+  {
+    "sha": "cf40d804ca77dbbdf1683d94b6679cbe0b09e380",
+    "node_id": "C_kwDOOcRxA9oAKGNmNDBkODA0Y2E3N2RiYmRmMTY4M2Q5NGI2Njc5Y2JlMGIwOWUzODA",
+    "commit": {
+      "author": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-27T21:27:39Z"
+      },
+      "committer": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-27T21:27:39Z"
+      },
+      "message": "Update README.md",
+      "tree": {
+        "sha": "e36c6d46bfdd4f641e412ef4e20a118950b5e7c0",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/e36c6d46bfdd4f641e412ef4e20a118950b5e7c0"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/cf40d804ca77dbbdf1683d94b6679cbe0b09e380",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/cf40d804ca77dbbdf1683d94b6679cbe0b09e380",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/cf40d804ca77dbbdf1683d94b6679cbe0b09e380",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/cf40d804ca77dbbdf1683d94b6679cbe0b09e380/comments",
+    "author": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "23b8ed85a2cffc05103d83a1861bdd1b72734f3d",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/23b8ed85a2cffc05103d83a1861bdd1b72734f3d",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/23b8ed85a2cffc05103d83a1861bdd1b72734f3d"
+      }
+    ]
+  },
+  {
+    "sha": "23b8ed85a2cffc05103d83a1861bdd1b72734f3d",
+    "node_id": "C_kwDOOcRxA9oAKDIzYjhlZDg1YTJjZmZjMDUxMDNkODNhMTg2MWJkZDFiNzI3MzRmM2Q",
+    "commit": {
+      "author": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-27T16:54:37Z"
+      },
+      "committer": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-27T16:54:37Z"
+      },
+      "message": "Update README.md",
+      "tree": {
+        "sha": "c31af395d4f039ae0a836db52bb30cb1930dcc12",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/c31af395d4f039ae0a836db52bb30cb1930dcc12"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/23b8ed85a2cffc05103d83a1861bdd1b72734f3d",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/23b8ed85a2cffc05103d83a1861bdd1b72734f3d",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/23b8ed85a2cffc05103d83a1861bdd1b72734f3d",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/23b8ed85a2cffc05103d83a1861bdd1b72734f3d/comments",
+    "author": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "052265cefe032f6ba1b827f00077ef5cf7209f6b",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/052265cefe032f6ba1b827f00077ef5cf7209f6b",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/052265cefe032f6ba1b827f00077ef5cf7209f6b"
+      }
+    ]
+  },
+  {
+    "sha": "052265cefe032f6ba1b827f00077ef5cf7209f6b",
+    "node_id": "C_kwDOOcRxA9oAKDA1MjI2NWNlZmUwMzJmNmJhMWI4MjdmMDAwNzdlZjVjZjcyMDlmNmI",
+    "commit": {
+      "author": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-25T18:12:28Z"
+      },
+      "committer": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-25T18:12:28Z"
+      },
+      "message": "Update README.md",
+      "tree": {
+        "sha": "c02d7babe977f63f18e02eb7d63fc7e879d2cfbe",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/c02d7babe977f63f18e02eb7d63fc7e879d2cfbe"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/052265cefe032f6ba1b827f00077ef5cf7209f6b",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/052265cefe032f6ba1b827f00077ef5cf7209f6b",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/052265cefe032f6ba1b827f00077ef5cf7209f6b",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/052265cefe032f6ba1b827f00077ef5cf7209f6b/comments",
+    "author": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8422615828e19a13ee527a9171792bca36dd19c9",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/8422615828e19a13ee527a9171792bca36dd19c9",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/8422615828e19a13ee527a9171792bca36dd19c9"
+      }
+    ]
+  },
+  {
+    "sha": "8422615828e19a13ee527a9171792bca36dd19c9",
+    "node_id": "C_kwDOOcRxA9oAKDg0MjI2MTU4MjhlMTlhMTNlZTUyN2E5MTcxNzkyYmNhMzZkZDE5Yzk",
+    "commit": {
+      "author": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-25T18:10:22Z"
+      },
+      "committer": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-25T18:10:22Z"
+      },
+      "message": "Update README.md",
+      "tree": {
+        "sha": "d499e0632439e2c7412ab05adf7e2ae71752451d",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/d499e0632439e2c7412ab05adf7e2ae71752451d"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/8422615828e19a13ee527a9171792bca36dd19c9",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/8422615828e19a13ee527a9171792bca36dd19c9",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/8422615828e19a13ee527a9171792bca36dd19c9",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/8422615828e19a13ee527a9171792bca36dd19c9/comments",
+    "author": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "9a40360b341256615caab51bec62317a1c058a29",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/9a40360b341256615caab51bec62317a1c058a29",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/9a40360b341256615caab51bec62317a1c058a29"
+      }
+    ]
+  },
+  {
+    "sha": "9a40360b341256615caab51bec62317a1c058a29",
+    "node_id": "C_kwDOOcRxA9oAKDlhNDAzNjBiMzQxMjU2NjE1Y2FhYjUxYmVjNjIzMTdhMWMwNThhMjk",
+    "commit": {
+      "author": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-25T18:08:20Z"
+      },
+      "committer": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-25T18:08:20Z"
+      },
+      "message": "Merge branch 'main' of https://github.com/OpenMDW/openmdw",
+      "tree": {
+        "sha": "d22119c5bd5ec2e5b903132f988135e9ca551553",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/d22119c5bd5ec2e5b903132f988135e9ca551553"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/9a40360b341256615caab51bec62317a1c058a29",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/9a40360b341256615caab51bec62317a1c058a29",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/9a40360b341256615caab51bec62317a1c058a29",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/9a40360b341256615caab51bec62317a1c058a29/comments",
+    "author": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "25f29a6cfe7773d882c98191322bc228d9b02731",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/25f29a6cfe7773d882c98191322bc228d9b02731",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/25f29a6cfe7773d882c98191322bc228d9b02731"
+      },
+      {
+        "sha": "a1b9f5d712c281d2941b723a47b0e586eabd6ba5",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/a1b9f5d712c281d2941b723a47b0e586eabd6ba5",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/a1b9f5d712c281d2941b723a47b0e586eabd6ba5"
+      }
+    ]
+  },
+  {
+    "sha": "25f29a6cfe7773d882c98191322bc228d9b02731",
+    "node_id": "C_kwDOOcRxA9oAKDI1ZjI5YTZjZmU3NzczZDg4MmM5ODE5MTMyMmJjMjI4ZDliMDI3MzE",
+    "commit": {
+      "author": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-25T18:05:15Z"
+      },
+      "committer": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-25T18:05:15Z"
+      },
+      "message": "added logo\n\nadded logo",
+      "tree": {
+        "sha": "b92f8a97ce1833cf225be26aa724a05a247afd3b",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/b92f8a97ce1833cf225be26aa724a05a247afd3b"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/25f29a6cfe7773d882c98191322bc228d9b02731",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/25f29a6cfe7773d882c98191322bc228d9b02731",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/25f29a6cfe7773d882c98191322bc228d9b02731",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/25f29a6cfe7773d882c98191322bc228d9b02731/comments",
+    "author": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "6a215f69dff0ba5b26c370ee0fbcd5623c4440d3",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/6a215f69dff0ba5b26c370ee0fbcd5623c4440d3",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/6a215f69dff0ba5b26c370ee0fbcd5623c4440d3"
+      }
+    ]
+  },
+  {
+    "sha": "a1b9f5d712c281d2941b723a47b0e586eabd6ba5",
+    "node_id": "C_kwDOOcRxA9oAKGExYjlmNWQ3MTJjMjgxZDI5NDFiNzIzYTQ3YjBlNTg2ZWFiZDZiYTU",
+    "commit": {
+      "author": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-24T00:03:44Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-04-24T00:03:44Z"
+      },
+      "message": "Merge pull request #2 from swinslow/edits\n\nAdd FAQ and license for docs",
+      "tree": {
+        "sha": "67d612840efb1c1132889d5f860a68a3adec92aa",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/67d612840efb1c1132889d5f860a68a3adec92aa"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/a1b9f5d712c281d2941b723a47b0e586eabd6ba5",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJoCX/gCRC1aQ7uu5UhlAAAid0QAJJ+bmAuS/+SOeHkLFi2T/V+\nnP1WOGqo+Ypt+Aamnr79LRop8KFa5wNSNXVtp7q/5qslL8jY6NzGRV3uaSKwwDHK\nNsW1XLP1MeOfLimp1clKjOHfAa4lJloHulxKbaXtHzShmN8zD8bJfUTrUwBePEl/\ncrYf7QHYkGnbymiG/eAy/4xfSI7RTB1sfSDNBoIS+WMpD/xdF2izZ8CVwLXVcScI\ncBLELsSUugAs4q1xOxKNdXwM1YJ6wEVeifskCjYd/H8FhzGxXyN7gA46ldpz8Wcg\n4sG5u9/Z8lMWoa3LB1eS8UQCqZHrFz6NeN34gWsYqaCddTPcBKIb4qXeAZWm051V\naXGiH6Tn/EVyjUay7sf4Wxhp/Zu/LpsWU1oysXIt/Bgv+AhjXpK5N+z5I6/v/s7S\nK6hk+dv2DDJQBtLx1OOTzaGK6FkA7MhgjNU2AN4nzVzmzmEeheEYXVkXXaNt2YTx\nXXK2yye4kZEr5dUsmc+oJU7cvHWrvQ4U4z35p2Cg9XfAxrOUGgBO/coMe1SkK/dX\nXn8rj6nlmm4UWaCurDWKSmxelA/SUM32v235vl5x2TYpiIXMWVwl8S5rlKeLxWWJ\ngroSpoRXdfesjchosB+NBRDdeI5hPAPMf62446Xo+++AucsMHtQI8/UOXVJVdE/m\naWOjG15ZI2Lgby633dJg\n=iGjx\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 67d612840efb1c1132889d5f860a68a3adec92aa\nparent 1faf50c9d3b291fab1ed57bd7f691e1daf320be7\nparent adf997dd0e889dd6f382fcc6952c263f18572b33\nauthor Matt White <me@matt-white.com> 1745453024 -0600\ncommitter GitHub <noreply@github.com> 1745453024 -0600\n\nMerge pull request #2 from swinslow/edits\n\nAdd FAQ and license for docs",
+        "verified_at": "2025-04-24T00:08:47Z"
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/a1b9f5d712c281d2941b723a47b0e586eabd6ba5",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/a1b9f5d712c281d2941b723a47b0e586eabd6ba5",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/a1b9f5d712c281d2941b723a47b0e586eabd6ba5/comments",
+    "author": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1faf50c9d3b291fab1ed57bd7f691e1daf320be7",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/1faf50c9d3b291fab1ed57bd7f691e1daf320be7",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/1faf50c9d3b291fab1ed57bd7f691e1daf320be7"
+      },
+      {
+        "sha": "adf997dd0e889dd6f382fcc6952c263f18572b33",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/adf997dd0e889dd6f382fcc6952c263f18572b33",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/adf997dd0e889dd6f382fcc6952c263f18572b33"
+      }
+    ]
+  },
+  {
+    "sha": "adf997dd0e889dd6f382fcc6952c263f18572b33",
+    "node_id": "C_kwDOOcRxA9oAKGFkZjk5N2RkMGU4ODlkZDZmMzgyZmNjNjk1MmMyNjNmMTg1NzJiMzM",
+    "commit": {
+      "author": {
+        "name": "Steve Winslow",
+        "email": "steve@swinslow.net",
+        "date": "2025-04-23T22:06:09Z"
+      },
+      "committer": {
+        "name": "Steve Winslow",
+        "email": "steve@swinslow.net",
+        "date": "2025-04-23T22:06:09Z"
+      },
+      "message": "Minor edits to FAQ formatting\n\nSigned-off-by: Steve Winslow <steve@swinslow.net>",
+      "tree": {
+        "sha": "67d612840efb1c1132889d5f860a68a3adec92aa",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/67d612840efb1c1132889d5f860a68a3adec92aa"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/adf997dd0e889dd6f382fcc6952c263f18572b33",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/adf997dd0e889dd6f382fcc6952c263f18572b33",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/adf997dd0e889dd6f382fcc6952c263f18572b33",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/adf997dd0e889dd6f382fcc6952c263f18572b33/comments",
+    "author": {
+      "login": "swinslow",
+      "id": 678569,
+      "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swinslow",
+      "html_url": "https://github.com/swinslow",
+      "followers_url": "https://api.github.com/users/swinslow/followers",
+      "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+      "organizations_url": "https://api.github.com/users/swinslow/orgs",
+      "repos_url": "https://api.github.com/users/swinslow/repos",
+      "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swinslow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "swinslow",
+      "id": 678569,
+      "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swinslow",
+      "html_url": "https://github.com/swinslow",
+      "followers_url": "https://api.github.com/users/swinslow/followers",
+      "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+      "organizations_url": "https://api.github.com/users/swinslow/orgs",
+      "repos_url": "https://api.github.com/users/swinslow/repos",
+      "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swinslow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "96d94a4a3c5cac30aa7f38b95724f2ea5a401c1d",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/96d94a4a3c5cac30aa7f38b95724f2ea5a401c1d",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/96d94a4a3c5cac30aa7f38b95724f2ea5a401c1d"
+      }
+    ]
+  },
+  {
+    "sha": "96d94a4a3c5cac30aa7f38b95724f2ea5a401c1d",
+    "node_id": "C_kwDOOcRxA9oAKDk2ZDk0YTRhM2M1Y2FjMzBhYTdmMzhiOTU3MjRmMmVhNWE0MDFjMWQ",
+    "commit": {
+      "author": {
+        "name": "Steve Winslow",
+        "email": "steve@swinslow.net",
+        "date": "2025-04-23T22:03:10Z"
+      },
+      "committer": {
+        "name": "Steve Winslow",
+        "email": "steve@swinslow.net",
+        "date": "2025-04-23T22:03:10Z"
+      },
+      "message": "Add FAQ and license for docs\n\nSigned-off-by: Steve Winslow <steve@swinslow.net>",
+      "tree": {
+        "sha": "52ff9defac7443ee3efb9194ee5286e5c48150d4",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/52ff9defac7443ee3efb9194ee5286e5c48150d4"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/96d94a4a3c5cac30aa7f38b95724f2ea5a401c1d",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/96d94a4a3c5cac30aa7f38b95724f2ea5a401c1d",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/96d94a4a3c5cac30aa7f38b95724f2ea5a401c1d",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/96d94a4a3c5cac30aa7f38b95724f2ea5a401c1d/comments",
+    "author": {
+      "login": "swinslow",
+      "id": 678569,
+      "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swinslow",
+      "html_url": "https://github.com/swinslow",
+      "followers_url": "https://api.github.com/users/swinslow/followers",
+      "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+      "organizations_url": "https://api.github.com/users/swinslow/orgs",
+      "repos_url": "https://api.github.com/users/swinslow/repos",
+      "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swinslow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "swinslow",
+      "id": 678569,
+      "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swinslow",
+      "html_url": "https://github.com/swinslow",
+      "followers_url": "https://api.github.com/users/swinslow/followers",
+      "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+      "organizations_url": "https://api.github.com/users/swinslow/orgs",
+      "repos_url": "https://api.github.com/users/swinslow/repos",
+      "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swinslow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "4aa435d6aba6938d510395a833346777c4a6bb91",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/4aa435d6aba6938d510395a833346777c4a6bb91",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/4aa435d6aba6938d510395a833346777c4a6bb91"
+      }
+    ]
+  },
+  {
+    "sha": "1faf50c9d3b291fab1ed57bd7f691e1daf320be7",
+    "node_id": "C_kwDOOcRxA9oAKDFmYWY1MGM5ZDNiMjkxZmFiMWVkNTdiZDdmNjkxZTFkYWYzMjBiZTc",
+    "commit": {
+      "author": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-23T19:36:40Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-04-23T19:36:40Z"
+      },
+      "message": "Merge pull request #1 from swinslow/edits\n\nCleanup edits and reference FAQ",
+      "tree": {
+        "sha": "542a095681eb9a8e0f30d9c0b11b849a81b86f2c",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/542a095681eb9a8e0f30d9c0b11b849a81b86f2c"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/1faf50c9d3b291fab1ed57bd7f691e1daf320be7",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJoCUFICRC1aQ7uu5UhlAAAG+cQAJOyt8iRlQmeIGHQssKDiccx\n6E38g5GMLTFn6Lhl+yMOxLtTpaYy7m357vXdrqMqyC9XgvkEykr2M8PDvoAN6/bb\no5L6ogbzlEUAG0iKkTSWxOKMs+z3TBPMEqiwRcLZ+53zlfkr7gC1AW0a9IiwT2Zn\nNQGcz1dzjY5h4WTX27TWJOVauKrUr/83m6/8nRrHPpBchPHEMtoM6A50rgyPtW0+\ni7D94RCvP4RCWxe/IJbJIAlxeAS7Je6mZ7Pc70B7KyqG7L/KL4809UGhLN2KPw3e\nIKv7BCa8xFuVACGpPNdLO7OZs3daL7w9uVBkvqprEskUQgOZJycdjgUtskgmAK00\nbpQtQL/nL3lTFSkKgadq3WJVwst1Ngh8R1U1KxdalH9Eu6Ftn5fZKIZXZIVxJtgv\nNoeBVC+4D90sCWi7cCrR3A+COb2qpe4JUANnnb+/simHNZuucejMG1XFyXspF1NS\n3M/oN+mHl3E4ZRQsVThVlWx9XZzW578lf8vLSdnYrZJb/Hv8YmeJf4ZvYiHgX89U\nPlSXdTK7G+gpPeybUbiUwLggM24P5rghS3faVGBurj7YI6yVdxeSDL4W8TIsDo6F\nSoSPI7U5uow0OdbnWZcXHd52Aakdkb7oqtyDchXUDCm4KMMVZgXr5GynyiaTLJlI\ntmhsdt5uLOvmH4grmqus\n=xWhG\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 542a095681eb9a8e0f30d9c0b11b849a81b86f2c\nparent 6a215f69dff0ba5b26c370ee0fbcd5623c4440d3\nparent 4aa435d6aba6938d510395a833346777c4a6bb91\nauthor Matt White <me@matt-white.com> 1745437000 -0600\ncommitter GitHub <noreply@github.com> 1745437000 -0600\n\nMerge pull request #1 from swinslow/edits\n\nCleanup edits and reference FAQ",
+        "verified_at": "2025-04-23T19:41:44Z"
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/1faf50c9d3b291fab1ed57bd7f691e1daf320be7",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/1faf50c9d3b291fab1ed57bd7f691e1daf320be7",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/1faf50c9d3b291fab1ed57bd7f691e1daf320be7/comments",
+    "author": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "6a215f69dff0ba5b26c370ee0fbcd5623c4440d3",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/6a215f69dff0ba5b26c370ee0fbcd5623c4440d3",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/6a215f69dff0ba5b26c370ee0fbcd5623c4440d3"
+      },
+      {
+        "sha": "4aa435d6aba6938d510395a833346777c4a6bb91",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/4aa435d6aba6938d510395a833346777c4a6bb91",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/4aa435d6aba6938d510395a833346777c4a6bb91"
+      }
+    ]
+  },
+  {
+    "sha": "4aa435d6aba6938d510395a833346777c4a6bb91",
+    "node_id": "C_kwDOOcRxA9oAKDRhYTQzNWQ2YWJhNjkzOGQ1MTAzOTVhODMzMzQ2Nzc3YzRhNmJiOTE",
+    "commit": {
+      "author": {
+        "name": "Steve Winslow",
+        "email": "steve@swinslow.net",
+        "date": "2025-04-23T19:03:17Z"
+      },
+      "committer": {
+        "name": "Steve Winslow",
+        "email": "steve@swinslow.net",
+        "date": "2025-04-23T19:03:17Z"
+      },
+      "message": "Word wrap at 80 chars\n\nSigned-off-by: Steve Winslow <steve@swinslow.net>",
+      "tree": {
+        "sha": "542a095681eb9a8e0f30d9c0b11b849a81b86f2c",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/542a095681eb9a8e0f30d9c0b11b849a81b86f2c"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/4aa435d6aba6938d510395a833346777c4a6bb91",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/4aa435d6aba6938d510395a833346777c4a6bb91",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/4aa435d6aba6938d510395a833346777c4a6bb91",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/4aa435d6aba6938d510395a833346777c4a6bb91/comments",
+    "author": {
+      "login": "swinslow",
+      "id": 678569,
+      "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swinslow",
+      "html_url": "https://github.com/swinslow",
+      "followers_url": "https://api.github.com/users/swinslow/followers",
+      "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+      "organizations_url": "https://api.github.com/users/swinslow/orgs",
+      "repos_url": "https://api.github.com/users/swinslow/repos",
+      "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swinslow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "swinslow",
+      "id": 678569,
+      "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swinslow",
+      "html_url": "https://github.com/swinslow",
+      "followers_url": "https://api.github.com/users/swinslow/followers",
+      "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+      "organizations_url": "https://api.github.com/users/swinslow/orgs",
+      "repos_url": "https://api.github.com/users/swinslow/repos",
+      "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swinslow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d8ae48c5961bbb89fc1d929f9469a89deff9c3df",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/d8ae48c5961bbb89fc1d929f9469a89deff9c3df",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/d8ae48c5961bbb89fc1d929f9469a89deff9c3df"
+      }
+    ]
+  },
+  {
+    "sha": "d8ae48c5961bbb89fc1d929f9469a89deff9c3df",
+    "node_id": "C_kwDOOcRxA9oAKGQ4YWU0OGM1OTYxYmJiODlmYzFkOTI5Zjk0NjlhODlkZWZmOWMzZGY",
+    "commit": {
+      "author": {
+        "name": "Steve Winslow",
+        "email": "steve@swinslow.net",
+        "date": "2025-04-23T19:00:42Z"
+      },
+      "committer": {
+        "name": "Steve Winslow",
+        "email": "steve@swinslow.net",
+        "date": "2025-04-23T19:00:42Z"
+      },
+      "message": "Edits to README and removing unneeded files\n\nSigned-off-by: Steve Winslow <steve@swinslow.net>",
+      "tree": {
+        "sha": "3fb4e36f1e2ae5a490cf650703c35e66f6497503",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/3fb4e36f1e2ae5a490cf650703c35e66f6497503"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/d8ae48c5961bbb89fc1d929f9469a89deff9c3df",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/d8ae48c5961bbb89fc1d929f9469a89deff9c3df",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/d8ae48c5961bbb89fc1d929f9469a89deff9c3df",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/d8ae48c5961bbb89fc1d929f9469a89deff9c3df/comments",
+    "author": {
+      "login": "swinslow",
+      "id": 678569,
+      "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swinslow",
+      "html_url": "https://github.com/swinslow",
+      "followers_url": "https://api.github.com/users/swinslow/followers",
+      "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+      "organizations_url": "https://api.github.com/users/swinslow/orgs",
+      "repos_url": "https://api.github.com/users/swinslow/repos",
+      "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swinslow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "swinslow",
+      "id": 678569,
+      "node_id": "MDQ6VXNlcjY3ODU2OQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/678569?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swinslow",
+      "html_url": "https://github.com/swinslow",
+      "followers_url": "https://api.github.com/users/swinslow/followers",
+      "following_url": "https://api.github.com/users/swinslow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swinslow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swinslow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swinslow/subscriptions",
+      "organizations_url": "https://api.github.com/users/swinslow/orgs",
+      "repos_url": "https://api.github.com/users/swinslow/repos",
+      "events_url": "https://api.github.com/users/swinslow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swinslow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "6a215f69dff0ba5b26c370ee0fbcd5623c4440d3",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/6a215f69dff0ba5b26c370ee0fbcd5623c4440d3",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/6a215f69dff0ba5b26c370ee0fbcd5623c4440d3"
+      }
+    ]
+  },
+  {
+    "sha": "6a215f69dff0ba5b26c370ee0fbcd5623c4440d3",
+    "node_id": "C_kwDOOcRxA9oAKDZhMjE1ZjY5ZGZmMGJhNWIyNmMzNzBlZTBmYmNkNTYyM2M0NDQwZDM",
+    "commit": {
+      "author": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-20T16:32:06Z"
+      },
+      "committer": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-20T16:32:06Z"
+      },
+      "message": "Update README.md",
+      "tree": {
+        "sha": "5b8ca74b1975bc644208e818a310a386ee15c960",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/5b8ca74b1975bc644208e818a310a386ee15c960"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/6a215f69dff0ba5b26c370ee0fbcd5623c4440d3",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/6a215f69dff0ba5b26c370ee0fbcd5623c4440d3",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/6a215f69dff0ba5b26c370ee0fbcd5623c4440d3",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/6a215f69dff0ba5b26c370ee0fbcd5623c4440d3/comments",
+    "author": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "3f87c73c3362149fbe041c7db44272f18e1f7dd9",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/3f87c73c3362149fbe041c7db44272f18e1f7dd9",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/3f87c73c3362149fbe041c7db44272f18e1f7dd9"
+      }
+    ]
+  },
+  {
+    "sha": "3f87c73c3362149fbe041c7db44272f18e1f7dd9",
+    "node_id": "C_kwDOOcRxA9oAKDNmODdjNzNjMzM2MjE0OWZiZTA0MWM3ZGI0NDI3MmYxOGUxZjdkZDk",
+    "commit": {
+      "author": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-19T15:47:43Z"
+      },
+      "committer": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-19T15:47:43Z"
+      },
+      "message": "initial commit for license and readme\n\ninitial commit for OpenMDW license and README files.",
+      "tree": {
+        "sha": "827f3d92d5fe4dd5cbc3b85becae266d39f56eeb",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/827f3d92d5fe4dd5cbc3b85becae266d39f56eeb"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/3f87c73c3362149fbe041c7db44272f18e1f7dd9",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/3f87c73c3362149fbe041c7db44272f18e1f7dd9",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/3f87c73c3362149fbe041c7db44272f18e1f7dd9",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/3f87c73c3362149fbe041c7db44272f18e1f7dd9/comments",
+    "author": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8ab57046cdbd4950474ce2e7ea53aa261d406794",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/8ab57046cdbd4950474ce2e7ea53aa261d406794",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/8ab57046cdbd4950474ce2e7ea53aa261d406794"
+      }
+    ]
+  },
+  {
+    "sha": "8ab57046cdbd4950474ce2e7ea53aa261d406794",
+    "node_id": "C_kwDOOcRxA9oAKDhhYjU3MDQ2Y2RiZDQ5NTA0NzRjZTJlN2VhNTNhYTI2MWQ0MDY3OTQ",
+    "commit": {
+      "author": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-19T15:06:51Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-04-19T15:06:51Z"
+      },
+      "message": "Update LICENSE\n\nset repo to CC-BY-ND 4.0",
+      "tree": {
+        "sha": "d1cf24a4a1d79caf3ae39e42ae455ab1361b2caa",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/d1cf24a4a1d79caf3ae39e42ae455ab1361b2caa"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/8ab57046cdbd4950474ce2e7ea53aa261d406794",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJoA7wMCRC1aQ7uu5UhlAAAWAsQAFQj0hC2blCsnf/dA2KyBCZR\ncluo3snIZ4Kp/mL0UIy8kxfF115VkDFA5Sx1azmHTobRMQJT59iV43a4Qp8M/Umm\nrR6FwklXwWPLRCNko3mSt38l2WnLV7IOAMRmaNpPd/Fn66sSjHlotUa0mQokOhz9\nSSX+keuV2w1Axbxs72WejZynF9TBLCqW+O8W5blzsNM6lhYcAmkbeB0XrjLbzGdd\n6Au4FN3GcNKzgNncptQ4wSkLZ7NNi+o1Xl8iDB+eAOohMC2SGnKBkdsofyrJcLeE\n2JzAsYx+auAANWMyT2/BMs9jzae/k/99u92KkRTyc+O5DO7Rdu+/GEPa2U7VlNSt\nCsMdWKdxBVL2bxCsphyR96jYiZ0zbS5tjZNudOZ2vLZvByywVynlCHBazG+b03/9\nxL3o2SMMtmI6L955nPRLLeKS2hXBIkQwaBzg0ZE5ZPnwbsbjgo6jh6Sj37hyltw/\nQG5t22/SOAiiTm569SRoaaLaGoEGfou/tkpw+cUWs6mKY1uWjzf4f0Ckx7Ak9YTw\nmKSf1hPbiDfXrXtc37Ac76mcWXzbllYvrt5IZ0FmzMNek6s5o46lLkGobgZRAx/f\ngpr0DMGw7u+yc2c3/JPSeiLzLQA8kn1cmjv+qugJ/S6uW5WwHVMq3fXpx08PYan8\nZPpA1fgbD8OZMGniXIyn\n=NrOj\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d1cf24a4a1d79caf3ae39e42ae455ab1361b2caa\nparent 3cc35d34ca4183a00bf67cc66db1db503aff59c9\nauthor Matt White <me@matt-white.com> 1745075211 -0600\ncommitter GitHub <noreply@github.com> 1745075211 -0600\n\nUpdate LICENSE\n\nset repo to CC-BY-ND 4.0",
+        "verified_at": "2025-04-19T15:07:09Z"
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/8ab57046cdbd4950474ce2e7ea53aa261d406794",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/8ab57046cdbd4950474ce2e7ea53aa261d406794",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/8ab57046cdbd4950474ce2e7ea53aa261d406794/comments",
+    "author": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "3cc35d34ca4183a00bf67cc66db1db503aff59c9",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/3cc35d34ca4183a00bf67cc66db1db503aff59c9",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/3cc35d34ca4183a00bf67cc66db1db503aff59c9"
+      }
+    ]
+  },
+  {
+    "sha": "3cc35d34ca4183a00bf67cc66db1db503aff59c9",
+    "node_id": "C_kwDOOcRxA9oAKDNjYzM1ZDM0Y2E0MTgzYTAwYmY2N2NjNjZkYjFkYjUwM2FmZjU5Yzk",
+    "commit": {
+      "author": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-19T15:03:19Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-04-19T15:03:19Z"
+      },
+      "message": "Update LICENSE\n\nadd initial license text",
+      "tree": {
+        "sha": "01dca219198d817751ddbfbc9c6bb5aa87c58c1a",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/01dca219198d817751ddbfbc9c6bb5aa87c58c1a"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/3cc35d34ca4183a00bf67cc66db1db503aff59c9",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJoA7s3CRC1aQ7uu5UhlAAAYlMQAB5B6erYTsXqjtrLW3le/Uwo\ndrurXh3IoLqEFhltKEjWNv9HyJYQFAj/m0bPNrznQZeTWu/roHdbEuBUS83qf868\nxIkSquFRavn+vD9YsBKkBgj6YxJNXnBrSvXYU60iarZa9/B074/gyvJF1rygLHlO\n7pzu5ycClv7Mc00ssPsGZxlOTaIoagXkFkDGgPR68wJxtct8RQHYqC6H4Mo8zVXq\nvRqnnbAae06cF6bs0rtPR4q5fH4Vcf8Ob1n0dt3gaOyM3oBLxRQNkBqCK8Pnenm2\nc7BeJOdDLFRFC9QvU5n6JtgifPq76Uek4Mx+KGVdaCJhujqTA7NZHg7CmAJzSRm1\nhSXw5D3/KufUPtaH+eK7DHFqiIHDypJUmOANlfg6eYp288kLrBcZaDeO21FQT0Ms\nX42Ddrvrd267WfqFGCWxaGhsby1bJOAR6xp+5e+omYRFB7t7nlQo4ukudk7z0888\ntUMcUHrkzReV4HB4jrdigjBN/BF35VB5fuR12wZg/hdu1CQGlWrspudDqLF+XVBd\nk4QMS16y7Rq23HY56tW1syHD/Pkmck0NIVaMF9QPw6XdAdSjEOntS9MHMjxu0er3\nSuLgWx5MH5mIFAFfvXN2CbTQCfoqMQNTBYqWOdmdG5xZQv+YLv3Mydn05v7cbKu3\nlpzpd511i2sgrHSFiNiW\n=upFg\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 01dca219198d817751ddbfbc9c6bb5aa87c58c1a\nparent 48ee58af1d069917523d30297b25345d5991bac2\nauthor Matt White <me@matt-white.com> 1745074999 -0600\ncommitter GitHub <noreply@github.com> 1745074999 -0600\n\nUpdate LICENSE\n\nadd initial license text",
+        "verified_at": "2025-04-19T15:07:09Z"
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/3cc35d34ca4183a00bf67cc66db1db503aff59c9",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/3cc35d34ca4183a00bf67cc66db1db503aff59c9",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/3cc35d34ca4183a00bf67cc66db1db503aff59c9/comments",
+    "author": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "48ee58af1d069917523d30297b25345d5991bac2",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/48ee58af1d069917523d30297b25345d5991bac2",
+        "html_url": "https://github.com/OpenMDW/OpenMDW/commit/48ee58af1d069917523d30297b25345d5991bac2"
+      }
+    ]
+  },
+  {
+    "sha": "48ee58af1d069917523d30297b25345d5991bac2",
+    "node_id": "C_kwDOOcRxA9oAKDQ4ZWU1OGFmMWQwNjk5MTc1MjNkMzAyOTdiMjUzNDVkNTk5MWJhYzI",
+    "commit": {
+      "author": {
+        "name": "Matt White",
+        "email": "me@matt-white.com",
+        "date": "2025-04-19T15:02:08Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-04-19T15:02:08Z"
+      },
+      "message": "Initial commit",
+      "tree": {
+        "sha": "5fd8efbc4c3148b435291a01c4fb2ddb4c09ad3c",
+        "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/trees/5fd8efbc4c3148b435291a01c4fb2ddb4c09ad3c"
+      },
+      "url": "https://api.github.com/repos/OpenMDW/OpenMDW/git/commits/48ee58af1d069917523d30297b25345d5991bac2",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJoA7rwCRC1aQ7uu5UhlAAAV80QAGWPLMw9vpIM+PJ+1ijD+IXK\n8+/ZqhPQVY/bathFT/4uZ8NOh1E3HjQbNvLwMDqITAUPSkz8/UKEXH/f1foFyDLI\nDvSiUU/50z82tNyYu02ACugfM92YuSslNi82INWE+lNlh+WO3RfcWEWjKHhutDQK\nIwRIrDDIb/hkg7dSnRz5LTvohMaq9qeqsyCBKAWnLN17Uy70rxbUUo/TufE/Ijeg\nzPE+RF0lNiHDFSAkVZznEkF9K/y3hotkFglsqJp3UUJjAY1wiPZe02rikqe1jBG5\nNbpAboEeOSmcsSsFASCsVv4awEazr58PlC8jfSVhCJQaIlG4etTeJlXARQRjgWfH\nu0/EzzK62c9hqknE32d/fRsF5oTdaFROdMw5iCVWP36/bjJmOCuxkG1+lU8QHWeU\niwE8Rn0rfo5ix+gvK6E5FGLDmhKsbiAHRnDyN8Ei7g9NGWy6MxTYxTqr54eyVl5+\n9NwitHcXg//h6wSOiYQIb59auW7cmn/7BIG9rHU1bHISrYsRSkutxzs4mMdmk33o\ndJoJIC4lUBpLNfyZb6dketX95PaScitcn/ndyR7V+rJNjOOL9C1SgQChySD9vqug\nLiSfYk+0yEdVAHh03l/tkefnwUTJs8bQayQpYTI2n2fxLsrEIM5mMRxV6/Gjqt0E\nc5OcHR2oCQbLqeA/SOqY\n=NUa/\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 5fd8efbc4c3148b435291a01c4fb2ddb4c09ad3c\nauthor Matt White <me@matt-white.com> 1745074928 -0600\ncommitter GitHub <noreply@github.com> 1745074928 -0600\n\nInitial commit",
+        "verified_at": "2025-04-19T15:07:09Z"
+      }
+    },
+    "url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/48ee58af1d069917523d30297b25345d5991bac2",
+    "html_url": "https://github.com/OpenMDW/OpenMDW/commit/48ee58af1d069917523d30297b25345d5991bac2",
+    "comments_url": "https://api.github.com/repos/OpenMDW/OpenMDW/commits/48ee58af1d069917523d30297b25345d5991bac2/comments",
+    "author": {
+      "login": "matthew-d-white",
+      "id": 12001047,
+      "node_id": "MDQ6VXNlcjEyMDAxMDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12001047?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/matthew-d-white",
+      "html_url": "https://github.com/matthew-d-white",
+      "followers_url": "https://api.github.com/users/matthew-d-white/followers",
+      "following_url": "https://api.github.com/users/matthew-d-white/following{/other_user}",
+      "gists_url": "https://api.github.com/users/matthew-d-white/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/matthew-d-white/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/matthew-d-white/subscriptions",
+      "organizations_url": "https://api.github.com/users/matthew-d-white/orgs",
+      "repos_url": "https://api.github.com/users/matthew-d-white/repos",
+      "events_url": "https://api.github.com/users/matthew-d-white/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/matthew-d-white/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+
+    ]
+  }
+]
