@@ -1,0 +1,9983 @@
+[
+ {
+  "id": "0BSD",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-zero"
+  ],
+  "spdx_keys": [
+   "bsd-zero"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "3D-Slicer-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "3dslicer-1.0"
+  ],
+  "spdx_keys": [
+   "3dslicer-1.0"
+  ],
+  "max_cov": 99.9,
+  "proprietary": []
+ },
+ {
+  "id": "AAL",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "attribution"
+  ],
+  "spdx_keys": [
+   "attribution"
+  ],
+  "max_cov": 99.2,
+  "proprietary": []
+ },
+ {
+  "id": "Abstyles",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "abstyles"
+  ],
+  "spdx_keys": [
+   "abstyles"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AdaCore-doc",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "adacore-doc"
+  ],
+  "spdx_keys": [
+   "adacore-doc"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Adobe-2006",
+  "osi": false,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "adobe-scl"
+  ],
+  "spdx_keys": [
+   "adobe-scl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Adobe-Display-PostScript",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "x11-adobe"
+  ],
+  "spdx_keys": [
+   "x11-adobe"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Adobe-Glyph",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "adobe-glyph"
+  ],
+  "spdx_keys": [
+   "adobe-glyph"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Adobe-Utopia",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "adobe-utopia"
+  ],
+  "spdx_keys": [
+   "adobe-utopia"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ADSL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "adsl"
+  ],
+  "spdx_keys": [
+   "adsl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Advanced-Cryptics-Dictionary",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mit-old-style"
+  ],
+  "spdx_keys": [
+   "mit-old-style"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AFL-1.1",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "afl-1.1"
+  ],
+  "spdx_keys": [
+   "afl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AFL-1.2",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "afl-1.2"
+  ],
+  "spdx_keys": [
+   "afl-1.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AFL-2.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "afl-2.0"
+  ],
+  "spdx_keys": [
+   "afl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AFL-2.1",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "afl-2.1"
+  ],
+  "spdx_keys": [
+   "afl-2.1"
+  ],
+  "max_cov": 99.9,
+  "proprietary": []
+ },
+ {
+  "id": "AFL-3.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "afl-3.0"
+  ],
+  "spdx_keys": [
+   "afl-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Afmparse",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "afmparse"
+  ],
+  "spdx_keys": [
+   "afmparse"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AGPL-1.0-only",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "agpl-1.0"
+  ],
+  "spdx_keys": [
+   "agpl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AGPL-1.0-or-later",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "agpl-1.0"
+  ],
+  "spdx_keys": [
+   "agpl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AGPL-3.0-only",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "agpl-3.0"
+  ],
+  "spdx_keys": [
+   "agpl-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AGPL-3.0-or-later",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "agpl-3.0"
+  ],
+  "spdx_keys": [
+   "agpl-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Aladdin",
+  "osi": false,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "afpl-8.0"
+  ],
+  "spdx_keys": [
+   "afpl-8.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ALGLIB-Documentation",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "freebsd-doc"
+  ],
+  "spdx_keys": [
+   "freebsd-doc"
+  ],
+  "max_cov": 72.4,
+  "proprietary": []
+ },
+ {
+  "id": "AMD-newlib",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "amd-historical"
+  ],
+  "spdx_keys": [
+   "amd-historical"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AMDPLPA",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "amdplpa"
+  ],
+  "spdx_keys": [
+   "amdplpa"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AML",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "aml"
+  ],
+  "spdx_keys": [
+   "aml"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AML-glslang",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "nvidia-2002"
+  ],
+  "spdx_keys": [
+   "nvidia-2002"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "AMPAS",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ampas"
+  ],
+  "spdx_keys": [
+   "ampas"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ANTLR-PD",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "antlr-pd"
+  ],
+  "spdx_keys": [
+   "antlr-pd"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ANTLR-PD-fallback",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "antlr-pd-fallback"
+  ],
+  "spdx_keys": [
+   "antlr-pd-fallback"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "any-OSI",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "any-osi"
+  ],
+  "spdx_keys": [
+   "any-osi"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "any-OSI-perl-modules",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "any-osi-perl-modules"
+  ],
+  "spdx_keys": [
+   "any-osi-perl-modules"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Apache-1.0",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "apache-1.0"
+  ],
+  "spdx_keys": [
+   "apache-1.0"
+  ],
+  "max_cov": 99.2,
+  "proprietary": []
+ },
+ {
+  "id": "Apache-1.1",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "apache-1.1"
+  ],
+  "spdx_keys": [
+   "apache-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Apache-2.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "apache-2.0"
+  ],
+  "spdx_keys": [
+   "apache-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "APAFML",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "apafml"
+  ],
+  "spdx_keys": [
+   "apafml"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "APL-1.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "adapt-1.0"
+  ],
+  "spdx_keys": [
+   "adapt-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "App-s2p",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "app-s2p"
+  ],
+  "spdx_keys": [
+   "app-s2p"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "APSL-1.0",
+  "osi": true,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "apsl-1.0"
+  ],
+  "spdx_keys": [
+   "apsl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "APSL-1.1",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "apsl-1.1"
+  ],
+  "spdx_keys": [
+   "apsl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "APSL-1.2",
+  "osi": true,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "apsl-1.2"
+  ],
+  "spdx_keys": [
+   "apsl-1.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "APSL-2.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "apsl-2.0"
+  ],
+  "spdx_keys": [
+   "apsl-2.0"
+  ],
+  "max_cov": 99.8,
+  "proprietary": []
+ },
+ {
+  "id": "Arphic-1999",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "arphic-public"
+  ],
+  "spdx_keys": [
+   "arphic-public"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Artistic-1.0",
+  "osi": true,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "artistic-1.0"
+  ],
+  "spdx_keys": [
+   "artistic-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Artistic-1.0-cl8",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "artistic-1.0-cl8"
+  ],
+  "spdx_keys": [
+   "artistic-1.0-cl8"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Artistic-1.0-Perl",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "artistic-perl-1.0"
+  ],
+  "spdx_keys": [
+   "artistic-perl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Artistic-2.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "artistic-2.0"
+  ],
+  "spdx_keys": [
+   "artistic-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Artistic-dist",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "artistic-dist-1.0"
+  ],
+  "spdx_keys": [
+   "artistic-dist-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Aspell-RU",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "aspell-ru"
+  ],
+  "spdx_keys": [
+   "aspell-ru"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ASWF-Digital-Assets-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "aswf-digital-assets-1.0"
+  ],
+  "spdx_keys": [
+   "aswf-digital-assets-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ASWF-Digital-Assets-1.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "aswf-digital-assets-1.1"
+  ],
+  "spdx_keys": [
+   "aswf-digital-assets-1.1"
+  ],
+  "max_cov": 99.7,
+  "proprietary": []
+ },
+ {
+  "id": "atc-game",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "other-permissive"
+  ],
+  "spdx_keys": [
+   "other-permissive"
+  ],
+  "max_cov": 14.3,
+  "proprietary": []
+ },
+ {
+  "id": "Baekmuk",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "baekmuk-fonts"
+  ],
+  "spdx_keys": [
+   "baekmuk-fonts"
+  ],
+  "max_cov": 93.0,
+  "proprietary": []
+ },
+ {
+  "id": "Bahyph",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bahyph"
+  ],
+  "spdx_keys": [
+   "bahyph"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Barr",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "barr-tex"
+  ],
+  "spdx_keys": [
+   "barr-tex"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "bcrypt-Solar-Designer",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bcrypt-solar-designer"
+  ],
+  "spdx_keys": [
+   "bcrypt-solar-designer"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Beerware",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "beerware"
+  ],
+  "spdx_keys": [
+   "beerware"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Bitstream-Charter",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "x11-bitstream"
+  ],
+  "spdx_keys": [
+   "x11-bitstream"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Bitstream-Vera",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bitstream"
+  ],
+  "spdx_keys": [
+   "bitstream"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BitTorrent-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bittorrent-1.0"
+  ],
+  "spdx_keys": [
+   "bittorrent-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BitTorrent-1.1",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "bittorrent-1.1"
+  ],
+  "spdx_keys": [
+   "bittorrent-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "blessing",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "blessing"
+  ],
+  "spdx_keys": [
+   "blessing"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BlueOak-1.0.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "blueoak-1.0.0"
+  ],
+  "spdx_keys": [
+   "blueoak-1.0.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Boehm-GC",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mozilla-gc"
+  ],
+  "spdx_keys": [
+   "mozilla-gc"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Boehm-GC-without-fee",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "stlport-4.5"
+  ],
+  "spdx_keys": [
+   "stlport-4.5"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BOLA-1.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "other-permissive"
+  ],
+  "spdx_keys": [
+   "other-permissive"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Borceux",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "borceux"
+  ],
+  "spdx_keys": [
+   "borceux"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Brian-Gladman-2-Clause",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "brian-gladman"
+  ],
+  "spdx_keys": [
+   "brian-gladman"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Brian-Gladman-3-Clause",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "brian-gladman-3-clause OR gpl-1.0-plus"
+  ],
+  "spdx_keys": [
+   "brian-gladman-3-clause OR gpl-1.0-plus"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Brian-Gladman-3-Clause-no-conversion",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "brian-gladman-3-clause"
+  ],
+  "spdx_keys": [
+   "brian-gladman-3-clause"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-1-Clause",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-1-clause"
+  ],
+  "spdx_keys": [
+   "bsd-1-clause"
+  ],
+  "max_cov": 98.7,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-2-Clause",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "bsd-simplified"
+  ],
+  "spdx_keys": [
+   "bsd-simplified"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-2-Clause-Darwin",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-simplified-darwin"
+  ],
+  "spdx_keys": [
+   "bsd-simplified-darwin"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-2-Clause-first-lines",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-2-clause-first-lines"
+  ],
+  "spdx_keys": [
+   "bsd-2-clause-first-lines"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-2-Clause-Patent",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-plus-patent"
+  ],
+  "spdx_keys": [
+   "bsd-plus-patent"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-2-Clause-pkgconf-disclaimer",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-2-clause-pkgconf-disclaimer"
+  ],
+  "spdx_keys": [
+   "bsd-2-clause-pkgconf-disclaimer"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-2-Clause-pos-unchanged",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-unchanged"
+  ],
+  "spdx_keys": [
+   "bsd-unchanged"
+  ],
+  "max_cov": 98.9,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-2-Clause-Views",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-2-clause-views"
+  ],
+  "spdx_keys": [
+   "bsd-2-clause-views"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "bsd-new"
+  ],
+  "spdx_keys": [
+   "bsd-new"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause-acpica",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "intel-bsd"
+  ],
+  "spdx_keys": [
+   "intel-bsd"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause-Attribution",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-ack"
+  ],
+  "spdx_keys": [
+   "bsd-ack"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause-Clear",
+  "osi": false,
+  "fsf": true,
+  "n": 2,
+  "exprs": [
+   "clear-bsd"
+  ],
+  "spdx_keys": [
+   "clear-bsd"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause-flex",
+  "osi": false,
+  "fsf": null,
+  "n": 3,
+  "exprs": [
+   "flex-2.5",
+   "llnl"
+  ],
+  "spdx_keys": [
+   "flex-2.5",
+   "llnl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause-HP",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-3-clause-hp"
+  ],
+  "spdx_keys": [
+   "bsd-3-clause-hp"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause-LBNL",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "lbnl-bsd"
+  ],
+  "spdx_keys": [
+   "lbnl-bsd"
+  ],
+  "max_cov": 98.9,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause-Modification",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "repoze"
+  ],
+  "spdx_keys": [
+   "repoze"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause-No-Military-License",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-3-clause-no-military"
+  ],
+  "spdx_keys": [
+   "bsd-3-clause-no-military"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause-No-Nuclear-License",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "sun-bsd-no-nuclear"
+  ],
+  "spdx_keys": [
+   "sun-bsd-no-nuclear"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause-No-Nuclear-License-2014",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "oracle-bsd-no-nuclear"
+  ],
+  "spdx_keys": [
+   "oracle-bsd-no-nuclear"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause-No-Nuclear-Warranty",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-3-clause-no-nuclear-warranty"
+  ],
+  "spdx_keys": [
+   "bsd-3-clause-no-nuclear-warranty"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause-Open-MPI",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-3-clause-open-mpi"
+  ],
+  "spdx_keys": [
+   "bsd-3-clause-open-mpi"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause-OpenWebUI",
+  "osi": false,
+  "fsf": null,
+  "n": 4,
+  "exprs": [
+   "bsd-new",
+   "generic-cla"
+  ],
+  "spdx_keys": [
+   "bsd-new",
+   "generic-cla"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause-Sun",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-3-clause-sun"
+  ],
+  "spdx_keys": [
+   "bsd-3-clause-sun"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-3-Clause-Tso",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-new"
+  ],
+  "spdx_keys": [
+   "bsd-new"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-4-Clause",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "bsd-original"
+  ],
+  "spdx_keys": [
+   "bsd-original"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-4-Clause-Shortened",
+  "osi": false,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "bsd-4-clause-shortened"
+  ],
+  "spdx_keys": [
+   "bsd-4-clause-shortened"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-4-Clause-UC",
+  "osi": false,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "bsd-original-uc"
+  ],
+  "spdx_keys": [
+   "bsd-original-uc"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-4.3RENO",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-original-uc-1986"
+  ],
+  "spdx_keys": [
+   "bsd-original-uc-1986"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-4.3TAHOE",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsla"
+  ],
+  "spdx_keys": [
+   "bsla"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-Advertising-Acknowledgement",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-advertising-acknowledgement"
+  ],
+  "spdx_keys": [
+   "bsd-advertising-acknowledgement"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-ask-to-endorse",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-source-code"
+  ],
+  "spdx_keys": [
+   "bsd-source-code"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-Attribution-HPND-disclaimer",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cmu-computing-services"
+  ],
+  "spdx_keys": [
+   "cmu-computing-services"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-Inferno-Nettverk",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-inferno-nettverk"
+  ],
+  "spdx_keys": [
+   "bsd-inferno-nettverk"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-Mark-Modifications",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "geoff-kuenning-1993"
+  ],
+  "spdx_keys": [
+   "geoff-kuenning-1993"
+  ],
+  "max_cov": 89.8,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-Protection",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-protection"
+  ],
+  "spdx_keys": [
+   "bsd-protection"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-Source-alt-GPL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-axis-nomod OR gpl-1.0-plus"
+  ],
+  "spdx_keys": [
+   "bsd-axis-nomod OR gpl-1.0-plus"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-Source-beginning-file",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-top"
+  ],
+  "spdx_keys": [
+   "bsd-top"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-Source-Code",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-source-code"
+  ],
+  "spdx_keys": [
+   "bsd-source-code"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-Source-Code-no-disclaimer",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-no-disclaimer-unmodified"
+  ],
+  "spdx_keys": [
+   "bsd-no-disclaimer-unmodified"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-Systemics",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-systemics"
+  ],
+  "spdx_keys": [
+   "bsd-systemics"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSD-Systemics-W3Works",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsd-systemics-w3works"
+  ],
+  "spdx_keys": [
+   "bsd-systemics-w3works"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BSL-1.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "boost-1.0"
+  ],
+  "spdx_keys": [
+   "boost-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Buddy",
+  "osi": false,
+  "fsf": null,
+  "n": 3,
+  "exprs": [
+   "mit-modern",
+   "newlib-historical",
+   "warranty-disclaimer"
+  ],
+  "spdx_keys": [
+   "mit-modern",
+   "newlib-historical",
+   "warranty-disclaimer"
+  ],
+  "max_cov": 77.5,
+  "proprietary": []
+ },
+ {
+  "id": "Bugroff",
+  "osi": false,
+  "fsf": null,
+  "n": 6,
+  "exprs": [
+   "gpl-1.0-plus",
+   "lgpl-2.0-plus",
+   "other-permissive"
+  ],
+  "spdx_keys": [
+   "gpl-1.0-plus",
+   "lgpl-2.0-plus",
+   "other-permissive"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "BUSL-1.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bsl-1.1"
+  ],
+  "spdx_keys": [
+   "bsl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "bzip2-1.0.6",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bzip2-libbzip-2010"
+  ],
+  "spdx_keys": [
+   "bzip2-libbzip-2010"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "C-UDA-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "c-uda-1.0"
+  ],
+  "spdx_keys": [
+   "c-uda-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CAL-1.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cal-1.0"
+  ],
+  "spdx_keys": [
+   "cal-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CAL-1.0-Combined-Work-Exception",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cal-1.0"
+  ],
+  "spdx_keys": [
+   "cal-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Caldera",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "caldera"
+  ],
+  "spdx_keys": [
+   "caldera"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Caldera-no-preamble",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "caldera-no-preamble"
+  ],
+  "spdx_keys": [
+   "caldera-no-preamble"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CAPEC-tou",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "capec-tou"
+  ],
+  "spdx_keys": [
+   "capec-tou"
+  ],
+  "max_cov": 97.7,
+  "proprietary": []
+ },
+ {
+  "id": "Catharon",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "catharon-osl"
+  ],
+  "spdx_keys": [
+   "catharon-osl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CATOSL-1.1",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ca-tosl-1.1"
+  ],
+  "spdx_keys": [
+   "ca-tosl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-1.0"
+  ],
+  "spdx_keys": [
+   "cc-by-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-2.0"
+  ],
+  "spdx_keys": [
+   "cc-by-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-2.5",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-2.5"
+  ],
+  "spdx_keys": [
+   "cc-by-2.5"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-2.5-AU",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-2.5-au"
+  ],
+  "spdx_keys": [
+   "cc-by-2.5-au"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-3.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-3.0"
+  ],
+  "spdx_keys": [
+   "cc-by-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-3.0-AT",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-3.0-at"
+  ],
+  "spdx_keys": [
+   "cc-by-3.0-at"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-3.0-AU",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-3.0-au"
+  ],
+  "spdx_keys": [
+   "cc-by-3.0-au"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-3.0-DE",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-3.0-de"
+  ],
+  "spdx_keys": [
+   "cc-by-3.0-de"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-3.0-IGO",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-3.0-igo"
+  ],
+  "spdx_keys": [
+   "cc-by-3.0-igo"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-3.0-NL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-3.0-nl"
+  ],
+  "spdx_keys": [
+   "cc-by-3.0-nl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-3.0-US",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-3.0-us"
+  ],
+  "spdx_keys": [
+   "cc-by-3.0-us"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-4.0",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "cc-by-4.0"
+  ],
+  "spdx_keys": [
+   "cc-by-4.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-1.0",
+  "osi": false,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-1.0"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-2.0",
+  "osi": false,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-2.0"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-2.5",
+  "osi": false,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-2.5"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-2.5"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-3.0",
+  "osi": false,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-3.0"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-3.0-DE",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-3.0-de"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-3.0-de"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-3.0-IGO",
+  "osi": false,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "cc-by-nc-sa-3.0-igo"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-sa-3.0-igo"
+  ],
+  "max_cov": 55.3,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-4.0",
+  "osi": false,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-4.0"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-4.0"
+  ],
+  "max_cov": 98.8,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-ND-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-nd-1.0"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-nd-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-ND-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-nd-2.0"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-nd-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-ND-2.5",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-nd-2.5"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-nd-2.5"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-ND-3.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-nd-3.0"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-nd-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-ND-3.0-DE",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-nd-3.0-de"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-nd-3.0-de"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-ND-3.0-IGO",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-nd-3.0-igo"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-nd-3.0-igo"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-ND-4.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-nd-4.0"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-nd-4.0"
+  ],
+  "max_cov": 98.8,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-SA-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-sa-1.0"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-sa-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-SA-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-sa-2.0"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-sa-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-SA-2.0-DE",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-sa-2.0-de"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-sa-2.0-de"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-SA-2.0-FR",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-sa-2.0-fr"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-sa-2.0-fr"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-SA-2.0-UK",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-sa-2.0-uk"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-sa-2.0-uk"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-SA-2.5",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-sa-2.5"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-sa-2.5"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-SA-3.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-sa-3.0"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-sa-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-SA-3.0-DE",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-sa-3.0-de"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-sa-3.0-de"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-SA-3.0-IGO",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-sa-3.0-igo"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-sa-3.0-igo"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-NC-SA-4.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nc-sa-4.0"
+  ],
+  "spdx_keys": [
+   "cc-by-nc-sa-4.0"
+  ],
+  "max_cov": 98.9,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-ND-1.0",
+  "osi": false,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "cc-by-nd-1.0"
+  ],
+  "spdx_keys": [
+   "cc-by-nd-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-ND-2.0",
+  "osi": false,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "cc-by-nd-2.0"
+  ],
+  "spdx_keys": [
+   "cc-by-nd-2.0"
+  ],
+  "max_cov": 99.9,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-ND-2.5",
+  "osi": false,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "cc-by-nd-2.5"
+  ],
+  "spdx_keys": [
+   "cc-by-nd-2.5"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-ND-3.0",
+  "osi": false,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "cc-by-nd-3.0"
+  ],
+  "spdx_keys": [
+   "cc-by-nd-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-ND-3.0-DE",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-nd-3.0-de"
+  ],
+  "spdx_keys": [
+   "cc-by-nd-3.0-de"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-ND-4.0",
+  "osi": false,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "cc-by-nd-4.0"
+  ],
+  "spdx_keys": [
+   "cc-by-nd-4.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-SA-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-sa-1.0"
+  ],
+  "spdx_keys": [
+   "cc-by-sa-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-SA-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-sa-2.0"
+  ],
+  "spdx_keys": [
+   "cc-by-sa-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-SA-2.0-UK",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-sa-2.0-uk"
+  ],
+  "spdx_keys": [
+   "cc-by-sa-2.0-uk"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-SA-2.1-JP",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-sa-2.1-jp"
+  ],
+  "spdx_keys": [
+   "cc-by-sa-2.1-jp"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-SA-2.5",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-sa-2.5"
+  ],
+  "spdx_keys": [
+   "cc-by-sa-2.5"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-SA-3.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-sa-3.0"
+  ],
+  "spdx_keys": [
+   "cc-by-sa-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-SA-3.0-AT",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-sa-3.0-at"
+  ],
+  "spdx_keys": [
+   "cc-by-sa-3.0-at"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-SA-3.0-DE",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-sa-3.0-de"
+  ],
+  "spdx_keys": [
+   "cc-by-sa-3.0-de"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-SA-3.0-IGO",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-by-sa-3.0-igo"
+  ],
+  "spdx_keys": [
+   "cc-by-sa-3.0-igo"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-BY-SA-4.0",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "cc-by-sa-4.0"
+  ],
+  "spdx_keys": [
+   "cc-by-sa-4.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-PDDC",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-pd"
+  ],
+  "spdx_keys": [
+   "cc-pd"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC-PDM-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cc-pdm-1.0"
+  ],
+  "spdx_keys": [
+   "cc-pdm-1.0"
+  ],
+  "max_cov": 97.3,
+  "proprietary": []
+ },
+ {
+  "id": "CC-SA-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 4,
+  "exprs": [
+   "cc-sa-1.0",
+   "other-copyleft",
+   "unknown-license-reference",
+   "warranty-disclaimer"
+  ],
+  "spdx_keys": [
+   "cc-sa-1.0",
+   "other-copyleft",
+   "unknown-license-reference",
+   "warranty-disclaimer"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CC0-1.0",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "cc0-1.0"
+  ],
+  "spdx_keys": [
+   "cc0-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CDDL-1.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "cddl-1.0"
+  ],
+  "spdx_keys": [
+   "cddl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CDDL-1.1",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cddl-1.1"
+  ],
+  "spdx_keys": [
+   "cddl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CDL-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "acdl-1.0"
+  ],
+  "spdx_keys": [
+   "acdl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CDLA-Permissive-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cdla-permissive-1.0"
+  ],
+  "spdx_keys": [
+   "cdla-permissive-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CDLA-Permissive-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cdla-permissive-2.0"
+  ],
+  "spdx_keys": [
+   "cdla-permissive-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CDLA-Sharing-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cdla-sharing-1.0"
+  ],
+  "spdx_keys": [
+   "cdla-sharing-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CECILL-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cecill-1.0"
+  ],
+  "spdx_keys": [
+   "cecill-1.0"
+  ],
+  "max_cov": 99.2,
+  "proprietary": []
+ },
+ {
+  "id": "CECILL-1.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cecill-1.1"
+  ],
+  "spdx_keys": [
+   "cecill-1.1"
+  ],
+  "max_cov": 99.7,
+  "proprietary": []
+ },
+ {
+  "id": "CECILL-2.0",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "cecill-2.0"
+  ],
+  "spdx_keys": [
+   "cecill-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CECILL-2.1",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cecill-2.1"
+  ],
+  "spdx_keys": [
+   "cecill-2.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CECILL-B",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "cecill-b-en"
+  ],
+  "spdx_keys": [
+   "cecill-b-en"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CECILL-C",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "cecill-c-en"
+  ],
+  "spdx_keys": [
+   "cecill-c-en"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CERN-OHL-1.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cern-ohl-1.1"
+  ],
+  "spdx_keys": [
+   "cern-ohl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CERN-OHL-1.2",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cern-ohl-1.2"
+  ],
+  "spdx_keys": [
+   "cern-ohl-1.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CERN-OHL-P-2.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cern-ohl-p-2.0"
+  ],
+  "spdx_keys": [
+   "cern-ohl-p-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CERN-OHL-S-2.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cern-ohl-s-2.0"
+  ],
+  "spdx_keys": [
+   "cern-ohl-s-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CERN-OHL-W-2.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cern-ohl-w-2.0"
+  ],
+  "spdx_keys": [
+   "cern-ohl-w-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CFITSIO",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cfitsio"
+  ],
+  "spdx_keys": [
+   "cfitsio"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "check-cvs",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "check-cvs"
+  ],
+  "spdx_keys": [
+   "check-cvs"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "checkmk",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "checkmk"
+  ],
+  "spdx_keys": [
+   "checkmk"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ClArtistic",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "artistic-clarified"
+  ],
+  "spdx_keys": [
+   "artistic-clarified"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Clips",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "clips-2017"
+  ],
+  "spdx_keys": [
+   "clips-2017"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CMU-Mach",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "carnegie-mellon-contributors"
+  ],
+  "spdx_keys": [
+   "carnegie-mellon-contributors"
+  ],
+  "max_cov": 80.5,
+  "proprietary": []
+ },
+ {
+  "id": "CMU-Mach-nodoc",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "nrl-permission"
+  ],
+  "spdx_keys": [
+   "nrl-permission"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CNRI-Jython",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cnri-jython"
+  ],
+  "spdx_keys": [
+   "cnri-jython"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CNRI-Python",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cnri-python-1.6"
+  ],
+  "spdx_keys": [
+   "cnri-python-1.6"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CNRI-Python-GPL-Compatible",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cnri-python-1.6.1"
+  ],
+  "spdx_keys": [
+   "cnri-python-1.6.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "COIL-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "coil-1.0"
+  ],
+  "spdx_keys": [
+   "coil-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Community-Spec-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "csl-1.0"
+  ],
+  "spdx_keys": [
+   "csl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Condor-1.1",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "condor-1.1"
+  ],
+  "spdx_keys": [
+   "condor-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "copyleft-next-0.3.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "copyleft-next-0.3.0"
+  ],
+  "spdx_keys": [
+   "copyleft-next-0.3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "copyleft-next-0.3.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "copyleft-next-0.3.1"
+  ],
+  "spdx_keys": [
+   "copyleft-next-0.3.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Cornell-Lossless-JPEG",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cornell-lossless-jpeg"
+  ],
+  "spdx_keys": [
+   "cornell-lossless-jpeg"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CPAL-1.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "cpal-1.0"
+  ],
+  "spdx_keys": [
+   "cpal-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CPL-1.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "cpl-1.0"
+  ],
+  "spdx_keys": [
+   "cpl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CPOL-1.02",
+  "osi": false,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "cpol-1.02"
+  ],
+  "spdx_keys": [
+   "cpol-1.02"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Cronyx",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cronyx"
+  ],
+  "spdx_keys": [
+   "cronyx"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Crossword",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "crossword"
+  ],
+  "spdx_keys": [
+   "crossword"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CryptoSwift",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cryptoswift"
+  ],
+  "spdx_keys": [
+   "cryptoswift"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CrystalStacker",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "crystal-stacker"
+  ],
+  "spdx_keys": [
+   "crystal-stacker"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "CUA-OPL-1.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cua-opl-1.0"
+  ],
+  "spdx_keys": [
+   "cua-opl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Cube",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cube"
+  ],
+  "spdx_keys": [
+   "cube"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "curl",
+  "osi": true,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "curl",
+   "unknown-license-reference"
+  ],
+  "spdx_keys": [
+   "curl",
+   "unknown-license-reference"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "cve-tou",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cve-tou"
+  ],
+  "spdx_keys": [
+   "cve-tou"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "D-FSL-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "d-fsl-1.0-de"
+  ],
+  "spdx_keys": [
+   "d-fsl-1.0-de"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "DEC-3-Clause",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "dec-3-clause"
+  ],
+  "spdx_keys": [
+   "dec-3-clause"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "diffmark",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "diffmark"
+  ],
+  "spdx_keys": [
+   "diffmark"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "DL-DE-BY-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "dl-de-by-2-0-de",
+   "dl-de-by-2-0-en"
+  ],
+  "spdx_keys": [
+   "dl-de-by-2-0-de",
+   "dl-de-by-2-0-en"
+  ],
+  "max_cov": 72.5,
+  "proprietary": []
+ },
+ {
+  "id": "DL-DE-ZERO-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "dl-de-zero-2.0"
+  ],
+  "spdx_keys": [
+   "dl-de-zero-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "DOC",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ace-tao"
+  ],
+  "spdx_keys": [
+   "ace-tao"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "DocBook-DTD",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "docbook-dtd"
+  ],
+  "spdx_keys": [
+   "docbook-dtd"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "DocBook-Schema",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "docbook-schema"
+  ],
+  "spdx_keys": [
+   "docbook-schema"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "DocBook-Stylesheet",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "docbook-stylesheet"
+  ],
+  "spdx_keys": [
+   "docbook-stylesheet"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "DocBook-XML",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "docbook"
+  ],
+  "spdx_keys": [
+   "docbook"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Dotseqn",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "dotseqn"
+  ],
+  "spdx_keys": [
+   "dotseqn"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "DRL-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "drl-1.0"
+  ],
+  "spdx_keys": [
+   "drl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "DRL-1.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "drl-1.1"
+  ],
+  "spdx_keys": [
+   "drl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "DSDP",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "dsdp"
+  ],
+  "spdx_keys": [
+   "dsdp"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "dtoa",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "x11-lucent"
+  ],
+  "spdx_keys": [
+   "x11-lucent"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "dvipdfm",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "dvipdfm"
+  ],
+  "spdx_keys": [
+   "dvipdfm"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ECL-1.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ecl-1.0"
+  ],
+  "spdx_keys": [
+   "ecl-1.0"
+  ],
+  "max_cov": 99.5,
+  "proprietary": []
+ },
+ {
+  "id": "ECL-2.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "ecl-2.0"
+  ],
+  "spdx_keys": [
+   "ecl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "EFL-1.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "efl-1.0"
+  ],
+  "spdx_keys": [
+   "efl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "EFL-2.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "efl-2.0"
+  ],
+  "spdx_keys": [
+   "efl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "eGenix",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "egenix-1.1.0"
+  ],
+  "spdx_keys": [
+   "egenix-1.1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Elastic-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "elastic-license-v2"
+  ],
+  "spdx_keys": [
+   "elastic-license-v2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Entessa",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "entessa-1.0"
+  ],
+  "spdx_keys": [
+   "entessa-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "EPICS",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "epics"
+  ],
+  "spdx_keys": [
+   "epics"
+  ],
+  "max_cov": 97.7,
+  "proprietary": []
+ },
+ {
+  "id": "EPL-1.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "epl-1.0"
+  ],
+  "spdx_keys": [
+   "epl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "EPL-2.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "epl-2.0"
+  ],
+  "spdx_keys": [
+   "epl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ErlPL-1.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "erlangpl-1.1"
+  ],
+  "spdx_keys": [
+   "erlangpl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ESA-PL-permissive-2.4",
+  "osi": false,
+  "fsf": null,
+  "n": 6,
+  "exprs": [
+   "lppl-1.3c",
+   "unknown",
+   "unknown-license-reference"
+  ],
+  "spdx_keys": [
+   "lppl-1.3c",
+   "unknown",
+   "unknown-license-reference"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ESA-PL-strong-copyleft-2.4",
+  "osi": false,
+  "fsf": null,
+  "n": 7,
+  "exprs": [
+   "nilsson-historical",
+   "unknown",
+   "unknown-license-reference"
+  ],
+  "spdx_keys": [
+   "nilsson-historical",
+   "unknown",
+   "unknown-license-reference"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ESA-PL-weak-copyleft-2.4",
+  "osi": false,
+  "fsf": null,
+  "n": 7,
+  "exprs": [
+   "gpl-2.0",
+   "unknown",
+   "unknown-license-reference"
+  ],
+  "spdx_keys": [
+   "gpl-2.0",
+   "unknown",
+   "unknown-license-reference"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "etalab-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "etalab-2.0"
+  ],
+  "spdx_keys": [
+   "etalab-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "EUDatagrid",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "eu-datagrid"
+  ],
+  "spdx_keys": [
+   "eu-datagrid"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "EUPL-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "eupl-1.0"
+  ],
+  "spdx_keys": [
+   "eupl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "EUPL-1.1",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "eupl-1.1"
+  ],
+  "spdx_keys": [
+   "eupl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "EUPL-1.2",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "eupl-1.2"
+  ],
+  "spdx_keys": [
+   "eupl-1.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Eurosym",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "eurosym"
+  ],
+  "spdx_keys": [
+   "eurosym"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Fair",
+  "osi": true,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "fair"
+  ],
+  "spdx_keys": [
+   "fair"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "FBM",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "fbm"
+  ],
+  "spdx_keys": [
+   "fbm"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "FDK-AAC",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "fraunhofer-fdk-aac-codec"
+  ],
+  "spdx_keys": [
+   "fraunhofer-fdk-aac-codec"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "FDK-MPEG-H",
+  "osi": false,
+  "fsf": null,
+  "n": 4,
+  "exprs": [
+   "bsd-axis-nomod OR gpl-1.0-plus",
+   "bsd-no-disclaimer-unmodified",
+   "other-permissive",
+   "warranty-disclaimer"
+  ],
+  "spdx_keys": [
+   "bsd-axis-nomod OR gpl-1.0-plus",
+   "bsd-no-disclaimer-unmodified",
+   "other-permissive",
+   "warranty-disclaimer"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Ferguson-Twofish",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ferguson-twofish"
+  ],
+  "spdx_keys": [
+   "ferguson-twofish"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Frameworx-1.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "frameworx-1.0"
+  ],
+  "spdx_keys": [
+   "frameworx-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "FreeBSD-DOC",
+  "osi": false,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "freebsd-doc"
+  ],
+  "spdx_keys": [
+   "freebsd-doc"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "FreeImage",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "freeimage-1.0"
+  ],
+  "spdx_keys": [
+   "freeimage-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "FSFAP",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "fsf-ap"
+  ],
+  "spdx_keys": [
+   "fsf-ap"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "FSFAP-no-warranty-disclaimer",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "fsfap-no-warranty-disclaimer"
+  ],
+  "spdx_keys": [
+   "fsfap-no-warranty-disclaimer"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "FSFUL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "fsf-free"
+  ],
+  "spdx_keys": [
+   "fsf-free"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "FSFULLR",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "fsf-unlimited"
+  ],
+  "spdx_keys": [
+   "fsf-unlimited"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "FSFULLRSD",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "fsfullrsd"
+  ],
+  "spdx_keys": [
+   "fsfullrsd"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "FSFULLRWD",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "fsf-unlimited-no-warranty"
+  ],
+  "spdx_keys": [
+   "fsf-unlimited-no-warranty"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "FSL-1.1-ALv2",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "fsl-1.1-apache-2.0"
+  ],
+  "spdx_keys": [
+   "fsl-1.1-apache-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "FSL-1.1-MIT",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "fsl-1.1-mit"
+  ],
+  "spdx_keys": [
+   "fsl-1.1-mit"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "FTL",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "freetype"
+  ],
+  "spdx_keys": [
+   "freetype"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Furuseth",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "furuseth"
+  ],
+  "spdx_keys": [
+   "furuseth"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "fwlw",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "fwlw"
+  ],
+  "spdx_keys": [
+   "fwlw"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Game-Programming-Gems",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "dante-treglia"
+  ],
+  "spdx_keys": [
+   "dante-treglia"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GCR-docs",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gcr-docs"
+  ],
+  "spdx_keys": [
+   "gcr-docs"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GD",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "libgd-2018"
+  ],
+  "spdx_keys": [
+   "libgd-2018"
+  ],
+  "max_cov": 99.8,
+  "proprietary": []
+ },
+ {
+  "id": "generic-xts",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "generic-xts"
+  ],
+  "spdx_keys": [
+   "generic-xts"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GFDL-1.1-invariants-only",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gfdl-1.1"
+  ],
+  "spdx_keys": [
+   "gfdl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GFDL-1.1-invariants-or-later",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gfdl-1.1"
+  ],
+  "spdx_keys": [
+   "gfdl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GFDL-1.1-no-invariants-only",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gfdl-1.1"
+  ],
+  "spdx_keys": [
+   "gfdl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GFDL-1.1-no-invariants-or-later",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gfdl-1.1"
+  ],
+  "spdx_keys": [
+   "gfdl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GFDL-1.1-only",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "gfdl-1.1"
+  ],
+  "spdx_keys": [
+   "gfdl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GFDL-1.1-or-later",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "gfdl-1.1"
+  ],
+  "spdx_keys": [
+   "gfdl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GFDL-1.2-invariants-only",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gfdl-1.2"
+  ],
+  "spdx_keys": [
+   "gfdl-1.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GFDL-1.2-invariants-or-later",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gfdl-1.2"
+  ],
+  "spdx_keys": [
+   "gfdl-1.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GFDL-1.2-no-invariants-only",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gfdl-1.2"
+  ],
+  "spdx_keys": [
+   "gfdl-1.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GFDL-1.2-no-invariants-or-later",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gfdl-1.2"
+  ],
+  "spdx_keys": [
+   "gfdl-1.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GFDL-1.2-only",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "gfdl-1.2"
+  ],
+  "spdx_keys": [
+   "gfdl-1.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GFDL-1.2-or-later",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "gfdl-1.2"
+  ],
+  "spdx_keys": [
+   "gfdl-1.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GFDL-1.3-invariants-only",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gfdl-1.3"
+  ],
+  "spdx_keys": [
+   "gfdl-1.3"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GFDL-1.3-invariants-or-later",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gfdl-1.3"
+  ],
+  "spdx_keys": [
+   "gfdl-1.3"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GFDL-1.3-no-invariants-only",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gfdl-1.3"
+  ],
+  "spdx_keys": [
+   "gfdl-1.3"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GFDL-1.3-no-invariants-or-later",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gfdl-1.3"
+  ],
+  "spdx_keys": [
+   "gfdl-1.3"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GFDL-1.3-only",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "gfdl-1.3"
+  ],
+  "spdx_keys": [
+   "gfdl-1.3"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GFDL-1.3-or-later",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "gfdl-1.3"
+  ],
+  "spdx_keys": [
+   "gfdl-1.3"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Giftware",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "allegro-4"
+  ],
+  "spdx_keys": [
+   "allegro-4"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GL2PS",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gl2ps"
+  ],
+  "spdx_keys": [
+   "gl2ps"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Glide",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "glide"
+  ],
+  "spdx_keys": [
+   "glide"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Glulxe",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "glulxe"
+  ],
+  "spdx_keys": [
+   "glulxe"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GLWTPL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "glwtpl"
+  ],
+  "spdx_keys": [
+   "glwtpl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "gnuplot",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "gnuplot"
+  ],
+  "spdx_keys": [
+   "gnuplot"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GPL-1.0-only",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gpl-1.0"
+  ],
+  "spdx_keys": [
+   "gpl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GPL-1.0-or-later",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gpl-1.0"
+  ],
+  "spdx_keys": [
+   "gpl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GPL-2.0-only",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "gpl-2.0"
+  ],
+  "spdx_keys": [
+   "gpl-2.0"
+  ],
+  "max_cov": 98.2,
+  "proprietary": []
+ },
+ {
+  "id": "GPL-2.0-or-later",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "gpl-2.0"
+  ],
+  "spdx_keys": [
+   "gpl-2.0"
+  ],
+  "max_cov": 98.2,
+  "proprietary": []
+ },
+ {
+  "id": "GPL-3.0-only",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "gpl-3.0"
+  ],
+  "spdx_keys": [
+   "gpl-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "GPL-3.0-or-later",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "gpl-3.0"
+  ],
+  "spdx_keys": [
+   "gpl-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Graphics-Gems",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "graphics-gems"
+  ],
+  "spdx_keys": [
+   "graphics-gems"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "gSOAP-1.3b",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gsoap-1.3b"
+  ],
+  "spdx_keys": [
+   "gsoap-1.3b"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "gtkbook",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gtkbook"
+  ],
+  "spdx_keys": [
+   "gtkbook"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Gutmann",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "gutmann"
+  ],
+  "spdx_keys": [
+   "gutmann"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HaskellReport",
+  "osi": false,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "haskell-report"
+  ],
+  "spdx_keys": [
+   "haskell-report"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HDF5",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hdf5"
+  ],
+  "spdx_keys": [
+   "hdf5"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "hdparm",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hdparm"
+  ],
+  "spdx_keys": [
+   "hdparm"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HIDAPI",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hidapi"
+  ],
+  "spdx_keys": [
+   "hidapi"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Hippocratic-2.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hippocratic-2.1"
+  ],
+  "spdx_keys": [
+   "hippocratic-2.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Hippocratic-3.0-core",
+  "osi": false,
+  "fsf": null,
+  "n": 9,
+  "exprs": [
+   "hippocratic-1.2",
+   "unknown-license-reference",
+   "warranty-disclaimer"
+  ],
+  "spdx_keys": [
+   "hippocratic-1.2",
+   "unknown-license-reference",
+   "warranty-disclaimer"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HP-1986",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hp-1986"
+  ],
+  "spdx_keys": [
+   "hp-1986"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HP-1989",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "osf-1990"
+  ],
+  "spdx_keys": [
+   "osf-1990"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND",
+  "osi": true,
+  "fsf": true,
+  "n": 2,
+  "exprs": [
+   "historical"
+  ],
+  "spdx_keys": [
+   "historical"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-DEC",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "x11-dec2"
+  ],
+  "spdx_keys": [
+   "x11-dec2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-doc",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hpnd-doc"
+  ],
+  "spdx_keys": [
+   "hpnd-doc"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-doc-sell",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hpnd-doc-sell"
+  ],
+  "spdx_keys": [
+   "hpnd-doc-sell"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-export-US",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hpnd-export-us"
+  ],
+  "spdx_keys": [
+   "hpnd-export-us"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-export-US-acknowledgement",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hpnd-export-us-acknowledgement"
+  ],
+  "spdx_keys": [
+   "hpnd-export-us-acknowledgement"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-export-US-modify",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mit-with-modification-obligations"
+  ],
+  "spdx_keys": [
+   "mit-with-modification-obligations"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-export2-US",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mit-no-advert-export-control"
+  ],
+  "spdx_keys": [
+   "mit-no-advert-export-control"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-Fenneberg-Livingston",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hpnd-fenneberg-livingston"
+  ],
+  "spdx_keys": [
+   "hpnd-fenneberg-livingston"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-INRIA-IMAG",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hpnd-inria-imag"
+  ],
+  "spdx_keys": [
+   "hpnd-inria-imag"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-Intel",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "intel-osl-1993"
+  ],
+  "spdx_keys": [
+   "intel-osl-1993"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-Kevlin-Henney",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "kevlin-henney"
+  ],
+  "spdx_keys": [
+   "kevlin-henney"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-Markus-Kuhn",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "markus-kuhn-license"
+  ],
+  "spdx_keys": [
+   "markus-kuhn-license"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-merchantability-variant",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "codesourcery-2004"
+  ],
+  "spdx_keys": [
+   "codesourcery-2004"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-MIT-disclaimer",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hpnd-mit-disclaimer"
+  ],
+  "spdx_keys": [
+   "hpnd-mit-disclaimer"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-Netrek",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hpnd-netrek"
+  ],
+  "spdx_keys": [
+   "hpnd-netrek"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-Pbmplus",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hpnd-pbmplus"
+  ],
+  "spdx_keys": [
+   "hpnd-pbmplus"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-sell-MIT-disclaimer-xserver",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hpnd-sell-mit-disclaimer-xserver"
+  ],
+  "spdx_keys": [
+   "hpnd-sell-mit-disclaimer-xserver"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-sell-regexpr",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hpnd-sell-regexpr"
+  ],
+  "spdx_keys": [
+   "hpnd-sell-regexpr"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-sell-variant",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "x11-keith-packard"
+  ],
+  "spdx_keys": [
+   "x11-keith-packard"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-sell-variant-critical-systems",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "x11-keith-packard"
+  ],
+  "spdx_keys": [
+   "x11-keith-packard"
+  ],
+  "max_cov": 94.5,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-sell-variant-MIT-disclaimer",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hpnd-sell-variant-mit-disclaimer"
+  ],
+  "spdx_keys": [
+   "hpnd-sell-variant-mit-disclaimer"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-sell-variant-MIT-disclaimer-rev",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hpnd-sell-variant-mit-disclaimer-rev"
+  ],
+  "spdx_keys": [
+   "hpnd-sell-variant-mit-disclaimer-rev"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-SMC",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "other-permissive"
+  ],
+  "spdx_keys": [
+   "other-permissive"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-UC",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hpnd-uc"
+  ],
+  "spdx_keys": [
+   "hpnd-uc"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HPND-UC-export-US",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hpnd-uc-export-us"
+  ],
+  "spdx_keys": [
+   "hpnd-uc-export-us"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "HTMLTIDY",
+  "osi": false,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "libpng",
+   "tidy"
+  ],
+  "spdx_keys": [
+   "libpng",
+   "tidy"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "hyphen-bulgarian",
+  "osi": false,
+  "fsf": null,
+  "n": 3,
+  "exprs": [
+   "font-alias",
+   "lilo",
+   "other-permissive"
+  ],
+  "spdx_keys": [
+   "font-alias",
+   "lilo",
+   "other-permissive"
+  ],
+  "max_cov": 49.1,
+  "proprietary": []
+ },
+ {
+  "id": "IBM-pibs",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ibm-pibs"
+  ],
+  "spdx_keys": [
+   "ibm-pibs"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ICU",
+  "osi": true,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "x11"
+  ],
+  "spdx_keys": [
+   "x11"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "IEC-Code-Components-EULA",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "iec-code-components-eula"
+  ],
+  "spdx_keys": [
+   "iec-code-components-eula"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "IJG",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "ijg"
+  ],
+  "spdx_keys": [
+   "ijg"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "IJG-short",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ijg-short"
+  ],
+  "spdx_keys": [
+   "ijg-short"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ImageMagick",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "imagemagick"
+  ],
+  "spdx_keys": [
+   "imagemagick"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "iMatix",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "sfl-license"
+  ],
+  "spdx_keys": [
+   "sfl-license"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Imlib2",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "imlib2"
+  ],
+  "spdx_keys": [
+   "imlib2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Info-ZIP",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "info-zip-2009-01"
+  ],
+  "spdx_keys": [
+   "info-zip-2009-01"
+  ],
+  "max_cov": 92.3,
+  "proprietary": []
+ },
+ {
+  "id": "Informatica",
+  "osi": false,
+  "fsf": null,
+  "n": 3,
+  "exprs": [
+   "tcp-wrappers",
+   "warranty-disclaimer"
+  ],
+  "spdx_keys": [
+   "tcp-wrappers",
+   "warranty-disclaimer"
+  ],
+  "max_cov": 46.0,
+  "proprietary": []
+ },
+ {
+  "id": "Inner-Net-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "inner-net-2.0"
+  ],
+  "spdx_keys": [
+   "inner-net-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "InnoSetup",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "inno-setup"
+  ],
+  "spdx_keys": [
+   "inno-setup"
+  ],
+  "max_cov": 90.5,
+  "proprietary": []
+ },
+ {
+  "id": "Intel",
+  "osi": true,
+  "fsf": true,
+  "n": 2,
+  "exprs": [
+   "intel-bsd-export-control"
+  ],
+  "spdx_keys": [
+   "intel-bsd-export-control"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Intel-ACPI",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "intel-acpi"
+  ],
+  "spdx_keys": [
+   "intel-acpi"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Interbase-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "interbase-1.0"
+  ],
+  "spdx_keys": [
+   "interbase-1.0"
+  ],
+  "max_cov": 99.6,
+  "proprietary": []
+ },
+ {
+  "id": "IPA",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "ipa-font"
+  ],
+  "spdx_keys": [
+   "ipa-font"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "IPL-1.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "ibmpl-1.0"
+  ],
+  "spdx_keys": [
+   "ibmpl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ISC",
+  "osi": true,
+  "fsf": true,
+  "n": 2,
+  "exprs": [
+   "isc"
+  ],
+  "spdx_keys": [
+   "isc"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ISC-Veillard",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mit-veillard-variant"
+  ],
+  "spdx_keys": [
+   "mit-veillard-variant"
+  ],
+  "max_cov": 98.6,
+  "proprietary": []
+ },
+ {
+  "id": "ISO-permission",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "iso-8879"
+  ],
+  "spdx_keys": [
+   "iso-8879"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Jam",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "jam"
+  ],
+  "spdx_keys": [
+   "jam"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "JasPer-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "jasper-2.0"
+  ],
+  "spdx_keys": [
+   "jasper-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "jove",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "jove"
+  ],
+  "spdx_keys": [
+   "jove"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "JPL-image",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "jpl-image"
+  ],
+  "spdx_keys": [
+   "jpl-image"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "JPNIC",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "jpnic-idnkit"
+  ],
+  "spdx_keys": [
+   "jpnic-idnkit"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "JSON",
+  "osi": false,
+  "fsf": false,
+  "n": 2,
+  "exprs": [
+   "json"
+  ],
+  "spdx_keys": [
+   "json"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Kastrup",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "kastrup"
+  ],
+  "spdx_keys": [
+   "kastrup"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Kazlib",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "kazlib"
+  ],
+  "spdx_keys": [
+   "kazlib"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Knuth-CTAN",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "knuth-ctan"
+  ],
+  "spdx_keys": [
+   "knuth-ctan"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LAL-1.2",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "lal-1.2"
+  ],
+  "spdx_keys": [
+   "lal-1.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LAL-1.3",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "lal-1.3"
+  ],
+  "spdx_keys": [
+   "lal-1.3"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Latex2e",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "latex2e"
+  ],
+  "spdx_keys": [
+   "latex2e"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Latex2e-translated-notice",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "latex2e-translated-notice"
+  ],
+  "spdx_keys": [
+   "latex2e-translated-notice"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Leptonica",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "leptonica"
+  ],
+  "spdx_keys": [
+   "leptonica"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LGPL-2.0-only",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "lgpl-2.0"
+  ],
+  "spdx_keys": [
+   "lgpl-2.0"
+  ],
+  "max_cov": 99.9,
+  "proprietary": []
+ },
+ {
+  "id": "LGPL-2.0-or-later",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "lgpl-2.0"
+  ],
+  "spdx_keys": [
+   "lgpl-2.0"
+  ],
+  "max_cov": 99.9,
+  "proprietary": []
+ },
+ {
+  "id": "LGPL-2.1-only",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "lgpl-2.1"
+  ],
+  "spdx_keys": [
+   "lgpl-2.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LGPL-2.1-or-later",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "lgpl-2.1"
+  ],
+  "spdx_keys": [
+   "lgpl-2.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LGPL-3.0-only",
+  "osi": true,
+  "fsf": true,
+  "n": 2,
+  "exprs": [
+   "gpl-3.0",
+   "lgpl-3.0"
+  ],
+  "spdx_keys": [
+   "gpl-3.0",
+   "lgpl-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LGPL-3.0-or-later",
+  "osi": true,
+  "fsf": true,
+  "n": 2,
+  "exprs": [
+   "gpl-3.0",
+   "lgpl-3.0"
+  ],
+  "spdx_keys": [
+   "gpl-3.0",
+   "lgpl-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LGPLLR",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "lgpllr"
+  ],
+  "spdx_keys": [
+   "lgpllr"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Libpng",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "libpng"
+  ],
+  "spdx_keys": [
+   "libpng"
+  ],
+  "max_cov": 99.8,
+  "proprietary": []
+ },
+ {
+  "id": "libpng-1.6.35",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "libpng-1.6.35"
+  ],
+  "spdx_keys": [
+   "libpng-1.6.35"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "libpng-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "libpng-v2"
+  ],
+  "spdx_keys": [
+   "libpng-v2"
+  ],
+  "max_cov": 97.5,
+  "proprietary": []
+ },
+ {
+  "id": "libselinux-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "selinux-nsa-declaration-1.0"
+  ],
+  "spdx_keys": [
+   "selinux-nsa-declaration-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "libtiff",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "x11-tiff"
+  ],
+  "spdx_keys": [
+   "x11-tiff"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "libutil-David-Nugent",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "libutil-david-nugent"
+  ],
+  "spdx_keys": [
+   "libutil-david-nugent"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LiLiQ-P-1.1",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "liliq-p-1.1"
+  ],
+  "spdx_keys": [
+   "liliq-p-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LiLiQ-R-1.1",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "liliq-r-1.1"
+  ],
+  "spdx_keys": [
+   "liliq-r-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LiLiQ-Rplus-1.1",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "liliq-rplus-1.1"
+  ],
+  "spdx_keys": [
+   "liliq-rplus-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Linux-man-pages-1-para",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "linux-man-pages-1-para"
+  ],
+  "spdx_keys": [
+   "linux-man-pages-1-para"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Linux-man-pages-copyleft",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "verbatim-manual"
+  ],
+  "spdx_keys": [
+   "verbatim-manual"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Linux-man-pages-copyleft-2-para",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "linux-man-pages-2-para"
+  ],
+  "spdx_keys": [
+   "linux-man-pages-2-para"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Linux-man-pages-copyleft-var",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "linux-man-pages-copyleft-var"
+  ],
+  "spdx_keys": [
+   "linux-man-pages-copyleft-var"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Linux-OpenIB",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "linux-openib"
+  ],
+  "spdx_keys": [
+   "linux-openib"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LOOP",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "loop"
+  ],
+  "spdx_keys": [
+   "loop"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LPD-document",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "peter-deutsch-document"
+  ],
+  "spdx_keys": [
+   "peter-deutsch-document"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LPL-1.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "lucent-pl-1.0"
+  ],
+  "spdx_keys": [
+   "lucent-pl-1.0"
+  ],
+  "max_cov": 98.2,
+  "proprietary": []
+ },
+ {
+  "id": "LPL-1.02",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "lucent-pl-1.02"
+  ],
+  "spdx_keys": [
+   "lucent-pl-1.02"
+  ],
+  "max_cov": 99.7,
+  "proprietary": []
+ },
+ {
+  "id": "LPPL-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "lppl-1.0"
+  ],
+  "spdx_keys": [
+   "lppl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LPPL-1.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "lppl-1.1"
+  ],
+  "spdx_keys": [
+   "lppl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LPPL-1.2",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "lppl-1.2"
+  ],
+  "spdx_keys": [
+   "lppl-1.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LPPL-1.3a",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "lppl-1.3a"
+  ],
+  "spdx_keys": [
+   "lppl-1.3a"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LPPL-1.3c",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "lppl-1.3c"
+  ],
+  "spdx_keys": [
+   "lppl-1.3c"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "lsof",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "purdue-bsd"
+  ],
+  "spdx_keys": [
+   "purdue-bsd"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Lucida-Bitmap-Fonts",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "bigelow-holmes"
+  ],
+  "spdx_keys": [
+   "bigelow-holmes"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LZMA-SDK-9.11-to-9.20",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "lzma-sdk-9.11-to-9.20"
+  ],
+  "spdx_keys": [
+   "lzma-sdk-9.11-to-9.20"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "LZMA-SDK-9.22",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "lzma-sdk-9.22"
+  ],
+  "spdx_keys": [
+   "lzma-sdk-9.22"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Mackerras-3-Clause",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "paul-mackerras-new"
+  ],
+  "spdx_keys": [
+   "paul-mackerras-new"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Mackerras-3-Clause-acknowledgment",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "paul-mackerras"
+  ],
+  "spdx_keys": [
+   "paul-mackerras"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "magaz",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "magaz"
+  ],
+  "spdx_keys": [
+   "magaz"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "mailprio",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mailprio"
+  ],
+  "spdx_keys": [
+   "mailprio"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MakeIndex",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "makeindex"
+  ],
+  "spdx_keys": [
+   "makeindex"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "man2html",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "man2html"
+  ],
+  "spdx_keys": [
+   "man2html"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Martin-Birgmeier",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "martin-birgmeier"
+  ],
+  "spdx_keys": [
+   "martin-birgmeier"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "McPhee-slideshow",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mcphee-slideshow"
+  ],
+  "spdx_keys": [
+   "mcphee-slideshow"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "metamail",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "metamail"
+  ],
+  "spdx_keys": [
+   "metamail"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Minpack",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "minpack"
+  ],
+  "spdx_keys": [
+   "minpack"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MIPS",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mips"
+  ],
+  "spdx_keys": [
+   "mips"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MirOS",
+  "osi": true,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "mir-os"
+  ],
+  "spdx_keys": [
+   "mir-os"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MIT",
+  "osi": true,
+  "fsf": true,
+  "n": 2,
+  "exprs": [
+   "mit"
+  ],
+  "spdx_keys": [
+   "mit"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MIT-0",
+  "osi": true,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "mit-0"
+  ],
+  "spdx_keys": [
+   "mit-0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MIT-advertising",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "enlightenment"
+  ],
+  "spdx_keys": [
+   "enlightenment"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MIT-Click",
+  "osi": false,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "click-license"
+  ],
+  "spdx_keys": [
+   "click-license"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MIT-CMU",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "cmu-uc"
+  ],
+  "spdx_keys": [
+   "cmu-uc"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MIT-enna",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "enna"
+  ],
+  "spdx_keys": [
+   "enna"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MIT-feh",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mit-ack"
+  ],
+  "spdx_keys": [
+   "mit-ack"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MIT-Festival",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "freetts"
+  ],
+  "spdx_keys": [
+   "freetts"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MIT-Khronos-old",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mit-khronos-old"
+  ],
+  "spdx_keys": [
+   "mit-khronos-old"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MIT-Modern-Variant",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mit-modern"
+  ],
+  "spdx_keys": [
+   "mit-modern"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MIT-open-group",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "x11-opengroup"
+  ],
+  "spdx_keys": [
+   "x11-opengroup"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MIT-STK",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "synthesis-toolkit"
+  ],
+  "spdx_keys": [
+   "synthesis-toolkit"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MIT-testregex",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mit-testregex"
+  ],
+  "spdx_keys": [
+   "mit-testregex"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MIT-Wu",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mit-addition"
+  ],
+  "spdx_keys": [
+   "mit-addition"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MITNFA",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mit-no-false-attribs"
+  ],
+  "spdx_keys": [
+   "mit-no-false-attribs"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MMIXware",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mmixware"
+  ],
+  "spdx_keys": [
+   "mmixware"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MMPL-1.0.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "minecraft-mod"
+  ],
+  "spdx_keys": [
+   "minecraft-mod"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Motosoto",
+  "osi": true,
+  "fsf": null,
+  "n": 3,
+  "exprs": [
+   "free-unknown",
+   "motosoto-0.9.1",
+   "warranty-disclaimer"
+  ],
+  "spdx_keys": [
+   "free-unknown",
+   "motosoto-0.9.1",
+   "warranty-disclaimer"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MPEG-SSG",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mpeg-ssg"
+  ],
+  "spdx_keys": [
+   "mpeg-ssg"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "mpi-permissive",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mpi-permissive"
+  ],
+  "spdx_keys": [
+   "mpi-permissive"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "mpich2",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mpich"
+  ],
+  "spdx_keys": [
+   "mpich"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MPL-1.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mpl-1.0"
+  ],
+  "spdx_keys": [
+   "mpl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MPL-1.1",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "mpl-1.1"
+  ],
+  "spdx_keys": [
+   "mpl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MPL-2.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "mpl-2.0"
+  ],
+  "spdx_keys": [
+   "mpl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MPL-2.0-no-copyleft-exception",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mpl-2.0"
+  ],
+  "spdx_keys": [
+   "mpl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "mplus",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "m-plus"
+  ],
+  "spdx_keys": [
+   "m-plus"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MS-LPL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ms-lpl"
+  ],
+  "spdx_keys": [
+   "ms-lpl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MS-PL",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "ms-pl"
+  ],
+  "spdx_keys": [
+   "ms-pl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MS-RL",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "ms-rl"
+  ],
+  "spdx_keys": [
+   "ms-rl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MTLL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mtll"
+  ],
+  "spdx_keys": [
+   "mtll"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MulanPSL-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mulanpsl-1.0"
+  ],
+  "spdx_keys": [
+   "mulanpsl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MulanPSL-2.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mulanpsl-2.0"
+  ],
+  "spdx_keys": [
+   "mulanpsl-2.0"
+  ],
+  "max_cov": 99.6,
+  "proprietary": []
+ },
+ {
+  "id": "Multics",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "multics"
+  ],
+  "spdx_keys": [
+   "multics"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Mup",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mup"
+  ],
+  "spdx_keys": [
+   "mup"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "MVT-1.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mvt-1.1"
+  ],
+  "spdx_keys": [
+   "mvt-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NAIST-2003",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "naist-2003"
+  ],
+  "spdx_keys": [
+   "naist-2003"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NASA-1.3",
+  "osi": true,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "nasa-1.3"
+  ],
+  "spdx_keys": [
+   "nasa-1.3"
+  ],
+  "max_cov": 99.8,
+  "proprietary": []
+ },
+ {
+  "id": "Naumen",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "naumen"
+  ],
+  "spdx_keys": [
+   "naumen"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NBPL-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "nbpl-1.0"
+  ],
+  "spdx_keys": [
+   "nbpl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NCBI-PD",
+  "osi": false,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "ncbi",
+   "public-domain"
+  ],
+  "spdx_keys": [
+   "ncbi",
+   "public-domain"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NCGL-UK-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ncgl-uk-2.0"
+  ],
+  "spdx_keys": [
+   "ncgl-uk-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NCL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "fftpack-2004"
+  ],
+  "spdx_keys": [
+   "fftpack-2004"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NCSA",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "uoi-ncsa"
+  ],
+  "spdx_keys": [
+   "uoi-ncsa"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NetCDF",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "netcdf"
+  ],
+  "spdx_keys": [
+   "netcdf"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Newsletr",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "newsletr"
+  ],
+  "spdx_keys": [
+   "newsletr"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NGPL",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ngpl"
+  ],
+  "spdx_keys": [
+   "ngpl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ngrep",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ngrep"
+  ],
+  "spdx_keys": [
+   "ngrep"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NICTA-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "nicta-psl"
+  ],
+  "spdx_keys": [
+   "nicta-psl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NIST-PD",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "nist-pd"
+  ],
+  "spdx_keys": [
+   "nist-pd"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NIST-PD-fallback",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "nist-pd"
+  ],
+  "spdx_keys": [
+   "nist-pd"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NIST-PD-TNT",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "nist-pd"
+  ],
+  "spdx_keys": [
+   "nist-pd"
+  ],
+  "max_cov": 98.8,
+  "proprietary": []
+ },
+ {
+  "id": "NIST-Software",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "nist-software"
+  ],
+  "spdx_keys": [
+   "nist-software"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NLOD-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "nlod-1.0"
+  ],
+  "spdx_keys": [
+   "nlod-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NLOD-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "nlod-2.0"
+  ],
+  "spdx_keys": [
+   "nlod-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NLPL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "nlpl"
+  ],
+  "spdx_keys": [
+   "nlpl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Nokia",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "nokos-1.0a"
+  ],
+  "spdx_keys": [
+   "nokos-1.0a"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NOSL",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "nosl-1.0"
+  ],
+  "spdx_keys": [
+   "nosl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Noweb",
+  "osi": false,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "noweb"
+  ],
+  "spdx_keys": [
+   "noweb"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NPL-1.0",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "npl-1.0"
+  ],
+  "spdx_keys": [
+   "npl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NPL-1.1",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "npl-1.1"
+  ],
+  "spdx_keys": [
+   "npl-1.1"
+  ],
+  "max_cov": 99.9,
+  "proprietary": []
+ },
+ {
+  "id": "NPOSL-3.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "nosl-3.0"
+  ],
+  "spdx_keys": [
+   "nosl-3.0"
+  ],
+  "max_cov": 99.8,
+  "proprietary": []
+ },
+ {
+  "id": "NRL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "nrl"
+  ],
+  "spdx_keys": [
+   "nrl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NTIA-PD",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ntia-pd"
+  ],
+  "spdx_keys": [
+   "ntia-pd"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NTP",
+  "osi": true,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "mit-old-style-no-advert"
+  ],
+  "spdx_keys": [
+   "mit-old-style-no-advert"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "NTP-0",
+  "osi": false,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "ntp-0"
+  ],
+  "spdx_keys": [
+   "ntp-0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "O-UDA-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "o-uda-1.0"
+  ],
+  "spdx_keys": [
+   "o-uda-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OAR",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "x11-oar"
+  ],
+  "spdx_keys": [
+   "x11-oar"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OCCT-PL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "occt-pl"
+  ],
+  "spdx_keys": [
+   "occt-pl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OCLC-2.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "oclc-2.0"
+  ],
+  "spdx_keys": [
+   "oclc-2.0"
+  ],
+  "max_cov": 99.9,
+  "proprietary": []
+ },
+ {
+  "id": "ODbL-1.0",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "odbl-1.0"
+  ],
+  "spdx_keys": [
+   "odbl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ODC-By-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ppl"
+  ],
+  "spdx_keys": [
+   "ppl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OFFIS",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "offis"
+  ],
+  "spdx_keys": [
+   "offis"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OFL-1.0",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "ofl-1.0"
+  ],
+  "spdx_keys": [
+   "ofl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OFL-1.0-no-RFN",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ofl-1.0"
+  ],
+  "spdx_keys": [
+   "ofl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OFL-1.0-RFN",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ofl-1.0"
+  ],
+  "spdx_keys": [
+   "ofl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OFL-1.1",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "ofl-1.1"
+  ],
+  "spdx_keys": [
+   "ofl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OFL-1.1-no-RFN",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ofl-1.1"
+  ],
+  "spdx_keys": [
+   "ofl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OFL-1.1-RFN",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ofl-1.1"
+  ],
+  "spdx_keys": [
+   "ofl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OGC-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ogc-1.0"
+  ],
+  "spdx_keys": [
+   "ogc-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OGDL-Taiwan-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ogdl-taiwan-1.0"
+  ],
+  "spdx_keys": [
+   "ogdl-taiwan-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OGL-Canada-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "can-ogl-2.0-en"
+  ],
+  "spdx_keys": [
+   "can-ogl-2.0-en"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OGL-UK-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "ogl-uk-1.0"
+  ],
+  "spdx_keys": [
+   "ogl-uk-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OGL-UK-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "ogl-uk-2.0"
+  ],
+  "spdx_keys": [
+   "ogl-uk-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OGL-UK-3.0",
+  "osi": false,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "ogl-uk-3.0"
+  ],
+  "spdx_keys": [
+   "ogl-uk-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OGTSL",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "opengroup"
+  ],
+  "spdx_keys": [
+   "opengroup"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLDAP-1.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openldap-1.1"
+  ],
+  "spdx_keys": [
+   "openldap-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLDAP-1.2",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openldap-1.2"
+  ],
+  "spdx_keys": [
+   "openldap-1.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLDAP-1.3",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openldap-1.3"
+  ],
+  "spdx_keys": [
+   "openldap-1.3"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLDAP-1.4",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openldap-1.4"
+  ],
+  "spdx_keys": [
+   "openldap-1.4"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLDAP-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openldap-2.0"
+  ],
+  "spdx_keys": [
+   "openldap-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLDAP-2.0.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openldap-2.0.1"
+  ],
+  "spdx_keys": [
+   "openldap-2.0.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLDAP-2.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openldap-2.1"
+  ],
+  "spdx_keys": [
+   "openldap-2.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLDAP-2.2",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openldap-2.2"
+  ],
+  "spdx_keys": [
+   "openldap-2.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLDAP-2.2.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openldap-2.2.1"
+  ],
+  "spdx_keys": [
+   "openldap-2.2.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLDAP-2.2.2",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openldap-2.2.2"
+  ],
+  "spdx_keys": [
+   "openldap-2.2.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLDAP-2.3",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "openldap-2.3"
+  ],
+  "spdx_keys": [
+   "openldap-2.3"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLDAP-2.4",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openldap-2.4"
+  ],
+  "spdx_keys": [
+   "openldap-2.4"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLDAP-2.5",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openldap-2.5"
+  ],
+  "spdx_keys": [
+   "openldap-2.5"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLDAP-2.6",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openldap-2.6"
+  ],
+  "spdx_keys": [
+   "openldap-2.6"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLDAP-2.7",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "openldap-2.7"
+  ],
+  "spdx_keys": [
+   "openldap-2.7"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLDAP-2.8",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openldap-2.8"
+  ],
+  "spdx_keys": [
+   "openldap-2.8"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OLFL-1.3",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "olfl-1.3"
+  ],
+  "spdx_keys": [
+   "olfl-1.3"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OML",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "fastcgi-devkit"
+  ],
+  "spdx_keys": [
+   "fastcgi-devkit"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OpenMDW-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openmdw-1.0"
+  ],
+  "spdx_keys": [
+   "openmdw-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OpenPBS-2.3",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openpbs-2.3"
+  ],
+  "spdx_keys": [
+   "openpbs-2.3"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OpenSSL",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "openssl-ssleay"
+  ],
+  "spdx_keys": [
+   "openssl-ssleay"
+  ],
+  "max_cov": 93.3,
+  "proprietary": []
+ },
+ {
+  "id": "OpenSSL-standalone",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openssl"
+  ],
+  "spdx_keys": [
+   "openssl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OpenVision",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openvision"
+  ],
+  "spdx_keys": [
+   "openvision"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OPL-1.0",
+  "osi": false,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "open-public"
+  ],
+  "spdx_keys": [
+   "open-public"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OPL-UK-3.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "opl-uk-3.0"
+  ],
+  "spdx_keys": [
+   "opl-uk-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OPUBL-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "openpub"
+  ],
+  "spdx_keys": [
+   "openpub"
+  ],
+  "max_cov": 96.3,
+  "proprietary": []
+ },
+ {
+  "id": "OSC-1.0",
+  "osi": true,
+  "fsf": null,
+  "n": 0,
+  "exprs": [],
+  "spdx_keys": [],
+  "max_cov": 0,
+  "proprietary": []
+ },
+ {
+  "id": "OSET-PL-2.1",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "oset-pl-2.1"
+  ],
+  "spdx_keys": [
+   "oset-pl-2.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OSL-1.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "osl-1.0"
+  ],
+  "spdx_keys": [
+   "osl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OSL-1.1",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "osl-1.1"
+  ],
+  "spdx_keys": [
+   "osl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OSL-2.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "osl-2.0"
+  ],
+  "spdx_keys": [
+   "osl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OSL-2.1",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "osl-2.1"
+  ],
+  "spdx_keys": [
+   "osl-2.1"
+  ],
+  "max_cov": 99.7,
+  "proprietary": []
+ },
+ {
+  "id": "OSL-3.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "osl-3.0"
+  ],
+  "spdx_keys": [
+   "osl-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "OSSP",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mit-old-style AND warranty-disclaimer"
+  ],
+  "spdx_keys": [
+   "mit-old-style AND warranty-disclaimer"
+  ],
+  "max_cov": 83.5,
+  "proprietary": []
+ },
+ {
+  "id": "PADL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "padl"
+  ],
+  "spdx_keys": [
+   "padl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ParaType-Free-Font-1.3",
+  "osi": false,
+  "fsf": null,
+  "n": 3,
+  "exprs": [
+   "hpnd-mit-disclaimer",
+   "proprietary-license"
+  ],
+  "spdx_keys": [
+   "hpnd-mit-disclaimer",
+   "proprietary-license"
+  ],
+  "max_cov": 100.0,
+  "proprietary": [
+   10,
+   16
+  ]
+ },
+ {
+  "id": "Parity-6.0.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "parity-6.0.0"
+  ],
+  "spdx_keys": [
+   "parity-6.0.0"
+  ],
+  "max_cov": 98.2,
+  "proprietary": []
+ },
+ {
+  "id": "Parity-7.0.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "parity-7.0.0"
+  ],
+  "spdx_keys": [
+   "parity-7.0.0"
+  ],
+  "max_cov": 99.3,
+  "proprietary": []
+ },
+ {
+  "id": "PDDL-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "pddl-1.0"
+  ],
+  "spdx_keys": [
+   "pddl-1.0"
+  ],
+  "max_cov": 99.9,
+  "proprietary": []
+ },
+ {
+  "id": "PHP-3.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "php-3.0"
+  ],
+  "spdx_keys": [
+   "php-3.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "PHP-3.01",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "php-3.01"
+  ],
+  "spdx_keys": [
+   "php-3.01"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Pixar",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "pixar"
+  ],
+  "spdx_keys": [
+   "pixar"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "pkgconf",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mit-taylor-variant"
+  ],
+  "spdx_keys": [
+   "mit-taylor-variant"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Plexus",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "dom4j"
+  ],
+  "spdx_keys": [
+   "dom4j"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "pnmstitch",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "pnmstitch"
+  ],
+  "spdx_keys": [
+   "pnmstitch"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "PolyForm-Noncommercial-1.0.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "polyform-noncommercial-1.0.0"
+  ],
+  "spdx_keys": [
+   "polyform-noncommercial-1.0.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "PolyForm-Small-Business-1.0.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "polyform-small-business-1.0.0"
+  ],
+  "spdx_keys": [
+   "polyform-small-business-1.0.0"
+  ],
+  "max_cov": 99.9,
+  "proprietary": []
+ },
+ {
+  "id": "PostgreSQL",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "postgresql"
+  ],
+  "spdx_keys": [
+   "postgresql"
+  ],
+  "max_cov": 83.1,
+  "proprietary": []
+ },
+ {
+  "id": "PPL",
+  "osi": false,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "ppl"
+  ],
+  "spdx_keys": [
+   "ppl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "PSF-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "python"
+  ],
+  "spdx_keys": [
+   "python"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "psfrag",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "psfrag"
+  ],
+  "spdx_keys": [
+   "psfrag"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "psutils",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "psutils"
+  ],
+  "spdx_keys": [
+   "psutils"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Python-2.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "python"
+  ],
+  "spdx_keys": [
+   "python"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Python-2.0.1",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "python-2.0.1"
+  ],
+  "spdx_keys": [
+   "python-2.0.1"
+  ],
+  "max_cov": 93.5,
+  "proprietary": []
+ },
+ {
+  "id": "python-ldap",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "python-ldap"
+  ],
+  "spdx_keys": [
+   "python-ldap"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Qhull",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "qhull"
+  ],
+  "spdx_keys": [
+   "qhull"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "QPL-1.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "qpl-1.0"
+  ],
+  "spdx_keys": [
+   "qpl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "QPL-1.0-INRIA-2004",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "qpl-1.0-inria-2004"
+  ],
+  "spdx_keys": [
+   "qpl-1.0-inria-2004"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "radvd",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "radvd"
+  ],
+  "spdx_keys": [
+   "radvd"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Rdisc",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "rdisc"
+  ],
+  "spdx_keys": [
+   "rdisc"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "RHeCos-1.1",
+  "osi": false,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "ecosrh-1.1"
+  ],
+  "spdx_keys": [
+   "ecosrh-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "RPL-1.1",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "rpl-1.1"
+  ],
+  "spdx_keys": [
+   "rpl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "RPL-1.5",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "rpl-1.5"
+  ],
+  "spdx_keys": [
+   "rpl-1.5"
+  ],
+  "max_cov": 99.9,
+  "proprietary": []
+ },
+ {
+  "id": "RPSL-1.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "rpsl-1.0"
+  ],
+  "spdx_keys": [
+   "rpsl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "RSA-MD",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "rsa-md5"
+  ],
+  "spdx_keys": [
+   "rsa-md5"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "RSCPL",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ricoh-1.0"
+  ],
+  "spdx_keys": [
+   "ricoh-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Ruby",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "ruby"
+  ],
+  "spdx_keys": [
+   "ruby"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Ruby-pty",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ruby-pty"
+  ],
+  "spdx_keys": [
+   "ruby-pty"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SAX-PD",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "sax-pd"
+  ],
+  "spdx_keys": [
+   "sax-pd"
+  ],
+  "max_cov": 99.0,
+  "proprietary": []
+ },
+ {
+  "id": "SAX-PD-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "sax-pd-2.0"
+  ],
+  "spdx_keys": [
+   "sax-pd-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Saxpath",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "saxpath"
+  ],
+  "spdx_keys": [
+   "saxpath"
+  ],
+  "max_cov": 88.1,
+  "proprietary": []
+ },
+ {
+  "id": "SCEA",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "scea-1.0"
+  ],
+  "spdx_keys": [
+   "scea-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SchemeReport",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "schemereport"
+  ],
+  "spdx_keys": [
+   "schemereport"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Sendmail",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "sendmail"
+  ],
+  "spdx_keys": [
+   "sendmail"
+  ],
+  "max_cov": 96.3,
+  "proprietary": []
+ },
+ {
+  "id": "Sendmail-8.23",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "sendmail"
+  ],
+  "spdx_keys": [
+   "sendmail"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Sendmail-Open-Source-1.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "sendmail-open-source-1.1"
+  ],
+  "spdx_keys": [
+   "sendmail-open-source-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SGI-B-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "sgi-fslb-1.0"
+  ],
+  "spdx_keys": [
+   "sgi-fslb-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SGI-B-1.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "sgi-freeb-1.1"
+  ],
+  "spdx_keys": [
+   "sgi-freeb-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SGI-B-2.0",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "sgi-freeb-2.0"
+  ],
+  "spdx_keys": [
+   "sgi-freeb-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SGI-OpenGL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "x11-opengl"
+  ],
+  "spdx_keys": [
+   "x11-opengl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SGMLUG-PM",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "sgmlug"
+  ],
+  "spdx_keys": [
+   "sgmlug"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SGP4",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "sgp4"
+  ],
+  "spdx_keys": [
+   "sgp4"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SHL-0.5",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "shl-0.5"
+  ],
+  "spdx_keys": [
+   "shl-0.5"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SHL-0.51",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "shl-0.51"
+  ],
+  "spdx_keys": [
+   "shl-0.51"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SimPL-2.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "simpl-2.0"
+  ],
+  "spdx_keys": [
+   "simpl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SISSL",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "sun-sissl-1.1"
+  ],
+  "spdx_keys": [
+   "sun-sissl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SISSL-1.2",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "sun-sissl-1.2"
+  ],
+  "spdx_keys": [
+   "sun-sissl-1.2"
+  ],
+  "max_cov": 94.5,
+  "proprietary": []
+ },
+ {
+  "id": "SL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "sl"
+  ],
+  "spdx_keys": [
+   "sl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Sleepycat",
+  "osi": true,
+  "fsf": true,
+  "n": 4,
+  "exprs": [
+   "bsd-new",
+   "sleepycat"
+  ],
+  "spdx_keys": [
+   "bsd-new",
+   "sleepycat"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SMAIL-GPL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "smail-gpl"
+  ],
+  "spdx_keys": [
+   "smail-gpl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SMLNJ",
+  "osi": false,
+  "fsf": true,
+  "n": 2,
+  "exprs": [
+   "standard-ml-nj"
+  ],
+  "spdx_keys": [
+   "standard-ml-nj"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SMPPL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "smppl"
+  ],
+  "spdx_keys": [
+   "smppl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SNIA",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "snia"
+  ],
+  "spdx_keys": [
+   "snia"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "snprintf",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "snprintf"
+  ],
+  "spdx_keys": [
+   "snprintf"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SOFA",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "sofa"
+  ],
+  "spdx_keys": [
+   "sofa"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "softSurfer",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "softsurfer"
+  ],
+  "spdx_keys": [
+   "softsurfer"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Soundex",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "soundex"
+  ],
+  "spdx_keys": [
+   "soundex"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Spencer-86",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "regexp"
+  ],
+  "spdx_keys": [
+   "regexp"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Spencer-94",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "hs-regexp"
+  ],
+  "spdx_keys": [
+   "hs-regexp"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Spencer-99",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "henry-spencer-1999"
+  ],
+  "spdx_keys": [
+   "henry-spencer-1999"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SPL-1.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "spl-1.0"
+  ],
+  "spdx_keys": [
+   "spl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ssh-keyscan",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ssh-keyscan"
+  ],
+  "spdx_keys": [
+   "ssh-keyscan"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SSH-OpenSSH",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "openssh"
+  ],
+  "spdx_keys": [
+   "openssh"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SSH-short",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "tatu-ylonen"
+  ],
+  "spdx_keys": [
+   "tatu-ylonen"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SSLeay-standalone",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ssleay-windows"
+  ],
+  "spdx_keys": [
+   "ssleay-windows"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SSPL-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mongodb-sspl-1.0"
+  ],
+  "spdx_keys": [
+   "mongodb-sspl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SugarCRM-1.1.3",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "sugarcrm-1.1.3"
+  ],
+  "spdx_keys": [
+   "sugarcrm-1.1.3"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SUL-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "sustainable-use-1.0"
+  ],
+  "spdx_keys": [
+   "sustainable-use-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Sun-PPP",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "sun-ppp"
+  ],
+  "spdx_keys": [
+   "sun-ppp"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Sun-PPP-2000",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "sun-ppp-2000"
+  ],
+  "spdx_keys": [
+   "sun-ppp-2000"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SunPro",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "sunpro"
+  ],
+  "spdx_keys": [
+   "sunpro"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "SWL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "swl"
+  ],
+  "spdx_keys": [
+   "swl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "swrule",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "swrule"
+  ],
+  "spdx_keys": [
+   "swrule"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Symlinks",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "symlinks"
+  ],
+  "spdx_keys": [
+   "symlinks"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "TAPR-OHL-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "tapr-ohl-1.0"
+  ],
+  "spdx_keys": [
+   "tapr-ohl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "TCL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "tcl"
+  ],
+  "spdx_keys": [
+   "tcl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "TCP-wrappers",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "tcp-wrappers"
+  ],
+  "spdx_keys": [
+   "tcp-wrappers"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "TekHVC",
+  "osi": false,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "patent-disclaimer",
+   "tekhvc"
+  ],
+  "spdx_keys": [
+   "patent-disclaimer",
+   "tekhvc"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "TermReadKey",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "term-readkey"
+  ],
+  "spdx_keys": [
+   "term-readkey"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "TGPPL-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "tgppl-1.0"
+  ],
+  "spdx_keys": [
+   "tgppl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ThirdEye",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "thirdeye"
+  ],
+  "spdx_keys": [
+   "thirdeye"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "threeparttable",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "threeparttable"
+  ],
+  "spdx_keys": [
+   "threeparttable"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "TMate",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "tmate"
+  ],
+  "spdx_keys": [
+   "tmate"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "TORQUE-1.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "torque-1.1"
+  ],
+  "spdx_keys": [
+   "torque-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "TOSL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "tosl"
+  ],
+  "spdx_keys": [
+   "tosl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "TPDL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "tpdl"
+  ],
+  "spdx_keys": [
+   "tpdl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "TPL-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "thor-pl"
+  ],
+  "spdx_keys": [
+   "thor-pl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "TrustedQSL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "trustedqsl"
+  ],
+  "spdx_keys": [
+   "trustedqsl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "TTWL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ttwl"
+  ],
+  "spdx_keys": [
+   "ttwl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "TTYP0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ttyp0"
+  ],
+  "spdx_keys": [
+   "ttyp0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "TU-Berlin-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "tu-berlin"
+  ],
+  "spdx_keys": [
+   "tu-berlin"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "TU-Berlin-2.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "tu-berlin-2.0"
+  ],
+  "spdx_keys": [
+   "tu-berlin-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Ubuntu-font-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ubuntu-font-1.0"
+  ],
+  "spdx_keys": [
+   "ubuntu-font-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "UCAR",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ucar"
+  ],
+  "spdx_keys": [
+   "ucar"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "UCL-1.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ucl-1.0"
+  ],
+  "spdx_keys": [
+   "ucl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ulem",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ulem"
+  ],
+  "spdx_keys": [
+   "ulem"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "UMich-Merit",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "umich-merit"
+  ],
+  "spdx_keys": [
+   "umich-merit"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Unicode-3.0",
+  "osi": true,
+  "fsf": null,
+  "n": 2,
+  "exprs": [
+   "unicode-v3",
+   "unknown-license-reference"
+  ],
+  "spdx_keys": [
+   "unicode-v3",
+   "unknown-license-reference"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Unicode-DFS-2015",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "unicode-dfs-2015"
+  ],
+  "spdx_keys": [
+   "unicode-dfs-2015"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Unicode-DFS-2016",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "unicode-dfs-2016"
+  ],
+  "spdx_keys": [
+   "unicode-dfs-2016"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Unicode-TOU",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "unicode-tou"
+  ],
+  "spdx_keys": [
+   "unicode-tou"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "UnixCrypt",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "unixcrypt"
+  ],
+  "spdx_keys": [
+   "unixcrypt"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Unlicense",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "unlicense"
+  ],
+  "spdx_keys": [
+   "unlicense"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Unlicense-libtelnet",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "unlicense-libtelnet"
+  ],
+  "spdx_keys": [
+   "unlicense-libtelnet"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Unlicense-libwhirlpool",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "unlicense-libwhirlpool"
+  ],
+  "spdx_keys": [
+   "unlicense-libwhirlpool"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "UnRAR",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "unrar"
+  ],
+  "spdx_keys": [
+   "unrar"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "UPL-1.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "upl-1.0"
+  ],
+  "spdx_keys": [
+   "upl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "URT-RLE",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "urt-rle"
+  ],
+  "spdx_keys": [
+   "urt-rle"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Vim",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "vim"
+  ],
+  "spdx_keys": [
+   "vim"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Vixie-Cron",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "vixie-cron"
+  ],
+  "spdx_keys": [
+   "vixie-cron"
+  ],
+  "max_cov": 67.7,
+  "proprietary": []
+ },
+ {
+  "id": "VOSTROM",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "vostrom"
+  ],
+  "spdx_keys": [
+   "vostrom"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "VSL-1.0",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "vsl-1.0"
+  ],
+  "spdx_keys": [
+   "vsl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "W3C",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "w3c"
+  ],
+  "spdx_keys": [
+   "w3c"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "W3C-19980720",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "w3c-software-19980720"
+  ],
+  "spdx_keys": [
+   "w3c-software-19980720"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "W3C-20150513",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "w3c-software-doc-20150513"
+  ],
+  "spdx_keys": [
+   "w3c-software-doc-20150513"
+  ],
+  "max_cov": 97.5,
+  "proprietary": []
+ },
+ {
+  "id": "w3m",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "w3m"
+  ],
+  "spdx_keys": [
+   "w3m"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Watcom-1.0",
+  "osi": true,
+  "fsf": false,
+  "n": 1,
+  "exprs": [
+   "sybase"
+  ],
+  "spdx_keys": [
+   "sybase"
+  ],
+  "max_cov": 99.8,
+  "proprietary": []
+ },
+ {
+  "id": "Widget-Workshop",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "widget-workshop"
+  ],
+  "spdx_keys": [
+   "widget-workshop"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "WordNet",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "wordnet"
+  ],
+  "spdx_keys": [
+   "wordnet"
+  ],
+  "max_cov": 99.6,
+  "proprietary": []
+ },
+ {
+  "id": "Wsuipa",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "wsuipa"
+  ],
+  "spdx_keys": [
+   "wsuipa"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "WTFNMFPL",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "wtfnmfpl-1.0"
+  ],
+  "spdx_keys": [
+   "wtfnmfpl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "WTFPL",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "wtfpl-2.0"
+  ],
+  "spdx_keys": [
+   "wtfpl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "wwl",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "wwl"
+  ],
+  "spdx_keys": [
+   "wwl"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "X11",
+  "osi": false,
+  "fsf": true,
+  "n": 2,
+  "exprs": [
+   "x11-xconsortium"
+  ],
+  "spdx_keys": [
+   "x11-xconsortium"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "X11-distribute-modifications-variant",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "x11-fsf"
+  ],
+  "spdx_keys": [
+   "x11-fsf"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "X11-no-permit-persons",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "x11-xconsortium"
+  ],
+  "spdx_keys": [
+   "x11-xconsortium"
+  ],
+  "max_cov": 96.3,
+  "proprietary": []
+ },
+ {
+  "id": "X11-swapped",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "x11-swapped"
+  ],
+  "spdx_keys": [
+   "x11-swapped"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Xdebug-1.03",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "xdebug-1.03"
+  ],
+  "spdx_keys": [
+   "xdebug-1.03"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Xerox",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mit-export-control"
+  ],
+  "spdx_keys": [
+   "mit-export-control"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Xfig",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "mit-xfig"
+  ],
+  "spdx_keys": [
+   "mit-xfig"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "XFree86-1.1",
+  "osi": false,
+  "fsf": true,
+  "n": 2,
+  "exprs": [
+   "xfree86-1.1"
+  ],
+  "spdx_keys": [
+   "xfree86-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "xinetd",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "xinetd"
+  ],
+  "spdx_keys": [
+   "xinetd"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "xkeyboard-config-Zinoviev",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "xkeyboard-config-zinoviev"
+  ],
+  "spdx_keys": [
+   "xkeyboard-config-zinoviev"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "xlock",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "libpbm"
+  ],
+  "spdx_keys": [
+   "libpbm"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Xnet",
+  "osi": true,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "xnet"
+  ],
+  "spdx_keys": [
+   "xnet"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "xpp",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "indiana-extreme-1.2"
+  ],
+  "spdx_keys": [
+   "indiana-extreme-1.2"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "XSkat",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "xskat"
+  ],
+  "spdx_keys": [
+   "xskat"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "xzoom",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "xzoom"
+  ],
+  "spdx_keys": [
+   "xzoom"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "YPL-1.0",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "ypl-1.0"
+  ],
+  "spdx_keys": [
+   "ypl-1.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "YPL-1.1",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "ypl-1.1"
+  ],
+  "spdx_keys": [
+   "ypl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Zed",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "zed"
+  ],
+  "spdx_keys": [
+   "zed"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Zeeff",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "zeeff"
+  ],
+  "spdx_keys": [
+   "zeeff"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Zend-2.0",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "zend-2.0"
+  ],
+  "spdx_keys": [
+   "zend-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Zimbra-1.3",
+  "osi": false,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "zimbra-1.3"
+  ],
+  "spdx_keys": [
+   "zimbra-1.3"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Zimbra-1.4",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "zimbra-1.4"
+  ],
+  "spdx_keys": [
+   "zimbra-1.4"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "Zlib",
+  "osi": true,
+  "fsf": true,
+  "n": 2,
+  "exprs": [
+   "zlib"
+  ],
+  "spdx_keys": [
+   "zlib"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "zlib-acknowledgement",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "zlib-acknowledgement"
+  ],
+  "spdx_keys": [
+   "zlib-acknowledgement"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ZPL-1.1",
+  "osi": false,
+  "fsf": null,
+  "n": 1,
+  "exprs": [
+   "zpl-1.1"
+  ],
+  "spdx_keys": [
+   "zpl-1.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ZPL-2.0",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "zpl-2.0"
+  ],
+  "spdx_keys": [
+   "zpl-2.0"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ },
+ {
+  "id": "ZPL-2.1",
+  "osi": true,
+  "fsf": true,
+  "n": 1,
+  "exprs": [
+   "zpl-2.1"
+  ],
+  "spdx_keys": [
+   "zpl-2.1"
+  ],
+  "max_cov": 100.0,
+  "proprietary": []
+ }
+]

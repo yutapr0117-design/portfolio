@@ -11,6 +11,8 @@
 
 - `sc_detect.py` / `result_detection_level.txt` は **CLI と同じ検出の合成（`scancode.api.get_licenses`）**を通した結果（同じスタブ）。照合 API の断片一覧ではなく、スキャン報告に載る `detected_license_expression` を見るためのもの。敵対的検証役（同セッションのサブエージェント・読み取りのみ）が書いたスクリプトを、入力を固定して再実行した。
 
+- `result_spdx_all_708_census.json`（`sc_census_all.py`）は同じ照合 API を SPDX license-list-data の **非 deprecated 全 708 本**に当てた結果（各行に isOsiApproved / isFsfLibre を併記）。
+
 | file | sha256[:16] |
 |---|---|
 | ./census_input_source.txt | c44c69549e77c4c0 |
@@ -32,10 +34,12 @@
 | ./result_detection_level.txt | fd342a7dc880fae0 |
 | ./result_osi_approved_141_census.json | eed0d49aa04bf537 |
 | ./result_peers.json | e9f6c0ae20234496 |
+| ./result_spdx_all_708_census.json | 10d13c253dad7ddf |
 | ./rules/proprietary-license_544.RULE | dcd84f8e2fac4b16 |
 | ./rules/public-domain_bare_words.RULE | 1b8d5398dca432cd |
 | ./rules/unknown_35.RULE | 08425579caaa0f3b |
 | ./sc_census.py | 71ea8d629cfc5b33 |
+| ./sc_census_all.py | b8b9e2ab2bf83241 |
 | ./sc_detect.py | ca8e712683574c60 |
 | ./sc_match.py | 34a553a9dd353c00 |
 | ./variants/v_any_purpose.txt | f3c56e28f4dadd20 |
