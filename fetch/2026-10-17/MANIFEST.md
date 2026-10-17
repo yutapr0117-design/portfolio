@@ -1018,6 +1018,20 @@
 | hf/hf_datasets_license_wtfpl.json | https://huggingface.co/api/datasets?filter=license:wtfpl&limit=1000&full=false | https://huggingface.co/api/datasets?filter=license:wtfpl&limit=1000&full=false | 200 | 268666 | 9e0ab89a8256bc35 | 2026-10-17T10:45:43Z |
 | hf/hf_models_search_modelgo.json | https://huggingface.co/api/models?search=modelgo&limit=1000 | https://huggingface.co/api/models?search=modelgo&limit=1000 | 200 | 2531 | 8f83185a61ab4bc3 | 2026-10-17T10:45:44Z |
 
+
+## 19. `acd-usage/` — ACD-1.0 の外部での使用を GitHub のコード / リポジトリ / issue 検索と Hugging Face の検索で探した結果
+
+| file | 要求 URL | 最終 URL | status | bytes | sha256[:16] | 取得時刻（UTC） |
+|---|---|---|---|---|---|---|
+| acd-usage/code_search_LicenseRef-ACD.json | https://api.github.com/search/code?q=%22LicenseRef-ACD%22&per_page=100 (gh api) | — | 200 | 121414 | 13870981246e926a | 2026-10-17T10:46:40Z |
+| acd-usage/code_search_SPDX_ACD-1.0.json | https://api.github.com/search/code?q=%22SPDX-License-Identifier%3A+ACD-1.0%22&per_page=100 (gh api) | — | 200 | 101485 | e05a5a26606ede49 | 2026-10-17T10:46:48Z |
+| acd-usage/repo_search_ACD-1.0.json | https://api.github.com/search/repositories?q=%22ACD-1.0%22&per_page=100 (gh api) | — | 200 | 20522 | 78df96db7c05a865 | 2026-10-17T10:47:04Z |
+| acd-usage/code_search_Autonomous_Commons_Dedication.json | https://api.github.com/search/code?q=%22Autonomous+Commons+Dedication%22&per_page=100 (gh api) | — | 200 | 198186 | 86244fdf4c1cecf7 | 2026-10-17T10:47:17Z |
+| acd-usage/repo_search_Autonomous_Commons.json | https://api.github.com/search/repositories?q=%22Autonomous+Commons%22&per_page=100 (gh api) | — | 200 | 5785 | 444d2ce64e8546b7 | 2026-10-17T10:47:25Z |
+| acd-usage/issue_search_Autonomous_Commons_Dedication.json | https://api.github.com/search/issues?q=%22Autonomous+Commons+Dedication%22&per_page=100 (gh api) | — | 200 | 10908 | 07599710af1d4e45 | 2026-10-17T10:47:32Z |
+| acd-usage/web_hf_search_acd.json | https://huggingface.co/api/models?search=ACD-1.0&limit=100 | https://huggingface.co/api/models?search=ACD-1.0&limit=100 | 200 | 2 | 4f53cda18c2baa0c | 2026-10-17T10:47:33Z |
+| acd-usage/liv-bloom_readme.md | https://api.github.com/repos/liv-bloom/alife_research_package/readme (gh api・content を base64 復号して保存) | — | 200 | 1001 | 22e084eb23d7fafe | 2026-10-17T10:47:42Z |
+
 ## 観測メモ（事実の指し先だけ・読みはクラウド側）
 
 1. **license-discuss 10 月に 3 通増えた**（Message-ID 基準）。(a) 2026-10-14 **Josh Berkus 氏**（0BSD-P スレッド）: Landley 氏の異議に全面同意したうえで、名前に "0BSD" を使うには BSD 側の許可が要ると指摘し、*"It's not the goal of the OSI to have licenses for every possible combination of conditions; if they wanted that, the OSI could just build its own license-generating LLM and be done with it. So, do you have a specific use for a license with patent grants and no attribution? Can you describe that use?"* (b) 2026-10-16 提出予定者が 0BSD-P を**取り下げ**（*"I could not describe a real project that needs this combination, and I understand why this looks like license proliferation."*）。(c) 同日、同じ人が **Model Chain Attribution License (MCAL)** の pre-submission を新規スレッドで開始（AI のデータセット→モデル→アプリの帰属を機械可読な Attribution Record で伝播させる AI 向けライセンス。本文は添付として配信）。2026-10-17 02:57 UTC に Roland Turner 氏が「SPDX と CycloneDX の既存仕事の再現に近い」と返信。
@@ -1066,3 +1080,4 @@
 44. FSF のライセンス一覧（`fsf_license_list.html`）の版表示は `$Date: 2026/04/22 06:55:32 $`。`W2FPL` / `ACD-1` / `OpenMDW` / `ModelGo` の文字列は 0 件。
 45. Debian の `wiki.debian.org/DFSGLicenses` は proof-of-work のボット判定ページ（"I Challenge Thee"）で、中身は**取得できなかった**。
 46. **Hugging Face 上の OpenMDW**（取得時点・`filter=license:<tag>`）: `openmdw-1.1` モデル 383 件（所有者 184・上位 open-athena 34 / mlx-community 24 / nvidia 16 / poolside 16・downloads 合計 3,538,430）、`openmdw-1.0` モデル 85 件（所有者 42）、データセットは 1.1 が 33 件・1.0 が 31 件。比較: `cc0-1.0` / `unlicense` / `wtfpl` のモデルは上限 1000 に達した（実数はこれ以上）、`0bsd` は 0 件（HF のタグ一覧に `0bsd` が無い可能性があり、0 件は未使用の証拠ではない）。`search=modelgo` の 8 件は名前の部分一致で、ModelGo ライセンスの使用ではない。**OpenMDW-1.1 は OSI の `api/licenses` に無い**（観測メモ 18）。
+47. **ACD-1.0 の外部での使用は、この経路では見つからなかった**（取得時点）。GitHub のコード検索 `"LicenseRef-ACD"` 24 件 / `"SPDX-License-Identifier: ACD-1.0"` 20 件 / `"Autonomous Commons Dedication"` 39 件は**すべて `yutapr0117-design/portfolio`**。issue 検索も 2 件とも同リポジトリ。リポジトリ検索 `"ACD-1.0"` の 3 件は UUID 文字列の偶然の一致、`"Autonomous Commons"` の 1 件（`liv-bloom/alife_research_package`・2026-06-30 作成・ライセンス表示なし）は人工生命の研究パッケージの題名で ACD とは無関係。Hugging Face の `search=ACD-1.0` は 0 件。**GitHub のコード検索は既定ブランチの索引済みファイルだけを見るので、0 件は「どこにも無い」の証明ではない。** `liv-bloom_readme.md` は API の base64 を復号して保存した（サーバーのバイト列そのものではない）。
