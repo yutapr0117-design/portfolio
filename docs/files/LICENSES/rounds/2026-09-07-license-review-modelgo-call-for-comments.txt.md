@@ -26,8 +26,8 @@ licenses**; or b) approval of licenses in general"* に向けて開かれてい�
 - 出所は OSI 公開アーカイブ（`license-review_lists.opensource.org/2026-September.txt`）
 - **4 問すべてが ACD-1.0 には構造上あたらない** —— §10.1（条件ゼロ）/ §8.2（特許報復条項なし・
   不在は意図的）/ §10.4（何も終了しない）。分析は `PEER-REVIEW-WATCH.md` 側に置く
-- **同スレッドで Pamela Chestek 氏が「本文へのリンクか写しをくれ」と即座に求めている** ——
-  Chestek 氏（委員・元委員長）ですらスレッド内に本文を要求する。「添付せよ」という要件の実務的な意味がここに出ている
+- **同スレッドで Pamela Chestek 氏（委員・元委員長）が「本文へのリンクか写しをくれ」と即座に求めている** ——
+  審査に長く関わる委員ですらスレッド内に本文を要求する。「添付せよ」という要件の実務的な意味がここに出ている
 
 ## Constraints
 

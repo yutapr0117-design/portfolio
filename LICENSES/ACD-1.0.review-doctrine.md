@@ -25,7 +25,7 @@ canonical-ref: LICENSES/ACD-1.0.review-precedents.md (他の提出に何が起�
 
 **§1.88 と同じスレッドの読み。** 2026-09-10〜09-14 の争点は**終了条項**であり、
 **ACD には終了が無い**（§10.1 / §10.4）ので**表面は当たらない**。
-**だがChestek 氏（委員・元委員長）が使っている原理は、条項の種類に依存していない。**
+**だが Chestek 氏（委員・元委員長）が使っている原理は、条項の種類に依存していない。**
 
 > **You're putting the burden on the potentially wronged party to limit their choices rather than
 > on the licensor to avoid wrongful conduct.** … You are also assuming the licensee has knowledge
