@@ -5,6 +5,8 @@
 - 入力（`inputs/`）: ACD-1.0 / 1.1 / 1.2-DRAFT と `LICENSE` は `origin/main`（`46f0a95f`）から `git show`、W2FPL は `spdx2/w2fpl_LICENSE.txt`、対照 4 本は SPDX の license-list-data（main）の text。
 - `rules/` は一致したルールのうち 3 件の、パッケージ同梱のルールファイルそのもの。
 
+- `variants/` は **スクラッチ上で ACD-1.2-DRAFT の 1 か所（"commercial or non-commercial"）だけを置き換えた試験用の写し**で、リポジトリのファイルではない。結果は `result_acd12draft_variants.json`。
+
 | file | sha256[:16] |
 |---|---|
 | ./inputs/0bsd.txt | e3f18c71e10d6735 |
@@ -19,7 +21,12 @@
 | ./pip_freeze.txt | 0a0b40ff745e676d |
 | ./result_acd10_LICENSE_w2fpl.json | d4d8ed6e53b90ca0 |
 | ./result_acd11_acd12draft_controls.json | b78a053ffffae977 |
+| ./result_acd12draft_variants.json | c61fd2248a6368a5 |
 | ./rules/proprietary-license_544.RULE | dcd84f8e2fac4b16 |
 | ./rules/public-domain_bare_words.RULE | 1b8d5398dca432cd |
 | ./rules/unknown_35.RULE | 08425579caaa0f3b |
 | ./sc_match.py | 34a553a9dd353c00 |
+| ./variants/v_any_purpose.txt | f3c56e28f4dadd20 |
+| ./variants/v_commercial_or_noncommercial_nohyphen.txt | 6ac33e0166106833 |
+| ./variants/v_including_commercial.txt | 26ffdec707a0ab74 |
+| ./variants/v_whether_or_not_commercial.txt | 4676f920f4e8376e |

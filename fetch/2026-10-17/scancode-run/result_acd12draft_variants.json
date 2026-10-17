@@ -1,0 +1,523 @@
+{
+ "variants/v_any_purpose.txt": [
+  {
+   "license_expression": "unlicense",
+   "rule": "unlicense_34.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 51,
+   "end_line": 51
+  },
+  {
+   "license_expression": "bsd-zero",
+   "rule": "spdx_license_id_0bsd_for_bsd-zero.RULE",
+   "score": 50.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 53,
+   "end_line": 53
+  },
+  {
+   "license_expression": "unlicense",
+   "rule": "unlicense_34.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 53,
+   "end_line": 53
+  },
+  {
+   "license_expression": "unknown",
+   "rule": "unknown_35.RULE",
+   "score": 99.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 86,
+   "end_line": 86
+  },
+  {
+   "license_expression": "public-domain",
+   "rule": "public-domain_bare_words.RULE",
+   "score": 70.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 203,
+   "end_line": 203
+  },
+  {
+   "license_expression": "public-domain",
+   "rule": "public-domain_256.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 217,
+   "end_line": 217
+  },
+  {
+   "license_expression": "public-domain",
+   "rule": "public-domain_298.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 362,
+   "end_line": 362
+  },
+  {
+   "license_expression": "unknown",
+   "rule": "unknown_35.RULE",
+   "score": 99.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 574,
+   "end_line": 574
+  },
+  {
+   "license_expression": "visual-numerics",
+   "rule": "visual-numerics.LICENSE",
+   "score": 3.39,
+   "coverage": 3.39,
+   "matcher": "3-seq",
+   "start_line": 669,
+   "end_line": 669
+  },
+  {
+   "license_expression": "warranty-disclaimer",
+   "rule": "warranty-disclaimer_24.RULE",
+   "score": 90.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 704,
+   "end_line": 704
+  },
+  {
+   "license_expression": "unknown-license-reference",
+   "rule": "unknown-license-reference_351.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 720,
+   "end_line": 720
+  },
+  {
+   "license_expression": "robert-hubley",
+   "rule": "robert-hubley.LICENSE",
+   "score": 9.43,
+   "coverage": 9.43,
+   "matcher": "3-seq",
+   "start_line": 725,
+   "end_line": 726
+  },
+  {
+   "license_expression": "unknown-spdx",
+   "rule": "spdx-license-identifier-unknown_spdx-910e06ece8485c94d0927d19c168a356b54027f5",
+   "score": 83.33,
+   "coverage": 100.0,
+   "matcher": "1-spdx-id",
+   "start_line": 776,
+   "end_line": 776
+  },
+  {
+   "license_expression": "unknown-license-reference",
+   "rule": "license-intro_9.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 797,
+   "end_line": 797
+  }
+ ],
+ "variants/v_commercial_or_noncommercial_nohyphen.txt": [
+  {
+   "license_expression": "unlicense",
+   "rule": "unlicense_34.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 51,
+   "end_line": 51
+  },
+  {
+   "license_expression": "bsd-zero",
+   "rule": "spdx_license_id_0bsd_for_bsd-zero.RULE",
+   "score": 50.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 53,
+   "end_line": 53
+  },
+  {
+   "license_expression": "unlicense",
+   "rule": "unlicense_34.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 53,
+   "end_line": 53
+  },
+  {
+   "license_expression": "unknown",
+   "rule": "unknown_35.RULE",
+   "score": 99.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 86,
+   "end_line": 86
+  },
+  {
+   "license_expression": "public-domain",
+   "rule": "public-domain_bare_words.RULE",
+   "score": 70.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 203,
+   "end_line": 203
+  },
+  {
+   "license_expression": "public-domain",
+   "rule": "public-domain_256.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 217,
+   "end_line": 217
+  },
+  {
+   "license_expression": "public-domain",
+   "rule": "public-domain_298.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 362,
+   "end_line": 362
+  },
+  {
+   "license_expression": "proprietary-license",
+   "rule": "proprietary-license_543.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 458,
+   "end_line": 458
+  },
+  {
+   "license_expression": "unknown",
+   "rule": "unknown_35.RULE",
+   "score": 99.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 574,
+   "end_line": 574
+  },
+  {
+   "license_expression": "visual-numerics",
+   "rule": "visual-numerics.LICENSE",
+   "score": 3.39,
+   "coverage": 3.39,
+   "matcher": "3-seq",
+   "start_line": 669,
+   "end_line": 669
+  },
+  {
+   "license_expression": "warranty-disclaimer",
+   "rule": "warranty-disclaimer_24.RULE",
+   "score": 90.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 704,
+   "end_line": 704
+  },
+  {
+   "license_expression": "unknown-license-reference",
+   "rule": "unknown-license-reference_351.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 720,
+   "end_line": 720
+  },
+  {
+   "license_expression": "robert-hubley",
+   "rule": "robert-hubley.LICENSE",
+   "score": 9.43,
+   "coverage": 9.43,
+   "matcher": "3-seq",
+   "start_line": 725,
+   "end_line": 726
+  },
+  {
+   "license_expression": "unknown-spdx",
+   "rule": "spdx-license-identifier-unknown_spdx-910e06ece8485c94d0927d19c168a356b54027f5",
+   "score": 83.33,
+   "coverage": 100.0,
+   "matcher": "1-spdx-id",
+   "start_line": 776,
+   "end_line": 776
+  },
+  {
+   "license_expression": "unknown-license-reference",
+   "rule": "license-intro_9.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 797,
+   "end_line": 797
+  }
+ ],
+ "variants/v_including_commercial.txt": [
+  {
+   "license_expression": "unlicense",
+   "rule": "unlicense_34.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 51,
+   "end_line": 51
+  },
+  {
+   "license_expression": "bsd-zero",
+   "rule": "spdx_license_id_0bsd_for_bsd-zero.RULE",
+   "score": 50.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 53,
+   "end_line": 53
+  },
+  {
+   "license_expression": "unlicense",
+   "rule": "unlicense_34.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 53,
+   "end_line": 53
+  },
+  {
+   "license_expression": "unknown",
+   "rule": "unknown_35.RULE",
+   "score": 99.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 86,
+   "end_line": 86
+  },
+  {
+   "license_expression": "public-domain",
+   "rule": "public-domain_bare_words.RULE",
+   "score": 70.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 203,
+   "end_line": 203
+  },
+  {
+   "license_expression": "public-domain",
+   "rule": "public-domain_256.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 217,
+   "end_line": 217
+  },
+  {
+   "license_expression": "public-domain",
+   "rule": "public-domain_298.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 362,
+   "end_line": 362
+  },
+  {
+   "license_expression": "unknown",
+   "rule": "unknown_35.RULE",
+   "score": 99.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 574,
+   "end_line": 574
+  },
+  {
+   "license_expression": "visual-numerics",
+   "rule": "visual-numerics.LICENSE",
+   "score": 3.39,
+   "coverage": 3.39,
+   "matcher": "3-seq",
+   "start_line": 669,
+   "end_line": 669
+  },
+  {
+   "license_expression": "warranty-disclaimer",
+   "rule": "warranty-disclaimer_24.RULE",
+   "score": 90.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 704,
+   "end_line": 704
+  },
+  {
+   "license_expression": "unknown-license-reference",
+   "rule": "unknown-license-reference_351.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 720,
+   "end_line": 720
+  },
+  {
+   "license_expression": "robert-hubley",
+   "rule": "robert-hubley.LICENSE",
+   "score": 9.43,
+   "coverage": 9.43,
+   "matcher": "3-seq",
+   "start_line": 725,
+   "end_line": 726
+  },
+  {
+   "license_expression": "unknown-spdx",
+   "rule": "spdx-license-identifier-unknown_spdx-910e06ece8485c94d0927d19c168a356b54027f5",
+   "score": 83.33,
+   "coverage": 100.0,
+   "matcher": "1-spdx-id",
+   "start_line": 776,
+   "end_line": 776
+  },
+  {
+   "license_expression": "unknown-license-reference",
+   "rule": "license-intro_9.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 797,
+   "end_line": 797
+  }
+ ],
+ "variants/v_whether_or_not_commercial.txt": [
+  {
+   "license_expression": "unlicense",
+   "rule": "unlicense_34.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 51,
+   "end_line": 51
+  },
+  {
+   "license_expression": "bsd-zero",
+   "rule": "spdx_license_id_0bsd_for_bsd-zero.RULE",
+   "score": 50.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 53,
+   "end_line": 53
+  },
+  {
+   "license_expression": "unlicense",
+   "rule": "unlicense_34.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 53,
+   "end_line": 53
+  },
+  {
+   "license_expression": "unknown",
+   "rule": "unknown_35.RULE",
+   "score": 99.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 86,
+   "end_line": 86
+  },
+  {
+   "license_expression": "public-domain",
+   "rule": "public-domain_bare_words.RULE",
+   "score": 70.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 203,
+   "end_line": 203
+  },
+  {
+   "license_expression": "public-domain",
+   "rule": "public-domain_256.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 217,
+   "end_line": 217
+  },
+  {
+   "license_expression": "public-domain",
+   "rule": "public-domain_298.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 362,
+   "end_line": 362
+  },
+  {
+   "license_expression": "unknown",
+   "rule": "unknown_35.RULE",
+   "score": 99.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 574,
+   "end_line": 574
+  },
+  {
+   "license_expression": "visual-numerics",
+   "rule": "visual-numerics.LICENSE",
+   "score": 3.39,
+   "coverage": 3.39,
+   "matcher": "3-seq",
+   "start_line": 669,
+   "end_line": 669
+  },
+  {
+   "license_expression": "warranty-disclaimer",
+   "rule": "warranty-disclaimer_24.RULE",
+   "score": 90.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 704,
+   "end_line": 704
+  },
+  {
+   "license_expression": "unknown-license-reference",
+   "rule": "unknown-license-reference_351.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 720,
+   "end_line": 720
+  },
+  {
+   "license_expression": "robert-hubley",
+   "rule": "robert-hubley.LICENSE",
+   "score": 9.43,
+   "coverage": 9.43,
+   "matcher": "3-seq",
+   "start_line": 725,
+   "end_line": 726
+  },
+  {
+   "license_expression": "unknown-spdx",
+   "rule": "spdx-license-identifier-unknown_spdx-910e06ece8485c94d0927d19c168a356b54027f5",
+   "score": 83.33,
+   "coverage": 100.0,
+   "matcher": "1-spdx-id",
+   "start_line": 776,
+   "end_line": 776
+  },
+  {
+   "license_expression": "unknown-license-reference",
+   "rule": "license-intro_9.RULE",
+   "score": 100.0,
+   "coverage": 100.0,
+   "matcher": "2-aho",
+   "start_line": 797,
+   "end_line": 797
+  }
+ ]
+}
