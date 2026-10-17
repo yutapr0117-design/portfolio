@@ -997,6 +997,27 @@
 | thirdparty/choosealicense_appendix.html | https://choosealicense.com/appendix/ | https://choosealicense.com/appendix/ | 200 | 321973 | 32ae005490a2583a | 2026-10-17T10:44:23Z |
 | thirdparty/debian_dfsg_licenses.html | https://wiki.debian.org/DFSGLicenses | https://wiki.debian.org/.internal/challenge.html?original=%2fDFSGLicenses&referer= | 200 | 3319 | d19b9ef1e716a61d | 2026-10-17T10:44:23Z |
 
+
+## 18. `hf/` — Hugging Face API でライセンスタグごとのモデル・データセット一覧（`limit=1000`）
+
+| file | 要求 URL | 最終 URL | status | bytes | sha256[:16] | 取得時刻（UTC） |
+|---|---|---|---|---|---|---|
+| hf/hf_models_license_openmdw-1.0.json | https://huggingface.co/api/models?filter=license:openmdw-1.0&limit=1000&full=false | https://huggingface.co/api/models?filter=license:openmdw-1.0&limit=1000&full=false | 200 | 79391 | fd52cd8658c70e57 | 2026-10-17T10:45:34Z |
+| hf/hf_datasets_license_openmdw-1.0.json | https://huggingface.co/api/datasets?filter=license:openmdw-1.0&limit=1000&full=false | https://huggingface.co/api/datasets?filter=license:openmdw-1.0&limit=1000&full=false | 200 | 13514 | a39a20bbbbb04d7e | 2026-10-17T10:45:35Z |
+| hf/hf_models_license_openmdw-1.1.json | https://huggingface.co/api/models?filter=license:openmdw-1.1&limit=1000&full=false | https://huggingface.co/api/models?filter=license:openmdw-1.1&limit=1000&full=false | 200 | 1976618 | 193e3fb6c7ea7409 | 2026-10-17T10:45:35Z |
+| hf/hf_datasets_license_openmdw-1.1.json | https://huggingface.co/api/datasets?filter=license:openmdw-1.1&limit=1000&full=false | https://huggingface.co/api/datasets?filter=license:openmdw-1.1&limit=1000&full=false | 200 | 45746 | c36b694b92739410 | 2026-10-17T10:45:36Z |
+| hf/hf_models_license_open-mdw.json | https://huggingface.co/api/models?filter=license:open-mdw&limit=1000&full=false | https://huggingface.co/api/models?filter=license:open-mdw&limit=1000&full=false | 200 | 2 | 4f53cda18c2baa0c | 2026-10-17T10:45:36Z |
+| hf/hf_datasets_license_open-mdw.json | https://huggingface.co/api/datasets?filter=license:open-mdw&limit=1000&full=false | https://huggingface.co/api/datasets?filter=license:open-mdw&limit=1000&full=false | 200 | 2 | 4f53cda18c2baa0c | 2026-10-17T10:45:37Z |
+| hf/hf_models_license_cc0-1.0.json | https://huggingface.co/api/models?filter=license:cc0-1.0&limit=1000&full=false | https://huggingface.co/api/models?filter=license:cc0-1.0&limit=1000&full=false | 200 | 1809384 | 998517838b82f390 | 2026-10-17T10:45:37Z |
+| hf/hf_datasets_license_cc0-1.0.json | https://huggingface.co/api/datasets?filter=license:cc0-1.0&limit=1000&full=false | https://huggingface.co/api/datasets?filter=license:cc0-1.0&limit=1000&full=false | 200 | 2353805 | 389c1a6c302a84f8 | 2026-10-17T10:45:38Z |
+| hf/hf_models_license_unlicense.json | https://huggingface.co/api/models?filter=license:unlicense&limit=1000&full=false | https://huggingface.co/api/models?filter=license:unlicense&limit=1000&full=false | 200 | 1219227 | 1e225627e2b382eb | 2026-10-17T10:45:40Z |
+| hf/hf_datasets_license_unlicense.json | https://huggingface.co/api/datasets?filter=license:unlicense&limit=1000&full=false | https://huggingface.co/api/datasets?filter=license:unlicense&limit=1000&full=false | 200 | 284058 | 7419017582dd84c2 | 2026-10-17T10:45:41Z |
+| hf/hf_models_license_0bsd.json | https://huggingface.co/api/models?filter=license:0bsd&limit=1000&full=false | https://huggingface.co/api/models?filter=license:0bsd&limit=1000&full=false | 200 | 2 | 4f53cda18c2baa0c | 2026-10-17T10:45:41Z |
+| hf/hf_datasets_license_0bsd.json | https://huggingface.co/api/datasets?filter=license:0bsd&limit=1000&full=false | https://huggingface.co/api/datasets?filter=license:0bsd&limit=1000&full=false | 200 | 2 | 4f53cda18c2baa0c | 2026-10-17T10:45:41Z |
+| hf/hf_models_license_wtfpl.json | https://huggingface.co/api/models?filter=license:wtfpl&limit=1000&full=false | https://huggingface.co/api/models?filter=license:wtfpl&limit=1000&full=false | 200 | 1381345 | 2dcc61ed41678762 | 2026-10-17T10:45:42Z |
+| hf/hf_datasets_license_wtfpl.json | https://huggingface.co/api/datasets?filter=license:wtfpl&limit=1000&full=false | https://huggingface.co/api/datasets?filter=license:wtfpl&limit=1000&full=false | 200 | 268666 | 9e0ab89a8256bc35 | 2026-10-17T10:45:43Z |
+| hf/hf_models_search_modelgo.json | https://huggingface.co/api/models?search=modelgo&limit=1000 | https://huggingface.co/api/models?search=modelgo&limit=1000 | 200 | 2531 | 8f83185a61ab4bc3 | 2026-10-17T10:45:44Z |
+
 ## 観測メモ（事実の指し先だけ・読みはクラウド側）
 
 1. **license-discuss 10 月に 3 通増えた**（Message-ID 基準）。(a) 2026-10-14 **Josh Berkus 氏**（0BSD-P スレッド）: Landley 氏の異議に全面同意したうえで、名前に "0BSD" を使うには BSD 側の許可が要ると指摘し、*"It's not the goal of the OSI to have licenses for every possible combination of conditions; if they wanted that, the OSI could just build its own license-generating LLM and be done with it. So, do you have a specific use for a license with patent grants and no attribution? Can you describe that use?"* (b) 2026-10-16 提出予定者が 0BSD-P を**取り下げ**（*"I could not describe a real project that needs this combination, and I understand why this looks like license proliferation."*）。(c) 同日、同じ人が **Model Chain Attribution License (MCAL)** の pre-submission を新規スレッドで開始（AI のデータセット→モデル→アプリの帰属を機械可読な Attribution Record で伝播させる AI 向けライセンス。本文は添付として配信）。2026-10-17 02:57 UTC に Roland Turner 氏が「SPDX と CycloneDX の既存仕事の再現に近い」と返信。
@@ -1044,3 +1065,4 @@
 43. **Blue Oak Council の評価リスト（`blueoak_list.json`・version 16）**: Model 1 / Gold 1 / Silver 30 / Bronze 121 / Lead 72。公有に近い型と特許の比較対象: BSD-2-Clause-Patent = **Gold** / Apache-2.0・UPL-1.0 = Silver / **0BSD・CC0-1.0・MIT-0・Unlicense = Bronze** / **WTFPL = Lead**（W2FPL の元になったライセンス）。
 44. FSF のライセンス一覧（`fsf_license_list.html`）の版表示は `$Date: 2026/04/22 06:55:32 $`。`W2FPL` / `ACD-1` / `OpenMDW` / `ModelGo` の文字列は 0 件。
 45. Debian の `wiki.debian.org/DFSGLicenses` は proof-of-work のボット判定ページ（"I Challenge Thee"）で、中身は**取得できなかった**。
+46. **Hugging Face 上の OpenMDW**（取得時点・`filter=license:<tag>`）: `openmdw-1.1` モデル 383 件（所有者 184・上位 open-athena 34 / mlx-community 24 / nvidia 16 / poolside 16・downloads 合計 3,538,430）、`openmdw-1.0` モデル 85 件（所有者 42）、データセットは 1.1 が 33 件・1.0 が 31 件。比較: `cc0-1.0` / `unlicense` / `wtfpl` のモデルは上限 1000 に達した（実数はこれ以上）、`0bsd` は 0 件（HF のタグ一覧に `0bsd` が無い可能性があり、0 件は未使用の証拠ではない）。`search=modelgo` の 8 件は名前の部分一致で、ModelGo ライセンスの使用ではない。**OpenMDW-1.1 は OSI の `api/licenses` に無い**（観測メモ 18）。
