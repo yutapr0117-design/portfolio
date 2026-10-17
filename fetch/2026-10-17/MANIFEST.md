@@ -550,6 +550,50 @@
 | spdx/notaccepted_comments/spdx_issue_612_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/612/comments?per_page=100 (gh api) | — | 200 | 7518 | 97ca883183de52a2 | 2026-10-17T09:09:42Z |
 | spdx/notaccepted_comments/spdx_issue_611_comments.json | https://api.github.com/repos/spdx/license-list-XML/issues/611/comments?per_page=100 (gh api) | — | 200 | 19748 | a07dc560b276795a | 2026-10-17T09:09:42Z |
 
+
+## 5. `spdx2/` — W2FPL（SPDX #3091）の本体・論文・コミット履歴、SPDX legal の groups.io、Fedora の承認ページ
+
+| file | 要求 URL | 最終 URL | status | bytes | sha256[:16] | 取得時刻（UTC） |
+|---|---|---|---|---|---|---|
+| spdx2/spdx_legal_groupsio_topics.html | https://lists.spdx.org/g/Spdx-legal/topics | https://lists.spdx.org/probe?r=https%3A%2F%2Flists.spdx.org%2Fg%2FSpdx-legal%2Ftopics | 200 | 3460 | 6317c795c6f51a7b | 2026-10-17T10:20:01Z |
+| spdx2/spdx_legal_groupsio_messages.html | https://lists.spdx.org/g/Spdx-legal/messages | https://lists.spdx.org/probe?r=https%3A%2F%2Flists.spdx.org%2Fg%2FSpdx-legal%2Fmessages | 200 | 3462 | ad49ca7d3b577f90 | 2026-10-17T10:20:02Z |
+| spdx2/spdx_meetings_legal_2024_list.json | https://api.github.com/repos/spdx/meetings/contents/legal/2024 | https://api.github.com/repos/spdx/meetings/contents/legal/2024 | 200 | 3562 | 430d65025a73303c | 2026-10-17T10:20:03Z |
+| spdx2/w2fpl_repo.json | https://api.github.com/repos/snvrk/w2fpl | https://api.github.com/repos/snvrk/w2fpl | 200 | 5372 | c21363de7ea12051 | 2026-10-17T10:20:04Z |
+| spdx2/w2fpl_readme.md | https://raw.githubusercontent.com/snvrk/w2fpl/main/README.md | https://raw.githubusercontent.com/snvrk/w2fpl/main/README.md | 200 | 3544 | bee74bc381a9ff67 | 2026-10-17T10:20:04Z |
+| spdx2/w2fpl_contents.json | https://api.github.com/repos/snvrk/w2fpl/contents | https://api.github.com/repos/snvrk/w2fpl/contents | 200 | 9839 | 3a68fb7365d7ffb9 | 2026-10-17T10:20:05Z |
+| (未取得) spdx2/zenodo_23121447.json | https://zenodo.org/api/records/23121447 | — | HTTP Error 403: Forbidden | — | — | 2026-10-17T10:20:05Z |
+| spdx2/fedora_license_approval.html | https://docs.fedoraproject.org/en-US/legal/license-approval/ | https://docs.fedoraproject.org/en-US/legal/license-approval/ | 200 | 4876 | b377182cd085f623 | 2026-10-17T10:20:07Z |
+| spdx2/fedora_license_review_process.html | https://docs.fedoraproject.org/en-US/legal/license-review-process/ | https://docs.fedoraproject.org/en-US/legal/license-review-process/ | 200 | 4882 | 346ce7a531ebe56a | 2026-10-17T10:20:07Z |
+| spdx2/w2fpl_LICENSE.txt | https://raw.githubusercontent.com/snvrk/w2fpl/main/LICENSE | https://raw.githubusercontent.com/snvrk/w2fpl/main/LICENSE | 200 | 1258 | 2bdfa6978ce331c0 | 2026-10-17T10:20:33Z |
+| spdx2/w2fpl_CONTRIBUTING.md | https://raw.githubusercontent.com/snvrk/w2fpl/main/CONTRIBUTING.md | https://raw.githubusercontent.com/snvrk/w2fpl/main/CONTRIBUTING.md | 200 | 2053 | 1720dd2dc41a997e | 2026-10-17T10:20:33Z |
+| spdx2/w2fpl_CITATION.cff | https://raw.githubusercontent.com/snvrk/w2fpl/main/CITATION.cff | https://raw.githubusercontent.com/snvrk/w2fpl/main/CITATION.cff | 200 | 883 | 335019d0c4f7b486 | 2026-10-17T10:20:34Z |
+| spdx2/w2fpl_AUTHORS.md | https://raw.githubusercontent.com/snvrk/w2fpl/main/AUTHORS.md | https://raw.githubusercontent.com/snvrk/w2fpl/main/AUTHORS.md | 200 | 401 | 8944b2b7320f90a3 | 2026-10-17T10:20:34Z |
+| spdx2/w2fpl_paper_SUBMIT.md | https://raw.githubusercontent.com/snvrk/w2fpl/main/paper/SUBMIT.md | https://raw.githubusercontent.com/snvrk/w2fpl/main/paper/SUBMIT.md | 200 | 4253 | 43614ff212d965f9 | 2026-10-17T10:20:35Z |
+| spdx2/w2fpl_paper.html | https://raw.githubusercontent.com/snvrk/w2fpl/main/paper/w2fpl-paper.html | https://raw.githubusercontent.com/snvrk/w2fpl/main/paper/w2fpl-paper.html | 200 | 24888 | 7452118f0c733868 | 2026-10-17T10:20:35Z |
+| spdx2/w2fpl_paper.pdf | https://raw.githubusercontent.com/snvrk/w2fpl/main/paper/w2fpl-paper.pdf | https://raw.githubusercontent.com/snvrk/w2fpl/main/paper/w2fpl-paper.pdf | 200 | 151956 | b814c35f92e5f6d1 | 2026-10-17T10:20:36Z |
+| spdx2/w2fpl_spdx_README.md | https://raw.githubusercontent.com/snvrk/w2fpl/main/spdx/README.md | https://raw.githubusercontent.com/snvrk/w2fpl/main/spdx/README.md | 200 | 453 | 6085267d1095ee00 | 2026-10-17T10:20:37Z |
+| (未取得) spdx2/w2fpl_snvrkotics_page.html | https://snvrkotics.com/w2fpl | — | The read operation timed out | — | — | 2026-10-17T10:20:37Z |
+| spdx2/w2fpl_canonical.txt | https://snvrkotics.com/licenses/w2fpl.txt | https://snvrkotics.com/licenses/w2fpl.txt | 200 | 1258 | 2bdfa6978ce331c0 | 2026-10-17T10:21:18Z |
+| spdx2/w2fpl_commits.json | https://api.github.com/repos/snvrk/w2fpl/commits?per_page=100 (gh api) | — | 200 | 25862 | 6fa9d554fc8b4082 | 2026-10-17T10:21:19Z |
+
+## 6. `osi-wp/` — OSI サイトの WordPress REST（更新日時順のページ・投稿、独自型 license / meeting-minutes / board-member）
+
+| file | 要求 URL | 最終 URL | status | bytes | sha256[:16] | 取得時刻（UTC） |
+|---|---|---|---|---|---|---|
+| osi-wp/wp_pages_modified_p1.json | https://opensource.org/wp-json/wp/v2/pages?orderby=modified&order=desc&per_page=100&page=1 | https://opensource.org/wp-json/wp/v2/pages?orderby=modified&order=desc&per_page=100&page=1 | 200 | 1427975 | 70eadfcb22e57285 | 2026-10-17T10:21:56Z |
+| osi-wp/wp_pages_modified_p2.json | https://opensource.org/wp-json/wp/v2/pages?orderby=modified&order=desc&per_page=100&page=2 | https://opensource.org/wp-json/wp/v2/pages?orderby=modified&order=desc&per_page=100&page=2 | 200 | 2262137 | 62f8754e0e68ed58 | 2026-10-17T10:22:00Z |
+| osi-wp/wp_posts_modified_p1.json | https://opensource.org/wp-json/wp/v2/posts?orderby=modified&order=desc&per_page=100&page=1 | https://opensource.org/wp-json/wp/v2/posts?orderby=modified&order=desc&per_page=100&page=1 | 200 | 1475633 | 137b4b5a64b77ca1 | 2026-10-17T10:22:06Z |
+| osi-wp/wp_types.json | https://opensource.org/wp-json/wp/v2/types | https://opensource.org/wp-json/wp/v2/types | 200 | 12705 | 616af627a2fca029 | 2026-10-17T10:22:10Z |
+| osi-wp/wp_root.json | https://opensource.org/wp-json/ | https://opensource.org/wp-json/ | 200 | 868584 | c394b961db8514b5 | 2026-10-17T10:22:11Z |
+| osi-wp/wp_license_p1.json | https://opensource.org/wp-json/wp/v2/license?orderby=modified&order=desc&per_page=100&page=1 | https://opensource.org/wp-json/wp/v2/license?orderby=modified&order=desc&per_page=100&page=1 | 200 | 1362202 | 09a45e726a8ee78d | 2026-10-17T10:22:26Z |
+| osi-wp/wp_license_p2.json | https://opensource.org/wp-json/wp/v2/license?orderby=modified&order=desc&per_page=100&page=2 | https://opensource.org/wp-json/wp/v2/license?orderby=modified&order=desc&per_page=100&page=2 | 200 | 316499 | a7c831b092d1f6e2 | 2026-10-17T10:22:29Z |
+| (未取得) osi-wp/wp_license_p3.json | https://opensource.org/wp-json/wp/v2/license?orderby=modified&order=desc&per_page=100&page=3 | — | HTTP Error 400: Bad Request | — | — | 2026-10-17T10:22:31Z |
+| (未取得) osi-wp/wp_license_p4.json | https://opensource.org/wp-json/wp/v2/license?orderby=modified&order=desc&per_page=100&page=4 | — | HTTP Error 400: Bad Request | — | — | 2026-10-17T10:22:32Z |
+| osi-wp/wp_minutes_p1.json | https://opensource.org/wp-json/wp/v2/meeting-minutes?orderby=modified&order=desc&per_page=100&page=1 | https://opensource.org/wp-json/wp/v2/meeting-minutes?orderby=modified&order=desc&per_page=100&page=1 | 200 | 860683 | 637c99753a73c612 | 2026-10-17T10:22:33Z |
+| osi-wp/wp_minutes_p2.json | https://opensource.org/wp-json/wp/v2/meeting-minutes?orderby=modified&order=desc&per_page=100&page=2 | https://opensource.org/wp-json/wp/v2/meeting-minutes?orderby=modified&order=desc&per_page=100&page=2 | 200 | 1112136 | 8e4c6163e17fcfda | 2026-10-17T10:22:36Z |
+| osi-wp/wp_minutes_p3.json | https://opensource.org/wp-json/wp/v2/meeting-minutes?orderby=modified&order=desc&per_page=100&page=3 | https://opensource.org/wp-json/wp/v2/meeting-minutes?orderby=modified&order=desc&per_page=100&page=3 | 200 | 1493931 | 8d25789c1f47c0f5 | 2026-10-17T10:22:40Z |
+| osi-wp/wp_board_member.json | https://opensource.org/wp-json/wp/v2/board-member?per_page=100 | https://opensource.org/wp-json/wp/v2/board-member?per_page=100 | 200 | 266930 | 2889ee33531d1112 | 2026-10-17T10:22:43Z |
+
 ## 観測メモ（事実の指し先だけ・読みはクラウド側）
 
 1. **license-discuss 10 月に 3 通増えた**（Message-ID 基準）。(a) 2026-10-14 **Josh Berkus 氏**（0BSD-P スレッド）: Landley 氏の異議に全面同意したうえで、名前に "0BSD" を使うには BSD 側の許可が要ると指摘し、*"It's not the goal of the OSI to have licenses for every possible combination of conditions; if they wanted that, the OSI could just build its own license-generating LLM and be done with it. So, do you have a specific use for a license with patent grants and no attribution? Can you describe that use?"* (b) 2026-10-16 提出予定者が 0BSD-P を**取り下げ**（*"I could not describe a real project that needs this combination, and I understand why this looks like license proliferation."*）。(c) 同日、同じ人が **Model Chain Attribution License (MCAL)** の pre-submission を新規スレッドで開始（AI のデータセット→モデル→アプリの帰属を機械可読な Attribution Record で伝播させる AI 向けライセンス。本文は添付として配信）。2026-10-17 02:57 UTC に Roland Turner 氏が「SPDX と CycloneDX の既存仕事の再現に近い」と返信。
@@ -563,3 +607,8 @@
 9. OSI の手続きページ 3 件（review-process / approval / osd）は "Last modified on March 13, 2024" / 同 / "February 16, 2024" のまま。`/licenses/rejected` など 5 URL は 404（存在しない URL を推測で叩いたもの・ページが消えたという意味ではない）。
 10. OSI ブログの新着は 2026-10-16 "Announcing the 2027 State of Open Source Survey" の 1 件（10-08 の UNGA81 記事は既出）。
 11. SPDX の最新リリースは v3.29.0（2026-09-16）のまま。
+12. **`spdx2/` の groups.io 2 件と Fedora 2 件はボット判定ページ**（"Making sure you're not a bot!" / monocle の JS フォーム）で、中身は**取得できなかった**。バイトはそのまま置いた。
+13. **W2FPL のコミット 10 件すべてに `Co-Authored-By: Claude Opus 5.5` が付いている**（`spdx2/w2fpl_commits.json`）。論文の投稿メモは "The license has not yet been reviewed by the FSF, the OSI or SPDX" と書いており（`spdx2/w2fpl_paper_SUBMIT.md` 71 行目）、OSI のリスト（9・10 月のアーカイブ）に W2FPL の投稿は見当たらない（取得時点）。`snvrkotics.com/w2fpl` はタイムアウトで取得できなかった。
+14. **OSI の WordPress `meeting-minutes` 型は 286 件で、索引と一致**（隠れた新しい議事録は無い）。最新は 2026-06-29 の会合で、投稿日は 2026-08-03（会合から 35 日後）。その前の 2026-05-22 / 04-17 / 03-20 分はいずれも 2026-07-21 にまとめて投稿されている。
+15. `license` 型（126 件）の更新日時の上位: python-2-0-1（09-28）/ **olfl-1-3（09-15・作成 2023-03-21）** / cnri-python-gpl-compatible・nist-software・cnri-python・python-2-0（いずれも 09-09）/ curl（07-22）。olfl-1-3 で何が変わったかは、前の状態を持っていないのでここからは分からない。
+16. `pages` 型の更新日時の上位は教育ページ群（09-18 にまとめて更新）と AI Salon 関連（10-02〜10-06）。**審査手続きのページ（review-process / approval）は上位 200 件に入っていない**（"Last modified on March 13, 2024" の表示と矛盾しない）。

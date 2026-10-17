@@ -1,0 +1,210 @@
+[
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "536c1708b79997e0769228fa2c8cd13ca0daa842",
+    "size": 0,
+    "url": "https://api.github.com/repos/snvrk/w2fpl/contents/.github?ref=main",
+    "html_url": "https://github.com/snvrk/w2fpl/tree/main/.github",
+    "git_url": "https://api.github.com/repos/snvrk/w2fpl/git/trees/536c1708b79997e0769228fa2c8cd13ca0daa842",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/snvrk/w2fpl/contents/.github?ref=main",
+      "git": "https://api.github.com/repos/snvrk/w2fpl/git/trees/536c1708b79997e0769228fa2c8cd13ca0daa842",
+      "html": "https://github.com/snvrk/w2fpl/tree/main/.github"
+    }
+  },
+  {
+    "name": "AUTHORS.md",
+    "path": "AUTHORS.md",
+    "sha": "80c29ba2252ec3c2841ba1731b4095585d832df3",
+    "size": 401,
+    "url": "https://api.github.com/repos/snvrk/w2fpl/contents/AUTHORS.md?ref=main",
+    "html_url": "https://github.com/snvrk/w2fpl/blob/main/AUTHORS.md",
+    "git_url": "https://api.github.com/repos/snvrk/w2fpl/git/blobs/80c29ba2252ec3c2841ba1731b4095585d832df3",
+    "download_url": "https://raw.githubusercontent.com/snvrk/w2fpl/main/AUTHORS.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/snvrk/w2fpl/contents/AUTHORS.md?ref=main",
+      "git": "https://api.github.com/repos/snvrk/w2fpl/git/blobs/80c29ba2252ec3c2841ba1731b4095585d832df3",
+      "html": "https://github.com/snvrk/w2fpl/blob/main/AUTHORS.md"
+    }
+  },
+  {
+    "name": "CITATION.cff",
+    "path": "CITATION.cff",
+    "sha": "940ca5c1c803a393add8153707213d88412af77c",
+    "size": 883,
+    "url": "https://api.github.com/repos/snvrk/w2fpl/contents/CITATION.cff?ref=main",
+    "html_url": "https://github.com/snvrk/w2fpl/blob/main/CITATION.cff",
+    "git_url": "https://api.github.com/repos/snvrk/w2fpl/git/blobs/940ca5c1c803a393add8153707213d88412af77c",
+    "download_url": "https://raw.githubusercontent.com/snvrk/w2fpl/main/CITATION.cff",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/snvrk/w2fpl/contents/CITATION.cff?ref=main",
+      "git": "https://api.github.com/repos/snvrk/w2fpl/git/blobs/940ca5c1c803a393add8153707213d88412af77c",
+      "html": "https://github.com/snvrk/w2fpl/blob/main/CITATION.cff"
+    }
+  },
+  {
+    "name": "CONTRIBUTING.md",
+    "path": "CONTRIBUTING.md",
+    "sha": "640bb7eb4090e0d008d3a7424425ae29ee7bfb77",
+    "size": 2053,
+    "url": "https://api.github.com/repos/snvrk/w2fpl/contents/CONTRIBUTING.md?ref=main",
+    "html_url": "https://github.com/snvrk/w2fpl/blob/main/CONTRIBUTING.md",
+    "git_url": "https://api.github.com/repos/snvrk/w2fpl/git/blobs/640bb7eb4090e0d008d3a7424425ae29ee7bfb77",
+    "download_url": "https://raw.githubusercontent.com/snvrk/w2fpl/main/CONTRIBUTING.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/snvrk/w2fpl/contents/CONTRIBUTING.md?ref=main",
+      "git": "https://api.github.com/repos/snvrk/w2fpl/git/blobs/640bb7eb4090e0d008d3a7424425ae29ee7bfb77",
+      "html": "https://github.com/snvrk/w2fpl/blob/main/CONTRIBUTING.md"
+    }
+  },
+  {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "sha": "b15e16610c629152efd5762a9ed456bc0b2af8eb",
+    "size": 1258,
+    "url": "https://api.github.com/repos/snvrk/w2fpl/contents/LICENSE?ref=main",
+    "html_url": "https://github.com/snvrk/w2fpl/blob/main/LICENSE",
+    "git_url": "https://api.github.com/repos/snvrk/w2fpl/git/blobs/b15e16610c629152efd5762a9ed456bc0b2af8eb",
+    "download_url": "https://raw.githubusercontent.com/snvrk/w2fpl/main/LICENSE",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/snvrk/w2fpl/contents/LICENSE?ref=main",
+      "git": "https://api.github.com/repos/snvrk/w2fpl/git/blobs/b15e16610c629152efd5762a9ed456bc0b2af8eb",
+      "html": "https://github.com/snvrk/w2fpl/blob/main/LICENSE"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "97e344eef5eeb4f61914ae114a8a612da8cc05d5",
+    "size": 3544,
+    "url": "https://api.github.com/repos/snvrk/w2fpl/contents/README.md?ref=main",
+    "html_url": "https://github.com/snvrk/w2fpl/blob/main/README.md",
+    "git_url": "https://api.github.com/repos/snvrk/w2fpl/git/blobs/97e344eef5eeb4f61914ae114a8a612da8cc05d5",
+    "download_url": "https://raw.githubusercontent.com/snvrk/w2fpl/main/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/snvrk/w2fpl/contents/README.md?ref=main",
+      "git": "https://api.github.com/repos/snvrk/w2fpl/git/blobs/97e344eef5eeb4f61914ae114a8a612da8cc05d5",
+      "html": "https://github.com/snvrk/w2fpl/blob/main/README.md"
+    }
+  },
+  {
+    "name": "logo",
+    "path": "logo",
+    "sha": "27644861a20d23aac8245c97c91fcb968d5dd91f",
+    "size": 0,
+    "url": "https://api.github.com/repos/snvrk/w2fpl/contents/logo?ref=main",
+    "html_url": "https://github.com/snvrk/w2fpl/tree/main/logo",
+    "git_url": "https://api.github.com/repos/snvrk/w2fpl/git/trees/27644861a20d23aac8245c97c91fcb968d5dd91f",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/snvrk/w2fpl/contents/logo?ref=main",
+      "git": "https://api.github.com/repos/snvrk/w2fpl/git/trees/27644861a20d23aac8245c97c91fcb968d5dd91f",
+      "html": "https://github.com/snvrk/w2fpl/tree/main/logo"
+    }
+  },
+  {
+    "name": "paper",
+    "path": "paper",
+    "sha": "1cd572a0a66b498732b16ad0e230914e3c40df34",
+    "size": 0,
+    "url": "https://api.github.com/repos/snvrk/w2fpl/contents/paper?ref=main",
+    "html_url": "https://github.com/snvrk/w2fpl/tree/main/paper",
+    "git_url": "https://api.github.com/repos/snvrk/w2fpl/git/trees/1cd572a0a66b498732b16ad0e230914e3c40df34",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/snvrk/w2fpl/contents/paper?ref=main",
+      "git": "https://api.github.com/repos/snvrk/w2fpl/git/trees/1cd572a0a66b498732b16ad0e230914e3c40df34",
+      "html": "https://github.com/snvrk/w2fpl/tree/main/paper"
+    }
+  },
+  {
+    "name": "spdx",
+    "path": "spdx",
+    "sha": "565de7846bf8450ea3e87a1a18898914955619d2",
+    "size": 0,
+    "url": "https://api.github.com/repos/snvrk/w2fpl/contents/spdx?ref=main",
+    "html_url": "https://github.com/snvrk/w2fpl/tree/main/spdx",
+    "git_url": "https://api.github.com/repos/snvrk/w2fpl/git/trees/565de7846bf8450ea3e87a1a18898914955619d2",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/snvrk/w2fpl/contents/spdx?ref=main",
+      "git": "https://api.github.com/repos/snvrk/w2fpl/git/trees/565de7846bf8450ea3e87a1a18898914955619d2",
+      "html": "https://github.com/snvrk/w2fpl/tree/main/spdx"
+    }
+  },
+  {
+    "name": "submissions",
+    "path": "submissions",
+    "sha": "f2dbf59b2f7b6c4806d3ba1b33563d41996072d7",
+    "size": 0,
+    "url": "https://api.github.com/repos/snvrk/w2fpl/contents/submissions?ref=main",
+    "html_url": "https://github.com/snvrk/w2fpl/tree/main/submissions",
+    "git_url": "https://api.github.com/repos/snvrk/w2fpl/git/trees/f2dbf59b2f7b6c4806d3ba1b33563d41996072d7",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/snvrk/w2fpl/contents/submissions?ref=main",
+      "git": "https://api.github.com/repos/snvrk/w2fpl/git/trees/f2dbf59b2f7b6c4806d3ba1b33563d41996072d7",
+      "html": "https://github.com/snvrk/w2fpl/tree/main/submissions"
+    }
+  },
+  {
+    "name": "versions",
+    "path": "versions",
+    "sha": "f411275f353de55a83075e2c00234d85d77e4373",
+    "size": 0,
+    "url": "https://api.github.com/repos/snvrk/w2fpl/contents/versions?ref=main",
+    "html_url": "https://github.com/snvrk/w2fpl/tree/main/versions",
+    "git_url": "https://api.github.com/repos/snvrk/w2fpl/git/trees/f411275f353de55a83075e2c00234d85d77e4373",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/snvrk/w2fpl/contents/versions?ref=main",
+      "git": "https://api.github.com/repos/snvrk/w2fpl/git/trees/f411275f353de55a83075e2c00234d85d77e4373",
+      "html": "https://github.com/snvrk/w2fpl/tree/main/versions"
+    }
+  },
+  {
+    "name": "w2fpl-badge.png",
+    "path": "w2fpl-badge.png",
+    "sha": "5b2c5d6741990e280a711b7fb2ad343ec5dd6d53",
+    "size": 2544,
+    "url": "https://api.github.com/repos/snvrk/w2fpl/contents/w2fpl-badge.png?ref=main",
+    "html_url": "https://github.com/snvrk/w2fpl/blob/main/w2fpl-badge.png",
+    "git_url": "https://api.github.com/repos/snvrk/w2fpl/git/blobs/5b2c5d6741990e280a711b7fb2ad343ec5dd6d53",
+    "download_url": "https://raw.githubusercontent.com/snvrk/w2fpl/main/w2fpl-badge.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/snvrk/w2fpl/contents/w2fpl-badge.png?ref=main",
+      "git": "https://api.github.com/repos/snvrk/w2fpl/git/blobs/5b2c5d6741990e280a711b7fb2ad343ec5dd6d53",
+      "html": "https://github.com/snvrk/w2fpl/blob/main/w2fpl-badge.png"
+    }
+  },
+  {
+    "name": "w2fpl-logo.svg",
+    "path": "w2fpl-logo.svg",
+    "sha": "a5d1f08ea39a01008e8376778a6d67e22796e5a8",
+    "size": 24869,
+    "url": "https://api.github.com/repos/snvrk/w2fpl/contents/w2fpl-logo.svg?ref=main",
+    "html_url": "https://github.com/snvrk/w2fpl/blob/main/w2fpl-logo.svg",
+    "git_url": "https://api.github.com/repos/snvrk/w2fpl/git/blobs/a5d1f08ea39a01008e8376778a6d67e22796e5a8",
+    "download_url": "https://raw.githubusercontent.com/snvrk/w2fpl/main/w2fpl-logo.svg",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/snvrk/w2fpl/contents/w2fpl-logo.svg?ref=main",
+      "git": "https://api.github.com/repos/snvrk/w2fpl/git/blobs/a5d1f08ea39a01008e8376778a6d67e22796e5a8",
+      "html": "https://github.com/snvrk/w2fpl/blob/main/w2fpl-logo.svg"
+    }
+  }
+]

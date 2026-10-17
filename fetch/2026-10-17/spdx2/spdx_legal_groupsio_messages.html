@@ -1,0 +1,84 @@
+
+<html>
+<head>
+	<script async src="https://mcl.spur.us/d/mcl.js?tk=1SophVlXGesVuwb0k8HeVAKMEB0ismPiCWAb787K7n5RzD4KOg6s87vfLrHyrHTWXsZ4Y9LmGA3NkXub2KXJmSqQkBCfmdeIgQWIjA2m5Py0s0jpfhmzXeKk8xJ1YTjonajS7YDCunkSh09auUxLslxq0QL7mWOPftd6wfXt6WKCDPyDcQVbFjY01NXyFfasFrwqL22K0TDlxZyi3ZcdnSbNczjNe4u63LAhlO9FBEHUco79bsqjWOMN0RjY8EOIwGhdelHiealuFPZx7c0nC0zzSPazHCWk2G9jcPx1D3rFQcBb11j7ydl6nM0E76p8g7tUpSmGsReKkvWP3HuGBClWP9zuOTH0Y1a3kI2yu1cls4oZS4JRu43YINjzAuLkexEJXscVPHeQC3HBLU6KX8FDUn3VnbCf" id="_mcl" onerror="window._mclFailed=true"></script>
+</head>
+<body>
+	<form id="monocleForm" class="monocle-enriched" style="display:none"></form>
+	<noscript>JavaScript is required to view this page. Please enable it and reload.</noscript>
+	<div id="probemsg" style="font-family:sans-serif;margin:2em"></div>
+<script>
+	// ---------- 1. build raw fingerprint ----------
+	const fpRaw = [
+		screen.width + 'x' + screen.height,
+		navigator.platform,
+		Intl.DateTimeFormat().resolvedOptions().timeZone,
+		navigator.hardwareConcurrency || 0,
+		navigator.deviceMemory || 0
+	].join('|');
+
+	// ---------- 2. hash -> hex (async) ----------
+	async function hash256(str) {
+		const enc = new TextEncoder().encode(str);
+		const buf = await crypto.subtle.digest('SHA-256', enc);
+		return Array.from(new Uint8Array(buf))
+			.map(b => b.toString(16).padStart(2, '0'))
+			.join('');
+	}
+
+	// ---------- 3. drive the probe flow ----------
+	(async () => {
+			const fpHash = await hash256(fpRaw);
+			const ts = 1792232403;
+			const returnURL = "https://lists.spdx.org/g/Spdx-legal/messages";
+			const show = (msg) => { document.getElementById('probemsg').textContent = msg; };
+
+			// Wait for Monocle to inject its bundle into the hidden form.
+			// Bail out immediately if its script tag failed to load (ad
+			// blocker, unreachable CDN — see onerror above); otherwise give
+			// it up to 8 seconds. Completion without a bundle is accepted
+			// by the server at a lower tier, so this is best-effort.
+			const readMcl = () => {
+				const f = document.querySelector('#monocleForm input[name="monocle"]');
+				return f && f.value ? f.value : '';
+			};
+			const maxT = Date.now() + 8000;
+			let mcl = readMcl();
+			while (!mcl && !window._mclFailed && Date.now() < maxT) {
+				await new Promise(r => setTimeout(r, 50));
+				mcl = readMcl();
+			}
+
+			// Submit the completion same-origin to the page's own URL; the
+			// success cookie rides the response, so no ad-blocker-prone
+			// pixel request is involved.
+			const complete = async () => {
+				const body = new URLSearchParams({fp: fpHash, ts: String(ts)});
+				if (mcl) body.set('mcl', mcl);
+				const resp = await fetch('/probe', {method: 'POST', body: body});
+				return resp.json();
+			};
+			let result;
+			try {
+				try {
+					result = await complete();
+				} catch (e) {
+					// One retry for transient network failures.
+					await new Promise(r => setTimeout(r, 1000));
+					result = await complete();
+				}
+			} catch (e) {
+				show('Something went wrong while checking your browser. Please reload to try again.');
+				return;
+			}
+			if (result.status === 'ok') {
+				window.location.replace(returnURL);
+			} else if (result.status === 'blocked') {
+				show('We could not verify your browser, so this page cannot be shown. If you believe this is an error, please contact support@groups.io.');
+			} else {
+				show('Something went wrong while checking your browser. Please reload to try again.');
+			}
+		})();
+</script>
+</body>
+</html>
