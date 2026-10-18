@@ -28,3 +28,14 @@
 
 ## 観測メモ
 1. ATO と OSI の YouTube チャンネルの最新 30 本に、ATO 2026 のセッション録画は無い（会期前・題名で照合）。
+
+## 観測メモ
+1. 前回（）から OSI ブログの新記事・YouTube 2 チャンネルの新動画・セッション個別の録画/スライドはいずれも無し（会期前）。
+
+## 保留中の還元メモ（main 未反映・次のイベント取り込み PR に同梱）—— Licensing 201（ATO 2025）ベースライン
+出典: fetch/2026-10-17/osi-posts/post_2025-10-31_state-of-the-source-at-ato-2025-licensing-201.html（OSI ブログ・Nick Vidal 氏・2025-10-31・Chestek 氏講演の書き起こし要約）。
+- 公開の報告記事は会期（2025-10-13〜14 前後）から約 2〜3 週間後（10-31〜11-05）に出た → 2026 年の報告は 11 月初旬が目安。
+- Irrevocable MIT の取り下げ理由を *"included problematic terms (like requiring perpetual hosting). It was not workable as drafted"* と述べている（撤回不能性そのものではない・review-precedents §1.47 / #139 に当たる。ただし講演の要約であってリストでの判断ではない）。
+- *"Every open source license requires attribution and inclusion of the license text"*（承認済みの 0BSD / Unlicense / MIT-0 と矛盾する単純化。ただし審査側の人物が帰属を規範として語る例 → #276 / #277 の文脈）。
+- 審査の観点として *"Reusability by anyone" / "No special privileges for the original author" / "Clarity and precision" / "Compliance must be possible in practice" / "must fill a genuine gap"* を列挙（提出パケット §4b・B3・gap と対応）。
+- ModelGo を *"rewritten several times to get them right. AI licenses are complex and need precise language"* と紹介。
