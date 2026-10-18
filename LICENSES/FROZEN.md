@@ -1,11 +1,11 @@
 ---
 file: LICENSES/FROZEN.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-discuss・license-review participants / 監査人
-last-updated: 2026-09-27
+last-updated: 2026-10-18
 canonical-ref: LICENSES/ACD-1.0.txt (凍結対象の本文) / LICENSES/REVISION-PROTOCOL.md (凍結が解けた後の手順)
 ---
 
-# ACD-1.0 と ACD-1.1 — 凍結中（1.0 は OSI license-discuss へ投稿済み・結果待ち／1.1 は 2026-09-17 に確定）
+# ACD-1.0・ACD-1.1・ACD-1.2 — 凍結中（1.0 は OSI license-discuss へ投稿済み・結果待ち／1.1 は 2026-09-17、1.2 は 2026-10-17 に確定）
 
 ```
 凍結日   : 2026-08-24
@@ -56,15 +56,19 @@ a9cdf425929af1afbf6b854204eea9df3199c8759bc05b411ab327c90932d00e  LICENSES/ACD-1
 c2d47b80981536d56b8d6debe51520068804d235549999e24a85bb7b6e0d1e37  LICENSES/ACD-1.0.machine.json
 79f54dc6cea8bde42df651ebbcccbf60aa943e44bf8219aed7e4caf4a2223b38  LICENSES/ACD-1.1.txt
 0a8e249aeabe3891abdc671a3364e55b8cde6b6be85e984800e6ea1b6f68a173  LICENSES/ACD-1.1.machine.json
+283e2063774428d4336767a19f61da57e72dc52c21f003cea0bb517651cef412  LICENSES/ACD-1.2.txt
+30c90b0633f8cb7accab2a16e614a4ae014dafcfffa8bda40ddd0ba7f12e517f  LICENSES/ACD-1.2.machine.json
 ```
 
 **1.1 は 2026-09-17 に確定して追加した。行は足したのであって置き換えていない** ——
 `REVISION-PROTOCOL.md` §2 の「1.0 は永久凍結・次版は併置」がそう定めている。
 **1.1 を凍結しても 1.0 は動かない**（凍結は本文の byte についての約束であり、
-リポジトリがどの版を適用するかの約束ではない）。**次版の作業場は `ACD-1.2-DRAFT.txt`**。
+リポジトリがどの版を適用するかの約束ではない）。
 
-**1.1 に `spdx.xml` が無いのは意図である。** あの XML は **SPDX 収録が要求する成果物**で、
-1.1 は SPDX にも `license-review` にも出していない。**出すときに作る**
+**1.2 は 2026-10-17 に確定して追加した**（オーナーの依頼「区切り良くして凍結して申請し、1.3 の改善に舵を切り替えて」・申請先は ScanCode の全文ルールであって OSI / SPDX の承認申請ではない）。確定の前に 6 観点の敵対的検証を回し、凍結前に直すべきものを直した（`ACD-1.2-CHANGELIST.md` の「確定前の最終点検」）。**次版の作業場は `ACD-1.3-DRAFT.txt`**。凍結済みの `ACD-1.1.txt` が名指す `ACD-1.2-DRAFT.txt` は、指し先を生かすための案内（ライセンス本文ではない）として残した。
+
+**1.1 と 1.2 に `spdx.xml` が無いのは意図である。** あの XML は **SPDX 収録が要求する成果物**で、
+1.1 も 1.2 も SPDX にも `license-review` にも出していない。**出すときに作る**
 （手順は `ACD-1.0.submission.md` §B.0 の確定手順 (2)）——**要求されていない成果物を先に作ると、
 本文を触るたびに silent に古くなる面が 1 つ増える。**
 
@@ -87,7 +91,7 @@ c2d47b80981536d56b8d6debe51520068804d235549999e24a85bb7b6e0d1e37  LICENSES/ACD-1
 - `docs/architecture/acd-license-rationale.md` の**記録の追記**（起草判断の記録であって
   提出物ではない）。ただし条文の内容を書き換える提案は行わない
 - 申請の進行に関する事実の追記（このファイルへ）
-- **次版の草案 `LICENSES/ACD-1.2-DRAFT.txt` を改善すること**（オーナー 2026-09-10「現行は保持、次版を作って
+- **次版の草案（いまは `LICENSES/ACD-1.3-DRAFT.txt`）を改善すること**（オーナー 2026-09-10「現行は保持、次版を作って
   改善し続けるのは問題ない」）。凍結は pin した版の byte についての約束であって、次版の作業を止めるものではない
   ——**ここに書いていなかったので、cold-start の読み手が次版の作業まで禁じられていると読みえた**（2026-09-27 追記）
 
@@ -103,7 +107,7 @@ c2d47b80981536d56b8d6debe51520068804d235549999e24a85bb7b6e0d1e37  LICENSES/ACD-1
 1. 結果（承認 / 差し戻し / 却下）を `acd-license-rationale.md` へ記録する
 2. 本ファイルを削除する（存在＝凍結なので、解除は削除で表す）
 3. 承認された場合、`ACD-1.0` が指すテキストは**恒久的に不変**になる（§16.4）。
-   以後の改善は別識別子で行う（**1.1 は 2026-09-17 に確定・凍結済みで、出す版は 1.2**・
+   以後の改善は別識別子で行う（**1.1 は 2026-09-17、1.2 は 2026-10-17 に確定・凍結済み。出す版の判断はオーナー**・
    `REVISION-PROTOCOL.md`。旧文は「`ACD-1.1` / `ACD-2.0` で行う」と、既に在る版を将来形で述べていた）
 4. 差し戻しの場合、指摘に基づく改訂を行う。**改訂版は別バージョンとして出す**のが原則で、
    同じ識別子でテキストを差し替えない

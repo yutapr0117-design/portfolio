@@ -2,7 +2,7 @@
 file: LICENSES/ACD-1.2-CHANGELIST.md
 audience: ai, human (新卒), 監査人, 第三者全般
 last-updated: 2026-09-28
-canonical-ref: LICENSES/ACD-1.2-DRAFT.txt / LICENSES/ACD-1.1.txt / LICENSES/ACD-1.1-CHANGELIST.md / LICENSES/ACD-1.0.errata.md
+canonical-ref: LICENSES/ACD-1.2.txt / LICENSES/ACD-1.1.txt / LICENSES/ACD-1.1-CHANGELIST.md / LICENSES/ACD-1.0.errata.md
 ---
 
 # LICENSES/ACD-1.2-CHANGELIST.md
@@ -24,7 +24,7 @@ canonical-ref: LICENSES/ACD-1.2-DRAFT.txt / LICENSES/ACD-1.1.txt / LICENSES/ACD-
 ## How
 
 - **入力は 3 系統**（届いた議論 / 我々の掃引 / 外から届いた測り方）で、本文の表に行き先が書いてある
-- **1 つの変更は 2 か所に書く** —— 本表と、`ACD-1.2-DRAFT.txt` 冒頭の変更一覧
+- **1 つの変更は 2 か所に書く** —— 本表と、`ACD-1.2-DRAFT.txt` 冒頭の変更一覧（2026-10-17 に確定。草案ヘッダは本 file の末尾に逐語で残した）
 - **草案が自分で持ち込んだ欠陥は `ACD-1.1-SELF-AUDIT.md` へ**（版ではなく**我々の掃引**の登録簿）
 
 ## Constraints

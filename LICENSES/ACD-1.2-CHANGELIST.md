@@ -1,11 +1,14 @@
 ---
 file: LICENSES/ACD-1.2-CHANGELIST.md
 audience: OSI license-discuss / license-review participants, licence reviewers, a future drafter
-last-updated: 2026-09-28
-canonical-ref: LICENSES/ACD-1.2-DRAFT.txt (草案) / LICENSES/ACD-1.1.txt (議論に付した確定テキスト・凍結) / LICENSES/ACD-1.1-CHANGELIST.md (1.0 → 1.1 の記録) / LICENSES/ACD-1.0.errata.md
+last-updated: 2026-10-18
+canonical-ref: LICENSES/ACD-1.2.txt (2026-10-17 に確定した本文・凍結) / LICENSES/ACD-1.1.txt (議論に付した確定テキスト・凍結) / LICENSES/ACD-1.1-CHANGELIST.md (1.0 → 1.1 の記録) / LICENSES/ACD-1.0.errata.md
 ---
 
 # ACD-1.2 で変えるもの
+
+> **✅ 2026-10-17 に確定・凍結した。** 本文は `ACD-1.2.txt`（`FROZEN.md` が sha256 で pin）、記述子は `ACD-1.2.machine.json`、次版の作業場は `ACD-1.3-DRAFT.txt`（記録は `ACD-1.3-CHANGELIST.md`）。
+> 確定の前に 6 観点の敵対的検証を回し、凍結前に直すべきものを直した（下の「確定前の最終点検」）。**草案の冒頭にあった変更一覧（編集用ヘッダ）は、この file の末尾に逐語で残す** ——確定版の冒頭は身分の表示だけにしたため（1.1 と同じ形）。
 
 ACD-1.1 は 2026-09-17 に確定・凍結し、**改善はここから先で行う。** 変更は下の 2 つの表に在る
 （条文の変更と、errata 由来の扱い）。*（2026-09-28 訂正: この冒頭は「この一覧は空である。空であることが現在の正しい状態」と
@@ -149,7 +152,7 @@ T2 / T3 は説明の側なので、**書かない判断も同じ重さで妥当*
 
 ## Change impact
 
-**本表に行を足したら**、同じ変更を `ACD-1.2-DRAFT.txt` の冒頭の変更一覧にも足す。
+**本表に行を足したら**、同じ変更を `ACD-1.2-DRAFT.txt` の冒頭の変更一覧にも足す（**2026-10-17 に確定したので、この表への追加は終わった。** 次版の変更は `ACD-1.3-CHANGELIST.md` と `ACD-1.3-DRAFT.txt` へ）。
 **片方だけ直すと、草案が自分の状態について偽を述べる**（Check 468e が errata について同じことを強制する）。
 
 ## Audience-specific notes
@@ -385,3 +388,241 @@ does not need to be (Section 9)."*）。**連続引用として成立しない�
 （E の 11 条について「主張は生きる」と述べているのは依然として我々の読みである）。
 **確定の日には `verify_dossier_quotations.py` も新版に対して回すこと**
 （`ACD-1.1-CHANGELIST.md` §0.13 が求めている抽出の再実行がこれである）。
+
+## 確定前の最終点検（2026-10-17・凍結の直前）
+
+**オーナーの依頼「区切りよくした上で凍結」** に従い、草案を 6 観点（相互参照 / 1.1 との差分と変更一覧の完全性 / 起草 / OSD / 機械可読性 / errata の状態の主張）から読ませ、指摘 1 件ごとに 2 人の反証役を当てた（同セッションの workflow・読み取りのみ）。指摘は 32 件・重複を除いて十数件。**反証役の一部は利用制限で回らなかったので、残りは本文を直接読んで判定した。**
+
+**凍結前に直したもの（条文）**:
+
+| 条 | 直したこと | 理由 |
+| :-- | :-- | :-- |
+| §5.2(b) | 末尾の "or" を落とした | (d) を足したときに残った |
+| §11.4 | "It reaches nothing else" に「§5 の約束は Dedicator 自身の行為についての約束で、この文に縛られない」を足した | §5.1 第 2 肢と §5.2(d) は Covered Rights・特許・人格権の外へ届くので、そのままでは条文が自分と食い違う |
+| §8.6 | 最終文を「有効ならその許諾が、無効とされたらこの約束が働く」へ | 約束は無効とされた場合にだけ働くのに、「この条の何も有効性に左右されない」と述べていた |
+| §16.1 | 通知文に personality を足した | E29 の項目は「§11.4 の carve-out を名指す」と述べていたが、4 つのうち personality が抜けていた |
+
+**凍結前に直したもの（草案ヘッダの記述）**: 変更一覧から §5.1 第 2 肢（#272）と §8.2 の書き換え（#265 (b)）が抜けていた（冒頭は一覧が差分のすべてだと宣言している）/ E31 の説明が §5.1 を「Covered Rights だけ」と述べていた（第 2 肢を足した後は偽）/ E24 の「単数形の Covered Right 5 か所」が 4 つの条しか挙げていなかった（§7.1 が抜けていた）/「some sixty clauses later」→ 実測 52 条。
+
+**誤りと判定したもの**: 「without limitation と書くのは §4.2 だけ、は誤りで §13.1 にもある」——実測すると §4.2 だけで、ヘッダは正しかった。
+
+**1.3 へ回したもの**: `ACD-1.3-CHANGELIST.md` の表を参照。
+
+## 付録: 確定時点の草案ヘッダ（逐語）
+
+確定版の冒頭は身分の表示だけにしたので、草案が冒頭に持っていた変更一覧を、確定の直前の状態のまま残す（**記録を消さないため**）。
+
+```text
+ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
+
+  This file is the successor text under construction. The frozen text now put
+  forward for discussion is ACD-1.1 (LICENSES/ACD-1.1.txt), and the licence
+  that covers this repository is ACD-1.0. Both are pinned by SHA-256 in
+  LICENSES/FROZEN.md and verified in CI; nothing here changes either of them.
+
+  Status of this draft, stated plainly so that nobody has to infer it:
+
+    * It has had no legal review, like 1.0 and 1.1.
+    * It has not been posted to any list. (Posting about ACD-1.1 resumed
+      on 2026-09-17; the current state is LICENSES/FROZEN.md POSTING-STATUS.)
+    * Apart from the changes listed below, and the version number and the
+      identifiers that name it, the operative text is ACD-1.1's. **An empty
+      change list below means nothing has been changed yet -- not that the
+      record is missing; a list with entries in it is the whole of the
+      difference.**
+    * Clause numbers follow ACD-1.1, not ACD-1.0. Citations to 1.0 must keep
+      using the 1.0 text, and citations to 1.1 the 1.1 text.
+    * Changes will be recorded in LICENSES/ACD-1.2-CHANGELIST.md, and defects
+      this draft introduces itself in LICENSES/ACD-1.1-SELF-AUDIT.md, which is
+      a register of our own sweeps rather than of any one version.
+
+  Changes in this draft, relative to ACD-1.1:
+
+    * Section 2.6 no longer forbids the Dedicator from asking a contributor for
+      anything (errata E22). The sentence said that no separate instrument,
+      assignment, or agreement "may be required of them as a condition of the
+      Contribution being accepted", which reads as a rule about how a project
+      governs its own contributions rather than about what a recipient of the
+      Work may do. It imposed nothing on You, so Section 10.1 was untouched;
+      what it did was make this Dedication awkward for any project that runs a
+      contributor agreement -- which is most institutionally backed projects,
+      the adopters this instrument most lacks. The half worth keeping is kept:
+      nothing further is needed to place a Contribution under this Dedication.
+    * Section 2.8 no longer says that a transferee "may not make a Reservation
+      in respect of the Work" (errata E23). The same sentence already binds
+      Section 6 to transferees, and Section 6.2 has the Dedicator make no
+      Reservation and decline to make one while Section 6.3 withdraws any that
+      exists and disclaims reliance on it -- so the prohibition added nothing
+      the binding did not already do. What it did add was a rule about whether
+      a different rightsholder may perform a statutory act, which is not this
+      document's to decide (the reasoning of errata E5), and a named
+      prohibition on the transferee alone, which invites the reading that the
+      Dedicator may do what the transferee may not.
+    * A new Section 15.5 restores the three rules of construction that ACD-1.0
+      carried at its Section 15.2 and that this line of drafting dropped
+      (errata E24). Dropping them was reasoned from the wrong comparison. The
+      three short permissive texts it was compared with (named in errata E24)
+      carry no general rule of construction -- though one carries the device
+      inline in its operative grant ("including without limitation") and
+      another in its disclaimer ("including but not limited to") -- and, more
+      to the point, they carry almost no enumerations to need one: two, one
+      and one, where this text has twelve. Without the rules, (a) each of
+      the twelve lists introduced by "including" -- among them the definitions
+      of Work, Covered Rights, Computational Use and Reservation, which are the
+      definitions that carry what this text claims is new -- invites the
+      reading that the list is exhaustive, which is the same *expressio unius*
+      argument this draft has used three times on itself; (b) the five uses of
+      the singular "Covered Right", in Sections 2.8, 3.3, 5.1, 6.4 and 7.1, are a
+      form of a term defined only in the plural; and (c) the reference in
+      Section 1.10 to Article 4(3) of Directive (EU) 2019/790 is a reference to
+      the 2019 text alone. Only Section 4.2 said "without limitation" on its
+      own.
+    * A new Section 15.6 restores, word for word, the rule of construction
+      that ACD-1.0 carried at its Section 15.3 and that this line of drafting
+      dropped (errata E25). It was dropped on the ground that Section 15.1
+      already says the same thing twice. That was true of one half of it and
+      never of the other: Section 15.1 is a rule of direction and Section 15.3
+      was a rule of disapplication, and a direction cannot switch a canon off.
+      Since errata E20 the point is sharper still, because Section 15.1 now
+      reads "in respect of the Work" and so reaches none of Section 16, where
+      the dropped rule reached everything. The effect of dropping it was that
+      two canons of construction came back on over Section 16 and pulled in
+      opposite directions on the same clause, with nothing in the text to
+      order them -- contra proferentem reading Section 16.4's restriction
+      narrowly, and the narrow construction of grants reading Section 16.4's
+      permissions narrowly. Nothing about the Work was affected either way
+      (Sections 10.5 and 16.6), which is why this is stated as a repair of an
+      accident rather than as a defence of a clause.
+    * Sections 8.6 and 12.2 now each say that You are not required to
+      determine which of their branches applies (errata E26). Four Sections
+      operate differently according to the law of a jurisdiction and then
+      close the difference by a second footing, and until now only two of
+      them -- Section 4.4 for the surrender, Section 9.3 for machine-generated
+      material -- said so to the reader. The patent grant and the moral rights
+      waiver did the same thing and said nothing, so a reader met the branch
+      at Section 8.6 and Section 12.2 with no statement that it did not matter
+      which side of it they were on. The asymmetry is the defect; the sentences
+      are copied from the two that already existed.
+    * Three sentences are re-ordered so that a qualifier or a pronoun cannot
+      attach to the wrong thing (errata E27). No word is added to two of them
+      and one word is added to the third; nothing they say changes. In Section
+      5.2(a) "against You" now precedes the law it qualifies, so it can no
+      longer be read as governing the covenant not to apply a technological
+      measure at all. In Section 2.2 the qualifier "in respect of any copy of
+      the Work that has been made available" now sits in front of the term it
+      limits, so it can no longer be read as limiting the prohibition on
+      withdrawal -- which is the instrument's central promise and was two-way
+      on the face of that one sentence. In Section 16.5 the second "it"
+      becomes "that role", because the first "it" in the same sentence refers
+      to the text and the second referred to the role.
+    * Section 4.4 no longer denies a fallback reading by naming it; it states
+      the positive instead (errata E28). The old wording said the licence
+      "does not depend on Section 3 being ineffective", which states the
+      fallback frame in order to reject it. Three readers have taken the frame
+      anyway: this dossier did so twice and had to correct itself (adverse
+      facts 24 and 35), and an outside reviewer did so on 2026-09-20 while
+      calling the clause appropriate. The phrase "granted independently of
+      Section 3" is kept because the submission packet quotes it.
+    * The recommended notice in Section 16.1 now names the second carve-out as
+      well as the first (errata E29). It said "trademarks and other rights in
+      names are not granted (Section 11)", which names Section 11.1 and passes
+      over Section 11.4 -- data protection, privacy, publicity, personality --
+      although Section 11.4 exists because a work meant to be learned from is
+      often data about people. The notice is the surface an adopter reads and
+      the only one that travels with the Work, so a carve-out it does not name
+      is a carve-out most readers never meet.
+    * Section 2.9 no longer states what an insolvency proceeding does; it
+      states what this Dedication does (errata E30). The old first sentence
+      said that no such proceeding and no act of an officer "affects a
+      permission granted here or revives a right given away", which is a
+      statement about the result a forum will reach, not about the terms of
+      this instrument -- the same defect errata E5 removed from the sentence
+      beside it when it dropped "and so is not executory". The point is live:
+      in Jaffe v. Samsung (4th Cir., 3 December 2013) a foreign representative
+      sought authority to cancel licences to the debtor's US patents, and the
+      answer took a four-day evidentiary hearing and a discretionary balance.
+      The new wording keeps the assurance and puts it where it belongs: nothing
+      here is conditioned on, suspended by, or revived by such a proceeding.
+      The second sentence is unchanged, and it is the part that does the work
+      -- the officer takes as a transferee under Section 2.8.
+    * Section 5.2 gains a fourth covenant (errata E31). Section 11.4 says that this
+      Dedication grants no permission under a right of privacy, publicity, or
+      personality; it does not say that the Dedicator will not assert one. In
+      ACD-1.1 the covenant in Section 5.1 reached Covered Rights only, and
+      Section 1.5 does not include these, so nothing in the text stopped a
+      Dedicator from suing a
+      recipient -- under their own likeness, voice, or performance -- for a use
+      this Dedication permits. That route is not hypothetical for an instrument
+      written for works meant to be learned from, which Section 11.4 itself says
+      are often data about people. The mechanism is one this text already uses:
+      Section 12.2 gives exactly this form of covenant for Moral Rights where a
+      waiver is unavailable. What Section 11.4 grants is not touched, because
+      this speaks of the Dedicator's own conduct -- the same distinction
+      Sections 12.1 and 12.2 already draw -- and rights of this kind held by
+      anyone else are untouched; the second sentence of Section 11.4 is
+      qualified so that it does not contradict this covenant (see below).
+    * The preamble no longer says that this Dedication "gives everything away"
+      (errata E32). Read at face value that sentence is false: Section 11.1
+      grants no trademark right, Section 11.4 grants nothing under privacy,
+      publicity, personality or data-protection law, and Section 2.7 reaches
+      only rights the Dedicator holds. The preamble marks itself as not part of
+      the operative terms and nothing in it qualifies them, so nothing a
+      recipient may do turns on the sentence -- but the shape is the one a
+      Licensing Committee member has called internally contradictory in another
+      review, and a reader meets the claim before meeting the carve-out. The
+      replacement keeps the force within the scope that is true and points at
+      the carve-out in the same breath.
+    * Section 1.5 now names the fourth exclusion (errata E33). Its list of
+      what Covered Rights excludes named patents, trademarks and names, and
+      Moral Rights, and stopped; rights under data protection, privacy,
+      publicity, or personality law were excluded only by inference from
+      Section 11.4, fifty-two clauses later, while Section 1.5 defines Covered
+      Rights as every right "however arising" and Section 15.1 asks for the
+      widest reading. Nothing a recipient may do changes; the definition now
+      states its own boundary instead of leaving it to be inferred.
+    * Section 2.5 restores two elements of the reliance clause that ACD-1.1's
+      compression dropped (errata E34): that reliance is the purpose of this
+      Dedication and not merely a foreseeable consequence of it, and that the
+      Dedicator is estopped from asserting revocability or want of
+      consideration to the extent the law of a jurisdiction gives that
+      principle effect. Nothing a recipient must do changes; what moves is the
+      strength of the fallback if Section 3 fails. This entry was missing when
+      the clause changed, so for three days this list did not state the whole
+      of the difference, as it says it does.
+    * Section 6.1 now says "for any purpose, whether or not commercial". The
+      permission is the same as in ACD-1.0 and ACD-1.1; only the wording
+      differs. The earlier wording led a widely used licence scanner to
+      misclassify this text; the measurement, and why the earlier words are
+      not quoted here, are in ACD-1.2-CHANGELIST.md.
+    * Section 5.1 gains a second limb: the Dedicator also covenants not to
+      assert against You any claim or cause of action arising from or relating
+      to a use of the Work that this Dedication permits. ACD-1.1's release
+      was cut at rights and not at claims: of the five elements CC0's waiver
+      lists, it lacked "associated claims and causes of action" (register
+      entry 272 in LICENSES/ACD-1.0.against.md).
+    * Section 8.2 no longer says only that the absence of a patent retaliation
+      provision is deliberate; it gives the reason -- a retaliation provision
+      is a condition on permission already given, and Section 10.1 admits no
+      condition -- so that the absence reads as following from the structure
+      rather than as a preference.
+    * Section 11.4's second sentence ("It reaches nothing else") now says that
+      the covenants in Section 5 are not limited by it. Without that, the
+      sentence contradicted the second limb of Section 5.1 and Section 5.2(d),
+      which reach beyond Covered Rights, patent claims and Moral Rights.
+    * Section 8.6 no longer says that nothing in it depends on whether a
+      licence is effective; its covenant applies only where a licence is held
+      ineffective, so that sentence contradicted the one before it. It now says
+      that the licence governs where it is effective and the covenant where it
+      is not.
+    * The recommended notice in Section 16.1 names personality rights as well,
+      which the bullet above on errata E29 said it named and it did not.
+    * Section 5.2(b) no longer ends with "or"; the word was left behind when
+      item (d) was added.
+    * ACD-1.1: 5051 words, 78 clauses. This draft: 5427 words, 80 clauses.
+
+  Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
+      well as the use of the Work -- examined and deliberately not narrowed)
+      and E10 (the machine-readable descriptor; closed for 1.1 in
+      ACD-1.1.machine.json, and it must be closed again for each new version
+      because each version carries its own descriptor).
+```
