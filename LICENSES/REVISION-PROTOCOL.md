@@ -243,7 +243,7 @@ the basis of this response, I wrote everything else myself"*）。**これを毎
 > moderator の 5 問への回答は 2026-09-07 に送られており、前提条件は満たされている。
 >
 > **これが作業の優先順位を決める**: **(i) カンファレンスで出たものを取り込む先は
-> `ACD-1.2-DRAFT.txt` と `ACD-1.2-CHANGELIST.md` である**（1.1 は凍結済み・Check 453 が pin）。
+> `ACD-1.2-DRAFT.txt` と `ACD-1.2-CHANGELIST.md` である**（1.1 は凍結済み・Check 453 が pin。**2026-10-17 追記**: 1.2 も確定したので、いまの取り込み先は `ACD-1.3-DRAFT.txt` と `ACD-1.3-CHANGELIST.md`）。
 > **(ii) 出す版は 1.2 になる**ので、`ACD-1.1-CHANGELIST.md` §0.13 と `submission.md` §B.0 の
 > **確定手順 5 手**を 1.2 について実行する（版に紐づく Check の付け替え・§4c の数値の再導出・
 > XML の生成・FREEZE-DATA への追加・適用版の判断）。**(iii) `license-review` へ送る本文は

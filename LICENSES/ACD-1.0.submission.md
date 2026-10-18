@@ -175,7 +175,7 @@ Open Source Definition, and to say where the licence is used.
 > **⚠ 2026-09-26 訂正: 1.1 は 2026-09-17 に確定済みで、出す版は 1.2 になった**（オーナー 2026-09-17・`REVISION-PROTOCOL.md`）。
 > 旧文は (1) を「`ACD-1.1.txt` を確定」、(4) を「468 は `ACD-1.1.txt` を見ている」と書き、(3) は「Check 444 が一致を強制する」と述べていたが、
 > **444 は本 file を読んでいなかった**（存在しない強制の主張）。以下は 1.2 について書き直した手順である。
-> **(1)** `ACD-1.2-DRAFT.txt` を `ACD-1.2.txt` として確定し
+> **(1)** `ACD-1.2-DRAFT.txt` を `ACD-1.2.txt` として確定し（**2026-10-17 実施**。草案の file 名は案内として残し、作業場は `ACD-1.3-DRAFT.txt` へ移した）
 > `FROZEN.md` の FREEZE-DATA に行を足す（置き換えない）/ **(2)** `generate_spdx_license_xml.py` で
 > XML を生成する（**Check 445a が本文からの再生成と byte 一致を強制するので、手で書く余地は無い**）/
 > **(3)** 冒頭の `SUBMISSION-TARGET` marker を新版へ変え、**版に紐づく欄をすべて**新版へ向ける ——
@@ -183,7 +183,7 @@ Open Source Definition, and to say where the licence is used.
 > （**Check 472f が 16 箇所を marker と照合するので、1 つでも残ると落ちる**）と語数申告。**そして §4c の数値を再導出する** ——
 > 条数は **82 → 確定時の 1.2 の条数**（2026-09-26 実測で草案 80）に変わり、clause pointer 数は新しい `machine.json` から数え直しになる。
 > **(4) 版に紐づく Check の対象を新版へ向ける。** **Check 460 face (n) は §4c を `ACD-1.0.txt` と
-> `ACD-1.0.machine.json` に対して照合し、Check 468 / 468d は `ACD-1.2-DRAFT.txt` を見ている** ——
+> `ACD-1.0.machine.json` に対して照合し、Check 468 / 468d は `ACD-1.2-DRAFT.txt` を見ている**（**2026-10-17 に 468 を `ACD-1.3-DRAFT.txt` へ向け直した**）——
 > **確定の瞬間に、前者は古い版を、後者は消えた file を指す**（468 は 2026-09-26 まで草案が無いと黙って消えていたが、
 > 今は明示的に RED になる）。
 > **CI が最も止まってほしくない日に止まるので、ここは確定作業の一部として先に書いておく。**

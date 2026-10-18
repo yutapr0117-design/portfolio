@@ -19,7 +19,7 @@
 
 ## ライセンス・トラック（ACD-1.0 → OSI）
 
-- **本文の状態**: **凍結中**（`LICENSES/FROZEN.md` の存在が凍結を意味し、Check 453 が 5 ファイルの sha256 を pin）。**欠陥を見つけても直さず errata へ記録する。**
+- **本文の状態**: **凍結中**（`LICENSES/FROZEN.md` の存在が凍結を意味し、Check 453 が 7 ファイルの sha256 を pin）。**欠陥を見つけても直さず errata へ記録する。**
 - **投稿先**: `license-discuss`（単一ソース = FROZEN.md の VENUE-DATA・Check 458 が全 status 面に強制）。**承認の窓口である `license-review` にも SPDX にも未提出。**
 - **発信の状態**: 通常（`FROZEN.md` の POSTING-STATUS が `active`）。**`active` は「我々の側で止めていない」であって「リストに届く」ではない** —— moderation の拒否は `LICENSES/ACD-OSI-BOTTLENECKS-POSTING.md`（B14）に記録する。
 - **自分で書いた不利な事実**: 276 件（`LICENSES/ACD-1.0.against.md`・不利なものを先に並べる）／**既知の欠陥**: 34 件（`ACD-1.0.errata.md`）—— **1.0 では全件未修正**（凍結中のため）、**うち 32 件は次版の草案で閉じた**（残る 2 件は errata の状態欄が理由を述べる）。

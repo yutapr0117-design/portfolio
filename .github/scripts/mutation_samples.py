@@ -201,8 +201,8 @@ _MUTATIONS_TAIL.append({
             "468 は OK も ERROR も出さずに消えた。版を確定して DRAFT を改名した日に、次版の検査が"
             "黙って止まる形だった (2026-09-26 に else を追加)",
     "file": ROOT / ".github" / "scripts" / "checks_license_draft.py",
-    "find": '_dr468 = ROOT / "LICENSES" / "ACD-1.2-DRAFT.txt"',
-    "replace": '_dr468 = ROOT / "LICENSES" / "ACD-1.2-DRAFT-MISSING.txt"',
+    "find": '_dr468 = ROOT / "LICENSES" / "ACD-1.3-DRAFT.txt"',
+    "replace": '_dr468 = ROOT / "LICENSES" / "ACD-1.3-DRAFT-MISSING.txt"',
     "check": CHECK,
 })
 
@@ -235,11 +235,12 @@ _MUTATIONS_TAIL.append({
 })
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 468i: 草案の変更一覧から、errata が「1.2 草案で閉じた」とする E34 を外す —— 冒頭は一覧が"
-            "差分のすべてだと宣言しているので、閉じた errata の記録漏れは草案の自己記述を偽にする (2026-09-28)",
-    "file": ROOT / "LICENSES" / "ACD-1.2-DRAFT.txt",
-    "find": "compression dropped (errata E34):",
-    "replace": "compression dropped (errata):",
+    "name": "Check 468i: errata の 1 件を「1.3 草案で閉じた」へ書き換え、草案の変更一覧には載せない —— 冒頭は一覧が"
+            "差分のすべてだと宣言しているので、閉じた errata の記録漏れは草案の自己記述を偽にする (2026-09-28。"
+            "2026-10-17 に 1.2 を確定し、対象を 1.3 草案へ移したので、mutation も errata 側から当てる形へ付け替えた)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.errata.md",
+    "find": "**1.2 草案で閉じた（2026-09-18）。+12 語。",
+    "replace": "**1.3 草案で閉じた（2026-09-18）。+12 語。",
     "check": CHECK,
 })
 

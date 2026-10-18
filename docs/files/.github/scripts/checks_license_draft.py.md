@@ -2,14 +2,14 @@
 file: .github/scripts/checks_license_draft.py
 audience: ai, human (新卒), 監査人, 第三者全般
 last-updated: 2026-09-26
-canonical-ref: .github/scripts/check_repository_consistency.py (集約器) / LICENSES/ACD-1.2-DRAFT.txt (検査対象) / docs/architecture/check-repository-consistency-map.md (全 Check の一覧)
+canonical-ref: .github/scripts/check_repository_consistency.py (集約器) / LICENSES/ACD-1.3-DRAFT.txt (検査対象) / docs/architecture/check-repository-consistency-map.md (全 Check の一覧)
 ---
 
 # .github/scripts/checks_license_draft.py
 
 ## What
 
-**次版の草案 `LICENSES/ACD-1.2-DRAFT.txt` だけを検査する consistency Check module。**
+**次版の草案（いまは `LICENSES/ACD-1.3-DRAFT.txt`）だけを検査する consistency Check module。**
 Check **468**（草案が NOT IN FORCE / NOT SUBMITTED / NOT APPLIED を述べること・純 ASCII・節の連番・
 参照の解決・申告語数と条数の一致・ヘッダの箇条書き・descriptor の記述ほか）を持つ。
 

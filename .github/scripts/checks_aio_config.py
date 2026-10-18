@@ -94,6 +94,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
       (BLOCKING)
 
   451. ACD-1.0 の機械可読記述子 (`LICENSES/ACD-1.0.machine.json`) が条文と整合すること。
+       451d: 1.0 以外の版の記述子 (`ACD-<ver>.machine.json`) も、それぞれの版の本文と整合すること (2026-10-17)。
        ACD-1.0 §6.5 は「自動化されたシステムが判定できない許諾は、学習されるための著作物に
        とっては許諾ではない」と述べる。そう述べるライセンス自身が機械から判定できないのは
        自己矛盾なので、採用者がそのままコピーできる非 operative の記述子を置いている。
@@ -796,6 +797,73 @@ def run(ctx):
         check(False, "Check 451: ACD-1.0.machine.json と本文が存在",
               "Check 451: LICENSES/ACD-1.0.machine.json もしくは ACD-1.0.txt が無い",
               blocking=True)
+
+    # 451d — 1.0 以外の版の記述子も、その版の本文と照合する (2026-10-17)
+    #   `ACD-1.1.machine.json` の `$comment` は「各事実が引く条項が本文に実在することを BLOCKING の
+    #   CI 検査が確かめる」と自分で述べていたが、**451a〜c は 1.0 しか見ていなかった** ——
+    #   凍結された記述子が、自分を守っていない検査を名指ししていた。1.1 は凍結中で直せないので、
+    #   **記述子の側ではなく検査の側を、その主張が真になるように広げる**。版を確定するたびに
+    #   記述子が 1 つ増えるので、対象は glob で導出する（決め打ちにすると次の版で黙って外れる）。
+    #   照合するのは 451a / 451b と同じ 2 面 + `text` が自分の版の本文を指すこと。
+    import json as _json451d
+    _bad451d = []
+    _seen451d = []
+    for _md in sorted((ROOT / "LICENSES").glob("ACD-*.machine.json")):
+        _ver = _md.name[len("ACD-"):-len(".machine.json")]
+        if _ver == "1.0":
+            continue
+        _seen451d.append(_ver)
+        _txt = ROOT / "LICENSES" / f"ACD-{_ver}.txt"
+        if not _txt.exists():
+            _bad451d.append(f"{_md.name}: 対応する本文 ACD-{_ver}.txt が無い")
+            continue
+        _src = _txt.read_text(encoding="utf-8")
+        _nums = set(re.findall(r"^  (\d+\.\d+)\s", _src, re.M))
+        try:
+            _d = _json451d.loads(_md.read_text(encoding="utf-8"))
+        except ValueError as _e:
+            _bad451d.append(f"{_md.name}: JSON として不正 ({_e})")
+            continue
+        _cited = []
+
+        def _walk451d(o):
+            if isinstance(o, dict):
+                if "clause" in o and isinstance(o["clause"], str):
+                    _cited.append(o["clause"])
+                for _v in o.values():
+                    _walk451d(_v)
+            elif isinstance(o, list):
+                for _v in o:
+                    _walk451d(_v)
+
+        _walk451d(_d)
+        _miss = sorted({_c for _c in _cited if _c not in _nums})
+        if not _cited:
+            _bad451d.append(f"{_md.name}: clause を 1 件も引いていない")
+        if _miss:
+            _bad451d.append(f"{_md.name}: 本文に無い条項を引いている {_miss}")
+        _n = " ".join((_d.get("notice") or "").split())
+        _blk = ""
+        try:
+            _i = _src.index("16.1 To apply this Dedication")
+            _body = _src[_i:_src.index("16.2", _i)]
+            _blk = " ".join(" ".join(_l.split()) for _l in _body.splitlines()
+                            if _l.strip() and (len(_l) - len(_l.lstrip())) >= 11)
+        except ValueError:
+            _blk = ""
+        if not _n or _n not in _blk:
+            _bad451d.append(f"{_md.name}: notice が ACD-{_ver}.txt の §16.1 に含まれない")
+        if not str(_d.get("text", "")).endswith(f"/LICENSES/ACD-{_ver}.txt"):
+            _bad451d.append(f"{_md.name}: text が自分の版の本文を指していない ({_d.get('text')!r})")
+        if str(_d.get("version", "")) != _ver or str(_d.get("spdxId", "")) != f"ACD-{_ver}":
+            _bad451d.append(f"{_md.name}: version/spdxId が file 名の版 {_ver} と一致しない")
+    check(
+        bool(_seen451d) and not _bad451d,
+        f"Check 451d: 1.0 以外の版の記述子 {_seen451d} がそれぞれの本文と整合",
+        (f"Check 451d: 版ごとの記述子が本文と食い違う: {_bad451d or '1.0 以外の記述子が 1 つも無い'}。"
+         "**記述子は自分の版の条文の索引**であり、凍結された記述子は自分を守る検査を名指ししている"),
+        blocking=True,
+    )
 
     # ── 452. 提出準備マーカーが実態と一致すること (BLOCKING) ─────────────────────────
     # `LICENSES/READY-TO-SUBMIT.md` は「レビュー結果を見たいと思える水準に達した」という判断を

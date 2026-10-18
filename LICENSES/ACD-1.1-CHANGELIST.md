@@ -44,7 +44,7 @@ canonical-ref: LICENSES/ACD-1.0.errata.md (欠陥の一次記録) / LICENSES/REV
 
 > **2026-09-24 注記**: 以下は 2026-09-10 時点の記述である。1.1 は **2026-09-17 に確定・凍結**され、
 > 1 行目は **FROZEN TEXT. NOT SUBMITTED FOR APPROVAL. NOT APPLIED TO THIS REPOSITORY.** になった
-> （もう草案ではない。作業場は `ACD-1.2-DRAFT.txt`）。**§0.5 の条番号対応表も 09-10 の草案から
+> （もう草案ではない。作業場は `ACD-1.2-DRAFT.txt`。**2026-10-17 追記**: 1.2 も確定し、いまは `ACD-1.3-DRAFT.txt`）。**§0.5 の条番号対応表も 09-10 の草案から
 > 生成したもので、確定した 1.1 と 3 行食い違っていた**（`MACHINE-SURFACES-AUDIT.md` M5）—— 2026-09-24 に
 > 確定版へ当て直して訂正済み（§0.5 の注記）。
 
