@@ -39,3 +39,8 @@
 - *"Every open source license requires attribution and inclusion of the license text"*（承認済みの 0BSD / Unlicense / MIT-0 と矛盾する単純化。ただし審査側の人物が帰属を規範として語る例 → #276 / #277 の文脈）。
 - 審査の観点として *"Reusability by anyone" / "No special privileges for the original author" / "Clarity and precision" / "Compliance must be possible in practice" / "must fill a genuine gap"* を列挙（提出パケット §4b・B3・gap と対応）。
 - ModelGo を *"rewritten several times to get them right. AI licenses are complex and need precise language"* と紹介。
+
+## 訂正（2026-10-18 10:05 UTC 頃・portfolio-01）
+- 上の観測メモ 1「この回の題名は自動翻訳の日本語」は**誤り**。この回と hl=en 付きの再実行が同じ分（14:37 JST）に走り、フォルダ名が同じだったため 2 回目が上書きした。いまこのフォルダに在る yt-*-titles.txt と表は **hl=en 付きの 2 回目のもので、原題**である（日本語題名の回のバイト列は残っていない）。
+- その下の「観測メモ（前回（）から…）」と「保留中の還元メモ」は、**本来 events-watch-1902 に付けるつもりのものだった**（zsh の配列が 1 始まりであることを見落とした）。還元メモの中身はこのフォルダの記述として読んでも差し支えない。
+- 再発防止: event_watch.py のフォルダ名を秒まで含める。
