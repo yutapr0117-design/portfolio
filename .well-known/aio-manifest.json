@@ -113,14 +113,14 @@
       "sha256": "8b919cc6aecfc80935161cc40c298eb0150cb24a8d021bd2d95716cf7677e3b9"
     }
   ],
-  "generated_at": "2026-10-12T06:48:01Z",
+  "generated_at": "2026-10-19T05:30:53Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
       "path": "docs/evidence/aio-monitoring-log.json",
       "role": "AIO monitoring attempt log — records search attempts; not yet confirmed citation evidence",
       "canonical": false,
-      "sha256": "985b17f20173bfcb5f296b15ef630cd61512b9619d727a88cb50f23d8f5ef8dc"
+      "sha256": "0c64cc0247715883ec284f490b5f85fed8956731aa7210358801535cdab45080"
     }
   ],
   "last_metadata_update": "2026-09-24T07:36:12Z"
