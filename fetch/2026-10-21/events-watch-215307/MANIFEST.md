@@ -23,3 +23,5 @@
 | ato-welcome-social-panel-discussion.html | https://2026.allthingsopen.org/sessions/welcome-social-panel-discussion | https://2026.allthingsopen.org/sessions/welcome-social-panel-discussion | 200 | 56108 | 46aed36898f468de | 2026-10-21T12:53:18Z |
 
 - 監視メモ（2026-10-21 21:53 JST）: 115609 と比較して変化なし。ブログ新記事 0・録画/スライド 0。YouTube は ATO の short 1 本（「17 years in restaurants…」）が入れ替わっただけで、ATO 2026 のセッション録画ではない。main には書かない。
+
+**受け渡し漏れの是正（2026-10-22 09:0x JST）:** この回は MANIFEST だけを commit しており、本体 HTML / 題名一覧が未追跡のまま手元に残っていた（クラウドが 10-21 行で「バイトでは確かめられない」と指摘）。取得時のバイト列のまま、ここで追加 commit した（内容は取得時から未変更）。原因: 監視の commit を MANIFEST の明示パスだけにしていた。以後はフォルダ単位で add する。
