@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are **375** worked entries across this directory (the number is kept equal to the count by Check 460 on every build; the list is append-only, so treat it as a floor). This page exists so that you do not have to
+There are **376** worked entries across this directory (the number is kept equal to the count by Check 460 on every build; the list is append-only, so treat it as a floor). This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -112,6 +112,7 @@ If your question is not here, that is our omission and worth saying on the list.
 | Does a small unknown submitter get ignored on license-review? | **No, measured.** All 12 small solo submissions in the 2023–2026 archives drew replies — median 4 responders, median 27.7 h to the first. `AS-OF.md`; table in `PEER-REVIEW-WATCH.md`. **Read with the caveat that our own post is on the other list** |
 | Has anyone on the OSI lists replied to you? | **Two answers, and conflating them flatters us.** To *ACD-1.0*: nobody, since 2026-08-26 (`AS-OF.md`). To *the steward*, on `license-review`, in other people's threads: three people between 2026-09-03 and 09-05, including both stewards of the instruments this dossier watches. Full texts in `rounds/`; what that is and is not evidence of is in `AS-OF.md` |
 | Why does a message of yours only exist inside someone else's quotation? | `against.md` #91 — the 2026-09-05 message is not in the archive on its own. Either it went to an individual instead of the list, or the archive dropped it; from the archive the two cannot be told apart |
+| **Who decides what the text says, and when to submit?** | Since 2026-10-24, the AI working in this repository, under the owner's delegation — each decision recorded with its reasons and its converse. **What goes to a list is written and sent by the owner** (B14). `against.md` #278 |
 | Why discussion first? | OSI's guidance, not our foresight. `discussion-log.md` §3.5 — including that we described this wrongly once |
 | What happens when feedback arrives? | `REVISION-PROTOCOL.md` — verbatim archive, then decomposition; **1.0 is never mutated** |
 | **What is actually blocking approval, and who can move each one?** | **`ACD-OSI-BOTTLENECKS.md`** — the single canonical register: 14 items, each with the analysis (why it is an approval problem / fact vs inference vs prediction / minimal resolution / what is lost / what survives / whether external confirmation is needed). **The summary line is derived from the table by Check 460 (m), so it cannot drift below the truth** |
