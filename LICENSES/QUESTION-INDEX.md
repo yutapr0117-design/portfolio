@@ -86,6 +86,7 @@ If your question is not here, that is our omission and worth saying on the list.
 | Question | Where |
 |---|---|
 | What happens where abandonment is ineffective? | `jurisdictions.md` — questions, not conclusions, by jurisdiction |
+| **Has a lawyer looked at it, and what would you ask one?** | **No legal review yet.** `QUESTIONS-FOR-COUNSEL.md` — eight questions on which a lawyer's reading would most change the text, ranked by consequence, each answerable on its own |
 | Germany specifically? | `jurisdictions.md` §3 — including that §15.4's reformation may not be available there, and why the outcome holds anyway |
 | Moral rights in France? | `jurisdictions.md` §4; §12.1/§12.2 are a two-step, not a single waiver |
 | Does it warrant that it works? | **No** — §13.2 says so expressly. `against.md` #26 |
