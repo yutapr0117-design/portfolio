@@ -51,6 +51,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 | **受け取った議論の原文**（無改変で置く場所。**2026-09-28 訂正**: 旧文は「いまは空」だった —— 実際は 2026-08-26 の送信文以来ファイルが在り、在庫の申告は `rounds/README.md` が持ち Check 465 が実ファイルと照合する） | [`rounds/`](rounds/README.md) |
 | **疑問から引く索引（審査者向け・英語）** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) |
 | **不利な事実の網羅（先に読ませる用・英語）** | [`ACD-1.0.against.md`](ACD-1.0.against.md) |
+| **弁護士に何を尋ねるか（英語）** | [`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) —— 法的レビューが無い（B1）。弁護士の読みが本文を最も変える 8 問を、帰結の大きい順に |
 | **既知の欠陥と、直さない理由（英語）** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) |
 | **議論に付した確定テキスト（凍結）** | [`ACD-1.1.txt`](ACD-1.1.txt) —— **FROZEN / NOT SUBMITTED / NOT APPLIED**。1.0 の errata 21 件のうち 19 件を閉じてある（数は 1.1 自身の冒頭が権威）。**条番号は §15 以降で 1.0 と異なる**ので、**1.0 を引くときは 1.0 の本文から**（対応表は `ACD-1.1-CHANGELIST.md` §0.5）|
 | **1.0 → 1.1 の変更記録** | [`ACD-1.1-CHANGELIST.md`](ACD-1.1-CHANGELIST.md) |
