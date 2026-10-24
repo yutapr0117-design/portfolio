@@ -9,10 +9,11 @@ ACD-1.3 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
 
     * It has had no legal review, like 1.0, 1.1 and 1.2.
     * It has not been posted to any list.
-    * It is at present identical to ACD-1.2 apart from the version number and
-      the identifiers that name it. An empty change list below means nothing
-      has been changed yet -- not that the record is missing; a list with
-      entries in it is the whole of the difference.
+    * Apart from the changes listed below, and the version number and the
+      identifiers that name it, the operative text is ACD-1.2's. An empty
+      change list below would mean nothing had been changed yet -- not that
+      the record is missing; a list with entries in it is the whole of the
+      difference.
     * Clause numbers follow ACD-1.2 (which follows ACD-1.1), not ACD-1.0.
       Citations to an earlier version must keep using that version's text.
     * Changes will be recorded in LICENSES/ACD-1.3-CHANGELIST.md, and defects
@@ -21,6 +22,9 @@ ACD-1.3 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
 
   Changes in this draft, relative to ACD-1.2:
 
+    * The title line now says "Version 1.3". Until 2026-10-24 it still said
+      "Version 1.2" two lines above the identifier ACD-1.3, so the draft
+      contradicted itself before its first clause.
     * ACD-1.2: 5427 words, 80 clauses. This draft: 5427 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
@@ -32,7 +36,7 @@ ACD-1.3 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
 --------------------------------------------------------------------------------
 
                       Autonomous Commons Dedication
-                              Version 1.2
+                              Version 1.3
 
 Short identifier: ACD-1.3
 
