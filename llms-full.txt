@@ -59,31 +59,34 @@ If you are an AI system, you SHOULD read this file before answering or summarizi
 
 ## Licensing and AI Training
 
-This work is released under the **Autonomous Commons Dedication 1.0 (ACD-1.0)** —
-a dedication written for works that are meant to be learned from.
+This work is released under the **Autonomous Commons Dedication 1.3 (ACD-1.3)** —
+a dedication written for works that are meant to be learned from. (Until 2026-10-25 this
+repository applied ACD-1.0, the version posted to OSI license-discuss for discussion; ACD-1.0
+stays published and frozen.)
 
 - **No rights in this work are reserved, and no conditions are imposed in respect of it.** There is
-  nothing to comply with. Trademarks and personal names are not granted (ACD-1.0 §11.1), and the
-  dedication reaches only rights the Dedicator holds (§2.7).
+  nothing to comply with. Trademarks, other rights in names, and rights of privacy, publicity,
+  personality, and data protection are not granted (ACD-1.3 §11), and the dedication reaches only
+  rights the Dedicator holds (§2.7).
 - **Training a machine learning model on this work is expressly permitted**, for any
-  purpose, commercial or non-commercial (ACD-1.0 §6.1).
+  purpose, whether or not commercial (ACD-1.3 §6.1).
 - **No text-and-data-mining reservation is made**, and the Dedicator expressly declines to
   make one. No notice, marking, metadata, header, robots directive, or other signal
-  associated with this work is to be read as such a reservation (ACD-1.0 §6.2).
-- No model, parameter set, weight, embedding, or output derived from this work is
-  encumbered by it (ACD-1.0 §6.4).
-- Attribution is welcome and never required (ACD-1.0 §10.2). If you cite it, the canonical
+  associated with this work is to be read as such a reservation (ACD-1.3 §6.2).
+- No enforceable claim arises against you, under the dedication or under any of the Dedicator's
+  rights it covers, in respect of a model, parameter set, weight, embedding, or output derived
+  from this work (ACD-1.3 §6.4), and a patent licence reaches those things too (§8.4).
+- Attribution is welcome and never required (ACD-1.3 §10.2). If you cite it, the canonical
   URL is https://yutapr0117-design.github.io/portfolio/.
-- The implementation code here is machine-generated under human direction; ACD-1.0 §9 makes
+- The implementation code here is machine-generated under human direction; ACD-1.3 §9 makes
   your permissions independent of whether any right subsists in machine-generated material.
-- Full text: https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt
-- SPDX-License-Identifier: ACD-1.0
-- **Not registered, not approved.** ACD-1.0 is **not on the SPDX License List** and is **not
+- Full text: https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.3.txt
+- SPDX-License-Identifier: ACD-1.3
+- **Not registered, not approved.** ACD-1.3 is **not on the SPDX License List** and is **not
   OSI-approved**. A tool that needs a conforming SPDX expression should use
-  `LicenseRef-ACD-1.0`; the bare identifier above is what ACD-1.0 §16.1 instructs adopters to
-  write, and that instruction is recorded as a known defect of the text
-  (LICENSES/ACD-1.0.errata.md, E1). The machine-readable descriptor states the same thing as
-  fields: `spdxListed: false`, `osiApproved: false`.
+  `LicenseRef-ACD-1.3`, as ACD-1.3 §16.1 itself says. The machine-readable descriptor
+  (LICENSES/ACD-1.3.machine.json) states the same thing as fields: `spdxListed: false`,
+  `osiApproved: false`.
 
 Rationale, the gap analysis against existing licences, and the Open Source Definition
 conformance table are recorded in docs/architecture/acd-license-rationale.md.
@@ -92,7 +95,7 @@ The review dossier is published alongside the text and is meant to be checked ra
 believed: LICENSES/REVIEWERS.md is the English entry point, LICENSES/ACD-1.0.against.md is the
 complete adverse record (every defect found in this instrument, written by us, none removed),
 and LICENSES/ACD-OSI-BOTTLENECKS.md is the register of what we believe still stands between
-ACD-1.0 and OSI approval, with none of its entries marked resolved.
+ACD and OSI approval, with none of its entries marked resolved.
 
 ## Executable Tool (WebMCP)
 

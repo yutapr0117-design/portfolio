@@ -201,8 +201,8 @@ _MUTATIONS_TAIL.append({
             "468 は OK も ERROR も出さずに消えた。版を確定して DRAFT を改名した日に、次版の検査が"
             "黙って止まる形だった (2026-09-26 に else を追加)",
     "file": ROOT / ".github" / "scripts" / "checks_license_draft.py",
-    "find": '_dr468 = ROOT / "LICENSES" / "ACD-1.3-DRAFT.txt"',
-    "replace": '_dr468 = ROOT / "LICENSES" / "ACD-1.3-DRAFT-MISSING.txt"',
+    "find": '_dr468 = ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt"',
+    "replace": '_dr468 = ROOT / "LICENSES" / "ACD-1.4-DRAFT-MISSING.txt"',
     "check": CHECK,
 })
 
@@ -532,7 +532,7 @@ _MUTATIONS_TAIL.append({
             "(総数 / source / mirror / 行末の合計) は 413/413b が守るが、同じ行の 5 つ目の数である"
             "**引用の中の数**は誰も見ていなかった (実測 2026-09-28: 284 と 636 を同時に主張していた)",
     "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
-    "find": "all 636 tracked files have a 1-to-1 docs/files mirror",
+    "find": "all 647 tracked files have a 1-to-1 docs/files mirror",
     "replace": "all 284 tracked files have a 1-to-1 docs/files mirror",
     "check": CHECK,
 })
@@ -540,9 +540,9 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 468: 次版草案の題名行を前の版へ戻す (468j) —— 1.2 を複製した 1.3 草案で題名だけが "
             "7 日間 \"Version 1.2\" のまま残った実例 (2026-10-24)。語数は版数で変わらないので他の face は気付かない",
-    "file": ROOT / "LICENSES" / "ACD-1.3-DRAFT.txt",
-    "find": "                              Version 1.3\n",
-    "replace": "                              Version 1.2\n",
+    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "find": "                              Version 1.4\n",
+    "replace": "                              Version 1.3\n",
     "check": CHECK,
 })
 
@@ -665,7 +665,7 @@ _E2E_TAIL.append({
     "name": "HTML 標準の license リンクが消える —— rel=license は権利宣言の最も標準的な入口で、"
             "JSON-LD を読まないツール (ライセンススキャナ等) にとっては唯一の手掛かり",
     "file": ROOT / "index.html",
-    "find": '<link rel="license" href="/portfolio/LICENSES/ACD-1.0.txt" />',
+    "find": '<link rel="license" href="/portfolio/LICENSES/ACD-1.3.txt" />',
     "replace": '<!-- removed by mutation probe -->',
     "test": "HTML 標準の license リンクが全ルートで解決可能な形で存在する",
 })

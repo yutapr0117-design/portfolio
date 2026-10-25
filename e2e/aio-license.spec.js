@@ -100,7 +100,7 @@ test('レンダリング後の全 CreativeWork ノードが同一のライセン
 
   // 面ごとに違う URL を指していたら「どれが正か」を機械が決められない
   expect(state.urls, `${route.path}: ライセンス URL が面ごとに食い違っている`).toEqual([
-    'https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt',
+    'https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.3.txt',
   ]);
   }
 });
@@ -111,7 +111,7 @@ test('HTML 標準の license リンクが全ルートで解決可能な形で存
     await page.waitForLoadState('domcontentloaded');
     const href = await page.locator('link[rel="license"]').getAttribute('href');
     expect(href, `${route}: rel=license の link が無い`).toBeTruthy();
-    expect(href, `${route}: license リンクが全文を指していない`).toContain('LICENSES/ACD-1.0.txt');
+    expect(href, `${route}: license リンクが全文を指していない`).toContain('LICENSES/ACD-1.3.txt');
 
     // 宣言だけで届かないのを防ぐため、実際に取得できることまで確かめる。
     // [環境] 本番は GitHub Pages の project site なので `/portfolio/` 配下だが、

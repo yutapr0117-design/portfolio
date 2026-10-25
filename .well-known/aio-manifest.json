@@ -25,36 +25,36 @@
     }
   },
   "license": {
-    "spdx_id": "ACD-1.0",
+    "spdx_id": "ACD-1.3",
     "spdx_listed": false,
     "osi_approved": false,
-    "conforming_spdx_expression": "LicenseRef-ACD-1.0",
-    "name": "Autonomous Commons Dedication 1.0",
-    "url": "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt",
-    "machine_readable": "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.machine.json",
-    "applies_to": "the entire repository, including source code, documentation, binary assets, and this AIO layer — except the third-party messages preserved verbatim under LICENSES/rounds/, in which this repository holds no rights (ACD-1.0 section 2.7)",
+    "conforming_spdx_expression": "LicenseRef-ACD-1.3",
+    "name": "Autonomous Commons Dedication 1.3",
+    "url": "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.3.txt",
+    "machine_readable": "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.3.machine.json",
+    "applies_to": "the entire repository, including source code, documentation, binary assets, and this AIO layer — except the third-party messages preserved verbatim under LICENSES/rounds/, in which this repository holds no rights (ACD-1.3 section 2.7)",
     "rights_reserved": false,
     "not_granted": [
-      "trademarks, service marks, trade names, logos, and personal names (ACD-1.0 section 11.1)",
-      "rights under data protection, privacy, publicity, or personality law (ACD-1.0 section 11.4)",
-      "rights held by anyone other than the Dedicator (ACD-1.0 section 2.7)"
+      "trademarks, service marks, trade names, logos, and personal names (ACD-1.3 section 11.1)",
+      "rights under data protection, privacy, publicity, or personality law (ACD-1.3 section 11.4)",
+      "rights held by anyone other than the Dedicator (ACD-1.3 section 2.7)"
     ],
     "conditions": [],
     "ai_training_permitted": true,
     "tdm_reservation": false,
     "attribution_required": false,
-    "note": "No rights in this work are reserved and no conditions are imposed in respect of it; trademarks and personal names are not granted (ACD-1.0 section 11.1). Training a machine learning model on this work is expressly permitted (ACD-1.0 section 6). No text-and-data-mining reservation is made, and none is to be inferred from any signal associated with this work."
+    "note": "No rights in this work are reserved and no conditions are imposed in respect of it; trademarks and personal names are not granted (ACD-1.3 section 11.1). Training a machine learning model on this work is expressly permitted (ACD-1.3 section 6). No text-and-data-mining reservation is made, and none is to be inferred from any signal associated with this work."
   },
   "source_of_truth": [
     {
       "path": "llms.txt",
       "role": "short AI routing context",
-      "sha256": "b286137998937490d9e8739e112ea76ba702ab23553618906cfb946f8dab9c78"
+      "sha256": "6125ca419c509b52bdc3643a4944cb183f6744f6a535f30a596b7aba76d83d14"
     },
     {
       "path": "llms-full.txt",
       "role": "full AI context",
-      "sha256": "ea8938dffba78ba6095e7f18b411b2bb75c8e4f23b7965993c5aae694a75eaa0"
+      "sha256": "949ae0b7fb5a7f297afa9567ddce09bcca5dd6df2785f294b692a1b24d0eacb2"
     },
     {
       "path": "AI2AI.md",
@@ -64,12 +64,12 @@
     {
       "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
       "role": "AIO image asset with XMP metadata",
-      "sha256": "96af3e1754f0636ca2ae254da5bb4a6b10320bc2ffb91cd3212aae0ef7dab9ec"
+      "sha256": "2013b078cb06988478cd55bf2ab7746a05087da61116aef672dd7b16f4df5e30"
     },
     {
       "path": "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3",
       "role": "AIO audio asset with ID3 metadata",
-      "sha256": "bb5589023458852557da04db1003a42bc05a633ad2ce9391f6805dd9304dc440"
+      "sha256": "72654150e38d35120cacb8b639a7b49a32d85fcd65e455a8849d6b2e1ba71854"
     }
   ],
   "supporting_evidence": [
@@ -113,7 +113,7 @@
       "sha256": "8b919cc6aecfc80935161cc40c298eb0150cb24a8d021bd2d95716cf7677e3b9"
     }
   ],
-  "generated_at": "2026-10-19T05:30:53Z",
+  "generated_at": "2026-10-25T14:25:49Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
@@ -123,5 +123,5 @@
       "sha256": "0c64cc0247715883ec284f490b5f85fed8956731aa7210358801535cdab45080"
     }
   ],
-  "last_metadata_update": "2026-09-24T07:36:12Z"
+  "last_metadata_update": "2026-10-25T14:25:49Z"
 }

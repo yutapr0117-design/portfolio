@@ -59,13 +59,15 @@ def _meta() -> tuple[str, str, str]:
     Check 444 と同じ単一ソースを使う —— 決め打ちすると、path を変えたときに
     生成器だけが古い場所を指す。
     """
-    text = LICENSE_DECL.read_text(encoding="utf-8")
-    m_spdx = re.search(r"SPDX-License-Identifier:\s*(\S+)", text)
-    m_path = re.search(r"^Full text:\s*(\S+)$", text, re.M)
-    if not (m_spdx and m_path):
-        raise SystemExit("ERROR: LICENSE から SPDX 識別子 / Full text path を導出できない")
-    url = f"https://yutapr0117-design.github.io/portfolio/{m_path.group(1)}"
-    return m_spdx.group(1), url, m_path.group(1)
+    # 2026-10-25: このリポジトリに適用する版を ACD-1.3 へ切り替えた。この XML は凍結された
+    # **1.0 の提出物**なので、識別子と URL は適用宣言 (LICENSE) ではなく**出典の本文**から導出する
+    # (LICENSE から導出したままだと、適用する版を変えた瞬間に 1.0 の XML が 1.3 を名乗る)。
+    rel = SRC.relative_to(ROOT).as_posix()
+    m_ver = re.match(r"LICENSES/(ACD-\d+\.\d+)\.txt$", rel)
+    if not m_ver:
+        raise SystemExit(f"ERROR: 出典 {rel} から識別子を導出できない")
+    url = f"https://yutapr0117-design.github.io/portfolio/{rel}"
+    return m_ver.group(1), url, rel
 
 
 def _blocks(body: str) -> list[str]:

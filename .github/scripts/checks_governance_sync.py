@@ -558,14 +558,23 @@ def run(ctx):
     # 441e — LICENSE が全文へ配線されているか (存在 ≠ 配線)
     if _proj441.exists():
         _psrc441 = _proj441.read_text(encoding="utf-8")
+        # 2026-10-25: 適用する版を ACD-1.3 へ切り替えた。**1.0 決め打ちをやめ、LICENSE が宣言する
+        # 識別子と `Full text:` の path が同じ版を指し、その全文が存在し凍結されていること**を見る
+        # (版を切り替えるたびに Check を書き換える形だと、切り替えの日に配線の検査が黙って古い版を見る)。
+        _mid441 = re.search(r"SPDX-License-Identifier:\s*(ACD-\d+\.\d+)\b", _psrc441)
+        _mft441 = re.search(r"^Full text:\s*LICENSES/(ACD-\d+\.\d+)\.txt\s*$", _psrc441, re.M)
+        _frz441 = (ROOT / "LICENSES" / "FROZEN.md")
+        _frz_t441 = _frz441.read_text(encoding="utf-8") if _frz441.exists() else ""
         _wired441 = {
-            "SPDX identifier": "SPDX-License-Identifier: ACD-1.0" in _psrc441,
-            "full-text path": "LICENSES/ACD-1.0.txt" in _psrc441,
+            "SPDX identifier": bool(_mid441),
+            "full-text path": bool(_mft441) and (ROOT / "LICENSES" / f"{_mft441.group(1)}.txt").exists(),
+            "identifier と path が同じ版": bool(_mid441 and _mft441 and _mid441.group(1) == _mft441.group(1)),
+            "適用する版が凍結されている": bool(_mft441) and f"  LICENSES/{_mft441.group(1)}.txt" in _frz_t441,
         }
         _miss441 = [_k for _k, _v in _wired441.items() if not _v]
         check(
             not _miss441,
-            "Check 441e: LICENSE が ACD-1.0 の識別子と全文 path を配線している",
+            "Check 441e: LICENSE が適用する版の識別子と全文 path を配線し、その版は凍結済み",
             (f"Check 441e: LICENSE の配線が欠けている: {_miss441}。"
              "全文ファイルが存在しても LICENSE がそれを指していなければ、受領者は"
              "どの条項に従うのか判定できない (#133/#134/#135 の silent-critical 配線 class の権利面)"),

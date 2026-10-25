@@ -224,10 +224,10 @@ export function createComponents({ h, createIcon, BGM, AUTHOR, Router, State, Th
             h('div', { class: 'p-3' },
                 h('a', {
                     class: 'text-xs text-muted',
-                    href: '/portfolio/LICENSES/ACD-1.0.txt',
+                    href: '/portfolio/LICENSES/ACD-1.3.txt',
                     rel: 'license noopener noreferrer',
                     target: '_blank'
-                }, 'License: ACD-1.0')
+                }, 'License: ACD-1.3')
             )
         );
 
