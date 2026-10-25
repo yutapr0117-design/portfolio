@@ -247,7 +247,7 @@ MUTATIONS_ARCHIVE3 = [
     "name": "Check 441e (LICENSE の配線): 全文 path への参照を外す —— 全文ファイルが存在しても "
             "LICENSE が指していなければ、受領者はどの条項に従うのか判定できない (存在 ≠ 配線)",
     "file": ROOT / "LICENSE",
-    "find": "Full text: LICENSES/ACD-1.0.txt",
+    "find": "Full text: LICENSES/ACD-1.3.txt",
     "replace": "Full text: see the LICENSES directory",
 },
     {
@@ -263,7 +263,7 @@ MUTATIONS_ARCHIVE3 = [
             "ACD-1.0 §6.5 は「自動化システムが判定できない許諾は、学習されるための著作物にとっては "
             "許諾ではない」と述べているので、宣言が 1 面でも欠けるとその経路の agent は学習可否を判定できない",
     "file": ROOT / "index.html",
-    "find": '<link rel="license" href="/portfolio/LICENSES/ACD-1.0.txt" />',
+    "find": '<link rel="license" href="/portfolio/LICENSES/ACD-1.3.txt" />',
     "replace": '<!-- license link removed by mutation probe -->',
 },
     {

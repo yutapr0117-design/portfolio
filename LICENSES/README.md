@@ -60,8 +60,12 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 | **1.1 → 1.2 の変更記録（確定前の最終点検と、草案ヘッダの逐語を含む）** | [`ACD-1.2-CHANGELIST.md`](ACD-1.2-CHANGELIST.md) |
 | **その機械可読記述子（1.2）** | [`ACD-1.2.machine.json`](ACD-1.2.machine.json) |
 | **旧い草案の file 名（案内のみ・本文ではない）** | [`ACD-1.2-DRAFT.txt`](ACD-1.2-DRAFT.txt) —— 凍結済みの 1.1 が名指すので、確定先と次版の作業場を案内するために残した |
-| **次版の草案（作業場）** | [`ACD-1.3-DRAFT.txt`](ACD-1.3-DRAFT.txt) |
-| **次版に反映するものの集約点（1.3）** | [`ACD-1.3-CHANGELIST.md`](ACD-1.3-CHANGELIST.md) |
+| **1.3 の確定テキスト（凍結・2026-10-25）—— このリポジトリに適用している版** | [`ACD-1.3.txt`](ACD-1.3.txt) —— **FROZEN / NOT SUBMITTED FOR APPROVAL**。条番号は 1.2（＝1.1）に従う。冒頭は適用状態を述べない（変わりうる事実を凍結テキストに書かないため） |
+| **1.2 → 1.3 の変更記録（確定の判断と、草案ヘッダの逐語を含む）** | [`ACD-1.3-CHANGELIST.md`](ACD-1.3-CHANGELIST.md) |
+| **その機械可読記述子（1.3）** | [`ACD-1.3.machine.json`](ACD-1.3.machine.json) |
+| **旧い草案の file 名（案内のみ・本文ではない）** | [`ACD-1.3-DRAFT.txt`](ACD-1.3-DRAFT.txt) —— 凍結済みの 1.2 が名指すので残した |
+| **次版の草案（作業場）** | [`ACD-1.4-DRAFT.txt`](ACD-1.4-DRAFT.txt) |
+| **次版に反映するものの集約点（1.4）** | [`ACD-1.4-CHANGELIST.md`](ACD-1.4-CHANGELIST.md) |
 | **93 か月の掘削と仮説の検定** | [`ACD-1.0.dig-2026-09.md`](ACD-1.0.dig-2026-09.md) |
 | **3 つの gap を承認済み 141 本の全数に当てた表（逆側つき）** | [`ACD-1.0.gap-census.md`](ACD-1.0.gap-census.md) |
 | **gap の主張を既存ライセンスの本文に当てた測定（§1.96 / §1.97 / §1.104）** | [`ACD-1.0.gap-measurements.md`](ACD-1.0.gap-measurements.md) |

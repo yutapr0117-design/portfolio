@@ -2,7 +2,7 @@
 file: LICENSES/ACD-1.3-CHANGELIST.md
 audience: OSI license-discuss / license-review participants, licence reviewers, a future drafter
 last-updated: 2026-10-24
-canonical-ref: LICENSES/ACD-1.3-DRAFT.txt (草案) / LICENSES/ACD-1.2.txt (直前の確定テキスト・凍結) / LICENSES/ACD-1.2-CHANGELIST.md (1.1 → 1.2 の記録) / LICENSES/ACD-1.0.errata.md
+canonical-ref: LICENSES/ACD-1.3.txt (確定テキスト・凍結・2026-10-25) / LICENSES/ACD-1.2.txt (直前の確定テキスト・凍結) / LICENSES/ACD-1.2-CHANGELIST.md (1.1 → 1.2 の記録) / LICENSES/ACD-1.0.errata.md
 ---
 
 # ACD-1.3 で変えるもの
@@ -54,6 +54,88 @@ ACD-1.2 は 2026-10-17 に確定・凍結し、**改善はここから先で行�
 | **長すぎる文**（承認基準 4）| **clean。** 1.3 草案の本文 163 文の中央値は 27 語。最長は §5.2 の 129 語だが (a)〜(d) の列挙で、列挙を持つライセンスでは普通の形。次が §8.1 の 80 語（特許許諾の 1 文。Apache-2.0 §3 の特許許諾も 1 文）。分割すると E27 型の「修飾語が別のものに付く」読みを新しく作る危険の方が大きい |
 | **定義語の小文字での使用** | **clean。** 小文字で現れるのは一般名詞としての *"a work"* / *"machine-generated material"*（preamble）/ *"a reservation of the kind contemplated by"*（§1.10 の定義の中）だけで、定義語を指すべき箇所で小文字になっているものは 0 |
 | **本文中の相互参照の意味**（指す先の条が、参照している文の言うことを実際に述べているか）| **clean。** 1.2 で足された参照（§2.6 → §6.5 / §5.2(b) → §10.1 / §8.6 → §12.2 / §11.4 → §2.7・§13.2 / §12.6 → §15.2 / §4.6 → §1.6・§2.3・§5.3）を含め全件を手で当てた。**ただし E36 は「参照先」ではなく「参照元が自分の構造を述べる文」の誤りで、この掃引の形では見つからない** —— 見つけたのは 1.2 凍結前の検証である |
+
+## 確定（2026-10-25）
+
+**1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用した**（オーナーの依頼「1.3に大きな不備が無く、リポジトリに適用可能な状態なら適用してください」）。確定の判断（AI・`OSI-APPROVAL-PLAN.md` §4 段 7 の条件）: 1.2 凍結前の 6 観点のうち、相互参照・1.2 との差分と変更一覧の一致・変えた条の起草は 2026-10-24 に当て済みで凍結を止める欠陥は出ていない。OSD への当たりは条件を足していないので 1.2 から動かない。機械可読性は記述子 `ACD-1.3.machine.json` を作って E10 を閉じた。errata の状態の主張は Check 464 / 468e / 468i / 469(b) が照合する。**⚠ 2026-10-24〜25 に回した多観点の模擬審査（workflow）は利用上限で 3 回とも結果ゼロで終わっており、確定はそれを含んでいない。**
+
+**確定版の冒頭は、適用状態を述べない形にした** —— 凍結済みの 1.2 の冒頭は「このリポジトリを覆うのはまだ ACD-1.0」と述べており、1.3 の適用でその文は偽になったが直せない。**凍結テキストには変わりうる事実を書かない**（1.3 の冒頭は「どの版を適用するかは各プロジェクトの notice が述べる」とだけ書く）。
+
+次版の作業場は `ACD-1.4-DRAFT.txt`。`ACD-1.3-DRAFT.txt` は凍結済みの 1.2 が名指す file 名なので、案内として残した。
+
+## 付録: 確定時点の草案ヘッダ（逐語）
+
+確定版の冒頭は身分の表示だけにしたので、草案が冒頭に持っていた変更一覧を、確定の直前の状態のまま残す（**記録を消さないため**）。
+
+```text
+ACD-1.3 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
+
+  This file is the successor text under construction. The latest frozen text
+  is ACD-1.2 (LICENSES/ACD-1.2.txt), and the licence that covers this
+  repository is ACD-1.0. ACD-1.0, ACD-1.1 and ACD-1.2 are pinned by SHA-256 in
+  LICENSES/FROZEN.md and verified in CI; nothing here changes any of them.
+
+  Status of this draft, stated plainly so that nobody has to infer it:
+
+    * It has had no legal review, like 1.0, 1.1 and 1.2.
+    * It has not been posted to any list.
+    * Apart from the changes listed below, and the version number and the
+      identifiers that name it, the operative text is ACD-1.2's. An empty
+      change list below would mean nothing had been changed yet -- not that
+      the record is missing; a list with entries in it is the whole of the
+      difference.
+    * Clause numbers follow ACD-1.2 (which follows ACD-1.1), not ACD-1.0.
+      Citations to an earlier version must keep using that version's text.
+    * Changes will be recorded in LICENSES/ACD-1.3-CHANGELIST.md, and defects
+      this draft introduces itself in LICENSES/ACD-1.1-SELF-AUDIT.md, which is
+      a register of our own sweeps rather than of any one version.
+
+  Changes in this draft, relative to ACD-1.2:
+
+    * The title line now says "Version 1.3". Until 2026-10-24 it still said
+      "Version 1.2" two lines above the identifier ACD-1.3, so the draft
+      contradicted itself before its first clause.
+    * Section 1.4 now counts as a Dedicator a person who holds Moral Rights
+      or patent claims in the Work, not only one who holds Covered Rights
+      (errata E35). Sections 8 and 12 have the Dedicator grant and waive
+      rights that Covered Rights exclude, and Section 16.3 invites anyone who
+      holds rights in a work to apply this Dedication; but a person holding
+      only a patent claim, or only Moral Rights -- a contributor whose
+      employer owns the copyright, for instance -- was a Dedicator to no
+      extent, so the grants Sections 8 and 12 exist to make could not be made
+      by that person. (+5 words.)
+    * Section 6.5 now says that Section 6 states what Sections 3 to 5 and 8
+      would in any event permit (errata E36). Section 6 speaks of patent
+      claims as well as Covered Rights, and Covered Rights exclude patents
+      (Section 1.5), so Sections 3 to 5 alone do not permit what Section 6.1
+      permits as to patents; Section 8.4 does. The old sentence contradicted
+      Section 8.4's own account of why Section 8.4 is needed. (+2 words.)
+    * Section 9.2 now says that where a right does not subsist this
+      Dedication adds nothing to Your existing freedom "as to that right"
+      (errata E37). Without those words the sentence reads as saying that the
+      Dedication then adds nothing at all, which is false wherever Section
+      5.2 or Section 8 still operates -- a patent licence over code in which
+      no copyright subsists, for instance -- and which would sit against
+      Section 9.3. (+4 words.)
+    * Section 15.5 restores "in particular" to the rule that "including"
+      introduces examples, so that the clause is now ACD-1.0's Section 15.2
+      word for word (errata E24). ACD-1.2 restored that rule with one of its
+      two words, while its text uses "In particular" twice (Sections 4.3 and
+      10.2). (+3 words.)
+    * Section 16.2 now treats a reference by name as sufficient notice only if
+      it also gives the version (errata E38). Every version since 1.0 says
+      that a reference "by name" is sufficient notice of its own terms; once
+      more than one version exists, a reference by name alone is claimed by
+      each of them in full, and nothing in any of them chooses between them.
+      (+2 words.)
+    * ACD-1.2: 5427 words, 80 clauses. This draft: 5443 words, 80 clauses.
+
+  Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
+      well as the use of the Work -- examined and deliberately not narrowed)
+      and E10 (the machine-readable descriptor; closed for 1.1 and
+      1.2 in their descriptors, and it must be closed again for each new
+      version because each version carries its own descriptor).
+```
 
 ## Constraints
 

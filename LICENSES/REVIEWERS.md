@@ -147,13 +147,13 @@ marked. What is our own decision is the SPDX timing: SPDX asks for substantial
 real-world use, this work has one adopter, and we are not submitting something that does not
 meet the stated bar.
 
-**A successor exists and is not in force.** `LICENSES/ACD-1.1.txt` was frozen on 2026-09-17 and says what it is in its own first line — **"FROZEN TEXT. NOT SUBMITTED FOR APPROVAL. NOT APPLIED TO THIS REPOSITORY."** — `LICENSES/ACD-1.2.txt` was frozen the same way on 2026-10-17, and work on the version after it happens in `LICENSES/ACD-1.3-DRAFT.txt`, whose first line says **NOT IN FORCE, NOT SUBMITTED, NOT APPLIED**. They are mentioned here because you would find them anyway, and because the alternative reading — that we are quietly revising the text under discussion — is the one thing they must not be mistaken for. **Clause numbers differ from 1.0 in §1 (the definitions were reordered) and in §15–§16** — the measured map is under "Clause numbers do not transfer cleanly" above — so a citation to 1.0 must use the 1.0 text. **⚠ ACD-1.1's own header says the numbers differ only "after Section 15"; that is incomplete, and because the text is frozen it stays so (`ACD-1.1-SELF-AUDIT.md` §3n).** A CI check requires the draft to keep declaring what it is.
+**Successors exist, and since 2026-10-25 this repository applies one of them.** `LICENSES/ACD-1.1.txt` was frozen on 2026-09-17 and says what it is in its own first line — **"FROZEN TEXT. NOT SUBMITTED FOR APPROVAL. NOT APPLIED TO THIS REPOSITORY."** — and `LICENSES/ACD-1.2.txt` was frozen the same way on 2026-10-17. `LICENSES/ACD-1.3.txt` was frozen on 2026-10-25 and **is the version this repository applies from that date** (the root `LICENSE` says so; ACD-1.3's own header deliberately states no application status, because a frozen text cannot be updated when that changes — ACD-1.2's header, which says this repository is still covered by ACD-1.0, became untrue that day and stays so). Work on the next version happens in `LICENSES/ACD-1.4-DRAFT.txt`, whose first line says **NOT IN FORCE, NOT SUBMITTED, NOT APPLIED**. **The text posted to `license-discuss` was ACD-1.0, and it remains frozen and published unchanged.** They are mentioned here because you would find them anyway, and because the alternative reading — that we are quietly revising the text under discussion — is the one thing they must not be mistaken for. **Clause numbers differ from 1.0 in §1 (the definitions were reordered) and in §15–§16** — the measured map is under "Clause numbers do not transfer cleanly" above — so a citation to 1.0 must use the 1.0 text. **⚠ ACD-1.1's own header says the numbers differ only "after Section 15"; that is incomplete, and because the text is frozen it stays so (`ACD-1.1-SELF-AUDIT.md` §3n).** A CI check requires the draft to keep declaring what it is.
 
 The text is **frozen** while this is open. `LICENSES/FROZEN.md` exists to say so, and
-**Check 453 in CI pins the SHA-256 of seven files** — the three submitted ones
+**Check 453 in CI pins the SHA-256 of nine files** — the three submitted ones
 (`ACD-1.0.txt`, `ACD-1.0.spdx.xml`, `ACD-1.0.machine.json`) and two for each of the
-**frozen successors** (`ACD-1.1.txt`, `ACD-1.1.machine.json`, `ACD-1.2.txt`, `ACD-1.2.machine.json`), which are **not in force,
-not submitted for approval and not applied** — so that an accidental edit fails the build rather than
+**frozen successors** (`ACD-1.1.txt`, `ACD-1.1.machine.json`, `ACD-1.2.txt`, `ACD-1.2.machine.json`, `ACD-1.3.txt`, `ACD-1.3.machine.json`), none of them
+submitted for approval (ACD-1.3 is the one this repository applies) — so that an accidental edit fails the build rather than
 silently changing the text you are reading. If you find a defect in the text, it will be **reported, not quietly
 patched** — changing the wording underneath a live discussion would make your review of it
 meaningless.
@@ -253,14 +253,14 @@ grep -cE "<[^>]+>|\[year\]|\[name\]|YYYY" LICENSES/ACD-1.0.txt
 # Section count                                                       → expect 16
 grep -cE "^[0-9]+\. [A-Z]" LICENSES/ACD-1.0.txt
 
-# Verify that the text you are reading is the text that is pinned      → 7× OK
+# Verify that the text you are reading is the text that is pinned      → 9× OK
 grep -E "^[0-9a-f]{64}  " LICENSES/FROZEN.md | shasum -a 256 -c
 ```
 
 The last one is the important one. `LICENSES/FROZEN.md` records the digests in the same format
 `shasum` emits, so the check is a single pipe with no trust in anything this repository says
 about itself: if the licence text had been altered since the discussion began, that line would
-print `FAILED` instead of `OK`. It currently prints `OK` for all seven files.
+print `FAILED` instead of `OK`. It currently prints `OK` for all nine files.
 
 The repository's own CI enforces the rest: that the licence is declared identically across every
 published surface, that the counts these documents quote match reality, and that the frozen files

@@ -517,9 +517,11 @@ def run(ctx):
             # 特許許諾も判定できない」という穴を埋めるために置いた面で、**置いただけで
             # sitemap / robots / manifest から辿れなければ §6.5 が空になる** (本文について
             # 2026-08-23 に起きたのと同じ class)。存在するときだけ 3 面を検証する。
-            _md444 = ROOT / "LICENSES" / "ACD-1.0.machine.json"
+            # 2026-10-25: 記述子の path も LICENSE の `Full text:` から導出する (1.0 決め打ちだったため、
+            # 適用する版を 1.3 へ切り替えた日に、manifest が正しく 1.3 の記述子を指しているのを誤検出した)。
+            _mrel444 = _rel444[:-len(".txt")] + ".machine.json" if _rel444.endswith(".txt") else _rel444
+            _md444 = ROOT / _mrel444
             if _md444.exists():
-                _mrel444 = "LICENSES/ACD-1.0.machine.json"
                 _murl444 = _url444.replace(_rel444, _mrel444)
                 if _murl444 not in _sm444:
                     _bad444.append(f"sitemap.xml に {_mrel444} の <loc> が無い (記述子へ到達できない)")
@@ -572,7 +574,10 @@ def run(ctx):
             blocking=True,
         )
 
-        # 445b — well-formed かつ識別子が LICENSE と一致
+        # 445b — well-formed かつ識別子が**出典の本文 (ACD-1.0.txt) の版**と一致
+        #   2026-10-25 までは LICENSE の識別子と照合していたが、適用する版を 1.3 へ切り替えた日に
+        #   「1.0 の提出物が 1.0 を名乗っている」正しい状態を誤検出した。XML は凍結された 1.0 の提出物で、
+        #   照合すべきは**それが導出された本文**である。
         _bad445 = []
         try:
             _root445 = _ET445.fromstring(_xml445.read_text(encoding="utf-8"))
@@ -580,15 +585,14 @@ def run(ctx):
             if _lic445 is None:
                 _bad445.append("license 要素が無い")
             else:
-                _decl445 = (ROOT / "LICENSE").read_text(encoding="utf-8")
-                _m445 = re.search(r"SPDX-License-Identifier:\s*(\S+)", _decl445)
-                if _m445 and _lic445.get("licenseId") != _m445.group(1):
-                    _bad445.append(f"licenseId {_lic445.get('licenseId')!r} != LICENSE の {_m445.group(1)!r}")
+                _src_id445 = re.sub(r"\.spdx\.xml$", "", _xml445.name)
+                if _lic445.get("licenseId") != _src_id445:
+                    _bad445.append(f"licenseId {_lic445.get('licenseId')!r} != 出典の版 {_src_id445!r}")
         except Exception as _e445:
             _bad445.append(f"XML が well-formed でない: {_e445}")
         check(
             not _bad445,
-            "Check 445b: SPDX 提出用 XML が well-formed で識別子が LICENSE と一致",
+            "Check 445b: SPDX 提出用 XML が well-formed で識別子が出典の版と一致",
             f"Check 445b: SPDX 提出物の構造/識別子に問題がある: {_bad445}",
             blocking=True,
         )
