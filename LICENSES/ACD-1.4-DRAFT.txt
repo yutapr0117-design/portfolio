@@ -10,10 +10,11 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
 
     * It has had no legal review, like 1.0, 1.1, 1.2 and 1.3.
     * It has not been posted to any list.
-    * It is at present identical to ACD-1.3 apart from the version number and
-      the identifiers that name it. An empty change list below means nothing
-      has been changed yet -- not that the record is missing; a list with
-      entries in it is the whole of the difference.
+    * Apart from the changes listed below, and the version number and the
+      identifiers that name it, the operative text is ACD-1.3's. An empty
+      change list below would mean nothing had been changed yet -- not that
+      the record is missing; a list with entries in it is the whole of the
+      difference.
     * Clause numbers follow ACD-1.3 (which follows ACD-1.1), not ACD-1.0.
       Citations to an earlier version must keep using that version's text.
     * Changes will be recorded in LICENSES/ACD-1.4-CHANGELIST.md, and defects
@@ -22,7 +23,15 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
 
   Changes in this draft, relative to ACD-1.3:
 
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5443 words, 80 clauses.
+    * Section 8.5 now says what "controlled" means in "owned or controlled"
+      (errata E39): a claim the Dedicator has the right to license, at the
+      time in question, without breaching an obligation to or paying another
+      person. Sections 8.1 and 8.4 used the word without defining it, where
+      GPL-3.0 and MPL-2.0 define their equivalents, and it is the first thing
+      a patent lawyer reviewing the grant asks. The definition takes nothing
+      a Dedicator could have given: a claim it can license only by paying a
+      third party is not one it can give away freely. (+37 words.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5480 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -411,7 +420,10 @@ PREAMBLE (informative; not part of the operative terms)
        claims the Dedicator owns or controls, and are neither a representation
        nor a warranty that practising the Work infringes no claim held by
        another person. Section 13.2 states the corresponding absence of
-       warranty.
+       warranty. A patent claim is controlled by the Dedicator if, at the time
+       in question, the Dedicator has the right to grant these licences under
+       it without breaching an obligation to, or incurring a payment to,
+       another person.
 
   8.6  Where a licence granted by Section 8.1 or Section 8.4 is held
        ineffective in a jurisdiction, the Dedicator covenants, in that
