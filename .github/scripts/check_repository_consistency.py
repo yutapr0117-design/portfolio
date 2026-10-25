@@ -144,6 +144,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_residual_coherence.py",  # split: residual project/Speakable/route + theme-color/sitemap/manifest (146-148/304-309)
     ROOT / ".github" / "scripts" / "checks_seo_baseline.py",  # split: SEO/AIO date-ISO + URL-resolution + HTTPS/meta baseline (181-189 minus 187)
     ROOT / ".github" / "scripts" / "checks_aio_config.py",  # split: AIO entity/crawler identity + CI/config governance (62-69)
+    ROOT / ".github" / "scripts" / "checks_license_surfaces.py",  # split: ライセンスの機械可読面と凍結 (444/445/451/452/453)
     ROOT / ".github" / "scripts" / "checks_governance_sync.py",  # split: AIO/AI2AI/llms freshness & governance sync (21-27)
     ROOT / ".github" / "scripts" / "checks_license_dossier.py",  # split: ACD-1.0 ドシエの自己整合 (458-461b)
     ROOT / ".github" / "scripts" / "checks_license_submission.py",  # split: 審査者が受け取る面 (463/472/473)
@@ -501,6 +502,9 @@ _checks_eslint_budget.run(_ctx)
 #  62 位置で list 順連続実行。CHECK_SOURCE_FILES 登録で 45/70/105 横断集約。)
 import checks_aio_config as _checks_aio_config
 _checks_aio_config.run(_ctx)
+# 444/445/451/452/453 は 2026-10-26 に checks_license_surfaces.py へ分離 (checks_aio_config.py が 980 行)
+import checks_license_surfaces as _checks_license_surfaces
+_checks_license_surfaces.run(_ctx)
 
 # ── 70. total-check-runbook.md §9 check-count cross-reference (BLOCKING) ──────
 # docs/architecture/total-check-runbook.md §9 の「consistency Check 総数」行に記述された
