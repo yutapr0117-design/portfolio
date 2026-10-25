@@ -1,8 +1,8 @@
 ---
 file: LICENSES/QUESTIONS-FOR-COUNSEL.md
 audience: a lawyer asked to read ACD, or reading it on license-review / license-discuss; the steward, when asking one
-last-updated: 2026-10-24
-canonical-ref: LICENSES/ACD-1.2.txt (the latest fixed text) / LICENSES/ACD-1.3-DRAFT.txt (the successor draft) / LICENSES/ACD-1.0.jurisdictions.md (where we think each question sits, by jurisdiction) / LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md (B1)
+last-updated: 2026-10-26
+canonical-ref: LICENSES/ACD-1.3.txt (the latest fixed text, applied to this repository) / LICENSES/ACD-1.4-DRAFT.txt (the successor draft) / LICENSES/ACD-1.0.jurisdictions.md (where we think each question sits, by jurisdiction) / LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md (B1)
 ---
 
 # Questions for counsel
@@ -18,9 +18,9 @@ the clause, what it is meant to do, our own reading, and why we doubt that readi
 Open Source Definition conformance, which is OSI's question rather than a lawyer's. It is not a
 summary of the dossier. Any one question can be answered without reading the others.
 
-**Which text.** Clause numbers are those of **ACD-1.2** (`ACD-1.2.txt`, fixed on 2026-10-17,
-80 clauses). The successor draft ACD-1.3 keeps the same numbers and differs only by the changes
-its header lists. **ACD-1.0, the version posted to license-discuss, numbers some clauses
+**Which text.** Clause numbers are those of **ACD-1.3** (`ACD-1.3.txt`, fixed on 2026-10-25,
+80 clauses), which is the version this repository applies. ACD-1.2 and the successor draft
+ACD-1.4 use the same numbers; the draft differs only by the changes its header lists. **ACD-1.0, the version posted to license-discuss, numbers some clauses
 differently** (the definitions were reordered and Section 15 shifted); the mapping is in
 `ACD-1.2-CHANGELIST.md`.
 
@@ -74,7 +74,10 @@ reach trained models and outputs, which no approved licence names (`gap-census.m
 **Our reading.** "Controlled" bears its ordinary meaning (the power to license), and the causation
 limit is definite enough to apply.
 
-**Why we doubt it.** (a) "Controlled" is undefined; GPL-3.0 and MPL-2.0 define their equivalents.
+**Why we doubt it.** (a) "Controlled" is undefined in ACD-1.3; GPL-3.0 and MPL-2.0 define their
+equivalents. The 1.4 draft now defines it in §8.5 (a claim the Dedicator can license, at the time
+in question, without breaching an obligation to or paying another person; errata E39) — whether
+that definition is the right one is part of the question.
 (b) A causal limit with no threshold may be read as too indefinite to operate, or as reaching any
 model that has once processed the Work. (c) We have not examined how an unconditional,
 non-terminable patent licence to the public interacts with the Dedicator's other patent licensing.
