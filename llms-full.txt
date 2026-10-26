@@ -78,6 +78,10 @@ stays published and frozen.)
   from this work (ACD-1.3 §6.4), and a patent licence reaches those things too (§8.4).
 - Attribution is welcome and never required (ACD-1.3 §10.2). If you cite it, the canonical
   URL is https://yutapr0117-design.github.io/portfolio/.
+- **What ACD-1.3 does not cover:** `LICENSES/rounds/` holds other people's messages (mailing-list
+  posts and similar) preserved verbatim. This repository holds no rights in them, so ACD-1.3 grants
+  nothing there (§2.7); their own authors' rights apply. This states the scope of the dedication; it
+  is not a condition on you (§10.1), and it is not a reservation by the Dedicator (§6.2).
 - The implementation code here is machine-generated under human direction; ACD-1.3 §9 makes
   your permissions independent of whether any right subsists in machine-generated material.
 - Full text: https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.3.txt
