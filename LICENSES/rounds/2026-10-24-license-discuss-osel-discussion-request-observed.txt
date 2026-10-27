@@ -1,0 +1,85 @@
+Source:   https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2026-October.txt
+Fetched:  2026-10-27T03:04Z（portfolio-01・ブラウザ相当の UA・受け渡し 86592ef）
+Date:     Sat, 24 Oct 2026 13:44:29 +0000
+From:     lemonhub.io at icloud.com (OpenReciprocal)
+Subject:  [License-discuss] Discussion request: Open Source Evolution License 0.2
+位置づけ: **観測。我々宛ではなく、ACD についてでもない。** 単独の提出者による議論依頼で、**形が我々とほぼ同じ**
+          （弁護士のレビュー無し・本人は法律家ではない・採用ゼロを自分で開示し、議論中は本文を
+          変えないと commit を固定している）。この形にリストがどう応じるかの観測対象として残す。
+          読みは LICENSES/OSI-EVENTS-2026-10.md の 2026-10-27 行へ。ここには分析を書かない（規約 2）。
+
+----- begin verbatim -----
+From lemonhub.io at icloud.com  Sat Oct 24 13:44:29 2026
+From: lemonhub.io at icloud.com (lemonhub.io at icloud.com)
+Date: Sat, 24 Oct 2026 13:44:29 +0000
+Subject: [License-discuss] Discussion request: Open Source Evolution License
+ 0.2
+Message-ID: 
+	<SI2PR01MB404376DE4E03239B01A633D2F5632@SI2PR01MB4043.apcprd01.prod.exchangelabs.com>
+
+Hello,
+
+I am a member of OpenReciprocal, writing for OpenReciprocal. I would like comments on a
+draft license. This is not a license-review submission, and I am not
+asking for an SPDX identifier.
+
+In August I posted an AGPLv3 text with a noncommercial exception, and
+then retracted it. Bradley Kuhn and McCoy Smith explained why that
+construction does not work: the exception is a further restriction, and
+OSI does not approve add-ons to an existing license. This draft is a
+different document. It does not modify AGPLv3, it is not an exception
+to any existing license, and a noncommercial or field-of-use limit is
+not allowed. I am not asking anyone to reopen that thread.
+
+The draft is the Open Source Evolution License, version 0.2:
+
+https://github.com/OpenReciprocal/open-source-evolution-license/blob/af546bf/LICENSES/OSEL-0.2-draft.txt
+
+Please use that commit. I will not edit that file while it is under
+discussion.
+
+The idea is one sentence. Any recipient may ship a modified copy under
+a stricter OSI-approved license. Those stricter terms stick to that
+copy and to copies made from it. No other copy is rewritten.
+
+The grant at the start is permissive. Taking the step is optional, and
+only the person who actually ships a modified copy can take it, and
+only for the copy they ship. The target must be an unmodified
+OSI-approved license. It must keep the notices this draft already
+requires, add at least one duty from a fixed menu, and add no duty from
+outside that menu. The menu is: further attribution, source and
+share-alike, patents, names, and change marks. A step that fails the
+test is void. Another copy that merely carries the same version label,
+and was not made from the shipment, stays under this draft.
+
+No license is pre-approved as a target. I am not asking the list to
+accept GPL, AGPL, Apache, MPL, or EUPL. The person who takes the step
+has to show that the text they chose meets the test.
+
+Three questions:
+
+1. Is this a gap, or is the right answer dual licensing, or starting
+   the project on MPL or EUPL?
+
+2. Section 1.15 says material taken from a sticky copy is sticky to
+   the extent of that material. Section 5.5 says stickiness follows
+   the copy, not the version label and not the project. Is that
+   boundary usable?
+
+3. Does "unmodified OSI-approved license, plus this menu" avoid a
+   catalog of license names, or is the menu a catalog with the names
+   left off?
+
+The text has not been reviewed by counsel. I am not a lawyer. No
+software project outside this repository uses the draft. Version 0.1
+was published on 2026-09-26. Version 0.2 does not amend it. The text
+under discussion is 0.2.
+
+Thank you.
+
+OpenReciprocal
+https://github.com/OpenReciprocal
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20261024/deb43772/attachment.htm>
+----- end verbatim -----
