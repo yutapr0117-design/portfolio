@@ -19,3 +19,5 @@
 | events/mozfest.html | https://www.mozillafoundation.org/en/festival/ | https://www.mozillafoundation.org/en/festival/ | 200 | 76370 | 5cdd33b8ae27b7c5 | 2026-10-27T03:04:49Z |
 
 **前回取得（2026-10-25 04:52Z）との比較**: license-review 2026-October が**初めて 200**（18,343 bytes・前回まで 404）—— 新着 1 通: Moming Duan「ModelGo Attribution License, Version 2.0 FINAL CALL FOR COMMENTS」（2026-10-25 13:00Z）。license-discuss 2026-October は 35,049 → 38,290 bytes（増分あり・本文は main 側で読む）。9 月の 2 リスト・API は同一。CoC の modified_time は 2023 のまま・minutes 最新 2026-06-29・API 126 件。10-26 の日次は cron の 7 日失効で実行されなかった（2026-10-27 に再設定）。
+
+- 2026-10-27 15:46 JST 監視: 12:00 の監視と比べ (a)〜(d) とも変化なし（YouTube 両チャンネル・ブログ記事・Discuss posts_count 同一。ブログの差は Popular posts 欄の入れ替わりのみ）。
