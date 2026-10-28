@@ -1,7 +1,7 @@
 ---
 file: LICENSES/OSI-APPROVAL-PLAN.md
 audience: オーナー（一次読者）/ 次のセッションの実装者 / 週次の定期実行
-last-updated: 2026-10-26
+last-updated: 2026-10-28
 canonical-ref: LICENSES/ACD-OSI-BOTTLENECKS.md (ボトルネックの唯一の一覧) / LICENSES/FROZEN.md (凍結・投稿先・発信状態の単一ソース) / LICENSES/REVISION-PROTOCOL.md (1 ラウンドの手順とゲート) / LICENSES/ACD-1.0.review-rules.md (OSI の公表規則の原典読み)
 ---
 
@@ -172,6 +172,19 @@ OSI に承認され得るかの自問自答と、より承認されやすくす�
 1. **10 月のイベント（ATO 10/19–20・State of the Source 10/20・Opening Convening 10/21・OTR・Code & Compliance・MozFest）の発表資料を、公開が遅れても最後まで取り込む。** 監視は 11 月に入っても続け、出たものは本文に当てて ACD への当たりを両側から書く（`OSI-EVENTS-2026-10.md`）。
 2. **1.4 草案で、審査で突かれうる点を潰し続ける**（`ACD-1.4-CHANGELIST.md`）。改善は尽きないので「尽きたら出す」ではなく、申請日に向けて区切る。
 3. **申請の数日前に 1.4 を確定・凍結・このリポジトリへ適用し**（1.3 と同じ手順）、材料表 `SUBMISSION-MATERIALS.md` を 1.4 に合わせる。目安は 11 月第 2 週（申請の想定が動けば、それに合わせて動かす）。
+
+## 3.8 行動規範の改定と Nick 氏の返信の見込み（2026-10-28 オーナー）
+
+**オーナーの見込み（裏づける資料は無い・本人もそう述べている）**: OSI のモデレーター（Nick Vidal 氏）が 2026-09-09 に行動規範を改定すると述べ（*"We'll be updating it to better reflect the use of AI."*・`rounds/2026-09-09-license-discuss-osi-moderators-observed.txt`）、10 月に多くの発表があったので、**改定は 11 月中のいずれかと見込む**。改定を元に **Nick 氏から返信が来る**と見込み、**改定されたらそれを取り込み、オーナーが本申請に出す**想定。原文: *「来月に改定されるは見込みだけど、改定されたら私たちのライセンスに取り込んで、私が本申請に出す想定だよ。」*
+
+AI がやること:
+
+1. **改定の検出**: 日次取得が `opensource.org/code-of-conduct` と `opensource.org/codeofconduct` の両方を毎日取り、「Last modified」を記録している（2026-10-28 時点でどちらも 2023 年の版）。日付か本文が変わった日に全文を読み、旧版との差分を逐語で残す（旧版は `rounds/2026-09-13-osi-code-of-conduct-pre-update-snapshot.txt` と、リスト用の `rounds/2026-09-15-osi-mailing-list-code-of-conduct-snapshot.txt` に保存済み）。
+2. **取り込み先を振り分ける**: 改定の対象は行動規範（リストでの AI の使い方）なので、**主な取り込み先は投稿の手順**（`REVISION-PROTOCOL.md` ゲート 0・`SUBMISSION-MATERIALS.md`・B14）である。ライセンスの本文に当たる箇所（例: 来歴の開示、AI の関与の述べ方）があれば 1.4 草案にも当てる。当たらない部分を本文へ無理に入れない。
+3. **Nick 氏の返信**: リスト外の私信として届くので、オーナーが渡したら規約どおり扱う（第三者との private off-list correspondence は本文を公開せず、日付・相手・向き・分析への指し先だけの stub・`rounds/README.md` の例外節）。分析は返信の中身に当てて両側から書く。
+4. **§3.7 との関係**: 申請の時期はオーナーが決める。改定が 11 月中旬より後になれば申請もそれに合わせて動きうるので、1.4 の確定（§3.7 の 3）は**改定の取り込みが済んだ後**に置く。
+
+**⚠ 逆側**: 改定の時期も中身も、返信が来るかも、現時点では分からない（9/9 の通知は *"We'll share more details soon"* と述べたまま、以後 7 週間公開の続報は無い）。改定が来なくても、AI 側の準備（イベントの取り込み・草案の改善）はこの見込みに依らず続ける。改定を待つあいだに草案を凍結しない。
 
 ## 4. 段取り（順序つき）
 
