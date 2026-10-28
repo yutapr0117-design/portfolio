@@ -28,3 +28,4 @@
 - CoC 2 ページ / salon / otr / mozfest: テキスト差分は UI 文言のみ（Magazine・Notify 等）。code-compliance (luma): 「Past Event」表記が付いた（会期終了）。録画・スライドは無い。
 - ACD への当たり: なし（main には書かない）。
 - 19:12 JST watch（events-watch-191216）: 03:46 と比べ (a)〜(d) 変化なし（blog の差分は Popular posts サイドバーの入れ替えのみ・luma の Past Event は日次で既出・discuss 不変・t/1441 動きなし）。
+- 21:46 JST watch（events-watch-214611）: 19:12 と比べ (a)〜(d) 変化なし（全ページのテキスト差分ゼロ・discuss 不変・t/1441 動きなし）。
