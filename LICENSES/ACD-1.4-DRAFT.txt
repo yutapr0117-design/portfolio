@@ -62,7 +62,13 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       is written to work on either answer, and a reader who applies this
       Dedication to model weights should be able to find that from the clause
       that answers it. (+12 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5514 words, 80 clauses.
+    * Section 4.2 now names study, inspection, analysis, and reverse
+      engineering among the acts the licence includes. The Open Source AI
+      Definition 1.0 names four freedoms -- use, study and inspect, modify,
+      and share -- and the list named acts for three of them but not the
+      second. The list was not limiting, so nothing is added that a reader
+      could not already rely on. (+5 words.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5519 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -270,10 +276,10 @@ PREAMBLE (informative; not part of the operative terms)
        exercise all Covered Rights in the Work for any purpose whatsoever.
 
   4.2  The licence in Section 4.1 includes, without limitation, the rights to
-       use, reproduce, store, cache, adapt, translate, modify, create
-       derivative and collective works from, publicly display, publicly
-       perform, communicate to the public, publish, distribute, lend, rent,
-       sell, and sublicense the Work and any adaptation of it, in source form,
+       use, study, inspect, analyse, reverse engineer, reproduce, store,
+       cache, adapt, translate, modify, create derivative and collective
+       works from, publicly display, publicly perform, communicate to the
+       public, publish, distribute, lend, rent, sell, and sublicense the Work and any adaptation of it, in source form,
        in object form, or in any other form, in any medium, and by any means
        now known or later devised.
 
