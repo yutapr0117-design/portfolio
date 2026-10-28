@@ -55,7 +55,14 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       usual vehicle for restrictions on released models and are revised after
       release; Section 2.2 already barred any further term. (+1 word: two
       added, and "click-through" is no longer split across a line.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5502 words, 80 clauses.
+    * Section 9.1 now gives the parameters of a trained model as an example of
+      Machine-Generated Material. The Open Source AI Definition 1.0 says that
+      model parameters "may be free by their nature or a license or other
+      legal instrument may be required", leaving the question open; Section 9
+      is written to work on either answer, and a reader who applies this
+      Dedication to model weights should be able to find that from the clause
+      that answers it. (+12 words.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5514 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -471,7 +478,9 @@ PREAMBLE (informative; not part of the operative terms)
 
 9. MACHINE-GENERATED MATERIAL AND AUTHORSHIP
 
-  9.1  The Work may consist wholly or partly of Machine-Generated Material.
+  9.1  The Work may consist wholly or partly of Machine-Generated Material,
+       such as the parameters of a machine learning model produced by
+       training.
 
   9.2  The Dedicator makes no representation that any right subsists in any
        part of the Work, and asserts no right in Machine-Generated Material.
