@@ -37,7 +37,25 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       ("offering for sale, sale, importation, or other transfer"), and naming
       the same acts two ways invites the reading that different acts were
       meant. (-2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5478 words, 80 clauses.
+    * Section 1.3 now names the parameters, weights, and configuration of a
+      machine learning model among the forms the Work may take. The Open
+      Source AI Definition treats code, parameters, and data information as
+      the preferred form for modifying such a system; the list named code and
+      data but not parameters, although this text is written for exactly that
+      material. The list was not limiting (Section 15.5), so nothing is added
+      that a reader could not already rely on. (+10 words.)
+    * Section 4.3 now names size and revenue of the user, the scale of use,
+      and the number of users served among the things the licence is not
+      conditioned on. A threshold of that kind, above which rights lapse or
+      must be renegotiated, is the condition most often attached to released
+      model weights; Section 10.1 already excluded it, and the list now says
+      so where a reader comparing licences looks. (+13 words.)
+    * Section 5.2(b) now names an acceptable-use policy among the collateral
+      means by which no obligation will be imposed. Such policies are the
+      usual vehicle for restrictions on released models and are revised after
+      release; Section 2.2 already barred any further term. (+1 word: two
+      added, and "click-through" is no longer split across a line.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5502 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -100,7 +118,8 @@ PREAMBLE (informative; not part of the operative terms)
   1.3  "Work" means the material to which the Dedicator has applied this
        Dedication, in whole or in part, in any medium and in any form,
        including source code, object code, documentation, data, metadata,
-       audiovisual material, and any collection or compilation of these.
+       audiovisual material, the parameters, weights, and configuration of a
+       machine learning model, and any collection or compilation of these.
 
   1.4  "Dedicator" means each person or entity applying this Dedication to the
        Work, to the extent that person or entity holds or may hold Covered
@@ -254,8 +273,9 @@ PREAMBLE (informative; not part of the operative terms)
   4.3  The licence in Section 4.1 is granted subject to no condition of any
        kind. In particular it is not conditioned on attribution, on
        reproduction of any notice, on reciprocal or compatible licensing, on
-       disclosure of source, on field of use, on the identity, character, or
-       purpose of the user, or on any restriction as to persons, groups,
+       disclosure of source, on field of use, on the identity, character,
+       size, revenue, or purpose of the user, on the scale of use or the number
+       of users served, or on any restriction as to persons, groups,
        technologies, endeavours, or jurisdictions.
 
   4.4  The licence in Section 4.1 is granted independently of Section 3, and
@@ -295,10 +315,11 @@ PREAMBLE (informative; not part of the operative terms)
             that restricts access to or use of the Work, or invoke against
             You any law concerning the circumvention of such measures;
 
-       (b)  impose by contract, terms of service, access condition, click-
-            through, registration requirement, or any other collateral means an
-            obligation in respect of the Work that this Dedication does not
-            itself impose, and it imposes none (Section 10.1);
+       (b)  impose by contract, terms of service, acceptable-use policy,
+            access condition, click-through, registration requirement, or any
+            other collateral means an obligation in respect of the Work that
+            this Dedication does not itself impose, and it imposes none
+            (Section 10.1);
 
        (c)  assert that any permission granted here is narrower than Section
             15.1 requires it to be read; or

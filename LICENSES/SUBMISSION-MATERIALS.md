@@ -1,7 +1,7 @@
 ---
 file: LICENSES/SUBMISSION-MATERIALS.md
 audience: オーナー（license-review への提出メールを自分の言葉で書く人）/ 次のセッションの実装者
-last-updated: 2026-10-26
+last-updated: 2026-10-28
 canonical-ref: LICENSES/ACD-1.0.submission.md (1.0 向けの旧パケット・要件の原典照合の記録) / LICENSES/ACD-1.0.review-rules.md §1.70・§1.76 (OSI の要件の原典読み) / LICENSES/OSI-APPROVAL-PLAN.md §4 (段取り)
 ---
 
@@ -59,7 +59,7 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 | 「献呈なのかライセンスなのか」 | §3 は放棄、§4 は**§3 と独立に**同じ権利を許諾（§4.4）。どちらが働いたか受領者は決めなくてよい。Unlicense の 2020 年の審査で「リスト上で議論して救った論理」を本文が自分で述べている | `review-precedents.md` §1.57・`against.md` #110 |
 | 「なぜもう 1 つの公有化型か」（Landley 氏） | 0BSD 等と違い、機械学習・特許・機械生成物・人格権について本文が明示する。**類型の中で優れていると主張するのではなく、この類型に 1 つ足す費用が低い**と言う | `ACD-1.0.comparison.md` §1・#84 |
 | 「出力に触れるのは曖昧さを生む」（Chestek 氏 2025-12） | §6.4 は意図的。§6.5 の理由（沈黙は曖昧と分かった・機械が判定できない許諾は許諾ではない） | `against.md` #133 |
-| 主題（Mulan 2023 は主題で不承認） | §1.3 の列挙に audiovisual material を含む。データセットとモデルの重みが gap そのものなので狭めていない | `submission-reference.md` §3d・B15 |
+| 主題（Mulan 2023 は主題で不承認） | §1.3 の列挙に audiovisual material と（1.4 から）機械学習モデルのパラメータ・重み・設定を含む。データセットとモデルの重みが gap そのものなので狭めていない（OSAID も重みを改変に適した形の一部としている） | `submission-reference.md` §3d・B15 |
 | 長さ | 本体は長い（約 5,400 語）。短い入口（`REVIEWERS.md`・`objection-map.md`）で読む順を示す | B3 / B13 |
 | 「需要が広いか」（Kuhn 氏の 2 段目） | **答えられない**と自分から書く（採用 1 件） | `review-outcomes.md` §1.116 |
 
