@@ -1,0 +1,773 @@
+From podumatos.dev at gmail.com  Sun Oct 11 10:21:06 2026
+From: podumatos.dev at gmail.com (=?UTF-8?B?0JzQuNGF0LDQuNC7INCn0LXRgNC90L7Qsg==?=)
+Date: Sun, 11 Oct 2026 17:21:06 +0700
+Subject: [License-discuss] Pre-submission discussion: Zero-Clause BSD with
+ Patent Grant (0BSD-P)
+Message-ID: 
+ <CAM_TyZBOiGGDRjfYhcG4zW9YnCgHf+X4m5Nc9F+r0VttS5mtRw@mail.gmail.com>
+
+Subject: Pre-submission discussion: Zero-Clause BSD with Patent Grant
+(0BSD-P)
+
+Hello,
+
+I am considering submitting the Zero-Clause BSD with Patent Grant (0BSD-P)
+to OSI for approval. Before doing so, I would like to get feedback from the
+community.
+
+I am not a lawyer, and I am not trying to draft a novel license from
+scratch.
+What I am proposing is a strict combination of two already-approved
+licenses:
+the Zero-Clause BSD License (0BSD) and the patent grant from the
+BSD-2-Clause
+Plus Patent License (BSD-2-Clause-Patent).
+
+The gap I see is this: no OSI-approved license currently combines zero
+attribution requirements with an express patent grant.
+
+Today, a developer who wants to release code without any attribution
+obligation has two OSI-approved options: 0BSD and MIT-0. Neither of them
+contains a patent grant. A developer who wants patent protection has options
+like BSD-2-Clause-Patent and Apache-2.0, but both require attribution, and
+Apache-2.0 additionally includes a patent termination clause that makes it
+incompatible with GPLv2.
+
+This means that for small utilities, scripts, generated code, or similar
+artifacts where attribution is impractical or undesirable, there is no
+OSI-approved way to also grant patent protection. The 0BSD-P is meant to
+fill
+exactly that gap.
+
+The license text is a direct combination of two approved texts. The
+permissive
+paragraph is taken verbatim from 0BSD. The patent grant paragraph is taken
+from BSD-2-Clause-Patent, with one adaptation: references to "contributor"
+and
+"Contribution" have been removed, because 0BSD has no conditions that would
+create a contributor in the legal sense. The patent grant remains
+irrevocable
+and does not include a termination clause, which preserves the GPLv2
+compatibility that BSD-2-Clause-Patent is known for.
+
+I have attached the full text. I would appreciate any feedback, especially
+on:
+
+1. Whether this gap is real and worth filling.
+2. Whether the combination is correct.
+3. Whether there are any concerns about OSD compliance.
+
+Thank you for your time.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20261011/ce6d71e6/attachment.htm>
+-------------- next part --------------
+Zero-Clause BSD with Patent Grant (0BSD-P)
+Version 1.0
+
+Copyright (C) YEAR by AUTHOR EMAIL
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+Subject to the terms and conditions of this license, the copyright holder
+hereby grants to those receiving rights under this license a perpetual,
+worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except
+for failure to satisfy the conditions of this license) patent license
+to make, have made, use, offer to sell, sell, import, and otherwise transfer
+this software, where such license applies only to those patent claims,
+already acquired or hereafter acquired, licensable by the copyright holder
+that are necessarily infringed by this software alone or by combination of
+this software with the work to which such software was added.
+The patent license shall not apply to any other combinations which include
+this software.
+Except as expressly stated above, no other rights or licenses from the
+copyright holder are granted under this license, whether expressly, by
+implication, estoppel or otherwise.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+
+From matija at suklje.email  Wed Oct 14 13:23:07 2026
+From: matija at suklje.email (Matija =?UTF-8?B?xaB1a2xqZQ==?=)
+Date: Wed, 14 Oct 2026 15:23:07 +0200
+Subject: [License-discuss] Call for feedback on FLA-2.1_RC
+In-Reply-To: <W7TaUf2FTk-mTTMvc70Yfw@suklje.email>
+References: <W7TaUf2FTk-mTTMvc70Yfw@suklje.email>
+Message-ID: <W9EkReOuRSy8vqAwQ9OfQg@suklje.email>
+
+Hi all,
+
+as things seem to have slowed down (read: I received no feedback) and at LLW 
+the only thing attendees at the LLW had a heated debate over was how the 
+current FLA-2.1_RC changes how we handle the definition of FOSS, I started a 
+quick poll:
+
+https://bigwhoop.wheremymonkeyis.at/apps/forms/s/TA7Gz3koWBmxXjS34df8cX5r
+
+It is just one multiple-choice question, so please take the 2 minutes and vote 
+for your fave.
+
+As a gentle reminder, the discussion during the Q&A came to the conclusion 
+that there is no good solution, we are simply looking for something that works 
+and is the least bad option, so we can wrap it up.
+
+
+cheers,
+Matija
+
+Dne četrtek, 17. september 2026 ob 22:06:20 Srednjeevropski poletni čas je 
+Matija Šuklje napisal(a):
+> Dear all,
+> 
+> something different for a change – I am looking for feedback on an _inbound_
+> license agreement. Specifically, the newest revision of the Fiduciary
+> License Agreement, which originates with the FSFE.
+> 
+> In case you missed it, the Fiduciary License Agreement – a/the balanced CLA 
+> – version 2.1 has a release candidate ready and we would welcome feedback
+> from this wonderful crowd of experts, to make sure the final version is as
+> best as it can be.
+> 
+> To help with the brainstorming, here are some topics to consider:
+> 
+> • double-check the patent section – expert eyes welcome
+> 
+> • a better term for non-code contributions to replace “documentation” would
+> be great, as well as having a fall-back (outbound) license option for that
+> 
+> • with “generative AI” looming over all of us, is there anything in the text
+> that needs to be improved to account for that too?
+> 
+> • some have expressed concerns about FOSS licenses being defined as“terms of
+> any licenses that qualify as [Free
+> Software](https://www.gnu.org/philosophy/ free-sw.html) as defined by the
+> Free Software Foundation and at the same time qualify as [Open
+> Source](https://opensource.org/osd) as defined by the Open Source
+> Initiative.” instead of OSI-approved AND/OR FSF-Free – the consensus in the
+> room seems to have been, that there are no good options and we need to find
+> consensus on what’s the least bad option.
+> So, what _is_ the least bad option? :)
+> 
+> We intend to release the FLA-2.1 to the general public soon (in fact it is
+> already passed our original plans), so .
+> 
+> For your convenience, I am attaching my slides from the LLW presentation.
+> 
+> Relevant links:
+> 
+> • current draft (click “changes” tab for a better overview) as changes to
+> the FLA-2.0:
+> <https://github.com/contributoragreements/ca-cla-chooser/pull/94/>
+> 
+> • a diff viewer for different (2.1_RC) options selected in the CLA chooser –
+> both for the FLA and beyond the FLA (kudos: Florian):
+> <https://contributoragreements.org/ca-cla-chooser/viewer.html>
+> 
+> • the standard way of obtaining the FLA-2.1(_RC) is to go to
+> ContributorAgreements.org and going through the CLA chooser by keeping the
+> defaults as they are – they default to FSFE’s FLA:
+> <https://contributoragreements.org/ca-cla-chooser/>
+> 
+> • issues that are still open (some can be postponed to 3.0):
+> <https://github.com/contributoragreements/ca-cla-chooser/issues>
+> 
+> 
+> kind regards,
+> Matija
+> —
+> P.S. If anyone wants to be deeply involved with the FLA, we have a separate
+> mailing list too.
+> P.P.S. Before anyone complains: I’m not saying you need a CLA, but I’m
+> saying that if you do happen to need a CLA, the FLA is arguably the best
+> option for a FOSS (or dual-licensed) project. Please don’t roll your own,
+> and definitely not a CAA.
+
+
+-- 
+gsm:    tel:+386.41.849.552
+www:    https://matija.suklje.name
+xmpp:   hook at campfire.wheremymonkeyis.at
+matrix: @hook:kompot.si
+
+
+
+
+From rob at landley.net  Wed Oct 14 16:21:02 2026
+From: rob at landley.net (Rob Landley)
+Date: Wed, 14 Oct 2026 11:21:02 -0500
+Subject: [License-discuss] Pre-submission discussion: Zero-Clause BSD with
+ Patent Grant (0BSD-P)
+In-Reply-To: 
+ <CAM_TyZBOiGGDRjfYhcG4zW9YnCgHf+X4m5Nc9F+r0VttS5mtRw@mail.gmail.com>
+References: 
+ <CAM_TyZBOiGGDRjfYhcG4zW9YnCgHf+X4m5Nc9F+r0VttS5mtRw@mail.gmail.com>
+Message-ID: <c8629601-9ffa-43d1-8a31-9ad1da9d1a03@landley.net>
+
+On 10/11/26 05:21, Михаил Чернов wrote:
+> Subject: Pre-submission discussion: Zero-Clause BSD with Patent Grant
+> (0BSD-P)
+> 
+> Hello,
+> 
+> I am considering submitting the Zero-Clause BSD with Patent Grant (0BSD-P)
+> to OSI for approval. Before doing so, I would like to get feedback from the
+> community.
+
+Wouldn't you have to submit diffs to the project in order to grant any 
+of your patents? (Mere use ain't gonna cut it.)
+
+Which means this doesn't prevent patent trolls from suing the project 
+for unknowing violations.
+
+> The gap I see is this: no OSI-approved license currently combines zero
+> attribution requirements with an express patent grant.
+
+Because it's a bad idea.
+
+Nobody who has 5-6 figures to obtain and defend a patent wants zero 
+attribution requirements. (Yes 5-6 figures per patent: your writeup and 
+supplementary filings have to convince a patent clerk to approve the 
+thing and show you didn't invalidate your own patent with prior art, 
+while you CAN do your own taxes here it's still going to be hundreds of 
+hours of work including coming up to speed on the legal niceties, prior 
+art search, navigating the bureaucracy... Budgeting your _own_ time at 
+$50 hour means you hit 5 figures at 200 hours, ignoring office space and 
+health insurance and the taxes your employer doesn't pay half of when 
+you're self employed. And that's before you get into _international_ 
+patents, because otherwise somebody will just do a chinese version and 
+bounce it off singapore and ship a production run of inventory into the 
+distribution channel and disband a shell corporation before the product 
+hits shelves and you don't even have standing to complain until long 
+after the fact...)
+
+The patent grant part kinda REALLY WANTS the attribution. There's a 
+chain of custody with patent grants, that's why people who actually have 
+patents tend to use huge boilerplate things like the apache license.
+
+A patent grant with zero attribution seems equivalent to abandoning the 
+patent. You want to encourage somebody to suck in code to another 
+project without keeping track of where it came from and who granted it 
+for use in what, which means someone can always (even retroactively) say 
+"oh I got that function from $PROJECT and then adjusted the code to my 
+tastes but trust me it's really from that other thing so no you can't 
+enforce your patent against me".
+
+Except that's not what you did, you did:
+
+ > The patent license shall not apply to any other combinations which
+ > include this software.
+
+Which seems to mean the last version I contributed to is frozen in time, 
+nobody else can add another patch to it after that or my patent grant is 
+invalidated. (Because those modified versions are another combination 
+that includes this software. If that's NOT the case then what do you do 
+about forks that make arbitrary changes but claim to still be the same 
+thing?)
+
+> Today, a developer who wants to release code without any attribution
+> obligation has two OSI-approved options: 0BSD and MIT-0. Neither of them
+> contains a patent grant.
+
+Personally I'm against it. Even if what you did COULD work, I think it 
+creates confusion. 0BSD is a copyright license. You can add your own 
+patent grant without modifying the copyright license. (And you're still 
+ignoring trademarks, those are usually separately licensed as well even 
+in GPL projects. Why is that ok but separately licensing the patents isn't?)
+
+> A developer who wants patent protection has options
+> like BSD-2-Clause-Patent and Apache-2.0,
+
+It doesn't protect you from being sued by someone who isn't an author of 
+the project. It only protects you from being sued by someone who 
+explicitly contributed to the project.
+
+Contributing an infringement of your own patent without disclosure and 
+then turning around and suing the project for using your own code seems 
+like something there's probably a countersuit for? (If the only reason 
+this patent is infringed by this project is because you explicitly 
+created the infringement you're suing against... Seems easier to just 
+find projects already infringing and sue those with clean hands?)
+
+"This license does not require you to strictly track authorship of 
+projects, code goes into a fungible pool"... is not how patents work. 
+Not even for the https://openinventionnetwork.com/ people explicitly 
+trying to create a big open source patent pool, who have SCRUPULOUS 
+tracking of what _versions_ of what projects are and aren't covered. (I 
+get emails. They have _conferences_.)
+
+> This means that for small utilities, scripts, generated code, or similar
+> artifacts where attribution is impractical or undesirable, there is no
+> OSI-approved way to also grant patent protection. The 0BSD-P is meant to
+> fill
+> exactly that gap.
+
+"Attribution is impractical or undesirable" plus "I'm going to license 
+my patents to it".
+
+Those two sentences do not generally go together, in my experience. The 
+form to abandon a patent is 
+https://www.uspto.gov/sites/default/files/documents/aia0024.pdf and I 
+assume that's what you do if you want to assure everybody it will never 
+be enforced again even if the company that currently owns it gets bought 
+by scumlords.
+
+> I have attached the full text. I would appreciate any feedback, especially
+> on:
+> 
+> 1. Whether this gap is real and worth filling.
+> 2. Whether the combination is correct.
+> 3. Whether there are any concerns about OSD compliance.
+> 
+> Thank you for your time.
+
+I don't have a vote at OSI, but personally I'm not a fan of this.
+
+My goals with 0BSD were to give developers of the increasing amount of 
+"no license specified" code on github a comfortable and easily 
+understandable option, while also allowing Fortune 500 corporations to 
+comfortably use and contribute to such projects.
+
+Communicating to Fortune 500 companies that contributing code to a 0BSD 
+project potentially means abandoning ALL your patents (be sure to use 
+0BSD and not 0BSD-P), because you didn't even list which specific patent 
+numbers were covered in which jurisdictions, and such a list would have 
+been lost in explicitly allowed "no attribution" copies anyway, except 
+for the above sentence that says you lose the patent grand if you modify 
+the work in any way...
+
+What happens if they contribute a patch to the mailing list and you make 
+your own arbitrarily modified copy that their patch applies to your 
+modified version, which says that the method of submission to the 
+project becomes important, a git pull against a specified base vs a 
+patch to a list, but if you can "git format-patch" to take a patch out 
+of git (standard tool!) and apply it to your modified base as the last 
+patch you haven't changed the license terms (or git fast-forward, 
+another standard tool) and I have no idea what a judge would say about 
+any of this...
+
+There are reasons I never went there.
+
+Rob
+
+From josh at berkus.org  Wed Oct 14 16:53:03 2026
+From: josh at berkus.org (Josh Berkus)
+Date: Wed, 14 Oct 2026 09:53:03 -0700
+Subject: [License-discuss] Pre-submission discussion: Zero-Clause BSD with
+ Patent Grant (0BSD-P)
+In-Reply-To: <c8629601-9ffa-43d1-8a31-9ad1da9d1a03@landley.net>
+References: 
+ <CAM_TyZBOiGGDRjfYhcG4zW9YnCgHf+X4m5Nc9F+r0VttS5mtRw@mail.gmail.com>
+ <c8629601-9ffa-43d1-8a31-9ad1da9d1a03@landley.net>
+Message-ID: <7ef836e2-d175-4fb9-9721-ce0f2a379744@berkus.org>
+
+
+>> I am considering submitting the Zero-Clause BSD with Patent Grant 
+>> (0BSD-P)
+>> to OSI for approval. Before doing so, I would like to get feedback 
+>> from the
+>> community.
+
+Aside from Rob's objections, all of which I agree with, you would also 
+need to obtain permission from a BSD foundation to call this license 
+"0BSD" anything, or you'd have to change the name.  Rob did get that 
+permission.
+
+That aside: why are you doing this?  It's not the goal of the OSI to 
+have licenses for every possible combination of conditions; if they 
+wanted that, the OSI could just build its own license-generating LLM and 
+be done with it.  So, do you have a specific use for a license with 
+patent grants and no attribution?  Can  you describe that use?
+
+-- 
+Josh Berkus
+
+From podumatos.dev at gmail.com  Fri Oct 16 12:50:23 2026
+From: podumatos.dev at gmail.com (=?UTF-8?B?0JzQuNGF0LDQuNC7INCn0LXRgNC90L7Qsg==?=)
+Date: Fri, 16 Oct 2026 19:50:23 +0700
+Subject: [License-discuss] Pre-submission discussion: Zero-Clause BSD with
+ Patent Grant (0BSD-P)
+In-Reply-To: <7ef836e2-d175-4fb9-9721-ce0f2a379744@berkus.org>
+References: 
+ <CAM_TyZBOiGGDRjfYhcG4zW9YnCgHf+X4m5Nc9F+r0VttS5mtRw@mail.gmail.com>
+ <c8629601-9ffa-43d1-8a31-9ad1da9d1a03@landley.net>
+ <7ef836e2-d175-4fb9-9721-ce0f2a379744@berkus.org>
+Message-ID: 
+ <CAM_TyZBgit=d4NvpPr5+GCPAUqiAhzrs=6ZszOunnWp3KrswUg@mail.gmail.com>
+
+Rob, Josh,
+
+Thank you for the detailed feedback. I have thought about your points
+carefully, and I agree with them.
+
+Rob, your explanation about the chain-of-custody problem is correct. A
+patent grant without attribution cannot be tracked, and the "shall not
+apply to any other combinations" language from BSD-2-Clause-Patent does not
+work in a license that explicitly permits unattributed copying. I see now
+that this makes the grant effectively void upon modification, which defeats
+its purpose.
+
+Josh, your question about the specific use case is also fair. I could not
+describe a real project that needs this combination, and I understand why
+this looks like license proliferation.
+
+I am withdrawing the 0BSD-P draft. I will not submit it to OSI.
+
+I am now exploring a different problem: the loss of attribution in AI
+supply chains. I will post a separate pre-submission discussion for that
+shortly.
+
+Thank you again for taking the time to respond.
+
+--
+Mikhail Chernov
+
+ср, 14 окт. 2026 г. в 23:53, Josh Berkus <josh at berkus.org>:
+
+>
+> >> I am considering submitting the Zero-Clause BSD with Patent Grant
+> >> (0BSD-P)
+> >> to OSI for approval. Before doing so, I would like to get feedback
+> >> from the
+> >> community.
+>
+> Aside from Rob's objections, all of which I agree with, you would also
+> need to obtain permission from a BSD foundation to call this license
+> "0BSD" anything, or you'd have to change the name.  Rob did get that
+> permission.
+>
+> That aside: why are you doing this?  It's not the goal of the OSI to
+> have licenses for every possible combination of conditions; if they
+> wanted that, the OSI could just build its own license-generating LLM and
+> be done with it.  So, do you have a specific use for a license with
+> patent grants and no attribution?  Can  you describe that use?
+>
+> --
+> Josh Berkus
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20261016/391cc7ff/attachment-0001.htm>
+
+From podumatos.dev at gmail.com  Fri Oct 16 12:52:42 2026
+From: podumatos.dev at gmail.com (=?UTF-8?B?0JzQuNGF0LDQuNC7INCn0LXRgNC90L7Qsg==?=)
+Date: Fri, 16 Oct 2026 19:52:42 +0700
+Subject: [License-discuss] Pre-submission discussion: Model Chain Attribution
+ License (MCAL)
+Message-ID: 
+ <CAM_TyZCAzENg8j6Pfu5UrGbgSpZURzQG=Cab=CuW4Viqr5ELTQ@mail.gmail.com>
+
+Hello,
+
+I would like to get feedback on a new license before any formal submission.
+This is about the Model Chain Attribution License (MCAL), which is not a
+modification of any existing license but a new license designed for a
+specific, measurable problem in the AI supply chain.
+
+The problem is what a 2026 study calls "permissive washing." The study
+audited 294,012 dataset -> model -> application supply chains and found
+that 96.9% of datasets and 96.4% of models lack the required license text,
+even when labeled MIT or Apache-2.0. More importantly, attribution
+collapses as artifacts move downstream: only 25.0% of models preserve
+compliant dataset notices, and only 5.4% of applications preserve compliant
+model notices.
+
+This means that even when upstream components have permissive licenses, the
+legal basis for using them is often lost by the time they reach an
+application. Companies using these models may be operating outside the
+scope of the original license without knowing it.
+
+The MCAL proposes a different mechanism to address this. Instead of
+requiring a license file or a copyright notice in every artifact, it
+requires a structured, machine-readable Attribution Record. This is a
+single, extensible JSON, YAML, or XML file that lists the artifact's
+upstream dependencies, their licenses, and their relationship types (e.g.,
+"trained-on", "derived-from"). The record propagates automatically through
+the chain: from dataset to model to application.
+
+The core question is: is this a real problem that a license can address?
+And if so, is a machine-readable attribution record the right mechanism?
+
+I have attached the full text for context. I would appreciate any feedback,
+especially on:
+1. Whether this problem is worth solving at the license level.
+2. Whether the proposed mechanism is feasible and clear.
+3. Whether there are any OSD concerns I should be aware of.
+
+Thank you for your time.
+
+--
+Mikhail Chernov
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20261016/230d336a/attachment-0001.htm>
+-------------- next part --------------
+Model Chain Attribution License (MCAL)
+Version 1.0
+Preamble
+This License governs the use, reproduction, modification, and distribution of the accompanying artificial intelligence artifacts, including but not limited to model weights, model architectures, training and evaluation data, source code, documentation, metadata, and any other associated materials (collectively, the "Licensed AI Materials"). By exercising any rights granted hereunder, you accept and agree to be bound by the terms and conditions of this License.
+
+1. Definitions
+1.1. "License" means this Model Chain Attribution License, Version 1.0.
+
+1.2. "Licensor" means the copyright holder(s), patent holder(s), database right holder(s), or other rights holder(s) who have applied this License to the Licensed AI Materials.
+
+1.3. "You" (or "Your") means an individual or a legal entity exercising rights under this License.
+
+1.4. "Licensed AI Materials" means the materials provided to you under this License, consisting of:
+(a) one or more artificial intelligence models, including architecture definitions, learned parameters, weights, and configuration files;
+(b) all related artifacts, including training data, evaluation data, source code for preprocessing, training, and inference, documentation, metadata, and supporting tools;
+(c) any Derivative Works of the foregoing.
+
+1.5. "Derivative Work" means any work that is derived from, based on, or incorporates the Licensed AI Materials, including but not limited to:
+(a) a modified version of a model, such as one created through fine-tuning, domain-adaptive training, quantization, or distillation;
+(b) a new model, dataset, or software artifact that incorporates or is trained on the Licensed AI Materials;
+(c) any work that includes a substantial portion of the Licensed AI Materials and is identified as a Derivative Work in an Attribution Record.
+
+For the avoidance of doubt, a work shall be considered a Derivative Work for the purposes of this License if it is listed as "derived-from" or "trained-on" the Licensed AI Materials in an Attribution Record.
+
+1.6. "Output" means any content, data, or other material generated by using the Licensed AI Materials, including but not limited to text, images, audio, code, or predictions.
+
+1.7. "Attribution Record" means a structured, machine-readable file 
+or metadata record that identifies all upstream AI artifacts, their 
+respective licenses, copyright notices, and origin information, in 
+a format that can be automatically processed by software tools. The 
+preferred formats are JSON, YAML, or XML.
+
+An Attribution Record must include, at minimum, the following fields:
+
+(a) For the artifact itself:
+    (i)   artifact identifier;
+    (ii)  artifact type;
+    (iii) license identifier (SPDX or equivalent);
+    (iv)  copyright holder;
+    (v)   source URL.
+
+(b) For each upstream artifact listed in the Attribution Record:
+    (i)   artifact identifier;
+    (ii)  artifact type;
+    (iii) license identifier (SPDX or equivalent);
+    (iv)  copyright holder;
+    (v)   source URL;
+    (vi)  relationship type.
+
+Permissible relationship types include, without limitation, 
+"trained-on", "derived-from", and "distributed-with". The structure 
+may be extended with additional fields, provided that all required 
+fields are present and machine-readable.
+
+A non-normative example of an Attribution Record in JSON format is 
+provided below. The example is illustrative only; the normative 
+requirements are set forth in Section 4.2.
+
+{
+  "artifact": {
+    "id": "example-corp/Example-Model-7B",
+    "type": "model",
+    "version": "1.0",
+    "url": "https://huggingface.co/example-corp/Example-Model-7B"
+  },
+  "license": {
+    "spdx": "MCAL-1.0",
+    "url": "https://example.org/licenses/MCAL-1.0.txt"
+  },
+  "copyright_holder": "Example Corp",
+  "upstream": [
+    {
+      "id": "example-data/Example-Corpus",
+      "type": "dataset",
+      "license": "MIT",
+      "copyright_holder": "Example Data Org",
+      "relationship": "trained-on",
+      "url": "https://huggingface.co/datasets/example-data/Example-Corpus"
+    },
+    {
+      "id": "open-foundry/Example-Base-1B",
+      "type": "model",
+      "license": "Apache-2.0",
+      "copyright_holder": "Open Foundry Collective",
+      "relationship": "derived-from",
+      "url": "https://huggingface.co/open-foundry/Example-Base-1B"
+    }
+  ]
+}
+
+
+1.8. "Distribute" means to make available to any third party, whether by sale, gift, license, or any other means, the Licensed AI Materials or any Derivative Work.
+
+2. Grant of Copyright, Patent, and Database Rights
+Subject to the terms and conditions of this License, the Licensor hereby grants to You a worldwide, non-exclusive, royalty-free, perpetual, irrevocable license to:
+
+(a) use, reproduce, distribute, and publicly display the Licensed AI Materials;
+(b) prepare Derivative Works of the Licensed AI Materials;
+(c) modify, merge, publish, and sublicense the Licensed AI Materials and Derivative Works;
+(d) extract, reuse, reproduce, and share all or a substantial portion of the contents of any data or database included in the Licensed AI Materials;
+(e) use the Licensed AI Materials and Derivative Works for any lawful purpose, including commercial purposes.
+
+This grant includes all copyright, patent, and database rights included or embodied in the Licensed AI Materials. For the avoidance of doubt, this License does not grant any rights in trade secrets, as the Licensed AI Materials are distributed openly and any trade secret protection therein is extinguished by such distribution.
+
+3. Grant of Patent License
+Subject to the terms and conditions of this License, the Licensor hereby grants to You a worldwide, non-exclusive, royalty-free, perpetual, irrevocable patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Licensed AI Materials, where such license applies only to those patent claims licensable by the Licensor that are necessarily infringed by the Licensed AI Materials alone or by combination of the Licensed AI Materials with the work to which such Licensed AI Materials was submitted.
+
+3.1. Patent Termination. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Licensed AI Materials or a Derivative Work directly or indirectly infringes any patent, then any patent licenses granted to You under this License for the Licensed AI Materials shall terminate as of the date such litigation is filed.
+
+3.2. No Termination for Copyright Claims. For the avoidance of doubt, nothing in this License shall be construed to terminate any rights granted hereunder as a result of any claim, lawsuit, or proceeding relating to copyright infringement.
+
+4. Attribution Record Requirement
+4.1. Any Distribution of the Licensed AI Materials or any Derivative Work must be accompanied by an Attribution Record.
+
+4.2. The Attribution Record must include the fields specified in 
+Section 1.7 for the Licensed AI Materials and for each upstream 
+artifact. The Attribution Record must also include the source URL 
+or repository where the Licensed AI Materials were obtained, if 
+not already included.
+
+4.3. If You use the Licensed AI Materials to create a Derivative Work, You must include the original Attribution Record, supplemented with information about Your Derivative Work, in any Distribution of Your Derivative Work.
+
+4.4. The Attribution Record must be provided in a machine-readable format (e.g., JSON, YAML, XML) and must be made available at the point of distribution, in a manner that is reasonably accessible to recipients of the Licensed AI Materials or any Derivative Work. Where the Licensed AI Materials or a Derivative Work are distributed via a repository, model hub, or package, the Attribution Record shall be included in the same location as the primary distribution artifact. Where distribution occurs through an API or embedded system, the Attribution Record shall be made available in documentation or metadata associated with the distribution.
+
+4.5. You may not remove, alter, or obscure any copyright notice, license notice, or Attribution Record contained in the Licensed AI Materials.
+
+5. Output Clause
+This License does not impose any restrictions or obligations with respect to any use, modification, or sharing of any Output generated by using the Licensed AI Materials. The Licensor claims no rights in Output.
+
+6. Conditions
+6.1. License Retention. Any Distribution of the Licensed AI Materials or any Derivative Work must include a copy of this License.
+
+6.2. Notice Retention. You must retain all copyright, patent, and database notices present in the Licensed AI Materials.
+
+6.3. No Endorsement. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Licensed AI Materials.
+
+7. Disclaimer of Warranty
+THE LICENSED AI MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. THE LICENSOR MAKES NO WARRANTY THAT THE LICENSED AI MATERIALS WILL MEET YOUR REQUIREMENTS OR THAT THEIR OPERATION WILL BE UNINTERRUPTED OR ERROR-FREE. YOU ASSUME ALL RISKS ASSOCIATED WITH THE USE OF THE LICENSED AI MATERIALS.
+
+8. Limitation of Liability
+IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE LICENSED AI MATERIALS OR THE USE OR OTHER DEALINGS IN THE LICENSED AI MATERIALS, INCLUDING BUT NOT LIMITED TO DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES, EVEN IF THE LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+9. Termination
+9.1. Termination for Breach. If You breach any term of this License (other than Section 3.1), Your rights under this License shall not terminate automatically. The Licensor shall provide You with written notice of the breach, and You shall have thirty (30) days from receipt of such notice to cure the breach. If You fail to cure the breach within such period, this License and all rights granted to You hereunder shall terminate.
+
+9.2. Termination for Patent Litigation. If You institute patent litigation as described in Section 3.1, the patent licenses granted to You under this License shall terminate immediately as of the date such litigation is filed. All other rights granted to You under this License shall remain in full force and effect.
+
+9.3. Survival. Sections 4, 5, 7, 8, and 10 shall survive any 
+termination of this License.
+
+10. Miscellaneous
+10.1. Severability. If any provision of this License is held to be unenforceable or invalid, such provision shall be reformed only to the extent necessary to make it enforceable, and the remaining provisions shall remain in full force and effect.
+
+10.2. No Waiver. The failure of the Licensor to enforce any right or provision of this License shall not constitute a waiver of such right or provision.
+
+10.3. Entire Agreement. This License constitutes the entire agreement between the parties with respect to the Licensed AI Materials and supersedes all prior or contemporaneous understandings and agreements, whether written or oral.
+
+End of License Terms
+
+From roland at rolandturner.com  Sat Oct 17 02:57:59 2026
+From: roland at rolandturner.com (Roland Turner)
+Date: Sat, 17 Oct 2026 10:57:59 +0800
+Subject: [License-discuss] Pre-submission discussion: Model Chain
+ Attribution License (MCAL)
+In-Reply-To: 
+ <CAM_TyZCAzENg8j6Pfu5UrGbgSpZURzQG=Cab=CuW4Viqr5ELTQ@mail.gmail.com>
+References: 
+ <CAM_TyZCAzENg8j6Pfu5UrGbgSpZURzQG=Cab=CuW4Viqr5ELTQ@mail.gmail.com>
+Message-ID: <c117d5e5-ffa7-40ba-8916-9639fa348f13@rolandturner.com>
+
+On 16/10/26 20:52, Михаил Чернов wrote:
+
+> The MCAL proposes a different mechanism to address this. Instead of 
+> requiring a license file or a copyright notice in every artifact, it 
+> requires a structured, machine-readable Attribution Record. This is a 
+> single, extensible JSON, YAML, or XML file that lists the artifact's 
+> upstream dependencies, their licenses, and their relationship types 
+> (e.g., "trained-on", "derived-from"). The record propagates 
+> automatically through the chain: from dataset to model to application.
+
+I don't yet have a view on whether your proposed licensing strategy is 
+useful, but with respect to the attribution record, I'd suggest that 
+you're largely reproducing existing work in SPDX —   and to some extent 
+ClycloneDX — and that it might be worth amending your non-normative 
+example to suit, perhaps even referencing those examples.
+
+- Roland
+
+
+
+From lemonhub.io at icloud.com  Sat Oct 24 13:44:29 2026
+From: lemonhub.io at icloud.com (lemonhub.io at icloud.com)
+Date: Sat, 24 Oct 2026 13:44:29 +0000
+Subject: [License-discuss] Discussion request: Open Source Evolution License
+ 0.2
+Message-ID: 
+	<SI2PR01MB404376DE4E03239B01A633D2F5632@SI2PR01MB4043.apcprd01.prod.exchangelabs.com>
+
+Hello,
+
+I am a member of OpenReciprocal, writing for OpenReciprocal. I would like comments on a
+draft license. This is not a license-review submission, and I am not
+asking for an SPDX identifier.
+
+In August I posted an AGPLv3 text with a noncommercial exception, and
+then retracted it. Bradley Kuhn and McCoy Smith explained why that
+construction does not work: the exception is a further restriction, and
+OSI does not approve add-ons to an existing license. This draft is a
+different document. It does not modify AGPLv3, it is not an exception
+to any existing license, and a noncommercial or field-of-use limit is
+not allowed. I am not asking anyone to reopen that thread.
+
+The draft is the Open Source Evolution License, version 0.2:
+
+https://github.com/OpenReciprocal/open-source-evolution-license/blob/af546bf/LICENSES/OSEL-0.2-draft.txt
+
+Please use that commit. I will not edit that file while it is under
+discussion.
+
+The idea is one sentence. Any recipient may ship a modified copy under
+a stricter OSI-approved license. Those stricter terms stick to that
+copy and to copies made from it. No other copy is rewritten.
+
+The grant at the start is permissive. Taking the step is optional, and
+only the person who actually ships a modified copy can take it, and
+only for the copy they ship. The target must be an unmodified
+OSI-approved license. It must keep the notices this draft already
+requires, add at least one duty from a fixed menu, and add no duty from
+outside that menu. The menu is: further attribution, source and
+share-alike, patents, names, and change marks. A step that fails the
+test is void. Another copy that merely carries the same version label,
+and was not made from the shipment, stays under this draft.
+
+No license is pre-approved as a target. I am not asking the list to
+accept GPL, AGPL, Apache, MPL, or EUPL. The person who takes the step
+has to show that the text they chose meets the test.
+
+Three questions:
+
+1. Is this a gap, or is the right answer dual licensing, or starting
+   the project on MPL or EUPL?
+
+2. Section 1.15 says material taken from a sticky copy is sticky to
+   the extent of that material. Section 5.5 says stickiness follows
+   the copy, not the version label and not the project. Is that
+   boundary usable?
+
+3. Does "unmodified OSI-approved license, plus this menu" avoid a
+   catalog of license names, or is the menu a catalog with the names
+   left off?
+
+The text has not been reviewed by counsel. I am not a lawyer. No
+software project outside this repository uses the draft. Version 0.1
+was published on 2026-09-26. Version 0.2 does not amend it. The text
+under discussion is 0.2.
+
+Thank you.
+
+OpenReciprocal
+https://github.com/OpenReciprocal
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20261024/deb43772/attachment.htm>
+
