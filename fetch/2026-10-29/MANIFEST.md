@@ -29,3 +29,4 @@
 - ACD への当たり: なし（main には書かない）。
 - 09:46 JST watch（events-watch-094611）: opensource.org も取得できた（遮断解消）。比較は直前に全面を取れた 10-28 21:46 と。**OSI ブログに新記事 1 本**「FOSDEM 2027: CFP for Open Source & EU Policy Devroom」（2026-10-28）—— FOSDEM の EU 政策 devroom の発表募集で、State of the Source / Opening Convening / Licensing 101 の報告ではない（ACD への当たりなし・本文は読まない）。events ページは今後の予定一覧の更新（OSS Japan 12/9–10 など）。OTR は写真ギャラリーのみ（日次で既出）。(a)(c)(d) 変化なし・t/1441 動きなし。
 - 15:46 JST watch（events-watch-154610）: 09:46 と比べ (a)〜(d) 変化なし。blog の差分は Recent comments 欄の名前の入れ替えのみ（pchestek 等は FOSDEM CFP 記事の Mastodon リブログで、発言ではない）・discuss 不変・t/1441 動きなし。
+- 21:46 JST watch（events-watch-214612）: 15:46 と比べ (a)〜(d) 変化なし（OTR の UI 文言 Notify/Contact の入れ替えのみ・discuss 不変・t/1441 動きなし）。
