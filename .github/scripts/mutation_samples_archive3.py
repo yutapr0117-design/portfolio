@@ -547,4 +547,55 @@ MUTATIONS_ARCHIVE3 = [
     "replace": "| 11 terms, all in §1.1",
     "check": CHECK,
 },
+    {
+    "name": "Check 470: 条項に帰属させた逐語引用を、別の条へ付け替える —— 法への参照規則は §15.2 に"
+            "在るのに §15.6 に帰属していた（実欠陥・2026-09-15）。**§15.6 は代理・組合の否認で、"
+            "法への参照を 1 つも持たない** ——審査者が pointer を辿ると空振りする",
+    "file": ROOT / "LICENSES" / "AS-OF.md",
+    "find": "\u00a715.2's interpretation rule",
+    "replace": "\u00a715.6's interpretation rule",
+    "check": CHECK,
+},
+    {
+    "name": "Check 471 (a): `rounds/` の一次資料への参照を、実在しない file 名へ変える —— "
+            "**`rounds/` は「一次資料はここに在る」という証拠の主張そのもの**で、"
+            "指した先が無ければ審査者は存在しない原文を探しに行く",
+    "file": ROOT / "LICENSES" / "AUDIT-LEDGER.md",
+    "find": "rounds/2026-09-14-osi-normative-pages-snapshot.txt",
+    "replace": "rounds/2026-09-14-osi-normative-pages-missing.txt",
+    "check": CHECK,
+},
+    {
+    "name": "Check 471 (f): \u00a71.xx の共有採番を衝突させる —— この採番は 5 file に分かれており、"
+            "**同じ番号を 2 つの file が使うと参照は「解決する」のに別の節へ着く。(d)(e) は解決性しか"
+            "見ないので原理的に捕捉できない** (2026-09-15 に実際に重複を作った)",
+    # 2026-09-27: §1.88 は `ACD-1.0.review-outcomes.md` へ主題で分離した (Check 365 の 1,000 行上限)。
+    # **anchor は移動先を追う** —— 「解決する」だけでは正しい対象を打っている証拠にならない (#227 の class)。
+    "file": ROOT / "LICENSES" / "ACD-1.0.review-outcomes.md",
+    "find": "## 1.88 \u627f\u8a8d\u306f\u53d6\u308a\u6d88\u305b\u306a\u3044",
+    "replace": "## 1.87 \u627f\u8a8d\u306f\u53d6\u308a\u6d88\u305b\u306a\u3044",
+    "check": CHECK,
+},
+    {
+    "name": "Check 472b (提出側の逐語引用の版): 1.1 の語句を 1.0 の条文として引かせる —— §16.4 は両方の版に"
+            "在るので番号の存在しか見ない Check 472 は通すが、*\"except by the Steward\"* は 1.0 に無く、"
+            "審査者は存在しない条文を読まされる (against.md #160 の実例)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission-osd.md",
+    "find": "**Applies identically to every distributor of the text, the steward included.**",
+    "replace": "**Applies identically; §16.4 reads *\"except by the Steward\"*.**",
+},
+    {
+    "name": "Check 467c (発信停止の現在形): 再開後の入口 README に「停止している」を戻す —— 467 の状態の面は"
+            " REVIEWERS.md だけなので、列挙外の面が再開後も停止を述べ続けても通っていた",
+    "file": ROOT / "LICENSES" / "README.md",
+    "find": "> **発信は 2026-09-17 に再開した**（",
+    "replace": "> **発信は 2026-09-09 から停止している**（",
+},
+    {
+    "name": "Check 472c (入口ページの検証コマンド): 期待値を実行結果と違う値にする —— 審査者は貼って比べるので、"
+            "正しいテキストを前に改変を疑わせる (#190)",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "editing            → expect 1",
+    "replace": "editing            → expect 0",
+},
 ]

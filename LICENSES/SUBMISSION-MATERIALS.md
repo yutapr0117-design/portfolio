@@ -61,7 +61,7 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 | 「なぜもう 1 つの公有化型か」（Landley 氏） | 0BSD 等と違い、機械学習・特許・機械生成物・人格権について本文が明示する。**類型の中で優れていると主張するのではなく、この類型に 1 つ足す費用が低い**と言う | `ACD-1.0.comparison.md` §1・#84 |
 | 「出力に触れるのは曖昧さを生む」（Chestek 氏 2025-12） | §6.4 は意図的。§6.5 の理由（沈黙は曖昧と分かった・機械が判定できない許諾は許諾ではない） | `against.md` #133 |
 | 主題（Mulan 2023 は主題で不承認） | §1.3 の列挙に audiovisual material と（1.4 から）機械学習モデルのパラメータ・重み・設定を含む。データセットとモデルの重みが gap そのものなので狭めていない（OSAID も重みを改変に適した形の一部としている）。OSAID の FAQ は、パラメータの条件を OSI が承認する前提で書いている（*"to be approved by the OSI, the terms for parameters must assure the freedom to use, study, modify and share"*） | `submission-reference.md` §3d・B15 |
-| 長さ | 本体は長い（約 5,400 語）。短い入口（`REVIEWERS.md`・`objection-map.md`）で読む順を示す | B3 / B13 |
+| 長さ | 本体は長い（1.4 草案で約 5,500 語・正確な数は草案冒頭の申告が権威で、Check 468 が実測と照合する）。短い入口（`REVIEWERS.md`・`objection-map.md`）で読む順を示す | B3 / B13 |
 | 「需要が広いか」（Kuhn 氏の 2 段目） | **答えられない**と自分から書く（採用 1 件） | `review-outcomes.md` §1.116 |
 
 ## 3. 1.0 を投稿してから変わったこと（聞かれたら）
