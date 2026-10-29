@@ -1,0 +1,1 @@
+- 03:46 JST watch（events-watch-034611）: 21:46 と比べ (a)〜(d) 変化なし（OTR はナビの文言 Photos / Updates / OFA Symposium 2025 の追加のみで録画・スライドなし・discuss 不変・t/1441 動きなし）。

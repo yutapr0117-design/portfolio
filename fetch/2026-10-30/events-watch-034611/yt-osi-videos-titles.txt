@@ -1,0 +1,30 @@
+Beyond Code and Licenses: Co-developing Community Strategies Within Academia
+Building a Modern Online Conversations Tool for 21st-Century Learning
+Understanding Your Open Source Community's Past and Present to Chart Its Future
+Why is UX so damn hard for FOSS?
+Encouraging Diversity in the Workplace (Sponsored Content)
+Moving from a proprietary to an open source development culture: A primer
+How to Talk to your Boss about Open Source
+The Business Impact of Open Source
+Jobs BOF (Sponsored Content)
+Opening Silos with Communities of Practice
+Hold on loosely: project management for open source
+An update - open source in humanitarian response
+Open source contribution policies that empower, not stifle
+OSS in Procurement
+Open Source in a Large Company
+Simplify Open Source License Compliance (or how most people do open source)
+IAAL: Lessons from 20+ years of open source lawyering
+Using and improving FOSS with children
+State of the Source 2020: GPL Exceptions: Filling the Spaces between GPL, LGPL \u0026 permissive licenses
+State of the Source 2020: Closing Session
+State of the Source 2020: Lightning Talks Round Two
+State of the Source 2020: Lightning Talks Round One
+State of the Source 2020: Practical lessons from 10 years of Eclipse Working Groups
+State of the Source 2020: The critical importance of use-neutrality in F/OSS licensing
+State of the Source 2020: In Defense of Extreme Copyleft
+State of the Source 2020: Restoring the Spirit of Open Source
+State of the Source 2020: Introduction to Ethics for Computer People
+State of the Source 2020: The role of open source in education: a case study with robotics and AI
+State of the Source 2020: Metrics for Open Source in Light of Insights from the CHAOSS Project
+State of the Source 2020: The Next Generation of Contributors is not on IRC
