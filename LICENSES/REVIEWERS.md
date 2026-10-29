@@ -88,17 +88,17 @@ decide what is worth translating, and gives you the commands to check the claims
 
 ## Which text you are looking at
 
-**There are two frozen texts, and they are frozen for different reasons.**
+**There are four frozen texts, and they are frozen for different reasons.** *(2026-10-29: this table said "two" and named 1.0 as the applied licence after 1.2 and 1.3 had been frozen; corrected.)*
 
 | | |
 | :-- | :-- |
-| [`ACD-1.0.txt`](ACD-1.0.txt) | **The text posted to `license-discuss` on 2026-08-26, and the licence this repository applies.** Frozen since 2026-08-24 so that the text under discussion does not move. |
+| [`ACD-1.0.txt`](ACD-1.0.txt) | **The text posted to `license-discuss` on 2026-08-26.** Frozen since 2026-08-24 so that the text under discussion does not move. This repository applied it until 2026-10-24. |
 | [`ACD-1.1.txt`](ACD-1.1.txt) | **The successor, frozen 2026-09-17.** When it was frozen it closed nineteen of the twenty-one defects then recorded in [`ACD-1.0.errata.md`](ACD-1.0.errata.md); the list has kept growing since, and each entry says which version addresses it. It has **not** been submitted to `license-review` and is **not** applied to this repository. |
-
 | [`ACD-1.2.txt`](ACD-1.2.txt) | **The second successor, frozen 2026-10-17.** Its own header says what it is. It has **not** been submitted to `license-review` and is **not** applied to this repository. |
+| [`ACD-1.3.txt`](ACD-1.3.txt) | **The third successor, frozen 2026-10-25, and the licence this repository applies from that date** (the root `LICENSE` says so). It has **not** been submitted to `license-review`. |
 
-**Work on the next version happens in [`ACD-1.3-DRAFT.txt`](ACD-1.3-DRAFT.txt)**, so no
-frozen text moves while it is being discussed. All three are pinned by SHA-256 in
+**Work on the next version happens in [`ACD-1.4-DRAFT.txt`](ACD-1.4-DRAFT.txt)**, so no
+frozen text moves while it is being discussed. All four are pinned by SHA-256 in
 [`FROZEN.md`](FROZEN.md) and checked in CI; the command to verify that is below.
 
 **Clause numbers do not transfer cleanly between the two, and this matters when you read the
@@ -130,7 +130,7 @@ and nothing has been submitted to SPDX.
 **ACD-1.1 was frozen on 2026-09-17** (`ACD-1.1.txt`, pinned by SHA-256 in `FROZEN.md` and
 verified in CI). When frozen it closed nineteen of the twenty-one defects then recorded in ACD-1.0.
 **The owner sent it to `license-discuss` the same day, and that message was rejected by moderation**
-(`ACD-1.0.against.md` #215), so the list has not yet received this text; **work on the next version happens in `ACD-1.3-DRAFT.txt` (ACD-1.2 was frozen on 2026-10-17),
+(`ACD-1.0.against.md` #215), so the list has not yet received this text; **work on the next version happens in `ACD-1.4-DRAFT.txt` (ACD-1.3 was frozen on 2026-10-25),
 so the text under discussion does not move.** **ACD-1.0 remains frozen and remains the licence
 this repository applies** — freezing a text is a promise about its bytes, not a statement about
 which version a project uses, and the two facts are deliberately kept apart here.
