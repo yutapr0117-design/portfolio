@@ -1,8 +1,8 @@
 ---
 file: LICENSES/ACD-1.1-SELF-AUDIT.md
-audience: a future drafter (the current draft is 1.2), OSI license-review participants, licence reviewers
-last-updated: 2026-09-28
-canonical-ref: LICENSES/ACD-1.3-DRAFT.txt (the current draft; ACD-1.2.txt frozen 2026-10-17) / LICENSES/ACD-1.1.txt (frozen 2026-09-17) / LICENSES/ACD-1.2-CHANGELIST.md (all other changes; ACD-1.1-CHANGELIST.md is the closed record for 1.1) / LICENSES/ACD-1.0.errata.md (defects in 1.0)
+audience: a future drafter (the current draft is 1.4), OSI license-review participants, licence reviewers
+last-updated: 2026-11-01
+canonical-ref: LICENSES/ACD-1.4-DRAFT.txt (the current draft; ACD-1.2.txt frozen 2026-10-17, ACD-1.3.txt frozen 2026-10-25 and applied to this repository) / LICENSES/ACD-1.1.txt (frozen 2026-09-17) / LICENSES/ACD-1.4-CHANGELIST.md (all other changes for the current draft; ACD-1.1〜1.3-CHANGELIST.md are the closed records for those versions) / LICENSES/ACD-1.0.errata.md (defects in 1.0)
 ---
 
 # 草案を我々自身が掃引して出たもの
@@ -624,3 +624,22 @@ Dedicator に着く。**定義は他の全条が依拠する場所で、ずれ�
 §16.6 を「→ 16.5」と書いたが、1.1 §16.5 は Steward の定義で §16.6 は §16.6 のまま）。
 **同日に直した。** **生成した表は、生成した日の本文についての表である** ——
 凍結の前に本文が動いたら、表は生成し直すか、生成日の版を名乗らなければならない。
+
+## 3o. 1.4 草案が自分で持ち込んだ欠陥 —— 語を足した行が折り返されていなかった（2026-11-01）
+
+**3 人体制の内部チェック（提出面の担当）で発見した。** 1.4 草案は §4.2 に *"study, inspect, analyse,
+reverse engineer"* を足したが（OSAID 1.0 の照合・2026-10-28）、**語を足した行が 119 桁のまま折り返されていなかった**。
+1.0 の本文は全行 80 桁以内で、審査者は申請時に plain text の添付として読む。**語の変更は CHANGELIST と
+草案冒頭の一覧で 2 重に記録されていたが、行の形を見る層はどこにも無かった** —— Check 468 は語数・条数・
+相互参照・身分表示を照合するが、行幅は見ていなかった。
+
+**同じ掃引で、草案が持ち込んだのではない（凍結版から引き継いだ）崩れも 3 件出た**: §8.4 と §2.5 の 81 桁の行、
+§11.4 の途中で 52 桁で切れた行（1.2 で文を足したときの名残）、§16.1 の notice 雛形で *"(Section 11)."* が
+次行頭に落ちていた改行（E29 で語を足したときの名残）。**いずれも語を足した増分の後に残った形で、
+語の列は正しく行の形だけが崩れている** —— 語を数える検査はどれも緑のまま通る。
+
+**直したもの**: 4 件とも、語の列が同一であることを機械的に確かめてから折り返しだけを直した
+（`ACD-1.4-CHANGELIST.md` の「行の折り返し」注記）。§16.4 は折り返しの違いを改変としないので、
+版の同一性には触れない。**再発防止**: 5a が Check 468l（草案の本文行は全行 80 桁以内）を BLOCKING で足した。
+**凍結済みの 1.2・1.3 は直せない** —— §11.4 の 52 桁の行と §16.1 の改行は、両版に残ったまま読まれる。
+
