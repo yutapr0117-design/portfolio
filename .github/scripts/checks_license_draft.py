@@ -352,12 +352,19 @@ def run(ctx):
         #   読み手を凍結済みの草案 pointer へ送る)。
         _pat468k = re.compile(
             r"(?:いまの作業場は|次版の草案（いまは|いまは|next version happens in \[?)\s*\[?`(?:LICENSES/)?(ACD-[\d.]+-DRAFT\.txt)`")
+        # **2026-11-01 拡張 2 (portfolio-bb の発見)**: 表の形 —— 第 1 セル (ラベル) に「作業場」、
+        #   次のセルに草案名 —— を拾っていなかった。faq.md の C 表の「| 次版の草案（作業場） |
+        #   `LICENSES/ACD-1.3-DRAFT.txt`」が 1.3 確定から 7 日間古いままで、本 face の docstring が
+        #   「権威」と呼ぶ README.md の「| **次版の草案（作業場）** |」行そのものが射程外だった。
+        #   ラベルが第 1 セルにある行だけを見る (説明のセルに「作業場」が出る行は対象外)。
+        _pat468k_tbl = re.compile(
+            r"^\|\s*[^|\n]*作業場[^|\n]*\|\s*\[?`(?:LICENSES/)?(ACD-[\d.]+-DRAFT\.txt)`")
         _stale468k = []
         for _p468k in (sorted((ROOT / "LICENSES").glob("*.md"))
                        + sorted((ROOT / "docs" / "files" / "LICENSES").glob("*.md"))
                        + sorted((ROOT / "docs" / "files" / ".github" / "scripts").glob("checks_license_*.md"))):
             for _n468k, _ln468k in enumerate(_p468k.read_text(encoding="utf-8").splitlines(), 1):
-                _hits468k = _pat468k.findall(_ln468k)
+                _hits468k = _pat468k.findall(_ln468k) + _pat468k_tbl.findall(_ln468k)
                 if _hits468k and _hits468k[-1] != _dr468.name:
                     _stale468k.append(f"{_p468k.relative_to(ROOT).as_posix()}:{_n468k} → {_hits468k[-1]}")
         if _stale468k:

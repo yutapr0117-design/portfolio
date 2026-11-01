@@ -491,6 +491,22 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 468k (表の形): README の「次版の草案（作業場）」行を前の版の草案へ戻す —— 2026-11-01 まで表の行は射程外で、faq.md の同じ行が 7 日間古いままだった (portfolio-bb の発見)',
+    "file": ROOT / "LICENSES" / "README.md",
+    "find": '| **次版の草案（作業場）** | [`',
+    "replace": '| **次版の草案（作業場）** | [`ACD-0.9-DRAFT.txt`](ACD-0.9-DRAFT.txt) [`',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 460 (t): FAQ の B1 を A 番号へ変える —— 項番の頭文字が置かれた節と食い違い、索引の数え方で読み手が別の節を探す (portfolio-bb の発見)',
+    "file": ROOT / "LICENSES" / "ACD-1.0.faq.md",
+    "find": '\n### B1. ',
+    "replace": '\n### A99. ',
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
