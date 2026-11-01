@@ -767,3 +767,19 @@ but rather are proprietary by default**"*（Berne 以降、著作権は創作と
 **この節が establish しないこと**: Fontana 氏の構造の懸念が ACD に向けられたことは一度も無い（ACD はこの list で審査されていない）。**似た形の提出に同じ委員が述べたこと**であって、ACD への判定ではない。
 
 **潰し方**: 確定前の敵対的検証（`OSI-APPROVAL-PLAN.md` §4 段 7）に「**重ねた層どうしの食い違い**」を独立のレンズとして置く —— 同じ事柄を扱う条の組（§3/§4/§5、§8.1/§8.4/§8.6、§12.1/§12.2、§11.4/§5.2(d)/§16）を列挙し、組ごとに射程・発動条件・限定語を突き合わせる。**合否**: 組を列挙してから当てたか（今日の 3 組は、組を列挙せずに別々のレンズで偶然見つかった）。
+
+## 1.132 #243 の残り 6 件 —— 新しい不利な事実は無く、既存の 2 つの読みに独立の出典が付いた（2026-11-01）
+
+**§1.131 に続き、ドシエ未言及の提出から我々の類型に近い順に読んだ**（Anonymous Hero / Chicken Dance / Iggy Wanna / beer-ware / Forget Me Not / Public Software License。2008〜2014・ローカルの取得済みアーカイブ）。**clean も記録する。**
+
+**(1) 「承認済みは今の基準を教えない」に、当時の会長の言葉が付いた。** Russ Nelson 氏 2008-05-27（Iggy Wanna）——
+*"You are trying to understand the Open Source Definition **by looking at the licenses we have approved. This doesn't work.** ... **Just because we approved a license once doesn't mean that we would approve the same, much less a modified, license again.**"*
+`AS-OF.md` は同じ趣旨を Dillard 氏 2006-07-14 で記録しており、**これは決める側からの 2 つ目の出典**である。**我々の先例の使い方（Unlicense / IPA Font / Unicode）に対する正面の警告**で、ドシエが先例を「通った根拠」ではなく「論点がどう扱われたかの記録」として書いているのはこのためである。
+
+**(2) 「献呈 + 法的な強制力を持たない依頼」の形を、2008 年に当時の会長が自分で書いていた。** Nelson 氏 2008-01-11（beer-ware）——
+*"What is the purpose in having a license? **Why not simply put your code into the public domain?** Clearly, people license code because they want to put conditions on the distribution of the code. ... If they simply wanted to put forth moral conditions on the code, **they would do so in the public domain dedication**"* と述べ、例として *"The Moral Rights Public Dedication"*（*"I am not going to rely on the use of the legal system to enforce the below restrictions ... therefore I am putting this code into the public domain"*）を書いて見せている。
+**ACD の §3（献呈）+ §10.3（依頼は条件ではない）は、この形と同じ構造である。** **⚠ 逆側**: Nelson 氏はこれを冗談めかした反論の中で書いており、**承認できる形として提案したのではない** —— 問いの前半（*"Why not simply put your code into the public domain?"*）は、むしろ「なぜ献呈だけで足りないのか」を我々に問う形で、その答えは §4 の独立の許諾（献呈だけでは OSI が承認しない・`against.md` #3）である。
+
+**当たらない、または既知のもの**: Anonymous Hero（2008・作者の表示を**禁じる**ライセンス。Nelson 氏 *"A license that binds users? I don't think that will fly."* —— ACD は表示を求めも禁じもしない §10.2）/ Chicken Dance（2011・冗談の提出）/ Public Software License（2014・MIT / PostgreSQL に近い寛容型。Berkus 氏が「既存の MIT / BSD で足りない理由」を求め、Villa 氏が法的レビューと proliferation 分類の申告を求めた —— どちらも既知の論点で、`against.md` #84 と register B1 が扱う）/ Forget Me Not（2012・このアーカイブには提出文しか無く、決める側の発言が無い。§1.131 の 2015 年の「未決定 11 件」に含まれる）。
+
+**この節が establish しないこと**: (2) は承認の見込みではない。2008 年の会長が「同じ構造を思いつく」ことは、その構造が審査を通ることを意味しない。
