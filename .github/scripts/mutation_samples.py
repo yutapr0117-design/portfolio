@@ -20,6 +20,7 @@ part 1/2 が Check 365 の 1,000 cap に近接したら part をさらに増や�
 """
 from __future__ import annotations
 
+import re
 import sys
 
 if sys.version_info < (3, 10):
@@ -183,13 +184,20 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+# 468i は「<現行草案の版> 草案で閉じた」を数えるので、mutation も現行草案の版を導出して当てる。
+# 決め打ち ("1.3") は 1.3 確定で 1.4 草案へ移った瞬間に vacuous 化した (週次 probe 10-26 SURVIVED)。
+_DRAFT_VER468I = next(
+    (_m.group(1) for _p in sorted((ROOT / "LICENSES").glob("ACD-*-DRAFT.txt"))
+     for _m in [re.match(r"ACD-(\d+\.\d+)-DRAFT\.txt$", _p.name)]
+     if _m and "HAS BEEN FROZEN" not in _p.read_text(encoding="utf-8").split("\n", 1)[0]),
+    "0.0")
 _MUTATIONS_TAIL.append({
-    "name": "Check 468i: errata の 1 件を「1.3 草案で閉じた」へ書き換え、草案の変更一覧には載せない —— 冒頭は一覧が"
+    "name": "Check 468i: errata の 1 件を「<現行草案> 草案で閉じた」へ書き換え、草案の変更一覧には載せない —— 冒頭は一覧が"
             "差分のすべてだと宣言しているので、閉じた errata の記録漏れは草案の自己記述を偽にする (2026-09-28。"
             "2026-10-17 に 1.2 を確定し、対象を 1.3 草案へ移したので、mutation も errata 側から当てる形へ付け替えた)",
     "file": ROOT / "LICENSES" / "ACD-1.0.errata.md",
     "find": "**1.2 草案で閉じた（2026-09-18）。+12 語。",
-    "replace": "**1.3 草案で閉じた（2026-09-18）。+12 語。",
+    "replace": f"**{_DRAFT_VER468I} 草案で閉じた（2026-09-18）。+12 語。",
     "check": CHECK,
 })
 
