@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/check-repository-consistency-map.md §1
 
 ## What
 
-CI scripts 共通の純 I/O helper module。`read()` / `read_bytes()` / `extract()` / `csp_sri_hash()` / `now_iso8601()` / `update_webp_xmp_dates()` / `update_mp3_metadata_date()` / `strip_js_comments()` の 8 public 関数を export。`strip_js_comments()` は JS のコメントを、文字列・テンプレート文字列 (`${}` のネスト)・正規表現リテラルを壊さずに、改行を残した空白へ置き換える (出力は入力と同じ長さ・同じ行番号)。2026-11-01 まで各 Check は「`/* */` → `//`」の 2 段の正規表現で消しており、`//` コメント中の `/*` を起点に main.js の 74 行を消していた。espree のコメント範囲と 80 file 全件で一致を確認済み。
+CI scripts 共通の純 I/O helper module。`read()` / `read_bytes()` / `extract()` / `csp_sri_hash()` / `now_iso8601()` / `update_webp_xmp_dates()` / `update_mp3_metadata_date()` / `strip_js_comments()` / `parse_robots_groups()` / `robots_full_site_disallow()` の 10 public 関数を export。`parse_robots_groups()` は robots.txt を RFC 9309 のグループの意味で読む (連続する `User-agent:` 行は 1 グループ・`#` は行のどこからでもコメント)。2026-11-02 まで Check 161 / 342 は行単位の正規表現で読んでおり、行末コメント付きの `Disallow: / # tmp`・`Disallow: /*`・名前付き bot のグループの全サイト拒否・`User-agent: *` の直後に別 agent 行を足した形を素通りしていた。`strip_js_comments()` は JS のコメントを、文字列・テンプレート文字列 (`${}` のネスト)・正規表現リテラルを壊さずに、改行を残した空白へ置き換える (出力は入力と同じ長さ・同じ行番号)。2026-11-01 まで各 Check は「`/* */` → `//`」の 2 段の正規表現で消しており、`//` コメント中の `/*` を起点に main.js の 74 行を消していた。espree のコメント範囲と 80 file 全件で一致を確認済み。
 
 ## Why
 

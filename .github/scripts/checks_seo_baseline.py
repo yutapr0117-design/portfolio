@@ -70,9 +70,12 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        crawlers like Googlebot would skip indexing every URL the sitemap was meant
        to declare. Sibling of Check 182/184 (ai:* / sw.js endpoint resolves) for
        the robots.txt surface. (BLOCKING)
-  189. `<meta name="robots">` does not contain `noindex` / `none`: the
-       `<meta name="robots">` content in index.html must NOT contain `noindex` or
-       `none` (negative invariant — presence-of-allow rather than absence-of-deny
+  189. No crawler-directed meta carries `noindex` / `none`: EVERY
+       `<meta name="robots">` and every bot-named meta (`googlebot`, `bingbot`, …
+       — each takes precedence over `robots` for its own crawler, and Google
+       combines multiple robots metas by the most restrictive) in index.html,
+       outside comments, read as comma-separated tokens, must NOT contain
+       `noindex` or `none`, and a `robots` meta must exist (negative invariant — presence-of-allow rather than absence-of-deny
        is implicit in non-noindex). A silent drift to `noindex` would deindex the
        entire site from all search engines (Google/Bing/DuckDuckGo + AI search
        backed by these) — a catastrophic AIO discovery failure invisible to
@@ -388,17 +391,28 @@ def run(ctx):
     _idx189 = ROOT / "index.html"
     if _idx189.exists():
         _isrc189 = _idx189.read_text(encoding="utf-8")
-        _robots189_m = re.search(
-            r'<meta\s+name=["\']robots["\']\s+content=["\']([^"\']+)["\']', _isrc189
-        )
-        _robots189 = _robots189_m.group(1).lower() if _robots189_m else None
-        _forbidden189 = ["noindex", "none"]
-        _hits189 = [tok for tok in _forbidden189 if _robots189 and tok in _robots189] if _robots189 else []
+        # 2026-11-02 まで先頭の `<meta name="robots">` 1 本だけを読み、`noindex` を部分文字列で
+        # 探していた。2 本目の robots meta (Google は全部を合わせ、最も厳しい指示に従う) と
+        # googlebot / bingbot 宛ての meta (その crawler には robots より優先) は無検査だった。
+        # crawler 宛ての meta を全部集め (説明コメントの中は除く)、カンマ区切りの token で見る。
+        _isrc189 = re.sub(r"<!--.*?-->", "", _isrc189, flags=re.S)
+        _metas189 = []
+        for _tag in re.findall(r"<meta\b[^>]*>", _isrc189, flags=re.I):
+            _nm = re.search(r'\bname\s*=\s*["\']([^"\']+)["\']', _tag, flags=re.I)
+            _ct = re.search(r'\bcontent\s*=\s*["\']([^"\']*)["\']', _tag, flags=re.I)
+            if _nm and _ct and re.fullmatch(r"robots|[\w-]*bot(?:-[\w-]+)?", _nm.group(1).strip(), flags=re.I):
+                _metas189.append((_nm.group(1).strip().lower(), _ct.group(1).lower()))
+        _robots189 = next((c for n, c in _metas189 if n == "robots"), None)
+        _forbidden189 = {"noindex", "none"}
+        _hits189 = [
+            f"{n}: {t}" for n, c in _metas189
+            for t in (x.strip() for x in c.split(",")) if t in _forbidden189
+        ]
         _ok189 = _robots189 is not None and not _hits189
         check(
             _ok189,
-            f"Check 189: <meta name=robots>={_robots189!r} に noindex/none 不在 (index 許容)",
-            (f"Check 189: <meta name=robots>={_robots189!r} に禁止 token {_hits189} 検出 — "
+            f"Check 189: crawler 宛て meta {len(_metas189)} 本 ({', '.join(sorted({n for n, _ in _metas189}))}) に noindex/none 不在 (index 許容)",
+            (f"Check 189: crawler 宛て meta に禁止 token {_hits189} 検出 — "
              "サイト全 deindex (Google/Bing + AI search) で AIO discovery 致命傷。"
              "noindex/none を除去せよ"
              if _hits189 else

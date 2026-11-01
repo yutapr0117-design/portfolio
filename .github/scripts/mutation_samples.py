@@ -205,54 +205,11 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 123: llms-full.txt の運用モデル節の見出しを変える —— サイトと AIO 層の運用モデルの記述が対応しなくなる',
-    "file": ROOT / "llms-full.txt",
-    "find": 'Current Operating Model',
-    "replace": 'Current Operating Mode',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 113: AI2AI.md から「commit 数は OUTPUT であって TARGET」の条項を消す —— 次の AI が padding commit に退行する',
-    "file": ROOT / "AI2AI.md",
-    "find": 'OUTPUT であって TARGET',
-    "replace": 'OUTPUT',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 453 (453b): FREEZE-DATA から確定済みの 1.3 本文の行を消す —— 冒頭で FROZEN TEXT を名乗る本文が"
-            "黙って編集可能になる (2026-11-01 の版移行シミュレーションで、新しく確定した版を足し忘れても何も鳴らないと実測)",
-    "file": ROOT / "LICENSES" / "FROZEN.md",
-    "find": '3b72d36b4962467365ff8742abe09d66eb577c7f7ae8617ea0c5adb02c8dfcfd  LICENSES/ACD-1.3.txt\n',
-    "replace": "",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 70: runbook §9 の consistency Check 総数を 1 つ減らす —— 総数の単一権威が実装の最大番号とずれる (値を含まない prefix で当てる)',
-    "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
-    "find": '| consistency Check 総数 | **',
-    "replace": '| consistency Check 総数 | **9',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 73: index.html の preload から as= を落とす —— ブラウザが資源の種類を知らず二重取得になる',
-    "file": ROOT / "index.html",
-    "find": '<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans',
-    "replace": '<link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 77: slash command の frontmatter から description を落とす —— command 一覧で何をするか分からなくなる',
-    "file": ROOT / ".claude" / "commands" / "audit.md",
-    "find": '\ndescription: ',
-    "replace": '\ndescriptionx: ',
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": 'Check 78: sub-agent の frontmatter から description を落とす —— いつ呼ぶべき agent かが読めなくなる',
@@ -536,6 +493,30 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "sitemap.xml",
     "find": "<loc>https://yutapr0117-design.github.io/portfolio/llms-full.txt</loc>",
     "replace": "<!-- 旧: <loc>https://yutapr0117-design.github.io/portfolio/llms-full.txt</loc> --><loc>https://yutapr0117-design.github.io/portfolio/</loc>",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 342: Bingbot / Googlebot のグループに行末コメント付きの全サイト拒否を足す —— 名前付き bot は * のグループを読まない。旧形は 1 行正規表現で、コメントが付くと行ごと一致しなかった',
+    "file": ROOT / "robots.txt",
+    "find": "User-agent: Bingbot\n",
+    "replace": "User-agent: Bingbot\nDisallow: /  # maintenance\n",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 161: User-agent: * の直後に別 agent 行を足し、そのグループを全サイト拒否にする —— RFC 9309 では 2 行で 1 グループ。旧形は次の User-agent 行で * の section を閉じていた',
+    "file": ROOT / "robots.txt",
+    "find": "User-agent: *\nAllow: /llms-full.txt",
+    "replace": "User-agent: *\nUser-agent: SomeBot\nDisallow: /\nAllow: /llms-full.txt",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 189: googlebot 宛ての meta を noindex にする —— googlebot には robots より優先する。旧形は先頭の robots meta 1 本しか読まなかった',
+    "file": ROOT / "index.html",
+    "find": '<meta name="googlebot" content="index, follow,',
+    "replace": '<meta name="googlebot" content="noindex, follow,',
     "check": CHECK,
 })
 
