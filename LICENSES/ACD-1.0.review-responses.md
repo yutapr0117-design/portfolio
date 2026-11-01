@@ -178,10 +178,13 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 >
 > **5. No discrimination against persons or groups.** "You" is defined in
 > Section 1.4 as any person or entity exercising permissions; no class is
-> excluded anywhere in the text.
+> excluded anywhere in the text, and Section 4.3 says in terms that the licence
+> is not conditioned on the identity, character or purpose of the user or on any
+> restriction as to persons or groups.
 >
 > **6. No discrimination against fields of endeavour.** Section 4.1 is granted
-> for any purpose; Section 6.1 states expressly that computational use is
+> for any purpose, and Section 4.3 excludes any condition on field of use or
+> endeavour; Section 6.1 states expressly that computational use is
 > permitted for any purpose. There is no non-commercial, non-military,
 > ethical-use or AI-related carve-out. **The AI provisions of Section 6 are
 > permissions, not restrictions** — this is the point I most expect to be
