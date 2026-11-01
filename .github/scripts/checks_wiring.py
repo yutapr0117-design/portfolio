@@ -107,6 +107,15 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `shipped_sha256_targets()` に含まれることを強制する (ハードコードへ戻すと集合がずれて
        RED)。Check 415 が STATUS.md の workflow 網羅を生成器と独立に導出するのと同じ形。
        (BLOCKING)
+  482. **index.html の HTML コメントに、実タグと同じ形を書かない** (BLOCKING)。対象は属性を持つ
+       `<meta …>` / `<link …>` と `src` を持つ `<script …>`。index.html を読む Check は 167 箇所あり、
+       多くはコメントを除かずにタグを探す。2026-11-01 に index.html の外部資源タグ 109 個を 1 つずつ
+       **説明コメントの中へ移す**退行で測ると、削除なら捕まる 74 個のうち、Check 362 (mutation の
+       目印) と 424 (行数) 以外の Check が気付いたものは **1 つも無かった** —— 配線 (133/134/135)・
+       canonical・modulepreload (57)・ai:version (1/2/3/19)・license (444) など 40 本以上が、コメントに
+       残った文字列で満たされていた。167 箇所を 1 本ずつ直す代わりに、**コメントに実タグの形が
+       在ること自体**を禁じる (そうすれば「コメントへ移す」退行はこの Check が必ず拾う)。散文中の
+       属性なし `<meta>` のような言及は対象外。
 """
 import re
 import json
@@ -160,7 +169,10 @@ def run(ctx):
     # が配線済」を invariant 化する (AIO self-repair monitor の回帰ガード)。
     _index133 = ROOT / "index.html"
     if _index133.exists():
-        _html133 = _index133.read_text(encoding="utf-8")
+        # [FIX 2026-11-01] HTML コメントを除いてから探す。実タグを説明コメントの中へ移す
+        #   (「旧配線: <script src=...>」と書き残す) と、除かない検索はコメントの文字列で満たされ、
+        #   配線が外れても緑のままだった (133/134/135 の 3 つとも・consistency 全体で ERROR 0 を実測)。
+        _html133 = re.sub(r"<!--.*?-->", "", _index133.read_text(encoding="utf-8"), flags=re.S)
         _wired133 = re.search(r'<script\b[^>]*\bsrc\s*=\s*["\']\.?/?aio-guard\.js["\']', _html133)
         check(
             bool(_wired133),
@@ -187,7 +199,8 @@ def run(ctx):
     # invariant 化する。
     _index134 = ROOT / "index.html"
     if _index134.exists():
-        _html134 = _index134.read_text(encoding="utf-8")
+        # Check 133 と同じく HTML コメントを除いてから探す (説明コメント中のタグで満たされないため)
+        _html134 = re.sub(r"<!--.*?-->", "", _index134.read_text(encoding="utf-8"), flags=re.S)
         _required134 = ["theme-init.js", "karte-init.js", "main.js"]
         _unwired134 = [
             _s for _s in _required134
@@ -389,3 +402,30 @@ def run(ctx):
                      "discovery_sha256_targets() は宣言面から**導出**せよ"),
                     blocking=True,
                 )
+
+    # ── 482. index.html の HTML コメントに実タグの形を書かない (BLOCKING) ───────────
+    # index.html を読む Check の多くはコメントを除かずにタグを探すので、実タグを説明コメントの
+    # 中へ移すと (「旧配線: <link …>」) 削除なら捕まる退行が素通りする (2026-11-01 に 109 タグで実測)。
+    # コメントに実タグの形が無ければ、その退行は本 Check が必ず拾う。
+    _idx482 = ROOT / "index.html"
+    _bad482 = []
+    if _idx482.exists():
+        _src482 = _idx482.read_text(encoding="utf-8")
+        _tag482 = re.compile(
+            r"<(?:meta|link)\s+[^>]*\b(?:name|property|http-equiv|charset|content|rel|href)\s*=[^>]*>"
+            r"|<script\b[^>]*\bsrc\s*=[^>]*>", re.I)
+        for _c482 in re.finditer(r"<!--.*?-->", _src482, re.S):
+            for _t482 in _tag482.finditer(_c482.group(0)):
+                _ln482 = _src482.count("\n", 0, _c482.start() + _t482.start()) + 1
+                _bad482.append(f"index.html:{_ln482} {_t482.group(0)[:60]}")
+    else:
+        _bad482.append("index.html が無い")
+    check(
+        not _bad482,
+        "Check 482: index.html の HTML コメントに実タグの形 (属性つき meta / link・src つき script) が無い",
+        f"Check 482: index.html の HTML コメントに実タグの形がある: {_bad482[:5]} —— "
+        "index.html を読む Check の多くはコメントを除かずにタグを探すので、タグをコメントへ移す "
+        "(一時的に無効化する) と、削除なら捕まる退行が素通りする (2026-11-01 に 109 タグで実測)。"
+        "説明が要るなら、タグの形ではなく言葉で書け (例: 「error-suppressor.js を src で読む形」)",
+        blocking=True,
+    )

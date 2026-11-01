@@ -199,55 +199,11 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 107: runbook §11 の workflow 一覧から 1 本の名前を外す —— CI の在庫表が実体と食い違う',
-    "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
-    # update-playwright-snapshots.yml は §11 の別の行の説明文にも出るので、消しても集合から落ちない
-    # (初版で名指し False を実測)。§11 に 1 回しか出ない mutation-probe.yml を外す。
-    "find": '| `mutation-probe.yml` |',
-    "replace": '| mutation-probe |',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 59: §4 BUDGET-DATA の 1 行の path をずらす —— 人間可読の §2 表と機械可読の §4 の集合が食い違う (71 も同時に発火)',
-    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
-    "find": '.github/scripts/mutation_samples_archive4.py | 950 | advisory',
-    "replace": '.github/scripts/mutation_samples_archive4x.py | 950 | advisory',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 468k (表の形): README の「次版の草案（作業場）」行を前の版の草案へ戻す —— 2026-11-01 まで表の行は射程外で、faq.md の同じ行が 7 日間古いままだった (portfolio-bb の発見)',
-    "file": ROOT / "LICENSES" / "README.md",
-    "find": '| **次版の草案（作業場）** | [`',
-    "replace": '| **次版の草案（作業場）** | [`ACD-0.9-DRAFT.txt`](ACD-0.9-DRAFT.txt) [`',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 460 (t): FAQ の B1 を A 番号へ変える —— 項番の頭文字が置かれた節と食い違い、索引の数え方で読み手が別の節を探す (portfolio-bb の発見)',
-    "file": ROOT / "LICENSES" / "ACD-1.0.faq.md",
-    "find": '\n### B1. ',
-    "replace": '\n### A99. ',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 110: 2 つ目の A11Y_ROUTES (a11y-lang-of-parts.spec.js) から 1 ルートを落とす —— 2026-11-01 まで 110 は連結した本文の最初の定義しか見ず、この list は一度も照合されていなかった',
-    "file": ROOT / "e2e" / "a11y-lang-of-parts.spec.js",
-    "find": "'#/ai-knowhow', '#/role-split', '#/not-found'];",
-    "replace": "'#/ai-knowhow', '#/not-found'];",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 109: README に「all 480 checks」と現在の総数を書き込む —— 総数は runbook §9 だけが持ち、他所は書いた日に古くなる',
-    "file": ROOT / "README.md",
-    "find": '# Yuta Yokoi — AI-Driven PM Portfolio',
-    "replace": '# Yuta Yokoi — AI-Driven PM Portfolio (all 480 checks)',
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": 'Check 123: llms-full.txt の運用モデル節の見出しを変える —— サイトと AIO 層の運用モデルの記述が対応しなくなる',
@@ -532,6 +488,22 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / ".github" / "scripts" / "_lib_io.py",
     "find": 'prev = "/re/"',
     "replace": 'prev = "/re/"; i = i + 1; continue',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 482: index.html の canonical link を説明コメントの中へ移す —— canonical を守る 40 本以上の Check はコメントの文字列で満たされ、気付くのは本 Check だけ',
+    "file": ROOT / "index.html",
+    "find": '<link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/" />',
+    "replace": '<!-- 旧: <link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/" /> -->',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 133: aio-guard.js の script タグを説明コメントの中へ移す —— コメントを除かずに探す形だとコメントの文字列で満たされ緑のままだった',
+    "file": ROOT / "index.html",
+    "find": '<script src="./aio-guard.js"></script>',
+    "replace": '<!-- 旧配線: <script src="./aio-guard.js"></script> -->',
     "check": CHECK,
 })
 

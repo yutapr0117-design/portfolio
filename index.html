@@ -293,7 +293,7 @@ Version History (current shipped state)
       ページスクリプトが初期化される前に捕捉・抑制する。
 
       【重要】なぜ外部ファイル読み込みではなくインラインなのか:
-      外部ファイル (<script src="./error-suppressor.js">) は、ブラウザがHTMLパーサーを
+      外部ファイル (error-suppressor.js を script の src 属性で読む形) は、ブラウザがHTMLパーサーを
       ブロックしてネットワークフェッチを完了するまでスクリプトを実行できない。
       このフェッチ待機中（数ms〜数十ms）に Chrome 拡張機能が unhandledrejection を
       発火させると、リスナーがまだ登録されていないためエラーがコンソールに露出する。
