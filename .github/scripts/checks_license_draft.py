@@ -408,12 +408,19 @@ def run(ctx):
                                 and _pc468n.get(k, "").replace(_pv468n, _dvs468n) != _dc468n.get(k, "")]
                 _hdr468n = _t468.split(_sep468, 1)[0]
                 _bul468n = "\n".join(re.split(r"\n    \* ", _hdr468n)[1:])
+                # **空白を正規化してから読む (2026-11-01・portfolio-25 の指摘)**: 468l が 80 桁での折り返しを
+                #   求めるので、"(+5 words.)" が "(+5" / "words.)" の 2 行に割れ、"Section" と "6.5" も行を
+                #   またぐ。行のまま読むと申告も名指しも取りこぼす (bb が E44 の箇条を折り返して実際に RED)。
+                #   申告の正規表現は "(+" / "(-" で始まるものだけを拾うので、本文の "(Section 6.5)" のような
+                #   括弧は正規化しても拾わない。
+                _bul468n = " ".join(_bul468n.split())
+                _hdrn468n = " ".join(_hdr468n.split())
                 _named468n = set(re.findall(r"Section (\d+\.\d+)", _bul468n))
                 _unlisted468n = [k for k in _changed468n if k not in _named468n]
                 if _unlisted468n:
                     _bad468.append(f"468n: ACD-{_pv468n} から本文が変わったのに冒頭の変更一覧が名指さない条: "
                                    f"{['§' + k for k in _unlisted468n]} (一覧は差分のすべてだと宣言している)")
-                _sum468n = sum(int(_s + _n) for _s, _n in re.findall(r"\(([+-])(\d+) words?\b", _hdr468n))
+                _sum468n = sum(int(_s + _n) for _s, _n in re.findall(r"\(([+-])(\d+) words?\b", _hdrn468n))
                 _mw468n = re.search(r"This draft: ([\d,]+) words", _t468)
                 if _mw468n:
                     _diff468n = int(_mw468n.group(1).replace(",", "")) - len(_pbody468n.split())
