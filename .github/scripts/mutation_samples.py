@@ -516,10 +516,26 @@ _MUTATIONS_TAIL.append({
 })
 
 _MUTATIONS_TAIL.append({
+    "name": 'Check 109: README に「all 480 checks」と現在の総数を書き込む —— 総数は runbook §9 だけが持ち、他所は書いた日に古くなる',
+    "file": ROOT / "README.md",
+    "find": '# Yuta Yokoi — AI-Driven PM Portfolio',
+    "replace": '# Yuta Yokoi — AI-Driven PM Portfolio (all 480 checks)',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
     "name": 'Check 123: llms-full.txt の運用モデル節の見出しを変える —— サイトと AIO 層の運用モデルの記述が対応しなくなる',
     "file": ROOT / "llms-full.txt",
     "find": 'Current Operating Model',
     "replace": 'Current Operating Mode',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 113: AI2AI.md から「commit 数は OUTPUT であって TARGET」の条項を消す —— 次の AI が padding commit に退行する',
+    "file": ROOT / "AI2AI.md",
+    "find": 'OUTPUT であって TARGET',
+    "replace": 'OUTPUT',
     "check": CHECK,
 })
 
