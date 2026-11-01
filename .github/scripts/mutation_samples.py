@@ -185,69 +185,13 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 121: STATUS.md の最新 Session Record を手で書き換える —— 機械生成の owner dashboard が実態とずれる',
-    "file": ROOT / "STATUS.md",
-    "find": '- **最新 Session Record**: #',
-    "replace": '- **最新 Session Record**: #X',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 6: style.css に古い release marker を戻す —— 版の記述が CSS の中で古いまま残る',
-    "file": ROOT / "style.css",
-    "find": '/* ╔══',
-    "replace": '/* NEXT_PLANNED_RELEASE */\n        /* ╔══',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 7: CSP meta を別名にする —— inline suppressor より前に CSP が来る順序の保証が崩れる',
-    "file": ROOT / "index.html",
-    "find": '<meta http-equiv="Content-Security-Policy"',
-    "replace": '<meta http-equiv="X-Content-Security-Policy"',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 10: 手で回す道具 (verify_dossier_quotations.py) に構文エラーを入れる —— verify が呼ばない script の破損は Check 10 だけが見る',
-    "file": ROOT / ".github" / "scripts" / "verify_dossier_quotations.py",
-    "find": 'def norm(text):',
-    "replace": 'def norm(text:',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 12: README の現在の記述に古い「72回以上」を戻す',
-    "file": ROOT / "README.md",
-    "find": '# Yuta Yokoi — AI-Driven PM Portfolio',
-    "replace": '# Yuta Yokoi — AI-Driven PM Portfolio 72回以上',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 28: CSP 違反を見る e2e の題名を変える —— セキュリティ gate が在ることの保証が消える',
-    "file": ROOT / "e2e" / "security-proxy.spec.js",
-    "find": "test('No Trusted Types or CSP violations in console',",
-    "replace": "test('No Trusted Types or CSP violations in the console log',",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 53: index.html の modulepreload の href を存在しない file へ —— 先読みが 404 になり、宣言だけが残る',
-    "file": ROOT / "index.html",
-    "find": '<link rel="modulepreload" href="./js/pure-utils.js" />',
-    "replace": '<link rel="modulepreload" href="./js/pure-utils-missing.js" />',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 61: factory module の docstring から factory pattern の印を落とす —— file 単体を読んでも抽出の経緯が分からなくなる',
-    "file": ROOT / "js" / "ai-page.js",
-    "find": 'factory pattern',
-    "replace": 'factory-less',
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": "Check 57: modulepreload を 1 行消す —— main.js が import する葉の集合と先読みの集合が食い違い、その葉だけ直列に取得される",
@@ -526,6 +470,38 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / ".well-known" / "aio-manifest.json",
     "find": '#15-#30',
     "replace": '#15-#29',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 75: incident-artifacts の README 目録から 1 件を落とす —— 記録はあるのに目録から辿れなくなる',
+    "file": ROOT / "docs" / "incident-artifacts" / "README.md",
+    "find": '- `improvement-notes-claude-v80-phase4-gate-truth-audit.md`\n',
+    "replace": '',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 100: theme-init.js が読む storage key を constants.js とずらす —— 初回描画前のテーマ復元が黙って効かなくなる (FOUC)',
+    "file": ROOT / "theme-init.js",
+    "find": "localStorage.getItem('portfolio_enhanced_v45')",
+    "replace": "localStorage.getItem('portfolio_enhanced_v46')",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 386: sitemap の 1 件の <loc> を存在しない file へ —— crawler が 404 を踏む',
+    "file": ROOT / "sitemap.xml",
+    "find": '<loc>https://yutapr0117-design.github.io/portfolio/AI2AI.md</loc>',
+    "replace": '<loc>https://yutapr0117-design.github.io/portfolio/AI2AI-missing.md</loc>',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 388: sw.js の bot UA 一覧から claude を外す —— AI agent の live fetch が SWR キャッシュの古い応答を受け取る',
+    "file": ROOT / "sw.js",
+    "find": "'gptbot', 'chatgpt', 'claude', ",
+    "replace": "'gptbot', 'chatgpt', ",
     "check": CHECK,
 })
 
