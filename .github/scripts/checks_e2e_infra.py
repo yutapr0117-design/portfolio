@@ -113,17 +113,22 @@ def run(ctx):
     _specs110 = sorted((ROOT / "e2e").glob("*.spec.js"))
     if _specs110:
         _src110 = "\n".join(p.read_text(encoding="utf-8") for p in _specs110)
-        _a11y_m110 = re.search(r"const A11Y_ROUTES\s*=\s*\[(.*?)\]", _src110, re.DOTALL)
         _all_m110 = re.search(r"const ALL_ROUTES\s*=\s*\[(.*?)\];", _src110, re.DOTALL)
-        _a11y_set110 = set(re.findall(r"'([^']+)'", _a11y_m110.group(1))) if _a11y_m110 else set()
         _all_set110 = set(re.findall(r"hash:\s*'([^']+)'", _all_m110.group(1))) if _all_m110 else set()
-        _only_all110 = sorted(_all_set110 - _a11y_set110)
-        _only_a11y110 = sorted(_a11y_set110 - _all_set110)
+        # **A11Y_ROUTES は spec ごとに定義される (2026-11-01 是正)**: 旧実装は連結した本文の**最初の**
+        #   `const A11Y_ROUTES` だけを照合しており、`a11y-lang-of-parts.spec.js` にある 2 つ目の定義は
+        #   一度も比べられていなかった (route を落としても緑)。定義のある spec ごとに照合する。
+        _defs110 = []
+        for _sp110 in _specs110:
+            for _m110 in re.finditer(r"const A11Y_ROUTES\s*=\s*\[(.*?)\]", _sp110.read_text(encoding="utf-8"), re.DOTALL):
+                _defs110.append((_sp110.name, set(re.findall(r"'([^']+)'", _m110.group(1)))))
+        _drift110 = [f"{_n}: missing {sorted(_all_set110 - _s)} / extra {sorted(_s - _all_set110)}"
+                     for _n, _s in _defs110 if _s != _all_set110]
         check(
-            bool(_a11y_set110) and bool(_all_set110) and _a11y_set110 == _all_set110,
-            f"Check 110: e2e A11Y_ROUTES ({len(_a11y_set110)}) covers exactly the ALL_ROUTES hash set ({len(_all_set110)}) — a11y axe runs on every shipped route",
-            f"Check 110: a11y coverage drift — in ALL_ROUTES but missing from A11Y_ROUTES (a11y 未検証ルート): "
-            f"{_only_all110}; in A11Y_ROUTES but not ALL_ROUTES: {_only_a11y110}. e2e の A11Y_ROUTES を同期せよ",
+            bool(_defs110) and bool(_all_set110) and not _drift110,
+            f"Check 110: e2e A11Y_ROUTES の全 {len(_defs110)} 定義が ALL_ROUTES の hash 集合 ({len(_all_set110)}) と一致 — a11y が全 shipped route で走る",
+            f"Check 110: a11y coverage drift (A11Y_ROUTES と ALL_ROUTES が食い違う spec): {_drift110 or '定義が無い'}。"
+            "e2e の A11Y_ROUTES を同期せよ",
             blocking=True,
         )
     else:

@@ -507,6 +507,22 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 110: 2 つ目の A11Y_ROUTES (a11y-lang-of-parts.spec.js) から 1 ルートを落とす —— 2026-11-01 まで 110 は連結した本文の最初の定義しか見ず、この list は一度も照合されていなかった',
+    "file": ROOT / "e2e" / "a11y-lang-of-parts.spec.js",
+    "find": "'#/ai-knowhow', '#/role-split', '#/not-found'];",
+    "replace": "'#/ai-knowhow', '#/not-found'];",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 123: llms-full.txt の運用モデル節の見出しを変える —— サイトと AIO 層の運用モデルの記述が対応しなくなる',
+    "file": ROOT / "llms-full.txt",
+    "find": 'Current Operating Model',
+    "replace": 'Current Operating Mode',
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
