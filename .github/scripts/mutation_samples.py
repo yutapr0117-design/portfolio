@@ -505,6 +505,30 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 50: lint script に旧 eslintrc 時代の flag を戻す —— flat config へ移行した設定が黙って無視される',
+    "file": ROOT / "package.json",
+    "find": '"lint": "eslint main.js',
+    "replace": '"lint": "eslint --no-eslintrc main.js',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 47: 葉 module の export 名を変える —— main.js の import と export の契約が崩れる',
+    "file": ROOT / "js" / "brand.js",
+    "find": 'export function createBrand(storage) {',
+    "replace": 'export function createBrandX(storage) {',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 26: aio-manifest が宣言する archive-2 の Session Record 範囲をずらす —— AIO 層の宣言と実体が食い違う',
+    "file": ROOT / ".well-known" / "aio-manifest.json",
+    "find": '#15-#30',
+    "replace": '#15-#29',
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
