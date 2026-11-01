@@ -116,7 +116,17 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of Section 16.4, which governs the text of this Dedication as a document
       (Section 16.6); Sections 10.1 and 10.4 already carry the same phrase.
       (+5 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5529 words, 80 clauses.
+    * Section 8.6's covenant now reaches "any act that those Sections
+      describe", where it said "any use of the Work or of anything resulting
+      from Computational Use of it". Sections 8.1 and 8.4 license making,
+      selling, and importing as well as using, and things derived from the
+      Work; in a patent covenant "use" is one of those acts, so the second
+      footing was narrower than the first. (-8 words.)
+    * Section 2.8 now names Section 7 among the Sections that bind
+      successors and transferees. It named Section 6, which restates, but
+      not Section 7.2, which grants, inviting the reading that what is not
+      named is not bound. (+1 word.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5522 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -286,14 +296,14 @@ PREAMBLE (informative; not part of the operative terms)
        nothing in it is a representation that such material is unencumbered.
        Section 13.2 states the corresponding absence of warranty.
 
-  2.8  Sections 3, 4, 6, and 8 bind the Dedicator's successors, assigns, heirs,
-       and personal representatives, and any person to whom a Covered Right or
-       a patent claim in the Work is transferred, to the fullest extent the law
-       permits. A transferee takes subject to them, Section 6 included. This is
-       stated expressly because Sections 5.3 and 12.4 say as much for the
-       covenants they contain, and silence here would invite the argument that
-       the grants themselves stop at the Dedicator, which would leave the
-       longest-lived risk, the change of hands, open.
+  2.8  Sections 3, 4, 6, 7, and 8 bind the Dedicator's successors, assigns,
+       heirs, and personal representatives, and any person to whom a Covered
+       Right or a patent claim in the Work is transferred, to the fullest
+       extent the law permits. A transferee takes subject to them, Section 6
+       included. This is stated expressly because Sections 5.3 and 12.4 say as
+       much for the covenants they contain, and silence here would invite the
+       argument that the grants themselves stop at the Dedicator, which would
+       leave the longest-lived risk, the change of hands, open.
 
   2.9  Nothing in this Dedication is conditioned on, suspended by, or revived
        by an insolvency, bankruptcy, administration, receivership, liquidation,
@@ -516,16 +526,16 @@ PREAMBLE (informative; not part of the operative terms)
 
   8.6  The Dedicator further covenants not to assert, and not to authorise or
        assist any other person to assert, the patent claims described in
-       Sections 8.1 and 8.4 against You, in respect of any use of the Work or
-       of anything resulting from Computational Use of it. This covenant is
-       given on the same footing as the covenant in Section 5 and does not wait
-       for either licence to be held ineffective: it operates in every
-       jurisdiction alongside them. Copyright is protected here three times
-       over, by surrender (Section 3), by licence (Section 4), and by covenant
-       (Section 5); this Section gives the patent grant the second footing it
-       would otherwise lack. You are not required to determine whether either
-       licence is effective in any jurisdiction, and nothing permitted by this
-       Dedication depends on how that question is answered.
+       Sections 8.1 and 8.4 against You, in respect of any act that those
+       Sections describe. This covenant is given on the same footing as the
+       covenant in Section 5 and does not wait for either licence to be held
+       ineffective: it operates in every jurisdiction alongside them. Copyright
+       is protected here three times over, by surrender (Section 3), by licence
+       (Section 4), and by covenant (Section 5); this Section gives the patent
+       grant the second footing it would otherwise lack. You are not required
+       to determine whether either licence is effective in any jurisdiction,
+       and nothing permitted by this Dedication depends on how that question is
+       answered.
 
 
 9. MACHINE-GENERATED MATERIAL AND AUTHORSHIP
