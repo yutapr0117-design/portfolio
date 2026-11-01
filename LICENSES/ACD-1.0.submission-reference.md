@@ -243,6 +243,8 @@ Section 3 and does not depend on Section 3 being ineffective" — where §3 work
 but not void, and it remains available to be relied upon by You," and "You are not required to
 determine whether Section 3 is effective in any jurisdiction."
 
+*(Note 2026-11-01: the quotations in this paragraph are ACD-1.0's §4.4. The successors say the same thing more directly — ACD-1.2, ACD-1.3 and the 1.4 draft: "is granted independently of Section 3, and not as a fallback for it: it takes effect whether or not Section 3 does" — and ACD-1.1 removed "redundant but not void" as an overstatement (errata E11). When this paragraph is rewritten for the version actually submitted, quote that version.)*
+
 That construction is stronger than a fallback, and the difference matters to this question. A
 fallback invites the argument that the licence exists only if and when a court first finds the
 dedication ineffective — leaving open who decides, under which law, and what the recipient may
