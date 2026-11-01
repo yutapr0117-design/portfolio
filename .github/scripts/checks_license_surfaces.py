@@ -66,6 +66,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        path の集合**も検証する (対象を表から外せば Check は黙るが、それは実質的な解除である)。
        本文に欠陥を見つけたときの正しい行動は、直すことではなく**オーナーへ報告すること**
        (審査中の差し替えは、審査側が見ているテキストとの乖離を生む)。 (BLOCKING)
+       453b: 冒頭で FROZEN TEXT を名乗る版の本文と、あればその記述子が FREEZE-DATA に pin されていること (2026-11-01)。
 """
 import re
 import sys
@@ -693,5 +694,30 @@ def run(ctx):
              "凍結の趣旨に反する** —— 本文に是正すべき欠陥を見つけた場合でも、直すのではなく"
              "オーナーへ報告せよ。審査中の差し替えは、審査側が見ているテキストとの乖離を生む。"
              "解除はオーナーが結果を伝えたときに FROZEN.md を削除して行う"),
+            blocking=True,
+        )
+        # 453b — 自分で「FROZEN TEXT」と名乗る版の本文 (と、あればその記述子) が FREEZE-DATA に入っていること。
+        #   2026-11-01 の版移行シミュレーション (172 観点の I18) で、1.4 を確定して冒頭に FROZEN TEXT と
+        #   書いた `ACD-1.4.txt` を **FREEZE-DATA に足し忘れても何も鳴らない**ことを実測した —— 453 は
+        #   列挙された file しか見ないので、凍結を名乗る本文が**黙って編集可能なまま**残る。審査者が依拠する
+        #   「stable text」の約束がそこで切れる。宣言 (本文の冒頭) から導出して pin の有無を照合する。
+        _unpinned453b = []
+        for _t453b in sorted((ROOT / "LICENSES").glob("ACD-*.txt")):
+            if _t453b.name.endswith("-DRAFT.txt"):
+                continue
+            if "FROZEN TEXT" not in _t453b.read_text(encoding="utf-8").split("\n", 1)[0]:
+                continue
+            _rel453b = f"LICENSES/{_t453b.name}"
+            if _rel453b not in _paths453:
+                _unpinned453b.append(_rel453b)
+            _md453b = _t453b.with_name(_t453b.name[:-len(".txt")] + ".machine.json")
+            if _md453b.exists() and f"LICENSES/{_md453b.name}" not in _paths453:
+                _unpinned453b.append(f"LICENSES/{_md453b.name}")
+        check(
+            not _unpinned453b,
+            "Check 453b: 冒頭で FROZEN TEXT を名乗る版の本文と記述子はすべて FREEZE-DATA に入っている",
+            (f"Check 453b: 凍結を名乗るのに sha256 が pin されていない: {_unpinned453b}。"
+             "**版を確定したら、その本文 (と記述子) を FROZEN.md の FREEZE-DATA に足す** —— 足さないと"
+             "凍結を名乗る本文が黙って編集可能なまま残り、審査者が依拠する stable text の約束が切れる"),
             blocking=True,
         )
