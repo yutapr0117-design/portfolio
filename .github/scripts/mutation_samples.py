@@ -511,6 +511,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 460: errata 冒頭の「閉じた番号一覧」から E46 を落とす —— 表は E46 を閉じたと述べるのに一覧は 43 件になる (face v)',
+    "file": ROOT / "LICENSES" / "ACD-1.0.errata.md",
+    "find": "E44, E45, E46) are closed in",
+    "replace": "E44, E45) are closed in",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
