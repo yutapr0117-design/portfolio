@@ -501,7 +501,7 @@ def run(ctx):
                                         _fr467c.read_text(encoding="utf-8")):
         _pat467c = re.compile(r"(発信|投稿)は[^。\n]{0,25}停止している|停止中である|"
                               r"posting is paused|posting remains paused|posting is stopped|paused since|No — paused|still paused", re.I)
-        _ex467c = {"ACD-1.0.against.md", "BLIND-SPOTS-LOG.md", "AUDIT-LEDGER.md",
+        _ex467c = {"ACD-1.0.against.md", "BLIND-SPOTS-LOG.md", "AUDIT-LEDGER.md", "AUDIT-LEDGER-ARCHIVE.md",
                    "MACHINE-SURFACES-AUDIT.md"}
         _bad467c = []
         _files467c = sorted((ROOT / "LICENSES").glob("*.md")) + sorted((ROOT / "LICENSES").glob("*-DRAFT.txt"))
