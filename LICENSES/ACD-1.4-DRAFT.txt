@@ -216,11 +216,12 @@ PREAMBLE (informative; not part of the operative terms)
        cumulatively, and Section 15.1 governs their construction.
 
   2.5  The Dedicator makes this Dedication intending that others rely on it and
-       incur effort and expense in doing so; that reliance is the purpose of this
-       Dedication and not merely a foreseeable consequence of it. The Dedicator
-       will not assert that this Dedication is revocable or ineffective for want
-       of consideration or formality, and is estopped from doing so to the extent
-       the law of any jurisdiction gives that principle effect.
+       incur effort and expense in doing so; that reliance is the purpose of
+       this Dedication and not merely a foreseeable consequence of it. The
+       Dedicator will not assert that this Dedication is revocable or
+       ineffective for want of consideration or formality, and is estopped from
+       doing so to the extent the law of any jurisdiction gives that principle
+       effect.
 
   2.6  A Contribution is submitted under this Dedication, and the person making
        it becomes a Dedicator as to that Contribution, unless they state
@@ -282,12 +283,12 @@ PREAMBLE (informative; not part of the operative terms)
        exercise all Covered Rights in the Work for any purpose whatsoever.
 
   4.2  The licence in Section 4.1 includes, without limitation, the rights to
-       use, study, inspect, analyse, reverse engineer, reproduce, store,
-       cache, adapt, translate, modify, create derivative and collective
-       works from, publicly display, publicly perform, communicate to the
-       public, publish, distribute, lend, rent, sell, and sublicense the Work and any adaptation of it, in source form,
-       in object form, or in any other form, in any medium, and by any means
-       now known or later devised.
+       use, study, inspect, analyse, reverse engineer, reproduce, store, cache,
+       adapt, translate, modify, create derivative and collective works from,
+       publicly display, publicly perform, communicate to the public, publish,
+       distribute, lend, rent, sell, and sublicense the Work and any adaptation
+       of it, in source form, in object form, or in any other form, in any
+       medium, and by any means now known or later devised.
 
   4.3  The licence in Section 4.1 is granted subject to no condition of any
        kind. In particular it is not conditioned on attribution, on
@@ -443,8 +444,8 @@ PREAMBLE (informative; not part of the operative terms)
        future, that would be infringed by Computational Use of the Work or by
        making, having made, using, offering to sell, selling, importing, or
        otherwise transferring any model, parameter set, weight, embedding, or
-       output resulting from that use. This is a grant in its own right and not a
-       clarification of Section 8.1: whether a trained model is "the Work" or
+       output resulting from that use. This is a grant in its own right and not
+       a clarification of Section 8.1: whether a trained model is "the Work" or
        derived from it is unresolved, and a provision that merely avoided
        doubt would be read down with the reading it was meant to correct. The
        grant is necessary because Covered Rights exclude patent rights (Section
