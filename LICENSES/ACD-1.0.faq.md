@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.faq.md
 audience: 採用検討者, 法務, ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-10-29
+last-updated: 2026-11-01
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (逐条リファレンス) / LICENSES/ACD-1.0.comparison.md (族ごとの比較) / LICENSES/ACD-1.0.jurisdictions.md (法域別の問い)
 ---
 
@@ -528,6 +528,7 @@ SPDX も未提出である。**承認の手続きはまだ何も始まってい�
 > （`license-review` 2 通 + 2026-09-17 の 1.1 の Discussion Request 1 通）が **moderation で拒否され、
 > リストに届いていない**（`ACD-1.0.against.md` #215・発信状態の単一ソースは `FROZEN.md` の `POSTING-STATUS`）。
 > 出す版は **1.2**（1.1 は 2026-09-17 に確定・凍結済み）。
+> **（2026-11-01 注: この 1 行は 09-27 時点の記述。その後 1.2 は 2026-10-17、1.3 は 2026-10-25 に確定・凍結し、どちらも申請していない。いまの「出す版」は申請の日に確定する最新版で、作業場は `ACD-1.4-DRAFT.txt`。単一ソースは `SUBMISSION-MATERIALS.md`。）**
 
 ### B2. OSI が却下したら / 反応が無かったら
 
