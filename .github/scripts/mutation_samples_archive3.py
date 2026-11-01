@@ -463,16 +463,20 @@ MUTATIONS_ARCHIVE3 = [
     "check": CHECK,
 },
     {
-    "name": "Check 464: 次版の変更リストから errata を 1 件落とす —— 1.0 は凍結中で「欠陥は直さず"
+    "name": "Check 464: どの版の変更リストにも載らない errata を 1 件足す —— 1.0 は凍結中で「欠陥は直さず"
             "記録する」運用なので、記録が集約点に載らなければそのまま忘れられる。1.1 の入力は "
             "errata / review-responses-meta / review-responses-clauses / discussion-log の 4 か所に"
             "散っており、議論後に回って集める手順は必ず落とす",
     # [FIX 2026-09-29] 旧 anchor は 1.1 の表の E9 だった。Check 464 は 2026-09-18 から全版の変更リストを
     # 横断して見るので、E9 が 1.2 の対応表にも現れる限り 464 は発火せず、460 / 469 が拾うだけの
     # 帰属違いだった。全変更リストで 1 回しか現れない E23 に付け替え、464 が RED になるのを実測した。
-    "file": ROOT / "LICENSES" / "ACD-1.2-CHANGELIST.md",
-    "find": "| E23 | §2.8 |",
-    "replace": "| X23 | §2.8 |",
+    # [FIX 2026-11-01] E23 も後続版の変更リストに現れるようになり、1 箇所を消しても 464 は発火せず
+    # 469 だけが拾う帰属違いへ戻っていた (週次 probe が 10-19 / 10-26 に MISATTRIBUTED)。
+    # 「どの変更リストにも 1 回しか現れない E-ID」は版が進むたびに消えていくので、消す側ではなく
+    # **どの変更リストにも載っていない errata 行を足す**側から当てる (版が進んでも成り立つ)。
+    "file": ROOT / "LICENSES" / "ACD-1.0.errata.md",
+    "find": "| E41 | ",
+    "replace": "| E999 | (mutation) | (mutation) |\n| E41 | ",
     "check": CHECK,
 },
     {
