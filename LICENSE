@@ -80,18 +80,18 @@ correctly. It records what is true. It requires nothing of you, and ACD-1.3
   machine-generated under human direction (constraint C5). ACD-1.3 §9 is
   written for exactly this situation and makes your permissions independent of
   whether any right subsists in machine-generated material.
-- Authorship of the Autonomous Commons Dedication itself: the owner decided to
-  have a licence of their own and said that it should aim at external approval.
-  The owner gave the goal and the top-level direction; they did not write a
-  legal specification and did not supply a list of legal requirements. An AI
-  agent generated the concrete legal design and the text and developed it
-  further under the owner's standing delegation. The name ACD-1.0, the
-  generalised instrument and the submission material took shape during that
-  delegated work, and the owner came to know their concrete state afterwards.
-  The owner read the full text and understood it before relying on it, is the
-  Dedicator and the steward, and answers for it; they did not write its clauses.
-  This is stated here, and not only in the submission packet, because it is
-  material to anyone deciding whether to apply ACD-1.3 to their own work.
+- Authorship of the Autonomous Commons Dedication itself: the owner decided to have a licence of his own
+  and said that it should aim at external approval. He gave the goal and the
+  top-level direction; he did not write a legal specification and did not supply
+  a list of legal requirements. An AI agent generated the concrete legal design
+  and the text and developed it further under his standing delegation. The name
+  ACD-1.0, the generalised instrument and the submission material took shape
+  during that delegated work, and he came to know their concrete state
+  afterwards. He read the full text and understood it before relying on it. He
+  is the Dedicator and the steward and answers for it; he did not write its
+  clauses. This is stated
+  here, and not only in the submission packet, because it is material to anyone
+  deciding whether to apply ACD-1.3 to their own work.
 - Legal review of ACD-1.3: none. No lawyer has read it. It is not OSI-approved
   and not registered with SPDX; the conforming identifier for an unregistered
   licence is LicenseRef-ACD-1.3. The complete list of facts that argue against
