@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.submission-reference.md
 audience: OSI license-review participants / licence reviewers / 監査人 / 次のセッションの実装者
-last-updated: 2026-09-27
+last-updated: 2026-11-01
 canonical-ref: LICENSES/ACD-1.0.submission.md (送る文面は §B.0。**これを貼らない**) / LICENSES/ACD-1.0.against.md / LICENSES/AS-OF.md
 ---
 
@@ -631,10 +631,10 @@ written into the text, so the criterion is clear. **The cost is errata E14**: 1.
 name in general but only the one identifier `ACD-1.0`, so a modified text can circulate as
 `ACD-1.1` or `ACD-2.0` as long as it avoids the name.
 
-**The successor closes E14 and thereby fails this criterion.** ACD-1.1 and the 1.2 draft protect
+**The successor closes E14 and thereby fails this criterion.** ACD-1.1, ACD-1.2 and ACD-1.3 (all frozen; this repository applies ACD-1.3 since 2026-10-25) and the 1.4 draft protect
 the whole `ACD-N` / `ACD-N.N` family and let a modified text be distributed under it
 *"except by the Steward"*, a role their §16.5 defines as whoever first published the text under
-that name. That is a privilege held by one party and **written into the licence itself**. Three
+that name. *(2026-11-01: this sentence named only "ACD-1.1 and the 1.2 draft"; 1.2 and 1.3 have since been frozen with §16.4 and §16.5 unchanged, and 1.3 is the version applied here, so the Steward exception is now in the licence this repository uses.)* That is a privilege held by one party and **written into the licence itself**. Three
 things bound it, and none of them makes it disappear. First, the successor's §16.6 places
 §16.4 and §16.5 outside the terms of the Work: they bind no recipient of a work — but Jones's
 criterion is about the text, and carries no such limit. Second, a steward is ordinary; Apache,
