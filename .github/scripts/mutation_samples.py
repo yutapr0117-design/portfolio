@@ -517,6 +517,32 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 21: llms の alias 1 つだけ Last-Updated を千年前へ —— alias 間で更新日が食い違う (値を含まない prefix で当てる)',
+    "file": ROOT / "llms_well-known.txt",
+    "find": '- Last-Updated: 2',
+    "replace": '- Last-Updated: 1',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 24: llms-full.txt の Last-Updated を千年前へ —— AI2AI.md と 7 日を超えて離れ、v75-v78 の床も割る',
+    "file": ROOT / "llms-full.txt",
+    # Check 24 は本文の `## Last-Updated` 節を優先して読む (ヘッダ行は fallback)。ヘッダを打つと発火しない
+    # (初版で実測) ので、優先して読まれる方を打つ。
+    "find": '## Last-Updated\n\n2',
+    "replace": '## Last-Updated\n\n1',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 27: llms-full.txt の制約範囲の表記を C1–C6 へ戻す —— 範囲の表記だけ古いと、展開する agent は C7 を知らずに動く',
+    "file": ROOT / "llms-full.txt",
+    "find": 'violates C1–C7',
+    "replace": 'violates C1–C6',
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
