@@ -1,8 +1,8 @@
 ---
 file: LICENSES/README.md
 audience: 誰でも（ここが入口）
-last-updated: 2026-09-28
-canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN.md (凍結と投稿先の単一ソース)
+last-updated: 2026-11-01
+canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシエの分析対象) / LICENSES/ACD-1.3.txt (このリポジトリが 2026-10-25 から適用している本文) / LICENSES/FROZEN.md (凍結と投稿先の単一ソース)
 ---
 
 # LICENSES/ — 何がどこにあるか
@@ -20,10 +20,10 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 | 「**OSI 承認までに必要なものは何で、いまどこにいるのか**」 | [`OSI-APPROVAL-PLAN.md`](OSI-APPROVAL-PLAN.md) —— OSD 10 条・新規ライセンスの基準 8 条・提出要件 12 項目・却下理由 5 型・手続きを全部並べた計画と、「いま出したら通るか」の自問自答。**オーナーの裁可を要するものは無い（2026-10-24）。越えない線は 1 本 —— 外へ送る文面はオーナーが自分の言葉で書いて送る（B14）** |
 | 「**10 月の OSI イベントから何を取り込んだか（取れなかったものも）**」 | [`OSI-EVENTS-2026-10.md`](OSI-EVENTS-2026-10.md) —— イベントごとの日付と根拠の種類（一次 / 検索結果のみ）、日付順の取り込みログ。**方針は `PEER-REVIEW-WATCH.md` の同名の節** |
 
-このディレクトリには **Autonomous Commons Dedication 1.0 (ACD-1.0)** の本文と、その周辺文書が
-置いてある。**目的は「疑問がこのリポジトリを見れば潰せる」ことである。**
+このディレクトリには **Autonomous Commons Dedication (ACD)** の各版の本文（1.0〜1.3 は凍結・1.4 は草案）と、その周辺文書が
+置いてある。**このリポジトリが適用しているのは ACD-1.3**（2026-10-25〜）で、周辺文書の分析の多くは**リストで議論された ACD-1.0** に対して書かれている。**目的は「疑問がこのリポジトリを見れば潰せる」ことである。**
 
-**権威は `ACD-1.0.txt` だけ**である。他はすべて非規範で、齟齬があれば本文が勝つ。
+**権威は各版の本文（`ACD-1.<版>.txt`）だけ**である。他はすべて非規範で、齟齬があればその版の本文が勝つ（**2026-11-01 訂正**: 旧文は「権威は `ACD-1.0.txt` だけ」で、1.1〜1.3 が確定し 1.3 を適用した後も 1.0 を唯一の本文と述べていた）。
 
 ---
 
@@ -31,7 +31,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 
 | 知りたいこと | 見る場所 |
 |---|---|
-| **条文そのもの** | [`ACD-1.0.txt`](ACD-1.0.txt) |
+| **条文そのもの** | 議論された版 [`ACD-1.0.txt`](ACD-1.0.txt) / 適用中の版 [`ACD-1.3.txt`](ACD-1.3.txt)（版の一覧は下の表） |
 | この条項は何のためにあるのか（**全 82 条**） | [`ACD-1.0.clause-reference.md`](ACD-1.0.clause-reference.md) |
 | 「既存の X で足りるのでは」 | [`ACD-1.0.comparison.md`](ACD-1.0.comparison.md) |
 | 「この提出は実際に何を言われるのか」 | [`ACD-1.0.review-precedents.md`](ACD-1.0.review-precedents.md) —— **個別スレッドを読んで**得た、当たる指摘と当たらない指摘（§1.45〜§1.66）|
