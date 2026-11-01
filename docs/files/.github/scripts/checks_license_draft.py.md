@@ -9,7 +9,7 @@ canonical-ref: .github/scripts/check_repository_consistency.py (集約器) / LIC
 
 ## What
 
-**次版の草案（どの file かは module 内の `_dr468` が権威。版を確定するたびに向け直す）だけを検査する consistency Check module。**
+**次版の草案（どの file かは導出する —— 「HAS BEEN FROZEN」の pointer でない `LICENSES/ACD-*-DRAFT.txt` がちょうど 1 つ。0 個 / 2 個以上は RED）だけを検査する consistency Check module。**
 Check **468**（草案が NOT IN FORCE / NOT SUBMITTED / NOT APPLIED を述べること・純 ASCII・節の連番・
 参照の解決・申告語数と条数の一致・ヘッダの箇条書き・descriptor の記述ほか）を持つ。
 
