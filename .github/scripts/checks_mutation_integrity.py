@@ -154,6 +154,13 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        足しても**必ず MISATTRIBUTED になる** —— 2026-09-29 に測ると 1〜35 番の 33 Check がそうで、
        `_BASE479` から構造的に外せない状態だった (番号を付けて解消)。
        (BLOCKING)
+  480. **mutation データの dict literal に重複 key が無い** (BLOCKING)。Python は dict literal の
+       重複 key を**黙って後勝ちで上書き**する。2026-11-01、3 セッションが同じ append-log へ並行に
+       追記した PR の衝突解消で、2 つの `_MUTATIONS_TAIL.append({...})` が 1 つの dict に融合し
+       (片方の閉じ括弧と次の開き括弧が消えた)、**片方の mutation が import 時に跡形もなく消えた** ——
+       構文は正しく、Check 362 / 379 / 380 / 430 はどれも「在る entry」しか見ないので全部緑だった
+       (総数を main と突き合わせて初めて気付いた)。`ast` で `mutation_samples*.py` の全 dict literal を
+       読み、同じ定数 key が 2 回現れたら RED。
 """
 import re
 
@@ -535,5 +542,29 @@ def run(ctx):
         (f"Check 479b: 失敗文言に番号 `Check N` が無い check() がある: {_unnum479[:8]}。"
          "probe の帰属判定は `::error::Check N` を探すので、この Check を名指しする mutation は "
          "必ず MISATTRIBUTED になる。失敗文言の先頭に `Check N: ` を付けよ"),
+        blocking=True,
+    )
+
+    # ── 480. mutation データの dict literal に重複 key が無い (BLOCKING) ──────────────────
+    # 衝突解消で 2 つの entry が 1 つの dict に融合すると、重複 key は後勝ちで黙って上書きされ、
+    # 片方の mutation が消える (2026-11-01 実測)。構文は正しく、他の mutation-integrity Check は
+    # 「在る entry」しか見ないので検出できない。
+    _dup480 = []
+    for _mf480 in sorted((ROOT / ".github" / "scripts").glob("mutation_samples*.py")):
+        _src480 = _mf480.read_text(encoding="utf-8")
+        for _nd480 in _ast479.walk(_ast479.parse(_src480)):
+            if not isinstance(_nd480, _ast479.Dict):
+                continue
+            _keys480 = [_k.value for _k in _nd480.keys
+                        if isinstance(_k, _ast479.Constant) and isinstance(_k.value, str)]
+            _rep480 = sorted({_k for _k in _keys480 if _keys480.count(_k) > 1})
+            if _rep480:
+                _dup480.append(f"{_mf480.name}:{_nd480.lineno} {_rep480}")
+    check(
+        not _dup480,
+        "Check 480: mutation データの dict literal に重複 key が無い (entry の融合で mutation が消えていない)",
+        (f"Check 480: 重複 key を持つ dict literal がある: {_dup480[:8]}。"
+         "Python は重複 key を黙って後勝ちで上書きするので、**片方の mutation が import 時に消えている**。"
+         "衝突解消で 2 つの append ブロックが 1 つに融合していないか確かめ、閉じ括弧と開き括弧を戻せ"),
         blocking=True,
     )
