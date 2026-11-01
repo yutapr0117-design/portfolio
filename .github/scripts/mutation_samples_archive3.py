@@ -376,8 +376,8 @@ MUTATIONS_ARCHIVE3 = [
             "`_wire_new_archive` がこの位置にあり「受け皿が埋まったら次を起こす」機能が "
             "npm run rotate-mutations からは一度も動いていなかった (帰属実測済: 456 のみ発火)",
     "file": ROOT / ".github" / "scripts" / "rotate_mutation_samples.py",
-    "find": "if __name__ == \"__main__\":\n    sys.exit(main())\n",
-    "replace": "if __name__ == \"__main__\":\n    sys.exit(main())\n\n\ndef _unreachable_after_guard():\n    return None\n",
+    "find": "if __name__ == \"__main__\":\n    sys.exit(_main_with_rollback())\n",
+    "replace": "if __name__ == \"__main__\":\n    sys.exit(_main_with_rollback())\n\n\ndef _unreachable_after_guard():\n    return None\n",
 },
     {
     "name": "Check 457 (配線 ⟹ 配信面の照合): freshness tool の照合対象を index.html 由来の "
