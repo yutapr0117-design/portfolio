@@ -90,3 +90,5 @@ rotate 後は **`file-size-budget.md` §2 の実測行数を同期する**（Che
 **失敗時のロールバック（2026-11-01）**: rotate した entry が hot log の局所名を参照していると、移動先 archive の import が NameError になる（実例: 版を導出する 468i の entry）。総数の検証は書き込みの**後**に走るので失敗は捕まえるが、以前は tree が半分 rotate された状態で残った。`_main_with_rollback()` が実行前の全 `mutation_samples*.py` と budget doc を snapshot し、例外（SystemExit を含む）で元へ戻す。**entry から参照する値は hot log の局所名ではなく `mutation_samples_common.py` の共有定数に置く**（どの archive へ移っても import できる）。
 
 **`--force`（2026-11-01）**: 既定では advisory（975 行）を越えたときだけ回すが、1 つの PR で mutation を何件も足すと advisory を一度も鳴らさずに BLOCKING（1,000 行）へ跳ぶ（969 行から 4 件で 1,001 行になった実例）。まとめて足す前に `--force --count N` で余裕を作る。
+
+**新しい archive の予算登録（2026-11-01）**: rotate が archive を新しく起こしたとき、§2 表と §4 BUDGET-DATA に行が無かった（以前は「手動で追加せよ」と print するだけ）。同じ chain の 1 つ前の archive の行の直後へ、同じ予算・種別で自動で足す。前の行が見つからなければ推測で表を壊さず、従来どおり知らせる。
