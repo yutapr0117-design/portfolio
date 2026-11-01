@@ -100,7 +100,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 16.4 now reaches any identifier that begins with "ACD-"
       followed by a digit. "ACD-N" and "ACD-N.N" left "ACD-1.4.1" and similar
       forms free for a modified text. (+2 words.)
-    * Section 11.4 now says that permission under the law of data
+    * Section 11.4 (errata E43) now says that permission under the law of data
       protection or privacy is not the Dedicator's to give where the data,
       likeness, voice, or performance is that of a person other than the
       Dedicator. Said of every person, it was untrue of the Dedicator's own,
