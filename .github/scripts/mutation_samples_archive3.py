@@ -642,8 +642,9 @@ MUTATIONS_ARCHIVE3 = [
             "468 は OK も ERROR も出さずに消えた。版を確定して DRAFT を改名した日に、次版の検査が"
             "黙って止まる形だった (2026-09-26 に else を追加)",
     "file": ROOT / ".github" / "scripts" / "checks_license_draft.py",
-    "find": '_dr468 = ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt"',
-    "replace": '_dr468 = ROOT / "LICENSES" / "ACD-1.4-DRAFT-MISSING.txt"',
+    # [FIX 2026-11-01] path を導出へ変えたので、導出の pointer 判定を反転させて「1 つに定まらない」を作る。
+    "find": 'if "HAS BEEN FROZEN" not in _p.read_text(encoding="utf-8").split("\\n", 1)[0]]',
+    "replace": 'if "HAS BEEN FROZEN" in _p.read_text(encoding="utf-8").split("\\n", 1)[0]]',
     "check": CHECK,
 },
 ]

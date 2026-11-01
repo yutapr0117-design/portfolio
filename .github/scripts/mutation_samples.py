@@ -20,14 +20,13 @@ part 1/2 が Check 365 の 1,000 cap に近接したら part をさらに増や�
 """
 from __future__ import annotations
 
-import re
 import sys
 
 if sys.version_info < (3, 10):
     print("ERROR: mutation_samples.py requires Python 3.10+ (got %d.%d)" % sys.version_info[:2])
     sys.exit(1)
 
-from mutation_samples_common import ROOT, CHECK  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)
 from mutation_samples_archive import MUTATIONS_ARCHIVE
 from mutation_samples_archive3 import MUTATIONS_ARCHIVE3
 from mutation_samples_archive2 import MUTATIONS_ARCHIVE2
@@ -142,11 +141,7 @@ _MUTATIONS_TAIL.append({
 
 # 468i は「<現行草案の版> 草案で閉じた」を数えるので、mutation も現行草案の版を導出して当てる。
 # 決め打ち ("1.3") は 1.3 確定で 1.4 草案へ移った瞬間に vacuous 化した (週次 probe 10-26 SURVIVED)。
-_DRAFT_VER468I = next(
-    (_m.group(1) for _p in sorted((ROOT / "LICENSES").glob("ACD-*-DRAFT.txt"))
-     for _m in [re.match(r"ACD-(\d+\.\d+)-DRAFT\.txt$", _p.name)]
-     if _m and "HAS BEEN FROZEN" not in _p.read_text(encoding="utf-8").split("\n", 1)[0]),
-    "0.0")
+_DRAFT_VER468I = CURRENT_DRAFT_VER  # 導出は mutation_samples_common (Check 468 と同じ規則)
 _MUTATIONS_TAIL.append({
     "name": "Check 468i: errata の 1 件を「<現行草案> 草案で閉じた」へ書き換え、草案の変更一覧には載せない —— 冒頭は一覧が"
             "差分のすべてだと宣言しているので、閉じた errata の記録漏れは草案の自己記述を偽にする (2026-09-28。"
@@ -486,7 +481,7 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 468l: 草案の 2 行を語を変えずに 1 行へ繋いで 80 桁超にする —— 1.1〜1.3 はこの形で確定し、"
             "凍結で直せなくなった (2026-11-01 実測)",
-    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "file": CURRENT_DRAFT,
     # 語を足すと 468 の語数申告の face が先に拾い帰属が曖昧になる (初版で実測)。語を変えずに 2 行を
     # 1 行へ繋いで 80 桁を超えさせ、468l だけを狙う。
     "find": "in any medium and in any form,\n       including source code",
@@ -497,9 +492,9 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 468: 次版草案の題名行を前の版へ戻す (468j) —— 1.2 を複製した 1.3 草案で題名だけが "
             "7 日間 \"Version 1.2\" のまま残った実例 (2026-10-24)。語数は版数で変わらないので他の face は気付かない",
-    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
-    "find": "                              Version 1.4\n",
-    "replace": "                              Version 1.3\n",
+    "file": CURRENT_DRAFT,
+    "find": f"                              Version {CURRENT_DRAFT_VER}\n",
+    "replace": f"                              Version {PREVIOUS_VER}\n",
     "check": CHECK,
 })
 
@@ -507,8 +502,8 @@ _MUTATIONS_TAIL.append({
     "name": "Check 468: 英語の入口が作業場を前の版の草案のまま名指す (468k) —— 2026-10-29 に 7 箇所が "
             "1.3 草案を指したままだった実例。語数・条数・題名は草案側の性質なので他の face は気付かない",
     "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "happens in [`ACD-1.4-DRAFT.txt`](ACD-1.4-DRAFT.txt)",
-    "replace": "happens in [`ACD-1.3-DRAFT.txt`](ACD-1.3-DRAFT.txt)",
+    "find": f"happens in [`{CURRENT_DRAFT.name}`]({CURRENT_DRAFT.name})",
+    "replace": f"happens in [`ACD-{PREVIOUS_VER}-DRAFT.txt`](ACD-{PREVIOUS_VER}-DRAFT.txt)",
     "check": CHECK,
 })
 

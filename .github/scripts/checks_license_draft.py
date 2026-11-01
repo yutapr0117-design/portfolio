@@ -10,7 +10,7 @@ Check 52 の advisory (800) を越えた。**予算を上げず、テーマで�
 Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()):
   468. **次版の草案が、自分が何であるかを述べ、内部的に健全であること** (BLOCKING): 2026-09-10 に
        オーナーが「現行は保持、次版を作って改善し続けるのは問題ない」と述べたので
-       次版の草案 (**現在は `LICENSES/ACD-1.4-DRAFT.txt`**・2026-10-25 に 1.3 を確定して移した) を置いた。**草案は確定版と紛らわしい** —— 同じ書式・同じ節見出しで、
+       次版の草案 (**どの file かは導出する** —— pointer でない `ACD-*-DRAFT.txt` がちょうど 1 つ・2026-11-01 から) を置いた。**草案は確定版と紛らわしい** —— 同じ書式・同じ節見出しで、
        条番号だけが §1（定義の並べ替え・E13）と §15 以降でずれている。**読み手が取り違えると、凍結中の提出物について
        誤った条番号を引くことになる。** 3 つを強制する: **(a)** 冒頭が **NOT IN FORCE /
        NOT SUBMITTED / NOT APPLIED** を述べること、**(b)** 純 ASCII・節が連番・`Section N.M` の
@@ -48,7 +48,14 @@ def run(ctx):
     # ── 468. 次版の草案が自分を述べ、内部的に健全であること (BLOCKING) ─────────────────────
     #   草案は 1.0 と書式が同じで、条番号だけ §15 以降がずれている。**取り違えは実害を生む**
     #   (凍結中の提出物について誤った条番号を引く)。だから「自分が何か」を本文に述べさせる。
-    _dr468 = ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt"
+    # **草案の path は導出する (2026-11-01)。** 以前は `ACD-1.4-DRAFT.txt` を決め打ちし、版を確定する
+    # たびに手で向け直していた (§0.13 の手順)。確定した草案は「HAS BEEN FROZEN」の pointer に置き換わる
+    # 運用なので、**pointer でない ACD-*-DRAFT.txt がちょうど 1 つ**のとき、それが作業中の草案である。
+    # 0 個 / 2 個以上は下の else で RED (「次版の作業場は常に 1 つ」§0.13)。
+    _cands468 = [_p for _p in sorted((ROOT / "LICENSES").glob("ACD-*-DRAFT.txt"))
+                 if "HAS BEEN FROZEN" not in _p.read_text(encoding="utf-8").split("\n", 1)[0]]
+    _dr468 = (_cands468[0] if len(_cands468) == 1
+              else ROOT / "LICENSES" / "ACD-UNRESOLVED-DRAFT.txt")
     if _dr468.exists():
         _t468 = _dr468.read_text(encoding="utf-8")
         _bad468 = []
@@ -381,13 +388,14 @@ def run(ctx):
         # 書いていたが、実装は `if exists` だけで else が無く、**確定の日に次版の検査が黙って止まる**
         # 形だった（草案を退避して実測: 468 の行が出力から消え、他の Check が参照切れを偶然拾うだけ）。
         # 決めてあること（§0.13）は「次版の作業場は常に 1 つ」なので、無いことは誤りとして止める。
-        # 確定したら、この path を次の草案へ向け直すこと。
+        # path は導出なので、確定時に向け直す作業は無い (2026-11-01)。
         check(
             False,
             "",
-            ("Check 468: 次版の草案 `LICENSES/ACD-1.4-DRAFT.txt` が無い。**版を確定したなら、"
-             "この Check（と 468d/468e）の対象 path を次の草案へ向け直すこと**"
-             "（`ACD-1.1-CHANGELIST.md` §0.13）。**黙って検査を止めない** ——草案が無いと "
+            (f"Check 468: 作業中の草案 (pointer でない `LICENSES/ACD-*-DRAFT.txt`) が 1 つに定まらない: "
+             f"{[_p.name for _p in _cands468] or 'ひとつも無い'}。**次版の作業場は常に 1 つ**"
+             "（`ACD-1.1-CHANGELIST.md` §0.13）。確定した草案は「HAS BEEN FROZEN」の pointer に置き換え、"
+             "次の草案を 1 つだけ置くこと。**黙って検査を止めない** ——草案が無いと "
              "468 は以前 OK も ERROR も出さずに消えていた"),
             blocking=True,
         )
