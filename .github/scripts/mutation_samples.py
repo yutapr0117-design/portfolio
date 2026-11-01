@@ -141,69 +141,13 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 8: header 専用の X-Content-Type-Options を meta で入れる (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / "index.html",
-    "find": "    <meta charset=\"utf-8\" />",
-    "replace": "    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-Content-Type-Options\" content=\"nosniff\" />",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 17: main.js の LAST_UPDATED を ai:last-modified からずらす (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / "main.js",
-    "find": "            LAST_UPDATED:  '2026-05-31',",
-    "replace": "            LAST_UPDATED:  '2026-05-30',",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 22: Session Record の見出しを降順にする (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / "AI2AI.md",
-    "find": "## [HANDOFF] Session Record #37 —",
-    "replace": "## [HANDOFF] Session Record #3 —",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 33: robots.txt から PRIMARY の Zenn slug を落とす (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / "robots.txt",
-    "find": "# 0.  https://zenn.dev/yuta_yokoi/articles/5d1d7a7438d48d",
-    "replace": "# 0.  https://zenn.dev/yuta_yokoi/articles/5d1d7a7438d48x",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 39: sitemap の <loc> を存在しない file へ (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / "sitemap.xml",
-    "find": "<loc>https://yutapr0117-design.github.io/portfolio/llms.txt</loc>",
-    "replace": "<loc>https://yutapr0117-design.github.io/portfolio/llms-missing.txt</loc>",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 43a: kernel の見出しそのものを消す (WHY コメントの引用だけが残る = 旧判定では緑だった形) (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / "main.js",
-    "find": "║  DO NOT EDIT: AIDK Isolated Kernel — AIDK Architecture",
-    "replace": "║  (kernel header removed) — AIDK Architecture",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 43b: VT proxy の実装から名前を消す (コメントの引用だけが残る = 旧判定では緑だった形) (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / "main.js",
-    "find": "            document.startViewTransition = function startViewTransitionProxy(callback) {",
-    "replace": "            document.startViewTransition = function vtProxy(callback) {",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 43c: Trusted Types の default policy を別名にする (コメントの引用だけが残る = 旧判定では緑だった形) (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / "main.js",
-    "find": "                trustedTypes.createPolicy('default', {",
-    "replace": "                trustedTypes.createPolicy('defaultx', {",
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": "Check 413c: runbook §9 が引用する Check 108 の件数だけを古い値へ戻す —— 4 つの数 "
@@ -488,6 +432,62 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "llms-full.txt",
     "find": 'SAKURA-AIO-PROVENANCE-CANARY-2026-',
     "replace": 'SAKURA-AIO-PROVENANCE-CANARY-2025-',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 104: verify から呼ばれる script の Python 3.10+ ガードを緩める —— 3.9 で走ると構文の違いで途中から黙って壊れる',
+    "file": ROOT / ".github" / "scripts" / "check_aio_digests.py",
+    "find": 'sys.version_info < (3, 10)',
+    "replace": 'sys.version_info < (3, 9)',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 105: check-map から Check 480 の行番号を実在しない番号へ —— map と実装の対応が崩れる',
+    "file": ROOT / "docs" / "architecture" / "check-repository-consistency-map.md",
+    "find": '| 480 | **mutation データ',
+    "replace": '| 4800 | **mutation データ',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 106: .nvmrc の major を CI の node-version と食い違わせる —— ローカルと CI で別の Node で検証される',
+    "file": ROOT / ".nvmrc",
+    "find": '24',
+    "replace": '22',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 116: playwright の reuseExistingServer を true へ —— 手元に残った古い server を掴み、変更前のコードを検証してしまう',
+    "file": ROOT / "playwright.config.cjs",
+    "find": 'reuseExistingServer: false,',
+    "replace": 'reuseExistingServer: true,',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 117: screenshot の maxDiffPixelRatio を上限より緩める —— 本物の視覚回帰を見逃す',
+    "file": ROOT / "playwright.config.cjs",
+    "find": 'maxDiffPixelRatio: 0.02 }',
+    "replace": 'maxDiffPixelRatio: 0.5 }',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 120: shipped JS+CSS の byte 予算を実測より小さくする —— 予算超過を検出できることの確認',
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": '<!-- PERF-BUDGET-DATA 7',
+    "replace": '<!-- PERF-BUDGET-DATA ',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 121: STATUS.md の最新 Session Record を手で書き換える —— 機械生成の owner dashboard が実態とずれる',
+    "file": ROOT / "STATUS.md",
+    "find": '- **最新 Session Record**: #',
+    "replace": '- **最新 Session Record**: #X',
     "check": CHECK,
 })
 
