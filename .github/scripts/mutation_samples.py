@@ -107,54 +107,10 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 472d (入口の到達距離): \"In one screen\" を見出しごと消す —— B13 の唯一の実効的な緩和が黙って失われる",
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "## In one screen\n",
-    "replace": "## At a glance\n",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 472e (placeholder 0 の限定): 限定を外して無限定の 0 に戻す —— §16.1 の雛形 1 欄があるので偽",
-    "file": ROOT / "LICENSES" / "ACD-1.0.review-rules.md",
-    "find": "固有名詞 0・条項の置換テキスト 0（§16.1 の推奨 notice の雛形 1 欄を除く）・採用に本文編集は不要（§4b）",
-    "replace": "固有名詞 0・置換テキスト 0・採用に本文編集は不要（§4b）",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 434c (git の -z): Check 454 の git ls-files から -z を外す —— 日本語名のパスが引用符付きで返り、"
-            "is_file() が偽になって黙って飛ばされる (2026-09-21 の週次配信検査の赤と同じ根)",
-    "file": ROOT / ".github" / "scripts" / "checks_size_budget.py",
-    "find": '_ls454 = _sp454.run(["git", "ls-files", "-z"], cwd=str(ROOT),',
-    "replace": '_ls454 = _sp454.run(["git", "ls-files"], cwd=str(ROOT),',
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 476 (承認済みライセンスの本数): 別の量の一括更新に巻き込まれた本数 —— 2026-09-19 に "
-            "不利な事実の件数を 149 → 150 と上げた更新が、偶然同じ値だった承認済みの本数まで押し上げた実例の再現",
-    "file": ROOT / "LICENSES" / "ACD-1.0.submission-reference.md",
-    "find": "against all 149 OSI-approved licence texts",
-    "replace": "against all 150 OSI-approved licence texts",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 471 (i): 英語で書いた英字節参照 `section E.1` を存在しない節へ向ける —— "
-            "face (e) は `\u00a7` 付きしか見ておらず、SPDX 提出文の「section B.2 above」"
-            "（分割で消えた節）を素通りした (2026-09-25)",
-    "file": ROOT / "LICENSES" / "ACD-1.0.submission-reference.md",
-    "find": "A fuller statement is in section E.1.",
-    "replace": "A fuller statement is in section E.9.",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 468 (else): 次版草案の path を存在しない名前にずらす —— 以前は草案が無いと "
-            "468 は OK も ERROR も出さずに消えた。版を確定して DRAFT を改名した日に、次版の検査が"
-            "黙って止まる形だった (2026-09-26 に else を追加)",
-    "file": ROOT / ".github" / "scripts" / "checks_license_draft.py",
-    "find": '_dr468 = ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt"',
-    "replace": '_dr468 = ROOT / "LICENSES" / "ACD-1.4-DRAFT-MISSING.txt"',
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": "Check 472f: 提出パケット §A.0 header の License URL 欄だけを別の版へずらす —— 版を切り替えた日に"
@@ -517,6 +473,14 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
     "find": "<!-- JS-LEAF-CEILING 1000 -->",
     "replace": "<!-- JS LEAF CEILING (removed) -->",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 468k (mirror / 「いまは」の言い回し): 1.1 の mirror に「いまは `ACD-1.3-DRAFT.txt`」を戻す —— "
+            "2026-11-01 まで 468k は LICENSES/*.md の「いまの作業場は」しか見ておらず、同じ古さが 3 箇所残っていた",
+    "file": ROOT / "docs" / "files" / "LICENSES" / "ACD-1.1.txt.md",
+    "find": "以後の作業場は `FROZEN.md` 冒頭が権威。",
+    "replace": "いまは `ACD-1.3-DRAFT.txt`。",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({

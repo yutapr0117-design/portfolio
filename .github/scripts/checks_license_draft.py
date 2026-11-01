@@ -337,14 +337,20 @@ def run(ctx):
         #   現在形の言い回しだけを拾う（「作業場は … へ移した」のような経緯の記述は対象外）。
         #   **行の最後に現れる名前で判定する** —— 歴史を書き換えずに日付つきの追記で直した行
         #   （「いまの作業場は 1.3。2026-10-29 追記: … いまの作業場は 1.4」）を通すため。
+        #   **2026-11-01 拡張**: 「いまは `ACD-1.3-DRAFT.txt`」という言い回し (「作業場は」を伴わない) が
+        #   CHANGELIST と mirror 2 件に残っていた。語を「いまは」まで広げ、射程を docs/files/LICENSES/ と
+        #   check module の mirror にも広げる (mirror は「この file は何か」を答える面で、古い版を指すと
+        #   読み手を凍結済みの草案 pointer へ送る)。
         _pat468k = re.compile(
-            r"(?:いまの作業場は|次版の草案（いまは|next version happens in \[?)\s*\[?`(ACD-[\d.]+-DRAFT\.txt)`")
+            r"(?:いまの作業場は|次版の草案（いまは|いまは|next version happens in \[?)\s*\[?`(?:LICENSES/)?(ACD-[\d.]+-DRAFT\.txt)`")
         _stale468k = []
-        for _p468k in sorted((ROOT / "LICENSES").glob("*.md")):
+        for _p468k in (sorted((ROOT / "LICENSES").glob("*.md"))
+                       + sorted((ROOT / "docs" / "files" / "LICENSES").glob("*.md"))
+                       + sorted((ROOT / "docs" / "files" / ".github" / "scripts").glob("checks_license_*.md"))):
             for _n468k, _ln468k in enumerate(_p468k.read_text(encoding="utf-8").splitlines(), 1):
                 _hits468k = _pat468k.findall(_ln468k)
                 if _hits468k and _hits468k[-1] != _dr468.name:
-                    _stale468k.append(f"{_p468k.name}:{_n468k} → {_hits468k[-1]}")
+                    _stale468k.append(f"{_p468k.relative_to(ROOT).as_posix()}:{_n468k} → {_hits468k[-1]}")
         if _stale468k:
             _bad468.append(
                 f"468k: 「いまの作業場」が現在の草案 {_dr468.name} を指していない: {_stale468k}。"
