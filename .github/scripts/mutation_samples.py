@@ -523,6 +523,22 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 132: sitemap の llms.txt エントリを消す —— 旧形は "/llms.txt<" が .well-known/llms.txt の末尾でも満たされ、消しても緑だった',
+    "file": ROOT / "sitemap.xml",
+    "find": "<loc>https://yutapr0117-design.github.io/portfolio/llms.txt</loc>",
+    "replace": "<loc>https://yutapr0117-design.github.io/portfolio/llms-moved.txt</loc>",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 482: sitemap の llms-full.txt エントリを説明コメントへ移す —— sitemap を読む Check の多くはコメントを除かずに探す',
+    "file": ROOT / "sitemap.xml",
+    "find": "<loc>https://yutapr0117-design.github.io/portfolio/llms-full.txt</loc>",
+    "replace": "<!-- 旧: <loc>https://yutapr0117-design.github.io/portfolio/llms-full.txt</loc> --><loc>https://yutapr0117-design.github.io/portfolio/</loc>",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

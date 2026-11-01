@@ -18,7 +18,9 @@ span this file). run(ctx) receives shared check()/ROOT by reference (exec 不使
 semantics / BLOCKING propagation / exit code are byte-equivalent to the monolith.
 
 Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()):
-  132. AIO evidence ↔ sitemap discoverability: every text document registered as authoritative
+  132. AIO evidence ↔ sitemap discoverability [2026-11-01: matched as exact <loc> URLs taken from the
+       comment-stripped sitemap — the old substring match was satisfied by comment prose and by the
+       suffix of .well-known/llms.txt, so deleting llms.txt / llms-full.txt stayed green]: every text document registered as authoritative
        evidence in .well-known/aio-manifest.json (source_of_truth / supporting_evidence /
        observational_evidence whose path ends in .md / .txt / .json) must also appear as a <loc> in
        sitemap.xml. The manifest declares a doc authoritative for AI crawlers, but a crawler that
@@ -115,7 +117,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        canonical・modulepreload (57)・ai:version (1/2/3/19)・license (444) など 40 本以上が、コメントに
        残った文字列で満たされていた。167 箇所を 1 本ずつ直す代わりに、**コメントに実タグの形が
        在ること自体**を禁じる (そうすれば「コメントへ移す」退行はこの Check が必ず拾う)。散文中の
-       属性なし `<meta>` のような言及は対象外。
+       属性なし `<meta>` のような言及は対象外。**sitemap.xml にも同じ規則を当てる**（XML コメント内の
+       `<loc>https://…` を禁じる）—— `<url>` エントリを説明コメントへ移すと、トップページ以外の
+       25 エントリはどの Check にも気付かれなかった (2026-11-01 実測)。散文中の `<url>` の言及は対象外。
 """
 import re
 import json
@@ -144,9 +148,16 @@ def run(ctx):
                 _p132 = _e132.get("path", "")
                 if _p132.endswith((".md", ".txt", ".json")):
                     _ev_paths132.append(_p132)
-        _missing132 = [p for p in _ev_paths132 if ("/" + p + "<") not in _sitemap_src132 and ("/" + p + "\n") not in _sitemap_src132 and (p + "</loc>") not in _sitemap_src132]
+        # [FIX 2026-11-01] <loc> の値を取り出して正規 URL と**完全一致**で照合する。旧形は sitemap 全体に
+        #   部分文字列 ("/" + p + "<" 等) を探しており、(i) コメント内の散文「Authoritative Source:
+        #   …/llms-full.txt」で満たされ、(ii) "/llms.txt<" が "/.well-known/llms.txt</loc>" の末尾でも
+        #   満たされた —— llms.txt / llms-full.txt のエントリを消しても緑だった (実測)。
+        _locs132 = set(re.findall(r"<loc>\s*([^<\s]+)\s*</loc>",
+                                  re.sub(r"<!--.*?-->", "", _sitemap_src132, flags=re.S)))
+        _base132 = (_mdata132.get("entity", {}).get("canonical_url") or "").rstrip("/") + "/"
+        _missing132 = [p for p in _ev_paths132 if _base132 + p not in _locs132]
         check(
-            bool(_ev_paths132) and not _missing132,
+            bool(_ev_paths132) and _base132 != "/" and not _missing132,
             f"Check 132: aio-manifest の text evidence {len(_ev_paths132)} 件すべてが sitemap.xml に <loc> 掲載 (crawler discoverability)",
             f"Check 132: aio-manifest 登録 evidence が sitemap.xml に欠落: {_missing132} — "
             "登録済 doc は sitemap.xml にも <loc> を追加せよ (sitemap 経由 crawler が到達できない discoverability gap)"
@@ -420,9 +431,16 @@ def run(ctx):
                 _bad482.append(f"index.html:{_ln482} {_t482.group(0)[:60]}")
     else:
         _bad482.append("index.html が無い")
+    _sm482 = ROOT / "sitemap.xml"
+    if _sm482.exists():
+        _ssrc482 = _sm482.read_text(encoding="utf-8")
+        for _c482 in re.finditer(r"<!--.*?-->", _ssrc482, re.S):
+            for _t482 in re.finditer(r"<loc>\s*https?://[^<]*</loc>", _c482.group(0)):
+                _ln482 = _ssrc482.count("\n", 0, _c482.start() + _t482.start()) + 1
+                _bad482.append(f"sitemap.xml:{_ln482} {_t482.group(0)[:60]}")
     check(
         not _bad482,
-        "Check 482: index.html の HTML コメントに実タグの形 (属性つき meta / link・src つき script) が無い",
+        "Check 482: index.html / sitemap.xml のコメントに実タグ・実エントリの形 (属性つき meta / link・src つき script・<loc>URL</loc>) が無い",
         f"Check 482: index.html の HTML コメントに実タグの形がある: {_bad482[:5]} —— "
         "index.html を読む Check の多くはコメントを除かずにタグを探すので、タグをコメントへ移す "
         "(一時的に無効化する) と、削除なら捕まる退行が素通りする (2026-11-01 に 109 タグで実測)。"
