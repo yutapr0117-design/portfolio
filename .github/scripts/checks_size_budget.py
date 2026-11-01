@@ -104,6 +104,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        名乗りながら 71% が実測でない状態だった。cold-start の読者はこの表で headroom を
        判断するため、間違った数値は無いより悪い。CLAUDE.md §7 の教訓「『生じないように』は
        doc/convention でなく Check で機械強制せよ」の未適用箇所。(BLOCKING)
+       424b: §2 表の path の形をした行は、すべて照合の正規表現で読めること（読めない行を黙って飛ばさない・2026-11-01）。
   443. **advisory 予算は hard ceiling より厳密に小さいこと** (BLOCKING): `file-size-budget.md`
        の BUDGET-DATA に登録された advisory 予算が、Check 365 の hard ceiling (1,000 行) 以上だと
        **その file には早期警告が構造的に一度も出ない** —— OK からいきなり BLOCKING へ飛ぶ。
@@ -303,7 +304,23 @@ def run(ctx):
         _src424 = _budget424.read_text(encoding="utf-8")
         _stale424 = []
         _checked424 = 0
-        for _m424 in re.finditer(r"^\| `([^`]+)` \| ([\d,]+) \| ([\d,]+) \| `", _src424, re.M):
+        # **2026-11-01 是正 (portfolio-bb の発見)**: 旧正規表現は「| `path` | N | N | `」の空白 1 個ずつ
+        #   しか読まず、数字の前に空白が詰まった行 (AUDIT-LEDGER) と、予算列が `—` の protected 行
+        #   (index.html / llms-full.txt / AI2AI.md / ChatGPT2ChatGPT.md / AI2AI-archive.md) を
+        #   **黙って照合から外していた** (5 件中 4 件が stale のまま OK)。空白と `—` を許し、さらに
+        #   「path の形をした行のうち読めなかったもの」を 424b で RED にする (読めない行を無言で飛ばさない)。
+        _rows424 = re.compile(r"^\|\s*`([^`]+)`\s*\|\s*([\d,]+)\s*\|\s*([\d,]+|—|-)\s*\|\s*`", re.M)
+        _read424 = {_m.group(1) for _m in _rows424.finditer(_src424)}
+        _pathrows424 = set(re.findall(r"^\|\s*`([^`/]*/[^`]+|[^`]+\.[A-Za-z0-9]+)`\s*\|", _src424, re.M))
+        _unread424 = sorted(_pathrows424 - _read424)
+        check(
+            not _unread424,
+            f"Check 424b: §2 表の path 行 {len(_pathrows424)} 件をすべて読めている (照合から黙って外れた行が無い)",
+            (f"Check 424b: §2 表に読めない path 行がある: {_unread424[:8]}。列の形 "
+             "「| `path` | 実測行数 | 予算 (数字 or —) | `種別` |」を崩すと、その行は Check 424 の照合から"
+             "**黙って外れる** (2026-11-01 まで空白の詰まった行と `—` 予算の 5 行がそうだった)"),
+        )
+        for _m424 in _rows424.finditer(_src424):
             _p424 = ROOT / _m424.group(1)
             if not _p424.exists():
                 continue  # 存在検証は Check 71 の担当
