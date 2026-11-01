@@ -529,6 +529,15 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 471 (j): 同じ文書に同じ ## 見出しをもう 1 つ置く —— § 参照の着地点が決まらなくなる "
+            "(2026-11-01 に jurisdictions.md の「## 9.」と AS-OF.md の同一節で実測・portfolio-bb の発見)",
+    "file": ROOT / "LICENSES" / "AS-OF.md",
+    "find": "## Status of this submission\n",
+    "replace": "## Status of this submission\n\n## Status of this submission\n",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
