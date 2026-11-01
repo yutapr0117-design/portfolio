@@ -504,6 +504,15 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 468n: 草案冒頭の変更一覧の 1 箇条の語数申告をずらす —— 申告の合計が「申告語数 − 前の凍結版の語数」と"
+            "合わなくなる。一覧は差分のすべてだと宣言しており、468 は合計語数しか見ていなかった (portfolio-25 の自己記述レンズ)",
+    "file": CURRENT_DRAFT,
+    "find": "(+21 words.)",
+    "replace": "(+20 words.)",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

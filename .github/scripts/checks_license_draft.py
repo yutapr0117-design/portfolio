@@ -34,6 +34,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        **468k は LICENSES/*.md の「いまの作業場は `ACD-N-DRAFT.txt`」等の現在形の記述が、
        いまの草案を指すことを見る** —— 2026-10-29 に 7 箇所（英語の入口を含む）が 1.3 草案を
        指したままだったのを実測した。
+       **468n は冒頭の変更一覧が直前の凍結版との差分のすべてを述べることを見る** —— 本文が変わった条は
+       どれかの箇条に名指され、箇条の語数申告の合計が「申告語数 − 前版の語数」に一致する (25 の自己記述レンズ)。
        **468m は §16.4 が Steward 例外の中でも「1 識別子 = 1 固定本文」を保つことを見る** ——
        2026-11-01 に外部レビューの指摘で直した保証が、短くする圧力で黙って落ちるのを止める。
        **468l は草案の全行が 80 桁以内であることを見る** —— 1.0 は全行 ≤80 だが 1.1〜1.3 は
@@ -372,6 +374,52 @@ def run(ctx):
                 f"468k: 「いまの作業場」が現在の草案 {_dr468.name} を指していない: {_stale468k}。"
                 "**版を確定したら、現在形で作業場を名指す記述をすべて追従させる**"
                 "（歴史の文は書き換えず、日付つきの追記で最後に現在の名前を置く）")
+
+        # ── 468n: 冒頭の変更一覧が、直前の凍結版との差分のすべてを述べていること ──────────────
+        #   portfolio-25 が 2026-11-01 に手で回した「自己記述」レンズの機械化。草案の冒頭は「一覧が差分の
+        #   すべて」と宣言するが、468 は合計語数しか見ておらず、**確定日に箇条を 1 つ書き落とすと静かに
+        #   消える**。(a) 直前の凍結版から本文の語の列が変わった条は、どれかの箇条に "Section X.Y" として
+        #   現れる (版番号だけの置換は免除) / (b) 箇条が申告する "(+N words" / "(-N word" の合計 =
+        #   草案の申告語数 − 前版の本文語数。前版は「草案より小さい版のうち、冒頭で FROZEN TEXT を名乗る最新」
+        #   から導出する (版移行で自動追従・Check 468 の草案 path と同じ規律)。
+        _mv468n = re.match(r"ACD-(\d+)\.(\d+)-DRAFT\.txt$", _dr468.name)
+        if _mv468n:
+            _dv468n = (int(_mv468n.group(1)), int(_mv468n.group(2)))
+            _prev468n = None
+            for _p468n in sorted((ROOT / "LICENSES").glob("ACD-*.txt")):
+                _mp = re.match(r"ACD-(\d+)\.(\d+)\.txt$", _p468n.name)
+                if not _mp or (int(_mp.group(1)), int(_mp.group(2))) >= _dv468n:
+                    continue
+                if "FROZEN TEXT" not in _p468n.read_text(encoding="utf-8").split("\n", 1)[0]:
+                    continue
+                if _prev468n is None or (int(_mp.group(1)), int(_mp.group(2))) > _prev468n[0]:
+                    _prev468n = ((int(_mp.group(1)), int(_mp.group(2))), _p468n)
+            if _prev468n:
+                _pv468n = f"{_prev468n[0][0]}.{_prev468n[0][1]}"
+                _dvs468n = f"{_dv468n[0]}.{_dv468n[1]}"
+                _ptxt468n = _prev468n[1].read_text(encoding="utf-8")
+                _pbody468n = _ptxt468n.split(_sep468, 1)[1] if _sep468 in _ptxt468n else _ptxt468n
+                _dbody468n = _t468.split(_sep468, 1)[1] if _sep468 in _t468 else _t468
+                _rx468n = r"^  (\d+\.\d+)\s+(.*?)(?=^  \d+\.\d+\s|^\d+\.\s|\Z)"
+                _pc468n = {k: " ".join(v.split()) for k, v in re.findall(_rx468n, _pbody468n, re.M | re.S)}
+                _dc468n = {k: " ".join(v.split()) for k, v in re.findall(_rx468n, _dbody468n, re.M | re.S)}
+                _changed468n = [k for k in sorted(set(_pc468n) | set(_dc468n), key=lambda x: tuple(map(int, x.split("."))))
+                                if _pc468n.get(k, "") != _dc468n.get(k, "")
+                                and _pc468n.get(k, "").replace(_pv468n, _dvs468n) != _dc468n.get(k, "")]
+                _hdr468n = _t468.split(_sep468, 1)[0]
+                _bul468n = "\n".join(re.split(r"\n    \* ", _hdr468n)[1:])
+                _named468n = set(re.findall(r"Section (\d+\.\d+)", _bul468n))
+                _unlisted468n = [k for k in _changed468n if k not in _named468n]
+                if _unlisted468n:
+                    _bad468.append(f"468n: ACD-{_pv468n} から本文が変わったのに冒頭の変更一覧が名指さない条: "
+                                   f"{['§' + k for k in _unlisted468n]} (一覧は差分のすべてだと宣言している)")
+                _sum468n = sum(int(_s + _n) for _s, _n in re.findall(r"\(([+-])(\d+) words?\b", _hdr468n))
+                _mw468n = re.search(r"This draft: ([\d,]+) words", _t468)
+                if _mw468n:
+                    _diff468n = int(_mw468n.group(1).replace(",", "")) - len(_pbody468n.split())
+                    if _sum468n != _diff468n:
+                        _bad468.append(f"468n: 変更一覧の語数申告の合計 {_sum468n:+d} が、申告語数 − ACD-{_pv468n} の本文語数 "
+                                       f"({_diff468n:+d}) と一致しない (箇条の書き落とし・申告の誤り)")
 
         # ── 468m: §16.4 が「1 識別子 = 1 固定本文」を Steward 例外の中でも保つこと ─────────────
         #   2026-11-01、外部 AI の敵対的レビュー (against.md #279) が、§16.4 の Steward 例外は版番号の
