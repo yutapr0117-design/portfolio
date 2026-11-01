@@ -281,20 +281,23 @@ def run(ctx):
         # (e) against.md が自分の規模について述べる数字。**2026-09-05 に 3 件 stale で見つかった** ——
         #   「43 entries」「14 から 33 へ」「33 adverse facts」と書いてあり実測は 51 だった。
         #   append-only の一覧を持つ文書は、**自分の規模を本文で述べた瞬間に古くなる**。
+        #   **語と語の間は `\s+` で読む** (2026-11-02): 総括の文は「38」の直後で行が折り返されて
+        #   おり (`38\n   errata`)、空白 1 個の正規表現が一致せず、errata 数が 38 のまま 10 件分
+        #   古くなったのを 9 日間素通りしていた。同じ文の不利な事実の数だけが毎回直されていた。
         _ag460 = ROOT / "LICENSES" / "ACD-1.0.against.md"
         if _ag460.exists():
             _agt = _ag460.read_text(encoding="utf-8")
             _rows460 = len(re.findall(r"^\| \d+ \|", _agt, re.M))
-            for _m5 in re.finditer(r"grown from \d+ entries to \*\*(\d+)\*\*", _agt):
+            for _m5 in re.finditer(r"grown\s+from\s+\d+\s+entries\s+to\s+\*\*(\d+)\*\*", _agt):
                 if int(_m5.group(1)) != _rows460:
                     _bad460.append(f"against.md の規模: 申告 {_m5.group(1)} / 実測 {_rows460}")
-            for _m6 in re.finditer(r"produced \*\*(\d+) adverse facts", _agt):
+            for _m6 in re.finditer(r"produced\s+\*\*(\d+)\s+adverse\s+facts", _agt):
                 if int(_m6.group(1)) != _rows460:
                     _bad460.append(f"against.md の総括: 申告 {_m6.group(1)} / 実測 {_rows460}")
             _er460 = ROOT / "LICENSES" / "ACD-1.0.errata.md"
             if _er460.exists():
                 _ercnt = len(re.findall(r"^\| E\d+ \|", _er460.read_text(encoding="utf-8"), re.M))
-                for _m7 in re.finditer(r"(\d+) errata", _agt):
+                for _m7 in re.finditer(r"(\d+)\s+errata\b", _agt):
                     if int(_m7.group(1)) != _ercnt:
                         _bad460.append(f"against.md の errata 数: 申告 {_m7.group(1)} / 実測 {_ercnt}")
 
