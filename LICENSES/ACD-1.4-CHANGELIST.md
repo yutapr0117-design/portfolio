@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.4-CHANGELIST.md
 audience: OSI license-discuss / license-review participants, licence reviewers, a future drafter
-last-updated: 2026-10-28
+last-updated: 2026-11-01
 canonical-ref: LICENSES/ACD-1.4-DRAFT.txt (草案) / LICENSES/ACD-1.3.txt (直前の確定テキスト・凍結・このリポジトリに適用中) / LICENSES/ACD-1.3-CHANGELIST.md (1.2 → 1.3 の記録) / LICENSES/ACD-1.0.errata.md
 ---
 
@@ -20,6 +20,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §5.2(b) | 付随手段の列挙に「acceptable-use policy」を足す | 公開されたモデルの制限は利用規定（AUP）経由が普通で、公開後に改訂される（Moesif が Llama の AUP と Gemma 利用規約の改訂を挙げる）。**逆側**: §2.2（後から条件を足さない）と「その他の付随手段」で既に覆っていた。名指しは明確化にとどまる | +1（2 語足し、改行で割れていた click-through が 1 語に戻った） | 反映済み |
 | §9.1 | 機械生成物の例として「訓練で生じた機械学習モデルのパラメータ」を名指す | OSAID 1.0 の原文（`https://opensource.org/ai/open-source-ai-definition`）は、パラメータについて *"They may be free by their nature or a license or other legal instrument may be required to ensure their freedom"* と述べ、答えを開いたままにしている。§9 はどちらの答えでも働くように書いてあるが（§9.2 / §9.3）、重みに ACD を付ける読み手がそれを §1.8 の定義から自分で導く必要があった。**逆側**: §1.8 は「自動化システムが生成した部分」を定義しているので、重みは既に該当していた。法的効果は増えず、語数が 12 増える（B3） | +12 | 反映済み |
 | §4.2 | 許諾に含まれる行為に「study, inspect, analyse, reverse engineer」を足す | OSAID 1.0 の 4 つの自由（使用・研究と検査・改変・共有）のうち、§4.2 の列挙は使用・改変・共有の行為を名指すのに**研究と検査だけ名指していなかった**（下の照合表で発見）。重みは目的コードに近い形で配られるので、検査は解析・リバースエンジニアリングの形をとる。**逆側**: §4.1 が「全ての Covered Rights をあらゆる目的で」許諾し、§4.2 は例示（§15.5）なので、受領者の権利は増えない。他人の材料の解析を許すものでもない（§2.7）。語数 +5（B3） | +5 | 反映済み |
+| §8.1 / §8.4 | §8.1 の *"any derivative of the Work"* を *"anything derived from the Work"* へ。§8.4 の説明文 *"a derivative of it"* も *"derived from it"* へ揃える | errata **E41**（2026-11-01・bb の内部チェックで発見）。"derivative" は定義語でなく、§4.2 は同じ考えを著作権の語（*create derivative … works* / *any adaptation*）で述べるので、特許の許諾の中で著作権法上の *derivative work*（法域で意味が変わる）と読まれうる。2 案（平易な意味と明記 / §4.2 の語へ揃える）のうち、**特許の許諾に著作権の語を持ち込まないため平易な語を選んだ**。**⚠ 逆側**: §8.1 の但し書き（*caused by subject matter contained in the Work*）がどちらの読みでも射程を縛り、§15.1 が受領者有利に読み、AI の場合は §8.4 が別に名指すので、**変わるのは審査者の問いであって受領者の得失ではない**。平易な *derived* は copyright の *derivative work* より広く読めるが、広がった分は但し書きが切る | −1（§8.1 は 0・§8.4 は −1） | 反映済み
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
@@ -27,6 +28,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 |---|---|---|---|
 | E39 | §8.5 | 「controlled」の定義を足した（+37 語） | **反映済み**（2026-10-26）|
 | E40 | §8.4 | 行為の列挙を §8.1 と同じ語へ（−2 語） | **反映済み**（2026-10-26）|
+| E41 | §8.1 / §8.4 | "derivative" を平易な語 *derived from* へ（−1 語） | **反映済み**（2026-11-01）|
 
 ## 外部資料 5 本を当てた結果（2026-10-28・オーナーが URL を渡した・clean も書き残す）
 

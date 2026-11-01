@@ -68,7 +68,13 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       and share -- and the list named acts for three of them but not the
       second. The list was not limiting, so nothing is added that a reader
       could not already rely on. (+5 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5519 words, 80 clauses.
+    * Section 8.1 now says "anything derived from the Work" where it said
+      "any derivative of the Work" (errata E41). "Derivative" is not a
+      defined term, and a reader could take it as copyright's "derivative
+      work", whose meaning varies by jurisdiction, in a patent grant; the
+      plain words carry the meaning intended. Section 8.4's explanation of
+      why it is needed now says "derived from it" to match. (-1 word.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5518 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -412,7 +418,7 @@ PREAMBLE (informative; not part of the operative terms)
        every patent claim owned or controlled by the Dedicator, now or in
        future, that would be infringed by making, having made, using, offering
        to sell, selling, importing, or otherwise transferring the Work, or by
-       doing any of those things in respect of any derivative of the Work,
+       doing any of those things in respect of anything derived from the Work,
        where the infringement is caused by subject matter contained in the Work
        as made available by the Dedicator.
 
@@ -438,8 +444,8 @@ PREAMBLE (informative; not part of the operative terms)
        making, having made, using, offering to sell, selling, importing, or
        otherwise transferring any model, parameter set, weight, embedding, or
        output resulting from that use. This is a grant in its own right and not a
-       clarification of Section 8.1: whether a trained model is "the Work" or a
-       derivative of it is unresolved, and a provision that merely avoided
+       clarification of Section 8.1: whether a trained model is "the Work" or
+       derived from it is unresolved, and a provision that merely avoided
        doubt would be read down with the reading it was meant to correct. The
        grant is necessary because Covered Rights exclude patent rights (Section
        1.5), so Section 6.4 alone would leave Computational Use permitted as to
