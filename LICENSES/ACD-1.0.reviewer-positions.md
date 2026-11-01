@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.reviewer-positions.md
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人
-last-updated: 2026-10-17
+last-updated: 2026-11-01
 canonical-ref: LICENSES/ACD-1.0.review-precedents.md (提出ごとの記録) / LICENSES/ACD-1.0.objection-map.md (1 表の要約) / LICENSES/ACD-1.0.against.md
 ---
 
