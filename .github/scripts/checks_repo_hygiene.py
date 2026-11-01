@@ -393,9 +393,25 @@ def run(ctx):
                   blocking=True)
 
             # (40b) checker prefers the local binary installed by `npm ci`
-            check("node_modules/.bin/stylelint" in _css_src,
-                  "Check 40b: check_css_stylelint.py references node_modules/.bin/stylelint "
-                  "(local-binary-preferred execution)",
+            # [FIX 2026-11-01] 旧実装は "node_modules/.bin/stylelint" の**文字列**が file のどこかに
+            #   在るかを見ていた。その 3 回の出現は docstring・コメント・print の文言だけで、実際の解決は
+            #   `ROOT / "node_modules" / ".bin" / "stylelint"` の path 結合 —— **local binary を優先する
+            #   コードを丸ごと消しても緑だった**。resolve_stylelint_cmd の本体 (docstring とコメントを除く) を
+            #   読み、local binary の path を組み立て、npx より**先に**試していることを見る。
+            import ast as _ast40
+            _code40 = ""
+            for _nd40 in _ast40.walk(_ast40.parse(_css_src)):
+                if isinstance(_nd40, _ast40.FunctionDef) and _nd40.name == "resolve_stylelint_cmd":
+                    _body40 = [_b for _b in _nd40.body
+                               if not (isinstance(_b, _ast40.Expr) and isinstance(getattr(_b, "value", None), _ast40.Constant))]
+                    _code40 = "\n".join(_ast40.unparse(_b) for _b in _body40)
+            _ilocal40 = min([_i for _i in (_code40.find("'node_modules' / '.bin' / 'stylelint'"),
+                                            _code40.find("node_modules/.bin/stylelint")) if _i >= 0] or [-1])
+            _inpx40 = _code40.find("'npx'")
+            _local_first40 = _ilocal40 >= 0 and (_inpx40 < 0 or _ilocal40 < _inpx40)
+            check(_local_first40,
+                  "Check 40b: check_css_stylelint.py の resolve_stylelint_cmd が node_modules/.bin/stylelint を "
+                  "npx より先に試す (local-binary-preferred execution・コードで確認)",
                   "Check 40b: check_css_stylelint.py does not reference "
                   "node_modules/.bin/stylelint — it must prefer the locally installed binary "
                   "over npx (reproducibility / no npm-cache false-green)",

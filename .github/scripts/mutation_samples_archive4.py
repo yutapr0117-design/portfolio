@@ -190,4 +190,63 @@ MUTATIONS_ARCHIVE4 = [
     "replace": '\n## Impact',
     "check": CHECK,
 },
+    {
+    "name": 'Check 91: aio-manifest の last_metadata_update を千年前へずらす —— binary 内の日付と manifest の日付が食い違う (値を含まない prefix で当てる・日付は更新のたび動く)',
+    "file": ROOT / ".well-known" / "aio-manifest.json",
+    "find": '"last_metadata_update": "2',
+    "replace": '"last_metadata_update": "1',
+    "check": CHECK,
+},
+    {
+    "name": 'Check 95: _lib_io の日付 helper の定義名を変える —— B1/B2 tool が共有するはずの helper が契約から外れる',
+    "file": ROOT / ".github" / "scripts" / "_lib_io.py",
+    "find": 'def update_mp3_metadata_date(',
+    "replace": 'def update_mp3_metadata_date_v2(',
+    "check": CHECK,
+},
+    {
+    "name": "Check 424b: §2 表の 1 行の実測行数の列を数字でない形にする —— 2026-11-01 まで、読めない行は "
+            "照合から黙って外れ、外れた 5 行中 4 行が stale のまま Check 424 は OK を出していた (portfolio-bb の発見)",
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": "| `ChatGPT2ChatGPT.md` | ",
+    "replace": "| `ChatGPT2ChatGPT.md` | ~",
+    "check": CHECK,
+},
+    {
+    "name": 'Check 21: llms の alias 1 つだけ Last-Updated を千年前へ —— alias 間で更新日が食い違う (値を含まない prefix で当てる)',
+    "file": ROOT / "llms_well-known.txt",
+    "find": '- Last-Updated: 2',
+    "replace": '- Last-Updated: 1',
+    "check": CHECK,
+},
+    {
+    "name": 'Check 24: llms-full.txt の Last-Updated を千年前へ —— AI2AI.md と 7 日を超えて離れ、v75-v78 の床も割る',
+    "file": ROOT / "llms-full.txt",
+    # Check 24 は本文の `## Last-Updated` 節を優先して読む (ヘッダ行は fallback)。ヘッダを打つと発火しない
+    # (初版で実測) ので、優先して読まれる方を打つ。
+    "find": '## Last-Updated\n\n2',
+    "replace": '## Last-Updated\n\n1',
+    "check": CHECK,
+},
+    {
+    "name": 'Check 27: llms-full.txt の制約範囲の表記を C1–C6 へ戻す —— 範囲の表記だけ古いと、展開する agent は C7 を知らずに動く',
+    "file": ROOT / "llms-full.txt",
+    "find": 'violates C1–C7',
+    "replace": 'violates C1–C6',
+    "check": CHECK,
+},
+    {
+    "name": 'Check 31: Claude2Claude.md の現在状態が最新 Session Record 番号を指さなくなる —— 引き継ぎの補助面が canon から遅れる (番号を含まない prefix で当てる)',
+    "file": ROOT / "Claude2Claude.md",
+    "find": '**最新 Session Record：#',
+    "replace": '**最新 Session Record：#X',
+    "check": CHECK,
+},
+    {
+    "name": 'Check 32: index.html の JSON-LD を JSON として壊す —— 構造化データが丸ごと読めなくなる',
+    "file": ROOT / "index.html",
+    "find": '"@context": "https://schema.org",',
+    "replace": '"@context": "https://schema.org",,',
+    "check": CHECK,
+},
 ]
