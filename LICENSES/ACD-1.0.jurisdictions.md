@@ -444,32 +444,6 @@ Material"* と述べているのは、この状況に対してである** ——
 
 ---
 
-## 9. この文書の限界（先に自分から述べる）
-
-1. **弁護士の確認を経ていない。** 本書は条文と公開された一般的理解の対応づけであり、
-   法的助言ではない。
-2. **各法域の記述は「問いの所在」であって結論ではない。** 「確立していないこと」の節を
-   各所に置いてあるのはそのためである。
-3. **法は動く。** 本書は 2026-08-27 時点の理解であり、**引用した唯一の法令（DSM 指令
-   4 条 3 項）以外は条文番号を挙げていない** —— 番号を挙げれば正確さの保証が要るが、
-   本書が主張するのは「本文のどこで手当てしているか」だけだからである。
-4. **訂正を歓迎する。** とくに §12（人格権）と §2.9（non-executory）は、指摘を最も得たい面である。
-
-> **English (closing, if the thread turns to jurisdictions):**
->
-> I have written down where I think the questions are, jurisdiction by jurisdiction, and
-> which clause is meant to answer each one. I have deliberately not written down what I think
-> the law is, because I have not had counsel look at this and I would rather be shown to have
-> mapped the questions than to have guessed the answers.
-
----
-
-**Lost?** [`QUESTION-INDEX.md`](QUESTION-INDEX.md) indexes every worked entry in this directory by
-the question it answers. [`AS-OF.md`](AS-OF.md) lists which claims about the outside world were
-verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against approving this.
-
----
-
 ## 9. 外から届いた、未読の法源（2026-09-20・`against.md` #170）
 
 **2026-09-20 の敵対的レビューが名前を挙げた法源・判例のうち、本ドシエが一度も記録していなかったもの。**
@@ -754,3 +728,29 @@ ACD が採るのは別の経路で、**(a) §3 の surrender は完了した行�
 （`against.md` #178）。**⚠ 逆側**: 断定を緩めれば依拠価値が下がり語数も増える（B3）。
 **実際に効いているのは断定ではなく §2.8 との接続**なので、直すべきは文言より、
 **問われたときにこの判決を引ける準備の方である**（`review-responses-boilerplate.md` Q25）。
+
+---
+
+## 10. この文書の限界（先に自分から述べる）
+
+1. **弁護士の確認を経ていない。** 本書は条文と公開された一般的理解の対応づけであり、
+   法的助言ではない。
+2. **各法域の記述は「問いの所在」であって結論ではない。** 「確立していないこと」の節を
+   各所に置いてあるのはそのためである。
+3. **法は動く。** 本書は 2026-08-27 時点の理解であり、**引用した唯一の法令（DSM 指令
+   4 条 3 項）以外は条文番号を挙げていない** —— 番号を挙げれば正確さの保証が要るが、
+   本書が主張するのは「本文のどこで手当てしているか」だけだからである。
+4. **訂正を歓迎する。** とくに §12（人格権）と §2.9（non-executory）は、指摘を最も得たい面である。
+
+> **English (closing, if the thread turns to jurisdictions):**
+>
+> I have written down where I think the questions are, jurisdiction by jurisdiction, and
+> which clause is meant to answer each one. I have deliberately not written down what I think
+> the law is, because I have not had counsel look at this and I would rather be shown to have
+> mapped the questions than to have guessed the answers.
+
+---
+
+**Lost?** [`QUESTION-INDEX.md`](QUESTION-INDEX.md) indexes every worked entry in this directory by
+the question it answers. [`AS-OF.md`](AS-OF.md) lists which claims about the outside world were
+verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against approving this.

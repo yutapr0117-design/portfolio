@@ -113,7 +113,7 @@ Kingdom (CDPA s.94) make the rights non-transferable, so §12.2 applies there; w
 jurisdiction in the gap, which is why the text was not changed (2026-11-01).
 
 **An answer would change** §12.2 and §12.4, the clauses on which the dossier most wants correction
-(`jurisdictions.md` §9).
+(`jurisdictions.md` §10).
 
 ## 4. Does a contribution fall under the Dedication by default? (§2.6, §1.9)
 
