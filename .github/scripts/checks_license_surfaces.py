@@ -186,7 +186,13 @@ def run(ctx):
 
             # 444d — sitemap から全文へ到達できること
             _sm444 = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
-            if _url444 not in _sm444:
+            # 照合は <loc> の値の完全一致で行う (コメントは除く)。2026-11-02 まで sitemap 全文の
+            # 部分文字列で見ており、全文の <url> を丸ごと消しても、画像の
+            # `<image:license>` (444h が同じ URL であることを要求する) と説明コメントが同じ URL を
+            # 持つので緑のままだった (Check 132 と同じ class)。
+            _locs444 = set(re.findall(
+                r"<loc>\s*([^<\s]+)\s*</loc>", re.sub(r"<!--.*?-->", "", _sm444, flags=re.S)))
+            if _url444 not in _locs444:
                 _bad444.append(f"sitemap.xml に {_rel444} の <loc> が無い (crawler が到達できない)")
 
             # 444h — sitemap の画像ライセンス宣言が canonical と食い違わないこと。
@@ -218,10 +224,16 @@ def run(ctx):
             _md444 = ROOT / _mrel444
             if _md444.exists():
                 _murl444 = _url444.replace(_rel444, _mrel444)
-                if _murl444 not in _sm444:
+                if _murl444 not in _locs444:
                     _bad444.append(f"sitemap.xml に {_mrel444} の <loc> が無い (記述子へ到達できない)")
-                _rb444 = (ROOT / "robots.txt").read_text(encoding="utf-8")
-                if _mrel444 not in _rb444:
+                # robots は Allow rule の値で見る (コメント中の path 言及では満たされない)
+                from _lib_io import parse_robots_groups as _groups444
+                _allow444 = {
+                    _v.lstrip("/") for _ag, _rules in _groups444(
+                        (ROOT / "robots.txt").read_text(encoding="utf-8"))
+                    for _k, _v in _rules if _k == "allow"
+                }
+                if not ({_mrel444, "portfolio/" + _mrel444} & _allow444):
                     _bad444.append(f"robots.txt が {_mrel444} を Allow していない")
                 try:
                     _mlic444 = _json444.loads(

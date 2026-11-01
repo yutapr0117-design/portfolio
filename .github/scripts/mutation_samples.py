@@ -520,6 +520,22 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 444: sitemap からライセンス全文の <loc> を消す —— 旧形は sitemap 全文の部分文字列で見ており、同じ URL を持つ <image:license> で満たされて緑だった',
+    "file": ROOT / "sitemap.xml",
+    "find": "    <loc>https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.3.txt</loc>\n",
+    "replace": "",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 444: robots.txt の記述子の Allow を説明コメントにする —— 旧形は robots 全文の部分文字列で見ており、コメント中の path 言及で満たされた',
+    "file": ROOT / "robots.txt",
+    "find": "Allow: /portfolio/LICENSES/ACD-1.3.machine.json\n",
+    "replace": "# 旧: Allow: /portfolio/LICENSES/ACD-1.3.machine.json\n",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
