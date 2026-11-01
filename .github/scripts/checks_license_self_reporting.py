@@ -79,6 +79,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        実測 (2026-11-01・portfolio-bb): `### A29` が `## B. プロセスの疑問` の直下に足されたときから置かれ、
        索引も mirror も「A. 使う側 N 問」と数えるので読み手は A29 を B 節の中で探すことになった。
        (b) の件数は `### A` の数しか見ないので、この配置は検出できなかった。
+       (u) **172 観点の仕分け表 (`ACD-1.4-ADVERSARIAL-TRIAGE.md`) の TRIAGE-TALLY ↔ 各行の［分類］から数えた件数**。
+       行の数は固定だが、分類は検証のたびに動く (2026-11-01 の相互検証だけで 4 行が変わった)。集計は
+       一度書いたきり導出し直されない形の典型なので、行から数えて照合する。凡例に無い語・［］を持たない行も止める。
        (s) **散文の「Check 463 は N 項目を強制する」 ↔ その Check の実装から導出した数**。
        実測 (2026-09-26): `READY-TO-SUBMIT.md` が「**10 項目**」と述べ、実装は **12**。
        **同じ file の 4 行の中で、これと (r) の §B.0 語数が同時に古くなっていた** ——
@@ -193,6 +196,37 @@ def run(ctx):
                 _bad460.append(f"submission.md worked entries: 申告 {_m.group(1)} / 実測 {_entries460}")
             if int(_m.group(2)) != _short460:
                 _bad460.append(f"submission.md short answers: 申告 {_m.group(2)} / 実測 {_short460}")
+
+        # (u) 172 観点の仕分け表の集計 (TRIAGE-TALLY) が、各行の［分類］から数えた件数と一致すること
+        _tr460u = _L460 / "ACD-1.4-ADVERSARIAL-TRIAGE.md"
+        if _tr460u.exists():
+            _tt460u = _tr460u.read_text(encoding="utf-8")
+            _legend460u = {_w for _w in re.findall(r"^\| \*\*([^*|]+)\*\* \| [^|]+ \|$", _tt460u, re.M) if _w != "未"}
+            _rows460u = [_l for _l in _tt460u.split("\n") if re.match(r"^\| [A-J]-\d{2} \|", _l)]
+            _cnt460u, _nolabel460u, _odd460u = {}, [], []
+            for _l in _rows460u:
+                _last = _l.rstrip().rstrip("|").split("|")[-1].strip()
+                _ml = re.match(r"^［([^］]+)］", _last)
+                if not _ml:
+                    _nolabel460u.append(_l.split("|")[1].strip())
+                    continue
+                _cnt460u[_ml.group(1)] = _cnt460u.get(_ml.group(1), 0) + 1
+                if _ml.group(1) not in _legend460u:
+                    _odd460u.append(f"{_l.split('|')[1].strip()}={_ml.group(1)}")
+            _mb460u = re.search(r"<!-- TRIAGE-TALLY -->(.*?)<!-- /TRIAGE-TALLY -->", _tt460u, re.S)
+            if not _mb460u:
+                _bad460.append("(u) 仕分け表に TRIAGE-TALLY の集計が無い")
+            else:
+                _decl460u = {_k: int(_v) for _k, _v in re.findall(r"^\| ([^|*]+?) \| (\d+) \|$", _mb460u.group(1), re.M)}
+                _tot460u = re.search(r"\| \*\*計\*\* \| \*\*(\d+)\*\* \|", _mb460u.group(1))
+                if _decl460u != _cnt460u:
+                    _bad460.append(f"(u) TRIAGE-TALLY {_decl460u} が行から数えた件数 {_cnt460u} と食い違う")
+                if not _tot460u or int(_tot460u.group(1)) != len(_rows460u):
+                    _bad460.append(f"(u) TRIAGE-TALLY の計 {(_tot460u.group(1) if _tot460u else '無し')} が行数 {len(_rows460u)} と食い違う")
+            if _nolabel460u:
+                _bad460.append(f"(u) ［分類］を持たない行がある: {_nolabel460u[:8]}")
+            if _odd460u:
+                _bad460.append(f"(u) 凡例に無い分類語がある: {_odd460u[:8]}")
 
         # (t) FAQ の項番の頭文字が、それが置かれた節 (`## X.`) と一致すること
         _sec460t, _bad460t = None, []
