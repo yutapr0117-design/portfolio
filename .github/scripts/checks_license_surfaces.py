@@ -34,6 +34,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        「テキストが一致しない」問題を起こす)。
   451. ACD-1.0 の機械可読記述子 (`LICENSES/ACD-1.0.machine.json`) が条文と整合すること。
        451d: 1.0 以外の版の記述子 (`ACD-<ver>.machine.json`) も、それぞれの版の本文と整合すること (2026-10-17)。
+       451e: 1.3 より後の版の記述子は、gap を担う §6 / §8 / §9 をすべて引くこと (2026-11-01)。
        ACD-1.0 §6.5 は「自動化されたシステムが判定できない許諾は、学習されるための著作物に
        とっては許諾ではない」と述べる。そう述べるライセンス自身が機械から判定できないのは
        自己矛盾なので、採用者がそのままコピーできる非 operative の記述子を置いている。
@@ -505,6 +506,7 @@ def run(ctx):
     import json as _json451d
     _bad451d = []
     _seen451d = []
+    _tgt451e = []
     for _md in sorted((ROOT / "LICENSES").glob("ACD-*.machine.json")):
         _ver = _md.name[len("ACD-"):-len(".machine.json")]
         if _ver == "1.0":
@@ -554,9 +556,26 @@ def run(ctx):
             _bad451d.append(f"{_md.name}: text が自分の版の本文を指していない ({_d.get('text')!r})")
         if str(_d.get("version", "")) != _ver or str(_d.get("spdxId", "")) != f"ACD-{_ver}":
             _bad451d.append(f"{_md.name}: version/spdxId が file 名の版 {_ver} と一致しない")
+        # 451e (2026-11-01・portfolio-bb の提案 / against.md #269(b)): PREAMBLE が名乗る gap は
+        #   機械学習・特許・機械生成の 3 つで、条文では §6 / §8 / §9 が担う (468d と同じ対応)。
+        #   1.1〜1.3 の記述子は §9 を指すキーを 1 つも持たず、**記述子だけを読む消費者には 3 つ目の
+        #   gap が存在しない**。凍結で直せないので、1.3 より後の版の記述子から要求する
+        #   (記述子は版の確定で作られるので、次の確定の日に効く)。
+        try:
+            _vt451e = tuple(int(_x) for _x in _ver.split("."))
+        except ValueError:
+            _vt451e = (0,)
+        if _vt451e > (1, 3):
+            _tgt451e.append(_ver)
+            _secs451e = {_c.split(".", 1)[0] for _c in _cited}
+            _lack451e = sorted({"6", "8", "9"} - _secs451e, key=int)
+            if _lack451e:
+                _bad451d.append(f"451e: {_md.name} が gap を担う §{'/§'.join(_lack451e)} を 1 つも引いていない "
+                                "(PREAMBLE の 3 つの gap が記述子から見えない)")
     check(
         bool(_seen451d) and not _bad451d,
-        f"Check 451d: 1.0 以外の版の記述子 {_seen451d} がそれぞれの本文と整合",
+        (f"Check 451d: 1.0 以外の版の記述子 {_seen451d} がそれぞれの本文と整合 "
+         f"(451e の対象 = 1.3 より後の記述子: {_tgt451e or 'まだ無い —— 版の確定時に作られ、その日から効く'})"),
         (f"Check 451d: 版ごとの記述子が本文と食い違う: {_bad451d or '1.0 以外の記述子が 1 つも無い'}。"
          "**記述子は自分の版の条文の索引**であり、凍結された記述子は自分を守る検査を名指ししている"),
         blocking=True,
