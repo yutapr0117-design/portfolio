@@ -514,6 +514,22 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 394: pomodoro の集中時間の UI 側 clamp の上限だけを変える —— UI で入力できた値が reload 後に store の clamp で黙って戻る',
+    "file": ROOT / "js" / "pomodoro-page.js",
+    "find": 'settings.work = clamp(parseInt(e.target.value, 10) || 25, 1, 180)',
+    "replace": 'settings.work = clamp(parseInt(e.target.value, 10) || 25, 1, 240)',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 365: 追跡テキストを 1,000 行超にする —— 全非 A テキスト ≤1,000 行の capstone が肥大化を止めることの確認",
+    "file": ROOT / "CONTRIBUTING.md",
+    "find": '# Contributing\n',
+    "replace": '# Contributing\n' + "\n" * 1001,
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
