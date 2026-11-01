@@ -166,12 +166,13 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1710 words**, measured 2026-10-17)
+### B.0 The message as it should actually be sent (**1703 words**, measured 2026-11-01)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
 > **したがって提出対象は 1.0 ではなく、確定した次版になる。** 本 §B.0 の header block と URL は
 > **まだ 1.0 を指している** ——**それが誤りなのではなく、次版が確定していないからである。**
+> **⚠ 2026-11-01 訂正（§B.0 本文）: OSD 9 の根拠を「§5.2(b) and §2.3」から「§4.3 and §10.1」へ直した。** 前者は OSD 10（技術中立）の根拠で、`submission-osd.md` の逐条照合は OSD 9 = §4.3・§10.1 / OSD 10 = §2.3・§5.2(b) と分けていた。§B.0 の本文だけがそれを取り違えていた。
 > **⚠ 2026-11-01 訂正（この下の手順より新しい）: 1.2 は 2026-10-17、1.3 は 2026-10-25 に確定・凍結し、1.3 をこのリポジトリに適用した。出す版は申請の日に確定する最新版（いまの作業場は `ACD-1.4-DRAFT.txt`）で、申請の日に使う手順と材料は `SUBMISSION-MATERIALS.md` §0 にある。** 以下の 5 手は 1.2 について書かれた記録で、(4) の Check 468 はいま `ACD-1.4-DRAFT.txt` を見ている。
 > **⚠ 2026-09-26 訂正: 1.1 は 2026-09-17 に確定済みで、出す版は 1.2 になった**（オーナー 2026-09-17・`REVISION-PROTOCOL.md`）。
 > 旧文は (1) を「`ACD-1.1.txt` を確定」、(4) を「468 は `ACD-1.1.txt` を見ている」と書き、(3) は「Check 444 が一致を強制する」と述べていたが、
@@ -211,7 +212,7 @@ Open Source Definition, and to say where the licence is used.
 **Why this section exists.** The reference material this message points at — §1 through §5, which
 moved to `ACD-1.0.submission-reference.md` and `ACD-1.0.submission-osd.md` on 2026-09-09 — is
 **close to an order of magnitude longer than the message** (14,651 words against 1,701, measured
-2026-09-27 — the message is 1,710 since 2026-10-17; the authority for the message's own length is the §B.0 heading, and Check 460 (p)
+2026-09-27 — the message is 1,703 since 2026-11-01; the authority for the message's own length is the §B.0 heading, and Check 460 (p)
 checks it against the text). The list's code of conduct asks for "concise and low-volume" and that
 was restated in the August 2026 review (`REVISION-PROTOCOL.md` §3.7). **Pasting the reference
 material would contradict the design this dossier is built on**, which is that the repository holds
@@ -275,6 +276,8 @@ who knows the test, as not knowing the test.** **+133 words**（段落そのも�
 
 **And 1,710 on 2026-10-17**, when the ModelGo disagreement stopped calling its author "the chair". The quotation is from 2025-12, and the Licensing Committee chair then was Josh Berkus; Pamela Chestek had been chair until 2025-03 and has been a committee member since (board minutes 2025-01-17 and 2025-04-18). **+9 words, spent on getting a title right** —— 審査者は肩書きを自分で確かめられる人々なので、ここを誤ると引用全体の信頼が落ちる（`against.md` #186 の 2026-10-17 訂正注記）。
 
+**And 1,703 on 2026-11-01**, when the OSD 9 citation was corrected from §5.2(b) and §2.3 (the grounds for OSD 10) to §4.3 and §10.1. **−7 words, spent on citing the right clause** —— OSD 9 を名指しで満たすと述べる段落で根拠の条を取り違えていた。
+
 **Why that last addition earns its words.** *"Why another public-domain-equivalent?"* is the opening
 move in this category — Rob Landley put it as fungibility (#84), David Woolley put it to the
 UPD 1.5.2 author, Carlo Piana has put it as proliferation — and until 2026-09-09 the only answer in
@@ -331,8 +334,7 @@ Proposed Tags:                  None
 distributing them; and §16.3 lets anyone apply this text to a work in which they hold rights, so a
 derived work may be distributed **under these same terms**), **OSD 5 and OSD 6** (§4.3 states the licence is not conditioned on who You are
 or what You use the Work for, so no person, group or field of endeavour is excluded), and **OSD 9**
-(§5.2(b) and §2.3 confine the instrument to this Work, so nothing is required of other software
-distributed alongside it). I add **OSD 1 and OSD 7**, because the archive shows those are the
+(§4.3 and §10.1 impose no requirement on anything distributed alongside the Work). I add **OSD 1 and OSD 7**, because the archive shows those are the
 criteria under which a patent objection is actually raised: §8 grants a patent licence on the same
 terms to everyone who receives the Work, so nothing further has to be executed by a downstream
 recipient. A criterion-by-criterion analysis of all ten is in the repository, and so
