@@ -705,8 +705,15 @@ test('既定で無効な axe ルール (Level A/AA) を全ルートで走らせ�
   const derived = require('axe-core').getRules()
     .filter((r) => r.enabled === false && r.tags.some((t) => AXE_AA_TAGS.includes(t)))
     .map((r) => r.ruleId).sort();
+  // 失敗したら、まず手元の axe-core が lockfile と同じ版か確かめる。古い node_modules
+  // (別ディレクトリからの symlink 等) では既定無効の集合が違い、偽 RED になる (2026-11-01 実測:
+  // 4.13.0 で label-content-name-mismatch が既定無効のまま出た・lock は 4.14.0)。
+  const lockedAxe = JSON.parse(require('fs').readFileSync(require('path').join(__dirname, '..', 'package-lock.json'), 'utf8'))
+    .packages['node_modules/axe-core'].version;
+  const installedAxe = require('axe-core/package.json').version;
   expect(derived,
     'axe の既定無効ルール (Level A/AA) が変わった。新しいルールを実測してから DISABLED_AA_RULES へ足すこと'
+    + ` (installed axe-core ${installedAxe} / lock ${lockedAxe}${installedAxe === lockedAxe ? '' : ' —— 不一致: まず npm ci'})`
   ).toEqual([...DISABLED_AA_RULES].sort());
 
   const ruleOpts = {};
