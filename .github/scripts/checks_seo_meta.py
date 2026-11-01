@@ -103,8 +103,10 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        and that block must permit crawling (no `Disallow: /` directive in it). Silent regression to
        `Disallow: /` would deindex the entire site from all generic crawlers (AI + search) — a
        category-collapse for an AIO-first site that the behavior e2e cannot detect (it runs against
-       localhost, not the deployed crawl policy). This Check parses the `User-agent: *` section
-       (up to the next `User-agent:` line) and asserts no full-site disallow is present. (BLOCKING)
+       localhost, not the deployed crawl policy). This Check reads robots.txt with RFC 9309 group
+       semantics (`_lib_io.parse_robots_groups`: consecutive `User-agent:` lines form one group,
+       `#` starts a comment anywhere on a line) and asserts no group naming `*` has a full-site
+       disallow (`/`, `/*`, `/*$`). (BLOCKING)
   162. `.gitignore` baseline ignore-rules for CI/build artifacts: `.gitignore` must declare ignore
        rules for `node_modules/`, `__pycache__/`, `/test-results/`, `/playwright-report/`, and
        `/blob-report/`. Silent removal would allow accidental `git add <file>` of CI artifacts and
@@ -621,26 +623,17 @@ def run(ctx):
     _rb161 = ROOT / "robots.txt"
     if _rb161.exists():
         _rbsrc161 = _rb161.read_text(encoding="utf-8")
-        _lines161 = _rbsrc161.splitlines()
-        _section161: list[str] = []
-        _in_star161 = False
-        for _ln161 in _lines161:
-            _stripped161 = _ln161.strip()
-            if _stripped161.startswith("#") or not _stripped161:
-                continue
-            if _stripped161.lower().startswith("user-agent:"):
-                _agent161 = _stripped161.split(":", 1)[1].strip()
-                _in_star161 = _agent161 == "*"
-                continue
-            if _in_star161:
-                _section161.append(_stripped161)
-        _has_star161 = _in_star161 or len(_section161) > 0 or any(
-            ln.strip().lower() == "user-agent: *" for ln in _lines161
-        )
+        # RFC 9309 のグループで読む: `User-agent: GPTBot` の直後に `User-agent: *` が来れば
+        # 2 行で 1 グループで、その後の rule は * にも掛かる。2026-11-02 までの実装は
+        # 「次の User-agent 行で * の section を閉じる」読み方で、`User-agent: *` の直後に
+        # 別の agent 行を足しただけでその後の `Disallow: /` を見落とし、行末コメント付きの
+        # `Disallow: / # tmp` も値が `/ # tmp` になって素通りしていた。
+        from _lib_io import parse_robots_groups as _groups161, robots_full_site_disallow as _full161
+        _star_groups161 = [_r for _ag, _r in _groups161(_rbsrc161) if "*" in _ag]
+        _has_star161 = bool(_star_groups161)
         _full_disallow161 = any(
-            _ln.lower().startswith("disallow:")
-            and _ln.split(":", 1)[1].strip() == "/"
-            for _ln in _section161
+            _k == "disallow" and _full161(_v)
+            for _rules in _star_groups161 for _k, _v in _rules
         )
         _ok161 = _has_star161 and not _full_disallow161
         check(

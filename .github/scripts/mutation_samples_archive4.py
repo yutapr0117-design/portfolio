@@ -450,4 +450,47 @@ MUTATIONS_ARCHIVE4 = [
     "replace": '# Yuta Yokoi — AI-Driven PM Portfolio (all 480 checks)',
     "check": CHECK,
 },
+    {
+    "name": 'Check 123: llms-full.txt の運用モデル節の見出しを変える —— サイトと AIO 層の運用モデルの記述が対応しなくなる',
+    "file": ROOT / "llms-full.txt",
+    "find": 'Current Operating Model',
+    "replace": 'Current Operating Mode',
+    "check": CHECK,
+},
+    {
+    "name": 'Check 113: AI2AI.md から「commit 数は OUTPUT であって TARGET」の条項を消す —— 次の AI が padding commit に退行する',
+    "file": ROOT / "AI2AI.md",
+    "find": 'OUTPUT であって TARGET',
+    "replace": 'OUTPUT',
+    "check": CHECK,
+},
+    {
+    "name": "Check 453 (453b): FREEZE-DATA から確定済みの 1.3 本文の行を消す —— 冒頭で FROZEN TEXT を名乗る本文が"
+            "黙って編集可能になる (2026-11-01 の版移行シミュレーションで、新しく確定した版を足し忘れても何も鳴らないと実測)",
+    "file": ROOT / "LICENSES" / "FROZEN.md",
+    "find": '3b72d36b4962467365ff8742abe09d66eb577c7f7ae8617ea0c5adb02c8dfcfd  LICENSES/ACD-1.3.txt\n',
+    "replace": "",
+    "check": CHECK,
+},
+    {
+    "name": 'Check 70: runbook §9 の consistency Check 総数を 1 つ減らす —— 総数の単一権威が実装の最大番号とずれる (値を含まない prefix で当てる)',
+    "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
+    "find": '| consistency Check 総数 | **',
+    "replace": '| consistency Check 総数 | **9',
+    "check": CHECK,
+},
+    {
+    "name": 'Check 73: index.html の preload から as= を落とす —— ブラウザが資源の種類を知らず二重取得になる',
+    "file": ROOT / "index.html",
+    "find": '<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans',
+    "replace": '<link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans',
+    "check": CHECK,
+},
+    {
+    "name": 'Check 77: slash command の frontmatter から description を落とす —— command 一覧で何をするか分からなくなる',
+    "file": ROOT / ".claude" / "commands" / "audit.md",
+    "find": '\ndescription: ',
+    "replace": '\ndescriptionx: ',
+    "check": CHECK,
+},
 ]

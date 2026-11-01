@@ -17,8 +17,12 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        Sibling of Check 155 (og↔twitter title) / Check 336 (og↔twitter
        image) for the social-card field-presence axis. (BLOCKING)
 
-  342. `robots.txt` MUST NOT contain a catastrophic block: no bare
-       `Disallow: /` (whole-site block) and no `Disallow:` targeting the
+  342. `robots.txt` MUST NOT contain a catastrophic block, in ANY
+       group (named bots such as Googlebot do not read the `*` group, so a
+       full-site block in their group deindexes them): no full-site
+       `Disallow:` (`/`, `/*`, `/*$` — read with RFC 9309 group semantics and
+       `#` comments stripped anywhere on the line, via
+       `_lib_io.parse_robots_groups`) and no `Disallow:` targeting the
        AIO-critical paths (`llms.txt`, `llms-full.txt`, `sitemap.xml`,
        `.well-known/`). The entire project is an AIO-first bet — its
        value depends on being maximally crawlable by AI/search agents. A
@@ -75,21 +79,41 @@ def run(ctx):
               "Check 341: index.html が無い", blocking=True)
 
     # ── 342. robots.txt has no catastrophic Disallow (BLOCKING) ──────────────────
+    # robots.txt は RFC 9309 のグループの意味で読む (`_lib_io.parse_robots_groups`)。
+    # 2026-11-02 まで `^\s*Disallow:\s*(\S*)\s*$` の 1 行正規表現で読んでおり、
+    # 行末コメント付きの `Disallow: / # tmp` は**行ごと一致せず** (値が `/` でも)、
+    # `Disallow: /*` は bare `/` ではないので、どちらも素通りしていた。
+    from _lib_io import parse_robots_groups as _groups342, robots_full_site_disallow as _full342
+    # parser 自身の fixture (壊れると全面的に見落とすので、本物の robots.txt より先に確かめる)
+    _fx342 = _groups342(
+        "Disallow: /orphan\nUser-agent: a\nUser-agent: *  # c\nDisallow: / # tmp\n\n# x\n"
+        "Allow: /k\nUser-agent: b\nDisallow: /*\n"
+    )
+    _fx_ok342 = (
+        _fx342 == [([], [("disallow", "/orphan")]),
+                   (["a", "*"], [("disallow", "/"), ("allow", "/k")]),
+                   (["b"], [("disallow", "/*")])]
+        and _full342("/") and _full342("/*") and _full342("/*$")
+        and not _full342("/$") and not _full342("/private")
+    )
     _robots342 = ROOT / "robots.txt"
     if _robots342.is_file():
         _rt342 = _robots342.read_text(encoding="utf-8")
-        _disallows342 = re.findall(r"(?mi)^\s*Disallow:\s*(\S*)\s*$", _rt342)
+        _disallows342 = [
+            (_ag, _v) for _ag, _rules in _groups342(_rt342)
+            for _k, _v in _rules if _k == "disallow"
+        ]
         _catastrophic342: list[str] = []
+        if not _fx_ok342:
+            _catastrophic342.append(f"parse_robots_groups の fixture が期待と違う: {_fx342!r}")
         _aio_critical342 = ("llms.txt", "llms-full.txt", "sitemap.xml", ".well-known")
-        for _d in _disallows342:
-            _d_stripped = _d.strip()
-            # bare "/" = 全サイト block
-            if _d_stripped == "/":
-                _catastrophic342.append("Disallow: / (全サイト block)")
-            # AIO-critical path を含む Disallow
+        for _ag, _d in _disallows342:
+            _who = ",".join(_ag) or "(User-agent より前)"
+            if _full342(_d):
+                _catastrophic342.append(f"[{_who}] Disallow: {_d} (全サイト block)")
             for _crit in _aio_critical342:
-                if _crit in _d_stripped:
-                    _catastrophic342.append(f"Disallow: {_d_stripped} (AIO-critical: {_crit})")
+                if _crit in _d:
+                    _catastrophic342.append(f"[{_who}] Disallow: {_d} (AIO-critical: {_crit})")
         _ok342 = not _catastrophic342
         check(
             _ok342,
