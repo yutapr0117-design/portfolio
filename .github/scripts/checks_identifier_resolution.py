@@ -181,6 +181,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (同じ抽出を二重に持つと drift するため)。(BLOCKING)
 """
 import re
+
+from _lib_io import strip_js_comments
 import json
 
 
@@ -458,9 +460,8 @@ def run(ctx):
             Check 112 / 421 / 422 と同じ「コメントは違反にも充足にもしない」規律の idref 面。"""
             if is_html:
                 return re.sub(r"<!--.*?-->", "", text, flags=re.S)
-            text = re.sub(r"/\*.*?\*/", "", text, flags=re.S)
-            # `https://` を行コメントと誤認しないため colon 直後の // は除外する (repo 共通の idiom)。
-            return re.sub(r"(?<!:)//[^\n]*", "", text)
+            # 字句を順に読む共有 helper (2 段の正規表現は `//` コメント中の `/*` で実コードを消す)
+            return strip_js_comments(text)
 
         _defined392 = set()
         for _f392 in _sources392:

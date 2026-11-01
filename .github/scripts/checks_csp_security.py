@@ -67,6 +67,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 
 """
 import re
+
+from _lib_io import strip_js_comments
 import json
 
 
@@ -134,8 +136,7 @@ def run(ctx):
     if _uic353.is_file():
         _usrc353 = _uic353.read_text(encoding="utf-8")
         # コメント (// と /* */) を除去してから実コードの DOMParser を検出
-        _code353 = re.sub(r"/\*.*?\*/", "", _usrc353, flags=re.DOTALL)
-        _code353 = re.sub(r"//[^\n]*", "", _code353)
+        _code353 = strip_js_comments(_usrc353)
         _domparser353 = re.findall(r"\bDOMParser\b", _code353)
         _ok353 = not _domparser353
         check(

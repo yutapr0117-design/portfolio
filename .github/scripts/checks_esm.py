@@ -98,6 +98,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 """
 import re
 
+from _lib_io import strip_js_comments
+
 
 def run(ctx):
     ROOT = ctx.ROOT
@@ -367,11 +369,9 @@ def run(ctx):
             #   「createBrand(Storage) → Brand instance 形式で合成」のような factory 呼び出しの説明が
             #   複数あり、実際の呼び出しを消してもコメントの方で満たされて緑のままになりうる
             #   (Check 40b と同じ「説明文で満たされる」class)。
-            #   文字列とコメントは左から 1 回で走査する —— 2 段で消すと `//` コメント中の
-            #   `js/*.js` をブロックコメントの始まりと読み、次の `*/` まで実コードごと消す (実測)。
-            _main_nc56 = re.sub(
-                r"(\"(?:\\.|[^\"\\\n])*\"|'(?:\\.|[^'\\\n])*'|`(?:\\.|[^`\\])*`)|/\*.*?\*/|//[^\n]*",
-                lambda _m: _m.group(1) or " ", _main_src47, flags=re.S)
+            #   除去は字句を順に読む共有 helper で行う (2 段の正規表現は `//` コメント中の
+            #   `js/*.js` をブロックコメントの始まりと読み、次の `*/` まで実コードごと消す・実測)。
+            _main_nc56 = strip_js_comments(_main_src47)
             _usage_re56 = re.search(
                 r"\b" + re.escape(_factory_name56) + r"\s*\(",
                 _main_nc56,
@@ -489,8 +489,7 @@ def run(ctx):
     _pu429 = ROOT / "js" / "pure-utils.js"
     if _pu429.exists():
         def _decomment429(text):
-            text = re.sub(r"/\*.*?\*/", "", text, flags=re.S)
-            return re.sub(r"(?<!:)//[^\n]*", "", text)
+            return strip_js_comments(text)
 
         _exports429 = set(re.findall(r"export\s+(?:async\s+)?function\s+(\w+)", _pu429.read_text(encoding="utf-8")))
         _exports429 |= set(re.findall(r"export\s+(?:const|let|var)\s+(\w+)", _pu429.read_text(encoding="utf-8")))

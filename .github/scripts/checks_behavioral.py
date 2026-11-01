@@ -127,6 +127,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 
 """
 import re
+
+from _lib_io import strip_js_comments
 from urllib.parse import quote
 
 
@@ -284,8 +286,7 @@ def run(ctx):
         関数本体を誤って解析していた (実測: `// … oninput に渡す` というコメントだけで無関係な
         関数が violation として RED になった)。Check 112/403 と同じ「説明文が Check を狂わせる」class。
         """
-        _t130 = re.sub(r"/\*.*?\*/", "", _t130, flags=re.S)
-        return re.sub(r"//[^\n]*", "", _t130)
+        return strip_js_comments(_t130)
 
     def _named_body130(_txt, _name):
         """同一 file 内の名前付きハンドラ (function f(){} / const f = () => {}) の本体を返す。"""
@@ -393,8 +394,7 @@ def run(ctx):
             # "かつては try/catch でガード" / "uncaught error のリスク") 内の "try"/"catch" 部分文字列で
             # 満たされ vacuous pass しうる = guard 撤去 (#270 URIError 回帰) を silent 見逃す latent 穴。
             # Check 353/239/373 と同じ comment-strip idiom で実コードに限定する。
-            _stripped131 = re.sub(r"/\*.*?\*/", "", _body131, flags=re.DOTALL)
-            _stripped131 = re.sub(r"//[^\n]*", "", _stripped131)
+            _stripped131 = strip_js_comments(_body131)
             _stripped131 = re.sub(r"'(?:\\.|[^'\\])*'", "''", _stripped131)
             _stripped131 = re.sub(r'"(?:\\.|[^"\\])*"', '""', _stripped131)
             _stripped131 = re.sub(r"`(?:\\.|[^`\\])*`", "``", _stripped131)

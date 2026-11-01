@@ -126,6 +126,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 
 """
 import re
+
+from _lib_io import strip_js_comments
 import json
 from pathlib import Path
 
@@ -150,8 +152,7 @@ def run(ctx):
         except (FileNotFoundError, PermissionError):
             continue
         # Strip block comments to avoid false-positive on `import` inside comments
-        _stripped = re.sub(r"/\*.*?\*/", "", _lsrc, flags=re.DOTALL)
-        _stripped = re.sub(r"^\s*//.*$", "", _stripped, flags=re.M)
+        _stripped = strip_js_comments(_lsrc)
         # top-level import statements: `import ... from '...'` or `import '...'`
         if re.search(r"(?:^|\n)\s*import\s+", _stripped):
             _offenders237.append(str(Path(_lp).relative_to(ROOT)))
@@ -188,8 +189,7 @@ def run(ctx):
             continue
         # Strip /* ... */ comments and // ... comments to avoid false-positive on
         # documentation mentions of eval/Function.
-        _stripped = re.sub(r"/\*.*?\*/", "", _src, flags=re.DOTALL)
-        _stripped = re.sub(r"//[^\n]*", "", _stripped)
+        _stripped = strip_js_comments(_src)
         # Also strip string literals (single/double/template) to avoid catching
         # `"eval("` 等 documentation in strings.
         _stripped = re.sub(r"'(?:\\.|[^'\\])*'", "''", _stripped)
@@ -219,8 +219,7 @@ def run(ctx):
             _src = _p.read_text(encoding="utf-8")
         except (FileNotFoundError, PermissionError):
             continue
-        _stripped = re.sub(r"/\*.*?\*/", "", _src, flags=re.DOTALL)
-        _stripped = re.sub(r"//[^\n]*", "", _stripped)
+        _stripped = strip_js_comments(_src)
         if _timer_pat240.search(_stripped):
             _offenders240.append(str(Path(_p).relative_to(ROOT)))
     _ok240 = len(_eval_targets239) > 0 and not _offenders240
@@ -245,8 +244,7 @@ def run(ctx):
             _src = _p.read_text(encoding="utf-8")
         except (FileNotFoundError, PermissionError):
             continue
-        _stripped = re.sub(r"/\*.*?\*/", "", _src, flags=re.DOTALL)
-        _stripped = re.sub(r"//[^\n]*", "", _stripped)
+        _stripped = strip_js_comments(_src)
         _stripped = re.sub(r"'(?:\\.|[^'\\])*'", "''", _stripped)
         _stripped = re.sub(r'"(?:\\.|[^"\\])*"', '""', _stripped)
         _stripped = re.sub(r"`(?:\\.|[^`\\])*`", "``", _stripped)
@@ -274,8 +272,7 @@ def run(ctx):
             _src = _p.read_text(encoding="utf-8")
         except (FileNotFoundError, PermissionError):
             continue
-        _stripped = re.sub(r"/\*.*?\*/", "", _src, flags=re.DOTALL)
-        _stripped = re.sub(r"//[^\n]*", "", _stripped)
+        _stripped = strip_js_comments(_src)
         _stripped = re.sub(r"'(?:\\.|[^'\\])*'", "''", _stripped)
         _stripped = re.sub(r'"(?:\\.|[^"\\])*"', '""', _stripped)
         _stripped = re.sub(r"`(?:\\.|[^`\\])*`", "``", _stripped)
@@ -303,8 +300,7 @@ def run(ctx):
             _src = _p.read_text(encoding="utf-8")
         except (FileNotFoundError, PermissionError):
             continue
-        _stripped = re.sub(r"/\*.*?\*/", "", _src, flags=re.DOTALL)
-        _stripped = re.sub(r"//[^\n]*", "", _stripped)
+        _stripped = strip_js_comments(_src)
         _stripped = re.sub(r"'(?:\\.|[^'\\])*'", "''", _stripped)
         _stripped = re.sub(r'"(?:\\.|[^"\\])*"', '""', _stripped)
         _stripped = re.sub(r"`(?:\\.|[^`\\])*`", "``", _stripped)
@@ -372,8 +368,7 @@ def run(ctx):
             _src = _p.read_text(encoding="utf-8")
         except (FileNotFoundError, PermissionError):
             continue
-        _stripped = re.sub(r"/\*.*?\*/", "", _src, flags=re.DOTALL)
-        _stripped = re.sub(r"//[^\n]*", "", _stripped)
+        _stripped = strip_js_comments(_src)
         _stripped = re.sub(r"'(?:\\.|[^'\\])*'", "''", _stripped)
         _stripped = re.sub(r'"(?:\\.|[^"\\])*"', '""', _stripped)
         _stripped = re.sub(r"`(?:\\.|[^`\\])*`", "``", _stripped)

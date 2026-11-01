@@ -122,6 +122,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        with this column (468 / 469) named the wrong module. (BLOCKING)
 """
 import re
+
+from _lib_io import strip_js_comments
 import json
 
 
@@ -449,8 +451,7 @@ def run(ctx):
         が isComposing に言及しているため素通りした)。Check 403 で踏んだのと同じ「説明文が Check を
         vacuous にする」class。
         """
-        _t112 = re.sub(r"/\*.*?\*/", "", _t112, flags=re.S)
-        return re.sub(r"//[^\n]*", "", _t112)
+        return strip_js_comments(_t112)
 
     _ENTER_RE112 = re.compile(
         r"\.(?:key\s*[!=]==?\s*['\"]Enter['\"]"

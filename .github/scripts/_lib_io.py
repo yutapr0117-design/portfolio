@@ -225,3 +225,129 @@ def update_mp3_metadata_date(path: Path, iso_now: str) -> bool:
     new_data = new_header + new_body + data[10 + tag_size :]
     path.write_bytes(new_data)
     return True
+
+
+_JS_REGEX_PREV_KEYWORDS = frozenset(
+    "return typeof instanceof in of new delete void throw case do else yield await".split()
+)
+
+
+def strip_js_comments(src: str) -> str:
+    """JS/MJS/CJS のコメントを、文字列・テンプレート文字列・正規表現リテラルを壊さずに消す。
+
+    コメントは**改行を残して空白に置き換える**ので、出力は入力と同じ長さ・同じ行番号になる
+    (位置を報告する Check がそのまま使える)。
+
+    **なぜ要るか** (2026-11-01 に実測): repo 内の Check は「ブロックコメント → 行コメント」の
+    2 段の正規表現で消していた。この形は `//` コメントの中の `js/quiz/*-quiz-data.js` を
+    ブロックコメントの始まりと読み、次の `*/` まで**実コードごと消す** (main.js で 74 行、
+    e2e spec 2 本で 52 行と 84 行)。消えた範囲に違反が入っても Check は見ない。
+    逆向きに、文字列と正規表現を左から 1 回で走査する素朴な形は `/[...`]/` のバッククォートを
+    テンプレート文字列の始まりと読む (js/store.js / js/apps.js で実測)。ここでは字句を順に読む。
+    """
+    out = list(src)
+    n = len(src)
+    i = 0
+    # stack の要素: "code" / "tpl" (テンプレート本体)。code の要素には ${ の深さを対で持つ
+    stack: list[list] = [["code", 0]]
+    prev = ""  # 直前の意味のある字句 (正規表現リテラルと除算の判別に使う)
+
+    def blank(a: int, b: int) -> None:
+        for k in range(a, b):
+            if out[k] != "\n":
+                out[k] = " "
+
+    if src.startswith("#!"):  # shebang は先頭の 1 行だけ許される注釈 (espree も comment として扱う)
+        j = src.find("\n")
+        i = n if j == -1 else j
+        blank(0, i)
+
+    while i < n:
+        mode = stack[-1]
+        ch = src[i]
+        if mode[0] == "tpl":
+            if ch == "\\":
+                i += 2
+                continue
+            if ch == "`":
+                stack.pop()
+                prev = "`"
+                i += 1
+                continue
+            if ch == "$" and i + 1 < n and src[i + 1] == "{":
+                stack.append(["code", 1])
+                prev = "{"
+                i += 2
+                continue
+            i += 1
+            continue
+        # code mode
+        nx = src[i + 1] if i + 1 < n else ""
+        if ch == "/" and nx == "/":
+            j = src.find("\n", i)
+            j = n if j == -1 else j
+            blank(i, j)
+            i = j
+            continue
+        if ch == "/" and nx == "*":
+            j = src.find("*/", i + 2)
+            j = n if j == -1 else j + 2
+            blank(i, j)
+            i = j
+            continue
+        if ch in "\"'":
+            j = i + 1
+            while j < n and src[j] != ch and src[j] != "\n":
+                j += 2 if src[j] == "\\" else 1
+            i = j + 1
+            prev = ch
+            continue
+        if ch == "`":
+            stack.append(["tpl", 0])
+            i += 1
+            continue
+        if ch == "/":
+            word = re.search(r"([A-Za-z_$][\w$]*)$", prev) if prev else None
+            is_regex = (not prev) or prev[-1] in "(,=:[!&|?{};+-*%<>~^" or (
+                word is not None and word.group(1) in _JS_REGEX_PREV_KEYWORDS)
+            if is_regex:
+                j, in_cls = i + 1, False
+                while j < n and src[j] != "\n":
+                    c = src[j]
+                    if c == "\\":
+                        j += 2
+                        continue
+                    if c == "[":
+                        in_cls = True
+                    elif c == "]":
+                        in_cls = False
+                    elif c == "/" and not in_cls:
+                        break
+                    j += 1
+                j += 1
+                while j < n and (src[j].isalnum() or src[j] == "_"):
+                    j += 1
+                prev = "/re/"
+                i = j
+                continue
+            prev = "/"
+            i += 1
+            continue
+        if ch == "{":
+            mode[1] += 1 if len(stack) > 1 else 0
+        elif ch == "}" and len(stack) > 1:
+            mode[1] -= 1
+            if mode[1] == 0:
+                stack.pop()
+                prev = "}"
+                i += 1
+                continue
+        if not ch.isspace():
+            if ch.isalnum() or ch in "_$":
+                m = re.match(r"[\w$]+", src[i:i + 64])
+                prev = m.group(0)
+                i += len(prev)
+                continue
+            prev = ch
+        i += 1
+    return "".join(out)

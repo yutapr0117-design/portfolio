@@ -78,6 +78,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        duplication) for the theme cross-leaf string-duplication coherence axis. (BLOCKING)
 """
 import re
+
+from _lib_io import strip_js_comments
 import json
 
 
@@ -161,9 +163,8 @@ def run(ctx):
         # 違反扱いになる false-positive を避ける (Check 112/130 と同じ罠。実測: main.js の
         # 責務分離コメント 3 行が該当した)。行コメントの `(?<!:)` は URL の "https://" を
         # 削らないため (Check 412 で踏んだ罠)。
-        _src124 = re.sub(r"/\*.*?\*/", "", _f124.read_text(encoding="utf-8"), flags=re.S)
-        for _i124, _line124 in enumerate(_src124.splitlines(), 1):
-            _code124 = re.sub(r"(?<!:)//.*$", "", _line124)
+        _src124 = strip_js_comments(_f124.read_text(encoding="utf-8"))
+        for _i124, _code124 in enumerate(_src124.splitlines(), 1):
             if _NAME124 in _code124 and not any(_mk in _code124 for _mk in _ATTR_MARKERS124):
                 _leak124.append(f"{_rel124}:{_i124}")
             if any(_id in _code124 for _id in _NAME_IDENTS124):
@@ -225,8 +226,7 @@ def run(ctx):
         # (例「// 旧は 'no-dupe-keys': 'error' だった」) が残ると `'<rule>':` パターンにマッチし vacuous
         # pass = 安全網ルールの silent 後退 (#186 class: 欠落ルールで実バグが CI 素通り) を見逃す穴。
         # rule 名は object key = 実コードゆえ comment-strip のみで穴を閉じる (文字列リテラルは温存)。
-        _cfgcode126 = re.sub(r"/\*.*?\*/", "", _cfg126, flags=re.DOTALL)
-        _cfgcode126 = re.sub(r"//[^\n]*", "", _cfgcode126)
+        _cfgcode126 = strip_js_comments(_cfg126)
         _REQUIRED_BUGCATCHERS126 = [
             "no-dupe-keys", "no-import-assign", "no-unsafe-finally", "no-invalid-regexp",
             "no-const-assign", "valid-typeof", "use-isnan", "no-fallthrough", "no-cond-assign",
@@ -310,8 +310,7 @@ def run(ctx):
             # が残ると prefix + 3 label が window にマッチし vacuous pass = drift を silent 見逃す穴。
             # 注: 実文言は string/template リテラル内ゆえ Check 131 と違い文字列リテラルは除去しない
             # (除去すると実 aria-label が消え real code が誤 fail する)。comment strip のみで穴を閉じる。
-            _src389 = re.sub(r"/\*.*?\*/", "", _src389, flags=re.DOTALL)
-            _src389 = re.sub(r"//[^\n]*", "", _src389)
+            _src389 = strip_js_comments(_src389)
             _pos389 = _src389.find(_prefix389)
             if _pos389 < 0:
                 _problems389.append(f"{_name389}: aria-label 接頭辞 '{_prefix389}...' 不在")
