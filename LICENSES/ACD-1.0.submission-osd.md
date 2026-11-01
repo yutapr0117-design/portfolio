@@ -49,11 +49,9 @@ criteria the committee asks submitters to speak to directly:
   answered the first limb only.
 - **OSD 4 (Integrity of the author's source code).** No restriction is imposed. Section
   16.4 concerns the text of the licence *as a document*, not the licensed work; Sections
-  10.5 and 16.5 state this expressly.
-- **OSD 5 (No discrimination against persons or groups)** and **OSD 6 (No discrimination
-  against fields of endeavour).** Section 4.3 states that the licence is conditioned on no
-  restriction as to persons, groups, technologies, endeavours or jurisdictions, and on no
-  field of use.
+  10.5 and 16.6 state this expressly. *(Corrected 2026-11-01: this said "10.5 and 16.5"; in
+  ACD-1.0 §16.5 is the translation rule and §16.6 is the clause that says §16.4 and §16.5 are not
+  terms of the Work. In 1.1 and later the same clause is §16.6 as well.)*
 - **OSD 5 (No discrimination against persons or groups).** §4.3 states the licence is not
   conditioned "on the identity, character, or purpose of the user, or on any restriction as to
   persons, groups, technologies, endeavours, or jurisdictions." §2.3 adds that the grant takes
