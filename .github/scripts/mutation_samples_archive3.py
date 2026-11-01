@@ -698,4 +698,49 @@ MUTATIONS_ARCHIVE3 = [
     "replace": "| BLOCKING | `checks_license_dossier.py` |",
     "check": CHECK,
 },
+    {
+    "name": "Check 479: 未検証 Check の既存リストから 1 件消す —— そのまま名指し 0 件の Check が「新規」として"
+            "現れる形。ratchet が効いていることの非 vacuity (対象は checks_mutation_integrity.py なので"
+            " mutation_samples.py の自己参照 trap に当たらない)",
+    "file": ROOT / ".github" / "scripts" / "checks_mutation_integrity.py",
+    "find": '_BASE479 = ("6,7,10,',
+    "replace": '_BASE479 = ("7,10,',
+    "check": CHECK,
+},
+    {
+    "name": 'Check 453: 凍結対象の pin を書き換える —— FROZEN.md の FREEZE-DATA の sha256 を 1 桁変える。凍結は「触らない」を記憶に委ねないための機械強制なので、pin と実体の食い違いは必ず止まらなければならない (2026-09-29 まで名指し 0 件)',
+    "file": ROOT / "LICENSES" / "FROZEN.md",
+    "find": 'a9cdf425929af1afbf6b854204eea9df3199c8759bc05b411ab327c90932d00e  LICENSES/ACD-1.0.spdx.xml',
+    "replace": 'b9cdf425929af1afbf6b854204eea9df3199c8759bc05b411ab327c90932d00e  LICENSES/ACD-1.0.spdx.xml',
+    "check": CHECK,
+},
+    {
+    "name": 'Check 459: 索引から 1 file へのリンクを消す —— 到達できない文書は無いのと同じ。入口の README から落ちると、審査者も次のセッションもその file に辿り着かない (2026-09-29 まで名指し 0 件)',
+    "file": ROOT / "LICENSES" / "README.md",
+    "find": '[`ACD-1.0.dig-2026-09.md`](ACD-1.0.dig-2026-09.md)',
+    "replace": 'dig',
+    "check": CHECK,
+},
+    {
+    "name": 'Check 474: 不利な事実 register の状態トークンを語彙に無い値へ変える —— register は「潰すための backlog」として機械可読でなければならず、未知のトークンは集計から黙って落ちる (2026-09-29 まで名指し 0 件)',
+    "file": ROOT / "LICENSES" / "ACD-1.0.against.md",
+    "find": '| **[CLOSED]** **Corrected in place and mechanised.**',
+    "replace": '| **[FIXED]** **Corrected in place and mechanised.**',
+    "check": CHECK,
+},
+    {
+    "name": 'Check 475: AS-OF の反証表の行から状態の印を消す —— 反証表は「観測が来たら、まずここを見る」表で、状態と日付の無い行は、いつの読みかが分からなくなる (2026-09-29 まで名指し 0 件)',
+    "file": ROOT / "LICENSES" / "AS-OF.md",
+    "find": '🟡 未充足（2026-09-25 確認・全数で再測定済み）',
+    "replace": '未充足（2026-09-25 確認・全数で再測定済み）',
+    "check": CHECK,
+},
+    {
+    "name": "Check 409: consistency 側の mutation に e2e の `test` キーを混ぜる —— e2e probe では走らず "
+            "consistency probe では恒久 SURVIVED になる登録ミスの形 (対象は archive なので自己参照 trap に当たらない)",
+    "file": ROOT / ".github" / "scripts" / "mutation_samples_archive.py",
+    "find": '        "name": "Check 45 (docstring↔section bijection): break a section-header number",',
+    "replace": '        "test": "x",\n        "name": "Check 45 (docstring↔section bijection): break a section-header number",',
+    "check": CHECK,
+},
 ]
