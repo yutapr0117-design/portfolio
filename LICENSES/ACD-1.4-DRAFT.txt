@@ -111,7 +111,12 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       permits none", which mistook a limit on what the licence reaches for a
       condition on the recipient: the causal limit in the same sentence is
       such a limit, and it is not a condition. (0 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5524 words, 80 clauses.
+    * Section 11.4 now opens "This Dedication, in respect of the Work,
+      reaches ...". Unqualified, its "It reaches nothing else" was untrue of
+      Section 16.4, which governs the text of this Dedication as a document
+      (Section 16.6); Sections 10.1 and 10.4 already carry the same phrase.
+      (+5 words.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5529 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -596,21 +601,22 @@ PREAMBLE (informative; not part of the operative terms)
        states a limit of the Dedication's reach; it is not a condition upon
        You, and Section 10.1 is unaffected by it.
 
-  11.4 This Dedication reaches Covered Rights, the patent claims described in
-       Section 8, and Moral Rights to the extent stated in Section 12. It
-       reaches nothing else, save that the covenants in Section 5 are promises
-       about the Dedicator's own conduct and are not limited by this sentence.
-       It grants no permission under the law of data protection, under a right
-       of privacy, publicity, or personality, or under any right held by a
-       person other than the Dedicator. Where the Work contains personal data,
-       or the likeness, voice, or performance of a person other than the
-       Dedicator, any permission those laws require is not the Dedicator's to
-       give and this Dedication does not purport to give it. This matters here
-       because a work meant to be learned from is often data about people, and
-       a reader is entitled to know exactly where this instrument stops.
-       Section 2.7 states the general principle and Section 13.2 the
-       corresponding absence of warranty; this Section states a limit of reach,
-       it is not a condition upon You, and Section 10.1 is unaffected by it.
+  11.4 This Dedication, in respect of the Work, reaches Covered Rights, the
+       patent claims described in Section 8, and Moral Rights to the extent
+       stated in Section 12. It reaches nothing else, save that the covenants
+       in Section 5 are promises about the Dedicator's own conduct and are not
+       limited by this sentence. It grants no permission under the law of data
+       protection, under a right of privacy, publicity, or personality, or
+       under any right held by a person other than the Dedicator. Where the
+       Work contains personal data, or the likeness, voice, or performance of a
+       person other than the Dedicator, any permission those laws require is
+       not the Dedicator's to give and this Dedication does not purport to give
+       it. This matters here because a work meant to be learned from is often
+       data about people, and a reader is entitled to know exactly where this
+       instrument stops. Section 2.7 states the general principle and Section
+       13.2 the corresponding absence of warranty; this Section states a limit
+       of reach, it is not a condition upon You, and Section 10.1 is unaffected
+       by it.
 
 
 12. MORAL RIGHTS
