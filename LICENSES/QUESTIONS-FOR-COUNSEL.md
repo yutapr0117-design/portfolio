@@ -105,6 +105,12 @@ Act makes inalienable), without reaching other works.
 counterparty, is enforceable in Japan, Germany or France. (b) Whether §12.4 can bind persons who,
 after the author's death, act in their own right (Japan, Articles 60 and 116). (c) Whether a court
 would treat a covenant this broad as contrary to public order even though §12.3 confines it.
+(d) Whether any jurisdiction treats Moral Rights as transferable yet requires a formality, such as
+a signed writing, for a waiver. There §12.2's covenant would not operate, since its trigger is that
+the rights are personal, inalienable, or incapable of waiver, while §12.1's waiver, given without a
+signature, may fail for want of form. The United States (17 U.S.C. §106A(e)(1)) and the United
+Kingdom (CDPA s.94) make the rights non-transferable, so §12.2 applies there; we know of no
+jurisdiction in the gap, which is why the text was not changed (2026-11-01).
 
 **An answer would change** §12.2 and §12.4, the clauses on which the dossier most wants correction
 (`jurisdictions.md` §9).
