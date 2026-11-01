@@ -200,7 +200,9 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 > mechanically in my repository, so that the text cannot acquire
 > project-specific content by accident.
 >
-> **9. Licence must not restrict other software.** Section 4.5 expressly covers
+> **9. Licence must not restrict other software.** Sections 4.3 and 10.1 impose
+> no condition of any kind, so there is nothing that could reach other software.
+> Section 4.5 expressly covers
 > "any adaptation or collection containing" the Work and disclaims any obligation
 > on You in respect of Your recipients. No term reaches other software distributed
 > alongside it, and Section 4.6 confirms that terms You add govern only what You
