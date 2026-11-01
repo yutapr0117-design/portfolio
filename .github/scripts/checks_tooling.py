@@ -231,9 +231,13 @@ def run(ctx):
         try:
             _mdata79 = json.loads(_mcp79.read_text(encoding="utf-8"))
             _has_servers79 = "mcpServers" in _mdata79 and isinstance(_mdata79["mcpServers"], dict)
+            # [FIX 2026-11-01] OK 文の f-string が失敗時にも評価され、mcpServers が無いと KeyError で suite ごと
+            # 止まっていた —— Check 79 は自分の失敗を一度も報告できず、以降の Check も全部 masking された
+            # (#885 / Check 400 と同じ class)。件数は存在するときだけ数える。
+            _n79 = len(_mdata79["mcpServers"]) if _has_servers79 else 0
             check(
                 _has_servers79,
-                f"Check 79: .mcp.json parses as JSON and has mcpServers dict ({len(_mdata79['mcpServers'])} servers)",
+                f"Check 79: .mcp.json parses as JSON and has mcpServers dict ({_n79} servers)",
                 "Check 79: .mcp.json missing mcpServers dict — 空 {} でもよいので明示宣言せよ",
             )
         except json.JSONDecodeError as _e79:

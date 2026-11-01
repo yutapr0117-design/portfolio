@@ -161,71 +161,13 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 63: robots.txt の Sitemap を別 origin へずらす —— crawler の発見経路が entity の origin と一致しなくなる',
-    "file": ROOT / "robots.txt",
-    "find": 'Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml',
-    "replace": 'Sitemap: https://example.com/portfolio/sitemap.xml',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 64: check-map の Check 番号を重複させる —— 同じ番号の行が 2 つあると、どちらの説明が正か読めなくなる',
-    "file": ROOT / "docs" / "architecture" / "check-repository-consistency-map.md",
-    "find": '| 105 | check-repository-consistency-map.md',
-    "replace": '| 104 | check-repository-consistency-map.md',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 65: docs/architecture の Last-Updated を ISO-8601 でない書式にする —— 機械が日付を比較できなくなる',
-    "file": ROOT / "docs" / "architecture" / "main-js-extraction-map.md",
-    "find": 'Last-Updated  : 2026-06-12',
-    "replace": 'Last-Updated  : 12 June 2026',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 480: archive の 1 entry に同じ key をもう 1 つ持たせる —— 衝突解消で 2 entry が融合した形。"
-            "重複 key は黙って後勝ちで上書きされ、片方の mutation が消える (2026-11-01 実測)。"
-            "対象は hot log ではなく archive (自分自身の entry を打つ self-reference trap を避ける)",
-    "file": ROOT / ".github" / "scripts" / "mutation_samples_archive.py",
-    "find": '"name": "Check 129 (topbar double-fire): add a direct menuBtn click listener in main.js",',
-    "replace": '"name": "Check 129 (topbar double-fire): add a direct menuBtn click listener in main.js",\n        "name": "Check 129 (topbar double-fire): add a direct menuBtn click listener in main.js",',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 93: aio-manifest の top-level last_metadata_update の key を壊す —— binary metadata の最終更新が機械可読面から消える',
-    "file": ROOT / ".well-known" / "aio-manifest.json",
-    "find": '"last_metadata_update": "',
-    "replace": '"last_metadata_update_x": "',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 94: B2 tool から MP3 の日付同期の呼び出しを外す —— Organization を書き換えても MP3 の日付が進まず、C6 の派生値が semantic 編集に追従しなくなる',
-    "file": ROOT / ".github" / "scripts" / "update_binary_aio_organization.py",
-    "find": '    from _lib_io import update_webp_xmp_dates, update_mp3_metadata_date\n\n    if update_webp_xmp_dates(WEBP, iso_now):\n        print(f"WebP XMP dates updated to {iso_now}")\n    else:\n        print("WebP XMP dates already current")\n    if update_mp3_metadata_date(MP3, iso_now):',
-    "replace": '    from _lib_io import update_webp_xmp_dates\n\n    if update_webp_xmp_dates(WEBP, iso_now):\n        print(f"WebP XMP dates updated to {iso_now}")\n    else:\n        print("WebP XMP dates already current")\n    if False:',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 97: 1 対 1 doc の frontmatter から audience を落とす —— 誰向けの doc かが機械で読めなくなる',
-    "file": ROOT / "docs" / "files" / "robots.txt.md",
-    "find": '\naudience: ',
-    "replace": '\naudiences: ',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 98: 1 対 1 doc から Change impact の節を落とす —— 変更の波及が書かれない doc が混ざる',
-    "file": ROOT / "docs" / "files" / "robots.txt.md",
-    "find": '\n## Change impact',
-    "replace": '\n## Impact',
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": 'Check 91: aio-manifest の last_metadata_update を千年前へずらす —— binary 内の日付と manifest の日付が食い違う (値を含まない prefix で当てる・日付は更新のたび動く)',
@@ -545,6 +487,54 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "LICENSES" / "FROZEN.md",
     "find": '3b72d36b4962467365ff8742abe09d66eb577c7f7ae8617ea0c5adb02c8dfcfd  LICENSES/ACD-1.3.txt\n',
     "replace": "",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 70: runbook §9 の consistency Check 総数を 1 つ減らす —— 総数の単一権威が実装の最大番号とずれる (値を含まない prefix で当てる)',
+    "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
+    "find": '| consistency Check 総数 | **',
+    "replace": '| consistency Check 総数 | **9',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 73: index.html の preload から as= を落とす —— ブラウザが資源の種類を知らず二重取得になる',
+    "file": ROOT / "index.html",
+    "find": '<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans',
+    "replace": '<link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 77: slash command の frontmatter から description を落とす —— command 一覧で何をするか分からなくなる',
+    "file": ROOT / ".claude" / "commands" / "audit.md",
+    "find": '\ndescription: ',
+    "replace": '\ndescriptionx: ',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 78: sub-agent の frontmatter から description を落とす —— いつ呼ぶべき agent かが読めなくなる',
+    "file": ROOT / ".claude" / "agents" / "repo-auditor.md",
+    "find": '\ndescription: ',
+    "replace": '\ndescriptionx: ',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 79: .mcp.json の mcpServers を別の key にする —— MCP の設定が読まれなくなる。**2026-11-01 まで、この形は Check 79 の OK 文の f-string が KeyError を投げて suite ごと止まり、79 は自分の失敗を一度も報告できなかった** (fail-soft へ直した)',
+    "file": ROOT / ".mcp.json",
+    "find": '"mcpServers"',
+    "replace": '"mcpServerz"',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 80: skill の frontmatter から description を落とす —— skill の起動条件が読めなくなる',
+    "file": ROOT / ".claude" / "skills" / "repo-status" / "SKILL.md",
+    "find": '\ndescription: ',
+    "replace": '\ndescriptionx: ',
     "check": CHECK,
 })
 
