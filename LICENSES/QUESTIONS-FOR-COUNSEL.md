@@ -1,7 +1,7 @@
 ---
 file: LICENSES/QUESTIONS-FOR-COUNSEL.md
 audience: a lawyer asked to read ACD, or reading it on license-review / license-discuss; the steward, when asking one
-last-updated: 2026-10-26
+last-updated: 2026-11-02
 canonical-ref: LICENSES/ACD-1.3.txt (the latest fixed text, applied to this repository) / LICENSES/ACD-1.4-DRAFT.txt (the successor draft) / LICENSES/ACD-1.0.jurisdictions.md (where we think each question sits, by jurisdiction) / LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md (B1)
 ---
 
@@ -185,6 +185,27 @@ forum's insolvency law, and *Jaffé v. Samsung* (4th Cir. 2013) shows that prote
 result (errata E5, E30); whether its structure — no obligation on the licensee — keeps it outside
 "executory" is what we cannot judge.
 
+## 9. Does the limitation of liability reach a breach of the Dedicator's own covenants? (§14.1, §5, §8.6, §12.2)
+
+**The clauses.** §14.1: the Dedicator *"is not liable to You or to any other person, on any legal
+theory, for any … loss or damage arising out of this Dedication or the use of the Work"*. §5.1,
+§8.6 and §12.2 are promises by the Dedicator not to assert claims against You, and §5.3 lets You
+and later recipients rely on them as intended beneficiaries.
+
+**Our reading.** The covenants work chiefly as a defence: a recipient sued in breach of one points
+to it, and the claim fails. Damages for the breach are secondary, and §14.2 keeps whatever
+liability a jurisdiction does not allow to be excluded, which in many includes deliberate breach.
+
+**Why we doubt it.** Read literally, "arising out of this Dedication" includes a breach of the
+Dedication's own promises, so a recipient put to the cost of defending a suit the Dedicator
+promised not to bring may have no claim for that cost. GPL-3.0 §16 limits liability for damages
+*"arising out of the use or inability to use the program"*, which does not reach the licensor's
+own breach; ACD's wording is wider. We found this by setting §14.1 beside the covenants, which
+share no term with it (`ACD-1.4-CHANGELIST.md`, the pre-finalisation checks).
+
+**An answer would change** whether §14.1 should exclude liability only for the use of the Work, as
+GPL-3.0 does, or say that it does not limit the covenants.
+
 ---
 
 ## How to answer
@@ -194,4 +215,4 @@ In any form, on a list or privately. **Public answers are recorded word for word
 pointer to where the analysis uses it are recorded (`rounds/README.md`). Correction of any reading
 on this page is the most useful answer; agreement is the next most useful, because it moves B1.
 Nothing here asks a reader to take on any obligation, and a short answer to one question is worth
-more to us than a long one to all eight.
+more to us than a long one to all nine.

@@ -1,7 +1,7 @@
 ---
 file: LICENSES/QUESTIONS-FOR-COUNSEL.md
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-10-24
+last-updated: 2026-11-02
 canonical-ref: LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md (B1) / LICENSES/ACD-1.0.jurisdictions.md / LICENSES/OSI-APPROVAL-PLAN.md
 ---
 
@@ -9,7 +9,7 @@ canonical-ref: LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md (B1) / LICENSES/ACD-1.0.
 
 ## What
 
-**ACD を読む弁護士に尋ねたい 8 問を、帰結の大きい順に並べた英語の 1 枚（2026-10-24 作成）。**
+**ACD を読む弁護士に尋ねたい 9 問を、帰結の大きい順に並べた英語の 1 枚（2026-10-24 作成・2026-11-02 に第 9 問 §14.1 × 約束を追加）。**
 各問に、条文・その条が狙うこと・我々の読み・その読みを疑う理由・答えが何を変えるかを置き、
 1 問だけ読んでも答えられる形にしてある。
 
