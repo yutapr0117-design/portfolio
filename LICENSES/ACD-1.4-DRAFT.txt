@@ -126,6 +126,13 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       successors and transferees. It named Section 6, which restates, but not
       Section 7.2, which grants, inviting the reading that what is not named is
       not bound. (+1 word.)
+    * Section 6.4 now speaks of a model or output "resulting from"
+      Computational Use of the Work, the words Sections 1.7 and 8.4 use for
+      the same relation. It said "derived from", which Section 8.1 uses for
+      things derived from the Work and Section 8.4 uses in saying that
+      whether a trained model is derived from the Work is unresolved; the
+      copyright side could have been read as narrower than the patent side.
+      (0 words.)
     * ACD-1.3: 5443 words, 80 clauses. This draft: 5522 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
@@ -439,8 +446,8 @@ PREAMBLE (informative; not part of the operative terms)
 
   6.4  No enforceable claim arises against You, under this Dedication or under
        any Covered Right of the Dedicator, in respect of a model, parameter
-       set, weight, embedding, or output derived from Computational Use of the
-       Work, and You owe nothing in respect of any of them. Whether a right
+       set, weight, embedding, or output resulting from Computational Use of
+       the Work, and You owe nothing in respect of any of them. Whether a right
        subsists in any such thing is not decided here and does not need to be
        (Section 9). Nothing in this Dedication requires You to license,
        disclose, or attribute any such thing.
