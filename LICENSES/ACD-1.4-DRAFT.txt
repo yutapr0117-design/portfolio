@@ -105,6 +105,12 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       likeness, voice, or performance is that of a person other than the
       Dedicator. Said of every person, it was untrue of the Dedicator's own,
       which Section 5.2(d) addresses by a covenant. (+4 words.)
+    * Section 8.4 now says that no threshold of quantity is imposed because a
+      recipient could not determine whether one had been crossed (Section
+      6.5). It said a threshold "would be a condition and Section 10.1
+      permits none", which mistook a limit on what the licence reaches for a
+      condition on the recipient: the causal limit in the same sentence is
+      such a limit, and it is not a condition. (0 words.)
     * ACD-1.3: 5443 words, 80 clauses. This draft: 5524 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
@@ -477,10 +483,10 @@ PREAMBLE (informative; not part of the operative terms)
        otherwise transferring any model, parameter set, weight, embedding, or
        output resulting from that use. This is a grant in its own right and not
        a clarification of Section 8.1: whether a trained model is "the Work" or
-       derived from it is unresolved, and a provision that merely avoided
-       doubt would be read down with the reading it was meant to correct. The
-       grant is necessary because Covered Rights exclude patent rights (Section
-       1.5), so Section 6.4 alone would leave Computational Use permitted as to
+       derived from it is unresolved, and a provision that merely avoided doubt
+       would be read down with the reading it was meant to correct. The grant
+       is necessary because Covered Rights exclude patent rights (Section 1.5),
+       so Section 6.4 alone would leave Computational Use permitted as to
        copyright while exposed as to patents, which is the very result Section
        8.3 rejects and one that would defeat the purpose stated in Section 6.5.
        The proviso in Section 8.1 as to subject matter contained in the Work is
@@ -491,8 +497,8 @@ PREAMBLE (informative; not part of the operative terms)
        a claim that would be infringed by a model, parameter set, weight,
        embedding, or output produced without any use of the Work. That is a
        question of causation and not of quantity: no threshold of how much of
-       the Work was used is imposed, because such a threshold would be a
-       condition and Section 10.1 permits none.
+       the Work was used is imposed, since a recipient could not determine
+       whether one had been crossed (Section 6.5).
 
   8.5  Sections 8.1 to 8.4 are subject to Section 2.7: they reach only patent
        claims the Dedicator owns or controls, and are neither a representation
