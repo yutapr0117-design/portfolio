@@ -29,6 +29,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `shall` / `must` の裸形を足す ——**草案の被覆が凍結済み 1.0 の被覆より狭くてはならない。**
        **ヘッダは対象外** ——実測で草案の `must` 2 件は条文ではなく草案についての注記で、
        **file 全体で数えるとヘッダの散文が条文の性質として報告される。**
+       463b: 申請日に実際に使う `LICENSES/SUBMISSION-MATERIALS.md` の要件表が、各要件の行（事実の列が空でない）を持つこと (2026-11-01)。
   477. **審査者へ実際に送った本文が、凍結されている canonical テキストと一致すること**
        (BLOCKING): `LICENSES/rounds/*-sent.txt` はリストへ送った文面を逐語で保存した file で、
        そのうち本文を貼り付けたものは **審査者が実際に読んだテキスト**である。Check 453 は
@@ -172,13 +173,36 @@ def run(ctx):
             _miss463 = [_n for _n, _r in _req463 if not re.search(_r, _b0, re.M)]
             if _miss463:
                 _bad463.append(f"§B.0 に OSI 要求項目が欠けている: {_miss463}")
+        # ── 463b: 申請日の 1 枚 (SUBMISSION-MATERIALS.md) の要件表が、各要件の行を持つこと ──
+        #   §B.0 は 1.0 向けの文面で、申請の日に実際に使うと宣言されているのは
+        #   `SUBMISSION-MATERIALS.md` の要件表 (「申請の日に使うのはこの 1 枚」)。そちらはどれかの行が
+        #   消えても何も鳴らなかった —— #77 と同じ「答えが無い項目ほど静かに落ちる」class
+        #   (2026-11-01・portfolio-25 の提案)。行見出しの語は 25 と合わせて決めた (変えるならここも)。
+        #   事実の列が空の行も欠落として数える (見出しだけ残して中身が消える形を止める)。
+        _sm463 = ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md"
+        _rows463b = ("件名", "名前と版", "本文", "新規か legacy か", "OSD 準拠の明言", "OSD 3",
+                     "OSD 5・6", "OSD 9", "使っているプロジェクト", "steward と連絡先",
+                     "SPDX / ScanCode 識別子", "第三者の承認", "提案する tag", "gap（",
+                     "最も近い承認済みライセンス", "法的レビュー", "来歴", "利益相反")
+        if not _sm463.exists():
+            _bad463.append("463b: LICENSES/SUBMISSION-MATERIALS.md が無い (申請日の 1 枚)")
+        else:
+            _tbl463b = {}
+            for _ln in _sm463.read_text(encoding="utf-8").splitlines():
+                _cells = [_c.strip().strip("\u3000").strip() for _c in _ln.strip().strip("|").split("|")]
+                if _ln.lstrip().startswith("|") and len(_cells) >= 2:
+                    _tbl463b.setdefault(_cells[0], _cells[1])
+            _lack463b = [_r for _r in _rows463b
+                         if not any(_k.startswith(_r) and _v for _k, _v in _tbl463b.items())]
+            if _lack463b:
+                _bad463.append(f"463b: SUBMISSION-MATERIALS.md の要件表に行が無い (または事実が空): {_lack463b}")
         check(
             not _bad463,
             # **件数は導出する（2026-09-13 是正）。** ここは長らく「11 項目」とリテラルで書かれており、
             # **項目を足しても OK メッセージは 11 のままだった** —— Check 460 が他所で禁じている
             # 「自己申告の件数が実測とずれる」を、**Check 自身の成功メッセージでやっていた。**
             # 成功メッセージは読み手が最も信用する場所なので、ここでの drift は最も悪い。
-            f"Check 463: 送る文面 (§B.0) が OSI の要求 {len(_req463)} 項目をすべて含む",
+            f"Check 463: 送る文面 (§B.0) が OSI の要求 {len(_req463)} 項目をすべて含み、申請日の 1 枚 (SUBMISSION-MATERIALS.md) も {len(_rows463b)} 行すべてを持つ",
             (f"Check 463: {_bad463}。要件の単一ソースは "
              "https://opensource.org/licenses/review-process。**§B.0 は実際にメールへ貼られる文面**で、"
              "§B.1 以降は貼らない参考資料である。#77 で 3 件の欠落を埋めたが、文面は増分のたび"

@@ -501,6 +501,15 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 463 (463b): 申請日の 1 枚から「法的レビュー」の行見出しを消す —— 委員長が欠落を名指しした当の項目で、"
+            "我々の最大の弱点を述べる行なので書き落とす方向の圧力が構造的にある (2026-11-01 まで §B.0 にしか効いていなかった)",
+    "file": ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md",
+    "find": "| 法的レビュー | **弁護士のレビューは無い**",
+    "replace": "| （未記入） | **弁護士のレビューは無い**",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
