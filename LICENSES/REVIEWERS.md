@@ -310,7 +310,7 @@ between this instrument and approval, which is the most self-critical thing here
 | [`AUDIT-LEDGER.md`](AUDIT-LEDGER.md) | Japanese | How each class of claim in this dossier was verified, with the counts and the residue |
 | [`BLIND-SPOTS.md`](BLIND-SPOTS.md) | Japanese | The dimensions we have used to look for our own defects, and the ones we have not |
 | [`PEER-REVIEW-WATCH.md`](PEER-REVIEW-WATCH.md) | Japanese | Contemporary instruments under review, and what we would change if each is approved, rejected, revised or stalls |
-| [`ACD-1.1-CHANGELIST.md`](ACD-1.1-CHANGELIST.md) / [`ACD-1.2-CHANGELIST.md`](ACD-1.2-CHANGELIST.md) | Japanese | What each successor draft changes, and why, one erratum at a time |
+| [`ACD-1.1-CHANGELIST.md`](ACD-1.1-CHANGELIST.md) / [`ACD-1.2-CHANGELIST.md`](ACD-1.2-CHANGELIST.md) / [`ACD-1.3-CHANGELIST.md`](ACD-1.3-CHANGELIST.md) / [`ACD-1.4-CHANGELIST.md`](ACD-1.4-CHANGELIST.md) | Japanese | What each successor changes, and why, one erratum at a time (1.4 is the current draft) |
 | [`ACD-1.1-SELF-AUDIT.md`](ACD-1.1-SELF-AUDIT.md) | Japanese | Defects the successor drafts introduce themselves |
 | [`ACD-1.0.dig-2026-09.md`](ACD-1.0.dig-2026-09.md) | Japanese | The record of one archive excavation, kept because the method is reusable |
 
