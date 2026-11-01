@@ -491,6 +491,46 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 6: style.css に古い release marker を戻す —— 版の記述が CSS の中で古いまま残る',
+    "file": ROOT / "style.css",
+    "find": '/* ╔══',
+    "replace": '/* NEXT_PLANNED_RELEASE */\n        /* ╔══',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 7: CSP meta を別名にする —— inline suppressor より前に CSP が来る順序の保証が崩れる',
+    "file": ROOT / "index.html",
+    "find": '<meta http-equiv="Content-Security-Policy"',
+    "replace": '<meta http-equiv="X-Content-Security-Policy"',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 10: 手で回す道具 (verify_dossier_quotations.py) に構文エラーを入れる —— verify が呼ばない script の破損は Check 10 だけが見る',
+    "file": ROOT / ".github" / "scripts" / "verify_dossier_quotations.py",
+    "find": 'def norm(text):',
+    "replace": 'def norm(text:',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 12: README の現在の記述に古い「72回以上」を戻す',
+    "file": ROOT / "README.md",
+    "find": '# Yuta Yokoi — AI-Driven PM Portfolio',
+    "replace": '# Yuta Yokoi — AI-Driven PM Portfolio 72回以上',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 28: CSP 違反を見る e2e の題名を変える —— セキュリティ gate が在ることの保証が消える',
+    "file": ROOT / "e2e" / "security-proxy.spec.js",
+    "find": "test('No Trusted Types or CSP violations in console',",
+    "replace": "test('No Trusted Types or CSP violations in the console log',",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

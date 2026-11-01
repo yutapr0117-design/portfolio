@@ -117,7 +117,10 @@ def run(ctx):
             "Check 16: e2e/portfolio.spec.js: toHaveScreenshot() without baseline-skip guard — add test.skip when no baseline exists",
         )
     else:
-        print("WARNING: e2e/portfolio.spec.js not found — Playwright spec check skipped")
+        # 2026-11-01: 以前は print だけで warnings にも errors にも入らず、file を改名すると
+        # この Check は**何も出さずに消えていた** (Check 460 / 469 / 363 と同じ「無いと黙る」形)。
+        check(False, "", "Check 16: e2e/portfolio.spec.js が無い — baseline-skip guard の検査が黙って止まる。"
+              "改名したなら本 Check の読み先も直せ")
 
     # ── 42. docs/ artifact placement & naming hygiene (BLOCKING) ──────────────────
     # Mechanism that enforces the placement convention documented in docs/README.md.
