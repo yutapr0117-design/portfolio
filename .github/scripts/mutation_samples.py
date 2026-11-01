@@ -539,6 +539,15 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 453 (453b): FREEZE-DATA から確定済みの 1.3 本文の行を消す —— 冒頭で FROZEN TEXT を名乗る本文が"
+            "黙って編集可能になる (2026-11-01 の版移行シミュレーションで、新しく確定した版を足し忘れても何も鳴らないと実測)",
+    "file": ROOT / "LICENSES" / "FROZEN.md",
+    "find": '3b72d36b4962467365ff8742abe09d66eb577c7f7ae8617ea0c5adb02c8dfcfd  LICENSES/ACD-1.3.txt\n',
+    "replace": "",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
