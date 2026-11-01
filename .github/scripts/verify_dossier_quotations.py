@@ -77,14 +77,31 @@ def norm(text):
 def load_sources(root="."):
     """照合先: rounds/ の一次資料 + 本文 + 取得済みアーカイブ。"""
     out = []
-    pats = [f"{root}/LICENSES/rounds/*", f"{CACHE}/*.txt",
-            f"{root}/LICENSES/ACD-1.0.txt", f"{root}/LICENSES/ACD-1.1.txt", f"{root}/LICENSE"]
+    # **2026-11-01 是正 (portfolio-bb の報告から)**: (a) 本文は 1.0 / 1.1 だけを読んでいたので、
+    #   1.2 以降の凍結版と現行草案の逐語引用が「未確認」に数えられていた —— 版は glob で導出する。
+    #   (b) rounds/ の長い一次資料は行境界で `-NofM` に分割して保存してあり (Check 365 の 1,000 行
+    #   上限のため)、**分割の境目をまたぐ引用は、どの断片にも丸ごとは無い**。断片を番号順に
+    #   連結してから読む (無改変保存の規約は bytes の分割であって、連結すれば原文に戻る)。
+    pats = [f"{CACHE}/*.txt", f"{root}/LICENSES/ACD-*.txt", f"{root}/LICENSE"]
     for pat in pats:
-        for f in glob.glob(pat):
+        for f in sorted(glob.glob(pat)):
             try:
                 out.append(norm(open(f, encoding="utf-8", errors="replace").read()))
             except OSError:
                 continue
+    _parts = {}
+    for f in sorted(glob.glob(f"{root}/LICENSES/rounds/*")):
+        _m = re.match(r"(.*)-(\d+)of(\d+)(\.[^.]+)$", f)
+        _key, _idx = ((_m.group(1) + _m.group(4)), int(_m.group(2))) if _m else (f, 0)
+        _parts.setdefault(_key, []).append((_idx, f))
+    for _key, _fs in sorted(_parts.items()):
+        _txt = ""
+        for _, f in sorted(_fs):
+            try:
+                _txt += open(f, encoding="utf-8", errors="replace").read()
+            except OSError:
+                continue
+        out.append(norm(_txt))
     return " || ".join(out)
 
 
