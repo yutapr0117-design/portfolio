@@ -73,6 +73,11 @@ answer none of them:
    ineffective. Copyright is protected three times over in this instrument (surrender,
    licence, covenant); Section 8.6 gives the patent grant the second footing it would
    otherwise lack, in the manner Section 12.2 uses for moral rights.
+   *(Note, 2026-11-02: this describes ACD-1.0 accurately, but "in the manner Section 12.2
+   uses" overstates the parallel. Section 12.2 operates by the state of the law; Section 8.6
+   operates only once a licence "is held ineffective", so no covenant exists yet at the
+   assertion that would produce the holding (errata E42). The ACD-1.4 draft makes the
+   covenant operate in every jurisdiction alongside the licences.)*
 
 3. **Machine-generated material.** It is unsettled whether copyright subsists in it at
    all. Section 9 makes the recipient's permissions independent of that question: the
