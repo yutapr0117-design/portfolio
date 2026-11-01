@@ -254,6 +254,9 @@ is encumbered … and **You owe nothing** in respect of any of them. **Nothing i
 requires You to license, disclose, or attribute any such thing.**"* ——**Chestek 氏（委員・元委員長）が「workable でない」
 と述べた設計（出力に条件）の、ちょうど反対側である。** §9.2 / §9.3 も同じ向きで、
 **受領者は「どの部分が機械生成か」を判定する必要がない。**
+**⚠ 2026-11-01**: 引用中の *derived from* は、定義 §1.7 と特許 §8.4 の *resulting from* と食い違う
+（errata **E47**）。「出力に条件を課さない」という本節の結論は変わらないが、§6.4 が覆うモデル・出力の
+集合が特許側より狭いと読める余地があった。1.4 草案は *resulting from* に揃えた。
 
 **これで、リストの生きた争点 3 つすべてについて、ACD が外側にいることが確かめられた** ——
 **終了条項**（§1.73・§10.4 が持たない）/ **条件・利用制限**（§1.69 の否決理由 (a)・§10.1 が持たない）/
