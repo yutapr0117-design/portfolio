@@ -501,6 +501,38 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 62: llms-full.txt の Canonical URL を別 origin へずらす —— AIO 層ごとに entity の識別子が食い違う',
+    "file": ROOT / "llms-full.txt",
+    "find": '> **Canonical URL:** https://yutapr0117-design.github.io/portfolio/',
+    "replace": '> **Canonical URL:** https://example.com/portfolio/',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 63: robots.txt の Sitemap を別 origin へずらす —— crawler の発見経路が entity の origin と一致しなくなる',
+    "file": ROOT / "robots.txt",
+    "find": 'Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml',
+    "replace": 'Sitemap: https://example.com/portfolio/sitemap.xml',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 64: check-map の Check 番号を重複させる —— 同じ番号の行が 2 つあると、どちらの説明が正か読めなくなる',
+    "file": ROOT / "docs" / "architecture" / "check-repository-consistency-map.md",
+    "find": '| 105 | check-repository-consistency-map.md',
+    "replace": '| 104 | check-repository-consistency-map.md',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 65: docs/architecture の Last-Updated を ISO-8601 でない書式にする —— 機械が日付を比較できなくなる',
+    "file": ROOT / "docs" / "architecture" / "main-js-extraction-map.md",
+    "find": 'Last-Updated  : 2026-06-12',
+    "replace": 'Last-Updated  : 12 June 2026',
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
