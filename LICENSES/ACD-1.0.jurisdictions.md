@@ -263,17 +263,27 @@ Tom Callaway 氏（当時 Fedora の法務窓口）は、Red Hat Legal との検
 
 **2026-09-19 に原典で確認した**（`https://www.law.cornell.edu/uscode/text/17/106A`）:
 
-> *"those rights may be waived if the author **expressly agrees to such waiver in a written
-> instrument signed by the author**. Such instrument shall **specifically identify the work, and
-> uses of that work**, to which the waiver applies …"*（§106A(e)(1)）
+> *"The rights conferred by subsection (a) **may not be transferred**, but those rights may be waived
+> if the author **expressly agrees to such waiver in a written instrument signed by the author**.
+> Such instrument shall **specifically identify the work, and uses of that work**, to which the
+> waiver applies …"*（§106A(e)(1)。**2026-11-01 に冒頭の 1 句を補った** —— 旧版は *"those rights
+> may be waived"* から引いており、下の結論が依拠する当の句を落としていた）
 
 **§12.1 の放棄は、この形式を満たさない。** リポジトリに置かれた LICENSE file は
 **著作者が署名した書面ではなく**、**用途を特定してもいない。**
 **したがって米国では §12.1 は放棄として成立しないと考えるのが素直である。**
 
 **それは設計どおりである** ——§12.2 が *"Where the law of a jurisdiction provides that Moral Rights
-are … incapable of waiver, Section 12.1 does not apply … and instead the Dedicator covenants not
-to exercise"* と述べており、**covenant には形式要件が無い。**
+are personal to the author, **inalienable**, or incapable of waiver, Section 12.1 does not apply …
+and instead the Dedicator covenants not to exercise"* と述べており、**covenant には形式要件が無い。**
+
+**⚠ 当たっているのは 3 つの語のうち *inalienable* である（2026-11-01 訂正）。** 旧版はここで
+*"incapable of waiver"* を引いていたが、**VARA の権利は署名書面があれば放棄できる**ので、
+その語には当たらない。§12.2 を発動させるのは §106A(e)(1) 冒頭の *"may not be transferred"*
+（譲渡できない＝inalienable）である。**結論は変わらない** —— 3 語は「or」で並んでいるので
+1 つ当たれば足りる —— が、**根拠に引く語を取り違えると、「放棄できるのだから §12.2 は働かない」
+という反論にそのまま道を開く。** 1.4 草案の §12 を VARA と英国 CDPA に当てた検討（2026-11-01・
+`ACD-1.4-CHANGELIST.md`）が気付いた。
 
 **⚠ ただし射程を誇張しない。** **VARA が及ぶのは *works of visual art* だけ**であり、その定義は
 絵画・素描・版画・彫刻・展示目的の限定部数の写真に限られ、**映画その他の audiovisual work は
@@ -413,6 +423,10 @@ Material"* と述べているのは、この状況に対してである** ——
 
 **§12.1 を「waiver」として読むと s.87(2) の署名要件に当たる** ——リポジトリに置かれた file は
 署名された instrument ではない。**しかし s.87(1) は「consent」を形式要件なしで認めている。**
+
+**§12.2 が発動する根拠は s.94 である**（*"The rights conferred by Chapter IV (moral rights) are
+**not assignable**."*・2026-11-01 に原典で確認）—— 英国の人格権は署名書面で放棄できるので
+*"incapable of waiver"* には当たらず、当たるのは *"inalienable"* である（§5b の米国と同じ形）。
 
 **§12.2 の不行使の約束は、この consent の形に写る。**
 **米国（VARA）と同じ構図だが、英国のほうが着地が良い** ——**明文の consent 経路がある。**
