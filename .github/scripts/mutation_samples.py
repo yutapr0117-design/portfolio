@@ -473,6 +473,24 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 107: runbook §11 の workflow 一覧から 1 本の名前を外す —— CI の在庫表が実体と食い違う',
+    "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
+    # update-playwright-snapshots.yml は §11 の別の行の説明文にも出るので、消しても集合から落ちない
+    # (初版で名指し False を実測)。§11 に 1 回しか出ない mutation-probe.yml を外す。
+    "find": '| `mutation-probe.yml` |',
+    "replace": '| mutation-probe |',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 59: §4 BUDGET-DATA の 1 行の path をずらす —— 人間可読の §2 表と機械可読の §4 の集合が食い違う (71 も同時に発火)',
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": '.github/scripts/mutation_samples_archive4.py | 950 | advisory',
+    "replace": '.github/scripts/mutation_samples_archive4x.py | 950 | advisory',
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
