@@ -26,6 +26,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        ある」と読んで探しに行く。** **残る 2 形は Check にしない**（裸の `` `file.md` `` 1,061 箇所と、
        **文書を名指ししない**裸の `§N.M` 2,024 箇所は、リポジトリ外・仮称・文脈依存を含み
        意味の判断が要る）。**ここに穴が残ることは台帳の種類 7 に書いてある。**
+       **(j)・2026-11-01**: 同じ文書の中で `## ` 見出しが重複しないこと（`###` の定型小見出しは対象外）。
        **(i)・2026-09-25**: 英語で書いた英字節参照 `section B.2` —— face (e) は `§` 付きしか見ず、
        SPDX 提出文が存在しない「section B.2 above」を指していたのを素通りした。
        **(h)・2026-09-24**: 他文書を行番号（`` `file.md` L123 ``）で指さないこと —— 行番号は書いた日の
@@ -328,9 +329,21 @@ def run(ctx):
                 if _lnref471.search(_ll471):
                     _bad471.append(f"{_lf471.name}:{_li471} \u884c\u756a\u53f7\u3067\u4ed6\u6587\u66f8\u3092\u6307\u3057\u3066\u3044\u308b (face h)")
 
+        # (j) **同じ文書の中で `## ` 見出しが重複しないこと**（2026-11-01・portfolio-bb の発見・同日 2 件）。
+        #   jurisdictions.md に「## 9.」が 2 つあり（footer の後ろに節が追記された）、他文書の「§9」がどちらを
+        #   指すか決まらなかった / AS-OF.md に同一の「## 2026-09-25 に足した行…」が中身ごと 2 回入っていた。
+        #   (f) は §番号の衝突を見るが、番号の無い見出しや同一ファイル内の重複は射程外だった。
+        #   `### ` は定型の小見出し（「この節が establish しないこと」等）が正当に繰り返されるので対象外
+        #   （含めると 8 file を誤検出した・実測）。
+        for _hf471 in sorted(_lic471.glob("*.md")):
+            _hs471 = [_l.rstrip() for _l in _hf471.read_text(encoding="utf-8").split("\n") if _l.startswith("## ")]
+            _dup471 = sorted({_h for _h in _hs471 if _hs471.count(_h) > 1})
+            for _h in _dup471:
+                _bad471.append(f"{_hf471.name}: 見出し「{_h[:60]}」が 2 回以上ある (§ 参照の着地点が決まらない)")
+
         check(
             not _bad471,
-            f"Check 471: \u30c9\u30b7\u30a8\u306e\u53c2\u7167\u8a18\u6cd5 8 \u5f62 (rounds/ \u30d1\u30b9 / B<n> / Check N / \u540d\u6307\u3057\u306e \u00a7N.M / \u88f8\u306e \u00a7N.M / section B.0 / \u5171\u6709\u63a1\u756a\u306e\u4e00\u610f\u6027 / \u884c\u756a\u53f7\u53c2\u7167\u306e\u4e0d\u5728) \u304c\u3059\u3079\u3066\u89e3\u6c7a\u3059\u308b",
+            f"Check 471: \u30c9\u30b7\u30a8\u306e\u53c2\u7167\u8a18\u6cd5 8 \u5f62 (rounds/ \u30d1\u30b9 / B<n> / Check N / \u540d\u6307\u3057\u306e \u00a7N.M / \u88f8\u306e \u00a7N.M / section B.0 / \u5171\u6709\u63a1\u756a\u306e\u4e00\u610f\u6027 / \u884c\u756a\u53f7\u53c2\u7167\u306e\u4e0d\u5728) \u304c\u3059\u3079\u3066\u89e3\u6c7a\u3057\u3001\u540c\u3058\u6587\u66f8\u306e ## \u898b\u51fa\u3057\u304c\u91cd\u8907\u3057\u306a\u3044",
             (f"Check 471: \u30c9\u30b7\u30a8\u5185\u306e\u53c2\u7167\u304c\u89e3\u6c7a\u3057\u306a\u3044: {_bad471}\u3002"
              "**`rounds/` \u306f\u300c\u4e00\u6b21\u8cc7\u6599\u306f\u3053\u3053\u306b\u5728\u308b\u300d\u3068\u3044\u3046\u8a3c\u62e0\u306e\u4e3b\u5f35\u305d\u306e\u3082\u306e**\u3067\u3042\u308a\u3001"
              "**`B<n>` \u306f\u65b9\u91dd\u3092\u6c7a\u3081\u3066\u3044\u308b register \u306e\u9805\u76ee**\u3067\u3042\u308a\u3001"
