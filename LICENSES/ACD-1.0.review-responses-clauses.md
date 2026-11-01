@@ -364,6 +364,81 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 > should be able to determine that from the licence rather than from my
 > temperament.
 
+#### 帰属ゼロ + 明示特許の組み合わせへの反対（2026-10・`against.md` #276 / #277 から・審査者より先に自分で立てる）
+
+**出どころ**: 2026-10-11〜16 の `license-discuss` で、ACD と同じ組み合わせ（§10.2 の帰属ゼロ + §8 の特許許諾）だけを
+取り出した 0BSD-P が「bad idea」と言われ 5 日で取り下げられ、続けて同じ提出者が逆側（AI 供給網での帰属の喪失を
+ライセンスで解く MCAL）を出した。**どちらも ACD-1.0 を名指ししていない**し、発言者は Licensing Committee ではない。
+それでも (d) 来歴の連鎖 /(e) 「0BSD に特許許諾を足せばよい」/ MCAL の前提 の 3 つは**組み合わせそのものに当たる**ので、
+問われる前に答えを置く。**条番号は 1.0 による**（"You" の定義だけは 1.0 が §1.4・1.3 が §1.6）。
+**⚠ 答えきれないものは答えきれないと書く** —— Berkus 氏の「具体的な用途を挙げよ」は #255 の vanity テストで、
+**採用の捏造は失格事由なので、ここでは答えない**（`against.md` #276 (f)）。
+
+**Q. §10.2 は通知の義務を全部外す。下流の受領者は、自分の手にあるものが Dedicator 由来だと示せず、§8 に依拠できないのではないか（"chain of custody"）。**
+
+> **English:**
+>
+> Section 8.1 does not travel down a chain. It is granted by the Dedicator
+> directly to "You", and Section 1.4 defines "You" as any person exercising
+> permissions under the Dedication; no recipient holds the patent licence
+> through a predecessor's licence, so no link in a chain can fail and take the
+> grant with it.
+>
+> What a recipient does have to show, if challenged, is a fact: that the
+> infringement alleged is "caused by subject matter contained in the Work as
+> made available by the Dedicator". That is a provenance question, and I accept
+> that Section 10.2 makes it harder to answer from the copy in hand, because
+> nothing obliges the notice to travel with it. An attribution condition would
+> not prove provenance either, but it would make the evidence more likely to
+> survive. That is a real cost of the design and I do not claim otherwise. What
+> the text does about it is limited: Section 16.1 recommends a notice, Section
+> 10.3 lets the Dedicator ask for one, and Section 11.2 preserves the right to
+> state truthfully where the Work came from.
+>
+> Mr Landley's description — that a patent grant with no attribution is close
+> to abandoning the patent as against anyone practising the Work — is, as to
+> effect, accurate, and it is the intended effect. He offers it as a reason not
+> to want the combination; that is a judgement I do not ask anyone to share.
+
+**Q. 特許の gap なら、0BSD に別個の特許許諾を足せば済む。新しいライセンスは要らないのではないか。**
+
+> **English:**
+>
+> For the patent gap taken alone, that route is available, and nothing in this
+> Dedication argues against using it. A separate grant is drafted by each
+> project that wants one, however, and each such grant is an unreviewed text:
+> its scope, whether it reaches models and outputs (Section 8.4 here), and
+> whether it can be terminated (Section 8.2 here) differ from project to
+> project. That moves the proliferation problem down a level rather than
+> removing it. It is also an answer to one of the three gaps this Dedication is
+> submitted for, not to the others. I do not claim that the patent part alone
+> would justify a new licence, and I have recorded elsewhere that this
+> Dedication is interchangeable with existing public-domain-equivalent licences
+> for the purpose of combining works: nothing needs to be tracked in either
+> direction.
+
+**Q. AI 供給網では帰属が失われることが問題だとされている。帰属を条件にしない §10.2 は、その害に加担するのではないか。**
+
+> **English:**
+>
+> The harm described is that notices do not travel. Under a licence that
+> requires them, that loss is a compliance failure; under this Dedication it is
+> not a breach, because there is nothing to comply with. I do not claim that
+> this solves the problem. A recipient of a work under this Dedication may not
+> learn where it came from, and the Dedication does nothing to prevent that.
+>
+> The design places provenance outside the licence. Section 6.5 asks that the
+> permission be determinable by automated systems, and the permission is
+> published in machine-readable form; records of origin are better carried by
+> mechanisms built for them, such as SPDX or CycloneDX, which a recipient can
+> keep without being obliged to. The only substantive reply in that thread
+> located the remedy in the same place.
+>
+> None of this removes the need of an author who wants attribution preserved.
+> Such an author should choose a licence with an attribution condition. This
+> Dedication is not offered as the right instrument for every work, only as an
+> available one for authors who want to impose nothing.
+
 #### §11.4 が答えている、いま生きている原理的な反対（2026-08・一次資料）
 
 OpenMDW-1.1 の審査で、著作権侵害の主張を終了の引き金にすることへ、次の反対が出ている

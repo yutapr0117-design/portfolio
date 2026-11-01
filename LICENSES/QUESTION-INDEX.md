@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are **376** worked entries across this directory (the number is kept equal to the count by Check 460 on every build; the list is append-only, so treat it as a floor). This page exists so that you do not have to
+There are **379** worked entries across this directory (the number is kept equal to the count by Check 460 on every build; the list is append-only, so treat it as a floor). This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -41,6 +41,9 @@ If your question is not here, that is our omission and worth saying on the list.
 | Does it meet each OSD criterion? | `submission-reference.md` §3 — all ten, individually |
 | Where is each criterion arguable? | `submission-reference.md` §3b — the counter-argument for all ten, written by us. **OSD 7 is the one we expect to be litigated** |
 | You grant over several kinds of right — do you react to litigation over all of them? | **There is nothing to react with.** §10.4 terminates nothing; §8.2 says the absence is deliberate. `review-responses-clauses.md` §15/§16; the cost is `against.md` #16, #46 |
+| With no notice obligation, how does a downstream recipient show the patent licence covers them ("chain of custody")? | **§8.1 does not run down a chain — it is granted to every You (§1.4) — but proving provenance is harder, and that cost is admitted.** `review-responses-clauses.md` 帰属ゼロ + 明示特許; `against.md` #276 |
+| Why not just add a separate patent grant to 0BSD? | **That route exists; a per-project grant is an unreviewed text each time, and it answers one gap of three.** `review-responses-clauses.md` 帰属ゼロ + 明示特許; `against.md` #276 |
+| Doesn't zero attribution feed provenance loss in AI supply chains? | **It does not solve it, and says so; provenance is carried outside the licence (SPDX / CycloneDX).** Authors who want attribution should pick a licence that requires it. `review-responses-clauses.md`; `against.md` #277 |
 | How would your conditions work for a hosted API where nothing is transferred? | **There are no conditions to work.** §10.1 / §4.3; §16's conditions bind the licence text only (§10.5, §16.6). `against.md` #47 |
 | Does §5.2's anti-DRM covenant restrict the user? | No — it binds the Dedicator. `review-responses-boilerplate.md` Q26 |
 | Does §16.4's name restriction breach OSD 4? | No — §10.1 is limited to conditions "in respect of the Work"; §16.4 governs the licence text. `against.md` #27; the loose shorthand is errata E3 |
