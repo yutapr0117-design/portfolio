@@ -3,7 +3,7 @@
 generate_spdx_license_xml.py — ACD-1.0 の SPDX 提出用 XML を **本文から生成** する。
 
 実行: python3 .github/scripts/generate_spdx_license_xml.py
-出力: LICENSES/ACD-1.0.spdx.xml
+出力: LICENSES/ACD-<版>.spdx.xml（`--version N.M`・既定 1.0。1.0 の出力は凍結された提出物で 1 byte も変えない）
 
 ## なぜ生成にするのか
 
@@ -48,8 +48,21 @@ if sys.version_info < (3, 10):
     sys.exit(1)
 
 ROOT = Path(__file__).resolve().parents[2]
-SRC = ROOT / "LICENSES" / "ACD-1.0.txt"
-OUT = ROOT / "LICENSES" / "ACD-1.0.spdx.xml"
+# **版は引数で選ぶ (2026-11-01・portfolio-25 の依頼)**: `--version 1.3` で LICENSES/ACD-1.3.txt から
+# LICENSES/ACD-1.3.spdx.xml を作る。既定は 1.0 (凍結された提出物・Check 453 が pin) で、
+# 1.0 の出力は 1 byte も変わらないこと (Check 445a / 453) を保ったまま、出す版の XML を作れるようにする。
+def _version_from_argv() -> str:
+    if "--version" in sys.argv:
+        v = sys.argv[sys.argv.index("--version") + 1]
+        if not re.fullmatch(r"\d+\.\d+", v):
+            raise SystemExit(f"ERROR: --version は N.M の形で渡す (got {v!r})")
+        return v
+    return "1.0"
+
+
+VERSION = _version_from_argv()
+SRC = ROOT / "LICENSES" / f"ACD-{VERSION}.txt"
+OUT = ROOT / "LICENSES" / f"ACD-{VERSION}.spdx.xml"
 LICENSE_DECL = ROOT / "LICENSE"
 
 
@@ -154,8 +167,15 @@ def build() -> str:
     spdx_id, url, _rel = _meta()
     src = SRC.read_text(encoding="utf-8")
 
-    title = src.splitlines()[0].strip()
-    version_line = next(l.strip() for l in src.splitlines()[1:] if l.strip())
+    # 1.1 以降の本文は冒頭に身分表示 (FROZEN TEXT / NOT SUBMITTED ...) を持ち、`-` × 80 の区切り線の
+    # **後**に題名が来る。区切り線より前を題名と読むと、SPDX の name が身分表示の文になる
+    # (2026-11-01 に 1.3 で実測: name="ACD-1.3 -- FROZEN TEXT. NOT SUBMITTED FOR APPROVAL. and")。
+    # 1.0 は区切り線を持たないので、従来どおり先頭行が題名 (凍結された 1.0 の出力は変わらない)。
+    _head = src[:src.index("PREAMBLE")]
+    _sep = "\n" + "-" * 80 + "\n"
+    _titled = src[_head.index(_sep) + len(_sep):] if _sep in _head else src
+    _tl = [l.strip() for l in _titled.splitlines() if l.strip()]
+    title, version_line = _tl[0], _tl[1]
     # SPDX の name は版数まで含めるのが慣例 (例: "Creative Commons Zero v1.0 Universal")。
     # 識別子側は ACD-1.0 なので、name も "…… 1.0" まで書かないと一覧で版が判らない。
     full_name = f"{title} {version_line.split()[-1]}"
@@ -173,7 +193,7 @@ def build() -> str:
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <!--
   自動生成 — 手で編集しないこと。
-  単一ソース: LICENSES/ACD-1.0.txt
+  単一ソース: {_rel}
   再生成    : npm run spdx-xml   (= python3 .github/scripts/generate_spdx_license_xml.py)
   同期強制  : Check 445 (BLOCKING) が「再生成して一致するか」を検証する
 -->
@@ -210,7 +230,8 @@ def main() -> int:
     changed = not OUT.exists() or OUT.read_text(encoding="utf-8") != xml
     if "--check" in sys.argv:
         if changed:
-            print("ERROR: LICENSES/ACD-1.0.spdx.xml が本文と同期していない — `npm run spdx-xml`")
+            print(f"ERROR: {OUT.relative_to(ROOT)} が本文と同期していない — "
+                  f"`python3 .github/scripts/generate_spdx_license_xml.py --version {VERSION}`")
             return 1
         print("OK: SPDX XML は本文と同期している")
         return 0
