@@ -372,7 +372,7 @@ seven respects, each of which is operative rather than stylistic:
 | Sui generis database right | silent | 7.1–7.2 (extraction and re-utilisation of a substantial part, repeatedly and systematically) |
 | Moral rights | silent | 12.1–12.6: waiver, and in jurisdictions where moral rights cannot be waived, a covenant not to exercise them **limited to the Work** and binding successors |
 | Machine-generated material | silent | 9.1–9.4 |
-| Irrevocability / successors | silent | 2.2, 2.5 (reliance and estoppel), 2.8 (Sections 3, 4, 6 and 8 bind successors and transferees), 2.9 (not executory; unaffected by insolvency and by the acts of a trustee) |
+| Irrevocability / successors | silent | 2.2, 2.5 (reliance and estoppel), 2.8 (Sections 3, 4, 6 and 8 bind successors and transferees; *2026-11-02: the list omits §7.2 and §2.5, errata E46 and E49, and the 1.4 draft binds them to the whole Dedication as it concerns the Work*), 2.9 (not executory; unaffected by insolvency and by the acts of a trustee) |
 
 **On the moral-rights row, against us**: 0BSD is silent, but the approved EUPL-1.1 and 1.2 are
 not — *"In the countries where moral rights apply, the Licensor waives his right to exercise his
@@ -643,7 +643,7 @@ the whole `ACD-N` / `ACD-N.N` family and let a modified text be distributed unde
 *"except by the Steward"*, a role their §16.5 defines as whoever first published the text under
 that name. *(2026-11-01: this sentence named only "ACD-1.1 and the 1.2 draft"; 1.2 and 1.3 have since been frozen with §16.4 and §16.5 unchanged, and 1.3 is the version applied here, so the Steward exception is now in the licence this repository uses.)* *(Later on 2026-11-01: the 1.4 draft now protects any identifier that begins with "ACD-" followed by a digit, and lets the Steward distribute a modified text under the name and such an identifier "only as a new version under a version number and identifier that no earlier text has borne". The privilege that remains in 1.4 is the power to issue new versions, the shape of GPL-3.0 §14 ("The Free Software Foundation may publish revised and/or new versions"); it no longer includes changing what an existing identifier denotes, which 1.1 to 1.3 did not rule out. The criterion still applies to what remains.)* That is a privilege held by one party and **written into the licence itself**. Three
 things bound it, and none of them makes it disappear. First, the successor's §16.6 places
-§16.4 and §16.5 outside the terms of the Work: they bind no recipient of a work — but Jones's
+§16.4 and §16.5 outside the terms of the Work: they bind no recipient of a work *(2026-11-02: read literally that overstates it, since §16.4 restricts anyone who distributes a modified text, a recipient included; errata E48, and the 1.4 draft says they bind no one as to the Work)* — but Jones's
 criterion is about the text, and carries no such limit. Second, a steward is ordinary; Apache,
 Mozilla and the FSF each have one. What is unusual is writing it into the text rather than
 operating it outside, which MIT, 0BSD and the Unlicense do by naming no steward at all. Third,
