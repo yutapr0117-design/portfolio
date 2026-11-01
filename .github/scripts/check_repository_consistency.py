@@ -367,34 +367,23 @@ _checks_date_sync.run(_ctx)
 import checks_governance_sync as _checks_governance_sync
 _checks_governance_sync.run(_ctx)
 
-# ── 458-461b. ACD-1.0 ドシエ (LICENSES/) の自己整合 → checks_license_dossier.py ──
+# ── ライセンス面 (LICENSES/) の Check 群: 458-461b ドシエ / 463・472・473 提出物 / 468 草案 /
+#    460 自己申告 / 469・474・475 register 構造 / 470 引用 / 471 参照 → checks_license_*.py ──
+#  NOTE: 番号の直後に "." を置かない —— `_sec_re` は `# ── N.` を section header として数えるので、
+#  ここに書くと module 側の本物と二重計上され Check 45b が RED になる。
 import checks_license_dossier as _checks_license_dossier
-
-# ── 463/472/473. 審査者が受け取る提出物そのもの → checks_license_submission.py ──
 import checks_license_submission as _checks_license_submission
+import checks_license_draft as _checks_license_draft
+import checks_license_self_reporting as _checks_license_self_reporting
+import checks_license_register_structure as _checks_license_register_structure
+import checks_license_quotation as _checks_license_quotation
+import checks_license_references as _checks_license_references
 _checks_license_dossier.run(_ctx)
 _checks_license_submission.run(_ctx)
-# ── 468 (次版の草案) → checks_license_draft.py ──
-import checks_license_draft as _checks_license_draft
-
 _checks_license_draft.run(_ctx)
-
-# ── 460 (自己申告件数) → checks_license_self_reporting.py ──
-#  NOTE: 番号の直後に "." を置かない —— `_sec_re` は `# ── N.` を section header として数えるので、
-#  ここに書くと module 側の本物と二重計上され Check 45b が RED になる（隣の 458-461b も同じ理由）。
-import checks_license_self_reporting as _checks_license_self_reporting
 _checks_license_self_reporting.run(_ctx)
-
-# ── 469 / 474 / 475 (register の構造) → checks_license_register_structure.py ──
-import checks_license_register_structure as _checks_license_register_structure
 _checks_license_register_structure.run(_ctx)
-
-# ── 470 (引用の忠実性) → checks_license_quotation.py ──
-import checks_license_quotation as _checks_license_quotation
 _checks_license_quotation.run(_ctx)
-
-# ── 471 (参照の解決) → checks_license_references.py ──
-import checks_license_references as _checks_license_references
 _checks_license_references.run(_ctx)
 
 # ── 31-41 (minus 37). repository hygiene / doc-dating / artifact / lock-sync → checks_repo_hygiene.py ──
