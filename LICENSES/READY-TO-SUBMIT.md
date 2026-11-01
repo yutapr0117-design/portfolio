@@ -23,7 +23,7 @@ canonical-ref: LICENSES/ACD-1.0.submission.md (提出物) / LICENSES/ACD-1.0.aga
 ```
 判断日   : 2026-08-24
 対象     : LICENSES/ACD-1.0.txt (16 節 / 82 項 / 597 行 / 純 ASCII)
-提出物   : LICENSES/ACD-1.0.spdx.xml (本文から生成・CI が同期を強制)
+提出物   : LICENSES/ACD-1.0.spdx.xml (本文から生成・CI が同期を強制)  ← 2026-08-24 時点。出す版の XML はまだ無い（ACD-1.1-CHANGELIST.md §0.13）
 送る内容 : LICENSES/ACD-1.0.submission.md (英文の雛形。**凍結中の 1.0 をそのまま出す計画ではない** —— 下記)
 根拠     : docs/architecture/acd-license-rationale.md
 ```
