@@ -146,6 +146,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       16.4 contradicts: it restricts anyone who distributes a modified text
       and sets a proviso for anyone who distributes a translation, and a
       recipient of the Work may be either. (+2 words.)
+    * Section 8.4 now says "it does not license a claim", the verb, where
+      it said "licence", the noun. Section 10.2 spells the verb "license";
+      the noun form entered Section 8.4 in ACD-1.1. (0 words.)
     * ACD-1.3: 5443 words, 80 clauses. This draft: 5527 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
@@ -528,7 +531,7 @@ PREAMBLE (informative; not part of the operative terms)
        deliberately absent from this Section: a model is not subject matter
        contained in the Work, so importing that proviso would restore the
        exposure this Section exists to remove. This Section reaches only claims
-       whose infringement depends upon the use of the Work; it does not licence
+       whose infringement depends upon the use of the Work; it does not license
        a claim that would be infringed by a model, parameter set, weight,
        embedding, or output produced without any use of the Work. That is a
        question of causation and not of quantity: no threshold of how much of
