@@ -1,7 +1,7 @@
 ---
 file: LICENSES/AS-OF.md
 audience: OSI license-discuss / license-review participants, licence reviewers
-last-updated: 2026-09-25
+last-updated: 2026-10-17
 canonical-ref: LICENSES/FROZEN.md (freeze + venue, single source) / LICENSES/ACD-1.0.against.md / LICENSES/PEER-REVIEW-WATCH.md
 ---
 

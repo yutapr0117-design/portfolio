@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-OSI-BOTTLENECKS.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-review participants / 監査人
-last-updated: 2026-09-25
+last-updated: 2026-10-24
 canonical-ref: LICENSES/ACD-1.0.against.md (不利な事実の本体) / LICENSES/ACD-1.0.errata.md (本文の既知欠陥) / LICENSES/AS-OF.md (外部事実と検証日) / LICENSES/ACD-1.0.objection-map.md (反論の当否)
 ---
 
