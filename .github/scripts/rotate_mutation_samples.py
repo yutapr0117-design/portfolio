@@ -341,7 +341,26 @@ def _sync_budget_rows() -> None:
         pat = re.compile(r"(\| `" + re.escape(rel) + r"` \| )(\d+)( \|)")
         m = pat.search(text)
         if not m:
-            print(f"  ※ {rel} は §2 表に行が無い — 手動で追加せよ (Check 424/59)")
+            # [ADD 2026-11-01] 新しく起こした archive は §2 表 / §4 BUDGET-DATA に行が無い。以前は
+            #   「手動で追加せよ」と print して人に頼んでいた (この関数の docstring が誤りとして挙げる
+            #   当の形)。同じ chain の 1 つ前の archive の行の直後へ、同じ予算・種別で足す。
+            #   前の行が見つからなければ従来どおり知らせる (推測で表を壊さない)。
+            _mprev = re.match(r"(.*?)(\d*)\.py$", name)
+            _stem, _num = _mprev.group(1), int(_mprev.group(2) or 1)
+            _prev = f"{_stem}{_num - 1 if _num > 2 else ''}.py" if _num >= 2 else None
+            _prel = f".github/scripts/{_prev}" if _prev else None
+            _row = re.search(r"^\| `" + re.escape(_prel) + r"` \| \d+ \| (\d+|—|-) \| (`[^`]+`) \|.*$",
+                             text, re.M) if _prel else None
+            _bd = re.search(r"^" + re.escape(_prel) + r" \| (\S+) \| (\S+)$", text, re.M) if _prel else None
+            if not (_row and _bd):
+                print(f"  ※ {rel} は §2 表に行が無く、前の archive の行も見つからない — 手動で追加せよ (Check 424/59)")
+                continue
+            _new_row = (f"| `{rel}` | {n} | {_row.group(1)} | {_row.group(2)} | rotate ツールが自動で起こした退避先 "
+                        f"(`{_prev}` の次)。新しい mutation は hot log の tail へ足す |")
+            text = text[:_row.end()] + "\n" + _new_row + text[_row.end():]
+            _bd = re.search(r"^" + re.escape(_prel) + r" \| (\S+) \| (\S+)$", text, re.M)
+            text = text[:_bd.end()] + "\n" + f"{rel} | {_bd.group(1)} | {_bd.group(2)}" + text[_bd.end():]
+            changed.append(f"{name} を §2 / §4 に登録")
             continue
         if int(m.group(2)) != n:
             changed.append(f"{name} {m.group(2)}→{n}")
