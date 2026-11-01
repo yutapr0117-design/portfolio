@@ -507,6 +507,38 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 93: aio-manifest の top-level last_metadata_update の key を壊す —— binary metadata の最終更新が機械可読面から消える',
+    "file": ROOT / ".well-known" / "aio-manifest.json",
+    "find": '"last_metadata_update": "',
+    "replace": '"last_metadata_update_x": "',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 94: B2 tool から MP3 の日付同期の呼び出しを外す —— Organization を書き換えても MP3 の日付が進まず、C6 の派生値が semantic 編集に追従しなくなる',
+    "file": ROOT / ".github" / "scripts" / "update_binary_aio_organization.py",
+    "find": '    from _lib_io import update_webp_xmp_dates, update_mp3_metadata_date\n\n    if update_webp_xmp_dates(WEBP, iso_now):\n        print(f"WebP XMP dates updated to {iso_now}")\n    else:\n        print("WebP XMP dates already current")\n    if update_mp3_metadata_date(MP3, iso_now):',
+    "replace": '    from _lib_io import update_webp_xmp_dates\n\n    if update_webp_xmp_dates(WEBP, iso_now):\n        print(f"WebP XMP dates updated to {iso_now}")\n    else:\n        print("WebP XMP dates already current")\n    if False:',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 97: 1 対 1 doc の frontmatter から audience を落とす —— 誰向けの doc かが機械で読めなくなる',
+    "file": ROOT / "docs" / "files" / "robots.txt.md",
+    "find": '\naudience: ',
+    "replace": '\naudiences: ',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 98: 1 対 1 doc から Change impact の節を落とす —— 変更の波及が書かれない doc が混ざる',
+    "file": ROOT / "docs" / "files" / "robots.txt.md",
+    "find": '\n## Change impact',
+    "replace": '\n## Impact',
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
