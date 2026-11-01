@@ -508,6 +508,15 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 424b: §2 表の 1 行の実測行数の列を数字でない形にする —— 2026-11-01 まで、読めない行は "
+            "照合から黙って外れ、外れた 5 行中 4 行が stale のまま Check 424 は OK を出していた (portfolio-bb の発見)",
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": "| `ChatGPT2ChatGPT.md` | ",
+    "replace": "| `ChatGPT2ChatGPT.md` | ~",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
