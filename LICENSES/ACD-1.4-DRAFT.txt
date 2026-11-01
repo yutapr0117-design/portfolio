@@ -81,7 +81,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       asserted a claim -- the assertion that would produce the holding -- and
       Section 2.4 says that no grant or covenant is conditioned on another's
       failure. Naming Sections 8.1 and 8.4 also removes the ambiguous "that
-      Section". (-29 words.)
+      Section" (errata E42). (-29 words.)
     * Section 16.4 now lets the Steward distribute a modified text under the
       name and an ACD identifier only as a new version, under a version
       number and identifier that no earlier text has borne. The exception had
