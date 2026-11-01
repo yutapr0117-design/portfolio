@@ -68,7 +68,10 @@ the use of the Work"* — *"a question of causation and not of quantity"*. §8.2
 unconditional and non-terminable; §8.6 adds a covenant not to assert. In ACD-1.3 the covenant
 arises where a licence is held ineffective; the 1.4 draft makes it operate alongside the licences
 in every jurisdiction (2026-11-01), because a covenant that arises only on a holding does not
-exist when the claim that produces the holding is first asserted.
+exist when the claim that produces the holding is first asserted. The 1.4 draft also ties the covenant's
+reach to "any act that those Sections describe"; 1.3 says "any use of the Work or of anything
+resulting from Computational Use of it", and in a patent covenant "use" may name only one of the
+acts (making, selling, importing) that §8.1 and §8.4 license (errata E45).
 
 **Meant to do.** Close the gap on which CC0 stopped at OSI (patent rights expressly withheld), and
 reach trained models and outputs, which no approved licence names (`gap-census.md`).
@@ -85,7 +88,8 @@ model that has once processed the Work. (c) We have not examined how an uncondit
 non-terminable patent licence to the public interacts with the Dedicator's other patent licensing.
 (d) Whether the §8.6 covenant survives where the licence is held ineffective, or falls with it, and
 whether a covenant given alongside the licence (the 1.4 form) is treated differently from one that
-arises only on a holding (the 1.3 form).
+arises only on a holding (the 1.3 form). (e) Whether "use" in a covenant not to assert patent claims is read as
+the statutory act of using only, which is the reading the 1.4 change assumes and guards against.
 
 **An answer would change** the wording of §8.4 (register B7; errata E6 and E15).
 
