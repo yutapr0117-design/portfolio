@@ -312,6 +312,7 @@ between this instrument and approval, which is the most self-critical thing here
 | [`PEER-REVIEW-WATCH.md`](PEER-REVIEW-WATCH.md) | Japanese | Contemporary instruments under review, and what we would change if each is approved, rejected, revised or stalls |
 | [`ACD-1.1-CHANGELIST.md`](ACD-1.1-CHANGELIST.md) / [`ACD-1.2-CHANGELIST.md`](ACD-1.2-CHANGELIST.md) / [`ACD-1.3-CHANGELIST.md`](ACD-1.3-CHANGELIST.md) / [`ACD-1.4-CHANGELIST.md`](ACD-1.4-CHANGELIST.md) | Japanese | What each successor changes, and why, one erratum at a time (1.4 is the current draft) |
 | [`ACD-1.1-SELF-AUDIT.md`](ACD-1.1-SELF-AUDIT.md) | Japanese | Defects the successor drafts introduce themselves |
+| [`ACD-1.4-ADVERSARIAL-TRIAGE.md`](ACD-1.4-ADVERSARIAL-TRIAGE.md) | Japanese | An external adversarial audit of the 1.4 draft (172 points, supplied 2026-11-01), triaged one row at a time: what was already known, what is a deliberate trade, what needs counsel, and what was new and repaired in the draft. **An AI-written review, not a legal review** |
 | [`ACD-1.0.dig-2026-09.md`](ACD-1.0.dig-2026-09.md) | Japanese | The record of one archive excavation, kept because the method is reusable |
 
 ## What is not being asked for
