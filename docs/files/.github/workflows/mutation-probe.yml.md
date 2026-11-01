@@ -1,7 +1,7 @@
 ---
 file: .github/workflows/mutation-probe.yml
 audience: ai, human (新卒), 監査人, 学術研究者, 第三者全般
-last-updated: 2026-08-10
+last-updated: 2026-11-01
 canonical-ref: .github/scripts/mutation_probe.py (runner) / .github/scripts/mutation_samples.py (データ) / .github/scripts/checks_mutation_integrity.py (Check 362/379/380/397/399/409)
 ---
 
@@ -52,7 +52,8 @@ consistency Check 群と behavior e2e は「**実装の**回帰」を守る。�
 - **2 ジョブは互いに独立**（別の安全網を検証する）ため直列である必然性が無い。片方が落ちても
   もう片方の結果は知りたいので、`needs` で連結しない。
 - **`pull_request` トリガを持たせない。** 20〜30 分かかるため merge ゲートにすると自走のリズムが壊れる。`STATUS.md` の監査バッジは `pull_request:` を持つ workflow だけを「ゲート」として導出するため、この workflow はバッジ対象外になる（意図どおり）。
-- `permissions: contents: read` のみ（コミットも Issue 作成もしない・Check 68 の明示 permissions 要件）。
+- workflow 全体の `permissions` は `contents: read` のみ（コミットはしない・Check 68 の明示 permissions 要件）。
+- `report` job だけが `issues: write` を持ち、**定期実行**の consistency / behavior が success 以外（failure / cancelled）で終わったとき、同題の open Issue があればコメント、無ければ新規作成する（2026-11-01 追加: 10-19 / 10-26 の 2 週連続 failure がバッジだけでは誰にも届かなかったため）。手動実行は対象外。
 - `concurrency` で多重実行を抑止する。
 - Check 107（runbook §11 の workflow 一覧 ↔ ディスク上の workflow）と Check 108（`docs/files` mirror bijection）の対象。
 

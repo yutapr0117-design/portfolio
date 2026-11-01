@@ -38,7 +38,7 @@ on:
   workflow_dispatch:      # 手動実行も可能
 
 permissions:
-  contents: read          # チェックアウトのみ。コミットも Issue 作成もしない
+  contents: read          # チェックアウトのみ。コミットはしない (Issue 作成は report job だけに issues: write を与える)
 
 # 手動実行が週次スケジュールと重なっても、probe は shipped file を一時的に書き換えて
 # 復元するため並行実行させない（同一ワークツリーではないが、無駄な二重実行を避ける）。
@@ -182,3 +182,56 @@ jobs:
             exit 1
           fi
           echo "working tree clean — 全 mutation が復元された"
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # report: 定期実行が success 以外 (failure / cancelled) で終わったら Issue で知らせる。
+  #
+  # WHY (2026-11-01 実測): 2026-10-19 と 10-26 の schedule が 2 週続けて failure だったのに、
+  # 誰も気付かなかった (468i SURVIVED / 464 MISATTRIBUTED —— どちらも版が進んで mutation が
+  # 的を外していた・PR #2054 で根治)。STATUS.md にバッジはある (Check 415) が、バッジは
+  # **見に行った人にしか届かない**。この workflow は PR を止めないので、落ちても誰の作業も
+  # 止まらず、赤は静かに積もる。aio-monitoring.yml が変化を Issue にしているのと同じ形で、
+  # **通知の側へ押し出す**。同じ題名の open Issue があれば新規に立てずコメントを足す
+  # (毎週 Issue が増えると、それ自体が読まれなくなる)。
+  # 手動実行 (workflow_dispatch) は起動した本人が結果を見ているので対象外。
+  report:
+    name: Report scheduled failure as an Issue
+    needs: [consistency, behavior]
+    if: ${{ always() && github.event_name == 'schedule' && (needs.consistency.result != 'success' || needs.behavior.result != 'success') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      issues: write
+    steps:
+      - name: Open or update the failure Issue
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        env:
+          CONSISTENCY: ${{ needs.consistency.result }}
+          BEHAVIOR: ${{ needs.behavior.result }}
+        with:
+          script: |
+            const title = '週次 mutation-probe が success 以外で終わった（安全網の自己検証）';
+            const url = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = [
+              `run: ${url}`,
+              `consistency: ${process.env.CONSISTENCY} / behavior: ${process.env.BEHAVIOR}`,
+              '',
+              'SURVIVED / MISATTRIBUTED / CRASHED / cancelled のどれかが起きている。',
+              'ログの「SURVIVED:」「MISATTRIBUTED」行から mutation 名を拾い、ローカルで',
+              '`mutation_probe.run_gate()` + `named_check_fired()` により再現してから直すこと。',
+            ].join('\n');
+            const open = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner, repo: context.repo.repo, state: 'open', per_page: 100,
+            });
+            const hit = open.find((i) => i.title === title && !i.pull_request);
+            if (hit) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo, issue_number: hit.number, body,
+              });
+              core.info(`commented on #${hit.number}`);
+            } else {
+              const r = await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo, title, body,
+              });
+              core.info(`opened #${r.data.number}`);
+            }
