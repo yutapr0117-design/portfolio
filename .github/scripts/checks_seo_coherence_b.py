@@ -81,7 +81,14 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        exist as `<link rel="alternate">` tags in index.html. Drift =
        silent removal of canonical AIO discovery entrypoint from the
        HTML head. Sibling of Check 283/284 (ai:* exact URL derivation)
-       for the alternate link discovery-entrypoint axis. (BLOCKING)
+       for the alternate link discovery-entrypoint axis. [2026-11-01] also
+       `./.well-known/llms.txt` and the AIO manifest
+       (`/portfolio/.well-known/aio-manifest.json`): the same 4 discovery links
+       sit side by side in the head, but only 2 were guarded —— deleting the
+       other 2 left every Check, e2e and workflow green (the workflow only
+       tests that the files exist, not that the HTML points at them). The
+       manifest is the root of the digest chain, so its link is the one way an
+       agent reaching the HTML finds it. HTML comments are stripped first. (BLOCKING)
 
   297. sitemap.xml canonical (priority=1.0) entry structural completeness:
        the sitemap.xml `<url>` entry with `<priority>1.0</priority>` MUST
@@ -125,6 +132,15 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        canonical URL. Drift silently misroutes JS reader hydration and
        runtime canonical detection. Sibling of Check 149 (canonical
        URL three-way coherence) for the body attribute axis. (BLOCKING)
+
+  483. `<meta name="ai-disclosure">` keeps the human/AI attribution: it MUST
+       exist (outside HTML comments) and its content MUST name Yuta Yokoi as the
+       one who architected and orchestrated the work and AI as what generated the
+       implementation. It is the one machine-readable statement of authorship in
+       the head, and attributing design to the AI is a reject-on-sight
+       anti-pattern of this repository (CLAUDE.md §2) —— yet deleting the tag, or
+       rewriting it to credit the AI with the design, left every Check, e2e and
+       workflow green (measured 2026-11-01). (BLOCKING)
 
 """
 import re
@@ -388,8 +404,11 @@ def run(ctx):
     # 強制。Check 283/284 の alternate link discovery-entrypoint 軸版。
     _idx296 = ROOT / "index.html"
     if _idx296.exists():
-        _isrc296 = _idx296.read_text(encoding="utf-8")
-        _required_alts296 = ["./llms.txt", "./llms-full.txt"]
+        _isrc296 = re.sub(r"<!--.*?-->", "", _idx296.read_text(encoding="utf-8"), flags=re.S)
+        # [2026-11-01] 後ろの 2 本を足した: head には discovery の alternate が 4 本並ぶのに守られて
+        # いたのは 2 本だけで、残り 2 本は消しても全層が緑だった (workflow はファイルの存在しか見ない)
+        _required_alts296 = ["./llms.txt", "./llms-full.txt", "./.well-known/llms.txt",
+                             "/portfolio/.well-known/aio-manifest.json"]
         _missing296 = []
         for _href in _required_alts296:
             _pat = re.compile(
@@ -400,9 +419,9 @@ def run(ctx):
         _ok296 = not _missing296
         check(
             _ok296,
-            "Check 296: index.html has <link rel=alternate> for both llms.txt and llms-full.txt",
+            f"Check 296: index.html has <link rel=alternate> for all {len(_required_alts296)} AIO discovery documents",
             (f"Check 296: 欠落 alternate link href: {_missing296!r} — AIO discovery "
-             "entrypoint が HTML head から欠落。<link rel=alternate href=./llms.txt|llms-full.txt> を追加"),
+             "entrypoint が HTML head から欠落。<link rel=alternate href=...> を戻せ (manifest は digest チェーンの根で、HTML から辿る唯一の入口)"),
             blocking=True,
         )
     else:
@@ -588,3 +607,31 @@ def run(ctx):
     else:
         check(False, "Check 302: index.html present",
               "Check 302: index.html が無い", blocking=True)
+
+    # ── 483. ai-disclosure meta が人間 / AI の帰属を保つ (BLOCKING) ─────────────────
+    # head で著作の来歴を機械向けに述べる唯一の meta。設計を AI に帰すのは本リポジトリが即座に
+    # 退ける anti-pattern (CLAUDE.md §2) なのに、タグを消しても、内容を「AI が設計した」へ書き換え
+    # ても全層が緑だった (2026-11-01 実測)。
+    _idx483 = ROOT / "index.html"
+    _bad483 = []
+    if _idx483.exists():
+        _h483 = re.sub(r"<!--.*?-->", "", _idx483.read_text(encoding="utf-8"), flags=re.S)
+        _m483 = re.search(r'<meta\s+name=["\']ai-disclosure["\']\s+content=["\']([^"\']*)["\']', _h483)
+        if not _m483:
+            _bad483.append("<meta name=\"ai-disclosure\"> が無い")
+        else:
+            _c483 = _m483.group(1)
+            if not re.search(r"\b(?:Architected|Designed)\b[^.]*\bYuta Yokoi\b", _c483):
+                _bad483.append("設計・統治の主体として Yuta Yokoi を名指ししていない")
+            if not re.search(r"\bImplementation\b[^.]*\bAI\b", _c483):
+                _bad483.append("実装を AI が生成したと述べていない")
+    else:
+        _bad483.append("index.html が無い")
+    check(
+        not _bad483,
+        "Check 483: ai-disclosure meta が「設計・統治 = Yuta Yokoi / 実装 = AI」の帰属を保っている",
+        f"Check 483: ai-disclosure meta の帰属が崩れている: {_bad483} —— head で著作の来歴を機械向けに "
+        "述べる唯一の meta で、設計を AI に帰すのは本リポジトリの reject-on-sight anti-pattern "
+        "(CLAUDE.md §2)。判断・目標設定・責任は人間 (Yuta Yokoi) のものとして書け",
+        blocking=True,
+    )
