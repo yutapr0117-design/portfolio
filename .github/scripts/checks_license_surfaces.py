@@ -66,7 +66,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        path の集合**も検証する (対象を表から外せば Check は黙るが、それは実質的な解除である)。
        本文に欠陥を見つけたときの正しい行動は、直すことではなく**オーナーへ報告すること**
        (審査中の差し替えは、審査側が見ているテキストとの乖離を生む)。 (BLOCKING)
-       453b: 冒頭で FROZEN TEXT を名乗る版の本文と、あればその記述子が FREEZE-DATA に pin されていること (2026-11-01)。
+       453b: 冒頭で FROZEN TEXT を名乗る版の本文と、あればその記述子・SPDX XML が FREEZE-DATA に pin されていること (2026-11-01)。
 """
 import re
 import sys
@@ -710,14 +710,18 @@ def run(ctx):
             _rel453b = f"LICENSES/{_t453b.name}"
             if _rel453b not in _paths453:
                 _unpinned453b.append(_rel453b)
-            _md453b = _t453b.with_name(_t453b.name[:-len(".txt")] + ".machine.json")
-            if _md453b.exists() and f"LICENSES/{_md453b.name}" not in _paths453:
-                _unpinned453b.append(f"LICENSES/{_md453b.name}")
+            # 付随する成果物 (記述子・SPDX XML) も同じ版の提出物なので、置いたなら pin する
+            # (1.0 は 3 点とも pin 済み。SPDX XML は `generate_spdx_license_xml.py --version` で
+            # 後の版にも作れるようになった・2026-11-01)。
+            for _suf453b in (".machine.json", ".spdx.xml"):
+                _art453b = _t453b.with_name(_t453b.name[:-len(".txt")] + _suf453b)
+                if _art453b.exists() and f"LICENSES/{_art453b.name}" not in _paths453:
+                    _unpinned453b.append(f"LICENSES/{_art453b.name}")
         check(
             not _unpinned453b,
-            "Check 453b: 冒頭で FROZEN TEXT を名乗る版の本文と記述子はすべて FREEZE-DATA に入っている",
+            "Check 453b: 冒頭で FROZEN TEXT を名乗る版の本文と、置いてある記述子・SPDX XML はすべて FREEZE-DATA に入っている",
             (f"Check 453b: 凍結を名乗るのに sha256 が pin されていない: {_unpinned453b}。"
-             "**版を確定したら、その本文 (と記述子) を FROZEN.md の FREEZE-DATA に足す** —— 足さないと"
+             "**版を確定したら、その本文 (と記述子・SPDX XML) を FROZEN.md の FREEZE-DATA に足す** —— 足さないと"
              "凍結を名乗る本文が黙って編集可能なまま残り、審査者が依拠する stable text の約束が切れる"),
             blocking=True,
         )
