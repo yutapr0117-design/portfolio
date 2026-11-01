@@ -111,9 +111,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       permits none", which mistook a limit on what the licence reaches for a
       condition on the recipient: the causal limit in the same sentence is
       such a limit, and it is not a condition. (0 words.)
-    * Section 11.4 now opens "This Dedication, in respect of the Work,
-      reaches ...". Unqualified, its "It reaches nothing else" was untrue of
-      Section 16.4, which governs the text of this Dedication as a document
+    * Section 11.4 (errata E44) now opens "This Dedication, in respect of the
+      Work, reaches ...". Unqualified, its "It reaches nothing else" was untrue
+      of Section 16.4, which governs the text of this Dedication as a document
       (Section 16.6); Sections 10.1 and 10.4 already carry the same phrase.
       (+5 words.)
     * ACD-1.3: 5443 words, 80 clauses. This draft: 5529 words, 80 clauses.
