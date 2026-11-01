@@ -24,6 +24,7 @@ bracket depth を数えるのが唯一安全な方法。
     python3 .github/scripts/rotate_mutation_samples.py            # 必要なら自動で rotate
     python3 .github/scripts/rotate_mutation_samples.py --count 8  # 件数を指定
     python3 .github/scripts/rotate_mutation_samples.py --check    # 判定のみ (rotate しない)
+    python3 .github/scripts/rotate_mutation_samples.py --force --count 8  # advisory の手前でも回す (まとめて足す前に)
 """
 import sys
 
@@ -366,7 +367,10 @@ def main() -> int:
             raise SystemExit(f"ERROR: rebalance で総数が変わった "
                              f"(E2E {e2e_b0}->{e2e_a0} / MUTATIONS {cons_b0}->{cons_a0})")
 
-    if not over_advisory:
+    # `--force` (2026-11-01): advisory の手前でも明示的に回す。1 つの PR で mutation を何件も足すと、
+    # advisory (975) を一度も鳴らさずに BLOCKING (1,000) へ跳ぶ —— 969 行から 4 件足して 1,001 行に
+    # なった実例がある。足す前に `--force --count N` で余裕を作れるようにする。
+    if not over_advisory and "--force" not in sys.argv:
         # rebalance だけが走る経路でも §2 は同期する。**ここを忘れると「rebalance で行数が
         # 変わったのに §2 が古いまま」= Check 424 が RED** になり、道具を叩いた人が手で直す
         # 羽目になる (2026-08-26 に実際に踏んだ)。

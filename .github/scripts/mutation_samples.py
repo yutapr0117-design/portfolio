@@ -137,37 +137,9 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 35: robots.txt の Sitemap: を存在しない file へ (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / "robots.txt",
-    "find": "Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml",
-    "replace": "Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.txt",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 1: index.html の ai:version を AI2AI.md の Pipeline-Version からずらす (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / "index.html",
-    "find": "<meta name=\"ai:version\" content=\"v74\" />",
-    "replace": "<meta name=\"ai:version\" content=\"v75\" />",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 4: llms.txt を llms-full.txt と byte 不一致にする (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / "llms.txt",
-    "find": "# AI-Driven PM Portfolio: Yuta Yokoi",
-    "replace": "# AI-Driven PM Portfolio: Yuta  Yokoi",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 5: .well-known/index.json を agent-skills/index.json と食い違わせる (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / ".well-known" / "index.json",
-    "find": "  \"skills\": [",
-    "replace": "  \"skillz\": [],\n  \"skills\": [",
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": "Check 8: header 専用の X-Content-Type-Options を meta で入れる (2026-09-29 まで名指し 0 件)",
