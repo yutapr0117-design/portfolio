@@ -728,6 +728,22 @@ bijection を、Check 70/105 が総数と map の同期を強制するので、�
 本 increment で修正済み。**「検査できる面すべてを gate にする」のではなく、
 gate にして安全な面だけを選ぶ**のがこのリポジトリの方針。
 
+### consistency mutation の anchor 一意性（Check 420 の consistency 側）は Check にしない（2026-11-01 に測って決めた）
+
+**動機**: Check 468m の mutation の `find` が 1.4 草案に 2 回現れ（§16.4 の語句が冒頭の変更一覧にも
+引用されていた）、`replace(find, replace, 1)` が**先頭 = 変更一覧**を打って §16.4 は無傷だった。
+468m は §16.4 の節だけを読むので発火せず、作成時の帰属確認で気付いた。Check 420 は E2E 側にしか
+一意性を求めておらず、根拠は「consistency 側は file 全体を走査する Check が受けるので非一意でも害が無い」。
+
+**測ったら非一意の consistency mutation は 464 件中 19 件で、19 件とも週次 probe で捕捉されていた**
+（2026-11-01 の dispatch・全 12 ジョブ success）—— 狙う Check が file 全体を読むので、どの出現を打っても
+発火する。**害が出るのは「節だけを読む Check」を狙う mutation だけ**で、その場合は probe が
+SURVIVED / MISATTRIBUTED として捕まえ、定期実行の失敗は Issue に出る（`mutation-probe.yml` の report job）。
+一律に一意性を求めると、害の無い 19 件の anchor を書き換える churn だけが生まれる。
+**規律として残すこと**: 節を読む Check に mutation を足すときは、`find` の出現回数を作成時に数える
+（468m は直後の `,` まで含めて一意にした）。
+
+
 ## 3. 級別サマリ（BLOCKING / ADVISORY）
 
 | 級 | チェック数 | 該当 |
