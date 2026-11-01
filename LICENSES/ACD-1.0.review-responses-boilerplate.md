@@ -172,6 +172,12 @@ canonical-ref: LICENSES/ACD-1.0.review-responses-clauses.md (第 1 層・条項�
 > own text says why insolvency is called out separately — it is the most common
 > way in which rights change hands against the wishes of the person who gave them
 > away.
+
+**⚠ 2026-11-01 注**: 上の *"Sections 3, 4, 6 and 8"* は 1.0 の §2.8 の列挙どおりで、1.0 の記述としては
+正確である。ただしその列挙は §7.2（データベース権の独立した許可）と §2 自身（§2.5 の禁反言）を
+落としていた —— errata **E46** / **E49**。1.4 草案は列挙をやめ *"This Dedication, in respect of the
+Work, binds …"* とした。倒産管財人が §2.8 の譲受人に当たるという本答えの論点は変わらない。
+
 >
 > Whether a given court agrees that the instrument is non-executory is not
 > something I can guarantee, and I do not claim it. What I can do is not leave

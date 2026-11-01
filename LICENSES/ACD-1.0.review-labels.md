@@ -136,6 +136,9 @@ significantly reduce the risk of a return to vanity license proliferation"* と�
 *"They are not terms of the Work, they bind no recipient of the Work"* と述べる）が、
 **Jones 氏の基準は「licensor が本文の中で privileged な位置に置かれていないか」を問うており、
 著作物についての限定を持たない**（§10.1 が自分の射程に置いている種類の限定が、この基準には無い）。
+（**⚠ 2026-11-01 注**: 引用した §16.6 の *"they bind no recipient of the Work"* は字面が §16.4 / §16.5 と
+食い違う —— errata **E48**。1.4 草案は *"they bind no one in respect of the Work"*。「Work についての
+特権ではない」という本節の読みは、直した後の文のほうがむしろ正確に支える。）
 
 **⚠ 逆側を同じ重さで**: **steward を持つ承認済みライセンスは多い**（Apache は ASF、MPL は Mozilla、
 GPL は FSF）。**違うのは、それらが本文の外で運用されているのに、ACD は本文の中に書いていること**である。
