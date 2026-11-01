@@ -122,9 +122,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       making, selling, and importing as well as using, and things derived from
       the Work; in a patent covenant "use" is one of those acts, so the second
       footing was narrower than the first. (-8 words.)
-    * Section 2.8 (errata E46) now says that "This Dedication, in respect of
-      the Work," binds successors and transferees, where it named Sections
-      3, 4, 6, and 8. The list named Section 6, which restates, but not
+    * Section 2.8 (errata E46, E49) now says that "This Dedication, in
+      respect of the Work," binds successors and transferees, where it named
+      Sections 3, 4, 6, and 8. The list named Section 6, which restates, but not
       Section 7.2, which grants, nor Section 2.5, whose undertaking not to
       argue that the Dedication fails for want of consideration or
       formality is the one a change of hands most invites. Naming the whole
