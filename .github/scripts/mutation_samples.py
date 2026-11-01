@@ -519,6 +519,16 @@ _MUTATIONS_TAIL.append({
     "replace": "<!-- JS LEAF CEILING (removed) -->",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 468l: 草案の 2 行を語を変えずに 1 行へ繋いで 80 桁超にする —— 1.1〜1.3 はこの形で確定し、"
+            "凍結で直せなくなった (2026-11-01 実測)",
+    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    # 語を足すと 468 の語数申告の face が先に拾い帰属が曖昧になる (初版で実測)。語を変えずに 2 行を
+    # 1 行へ繋いで 80 桁を超えさせ、468l だけを狙う。
+    "find": "in any medium and in any form,\n       including source code",
+    "replace": "in any medium and in any form, including source code",
+    "check": CHECK,
+})
 
 _MUTATIONS_TAIL.append({
     "name": "Check 468: 次版草案の題名行を前の版へ戻す (468j) —— 1.2 を複製した 1.3 草案で題名だけが "
