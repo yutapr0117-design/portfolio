@@ -251,144 +251,150 @@ def run(ctx):
     import subprocess as _sp445
     import xml.etree.ElementTree as _ET445
     _xml445 = ROOT / "LICENSES" / "ACD-1.0.spdx.xml"
+    # **全版の XML を照合する (2026-11-01)**: 生成器は `--version` で任意の版の XML を作れるようになった。
+    # 出す版の XML を置いた日から、その版も同じ 445a〜e で守る (決め打ちだと、置いた XML が無検査になる)。
+    # 1.0 の XML は凍結された提出物 (Check 453) なので、存在必須は 1.0 だけ。
+    _xmls445 = sorted((ROOT / "LICENSES").glob("ACD-*.spdx.xml"))
     _gen445 = ROOT / ".github" / "scripts" / "generate_spdx_license_xml.py"
     if not (_xml445.exists() and _gen445.exists()):
         check(False, "", f"Check 445: SPDX 提出物または生成器が無い "
                          f"(xml={_xml445.exists()} / generator={_gen445.exists()})", blocking=True)
     else:
-        # 445a — 再生成して一致するか
-        _r445 = _sp445.run([sys.executable, str(_gen445), "--check"],
-                           cwd=str(ROOT), capture_output=True, text=True)
-        check(
-            _r445.returncode == 0,
-            "Check 445a: SPDX 提出用 XML が ACD-1.0 本文と同期している",
-            (f"Check 445a: SPDX 提出用 XML が本文と同期していない — `npm run spdx-xml` を実行して "
-             f"commit せよ。**提出物は手で編集しない** (単一ソースは LICENSES/ACD-1.0.txt)。"
-             f"詳細: {_r445.stdout.strip() or _r445.stderr.strip()}"),
-            blocking=True,
-        )
+        for _xml445 in _xmls445:
+            _ver445 = _xml445.name[len("ACD-"):-len(".spdx.xml")]
+            # 445a — 再生成して一致するか
+            _r445 = _sp445.run([sys.executable, str(_gen445), "--check", "--version", _ver445],
+                               cwd=str(ROOT), capture_output=True, text=True)
+            check(
+                _r445.returncode == 0,
+                f"Check 445a: SPDX 提出用 XML (ACD-{_ver445}) が本文と同期している",
+                (f"Check 445a: SPDX 提出用 XML が本文と同期していない — `npm run spdx-xml` を実行して "
+                 f"commit せよ。**提出物は手で編集しない** (単一ソースは LICENSES/ACD-{_ver445}.txt)。"
+                 f"詳細: {_r445.stdout.strip() or _r445.stderr.strip()}"),
+                blocking=True,
+            )
 
-        # 445b — well-formed かつ識別子が**出典の本文 (ACD-1.0.txt) の版**と一致
-        #   2026-10-25 までは LICENSE の識別子と照合していたが、適用する版を 1.3 へ切り替えた日に
-        #   「1.0 の提出物が 1.0 を名乗っている」正しい状態を誤検出した。XML は凍結された 1.0 の提出物で、
-        #   照合すべきは**それが導出された本文**である。
-        _bad445 = []
-        try:
-            _root445 = _ET445.fromstring(_xml445.read_text(encoding="utf-8"))
-            _lic445 = _root445.find("{http://www.spdx.org/license}license")
-            if _lic445 is None:
-                _bad445.append("license 要素が無い")
-            else:
-                _src_id445 = re.sub(r"\.spdx\.xml$", "", _xml445.name)
-                if _lic445.get("licenseId") != _src_id445:
-                    _bad445.append(f"licenseId {_lic445.get('licenseId')!r} != 出典の版 {_src_id445!r}")
-        except Exception as _e445:
-            _bad445.append(f"XML が well-formed でない: {_e445}")
-        check(
-            not _bad445,
-            "Check 445b: SPDX 提出用 XML が well-formed で識別子が出典の版と一致",
-            f"Check 445b: SPDX 提出物の構造/識別子に問題がある: {_bad445}",
-            blocking=True,
-        )
+            # 445b — well-formed かつ識別子が**出典の本文 (ACD-1.0.txt) の版**と一致
+            #   2026-10-25 までは LICENSE の識別子と照合していたが、適用する版を 1.3 へ切り替えた日に
+            #   「1.0 の提出物が 1.0 を名乗っている」正しい状態を誤検出した。XML は凍結された 1.0 の提出物で、
+            #   照合すべきは**それが導出された本文**である。
+            _bad445 = []
+            try:
+                _root445 = _ET445.fromstring(_xml445.read_text(encoding="utf-8"))
+                _lic445 = _root445.find("{http://www.spdx.org/license}license")
+                if _lic445 is None:
+                    _bad445.append("license 要素が無い")
+                else:
+                    _src_id445 = re.sub(r"\.spdx\.xml$", "", _xml445.name)
+                    if _lic445.get("licenseId") != _src_id445:
+                        _bad445.append(f"licenseId {_lic445.get('licenseId')!r} != 出典の版 {_src_id445!r}")
+            except Exception as _e445:
+                _bad445.append(f"XML が well-formed でない: {_e445}")
+            check(
+                not _bad445,
+                "Check 445b: SPDX 提出用 XML が well-formed で識別子が出典の版と一致",
+                f"Check 445b: SPDX 提出物の構造/識別子に問題がある: {_bad445}",
+                blocking=True,
+            )
 
-        # 445c — 本文の全条項が XML に現れる (段落分割で落ちていない)
-        _src445 = (ROOT / "LICENSES" / "ACD-1.0.txt").read_text(encoding="utf-8")
-        _clauses445 = re.findall(r"^  (\d+\.\d+)\s", _src445, re.M)
-        try:
-            _joined445 = " ".join(
-                (_p.text or "") for _p in
-                _ET445.fromstring(_xml445.read_text(encoding="utf-8"))
-                .findall(".//{http://www.spdx.org/license}p"))
-        except Exception:
-            _joined445 = ""
-        _miss445 = [_c for _c in _clauses445 if _c not in _joined445]
-        check(
-            _clauses445 and not _miss445,
-            f"Check 445c: 本文の全 {len(_clauses445)} 条項が SPDX 提出用 XML に現れる",
-            (f"Check 445c: SPDX 提出用 XML に現れない条項がある: {_miss445[:8]}。"
-             "**提出テキストと配布テキストが食い違うと、収録後に「テキストが一致しない」問題を起こす**。"
-             "生成器の段落分割ロジックを見直せ"),
-            blocking=True,
-        )
+            # 445c — 本文の全条項が XML に現れる (段落分割で落ちていない)
+            _src445 = (ROOT / "LICENSES" / f"ACD-{_ver445}.txt").read_text(encoding="utf-8")
+            _clauses445 = re.findall(r"^  (\d+\.\d+)\s", _src445, re.M)
+            try:
+                _joined445 = " ".join(
+                    (_p.text or "") for _p in
+                    _ET445.fromstring(_xml445.read_text(encoding="utf-8"))
+                    .findall(".//{http://www.spdx.org/license}p"))
+            except Exception:
+                _joined445 = ""
+            _miss445 = [_c for _c in _clauses445 if _c not in _joined445]
+            check(
+                _clauses445 and not _miss445,
+                f"Check 445c: 本文の全 {len(_clauses445)} 条項が SPDX 提出用 XML に現れる",
+                (f"Check 445c: SPDX 提出用 XML に現れない条項がある: {_miss445[:8]}。"
+                 "**提出テキストと配布テキストが食い違うと、収録後に「テキストが一致しない」問題を起こす**。"
+                 "生成器の段落分割ロジックを見直せ"),
+                blocking=True,
+            )
 
-        # 445d — 段落の先頭に立つ条項番号が、本文の条項列と **順序・個数まで一致**する。
-        # [ADD 2026-08-23] 445c は「条項が *現れる*」しか見ないので、**1 つの文が 2 つの段落に
-        #   割れても素通り**する (割れた後半が実在の条項番号で始まると 445b/c のどちらにも掛から
-        #   ない)。実際に生成器が折り返しの継続行を新段落と誤認し、§16.5 の「…and Section」/
-        #   「10.5 applies.」など **3 文が割れていた**。Check 445a の regenerate-compare も、
-        #   生成器自体が壊れていれば**壊れた出力どうしが一致する**ので捕捉できない。
-        #   本文の条項列 (indent 2 の `N.N `) と、XML で段落頭に立つ条項番号の列を突き合わせる。
-        try:
-            _ps445 = [(_p.text or "").strip() for _p in
-                      _ET445.fromstring(_xml445.read_text(encoding="utf-8"))
-                      .findall(".//{http://www.spdx.org/license}p")]
-        except Exception:
-            _ps445 = []
-        _xmlseq445 = [_t.split()[0] for _t in _ps445 if re.match(r"^\d+\.\d+\s", _t)]
-        _seq_ok445 = bool(_clauses445) and _xmlseq445 == _clauses445
-        _extra445 = [_c for _c in _xmlseq445 if _xmlseq445.count(_c) > _clauses445.count(_c)]
-        check(
-            _seq_ok445,
-            f"Check 445d: XML の段落頭に立つ条項番号 {len(_xmlseq445)} 件が本文の条項列と順序・個数まで一致",
-            (f"Check 445d: 段落分割が本文の条項構造と食い違っている "
-             f"(本文 {len(_clauses445)} 件 / XML {len(_xmlseq445)} 件"
-             + (f"・重複 {sorted(set(_extra445))[:5]}" if _extra445 else "") + ")。"
-             "**折り返しの継続行を新段落と誤認すると 1 つの文が 2 つに割れる** —— 割れた後半が"
-             "実在の条項番号で始まると 445b/445c のどちらにも掛からず、445a の regenerate-compare も"
-             "生成器が壊れていれば壊れた出力どうしで一致してしまう。"
-             "`generate_spdx_license_xml.py` の段落判定を**インデント込み**で行え"),
-            blocking=True,
-        )
+            # 445d — 段落の先頭に立つ条項番号が、本文の条項列と **順序・個数まで一致**する。
+            # [ADD 2026-08-23] 445c は「条項が *現れる*」しか見ないので、**1 つの文が 2 つの段落に
+            #   割れても素通り**する (割れた後半が実在の条項番号で始まると 445b/c のどちらにも掛から
+            #   ない)。実際に生成器が折り返しの継続行を新段落と誤認し、§16.5 の「…and Section」/
+            #   「10.5 applies.」など **3 文が割れていた**。Check 445a の regenerate-compare も、
+            #   生成器自体が壊れていれば**壊れた出力どうしが一致する**ので捕捉できない。
+            #   本文の条項列 (indent 2 の `N.N `) と、XML で段落頭に立つ条項番号の列を突き合わせる。
+            try:
+                _ps445 = [(_p.text or "").strip() for _p in
+                          _ET445.fromstring(_xml445.read_text(encoding="utf-8"))
+                          .findall(".//{http://www.spdx.org/license}p")]
+            except Exception:
+                _ps445 = []
+            _xmlseq445 = [_t.split()[0] for _t in _ps445 if re.match(r"^\d+\.\d+\s", _t)]
+            _seq_ok445 = bool(_clauses445) and _xmlseq445 == _clauses445
+            _extra445 = [_c for _c in _xmlseq445 if _xmlseq445.count(_c) > _clauses445.count(_c)]
+            check(
+                _seq_ok445,
+                f"Check 445d: XML の段落頭に立つ条項番号 {len(_xmlseq445)} 件が本文の条項列と順序・個数まで一致",
+                (f"Check 445d: 段落分割が本文の条項構造と食い違っている "
+                 f"(本文 {len(_clauses445)} 件 / XML {len(_xmlseq445)} 件"
+                 + (f"・重複 {sorted(set(_extra445))[:5]}" if _extra445 else "") + ")。"
+                 "**折り返しの継続行を新段落と誤認すると 1 つの文が 2 つに割れる** —— 割れた後半が"
+                 "実在の条項番号で始まると 445b/445c のどちらにも掛からず、445a の regenerate-compare も"
+                 "生成器が壊れていれば壊れた出力どうしで一致してしまう。"
+                 "`generate_spdx_license_xml.py` の段落判定を**インデント込み**で行え"),
+                blocking=True,
+            )
 
-        # 445e — standardLicenseHeader が §16.1 の通知文から導出されている。
-        # [ADD 2026-08-23] SPDX ツールはこの要素で **ソースファイルに書かれた通知**を照合する。
-        #   §16.2 は「識別子・SPDX タグ・名称による参照で十分な通知になる」と述べているので、
-        #   header が欠けると **識別子タグは拾えても散文の通知が拾えない** —— 宣言が届かない。
-        #   §16.1 の通知文の実体 (SPDX 識別子行 / 全文への導線 / 名称と版数) が header に
-        #   現れることを検証する。可変部 (`<location of this file>`) は `<alt>` で表すのが
-        #   SPDX の作法で、§16.4 (本文を改変して同名配布しない) とは衝突しない ——
-        #   **header は Work に添える通知であって Dedication の本文ではない** (§16.5)。
-        _hdr445 = ""
-        try:
-            _h = _ET445.fromstring(_xml445.read_text(encoding="utf-8")).find(
-                ".//{http://www.spdx.org/license}standardLicenseHeader")
-            if _h is not None:
-                _hdr445 = " ".join("".join(_e.itertext()) for _e in
-                                   _h.findall("{http://www.spdx.org/license}p"))
-        except Exception:
+            # 445e — standardLicenseHeader が §16.1 の通知文から導出されている。
+            # [ADD 2026-08-23] SPDX ツールはこの要素で **ソースファイルに書かれた通知**を照合する。
+            #   §16.2 は「識別子・SPDX タグ・名称による参照で十分な通知になる」と述べているので、
+            #   header が欠けると **識別子タグは拾えても散文の通知が拾えない** —— 宣言が届かない。
+            #   §16.1 の通知文の実体 (SPDX 識別子行 / 全文への導線 / 名称と版数) が header に
+            #   現れることを検証する。可変部 (`<location of this file>`) は `<alt>` で表すのが
+            #   SPDX の作法で、§16.4 (本文を改変して同名配布しない) とは衝突しない ——
+            #   **header は Work に添える通知であって Dedication の本文ではない** (§16.5)。
             _hdr445 = ""
-        # [FIX 2026-08-24] 期待値を **§16.1 から導出**する。従来は 3 つのマーカーを
-        #   リテラルで持っており、§16.1 に行を足しても検査対象にならなかった ——
-        #   実際、生成器の側もハードコードした接頭辞リストで絞っていたため、追加した
-        #   「Machine learning … a patent licence is granted.」が **header から silent に
-        #   落ちたのに 445e は緑のまま**だった。通知ブロックは条項本文より深く
-        #   インデントされている (条項継続 = 7 / 通知 = 11) ので、そこから導ける。
-        _need445e = []
-        try:
-            _i445 = _src445.index("16.1 To apply this Dedication")
-            _blk445 = _src445[_i445:_src445.index("16.2", _i445)]
-            _need445e = [_l.strip() for _l in _blk445.splitlines()
-                         if _l.strip() and (len(_l) - len(_l.lstrip())) >= 11]
-        except ValueError:
+            try:
+                _h = _ET445.fromstring(_xml445.read_text(encoding="utf-8")).find(
+                    ".//{http://www.spdx.org/license}standardLicenseHeader")
+                if _h is not None:
+                    _hdr445 = " ".join("".join(_e.itertext()) for _e in
+                                       _h.findall("{http://www.spdx.org/license}p"))
+            except Exception:
+                _hdr445 = ""
+            # [FIX 2026-08-24] 期待値を **§16.1 から導出**する。従来は 3 つのマーカーを
+            #   リテラルで持っており、§16.1 に行を足しても検査対象にならなかった ——
+            #   実際、生成器の側もハードコードした接頭辞リストで絞っていたため、追加した
+            #   「Machine learning … a patent licence is granted.」が **header から silent に
+            #   落ちたのに 445e は緑のまま**だった。通知ブロックは条項本文より深く
+            #   インデントされている (条項継続 = 7 / 通知 = 11) ので、そこから導ける。
             _need445e = []
-        # header は 79 桁の折り返しを畳むので、比較も空白を潰した上で部分一致で見る。
-        _flat445 = " ".join(_hdr445.split())
-        _missh445 = [_n for _n in _need445e
-                     if " ".join(_n.split()) not in _flat445
-                     and not _n.startswith("Full text:")]   # 可変部は <alt> になる
-        _has_alt445 = "<alt " in _xml445.read_text(encoding="utf-8")
-        check(
-            _hdr445 and _need445e and not _missh445 and _has_alt445,
-            f"Check 445e: standardLicenseHeader が §16.1 の通知文 {len(_need445e)} 行を"
-            "すべて担っている",
-            (f"Check 445e: standardLicenseHeader が欠落/不完全 (欠け: {_missh445}"
-             + ("" if _has_alt445 else " / 可変部の <alt> が無い") + ")。"
-             "**SPDX ツールはこの要素でソースファイル中の通知を照合する** —— 欠けると "
-             "SPDX-License-Identifier タグは拾えても、§16.1 が定める散文の通知は認識されない。"
-             "`generate_spdx_license_xml.py` の `_standard_header()` は §16.1 から導出するので、"
-             "本文側の通知文を変えたら再生成せよ"),
-            blocking=True,
-        )
+            try:
+                _i445 = _src445.index("16.1 To apply this Dedication")
+                _blk445 = _src445[_i445:_src445.index("16.2", _i445)]
+                _need445e = [_l.strip() for _l in _blk445.splitlines()
+                             if _l.strip() and (len(_l) - len(_l.lstrip())) >= 11]
+            except ValueError:
+                _need445e = []
+            # header は 79 桁の折り返しを畳むので、比較も空白を潰した上で部分一致で見る。
+            _flat445 = " ".join(_hdr445.split())
+            _missh445 = [_n for _n in _need445e
+                         if " ".join(_n.split()) not in _flat445
+                         and not _n.startswith("Full text:")]   # 可変部は <alt> になる
+            _has_alt445 = "<alt " in _xml445.read_text(encoding="utf-8")
+            check(
+                _hdr445 and _need445e and not _missh445 and _has_alt445,
+                f"Check 445e: standardLicenseHeader が §16.1 の通知文 {len(_need445e)} 行を"
+                "すべて担っている",
+                (f"Check 445e: standardLicenseHeader が欠落/不完全 (欠け: {_missh445}"
+                 + ("" if _has_alt445 else " / 可変部の <alt> が無い") + ")。"
+                 "**SPDX ツールはこの要素でソースファイル中の通知を照合する** —— 欠けると "
+                 "SPDX-License-Identifier タグは拾えても、§16.1 が定める散文の通知は認識されない。"
+                 "`generate_spdx_license_xml.py` の `_standard_header()` は §16.1 から導出するので、"
+                 "本文側の通知文を変えたら再生成せよ"),
+                blocking=True,
+            )
 
     # ── 451. ACD-1.0 の機械可読記述子が条文と整合すること (BLOCKING) ─────────────────
     # ACD-1.0 §6.5 は「**自動化されたシステムが判定できない許諾は、学習されるための著作物に

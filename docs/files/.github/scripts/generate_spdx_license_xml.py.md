@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/generate_spdx_license_xml.py
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-08-23
+last-updated: 2026-11-01
 canonical-ref: LICENSES/ACD-1.0.txt / LICENSES/ACD-1.0.spdx.xml / .github/scripts/generate_status.py
 ---
 
@@ -59,3 +59,5 @@ Check 444 と同じ単一ソースなので、path を変えても生成器と C
 
 ### For third parties
 - 独自ライセンスの申請物を drift させないための実装例。
+
+**版の指定（2026-11-01・portfolio-25 の依頼）**: `--version N.M` で `LICENSES/ACD-N.M.txt` から `LICENSES/ACD-N.M.spdx.xml` を作る（既定 1.0・その出力は byte 不変）。1.1 以降の本文は冒頭に身分表示を持ち `-` × 80 の区切り線の後に題名が来るので、題名と版はそこから読む（区切り線の前を読むと SPDX の name が身分表示の文になる・1.3 で実測）。Check 445 は存在する全 `ACD-*.spdx.xml` を同じ 445a〜e で照合するので、出す版の XML を置いた日からその版も守られる。
