@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/rotate_mutation_samples.py
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-08-26
+last-updated: 2026-11-01
 canonical-ref: .github/scripts/mutation_samples.py / .github/scripts/mutation_probe.py / docs/architecture/file-size-budget.md
 ---
 
@@ -86,3 +86,5 @@ rotate 後は **`file-size-budget.md` §2 の実測行数を同期する**（Che
 
 ### For third parties
 - 無限に伸びる append-log を、閾値と自動 rotation で運用可能に保つ実装例
+
+**失敗時のロールバック（2026-11-01）**: rotate した entry が hot log の局所名を参照していると、移動先 archive の import が NameError になる（実例: 版を導出する 468i の entry）。総数の検証は書き込みの**後**に走るので失敗は捕まえるが、以前は tree が半分 rotate された状態で残った。`_main_with_rollback()` が実行前の全 `mutation_samples*.py` と budget doc を snapshot し、例外（SystemExit を含む）で元へ戻す。**entry から参照する値は hot log の局所名ではなく `mutation_samples_common.py` の共有定数に置く**（どの archive へ移っても import できる）。

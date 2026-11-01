@@ -484,5 +484,28 @@ def _wire_new_archive(n, filename, stem, list_base):
     TAIL.write_text(tail, encoding="utf-8")
 
 
+def _main_with_rollback() -> int:
+    """main() を走らせ、途中で例外 (SystemExit を含む) が出たら触りうる file をすべて元へ戻す。
+
+    2026-11-01 実測: rotate した entry が hot log の局所名 (`_DRAFT_VER468I`) を参照しており、
+    移動先の archive で NameError になった。総数の検証 (`_totals()`) は**書き込みの後**に走るので、
+    失敗は捕まえるが tree は半分 rotate された状態で残った。検証は残したまま、失敗したら書く前へ戻す。
+    """
+    paths = sorted((ROOT / ".github" / "scripts").glob("mutation_samples*.py")) + [
+        ROOT / "docs" / "architecture" / "file-size-budget.md"]
+    snap = {p: p.read_bytes() for p in paths if p.exists()}
+    try:
+        return main()
+    except BaseException:
+        created = [p for p in sorted((ROOT / ".github" / "scripts").glob("mutation_samples*.py"))
+                   if p not in snap]
+        for p, b in snap.items():
+            p.write_bytes(b)
+        for p in created:
+            p.unlink()
+        print("rotate に失敗したので、触った file をすべて実行前へ戻した", file=sys.stderr)
+        raise
+
+
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(_main_with_rollback())
