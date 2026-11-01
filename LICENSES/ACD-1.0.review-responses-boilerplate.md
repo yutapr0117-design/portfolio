@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses-boilerplate.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-09-20
+last-updated: 2026-11-01
 canonical-ref: LICENSES/ACD-1.0.review-responses-clauses.md (第 1 層・条項別) / LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威)
 ---
 
@@ -123,15 +123,16 @@ canonical-ref: LICENSES/ACD-1.0.review-responses-clauses.md (第 1 層・条項�
 >
 > Whether a court gives effect to any of this I cannot say. Severability means
 > that if it is struck the rest survives (Section 15.4 in 1.0; Section 15.2 in
-> the 1.2 draft).
+> ACD-1.2 and later, including ACD-1.3, which this repository applies).
 >
 > **What I had wrong, since you can see it in the history anyway.** The answer
 > given here until 2026-09-19 said that applying contra proferentem "would
 > resolve it against the person giving everything away and in favour of nobody".
 > That treated the two canons as one: resolving ambiguity against the drafter is
 > resolving it *for* the recipient. The 1.1 draft then dropped Section 15.3 on
-> the same reasoning — that Section 15.1 was saying it twice — and the 1.2 draft
-> restores it word for word now that the mistake is visible.
+> the same reasoning — that Section 15.1 was saying it twice — and ACD-1.2
+> restored it word for word once the mistake was visible; it is unchanged in
+> ACD-1.3 and in the 1.4 draft.
 
 **主張しないこと**: **この条項が有効だとは述べていない。** 述べているのは、**無い場合に何が起きるか**
 ——§16 の上で順序の定まらない 2 つの canon が同じ条文を反対向きに引く —— だけである。
