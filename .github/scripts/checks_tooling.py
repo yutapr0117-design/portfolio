@@ -52,6 +52,14 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
       skill 呼び出し判断に使う重要シグナルで、消失すると skill は登録されても呼び出されなくなる
       silent unavailability になる。name≠dirname は解決分裂を招く (Check 78 と同型の
       identifier-coherence)。(BLOCKING when present, ADVISORY when absent)
+  481. **JS を走査する Check は、コメントを共有の字句 helper (`_lib_io.strip_js_comments`) で消す**
+       (BLOCKING)。(a) `checks_*.py` に「`/* */` を消す re.sub の直後に `//` を消す re.sub」という
+       2 段の形が無いこと (CSS は `//` を持たないので 1 段の `/* */` 除去は対象外)。(b) helper が
+       罠を集めた fixture を正しく処理すること。2026-11-01 に実測: 2 段の形は `//` コメント中の
+       `js/quiz/*-quiz-data.js` をブロックコメントの始まりと読み、次の `*/` まで**実コードごと消す**
+       ——main.js で 74 行、e2e spec 2 本で 52 行と 84 行。**Check 124 (サイト UI の匿名性ガード) は、
+       その 74 行に実名が入っても見えていなかった。** helper は espree のコメント範囲と 80 file
+       全件で完全一致を確認してある。
 """
 import re
 import json
@@ -280,3 +288,38 @@ def run(ctx):
             warnings.append("Check 80 (ADVISORY): .claude/skills/ exists but no SKILL.md found")
     else:
         warnings.append("Check 80 (ADVISORY): .claude/skills/ not present — optional, 将来 skill 追加時にディレクトリ作成")
+
+    # ── 481. JS のコメント除去は共有の字句 helper で行う (BLOCKING) ─────────────────
+    # 2 段の正規表現 (`/* */` → `//`) は、`//` コメントの中の `/*` (例: `js/quiz/*-quiz-data.js`)
+    # をブロックコメントの始まりと読み、次の `*/` まで実コードを消す。消えた範囲は Check から
+    # 見えない (2026-11-01: main.js の 74 行が Check 124 の匿名性ガードから外れていた)。
+    from _lib_io import strip_js_comments as _strip481
+    _bad481 = []
+    _block_re481 = re.compile(r're\.sub\(\s*r?["\']/\\\*\.\*\?\\\*/')
+    _line_re481 = re.compile(r're\.sub\(\s*r?["\'](?:\^\\s\*|\(\?<!:\))?//')
+    for _p481 in sorted((ROOT / ".github" / "scripts").glob("checks_*.py")):
+        _ls481 = _p481.read_text(encoding="utf-8").splitlines()
+        for _i481, _l481 in enumerate(_ls481):
+            if _l481.lstrip().startswith("#") or not _block_re481.search(_l481):
+                continue
+            if any(_line_re481.search(_n481) for _n481 in _ls481[_i481 + 1:_i481 + 4]):
+                _bad481.append(f"{_p481.name}:{_i481 + 1}")
+    # (b) helper の fixture —— 2 段除去・素朴な 1 回走査がそれぞれ誤った実例を集めてある
+    _fx481 = ("const a = 1; // see js/quiz/*-quiz-data.js\n"
+              "const b = /[`]/.test(x); const u = 'https://x/*y';\n"
+              "const t = `${ `n${1 /* c */}` }`; /* blk */ const z = 2;\n")
+    # 期待値は「コメントだけを同じ長さの空白にしたもの」(文字列・正規表現・テンプレートは残る)
+    _want481 = _fx481
+    for _c481 in ("// see js/quiz/*-quiz-data.js", "/* c */", "/* blk */"):
+        _want481 = _want481.replace(_c481, " " * len(_c481), 1)
+    _got481 = _strip481(_fx481)
+    if _got481 != _want481:
+        _bad481.append(f"strip_js_comments の fixture が期待と違う: {_got481!r}")
+    check(
+        not _bad481,
+        "Check 481: JS を走査する Check は共有の字句 helper でコメントを消している (2 段の正規表現 0 件・fixture 一致)",
+        f"Check 481: JS コメントの除去が字句 helper を通っていない / helper が壊れた: {_bad481} —— "
+        "2 段の正規表現は `//` コメント中の `/*` を起点に次の `*/` まで実コードを消し、"
+        "その範囲を Check から隠す (2026-11-01 に main.js の 74 行が匿名性ガードから外れていた)。"
+        "`from _lib_io import strip_js_comments` を使え",
+    )

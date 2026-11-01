@@ -169,6 +169,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 
 """
 import re
+
+from _lib_io import strip_js_comments
 import json
 
 
@@ -407,8 +409,7 @@ def run(ctx):
             continue
         _src = _f.read_text(encoding="utf-8")
         # コメント行 (// および /* */) を strip
-        _stripped = re.sub(r"//[^\n]*", "", _src)
-        _stripped = re.sub(r"/\*.*?\*/", "", _stripped, flags=re.DOTALL)
+        _stripped = strip_js_comments(_src)
         _lines = []
         for _kw in ("import", "export"):
             _hits = re.findall(rf"(?m)^\s*{_kw}\b", _stripped)

@@ -78,6 +78,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
       の延長で、「ルートカバレッジ」も機械強制する。(BLOCKING)
 """
 import re
+
+from _lib_io import strip_js_comments
 import json
 
 
@@ -119,8 +121,7 @@ def run(ctx):
         # 「Check 43b が "startViewTransitionProxy" 文字列の存在を監視」「Check 43c が
         # trustedTypes.createPolicy('default' の存在を監視」と検査文字列を引用しているため、
         # 素の部分文字列では実装の行を消しても緑のままだった (2026-09-29 に実測)。
-        _code43 = re.sub(r"/\*.*?\*/", "", _src43, flags=re.DOTALL)
-        _code43 = re.sub(r"^\s*//.*$", "", _code43, flags=re.MULTILINE)
+        _code43 = strip_js_comments(_src43)
         # 43b — startViewTransition proxy installer must remain (View Transition safety).
         check("startViewTransitionProxy" in _code43,
               "Check 43b: main.js retains the startViewTransition proxy (View Transition safety device)",
@@ -149,8 +150,7 @@ def run(ctx):
         # bindings, not global-scope pollution — are allowed ahead of the IIFE. Any other
         # top-level construct (a bare `const`/`let`/`var`/`function` declaration, etc.) still
         # leaves a non-IIFE token first and fails the check, exactly as before.
-        _nocomments43 = re.sub(r"/\*.*?\*/", "", _src43, flags=re.DOTALL)
-        _nocomments43 = re.sub(r"^\s*//.*$", "", _nocomments43, flags=re.MULTILINE)
+        _nocomments43 = strip_js_comments(_src43)
         _exec43 = _nocomments43.strip()
         # An optional leading "'use strict';" / "\"use strict\";" directive is allowed before the IIFE.
         _exec43 = re.sub(r"^(['\"]use strict['\"]\s*;\s*)+", "", _exec43)

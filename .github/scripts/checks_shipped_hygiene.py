@@ -187,6 +187,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 
 """
 import re
+
+from _lib_io import strip_js_comments
 import json
 
 
@@ -751,8 +753,7 @@ def run(ctx):
         _src414 = _f414.read_text(encoding="utf-8", errors="replace")
         # 行コメント / ブロックコメントを除去してから走査する (docstring で機構を説明している
         # 記述そのものを違反と誤検出しない = comment-match による false RED の回避)。
-        _code414 = re.sub(r"/\*.*?\*/", "", _src414, flags=re.S)
-        _code414 = re.sub(r"(?<!:)//[^\n]*", "", _code414)
+        _code414 = strip_js_comments(_src414)
         for _m414 in list(_proto_assign414.finditer(_code414)) + list(_proto_define414.finditer(_code414)):
             _viol414.append(f"{_rel414}: {_m414.group(0).strip()}")
     check(
@@ -774,8 +775,7 @@ def run(ctx):
     # 本文の無い entry を残す。per-instance で 3 回潰したので構造防止へ昇華する
     # (Check 364 が `(X || []).<throwing method>` でやった昇華の文字列面)。
     _src417 = (ROOT / "js" / "store.js").read_text(encoding="utf-8", errors="replace")
-    _code417 = re.sub(r"/\*.*?\*/", "", _src417, flags=re.S)
-    _code417 = re.sub(r"(?<!:)//[^\n]*", "", _code417)
+    _code417 = strip_js_comments(_src417)
     # (a) untrusted な生値 (raw. / data. / 個々の entry t.) を String() へ直接渡さない
     _direct417 = re.findall(r"String\(\s*(?:raw|data|t)\.[\w.?\[\]]*", _code417)
     # (b) 必須テキストの filter は isText() を通す (truthy 判定だけの形を禁止)
@@ -808,8 +808,7 @@ def run(ctx):
         _src421 = _f421.read_text(encoding="utf-8", errors="replace")
         # コメントを除去してから両方を判定する。除去しないと (a) 説明コメント中の 'smooth' が
         # false RED を生み、(b) コメント中の prefers-reduced-motion が実装なしで GREEN にする。
-        _code421 = re.sub(r"/\*.*?\*/", "", _src421, flags=re.S)
-        _code421 = re.sub(r"(?<!:)//[^\n]*", "", _code421)
+        _code421 = strip_js_comments(_src421)
         if not re.search(r"['\"]smooth['\"]", _code421):
             continue
         if re.search(r"prefers-reduced-motion", _code421):
@@ -861,8 +860,7 @@ def run(ctx):
     _ok422 = 0
     for _f422 in sorted((ROOT / "js").glob("**/*.js")):
         _rel422 = _f422.relative_to(ROOT).as_posix()
-        _code422 = re.sub(r"/\*.*?\*/", "", _f422.read_text(encoding="utf-8", errors="replace"), flags=re.S)
-        _code422 = re.sub(r"(?<!:)//[^\n]*", "", _code422)
+        _code422 = strip_js_comments(_f422.read_text(encoding="utf-8", errors="replace"))
         for _m422 in re.finditer(r"h\(\s*['\"](select|input)['\"]\s*,\s*(?=\{)", _code422):
             _tag422 = _m422.group(1)
             _props422 = _props_span422(_code422, _m422.end())

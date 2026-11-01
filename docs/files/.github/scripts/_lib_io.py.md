@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/check-repository-consistency-map.md §1
 
 ## What
 
-CI scripts 共通の純 I/O helper module。`read()` / `read_bytes()` / `extract()` / `csp_sri_hash()` / `now_iso8601()` / `update_webp_xmp_dates()` / `update_mp3_metadata_date()` の 7 public 関数を export。
+CI scripts 共通の純 I/O helper module。`read()` / `read_bytes()` / `extract()` / `csp_sri_hash()` / `now_iso8601()` / `update_webp_xmp_dates()` / `update_mp3_metadata_date()` / `strip_js_comments()` の 8 public 関数を export。`strip_js_comments()` は JS のコメントを、文字列・テンプレート文字列 (`${}` のネスト)・正規表現リテラルを壊さずに、改行を残した空白へ置き換える (出力は入力と同じ長さ・同じ行番号)。2026-11-01 まで各 Check は「`/* */` → `//`」の 2 段の正規表現で消しており、`//` コメント中の `/*` を起点に main.js の 74 行を消していた。espree のコメント範囲と 80 file 全件で一致を確認済み。
 
 ## Why
 
@@ -30,6 +30,7 @@ sibling import なので sys.path 操作不要 (`.github/scripts/` 配下に同�
 - **Check 10**: Python 構文 valid
 - **Check 74**: 4 helper API 契約 (read / read_bytes / extract / csp_sri_hash)
 - **Check 95**: 3 date helper 存在 (now_iso8601 / update_webp_xmp_dates / update_mp3_metadata_date)
+- **Check 481**: JS を走査する Check は `strip_js_comments` を使う (2 段の正規表現 0 件) + helper の fixture 一致
 
 ## Change impact
 

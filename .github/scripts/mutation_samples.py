@@ -519,6 +519,22 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 124: main.js の factory 合成の範囲に実名を描画する —— 旧 2 段のコメント除去はこの 74 行を消しており、匿名性ガードから見えなかった',
+    "file": ROOT / "main.js",
+    "find": "const Store = createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone, slugify, sanitizeUrl, clamp });",
+    "replace": "const Store = createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone, slugify, sanitizeUrl, clamp }); const __leak = h('span', {}, '\u6a2a\u4e95\u96c4\u592a');",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 481: JS コメントの字句 helper が正規表現リテラルを読まなくなる —— /[`]/ のバッククォートをテンプレートの始まりと読み、fixture が崩れる',
+    "file": ROOT / ".github" / "scripts" / "_lib_io.py",
+    "find": 'prev = "/re/"',
+    "replace": 'prev = "/re/"; i = i + 1; continue',
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
