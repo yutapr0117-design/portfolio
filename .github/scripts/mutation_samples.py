@@ -193,56 +193,11 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 57: modulepreload を 1 行消す —— main.js が import する葉の集合と先読みの集合が食い違い、その葉だけ直列に取得される",
-    "file": ROOT / "index.html",
-    "find": '    <link rel="modulepreload" href="./js/ui-components.js" />\n',
-    "replace": "",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 468m: §16.4 の Steward 例外から「新しい版番号でのみ」の限定を外す —— Steward が同じ識別子で"
-            "別本文を出せる形に戻る (2026-11-01 外部レビュー #279)。語数を変えない置換にして 468 の語数 face と分ける",
-    "file": CURRENT_DRAFT,
-    # 同じ語句が草案冒頭の変更一覧にも引用されている (初版の find は 2 箇所に当たり、先頭 = 変更一覧を
-    # 打って §16.4 は無傷だった)。§16.4 の行だけにある直後の "," まで含めて一意にする。
-    "find": "no earlier text has borne,",
-    "replace": "an earlier text has borne,",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 13: README の現在の記述に「70超」を戻す —— 履歴の文脈でない場所に古い数が残る',
-    "file": ROOT / "README.md",
-    "find": '# Yuta Yokoi — AI-Driven PM Portfolio',
-    "replace": '# Yuta Yokoi — AI-Driven PM Portfolio 70超',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 58: e2e の ALL_ROUTES から 1 ルートの名前をずらす —— main.js の switch と全ルート訪問 e2e の集合が食い違う',
-    "file": ROOT / "e2e" / "security-proxy.spec.js",
-    "find": "{ hash: '#/projects',          name: 'projects' }",
-    "replace": "{ hash: '#/projects',          name: 'projectz' }",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 66: index.html の <title> から entity 名を落とす —— 検索結果と AI の要約で誰のサイトか分からなくなる',
-    "file": ROOT / "index.html",
-    "find": '<title>AI-Driven PM yuta｜',
-    "replace": '<title>AI-Driven PM｜',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 67: workflow の top-level permissions を外す —— 既定の広い token 権限で走る',
-    "file": ROOT / ".github" / "workflows" / "update-playwright-snapshots.yml",
-    "find": '\npermissions:\n',
-    "replace": '\npermissionz:\n',
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": 'Check 107: runbook §11 の workflow 一覧から 1 本の名前を外す —— CI の在庫表が実体と食い違う',
@@ -527,6 +482,32 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "CONTRIBUTING.md",
     "find": '# Contributing\n',
     "replace": '# Contributing\n' + "\n" * 1001,
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 389: topbar のテーマ切替ボタンの accessible name を sidebar とずらす —— 同じ機能のボタンが 2 つの名前を名乗る (WCAG 4.1.2)',
+    "file": ROOT / "js" / "theme.js",
+    "find": 'return `テーマを切り替える（現在: ${label}）`;',
+    "replace": 'return `テーマ切替（現在: ${label}）`;',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 387: .well-known/mcp.json の同一 origin の pointer を存在しない file へ —— agent が dereference すると 404 になる',
+    "file": ROOT / ".well-known" / "mcp.json",
+    "find": '"https://yutapr0117-design.github.io/portfolio/llms-full.txt"',
+    "replace": '"https://yutapr0117-design.github.io/portfolio/llms-full-missing.txt"',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 56: main.js が factory を呼ばずに関数そのものを束ねる —— 葉 module の依存注入が抜け、実行時に ReferenceError になる',
+    "file": ROOT / "main.js",
+    # createBrand(storage) は 56 の factory の定義 (先頭引数が分割代入 `{`) に当たらないので、
+    # 分割代入で依存を受ける本物の factory を狙う (初版で名指し False を実測)。
+    "find": 'const AIKnowhowPage = createAIKnowhowPage({ h, createIcon, ContactCTA });',
+    "replace": 'const AIKnowhowPage = null;',
     "check": CHECK,
 })
 

@@ -361,4 +361,49 @@ MUTATIONS_ARCHIVE4 = [
     "replace": 'factory-less',
     "check": CHECK,
 },
+    {
+    "name": "Check 57: modulepreload を 1 行消す —— main.js が import する葉の集合と先読みの集合が食い違い、その葉だけ直列に取得される",
+    "file": ROOT / "index.html",
+    "find": '    <link rel="modulepreload" href="./js/ui-components.js" />\n',
+    "replace": "",
+    "check": CHECK,
+},
+    {
+    "name": "Check 468m: §16.4 の Steward 例外から「新しい版番号でのみ」の限定を外す —— Steward が同じ識別子で"
+            "別本文を出せる形に戻る (2026-11-01 外部レビュー #279)。語数を変えない置換にして 468 の語数 face と分ける",
+    "file": CURRENT_DRAFT,
+    # 同じ語句が草案冒頭の変更一覧にも引用されている (初版の find は 2 箇所に当たり、先頭 = 変更一覧を
+    # 打って §16.4 は無傷だった)。§16.4 の行だけにある直後の "," まで含めて一意にする。
+    "find": "no earlier text has borne,",
+    "replace": "an earlier text has borne,",
+    "check": CHECK,
+},
+    {
+    "name": 'Check 13: README の現在の記述に「70超」を戻す —— 履歴の文脈でない場所に古い数が残る',
+    "file": ROOT / "README.md",
+    "find": '# Yuta Yokoi — AI-Driven PM Portfolio',
+    "replace": '# Yuta Yokoi — AI-Driven PM Portfolio 70超',
+    "check": CHECK,
+},
+    {
+    "name": 'Check 58: e2e の ALL_ROUTES から 1 ルートの名前をずらす —— main.js の switch と全ルート訪問 e2e の集合が食い違う',
+    "file": ROOT / "e2e" / "security-proxy.spec.js",
+    "find": "{ hash: '#/projects',          name: 'projects' }",
+    "replace": "{ hash: '#/projects',          name: 'projectz' }",
+    "check": CHECK,
+},
+    {
+    "name": 'Check 66: index.html の <title> から entity 名を落とす —— 検索結果と AI の要約で誰のサイトか分からなくなる',
+    "file": ROOT / "index.html",
+    "find": '<title>AI-Driven PM yuta｜',
+    "replace": '<title>AI-Driven PM｜',
+    "check": CHECK,
+},
+    {
+    "name": 'Check 67: workflow の top-level permissions を外す —— 既定の広い token 権限で走る',
+    "file": ROOT / ".github" / "workflows" / "update-playwright-snapshots.yml",
+    "find": '\npermissions:\n',
+    "replace": '\npermissionz:\n',
+    "check": CHECK,
+},
 ]
