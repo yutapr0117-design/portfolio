@@ -82,6 +82,10 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (u) **172 観点の仕分け表 (`ACD-1.4-ADVERSARIAL-TRIAGE.md`) の TRIAGE-TALLY ↔ 各行の［分類］から数えた件数**。
        行の数は固定だが、分類は検証のたびに動く (2026-11-01 の相互検証だけで 4 行が変わった)。集計は
        一度書いたきり導出し直されない形の典型なので、行から数えて照合する。凡例に無い語・［］を持たない行も止める。
+       (v) **errata 冒頭の「N of them (E1, …) are closed in …」の一覧 ↔ 各行の状態欄が「閉じた」と述べる行の集合**。
+       件数の語 ("Forty-six items") は (l) が見るが、括弧内の番号一覧とその数詞は誰も見ておらず、
+       E46 を一覧から消しても緑だった (2026-11-01・portfolio-bb が実測。同日 E42〜E46 を足すたび手で 4 回書き換えた)。
+       閉じていない行 (E6 / E10) は一覧の後の同じ文で名指しされることも求める。判定語の誤検出は 46 行で 0 件を実測。
        (s) **散文の「Check 463 は N 項目を強制する」 ↔ その Check の実装から導出した数**。
        実測 (2026-09-26): `READY-TO-SUBMIT.md` が「**10 項目**」と述べ、実装は **12**。
        **同じ file の 4 行の中で、これと (r) の §B.0 語数が同時に古くなっていた** ——
@@ -564,6 +568,32 @@ def run(ctx):
                     _bad460.append(f"errata.md: 件数の語 {_raw_l!r} を解釈できない")
                 elif _decl_l != _rows_l:
                     _bad460.append(f"errata.md の冒頭 件数申告: 申告 {_raw_l} ({_decl_l}) / 実測 {_rows_l}")
+        # (v) 冒頭の「N of them (E1, …) are closed in …」の一覧 ↔ 各行が「閉じた」と述べるか
+            _mv460 = re.search(r"\*\*([A-Za-z]+(?:-[A-Za-z]+)?|\d+) of them \(([^)]*)\) are closed in([^\n]*)", _et_l)
+            if not _mv460:
+                _bad460.append("(v) errata.md 冒頭に「N of them (E…) are closed in」の一覧が無い")
+            else:
+                _lst460v = [x.strip() for x in _mv460.group(2).split(",") if x.strip()]
+                _cls460v = set()
+                for _ln460v in _et_l.split("\n"):
+                    _mr460v = re.match(r"^\| (E\d+) \|", _ln460v)
+                    if _mr460v:
+                        # 状態は第 4 列 (後継版が何をしたか) と第 5 列 (重大度) に書かれる
+                        _st460v = " ".join(c for c in _ln460v.strip().strip("|").split("|")[3:])
+                        if re.search(r"で閉じた|[Cc]losed in (?:the )?(?:frozen )?1\.\d", _st460v):
+                            _cls460v.add(_mr460v.group(1))
+                if len(_lst460v) != len(set(_lst460v)):
+                    _bad460.append("(v) errata.md 冒頭の閉じた番号一覧に重複がある")
+                if set(_lst460v) != _cls460v:
+                    _bad460.append(
+                        f"(v) errata.md 冒頭の閉じた番号一覧が表と食い違う: 一覧にだけ在る {sorted(set(_lst460v) - _cls460v)} / "
+                        f"表で閉じているのに一覧に無い {sorted(_cls460v - set(_lst460v))}")
+                if _word2int_l(_mv460.group(1)) != len(_lst460v):
+                    _bad460.append(f"(v) errata.md 冒頭の「{_mv460.group(1)} of them」が一覧の {len(_lst460v)} 件と食い違う")
+                _open460v = {m for m in re.findall(r"^\| (E\d+) \|", _et_l, re.M)} - _cls460v
+                _miss460v = sorted(e for e in _open460v if not re.search(r"\b" + e + r"\b", _mv460.group(3)))
+                if _miss460v:
+                    _bad460.append(f"(v) errata.md 冒頭が、閉じていない行 {_miss460v} を一覧の後で名指ししていない")
         # (m) **`ACD-OSI-BOTTLENECKS.md` の集計行が、その上の表から導出できること。**
         #   実測 (2026-09-10): 集計行は「OSI 判断依存 **3** (B4・B10・B11 の一部)」と述べ、
         #   OSI 列に ○ が付いている行は **6** だった (B4/B5/B7/B10/B11/B14)。
