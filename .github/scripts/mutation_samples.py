@@ -536,6 +536,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 460 (e): against.md の総括の errata 数を、行の折り返しの直前で 1 桁増やす —— 数と語の間に改行があると旧形の空白 1 個の正規表現は一致せず、38 のまま 9 日間素通りした',
+    "file": ROOT / "LICENSES" / "ACD-1.0.against.md",
+    "find": "\n   errata, and five corrections",
+    "replace": "0\n   errata, and five corrections",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
