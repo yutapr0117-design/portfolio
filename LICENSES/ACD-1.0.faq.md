@@ -164,6 +164,11 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 > Because the licence imposes no condition (Section 10.1), it adds no export-related term of
 > its own. It also removes none of your obligations under the law that applies to you.
 
+**⚠ 2026-11-01**: 上の *"it reaches nothing else"* は 1.0 の §11.4 の言い回しをそのまま使っているが、
+その文は無限定で、§16 は本文テキストそのもの（Work ではないもの）に及ぶ —— errata **E44**。
+輸出規制についての結論は変わらない（§16 は公法上の義務に触れない）。1.4 草案は §11.4 に
+*in respect of the Work* を前置した。
+
 **「無条件」は「法的義務が消える」という意味ではない。** §2.7・§11.4・§13.2 が一貫して
 **「Dedicator が持っているものしか渡せない」**と述べており、公法上の義務はその外側にある。
 
