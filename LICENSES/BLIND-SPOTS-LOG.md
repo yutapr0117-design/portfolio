@@ -1,7 +1,7 @@
 ---
 file: LICENSES/BLIND-SPOTS-LOG.md
 audience: 次のセッションの実装者（一次読者）/ 監査人
-last-updated: 2026-10-17
+last-updated: 2026-11-01
 canonical-ref: LICENSES/BLIND-SPOTS.md (方法論の本体・こちらが上位) / LICENSES/ACD-1.0.against.md
 ---
 

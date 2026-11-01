@@ -1,7 +1,7 @@
 ---
 file: LICENSES/OSI-EVENTS-2026-10.md
 audience: オーナー（一次読者）/ 次のセッションの実装者 / 自走停止を監視する他セッション
-last-updated: 2026-10-31
+last-updated: 2026-11-01
 canonical-ref: LICENSES/PEER-REVIEW-WATCH.md（「2026 年 10 月の OSI 関連イベント」節 = 何を取りに行き何を取りに行かないかの方針） / LICENSES/OSI-APPROVAL-PLAN.md / LICENSES/ACD-OSI-BOTTLENECKS.md
 ---
 
