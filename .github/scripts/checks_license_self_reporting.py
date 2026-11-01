@@ -163,7 +163,12 @@ def run(ctx):
     _tx460 = _read460("ACD-1.0.txt")
 
     if None in (_rr460, _rc460, _rm460, _fq460, _sb460, _cr460, _tx460):
-        warnings.append("Check 460: ライセンス文書の一部が無い — 件数照合を skip")
+        # 必須文書の欠落を warning にしない —— 名前を変えて mirror と参照を正しく直すと
+        # 他の Check は全部緑になり、ここだけが 19 面まるごと黙って skip していた (2026-11-01)。
+        check(False, "Check 460: 件数照合の対象文書",
+              "Check 460: 件数照合の対象文書が無い: "
+              f"{[n for n, v in zip(('review-responses', 'review-responses-clauses', 'review-responses-meta', 'faq', 'submission', 'clause-reference', 'txt'), (_rr460, _rc460, _rm460, _fq460, _sb460, _cr460, _tx460)) if v is None]}"
+              " — 全 face が skip される。改名したなら本 Check の読み先も直せ", blocking=True)
     else:
         # (a) 提出パケットの worked entries / short answers
         # 走査先は glob から導出する。2026-09-20 に条項別の分冊を 2 つに割ったとき、

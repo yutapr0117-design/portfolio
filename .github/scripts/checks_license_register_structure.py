@@ -60,7 +60,10 @@ def run(ctx):
     # 入っていなかった** —— **列挙は、列挙した時点で見えていたものしか含まない。**
     _cls469 = sorted(_L460.glob("ACD-*-CHANGELIST.md"))
     if not (_er469.exists() and _cls469):
-        warnings.append("Check 469: errata / changelist が無い — 状態照合を skip")
+        # 必須文書の欠落を warning にしない (Check 460 と同じ理由・2026-11-01)。
+        check(False, "Check 469: errata / changelist",
+              "Check 469: errata か CHANGELIST が見つからない — (b) 状態照合が skip される。"
+              "改名したなら本 Check の読み先も直せ", blocking=True)
     else:
         _ert = _er469.read_text(encoding="utf-8")
         _clt = "\n".join(_p.read_text(encoding="utf-8") for _p in _cls469)

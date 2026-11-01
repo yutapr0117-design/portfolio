@@ -495,6 +495,14 @@ _MUTATIONS_TAIL.append({
     "replace": "FAQ mirror の件数、",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 460: 読み先の FAQ を改名後の名前へずらす —— 改名を mirror と参照まで正しく直すと他の Check は"
+            "全部緑になり、2026-11-01 まで本 Check だけが 19 面まるごと warning で skip していた",
+    "file": ROOT / ".github" / "scripts" / "checks_license_self_reporting.py",
+    "find": '_fq460 = _read460("ACD-1.0.faq.md")',
+    "replace": '_fq460 = _read460("ACD-1.0.faq-renamed.md")',
+    "check": CHECK,
+})
 
 _MUTATIONS_TAIL.append({
     "name": "Check 468: 次版草案の題名行を前の版へ戻す (468j) —— 1.2 を複製した 1.3 草案で題名だけが "
