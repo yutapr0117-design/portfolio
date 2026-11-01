@@ -71,7 +71,11 @@ def _pick_archive(stem="mutation_samples_e2e_archive", list_base="E2E_MUTATIONS_
                   # 持つので、ROOT だけを import した受け皿へ退避すると **NameError で
                   # mutation_samples 全体が import 不能になる** (2026-09-10 に実際に踏んだ)。
                   # 受け皿は「どちらの側の entry も受け取りうる」ので両方を入れる。
-                  'from mutation_samples_common import ROOT, CHECK  # noqa: F401 (entry 内で参照)\n\n'
+                  # **共有定数も全部 import する (2026-11-01)。** 版を導出する entry は
+                  # CURRENT_DRAFT / CURRENT_DRAFT_VER / PREVIOUS_VER を参照するので、ROOT と CHECK
+                  # だけの受け皿へ移すと NameError になる (archive4 を起こした初回で実際に踏み、
+                  # rollback が tree を戻した)。
+                  'from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)\n\n'
                 + "%s%d = [\n]\n" % (list_base, n),
                 encoding="utf-8",
             )

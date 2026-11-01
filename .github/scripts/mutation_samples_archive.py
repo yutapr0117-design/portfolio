@@ -11,7 +11,7 @@ mutation_samples.py が肥大化したら最古の未 rotate entries を本 arch
 """
 from __future__ import annotations
 
-from mutation_samples_common import ROOT, CHECK  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)
 
 MUTATIONS_ARCHIVE = [
     {
