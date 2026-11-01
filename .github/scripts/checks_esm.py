@@ -363,9 +363,18 @@ def run(ctx):
         if _factory_re56:
             _factory_name56 = _factory_re56.group(1)
             # main.js で `const ... = createXxx(...)` という使用形式があるはず
+            # [FIX 2026-11-01] main.js の**コメントを除いてから**探す。コメントには
+            #   「createBrand(Storage) → Brand instance 形式で合成」のような factory 呼び出しの説明が
+            #   複数あり、実際の呼び出しを消してもコメントの方で満たされて緑のままになりうる
+            #   (Check 40b と同じ「説明文で満たされる」class)。
+            #   文字列とコメントは左から 1 回で走査する —— 2 段で消すと `//` コメント中の
+            #   `js/*.js` をブロックコメントの始まりと読み、次の `*/` まで実コードごと消す (実測)。
+            _main_nc56 = re.sub(
+                r"(\"(?:\\.|[^\"\\\n])*\"|'(?:\\.|[^'\\\n])*'|`(?:\\.|[^`\\])*`)|/\*.*?\*/|//[^\n]*",
+                lambda _m: _m.group(1) or " ", _main_src47, flags=re.S)
             _usage_re56 = re.search(
                 r"\b" + re.escape(_factory_name56) + r"\s*\(",
-                _main_src47,
+                _main_nc56,
             )
             if not _usage_re56:
                 _factory_usage_mismatches.append(

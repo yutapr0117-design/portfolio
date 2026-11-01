@@ -131,6 +131,12 @@ def _list_span(src: str, name: str) -> tuple[int, int]:
                 esc = True
             elif ch == quote:
                 in_str = False
+        elif ch == "#":
+            # `#` コメント内の括弧は数えない (WHY コメントに `{` だけが現れると depth が戻らない・
+            # 2026-11-01 に 3 走査器すべてで実測)
+            nl = src.find("\n", i)
+            i = len(src) if nl == -1 else nl
+            continue
         else:
             if ch in "\"'":
                 in_str, quote = True, ch
@@ -147,8 +153,15 @@ def _list_span(src: str, name: str) -> tuple[int, int]:
 def _split_entries(body: str) -> list[str]:
     """トップレベルの `{...}` 単位で分割する (同じく文字列内を無視)。"""
     entries, depth, cur, in_str, quote, esc = [], 0, "", False, "", False
+    in_comment = False
     for ch in body:
         cur += ch
+        if in_comment:
+            in_comment = ch != "\n"
+            continue
+        if not in_str and ch == "#":
+            in_comment = True
+            continue
         if in_str:
             if esc:
                 esc = False
@@ -211,6 +224,10 @@ def _rotatable_units(src: str, name: str) -> list[tuple[int, int, str]]:
                 if esc: esc = False
                 elif ch == "\\": esc = True
                 elif ch == quote: in_str = False
+            elif ch == "#":
+                nl = src.find("\n", k)
+                k = len(src) if nl == -1 else nl
+                continue
             else:
                 if ch in "\"'": in_str, quote = True, ch
                 elif ch in "[{": depth += 1
