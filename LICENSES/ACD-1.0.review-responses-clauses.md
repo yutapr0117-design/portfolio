@@ -693,6 +693,12 @@ of copyright** or words of the same purport **that such person knows to be false
 > the licence text as a document: they "are not terms of the Work, they bind no recipient of the
 > Work." A hosted-service operator is a recipient of the Work and owes nothing.
 
+**⚠ 2026-11-01 注**: 引用した *"they bind no recipient of the Work"* は 1.0 の §16.6 の字面だが、
+§16.4 は改変した本文を名前・識別子の下で頒布する誰でもを制限し、§16.5 は翻訳の頒布に条件を置くので、
+受領者はそのどちらにもなりうる —— errata **E48**。**この答えの結論は変わらない**: 制限が及ぶのは
+本文という文書の扱いだけで、Work の利用（ホスト型サービスでの提供を含む）には条件が無い。
+1.4 草案の §16.6 は *"they bind no one in respect of the Work"* と述べる。
+
 **なぜこの 2 問を置くか**: どちらも **2026 年 9 月の実際の審査で他の instrument に向けられた
 問い**であり、条項が違っても**判断軸は同じ**である —— 「許諾した集合と反応する集合が違うなら、
 その差を説明できるか」「定義した頒布形態のすべてで、条件は満たしうるか」。
