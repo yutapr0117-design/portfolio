@@ -392,9 +392,14 @@ def run(ctx):
                 "file-size-budget.md の JS-LEAF-CEILING marker を rationale 付きで owner 裁可のもと引き上げる)",
             )
         else:
-            warnings.append("Check 363: JS-LEAF-CEILING marker not found in file-size-budget.md — ceiling check skipped")
+            # marker の欠落を warning にしない (2026-11-01): marker コメントを 1 行消すだけで
+            # BLOCKING の上限が exit 0 のまま黙って外れていた。上限を外すなら値を変えて理由を書く。
+            check(False, "Check 363: JS-LEAF-CEILING marker",
+                  "Check 363: JS-LEAF-CEILING marker が file-size-budget.md に無い — JS leaf の "
+                  "1,000 行上限が黙って無効になる。marker を戻せ")
     else:
-        warnings.append("Check 363: file-size-budget.md not found — JS leaf ceiling skipped")
+        check(False, "Check 363: file-size-budget.md",
+              "Check 363: file-size-budget.md が無い — JS leaf の上限が黙って無効になる")
 
     # ── 365. Capstone: 全非 A 追跡テキストファイル ≤1,000 行 (BLOCKING) ─────────────
     # AI 無限改善自走の持続可能性を守る Capstone。「肥大化を生じないように」する最上位 gate。

@@ -503,6 +503,14 @@ _MUTATIONS_TAIL.append({
     "replace": '_fq460 = _read460("ACD-1.0.faq-renamed.md")',
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 363: JS-LEAF-CEILING marker を消す —— 2026-11-01 まで BLOCKING の 1,000 行上限が"
+            "warning 1 行を残して exit 0 のまま外れていた (兄弟の ESLINT / PERF marker は既に BLOCKING)",
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": "<!-- JS-LEAF-CEILING 1000 -->",
+    "replace": "<!-- JS LEAF CEILING (removed) -->",
+    "check": CHECK,
+})
 
 _MUTATIONS_TAIL.append({
     "name": "Check 468: 次版草案の題名行を前の版へ戻す (468j) —— 1.2 を複製した 1.3 草案で題名だけが "
