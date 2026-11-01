@@ -489,7 +489,9 @@ Submit via https://tools.spdx.org/app/submit_new_license/ (preferred) or the
   *(Note 2026-11-01: true of ACD-1.0, whose §16.4 has no steward exception. ACD-1.1 to 1.3
   added "except by the Steward" with no limit, so for those versions this bullet's last
   sentence would not hold of the steward; the 1.4 draft limits the exception to "a new
-  version under a version number and identifier that no earlier text has borne". When this
+  version under a version number and identifier that no earlier text has borne" (and,
+  since 2026-11-02, "except a draft identified as such", so that a successor drafted in
+  public can be finalised under its own number). When this
   request is rewritten for the version actually submitted, cite that sentence: the
   commitment above is then made by the text itself and binds the steward, not only the
   steward's promise. `ACD-1.4-CHANGELIST.md`, the §16.4 row.)*
