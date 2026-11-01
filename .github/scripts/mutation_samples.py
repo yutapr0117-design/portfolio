@@ -481,8 +481,10 @@ _MUTATIONS_TAIL.append({
             "(総数 / source / mirror / 行末の合計) は 413/413b が守るが、同じ行の 5 つ目の数である"
             "**引用の中の数**は誰も見ていなかった (実測 2026-09-28: 284 と 636 を同時に主張していた)",
     "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
-    "find": "all 647 tracked files have a 1-to-1 docs/files mirror",
-    "replace": "all 284 tracked files have a 1-to-1 docs/files mirror",
+    # anchor は件数そのものを含めない（件数は file 追加のたび動き anchor が orphan 化する）。
+    # 数字の直前に "9" を差し込んで値を変える＝実測と必ず食い違う。
+    "find": "OK メッセージ `all ",
+    "replace": "OK メッセージ `all 9",
     "check": CHECK,
 })
 
