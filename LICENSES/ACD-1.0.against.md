@@ -379,7 +379,7 @@ scales while its surviving side is frozen is not more honest, it is differently 
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **281 adverse facts, 48
+   prompted by third parties, four self-initiated — have produced **281 adverse facts, 49
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later

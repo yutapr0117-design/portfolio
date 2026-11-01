@@ -200,7 +200,7 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 | **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 281 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
 | **What we would ask a lawyer** | [`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) | ACD has had no legal review. Eight questions on which a lawyer's reading would most change the text, ranked by consequence, each answerable on its own |
-| **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 48 known imprecisions, all unrepaired in 1.0 while the freeze holds, with what the successor does (the Status column is authoritative) |
+| **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 49 known imprecisions, all unrepaired in 1.0 while the freeze holds, with what the successor does (the Status column is authoritative) |
 | Known weaknesses, longer form | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) | Stated by us, before you have to find them |
 
 ## Disclosures you should not have to dig for
