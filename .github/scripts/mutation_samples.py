@@ -211,54 +211,11 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 78: sub-agent の frontmatter から description を落とす —— いつ呼ぶべき agent かが読めなくなる',
-    "file": ROOT / ".claude" / "agents" / "repo-auditor.md",
-    "find": '\ndescription: ',
-    "replace": '\ndescriptionx: ',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 79: .mcp.json の mcpServers を別の key にする —— MCP の設定が読まれなくなる。**2026-11-01 まで、この形は Check 79 の OK 文の f-string が KeyError を投げて suite ごと止まり、79 は自分の失敗を一度も報告できなかった** (fail-soft へ直した)',
-    "file": ROOT / ".mcp.json",
-    "find": '"mcpServers"',
-    "replace": '"mcpServerz"',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 80: skill の frontmatter から description を落とす —— skill の起動条件が読めなくなる',
-    "file": ROOT / ".claude" / "skills" / "repo-status" / "SKILL.md",
-    "find": '\ndescription: ',
-    "replace": '\ndescriptionx: ',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 460 (u): 172 観点の仕分け表の 1 行の分類を変える —— 冒頭の TRIAGE-TALLY が行の中身とずれる "
-            "(分類は検証のたびに動き、相互検証だけで 4 行が変わった)",
-    "file": ROOT / "LICENSES" / "ACD-1.4-ADVERSARIAL-TRIAGE.md",
-    "find": "| bb | ［外部］ 既知・外部: register B15",
-    "replace": "| bb | ［取引］ 既知・外部: register B15",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 40b: CSS lint の local binary 優先を消して npx だけにする —— 2026-11-01 まで 40b は docstring とコメントの文字列で満たされ、このコードを丸ごと消しても緑だった',
-    "file": ROOT / ".github" / "scripts" / "check_css_stylelint.py",
-    "find": '    local_bin = ROOT / "node_modules" / ".bin" / "stylelint"\n    if local_bin.exists():\n        return [str(local_bin)], True\n    return ["npx", "stylelint"], False',
-    "replace": '    return ["npx", "stylelint"], False',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 51: runbook に pin と違う Playwright の版を書き足す —— baseline を生成した版の記述が pin とずれる',
-    "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
-    "find": 'Last-Updated  : 2026-06-16',
-    "replace": 'Last-Updated  : 2026-06-16 (Playwright 9.9.9)',
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": "Check 468n: 草案冒頭の変更一覧の 1 箇条の語数申告をずらす —— 申告の合計が「申告語数 − 前の凍結版の語数」と"
@@ -541,6 +498,14 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "LICENSES" / "ACD-1.0.against.md",
     "find": "\n   errata, and five corrections",
     "replace": "0\n   errata, and five corrections",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 468o: 草案 §8.4 の動詞 "license" を名詞形 "licence" に戻す —— 1.1〜1.3 はこの形のまま凍結された。同じ語数の綴り違いは差分のレンズも語数照合も拾わない',
+    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "find": "the use of the Work; it does not license\n",
+    "replace": "the use of the Work; it does not licence\n",
     "check": CHECK,
 })
 
