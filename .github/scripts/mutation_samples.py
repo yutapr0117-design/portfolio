@@ -538,6 +538,15 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (u): 172 観点の仕分け表の 1 行の分類を変える —— 冒頭の TRIAGE-TALLY が行の中身とずれる "
+            "(分類は検証のたびに動き、相互検証だけで 4 行が変わった)",
+    "file": ROOT / "LICENSES" / "ACD-1.4-ADVERSARIAL-TRIAGE.md",
+    "find": "| bb | ［外部］ 既知・外部: register B15",
+    "replace": "| bb | ［取引］ 既知・外部: register B15",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
