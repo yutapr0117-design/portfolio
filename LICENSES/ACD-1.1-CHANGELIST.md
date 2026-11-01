@@ -404,7 +404,7 @@ open だった理由が 4 件とも違った。** 宣言ではなく errata の�
 
 **確定時の手順**: 上の抽出を**もう一度回す**（1.1 → 確定版で再測）。
 **「1 件だけだった」を持ち越さない** ——**この数は、草案を触るたびに変わる。**
-**2026-11-01 に 1.4 草案で前倒しに回した**（対象を `submission-osd.md` まで広げて 5 面・二重引用符の引用 40 字以上・省略記号で分けた各断片が 1.0 に在り 1.4 に無いもの）: **上と同じ 1 件だけ**で、1.4 で新たに崩れた引用は無かった。**この結果も持ち越さない** —— 確定日の版で回し直す。
+**2026-11-01 に 1.4 草案で前倒しに回した**（対象を `submission-osd.md` まで広げて 5 面・二重引用符の引用 40 字以上・省略記号で分けた各断片が 1.0 に在り 1.4 に無いもの）: **上と同じ 1 件だけ**で、1.4 で新たに崩れた引用は無かった。**この結果も持ち越さない** —— 確定日の版で回し直す。 **⚠ 同日訂正: 実際は 3 件だった。** 5a が道具化した `measure_quote_drift.py`（PR 2117）が、`submission-reference.md` の 1.0 §4.4 からの引用 2 件（*"is granted independently of Section 3 and does not depend on Section 3 being ineffective"* / *"is redundant but not void, and it remains available to be relied upon by You"*）を拾った。**どちらも行をまたいで折り返した引用で、私の取り方（行単位）は落としていた。** 後者は 1.1 が E11 で過大な主張として削った文言で、**2026-09-14 の「1 件だけ」も同じ理由で過少だった**（前者は 1.1 まで在り 1.2 で *"not as a fallback for it"* へ書き換わった）。**確定時の扱い**: 当の段落は ACD-1.0 を名指して論じているのでいまは 1.0 の記述として正しい。出す版で書き直すときは 1.4 §4.4 の *"is granted independently of Section 3, and not as a fallback for it: it takes effect whether or not Section 3 does"* を引き、**"redundant but not void" は持ち込まない**（E11）。**一般形: 手で回した照合の「N 件だけ」は、取り方の射程を書かないかぎり下限でしかない。**
 
 **✅ 併せて確かめた（再確認不要）**: **提出文 §B.0 の Unlicense 差別化の議論は 1.1 でも成立する。**
 根拠として引くのは *"§4 does not wait for §3 to fail"* の趣旨で、**1.1 の §4.4 は
