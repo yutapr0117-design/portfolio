@@ -92,7 +92,15 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       application (Sections 2.7 and 16.3 already said so); the clause where a
       reader meets the question now says so too. (+7 words: eight added, and
       the SPDX tag is no longer split across a line.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5517 words, 80 clauses.
+    * Section 2.6 now undertakes to identify any material that Section 1.9
+      excludes from being a Contribution and that is nevertheless included in
+      the Work. It named material marked as not a Contribution but not
+      material sent for discussion only, the other exclusion Section 1.9
+      makes, so that material could enter the Work unidentified. (+1 word.)
+    * Section 16.4 now reaches any identifier that begins with "ACD-"
+      followed by a digit. "ACD-N" and "ACD-N.N" left "ACD-1.4.1" and similar
+      forms free for a modified text. (+2 words.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5520 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -244,7 +252,7 @@ PREAMBLE (informative; not part of the operative terms)
   2.6  A Contribution is submitted under this Dedication, and the person making
        it becomes a Dedicator as to that Contribution, unless they state
        otherwise at the time of submission. Where a person states otherwise, or
-       marks material as not being a Contribution (Section 1.9), and that
+       material is excluded from being a Contribution by Section 1.9, and that
        material is included in the Work, the Dedicator will identify it in a
        form that accompanies the Work, so that a person or an automated system
        reading the Work can determine what this Dedication does not cover; this
@@ -722,10 +730,10 @@ PREAMBLE (informative; not part of the operative terms)
        anyone, in any medium, for any purpose, without charge or permission.
        Making a modified text is not restricted; what is restricted is
        distributing one. A modified text may not be distributed under the name
-       "Autonomous Commons Dedication" or under any identifier of the form
-       "ACD-N" or "ACD-N.N", except by the Steward (Section 16.5), and by the
-       Steward only as a new version under a version number and identifier that
-       no earlier text has borne, so that each name and identifier in this
+       "Autonomous Commons Dedication" or under any identifier that begins with
+       "ACD-" followed by a digit, except by the Steward (Section 16.5), and by
+       the Steward only as a new version under a version number and identifier
+       that no earlier text has borne, so that each name and identifier in this
        family continues to denote one fixed text. A modified text may be
        distributed under a different name. A translation is not a modified text
        for this purpose and may be distributed under the name and the
