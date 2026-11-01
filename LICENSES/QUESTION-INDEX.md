@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are **380** worked entries across this directory (the number is kept equal to the count by Check 460 on every build; the list is append-only, so treat it as a floor). This page exists so that you do not have to
+There are **381** worked entries across this directory (the number is kept equal to the count by Check 460 on every build; the list is append-only, so treat it as a floor). This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -81,6 +81,7 @@ If your question is not here, that is our omission and worth saying on the list.
 | Has the question §6.2 turns on actually been litigated? | Yes — HansOLG 5 U 104/24 (10 Dec 2025), on attribution of an agency's reservation and on machine-readable form; **not final, and read from the court's press release**. `jurisdictions.md` §9a (9) / `review-responses-clauses.md` §6 |
 | Does it license trade secrets? | **No** — §1.5 does not reach them. OpenMDW does. `against.md` #31 |
 | The Work contains personal data — does this make training on it lawful? | **No, and the text says so.** §11.4: permissions required by data-protection, privacy and publicity law "are not the Dedicator's to give". `faq.md` A28 splits the two questions and says which one this licence answers |
+| Can the Dedicator also distribute the same Work under the GPL or a commercial licence? | **Yes, but those terms do not narrow this Dedication.** §4.5 lets anyone, the Dedicator included, distribute on any terms; §2.2 and §5.2(b) stop the Dedicator's own terms from binding the Work, so they bind only material the Dedicator has not dedicated (§1.3). The answer is not in §4.5 itself. `faq.md` A30 / `against.md` #279 |
 | What about sui generis database rights? | §7, in the Database Directive's own vocabulary. `clause-reference.md` §7 rows |
 | Does it reach models, weights and outputs? | Yes — §8.4 for patents, §6.4 for encumbrance. `comparison.md` §1.5 |
 | Does it carve out distillation? | **No**, unlike ModelGo. `comparison.md` §1.5 — the one axis where the three are in real tension |
