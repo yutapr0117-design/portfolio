@@ -9,7 +9,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (現に効力を持つ本文・凍結) / LIC
 
 ## What
 
-**ACD-1.1 の確定テキスト（2026-09-17 凍結）。** 冒頭に **FROZEN TEXT / NOT SUBMITTED FOR APPROVAL / NOT APPLIED TO THIS REPOSITORY** と自分で述べ、`FROZEN.md` が sha256 で pin する（Check 453）。**次版の作業場は `ACD-1.2-DRAFT.txt`**（2026-10-17 に 1.2 を確定し、いまは `ACD-1.3-DRAFT.txt`。1.1 の本文が名指す旧い file 名は案内として残っている）。
+**ACD-1.1 の確定テキスト（2026-09-17 凍結）。** 冒頭に **FROZEN TEXT / NOT SUBMITTED FOR APPROVAL / NOT APPLIED TO THIS REPOSITORY** と自分で述べ、`FROZEN.md` が sha256 で pin する（Check 453）。**次版の作業場は `ACD-1.2-DRAFT.txt`**（2026-10-17 に 1.2 を確定した。以後の作業場は `FROZEN.md` 冒頭が権威。1.1 の本文が名指す旧い file 名は案内として残っている）。
 **このリポジトリを覆っていたのは当時 1.0**（2026-10-25 から 1.3）であり、その本文は凍結され sha256 が pin されている。
 
 第 1 段（machinery のみ）で入れた変更: §2.2 が 1.0 の §15.5 を吸収 / §2.5 圧縮 /
