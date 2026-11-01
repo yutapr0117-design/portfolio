@@ -110,7 +110,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        RED)。Check 415 が STATUS.md の workflow 網羅を生成器と独立に導出するのと同じ形。
        (BLOCKING)
   482. **index.html の HTML コメントに、実タグと同じ形を書かない** (BLOCKING)。対象は属性を持つ
-       `<meta …>` / `<link …>` と `src` を持つ `<script …>`。index.html を読む Check は 167 箇所あり、
+       `<meta …>` / `<link …>` と `src` を持つ `<script …>`、および `type="application/ld+json"` の
+       `<script>` (静的 JSON-LD を読む約 30 箇所もコメントを除かない・2026-11-02 に 2 ブロックとも
+       コメントで囲んで 0 本発火を実測)。index.html を読む Check は 167 箇所あり、
        多くはコメントを除かずにタグを探す。2026-11-01 に index.html の外部資源タグ 109 個を 1 つずつ
        **説明コメントの中へ移す**退行で測ると、削除なら捕まる 74 個のうち、Check 362 (mutation の
        目印) と 424 (行数) 以外の Check が気付いたものは **1 つも無かった** —— 配線 (133/134/135)・
@@ -424,7 +426,11 @@ def run(ctx):
         _src482 = _idx482.read_text(encoding="utf-8")
         _tag482 = re.compile(
             r"<(?:meta|link)\s+[^>]*\b(?:name|property|http-equiv|charset|content|rel|href)\s*=[^>]*>"
-            r"|<script\b[^>]*\bsrc\s*=[^>]*>", re.I)
+            r"|<script\b[^>]*\bsrc\s*=[^>]*>"
+            # JSON-LD ブロック (2026-11-02): 静的 JSON-LD を読む Check は 12 module に約 30 箇所あり、
+            # どれもコメントを除かずに `<script type="application/ld+json">` を探す。2 ブロックとも
+            # コメントで囲むと構造化データが丸ごと消えるのに、consistency は 1 本も発火しなかった。
+            r"|<script\b[^>]*\btype\s*=\s*[\"']application/ld\+json[\"'][^>]*>", re.I)
         for _c482 in re.finditer(r"<!--.*?-->", _src482, re.S):
             for _t482 in _tag482.finditer(_c482.group(0)):
                 _ln482 = _src482.count("\n", 0, _c482.start() + _t482.start()) + 1
@@ -440,7 +446,7 @@ def run(ctx):
                 _bad482.append(f"sitemap.xml:{_ln482} {_t482.group(0)[:60]}")
     check(
         not _bad482,
-        "Check 482: index.html / sitemap.xml のコメントに実タグ・実エントリの形 (属性つき meta / link・src つき script・<loc>URL</loc>) が無い",
+        "Check 482: index.html / sitemap.xml のコメントに実タグ・実エントリの形 (属性つき meta / link・src つき script・JSON-LD script・<loc>URL</loc>) が無い",
         f"Check 482: index.html の HTML コメントに実タグの形がある: {_bad482[:5]} —— "
         "index.html を読む Check の多くはコメントを除かずにタグを探すので、タグをコメントへ移す "
         "(一時的に無効化する) と、削除なら捕まる退行が素通りする (2026-11-01 に 109 タグで実測)。"

@@ -509,6 +509,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 482: 資産の JSON-LD ブロックをコメントで無効化する —— 静的 JSON-LD を読む約 30 箇所はコメントを除かず、2 ブロックとも囲んでも 1 本も発火しなかった',
+    "file": ROOT / "index.html",
+    "find": '<!-- Asset-level structured data (AI-only, dedicated ImageObject / AudioObject) -->\n    <script type="application/ld+json">',
+    "replace": '<!-- Asset-level structured data (AI-only, dedicated ImageObject / AudioObject) -->\n    <!-- 一時停止: <script type="application/ld+json">',
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
