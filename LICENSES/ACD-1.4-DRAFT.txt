@@ -132,7 +132,12 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       derived from the Work and Section 8.4 uses in saying that whether a
       trained model is derived from the Work is unresolved; the copyright side
       could have been read as narrower than the patent side. (0 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5522 words, 80 clauses.
+    * Section 8.6 now ends "depends on that question or on how it is
+      answered", the words Sections 4.4 and 12.2 use for the same assurance.
+      It said only "on how that question is answered", which left room to
+      argue that a permission depends on the question being decided. (+3
+      words.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5525 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -540,8 +545,8 @@ PREAMBLE (informative; not part of the operative terms)
        (Section 4), and by covenant (Section 5); this Section gives the patent
        grant the second footing it would otherwise lack. You are not required
        to determine whether either licence is effective in any jurisdiction,
-       and nothing permitted by this Dedication depends on how that question is
-       answered.
+       and nothing permitted by this Dedication depends on that question or on
+       how it is answered.
 
 
 9. MACHINE-GENERATED MATERIAL AND AUTHORSHIP
