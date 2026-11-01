@@ -566,8 +566,8 @@ PREAMBLE (informative; not part of the operative terms)
        Section 8, and Moral Rights to the extent stated in Section 12. It
        reaches nothing else, save that the covenants in Section 5 are promises
        about the Dedicator's own conduct and are not limited by this sentence.
-       It grants no permission under the law of data
-       protection, under a right of privacy, publicity, or personality, or
+       It grants no permission under the law of data protection, under a
+       right of privacy, publicity, or personality, or
        under any right held by a person other than the Dedicator. Where the
        Work contains personal data, or the likeness, voice, or performance of a
        person, any permission those laws require is not the Dedicator's to give
