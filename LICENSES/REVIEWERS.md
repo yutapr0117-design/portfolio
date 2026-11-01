@@ -1,8 +1,8 @@
 ---
 file: LICENSES/REVIEWERS.md
 audience: OSI license-discuss / license-review participants, licence reviewers, anyone arriving from the mailing list
-last-updated: 2026-09-28
-canonical-ref: LICENSES/ACD-1.0.txt (the text posted, and the one this repository applies) / LICENSES/ACD-1.1.txt (the frozen successor) / LICENSES/FROZEN.md (freeze + venue, single source) / LICENSES/rounds/2026-08-26-license-discuss-sent.txt (what was actually sent) / LICENSES/ACD-1.0.submission.md (the packet prepared for license-review)
+last-updated: 2026-11-01
+canonical-ref: LICENSES/ACD-1.0.txt (the text posted) / LICENSES/ACD-1.3.txt (the frozen successor this repository applies since 2026-10-25) / LICENSES/FROZEN.md (freeze + venue, single source) / LICENSES/rounds/2026-08-26-license-discuss-sent.txt (what was actually sent) / LICENSES/ACD-1.0.submission.md (the packet prepared for license-review)
 ---
 
 # Reviewing ACD — start here
@@ -92,7 +92,7 @@ decide what is worth translating, and gives you the commands to check the claims
 
 | | |
 | :-- | :-- |
-| [`ACD-1.0.txt`](ACD-1.0.txt) | **The text posted to `license-discuss` on 2026-08-26.** Frozen since 2026-08-24 so that the text under discussion does not move. This repository applied it until 2026-10-24. |
+| [`ACD-1.0.txt`](ACD-1.0.txt) | **The text posted to `license-discuss` on 2026-08-26.** Frozen since 2026-08-24 so that the text under discussion does not move. This repository applied it until 2026-10-25. |
 | [`ACD-1.1.txt`](ACD-1.1.txt) | **The successor, frozen 2026-09-17.** When it was frozen it closed nineteen of the twenty-one defects then recorded in [`ACD-1.0.errata.md`](ACD-1.0.errata.md); the list has kept growing since, and each entry says which version addresses it. It has **not** been submitted to `license-review` and is **not** applied to this repository. |
 | [`ACD-1.2.txt`](ACD-1.2.txt) | **The second successor, frozen 2026-10-17.** Its own header says what it is. It has **not** been submitted to `license-review` and is **not** applied to this repository. |
 | [`ACD-1.3.txt`](ACD-1.3.txt) | **The third successor, frozen 2026-10-25, and the licence this repository applies from that date** (the root `LICENSE` says so). It has **not** been submitted to `license-review`. |
@@ -131,8 +131,7 @@ and nothing has been submitted to SPDX.
 verified in CI). When frozen it closed nineteen of the twenty-one defects then recorded in ACD-1.0.
 **The owner sent it to `license-discuss` the same day, and that message was rejected by moderation**
 (`ACD-1.0.against.md` #215), so the list has not yet received this text; **work on the next version happens in `ACD-1.4-DRAFT.txt` (ACD-1.3 was frozen on 2026-10-25),
-so the text under discussion does not move.** **ACD-1.0 remains frozen and remains the licence
-this repository applies** — freezing a text is a promise about its bytes, not a statement about
+so the text under discussion does not move.** **ACD-1.0 remains frozen; since 2026-10-25 the licence this repository applies is ACD-1.3** *(2026-11-01: this sentence said ACD-1.0 "remains the licence this repository applies" after 1.3 had been applied; corrected)* — freezing a text is a promise about its bytes, not a statement about
 which version a project uses, and the two facts are deliberately kept apart here.
 
 **How it came to be on this list.** **No submission to license-review has been made, and the text
