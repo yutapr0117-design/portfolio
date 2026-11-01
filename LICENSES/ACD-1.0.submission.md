@@ -323,7 +323,7 @@ Legacy or New:                  New License
 Drafted By Lawyer:              No
 Approved or Used by Projects:   One — my own repository
 Steward:                        Yuta Yokoi (横井雄太), yuta.yokoi.r@gmail.com
-Submitter:                      The same person, in his own capacity
+Submitter:                      The same person, in a personal capacity
 SPDX / ScanCode Identifier:     None (LicenseRef-ACD-1.0 is the conforming form)
 Third-party Endorsement:        None (no Debian, FSF or Fedora review)
 Proposed Tags:                  None
