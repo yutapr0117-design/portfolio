@@ -1,7 +1,7 @@
 ---
 file: LICENSES/MACHINE-SURFACES-AUDIT.md
 audience: register / 本文の担当セッション（一次読者・候補を拾う側）/ 監査人
-last-updated: 2026-09-24
+last-updated: 2026-10-24
 canonical-ref: LICENSES/FROZEN.md (凍結と POSTING-STATUS の単一ソース) / LICENSES/ACD-1.0.txt / LICENSES/ACD-1.1.txt / LICENSES/ACD-1.2-DRAFT.txt (照合先) / LICENSES/ACD-1.0.errata.md / LICENSES/ACD-1.0.against.md (候補の行き先)
 ---
 

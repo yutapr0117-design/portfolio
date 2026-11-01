@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-outcomes.md
 audience: OSI license-discuss / license-review participants, licence reviewers, 監査人
-last-updated: 2026-09-27
+last-updated: 2026-10-10
 canonical-ref: LICENSES/ACD-1.0.review-precedents.md (提出そのものの読み) / LICENSES/ACD-1.0.board-decisions.md (理事会議事録の分析) / LICENSES/ACD-1.0.against.md
 ---
 

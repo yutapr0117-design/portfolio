@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-review participants / 監査人
-last-updated: 2026-09-28
+last-updated: 2026-10-17
 canonical-ref: LICENSES/ACD-OSI-BOTTLENECKS.md (索引・分類・集計はあちらが canonical) / LICENSES/ACD-1.0.against.md / LICENSES/AS-OF.md
 ---
 

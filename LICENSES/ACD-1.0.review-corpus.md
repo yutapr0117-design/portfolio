@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-corpus.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-review participants / 監査人
-last-updated: 2026-09-28
+last-updated: 2026-10-17
 canonical-ref: LICENSES/ACD-1.0.review-precedents.md (個別スレッドの読み・§1.45〜§1.66) / LICENSES/ACD-OSI-BOTTLENECKS.md (canonical なボトルネック一覧) / LICENSES/AS-OF.md (外部事実と検証日)
 ---
 

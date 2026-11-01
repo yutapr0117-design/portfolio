@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.dig-2026-09.md
 audience: OSI license-discuss / license-review participants, licence reviewers, 後任 AI
-last-updated: 2026-09-17
+last-updated: 2026-10-17
 canonical-ref: LICENSES/ACD-1.0.review-corpus.md (アーカイブ全体の件数 census) / LICENSES/ACD-1.0.reviewer-positions.md (審査者の立場) / LICENSES/ACD-OSI-BOTTLENECKS.md (B3 長さ)
 ---
 
