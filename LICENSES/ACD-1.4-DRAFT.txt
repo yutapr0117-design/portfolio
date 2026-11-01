@@ -74,7 +74,25 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       work", whose meaning varies by jurisdiction, in a patent grant; the
       plain words carry the meaning intended. Section 8.4's explanation of
       why it is needed now says "derived from it" to match. (-1 word.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5518 words, 80 clauses.
+    * Section 8.6's covenant not to assert the patent claims now operates in
+      every jurisdiction alongside the licences, as Section 5 does for
+      copyright, instead of only where a licence "is held ineffective". Under
+      the old wording the covenant did not yet exist when the Dedicator first
+      asserted a claim -- the assertion that would produce the holding -- and
+      Section 2.4 says that no grant or covenant is conditioned on another's
+      failure. Naming Sections 8.1 and 8.4 also removes the ambiguous "that
+      Section". (-29 words.)
+    * Section 16.4 now lets the Steward distribute a modified text under the
+      name and an ACD identifier only as a new version, under a version
+      number and identifier that no earlier text has borne. The exception had
+      no such limit, which contradicted the purpose the same sentence states:
+      that each identifier denotes one fixed text. (+21 words.)
+    * Section 16.2 now speaks of "a work to which a Dedicator has applied
+      this Dedication". A tag placed by someone who holds no rights is not an
+      application (Sections 2.7 and 16.3 already said so); the clause where a
+      reader meets the question now says so too. (+7 words: eight added, and
+      the SPDX tag is no longer split across a line.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5517 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -472,21 +490,18 @@ PREAMBLE (informative; not part of the operative terms)
        it without breaching an obligation to, or incurring a payment to,
        another person.
 
-  8.6  Where a licence granted by Section 8.1 or Section 8.4 is held
-       ineffective in a jurisdiction, the Dedicator covenants, in that
-       jurisdiction, not to assert and not to authorise or assist any other
-       person to assert the patent claims that Section describes, against You,
-       in respect of any use of the Work or of anything resulting from
-       Computational Use of it. This covenant is given on the same footing as
-       the covenant in Section 5 and is not conditioned on the licence having
-       failed for any particular reason. Copyright is protected here three
-       times over, by surrender (Section 3), by licence (Section 4), and by
-       covenant (Section 5); this Section gives the patent grant the second
-       footing it would otherwise lack, in the manner Section 12.2 uses for
-       Moral Rights. You are not required to determine whether either licence
-       is effective in any jurisdiction: where it is effective it governs, and
-       where it is held ineffective this covenant does, so that You are
-       protected on either answer.
+  8.6  The Dedicator further covenants not to assert, and not to authorise or
+       assist any other person to assert, the patent claims described in
+       Sections 8.1 and 8.4 against You, in respect of any use of the Work or
+       of anything resulting from Computational Use of it. This covenant is
+       given on the same footing as the covenant in Section 5 and does not wait
+       for either licence to be held ineffective: it operates in every
+       jurisdiction alongside them. Copyright is protected here three times
+       over, by surrender (Section 3), by licence (Section 4), and by covenant
+       (Section 5); this Section gives the patent grant the second footing it
+       would otherwise lack. You are not required to determine whether either
+       licence is effective in any jurisdiction, and nothing permitted by this
+       Dedication depends on how that question is answered.
 
 
 9. MACHINE-GENERATED MATERIAL AND AUTHORSHIP
@@ -691,11 +706,12 @@ PREAMBLE (informative; not part of the operative terms)
            SPDX-License-Identifier: ACD-1.4
            (LicenseRef-ACD-1.4 while not on the SPDX License List)
 
-  16.2 Where a work is accompanied by the identifier "ACD-1.4", by an "SPDX-
-       License-Identifier: ACD-1.4" or "LicenseRef-ACD-1.4" tag, or by a
-       reference to this Dedication by name and version, that is sufficient
-       notice of these terms, and the terms apply in full whether or not a copy
-       of this text accompanies the work.
+  16.2 Where a work to which a Dedicator has applied this Dedication is
+       accompanied by the identifier "ACD-1.4", by an "SPDX-License-Identifier:
+       ACD-1.4" or "LicenseRef-ACD-1.4" tag, or by a reference to this
+       Dedication by name and version, that is sufficient notice of these
+       terms, and the terms apply in full whether or not a copy of this text
+       accompanies the work.
 
   16.3 This Dedication may be applied by anyone, to any work in which they hold
        rights, without permission from, notice to, or any relationship with the
@@ -707,18 +723,19 @@ PREAMBLE (informative; not part of the operative terms)
        Making a modified text is not restricted; what is restricted is
        distributing one. A modified text may not be distributed under the name
        "Autonomous Commons Dedication" or under any identifier of the form
-       "ACD-N" or "ACD-N.N", except by the Steward (Section 16.5), so that each
-       name and identifier in this family continues to denote one fixed text. A
-       modified text may be distributed under a different name. A translation
-       is not a modified text for this purpose and may be distributed under the
-       name and the identifier if it is identified as a translation and states
-       that the English text prevails (Section 15.4); that proviso is a
-       condition upon distributing the translated text, not upon any use of the
-       Work (Section 10.5). A re-encoding of the text into a machine-readable
-       form is likewise not a modified text for this purpose, provided the
-       words are unchanged and the form is identified as a re-encoding;
-       differences of line breaking, indentation, or markup are not
-       modifications.
+       "ACD-N" or "ACD-N.N", except by the Steward (Section 16.5), and by the
+       Steward only as a new version under a version number and identifier that
+       no earlier text has borne, so that each name and identifier in this
+       family continues to denote one fixed text. A modified text may be
+       distributed under a different name. A translation is not a modified text
+       for this purpose and may be distributed under the name and the
+       identifier if it is identified as a translation and states that the
+       English text prevails (Section 15.4); that proviso is a condition upon
+       distributing the translated text, not upon any use of the Work (Section
+       10.5). A re-encoding of the text into a machine-readable form is
+       likewise not a modified text for this purpose, provided the words are
+       unchanged and the form is identified as a re-encoding; differences of
+       line breaking, indentation, or markup are not modifications.
 
   16.5 In Section 16.4, "the Steward" means the person or entity that first
        published this text under the name and the identifier it bears, and any

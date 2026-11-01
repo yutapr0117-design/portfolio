@@ -65,8 +65,10 @@ infringement is caused by subject matter contained in the Work as made available
 claims infringed by Computational Use or by making or using *"any model, parameter set, weight,
 embedding, or output resulting from that use"*, limited to claims *"whose infringement depends upon
 the use of the Work"* — *"a question of causation and not of quantity"*. §8.2 makes both
-unconditional and non-terminable; §8.6 adds a covenant not to assert where a licence is held
-ineffective.
+unconditional and non-terminable; §8.6 adds a covenant not to assert. In ACD-1.3 the covenant
+arises where a licence is held ineffective; the 1.4 draft makes it operate alongside the licences
+in every jurisdiction (2026-11-01), because a covenant that arises only on a holding does not
+exist when the claim that produces the holding is first asserted.
 
 **Meant to do.** Close the gap on which CC0 stopped at OSI (patent rights expressly withheld), and
 reach trained models and outputs, which no approved licence names (`gap-census.md`).
@@ -81,7 +83,9 @@ that definition is the right one is part of the question.
 (b) A causal limit with no threshold may be read as too indefinite to operate, or as reaching any
 model that has once processed the Work. (c) We have not examined how an unconditional,
 non-terminable patent licence to the public interacts with the Dedicator's other patent licensing.
-(d) Whether the §8.6 covenant survives where the licence is held ineffective, or falls with it.
+(d) Whether the §8.6 covenant survives where the licence is held ineffective, or falls with it, and
+whether a covenant given alongside the licence (the 1.4 form) is treated differently from one that
+arises only on a holding (the 1.3 form).
 
 **An answer would change** the wording of §8.4 (register B7; errata E6 and E15).
 
