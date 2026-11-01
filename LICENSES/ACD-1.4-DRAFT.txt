@@ -685,9 +685,8 @@ PREAMBLE (informative; not part of the operative terms)
            (ACD-1.4). No rights in this work are reserved and no conditions are
            imposed in respect of it; trademarks, other rights in names, and
            rights of privacy, publicity, personality, and data protection are
-           not granted
-           (Section 11). Machine learning and text and data mining are
-           expressly permitted, and a patent licence is granted.
+           not granted (Section 11). Machine learning and text and data mining
+           are expressly permitted, and a patent licence is granted.
            Full text: <location of this file>
            SPDX-License-Identifier: ACD-1.4
            (LicenseRef-ACD-1.4 while not on the SPDX License List)
