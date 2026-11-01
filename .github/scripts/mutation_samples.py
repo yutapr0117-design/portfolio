@@ -177,69 +177,13 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 38: package.json の name を lockfile と食い違わせる —— npm ci の前提が崩れる',
-    "file": ROOT / "package.json",
-    "find": '"name": "',
-    "replace": '"name": "x-',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 44: llms-full.txt の canary token の年をずらす —— 公開面ごとに provenance canary が食い違う',
-    "file": ROOT / "llms-full.txt",
-    "find": 'SAKURA-AIO-PROVENANCE-CANARY-2026-',
-    "replace": 'SAKURA-AIO-PROVENANCE-CANARY-2025-',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 104: verify から呼ばれる script の Python 3.10+ ガードを緩める —— 3.9 で走ると構文の違いで途中から黙って壊れる',
-    "file": ROOT / ".github" / "scripts" / "check_aio_digests.py",
-    "find": 'sys.version_info < (3, 10)',
-    "replace": 'sys.version_info < (3, 9)',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 105: check-map から Check 480 の行番号を実在しない番号へ —— map と実装の対応が崩れる',
-    "file": ROOT / "docs" / "architecture" / "check-repository-consistency-map.md",
-    "find": '| 480 | **mutation データ',
-    "replace": '| 4800 | **mutation データ',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 106: .nvmrc の major を CI の node-version と食い違わせる —— ローカルと CI で別の Node で検証される',
-    "file": ROOT / ".nvmrc",
-    "find": '24',
-    "replace": '22',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 116: playwright の reuseExistingServer を true へ —— 手元に残った古い server を掴み、変更前のコードを検証してしまう',
-    "file": ROOT / "playwright.config.cjs",
-    "find": 'reuseExistingServer: false,',
-    "replace": 'reuseExistingServer: true,',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 117: screenshot の maxDiffPixelRatio を上限より緩める —— 本物の視覚回帰を見逃す',
-    "file": ROOT / "playwright.config.cjs",
-    "find": 'maxDiffPixelRatio: 0.02 }',
-    "replace": 'maxDiffPixelRatio: 0.5 }',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 120: shipped JS+CSS の byte 予算を実測より小さくする —— 予算超過を検出できることの確認',
-    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
-    "find": '<!-- PERF-BUDGET-DATA 7',
-    "replace": '<!-- PERF-BUDGET-DATA ',
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": 'Check 121: STATUS.md の最新 Session Record を手で書き換える —— 機械生成の owner dashboard が実態とずれる',
@@ -534,6 +478,30 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
     "find": '<!-- ESLINT-BASELINE-DATA ',
     "replace": '<!-- ESLINT-BASELINE-DATA 9',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 18: sitemap の root <loc> の lastmod を千年前へずらす —— root の更新日が ai:last-modified と食い違う (値を含まない prefix で当てる)',
+    "file": ROOT / "sitemap.xml",
+    "find": '<loc>https://yutapr0117-design.github.io/portfolio/</loc>\n    <lastmod>2',
+    "replace": '<loc>https://yutapr0117-design.github.io/portfolio/</loc>\n    <lastmod>1',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 49: Person の worksFor が指す Organization の @id をずらす —— 所属の参照が宙に浮き、構造化データの上では誰の所属か分からなくなる',
+    "file": ROOT / "index.html",
+    "find": '"startDate": "2026-06-11",\n                        "worksFor": {\n                              "@id": "https://nkgr.co.jp/#organization"',
+    "replace": '"startDate": "2026-06-11",\n                        "worksFor": {\n                              "@id": "https://nkgr.co.jp/#organisation"',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 71: §4 BUDGET-DATA に存在しない file の行を足す —— 改名・削除の後に予算表だけが古いまま残る (59 も同時に発火)',
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": '.github/scripts/mutation_samples_archive4.py | 950 | advisory',
+    "replace": '.github/scripts/mutation_samples_archive4.py | 950 | advisory\n.github/scripts/does-not-exist.py | 100 | advisory',
     "check": CHECK,
 })
 
