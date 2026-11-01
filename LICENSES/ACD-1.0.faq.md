@@ -597,7 +597,7 @@ steward は **Dedicator（適用者）本人**（`ACD-1.0.submission.md` §A に
 | **実際に来た指摘** | `LICENSES/ACD-1.0.discussion-log.md` |
 | 使う側の実務 | **本書** |
 | 設計根拠と申請ドシエ | `docs/architecture/acd-license-rationale.md` |
-| 提出パケット（英文・**送る版は §B.0 の確定手順を経る**。送信可否はオーナーの判断） | `LICENSES/ACD-1.0.submission.md` |
+| 提出パケット（英文・**送る版は §B.0 の確定手順を経る**。何を・いつ送るかは AI が決め、送る行為と文面の語はオーナー） | `LICENSES/ACD-1.0.submission.md` |
 | 提出判断と**残る弱点** | `LICENSES/READY-TO-SUBMIT.md` |
 | 凍結の状態と投稿先の単一ソース | `LICENSES/FROZEN.md` |
 | 確定・凍結済みの後継版（未提出・未適用） | `LICENSES/ACD-1.1.txt` |
