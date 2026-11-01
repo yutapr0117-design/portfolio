@@ -39,7 +39,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        **468m は §16.4 が Steward 例外の中でも「1 識別子 = 1 固定本文」を保つことを見る** ——
        2026-11-01 に外部レビューの指摘で直した保証が、短くする圧力で黙って落ちるのを止める。
        **468l は草案の全行が 80 桁以内であることを見る** —— 1.0 は全行 ≤80 だが 1.1〜1.3 は
-       語を足した行が 81〜90 桁のまま確定して凍結で直せなくなった (2026-11-01 実測)。 (BLOCKING)
+       語を足した行が 81〜90 桁のまま確定して凍結で直せなくなった (2026-11-01 実測)。
+       **468o は licence (名詞) / license (動詞) の語形が前の語と合うことを見る** —— 1.1〜1.3 の §8.4 が
+       "does not licence a claim" のまま凍結された (2026-11-02 に 25 が発見)。引用符の中と全大文字は除く。 (BLOCKING)
 """
 import json
 import re
@@ -451,6 +453,27 @@ def run(ctx):
         if _wide468l:
             _bad468.append(f"468l: 80 桁を超える行がある: {_wide468l}。語を変えずに折り返せ "
                            "(確定すると凍結で直せなくなる)")
+
+        # ── 468o: licence (名詞) / license (動詞) の語形が前の語と合っていること ──────────────
+        #   本文は名詞を licence、動詞を license と書き分けている。1.1 の E15 修正で §8.4 に
+        #   "it does not licence a claim" (動詞の位置に名詞形) が入り、1.1〜1.3 は凍結で直せない
+        #   まま確定した (2026-11-02 に 25 が全版の語形を前の語ごとに数えて発見・PR #2197)。
+        #   差分のレンズ (468n) も語数照合も**同じ語数の綴り違い**は原理的に拾わない。
+        #   誤検出は実測した: 規則をそのまま当てると 1.4 草案の OSAID の逐語引用 "a license" に
+        #   当たるので、**二重引用符の中**と**全大文字の語** (`LICENSE` という file 名・見出し) は除く。
+        #   除外後、全 7 版 (凍結 4 + 草案 3) で当たるのは凍結版の 1.1〜1.3 の §8.4 だけで、それが
+        #   凍結版を対象にしない理由である (確定前の草案でだけ止める)。
+        _f468o = re.sub(r'"[^"]*"', " ", " ".join(_t468.split()))
+        _bad468o = (
+            [_m.group(0) for _m in re.finditer(
+                r"\b(?:not|to|may|can|cannot|shall|will|does|do|must|could|would|should|might) licence\b",
+                _f468o, re.I)]
+            + [_m.group(0) for _m in re.finditer(
+                r"\b(?:the|a|an|this|that|any|every|each|its|their|such|no) license\b", _f468o, re.I)
+               if not _m.group(0).split()[-1].isupper()]
+        )
+        if _bad468o:
+            _bad468.append(f"468o: licence (名詞) / license (動詞) の語形が前の語と合わない: {_bad468o}")
 
         check(
             not _bad468,
