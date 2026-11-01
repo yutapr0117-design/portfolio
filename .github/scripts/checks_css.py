@@ -330,7 +330,9 @@ def run(ctx):
     # degradation するため)。「style.css 存在 ⟹ index.html に link 済」を invariant 化する。
     _index135 = ROOT / "index.html"
     if _index135.exists():
-        _html135 = _index135.read_text(encoding="utf-8")
+        # HTML コメントを除いてから探す (説明コメント中の <link> で満たされると、link を外しても緑
+        # だった・2026-11-01 実測。Check 133/134 と同じ)
+        _html135 = re.sub(r"<!--.*?-->", "", _index135.read_text(encoding="utf-8"), flags=re.S)
         _linked135 = re.search(
             r'<link\b[^>]*\brel\s*=\s*["\']stylesheet["\'][^>]*\bhref\s*=\s*["\']\.?/?style\.css["\']'
             r'|<link\b[^>]*\bhref\s*=\s*["\']\.?/?style\.css["\'][^>]*\brel\s*=\s*["\']stylesheet["\']',
