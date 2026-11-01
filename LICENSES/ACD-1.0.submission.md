@@ -205,7 +205,7 @@ Open Source Definition, and to say where the licence is used.
 > （逐語は `rounds/2026-09-09-license-{discuss,review}-osi-moderators-observed.txt`・
 > 分析は `ACD-1.0.against.md` #119 と `ACD-OSI-BOTTLENECKS.md` B14）。
 > **§B.0 は AI 起草の文面である。この状態で送ることは、その通知が名指しした行為に当たりうる。**
-> **次に何を送るか、そもそも送るかはオーナーの判断であり、AI はそれを代行しない。**
+> **次に何を・いつ送るかは AI が決めて理由とともに記録するが、送る行為と文面の語はオーナーであり、AI はそれを代行しない。**（**2026-11-01 訂正**: 旧文は「次に何を送るか、そもそも送るかはオーナーの判断」で、2026-10-24 のオーナー明言「OSI通過の為の何かで私の裁可が必要なものは無い」と食い違っていた。2026-11-01 にオーナーが「全委任してるので当然良い」とこの是正を確認した。現行の分担は `OSI-APPROVAL-PLAN.md` 冒頭と同じ）
 > **開示（§E.1）を薄めて回避してはならない。**
 
 **Why this section exists.** The reference material this message points at — §1 through §5, which

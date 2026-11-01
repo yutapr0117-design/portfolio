@@ -128,7 +128,7 @@ courtesy — a discussion whose subject changes underneath it is not a review of
 **OSI Moderators は同日、両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と
 投稿し、両リストが「AI が自律的に参加しライセンスを起草する proof-of-concept」に使われていると
 述べた**（逐語は `rounds/`・分析は `against.md` #119 と `ACD-OSI-BOTTLENECKS.md` B14）。
-したがって **送信可否そのものがオーナーの判断事項**になった。**AI は送る文面を完成品として
+したがって **送信可否そのものがオーナーの判断事項**になった（**2026-11-01 注**: これは 2026-09-09 時点の記述。2026-10-24 のオーナー明言「OSI通過の為の何かで私の裁可が必要なものは無い」以降、**何を・いつ送るかは AI が決めて記録し、送る行為と文面の語はオーナー**である。2026-11-01 にオーナーが確認）。**AI は送る文面を完成品として
 提示しない。** 併せて、更新されると予告された Code of Conduct の公開を確認すること
 （*"We'll share more details soon."*）。**開示（`submission.md` §E.1）を薄めて回避しない。**
 
