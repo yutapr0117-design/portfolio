@@ -3,7 +3,7 @@
 rotate_mutation_samples.py が受け皿の余裕を実測して選び、埋まったら次を起こす。
 **新しい mutation は mutation_samples.py の tail へ足すこと** (ここは退避先)。
 """
-from mutation_samples_common import ROOT, CHECK  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT_VER  # noqa: F401 (entry 内で参照)
 
 MUTATIONS_ARCHIVE3 = [
     {
@@ -645,6 +645,57 @@ MUTATIONS_ARCHIVE3 = [
     # [FIX 2026-11-01] path を導出へ変えたので、導出の pointer 判定を反転させて「1 つに定まらない」を作る。
     "find": 'if "HAS BEEN FROZEN" not in _p.read_text(encoding="utf-8").split("\\n", 1)[0]]',
     "replace": 'if "HAS BEEN FROZEN" in _p.read_text(encoding="utf-8").split("\\n", 1)[0]]',
+    "check": CHECK,
+},
+    {
+    "name": "Check 472f: 提出パケット §A.0 header の License URL 欄だけを別の版へずらす —— 版を切り替えた日に"
+            "欄が 1 つ残ると、審査者には旧版の欄と新版の本文が届く (2026-09-26)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": "License URL:                    https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt",
+    "replace": "License URL:                    https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.2.txt",
+    "check": CHECK,
+},
+    {
+    "name": "Check 471 (d): 短い名前の節参照を、分割で節が移る前の file 名へ戻す —— 旧実装は見出し辞書の"
+            "フル名としか照合せず、短い名前の参照 (ドシエで普通の書き方) を全部読み飛ばしていた。"
+            "移転漏れが 43 件たまっていた (2026-09-28)",
+    "file": ROOT / "LICENSES" / "AS-OF.md",
+    "find": "`review-precedents.md` §1.46",
+    "replace": "`comparison.md` §1.46",
+    "check": CHECK,
+},
+    {
+    "name": "Check 471 (d): リンク形式の節参照を、提出参考資料に無い §9 へ向ける —— 条番号への言及の例外を"
+            "「の」でつないだ形に限らないと、ライセンスの節番号と同じ数字を持つ文書ではこの誤りを素通しする (2026-09-28)",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "(ACD-1.0.submission-reference.md) §1–§4",
+    "replace": "(ACD-1.0.submission-reference.md) §9–§4",
+    "check": CHECK,
+},
+    {
+    "name": "Check 468i: errata の 1 件を「<現行草案> 草案で閉じた」へ書き換え、草案の変更一覧には載せない —— 冒頭は一覧が"
+            "差分のすべてだと宣言しているので、閉じた errata の記録漏れは草案の自己記述を偽にする (2026-09-28。"
+            "2026-10-17 に 1.2 を確定し、対象を 1.3 草案へ移したので、mutation も errata 側から当てる形へ付け替えた)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.errata.md",
+    "find": "**1.2 草案で閉じた（2026-09-18）。+12 語。",
+    "replace": f"**{CURRENT_DRAFT_VER} 草案で閉じた（2026-09-18）。+12 語。",
+    "check": CHECK,
+},
+    {
+    "name": "Check 473b: 否定済みの起草主体の句を、訂正の印なしで審査者向けの面へ戻す —— 2026-09-23 に steward 本人の"
+            "手紙で覆った「ライセンスは頼まれていない」型の記述が、現在形の面に再び現れる形。2026-09-29 まで"
+            "この Check を狙う mutation は 0 件だった (全件帰属掃引で判明)",
+    "file": ROOT / "LICENSES" / "QUESTION-INDEX.md",
+    "find": "`review-responses-meta.md` Q32d; `against.md` #62 |",
+    "replace": "`review-responses-meta.md` Q32d; `against.md` #62 |\n\nThe owner did not commission it.",
+    "check": CHECK,
+},
+    {
+    "name": "Check 478: check-map の所在列を分割前の module へ戻す —— 468 の行が checks_license_dossier.py を"
+            "指していた 2026-09-28 の実例そのもの。Check 105 は番号しか見ないので、所在の誤りは 478 だけが捕まえる",
+    "file": ROOT / "docs" / "architecture" / "check-repository-consistency-map.md",
+    "find": "| BLOCKING | `checks_license_draft.py` |",
+    "replace": "| BLOCKING | `checks_license_dossier.py` |",
     "check": CHECK,
 },
 ]
