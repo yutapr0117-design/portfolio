@@ -75,6 +75,10 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        （`against.md` #80 の status と、bottleneck の測定表）**追加で検出した。**
        **縛るのは「裸の現在形の数値」だけ** ——日付を添えるか、「現在値は §B.0 の見出し」と
        書くか、数値を消すか。**規範は既に 4 箇所が守っており、本 face はそれを機械化しただけである。**
+       (t) **FAQ の項番の頭文字が、それが置かれた節と一致すること** (`### A29` は `## A.` の下)。
+       実測 (2026-11-01・portfolio-bb): `### A29` が `## B. プロセスの疑問` の直下に足されたときから置かれ、
+       索引も mirror も「A. 使う側 N 問」と数えるので読み手は A29 を B 節の中で探すことになった。
+       (b) の件数は `### A` の数しか見ないので、この配置は検出できなかった。
        (s) **散文の「Check 463 は N 項目を強制する」 ↔ その Check の実装から導出した数**。
        実測 (2026-09-26): `READY-TO-SUBMIT.md` が「**10 項目**」と述べ、実装は **12**。
        **同じ file の 4 行の中で、これと (r) の §B.0 語数が同時に古くなっていた** ——
@@ -189,6 +193,19 @@ def run(ctx):
                 _bad460.append(f"submission.md worked entries: 申告 {_m.group(1)} / 実測 {_entries460}")
             if int(_m.group(2)) != _short460:
                 _bad460.append(f"submission.md short answers: 申告 {_m.group(2)} / 実測 {_short460}")
+
+        # (t) FAQ の項番の頭文字が、それが置かれた節 (`## X.`) と一致すること
+        _sec460t, _bad460t = None, []
+        for _ln460t in _fq460.split("\n"):
+            _ms460t = re.match(r"^## ([A-Z])\. ", _ln460t)
+            if _ms460t:
+                _sec460t = _ms460t.group(1)
+                continue
+            _mq460t = re.match(r"^### ([A-Z])(\d+)\. ", _ln460t)
+            if _mq460t and _mq460t.group(1) != _sec460t:
+                _bad460t.append(f"{_mq460t.group(1)}{_mq460t.group(2)} は {_sec460t} 節の下")
+        if _bad460t:
+            _bad460.append(f"(t) FAQ の項番が節と食い違う: {_bad460t} (索引は頭文字で数えるので、読み手は別の節を探す)")
 
         # (b) 索引の「使う側 N 問 / プロセス M 問」
         _fa460 = len(re.findall(r"^### A\d+\.", _fq460, re.M))
