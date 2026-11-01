@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.submission-osd.md
 audience: OSI license-review participants / licence reviewers / 監査人 / 次のセッションの実装者
-last-updated: 2026-09-25
+last-updated: 2026-11-01
 canonical-ref: LICENSES/ACD-1.0.submission-reference.md (切り出し元・§1〜§2 / §4〜§5) / LICENSES/ACD-1.0.submission.md (送る文面は §B.0。**これを貼らない**)
 ---
 
@@ -129,7 +129,7 @@ its narrow sense, so we have now applied the wide one as well.
 | **§5.2** | The Dedicator covenants not to apply or invoke technological measures or laws against You, not to impose collateral conditions, and not to argue for a narrow construction | **The asymmetry runs against the grantor and in favour of every recipient equally.** No recipient is placed in a different position from any other, and the party disadvantaged is the one making the grant |
 | **§11.3** | Withholds permission to misrepresent the Dedicator's authorship or endorsement | **Applies identically to every recipient.** It is a limit of reach, not a condition (§10.1 is unaffected), and what it withholds was never the Dedicator's to permit |
 | **§12.2** | The Dedicator covenants not to exercise Moral Rights against You or against anyone who receives the Work from You | **Runs one way only, in the recipient's favour, and reaches downstream recipients as well.** Nobody is worse off than anybody else |
-| **§16.4** | A modified licence text may not be distributed under the name "Autonomous Commons Dedication" or under the identifier "ACD-1.0". **ACD-1.0 makes no exception for any party** | **Applies identically to every distributor of the text, the steward included.** The role-based difference this row once conceded is in the **successor**, not in 1.0: ACD-1.1 and the 1.2 draft add *"except by the Steward"* to close errata E14 — see below |
+| **§16.4** | A modified licence text may not be distributed under the name "Autonomous Commons Dedication" or under the identifier "ACD-1.0". **ACD-1.0 makes no exception for any party** | **Applies identically to every distributor of the text, the steward included.** The role-based difference this row once conceded is in the **successor**, not in 1.0: ACD-1.1, ACD-1.2 and ACD-1.3 (frozen; 1.3 is applied here since 2026-10-25) and the 1.4 draft add *"except by the Steward"* to close errata E14 — see below |
 
 **On §16.4**, three things are true at once. It concerns **the licence text as a document, not
 the Work**: §10.5 and §16.6 say so in terms, so it places no person in a different position with
@@ -139,8 +139,8 @@ condemn a large part of the approved list with it. And OSD 4 **expressly contemp
 restrictions of this shape. **In ACD-1.0 there is no role-based difference at all**: §16.4 closes
 the name and the identifier to every distributor alike. **What remains, and we state it rather
 than resolve it, belongs to the successor**: to close errata E14 (1.0 protects the name in general
-but only the one identifier `ACD-1.0`), ACD-1.1 and the 1.2 draft protect the whole `ACD-N` /
-`ACD-N.N` family and let **the Steward alone** issue a modified text under it. That is a
+but only the one identifier `ACD-1.0`), ACD-1.1, ACD-1.2 and ACD-1.3 (all frozen; this repository applies ACD-1.3 since 2026-10-25) and the 1.4 draft protect the whole `ACD-N` /
+`ACD-N.N` family and let **the Steward alone** issue a modified text under it. *(2026-11-01: this sentence named only "ACD-1.1 and the 1.2 draft"; 1.2 and 1.3 have since been frozen with §16.4 and §16.5 unchanged, and 1.3 is the version applied here, so the Steward exception is now in the licence this repository uses.)* That is a
 role-based difference on the face of the document, and a reviewer taking the wide reading at full
 strength is entitled to ask about it. Our answer there is the subject-matter limit, not a denial
 that the difference exists. *(Corrected 2026-09-24: this paragraph and the row above had
