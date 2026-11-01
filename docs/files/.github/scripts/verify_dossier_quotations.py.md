@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/verify_dossier_quotations.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-09-14
+last-updated: 2026-11-01
 canonical-ref: LICENSES/AUDIT-LEDGER.md (結果の台帳) / LICENSES/rounds/README.md (一次資料の保存規約)
 ---
 
@@ -11,7 +11,7 @@ canonical-ref: LICENSES/AUDIT-LEDGER.md (結果の台帳) / LICENSES/rounds/READ
 
 **ドシエが外部に帰属させた英語の逐語引用が、実在の source に在るかを照合する道具。**
 `LICENSES/*.md` から `*"..."*` 形式・人名の近傍・英語・5 語以上の引用を集め、
-`rounds/` の一次資料・ライセンス本文・取得済みアーカイブと突き合わせる。
+`rounds/` の一次資料・ライセンス本文・取得済みアーカイブと突き合わせる（2026-11-01 から本文は全版を glob で読み、`rounds/` の `-NofM` 分割は番号順に連結してから照合する —— 分割の境目をまたぐ引用を取りこぼさないため）。
 
 ## Why
 
