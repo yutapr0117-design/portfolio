@@ -743,3 +743,27 @@ but rather are proprietary by default**"*（Berne 以降、著作権は創作と
 **黙っていれば public domain になるのではなく、黙っていれば proprietary になる。**
 **§3 が在ることの必要性は、この一文が最も短く説明している。**
 
+
+## 1.131 単独の起草者・寛容型・翻訳の提出が「決まらないまま」消えた —— Russian Permissive Free Software Licence（2014）と、2015 年の未決定 11 件（2026-11-01）
+
+**#243 の未読在庫を「我々の類型に近いもの」から読んだ 1 本目。** 一次資料は `license-review` 2014-03〜05 / 2015-06 / 2015-09 のアーカイブ（2026-11-01 にローカルの取得済みコピーで読んだ）。
+
+**提出の形が我々に近い。** 提出者 Vladimir Slyshchenkov 氏は 2014-03-16 に *"The license was drafted **by me upon my own initiative**"* と述べ、英語版について 2014-04-16 に *"**The English version was also proofread by a UK lawyer** (who however did not know Russian)"*。**単独の起草者・寛容型・新規・英語が母語でない**の 4 点が ACD と同じで、違うのは提出者が弁護士だったこと。
+
+**委員の反応は条文の個別論点ではなく、構造だった。** Richard Fontana 氏 2014-04-13 ——
+
+> *"I almost feel like you wrote **three different licenses here and combined them into one**. ...
+> Here I see **different sections covering similar subject matter** (for just one example,
+> limitation of liability seems to be addressed a few different ways at different points in the
+> text) and I'm concerned that there may be **subtle contradictions between different parts of
+> the license that seem to address the same issue**."*
+
+**結果は決定ではなかった。** 提出者は 2014-05-29 に催促したが、Fontana 氏は 2015-06-02 の「Outstanding license submissions」で、この提出を含む 11 件を *"arguably a formal request for OSI approval, with no indication that there was anything formally lacking in the submission, yet ... **I believe no decision was ever made on any of them**"* と列挙し、*"For at least one or two, it is likely that **the license submitter gave up**"*、*"a clear decision ought to have been made nonetheless"* と述べている。
+
+**我々にとっての意味（不利）**: **(1) ACD は意図して「同じことを 3 回言う」構造を持つ**（§3 放棄 / §4 許諾 / §5 不行使、§8.6 は *"Copyright is protected here three times over"* と自分で述べる）。Fontana 氏が懸念した「同じ事柄を扱う部分の間の微妙な食い違い」は、**ACD で現に起きていた** —— 2026-11-01 の外部監査と確定前検証が、§2.4 と §8.6（E42・SELF-AUDIT §3p）、§11.4 と §5.2(d)（E43）、§11.4 と §16（E44）の 3 組を見つけ、1.4 草案で直した。**重ねた層の数だけ、層の間の食い違いを検査する面が増える。** **(2) 形式の整った提出でも決定が出ないことがある。** register の「留め置き」（`board-decisions.md` §2a・NOSA 2.0 / TGPPL / YATeam）と同じ類の、もっと静かな形である。
+
+**⚠ 逆側（同じ重さで）**: **(1) ACD の重複は宣言されている** —— §2.4 が独立性を、§8.6 と §12.2 が第 2 の足場であることを本文で述べ、読者は「似た条が並んでいる理由」を条の中で読める。Fontana 氏が困ったのは、理由の書かれていない重複と翻訳の不確かさの合わせ技だった（氏自身が独立の翻訳を求めている）。**ただし宣言は食い違いを防がない** —— 上の 3 組は、宣言があるのに起きた。**(2) 2015 年の手続きは今と違う** —— 2026-05-22 以降、委員会は応答しない提出者を理事会の議決なしに却下でき（`board-decisions.md`）、2015 年のように「誰も決めない」まま残る形は減っていると読める。ただしそれは**却下で決まる**方向の変化であって、我々に有利とは限らない。**(3) 「提出者が諦めた」が決定の不在の一因と書かれている** —— Fontana 氏は *"not having the tenacity of, say, Messrs. Geurts or Wright"* と、粘った提出者の名を挙げている。**応答し続けることは、決定を得る条件の一つである**（我々は投稿経路が閉じている間それができない —— register B14）。
+
+**この節が establish しないこと**: Fontana 氏の構造の懸念が ACD に向けられたことは一度も無い（ACD はこの list で審査されていない）。**似た形の提出に同じ委員が述べたこと**であって、ACD への判定ではない。
+
+**潰し方**: 確定前の敵対的検証（`OSI-APPROVAL-PLAN.md` §4 段 7）に「**重ねた層どうしの食い違い**」を独立のレンズとして置く —— 同じ事柄を扱う条の組（§3/§4/§5、§8.1/§8.4/§8.6、§12.1/§12.2、§11.4/§5.2(d)/§16）を列挙し、組ごとに射程・発動条件・限定語を突き合わせる。**合否**: 組を列挙してから当てたか（今日の 3 組は、組を列挙せずに別々のレンズで偶然見つかった）。
