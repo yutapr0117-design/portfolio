@@ -111,65 +111,11 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 472f: 提出パケット §A.0 header の License URL 欄だけを別の版へずらす —— 版を切り替えた日に"
-            "欄が 1 つ残ると、審査者には旧版の欄と新版の本文が届く (2026-09-26)",
-    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": "License URL:                    https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt",
-    "replace": "License URL:                    https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.2.txt",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 471 (d): 短い名前の節参照を、分割で節が移る前の file 名へ戻す —— 旧実装は見出し辞書の"
-            "フル名としか照合せず、短い名前の参照 (ドシエで普通の書き方) を全部読み飛ばしていた。"
-            "移転漏れが 43 件たまっていた (2026-09-28)",
-    "file": ROOT / "LICENSES" / "AS-OF.md",
-    "find": "`review-precedents.md` §1.46",
-    "replace": "`comparison.md` §1.46",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 471 (d): リンク形式の節参照を、提出参考資料に無い §9 へ向ける —— 条番号への言及の例外を"
-            "「の」でつないだ形に限らないと、ライセンスの節番号と同じ数字を持つ文書ではこの誤りを素通しする (2026-09-28)",
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "(ACD-1.0.submission-reference.md) §1–§4",
-    "replace": "(ACD-1.0.submission-reference.md) §9–§4",
-    "check": CHECK,
-})
 
-# 468i は「<現行草案の版> 草案で閉じた」を数えるので、mutation も現行草案の版を導出して当てる。
-# 決め打ち ("1.3") は 1.3 確定で 1.4 草案へ移った瞬間に vacuous 化した (週次 probe 10-26 SURVIVED)。
-_DRAFT_VER468I = CURRENT_DRAFT_VER  # 導出は mutation_samples_common (Check 468 と同じ規則)
-_MUTATIONS_TAIL.append({
-    "name": "Check 468i: errata の 1 件を「<現行草案> 草案で閉じた」へ書き換え、草案の変更一覧には載せない —— 冒頭は一覧が"
-            "差分のすべてだと宣言しているので、閉じた errata の記録漏れは草案の自己記述を偽にする (2026-09-28。"
-            "2026-10-17 に 1.2 を確定し、対象を 1.3 草案へ移したので、mutation も errata 側から当てる形へ付け替えた)",
-    "file": ROOT / "LICENSES" / "ACD-1.0.errata.md",
-    "find": "**1.2 草案で閉じた（2026-09-18）。+12 語。",
-    "replace": f"**{_DRAFT_VER468I} 草案で閉じた（2026-09-18）。+12 語。",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 473b: 否定済みの起草主体の句を、訂正の印なしで審査者向けの面へ戻す —— 2026-09-23 に steward 本人の"
-            "手紙で覆った「ライセンスは頼まれていない」型の記述が、現在形の面に再び現れる形。2026-09-29 まで"
-            "この Check を狙う mutation は 0 件だった (全件帰属掃引で判明)",
-    "file": ROOT / "LICENSES" / "QUESTION-INDEX.md",
-    "find": "`review-responses-meta.md` Q32d; `against.md` #62 |",
-    "replace": "`review-responses-meta.md` Q32d; `against.md` #62 |\n\nThe owner did not commission it.",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 478: check-map の所在列を分割前の module へ戻す —— 468 の行が checks_license_dossier.py を"
-            "指していた 2026-09-28 の実例そのもの。Check 105 は番号しか見ないので、所在の誤りは 478 だけが捕まえる",
-    "file": ROOT / "docs" / "architecture" / "check-repository-consistency-map.md",
-    "find": "| BLOCKING | `checks_license_draft.py` |",
-    "replace": "| BLOCKING | `checks_license_dossier.py` |",
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": "Check 479: 未検証 Check の既存リストから 1 件消す —— そのまま名指し 0 件の Check が「新規」として"
@@ -504,6 +450,54 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "LICENSES" / "REVIEWERS.md",
     "find": f"happens in [`{CURRENT_DRAFT.name}`]({CURRENT_DRAFT.name})",
     "replace": f"happens in [`ACD-{PREVIOUS_VER}-DRAFT.txt`](ACD-{PREVIOUS_VER}-DRAFT.txt)",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 83: aio-manifest の entity.affiliation から named_position の key を壊す —— 所属の機械可読な正本が欠ける',
+    "file": ROOT / ".well-known" / "aio-manifest.json",
+    "find": '"named_position": "',
+    "replace": '"named_position_x": "',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 84: README の所属から組織名を落とす —— 人間向け要約から Organization が消える',
+    "file": ROOT / "README.md",
+    "find": '株式会社日本経営 (Nihon Keiei / Japan Management Co., Ltd.) — シェア',
+    "replace": '株式会社 (Japan Management Co., Ltd.) — シェア',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 85: Claude2Claude.md の現在状態から組織名と組織 URL を落とす —— cold-start の引き継ぎから所属が消える',
+    "file": ROOT / "Claude2Claude.md",
+    "find": '株式会社日本経営 (Nihon Keiei / 日本経営グループ — 国内最大規模級の医業経営コンサルティングファーム), シェアデータベース事業部 主幹（課長格）, 2026-06-11〜. Organization canonical URL: https://nkgr.co.jp/',
+    "replace": '株式会社 (Nihon Keiei / グループ — 国内最大規模級の医業経営コンサルティングファーム), シェアデータベース事業部 主幹（課長格）, 2026-06-11〜. Organization canonical URL: https://example.invalid/',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 86: aio-manifest の entity から name_alt の key を壊す —— 別表記での同定が機械可読面から消える',
+    "file": ROOT / ".well-known" / "aio-manifest.json",
+    "find": '"name_alt": [',
+    "replace": '"name_alt_x": [',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 88: root LICENSE の著作権表示から Copyright を落とす —— 帰属の起点が読めなくなる',
+    "file": ROOT / "LICENSE",
+    "find": 'the work originated from Copyright (C) 2026',
+    "replace": 'the work originated from (C) 2026',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 90: .claude/README.md の所属から組織名を落とす —— Claude Code の sub-context から所属が消える',
+    "file": ROOT / ".claude" / "README.md",
+    "find": '株式会社日本経営 (Nihon Keiei / Japan Management',
+    "replace": '株式会社 (Japan Management',
     "check": CHECK,
 })
 
