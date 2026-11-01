@@ -122,10 +122,13 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       making, selling, and importing as well as using, and things derived from
       the Work; in a patent covenant "use" is one of those acts, so the second
       footing was narrower than the first. (-8 words.)
-    * Section 2.8 (errata E46) now names Section 7 among the Sections that bind
-      successors and transferees. It named Section 6, which restates, but not
-      Section 7.2, which grants, inviting the reading that what is not named is
-      not bound. (+1 word.)
+    * Section 2.8 (errata E46) now says that "This Dedication, in respect of
+      the Work," binds successors and transferees, where it named Sections
+      3, 4, 6, and 8. The list named Section 6, which restates, but not
+      Section 7.2, which grants, nor Section 2.5, whose undertaking not to
+      argue that the Dedication fails for want of consideration or
+      formality is the one a change of hands most invites. Naming the whole
+      Dedication cannot leave a clause out. (+1 word.)
     * Section 6.4 (errata E47) now speaks of a model or output "resulting from"
       Computational Use of the Work, the words Sections 1.7 and 8.4 use for the
       same relation. It said "derived from", which Section 8.1 uses for things
@@ -313,14 +316,14 @@ PREAMBLE (informative; not part of the operative terms)
        nothing in it is a representation that such material is unencumbered.
        Section 13.2 states the corresponding absence of warranty.
 
-  2.8  Sections 3, 4, 6, 7, and 8 bind the Dedicator's successors, assigns,
-       heirs, and personal representatives, and any person to whom a Covered
-       Right or a patent claim in the Work is transferred, to the fullest
-       extent the law permits. A transferee takes subject to them, Section 6
-       included. This is stated expressly because Sections 5.3 and 12.4 say as
-       much for the covenants they contain, and silence here would invite the
-       argument that the grants themselves stop at the Dedicator, which would
-       leave the longest-lived risk, the change of hands, open.
+  2.8  This Dedication, in respect of the Work, binds the Dedicator's
+       successors, assigns, heirs, and personal representatives, and any person
+       to whom a Covered Right or a patent claim in the Work is transferred, to
+       the fullest extent the law permits. A transferee takes subject to it,
+       Section 6 included. This is stated expressly because Sections 5.3 and
+       12.4 say as much for the covenants they contain, and silence here would
+       invite the argument that the grants themselves stop at the Dedicator,
+       which would leave the longest-lived risk, the change of hands, open.
 
   2.9  Nothing in this Dedication is conditioned on, suspended by, or revived
        by an insolvency, bankruptcy, administration, receivership, liquidation,
