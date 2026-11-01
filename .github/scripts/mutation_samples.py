@@ -129,69 +129,13 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 3: mcp.json の server.version の major をずらす (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / ".well-known" / "mcp.json",
-    "find": "    \"version\": \"74.0.0\",",
-    "replace": "    \"version\": \"73.0.0\",",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 9: sitemap.xml を XML として壊す (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / "sitemap.xml",
-    "find": "<urlset xmlns=",
-    "replace": "<urlset<< xmlns=",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 11: 要約 dict から enabled_engines キーを外す (同名変数は残る = 旧判定では緑だった形) (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / ".github" / "scripts" / "aio_monitoring.py",
-    "find": "\"enabled_engines\": enabled_engines,",
-    "replace": "\"enabled_enginesx\": enabled_engines,",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 19: sw.js の CACHE_NAME を旧版へ (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / "sw.js",
-    "find": "const CACHE_NAME = 'portfolio-aio-v74';",
-    "replace": "const CACHE_NAME = 'portfolio-aio-v73';",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 20: og:image:alt を消す (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / "index.html",
-    "find": "<meta property=\"og:image:alt\" content=",
-    "replace": "<meta property=\"og:image:altx\" content=",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 23: workflow YAML を parse 不能にする (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / ".github" / "workflows" / "mutation-probe.yml",
-    "find": "name: Mutation Probe (safety-net self-check)",
-    "replace": "name: [Mutation Probe (safety-net self-check)",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 25: 監視ログから evidence_policy キーを外す (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / "docs" / "evidence" / "aio-monitoring-log.json",
-    "find": "  \"evidence_policy\": {",
-    "replace": "  \"evidence_policyx\": {",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 29: baseline 生成 workflow から PLAYWRIGHT_UPDATE_SNAPSHOTS を落とす (2026-09-29 まで名指し 0 件)",
-    "file": ROOT / ".github" / "workflows" / "update-playwright-snapshots.yml",
-    "find": "PLAYWRIGHT_UPDATE_SNAPSHOTS: \"1\"",
-    "replace": "PLAYWRIGHT_UPDATE_SNAPSHOTX: \"1\"",
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": "Check 35: robots.txt の Sitemap: を存在しない file へ (2026-09-29 まで名指し 0 件)",
@@ -540,6 +484,38 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "llms-full.txt",
     "find": 'violates C1–C7',
     "replace": 'violates C1–C6',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 31: Claude2Claude.md の現在状態が最新 Session Record 番号を指さなくなる —— 引き継ぎの補助面が canon から遅れる (番号を含まない prefix で当てる)',
+    "file": ROOT / "Claude2Claude.md",
+    "find": '**最新 Session Record：#',
+    "replace": '**最新 Session Record：#X',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 32: index.html の JSON-LD を JSON として壊す —— 構造化データが丸ごと読めなくなる',
+    "file": ROOT / "index.html",
+    "find": '"@context": "https://schema.org",',
+    "replace": '"@context": "https://schema.org",,',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 38: package.json の name を lockfile と食い違わせる —— npm ci の前提が崩れる',
+    "file": ROOT / "package.json",
+    "find": '"name": "',
+    "replace": '"name": "x-',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 44: llms-full.txt の canary token の年をずらす —— 公開面ごとに provenance canary が食い違う',
+    "file": ROOT / "llms-full.txt",
+    "find": 'SAKURA-AIO-PROVENANCE-CANARY-2026-',
+    "replace": 'SAKURA-AIO-PROVENANCE-CANARY-2025-',
     "check": CHECK,
 })
 
