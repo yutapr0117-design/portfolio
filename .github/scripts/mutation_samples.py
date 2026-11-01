@@ -513,6 +513,30 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 54: @eslint/js の major を eslint と食い違わせる —— flat config の推奨ルールが別 major の定義で読まれる',
+    "file": ROOT / "package.json",
+    "find": '"@eslint/js": "1',
+    "replace": '"@eslint/js": "9',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 69: package.json の engines から CI が使う Node の major を外す —— 宣言した対応範囲で CI が走っていない',
+    "file": ROOT / "package.json",
+    "find": ' || >=24"',
+    "replace": '"',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 72: ESLint の warning baseline を上限より大きくする —— 回帰の比較基準そのものが緩む',
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": '<!-- ESLINT-BASELINE-DATA ',
+    "replace": '<!-- ESLINT-BASELINE-DATA 9',
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
