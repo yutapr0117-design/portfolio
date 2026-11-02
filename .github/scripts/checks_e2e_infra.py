@@ -47,7 +47,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `describe.only` / `test.describe.only`. A stray `.only` makes Playwright run ONLY that
        test and silently skip every other test, so CI passes green while the suite is gutted
        (a false-green footgun, the inverse of the vacuous-gate class). This Check blocks any
-       `.only(` left in the spec. (BLOCKING)
+       `.only(` left in the spec. **114b**: playwright.config.cjs sets `forbidOnly: !!process.env.CI`
+       so the runner itself rejects `.only` in CI — the static scan matches a spelling and misses
+       `test .only(` / `test['only'](` / an aliased `.only` (measured 2026-11-02). (BLOCKING)
   116. playwright.config.cjs reuseExistingServer=false: the Playwright webServer must NOT
        reuse an existing server. If flipped to true, CI/local could test a stale already-running
        dev server (pre-edit state) and pass green while the committed files are broken — a
@@ -99,6 +101,7 @@ import re
 
 
 def run(ctx):
+    from _lib_io import strip_js_comments
     ROOT = ctx.ROOT
     check = ctx.check
 
@@ -182,6 +185,18 @@ def run(ctx):
         )
     else:
         check(False, "", "Check 114: e2e/*.spec.js not found — no-.only guard を検証できない", blocking=True)
+    # 114b: runner 側の二重化。上の静的検査は綴りを探すので `test .only(` / `test['only'](` / 別名に
+    # 束縛した `.only` を素通りする (2026-11-02 実測)。Playwright の forbidOnly は**実際に .only が
+    # 使われたか**で止めるので、CI で真になる形で設定されていることを要求する。
+    _pwc114 = ROOT / "playwright.config.cjs"
+    _pwsrc114 = strip_js_comments(_pwc114.read_text(encoding="utf-8")) if _pwc114.exists() else ""
+    check(
+        bool(re.search(r"\bforbidOnly\s*:\s*(?:true\b|!!\s*process\.env\.CI\b)", _pwsrc114)),
+        "Check 114b: playwright.config.cjs が forbidOnly を CI で有効にしている (.only を runner 自身が拒否)",
+        "Check 114b: playwright.config.cjs に `forbidOnly: !!process.env.CI` が無い —— 静的な .only 検査 "
+        "(114) は綴りを探すだけで `test .only(` 等を素通りする。runner 側で拒否させよ",
+        blocking=True,
+    )
 
     # ── 116. playwright.config.cjs reuseExistingServer=false (BLOCKING) ────────────
     # reuseExistingServer:true だと既に起動中の dev server を再利用し、commit 前の stale 状態を検証して

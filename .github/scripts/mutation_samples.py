@@ -520,6 +520,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 114b: playwright.config.cjs から forbidOnly を消す —— 静的な .only 検査は綴りしか見ないので、`test .only(` が残ると CI は 1 本だけ走らせて緑になる',
+    "file": ROOT / "playwright.config.cjs",
+    "find": "  forbidOnly: !!process.env.CI,\n",
+    "replace": "",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

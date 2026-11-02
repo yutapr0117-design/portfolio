@@ -14,6 +14,11 @@ const { defineConfig, devices } = require('@playwright/test');
 
 module.exports = defineConfig({
   testDir: './e2e',
+  // CI では `.only` を runner 自身が拒否する (Playwright の forbidOnly)。Check 114 は spec の
+  // 綴り `(test|describe)(.x)*.only(` を静的に探すが、`test .only(` / `test['only'](` / 別名へ
+  // 束縛した `.only` は綴りが違うので素通りする (2026-11-02 実測)。runner は綴りではなく
+  // 実際に .only が使われたかで止めるので、静的 Check と二重にしておく。
+  forbidOnly: !!process.env.CI,
   timeout: 30000,
   expect: {
     timeout: 5000,
