@@ -567,6 +567,8 @@
 
         // ===== Main Renderer =====
         let _lastRoutePath = null;
+        // 初回描画は遷移扱いしない
+        let _hasRenderedOnce = false;
         // v59: View Transition の安全性をさらに強化
         // - ブラウザ内部の active transition を考慮
         // - transition callback 由来の例外と transition 由来の abort を分離
@@ -845,7 +847,7 @@
             //       のでなく「失われた時に復元」する。command palette / drawer の input など #content 外の
             //       生存要素が focus 中なら奪わない (route render が palette open の input focus と race し
             //       focus を奪う flake を防ぐ)。
-            // tabindex=-1 + preventScroll。:focus-visible 採用ゆえ programmatic focus に視覚リングは出ない。
+            // tabindex=-1 + preventScroll。programmatic focus でも :focus-visible に一致しうる
             const _ae = document.activeElement;
             const _focusWasLost = !_ae || _ae === document.body || _ae === document.documentElement;
 
@@ -881,13 +883,14 @@
                 }
             }
 
-            if (isRouteChange && content && _focusWasLost) {
+            if (isRouteChange && _hasRenderedOnce && content && _focusWasLost) {
                 const _focusTarget = content.querySelector('h1') || content;
                 if (_focusTarget) {
                     if (!_focusTarget.hasAttribute('tabindex')) { _focusTarget.setAttribute('tabindex', '-1'); }
                     try { _focusTarget.focus({ preventScroll: true }); } catch { /* noop */ }
                 }
             }
+            _hasRenderedOnce = true;
 
             // Guard: skip meta/state sync if render was superseded
             if (_signal && _signal.aborted) { return; }

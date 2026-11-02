@@ -256,8 +256,8 @@ E2E_MUTATIONS_ARCHIVE3 = [
     {
         "name": "behavior: a11y route-focus (WCAG 2.4.3) の喪失 (route 遷移で新ページ h1 へ focus 移らず)",
         "file": ROOT / "main.js",
-        "find": "if (isRouteChange && content && _focusWasLost) {",
-        "replace": "if (!isRouteChange && content && _focusWasLost) {",
+        "find": "if (isRouteChange && _hasRenderedOnce && content && _focusWasLost) {",
+        "replace": "if (!isRouteChange && _hasRenderedOnce && content && _focusWasLost) {",
         "test": "Route change moves focus to the new page heading",
     },
     {

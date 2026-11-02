@@ -75,3 +75,34 @@ test('Topbar theme button advances exactly one step per click (double-fire regre
   const after = await page.evaluate(() => document.documentElement.getAttribute('data-theme'));
   expect(after).toBe('dark');
 });
+
+// ===== 初回表示では focus を動かさない (2026-11-02) =====
+// route-focus (#267) は「ルートを変えたとき新ページの h1 へ」移す機構だが、_lastRoutePath が null から
+// 始まるため**ページを開いただけ**の初回描画も遷移と判定され、全ルートで h1 に focus が移っていた。
+// 実測: activeElement=H1・:focus-visible 一致で h1 に 2px の枠が描かれ、最初の Tab が skip-link と
+// ナビを飛ばして本文へ着地した (skip-link は h1 より前にあるので Tab では二度と届かない)。
+// 不変性の検査なので poll せず、描画が確定してから 1 度読む。control として同じ test の中で
+// 実際にルートを変え、route-focus 自体は生きている (h1 へ移る) ことを確かめる —— 機構ごと壊れた
+// 状態でも「初回に動かない」は満たされてしまうため。
+test('初回表示では focus を動かさず、最初の Tab は skip-link に届く (route-focus はルート変更時だけ)', async ({ page }) => {
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))));
+  const initial = await page.evaluate(() => {
+    const a = document.activeElement;
+    return { tag: a ? a.tagName : null, ringOnH1: !!document.querySelector('#content h1:focus-visible') };
+  });
+  expect(initial.tag, '初回表示で focus が動いている (browser の既定 = 文書の先頭のままであるべき)').toBe('BODY');
+  expect(initial.ringOnH1, '初回表示で h1 に focus の枠が出ている').toBe(false);
+  await page.keyboard.press('Tab');
+  await expect(page.locator('.skip-link'), '最初の Tab が skip-link に届かない').toBeFocused();
+
+  // control: 実際のルート変更では h1 へ移る。skip-link は #content の外で生き残るので、そのままだと
+  // route-focus は「奪わない」条件 (#267) で動かない —— focus を外してから変える。
+  await page.evaluate(() => { document.activeElement.blur(); location.hash = '#/contact'; });
+  await expect(page.locator('#content h1', { hasText: 'Contact' })).toBeVisible();
+  await expect.poll(async () => page.evaluate(() => {
+    const el = document.activeElement;
+    return !!(el && el.tagName === 'H1' && (el.textContent || '').includes('Contact'));
+  }), { message: 'control: ルート変更で h1 へ focus が移らない (route-focus そのものが壊れている)' }).toBe(true);
+});

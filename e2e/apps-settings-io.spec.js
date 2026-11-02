@@ -566,8 +566,17 @@ test('表示テーマが export → import で復元され、リセット直後�
   ]);
   const file = await download.path();
 
+  // リセットの再描画が**終わるまで**待つ。`data-theme` は描画の入口で戻るので、`system` になった
+  //   時点ではまだ #content は古いまま —— そこで select と setInputFiles を当てると、直後の作り直しで
+  //   捨てられる input を掴み import が起きない (2026-11-02: 初回描画の focus を変えたら描画の時刻が
+  //   ずれ、毎回この側に入った)。#content に印を置き、作り直しで消えるのを待つ。
+  await page.evaluate(() => {
+    const m = document.createElement('span'); m.id = '__e2e_pre_reset__';
+    document.getElementById('content').appendChild(m);
+  });
   page.once('dialog', d => d.accept());
   await page.getByRole('button', { name: '全リセット', exact: true }).click();
+  await expect(page.locator('#__e2e_pre_reset__')).toHaveCount(0);
 
   // (1) リセット直後に表示が既定へ戻ること (従来は dark のまま残っていた)
   await expect(page.locator('html'), 'リセットしても表示テーマが古いまま残っている')
