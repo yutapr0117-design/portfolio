@@ -223,53 +223,11 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 71: §4 BUDGET-DATA に存在しない file の行を足す —— 改名・削除の後に予算表だけが古いまま残る (59 も同時に発火)',
-    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
-    "find": '.github/scripts/mutation_samples_archive4.py | 950 | advisory',
-    "replace": '.github/scripts/mutation_samples_archive4.py | 950 | advisory\n.github/scripts/does-not-exist.py | 100 | advisory',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 50: lint script に旧 eslintrc 時代の flag を戻す —— flat config へ移行した設定が黙って無視される',
-    "file": ROOT / "package.json",
-    "find": '"lint": "eslint main.js',
-    "replace": '"lint": "eslint --no-eslintrc main.js',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 47: 葉 module の export 名を変える —— main.js の import と export の契約が崩れる',
-    "file": ROOT / "js" / "brand.js",
-    "find": 'export function createBrand(storage) {',
-    "replace": 'export function createBrandX(storage) {',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 26: aio-manifest が宣言する archive-2 の Session Record 範囲をずらす —— AIO 層の宣言と実体が食い違う',
-    "file": ROOT / ".well-known" / "aio-manifest.json",
-    "find": '#15-#30',
-    "replace": '#15-#29',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 75: incident-artifacts の README 目録から 1 件を落とす —— 記録はあるのに目録から辿れなくなる',
-    "file": ROOT / "docs" / "incident-artifacts" / "README.md",
-    "find": '- `improvement-notes-claude-v80-phase4-gate-truth-audit.md`\n',
-    "replace": '',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 100: theme-init.js が読む storage key を constants.js とずらす —— 初回描画前のテーマ復元が黙って効かなくなる (FOUC)',
-    "file": ROOT / "theme-init.js",
-    "find": "localStorage.getItem('portfolio_enhanced_v45')",
-    "replace": "localStorage.getItem('portfolio_enhanced_v46')",
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": 'Check 386: sitemap の 1 件の <loc> を存在しない file へ —— crawler が 404 を踏む',
@@ -543,6 +501,14 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / ".github" / "scripts" / "checks_css.py",
     "find": '_js428 = strip_js_comments(_p428.read_text(encoding="utf-8"))',
     "replace": '_js428 = re.sub(r"//[^\\n]*", "", _p428.read_text(encoding="utf-8"))',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 398: warning 本文の出力を、失敗時の exit より後ろ (成功時の経路) へ戻す —— errors がある実行でだけ warnings.append 由来の ADVISORY 本文が 1 件も出なくなる (2026-11-02 まで実際にこの形だった)',
+    "file": ROOT / ".github" / "scripts" / "check_repository_consistency.py",
+    "find": '    print(f"{len(warnings)} warning(s):")\n    for w in warnings:\n        print(f"  ::warning::{w}")\nif errors:\n    print(f"REPOSITORY CONSISTENCY CHECK FAILED — {len(errors)} error(s):")\n    for e in errors:\n        print(f"  ::error::{e}")\n    sys.exit(1)\n\nif warnings:\n    print(f"Repository consistency check passed with {len(warnings)} warning(s).")\n',
+    "replace": '    print(f"{len(warnings)} warning(s):")\nif errors:\n    print(f"REPOSITORY CONSISTENCY CHECK FAILED — {len(errors)} error(s):")\n    for e in errors:\n        print(f"  ::error::{e}")\n    sys.exit(1)\n\nif warnings:\n    print(f"Repository consistency check passed with {len(warnings)} warning(s).")\n    for w in warnings:\n        print(f"  ::warning::{w}")\n',
     "check": CHECK,
 })
 

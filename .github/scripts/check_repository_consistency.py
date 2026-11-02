@@ -921,12 +921,9 @@ check(
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
-if errors:
-    print(f"REPOSITORY CONSISTENCY CHECK FAILED — {len(errors)} error(s):")
-    for e in errors:
-        print(f"  ::error::{e}")
-    sys.exit(1)
-
+# warnings は errors より**先に**本文を出す。2026-11-02 まで errors があると `sys.exit(1)` が
+# warning 本文の出力より前に走り、`warnings.append` で直接足された ADVISORY (Check 34 など) は
+# **CI が赤いときに限って一切表示されなかった** (check() 経由の WARNING 行だけが実行中に出る)。
 if warnings:
     # [FIX] 従来は件数だけを印字し warning 本文を一切出力しなかった (errors 側は
     # `::error::` で本文を列挙するのに warnings 側だけ欠けていた asymmetry)。ADVISORY
@@ -934,9 +931,17 @@ if warnings:
     # 出ず、ローカルでも CI ログでも「どの invariant が緩んでいるか」を読めない＝
     # 読めない advisory は実質 vacuous な助言層だった。errors と対称に本文を列挙し、
     # GitHub Actions の `::warning::` annotation として PR 上にも surface させる。
-    print(f"Repository consistency check passed with {len(warnings)} warning(s):")
+    print(f"{len(warnings)} warning(s):")
     for w in warnings:
         print(f"  ::warning::{w}")
+if errors:
+    print(f"REPOSITORY CONSISTENCY CHECK FAILED — {len(errors)} error(s):")
+    for e in errors:
+        print(f"  ::error::{e}")
+    sys.exit(1)
+
+if warnings:
+    print(f"Repository consistency check passed with {len(warnings)} warning(s).")
 else:
     print("Repository consistency check passed — all invariants hold.")
 

@@ -379,13 +379,19 @@ def run(ctx):
         _tail398 = _src398[_loop398.end():]
         _emit398 = bool(re.search(
             r'^\s*print\(f?"[^"]*::warning::\{' + re.escape(_var398) + r'\}', _tail398, re.M))
+    # 2026-11-02: その出力が**失敗時の exit より前**に在ること。後ろに置くと、errors がある実行
+    # (= CI が赤く、人がログを読むまさにその時) に warning 本文が 1 件も出ない。
+    #   (位置は**コードの行**で取る。説明コメント中の "sys.exit(1)" を掴んで初版は自分を RED にした)
+    _exitm398 = re.search(r"^\s*sys\.exit\(1\)\s*$", _src398, re.M)
+    _before398 = bool(_loop398) and bool(_exitm398) and _loop398.start() < _exitm398.start()
     check(
-        bool(_src398) and bool(_loop398) and _emit398,
+        bool(_src398) and bool(_loop398) and _emit398 and _before398,
         "Check 398: consistency の ADVISORY warning 本文が ::warning:: annotation で列挙出力される",
         "Check 398: check_repository_consistency.py の Result block が warnings を反復して本文を "
         "`::warning::{w}` 形式で印字していない。件数のみの出力では ADVISORY Check が drift を検出しても "
         "どの invariant が緩んだか読めず (ローカル/CI ログ双方)、advisory 層が実質 vacuous になる。"
-        "errors 側の `::error::{e}` 列挙と対称に `for w in warnings: print(f\"  ::warning::{w}\")` を保て",
+        "errors 側の `::error::{e}` 列挙と対称に `for w in warnings: print(f\"  ::warning::{w}\")` を保て。"
+        "**その出力は失敗時の `sys.exit(1)` より前に置く** (後ろだと CI が赤い実行でだけ warning が消える)",
     )
 
     # ── 400. monolith の module-level parse は fail-soft (BLOCKING) ────────────────
