@@ -174,7 +174,10 @@ jobs:
       #   11 分の根拠: 成功時の実測上限 6m20s の ~1.7 倍。job の 20 分にも収まる。
       - name: Install Playwright and dependencies
         id: install
-        timeout-minutes: ${{ env.INSTALL_TIMEOUT_MIN }}
+        # env の値は**文字列**なので fromJSON で数値にする (2026-11-02)。素の `${{ env.X }}` だと GitHub は
+        # 「The template is not valid … Unexpected value '11'」を記録して **step timeout なしで**走らせる
+        # —— 2026-08-21 に値を env へ一本化してから、全 run でこの step の上限は効いていなかった (Check 437b)。
+        timeout-minutes: ${{ fromJSON(env.INSTALL_TIMEOUT_MIN) }}
         run: |
           npm ci
           npx playwright install --with-deps chromium

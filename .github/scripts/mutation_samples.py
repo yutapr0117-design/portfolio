@@ -521,6 +521,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 437b: install の step timeout を文字列の env のまま渡す形へ戻す —— GitHub は template error を記録して timeout なしで走らせ、run は success なので誰にも見えない (2026-08-21〜11-02 の状態)',
+    "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
+    "find": "        timeout-minutes: ${{ fromJSON(env.INSTALL_TIMEOUT_MIN) }}\n",
+    "replace": "        timeout-minutes: ${{ env.INSTALL_TIMEOUT_MIN }}\n",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
