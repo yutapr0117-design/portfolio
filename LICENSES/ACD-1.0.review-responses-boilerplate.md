@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses-boilerplate.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-01
+last-updated: 2026-11-02
 canonical-ref: LICENSES/ACD-1.0.review-responses-clauses.md (第 1 層・条項別) / LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威)
 ---
 

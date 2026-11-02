@@ -1,7 +1,7 @@
 ---
 file: LICENSES/OSI-APPROVAL-PLAN.md
 audience: オーナー（一次読者）/ 次のセッションの実装者 / 週次の定期実行
-last-updated: 2026-11-01
+last-updated: 2026-11-02
 canonical-ref: LICENSES/ACD-OSI-BOTTLENECKS.md (ボトルネックの唯一の一覧) / LICENSES/FROZEN.md (凍結・投稿先・発信状態の単一ソース) / LICENSES/REVISION-PROTOCOL.md (1 ラウンドの手順とゲート) / LICENSES/ACD-1.0.review-rules.md (OSI の公表規則の原典読み)
 ---
 
