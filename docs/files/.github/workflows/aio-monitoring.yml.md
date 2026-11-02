@@ -24,6 +24,7 @@ schedule (毎週月曜 10:00 JST) / workflow_dispatch
   └─ update_aio_digests.py (manifest 同期)
   └─ generate_status.py (STATUS.md の「AIO 監視の実測」をログから再導出・2026-11-02)
   └─ commit + push (log + digest + STATUS.md を atomic に同 commit)
+       push が拒否されたら (run 中に main が進んだ) 新しい main + この run のログから導出し直して再 push・最大 4 回 (2026-11-02)
   └─ citation_change なら Issue 自動作成
 ```
 
