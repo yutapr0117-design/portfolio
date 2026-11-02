@@ -1,7 +1,7 @@
 ---
 file: .github/workflows/architecture-validation.yml
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-11-02
 canonical-ref: .github/scripts/check_repository_consistency.py
 ---
 
@@ -31,6 +31,8 @@ GitHub Actions
 - **Check 23**: YAML 構文 valid
 - **Check 55**: bash globstar 有効化 (js/**/*.js を全 leaf に展開)
 - **Check 67**: top-level permissions: read 明示
+- **Check 486**: `grep -q X F || echo ::warning` 型の advisory がいまの tree で一致する（2026-11-02 まで Trusted Types 検査が main.js へ移った policy を index.html に探し、5 か月すべての run で誤報していた。policy は Check 43c が守る）。inline handler audit は記録済みの font `onload` を数えず、新しい handler のときだけ鳴る
+- **Check 488**: job が `timeout-minutes` を持つ（15 分・実測は最大 82 秒）
 
 ## Change impact
 

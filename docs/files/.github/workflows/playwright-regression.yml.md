@@ -1,7 +1,7 @@
 ---
 file: .github/workflows/playwright-regression.yml
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-11-02
 canonical-ref: e2e/portfolio.spec.js / playwright.config.cjs
 ---
 
@@ -19,19 +19,33 @@ PR 用の **Playwright 視覚回帰 + 振る舞いテスト** workflow。index.h
 
 ```
 on:
-  pull_request to main
-  paths: [index.html, main.js, js/**, style.css, AIO 系...]
-└─ checkout + setup-node + npm ci + playwright install
-└─ npx playwright test (Chromium)
-└─ snapshot diff があれば fail
-└─ artifact upload (test-results + diff PNG)
+  pull_request to main / push to main（同じ paths・main のバッジが空白にならないように #1099）
+  paths: [index.html, main.js, js/**, style.css, e2e/**, 自分自身, AIO 系...]
+job: timeout-minutes 20
+└─ checkout + setup-node + npm ci
+└─ Install Playwright and dependencies  (step timeout = env INSTALL_TIMEOUT_MIN)
+└─ Run behavior / functionality tests  (BLOCKING・E2E_HERMETIC=1・list + json reporter)
+└─ Behavior gate ran every test        (BLOCKING・json の stats で skipped == 0 を要求・Check 432b)
+└─ Run visual regression               (ADVISORY・continue-on-error・id: visual)
+└─ Surface the advisory visual result  (visual が failure のとき ::warning と job summary・Check 347b)
+└─ Explain failure attribution         (if: failure()・赤が「回帰」か「未実行」かを書く)
+└─ artifact upload (test-results / 失敗時は snapshot diff)
 ```
+
+**ADVISORY の失敗は「表に出す」が「止めない」**（2026-11-02・Check 347b）: `continue-on-error` の step は失敗しても
+API / バッジ / PR の checks 上は success に見えるので、screenshot は**少なくとも 2026-09-10 から全 run で失敗していたのに
+誰にも見えていなかった**。`steps.visual.outcome == 'failure'` で `::warning title=Visual regression (ADVISORY)` を出す
+（`conclusion` は continue-on-error の step では失敗しても success なので、条件に使うと永久に偽になる）。baseline の
+再生成は依然 `update-playwright-snapshots.yml` → PR → 人の merge の経路。
 
 ## Constraints
 
 - **Check 23**: YAML 構文 valid
 - **Check 67**: permissions: contents:read
-- **Check 51**: Playwright pin (1.60.0) が runbook と一致
+- **Check 51**: Playwright の pin（`package.json` が権威・版数はここに書き写さない）が runbook と一致
+- **Check 347 / 347b**: behavior step が BLOCKING であること / ADVISORY の失敗を表に出す step が条件ごと残ること
+- **Check 432b / 114b**: skipped 0 の gate / `forbidOnly`（runner 自身が CI で `.only` を拒否）
+- **Check 488**: job が `timeout-minutes` を持つ
 
 ## 赤の帰属（この job が赤いとき最初に読むこと）
 
