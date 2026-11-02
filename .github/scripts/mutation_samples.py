@@ -512,6 +512,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 485: llms.txt の AI2AI.md への URL を存在しない path にする —— 4 alias を揃えて digest を再生成すると、それまでは alias 不一致と digest 不一致という副作用でしか捕まらなかった',
+    "file": ROOT / "llms.txt",
+    "find": "https://yutapr0117-design.github.io/portfolio/AI2AI.md)",
+    "replace": "https://yutapr0117-design.github.io/portfolio/AI2AI-moved.md)",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

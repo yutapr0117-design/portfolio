@@ -69,6 +69,14 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
       tooling=eslint/playwright で顕在化しうる)。engines⊇CI pin + .nvmrc==CI pin の両整合を保証する。
       (BLOCKING)
 
+  485. **llms.txt / llms-full.txt が指す自サイトの資源が実在する** (BLOCKING)。両 file に現れる
+       `https://yutapr0117-design.github.io/portfolio/<path>` と `/portfolio/<path>` の <path>
+       (フラグメントと query を除く) が tracked file に解決すること。2026-11-02 に実測: AI2AI.md /
+       ライセンス本文への URL を存在しない path へ書き換え、4 つの alias を揃えて digest を正規の
+       道具で再生成すると、consistency も check_aio_digests も 0 件だった —— 捕まえていたのは
+       alias 不一致 (Check 4) と digest 不一致という**副作用**だけで、正規の更新経路を通った
+       退行はどこにも捕まらない。llms 層は agent が最初に読み、そこから辿る正本なので、
+       行き先の 404 は「宣言はあるが届かない」の最悪の形になる。
 """
 import re
 import sys
@@ -327,4 +335,40 @@ def run(ctx):
          f"Check 69: .nvmrc ({_nvmrc_major69!r}) が CI node-version pin {sorted(_ci_majors69)} と不一致 — "
          "nvm use のローカル Node と CI が分裂する。.nvmrc を CI pin と同 major に揃えよ "
          "(engines / CI pin / .nvmrc の 3 宣言を同期)"),
+    )
+
+    # ── 485. llms.txt / llms-full.txt が指す自サイトの資源が実在する (BLOCKING) ───────────
+    # alias 一致 (Check 4) と digest (check_aio_digests) は「4 面が同じか」「宣言した hash と
+    # 一致するか」を見るだけで、**中身の URL がどこへ行くか**は誰も見ていなかった。
+    import subprocess as _sp485
+    _tracked485 = {_x for _x in _sp485.run(["git", "ls-files", "-z"], cwd=str(ROOT), capture_output=True,
+                                          text=True, check=True).stdout.split("\0") if _x}
+    _bad485, _n485 = [], 0
+    for _f485 in ("llms.txt", "llms-full.txt"):
+        _p485 = ROOT / _f485
+        if not _p485.exists():
+            _bad485.append(f"{_f485} が無い")
+            continue
+        _t485 = _p485.read_text(encoding="utf-8")
+        _refs485 = re.findall(
+            r"(?:https://yutapr0117-design\.github\.io/portfolio/|(?<![\w.:/])/portfolio/)"
+            r"([A-Za-z0-9._~%/#?=&+-]*)", _t485)
+        for _r485 in _refs485:
+            _path485 = re.split(r"[#?]", _r485)[0].rstrip(".,;:")
+            if not _path485:
+                continue  # サイトのルート (と #/route の hash)
+            _n485 += 1
+            # `/portfolio/.well-known/` のような**ディレクトリへの言及**は、配下に tracked file が在れば解決とする
+            _dir485 = _path485.endswith("/") and any(_x.startswith(_path485) for _x in _tracked485)
+            if _path485 not in _tracked485 and not _dir485:
+                _bad485.append(f"{_f485}: /portfolio/{_path485}")
+    if _n485 == 0 and not _bad485:
+        _bad485.append("自サイトの参照が 1 件も見つからない (抽出が壊れたか、llms 層の書式が変わった)")
+    check(
+        not _bad485,
+        f"Check 485: llms.txt / llms-full.txt の自サイト参照 {_n485} 件がすべて tracked file に解決する",
+        f"Check 485: llms 層が存在しない資源を指している: {sorted(set(_bad485))[:6]} —— llms.txt は agent が"
+        "最初に読む正本で、alias 一致 (Check 4) と digest は中身の行き先を見ないので、4 面を揃えて digest を"
+        "再生成した退行はここでしか捕まらない。path を実在する file へ直せ (AIO 層の編集は aio-guardian 経由)",
+        blocking=True,
     )
