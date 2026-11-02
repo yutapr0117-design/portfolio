@@ -21,6 +21,9 @@ permissions:
 jobs:
   validate-level-constraints:
     runs-on: ubuntu-latest
+    # job の上限 (2026-11-02・Check 488)。無いと既定の 6 時間居座り、concurrency で後続の run を塞ぐ。
+    # PR ゲート本体。実測は最大 82 秒。
+    timeout-minutes: 15
     steps:
       - name: Checkout repository codebase
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1

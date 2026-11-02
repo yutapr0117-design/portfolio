@@ -40,6 +40,9 @@ concurrency:
 jobs:
   monitor:
     runs-on: ubuntu-latest
+    # job の上限 (2026-11-02・Check 488)。無いと既定の 6 時間居座り、concurrency で後続の run を塞ぐ。
+    # 外部 API (Gemini / OpenAI) と公開面の取得を待ち、push の再試行 loop も持つ。実測は最大 87 秒。
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
