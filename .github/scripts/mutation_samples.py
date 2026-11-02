@@ -517,6 +517,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 468m: §16.4 の草案の例外を広げる (a draft → a draft or a corrected text) —— 目印は 2 つとも残るので、存在だけを見る形では 1 識別子 = 1 固定本文が崩れても通った',
+    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "find": "that no earlier text has borne, except a draft identified as such, so",
+    "replace": "that no earlier text has borne, except a draft or a corrected text, so",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
