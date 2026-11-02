@@ -1,7 +1,7 @@
 ---
 file: e2e/focus-regression.spec.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-07-07
+last-updated: 2026-11-02
 canonical-ref: playwright.config.cjs / .github/workflows/playwright-regression.yml / js/state.js (updateSilently) / Check 129/130
 ---
 
@@ -10,6 +10,8 @@ canonical-ref: playwright.config.cjs / .github/workflows/playwright-regression.y
 ## What
 
 live-input focus-loss / double-fire 回帰の e2e。quiz 検索 input の typing 中 focus 保持と live filter・notes textarea の typing 中 focus 保持 (focus-loss 回帰)・topbar theme ボタンの 1 クリック 1 段送り (double-fire 回帰) を per-keystroke type() で検証する。
+
+2026-11-02 追加: **初回表示では focus を動かさず、最初の Tab が skip-link に届く**こと（route-focus は実際のルート変更時だけ・同じ test の control で生存を確認）。
 
 ## Why
 

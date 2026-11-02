@@ -62,7 +62,10 @@ index.html
      **`activeElement` を読み直して**判定する（disabled 要素への focus は黙って無効化されるため）
   復元は **id を持っていた要素だけ**を対象にする opt-in である。無条件にすると、毎秒再描画される
   ポモドーロ稼働中に「id の無い任意の要素」から h1 へ focus が飛び続けてしまう。
-  ルート遷移では行わない（新ページの h1 へ移すのが正しい文脈・#267）。「奪う」のではなく
+  ルート遷移では行わない（新ページの h1 へ移すのが正しい文脈・#267）。**初回描画はルート遷移として扱わない**
+  （`_hasRenderedOnce`・2026-11-02）—— `_lastRoutePath` が null から始まるので初回も遷移と判定され、
+  ページを開いただけで h1 へ focus が移り、`:focus-visible` に一致して 2px の枠が出て、最初の Tab が
+  skip-link とナビを飛ばしていた（programmatic focus でも直前の操作がポインタでなければ枠は出る）。「奪う」のではなく
   「失われた時だけ戻す」条件は #265 で command palette の input と race した失敗の再発防止。
   対象コントロールの id 付け忘れは **Check 422** が BLOCKING で守る（select / checkbox /
   number input のみ。ボタンは「押すと再描画するか」を静的に判定できず、brittle な Check より

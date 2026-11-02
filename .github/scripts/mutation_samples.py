@@ -956,4 +956,13 @@ _E2E_TAIL.append({
     "test": "モバイルの drawer が現在ルートに aria-current を付け、遷移に追従する",
 })
 
+_E2E_TAIL.append({
+    "name": "初回描画の route-focus ガードを外す —— ページを開いただけで h1 へ focus が移り、2px の枠が出て、"
+            "最初の Tab が skip-link とナビを飛ばして本文へ着地する (2026-11-02 まで全ルートでこの状態だった)",
+    "file": ROOT / "main.js",
+    "find": "            if (isRouteChange && _hasRenderedOnce && content && _focusWasLost) {",
+    "replace": "            if (isRouteChange && content && _focusWasLost) {",
+    "test": "初回表示では focus を動かさず、最初の Tab は skip-link に届く",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
