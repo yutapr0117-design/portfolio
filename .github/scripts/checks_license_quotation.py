@@ -141,3 +141,8 @@ def run(ctx):
              "\u6761\u756a\u53f7\u3092\u76f4\u3059\u304b\u3001\u305d\u306e\u6bb5\u843d\u3067\u5b9f\u969b\u306b\u8ad6\u3058\u3066\u3044\u308b\u6761\u9805\u3092\u6319\u3052\u3088"),
             blocking=True,
         )
+    else:
+        # 対象が無いのに黙って skip しない (2026-11-02): 改名・移動を正しく済ませると他の Check は全部緑のまま、
+        # ここだけが OK も ERROR も出さずに消える (460 / 469 で踏んだ形)。
+        check(False, "Check 470: 対象ファイル",
+              f"Check 470: 検査対象 {_lic470.relative_to(ROOT).as_posix()} が無い —— 改名・移動したならこの Check の参照先を直す (黙って skip しない)")

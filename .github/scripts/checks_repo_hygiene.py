@@ -366,6 +366,11 @@ def run(ctx):
             ),
             blocking=True,
         )
+    else:
+        # 対象が無いのに黙って skip しない (2026-11-02): 改名・移動を正しく済ませると他の Check は全部緑のまま、
+        # ここだけが OK も ERROR も出さずに消える (460 / 469 で踏んだ形)。
+        check(False, "Check 39: 対象ファイル",
+              f"Check 39: 検査対象 {_sitemap_path.relative_to(ROOT).as_posix()} が無い —— 改名・移動したならこの Check の参照先を直す (黙って skip しない)")
 
     # ── 40. CSS lint execution-path hygiene (BLOCKING) ────────────────────────────
     # Phase 2-A centralized dev tooling under package.json + `npm ci`; Phase 2
@@ -472,3 +477,8 @@ def run(ctx):
                       "digest gate will drift (CI hygiene increment #4). "
                       f"[update_aio_digests.py present={_has_regen}, aio-manifest.json staged={_stages_manifest}]",
                       blocking=True)
+    else:
+        # 対象が無いのに黙って skip しない (2026-11-02): 改名・移動を正しく済ませると他の Check は全部緑のまま、
+        # ここだけが OK も ERROR も出さずに消える (460 / 469 で踏んだ形)。
+        check(False, "Check 41: 対象ファイル",
+              f"Check 41: 検査対象 {_wf_dir.relative_to(ROOT).as_posix()} が無い —— 改名・移動したならこの Check の参照先を直す (黙って skip しない)")

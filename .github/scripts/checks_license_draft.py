@@ -223,6 +223,11 @@ def run(ctx):
                  "**register B10 の主張も同時に書き換えること**"),
                 blocking=True,
             )
+        else:
+            # 対象が無いのに黙って skip しない (2026-11-02): 改名・移動を正しく済ませると他の Check は全部緑のまま、
+            # ここだけが OK も ERROR も出さずに消える (460 / 469 で踏んだ形)。
+            check(False, "Check 468d: 対象ファイル",
+                  f"Check 468d: 検査対象 {_10_468.relative_to(ROOT).as_posix()} が無い —— 改名・移動したならこの Check の参照先を直す (黙って skip しない)")
 
         # ── 468e: 草案が宣言する「まだ open な errata」が、errata の現物と一致すること ────
         # Check 468 は語数・条数・参照の解決を見るが、**草案が自分の*状態*について述べる文**は

@@ -351,3 +351,8 @@ def run(ctx):
              "\u53c2\u7167\u5148\u3092\u76f4\u3059\u304b\u3001\u53c2\u7167\u3092\u3084\u3081\u3066\u8a18\u8ff0\u306b\u305b\u3088"),
             blocking=True,
         )
+    else:
+        # 対象が無いのに黙って skip しない (2026-11-02): 改名・移動を正しく済ませると他の Check は全部緑のまま、
+        # ここだけが OK も ERROR も出さずに消える (460 / 469 で踏んだ形)。
+        check(False, "Check 471: 対象ファイル",
+              f"Check 471: 検査対象 {_rounds471.relative_to(ROOT).as_posix()} が無い —— 改名・移動したならこの Check の参照先を直す (黙って skip しない)")
