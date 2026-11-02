@@ -525,6 +525,22 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 484: style.css の stylesheet link に media="print" を足す —— タグは残るので配線の Check 135 は緑のまま、画面ではサイト全体が未スタイルになる',
+    "file": ROOT / "index.html",
+    "find": '<link rel="stylesheet" href="./style.css">',
+    "replace": '<link rel="stylesheet" href="./style.css" media="print">',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 484: aio-guard.js の script に type="text/plain" を足す —— ブラウザは実行しないが src の文字列は残り、Check 133 は緑のままだった',
+    "file": ROOT / "index.html",
+    "find": '<script src="./aio-guard.js"></script>',
+    "replace": '<script type="text/plain" src="./aio-guard.js"></script>',
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

@@ -122,6 +122,14 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        属性なし `<meta>` のような言及は対象外。**sitemap.xml にも同じ規則を当てる**（XML コメント内の
        `<loc>https://…` を禁じる）—— `<url>` エントリを説明コメントへ移すと、トップページ以外の
        25 エントリはどの Check にも気付かれなかった (2026-11-01 実測)。散文中の `<url>` の言及は対象外。
+  484. **自前の配線タグを属性で無効化しない** (BLOCKING)。index.html が読む自前の script
+       (`./*.js`) は `type` を持たない (main.js だけは `type="module"`) か `text/javascript` で、
+       `nomodule` を持たない。`./style.css` の `<link rel="stylesheet">` は `disabled` を持たず、
+       `media` は無しか `all` / `screen`。2026-11-02 に、タグを残したまま属性だけで無効化する
+       退行 6 形 (aio-guard / main.js に `type="text/plain"`・theme-init に `type="application/json"`・
+       style.css に `media="print"` / `disabled`・karte-init に `nomodule`) を当てると、consistency は
+       どれも 0 本発火だった —— 配線の Check (133/134/135) はタグの在否しか見ない。外部 font の
+       stylesheet は `media="print"` + onload で遅延読み込みする正当な形なので対象外 (自前の資源に限る)。
 """
 import re
 import json
@@ -451,5 +459,54 @@ def run(ctx):
         "index.html を読む Check の多くはコメントを除かずにタグを探すので、タグをコメントへ移す "
         "(一時的に無効化する) と、削除なら捕まる退行が素通りする (2026-11-01 に 109 タグで実測)。"
         "説明が要るなら、タグの形ではなく言葉で書け (例: 「error-suppressor.js を src で読む形」)",
+        blocking=True,
+    )
+
+    # ── 484. 自前の配線タグを属性で無効化しない (BLOCKING) ────────────────────────
+    # 配線の Check (133/134/135) はタグが在るかを見る。タグを残したまま `type="text/plain"` /
+    # `nomodule` / `disabled` / `media="print"` を足すとブラウザは読まないのに、文字列は残るので
+    # どれも緑のままだった (2026-11-02 に 6 形で実測・consistency 0 本発火)。
+    _idx484 = ROOT / "index.html"
+    _bad484 = []
+    _seen484 = 0
+    if _idx484.exists():
+        _h484 = re.sub(r"<!--.*?-->", "", _idx484.read_text(encoding="utf-8"), flags=re.S)
+
+        def _attr484(tag, name):
+            _m = re.search(rf"\b{name}\s*=\s*[\"']([^\"']*)[\"']", tag, re.I)
+            return _m.group(1).strip().lower() if _m else None
+
+        for _t in re.findall(r"<script\b[^>]*>", _h484, re.I):
+            _src = _attr484(_t, "src")
+            if not _src or not re.fullmatch(r"\./[\w.-]+\.js", _src):
+                continue
+            _seen484 += 1
+            _ty = _attr484(_t, "type")
+            _want = "module" if _src == "./main.js" else None
+            if _want == "module":
+                if _ty != "module":
+                    _bad484.append(f"{_src}: type={_ty!r} (module として読まれない)")
+            elif _ty not in (None, "text/javascript"):
+                _bad484.append(f"{_src}: type={_ty!r} (ブラウザが実行しない)")
+            if re.search(r"\bnomodule\b", _t, re.I):
+                _bad484.append(f"{_src}: nomodule (module 対応ブラウザが読まない)")
+        for _t in re.findall(r"<link\b[^>]*>", _h484, re.I):
+            if _attr484(_t, "rel") != "stylesheet" or _attr484(_t, "href") != "./style.css":
+                continue
+            _seen484 += 1
+            if re.search(r"\bdisabled\b", _t, re.I):
+                _bad484.append("./style.css: disabled (stylesheet が適用されない)")
+            if _attr484(_t, "media") not in (None, "all", "screen"):
+                _bad484.append(f"./style.css: media={_attr484(_t, 'media')!r} (画面に適用されない)")
+        if _seen484 < 5:
+            _bad484.append(f"自前の配線タグが {_seen484} 本しか見つからない (karte-init / theme-init / "
+                           "aio-guard / main.js / style.css の 5 本を想定・検出器の視界を確かめよ)")
+    else:
+        _bad484.append("index.html が無い")
+    check(
+        not _bad484,
+        f"Check 484: 自前の配線タグ {_seen484} 本が属性で無効化されていない (type / nomodule / disabled / media)",
+        f"Check 484: 自前の配線タグが属性で無効化されている: {_bad484} —— タグの文字列が残るので "
+        "配線の Check (133/134/135) は緑のまま、ブラウザだけが読まなくなる。属性を戻せ",
         blocking=True,
     )
