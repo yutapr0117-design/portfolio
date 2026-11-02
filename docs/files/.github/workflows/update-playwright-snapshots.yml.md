@@ -29,7 +29,7 @@ on: workflow_dispatch (手動)
 
 - **Check 23**: YAML 構文 valid
 - **Check 48**: PR 作成 step がある場合は contents:write + pull-requests:write の両方明示
-- **Check 51**: Playwright pin (1.60.0) を runbook と整合
+- **Check 51**: Playwright の pin（`package.json` が権威・版数はここに書き写さない）を runbook と整合
 - **Check 67**: permissions 明示
 
 ## Change impact

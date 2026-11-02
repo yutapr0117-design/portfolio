@@ -32,7 +32,7 @@ baseline 更新は人間 review 必須 (`update-playwright-snapshots.yml` workfl
 - **DO NOT EDIT directly**: 直接編集禁止 (binary baseline)
 - **Check 16**: baseline-skip ガード が e2e spec にある
 - **Check 29**: baseline 生成の env signal が workflow と spec で整合
-- **Check 51**: Playwright pin (1.60.0) が runbook と一致
+- **Check 51**: Playwright の pin（`package.json` が権威・版数はここに書き写さない）が runbook と一致
 
 ## Change impact
 
