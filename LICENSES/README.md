@@ -1,7 +1,7 @@
 ---
 file: LICENSES/README.md
 audience: 誰でも（ここが入口）
-last-updated: 2026-11-01
+last-updated: 2026-11-02
 canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシエの分析対象) / LICENSES/ACD-1.3.txt (このリポジトリが 2026-10-25 から適用している本文) / LICENSES/FROZEN.md (凍結と投稿先の単一ソース)
 ---
 
@@ -56,7 +56,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | **license-review へ出す日の材料（要件ごとの事実と根拠・文面ではない）** | [`SUBMISSION-MATERIALS.md`](SUBMISSION-MATERIALS.md) —— オーナーが自分の言葉で書くための材料。出す版（1.4 以降）向け |
 | **弁護士に何を尋ねるか（英語）** | [`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) —— 法的レビューが無い（B1）。弁護士の読みが本文を最も変える 9 問を、帰結の大きい順に |
 | **既知の欠陥と、直さない理由（英語）** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) |
-| **議論に付した確定テキスト（凍結）** | [`ACD-1.1.txt`](ACD-1.1.txt) —— **FROZEN / NOT SUBMITTED / NOT APPLIED**。1.0 の errata 21 件のうち 19 件を閉じてある（数は 1.1 自身の冒頭が権威）。**条番号は §15 以降で 1.0 と異なる**ので、**1.0 を引くときは 1.0 の本文から**（対応表は `ACD-1.1-CHANGELIST.md` §0.5）|
+| **議論に付した確定テキスト（凍結）** | [`ACD-1.1.txt`](ACD-1.1.txt) —— **FROZEN / NOT SUBMITTED / NOT APPLIED**。確定した時点（2026-09-17）で 1.0 の errata に記録されていた 21 件のうち 19 件を閉じた（**この 21 は当時の数**で、errata はその後も増えている。現在の件数は `ACD-1.0.errata.md` の冒頭が権威。`REVIEWERS.md` の同じ記述と同じ形）。**条番号は §15 以降で 1.0 と異なる**ので、**1.0 を引くときは 1.0 の本文から**（対応表は `ACD-1.1-CHANGELIST.md` §0.5）|
 | **1.0 → 1.1 の変更記録** | [`ACD-1.1-CHANGELIST.md`](ACD-1.1-CHANGELIST.md) |
 | **その機械可読記述子** | [`ACD-1.1.machine.json`](ACD-1.1.machine.json) |
 | **1.2 の確定テキスト（凍結・2026-10-17）** | [`ACD-1.2.txt`](ACD-1.2.txt) —— **FROZEN / NOT SUBMITTED FOR APPROVAL / NOT APPLIED**。条番号は 1.1 に従う |
