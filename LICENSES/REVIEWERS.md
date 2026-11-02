@@ -237,7 +237,7 @@ pinned value rather than against anything this repository asserts about itself:
 shasum -a 256 ACD-1.0.txt
 curl -s https://yutapr0117-design.github.io/portfolio/LICENSES/FROZEN.md \
   | grep -E '^[0-9a-f]{64}  LICENSES/ACD-1\.0\.txt$'
-# the two digests must be identical; as of 2026-09-07 both are
+# the two digests must be identical; as of 2026-11-02 (first run 2026-09-07) both are
 # 924e6a90d05cbc5dd8a400b4e892d7f323581c281d585d55a093d65a997b2d8a
 ```
 
@@ -259,7 +259,7 @@ grep -E "^[0-9a-f]{64}  " LICENSES/FROZEN.md | shasum -a 256 -c
 The last one is the important one. `LICENSES/FROZEN.md` records the digests in the same format
 `shasum` emits, so the check is a single pipe with no trust in anything this repository says
 about itself: if the licence text had been altered since the discussion began, that line would
-print `FAILED` instead of `OK`. It currently prints `OK` for all nine files.
+print `FAILED` instead of `OK`. It currently prints `OK` for all nine files (re-run 2026-11-02, together with the three counts above: 0, 1 and 16).
 
 The repository's own CI enforces the rest: that the licence is declared identically across every
 published surface, that the counts these documents quote match reality, and that the frozen files
