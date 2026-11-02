@@ -525,6 +525,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 487: 週次 aio-monitoring.yml の git add から STATUS.md を外す —— 生成器が読むログだけを bot が commit し、STATUS.md のずれが次の無関係な PR の Check 121 で初めて赤くなる形',
+    "file": ROOT / ".github" / "workflows" / "aio-monitoring.yml",
+    "find": "            .well-known/agent-skills/index.json \\\n            STATUS.md\n",
+    "replace": "            .well-known/agent-skills/index.json\n",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

@@ -83,6 +83,14 @@ jobs:
       - name: Regenerate AIO digests (keep manifest in sync with the appended log)
         run: python3 .github/scripts/update_aio_digests.py
 
+      # ── STATUS.md の再生成 (2026-11-02) ─────────────────────────────────
+      # STATUS.md の監査節は「AIO 監視の実測」(何 run 測れたか) をこのログから導出する。
+      # 再生成せずにログだけ commit すると STATUS.md が生成器の出力とずれ、Check 121 が
+      # 次の PR を BLOCKING で赤化する (#252 の digest desync と同じ形)。同じ commit に含める。
+      # Check 487 が「bot が commit するファイルを生成器が読むなら、その bot は再生成する」を強制する。
+      - name: Regenerate STATUS.md (the audit page derives the measured-run count from the log)
+        run: python3 .github/scripts/generate_status.py
+
       # ── ログ＋manifest を「ひとつのコミット」で記録 ───────────────────────
       - name: Commit monitoring log and synced digests
         run: |
@@ -94,7 +102,8 @@ jobs:
             docs/evidence/aio-monitoring-log.json \
             .well-known/aio-manifest.json \
             .well-known/index.json \
-            .well-known/agent-skills/index.json
+            .well-known/agent-skills/index.json \
+            STATUS.md
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else

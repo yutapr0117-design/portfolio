@@ -25,6 +25,7 @@ instead, so the dashboard stays low-churn while remaining accurate.
 
 Run: `npm run status` (regenerates STATUS.md). CI/Check 121 fails if it is stale.
 """
+import json
 import re
 import sys
 from pathlib import Path
@@ -124,6 +125,33 @@ def build_status() -> str:
                 audit_lines.append(
                     f"- ![{wf}](https://github.com/{slug}/actions/workflows/{wf}/badge.svg?branch=main) "
                     f"— [{wf} の実行履歴](https://github.com/{slug}/actions/workflows/{wf})"
+                )
+            # AIO 監視は**バッジの緑が観測の成功を意味しない** (2026-11-02)。workflow は engine が全部
+            # エラーでも完走して success になるので、ログの 29 run すべてで測れた query が 0 件だったのに、
+            # この監査面には緑のバッジしか出ていなかった。ログ (bot が週次で書く) から導出して出す。
+            # 再生成は aio-monitoring.yml の commit step が同じ commit で行う (Check 487)。
+            try:
+                _mon = json.loads(_read("docs/evidence/aio-monitoring-log.json"))
+            except (OSError, ValueError):
+                _mon = None
+            if isinstance(_mon, dict) and _mon.get("runs"):
+                _runs = _mon["runs"]
+                def _measured(run):
+                    return sum(1 for q in run.get("queries", [])
+                               for v in q.get("results", {}).values()
+                               if isinstance(v, dict) and v.get("status") in ("cited", "not_cited"))
+                _ok = [r for r in _runs if _measured(r)]
+                _streak = 0
+                for r in reversed(_runs):
+                    if _measured(r):
+                        break
+                    _streak += 1
+                _last = _ok[-1]["timestamp"] if _ok else "一度も無い"
+                audit_lines.append(
+                    f"- **AIO 監視の実測**: ログの {len(_runs)} run のうち、1 問でも測れた run は "
+                    f"{len(_ok)} 件（最後: {_last}）。直近 {_streak} run は連続で何も測れていない。"
+                    "**上のバッジの緑は workflow が完走したことしか意味しない** —— engine の失敗理由は"
+                    "ログの各 query の `status` に残っている（`docs/evidence/aio-monitoring-log.json`）。"
                 )
             audit_lines.append("")
         # main への push で走るもの = デプロイ本体と bot。PR ゲートとも定期実行とも別の class。

@@ -1,5 +1,5 @@
 """
-checks_ci_verify.py — CI verification-chain wiring checks — verify layers / consistency guard / behavior e2e gate (345-347, 437, 486)
+checks_ci_verify.py — CI verification-chain wiring checks — verify layers / consistency guard / behavior e2e gate (345-347, 437, 486, 487)
 (extracted from check_repository_consistency.py — check.py split track).
 
 run(ctx) receives shared check()/ROOT by reference (exec 不使用) so exit code / BLOCKING propagation
@@ -60,6 +60,13 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        2026-11-02 に、Trusted Types 検査が 2026-05-24 の分割で main.js へ移った policy を index.html に
        探し、5 か月間毎回鳴っていたのを発見した。毎回鳴る警告は本物の警告を読まれなくする。検出は
        実際に grep を同じ引数で走らせて行い、床 4 件で検出自体の vacuous 化も止める。(BLOCKING)
+
+  487. bot が commit するファイルを STATUS 生成器が読むなら、その bot は STATUS.md を同じ commit で
+       再生成する: `git push` を持つ workflow の `git add` 対象と、`generate_status.py` の `_read("…")`
+       入力が交わるなら、その workflow は generate_status.py を走らせ STATUS.md を add すること。
+       2026-11-02 に STATUS.md へ「AIO 監視の実測」(ログ 29 run すべてで測れた query 0 件・バッジは緑)
+       を導出して出したことで、週次 aio-monitoring.yml がこの条件に入った。bot の main 直 push は PR
+       ゲートを通らず、ずれは次の無関係な PR の Check 121 で初めて赤くなる (#252 と同じ形)。(BLOCKING)
 
 """
 import re
@@ -238,5 +245,36 @@ def run(ctx):
          "下回る。一致しない grep は**すべての run で同じ warning を出し続け**、警告を読む習慣そのものを壊す "
          "(2026-11-02: Trusted Types 検査が main.js へ移った policy を index.html に探し 5 か月鳴り続けていた)。"
          "対象ファイルを実体へ直すか、BLOCKING の Check が既に守っているならその行を消す"),
+        blocking=True,
+    )
+
+    # ── 487. bot が commit するファイルを STATUS 生成器が読むなら、その bot が STATUS.md も再生成する (BLOCKING) ──
+    # 2026-11-02: STATUS.md に「AIO 監視の実測」(ログから導出) を出したので、週次の aio-monitoring.yml が
+    # ログだけを commit すると STATUS.md が生成器の出力とずれ、Check 121 が**次の PR**を BLOCKING で
+    # 赤くする。bot の main 直 push は PR ゲートを通らないので、ずれは作った run ではなく次の無関係な PR で
+    # 初めて見える (#252 の digest desync と同じ形)。生成器の入力は `_read("…")` から導出する。
+    _gen487 = ROOT / ".github" / "scripts" / "generate_status.py"
+    _inputs487 = set(re.findall(r'_read\("([^"]+)"\)', _gen487.read_text(encoding="utf-8"))) if _gen487.exists() else set()
+    _bots487, _bad487 = 0, []
+    for _wf in sorted((ROOT / ".github" / "workflows").glob("*.yml")):
+        _code = "\n".join(_l for _l in _wf.read_text(encoding="utf-8").splitlines()
+                          if not _l.lstrip().startswith("#"))
+        if "git push" not in _code:
+            continue
+        _bots487 += 1
+        _added = set()
+        for _blk in re.findall(r"git add((?:[^\n]*\\\n)*[^\n]*)", _code):
+            _added |= {_t for _t in _blk.replace("\\", " ").split() if not _t.startswith("-")}
+        _shared = sorted(_added & _inputs487)
+        if _shared and not ("generate_status.py" in _code and "STATUS.md" in _added):
+            _bad487.append(f"{_wf.name}: {_shared}")
+    check(
+        len(_inputs487) >= 3 and _bots487 >= 1 and not _bad487,
+        f"Check 487: commit する bot workflow {_bots487} 本は、STATUS 生成器の入力 {len(_inputs487)} 件を"
+        "書くなら STATUS.md を同じ commit で再生成する",
+        (f"Check 487: bot workflow が STATUS 生成器の入力を commit するのに STATUS.md を再生成していない "
+         f"({_bad487})、または検出が床を下回る (入力 {len(_inputs487)} / bot {_bots487})。bot の main 直 push は "
+         "PR ゲートを通らないので、STATUS.md のずれは次の無関係な PR の Check 121 で初めて赤くなる。"
+         "commit step の前で `python3 .github/scripts/generate_status.py` を走らせ、`git add` に STATUS.md を足す"),
         blocking=True,
     )
