@@ -375,11 +375,12 @@ def run(ctx):
     _html331 = ROOT / "index.html"
     if _html331.exists():
         _hs331 = _html331.read_text(encoding="utf-8")
-        _stripped331 = re.sub(r"<!--.*?-->", "", _hs331, flags=re.DOTALL)
-        # 任意の attribute="javascript:..." を検出
-        _js_urls331 = re.findall(
-            r'\b[a-zA-Z-]+\s*=\s*"javascript:[^"]*"',
-            _stripped331, flags=re.IGNORECASE)
+        # 属性は `_lib_io.html_attributes` で読み、値はブラウザと同じく ASCII 空白・制御文字を
+        # 除いて小文字化してから判定する (`href=" java\tscript:…"` もブラウザは実行する)。
+        # 2026-11-02 まで二重引用符の値しか見ておらず、`href='javascript:…'` を素通りしていた。
+        from _lib_io import html_attributes as _attrs331
+        _js_urls331 = [_raw for _t, _n, _v, _raw in _attrs331(_hs331)
+                       if _v and re.sub(r"[\x00-\x20]", "", _v).lower().startswith("javascript:")]
         _count331 = len(_js_urls331)
         _ok331 = _count331 == 0
         check(

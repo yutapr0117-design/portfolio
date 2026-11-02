@@ -305,9 +305,11 @@ def run(ctx):
         # Extract src=/href= values where value starts with a scheme (e.g.
         # https?:// or //) — only flag http:// (relative paths and data: URIs
         # are exempt).
-        _all_attrs207 = re.findall(
-            r'(?:src|href)\s*=\s*["\'](http://[^"\']+)["\']', _isrc207
-        )
+        # 属性は `_lib_io.html_attributes` で読む (2026-11-02 まで小文字の属性名しか見ておらず
+        # `SRC="http://…"` を、値の scheme も小文字しか見ておらず `HTTP://` を素通りしていた)。
+        from _lib_io import html_attributes as _attrs207
+        _all_attrs207 = [_v for _t, _n, _v, _raw in _attrs207(_isrc207)
+                         if _n in ("src", "href") and _v and _v.strip().lower().startswith("http://")]
         _ok207 = len(_all_attrs207) == 0
         check(
             _ok207,
