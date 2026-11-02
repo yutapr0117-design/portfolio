@@ -1,7 +1,7 @@
 ---
 file: .github/workflows/auto-update-aio-digests.yml
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-11-02
 canonical-ref: .github/scripts/update_aio_digests.py
 ---
 
@@ -30,6 +30,7 @@ on:
 
 - **Check 23**: YAML 構文 valid
 - **Check 67**: top-level permissions: contents:write
+- **Check 488**: job が `timeout-minutes` を持つ（10 分・実測は通常 10 秒前後）
 - **concurrency**: group per ref + cancel-in-progress: false
 
 ## Change impact

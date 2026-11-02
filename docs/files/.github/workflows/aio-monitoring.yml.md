@@ -1,7 +1,7 @@
 ---
 file: .github/workflows/aio-monitoring.yml
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-11-02
 canonical-ref: .github/scripts/aio_monitoring.py / docs/evidence/aio-monitoring-log.json
 ---
 
@@ -35,6 +35,7 @@ schedule (毎週月曜 10:00 JST) / workflow_dispatch
 - **Check 487**: STATUS 生成器がこのログを読むので、STATUS.md も同じ commit で再生成する（bot の main 直 push は PR ゲートを通らず、ずれは次の PR の Check 121 で初めて赤くなる）
 - **バッジの緑は観測の成功を意味しない**: engine が全部エラーでも workflow は success で終わる。2026-11-02 時点でログ 29 run すべてで測れた query は 0 件（Gemini は 429 quota・OpenAI は free tier 切れ）で、STATUS.md の監査節がその数を出す
 - **Check 67**: top-level `permissions:` 明示 (contents: write + issues: write)
+- **Check 488**: job が `timeout-minutes` を持つ（15 分・実測は最大 87 秒。外部 API を待ち push の再試行 loop も持つのでハングの経路が実在する）
 - **concurrency**: group per ref + cancel-in-progress: false (race 防止)
 
 ## Change impact
