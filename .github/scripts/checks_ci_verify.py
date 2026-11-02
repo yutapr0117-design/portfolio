@@ -49,7 +49,11 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        guards the paths filter but not the invocation itself. This is the
        behavior-gate twin of Check 346 (consistency-gate). Sibling of
        Check 142 (e2e toolchain coverage) / Check 346 (CI invokes the
-       consistency guard) for the CI-invokes-the-guard axis. (BLOCKING)
+       consistency guard) for the CI-invokes-the-guard axis. **347b**: the ADVISORY
+       screenshot step has an `id` and a following step emits `::warning::` when its
+       `outcome == 'failure'` — continue-on-error otherwise reports success in the API /
+       badge, and on 2026-11-02 the screenshot had failed on every run since at least
+       2026-09-10 without anyone seeing it. (BLOCKING)
 
 """
 import re
@@ -158,6 +162,22 @@ def run(ctx):
     else:
         check(False, "Check 347: playwright-regression.yml present",
               "Check 347: playwright-regression.yml が無い", blocking=True)
+    # 347b: ADVISORY の screenshot は continue-on-error ゆえ失敗しても conclusion が success になり、
+    # API / バッジでは見えない (2026-11-02 実測: 少なくとも 2026-09-10 から全 run で失敗していた)。
+    # visual step が id を持ち、その outcome が failure のときに ::warning:: を出す step が在ること。
+    _wf347b = _pwf347.read_text(encoding="utf-8") if _pwf347.is_file() else ""
+    _vid347b = re.search(r"- name: Run visual regression[^\n]*\n\s+id:\s*(\w+)", _wf347b)
+    _surf347b = bool(_vid347b) and bool(re.search(
+        r"if:[^\n]*steps\." + re.escape(_vid347b.group(1)) + r"\.outcome\s*==\s*'failure'[^\n]*\n"
+        r"\s+run:\s*\|\n\s+echo \"::warning", _wf347b))
+    check(
+        _surf347b,
+        "Check 347b: ADVISORY の screenshot の失敗が ::warning:: として表に出る (continue-on-error で見えなくならない)",
+        "Check 347b: visual regression step に id が無いか、その outcome が failure のとき ::warning:: を出す step が無い "
+        "—— continue-on-error の step は失敗しても success と表示され、advisory が誰にも見えない (2026-11-02 に "
+        "少なくとも 2 か月分の失敗が見えていなかった)",
+        blocking=True,
+    )
 
     # ── 437. install の step timeout が単一ソース ⟺ mirror doc と一致 (BLOCKING) ──────
     # 2026-08-20: 帰属メッセージだけ「8 分」のまま drift していた (実際は 11)。**赤の誤診を
