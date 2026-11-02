@@ -193,7 +193,27 @@ jobs:
         # 次ステップの screenshot は実フォントが要るので **意図的に付けない** (Check 416 参照)。
         env:
           E2E_HERMETIC: '1'
-        run: npx playwright test --config=playwright.config.cjs --grep-invert "screenshot regression" --reporter=list
+          PLAYWRIGHT_JSON_OUTPUT_NAME: behavior-results.json
+        run: npx playwright test --config=playwright.config.cjs --grep-invert "screenshot regression" --reporter=list,json
+
+      # 飛ばされたテストは「通った」と同じ緑で表示される。宣言的な skip を禁じる Check 432 と
+      # `.only` を禁じる Check 114 は綴りを探す静的検査で、`test.fixme('title', fn)` や
+      # `test .skip(` を素通りする (2026-11-02 実測)。forbidOnly に当たる runner 設定は skip には
+      # 無いので、**実際に走らなかったテストの数**を結果から数えて 0 であることを要求する。
+      # 2026-11-02 時点の behavior gate は 494 passed / 0 skipped。
+      - name: Behavior gate ran every test (0 skipped — BLOCKING)
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          stats = json.load(open("behavior-results.json"))["stats"]
+          print(f"behavior gate: expected={stats.get('expected')} skipped={stats.get('skipped')} "
+                f"unexpected={stats.get('unexpected')} flaky={stats.get('flaky')}")
+          if stats.get("expected", 0) == 0:
+              print("::error::behavior gate が 1 本もテストを走らせていない"); sys.exit(1)
+          if stats.get("skipped", 0) != 0:
+              print(f"::error::behavior gate で {stats['skipped']} 本のテストが走らなかった "
+                    "(test.skip / test.fixme / .only の取り残し)。飛ばしたテストは緑に見える"); sys.exit(1)
+          PY
 
       # … and the homepage pixel screenshot is ADVISORY (observed, never blocking). An intentional
       # visual change makes this step red until the baseline is regenerated via the human-merged

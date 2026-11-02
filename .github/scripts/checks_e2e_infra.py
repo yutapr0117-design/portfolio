@@ -33,6 +33,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        needs networkidle (font/image load determinism). This Check blocks reintroduction of the
        hang-flake class. (BLOCKING)
   432. e2e no-declarative-skip guard: `test.skip('title', fn)` / `test.describe.skip('title', fn)`
+       (**432b**: playwright-regression.yml の behavior gate が JSON 結果を書き、skipped を数えて
+       0 を要求する BLOCKING step を持つ —— 静的検査は `test.fixme('title', fn)` / `test .skip(` を
+       素通りする・2026-11-02 実測)
        のように **第 1 引数が文字列リテラル** の skip を BLOCKING で禁止する。この形は
        「テストごと宣言的に無効化する」もので、失敗しているテストを黙らせる最短経路でありながら
        **CI は緑のまま**になり、覆っていたはずの挙動が誰にも気付かれず無防備になる
@@ -357,3 +360,25 @@ def run(ctx):
     else:
         check(False, "", "Check 432: e2e/*.spec.js not found — declarative-skip guard を検証できない",
               blocking=True)
+    # 432b: 実行時の二重化。432 / 114 は綴りを探すので `test.fixme('title', fn)` / `test .skip(` を
+    # 素通りする (2026-11-02 実測: fixme で 432 は OK のまま、JSON 結果は skipped=1)。skip には
+    # forbidOnly に当たる runner 設定が無いので、behavior gate の結果から skipped を数えて 0 を要求する
+    # step が workflow に在ることを強制する。
+    _wf432 = ROOT / ".github" / "workflows" / "playwright-regression.yml"
+    _wfs432 = _wf432.read_text(encoding="utf-8") if _wf432.exists() else ""
+    _beh432 = re.search(r"Run behavior / functionality tests \(BLOCKING gate\).*?(?=\n      - name:)", _wfs432, re.S)
+    _bad432b = []
+    if not _beh432 or not re.search(r"--reporter=[\w,]*\bjson\b", _beh432.group(0)) \
+            or "PLAYWRIGHT_JSON_OUTPUT_NAME" not in _beh432.group(0):
+        _bad432b.append("behavior gate の step が JSON 結果を書いていない")
+    _skp432 = re.search(r"- name: Behavior gate ran every test.*?(?=\n      - name:|\Z)", _wfs432, re.S)
+    if not _skp432 or "continue-on-error" in _skp432.group(0) \
+            or not re.search(r"""stats\.get\(["']skipped["']""", _skp432.group(0)):
+        _bad432b.append("skipped を数えて 0 を要求する BLOCKING step が無い")
+    check(
+        not _bad432b,
+        "Check 432b: behavior gate は実行結果の skipped を数えて 0 を要求している (fixme / 綴り違いの skip も止まる)",
+        f"Check 432b: {_bad432b} —— 静的な skip / .only 検査は綴りを探すだけで `test.fixme('title', fn)` を"
+        "素通りする。飛ばされたテストは緑に見えるので、結果の skipped を数える step を戻せ",
+        blocking=True,
+    )
