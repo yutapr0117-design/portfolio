@@ -9,9 +9,9 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 
 ## What
 
-`check_repository_consistency.py` 分割トラックの 27 個目の split module。CI 検証チェーンの配線を守る Check **345 / 346 / 347 / 437 / 486 / 487** を内包し（当初は連続クラスタ 345-347。437 / 486 / 487 は同じテーマで後から加わった）、`run(ctx)` で monolith から呼ばれる。
+`check_repository_consistency.py` 分割トラックの 27 個目の split module。CI 検証チェーンの配線を守る Check **345 / 346 / 347 / 437 / 486 / 487 / 488** を内包し（当初は連続クラスタ 345-347。437 / 486 / 487 / 488 は同じテーマで後から加わった）、`run(ctx)` で monolith から呼ばれる。
 
-- 345(package.json verify が全 4 検証層を連結) / 346(CI workflow が consistency guard 自体を実行) / 347(CI behavior e2e gate が実行され BLOCKING・347b で ADVISORY screenshot の失敗を表に出す) / 437(install の step timeout が単一ソースで mirror doc と一致) / 486(CI の presence 型 advisory `grep -q X F || echo ::warning` がいまの tree で一致する ―― 対象が移ると毎回鳴り続ける形で壊れるため) / 487(bot が commit するファイルを STATUS 生成器が読むなら、その bot が STATUS.md を同じ commit で再生成する)。
+- 345(package.json verify が全 4 検証層を連結) / 346(CI workflow が consistency guard 自体を実行) / 347(CI behavior e2e gate が実行され BLOCKING・347b で ADVISORY screenshot の失敗を表に出す) / 437(install の step timeout が単一ソースで mirror doc と一致) / 486(CI の presence 型 advisory `grep -q X F || echo ::warning` がいまの tree で一致する ―― 対象が移ると毎回鳴り続ける形で壊れるため) / 487(bot が commit するファイルを STATUS 生成器が読むなら、その bot が STATUS.md を同じ commit で再生成する) / 488(すべての workflow job が timeout-minutes を持つ)。
 
 ## Why
 
@@ -27,7 +27,7 @@ owner 合意 C-first の check.py 段階分割（**Phase 30**）。345-347 は�
 ## Constraints
 
 - **module-global 結合なし**: 依存は全て `ctx` 経由。`re`/`json` のみ module import。`exec` 不使用。
-- **自己整合（Check 45/70/105）**: docstring inventory（`  345.` / `346.` / `347.` / `437.` / `486.` / `487.`）と section は 1 対 1、monolith と合わせて bijection。
+- **自己整合（Check 45/70/105）**: docstring inventory（`  345.` / `346.` / `347.` / `437.` / `486.` / `487.` / `488.`）と section は 1 対 1、monolith と合わせて bijection。
 - **Check 108**: 本 mirror doc が tracked-file bijection を満たす。
 
 ## Change impact

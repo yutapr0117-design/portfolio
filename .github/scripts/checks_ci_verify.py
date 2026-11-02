@@ -1,5 +1,5 @@
 """
-checks_ci_verify.py — CI verification-chain wiring checks — verify layers / consistency guard / behavior e2e gate (345-347, 437, 486, 487)
+checks_ci_verify.py — CI verification-chain wiring checks — verify layers / consistency guard / behavior e2e gate (345-347, 437, 486-488)
 (extracted from check_repository_consistency.py — check.py split track).
 
 run(ctx) receives shared check()/ROOT by reference (exec 不使用) so exit code / BLOCKING propagation
@@ -67,6 +67,11 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        2026-11-02 に STATUS.md へ「AIO 監視の実測」(ログ 29 run すべてで測れた query 0 件・バッジは緑)
        を導出して出したことで、週次 aio-monitoring.yml がこの条件に入った。bot の main 直 push は PR
        ゲートを通らず、ずれは次の無関係な PR の Check 121 で初めて赤くなる (#252 と同じ形)。(BLOCKING)
+
+  488. すべての workflow job が `timeout-minutes` を持つ: 2026-11-02 に 8 job 中 3 つ
+       (aio-monitoring / architecture-validation / auto-update-aio-digests) に上限が無かった。無いと
+       既定の 6 時間まで居座り、concurrency で後続の run を塞ぐ。YAML として読めない workflow と、
+       job 検出 5 未満も RED。(BLOCKING)
 
 """
 import re
@@ -276,5 +281,36 @@ def run(ctx):
          f"({_bad487})、または検出が床を下回る (入力 {len(_inputs487)} / bot {_bots487})。bot の main 直 push は "
          "PR ゲートを通らないので、STATUS.md のずれは次の無関係な PR の Check 121 で初めて赤くなる。"
          "commit step の前で `python3 .github/scripts/generate_status.py` を走らせ、`git add` に STATUS.md を足す"),
+        blocking=True,
+    )
+
+    # ── 488. すべての workflow job が timeout-minutes を持つ (BLOCKING) ───────────────
+    # 2026-11-02: 8 job のうち 3 つ (aio-monitoring / architecture-validation / auto-update-aio-digests)
+    # に上限が無かった。無いと GitHub の既定 6 時間まで居座り、concurrency の group で後続の run を
+    # 塞ぐ。aio-monitoring は外部 API を待ち、同日に push の再試行 loop も持ったので、ハングの経路が
+    # 実在する。値は各 job の実測の 10 倍以上 (秒単位の job に分単位の上限)。
+    try:
+        import yaml as _y488
+    except ImportError:
+        _y488 = None
+    _jobs488, _bad488 = 0, []
+    if _y488 is not None:
+        for _wf in sorted((ROOT / ".github" / "workflows").glob("*.yml")):
+            try:
+                _d = _y488.safe_load(_wf.read_text(encoding="utf-8")) or {}
+            except Exception:
+                _bad488.append(f"{_wf.name}: YAML として読めない")
+                continue
+            for _jn, _jv in (_d.get("jobs") or {}).items():
+                _jobs488 += 1
+                _tm = (_jv or {}).get("timeout-minutes")
+                if not (isinstance(_tm, int) and _tm >= 1):
+                    _bad488.append(f"{_wf.name}:{_jn}")
+    check(
+        _y488 is not None and _jobs488 >= 5 and not _bad488,
+        f"Check 488: workflow の全 job ({_jobs488}) が timeout-minutes を持つ",
+        (f"Check 488: timeout-minutes の無い job がある ({_bad488}) か、job の検出が床 5 を下回る "
+         f"({_jobs488}・yaml={'あり' if _y488 else '無し'})。上限の無い job は既定の 6 時間居座り、"
+         "concurrency で後続の run を塞ぐ。実測の 10 倍程度の上限を置く"),
         blocking=True,
     )

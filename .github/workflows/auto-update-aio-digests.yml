@@ -56,6 +56,9 @@ concurrency:
 jobs:
   update-digests:
     runs-on: ubuntu-latest
+    # job の上限 (2026-11-02・Check 488)。無いと既定の 6 時間居座り、concurrency で後続の run を塞ぐ。
+    # main への push のたびに走る bot。実測は通常 10 秒前後。
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1

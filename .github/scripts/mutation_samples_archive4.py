@@ -664,4 +664,48 @@ MUTATIONS_ARCHIVE4 = [
     "replace": 'return `テーマ切替（現在: ${label}）`;',
     "check": CHECK,
 },
+    {
+    "name": 'Check 387: .well-known/mcp.json の同一 origin の pointer を存在しない file へ —— agent が dereference すると 404 になる',
+    "file": ROOT / ".well-known" / "mcp.json",
+    "find": '"https://yutapr0117-design.github.io/portfolio/llms-full.txt"',
+    "replace": '"https://yutapr0117-design.github.io/portfolio/llms-full-missing.txt"',
+    "check": CHECK,
+},
+    {
+    "name": 'Check 56: main.js が factory を呼ばずに関数そのものを束ねる —— 葉 module の依存注入が抜け、実行時に ReferenceError になる',
+    "file": ROOT / "main.js",
+    # createBrand(storage) は 56 の factory の定義 (先頭引数が分割代入 `{`) に当たらないので、
+    # 分割代入で依存を受ける本物の factory を狙う (初版で名指し False を実測)。
+    "find": 'const AIKnowhowPage = createAIKnowhowPage({ h, createIcon, ContactCTA });',
+    "replace": 'const AIKnowhowPage = null;',
+    "check": CHECK,
+},
+    {
+    "name": 'Check 460: errata 冒頭の「閉じた番号一覧」から E1 を落とす —— 表は E1 を閉じたと述べるのに一覧から消える (face v・目印は一覧の先頭: 末尾は E を足すたびに動き anchor が宙に浮く)',
+    "file": ROOT / "LICENSES" / "ACD-1.0.errata.md",
+    "find": "of them (E1, E2, E3,",
+    "replace": "of them (E2, E3,",
+    "check": CHECK,
+},
+    {
+    "name": 'Check 124: main.js の factory 合成の範囲に実名を描画する —— 旧 2 段のコメント除去はこの 74 行を消しており、匿名性ガードから見えなかった',
+    "file": ROOT / "main.js",
+    "find": "const Store = createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone, slugify, sanitizeUrl, clamp });",
+    "replace": "const Store = createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone, slugify, sanitizeUrl, clamp }); const __leak = h('span', {}, '\u6a2a\u4e95\u96c4\u592a');",
+    "check": CHECK,
+},
+    {
+    "name": 'Check 481: JS コメントの字句 helper が正規表現リテラルを読まなくなる —— /[`]/ のバッククォートをテンプレートの始まりと読み、fixture が崩れる',
+    "file": ROOT / ".github" / "scripts" / "_lib_io.py",
+    "find": 'prev = "/re/"',
+    "replace": 'prev = "/re/"; i = i + 1; continue',
+    "check": CHECK,
+},
+    {
+    "name": 'Check 482: index.html の canonical link を説明コメントの中へ移す —— canonical を守る 40 本以上の Check はコメントの文字列で満たされ、気付くのは本 Check だけ',
+    "file": ROOT / "index.html",
+    "find": '<link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/" />',
+    "replace": '<!-- 旧: <link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/" /> -->',
+    "check": CHECK,
+},
 ]
