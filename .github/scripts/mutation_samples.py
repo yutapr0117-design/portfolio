@@ -514,6 +514,22 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 331: skip-link の href を一重引用符の javascript: にする —— 旧形は二重引用符の値しか見ておらず素通りした',
+    "file": ROOT / "index.html",
+    "find": '<a href="#main-content" class="skip-link">',
+    "replace": "<a href='javascript:void(0)' class=\"skip-link\">",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 207: manifest link を大文字の HREF / HTTP:// にする —— 旧形は小文字の属性名と scheme しか見ず Mixed Content を素通りした',
+    "file": ROOT / "index.html",
+    "find": '<link rel="manifest" href="/portfolio/manifest.webmanifest" />',
+    "replace": '<link rel="manifest" HREF="HTTP://yutapr0117-design.github.io/portfolio/manifest.webmanifest" />',
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
