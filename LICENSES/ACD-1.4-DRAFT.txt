@@ -178,6 +178,11 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       said nothing, and of two adjacent provisos the one left unqualified
       could be read as a condition upon use. Sections 10.5 and 16.6 already
       say this for the whole of Section 16. (-2 words.)
+    * Section 1.5 now says "Covered Rights exclude", the verb agreeing with
+      the plural as it does in Section 8.4 and wherever else this Dedication
+      makes a defined term in the plural the subject of a verb. It said
+      "excludes", the only place where a plural defined term took a singular
+      verb. (0 words.)
     * ACD-1.3: 5443 words, 80 clauses. This draft: 5542 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
@@ -256,7 +261,7 @@ PREAMBLE (informative; not part of the operative terms)
        arising, including copyright, rights in performances, broadcast and
        recording rights, sui generis database rights, rights against unfair
        extraction, and any right of similar effect, whether or not presently
-       known and whether or not presently subsisting. Covered Rights excludes
+       known and whether or not presently subsisting. Covered Rights exclude
        patent rights, which Section 8 addresses; trademark rights and rights in
        a name, which Section 11 addresses; Moral Rights, which Section 12
        addresses; and rights under the law of data protection or under a right
