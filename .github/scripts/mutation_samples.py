@@ -513,6 +513,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 400: monolith の style.css の読み込みを素の read() へ戻す —— style.css が 1 つ欠けただけで traceback になり、全 Check が未実行のまま終わる (2026-11-02 に退避して実測)',
+    "file": ROOT / ".github" / "scripts" / "check_repository_consistency.py",
+    "find": 'style      = _read_core("style.css")',
+    "replace": 'style      = read("style.css")',
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

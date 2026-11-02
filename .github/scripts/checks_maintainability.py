@@ -405,12 +405,13 @@ def run(ctx):
     _mono400 = ROOT / ".github" / "scripts" / "check_repository_consistency.py"
     _src400 = _mono400.read_text(encoding="utf-8") if _mono400.exists() else ""
     # indent 0 の代入行のみを検出する (try 本体は 4-space indent ゆえ除外される)。
-    _bare400 = re.findall(r"^\w+\s*=\s*(?:json\.loads|yaml\.safe_load)\(", _src400, re.M)
+    _bare400 = re.findall(r"^\w+\s*=\s*(?:json\.loads|yaml\.safe_load|read|read_bytes)\(", _src400, re.M)
     check(
         bool(_src400) and not _bare400,
         f"Check 400: monolith の module-level parse が fail-soft ({len(_bare400)} unguarded)",
         f"Check 400: check_repository_consistency.py の module 直下に try/except 非保護の "
-        f"`json.loads(...)` / `yaml.safe_load(...)` が {len(_bare400)} 件ある。対象 file が壊れた瞬間に "
+        f"`json.loads(...)` / `yaml.safe_load(...)` / 素の `read(...)` が {len(_bare400)} 件ある (2026-11-02 に read を追加: "
+        "style.css が 1 つ欠けただけで全 Check が未実行の traceback になっていた)。対象 file が壊れた瞬間に "
         "traceback で suite 全体が停止し、その破損を検出するはずの Check 自身を含む全 Check が未実行の "
         "まま skip される (診断は actionable でなく、以降の drift を全て masking する)。try/except で "
         "fail-soft な既定値へ degrade させ、専任 Check に診断させよ",
@@ -533,6 +534,11 @@ def run(ctx):
                   "「source file が **N**」「mirror が **N**」「`_template.md` の **N** = **N**」の"
                   "記載形式を保つこと (形式を変えるならこの Check の正規表現も同一 commit で更新せよ)",
                   blocking=True)
+    else:
+        # 対象が無いのに黙って skip しない (2026-11-02): 改名・移動を正しく済ませると他の Check は全部緑のまま、
+        # ここだけが OK も ERROR も出さずに消える (460 / 469 で踏んだ形)。
+        check(False, "Check 413: 対象ファイル",
+              f"Check 413: 検査対象 {_runbook413.relative_to(ROOT).as_posix()} が無い —— 改名・移動したならこの Check の参照先を直す (黙って skip しない)", blocking=False)
 
     # ── 456. __main__ ガードより後に def/class を置かない (BLOCKING) ──────────────────
     # ガード本体 (`sys.exit(main())`) はその場で実行されるので、後ろの def はまだ束縛されて

@@ -296,6 +296,11 @@ def run(ctx):
             "llms-full.txt: no stale C1\u2013C6 in current-constraint context",
             f"Check 27: llms-full.txt: stale C1\u2013C6 found (should be C1\u2013C7): {found_stale}",
         )
+    else:
+        # 対象が無いのに黙って skip しない (2026-11-02): 改名・移動を正しく済ませると他の Check は全部緑のまま、
+        # ここだけが OK も ERROR も出さずに消える (460 / 469 で踏んだ形)。
+        check(False, "Check 27: 対象ファイル",
+              f"Check 27: 検査対象 {llms_full_path.relative_to(ROOT).as_posix()} が無い —— 改名・移動したならこの Check の参照先を直す (黙って skip しない)")
 
     # ── 436. 規範層に「オーナー裁可待ち」型の defer 理由を残さない (BLOCKING) ────────
     # canon を直しても、その canon を根拠に書かれた**下流の規範文書は自動では直らない**。

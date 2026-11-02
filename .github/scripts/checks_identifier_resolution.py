@@ -399,6 +399,11 @@ def run(ctx):
              "Check 418: ActionDelegator の _handlers を parse できない (構造変更の可能性)"),
             blocking=True,
         )
+    else:
+        # 対象が無いのに黙って skip しない (2026-11-02): 改名・移動を正しく済ませると他の Check は全部緑のまま、
+        # ここだけが OK も ERROR も出さずに消える (460 / 469 で踏んだ形)。
+        check(False, "Check 418: 対象ファイル",
+              f"Check 418: 検査対象 {_rails376.relative_to(ROOT).as_posix()} / {_index376.relative_to(ROOT).as_posix()} が無い —— 改名・移動したならこの Check の参照先を直す (黙って skip しない)")
 
     # ── 391. getElementById target → id definition resolution (BLOCKING) ───────────
     # 各 shipped JS の `getElementById('X')` リテラル target は、必ず index.html の `id="X"`・

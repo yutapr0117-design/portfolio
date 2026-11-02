@@ -226,19 +226,21 @@ _ctx = _types.SimpleNamespace(
 
 
 # ── Load files ──────────────────────────────────────────────────────────────
-html       = read("index.html")
-ai2ai      = read("AI2AI.md")
-mainjs     = read("main.js")
-style      = read("style.css")
-aio_mon    = read(".github/scripts/aio_monitoring.py")
+# 中核ファイルは fail-soft で読む (2026-11-02・Check 400): 素の read() は 1 つ欠けただけで全 Check を未実行の traceback にした。
+def _read_core(path: str) -> str:
+    try:
+        return read(path)
+    except (FileNotFoundError, UnicodeDecodeError) as _e:
+        check(False, f"core file {path}", f"中核ファイル {path} を読めない ({type(_e).__name__}) —— 依存する Check は空として走る")
+        return ""
+html       = _read_core("index.html")
+ai2ai      = _read_core("AI2AI.md")
+mainjs     = _read_core("main.js")
+style      = _read_core("style.css")
+aio_mon    = _read_core(".github/scripts/aio_monitoring.py")
 
-# [FIX] module-level の生 `json.loads` は、.well-known/mcp.json が壊れた瞬間に traceback で
-# suite 全体を停止させ、**その失敗を検出するために書かれた Check 343 自身を含む全 Check** を
-# 未実行のまま skip させていた (mutation-probe が「Check 343 が捕捉しない」として実測検出)。
-# exit 1 ゆえ merge は止まるが、診断は actionable でない Python traceback になり、かつ crash 地点
-# 以降の Check が全て走らないため他の drift を masking する。Check 385 (module の error パス
-# NameError) と同じ latent-crash class の global 面。fail-soft で空 dict へ degrade させ、Check 343
-# に actionable な診断を出させる (唯一の消費者 checks_version.py は .get チェーンで空 dict 安全)。
+# [FIX] module-level の生 json.loads は mcp.json が壊れた瞬間に suite 全体を traceback で止め、それを検出する
+# Check 343 自身を含む全 Check を未実行にしていた (mutation-probe が実測)。空 dict へ degrade し 343 に診断させる。
 try:
     mcp_data = json.loads(read(".well-known/mcp.json"))
 except (json.JSONDecodeError, UnicodeDecodeError):

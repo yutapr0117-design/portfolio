@@ -364,6 +364,11 @@ def run(ctx):
                  "`ACD-<版>-CHANGELIST.md` のいずれかへ同じ `E<n>` を足せ (内容の複製は不要)"),
                 blocking=True,
             )
+    else:
+        # 対象が無いのに黙って skip しない (2026-11-02): 改名・移動を正しく済ませると他の Check は全部緑のまま、
+        # ここだけが OK も ERROR も出さずに消える (460 / 469 で踏んだ形)。
+        check(False, "Check 464: 対象ファイル",
+              f"Check 464: 検査対象 {_er464.relative_to(ROOT).as_posix()} が無い —— 改名・移動したならこの Check の参照先を直す (黙って skip しない)")
 
     # ── 465. rounds/ の在庫申告が、実際に置かれている file と一致すること (BLOCKING) ──────
     # `LICENSES/rounds/` は「何と言われたか / 何と言ったか」の記録が drift しないためだけに
