@@ -140,12 +140,13 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       It said only "on how that question is answered", which left room to
       argue that a permission depends on the question being decided. (+3
       words.)
-    * Section 16.6 (errata E48) now says that Sections 16.4 and 16.5 bind
-      "no one in respect of the Work", the phrase Sections 10.1, 10.4, and
-      11.4 use. It said they bind "no recipient of the Work", which Section
-      16.4 contradicts: it restricts anyone who distributes a modified text
-      and sets a proviso for anyone who distributes a translation, and a
-      recipient of the Work may be either. (+2 words.)
+    * Section 16.6 (errata E48) now says that Sections 16.4 and 16.5 bind "no
+      one in respect of the Work", with the limit "in respect of the Work"
+      that Sections 10.1, 10.4, and 11.4 use. It said they bind "no recipient
+      of the Work", which Section 16.4 contradicts: it restricts anyone who
+      distributes a modified text and sets a proviso for anyone who
+      distributes a translation, and a recipient of the Work may be either.
+      (+2 words.)
     * Section 8.4 now says "it does not license a claim", the verb, where
       it said "licence", the noun. Section 10.2 spells the verb "license";
       the noun form entered Section 8.4 in ACD-1.1. (0 words.)
