@@ -56,7 +56,8 @@ Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() bel
        の有無だけを見るとループと無関係な固定文字列で vacuous に PASS しうるため。Check 385
        (advisory/error パスの latent crash 防止) と対で「助言層が実際に機能する」軸を守る。(BLOCKING)
   400. monolith の module-level parse fail-soft: `check_repository_consistency.py` の module 直下
-       (indent 0) に try/except 非保護の `json.loads(...)` / `yaml.safe_load(...)` があってはならない。
+       (indent 0) に try/except 非保護の `json.loads(...)` / `yaml.safe_load(...)` / 素の `read(...)` があってはならない
+       (read は 2026-11-02 追加: style.css を退避しただけで全 Check が未実行の traceback になった)。
        対象 file が壊れた瞬間に traceback で **suite 全体** が停止し、その破損を検出するために書かれた
        Check 自身を含む全 Check が未実行のまま skip される。exit 1 ゆえ merge は止まるが、(a) 診断が
        Python の traceback で actionable でなく (b) crash 地点以降の Check が一切走らないため他の
