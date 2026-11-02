@@ -86,6 +86,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        件数の語 ("Forty-six items") は (l) が見るが、括弧内の番号一覧とその数詞は誰も見ておらず、
        E46 を一覧から消しても緑だった (2026-11-01・portfolio-bb が実測。同日 E42〜E46 を足すたび手で 4 回書き換えた)。
        閉じていない行 (E6 / E10) は一覧の後の同じ文で名指しされることも求める。判定語の誤検出は 46 行で 0 件を実測。
+       (w) **QUESTIONS-FOR-COUNSEL を名指す行の問数 ↔ その file の見出し `## N.` の数** (行内の最後の数で判定・
+       序数「第 N 問」と against.md は対象外)。11-01 に問 9 を足したのに REVIEWERS.md が「Eight questions」のまま残った。
        (s) **散文の「Check 463 は N 項目を強制する」 ↔ その Check の実装から導出した数**。
        実測 (2026-09-26): `READY-TO-SUBMIT.md` が「**10 項目**」と述べ、実装は **12**。
        **同じ file の 4 行の中で、これと (r) の §B.0 語数が同時に古くなっていた** ——
@@ -843,6 +845,21 @@ def run(ctx):
                             f"{_p463s.name}: 散文の「{_m.group(1)} 項目」/ "
                             f"Check 463 の実装は {_n463s} 項目 "
                             "(数を写さず、Check の OK 行に述べさせること)")
+
+        # (w) 質問集を名指す行の問数 = `## N.` の実数 (bb / 25 提案)。行内の最後の数で判定 (468k と同じ・日付つき
+        #   追記で直した行を通す)。序数「第 N 問」と、その時点の記録である against.md は対象外。
+        _qfc460w = _L460 / "QUESTIONS-FOR-COUNSEL.md"
+        _nq460w = len(re.findall(r"(?m)^## \d+\.", _qfc460w.read_text(encoding="utf-8"))) if _qfc460w.exists() else 0
+        _W460 = dict(zip("one two three four five six seven eight nine ten eleven twelve".split(), range(1, 13)))
+        _rx460w = re.compile(r"(?<!第)(?<!第 )\b(\d+) ?問|\b(" + "|".join(_W460) + r") questions\b|\ball (" + "|".join(_W460) + r")\b", re.I)
+        for _p460w in sorted(_L460.glob("*.md")) + sorted((ROOT / "docs/files/LICENSES").glob("*.md")):
+            if _p460w.name == "ACD-1.0.against.md":
+                continue
+            for _n460w, _l460w in enumerate(_p460w.read_text(encoding="utf-8").splitlines(), 1):
+                _h460w = list(_rx460w.finditer(_l460w)) if "QUESTIONS-FOR-COUNSEL" in _l460w else []
+                _g = _h460w[-1] if _h460w else None
+                if _g and (int(_g.group(1)) if _g.group(1) else _W460[(_g.group(2) or _g.group(3)).lower()]) != _nq460w:
+                    _bad460.append(f"(w) {_p460w.name}:{_n460w} が質問集を {_g.group(0)!r} と述べる / 実数 {_nq460w}")
 
         check(
             not _bad460,
