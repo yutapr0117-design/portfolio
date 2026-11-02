@@ -187,8 +187,9 @@ result (errata E5, E30); whether its structure — no obligation on the licensee
 
 ## 9. Does the limitation of liability reach a breach of the Dedicator's own covenants? (§14.1, §5, §8.6, §12.2)
 
-**The clauses.** §14.1: the Dedicator *"is not liable to You or to any other person, on any legal
-theory, for any … loss or damage arising out of this Dedication or the use of the Work"*. §5.1,
+**The clauses.** §14.1, set in capitals as conspicuous: the Dedicator *"IS NOT LIABLE TO YOU OR TO
+ANY OTHER PERSON, ON ANY LEGAL THEORY, FOR ANY … LOSS OR DAMAGE ARISING OUT OF THIS DEDICATION OR
+THE USE OF THE WORK"*. §5.1,
 §8.6 and §12.2 are promises by the Dedicator not to assert claims against You, and §5.3 lets You
 and later recipients rely on them as intended beneficiaries.
 
@@ -196,7 +197,7 @@ and later recipients rely on them as intended beneficiaries.
 to it, and the claim fails. Damages for the breach are secondary, and §14.2 keeps whatever
 liability a jurisdiction does not allow to be excluded, which in many includes deliberate breach.
 
-**Why we doubt it.** Read literally, "arising out of this Dedication" includes a breach of the
+**Why we doubt it.** Read literally, "ARISING OUT OF THIS DEDICATION" includes a breach of the
 Dedication's own promises, so a recipient put to the cost of defending a suit the Dedicator
 promised not to bring may have no claim for that cost. GPL-3.0 §16 limits liability for damages
 *"arising out of the use or inability to use the program"*, which does not reach the licensor's
