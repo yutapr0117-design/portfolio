@@ -528,6 +528,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 432b: behavior gate の skipped 検査 step を continue-on-error にする —— 静的検査を素通りする test.fixme で飛ばしたテストが、緑のまま merge される',
+    "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
+    "find": "      - name: Behavior gate ran every test (0 skipped — BLOCKING)\n",
+    "replace": "      - name: Behavior gate ran every test (0 skipped — BLOCKING)\n        continue-on-error: true\n",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
