@@ -19,7 +19,7 @@ ACD-1.0 ドシエ（`LICENSES/`）が**自分自身について述べる事実**
 - **459b** — その索引の**冒頭 20 行に英語の入口案内**があること（ディレクトリを開いた審査者が
   最初に見る自動描画ページなので、日本語しか無ければ英語の入口の存在自体を伝えられない）。
 - **461b**（ADVISORY）/ **461c** — `LICENSES/*.md` の frontmatter `last-updated` が 14 日以上
-  stale でないこと / すべての file が `last-updated` を宣言していること。
+  stale でないこと / すべての file が `last-updated` を宣言していること。461b は git の最終 commit 日と比べるので、**shallow clone（CI の既定 fetch-depth 1）では測らず「測っていない」と OK 行で明示する**（git log が全ファイルで HEAD の日付を返し誤報しか出せないため・2026-11-02）。
 - **463** — 提出パケットの「送る文面」が OSI の review-process が求める項目をすべて含むこと。
 - **464** — `errata.md` の全 `E<n>` が次版の変更リストに現れること。
 - **465** — `LICENSES/rounds/` の在庫申告が実 file と一致すること。
