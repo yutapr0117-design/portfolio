@@ -1,7 +1,7 @@
 ---
 file: LICENSES/FROZEN.md
 audience: ai, human (新卒), 監査人, 学術研究者, 第三者全般
-last-updated: 2026-08-24
+last-updated: 2026-11-02
 canonical-ref: LICENSES/ACD-1.0.txt / LICENSES/READY-TO-SUBMIT.md / LICENSES/ACD-1.0.submission.md
 ---
 
@@ -35,7 +35,7 @@ Check は (1) 各ファイルの実 sha256 との一致、(2) **対象 path の�
 
 - **Check 453**（BLOCKING）: 凍結対象が申請時点のままであること
 - **sha256 を書き換えて Check を黙らせない。** 本文に是正すべき欠陥を見つけた場合でも、
-  直すのではなく**オーナーへ報告する**
+  凍結した本文は直さず **`ACD-1.0.errata.md` に記録して次版の草案で直す**（2026-11-02 訂正: 旧文は「オーナーへ報告する」）
 - 存在＝凍結。**解除はファイルの削除で表す**（オーナーが結果を伝えたときのみ）
 
 ## Change impact

@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses-meta.md
 audience: ai, human (提出者), 監査人, 学術研究者, 第三者全般
-last-updated: 2026-08-26
+last-updated: 2026-11-02
 canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES/ACD-1.0.review-responses-clauses.md (条項別) / LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威)
 ---
 
@@ -54,7 +54,7 @@ Q10 の回答は 3 要素で構成してある。
 
 - **非規範。** ここに書いた回答が ACD-1.0 の意味を変えることはない。
 - **Q11（倫理）で価値観の議論に価値観で応じない。** 射程の狭さ（自分の 1 作品についての選択であり、他者の留保は §6.3 で侵さない）で答えるのが唯一終わる道。
-- 本文に是正すべき欠陥を見つけても、**直さずオーナーへ報告する**（凍結中）。
+- 本文に是正すべき欠陥を見つけても、**凍結した本文は直さず、errata に記録して次版の草案で直す**（2026-11-02 訂正: 旧文は「直さずオーナーへ報告する」）（凍結中）。
 
 ## Change impact
 
