@@ -1,15 +1,15 @@
 ---
 file: LICENSES/ACD-1.3-DRAFT.txt
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人, 後任 AI
-last-updated: 2026-10-25
-canonical-ref: LICENSES/ACD-1.3.txt (確定先) / LICENSES/ACD-1.4-DRAFT.txt (次版の作業場) / LICENSES/ACD-1.3-CHANGELIST.md (草案ヘッダの逐語)
+last-updated: 2026-11-02
+canonical-ref: LICENSES/ACD-1.3.txt (確定先) / LICENSES/ACD-1.4-DRAFT.txt (次版を起草する場所。確定済みなら、そこがいまの作業場を述べる) / LICENSES/ACD-1.3-CHANGELIST.md (草案ヘッダの逐語)
 ---
 
 # LICENSES/ACD-1.3-DRAFT.txt
 
 ## What
 
-**案内のみ（ライセンス本文ではない）。** 1.3 の草案は 2026-10-25 に `ACD-1.3.txt` として確定・凍結し、同じ日にこのリポジトリへ適用した。次版の作業場は `ACD-1.4-DRAFT.txt`。
+**案内のみ（ライセンス本文ではない）。** 1.3 の草案は 2026-10-25 に `ACD-1.3.txt` として確定・凍結し、同じ日にこのリポジトリへ適用した。次版は `ACD-1.4-DRAFT.txt` で起草する。**pointer は作業場を断定しない**（2026-11-02: 断定した 1.2 の pointer が 1.3 の確定で 8 日間偽になったので、鎖の環の形にした。手順は `ACD-1.1-CHANGELIST.md` §0.13 の 2026-11-02 追記）。
 
 ## Why
 
