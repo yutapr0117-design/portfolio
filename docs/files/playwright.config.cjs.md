@@ -1,7 +1,7 @@
 ---
 file: playwright.config.cjs
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-08-11
+last-updated: 2026-11-02
 canonical-ref: e2e/portfolio.spec.js / .github/workflows/playwright-regression.yml
 ---
 
@@ -123,6 +123,8 @@ npx playwright test --config=playwright.config.cjs
 | 視覚に出ない中核チャネル (`announce()` / `hashchange`) の被覆を推測する | **1 mutation × フルスイート**で実測済み (2026-08-20): `announce()` を潰すと **25 件以上**、router の `hashchange` 購読を外すと **10 件以上**、通知の視覚コンテナ (`#toast-container`) を非表示にすると **14 件以上**が RED。どちらも厚く守られている。ただし**壊れたときに出る赤は「無関係に見えるテスト群」**になる (import の通知検査が `#action-announcement` を観測点にしているため) —— 赤の帰属を読むときはこの形を想定せよ |
 | CSS を書き換えて退行を作るとき、**同一ルール内の後ろに同じプロパティがある** | 後の宣言が勝つので **mutation が no-op になる**。2026-08-20 に `#toast-container` へ `display:none` を挿入したが直後に既存の `display:flex` があり、フルスイートが「失敗 0 件」を返した —— これを額面どおり読むと「**視覚チャネルは完全に無防備**」という重大な誤報になる。`display:flex` 自体を `none` へ**置換**して box=null / isVisible=false を確認してから測り直すと **14 件以上が RED** だった |
 | 「失敗 0 件」を「被覆ゼロ」と読む | まず **退行が本当に成立したか**を対照で確かめる (要素が実際に消えた / 値が実際に変わった)。この class の失敗は**エラーではなく「変化なし」**として出るため、測定結果が一見正しく見える |
+| state を丸ごと置き換える操作（全リセット / import / snapshot 復元）の完了を **`data-theme` などの属性**で待つ | `data-theme` は**描画の入口**で state に追随する（#1036）ので、`#content` の作り直しより**先に**変わる。その時点で select や `setInputFiles` を当てると、直後の作り直しで捨てられる古い input を掴み、操作が黙って起きない。2026-11-02 に main.js の初回描画の focus を変えて描画の時刻がずれたら、それまでたまたま間に合っていたテストが毎回落ちた。**`#content` に印を置き、作り直しで消えるのを待つ**（`gotoRouteSettled` と同じ形） |
+| route-focus を検査するときに、直前の操作で focus が `#content` の**外**の生き残る要素（skip-link / topbar / palette）にある | route-focus は「失われた時だけ戻す」（#267）ので、外に focus があるとルートを変えても h1 へ移らない。これは正しい挙動である。移ることを確かめたいなら、先に `blur()` してから変える |
 
 ### 実測して clean と確認済みの a11y 面（再監査不要・2026-08-18）
 
