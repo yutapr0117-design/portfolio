@@ -1,13 +1,13 @@
 ---
 file: LICENSES/ACD-1.2-CHANGELIST.md
 audience: OSI license-discuss / license-review participants, licence reviewers, a future drafter
-last-updated: 2026-10-18
+last-updated: 2026-11-02
 canonical-ref: LICENSES/ACD-1.2.txt (2026-10-17 に確定した本文・凍結) / LICENSES/ACD-1.1.txt (議論に付した確定テキスト・凍結) / LICENSES/ACD-1.1-CHANGELIST.md (1.0 → 1.1 の記録) / LICENSES/ACD-1.0.errata.md
 ---
 
 # ACD-1.2 で変えるもの
 
-> **✅ 2026-10-17 に確定・凍結した。** 本文は `ACD-1.2.txt`（`FROZEN.md` が sha256 で pin）、記述子は `ACD-1.2.machine.json`、次版の作業場は `ACD-1.3-DRAFT.txt`（記録は `ACD-1.3-CHANGELIST.md`）。
+> **✅ 2026-10-17 に確定・凍結した。** 本文は `ACD-1.2.txt`（`FROZEN.md` が sha256 で pin）、記述子は `ACD-1.2.machine.json`、次版の作業場は（当時）`ACD-1.3-DRAFT.txt`（記録は `ACD-1.3-CHANGELIST.md`）。**2026-11-02 追記**: 1.3 も 2026-10-25 に確定したので、いまの作業場は `LICENSES/README.md` の「次版の草案」行が権威（`ACD-1.3-DRAFT.txt` は pointer になっている）。
 > 確定の前に 6 観点の敵対的検証を回し、凍結前に直すべきものを直した（下の「確定前の最終点検」）。**草案の冒頭にあった変更一覧（編集用ヘッダ）は、この file の末尾に逐語で残す** ——確定版の冒頭は身分の表示だけにしたため（1.1 と同じ形）。
 
 ACD-1.1 は 2026-09-17 に確定・凍結し、**改善はここから先で行う。** 変更は下の 2 つの表に在る
