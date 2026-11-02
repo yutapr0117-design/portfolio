@@ -36,7 +36,7 @@ job: timeout-minutes 20
 API / バッジ / PR の checks 上は success に見えるので、screenshot は**少なくとも 2026-09-10 から全 run で失敗していたのに
 誰にも見えていなかった**。`steps.visual.outcome == 'failure'` で `::warning title=Visual regression (ADVISORY)` を出す
 （`conclusion` は continue-on-error の step では失敗しても success なので、条件に使うと永久に偽になる）。baseline の
-再生成は依然 `update-playwright-snapshots.yml` → PR → 人の merge の経路。
+再生成は依然 `update-playwright-snapshots.yml` → PR の経路で、merge は 2026-11-02 から AI が行う（#2288 で 24.04 製の baseline を 26.04 で作り直し、ADVISORY は `1 passed` になった）。
 
 ## Constraints
 

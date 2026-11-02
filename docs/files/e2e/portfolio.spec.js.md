@@ -34,7 +34,7 @@ npm run test:e2e
 
 ## Change impact
 
-- screenshot clip/viewport 変更 → baseline 再生成 (update-playwright-snapshots.yml・human-merge)
+- screenshot clip/viewport 変更 → baseline 再生成 (update-playwright-snapshots.yml → PR・2026-11-02 から merge も AI)
 - behavior テスト追加 → 本ファイルではなく該当テーマ `e2e/<theme>.spec.js` へ
 
 ## Audience-specific notes
