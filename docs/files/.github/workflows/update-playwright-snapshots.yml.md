@@ -32,13 +32,18 @@ on: workflow_dispatch (手動)
 - **Check 51**: Playwright の pin（`package.json` が権威・版数はここに書き写さない）を runbook と整合
 - **Check 67**: permissions 明示
 
-**baseline を再生成する前に読むこと（2026-11-02 実測）**: いまの baseline は 2026-06-10 の run 27243953369 で作られ、
+**baseline を再生成する前に読むこと（2026-11-02 実測・同日 #2288 で実施済み）**: いまの baseline は 2026-06-10 の run 27243953369 で作られ、
 当時の `ubuntu-latest` は 24.04 だった。GitHub は 2026-10-19 から `ubuntu-latest` を **26.04** へ順に移しており、
 11-02 時点で mutation-probe と aio-monitoring の run は `Image: ubuntu-26.04` で走っている（probe の behavior 側
 407 件は 26.04 で全件 pass ＝ 機能面の移行は済んでいる）。screenshot はフォント描画が OS で変わりうるので、
 **再生成は新しい image で行う**のが正しい（この workflow も `ubuntu-latest` なので、dispatch すれば自然にそうなる）。
 ADVISORY の screenshot は少なくとも 09-10 から全 run で失敗しており、差分の大半は意図したヒーローの文言の
 書き換え（h1 の focus 枠は #2258 で別に直した）。
+**2026-11-02 に実施した手順（次回もこのとおり）**: (1) dispatch（`reason` に理由を書く）→ (2) 生成 run が作る PR は
+**bot（GITHUB_TOKEN）が作るので、その PR の workflow は `action_required` で止まる** —— `gh api -X POST
+repos/<owner>/<repo>/actions/runs/<id>/approve` で実行を承認する → (3) PR の変更が baseline PNG 1 枚だけであること、
+新しい画像が意図したページ（文言・focus 枠の有無）であることを確かめる → (4) CI で ADVISORY の screenshot が
+`1 passed` になることを見て merge。merge は オーナー明言（「3 人全員に全委任」）により AI が行う。
 
 ## Change impact
 
