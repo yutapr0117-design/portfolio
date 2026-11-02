@@ -37,7 +37,7 @@
 
 - ![aio-monitoring.yml](https://github.com/yutapr0117-design/portfolio/actions/workflows/aio-monitoring.yml/badge.svg?branch=main) — [aio-monitoring.yml の実行履歴](https://github.com/yutapr0117-design/portfolio/actions/workflows/aio-monitoring.yml)
 - ![mutation-probe.yml](https://github.com/yutapr0117-design/portfolio/actions/workflows/mutation-probe.yml/badge.svg?branch=main) — [mutation-probe.yml の実行履歴](https://github.com/yutapr0117-design/portfolio/actions/workflows/mutation-probe.yml)
-- **AIO 監視の実測**: ログの 30 run のうち、1 問でも測れた run は 0 件（最後: 一度も無い）。直近 30 run は連続で何も測れていない。**上のバッジの緑は workflow が完走したことしか意味しない** —— engine の失敗理由はログの各 query の `status` に残っている（`docs/evidence/aio-monitoring-log.json`）。
+- **AIO 監視の実測**: ログの 31 run のうち、1 問でも測れた run は 0 件（最後: 一度も無い）。直近 31 run は連続で何も測れていない。**上のバッジの緑は workflow が完走したことしか意味しない** —— engine の失敗理由はログの各 query の `status` に残っている（`docs/evidence/aio-monitoring-log.json`）。
 
 **main への push で走るもの（デプロイと bot）** — PR ゲートが全緑でも**独立に失敗しうる**層です。サイトが公開されているかを決めているのはここ。
 
