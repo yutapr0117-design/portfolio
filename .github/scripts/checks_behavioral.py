@@ -217,7 +217,7 @@ def run(ctx):
     for _f425 in _JS425:
         if not _f425.exists():
             continue
-        _src425 = re.sub(r"//.*", "", _f425.read_text(encoding="utf-8"))
+        _src425 = strip_js_comments(_f425.read_text(encoding="utf-8"))
         for _m425 in re.finditer(r"h\(\s*['\"][\w-]+['\"]\s*,\s*\{", _src425):
             _i425 = _src425.index("{", _m425.start())
             _depth425 = 0
@@ -235,7 +235,9 @@ def run(ctx):
                 or '"data-action"' in _props425
                 or re.search(r"dataset\s*:\s*\{[^}]*\baction\b", _props425)
             )
-            if _hasAction425 and re.search(r"\bonclick\s*:", _props425):
+            # h() はイベント名を小文字化して addEventListener する (ui-components.js) ので、
+            # `onClick:` / `'onclick':` も同じ二重発火を起こす (2026-11-02 まで小文字の裸の key だけを見ていた)
+            if _hasAction425 and re.search(r"""(?<![\w$])['"]?onclick['"]?\s*:""", _props425, re.I):
                 _viol425.append(f"{_f425.name}: {_props425[:60].replace(chr(10), ' ')}")
     check(
         not _viol425,
@@ -430,7 +432,7 @@ def run(ctx):
     # 固定する方式を選んだ。
     _uic406 = ROOT / "js" / "ui-components.js"
     if _uic406.exists():
-        _src406 = re.sub(r"//[^\n]*", "", _uic406.read_text(encoding="utf-8"))
+        _src406 = strip_js_comments(_uic406.read_text(encoding="utf-8"))
         _has_in406 = re.search(r"addEventListener\(\s*['\"]focusin['\"]", _src406)
         _has_out406 = re.search(r"addEventListener\(\s*['\"]focusout['\"]", _src406)
         _has_clear406 = "clearTimeout(" in _src406
@@ -461,7 +463,7 @@ def run(ctx):
     for _f407 in _shipped407:
         if _f407.name == "ui-components.js":
             continue  # announce() 本体が唯一の正当な writer
-        _src407 = re.sub(r"//[^\n]*", "", _f407.read_text(encoding="utf-8"))
+        _src407 = strip_js_comments(_f407.read_text(encoding="utf-8"))
         if re.search(r"(?:getElementById\(\s*['\"]action-announcement['\"]|querySelector\(\s*['\"]#action-announcement['\"])", _src407):
             _writers407.append(str(_f407.relative_to(ROOT)))
     _has_announce407 = _uic407.exists() and re.search(r"export function announce\s*\(", _uic407.read_text(encoding="utf-8"))

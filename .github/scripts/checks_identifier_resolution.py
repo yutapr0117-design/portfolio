@@ -248,7 +248,7 @@ def run(ctx):
         for _f375 in sorted((ROOT / "js").glob("*.js")) + [ROOT / "main.js"]:
             if not _f375.exists():
                 continue
-            _t375 = re.sub(r"//[^\n]*", "", _f375.read_text(encoding="utf-8"))
+            _t375 = strip_js_comments(_f375.read_text(encoding="utf-8"))
             for _cm375 in re.finditer(r"createIcon\(", _t375):
                 _arg375 = _first_arg375(_t375, _cm375.end())
                 # 三項の **値位置** のリテラルだけを icon 名とみなす。条件部のリテラル
@@ -353,7 +353,7 @@ def run(ctx):
         for _f376 in sorted((ROOT / "js").glob("*.js")) + [ROOT / "main.js"]:
             if not _f376.exists():
                 continue
-            _t376 = re.sub(r"//[^\n]*", "", _f376.read_text(encoding="utf-8"))
+            _t376 = strip_js_comments(_f376.read_text(encoding="utf-8"))
             for _pat376 in (r"data-action\s*=\s*['\"]([A-Za-z][\w:-]*)['\"]",
                             r"['\"]data-action['\"]\s*:\s*['\"]([A-Za-z][\w:-]*)['\"]",
                             r"setAttribute\(\s*['\"]data-action['\"]\s*,\s*['\"]([A-Za-z][\w:-]*)['\"]",
@@ -547,7 +547,7 @@ def run(ctx):
         for _f393 in _shipped393:
             _rel393 = str(_f393.relative_to(ROOT))
             # コメントは除去する (説明文中の `CONSTANTS.LIMITS.XXX` 例示を実参照と誤認しないため)。
-            _src393f = re.sub(r"//[^\n]*", "", _f393.read_text(encoding="utf-8"))
+            _src393f = strip_js_comments(_f393.read_text(encoding="utf-8"))
             for _mm393 in re.finditer(r"\bCONSTANTS((?:\.[A-Za-z_]\w*)+)", _src393f):
                 _segs393 = _mm393.group(1).lstrip(".").split(".")
                 _seg1_393 = _segs393[0]
@@ -611,7 +611,7 @@ def run(ctx):
         _segs395.add("")  # 空 navigate('') = home default
         _targets395 = {}  # target -> source file
         for _f395 in _shipped395:
-            _t395 = re.sub(r"//[^\n]*", "", _f395.read_text(encoding="utf-8"))
+            _t395 = strip_js_comments(_f395.read_text(encoding="utf-8"))
             for _m395 in re.finditer(r"""Router\.navigate\(\s*['"]([^'"$]+)['"]""", _t395):
                 _targets395.setdefault(_m395.group(1), str(_f395.relative_to(ROOT)))
             # データ駆動記法: `Router.navigate(<識別子>)` を呼ぶ file は nav 先を literal でなく
@@ -650,7 +650,7 @@ def run(ctx):
     _router396 = ROOT / "js" / "router.js"
     _pagemeta396 = ROOT / "js" / "page-meta.js"
     if _router396.exists() and _pagemeta396.exists():
-        _rsrc396 = re.sub(r"//[^\n]*", "", _router396.read_text(encoding="utf-8"))
+        _rsrc396 = strip_js_comments(_router396.read_text(encoding="utf-8"))
         _routenames396 = set(re.findall(r"route\.name\s*=\s*['\"]([\w-]+)['\"]", _rsrc396))
         _routenames396.update(re.findall(r"\{\s*name:\s*['\"]([\w-]+)['\"]", _rsrc396))  # 初期 { name: 'home' }
         _appwl396 = re.search(r"\[([^\]]*)\]\.includes\(app\)", _rsrc396)

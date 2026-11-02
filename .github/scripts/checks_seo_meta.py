@@ -854,9 +854,10 @@ def run(ctx):
         # 動的 JSON-LD (main.js) の参照フラグメントも同じ定義集合へ解決させる
         _dyn412 = []
         if _main412.exists():
-            # 行コメント除去。`(?<!:)` が無いと URL の "https://" まで削られ SITE_BASE の抽出が
-            # 壊れる (実測: 捕捉群がコード全体に伸びた)。
-            _msrc412 = re.sub(r"(?<!:)//[^\n]*", "", _main412.read_text(encoding="utf-8"))
+            # コメント除去は共有の字句 helper で (`(?<!:)//` の正規表現は `https://` は避けるが、
+            # 文字列中の ` // ` や正規表現リテラルの `//` から行末までを消していた)。
+            from _lib_io import strip_js_comments as _strip412
+            _msrc412 = _strip412(_main412.read_text(encoding="utf-8"))
             _base412 = re.search(r"SITE_BASE\s*=\s*'([^']+)'", _msrc412)
             if _base412:
                 for _f412 in re.findall(r"SITE_BASE\s*\+\s*'(#[\w-]+)'", _msrc412):

@@ -93,6 +93,7 @@ import json
 
 
 def run(ctx):
+    from _lib_io import strip_js_comments
     ROOT = ctx.ROOT
     check = ctx.check
 
@@ -193,7 +194,7 @@ def run(ctx):
         # 除去 (この region に `//` を含む文字列 URL は無いため素朴除去で安全)。
         _ns373 = _src373.find("function normalizeAppsData")
         _ne373 = _src373.find("return result;", _ns373) if _ns373 != -1 else -1
-        _norm_body373 = re.sub(r"//[^\n]*", "", _src373[_ns373:_ne373]) if (_ns373 != -1 and _ne373 != -1) else None
+        _norm_body373 = strip_js_comments(_src373[_ns373:_ne373]) if (_ns373 != -1 and _ne373 != -1) else None
         _unpreserved373 = [
             _key for _key in _keys373
             if _norm_body373 is None or not re.search(r"\bdata\." + re.escape(_key) + r"\b", _norm_body373)
@@ -231,7 +232,7 @@ def run(ctx):
         if _ps404 != -1:
             _inner404 = _balanced_obj373(_src373[_ps404:], "store.profile =")
             if _inner404 is not None:
-                _pblock404 = re.sub(r"//[^\n]*", "", _inner404)
+                _pblock404 = strip_js_comments(_inner404)
         _unpreserved404 = [
             _k404 for _k404 in _keys404
             if _pblock404 is None or not re.search(r"\bdata\.profile\." + re.escape(_k404) + r"\b", _pblock404)
@@ -269,7 +270,7 @@ def run(ctx):
         _META405 = {"schemaVersion", "type", "lastModified"}
         _vs405 = _src373.find("function validateAndNormalize")
         _ve405 = _src373.find("return store;", _vs405) if _vs405 != -1 else -1
-        _vbody405 = re.sub(r"//[^\n]*", "", _src373[_vs405:_ve405]) if (_vs405 != -1 and _ve405 != -1) else None
+        _vbody405 = strip_js_comments(_src373[_vs405:_ve405]) if (_vs405 != -1 and _ve405 != -1) else None
         _unread405 = [
             _k405 for _k405 in _keys405
             if _k405 not in _META405

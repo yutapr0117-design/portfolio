@@ -530,6 +530,22 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 425: sidebar のテーマボタンに data-action と onClick (キャメルケース) を併存させる —— h() はイベント名を小文字化するので同じ二重発火になるが、旧形は小文字の onclick: しか見なかった',
+    "file": ROOT / "js" / "components.js",
+    "find": "                    onclick: Theme.cycle,\n",
+    "replace": "                    'data-action': 'theme:cycle',\n                    onClick: Theme.cycle,\n",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 481: Check 428 の JS 読み込みを 1 段の // 正規表現に戻す —— 文字列中の https:// から行末まで消し、URL の後ろの違反を隠す形',
+    "file": ROOT / ".github" / "scripts" / "checks_css.py",
+    "find": '_js428 = strip_js_comments(_p428.read_text(encoding="utf-8"))',
+    "replace": '_js428 = re.sub(r"//[^\\n]*", "", _p428.read_text(encoding="utf-8"))',
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

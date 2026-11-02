@@ -185,6 +185,7 @@ import json
 
 
 def run(ctx):
+    from _lib_io import strip_js_comments
     ROOT = ctx.ROOT
     check = ctx.check
     style = ctx.style
@@ -675,7 +676,7 @@ def run(ctx):
         # JS が setProperty で注入する変数も「定義済み」として扱う (brand 切替など)
         for _p428 in sorted((ROOT / "js").glob("*.js")) + [ROOT / "main.js", ROOT / "theme-init.js"]:
             if _p428.exists():
-                _js428 = re.sub(r"//[^\n]*", "", _p428.read_text(encoding="utf-8"))
+                _js428 = strip_js_comments(_p428.read_text(encoding="utf-8"))
                 _defined428 |= set(re.findall(r"setProperty\(\s*['\"](--[A-Za-z0-9_-]+)", _js428))
         # フォールバック無しの var() だけを対象にする (`var(--x)` で次が `,` でない)
         _nofallback428 = set(re.findall(r"var\(\s*(--[A-Za-z0-9_-]+)\s*\)", _src428))
@@ -705,7 +706,7 @@ def run(ctx):
         for _f433 in _files433:
             if not _f433.exists():
                 continue
-            _js433 = re.sub(r"//[^\n]*", "", _f433.read_text(encoding="utf-8"))
+            _js433 = strip_js_comments(_f433.read_text(encoding="utf-8"))
             for _m433 in re.finditer(r"class(?:Name)?\s*[:=]\s*['\"`]([^'\"`$]+)['\"`]", _js433):
                 for _c433 in _m433.group(1).split():
                     if _c433.startswith(_SEM433):
@@ -718,7 +719,7 @@ def run(ctx):
         for _f433 in _files433:
             if not _f433.exists():
                 continue
-            _js433 = re.sub(r"//[^\n]*", "", _f433.read_text(encoding="utf-8"))
+            _js433 = strip_js_comments(_f433.read_text(encoding="utf-8"))
             for _m433 in re.finditer(r"Toast\.show\([^)]*?,\s*['\"]([a-z]+)['\"]", _js433):
                 _types433.add(_m433.group(1))
         for _t433 in sorted(_types433):

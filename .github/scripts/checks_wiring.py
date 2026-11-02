@@ -289,7 +289,8 @@ def run(ctx):
         # 移っても守り続けるため、および ui-components 等の走査も同じ契約で縛るため。
         # 新規 file が既定で守られる極性 (Check 124/361 と同じ) を最初から取る。
         _scan411 = [_main411] + _leaves411
-        _src411 = "\n".join(re.sub(r"(?<!:)//[^\n]*", "", _p411.read_text(encoding="utf-8"))
+        from _lib_io import strip_js_comments as _strip411
+        _src411 = "\n".join(_strip411(_p411.read_text(encoding="utf-8"))
                             for _p411 in _scan411)
         # 解決先の corpus には index.html も含める。topbar 等の静的マークアップが属性を出しており
         # (実測: data-bgm-btn は index.html にのみ存在)、JS だけを見ると誤検出になる。
