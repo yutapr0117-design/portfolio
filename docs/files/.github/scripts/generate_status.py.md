@@ -27,6 +27,10 @@ build_status()   →  AI2AI.md から Pipeline-Version / 最新 Session Record #
                       (b) `schedule:` で起動 = 定期実行。**PR を止めないので赤くても誰にも届かない**
                           ため別枠 + 但し書きを付ける (安全網の自己検証 = mutation-probe / 週次 AIO
                           監視 = aio-monitoring がここに属する)
+                      定期実行の直後に **AIO 監視の実測** を 1 行出す (2026-11-02): ログ
+                      `docs/evidence/aio-monitoring-log.json` から「1 問でも測れた run の数・最後の日時・
+                      直近の連続未測定 run 数」を導出する。workflow は engine が全部エラーでも success なので、
+                      バッジの緑だけでは「29 run すべて 0 件」が見えなかった。週次 bot が同じ commit で再生成する (Check 487)。
                     全ワークフロー履歴 / 未マージ PR / 公開サイトへのリンクも出す。
                     **トリガ判定は全文からコメント行を除いた上で `on:` ブロックだけを走査する**
                     (2026-08-10 修正: 以前は先頭 800 文字しか見ておらず、33 行の WHY コメントヘッダを

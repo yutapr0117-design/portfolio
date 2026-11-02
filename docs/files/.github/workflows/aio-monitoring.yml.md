@@ -22,7 +22,8 @@ schedule (毎週月曜 10:00 JST) / workflow_dispatch
   └─ checkout
   └─ aio_monitoring.py (engine: Gemini / OpenAI / etc.)
   └─ update_aio_digests.py (manifest 同期)
-  └─ commit + push (log + digest を atomic に同 commit)
+  └─ generate_status.py (STATUS.md の「AIO 監視の実測」をログから再導出・2026-11-02)
+  └─ commit + push (log + digest + STATUS.md を atomic に同 commit)
   └─ citation_change なら Issue 自動作成
 ```
 
@@ -30,6 +31,8 @@ schedule (毎週月曜 10:00 JST) / workflow_dispatch
 
 - **C6 範疇**: AIO surface 編集の auto pipeline
 - **Check 41**: log と manifest の atomic commit invariant
+- **Check 487**: STATUS 生成器がこのログを読むので、STATUS.md も同じ commit で再生成する（bot の main 直 push は PR ゲートを通らず、ずれは次の PR の Check 121 で初めて赤くなる）
+- **バッジの緑は観測の成功を意味しない**: engine が全部エラーでも workflow は success で終わる。2026-11-02 時点でログ 29 run すべてで測れた query は 0 件（Gemini は 429 quota・OpenAI は free tier 切れ）で、STATUS.md の監査節がその数を出す
 - **Check 67**: top-level `permissions:` 明示 (contents: write + issues: write)
 - **concurrency**: group per ref + cancel-in-progress: false (race 防止)
 
