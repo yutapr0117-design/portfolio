@@ -1,7 +1,7 @@
 ---
 file: LICENSES/BLIND-SPOTS.md
 audience: 次のセッションの実装者（一次読者）/ 監査人
-last-updated: 2026-11-01
+last-updated: 2026-11-02
 canonical-ref: LICENSES/ACD-1.0.against.md (見つかったもの) / LICENSES/REVISION-PROTOCOL.md (改訂サイクル)
 ---
 
@@ -20,7 +20,7 @@ canonical-ref: LICENSES/ACD-1.0.against.md (見つかったもの) / LICENSES/RE
 **#116 の disposition で「長さへの実際に効く緩和は短い入口である」と書いた。**
 書いた直後に、その短い入口が**入口ページに載っていない**ことが分かった。
 
-同じ日に作った `ACD-1.0.objection-map.md`（1 表・638 語）は
+同じ日に作った `ACD-1.0.objection-map.md`（1 表・638 語 —— macOS の `wc -w` の値で、空白区切りなら 620。日本語を含むので数え方で割れる・`ACD-OSI-BOTTLENECKS.md` B13 の表の注）は
 `LICENSES/README.md`（GitHub がディレクトリで自動描画する日本語の索引）からは辿れたが、
 **`REVIEWERS.md`（審査者向けの英語の入口）には無かった。**
 **リストから来る読者が着地するのは後者である。**
