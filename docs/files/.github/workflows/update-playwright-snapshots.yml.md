@@ -1,7 +1,7 @@
 ---
 file: .github/workflows/update-playwright-snapshots.yml
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-11-02
 canonical-ref: e2e/portfolio.spec.js / .github/workflows/playwright-regression.yml
 ---
 
@@ -31,6 +31,14 @@ on: workflow_dispatch (手動)
 - **Check 48**: PR 作成 step がある場合は contents:write + pull-requests:write の両方明示
 - **Check 51**: Playwright の pin（`package.json` が権威・版数はここに書き写さない）を runbook と整合
 - **Check 67**: permissions 明示
+
+**baseline を再生成する前に読むこと（2026-11-02 実測）**: いまの baseline は 2026-06-10 の run 27243953369 で作られ、
+当時の `ubuntu-latest` は 24.04 だった。GitHub は 2026-10-19 から `ubuntu-latest` を **26.04** へ順に移しており、
+11-02 時点で mutation-probe と aio-monitoring の run は `Image: ubuntu-26.04` で走っている（probe の behavior 側
+407 件は 26.04 で全件 pass ＝ 機能面の移行は済んでいる）。screenshot はフォント描画が OS で変わりうるので、
+**再生成は新しい image で行う**のが正しい（この workflow も `ubuntu-latest` なので、dispatch すれば自然にそうなる）。
+ADVISORY の screenshot は少なくとも 09-10 から全 run で失敗しており、差分の大半は意図したヒーローの文言の
+書き換え（h1 の focus 枠は #2258 で別に直した）。
 
 ## Change impact
 
