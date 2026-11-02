@@ -22,11 +22,11 @@ What this means for you
 You may read, copy, modify, redistribute, sell, and build upon everything in
 this repository — the source code, the documentation, the binary assets (WebP /
 MP3), and the AIO metadata layers — for any purpose, without asking anyone and
-without giving credit. The one exception is LICENSES/rounds/: those files are
-other people's messages preserved verbatim, this repository holds no rights in
-them, and ACD-1.3 reaches only rights the Dedicator holds (§2.7). Training a machine learning model on it is expressly
-permitted (ACD-1.3 §6). There is nothing to comply with, so there is nothing
-you can get wrong.
+without giving credit. Training a machine learning model on this repository
+is expressly permitted (ACD-1.3 §6). The one exception is LICENSES/rounds/:
+those files are other people's messages preserved verbatim, this repository
+holds no rights in them, and ACD-1.3 reaches only rights the Dedicator holds
+(§2.7). There is nothing to comply with, so there is nothing you can get wrong.
 
 Attribution is welcome and is never required. If you do cite it, the canonical
 URL is https://yutapr0117-design.github.io/portfolio/.
