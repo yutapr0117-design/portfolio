@@ -696,3 +696,17 @@ E14 も E18 も「宣言が一部しか覆っていない」欠陥で、直す�
 **見つけ方**: 弁護士への質問集の引用を本文に大小区別ありで照合していたとき、並ぶ 3 条（§2.8 / §5.3 / §12.4）の限定句を語ごとに見比べた。
 **一般形: 列挙を「全体」に置き換えると、全体の中にある個別の同種規定と対象が重なる。置き換えた日に、重なった規定の文言が同じかを確かめる。**
 
+## 3r. 1.1 が持ち込んだ欠陥 —— §16.4 に足した re-encoding の但し書きが、隣の翻訳の但し書きと違って「使用への条件ではない」と断っていなかった（2026-11-02）
+
+**25 の掃引で発見した。** 1.1 は §16.4 に *"A re-encoding of the text into a machine-readable form is likewise not a modified text for this purpose, provided the words
+are unchanged and the form is identified as a re-encoding"* を足した（2026-09-14・commit fa740f1b・外部レビューが §16.4 について挙げた点のうち、本文に欠けていた 1 点への対処）。直前の翻訳の但し書きは
+1.0 から *"that proviso is a condition upon distributing the translated text, not upon any use of the Work (Section 10.5)"* と自分で断っていたが、**足した但し書きには同じ断りを付けなかった**。
+並ぶ 2 つの但し書きで片方だけが断ると、断らない側は Work の使用への条件と読まれうる。**これは E9（against #57）—— 条件なしの網の目で、隣が限定されているのに 1 文だけ限定が無い —— と同じ形で、
+その E9 を直した版（1.1）が、同じ網の目に限定の無い文を 1 つ足していた。** §10.5（§16 は Work の使用への条件ではない）と §16.6 が §16 全体について同じことを述べるので、実害の読みは弱い。
+
+**直したもの**: 1.4 草案で翻訳側の個別の断りを外し、末尾に *"Both provisos are conditions upon distributing the text, not upon any use of the Work (Section 10.5)."* を置いた（−2 語）。
+1.1〜1.3 は凍結のまま残る。
+
+**見つけ方**: §10.1 と食い違う言い回し（must / shall / required / provided / only if / unless / subject to）を本文全体から機械的に洗い、You に向いた候補を 1 件ずつ当てた。
+**一般形: 網の目に文を足すときは、隣の文が持つ限定を足す文にも付けたかを、足した日に確かめる**（E9 の教訓を、E9 を直した側が自分の追加に当てていなかった）。
+
