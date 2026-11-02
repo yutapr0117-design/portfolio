@@ -54,7 +54,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
       identifier-coherence)。(BLOCKING when present, ADVISORY when absent)
   481. **JS を走査する Check は、コメントを共有の字句 helper (`_lib_io.strip_js_comments`) で消す**
        (BLOCKING)。(a) `checks_*.py` に「`/* */` を消す re.sub の直後に `//` を消す re.sub」という
-       2 段の形が無いこと (CSS は `//` を持たないので 1 段の `/* */` 除去は対象外)。(b) helper が
+       2 段の形も、`//` を消す 1 段の re.sub も無いこと (後者は文字列中の `https://` から行末まで
+       消す・2026-11-02 に 18 箇所を helper へ移した。CSS は `//` を持たないので 1 段の `/* */`
+       除去は対象外)。(b) helper が
        罠を集めた fixture を正しく処理すること。2026-11-01 に実測: 2 段の形は `//` コメント中の
        `js/quiz/*-quiz-data.js` をブロックコメントの始まりと読み、次の `*/` まで**実コードごと消す**
        ——main.js で 74 行、e2e spec 2 本で 52 行と 84 行。**Check 124 (サイト UI の匿名性ガード) は、
@@ -297,12 +299,18 @@ def run(ctx):
     _bad481 = []
     _block_re481 = re.compile(r're\.sub\(\s*r?["\']/\\\*\.\*\?\\\*/')
     _line_re481 = re.compile(r're\.sub\(\s*r?["\'](?:\^\\s\*|\(\?<!:\))?//')
+    # 2026-11-02: 1 段の `//` 除去 (`re.sub(r"//[^\n]*", "", …)`) も禁じる。文字列中の `https://`
+    # から行末まで消すので、URL の後ろに書いた違反が見えなくなる (16 箇所を helper へ移した)。
+    # `(?<!:)//` 形も、文字列中の ` // ` と正規表現リテラルの `//` で同じことが起きる。
     for _p481 in sorted((ROOT / ".github" / "scripts").glob("checks_*.py")):
         _ls481 = _p481.read_text(encoding="utf-8").splitlines()
         for _i481, _l481 in enumerate(_ls481):
-            if _l481.lstrip().startswith("#") or not _block_re481.search(_l481):
+            if _l481.lstrip().startswith("#"):
                 continue
-            if any(_line_re481.search(_n481) for _n481 in _ls481[_i481 + 1:_i481 + 4]):
+            if _line_re481.search(_l481):
+                _bad481.append(f"{_p481.name}:{_i481 + 1} (正規表現で // を消している)")
+            elif _block_re481.search(_l481) and any(
+                    _line_re481.search(_n481) for _n481 in _ls481[_i481 + 1:_i481 + 4]):
                 _bad481.append(f"{_p481.name}:{_i481 + 1}")
     # (b) helper の fixture —— 2 段除去・素朴な 1 回走査がそれぞれ誤った実例を集めてある
     _fx481 = ("const a = 1; // see js/quiz/*-quiz-data.js\n"

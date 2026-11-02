@@ -267,7 +267,7 @@ def run(ctx):
                 _main_src47):
             _imported47.add(_dyn47.group(1))
         if _imp_m47:
-            _block_nc47 = re.sub(r"//[^\n]*", "", _imp_m47.group(1))  # strip inline comments first
+            _block_nc47 = strip_js_comments(_imp_m47.group(1))  # strip inline comments first
             for _tok47 in re.split(r"[,\n]", _block_nc47):
                 _name47 = _tok47.strip()
                 if re.fullmatch(r"[A-Za-z_$][\w$]*", _name47):
@@ -291,7 +291,7 @@ def run(ctx):
         _exported47 |= set(re.findall(r"^export\s+(?:const|let|var)\s+([A-Za-z_$][\w$]*)",
                                       _msrc47, re.MULTILINE))
         for _named_block47 in re.findall(r"^export\s*\{([^{}]*)\}\s*;?", _msrc47, re.MULTILINE):
-            _block_nc47 = re.sub(r"//[^\n]*", "", _named_block47)  # strip inline comments
+            _block_nc47 = strip_js_comments(_named_block47)  # strip inline comments
             for _tok47 in re.split(r"[,\n]", _block_nc47):
                 _name47 = _tok47.strip()
                 # `export { foo as bar }` — bar is the exposed external name
