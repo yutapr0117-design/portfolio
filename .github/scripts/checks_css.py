@@ -424,9 +424,10 @@ def run(ctx):
     _html323 = ROOT / "index.html"
     if _html323.exists():
         _hs323 = _html323.read_text(encoding="utf-8")
-        # HTML コメントを除外してからスキャン
-        _stripped323 = re.sub(r"<!--.*?-->", "", _hs323, flags=re.DOTALL)
-        _style_attrs323 = re.findall(r'\bstyle\s*=\s*"[^"]*"', _stripped323)
+        # 属性は `_lib_io.html_attributes` で読む (コメントと script / style の中身は除く)。
+        # 2026-11-02 まで `style\s*=\s*"…"` で探しており、`STYLE="…"` / `style='…'` を素通りしていた。
+        from _lib_io import html_attributes as _attrs323
+        _style_attrs323 = [_raw for _t, _n, _v, _raw in _attrs323(_hs323) if _n == "style"]
         _count323 = len(_style_attrs323)
         _ok323 = _count323 == 0
         check(

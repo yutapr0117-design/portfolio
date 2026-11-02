@@ -200,13 +200,16 @@ def run(ctx):
     # index.html の全 `on*="..."` 属性 (HTML comment 外) が CSP unsafe-hashes で
     # whitelist された 1 パターン `onload="this.media='all'"` のみであることを
     # BLOCKING 強制。drift は CSP script-src を bypass する XSS entry vector。
-    _ALLOWED_INLINE_HANDLERS242 = {"onload=\"this.media='all'\""}
     _idx242 = ROOT / "index.html"
     if _idx242.exists():
         _isrc242 = _idx242.read_text(encoding="utf-8")
-        _stripped242 = re.sub(r"<!--.*?-->", "", _isrc242, flags=re.DOTALL)
-        _handlers242 = re.findall(r'\bon[a-z]+\s*=\s*"[^"]*"', _stripped242)
-        _bad242 = [h for h in _handlers242 if h not in _ALLOWED_INLINE_HANDLERS242]
+        # 属性は `_lib_io.html_attributes` で読む (要素名・属性名の大文字小文字と、値の引用符 3 通り)。
+        # 2026-11-02 まで `on[a-z]+\s*=\s*"…"` で探しており、`ONLOAD="…"` / `onclick='…'` /
+        # `onclick=x` を素通りしていた。allowlist は「属性名 onload ∧ 値 this.media='all'」で照合する。
+        from _lib_io import html_attributes as _attrs242
+        _handlers242 = [f"{_n}={_v!r}" for _t, _n, _v, _raw in _attrs242(_isrc242)
+                        if re.fullmatch(r"on[a-z]+", _n)]
+        _bad242 = [h for h in _handlers242 if h != "onload=\"this.media='all'\""]
         _ok242 = len(_handlers242) > 0 and not _bad242
         check(
             _ok242,

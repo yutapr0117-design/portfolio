@@ -399,3 +399,31 @@ def parse_robots_groups(src: str) -> list[tuple[list[str], list[tuple[str, str]]
 def robots_full_site_disallow(value: str) -> bool:
     """``Disallow:`` の値が全サイトを拒否するか (``/`` / ``/*`` / ``/*$``)。"""
     return bool(_ROBOTS_FULL_SITE.match(value.strip()))
+
+
+_HTML_TAG = re.compile(
+    r"<([a-zA-Z][\w:-]*)((?:\s+[^\s=>/]+(?:\s*=\s*(?:\"[^\"]*\"|'[^']*'|[^\s>]+))?)*)\s*/?>")
+_HTML_ATTR = re.compile(r"([^\s=>/]+)(?:\s*=\s*(\"[^\"]*\"|'[^']*'|[^\s>]+))?")
+
+
+def html_attributes(src: str) -> list[tuple[str, str, str | None, str]]:
+    """HTML の開始タグの属性を、ブラウザと同じ規則に近い形で列挙する。
+
+    返り値は ``[(要素名 (小文字), 属性名 (小文字), 値 (引用符を外したもの / 値なしは None), 原文), ...]``。
+    コメントの中と、``<script>`` / ``<style>`` の中身 (JSON-LD を含む) はタグとして読まない。
+
+    HTML の要素名・属性名は大文字小文字を区別せず、値は二重引用符・一重引用符・引用符なしの
+    3 通りで書ける。2026-11-02 まで Check 242 (inline handler の allowlist) と 323
+    (style 属性の禁止) は ``on[a-z]+\\s*=\\s*"..."`` / ``style\\s*=\\s*"..."`` で探しており、
+    ``ONLOAD="…"`` / ``style='…'`` / ``onclick=x`` を素通りしていた。
+    """
+    s = re.sub(r"<!--.*?-->", lambda m: " " * len(m.group(0)), src, flags=re.S)
+    s = re.sub(r"(<(script|style)\b[^>]*>)(.*?)(</\2\s*>)",
+               lambda m: m.group(1) + " " * len(m.group(3)) + m.group(4), s, flags=re.S | re.I)
+    out: list[tuple[str, str, str | None, str]] = []
+    for t in _HTML_TAG.finditer(s):
+        for a in _HTML_ATTR.finditer(t.group(2)):
+            raw = a.group(2)
+            val = raw[1:-1] if raw and raw[0] in "\"'" else raw
+            out.append((t.group(1).lower(), a.group(1).lower(), val, a.group(0)))
+    return out

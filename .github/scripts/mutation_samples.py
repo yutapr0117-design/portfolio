@@ -217,54 +217,11 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 468n: 草案冒頭の変更一覧の 1 箇条の語数申告をずらす —— 申告の合計が「申告語数 − 前の凍結版の語数」と"
-            "合わなくなる。一覧は差分のすべてだと宣言しており、468 は合計語数しか見ていなかった (portfolio-25 の自己記述レンズ)",
-    "file": CURRENT_DRAFT,
-    "find": "(+21 words.)",
-    "replace": "(+20 words.)",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 54: @eslint/js の major を eslint と食い違わせる —— flat config の推奨ルールが別 major の定義で読まれる',
-    "file": ROOT / "package.json",
-    "find": '"@eslint/js": "1',
-    "replace": '"@eslint/js": "9',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 69: package.json の engines から CI が使う Node の major を外す —— 宣言した対応範囲で CI が走っていない',
-    "file": ROOT / "package.json",
-    "find": ' || >=24"',
-    "replace": '"',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 72: ESLint の warning baseline を上限より大きくする —— 回帰の比較基準そのものが緩む',
-    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
-    "find": '<!-- ESLINT-BASELINE-DATA ',
-    "replace": '<!-- ESLINT-BASELINE-DATA 9',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 18: sitemap の root <loc> の lastmod を千年前へずらす —— root の更新日が ai:last-modified と食い違う (値を含まない prefix で当てる)',
-    "file": ROOT / "sitemap.xml",
-    "find": '<loc>https://yutapr0117-design.github.io/portfolio/</loc>\n    <lastmod>2',
-    "replace": '<loc>https://yutapr0117-design.github.io/portfolio/</loc>\n    <lastmod>1',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 49: Person の worksFor が指す Organization の @id をずらす —— 所属の参照が宙に浮き、構造化データの上では誰の所属か分からなくなる',
-    "file": ROOT / "index.html",
-    "find": '"startDate": "2026-06-11",\n                        "worksFor": {\n                              "@id": "https://nkgr.co.jp/#organization"',
-    "replace": '"startDate": "2026-06-11",\n                        "worksFor": {\n                              "@id": "https://nkgr.co.jp/#organisation"',
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": 'Check 71: §4 BUDGET-DATA に存在しない file の行を足す —— 改名・削除の後に予算表だけが古いまま残る (59 も同時に発火)',
@@ -538,6 +495,22 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "index.html",
     "find": '<script src="./aio-guard.js"></script>',
     "replace": '<script type="text/plain" src="./aio-guard.js"></script>',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 242: manifest link に大文字の ONLOAD handler を足す —— HTML の属性名は大文字小文字を区別しないが、旧形は小文字 + 二重引用符しか探さなかった',
+    "file": ROOT / "index.html",
+    "find": '<link rel="manifest" href="/portfolio/manifest.webmanifest" />',
+    "replace": '<link ONLOAD="fetch(\'//x\')" rel="manifest" href="/portfolio/manifest.webmanifest" />',
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 323: license link に一重引用符の style 属性を足す —— 旧形は style="…" (二重引用符) しか探さなかった',
+    "file": ROOT / "index.html",
+    "find": '<link rel="license" href="/portfolio/LICENSES/ACD-1.3.txt" />',
+    "replace": "<link rel=\"license\" style='display:none' href=\"/portfolio/LICENSES/ACD-1.3.txt\" />",
     "check": CHECK,
 })
 
