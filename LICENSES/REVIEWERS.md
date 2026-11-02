@@ -27,7 +27,7 @@ must be**. *(Earlier figures counted `rounds/` too. Re-measure:
 | the two facts **#1 and #4** in [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~220 | **no lawyer has read this text**, and **the only project using it is the author's**. Either is a sufficient reason to decline |
 | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **827** | every objection we found on these lists in 24 months, and whether it lands |
 
-**≈ 5,950 words** *(`wc -w`, 2026-09-28)*. **What you give up by stopping there**: the clause-by-clause reasoning, the
+**≈ 5,950 words** *(`wc -w`, 2026-09-28. The objection map contains some Japanese, and tools disagree on it: the 827 above equals a count of the space-separated tokens that contain an ASCII character; a plain whitespace split gives 949 and macOS `wc -w` gives 983. The licence is 4,896 by all three.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
 jurisdiction analysis, and the archive measurements — **all of which are evidence for claims,
 not claims themselves.** The four commands below check the licence text without trusting any
 of it.
