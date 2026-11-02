@@ -62,7 +62,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | **1.2 の確定テキスト（凍結・2026-10-17）** | [`ACD-1.2.txt`](ACD-1.2.txt) —— **FROZEN / NOT SUBMITTED FOR APPROVAL / NOT APPLIED**。条番号は 1.1 に従う |
 | **1.1 → 1.2 の変更記録（確定前の最終点検と、草案ヘッダの逐語を含む）** | [`ACD-1.2-CHANGELIST.md`](ACD-1.2-CHANGELIST.md) |
 | **その機械可読記述子（1.2）** | [`ACD-1.2.machine.json`](ACD-1.2.machine.json) |
-| **旧い草案の file 名（案内のみ・本文ではない）** | [`ACD-1.2-DRAFT.txt`](ACD-1.2-DRAFT.txt) —— 凍結済みの 1.1 が名指すので、確定先と次版の作業場を案内するために残した |
+| **旧い草案の file 名（案内のみ・本文ではない）** | [`ACD-1.2-DRAFT.txt`](ACD-1.2-DRAFT.txt) —— 凍結済みの 1.1 が名指すので、確定先と、次版が起草された場所（鎖の次の環 `ACD-1.3-DRAFT.txt`）を案内するために残した。**いまの作業場は名指さない**（2026-11-02 に pointer をこの形へ直した。いまの作業場は下の「次版の草案」行） |
 | **1.3 の確定テキスト（凍結・2026-10-25）—— このリポジトリに適用している版** | [`ACD-1.3.txt`](ACD-1.3.txt) —— **FROZEN / NOT SUBMITTED FOR APPROVAL**。条番号は 1.2（＝1.1）に従う。冒頭は適用状態を述べない（変わりうる事実を凍結テキストに書かないため） |
 | **1.2 → 1.3 の変更記録（確定の判断と、草案ヘッダの逐語を含む）** | [`ACD-1.3-CHANGELIST.md`](ACD-1.3-CHANGELIST.md) |
 | **その機械可読記述子（1.3）** | [`ACD-1.3.machine.json`](ACD-1.3.machine.json) |
