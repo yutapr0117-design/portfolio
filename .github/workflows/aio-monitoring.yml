@@ -98,18 +98,38 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           # ログと、それに連動して再計算された manifest / index を同一コミットに含める。
           # これにより、コミット境界で常に「ログ sha == manifest 記録 sha」が成り立つ。
-          git add \
-            docs/evidence/aio-monitoring-log.json \
-            .well-known/aio-manifest.json \
-            .well-known/index.json \
-            .well-known/agent-skills/index.json \
-            STATUS.md
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-          else
+          #
+          # **push が拒否されたら新しい main の上で作り直す (2026-11-02)。** query の実行に 1〜2 分
+          # かかり、その間に main が進むと push は `fetch first` で拒否される (2026-11-02 の dispatch で
+          # 実測: 3 セッションが並行して merge している時間帯だった)。ログを書くのはこの workflow だけで
+          # (concurrency で直列化)、manifest / index / STATUS.md はログとリポジトリから導出される値なので、
+          # rebase で衝突を解くより「新しい main + この run のログ」から導出し直す方が確実である。
+          cp docs/evidence/aio-monitoring-log.json "$RUNNER_TEMP/aio-monitoring-log.json"
+          for attempt in 1 2 3 4; do
+            git add \
+              docs/evidence/aio-monitoring-log.json \
+              .well-known/aio-manifest.json \
+              .well-known/index.json \
+              .well-known/agent-skills/index.json \
+              STATUS.md
+            if git diff --cached --quiet; then
+              echo "No changes to commit."
+              exit 0
+            fi
             git commit -m "chore(aio-monitoring): weekly log update + digest sync $(date -u +%Y-%m-%d)"
-            git push
-          fi
+            if git push; then
+              exit 0
+            fi
+            echo "::warning::push rejected (main moved during the run) — rebuilding on the new main (attempt ${attempt}/4)"
+            sleep $((attempt * 10))
+            git fetch origin main
+            git reset --hard origin/main
+            cp "$RUNNER_TEMP/aio-monitoring-log.json" docs/evidence/aio-monitoring-log.json
+            python3 .github/scripts/update_aio_digests.py
+            python3 .github/scripts/generate_status.py
+          done
+          echo "::error::push was rejected 4 times — the monitoring run is not recorded"
+          exit 1
 
       # ── 引用状況の変化 → Issue で通知（P2-01/02）──────────────────────
       # 増加・減少を 1 ステップに統合（重複排除・保守性向上）。
