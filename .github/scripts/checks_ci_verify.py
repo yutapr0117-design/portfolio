@@ -55,6 +55,11 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        badge, and on 2026-11-02 the screenshot had failed on every run since at least
        2026-09-10 without anyone seeing it. (BLOCKING)
 
+  437b. 式で与える `timeout-minutes: ${{ … }}` は `fromJSON(…)` で数値にする: env の値は文字列で、
+       素の `${{ env.X }}` だと GitHub は template error を ##[error] で記録して **timeout なしで**走らせる。
+       2026-11-02 に、install の step timeout が 2026-08-21 の一本化以来 2 か月半効いていなかったのを発見した
+       (run は success なので見えなかった)。(BLOCKING)
+
   486. CI の presence 型 advisory (`grep -q X F || echo "::warning::…"`) は、いまの tree で一致する:
        対象が移ると、この形は黙るのではなく**すべての run で同じ warning を出し続ける**形で壊れる。
        2026-11-02 に、Trusted Types 検査が 2026-05-24 の分割で main.js へ移った policy を index.html に
@@ -223,6 +228,27 @@ def run(ctx):
               "Check 437: playwright-regression.yml に INSTALL_TIMEOUT_MIN が無い — "
               "install timeout の単一ソースが失われると message と timeout が再び drift する",
               blocking=True)
+
+    # ── 437b. 式で与える timeout-minutes は fromJSON で数値にする (BLOCKING) ──────────
+    # 2026-11-02: install の step timeout は `${{ env.INSTALL_TIMEOUT_MIN }}` で、env の値は文字列なので
+    # GitHub は「The template is not valid … Unexpected value '11'」と ##[error] を記録したうえで
+    # **step timeout なしで**走らせていた。run は success なので誰にも見えず、2026-08-21 に値を env へ
+    # 一本化した commit から 2 か月半、install の停滞を step に閉じ込める設計 (#1138) が効いていなかった。
+    _bad437b = []
+    for _wf in sorted((ROOT / ".github" / "workflows").glob("*.yml")):
+        for _n, _l in enumerate(_wf.read_text(encoding="utf-8").splitlines(), 1):
+            _m = re.match(r"\s*timeout-minutes:\s*\$\{\{\s*(.*?)\s*\}\}", _l)
+            if _m and not _m.group(1).startswith("fromJSON("):
+                _bad437b.append(f"{_wf.name}:{_n} ({_m.group(1)})")
+    _inst437b = re.search(r"timeout-minutes:\s*\$\{\{\s*fromJSON\(env\.INSTALL_TIMEOUT_MIN\)\s*\}\}", _wf437)
+    check(
+        not _bad437b and bool(_inst437b),
+        "Check 437b: 式で与える timeout-minutes が fromJSON で数値化され、install の step timeout が単一ソースを引く",
+        (f"Check 437b: 式の timeout-minutes が文字列のまま ({_bad437b}) か、install step が "
+         "`${{ fromJSON(env.INSTALL_TIMEOUT_MIN) }}` を引いていない。文字列だと GitHub は template error を記録して "
+         "**timeout なしで**走らせ、run は success なので誰にも見えない"),
+        blocking=True,
+    )
 
     # ── 486. CI の「grep -q X F || echo ::warning」は、いまの tree で一致する (BLOCKING) ──────
     # 2026-11-02: architecture-validation.yml の Trusted Types 検査は index.html に

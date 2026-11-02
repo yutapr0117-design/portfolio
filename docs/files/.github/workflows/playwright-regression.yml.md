@@ -23,7 +23,7 @@ on:
   paths: [index.html, main.js, js/**, style.css, e2e/**, 自分自身, AIO 系...]
 job: timeout-minutes 20
 └─ checkout + setup-node + npm ci
-└─ Install Playwright and dependencies  (step timeout = env INSTALL_TIMEOUT_MIN)
+└─ Install Playwright and dependencies  (step timeout = fromJSON(env.INSTALL_TIMEOUT_MIN)・Check 437b)
 └─ Run behavior / functionality tests  (BLOCKING・E2E_HERMETIC=1・list + json reporter)
 └─ Behavior gate ran every test        (BLOCKING・json の stats で skipped == 0 を要求・Check 432b)
 └─ Run visual regression               (ADVISORY・continue-on-error・id: visual)
@@ -45,6 +45,7 @@ API / バッジ / PR の checks 上は success に見えるので、screenshot �
 - **Check 51**: Playwright の pin（`package.json` が権威・版数はここに書き写さない）が runbook と一致
 - **Check 347 / 347b**: behavior step が BLOCKING であること / ADVISORY の失敗を表に出す step が条件ごと残ること
 - **Check 432b / 114b**: skipped 0 の gate / `forbidOnly`（runner 自身が CI で `.only` を拒否）
+- **Check 437b**: 式の `timeout-minutes` は `fromJSON` で数値化する。env の値は文字列で、素の `${{ env.X }}` だと GitHub は template error を記録して **timeout なしで**走らせる（2026-08-21〜11-02 の 2 か月半、install の step timeout は全 run で効いていなかった。run は success なので見えなかった）
 - **Check 488**: job が `timeout-minutes` を持つ
 
 ## 赤の帰属（この job が赤いとき最初に読むこと）
