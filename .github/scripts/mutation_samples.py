@@ -509,6 +509,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 468p: 凍結した 1.3 草案の pointer を「Work on the next version happens in」の断定形へ戻し、pointer の 1.2 草案を指させる —— 1.2 の pointer が 1.3 確定後 8 日間偽だった形',
+    "file": ROOT / "LICENSES" / "ACD-1.3-DRAFT.txt",
+    "find": "  LICENSES/ACD-1.3.txt. The next version is drafted in\n  LICENSES/ACD-1.4-DRAFT.txt;",
+    "replace": "  LICENSES/ACD-1.3.txt. Work on the next version happens in\n  LICENSES/ACD-1.2-DRAFT.txt;",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
