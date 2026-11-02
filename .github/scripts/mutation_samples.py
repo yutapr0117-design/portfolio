@@ -517,6 +517,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 468q: 草案冒頭の §16.6 の箇条が 10.1 / 10.4 / 11.4 の句として引く句を "no one in respect of the Work" へ戻す —— 3 条が使うのは限定句だけで、#2238 前の箇条はこの誤った帰属を述べていた',
+    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "find": 'with the limit "in respect of the Work"\n      that Sections 10.1, 10.4, and 11.4 use.',
+    "replace": 'with the limit "no one in respect of the Work"\n      that Sections 10.1, 10.4, and 11.4 use.',
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
