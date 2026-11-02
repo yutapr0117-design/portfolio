@@ -199,8 +199,24 @@ jobs:
       # visual change makes this step red until the baseline is regenerated via the human-merged
       # update-playwright-snapshots.yml path — that red is expected and does NOT gate merges.
       - name: Run visual regression (ADVISORY — non-blocking, see Session Record #20 §3(B))
+        id: visual
         continue-on-error: true
         run: npx playwright test --config=playwright.config.cjs --grep "screenshot regression" --reporter=list
+
+      # ADVISORY の赤を**見える**ようにする。continue-on-error の step は失敗しても API / バッジ上の
+      # conclusion が success になるので、2026-11-02 に測ると screenshot は少なくとも 2026-09-10 から
+      # 全 run で失敗 (129,395 px / 15%・baseline は 2026-06-10 のまま) していたのに、誰の目にも
+      # 入っていなかった。合否は変えず (merge を止めない)、outcome が failure なら annotation と
+      # job summary に出す —— 「鳴らない advisory」は advisory 層として vacuous である (Check 398 と同じ理由)。
+      - name: Surface the advisory visual result
+        if: always() && steps.visual.outcome == 'failure'
+        run: |
+          echo "::warning title=Visual regression (ADVISORY)::homepage screenshot が baseline と一致しない。意図した視覚変更なら update-playwright-snapshots.yml で baseline を再生成する (§3 の human-merge 経路)。artifact playwright-results に expected / actual / diff がある"
+          {
+            echo "### Visual regression (ADVISORY): failed"
+            echo
+            echo "merge は止めない。意図した変更なら baseline を再生成する。差分は artifact \`playwright-results\` の \`homepage-baseline-diff.png\`。"
+          } >> "$GITHUB_STEP_SUMMARY"
 
       # [FIX] 赤の **帰属** を job 自身に書かせる。この workflow は「BLOCKING gate」を名乗るが、
       #   赤くなった理由が (a) gate が回帰を検出した のか (b) gate が一度も走らなかった のかは

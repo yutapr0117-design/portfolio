@@ -528,6 +528,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 347b: ADVISORY の screenshot 結果を表に出す条件を steps.visual.conclusion にする —— continue-on-error の step の conclusion は失敗しても success なので、条件が永久に偽になり 2 か月分の失敗が見えていなかった形へ戻る',
+    "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
+    "find": "        if: always() && steps.visual.outcome == 'failure'\n",
+    "replace": "        if: always() && steps.visual.conclusion == 'failure'\n",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
