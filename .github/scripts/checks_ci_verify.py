@@ -1,5 +1,5 @@
 """
-checks_ci_verify.py — CI verification-chain wiring checks — verify layers / consistency guard / behavior e2e gate (345-347)
+checks_ci_verify.py — CI verification-chain wiring checks — verify layers / consistency guard / behavior e2e gate (345-347, 437, 486)
 (extracted from check_repository_consistency.py — check.py split track).
 
 run(ctx) receives shared check()/ROOT by reference (exec 不使用) so exit code / BLOCKING propagation
@@ -54,6 +54,12 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `outcome == 'failure'` — continue-on-error otherwise reports success in the API /
        badge, and on 2026-11-02 the screenshot had failed on every run since at least
        2026-09-10 without anyone seeing it. (BLOCKING)
+
+  486. CI の presence 型 advisory (`grep -q X F || echo "::warning::…"`) は、いまの tree で一致する:
+       対象が移ると、この形は黙るのではなく**すべての run で同じ warning を出し続ける**形で壊れる。
+       2026-11-02 に、Trusted Types 検査が 2026-05-24 の分割で main.js へ移った policy を index.html に
+       探し、5 か月間毎回鳴っていたのを発見した。毎回鳴る警告は本物の警告を読まれなくする。検出は
+       実際に grep を同じ引数で走らせて行い、床 4 件で検出自体の vacuous 化も止める。(BLOCKING)
 
 """
 import re
@@ -205,3 +211,32 @@ def run(ctx):
               "Check 437: playwright-regression.yml に INSTALL_TIMEOUT_MIN が無い — "
               "install timeout の単一ソースが失われると message と timeout が再び drift する",
               blocking=True)
+
+    # ── 486. CI の「grep -q X F || echo ::warning」は、いまの tree で一致する (BLOCKING) ──────
+    # 2026-11-02: architecture-validation.yml の Trusted Types 検査は index.html に
+    # trustedTypes.createPolicy を探していたが、policy は 2026-05-24 の分割で main.js へ移っており、
+    # **以後 5 か月間すべての run で同じ warning を出し続けていた**。毎回鳴る警告は「何も起きて
+    # いない」と同じ意味になり、本物の警告まで読まれなくする。presence 型の advisory は、対象が
+    # 動くと**黙らずに永久に鳴る**形で壊れるので、いま一致することをここで縛る。
+    import subprocess as _sp486
+    _pat486 = re.compile(
+        r"""^\s*grep\s+-q(E?)\s+(?:"([^"]+)"|'([^']+)')\s+(\S+)\s*\|\|\s*echo\s+["']::(?:warning|error)""")
+    _seen486, _bad486 = 0, []
+    for _wf in sorted((ROOT / ".github" / "workflows").glob("*.yml")):
+        for _ln in _wf.read_text(encoding="utf-8").splitlines():
+            _m = _pat486.match(_ln)
+            if not _m:
+                continue
+            _seen486 += 1
+            _args = ["grep", "-q"] + (["-E"] if _m.group(1) else []) + ["--", _m.group(2) or _m.group(3), _m.group(4)]
+            if _sp486.run(_args, cwd=ROOT).returncode != 0:
+                _bad486.append(f"{_wf.name}: {(_m.group(2) or _m.group(3))} in {_m.group(4)}")
+    check(
+        _seen486 >= 4 and not _bad486,
+        f"Check 486: CI の presence 型 advisory {_seen486} 件がすべていまの tree で一致する (毎回鳴る警告が無い)",
+        (f"Check 486: CI の presence 型 advisory が一致しない (={_bad486}) か、検出が {_seen486} 件で床 4 を"
+         "下回る。一致しない grep は**すべての run で同じ warning を出し続け**、警告を読む習慣そのものを壊す "
+         "(2026-11-02: Trusted Types 検査が main.js へ移った policy を index.html に探し 5 か月鳴り続けていた)。"
+         "対象ファイルを実体へ直すか、BLOCKING の Check が既に守っているならその行を消す"),
+        blocking=True,
+    )

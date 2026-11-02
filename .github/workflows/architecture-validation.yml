@@ -174,7 +174,10 @@ jobs:
 
       - name: Verify Trusted Types Policy (XSS Prevention)
         run: |
-          grep -q "trustedTypes.createPolicy" index.html || echo "::warning::Trusted Types createPolicy() not found"
+          # createPolicy('default') は 2026-05-24 の分割で main.js へ移った。ここで index.html を grep していた行は
+          # 以後 5 か月すべての run で誤って warning を出していたので外した (2026-11-02)。policy の存在は
+          # BLOCKING の Check 43c がコメントを除いた実行コードで守る (コメントの引用では満たされない)。
+          # 同じ形の stale 化は Check 486 が止める。
           grep -q "require-trusted-types-for" index.html || echo "::warning::CSP require-trusted-types-for directive missing"
           echo "Trusted Types check complete."
 
@@ -639,10 +642,14 @@ jobs:
               html = re.sub(r'<!--.*?-->', lambda m: ' ' * len(m.group(0)), f.read(), flags=re.S)
 
           # Check for inline event handlers (advisory only)
-          handlers = re.findall(r'\b(on\w+)=["\']', html)
+          # 記録済みの 1 形 (Google Fonts の非同期読み込み: <link media="print" onload="this.media='all'">)
+          # は CSP の 'unsafe-hashes' と index.html の CSP コメントで説明済みなので数えない (2026-11-02)。
+          # それまでこの warning は毎回その 2 件で鳴っており、**新しい handler が足されても見分けが付かなかった**。
+          documented = re.compile(r"""<link\b[^>]*\bonload="this\.media='all'"[^>]*>""")
+          handlers = re.findall(r'\b(on\w+)=["\']', documented.sub(' ', html))
           if handlers:
               unique = sorted(set(handlers))
-              print(f"::warning::CSP inline handler audit: {len(handlers)} inline handler(s) found in index.html: {unique}")
+              print(f"::warning::CSP inline handler audit: {len(handlers)} undocumented inline handler(s) found in index.html: {unique}")
               print("  These may conflict with a strict CSP script-src without 'unsafe-inline'.")
               print("  If intentional, document each handler in AI2AI.md CSP Architecture Note.")
           else:
