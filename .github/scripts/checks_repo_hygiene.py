@@ -215,10 +215,14 @@ def run(ctx):
             if not _fp34.exists():
                 continue
             _m_decl = _re34.search(_re_pat34, _fp34.read_text(encoding="utf-8"))
-            # find the sitemap <url> block whose <loc> ends with this suffix
+            # find the sitemap <url> block whose <loc> is exactly <canonical>/<path>.
+            # 2026-11-02 まで「<loc> の末尾が /<path>」で探しており、`/llms.txt` は
+            # `.well-known/llms.txt` にも一致した (いまは正しい方が先に並んでいるので偶然
+            # 合っていただけ・Check 132 と同じ class)。直前の <loc> の値を完全一致で見る。
             _m_sm = _re34.search(
-                r"<loc>[^<]*/" + _re34.escape(_suffix34) + r"</loc>\s*<lastmod>([0-9-]+)</lastmod>",
-                _sm34,
+                r"<loc>\s*https://[^/<]+/portfolio/" + _re34.escape(_suffix34)
+                + r"\s*</loc>\s*<lastmod>([0-9-]+)</lastmod>",
+                _re34.sub(r"<!--.*?-->", "", _sm34, flags=_re34.S),
             )
             if _m_decl and _m_sm:
                 if _m_decl.group(1) != _m_sm.group(1):
