@@ -140,7 +140,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `.github/scripts/_lib_io.py` | 401 | 450 | `advisory` | 純 I/O helper sibling module (read / read_bytes / extract / csp_sri_hash + 日付 helper + JS コメントの字句 helper + robots.txt の RFC 9309 グループ parser)。Check 74/95/481 で API 契約を BLOCKING 保護。2026-11-01 に `strip_js_comments` (約 125 行・字句解析の本体で WHY は docstring 1 段落のみ) を足したので 250 → 400 |
 | `index.html` | 1360 | — | `protected` | CSP / JSON-LD / AI meta / AIO anchor の中核。整理する場合は C6 の 3 不変条件 (真実性 / 全公開面での整合 / digest 再生成) を満たすこと |
 | `llms-full.txt` | 1,070 | — | `protected` | AIO 正本（ground truth）。削らない |
-| `AI2AI.md` | 905 | — | `protected` | AIO 正本（canonical）。削らない |
+| `AI2AI.md` | 906 | — | `protected` | AIO 正本（canonical）。削らない |
 | `docs/session-records/AI2AI-archive.md` | 865 | — | `archive-growth-ok` | セッション証跡。削らない |
 | `ChatGPT2ChatGPT.md` | 970 | — | `archive-growth-ok` | AI 間対話証跡。削らない |
 | `e2e/a11y-axe.spec.js` | 831 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
