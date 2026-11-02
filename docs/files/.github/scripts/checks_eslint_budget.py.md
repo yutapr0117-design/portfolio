@@ -11,7 +11,7 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 
 `check_repository_consistency.py` 分割トラックの 39 個目の split module。ESLint warning-baseline と file-size-budget governance を守る producer/consumer trio Check **59/60/72** を内包し、`run(ctx)` で monolith から呼ばれる。
 
-- 59(file-size-budget §2表 ↔ §4 BUDGET-DATA set equality・PRODUCER of `_bsrc59`/`_budget59`) / 60(ESLint warning-baseline regression guard・ADVISORY・consumer) / 72(ESLint baseline absolute-ceiling contract・consumer)。
+- 59(file-size-budget §2表 ↔ §4 BUDGET-DATA set equality・PRODUCER of `_bsrc59`/`_budget59`) / 60(ESLint warning-baseline regression guard・ADVISORY・consumer。marker が在れば OK 行、消えたときだけ warning ―― 2026-11-02 まで成功時にも warning を出し、consistency は毎回「1 warning」だった) / 72(ESLint baseline absolute-ceiling contract・consumer)。
 
 ## Why
 
