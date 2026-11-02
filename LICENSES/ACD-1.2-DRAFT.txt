@@ -1,8 +1,8 @@
 ACD-1.2-DRAFT -- THIS DRAFT HAS BEEN FROZEN. THIS FILE IS A POINTER, NOT A LICENCE TEXT.
 
   The draft that was kept here was frozen on 2026-10-17 as
-  LICENSES/ACD-1.2.txt. Work on the next version happens in
-  LICENSES/ACD-1.3-DRAFT.txt.
+  LICENSES/ACD-1.2.txt. The next version was drafted in
+  LICENSES/ACD-1.3-DRAFT.txt; that file says where work happens now.
 
   This pointer exists because the frozen text LICENSES/ACD-1.1.txt names this
   file as the place where work on the next version happens, and a frozen text
