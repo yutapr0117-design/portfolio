@@ -52,7 +52,11 @@ executed by the author and so, on our reading of 17 U.S.C. §203, terminable aft
 *"notwithstanding any agreement to the contrary"*; abandonment is neither a transfer nor a licence,
 but whether copyright can be abandoned at all is unsettled (`jurisdictions.md` §5a). (c) In
 Germany, where copyright cannot be transferred or waived, §3 may do nothing and everything rests
-on §4 and §5.
+on §4 and §5. (d) Covered Rights include rights the Dedicator *"may come to hold … now or in
+future"* (§1.5), and in the 1.4 draft Moral Rights include rights conferred by law *"now or in
+future"* (§1.2, errata E50). Whether a surrender, waiver or licence of a right not yet held takes
+effect when the right arises, or needs a further act then, is a question of each forum's law
+that the text cannot answer for itself.
 
 **An answer would change** whether the text keeps three footings (register B4) and how §4.4 says
 "independent".
