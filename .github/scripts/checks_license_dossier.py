@@ -255,9 +255,21 @@ def run(ctx):
     # 1 バイト変わった日」ではない。footer の追加で見直し日が動くのは誤りである。
     # よって **14 日以上の乖離のみ ADVISORY** で報せる。実害（#55: 最大 10 日ずれ）は
     # 検出できるが、機械的な一括変更では鳴らない。
+    #
+    # **shallow clone では測らない (2026-11-02)。** CI の actions/checkout は既定で fetch-depth 1 で、
+    # `git log -1 -- <file>` は**すべてのファイルについて HEAD の commit**を返す。そのため CI では
+    # 「実際の最終更新」が全部 HEAD の日付になり、申告が 14 日以上前のファイルは内容が変わっていなくても
+    # 毎回 stale と報告されていた (実例: gap-census.md 申告 09-25 / 実際の最終 commit 09-25 が CI では
+    # 「11-02・38 日」)。誤報しか出せない環境では測らず、**測っていないことを OK 行で明示する**。
+    # 完全な履歴を持つローカルの `npm run verify` (CLAUDE.md §5 で毎増分必須) が実際に測る。
     _lu461 = []
     _lic461 = ROOT / "LICENSES"
-    if _lic461.exists():
+    try:
+        _shallow461 = subprocess.run(["git", "rev-parse", "--is-shallow-repository"], capture_output=True,
+                                     text=True, cwd=str(ROOT), timeout=20).stdout.strip() == "true"
+    except Exception:
+        _shallow461 = False
+    if _lic461.exists() and not _shallow461:
         for _f461 in sorted(_lic461.glob("*.md")):
             _m461 = re.search(r"^last-updated:\s*(\d{4}-\d{2}-\d{2})\s*$",
                               _f461.read_text(encoding="utf-8"), re.M)
@@ -281,7 +293,9 @@ def run(ctx):
                               f"({(_d2 - _d1).days} 日)")
     check(
         not _lu461,
-        f"Check 461b (ADVISORY): LICENSES/*.md の last-updated が 14 日以上 stale でない",
+        ("Check 461b (ADVISORY): shallow clone なので測っていない (git log が全ファイルで HEAD の日付を返す。"
+         "測るのは完全な履歴を持つローカル verify)" if _shallow461 else
+         "Check 461b (ADVISORY): LICENSES/*.md の last-updated が 14 日以上 stale でない"),
         f"Check 461b (ADVISORY): last-updated が 14 日以上古いファイルがある: {_lu461[:6]}。"
         f"**古い日付は「更新されていない文書」に見せる**。内容を見直したら日付も直せ "
         f"(1〜13 日の乖離は一括変更で普通に起きるので鳴らさない — 初版が BLOCKING で "
