@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.errata.md
 audience: OSI license-discuss / license-review participants, licence reviewers, a future drafter (the current draft is 1.4)
-last-updated: 2026-10-26
+last-updated: 2026-11-02
 canonical-ref: LICENSES/ACD-1.0.txt (frozen text) / LICENSES/FROZEN.md (freeze + digests) / LICENSES/ACD-1.0.against.md (the full adverse case)
 ---
 

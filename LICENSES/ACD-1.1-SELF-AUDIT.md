@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.1-SELF-AUDIT.md
 audience: a future drafter (the current draft is 1.4), OSI license-review participants, licence reviewers
-last-updated: 2026-11-01
+last-updated: 2026-11-02
 canonical-ref: LICENSES/ACD-1.4-DRAFT.txt (the current draft; ACD-1.2.txt frozen 2026-10-17, ACD-1.3.txt frozen 2026-10-25 and applied to this repository) / LICENSES/ACD-1.1.txt (frozen 2026-09-17) / LICENSES/ACD-1.4-CHANGELIST.md (all other changes for the current draft; ACD-1.1〜1.3-CHANGELIST.md are the closed records for those versions) / LICENSES/ACD-1.0.errata.md (defects in 1.0)
 ---
 
