@@ -229,54 +229,11 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 386: sitemap の 1 件の <loc> を存在しない file へ —— crawler が 404 を踏む',
-    "file": ROOT / "sitemap.xml",
-    "find": '<loc>https://yutapr0117-design.github.io/portfolio/AI2AI.md</loc>',
-    "replace": '<loc>https://yutapr0117-design.github.io/portfolio/AI2AI-missing.md</loc>',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 388: sw.js の bot UA 一覧から claude を外す —— AI agent の live fetch が SWR キャッシュの古い応答を受け取る',
-    "file": ROOT / "sw.js",
-    "find": "'gptbot', 'chatgpt', 'claude', ",
-    "replace": "'gptbot', 'chatgpt', ",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 471 (j): 同じ文書に同じ ## 見出しをもう 1 つ置く —— § 参照の着地点が決まらなくなる "
-            "(2026-11-01 に jurisdictions.md の「## 9.」と AS-OF.md の同一節で実測・portfolio-bb の発見)",
-    "file": ROOT / "LICENSES" / "AS-OF.md",
-    "find": "## Status of this submission\n",
-    "replace": "## Status of this submission\n\n## Status of this submission\n",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 394: pomodoro の集中時間の UI 側 clamp の上限だけを変える —— UI で入力できた値が reload 後に store の clamp で黙って戻る',
-    "file": ROOT / "js" / "pomodoro-page.js",
-    "find": 'settings.work = clamp(parseInt(e.target.value, 10) || 25, 1, 180)',
-    "replace": 'settings.work = clamp(parseInt(e.target.value, 10) || 25, 1, 240)',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 365: 追跡テキストを 1,000 行超にする —— 全非 A テキスト ≤1,000 行の capstone が肥大化を止めることの確認",
-    "file": ROOT / "CONTRIBUTING.md",
-    "find": '# Contributing\n',
-    "replace": '# Contributing\n' + "\n" * 1001,
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 389: topbar のテーマ切替ボタンの accessible name を sidebar とずらす —— 同じ機能のボタンが 2 つの名前を名乗る (WCAG 4.1.2)',
-    "file": ROOT / "js" / "theme.js",
-    "find": 'return `テーマを切り替える（現在: ${label}）`;',
-    "replace": 'return `テーマ切替（現在: ${label}）`;',
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": 'Check 387: .well-known/mcp.json の同一 origin の pointer を存在しない file へ —— agent が dereference すると 404 になる',
@@ -541,6 +498,14 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
     "find": "        if: always() && steps.visual.outcome == 'failure'\n",
     "replace": "        if: always() && steps.visual.conclusion == 'failure'\n",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": 'Check 486: CI に対象が移った presence grep を戻す —— 一致しない grep -q は黙らずに毎回同じ warning を出し続け、本物の警告を読まれなくする (2026-11-02 まで Trusted Types 検査が 5 か月そうだった)',
+    "file": ROOT / ".github" / "workflows" / "architecture-validation.yml",
+    "find": "          # 同じ形の stale 化は Check 486 が止める。\n",
+    "replace": "          # 同じ形の stale 化は Check 486 が止める。\n          grep -q \"trustedTypes.createPolicy\" index.html || echo \"::warning::Trusted Types createPolicy() not found\"\n",
     "check": CHECK,
 })
 

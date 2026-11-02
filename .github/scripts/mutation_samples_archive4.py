@@ -621,4 +621,47 @@ MUTATIONS_ARCHIVE4 = [
     "replace": "localStorage.getItem('portfolio_enhanced_v46')",
     "check": CHECK,
 },
+    {
+    "name": 'Check 386: sitemap の 1 件の <loc> を存在しない file へ —— crawler が 404 を踏む',
+    "file": ROOT / "sitemap.xml",
+    "find": '<loc>https://yutapr0117-design.github.io/portfolio/AI2AI.md</loc>',
+    "replace": '<loc>https://yutapr0117-design.github.io/portfolio/AI2AI-missing.md</loc>',
+    "check": CHECK,
+},
+    {
+    "name": 'Check 388: sw.js の bot UA 一覧から claude を外す —— AI agent の live fetch が SWR キャッシュの古い応答を受け取る',
+    "file": ROOT / "sw.js",
+    "find": "'gptbot', 'chatgpt', 'claude', ",
+    "replace": "'gptbot', 'chatgpt', ",
+    "check": CHECK,
+},
+    {
+    "name": "Check 471 (j): 同じ文書に同じ ## 見出しをもう 1 つ置く —— § 参照の着地点が決まらなくなる "
+            "(2026-11-01 に jurisdictions.md の「## 9.」と AS-OF.md の同一節で実測・portfolio-bb の発見)",
+    "file": ROOT / "LICENSES" / "AS-OF.md",
+    "find": "## Status of this submission\n",
+    "replace": "## Status of this submission\n\n## Status of this submission\n",
+    "check": CHECK,
+},
+    {
+    "name": 'Check 394: pomodoro の集中時間の UI 側 clamp の上限だけを変える —— UI で入力できた値が reload 後に store の clamp で黙って戻る',
+    "file": ROOT / "js" / "pomodoro-page.js",
+    "find": 'settings.work = clamp(parseInt(e.target.value, 10) || 25, 1, 180)',
+    "replace": 'settings.work = clamp(parseInt(e.target.value, 10) || 25, 1, 240)',
+    "check": CHECK,
+},
+    {
+    "name": "Check 365: 追跡テキストを 1,000 行超にする —— 全非 A テキスト ≤1,000 行の capstone が肥大化を止めることの確認",
+    "file": ROOT / "CONTRIBUTING.md",
+    "find": '# Contributing\n',
+    "replace": '# Contributing\n' + "\n" * 1001,
+    "check": CHECK,
+},
+    {
+    "name": 'Check 389: topbar のテーマ切替ボタンの accessible name を sidebar とずらす —— 同じ機能のボタンが 2 つの名前を名乗る (WCAG 4.1.2)',
+    "file": ROOT / "js" / "theme.js",
+    "find": 'return `テーマを切り替える（現在: ${label}）`;',
+    "replace": 'return `テーマ切替（現在: ${label}）`;',
+    "check": CHECK,
+},
 ]
