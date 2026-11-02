@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses.md
 audience: ai, human (提出者), 監査人, 学術研究者, 第三者全般
-last-updated: 2026-08-26
+last-updated: 2026-11-02
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LICENSES/ACD-1.0.submission.md (提出パケット) / LICENSES/READY-TO-SUBMIT.md (提出判断と残る弱点) / LICENSES/FROZEN.md (凍結宣言) / docs/architecture/acd-license-rationale.md (設計根拠)
 ---
 
@@ -41,7 +41,7 @@ ACD-1.0 が OSI の公開メーリングリストで受けるであろう指摘�
 
 - **凍結対象ではない。** `FROZEN.md` が凍結するのは `ACD-1.0.txt` / `ACD-1.0.spdx.xml` / `ACD-1.0.machine.json` の 3 件（Check 453 が sha256 で強制）。本書は議論の進展に応じて**更新すべき**である。
 - **本文の引用は実文と一致させる。** 起草時に 4 箇所で実文とずれた引用を書き、照合して是正した（§4.5 を「aggregate / for a fee」と要約していたが実文は「any adaptation or collection containing it ... under any terms You choose」だった）。**宣言と実態の乖離を、乖離を戒める文書の中で作らない。**
-- 本文に是正すべき欠陥を見つけても、**直さずオーナーへ報告する**（凍結の趣旨）。
+- 本文に是正すべき欠陥を見つけても、**凍結した本文は直さず、errata に記録して次版の草案で直す**（2026-11-02 訂正: 旧文は「直さずオーナーへ報告する」）（凍結の趣旨）。
 
 ## Change impact
 

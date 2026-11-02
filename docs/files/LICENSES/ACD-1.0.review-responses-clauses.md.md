@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses-clauses.md
 audience: ai, human (提出者), 監査人, 学術研究者, 第三者全般
-last-updated: 2026-09-20
+last-updated: 2026-11-02
 canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES/ACD-1.0.review-responses-meta.md (出自・名称・運用) / LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威)
 ---
 
@@ -30,7 +30,7 @@ ACD-1.0 の**条項別**想定問答。`ACD-1.0.review-responses.md`（総論・
 
 - **非規範。** ここに書いた回答が ACD-1.0 の意味を変えることはない。
 - **本文の引用は実文と照合してから書く。** 第 1 波の起草時に 4 箇所ずれた実績がある。
-- 本文に是正すべき欠陥を見つけても、**直さずオーナーへ報告する**（凍結中）。
+- 本文に是正すべき欠陥を見つけても、**凍結した本文は直さず、errata に記録して次版の草案で直す**（2026-11-02 訂正: 旧文は「直さずオーナーへ報告する」）（凍結中）。
 
 ## Change impact
 
