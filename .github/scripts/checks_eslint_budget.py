@@ -103,16 +103,19 @@ def run(ctx):
     # 層、CI step がその marker を使った count 比較層、という二層で「regression guard」を honest に
     # 成立させる（以前は CI step が WARN_COUNT を表示するだけで比較せず guard が vacuous だった）。
     _baseline60 = re.search(r"<!--\s*ESLINT-BASELINE-DATA\s+(\d+)\s+-->", _bsrc59 if _budget59.exists() else "")
-    if _baseline60:
-        _baseline_n60 = int(_baseline60.group(1))
-        warnings.append(
-            f"Check 60 (ADVISORY): ESLint warning baseline = {_baseline_n60} (recorded in file-size-budget.md)"
-        )
-    else:
-        warnings.append(
-            "Check 60 (ADVISORY): ESLint warning baseline marker not found in file-size-budget.md — "
-            "add `<!-- ESLINT-BASELINE-DATA <N> -->` to enable regression guard"
-        )
+    # **成功を warning で報告しない (2026-11-02)。** 以前は marker が在っても `warnings.append` で
+    # baseline 値を出しており、consistency は**すべての run で「passed with 1 warning(s)」**だった。
+    # 本物の advisory が 1 件増えても「1 → 2」の差でしか見分けられず、CI の annotation 欄にも毎回
+    # 同じ黄色が 1 つ出ていた (Check 486 と同じ「毎回鳴る警告は読まれなくなる」class の consistency 版)。
+    # 在れば OK 行、消えたときだけ warning にする。
+    check(
+        _baseline60 is not None,
+        (f"Check 60: ESLint warning baseline = {int(_baseline60.group(1))} が file-size-budget.md に記録されている"
+         if _baseline60 else "Check 60"),
+        ("Check 60 (ADVISORY): ESLint warning baseline marker not found in file-size-budget.md — "
+         "add `<!-- ESLINT-BASELINE-DATA <N> -->` to enable regression guard"),
+        blocking=False,
+    )
 
     # ── 72. ESLint baseline absolute-ceiling contract (BLOCKING) ─────────────────
     # file-size-budget.md の `<!-- ESLINT-BASELINE-DATA <N> -->` ブロックが記録する
