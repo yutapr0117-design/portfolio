@@ -177,7 +177,11 @@ the dossier records that as a cost it has not answered (#23, #170).
 ## 8. Does the Dedication survive the Dedicator's insolvency? (§2.9)
 
 **The clause.** Nothing in the Dedication is conditioned on, suspended by, or revived by an
-insolvency proceeding, and an insolvency officer is a transferee bound under §2.8.
+insolvency proceeding, and an insolvency officer is a transferee bound under §2.8. What the officer
+is bound to differs by version: in ACD-1.3, §2.8 binds Sections 3, 4, 6 and 8, so the covenants in
+§5 reach transferees only through §5.3's narrower list, and §7.2 and §2.5 are left out (errata E46,
+E49). The 1.4 draft binds the whole Dedication as it concerns the Work and states that §5.3 and
+§12.4 do not narrow §2.8 (2026-11-02).
 
 **Why we doubt it.** Whether a trustee can reject the licence as an executory contract is for the
 forum's insolvency law, and *Jaffé v. Samsung* (4th Cir. 2013) shows that protection under
