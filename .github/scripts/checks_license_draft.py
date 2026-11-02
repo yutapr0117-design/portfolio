@@ -34,6 +34,10 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        **468k は LICENSES/*.md の「いまの作業場は `ACD-N-DRAFT.txt`」等の現在形の記述が、
        いまの草案を指すことを見る** —— 2026-10-29 に 7 箇所（英語の入口を含む）が 1.3 草案を
        指したままだったのを実測した。
+       **468p は凍結した草案の pointer stub (`ACD-*-DRAFT.txt` で冒頭が HAS BEEN FROZEN) が
+       "Work on the next version happens in X" と断定するなら X がいまの草案であることを見る** ——
+       1.2 の pointer が 1.3 確定後 8 日間、pointer になった 1.3 草案を作業場と名指していた (portfolio-25 が
+       2026-11-02 に発見)。468k は `.md` しか見ないので射程外だった。鎖の環の書き方なら通る。
        **468n は冒頭の変更一覧が直前の凍結版との差分のすべてを述べることを見る** —— 本文が変わった条は
        どれかの箇条に名指され、箇条の語数申告の合計が「申告語数 − 前版の語数」に一致する (25 の自己記述レンズ)。
        **468m は §16.4 が Steward 例外の中でも「1 識別子 = 1 固定本文」を保つことを見る** ——
@@ -378,6 +382,30 @@ def run(ctx):
                 f"468k: 「いまの作業場」が現在の草案 {_dr468.name} を指していない: {_stale468k}。"
                 "**版を確定したら、現在形で作業場を名指す記述をすべて追従させる**"
                 "（歴史の文は書き換えず、日付つきの追記で最後に現在の名前を置く）")
+
+        # ── 468p: 凍結した草案の pointer が「次版の作業場は X」と断定するなら、X がいまの草案であること ──
+        #   portfolio-25 が 2026-11-02 に手で見つけた形の機械化。1.2 の pointer は「Work on the next version
+        #   happens in LICENSES/ACD-1.3-DRAFT.txt」と述べたまま、10-25 の 1.3 確定でその指し先自体が pointer
+        #   になり **8 日間偽だった**。468k は LICENSES/*.md のバッククォート付きの名前しか見ないので、
+        #   `.txt` の pointer stub は射程外だった。pointer は鎖の環（「次版は X で起草された。X が確定済み
+        #   なら X がいまの作業場を述べる」）で書けば版を確定しても偽にならないので、断定形を禁じるのでは
+        #   なく、断定形が残っているならその指し先が作業中の草案であることを求める（1.4 確定の日に新しく
+        #   できる pointer が断定形で書かれた場合もここで止まる）。空白を正規化してから読む（80 桁の
+        #   折り返しで "happens in" と名前が行をまたぐ）。
+        _stale468p = []
+        for _p468p in sorted((ROOT / "LICENSES").glob("ACD-*-DRAFT.txt")):
+            _tp = _p468p.read_text(encoding="utf-8")
+            if "HAS BEEN FROZEN" not in _tp.split("\n", 1)[0]:
+                continue
+            for _x468p in re.findall(r"Work on the next version happens in (?:LICENSES/)?(ACD-[\d.]+-DRAFT\.txt)",
+                                     " ".join(_tp.split())):
+                if _x468p != _dr468.name:
+                    _stale468p.append(f"{_p468p.name} → {_x468p}")
+        if _stale468p:
+            _bad468.append(
+                f"468p: 凍結した草案の pointer が、作業中の草案 {_dr468.name} ではないものを次版の作業場と断定している: "
+                f"{_stale468p}。**pointer は鎖の環で書く**（「次版は X で起草された。X が確定済みなら X がいまの"
+                "作業場を述べる」）—— 断定形は次の確定の日に必ず偽になる")
 
         # ── 468n: 冒頭の変更一覧が、直前の凍結版との差分のすべてを述べていること ──────────────
         #   portfolio-25 が 2026-11-01 に手で回した「自己記述」レンズの機械化。草案の冒頭は「一覧が差分の
