@@ -435,7 +435,10 @@ jobs:
             exit 1
           fi
           echo "::notice::ESLint PASS — 0 errors, $WARN_COUNT advisory warning(s) (no-var/curly on main.js/sw.js, tracked for incremental modernisation; non-blocking)."
-          grep -E "warning" /tmp/eslint-output.txt | head -10 || true
+          # warning の行は**ここでは表示しない (2026-11-02)**。setup-node が登録する ESLint の problem
+          # matcher が表示した行を annotation に変えるので、以前の `grep warning | head -10` は**毎回同じ
+          # 10 件** (main.js 保護領域の既知の no-var / curly) を PR の warning として出していた。件数が
+          # baseline と同じあいだは何も伝えない警告で、増えたときだけ全件を出す (下の regression 分岐)。
           # ── ESLint warning baseline regression guard (the real enforcement behind Check 60) ──
           # Check 60 (ADVISORY) only asserts the baseline MARKER exists in file-size-budget.md;
           # by design it delegates the actual count comparison to this CI step (a Check cannot
@@ -456,6 +459,8 @@ jobs:
           echo "::notice::ESLint warning baseline = $BASELINE (single source: file-size-budget.md), actual = $WARN_COUNT."
           if [ "$WARN_COUNT" -gt "$BASELINE" ]; then
             echo "::error::BLOCKING: ESLint warnings regressed: $WARN_COUNT > baseline $BASELINE. New lint debt introduced. Fix the new warning(s) or, if intentional, ratchet the baseline UP with a documented rationale."
+            # 増えたときは全件を出す (10 件に絞ると新しい 1 件が窓の外に落ちうる)。
+            cat /tmp/eslint-output.txt
             exit 1
           fi
           if [ "$WARN_COUNT" -lt "$BASELINE" ]; then
