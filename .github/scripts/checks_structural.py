@@ -68,6 +68,8 @@ Check inventory (Check 45 enforces sync with the `# \u2500\u2500 N.` sections in
       repository-maintainability-map.md keeps the version-evolution narrative as a layer — only the
       single-source operational runbook is pinned. Same "surface a latent operational failure at
       pre-commit time" spirit as Check 48 (permission coupling) and Check 29 (baseline linkage). (BLOCKING)
+      **51b**: docs/files mirrors that state "Playwright pin (X)" must state the package.json pin —
+      on 2026-11-02 three mirrors still said 1.60.0 in the present tense while the pin was 1.64.1. (BLOCKING)
 """
 import re
 import json
@@ -386,3 +388,25 @@ def run(ctx):
             "Check 51: package.json または docs/architecture/total-check-runbook.md が見つからず、"
             "baseline 生成 Playwright 版数と @playwright/test pin の一致を検証できない。",
         )
+
+    # ── 51b. mirror doc が述べる「Playwright pin (X)」が package.json の pin と一致 (BLOCKING) ──
+    # Check 51 は設計上 active runbook だけを見る。2026-11-02 に docs/files の mirror 3 枚
+    # (playwright-regression / update-playwright-snapshots / baseline PNG) が「Check 51: Playwright pin
+    # (1.60.0) が runbook と一致」と現在形で述べたまま、pin は 1.64.1 まで進んでいた。mirror は
+    # 「この file は何か」を答える面なので、古い pin は読み手に誤った版で baseline を作らせる。
+    try:
+        _pin51b = json.loads((ROOT / "package.json").read_text(encoding="utf-8")).get(
+            "devDependencies", {}).get("@playwright/test", "")
+    except (OSError, ValueError):
+        _pin51b = ""
+    _bad51b = []
+    for _p51b in sorted((ROOT / "docs" / "files").rglob("*.md")):
+        for _v51b in re.findall(r"Playwright pin \((\d+\.\d+\.\d+)\)", _p51b.read_text(encoding="utf-8")):
+            if _v51b != _pin51b:
+                _bad51b.append(f"{_p51b.relative_to(ROOT).as_posix()}: {_v51b}")
+    check(
+        bool(_pin51b) and not _bad51b,
+        f"Check 51b: docs/files の mirror が述べる Playwright pin が package.json ({_pin51b}) と一致",
+        (f"Check 51b: mirror doc が古い Playwright pin を現在形で述べている: {_bad51b} / package.json は "
+         f"{_pin51b!r}。版数は書き写さず package.json を権威と書くのが最も drift しない"),
+    )

@@ -505,6 +505,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 51b: update-playwright-snapshots の mirror に古い Playwright pin を現在形で書き戻す —— 2026-11-02 まで mirror 3 枚が 1.60.0 と述べ、pin は 1.64.1 だった',
+    "file": ROOT / "docs" / "files" / ".github" / "workflows" / "update-playwright-snapshots.yml.md",
+    "find": "Playwright の pin（`package.json` が権威・版数はここに書き写さない）を runbook と整合",
+    "replace": "Playwright pin (1.60.0) を runbook と整合",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
