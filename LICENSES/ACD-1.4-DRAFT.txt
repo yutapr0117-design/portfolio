@@ -44,13 +44,10 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 4.2 now names study, inspection, analysis, and reverse
       engineering among the acts the licence includes. (+5 words.)
     * Section 8.1 now says "anything derived from the Work" where it said "any
-      derivative of the Work" (errata E41). "Derivative" is not a defined
-      term, and a reader could take it as copyright's "derivative work", whose
-      meaning varies by jurisdiction, in a patent grant; the plain words carry
-      the meaning intended. (-1 word.)
+      derivative of the Work" (errata E41). (-1 word.)
     * Section 8.6's covenant not to assert the patent claims now operates in
-      every jurisdiction alongside the licences, as Section 5 does for
-      copyright, instead of only where a licence "is held ineffective". It
+      every jurisdiction alongside the licences, instead of only where a
+      licence "is held ineffective". It
       names Sections 8.1 and 8.4 where it said "that Section" (errata E42). It
       says permission under the Covered Rights "stands here on three
       footings", where it said copyright was "protected here three times
@@ -65,8 +62,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       excludes from being a Contribution and that is nevertheless included in
       the Work. (+1 word.)
     * Section 16.4 now reaches any identifier that begins with "ACD-" followed
-      by a digit. "ACD-N" and "ACD-N.N" left "ACD-1.4.1" and similar forms
-      free for a modified text. (+2 words.)
+      by a digit, where it reached identifiers of the form "ACD-N" or
+      "ACD-N.N". (+2 words.)
     * Section 11.4 (errata E43) now says that permission under the law of data
       protection or privacy is not the Dedicator's to give where the data,
       likeness, voice, or performance is that of a person other than the
@@ -106,14 +103,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       a personal character conferred on an author by law "now or in future",
       the words Sections 1.5 and 8.1 use. (+4 words.)
     * Section 16.4 now ends "Both provisos are conditions upon distributing
-      the text, not upon any use of the Work (Section 10.5)." Only the
-      translation proviso said so; the re-encoding proviso, added in ACD-1.1,
-      said nothing, and of two adjacent provisos the one left unqualified
-      could be read as a condition upon use. (-2 words.)
-    * Section 1.5 (errata E51) now says "Covered Rights exclude", the verb
-      agreeing with the plural as it does in Section 8.4 and wherever else
-      this Dedication makes a defined term in the plural the subject of a
-      verb. (0 words.)
+      the text, not upon any use of the Work (Section 10.5)." (-2 words.)
+    * Section 1.5 (errata E51) now says "Covered Rights exclude", where it
+      said "Covered Rights excludes". (0 words.)
     * Section 11.1 (errata E52) now says "Nothing in Section 11 reduces what
       any other Section of this Dedication gives", where it said "Nothing in
       this Section reduces a permission granted by Sections 3 to 10". (0
