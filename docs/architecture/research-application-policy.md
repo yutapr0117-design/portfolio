@@ -168,7 +168,7 @@ Status        : 本 increment で新設。CLAUDE.md（thin router）から参照
   - **同時に張るべき層**: 修正が承認されたら、**Speakable の各セレクタがそのルートで 1 件以上に解決する**ことを behavior e2e で固定する（Check 411 が main.js の `querySelectorAll` に対してやっているのと同じ used⟹defined レンズの Speakable 面）。今は宣言側が壊れているため、**先に Check を入れると恒久 RED になる**ので順序は修正が先。
   - **再現コマンド**: 各ルートで `script[data-ld="speakable"]` を JSON parse し、`speakable.cssSelector` の各要素を `document.querySelectorAll(sel).length` で数える（本記録の数値はこの方法）。
 
-- **観測（未適用・記録のみ）— quiz の `document.title` だけが renderer の fallback を鏡写していない（2026-08-11 実測）:** 無効な `?type=` に対し 3 つの面が別々に fallback を決めている。
+- **観測（2026-08-11）→ 2026-11-03 に適用 — quiz の `document.title` だけが renderer の fallback を鏡写していない（2026-08-11 実測）:** 無効な `?type=` に対し 3 つの面が別々に fallback を決めている。
 
   | 面 | `?type=` 空 | `?type=zzz` / `constructor` |
   | :-- | :-- | :-- |
@@ -249,8 +249,8 @@ Status        : 本 increment で新設。CLAUDE.md（thin router）から参照
 
   さらに **critical 制限を外した全 impact スキャン**を 3 ルートで実施し、新版が新しい違反を
   出さないことを確認した。検出されたのは `color-contrast`（serious・home 41 / quiz 63 /
-  settings 26 ノード）**のみ**で、これは既に **C5 defer として本書に記録済み**の項目
-  （ライト/ダーク双方の測定値つき）。**新版が新たに暴いた問題は無い**。
+  settings 26 ノード）**のみ**で、これは当時 **C5 defer として本書に記録済み**だった項目
+  （ライト/ダーク双方の測定値つき・**その後 #1158 で 2 ブランド × 2 テーマとも違反 0 へ解決済み**）。**新版が新たに暴いた問題は無い**。
 
   **記録として**: `npx eslint .`（スコープ無し）は 104 problems / 50 errors を出すが、これは
   `playwright.config.cjs` など **lint 対象外の Node 側ファイル**で `process` 等が未定義になるため。
