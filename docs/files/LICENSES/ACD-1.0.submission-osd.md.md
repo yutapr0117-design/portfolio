@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.submission-osd.md
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-09-25
+last-updated: 2026-11-04
 canonical-ref: LICENSES/ACD-1.0.submission-reference.md / LICENSES/ACD-1.0.submission.md
 ---
 
@@ -29,7 +29,7 @@ canonical-ref: LICENSES/ACD-1.0.submission-reference.md / LICENSES/ACD-1.0.submi
 ## Constraints
 
 - Check 459 が索引（`LICENSES/README.md`）からの到達性を、Check 461c が `last-updated` を強制
-- 凍結本文（ACD-1.0 / 1.1）には触れていない
+- 凍結本文（`FROZEN.md` の FREEZE-DATA が列挙するもの。切り出した 2026-09-25 の時点では 1.0 と 1.1）には触れていない
 
 ## Change impact
 
