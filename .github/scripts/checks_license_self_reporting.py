@@ -140,14 +140,24 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 
 import json
 import re
+import sys
 from types import SimpleNamespace  # noqa: F401  (ctx の型を読者に示すためだけの import)
 
-# NOTE: `re` と `json` は本 module が自分で import する。monolith から切り出したとき **これを
-# 忘れて NameError を出した** —— そして run() の途中で例外が上がると **その Check は一度も
-# 走らないまま、後続の Check もすべて skip される**（#885 / Check 400 と同じ形）。
-# エラーは「ERROR:」ではなく traceback として出るので、`grep '^ERROR'` は空を返し、
-# **「非 vacuity 検証で何も出なかった＝壊れていない」と読み違えかけた。**
-# **抽出したモジュールは、まず「意図した Check が実際に走ったか」を OK 行で確かめること。**
+# NOTE: `re` / `json` は本 module が自分で import する（切り出し時に忘れて NameError を出し、run() 途中の例外で
+# 本 Check と後続が一度も走らないまま traceback で止まった・#885 / Check 400 と同形。grep '^ERROR' は空を返す）。
+# **抽出した module は、意図した Check の OK 行が出ているかで確かめること。**
+
+
+class _FaceTagged460(list):
+    """460 の誤りへ face のラベル "(x)" を付ける (2026-11-03・probe の face 単位の帰属 / Check 479c)。
+    face は append を呼んだ行の直前の `# (x)` で決まる (469 (a) と同じ解析)。"""
+    _faces = [(_i, _m.group(1)) for _i, _m in (
+        (_i, re.match(r"^\s{8}# \(([a-z])\)", _l)) for _i, _l in enumerate(open(__file__, encoding="utf-8"), 1)) if _m]
+
+    def append(self, msg):
+        _ln = sys._getframe(1).f_lineno
+        _face = next((_f for _i, _f in reversed(self._faces) if _i < _ln), None)
+        super().append(f"({_face}) {msg}" if _face and not str(msg).startswith(f"({_face})") else msg)
 
 
 def run(ctx):
@@ -161,7 +171,7 @@ def run(ctx):
     # 数字は書いた当日に drift する。読み手は数字を根拠に「網羅されている」と判断するので、
     # 古い数字は網羅の主張を嘘にする。
     _L460 = ROOT / "LICENSES"
-    _bad460 = []
+    _bad460 = _FaceTagged460()
 
     def _read460(name):
         p = _L460 / name
@@ -377,16 +387,10 @@ def run(ctx):
                 r"|All\s+[0-9]+\s+adverse"
                 r"|[0-9]+\s+worked\s+entries"
                 r"|[0-9]+\s+imprecisions"
-                # 2026-09-14 追加。**本 face は 7 綴りの whitelist だった** —— そして
-                # この face 自身のコメントが *「被覆は drift を目撃した場所であって
-                # drift しうる場所ではない」* と書いている。**綴りの面で、同じことを
-                # していた。** 敵対的検証で mirror を機械走査すると、**whitelist の外で
-                # 4 件が実際に stale だった**: 不利な事実「117 件」(実体 145) /
-                # 「既にある 118 件」(実体 239) / 草案「4,742 語・77 条」(実体 4,938 語) /
-                # 本文「16 節・68 項」(**実体 82 条・書いた時点で誤り**)。
-                # **綴りを足すのも whitelist の延長でしかない**が、blanket 禁止は
-                # 実測 87 件の正当な記述を RED にするので採らない (#977 / #1212)。
-                # **穴が残ることは `AUDIT-LEDGER.md` に書いてある。**
+                # 2026-09-14 追加: 本 face は 7 綴りの whitelist で、mirror を機械走査すると whitelist の外で 4 件が stale
+                # だった（不利な事実の件数 / 既にある件数 / 草案の語数・条数 / 本文の節・項 —— 最後は書いた時点で誤り）。
+                # 綴りを足すのも whitelist の延長だが、blanket 禁止は実測 87 件の正当な記述を RED にするので採らない
+                # (#977 / #1212)。**穴が残ることは `AUDIT-LEDGER.md` に書いてある。**
                 r"|不利な事実[（(]?\s*[0-9]+\s*件"
                 r"|既にある\s*[0-9]+\s*件"
                 r"|[0-9][0-9,]*\s*語・[0-9]+\s*条"
@@ -774,14 +778,9 @@ def run(ctx):
         #   数値を消す選択も正しい (READY-TO-SUBMIT はそうした)。**縛るのは「裸の現在形の数値」だけ。**
         _DATE460R = re.compile(r"20\d\d-\d\d(-\d\d)?")
         _PTR460R = ("§B.0 の見出し", "Check 460 (p)", "heading", "見出しが述べる")
-        #   **2026-09-27 に 2 つ直した。**
-        #   **(1) 走査先が `LICENSES/` だけで、`docs/architecture/` を見ていなかった** ——
-        #   `check-repository-consistency-map.md` の Check 463 の説明が **「~600 語」のまま**残り、
-        #   **外部監視に指摘されて初めて分かった**（実測 1,701・2.8 倍）。
-        #   **(2) 近傍 ±3 行の窓は、Check の説明が並ぶ密な表では必ず日付を拾って素通りする** ——
-        #   **表の行 (`|` 始まり) は単独で引用されるので、同じ行に日付か権威が無ければ落とす。**
-        #   **⚠ 窓を広く取ると「正しく日付が付いた表」を守れるが、「日付が隣の行にあるだけの表」も
-        #   守ってしまう。** どちらを取るかは、**その行が単独で読まれるか**で決まる。
+        #   **2026-09-27 に 2 つ直した**: (1) 走査先に `docs/architecture/` が無く、check-map の Check 463 の説明が
+        #   「~600 語」のまま残っていた（実測 1,701・外部監視の指摘）。(2) ±3 行の窓は密な表で必ず日付を拾って素通り
+        #   するので、表の行（`|` 始まり）は同じ行に日付か権威を要求する —— 行が単独で引用されるかで窓を決める。
         _scan460r = sorted(_L460.glob("*.md")) + sorted((ROOT / "docs" / "architecture").glob("*.md"))
         for _p460r in _scan460r:
             if _p460r.name == "ACD-1.0.submission.md":

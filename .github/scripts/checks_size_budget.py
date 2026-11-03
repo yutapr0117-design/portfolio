@@ -320,6 +320,16 @@ def run(ctx):
              "「| `path` | 実測行数 | 予算 (数字 or —) | `種別` |」を崩すと、その行は Check 424 の照合から"
              "**黙って外れる** (2026-11-01 まで空白の詰まった行と `—` 予算の 5 行がそうだった)"),
         )
+        # 424c: §2 の path は一意。2026-11-03 に mutation_samples_e2e_archive3.py が 2 行あり予算列が
+        #   950 / 975 と食い違っていた (09-29 に既存の行に気付かず足した)。rotate ツールは 1 行目を、
+        #   照合は全行を更新対象にするので、重複行は片方が必ず古くなる。
+        _dup424 = sorted({_p for _p in [_m.group(1) for _m in _rows424.finditer(_src424)]
+                          if [_m.group(1) for _m in _rows424.finditer(_src424)].count(_p) > 1})
+        check(
+            not _dup424,
+            "Check 424c: §2 表の path はすべて一意",
+            f"Check 424c: §2 表に同じ path の行が複数ある: {_dup424}。1 行にまとめよ (予算列や理由が食い違い、どちらかが必ず古くなる)",
+        )
         for _m424 in _rows424.finditer(_src424):
             _p424 = ROOT / _m424.group(1)
             if not _p424.exists():
