@@ -434,7 +434,7 @@ for (const key of PROTO_KEYS) {
     // 2. FatalPage ではない (代替ページは弱い合否条件を vacuous に通すため negative assertion を併用)
     await expect(page.locator('#fallback-details')).toHaveCount(0);
     // 3. ページタイトルが関数の文字列化に化けていない (page-meta 側の同 class fix)
-    await expect(page).toHaveTitle(/^Quiz \|/);
+    await expect(page).toHaveTitle(/^AWS問題集 \|/);
 
     const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
     expect(fatal, `?type=${key} caused a fatal: ${fatal}`).toBeNull();
@@ -473,22 +473,19 @@ test('Quiz decorative emoji are hidden from the accessibility tree (WCAG 1.1.1)'
 // 継承キー 3 種を個別に見ているが、**有効値・空値・未知値まで含めた全域**では見ていない。
 // title はタブ名・履歴・AI クローラが受け取る機械可読面なので、化けると影響が広い。
 //
-// NOTE (実測して分かった仕様・意図的に変更しない): `?type=` が **空** のときは
-//   `route.query.type || 'aws'` で AWS へ落ちるため title は「AWS問題集」になる一方、
-//   `?type=zzz` のような **未知キー**では汎用「Quiz」になる。どちらも描画は AWS 問題集なので
-//   title だけ食い違うが、**'Quiz' は #926 の既存テストが正規表現で pin している記録済みの
-//   期待値**であり、覆すだけの根拠 (実害の測定) が無いためここでは現状を固定する。
-//   3 面 (renderer / sidebar nav / title) のうち title だけ fallback を鏡写していない件は
-//   観測として docs へ残した。
+// NOTE (2026-11-03 に変更): 以前は未知キー (`?type=zzz` 等) で title だけ汎用「Quiz」になり、
+//   描画 (AWS 問題集) / sidebar nav (AWS を active) と食い違っていた。「オーナーの裁可を待つ」
+//   として保留されていたが、canon は裁可待ちの作業カテゴリを否定しており、nav を描画へ鏡写す
+//   components.js の [FIX] と同じ原則で title も AWS へ揃えた (3 面が一致する)。
 const QUIZ_TITLE_CASES = [
   ['aws', 'AWS問題集'],
   ['pm', 'PM問題集'],
   ['quality', '品質・プロセス問題集'],
   ['architecture', '設計判断問題集'],
   ['', 'AWS問題集'],
-  ['zzz', 'Quiz'],
-  ['constructor', 'Quiz'],
-  ['__proto__', 'Quiz'],
+  ['zzz', 'AWS問題集'],
+  ['constructor', 'AWS問題集'],
+  ['__proto__', 'AWS問題集'],
 ];
 for (const [type, expectedHead] of QUIZ_TITLE_CASES) {
   test('Quiz document.title stays in the known-safe set for ?type=' + (type || '(empty)'), async ({ page }) => {

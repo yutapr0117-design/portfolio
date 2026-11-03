@@ -941,4 +941,11 @@ _E2E_TAIL.append({
     "replace": "            'about':       ['h1', '[data-speakable]', '.sr-only'],",
     "test": "Every non-home Speakable cssSelector resolves to real elements (AIO accuracy)",
 })
+_E2E_TAIL.append({
+    "name": "quiz の未知 ?type= で title だけ汎用「Quiz」へ戻る —— 描画 (AWS 問題集) / sidebar nav (AWS active) と title が食い違う 2026-11-03 以前の状態",
+    "file": ROOT / "js" / "page-meta.js",
+    "find": "            return Object.prototype.hasOwnProperty.call(map, type) ? map[type] : map.aws;",
+    "replace": "            return Object.prototype.hasOwnProperty.call(map, type) ? map[type] : 'Quiz';",
+    "test": "Quiz document.title stays in the known-safe set for ?type=",
+})
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
