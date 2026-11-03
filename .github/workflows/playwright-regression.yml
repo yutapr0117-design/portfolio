@@ -219,8 +219,8 @@ jobs:
           PY
 
       # … and the homepage pixel screenshot is ADVISORY (observed, never blocking). An intentional
-      # visual change makes this step red until the baseline is regenerated via the human-merged
-      # update-playwright-snapshots.yml path — that red is expected and does NOT gate merges.
+      # visual change makes this step red until the baseline is regenerated via the
+      # update-playwright-snapshots.yml dispatch → PR path (merged by the AI since 2026-11-02) — that red is expected and does NOT gate merges.
       - name: Run visual regression (ADVISORY — non-blocking, see Session Record #20 §3(B))
         id: visual
         continue-on-error: true
@@ -234,7 +234,7 @@ jobs:
       - name: Surface the advisory visual result
         if: always() && steps.visual.outcome == 'failure'
         run: |
-          echo "::warning title=Visual regression (ADVISORY)::homepage screenshot が baseline と一致しない。意図した視覚変更なら update-playwright-snapshots.yml で baseline を再生成する (§3 の human-merge 経路)。artifact playwright-results に expected / actual / diff がある"
+          echo "::warning title=Visual regression (ADVISORY)::homepage screenshot が baseline と一致しない。意図した視覚変更なら update-playwright-snapshots.yml で baseline を再生成する (§3 の dispatch → PR 経路・bot PR は action_required を承認してから CI を見る)。artifact playwright-results に expected / actual / diff がある"
           {
             echo "### Visual regression (ADVISORY): failed"
             echo
