@@ -90,4 +90,48 @@ MUTATIONS_ARCHIVE5 = [
     "replace": "**A. 使う側** （",
     "check": CHECK,
 },
+    {
+    "name": "Check 460 (f): QUESTION-INDEX が worked entry の総数を手で足し引きしてずれる (実際に 2 ずれていた形) (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "LICENSES" / "QUESTION-INDEX.md",
+    "find": "There are **",
+    "replace": "There are  **",
+    "check": CHECK,
+},
+    {
+    "name": "Check 460 (h): mirror がドシエの規模を数字で述べる (mirror の数は維持できないので禁止) (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "docs" / "files" / "LICENSES" / "ACD-1.0.faq.md.md",
+    "find": "**A. 使う側**（",
+    "replace": "All 99 adverse facts. **A. 使う側**（",
+    "check": CHECK,
+},
+    {
+    "name": "Check 460 (i): §4c が不利な事実の件数を 1 つ少なく述べる (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission-reference.md",
+    "find": " entries, 1–",
+    "replace": " entries 1–",
+    "check": CHECK,
+},
+    {
+    "name": "Check 460 (j): §1.35 の「N のうち M」が下の列挙と合わない (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.comparison.md",
+    "find": " distinguishing features",
+    "replace": " distinguishing  features",
+    "check": CHECK,
+},
+    {
+    "name": "Check 460 (k): ドシエの #N 参照が不利な事実のどの行にも解決しない (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
+    "find": "#195",
+    "replace": "#9195",
+    "check": CHECK,
+},
+    {
+    "name": "Check 460 (l): errata 冒頭の件数が表の行数と合わない (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.errata.md",
+    # find は件数の語に釘付けにしない —— 件数は errata を足すたびに変わり anchor が orphan になる
+    # (2026-11-03 に E59 で実際に orphan 化)。動かない E2 の行頭を崩して表の行数を 1 減らす。
+    "find": "\n| E2 | ",
+    "replace": "\n|E2 | ",
+    "check": CHECK,
+},
 ]
