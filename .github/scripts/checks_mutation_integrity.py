@@ -153,8 +153,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (`named_check_fired`) は `::error::Check N` を探すので、番号の無い失敗文言は mutation を
        足しても**必ず MISATTRIBUTED になる** —— 2026-09-29 に測ると 1〜35 番の 33 Check がそうで、
        `_BASE479` から構造的に外せない状態だった (番号を付けて解消)。
-       **479c** (2026-11-03): Check 460 / 469 の全 face に "Check N (x)" と名乗る mutation がある。probe は
-       その名前を face のラベルで帰属する (460 は 23 面中 15 面・469 は 3 面中 2 面が未被覆だった)。
+       **479c** (2026-11-03): Check 460 / 469 / 471 の全 face に "Check N (x)" と名乗る mutation がある。probe は
+       その名前を face のラベルで帰属する (460 は 23 面中 15 面・469 は 3 面中 2 面・471 は 10 面中 5 面が未被覆。
+       471 は誤りに face ラベルが無く、既存の face 名 mutation 6 件が probe の face 帰属で MISATTRIBUTED だった)。
        **479d** (2026-11-04・ratchet): 下位部ラベル `Check Nx` を名指す mutation が無いものを増やさない
        (96 個中 36 個しか名指されていなかった。既存 59 個を凍結し、付いたら ADVISORY で縮める)。
        (BLOCKING)
@@ -575,6 +576,10 @@ def run(ctx):
         "460": (set(re.findall(r"^\s{8}# \(([a-z])\)", _src_sr479c.read_text(encoding="utf-8"), re.M))
                 if _src_sr479c.exists() else set()),
         "469": set(re.findall(r"^\s{4}# \(([a-z])\)", _sec469c.group(0), re.M)) if _sec469c else set(),
+        # 471 (2026-11-04): 10 面。face コメントの字下げが 16 / 8 桁で混ざるので字下げは問わない。
+        "471": (set(re.findall(r"^\s+# \(([a-z])\)", (_sc479c / "checks_license_references.py")
+                               .read_text(encoding="utf-8"), re.M))
+                if (_sc479c / "checks_license_references.py").exists() else set()),
     }
     try:
         import importlib as _il479c
@@ -589,11 +594,14 @@ def run(ctx):
         if _fs479c - _nf:
             _miss479c[_n479c] = sorted(_fs479c - _nf)
     check(
-        len(_faces479c["460"]) >= 20 and len(_faces479c["469"]) >= 3 and not _miss479c,
-        f"Check 479c: Check 460 の {len(_faces479c['460'])} 面 / 469 の {len(_faces479c['469'])} 面すべてに "
+        len(_faces479c["460"]) >= 20 and len(_faces479c["469"]) >= 3 and len(_faces479c["471"]) >= 10
+        and not _miss479c,
+        f"Check 479c: Check 460 の {len(_faces479c['460'])} 面 / 469 の {len(_faces479c['469'])} 面 / "
+        f"471 の {len(_faces479c['471'])} 面すべてに "
         "face を名指しする mutation がある",
         (f"Check 479c: face を名指しする mutation が無い面: {_miss479c} "
-         f"(導出した面 460={len(_faces479c['460'])} / 469={len(_faces479c['469'])})。週次 probe はその面を"
+         f"(導出した面 460={len(_faces479c['460'])} / 469={len(_faces479c['469'])} / 471={len(_faces479c['471'])})。"
+         "週次 probe はその面を"
          "一度も壊して確かめない。\"Check N (x): …\" と名乗る mutation を足し、そのラベルだけが出ることを確かめよ"),
         blocking=True,
     )
