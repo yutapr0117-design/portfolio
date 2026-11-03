@@ -76,8 +76,8 @@ E2E_MUTATIONS_ARCHIVE2 = [
     {
         "name": "behavior: quiz title の own-key ガード喪失 (#926 の回帰) — page-meta.js の hasOwnProperty 検証を `map[type] ||` へ戻す → `?type=constructor` などプロトタイプ継承キーで **関数オブジェクトが返り** document.title が「function Object() { [native code] }」に化ける。title はタブ名・履歴・AI クローラが受け取る機械可読面で、視覚の主要部には出ないため screenshot でも気付けない",
         "file": ROOT / "js" / "page-meta.js",
-        "find": "            return Object.prototype.hasOwnProperty.call(map, type) ? map[type] : 'Quiz';",
-        "replace": "            return map[type] || 'Quiz';",
+        "find": "            return Object.prototype.hasOwnProperty.call(map, type) ? map[type] : map.aws;",
+        "replace": "            return map[type] || map.aws;",
         "test": "Quiz document.title stays in the known-safe set for ?type=",
     },
     {
