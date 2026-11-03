@@ -412,24 +412,24 @@ _MUTATIONS_TAIL.append({
 })
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 468: CHANGELIST の変更表の 1 行の語数を書き換える (+37 → +38) —— 表と草案の申告がずれても 468n は見ない (468s が捕捉)",
+    "name": "Check 468s: CHANGELIST の変更表に語数 +1 の行が 1 つ増える —— 表と草案の申告がずれても 468n は見ない",
     "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
-    "find": "| +37 ",
-    "replace": "| +38 ",
+    "find": "| 対象 | 何を変えるか | なぜ | 費用（語） | 状態 |\n| :-- | :-- | :-- | :-- | :-- |",
+    "replace": "| 対象 | 何を変えるか | なぜ | 費用（語） | 状態 |\n| :-- | :-- | :-- | :-- | :-- |\n| (mutation) | x | x | +1 | x |",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
     "name": "Check 469 (c): READY-TO-SUBMIT の部数申告が実装に追従しない —— 451d / 451e を足したあとも「3 部」のままだった 2026-11-03 以前の状態 (469 (c) が捕捉)",
     "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
-    "find": "| Check 451 (5 部) |",
-    "replace": "| Check 451 (3 部) |",
+    "find": "| Check 451 (",
+    "replace": "| Check 451 (9 部) (",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
     "name": "Check 460 (b): 索引が FAQ の「使う側」の問数を 1 つ多く申告する (face 単位の帰属・2026-11-03)",
     "file": ROOT / "LICENSES" / "ACD-1.0.review-responses.md",
-    "find": "使う側 31 問 / プロセス 5 問",
-    "replace": "使う側 32 問 / プロセス 5 問",
+    "find": "問 / プロセス",
+    "replace": "問 ／ プロセス",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
@@ -442,36 +442,36 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 460 (d): FAQ の mirror が「使う側」の問数を 1 つ少なく申告する (face 単位の帰属・2026-11-03)",
     "file": ROOT / "docs" / "files" / "LICENSES" / "ACD-1.0.faq.md.md",
-    "find": "**A. 使う側**（31 問）",
-    "replace": "**A. 使う側**（30 問）",
+    "find": "**A. 使う側**（",
+    "replace": "**A. 使う側** （",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
     "name": "Check 460 (f): QUESTION-INDEX が worked entry の総数を手で足し引きしてずれる (実際に 2 ずれていた形) (face 単位の帰属・2026-11-03)",
     "file": ROOT / "LICENSES" / "QUESTION-INDEX.md",
-    "find": "There are **384** worked entries",
-    "replace": "There are **382** worked entries",
+    "find": "There are **",
+    "replace": "There are  **",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
     "name": "Check 460 (h): mirror がドシエの規模を数字で述べる (mirror の数は維持できないので禁止) (face 単位の帰属・2026-11-03)",
     "file": ROOT / "docs" / "files" / "LICENSES" / "ACD-1.0.faq.md.md",
-    "find": "**A. 使う側**（31 問）",
-    "replace": "All 99 adverse facts. **A. 使う側**（31 問）",
+    "find": "**A. 使う側**（",
+    "replace": "All 99 adverse facts. **A. 使う側**（",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
     "name": "Check 460 (i): §4c が不利な事実の件数を 1 つ少なく述べる (face 単位の帰属・2026-11-03)",
     "file": ROOT / "LICENSES" / "ACD-1.0.submission-reference.md",
-    "find": "**281 entries, 1–281, no gaps",
-    "replace": "**280 entries, 1–280, no gaps",
+    "find": " entries, 1–",
+    "replace": " entries 1–",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
     "name": "Check 460 (j): §1.35 の「N のうち M」が下の列挙と合わない (face 単位の帰属・2026-11-03)",
     "file": ROOT / "LICENSES" / "ACD-1.0.comparison.md",
-    "find": "**Four of ACD-1.0's seven distinguishing features",
-    "replace": "**Four of ACD-1.0's eight distinguishing features",
+    "find": " distinguishing features",
+    "replace": " distinguishing  features",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
@@ -493,22 +493,22 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 460 (o): 入口ページの最高 severity の件数が register の表と合わない (face 単位の帰属・2026-11-03)",
     "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "**four are marked highest severity",
-    "replace": "**three are marked highest severity",
+    "find": " are marked highest severity",
+    "replace": " are marked as highest severity",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
     "name": "Check 460 (p): §B.0 の見出しの語数が本文の実測と合わない (face 単位の帰属・2026-11-03)",
     "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": "(**1703 words**",
-    "replace": "(**1700 words**",
+    "find": "### B.0 The message as it should actually be sent (**",
+    "replace": "### B.0 The message as it should actually be sent (~**",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
     "name": "Check 460 (q): 審査者に示す検証コマンドの期待値が実際の出力件数と合わない (face 単位の帰属・2026-11-03)",
     "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "9× OK",
-    "replace": "8× OK",
+    "find": "× OK",
+    "replace": "× OK (and 99× OK)",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
@@ -521,15 +521,15 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 460 (s): 散文が Check 463 の強制項目数を実装と違う数で述べる (face 単位の帰属・2026-11-03)",
     "file": ROOT / "LICENSES" / "ACD-1.0.review-rules.md",
-    "find": "Check 463（**12 項目",
-    "replace": "Check 463（**11 項目",
+    "find": "Check 463（**",
+    "replace": "Check 463（**99 項目 / ",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
     "name": "Check 460 (a): 提出パケットが worked entries の件数を 1 つ多く申告する (face 単位の帰属・2026-11-03)",
     "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": "(47 worked entries plus a table of 8 short answers",
-    "replace": "(48 worked entries plus a table of 8 short answers",
+    "find": " worked entries plus a table of ",
+    "replace": " worked entries and a table of ",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
@@ -544,6 +544,20 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "LICENSES" / "ACD-1.0.errata.md",
     "find": "| E58 |",
     "replace": "| E59 |",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 479c: Check 460 に face を 1 つ足し、その face を名指す mutation を足さない —— 週次 probe はその面を一度も壊して確かめない",
+    "file": ROOT / ".github" / "scripts" / "checks_license_self_reporting.py",
+    "find": "        # (w) 質問集を名指す行",
+    "replace": "        # (z) (mutation)\n        # (w) 質問集を名指す行",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 479d: Check 424 に下位部 424z を足し、それを名指す mutation を足さない —— 週次 probe はその下位部を一度も壊して確かめない",
+    "file": ROOT / ".github" / "scripts" / "checks_size_budget.py",
+    "find": "        # 424c: §2 の path は一意。",
+    "replace": "        # Check 424z (mutation)\n        # 424c: §2 の path は一意。",
     "check": CHECK,
 })
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL

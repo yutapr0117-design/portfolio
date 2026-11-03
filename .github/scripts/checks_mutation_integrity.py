@@ -155,6 +155,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `_BASE479` から構造的に外せない状態だった (番号を付けて解消)。
        **479c** (2026-11-03): Check 460 / 469 の全 face に "Check N (x)" と名乗る mutation がある。probe は
        その名前を face のラベルで帰属する (460 は 23 面中 15 面・469 は 3 面中 2 面が未被覆だった)。
+       **479d** (2026-11-04・ratchet): 下位部ラベル `Check Nx` を名指す mutation が無いものを増やさない
+       (96 個中 36 個しか名指されていなかった。既存 59 個を凍結し、付いたら ADVISORY で縮める)。
        (BLOCKING)
   480. **mutation データの dict literal に重複 key が無い** (BLOCKING)。Python は dict literal の
        重複 key を**黙って後勝ちで上書き**する。2026-11-01、3 セッションが同じ append-log へ並行に
@@ -594,6 +596,41 @@ def run(ctx):
          f"(導出した面 460={len(_faces479c['460'])} / 469={len(_faces479c['469'])})。週次 probe はその面を"
          "一度も壊して確かめない。\"Check N (x): …\" と名乗る mutation を足し、そのラベルだけが出ることを確かめよ"),
         blocking=True,
+    )
+
+    # 479d — 下位部 (Check 内の "Check Nx" ラベル) を名指す mutation が無いものを増やさない (ratchet)。
+    # probe は "Check Nx" と名乗る mutation を Nx のラベルで帰属する (2026-11-04)。測ると下位部 96 個の
+    # うち名指す mutation を持つのは 36 個で、142b の mutation は片方の paths ブロックしか消さず
+    # 142c が拾っていた (名乗った 142b を一度も検証していなかった)。既存分は下に凍結する。
+    _BASE479D = ("26a,26b,40a,40c,42a,42b,43d,44a,44b,44c,45a,45b,45c,46a,46b,47a,47b,47c,50a,50b,50c,"
+                 "50d,73a,73b,73c,100a,100b,102a,102b,102c,102d,102e,102f,119a,123a,123b,124b,409b,426a,"
+                 "426b,426c,434b,441f,441g,442a,442b,442c,445a,445b,445c,445d,445e,449b,449c,451a,451b,"
+                 "451d,453b,458a")
+    _base479d = set(_BASE479D.split(","))
+    _sub479d = set()
+    for _cf479d in sorted((ROOT / ".github" / "scripts").glob("checks_*.py")) + [
+            ROOT / ".github" / "scripts" / "check_repository_consistency.py"]:
+        for _sec479d in re.finditer(r"^\s*# ── (\d+)\..*?(?=^\s*# ── \d|\Z)",
+                                    _cf479d.read_text(encoding="utf-8"), re.S | re.M):
+            _sub479d |= {_sec479d.group(1) + _x for _x in
+                         re.findall(r"Check " + _sec479d.group(1) + r"([a-z])\b", _sec479d.group(0))}
+    _named479d = {_mm.group(1) + _mm.group(2) for _x in _ms479c
+                  for _mm in [re.match(r"Check (\d+)([a-z])\b", _x["name"])] if _mm}
+    _new479d = sorted(_sub479d - _named479d - _base479d)
+    check(
+        len(_sub479d) >= 90 and not _new479d,
+        f"Check 479d: 下位部 {len(_sub479d)} 個のうち名指す mutation が無いのは既存の "
+        f"{len(_base479d & _sub479d - _named479d)} 個だけ (新規 0)",
+        (f"Check 479d: 名指す mutation が無い下位部がある: {_new479d}。\"Check Nx: …\" と名乗る mutation を"
+         "足し、Nx のラベルが Check N の誤りに出ることを確かめよ (下位部の名前を失敗文言に入れること)"),
+        blocking=True,
+    )
+    _stale479d = sorted(_base479d & _named479d)
+    check(
+        not _stale479d,
+        "Check 479d (ADVISORY): 凍結した未被覆の下位部に、もう mutation を持つものは残っていない",
+        f"Check 479d (ADVISORY): {_stale479d} には mutation が付いた。`_BASE479D` から外して縮めよ",
+        blocking=False,
     )
 
     # ── 480. mutation データの dict literal に重複 key が無い (BLOCKING) ──────────────────
