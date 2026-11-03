@@ -57,6 +57,25 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 | 来歴（AI の関与） | オーナーが目的と上位の方向を決め、AI が具体的な法的設計と本文を起草し、委任の下で発展させた。オーナーは全文を読んで依拠している | **薄めない**（`ACD-1.0.submission.md` §E.1 / `LICENSE` の Provenance）|
 | 利益相反 | 他者のライセンスの審査に意見したことがあるなら 1 行で開示（`REVISION-PROTOCOL.md` 規則 7） | — |
 
+
+### 1b. gap ごとに、ACD 自身はそれを果たしているか（`against.md` #269 (a)・2026-11-04）
+
+上の gap の行は「既存のライセンスに無い」ことの確かめ方しか持っていない。審査者は続けて「では、この文書はそれを実際に果たしているか」を問う（Tiemann 氏 2007 *"if a license is submitted with promise X, then we should evaluate promise X as well as the OSD"*・`review-doctrine.md` §1.127）。約束ごとに、**作用として果たしているのか、明示しているだけなのか**を分けて書く。分類は 2026-11-03 の B10 再検証（承認済み 10 本の原文に法的作用で当てた・`ACD-OSI-BOTTLENECKS-EXTERNAL.md` B10 節）による。条番号は 1.4 草案のもの。
+
+| 約束 | 分類 | 確かめる指し先 | 逆側 |
+| :-- | :-- | :-- | :-- |
+| 機械が判定できる許諾（PREAMBLE・§6.5） | 果たしている（ただし確定した版で） | 確定した版の記述子 `ACD-<版>.machine.json` の `permissions.machineLearningTraining` / `textAndDataMining`（→ §6.1）と `reservationsAndLimits.tdmReservation: false`（→ §6.2）。記述子が引く条の実在は Check 451a、公開 manifest の boolean との一致は Check 451c が守る。1.3 では `ACD-1.3.machine.json` で確かめられる | **1.4 には記述子がまだ無い**（E10・確定の日に作る —— 手順は `ACD-1.1-CHANGELIST.md` §0.13）。記述子は §9 を指すキーを持たない（#269 (b)。次版の記述子に入れる候補） |
+| 学習・TDM の明示許諾（§6.1） | **明示しているだけ** | §6.5 の第 1 文が自分でそう述べる（*"Section 6 states expressly what Sections 3 to 5 and 8 would in any event permit"*） | 0BSD や BlueOak（*"everything with this software"*）も、作用としては学習を許している。「既存は学習を許さない」と書けば誤り |
+| 留保しないこと・留保の撤回（§6.2・§6.3）と、付随条件を課さないこと（§5.2(b)） | 作用として果たしている（Dedicator 自身の行為の範囲で） | 本文の §6.2・§6.3・§5.2(b)。記述子の `tdmReservation: false`（→ §6.2） | 他の権利者が付けた留保には及ばない —— §6.3 自身が *"the Dedicator has no power to withdraw it"* と述べる |
+| データベース権の抽出・再利用（§7.2） | 作用として果たしている | §7.2 の *"extract and re-utilise the whole or any substantial part … repeatedly and systematically"*（sui generis 権の行為の語）。記述子の `databaseExtraction`（→ §7.2） | WordNet はデータベースを許諾の対象に含む（copyright のライセンスとして）。sui generis 権を名指す点が違う |
+| 条件ゼロの特許許諾（§8.1・§8.2） | 果たしている | §8.2 の *"subject to no condition and are not terminable"*、記述子の `patentRetaliation: false`（→ §8.2） | 特許としての作用は BSD-2-Clause-Patent・UPL・BlueOak と同じで、違いは条件の有無だけ |
+| モデル・出力に届く特許許諾（§8.4） | 作用として果たしている | §1.5 が特許を Covered Rights から除くので §6.4 だけでは届かない、と §8.4 自身が述べ、§8.1 末尾の内容限定を *"deliberately absent"* として外している。記述子の `patentUseForTraining`（→ §8.4） | 広さは費用でもある（`against.md` #16）。CERN-OHL-P-2.0 は Products に届くが内容限定を持つ（`submission-reference.md` の比較） |
+| §3 の有効性に依存しない公有化等価の地位（§3 + §4） | 果たしている | §4.4 の *"granted independently of Section 3, and not as a fallback for it"* と §2.4 | 献呈と許諾を並べる形には Unlicense の先例がある |
+| 機械生成物（§9） | **宣言しているだけ** | §9.2 *"asserts no right in Machine-Generated Material"*・§9.3（判定しなくてよい） | 包括的な許諾に、付与としての作用を足さない。記述子にも §9 のキーが無い（上の 1 行目） |
+| 人格権（§12） | permissive に対しては果たしている | §12.1（放棄）・§12.2（放棄できない法域での不行使） | EUPL-1.2 に放棄の先例がある |
+
+**この表が establish しないこと**: 「作用として果たしている」は、本文の文言をそのとおりに読んだときの話で、どの法域でも有効だという主張ではない（弁護士のレビューは無い・上の「法的レビュー」の行）。
+
 ## 2. 先に自分から名指すと良い反論（審査者が見つける前に）
 
 | 反論 | 我々の答え（事実） | 所在 |
