@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.faq.md
 audience: 採用検討者, 法務, ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-02
+last-updated: 2026-11-03
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (逐条リファレンス) / LICENSES/ACD-1.0.comparison.md (族ごとの比較) / LICENSES/ACD-1.0.jurisdictions.md (法域別の問い)
 ---
 
@@ -455,6 +455,13 @@ Covered Right や特許クレームの移転先を、法の許す最大限まで
 **E49**。§7.1 によりデータベース権は §3・§4 で拘束されるので E46 の実害は小さく、E49 も禁反言が承継人に
 及ぶ法域では小さい。だが「そう書いてある」と言えるのは列挙された 4 節についてだけである。1.4 草案は
 列挙をやめ、Dedication 全体を Work について拘束する形にした（両方を閉じる）。
+
+**⚠ 2026-11-03 —— 「移転先」が会社のとき**: §2.8 は移転先を *"any **person** to whom a Covered Right or a patent
+claim in the Work is transferred"* と書き、定義（Dedicator・You）は *"person or entity"* と書き分けている。
+本文には *person* が法人を含むという解釈規定が無いので、**会社が売却されて権利を受け取る法人は §2.8 に
+名指されていない、と読む筋が立つ** —— errata **E58**（§5.1・§8.6・§12.2・§12.4 も同じ）。その読みは
+§15.1（許諾を広く読む）と §2.8 の目的に反するので採られにくいが、「そう書いてある」と言えるのは自然人の
+移転先についてまでである。1.4 草案は §15.5 に *"person"* が entity を含むことを足した。
 
 **破産・管財人。** §2.9 は「適用された時点で完全に履行済み」であり、Dedicator にも You にも
 継続的な義務を残さないと述べる。未履行双務契約ではないので、管財人が「履行を拒絶して
