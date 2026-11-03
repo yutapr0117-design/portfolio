@@ -484,8 +484,10 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 460 (l): errata 冒頭の件数が表の行数と合わない (face 単位の帰属・2026-11-03)",
     "file": ROOT / "LICENSES" / "ACD-1.0.errata.md",
-    "find": "**Fifty-eight items are recorded",
-    "replace": "**Fifty-seven items are recorded",
+    # find は件数の語に釘付けにしない —— 件数は errata を足すたびに変わり anchor が orphan になる
+    # (2026-11-03 に E59 で実際に orphan 化)。動かない E2 の行頭を崩して表の行数を 1 減らす。
+    "find": "\n| E2 | ",
+    "replace": "\n|E2 | ",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
