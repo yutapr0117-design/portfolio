@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.submission-reference.md
 audience: OSI license-review participants / licence reviewers / 監査人 / 次のセッションの実装者
-last-updated: 2026-11-02
+last-updated: 2026-11-03
 canonical-ref: LICENSES/ACD-1.0.submission.md (送る文面は §B.0。**これを貼らない**) / LICENSES/ACD-1.0.against.md / LICENSES/AS-OF.md
 ---
 
@@ -77,7 +77,11 @@ answer none of them:
    uses" overstates the parallel. Section 12.2 operates by the state of the law; Section 8.6
    operates only once a licence "is held ineffective", so no covenant exists yet at the
    assertion that would produce the holding (errata E42). The ACD-1.4 draft makes the
-   covenant operate in every jurisdiction alongside the licences.)*
+   covenant operate in every jurisdiction alongside the licences. Note, 2026-11-03: "Copyright
+   is protected" is also narrower than the footings it names, which operate on all the Covered
+   Rights, and it can be read as protecting the Dedicator rather than the recipient (errata
+   E54); the ACD-1.4 draft says "Permission under the Covered Rights stands here on three
+   footings".)*
 
 3. **Machine-generated material.** It is unsettled whether copyright subsists in it at
    all. Section 9 makes the recipient's permissions independent of that question: the

@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-01
+last-updated: 2026-11-03
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文) / LICENSES/ACD-1.0.submission.md (提出パケット) / LICENSES/READY-TO-SUBMIT.md (提出判断) / LICENSES/FROZEN.md (凍結宣言) / docs/architecture/acd-license-rationale.md (設計根拠)
 ---
 
@@ -126,7 +126,7 @@ Status        : OSI `license-discuss` (一般的な議論リスト) へ投稿済
 > ACD-1.0 is deliberately built as three independent footings for the same
 > outcome, not as a dedication with a licence bolted on:
 >
-> - Section 3 surrenders the rights, where surrender is possible.
+> - Section 3 surrenders the Covered Rights (Section 1.5), where surrender is possible.
 > - Section 4 grants a licence, **independently** of Section 3 and without
 >   waiting for Section 3 to fail (Section 4.4). It is not a fallback that has
 >   to be triggered.
