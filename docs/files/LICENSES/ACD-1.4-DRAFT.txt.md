@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.4-DRAFT.txt
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人, 後任 AI
-last-updated: 2026-10-25
+last-updated: 2026-11-03
 canonical-ref: LICENSES/ACD-1.4-CHANGELIST.md / LICENSES/ACD-1.3.txt (直前の確定テキスト)
 ---
 
@@ -9,7 +9,7 @@ canonical-ref: LICENSES/ACD-1.4-CHANGELIST.md / LICENSES/ACD-1.3.txt (直前の�
 
 ## What
 
-**ACD-1.4 の草案（作業場）。** 冒頭が NOT IN FORCE / NOT SUBMITTED / NOT APPLIED と自分で述べる（Check 468）。2026-10-25 時点では版数と識別子を除いて 1.3 と同一。
+**ACD-1.4 の草案（作業場）。** 冒頭が NOT IN FORCE / NOT SUBMITTED / NOT APPLIED と自分で述べる（Check 468）。作り始めた 2026-10-25 には版数と識別子を除いて 1.3 と同一だった。以後の変更は冒頭の変更一覧が述べる。
 
 ## Why
 
@@ -17,7 +17,7 @@ canonical-ref: LICENSES/ACD-1.4-CHANGELIST.md / LICENSES/ACD-1.3.txt (直前の�
 
 ## How
 
-変更は冒頭の変更一覧と `ACD-1.4-CHANGELIST.md` の表の両方に記録する（Check 468f / 468i）。
+変更は冒頭の変更一覧と `ACD-1.4-CHANGELIST.md` の表の両方に記録する。両者を本文の差分と照合するのは Check 468n（冒頭）と Check 468s（表の語数列）で、468f は冒頭の箇条書きの形式を、468i は閉じた errata が冒頭に載っているかを見る。
 
 ## Constraints
 
@@ -29,4 +29,4 @@ canonical-ref: LICENSES/ACD-1.4-CHANGELIST.md / LICENSES/ACD-1.3.txt (直前の�
 
 ## Audience-specific notes
 
-- **後任 AI 向け**: Check 468 の対象 path はこの file。確定したら次の草案へ向け直す。
+- **後任 AI 向け**: Check 468 の対象 path はこの file。2026-11-01 から path は導出される（冒頭で HAS BEEN FROZEN を名乗らない `ACD-*-DRAFT.txt` がちょうど 1 つのとき、それが対象）ので、確定しても手で向け直す必要はない。0 個または 2 個以上なら RED になる。

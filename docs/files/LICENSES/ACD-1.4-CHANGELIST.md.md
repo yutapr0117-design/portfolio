@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.4-CHANGELIST.md
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人, 後任 AI
-last-updated: 2026-10-25
+last-updated: 2026-11-03
 canonical-ref: LICENSES/ACD-1.4-DRAFT.txt / LICENSES/ACD-1.0.errata.md
 ---
 
@@ -9,7 +9,7 @@ canonical-ref: LICENSES/ACD-1.4-DRAFT.txt / LICENSES/ACD-1.0.errata.md
 
 ## What
 
-ACD-1.4 で変えるものの集約点。2026-10-25 時点で変更は 0 件、持ち越しは E6・E10 と、利用上限で結果ゼロに終わった多観点の模擬審査。
+ACD-1.4 で変えるものの集約点。変更と持ち越しの中身は、この file の表が権威である（ミラーには件数を書かない）。
 
 ## Why
 
@@ -25,7 +25,7 @@ Check 464 / 469(b): errata の E 番号はいずれかの版の変更リスト�
 
 ## Change impact
 
-草案冒頭の一覧と同じ commit で揃える。
+草案冒頭の一覧と同じ commit で揃える。Check 468n が冒頭を、Check 468s がこの file の変更表の語数列を、それぞれ本文の差分と照合する。
 
 ## Audience-specific notes
 
