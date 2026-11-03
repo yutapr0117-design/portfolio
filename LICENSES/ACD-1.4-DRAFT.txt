@@ -132,7 +132,11 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       "Section 14" where they said "this Section", as Section 11.1 now says
       "Section 11", so that "this Section" always means the numbered paragraph
       in which it appears. (0 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5533 words, 80 clauses.
+    * Section 15.5 (errata E58) now says that "person" includes an entity. The
+      definitions of "Dedicator" and "You" say "person or entity", so other
+      Sections that say only "person", such as Sections 2.8, 5.1, 8.6, and
+      12.2, could be read as leaving entities out. (+4 words.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5537 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -725,9 +729,10 @@ PREAMBLE (informative; not part of the operative terms)
        prevails.
 
   15.5 In this Dedication, words in the singular include the plural and words
-       in the plural include the singular; "including" and "in particular"
-       introduce examples and do not limit what precedes them; and a reference
-       to a law includes that law as amended, replaced, or re-enacted.
+       in the plural include the singular; "person" includes an entity;
+       "including" and "in particular" introduce examples and do not limit
+       what precedes them; and a reference to a law includes that law as
+       amended, replaced, or re-enacted.
 
   15.6 No rule of construction that resolves ambiguity against the drafter
        applies to this Dedication, and no rule that construes a grant narrowly
