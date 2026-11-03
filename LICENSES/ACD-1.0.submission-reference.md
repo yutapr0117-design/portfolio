@@ -444,8 +444,18 @@ ACD-1.0 imposes none (4.3, 10.1). Second, §6.2 terminates all rights on patent 
 alleging that the Covered Source *or a Product* infringes; ACD-1.0 has no retaliation
 provision (8.2). **Third, and against us**: CERN-OHL was drafted for hardware, where "things
 made from the source" is the central case, so its authors had already solved in general terms
-the structural problem Section 8.4 solves for one artefact. **Section 8.4's novelty is naming
-the artefact, not the idea of a grant that follows what is made.**
+the structural problem Section 8.4 solves for one artefact, so the idea of a grant that
+follows what is made is not ours. **Fourth (added 2026-11-03, after reading §6.1 against
+Section 8.4 for its effect rather than its words)**: CERN-OHL-P-2.0 §6.1 grants the licence
+only for claims *"necessarily infringed by exercising rights under the Covered Source as
+Conveyed by that Licensor"*. That is a limit to the content of the source, the same kind as
+ACD-1.0's *"caused by subject matter contained in the Work as made available"* (§8.1), and
+Section 8.4 leaves it out on purpose (*"deliberately absent"*). A claim on a training
+technique, or on a property of a resulting model, is reachable under Section 8.4 and not
+under CERN-OHL-P-2.0, even when the Product is made from the source. **So Section 8.4 adds
+two things, not one: naming the artefact, and not tying the claims to what the source
+contains.** The second is also the cost: it is the breadth recorded in `ACD-1.0.against.md`
+#16, which a patent-holding organisation is likely to refuse.
 
 **Closest on "permissive, one condition, express patent grant": UPL-1.0, BlueOak-1.0.0 and
 BSD-2-Clause-Patent.** **This is the question a reviewer is most likely to ask first — "why
