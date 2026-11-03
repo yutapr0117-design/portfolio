@@ -52,7 +52,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       every jurisdiction alongside the licences, as Section 5 does for
       copyright, instead of only where a licence "is held ineffective". It
       names Sections 8.1 and 8.4 where it said "that Section" (errata E42).
-      (-29 words.)
+      It says permission under the Covered Rights "stands here on three
+      footings", the preamble's word, where it said copyright was "protected
+      here three times over". (-29 words.)
     * Section 16.4 now lets the Steward distribute a modified text under the
       name and an ACD identifier only as a new version, under a version number
       and identifier that no earlier text has borne. (+21 words.)
@@ -521,10 +523,11 @@ PREAMBLE (informative; not part of the operative terms)
        Sections 8.1 and 8.4 against You, in respect of any act that those
        Sections describe. This covenant is given on the same footing as the
        covenant in Section 5 and does not wait for either licence to be held
-       ineffective: it operates in every jurisdiction alongside them. Copyright
-       is protected here three times over, by surrender (Section 3), by licence
-       (Section 4), and by covenant (Section 5); this Section gives the patent
-       grant the second footing it would otherwise lack. You are not required
+       ineffective: it operates in every jurisdiction alongside them.
+       Permission under the Covered Rights stands here on three footings,
+       surrender (Section 3), licence (Section 4), and covenant (Section 5);
+       this Section gives the patent grant the second footing it would
+       otherwise lack. You are not required
        to determine whether either licence is effective in any jurisdiction,
        and nothing permitted by this Dedication depends on that question or on
        how it is answered.
