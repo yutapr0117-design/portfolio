@@ -60,15 +60,41 @@ from mutation_samples import MUTATIONS, E2E_MUTATIONS  # noqa: E402 (ROOT/CHECK 
 ANCHOR_ORPHAN_MARKER = "Check 362:"
 
 
-def run_gate() -> tuple[int, str]:
-    """Run the consistency checker; return (exit code, combined output). 0 = green."""
+def run_gate(only: str | None = None) -> tuple[int, str]:
+    """Run the consistency checker; return (exit code, combined output). 0 = green.
+
+    `only` を渡すと、その module の Check だけを走らせる (probe_scope.py の import hook)。
+    """
+    env = dict(os.environ)
+    if only:
+        env["CHECK_ONLY_MODULE"] = only
     r = subprocess.run(
         [sys.executable, str(CHECK)],
         cwd=str(ROOT),
         capture_output=True,
         text=True,
+        env=env,
     )
     return r.returncode, (r.stdout or "") + (r.stderr or "")
+
+
+_MODULE_OF: dict[str, str] = {}
+
+
+def module_of_check(name: str) -> str | None:
+    """名前が名指す Check を持つ module 名 (monolith 内なら "__monolith__"・名指し無しなら None)。
+
+    2026-11-04: probe は mutation ごとに gate 全体を走らせ、実 CI で 1 件 10.3 秒・shard 25.7 分
+    (timeout 30 分) に達した。帰属は名指した Check の発火で決まるので、まずその module だけで走らせる。
+    """
+    m = re.search(r"Check (\d+)", name)
+    if not m:
+        return None
+    if not _MODULE_OF:
+        for f in sorted((ROOT / ".github" / "scripts").glob("checks_*.py")):
+            for n in re.findall(r"^\s*# ── (\d+)\.", f.read_text(encoding="utf-8"), re.M):
+                _MODULE_OF.setdefault(n, f.stem)
+    return _MODULE_OF.get(m.group(1), "__monolith__")
 
 
 def caught_by_real_check(out: str) -> bool:
@@ -174,6 +200,13 @@ def main() -> int:
             f.write_text(original.replace(m["find"], m["replace"], 1), encoding="utf-8")
             # 「捕捉」は Check 362 (anchor orphan) 以外の error があることで判定する。
             # exit code だけを見ると mutation 適用の副作用で必ず RED になり全件 caught になる。
+            # 速い経路: 名指した Check の module だけで走らせ、名指しどおり捕捉されればそれで決まる。
+            #   捕捉されなかったときだけ gate 全体で走らせ直し、従来どおり分類する (判定は変わらない)。
+            _only = module_of_check(m["name"])
+            _rc, _out = run_gate(_only) if _only else (1, "")
+            if _only and caught_by_real_check(_out) and named_check_fired(m["name"], _out):
+                print(f"  caught  : {m['name']}")
+                continue
             _rc, _out = run_gate()
             if caught_by_real_check(_out) and not named_check_fired(m["name"], _out):
                 misattributed.append(m["name"])
