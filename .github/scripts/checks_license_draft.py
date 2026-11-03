@@ -38,6 +38,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        "Work on the next version happens in X" と断定するなら X がいまの草案であることを見る** ——
        1.2 の pointer が 1.3 確定後 8 日間、pointer になった 1.3 草案を作業場と名指していた (portfolio-25 が
        2026-11-02 に発見)。468k は `.md` しか見ないので射程外だった。鎖の環の書き方なら通る。
+       **468t は frontmatter の canonical-ref が凍結済みの草案 pointer を読み先にしないことを見る** (468p の
+       frontmatter 版・25 の提案 2026-11-04)。除外は pointer 自身の mirror と rounds/ 配下。
        **468q は冒頭の箇条が「Sections A, B, C が使う句」として引く句を、各条の本文が実際に含むことを見る** ——
        §16.6 の箇条が "no one in respect of the Work" を 10.1 / 10.4 / 11.4 の句と述べていたが、3 条が使うのは
        "in respect of the Work" だけだった (portfolio-25 が 2026-11-02 に発見・#2238)。
@@ -416,6 +418,36 @@ def run(ctx):
                 f"468p: 凍結した草案の pointer が、作業中の草案 {_dr468.name} ではないものを次版の作業場と断定している: "
                 f"{_stale468p}。**pointer は鎖の環で書く**（「次版は X で起草された。X が確定済みなら X がいまの"
                 "作業場を述べる」）—— 断定形は次の確定の日に必ず偽になる")
+
+        # ── 468t: frontmatter の canonical-ref が、凍結済みの草案 pointer を「読み先」として指さない ──
+        #   468p の frontmatter 版 (portfolio-25 の提案・2026-11-04)。bb の #2374 で SELF-AUDIT の mirror が
+        #   pointer になった ACD-1.3-DRAFT.txt を指しており、#2377 で同形の 3 か所が直った。468k は本文の
+        #   言い回ししか見ず、frontmatter は射程外だった (本文だけを読む人には見えない場所)。
+        #   除外は 2 つ: mirror の `file:` 自身が pointer の草案 (鎖の次の環を指すのは正当) / rounds/ 配下
+        #   (当時レビューされた草案の記録で、書き換えれば履歴を偽る)。
+        _frozen468t = {_p.name for _p in (ROOT / "LICENSES").glob("ACD-*-DRAFT.txt")
+                       if "HAS BEEN FROZEN" in _p.read_text(encoding="utf-8").split("\n", 1)[0]}
+        _stale468t = []
+        for _f468t in sorted((ROOT / "LICENSES").glob("*.md")) + sorted(
+                (ROOT / "docs" / "files" / "LICENSES").rglob("*.md")):
+            _rel468t = _f468t.relative_to(ROOT).as_posix()
+            if "/rounds/" in _rel468t:
+                continue
+            _t468t = _f468t.read_text(encoding="utf-8")
+            if not _t468t.startswith("---"):
+                continue
+            _fm468t = _t468t.split("---", 2)[1]
+            _own468t = re.search(r"^file:\s*(\S+)", _fm468t, re.M)
+            if _own468t and re.search(r"ACD-\d+\.\d+-DRAFT\.txt$", _own468t.group(1)):
+                continue
+            _cr468t = re.search(r"^canonical-ref:(.*)$", _fm468t, re.M)
+            for _d468t in sorted(set(re.findall(r"ACD-\d+\.\d+-DRAFT\.txt", _cr468t.group(1) if _cr468t else ""))):
+                if _d468t in _frozen468t:
+                    _stale468t.append(f"{_rel468t} → {_d468t}")
+        if _stale468t:
+            _bad468.append(
+                f"468t: frontmatter の canonical-ref が、凍結済みの草案 pointer を読み先として指している: {_stale468t}。"
+                "pointer は本文を持たない —— 読み先は確定版 (ACD-X.Y.txt) か、いまの草案へ")
 
         # ── 468q: 冒頭の箇条が「Sections A, B, C が使う句」として引く句を、各条が実際に含むこと ──
         #   portfolio-25 が 2026-11-02 に手で見つけた形の機械化 (#2238)。§16.6 の箇条は
