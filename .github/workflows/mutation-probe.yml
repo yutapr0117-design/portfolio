@@ -86,6 +86,9 @@ jobs:
   #   ので、**伸びているのは件数ではなく gate 自身の所要**（Check が増えるたびに全件が遅くなる）。
   #   **分割数を上げても 1 件あたりの伸びは止まらない**ので、次に余裕が 1.5 倍を切ったら
   #   分割ではなく「mutation ごとに gate 全体を走らせる」構造の方を見直すこと。
+  #   **2026-11-03 にその条件に当たった（606 件・1 件 10.3 秒・shard 25.7 分 = 余裕 1.17 倍）ので構造を直した**:
+  #   probe はまず名指した Check の module だけで gate を走らせ（probe_scope.py の import hook）、
+  #   名指しどおり捕捉されなければ gate 全体で走らせ直す。判定は変わらず、ローカル実測で 0.3 秒/件。
   consistency:
     name: Consistency safety-net self-check (shard ${{ matrix.shard }}/4)
     runs-on: ubuntu-latest

@@ -29,6 +29,8 @@ npm run mutation-probe  →  python3 .github/scripts/mutation_probe.py
                   (行数の Check 424 のような無関係な副作用が、検証を代行して穴を隠すため)
        SURVIVED = gate が GREEN のまま (カバレッジの穴) → exit 1
        DRIFT    = find-anchor が現行ソースに無い (probe 自身が要更新) → exit 1
+  (consistency 側は 2026-11-04 から、まず名指した Check の module だけで gate を走らせ、捕捉されなければ
+   gate 全体で走らせ直す —— probe_scope.py。1 件 10.3 秒 → 0.3 秒・判定は不変)
   3. 全実行後に gate が GREEN へ戻ることを確認 (ファイル汚れ残り検出)
 ```
 
