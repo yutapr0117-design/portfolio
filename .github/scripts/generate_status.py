@@ -134,12 +134,15 @@ def build_status() -> str:
                 _mon = json.loads(_read("docs/evidence/aio-monitoring-log.json"))
             except (OSError, ValueError):
                 _mon = None
+            # 「測れた」は aio_monitoring.py が成功時に書く status。初版 (2026-11-02) は存在しない
+            # "cited" / "not_cited" を数えており、測定が成功してもこの行は 0 のままだった (Check 487b)。
+            _MEASURED_STATUSES = ("ok",)
             if isinstance(_mon, dict) and _mon.get("runs"):
                 _runs = _mon["runs"]
                 def _measured(run):
                     return sum(1 for q in run.get("queries", [])
                                for v in q.get("results", {}).values()
-                               if isinstance(v, dict) and v.get("status") in ("cited", "not_cited"))
+                               if isinstance(v, dict) and v.get("status") in _MEASURED_STATUSES)
                 _ok = [r for r in _runs if _measured(r)]
                 _streak = 0
                 for r in reversed(_runs):

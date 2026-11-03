@@ -3163,9 +3163,10 @@
     }
   ],
   "status_values": {
-    "cited": "AI response explicitly cited or surfaced the portfolio URL/source.",
-    "not_cited": "AI responded but did not cite the portfolio.",
-    "error": "API error, timeout, quota, or unavailable engine.",
+    "ok": "The engine answered, so the query was measured. Whether the portfolio was cited is the separate boolean field `cited`.",
+    "error": "API error, timeout, quota, or unavailable engine. Not measured: `cited` is false only because nothing was observed.",
+    "parse_error": "The engine answered but the response could not be parsed. Not measured.",
+    "free_tier_exhausted": "The engine's free tier is exhausted or billing is required; skipped. Not measured.",
     "unknown": "Legacy run with insufficient status data."
   },
   "evidence_policy": {

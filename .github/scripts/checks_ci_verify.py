@@ -73,6 +73,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        を導出して出したことで、週次 aio-monitoring.yml がこの条件に入った。bot の main 直 push は PR
        ゲートを通らず、ずれは次の無関係な PR の Check 121 で初めて赤くなる (#252 と同じ形)。(BLOCKING)
 
+       **487b** = 生成器が「測れた」と数える status (`_MEASURED_STATUSES`) は aio_monitoring.py が実際に書く
+       status に限る（初版は書かれない cited / not_cited を数え、測定が成功しても 0 と出す形だった・2026-11-03）。
   488. すべての workflow job が `timeout-minutes` を持つ: 2026-11-02 に 8 job 中 3 つ
        (aio-monitoring / architecture-validation / auto-update-aio-digests) に上限が無かった。無いと
        既定の 6 時間まで居座り、concurrency で後続の run を塞ぐ。YAML として読めない workflow と、
@@ -307,6 +309,39 @@ def run(ctx):
          f"({_bad487})、または検出が床を下回る (入力 {len(_inputs487)} / bot {_bots487})。bot の main 直 push は "
          "PR ゲートを通らないので、STATUS.md のずれは次の無関係な PR の Check 121 で初めて赤くなる。"
          "commit step の前で `python3 .github/scripts/generate_status.py` を走らせ、`git add` に STATUS.md を足す"),
+        blocking=True,
+    )
+
+    # 487b: STATUS 生成器が「測れた」と数える status は、監視スクリプトが実際に書く status に限る。
+    # 2026-11-02 の初版は "cited" / "not_cited" を数えていたが、aio_monitoring.py が成功時に書くのは
+    # "ok" で、前者はどこにも書かれない —— 履歴に成功が 0 件なので数字は偶然正しく、**測定が初めて
+    # 成功した日から黙って嘘をつく**形だった (used ⟹ defined の、生成器 ↔ 生産者の面)。
+    _mon487 = ROOT / ".github" / "scripts" / "aio_monitoring.py"
+    _produced487 = set(re.findall(r'"status":\s*"([a-z_]+)"', _mon487.read_text(encoding="utf-8"))) if _mon487.exists() else set()
+    _m487 = re.search(r"_MEASURED_STATUSES\s*=\s*\(([^)]*)\)", _gen487.read_text(encoding="utf-8")) if _gen487.exists() else None
+    _counted487 = set(re.findall(r'"([a-z_]+)"', _m487.group(1))) if _m487 else set()
+    # 同じ語彙を宣言するもう一つの面: 週次ログ自身の `status_values` 凡例。手書きで一度も保守されず、
+    # 生成側が書く ok / parse_error / free_tier_exhausted を欠き、一度も現れない cited / not_cited を
+    # 宣言していた (初版 487 の誤りの出どころ)。凡例 = 生成側の status ∪ {"unknown" (旧データ用)}。
+    try:
+        _legend487 = set(json.loads((ROOT / "docs" / "evidence" / "aio-monitoring-log.json")
+                                    .read_text(encoding="utf-8")).get("status_values", {}))
+    except (OSError, ValueError):
+        _legend487 = set()
+    check(
+        bool(_produced487) and _legend487 == _produced487 | {"unknown"},
+        "Check 487b: 週次ログの status 凡例が aio_monitoring.py の書く status と一致する",
+        (f"Check 487b: docs/evidence/aio-monitoring-log.json の status_values {sorted(_legend487)} が、"
+         f"aio_monitoring.py の書く status {sorted(_produced487)} (+ unknown) と一致しない。凡例を読む"
+         "エージェントは書かれない status を探し、書かれる status の意味を知らないことになる"),
+        blocking=True,
+    )
+    check(
+        bool(_counted487) and _counted487 <= _produced487,
+        f"Check 487b: STATUS 生成器が数える測定 status {sorted(_counted487)} はすべて aio_monitoring.py が書く",
+        (f"Check 487b: generate_status.py の _MEASURED_STATUSES {sorted(_counted487)} に、aio_monitoring.py が"
+         f"書かない値がある (書くのは {sorted(_produced487)})、または定義が見つからない。存在しない status を"
+         "数えると「AIO 監視の実測」行は測定が成功しても 0 のままになる"),
         blocking=True,
     )
 
