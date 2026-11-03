@@ -494,6 +494,14 @@ _MUTATIONS_TAIL.append({
     "replace": '_MEASURED_STATUSES = ("cited", "not_cited")',
     "check": CHECK,
 })
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 468: CHANGELIST の変更表の 1 行の語数を書き換える (+37 → +38) —— 表と草案の申告がずれても 468n は見ない (468s が捕捉)",
+    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
+    "find": "| +37 ",
+    "replace": "| +38 ",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

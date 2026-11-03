@@ -43,6 +43,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        "in respect of the Work" だけだった (portfolio-25 が 2026-11-02 に発見・#2238)。
        **468n は冒頭の変更一覧が直前の凍結版との差分のすべてを述べることを見る** —— 本文が変わった条は
        どれかの箇条に名指され、箇条の語数申告の合計が「申告語数 − 前版の語数」に一致する (25 の自己記述レンズ)。
+       **468s は CHANGELIST の変更表の「費用（語）」列の合計も同じ差に一致することを見る** —— 表は手で
+       足し引きされ、書き忘れると黙ってずれる。読めないセルは 0 扱いにせず RED (25 の提案・2026-11-03)。
        **468m は §16.4 が Steward 例外の中でも「1 識別子 = 1 固定本文」を保つことを見る** ——
        2026-11-01 に外部レビューの指摘で直した保証が、短くする圧力で黙って落ちるのを止める。
        目印から "so that each name" までの例外句は ", except a draft identified as such," か無しに限る
@@ -490,6 +492,31 @@ def run(ctx):
                     if _sum468n != _diff468n:
                         _bad468.append(f"468n: 変更一覧の語数申告の合計 {_sum468n:+d} が、申告語数 − ACD-{_pv468n} の本文語数 "
                                        f"({_diff468n:+d}) と一致しない (箇条の書き落とし・申告の誤り)")
+                    # ── 468s: CHANGELIST の変更表の「費用（語）」列の合計も同じ差に一致する ─────────
+                    #   portfolio-25 の提案 (2026-11-03)。468n は草案冒頭の申告しか見ず、変更表は
+                    #   手で足し引きされる (同日だけで行 6 つ追加・既存行 1 つの値変更) ので、書き忘れると
+                    #   黙ってずれる。対象は「## 表」から「## errata 由来」まで。右から 2 列目の先頭の
+                    #   符号付き整数を読み、**読めないセルは 0 扱いにせず error にする** (黙らせない)。
+                    _cl468s = ROOT / "LICENSES" / f"ACD-{_dvs468n}-CHANGELIST.md"
+                    _ct468s = _cl468s.read_text(encoding="utf-8") if _cl468s.exists() else ""
+                    _i468s, _j468s = _ct468s.find("\n## 表"), _ct468s.find("\n## errata 由来")
+                    if _i468s < 0 or _j468s < _i468s:
+                        _bad468.append(f"468s: {_cl468s.name} に「## 表」〜「## errata 由来」の区間が無い (変更表を照合できない)")
+                    else:
+                        _rows468s = [_l for _l in _ct468s[_i468s:_j468s].split("\n")
+                                     if _l.startswith("|") and not _l.startswith(("| 対象", "| :--"))]
+                        _tot468s, _unread468s = 0, []
+                        for _l in _rows468s:
+                            _cells = [_c.strip() for _c in re.split(r"(?<!\\)\|", _l.strip().strip("|"))]
+                            _mc = re.match(r"([+\-−]?)\s*(\d+)", _cells[-2]) if len(_cells) >= 2 else None
+                            if not _mc:
+                                _unread468s.append(_cells[0][:30])
+                                continue
+                            _tot468s += -int(_mc.group(2)) if _mc.group(1) in ("-", "−") else int(_mc.group(2))
+                        if not _rows468s or _unread468s or _tot468s != _diff468n:
+                            _bad468.append(f"468s: {_cl468s.name} の変更表 {len(_rows468s)} 行の語数合計 {_tot468s:+d} が "
+                                           f"申告語数 − ACD-{_pv468n} の本文語数 ({_diff468n:+d}) と一致しない、または"
+                                           f"語数を読めない行がある {_unread468s} (行の書き忘れ・値の更新漏れ)")
 
         # ── 468m: §16.4 が「1 識別子 = 1 固定本文」を Steward 例外の中でも保つこと ─────────────
         #   2026-11-01、外部 AI の敵対的レビュー (against.md #279) が、§16.4 の Steward 例外は版番号の
