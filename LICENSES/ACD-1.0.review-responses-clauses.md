@@ -530,6 +530,10 @@ OpenMDW-1.1 の審査で、著作権侵害の主張を終了の引き金にす�
 >
 > - **Where no right subsists**, §9.2 states that this Dedication "adds nothing to Your existing
 >   freedom and takes nothing away." Nothing is licensed, because there is nothing to licence.
+>   *(Note, 2026-11-03: "nothing is licensed" holds for that right only. §8 still licenses the
+>   Dedicator's patent claims, and §5.2 still has the Dedicator forgo technological measures and
+>   collateral terms, where no copyright subsists — errata E37; the 1.3 text reads "adds nothing to
+>   Your existing freedom as to that right".)*
 > - **Where a right subsists, or is later held to subsist**, Sections 3 to 8 and Section 12 apply
 >   to it in full.
 > - **§9.3** removes the question from the user's path entirely: You "are not required to
