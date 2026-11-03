@@ -538,6 +538,41 @@ _MUTATIONS_TAIL.append({
     "replace": "canonical-ref: LICENSES/ACD-1.3-DRAFT.txt (確定した本文・2026-10-25)",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 471 (b): register に無い項目 B99 を名指す —— 方針を決めている register の項目への矢印が、存在しない項目へ向く",
+    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
+    "find": "**したがって §B.0 は",
+    "replace": "B99 **したがって §B.0 は",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 471 (c): 実装の最大番号を超える Check を根拠として示す —— 存在しない機械強制を読み手に信じさせる",
+    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
+    "find": "**したがって §B.0 は",
+    "replace": "Check 999 **したがって §B.0 は",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 471 (e): 文書を名指ししない裸の §N.M が、どの解決先 (条項 / 自分の節 / 提出パケット / §1.xx) にも解決しない",
+    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
+    "find": "**したがって §B.0 は",
+    "replace": "§9.99 **したがって §B.0 は",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 471 (h): 他文書を行番号で指す —— 行番号は書いた日の位置でしかなく、次の編集で別の行を指す",
+    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
+    "find": "**したがって §B.0 は",
+    "replace": "(`AS-OF.md` L12) **したがって §B.0 は",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 471 (g): 規範層 (runbook) が、実装の最大番号を超える Check を根拠として示す —— (c) の害が最も起きやすい層",
+    "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
+    "find": "# total-check-runbook.md",
+    "replace": "# total-check-runbook.md\n\nCheck 999 が守る。",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
