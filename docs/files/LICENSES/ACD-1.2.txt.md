@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.2.txt
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人, 後任 AI
-last-updated: 2026-10-18
+last-updated: 2026-11-03
 canonical-ref: LICENSES/ACD-1.2-CHANGELIST.md (1.1 からの全変更・確定時の草案ヘッダを逐語で保持) / LICENSES/FROZEN.md (sha256 pin) / LICENSES/ACD-1.0.errata.md (各変更が閉じる欠陥)
 ---
 
@@ -21,7 +21,7 @@ canonical-ref: LICENSES/ACD-1.2-CHANGELIST.md (1.1 からの全変更・確定�
 
 ## Constraints
 
-- **本文は 1 byte も変えない**（Check 453）。欠陥を見つけたら `ACD-1.3-DRAFT.txt` で直し、errata に記録する。
+- **本文は 1 byte も変えない**（Check 453）。欠陥を見つけたら、いまの作業場（`LICENSES/README.md` の「次版の草案」行）で直し、errata に記録する（2026-11-03 訂正: 旧文は「`ACD-1.3-DRAFT.txt` で」）。
 - 純 ASCII（Check 441f）。
 
 ## Change impact
