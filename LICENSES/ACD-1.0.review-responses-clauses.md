@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses-clauses.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-02
+last-updated: 2026-11-03
 canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威)
 ---
 
@@ -162,7 +162,7 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 
 **Q. §8.4 はモデル・重み・出力にまで特許ライセンスを及ぼすと言うが、前例がない。**
 
-**2026-09-25 訂正**: 旧回答は *"I am not aware of a precedent either"* で始まっていた。同日の全数 census（`ACD-1.0.gap-census.md` / `against.md` #241）で CERN-OHL-P-2.0 の Products への特許許諾が見つかり、**自分たちの記録を知っている相手に対して偽になっていた**ので、部分的な先例を先に名指しする形へ改めた。
+**2026-09-25 訂正**: 旧回答は *"I am not aware of a precedent either"* で始まっていた。同日の全数 census（`ACD-1.0.gap-census.md` / `against.md` #241）で CERN-OHL-P-2.0 の Products への特許許諾が見つかり、**自分たちの記録を知っている相手に対して偽になっていた**ので、部分的な先例を先に名指しする形へ改めた。**2026-11-03 訂正**: 「新しいのは名指しと無条件」だけでは足りなかった —— CERN-OHL-P-2.0 の許諾は *"necessarily infringed by exercising rights under the Covered Source"* という内容の限定を持ち、§8.4 は §8.1 末尾の同じ形の限定を意図的に外している（25 の法的作用による再検証・`submission-reference.md` §2 と同じ直し）。その広がりの費用は `against.md` #16。
 
 > **English:**
 >
@@ -170,9 +170,15 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 > licence over "Products", defined to include any work "arising from the use,
 > application or processing of Covered Source", which can be read to reach a
 > trained model. It does not name models, parameters or outputs, and conveying
-> a Product carries a notice obligation (its Section 4). So what is new in
-> Section 8.4 is naming them, and doing so without a condition — not the idea
-> that a patent grant can follow what is made from the work. The
+> a Product carries a notice obligation (its Section 4). Its grant also
+> reaches only claims "necessarily infringed by exercising rights under the
+> Covered Source as Conveyed by that Licensor" — a limit to what the source
+> contains, of the same kind as the proviso at the end of Section 8.1, which
+> Section 8.4 leaves out on purpose. So what is new in Section 8.4 is naming
+> them, doing so without a condition, and not tying the claims to what the
+> source contains — not the idea that a patent grant can follow what is made
+> from the work. The last of those is also the cost: it is why the grant is
+> as broad as it is. The
 > reasoning is in Section 8.4's own text: Section 1.5 excludes patents from
 > "Covered Rights", so Section 6.4 by itself leaves computational use permitted
 > as a matter of copyright while leaving a patent-shaped hole in the same place.
