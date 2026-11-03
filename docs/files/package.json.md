@@ -1,7 +1,7 @@
 ---
 file: package.json
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-11-03
 canonical-ref: package-lock.json / Check 38/46/50/54/69
 ---
 
@@ -9,7 +9,7 @@ canonical-ref: package-lock.json / Check 38/46/50/54/69
 
 ## What
 
-npm manifest。`private: true`、`type: "module"`、`scripts` (check / lint / lint:css / lint:js / test:e2e / verify)、`devDependencies` (eslint / @eslint/js / stylelint / @playwright/test / http-server / globals)、`engines.node` (`^20.19.0 || ^22.13.0 || >=24`) を定義。
+npm manifest。`private: true`、`type: "module"`、`scripts` (check / lint / lint:css / lint:js / test:e2e / verify)、`devDependencies` (eslint / @eslint/js / stylelint / @playwright/test / http-server / globals)、`engines.node` (`^20.19.0 || ^22.13.0 || >=24`) を定義。`overrides` は `minimatch` 1 件のみ（下の Constraints）。
 
 ## Why
 
@@ -31,6 +31,7 @@ npm run verify (= check + lint:css + lint + lint:js)
 - **Check 50**: lint script に legacy eslintrc 系 flag なし
 - **Check 54**: eslint と @eslint/js が同じメジャー
 - **Check 69**: engines.node が CI node-version pin (24) を許容
+- **`overrides.minimatch: ^11.0.4`（2026-11-03）**: eslint 10.14.0 は `minimatch ^10` を要求するが、GHSA の DoS（globparts amplification）は `< 11.0.1` 全域で 10.x に backport が無い。`npm audit fix --force` は eslint を 4.0.0 へ戻すので採れない。override で 11 系へ上げ、**eslint の per-file 結果（40 ファイル・各 warning/error 数）が override 前と完全一致**することを実測してから入れた。JSON にはコメントを書けないのでここが理由の置き場。**外す条件**: eslint の依存範囲が `minimatch >= 11.0.1` を許すようになったら override を削除して `npm ls minimatch` で 11 系のままか確かめる
 
 ## Change impact
 
