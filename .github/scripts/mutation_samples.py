@@ -419,7 +419,7 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
-    "name": "Check 469: READY-TO-SUBMIT の部数申告が実装に追従しない —— 451d / 451e を足したあとも「3 部」のままだった 2026-11-03 以前の状態 (469 (c) が捕捉)",
+    "name": "Check 469 (c): READY-TO-SUBMIT の部数申告が実装に追従しない —— 451d / 451e を足したあとも「3 部」のままだった 2026-11-03 以前の状態 (469 (c) が捕捉)",
     "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
     "find": "| Check 451 (5 部) |",
     "replace": "| Check 451 (3 部) |",
@@ -535,6 +535,13 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
     "find": "| `.github/scripts/mutation_samples_common.py` |",
     "replace": "| `.github/scripts/mutation_samples_common.py` | 28 | 60 | `advisory` | mutation_samples / archive 共有パス定数 (ROOT / CHECK)。循環回避 |\n| `.github/scripts/mutation_samples_common.py` |",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 469 (b): errata の E-ID が CHANGELIST の表と対応しなくなる (E58 → E59) —— 閉じた / 未着手の照合から 1 件が黙って外れる",
+    "file": ROOT / "LICENSES" / "ACD-1.0.errata.md",
+    "find": "| E58 |",
+    "replace": "| E59 |",
     "check": CHECK,
 })
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
