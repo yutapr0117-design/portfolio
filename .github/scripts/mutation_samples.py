@@ -280,48 +280,6 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 460 (o): 入口ページの最高 severity の件数が register の表と合わない (face 単位の帰属・2026-11-03)",
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": " are marked highest severity",
-    "replace": " are marked as highest severity",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 460 (p): §B.0 の見出しの語数が本文の実測と合わない (face 単位の帰属・2026-11-03)",
-    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": "### B.0 The message as it should actually be sent (**",
-    "replace": "### B.0 The message as it should actually be sent (~**",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 460 (q): 審査者に示す検証コマンドの期待値が実際の出力件数と合わない (face 単位の帰属・2026-11-03)",
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "× OK",
-    "replace": "× OK (and 99× OK)",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 460 (r): §B.0 の語数を日付も「見出しが権威」の断りも無い現在形で写す (face 単位の帰属・2026-11-03)",
-    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
-    "find": "**したがって §B.0 は",
-    "replace": "**したがって §B.0（1,703 語）は",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 460 (s): 散文が Check 463 の強制項目数を実装と違う数で述べる (face 単位の帰属・2026-11-03)",
-    "file": ROOT / "LICENSES" / "ACD-1.0.review-rules.md",
-    "find": "Check 463（**",
-    "replace": "Check 463（**99 項目 / ",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 460 (a): 提出パケットが worked entries の件数を 1 つ多く申告する (face 単位の帰属・2026-11-03)",
-    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": " worked entries plus a table of ",
-    "replace": " worked entries and a table of ",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
     "name": "Check 424c: §2 表に同じ path の行が 2 つになる —— 予算列や理由が食い違い、rotate と照合で片方が必ず古くなる (2026-11-03 まで e2e_archive3 がそうだった)",
     "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
     "find": "| `.github/scripts/mutation_samples_common.py` |",
@@ -571,6 +529,13 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "README.md",
     "find": "license-discuss",
     "replace": "license-review",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 468t: mirror の frontmatter の canonical-ref が、凍結済みの草案 pointer を読み先として指す —— 本文だけを読む人には見えない場所で、読み先が本文を持たない file になる",
+    "file": ROOT / "docs" / "files" / "LICENSES" / "ACD-1.3-CHANGELIST.md.md",
+    "find": "canonical-ref: LICENSES/ACD-1.3.txt (確定した本文・2026-10-25)",
+    "replace": "canonical-ref: LICENSES/ACD-1.3-DRAFT.txt (確定した本文・2026-10-25)",
     "check": CHECK,
 })
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
