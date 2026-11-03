@@ -961,4 +961,11 @@ _E2E_TAIL.append({
     "test": "初回表示では focus を動かさず、最初の Tab は skip-link に届く",
 })
 
+_E2E_TAIL.append({
+    "name": "about の Speakable が幻セレクタ [data-speakable] を宣言し直す — その属性は home の hero にしか無く、他ルートでは一度も対象を持たない (2026-11-03 まで実際にそうだった)。機械向けの面なので視覚にも他のテストにも出ない",
+    "file": ROOT / "js" / "meta-management.js",
+    "find": "            'about':       ['h1', '.sr-only'],",
+    "replace": "            'about':       ['h1', '[data-speakable]', '.sr-only'],",
+    "test": "Every non-home Speakable cssSelector resolves to real elements (AIO accuracy)",
+})
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL

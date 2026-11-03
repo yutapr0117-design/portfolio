@@ -544,16 +544,16 @@ E2E_MUTATIONS_ARCHIVE = [
     {
         "name": "role-split Speakable が dead class へ戻る — `#role-split-table` (実在 id) を `.role-split-table` (どこにも無い class) へ戻すと、音声アシスタントに『この表を読め』と指しながら **解決先が存在しない**。#929 で実際に見つかった「機械向け宣言が一度も成功していなかった」class そのもので、視覚にも behavior にも一切出ない",
         "file": ROOT / "js" / "meta-management.js",
-        "find": "            'role-split':  ['h1', '#role-split-table', '[data-speakable]', '.sr-only'],",
-        "replace": "            'role-split':  ['h1', '.role-split-table', '[data-speakable]', '.sr-only'],",
+        "find": "            'role-split':  ['h1', '#role-split-table', '.sr-only'],",
+        "replace": "            'role-split':  ['h1', '.role-split-table', '.sr-only'],",
         "test": "Role-split Speakable references the actual table via #role-split-table (not a dead class)",
     },
     {
         "name": "ai-knowhow の Speakable セレクタが解決しなくなる — home / role-split と**別のルート**の宣言で、独立に腐りうる (ページ側の class 名を変えれば片方だけ dead になる)。AIO 精度は route ごとに独立した契約なので、1 ルート被覆では他が守られない",
         "file": ROOT / "js" / "meta-management.js",
-        "find": "            'ai-knowhow':  ['h1', '.ai-summary-block', '[data-speakable]', '.sr-only'],",
-        "replace": "            'ai-knowhow':  ['h1', '.ai-summary-block-missing', '[data-speakable]', '.sr-only'],",
-        "test": "ai-knowhow/about Speakable cssSelectors (non-baseline) resolve to real elements (AIO accuracy)",
+        "find": "            'ai-knowhow':  ['h1', '.ai-summary-block', '.sr-only'],",
+        "replace": "            'ai-knowhow':  ['h1', '.ai-summary-block-missing', '.sr-only'],",
+        "test": "Every non-home Speakable cssSelector resolves to real elements (AIO accuracy)",
     },
     {
         "name": "絞り込み select の focus 復元用 id が外れる — main.js _renderCore の復元は **id を鍵にする**ので、id を失ったコントロールだけが取り残されて change のたび focus が body へ落ちる。キーボード利用者は絞り込みを 1 段変えるたびに文書先頭へ戻され、**2 回目以降の操作ができない**。Check 422 は静的に id の存在を守るが、こちらは復元が実際に働くことを見る",

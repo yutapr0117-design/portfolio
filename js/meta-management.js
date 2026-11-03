@@ -157,14 +157,14 @@ export function createMetaManagement({ SITE_CONFIG, AUTHOR, PAGE_META, Router, S
         // home: hero headline/tagline は既に [data-speakable] が拾うため、実体の無い .hero-tagline /
         //   .core-thesis (dead selector) を除去。role-split: 表は id='role-split-table' なので class
         //   selector .role-split-table を #role-split-table へ修正。'services' は対応 route が無い
-        //   dead key なので削除。
+        //   dead key なので削除。[data-speakable] は home 専用 (2026-11-03)。
         const SPEAKABLE_SELECTORS = {
             'home':        ['h1', '[data-speakable]', '.sr-only[data-ai-entity]'],
-            'role-split':  ['h1', '#role-split-table', '[data-speakable]', '.sr-only'],
-            'ai-knowhow':  ['h1', '.ai-summary-block', '[data-speakable]', '.sr-only'],
-            'about':       ['h1', '[data-speakable]', '.sr-only'],
+            'role-split':  ['h1', '#role-split-table', '.sr-only'],
+            'ai-knowhow':  ['h1', '.ai-summary-block', '.sr-only'],
+            'about':       ['h1', '.sr-only'],
         };
-        const cssSel = SPEAKABLE_SELECTORS[routeName] || ['h1', '[data-speakable]', '.sr-only'];
+        const cssSel = SPEAKABLE_SELECTORS[routeName] || ['h1', '.sr-only'];
         const speakableData = {
             '@context': 'https://schema.org',
             '@type': 'WebPage',
