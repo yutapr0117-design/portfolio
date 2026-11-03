@@ -153,8 +153,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (`named_check_fired`) は `::error::Check N` を探すので、番号の無い失敗文言は mutation を
        足しても**必ず MISATTRIBUTED になる** —— 2026-09-29 に測ると 1〜35 番の 33 Check がそうで、
        `_BASE479` から構造的に外せない状態だった (番号を付けて解消)。
-       **479c** (2026-11-03): Check 460 の全 face に "Check 460 (x)" と名乗る mutation がある。probe は
-       その名前を face のラベルで帰属する (23 面中 15 面が未被覆で、09-14 以後の面は週次 probe の外だった)。
+       **479c** (2026-11-03): Check 460 / 469 の全 face に "Check N (x)" と名乗る mutation がある。probe は
+       その名前を face のラベルで帰属する (460 は 23 面中 15 面・469 は 3 面中 2 面が未被覆だった)。
        (BLOCKING)
   480. **mutation データの dict literal に重複 key が無い** (BLOCKING)。Python は dict literal の
        重複 key を**黙って後勝ちで上書き**する。2026-11-01、3 セッションが同じ append-log へ並行に
@@ -562,23 +562,37 @@ def run(ctx):
     # 2026-11-03 の実測では 14 面に face を名指しする mutation が無く、AUDIT-LEDGER の「壊して
     # 確かめた」は 09-14 に手で確かめた 18 面で止まっていた (以後に足した面は週次 probe の外)。
     # face は 469 (a) と同じ解析で導出し、probe は "Check 460 (x)" を face のラベルで帰属する。
-    _sr479c = ROOT / ".github" / "scripts" / "checks_license_self_reporting.py"
-    _faces479c = (set(re.findall(r"^\s{8}# \(([a-z])\)", _sr479c.read_text(encoding="utf-8"), re.M))
-                  if _sr479c.exists() else set())
+    # 469 も同じ形 (3 面・自分でラベルを出す)。face は 469 の区間内のコメントから導出する
+    # (同じ module の 474 / 475 を拾わないため)。
+    _sc479c = ROOT / ".github" / "scripts"
+    _src_sr479c = (_sc479c / "checks_license_self_reporting.py")
+    _src_rs479c = (_sc479c / "checks_license_register_structure.py")
+    _t_rs479c = _src_rs479c.read_text(encoding="utf-8") if _src_rs479c.exists() else ""
+    _sec469c = re.search(r"# ── 469\..*?(?=# ── \d)", _t_rs479c, re.S)
+    _faces479c = {
+        "460": (set(re.findall(r"^\s{8}# \(([a-z])\)", _src_sr479c.read_text(encoding="utf-8"), re.M))
+                if _src_sr479c.exists() else set()),
+        "469": set(re.findall(r"^\s{4}# \(([a-z])\)", _sec469c.group(0), re.M)) if _sec469c else set(),
+    }
     try:
         import importlib as _il479c
-        _nf479c = {_mm.group(1) for _x in _il479c.import_module("mutation_samples").MUTATIONS
-                   for _mm in [re.match(r"Check 460 \(([a-z])\)", _x["name"])] if _mm}
+        _ms479c = _il479c.import_module("mutation_samples").MUTATIONS
     except Exception as _e479c:
-        _nf479c = set()
+        _ms479c = []
         warnings.append(f"Check 479c: mutation_samples を読めない ({_e479c})")
-    _miss479c = sorted(_faces479c - _nf479c)
+    _miss479c = {}
+    for _n479c, _fs479c in _faces479c.items():
+        _nf = {_mm.group(1) for _x in _ms479c
+               for _mm in [re.match(r"Check " + _n479c + r" \(([a-z])\)", _x["name"])] if _mm}
+        if _fs479c - _nf:
+            _miss479c[_n479c] = sorted(_fs479c - _nf)
     check(
-        len(_faces479c) >= 20 and not _miss479c,
-        f"Check 479c: Check 460 の {len(_faces479c)} 面すべてに face を名指しする mutation がある",
-        (f"Check 479c: face を名指しする mutation が無い Check 460 の面: {_miss479c} "
-         f"(導出した面 {len(_faces479c)})。週次 probe はその面を一度も壊して確かめない。"
-         "\"Check 460 (x): …\" と名乗る mutation を足し、そのラベルだけが出ることを確かめよ"),
+        len(_faces479c["460"]) >= 20 and len(_faces479c["469"]) >= 3 and not _miss479c,
+        f"Check 479c: Check 460 の {len(_faces479c['460'])} 面 / 469 の {len(_faces479c['469'])} 面すべてに "
+        "face を名指しする mutation がある",
+        (f"Check 479c: face を名指しする mutation が無い面: {_miss479c} "
+         f"(導出した面 460={len(_faces479c['460'])} / 469={len(_faces479c['469'])})。週次 probe はその面を"
+         "一度も壊して確かめない。\"Check N (x): …\" と名乗る mutation を足し、そのラベルだけが出ることを確かめよ"),
         blocking=True,
     )
 
