@@ -148,6 +148,22 @@ def operative_counts(s: str) -> dict[str, dict[str, int]]:
     return out
 
 
+# 先行詞を要する指示語。同じ条の中で、それより前に条番号 ("Section 5.3" / "Sections 5.3 and 12.4") が
+# 無ければ宙に浮いている。2026-11-04、§2.8 の理由の文を外す私の試算版で末文の "those Sections" が
+# 先行詞を失ったのを、25 が読んで見つけた (道具は見ていなかった)。
+_ANAPHORA = re.compile(r"\b(those|these|that|such|the said) (Sections?|provisions?|clauses?|paragraphs?)\b", re.I)
+_SECREF = re.compile(r"\bSections? \d+\.\d+")
+
+
+def dangling(cl: dict[str, str]) -> list[tuple[str, str]]:
+    out = []
+    for k, v in cl.items():
+        for m in _ANAPHORA.finditer(v):
+            if not _SECREF.search(v[:m.start()]):
+                out.append((k, v[max(0, m.start() - 40):m.end() + 20]))
+    return out
+
+
 def report(path: Path, n: int) -> None:
     cl = clauses(path.read_text(encoding="utf-8"))
     tot = sum(len(words(v)) for v in cl.values())
@@ -179,6 +195,10 @@ def compare(before: Path, after: Path, n: int) -> None:
     print(f"# Before {before.name}: {len(cb)} 条 / {tb} 語 / 重複 {len(ob)} 箇所 / 族 {len(phrase_families(ob))}")
     print(f"# After  {after.name}: {len(ca)} 条 / {ta} 語 / 重複 {len(oa)} 箇所 / 族 {len(phrase_families(oa))}")
     print(f"# 差: 条 {len(ca) - len(cb):+d} / 語 {ta - tb:+d} / 重複 {len(oa) - len(ob):+d}")
+    db, da = set(dangling(cb)), set(dangling(ca))
+    print(f"# 先行詞の無い指示語: Before {len(db)} / After {len(da)}")
+    for k, ctx in sorted(da - db):
+        print(f"#   ⚠ 新たに宙に浮いた: §{k}: …{ctx}…")
     print()
     key = lambda c: tuple(int(x) for x in c.split("."))
     print("## 条ごとの語数と、効果を運ぶ語の増減 (減った語は反例探しの起点)")
