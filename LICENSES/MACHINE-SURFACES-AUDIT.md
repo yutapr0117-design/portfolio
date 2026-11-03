@@ -2,7 +2,7 @@
 file: LICENSES/MACHINE-SURFACES-AUDIT.md
 audience: register / 本文の担当セッション（一次読者・候補を拾う側）/ 監査人
 last-updated: 2026-11-01
-canonical-ref: LICENSES/FROZEN.md (凍結と POSTING-STATUS の単一ソース) / LICENSES/ACD-1.0.txt / LICENSES/ACD-1.1.txt / LICENSES/ACD-1.2-DRAFT.txt (照合先 —— 2026-09-24 時点の 1.2 草案。いまは pointer で、確定した本文は LICENSES/ACD-1.2.txt) / LICENSES/ACD-1.0.errata.md / LICENSES/ACD-1.0.against.md (候補の行き先)
+canonical-ref: LICENSES/FROZEN.md (凍結と POSTING-STATUS の単一ソース) / LICENSES/ACD-1.0.txt / LICENSES/ACD-1.1.txt / LICENSES/ACD-1.2.txt (照合したのは 2026-09-24 時点の 1.2 草案で、1.2 は 2026-10-17 にこの file として確定した) / LICENSES/ACD-1.0.errata.md / LICENSES/ACD-1.0.against.md (候補の行き先)
 ---
 
 # 機械可読な面の検証 —— 「これらが述べていることは、いま真か」（2026-09-24）
