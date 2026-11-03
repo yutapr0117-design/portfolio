@@ -1,7 +1,7 @@
 ---
 file: LICENSES/AUDIT-LEDGER.md
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-09-14
+last-updated: 2026-11-03
 canonical-ref: LICENSES/ACD-1.0.against.md / LICENSES/BLIND-SPOTS.md / .github/scripts/verify_dossier_quotations.py
 ---
 
@@ -24,7 +24,7 @@ canonical-ref: LICENSES/ACD-1.0.against.md / LICENSES/BLIND-SPOTS.md / .github/s
 ## How
 
 種類 1 は `.github/scripts/verify_dossier_quotations.py` を回す（`--fetch` で不足月を取得）。
-種類 2 / 3 / 7 は既存の Check が常時強制している。種類 4〜6 は未着手で、機械化の形だけ決めてある。
+種類 2（件数）は既存の Check が常時強制し、週次 mutation-probe がその各面を face 単位で壊して確かめる（Check 479c）。種類 3 / 7 は既存の Check が常時強制している。種類 4〜6 は 2026-09-14 以降に手で巡回した（種類 4 は自動照合が原理的にできないと分かった種類・台帳 §4）。**どこまで確かめたかの権威は台帳 §1 の表**で、ここには書き写さない。*（2026-11-03 訂正: 旧文は 09-14 時点の「種類 4〜6 は未着手」のままだった。）*
 
 ## Constraints
 
@@ -40,7 +40,7 @@ canonical-ref: LICENSES/ACD-1.0.against.md / LICENSES/BLIND-SPOTS.md / .github/s
 
 ## Audience-specific notes
 
-- **AI（次のセッション）**: **種類 4（不在の主張）が最優先。** 過去 5 回誤っており、
-  5 回とも「無い」と書く前に探していなかった。
+- **AI（次のセッション）**: **台帳 §1 の「状態」列から始める。** 種類 4（不在の主張）は機械で照合できず、
+  過去 5 回誤った種類で、5 回とも「無い」と書く前に探していなかった（09-14 時点ではこれが最優先だった）。
 - **監査人**: 種類 1 の結果は再現可能（script を回せば同じ数が出る）。
 - **第三者**: これは我々が自分の記述を疑った記録であって、第三者による検証ではない。
