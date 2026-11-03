@@ -119,7 +119,11 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       granted by Sections 3 to 10". (0 words.)
     * Section 12.5 (errata E53) now says that the interest against false
       attribution "survives" the covenant in Section 12.2. (-11 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5531 words, 80 clauses.
+    * The preamble now says that Section 3 surrenders "the Covered Rights",
+      where it said "the rights" after a paragraph on every right this
+      Dedication reaches, which includes patent claims and Moral Rights.
+      (+1 word.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5532 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -157,12 +161,12 @@ PREAMBLE (informative; not part of the operative terms)
   and machine authorship.
 
   It does so on three footings that stand side by side rather than in a queue.
-  Section 3 surrenders the rights. Section 4 grants a licence over the same
-  rights. Section 5 is a promise not to assert them. Each is given on its own
-  terms, none is a fallback for another, and a reader who needs only one of
-  them may rely on that one without deciding whether the others took effect. A
-  public-domain dedication that offered a licence only if the dedication failed
-  would put that decision on the reader; this one does not.
+  Section 3 surrenders the Covered Rights. Section 4 grants a licence over the
+  same rights. Section 5 is a promise not to assert them. Each is given on its
+  own terms, none is a fallback for another, and a reader who needs only one
+  of them may rely on that one without deciding whether the others took
+  effect. A public-domain dedication that offered a licence only if the
+  dedication failed would put that decision on the reader; this one does not.
 
   Sections 1 to 16 are the operative terms. This preamble is not, and nothing
   in it qualifies them.
