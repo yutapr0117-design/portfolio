@@ -502,6 +502,13 @@ _MUTATIONS_TAIL.append({
     "replace": "| +38 ",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 469: READY-TO-SUBMIT の部数申告が実装に追従しない —— 451d / 451e を足したあとも「3 部」のままだった 2026-11-03 以前の状態 (469 (c) が捕捉)",
+    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
+    "find": "| Check 451 (5 部) |",
+    "replace": "| Check 451 (3 部) |",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

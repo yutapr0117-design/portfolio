@@ -6,6 +6,8 @@
    反証表の状態）。**読み手も直し方も違う**: 数はふつう申告側を直し、構造は register 側を直す。
 
    469. 自己申告の「列挙」が、消化した項目で古くならないこと (BLOCKING)
+        (a) 460 の face inventory ⟺ 実装 / (b) errata の E-ID ⟺ CHANGELIST /
+        (c) READY-TO-SUBMIT.md の「Check N (M 部)」⟺ 実装の下位部 N[a-z] の種類数 (2026-11-03)
    474. 不利な事実の register が、潰すための backlog として機械可読であること (BLOCKING)
    475. 反証表の全行が日付つきの状態を宣言していること (BLOCKING)
 """
@@ -105,10 +107,30 @@ def run(ctx):
                 _bad469.append(
                     f"(b) {i} の状態が file 内で矛盾している (ある行は決着済み / 別の行は未着手)")
 
+    # (c) READY-TO-SUBMIT.md の「Check N (M 部)」⟺ その Check の区間に現れる下位部 N[a-z] の種類数
+    #   portfolio-25 の提案 (2026-11-03)。「機械的に担保されていること」と名乗る表が、451 に
+    #   451d (10-17)・451e (11-01) を足したあとも「3 部」のままだった (#2331 で是正)。部の列挙は
+    #   足されても申告側が追従しない —— 自分の数を機械で担保していない面だった。
+    #   区間 = `# ── N.` から次の `# ── <数字>` まで (全 Check module を横断)。
+    _rts469 = _L460 / "READY-TO-SUBMIT.md"
+    _rows469c = re.findall(r"Check (\d+) \((\d+) 部\)", _rts469.read_text(encoding="utf-8")) if _rts469.exists() else []
+    if not _rows469c:
+        _bad469.append("(c) READY-TO-SUBMIT.md から「Check N (M 部)」を 1 件も取り出せない")
+    _srcs469c = [ROOT / ".github" / "scripts" / "check_repository_consistency.py"] + sorted(
+        (ROOT / ".github" / "scripts").glob("checks_*.py"))
+    _txt469c = [_f.read_text(encoding="utf-8") for _f in _srcs469c if _f.exists()]
+    for _n, _m in _rows469c:
+        _parts = set()
+        for _t in _txt469c:
+            for _sec in re.finditer(r"^\s*# ── " + _n + r"\..*?(?=^\s*# ── \d|\Z)", _t, re.S | re.M):
+                _parts |= set(re.findall(r"\b" + _n + r"([a-z])\b", _sec.group(0)))
+        if len(_parts) != int(_m):
+            _bad469.append(f"(c) READY-TO-SUBMIT.md は「Check {_n} ({_m} 部)」と述べるが、実装の区間に在る下位部は "
+                           f"{len(_parts)} 種 {sorted(_parts)}")
     check(
         not _bad469,
         "Check 469: 自己申告の列挙が実装・現物と一致 "
-        f"(Check 460 の face {len(_impl469)} 面 / errata {len(_erids)} 件)",
+        f"(Check 460 の face {len(_impl469)} 面 / errata {len(_erids)} 件 / 部数の申告 {len(_rows469c)} 行)",
         ("Check 469: 自己申告の「列挙」が古い: " + "; ".join(_bad469) +
          "。**列挙は項目を消化するたびに古くなり、消化しているその瞬間こそ列挙を見ていない。**"
          "数と違って減る側へ drift するので「増えたか」では検出できない ——"
