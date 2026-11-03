@@ -39,6 +39,20 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 """
 
 import re
+import sys
+
+
+class _FaceTagged471(list):
+    """471 の誤りへ face のラベル "(x)" を付ける (2026-11-04)。face は append を呼んだ行の直前にある
+    `# (x)` で決まる (字下げは face ごとに違うので問わない)。probe は "Check 471 (x)" と名乗る mutation を
+    そのラベルで帰属するので、ラベルが無いと 471 の face 名つき mutation 6 件が MISATTRIBUTED になる。"""
+    _faces = [(_i, _m.group(1)) for _i, _m in (
+        (_i, re.match(r"^\s+# \(([a-z])\)", _l)) for _i, _l in enumerate(open(__file__, encoding="utf-8"), 1)) if _m]
+
+    def append(self, msg):
+        _ln = sys._getframe(1).f_lineno
+        _face = next((_f for _i, _f in reversed(self._faces) if _i < _ln), None)
+        super().append(f"({_face}) {msg}" if _face and not str(msg).startswith(f"({_face})") else msg)
 
 # **`Check <N>` 参照の単一の読み取り口**（face (c) と face (g) が共有する）。
 # **並びの 2 番目以降まで取るのが要点** ——先頭だけ見る実装は、この repo で
@@ -153,7 +167,7 @@ def run(ctx):
             r"\u00a7\s?([0-9]+(?:\.[0-9]+)*[a-z]?|[A-Z](?:\.[0-9]+)*[a-z]?)(?![0-9a-zA-Z.])")
         _named471 = re.compile(r"`[A-Za-z0-9._\-]+\.md`\s*(?:\u306e)?\s*$")
 
-        _bad471 = []
+        _bad471 = _FaceTagged471()
         _files471 = sorted(_lic471.glob("*.md")) + sorted((ROOT / "docs" / "files" / "LICENSES").glob("*.md"))
         # [2026-09-29] 系列の節番号集合はファイルにも行にも依存しないので、行ループの外で 1 回だけ作る。
         # 旧実装は行ごとに glob + sorted を回しており、1 回の gate で glob が約 69 万回呼ばれて
