@@ -56,7 +56,7 @@ mirror files (byte-identical で 4 surface に複製):
 - 短文 (約 70 行) — `llms-full.txt` の routing 専用
 
 ### For human engineers (新卒レベル)
-- AI クローラが最初に見るファイル — semantic 編集には orchestrator の OK が必要
+- AI クローラが最初に見るファイル — semantic 編集は `aio-guardian` を通し digest を再生成する (C6・承認ゲートではない)
 - 編集すると 4 つの mirror すべてを同じ内容にする必要 (`update_aio_digests.py` が支援)
 
 ### For third parties (監査 / 採用 / 研究)

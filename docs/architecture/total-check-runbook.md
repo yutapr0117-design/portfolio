@@ -30,7 +30,7 @@ Status        : Active runbook
 2. **障害点除去 ≠ 最適化。** 検査は「壊れ方を先に潰す」ためにある。コスト最適化や美観のために BLOCKING ゲートを触らない。
 3. **最小・可逆。** 変更は最小単位で、いつでも戻せる形に保つ。
 4. **見つけた改善を全部適用しない。** トータルチェックで改善余地は無限に出る。**収束を優先**し、適用は「障害点除去」に限定。それ以外は「後送り registry」（§7.4）に記録して止める。
-5. **AIO 正本層は触らない。** §5 の AIO canon は orchestrator 承認領域。検査はするが、本文は変更しない。
+5. **AIO 正本層は触らない。** §5 の AIO canon は本手順では検査するだけで本文は変更しない（編集は別の増分で `aio-guardian` を通し digest を再生成して行う。承認ゲートではない・C6）。
 6. **事実と解釈を分離する。** 観測値（例: citation=0）と戦略解釈（例: AIO 先行は合理的）を混ぜない（§7.5）。
 7. **出力フェーズでも解析フェーズと同等以上の検査を行う。** 成果物（変更ファイル・改善文書・プロンプト）を作る前に、現物の再展開と本 runbook の Layer 0–5 検査を必ず通す。前回の文書を読んで実装するだけ、あるいは前回の文書を流用して出すだけは禁止。出力物の品質は、その場で取り直した解析結果（実測の lint/check 結果・複合解析）を反映して引き上げる。これは「新しい改善を無限に探す」こと（原則 4 で抑制する対象）ではなく、**すでに本 runbook が定める検証を出力の直前にも省略しない**という意味である。
 
@@ -175,7 +175,7 @@ sha256sum llms.txt llms_well-known.txt .well-known/llms.txt .well-known/llms_wel
 - `docs/architecture/*`（本 runbook、各 map）
 - `docs/incident-artifacts/*`（decision 記録、v70 実験 yml）
 - `.github/**`（workflows / scripts / dependabot）
-- `README.md` / `sitemap.xml` / `robots.txt` の**ファイル自体**（ただし後二者の本文は AIO シグナルなので orchestrator 承認領域。digest 対象ではないが内容変更は別途慎重に）
+- `README.md` / `sitemap.xml` / `robots.txt` の**ファイル自体**（ただし後二者の本文は AIO シグナルなので内容変更は `aio-guardian` を通す（C6）。digest 対象ではない）
 - `package.json` / `package-lock.json` / `style.css` / `*.js`
 
 > **原則:** 内部改善（CI・検証・ドキュメント）は **非 digest 層に閉じる**。digest を動かさなければ AIO 指紋（fingerprint）は保たれ、「最小・可逆」を維持できる。digest 層を触るのは構造的マイルストーン到達時のみ、orchestrator 判断で。

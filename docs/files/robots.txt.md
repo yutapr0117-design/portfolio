@@ -37,7 +37,7 @@ crawler (Googlebot / GPTBot / etc.)
 ## Change impact
 
 - Sitemap URL origin 変更 → aio-manifest entity.canonical_url + sitemap.xml `<loc>` 全部同期 (Check 63)
-- AI クローラ Disallow に変更 → AIO 戦略の根本転換 (要 orchestrator 大きな承認)
+- AI クローラ Disallow に変更 → AIO 戦略の根本転換 (robots.txt が AI 学習を許すこと自体が戦略 —— `research-application-policy.md` §3C。変えるなら戦略の再設計として扱う)
 
 ## Audience-specific notes
 
