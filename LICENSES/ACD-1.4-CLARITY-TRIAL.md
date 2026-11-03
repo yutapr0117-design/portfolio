@@ -385,6 +385,28 @@ After は理由の文を消し、末文の指示語の先を名指しに変え�
 **公的機関のような法人も、1.4 が §15.5 に足した「person は entity を含む」（E58）で覆われる**。*"Moral Rights outlive the author in many jurisdictions"* の反対解釈（作者の死で消える法域では §12.4 が働かない）は、拘束する相手がいないので害が無い。
 **→ 通過。25 へ戻して、対の試作（§2.8 + §12.4）として §4.6 を書き直してもらう。** 採用すれば、出す版が 1.4 になったときに想定問答 510 行の理由を答えの側へ移す（従属する作業）。
 
+#### 試作 e（§2.8 と §12.4 の理由の文を対で外す・−79 語）に当て直した結果 —— **全件通過**
+
+| # | 反例 | 結果 |
+|---|---|---|
+| (a) | 許諾は Dedicator で止まる、という反対解釈 | **通過**（第 1 文・末文 *"Neither Section 5.3 nor Section 12.4 narrows this Section"*・§15.1 の 3 重）|
+| CE10 | 理由の文が操作条項に無い場面を名指していないか（§2.8 / §12.4 の両方）| **通過** |
+| 5a の非対称 | 対の片方にだけ理由が残る | **解消**（両方から外した。残る *"stated expressly because"* は §6.5 だけで、対になる条は無い）|
+| 新 | 理由が消えると §12.4 は §2.8（Dedication 全体が承継人を拘束）と重複して見えるか | **通過** —— §12.4 には「承継人でない、作者の死後に人格権を行使できる者」という独自の拘束が明示されている。§12.4 の狭い語（*"the law permits the Dedicator to bind them"*）が §2.8 へ移る読みは、§2.8 の末文が止める |
+| 新 | 末文の *"this Section"* がどの範囲を指すか | **通過** —— E57 の直しで、1.4 の *"this Section"* はその条（§2.8）を指す |
+| 5a | 機械的な差分（効果を運ぶ語）| **効果語の減少なし・先行詞の無い指示語 0 件**。§12.4 の理由が名指した *public authority* と §2.8 の会社の譲受人は、1.4 §15.5 の「person は entity を含む」（E58）で残る本文の *any person* に含まれる —— person / entity の分岐は §15.5 で閉じている |
+
+**→ 採用候補。草案への反映は 25（ヘッダの箇条・CHANGELIST の変更表・語数の申告 −79）。**
+**従属する作業（bb）**: 想定問答 `review-responses-clauses.md` 510 行は §12.4 の理由を引いている。出す版が 1.4 になったときに、理由を答えの側で述べ直す（理由は本文ではなくドシエが持つ）。
+
+#### CE8 の書き換え案（§8.3 の *software* の反対解釈を消す）—— **不成立**
+
+第 3 文に結果を書き込む案 *"Any reading of this Dedication that gives away a Covered Right while withholding a patent right is to be rejected"* を当てた。
+**§8.4 の末文**は *"it does not license a claim that would be infringed by a model, parameter set, weight, embedding, or output produced without any use of the Work"* と、
+**意図して**ある種の特許を許諾しない。新しい規則は、その意図した除外まで「退けるべき読み」にしてしまう ——**読みの分岐を 1 つ消して、条と条の衝突を 1 つ作る**。
+**§8.3 は変えない。残余リスク**: 第 2 文の *"because software cannot be practised …"* から「ソフトウェアでない Work（データセット・モデル）では特許の留保が許される」と読む余地は残る。
+弱めているのは §8.4（モデル・出力を名指して許諾する）と §15.1。**この 1 件は、効果を保ったまま消す書き方が見つからなかったものとして記録する。**
+
 ## 6. KPI（5a の道具で導出）
 
 | 指標 | Before（1.4 草案）| After |
