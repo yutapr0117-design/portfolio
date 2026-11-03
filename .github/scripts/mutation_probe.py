@@ -90,19 +90,23 @@ def named_check_fired(name: str, out: str) -> bool:
     変えた行数に反応する Check 424 だけが拾っていた。**安全網の自己検証が、検証対象そのものを
     検証していなかった**。比較は整数部で行う (468i の失敗は "Check 468:" の見出しで出る)。
     """
-    m = re.search(r"Check (\d+)(?: \(([a-z])\))?", name)
+    m = re.search(r"Check (\d+)([a-z])?\b(?: \(([a-z])\))?", name)
     if not m:
         return True
     fired = set(re.findall(r"::error::Check (\d+)", out))
     if m.group(1) not in fired:
         return False
+    _errs = [_l for _l in out.splitlines() if re.match(r"\s*::error::Check " + m.group(1) + r"(?!\d)", _l)]
+    # 名前が下位部まで名指す ("Check 468s") なら、その下位部の名前が Check N の誤りに出ること
+    # (2026-11-04)。Check 番号単位の帰属では、468n を壊して 468s が拾っても caught になる。
+    if m.group(2) and not any(re.search(r"\b" + m.group(1) + m.group(2) + r"\b", _l) for _l in _errs):
+        return False
     # 名前が face まで名指す ("Check 460 (x)") なら、その face のラベルが Check N の誤りに出ること
     # (2026-11-03)。460 は 23 面を 1 つの Check に持つので、Check 単位の帰属では「別の face が
     # 偶然拾った」と区別できない。ラベルは checks_license_self_reporting の _FaceTagged460 が付ける。
-    if m.group(2):
-        _lab = re.compile(r"(?:^|[\s'\"\[;:])\(" + m.group(2) + r"\) ")
-        return any(_lab.search(_l) for _l in out.splitlines()
-                   if re.match(r"\s*::error::Check " + m.group(1) + r"\b", _l))
+    if m.group(3):
+        _lab = re.compile(r"(?:^|[\s'\"\[;:])\(" + m.group(3) + r"\) ")
+        return any(_lab.search(_l) for _l in _errs)
     return True
 
 
