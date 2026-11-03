@@ -247,101 +247,17 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 161: User-agent: * の直後に別 agent 行を足し、そのグループを全サイト拒否にする —— RFC 9309 では 2 行で 1 グループ。旧形は次の User-agent 行で * の section を閉じていた',
-    "file": ROOT / "robots.txt",
-    "find": "User-agent: *\nAllow: /llms-full.txt",
-    "replace": "User-agent: *\nUser-agent: SomeBot\nDisallow: /\nAllow: /llms-full.txt",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 189: googlebot 宛ての meta を noindex にする —— googlebot には robots より優先する。旧形は先頭の robots meta 1 本しか読まなかった',
-    "file": ROOT / "index.html",
-    "find": '<meta name="googlebot" content="index, follow,',
-    "replace": '<meta name="googlebot" content="noindex, follow,',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 444: sitemap からライセンス全文の <loc> を消す —— 旧形は sitemap 全文の部分文字列で見ており、同じ URL を持つ <image:license> で満たされて緑だった',
-    "file": ROOT / "sitemap.xml",
-    "find": "    <loc>https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.3.txt</loc>\n",
-    "replace": "",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 444: robots.txt の記述子の Allow を説明コメントにする —— 旧形は robots 全文の部分文字列で見ており、コメント中の path 言及で満たされた',
-    "file": ROOT / "robots.txt",
-    "find": "Allow: /portfolio/LICENSES/ACD-1.3.machine.json\n",
-    "replace": "# 旧: Allow: /portfolio/LICENSES/ACD-1.3.machine.json\n",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 460 (e): against.md の総括の errata 数を、行の折り返しの直前で 1 桁増やす —— 数と語の間に改行があると旧形の空白 1 個の正規表現は一致せず、38 のまま 9 日間素通りした',
-    "file": ROOT / "LICENSES" / "ACD-1.0.against.md",
-    "find": "\n   errata, and five corrections",
-    "replace": "0\n   errata, and five corrections",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 468o: 草案 §8.4 の動詞 "license" を名詞形 "licence" に戻す —— 1.1〜1.3 はこの形のまま凍結された。同じ語数の綴り違いは差分のレンズも語数照合も拾わない',
-    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
-    "find": "the use of the Work; it does not license\n",
-    "replace": "the use of the Work; it does not licence\n",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 482: 資産の JSON-LD ブロックをコメントで無効化する —— 静的 JSON-LD を読む約 30 箇所はコメントを除かず、2 ブロックとも囲んでも 1 本も発火しなかった',
-    "file": ROOT / "index.html",
-    "find": '<!-- Asset-level structured data (AI-only, dedicated ImageObject / AudioObject) -->\n    <script type="application/ld+json">',
-    "replace": '<!-- Asset-level structured data (AI-only, dedicated ImageObject / AudioObject) -->\n    <!-- 一時停止: <script type="application/ld+json">',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 468m: §16.4 の草案の例外を広げる (a draft → a draft or a corrected text) —— 目印は 2 つとも残るので、存在だけを見る形では 1 識別子 = 1 固定本文が崩れても通った',
-    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
-    "find": "that no earlier text has borne, except a draft identified as such, so",
-    "replace": "that no earlier text has borne, except a draft or a corrected text, so",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 484: style.css の stylesheet link に media="print" を足す —— タグは残るので配線の Check 135 は緑のまま、画面ではサイト全体が未スタイルになる',
-    "file": ROOT / "index.html",
-    "find": '<link rel="stylesheet" href="./style.css">',
-    "replace": '<link rel="stylesheet" href="./style.css" media="print">',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 484: aio-guard.js の script に type="text/plain" を足す —— ブラウザは実行しないが src の文字列は残り、Check 133 は緑のままだった',
-    "file": ROOT / "index.html",
-    "find": '<script src="./aio-guard.js"></script>',
-    "replace": '<script type="text/plain" src="./aio-guard.js"></script>',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 242: manifest link に大文字の ONLOAD handler を足す —— HTML の属性名は大文字小文字を区別しないが、旧形は小文字 + 二重引用符しか探さなかった',
-    "file": ROOT / "index.html",
-    "find": '<link rel="manifest" href="/portfolio/manifest.webmanifest" />',
-    "replace": '<link ONLOAD="fetch(\'//x\')" rel="manifest" href="/portfolio/manifest.webmanifest" />',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 323: license link に一重引用符の style 属性を足す —— 旧形は style="…" (二重引用符) しか探さなかった',
-    "file": ROOT / "index.html",
-    "find": '<link rel="license" href="/portfolio/LICENSES/ACD-1.3.txt" />',
-    "replace": "<link rel=\"license\" style='display:none' href=\"/portfolio/LICENSES/ACD-1.3.txt\" />",
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": 'Check 331: skip-link の href を一重引用符の javascript: にする —— 旧形は二重引用符の値しか見ておらず素通りした',
@@ -509,6 +425,118 @@ _MUTATIONS_TAIL.append({
     "replace": "| Check 451 (3 部) |",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (b): 索引が FAQ の「使う側」の問数を 1 つ多く申告する (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.review-responses.md",
+    "find": "使う側 31 問 / プロセス 5 問",
+    "replace": "使う側 32 問 / プロセス 5 問",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (c): 逐条リファレンスが条数を 1 つ多く申告する (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.clause-reference.md",
+    "find": "全 16 節 82 条",
+    "replace": "全 16 節 83 条",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (d): FAQ の mirror が「使う側」の問数を 1 つ少なく申告する (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "docs" / "files" / "LICENSES" / "ACD-1.0.faq.md.md",
+    "find": "**A. 使う側**（31 問）",
+    "replace": "**A. 使う側**（30 問）",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (f): QUESTION-INDEX が worked entry の総数を手で足し引きしてずれる (実際に 2 ずれていた形) (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "LICENSES" / "QUESTION-INDEX.md",
+    "find": "There are **384** worked entries",
+    "replace": "There are **382** worked entries",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (h): mirror がドシエの規模を数字で述べる (mirror の数は維持できないので禁止) (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "docs" / "files" / "LICENSES" / "ACD-1.0.faq.md.md",
+    "find": "**A. 使う側**（31 問）",
+    "replace": "All 99 adverse facts. **A. 使う側**（31 問）",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (i): §4c が不利な事実の件数を 1 つ少なく述べる (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission-reference.md",
+    "find": "**281 entries, 1–281, no gaps",
+    "replace": "**280 entries, 1–280, no gaps",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (j): §1.35 の「N のうち M」が下の列挙と合わない (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.comparison.md",
+    "find": "**Four of ACD-1.0's seven distinguishing features",
+    "replace": "**Four of ACD-1.0's eight distinguishing features",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (k): ドシエの #N 参照が不利な事実のどの行にも解決しない (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
+    "find": "#195",
+    "replace": "#9195",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (l): errata 冒頭の件数が表の行数と合わない (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.errata.md",
+    "find": "**Fifty-eight items are recorded",
+    "replace": "**Fifty-seven items are recorded",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (o): 入口ページの最高 severity の件数が register の表と合わない (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "**four are marked highest severity",
+    "replace": "**three are marked highest severity",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (p): §B.0 の見出しの語数が本文の実測と合わない (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": "(**1703 words**",
+    "replace": "(**1700 words**",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (q): 審査者に示す検証コマンドの期待値が実際の出力件数と合わない (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "9× OK",
+    "replace": "8× OK",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (r): §B.0 の語数を日付も「見出しが権威」の断りも無い現在形で写す (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
+    "find": "**したがって §B.0 は",
+    "replace": "**したがって §B.0（1,703 語）は",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (s): 散文が Check 463 の強制項目数を実装と違う数で述べる (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.review-rules.md",
+    "find": "Check 463（**12 項目",
+    "replace": "Check 463（**11 項目",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (a): 提出パケットが worked entries の件数を 1 つ多く申告する (face 単位の帰属・2026-11-03)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": "(47 worked entries plus a table of 8 short answers",
+    "replace": "(48 worked entries plus a table of 8 short answers",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 424c: §2 表に同じ path の行が 2 つになる —— 予算列や理由が食い違い、rotate と照合で片方が必ず古くなる (2026-11-03 まで e2e_archive3 がそうだった)",
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": "| `.github/scripts/mutation_samples_common.py` |",
+    "replace": "| `.github/scripts/mutation_samples_common.py` | 28 | 60 | `advisory` | mutation_samples / archive 共有パス定数 (ROOT / CHECK)。循環回避 |\n| `.github/scripts/mutation_samples_common.py` |",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
@@ -570,59 +598,11 @@ _E2E_TAIL = [
 
 
 
-_E2E_TAIL.append({
-    "name": "Lab トグルの開閉状態が永続化されなくなる —— 開いておいた利用者はルート遷移やリロードのたびに畳まれた状態へ戻る。1 回の操作では気付けず「たまに閉じている」としか見えない",
-    "file": ROOT / "js" / "components.js",
-    "find": "            try { localStorage.setItem(labKey, String(next)); } catch { /* ignore */ }",
-    "replace": "            /* persistence removed */",
-    "test": "toggle flips aria-expanded",
-})
 
-_E2E_TAIL.append({
-    "name": "ダーク実効の --text-muted が暗背景に暗い色になる —— drawer / palette / toast など**開いた状態でしか見えない面**のコントラストが落ちる。既定の閉じた状態では何も起きないので通常の a11y 走査では踏まれない",
-    "file": ROOT / "style.css",
-    "find": """                --text-muted: #9aa4b5;""",
-    "replace": """                --text-muted: #2b3444;""",
-    "test": "ダークの drawer / palette / toast",
-})
 
-_E2E_TAIL.append({
-    "name": "nav リンクから href が外れる —— マウスの click ハンドラは残るので**見た目も挙動も変わらず**、キーボード利用者だけがナビゲーションへ到達できなくなる (WCAG 2.1.1)。Googlebot のリンク発見も同時に失われる",
-    "file": ROOT / "js" / "components.js",
-    "find": "                href: '#/' + item.path,",
-    "replace": "                'data-href': '#/' + item.path,",
-    "test": "Sidebar nav link is keyboard-operable",
-})
 
-_E2E_TAIL.append({
-    "name": "上限で断られたときに打った文字が消える —— 追加できたときだけクリアする復元を外すと、"
-            "「不要なタスクを削除してください」と言われた時点で入力欄が既に空になっており、"
-            "削除して戻っても打ち直しになる (クリア自体は #1061 の二重登録ガードとして必要)",
-    "file": ROOT / "js" / "apps.js",
-    "find": "if (!addTask(_v)) { e.target.value = _v; }",
-    "replace": "addTask(_v);",
-    "test": "keeps the typed text when the add is refused by the cap",
-})
 
-_E2E_TAIL.append({
-    "name": "一時的な通信断から quiz が回復しなくなる —— 失敗した動的 import は module map に "
-            "キャッシュされ、以降の import はネットワークへ行かず即 reject する。別 URL での "
-            "再取得を外すと、開き直しても永久に失敗表示のまま (完全リロードしか直らない)",
-    "file": ROOT / "main.js",
-    "find": ").catch(() => _retryQuizData(type))",
-    "replace": ")",
-    "test": "recovers from a transient load failure by refetching under a new URL",
-})
 
-_E2E_TAIL.append({
-    "name": "JSON-LD の CreativeWork ノードから license が落ちる —— schema.org で license は "
-            "CreativeWork に定義される。1 ノードでも欠けると、その経路から来た agent は "
-            "「学習してよいか」を判定できない (ACD-1.0 §6.5)。**視覚には一切出ない**",
-    "file": ROOT / "js" / "meta-management.js",
-    "find": "'license': SITE_CONFIG.LICENSE_URL,\n                'dateModified'",
-    "replace": "'dateModified'",
-    "test": "レンダリング後の全 CreativeWork ノードが同一のライセンスを宣言する",
-})
 
 _E2E_TAIL.append({
     "name": "HTML 標準の license リンクが消える —— rel=license は権利宣言の最も標準的な入口で、"

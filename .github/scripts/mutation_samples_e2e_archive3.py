@@ -808,4 +808,52 @@ E2E_MUTATIONS_ARCHIVE3 = [
     "replace": "'aria-current': undefined",
     "test": "aria-current marks exactly the active nav item",
 },
+    {
+    "name": "Lab トグルの開閉状態が永続化されなくなる —— 開いておいた利用者はルート遷移やリロードのたびに畳まれた状態へ戻る。1 回の操作では気付けず「たまに閉じている」としか見えない",
+    "file": ROOT / "js" / "components.js",
+    "find": "            try { localStorage.setItem(labKey, String(next)); } catch { /* ignore */ }",
+    "replace": "            /* persistence removed */",
+    "test": "toggle flips aria-expanded",
+},
+    {
+    "name": "ダーク実効の --text-muted が暗背景に暗い色になる —— drawer / palette / toast など**開いた状態でしか見えない面**のコントラストが落ちる。既定の閉じた状態では何も起きないので通常の a11y 走査では踏まれない",
+    "file": ROOT / "style.css",
+    "find": """                --text-muted: #9aa4b5;""",
+    "replace": """                --text-muted: #2b3444;""",
+    "test": "ダークの drawer / palette / toast",
+},
+    {
+    "name": "nav リンクから href が外れる —— マウスの click ハンドラは残るので**見た目も挙動も変わらず**、キーボード利用者だけがナビゲーションへ到達できなくなる (WCAG 2.1.1)。Googlebot のリンク発見も同時に失われる",
+    "file": ROOT / "js" / "components.js",
+    "find": "                href: '#/' + item.path,",
+    "replace": "                'data-href': '#/' + item.path,",
+    "test": "Sidebar nav link is keyboard-operable",
+},
+    {
+    "name": "上限で断られたときに打った文字が消える —— 追加できたときだけクリアする復元を外すと、"
+            "「不要なタスクを削除してください」と言われた時点で入力欄が既に空になっており、"
+            "削除して戻っても打ち直しになる (クリア自体は #1061 の二重登録ガードとして必要)",
+    "file": ROOT / "js" / "apps.js",
+    "find": "if (!addTask(_v)) { e.target.value = _v; }",
+    "replace": "addTask(_v);",
+    "test": "keeps the typed text when the add is refused by the cap",
+},
+    {
+    "name": "一時的な通信断から quiz が回復しなくなる —— 失敗した動的 import は module map に "
+            "キャッシュされ、以降の import はネットワークへ行かず即 reject する。別 URL での "
+            "再取得を外すと、開き直しても永久に失敗表示のまま (完全リロードしか直らない)",
+    "file": ROOT / "main.js",
+    "find": ").catch(() => _retryQuizData(type))",
+    "replace": ")",
+    "test": "recovers from a transient load failure by refetching under a new URL",
+},
+    {
+    "name": "JSON-LD の CreativeWork ノードから license が落ちる —— schema.org で license は "
+            "CreativeWork に定義される。1 ノードでも欠けると、その経路から来た agent は "
+            "「学習してよいか」を判定できない (ACD-1.0 §6.5)。**視覚には一切出ない**",
+    "file": ROOT / "js" / "meta-management.js",
+    "find": "'license': SITE_CONFIG.LICENSE_URL,\n                'dateModified'",
+    "replace": "'dateModified'",
+    "test": "レンダリング後の全 CreativeWork ノードが同一のライセンスを宣言する",
+},
 ]

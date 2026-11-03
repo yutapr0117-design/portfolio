@@ -90,11 +90,20 @@ def named_check_fired(name: str, out: str) -> bool:
     変えた行数に反応する Check 424 だけが拾っていた。**安全網の自己検証が、検証対象そのものを
     検証していなかった**。比較は整数部で行う (468i の失敗は "Check 468:" の見出しで出る)。
     """
-    m = re.search(r"Check (\d+)", name)
+    m = re.search(r"Check (\d+)(?: \(([a-z])\))?", name)
     if not m:
         return True
     fired = set(re.findall(r"::error::Check (\d+)", out))
-    return m.group(1) in fired
+    if m.group(1) not in fired:
+        return False
+    # 名前が face まで名指す ("Check 460 (x)") なら、その face のラベルが Check N の誤りに出ること
+    # (2026-11-03)。460 は 23 面を 1 つの Check に持つので、Check 単位の帰属では「別の face が
+    # 偶然拾った」と区別できない。ラベルは checks_license_self_reporting の _FaceTagged460 が付ける。
+    if m.group(2):
+        _lab = re.compile(r"(?:^|[\s'\"\[;:])\(" + m.group(2) + r"\) ")
+        return any(_lab.search(_l) for _l in out.splitlines()
+                   if re.match(r"\s*::error::Check " + m.group(1) + r"\b", _l))
+    return True
 
 
 def run_e2e_test(pattern: str) -> int:
