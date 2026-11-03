@@ -205,7 +205,131 @@ canonical-ref: LICENSES/ACD-1.4-DRAFT.txt (試作の対象・この file は草�
 
 ## 4. 試作と効果の対照（手順 4〜5・25）
 
-（25 が書き足す。条ごとに Before / After、許諾の範囲・主体・条件・除外・法域ごとの結果の対照）
+**結論を先に書く（2026-11-04 時点）**: 試作した 1 族（F2）は**反例が 3 つ立ったので採らない**。
+検討だけで退けた族が 4 つ（F1・成果物の列挙・§10.4 の *because*・5a が渡した §12 の問い）。
+**生きている候補は 1 件（§2.8 の理由の文・−41 語）で、bb の反例テストへ渡す**（§4.6）。
+採用した変更はまだ無い。草案（`ACD-1.4-DRAFT.txt`）は触っていない。
+
+### 4.1 F2「条件ではない」を §10.5 の一般則へまとめる —— 試作 (b)・採らない
+
+**試作 (b)**（main f42a9b76 の草案に当てた。5a の比較モードで測定済み）:
+
+```
+  10.5 Section 16 concerns the text of this Dedication as a document, and not
+       the Work. Nothing in Section 16, and no statement in this Dedication of
+       what it does not reach or grant, is a condition upon Your use of the
+       Work, and Section 10.1 is unaffected by them.
+```
+
+あわせて §11.1 の末文（*"Where Section 16 speaks of the name … (Section 10.5)."*）と、§11.3 の末文、
+§11.4 の末尾 *"; this Section states a limit of reach, it is not a condition upon You, and Section 10.1 is unaffected by it"* を消した。
+
+**5a の測定**: 語 5,049 → 4,977（−72）/ 6 語以上の重複 79 → 72 / 族 58 → 53 / 項 80 のまま。
+減った効果の語は §11.1・§11.3・§11.4 の *you / not / upon*（§11.1 は *where / nothing*）で、すべて消した断りの文。
+
+**条ごとの対照**（一般則が消した文の働きを引き取れるか）:
+
+| 条 | Before の働き | (b) で引き取る先 | 範囲・主体・条件・除外・法域 | 判定 |
+|---|---|---|---|---|
+| §10.5 | §16 は Work の使用への条件ではない | 同じ文に「限界を述べる文」を足す | 変わらない（足しただけ）| — |
+| §11.1 末文 | §11.1 を先に読む読者に、§16 の名前の規定は Work に何も求めないと**その場で**告げる | §10.5 | 変わらない | **反例 1**（下）|
+| §11.3 末文 | 虚偽の関与表示の条を「条件ではない」と**その場で**言い切る | §10.5（§11.3 が「reach しない文」に分類されれば）| 変わらない | **反例 2** |
+| §11.4 末尾 | 個人データ等の限界を「条件ではない」と言い切る | §10.5（*"It reaches nothing else"* が自分を分類する）| 変わらない | 反例 2 の対称で残す |
+
+**反例 1 —— §11.1 の末文を消すと errata E7 が戻る。** その文は 1.1 で E7（`against.md` #45）を閉じるために足した前方参照で、
+問題は「§11.1（名前に権利を与えない）を先に読む読者が、§16 は §11 が与えなかったものを求めていると読む」読み順だった。
+和解の文（§10.5・§16.6）は 1.0 から在ったのに、**読者が衝突に出会う場所に無かった**ことが欠陥だった。
+一般則へ寄せると、和解が再び衝突の場所から離れる。**試作 (b) を作った時点でこの経緯を確かめていなかった**（bb の F1 (i) と同じ「1 条だけを読む読者」の論点）。
+
+**反例 2 —— §11.3 は局所の断りが要る（5a の指摘）。** §11.3 は BSD-3-Clause の第 3 項（推奨表示の禁止）に似ており、
+審査者が条件と読みやすい条である。試作では「§11.3 は reach しない文だ」と分類して初めて一般則に入り、
+冒頭の *"does not make a false statement true"* がその分類に当たるかは境界にある。**効果は同じでも審査者に推論を 1 段挟ませる**（B13 に逆向き）。
+§11.3 に断りを残すなら、**SELF-AUDIT §3r の形（並ぶ 2 つで片方だけが断る）を避けるため §11.4 にも残す**ことになる。
+
+**反例 3 —— 一般則の語を §10.1 にそろえると、別の条が狭く読める。** 5a は一般則を *"upon Your use of the Work"* ではなく
+*"upon You in respect of the Work"*（§10.1 と同じ語）にすれば救いの句に頼らずに済むと提案した。
+しかしこの本文では *use of the Work* が**総称**として働いている —— §5.1 の covenant は *"against You in respect of any use of the Work"*、
+§3.2 は *"arising from any use of the Work"*、§5.2(d) は *"in respect of any use of the Work that this Dedication permits"*。
+§10.5 だけを *in respect of* へ移すと、「本文が全部を言いたいときは *in respect of* と書く。*use* と書いた条は使用だけだ」という対比が立ち、
+**§5.1 の covenant が頒布・改変に及ばないという読みを本文自身が支えてしまう。** 不利な方向の反例なので、語はそろえない。
+
+**そして、まとめる側の最強の論拠（bb の F2 反例の種 (i)）は SELF-AUDIT §3r 自身が弱めている。**
+§3r の欠陥（§16.4 の re-encoding の但し書きが条件と読まれうる）は、**§16 全体について既に一般則（§10.5・§16.6）が在る場所で起きた**。
+一般則は、具体的な但し書きが条件のように読まれることを止めなかった。§3r の直し方も一般則ではなく、**その場の断り**だった。
+特定の文と一般の文が衝突するとき特定が優先するという読みの規則がある以上、**一般則を足しても「付け忘れた 1 か所」の欠陥類は構造的には消えない。**
+
+**残るもの**: 反例 1〜3 を避けると、§11.1 は変えず、§11.3・§11.4 は短い断りを残すことになり、
+得られるのは §11.3 の −5 語・§11.4 の −3 語と一般則の +15 語（差し引き +7 語）、それに *limit of the Dedication's reach* / *limit of reach* の綴りの統一だけになる。
+**読みの分岐は減らない**（一般則が覆う先はすべて §10.1 が既に覆っている）。**採らない。**
+
+### 4.2 F1「判定しなくてよい」を 1 か所へまとめる —— 検討して採らない
+
+一般則にすると**偽の文になる**。§4.4・§8.6・§9.3・§12.2 の念押しは、それぞれ**特定の 2 つの足場の組**（§3 と §4 / 特許の 2 経路 / 機械生成か否か / §12.1 と §12.2）について
+「どちらでも許可は同じ」と述べており、各組についてはそれが真である。
+しかし「この Dedication の許可は、どの足場が有効かに依存しない」という一般則は、**すべての足場が無効な法域**（§3 の放棄も §4 の許諾も効かない仮定の法域）では偽である ——
+許可は少なくとも 1 つの足場の有効性に依存している。一般則を真にするには組を列挙する必要があり、列挙は E46 / E49 と同じ「列挙の漏れ」の危険を戻す。
+加えて bb の反例の種 (i)〜(iii)（E26 の読み順・§9.3 は事実の問い・主語の射程）がそのまま当たる。5a も同意（2026-11-04）。
+
+### 4.3 §1.7 の成果物の列挙（§6.4 / §8.4）を定義語にまとめる —— 検討して採らない
+
+bb の F0 が「並行起草の定型句」として残す側に分けたもの。理由を 2 つ足す。
+(1) §8.4 の動詞列（1.0 では §8.1）*"making, having made, using, offering to sell, selling, importing, or otherwise transferring"* は特許の実施行為で、
+§1.7 の *"the making, distribution, and use"* より広い。重複ではない。
+(2) 共通部分 *"model, parameter set, weight, embedding, or output"* を新しい定義語にすると、§1.7 が「それらを作ること」を Computational Use に含めているため、
+その定義語を Computational Use で定義すると**循環する**。提出参考資料 §4c は「定義の依存に悪い循環が無い」ことを審査者が確かめられる主張として示しているので、それを崩す。
+語数も定義に約 20 語・4 か所で約 24 語の削減で、ほぼ 0。
+
+### 4.4 F3 §10.4 の *because* —— 検討して採らない
+
+§10.4 の *"because it contains nothing that You could breach"* を並列の主張（*"…no revival provision, and nothing that You could breach"*・−3 語）に変える案を検討した。
+反対解釈（違反しうるものが見つかれば終了できる）は、**同じ条の第 1 文 *"No permission granted by this Dedication terminates for any reason"* が無条件なので立たない** ——
+理由の前提が崩れても、結論は第 1 文が独立に支える。逆に *because* は、終了条項の不在が方針の好みではなく**構造から来る**ことを述べる形で、
+1.2 が §8.2 を同じ形へ直した（`against.md` #265 (b)・*"deliberate"* が Chestek 氏の *"intentional"* への懸念に当たったため）のと揃っている。
+想定問答（`review-responses-clauses.md` の set-A / set-B の答え）もこの文を引く。`ACD-1.4-CHANGELIST.md` の「本文が自分で述べる理由を 1 つずつ当てる」行（11-02）も同じ結論。
+
+### 4.5 5a が渡した §12.1 / §12.2 の問い —— 明瞭化の候補にはしない
+
+5a の問い: §12.2 の発動条件 *"personal to the author, inalienable, or incapable of waiver"* は「or」で 1 語当たれば足り、
+§1.2 の定義自体が人格権を *"of a personal character"* と述べるので、§12.1（放棄）が働く法域は実務上ほとんど無いのではないか。
+**答え**: 記録に例は無い（`QUESTIONS-FOR-COUNSEL.md` 問 3 (d) も「隙間にある法域を知らない」と書く）。ただし明瞭化の候補にはしない。
+(i) §12.1 を「残りの場合」として従属させる並べ替えは、放棄 → 予備の順（§3 → §4・CC0 と同じ）を崩し、**§12.2 が「どちらが当たるか判定しなくてよい」と述べているので読者は順序に依存しない**。
+(ii) 理由の句（将来・未知の法域の受け皿）を本文に足すのは F3 の型そのもので、「未知の法域でだけ働く」という反対解釈を作る。
+**別の論点として記録する（新規版候補・この file では採らない）**: §12.2 を §12.1 の「代わりに」ではなく「並んで」働かせる形（§4.4 が §3 と §4 について使う形）にすれば、
+発動条件の 3 語の分類が不要になり、問 3 (d) の隙間（放棄に方式が要り、かつ譲渡できる法域）も構造で閉じる。
+**これは法的効果を変える**（§12.2 の法域でも放棄を試みる。*"to the fullest extent permitted"* が許されない部分を落とすが、公序の問 3 (c) と絡む）ので、明瞭化の作業ではない。
+
+### 4.6 生きている候補 —— §2.8 の理由の文（−41 語・bb の反例テストへ）
+
+```
+  2.8  This Dedication, in respect of the Work, binds the Dedicator's
+       successors, assigns, heirs, and personal representatives, and any person
+       to whom a Covered Right or a patent claim in the Work is transferred, to
+       the fullest extent the law permits. A transferee takes subject to it,
+       Section 6 included. Neither Section 5.3 nor Section 12.4 narrows this
+       Section.
+```
+
+**Before** は 3 文目に *"This is stated expressly because Sections 5.3 and 12.4 say as much for the covenants they contain, and silence here would invite the argument
+that the grants themselves stop at the Dedicator, which would leave the longest-lived risk, the change of hands, open."*（43 語）を持ち、末文は *"Neither of those Sections narrows this one."*（7 語）。
+After は理由の文を消し、末文の指示語の先を名指しに変えた（+2 語）。差し引き −41 語。
+
+| 観点 | Before | After |
+|---|---|---|
+| 許諾の範囲 | Dedication 全体（1.4 で E49 を閉じるために列挙から「This Dedication」へ変えた）| 同じ |
+| 主体（拘束される者）| 承継人・譲受人・相続人・人格代表者・権利の譲受人 | 同じ |
+| 条件・除外 | 無し / §6 を含むと明示 | 同じ |
+| 法域ごとの結果 | *"to the fullest extent the law permits"* | 同じ |
+| §5.3・§12.4 との関係 | 狭めない（末文）| 同じ（末文を名指しにした）|
+| 失うもの | 「なぜ明示したか」の説明 | —— |
+
+**消してよいと考える理由**: この理由の文は、§2.8 が *"Sections 3, 4, 6, 7, and 8 bind"* と**列挙していた**ときに、列挙の外の沈黙が「止まる」と読まれる危険を説明していた。
+1.4 で §2.8 は Dedication 全体を拘束する形に変わり、**本文に承継人について沈黙している条は残っていない**。
+一方で理由の文は *"silence here would invite the argument"* と、**沈黙が反対の議論を招くことを本文自身が認める**文であり、本文が沈黙している別の事柄
+（例: 準拠法 —— §15.7 は置いていない）に対して、本文の言葉で向けられうる。
+**bb に当ててほしいこと**: (a) 理由の文が無いと、§5.3・§12.4 の明示と並べて「§2.8 は covenant 以外には及ばない」と読む余地が戻るか（末文が止めるか）。
+(b) 想定問答 `review-responses-clauses.md` の §2.8 の答え（*longest-lived risk* を引く・510 行付近）が 1.4 を引く版でも成り立つか。
+(c) §6.5 第 2 文（*"It is stated expressly because silence on this subject has proved ambiguous in practice, and because a permission that an automated system cannot determine is … no permission at all"*）は同じ型だが、
+ドシエが #85 などで原理として引く文なので**この試作には含めない**。ただし後半を「機械が判定できない許可は無い」と**作用の文として**読む敵対的な読みが立つかは、別に当ててほしい。
 
 ## 5. 反例テスト（手順 6・bb）
 
