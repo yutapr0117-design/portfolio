@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.1-SELF-AUDIT.md
 audience: a future drafter (the current draft is 1.4), OSI license-review participants, licence reviewers
-last-updated: 2026-11-02
+last-updated: 2026-11-03
 canonical-ref: LICENSES/ACD-1.4-DRAFT.txt (the current draft; ACD-1.2.txt frozen 2026-10-17, ACD-1.3.txt frozen 2026-10-25 and applied to this repository) / LICENSES/ACD-1.1.txt (frozen 2026-09-17) / LICENSES/ACD-1.4-CHANGELIST.md (all other changes for the current draft; ACD-1.1〜1.3-CHANGELIST.md are the closed records for those versions) / LICENSES/ACD-1.0.errata.md (defects in 1.0)
 ---
 
@@ -712,3 +712,20 @@ are unchanged and the form is identified as a re-encoding"* を足した（2026-
 **見つけ方**: §10.1 と食い違う言い回し（must / shall / required / provided / only if / unless / subject to）を本文全体から機械的に洗い、You に向いた候補を 1 件ずつ当てた。
 **一般形: 網の目に文を足すときは、隣の文が持つ限定を足す文にも付けたかを、足した日に確かめる**（E9 の教訓を、E9 を直した側が自分の追加に当てていなかった）。
 
+
+## 3s. 1.2 が持ち込んだ欠陥 —— E31 が足した §5.2(d) が、隣の §5.1・§8.6 と違って第三者を通じた主張を塞いでいなかった（2026-11-03）
+
+**25 の掃引で発見した。** 1.2 は E31（Dedicator 自身の privacy / publicity / personality 権）を閉じるために §5.2 へ
+*"(d) assert against You a right of privacy, publicity, or personality held by the Dedicator, in respect of any use of the Work that this Dedication permits"*
+を足した（1.2 草案・2026-09-23）。同じ働きの約束である §5.1（Covered Rights）と §8.6（特許）は
+*"not to assert, and not to authorise or assist any other person to assert"* と書き、第三者を通じた行使まで塞ぐが、**(d) は Dedicator 自身の主張しか止めていなかった**。
+(d) が対象とする publicity 権は米国の多くの州で譲渡も独占的なライセンスもでき、§5.3 は譲受人（assigns）を拘束するが**ライセンスを受けただけの者は拘束しない** ——
+Dedicator が自分では主張せず、独占的なライセンスを受けた代理人に主張させる経路が残っていた。1.2・1.3 は同じ文言で、1.0・1.1 には (d) 自体が無い。
+**errata ではない**: 欠陥のある文は 1.0 に無く、`ACD-1.0.errata.md` の冒頭は「全件 1.0 で未修正」と述べる（25 は最初 errata 候補として渡し、同日に取り下げた）。
+
+**直したもの**: 1.4 草案で *"(d) assert, or authorise or assist any other person to assert, against You …"*（+9 語）。§12.2 には足さなかった理由と逆側
+（「authorise しない」は将来に向けた約束で、以前に与えた独占的ライセンスの取消までは約束しない —— §5.1 にも同じ限界がある）は `ACD-1.4-CHANGELIST.md` の「§5.2(d)（authorise or assist）」行にある。1.2・1.3 は凍結のまま残る。
+
+**見つけ方**: 並ぶ条の非対称のレンズ（同じ働きの約束が同じ射程を持つか）を covenant の言い回しに当てた。
+**一般形: errata を閉じるために足した文は、隣に並ぶ同じ働きの文の言い回しを写していたかを、足した日に確かめる**
+（§3r と同じ形 —— 欠陥を直した版が、直すために足した文で隣との不揃いを作っていた）。
