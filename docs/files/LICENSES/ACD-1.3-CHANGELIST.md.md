@@ -2,7 +2,7 @@
 file: LICENSES/ACD-1.3-CHANGELIST.md
 audience: licence reviewers, 監査人, 後任 AI
 last-updated: 2026-11-04
-canonical-ref: LICENSES/ACD-1.3-DRAFT.txt (草案) / LICENSES/ACD-1.2-CHANGELIST.md (前版の記録)
+canonical-ref: LICENSES/ACD-1.3.txt (確定した本文・2026-10-25) / LICENSES/ACD-1.3-DRAFT.txt (確定前の草案。いまは pointer) / LICENSES/ACD-1.2-CHANGELIST.md (前版の記録)
 ---
 
 # LICENSES/ACD-1.3-CHANGELIST.md

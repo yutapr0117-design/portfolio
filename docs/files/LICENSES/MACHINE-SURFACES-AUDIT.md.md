@@ -2,7 +2,7 @@
 file: LICENSES/MACHINE-SURFACES-AUDIT.md
 audience: ai, human (新卒), 監査人, 第三者全般
 last-updated: 2026-09-24
-canonical-ref: LICENSES/FROZEN.md / LICENSES/ACD-1.0.txt / LICENSES/ACD-1.1.txt / LICENSES/ACD-1.2-DRAFT.txt
+canonical-ref: LICENSES/FROZEN.md / LICENSES/ACD-1.0.txt / LICENSES/ACD-1.1.txt / LICENSES/ACD-1.2-DRAFT.txt (照合先 —— 2026-09-24 時点の 1.2 草案。いまは pointer で、確定した本文は LICENSES/ACD-1.2.txt)
 ---
 
 # LICENSES/MACHINE-SURFACES-AUDIT.md
