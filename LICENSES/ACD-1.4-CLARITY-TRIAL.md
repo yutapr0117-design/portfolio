@@ -207,7 +207,7 @@ canonical-ref: LICENSES/ACD-1.4-DRAFT.txt (試作の対象・この file は草�
 
 **結論を先に書く（2026-11-04 時点）**: 試作した 1 族（F2）は**反例が 3 つ立ったので採らない**。
 検討だけで退けた族が 4 つ（F1・成果物の列挙・§10.4 の *because*・5a が渡した §12 の問い）。
-**生きている候補は 1 件（§2.8 の理由の文・−41 語）で、bb の反例テストへ渡す**（§4.6）。
+**生きている候補は 1 件（§2.8 と §12.4 の理由の文を対で外す・−79 語）で、bb の反例テストの当て直しを待つ**（§4.6）。
 採用した変更はまだ無い。草案（`ACD-1.4-DRAFT.txt`）は触っていない。
 
 ### 4.1 F2「条件ではない」を §10.5 の一般則へまとめる —— 試作 (b)・採らない
@@ -298,7 +298,12 @@ bb の F0 が「並行起草の定型句」として残す側に分けたもの�
 発動条件の 3 語の分類が不要になり、問 3 (d) の隙間（放棄に方式が要り、かつ譲渡できる法域）も構造で閉じる。
 **これは法的効果を変える**（§12.2 の法域でも放棄を試みる。*"to the fullest extent permitted"* が許されない部分を落とすが、公序の問 3 (c) と絡む）ので、明瞭化の作業ではない。
 
-### 4.6 生きている候補 —— §2.8 の理由の文（−41 語・bb の反例テストへ）
+### 4.6 生きている候補 —— §2.8 と §12.4 の理由の文を対で外す（−79 語・反例テストの当て直し待ち）
+
+**経緯**: 最初は §2.8 だけを外す試作（−41 語）を出した。bb の反例テスト（2026-11-04）は (a)・CE10 を通したが、
+**5a が指摘した非対称が成立した** —— §2.8 だけ外すと、同じ型の理由の文（*"This is stated expressly because … longest-lived risk … open"*）が §12.4 にだけ残る。
+2 つは対になっている（§2.8 の理由の文は §12.4 を名指しし、どちらも承継人について述べ、どちらも *longest-lived risk* という語で締める）。
+並ぶ 2 つで片方だけに説明があるのは SELF-AUDIT §3r と同じ形なので、**§2.8 単独の試作は採らず、対で外す試作に組み直した。**
 
 ```
   2.8  This Dedication, in respect of the Work, binds the Dedicator's
@@ -307,29 +312,53 @@ bb の F0 が「並行起草の定型句」として残す側に分けたもの�
        the fullest extent the law permits. A transferee takes subject to it,
        Section 6 included. Neither Section 5.3 nor Section 12.4 narrows this
        Section.
+
+  12.4 The covenant in Section 12.2 binds the Dedicator's successors, assigns,
+       heirs, personal representatives, and any person entitled to exercise or
+       enforce Moral Rights in the Work after the Dedicator's death, to the
+       fullest extent the law permits the Dedicator to bind them.
 ```
 
-**Before** は 3 文目に *"This is stated expressly because Sections 5.3 and 12.4 say as much for the covenants they contain, and silence here would invite the argument
-that the grants themselves stop at the Dedicator, which would leave the longest-lived risk, the change of hands, open."*（43 語）を持ち、末文は *"Neither of those Sections narrows this one."*（7 語）。
-After は理由の文を消し、末文の指示語の先を名指しに変えた（+2 語）。差し引き −41 語。
+**消した文**:
+- §2.8 の 3 文目 *"This is stated expressly because Sections 5.3 and 12.4 say as much for the covenants they contain, and silence here would invite the argument
+  that the grants themselves stop at the Dedicator, which would leave the longest-lived risk, the change of hands, open."*（43 語）。
+  末文 *"Neither of those Sections narrows this one."*（7 語）は、*those Sections* の先行詞が消した文の中にあったので、名指しに変えた（9 語・+2）。
+  **5a の試算（−43 語）は 1 文だけを消しており、*those Sections* が先行詞を失っていた** —— その版は宙に浮いた指示語の反例になるので採らない。
+- §12.4 の 2 文目 *"This is stated expressly because Moral Rights outlive the author in many jurisdictions and may be exercised by relatives or by a public authority,
+  so a covenant that bound only the Dedicator would leave the longest-lived risk open."*（38 語）。
 
-| 観点 | Before | After |
+差し引き **−79 語**（語数は草案全体を空白で区切って数えた: 6,847 → 6,768。試作の全文は scratchpad の `trial-e.txt`、草案との差は上の 2 条だけ）。
+
+**条ごとの対照**:
+
+| 観点 | §2.8 Before → After | §12.4 Before → After |
 |---|---|---|
-| 許諾の範囲 | Dedication 全体（1.4 で E49 を閉じるために列挙から「This Dedication」へ変えた）| 同じ |
-| 主体（拘束される者）| 承継人・譲受人・相続人・人格代表者・権利の譲受人 | 同じ |
-| 条件・除外 | 無し / §6 を含むと明示 | 同じ |
-| 法域ごとの結果 | *"to the fullest extent the law permits"* | 同じ |
-| §5.3・§12.4 との関係 | 狭めない（末文）| 同じ（末文を名指しにした）|
-| 失うもの | 「なぜ明示したか」の説明 | —— |
+| 許諾・約束の範囲 | Dedication 全体（1.4 で E49 を閉じるために列挙から「This Dedication」へ変えた）→ 同じ | §12.2 の covenant → 同じ |
+| 拘束される者 | 承継人・譲受人・相続人・人格代表者・Covered Right / 特許の譲受人 → 同じ | 承継人・譲受人・相続人・人格代表者・**死後に人格権を行使できる者** → 同じ |
+| 条件・除外 | 無し / §6 を含む → 同じ | 無し → 同じ |
+| 法域ごとの結果 | *"to the fullest extent the law permits"* → 同じ | *"to the fullest extent the law permits the Dedicator to bind them"* → 同じ |
+| 他の条との関係 | §5.3・§12.4 は §2.8 を狭めない → 同じ（末文を名指しにした）| —— |
+| 失うもの | 「なぜ明示したか」の説明 | 「なぜ死後まで及ぼすか」の説明 |
 
-**消してよいと考える理由**: この理由の文は、§2.8 が *"Sections 3, 4, 6, 7, and 8 bind"* と**列挙していた**ときに、列挙の外の沈黙が「止まる」と読まれる危険を説明していた。
-1.4 で §2.8 は Dedication 全体を拘束する形に変わり、**本文に承継人について沈黙している条は残っていない**。
-一方で理由の文は *"silence here would invite the argument"* と、**沈黙が反対の議論を招くことを本文自身が認める**文であり、本文が沈黙している別の事柄
-（例: 準拠法 —— §15.7 は置いていない）に対して、本文の言葉で向けられうる。
-**bb に当ててほしいこと**: (a) 理由の文が無いと、§5.3・§12.4 の明示と並べて「§2.8 は covenant 以外には及ばない」と読む余地が戻るか（末文が止めるか）。
-(b) 想定問答 `review-responses-clauses.md` の §2.8 の答え（*longest-lived risk* を引く・510 行付近）が 1.4 を引く版でも成り立つか。
-(c) §6.5 第 2 文（*"It is stated expressly because silence on this subject has proved ambiguous in practice, and because a permission that an automated system cannot determine is … no permission at all"*）は同じ型だが、
-ドシエが #85 などで原理として引く文なので**この試作には含めない**。ただし後半を「機械が判定できない許可は無い」と**作用の文として**読む敵対的な読みが立つかは、別に当ててほしい。
+**反対解釈を封じているもの（bb の (a) の結果）**: 理由の文ではなく、§2.8 の第 1 文 *"This Dedication, in respect of the Work, binds …"* である。
+理由の文が防いでいた「列挙の外の沈黙は止まる」読みは、1.4 で §2.8 が列挙をやめた時点（E49）で構造上立たない。
+末文は covenant 側の狭い語（*"the law permits the Dedicator to bind them"*）が §2.8 へ移るのを止め、§15.1（受領者に多く与える読みが優先する）も狭い読みを退ける。
+§5.3 の末文 *"Sections 3 and 4 operate in their favour independently of this Section"* も、covenant についての §5.3 の書き方が §3・§4 を限らないことを述べる。**理由の文の代わりは 3 重以上に在る。**
+§12.4 の理由の文が名指す *"relatives or by a public authority"* は、作用の文の *"any person entitled to exercise or enforce Moral Rights in the Work after the Dedicator's death"* に含まれ、
+公的機関のような法人は §15.5 の *"person" includes an entity*（E58）で覆われる（bb の CE10）。
+
+**残す同型の文と、その理由**: §6.5 第 2 文 *"It is stated expressly because silence on this subject has proved ambiguous in practice, …"* は残す。
+§2.8 / §12.4 の対とは主題が違い（承継ではなく Computational Use）、ドシエが #85 などで原理として引く文である。
+後半を「機械が判定できない許可は無い」という**作用の文として**読む敵対的な読みは、理由の節の中の文であり §15.1・§6.1・§4.4・§9.3 が在るので立たない（bb の (c)）。
+
+**消してよいと考える理由**: 2 つの理由の文はどちらも権利義務を運ばず、作用の文が既にすべてを名指している。
+加えて §2.8 の理由の文は *"silence here would invite the argument"* と、**沈黙が反対の議論を招くことを本文自身が認める**文であり、
+本文が沈黙している別の事柄（例: 準拠法 —— §15.7 は置いていない）に、本文の言葉で向けられうる。
+
+**従属する作業（採用した場合）**: 想定問答 `review-responses-clauses.md` 510 行付近は §12.4 の理由の文を引いている。出す版が 1.4 になったら、答えの側で理由を述べ直す（bb が持つ）。
+`against.md` #104 の *"§12.4 extends it to heirs because moral rights outlive the author"* は 1.0 の本文についての設計の説明で、1.4 で理由の文が消えても偽にならない。
+
+**次の手順**: bb が対の試作に CE を当て直す → 通れば草案へ反映する（ヘッダの箇条・CHANGELIST の変更表・語数の申告 −79）。
 
 ## 5. 反例テスト（手順 6・bb）
 
