@@ -34,7 +34,7 @@ index.html
 - **C3 ErrorBoundary**: 真の error は graceful に通すこと (suppress しすぎない)
 - **Check 7**: CSP meta が inline suppressor より前に配置 (順序保証)
 - **Check 7b**: CSP sha256 hash が inline content と一致 (content 編集すると hash 再計算が必要)
-- **DO NOT EDIT に近い保護**: 抑制パターン拡張は orchestrator 確認推奨
+- **DO NOT EDIT に近い保護**: 抑制パターンを広げるときは、抑制される実エラーを列挙し behavior e2e（Early suppressor の control 付きテスト）で本物の rejection が隠れないことを確かめる
 
 ## Change impact
 

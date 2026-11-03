@@ -318,7 +318,11 @@ def run(ctx):
                  "requires approval", "without approval",
                  # 2026-11-03: "orchestrator" を主語にした綴り。runbook と mirror 5 枚に「要 orchestrator OK」
                  # 「orchestrator 承認領域」が残っていた —— 英語の approval でも日本語の 承認 単体でもないので素通りした。
-                 "orchestrator 承認", "orchestrator の承認", "orchestrator の ok", "orchestrator ok", "要 orchestrator")
+                 "orchestrator 承認", "orchestrator の承認", "orchestrator の ok", "orchestrator ok", "要 orchestrator",
+                 # 同日 2 巡目: 修飾語を挟む綴り (書面承認 / 明示承認) と「確認推奨」「判断で」の形。
+                 "書面承認", "明示承認", "orchestrator 確認", "orchestrator 判断", "orchestrator-authorized",
+                 # canon 本体 (AI2AI.md STEP 6) が "written confirmation" の綴りで実行前の人間確認を求め続けていた。
+                 "written confirmation", "human confirmation required", "explicit confirmation")
     _OK436 = ("SUPERSEDED", "否定された", "存在しない", "読み違い", "解決済み", "誤りだった",
               "承認ゲートではない", "是正", "standing approval", "撤回")
 

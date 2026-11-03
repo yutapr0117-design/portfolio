@@ -32,7 +32,7 @@ binary は手動編集が事実上不可能 (バイナリエディタを使う�
 
 - **Check 10**: Python 構文 valid
 - **Check 94**: `_lib_io` 日付 helper を import
-- **C6 範疇**: 実行は orchestrator 明示承認下のみ
+- **C6 範疇**: 実行は binary の semantic 編集を伴う増分でのみ。`aio-guardian` を通し、日付・digest を同じ commit で同期する（Check 91・承認ゲートではない）
 
 ## Change impact
 

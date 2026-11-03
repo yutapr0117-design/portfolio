@@ -32,7 +32,7 @@ crawler (Googlebot / GPTBot / etc.)
 - **AIO 戦略の明示宣言**: AI 学習 OK を comment で明文化
 - **Check 35**: Sitemap: directive が sitemap.xml へ解決
 - **Check 63**: Sitemap URL origin が aio-manifest entity origin と一致
-- **編集承認**: AIO published-layer 隣接 (semantic 編集は orchestrator 確認推奨)
+- **編集承認**: AIO published-layer 隣接 (semantic 編集は `aio-guardian` を通す・C6)
 
 ## Change impact
 

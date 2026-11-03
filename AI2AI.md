@@ -374,13 +374,13 @@ Instead, the agent **MUST** immediately halt execution and output a Violation Au
 
 ---
 
-## [STEP 6] Pending Tasks — Human Confirmation Required
+## [STEP 6] Pending Tasks — Candidate Backlog
 
-The following are candidate tasks. No AI agent may begin execution without explicit written confirmation from the human orchestrator.
+The following are candidate tasks. **AI agents may begin any of them without asking** (STEP 3: standing approval since 2026-08-23; a "waiting for sign-off" work category does not exist). **SUPERSEDED (2026-11-03)**: until this date the heading and this sentence still required a written human sign-off before execution — the one place where the canon contradicted its own STEP 3. It was a leftover from before 2026-08-18 that Check 436 did not see because of its spelling.
 
 - [x] ~~Version bump to v74 — update version references across all files~~ — **Completed 2026-05-25** (v74 consistency hardening)
 - [x] ~~Update iteration count in HERO copy (currently reflects v73)~~ — **Completed 2026-05-25** (v74 consistency hardening: hero copy aligned to 73 iterations)
-- [x] ~~Add new Zenn article reference when published (series currently at 6 articles)~~ — **Completed 2026-05-31** (Session Record #18: 公開全11本へ拡張。本編6本完結＋発展記事。AIO効果優先順で全レイヤー featuring・整合。C6 はオーケストレーターの明示承認済み)
+- [x] ~~Add new Zenn article reference when published (series currently at 6 articles)~~ — **Completed 2026-05-31** (Session Record #18: 公開全11本へ拡張。本編6本完結＋発展記事。AIO効果優先順で全レイヤー featuring・整合。C6 はオーケストレーターの明示承認済み —— 当時の記述。2026-08-23 以降は standing approval で、この種の承認はもう要らない)
 - [x] ~~Consistency audit across all AIO layers (JSON-LD, llms-full.txt, binary metadata)~~ — **Completed 2026-04-17** (see Session Record #2 below)
 - [ ] CLS / performance audit for any new additions
 - [x] ~~Review `.github/workflows/` artifact documentation for clarity~~ — **Completed 2026-05-03** (Session Record #5: update-playwright-snapshots.yml 追加、snapshot diff upload 追加、Playwright Baseline Note 改善)
