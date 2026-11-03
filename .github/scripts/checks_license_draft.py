@@ -288,7 +288,7 @@ def run(ctx):
             _miss468i = sorted(_closed468i - _listed468i, key=lambda _e: int(_e[1:]))
             if _miss468i:
                 _bad468.append(
-                    f"errata が「{_mv468i.group(1)} 草案で閉じた」とする {_miss468i} が冒頭の変更一覧に無い "
+                    f"468i: errata が「{_mv468i.group(1)} 草案で閉じた」とする {_miss468i} が冒頭の変更一覧に無い "
                     f"(冒頭は一覧が差分のすべてだと宣言している)")
 
         # ── 468h: 版ごとの機械可読 descriptor が、この instrument の*唯一の制限*を述べること ──

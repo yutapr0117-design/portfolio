@@ -23,7 +23,8 @@ npm run mutation-probe  →  python3 .github/scripts/mutation_probe.py
   2. 各 mutation: find-anchor 存在を assert → 適用 → gate 実行 → 即復元 (try/finally)
        caught   = gate が RED になり、**かつ名前が名指す Check が発火した** ✓
                   (`named_check_fired`・2026-09-29。名前が "Check N (x)" と face まで名指すなら、
-                   その face のラベル "(x)" が Check N の誤りに出ること・2026-11-03)
+                   その face のラベル "(x)" が Check N の誤りに出ること・2026-11-03。
+                   "Check Nx" と下位部まで名指すなら、Nx が Check N の誤りに出ること・2026-11-04)
        MISATTRIBUTED = RED だが名指しした Check / face ではない層が拾った → 失敗として数える
                   (行数の Check 424 のような無関係な副作用が、検証を代行して穴を隠すため)
        SURVIVED = gate が GREEN のまま (カバレッジの穴) → exit 1
