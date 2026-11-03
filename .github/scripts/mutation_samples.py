@@ -259,53 +259,11 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 331: skip-link の href を一重引用符の javascript: にする —— 旧形は二重引用符の値しか見ておらず素通りした',
-    "file": ROOT / "index.html",
-    "find": '<a href="#main-content" class="skip-link">',
-    "replace": "<a href='javascript:void(0)' class=\"skip-link\">",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 207: manifest link を大文字の HREF / HTTP:// にする —— 旧形は小文字の属性名と scheme しか見ず Mixed Content を素通りした',
-    "file": ROOT / "index.html",
-    "find": '<link rel="manifest" href="/portfolio/manifest.webmanifest" />',
-    "replace": '<link rel="manifest" HREF="HTTP://yutapr0117-design.github.io/portfolio/manifest.webmanifest" />',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 425: sidebar のテーマボタンに data-action と onClick (キャメルケース) を併存させる —— h() はイベント名を小文字化するので同じ二重発火になるが、旧形は小文字の onclick: しか見なかった',
-    "file": ROOT / "js" / "components.js",
-    "find": "                    onclick: Theme.cycle,\n",
-    "replace": "                    'data-action': 'theme:cycle',\n                    onClick: Theme.cycle,\n",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 481: Check 428 の JS 読み込みを 1 段の // 正規表現に戻す —— 文字列中の https:// から行末まで消し、URL の後ろの違反を隠す形',
-    "file": ROOT / ".github" / "scripts" / "checks_css.py",
-    "find": '_js428 = strip_js_comments(_p428.read_text(encoding="utf-8"))',
-    "replace": '_js428 = re.sub(r"//[^\\n]*", "", _p428.read_text(encoding="utf-8"))',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 398: warning 本文の出力を、失敗時の exit より後ろ (成功時の経路) へ戻す —— errors がある実行でだけ warnings.append 由来の ADVISORY 本文が 1 件も出なくなる (2026-11-02 まで実際にこの形だった)',
-    "file": ROOT / ".github" / "scripts" / "check_repository_consistency.py",
-    "find": '    print(f"{len(warnings)} warning(s):")\n    for w in warnings:\n        print(f"  ::warning::{w}")\nif errors:\n    print(f"REPOSITORY CONSISTENCY CHECK FAILED — {len(errors)} error(s):")\n    for e in errors:\n        print(f"  ::error::{e}")\n    sys.exit(1)\n\nif warnings:\n    print(f"Repository consistency check passed with {len(warnings)} warning(s).")\n',
-    "replace": '    print(f"{len(warnings)} warning(s):")\nif errors:\n    print(f"REPOSITORY CONSISTENCY CHECK FAILED — {len(errors)} error(s):")\n    for e in errors:\n        print(f"  ::error::{e}")\n    sys.exit(1)\n\nif warnings:\n    print(f"Repository consistency check passed with {len(warnings)} warning(s).")\n    for w in warnings:\n        print(f"  ::warning::{w}")\n',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 485: llms.txt の AI2AI.md への URL を存在しない path にする —— 4 alias を揃えて digest を再生成すると、それまでは alias 不一致と digest 不一致という副作用でしか捕まらなかった',
-    "file": ROOT / "llms.txt",
-    "find": "https://yutapr0117-design.github.io/portfolio/AI2AI.md)",
-    "replace": "https://yutapr0117-design.github.io/portfolio/AI2AI-moved.md)",
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": 'Check 114b: playwright.config.cjs から forbidOnly を消す —— 静的な .only 検査は綴りしか見ないので、`test .only(` が残ると CI は 1 本だけ走らせて緑になる',
@@ -558,6 +516,55 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / ".github" / "scripts" / "checks_size_budget.py",
     "find": "        # 424c: §2 の path は一意。",
     "replace": "        # Check 424z (mutation)\n        # 424c: §2 の path は一意。",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 50b: package.json の lint script に eslintrc 時代のフラグを戻す —— ESLint 9.x はそのフラグを持たず lint が config 無しで走る / 落ちる",
+    "file": ROOT / "package.json",
+    "find": "\"lint\": \"eslint ",
+    "replace": "\"lint\": \"eslint --no-eslintrc ",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 50d: eslint.config.mjs から no-dupe-keys が消える —— recommended を継承しない方針なので、明示しないと重複キーの bug-catcher が CI から黙って抜ける (#186 の class)",
+    "file": ROOT / "eslint.config.mjs",
+    "find": "      'no-dupe-keys': 'error',",
+    "replace": "      'no-dupe-keys-x': 'error',",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 449b: api-catalog の link object に関係型 (service-desc) を attribute として混ぜる —— RFC 9264 では関係型は attribute ではなく、仕様に従う agent は別の意味に読む",
+    "file": ROOT / ".well-known" / "api-catalog",
+    "find": "          \"type\": \"text/plain\"\n",
+    "replace": "          \"type\": \"text/plain\",\n          \"service-desc\": \"x\"\n",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 449c: api-catalog の link object の href が文字列でなくなる —— 解決できない link を agent に渡す",
+    "file": ROOT / ".well-known" / "api-catalog",
+    "find": "          \"href\": \"https://yutapr0117-design.github.io/portfolio/llms-full.txt\",\n          \"type\": \"text/plain\"",
+    "replace": "          \"href\": 1,\n          \"type\": \"text/plain\"",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 426a: portfolio:identity:canonical-url が ai:canonical と食い違う —— どの Check も e2e も見ていなかった meta (#1093)",
+    "file": ROOT / "index.html",
+    "find": "<meta name=\"portfolio:identity:canonical-url\" content=\"https://yutapr0117-design.github.io/portfolio/\">",
+    "replace": "<meta name=\"portfolio:identity:canonical-url\" content=\"https://yutapr0117-design.github.io/portfolio/x/\">",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 426b: 画像資産の権威コンテキスト URL が ai:context と食い違う",
+    "file": ROOT / "index.html",
+    "find": "<meta name=\"asset:image:ai-context\" content=\"https://yutapr0117-design.github.io/portfolio/llms-full.txt\" />",
+    "replace": "<meta name=\"asset:image:ai-context\" content=\"https://yutapr0117-design.github.io/portfolio/llms.txt\" />",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 426c: 2 つのバイナリ資産の帰属先 (entity) が食い違う",
+    "file": ROOT / "index.html",
+    "find": "<meta name=\"asset:audio:entity\" content=\"Yuta Yokoi (横井雄太 / Yokoi Yuta)\" />",
+    "replace": "<meta name=\"asset:audio:entity\" content=\"Yuta Yokoi\" />",
     "check": CHECK,
 })
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
