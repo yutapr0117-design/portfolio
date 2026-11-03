@@ -265,53 +265,11 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 114b: playwright.config.cjs から forbidOnly を消す —— 静的な .only 検査は綴りしか見ないので、`test .only(` が残ると CI は 1 本だけ走らせて緑になる',
-    "file": ROOT / "playwright.config.cjs",
-    "find": "  forbidOnly: !!process.env.CI,\n",
-    "replace": "",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 432b: behavior gate の skipped 検査 step を continue-on-error にする —— 静的検査を素通りする test.fixme で飛ばしたテストが、緑のまま merge される',
-    "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
-    "find": "      - name: Behavior gate ran every test (0 skipped — BLOCKING)\n",
-    "replace": "      - name: Behavior gate ran every test (0 skipped — BLOCKING)\n        continue-on-error: true\n",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 347b: ADVISORY の screenshot 結果を表に出す条件を steps.visual.conclusion にする —— continue-on-error の step の conclusion は失敗しても success なので、条件が永久に偽になり 2 か月分の失敗が見えていなかった形へ戻る',
-    "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
-    "find": "        if: always() && steps.visual.outcome == 'failure'\n",
-    "replace": "        if: always() && steps.visual.conclusion == 'failure'\n",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 486: CI に対象が移った presence grep を戻す —— 一致しない grep -q は黙らずに毎回同じ warning を出し続け、本物の警告を読まれなくする (2026-11-02 まで Trusted Types 検査が 5 か月そうだった)',
-    "file": ROOT / ".github" / "workflows" / "architecture-validation.yml",
-    "find": "          # 同じ形の stale 化は Check 486 が止める。\n",
-    "replace": "          # 同じ形の stale 化は Check 486 が止める。\n          grep -q \"trustedTypes.createPolicy\" index.html || echo \"::warning::Trusted Types createPolicy() not found\"\n",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 468p: 凍結した 1.3 草案の pointer を「Work on the next version happens in」の断定形へ戻し、pointer の 1.2 草案を指させる —— 1.2 の pointer が 1.3 確定後 8 日間偽だった形',
-    "file": ROOT / "LICENSES" / "ACD-1.3-DRAFT.txt",
-    "find": "  LICENSES/ACD-1.3.txt. The next version is drafted in\n  LICENSES/ACD-1.4-DRAFT.txt;",
-    "replace": "  LICENSES/ACD-1.3.txt. Work on the next version happens in\n  LICENSES/ACD-1.2-DRAFT.txt;",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 468q: 草案冒頭の §16.6 の箇条が 10.1 / 10.4 / 11.4 の句として引く句を "no one in respect of the Work" へ戻す —— 3 条が使うのは限定句だけで、#2238 前の箇条はこの誤った帰属を述べていた',
-    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
-    "find": 'with the limit "in respect of the Work"\n      that Sections 10.1, 10.4, and 11.4 use.',
-    "replace": 'with the limit "no one in respect of the Work"\n      that Sections 10.1, 10.4, and 11.4 use.',
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": 'Check 487: 週次 aio-monitoring.yml の git add から STATUS.md を外す —— 生成器が読むログだけを bot が commit し、STATUS.md のずれが次の無関係な PR の Check 121 で初めて赤くなる形',
@@ -565,6 +523,41 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "index.html",
     "find": "<meta name=\"asset:audio:entity\" content=\"Yuta Yokoi (横井雄太 / Yokoi Yuta)\" />",
     "replace": "<meta name=\"asset:audio:entity\" content=\"Yuta Yokoi\" />",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 73a: preload から as= が外れる —— ブラウザは as の無い preload を正しい優先度で取得できず、二重取得になる",
+    "file": ROOT / "index.html",
+    "find": "<link rel=\"preload\" as=\"style\" href=\"https://fonts.googleapis.com/css2?family=Inter",
+    "replace": "<link rel=\"preload\" href=\"https://fonts.googleapis.com/css2?family=Inter",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 73b: alt の無い <img> が index.html に入る —— 静的な <img> は今 0 件で 73b は対象 0 件のまま OK を返していた。入ってきたときに捕まえることを確かめる (WCAG 1.1.1)",
+    "file": ROOT / "index.html",
+    "find": "    <link rel=\"preload\" href=\"./yuta-yokoi-ai-pm-orchestration-system.webp\" as=\"image\" fetchpriority=\"high\" />\n",
+    "replace": "    <link rel=\"preload\" href=\"./yuta-yokoi-ai-pm-orchestration-system.webp\" as=\"image\" fetchpriority=\"high\" />\n    <img src=\"./yuta-yokoi-ai-pm-orchestration-system.webp\">\n",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 73c: hero 画像の preload から fetchpriority=\"high\" が外れる —— LCP 要素が他の取得と同じ優先度に落ちる",
+    "file": ROOT / "index.html",
+    "find": "as=\"image\" fetchpriority=\"high\" />",
+    "replace": "as=\"image\" />",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 100a: theme-init.js の保存キーが constants.js の STORAGE_KEY と食い違う —— pre-paint で前回のテーマが読めず FOUC が戻る",
+    "file": ROOT / "theme-init.js",
+    "find": "localStorage.getItem('portfolio_enhanced_v45')",
+    "replace": "localStorage.getItem('portfolio_enhanced_v44')",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 100b: theme-init.js のブランドキーが brand.js の KEY と食い違う —— pre-paint で前回のブランドが読めない",
+    "file": ROOT / "theme-init.js",
+    "find": "localStorage.getItem('portfolio_brand_v45')",
+    "replace": "localStorage.getItem('portfolio_brand_v44')",
     "check": CHECK,
 })
 MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
