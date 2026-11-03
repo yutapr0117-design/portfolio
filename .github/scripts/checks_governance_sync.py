@@ -322,7 +322,9 @@ def run(ctx):
                  # 同日 2 巡目: 修飾語を挟む綴り (書面承認 / 明示承認) と「確認推奨」「判断で」の形。
                  "書面承認", "明示承認", "orchestrator 確認", "orchestrator 判断", "orchestrator-authorized",
                  # canon 本体 (AI2AI.md STEP 6) が "written confirmation" の綴りで実行前の人間確認を求め続けていた。
-                 "written confirmation", "human confirmation required", "explicit confirmation")
+                 "written confirmation", "human confirmation required", "explicit confirmation",
+                 # 3 巡目 (2026-11-03): 綴りの列挙ではなく射程内の「承認/裁可/許可」全 1,020 箇所を読んで見つけた形。
+                 "裁可のもと", "承認時のみ", "レビューが必須", "裁可した場合", "人間の裁可")
     _OK436 = ("SUPERSEDED", "否定された", "存在しない", "読み違い", "解決済み", "誤りだった",
               "承認ゲートではない", "是正", "standing approval", "撤回")
 

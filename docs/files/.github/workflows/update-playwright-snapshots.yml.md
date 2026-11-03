@@ -13,7 +13,7 @@ Playwright 視覚回帰 baseline の **手動更新 workflow**。workflow_dispat
 
 ## Why
 
-baseline 更新は人間レビューが必須 (意図的な視覚変更を承認する gate)。直接 main commit せず PR 経由にすることで、AI 暴走防止 + 人間 review gate を両立。
+baseline 更新は PR 経由で行い、差分（PNG 1 枚か・意図したページか）を確かめてから merge する。直接 main へ commit しないのは、意図しない視覚変更が baseline に紛れ込むのを PR の差分で見えるようにするため。**merge は AI が行う**（2026-11-02 オーナー明言・全委任。旧文「人間レビュー必須の gate」は撤回）。
 
 ## How (usage)
 
