@@ -532,3 +532,28 @@ ACD は意図して同じことを複数回言う（§3 / §4 / §5、§8.1 / §
 | 限定された文が並ぶ中で、1 文だけ全体を言い切る形 | **E53** —— §12.5 の *"does not ask the Dedicator to abandon it"*（E9 と同じ形）。同じ形は 1.1 自身の追加にもあった（§16.4 の re-encoding の但し書き・SELF-AUDIT §3r） |
 
 **一般形: 組のレンズは「どの条とどの条を比べるか」を決めなければ回らないが、文法上の性質は全条から機械的に抜き出せる。** 比べる相手を選ばないので、選び漏れが起きない。**⚠ 逆側**: 4 件とも重さは Low で、意味を変えるものは E50（後の法が与える人格的権利が §12 の外に落ちうる）だけだった。数えて出る不揃いは、審査者が最初の読みで気づく種類である一方、実害は小さいことが多い —— 数を誇るのではなく、承認基準 4（英語としての明晰さ）への備えとして読む。
+
+## 2026-11-03 — 同じ集合を、条ごと・面ごとに別の語で呼んでいないか
+
+### 1. **前文が名指した集合を、別の条が別の語で言い換えていた —— 1.0 からの欠陥を 2 件出した**
+
+§8.6 を審査者のつもりで読み直したところ、*"Copyright is protected here three times over, by surrender (Section 3), by licence (Section 4), and by covenant (Section 5)"* が、前文の *"three footings … Section 3 surrenders the rights"* と同じ構造を**別の語で、範囲を変えて**述べていた。
+
+- **E54**（§8.6）は 2 つ食い違っていた。主語の copyright は §3〜§5 が働く Covered Rights より狭い（§7.1 のデータベース権も含むので）。また *protected* は、守られる側を Dedicator の著作権と取り違えて読める。
+- **E55**（前文）は、§8.6 と突き合わせて見つかった。前文は「及ぶ権利すべて」（§11.4 によれば Covered Rights・特許請求項・人格権。1.2 以降の言い方で、1.0・1.1 は *"gives everything away"*。どの版も直前で特許を挙げている）を受けて、三つの footing を主張していた。実際に三つあるのは Covered Rights だけで、特許と人格権は 2 本ずつである。
+
+**直した語は同じものにした**（*"Permission under the Covered Rights stands here on three footings"* / *"Section 3 surrenders the Covered Rights"*）。同じ集合は同じ語で呼ぶ、という直し方そのものがこのレンズの処方である。
+
+### 2. **本文の言い方は、ドシエの散文へ写って広がる —— 語ではなく主張の中身で追った**
+
+本文の言い方は、それを説明する文書が写し取る。最初は語（*surrenders the rights* / *three times over*）で探したが、bb が「語で探すとその語で書かれた主張しか拾えない」（2026-09-25 の次元 6）と指摘した。そこで「三つの足場がどの権利に及ぶと言っているか」という**主張の中身**で当て直した。語彙は *three footings / independent / layers / ways*・三層・三重・3 度・「放棄・許諾・約束」で、集めた 63 行を読んだ。
+
+| 面 | 何を言っていたか | 処理 |
+|---|---|---|
+| `ACD-1.0.review-responses.md` Q3 | 用意した英文に *"Section 3 surrenders the rights"* | bb が直した |
+| `ACD-1.0.clause-reference.md`「二重・三重の足場」 | 「三層は §8（特許）と §12（人格権）にも**同じ形で**適用されている」 | **語ではなく主張の誤り** —— 2 本ずつである。bb が直した |
+| `ACD-1.0.submission-reference.md` §1 の特許の段落 | 自分たちの散文で *"Copyright is protected three times over in this instrument"* | 25 が直した |
+
+clean だったもの: `against.md` #169、`jurisdictions.md`「三重構造が初めて冗長でなくなる」（§3〜§5 の Covered Rights の話）、`discussion-log.md` 13、`QUESTIONS-FOR-COUNSEL.md` の *"keeps three footings"*、`ACD-1.4-ADVERSARIAL-TRIAGE.md` の C 見出し。`review-precedents.md` は 1.0〜1.3 の §8.6 の正確な引用である。`acd-license-rationale.md` の「著作権は 3 重で守られ」は起草時の設計記録（歴史）なので触っていない。
+
+**一般形: 本文の欠陥は、本文を説明する文書の数だけ複製される。** 本文を直した日に、それを写した面を**主張の中身で**掃引する。語で探すと、言い換えた面（clause-reference の「同じ形で」）が落ちる。**⚠ 逆側**: 主張の中身で探すには、何を主張しているかを先に言葉にしなければならない。その言葉にした範囲（ここでは「足場の数と及ぶ権利」）の外は、やはり見ていない。同じ日に、集合の呼び方を本文から機械的に集める掃引も行った（特許請求項の呼び方 7 件など）。新しい欠陥は出ず、§6.1 / §6.2 の *"patent claims of the Dedicator"* は直さない判断を `ACD-1.4-CHANGELIST.md` に記録した。
