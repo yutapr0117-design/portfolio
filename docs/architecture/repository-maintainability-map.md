@@ -42,7 +42,7 @@ Status        : Living document — update when layer structure or sync relation
 
 ## 3. 変更時に同期すべきファイル（Sync Obligations）
 
-### バージョン bump（オーケストレーター承認時のみ・原子的に）
+### バージョン bump（原子的に・承認は不要 —— 危険なのは途中まで反映された不整合な状態）
 `AI2AI.md` の **Version Update Checklist** が正典。要点: `AI2AI.md`(Pipeline-Version/Last-Updated) / `index.html`(ai:version/ai:last-modified) / `main.js`(SITE_CONFIG.VERSION/LAST_UPDATED) / `.well-known/mcp.json`(server.version) / `sitemap.xml`(lastmod) / `robots.txt` / `llms*.txt`(+ `.well-known` alias) / `sw.js`(CACHE_NAME=`portfolio-aio-vNN`) / `aio-manifest.json` + `update_aio_digests.py`。
 
 > **注意:** 「v80+」は **track 名であってアプリ版数ではない**。Phase 進行だけでは Pipeline-Version を上げない。`ai:last-modified` / `SITE_CONFIG.LAST_UPDATED` / sitemap root lastmod は相互に一致が必須（Check 17/18）。これらアプリ層の日付と `AI2AI.md`/`llms-full.txt` の Last-Updated（doc 層）は別物。

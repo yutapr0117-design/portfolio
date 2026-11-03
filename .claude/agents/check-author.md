@@ -58,4 +58,4 @@ After implementation, return a 3-line summary:
 2. Whether Check 45 self-integrity verified locally
 3. Whether the three docs (map.md / runbook / docstring) are in sync
 
-The orchestrator will run `/verify` to confirm.
+The main thread runs `/verify` to confirm before delivering (no human step is required).
