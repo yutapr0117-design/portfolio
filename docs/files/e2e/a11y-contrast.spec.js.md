@@ -29,7 +29,7 @@ canonical-ref: e2e/a11y-axe.spec.js / playwright.config.cjs / .github/workflows/
 
 1. **axe の既定スキャンでは守れない** (render 系違反は render-neutral allowlist の外)
 2. **ブランド × テーマの直積**という他と違う走査軸を持つ
-3. かつて「知覚できる配色変更は C5 (人間の領域)」として defer されていたが、
+3. かつて「知覚できる配色変更は C5 (人間の領域)」として defer されていたが（読み違いだった）、
    **それが委任範囲の読み違い**だったと canon 側で確定した経緯を持つ
 
 という 3 点で、他の a11y 契約と独立しているため。
