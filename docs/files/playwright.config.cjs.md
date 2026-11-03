@@ -129,8 +129,8 @@ npx playwright test --config=playwright.config.cjs
 ### 実測して clean と確認済みの a11y 面（再監査不要・2026-08-18）
 
 - **ブランド × テーマの 4 組 × 16 ルート（2026-08-18）**: `indigo`/`classic` × `light`/`dark` の
-  すべてで axe の critical / serious 違反が **0**（`color-contrast` は C5 defer 済のため除外。
-  その数値は `research-application-policy.md` に 4 組ぶん記録済み）。
+  すべてで axe の critical / serious 違反が **0**（`color-contrast` はここでは除外 —— #1158 で解決済みで、`e2e/a11y-contrast.spec.js` が
+  4 組すべての違反 0 を別に BLOCKING で守る。当時の C5 defer は canon に否定された）。
 
   **これを恒久テストにしない理由**: ブランドが変えるのは色とフォントだけで、contrast を除いた
   critical ルールに brand 固有の退行を作れる経路が無い。実際「壊して RED を作る」を試みても、
