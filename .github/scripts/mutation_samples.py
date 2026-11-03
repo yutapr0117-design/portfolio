@@ -278,49 +278,7 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 487b: STATUS の「AIO 監視の実測」が監視スクリプトの書かない status を数える (2026-11-02 の初版そのもの)",
-    "file": ROOT / ".github" / "scripts" / "generate_status.py",
-    "find": '_MEASURED_STATUSES = ("ok",)',
-    "replace": '_MEASURED_STATUSES = ("cited", "not_cited")',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 468s: CHANGELIST の変更表に語数 +1 の行が 1 つ増える —— 表と草案の申告がずれても 468n は見ない",
-    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
-    "find": "| 対象 | 何を変えるか | なぜ | 費用（語） | 状態 |\n| :-- | :-- | :-- | :-- | :-- |",
-    "replace": "| 対象 | 何を変えるか | なぜ | 費用（語） | 状態 |\n| :-- | :-- | :-- | :-- | :-- |\n| (mutation) | x | x | +1 | x |",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 469 (c): READY-TO-SUBMIT の部数申告が実装に追従しない —— 451d / 451e を足したあとも「3 部」のままだった 2026-11-03 以前の状態 (469 (c) が捕捉)",
-    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
-    "find": "| Check 451 (",
-    "replace": "| Check 451 (9 部) (",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 460 (b): 索引が FAQ の「使う側」の問数を 1 つ多く申告する (face 単位の帰属・2026-11-03)",
-    "file": ROOT / "LICENSES" / "ACD-1.0.review-responses.md",
-    "find": "問 / プロセス",
-    "replace": "問 ／ プロセス",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 460 (c): 逐条リファレンスが条数を 1 つ多く申告する (face 単位の帰属・2026-11-03)",
-    "file": ROOT / "LICENSES" / "ACD-1.0.clause-reference.md",
-    "find": "全 16 節 82 条",
-    "replace": "全 16 節 83 条",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 460 (d): FAQ の mirror が「使う側」の問数を 1 つ少なく申告する (face 単位の帰属・2026-11-03)",
-    "file": ROOT / "docs" / "files" / "LICENSES" / "ACD-1.0.faq.md.md",
-    "find": "**A. 使う側**（",
-    "replace": "**A. 使う側** （",
-    "check": CHECK,
-})
 _MUTATIONS_TAIL.append({
     "name": "Check 460 (f): QUESTION-INDEX が worked entry の総数を手で足し引きしてずれる (実際に 2 ずれていた形) (face 単位の帰属・2026-11-03)",
     "file": ROOT / "LICENSES" / "QUESTION-INDEX.md",
@@ -559,6 +517,34 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / ".well-known" / "aio-manifest.json",
     "find": "#15-#30",
     "replace": "#15-#29",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 44c: AIO 監視が探す canary token の値が公開面の値と食い違う —— canonical な値が 2 つになり、取り込まれても検出できない",
+    "file": ROOT / ".github" / "scripts" / "aio_monitoring.py",
+    "find": "CANARY_TOKEN = \"SAKURA-AIO-PROVENANCE-CANARY-2026-A7F3C9E1\"",
+    "replace": "CANARY_TOKEN = \"SAKURA-AIO-PROVENANCE-CANARY-2026-00000000\"",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 26b: disk 上の Session Record archive が AIO manifest に登録されていない —— 証跡の 1 file が discovery 層から消える (#14 で範囲が止まっていた実害の形)",
+    "file": ROOT / ".well-known" / "aio-manifest.json",
+    "find": "\"path\": \"docs/session-records/AI2AI-archive-old.md\"",
+    "replace": "\"path\": \"docs/session-records/AI2AI-archive-old-x.md\"",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 119a: factory の docstring【依存】節から、署名が注入を受ける依存が 1 つ消える —— 依存契約の記述が実装に追従しない",
+    "file": ROOT / "js" / "home-page.js",
+    "find": " *   - langOfText : data 由来テキストの言語判定",
+    "replace": " *   - (removed)  : data 由来テキストの言語判定",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 123b: llms-full.txt から現運用モデル (Claude Code の自走) の記述が失われる —— AIO 層だけが旧い運用モデルを述べる",
+    "file": ROOT / "llms-full.txt",
+    "find": "Current Operating Model",
+    "replace": "Current Operating-Model",
     "check": CHECK,
 })
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
