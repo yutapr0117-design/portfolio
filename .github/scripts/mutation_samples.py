@@ -280,50 +280,6 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 460 (f): QUESTION-INDEX が worked entry の総数を手で足し引きしてずれる (実際に 2 ずれていた形) (face 単位の帰属・2026-11-03)",
-    "file": ROOT / "LICENSES" / "QUESTION-INDEX.md",
-    "find": "There are **",
-    "replace": "There are  **",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 460 (h): mirror がドシエの規模を数字で述べる (mirror の数は維持できないので禁止) (face 単位の帰属・2026-11-03)",
-    "file": ROOT / "docs" / "files" / "LICENSES" / "ACD-1.0.faq.md.md",
-    "find": "**A. 使う側**（",
-    "replace": "All 99 adverse facts. **A. 使う側**（",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 460 (i): §4c が不利な事実の件数を 1 つ少なく述べる (face 単位の帰属・2026-11-03)",
-    "file": ROOT / "LICENSES" / "ACD-1.0.submission-reference.md",
-    "find": " entries, 1–",
-    "replace": " entries 1–",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 460 (j): §1.35 の「N のうち M」が下の列挙と合わない (face 単位の帰属・2026-11-03)",
-    "file": ROOT / "LICENSES" / "ACD-1.0.comparison.md",
-    "find": " distinguishing features",
-    "replace": " distinguishing  features",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 460 (k): ドシエの #N 参照が不利な事実のどの行にも解決しない (face 単位の帰属・2026-11-03)",
-    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
-    "find": "#195",
-    "replace": "#9195",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 460 (l): errata 冒頭の件数が表の行数と合わない (face 単位の帰属・2026-11-03)",
-    "file": ROOT / "LICENSES" / "ACD-1.0.errata.md",
-    # find は件数の語に釘付けにしない —— 件数は errata を足すたびに変わり anchor が orphan になる
-    # (2026-11-03 に E59 で実際に orphan 化)。動かない E2 の行頭を崩して表の行数を 1 減らす。
-    "find": "\n| E2 | ",
-    "replace": "\n|E2 | ",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
     "name": "Check 460 (o): 入口ページの最高 severity の件数が register の表と合わない (face 単位の帰属・2026-11-03)",
     "file": ROOT / "LICENSES" / "REVIEWERS.md",
     "find": " are marked highest severity",
@@ -545,6 +501,69 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "llms-full.txt",
     "find": "Current Operating Model",
     "replace": "Current Operating-Model",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 43d: main.js の import と IIFE の間にトップレベルの宣言が入る —— global namespace を汚さない (C2) という単一 IIFE の契約が崩れる",
+    "file": ROOT / "main.js",
+    "find": "        import { createCommandPalette } from './js/command-palette.js';\n",
+    "replace": "        import { createCommandPalette } from './js/command-palette.js';\n        const __leak43d = 1;\n",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 44a: 公開面の 1 つ (llms.txt) から canary token が消える —— その面からの取り込みは再現しても検出できない",
+    "file": ROOT / "llms.txt",
+    "find": "SAKURA-AIO-PROVENANCE-CANARY-2026-A7F3C9E1",
+    "replace": "SAKURA-AIO-PROVENANCE-CANARY-REMOVED",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 45a: docstring の Check 一覧の番号が飛ぶ —— 一覧が連続していないと、どの Check が抜けたのかを読み手が知る手段が無い",
+    "file": ROOT / ".github" / "scripts" / "checks_ci_verify.py",
+    "find": "  488. すべての workflow job が",
+    "replace": "  489. すべての workflow job が",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 45b: section 見出しの番号が飛ぶ —— 実装側の連番が崩れ、一覧と実装の対応が数で取れなくなる",
+    "file": ROOT / ".github" / "scripts" / "checks_ci_verify.py",
+    "find": "    # ── 488. すべての workflow job が timeout-minutes を持つ (BLOCKING) ───────────────",
+    "replace": "    # ── 489. すべての workflow job が timeout-minutes を持つ (BLOCKING) ───────────────",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 45c: docstring の一覧にだけ Check が 1 つ多い —— 両方とも連続のままなので 45a / 45b は通り、一覧と実装の集合の食い違いだけが残る",
+    "file": ROOT / ".github" / "scripts" / "checks_ci_verify.py",
+    "find": "  488. すべての workflow job が",
+    "replace": "  489. (mutation)\n  488. すべての workflow job が",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 46b: lint の file 集合が disk 上の shipped JS と食い違う —— 存在しない file を名乗り、実在する file を lint したつもりになる",
+    "file": ROOT / "package.json",
+    "find": "\"lint\": \"eslint main.js ",
+    "replace": "\"lint\": \"eslint js/ghost.js main.js ",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 47a: main.js が import する名前を葉が export しなくなる —— SPA が起動しない",
+    "file": ROOT / "js" / "pure-utils.js",
+    "find": "export function generateId() {",
+    "replace": "export function generateIdX() {",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 47b: 誰も import しない export が葉に増える —— export 一覧 ⟺ import 一覧の bijection が崩れ、死んだ API が残る",
+    "file": ROOT / "js" / "pure-utils.js",
+    "find": "export function clamp(num, min, max) {",
+    "replace": "export const __orphan47b = 1;\nexport function clamp(num, min, max) {",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 47c: 葉モジュールがローカル import を持つ —— 「葉は依存を引数注入で受ける」契約が崩れ、依存グラフが main.js から読めなくなる",
+    "file": ROOT / "js" / "brand.js",
+    "find": "export function createBrand(storage) {",
+    "replace": "import { clamp } from './pure-utils.js';\nexport function createBrand(storage) {",
     "check": CHECK,
 })
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
