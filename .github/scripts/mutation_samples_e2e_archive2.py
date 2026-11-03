@@ -477,8 +477,8 @@ E2E_MUTATIONS_ARCHIVE2 = [
     {
         "name": "behavior: Speakable の cssSelector がルート追従しなくなる — 全ルートで既定セレクタを返すと、AI 音声アシスタントは role-split の表 (#role-split-table) や ai-knowhow の要約ブロックを読み上げ対象として認識できない。視覚に一切出ない AIO 面ゆえ screenshot も behavior の描画検査も素通りする",
         "file": ROOT / "js" / "meta-management.js",
-        "find": "        const cssSel = SPEAKABLE_SELECTORS[routeName] || ['h1', '[data-speakable]', '.sr-only'];",
-        "replace": "        const cssSel = ['h1', '[data-speakable]', '.sr-only'];",
+        "find": "        const cssSel = SPEAKABLE_SELECTORS[routeName] || ['h1', '.sr-only'];",
+        "replace": "        const cssSel = ['h1', '.sr-only'];",
         "test": "Speakable JSON-LD updates cssSelector per route (AIO voice)",
     },
     {

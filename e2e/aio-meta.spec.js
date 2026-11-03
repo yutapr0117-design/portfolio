@@ -342,20 +342,18 @@ test('Role-split Speakable references the actual table via #role-split-table (no
 });
 
 
-// ===== 7.1: ai-knowhow / about の Speakable cssSelector も実 DOM に解決する (dead-selector 全ルート化) =====
-// home / role-split の解決ガードは被覆済みだが、SPEAKABLE_SELECTORS は ai-knowhow (固有 '.ai-summary-block')
-// と about も宣言しており、これらは未検証だった = 将来それらが dead 化しても検知できない穴。元バグ
-// (.hero-tagline/.core-thesis/.role-split-table の dead selector) と同 class の AIO-accuracy 不変条件を
-// 残る 2 ルートへ拡張する。注: '[data-speakable]' は home の hero のみが持つ forward-compat baseline で
-// 他ルートでは no-op になり得る (既存 home テストの注記と同じ) ため除外し、ルート固有 + .sr-only/h1 の
-// 実在を検証する。ai-knowhow の '.ai-summary-block' は index.html の静的 sr-only ノードで全ルートに在る。
-test('ai-knowhow/about Speakable cssSelectors (non-baseline) resolve to real elements (AIO accuracy)', async ({ page }) => {
-  for (const route of ['ai-knowhow', 'about']) {
+// ===== 7.1: home 以外の全ルートで Speakable cssSelector がすべて実 DOM に解決する =====
+// 以前は '[data-speakable]' を「forward-compat の baseline」として除外して検査していたが、実測すると
+// その属性は home の hero 2 箇所にしか無く、他ルートでは**一度も対象を持たない宣言**だった
+// (#929 の幻セレクタと同型・機械向けの面なので視覚にも他のテストにも出ない)。2026-11-03 に home 以外から
+// 外したので、除外をやめて全 selector を検査する。'projects' は SPEAKABLE_SELECTORS に無い既定値の代表。
+test('Every non-home Speakable cssSelector resolves to real elements (AIO accuracy)', async ({ page }) => {
+  for (const [route, heading] of [['role-split', /役割/], ['ai-knowhow', /AI開発ノウハウ/], ['about', /About/], ['projects', /プロジェクト/]]) {
     await page.goto(`/#/${route}`);
-    await page.waitForLoadState('domcontentloaded');
+    await expect(page.locator('#content h1').filter({ hasText: heading }).first()).toBeVisible();
     const data = JSON.parse(await page.locator('script[data-ld="speakable"]').textContent());
-    const selectors = (data.speakable.cssSelector || []).filter(s => s !== '[data-speakable]');
-    expect(selectors.length, `${route} should declare non-baseline Speakable selectors`).toBeGreaterThan(0);
+    const selectors = data.speakable.cssSelector || [];
+    expect(selectors.length, `${route} should declare Speakable selectors`).toBeGreaterThan(0);
     for (const sel of selectors) {
       expect(await page.locator(sel).count(), `Speakable selector "${sel}" must resolve to >=1 element on ${route}`).toBeGreaterThan(0);
     }
