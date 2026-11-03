@@ -134,10 +134,18 @@ def families(ov: list[tuple[str, str, int, str]]) -> list[set[str]]:
     return sorted(groups.values(), key=lambda g: (-len(g), sorted(g)))
 
 
+# 許諾の動詞の語が名詞として使われる形 ("the grants themselves" / "any licence") を数えない。
+# 2026-11-04、§2.8 の理由の文を外す試算で「grants 1→0」と出たが、それは名詞だった (誤検出)。
+_NOUN_DET = r"(?<!\bthe )(?<!\bthese )(?<!\bthose )(?<!\bits )(?<!\bany )(?<!\bevery )(?<!\beach )(?<!\ba )"
+
+
 def operative_counts(s: str) -> dict[str, dict[str, int]]:
     low = " " + " ".join(s.lower().split()) + " "
-    return {cat: {w: len(re.findall(r"(?<![a-z-])" + re.escape(w.strip()) + r"(?![a-z-])", low))
-                  for w in ws} for cat, ws in OPERATIVE.items()}
+    out = {}
+    for cat, ws in OPERATIVE.items():
+        pre = _NOUN_DET if cat == "許諾の動詞" else ""
+        out[cat] = {w: len(re.findall(pre + r"(?<![a-z-])" + re.escape(w.strip()) + r"(?![a-z-])", low)) for w in ws}
+    return out
 
 
 def report(path: Path, n: int) -> None:
