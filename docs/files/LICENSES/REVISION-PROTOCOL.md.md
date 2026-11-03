@@ -1,7 +1,7 @@
 ---
 file: LICENSES/REVISION-PROTOCOL.md
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-09-04
+last-updated: 2026-11-04
 canonical-ref: LICENSES/FROZEN.md / LICENSES/ACD-1.0.discussion-log.md / LICENSES/ACD-1.0.errata.md / LICENSES/ACD-1.0.against.md
 ---
 
@@ -11,7 +11,7 @@ canonical-ref: LICENSES/FROZEN.md / LICENSES/ACD-1.0.discussion-log.md / LICENSE
 
 OSI 承認までを**複数ラウンドの長期戦**として回すための手順書。1 ラウンドの流れ（受領 →
 分解 → 分類 → 応答 → 改訂 → 再提出）、版管理の決定（**1.0 は永久凍結・次版は併置**）、
-再提出前の 9 ゲート、やってはいけないこと、を定める。
+再提出前のゲート（0・0b と 1〜10。数は本体 §3 が権威）、やってはいけないこと、を定める。
 
 ## Why
 
@@ -32,13 +32,12 @@ OSI 承認までを**複数ラウンドの長期戦**として回すための手
 解決した項目は行を残して status を動かす。
 
 `FROZEN.md` の FREEZE-DATA は**行を足す**運用（置き換えない）。Check 453 が表を単一ソースに
-するので、1.0 の 3 行を残したまま次版の 3 行が増える形で自然に動く。
+するので、1.0 の 3 行（本文・SPDX XML・記述子）を残したまま、確定した版ごとに行が増える形で自然に動く（実際に足されたのは 1.1〜1.3 の各 2 行 —— 本文と記述子。SPDX XML は 1.0 にしか無い）。
 
 ## Constraints
 
-- **ライセンス本文 3 件は凍結中**（Check 453）。本書は手順を定めるだけで本文に触れない。
-- 受領文の保存先 `LICENSES/rounds/` は**まだ存在しない**。最初の返信が届いた時点で作り、
-  同時に `docs/files` mirror（Check 108）と索引（Check 459）を足す。
+- **凍結中の file は `FROZEN.md` の FREEZE-DATA が列挙する**（Check 453）。本書は手順を定めるだけで本文に触れない。
+- 受領文の保存先は `LICENSES/rounds/`（2026-08-26 の送信文を置いた日から存在する。在庫は `rounds/README.md` が持ち、Check 465 が実 file と照合する）。旧文は「まだ存在しない」と述べたまま残っていた（2026-11-04 訂正）。
 - venue の記述は `FROZEN.md` の VENUE-DATA が単一ソース（Check 458）。
 
 ## Change impact
