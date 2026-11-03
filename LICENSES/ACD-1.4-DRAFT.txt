@@ -51,10 +51,10 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 8.6's covenant not to assert the patent claims now operates in
       every jurisdiction alongside the licences, as Section 5 does for
       copyright, instead of only where a licence "is held ineffective". It
-      names Sections 8.1 and 8.4 where it said "that Section" (errata E42).
-      It says permission under the Covered Rights "stands here on three
+      names Sections 8.1 and 8.4 where it said "that Section" (errata E42). It
+      says permission under the Covered Rights "stands here on three
       footings", the preamble's word, where it said copyright was "protected
-      here three times over". (-29 words.)
+      here three times over" (errata E54). (-29 words.)
     * Section 16.4 now lets the Steward distribute a modified text under the
       name and an ACD identifier only as a new version, under a version number
       and identifier that no earlier text has borne. (+21 words.)
@@ -119,10 +119,10 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       granted by Sections 3 to 10". (0 words.)
     * Section 12.5 (errata E53) now says that the interest against false
       attribution "survives" the covenant in Section 12.2. (-11 words.)
-    * The preamble now says that Section 3 surrenders "the Covered Rights",
-      where it said "the rights" after a paragraph on every right this
-      Dedication reaches, which includes patent claims and Moral Rights.
-      (+1 word.)
+    * The preamble (errata E55) now says that Section 3 surrenders "the
+      Covered Rights", where it said "the rights" after a paragraph on every
+      right this Dedication reaches, which includes patent claims and Moral
+      Rights. (+1 word.)
     * ACD-1.3: 5443 words, 80 clauses. This draft: 5532 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
