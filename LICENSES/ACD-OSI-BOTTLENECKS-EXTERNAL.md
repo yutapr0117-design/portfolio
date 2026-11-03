@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-review participants / 監査人
-last-updated: 2026-11-01
+last-updated: 2026-11-03
 canonical-ref: LICENSES/ACD-OSI-BOTTLENECKS.md (索引・分類・集計はあちらが canonical) / LICENSES/ACD-1.0.against.md / LICENSES/AS-OF.md
 ---
 
@@ -497,6 +497,25 @@ running the Program"* は**著作権の話であって特許ではない**）。
 **現時点で我々が示せるのは、6 本（MIT / MIT-0 / 0BSD / Apache-2.0 / CC0 / Unlicense）の
 どれもこの 3 つを同時には持たない、という事実まで**である。
 
+### 2026-11-03 再検証 —— 語句ではなく法的作用で当て直した。**新規欠陥なし**
+
+外部 AI の依頼（オーナー経由）で、25 が**ドシエを読まずに** 1.4 草案の条文を承認済みの最近傍 10 本（0BSD / MIT / UPL / BSD-2-Clause-Patent / BlueOak / CERN-OHL-P / Apache-2.0 / EUPL / Unlicense / WordNet）の原文へ当て、bb がドシエ側の既存の反論と回答を棚卸しして突き合わせた。
+
+| 条 | 最近傍に対する**作用** |
+|---|---|
+| §6.1 学習の許諾 | **新しくない**（0BSD・BlueOak の包括許諾が既に覆う。§6.5 自身がそう述べる）|
+| §6.2 / §6.3 / §5.2(b) | **新しい** —— Dedicator 自身の留保の否認・依拠の放棄・付随条件を課さない約束。範囲は Dedicator 自身の行為に限られる |
+| §6.4 | MIT の notice 条件がモデルに及ぶかという不確実性を除く。0BSD に対しては明示だけ |
+| §7 データベース権 | **新しい** —— 承認済みの許諾は copyright と patent に限られる（UPL は *"any and all copyright rights"*）|
+| §8.1 | BSD-2-Clause-Patent / UPL / BlueOak と作用は同じ。差は条件の有無だけ（#241 (2)）|
+| §8.4 | **新しい** —— モデル・出力を名指すことに加え、§8.1 型の内容限定（CERN-OHL-P §6.1 の *"necessarily infringed by exercising rights under the Covered Source"* と同じ形）を**意図的に外した**点。費用は #16 |
+| §9 | 付与としての作用は無く、宣言（主張しない）にとどまる |
+| §12 | permissive に対しては新しいが、EUPL に先例（#241 (3)）|
+
+**9 月 20 日以降にこの節が引いていなかった記録**（いずれも既に `against.md` に在り、ここでは指し先だけを置く）: #211（Fontana 氏「既存のライセンスで足りる」——gap 3）/ #233（CC0 スレッドの最強の反論）/ #241（承認済み 141 本の census が主張を 4 点狭めた —— **§8.4 について言えるのは「モデルを名指す承認済みは無い」まで**）/ #264（CAL-1.0）/ #269（**gap は存在理由であると同時に、果たしているかを測られる基準**・`[OPEN]`）/ #276（帰属ゼロ + 明示特許の組み合わせへの反対・(f) の vanity テストは我々には閉じられない）。
+
+**残余（いずれも外部判断で、この増分では減らせない）**: (1) 作用として新しいのは §6.2 / §6.3 / §5.2(b) / §7 / §8.4 の内容限定の除去 / §12 の一部で、**それが承認基準 7 の「gap」に足りるか**は OSI の判断 / (2) 新しくない部分（§6.1 / §6.4 / §9）の価値は「確実性・読めること」で、**読めることに価値を認めない審査者には冗長へ畳まれる**（上の「最強の反論」そのもの）/ (3) #276 (f) と #255 の前半（具体的な用途を示せ）は採用の捏造なしには答えられない。**この再検証が減らした OSI 側の未解決は 0 件で、ドシエ側で直したのは説明 1 件**（`submission-reference.md` の「§8.4 の新しさは名指しだけ」→ 内容限定の除去も、25 が担当）。
+
 ### 2026-09-20 追記 —— gap の 1 本目に、**決着した裁判例が付いた**
 
 **§6 が扱う問いは仮想ではない。** ハンブルク上級地方裁判所 第 5 民事部は 2025-12-10 に
@@ -727,6 +746,10 @@ is considered program code and therefore copyrightable**."*
 **model parameters**, but **that does not apply to code or model architecture materials**"*。
 **パラメータ側については「そもそも OSI 承認ライセンスの仕事ではないかもしれない」という読みが、
 審査者の側から出ている。**
+
+**逆側（3）—— 2026-11-03 の再検証で足した 2 つ。** (a) **汎用の承認済みライセンスが data を対象に含む** —— UPL-1.0 は *"this software, associated documentation and/or data (collectively the "Software")"* と定義する（`gap-census.md`）。**⚠ ただし *associated* はソフトウェアに付随する data で、Chestek 氏の *"tied to software"* と同じ線に乗る** —— データセットや音声映像の単体には届かない。(b) **Fontana 氏は 2026-04-06 に、オープンソースのライセンスは *"extensively used for non-software material in open source project repositories"* で *"completely appropriate"* だと述べている**（`against.md` #211・gap 3 の文脈で記録済み）。**⚠ 個人の見解で委員会の立場ではなく、同じ人が OFL を *"wrongly approved"* と述べている**（上）—— 2 つを並べると、彼の線は「リポジトリの中でソフトウェアと一緒に在る素材」に引かれている。**どちらも §1.2 の列挙が単独で読まれる危険（上）を消さない。**
+
+**2026-11-03 再検証の結論（B15）**: 対象の広さそのものは、OSD 1〜10 のどの条にも抵触する作用を持たない（25 が条ごとに当てた。§16 の名称の制約は文書についてのもので OSD 4 も名称の変更要求を許す / §11.4 の個人情報・肖像は法の制約でライセンスの条件ではない）。1.4 で §1.3 にパラメータを足したことは `ACD-1.4-CHANGELIST.md` の §1.3 行が逆側つきで記録している。**残余は OSI の主題判断（purview）だけで、新規欠陥なし。**
 
 **逆側（2）。** 有利な読みも 1 つある —— **不承認の理由が OSD 違反ではなかった**ということは、
 **主題が近いと判定されれば OSD 側の審査に進む**ということでもある（同じ記録で、
