@@ -566,6 +566,13 @@ _MUTATIONS_TAIL.append({
     "replace": "import { clamp } from './pure-utils.js';\nexport function createBrand(storage) {",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 458a: README.md の呼びかけから現在の投稿先 (license-discuss) が消える —— status を述べる面のうち、最も読まれるページだけが別の窓口を名指す",
+    "file": ROOT / "README.md",
+    "find": "license-discuss",
+    "replace": "license-review",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
