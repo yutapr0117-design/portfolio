@@ -178,7 +178,7 @@ sha256sum llms.txt llms_well-known.txt .well-known/llms.txt .well-known/llms_wel
 - `README.md` / `sitemap.xml` / `robots.txt` の**ファイル自体**（ただし後二者の本文は AIO シグナルなので内容変更は `aio-guardian` を通す（C6）。digest 対象ではない）
 - `package.json` / `package-lock.json` / `style.css` / `*.js`
 
-> **原則:** 内部改善（CI・検証・ドキュメント）は **非 digest 層に閉じる**。digest を動かさなければ AIO 指紋（fingerprint）は保たれ、「最小・可逆」を維持できる。digest 層を触るのは構造的マイルストーン到達時のみ、orchestrator 判断で。
+> **原則:** 内部改善（CI・検証・ドキュメント）は **非 digest 層に閉じる**。digest を動かさなければ AIO 指紋（fingerprint）は保たれ、「最小・可逆」を維持できる。digest 層を触るのは semantic 編集を伴う増分のときだけで、その場合は `aio-guardian` を通し digest を同じ commit で再生成する（C6・承認ゲートではない。週次 bot の digest 同期は A2 の派生値）。
 
 ---
 

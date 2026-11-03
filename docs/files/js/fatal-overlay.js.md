@@ -32,7 +32,7 @@ main.js
 
 ## Change impact
 
-- fatal 判定ロジック変更 → C3 ErrorBoundary 範疇 → orchestrator 確認推奨
+- fatal 判定ロジック変更 → C3 ErrorBoundary 範疇 → FatalPage と安全網の behavior e2e（#298 ほか）で非破壊を証明してから merge
 
 ## Audience-specific notes
 

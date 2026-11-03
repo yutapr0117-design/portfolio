@@ -47,7 +47,7 @@ The following are AIO published-layer canonical files. Any edit must satisfy all
 
 If you approve the edit, return:
 ```
-APPROVE — orchestrator-authorized in: <chat reference>
+APPROVE — C6 holds: claims true and non-fabricated / coherent across surfaces / digests regenerated
 Digests will be regenerated post-edit. Canary preserved. Origin alignment verified.
 ```
 
