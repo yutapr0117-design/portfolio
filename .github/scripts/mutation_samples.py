@@ -28,6 +28,7 @@ if sys.version_info < (3, 10):
 
 from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)
 from mutation_samples_archive import MUTATIONS_ARCHIVE
+from mutation_samples_archive5 import MUTATIONS_ARCHIVE5
 from mutation_samples_archive4 import MUTATIONS_ARCHIVE4
 from mutation_samples_archive3 import MUTATIONS_ARCHIVE3
 from mutation_samples_archive2 import MUTATIONS_ARCHIVE2
@@ -271,53 +272,11 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 487: 週次 aio-monitoring.yml の git add から STATUS.md を外す —— 生成器が読むログだけを bot が commit し、STATUS.md のずれが次の無関係な PR の Check 121 で初めて赤くなる形',
-    "file": ROOT / ".github" / "workflows" / "aio-monitoring.yml",
-    "find": "              .well-known/agent-skills/index.json \\\n              STATUS.md\n",
-    "replace": "              .well-known/agent-skills/index.json\n",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 488: aio-monitoring.yml の job から timeout-minutes を外す —— 外部 API を待つ job が既定の 6 時間まで居座り、concurrency で翌週の run を塞ぐ',
-    "file": ROOT / ".github" / "workflows" / "aio-monitoring.yml",
-    "find": "    timeout-minutes: 15\n",
-    "replace": "",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 460 (w): REVIEWERS.md の質問集の問数を "Eight" へ戻す —— 11-01 に問 9 を足したあと、審査者向けの入口だけが 8 問と述べ続けていた形 (bb / 25 が発見)',
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "Nine questions on which",
-    "replace": "Eight questions on which",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 51b: update-playwright-snapshots の mirror に古い Playwright pin を現在形で書き戻す —— 2026-11-02 まで mirror 3 枚が 1.60.0 と述べ、pin は 1.64.1 だった',
-    "file": ROOT / "docs" / "files" / ".github" / "workflows" / "update-playwright-snapshots.yml.md",
-    "find": "Playwright の pin（`package.json` が権威・版数はここに書き写さない）を runbook と整合",
-    "replace": "Playwright pin (1.60.0) を runbook と整合",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 400: monolith の style.css の読み込みを素の read() へ戻す —— style.css が 1 つ欠けただけで traceback になり、全 Check が未実行のまま終わる (2026-11-02 に退避して実測)',
-    "file": ROOT / ".github" / "scripts" / "check_repository_consistency.py",
-    "find": 'style      = _read_core("style.css")',
-    "replace": 'style      = read("style.css")',
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 437b: install の step timeout を文字列の env のまま渡す形へ戻す —— GitHub は template error を記録して timeout なしで走らせ、run は success なので誰にも見えない (2026-08-21〜11-02 の状態)',
-    "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
-    "find": "        timeout-minutes: ${{ fromJSON(env.INSTALL_TIMEOUT_MIN) }}\n",
-    "replace": "        timeout-minutes: ${{ env.INSTALL_TIMEOUT_MIN }}\n",
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": "Check 487b: STATUS の「AIO 監視の実測」が監視スクリプトの書かない status を数える (2026-11-02 の初版そのもの)",
@@ -560,7 +519,49 @@ _MUTATIONS_TAIL.append({
     "replace": "localStorage.getItem('portfolio_brand_v44')",
     "check": CHECK,
 })
-MUTATIONS = MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
+_MUTATIONS_TAIL.append({
+    "name": "Check 434b: 未追跡ファイル走査の範囲から e2e/ が外れる —— git add 前の verify は「緑」の意味を失い、新しい spec を足し忘れても CI で初めて 3 つの Check が落ちる",
+    "file": ROOT / ".github" / "scripts" / "checks_tracked_files.py",
+    "find": "    _governed434 = (\"js/\", \"e2e/\", ",
+    "replace": "    _governed434 = (\"js/\", ",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 40a: devDependencies から stylelint が消える —— CSS lint の local binary が無くなり、npx の網越し取得に頼る (CI が外部に依存する)",
+    "file": ROOT / "package.json",
+    "find": "\"stylelint\": \"17.16.0\"",
+    "replace": "\"stylelint-x\": \"17.16.0\"",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 46a: lint:js (構文検査) から theme-init.js が抜け、ESLint の lint と別の file 集合を見るようになる —— pre-paint の script だけ構文検査されない",
+    "file": ROOT / "package.json",
+    "find": "error-suppressor.js theme-init.js",
+    "replace": "error-suppressor.js",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 124b: 視覚 renderer が実名系の entity 定数を参照する —— UI は DISPLAY_NAME (匿名の yuta) だけを使う契約で、識別子経由で実名が画面に出うる",
+    "file": ROOT / "js" / "home-page.js",
+    "find": "export function createHomePage({ h, Router, State, ContactCTA, langOfText }) {\n",
+    "replace": "export function createHomePage({ h, Router, State, ContactCTA, langOfText }) {\n    const _leak = CONSTANTS.AUTHORITATIVE_NAME;\n",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 44b: AIO 監視が canary token をハードコードしなくなる —— 値の食い違い (44c) ではなく、監視が何を探すかがリポジトリから読めなくなる形",
+    "file": ROOT / ".github" / "scripts" / "aio_monitoring.py",
+    "find": "CANARY_TOKEN = \"SAKURA-AIO-PROVENANCE-CANARY-2026-A7F3C9E1\"",
+    "replace": "CANARY_TOKEN = os.environ.get(\"AIO_CANARY\", \"\")",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 26a: AIO manifest が宣言する archive の Session Record 範囲が実体と食い違う —— 証跡の一部が discovery 層から欠ける (#14 で止まっていた実害と同形)",
+    "file": ROOT / ".well-known" / "aio-manifest.json",
+    "find": "#15-#30",
+    "replace": "#15-#29",
+    "check": CHECK,
+})
+MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
 ]
