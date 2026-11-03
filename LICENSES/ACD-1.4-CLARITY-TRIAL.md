@@ -353,9 +353,37 @@ After は理由の文を消し、末文の指示語の先を名指しに変え�
 | CE11 | F3: §6.5 第 2 文 | **削らない側に置く**: 「機械が判定できない許諾は許諾ではない」は gap の論拠そのもので、ドシエ（提出参考資料・想定問答・register B10）が依拠している。削ると、審査者に示す「なぜ明示が要るか」の本文側の根拠が消える | —（採らない候補として記録）|
 | CE12 | F4 の案内の文を削る | §6.5 第 1 文は E36 で中身が争われた（「§3〜§5 だけ」と書いて特許を落とした）。**案内の文でも、言い過ぎれば欠陥になり、言い足りなければ別の欠陥になる** —— 削れば間違える場所が減る。逆に、§9.4 第 2 文のように **§10 と §11.3 の役割分担を述べる文**は、消すと §9.4 の射程が読み手に届かない | 各文について「消すと、どの条の射程が読み手から見えなくなるか」を 1 件ずつ |
 
-### 5.2 試作に当てた結果
+### 5.2 試作に当てた結果（2026-11-04）
 
-（25 の試作と 5a の差分が入ったら、CE1〜CE12 を当てて、成立 / 不成立を書く）
+#### 試作 (b)（F2 を §10.5 の一般則へ）
+
+25 が §4.1 の反例 3 つで退けた。先に登録した CE1〜CE4 の結果も書いておく —— **退けた判断を、事前に登録した反例の側からも確かめるため**。
+
+| # | 結果 | 理由 |
+|---|---|---|
+| CE1 | 通過 | 一般則 *"no statement … of what it does not reach or grant, is a condition upon Your use"* は、§11.3 第 2 文が *"is outside what this Dedication reaches"* と自分を分類するので覆う。条件でない以上、限界の外の行為は許諾に影響しない。**ただし §11.3 第 1 文 *"does not make a false statement true"* が「reach しない文」に当たるかは境界**（25 の反例 2・5a の指摘と同じ）|
+| CE2 | 通過 | *"Nothing in Section 16"* が §16.4 の但し書きを覆う。**ただし §3r はまさに §10.5 が在る場所で起きている**（25 の指摘）—— 一般則は具体的な但し書きが条件のように読まれることを止めなかった |
+| CE3 | 通過 | 一般則の射程は *"Your use"* で、Dedicator の義務（§2.6）に及ばない |
+| CE4 | 通過 | §4.3 / §8.2 は変えていない |
+
+**結論は 25 と同じで採らない** —— 事前の 4 件は通過したが、25 の反例 1（E7 の読み順）と反例 3（*use* / *in respect of* の対比が §5.1 を狭く読ませる）は、**事前に登録していなかった種類**だった。**事前の登録は、登録した種類しか捕まえない**（それでも登録しておくことで、試作に引きずられた反例だけで判断することは避けられる）。
+
+#### §2.8 の理由の文を消す（25 の §4.6・−41 語）
+
+| # | 反例 | 結果 | 理由 |
+|---|---|---|---|
+| (a) | 理由の文が無いと、§5.3 / §12.4 が covenant について承継を明記していることと並べて、「許諾は Dedicator で止まる」と読む余地が戻るか | **通過** | 封じているのは理由の文ではなく第 1 文 —— *"This Dedication, in respect of the Work, binds the Dedicator's successors … and any person to whom a Covered Right or a patent claim … is transferred"*。**1.4 で列挙を「This Dedication」へ変えた（E49）時点で、理由の文が防いでいた読み（列挙の外の沈黙）は構造上もう立たない**。末文 *"Neither Section 5.3 nor Section 12.4 narrows this Section"* が covenant 側の狭い語（*"the law permits the Dedicator to bind them"*）が §2.8 へ移る読みを止める。**§15.1 も同じ向きに働く** —— 1.4 の §15.1 は *"This Dedication, in respect of the Work, is to be construed so as to give the widest permission … the reading that grants more to You prevails"* で、「許諾は Dedicator で止まる」は狭い方の読みなので退けられる。**理由の文の代わりは 3 重に在る**（第 1 文・末文・§15.1）|
+| CE10 | 理由の文が、操作条項に無い場面を名指して効果を運んでいないか | **通過** | 理由の文の *"the change of hands"* は第 1 文の譲受人・権利の譲受人に含まれる |
+| 5a | **§2.8 だけ理由を外すと、対になる §12.4 にだけ理由が残る**（§12.4 は *"would leave the longest-lived risk open"*）。「§2.8 は理由を持たないので狭く読む」という逆向きの読みの起点になる | **成立** | SELF-AUDIT §3r と同じ「並ぶ 2 つで片方だけ」の形。**§2.8 だけの試作は採らない** |
+| (b) | 想定問答 `review-responses-clauses.md` 510 行（*"longest-lived risk"*）が、1.4 を引く版でも成り立つか | **§12.4 の理由を引いている**（§2.8 ではない）| §2.8 だけの試作には影響しない。§12.4 の理由も外すなら、出す版が 1.4 になったときに答えの中で理由を述べ直す必要がある（理由は本文ではなくドシエが持てばよい）|
+| (c) | §6.5 第 2 文の後半 *"a permission that an automated system cannot determine is … no permission at all"* を**作用の文として**読む —— 機械が判定できない場面では ACD 自身の許可も無い、という自己否定の読み | **立たない** | (i) 文の位置が *"It is stated expressly because …"* の理由の節の中で、何も付与・剥奪していない、(ii) §15.1（許可を広く読む）、(iii) §6.1 の許諾は無条件で、§4.4 / §9.3 が「判定に依存しない」と述べる。**ただし言い切りの強さ（*no permission at all*）は B13 の目で見ると読み手に 1 段の推論を求める** —— 試作の対象にはしない（CE11・gap の論拠）|
+
+#### 改めた候補 —— §2.8 と §12.4 の理由の文を対で消す（−41 −38 = −79 語）
+
+5a の非対称の反例を避けるには、**対の両方から理由を外す**しかない。§12.4 にも CE10 を当てた:
+理由の文の *"may be exercised by relatives or by a public authority"* は、操作条項の *"any person entitled to exercise or enforce Moral Rights in the Work after the Dedicator's death"* に含まれ、
+**公的機関のような法人も、1.4 が §15.5 に足した「person は entity を含む」（E58）で覆われる**。*"Moral Rights outlive the author in many jurisdictions"* の反対解釈（作者の死で消える法域では §12.4 が働かない）は、拘束する相手がいないので害が無い。
+**→ 通過。25 へ戻して、対の試作（§2.8 + §12.4）として §4.6 を書き直してもらう。** 採用すれば、出す版が 1.4 になったときに想定問答 510 行の理由を答えの側へ移す（従属する作業）。
 
 ## 6. KPI（5a の道具で導出）
 
