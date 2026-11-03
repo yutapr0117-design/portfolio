@@ -140,7 +140,11 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       person to assert a right of privacy, publicity, or personality held by
       the Dedicator, as Sections 5.1 and 8.6 do for the rights they cover.
       (+9 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5546 words, 80 clauses.
+    * The heading of Section 11 now ends "AND PRIVACY". Section 11.4 states
+      that no permission is given under the law of data protection or a right
+      of privacy, publicity, or personality, and a reader looking for that by
+      heading could not find it. (+1 word.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5547 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -608,7 +612,7 @@ PREAMBLE (informative; not part of the operative terms)
        Work, and Section 10.1 is unaffected by it.
 
 
-11. TRADEMARKS, NAMES, AND MISREPRESENTATION
+11. TRADEMARKS, NAMES, MISREPRESENTATION, AND PRIVACY
 
   11.1 This Dedication grants no right in any trademark, service mark, trade
        name, logo, or personal name of the Dedicator or of any other person.
