@@ -315,7 +315,10 @@ def run(ctx):
                  "承認必要", "承認必須", "承認が必要", "承認なしに", "承認なしで",
                  "承認を待", "承認の有無", "承認下では",
                  "orchestrator approval", "explicit written approval", "approval required",
-                 "requires approval", "without approval")
+                 "requires approval", "without approval",
+                 # 2026-11-03: "orchestrator" を主語にした綴り。runbook と mirror 5 枚に「要 orchestrator OK」
+                 # 「orchestrator 承認領域」が残っていた —— 英語の approval でも日本語の 承認 単体でもないので素通りした。
+                 "orchestrator 承認", "orchestrator の承認", "orchestrator の ok", "orchestrator ok", "要 orchestrator")
     _OK436 = ("SUPERSEDED", "否定された", "存在しない", "読み違い", "解決済み", "誤りだった",
               "承認ゲートではない", "是正", "standing approval", "撤回")
 

@@ -44,7 +44,7 @@ npm run verify (= check + lint:css + lint + lint:js)
 
 ### For human engineers (新卒レベル)
 - `npm run <script>` で実行できるものはここに定義
-- 「public site にランタイム依存追加するか」は C1 違反になるので要 orchestrator OK
+- 「public site にランタイム依存追加するか」は C1 違反なので追加しない（解析・フォント等の運用サービスは根拠をリポジトリに文書化する・C1）
 
 ### For third parties
 - C1 Boring Technology の dev-tooling-only manifest 実装例

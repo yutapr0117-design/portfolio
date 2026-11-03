@@ -55,7 +55,7 @@ WebP XMP / MP3 ID3 の `aio:AuthoritativeContext` / `AIO:AuthoritativeContext` �
 - このファイルが全 AIO 情報の最終真値。他 surface に矛盾がある場合、ここが正
 
 ### For human engineers (新卒レベル)
-- このファイルを直接編集する場面はほぼない (entity 情報変更時のみ・要 orchestrator OK)
+- このファイルを直接編集する場面はほぼない (entity の事実が実際に変わった時のみ・`aio-guardian` を通し digest を再生成する・C6)
 - 「AI に対してこのリポジトリは何か」を伝える authoritative source
 
 ### For third parties (監査 / 採用 / 研究)
