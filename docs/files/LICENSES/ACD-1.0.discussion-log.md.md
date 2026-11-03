@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.discussion-log.md
 audience: ai, human (提出者), 監査人, 学術研究者, 第三者全般
-last-updated: 2026-08-26
+last-updated: 2026-11-03
 canonical-ref: LICENSES/ACD-1.0.submission.md (§B が license-review 宛の文面・§D の checklist が本書を参照) / LICENSES/ACD-1.0.review-responses.md (想定問答) / LICENSES/FROZEN.md (VENUE-DATA 単一ソース)
 ---
 
@@ -31,7 +31,7 @@ OSI の通常の順序は **`license-discuss`（議論）→ `license-review`（
 ## Constraints
 
 - **非規範。** ライセンス本文の一部ではない。
-- **本文は直さない。** 凍結中であり、妥当な指摘への正しい対応は「次版でこうする」と書くこと（1.1 は凍結済み・次版は 1.2）（Check 453 が機械強制）。
+- **本文は直さない。** 凍結中であり、妥当な指摘への正しい対応は「次版でこうする」と書くこと（1.0〜1.3 は凍結済み。いまの作業場は `LICENSES/README.md` の「次版の草案」行が名指す —— 2026-11-03 訂正: 旧文は「1.1 は凍結済み・次版は 1.2」）（Check 453 が機械強制）。
 - **相手の主張を代弁しない。** 引用は最小限、解釈を加えるなら「こちらの読み」と明示する。公開アーカイブに残る議論なので、歪めた要約は後から照合されうる。
 - **個人名を推測で書かない。** 出典は list 名 + 日付で辿れる形にする。
 

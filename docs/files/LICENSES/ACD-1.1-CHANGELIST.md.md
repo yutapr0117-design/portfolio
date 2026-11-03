@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.1-CHANGELIST.md
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-09-28
+last-updated: 2026-11-03
 canonical-ref: LICENSES/ACD-1.0.errata.md / LICENSES/REVISION-PROTOCOL.md (§1 §2) / LICENSES/FROZEN.md
 ---
 
@@ -33,7 +33,7 @@ canonical-ref: LICENSES/ACD-1.0.errata.md / LICENSES/REVISION-PROTOCOL.md (§1 �
 - 届いた指摘は `rounds/` へ無改変保存 → `discussion-log.md` で分解 → 帰結が「1.1 候補」に
   なったものを §3 へ
 - **2026-09-28 注**: 1.1 は 2026-09-17 に閉じた。Check 464 はいま全版の `ACD-*-CHANGELIST.md` を横断して見るので、
-  新しい `E<n>` と `次版候補`（旧 `1.1 候補`）の行き先は `ACD-1.2-CHANGELIST.md` である
+  新しい `E<n>` と `次版候補`（旧 `1.1 候補`）の行き先は、いまの作業場の `ACD-<版>-CHANGELIST.md` である（作業場は `LICENSES/README.md` の「次版の草案」行が名指す。2026-11-03 訂正: 旧文は「`ACD-1.2-CHANGELIST.md`」で、1.2・1.3 の確定後も残っていた）
 
 ## Constraints
 

@@ -1,8 +1,8 @@
 ---
 file: LICENSES/ACD-1.1-SELF-AUDIT.md
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-09-17
-canonical-ref: LICENSES/ACD-1.3-DRAFT.txt / LICENSES/ACD-1.1.txt / LICENSES/ACD-1.2-CHANGELIST.md / LICENSES/ACD-1.0.errata.md
+last-updated: 2026-11-03
+canonical-ref: LICENSES/README.md (「次版の草案」行がいまの作業場を名指す) / LICENSES/ACD-1.1.txt / LICENSES/ACD-1.2-CHANGELIST.md / LICENSES/ACD-1.0.errata.md
 ---
 
 # LICENSES/ACD-1.1-SELF-AUDIT.md
