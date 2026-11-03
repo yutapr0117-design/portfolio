@@ -70,18 +70,20 @@ answer none of them:
    provision that merely avoided doubt would be read down together with the reading it was
    written to correct. Section 8.5 states the limits of the grant honestly, and Section 8.6 adds a
    covenant not to assert, for any jurisdiction in which the patent licence itself is held
-   ineffective. Copyright is protected three times over in this instrument (surrender,
-   licence, covenant); Section 8.6 gives the patent grant the second footing it would
-   otherwise lack, in the manner Section 12.2 uses for moral rights.
+   ineffective. Permission under the Covered Rights stands on three footings in this
+   instrument (surrender, licence, covenant); Section 8.6 gives the patent grant the second
+   footing it would otherwise lack, in the manner Section 12.2 uses for moral rights.
    *(Note, 2026-11-02: this describes ACD-1.0 accurately, but "in the manner Section 12.2
    uses" overstates the parallel. Section 12.2 operates by the state of the law; Section 8.6
    operates only once a licence "is held ineffective", so no covenant exists yet at the
    assertion that would produce the holding (errata E42). The ACD-1.4 draft makes the
-   covenant operate in every jurisdiction alongside the licences. Note, 2026-11-03: "Copyright
-   is protected" is also narrower than the footings it names, which operate on all the Covered
-   Rights, and it can be read as protecting the Dedicator rather than the recipient (errata
-   E54); the ACD-1.4 draft says "Permission under the Covered Rights stands here on three
-   footings".)*
+   covenant operate in every jurisdiction alongside the licences. Note, 2026-11-03: this
+   paragraph said "Copyright is protected three times over", the wording of Section 8.6 in
+   ACD-1.0 to 1.3. That is narrower than the footings it names, which operate on all the
+   Covered Rights, and it can be read as protecting the Dedicator rather than the recipient
+   (errata E54); the ACD-1.4 draft says "Permission under the Covered Rights stands here on
+   three footings", and this paragraph now uses the same words. Patents and moral rights
+   stand on two footings each, not three (errata E55).)*
 
 3. **Machine-generated material.** It is unsettled whether copyright subsists in it at
    all. Section 9 makes the recipient's permissions independent of that question: the
