@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.comparison.md
 audience: ai, human (提出者), 監査人, 採用検討者, 第三者全般
-last-updated: 2026-11-01
+last-updated: 2026-11-03
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / docs/architecture/acd-license-rationale.md (§2 に無条件系との比較と 0BSD/Apache 逐条差分) / LICENSES/ACD-1.0.review-responses.md (総論の想定問答・索引)
 ---
 
@@ -227,6 +227,12 @@ AI 条項を実際に取り込んだとして、そのとき何が残るのか�
 > none does, the instrument "adds nothing to Your existing freedom and takes nothing away";
 > §9.3 removes from the user any duty to determine which parts are machine-generated, and makes
 > no permission depend on "how any jurisdiction answers it, or on whether the answer changes."
+>
+> *(Note, 2026-11-03: read as written, the quoted sentence of §9.2 speaks of the whole Dedication,
+> and §8 (patents) and §5.2 still give something where no copyright subsists — errata E37. The
+> sentence is meant per right, §9.3 already rules out the global reading, and the 1.3 text reads
+> "adds nothing to Your existing freedom as to that right". The argument of this paragraph is
+> per right and does not change.)*
 >
 > An AI clause bolted onto a conventional licence still inherits the premise. Applied to material
 > whose authorship may not subsist, it grants permissions under rights that may not be there —
