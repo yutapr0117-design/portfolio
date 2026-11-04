@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-review participants / 監査人
-last-updated: 2026-11-03
+last-updated: 2026-11-04
 canonical-ref: LICENSES/ACD-OSI-BOTTLENECKS.md (索引・分類・集計はあちらが canonical) / LICENSES/ACD-1.0.against.md / LICENSES/AS-OF.md
 ---
 
@@ -515,6 +515,48 @@ running the Program"* は**著作権の話であって特許ではない**）。
 **9 月 20 日以降にこの節が引いていなかった記録**（いずれも既に `against.md` に在り、ここでは指し先だけを置く）: #211（Fontana 氏「既存のライセンスで足りる」——gap 3）/ #233（CC0 スレッドの最強の反論）/ #241（承認済み 141 本の census が主張を 4 点狭めた —— **§8.4 について言えるのは「モデルを名指す承認済みは無い」まで**）/ #264（CAL-1.0）/ #269（**gap は存在理由であると同時に、果たしているかを測られる基準**・`[OPEN]`）/ #276（帰属ゼロ + 明示特許の組み合わせへの反対・(f) の vanity テストは我々には閉じられない）。
 
 **残余（いずれも外部判断で、この増分では減らせない）**: (1) 作用として新しいのは §6.2 / §6.3 / §5.2(b) / §7 / §8.4 の内容限定の除去 / §12 の一部で、**それが承認基準 7 の「gap」に足りるか**は OSI の判断 / (2) 新しくない部分（§6.1 / §6.4 / §9）の価値は「確実性・読めること」で、**読めることに価値を認めない審査者には冗長へ畳まれる**（上の「最強の反論」そのもの）/ (3) #276 (f) と #255 の前半（具体的な用途を示せ）は採用の捏造なしには答えられない。**この再検証が減らした OSI 側の未解決は 0 件で、ドシエ側で直したのは説明 1 件**（`submission-reference.md` の「§8.4 の新しさは名指しだけ」→ 内容限定の除去も、25 が担当）。
+
+### 2026-11-04 原典による立証 —— 既存ライセンスでは達成できない効果は、少なくとも 1 件あるか
+**依頼（オーナー経由の外部 AI）の成功条件**: 既存ライセンスでは達成できない ACD 固有の法的効果を、**少なくとも 1 件、比較対象の原典と具体的条文で**裏付ける。できなければ未達と書く。 **分担**: 敵対仮説と B15 は bb・比較対象の条文の逐語照合は 5a（SPDX 原文 141 本・1.4 草案・`rounds/`・21 件中 20 件一致、残る 1 件は引用符の形で修正済み）・条文の対置は 25。
+
+#### 敵対仮説（「既存ライセンスでも実現できる」）と反証
+**比較対象の原文は SPDX `license-list-data` から取得した**（`generate_gap_census.py --fetch`・141/141・2026-11-04）。逐語の照合は 5a。
+
+**G1. §8.4 —— 計算的利用から生じたモデル・出力の製造・使用・販売・輸入に及ぶ、無条件・終了なしの特許許諾**
+
+| 敵対仮説 | 比較対象の条文（原文）| 反証 | 判定 |
+|---|---|---|---|
+| H1-a: BlueOak で足りる | *"Each contributor licenses you to do everything with this software that would otherwise infringe any patent claims they can license or become able to license."* | 対象は「このソフトウェアで行うこと」。学習という行為は覆うが、**できたモデルをその後に使う・売る行為は、ソフトウェアで行うことではない**。加えて *"The rules of this license are both obligations under that agreement and conditions to your license"*（Acceptance）・*"your license ends immediately"*（Excuse）—— 条件と終了がある。ACD §8.2 は *"subject to no condition and are not terminable"* | **反証できた**（⚠ *with this software* を「ソフトウェアを用いて作ったものについても」と広く読む余地は残る —— 残余リスク）|
+| H1-b: CERN-OHL-P の Products で足りる（**敵対側の最強の筋** —— 5a）| §1.4 *"'Product' means any device, component, work or physical object … arising from the use, application or processing of Covered Source"* / §6.1 *"patent license to Make, have Made, use, offer to sell, sell, import, and otherwise transfer the Covered Source and Products, where such licence applies only to those patent claims … necessarily infringed by exercising rights under the Covered Source as Conveyed by that Licensor"* / §6.1 *"irrevocable (except as stated in this section 6, or where terminated by the Licensor for cause)"* / §6.2 *"If You institute patent litigation … any rights granted to You under this Licence shall terminate"* / §4 *"You may Make Products, and/or Convey them, provided that You ensure that the recipient of the Product has access to any Notices"* | **請求項の範囲では反証できない** —— ACD §8.4 自身が *"This Section reaches only claims whose infringement depends upon the use of the Work"* と限っており、学習を「Covered Source の下での権利の行使」と読めば、CERN の *necessarily infringed by exercising rights under the Covered Source* とほぼ同じ形の限定になる（**下書きの初版は「元の資料が実施しない請求項まで及ぶ」と書いたが、言い過ぎだった**）。**反証できるのは条件と終了の側**: モデルが Product なら、それを渡すたびに §4 の通知の条件が掛かり、特許許諾は §6.2（特許訴訟）と *"for cause"* で終わりうる。ACD では、モデル・出力について何も負わず（§6.4 *"You owe nothing in respect of any of them"*・§10.1）、特許許諾は *"subject to no condition and are not terminable by the Dedicator on any ground"*（§8.2） | **条件と終了の側でのみ反証できた** |
+| H1-c: UPL で足りる | *"… patent rights … covering either (i) the unmodified Software … or (ii) the Larger Works (as defined below) … (b) any piece of software and/or hardware listed in the lrgrwrks.txt file"* | Larger Works は **事前に列挙されたもの**で、しかも *"each a “Larger Work” to which the Software is contributed"* —— **ソフトウェアが組み込まれる先**として定義されている。学習で生じたモデルはソフトウェアを組み込まないので、**列挙しても Larger Work に当たらない**（5a の問い「事前に列挙すれば代替できるか」への答え）。加えて通知の条件 *"This license is subject to the following condition"* | **反証できた** |
+| H1-d: Apache-2.0 / BSD-2-Clause-Patent で足りる | Apache: *"necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work"* / BSD-2-Clause-Patent: *"necessarily infringed by: (a) their Contribution …"*・*"The patent license shall not apply to any other combinations which include the Contribution."* | 請求項は Contribution（と Work との組み合わせ）に限られる。モデルは Contribution でも Work でもない | **反証できた** |
+| H1-e: 0BSD / MIT / MIT-0 / Unlicense で足りる（黙示の許諾）| 特許の語を持たない（census） | 黙示の許諾（estoppel）は、リスト上でも論じられるが（#236 / #238）、**及ぶとしてもそのソフトウェアの使用**についてで、そこから生じたモデルの使用・販売にまで及ぶという読みの根拠は条文に無い | **反証できた**（黙示の許諾の範囲は裁判所が決める）|
+| H1-f: 承認済みライセンス + 別の特許の誓約で足りる | —（ライセンスではない）| 経路は在る（Landley 氏 #276 (e)・`comparison.md` §5.5）。**ただしそれは「既存ライセンスで」ではない** —— OSI が比べるのはライセンスの条文で、誓約は Work と一緒に移らず、条件・期間・撤回可能性が誓約ごとに違う | **この仮説は「ライセンスでは」を外したときにだけ成り立つ**（既存ライセンスでは達成できない、という主張の範囲を書く）|
+
+**G1 の結論: 少なくとも 1 件、立証できた —— 立つのは 2 つの性質の組み合わせとしてである。** **(i) 作品・寄与を超える対象への特許許諾**を持つのは、census の分類（`generate_gap_census.py`・SPDX `8791eda`・2026-10-28・取得 2026-11-04）で S2 / S3 の **7 本**（BlueOak-1.0.0 / CERN-OHL-P / S / W-2.0 / EUPL-1.1 / EUPL-1.2 / UPL-1.0）で、**7 本すべてが原文で明示された条件を持ち**（BlueOak *"You must ensure that everyone who gets a copy … also gets the text of this license"*・CERN-OHL-P *"provided that You: a) retain Notices"*・CERN-OHL-S / W *"provided that on Conveyance of any such Source, or any associated Product You treat …"*・EUPL *"must include a copy of such notices and a copy of the Licence with every copy"*・UPL *"This license is subject to the following condition"*）、**UPL 以外の 6 本は終了の定めも持つ**（BlueOak *"your license ends immediately"*・CERN *"terminated by the Licensor for cause"* / *"shall terminate as of the date such process is initiated"*・EUPL *"will terminate automatically upon any breach"*）。**よって 141 本のうち、(i) と (ii) 条件も終了も無いこと を同時に持つものは 0 本で、ACD §8.4 + §8.2 は両方を持つ**（5a が全数で機械的に確認）。**限界**: S1 の 58 本が本当にモデル・出力に届かないかは census の分類（人が読んだ判定）に依拠しており、裁判所の解釈ではない。**請求項の範囲そのものの差は立証できない**（§8.4 自身の *"only claims whose infringement depends upon the use of the Work"* と CERN の限定はほぼ同じ形）。**⚠ 費用（同じ重さで）**: この広さと無条件は #16（特許を持つ組織は受け入れにくい）と #276（帰属ゼロ + 特許許諾は「特許の放棄に等しい」）の当の原因で、**gap であると同時に採用を下げる理由**（B7）でもある。
+
+**G2. §7 —— sui generis のデータベース権の抽出・再利用の許可**
+
+| 敵対仮説 | 条文 | 反証 | 判定 |
+|---|---|---|---|
+| H2: MIT / 0BSD の無限定の許可が及ぶ | MIT *"to deal in the Software without restriction"*・0BSD *"Permission to use, copy, modify, and/or distribute this software for any purpose"* —— どちらも許可を著作権に限っていない | 141 本に *sui generis* / *database right* の語は 0（census）。**だが MIT・0BSD の許可は著作権に限られていないので、データベース権に及ぶ読みは成り立つ** | **反証できない** —— **独自 gap の根拠から外す**。ACD §7 の効果は「明示による確実性」として扱う |
+
+**G3. §6.2 —— Dedicator 自身の機械可読な合図を Reservation と読まない**
+
+| 敵対仮説 | 反証 | 判定 |
+|---|---|---|
+| H3: どの許諾も、許諾が働く限り TDM の留保とは無関係なので足りる | その通り —— 留保（DSM 指令 4 条 3 項）が効くのは**例外**についてで、ライセンスの許可は別の経路である。§6.2 が効果を持つのは、**受領者がライセンスではなく例外に依って使う場面か、許諾が無効とされた場面**だけ | **一部だけ反証できる**（その場面では既存ライセンスに対応する文が無い・Kneschke v. LAION が「機械可読な留保」の帰属を問題にした）—— 独自 gap としては**限定つき** |
+
+**G4. §12 —— 人格権の放棄と、放棄できない法域での不行使の約束・承継人の拘束**
+
+| 敵対仮説 | 条文 | 反証 | 判定 |
+|---|---|---|---|
+| H4: EUPL で足りる | EUPL-1.2 *"In the countries where moral rights apply, the Licensor waives his right to exercise his moral right to the extent allowed by law"* | 「行使する権利の放棄」は不行使と同じ働きをする。ACD が足すのは**相手方（受領者と下流）の明示と、承継人・死後の行使者の拘束（§12.4）**だけで、後者が効くかは法域による | **ほぼ反証できない** —— 独自 gap の根拠から外し、「EUPL の形に、相手方と承継人を足したもの」と書く |
+
+**除外したもの**: §9（機械生成物）は付与ではなく宣言 / §3 + §4 の独立は Unlicense も献呈と許可を並べている —— どちらも「既存では達成できない法的効果」の根拠にしない。
+
+#### B15（主題適格）とのトレードオフ
+**G1 を強めても B15 は悪化しない、と判断する。** 理由: §8.4 の対象は**Work（ソフトウェア）の計算的利用と、その結果**で、モデルのパラメータそのものを許諾の対象に加えるものではない。Chestek 氏の境界 *"cross over into data … when tied to software"* の内側にある。 **⚠ 逆側**: (i) Fontana 氏は *"the OSI contemplates that things other than OSI-approved licenses might be suitable for model parameters"* と述べており、§8.4 がモデルを名指すこと自体が「モデルについてのライセンス」と読まれる余地がある。(ii) **1.4 で §1.3 に「機械学習モデルのパラメータ・重み・設定」を足したこと**（CHANGELIST §1.3 行）は、Work の形としてモデルを名指すので、**こちらは B15 を自分から出す側**に働く（25 が逆側として記録済み）。**G1 の根拠は §8.4 で足り、§1.3 の追加には依らない** —— B10 を立てるのに B15 を悪化させる変更は要らない。
 
 ### 2026-09-20 追記 —— gap の 1 本目に、**決着した裁判例が付いた**
 
