@@ -818,3 +818,37 @@ B-02（`ACD-1.4-ADVERSARIAL-TRIAGE.md`）は同じ語に当たっているが、
 (ii) 「学習の手法の請求項に届く」という外向きの文は取り下げる。gap は「3 つ同時」で立つので結論は残るが、請求項の範囲で CERN-OHL-P に勝つとは言えない。
 (iii) 特徴が使用から生じたかは事実の問いで、You がいつも判定できるわけではない。末文の *"You could not determine whether one had been crossed"* は同じ批判を受けうる。閾値は使用の量を測る第 2 の判定で、寄与はそれを要しない、というのが差で、問 2 (b) の領分である。
 (iv) *feature* は定義語でない。特許の請求項は要素の組で、1 要素だけが使用から生じる場合は「一部」が受ける。§8.6 の *"the patent claims described in Sections 8.1 and 8.4"* も、限定つきの請求項を指すと読む必要がある（5a）。
+
+### 9.6 反例 1 巡目のあと —— T4 第 2 案（§8.4 +7 語・§6.1 +5 語）
+
+**bb の反例**（Rb′ を採る判断には同意、文面は不成立）:
+
+| # | 反例 | 扱い |
+|---|---|---|
+| 1 | **§6.1 と衝突**: §6.1 は Computational Use を *"so far as the Covered Rights and patent claims of the Dedicator are concerned"* で許すのに、K4 は §8.4 の外になる。§6.5 は §6 が §3〜§5・§8 の言い直しだと述べる | **成立**。1.1 からの欠陥（E19 が足した語）。25 が広げる: §1.7 の Computational Use は *"the making, distribution, and use of any model"* まで含むので、§6.1 は K3・K5 でも §8.4 を超える |
+| 2 | *"does not license a feature"* は範疇の誤り（許諾の対象は請求項と行為）| **成立**。その文を外した |
+| 3 | *"deliberately absent"* の文のすぐあとに、§8.1 と同じ単位の限定が来る | **成立**。差は「Work の中に在るもの」と「Work の使用から生じるもの」で、後者を語にした |
+| 4 | ライセンスは抗弁なので示すのは R で、重みの特徴が特定の Work から生じたことは普通示せない。bb の代案 T4′ *"only where You used the Work and the Work discloses or embodies the feature"* | **成立**。ただし T4′ は §8.1 の限定を言い換えて戻す形で、*"deliberately absent"* と想定問答の *"the deliberate widening"* を偽にする。そこで**十分条件**として取り入れた |
+| 5 | *"in part"* から E15 が細く戻る（ありふれた要素を Work が供給する場合）| 残余として受ける（想定問答の 5 件目が認めている費用）|
+
+**第 2 案（§8.4 の限定の文）**: *"As to a model, parameter set, weight, embedding, or output, this Section reaches a claim only where the feature that infringes it results, in whole or in part, from the use of the Work; a feature that the Work discloses or embodies is taken so to result."*
+**第 2 案（§6.1 の末尾）**: *"… so far as the Covered Rights of the Dedicator, and the patent claims Section 8 reaches, are concerned (Section 2.7)."*
+
+**組み立て**:
+- 学習の行為そのもの（Work の処理）に限定を掛けない。K4 は**その学習について** ✓ になる。§8.4 第 1 文が *"infringed by Computational Use of the Work"* を別に立てている構造に合い、E6 が候補に挙げた「行為と成果物を分ける」形でもある。判定は「Work を処理したか」だけで済む。
+- 成果物には寄与の限定を掛ける。§1.7 により成果物の行為も Computational Use に入るので、*"As to a model …"* は両方の枝に掛かる。
+- R は「Work を使ったこと」と「Work がその特徴を開示していること」を示せばよい。創発の場面 K7（Work が教えていない特徴が学習から生じた）は *results from* で本文に残るが、示すのは R である。
+- §8.1 の限定は**必要条件ではなく十分条件**になる。*"deliberately absent"* は真のまま。
+
+| 場面 | 第 2 案 |
+|---|---|
+| K1 / K2 Work が教える方法を出力が実施する | ✓（開示で足りる）|
+| K3 / K5 Work と無関係なアーキテクチャの請求項 | ✗ |
+| K4 学習の手法の請求項 | Work を処理する学習について ✓ / 成果物の販売の請求項としては ✗ |
+| K6 Work を使わないモデル | ✗（第 1 文の *"resulting from that use"*）|
+| K7 創発 | ✓（ただし R が示す）|
+
+**逆側**:
+(i) K4 が ✓ なので、Work を混ぜた学習 1 回に D の手法特許が及ぶ。E15 の害の一部で、モデルの販売には届かないが、学習の手法を持つ特許権者には費用である（B7・#16）。
+(ii) 開示で足りるので、D が特許の方法を説明した文書に ACD を適用すると、それを学習に使った R の成果物に許諾が及ぶ。§8.3 の趣旨と同じ向きだが、費用は明記する。
+(iii) §6.1 の語が短くなくなり、E19 の形（*"Covered Rights and patent claims of the Dedicator"*）が §6.2 と揃わなくなる。§6.2 は合図を Reservation と読まないという話で、許諾の範囲を述べないので、そのままにする。
