@@ -489,3 +489,64 @@ Before は main の草案と byte 一致（25 が確認・bb も `cmp` で確認
 | OSI の阻害理由への効き | — | 基準 3（曖昧さ）: 「沈黙は議論を招く」と本文が認める文が消えた | 基準 3: 反対解釈 1 件と指示語の分岐 1 件が消えた。B3（長さ）は累計 −142 語（本文の約 2.8%）で、B3 の結論（縮めても答えきれない）は変わらない |
 
 **この表の数字は、採用の根拠ではない。** 依頼の条件どおり、語数の削減・CI の成功・文書の追加を承認確率の向上と扱わない。
+
+## 7. B15（主題適格）の試作 —— B10 を保ったまま、主題の疑義を条文で弱められるか（2026-11-04・25）
+
+**きっかけ**: 別の AI の見解をオーナーが渡した（オーナーの指示ではない）。問い自体は、3 人が 11-03 に逆側として自分で記録していたもの
+（`ACD-1.4-CHANGELIST.md` §1.3 行の逆側 *「重みを名指すと B15 の論点をこちらから出す」*）なので、3 人の判断として検証する。
+その見解にある承認確率の値や状態の分類の枠は、このドシエのものではないので使わない。
+**採用の条件**: (1) B10 の立証済みの効果（`ACD-1.0.gap-measurements.md` §1.133・§8.4 + §8.2 + §10.1 / §10.4）を失わない、
+(2) AI 資産（データセット・重み）への許可を失わない、(3) B15 の疑義を**中身で**弱める（見えにくくするだけの変更は数えない）。満たせなければ「未成立」と書く。
+
+**一次根拠（register B15 に逐語で在るもの）**: Mulan Open Works Licenses の不承認（2023-09-15）は OSD 違反を挙げず
+*"as open culture licenses, are not appropriate for OSI approval"* とし、理由に引いたのはそのライセンスが定義した対象の列挙
+（*"… a photographic work, an audiovisual work, a graphic work, and a model work"*）だった。境界は委員会自身が
+*"Sometimes an OSI license will cross over into data or hardware when tied to software, but not a license altogether unrelated to software."*（Chestek 氏 2023-08-10）と述べている。
+ACD の Work の定義は source code / object code から始まり、前文の第 1 文は *"Software and the works that surround it"* である。
+
+### 7.1 比べる 4 案
+
+| 案 | §1.3 の列挙 | 範囲（受領者が依拠できるもの）|
+|---|---|---|
+| **B**（1.4 草案のまま）| *"… documentation, data, metadata, audiovisual material, the parameters, weights, and configuration of a machine learning model, and any collection or compilation of these"* | —（比較の基準）|
+| **A1′**（1.4 の追加だけを戻す）| 凍結 1.0〜1.3 と同じ *"… documentation, data, metadata, audiovisual material, and any collection or compilation of these"*（−10 語）| **変わらない** —— 列挙は例示（§15.5）で、重みは *data* と *"in any medium and in any form"*（Work の定義・1.0 では §1.2）に入る。CHANGELIST の §1.3 行自身が「受領者が依拠できるものは増えない」と書いた追加である |
+| **A1**（A1′ + *audiovisual material* も外す・bb の案）| *"… documentation, data, metadata, and any collection or compilation of these"* | 変わらない（*"in any medium and in any form"*・1.0 では §1.2）|
+| **A2**（UPL 型の結び付け）| 例: *"software, associated documentation, and data distributed with or for use with that software"* | **狭まる** —— 単体のデータセット・単体の重みが Work から外れる |
+
+### 7.2 6 つの場面の Before / After（B に対して）
+
+| 場面 | A1′ | A1 | A2 |
+|---|---|---|---|
+| ソースコード単体 | 同じ | 同じ | 同じ |
+| ソフトウェアに付随する学習データ | 同じ（*data*）| 同じ | 同じ（付随するなら）|
+| 学習済みモデルの重みだけ | 同じ（*data* / *in any form*。1.0〜1.3 と同じ扱い）| 同じ | **Work でなくなる** —— §3 / §4 / §6 の許可が無い |
+| ソフトウェアで学習して生じたモデル | 同じ（§6.4 / §8.4 は Work の定義ではなく「結果」として名指す）| 同じ | Work がソフトウェアなら同じ / データの Work からの結果は**失う** |
+| 生成された出力の販売・改変 | 同じ（§6.4）| 同じ | データの Work からの出力は**失う** |
+| 元の Work に関わる特許の行使 | 同じ（§8.1 / §8.4）| 同じ | データの Work については**失う**（§8.4 の効果がソフトウェアの Work に縮む）|
+
+**B10 への作用**: A1′ と A1 は §8.4 / §8.2 / §10 に触れず、§1.133 の 3 つ（範囲・無条件・終了なし）はそのまま残る。A2 は §8.4 の効果をソフトウェアの Work に縮め、AI 資産への許可を失う。
+
+### 7.3 判定（暫定・bb の敵対的検証の前）
+
+- **A2 は採らない** —— 採用の条件 (2) を満たさない。主題を「ソフトウェアに結び付ける」ことは範囲を狭めることでしか達成できず、狭めれば register B15 の見出しどおり B10 を自分で折る。
+- **A1 は採らない** —— *audiovisual material* は 1.0 から在る語で、範囲を変えずに語だけ消すのは**疑義への答えではなく、疑義を見えにくくすること**である（条件 (3) を満たさない）。
+  しかも凍結版との差が「1.4 は audiovisual を外した」という反対解釈の材料になる。Mulan の理由に引かれた語と同じ語を持つことは、`submission.md` §B.0 と `submission-reference.md` §3d で**先に言ってある**。
+- **A1′ は採用候補（下の A1′+ の形で）** —— 範囲は変わらず、戻すのは 1.4 自身が足した例示だけなので、見えにくくする変更でもない（凍結版の状態へ戻る）。
+  向きは一次資料で決まる。(i) CHANGELIST の §1.3 行は OSAID が改変に適した形を「コード・パラメータ・データ情報」とすることを追加の理由にしたが、
+  OSAID 1.0 自身はパラメータについて *"They may be free by their nature or a license or other legal instrument may be required to ensure their freedom"*
+  と答えを開いている（CHANGELIST の §9.1 行が引く原文）—— **OSI 承認ライセンスで扱えと述べてはいない**。
+  (ii) Fontana 氏は OSAID を引いて *"the OSI contemplates that things other than OSI-approved licenses might be suitable for model parameters, but that does not apply to code or model architecture materials"*
+  と素材の種類で線を引いている（`ACD-1.0.review-doctrine.md` の OpenMDW の節・(b)）。
+  **(i) は我々の推論、(ii) は審査者側の直接の言明**なので、(ii) を取る。**§1.3 にパラメータを名指すことは、OSI が「承認ライセンス以外が適しうる」と述べた側へ、Work の定義から自分で寄ることである。**
+- **A1′ には 1 つ足す（A1′+）** —— bb の指摘どおり、§9.1 の例示 *"such as the parameters of a machine learning model produced by training"* も 1.4 で足した文で、
+  Work がパラメータでありうると述べたまま残る。例示を *"such as code produced by an automated system"*（§1.8 の語）へ替える。
+  例示なので効果は変わらず（§9.2 / §9.3 は例示に依らない）、Fontana 氏の線の内側（code）の例になる。−4 語。
+  **逆側**: §9 の典型例のうち、重みに ACD を付ける読み手に最も役立つ例（学習で生じるパラメータ）を名指す説明力が落ちる —— その読み手は §1.8 の定義から自分で導くことになる（1.0〜1.3 と同じ）。
+
+**判定（bb が §1.3 の 6 場面を通過させた後・§9.1 の反例は当て直し待ち）**: **A1′+ を採用候補にする。**
+1.4 草案に対しては、B15 の文言上の材料が 2 つ（§1.3 の列挙・§9.1 の例示）消え、§9.1 はソフトウェアに結び付いた例になる。
+**凍結 1.3 に対しては、B15 の実質は変わらない**（1.3 は最初からパラメータを名指していない）—— 動かせたのは 1.4 が自分で足した信号だけで、
+**B15 の実質（定義が software-specific でない）は残る**。範囲・B10・AI 資産への許可はどれも変わらない。
+
+**この節が確立しないこと**: B15 の中身（Work の定義がソフトウェア以外の素材を含むこと）は、どの案でも残る —— 残すことが AI 資産への許可と B10 の条件だからである。
+動かせるのは、1.4 が自分で足した信号 1 つだけ（A1′）である。
