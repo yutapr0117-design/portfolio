@@ -167,6 +167,30 @@ def dangling(cl: dict[str, str]) -> list[tuple[str, str]]:
     return out
 
 
+# 条の参照。"Section 6.5" / "Sections 5.3 and 12.4" / "(Section 6.5)" の条番号を拾う。
+_REF = re.compile(r"\bSections? (\d+\.\d+)((?:(?:,| and| or|,? and|,? or) \d+\.\d+)*)")
+# 参照先の**内容を述べる**形 (参照先に意味のある文が残っているかを読む必要がある)。単なる指し先 "(Section 6.5)" と区別する。
+_DESCRIPTIVE = re.compile(r"\b(purpose|reason|rule|principle|limit|result|question|test|meaning|definition|"
+                          r"stated in|states|given in|described in|set out in|explains?|says|why|as .{0,30}provides?)\b", re.I)
+
+
+def refs_to(cl: dict[str, str], target: str) -> list[tuple[str, str, bool]]:
+    """target 条を参照している箇所: (参照する条, 前後の文脈, 内容を述べる形か)。"""
+    out = []
+    for k, v in cl.items():
+        if k == target:
+            continue
+        for m in _REF.finditer(v):
+            nums = [m.group(1)] + re.findall(r"\d+\.\d+", m.group(2) or "")
+            if target in nums:
+                ctx = v[max(0, m.start() - 70):m.end() + 25]
+                # 内容を述べる語は参照の前にも後ろにも来る ("the purpose stated in Section 6.5" /
+                #   "Section 6.5 states why it matters")。前だけを見た初版は後者を単なる指し先にした。
+                _win = v[max(0, m.start() - 45):m.start()] + " " + v[m.end():m.end() + 35]
+                out.append((k, ctx, bool(_DESCRIPTIVE.search(_win))))
+    return out
+
+
 def report(path: Path, n: int) -> None:
     cl = clauses(path.read_text(encoding="utf-8"))
     tot = sum(len(words(v)) for v in cl.values())
@@ -202,6 +226,15 @@ def compare(before: Path, after: Path, n: int) -> None:
     print(f"# 先行詞の無い指示語: Before {len(db)} / After {len(da)}")
     for k, ctx in sorted(da - db):
         print(f"#   ⚠ 新たに宙に浮いた: §{k}: …{ctx}…")
+    # 参照の宙づり (2026-11-04・25 の依頼): 内容が変わった条を参照している箇所を全部挙げる。
+    #   参照先の内容を述べる形 ("the purpose stated in Section 6.5") は、外した文がまさにその内容だった
+    #   可能性があるので、After の参照先にその内容が残っているかを人が読む。単なる指し先は件数だけ。
+    _chg = [c for c in sorted(set(cb) | set(ca), key=lambda c: tuple(int(x) for x in c.split("."))) if cb.get(c) != ca.get(c)]
+    _all = [(t, k, ctx, d) for t in _chg for k, ctx, d in refs_to(ca, t)]
+    print(f"# 変更された条を参照する箇所: {len(_all)} (内容を述べる形 {sum(d for *_, d in _all)}) —— "
+          "括弧の指し先も中身に依拠しうるので、全件を読む")
+    for t, k, ctx, d in _all:
+        print(f"#   {'⚠' if d else '・'} §{k} → §{t}: …{ctx}…")
     print()
     key = lambda c: tuple(int(x) for x in c.split("."))
     print("## 条ごとの語数と、効果を運ぶ語の増減 (減った語は反例探しの起点)")
