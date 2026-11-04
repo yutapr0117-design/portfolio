@@ -1,11 +1,11 @@
 ---
 file: LICENSES/ACD-1.0.gap-census.md
 audience: licence reviewers, OSI license-discuss / license-review participants, 後任 AI
-last-updated: 2026-09-25
+last-updated: 2026-11-04
 canonical-ref: LICENSES/ACD-1.0.gap-measurements.md §1.97 (条件の有無を同じ 141 本で数えた census) / LICENSES/ACD-OSI-BOTTLENECKS.md (gap の扱い)
 ---
 
-# ACD-1.0 gap census —— OSI 承認済み 141 本に 3 つの gap を当てた（2026-09-25）
+# ACD-1.0 gap census —— OSI 承認済み 141 本に 3 つの gap を当てた（2026-11-04）
 
 > **これは何か**: ドシエの gap 論（「既存の承認済みライセンスは X を持たない」）を、**選んだ比較対象ではなく
 > 承認済みの全数**に当てた記録。`gap-measurements.md` §1.97 は同じ 141 本で**条件の有無**を数えた。
