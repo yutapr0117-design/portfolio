@@ -42,6 +42,8 @@ import statistics
 import sys
 import urllib.request
 
+from measure_quote_drift import _current_draft_version
+
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/120.0 Safari/537.36")
 CACHE = os.environ.get("CLARITY_CACHE", "/tmp/lic")
@@ -108,8 +110,11 @@ def main():
         fetch_peers()
     here = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     rows = []
+    # 作業中の草案も測る。出す版は申請の日に確定する最新版なので、1.0 / 1.1 だけだと出す版を測っていない。
+    _v = _current_draft_version()
     for name, path in [("ACD-1.0", "LICENSES/ACD-1.0.txt"),
-                       ("ACD-1.1", "LICENSES/ACD-1.1.txt")]:
+                       ("ACD-1.1", "LICENSES/ACD-1.1.txt"),
+                       (f"ACD-{_v} draft", f"LICENSES/ACD-{_v}-DRAFT.txt")]:
         with open(os.path.join(here, path), encoding="utf-8") as fh:
             rows.append(row(name, body(fh.read())))
     missing = []

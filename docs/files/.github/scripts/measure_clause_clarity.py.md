@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/measure_clause_clarity.py
 audience: ai, human (新卒), 監査人, 学術研究者, 第三者全般
-last-updated: 2026-09-14
+last-updated: 2026-11-04
 canonical-ref: LICENSES/ACD-1.0.review-corpus.md §1.70a / §1.70b (測定の記録と二度の訂正) / LICENSES/ACD-OSI-BOTTLENECKS.md (register の冒頭で使う) / .github/scripts/verify_dossier_quotations.py (同じ「CI に載せない道具」の先例)
 ---
 
@@ -9,7 +9,7 @@ canonical-ref: LICENSES/ACD-1.0.review-corpus.md §1.70a / §1.70b (測定の記
 
 ## What
 
-ACD-1.0 / ACD-1.1 草案と、比較対象の承認済みライセンス 5 本について、**文の長さと従属の重なり**を
+ACD-1.0 / ACD-1.1 / 作業中の草案（現行の版を導出）と、比較対象の承認済みライセンス 5 本について、**文の長さと従属の重なり**を
 測って 1 つの表にする道具。**Check ではない**（比較対象の取得に外部 fetch が要る）。
 
 出力は 7 列: 文数 / 平均 / 中央値 / 最長 / 45 語超の割合 / うち列挙型 / うち従属節 2 つ以上。
