@@ -695,3 +695,79 @@ F3 の 9 件の内訳は、採用 3（§2.8・§12.4・§11.4）/ 検討して�
 **「1 件」は読んで確かめた**（5a の道具で 1.3 → 1.4 を比較し、採用済みの試作に当たる候補を 1 行ずつ読んだ・2026-11-04）: `against.md` #104（*"because moral rights outlive the author"*）と `ACD-1.0.review-responses-meta.md`（*"I state both because a work meant to be learned from …"*）は我々自身の説明で、本文の理由として帰属していないので 1.4 でも真である。`against.md` #173 は 2026-11-04 の注が付いている。#49 は語を共有するだけで §11.4 の理由を引いていない。`review-responses-clauses.md` の *"would invite the argument that"* は 5a が確かめたとおり §15.7 の説明で、§2.8 への依拠ではない。
 **§2.7 の変更（E60）で 1 件増えた（2026-11-04）**: `ACD-1.0.review-responses-clauses.md` の英文 *"the Dedication reaches only rights the Dedicator holds"* は偽ではないが、1.4 の本文より狭い言い方になる。切り替えの日に語を揃える。
 **この 1 件の外に、1.4 の他の変更（§4.3・§5.2・§8.1・§16.6 など）が外した語を引く箇所が在る** —— 比較の全体は外向き 41 件で、そちらは明瞭性の試作の問題ではなく版の移行の問題なので、確定手順（`ACD-1.1-CHANGELIST.md` §0.13）が出す版で回す。
+
+## 9. §15.1 が広い側へ解決する読みと、並行起草の差分（2026-11-04・25）
+
+**レンズを 2 つ足した。** どちらも §3〜§8 の族（言い直し・念押し・理由・案内）とは別の問いである。
+
+1. **§15.1 の向き**: §15.1 は分岐を *"the reading that grants more to You"* へ解決する。分岐が You に有利なら害は無いが、**緩い語が許諾の対象そのものを広げるなら、§15.1 は誤読を正しい読みに変える。** 許諾の射程を決める語に当てた。
+2. **並行起草の差分**: 5a の道具は 6 語以上の一致を数える。同じ働きの条どうしで**語が 1〜数語だけ違う箇所**（E60 の §2.7 / §8.5 と同じ形）は全数で見ていなかった。ほぼ一致する区間の差分を使い捨ての道具で抜いた（80 条・29 件）。**文末で語が欠ける形は道具に掛からない**（§12.2 は読み通しで見つけた）。
+
+### 9.1 T1: §1.3（1.0 では §1.2）の *"in whole or in part"* を外す（−5 語）
+
+**Before**: *"'Work' means the material to which the Dedicator has applied this Dedication, in whole or in part, in any medium and in any form, including …"*
+**After**: *"'Work' means the material to which the Dedicator has applied this Dedication, in any medium and in any form, including …"*
+
+この 5 語には読みが 3 つ立つ。
+
+| 読み | 付き先 | 帰結 |
+|---|---|---|
+| R1 | *applied this Dedication*（条項の一部だけを適用した）| §8 を外して §3 だけ適用した素材も Work になる。§16.2 の *"the terms apply in full"* と食い違う |
+| R2 | *the material*（適用した部分だけが Work）| 意図された読み。ただしこの読みなら 5 語は要らない —— 「適用した素材」は適用した部分しか指さない |
+| R3 | *applied*（一部でも適用すれば、素材全体が Work）| **文の並びに最も近い読み。** §2.1 *"applies to the Work as a whole and to every separable part of it"* と組むと、一部に適用した素材の全体に Dedication が及ぶ。§15.1 はこれを選ぶ |
+
+**害の筋（R3）**: リポジトリの `docs/` だけに ACD を適用し、`src/` を別の条件で出した Dedicator に対し、受領者は「素材はリポジトリで、Dedicator はそれに一部適用した。§1.3 によりリポジトリが Work、§2.1 により全体に及ぶ、§15.1 により広い読みが勝つ」と主張できる。§3.1 の放棄は取り消せない（§2.2）。
+§2.6 の *"that material is included in the Work"* と *"what this Dedication does not cover"* は、Work が覆われない素材を含みうることを前提にしていて、R3 を支える材料になる。
+
+**§1.3 と §2.1 の食い違い**: R3 なら §1.3 は部分適用を認め、§2.1 は全体に及ぶと述べる。**これは Fontana 氏の問い（`against.md` #134）が当たる場所である** —— ドシエの答えは「Work は適用という行為で定まる」だが、定義のこの 5 語が適用の範囲をぼかしている。
+
+**由来**: 1.0 起草時から在り（`84f80fcd`）、errata を閉じるために足された語ではない。§2.1 も 1.0 から同じ。**1.4 で §16.2 が *"a work to which a Dedicator has applied this Dedication"* と同じ行為をこの 5 語なしで述べるようになり、対比も立った。**
+B-02（`ACD-1.4-ADVERSARIAL-TRIAGE.md`）は同じ語に当たっているが、問いは集合物と素材の権利の別で、この読みではない。
+
+**5 語が担っていたものの行き先**:
+
+| 機能 | 外したあと |
+|---|---|
+| 分離できる部分を使う受領者 | §2.1 *"every separable part"* |
+| 複数の Dedicator がいる Work で、各人が一部にだけ権利を持つ | §1.4 *"to the extent"*・*"severally"*、§2.6 *"as to that Contribution"* |
+| 第三者の素材が混ざった Work | §2.7・§2.6 |
+| 特許の許諾が Dedicator の提供分に限られる | §8.1 *"as made available by the Dedicator"* |
+
+**外向きの文書**: `ACD-1.0.submission-osd.md` の Mulan の節が 1.0 §1.2 を逐語で引く（*audiovisual material* の指摘のため）。1.0 の引用なので偽にならないが、出す版を 1.4 へ切り替える日に揃える。`submission.md` の同じ話題は *audiovisual* の語だけを引くので当たらない。
+
+**逆側**: (i) 1.0〜1.3 にも R3 は在るので、T1 は 1.4 を出す理由を 1 つ増やすと同時に、既存の版の読みの弱さを 1 つ記録する（errata の候補）。
+(ii) R3 を退ける材料は 1.3 にも在る（§1.3（1.0 では §1.2）の *"to which the Dedicator has applied"* そのもの・§16.1 の notice の範囲）ので、害は確実ではなく、§15.1 の射程を法廷がどう扱うかは分からない（B1）。
+(iii) 部分適用が可能であることを本文が明言しなくなる。ただし R2 が意図なら、明言していたのは 5 語ではなく *"to which"* である。
+
+### 9.2 T2: §12.2 に *"directly or indirectly"* を足す（+3 語）
+
+**Before**: *"… against You or against any person who receives the Work from You."*
+**After**: *"… against You or against any person who receives the Work from You, directly or indirectly."*
+
+§4.6 と §5.3 は同じ受領者を *"anyone who receives the Work from You, directly or indirectly"* と書き、§12.2 だけが語を持たない。1.0 から在る差である。§5.3 / §12.4 の差を E17 が閉じたときも、この語は見ていない。
+**読み**: 直接の受領者だけが covenant の受益者で、再頒布の先は外れる。
+**退ける材料**: 再頒布した者は許諾を行使しているので You である（§1.6）。次の受領者は「You から受け取った者」になるので、再帰で届く。§15.1 も広い読みを取る。
+**それでも足す理由**: 人格権は法域によって不行使の合意が狭く読まれやすい場所で、§15.6 が解釈規則を退けても、その効力は分からない（問 3）。§15.1 の支えが最も弱い条に、§5.3 との対比を残さない。
+
+### 9.3 T3: §16.3 を *"hold or may hold rights"* へ（+3 語）
+
+**Before**: *"… to any work in which they hold rights, without permission from …"*
+**After**: *"… to any work in which they hold or may hold rights, without permission from …"*
+
+§1.4 は Dedicator を *"holds or may hold"* で定め、§9.2 は権利の存否を述べない。§16.3 は E2 で *"in which they hold rights"* になった。
+**読み**: 適用する者は、自分が権利を持つことを先に確かめなければならない。AI が生成したコードを持つ者は、権利が在るか分からないので適用できないと読む。**§9.3 は You に判定を求めないが、適用する側には §16.3 が判定を求めている形になる。** gap の 3 つ目（機械生成物）の採用者そのものである。
+**E2 との関係**: E2 の害は「他人の著作物に notice を付ける誘い」で、*may hold* はそれを少し緩める。ただし他人の著作物について「持つかもしれない」とは普通言えず、§2.7 と §1.4 の *"to the extent"* が効果を止める。
+**依拠**: `submission-osd.md`・`submission.md`・`review-labels.md`・`1.2-CHANGELIST` の T5 が *"in which they hold rights"* を引く。いずれも「提出者専用ではない」「他人の表示は適用ではない」の根拠で、語が増えても答えは変わらないが、切り替えの日に引用を揃える。
+
+### 9.4 見て残したもの
+
+| 候補 | 判断 | 理由 |
+|---|---|---|
+| §6.4 *"You owe nothing"* に範囲が無い（第三者に対しても何も負わないと読める）| 残す | 文の前半が Dedicator の権利に範囲を切っている。外向きの文書が 4 件以上この語を「出力に条件が無い」の根拠に引く（`submission-reference.md` ほか）。消す案は不成立、*(Section 2.7)* を足す案は引用を壊す割に得が小さい |
+| *"here"* の指す先（条か本文全体か・12 用例）| 残す | §1・§2・§5・§9・§10 は許諾を持たないので本文全体としか読めない。§4 の 3 用例だけ狭い読みが立つが、§1.6 / §2.4 / §15.1 が受ける。§15.5 に規則を足す案は +8 語で差が無い |
+| §12.3 *"the purpose stated in Section 6"*（§6.1 の *any purpose* か §6.5 か）| 残す | §8.4 のように *6.5* へ絞ると語数は変わらないが、§8.4 が指す目的（機械が判定できること）と §12.3 の目的（学ばれること）は同じではない。目的の文が covenant の有効性を助けるか狭めるかは問 3 (c) の領分で、語を動かす根拠が無い |
+| §12.6（§15.2 と §2.4 の案内・21 語）| 残す | 無効になる可能性が最も高い条の直後に帰結を置く働きで、F1 を残した理由（1 条だけ読む読者）と同じ |
+| §5.3 *"in their favour"* の先行詞 | 残す | 直前の複数名詞で解け、外すと文全体が §2.4 の重複になる（§4.6 の記録が依拠する）|
+| 差分 29 件の残り（§10.5 *"Your use of the Work"* / §11.3 *"You"*、§6.1 / §7.2 の *patent claims*、§1.2 *transfer* / §12.2 *waiver*、§12.1 / §14.1 の法の語 ほか）| 意図した差 | §16 は文書の条件であり使用の条件ではない、§7 は特許を語らない、など差に理由が在る |
+
+**手順**: before は main の草案と同一。Before/After の組は bb の反例と 5a の比較のあと、成立したものだけ草案へ入れる。
