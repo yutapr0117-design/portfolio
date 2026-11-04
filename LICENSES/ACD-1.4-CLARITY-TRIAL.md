@@ -790,24 +790,31 @@ B-02（`ACD-1.4-ADVERSARIAL-TRIAGE.md`）は同じ語に当たっているが、
 | K5 K3 で、Work はコーパスのごく一部（E15 の場面）| ✗ | ✗ | ✗ | ✓ |
 | K6 Work を一切使わないモデル | ✗ | ✗ | ✗ | ✗ |
 
-**記録が求めるもの**:
+**記録で決まる場面**:
 - E6 は §8.4 を出力へ及ぼす理由を「生成されたコードを頒布した者が請求項を実施しうる」とする（K1 は ✓）。
-- §8.4 末文は *"no threshold of how much of the Work was used"* と述べる（K2 は ✓ —— Rb は巨大なコーパスで 1 つの Work を除いても何も変わらないので、量の閾値を裏口から入れる）。
 - E15 のコミットは「本著作物と無関係に侵害される請求項まで許諾される読み」を閉じたと述べる（K3・K5 は ✗）。
 - 1.1 の CHANGELIST は「使わずに生じたものには及ばない」と述べる（K6 は ✗）。
 
-**4 つを同時に満たすのは Rb′ だけである。** 字面は Ra で、K1 が外れる（どの請求項も、Work を使わずに作った出力で侵害されうるので、§8.4 の許諾はほぼ空になる）。§15.1 は Rc を選び、K3・K5 が入る（E15 の濫用が戻る）。
+**これで Ra と Rc が落ちる。** 字面の Ra は K1 が外れる（どの請求項も、Work を使わずに作った出力で侵害されうるので、§8.4 の許諾はほぼ空になる）。§15.1 が選ぶ Rc は K3・K5 が入る（E15 の濫用が戻る）。
 
-**ドシエも割れている**: `gap-measurements.md` §1.133 の場面は K3 を ✓（Rc）とし、`submission-reference.md` と `review-responses-clauses.md` の英文は K4 を ✓（Rc）とし、EXTERNAL の G1 は「`necessarily infringed` とほぼ同じ形」（Rb に近い）と述べる。**どれも 1.1 以降の本文に裏づけられていない。** §8.4 は gap の柱なので、§15.1 に解かせない。
+**Rb と Rb′ の差は K2 だけで、これは記録では決まらない設計判断である。** `review-responses-clauses.md` の 6 場面の答えは *"The use of the Work is not a necessary condition of the infringement. Not covered under 1.1"* と述べ、Rb を取っている。同じ答えが *"The Work's use supplies one element of a claim. Covered"* とも述べるので、寄与の形も既に在る。
+**25 は Rb′ を採る。理由は 3 つで、どれも目的からの判断である**:
+(a) D が方法 A を教える Work を献呈し、R がそれも使って学習し、D が「他の素材からも学べたから許諾は無い」と言えるなら、§8.3 が退ける結果がそのまま残る。
+(b) Rb では R が「その Work が無ければ生じなかった」を示す必要があり、巨大なコーパスでは 1 つの Work についてそれを示せない。許諾は在っても使えず、§6.5 の *"no permission at all"* に近づく。Rb′ で示すのは Work を使ったことと、Work がその特徴を教えることである。
+(c) 末文の *"not of quantity"* と After の「全部または一部」が同じことを述べる。
+**逆側**: Rb のほうが狭く、B7 の費用が小さい。Rb でも量は問わない（少量でも唯一の源なら及ぶ）ので、Rb が末文と食い違うわけではない。
+
+**ドシエも割れている**: `gap-measurements.md` §1.133 の場面は K3 を ✓（Rc）とし、`submission-reference.md` と `review-responses-clauses.md` の別の答えは K4 を ✓（Rc）とし、同じ file の 6 場面の答えと EXTERNAL の G1 は Rb に近い。**同じ条について、ドシエが 3 通りの射程を述べている。** §8.4 は gap の柱なので、§15.1 に解かせない。
 
 **由来と語の選び方**: §8.1 は既に *"where the infringement is caused by subject matter contained in the Work"* と侵害の単位で書く。§8.4 だけが請求項の単位で書いていた（並行起草の差分）。*"the feature"* は Rc を閉じるための語で、モデル全体が使用から生じたことでは足りず、侵害する特徴が使用から生じていることを求める。
 
 **試作で退けた案**:
-- 25 の初案 *"it does not reach an infringement that would remain if the Work were left out"* は Rb で、K2 が外れる。
+- 25 の初案 *"it does not reach an infringement that would remain if the Work were left out"* は Rb の形で、上の理由で K2 を外す。
+- 5a の初案 *"reaches a claim only so far as its infringement depends upon the use of the Work; it gives no licence in respect of a model … produced without any use of the Work"* は Ra を閉じる。ただし *depends upon* が残るので、Rb と Rc のどちらかは本文から決まらず、§15.1 が Rc を選ぶ。
 - bb の初案 *"… as to a model … produced without any use of the Work"* は Rc で、K3・K5 が入る。判定可能性（§6.5）では最も強いが、Work を 1 つ混ぜるだけで Dedicator の特許が丸ごと許諾される。#16・#107 の費用が最大になり、特許の射程を作品と無関係に広げる形は B15 と別の批判（ソフトウェアの自由に要らない拡張）にも開く。
 
 **逆側**:
 (i) Rc を取れる 1.3 の受領者より、1.4 の受領者の位置は狭い。法的効果が変わるので新版の変更であり、1.1〜1.3 は凍結のまま `ACD-1.1-SELF-AUDIT.md` に記録する（文が 1.0 に無いので errata ではない）。
 (ii) 「学習の手法の請求項に届く」という外向きの文は取り下げる。gap は「3 つ同時」で立つので結論は残るが、請求項の範囲で CERN-OHL-P に勝つとは言えない。
 (iii) 特徴が使用から生じたかは事実の問いで、You がいつも判定できるわけではない。末文の *"You could not determine whether one had been crossed"* は同じ批判を受けうる。閾値は使用の量を測る第 2 の判定で、寄与はそれを要しない、というのが差で、問 2 (b) の領分である。
-(iv) *feature* は定義語でない。特許の請求項は要素の組で、1 要素だけが使用から生じる場合は *"in part"* が受ける。
+(iv) *feature* は定義語でない。特許の請求項は要素の組で、1 要素だけが使用から生じる場合は「一部」が受ける。§8.6 の *"the patent claims described in Sections 8.1 and 8.4"* も、限定つきの請求項を指すと読む必要がある（5a）。
