@@ -21,8 +21,8 @@ canonical-ref: LICENSES/ACD-1.0.gap-measurements.md §1.97 (条件の有無を�
 
 ## 方法
 
-- **取得**: 2026-09-25T03:51:32Z（UTC）。SPDX `license-list-data` 既定ブランチの `json/licenses.json`
-  （licenseListVersion **3.29.0**・releaseDate 2026-09-16）から
+- **取得**: 2026-11-04T00:06:37Z（UTC）。SPDX `license-list-data` 既定ブランチの `json/licenses.json`
+  （licenseListVersion **8791eda**・releaseDate 2026-10-28）から
   `isOsiApproved` かつ非 deprecated の識別子を列挙し、各 `text/<id>.txt` を取得した。
 - **取得できた本数: 141 / 141**・**できなかった本数: 0**。
   deprecated の承認済み識別子 13 件（`GPL-2.0` など、`-only`/`-or-later` へ移行済みの旧名）は除外した。
@@ -309,7 +309,7 @@ gap は**許諾の不在**ではなく**明示の不在**であり、4 条の文
 ## 拾う側へ（このファイルから再利用できるもの）
 
 - **提出文・入口ページで gap を述べるとき**の、全数で下支えされた 1 文:
-  > *Of the 141 OSI-approved, non-deprecated licenses (SPDX list 3.29.0), none names text and data mining, machine learning, trained models, or model parameters; the three that impose no conditions (0BSD, MIT-0, Unlicense) do not use the word "patent".*
+  > *Of the 141 OSI-approved, non-deprecated licenses (SPDX list 8791eda), none names text and data mining, machine learning, trained models, or model parameters; the three that impose no conditions (0BSD, MIT-0, Unlicense) do not use the word "patent".*
   **この文と対で必ず置く逆側**: *Permissive licenses with an express patent grant already exist (BSD-2-Clause-Patent, BlueOak-1.0.0, UPL-1.0); the gap is the conjunction, not either half.*
 - **「出力の扱いは新しくない」を先に認める**（GPL-3.0 §2 / Artistic-1.0 §6）——審査者が引く前に引く。
 - **CERN-OHL の Products 条項**は (c) の最も近い先例。**提出参考資料 `submission-reference.md` §2 と入口 `REVIEWERS.md` へは 2026-09-25 に還元済み**（「承認済みライセンスでモデルに届く特許許諾は無い」とは書かず、「モデルを名指しするものは無い」に狭めた）。`against.md` / `comparison.md` への登録は各所有者の判断に委ねる。
