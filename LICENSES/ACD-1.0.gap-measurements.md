@@ -344,6 +344,16 @@ D は、M のアーキテクチャについての請求項 C を持つ。C は R
 | UPL-1.0 | M は lrgrwrks.txt に列挙されていない。(2) は条件の違反 |
 | Apache-2.0 | C は寄与が必然的に侵害する請求項ではない。(3) は Work の侵害を主張する訴訟なら終了（*"alleging that the Work … constitutes direct or contributory patent infringement"*）|
 
+### 再現（審査者が自分で確かめる手順）
+
+```
+python3 .github/scripts/generate_gap_census.py --fetch   # SPDX の原文を取得（取得日時と licenseListVersion を記録）
+python3 .github/scripts/generate_gap_census.py --check   # census が取得物から再生成したものと一致するか
+python3 .github/scripts/measure_patent_reach.py          # S2 / S3 の各本から条件と終了の文を逐語で出し、両立する本を数える
+```
+
+2026-11-04 の実行結果: S2 / S3 は 7 本、7 本すべてに条件の文、UPL-1.0 以外の 6 本に終了の文があり、**「作品を超える特許許諾 ∧ 条件が見つからない」は 0 本**（5a・`measure_patent_reach.py`）。**道具は S1 / S2 / S3 の分類そのものは検証しない**（上の「確立しないこと 2」と同じ限界）。
+
 ### 敵対仮説 —— 既存ライセンスでも実現できるか
 
 bb が 6 本を立てて原文で反証した（H1-a BlueOak / H1-b CERN-OHL-P / H1-c UPL / H1-d Apache・BSD-2-Clause-Patent / H1-e 黙示の許諾 / H1-f 承認済みライセンス + 別の特許の誓約 —— 表は EXTERNAL B10）。
@@ -357,7 +367,7 @@ bb が 6 本を立てて原文で反証した（H1-a BlueOak / H1-b CERN-OHL-P /
 
 1. **この効果が裁判所で実現するか**は別問題である —— 一方的な文書による無条件の特許許諾の有効性は法域ごとに違い、法的レビューは受けていない（register B1）。
    **立証したのは「本文が与えると述べる効果を、既存のどのライセンスの本文も与えない」ことまで**。
-2. **P1 の 58 本は census の S1 判定に依拠している**（1 本ずつ sha256 つきで記録され、誰でも当て直せる）。この節で逐語に当てたのは P2・P3 の 7 本と Apache-2.0 だけ。
+2. **P1 の 58 本は census の S1 判定に依拠している**（1 本ずつ sha256 つきで記録され、誰でも当て直せる。census は 2026-11-04 に**この節と同じ取得**（8791eda）から生成し直され、141 本の判定は 9 月の 3.29.0 版と 1 件も変わらない）。この節で逐語に当てたのは P2・P3 の 7 本と Apache-2.0 だけ。
 3. **残余の広い読みが 2 つある**（bb）: BlueOak の *"with this software"* を「ソフトウェアを用いて作ったものについても」と読む余地、CERN-OHL の *"exercising rights under the Covered Source"* に「Products を使う権利の行使」が含まれるかの読み。
    どちらの読みを取っても、**条件と終了は残る**ので、3 つ同時の主張は崩れない。崩れるのは「範囲だけで比べたときの差」である。
 4. **gap を示すことは、必要を示すことではない** —— Kuhn 氏の vanity の判定は *"widespread need"* と *"wholly unserved"* の連言で（#255）、この節が示すのは後者の 1 件だけである。
