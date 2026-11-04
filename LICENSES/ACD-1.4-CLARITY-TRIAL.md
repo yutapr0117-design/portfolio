@@ -577,3 +577,37 @@ Mulan の不承認の理由書は、そのライセンス自身の定義文 *"Th
 その 1 語にも当てて通過した —— §15.5 が *including* を例示と定めるので限定せず、*"may consist"* が可能性を述べる形なので「機械生成物は必ずコードを含む」と読む余地も無い。
 
 **→ 状態: B15 の「1.4 が自分で足した信号」は解消した。B15 の実質（定義が software-specific でない・*audiovisual* を含む）は 1.0 から変わらず、判断は OSI に残る。**
+
+## 8. F3（理由の文）の残り —— §6.5 第 2 文の前半・§11.3 の *because*・§8.4 の *necessary because*（2026-11-04・25）
+
+**きっかけ**: オーナーの依頼「次があるなら 3 人で進めてほしい」（2026-11-04・指示ではない）。§3 の F3 の 9 件のうち、§2.8 / §12.4（§4.6）と §11.4（§4.7）は採用済み、
+§8.2 第 2 文（`against.md` #265 (b) で入れた構造の理由）と §10.4（§4.4）は検討して残し、§8.3 は bb の反例（CE8）で不成立だった。残る 3 件をここで扱う。
+
+### 8.1 試作 h（T1 + T3・−19 語）
+
+| 案 | 条 | Before | After | 語 |
+|---|---|---|---|---|
+| T1 | §6.5 第 2 文 | *"It is stated expressly because silence on this subject has proved ambiguous in practice, and because a permission that an automated system cannot determine is, for the purposes of a work meant to be learned from, no permission at all."* | *"It is stated expressly because a permission that an automated system cannot determine is, for the purposes of a work meant to be learned from, no permission at all."* | −11 |
+| T3 | §11.3 第 2 文 | *"… is outside what this Dedication reaches, because it was never the Dedicator's to permit."* | *"… is outside what this Dedication reaches."* | −8 |
+
+**T1 の理由**: 外す前半は §2.8 の理由の文（§4.6 で外した）と同じ型で、**沈黙が曖昧さを生むことを本文自身が認める**文である。本文が沈黙している別の事柄（準拠法など）に、本文の言葉で向けられうる。
+**後半は残す** —— 本文の中で 3 か所から引かれているからである: §2.6 *"Section 6.5 states why it matters"*（Dedicator の識別の約束）、§8.4 *"the purpose stated in Section 6.5"*、§8.4 末文 *"You could not determine whether one had been crossed (Section 6.5)"*（閾値を置かない理由）。
+3 か所とも、指しているのは後半（機械が判定できること）であり、前半（沈黙の曖昧さ）を指す参照は無い。
+
+**T3 の理由**: *because* は「Dedicator が許せる場合には範囲内だ」という反対解釈の材料になる。結論 *"is outside what this Dedication reaches"* は理由なしで立ち、
+§12.5（§12.2 の約束は §11.3 に当たる行為に及ばない）も §11.3 の結論だけを引いている。`ACD-1.4-CHANGELIST.md` の「本文が自分で述べる理由を 1 つずつ当てる」行（11-02）は、この理由を「真」と判定している —— **真であることと、置いておく必要があることは別**である。
+
+**条ごとの効果（25 の見立て・bb の反例待ち）**:
+
+| 観点 | T1（§6.5）| T3（§11.3）|
+|---|---|---|
+| 許諾の範囲・主体・条件・除外・法域 | 変わらない（§6.5 は §6 の許可を足しも引きもしない・第 1 文が残る）| 変わらない（結論の文が残る）|
+| 他の条からの参照 | §2.6 / §8.4 ×2 の参照先（後半）は残る | §12.5 の参照先（結論）は残る |
+| 消える読みの分岐 | 「沈黙は曖昧だと本文が認めた」を他の沈黙へ向ける読み | 「Dedicator が許せるなら範囲内」という読み |
+| 失うもの | §6 を明示した理由のうち、実務の経緯（学習の扱いが既存ライセンスの沈黙で争われてきたこと）| 範囲の外である理由の説明 |
+
+### 8.2 T2 —— §8.4 の *"The grant is necessary because …"*（約 50 語）は、外す前に依拠先を洗う
+
+*"The grant is necessary because Covered Rights exclude patent rights (Section 1.5), so Section 6.4 alone would leave Computational Use permitted as to the Covered Rights while exposed as to patents, which is the very result Section 8.3 rejects and one that would defeat the purpose stated in Section 6.5."*
+bb の F3 表の注どおり、これは審査者に §8.4 の射程を説明する文で（`against.md` #16 の費用の議論）、B10 の立証（`ACD-1.0.gap-measurements.md` §1.133）の読み手が最初に必要とする説明でもある。
+**外したときの反対解釈は弱い**（「必要が無い場面では §8.4 は狭い」）が、**説明を失う費用は大きい**。bb が引用先と依拠している主張を洗ってから、残す / 外すを決める。
