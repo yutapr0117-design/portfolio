@@ -598,3 +598,25 @@ def run(ctx):
          "`_SPDX476` にその版と値を足せ"),
         blocking=True,
     )
+    # 476b —— B10 の立証 (gap-measurements.md §1.133) の分割の内訳が、census の表から導いた数と一致する (2026-11-04)。
+    #   §1.133 は 141 本を「P0 明示の特許許諾なし / P1 S1 / P2 S2 / P3 S3」に分け、各組が「範囲・無条件・終了なし」の
+    #   どれを欠くかで立証する。数は census の表から導かれる派生値なので、census を生成し直して分類が動けば、
+    #   立証の数字だけが黙って古くなる (476 が本数を実測の版に縛るのと同じ理由の、内訳版)。
+    _gm476b = (ROOT / "LICENSES" / "ACD-1.0.gap-measurements.md")
+    _cs476b = (ROOT / "LICENSES" / "ACD-1.0.gap-census.md")
+    if _gm476b.exists() and _cs476b.exists():
+        _rows476b = [_l.split("|") for _l in _cs476b.read_text(encoding="utf-8").split("\n") if _l.startswith("| `")]
+        _sc476b = [(_r[5].strip() if len(_r) > 5 else "") for _r in _rows476b]
+        _want476b = {"P0": len(_rows476b) - sum(_x in ("S1", "S2", "S3") for _x in _sc476b),
+                     "P1": _sc476b.count("S1"), "P2": _sc476b.count("S2"), "P3": _sc476b.count("S3")}
+        _gt476b = _gm476b.read_text(encoding="utf-8")
+        _sec476b = _gt476b[_gt476b.find("## 1.133"):]
+        _got476b = {m.group(1): int(m.group(2)) for m in re.finditer(r"^\| (P[0-3]) [^|]*\| (\d+) \|", _sec476b, re.M)}
+        check(
+            _got476b == _want476b,
+            f"Check 476b: §1.133 の分割の内訳 {_got476b} が census の表と一致",
+            (f"Check 476b: §1.133 の分割の内訳 {_got476b} が census の表から導いた {_want476b} と一致しない "
+             "(census を生成し直して分類が動いたか、§1.133 の表を手で書き換えた)。立証の根拠の数なので、"
+             "census の分類を確かめてから §1.133 を合わせよ"),
+            blocking=True,
+        )
