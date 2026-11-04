@@ -13,7 +13,7 @@
 `measure_list_verbosity.py` / `measure_clause_clarity.py` と同じ位置づけ。
 
 使い方:
-    python3 .github/scripts/measure_citation_drift.py            # 1.0 → 1.2
+    python3 .github/scripts/measure_citation_drift.py            # 1.0 → 現行草案
     python3 .github/scripts/measure_citation_drift.py 1.0 1.1    # 版を指定
 """
 from __future__ import annotations
@@ -24,9 +24,11 @@ import pathlib
 import re
 import sys
 
+from measure_quote_drift import FACES, _current_draft_version
+
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-FACES = ["ACD-1.0.submission.md", "ACD-1.0.submission-reference.md",
-         "REVIEWERS.md", "ACD-1.0.objection-map.md"]
+# 走査先と既定の版は導出する (measure_quote_drift.py と同じ外向きの定義)。4 面の決め打ちと既定「1.0 → 1.2」の
+# 間は、想定問答と申請日の 1 枚が引く条を見ず、引数なしだと 2 版前の草案と比べていた (2026-11-04)。
 
 
 def _path(ver: str) -> pathlib.Path:
@@ -54,14 +56,11 @@ def defined_term(body: str) -> str | None:
 
 
 def main() -> int:
-    a_ver, b_ver = (sys.argv[1], sys.argv[2]) if len(sys.argv) > 2 else ("1.0", "1.2")
+    a_ver, b_ver = (sys.argv[1], sys.argv[2]) if len(sys.argv) > 2 else ("1.0", _current_draft_version())
     a, b = clauses(a_ver), clauses(b_ver)
     cited: dict[str, set[str]] = collections.defaultdict(set)
     for f in FACES:
-        p = ROOT / "LICENSES" / f
-        if not p.exists():
-            continue
-        t = p.read_text(encoding="utf-8")
+        t = (ROOT / "LICENSES" / f).read_text(encoding="utf-8")
         for m in re.finditer(r"§\s?(\d{1,2}\.\d{1,2})|Sections?\s+(\d{1,2}\.\d{1,2})", t):
             n = m.group(1) or m.group(2)
             if n in a:
@@ -80,7 +79,7 @@ def main() -> int:
     remap = {n: terms_b.get(defined_term(a[n]))
              for n in a if n.startswith("1.") and defined_term(a[n])}
 
-    print(f"提出側 {len(FACES)} 面が引く ACD-{a_ver} の条: {len(cited)} 件")
+    print(f"外向きの {len(FACES)} 文書が引く ACD-{a_ver} の条: {len(cited)} 件")
     print(f"  🔴 ACD-{b_ver} に存在しない        : {gone or '無し'}   (Check 472 が BLOCKING で捕捉)")
     print(f"  🟡 番号は在るが本文が変わっている : {len(changed)} 件")
     for n, r in sorted(changed, key=lambda x: x[1]):

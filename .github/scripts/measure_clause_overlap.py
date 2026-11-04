@@ -213,7 +213,7 @@ _REASON_REF = (r"(?:§|Section )({n})(?!\d)(?:'s own text| gives| explains| stat
 # against.md はファイル単位で外向き: 入口が審査者に読ませる全ラウンド通しの一覧で、版を付けない現在形の行
 # (#133 "ours is stated in the licence itself") は出す版が変わると偽になる。行単位に分けないのは、日付の有無で
 # 近似すると日付を含む #133 を落とすから —— 余分に拾う誤りは 1 行読めば済むが、見落としは偽の主張を提出する。
-_OUTWARD = re.compile(r"(submission[^/]*|review-responses[^/]*|clause-reference|faq|comparison|against|REVIEWERS|"
+_OUTWARD = re.compile(r"(submission[^/]*|review-responses[^/]*|clause-reference|faq|comparison|against|objection-map|REVIEWERS|"
                       r"SUBMISSION-MATERIALS|READY-TO-SUBMIT|README)\.md$")
 
 
