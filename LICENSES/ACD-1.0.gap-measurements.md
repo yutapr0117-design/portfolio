@@ -31,7 +31,7 @@ machine learning が **0 件**）。**その caveat は我々自身が同じ節�
 | :-- | :-- | :-- |
 | **MIT / MIT-0** | *"to deal in the **Software** without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell"* | **広いが、権利の種類を名指ししない。** 非著作権の権利に及ぶかは**解釈**である |
 | **0BSD** | *"Permission to **use, copy, modify, and/or distribute** this software for any purpose"* | **著作権の動詞を列挙している。** *extraction* / *re-utilisation* は無い |
-| **Unlicense** | *"dedicate any and all **copyright interest**"* ＋ fallback で *"to use, copy, modify, publish, distribute"* | **自ら「copyright interest」と限定している** |
+| **Unlicense** | *"dedicate any and all **copyright interest**"* ＋ 許可の文 *"Anyone is free to copy, modify, publish, use, compile, sell, or distribute this software"*（2026-11-04 訂正: 旧版は語順を変え compile / sell を落とした形で逐語の記法に入れていた・5a の照合） | **自ら「copyright interest」と限定している** |
 | **Apache-2.0 §2** | *"**copyright license** to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work"* | **明示的に copyright license である** |
 | **Apache-2.0 §3** | *"patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer **the Work**"*、かつ *"necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with **the Work**"* | **Work に限定。** 訓練で生じたモデル・出力には届かない |
 | **CAL-1.0 §3.1(a)** | *"Take any action with the Work that would infringe the **non-patent intellectual property laws of any jurisdiction**"* | **非特許 IP 全般に及ぶ** ——**database 権にも届く。ただし §3.1 は「§4 の遵守を条件とする」** |
