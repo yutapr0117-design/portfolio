@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/measure_quote_drift.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-11-01
+last-updated: 2026-11-04
 canonical-ref: LICENSES/ACD-1.1-CHANGELIST.md (§0.13 確定手順) / .github/scripts/measure_citation_drift.py (条番号の意味の drift を測る姉妹の道具)
 ---
 
@@ -28,9 +28,7 @@ python3 .github/scripts/measure_quote_drift.py            # 1.0 → 現行草案
 python3 .github/scripts/measure_quote_drift.py 1.0 1.4    # 版を指定
 ```
 
-引用の取り方は**行単位と段落単位の和集合**。行単位だと折り返した引用を落とし、段落単位だと途中の 1 個の
-`"` で対応がずれて別の引用を落とす（初回実測: 前者は §6.4 の 1 件、後者は §4.4 の 2 件だけを見つけた）。
-どの断片も旧版の本文に逐語で在ることを要求するので、取り過ぎても誤検出にはなりにくい。
+引用の取り方は、**段落の中で隣り合う引用符の組をすべて取る**形。開閉を判定しない。以前は行単位と段落単位（40 字以上）の和集合だったが、同じ段落の短い引用（`"10.5 and 16.5"`）の閉じ引用符を開始と取り違えて対応が 1 つずれ、`submission-osd.md` の §4.3 の逐語を落としていた。本文の語が変わっているのに 1.3 → 1.4 が 0 件と報告し、2026-11-04 に `measure_clause_overlap.py --compare` の 5 語照合と食い違って判明した。隣り合う組をすべて取ると引用の外側の文も断片になるが、「旧版の本文に逐語で在る」ことを要求するので誤検出にはなりにくい。
 
 ## Constraints
 

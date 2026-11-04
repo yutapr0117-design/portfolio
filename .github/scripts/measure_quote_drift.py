@@ -56,28 +56,24 @@ def body(ver: str) -> str:
 
 
 def fragments(text: str):
-    """(行番号, 断片) を返す。`*"…"*` と `"…"` の中身を省略記号で割った各断片。
+    """(行番号, 断片) を返す。段落の中で**隣り合う引用符の組をすべて**取り、中身を省略記号で割る。
 
-    **2 通りの取り方の和集合をとる (2026-11-01 実測)**: 行単位だと折り返した引用を丸ごと落とし、
-    段落単位だと途中の 1 個の `"` で対応がずれて別の引用を落とす —— 1.0 → 1.4 で、行単位は §6.4 の
-    1 件、段落単位は §4.4 の 2 件だけを見つけ、どちらも相手の分を見落とした。どの断片も「旧版の本文に
+    開閉を判定しない理由 (2026-11-04): 40 字以上の引用だけを正規表現で探すと、同じ段落の短い引用
+    (`"10.5 and 16.5"`) の閉じ引用符を開始と取り違え、以降の対応が 1 つずれて次の引用を飲み込む。
+    `submission-osd.md` の §4.3 の逐語はこれで落ち、本文の語が変わっているのに 1.3 → 1.4 が 0 件だった。
+    隣り合う組をすべて取れば開閉の奇偶に依らない。引用の外側の文も断片になるが、どの断片も「旧版の本文に
     逐語で在る」ことを要求するので、取り過ぎても誤検出にはなりにくい。
     """
     seen = set()
-    for n, line in enumerate(text.split("\n"), 1):
-        for m in re.finditer(r'"([^"\n]{%d,})"' % MIN_LEN, line):
-            for frag in re.split(r"\s*(?:…|\.\.\.)\s*", m.group(1)):
-                frag = norm(frag).strip(" .,;:")
+    for para in re.finditer(r"(?:[^\n]+\n?)+", text):
+        marks = [m.start() for m in re.finditer('"', para.group(0))]
+        for a, b in zip(marks, marks[1:]):
+            n = text.count("\n", 0, para.start() + a) + 1
+            for frag in re.split(r"\s*(?:…|\.\.\.)\s*", para.group(0)[a + 1:b]):
+                frag = norm(re.sub(r"\n\s*>?\s*", " ", frag)).strip(" .,;:")
                 if len(frag) >= MIN_LEN and frag not in seen:
                     seen.add(frag)
                     yield n, frag
-    for m in re.finditer(r'"((?:[^"\n]|\n(?!\s*\n)){%d,}?)"' % MIN_LEN, text):
-        n = text.count("\n", 0, m.start()) + 1
-        for frag in re.split(r"\s*(?:…|\.\.\.)\s*", m.group(1)):
-            frag = norm(re.sub(r"\n\s*>?\s*", " ", frag)).strip(" .,;:")
-            if len(frag) >= MIN_LEN and frag not in seen:
-                seen.add(frag)
-                yield n, frag
 
 
 def main() -> int:
