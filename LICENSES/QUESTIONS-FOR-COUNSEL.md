@@ -68,8 +68,10 @@ in future"* infringed by making, using, selling or importing the Work or a deriv
 infringement is caused by subject matter contained in the Work as made available"*. §8.4 licenses
 claims infringed by Computational Use or by making or using *"any model, parameter set, weight,
 embedding, or output resulting from that use"*, limited to claims *"whose infringement depends upon
-the use of the Work"* — *"a question of causation and not of quantity"*. §8.2 makes both
-unconditional and non-terminable; §8.6 adds a covenant not to assert. In ACD-1.3 the covenant
+the use of the Work"* — *"a question of causation and not of quantity"*. The 1.4 draft replaces
+that limit (2026-11-04): a claim is reached only where *"the feature that infringes it results, in
+whole or in part, from the use of the Work"*, and *"a feature that the Work teaches or embodies is
+taken so to result"*. §8.2 makes both unconditional and non-terminable; §8.6 adds a covenant not to assert. In ACD-1.3 the covenant
 arises where a licence is held ineffective; the 1.4 draft makes it operate alongside the licences
 in every jurisdiction (2026-11-01), because a covenant that arises only on a holding does not
 exist when the claim that produces the holding is first asserted. The 1.4 draft also ties the covenant's
@@ -88,7 +90,8 @@ equivalents. The 1.4 draft now defines it in §8.5 (a claim the Dedicator can li
 in question, without breaching an obligation to or paying another person; errata E39) — whether
 that definition is the right one is part of the question.
 (b) A causal limit with no threshold may be read as too indefinite to operate, or as reaching any
-model that has once processed the Work. (c) We have not examined how an unconditional,
+model that has once processed the Work; the 1.4 wording tests the infringing feature rather than the
+model, and a licensee must show that the feature came from the Work or that the Work teaches it. (c) We have not examined how an unconditional,
 non-terminable patent licence to the public interacts with the Dedicator's other patent licensing.
 (d) Whether the §8.6 covenant survives where the licence is held ineffective, or falls with it, and
 whether a covenant given alongside the licence (the 1.4 form) is treated differently from one that

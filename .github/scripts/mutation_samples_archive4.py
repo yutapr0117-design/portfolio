@@ -786,10 +786,10 @@ MUTATIONS_ARCHIVE4 = [
     "check": CHECK,
 },
     {
-    "name": 'Check 468o: 草案 §8.4 の動詞 "license" を名詞形 "licence" に戻す —— 1.1〜1.3 はこの形のまま凍結された。同じ語数の綴り違いは差分のレンズも語数照合も拾わない',
+    "name": 'Check 468o: 草案 §6.4 の動詞 "license" を名詞形 "licence" に変える —— 1.1〜1.3 はこの形のまま凍結された。同じ語数の綴り違いは差分のレンズも語数照合も拾わない',
     "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
-    "find": "the use of the Work; it does not license\n",
-    "replace": "the use of the Work; it does not licence\n",
+    "find": "Nothing in this Dedication requires You to license,\n",
+    "replace": "Nothing in this Dedication requires You to licence,\n",
     "check": CHECK,
 },
     {
