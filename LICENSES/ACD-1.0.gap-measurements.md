@@ -1,11 +1,11 @@
 ---
 file: LICENSES/ACD-1.0.gap-measurements.md
 audience: OSI license-review participants / licence reviewers / 監査人 / 後任 AI
-last-updated: 2026-11-01
+last-updated: 2026-11-04
 canonical-ref: LICENSES/ACD-1.0.comparison.md (切り出し元・条項比較) / LICENSES/ACD-1.0.gap-census.md (同じ 141 本への 3 gap の全数表)
 ---
 
-# gap の主張を既存ライセンスの本文に当てた測定（§1.96 / §1.97 / §1.104）
+# gap の主張を既存ライセンスの本文に当てた測定（§1.96 / §1.97 / §1.104 / §1.129 / §1.130 / §1.133）
 
 **`ACD-1.0.comparison.md` から 2026-09-25 に切り出した**（893 行で advisory 900 の手前に達したため）。
 **節番号は動かしていない**（`§1.xx` の共有採番のまま）。切り出し元には案内の節を残した。
@@ -284,3 +284,96 @@ CC0 §2 が明文で挙げる 5 要素を ACD の全文へ当てると:
 **「同じ日のうちに、少なくとも受領の確認と、分解の途中経過を返す」**なら、
 **AI が下書きを作らずとも steward だけで実行できる**（B14 の下でも、返信は steward 自身が書く）。
 **⚠ 返信を書いて送るのは steward 自身である**（B14）。**この速さの方針は AI が決めて置いておく** ——オーナーの裁可を要する項目は無い（2026-11-01 オーナー明言「3人全員に全委任してるからあなた含めた全員に全て許可する。3人全員が私に裁可を求める必要は無い」・2026-10-24「OSI通過の為の何かで私の裁可が必要なものは無いよ」）。
+
+## 1.133 既存ライセンスでは達成できない法的効果を 1 件、承認済み 141 本の原文で閉じた —— §8.4 + §8.2（2026-11-04）
+
+**依頼（オーナー経由の外部 AI・2026-11-04）**: 成功条件は「既存ライセンスでは達成できない ACD 固有の法的効果を、
+少なくとも 1 件、比較対象の原典と具体的な条文で裏付けること。立証できなければ未達と記録する」。
+**分担**: 25 = 条文の対置と分割の証明（この節）/ bb = 敵対仮説 6 本の反証と B15（`ACD-OSI-BOTTLENECKS-EXTERNAL.md` B10「2026-11-04 原典による立証」）/
+5a = SPDX 原文の取得の再現と逐語照合（census を最新の SPDX で生成し直し、141 本の判定は 1 件も変わらない）。
+
+**原典**: SPDX `license-list-data`（licenseListVersion `8791eda`・releaseDate 2026-10-28・OSI 承認かつ非 deprecated 141 本・取得失敗 0・
+取得 2026-11-04T00:06:37Z・`generate_gap_census.py --fetch`）。以下の引用は空白を正規化した逐語。
+
+### 主張（1 文）
+
+**ACD は、Work の計算的利用（学習）から生じたモデル・出力を作り・使い・売り・輸入する行為について、その利用が実際に侵害する Dedicator の特許請求項を、
+条件なしに、どの理由でも終了しない形で許諾する。承認済み 141 本のどれも、この 3 つ（範囲・無条件・終了なし）を同時に与えない。**
+
+ACD 側（1.0 の文・1.1〜1.3 も同文。1.4 草案は §8.4 の名詞形を動詞形にしただけで作用は同じ）:
+- §8.4 *"under every patent claim owned or controlled by the Dedicator, now or in future, that would be infringed by Computational Use of the Work or by the making, having made, use, offering for sale, sale, importation, or other transfer of any model, parameter set, weight, embedding, or output resulting from that use"*、
+  かつ *"The proviso in Section 8.1 as to subject matter contained in the Work is deliberately absent from this Section"*。
+- §8.2 *"are subject to no condition and are not terminable by the Dedicator on any ground, including the commencement of or participation in patent litigation by You against the Dedicator or any other person"*。
+- §10.1 *"This Dedication imposes no condition, obligation, restriction, or requirement upon You in respect of the Work."* / §10.4 *"No permission granted by this Dedication terminates for any reason."*
+
+### 分割の証明 —— 141 本を 4 つに分け、各組が 3 つのどれを欠くかを原文で示す
+
+census（`ACD-1.0.gap-census.md`）は各ライセンスの特許の扱いを「明示 / それ以外」に、明示 65 本の範囲を S1 / S2 / S3 に分けている（判定は 1 本ずつ sha256 つきで表にある）。
+
+| 組 | 本数 | 欠くもの | 原文の根拠 |
+|---|---|---|---|
+| P0 特許の明示の許諾が無い | 76 | **範囲**（明示の特許許諾そのもの）| 条件の無い 3 本（0BSD / MIT-0 / Unlicense）は *patent* の語を 1 回も使わない（census (b)）。黙示の許諾が及ぶとしてもそのソフトウェアの使用についてで、そこから生じたモデルの販売へ及ぶ根拠は条文に無い |
+| P1 範囲が作品・寄与に閉じる（S1）| 58 | **範囲** | 代表: Apache-2.0 *"necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted"*。モデルの性質や学習の手法についての請求項で、寄与が実施しないものは外れる |
+| P2 行為の限定が緩い（S2）| 3 | **範囲 + 条件（+ 終了）** | 下表 |
+| P3 作品を超える対象を名指す（S3）| 4 | **範囲 + 条件（+ 終了）** | 下表 |
+
+**P2・P3 の 7 本（逐語）**:
+
+| ライセンス | 範囲の限定 | 条件 | 終了 |
+|---|---|---|---|
+| BlueOak-1.0.0 | *"Each contributor licenses you to do everything with this software that would otherwise infringe any patent claims they can license or become able to license."* —— 行為は無限定だが**このソフトウェアで行うこと**に限る。できたモデルを後で売る行為はソフトウェアで行うことではない | *"The rules of this license are both obligations under that agreement and conditions to your license."* / Notices *"You must ensure that everyone who gets a copy of any part of this software from you, with or without changes, also gets the text of this license or a link …"* | Excuse *"If you do not do so, your license ends immediately."*（*"No contributor can revoke this license"* はあるが、受領者の不履行での終了は残る）|
+| EUPL-1.1 / EUPL-1.2 | *"to any patents held by the Licensor, to the extent necessary to make use of the rights granted on the Work under this Licence"* —— Work に与えた権利の行使に必要な範囲 | *"The grant of the rights mentioned above is subject to some restrictions and obligations imposed on the Licensee"*（Attribution right・Copyleft clause）| *"The Licence and the rights granted hereunder will terminate automatically upon any breach by the Licensee of the terms of the Licence."* |
+| CERN-OHL-P-2.0 | §6.1 *"patent license to Make, have Made, use, offer to sell, sell, import, and otherwise transfer the Covered Source and Products, where such licence applies only to those patent claims licensable by such Licensor that are necessarily infringed by exercising rights under the Covered Source as Conveyed by that Licensor"* —— Products（*"any device, component, work or physical object … arising from the use, application or processing of Covered Source"*）は**モデルを含みうる**が、請求項は「Covered Source の権利の行使で**必然的に**侵害されるもの」に限る | §4 *"You may Make Products, and/or Convey them, provided that You ensure that the recipient of the Product has access to any Notices applicable to the Product."* | §6.1 *"irrevocable (except as stated in this section 6, or where terminated by the Licensor for cause)"* / §6.2 特許訴訟または無効の確認を求めたとき *"any rights granted to You under this Licence shall terminate"* |
+| CERN-OHL-S-2.0 / CERN-OHL-W-2.0 | P と同じ §6.1 の文（*"necessarily infringed by exercising rights under the Covered Source as Conveyed"*）| 互恵（S は強・W は弱）の頒布条件 | §6.1 *"irrevocable (except as stated in subsections 7.2 and 8.4)"* / §7.2 は P の §6.2 と同文 |
+| UPL-1.0 | *"(ii) the Larger Works (as defined below) … (b) any piece of software and/or hardware listed in the lrgrwrks.txt file if one is included with the Software"* —— 作品を超えるのは**事前に列挙した** Larger Works だけで、学習でこれから生じるモデルは列挙できない | *"This license is subject to the following condition: The above copyright notice and either this complete permission notice or at a minimum a reference to the UPL must be included in all copies or substantial portions of the Software."* | （終了の定めは無い。条件は在る）|
+
+**したがって**: 範囲の面でモデルに届きうるのは CERN-OHL-P / S / W の 3 本だけで、3 本とも請求項を「必然的に侵害されるもの」に限り、条件と終了を持つ。
+条件の無い 3 本（P0）は特許の明示の許諾を持たない。**141 本のどの 1 本も、範囲・無条件・終了なしを同時には満たさない。**
+
+### 法的効果の対照 —— 1 つの場面で
+
+**場面**: 受領者 R が Work を学習に使ってモデル M を作り、(1) M を販売し、(2) Work の複製を notice なしで配り、(3) 別件で Dedicator D に特許訴訟を起こした。
+D は、M のアーキテクチャについての請求項 C を持つ。C は R の学習が実際に実施したが、Work を別の方法で処理すれば実施しないで済む（＝「必然的に」侵害されるものではない）。
+
+| 文書 | R は C について許諾を持つか |
+|---|---|
+| ACD-1.0 | **持つ**。C は *"would be infringed by … the making … use … sale … of any model … resulting from that use"* に当たり、内容の限定は *"deliberately absent"*。(2)(3) はどちらも許諾を終わらせない（§8.2・§10.1・§10.4）|
+| CERN-OHL-P-2.0 | **持たない**。C は *"necessarily infringed by exercising rights under the Covered Source"* ではない。仮に持つと読んでも、(2) は §4 の条件、(3) は §6.2 の終了に当たる |
+| BlueOak-1.0.0 | M の販売は *"everything with this software"* の外と読むのが素直。仮に内と読んでも、(2) は Notices の不履行で、通知から 30 日で *"your license ends immediately"* |
+| EUPL-1.2 | C は *"necessary to make use of the rights granted on the Work"* ではない。(2) は Attribution right の違反で *"terminate automatically"* |
+| UPL-1.0 | M は lrgrwrks.txt に列挙されていない。(2) は条件の違反 |
+| Apache-2.0 | C は寄与が必然的に侵害する請求項ではない。(3) は Work の侵害を主張する訴訟なら終了（*"alleging that the Work … constitutes direct or contributory patent infringement"*）|
+
+### 敵対仮説 —— 既存ライセンスでも実現できるか
+
+bb が 6 本を立てて原文で反証した（H1-a BlueOak / H1-b CERN-OHL-P / H1-c UPL / H1-d Apache・BSD-2-Clause-Patent / H1-e 黙示の許諾 / H1-f 承認済みライセンス + 別の特許の誓約 —— 表は EXTERNAL B10）。
+**H1-f は「ライセンスで」の外でだけ成り立つ**（誓約は Work と一緒に移らず、OSI が比べるのはライセンスの条文である）。25 が 1 本足す:
+
+| 敵対仮説 | 反証 | 判定 |
+|---|---|---|
+| H1-g: 0BSD と BlueOak の二重ライセンスで足りる | 選択的（OR）なら、受領者が選んだ 1 本の性質しか得られない —— 0BSD を選べば特許の明示の許諾は無く、BlueOak を選べば条件と終了が付く。併用（AND）なら BlueOak の条件がその特許許諾に付いたまま残る。どちらでも 3 つは同時に揃わない | **反証できた**（ただし H1-f と同じく、複数の文書を組み合わせる形は「1 本のライセンスで」の外にある）|
+
+### 確立しないこと（同じ重さで）
+
+1. **この効果が裁判所で実現するか**は別問題である —— 一方的な文書による無条件の特許許諾の有効性は法域ごとに違い、法的レビューは受けていない（register B1）。
+   **立証したのは「本文が与えると述べる効果を、既存のどのライセンスの本文も与えない」ことまで**。
+2. **P1 の 58 本は census の S1 判定に依拠している**（1 本ずつ sha256 つきで記録され、誰でも当て直せる）。この節で逐語に当てたのは P2・P3 の 7 本と Apache-2.0 だけ。
+3. **残余の広い読みが 2 つある**（bb）: BlueOak の *"with this software"* を「ソフトウェアを用いて作ったものについても」と読む余地、CERN-OHL の *"exercising rights under the Covered Source"* に「Products を使う権利の行使」が含まれるかの読み。
+   どちらの読みを取っても、**条件と終了は残る**ので、3 つ同時の主張は崩れない。崩れるのは「範囲だけで比べたときの差」である。
+4. **gap を示すことは、必要を示すことではない** —— Kuhn 氏の vanity の判定は *"widespread need"* と *"wholly unserved"* の連言で（#255）、この節が示すのは後者の 1 件だけである。
+5. **この広さは費用でもある** —— #16（特許を持つ組織は受け入れにくい）・#276（帰属ゼロ + 特許許諾は「特許の放棄に等しい」と言われた）・register B7。
+
+### OSI の基準との対応
+
+- **新規ライセンスの基準 7（既存のライセンスで埋まらない gap を埋める・`ACD-1.0.review-rules.md` §1.70）**: この節がその 1 件の効果を原文で示す。**基準を満たすかは OSI の判断**で、我々が言えるのは「示せる形にした」ことまで。
+- **提出要件「最も近い承認済みライセンスとの比較」**: 範囲で最も近いのは CERN-OHL-P-2.0、条件の少なさで最も近いのは BlueOak-1.0.0 で、差は上の 2 表のとおり。
+- **#269（gap は存在理由であると同時に、果たしているかを測られる基準）**: §8.4 は 1.0 から 1.4 草案まで作用を変えていないので、測られる対象は動いていない。
+
+### Before / After
+
+| | Before（2026-11-03 の再検証）| After（2026-11-04）|
+|---|---|---|
+| §8.4 | 「新しい —— 名指し + 内容限定の除去」を、最近傍 10 本を読んで述べた | **141 本の分割で閉じ、7 本は逐語で当てた**。主張の形は「3 つ同時」へ |
+| §7 データベース権 | 「新しい —— 承認済みの許諾は copyright と patent に限られる」 | **作用としては反証できない**（MIT *"to deal in the Software without restriction"*・0BSD *"Permission to use, copy, modify, and/or distribute this software for any purpose"* は許可を著作権に限らない・bb の H2）。**明示としては新しい**（REVIEWERS「In one screen」(i) は *"expressly reaches"* の形で、真のまま）|
+| §6.2 / §6.3 / §5.2(b) | 「新しい」| **限定つき** —— 受領者が例外に依る場面か、許諾が無効とされた場面でだけ効く（bb の H3）|
+| §12 | 「EUPL に先例」| 同じ（bb の H4）|
