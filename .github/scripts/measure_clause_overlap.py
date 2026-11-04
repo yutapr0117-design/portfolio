@@ -221,9 +221,17 @@ def _toks(s: str) -> list[str]:
     return [w.strip(".,;:()\"'*_`—–").lower() for w in s.split() if w.strip(".,;:()\"'*_`—–")]
 
 
+def _gram_list(text: str, k: int) -> list[str]:
+    """文の中だけで作る。文をまたぐと、文末に語を足しただけの試作 i で "holds. Where" の連なりが「外した」になる。"""
+    out = []
+    for seg in re.split(r"(?<=[.;:!?])\s+", " ".join(text.split())):
+        t = _toks(seg)
+        out += [" ".join(t[i:i + k]) for i in range(len(t) - k + 1)]
+    return out
+
+
 def _grams(text: str, k: int) -> set[str]:
-    t = _toks(text)
-    return {" ".join(t[i:i + k]) for i in range(len(t) - k + 1)}
+    return set(_gram_list(text, k))
 
 
 def external_reliance(changed: dict[str, tuple[str, str]], after_all: str,
@@ -250,10 +258,8 @@ def external_reliance(changed: dict[str, tuple[str, str]], after_all: str,
         if _XDOC_SKIP.search(rel):
             continue
         for ln, line in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
-            t = _toks(line)
             hit = None
-            for i in range(len(t) - k + 1):
-                g = " ".join(t[i:i + k])
+            for g in _gram_list(line, k):
                 if g in grams:
                     sec, strong = grams[g]
                     if strong or re.search(r"(?<![\d.])" + re.escape(sec) + r"(?![\d])", line):
