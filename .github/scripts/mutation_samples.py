@@ -280,48 +280,6 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 424c: §2 表に同じ path の行が 2 つになる —— 予算列や理由が食い違い、rotate と照合で片方が必ず古くなる (2026-11-03 まで e2e_archive3 がそうだった)",
-    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
-    "find": "| `.github/scripts/mutation_samples_common.py` |",
-    "replace": "| `.github/scripts/mutation_samples_common.py` | 28 | 60 | `advisory` | mutation_samples / archive 共有パス定数 (ROOT / CHECK)。循環回避 |\n| `.github/scripts/mutation_samples_common.py` |",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 469 (b): errata の E-ID が CHANGELIST の表と対応しなくなる (E58 → E59) —— 閉じた / 未着手の照合から 1 件が黙って外れる",
-    "file": ROOT / "LICENSES" / "ACD-1.0.errata.md",
-    "find": "| E58 |",
-    "replace": "| E59 |",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 479c: Check 460 に face を 1 つ足し、その face を名指す mutation を足さない —— 週次 probe はその面を一度も壊して確かめない",
-    "file": ROOT / ".github" / "scripts" / "checks_license_self_reporting.py",
-    "find": "        # (w) 質問集を名指す行",
-    "replace": "        # (z) (mutation)\n        # (w) 質問集を名指す行",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 479d: Check 424 に下位部 424z を足し、それを名指す mutation を足さない —— 週次 probe はその下位部を一度も壊して確かめない",
-    "file": ROOT / ".github" / "scripts" / "checks_size_budget.py",
-    "find": "        # 424c: §2 の path は一意。",
-    "replace": "        # Check 424z (mutation)\n        # 424c: §2 の path は一意。",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 50b: package.json の lint script に eslintrc 時代のフラグを戻す —— ESLint 9.x はそのフラグを持たず lint が config 無しで走る / 落ちる",
-    "file": ROOT / "package.json",
-    "find": "\"lint\": \"eslint ",
-    "replace": "\"lint\": \"eslint --no-eslintrc ",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 50d: eslint.config.mjs から no-dupe-keys が消える —— recommended を継承しない方針なので、明示しないと重複キーの bug-catcher が CI から黙って抜ける (#186 の class)",
-    "file": ROOT / "eslint.config.mjs",
-    "find": "      'no-dupe-keys': 'error',",
-    "replace": "      'no-dupe-keys-x': 'error',",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
     "name": "Check 449b: api-catalog の link object に関係型 (service-desc) を attribute として混ぜる —— RFC 9264 では関係型は attribute ではなく、仕様に従う agent は別の意味に読む",
     "file": ROOT / ".well-known" / "api-catalog",
     "find": "          \"type\": \"text/plain\"\n",
@@ -571,6 +529,20 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
     "find": "# total-check-runbook.md",
     "replace": "# total-check-runbook.md\n\nCheck 999 が守る。",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 468u: §2.8 の末文から「§5.3 / §12.4 は本条を狭めない」が落ちる —— 試作 e で外した理由の文が担っていた反対解釈の封じが本文から消える",
+    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "find": "Section 6 included. Neither Section 5.3 nor Section 12.4 narrows this\n       Section.",
+    "replace": "Section 6 included. Sections 5.3 and 12.4 are read with this\n       Section.",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 468u: §15.5 から「\"person\" includes an entity」が落ちる —— 試作 e で理由の文を外した §12.4 の公的機関・§2.8 の会社の譲受人が person に含まれなくなる",
+    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "find": "\"person\" includes an entity;",
+    "replace": "\"person\" includes a natural person;",
     "check": CHECK,
 })
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL

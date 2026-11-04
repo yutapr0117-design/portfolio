@@ -38,6 +38,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        "Work on the next version happens in X" と断定するなら X がいまの草案であることを見る** ——
        1.2 の pointer が 1.3 確定後 8 日間、pointer になった 1.3 草案を作業場と名指していた (portfolio-25 が
        2026-11-02 に発見)。468k は `.md` しか見ないので射程外だった。鎖の環の書き方なら通る。
+       **468u は理由の文を外した §2.8 / §12.4 の効果を支える目印 (§2.8 末文 / §15.5 の person) が在ることを見る**
+       (B3 / B13 の明瞭化・試作 e・2026-11-04)。
        **468t は frontmatter の canonical-ref が凍結済みの草案 pointer を読み先にしないことを見る** (468p の
        frontmatter 版・25 の提案 2026-11-04)。除外は pointer 自身の mirror と rounds/ 配下。
        **468q は冒頭の箇条が「Sections A, B, C が使う句」として引く句を、各条の本文が実際に含むことを見る** ——
@@ -418,6 +420,22 @@ def run(ctx):
                 f"468p: 凍結した草案の pointer が、作業中の草案 {_dr468.name} ではないものを次版の作業場と断定している: "
                 f"{_stale468p}。**pointer は鎖の環で書く**（「次版は X で起草された。X が確定済みなら X がいまの"
                 "作業場を述べる」）—— 断定形は次の確定の日に必ず偽になる")
+
+        # ── 468u: 理由の文を外した §2.8 / §12.4 の効果を支える 2 つの目印が在ること ──────────
+        #   B3 / B13 の明瞭化 (2026-11-04・CLARITY-TRIAL 試作 e・#2396) で §2.8 と §12.4 の理由の文を対で外した。
+        #   効果の保存は 2 つに依拠する: (i) §2.8 末文 "Neither Section 5.3 nor Section 12.4 narrows this Section."
+        #   (§5.3 / §12.4 からの反対解釈を封じる・理由の文が担っていた働き) / (ii) §15.5 の
+        #   "\"person\" includes an entity" (E58・§12.4 の公的機関と §2.8 の会社の譲受人を person に含める)。
+        #   短くする圧力でどちらかが黙って落ちると、外した理由の文の働きが本文から消える (468d / 468m と同じ marker 検査)。
+        _lack468u = []
+        for _sec468u, _mk468u in (("2.8", "nor Section 12.4 narrows this Section"),
+                                  ("15.5", '"person" includes an entity')):
+            _m468u = re.search(r"^  " + re.escape(_sec468u) + r"\s.*?(?=^  \d+\.\d+\s|^\d+\.\s)", _t468, re.M | re.S)
+            if not _m468u or _mk468u not in " ".join(_m468u.group(0).split()):
+                _lack468u.append(f"§{_sec468u}: {_mk468u!r}")
+        if _lack468u:
+            _bad468.append(f"468u: 理由の文を外した §2.8 / §12.4 の効果を支える目印が無い: {_lack468u} "
+                           "(外した文の働きを本文のどこが担っているかは CLARITY-TRIAL 試作 e を参照)")
 
         # ── 468t: frontmatter の canonical-ref が、凍結済みの草案 pointer を「読み先」として指さない ──
         #   468p の frontmatter 版 (portfolio-25 の提案・2026-11-04)。bb の #2374 で SELF-AUDIT の mirror が
