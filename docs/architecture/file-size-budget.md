@@ -136,7 +136,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `.github/scripts/mutation_samples_e2e_archive.py` | 950 | 950 | `advisory` | e2e mutation の rotated log part 1。**2026-08-17: 1,033 行で Check 365 の 1,000 cap に到達したため半数を part 2 へ rotate**。以後の rotate は part 2 が受ける |
 | `.github/scripts/mutation_samples_e2e_archive2.py` | 945 | 950 | `advisory` | e2e mutation の rotated log part 2 (2026-08-17 新設)。**archive も無限には伸ばせない**ため consistency 側と同じ 2 段構成へ揃えた。近接したら archive3 を新設 |
 | `.github/scripts/mutation_samples_e2e_archive3.py` | 859 | 950 | `advisory` | e2e mutation の rotated log part 3。**2026-09-29 に rotate で 811 行へ達し、Check 454 が「800 行超なのに予算が無い = 早期警告が存在しない」と検出したので登録した**。hot log (`mutation_samples.py`) から押し出される先で、rotate のたびに伸びる。越えたら archive4 を起こす（consistency 側と同じ段構成） 元は archive2 が 1,000 行上限に達したための 2 段構成（archive も無限には伸ばせない）。**この行は 2026-11-03 まで 2 行あり、予算列が 950 / 975 と食い違っていた**（09-29 に既存の行に気付かず足した・Check 424c で一意を強制）|
-| `.github/scripts/mutation_samples_common.py` | 28 | 60 | `advisory` | mutation_samples / archive 共有パス定数 (ROOT / CHECK)。循環回避 |
+| `.github/scripts/mutation_samples_common.py` | 34 | 60 | `advisory` | mutation_samples / archive 共有パス定数 (ROOT / CHECK)。循環回避 |
 | `.github/scripts/_lib_io.py` | 429 | 450 | `advisory` | 純 I/O helper sibling module (read / read_bytes / extract / csp_sri_hash + 日付 helper + JS コメントの字句 helper + robots.txt の RFC 9309 グループ parser)。Check 74/95/481 で API 契約を BLOCKING 保護。2026-11-01 に `strip_js_comments` (約 125 行・字句解析の本体で WHY は docstring 1 段落のみ) を足したので 250 → 400 |
 | `index.html` | 1360 | — | `protected` | CSP / JSON-LD / AI meta / AIO anchor の中核。整理する場合は C6 の 3 不変条件 (真実性 / 全公開面での整合 / digest 再生成) を満たすこと |
 | `llms-full.txt` | 1,070 | — | `protected` | AIO 正本（ground truth）。削らない |
