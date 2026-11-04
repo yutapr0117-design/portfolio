@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses-clauses.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-03
+last-updated: 2026-11-04
 canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威)
 ---
 
@@ -162,7 +162,7 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 
 **Q. §8.4 はモデル・重み・出力にまで特許ライセンスを及ぼすと言うが、前例がない。**
 
-**2026-09-25 訂正**: 旧回答は *"I am not aware of a precedent either"* で始まっていた。同日の全数 census（`ACD-1.0.gap-census.md` / `against.md` #241）で CERN-OHL-P-2.0 の Products への特許許諾が見つかり、**自分たちの記録を知っている相手に対して偽になっていた**ので、部分的な先例を先に名指しする形へ改めた。**2026-11-03 訂正**: 「新しいのは名指しと無条件」だけでは足りなかった —— CERN-OHL-P-2.0 の許諾は *"necessarily infringed by exercising rights under the Covered Source"* という内容の限定を持ち、§8.4 は §8.1 末尾の同じ形の限定を意図的に外している（25 の法的作用による再検証・`submission-reference.md` §2 と同じ直し）。その広がりの費用は `against.md` #16。
+**2026-09-25 訂正**: 旧回答は *"I am not aware of a precedent either"* で始まっていた。同日の全数 census（`ACD-1.0.gap-census.md` / `against.md` #241）で CERN-OHL-P-2.0 の Products への特許許諾が見つかり、**自分たちの記録を知っている相手に対して偽になっていた**ので、部分的な先例を先に名指しする形へ改めた。**2026-11-04 再訂正**: 11-03 に足した「内容の限定を外したこと」は、原典で当てると立証できなかった（CERN-OHL-P の限定は、学習を権利の行使と読めば §8.4 自身の限定とほぼ同じ形）。英文は、条文で示せる組み合わせ（作品を超える対象への特許許諾 ∧ 条件も終了も無い・承認済み 141 本で 0 本）へ改めた（register B10「原典による立証」）。**2026-11-03 訂正**: 「新しいのは名指しと無条件」だけでは足りなかった —— CERN-OHL-P-2.0 の許諾は *"necessarily infringed by exercising rights under the Covered Source"* という内容の限定を持ち、§8.4 は §8.1 末尾の同じ形の限定を意図的に外している（25 の法的作用による再検証・`submission-reference.md` §2 と同じ直し）。その広がりの費用は `against.md` #16。
 
 > **English:**
 >
@@ -172,13 +172,17 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 > trained model. It does not name models, parameters or outputs, and conveying
 > a Product carries a notice obligation (its Section 4). Its grant also
 > reaches only claims "necessarily infringed by exercising rights under the
-> Covered Source as Conveyed by that Licensor" — a limit to what the source
-> contains, of the same kind as the proviso at the end of Section 8.1, which
-> Section 8.4 leaves out on purpose. So what is new in Section 8.4 is naming
-> them, doing so without a condition, and not tying the claims to what the
-> source contains — not the idea that a patent grant can follow what is made
-> from the work. The last of those is also the cost: it is why the grant is
-> as broad as it is. The
+> Covered Source as Conveyed by that Licensor", and it can end: on patent
+> litigation (its Section 6.2) or "for cause". Whether its claim limit is
+> narrower than Section 8.4's own ("only claims whose infringement depends
+> upon the use of the Work") turns on whether training is an exercise of
+> rights under the Covered Source, and I do not claim to know. What I can
+> show from the text is the combination: among the approved licences, those
+> whose patent grant reaches beyond the work itself all carry a condition,
+> and all but one can terminate; Section 8.4, read with Section 8.2, reaches
+> beyond the work and carries neither. That — not the idea that a patent
+> grant can follow what is made from the work — is what is new. The breadth
+> is also the cost. The
 > reasoning is in Section 8.4's own text: Section 1.5 excludes patents from
 > "Covered Rights", so Section 6.4 by itself leaves computational use permitted
 > as a matter of copyright while leaving a patent-shaped hole in the same place.
