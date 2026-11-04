@@ -355,6 +355,7 @@ D は 2 つの請求項を持つ。C1 は学習の方法についての請求項
 python3 .github/scripts/generate_gap_census.py --fetch   # SPDX の原文を取得（取得日時と licenseListVersion を記録）
 python3 .github/scripts/generate_gap_census.py --check   # census が取得物から再生成したものと一致するか
 python3 .github/scripts/measure_patent_reach.py          # S2 / S3 の各本から条件と終了の文を逐語で出し、両立する本を数える
+python3 .github/scripts/measure_patent_reach.py --express  # 明示の 65 本すべてから義務の文を出す（範囲の分類に依らない）
 ```
 
 2026-11-04 の実行結果: S2 / S3 は 7 本、7 本すべてに条件の文、UPL-1.0 以外の 6 本に終了の文があり、**「作品を超える特許許諾 ∧ 条件が見つからない」は 0 本**（5a・`measure_patent_reach.py`）。**道具は S1 / S2 / S3 の分類そのものは検証しない**（上の「確立しないこと 2」と同じ限界）。
@@ -372,7 +373,7 @@ bb が 6 本を立てて原文で反証した（H1-a BlueOak / H1-b CERN-OHL-P /
 
 1. **この効果が裁判所で実現するか**は別問題である —— 一方的な文書による無条件の特許許諾の有効性は法域ごとに違い、法的レビューは受けていない（register B1）。
    **立証したのは「本文が与えると述べる効果を、既存のどのライセンスの本文も与えない」ことまで**。
-2. **P1 の 58 本は census の S1 判定に依拠している**（1 本ずつ sha256 つきで記録され、誰でも当て直せる。census は 2026-11-04 に**この節と同じ取得**（8791eda）から生成し直され、141 本の判定は 9 月の 3.29.0 版と 1 件も変わらない）。この節で逐語に当てたのは P2・P3 の 7 本と Apache-2.0 だけ。
+2. **範囲だけで比べる主張は census の S1 判定に依拠している。連言の結論は依拠しない** —— 明示の 65 本すべてに義務の文が在ることを `--express` が範囲の分類なしで再現する（5a）。S1 判定の依拠は（1 本ずつ sha256 つきで記録され、誰でも当て直せる。census は 2026-11-04 に**この節と同じ取得**（8791eda）から生成し直され、141 本の判定は 9 月の 3.29.0 版と 1 件も変わらない）。この節で逐語に当てたのは P2・P3 の 7 本と Apache-2.0 だけ。
 3. **残余の広い読みが 2 つある**（bb）: BlueOak の *"with this software"* を「ソフトウェアを用いて作ったものについても」と読む余地、CERN-OHL の *"exercising rights under the Covered Source"* に「Products を使う権利の行使」が含まれるかの読み。
    どちらの読みを取っても、**条件と終了は残る**ので、3 つ同時の主張は崩れない。崩れるのは「範囲だけで比べたときの差」である。
 4. **gap を示すことは、必要を示すことではない** —— Kuhn 氏の vanity の判定は *"widespread need"* と *"wholly unserved"* の連言で（#255）、この節が示すのは後者の 1 件だけである。
@@ -385,6 +386,7 @@ bb が 6 本を立てて原文で反証した（H1-a BlueOak / H1-b CERN-OHL-P /
 **① 母集団は再現できるが、141 本は OSI のリストそのものではなかった。** `--fetch` を取り直すと分類は同じ（141 本・明示 65・S1 58 / S2 3 / S3 4）で、census の差は取得時刻の 1 行だけだった（`--check` はこの 1 行で DRIFT を返す）。一方 **OSI の一次リスト（`/licenses` の 126 頁・`/api/licenses`・取得 2026-10-29）と突き合わせると、census に無いテキストが 8 本ある**: SPDX が OSI 承認と標示しない MIT-CMU / NIST-Software / eCos-2.0 / GPL-1.0、deprecated の wxWindows、SPDX ID の無い Jabber / MITRE CVW / Los Alamos BSD-3 Variant。**8 本とも当たった**（SPDX 原文 5 本・OSI の頁 3 本）: MIT-CMU / NIST-Software / eCos-2.0 / GPL-1.0 / wxWindows / Los Alamos は *patent* の語が無く、Jabber と CVW は作品に限る特許許諾に条件と終了を持つ。**結論は変わらない** —— 「141 本」は「SPDX の標示で 141 本 + OSI の頁だけに在る 8 本」と読む。逆に 141 本のうち 30 本（`-only` / `-or-later` の別名など）は OSI の頁に 1 対 1 で無い。**`/api/licenses` の `approved` は BlueOak-1.0.0 でも false で、承認の判定に使えない**（126 件中 true は 7 件）。
 
 **② 法的効果 —— 末文に 2 つの読みがある（2026-11-04 に bb が見つけ、25 が条文側で検討中）。** *"it does not license a claim that would be infringed by a model … produced without any use of the Work"* は、請求項単位に読むと、モデルの構造や性質を読む請求項の大半を外す（Work を使わないモデルでも侵害されるから）。場面単位に読むと、同じ請求項でも Work から作った M には許諾される。**前者なら「モデルの販売に届く」は学習の方法の請求項と product-by-process に縮む。** §15.1 は後者へ解決するが、gap の柱を解釈規則に預けている。
+**1.4 草案での扱いは 25 が試作中**（`ACD-1.4-CLARITY-TRIAL.md`・試作 T4）。場面の分類と反例は試作の側に置き、採否が決まったらこの節の場面を直す。
 **しかも我々の想定問答は前者の側で答えている** —— `ACD-1.0.review-responses-clauses.md` は *"An identical model obtainable without the Work at all"* を *"Under 1.1 the claim does not depend on the Work, so it is outside"* とし、同じ問答の 1 件目は *"A model trained on the Work, then run for inference. Covered."* と限定なしで述べる。請求項単位なら、普通の製品請求項は Work を外しても侵害されるので 1 件目はほとんど当たらず、§8.4 が取り除くと述べる露出（*"restore the exposure this Section exists to remove"*）が残る。
 **同じ文の前半と後半も割れる**: Work が技法 X を教え、Work を外すと M が X を持たない請求項 K は、前半の *"depends upon the use of the Work"* には当たる（5a）が、X を別の経路で持つモデルが在りうるので後半の請求項単位の読みでは外れる。
 
@@ -399,7 +401,7 @@ bb が 6 本を立てて原文で反証した（H1-a BlueOak / H1-b CERN-OHL-P /
 | 承認済み本文の改変（Apache-2.0 §3 の報復を外す など）| 改変した本文は承認済みではない。新規の提出である |
 | 0BSD + 別の無条件の特許の誓約（Landley 氏・#276 (e)）| **効果は出せる。** 誓約は既存ライセンスではなく、案件ごとの未審査の文である。**gap は「効果が不可能」ではなく「審査済みの 1 本の本文に無い」である** |
 
-**④ 特許の射程は必要か（25 が条文側で検討中）。** OSD は特許許諾を要求していない（#236）。Perens 氏は OSD が権利の種類を区別しないと述べるが（#244）、**そこからモデル・出力へ広げる必要までは導けない**。これは「ソフトウェアの自由に必要」ではなく、ACD の目的（学習された受領者を露出させない）に必要な射程である。
+**④ 特許の射程は必要か。** OSD は特許許諾を要求していないので、§8.4 を自由の保障に必要とは言えない（#236）。言えるのは、Apache-2.0 の許諾が *"the Work"* に閉じ、Work でない生成物は外れることまでである。**「不要な適用範囲の拡張」と評価されうるかの答えは Yes で、判断は OSI に残る**（25）。Perens 氏は OSD が権利の種類を区別しないと述べるが（#244）、**そこからモデル・出力へ広げる必要までは導けない**。これは「ソフトウェアの自由に必要」ではなく、ACD の目的（学習した受領者を露出させない）に必要な射程である。
 
 **⑤ B15 との構造的衝突 —— 残っている。** A1′+ は 1.4 が足した信号を戻したが、§8.4 は *model, parameter set, weight, embedding, output* を名指す。**B10 で固有の効果として立てるものと、B15 で「ソフトウェアに結びつくか」を問われるものは同じ語である。** Work がソフトウェアのときは、§8.4 はソフトウェアの受領者への特許許諾の延長と説明できる。Work がデータのときはその説明が効かない。**ただし §8.4 + §8.2 の組み合わせは Work がソフトウェアでも成り立つので、§1.3 の列挙を狭めてもこの 1 件は折れない**（5a・「列挙を狭めると B10 を折る」は全ての脚には当たらない）。**判定: 条文の矛盾ではないが、未解消の緊張である。B10 を強く言うほど B15 に触れる。解くのは OSI である。**
 
