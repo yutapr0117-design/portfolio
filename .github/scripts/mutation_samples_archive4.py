@@ -55,8 +55,8 @@ MUTATIONS_ARCHIVE4 = [
     "file": CURRENT_DRAFT,
     # 語を足すと 468 の語数申告の face が先に拾い帰属が曖昧になる (初版で実測)。語を変えずに 2 行を
     # 1 行へ繋いで 80 桁を超えさせ、468l だけを狙う。
-    "find": "in any medium and in any form,\n       including source code",
-    "replace": "in any medium and in any form, including source code",
+    "find": "abandons, and relinquishes all\n       Covered Rights in the Work,",
+    "replace": "abandons, and relinquishes all Covered Rights in the Work,",
     "check": CHECK,
 },
     {
