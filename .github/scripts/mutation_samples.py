@@ -566,6 +566,13 @@ _MUTATIONS_TAIL.append({
     "replace": "terminable by the Dedicator for cause",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 476b: B10 の立証 §1.133 の分割の内訳 (S1 の 58 本) を census と食い違う数へずらす —— census を生成し直して分類が動いても、立証の数字だけが黙って古くなる形",
+    "file": ROOT / "LICENSES" / "ACD-1.0.gap-measurements.md",
+    "find": "（S1）| 58 |",
+    "replace": "（S1）| 57 |",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
