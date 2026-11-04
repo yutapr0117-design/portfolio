@@ -193,11 +193,14 @@ w = out.append
 w("---")
 w("file: LICENSES/ACD-1.0.gap-census.md")
 w("audience: licence reviewers, OSI license-discuss / license-review participants, 後任 AI")
-w("last-updated: 2026-09-25")
+# 日付は取得日時から導く (2026-11-04): 固定の "2026-09-25" だったため、取得し直して生成しても
+#   frontmatter と見出しが古い日付のまま残り、Check 461b が「更新されていない文書」に見えると鳴らした。
+_FETCHED = str(meta.get("fetched_at", ""))[:10] or "unknown"
+w(f"last-updated: {_FETCHED}")
 w("canonical-ref: LICENSES/ACD-1.0.gap-measurements.md §1.97 (条件の有無を同じ 141 本で数えた census) / LICENSES/ACD-OSI-BOTTLENECKS.md (gap の扱い)")
 w("---")
 w("")
-w("# ACD-1.0 gap census —— OSI 承認済み 141 本に 3 つの gap を当てた（2026-09-25）")
+w(f"# ACD-1.0 gap census —— OSI 承認済み 141 本に 3 つの gap を当てた（{_FETCHED}）")
 w("")
 w("> **これは何か**: ドシエの gap 論（「既存の承認済みライセンスは X を持たない」）を、**選んだ比較対象ではなく")
 w("> 承認済みの全数**に当てた記録。`gap-measurements.md` §1.97 は同じ 141 本で**条件の有無**を数えた。")
