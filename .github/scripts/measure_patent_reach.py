@@ -20,6 +20,11 @@
     python3 .github/scripts/generate_gap_census.py --fetch   # SPDX の原文を取得 (ネットワーク要・一度だけ)
     python3 .github/scripts/generate_gap_census.py --check   # census が取得した原文から再現するか
     python3 .github/scripts/measure_patent_reach.py          # 本道具
+    python3 .github/scripts/measure_patent_reach.py --express # 明示の特許許諾を持つ全本の条件の文
+
+**`--express` (2026-11-04)**: 主張は「範囲 ∧ 無条件 ∧ 終了なし」の連言なので、明示の特許許諾を持つ本が
+すべて条件を持つなら、範囲の分類 (S1 / S2 / S3 = 読みの判定) に依拠せずに同じ結論が出る。全本の条件の文を
+逐語で出し、見つからない本を数える。census の「明示」列には依拠する (明示か否かは patent の語の有無で確かめられる)。
 """
 from __future__ import annotations
 
@@ -47,10 +52,44 @@ TERM = re.compile(r"(shall terminate|license ends immediately|terminated by the 
                   r"will terminate|terminates? automatically|rights .{0,40} terminate)[^.]{0,120}", re.I)
 
 
+# 義務の形の語を優先し、TERMS AND CONDITIONS のような見出しに一致しないよう素の conditions は置かない。
+EXPRESS_COND = [re.compile(p + r"[^.]{0,150}", re.I) for p in (
+    r"must (?:ensure|be included|retain|include|reproduce|be accompanied|cause|give|make|provide|keep|duplicate|inform)",
+    r"(?:subject to|under) the following conditions?",
+    r"provided that",
+    r"on condition that",
+    r"shall (?:retain|include|reproduce|provide|cause|ensure|give|keep|duplicate|inform|distribute|make available)",
+    r"you (?:must|shall|agree to|may not)",
+    r"(?:is|are) required to",
+    r"\bmust\b",
+)]
+
+
+def express() -> int:
+    rows = [ln for ln in CENSUS.read_text(encoding="utf-8").splitlines() if ln.startswith("| `")]
+    ids = []
+    for ln in rows:
+        cells = [c.strip() for c in ln.split("|")]
+        if len(cells) > 4 and cells[4].startswith("明示"):
+            ids.append(cells[1].strip("`"))
+    missing = []
+    for lid in sorted(ids):
+        t = " ".join((CACHE / f"{lid}.txt").read_text(encoding="utf-8", errors="replace").split())
+        m = next((m for m in (rx.search(t) for rx in EXPRESS_COND) if m), None)
+        print(f"{lid}: {m.group(0) if m else '（見つからない）'}")
+        if not m:
+            missing.append(lid)
+    print(f"\n# 明示の特許許諾 {len(ids)} 本のうち、条件の文が見つからない: {len(missing)} 本 {missing}")
+    print("# (0 本なら、範囲の分類に依拠せず §1.133 の連言を再現する。見つかった文が条件であることは人が読んで確かめる)")
+    return 0
+
+
 def main() -> int:
     if not (CACHE / "_meta.json").exists():
         print(f"SPDX の原文が無い: {CACHE} —— generate_gap_census.py --fetch を先に走らせる")
         return 2
+    if "--express" in sys.argv:
+        return express()
     meta = json.loads((CACHE / "_meta.json").read_text(encoding="utf-8"))
     rows = [ln for ln in CENSUS.read_text(encoding="utf-8").splitlines() if ln.startswith("| `")]
     beyond = []
