@@ -1,7 +1,7 @@
 ---
 file: LICENSES/OSI-EVENTS-2026-10.md
 audience: オーナー（一次読者）/ 次のセッションの実装者 / 自走停止を監視する他セッション
-last-updated: 2026-11-01
+last-updated: 2026-11-04
 canonical-ref: LICENSES/PEER-REVIEW-WATCH.md（「2026 年 10 月の OSI 関連イベント」節 = 何を取りに行き何を取りに行かないかの方針） / LICENSES/OSI-APPROVAL-PLAN.md / LICENSES/ACD-OSI-BOTTLENECKS.md
 ---
 
@@ -113,6 +113,7 @@ canonical-ref: LICENSES/PEER-REVIEW-WATCH.md（「2026 年 10 月の OSI 関連�
 | 2026-10-29（23:51 UTC・クラウド・当日行が無かったので記入） | 受け渡し 5 件（`4357fd4` 日次・取得 10-29 00:13 UTC／監視 `845a41c`・`e0e3efc`・`54abf43`・`8baa170`・最後は取得 10-29 18:46 UTC） | **opensource.org の遮断は解けた**: 日次（00:13 UTC）も最後の監視（18:46 UTC）も opensource.org の各頁が 200（10-28 行で書いた 403 は 10-28 18:46 UTC の 1 回分だけ）。**日次**: `license-discuss` / `license-review` の 9 月・10 月分と決定記録 API（126 件）は 10-28 取得分とバイト一致（`9ea5296e` / `f898a42f` / `aaef3c78` / `bb7b6fc5` / `a1d1471f`）＝**新着 0 通（取得 10-29 00:13 UTC 時点）**。OSEL 0.2・ModelGo の照会とも返信はまだ無い。CoC 2 頁・`/licenses`・`/minutes` は可視テキスト差分 0（CoC は *May 4, 2023* / *November 2, 2023* のまま＝**§3.8 が待つ改定はまだ無い**。議事録の最新は 2026-06-29 のまま）。**監視を本体で照合**: OSI ブログの記事 URL が 1 件増えた —— `fosdem-2027-cfp-for-open-source-eu-policy-devroom`（FOSDEM の EU 政策 devroom の発表募集）。State of the Source / Opening Convening / Licensing 101 の報告ではなく、ACD には当たらない。以後 18:46 UTC まで記事 URL の集合は同一。OTR は *"View Event Photos"* のリンクが付いた（**写真であって録画・スライドではない**）。ATO 11 頁は PDF リンクと *Session Slides Attached* が 0、YouTube 題名一覧は 2 チャンネルとも 10-28 夜と同一、Discuss は変化なし（t/1441 は 1 投稿のまま）。**MANIFEST の記述を 1 点訂正**: 09:46 JST の監視の記述は events 頁の追加を「OSS Japan 12/9–10」としているが、頁の本文は *"Open Source Summit Japan December 7, 2026 - December 9, 2026"* で、**12/7–9 が正しい**（ACD への当たりは無い。日付の写し違いとして記録する）。それ以外の主張（新着 0・CoC 未改定・FOSDEM CFP・OTR 写真）はすべて一致。 |
 | 2026-10-30（2026-10-31 23:51 UTC に記入・クラウド・定時実行が約 1 日遅れて届いた） | 受け渡しブランチ `claude/osi-oct-fetch-raw` | — | **今日は受け渡しが無かった。** 最新は 10-29 行で照合した `8baa170`（監視・取得 10-29 18:46 UTC）のまま。日次の取得（アーカイブ・CoC・議事録・決定記録 API）は **10-29 00:13 UTC を最後に確かめられていない**（「新着ゼロ」とは書かない）。とくに §3.8 が待つ行動規範の改定、ModelGo / OSEL 0.2 への返信、9 月理事会の議事録の有無は未確認。 |
 | 2026-10-31（23:51 UTC・クラウド） | 受け渡しブランチ `claude/osi-oct-fetch-raw` | — | **今日も受け渡しが無かった**（2 日続けて）。main にも 10-30 以降の portfolio-01 の commit は無い。アーカイブと OSI の固定頁は 10-29 00:13 UTC、イベント監視は 10-29 18:46 UTC を最後に確かめられていない。**取得役のセッション内 cron が止まっている可能性がある**（10-18 の分担で「10/24 頃に予約し直す」としていた予約が、ここで切れたのかもしれない）。**10 月の取り込みはこの行で閉じる** ——11 月以降の行をどの file に書くかは決めていないので、次に受け渡しが来た日に、その日の行の置き場所を併せて決める。 |
+| 2026-11-04（03:27〜03:40 UTC・Mac の bb が手で 1 回取得・11-01〜03 の行は無い）| 受け渡しブランチは 10-30 07:54 JST の `8baa170` のまま（取得役の cron は止まったまま）| — | **`license-discuss` / `license-review` の 2026-October は 10-29 取得分とバイト一致**（`9ea5296e` / `f898a42f`）＝**10 月分に新着 0 通（取得 03:27 UTC 時点）**。**2026-November のページは両リストとも 404** —— 月の最初の投稿が来るまでページが無いので、この時刻までに投稿が無いことを示す見込みは高いが、404 自体は取得できなかったという事実である。決定記録 API（126 件）も 10-29 取得分とバイト一致（`a1d1471f`）。OSEL 0.2・ModelGo の照会への返信は 10 月分に無い。`/minutes` の最新は 2026-06-29 のまま。CoC は *May 4, 2023* のままで **§3.8 が待つ改定はまだ無い**（`/code-of-conduct` の 1 頁だけ確かめた）。opensource.org へは 1 並列・間隔を空けて 4 回だけ取得した。**日次の監視は 10-30 以降止まっていて、この行は再開ではない。** |
 
 ## この file が establish しないこと
 
