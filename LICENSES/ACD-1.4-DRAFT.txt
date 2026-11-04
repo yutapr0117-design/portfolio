@@ -141,13 +141,13 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 6.1 now permits Computational Use as to the patent claims
       Section 8 reaches, where it named the patent claims of the Dedicator
       and so went beyond Section 8. (+4 words.)
-    * Section 1.3 no longer says "in whole or in part". Those words let a
-      partial application make the whole material the Work, which Section 2.1
-      and Section 15.1 would then carry to all of it. (-5 words.)
+    * Section 1.3 no longer says "in whole or in part" (errata E61). Those
+      words let a partial application make the whole material the Work, which
+      Section 2.1 and Section 15.1 would then carry to all of it. (-5 words.)
     * Section 2.6 now says that excluded material is included "with" the Work,
       where it said "in" the Work. (0 words.)
     * Section 12.2 now names recipients "directly or indirectly", the words
-      Sections 4.6 and 5.3 use. (+3 words.)
+      Sections 4.6 and 5.3 use (errata E62). (+3 words.)
     * Section 16.3 now reaches a work in which a person may hold rights "of
       their own", so that someone unsure whether rights subsist in machine
       output need not settle that first. (+6 words.)
