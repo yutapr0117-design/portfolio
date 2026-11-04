@@ -297,16 +297,20 @@ CC0 §2 が明文で挙げる 5 要素を ACD の全文へ当てると:
 
 ### 主張（1 文）
 
-**ACD は、Work の計算的利用（学習）から生じたモデル・出力を作り・使い・売り・輸入する行為について、その利用が実際に侵害する Dedicator の特許請求項を、
+**ACD は、Work の計算的利用（学習）と、そこから生じたモデル・出力を作り・使い・売り・輸入する行為について、その利用に依存して侵害される Dedicator の特許請求項を、
 条件なしに、どの理由でも終了しない形で許諾する。承認済み 141 本のどれも、この 3 つ（範囲・無条件・終了なし）を同時に与えない。**
 
-ACD 側（1.0 の文・1.1〜1.3 も同文。1.4 草案は §8.4 の名詞形を動詞形にしただけで作用は同じ）:
+**⚠ 2026-11-04 後半に訂正した（25 の指摘と bb の再検査）**: この節の初版は主張を「その利用が実際に侵害する請求項」と書き、下の場面を 1.0 の文で組んでいた。1.1 以降の §8.4 には因果の限定があり、**請求項の範囲で CERN-OHL-P に差を付ける根拠にならない**。主張の強さの分類は下の「独立の再検証」にある。
+
+ACD 側（下の 2 つの引用は 1.0 の文。**1.1 以降の §8.4 は因果の限定の 2 文を足している** —— 1.4 草案 *"This Section reaches only claims whose infringement depends upon the use of the Work; it does not license a claim that would be infringed by a model, parameter set, weight, embedding, or output produced without any use of the Work."*）:
 - §8.4 *"under every patent claim owned or controlled by the Dedicator, now or in future, that would be infringed by Computational Use of the Work or by the making, having made, use, offering for sale, sale, importation, or other transfer of any model, parameter set, weight, embedding, or output resulting from that use"*、
   かつ *"The proviso in Section 8.1 as to subject matter contained in the Work is deliberately absent from this Section"*。
 - §8.2 *"are subject to no condition and are not terminable by the Dedicator on any ground, including the commencement of or participation in patent litigation by You against the Dedicator or any other person"*。
 - §10.1 *"This Dedication imposes no condition, obligation, restriction, or requirement upon You in respect of the Work."* / §10.4 *"No permission granted by this Dedication terminates for any reason."*
 
 ### 分割の証明 —— 141 本を 4 つに分け、各組が 3 つのどれを欠くかを原文で示す
+
+**最も強い形は S1 / S2 / S3 に依らない（25 の提案）**: 受領者に条件を課さない承認済みは 3 本（0BSD / MIT-0 / Unlicense・§1.97）で、3 本とも *patent* の語を持たない。**ゆえに「明示の特許許諾 ∧ 無条件」は 141 本中 0 本である。** **⚠ 逆側**: この形なら §8.4 が無くても §8.1 だけで成り立ち、差の中身は条件 1 種である（#241 (2)）。§8.4 に固有の残りは下で分ける。
 
 census（`ACD-1.0.gap-census.md`）は各ライセンスの特許の扱いを「明示 / それ以外」に、明示 65 本の範囲を S1 / S2 / S3 に分けている（判定は 1 本ずつ sha256 つきで表にある）。
 
@@ -327,18 +331,19 @@ census（`ACD-1.0.gap-census.md`）は各ライセンスの特許の扱いを「
 | CERN-OHL-S-2.0 / CERN-OHL-W-2.0 | P と同じ §6.1 の文（*"necessarily infringed by exercising rights under the Covered Source as Conveyed"*）| 互恵（S は強・W は弱）の頒布条件 | §6.1 *"irrevocable (except as stated in subsections 7.2 and 8.4)"* / §7.2 は P の §6.2 と同文 |
 | UPL-1.0 | *"(ii) the Larger Works (as defined below) … (b) any piece of software and/or hardware listed in the lrgrwrks.txt file if one is included with the Software"* —— 作品を超えるのは**事前に列挙した** Larger Works だけで、学習でこれから生じるモデルは列挙できない | *"This license is subject to the following condition: The above copyright notice and either this complete permission notice or at a minimum a reference to the UPL must be included in all copies or substantial portions of the Software."* | （終了の定めは無い。条件は在る）|
 
-**したがって**: 範囲の面でモデルに届きうるのは CERN-OHL-P / S / W の 3 本だけで、3 本とも請求項を「必然的に侵害されるもの」に限り、条件と終了を持つ。
+**したがって**: 範囲の面でモデルに届きうるのは CERN-OHL-P / S / W の 3 本で、3 本とも条件と終了を持つ（**差の根拠はこの 2 つであって、請求項の範囲ではない** —— 「必然的に」の限定は §8.4 の因果の限定と比べて優劣を言えない）。
 条件の無い 3 本（P0）は特許の明示の許諾を持たない。**141 本のどの 1 本も、範囲・無条件・終了なしを同時には満たさない。**
 
 ### 法的効果の対照 —— 1 つの場面で
 
 **場面**: 受領者 R が Work を学習に使ってモデル M を作り、(1) M を販売し、(2) Work の複製を notice なしで配り、(3) 別件で Dedicator D に特許訴訟を起こした。
-D は、M のアーキテクチャについての請求項 C を持つ。C は R の学習が実際に実施したが、Work を別の方法で処理すれば実施しないで済む（＝「必然的に」侵害されるものではない）。
+D は 2 つの請求項を持つ。C1 は学習の方法についての請求項で、R の学習が実施する。C2 は M の構造についての請求項で、Work を使わず作ったモデルでも侵害される。
 
-| 文書 | R は C について許諾を持つか |
+| 文書 | R は許諾を持つか |
 |---|---|
-| ACD-1.0 | **持つ**。C は *"would be infringed by … the making … use … sale … of any model … resulting from that use"* に当たり、内容の限定は *"deliberately absent"*。(2)(3) はどちらも許諾を終わらせない（§8.2・§10.1・§10.4）|
-| CERN-OHL-P-2.0 | **持たない**。C は *"necessarily infringed by exercising rights under the Covered Source"* ではない。仮に持つと読んでも、(2) は §4 の条件、(3) は §6.2 の終了に当たる |
+| ACD-1.0 | C1・C2 とも**持つ**（1.0 に因果の限定は無い）。(2)(3) は許諾を終わらせない（§8.2・§10.1・§10.4）|
+| ACD-1.1〜1.4 草案 | C1 は**持つ**。**C2 は読みで分かれる** —— 末文を請求項単位で読めば許諾の外、場面単位で読めば M については持つ（下の「独立の再検証」②）。(2)(3) は許諾を終わらせない |
+| CERN-OHL-P-2.0 | C1・C2 が *"necessarily infringed by exercising rights under the Covered Source"* に当たるかは読みに依存する。**当たるとしても** (2) は §4 の条件、(3) は §6.2 の終了に当たる |
 | BlueOak-1.0.0 | M の販売は *"everything with this software"* の外と読むのが素直。仮に内と読んでも、(2) は Notices の不履行で、通知から 30 日で *"your license ends immediately"* |
 | EUPL-1.2 | C は *"necessary to make use of the rights granted on the Work"* ではない。(2) は Attribution right の違反で *"terminate automatically"* |
 | UPL-1.0 | M は lrgrwrks.txt に列挙されていない。(2) は条件の違反 |
@@ -375,6 +380,35 @@ bb が 6 本を立てて原文で反証した（H1-a BlueOak / H1-b CERN-OHL-P /
 6. **「組み合わせとして唯一」は、リストが既に退けた形の主張である** —— Josh Berkus 氏は 2026-10-14 に 0BSD-P へ *"It's not the goal of the OSI to have licenses for every possible combination of conditions"* と述べ、続けて *"do you have a specific use"* と問うた（#276・ACD を名指してはいない）。
    この節が示すのは 2 つの性質の組み合わせなので、この文はそのまま当たる。**言えるのは、組み合わせが条件の足し引きではなく 1 つの効果を生むこと**（学習に使った人が、条件も終了も無く、モデルと出力まで特許で守られる）**まで**で、具体的な用途は 4. と同じく我々には答えられない。
 
+### 独立の再検証（2026-11-04 後半・オーナーが渡した別の AI の見解を材料に、3 人が判断して行った）
+
+**① 母集団は再現できるが、141 本は OSI のリストそのものではなかった。** `--fetch` を取り直すと分類は同じ（141 本・明示 65・S1 58 / S2 3 / S3 4）で、census の差は取得時刻の 1 行だけだった（`--check` はこの 1 行で DRIFT を返す）。一方 **OSI の一次リスト（`/licenses` の 126 頁・`/api/licenses`・取得 2026-10-29）と突き合わせると、census に無いテキストが 8 本ある**: SPDX が OSI 承認と標示しない MIT-CMU / NIST-Software / eCos-2.0 / GPL-1.0、deprecated の wxWindows、SPDX ID の無い Jabber / MITRE CVW / Los Alamos BSD-3 Variant。**8 本とも当たった**（SPDX 原文 5 本・OSI の頁 3 本）: MIT-CMU / NIST-Software / eCos-2.0 / GPL-1.0 / wxWindows / Los Alamos は *patent* の語が無く、Jabber と CVW は作品に限る特許許諾に条件と終了を持つ。**結論は変わらない** —— 「141 本」は「SPDX の標示で 141 本 + OSI の頁だけに在る 8 本」と読む。逆に 141 本のうち 30 本（`-only` / `-or-later` の別名など）は OSI の頁に 1 対 1 で無い。**`/api/licenses` の `approved` は BlueOak-1.0.0 でも false で、承認の判定に使えない**（126 件中 true は 7 件）。
+
+**② 法的効果 —— 末文に 2 つの読みがある（2026-11-04 に bb が見つけ、25 が条文側で検討中）。** *"it does not license a claim that would be infringed by a model … produced without any use of the Work"* は、請求項単位に読むと、モデルの構造や性質を読む請求項の大半を外す（Work を使わないモデルでも侵害されるから）。場面単位に読むと、同じ請求項でも Work から作った M には許諾される。**前者なら「モデルの販売に届く」は学習の方法の請求項と product-by-process に縮む。** §15.1 は後者へ解決するが、gap の柱を解釈規則に預けている。
+
+**③ 既存ライセンスの組み合わせで同じ効果が出るか —— 出ない。ただしライセンスの外では出る。**
+
+| 組み合わせ | 結果 |
+|---|---|
+| 0BSD **または** BlueOak / UPL / CERN-OHL-P（選択）| 特許が要る受領者は特許のある側を選ぶので、その条件と終了が付く |
+| 0BSD **かつ** 同じ 3 本（両方を同時に許諾）| 著作権は 0BSD で無条件になるが、特許はその本の許諾なので**特許の面の条件と終了は残る** |
+| 承認済み本文の改変（Apache-2.0 §3 の報復を外す など）| 改変した本文は承認済みではない。新規の提出である |
+| 0BSD + 別の無条件の特許の誓約（Landley 氏・#276 (e)）| **効果は出せる。** 誓約は既存ライセンスではなく、案件ごとの未審査の文である。**gap は「効果が不可能」ではなく「審査済みの 1 本の本文に無い」である** |
+
+**④ 特許の射程は必要か（25 が条文側で検討中）。** OSD は特許許諾を要求していない（#236）。Perens 氏は OSD が権利の種類を区別しないと述べるが（#244）、**そこからモデル・出力へ広げる必要までは導けない**。これは「ソフトウェアの自由に必要」ではなく、ACD の目的（学習された受領者を露出させない）に必要な射程である。
+
+**⑤ B15 との構造的衝突 —— 残っている。** A1′+ は 1.4 が足した信号を戻したが、§8.4 は *model, parameter set, weight, embedding, output* を名指す。**B10 で固有の効果として立てるものと、B15 で「ソフトウェアに結びつくか」を問われるものは同じ語である。** Work がソフトウェアのときは、§8.4 はソフトウェアの受領者への特許許諾の延長と説明できる。Work がデータのときはその説明が効かない。**判定: 条文の矛盾ではないが、未解消の緊張である。B10 を強く言うほど B15 に触れる。解くのは OSI である。**
+
+**⑥ 基準 7 を満たすか —— 我々は確定させない。** 原文（`/licenses/review-process`・2026-11-04 取得・最終更新 2024-03-13）は *"The license must fill a gap that currently existing licenses do not fill."* で、何を gap と数えるかの定めは無い。
+
+**3 つに分けた結論**:
+
+| 種類 | 内容 |
+|---|---|
+| **条文比較で成立する差** | 明示の特許許諾を持ち受領者に条件を課さない本文は、OSI の頁の全テキストに 0 本 / モデル・パラメータ・重み・埋め込み・出力を名指す特許許諾は 0 本 / 特許訴訟でも終了しないと明記し、かつ無条件の本文は 0 本 |
+| **法的効果の解釈に依存する差** | §8.4 がモデルの販売に届く範囲（末文の 2 読み）/ CERN-OHL-P の Products と「必然的に」の読み / 黙示の許諾の範囲 / 一方的な文書による無条件の許諾の有効性（register B1）|
+| **OSI の判断に依存する必要性** | 組み合わせが gap に足りるか（Berkus 氏 #276）/ 具体的な用途（Kuhn 氏 #255）/ 主題（B15）/ 重複かつ未使用の留め置き（#139）|
+
 ### OSI の基準との対応
 
 - **新規ライセンスの基準 7（既存のライセンスで埋まらない gap を埋める・`ACD-1.0.review-rules.md` §1.70）**: この節がその 1 件の効果を原文で示す。**基準を満たすかは OSI の判断**で、我々が言えるのは「示せる形にした」ことまで。
@@ -385,7 +419,7 @@ bb が 6 本を立てて原文で反証した（H1-a BlueOak / H1-b CERN-OHL-P /
 
 | | Before（2026-11-03 の再検証）| After（2026-11-04）|
 |---|---|---|
-| §8.4 | 「新しい —— 名指し + 内容限定の除去」を、最近傍 10 本を読んで述べた | **141 本の分割で閉じ、7 本は逐語で当てた**。主張の形は「3 つ同時」へ |
+| §8.4 | 「新しい —— 名指し + 内容限定の除去」を、最近傍 10 本を読んで述べた | **141 本の分割で閉じ、7 本は逐語で当てた**。主張の形は「3 つ同時」へ。**同日後半**: OSI の頁だけに在る 8 本を足しても 0 本のまま。ただし末文の 2 読みが見つかり、モデルへの届き方は「解釈に依存する差」へ移した |
 | §7 データベース権 | 「新しい —— 承認済みの許諾は copyright と patent に限られる」 | **作用としては反証できない**（MIT *"to deal in the Software without restriction"*・0BSD *"Permission to use, copy, modify, and/or distribute this software for any purpose"* は許可を著作権に限らない・bb の H2）。**明示としては新しい**（REVIEWERS「In one screen」(i) は *"expressly reaches"* の形で、真のまま）|
 | §6.2 / §6.3 / §5.2(b) | 「新しい」| **限定つき** —— 受領者が例外に依る場面か、許諾が無効とされた場面でだけ効く（bb の H3）|
 | §12 | 「EUPL に先例」| 同じ（bb の H4）|
