@@ -427,15 +427,25 @@ def run(ctx):
         #   (§5.3 / §12.4 からの反対解釈を封じる・理由の文が担っていた働き) / (ii) §15.5 の
         #   "\"person\" includes an entity" (E58・§12.4 の公的機関と §2.8 の会社の譲受人を person に含める)。
         #   短くする圧力でどちらかが黙って落ちると、外した理由の文の働きが本文から消える (468d / 468m と同じ marker 検査)。
+        #   **2026-11-04 追加 (portfolio-25 の提案)**: B10 の立証 (gap-measurements.md §1.133・#2403) は
+        #   「§8.4 の範囲 + 条件なし + 終了なし」の 3 つが同時に在ることに依拠する。承認済み 141 本のうち
+        #   作品を超える対象への特許許諾と条件の不在を同時に持つものは 0 本で、これが唯一の立証済みの効果である。
+        #   短くする圧力で次の 3 句のどれかが落ちると、その効果が ERROR 無しで消える:
+        #   §8.4 "resulting from that use" (結果に届く) / §8.4 "deliberately absent" (内容限定を外す) /
+        #   §8.2 "not terminable by the Dedicator on any ground" (終了なし)。
         _lack468u = []
         for _sec468u, _mk468u in (("2.8", "nor Section 12.4 narrows this Section"),
-                                  ("15.5", '"person" includes an entity')):
+                                  ("15.5", '"person" includes an entity'),
+                                  ("8.4", "resulting from that use"),
+                                  ("8.4", "deliberately absent"),
+                                  ("8.2", "not terminable by the Dedicator on any ground")):
             _m468u = re.search(r"^  " + re.escape(_sec468u) + r"\s.*?(?=^  \d+\.\d+\s|^\d+\.\s)", _t468, re.M | re.S)
             if not _m468u or _mk468u not in " ".join(_m468u.group(0).split()):
                 _lack468u.append(f"§{_sec468u}: {_mk468u!r}")
         if _lack468u:
-            _bad468.append(f"468u: 理由の文を外した §2.8 / §12.4 の効果を支える目印が無い: {_lack468u} "
-                           "(外した文の働きを本文のどこが担っているかは CLARITY-TRIAL 試作 e を参照)")
+            _bad468.append(f"468u: 明瞭化・短縮で効果の根拠が落ちた: {_lack468u} "
+                           "(§2.8 / §15.5 は CLARITY-TRIAL 試作 e の効果の保存、§8.4 / §8.2 は B10 の立証 "
+                           "gap-measurements.md §1.133 が依拠する句)")
 
         # ── 468t: frontmatter の canonical-ref が、凍結済みの草案 pointer を「読み先」として指さない ──
         #   468p の frontmatter 版 (portfolio-25 の提案・2026-11-04)。bb の #2374 で SELF-AUDIT の mirror が
