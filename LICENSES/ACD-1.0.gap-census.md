@@ -21,9 +21,13 @@ canonical-ref: LICENSES/ACD-1.0.gap-measurements.md §1.97 (条件の有無を�
 
 ## 方法
 
-- **取得**: 2026-11-04T00:06:37Z（UTC）。SPDX `license-list-data` 既定ブランチの `json/licenses.json`
+- **取得**: 2026-11-04T06:20:18Z（UTC）。SPDX `license-list-data` 既定ブランチの `json/licenses.json`
   （licenseListVersion **8791eda**・releaseDate 2026-10-28）から
   `isOsiApproved` かつ非 deprecated の識別子を列挙し、各 `text/<id>.txt` を取得した。
+- **母集団の限界**: この表の「承認済み」は SPDX の `isOsiApproved` であって、OSI の一覧そのものではない。2026-11-04 に OSI の
+  `/licenses` の頁と突き合わせると、頁に在ってこの表に無いものが 8 本あった（MIT-CMU / NIST-Software / eCos-2.0 / GPL-1.0 / wxWindows /
+  Jabber / MITRE CVW / Los Alamos BSD-3 Variant）。うち 3 本は SPDX の識別子が無いので、ここからは生成できない。手で当てた結果は
+  `gap-measurements.md` §1.133 に在る。OSI の `/api/licenses` の `approved` は BlueOak でも false で、判定には使えない。
 - **取得できた本数: 141 / 141**・**できなかった本数: 0**。
   deprecated の承認済み識別子 13 件（`GPL-2.0` など、`-only`/`-or-later` へ移行済みの旧名）は除外した。
 - **本文の同一性**: 各 text の sha256 を取得時に記録した（下表の `sha256` 列は先頭 12 桁）。
