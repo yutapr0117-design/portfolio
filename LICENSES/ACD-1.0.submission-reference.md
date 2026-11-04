@@ -445,16 +445,18 @@ alleging that the Covered Source *or a Product* infringes; ACD-1.0 has no retali
 provision (8.2). **Third, and against us**: CERN-OHL was drafted for hardware, where "things
 made from the source" is the central case, so its authors had already solved in general terms
 the structural problem Section 8.4 solves for one artefact, so the idea of a grant that
-follows what is made is not ours. **Fourth (added 2026-11-03, after reading §6.1 against
-Section 8.4 for its effect rather than its words)**: CERN-OHL-P-2.0 §6.1 grants the licence
+follows what is made is not ours. **Fourth (added 2026-11-03; narrowed 2026-11-04, after the clause was set against all 141 approved texts)**: CERN-OHL-P-2.0 §6.1 grants the licence
 only for claims *"necessarily infringed by exercising rights under the Covered Source as
-Conveyed by that Licensor"*. That is a limit to the content of the source, the same kind as
-ACD-1.0's *"caused by subject matter contained in the Work as made available"* (§8.1), and
-Section 8.4 leaves it out on purpose (*"deliberately absent"*). A claim on a training
-technique, or on a property of a resulting model, is reachable under Section 8.4 and not
-under CERN-OHL-P-2.0, even when the Product is made from the source. **So Section 8.4 adds
-two things, not one: naming the artefact, and not tying the claims to what the source
-contains.** The second is also the cost: it is the breadth recorded in `ACD-1.0.against.md`
+Conveyed by that Licensor"*. The straightforward reading makes that a limit tied to the source, of the same kind as
+ACD-1.0's *"caused by subject matter contained in the Work as made available"* (§8.1), which
+Section 8.4 leaves out on purpose (*"deliberately absent"*); on that reading a claim on a training
+technique, or on a property of a resulting model that the source does not necessarily practise, is reachable under Section 8.4 and not
+under CERN-OHL-P-2.0, even when the Product is made from the source. **We do not rest the gap on that
+reading alone**: if *"exercising rights under the Covered Source"* includes making and using Products, the difference
+in claim scope narrows. **What holds on either reading is the combination** — a patent licence that reaches what is
+made from the work, with no condition (CERN-OHL-P-2.0 §4 conditions conveying a Product) and no termination (§6.1
+*"or where terminated by the Licensor for cause"*, §6.2) — and no approved licence has all three
+(`ACD-1.0.gap-measurements.md` §1.133 partitions the 141 approved texts). The breadth is also the cost: it is recorded in `ACD-1.0.against.md`
 #16, which a patent-holding organisation is likely to refuse.
 
 **Closest on "permissive, one condition, express patent grant": UPL-1.0, BlueOak-1.0.0 and
