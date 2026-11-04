@@ -13,6 +13,9 @@
     重なる 6-gram を条の組ごとに最長の連なりへまとめ、条番号の組・語数・本文を出す
   - 比較モード: 2 つの版の条ごとの語数の差と、**効果を運ぶ語** (主体・許諾の動詞・範囲・除外・条件) の
     出現回数の差。試作で消えた語は、元では許され試作では許されない (またはその逆の) 利用の候補になる
+  - 比較モード: 外した語に**ドシエの外向きの文書が依拠していないか** (LICENSES/*.md・rounds/ と作業記録を除く)。
+    外した 5 語の連なりの引用と、「§N.N gives」「Section N.N's own text」「§N.N 自身が述べ」の形を拾い、
+    審査者向けの文書 (その版を対象にするなら書き換えが要る) と記録 (当時の本文を引く) に分けて出す
 
 **測っていないもの (重要)**: **法的効果**。語の一致は同じ働きの証拠ではなく、語の消失は効果の消失の
 証拠ではない。この道具が出すのは「人が読んで確かめるべき箇所の一覧」までで、効果が保たれたかは
@@ -191,6 +194,83 @@ def refs_to(cl: dict[str, str], target: str) -> list[tuple[str, str, bool]]:
     return out
 
 
+# 文書をまたぐ依拠 (2026-11-04・bb の提案): 外した文を、ドシエの外向きの文書が引用・言い換えしていないか。
+#   本文の中の参照だけを見ると、試作 h1 (§6.5 前半) は通るが、提出文 submission.md §B.0 がまさにその前半を
+#   根拠に引いていた。条番号は版ごとにずれうる (1.0 §1.2 = 1.4 §1.3) ので、**外した文の 5 語の連なり**で
+#   照合するのを主にし、条番号の形 ("§6.5 gives" / "Section 8.4's own text") は版の注意つきで補助に出す。
+_ROOT = Path(__file__).resolve().parents[2]
+_XDOC_SKIP = re.compile(r"(^|/)rounds/|CHANGELIST\.md$|CLARITY-TRIAL\.md$|ADVERSARIAL-TRIAGE\.md$")
+# 理由を本文に帰す形。日本語の「§8.4 自身が述べ」も同じ依拠 (SUBMISSION-MATERIALS.md の表が実例)。
+# 構造を自分の言葉で言い直すだけの文 (faq.md A8「because Covered Rights exclude patents」) は外した文に
+# 依拠しないので拾わない —— §1.5 が特許を除くことは、理由の文を外しても真のまま。
+_REASON_REF = (r"(?:§|Section )({n})(?!\d)(?:'s own text| gives| explains| states why|'s reason| says why|"
+               r"\s*自身が述べ|\s*が述べる理由|\s*が理由を述べ)")
+
+
+# 審査者・採用者に本文を説明する文書。外した文に依拠していれば、その版を対象にするとき書き換えが要る。
+# それ以外 (errata / BLIND-SPOTS* / SELF-AUDIT / discussion-log / review-corpus 等) は当時の本文を引く記録で、
+# 書き換えると履歴を偽る (#977 と同じ線引き) —— 出すが「記録」として分ける。
+# against.md はファイル単位で外向き: 入口が審査者に読ませる全ラウンド通しの一覧で、版を付けない現在形の行
+# (#133 "ours is stated in the licence itself") は出す版が変わると偽になる。行単位に分けないのは、日付の有無で
+# 近似すると日付を含む #133 を落とすから —— 余分に拾う誤りは 1 行読めば済むが、見落としは偽の主張を提出する。
+_OUTWARD = re.compile(r"(submission[^/]*|review-responses[^/]*|clause-reference|faq|comparison|against|REVIEWERS|"
+                      r"SUBMISSION-MATERIALS|README)\.md$")
+
+
+def _toks(s: str) -> list[str]:
+    return [w.strip(".,;:()\"'*_`—–").lower() for w in s.split() if w.strip(".,;:()\"'*_`—–")]
+
+
+def _grams(text: str, k: int) -> set[str]:
+    t = _toks(text)
+    return {" ".join(t[i:i + k]) for i in range(len(t) - k + 1)}
+
+
+def external_reliance(changed: dict[str, tuple[str, str]], after_all: str,
+                      k: int = 5) -> list[tuple[str, int, str, str]]:
+    """(file, line, 種類, 文脈)。changed = {条番号: (変更前の条, 変更後の条)}、after_all = 変更後の本文全体。
+
+    照合する k 語の連なりは 2 段:
+    - **強**: 変更前の条にあって、変更後の本文の**どこにも**無い句。常に出す。
+    - **弱**: その条からは消えたが、本文の他所 (PREAMBLE や別の条) には残る句。**行がその条番号を名指すとき
+      だけ**出す。名指さない引用は、本文に残る同じ句に依拠していると読める。
+    比較の経緯 (2026-11-04): 文単位で比べると、文の前半を外したときに残った後半まで「外した」と数えた
+    (初版で 29 件中ほぼ全部が誤検出)。強だけにすると試作 f の誤検出 8 件は消えたが、clause-reference.md の
+    「| **8.4** | … 1.4 草案は "as to the Covered Rights" へ改めた」(本物の依拠・句は他の条にも在る) を落とした。
+    """
+    rest = _grams(after_all, k)
+    grams = {}
+    for sec, (b, a) in changed.items():
+        gone = _grams(b, k) - _grams(a, k)
+        for g in gone:
+            grams[g] = (sec, g not in rest)
+    out = []
+    for f in sorted((_ROOT / "LICENSES").rglob("*.md")):
+        rel = f.relative_to(_ROOT).as_posix()
+        if _XDOC_SKIP.search(rel):
+            continue
+        for ln, line in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
+            t = _toks(line)
+            hit = None
+            for i in range(len(t) - k + 1):
+                g = " ".join(t[i:i + k])
+                if g in grams:
+                    sec, strong = grams[g]
+                    if strong or re.search(r"(?<![\d.])" + re.escape(sec) + r"(?![\d])", line):
+                        hit = (g, sec, strong)
+                        break
+            if hit:
+                g, sec, strong = hit
+                tier = "外した語の引用" if strong else "条から外した語 (本文の他所に残る) を、条番号つきで引く"
+                out.append((rel, ln, f"§{sec} {tier}: 「{g}」", line.strip()[:140]))
+                continue
+            for sec in changed:
+                if re.search(_REASON_REF.format(n=re.escape(sec)), line):
+                    out.append((rel, ln, f"§{sec} を根拠として指す (版の条番号に注意)", line.strip()[:140]))
+                    break
+    return out
+
+
 def report(path: Path, n: int) -> None:
     cl = clauses(path.read_text(encoding="utf-8"))
     tot = sum(len(words(v)) for v in cl.values())
@@ -235,6 +315,14 @@ def compare(before: Path, after: Path, n: int) -> None:
           "括弧の指し先も中身に依拠しうるので、全件を読む")
     for t, k, ctx, d in _all:
         print(f"#   {'⚠' if d else '・'} §{k} → §{t}: …{ctx}…")
+    _xd = (external_reliance({c: (cb.get(c, ""), ca.get(c, "")) for c in _chg}, after.read_text(encoding="utf-8"))
+           if _chg else [])
+    _out = [x for x in _xd if _OUTWARD.search(x[0])]
+    print(f"# 外した文に依拠するドシエの箇所 (LICENSES/*.md・rounds/ と作業記録を除く): {len(_xd)}"
+          f" —— 外向き {len(_out)} (この版を対象にするなら書き換えが要る) / 記録 {len(_xd) - len(_out)}")
+    for rel, ln, kind, ctx in sorted(_xd, key=lambda x: not _OUTWARD.search(x[0])):
+        mark = "⚠ 外向き" if _OUTWARD.search(rel) else "・記録 "
+        print(f"#   {mark} {rel}:{ln} [{kind}] {ctx}")
     print()
     key = lambda c: tuple(int(x) for x in c.split("."))
     print("## 条ごとの語数と、効果を運ぶ語の増減 (減った語は反例探しの起点)")
