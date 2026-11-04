@@ -13,7 +13,7 @@
       "type": "document",
       "description": "Read the AI-to-AI handoff canon for this repository: the seven architecture constraints (C1–C7), KERNEL role definitions, output rules, and the pre-flight validation checklist. Use this before generating or reviewing any implementation for this repository, so that produced code stays within the constraint envelope. Licensing (ACD-1.3: no rights reserved, no conditions imposed, AI training and text and data mining expressly permitted) is the same for this material as for the rest of the repository.",
       "url": "https://yutapr0117-design.github.io/portfolio/AI2AI.md",
-      "digest": "sha256:329c49e32fc59e3ec4b526674a47a6962866f83cc9e63b685f950a5a543a11bd"
+      "digest": "sha256:0da7781e2402073409db6842401a5bb02fd0fe51020f75ab202ca7061773b380"
     }
   ]
 }
