@@ -219,6 +219,10 @@ w("")
 w(f"- **取得**: {meta['fetched_at']}（UTC）。SPDX `license-list-data` 既定ブランチの `json/licenses.json`")
 w(f"  （licenseListVersion **{meta['licenseListVersion']}**・releaseDate {meta['releaseDate'][:10]}）から")
 w(f"  `isOsiApproved` かつ非 deprecated の識別子を列挙し、各 `text/<id>.txt` を取得した。")
+w("- **母集団の限界**: この表の「承認済み」は SPDX の `isOsiApproved` であって、OSI の一覧そのものではない。2026-11-04 に OSI の")
+w("  `/licenses` の頁と突き合わせると、頁に在ってこの表に無いものが 8 本あった（MIT-CMU / NIST-Software / eCos-2.0 / GPL-1.0 / wxWindows /")
+w("  Jabber / MITRE CVW / Los Alamos BSD-3 Variant）。うち 3 本は SPDX の識別子が無いので、ここからは生成できない。手で当てた結果は")
+w("  `gap-measurements.md` §1.133 に在る。OSI の `/api/licenses` の `approved` は BlueOak でも false で、判定には使えない。")
 w(f"- **取得できた本数: {N} / {meta['approved_nondeprecated']}**・**できなかった本数: {len(meta['failed'])}**。")
 w(f"  deprecated の承認済み識別子 {len(meta['deprecated_approved'])} 件（`GPL-2.0` など、`-only`/`-or-later` へ移行済みの旧名）は除外した。")
 w("- **本文の同一性**: 各 text の sha256 を取得時に記録した（下表の `sha256` 列は先頭 12 桁）。")
@@ -374,7 +378,11 @@ w("")
 _new = "\n".join(out)
 if "--check" in sys.argv:
     _cur = OUTFILE.read_text(encoding="utf-8") if OUTFILE.exists() else ""
-    if _cur == _new:
+    # 取得時刻だけで変わる 3 行は比較しない。含めると、取り直すたびに分類が同じでも DRIFT になり、
+    # gap-measurements.md §1.133 の再現手順が毎回失敗する (2026-11-04・bb)。
+    def _sans_fetch(t):
+        return [ln for ln in t.split("\n") if not ln.startswith(("last-updated:", "# ACD-1.0 gap census", "- **取得**:"))]
+    if _sans_fetch(_cur) == _sans_fetch(_new):
         print("OK: census は現在のキャッシュからの生成結果と一致する")
         raise SystemExit(0)
     print("DRIFT: census が生成結果と一致しない（手で編集されたか、キャッシュの版が違う）")
