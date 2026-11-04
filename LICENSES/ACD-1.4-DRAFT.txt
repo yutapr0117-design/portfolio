@@ -93,12 +93,12 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 16.4 now excepts "a draft identified as such" from the texts
       whose version number and identifier the Steward may not reuse. (+6
       words.)
-    * Section 2.8 now ends "Neither of those Sections narrows this one." Once
-      Section 2.8 bound the whole Dedication, it reached the covenants that
-      Sections 5.3 and 12.4 already bind, with a different list of persons
-      (only Section 2.8 names transferees) and a different limit ("the law
-      permits" against "the law permits the Dedicator to bind them"). (+7
-      words.)
+    * Section 2.8 now ends "Neither Section 5.3 nor Section 12.4 narrows
+      this Section." Once Section 2.8 bound the whole Dedication, it reached
+      the covenants that Sections 5.3 and 12.4 already bind, with a different
+      list of persons (only Section 2.8 names transferees) and a different
+      limit ("the law permits" against "the law permits the Dedicator to bind
+      them"). (+9 words.)
     * Section 1.2 (errata E50) now says that Moral Rights include any right of
       a personal character conferred on an author by law "now or in future",
       the words Sections 1.5 and 8.1 use. (+4 words.)
@@ -125,7 +125,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       the Dedicator. (+9 words.)
     * The heading of Section 11 (errata E59) now ends "AND PRIVACY". (+1
       word.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5547 words, 80 clauses.
+    * Sections 2.8 and 12.4 no longer state why they say expressly that they
+      bind successors; what each binds, and whom, is unchanged. (-81 words.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5468 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -299,11 +301,8 @@ PREAMBLE (informative; not part of the operative terms)
        successors, assigns, heirs, and personal representatives, and any person
        to whom a Covered Right or a patent claim in the Work is transferred, to
        the fullest extent the law permits. A transferee takes subject to it,
-       Section 6 included. This is stated expressly because Sections 5.3 and
-       12.4 say as much for the covenants they contain, and silence here would
-       invite the argument that the grants themselves stop at the Dedicator,
-       which would leave the longest-lived risk, the change of hands, open.
-       Neither of those Sections narrows this one.
+       Section 6 included. Neither Section 5.3 nor Section 12.4 narrows this
+       Section.
 
   2.9  Nothing in this Dedication is conditioned on, suspended by, or revived
        by an insolvency, bankruptcy, administration, receivership, liquidation,
@@ -654,11 +653,7 @@ PREAMBLE (informative; not part of the operative terms)
   12.4 The covenant in Section 12.2 binds the Dedicator's successors, assigns,
        heirs, personal representatives, and any person entitled to exercise or
        enforce Moral Rights in the Work after the Dedicator's death, to the
-       fullest extent the law permits the Dedicator to bind them. This is
-       stated expressly because Moral Rights outlive the author in many
-       jurisdictions and may be exercised by relatives or by a public
-       authority, so a covenant that bound only the Dedicator would leave the
-       longest-lived risk open.
+       fullest extent the law permits the Dedicator to bind them.
 
   12.5 The covenant in Section 12.2 does not extend to conduct falling within
        Section 11.3, so the interest that Moral Rights protect against false
