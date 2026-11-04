@@ -10,8 +10,7 @@ canonical-ref: LICENSES/ACD-1.1-CHANGELIST.md (§0.13 確定手順) / .github/sc
 ## What
 
 **提出側の文書がライセンス本文を逐語で引いている箇所が、出す版の本文にもまだ在るかを測る道具。**
-提出側 5 面（`submission.md` / `submission-reference.md` / `submission-osd.md` / `REVIEWERS.md` /
-`READY-TO-SUBMIT.md`）から 40 字以上の引用を取り、省略記号で断片に分け、**旧版の本文に在り新版の本文に
+外向きの文書（`measure_clause_overlap.py` の `_OUTWARD` から導出）から 40 字以上の引用を取り、省略記号で断片に分け、**旧版の本文に在り新版の本文に
 無い断片**を列挙する。
 
 ## Why
@@ -37,7 +36,7 @@ python3 .github/scripts/measure_quote_drift.py 1.0 1.4    # 版を指定
 
 ## Change impact
 
-提出側の面を足したら `FACES` に足す。読み先の file が無いときは一覧の前に「※ 無い」と出す（黙って飛ばさない）。
+走査先は `_OUTWARD` から導出するので、外向きの文書を足すときはそちらの定義を変える。5 面の決め打ちだった間は `SUBMISSION-MATERIALS.md` も想定問答も見ておらず、1.3 → 1.4 の 12 件中 11 件が報告に出なかった（2026-11-04 実測）。導出が壊れて `SUBMISSION-MATERIALS.md` が走査先から消えたら止まる。
 
 ## Audience-specific notes
 

@@ -7,7 +7,8 @@
 まだ在るかは見ない。確定手順 (`ACD-1.1-CHANGELIST.md` §0.13) はこれを手で回していた
 (2026-11-01 に 1.4 草案で回し、既知の §6.4 の 1 件だけだった)。portfolio-25 の依頼で道具にした。
 
-**やること**: 提出側 5 面から 40 字以上の引用 (`*"…"*` と `"…"`) を取り、省略記号 (`…` / `...`) で
+**やること**: 外向きの文書 (`measure_clause_overlap.py` の `_OUTWARD`・審査者が本文と並べて読むもの) から
+40 字以上の引用 (`*"…"*` と `"…"`) を取り、省略記号 (`…` / `...`) で
 断片に分け、空白を正規化して、**旧版の本文に在り、新版の本文に無い断片**を列挙する。
 どちらの版にも無い断片 (ライセンス本文以外の引用) は対象外。
 
@@ -24,9 +25,13 @@ import pathlib
 import re
 import sys
 
+from measure_clause_overlap import _OUTWARD, _XDOC_SKIP
+
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-FACES = ["ACD-1.0.submission.md", "ACD-1.0.submission-reference.md",
-         "ACD-1.0.submission-osd.md", "REVIEWERS.md", "READY-TO-SUBMIT.md"]
+# 走査先は外向きの定義から導出する。5 面の決め打ちだった間は、申請日の 1 枚 SUBMISSION-MATERIALS.md も
+# 想定問答も見ておらず、1.3 → 1.4 の 12 件中 11 件が報告に出なかった (2026-11-04 実測)。
+FACES = sorted(p.name for p in (ROOT / "LICENSES").glob("*.md")
+               if _OUTWARD.search(p.name) and not _XDOC_SKIP.search(p.name))
 MIN_LEN = 40
 
 
@@ -81,17 +86,16 @@ def main() -> int:
     new = sys.argv[2] if len(sys.argv) > 2 else _current_draft_version()
     b_old, b_new = body(old), body(new)
     lost, total = [], 0
+    if "SUBMISSION-MATERIALS.md" not in FACES:
+        raise SystemExit("ERROR: 走査先に SUBMISSION-MATERIALS.md が無い (導出が壊れている)")
     for face in FACES:
         p = ROOT / "LICENSES" / face
-        if not p.exists():
-            print(f"  ※ {face} が無い (読み先を直せ)")
-            continue
         for n, frag in fragments(p.read_text(encoding="utf-8")):
             if frag in b_old:
                 total += 1
                 if frag not in b_new:
                     lost.append((face, n, frag))
-    print(f"提出側 {len(FACES)} 面の逐語引用のうち ACD-{old} の本文に在る断片: {total}")
+    print(f"外向きの {len(FACES)} 文書の逐語引用のうち ACD-{old} の本文に在る断片: {total}")
     print(f"  そのうち ACD-{new} の本文に無いもの: {len(lost)}")
     for face, n, frag in lost:
         print(f"  [{face}:{n}] {frag[:160]}")
