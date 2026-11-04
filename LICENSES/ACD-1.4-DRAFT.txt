@@ -134,7 +134,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 2.7 now limits the rights reached to those the Dedicator holds
       "now or in future", the words Sections 8.1 and 8.4 use (errata E60). (+4
       words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5394 words, 80 clauses.
+    * Section 8.5 now limits the claims reached in the same way, with the
+      same words "now or in future" (errata E60). (+4 words.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5398 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -523,12 +525,12 @@ PREAMBLE (informative; not part of the operative terms)
        had been crossed (Section 6.5).
 
   8.5  Sections 8.1 to 8.4 are subject to Section 2.7: they reach only patent
-       claims the Dedicator owns or controls, and are neither a representation
-       nor a warranty that practising the Work infringes no claim held by
-       another person. A patent claim is controlled by the Dedicator if, at the
-       time in question, the Dedicator has the right to grant these licences
-       under it without breaching an obligation to, or incurring a payment to,
-       another person.
+       claims the Dedicator owns or controls, now or in future, and are neither
+       a representation nor a warranty that practising the Work infringes no
+       claim held by another person. A patent claim is controlled by the
+       Dedicator if, at the time in question, the Dedicator has the right to
+       grant these licences under it without breaching an obligation to, or
+       incurring a payment to, another person.
 
   8.6  The Dedicator further covenants not to assert, and not to authorise or
        assist any other person to assert, the patent claims described in
