@@ -1,7 +1,7 @@
 ---
 file: LICENSES/SUBMISSION-MATERIALS.md
 audience: オーナー（license-review への提出メールを自分の言葉で書く人）/ 次のセッションの実装者
-last-updated: 2026-11-01
+last-updated: 2026-11-04
 canonical-ref: LICENSES/ACD-1.0.submission.md (1.0 向けの旧パケット・要件の原典照合の記録) / LICENSES/ACD-1.0.review-rules.md §1.70・§1.76 (OSI の要件の原典読み) / LICENSES/OSI-APPROVAL-PLAN.md §4 (段取り)
 ---
 
@@ -69,7 +69,7 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 | 留保しないこと・留保の撤回（§6.2・§6.3）と、付随条件を課さないこと（§5.2(b)） | 作用として果たしている（Dedicator 自身の行為の範囲で） | 本文の §6.2・§6.3・§5.2(b)。記述子の `tdmReservation: false`（→ §6.2） | 他の権利者が付けた留保には及ばない —— §6.3 自身が *"the Dedicator has no power to withdraw it"* と述べる |
 | データベース権の抽出・再利用（§7.2） | 作用として果たしている | §7.2 の *"extract and re-utilise the whole or any substantial part … repeatedly and systematically"*（sui generis 権の行為の語）。記述子の `databaseExtraction`（→ §7.2） | WordNet はデータベースを許諾の対象に含む（copyright のライセンスとして）。sui generis 権を名指す点が違う |
 | 条件ゼロの特許許諾（§8.1・§8.2） | 果たしている | §8.2 の *"subject to no condition and are not terminable"*、記述子の `patentRetaliation: false`（→ §8.2） | 特許としての作用は BSD-2-Clause-Patent・UPL・BlueOak と同じで、違いは条件の有無だけ |
-| モデル・出力に届く特許許諾（§8.4） | 作用として果たしている | §1.5 が特許を Covered Rights から除くので §6.4 だけでは届かない、と §8.4 自身が述べ、§8.1 末尾の内容限定を *"deliberately absent"* として外している。記述子の `patentUseForTraining`（→ §8.4） | 広さは費用でもある（`against.md` #16）。CERN-OHL-P-2.0 は Products に届くが内容限定を持つ（`submission-reference.md` の比較） |
+| モデル・出力に届く特許許諾（§8.4） | 作用として果たしている | §1.5 が特許を Covered Rights から除くので §6.4 だけでは届かない、と §8.4 自身が述べ、§8.1 末尾の内容限定を *"deliberately absent"* として外している。記述子の `patentUseForTraining`（→ §8.4） | 広さは費用でもある（`against.md` #16）。CERN-OHL-P-2.0 は Products に届くが内容限定を持つ（`submission-reference.md` の比較）。**ただし §8.4 も 1.1 から因果の限定を持つので、請求項の範囲の差は主張しない** —— 立つのは条件と終了を持たない組み合わせである（`ACD-1.0.gap-measurements.md` §1.133） |
 | §3 の有効性に依存しない公有化等価の地位（§3 + §4） | 果たしている | §4.4 の *"granted independently of Section 3, and not as a fallback for it"* と §2.4 | 献呈と許諾を並べる形には Unlicense の先例がある |
 | 機械生成物（§9） | **宣言しているだけ** | §9.2 *"asserts no right in Machine-Generated Material"*・§9.3（判定しなくてよい） | 包括的な許諾に、付与としての作用を足さない。記述子にも §9 のキーが無い（上の 1 行目） |
 | 人格権（§12） | permissive に対しては果たしている | §12.1（放棄）・§12.2（放棄できない法域での不行使） | EUPL-1.2 に放棄の先例がある |
