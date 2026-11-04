@@ -85,8 +85,10 @@ def run(ctx):
 
         def _ids_on(line):
             """1 行が状態を述べている E-ID 集合 (E6〜E10 のような範囲も展開する)。"""
-            got = set(re.findall(r"E(\d+)", line))
-            for a, b in re.findall(r"E(\d+)\s*[〜～–-]\s*E?(\d+)", line):
+            # 前に英字が無いものだけを E-ID とする (2026-11-04・portfolio-25 の報告): bb の反例番号
+            #   「CE10」の中の E10 を拾い、E10 が「反映済み」と「未着手」で矛盾していると誤って RED にした。
+            got = set(re.findall(r"(?<![A-Za-z])E(\d+)", line))
+            for a, b in re.findall(r"(?<![A-Za-z])E(\d+)\s*[〜～–-]\s*E?(\d+)", line):
                 got |= {str(n) for n in range(int(a), int(b) + 1)}
             return {"E" + n for n in got}
 
