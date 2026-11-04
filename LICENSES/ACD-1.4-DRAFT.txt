@@ -127,7 +127,13 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       word.)
     * Sections 2.8 and 12.4 no longer state why they say expressly that they
       bind successors; what each binds, and whom, is unchanged. (-81 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5468 words, 80 clauses.
+    * Section 2.7, Section 8.5, and Section 11.4 no longer point to Section
+      13.2, and Section 11.4 no longer states why its limit matters and now
+      ends with the sentence that ends Section 11.3. (-56 words.)
+    * Section 4.6 now begins "Section 4.5 does not cut", where it said
+      "Section 4.5 concerns the terms You may add. It does not cut". (-7
+      words.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5405 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -295,7 +301,6 @@ PREAMBLE (informative; not part of the operative terms)
        incorporates material in which another person holds rights, this
        Dedication neither affects nor purports to affect those rights, and
        nothing in it is a representation that such material is unencumbered.
-       Section 13.2 states the corresponding absence of warranty.
 
   2.8  This Dedication, in respect of the Work, binds the Dedicator's
        successors, assigns, heirs, and personal representatives, and any person
@@ -362,13 +367,13 @@ PREAMBLE (informative; not part of the operative terms)
        limits what those terms may be, requires them to reproduce this text, or
        places any obligation on You in respect of Your recipients.
 
-  4.6  Section 4.5 concerns the terms You may add. It does not cut Your
-       recipients off from this Dedication: a person who exercises a permission
-       granted here is You in their own right (Section 1.6), the covenants may
-       be relied upon by anyone who receives the Work from You, directly or
-       indirectly, on the terms Section 5.3 states, and no act of acceptance is
-       needed (Section 2.3). Terms You add govern what You give; they do not
-       narrow what the Dedicator has already given in respect of the Work.
+  4.6  Section 4.5 does not cut Your recipients off from this Dedication: a
+       person who exercises a permission granted here is You in their own right
+       (Section 1.6), the covenants may be relied upon by anyone who receives
+       the Work from You, directly or indirectly, on the terms Section 5.3
+       states, and no act of acceptance is needed (Section 2.3). Terms You add
+       govern what You give; they do not narrow what the Dedicator has already
+       given in respect of the Work.
 
 
 5. COVENANT NOT TO ASSERT
@@ -519,10 +524,9 @@ PREAMBLE (informative; not part of the operative terms)
   8.5  Sections 8.1 to 8.4 are subject to Section 2.7: they reach only patent
        claims the Dedicator owns or controls, and are neither a representation
        nor a warranty that practising the Work infringes no claim held by
-       another person. Section 13.2 states the corresponding absence of
-       warranty. A patent claim is controlled by the Dedicator if, at the time
-       in question, the Dedicator has the right to grant these licences under
-       it without breaching an obligation to, or incurring a payment to,
+       another person. A patent claim is controlled by the Dedicator if, at the
+       time in question, the Dedicator has the right to grant these licences
+       under it without breaching an obligation to, or incurring a payment to,
        another person.
 
   8.6  The Dedicator further covenants not to assert, and not to authorise or
@@ -623,12 +627,8 @@ PREAMBLE (informative; not part of the operative terms)
        Work contains personal data, or the likeness, voice, or performance of a
        person other than the Dedicator, any permission those laws require is
        not the Dedicator's to give and this Dedication does not purport to give
-       it. This matters here because a work meant to be learned from is often
-       data about people, and a reader is entitled to know exactly where this
-       instrument stops. Section 2.7 states the general principle and Section
-       13.2 the corresponding absence of warranty; this Section states a limit
-       of reach, it is not a condition upon You, and Section 10.1 is unaffected
-       by it.
+       it. This Section states a limit of the Dedication's reach; it is not a
+       condition upon You, and Section 10.1 is unaffected by it.
 
 
 12. MORAL RIGHTS
