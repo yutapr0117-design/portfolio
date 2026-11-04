@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """measure_clause_overlap.py — ACD の草案と試作文について、条の重複と効果を運ぶ語の差分を数える。
 
-**なぜ在るか (2026-11-04)**: オーナーの依頼「B3 / B13 (法的な明瞭さ・解釈の負荷) を、許諾の範囲・主体・
-効果を保ったまま、重複と読みの分岐を減らして改善する」に対する 3 人の分担のうち、5a の受け持ち
-(KPI を機械で数える / 試作への敵対的な反例探しの起点を作る)。目で拾う洗い出しの**対照**として使う ——
-人の目は「同じ働きを言い直している」箇所を拾うが、拾い漏れを数えられない。
+**なぜ在るか (2026-11-04)**: オーナーが共有した別の AI の見解 (B3 / B13 —— 法的な明瞭さ・解釈の負荷を、
+許諾の範囲・主体・効果を保ったまま、重複と読みの分岐を減らして下げる) を材料に、3 人が判断して進めた検証の、
+5a の受け持ち (KPI を機械で数える / 試作への敵対的な反例探しの起点を作る)。課題設定は別の AI のもので、
+オーナーの指示ではない (オーナー本人の依頼は「3 人で連携して承認に近づける自走」)。人の目は「同じ働きを
+言い直している」箇所を拾うが、拾い漏れを数えられない —— この道具はその**対照**である。
 
 **測っているもの**:
   - 条 (`  N.M  …` の形) ごとの語数と全体の語数 (空白で区切った語・本文は区切り線 `-`×80 の後)
@@ -21,6 +22,8 @@
     python3 .github/scripts/measure_clause_overlap.py LICENSES/ACD-1.4-DRAFT.txt
     python3 .github/scripts/measure_clause_overlap.py --min 8 LICENSES/ACD-1.4-DRAFT.txt
     python3 .github/scripts/measure_clause_overlap.py --compare BEFORE.txt AFTER.txt
+    python3 .github/scripts/measure_clause_overlap.py --guard TRIAL.txt   # 468u の目印が残っているか
+    python3 .github/scripts/measure_clause_overlap.py --uses DRAFT.txt Work "Computational Use"   # 定義語を使う条
 """
 from __future__ import annotations
 
@@ -216,7 +219,38 @@ def compare(before: Path, after: Path, n: int) -> None:
                 print(f"- {cat}: " + " / ".join(diffs))
 
 
+def guard(path: Path) -> int:
+    """468u の目印 (効果を運ぶ句) が、草案や試作ファイルの該当条に在るかを出す。一覧は Check と同じ 1 か所から読む。"""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from checks_license_draft import EFFECT_MARKERS_468U
+    cl = clauses(path.read_text(encoding="utf-8"))
+    lack = [(s, mk) for s, mk in EFFECT_MARKERS_468U if mk not in cl.get(s, "")]
+    print(f"# {path.name}: 468u の目印 {len(EFFECT_MARKERS_468U)} 件のうち欠けているもの {len(lack)} 件")
+    for s, mk in lack:
+        print(f"#   ⚠ §{s}: {mk!r}")
+    return 1 if lack else 0
+
+
+def uses(path: Path, terms: list[str]) -> int:
+    """定義語ごとに、それを使う条と回数を出す (大文字小文字を区別・語の境界で数える)。
+
+    定義を狭める試作 (例: §1.3 の "Work") の前に、到達範囲が変わりうる条を一覧にするため (2026-11-04・B15)。
+    """
+    cl = clauses(path.read_text(encoding="utf-8"))
+    key = lambda c: tuple(int(x) for x in c.split("."))
+    for t in terms:
+        rx = re.compile(r"(?<![A-Za-z-])" + re.escape(t) + r"(?![A-Za-z-])")
+        hits = [(c, len(rx.findall(v))) for c, v in sorted(cl.items(), key=lambda kv: key(kv[0])) if rx.search(v)]
+        print(f"## {t!r}: {len(hits)} 条 / {sum(n for _, n in hits)} 回")
+        print("- " + " / ".join(f"§{c} ×{n}" for c, n in hits))
+    return 0
+
+
 def main(argv: list[str]) -> int:
+    if argv and argv[0] == "--guard" and len(argv) == 2:
+        return guard(Path(argv[1]))
+    if argv and argv[0] == "--uses" and len(argv) >= 3:
+        return uses(Path(argv[1]), argv[2:])
     n = 6
     if "--min" in argv:
         i = argv.index("--min")

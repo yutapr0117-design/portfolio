@@ -62,6 +62,18 @@ import json
 import re
 
 
+# 468u の目印 (条, 句)。**一覧はここだけに置く** —— measure_clause_overlap.py --guard が同じ一覧を import して
+# 試作ファイルに当てる (2 か所に持つと食い違う)。§2.8 / §15.5 は CLARITY-TRIAL 試作 e の効果の保存、
+# §8.4 / §8.2 は B10 の立証 (gap-measurements.md §1.133) が依拠する句。
+EFFECT_MARKERS_468U = (
+    ("2.8", "nor Section 12.4 narrows this Section"),
+    ("15.5", '"person" includes an entity'),
+    ("8.4", "resulting from that use"),
+    ("8.4", "deliberately absent"),
+    ("8.2", "not terminable by the Dedicator on any ground"),
+)
+
+
 def run(ctx):
     ROOT = ctx.ROOT
     check = ctx.check
@@ -434,11 +446,7 @@ def run(ctx):
         #   §8.4 "resulting from that use" (結果に届く) / §8.4 "deliberately absent" (内容限定を外す) /
         #   §8.2 "not terminable by the Dedicator on any ground" (終了なし)。
         _lack468u = []
-        for _sec468u, _mk468u in (("2.8", "nor Section 12.4 narrows this Section"),
-                                  ("15.5", '"person" includes an entity'),
-                                  ("8.4", "resulting from that use"),
-                                  ("8.4", "deliberately absent"),
-                                  ("8.2", "not terminable by the Dedicator on any ground")):
+        for _sec468u, _mk468u in EFFECT_MARKERS_468U:
             _m468u = re.search(r"^  " + re.escape(_sec468u) + r"\s.*?(?=^  \d+\.\d+\s|^\d+\.\s)", _t468, re.M | re.S)
             if not _m468u or _mk468u not in " ".join(_m468u.group(0).split()):
                 _lack468u.append(f"§{_sec468u}: {_mk468u!r}")

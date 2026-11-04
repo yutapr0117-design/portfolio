@@ -17,7 +17,7 @@ ACD の草案と試作文について、条の重複と「効果を運ぶ語」�
 
 ## Why
 
-2026-11-04、オーナーの依頼「B3 / B13（法的な明瞭さ・解釈の負荷）を、許諾の範囲・主体・効果を保ったまま、重複と読みの分岐を減らして改善する」に対する 3 人の分担のうち、5a の受け持ち（KPI を機械で数える / 試作への反例探しの起点を作る）。人の目は「同じ働きを言い直している」箇所を拾うが、拾い漏れを数えられない —— この道具はその**対照**である。
+2026-11-04、オーナーが共有した別の AI の見解（B3 / B13 —— 法的な明瞭さ・解釈の負荷を、許諾の範囲・主体・効果を保ったまま、重複と読みの分岐を減らして下げる）を材料に 3 人が判断して進めた検証の分担のうち（課題設定は別の AI のもので、オーナーの指示ではない）、5a の受け持ち（KPI を機械で数える / 試作への反例探しの起点を作る）。人の目は「同じ働きを言い直している」箇所を拾うが、拾い漏れを数えられない —— この道具はその**対照**である。
 
 ## How
 
@@ -25,7 +25,11 @@ ACD の草案と試作文について、条の重複と「効果を運ぶ語」�
 python3 .github/scripts/measure_clause_overlap.py LICENSES/ACD-1.4-DRAFT.txt
 python3 .github/scripts/measure_clause_overlap.py --min 8 LICENSES/ACD-1.4-DRAFT.txt
 python3 .github/scripts/measure_clause_overlap.py --compare LICENSES/ACD-1.4-DRAFT.txt <試作>
+python3 .github/scripts/measure_clause_overlap.py --guard <試作>          # 468u の目印（効果を運ぶ句）が残っているか
+python3 .github/scripts/measure_clause_overlap.py --uses <草案> Work "Computational Use"   # 定義語を使う条と回数
 ```
+
+`--guard` の目印の一覧は `checks_license_draft.py` の `EFFECT_MARKERS_468U` だけに置き、Check 468u と同じものを読む（2 か所に持つと食い違う）。`--uses` は、定義を狭める試作（例: B15 の検証で §1.3 の "Work" を狭める）の前に、到達範囲が変わりうる条を一覧にする。
 
 族は「同じ言い回しを共有する条の集合」で数える。条を言い回しで結んだ連結成分も参考に出すが、汎用の言い回しが数珠つなぎにする（1.4 草案では 37 条が 1 つになる）ので族の数には使わない。
 
