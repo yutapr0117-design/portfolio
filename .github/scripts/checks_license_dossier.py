@@ -572,6 +572,7 @@ def run(ctx):
     _SPDX476 = {
         "3.28.0": {149, 136},   # 全件 / 非 deprecated（deprecated ID 13）
         "3.29.0": {154, 141},   # 同上（2026-09-16 release・3.28.0 から新規承認扱い 5 件）
+        "8791eda": {154, 141},  # license-list-data 既定ブランチ (2026-10-28・取得 2026-11-04・bb)。判定 141 本は 3.29.0 と同一
     }
     _ok476 = set().union(*_SPDX476.values())
     _pats476 = [
