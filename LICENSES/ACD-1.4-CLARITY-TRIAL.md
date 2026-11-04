@@ -561,3 +561,19 @@ ACD の Work の定義は source code / object code から始まり、前文の�
 
 **この節が確立しないこと**: B15 の中身（Work の定義がソフトウェア以外の素材を含むこと）は、どの案でも残る —— 残すことが AI 資産への許可と B10 の条件だからである。
 動かせるのは、1.4 が自分で足した信号 1 つだけ（A1′）である。
+
+### 7.4 敵対的検証の補足（bb・2026-11-04）
+
+**(1) OSI の主題の判断は、本文が名指す対象を読んでいた** —— だから A1′+ の価値は信号の側にあり、範囲は動かない。
+Mulan の不承認の理由書は、そのライセンス自身の定義文 *"The subject matter of licenses is … including but not limited to a written work, a musical work, … an audiovisual work, a graphic work, and a model work"* を引用して理由にした（`rounds/2023-02-license-review-mulanowl-open-works-observed-8of11.txt`）。
+承認された側の 2 例も、名前と本文が対象を述べ、どちらもソフトウェアに結び付く —— Unicode は *Data Files and Software*（ソフトウェアが消費する技術的データ・`against.md` #259）、IPA Font はフォントで *"A vector font … is considered program code"*（Cowan 氏・`review-precedents.md` §1.110）。**しかも 2 例ともカテゴリつき**（redundant / Special Purpose）の承認だった。
+**→ A1′+ が消したのは、OSI 自身が OSAID で「ライセンス以外の法的手段が要りうる」と開いたままにしているパラメータを、Work の定義と §9.1 の例示で名指す文言だけである。** Mulan の理由書が引いたのと同じ形の語（*audiovisual*）は 1.0 から在り、残る（§7.3 の A1 を採らない理由）。
+
+**(2) g′（§9.1 の例示を残し §1.3 だけを戻す・5a の比較案）を採らなかった理由**（25 の判断）:
+§9.1 の例示も 1.4 で足した文で、§1.3 から外した名指しを**もう 1 か所で言い続けていた**。片方だけ戻すと、Work がパラメータでありうるという信号が §9 に残る。
+例示を code に替えれば、§9 の説明力の費用（重みに ACD を付ける読み手は §1.8 の定義から自分で導く —— 1.0〜1.3 と同じ）はあっても、信号は Fontana 氏の線（*"does not apply to code or model architecture materials"*）の内側にそろう。
+
+**(3) 採用した文と反例を当てた文の照合**: 草案に入った本文は試作 g と、§9.1 の *such as* → *including* の 1 語を除いて同じ（bb が機械的に照合）。
+その 1 語にも当てて通過した —— §15.5 が *including* を例示と定めるので限定せず、*"may consist"* が可能性を述べる形なので「機械生成物は必ずコードを含む」と読む余地も無い。
+
+**→ 状態: B15 の「1.4 が自分で足した信号」は解消した。B15 の実質（定義が software-specific でない・*audiovisual* を含む）は 1.0 から変わらず、判断は OSI に残る。**
