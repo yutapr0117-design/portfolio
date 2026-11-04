@@ -79,10 +79,17 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (aio-monitoring / architecture-validation / auto-update-aio-digests) に上限が無かった。無いと
        既定の 6 時間まで居座り、concurrency で後続の run を塞ぐ。YAML として読めない workflow と、
        job 検出 5 未満も RED。(BLOCKING)
+  489. 版確定日に手で回す道具が今の tree で動く: 確定手順 (ACD-1.1-CHANGELIST.md §0.13) が頼る道具は
+       CI のどこからも実行されず、版の命名や本文の書式が変わって壊れても確定当日まで分からない。実際に
+       実行し、終了コードと「何かを測った」ことを示す出力 (件数が 0 でない等) を見る。
+       .github/scripts/*.py 全件の構文も見る。(BLOCKING)
 
 """
 import re
 import json
+import os
+import subprocess
+import sys
 
 
 def run(ctx):
@@ -373,5 +380,43 @@ def run(ctx):
         (f"Check 488: timeout-minutes の無い job がある ({_bad488}) か、job の検出が床 5 を下回る "
          f"({_jobs488}・yaml={'あり' if _y488 else '無し'})。上限の無い job は既定の 6 時間居座り、"
          "concurrency で後続の run を塞ぐ。実測の 10 倍程度の上限を置く"),
+        blocking=True,
+    )
+
+    # ── 489. 版確定日に手で回す道具が今の tree で動く (BLOCKING) ───────────────
+    # 2026-11-04: measure_citation_drift の既定は 2 版前の「1.0 → 1.2」のままで、measure_quote_drift は
+    # 本物の引用を落としていたが、どちらも CI が実行しないので誰も見ていなかった。全部で 1 秒未満なので
+    # 実際に走らせる。出力の条件は 0 件で黙って終わる形 (走査先が空) も RED にするためのもの。
+    # 比較モードは同じ版同士の対照で、外した語が 0 件であることまで見る。
+    import measure_quote_drift as _mqd489
+    _sc489 = ROOT / ".github" / "scripts"
+    _draft489 = f"LICENSES/ACD-{_mqd489._current_draft_version()}-DRAFT.txt"
+    _tools489 = (
+        (["measure_quote_drift.py"], r"本文に在る断片: [1-9]\d*"),
+        (["measure_citation_drift.py"], r"の条: [1-9]\d* 件"),
+        (["measure_section4c.py"], r"定義語 [1-9]\d* 件"),
+        (["measure_descriptor_carryover.py"], r"が引く条 [1-9]\d* 件"),
+        (["measure_clause_overlap.py", "--compare", _draft489, _draft489], r"依拠するドシエの箇所 .*: 0 —— 外向き 0"),
+    )
+    _bad489 = []
+    for _args, _want in _tools489:
+        try:
+            _r = subprocess.run([sys.executable, str(_sc489 / _args[0]), *_args[1:]], cwd=ROOT, text=True,
+                                capture_output=True, timeout=60,
+                                env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"})
+            if _r.returncode != 0 or not re.search(_want, _r.stdout):
+                _bad489.append(f"{_args[0]}: rc={_r.returncode} {(_r.stderr or _r.stdout)[-160:]!r}")
+        except subprocess.TimeoutExpired:
+            _bad489.append(f"{_args[0]}: 60 秒で終わらない")
+    for _py in sorted(_sc489.glob("*.py")):
+        try:
+            compile(_py.read_text(encoding="utf-8"), str(_py), "exec")
+        except SyntaxError as _e:
+            _bad489.append(f"{_py.name}: 構文エラー {_e.lineno} 行")
+    check(
+        not _bad489,
+        f"Check 489: 版確定日の道具 {len(_tools489)} 本が今の tree で動き、scripts の構文も通る",
+        (f"Check 489: 版確定日に手で回す道具が動かない ({_bad489})。確定手順 §0.13 が頼る道具なので、"
+         "当日に壊れていると確定を止める"),
         blocking=True,
     )

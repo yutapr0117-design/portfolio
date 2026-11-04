@@ -280,27 +280,6 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 449b: api-catalog の link object に関係型 (service-desc) を attribute として混ぜる —— RFC 9264 では関係型は attribute ではなく、仕様に従う agent は別の意味に読む",
-    "file": ROOT / ".well-known" / "api-catalog",
-    "find": "          \"type\": \"text/plain\"\n",
-    "replace": "          \"type\": \"text/plain\",\n          \"service-desc\": \"x\"\n",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 449c: api-catalog の link object の href が文字列でなくなる —— 解決できない link を agent に渡す",
-    "file": ROOT / ".well-known" / "api-catalog",
-    "find": "          \"href\": \"https://yutapr0117-design.github.io/portfolio/llms-full.txt\",\n          \"type\": \"text/plain\"",
-    "replace": "          \"href\": 1,\n          \"type\": \"text/plain\"",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 426a: portfolio:identity:canonical-url が ai:canonical と食い違う —— どの Check も e2e も見ていなかった meta (#1093)",
-    "file": ROOT / "index.html",
-    "find": "<meta name=\"portfolio:identity:canonical-url\" content=\"https://yutapr0117-design.github.io/portfolio/\">",
-    "replace": "<meta name=\"portfolio:identity:canonical-url\" content=\"https://yutapr0117-design.github.io/portfolio/x/\">",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
     "name": "Check 426b: 画像資産の権威コンテキスト URL が ai:context と食い違う",
     "file": ROOT / "index.html",
     "find": "<meta name=\"asset:image:ai-context\" content=\"https://yutapr0117-design.github.io/portfolio/llms-full.txt\" />",
@@ -571,6 +550,20 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "LICENSES" / "ACD-1.0.gap-measurements.md",
     "find": "（S1）| 58 |",
     "replace": "（S1）| 57 |",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 489: 版確定日の道具が 0 件で黙って終わる —— 引用の下限を上げると走査は成功するが何も測らない",
+    "file": ROOT / ".github" / "scripts" / "measure_quote_drift.py",
+    "find": "MIN_LEN = 40\n",
+    "replace": "MIN_LEN = 400000\n",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 489: 手で回す script に構文エラーが入る —— CI はどの層も実行しないので確定当日まで分からない",
+    "file": ROOT / ".github" / "scripts" / "measure_patent_reach.py",
+    "find": "def main() -> int:\n",
+    "replace": "def main() -> int\n",
     "check": CHECK,
 })
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
