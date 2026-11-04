@@ -451,7 +451,7 @@ Conveyed by that Licensor"*. The straightforward reading makes that a limit tied
 ACD-1.0's *"caused by subject matter contained in the Work as made available"* (§8.1), which
 Section 8.4 leaves out on purpose (*"deliberately absent"*); on that reading a claim on a training
 technique, or on a property of a resulting model that the source does not necessarily practise, is reachable under Section 8.4 and not
-under CERN-OHL-P-2.0, even when the Product is made from the source. **We do not rest the gap on that
+under CERN-OHL-P-2.0, even when the Product is made from the source. *(2026-11-04: that sentence describes 1.0. In the 1.4 draft a claim on a training technique is reached only where the Work teaches or embodies it, or the infringing feature results from its use.)* **We do not rest the gap on that
 reading alone**: if *"exercising rights under the Covered Source"* includes making and using Products, the difference
 in claim scope narrows. **What holds on either reading is the combination** — a patent licence that reaches what is
 made from the work, with no condition (CERN-OHL-P-2.0 §4 conditions conveying a Product) and no termination (§6.1
@@ -713,7 +713,7 @@ machine can find are not present.
 | Every clause pointer **also supports the claim it is attached to** | **read by hand**, 2026-09-09: each boolean and each `outOfScope` entry compared against the wording of the clause it cites | **33 / 33.** **This row previously said "resolves and matches its subject" with only the existence check behind it** — resolution is mechanical, agreement of meaning is not, and the two were reported as one. The same audit on `clause-reference.md`'s 82 rows found **three** mismatches (`against.md` #34–#36), so a clean result here was not a foregone conclusion. **Repeat the pass if the descriptor changes; nothing enforces it** |
 | Every clause in the text has a row in the clause-by-clause reference, and every row a clause | cross-check `ACD-1.0.clause-reference.md` against the text | **82 / 82**, no gaps either way |
 | Each row's description was read against its clause | manual pass over all 82, 2026-09-04 | **3 mismatches found and corrected** (against.md #34–#36) |
-| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **281 entries, 1–281, no gaps; all citations resolve** |
+| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **283 entries, 1–283, no gaps; all citations resolve** |
 | Every defect called a "1.1 candidate" anywhere has an entry in the errata to point at | cross-check declarations against `errata.md` | **one was missing and has been added (E7)** |
 | Every negative self-claim the text makes about itself is true | extract each "contains no / imposes no / grants no / reaches nothing / specifies no" statement and search the whole text for the thing denied | **9 claims, 9 true** — each denied term appears only inside the clause doing the denying |
 | Subordination claims are consistent: every "is subject to / bounded by Section N" points at a clause that exists and is a general principle | read the full text and follow each cross-reference | **2 found, both pointing at §2.7**, which is the general limitation clause |

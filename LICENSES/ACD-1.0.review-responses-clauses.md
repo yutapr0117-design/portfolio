@@ -174,8 +174,8 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 > reaches only claims "necessarily infringed by exercising rights under the
 > Covered Source as Conveyed by that Licensor", and it can end: on patent
 > litigation (its Section 6.2) or "for cause". Whether its claim limit is
-> narrower than Section 8.4's own ("only claims whose infringement depends
-> upon the use of the Work") turns on whether training is an exercise of
+> narrower than Section 8.4's own (in 1.1 to 1.3, "only claims whose infringement depends
+> upon the use of the Work"; the 1.4 draft rewrites it) turns on whether training is an exercise of
 > rights under the Covered Source, and I do not claim to know. What I can
 > show from the text is the combination: among the approved licences, those
 > whose patent grant reaches beyond the work itself all carry a condition,
@@ -216,6 +216,7 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 > - **What is gone:** the requirement that the infringement trace to subject matter *contained
 >   in the Work*. That is the deliberate widening. A claim reading on a training technique, or on
 >   a property of the resulting model, is reachable even though the technique is not in the Work.
+>   *(Version note, 2026-11-04: this describes 1.0. In 1.1 to 1.3 the limit reads two ways (#282). In the 1.4 draft such a claim is reached only where the infringing feature results from the use of the Work, or the Work teaches or embodies it.)*
 >
 > **This is the price of the design, and I would rather state it than let it be discovered.** A
 > Dedicator with a patent portfolio who applies ACD-1.0 to a dataset may be licensing claims that
@@ -272,6 +273,8 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 >   will not pretend otherwise.** The embedding results from the use; whether the second model
 >   does is a question about how far down a chain "resulting from" runs, and neither version
 >   answers it. This is the weakest point in the section and it is recorded rather than argued.
+>
+> *(Version note, 2026-11-04: the answers above describe 1.0 and 1.1 to 1.3. In the 1.4 draft the first covers only features that result from the use of the Work; the third asks whether the use contributed, not whether it was necessary; in the fourth, a model that in fact used the Work is inside as to such a feature, and an independently made model is outside. The fifth and sixth stand.)*
 >
 > **What this shows about the design.** Five of the six turn on words already in the section —
 > "use", "resulting from", "depends upon" — and the sixth is a genuine gap. **The section is
