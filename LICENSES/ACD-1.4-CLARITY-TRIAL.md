@@ -694,6 +694,7 @@ F3 の 9 件の内訳は、採用 3（§2.8・§12.4・§11.4）/ 検討して�
 残るのは、**採用済みの試作**が外した文を引いている箇所である: `ACD-1.0.review-responses-clauses.md` の英文 *"Section 12.4 says exactly that as its reason"* —— 1.0〜1.3 には真だが、1.4 は §12.4 の理由の文を外した（§4.6）ので、1.4 を対象にすると偽になる。
 **「1 件」は読んで確かめた**（5a の道具で 1.3 → 1.4 を比較し、採用済みの試作に当たる候補を 1 行ずつ読んだ・2026-11-04）: `against.md` #104（*"because moral rights outlive the author"*）と `ACD-1.0.review-responses-meta.md`（*"I state both because a work meant to be learned from …"*）は我々自身の説明で、本文の理由として帰属していないので 1.4 でも真である。`against.md` #173 は 2026-11-04 の注が付いている。#49 は語を共有するだけで §11.4 の理由を引いていない。`review-responses-clauses.md` の *"would invite the argument that"* は 5a が確かめたとおり §15.7 の説明で、§2.8 への依拠ではない。
 **§2.7 の変更（E60）で 1 件増えた（2026-11-04）**: `ACD-1.0.review-responses-clauses.md` の英文 *"the Dedication reaches only rights the Dedicator holds"* は偽ではないが、1.4 の本文より狭い言い方になる。切り替えの日に語を揃える。
+**§9 の T1〜T3 で増えた引用（2026-11-04）**: `ACD-1.0.submission-osd.md` の §1.2 の逐語と §16.3 の引用、`ACD-1.0.submission.md` の §16.3、`ACD-1.0.against.md` の #237 と §16.3 の行。いずれも 1.0 の文として真で、切り替えの日に揃える。
 **この 1 件の外に、1.4 の他の変更（§4.3・§5.2・§8.1・§16.6 など）が外した語を引く箇所が在る** —— 比較の全体は外向き 41 件で、そちらは明瞭性の試作の問題ではなく版の移行の問題なので、確定手順（`ACD-1.1-CHANGELIST.md` §0.13）が出す版で回す。
 
 ## 9. §15.1 が広い側へ解決する読みと、並行起草の差分（2026-11-04・25）
