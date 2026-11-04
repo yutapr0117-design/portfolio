@@ -89,7 +89,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | E57 | §9.4・§11.1・§14.2 | 節全体を指す *"this Section"* 3 か所を *"Section 9"* / *"Section 11"* / *"Section 14"* と名指す（0 語・上の表の §9.4・§11.1・§14.2 行と同じ変更） | **反映済み**（2026-11-03）|
 | E58 | §15.5 | 解釈規則に *""person" includes an entity"* を足す（+4 語・上の表の §15.5（person）行と同じ変更） | **反映済み**（2026-11-03）|
 | E59 | §11 見出し | *"TRADEMARKS, NAMES, AND MISREPRESENTATION"* を *"TRADEMARKS, NAMES, MISREPRESENTATION, AND PRIVACY"* へ（+1 語・上の表の「§11 の見出し」行と同じ変更） | **反映済み**（2026-11-03）|
-| E60 | §2.7 | *"reaches only rights the Dedicator holds"* に *", now or in future"* を足す（+4 語・上の表の「§2.7（時点）」行と同じ変更） | **反映済み**（2026-11-04）|
+| E60 | §2.7 / §8.5 | *"reaches only rights the Dedicator holds"* と *"owns or controls"* に *", now or in future"* を足す（各 +4 語・上の表の §2.7・§8.5 の行と同じ変更） | **反映済み**（2026-11-04）|
 
 ## 外部資料 5 本を当てた結果（2026-10-28・オーナーが URL を渡した・clean も書き残す）
 
