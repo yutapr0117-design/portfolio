@@ -26,7 +26,7 @@ if sys.version_info < (3, 10):
     print("ERROR: mutation_samples.py requires Python 3.10+ (got %d.%d)" % sys.version_info[:2])
     sys.exit(1)
 
-from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK  # noqa: F401 (entry 内で参照)
 from mutation_samples_archive import MUTATIONS_ARCHIVE
 from mutation_samples_archive5 import MUTATIONS_ARCHIVE5
 from mutation_samples_archive4 import MUTATIONS_ARCHIVE4
@@ -430,7 +430,7 @@ _MUTATIONS_TAIL.append({
     "name": "Check 45c: docstring の一覧にだけ Check が 1 つ多い —— 両方とも連続のままなので 45a / 45b は通り、一覧と実装の集合の食い違いだけが残る",
     "file": ROOT / ".github" / "scripts" / "checks_ci_verify.py",
     "find": "  488. すべての workflow job が",
-    "replace": "  489. (mutation)\n  488. すべての workflow job が",
+    "replace": f"  {NEXT_CHECK}. (mutation)\n  488. すべての workflow job が",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
