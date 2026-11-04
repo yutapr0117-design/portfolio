@@ -437,6 +437,22 @@ bb の F0 が「並行起草の定型句」として残す側に分けたもの�
 **§8.3 は変えない。残余リスク**: 第 2 文の *"because software cannot be practised …"* から「ソフトウェアでない Work（データセット・モデル）では特許の留保が許される」と読む余地は残る。
 弱めているのは §8.4（モデル・出力を名指して許諾する）と §15.1。**この 1 件は、効果を保ったまま消す書き方が見つからなかったものとして記録する。**
 
+#### 試作 f（§13.2 への案内 3 か所・§4.6 の指示語・§11.4 の理由の文・−63 語）に当てた結果 —— **全件通過**
+
+Before は main の草案と byte 一致（25 が確認・bb も `cmp` で確認）。
+
+| # | 反例 | 結果 |
+|---|---|---|
+| 25 (1) | §11.4 から §2.7 への案内（*"Section 2.7 states the general principle"*）が消えると、§11.4 の *"any right held by a person other than the Dedicator"* が §2.7 と別の射程に読まれるか | **通過** —— §2.7（Dedicator が持つ権利にしか及ばない）と §11.4 の該当句は同じ範囲を述べており、案内が無くても食い違う読みは立たない。§2.7 への参照は §6.1・§6.2・§7.2・§8.5 に残るが、これらは**許諾の射程を Dedicator の権利に限る**操作上の参照で、限界を述べる §11.4 が引かなくても射程の読みは変わらない |
+| 25 (2) | §13.2 への案内を外すと、§8.5 の *"neither a representation nor a warranty that practising the Work infringes no claim"* が §13.2 と別の保証の扱いに読まれるか（§8.5 は *practising*、§13.2 は *use*）| **通過** —— **§13.1 が非侵害を含むすべての保証を目立つ形で否認している**（*"WITHOUT WARRANTY OR CONDITION OF ANY KIND … INCLUDING … NON-INFRINGEMENT"*）。*practising* と *use* の語の違いは、保証の扱いに隙間を作らない |
+| 非対称 | §13.2 への案内が 3 か所のうち一部だけ残るか | **解消** —— 試作 f に *"Section 13.2"* を名指す文は 1 つも残らない |
+| 指示語 | §4.6 の *"It"* | **分岐が 1 つ消えた** —— 元の *"It does not cut Your recipients off"* は §4.5 とも「You が足す terms」とも読めたが、試作は §4.5 を名指す。末文 *"Terms You add … do not narrow"* が terms の側を別に述べるので、どちらの読みの内容も残る |
+| CE10 | §11.4 の理由の文が操作条項に無い内容を運んでいないか | **通過** —— *"a reader is entitled to know exactly where this instrument stops"* は読み手への説明で、操作条項（届く範囲・個人データ）は残る |
+| 一致 | §11.3 と §11.4 の末文 | **一字一句同じ**（*"This Section states a limit of the Dedication's reach; it is not a condition upon You, and Section 10.1 is unaffected by it."*）—— *limit of reach* / *limit of the Dedication's reach* の綴りの揺れも消えた |
+
+**→ 採用候補。** 従属する記録: `against.md` #173 は §11.4 の理由の文を逐語で引く（1.1 / 1.2 の notice についての記述で、その版としては偽にならない）。
+1.4 を論じる文に引き継ぐときは注を置く（bb）。`review-responses-meta.md` の答えは steward の言葉で理由を述べており本文に依存しない。#49 も本文に依存しない。
+
 ## 6. KPI（5a の道具で導出）
 
 | 指標 | Before（1.4 草案）| After（§2.8・§12.4 を反映した草案）|
