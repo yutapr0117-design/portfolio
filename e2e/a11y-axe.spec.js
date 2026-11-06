@@ -39,6 +39,8 @@ async function gotoRouteSettled(page, hash) {
     already,
     { timeout: 10000 }
   );
+  // 問題は遅延読み込みのあとに描かれる (#1239)。待たずに走査すると本文の無いページを見て緑になる。
+  if (hash.includes('#/quiz')) await expect(page.locator('[data-quiz-list] h2').first()).toBeVisible();
 }
 
 test('Route-focus does NOT steal focus from an open command palette (steal-flake regression)', async ({ page }) => {
@@ -74,6 +76,7 @@ for (const route of A11Y_ROUTES) {
     await page.goto(`/${route}`);
     await page.waitForLoadState('domcontentloaded');
     await page.waitForTimeout(150);
+    if (route.includes('#/quiz')) await expect(page.locator('[data-quiz-list] h2').first()).toBeVisible();
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'])
       .analyze();

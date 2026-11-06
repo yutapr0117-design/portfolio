@@ -58,6 +58,8 @@ async function gotoRouteSettled(page, hash) {
     already,
     { timeout: 10000 }
   );
+  // 問題は遅延読み込みのあとに描かれる (#1239)。待たずに走査すると本文の無いページを見て緑になる。
+  if (hash.includes('#/quiz')) await expect(page.locator('[data-quiz-list] h2').first()).toBeVisible();
 }
 
 test('Hero-meta inline link is distinguishable by underline (WCAG 1.4.1, not color-only)', async ({ page }) => {
