@@ -7,14 +7,15 @@ canonical-ref: LICENSES/ACD-1.0.txt (authoritative text) / LICENSES/ACD-1.0.subm
 
 # The case against approving ACD-1.0
 
-Read this before the arguments in favour. It is the complete set of facts that argue against
-approval, written by the submitting side, and it is not balanced: nothing here is paired with a
+This is the complete set of facts that argue against approval, written by the submitting side,
+and it is not balanced: nothing here is paired with a
 reassurance in the same breath. Where an answer exists it is given afterwards and marked as such.
 Where none exists, the row says so.
 
 **Standard used to build this list.** A fact belongs here if a reviewer could reasonably raise
-it, not if we think we can answer it. Two of the entries below have no answer, and one of them
-is, on its own, sufficient reason to decline. That is the point of writing the list this way:
+it, not if we think we can answer it. Two of the entries below have no answer, and a reviewer may
+rest on them. *(2026-11-06: this sentence said one of them was on its own sufficient reason to
+decline. That overstated it: see `OSI-APPROVAL-PLAN.md` §2.)* That is the point of writing the list this way:
 if every adverse fact came with a tidy rebuttal, the document would be advocacy wearing the
 costume of candour.
 
