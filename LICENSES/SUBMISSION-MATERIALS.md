@@ -128,7 +128,7 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 基準 4 と基準 7 は判断そのものが審査者にある。基準 1〜3 の問いは上の表の形で答えられる。本文の外に足りないものが 2 つある。
 
 - **法的レビュー（B1）**: 1 人でも読めば「無い」を「ある」に変えられる。`QUESTIONS-FOR-COUNSEL.md` がその費用を下げる。手続き上の要件ではなく、Chestek 氏は 2024-12 に *not a blocker* と述べた（`review-precedents.md`）。同じスレッドで逆を述べた Piana 氏は同じ日に撤回した（#127）。献呈 + 許諾の先例は弁護士の一致で通った（#270）ので、あれば強い。
-- **第三者の採用（B2）**: 理事会は重複し使われていないものを留め置きうると述べた。答えは、gap により重複でないことを示すことと、`ADOPTING.md` で見つけてもらえるようにすることである。採用の捏造はしない。
+- **第三者の採用（B2）**: 理事会は重複し使われていないものを留め置きうると述べた。委員会が Tiwaz を留めた理由も 2 つの連言で（*"a close variant of an existing license"*、*"no demonstrated uses or planned uses"*・2025-09-11）、解く条件は *"one or more projects begin using this license or express an interest in doing so"* である（`rounds/2025-09-11-license-review-tiwaz-committee-deferral-observed.txt`）。ACD は既存の変種ではなく（gap）、このリポジトリが使っている。steward 本人の 1 件が「実証された使用」に数えられるかは記録からは決まらない。計画段階の利用も数えられるので、`ADOPTING.md` で見つけてもらう意味がある。採用の捏造はしない。
 
 ## 2. 先に自分から名指すと良い反論（審査者が見つける前に）
 
