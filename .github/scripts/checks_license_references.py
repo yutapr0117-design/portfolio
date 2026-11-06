@@ -95,6 +95,31 @@ def run(ctx):
         blocking=True,
     )
 
+    # 472m — 入口の短い経路の表の語数が実物と合うこと (2026-11-07・portfolio-00 の依頼)。審査者に示す読む費用で、
+    #   objection-map を直すたびに手で書き直していた (同じ日に 2,451 → 2,608)。合計は「≈」なので 10 語の幅を持つ。
+    _rv472m = (ROOT / "LICENSES" / "REVIEWERS.md").read_text(encoding="utf-8")
+    _map472m = re.search(r"\(ACD-1\.0\.objection-map\.md\) \| \*\*([\d,]+)\*\* \|", _rv472m)
+    _lic472m = re.search(r"\(ACD-\d+\.\d+\.txt\) \| \*\*([\d,]+)\*\* \| the licence\b", _rv472m)
+    _two472m = re.search(r"\| ~(\d+) \|", _rv472m)
+    _sum472m = re.search(r"\*\*≈ ([\d,]+) words\*\*", _rv472m)
+    _real472m = len((ROOT / "LICENSES" / "ACD-1.0.objection-map.md").read_text(encoding="utf-8").split())
+    _bad472m = []
+    if not (_map472m and _lic472m and _two472m and _sum472m):
+        _bad472m.append("表の行か合計が読めない")
+    else:
+        _got472m = [int(_m.group(1).replace(",", "")) for _m in (_lic472m, _two472m, _map472m, _sum472m)]
+        if _got472m[2] != _real472m:
+            _bad472m.append(f"objection-map {_got472m[2]} 語 / 実測 {_real472m} 語")
+        if abs(sum(_got472m[:3]) - _got472m[3]) > 10:
+            _bad472m.append(f"合計 ≈ {_got472m[3]} 語 / 3 行の和 {sum(_got472m[:3])} 語")
+    check(
+        not _bad472m,
+        f"Check 472m: 入口の短い経路の表が objection-map の {_real472m} 語と合計に合う",
+        (f"Check 472m: 入口の短い経路の表が実物と違う: {_bad472m}。審査者に示す読む費用なので、"
+         "objection-map を直したら同じ commit で表と合計を直せ"),
+        blocking=True,
+    )
+
     # ── 471. ドシエ内の参照記法が解決すること (BLOCKING) ──────────────────────────────────
     # **Check 460 face (k) は `#N` と `E<n>` だけを見ていた。** 2026-09-14 の敵対的検証
     # （主張の種類 7）で**ドシエの参照記法を数え上げ、1 つずつ壊して測った**ところ、
