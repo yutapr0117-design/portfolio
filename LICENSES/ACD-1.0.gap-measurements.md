@@ -493,6 +493,8 @@ bb が 6 本を立てて原文で反証した（H1-a BlueOak / H1-b CERN-OHL-P /
 | 貢献者（2026-11-06 に足した）| 別段の意思表示なしの貢献で Dedicator になり、その貢献が教える特徴に §8.4 が及ぶ。会社の特許に及ぶのは、貢献が本人または本人のために行われたときである（§1.9）| §2.6・§1.4・§8.4 | Apache-2.0 §5 も既定は同じ（*"Unless You explicitly state otherwise"*）だが、特許の範囲は §3 の必然の侵害に閉じる。**register B7 の「費用を負うのは採用者だけ」は貢献者を落としていた** |
 | 将来の特許 | Dedicator が後で持つ請求項も及ぶ | §8.1・§8.4 *"now or in future"* | GPL-3.0 §11 が同じ広さを持つ（*"whether already acquired or hereafter acquired"*）。この点だけなら先例がある |
 | 提訴された Dedicator | 相手の許諾を止められない。競合は Work を使ったまま Dedicator を訴えられる（#174）| §8.2 | Apache-2.0 §3 と GPL-3.0 §10 は止められる。**§10.1 と両立しないので直せない** |
+| 改良の請求項 | 請求項が A（Work が教える）+ B（受領者の独自）のとき、1.4 の §8.4 の「全部または一部」の語により及ぶ。設計どおりである（`ACD-1.4-CLARITY-TRIAL.md` §9.6・25）| §8.4 | Apache-2.0 §3 の *"by combination"* は寄与と Work の組み合わせに閉じる |
+| 吸収される小さな Dedicator | 特許を多く持つ会社へ吸収されると、後継者の請求項に及ぶ読みが立つ（25）| §2.8・§8.1 *"now or in future"* | GPL-3.0 §11 は contributor の範囲で同じ広さを持つ |
 
 **費用を負わない者**: 特許を持たない適用者。Work の使用と関係の無い特徴を持つ請求項（1.4 の §8.4 の限定・`ACD-1.4-CLARITY-TRIAL.md` §9.5 の K3〜K6）。第三者の特許（§8.5）。
 
@@ -507,6 +509,12 @@ bb が 6 本を立てて原文で反証した（H1-a BlueOak / H1-b CERN-OHL-P /
 **R3 OSD は特許許諾を求めていない**（#236）。gap は OSD の要件ではなく基準 7 の話で、**足りるかは OSI が決める。**
 
 **R4 CERN-OHL-P との差は通知 1 種と終了である。** 請求項の範囲の差は主張しない（§1.133）。差が小さいと読まれれば、Berkus 氏の *"It's not the goal of the OSI to have licenses for every possible combination of conditions"* に当たる。
+
+**R5 類型によっては差が消える（5a の原文の読み）。** 学習の実行だけなら、BlueOak-1.0.0 の *"do everything with this software"* に因果の限定は無く、再頒布しない受領者に条件は発動しない。**この類型では BlueOak は 1.4 の §8.4 より広い可能性がある。** 差が立つのはモデルを売る場面である。CERN-OHL-P の Product は機器を含むので、モデルを組み込んだ機器については ACD より広い。
+
+**R6 UPL の採用者は lrgrwrks.txt にモデルを書ける（5a）。** 承認済みの本文のままモデルへ届かせる構成が考えられる。*"listed"* と *"to which the Software is contributed"* が、学習で後から生じるモデルに当たるかは読みである。当たるとしても UPL の条件は残る。
+
+**別個の誓約の記録（R2 への補足・5a）**: 承認の審査に掛かった別個の誓約の実例はアーカイブに見つからなかった。Duan 氏（2025-05-15）は別個の promise について *"may not be effective/enforceable (especially if the Licensor transfers or sells the patent to someone else)"* と述べたが、§8.6 にも同じ問いが返る。
 
 ### この節が変えたもの
 
