@@ -215,7 +215,7 @@ _REASON_REF = (r"(?:§|Section )({n})(?!\d)(?:'s own text| gives| explains| stat
 # (#133 "ours is stated in the licence itself") は出す版が変わると偽になる。行単位に分けないのは、日付の有無で
 # 近似すると日付を含む #133 を落とすから —— 余分に拾う誤りは 1 行読めば済むが、見落としは偽の主張を提出する。
 _OUTWARD = re.compile(r"(submission[^/]*|review-responses[^/]*|clause-reference|faq|comparison|against|objection-map|REVIEWERS|"
-                      r"SUBMISSION-MATERIALS|READY-TO-SUBMIT|QUESTIONS-FOR-COUNSEL|README)\.md$")
+                      r"SUBMISSION-MATERIALS|READY-TO-SUBMIT|QUESTIONS-FOR-COUNSEL|README|ADOPTING)\.md$")
 
 
 def _toks(s: str) -> list[str]:

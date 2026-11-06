@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/measure_citation_drift.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-11-04
+last-updated: 2026-11-07
 canonical-ref: LICENSES/ACD-1.2-CHANGELIST.md (条項の対応表) / LICENSES/ACD-1.0.submission.md (SUBMISSION-TARGET) / .github/scripts/checks_license_dossier.py (Check 472)
 ---
 
@@ -28,6 +28,8 @@ canonical-ref: LICENSES/ACD-1.2-CHANGELIST.md (条項の対応表) / LICENSES/AC
 - 対象は外向きの文書（`measure_clause_overlap.py` の `_OUTWARD` から導出・`measure_quote_drift.py` と同じ走査先）。4 面の決め打ちだった間は想定問答と申請日の 1 枚が引く条を見ていなかった。引数なしは 1.0 → 現行草案
 - 本文は 80 本のダッシュで冒頭の説明部を切り、`difflib` の一致度で分類（0.97 超を実質同一）
 - **定義は語で照合**する ——番号で推測すると**並べ替えの向きを間違える**
+
+`cited_lines()` は別の条と無い条を引く行を返す。`prepare_version_freeze.py --report` がそれを面ごとに出す。
 
 ## Constraints
 
