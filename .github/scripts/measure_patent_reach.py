@@ -37,7 +37,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 CACHE = Path(os.environ.get("GAP_CENSUS_CACHE", "/tmp/gap-census-cache"))
-CENSUS = ROOT / "LICENSES" / "ACD-1.0.gap-census.md"
+CENSUS = Path(os.environ.get("GAP_CENSUS_FILE", ROOT / "LICENSES" / "ACD-1.0.gap-census.md"))
 
 # 条件は優先順に探す: notice 等の具体的な義務 → 条件付きの許諾の言い回し → 汎用の must。
 # 汎用の "you must" を先にすると、BlueOak の受諾の文 ("you must agree to its rules") を拾い、
@@ -121,12 +121,17 @@ def express(rows: list[str]) -> int:
         if not m:
             missing.append(lid)
     print(f"\n# Of {len(ids)} licences with an express patent grant, no obligation sentence found in: {len(missing)} {missing}")
-    print("# (0 reproduces the conjunction in gap-measurements.md §1.133 without relying on the scope classification. "
-          "Whether each sentence found is a condition is for a person to read.)")
+    if missing:
+        print("# REVIEW REQUIRED: the conjunction in gap-measurements.md §1.133 is not reproduced. "
+              "Read the full text of each licence listed above before relying on it.")
+        return 1
+    print("# This reproduces the conjunction in gap-measurements.md §1.133 without relying on the scope classification. "
+          "Whether each sentence found is a condition is for a person to read.")
     return 0
 
 
 # 出力は英語で書く (2026-11-06)。これは審査者が自分で走らせる道具で、提出の最も強い主張を再現する。
+# 終了コードは 0 = 主張を再現した / 1 = 反例が出た / 2 = 全数が揃わず結論を出していない。
 def main() -> int:
     if not (CACHE / "_meta.json").exists():
         print(f"SPDX sources not found in {CACHE}. Run first: python3 .github/scripts/generate_gap_census.py --fetch")
@@ -159,8 +164,12 @@ def main() -> int:
             unconditional.append(lid)
     print()
     print(f"# Patent grant reaching beyond the work with no condition found: {len(unconditional)} {unconditional}")
-    print("# (0 reproduces the claim in gap-measurements.md §1.133. The S1 / S2 / S3 classification is a reading "
-          "recorded in the census; this tool does not verify it.)")
+    if unconditional:
+        print("# REVIEW REQUIRED: the claim in gap-measurements.md §1.133 is not reproduced. "
+              "Read the full text of each licence listed above before relying on it.")
+        return 1
+    print("# This reproduces the claim in gap-measurements.md §1.133. The S1 / S2 / S3 classification is a reading "
+          "recorded in the census; this tool does not verify it.")
     return 0
 
 

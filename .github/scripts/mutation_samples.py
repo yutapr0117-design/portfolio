@@ -554,6 +554,13 @@ _MUTATIONS_TAIL.append({
     "replace": "LICENSES/ACD-0\\.9\\.txt$'",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 489c: measure_patent_reach.py が反例を出しても主張を再現したと結ぶ —— 2026-11-07 以前は件数に関わらず同じ結びの文が並んだ",
+    "file": ROOT / ".github" / "scripts" / "measure_patent_reach.py",
+    "find": "    if unconditional:\n        print(\"# REVIEW REQUIRED",
+    "replace": "    if False:\n        print(\"# REVIEW REQUIRED",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

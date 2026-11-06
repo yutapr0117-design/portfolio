@@ -81,12 +81,15 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        job 検出 5 未満も RED。(BLOCKING)
   489b. measure_patent_reach.py が、原文の欠けたキャッシュで結論を出さない (2026-11-06)。提出の最も強い主張を
        審査者が再現する道具で、欠けた本を黙って飛ばすと不完全な 0 が完全に見える。空のキャッシュで確かめる。
+  489c. measure_patent_reach.py の結びの文が結果に従う (2026-11-07)。反例が出ても「0 なら再現」の文が並んでいた。
+       全数の揃った合成のキャッシュで、条件の無い本文は rc 1 + REVIEW REQUIRED、条件のある本文は rc 0 を見る。
   489. 版確定日に手で回す道具が今の tree で動く: 確定手順 (ACD-1.1-CHANGELIST.md §0.13) が頼る道具は
        CI のどこからも実行されず、版の命名や本文の書式が変わって壊れても確定当日まで分からない。実際に
        実行し、終了コードと「何かを測った」ことを示す出力 (件数が 0 でない等) を見る。
        .github/scripts/*.py 全件の構文も見る。(BLOCKING)
 
 """
+import hashlib
 import re
 import json
 import os
@@ -439,6 +442,31 @@ def run(ctx):
         f"Check 489b: measure_patent_reach.py は原文の欠けたキャッシュで結論を出さない ({len(_ids489)} 本・両モード)",
         (f"Check 489b: 原文が欠けても結論を出す形に戻っている: {_open489}。審査者が再現する提出の最も強い主張なので、"
          "欠けた本を黙って飛ばすと不完全な 0 が完全に見える"),
+        blocking=True,
+    )
+    # 489c — 結びの文は結果に従うこと。census は原文の digest を持つので、合成の census と原文を 1 本ずつ置く。
+    _say489 = []
+    for _body489, _rc489, _word489 in ((b"Redistribution is unrestricted.", 1, "REVIEW REQUIRED"),
+                                       (b"You must retain this notice.", 0, "This reproduces")):
+        _h489 = hashlib.sha256(_body489).hexdigest()
+        with tempfile.TemporaryDirectory() as _d489:
+            (Path(_d489) / "Example.txt").write_bytes(_body489)
+            (Path(_d489) / "census.md").write_text(f"| `Example` | `{_h489[:12]}` | 1 | 明示 | S3 | | | | | | |\n", encoding="utf-8")
+            (Path(_d489) / "_meta.json").write_text(json.dumps({
+                "approved_nondeprecated": 1, "fetched": 1, "failed": [], "sha256": {"Example": _h489}}), encoding="utf-8")
+            for _mode489 in ([], ["--express"]):
+                _r = subprocess.run([sys.executable, str(_sc489 / "measure_patent_reach.py"), *_mode489], cwd=ROOT, text=True,
+                                    capture_output=True, timeout=60,
+                                    env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1", "GAP_CENSUS_CACHE": _d489,
+                                         "GAP_CENSUS_FILE": str(Path(_d489) / "census.md")})
+                _other489 = "This reproduces" if _rc489 else "REVIEW REQUIRED"
+                if _r.returncode != _rc489 or _word489 not in _r.stdout or _other489 in _r.stdout:
+                    _say489.append(f"{_mode489 or '既定'} rc={_r.returncode} 期待 {_rc489}: {(_r.stderr or _r.stdout)[-120:]!r}")
+    check(
+        not _say489,
+        "Check 489c: measure_patent_reach.py の結びの文と終了コードが結果に従う (反例 / 再現・両モード)",
+        (f"Check 489c: 結果と結びの文が食い違う: {_say489}。反例が出たときに主張を支える文が並ぶと、"
+         "審査者が自分で再現したつもりで反例を読み落とす"),
         blocking=True,
     )
     check(
