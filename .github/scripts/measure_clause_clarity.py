@@ -37,6 +37,7 @@
 """
 import argparse
 import os
+import pathlib
 import re
 import statistics
 import sys
@@ -110,11 +111,13 @@ def main():
         fetch_peers()
     here = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     rows = []
-    # 作業中の草案も測る。出す版は申請の日に確定する最新版なので、1.0 / 1.1 だけだと出す版を測っていない。
+    # 投稿した 1.0、最新の凍結版、作業中の草案を測る。出す版は申請の日に確定する最新版なので、版を決め打ちすると
+    # 確定した日に出す版の行が消える (2026-11-07: 1.1 を名指していたので、1.4 確定後の表に 1.4 が出なかった)。
     _v = _current_draft_version()
-    for name, path in [("ACD-1.0", "LICENSES/ACD-1.0.txt"),
-                       ("ACD-1.1", "LICENSES/ACD-1.1.txt"),
-                       (f"ACD-{_v} draft", f"LICENSES/ACD-{_v}-DRAFT.txt")]:
+    _fixed = sorted((p.name[4:-4] for p in pathlib.Path(here, "LICENSES").glob("ACD-[0-9].[0-9]*.txt")
+                     if not p.name.endswith("-DRAFT.txt")), key=lambda v: tuple(map(int, v.split("."))))
+    for name, path in [(f"ACD-{v}", f"LICENSES/ACD-{v}.txt") for v in dict.fromkeys((_fixed[0], _fixed[-1]))] + [
+            (f"ACD-{_v} draft", f"LICENSES/ACD-{_v}-DRAFT.txt")]:
         with open(os.path.join(here, path), encoding="utf-8") as fh:
             rows.append(row(name, body(fh.read())))
     missing = []
