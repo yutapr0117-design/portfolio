@@ -54,4 +54,5 @@ narrow band where those assumptions fail together.
 There is nothing to register, and you do not need to tell us.
 
 **This page is not legal advice.** It was written by an AI model working under the steward's
-delegation, like the licence itself.
+delegation. The licence text was drafted the same way, to a goal the steward set, and he read
+ACD-1.0 in full before posting it. Neither has been reviewed by a lawyer.
