@@ -308,6 +308,25 @@ OSAID の要件を 1 つずつ条文に当てた。**OSAID が定めるものに
 
 **足さないもの**: 候補 (c)（§4.3 の規模・§8.5 の *controlled*・§9.1 の例示・§1.3）は既存の key の `clause` で足りる。§5.2(d) は `covenants` に足せるが、§11.4 の carve-out と並ぶと読み手を迷わせるので確定の日に読んで決める。**確定の日は `measure_descriptor_carryover.py` を回して、変わった条をもう一度読む。**
 
+### 提出対象を切り替える日の読み（2026-11-07・25）
+
+`prepare_version_freeze.py --report 1.4` の上の段 43 行を先に読んで判断した。当日はこの表を当て、`--report` が新しく出した行だけを読む。
+
+| 行 | 判断 |
+| :-- | :-- |
+| `objection-map.md` 42・48・60、`submission.md` 388、`submission-osd.md` 204・208・211、`submission-reference.md` 178・182・223・627 | §1.2 → **§1.3**（Work）|
+| `submission-osd.md` 189 | 1.0 の §1.2 の逐語を 1.4 の §1.3 へ差し替える（E61 で *in whole or in part* が消えている）|
+| `submission-osd.md` 92、`submission-reference.md` 288 | §1.4 → **§1.6**（You）|
+| `submission-osd.md` 53、`submission-reference.md` 546 | 翻訳の規則は §16.5 → **§16.4**。§16.5 は Steward の定義になった |
+| `submission-reference.md` 533・716 | §15.7 → **§15.3** / 716 の §15.2 → **§15.5** |
+| `submission-reference.md` 549・551・711 | §15.8 → **§15.4** |
+| `submission-reference.md` 707 | §15.2 → **§15.5** |
+| `submission-reference.md` 715 | §1.2 → **§1.3**、§1.3 → **§1.4**（Work と Dedicator の組）|
+| `submission-reference.md` 435 | **直さない**。CERN-OHL の §1.4 である |
+| `submission-reference.md` 666・667・669、`submission-osd.md` 147・68、`submission.md` 20、`READY-TO-SUBMIT.md` 44、`REVIEWERS.md` 97〜104・195 | **直さない**。版を名指すか、1.1 以降の番号か、番号の対応を説明する文である |
+| `SUBMISSION-MATERIALS.md` 44・96・109・141 | **直さない**。1.4 の番号である |
+
+
 ## Constraints
 
 - 1.0 / 1.1 / 1.2 / 1.3 は凍結中（`FROZEN.md`・Check 453）。直すのは `ACD-1.4-DRAFT.txt` だけ。
