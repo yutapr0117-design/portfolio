@@ -166,7 +166,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1692 words**, measured 2026-11-07)
+### B.0 The message as it should actually be sent (**1742 words**, measured 2026-11-07)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -284,6 +284,8 @@ who knows the test, as not knowing the test.** **+133 words**（段落そのも�
 
 **And 1,692 on 2026-11-07**, when the subject-matter paragraph stopped naming only the decision that went against this kind of text. The Committee's rationale on CERN-OHL (2021) states the other side of the same line. **+13 words**.
 
+**And 1,742 later the same day**, when the structure paragraph gained the OSI article of 2017 that proposes a disclaimer with a licence beside it (`board-decisions.md` §2f). **+50 words**.
+
 **Why that last addition earns its words.** *"Why another public-domain-equivalent?"* is the opening
 move in this category — Rob Landley put it as fungibility (#84), David Woolley put it to the
 UPD 1.5.2 author, Carlo Piana has put it as proliferation — and until 2026-09-09 the only answer in
@@ -400,7 +402,10 @@ better choice, which is most of the time** — is in the repository.
 
 **Structure, since it matters for reviewability.** §3 surrenders the Covered Rights and §4 grants a
 licence over the same rights **independently of §3** (§4.4): §4 does not wait for §3 to fail, and a
-recipient never has to decide which operated. The Committee's 2020 recommendation on the Unlicense
+recipient never has to decide which operated. An article on the OSI's site proposed this shape in
+2017: disclaim ownership where that is possible and grant *"a copyright license that has the same
+practical effect"* where it is not. It is an article and not a decision, and §4 goes further: the
+licence applies in every jurisdiction. The Committee's 2020 recommendation on the Unlicense
 records that a dedication *taken alone* would not be approved; ACD-1.0 is not taken alone.
 
 **Why that matters, and why another public-domain-equivalent.** The 2020 veto against the Unlicense
