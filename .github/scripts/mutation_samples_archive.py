@@ -11,7 +11,7 @@ mutation_samples.py が肥大化したら最古の未 rotate entries を本 arch
 """
 from __future__ import annotations
 
-from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, APPLIED_ID, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)
 
 MUTATIONS_ARCHIVE = [
     {
@@ -645,8 +645,8 @@ MUTATIONS_ARCHIVE = [
         "name": "Check 222 (agent-slot type Person|Organization): drift CreativeWork.author to #hero-image",
         "file": ROOT / "index.html",
         # [FIX 2026-08-23] license 行の挿入に追従。@id が author に隣接しないので多行 anchor 維持。
-        "find": '"url": "https://yutapr0117-design.github.io/portfolio/",\n                  "license": "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.3.txt",\n                  "author": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#person"',
-        "replace": '"url": "https://yutapr0117-design.github.io/portfolio/",\n                  "license": "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.3.txt",\n                  "author": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#hero-image"',
+        "find": '"url": "https://yutapr0117-design.github.io/portfolio/",\n                  "license": "https://yutapr0117-design.github.io/portfolio/LICENSES/' + APPLIED_ID + '.txt",\n                  "author": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#person"',
+        "replace": '"url": "https://yutapr0117-design.github.io/portfolio/",\n                  "license": "https://yutapr0117-design.github.io/portfolio/LICENSES/' + APPLIED_ID + '.txt",\n                  "author": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#hero-image"',
     },
     {
         "name": "Check 223 (isPartOf type structural): drift WebPage.isPartOf to #hero-image",

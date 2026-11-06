@@ -3,7 +3,7 @@
 rotate_mutation_samples.py が受け皿の余裕を実測して選び、埋まったら次を起こす。
 **新しい mutation は mutation_samples.py の tail へ足すこと** (ここは退避先)。
 """
-from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, APPLIED_ID, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)
 
 MUTATIONS_ARCHIVE3 = [
     {
@@ -247,7 +247,7 @@ MUTATIONS_ARCHIVE3 = [
     "name": "Check 441e (LICENSE の配線): 全文 path への参照を外す —— 全文ファイルが存在しても "
             "LICENSE が指していなければ、受領者はどの条項に従うのか判定できない (存在 ≠ 配線)",
     "file": ROOT / "LICENSE",
-    "find": "Full text: LICENSES/ACD-1.3.txt",
+    "find": f"Full text: LICENSES/{APPLIED_ID}.txt",
     "replace": "Full text: see the LICENSES directory",
 },
     {
@@ -263,7 +263,7 @@ MUTATIONS_ARCHIVE3 = [
             "ACD-1.0 §6.5 は「自動化システムが判定できない許諾は、学習されるための著作物にとっては "
             "許諾ではない」と述べているので、宣言が 1 面でも欠けるとその経路の agent は学習可否を判定できない",
     "file": ROOT / "index.html",
-    "find": '<link rel="license" href="/portfolio/LICENSES/ACD-1.3.txt" />',
+    "find": f'<link rel="license" href="/portfolio/LICENSES/{APPLIED_ID}.txt" />',
     "replace": '<!-- license link removed by mutation probe -->',
 },
     {

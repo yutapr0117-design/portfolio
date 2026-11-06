@@ -3,7 +3,7 @@
 rotate_mutation_samples.py が受け皿の余裕を実測して選び、埋まったら次を起こす。
 **新しい mutation は mutation_samples.py の tail へ足すこと** (ここは退避先)。
 """
-from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, APPLIED_ID, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)
 
 MUTATIONS_ARCHIVE4 = [
     {
@@ -767,15 +767,15 @@ MUTATIONS_ARCHIVE4 = [
     {
     "name": 'Check 444: sitemap からライセンス全文の <loc> を消す —— 旧形は sitemap 全文の部分文字列で見ており、同じ URL を持つ <image:license> で満たされて緑だった',
     "file": ROOT / "sitemap.xml",
-    "find": "    <loc>https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.3.txt</loc>\n",
+    "find": f"    <loc>https://yutapr0117-design.github.io/portfolio/LICENSES/{APPLIED_ID}.txt</loc>\n",
     "replace": "",
     "check": CHECK,
 },
     {
     "name": 'Check 444: robots.txt の記述子の Allow を説明コメントにする —— 旧形は robots 全文の部分文字列で見ており、コメント中の path 言及で満たされた',
     "file": ROOT / "robots.txt",
-    "find": "Allow: /portfolio/LICENSES/ACD-1.3.machine.json\n",
-    "replace": "# 旧: Allow: /portfolio/LICENSES/ACD-1.3.machine.json\n",
+    "find": f"Allow: /portfolio/LICENSES/{APPLIED_ID}.machine.json\n",
+    "replace": f"# 旧: Allow: /portfolio/LICENSES/{APPLIED_ID}.machine.json\n",
     "check": CHECK,
 },
     {
@@ -830,8 +830,8 @@ MUTATIONS_ARCHIVE4 = [
     {
     "name": 'Check 323: license link に一重引用符の style 属性を足す —— 旧形は style="…" (二重引用符) しか探さなかった',
     "file": ROOT / "index.html",
-    "find": '<link rel="license" href="/portfolio/LICENSES/ACD-1.3.txt" />',
-    "replace": "<link rel=\"license\" style='display:none' href=\"/portfolio/LICENSES/ACD-1.3.txt\" />",
+    "find": f'<link rel="license" href="/portfolio/LICENSES/{APPLIED_ID}.txt" />',
+    "replace": f"<link rel=\"license\" style='display:none' href=\"/portfolio/LICENSES/{APPLIED_ID}.txt\" />",
     "check": CHECK,
 },
     {
