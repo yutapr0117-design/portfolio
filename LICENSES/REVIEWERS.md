@@ -22,9 +22,9 @@ that it must be**. *(Re-measure: `git ls-files -z LICENSES ':!LICENSES/rounds' |
 | :-- | --: | :-- |
 | [`ACD-1.0.txt`](ACD-1.0.txt) | **4,896** | the licence. Nothing outside it fixes it |
 | the two facts **#1 and #4** in [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~220 | **no lawyer has read this text**, and **the only project using it is the author's**. These are the strongest points against it. Neither is one of the eight published criteria, and the Licensing Committee's chair has called legal review *"not a blocker"*, but a reviewer may weigh both |
-| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **2,718** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
+| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **2,757** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
 
-**≈ 7,830 words** *(`wc -w`, 2026-11-07.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
+**≈ 7,870 words** *(`wc -w`, 2026-11-07.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
 jurisdiction analysis, and the archive measurements — **all of which are evidence for claims,
 not claims themselves.** The four commands below check the licence text without trusting any
 of it.
@@ -38,21 +38,22 @@ decide what is worth translating, and gives you the commands to check the claims
 ## In one screen
 
 - **What it is.** A dedication of copyright and neighbouring rights to the public, **plus a
-  licence granted independently of it** (§4.4), for works meant to be learned from. One file,
-  16 sections.
+  licence granted independently of it** (§4.4), for works meant to be learned from.
 - **Why it should be approved.** OSI's own FAQ gives two reasons a public-domain dedication falls
   short: it is *"still not a license"*, and CC0's *"most serious"* concern was its patent exclusion.
-  ACD licenses (§4) and grants patents (§8). It imposes no condition of any kind (§10.1), so one of
-  the two grounds on which submissions have failed has nothing to attach to. Each of the eight published criteria for new licences has an answer in the text, set out
-  item by item below, and it fills a gap the approved list leaves open.
+  An article on OSI's site named the fix in 2017: *"disclaim ownership for the jurisdictions where
+  that is possible, and then grant a copyright license"*. ACD does that (§3, §4) and grants patents
+  (§8). It imposes no condition of any kind (§10.1), so one of the two grounds on which submissions
+  have failed has nothing to attach to. Each of the eight published criteria has an answer in the
+  text (below), and it fills a gap the approved list leaves open.
 - **The gap it claims, in one sentence.** **No OSI-approved instrument grants all three of these
   at once**: (i) a **patent licence that survives the transformation of the work into a model** and
   its outputs; (ii) **no condition on you at all**; and (iii) a grant that expressly reaches
   **non-copyright rights in data** — the EU sui generis database right and its own verbs,
-  *extraction* and *re-utilisation*. Two of the three exist in several places; the three together
-  do not. **(i) and (ii) differ in effect; (iii) differs in what is stated, not in what an
+  *extraction* and *re-utilisation*.
+  **(i) and (ii) differ in effect; (iii) differs in what is stated, not in what an
   unrestricted permission may already reach.**
-- **Measured over the whole approved list**, not over comparators we chose. Of the **141 licences
+- **Measured over the whole approved list.** Of the **141 licences
   SPDX marks OSI-approved and not deprecated, exactly three impose no condition on the licensee** —
   **0BSD, MIT-0 and the Unlicense** — and **none of those three contains the word *patent* at
   all**. Seven extend a patent grant beyond the work itself, and **all seven carry a condition**
@@ -60,18 +61,19 @@ decide what is worth translating, and gives you the commands to check the claims
 - **What this does not claim.** That existing licences forbid training: a licence that allows
   everything allows training, and MIT's *"deal in the Software without restriction"* may well
   reach these rights too. §6.1, §7 and §9 state expressly what a broad permission may already
-  give, so **they are not grounds of uniqueness** (§1.134). That the express statement is worth
-  having is **a design argument, not a legal opinion.**
+  give, so **they are not grounds of uniqueness** (§1.134).
 - **Nearest approved licences.** Closest in effect to the Unlicense, MIT-0 and 0BSD (and to CC0,
   which is **not** OSI-approved), and in patent terms to UPL-1.0, BlueOak-1.0.0 and
   BSD-2-Clause-Patent, which already combine a permissive grant with an express patent grant under
   one notice condition — **against those three it adds less**: the difference is that condition, not
   the patent grant ([`submission-reference.md`](ACD-1.0.submission-reference.md) §2).
 - **The two weaknesses, first.** **No lawyer has read it**, and **it has one adopter — this
-  repository**. Both are stated below and neither is repaired here.
-- **Anyone can adopt it.** No project names, and nothing in the text to edit (commands below).
+  repository**. Neither is repaired here. Neither is a published criterion: the chair called legal
+  review *"not a blocker"*, and a Committee rationale (2020) calls non-use *"not a basis for
+  rejection that the OSI has applied in the past"*.
+- **Anyone can adopt it.** No project names, and nothing in the text to edit.
 - **If you read one more thing**, read [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md):
-  every objection raised on the lists, which ones land, and the clause that answers each.
+  every objection raised on the lists, and whether it lands.
 
 ## Which text you are looking at
 
@@ -183,6 +185,7 @@ past does not bind the OSI"*, and a list message is its author's own view.
 | On this point | What was said | Where it meets ACD |
 |---|---|---|
 | A dedication alone, and CC0 | OSI's FAQ (last modified 2025-01-21): *"even where it is clear what it means, it's still not a license"*; on CC0, *"The most serious of the concerns raised had to do with the effects of clause 4(a)"*, the patent exclusion | §4 is a licence and §8 grants patents. The same FAQ says *"rather than try to waive copyright altogether"*, which is §3, and values attribution, which §10.2 gives up |
+| Surrender plus licence | An article on OSI's site, 2017: *"A solution would be"* to *"disclaim ownership for the jurisdictions where that is possible, and then grant a copyright license that has the same practical effect"*; CC0 stalled *"during a complex discussion about patent rights"* | §3 and §4 take that form, and §8 grants patents. The article is one author's, not a decision, and ends by recommending MIT |
 | Liability, in the public domain | The same FAQ: *"we don't know how or whether the author would be protected from liability for software released into the public domain"* | §13 and §14 |
 | Why CC0 stopped | Board minutes, 2012-03-07: *"Recommend disapprove, due to clause 4a"*, and Chris DiBona: *"I don't think that any new licenses should be approved unless they include patent clauses"* | §8. The same report says of CC0's academic users that *"the patent exception is important to them"* |
 | No conditions | Board minutes, 2015-10-14, on the licence now called 0BSD, approved 8 to 0: *"a license with no conditions"*, *"Cannot be argued to violate OSD"*. Richard Fontana, 2015-11-12: *"the OSI obtained outside legal counsel concerning the legal and policy issues raised by 'ultra-permissive' licenses"* | §10.1, including no notice. The same minutes ask *"is it really going to be used?"*. The advice is not public, so we cannot say it was favourable or that it reaches ACD |
