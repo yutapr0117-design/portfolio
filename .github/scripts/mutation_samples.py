@@ -26,7 +26,7 @@ if sys.version_info < (3, 10):
     print("ERROR: mutation_samples.py requires Python 3.10+ (got %d.%d)" % sys.version_info[:2])
     sys.exit(1)
 
-from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK, APPLIED_ID  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK, APPLIED_ID, SUBMISSION_TARGET  # noqa: F401 (entry 内で参照)
 from mutation_samples_archive import MUTATIONS_ARCHIVE
 from mutation_samples_archive5 import MUTATIONS_ARCHIVE5
 from mutation_samples_archive4 import MUTATIONS_ARCHIVE4
@@ -517,6 +517,34 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "README.md",
     "find": f"[`LICENSES/{APPLIED_ID}.txt`](LICENSES/{APPLIED_ID}.txt)",
     "replace": "[`LICENSES/ACD-1.1.txt`](LICENSES/ACD-1.1.txt)",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 472h: 入口ページの節数の申告が実物と違う",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": " lines, 16 sections",
+    "replace": " lines, 15 sections",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 472h: 入口ページの語数の行が提出対象を指さない —— marker を切り替えて入口を直し忘れた形",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": f"| [`{SUBMISSION_TARGET}.txt`]({SUBMISSION_TARGET}.txt) | **",
+    "replace": "| [`ACD-1.1.txt`](ACD-1.1.txt) | **",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 472h: 検証コマンドの 1 本だけ別の版を見る —— 472c は実行結果しか見ないので通る",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": f'grep -cE "^[0-9]+\\. [A-Z]" LICENSES/{SUBMISSION_TARGET}.txt',
+    "replace": 'grep -cE "^[0-9]+\\. [A-Z]" LICENSES/ACD-1.1.txt',
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 472h: 質問票の基準の版が適用する版でない",
+    "file": ROOT / "LICENSES" / "QUESTIONS-FOR-COUNSEL.md",
+    "find": f"Clause numbers are those of **{APPLIED_ID}**",
+    "replace": "Clause numbers are those of **ACD-1.1**",
     "check": CHECK,
 })
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
