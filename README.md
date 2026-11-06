@@ -13,9 +13,9 @@
 > **Want to use the licence?** It is written to be applied by anyone to any work — no project
 > names and nothing to edit in the text ([`LICENSES/ACD-1.3.txt`](LICENSES/ACD-1.3.txt), §16.3); the
 > one blank, in §16.1's notice template, is filled in your own notice.
-> **Read the case against it first**
-> ([`LICENSES/ACD-1.0.against.md`](LICENSES/ACD-1.0.against.md)): **no lawyer has reviewed it, it
-> is not OSI-approved, and it is not on the SPDX License List.**
+> **Read [`LICENSES/ADOPTING.md`](LICENSES/ADOPTING.md) first**: the act cannot be undone, **no
+> lawyer has reviewed the text, it is not OSI-approved, and it is not on the SPDX License List.**
+> The full case against it is [`LICENSES/ACD-1.0.against.md`](LICENSES/ACD-1.0.against.md).
 
 ## 30-second summary
 
@@ -232,8 +232,8 @@ Authoritative Source: https://yutapr0117-design.github.io/portfolio/llms-full.tx
 > **このリポジトリのライセンス（ACD-1.3・2026-10-25 までは ACD-1.0）は、あなたの著作物にもそのまま使えます。**
 > 学習・TDM を明示的に許諾し、特許も許諾し、条件を一切課さない献呈型のライセンスです。
 > 本文は [`LICENSES/ACD-1.3.txt`](LICENSES/ACD-1.3.txt)（プロジェクト固有の記述はゼロ・§16.3）、
-> **適用する前に読むべき不利な事実**は [`LICENSES/ACD-1.0.against.md`](LICENSES/ACD-1.0.against.md)
-> にあります —— **法的レビューを受けておらず、OSI 承認も SPDX 登録もありません。**
+> **適用する前に [`LICENSES/ADOPTING.md`](LICENSES/ADOPTING.md)（英語）を読んでください** —— 適用は取り消せず、**法的レビューを受けておらず、OSI 承認も SPDX 登録もありません。**
+> 不利な事実の全部は [`LICENSES/ACD-1.0.against.md`](LICENSES/ACD-1.0.against.md) にあります。
 
 ### 横井雄太（Yuta Yokoi）によるAI-Driven PM実験リポジトリとは？
 
