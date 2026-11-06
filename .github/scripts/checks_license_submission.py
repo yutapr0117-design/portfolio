@@ -90,6 +90,10 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        縮めたが、その後 "The short path" と "Which text you are looking at" が**前に**足され、
        **何も壊れないまま** 4% → 15% へ押し下げられていた（gap 16% / 最近似 25%）。
        **開示を足すたびに起きる後退なので、記憶ではなく位置で守る。**
+       **(472h・2026-11-06)** 入口ページの版に紐づく面が SUBMISSION-TARGET の本文を指すこと。語数の行、
+       "The licence itself" の行 (行数・節数)、検証コマンド、digest の値。marker を切り替えても 472 / 472f は
+       `submission.md` の面しか見ず、入口ページは 1.0 を「the licence」と述べたまま緑だった (1.4 の予行で実測)。
+       あわせて QUESTIONS-FOR-COUNSEL の基準の版が LICENSE の適用する版と一致すること。
        **(472g・2026-11-06)** "In one screen" の節が 500 語以内、"Status" の節が 600 語以内であること。
        追記のたびに黙って伸びる形で、伸びたのは 09-24 に続いて 2 度目だった。
        **(472e・2026-09-24)** 「placeholder / 置換テキストは 0」という主張が、§16.1 の notice
@@ -116,6 +120,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        同じ file に持つ**場合を必ず取り逃がす（`submission.md` が実例で、#187 はこれで
        「一覧は 3 項目」と誤って完全性を主張した）。(BLOCKING)
 """
+import hashlib
 import re
 
 
@@ -493,6 +498,43 @@ def run(ctx):
             f"Check 472g: REVIEWERS.md の \"In one screen\" {_secs472g.get('In one screen')} 語 / \"Status\" {_secs472g.get('Status')} 語 (≤ 500 / 600)",
             (f"Check 472g: 入口の節が上限を超えた: {_over472g}。短い入口が長さへの唯一の実効的な緩和なので、"
              "足すなら同じ節の別の文を削るか、後ろの節へ置け"),
+            blocking=True,
+        )
+        # ── 472h. 入口ページの版に紐づく面が SUBMISSION-TARGET の本文を指すこと ───────────────
+        #   marker を切り替えた日に、472 / 472f は submission.md の面を赤くするが入口ページは見ない。
+        #   審査者が最初に開くページが古い版を「the licence」と述べたまま緑だった (2026-11-06 の予行)。
+        _sb472h = (ROOT / "LICENSES" / "ACD-1.0.submission.md").read_text(encoding="utf-8")
+        _mk472h = re.search(r"<!--\s*SUBMISSION-TARGET:\s*(ACD-\d+\.\d+)\s*-->", _sb472h)
+        _tg472h = _mk472h.group(1) if _mk472h else "?"
+        _tp472h = ROOT / "LICENSES" / f"{_tg472h}.txt"
+        _bad472h = []
+        if not _tp472h.exists():
+            _bad472h.append(f"{_tg472h}.txt が無い")
+        else:
+            _tt472h = _tp472h.read_text(encoding="utf-8")
+            _body472h = _tt472h.split("-" * 80, 1)[1] if "-" * 80 in _tt472h else _tt472h
+            _link472h = f"[`{_tg472h}.txt`]({_tg472h}.txt)"
+            _mw472h = re.search(re.escape(_link472h) + r" \| \*\*([\d,]+)\*\* \| the licence\b", _t472d)
+            if not _mw472h or int(_mw472h.group(1).replace(",", "")) != len(_body472h.split()):
+                _bad472h.append(f"語数の行が {_tg472h} の {len(_body472h.split())} 語を述べていない")
+            _ml472h = re.search(r"\| The licence itself \| " + re.escape(_link472h) + r" \| ([\d,]+) lines, (\d+) sections", _t472d)
+            _secs472h = len(re.findall(r"^\d+\. [A-Z]", _body472h, re.M))
+            if not _ml472h or (int(_ml472h.group(1).replace(",", "")), int(_ml472h.group(2))) != (_tt472h.count("\n"), _secs472h):
+                _bad472h.append(f"\"The licence itself\" の行が {_tg472h} の {_tt472h.count(chr(10))} lines, {_secs472h} sections を述べていない")
+            _cmd472h = sorted(set(re.findall(r"^(?:shasum -a 256 |grep .* LICENSES/)(ACD-\d+\.\d+)\.txt$", _t472d, re.M)))
+            if _cmd472h != [_tg472h]:
+                _bad472h.append(f"検証コマンドの対象が {_tg472h} でない: {_cmd472h}")
+            if hashlib.sha256(_tp472h.read_bytes()).hexdigest() not in _t472d:
+                _bad472h.append(f"digest の値が {_tg472h} のものでない")
+        _qc472h = ROOT / "LICENSES" / "QUESTIONS-FOR-COUNSEL.md"
+        _lc472h = re.search(r"^SPDX-License-Identifier: (ACD-\d+\.\d+)$", (ROOT / "LICENSE").read_text(encoding="utf-8"), re.M)
+        if _lc472h and f"Clause numbers are those of **{_lc472h.group(1)}**" not in _qc472h.read_text(encoding="utf-8"):
+            _bad472h.append(f"QUESTIONS-FOR-COUNSEL の基準の版が適用する版 {_lc472h.group(1)} でない")
+        check(
+            not _bad472h,
+            f"Check 472h: 入口ページの語数・行数・検証コマンド・digest が提出対象 {_tg472h} を指し、質問票の基準が適用する版を指す",
+            (f"Check 472h: 入口ページが提出対象を指していない: {_bad472h}。審査者が最初に開くページなので、"
+             "SUBMISSION-TARGET を切り替えたら同じ commit で直せ"),
             blocking=True,
         )
     else:
