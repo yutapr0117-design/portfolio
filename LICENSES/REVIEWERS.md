@@ -21,7 +21,7 @@ that it must be**. *(Re-measure: `git ls-files -z LICENSES ':!LICENSES/rounds' |
 | | words | why |
 | :-- | --: | :-- |
 | [`ACD-1.0.txt`](ACD-1.0.txt) | **4,896** | the licence. Nothing outside it fixes it |
-| the two facts **#1 and #4** in [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~220 | **no lawyer has read this text**, and **the only project using it is the author's**. Either is a sufficient reason to decline |
+| the two facts **#1 and #4** in [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~220 | **no lawyer has read this text**, and **the only project using it is the author's**. These are the strongest points against it. Neither is one of the eight published criteria, and the Licensing Committee's chair has called legal review *"not a blocker"*, but a reviewer may weigh both |
 | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **2,324** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
 
 **≈ 7,450 words** *(`wc -w`, 2026-11-06.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
@@ -41,6 +41,10 @@ decide what is worth translating, and gives you the commands to check the claims
   licence granted independently of it** (§4.4), for works meant to be learned from. One file,
   16 sections, no placeholders in the clauses (the one blank, in §16.1's notice template, goes
   in the adopter's own notice).
+- **Why it should be approved.** It imposes no condition of any kind (§10.1), so the grounds on
+  which most submissions fail, conditions, field limits and discrimination, have nothing to attach
+  to. Each of the eight published criteria for new licences has an answer in the text, set out
+  item by item below, and it fills a gap the approved list leaves open.
 - **The gap it claims, in one sentence.** **No OSI-approved instrument grants all three of these
   at once**: (i) a **patent licence that survives the transformation of the work into a model** and
   its outputs; (ii) **no condition on you at all**; and (iii) a grant that expressly reaches
@@ -65,8 +69,8 @@ decide what is worth translating, and gives you the commands to check the claims
   the patent grant ([`submission-reference.md`](ACD-1.0.submission-reference.md) §2).
 - **The two weaknesses, first.** **No lawyer has read it**, and **it has one adopter — this
   repository**. Both are stated at length below and neither is repaired anywhere in this directory.
-- **Anyone can adopt it.** Zero project names, no placeholders in the clauses (only §16.1's notice template has a blank, filled in the adopter's own notice), no editing of the licence text required — the
-  commands to check that are below.
+- **Anyone can adopt it.** No project names, and nothing in the licence text to edit. The commands
+  to check that are below.
 - **If you read one more thing**, read [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md):
   every objection raised on the lists, which ones land, and the clause that answers each.
 
@@ -149,17 +153,8 @@ meaningless.
 
 Nothing here is new; it is the argument from
 [`ACD-1.0.submission-reference.md`](ACD-1.0.submission-reference.md) §1–§4 compressed, with the best counter to each
-line placed beside it rather than further down. **The adverse case is the longer document and it
-is the one to read first** — this is only a map of where the argument runs.
-
-**Start with what cannot be answered.** No lawyer has read this licence, and none has been
-engaged ([`against.md`](ACD-1.0.against.md) #1). The step that resolved the closest precedent —
-legal advisors concluding the Unlicense "would most likely be interpreted as a license and that
-the license met the OSD" — has no counterpart here (#2). **And the precedent has not been
-repeated**: searching the public review tracker's 252 records for this family returns one approval —
-the Unlicense, 2020, on a legacy basis we cannot use — and one contemporary attempt, still
-unresolved, whose author was told on this list that a waiver of this kind needs a lawyer (#87).
-**Those three are stated first because they are the three we cannot fix.**
+line placed beside it rather than further down. **The adverse record is the longer document, and
+nothing in it is summarised away** — this is only a map of where the argument runs.
 
 | The claim | The strongest thing against it |
 |---|---|
@@ -167,6 +162,29 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 | **It is reviewable**: §3 surrenders, §4 grants a licence *independently* (§4.4), so a reader never has to decide whether the surrender worked | **No court has characterised this construction**, in any jurisdiction (#3), and **no submission of this shape has been approved since 2020** (#87). A dedication taken alone is not approvable, and the escape is untested |
 | **It imposes nothing**: §10.1 and §4.3 attach no condition, so no obligation can fire in any delivery mode — the failure that condition-bearing instruments meet in hosted deployment | **The same structure weakens the warranty disclaimer** (#41) and forecloses defensive patent termination (#46). Both costs fall on the adopter, and both are deliberate |
 | **Anyone can adopt it**: zero project names, no placeholders in the clauses (one blank in §16.1's notice template), no editing of the licence text required — verifiable with the commands below | **One adopter: this repository** (#4). Reusability is a structural property; adoption is a social one, and only the first is shown |
+
+**The published standard for new licences, item by item.** Each line is our answer. Whether it is
+enough is yours to judge.
+
+| The standard asks | ACD's answer |
+|---|---|
+| *"reusable"*, by any licensor *"without changing the terms"* | §16.1 and §16.3: no project names, and the one blank goes in the adopter's own notice |
+| No terms that *"structurally put the licensor in a more favored position"* | §10.1 puts no condition on You, and the promises run from the Dedicator (§5, §8.6, §12). §13 and §14 do protect the Dedicator, as approved licences do (#265) |
+| Ambiguity *"must not have a material effect"* | §15.1 sends a doubtful provision to the reading that grants more to You |
+| *"grammatically and syntactically clear"* | Yours to judge. It was not drafted by a lawyer |
+| *"Every possible variation"* of its application must meet the OSD | An adopter edits nothing and chooses nothing (§10.1) |
+| *"possible to comply with the license on submission"* | There is nothing to comply with (§10.1) |
+| *"fill a gap that currently existing licenses do not fill"* | §8.4 and §8.2: see "In one screen" above |
+| *"complete license"* | One file, no external references, no overlay |
+
+**What we cannot fix.** No lawyer has read this licence, and none has been
+engaged ([`against.md`](ACD-1.0.against.md) #1). The step that resolved the closest precedent —
+legal advisors concluding the Unlicense "would most likely be interpreted as a license and that
+the license met the OSD" — has no counterpart here (#2). **And the precedent has not been
+repeated**: searching the public review tracker's 252 records for this family returns one approval —
+the Unlicense, 2020, on a legacy basis we cannot use — and one contemporary attempt, still
+unresolved, whose author was told on this list that a waiver of this kind needs a lawyer (#87).
+**Those are the three things we cannot fix, and we state them here rather than leave them to be found.**
 
 ## What to open first
 
@@ -180,7 +198,7 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
 | **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 388 worked entries, indexed by the question rather than the filename |
-| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 283 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
+| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 283 adverse facts, written by us. Two have no answer |
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
 | **What we would ask a lawyer** | [`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) | ACD has had no legal review. Nine questions on which a lawyer's reading would most change the text, ranked by consequence, each answerable on its own |
 | **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 63 known imprecisions, all unrepaired in 1.0 while the freeze holds, with what the successor does (the Status column is authoritative) |
