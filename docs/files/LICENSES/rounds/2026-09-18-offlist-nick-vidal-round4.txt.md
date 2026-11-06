@@ -25,7 +25,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約) / LICENSES/ACD-1.0
 | :-- | :-- | :-- |
 | 09-17 22:42 | steward → list | **この投稿が拒否された** |
 | 09-18 01:41 | steward → list owner | *"content of this specific message, or … my current moderation status"* のどちらかを問う。*"I wrote this particular message myself rather than having AI draft it"* |
-| 09-18 13:09 | Nick Vidal → steward | **我々が `LICENSE` に載せている開示文を引いて**方針を再説。CoC の *"Respect time and attention"*。*"restrain yourself from using AI to generate licenses and posts"* |
+| 09-18 13:09 | Nick Vidal → steward | **我々が `LICENSE` に載せている開示文を引いて**方針を再説。CoC の *"Respect time and attention"*。AI でライセンスと投稿を生成するのを控えるよう求めた |
 | 09-18 15:23 | steward → Nick Vidal | *"I am the designer of ACD."* と、OSI への制度質問 |
 
 **問い（内容か、moderation status か）には答えが返っていない。**

@@ -619,8 +619,7 @@ a project**"*・2025-07-18 理事会）。**duplicative と not-used の両方�
 ## 1.85 moderator に問われた「長さと密度」を実測した（2026-09-15・両リスト 3 か月・192 通）
 
 **問いは moderator から直接来た**（`rounds/2026-09-15-offlist-nick-vidal-round3.txt`）——
-*"**Map out the length and density of your emails and compare it with the length and density of
-other emails** sent to these two mailing lists by humans."*
+**自分のメールの長さと密度を、人間が両リストへ送ったメールと比べるように**、という求めである（私信なので要約）。
 
 **測れる問いに散文で答えるのは、入口ページが掲げる *check us* に反する。**
 道具は `.github/scripts/measure_list_verbosity.py`（committed・定義は docstring）。
@@ -690,7 +689,7 @@ delivered 97.9 / prose 95.2）。**短い投稿が 1 通も無いのは変わら
   **上位は McCoy 氏 93,712 語 / Chestek 氏 2 アドレス合計 96,210 語**で、**桁が違う。**
 
 **⚠ どちらの側も、相手の問いには答えていない。** moderator が問うたのは
-*"the length and density of **your emails**"* であって占有率ではない。
+**自分のメールの長さと密度**であって占有率ではない。
 **占有が小さいことは 1 通が長いことの反論にならない。**
 **そして 1 通が長いことは、全体として多くを消費している証拠にもならない。**
 **両方を同じ場所に置くのは、どちらかを打ち消すためではなく、問いが 2 つあるからである。**
