@@ -22,9 +22,9 @@ that it must be**. *(Re-measure: `git ls-files -z LICENSES ':!LICENSES/rounds' |
 | :-- | --: | :-- |
 | [`ACD-1.0.txt`](ACD-1.0.txt) | **4,896** | the licence. Nothing outside it fixes it |
 | the two facts **#1 and #4** in [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~220 | **no lawyer has read this text**, and **the only project using it is the author's**. These are the strongest points against it. Neither is one of the eight published criteria, and the Licensing Committee's chair has called legal review *"not a blocker"*, but a reviewer may weigh both |
-| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **2,357** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
+| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **2,451** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
 
-**≈ 7,500 words** *(`wc -w`, 2026-11-06.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
+**≈ 7,550 words** *(`wc -w`, 2026-11-06.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
 jurisdiction analysis, and the archive measurements — **all of which are evidence for claims,
 not claims themselves.** The four commands below check the licence text without trusting any
 of it.
@@ -193,6 +193,7 @@ past does not bind the OSI"*, and a list message is its author's own view.
 | Refusal | The Board, 2025-07-18: *"a license should be rejected only if it violates the OSD"* | It has not been said to violate the OSD. The same minutes allow a licence to stay unapproved (see `ACD-1.0.objection-map.md`) |
 | Legal review | Pamela Chestek as chair, 2024-12-18: *"we do not require review by a lawyer, only recommend it. That is not a blocker."* Carlo Piana, who had written the opposite that morning, withdrew it the same day: *"bad choice of words on my side"* | It is still our largest weakness, and the Unlicense did pass with lawyers' agreement |
 | No governing-law clause | The Board, approving the Open Logistics License in 2023: *"it does not believe that choice of law provisions are necessary or advisable in open source licenses"* | §15.7 names no law (§15.3 from 1.1) |
+| Proliferation | Board minutes, 2007-11-07, on SimPL, which allows relicensing under the GPL: *"it does not create a licensing dead-end and thus does not exacerbate the negative aspects of licensing proliferation"* | §4.5: the Work may go out under any terms. One decision, nineteen years ago |
 | Vanity | The Board, 2007: *"does not give that argument much weight as long as the license is reusable"* | §16.3, and the commands below |
 | AI and ML | The Board, 2025-07-18: *"When licenses aimed at AI/ML projects are approved"*, and such a licence is reviewed against the OSD and the standard criteria | ACD is reviewed on those terms |
 

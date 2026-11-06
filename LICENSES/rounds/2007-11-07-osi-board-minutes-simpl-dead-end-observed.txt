@@ -1,0 +1,6 @@
+Source: https://opensource.org/meeting-minutes/minutes20071107
+Retrieved: 2026-10-17 (hand-off fetch)
+Position: the Licensing Committee part of the OSI Board minutes of 2007-11-07 on SimPL, as text extracted from the page (markup removed, whitespace normalised).
+
+----- begin verbatim -----
+A. Licensing Committee (Mr. Nelson) 1. SimPL allows promotion to GPLv2 or GPLv3. Since it doesn’t promote proliferation, we had decided that if the answer was in the affirmative, we would approve. Mr. Tiemann notes that because the SimPL permits relicensing under GPLv2 or GPLv3, it provides a way for developers to graduate from the training wheels of the SimPL to the full-fledged GPL. Therefore it does not create a licensing dead-end and thus does not exacerbate the negative aspects of licensing proliferation.
