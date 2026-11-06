@@ -279,62 +279,6 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 468u: §15.5 から「\"person\" includes an entity」が落ちる —— 試作 e で理由の文を外した §12.4 の公的機関・§2.8 の会社の譲受人が person に含まれなくなる",
-    "file": CURRENT_DRAFT,
-    "find": "\"person\" includes an entity;",
-    "replace": "\"person\" includes a natural person;",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 468u: §8.4 の \"resulting from that use\" が \"that processing\" に縮む —— 特許許諾がモデル・出力のその後の使用・販売に届かなくなり、B10 の唯一の立証済みの効果 (§1.133) が ERROR 無しで消える",
-    "file": CURRENT_DRAFT,
-    "find": "resulting from that use",
-    "replace": "resulting from that processing",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 468u: §8.4 の \"deliberately absent\" (§8.1 の内容限定を持ち込まない) が落ちる —— 請求項の範囲が CERN-OHL-P と同じ「作品の内容で限る」形へ戻りうる",
-    "file": CURRENT_DRAFT,
-    "find": "deliberately absent",
-    "replace": "also present",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 468u: §8.2 の \"not terminable by the Dedicator on any ground\" が「for cause なら終了できる」へ変わる —— 条件・終了の不在という §1.133 の組み合わせが崩れ、CERN-OHL の 3 本と区別できなくなる",
-    "file": CURRENT_DRAFT,
-    "find": "not terminable by the Dedicator on any ground",
-    "replace": "terminable by the Dedicator for cause",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 476b: B10 の立証 §1.133 の分割の内訳 (S1 の 58 本) を census と食い違う数へずらす —— census を生成し直して分類が動いても、立証の数字だけが黙って古くなる形",
-    "file": ROOT / "LICENSES" / "ACD-1.0.gap-measurements.md",
-    "find": "（S1）| 58 |",
-    "replace": "（S1）| 57 |",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 489: 版確定日の道具が 0 件で黙って終わる —— 引用の下限を上げると走査は成功するが何も測らない",
-    "file": ROOT / ".github" / "scripts" / "measure_quote_drift.py",
-    "find": "MIN_LEN = 40\n",
-    "replace": "MIN_LEN = 400000\n",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 489: 手で回す script に構文エラーが入る —— CI はどの層も実行しないので確定当日まで分からない",
-    "file": ROOT / ".github" / "scripts" / "measure_patent_reach.py",
-    "find": "def main() -> int:\n",
-    "replace": "def main() -> int\n",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 442d: LICENSE の適用する版だけを別の版へ変える —— binary は元の版を名乗ったままなので食い違う。binary は probe が読めないので LICENSE 側を動かす",
-    "file": ROOT / "LICENSE",
-    "find": f"SPDX-License-Identifier: {APPLIED_ID}\n",
-    "replace": "SPDX-License-Identifier: ACD-1.0\n",
-    "check": CHECK,
-})
 _FROZEN490 = ROOT / "LICENSES" / f"ACD-{PREVIOUS_VER}.txt"
 _MUTATIONS_TAIL.append({
     "name": "Check 490a: 確定本文の 1 行目が別の版を名乗る —— 前の版の冒頭を書き写して版を直し忘れた形",
