@@ -475,7 +475,10 @@ approved, all three grant patents expressly, and each carries exactly one kind o
 **What this concedes, stated first.** (i) **BlueOak's patent grant is not limited by activity**:
 training a model on the software is something done *"with this software"*, so the act of
 training is covered in terms — the difference from Section 8.4 is whether the grant also follows
-the resulting model once it is used apart from the software, which BlueOak does not say.
+the resulting model once it is used apart from the software, which BlueOak does not say. On
+the act of training itself BlueOak can reach more: it has no causal limit, and the 1.4 draft's
+Section 8.4 reaches only a feature that comes from the content of the Work (`gap-measurements.md`
+§1.135).
 (ii) **UPL already names data as licensed material and already lets a licensor extend the patent
 grant to named downstream works** — a licensor could list a model in `lrgrwrks.txt`. The
 difference is that UPL makes that the licensor's per-work act, where Section 8.4 makes it the
