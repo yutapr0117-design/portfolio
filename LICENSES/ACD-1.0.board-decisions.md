@@ -277,7 +277,7 @@ Berkeley Artistic / PSCL / Accountable Resolver）に、lawyer / attorney / coun
 Zeppelin の提出者は法律家を付けられなかったと述べたが、理由書が挙げたのは *"poorly drafted"* だった。
 **害として名指されるのは起草で、法律家の不在ではない。** 語の検索なので床であり、B1 が起草の質に効くこと自体は変わらない。
 
-### 2f. OSI のサイトの記事は、§3 + §4 の形を「解決策」と述べている（2017・2026-11-07 に読んだ）
+### 2f. OSI のサイトの記事は、放棄と許諾の 2 部構成を「解決策」と述べている（2017・2026-11-07 に読んだ）
 
 OSI の公式サイトの記事 *Public Domain Is Not Open Source*（2017-07-28・署名 OSI Policy Team・区分 Press Releases・
 `rounds/2026-11-07-osi-blog-public-domain-is-not-open-source-snapshot.txt`）は、公有化の問題を述べたあとで続ける。
@@ -289,7 +289,7 @@ OSI の公式サイトの記事 *Public Domain Is Not Open Source*（2017-07-28�
 > well respected. There's an issue though; it has not received OSI approval. Many reviewers believe it should, but its
 > authors withdrew it from the approval process during a complex discussion about patent rights and it remains unapproved."*
 
-**これは ACD の形である。** §3 が放棄し、§4 が許諾する。記事が挙げた障害は特許の 1 点で、ACD は §8 で特許を許諾する。
+**ACD はこの 2 部を持つ。** §3 が放棄し、§4 が許諾する。差も書く —— 記事の許諾は放棄できない法域のためのもので、§4 は法域を問わず独立に働く（§4.4 *"not as a fallback"*）。記事が挙げた障害は特許の 1 点で、ACD は §8 で特許を許諾する。
 FAQ（2025）の 2 点と同じ結論へ、別の文書から届く。Chestek 氏の *"You can't have it both ways"*（2025-10-16）に対しても、
 両方を置く形が OSI のサイトに書かれていたことになる。同じ形を勧めた Piana 氏の *"use both"*（2024-12-18）とも揃う。
 
@@ -300,7 +300,7 @@ FAQ（2025）の 2 点と同じ結論へ、別の文書から届く。Chestek �
 - **同じ記事の結びは MIT を勧める。** *"In the mean time, it's probably safer to use a license like MIT instead."*
 - **FAQ のほうが新しい。** *"rather than try to waive copyright altogether"*（2025）は §3 に当たる。
 - **記事が名指す実物の CC0 は、今も承認されていない。** 「再開された」と記事が述べたあとも承認は無い。
-- **ACD は CC0 ではない。** §4.4 は独立の許諾で、CC0 の代替の許諾とは組み立てが違う。記事が ACD を評価したわけではない。
+- **ACD は CC0 でも記事の形そのものでもない。** 言えるのは 2 部を持つことまでで、§4.4 は独立の許諾である。記事が ACD を評価したわけではない。
 
 ## 3. 🔴 その区別は、14 か月経っても公表されていない
 
