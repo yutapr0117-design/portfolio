@@ -76,17 +76,19 @@ def express() -> int:
     for lid in sorted(ids):
         t = " ".join((CACHE / f"{lid}.txt").read_text(encoding="utf-8", errors="replace").split())
         m = next((m for m in (rx.search(t) for rx in EXPRESS_COND) if m), None)
-        print(f"{lid}: {m.group(0) if m else '（見つからない）'}")
+        print(f"{lid}: {m.group(0) if m else '(none found)'}")
         if not m:
             missing.append(lid)
-    print(f"\n# 明示の特許許諾 {len(ids)} 本のうち、条件の文が見つからない: {len(missing)} 本 {missing}")
-    print("# (0 本なら、範囲の分類に依拠せず §1.133 の連言を再現する。見つかった文が条件であることは人が読んで確かめる)")
+    print(f"\n# Of {len(ids)} licences with an express patent grant, no obligation sentence found in: {len(missing)} {missing}")
+    print("# (0 reproduces the conjunction in gap-measurements.md §1.133 without relying on the scope classification. "
+          "Whether each sentence found is a condition is for a person to read.)")
     return 0
 
 
+# 出力は英語で書く (2026-11-06)。これは審査者が自分で走らせる道具で、提出の最も強い主張を再現する。
 def main() -> int:
     if not (CACHE / "_meta.json").exists():
-        print(f"SPDX の原文が無い: {CACHE} —— generate_gap_census.py --fetch を先に走らせる")
+        print(f"SPDX sources not found in {CACHE}. Run first: python3 .github/scripts/generate_gap_census.py --fetch")
         return 2
     if "--express" in sys.argv:
         return express()
@@ -98,30 +100,31 @@ def main() -> int:
         if len(cells) > 5 and cells[5] in ("S2", "S3"):
             beyond.append(cells[1].strip("`"))
     print(f"# SPDX licenseListVersion {meta.get('licenseListVersion')} / releaseDate {meta.get('releaseDate')} / "
-          f"取得 {meta.get('fetched_at')} / 承認済み非 deprecated {meta.get('approved_nondeprecated')} 本")
-    print(f"# census の全数表 {len(rows)} 行のうち、特許許諾の範囲が作品を超える (S2 / S3): {len(beyond)} 本")
+          f"fetched {meta.get('fetched_at')} / OSI-approved and not deprecated: {meta.get('approved_nondeprecated')}")
+    print(f"# Of {len(rows)} rows in the census, the patent grant reaches beyond the work (S2 / S3) in: {len(beyond)}")
     print()
     unconditional = []
     for lid in beyond:
         p = CACHE / f"{lid}.txt"
         if not p.exists():
-            print(f"## {lid}: 原文がキャッシュに無い")
+            print(f"## {lid}: source not in the cache")
             continue
         t = " ".join(p.read_text(encoding="utf-8", errors="replace").split())
         c = next((m for m in (rx.search(t) for rx in COND) if m), None)
         e = TERM.search(t)
         print(f"## {lid}")
-        print(f"- 条件: {('> ' + c.group(0)) if c else '（見つからない）'}")
-        print(f"- 終了: {('> ' + e.group(0)) if e else '（見つからない）'}")
+        print(f"- condition: {('> ' + c.group(0)) if c else '(none found)'}")
+        print(f"- termination: {('> ' + e.group(0)) if e else '(none found)'}")
         if not c:
             unconditional.append(lid)
     print()
-    print(f"# 作品を超える特許許諾 ∧ 条件が見つからない: {len(unconditional)} 本 {unconditional}")
-    print("# (0 本なら §1.133 の主張を再現する。分類 S1 / S2 / S3 は census の読みに依拠し、この道具は検証しない)")
+    print(f"# Patent grant reaching beyond the work with no condition found: {len(unconditional)} {unconditional}")
+    print("# (0 reproduces the claim in gap-measurements.md §1.133. The S1 / S2 / S3 classification is a reading "
+          "recorded in the census; this tool does not verify it.)")
     return 0
 
 
 if __name__ == "__main__":
     if sys.version_info < (3, 10):
-        sys.exit("python 3.10+ が要る")
+        sys.exit("Python 3.10 or later is required")
     sys.exit(main())

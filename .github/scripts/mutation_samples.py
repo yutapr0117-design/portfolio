@@ -280,62 +280,6 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 458a: README.md の呼びかけから現在の投稿先 (license-discuss) が消える —— status を述べる面のうち、最も読まれるページだけが別の窓口を名指す",
-    "file": ROOT / "README.md",
-    "find": "license-discuss",
-    "replace": "license-review",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 468t: mirror の frontmatter の canonical-ref が、凍結済みの草案 pointer を読み先として指す —— 本文だけを読む人には見えない場所で、読み先が本文を持たない file になる",
-    "file": ROOT / "docs" / "files" / "LICENSES" / "ACD-1.3-CHANGELIST.md.md",
-    "find": "canonical-ref: LICENSES/ACD-1.3.txt (確定した本文・2026-10-25)",
-    "replace": "canonical-ref: LICENSES/ACD-1.3-DRAFT.txt (確定した本文・2026-10-25)",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 471 (b): register に無い項目 B99 を名指す —— 方針を決めている register の項目への矢印が、存在しない項目へ向く",
-    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
-    "find": "**したがって §B.0 は",
-    "replace": "B99 **したがって §B.0 は",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 471 (c): 実装の最大番号を超える Check を根拠として示す —— 存在しない機械強制を読み手に信じさせる",
-    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
-    "find": "**したがって §B.0 は",
-    "replace": "Check 999 **したがって §B.0 は",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 471 (e): 文書を名指ししない裸の §N.M が、どの解決先 (条項 / 自分の節 / 提出パケット / §1.xx) にも解決しない",
-    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
-    "find": "**したがって §B.0 は",
-    "replace": "§9.99 **したがって §B.0 は",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 471 (h): 他文書を行番号で指す —— 行番号は書いた日の位置でしかなく、次の編集で別の行を指す",
-    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
-    "find": "**したがって §B.0 は",
-    "replace": "(`AS-OF.md` L12) **したがって §B.0 は",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 471 (g): 規範層 (runbook) が、実装の最大番号を超える Check を根拠として示す —— (c) の害が最も起きやすい層",
-    "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
-    "find": "# total-check-runbook.md",
-    "replace": "# total-check-runbook.md\n\nCheck 999 が守る。",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 468u: §2.8 の末文から「§5.3 / §12.4 は本条を狭めない」が落ちる —— 試作 e で外した理由の文が担っていた反対解釈の封じが本文から消える",
-    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
-    "find": "Section 6 included. Neither Section 5.3 nor Section 12.4 narrows this\n       Section.",
-    "replace": "Section 6 included. Sections 5.3 and 12.4 are read with this\n       Section.",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
     "name": "Check 468u: §15.5 から「\"person\" includes an entity」が落ちる —— 試作 e で理由の文を外した §12.4 の公的機関・§2.8 の会社の譲受人が person に含まれなくなる",
     "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
     "find": "\"person\" includes an entity;",
@@ -545,6 +489,34 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
     "find": "| `LICENSES/ACD-1.2.txt` | 664 |",
     "replace": "| `LICENSES/ACD-1.2.txt` | 800 |",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 476c: 入口ページの作品を超える本数が census とずれる —— census を作り直した日に入口だけ古くなる形",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "Seven extend a patent grant",
+    "replace": "Eight extend a patent grant",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 476c: 材料表の全数が census とずれる",
+    "file": ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md",
+    "find": "作品を超える特許許諾を持つ 7 本",
+    "replace": "作品を超える特許許諾を持つ 6 本",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 472j: ADOPTING.md が全部の版には無い条を引く",
+    "file": ROOT / "LICENSES" / "ADOPTING.md",
+    "find": "§10.2",
+    "replace": "§10.9",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 472k: objection-map がどの版にも無い条を引く —— 472 は他の版に在る番号しか見ないので黙って通っていた",
+    "file": ROOT / "LICENSES" / "ACD-1.0.objection-map.md",
+    "find": "§4.3",
+    "replace": "§4.9",
     "check": CHECK,
 })
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL

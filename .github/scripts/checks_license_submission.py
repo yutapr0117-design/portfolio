@@ -95,6 +95,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `submission.md` の面しか見ず、入口ページは 1.0 を「the licence」と述べたまま緑だった (1.4 の予行で実測)。
        あわせて QUESTIONS-FOR-COUNSEL の基準の版が LICENSE の適用する版と、objection-map の "Numbers" の基準が
        提出対象と一致すること。
+       **(472k・2026-11-06)** `objection-map.md` が引く §2〜§16 の条が提出対象に在ること。472 はどれかの版に在る番号しか
+       見ないので、どの版にも無い番号は黙って通っていた。§1.x はドシエの節と同じ形なので対象外。
+       **(472j・2026-11-06)** `ADOPTING.md` の "the same in every version" の主張。引く条が凍結版すべてと草案に在ること。
        **(472i・2026-11-06)** 入口の 2 つの表が、英語の審査者を読めない文書へ黙って送らないこと。"What to open first" の
        行が指す file の日本語の比率が 30% 以上なら行に Japanese と書く。言語の表が English / Japanese と述べる file は
        実測と合う。比率は日本語の文字 / (日本語の文字 + ラテン文字)。register 63% と READY-TO-SUBMIT 66% が無表示
@@ -503,6 +506,44 @@ def run(ctx):
             f"Check 472g: REVIEWERS.md の \"In one screen\" {_secs472g.get('In one screen')} 語 / \"Status\" {_secs472g.get('Status')} 語 (≤ 500 / 600)",
             (f"Check 472g: 入口の節が上限を超えた: {_over472g}。短い入口が長さへの唯一の実効的な緩和なので、"
              "足すなら同じ節の別の文を削るか、後ろの節へ置け"),
+            blocking=True,
+        )
+        # ── 472k. objection-map の条が提出対象に在ること ─────────────────────────────────
+        #   472 は「他の版には在るが対象に無い」しか見ない (ドシエの §1.52 のような節番号を誤検出しないため)。
+        #   反論の表は条を根拠にするので、この面だけ §2〜§16 の全部を当てる。§1.x はドシエの節と区別できない。
+        #   `file.md` §N.M の形は別の文書の節なので見ない (実測: PEER-REVIEW-WATCH.md §3.9)。
+        _om472k = ROOT / "LICENSES" / "ACD-1.0.objection-map.md"
+        _ot472k = _om472k.read_text(encoding="utf-8") if _om472k.exists() else ""
+        _tm472k = re.search(r"<!--\s*SUBMISSION-TARGET:\s*(ACD-\d+\.\d+)\s*-->", (ROOT / "LICENSES" / "ACD-1.0.submission.md").read_text(encoding="utf-8"))
+        _tg472k = _tm472k.group(1) if _tm472k else "?"
+        _tp472k = ROOT / "LICENSES" / f"{_tg472k}.txt"
+        _have472k = set(re.findall(r"^  (\d+\.\d+) ", _tp472k.read_text(encoding="utf-8"), re.M)) if _tp472k.exists() else set()
+        _cite472k = sorted({_c for _c in re.findall(r"(?<!\.md` )§(\d{1,2}\.\d{1,2})", _ot472k) if 2 <= int(_c.split(".")[0]) <= 16})
+        _miss472k = [_c for _c in _cite472k if _c not in _have472k]
+        check(
+            len(_cite472k) >= 5 and not _miss472k,
+            f"Check 472k: objection-map が引く {len(_cite472k)} 条が提出対象 {_tg472k} に在る",
+            (f"Check 472k: objection-map が提出対象 {_tg472k} に無い条を引いている: {_miss472k or '引用が読めない'}。"
+             "反論への答えの根拠が存在しない条だと、審査者が最初に確かめて落ちる"),
+            blocking=True,
+        )
+        # ── 472j. ADOPTING.md の「どの版でも同じ番号」の主張 ─────────────────────────────
+        #   採用者向けの 1 枚は版を問わず読まれるので、引く条は全部の版に在る必要がある。
+        _ad472j = ROOT / "LICENSES" / "ADOPTING.md"
+        _at472j = _ad472j.read_text(encoding="utf-8") if _ad472j.exists() else ""
+        _cite472j = sorted(set(re.findall(r"§(\d+\.\d+)", _at472j)))
+        _miss472j = []
+        for _v472j in sorted((ROOT / "LICENSES").glob("ACD-*.txt")):
+            _t472j = _v472j.read_text(encoding="utf-8")
+            if "HAS BEEN FROZEN" in _t472j.split("\n", 1)[0]:
+                continue
+            _have472j = set(re.findall(r"^  (\d+\.\d+) ", _t472j, re.M))
+            _miss472j += [f"§{_c} が {_v472j.name} に無い" for _c in _cite472j if _c not in _have472j]
+        check(
+            "the same in every version" in _at472j and len(_cite472j) >= 3 and not _miss472j,
+            f"Check 472j: ADOPTING.md が引く {len(_cite472j)} 条が全部の版に在る",
+            (f"Check 472j: ADOPTING.md の「どの版でも同じ番号」が成り立たない: {_miss472j or '文が無いか引用が読めない'}。"
+             "版で番号が違う条を引くなら、その条について版を述べよ"),
             blocking=True,
         )
         # ── 472i. 入口の 2 つの表が、読めない文書へ黙って送らないこと ──────────────────────
