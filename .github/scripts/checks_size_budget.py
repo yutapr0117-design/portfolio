@@ -141,6 +141,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 """
 import re
 
+from sync_size_table import allowed_drift
+
 # ── hard ceiling とその除外集合 (Check 365 / 443 の単一ソース) ────────────────────
 # [FIX 2026-08-23] 元は Check 365 の中だけに閉じていたが、Check 443 (advisory 予算は hard
 #   ceiling 未満) が **同じ集合**を必要とする。片方に file を足してもう片方を忘れると、
@@ -337,15 +339,16 @@ def run(ctx):
             _actual424 = len(_p424.read_text(encoding="utf-8", errors="replace").split("\n")) - 1
             _rec424 = int(_m424.group(2).replace(",", ""))
             _checked424 += 1
-            if _rec424 != _actual424:
+            # `LICENSES/` の行は ±50 行の幅を許す (2026-11-06)。隣り合う行の数字が PR どうしを衝突させて
+            #   いた (1 日 3 回)。上限の判定は Check 52 / 365 が実物で行うので、幅は上限を緩めない。
+            if abs(_rec424 - _actual424) > allowed_drift(_m424.group(1)):
                 _stale424.append(f"{_m424.group(1)}: 表={_rec424} 実測={_actual424}")
         check(
             not _stale424 and _checked424 > 0,
-            f"Check 424: file-size-budget.md §2 表の実測行数 {_checked424} 件が実測と一致",
+            f"Check 424: file-size-budget.md §2 表の実測行数 {_checked424} 件が実測と一致 (LICENSES/ の行は ±50 行の幅)",
             f"Check 424: §2 表の実測行数が実測とズレている: {_stale424[:8]}"
             + (f" (他 {len(_stale424) - 8} 件)" if len(_stale424) > 8 else "")
-            + "。行数を変えたファイルは §2 表の「実測行数」列も同じ commit で更新せよ "
-            f"(§4 BUDGET-DATA は予算値なので変更不要)",
+            + "。`npm run sync-sizes` で直せ (§4 BUDGET-DATA は予算値なので変更不要)",
         )
     else:
         warnings.append("Check 424: file-size-budget.md not found — §2 line-count sync check skipped")

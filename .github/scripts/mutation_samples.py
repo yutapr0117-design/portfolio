@@ -540,6 +540,13 @@ _MUTATIONS_TAIL.append({
     "replace": "was last read at #",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 424: LICENSES/ の行が幅 (±50 行) の外へずれる —— 幅を許しても、表が実物から離れたら止める",
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": "| `LICENSES/ACD-1.2.txt` | 664 |",
+    "replace": "| `LICENSES/ACD-1.2.txt` | 800 |",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
