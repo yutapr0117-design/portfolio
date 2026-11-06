@@ -56,7 +56,9 @@ on §4 and §5. (d) Covered Rights include rights the Dedicator *"may come to ho
 future"* (§1.5), and in the 1.4 draft Moral Rights include rights conferred by law *"now or in
 future"* (§1.2, errata E50). Whether a surrender, waiver or licence of a right not yet held takes
 effect when the right arises, or needs a further act then, is a question of each forum's law
-that the text cannot answer for itself.
+that the text cannot answer for itself. (e) In the 1.4 draft a one-line tag can apply the
+Dedication (§16.1, §16.2). Whether so short a mark shows the intention an abandonment needs is
+open; if it does not, §3 may fail there while §4 stands, which is what §4.4 is for.
 
 **An answer would change** whether the text keeps three footings (register B4) and how §4.4 says
 "independent".

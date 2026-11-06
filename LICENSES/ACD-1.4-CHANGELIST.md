@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.4-CHANGELIST.md
 audience: OSI license-discuss / license-review participants, licence reviewers, a future drafter
-last-updated: 2026-11-03
+last-updated: 2026-11-06
 canonical-ref: LICENSES/ACD-1.4-DRAFT.txt (草案) / LICENSES/ACD-1.3.txt (直前の確定テキスト・凍結・このリポジトリに適用中) / LICENSES/ACD-1.3-CHANGELIST.md (1.2 → 1.3 の記録) / LICENSES/ACD-1.0.errata.md
 ---
 
@@ -69,6 +69,9 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §2.6（included with）| *"that material is included in the Work"* を *"included with the Work"* へ| 前の行の反例（bb）。§2.6 は Work が覆われない素材を含むことを前提にしていて、前の行の読み（適用した素材だけが Work）と食い違い、外した読みの材料にもなっていた。§2.7 の *"incorporates material"* は第三者の権利の話なので残す | 0 | 反映済み |
 | §12.2（受領者）| *"any person who receives the Work from You"* に *", directly or indirectly"* を足す| 並行起草の差分。§4.6 と §5.3 は同じ受領者をこの語つきで書き、§12.2 だけが持たなかった（1.0 から・errata **E62**）。§1.6 の You と再帰で結果は変わらないが、不行使の合意は狭く読まれやすいので、§15.1 の支えが最も弱い条に対比を残さない。**逆側**: 相手方が広いほど包括的と見られやすい法域があるかもしれない（問 3 の領分）。§5.3 と揃える利益のほうが大きいと判断した | +3 | 反映済み |
 | §16.3（may hold）| *"in which they hold rights"* を *"in which they hold or may hold rights of their own"* へ| §1.4 は *"holds or may hold"*、§9.2 は権利の存否を述べないのに、§16.3 は適用する者に権利の確定を求める形だった。AI が生成したコードの持ち主は権利が在るか分からず、gap の 3 つ目の採用者そのものである。25 の初案 *"hold or may hold rights"* は bb の反例で退けた —— *may hold* は可能性の語で、第三者の権利が混ざる素材へ付ける誘いになり、E2 の害が戻る。*of their own* が E2 の境界を語で残す。**逆側**: 他人の素材に「自分の権利を持つかもしれない」と言って付ける余地は細く残る（§2.7 と §1.4 の *"to the extent"* が効果を止める）。外向きの引用は切り替えの日に揃える | +6 | 反映済み |
+| §16.1（適用の形）| *"place a notice with the Work in substantially the following form:"* を *"place a notice with the Work, in a form Section 16.2 names or in substantially the following form:"* へ| 同じ草案の §16.2 が「Dedicator が適用した著作物」に限ったので（H-02）、適用の行為を述べる条が長い通知文しか挙げなくなり、タグだけ置く権利者が適用したと言えるかが条文から決まらなかった。1.3 では §16.2 で足りた後退で、§15.1 は適用の前に立てないので救えない（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §10.1）。`submission-reference.md` の *"A falsifiable test"* もこの答えに依存していた。**逆側**: 長い通知文が読まれる機会は減る。改変したファイルに残ったタグは *"To apply"* の目的が無いので適用ではないが、誤って成立したときの費用は他のライセンスより重い（§10.5 の S6）| +7 | 反映済み |
+| §6.4（参照）| *"(Section 9)"* を外す| §9 は Work の部分を論じ、§6.4 の *any such thing* はモデルと出力である（§10.2）。1.1 で足した参照は姿勢の類比で、指す先が同じ対象を論じていない。**逆側**: 出力が Work に取り込まれたときの案内は消えるが、そのとき §9 は自分の条件で働く | −2 | 反映済み |
+| §15.1（宛先）| *"the least obligation"* を *"the least obligation upon You"* へ| You には義務が無いので語が働く先は Dedicator の約束になり、§15.1 の 2 文が逆を向いていた（§10.3）。§15.1 はすべての曖昧さの行き先で、基準 3 の答えが乗っているので（`gap-measurements.md` §1.134）、この条で 2 文が逆を向く費用は他の条より重い。**逆側**: §2.6 の約束のように *grants* と呼びにくいものは通常の解釈に戻る | +2 | 反映済み |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 

@@ -151,7 +151,14 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 16.3 now reaches a work in which a person may hold rights "of
       their own", so that someone unsure whether rights subsist in machine
       output need not settle that first. (+6 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5403 words, 80 clauses.
+    * Section 16.1 now names the forms in Section 16.2 alongside the long
+      notice, so a Dedicator who places only the identifier or a tag has
+      applied this Dedication. (+7 words.)
+    * Section 6.4 no longer points to Section 9, which speaks of parts of the
+      Work and not of models or outputs. (-2 words.)
+    * Section 15.1 now says on whom the least obligation falls, "upon You".
+      (+2 words.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5410 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -464,9 +471,9 @@ PREAMBLE (informative; not part of the operative terms)
        any Covered Right of the Dedicator, in respect of a model, parameter
        set, weight, embedding, or output resulting from Computational Use of
        the Work, and You owe nothing in respect of any of them. Whether a right
-       subsists in any such thing is not decided here and does not need to be
-       (Section 9). Nothing in this Dedication requires You to license,
-       disclose, or attribute any such thing.
+       subsists in any such thing is not decided here and does not need to be.
+       Nothing in this Dedication requires You to license, disclose, or
+       attribute any such thing.
 
   6.5  Section 6 states expressly what Sections 3 to 5 and 8 would in any
        event permit. It is stated expressly because silence on this subject has
@@ -527,16 +534,15 @@ PREAMBLE (informative; not part of the operative terms)
        so Section 6.4 alone would leave Computational Use permitted as to the
        Covered Rights while exposed as to patents, which is the very result
        Section 8.3 rejects and one that would defeat the purpose stated in
-       Section 6.5.
-       The proviso in Section 8.1 as to subject matter contained in the Work is
-       deliberately absent from this Section: a model is not subject matter
-       contained in the Work, so importing that proviso would restore the
-       exposure this Section exists to remove. This Section reaches a claim
-       only where the feature that infringes it results, in whole or in part,
-       from the use of the Work; a feature that the Work teaches or embodies is
-       taken so to result. That is a question of causation and not of quantity:
-       no threshold of how much of the Work was used is imposed, since You
-       could not determine whether one had been crossed (Section 6.5).
+       Section 6.5. The proviso in Section 8.1 as to subject matter contained in
+       the Work is deliberately absent from this Section: a model is not subject
+       matter contained in the Work, so importing that proviso would restore the
+       exposure this Section exists to remove. This Section reaches a claim only
+       where the feature that infringes it results, in whole or in part, from
+       the use of the Work; a feature that the Work teaches or embodies is taken
+       so to result. That is a question of causation and not of quantity: no
+       threshold of how much of the Work was used is imposed, since You could
+       not determine whether one had been crossed (Section 6.5).
 
   8.5  Sections 8.1 to 8.4 are subject to Section 2.7: they reach only patent
        claims the Dedicator owns or controls, now or in future, and are neither
@@ -554,11 +560,10 @@ PREAMBLE (informative; not part of the operative terms)
        ineffective: it operates in every jurisdiction alongside them.
        Permission under the Covered Rights stands here on three footings,
        surrender (Section 3), licence (Section 4), and covenant (Section 5);
-       this Section gives the patent grant the second footing it would
-       otherwise lack. You are not required
-       to determine whether either licence is effective in any jurisdiction,
-       and nothing permitted by this Dedication depends on that question or on
-       how it is answered.
+       this Section gives the patent grant the second footing it would otherwise
+       lack. You are not required to determine whether either licence is
+       effective in any jurisdiction, and nothing permitted by this Dedication
+       depends on that question or on how it is answered.
 
 
 9. MACHINE-GENERATED MATERIAL AND AUTHORSHIP
@@ -711,8 +716,8 @@ PREAMBLE (informative; not part of the operative terms)
 15. CONSTRUCTION AND SEVERABILITY
 
   15.1 This Dedication, in respect of the Work, is to be construed so as to
-       give the widest permission and the least obligation that its words
-       allow. Where a provision is capable of more than one reading, the
+       give the widest permission and the least obligation upon You that its
+       words allow. Where a provision is capable of more than one reading, the
        reading that grants more to You prevails.
 
   15.2 If a provision of this Dedication is held invalid or unenforceable in a
@@ -742,8 +747,8 @@ PREAMBLE (informative; not part of the operative terms)
 
 16. APPLYING THIS DEDICATION, AND THE STATUS OF THIS TEXT
 
-  16.1 To apply this Dedication, place a notice with the Work in substantially
-       the following form:
+  16.1 To apply this Dedication, place a notice with the Work, in a form
+       Section 16.2 names or in substantially the following form:
 
            This work is released under the Autonomous Commons Dedication 1.4
            (ACD-1.4). No rights in this work are reserved and no conditions are
