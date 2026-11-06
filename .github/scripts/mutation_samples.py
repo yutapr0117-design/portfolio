@@ -374,7 +374,7 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 490f: 申請する版を、冒頭が提出状況を現在形で述べる版へ向ける —— 申請した瞬間に偽になり、凍結中なので直せない",
     "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": "<!-- SUBMISSION-TARGET: ACD-1.0 -->",
+    "find": f"<!-- SUBMISSION-TARGET: {SUBMISSION_TARGET} -->",
     "replace": "<!-- SUBMISSION-TARGET: ACD-1.3 -->",
     "check": CHECK,
 })
@@ -545,6 +545,13 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "LICENSES" / "REVIEWERS.md",
     "find": "it's still not a license",
     "replace": "it is still not a license",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 472h: digest の照合の grep だけ別の版を見る —— 素の形しか読まないと、審査者の手元で 2 つの digest が食い違っても緑になる (2026-11-07 の予行)",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "LICENSES/" + SUBMISSION_TARGET.replace(".", "\\.") + "\\.txt$'",
+    "replace": "LICENSES/ACD-0\\.9\\.txt$'",
     "check": CHECK,
 })
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL

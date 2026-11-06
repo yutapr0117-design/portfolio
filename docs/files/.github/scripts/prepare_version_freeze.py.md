@@ -33,6 +33,8 @@ python3 .github/scripts/prepare_version_freeze.py --date 2026-11-13
 | Check 362 | REVIEWERS.md と QUESTIONS-FOR-COUNSEL.md を直すと解ける |
 | Check 413 (ADVISORY) | runbook §9 の追跡ファイル数を実測へ |
 
+申請の日に `submission.md` の `SUBMISSION-TARGET` を切り替えると、Check 472 / 472f / 472h が版に紐づく欄を名指す。2026-11-07 の予行では、欄を直すと Check はすべて満たせた（満たせない Check は無かった）。文を読んで直すのは、REVIEWERS.md と READY-TO-SUBMIT.md が 1.0 の条番号（§15.7 / §15.8）を述べる 3 箇所である。
+
 ## Constraints
 
 - **判断はしない。** 外向きの文書の書き換え（Check 468k / 468t が列挙する）、REVIEWERS.md の表と検証コマンド（472c / 472h）、`measure_descriptor_carryover.py` が出す条の読み直しは人が行う。

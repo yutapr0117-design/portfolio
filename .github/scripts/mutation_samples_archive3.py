@@ -3,7 +3,7 @@
 rotate_mutation_samples.py が受け皿の余裕を実測して選び、埋まったら次を起こす。
 **新しい mutation は mutation_samples.py の tail へ足すこと** (ここは退避先)。
 """
-from mutation_samples_common import ROOT, CHECK, APPLIED_ID, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, APPLIED_ID, SUBMISSION_TARGET, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)
 
 MUTATIONS_ARCHIVE3 = [
     {
@@ -651,7 +651,7 @@ MUTATIONS_ARCHIVE3 = [
     "name": "Check 472f: 提出パケット §A.0 header の License URL 欄だけを別の版へずらす —— 版を切り替えた日に"
             "欄が 1 つ残ると、審査者には旧版の欄と新版の本文が届く (2026-09-26)",
     "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": "License URL:                    https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt",
+    "find": f"License URL:                    https://yutapr0117-design.github.io/portfolio/LICENSES/{SUBMISSION_TARGET}.txt",
     "replace": "License URL:                    https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.2.txt",
     "check": CHECK,
 },

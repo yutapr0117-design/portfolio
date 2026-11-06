@@ -599,7 +599,10 @@ def run(ctx):
             _secs472h = len(re.findall(r"^\d+\. [A-Z]", _body472h, re.M))
             if not _ml472h or (int(_ml472h.group(1).replace(",", "")), int(_ml472h.group(2))) != (_tt472h.count("\n"), _secs472h):
                 _bad472h.append(f"\"The licence itself\" の行が {_tg472h} の {_tt472h.count(chr(10))} lines, {_secs472h} sections を述べていない")
-            _cmd472h = sorted(set(re.findall(r"^(?:shasum -a 256 |grep .* LICENSES/)(ACD-\d+\.\d+)\.txt$", _t472d, re.M)))
+            # digest の照合は grep の正規表現の中に版を書くので、\. の形も読む。素の形だけ見ると、
+            # 片方を切り替えたまま審査者の手元で 2 つの digest が食い違っても緑になる (2026-11-07 の予行)。
+            _cmd472h = sorted(set(re.findall(r"^(?:shasum -a 256 |grep .* LICENSES/)(ACD-\d+\.\d+)\.txt$", _t472d, re.M))
+                              | {_v.replace("\\.", ".") for _v in re.findall(r"LICENSES/(ACD-\d+\\\.\d+)\\\.txt\$'", _t472d)})
             if _cmd472h != [_tg472h]:
                 _bad472h.append(f"検証コマンドの対象が {_tg472h} でない: {_cmd472h}")
             if hashlib.sha256(_tp472h.read_bytes()).hexdigest() not in _t472d:
