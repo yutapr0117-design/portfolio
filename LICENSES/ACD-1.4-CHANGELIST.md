@@ -278,6 +278,8 @@ OSAID の要件を 1 つずつ条文に当てた。**OSAID が定めるものに
 
 ## 確定前検証（段 7・2026-11-06・相互参照と機械可読性は 5a）
 
+**1.3 との差分の完全性と起草の 2 観点は、上の「確定前検証の前倒し」の表にある**（25）。
+
 | 観点 | やったこと | 結果 |
 | :-- | :-- | :-- |
 | **相互参照** | 本文の内部参照 89 件を、指す先の条の冒頭と並べて全部読んだ（語の解決は 468 が見るので、ここで見たのは意味） | **clean** —— 指す先の内容と参照の文が食い違うものは無い。§8.5 の *"Sections 8.1 to 8.4"* に §8.6 は入らないが、§8.6 は *"the patent claims described in Sections 8.1 and 8.4"* で同じ集合を指し、§2.7 は全体に掛かるので射程は変わらない |
@@ -293,9 +295,9 @@ OSAID の要件を 1 つずつ条文に当てた。**OSAID が定めるものに
 | `osiApproved` / `spdxListed` を外し、`statusAtFixing` を足す | `{"date": "<確定日>", "osiApproved": false, "spdxListed": false, "legalReview": false, "note": "True on the date above. LICENSES/FROZEN.md records what has happened since."}` | 凍結された file が承認の日に偽になるのを防ぐ。`legalReview` は開示を機械可読層へも置く。**⚠ 逆側**: 古い key を読む機械は 1.4 で値を得られない。`aio-manifest` の `license` は現在の状態を持つので、現在値はそちらを見る |
 | `$comment` | *"Every entry with a clause key cites the clause it comes from … name, version, text, and steward identify this file; statusAtFixing records outside facts on the date this file was fixed and is not drawn from any clause."* | M14 を閉じる。旧文は `clause` を持たない key まで述べていた |
 | `permissions.studyAndAnalysis` / `reverseEngineering` | `true`・§4.2 | 候補 (a)。1.4 が足した語で、機械から見えない |
-| `covenants`（新しい欄）| `noAssertionOfCoveredRights` §5.1 / `noCollateralObligationByDedicator` §5.2 / `noAssertionOfPatentClaims` §8.6 | 候補 (b) と §8.6。約束は許諾ではないので `permissions` に置かない。key 名に *ByDedicator* を入れ、本文が述べていない一般化（どの利用規約も無効）を述べない |
+| `covenants`（新しい欄）| `noAssertionOfCoveredRights` §5.1 / `noCollateralObligationByDedicator` §5.2（`note` に *paragraph (b)* と書く。`clause` は Check 451 が条の番号で照合するので `5.2` のまま）/ `noAssertionOfLicensedPatentClaims` §8.6 | 候補 (b) と §8.6。約束は許諾ではないので `permissions` に置かない。key 名に *ByDedicator* と *Licensed* を入れ、本文が述べていない一般化（どの利用規約も無効、どの特許も主張しない）を述べない。§8.6 が約束するのは *"the patent claims described in Sections 8.1 and 8.4"* だけである（25 の照合で `noAssertionOfPatentClaims` から直した。§6.1 を直した理由と同じ形） |
 | `machineGeneratedMaterial`（新しい欄）| `rightAssertedByDedicator: false` §9.2 / `recipientMustDetermineWhichParts: false` §9.3 | 451e と #269。**「権利が存在しない」とは書かない** |
-| `reservationsAndLimits.textRedistribution.note` | §16.4 に合わせて書き直す（識別子は *"any identifier that begins with "ACD-" followed by a digit"*、Steward は新しい版番号と識別子の下だけ、翻訳と再符号化の但し書き） | 候補 (d)。1.3 の文のままだと記述子が本文より広いことを言う |
+| `reservationsAndLimits.textRedistribution.note` | §16.4 に合わせて書き直す（識別子は *"any identifier that begins with "ACD-" followed by a digit"*、Steward は *"no earlier text, other than a draft identified as such, has borne"* 版番号と識別子の下だけ、*"A modified text may be distributed under a different name"*、翻訳と再符号化の但し書き） | 候補 (d)。1.3 の文のままだと記述子が本文より広いことを言う。制限は作ることではなく、その名前の下で頒布することだけだと読める形にする |
 | `notice` | §16.1 から写す | 451b / 451d が照合する |
 
 **足さないもの**: 候補 (c)（§4.3 の規模・§8.5 の *controlled*・§9.1 の例示・§1.3）は既存の key の `clause` で足りる。§5.2(d) は `covenants` に足せるが、§11.4 の carve-out と並ぶと読み手を迷わせるので確定の日に読んで決める。**確定の日は `measure_descriptor_carryover.py` を回して、変わった条をもう一度読む。**
