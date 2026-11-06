@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""OSI の監視対象 9 URL を 1 回取り、前回との差を出す (手で回す道具・CI には入れない)。
+"""OSI の監視対象 10 URL を 1 回取り、前回との差を出す (手で回す道具・CI には入れない)。
 
     python3 .github/scripts/fetch_osi_watch.py [保存先]      # 既定は ~/osi-fetch/watch
 
@@ -26,12 +26,12 @@ JST = datetime.timezone(datetime.timedelta(hours=9))
 
 
 def targets(now: datetime.datetime) -> list[tuple[str, str]]:
-    """両リストの今月と先月、opensource.org の 5 ページ。月は実行日から導出する。"""
+    """両リストの今月と先月、opensource.org の 6 ページ。月は実行日から導出する。"""
     first = now.replace(day=1)
     months = [(first - datetime.timedelta(days=1)).strftime("%Y-%B"), now.strftime("%Y-%B")]
     out = [(f"license-{name}_{m}.txt", LIST.format(name, m)) for name in ("review", "discuss") for m in months]
     out += [(f"oso_{n}", f"https://opensource.org/{p}") for n, p in (
-        ("code-of-conduct.html", "code-of-conduct"), ("codeofconduct.html", "codeofconduct"),
+        ("code-of-conduct.html", "code-of-conduct"), ("codeofconduct.html", "codeofconduct"), ("faq.html", "faq"),
         ("minutes.html", "minutes"), ("api_licenses.json", "api/licenses"), ("blog.html", "blog"))]
     return out
 
@@ -39,7 +39,7 @@ def targets(now: datetime.datetime) -> list[tuple[str, str]]:
 def summarize(name: str, data: bytes) -> str:
     """ページの生成で揺れる byte ではなく、変わったら意味のある値を返す。"""
     text = data.decode("utf-8", "replace")
-    if "conduct" in name:
+    if "conduct" in name or name == "oso_faq.html":
         found = re.findall(r"Last modified on [A-Za-z]+ \d+, \d+", text)
         return found[0] if found else "Last modified が無い"
     if name == "oso_minutes.html":

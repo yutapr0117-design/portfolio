@@ -95,6 +95,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `submission.md` の面しか見ず、入口ページは 1.0 を「the licence」と述べたまま緑だった (1.4 の予行で実測)。
        あわせて QUESTIONS-FOR-COUNSEL の基準の版が LICENSE の適用する版と、objection-map の "Numbers" の基準が
        提出対象と一致すること。
+       **(472l・2026-11-06)** 入口ページと申請日の 1 枚が OSI の FAQ として引く文が、`rounds/` の FAQ の本文に在ること。
+       承認されるべき理由の先頭に置いた出典なので、語を読みやすく動かすと審査者が最初に確かめて落ちる。
        **(472k・2026-11-06)** `objection-map.md` が引く §2〜§16 の条が提出対象に在ること。472 はどれかの版に在る番号しか
        見ないので、どの版にも無い番号は黙って通っていた。§1.x はドシエの節と同じ形なので対象外。
        **(472j・2026-11-06)** `ADOPTING.md` の "the same in every version" の主張。引く条が凍結版すべてと草案に在ること。
