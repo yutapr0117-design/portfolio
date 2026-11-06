@@ -55,6 +55,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (2026-11-02・広げる方向だけ RED)。
        **468l は草案の全行が 80 桁以内であることを見る** —— 1.0 は全行 ≤80 だが 1.1〜1.3 は
        語を足した行が 81〜90 桁のまま確定して凍結で直せなくなった (2026-11-01 実測)。
+       **468v は草案の冒頭が述べる最新の凍結版・適用中の版・pin された版の一覧が実物と合うことを見る** ——
+       版を確定して次の草案を作る日に冒頭の書き換えを 1 つ忘れても無音だった (2026-11-06 の予行)。
        **468o は licence (名詞) / license (動詞) の語形が前の語と合うことを見る** —— 1.1〜1.3 の §8.4 が
        "does not licence a claim" のまま凍結された (2026-11-02 に 25 が発見)。引用符の中と全大文字は除く。 (BLOCKING)
 """
@@ -639,6 +641,27 @@ def run(ctx):
         )
         if _bad468o:
             _bad468.append(f"468o: licence (名詞) / license (動詞) の語形が前の語と合わない: {_bad468o}")
+
+        # ── 468v: 草案の冒頭が述べる最新の凍結版・適用中の版・pin された版の一覧が実物と合う ─────────
+        #   版を確定して次の草案を作る日に、この 1 段落の書き換えを忘れても無音だった (2026-11-06 の予行で
+        #   「最新の凍結版は前の版」と述べる草案を入れても全部緑)。冒頭は確定の日にしか動かない。
+        _h468v = " ".join(_t468.split(_sep468, 1)[0].split())
+        _fz468v = sorted(((int(_m.group(1)), int(_m.group(2))) for _m in
+                          (re.match(r"ACD-(\d+)\.(\d+)\.txt$", _p.name) for _p in (ROOT / "LICENSES").glob("ACD-*.txt")) if _m))
+        _fzs468v = [f"ACD-{_a}.{_b}" for _a, _b in _fz468v]
+        _ml468v = re.search(r"^SPDX-License-Identifier: (ACD-\d+\.\d+)$", (ROOT / "LICENSE").read_text(encoding="utf-8"), re.M)
+        _ms468v = re.search(r"The latest frozen text is (ACD-\d+\.\d+) \(LICENSES/(ACD-\d+\.\d+)\.txt\), "
+                            r"and the licence that covers this repository is (ACD-\d+\.\d+)\.", _h468v)
+        _mp468v = re.search(r"((?:ACD-\d+\.\d+(?:, | and ))+ACD-\d+\.\d+) are pinned", _h468v)
+        if not _ms468v or not _mp468v:
+            _bad468.append("468v: 冒頭に最新の凍結版・適用中の版・pin された版の文が無い (消して黙らせない)")
+        else:
+            if {_ms468v.group(1), _ms468v.group(2)} != {_fzs468v[-1]}:
+                _bad468.append(f"468v: 冒頭の最新の凍結版 {_ms468v.group(1)} が実物 {_fzs468v[-1]} と違う")
+            if not _ml468v or _ms468v.group(3) != _ml468v.group(1):
+                _bad468.append(f"468v: 冒頭の適用中の版 {_ms468v.group(3)} が LICENSE と違う")
+            if re.findall(r"ACD-\d+\.\d+", _mp468v.group(1)) != _fzs468v:
+                _bad468.append(f"468v: 冒頭の pin された版の一覧が実物 {_fzs468v} と違う")
 
         check(
             not _bad468,

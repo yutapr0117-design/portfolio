@@ -43,6 +43,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        誰にも読めない位置にあった**。Check 91 は raw byte 検索なので walk の破綻を見抜けず、
        **「宣言はあるが実態が伴わない」class (#929 / #930) の binary 面**として素通りしていた。
        442c は本 increment で WebP の XMP chunk を resize したので、その構造健全性を対で守る。
+       442d: WebP の `dc:rights` と MP3 の TCOP / WCOP が名乗る版が、LICENSE の適用する版と一致する
+       (2026-11-06・版確定の予行で発見。Check 444 の面にバイナリが無く、適用する版を上げる日に更新を
+       忘れても公開バイナリだけ前の版を名乗ったまま緑だった)。
   95. _lib_io.py date helpers: `_lib_io.py` に `now_iso8601` / `update_webp_xmp_dates` /
       `update_mp3_metadata_date` の 3 public helper が存在することを機械強制 (6 案)。(BLOCKING)
 """
@@ -182,6 +185,7 @@ def run(ctx):
     # 「書き込みが成功した」と「読み手に届く」は別 —— #929 / #930 の binary 面。
     _mp3_442 = ROOT / "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3"
     _webp_442 = ROOT / "yuta-yokoi-ai-pm-orchestration-system.webp"
+    _rights442 = {}
 
     if _mp3_442.exists():
         _d442 = _mp3_442.read_bytes()
@@ -193,6 +197,7 @@ def run(ctx):
 
             _end442 = 10 + _ss442(_d442[6:10])
             _pos442, _n442, _stop442, _reach442 = 10, 0, None, {}
+            _rights442["MP3 TCOP"], _rights442["MP3 WCOP"] = "", ""
             while _pos442 + 10 <= _end442:
                 _fid442 = _d442[_pos442:_pos442 + 4]
                 if _fid442[:1] == b"\x00":
@@ -204,6 +209,8 @@ def run(ctx):
                 _body442 = _d442[_pos442 + 10:_pos442 + 10 + _sz442]
                 if _fid442 == b"TXXX" and _body442[:1] == b"\x03":
                     _reach442[_body442[1:].split(b"\x00")[0].decode("utf-8", "replace")] = True
+                if _fid442 in (b"TCOP", b"WCOP"):
+                    _rights442[f"MP3 {_fid442.decode()}"] = _body442.decode("utf-8", "replace")
                 _n442 += 1
                 _pos442 += 10 + _sz442
 
@@ -258,5 +265,28 @@ def run(ctx):
              f"考慮せよ (`update_binary_aio_rights.py` / `update_binary_aio_organization.py` が実装例)"),
             blocking=True,
         )
+        _xp442 = _w442.find(b"XMP ")
+        _xn442 = int.from_bytes(_w442[_xp442 + 4:_xp442 + 8], "little") if _xp442 >= 0 else 0
+        _xmp442 = _w442[_xp442 + 8:_xp442 + 8 + _xn442].decode("utf-8", "replace") if _xp442 >= 0 else ""
+        _rights442["WebP dc:rights"] = "".join(re.findall(r"<dc:rights>.*?</dc:rights>", _xmp442, re.S))
     else:
         check(False, "", "Check 442c: canonical WebP が存在しない", blocking=True)
+
+    # 442d — binary が名乗る版が LICENSE の適用する版と一致すること。Check 444 はテキストの面しか見ないので、
+    #   適用する版を上げる日に `update_binary_aio_rights.py` を回し忘れても、公開バイナリだけ前の版を
+    #   名乗ったまま全部緑だった (2026-11-06 の 1.4 確定の予行で発見・#2 の面の抜けと同じ形)。
+    _lic442 = ROOT / "LICENSE"
+    _m442 = re.search(r"^SPDX-License-Identifier: (ACD-\d+\.\d+)$",
+                      _lic442.read_text(encoding="utf-8") if _lic442.exists() else "", re.M)
+    _id442 = _m442.group(1) if _m442 else "?"
+    _bad442d = [f"{_k}: {sorted(set(re.findall(r'ACD-[0-9.]*[0-9]', _v))) or '版の表示が無い'}"
+                for _k, _v in sorted(_rights442.items())
+                if set(re.findall(r"ACD-[0-9.]*[0-9]", _v)) != {_id442}]
+    check(
+        bool(_m442) and len(_rights442) == 3 and not _bad442d,
+        f"Check 442d: WebP dc:rights と MP3 TCOP / WCOP が LICENSE の適用する版 {_id442} を名乗る",
+        (f"Check 442d: binary の権利表示が LICENSE の適用する版 {_id442} と違う: {_bad442d or sorted(_rights442)}。"
+         "`python3 .github/scripts/update_binary_aio_rights.py` のあと `update_aio_digests.py` を回せ。"
+         "**XMP / ID3 を読む機械は公開層から矛盾した権利情報を受け取る** (C6)"),
+        blocking=True,
+    )

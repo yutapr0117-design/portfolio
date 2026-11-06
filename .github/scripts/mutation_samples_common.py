@@ -27,6 +27,10 @@ _m = re.match(r"ACD-(\d+)\.(\d+)-DRAFT\.txt$", CURRENT_DRAFT.name)
 CURRENT_DRAFT_VER = f"{_m.group(1)}.{_m.group(2)}" if _m else "0.0"
 PREVIOUS_VER = f"{_m.group(1)}.{int(_m.group(2)) - 1}" if _m and int(_m.group(2)) > 0 else "0.0"
 
+# LICENSE が宣言する適用中の版。適用する版を上げる日に mutation が的を外さないよう導出する。
+_ml = re.search(r"^SPDX-License-Identifier: (ACD-\d+\.\d+)$", (ROOT / "LICENSE").read_text(encoding="utf-8"), re.M)
+APPLIED_ID = _ml.group(1) if _ml else "ACD-UNRESOLVED"
+
 # 実装の最大番号 + 1。「まだ無い Check」を指す mutation はこれで組み立てる。489 と決め打ちした Check 45c の
 # mutation は、本物の 489 を足した日に 45c ではなく別の Check で捕まり、probe が MISATTRIBUTED で落ちた
 # (2026-11-04)。走査は _aggregate_check_numbers と同じ section header の形。
