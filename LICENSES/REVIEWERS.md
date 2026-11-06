@@ -170,9 +170,9 @@ enough is yours to judge.
 |---|---|
 | *"reusable"*, by any licensor *"without changing the terms"* | §16.1 and §16.3: no project names, and the one blank goes in the adopter's own notice |
 | No terms that *"structurally put the licensor in a more favored position"* | §10.1 puts no condition on You, and the promises run from the Dedicator (§5, §8.6, §12). §13 and §14 do protect the Dedicator, as approved licences do, and §16.4 reserves new versions to the Steward; we have not refuted the wide reading of that (#265, #179) |
-| Ambiguity *"must not have a material effect"* | §15.1 sends a doubtful provision to the reading that grants more to You |
+| Ambiguity *"must not have a material effect"* | As to the Work, §15.1 sends a doubtful provision to the reading that grants more to You |
 | *"grammatically and syntactically clear"* | Yours to judge. It was not drafted by a lawyer |
-| *"Every possible variation"* of its application must meet the OSD | An adopter edits nothing and chooses nothing (§10.1) |
+| *"Every possible variation"* of its application must meet the OSD | An adopter edits no term and chooses no option; only the form of the notice varies (§10.1, §16.1) |
 | *"possible to comply with the license on submission"* | There is nothing to comply with (§10.1) |
 | *"fill a gap that currently existing licenses do not fill"* | §8.4 and §8.2: see "In one screen" above |
 | *"complete license"* | One file, no external references, no overlay |
