@@ -54,7 +54,7 @@ OSI に承認され得るかの自問自答と、より承認されやすくす�
 2. **条件を 1 つも課さないので、否決の最大の束が当たらない。** 否決の理由は「条件・利用制限・差別」と「起草の粗さ・解釈問題」の 2 束で（`ACD-OSI-BOTTLENECKS.md` 冒頭 6）、前者は §10.1 により構造上当たらない。後者は我々が直せる側で、1.4 草案が閉じ続けている。
 3. **新規ライセンスの基準 8 条は、どれも本文の中に答えが在る**（`ACD-1.0.gap-measurements.md` §1.134・英語の表は `REVIEWERS.md`）。義務が無いので「提出時に遵守できる」は自明で、外部参照が無いので「完全なテキスト」も本文で確かめられる。足りるかを決めるのが OSI である基準も在る。
 4. **承認済みの全部が持たない効果を、本文で示せる。** 作品を超える特許許諾を条件も終了も無しに与えるものは 141 本中 0 本で、ACD は §8.4 + §8.2 でそれを与える（B10・基準 7）。
-5. **決める側の言葉が、この提出を門前払いにしていない。** 委員会の理由書は、使われていないことを *"not a basis for rejection that the OSI has applied in the past (and the OSI has historically approved newly drafted licenses not yet in use)"* と述べた（MIT-0・2020・`board-decisions.md` §2d）。理事会は *"a license should be rejected only if it violates the OSD"* と述べ（2025-07-18）、委員長（当時）は法的レビューについて *"we do not require review by a lawyer, only recommend it. That is not a blocker."* と述べた（2024-12）。同じスレッドで逆を述べた Piana 氏は同じ日に撤回した（#127）。「重複」は承認の区分としても存在する（MIT-CMU は *Redundant with More Popular* として承認）。
+5. **決める側の言葉が、この提出を門前払いにしていない。** 委員会の理由書は、審査対象の基準を *"written such that they can be used for software"* と述べ（CERN-OHL・2021・`board-decisions.md` §2e）、使われていないことを *"not a basis for rejection that the OSI has applied in the past (and the OSI has historically approved newly drafted licenses not yet in use)"* と述べた（MIT-0・2020・`board-decisions.md` §2d）。理事会は *"a license should be rejected only if it violates the OSD"* と述べ（2025-07-18）、委員長（当時）は法的レビューについて *"we do not require review by a lawyer, only recommend it. That is not a blocker."* と述べた（2024-12）。同じスレッドで逆を述べた Piana 氏は同じ日に撤回した（#127）。「重複」は承認の区分としても存在する（MIT-CMU は *Redundant with More Popular* として承認）。
 
 理由の全文と、OSD 10 条・基準 8 条を本文で 1 つずつ通した表は `SUBMISSION-MATERIALS.md` §1c に在る。
 

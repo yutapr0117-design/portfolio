@@ -235,6 +235,41 @@ MIT-0 は我々と同じ PD 等価の類型で、理事会は 2020-08-14 にこ�
   新規の長いテキストについての文ではない。ただし MIT-0 の括弧書き（*"newly drafted licenses not yet in use"*）は新規について述べている。
 - **理由書は OSI を拘束しない。** *"prior approval … does not bind"* は我々に有利な先例にも同じように当たる。
 
+### 2e. 委員会は審査対象の基準を述べている（CERN-OHL・2021・2026-11-07 に読んだ）
+
+B15 は「主題で不承認になった例が在る」から始まるが、同じ委員会が審査対象の基準を理由書に書いていた。
+
+> *"There was discussion about whether the licenses, primarily intended for hardware, were appropriate for review by
+> the OSI. The intention of the license drafters was to create a single license that could be used for designs that
+> includes both hardware and software. Although software is not the primary use case for the license, and the licenses
+> include some unusual terminology that make the licenses more difficult to interpret, they are written such that they
+> can be used for software, so they are appropriate for the OSI's review."*
+> —— License Committee, Rationale Document, CERN-OHL（Chestek 委員長・2021-01-09・`rounds/2021-01-09-license-review-cern-ohl-committee-rationale-observed.txt`）
+
+**基準は「ソフトウェアに使えるように書かれているか」である。** ソフトウェアが主な用途でなくてよい、と述べている。
+CERN-OHL の 3 本は承認済みの 141 本に在る。
+
+**ACD はこの基準に本文で答える。** §1.2 は source code と object code から始まり、PREAMBLE の第 1 文は *"Software and the works
+that surround it"* で、適用先はソフトウェアのリポジトリである。**Mulan の不承認（2023）とも矛盾しない** ——
+Mulan の定義にはソフトウェアが 1 語も無く、Chestek 氏の *"tied to software"*（2023-08-10）と同じ線である。
+
+**同じ理由書は、用語が解釈を難しくしていても審査対象性を変えなかった**（*"more difficult to interpret"*）。
+これは審査対象性についての文で、承認の基準についての文ではない。
+
+**逆側を同じ重さで書く。**
+
+- **ACD の列挙は CERN より広い。** CERN の意図は *"designs that includes both hardware and software"* で、§1.2 は
+  *"audiovisual material"* まで名指す。Fontana 氏は OpenMDW について、1 本ですべてを覆う設計を *"flawed in its basic conception"* と述べた（2026-09-11）。
+  同じ氏は OFL を *"wrongly approved"* と述べており、承認の側の先例も軽くなりうる（register B15）。
+- **2021 の文で、2023 の不承認より前である。** 基準が今も同じだとは誰も述べていない。
+- **審査対象であることと承認されることは別である。** CERN は CERN が提出し、機関の steward が居た。
+- **理由書は OSI を拘束しない。**
+
+**B1 についても同じ通読で 1 点測った。** 不承認側の理由書 12 本（Vaccine / YOS / Ritchey / YATeam / Mulan / Zeppelin / Setup Tooling / OSPL / ADVPL /
+Berkeley Artistic / PSCL / Accountable Resolver）に、lawyer / attorney / counsel / legal review の語は 1 度も出ない。
+Zeppelin の提出者は法律家を付けられなかったと述べたが、理由書が挙げたのは *"poorly drafted"* だった。
+**害として名指されるのは起草で、法律家の不在ではない。** 語の検索なので床であり、B1 が起草の質に効くこと自体は変わらない。
+
 ## 3. 🔴 その区別は、14 か月経っても公表されていない
 
 同じ議事録の次の文はこう続く:
