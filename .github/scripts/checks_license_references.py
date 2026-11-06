@@ -72,6 +72,29 @@ def run(ctx):
     """Run the reference-resolution Checks. ctx carries shared check()/ROOT by reference."""
     ROOT = ctx.ROOT
     check = ctx.check
+    # 472l — OSI の FAQ として引く文が rounds/ の本文に在ること (2026-11-06)。Check 472 の下位部だが、
+    #   checks_license_submission.py が 900 行に近いのでここに置く。REVIEWERS は FAQ の行の引用を全部、
+    #   材料表は "FAQ" の直後の引用だけを見る (同じ長い行に別の出典の引用が並ぶので、行の単位では誤検出する)。
+    def _n472l(_t):
+        return " ".join(_t.replace("’", "'").replace("“", '"').replace("”", '"').split()).lower()
+
+    _snap472l = sorted((ROOT / "LICENSES" / "rounds").glob("*-osi-faq-*-snapshot.txt"))
+    _src472l = _n472l(_snap472l[-1].read_text(encoding="utf-8")) if _snap472l else ""
+    _quotes472l = []
+    for _l472l in (ROOT / "LICENSES" / "REVIEWERS.md").read_text(encoding="utf-8").splitlines():
+        if _l472l.startswith("|") and "FAQ" in _l472l:
+            _quotes472l += [("REVIEWERS.md", _q) for _q in re.findall(r'\*"([^"]{10,})"\*', _l472l)]
+    _mt472l = (ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md").read_text(encoding="utf-8")
+    _quotes472l += [("SUBMISSION-MATERIALS.md", _q) for _q in re.findall(r'(?<!OSAID の )FAQ[^*"]{0,60}\*"([^"]{10,})"\*', _mt472l)]
+    _miss472l = [f"{_f}: {_q[:60]}" for _f, _q in _quotes472l if _n472l(_q).rstrip(".,") not in _src472l]
+    check(
+        len(_quotes472l) >= 3 and not _miss472l,
+        f"Check 472l: OSI の FAQ として引く {len(_quotes472l)} 件が rounds/ の本文に在る",
+        (f"Check 472l: OSI の FAQ として引く文が保存した本文と違う: {_miss472l or '引用か本文が見つからない'}。"
+         "承認されるべき理由の先頭に置いた出典なので、語を動かさない"),
+        blocking=True,
+    )
+
     # ── 471. ドシエ内の参照記法が解決すること (BLOCKING) ──────────────────────────────────
     # **Check 460 face (k) は `#N` と `E<n>` だけを見ていた。** 2026-09-14 の敵対的検証
     # （主張の種類 7）で**ドシエの参照記法を数え上げ、1 つずつ壊して測った**ところ、

@@ -540,6 +540,13 @@ _MUTATIONS_TAIL.append({
     "replace": "",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 472l: 入口の OSI の FAQ の引用を読みやすく動かす —— 承認されるべき理由の先頭の出典が原文とずれる",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "it's still not a license",
+    "replace": "it is still not a license",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
