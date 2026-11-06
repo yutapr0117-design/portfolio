@@ -21,6 +21,8 @@ canonical-ref: .github/scripts/verify_dossier_quotations.py (引用の集め方�
 DOSSIER_ARCHIVE_CACHE=~/osi-archive-cache python3 .github/scripts/find_quote_retractions.py
 ```
 
+`--concessions` は鏡像で、`against.md` が引く発言のあとに同じ人が述べた支持や譲歩を出す。不利な側だけ後続を読むと、有利な記録を落とす向きに偏るためである。語が一般的なので誤検出は多い。
+
 月次アーカイブが要る。無ければ `verify_dossier_quotations.py --fetch` で同じ場所へ取る。
 
 ## Constraints
