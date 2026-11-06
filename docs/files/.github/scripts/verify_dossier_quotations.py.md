@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/verify_dossier_quotations.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-11-01
+last-updated: 2026-11-07
 canonical-ref: LICENSES/AUDIT-LEDGER.md (結果の台帳) / LICENSES/rounds/README.md (一次資料の保存規約)
 ---
 
@@ -30,6 +30,8 @@ python3 .github/scripts/verify_dossier_quotations.py --fetch   # 不足月を導
 
 取得先は `$DOSSIER_ARCHIVE_CACHE`（既定 `/tmp/arc`）。**不足月は、未確認の引用の近傍にある
 日付から導出する** —— 全月を取りに行かない。
+
+未確認の引用のうち、断片の先頭か末尾の 5 語以上が原文に在るものは別の一覧に出る（`near_misses()`）。語を落とした誤引用はここに現れ、話者名の分類に頼らない。cache の当月は月の途中で取った版のことがあるので、回す前に最新の取得へ差し替える。
 
 ## Constraints
 
