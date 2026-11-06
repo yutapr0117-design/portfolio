@@ -764,3 +764,13 @@ Dedicator が自分では主張せず、独占的なライセンスを受けた�
 
 **一般形**: **直した条は、直した問いとは別の問いの入口になる。** H-02 は「誰が適用できるか」を閉じて「何が適用か」を開いた。修正を入れたら、その条が前提にしている別の条の行為まで読み直す。
 
+## 3w. 1.4 草案が足した語の付き先 2 件 —— §16.4 の *"except a draft"* と §11.4 の *"other than the Dedicator"*（2026-11-06）
+
+**どちらも 1.4 草案で足した語で、凍結版に無いので errata ではなくここへ記録する。** 25 が語の付き先を読み、bb が反例を当てた（`ACD-1.4-SECOND-CLARITY-TRIAL.md`）。
+
+**(1) §16.4**: *"that no earlier text has borne, except a draft identified as such,"* は読点のあとの *except* が文の冒頭の *"except by the Steward"* と並び、禁止全体への例外に読めた。誰でも「草案」と書けば名前の下で改変本文を出せる読みで、§15.1 は E20 により解決しない。*"that no earlier text, other than a draft identified as such, has borne"* へ直した（+1 語）。**⚠ 残る小さな穴（直さない）**: *"no earlier text"* は Steward の本文に限らないので、第三者が違反して次の番号を名乗ると、Steward はその番号を使えない読みが立つ。害は番号を 1 つ飛ばすことだけである。
+
+**(2) §11.4（E43 が足した）**: *"personal data, or the likeness, voice, or performance of a person other than the Dedicator"* は限定が *personal data* に掛からないと読めた。*"the personal data, likeness, voice, or performance of a person other than the Dedicator"* へ直した（−1 語）。Dedicator 自身の personal data は前の文の *"It grants no permission under the law of data protection"* が覆うので、許諾は増えない。
+
+**一般形**: **語を足す修正は、足した語がどこまで掛かるかを別に読む。** 足した本人は意図した付き先で読むので、付き先の誤りは足した時点では見えない。
+
