@@ -99,3 +99,16 @@ T6 は反例なし（出力が Work に取り込まれれば §9 が自分の条
 | 受領者が別の条件で再頒布する / 通知を外す | §4.5・§10.2 が答える |
 | 別の人が自分の改変に ACD を適用する | §16.3 が答える。その人は改変の Dedicator になる |
 | 写真の XMP や URL だけで示す | T5 のあと §16.2 の名前と版の参照に当たる |
+
+## 12. 1.4 で足した語の付き先（2026-11-06・25）
+
+**レンズ**: E27（修飾語が別のものに付く）を、1.4 で足した語に当てた。E27 の掃引は 1.2 のときで、そのあとに足した語は通っていない。長い文を全部並べて（50 語以上が 18 文）、足した語の付き先を読んだ。
+
+- **T8 §16.4（+1 語）**: 下の After。読点のあとの *except* は文の冒頭の *"except by the Steward"* と並ぶので、禁止全体への例外と読める。この文書で唯一の制限で、§15.1 は E20 で著作物に限ったので解決しない。
+  - Before: *"… that no earlier text has borne, except a draft identified as such, so that each name …"*
+  - After: *"… that no earlier text, other than a draft identified as such, has borne, so that each name …"*
+- **T9 §11.4（−1 語）**: *"other than the Dedicator"* が *personal data* に掛からないと読めた。
+  - Before: *"personal data, or the likeness, voice, or performance of a person other than the Dedicator"*
+  - After: *"the personal data, likeness, voice, or performance of a person other than the Dedicator"*
+
+**見て残したもの**: §8.1 の *"where the infringement is caused by …"* は読点のあとだが両方の動作に掛かるのが意図で、そう読める。§2.6 の *"and that material is included with the Work"* は 2 つの場合の両方に掛かる。長い文の分割（§2.6・§5.3）は語が変わらず得るものが小さいので試作しなかった。
