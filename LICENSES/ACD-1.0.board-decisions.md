@@ -516,7 +516,7 @@ impossible to determine whether or not it complies with the OSD"* と**同じ構
    legal counsel concerning the legal and policy issues raised by 'ultra-permissive' licenses like the FPL which do not
    impose conditions on the licensee (particularly notice-preservation conditions)."*
    （`rounds/2015-11-12-license-review-fpl-outside-counsel-observed.txt`）。**OSI は ACD §10.1 と同じ型の問いに、外部の法律家の助言を取っている。**
-   助言の中身は公開されておらず、結論は分からない。確かめられるのは、0BSD が承認のまま一覧に在ることである。
+   助言の中身は公開されておらず、有利だったかどうかも分からない。確かめられるのは、0BSD が承認のまま一覧に在ることだけである。
    FPL は短い許諾で、献呈も特許も持たないので、助言が ACD の条項に及ぶとは言えない。
 
 ### 8.7 我々の 3 大ボトルネックは、2005 年に「3 つの追加テスト」として提案されたものである
