@@ -15,6 +15,8 @@
 使い方:
     python3 .github/scripts/measure_citation_drift.py            # 1.0 → 現行草案
     python3 .github/scripts/measure_citation_drift.py 1.0 1.1    # 版を指定
+
+条を引く行の一覧は `prepare_version_freeze.py --report` が `cited_lines()` を使って出す。
 """
 from __future__ import annotations
 
@@ -29,6 +31,12 @@ from measure_quote_drift import FACES, _current_draft_version
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 # 走査先と既定の版は導出する (measure_quote_drift.py と同じ外向きの定義)。4 面の決め打ちと既定「1.0 → 1.2」の
 # 間は、想定問答と申請日の 1 枚が引く条を見ず、引数なしだと 2 版前の草案と比べていた (2026-11-04)。
+
+
+CITE = re.compile(r"§\s?(\d{1,2}\.\d{1,2})|Sections?\s+(\d{1,2}\.\d{1,2})")
+OTHER_CLAUSE = 0.15  # これ未満の一致度は、番号が同じでも別の条として扱う
+# 申請の日に全部読む面。審査者と採用者が最初に読む。残りの外向きの面は、前の版と名指していない行だけ読む。
+FIRST_READ = re.compile(r"(submission[^/]*|REVIEWERS|objection-map|SUBMISSION-MATERIALS|READY-TO-SUBMIT|ADOPTING)\.md$")
 
 
 def _path(ver: str) -> pathlib.Path:
@@ -55,19 +63,44 @@ def defined_term(body: str) -> str | None:
     return m.group(1) if m else None
 
 
+def _order(n: str) -> tuple[int, int]:
+    return int(n.split(".")[0]), int(n.split(".")[1])
+
+
+def moved(a_ver: str, b_ver: str) -> dict[str, str]:
+    """a の条のうち、b で別の条になったものと、b に無いものを返す。"""
+    a, b = clauses(a_ver), clauses(b_ver)
+    kinds = {n: "無い条" for n in a if n not in b}
+    kinds.update({n: "別の条" for n in a if n in b
+                  and difflib.SequenceMatcher(None, a[n], b[n]).ratio() < OTHER_CLAUSE})
+    return kinds
+
+
+def cited_lines(a_ver: str, b_ver: str) -> tuple[dict[str, str], list[tuple[str, int, list[str], str]]]:
+    """`moved` の番号を引く行を、外向きの面ごとに (面, 行番号, 番号, 本文) で返す。"""
+    kinds = moved(a_ver, b_ver)
+    rows = []
+    for f in FACES:
+        for i, line in enumerate((ROOT / "LICENSES" / f).read_text(encoding="utf-8").split("\n"), 1):
+            hit = {m.group(1) or m.group(2) for m in CITE.finditer(line)} & set(kinds)
+            if hit:
+                rows.append((f, i, sorted(hit, key=_order), line))
+    return kinds, rows
+
+
 def main() -> int:
     a_ver, b_ver = (sys.argv[1], sys.argv[2]) if len(sys.argv) > 2 else ("1.0", _current_draft_version())
     a, b = clauses(a_ver), clauses(b_ver)
     cited: dict[str, set[str]] = collections.defaultdict(set)
     for f in FACES:
         t = (ROOT / "LICENSES" / f).read_text(encoding="utf-8")
-        for m in re.finditer(r"§\s?(\d{1,2}\.\d{1,2})|Sections?\s+(\d{1,2}\.\d{1,2})", t):
+        for m in CITE.finditer(t):
             n = m.group(1) or m.group(2)
             if n in a:
                 cited[n].add(f)
 
     gone, changed, same = [], [], []
-    for n in sorted(cited, key=lambda s: (int(s.split(".")[0]), int(s.split(".")[1]))):
+    for n in sorted(cited, key=_order):
         if n not in b:
             gone.append(n)
             continue
@@ -83,7 +116,7 @@ def main() -> int:
     print(f"  🔴 ACD-{b_ver} に存在しない        : {gone or '無し'}   (Check 472 が BLOCKING で捕捉)")
     print(f"  🟡 番号は在るが本文が変わっている : {len(changed)} 件")
     for n, r in sorted(changed, key=lambda x: x[1]):
-        mark = "  ← **別の条**" if r < 0.15 else ""
+        mark = "  ← **別の条**" if r < OTHER_CLAUSE else ""
         print(f"       §{n:<5} 一致度 {r:.2f}{mark}   引用元 {sorted(cited[n])}")
     print(f"  🟢 実質同一                        : {len(same)} 件")
     print("\n定義の番号の写像 (語で照合):")

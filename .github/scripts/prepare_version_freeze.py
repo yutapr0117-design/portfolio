@@ -33,6 +33,8 @@ if sys.version_info < (3, 10):
 ROOT = Path(__file__).resolve().parents[2]
 L = ROOT / "LICENSES"
 MIRROR = ROOT / "docs" / "files" / "LICENSES"
+DATED = re.compile(r"(?i)(?:re-?measured|measured|re-?run|as of|`wc -w`,)[^\n]{0,40}?\b20\d\d-\d\d-\d\d")
+PINNED_COMMAND = re.compile(r"`(?:grep|shasum|wc)\b[^`]*ACD-\d+\.\d+\.txt[^`]*`")
 RULE = "-" * 80 + "\n"
 APPLY_FILES = (".well-known/agent-skills/index.json", ".well-known/aio-manifest.json", ".well-known/index.json",
                ".well-known/llms.txt", ".well-known/llms_well-known.txt", "LICENSE", "README.md", "index.html",
@@ -181,10 +183,57 @@ def descriptor(v: str, prev: str, body: str, date: str) -> str:
     return json.dumps(d, ensure_ascii=False, indent=2) + "\n"
 
 
+def _snippet(line: str, at: int) -> str:
+    return " ".join(line[max(0, at - 50):at + 110].split())
+
+
+def report(version: str) -> int:
+    """提出対象を切り替える日に人が読む行を列挙する。何も書き換えない。"""
+    from measure_citation_drift import CITE, FACES, FIRST_READ, cited_lines
+
+    marker = re.search(r"<!-- SUBMISSION-TARGET: ACD-(\d+\.\d+) -->", (L / "ACD-1.0.submission.md").read_text(encoding="utf-8"))
+    if marker is None:
+        raise SystemExit("ERROR: submission.md に SUBMISSION-TARGET の marker が無い")
+    base = marker.group(1)
+    kinds, rows = cited_lines(base, version)
+    print(f"# ACD-{base} から ACD-{version} へ切り替える日に読む行\n")
+    print("## 番号が残って別の条になる / 無くなる条")
+    print("  " + "  ".join(f"§{n} ({k})" for n, k in sorted(kinds.items(), key=lambda x: [int(p) for p in x[0].split(".")])))
+    named = re.compile(rf"(?:ACD-)?{re.escape(base)}\b")
+    top = [r for r in rows if FIRST_READ.search(r[0])]
+    rest = [r for r in rows if not FIRST_READ.search(r[0])]
+    unnamed = [r for r in rest if not named.search(r[3])]
+    print(f"\n### 全部読む面: {len(top)} 行")
+    for f, i, hit, line in top:
+        print(f"  {f}:{i}  {' '.join('§' + n for n in hit)}  {_snippet(line, CITE.search(line).start())}")
+    print(f"\n### 残りの面: {len(rest)} 行のうち ACD-{base} と名指していない {len(unnamed)} 行")
+    for f, i, hit, line in unnamed:
+        print(f"  {f}:{i}  {' '.join('§' + n for n in hit)}  {_snippet(line, CITE.search(line).start())}")
+    print("\n## 日付つきの実測（走らせ直して値と日付を直す）")
+    pinned = []
+    for f in FACES:
+        if not FIRST_READ.search(f) and f != "README.md":
+            continue
+        for i, line in enumerate((L / f).read_text(encoding="utf-8").split("\n"), 1):
+            m = DATED.search(line)
+            if m:
+                print(f"  {f}:{i}  {_snippet(line, m.start())}")
+            pinned += [(f, i, c.group(0)) for c in PINNED_COMMAND.finditer(line)]
+    print("\n## 版を決め打ちした検証コマンド（確定の版へ向ける）")
+    for f, i, command in pinned:
+        print(f"  {f}:{i}  {command[:110]}")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--date", required=True, help="確定の日 (YYYY-MM-DD)")
+    ap.add_argument("--date", help="確定の日 (YYYY-MM-DD)")
+    ap.add_argument("--report", metavar="VERSION", help="提出対象を切り替える日に読む行を出す (確定はしない)")
     args = ap.parse_args()
+    if args.report:
+        return report(args.report)
+    if not args.date:
+        ap.error("--date か --report が要る")
     draft_path = working_draft()
     v = re.match(r"ACD-(\d+\.\d+)-DRAFT\.txt$", draft_path.name).group(1)
     major, minor = v.split(".")
@@ -248,6 +297,7 @@ def main() -> int:
     index.write_text(rows, encoding="utf-8")
     subprocess.run([sys.executable, ".github/scripts/sync_size_table.py"], cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
     print(f"ACD-{v} を確定した ({w:,} 語・{c} 条)。次の草案は ACD-{nxt}-DRAFT.txt。git add のあと consistency の RED を順に直す。")
+    print(f"提出対象を切り替える日に読む行は `prepare_version_freeze.py --report {v}` が出す。")
     return 0
 
 

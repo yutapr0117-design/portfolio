@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/prepare_version_freeze.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-11-06
+last-updated: 2026-11-07
 canonical-ref: LICENSES/ACD-1.1-CHANGELIST.md (§0.13 確定の手順) / LICENSES/SUBMISSION-MATERIALS.md (§0 申請の日の手順) / LICENSES/ACD-1.4-CHANGELIST.md (記述子の下書き)
 ---
 
@@ -33,7 +33,15 @@ python3 .github/scripts/prepare_version_freeze.py --date 2026-11-13
 | Check 362 | REVIEWERS.md と QUESTIONS-FOR-COUNSEL.md を直すと解ける |
 | Check 413 (ADVISORY) | runbook §9 の追跡ファイル数を実測へ |
 
-申請の日に `submission.md` の `SUBMISSION-TARGET` を切り替えると、Check 472 / 472f / 472h が版に紐づく欄を名指す。2026-11-07 の予行では、欄を直すと Check はすべて満たせた（満たせない Check は無かった）。文を読んで直すのは、REVIEWERS.md と READY-TO-SUBMIT.md が 1.0 の条番号（§15.7 / §15.8）を述べる 3 箇所である。
+提出対象を切り替える前に、読む行を一覧で出す。何も書き換えない。
+
+```sh
+python3 .github/scripts/prepare_version_freeze.py --report 1.4
+```
+
+一覧は 3 種類である。番号が残って別の条になる行（Check 472 は無くなった条しか見ないので、ここは黙って通る）、日付つきの実測、版を決め打ちした検証コマンド。上の段は全部読み、下の段は前の版と名指していない行だけ読む。範囲は `measure_clause_overlap.py` の `_OUTWARD` から導出する。
+
+申請の日に `submission.md` の `SUBMISSION-TARGET` を切り替えると、Check 472 / 472f / 472h が版に紐づく欄を名指す。2026-11-07 の予行では、欄を直すと Check はすべて満たせた（満たせない Check は無かった）。Check が止めない行は上の `--report` で読む。
 
 ## Constraints
 
