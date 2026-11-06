@@ -99,6 +99,8 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        更新が、偶然同じ値だった承認済みの本数まで 149 → 150 → 151 と押し上げていた**
        （`submission-reference.md` の 2 行・2026-09-25 に `measure_gap_claim.py` を 3.28.0 で
        再実行して発覚）。**2 つの量が偶然同じ値を持つと、片方の更新がもう片方を巻き込み、
+       **476c (2026-11-06)**: 入口ページと申請日の 1 枚が述べる全数の数 (141 本 / 条件の無い 3 本 / 作品を超える
+       特許許諾の 7 本) が census の表から導いた数と一致する。census を作り直した日に入口だけ古くなる形だった。
        どの Check も気付かない。** 本数を名乗る数が、実測済みの版の値（`_SPDX476`）の
        どれかであることを強制する。新しい版を測ったら `_SPDX476` に足す（足すこと自体が
        「その版を実際に測った」という記録になる）。(BLOCKING)
@@ -598,6 +600,42 @@ def run(ctx):
          "`_SPDX476` にその版と値を足せ"),
         blocking=True,
     )
+    # 476c —— 入口ページと申請日の 1 枚が述べる全数の数が、census の表から導いた数と一致する (2026-11-06)。
+    #   476b は §1.133 の表しか見ない。審査者が読む 2 面の文は census と照合されておらず、census を作り直した
+    #   日に入口だけ古くなる。数は語で書かれているので語も読む (portfolio-00 の提案)。
+    _cs476c = ROOT / "LICENSES" / "ACD-1.0.gap-census.md"
+    _rv476c = ROOT / "LICENSES" / "REVIEWERS.md"
+    _sm476c = ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md"
+    if _cs476c.exists() and _rv476c.exists() and _sm476c.exists():
+        _ct476c = _cs476c.read_text(encoding="utf-8")
+        _rows476c = [_l.split("|") for _l in _ct476c.split("\n") if _l.startswith("| `")]
+        _n476c = len(_rows476c)
+        _b476c = sum(_r[5].strip() in ("S2", "S3") for _r in _rows476c if len(_r) > 5)
+        _m476c = re.search(r"公有等価の (\d+) 本（([^）]+)）", _ct476c)
+        _z476c = len(re.findall(r"`[^`]+`", _m476c.group(2))) if _m476c else -1
+        _w476c = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10}
+        _rt476c = " ".join(_rv476c.read_text(encoding="utf-8").split())
+        _st476c = " ".join(_sm476c.read_text(encoding="utf-8").split())
+        _bad476c = []
+        for _label, _pat, _text, _want in (
+                ("REVIEWERS の全数", r"Of the \*\*(\d+) licences", _rt476c, _n476c),
+                ("REVIEWERS の条件ゼロ", r"exactly (\w+) impose no condition", _rt476c, _z476c),
+                ("REVIEWERS の作品を超える本数", r"(\w+) extend a patent grant beyond the work itself", _rt476c, _b476c),
+                ("REVIEWERS の条件つきの本数", r"all (\w+) carry a condition", _rt476c, _b476c),
+                ("材料表の全数", r"承認済みライセンスは (\d+) 本のうち", _st476c, _n476c),
+                ("材料表の作品を超える本数", r"作品を超える特許許諾を持つ (\d+) 本", _st476c, _b476c),
+                ("材料表の条件ゼロ", r"条件ゼロの承認済み (\d+) 本", _st476c, _z476c)):
+            _g = re.search(_pat, _text, re.I)
+            _v = None if not _g else (int(_g.group(1)) if _g.group(1).isdigit() else _w476c.get(_g.group(1).lower()))
+            if _v != _want:
+                _bad476c.append(f"{_label}: 述べる {_g.group(1) if _g else '文が無い'} / census {_want}")
+        check(
+            _z476c > 0 and not _bad476c,
+            f"Check 476c: 入口と材料表の全数の数が census の表と一致 ({_n476c} 本 / 条件ゼロ {_z476c} / 作品を超える {_b476c})",
+            (f"Check 476c: 入口または材料表の数が census と違う: {_bad476c or 'census の公有等価の文が読めない'}。"
+             "census を作り直したら審査者が読む 2 面も同じ commit で直せ"),
+            blocking=True,
+        )
     # 476b —— B10 の立証 (gap-measurements.md §1.133) の分割の内訳が、census の表から導いた数と一致する (2026-11-04)。
     #   §1.133 は 141 本を「P0 明示の特許許諾なし / P1 S1 / P2 S2 / P3 S3」に分け、各組が「範囲・無条件・終了なし」の
     #   どれを欠くかで立証する。数は census の表から導かれる派生値なので、census を生成し直して分類が動けば、
