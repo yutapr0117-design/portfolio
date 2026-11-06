@@ -1,7 +1,7 @@
 ---
 file: LICENSES/QUESTIONS-FOR-COUNSEL.md
 audience: a lawyer asked to read ACD, or reading it on license-review / license-discuss; the steward, when asking one
-last-updated: 2026-11-02
+last-updated: 2026-11-06
 canonical-ref: LICENSES/ACD-1.3.txt (the latest fixed text, applied to this repository) / LICENSES/ACD-1.4-DRAFT.txt (the successor draft) / LICENSES/ACD-1.0.jurisdictions.md (where we think each question sits, by jurisdiction) / LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md (B1)
 ---
 
@@ -212,8 +212,11 @@ liability a jurisdiction does not allow to be excluded, which in many includes d
 Dedication's own promises, so a recipient put to the cost of defending a suit the Dedicator
 promised not to bring may have no claim for that cost. GPL-3.0 §16 limits liability for damages
 *"arising out of the use or inability to use the program"*, which does not reach the licensor's
-own breach; ACD's wording is wider. We found this by setting §14.1 beside the covenants, which
-share no term with it (`ACD-1.4-CHANGELIST.md`, the pre-finalisation checks).
+own breach; ACD's wording is wider. Apache-2.0 §8 is as wide on this point (*"arising as a result
+of this License or out of the use or inability to use the Work"*), so the wording has an approved
+precedent, but Apache-2.0 gives no covenant for it to reach, and it excepts what applicable law
+requires, naming *"deliberate and grossly negligent acts"*. We found this by setting §14.1 beside
+the covenants, which share no term with it (`ACD-1.4-CHANGELIST.md`, the pre-finalisation checks).
 
 **An answer would change** whether §14.1 should exclude liability only for the use of the Work, as
 GPL-3.0 does, or say that it does not limit the covenants.

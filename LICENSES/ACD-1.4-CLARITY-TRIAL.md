@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.4-CLARITY-TRIAL.md
 audience: 次のセッションの実装者（一次読者）/ 監査人
-last-updated: 2026-11-04
+last-updated: 2026-11-06
 canonical-ref: LICENSES/ACD-1.4-DRAFT.txt (試作の対象・この file は草案を上書きしない) / LICENSES/ACD-OSI-BOTTLENECKS.md (B3 / B13) / LICENSES/ACD-1.4-CHANGELIST.md (採用した変更の記録先)
 ---
 
@@ -881,3 +881,4 @@ B-02（`ACD-1.4-ADVERSARIAL-TRIAGE.md`）は同じ語に当たっているが、
 bb の反例: T1 は §2.6 の *"included in the Work"* と食い違うので *"included with the Work"* へ直す条件で通過（語数 ±0）。T2 は通過（逆側は問 3 の領分）。T3 は *may hold* が E2 の害を戻すので不成立で、bb の代案 *"hold or may hold rights of their own"* を採った。
 5a の比較では指示語 0・468u の欠け 0。理由と逆側は CHANGELIST の行にある。§9.4 の「見て残した」候補は bb も同意した。
 
+§10 からは `ACD-1.4-SECOND-CLARITY-TRIAL.md` に続く（この file が 900 行の advisory に届くため）。
