@@ -169,7 +169,7 @@ enough is yours to judge.
 | The standard asks | ACD's answer |
 |---|---|
 | *"reusable"*, by any licensor *"without changing the terms"* | §16.1 and §16.3: no project names, and the one blank goes in the adopter's own notice |
-| No terms that *"structurally put the licensor in a more favored position"* | §10.1 puts no condition on You, and the promises run from the Dedicator (§5, §8.6, §12). §13 and §14 do protect the Dedicator, as approved licences do (#265) |
+| No terms that *"structurally put the licensor in a more favored position"* | §10.1 puts no condition on You, and the promises run from the Dedicator (§5, §8.6, §12). §13 and §14 do protect the Dedicator, as approved licences do, and §16.4 reserves new versions to the Steward; we have not refuted the wide reading of that (#265, #179) |
 | Ambiguity *"must not have a material effect"* | §15.1 sends a doubtful provision to the reading that grants more to You |
 | *"grammatically and syntactically clear"* | Yours to judge. It was not drafted by a lawyer |
 | *"Every possible variation"* of its application must meet the OSD | An adopter edits nothing and chooses nothing (§10.1) |
@@ -261,6 +261,18 @@ The last one is the important one. `LICENSES/FROZEN.md` records the digests in t
 `shasum` emits, so the check is a single pipe with no trust in anything this repository says
 about itself: if the licence text had been altered since the discussion began, that line would
 print `FAILED` instead of `OK`. It currently prints `OK` for all nine files (re-run 2026-11-02, together with the three counts above: 0, 1 and 16).
+
+**The strongest claim can be checked too, and this one needs a network** and Python 3.10 or later:
+
+```sh
+python3 .github/scripts/generate_gap_census.py --fetch   # the texts of the approved licences
+python3 .github/scripts/measure_patent_reach.py          # the conditions and terminations, quoted
+```
+
+The last line reads `# Patent grant reaching beyond the work with no condition found: 0 []`. The
+tool quotes the condition or termination in each licence it counts; **which licences reach beyond
+the work is the census's reading, not something the tool verifies**
+([`ACD-1.0.gap-census.md`](ACD-1.0.gap-census.md)).
 
 The repository's own CI enforces the rest: that the licence is declared identically across every
 published surface, that the counts these documents quote match reality, and that the frozen files
