@@ -13,6 +13,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        あり実 file へ解決する / 444b JSON-LD の `license` が同一 URL を指す / 444c aio-manifest の
        top-level `license` の spdx_id と url が整合する / 444d sitemap に全文の `<loc>` がある /
        444e llms.txt と llms-full.txt が SPDX 識別子に言及する。
+       **444k (2026-11-06)** 人が読む 2 面 (README の案内と画面のフッター) が、適用する版の全文を指す。
+       適用する版を上げる日に面を 1 つずつ戻す予行で、この 2 面だけ戻しても無音だった。
        **444h (2026-09-24)** sitemap の `<image:license>` がすべて canonical を指す —— 存在の検査は、
        矛盾する宣言の共存を検出しない（CC BY-NC-ND 4.0 が同じ画像について残っていた）。
        動機 (2026-08-23 実測): LICENSE を ACD-1.0 へ移行した時点で、**7 面すべてに宣言がゼロ**
@@ -215,6 +217,18 @@ def run(ctx):
             for _il444 in re.findall(r"<image:license>\s*(.*?)\s*</image:license>", _sm444, re.S):
                 if _il444.strip() != _url444:
                     _bad444.append(f"sitemap.xml の <image:license> が canonical と異なるライセンスを宣言: {_il444.strip()}")
+
+            # 444k — 人が読む面が適用する版を指すこと。README と画面のフッターは機械可読面ではないので
+            #   444a〜444h の外にあり、適用する版を上げる日に戻しても無音だった (2026-11-06 の予行)。
+            _rd444k = (ROOT / "README.md").read_text(encoding="utf-8")
+            if f"]({_rel444})" not in _rd444k:
+                _bad444.append(f"444k: README.md が適用する版の全文 {_rel444} へリンクしていない")
+            _stale444k = sorted({_v for _v in re.findall(r"LICENSES/(ACD-\d+\.\d+)\.txt", _rd444k)} - {_spdx444, "ACD-1.0"})
+            if _stale444k:
+                _bad444.append(f"444k: README.md が適用していない版の本文を案内している: {_stale444k}")
+            _cp444k = (ROOT / "js" / "components.js").read_text(encoding="utf-8")
+            if f"/portfolio/{_rel444}" not in _cp444k or f"License: {_spdx444}" not in _cp444k:
+                _bad444.append(f"444k: 画面のフッター (js/components.js) が適用する版 {_spdx444} を指していない")
 
             # 444e — llms 層が識別子に言及すること
             for _lf444 in ("llms.txt", "llms-full.txt"):

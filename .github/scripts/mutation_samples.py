@@ -280,62 +280,6 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 26a: AIO manifest が宣言する archive の Session Record 範囲が実体と食い違う —— 証跡の一部が discovery 層から欠ける (#14 で止まっていた実害と同形)",
-    "file": ROOT / ".well-known" / "aio-manifest.json",
-    "find": "#15-#30",
-    "replace": "#15-#29",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 44c: AIO 監視が探す canary token の値が公開面の値と食い違う —— canonical な値が 2 つになり、取り込まれても検出できない",
-    "file": ROOT / ".github" / "scripts" / "aio_monitoring.py",
-    "find": "CANARY_TOKEN = \"SAKURA-AIO-PROVENANCE-CANARY-2026-A7F3C9E1\"",
-    "replace": "CANARY_TOKEN = \"SAKURA-AIO-PROVENANCE-CANARY-2026-00000000\"",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 26b: disk 上の Session Record archive が AIO manifest に登録されていない —— 証跡の 1 file が discovery 層から消える (#14 で範囲が止まっていた実害の形)",
-    "file": ROOT / ".well-known" / "aio-manifest.json",
-    "find": "\"path\": \"docs/session-records/AI2AI-archive-old.md\"",
-    "replace": "\"path\": \"docs/session-records/AI2AI-archive-old-x.md\"",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 119a: factory の docstring【依存】節から、署名が注入を受ける依存が 1 つ消える —— 依存契約の記述が実装に追従しない",
-    "file": ROOT / "js" / "home-page.js",
-    "find": " *   - langOfText : data 由来テキストの言語判定",
-    "replace": " *   - (removed)  : data 由来テキストの言語判定",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 123b: llms-full.txt から現運用モデル (Claude Code の自走) の記述が失われる —— AIO 層だけが旧い運用モデルを述べる",
-    "file": ROOT / "llms-full.txt",
-    "find": "Current Operating Model",
-    "replace": "Current Operating-Model",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 43d: main.js の import と IIFE の間にトップレベルの宣言が入る —— global namespace を汚さない (C2) という単一 IIFE の契約が崩れる",
-    "file": ROOT / "main.js",
-    "find": "        import { createCommandPalette } from './js/command-palette.js';\n",
-    "replace": "        import { createCommandPalette } from './js/command-palette.js';\n        const __leak43d = 1;\n",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 44a: 公開面の 1 つ (llms.txt) から canary token が消える —— その面からの取り込みは再現しても検出できない",
-    "file": ROOT / "llms.txt",
-    "find": "SAKURA-AIO-PROVENANCE-CANARY-2026-A7F3C9E1",
-    "replace": "SAKURA-AIO-PROVENANCE-CANARY-REMOVED",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 45a: docstring の Check 一覧の番号が飛ぶ —— 一覧が連続していないと、どの Check が抜けたのかを読み手が知る手段が無い",
-    "file": ROOT / ".github" / "scripts" / "checks_ci_verify.py",
-    "find": "  488. すべての workflow job が",
-    "replace": "  489. すべての workflow job が",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
     "name": "Check 45b: section 見出しの番号が飛ぶ —— 実装側の連番が崩れ、一覧と実装の対応が数で取れなくなる",
     "file": ROOT / ".github" / "scripts" / "checks_ci_verify.py",
     "find": "    # ── 488. すべての workflow job が timeout-minutes を持つ (BLOCKING) ───────────────",
@@ -537,6 +481,42 @@ _MUTATIONS_TAIL.append({
     "file": CURRENT_DRAFT,
     "find": f"is ACD-{PREVIOUS_VER} (LICENSES/ACD-{PREVIOUS_VER}.txt)",
     "replace": "is ACD-1.1 (LICENSES/ACD-1.1.txt)",
+    "check": CHECK,
+})
+_FILLER472 = " ".join(["padding"] * 120)
+_MUTATIONS_TAIL.append({
+    "name": "Check 472d: \"In one screen\" の前へ 120 語足す —— 節は壊れず、審査者が読む語数だけが閾値を越える",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "## In one screen\n",
+    "replace": _FILLER472 + "\n\n## In one screen\n",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 472g: \"In one screen\" の節へ 120 語足す —— 位置は変わらず、節だけが黙って伸びる",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "## Which text you are looking at\n",
+    "replace": _FILLER472 + "\n\n## Which text you are looking at\n",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 472g: \"Status\" の節へ 120 語足す",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "## The case, and the strongest thing against each part of it\n",
+    "replace": _FILLER472 + "\n\n## The case, and the strongest thing against each part of it\n",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 444k: 画面のフッターだけ適用する版の表示が別の版のまま —— 適用する版を上げる日の戻し忘れ",
+    "file": ROOT / "js" / "components.js",
+    "find": f"'License: {APPLIED_ID}'",
+    "replace": "'License: ACD-1.0'",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 444k: README が適用していない版の本文を案内する —— 適用する版を上げる日の戻し忘れ",
+    "file": ROOT / "README.md",
+    "find": f"[`LICENSES/{APPLIED_ID}.txt`](LICENSES/{APPLIED_ID}.txt)",
+    "replace": "[`LICENSES/ACD-1.1.txt`](LICENSES/ACD-1.1.txt)",
     "check": CHECK,
 })
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL

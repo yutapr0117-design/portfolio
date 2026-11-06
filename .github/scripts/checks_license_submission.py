@@ -83,11 +83,15 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        別の文字列を実行していた**。Linux では両者の結果が同じなので CI は緑、macOS では
        `sha256sum -c` が operand 省略時に stdin へ落ちないため**入口ページのコマンドは
        正しいのにこの Check だけが RED** になる。置換をやめて逐語で実行する。
-       **(472d・2026-09-24)** 入口ページの **"In one screen" が冒頭 10% 以内に在る**こと。B13 は
+       **(472d・2026-09-24・2026-11-06 に語数へ)** 入口ページの **"In one screen" が先頭から 450 語以内に在る**こと。
+       割合で見ていたときは、ページを短くすると語数は前へ出たのに割合は閾値へ近づいた (440 語 → 375 語で
+       8.2% → 9.8%)。B13 が守りたいのは審査者が読む語数なので語数で見る (portfolio-00 の提案)。B13 は
        「長さへの唯一の実効的な緩和は短い入口」と結論し、2026-09-09 に gap への到達を 35% → 5% に
        縮めたが、その後 "The short path" と "Which text you are looking at" が**前に**足され、
        **何も壊れないまま** 4% → 15% へ押し下げられていた（gap 16% / 最近似 25%）。
        **開示を足すたびに起きる後退なので、記憶ではなく位置で守る。**
+       **(472g・2026-11-06)** "In one screen" の節が 500 語以内、"Status" の節が 600 語以内であること。
+       追記のたびに黙って伸びる形で、伸びたのは 09-24 に続いて 2 度目だった。
        **(472e・2026-09-24)** 「placeholder / 置換テキストは 0」という主張が、§16.1 の notice
        雛形の 1 欄 `<location of this file>` の存在を同じ文で限定していること。§4c は数え方を直して
        期待値 1 にしたが、**同じ主張を無限定で繰り返す面が 5 つ残っていた**（REVIEWERS.md に 2 つ、
@@ -463,19 +467,32 @@ def run(ctx):
         check(False, "Check 472c: 対象ファイル",
               f"Check 472c: 検査対象 {_rv472c.relative_to(ROOT).as_posix()} が無い —— 改名・移動したならこの Check の参照先を直す (黙って skip しない)")
 
-    # ── 472d. 入口ページの "In one screen" が冒頭 10% 以内に在ること ──────────────────────
+    # ── 472d. 入口ページの "In one screen" が先頭から 450 語以内に在ること ──────────────────
     #   B13 の緩和は位置そのもの。前に節を足すと、何も壊れないまま到達距離だけが伸びる。
+    #   割合ではなく語数で見る: ページを短くしても割合は閾値へ近づくので、割合は読む量を測れない (2026-11-06)。
     if _rv472c.exists():
-        _w472d = " ".join(_rv472c.read_text(encoding="utf-8").split())
+        _t472d = _rv472c.read_text(encoding="utf-8")
+        _w472d = " ".join(_t472d.split())
         _i472d = _w472d.find("## In one screen")
-        _p472d = (100.0 * len(_w472d[:_i472d].split()) / max(1, len(_w472d.split()))
-                  if _i472d >= 0 else 100.0)
+        _p472d = len(_w472d[:_i472d].split()) if _i472d >= 0 else None
         check(
-            _i472d >= 0 and _p472d <= 10.0,
-            f"Check 472d: REVIEWERS.md の \"In one screen\" は冒頭 {_p472d:.1f}% に在る (≤ 10%)",
-            (f"Check 472d: REVIEWERS.md の \"In one screen\" が冒頭 10% より後ろ ({_p472d:.1f}%) か見出しが無い。"
+            _p472d is not None and _p472d <= 450,
+            f"Check 472d: REVIEWERS.md の \"In one screen\" は先頭から {_p472d} 語に在る (≤ 450 語)",
+            (f"Check 472d: REVIEWERS.md の \"In one screen\" が先頭から 450 語より後ろ ({_p472d} 語) か見出しが無い。"
              "B13 の結論では短い入口が長さへの唯一の実効的な緩和で、節を**前に**足すと到達距離だけが黙って伸びる "
-             "(2026-09-24 に 4% → 15% を発見)。新しい節は \"In one screen\" の後ろに置け"),
+             "(2026-09-24 に発見)。新しい節は \"In one screen\" の後ろに置け"),
+            blocking=True,
+        )
+        # ── 472g. 入口の 2 節が上限の語数に収まること ─────────────────────────────────
+        #   どちらも追記のたびに黙って伸びる。節は見出しから次の `## ` まで。
+        _secs472g = {_b.split("\n", 1)[0][3:].strip(): len(_b.split()) for _b in re.split(r"(?m)^(?=## )", _t472d)}
+        _over472g = [f"{_n}: {_secs472g.get(_n, '節が無い')} 語 (≤ {_c})" for _n, _c in (("In one screen", 500), ("Status", 600))
+                     if not _secs472g.get(_n) or _secs472g[_n] > _c]
+        check(
+            not _over472g,
+            f"Check 472g: REVIEWERS.md の \"In one screen\" {_secs472g.get('In one screen')} 語 / \"Status\" {_secs472g.get('Status')} 語 (≤ 500 / 600)",
+            (f"Check 472g: 入口の節が上限を超えた: {_over472g}。短い入口が長さへの唯一の実効的な緩和なので、"
+             "足すなら同じ節の別の文を削るか、後ろの節へ置け"),
             blocking=True,
         )
     else:
