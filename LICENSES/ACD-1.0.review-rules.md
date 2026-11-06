@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-rules.md
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人
-last-updated: 2026-11-01
+last-updated: 2026-11-06
 canonical-ref: LICENSES/ACD-1.0.review-corpus.md (アーカイブ全体の測定) / LICENSES/ACD-1.0.review-precedents.md (個別スレッドの読み) / LICENSES/ACD-1.0.board-decisions.md (理事会の決定) / LICENSES/rounds/ (原典の保存)
 ---
 
@@ -464,7 +464,7 @@ only recommend it"* も、R2〜R5 の 4 規則も、**既定では発言者個�
 |---|---|---|
 | Chestek 氏 2024-12「recommended, not a blocker」| **在り** —— *"Chair, Licensing Committee, Open Source Initiative"* と署名 | 上書きされる |
 | McCoy 氏 2026-08-28「two-month review cycle」| **在り** —— *"[on behalf of the Licensing Committee]"*（**2026-09-21 に原文で確認。我々の挿入ではない**） | 上書きされる |
-| Piana 氏 2024-12「OSI requires prior review by a lawyer」| **在り（逆向き）** —— *"in his own capacity"* | 個人 |
+| Piana 氏 2024-12「OSI requires prior review by a lawyer」| **在り（逆向き）** —— *"in his own capacity"*。**同じ日に本人が撤回した（#127）** | 個人・撤回済み |
 | R2〜R5（Chestek 氏 2025-02 / 2026-04）| **未確認** | **既定のまま = 個人の意見** |
 
 **したがって R2〜R5 を「委員会が述べた規則」と呼ぶのは、確認していない資格に依っている。**

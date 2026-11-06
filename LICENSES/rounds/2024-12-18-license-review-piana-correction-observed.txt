@@ -1,0 +1,122 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2024-December.txt
+Retrieved: 2026-11-06
+Date: Wed, 18 Dec 2024 18:29:58 +0100 (CET)
+From: Carlo Piana
+Subject: [License-review] New License for Consideration - Public Benefit Zero Copyright License v. 2.0
+Position: the message in which he withdraws "OSI requires prior review by a lawyer" and advises using a dedication and a licence together. Not addressed to us.
+
+----- begin verbatim -----
+From carlo at piana.eu  Wed Dec 18 17:29:58 2024
+From: carlo at piana.eu (Carlo Piana)
+Date: Wed, 18 Dec 2024 18:29:58 +0100 (CET)
+Subject: [License-review] New License for Consideration - Public Benefit
+ Zero Copyright License v. 2.0
+In-Reply-To: <4dcadf22-0aa9-432f-99ef-dc0472b6b82a@lexpan.law>
+References: <PH0PR17MB6488B1FB1C331E9E12DB052586042@PH0PR17MB6488.namprd17.prod.outlook.com>
+ <PH0PR17MB648858C13E065E25BFEC0A7686042@PH0PR17MB6488.namprd17.prod.outlook.com>
+ <6c9297cf-a3a7-45cc-8eed-6f44e7f2b39d@app.fastmail.com>
+ <973284188.27685206.1734522363745.JavaMail.zimbra@piana.eu>
+ <4dcadf22-0aa9-432f-99ef-dc0472b6b82a@lexpan.law>
+Message-ID: <541530767.27862995.1734542998267.JavaMail.zimbra@piana.eu>
+
+
+
+----- Messaggio originale -----
+> Da: "McCoy Smith" <mccoy at lexpan.law>
+> A: "license-review at lists.opensource.org" <license-review at lists.opensource.org>
+> Inviato: Mercoled?, 18 dicembre 2024 17:05:08
+> Oggetto: Re: [License-review] New License for Consideration - Public Benefit Zero Copyright License v. 2.0
+
+> Let's remember that CC-0 is also a public domain dedication and a
+> license. The license part is intended as a backstop in jurisdictions
+> where the concept of dedicating something to the public domain does not
+> exist.
+> 
+
+McCoy,
+
+To clarify, I have nothing against using a PD dedication and a license by way of backstop where PD does not really exists in the fullest (Italy is one of those places, anyway). I actually advise to use both in the admittedly rare case I am asked.
+
+In fact, by bedazzlement was caused by reading a *copyleft* license and a PD dedication in the same place, which is kinda counterintuitive and problematic, as one cannot really calculate the effect of the license in different jurisdictions.
+
+OTOH, I stand corrected re: Pam's message on requiring legal review, bad choice of words on my side.
+
+Cheers
+
+Carlo
+
+
+
+[...]
+> 
+> On 12/18/2024 3:46 AM, Carlo Piana wrote:
+>> Kevin, you are right. This license is both dedication to public domain AND a
+>> copyleft license (see clause 8 in the Definitions sections or 1, 2 in the
+>> license grant part).
+>>
+>> I think this does not pass the minimum requirements for being considered at all.
+>> For starter, it admittedly has not been reviewed by a lawyer, and I doubt that
+>> a lawyer would have permitted:
+>>
+>> "In jurisdictions that recognize copyright laws, the author or authors
+>> of this software dedicate any and all copyright interest in This
+>> Software to the public domain **subject to the provisions above**"
+>>
+>> OSI requires prior review by a lawyer because there are things that a layman
+>> very likely cannot consider, not just to enrich lawyers (who mostly do this job
+>> pro bono, as we are doing now).
+>>
+>> Besides, it seems to deliver a grant only for copyright and not under every
+>> right that encumbers the free use of the software.
+>>
+>> Cheers
+>>
+>> Carlo, in his own capacity
+>>
+>>
+>>
+>>
+>>
+>> ----- Messaggio originale -----
+>>> Da: "Kevin P. Fleming" <lists.osi-license-review at kevin.km6g.us>
+>>> A: "license-review at lists.opensource.org" <license-review at lists.opensource.org>
+>>> Inviato: Mercoled?, 18 dicembre 2024 12:32:35
+>>> Oggetto: Re: [License-review] New License for Consideration - Public Benefit
+>>> Zero Copyright License v. 2.0
+>>> On Tue, Dec 17, 2024, at 12:10, Wayne Thornton wrote:
+>>>> Where the PBZC stands out from the CC0 is that it defines the types of software
+>>>> and documentation to which it applies, and permits use of the public domain
+>>>> software within commercially available software so long as the commercially
+>>>> available software makes public the portions of source code which were used
+>>>> subject to the PBZC.
+>>> IANAL, and I don't play one on TV, but this seems untenable: if the copyright
+>>> holder applies a 'license' which disclaims their copyright interest in the
+>>> work, they will not have any standing or mechanism to enforce such a
+>>> restriction. The only thing that gives them such standing in the normal case is
+>>> their ownership of a copyright interest in the work.
+>>> _______________________________________________
+>>> The opinions expressed in this email are those of the sender and not necessarily
+>>> those of the Open Source Initiative. Communication from the Open Source
+>>> Initiative will be sent from an opensource.org email address.
+>>> License-review mailing list
+>>> License-review at lists.opensource.org
+>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not necessarily
+>> those of the Open Source Initiative. Communication from the Open Source
+>> Initiative will be sent from an opensource.org email address.
+>>
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+> 
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily
+> those of the Open Source Initiative. Communication from the Open Source
+> Initiative will be sent from an opensource.org email address.
+> 
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+

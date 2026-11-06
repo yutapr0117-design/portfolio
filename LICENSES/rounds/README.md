@@ -1,7 +1,7 @@
 ---
 file: LICENSES/rounds/README.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-discuss・license-review participants / 監査人
-last-updated: 2026-11-01
+last-updated: 2026-11-06
 canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲート 1) / LICENSES/ACD-1.0.discussion-log.md (分解と分類はこちら)
 ---
 
@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-10-27 時点・274 ファイル）
+## いまの状態（2026-11-06 時点・275 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -101,6 +101,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-09-03 | `license-review` | 送信 | OpenMDW-1.1 §5 の終了引き金の非対称について steward への質問 |
 | 2026-09-03 | `license-review` | 送信 | MG-BY-2.0 のホスト型 Distribution と §2.2(a) の適用について |
 | 2026-09-03 | `license-review` | Michael Dolan → 受領 | 上記 OpenMDW 質問への回答（名指しで応答）|
+| 2024-12-18 | `license-review`（観測）| **Carlo Piana 氏の撤回の 1 通（PBZC 審査）→ 観測保存** | *"I stand corrected re: Pam's message on requiring legal review, bad choice of words on my side."* と *"I actually advise to use both"* が同じ 1 通に在る。2 か月間、撤回前の発言だけを不利な事実として数えていた（`ACD-1.0.against.md` #127）|
 | 2026-09-04 | `license-review` | Moming Duan → 受領 | 上記 ModelGo 質問への回答（審査履歴 4 件を引用）|
 | 2026-09-04 | `license-review` | 送信 | Dolan 氏の回答を受けた閾値問題の分解（返信なし）|
 | 2026-09-04 | `license-review` | Shuji Sado → **引用** | 我々宛ではないが、我々の質問を明示的に引いて議論を進めている |

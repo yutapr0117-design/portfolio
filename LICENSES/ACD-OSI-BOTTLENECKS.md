@@ -57,7 +57,7 @@ the 1.0 text.
 3. **gap は「あれば良いもの」ではなく要件だった**（基準 7）。**B10 の位置づけが上がる。**
 4. **委員長（当時）・委員・理事が述べた「承認しない／受け入れる」規則は 5 件**（§1.67・**2026-09-21 に「委員会が」から狭めた**・#188）。**4 件は当たらないか
    一致する。1 件（*"OSI requires prior review by a lawyer"* ・Piana 氏）は B1 に不利で、
-   B1 の欄に逐語で置いた。** **⚠ 2026-09-22 に根拠を差し替えた（#186）** ——旧文は
+   B1 の欄に逐語で置いた。** **⚠ 2026-11-06 訂正: その 1 件は本人が同じ日に撤回している** —— *"I stand corrected re: Pam's message on requiring legal review, bad choice of words on my side."*（2024-12-18 18:29・`rounds/2024-12-18-license-review-piana-correction-observed.txt`）。**B1 に不利な 1 件として数えていたのは誤りだった。** **⚠ 2026-09-22 に根拠を差し替えた（#186）** ——旧文は
    「個人の資格だから軽い」と読んでいたが、process ページは *"Board members and employees of OSI
    may participate in license review **in their individual capacity**"* と定めており、
    **その断り書きは理事が参加するときの印である。Piana 氏は OSI 理事**（2025-06〜2026-06 の名簿 12 回）。
