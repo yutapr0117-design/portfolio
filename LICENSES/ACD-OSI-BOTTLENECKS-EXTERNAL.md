@@ -338,7 +338,7 @@ are not present."* **この 1 文を落としてはならない。**
 **それは「重複」への答えであって「重複 かつ 未使用」への答えではない。**
 **後者は B2 で、B2 は AI には解けない**（採用の捏造は失格事由）。
 **提出文で先に名指しする以上のことはできない** ——そして**その基準は公表されていない**ので
-（`board-decisions.md` §3・理事会が公表を指示してから 14 か月）、**相手の文言に合わせて書くこともできない。** **⚠ 2026-11-07 訂正: process ページには無いが、委員会はリスト上で 1 度述べている。** Tiwaz への決定（2025-09-11）は、保留を解く条件を *"one or more projects begin using this license or express an interest in doing so"* と述べ、*"planned uses"* も数えている（`board-decisions.md` §2c）。**B2 の手は採用の実績だけではなく、実在のプロジェクトの関心の表明まで広がった。** 尋ねることはオーナーにでき、AI には作れない。「使われていない」も出典より不利に書いていた —— ACD は 1 つのプロジェクト（このリポジトリ）に適用されている。足りるかは決まっていない（Piana 氏 2026-06-19）。
+（`board-decisions.md` §3・理事会が公表を指示してから 14 か月）、**相手の文言に合わせて書くこともできない。** **⚠ 2026-11-07 訂正: process ページには無いが、委員会はリスト上で 1 度述べている。** Tiwaz への決定（2025-09-11）は、保留を解く条件を *"one or more projects begin using this license or express an interest in doing so"* と述べ、*"planned uses"* も数えている（`board-decisions.md` §2c）。**B2 の手は採用の実績だけではなく、実在のプロジェクトの関心の表明まで広がった。** 尋ねることはオーナーにでき、AI には作れない。「使われていない」も出典より不利に書いていた —— ACD は 1 つのプロジェクト（このリポジトリ）に適用されている。足りるかは決まっていない（Piana 氏 2026-06-19）。**同日に委員会の理由書も読んだ** —— MIT-0（2020）*"this is not a basis for rejection that the OSI has applied in the past (and the OSI has historically approved newly drafted licenses not yet in use)"*、Jam（2021）*"to date, OSI has not used the number of projects adopting a license as a factor"*。**使われていないことが単独で否決の理由になった記録は、読んだ範囲に無い**（`board-decisions.md` §2d）。逆側は Chestek 氏の 2026 年の *"less inclined"* で、上の Catch-22 の節に在る。
 
 ### この節が establish しないこと
 

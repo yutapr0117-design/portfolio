@@ -1,0 +1,138 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2020-August.txt
+Retrieved: 2026-11-07
+Date: Tue, 4 Aug 2020 22:27:54 -0400
+From: Pamela Chestek
+Subject: [License-review] Request for Legacy Approval of MIT No Attribution License
+Position: the License Committee recommendation and Rationale Document for MIT-0, which the Board then approved. It says whether a licence is in use has not been a basis for rejection. Not addressed to us.
+
+----- begin verbatim -----
+From pamela.chestek at opensource.org  Wed Aug  5 02:27:54 2020
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Tue, 4 Aug 2020 22:27:54 -0400
+Subject: [License-review] Request for Legacy Approval of MIT No
+ Attribution License
+In-Reply-To: <CAKgxSaDRy_zC_8T6GPH-+4BtYknV5vpXhRzjKFD-XMvRRPqKDg@mail.gmail.com>
+References: <CAKgxSaDRy_zC_8T6GPH-+4BtYknV5vpXhRzjKFD-XMvRRPqKDg@mail.gmail.com>
+Message-ID: <5dabb171-0847-3bec-ec99-9e355ea29344@opensource.org>
+
+To the Board of the OSI and the License-Review list:
+
+Below is the recommendation of the License Committee of the Open Source 
+Initiative on the MIT No Attribution License. Pamela Chestek
+
+Chair, License Committee Open Source Initiative *****
+
+License: MIT No Attribution License (Exhibit A)
+
+SPDX Identifier: MIT-0
+
+Submitted: 15 May 2020, 
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2020-May/004856.html
+
+Decision date: due no later than the first Board meeting after 15 July 2020
+
+
+License Review Committee Recommendation:
+
+
+Resolved that it is the opinion of the OSI that the MIT No Attribution 
+License be approved as an Open Source Initiative Approved license in the 
+Other/Miscellaneous category of licenses.
+
+
+Rationale Document
+
+
+The license is the same language as the MIT License except that the 
+attribution requirement of the MIT License in its second paragraph is 
+removed. The license was discussed on both the License-Discuss list and 
+the License-Review list and no one raised a substantive objection to its 
+approval. There was some discussion whether the license was actually in 
+use, but this is not a basis for rejection that the OSI has applied in 
+the past (and the OSI has historically approved newly drafted licenses 
+not yet in use).
+
+
+It is classified in the ?Other/Miscellaneous? category because the 
+0-clause BSD License is in the same category. Both licenses have the 
+same modification to their origin license, which is to remove the 
+requirement that the copyright notice and permission notice be included 
+in copies of the software.
+
+
+Exhibit A
+
+
+Copyright <YEAR><COPYRIGHT HOLDER>
+
+
+Permission is hereby granted, free of charge, to any person obtaining a 
+copy of this software and associated documentation files (the 
+"Software"), to deal in the Software without restriction, including 
+without limitation the rights to use, copy, modify, merge, publish, 
+distribute, sublicense, and/or sell copies of the Software, and to 
+permit persons to whom the Software is furnished to do so.
+
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+On 5/15/2020 12:18 PM, Tobie Langel wrote:
+> Rationale:
+>
+> The MIT No Attribution License (SPDX identifier?MIT-0 [1]) is a 
+> version of the MIT license with the attribution clause removed.
+>
+> It is used by Amazon[2] and Airtable[3] to license sample, reference, 
+> teaching, documentation, and scaffolding code.
+>
+> It was authored independently by Roman Mamedov[4] and Amazon[5].
+>
+> It has been discussed?on license-discuss@[6].
+>
+> Proliferation category:
+>
+> Other/Miscellaneous licenses
+>
+> Please find attached the full text of the license. It is also 
+> available at https://spdx.org/licenses/MIT-0.html 
+> <https://spdx.org/licenses/MIT-0.html>.
+>
+> Thank you for your consideration.
+>
+> --tobie
+>
+> ---
+> [1]: https://spdx.org/licenses/MIT-0.html 
+> <https://spdx.org/licenses/MIT-0.html>
+> [2]: 
+> http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2020-April/021781.html 
+> <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2020-April/021781.html>
+> [3]: 
+> http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2020-May/021790.html 
+> <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2020-May/021790.html>
+> [4]: https://romanrm.net/mit-zero <https://romanrm.net/mit-zero>
+> [5]: 
+> http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2020-April/021759.html 
+> <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2020-April/021759.html>
+> [6]: 
+> http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2020-April/021754.html 
+> <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2020-April/021754.html>
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200804/a3538b76/attachment.html>

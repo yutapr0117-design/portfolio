@@ -23,7 +23,7 @@ the 1.0 text.
 | ID | The problem | Severity | Where it stands | Who can move it |
 |---|---|---|---|---|
 | B1 | No legal review | Highest | Nothing here supplies it. The questions a lawyer would need are in `QUESTIONS-FOR-COUNSEL.md` | The owner, by engaging one |
-| B2 | One adopter: this repository | Highest | We can improve discoverability. We cannot produce adoption, and will not claim any. The one hold on record (Tiwaz, 2025-09-11) lifts if one project uses the licence or expresses interest | Third parties; the owner can ask |
+| B2 | One adopter: this repository | Highest | We can improve discoverability. We cannot produce adoption, and will not claim any. Non-use alone has not been a ground (Committee rationale, 2020 and 2021). The one hold on record (Tiwaz, 2025-09-11) lifts if one project uses the licence or expresses interest | Third parties; the owner can ask |
 | B3 | Length: 4,896 words, 16 sections, 82 clauses | High | It can be shortened but not answered | Us, in part |
 | B4 | The §3 surrender beside the §4 licence | High | Tested as a possible structural refusal, and that was rejected. The judgment is OSI's | OSI |
 | B5 | The legal account in §4.4 | Medium | The drafting defect closed in 1.1. The design question stays open | OSI |
@@ -494,7 +494,7 @@ separate entity"*・SPDX の canonical text で逐語確認）。
   Piana 氏は「個人であること」を理由に下げないでほしいという提出者への返信で、審査の延期を勧めている（2026-06-19）。
 - **§16.4 は Steward に新しい版の権利を残す。** OSL の §16 との差は 2 点で、OSL は改変ライセンスに OSI の承認なしで
   open source と言うなと足し、ACD は Steward の版の出し方を書く。役割の非対称は `submission-osd.md` §3b-i に在る。
-- **承継先は実在しない。** §16.5 は譲渡を許すが、譲渡の前に steward が欠ければ役割は空く。その場合に止まるのは
+- **承継先は実在しない。** §16.5 は譲渡を許すが、譲渡の前に steward が欠ければ、本文では役割は空く（§2.8 の承継人は Work についての文で、§16.6 が §16.4 / §16.5 を Work の条項から外す）。一般の承継法が別の結果を与えるかは未確認である。その場合に止まるのは
   その名前での新しい版だけで、著作物の許諾は何も変わらない（§10.4）。別の名前での改変も止まらない。
 
 **分類を 9 に移す理由。** 解き方は分かっている —— 引き受ける人を見つけて §16.5 で指名することである。
