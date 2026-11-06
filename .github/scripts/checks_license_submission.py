@@ -95,6 +95,10 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `submission.md` の面しか見ず、入口ページは 1.0 を「the licence」と述べたまま緑だった (1.4 の予行で実測)。
        あわせて QUESTIONS-FOR-COUNSEL の基準の版が LICENSE の適用する版と、objection-map の "Numbers" の基準が
        提出対象と一致すること。
+       **(472i・2026-11-06)** 入口の 2 つの表が、英語の審査者を読めない文書へ黙って送らないこと。"What to open first" の
+       行が指す file の日本語の比率が 30% 以上なら行に Japanese と書く。言語の表が English / Japanese と述べる file は
+       実測と合う。比率は日本語の文字 / (日本語の文字 + ラテン文字)。register 63% と READY-TO-SUBMIT 66% が無表示
+       だったのを portfolio-00 が見つけた (#2466)。**日本語の文書を減らす検査ではなく、述べることを求める検査である。**
        **(472g・2026-11-06)** "In one screen" の節が 500 語以内、"Status" の節が 600 語以内であること。
        追記のたびに黙って伸びる形で、伸びたのは 09-24 に続いて 2 度目だった。
        **(472e・2026-09-24)** 「placeholder / 置換テキストは 0」という主張が、§16.1 の notice
@@ -499,6 +503,36 @@ def run(ctx):
             f"Check 472g: REVIEWERS.md の \"In one screen\" {_secs472g.get('In one screen')} 語 / \"Status\" {_secs472g.get('Status')} 語 (≤ 500 / 600)",
             (f"Check 472g: 入口の節が上限を超えた: {_over472g}。短い入口が長さへの唯一の実効的な緩和なので、"
              "足すなら同じ節の別の文を削るか、後ろの節へ置け"),
+            blocking=True,
+        )
+        # ── 472i. 入口の 2 つの表が、読めない文書へ黙って送らないこと ──────────────────────
+        #   B13 の短い入口は読者が英語の審査者である前提に立つ。勧めた文書が読めないと、その行は入口にならない。
+        def _jp472i(_rel):
+            _s = (ROOT / "LICENSES" / _rel).read_text(encoding="utf-8", errors="replace")
+            _n = len(re.findall(r"[\u3040-\u30ff\u3400-\u9fff]", _s))
+            _a = len(re.findall(r"[A-Za-z]", _s))
+            return _n / (_n + _a) if _n + _a else 0.0
+
+        _rows472i = _t472d.split("## What to open first", 1)[-1].split("\n## ", 1)[0].split("\n")
+        _map472i = _t472d.split("## Map of the supporting documents", 1)[-1].split("\n## ", 1)[0].split("\n")
+        _bad472i, _seen472i = [], 0
+        for _row in _rows472i:
+            _m = re.search(r"\]\(([^)#\s]+)\)", _row)
+            if _row.startswith("|") and _m and (ROOT / "LICENSES" / _m.group(1)).exists():
+                _seen472i += 1
+                if _jp472i(_m.group(1)) >= 0.30 and "Japanese" not in _row:
+                    _bad472i.append(f"{_m.group(1)} は日本語 {_jp472i(_m.group(1)):.0%} なのに行が Japanese と述べない")
+        for _row in _map472i:
+            _m = re.match(r"\| \[`[^`]+`\]\(([^)#\s]+)\) \| \**(English|Japanese)\b", _row)
+            if _m and (ROOT / "LICENSES" / _m.group(1)).exists():
+                _seen472i += 1
+                if (_jp472i(_m.group(1)) >= 0.30) != (_m.group(2) == "Japanese"):
+                    _bad472i.append(f"{_m.group(1)} は {_m.group(2)} と述べるが日本語 {_jp472i(_m.group(1)):.0%}")
+        check(
+            _seen472i >= 20 and not _bad472i,
+            f"Check 472i: 入口の 2 つの表の {_seen472i} 行が、指す文書の言語を実測どおり述べる",
+            (f"Check 472i: 入口の表の言語の表示が実測と違う (照合 {_seen472i} 行): {_bad472i}。"
+             "英語の審査者を読めない文書へ黙って送らない。行に言語を書くか、文書の冒頭に英語の索引を置いて行で述べよ"),
             blocking=True,
         )
         # ── 472h. 入口ページの版に紐づく面が SUBMISSION-TARGET の本文を指すこと ───────────────

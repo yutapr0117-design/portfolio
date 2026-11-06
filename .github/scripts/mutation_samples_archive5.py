@@ -3,7 +3,7 @@
 rotate_mutation_samples.py が受け皿の余裕を実測して選び、埋まったら次を起こす。
 **新しい mutation は mutation_samples.py の tail へ足すこと** (ここは退避先)。
 """
-from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, APPLIED_ID, SUBMISSION_TARGET, NEXT_CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)
 
 MUTATIONS_ARCHIVE5 = [
     {
@@ -377,6 +377,48 @@ MUTATIONS_ARCHIVE5 = [
     "file": ROOT / ".github" / "scripts" / "checks_ci_verify.py",
     "find": "  488. すべての workflow job が",
     "replace": "  489. すべての workflow job が",
+    "check": CHECK,
+},
+    {
+    "name": "Check 45b: section 見出しの番号が飛ぶ —— 実装側の連番が崩れ、一覧と実装の対応が数で取れなくなる",
+    "file": ROOT / ".github" / "scripts" / "checks_ci_verify.py",
+    "find": "    # ── 488. すべての workflow job が timeout-minutes を持つ (BLOCKING) ───────────────",
+    "replace": "    # ── 489. すべての workflow job が timeout-minutes を持つ (BLOCKING) ───────────────",
+    "check": CHECK,
+},
+    {
+    "name": "Check 45c: docstring の一覧にだけ Check が 1 つ多い —— 両方とも連続のままなので 45a / 45b は通り、一覧と実装の集合の食い違いだけが残る",
+    "file": ROOT / ".github" / "scripts" / "checks_ci_verify.py",
+    "find": "  488. すべての workflow job が",
+    "replace": f"  {NEXT_CHECK}. (mutation)\n  488. すべての workflow job が",
+    "check": CHECK,
+},
+    {
+    "name": "Check 46b: lint の file 集合が disk 上の shipped JS と食い違う —— 存在しない file を名乗り、実在する file を lint したつもりになる",
+    "file": ROOT / "package.json",
+    "find": "\"lint\": \"eslint main.js ",
+    "replace": "\"lint\": \"eslint js/ghost.js main.js ",
+    "check": CHECK,
+},
+    {
+    "name": "Check 47a: main.js が import する名前を葉が export しなくなる —— SPA が起動しない",
+    "file": ROOT / "js" / "pure-utils.js",
+    "find": "export function generateId() {",
+    "replace": "export function generateIdX() {",
+    "check": CHECK,
+},
+    {
+    "name": "Check 47b: 誰も import しない export が葉に増える —— export 一覧 ⟺ import 一覧の bijection が崩れ、死んだ API が残る",
+    "file": ROOT / "js" / "pure-utils.js",
+    "find": "export function clamp(num, min, max) {",
+    "replace": "export const __orphan47b = 1;\nexport function clamp(num, min, max) {",
+    "check": CHECK,
+},
+    {
+    "name": "Check 47c: 葉モジュールがローカル import を持つ —— 「葉は依存を引数注入で受ける」契約が崩れ、依存グラフが main.js から読めなくなる",
+    "file": ROOT / "js" / "brand.js",
+    "find": "export function createBrand(storage) {",
+    "replace": "import { clamp } from './pure-utils.js';\nexport function createBrand(storage) {",
     "check": CHECK,
 },
 ]
