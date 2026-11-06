@@ -93,7 +93,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        **(472h・2026-11-06)** 入口ページの版に紐づく面が SUBMISSION-TARGET の本文を指すこと。語数の行、
        "The licence itself" の行 (行数・節数)、検証コマンド、digest の値。marker を切り替えても 472 / 472f は
        `submission.md` の面しか見ず、入口ページは 1.0 を「the licence」と述べたまま緑だった (1.4 の予行で実測)。
-       あわせて QUESTIONS-FOR-COUNSEL の基準の版が LICENSE の適用する版と一致すること。
+       あわせて QUESTIONS-FOR-COUNSEL の基準の版が LICENSE の適用する版と、objection-map の "Numbers" の基準が
+       提出対象と一致すること。
        **(472g・2026-11-06)** "In one screen" の節が 500 語以内、"Status" の節が 600 語以内であること。
        追記のたびに黙って伸びる形で、伸びたのは 09-24 に続いて 2 度目だった。
        **(472e・2026-09-24)** 「placeholder / 置換テキストは 0」という主張が、§16.1 の notice
@@ -526,6 +527,9 @@ def run(ctx):
                 _bad472h.append(f"検証コマンドの対象が {_tg472h} でない: {_cmd472h}")
             if hashlib.sha256(_tp472h.read_bytes()).hexdigest() not in _t472d:
                 _bad472h.append(f"digest の値が {_tg472h} のものでない")
+        _om472h = ROOT / "LICENSES" / "ACD-1.0.objection-map.md"
+        if f"**Numbers.** Clause numbers are those of {_tg472h}," not in _om472h.read_text(encoding="utf-8"):
+            _bad472h.append(f"objection-map の \"Numbers\" の基準が提出対象 {_tg472h} でない")
         _qc472h = ROOT / "LICENSES" / "QUESTIONS-FOR-COUNSEL.md"
         _lc472h = re.search(r"^SPDX-License-Identifier: (ACD-\d+\.\d+)$", (ROOT / "LICENSE").read_text(encoding="utf-8"), re.M)
         if _lc472h and f"Clause numbers are those of **{_lc472h.group(1)}**" not in _qc472h.read_text(encoding="utf-8"):

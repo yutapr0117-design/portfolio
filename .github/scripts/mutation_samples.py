@@ -547,6 +547,13 @@ _MUTATIONS_TAIL.append({
     "replace": "Clause numbers are those of **ACD-1.1**",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 472h: objection-map の条番号の基準が提出対象でない",
+    "file": ROOT / "LICENSES" / "ACD-1.0.objection-map.md",
+    "find": f"**Numbers.** Clause numbers are those of {SUBMISSION_TARGET},",
+    "replace": "**Numbers.** Clause numbers are those of ACD-1.1,",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
