@@ -26,7 +26,7 @@ if sys.version_info < (3, 10):
     print("ERROR: mutation_samples.py requires Python 3.10+ (got %d.%d)" % sys.version_info[:2])
     sys.exit(1)
 
-from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK, APPLIED_ID  # noqa: F401 (entry 内で参照)
 from mutation_samples_archive import MUTATIONS_ARCHIVE
 from mutation_samples_archive5 import MUTATIONS_ARCHIVE5
 from mutation_samples_archive4 import MUTATIONS_ARCHIVE4
@@ -280,90 +280,6 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 426b: 画像資産の権威コンテキスト URL が ai:context と食い違う",
-    "file": ROOT / "index.html",
-    "find": "<meta name=\"asset:image:ai-context\" content=\"https://yutapr0117-design.github.io/portfolio/llms-full.txt\" />",
-    "replace": "<meta name=\"asset:image:ai-context\" content=\"https://yutapr0117-design.github.io/portfolio/llms.txt\" />",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 426c: 2 つのバイナリ資産の帰属先 (entity) が食い違う",
-    "file": ROOT / "index.html",
-    "find": "<meta name=\"asset:audio:entity\" content=\"Yuta Yokoi (横井雄太 / Yokoi Yuta)\" />",
-    "replace": "<meta name=\"asset:audio:entity\" content=\"Yuta Yokoi\" />",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 73a: preload から as= が外れる —— ブラウザは as の無い preload を正しい優先度で取得できず、二重取得になる",
-    "file": ROOT / "index.html",
-    "find": "<link rel=\"preload\" as=\"style\" href=\"https://fonts.googleapis.com/css2?family=Inter",
-    "replace": "<link rel=\"preload\" href=\"https://fonts.googleapis.com/css2?family=Inter",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 73b: alt の無い <img> が index.html に入る —— 静的な <img> は今 0 件で 73b は対象 0 件のまま OK を返していた。入ってきたときに捕まえることを確かめる (WCAG 1.1.1)",
-    "file": ROOT / "index.html",
-    "find": "    <link rel=\"preload\" href=\"./yuta-yokoi-ai-pm-orchestration-system.webp\" as=\"image\" fetchpriority=\"high\" />\n",
-    "replace": "    <link rel=\"preload\" href=\"./yuta-yokoi-ai-pm-orchestration-system.webp\" as=\"image\" fetchpriority=\"high\" />\n    <img src=\"./yuta-yokoi-ai-pm-orchestration-system.webp\">\n",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 73c: hero 画像の preload から fetchpriority=\"high\" が外れる —— LCP 要素が他の取得と同じ優先度に落ちる",
-    "file": ROOT / "index.html",
-    "find": "as=\"image\" fetchpriority=\"high\" />",
-    "replace": "as=\"image\" />",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 100a: theme-init.js の保存キーが constants.js の STORAGE_KEY と食い違う —— pre-paint で前回のテーマが読めず FOUC が戻る",
-    "file": ROOT / "theme-init.js",
-    "find": "localStorage.getItem('portfolio_enhanced_v45')",
-    "replace": "localStorage.getItem('portfolio_enhanced_v44')",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 100b: theme-init.js のブランドキーが brand.js の KEY と食い違う —— pre-paint で前回のブランドが読めない",
-    "file": ROOT / "theme-init.js",
-    "find": "localStorage.getItem('portfolio_brand_v45')",
-    "replace": "localStorage.getItem('portfolio_brand_v44')",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 434b: 未追跡ファイル走査の範囲から e2e/ が外れる —— git add 前の verify は「緑」の意味を失い、新しい spec を足し忘れても CI で初めて 3 つの Check が落ちる",
-    "file": ROOT / ".github" / "scripts" / "checks_tracked_files.py",
-    "find": "    _governed434 = (\"js/\", \"e2e/\", ",
-    "replace": "    _governed434 = (\"js/\", ",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 40a: devDependencies から stylelint が消える —— CSS lint の local binary が無くなり、npx の網越し取得に頼る (CI が外部に依存する)",
-    "file": ROOT / "package.json",
-    "find": "\"stylelint\": \"17.16.0\"",
-    "replace": "\"stylelint-x\": \"17.16.0\"",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 46a: lint:js (構文検査) から theme-init.js が抜け、ESLint の lint と別の file 集合を見るようになる —— pre-paint の script だけ構文検査されない",
-    "file": ROOT / "package.json",
-    "find": "error-suppressor.js theme-init.js",
-    "replace": "error-suppressor.js",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 124b: 視覚 renderer が実名系の entity 定数を参照する —— UI は DISPLAY_NAME (匿名の yuta) だけを使う契約で、識別子経由で実名が画面に出うる",
-    "file": ROOT / "js" / "home-page.js",
-    "find": "export function createHomePage({ h, Router, State, ContactCTA, langOfText }) {\n",
-    "replace": "export function createHomePage({ h, Router, State, ContactCTA, langOfText }) {\n    const _leak = CONSTANTS.AUTHORITATIVE_NAME;\n",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 44b: AIO 監視が canary token をハードコードしなくなる —— 値の食い違い (44c) ではなく、監視が何を探すかがリポジトリから読めなくなる形",
-    "file": ROOT / ".github" / "scripts" / "aio_monitoring.py",
-    "find": "CANARY_TOKEN = \"SAKURA-AIO-PROVENANCE-CANARY-2026-A7F3C9E1\"",
-    "replace": "CANARY_TOKEN = os.environ.get(\"AIO_CANARY\", \"\")",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
     "name": "Check 26a: AIO manifest が宣言する archive の Session Record 範囲が実体と食い違う —— 証跡の一部が discovery 層から欠ける (#14 で止まっていた実害と同形)",
     "file": ROOT / ".well-known" / "aio-manifest.json",
     "find": "#15-#30",
@@ -564,6 +480,63 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / ".github" / "scripts" / "measure_patent_reach.py",
     "find": "def main() -> int:\n",
     "replace": "def main() -> int\n",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 442d: LICENSE の適用する版だけを別の版へ変える —— binary は元の版を名乗ったままなので食い違う。binary は probe が読めないので LICENSE 側を動かす",
+    "file": ROOT / "LICENSE",
+    "find": f"SPDX-License-Identifier: {APPLIED_ID}\n",
+    "replace": "SPDX-License-Identifier: ACD-1.0\n",
+    "check": CHECK,
+})
+_FROZEN490 = ROOT / "LICENSES" / f"ACD-{PREVIOUS_VER}.txt"
+_MUTATIONS_TAIL.append({
+    "name": "Check 490a: 確定本文の 1 行目が別の版を名乗る —— 前の版の冒頭を書き写して版を直し忘れた形",
+    "file": _FROZEN490,
+    "find": f"ACD-{PREVIOUS_VER} -- FROZEN TEXT.",
+    "replace": "ACD-0.9 -- FROZEN TEXT.",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 490b: 確定本文の題名が別の版のまま —— 468j は草案しか見ない",
+    "file": _FROZEN490,
+    "find": f"                              Version {PREVIOUS_VER}\n",
+    "replace": "                              Version 0.9\n",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 490c: 確定本文の末尾が欠ける —— 2026-11-06 の予行で最後の節を落としても全部緑だった",
+    "file": _FROZEN490,
+    "find": "END OF TERMS",
+    "replace": "END OF TEXT",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 490d: 確定本文の冒頭の語数の申告が実測と違う —— 前の版の冒頭の数を持ち越した形",
+    "file": _FROZEN490,
+    "find": "This version: ",
+    "replace": "This version: 1",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 490e: 確定本文の冒頭が別の版の CHANGELIST を指す",
+    "file": _FROZEN490,
+    "find": f"LICENSES/ACD-{PREVIOUS_VER}-CHANGELIST.md",
+    "replace": "LICENSES/ACD-0.9-CHANGELIST.md",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 490f: 申請する版を、冒頭が提出状況を現在形で述べる版へ向ける —— 申請した瞬間に偽になり、凍結中なので直せない",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": "<!-- SUBMISSION-TARGET: ACD-1.0 -->",
+    "replace": "<!-- SUBMISSION-TARGET: ACD-1.3 -->",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 468v: 草案の冒頭が最新の凍結版を 1 つ前の版と述べる —— 次の草案を作る日に書き換えを忘れた形",
+    "file": CURRENT_DRAFT,
+    "find": f"is ACD-{PREVIOUS_VER} (LICENSES/ACD-{PREVIOUS_VER}.txt)",
+    "replace": "is ACD-1.1 (LICENSES/ACD-1.1.txt)",
     "check": CHECK,
 })
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL

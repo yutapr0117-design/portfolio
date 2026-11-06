@@ -68,6 +68,13 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        記録して次版の草案で直すこと (審査中の差し替えは、審査側が見ているテキストとの乖離を
        生む。2026-11-02 訂正: 旧文は「オーナーへ報告すること」)。 (BLOCKING)
        453b: 冒頭で FROZEN TEXT を名乗る版の本文と、あればその記述子・SPDX XML が FREEZE-DATA に pin されていること (2026-11-01)。
+  490. 確定した本文が、確定の作業で壊れていないこと (BLOCKING・2026-11-06)。Check 468 は草案しか見ず、
+       Check 453 は pin した byte しか見ないので、草案から確定本文を作る手作業の誤りを見る層が無かった。
+       490a 1 行目が file 名の版を FROZEN TEXT と名乗る / 490b 題名の版が file 名と一致 / 490c 節が
+       直前の版と同じ数だけ連番でそろい END OF TERMS で終わる / 490d 冒頭の語数・条数の申告が直前の版と
+       この版の実測に一致 / 490e 冒頭が名指す CHANGELIST がこの版のもので、実在する。
+       490f 申請する版 (SUBMISSION-TARGET) の冒頭が提出状況を現在形で述べない (申請した瞬間に偽になり、
+       凍結中なので直せない。日付つきの過去形にする・1.1〜1.3 は申請しない版なので現在形のままで正しい)。
 """
 import re
 import sys
@@ -745,3 +752,64 @@ def run(ctx):
              "凍結を名乗る本文が黙って編集可能なまま残り、審査者が依拠する stable text の約束が切れる"),
             blocking=True,
         )
+
+    # ── 490. 確定した本文が、確定の作業で壊れていないこと (BLOCKING) ──────────────────
+    # 版の確定は、草案の冒頭を差し替えて本文を別の file へ移す手作業である。Check 468 は草案しか見ず、
+    # Check 453 は pin した byte しか見ないので、この手作業の誤りはどの層にも見えなかった。2026-11-06 に
+    # 使い捨ての worktree で 1.4 を確定し、誤りを 8 種入れて測ると 7 種が無音だった (最後の節が欠けても、
+    # 題名が前の版のままでも緑)。凍結すると直せないので、pin する前に落とす。
+    _sep490 = "-" * 80
+    _vers490 = []
+    for _p490 in (ROOT / "LICENSES").glob("ACD-*.txt"):
+        _m490 = re.match(r"ACD-(\d+)\.(\d+)\.txt$", _p490.name)
+        if _m490:
+            _vers490.append(((int(_m490.group(1)), int(_m490.group(2))), _p490.read_text(encoding="utf-8")))
+    _vers490.sort(key=lambda _x: _x[0])
+
+    def _size490(_t):
+        _b = _t.split(_sep490, 1)[1] if _sep490 in _t else _t
+        return len(_b.split()), len(set(re.findall(r"^  (\d+\.\d+) ", _b, re.M)))
+
+    _sub490 = ROOT / "LICENSES" / "ACD-1.0.submission.md"
+    _tm490 = re.search(r"<!-- SUBMISSION-TARGET: (ACD-\d+\.\d+) -->", _sub490.read_text(encoding="utf-8") if _sub490.exists() else "")
+    _target490 = _tm490.group(1) if _tm490 else None
+    _bad490 = [] if _target490 else ["490f: ACD-1.0.submission.md に SUBMISSION-TARGET marker が無い"]
+    for _i490, (_v490, _t490) in enumerate(_vers490):
+        if _i490 == 0:
+            continue  # 最初の版 (1.0) は冒頭を持たず、本文そのものである
+        _vs490 = f"{_v490[0]}.{_v490[1]}"
+        _pv490, _pt490 = _vers490[_i490 - 1]
+        _ps490 = f"{_pv490[0]}.{_pv490[1]}"
+        _first490 = _t490.split("\n", 1)[0]
+        if not _first490.startswith(f"ACD-{_vs490} -- FROZEN TEXT.") or "DRAFT" in _first490 or "NOT IN FORCE" in _first490:
+            _bad490.append(f"490a: ACD-{_vs490}.txt の 1 行目が自分を確定本文と名乗らない: {_first490[:70]!r}")
+        _head490, _, _body490 = _t490.partition(_sep490)
+        _title490 = re.search(r"^\s+Version (\d+\.\d+)\s*$", _body490, re.M)
+        if not _title490 or _title490.group(1) != _vs490:
+            _bad490.append(f"490b: ACD-{_vs490}.txt の題名の版が違う: {_title490.group(1) if _title490 else '無い'}")
+        _secs490 = [int(_x) for _x in re.findall(r"^(\d+)\. [A-Z]", _body490, re.M)]
+        _psecs490 = len(re.findall(r"^\d+\. [A-Z]", _pt490.partition(_sep490)[2] or _pt490, re.M))
+        if _secs490 != list(range(1, _psecs490 + 1)) or not _body490.rstrip().endswith("END OF TERMS"):
+            _bad490.append(f"490c: ACD-{_vs490}.txt の本文が欠けている (節 {_secs490[-1:] or '無し'} / 直前の版 {_psecs490} 節 / 末尾 END OF TERMS)")
+        _h490 = " ".join(_head490.split())
+        _r490 = re.search(r"ACD-(\d+\.\d+): ([\d,]+) words, (\d+) clauses\. This version: ([\d,]+) words, (\d+) clauses\.", _h490)
+        if not _r490:
+            _bad490.append(f"490d: ACD-{_vs490}.txt の冒頭に語数と条数の申告が無い")
+        else:
+            _said490 = (_r490.group(1), int(_r490.group(2).replace(",", "")), int(_r490.group(3)),
+                        int(_r490.group(4).replace(",", "")), int(_r490.group(5)))
+            _real490 = (_ps490, *_size490(_pt490), *_size490(_t490))
+            if _said490 != _real490:
+                _bad490.append(f"490d: ACD-{_vs490}.txt の冒頭の申告 {_said490} が実測 {_real490} と違う")
+        _cl490 = f"LICENSES/ACD-{_vs490}-CHANGELIST.md"
+        if _cl490 not in _h490 or not (ROOT / _cl490).exists():
+            _bad490.append(f"490e: ACD-{_vs490}.txt の冒頭が {_cl490} を指していないか、その file が無い")
+        if f"ACD-{_vs490}" == _target490 and re.search(r"NOT SUBMITTED|has not been submitted", _head490.replace("\n", " ")):
+            _bad490.append(f"490f: 申請する版 ACD-{_vs490} の冒頭が提出状況を現在形で述べる (申請した瞬間に偽になり、凍結中なので直せない)")
+    check(
+        len(_vers490) >= 2 and not _bad490,
+        f"Check 490: 確定した本文 {len(_vers490) - 1} 版の 1 行目・題名・節・語数と条数の申告・CHANGELIST の指し先が実物と合う",
+        (f"Check 490: 確定した本文が確定の作業で壊れている: {_bad490 or '版が 2 つ以上見つからない'}。"
+         "**凍結して申請すると直せない** —— pin する前に草案から作り直せ"),
+        blocking=True,
+    )

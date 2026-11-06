@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/update_binary_aio_rights.py
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-08-23
+last-updated: 2026-11-06
 canonical-ref: .github/scripts/update_binary_aio_organization.py / .github/scripts/_lib_io.py / LICENSES/ACD-1.0.txt / AI2AI.md
 ---
 
@@ -47,7 +47,7 @@ python3 .github/scripts/update_binary_aio_rights.py
 python3 .github/scripts/update_aio_digests.py
 ```
 
-冪等。既に適用済みなら各ステップが skip する。
+冪等。既に適用済みなら各ステップが skip する。**到達点の版は LICENSE の `SPDX-License-Identifier` から導出する**（2026-11-06）ので、適用する版を上げる日はこの tool を書き直さず、LICENSE を更新してから回す。回し忘れは Check 442d が RED にする。
 
 ## Constraints
 

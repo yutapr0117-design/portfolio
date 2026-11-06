@@ -70,6 +70,7 @@ manifest は同日に本文どおりへ直したので、binary 2 面も揃え�
 
 from __future__ import annotations
 
+import re
 import struct
 import sys
 from pathlib import Path
@@ -103,16 +104,38 @@ TCOP_V2 = ("2026 Yuta Yokoi (横井雄太). ACD-1.0: no rights in this work rese
            "trademarks and personal names not granted (section 11.1).")
 WCOP_V2 = "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt"
 
-# 2026-10-25: このリポジトリに適用する版を ACD-1.3 へ切り替えた (オーナーの依頼)。
+# 2026-10-25: このリポジトリに適用する版を ACD-1.0 から切り替えた (オーナーの依頼)。
 # §11 の carve-out は 1.1 以降 2 つ (商標・名称 / privacy・publicity・personality・データ保護・E29)。
-RIGHTS_WEBP_V3 = ("2026 Yuta Yokoi (横井雄太). Released under the Autonomous Commons Dedication 1.3 "
-                  "(ACD-1.3): no rights in this work reserved and no conditions imposed in respect of it; "
-                  "trademarks, other rights in names, and rights of privacy, publicity, personality, and "
-                  "data protection not granted (section 11); machine learning expressly permitted. "
-                  "Canonical: https://yutapr0117-design.github.io/portfolio/")
-TCOP_V3 = ("2026 Yuta Yokoi (横井雄太). ACD-1.3: no rights in this work reserved; "
-           "trademarks, names, privacy, publicity, personality and data protection not granted (section 11).")
-WCOP_V3 = "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.3.txt"
+# 2026-11-06: 版を決め打ちせず LICENSE の識別子から組み立てる。1.3 の定数のままだと、1.4 を適用する日に
+# この tool をまた手で書き直すことになり、書き直しを忘れても Check は鳴らなかった (Check 442d を足した)。
+def applied_id() -> str:
+    """LICENSE が宣言する適用中の版 (例: ACD-1.3)。"""
+    m = re.search(r"^SPDX-License-Identifier: (ACD-\d+\.\d+)$", (ROOT / "LICENSE").read_text(encoding="utf-8"), re.M)
+    if not m:
+        raise RuntimeError("LICENSE に SPDX-License-Identifier: ACD-<版> が無い")
+    return m.group(1)
+
+
+def rights_webp(acd: str) -> str:
+    return (f"2026 Yuta Yokoi (横井雄太). Released under the Autonomous Commons Dedication {acd[4:]} "
+            f"({acd}): no rights in this work reserved and no conditions imposed in respect of it; "
+            "trademarks, other rights in names, and rights of privacy, publicity, personality, and "
+            "data protection not granted (section 11); machine learning expressly permitted. "
+            "Canonical: https://yutapr0117-design.github.io/portfolio/")
+
+
+def tcop_text(acd: str) -> str:
+    return (f"2026 Yuta Yokoi (横井雄太). {acd}: no rights in this work reserved; "
+            "trademarks, names, privacy, publicity, personality and data protection not granted (section 11).")
+
+
+def wcop_url(acd: str) -> str:
+    return f"https://yutapr0117-design.github.io/portfolio/LICENSES/{acd}.txt"
+
+
+# どの版でもよい「切り替え後の文言」。前の段の冪等判定と、適用する版の置き換え元に使う。
+RIGHTS_WEBP_ANY = re.compile(re.escape(rights_webp("ACD-0.0")).replace(r"0\.0", r"\d+\.\d+"))
+TCOP_ANY = re.compile(re.escape(tcop_text("ACD-0.0")).replace(r"0\.0", r"\d+\.\d+").encode("utf-8"))
 
 
 def _synchsafe(n: int) -> bytes:
@@ -199,8 +222,7 @@ def update_mp3_tcop(path: Path) -> bool:
                            f"offset を動かさない前提が崩れるので中断")
     i = data.find(old)
     if i < 0:
-        if (data.find(new) >= 0 or data.find(TCOP_V2.encode("utf-8")) >= 0
-                or data.find(TCOP_V3.encode("utf-8")) >= 0):
+        if data.find(new) >= 0 or data.find(TCOP_V2.encode("utf-8")) >= 0 or TCOP_ANY.search(bytes(data)):
             print("MP3 TCOP: 既に ACD-1.0 表記 — skip")
             return False
         raise RuntimeError("TCOP: 想定した旧文言が見つからない")
@@ -222,7 +244,7 @@ def update_webp_rights(path: Path) -> bool:
     xmp_size = struct.unpack("<I", data[xmp_pos + 4:xmp_pos + 8])[0]
     xmp_text = data[xmp_pos + 8:xmp_pos + 8 + xmp_size].decode("utf-8")
 
-    if NEW_RIGHTS_WEBP in xmp_text or RIGHTS_WEBP_V2 in xmp_text or RIGHTS_WEBP_V3 in xmp_text:
+    if NEW_RIGHTS_WEBP in xmp_text or RIGHTS_WEBP_V2 in xmp_text or RIGHTS_WEBP_ANY.search(xmp_text):
         print("WebP dc:rights: 既に ACD-1.0 表記 — skip")
         return False
     if OLD_RIGHTS_WEBP not in xmp_text:
@@ -248,7 +270,7 @@ def update_webp_rights_v2(path: Path) -> bool:
     new = text
     if NEW_RIGHTS_WEBP in new:
         new = new.replace(NEW_RIGHTS_WEBP, RIGHTS_WEBP_V2, 1)
-    elif RIGHTS_WEBP_V2 not in new and RIGHTS_WEBP_V3 not in new:
+    elif RIGHTS_WEBP_V2 not in new and not RIGHTS_WEBP_ANY.search(new):
         raise RuntimeError("WebP dc:rights: 想定した文言が見つからない")
     new = new.replace(MARKED_LINE, "", 1)
     if "xmpRights:Marked" in new:
@@ -306,25 +328,28 @@ def update_mp3_rights_v2(path: Path, tcop_text: str = TCOP_V2, wcop_url: str = W
     return True
 
 
-def update_webp_rights_v3(path: Path) -> bool:
-    """dc:rights を ACD-1.3 の表示へ (2026-10-25・適用する版の切り替え)。RIFF chunk を再計算する。"""
+def update_webp_rights_applied(path: Path, acd: str) -> bool:
+    """dc:rights を適用中の版の表示へ (2026-10-25・適用する版の切り替え)。RIFF chunk を再計算する。"""
     data = path.read_bytes()
     xmp_pos = data.find(b"XMP ")
     xmp_size = struct.unpack("<I", data[xmp_pos + 4:xmp_pos + 8])[0]
     text = data[xmp_pos + 8:xmp_pos + 8 + xmp_size].decode("utf-8")
-    if RIGHTS_WEBP_V3 in text:
-        print("WebP v3: 既に ACD-1.3 表記 — skip")
+    target = rights_webp(acd)
+    if target in text:
+        print(f"WebP: 既に {acd} 表記 — skip")
         return False
-    if RIGHTS_WEBP_V2 not in text:
-        raise RuntimeError("WebP v3: 置き換え元 (v2 の文言) が見つからない")
-    new = text.replace(RIGHTS_WEBP_V2, RIGHTS_WEBP_V3, 1)
+    m = RIGHTS_WEBP_ANY.search(text)
+    source = m.group(0) if m else RIGHTS_WEBP_V2
+    if source not in text:
+        raise RuntimeError("WebP: 置き換え元の文言が見つからない")
+    new = text.replace(source, target, 1)
     payload = new.encode("utf-8")
     chunk = b"XMP " + struct.pack("<I", len(payload)) + payload + (b"\x00" if len(payload) % 2 else b"")
     old_total = 8 + xmp_size + (xmp_size % 2)
     out = data[:xmp_pos] + chunk + data[xmp_pos + old_total:]
     out = b"RIFF" + struct.pack("<I", len(out) - 8) + out[8:]
     path.write_bytes(out)
-    print(f"WebP v3: dc:rights を ACD-1.3 へ ({len(data)} -> {len(out)} bytes)")
+    print(f"WebP: dc:rights を {acd} へ ({len(data)} -> {len(out)} bytes)")
     return True
 
 
@@ -334,9 +359,10 @@ def main() -> int:
     changed |= update_mp3_tcop(MP3)
     changed |= update_webp_rights(WEBP)
     changed |= update_webp_rights_v2(WEBP)
-    # 2026-10-25: 適用する版を ACD-1.3 へ切り替えた。v3 が到達点。
-    changed |= update_webp_rights_v3(WEBP)
-    changed |= update_mp3_rights_v2(MP3, TCOP_V3, WCOP_V3)
+    # 到達点は LICENSE が宣言する版。
+    acd = applied_id()
+    changed |= update_webp_rights_applied(WEBP, acd)
+    changed |= update_mp3_rights_v2(MP3, tcop_text(acd), wcop_url(acd))
 
     if changed:
         # C6 A1 派生値: semantic 編集に伴う日付フィールドを同一 commit で同期する (Check 91)
