@@ -1,7 +1,7 @@
 ---
 file: .claude/skills/repo-status/SKILL.md
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-11-07
 canonical-ref: CLAUDE.md §7 / Check 80
 ---
 
