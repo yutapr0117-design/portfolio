@@ -164,7 +164,18 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 11.4 now says "the personal data, likeness, voice, or
       performance of a person other than the Dedicator", so that the limit
       reaches personal data as well. (-1 word.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5410 words, 80 clauses.
+    * Section 5.1 now excepts patent infringement from its second covenant,
+      which could otherwise have carried the covenant past the limit in
+      Section 8.4. (+7 words.)
+    * Section 8.3 now speaks of the patent claims that Sections 8.1 and 8.4
+      reach, where it spoke of any patent right in respect of the Work. (-2
+      words.)
+    * Section 8.4 now says that the feature results from the content of the
+      Work, where it said the use of the Work: for a method claim the step
+      is itself the use. (0 words.)
+    * Sections 8.6 and 11.4 now say which patent claims the Sections "reach",
+      where they said "described". (-1 word.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5414 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -412,8 +423,9 @@ PREAMBLE (informative; not part of the operative terms)
   5.1  The Dedicator covenants not to assert, and not to authorise or assist
        any other person to assert, any Covered Right against You in respect of
        any use of the Work, and further covenants not to assert against You any
-       claim or cause of action, whether now known or unknown, arising from or
-       relating to a use of the Work that this Dedication permits.
+       claim or cause of action, whether now known or unknown, other than for
+       patent infringement (Section 8), arising from or relating to a use of the
+       Work that this Dedication permits.
 
   5.2  The Dedicator further covenants that the Dedicator will not, in respect
        of the Work:
@@ -521,11 +533,11 @@ PREAMBLE (informative; not part of the operative terms)
        from a policy preference expressed here.
 
   8.3  Nothing in this Dedication reserves, preserves, or leaves unaffected any
-       patent right of the Dedicator in respect of the Work. A dedication that
-       gives away copyright while withholding patent rights leaves the
-       recipient exposed, because software cannot be practised without
-       practising whatever patent claims it embodies. Any reading of this
-       Dedication that would produce that result is to be rejected.
+       patent claim that Sections 8.1 and 8.4 reach. A dedication that gives
+       away copyright while withholding patent rights leaves the recipient
+       exposed, because software cannot be practised without practising
+       whatever patent claims it embodies. Any reading of this Dedication that
+       would produce that result is to be rejected.
 
   8.4  The Dedicator further grants You a licence on the terms of Section 8.1,
        under every patent claim owned or controlled by the Dedicator, now or in
@@ -545,9 +557,9 @@ PREAMBLE (informative; not part of the operative terms)
        matter contained in the Work, so importing that proviso would restore the
        exposure this Section exists to remove. This Section reaches a claim only
        where the feature that infringes it results, in whole or in part, from
-       the use of the Work; a feature that the Work teaches or embodies is taken
-       so to result. That is a question of causation and not of quantity: no
-       threshold of how much of the Work was used is imposed, since You could
+       the content of the Work; a feature that the Work teaches or embodies is
+       taken so to result. That is a question of causation and not of quantity:
+       no threshold of how much of the Work was used is imposed, since You could
        not determine whether one had been crossed (Section 6.5).
 
   8.5  Sections 8.1 to 8.4 are subject to Section 2.7: they reach only patent
@@ -559,9 +571,9 @@ PREAMBLE (informative; not part of the operative terms)
        incurring a payment to, another person.
 
   8.6  The Dedicator further covenants not to assert, and not to authorise or
-       assist any other person to assert, the patent claims described in
-       Sections 8.1 and 8.4 against You, in respect of any act that those
-       Sections describe. This covenant is given on the same footing as the
+       assist any other person to assert, against You the patent claims that
+       Sections 8.1 and 8.4 reach, in respect of any act that those Sections
+       describe. This covenant is given on the same footing as the
        covenant in Section 5 and does not wait for either licence to be held
        ineffective: it operates in every jurisdiction alongside them.
        Permission under the Covered Rights stands here on three footings,
@@ -645,7 +657,7 @@ PREAMBLE (informative; not part of the operative terms)
        You, and Section 10.1 is unaffected by it.
 
   11.4 This Dedication, in respect of the Work, reaches Covered Rights, the
-       patent claims described in Section 8, and Moral Rights to the extent
+       patent claims Section 8 reaches, and Moral Rights to the extent
        stated in Section 12. It reaches nothing else, save that the covenants
        in Section 5 are promises about the Dedicator's own conduct and are not
        limited by this sentence. It grants no permission under the law of data
