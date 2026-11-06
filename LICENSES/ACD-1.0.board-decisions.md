@@ -263,6 +263,8 @@ except for the names of the departments"* だった。**提出パケット §4b�
 
 **(3) CC0 が止まった理由は、議事録が述べている（2026-11-06 に足した）。** 2012-03-07 の License Committee の報告は *"Recommend disapprove, due to clause 4a"* と述べ、Chris DiBona 氏の *"I don't think that any new licenses should be approved unless they include patent clauses"* を載せる（`rounds/2012-03-07-osi-board-minutes-cc0-outcome-observed.txt`）。§8 はこの理由に直接当たる。**⚠ 逆側**: 同じ報告は学術の利用者について *"the patent exception is important to them"* と述べる。特許の除外を望む利用者が居たという記録である。
 
+**(4) 増殖の害は「行き止まり」で測られたことがある（2026-11-06 に足した）。** 2007-11-07 の議事録は、再ライセンスを許す SimPL について *"it does not create a licensing dead-end and thus does not exacerbate the negative aspects of licensing proliferation"* と述べ、それを承認の理由にしている（`rounds/2007-11-07-osi-board-minutes-simpl-dead-end-observed.txt`）。§4.5 は Work をどの条件でも出せるので、#84 の費用の側への答えになる。**⚠ 逆側**: 19 年前の 1 件で、SimPL の再ライセンス先は GPL に限られていた。2013-05-01 の議事録は *"we have no written rules about non-proliferation"* と述べていて、その後 2025 に理事会が重複の扱いを述べた（§2）。
+
 ## 8. 2005〜2026 の 36 回から出た決定（2026-09-20 取得）
 
 **動議は理由つきで記録されている。** ACD に当たるものを、有利・不利の両方で並べる。
