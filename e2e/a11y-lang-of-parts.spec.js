@@ -118,6 +118,8 @@ test('全ルートで英語だけの文に lang="en" が付く (WCAG 3.1.2)', as
 test('quiz の英語だけの塊に lang="en" が付く', async ({ page }) => {
   await page.goto('/#/quiz', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('#content h1', { hasText: '問題集' })).toBeVisible();
+  // 見出しは同期で描かれるが、問題は遅延読み込みのあとに描かれる (#1239)。待たずに読むと負荷の下で落ちる。
+  await expect(page.locator('[data-quiz-list] h2').first()).toBeVisible();
 
   const s = await page.evaluate(() => {
     const c = document.getElementById('content');
