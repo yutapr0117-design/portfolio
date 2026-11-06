@@ -84,7 +84,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | **承認阻害ボトルネックの一覧（canonical）** | [`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md) |
 | 「**外の答えを待っている項目は何か**」 | [`ACD-OSI-BOTTLENECKS-EXTERNAL.md`](ACD-OSI-BOTTLENECKS-EXTERNAL.md) —— 我々の作業では動かせない 8 項目（7 節）の深い分析（法的レビュー / 実使用 / 献呈と許諾の並存 / §4.4（起草は 1.1 で閉じ設計の問いが外部）/ 特許射程 / gap / SPDX / 主題適格 —— B1・B2・B4・B5・B7・B10・B11・B15。**2026-09-28 訂正**: 旧文は「7 項目」で B4 が列挙から落ちていた）。**索引と集計は上の register が canonical** |
 | 「**そもそも投稿できるのか**」 | [`ACD-OSI-BOTTLENECKS-POSTING.md`](ACD-OSI-BOTTLENECKS-POSTING.md) —— **B14 のみ**。2026-09-09 に OSI Moderators が両リストへ「AI が全部または大半を書いた投稿は拒否する」と投稿して以降の経過。**instrument の中身ではなく手続きの問題**なので 2026-09-25 に分離した。**行動（投稿停止・本文凍結・リスト上でこの件を論じない）はここが単一の所在である** |
-| 既知の反論が当たるか（**1 表・審査者が最初に読む**） | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) |
+| 既知の反論が当たるか（**英語・審査者が最初に読む**） | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) |
 | 審査者は主題について何と言っているか（人格権 / 特許 / 長さ / 構造 …） | [`ACD-1.0.reviewer-positions.md`](ACD-1.0.reviewer-positions.md) |
 | **審査の場がどう働き、誰がそこで書いているか**（pre-review としての `license-discuss` / 沈黙の比較 / 書き手の記録 / moderator が引いた CoC） | [`ACD-1.0.review-venue.md`](ACD-1.0.review-venue.md) —— `reviewer-positions.md` から 2026-09-24 に切り出した（§1.67 以降・節番号は不変） |
 | リストが我々の類型に付ける呼び名（「クレヨン」「vanity」）と、それが実際に指している害 | [`ACD-1.0.review-labels.md`](ACD-1.0.review-labels.md) |
