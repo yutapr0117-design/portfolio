@@ -50,6 +50,8 @@ python3 .github/scripts/prepare_version_freeze.py --report 1.4
 - AIO 層の編集は `aio-guardian` を通し、`update_aio_digests.py` を回す。
 - 凍結本文の 1 行目と状態の文は §0.13 の型に従う。Check 490 が照合する。
 
+`rehearse_version_freeze.py` が週次でこの道具を確定まで回す。残る RED の一覧を変えたら、同じ file の `EXPECTED` も合わせる。
+
 ## Change impact
 
 §0.13 の型を変えたら `frozen_header` を合わせる。記述子の形を変えたら `descriptor` を合わせる。

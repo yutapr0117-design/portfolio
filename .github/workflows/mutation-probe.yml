@@ -186,6 +186,27 @@ jobs:
           fi
           echo "working tree clean — 全 mutation が復元された"
 
+  # 確定の道具は確定の日にしか走らないので、形が変わって壊れても当日まで分からない。使い捨ての worktree で
+  # 確定まで回し、RED が人の読む一覧に収まることを週次で見る (2026-11-07)。
+  freeze-rehearsal:
+    name: Version freeze rehearsal
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+
+      - name: Install PyYAML (Check 23 needs it)
+        run: python3 -m pip install --disable-pip-version-check 'pyyaml==6.0.2'
+
+      - name: Rehearse the freeze
+        run: python3 .github/scripts/rehearse_version_freeze.py
+
   # ────────────────────────────────────────────────────────────────────────────
   # report: 定期実行が success 以外 (failure / cancelled) で終わったら Issue で知らせる。
   #
@@ -199,8 +220,8 @@ jobs:
   # 手動実行 (workflow_dispatch) は起動した本人が結果を見ているので対象外。
   report:
     name: Report scheduled failure as an Issue
-    needs: [consistency, behavior]
-    if: ${{ always() && github.event_name == 'schedule' && (needs.consistency.result != 'success' || needs.behavior.result != 'success') }}
+    needs: [consistency, behavior, freeze-rehearsal]
+    if: ${{ always() && github.event_name == 'schedule' && (needs.consistency.result != 'success' || needs.behavior.result != 'success' || needs.freeze-rehearsal.result != 'success') }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
@@ -211,13 +232,14 @@ jobs:
         env:
           CONSISTENCY: ${{ needs.consistency.result }}
           BEHAVIOR: ${{ needs.behavior.result }}
+          FREEZE_REHEARSAL: ${{ needs.freeze-rehearsal.result }}
         with:
           script: |
             const title = '週次 mutation-probe が success 以外で終わった（安全網の自己検証）';
             const url = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
             const body = [
               `run: ${url}`,
-              `consistency: ${process.env.CONSISTENCY} / behavior: ${process.env.BEHAVIOR}`,
+              `consistency: ${process.env.CONSISTENCY} / behavior: ${process.env.BEHAVIOR} / freeze rehearsal: ${process.env.FREEZE_REHEARSAL}`,
               '',
               'SURVIVED / MISATTRIBUTED / CRASHED / cancelled のどれかが起きている。',
               'ログの「SURVIVED:」「MISATTRIBUTED」行から mutation 名を拾い、ローカルで',
