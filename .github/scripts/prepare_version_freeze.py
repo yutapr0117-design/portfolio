@@ -237,7 +237,8 @@ def main() -> int:
     for new, src in ((f"ACD-{v}.txt", f"ACD-{prev}.txt"), (f"ACD-{v}.machine.json", f"ACD-{prev}.machine.json"),
                      (f"ACD-{v}.spdx.xml", "ACD-1.0.spdx.xml"),
                      (f"ACD-{nxt}-DRAFT.txt", f"ACD-{v}-DRAFT.txt"), (f"ACD-{nxt}-CHANGELIST.md", f"ACD-{v}-CHANGELIST.md")):
-        (MIRROR / f"{new}.md").write_text((MIRROR / f"{src}.md").read_text(encoding="utf-8").replace(src, new), encoding="utf-8")
+        text = (MIRROR / f"{src}.md").read_text(encoding="utf-8").replace(src, new)
+        (MIRROR / f"{new}.md").write_text(text.replace(f"ACD-{v}-DRAFT.txt", f"ACD-{nxt}-DRAFT.txt"), encoding="utf-8")
     index = L / "README.md"
     rows = index.read_text(encoding="utf-8").replace(f"[`ACD-{v}-DRAFT.txt`](ACD-{v}-DRAFT.txt) |", f"[`ACD-{nxt}-DRAFT.txt`](ACD-{nxt}-DRAFT.txt) |", 1)
     row = f"| **次版に反映するものの集約点（{v}）** | [`ACD-{v}-CHANGELIST.md`](ACD-{v}-CHANGELIST.md) |\n"

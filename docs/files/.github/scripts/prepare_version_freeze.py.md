@@ -27,10 +27,11 @@ python3 .github/scripts/prepare_version_freeze.py --date 2026-11-13
 | :-- | :-- |
 | Check 121 | `npm run status` |
 | Check 91 | `python3 .github/scripts/update_aio_digests.py` |
-| Check 472c / 460 (q) | REVIEWERS.md の凍結件数と検証コマンドの期待値 |
+| Check 472c / 460 (q) | REVIEWERS.md と `ACD-1.0.errata.md` の凍結件数と検証コマンドの期待値。コマンドを実際に走らせ、REVIEWERS.md の再実行の日付も直す |
 | Check 472h | QUESTIONS-FOR-COUNSEL.md の基準の版 |
 | Check 468 (468k / 468t) | 「いまの作業場」の行と frontmatter の canonical-ref。文ごとに読んで直す |
 | Check 362 | REVIEWERS.md と QUESTIONS-FOR-COUNSEL.md を直すと解ける |
+| Check 413 (ADVISORY) | runbook §9 の追跡ファイル数を実測へ |
 
 ## Constraints
 
