@@ -375,6 +375,7 @@ open だった理由が 4 件とも違った。** 宣言ではなく errata の�
 > **1 行目は `ACD-<版> -- FROZEN TEXT.` だけにし**（Check 453b と 468 は `FROZEN TEXT` の語を見る）、箇条書きの法的レビューと提出の文を次の 1 件へ置き換える: *"On the date this text was fixed (<date>), it had had no legal review, it had not been submitted to OSI license-review, and it was not on the SPDX License List. A frozen text cannot be updated, so this line describes that date only; LICENSES/FROZEN.md records what has happened since."*
 > **文を外して `FROZEN.md` を指すだけにしない。** 法的レビューが無いことは最大の弱点で（B1）、審査者が開く file で先に言う開示である。日付を付ければ、後から弁護士が読んでも申請しても真のままなので、開示と凍結は両立する。**⚠ 逆側**: 日付つきの文は「今はどうか」を答えないので、読み手は `FROZEN.md` まで行く必要がある。
 > 凍結済みの 1.1〜1.3 は申請しない版なので、現在形のまま真である。
+> **同じヘッダへもう 1 行足す（2026-11-06・25）**: *"Everything above the line below describes this file. It is not part of the Dedication (Section 1.1), and a copy may leave it out."* 採用者は本文の file を自分のリポジトリへ写す（`submission-reference.md` の *"A falsifiable test"* がその手順である）。1.1 以降のヘッダは `LICENSES/FROZEN.md` などこのリポジトリの path を述べるので、写した先では指す先の無い文になる。§1.1 は Dedication を Sections 1 to 16 と定義するので、ヘッダを外した複製は §16.4 の改変ではない。本文がそう言わなければ、採用者はそれを自分で読み解くしかない。
 
 **版に紐づく Check が 2 種類ある。** **確定の瞬間に、片方は古い版を、もう片方は消えた file を指す。**
 
