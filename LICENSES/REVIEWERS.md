@@ -39,11 +39,10 @@ decide what is worth translating, and gives you the commands to check the claims
 
 - **What it is.** A dedication of copyright and neighbouring rights to the public, **plus a
   licence granted independently of it** (§4.4), for works meant to be learned from. One file,
-  16 sections, no placeholders in the clauses (the one blank, in §16.1's notice template, goes
-  in the adopter's own notice).
-- **Why it should be approved.** It imposes no condition of any kind (§10.1), so the grounds on
-  which most submissions fail, conditions, field limits and discrimination, have nothing to attach
-  to. Each of the eight published criteria for new licences has an answer in the text, set out
+  16 sections.
+- **Why it should be approved.** It imposes no condition of any kind (§10.1), so one of the two
+  grounds on which submissions have failed, conditions, field limits and discrimination, has
+  nothing to attach to. The other, loose drafting, is the one the drafts keep closing. Each of the eight published criteria for new licences has an answer in the text, set out
   item by item below, and it fills a gap the approved list leaves open.
 - **The gap it claims, in one sentence.** **No OSI-approved instrument grants all three of these
   at once**: (i) a **patent licence that survives the transformation of the work into a model** and
@@ -176,6 +175,19 @@ enough is yours to judge.
 | *"possible to comply with the license on submission"* | There is nothing to comply with (§10.1) |
 | *"fill a gap that currently existing licenses do not fill"* | §8.4 and §8.2: see "In one screen" above |
 | *"complete license"* | One file, no external references, no overlay |
+
+**What the record already says in its favour.** These are quoted from the lists and the Board's
+minutes. None of them binds anyone: *"Approval of a license with the same or similar terms in the
+past does not bind the OSI"*, and a list message is its author's own view.
+
+| On this point | What was said | Where it meets ACD |
+|---|---|---|
+| A dedication with a licence beside it | Carlo Piana, 2024-12-18: *"I have nothing against using a PD dedication and a license by way of backstop"*, *"I actually advise to use both in the admittedly rare case I am asked."* McCoy Smith, same day: having both is *"not necessarily fatal"* if the relation is stated clearly | §3 and §4, and §4.4 states the relation |
+| Refusal | The Board, 2025-07-18: *"a license should be rejected only if it violates the OSD"* | It has not been said to violate the OSD. The same minutes allow a licence to stay unapproved (see `ACD-1.0.objection-map.md`) |
+| Legal review | Pamela Chestek as chair, 2024-12-18: *"we do not require review by a lawyer, only recommend it. That is not a blocker."* Carlo Piana, who had written the opposite that morning, withdrew it the same day: *"bad choice of words on my side"* | It is still our largest weakness, and the Unlicense did pass with lawyers' agreement |
+| No governing-law clause | The Board, approving the Open Logistics License in 2023: *"it does not believe that choice of law provisions are necessary or advisable in open source licenses"* | §15.7 names no law (§15.3 from 1.1) |
+| Vanity | The Board, 2007: *"does not give that argument much weight as long as the license is reusable"* | §16.3, and the commands below |
+| AI and ML | The Board, 2025-07-18: *"When licenses aimed at AI/ML projects are approved"*, and such a licence is reviewed against the OSD and the standard criteria | ACD is reviewed on those terms |
 
 **What we cannot fix.** No lawyer has read this licence, and none has been
 engaged ([`against.md`](ACD-1.0.against.md) #1). The step that resolved the closest precedent —

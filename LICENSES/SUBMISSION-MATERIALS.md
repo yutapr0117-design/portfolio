@@ -88,6 +88,8 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 4. **献呈が無効でも許諾が立つことを、本文が述べる。** Unlicense は 2020 年に、この議論がリストで述べられ、意見を述べた弁護士の一致を経て通った（#270）。ACD では §4.4 が同じことを本文で述べるので、受領者も裁判所も推論しなくてよい。弁護士の一致はまだ無い（B1）。
 5. **誰でも本文を変えずに使える。** §16.3 がそう述べ、§16.1 の通知の 1 欄のほかに書き換える箇所は無い。vanity の異議について理事会は *"does not give that argument much weight as long as the license is reusable"* と述べている（2007・`review-doctrine.md`）。
 
+**審査記録の中の追い風は 6 点ある。** Piana 氏の *"I actually advise to use both"*（献呈と許諾）、理事会の *"a license should be rejected only if it violates the OSD"*、委員長の *"That is not a blocker"*、理事会の準拠法条項についての言葉、vanity についての言葉、AI/ML についての言葉で、逐語と出典は `REVIEWERS.md` の "What the record already says in its favour" に在る。過去の発言は誰も拘束しない。
+
 ### OSD 10 条
 
 | OSD | この条によって満たす | 残る問い |
@@ -120,7 +122,7 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 
 基準 4 と基準 7 は判断そのものが審査者にある。基準 1〜3 の問いは上の表の形で答えられる。本文の外に足りないものが 2 つある。
 
-- **法的レビュー（B1）**: 1 人でも読めば「無い」を「ある」に変えられる。`QUESTIONS-FOR-COUNSEL.md` がその費用を下げる。手続き上の要件ではなく、Chestek 氏は 2024-12 に *not a blocker* と述べた（`review-precedents.md`）。Piana 氏は個人として逆を述べ、献呈 + 許諾の先例は弁護士の一致で通った（#270）ので、あれば強い。
+- **法的レビュー（B1）**: 1 人でも読めば「無い」を「ある」に変えられる。`QUESTIONS-FOR-COUNSEL.md` がその費用を下げる。手続き上の要件ではなく、Chestek 氏は 2024-12 に *not a blocker* と述べた（`review-precedents.md`）。同じスレッドで逆を述べた Piana 氏は同じ日に撤回した（#127）。献呈 + 許諾の先例は弁護士の一致で通った（#270）ので、あれば強い。
 - **第三者の採用（B2）**: 理事会は重複し使われていないものを留め置きうると述べた。答えは、gap により重複でないことを示すことと、`ADOPTING.md` で見つけてもらえるようにすることである。採用の捏造はしない。
 
 ## 2. 先に自分から名指すと良い反論（審査者が見つける前に）
