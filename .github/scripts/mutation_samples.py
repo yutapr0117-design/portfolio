@@ -533,6 +533,13 @@ _MUTATIONS_TAIL.append({
     "replace": "whether now known or unknown, arising",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 489b: measure_patent_reach.py の全数の検査を外す —— 欠けた本を飛ばしたまま 0 を出す 2026-11-06 以前の形",
+    "file": ROOT / ".github" / "scripts" / "measure_patent_reach.py",
+    "find": "    if not verify_sources(meta, rows):\n        return 2\n",
+    "replace": "",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

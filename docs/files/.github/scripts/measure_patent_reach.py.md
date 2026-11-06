@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/measure_patent_reach.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-11-04
+last-updated: 2026-11-06
 canonical-ref: LICENSES/ACD-1.0.gap-measurements.md (§1.133・B10 の立証) / LICENSES/ACD-1.0.gap-census.md (範囲の分類) / .github/scripts/generate_gap_census.py (原文の取得)
 ---
 
@@ -32,6 +32,7 @@ python3 .github/scripts/measure_patent_reach.py
 - **分類（S1 / S2 / S3）は census の読みの判定で、この道具は検証しない。** S1 の本が実はモデルに届くと読めるなら、結論は変わりうる（§1.133「確立しないこと 2」）。
 - 条件・終了の検出は正規表現で、見つけた文を示すまで。見つからないことは「無い」の証明ではない。条件は notice 等の具体的な義務を優先して探す（汎用の "you must" を先にすると BlueOak の受諾の文を拾った）。
 - 法的な効果も、OSI の判断も測らない。
+- **全数が揃わなければ結論を出さない**（2026-11-06・別の AI の patch の指摘をオーナーが渡した）。原文の欠落、取得の失敗、取得時の sha256 との不一致、census の sha256 との不一致のどれでも exit 2 で止まる。それまでは欠けた本を黙って飛ばし、最後の 0 が完全に見えた。Check 489b が空のキャッシュで確かめる。**SPDX の一覧が census の後に動くと止まる**ので、そのときは `generate_gap_census.py` で census を作り直す。
 
 ## Change impact
 
