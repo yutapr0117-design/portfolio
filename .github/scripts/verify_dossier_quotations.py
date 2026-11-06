@@ -20,6 +20,8 @@ CLAUDE.md §7 が *「自動監視は CI に入れない（外部フォーラム
     DOSSIER_ARCHIVE_CACHE=<同上> python3 .github/scripts/verify_dossier_quotations.py --fetch
     # 未確認を全件出す（既定は上位 15 件）:
     DOSSIER_ALL=1 DOSSIER_ARCHIVE_CACHE=<同上> python3 ...
+    # 入口の面の引用を全 corpus に当てて manifest を更新する (Check 472n が読む):
+    DOSSIER_ARCHIVE_CACHE=<同上> python3 .github/scripts/verify_dossier_quotations.py --record-entry
     # OSI のサイトの取得物も照合先にする:
     DOSSIER_EXTRA_SOURCES=~/osi-fetch/fetch DOSSIER_ARCHIVE_CACHE=<同上> python3 ...
 
@@ -40,6 +42,7 @@ CLAUDE.md §7 が *「自動監視は CI に入れない（外部フォーラム
 import argparse
 import collections
 import glob
+import hashlib
 import html
 import json
 import os
@@ -53,6 +56,7 @@ UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
 MONTHS = ["January", "February", "March", "April", "May", "June",
           "July", "August", "September", "October", "November", "December"]
 CACHE = os.environ.get("DOSSIER_ARCHIVE_CACHE", "/tmp/arc")
+ENTRY_MANIFEST = ".github/scripts/entry_quotes_verified.txt"
 # 帰属を示す手掛かり。**名前で絞るのは下限であって全数調査ではない** (#87) が、
 # 「外部に帰属させた引用」を取り出す目的にはこれで足りる。
 NAME = re.compile(r"(Smith|Chestek|Fontana|Villa|Landley|Piana|Berkus|Perens|Sado|Dolan"
@@ -80,8 +84,8 @@ def norm(text):
     return " ".join(re.sub(r"[^A-Za-z0-9]+", " ", text.lower()).split())
 
 
-def load_sources(root="."):
-    """照合先: rounds/ の一次資料 + 本文 + 取得済みアーカイブ。"""
+def load_sources(root=".", cache=True):
+    """照合先: rounds/ の一次資料 + 本文 + 取得済みアーカイブ。cache=False は CI が持つ分だけを読む。"""
     out = []
     # **2026-11-01 是正 (portfolio-bb の報告から)**: (a) 本文は 1.0 / 1.1 だけを読んでいたので、
     #   1.2 以降の凍結版と現行草案の逐語引用が「未確認」に数えられていた —— 版は glob で導出する。
@@ -90,13 +94,13 @@ def load_sources(root="."):
     #   連結してから読む (無改変保存の規約は bytes の分割であって、連結すれば原文に戻る)。
     # OSI のサイトやイベント頁の取得物はアーカイブに無い。DOSSIER_EXTRA_SOURCES (":" 区切りの dir) で足す。
     #   タグを落として読むので、JSON と HTML の両方で語の並びが残る。
-    for _dir in filter(None, os.environ.get("DOSSIER_EXTRA_SOURCES", "").split(":")):
+    for _dir in filter(None, os.environ.get("DOSSIER_EXTRA_SOURCES", "").split(":") if cache else []):
         for _dp, _dn, _fn in os.walk(_dir):
             for _f in _fn:
                 if _f != "MANIFEST.md":
                     with open(os.path.join(_dp, _f), encoding="utf-8", errors="replace") as _h:
                         out.append(norm(html.unescape(re.sub(r"<[^>]+>", " ", _h.read().replace("\\u2019", "'")))))
-    pats = [f"{CACHE}/*.txt", f"{root}/LICENSES/ACD-*.txt", f"{root}/LICENSE"]
+    pats = ([f"{CACHE}/*.txt"] if cache else []) + [f"{root}/LICENSES/ACD-*.txt", f"{root}/LICENSE"]
     for pat in pats:
         for f in sorted(glob.glob(pat)):
             try:
@@ -296,6 +300,56 @@ def fetch(months, limit=200):
     return got
 
 
+def entry_quotes(root="."):
+    """審査者と採用者が最初に読む面の斜体の引用を {引用: 最初の場所} で返す。話者名の条件は付けない。"""
+    from measure_citation_drift import FACES, FIRST_READ
+
+    found = {}
+    for face in (f for f in FACES if FIRST_READ.search(f)):
+        with open(f"{root}/LICENSES/{face}", encoding="utf-8") as fh:
+            for n, line in enumerate(fh, 1):
+                for raw in re.findall(r'\*"([^"\n]{12,})"\*', line):
+                    q = re.sub(r"[*`]", "", raw)
+                    if len(q.split()) >= 3 and not re.search(r"[ぁ-んァ-ヶ一-龠]", q):
+                        found.setdefault(q, f"{face}:{n}")
+    return found
+
+
+def entry_key(quote):
+    return hashlib.sha256(norm(quote).encode("utf-8")).hexdigest()[:16]
+
+
+def read_entry_manifest(root="."):
+    """確認済みの引用の hash と、我々自身の文 (`own: `) の集合を返す。"""
+    keys, own = set(), set()
+    with open(f"{root}/{ENTRY_MANIFEST}", encoding="utf-8") as fh:
+        for line in fh:
+            if line.startswith("own: "):
+                own.add(norm(line[5:]))
+            elif line.strip() and not line.startswith("#"):
+                keys.add(line.strip())
+    return keys, own
+
+
+def record_entry(root="."):
+    """入口の引用を全 corpus に当て、確認できたものの hash を manifest へ書く。`own: ` の行は手で足して残す。"""
+    blob = load_sources(root)
+    _, own = read_entry_manifest(root)
+    with open(f"{root}/{ENTRY_MANIFEST}", encoding="utf-8") as fh:
+        head = [ln for ln in fh if ln.startswith(("#", "own: "))]
+    quotes = entry_quotes(root)
+    good = sorted({entry_key(q) for q in quotes if norm(q) not in own and present(q, blob)})
+    bad = {q: [loc] for q, loc in quotes.items() if norm(q) not in own and not present(q, blob)}
+    with open(f"{root}/{ENTRY_MANIFEST}", "w", encoding="utf-8") as fh:
+        fh.write("".join(head) + "\n".join(good) + "\n")
+    print(f"入口の引用 {len(quotes)} 件: 確認 {len(good)} / 我々の文 {len(own)} / 確認できない {len(bad)}")
+    for q, locs in bad.items():
+        print(f"  [{locs[0]}] {q[:110]}")
+    for score, loc, seg in near_misses(bad, blob):
+        print(f"  前後が一致 {score:.2f} [{loc}] {seg[:100]}")
+    return 1 if bad else 0
+
+
 def near_misses(miss, blob):
     """未確認のうち、断片の先頭か末尾の 5 語以上が原文に在るものを返す。
 
@@ -323,7 +377,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--fetch", action="store_true", help="不足月をアーカイブから取得する")
     ap.add_argument("--root", default=".")
+    ap.add_argument("--record-entry", action="store_true", help="入口の引用を全 corpus に当てて manifest を更新する")
     args = ap.parse_args()
+    if args.record_entry:
+        return record_entry(args.root)
 
     quotes = collect_quotes(args.root)
     blob = load_sources(args.root)

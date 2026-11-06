@@ -35,6 +35,8 @@ python3 .github/scripts/verify_dossier_quotations.py --fetch   # 不足月を導
 
 `DOSSIER_EXTRA_SOURCES` に `:` 区切りの dir を渡すと、OSI のサイトやイベント頁の取得物も照合先になる。HTML のタグを落として読む。
 
+`--record-entry` は入口の面の斜体の引用を全 corpus に当て、確認できたものの hash を `entry_quotes_verified.txt` へ書く。Check 472n がそれを読む。
+
 ## Constraints
 
 - **CI に入れない（意図的）。** 検証に外部アーカイブの取得が要り、CLAUDE.md §7 が

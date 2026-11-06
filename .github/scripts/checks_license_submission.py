@@ -97,7 +97,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        提出対象と一致すること。
        **(472l・2026-11-06)** 入口ページと申請日の 1 枚が OSI の FAQ として引く文が、`rounds/` の FAQ の本文に在ること。
        承認されるべき理由の先頭に置いた出典なので、語を読みやすく動かすと審査者が最初に確かめて落ちる。
-       **(472m・2026-11-07)** 入口の短い経路の表の objection-map の語数と合計が実物に合うこと (`checks_license_references.py`)。
+       **(472m / 472n・2026-11-07)** 入口の表の語数が実物に合うこと / 入口の引用が原文で確かめられていること (`checks_license_references.py`)。
        **(472k・2026-11-06)** `objection-map.md` が引く §2〜§16 の条が提出対象に在ること。472 はどれかの版に在る番号しか
        見ないので、どの版にも無い番号は黙って通っていた。§1.x はドシエの節と同じ形なので対象外。
        **(472j・2026-11-06)** `ADOPTING.md` の "the same in every version" の主張。引く条が凍結版すべてと草案に在ること。
