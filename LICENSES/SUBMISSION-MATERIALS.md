@@ -101,7 +101,7 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 | 5 個人・団体の差別 | §4.3 は *"on any restriction as to persons, groups, technologies, endeavours, or jurisdictions"* を条件にしないと述べる。You の定義に除外は無い | 法域で結果が変わる条を差別と読む発言がある（#100）。§12.2 は許可がその問いに依存しないと述べる |
 | 6 利用分野の差別 | §4.1 は *"for any purpose whatsoever"*、§4.3 は *"on field of use"* を条件にしないと述べる | §6 が分野を名指すが、許可の方向だけである |
 | 7 ライセンスの配布 | §2.3 は *"takes effect without any act of acceptance by You"*、§4.6 は下流の受領者が *"is You in their own right"* と述べる。§8 の特許許諾も同じ You へ与える | §10.2 により通知が外れた複製の受領者は、権利はあるが知らないことがある（意図した設計・費用は `against.md` に記録）|
-| 8 製品に特定されない | §2.1 は *"to every separable part of it"* に及ぶと述べ、許可は配布の形に依存しない | 無し |
+| 8 製品に特定されない | Work は適用された素材で配布物ではなく（§1.3）、§2.1 は *"to every separable part of it"* に及ぶと述べ、受け取った人は自分の立場で You である（§4.6）。許可は配布の形に依存しない | 無し |
 | 9 他のソフトウェアを制限しない | §10.1 は *"imposes no condition, obligation, restriction, or requirement upon You in respect of the Work"* と述べ、同梱物には何も求めない | 無し |
 | 10 技術中立 | §2.3 は受諾の行為を求めず、§5.2(b) は *"click-through"* による条件も否定する。許可は技術に依存しない | §6 が機械学習を名指すが、§4.1 の許諾はそれに依存しない |
 
