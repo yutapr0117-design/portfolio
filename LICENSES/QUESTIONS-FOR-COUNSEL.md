@@ -72,7 +72,7 @@ claims infringed by Computational Use or by making or using *"any model, paramet
 embedding, or output resulting from that use"*, limited to claims *"whose infringement depends upon
 the use of the Work"* — *"a question of causation and not of quantity"*. The 1.4 draft replaces
 that limit (2026-11-04): a claim is reached only where *"the feature that infringes it results, in
-whole or in part, from the use of the Work"*, and *"a feature that the Work teaches or embodies is
+whole or in part, from the content of the Work"*, and *"a feature that the Work teaches or embodies is
 taken so to result"*. §8.2 makes both unconditional and non-terminable; §8.6 adds a covenant not to assert. In ACD-1.3 the covenant
 arises where a licence is held ineffective; the 1.4 draft makes it operate alongside the licences
 in every jurisdiction (2026-11-01), because a covenant that arises only on a holding does not
@@ -156,6 +156,10 @@ the misrepresentation §11.3 excludes, which is not "a use … that this Dedicat
 **Why we doubt it.** The reading needs three clauses read together, and "relating to" is broad.
 If a court read §5.1 as releasing trademark claims against distributions of the Work, a Dedicator
 with a mark could be said to have licensed it without control.
+
+The 1.4 draft excepts patent infringement from this covenant (2026-11-06): in 1.2 and 1.3 the words
+can be read to bar a patent claim that §8.4 does not license, because the use is permitted as to
+the Covered Rights.
 
 **An answer would change** whether §5.1 should say expressly that Section 11 is unaffected.
 

@@ -113,3 +113,54 @@ T6 は反例なし（出力が Work に取り込まれれば §9 が自分の条
   - After: *"the personal data, likeness, voice, or performance of a person other than the Dedicator"*
 
 **見て残したもの**: §8.1 の *"where the infringement is caused by …"* は読点のあとだが両方の動作に掛かるのが意図で、そう読める。§2.6 の *"and that material is included with the Work"* は 2 つの場合の両方に掛かる。長い文の分割（§2.6・§5.3）は語が変わらず得るものが小さいので試作しなかった。
+
+## 13. §8.2・§8.4・§8.6 を合わせて読む —— 特許の射程を別の条が素通りしていないか（2026-11-06・25）
+
+**きっかけ**: オーナーが共有した別の AI の見解（オーナーの指示ではない）が、§8 の条を合わせて敵対的に読むことを挙げた。行為の類型と比較は `ACD-1.0.gap-measurements.md` §1.135 にある。ここは本文の分岐を置く。レンズは §9 と同じで、§15.1 が広い側へ解決する読みである。
+
+### 13.1 T10: §5.1 の第 2 肢が特許の請求まで不行使にする読み（+7 語）
+
+**Before**: *"… and further covenants not to assert against You any claim or cause of action, whether now known or unknown, arising from or relating to a use of the Work that this Dedication permits."*
+**After**: *"… whether now known or unknown, other than for patent infringement (Section 8), arising from or relating to a use of the Work that this Dedication permits."*
+
+**欠陥**: 1.2 が #272 を閉じるために足した肢で、1.3 の点検は商標だけを当てた（`ACD-1.3-CHANGELIST.md`）。§1.5 が除く権利のうち特許は当てていなかった。学習は Covered Rights の面で許されているので、「この Dedication が許す利用」を利用の単位で読むと、Dedicator の特許請求も「許された利用に関する請求」になる。§1.7 はモデルの製造・頒布・使用も Computational Use に含めるので、販売まで届く。§15.1 はこの読みを選びうる。**すると §8.4 の因果の限定は約束の側から素通りされ、E15 の害が全部戻る。** 条文の中の反対の支えは §8.6 の *"the second footing it would otherwise lack"* で、§5 は特許の約束ではないと読める。読みは決まらないので語で閉じる。
+
+### 13.2 T11: §8.4 の方法の請求項（0 語）
+
+**Before**: *"… the feature that infringes it results, in whole or in part, from the use of the Work; a feature that the Work teaches or embodies is taken so to result."*
+**After**: *"… results, in whole or in part, from the content of the Work; a feature …"*
+
+**欠陥（bb の問い）**: 方法の請求項では、工程は Work の処理そのものなので「使用から生じた」と同語反復に読める。§9.7 の表は K4 / P を「Work が教えるか具えるときだけ」と書いたが、文がそれを保証していなかった。Dedicator の学習手法の特許が、Work を 1 件混ぜた学習に及ぶ読みが残る。25 の初案は *", and not only from the manner of that use"*（+9 語）で、bb が *use* を *content* に替える 0 語の案を出した。K1 ✓・K2 ✓・K3 ✗・K4 ✗・K5 ✗・K6 ✗ で §9.7 の表と一致し、Work が実行されるコードで工程がその動作である場面は *embodies* が受ける。
+
+### 13.3 T12: §8.6 と §11.4 の *described*（0 語・−1 語）
+
+**Before**: §8.6 *"… the patent claims described in Sections 8.1 and 8.4 against You, in respect of any act …"* / §11.4 *"the patent claims described in Section 8"*
+**After**: §8.6 *"… against You the patent claims that Sections 8.1 and 8.4 reach, in respect of any act …"* / §11.4 *"the patent claims Section 8 reaches"*
+
+**欠陥**: *described* を §8.4 の第 1 文だけと読むと、約束が許諾より広くなる（§9.5 の逆側 (iv) で 5a が触れていた）。§8.4 と §6.1 は *reach* と書く。
+
+### 13.3b T13: §8.3 第 1 文（−2 語・5a の抽出）
+
+**Before**: *"Nothing in this Dedication reserves, preserves, or leaves unaffected any patent right of the Dedicator in respect of the Work."*
+**After**: *"… any patent claim that Sections 8.1 and 8.4 reach."*
+
+**欠陥**: §8.4 が外す請求項も「Work についての特許権」と読め、末文の *"Any reading … is to be rejected"* と §15.1 が限定を押し戻す。第 2・3 文は Work が具える請求項の話なので、第 1 文だけが広い。
+
+### 13.4 修正の前後
+
+| | Before（§15.1 の読み）| After |
+|---|---|---|
+| 受領者 | K3 / K4 / K5 も約束で守られる読みがある。ただし §8.4 と食い違うので依拠しにくい | K1 / K2 / K7 と、Work が教えるか具える手法は守られる。K3 / K4 / K5 は守られない |
+| 特許保有者 | Work を 1 件混ぜた学習と、その成果物の販売に、特許全体を主張できない読みがある | 著作物が教えるか具えるものと、使用から生じた特徴だけが負担である |
+| 1.3 との関係 | | 第 2 肢を持つ 1.2・1.3 は凍結のまま広い読みを残す。文が 1.0 に無いので errata ではなく `ACD-1.1-SELF-AUDIT.md` の型である |
+
+### 13.5 見て残したもの（5a の敵対読みを含む）
+
+- **§8.3 の語**: bb の案は文頭に *"Within the reach of Sections 8.1 and 8.4,"*（+8 語）で、25 の案（−2 語）と効果は同じなので短い方を採った。
+- **§6.4 の *"You owe nothing"***: §8.4 が *"Section 6.4 alone would leave Computational Use permitted as to the Covered Rights while exposed as to patents"* と述べるので、§6.4 は特許に届かないと本文が答えている。
+- **§9.2 の *"asserts no right in Machine-Generated Material"***（5a）: Covered Rights に限られていないが、宣言の文で約束ではなく、特許は素材の中の権利でもないので残す。
+- ***in part* と閾値なしの合算**（5a）: 学習した特徴はどれも一部は Work から生じたと読める。*in part* を外すと 2 つのデータが各々十分な原因である場面で受領者が外れる。同じ語の表裏なので文を動かさず、費用として B7 に書く。
+- **判定の難しさ**（5a）: §8.4 は閾値を判定できないと述べるが、学習した特徴の因果も判定しにくい。*teaches or embodies* に入らない特徴の保護は薄い。問 2 の領分である。
+- **A + B + C の請求項**（5a）: どれが「侵害する特徴」かに 2 通りの読みがある。想定問答は要素の 1 つを Work が供給すれば及ぶと述べている。設計で、費用は B7。
+- **§2.8 の *"a patent claim in the Work"***（5a）: §8.4 の請求項より狭く読めるが、同じ文の *assigns* と、§11.4 の同じ句が受ける。
+- **モデルを組み込んだ装置の組み合わせの請求項**（5a）: §8.4 は装置を名指さないので外れる。受領者の費用である。
