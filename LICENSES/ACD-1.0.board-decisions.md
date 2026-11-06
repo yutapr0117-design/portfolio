@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.board-decisions.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-review participants / 監査人
-last-updated: 2026-11-06
+last-updated: 2026-11-07
 canonical-ref: LICENSES/rounds/2026-09-13-osi-board-meeting-minutes-2025-06-to-2026-06.txt (逐語の一次資料) / LICENSES/ACD-1.0.review-corpus.md (アーカイブ全体の測定) / LICENSES/ACD-OSI-BOTTLENECKS.md (B2 / B10)
 ---
 
@@ -63,7 +63,7 @@ the minutes here, check the wiki"* と述べ、**索引に並ぶ最古が 2025-0
 **これは我々のドシエが持っていなかった状態である** ——§1.68 / §1.69 の分布は**承認 / 否決の 2 値**で、
 **「否決もされないまま承認されない」は数えられていない。** そして
 **duplicative（#84「なぜもう一つ PD 等価を？」）** と **not used by a project（B2 = 採用 1 件）**の
-**両方が我々に当たる。**
+**両方が我々に当たる。** **（2026-11-07: 「not used」の読みは §2c で訂正した。）**
 
 **この 3 文は、同時に 1 つの天井を弱める** ——§1.67 は
 *"consensus … even where they cannot identify a specific aspect of the OSD … that is not met"* を
@@ -151,6 +151,61 @@ submitted**"*。**取り下げは、手続きが想定している通常の一�
 30 日・初回から 60 日を下回らない / 委員は *"two months from your **final** submission"*）、
 **process ページは「何度も取り下げて出し直すな、変更はまとめて 1 回で」と明文で戒めている。**
 **安いのは「退けること」であって「何度も退くこと」ではない。**
+
+### 2c. 委員会はこの留め置きを実際に使い、解く条件を 1 文で述べている（2025-09-11・2026-11-07 に読んだ）
+
+理事会の答えの 55 日後に、License Committee は Tiwaz License v1.0 についてこう決めた（Josh Berkus 氏が
+*OSI Board Member* として報告・`rounds/2025-09-11-license-review-tiwaz-committee-deferral-observed.txt`）:
+
+> *"The License Committee has voted to \*defer\* any recommendation of the Tiwaz license, because it is
+> a close variant of an existing license, and there have been no demonstrated uses or planned uses of
+> the license. Should one or more projects begin using this license or express an interest in doing
+> so, please share that information here and we will remove the hold and submit our recommendation to
+> the Board."*
+
+`license-review` の全期間で、委員会の決定を告げた文を探した範囲では、保留はこの 1 件である。
+我々は 2026-09-08 に Tiwaz を「読了」と記録したが、読んだ窓は 7 月までで、この 1 通は窓の外だった（#285）。
+
+**分かること 3 つ。**
+
+1. **理由は *and* で結ばれた 2 項で、理事会の 2 項と同じ形である。** 委員会は理事会の答えを引いていないので、
+   その適用だとは書かれていない。
+2. **解く条件は *or* で、採用より軽い。** 1 つ以上のプロジェクトが使い始めるか、関心を示せば足りる。
+   §2 が「後者は AI には解けない」と書いたのは今も正しいが、必要なものは採用の実績より小さかった。
+3. **計画段階の利用も数えられている。** *"demonstrated uses **or planned uses**"* と述べている。
+
+**同じ年の承認が、これと対になる。** どちらも既存ライセンスの近い変種である。
+
+| | Tiwaz v1.0 | OSC License v1 |
+|---|---|---|
+| 親 | MPL-2.0 | MIT |
+| 提出時の利用 | 無く、計画も示されていない | *"there are currently no projects using the license. However, it is planned that the license will be used in mid/late January."*（`rounds/2024-12-23-license-review-osc-planned-use-observed.txt`）|
+| 誰の利用か | —— | 提出者の依頼者（ゾーリンゲン市）自身の案件 |
+| 結果 | 保留（2025-09-11） | 承認（2025-03-21） |
+
+**ACD に当てると、2 項とも Tiwaz と同じ位置には無い。** 第 1 項について、ACD は既存ライセンスの派生ではない
+（6 本と 8 語の連なりを共有しない）。第 2 項について、ACD は 1 つのプロジェクトに適用されている ——
+このリポジトリである。したがって、この文書と入口が書いていた「使われていないは ACD に当たる」は、
+出典より不利に書いていた。出典の語は *"not used by a project"* と *"no demonstrated uses or planned uses"* で、
+第三者の利用に限っていない。OSC の利用も提出者の側のものだった。
+
+**逆側を同じ重さで書く。**
+
+- **提出者自身の利用が足りるとは、誰も述べていない。** Carlo Piana 氏は、個人の著者が「自分の著作物のために書いた」と
+  述べた Linkumori について *"not having an active project with an urgency to adopt a license or to have it approved,
+  I would suggest deferring license review"* と書いた（2026-06-19・`rounds/2026-06-19-license-review-piana-linkumori-observed.txt`）。
+  同じ 1 通は、同じ提出者の *"Plenty of OSI-approved licenses started exactly there"* に対して
+  *"\"this happened in the past\" is not a valid argument for the same to happen in the future"* と答えている。
+  OSC の側には市と弁護士が居たが、ACD の側に在るのは個人のリポジトリ 1 つである。
+- **保留に期限は無い。** 2026-11-07 に取得したアーカイブ（2026-10 まで）に、Tiwaz の後続は無い。
+- **解けたあとに約束されているのは勧告であって承認ではない。** *"submit our recommendation"* の向きは書かれていない。
+- **第 1 項の答えは「duplicative」の広さに依存する。** 委員会がこれを *close variant* より広く読めば、#84 が残る。
+  答えは gap の 1 点である（`gap-measurements.md`）。
+- **n は 1 ずつで、規則ではない。** 宛先は Tiwaz の 1 件で、process ページには無い（§3）。
+  近い変種に向けた文を、新規のテキストへそのまま移せるとも限らない。
+
+**打てる手。** 実在のプロジェクトが関心を示すことは、AI には作れないが、オーナーは尋ねることができる。
+リポジトリの側では `ADOPTING.md` に、使う人が公に述べられる場所を案内した。捏造は失格事由である。
 
 ## 3. 🔴 その区別は、14 か月経っても公表されていない
 
@@ -315,6 +370,7 @@ impossible to determine whether or not it complies with the OSD"* と**同じ構
 | 2009-03-04 | *"Discussion continues, but Bruce says **'Deny approval' because the benefits aren't worth the cost**"*（TGPPL）| **費用対効果**で語られている |
 | 2017 秋 | *"can **neither approve nor reject**"*（NOSA 2.0）| 上記 |
 | 2025-07-18 | *"could stay in a status where it is **not approved** if it is duplicative and not used by a project"* | §2 |
+| 2025-09-11 | *"voted to \*defer\* any recommendation"*（Tiwaz・委員会）| §2c |
 
 **「承認か却下か」で数えてきた我々の分布は、20 年分の記録に対して粗すぎた**（#139 の続き）。
 

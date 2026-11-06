@@ -1,0 +1,57 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-June.txt
+Retrieved: 2026-11-07
+Date: Fri, 19 Jun 2026 17:35:52 +0200 (CEST)
+From: Carlo Piana
+Subject: [License-review] =?utf-8?q?=3A_=5BLicense=5D_Linkumori_Free_Li?= =?utf-8?q?cense=2C_Version_1=2E0_=E2=80=93_Submission_for_OSI_Review?=
+Position: the message in which he suggests deferring review of a licence from an individual author who said he wrote it for his own work. Not addressed to us.
+
+----- begin verbatim -----
+From carlo at piana.eu  Fri Jun 19 15:35:52 2026
+From: carlo at piana.eu (Carlo Piana)
+Date: Fri, 19 Jun 2026 17:35:52 +0200 (CEST)
+Subject: [License-review] =?utf-8?q?=3A_=5BLicense=5D_Linkumori_Free_Li?=
+ =?utf-8?q?cense=2C_Version_1=2E0_=E2=80=93_Submission_for_OSI_Review?=
+In-Reply-To: <6fabc4df-b2fb-4d78-b325-6d2c737f31d5@app.fastmail.com>
+References: 
+ <CAPePE0LzffXBD-6QwcY9YC0CAiF8TkWbiGcpJsPv-cuRGycFWQ@mail.gmail.com>
+ <CAPePE0KzZ7wPv_KDyLfHNMao5TWUfa5-34umV2VepZoofa0b-A@mail.gmail.com>
+ <1862110667.13682552.1781703806080.JavaMail.zimbra@piana.eu>
+ <CAPePE0LjFtnfj3+ym3oj4Rg1teeEaRUqdfUhAYf0Exmc+jr4sA@mail.gmail.com>
+ <6fabc4df-b2fb-4d78-b325-6d2c737f31d5@app.fastmail.com>
+Message-ID: <1917761291.14756569.1781883352460.JavaMail.zimbra@piana.eu>
+
+> Da: "Kevin P. Fleming via License-review" <license-review at lists.opensource.org>
+> A: "license-review at lists.opensource.org" <license-review at lists.opensource.org>
+> Cc: "Kevin P. Fleming" <lists.osi-license-review at kevin.km6g.us>
+> Inviato: Giovedì, 18 giugno 2026 15:00:43
+> Oggetto: Re: [License-review] : [License] Linkumori Free License, Version 1.0 –
+> Submission for OSI Review
+
+> On Wed, Jun 17, 2026, at 14:51, subham mahesh wrote:
+
+>> What I'm asking from this list is a substantive review of Section 4 on its
+>> merits: whether the mechanism works, whether the registered-domain standard
+>> holds up, where the edge cases are. If the consensus after that review is that
+>> this is better solved as a collaborative effort or folded into existing work,
+>> I'm open to that conversation. I'm not, however, looking to have the submission
+>> deprioritized purely on the basis that I'm an individual rather than an
+>> organization, or that the license doesn't yet have large-scale adoption. Plenty
+>> of OSI-approved licenses started exactly there.
+
+> That is a topic for the license-discuss list, not the license-review list.
+> (Also, there's no need to put a '[License]' tag in the subjects of messages you
+> send to these lists, it's pretty well understood that all topics on these lists
+> are about licenses!)
+
+I agree on both. 
+
+Besides, not having an active project with an urgency to adopt a license or to have it approved, I would suggest deferring license review for when the text has been widely discussed and not subject to change. This discussion IMHO (or IMNSHO) belongs more there, for the time being. 
+
+Also worth nothing that "this happened in the past" is not a valid argument for the same to happen in the future. 
+
+Cheers 
+
+Carlo 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260619/ad80fa3c/attachment.htm>

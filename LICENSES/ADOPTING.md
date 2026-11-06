@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ADOPTING.md
 audience: anyone thinking of applying ACD to their own work
-last-updated: 2026-11-06
+last-updated: 2026-11-07
 canonical-ref: LICENSE (names the version this repository applies) / LICENSES/ACD-1.0.faq.md (the adopter's questions in full) / LICENSES/ACD-1.0.comparison.md (the alternatives) / LICENSES/ACD-1.0.against.md (the adverse record)
 ---
 
@@ -55,6 +55,11 @@ narrow band where those assumptions fail together.
 3. **Add the notice** from §16.1 of that text, with the location of your copy.
 
 There is nothing to register, and you do not need to tell us.
+
+**If you use it or plan to, and are willing to say so publicly, an
+[issue here](https://github.com/yutapr0117-design/portfolio/issues) helps.** Use by a project is the
+one thing the steward cannot supply. OSI's committee has said of another licence that one project
+using it or expressing interest would lift a hold. Say so only if it is true.
 
 **This page is not legal advice.** It was written by an AI model working under the steward's
 delegation. The licence text was drafted the same way, to a goal the steward set, and he read

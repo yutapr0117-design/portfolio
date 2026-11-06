@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.against.md
 audience: OSI license-discuss / license-review participants, licence reviewers
-last-updated: 2026-11-06
+last-updated: 2026-11-07
 canonical-ref: LICENSES/ACD-1.0.txt (authoritative text) / LICENSES/ACD-1.0.submission.md (the packet prepared for license-review) / LICENSES/rounds/2026-08-26-license-discuss-sent.txt (what was actually sent) / LICENSES/READY-TO-SUBMIT.md
 ---
 
@@ -376,14 +376,15 @@ in the first category substitutes for the second.
 | 282 | **§8.4's limit on claims, added in 1.1 to close E15, read at least two ways, and the reading §15.1 selects is the one E15 closed.** Read per claim, *"would be infringed by a model … produced without any use of the Work"* removes almost every claim that reads on a model's structure, because a model made without the Work can infringe it too, and the exposure §8.4 says it removes stays. Read per occurrence, mixing the Work into a corpus licenses unrelated claims as to that model, which is the harm E15 recorded. Our own records split the same way: the E15 commit spoke of claims, the 1.1 change list of things, and two answers in `review-responses-clauses.md` took different sides. **This is a defect of the kind "What survives" said it had not found: what a recipient may do under 1.1–1.3 depends on the reading.** Found 2026-11-04 while re-testing B10. | **[CLOSED]** —— the 1.4 draft rewrites the limit to the feature that infringes the claim and closes the excess in §6.1 (`ACD-1.4-CLARITY-TRIAL.md` §9.7). 1.1–1.3 stay frozen, recorded in `ACD-1.1-SELF-AUDIT.md` §3t. **Converse**: the 1.4 recipient has less than the widest reading of 1.3 gave, and a Dedicator who applies 1.4 to a document explaining a patented method licenses that method for whatever a model trained on the document produces (`faq.md` A32). |
 | 283 | **One of the three legs in our one-sentence gap (§7, the database right), which stood first until 2026-11-04, cannot be shown to differ in effect from approved text.** MIT's *"to deal in the Software without restriction"* is not limited to copyright, and CC0, which is not approved, names database rights outright. Against approved licences what is left is that §7 names the right and its verbs. `ACD-1.0.gap-measurements.md` §1.134 removes §6.1, §7 and §9 from the grounds of uniqueness. | **[CLOSED]** —— moved to last and disclosed where the sentence stands (`REVIEWERS.md`). The sentence still says *"expressly reaches"*, which is true; what changed is that we no longer count that leg as a difference in effect. Whether naming a right is worth anything is for OSI. |
 | 284 | **The effect our gap rests on may have almost no one to act on.** A patent holder is the party §8 costs most, and #107 records that such holders are reluctant; a licensor without patents gives nothing under §8. So the adopters for whom §8.4 + §8.2 has content may be close to none, and in this repository the effect has never operated, since no relevant patent of the Dedicator is known. The difference in effect is on the page, not yet in use | **[EXTERNAL]** **Raised by us on 2026-11-06.** **潰し方**: 部分的な答えは `gap-measurements.md` §1.136 に置いた —— 貢献者が Dedicator になる場面（§2.6）と、将来の請求項（*"now or in future"*）である。需要の記述も 1 件記録に在る（Morrison 氏 2017・連邦機関）。どれも実例は無く、同じ事実が貢献者の費用でもある。実例は第三者の採用でしか作れず、捏造は失格事由である。足りるかは OSI の判断である |
+| 285 | **The Committee has used the hold, it has no clock, and we had read past it.** On 2025-09-11 it voted to *"defer"* any recommendation of Tiwaz as *"a close variant of an existing license"* with *"no demonstrated uses or planned uses"*. It needed no OSD finding and gave no date. The archive fetched on 2026-11-07 has no later message, and the sentence that lifts the hold promises a recommendation, not an approval. We had marked the thread read on 2026-09-08 from a window that ended in July, and had written "the likeliest outcome" and that "not used" is true of ACD, without this case in hand | **[EXTERNAL]** **Raised by us on 2026-11-07.** **潰し方**: `board-decisions.md` §2c。第 1 項は ACD に当たらない（既存の派生ではない）。第 2 項について ACD の利用は 1 件在り、OSC License は提出者の依頼者の計画段階の利用で承認された。足りるかは決まっていない（Piana 氏 2026-06-19）。解く条件は関心の表明まで含むので、実在のプロジェクトに尋ねることはオーナーにできる。保留の長さと、解けたあとの勧告の向きは我々には動かせない |
 
-The adverse list has grown from 14 entries to **284** across ten rounds of examination. When this
+The adverse list has grown from 14 entries to **285** across ten rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **284 adverse facts, 63
+   prompted by third parties, four self-initiated — have produced **285 adverse facts, 63
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
