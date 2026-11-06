@@ -1,7 +1,7 @@
 ---
 file: LICENSES/REVIEWERS.md
 audience: OSI license-discuss / license-review participants, licence reviewers, anyone arriving from the mailing list
-last-updated: 2026-11-04
+last-updated: 2026-11-06
 canonical-ref: LICENSES/ACD-1.0.txt (the text posted) / LICENSES/ACD-1.3.txt (the frozen successor this repository applies since 2026-10-25) / LICENSES/FROZEN.md (freeze + venue, single source) / LICENSES/rounds/2026-08-26-license-discuss-sent.txt (what was actually sent) / LICENSES/ACD-1.0.submission.md (the packet prepared for license-review)
 ---
 
@@ -11,13 +11,10 @@ canonical-ref: LICENSES/ACD-1.0.txt (the text posted) / LICENSES/ACD-1.3.txt (th
 
 **You are a volunteer. Nothing here is required reading.** Measured 2026-09-28, the analysis in
 this directory — everything except `rounds/` — is **254,371 words**, **52 times the licence**, and
-that figure *understates* it: it splits on whitespace, and much of it is Japanese, which is not
-space-delimited (a further ~353,000 Japanese characters are not counted as words at all).
-`rounds/` holds the primary sources verbatim (**1,247,380 words** on the same date — list threads,
-board minutes) so that every quotation can be checked against what was actually sent; **nobody is
-asked to read it.** The whole of it exists so that a claim we make can be checked, **not so that it
-must be**. *(Earlier figures counted `rounds/` too. Re-measure:
-`git ls-files -z LICENSES ':!LICENSES/rounds' | xargs -0 cat | wc -w`.)*
+more than that in fact, because Japanese is not space-delimited. `rounds/` holds the primary
+sources verbatim so that every quotation can be checked against what was actually sent; **nobody
+is asked to read it.** The whole of it exists so that a claim we make can be checked, **not so
+that it must be**. *(Re-measure: `git ls-files -z LICENSES ':!LICENSES/rounds' | xargs -0 cat | wc -w`.)*
 
 **If you read three things you have checked the parts that decide the question:**
 
@@ -27,7 +24,7 @@ must be**. *(Earlier figures counted `rounds/` too. Re-measure:
 | the two facts **#1 and #4** in [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~220 | **no lawyer has read this text**, and **the only project using it is the author's**. Either is a sufficient reason to decline |
 | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **827** | every objection we found on these lists in 24 months, and whether it lands |
 
-**≈ 5,950 words** *(`wc -w`, 2026-09-28. The objection map contains some Japanese, and tools disagree on it: the 827 above equals a count of the space-separated tokens that contain an ASCII character; a plain whitespace split gives 949 and macOS `wc -w` gives 983. The licence is 4,896 by all three.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
+**≈ 5,950 words** *(2026-09-28; the 827 counts tokens with an ASCII character, and macOS `wc -w` gives 983 because the map contains some Japanese.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
 jurisdiction analysis, and the archive measurements — **all of which are evidence for claims,
 not claims themselves.** The four commands below check the licence text without trusting any
 of it.
@@ -50,37 +47,22 @@ decide what is worth translating, and gives you the commands to check the claims
   **non-copyright rights in data** — the EU sui generis database right and its own verbs,
   *extraction* and *re-utilisation*. Two of the three exist in several places; the three together
   do not. **(i) and (ii) differ in effect; (iii) differs in what is stated, not in what an
-  unrestricted permission may already reach** (see "What this does not claim" below).
-  **Measured over the whole approved list rather than over comparators we chose**: of the
-  **141 licences SPDX marks OSI-approved and not deprecated, exactly three impose no condition
-  on the licensee** — **0BSD, MIT-0 and the Unlicense** — and **none of those three contains the
-  word *patent* at all**, while the Unlicense limits itself in terms to *"any and all
-  **copyright** interest"*. The census, its method, and the two places where an English-keyword
-  count got it wrong (a German text and a French one) are in
-  [`ACD-1.0.gap-measurements.md`](ACD-1.0.gap-measurements.md) §1.97.
-  **This is checkable from the grant clauses themselves**, not from what the texts omit:
-  Apache-2.0 §2 calls itself a *"copyright license"* and its §3 patent grant is bounded by *"the
-  Work"*; 0BSD and the Unlicense enumerate copyright verbs (the Unlicense dedicates *"copyright
-  interest"* in terms); CAL-1.0 §3.1(a) **does** reach *"non-patent intellectual property laws of
-  any jurisdiction"* — but it is conditioned on its §4, and its patent grant expressly excludes
-  claims infringed only *"by combination"*. The clause-by-clause comparison is
-  [`ACD-1.0.gap-measurements.md`](ACD-1.0.gap-measurements.md) §1.96.
-  **What this does not claim**: MIT's *"deal in the Software without restriction"* may well reach
-  those rights by implication. The argument is that it is **left to interpretation**, and §6.5 of
-  this text holds that a permission an automated system cannot determine is, for a work meant to be
-  learned from, no permission at all. **That is a design argument, not a legal opinion.**
-- **The same gap, in detail.** No approved licence does these three together: expressly permits machine
-  learning and text-and-data-mining and makes no reservation (§6); grants a patent licence that
-  reaches **models and outputs** of computational use (§8.4); and makes your permissions
-  independent of whether copyright subsists in machine-generated material at all (§9).
+  unrestricted permission may already reach.**
+- **Measured over the whole approved list**, not over comparators we chose. Of the **141 licences
+  SPDX marks OSI-approved and not deprecated, exactly three impose no condition on the licensee** —
+  **0BSD, MIT-0 and the Unlicense** — and **none of those three contains the word *patent* at
+  all**. Seven extend a patent grant beyond the work itself, and **all seven carry a condition**
+  ([`ACD-1.0.gap-measurements.md`](ACD-1.0.gap-measurements.md) §1.97, §1.133).
+- **What this does not claim.** That existing licences forbid training: a licence that allows
+  everything allows training, and MIT's *"deal in the Software without restriction"* may well
+  reach these rights too. §6.1, §7 and §9 state expressly what a broad permission may already
+  give, so **they are not grounds of uniqueness** (§1.134). That the express statement is worth
+  having is **a design argument, not a legal opinion.**
 - **Nearest approved licences.** Closest in effect to the Unlicense, MIT-0 and 0BSD (and to CC0,
   which is **not** OSI-approved), and in patent terms to UPL-1.0, BlueOak-1.0.0 and
   BSD-2-Clause-Patent, which already combine a permissive grant with an express patent grant under
   one notice condition — **against those three it adds less**: the difference is that condition, not
-  the patent grant ([`submission-reference.md`](ACD-1.0.submission-reference.md) §2). What it adds
-  to the zero-condition three is the three items above. *(Corrected 2026-09-27: this line still
-  named Apache-2.0 as the closest patent machinery two days after the message in
-  [`submission.md`](ACD-1.0.submission.md) §B.0 had been corrected for the same error.)*
+  the patent grant ([`submission-reference.md`](ACD-1.0.submission-reference.md) §2).
 - **The two weaknesses, first.** **No lawyer has read it**, and **it has one adopter — this
   repository**. Both are stated at length below and neither is repaired anywhere in this directory.
 - **Anyone can adopt it.** Zero project names, no placeholders in the clauses (only §16.1's notice template has a blank, filled in the adopter's own notice), no editing of the licence text required — the
@@ -103,7 +85,7 @@ decide what is worth translating, and gives you the commands to check the claims
 frozen text moves while it is being discussed. All four are pinned by SHA-256 in
 [`FROZEN.md`](FROZEN.md) and checked in CI; the command to verify that is below.
 
-**Clause numbers do not transfer cleanly between the two, and this matters when you read the
+**Clause numbers do not transfer cleanly between 1.0 and its successors, and this matters when you read the
 analysis below, which is written against 1.0.** Measured, not assumed:
 
 - **§2 to §14 — every clause number means the same thing in both texts.** The citations on
@@ -123,32 +105,36 @@ analysis below, which is written against 1.0.** Measured, not assumed:
 
 ## Status
 
-**Posting resumed 2026-09-17, when the owner sent a short ACD-1.1 discussion request in his own words.** What follows is the history that stopped it, and it has not been withdrawn. **On 2026-09-09** the OSI Moderators posted to both lists that they *"will reject posts where we suspect that an AI has been responsible for all or most of a message"* and that the lists *"are being used as a proof-of-concept to demonstrate that an AI system can autonomously engage and even draft an open source license for review"*. **No name is given in the notice. What we can say is narrower and stronger: two days before it, on 2026-09-07, a moderator put the same question to us directly and by name** — five questions about whether an AI drafts our messages, whether anything posts autonomously, whether ACD-1.0 was AI-drafted, whether testing autonomous participation is an objective, and whether the steward takes responsibility. **The steward answered all five the same day.** The exchange was first published verbatim, but **on 2026-09-23 the steward withdrew the text of all off-list correspondence from this repository** (a third party's private mail should not sit in full in a public repository); `rounds/2026-09-07-offlist-nick-vidal-moderator-exchange.txt` now records only the dates, the direction and where its content is used (`rounds/README.md`, exception section; `ACD-1.0.against.md` #217). It was off-list in any case, so it was never verifiable against the public archive. **The moderator asked that we reply before any further ACD-1.0 submission; that reply was sent, and the correspondence continued** — `rounds/` records further off-list exchanges dated 2026-09-12〜13, 09-14〜15 and 09-17〜18, including the moderator's replies. *(Corrected 2026-09-28: this sentence previously said no response had arrived and that the exchange was published verbatim; both were true on 2026-09-10 and false after.)* **We do not assert that the public notice is about us alone** — but the description fits this project, whose licence was drafted by an AI agent (disclosed in `ACD-1.0.submission.md` §E.1 since before the frozen text was posted). **Nothing was sent to either list between 2026-09-09 and 2026-09-17, when the owner decided**, and he is in a direct, off-list exchange with the moderator personally about it — **the policy decision belongs to OSI as an organisation and is not that exchange** (his statement, 2026-09-09; he then said it would be published verbatim when it concluded — **that undertaking was superseded on 2026-09-23 by the steward's rule that off-list private correspondence is recorded as dated stubs only**, so it will not be published in full). **He states that the human decides the direction and that he checks and sends the messages himself** — the notice rejects posts made *"without careful review from the author"*, and that is the line it draws. The verbatim notices are in `rounds/`; the analysis is `against.md` #119 and `ACD-OSI-BOTTLENECKS.md` B14. **We are not reducing the disclosure in response.**
-
 **Posted to `license-discuss` and received. No responses yet.** That list is for general
 discussion — it is **not** the approval venue. Nothing has been submitted to `license-review`,
-and nothing has been submitted to SPDX.
+and nothing has been submitted to SPDX. SPDX asks for substantial real-world use, this work has
+one adopter, and we are not submitting something that does not meet the stated bar.
 
-**ACD-1.1 was frozen on 2026-09-17** (`ACD-1.1.txt`, pinned by SHA-256 in `FROZEN.md` and
-verified in CI). When frozen it closed nineteen of the twenty-one defects then recorded in ACD-1.0.
-**The owner sent it to `license-discuss` the same day, and that message was rejected by moderation**
-(`ACD-1.0.against.md` #215), so the list has not yet received this text; **work on the next version happens in `ACD-1.4-DRAFT.txt` (ACD-1.3 was frozen on 2026-10-25),
-so the text under discussion does not move.** **ACD-1.0 remains frozen; since 2026-10-25 the licence this repository applies is ACD-1.3** *(2026-11-01: this sentence said ACD-1.0 "remains the licence this repository applies" after 1.3 had been applied; corrected)* — freezing a text is a promise about its bytes, not a statement about
-which version a project uses, and the two facts are deliberately kept apart here.
+**What will be submitted is a later version, not 1.0.** The sequence — post to `license-discuss`,
+collect what the list says, fold it into a revised version, submit **that** to `license-review`,
+and repeat on the review comments — is the plan the owner has held from the outset (his direct
+confirmation, 2026-09-09). The owner sent ACD-1.1 to `license-discuss` on 2026-09-17, and **that
+message was rejected by moderation** (`ACD-1.0.against.md` #215), so the list has not received
+that text. Work on the next version happens in `ACD-1.4-DRAFT.txt`, so no frozen text moves.
+Freezing a text is a promise about its bytes, not a statement about which version a project uses.
 
-**How it came to be on this list.** **No submission to license-review has been made, and the text
-now frozen is not what will be submitted there.** The sequence — post to license-discuss, collect
-what the list says, fold it into a revised version, and submit **that** to license-review — is the
-plan the owner has held from the outset, and it does not end at one submission: review comments
-feed a further revision, repeated as needed. **This paragraph is corrected as of 2026-09-09**; it
-previously said the ordering "reflects OSI's guidance rather than foresight on our part", which
-understated the owner's own plan, and before that it overstated it. **The correction rests on the
-owner's direct confirmation, not on inference from the repository**, which is why it is dated and
-marked. What is our own decision is the SPDX timing: SPDX asks for substantial
-real-world use, this work has one adopter, and we are not submitting something that does not
-meet the stated bar.
-
-**Successors exist, and since 2026-10-25 this repository applies one of them.** `LICENSES/ACD-1.1.txt` was frozen on 2026-09-17 and says what it is in its own first line — **"FROZEN TEXT. NOT SUBMITTED FOR APPROVAL. NOT APPLIED TO THIS REPOSITORY."** — and `LICENSES/ACD-1.2.txt` was frozen the same way on 2026-10-17. `LICENSES/ACD-1.3.txt` was frozen on 2026-10-25 and **is the version this repository applies from that date** (the root `LICENSE` says so; ACD-1.3's own header deliberately states no application status, because a frozen text cannot be updated when that changes — ACD-1.2's header, which says this repository is still covered by ACD-1.0, became untrue that day and stays so). Work on the next version happens in `LICENSES/ACD-1.4-DRAFT.txt`, whose first line says **NOT IN FORCE, NOT SUBMITTED, NOT APPLIED**. **The text posted to `license-discuss` was ACD-1.0, and it remains frozen and published unchanged.** They are mentioned here because you would find them anyway, and because the alternative reading — that we are quietly revising the text under discussion — is the one thing they must not be mistaken for. **Clause numbers differ from 1.0 in §1 (the definitions were reordered) and in §15–§16** — the measured map is under "Clause numbers do not transfer cleanly" above — so a citation to 1.0 must use the 1.0 text. **⚠ ACD-1.1's own header says the numbers differ only "after Section 15"; that is incomplete, and because the text is frozen it stays so (`ACD-1.1-SELF-AUDIT.md` §3n).** A CI check requires the draft to keep declaring what it is.
+**AI drafting and the lists.** On 2026-09-09 the OSI Moderators posted to both lists that they
+*"will reject posts where we suspect that an AI has been responsible for all or most of a
+message"* and that the lists *"are being used as a proof-of-concept to demonstrate that an AI
+system can autonomously engage and even draft an open source license for review"*. No name is
+given. **Two days earlier a moderator had put the same question to us directly and by name, in
+five questions, and the steward answered all five the same day**; the correspondence continued
+off-list. A third party's private mail does not belong in a public repository, so `rounds/`
+records those exchanges as dated stubs only (`rounds/README.md`, exception section; `against.md`
+#217). **We do not assert that the notice is about us alone**, but the description fits this
+project, whose licence was drafted by an AI agent (disclosed in `ACD-1.0.submission.md` §E.1
+since before the text was posted). Nothing was sent to either list between 2026-09-09 and
+2026-09-17, when posting resumed with a short ACD-1.1 discussion request in the owner's own words.
+**He states that the human decides the direction and that he checks and sends the messages
+himself** — the notice rejects posts made *"without careful review from the author"*, and that is
+the line it draws. **The policy decision belongs to OSI as an organisation.** The verbatim notices
+are in `rounds/`; the analysis is `against.md` #119 and `ACD-OSI-BOTTLENECKS.md` B14. **We are not
+reducing the disclosure in response.**
 
 The text is **frozen** while this is open. `LICENSES/FROZEN.md` exists to say so, and
 **Check 453 in CI pins the SHA-256 of nine files** — the three submitted ones
@@ -184,16 +170,11 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 
 ## What to open first
 
-> ⚠ **This heading said "The three things you probably want first" until 2026-09-09; the table
-> below has eight rows.** A number written into a heading stops matching the moment a row is
-> added, and this is the page a reviewer is asked to trust. The convention used elsewhere in this
-> directory is to **enumerate rather than count**, and it is now used here.
-
 **Reading order, stated because the table has eight rows and two of them used to claim to be first.** If you have ten minutes: the objection map, then the licence. If you are deciding: add what was actually sent, and the errata. **The case against is the full record and the longest document in this directory** — it is where the objection map points, not a substitute for it. Nothing in it is summarised away anywhere else, and **nothing in it will be shortened**: this directory treats a shrinking adverse list as erasure rather than improvement (`REVISION-PROTOCOL.md` §2).
 
 | | File | Note |
 |---|---|---|
-| **What is blocking approval** | [`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md) | **The register.** Fourteen items, each with why it is an approval problem, what is fact and what is inference, the smallest resolution, what would be lost, and who can move it — **four are marked highest severity, and none of them is repaired by editing the licence**: no legal review (B1) and one adopter (B2) advance only by submitting and by time; whether the gap justifies a new licence is OSI's call (B10); and the moderators' notice about AI-written posts is being handled by the owner directly (B14). Its summary line is derived from the table by a CI check, so it cannot quietly understate what is left |
+| **What is blocking approval** | [`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md) | **The register.** Each item says why it is an approval problem, what is fact and what is inference, the smallest resolution, what would be lost, and who can move it — **four are marked highest severity, and none of them is repaired by editing the licence**: no legal review (B1) and one adopter (B2) advance only by submitting and by time; whether the gap justifies a new licence is OSI's call (B10); and the moderators' notice about AI-written posts is for OSI as an organisation to decide (B14). Its summary line is derived from the table by a CI check, so it cannot quietly understate what is left |
 | **Which known objections land** | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **One table.** Every objection **we have found** in the `license-review` / `license-discuss` archives of the last two years **that bears on a public-domain-equivalent or AI-facing instrument** — found by a subject census plus reading the threads that matched, which is **a floor, not a census of every objection ever raised** (#87). Whether each applies to ACD-1.0, and — for the ones that do not — the clause that answers it. **Objections that land are listed first** |
 | The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders in the clauses (one in §16.1's notice template) |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
