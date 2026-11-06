@@ -33,15 +33,16 @@ UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
 INDEX = "https://spdx.org/licenses/licenses.json"
 DETAIL = "https://spdx.org/licenses/{}.json"
 
+# 出力は英語で書く (2026-11-06)。§B.0 が審査者に走らせる道具で、結果が読めなければ約束が果たせない。
 # 主題ごとの検索語。**正規表現ではなく素の部分文字列**にしてある ——
 # 検出器が凝るほど、外れたときに気付きにくい（2026-09-10 に折り返しヘッダで実証）。
 TERMS = {
-    "machine learning": "§6 (ML を明示的に扱うか)",
-    "text and data mining": "§6 (TDM を明示的に扱うか)",
-    "data mining": "§6 (TDM の別表記)",
-    "machine-generated": "§9 (機械生成物を扱うか)",
-    "machine generated": "§9 (別表記)",
-    "subsist": "§9 (権利が生じているかの語彙)",
+    "machine learning": "§6 (names machine learning)",
+    "text and data mining": "§6 (names text and data mining)",
+    "data mining": "§6 (the same, other wording)",
+    "machine-generated": "§9 (names machine-generated material)",
+    "machine generated": "§9 (the same, other wording)",
+    "subsist": "§9 (the vocabulary of whether a right subsists)",
 }
 
 
@@ -77,14 +78,13 @@ def main() -> int:
     for term, why in TERMS.items():
         found = hits[term]
         print(f"  {term:22} {len(found):3d}  {why}" + (f"  {found}" if verbose and found else ""))
-    print(f"  {'output near patent':22} {len(near_patent_output):3d}  §8.4 (特許がモデル/出力に及ぶか)"
+    print(f"  {'output near patent':22} {len(near_patent_output):3d}  §8.4 (a patent grant reaching models or outputs)"
           + (f"  {near_patent_output}" if verbose and near_patent_output else ""))
     if failures:
-        print(f"  ⚠ 取得失敗 {len(failures)} 件 —— **失敗は 0 件として数えない**: {failures}")
+        print(f"  WARNING: {len(failures)} fetch failure(s). A failure is not counted as zero: {failures}")
 
-    print("\n**この出力が establish しないこと**: 機械学習が許諾されていないこと。"
-          "permissive ライセンスは「すべての利用」を許すことで暗黙に許している。"
-          "**語の不在は効果の不在ではない。**")
+    print("\nWhat this output does not establish: that machine learning is not permitted. A permissive licence "
+          "permits it implicitly by permitting every use. The absence of a word is not the absence of an effect.")
     return 1 if failures else 0
 
 
