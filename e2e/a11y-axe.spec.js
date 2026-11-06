@@ -526,7 +526,10 @@ test('設計判断 quiz のステークホルダー意見がリストとして�
   await expect(page.locator('#content h1', { hasText: '設計判断' })).toBeVisible();
 
   // control: 意見そのものが描画されている (0 件ならリスト化を測れない)
+  // 見出しは同期で描かれるが、意見は遅延読み込みのあとに描かれる (#1239)。待たずに数えると
+  // CI の負荷で 0 件を読む (2026-11-06 に PR 2502 で実際に落ちた)。
   const quotes = page.locator('.quiz-stakeholder-quote');
+  await expect(quotes.first()).toBeVisible();
   expect(await quotes.count(), 'control: ステークホルダーの意見が描画されていない').toBeGreaterThan(1);
 
   // アクセシビリティツリー経由で解決する (getByRole は role 計算を通す)
