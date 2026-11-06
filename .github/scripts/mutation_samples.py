@@ -526,6 +526,13 @@ _MUTATIONS_TAIL.append({
     "replace": "has borne, or a corrected text,\n       so that each name",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 468u: §5.1 の特許の除外を落とす —— §8.4 が外した請求項まで「許された使用の請求」として不行使になる",
+    "file": CURRENT_DRAFT,
+    "find": "whether now known or unknown, other than for\n       patent infringement (Section 8), arising",
+    "replace": "whether now known or unknown, arising",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
