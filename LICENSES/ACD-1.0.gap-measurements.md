@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.gap-measurements.md
 audience: OSI license-review participants / licence reviewers / 監査人 / 後任 AI
-last-updated: 2026-11-04
+last-updated: 2026-11-06
 canonical-ref: LICENSES/ACD-1.0.comparison.md (切り出し元・条項比較) / LICENSES/ACD-1.0.gap-census.md (同じ 141 本への 3 gap の全数表)
 ---
 
@@ -450,7 +450,7 @@ bb が 6 本を立てて原文で反証した（H1-a BlueOak / H1-b CERN-OHL-P /
 | §12 人格権 | 日本（著作権法 59 条）ほか・著作者・人格権の行使 | 沈黙 | 沈黙 | §1 が *"moral rights retained by the original author(s)"* を名指す | **MIT / 0BSD に対して差**（不行使の約束の有効性は解釈依存・承認済みでは EUPL に先例）|
 
 **したがって**: 効果の差として残るのは §8.4 + §8.2、§12、§6.2 / §6.3（限定つき）、§6.4（MIT に対してだけ）である。**§6.1・§7・§9 は独自性の根拠にしない。**
-**⚠ 提出面への波及**: `REVIEWERS.md` の "The gap it claims, in one sentence" は §7 を 3 つの脚の先頭に置く。*"expressly reaches"* の形なので偽ではないが、先頭の脚は効果の差を立証できない項目である。文の順序と重みは 25 の判断に渡した。
+**⚠ 提出面への波及**: `REVIEWERS.md` の "The gap it claims, in one sentence" は §7 を 3 つの脚の先頭に置く。*"expressly reaches"* の形なので偽ではないが、先頭の脚は効果の差を立証できない項目である。文の順序と重みは 25 の判断に渡した。**2026-11-06 追記**: 波及先はこの 1 文だけではなかった。申請日に使う `SUBMISSION-MATERIALS.md` の gap の行は §6 / §8.4 / §9 を 3 点と書いたままで、`REVIEWERS.md` の *"The same gap, in detail"* も同じだった（どちらも同日に直した）。1.0 の提出パケット `submission.md` §B.0 と想定問答 `review-responses.md` の同じ 3 点は、1.0 の記録として残す（申請の日に使わない・`SUBMISSION-MATERIALS.md` 冒頭）。
 
 ### 審査基準 8 条と 1.4 の条
 
