@@ -7,17 +7,18 @@ canonical-ref: LICENSE (names the version this repository applies) / LICENSES/AC
 
 # Before you apply ACD to your own work
 
-**Read this first. It is short, and the decision cannot be undone.** ACD is written so that anyone
+**Read this first. It is short, and you should treat the decision as final.** ACD is written so that anyone
 can apply it to any work without asking us. For most projects an approved licence is the better
 choice. Section numbers below are the same in every version unless the page says otherwise.
 
 ## What you cannot get back
 
-- **The act is irrevocable.** The surrender in §3 and the licence in §4.1 do not end, and what you
-  have given stays given (§2.2).
+- **The text gives you no way to take it back.** Nothing in it lets you end the surrender in §3 or
+  the licence in §4.1, and what you have given stays given (§2.2). In the United States, 17 U.S.C.
+  §203 may still reach the licence ([`ACD-1.0.jurisdictions.md`](ACD-1.0.jurisdictions.md) §5a).
 - **You give up credit.** Nobody has to keep your name or any notice (§10.2).
 - **You give up more patent rights than most licences ask.** The patent licence has no condition
-  and cannot be terminated (§8.2), and it reaches models and outputs that result from using the
+  and you cannot terminate it (§8.2), and it reaches models and outputs that result from using the
   work (§8.4). If you hold a patent on a method your work explains, read
   [FAQ A32](ACD-1.0.faq.md) before you apply it.
 - **You cannot answer a patent suit by ending the suer's rights.** Retaliation clauses are absent,
@@ -48,7 +49,9 @@ narrow band where those assumptions fail together.
 1. **Check that you hold the rights.** Your employer may hold them ([FAQ A20](ACD-1.0.faq.md)).
    If other people contributed, read [FAQ A13](ACD-1.0.faq.md).
 2. **Copy the text unchanged.** Use the version named in this repository's root
-   [`LICENSE`](../LICENSE), which is the latest fixed version we apply ourselves.
+   [`LICENSE`](../LICENSE), which is the latest fixed version we apply ourselves. The header above
+   the dividing line describes this repository's file and is not part of the Dedication (§1.1), so
+   your copy may leave it out.
 3. **Add the notice** from §16.1 of that text, with the location of your copy.
 
 There is nothing to register, and you do not need to tell us.
