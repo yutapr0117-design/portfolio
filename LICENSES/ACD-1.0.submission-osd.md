@@ -61,9 +61,14 @@ criteria the committee asks submitters to speak to directly:
   learning and text-and-data-mining expressly in order to **permit** them, not to single them out
   for a condition.
 - **OSD 7 (Distribution of licence).** Section 2.3 makes the licence effective without any
-  act of acceptance; Section 16.2 makes an identifier or SPDX tag sufficient notice, so
-  rights attach to every recipient without further action.
-- **OSD 8 (Licence must not be specific to a product).** Section 16.3.
+  act of acceptance, and Section 4.6 makes each person who exercises a permission You in
+  their own right, so rights attach to every recipient without further action. Section 16.2
+  makes an identifier or SPDX tag sufficient notice.
+- **OSD 8 (Licence must not be specific to a product).** Section 2.1: the Dedication applies to
+  the Work as a whole and to every separable part of it, so the rights do not depend on the
+  Work staying in any particular distribution. Section 16.3 adds that the text itself is not
+  specific to any project. *(Corrected 2026-11-06: this line cited only §16.3, which speaks of
+  the instrument, not of the rights in a program.)*
 - **OSD 9 (Licence must not restrict other software).** Sections 4.3 and 10.1 impose no
   requirement on anything distributed alongside the Work.
 - **OSD 10 (Licence must be technology-neutral).** Section 2.3 requires no click-through
