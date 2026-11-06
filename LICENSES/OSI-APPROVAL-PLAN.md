@@ -1,7 +1,7 @@
 ---
 file: LICENSES/OSI-APPROVAL-PLAN.md
 audience: オーナー（一次読者）/ 次のセッションの実装者 / 週次の定期実行
-last-updated: 2026-11-03
+last-updated: 2026-11-06
 canonical-ref: LICENSES/ACD-OSI-BOTTLENECKS.md (ボトルネックの唯一の一覧) / LICENSES/FROZEN.md (凍結・投稿先・発信状態の単一ソース) / LICENSES/REVISION-PROTOCOL.md (1 ラウンドの手順とゲート) / LICENSES/ACD-1.0.review-rules.md (OSI の公表規則の原典読み)
 ---
 
@@ -179,7 +179,7 @@ OSI に承認され得るかの自問自答と、より承認されやすくす�
 
 AI がやること:
 
-1. **改定の検出**: 日次取得が `opensource.org/code-of-conduct` と `opensource.org/codeofconduct` の両方を毎日取り、「Last modified」を記録している（2026-10-28 時点でどちらも 2023 年の版）。日付か本文が変わった日に全文を読み、旧版との差分を逐語で残す（旧版は `rounds/2026-09-13-osi-code-of-conduct-pre-update-snapshot.txt` と、リスト用の `rounds/2026-09-15-osi-mailing-list-code-of-conduct-snapshot.txt` に保存済み）。
+1. **改定の検出**: `opensource.org/code-of-conduct` と `opensource.org/codeofconduct` の両方を毎日取り、「Last modified」を記録する（2026-10-28 時点でどちらも 2023 年の版）。**2026-11-06 訂正**: 旧文は日次取得が動いている現在形だったが、取得役の cron は 10-30 に止まり、11-04 と 11-06 は手で取った。11-07 以降は Mac の 5a が日次で取る（実際に取れた日は `OSI-EVENTS-2026-10.md` の行が権威）。日付か本文が変わった日に全文を読み、旧版との差分を逐語で残す（旧版は `rounds/2026-09-13-osi-code-of-conduct-pre-update-snapshot.txt` と、リスト用の `rounds/2026-09-15-osi-mailing-list-code-of-conduct-snapshot.txt` に保存済み）。
 2. **取り込み先を振り分ける**: 改定の対象は行動規範（リストでの AI の使い方）なので、**主な取り込み先は投稿の手順**（`REVISION-PROTOCOL.md` ゲート 0・`SUBMISSION-MATERIALS.md`・B14）である。ライセンスの本文に当たる箇所（例: 来歴の開示、AI の関与の述べ方）があれば 1.4 草案にも当てる。当たらない部分を本文へ無理に入れない。
 3. **Nick 氏の返信**: リスト外の私信として届くので、オーナーが渡したら規約どおり扱う（第三者との private off-list correspondence は本文を公開せず、日付・相手・向き・分析への指し先だけの stub・`rounds/README.md` の例外節）。分析は返信の中身に当てて両側から書く。
 4. **§3.7 との関係**: 申請を送るのはオーナーで、**いつ・どの版で出すかは AI が決めて記録する**（`READY-TO-SUBMIT.md` 冒頭・2026-11-01 にオーナーが確認。**2026-11-02 訂正**: 旧文は「申請の時期はオーナーが決める」で、同じ計画の冒頭「オーナーの裁可を要するものは無い」とも食い違っていた。オーナーの見込み「私が本申請に出す」が述べるのは送る行為であって、時期の決定ではない）。改定が 11 月中旬より後になれば申請もそれに合わせて動きうるので、1.4 の確定（§3.7 の 3）は**改定の取り込みが済んだ後**に置く。
