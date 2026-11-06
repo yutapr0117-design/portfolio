@@ -2,6 +2,7 @@
 """ドシエが引く発言のうち、同じ差出人が後で取り消した可能性があるものを洗い出す (手で回す道具・CI には入れない)。
 
     DOSSIER_ARCHIVE_CACHE=<月次アーカイブの場所> python3 .github/scripts/find_quote_retractions.py
+    ... find_quote_retractions.py --concessions    # 鏡像: against.md が引く発言のあとの支持や譲歩
 
 2026-11-06 に、不利な事実として 2 か月数えていた Piana 氏の発言を本人が同じ日に撤回していたと分かった。
 掃引は "OSI requires" の語で探していたので、撤回の文を拾えなかった。ここは逆から探す。逐語引用をアーカイブの
@@ -33,6 +34,11 @@ RETRACT = re.compile(
     r"my mistake|my error|my bad|i misspoke|i misread|i misunderstood|i take (?:that|it) back|"
     r"i was mistaken|that was wrong|should have said|scratch that|mea culpa|correct myself|"
     r"correction to my|i was incorrect|i got that wrong|ignore my", re.I)
+# 鏡像 (2026-11-06・portfolio-00 の提案): 不利な事実が引く発言のあとに、同じ人が支持や譲歩を述べていないか。
+#   不利な側だけ後続を読むと、有利な記録を落とす向きに偏る。語が一般的なので against.md に絞る。
+CONCEDE = re.compile(
+    r"\bi agree\b|you(?:'re| are) right|fair point|good point|no objection|^\s*\+1\s*$|\+1 (?:from me|to)\b|works for me|"
+    r"i(?:'m| am) (?:fine|ok|okay|happy) with|i support\b|sounds good|addresses my|i(?:'m| am) satisfied", re.I | re.M)
 SPLIT = re.compile(r"^From \S+ at \S+\s+\w{3} \w{3}\s+\d+ [\d:]+ \d{4}$", re.M)
 
 
@@ -78,7 +84,11 @@ def main() -> int:
     by_thread: dict[str, list[dict]] = {}
     for m in messages:
         by_thread.setdefault(m["thread"], []).append(m)
+    concessions = "--concessions" in sys.argv
+    pattern = CONCEDE if concessions else RETRACT
     quotes = collect_quotes(".")
+    if concessions:
+        quotes = {q: p for q, p in quotes.items() if any(x.startswith("ACD-1.0.against.md") for x in p)}
     resolved, unresolved, hits, seen = 0, 0, 0, set()
     for q, places in quotes.items():
         where = ", ".join(sorted(places)[:3])
@@ -98,7 +108,7 @@ def main() -> int:
             days = (later["when"] - m0["when"]).total_seconds() / 86400
             if not 0 <= days <= WINDOW_DAYS:
                 continue
-            for r in RETRACT.finditer(later["own"]):
+            for r in pattern.finditer(later["own"]):
                 key = (m0["file"], m0["sender"], later["when"], r.group(0).lower())
                 if key in seen:
                     continue
