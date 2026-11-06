@@ -92,6 +92,8 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 
 **いちばん重い追い風は OSI 自身の FAQ である**（*Last modified on January 21, 2025*・`rounds/2026-11-06-osi-faq-public-domain-cc0-snapshot.txt`）。公有化は *"still not a license"* で、CC0 の *"most serious"* な懸念は clause 4(a) の特許の除外だったと述べる。ACD の §4 と §8 はこの 2 点に当たる。**逆側**: 同じ FAQ は *"rather than try to waive copyright altogether"* と述べ（§3 に当たる）、attribution の保護を licence の利点に挙げる（§10.2 が手放す）。**審査記録の中の追い風は 9 点ある。** Piana 氏の *"I actually advise to use both"*（献呈と許諾）、Fogel 氏の *"would certify PD *when accompanied by* a particular patent non-assertion text"*（2014・献呈と特許の文）、Morrison 氏の連邦機関の需要の記述（2017）、Chestek 氏の受領者の負担についての言葉（2025-03）、理事会の *"a license should be rejected only if it violates the OSD"*、委員長の *"That is not a blocker"*、理事会の準拠法条項についての言葉、vanity についての言葉、AI/ML についての言葉で、逐語と出典は `REVIEWERS.md` の "What the record already says in its favour" に在る。過去の発言は誰も拘束しない。
 
+**需要の手がかり（理由ではない）**: 米国の連邦機関が *"something close to public domain yet still addressing indemnification and contributor patent grants"* を探している、という発言がある（Morrison 氏 2017-10-26・`REVIEWERS.md` の有利な記録の表）。連邦政府の著作物は米国で著作権が生じないが、ACD は権利の存在を前提にしないので（§1.4 の *"holds or may hold"*・§9.2・§16.3）、適用できる読みが立ち、特許は §8 が受ける。1 人の 2017 年の発言で、採用した機関は無い。機関に特許を許諾する権限があるかは ACD の外の法の問いである。逆側は `gap-measurements.md` §1.136 の Tzeng 氏の発言にある。
+
 ### OSD 10 条
 
 | OSD | この条によって満たす | 残る問い |
