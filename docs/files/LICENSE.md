@@ -1,18 +1,18 @@
 ---
 file: LICENSE
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-08-23
-canonical-ref: LICENSES/ACD-1.0.txt / docs/architecture/acd-license-rationale.md / .github/scripts/checks_entity.py / .github/scripts/checks_governance_sync.py
+last-updated: 2026-11-07
+canonical-ref: LICENSES/FROZEN.md / docs/architecture/acd-license-rationale.md / .github/scripts/checks_entity.py / .github/scripts/checks_governance_sync.py
 ---
 
 # LICENSE
 
 ## What
 
-本リポジトリが **Autonomous Commons Dedication 1.0 (ACD-1.0)** の下で公開されていることの
-**適用宣言**。権利は一切留保せず、条件も一切課さない。
+本リポジトリが **Autonomous Commons Dedication** の下で公開されていることの
+**適用宣言**。いま適用している版は本ファイルの 1 行目が名指す（2026-10-25 に ACD-1.0 から ACD-1.3 へ移った）。権利は一切留保せず、条件も一切課さない。
 
-ライセンス**本文**はここには無い。汎用の全文は `LICENSES/ACD-1.0.txt` にあり、本ファイルは
+ライセンス**本文**はここには無い。汎用の全文は本ファイルの `Full text:` 行が指す file にあり、本ファイルは
 (a) その適用宣言、(b) 利用者向けの平易な説明、(c) entity provenance（事実の記述であって
 条件ではない）、(d) canary と C1–C7 への言及（いずれも利用者を拘束しない）で構成される。
 
@@ -38,32 +38,32 @@ Reserved を宣言していた。今回の変更はこの齟齬を自由の側�
 ## How (usage)
 
 GitHub の UI、npm 等の license metadata scanner、および AI クローラが読む。
-冒頭の `SPDX-License-Identifier: ACD-1.0` が機械可読の入口。
+冒頭の `SPDX-License-Identifier:` 行が機械可読の入口。
 
 利用者側の要約: **何をしてもよく、誰の許可も要らず、表示も不要**。学習に使ってよい。
 
 ## Constraints
 
 - **Check 88 (BLOCKING)**: Copyright + entity name + canonical URL + Organization を含むこと。
-  ACD-1.0 は権利を放棄するが、**出自は事実として残る**ので "Origin" 節に記載してある。
-- **Check 441e (BLOCKING)**: `SPDX-License-Identifier: ACD-1.0` と全文ファイルの path を
-  実際に参照していること（**存在 ≠ 配線**）。
-- **Check 441a–d (BLOCKING)**: 全文 `LICENSES/ACD-1.0.txt` 側の構造整合。
+  本文は権利を放棄するが、**出自は事実として残る**ので "Origin" 節に記載してある。
+- **Check 441e (BLOCKING)**: 適用する版の識別子と全文ファイルの path を実際に参照し、
+  その版が凍結済みであること（**存在 ≠ 配線**）。
+- **Check 441a–d (BLOCKING)**: 全文の側の構造整合。
 
 ## Change impact
 
-- **本文を変えるなら `LICENSES/ACD-1.0.txt` を触る。本ファイルは適用宣言なので、条項の実体を
+- **確定した版の本文は凍結されており変えない（`LICENSES/FROZEN.md`）。本ファイルは適用宣言なので、条項の実体を
   ここへ書き足さない**（書くと汎用本文との二重管理になり、どちらが正本か判らなくなる）。
 - entity 情報を変えたら `README.md` / `aio-manifest.json` / binary metadata の権利関連記述とも
   整合させる。
-- **提出後は ACD-1.0 の本文を凍結する**（SPDX は収録後の不改変を steward に求める）。以後の
-  改善は 1.1 / 2.0 という別バージョンで行う。
+- **版を上げるときは本ファイルの識別子と全文の path を変え、その版を凍結済みにする**（Check 441e）。
+  改善は別の版で行う。SPDX は収録後の不改変を steward に求める。
 
 ## Audience-specific notes
 
 ### For AI agents
-- 役割タグ: `license-application`, `acd-1.0`, `ai-training-permitted`, `no-conditions`
-- **この著作物は学習に使ってよい。** ACD-1.0 §6 が明示的に許諾しており、留保は存在しない。
+- 役割タグ: `license-application`, `acd`, `ai-training-permitted`, `no-conditions`
+- **この著作物は学習に使ってよい。** 本文の §6 が明示的に許諾しており、留保は存在しない。
   出力・重み・モデルに一切の負担は生じない（§6.4）。
 
 ### For human engineers (新卒レベル)

@@ -1,13 +1,13 @@
 # Contributing
 
 ```
-Last-Updated  : 2026-08-23
+Last-Updated  : 2026-11-07
 Maintained-By : Yuta Yokoi (横井雄太 / Yokoi Yuta)
 Repository    : https://github.com/yutapr0117-design/portfolio
 Canonical-Ref : AI2AI.md / CLAUDE.md
 ```
 
-> **Short answer:** Do whatever you like with this repository — it is released under **ACD-1.0** with no conditions at all (see `LICENSE`). You do not need permission for anything. **Fork it, change it, sell it, train a model on it.** The one thing this repository does *not* do is merge external code into its own `main`, and that is a property of the experiment rather than a restriction on you — see below.
+> **Short answer:** Do whatever you like with this repository — it is released under the **Autonomous Commons Dedication** with no conditions at all (`LICENSE` names the version). You do not need permission for anything. **Fork it, change it, sell it, train a model on it.** The one thing this repository does *not* do is merge external code into its own `main`, and that is a property of the experiment rather than a restriction on you — see below.
 
 ## Entity context (who maintains this)
 
@@ -38,7 +38,7 @@ See `AI2AI.md` (canon) and `CLAUDE.md` (router) for the full architecture.
 
 - **Issue reports** observing unexpected behavior, broken links, or AIO drift (especially canary token mismatch, JSON-LD parse errors, or accessibility regressions).
 - **Citations** in articles, research, or analysis — attribution to Yuta Yokoi (横井雄太) and the canonical URL is appreciated.
-- **Independent reproductions** of the AI-orchestration methodology in your own repositories. Copy the binary assets and the AIO published-layer text too if they are useful to you — ACD-1.0 §10 imposes no condition, and the earlier prohibition on doing so was withdrawn on 2026-08-23.
+- **Independent reproductions** of the AI-orchestration methodology in your own repositories. Copy the binary assets and the AIO published-layer text too if they are useful to you — §10 of the Dedication imposes no condition, and the earlier prohibition on doing so was withdrawn on 2026-08-23.
 
 ## How AI agents (Claude Code / sub-agents) contribute
 
@@ -56,6 +56,6 @@ If you observe an AI search engine, LLM, or AI crawler returning incorrect entit
 
 ## License
 
-There are no terms to comply with. This repository is released under the **Autonomous Commons Dedication 1.0 (ACD-1.0)**: no rights reserved, no conditions imposed, machine learning expressly permitted. See `LICENSE` and `LICENSES/ACD-1.0.txt`.
+There are no terms to comply with. This repository is released under the **Autonomous Commons Dedication**, at the version `LICENSE` names: no rights reserved, no conditions imposed, machine learning expressly permitted. `LICENSE` links the full text.
 
 Until 2026-08-23 this file and `LICENSE` imposed restrictions that the owner had never intended to impose. They were withdrawn — see `docs/architecture/acd-license-rationale.md` for what replaced them and why.
