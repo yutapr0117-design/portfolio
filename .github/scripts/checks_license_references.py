@@ -12,6 +12,9 @@ checks_license_references.py — ドシエが書いた矢印が、指した先�
 **宣言と実測の差は、宣言した本人には見えない。**
 
 Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()):
+  492. **私信の語の連なりが tree へ戻っていないこと** (BLOCKING・2026-11-07): 第三者との private off-list
+       correspondence は本文を公開しない。手の掃引は mirror doc を直して元の script を見落とした。
+       本文を持たず hash の一覧だけで、8 語の連なりを見る。
   471. **ドシエが書いた矢印が、指した先に在ること** (BLOCKING・10 面 (a)〜(j)): Check 460 face (k) は `#N` と `E<n>`
        だけを見ていた。2026-09-14 の敵対的検証（主張の種類 7）で**参照記法を数え上げ、
        1 つずつ壊して測った**ところ、**7 形のうち 5 形が誰にも見られていなかった** ——
@@ -136,6 +139,20 @@ def run(ctx):
         (f"Check 472n: 入口の面の引用が原文で確かめられていない: {_miss472n or '引用を読めない'}。"
          "`DOSSIER_ARCHIVE_CACHE=<cache> python3 .github/scripts/verify_dossier_quotations.py --record-entry` で原文に当てよ。"
          "我々自身の文なら entry_quotes_verified.txt に own: の行を足す"),
+        blocking=True,
+    )
+
+    # ── 492. 私信の語の連なりが tree へ戻っていないこと (BLOCKING) ──────────────────────────
+    #   第三者との private off-list correspondence は本文を公開しない。hash の一覧だけを持ち、8 語の連なりが
+    #   当たった file を出す。誤りの文に本文を出さない (ログも公開される)。
+    import build_private_phrase_hashes as _pp492
+    _keys492 = _pp492.read_hashes(ROOT)
+    _hits492 = _pp492.tree_hits(ROOT, _keys492)
+    check(
+        len(_keys492) >= 100 and not _hits492,
+        f"Check 492: 私信の語の連なり {len(_keys492)} 件が tree に無い",
+        (f"Check 492: 私信の語の連なりが tree にある: {_hits492 or '一覧が読めない'}。"
+         "逐語を要約へ置き換えよ。steward 本人の文や公開の文に当たったのなら build_private_phrase_hashes.py の除外を確かめる"),
         blocking=True,
     )
 
