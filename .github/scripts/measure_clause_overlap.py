@@ -157,7 +157,8 @@ def operative_counts(s: str) -> dict[str, dict[str, int]]:
 # 先行詞を要する指示語。同じ条の中で、それより前に条番号 ("Section 5.3" / "Sections 5.3 and 12.4") が
 # 無ければ宙に浮いている。2026-11-04、§2.8 の理由の文を外す私の試算版で末文の "those Sections" が
 # 先行詞を失ったのを、25 が読んで見つけた (道具は見ていなかった)。
-_ANAPHORA = re.compile(r"\b(those|these|that|such|the said) (Sections?|provisions?|clauses?|paragraphs?)\b", re.I)
+# 番号が続く形 ("claims that Sections 8.1 and 8.4 reach") は関係節であって指示語ではない (2026-11-06 に誤検出した)。
+_ANAPHORA = re.compile(r"\b(those|these|that|such|the said) (Sections?|provisions?|clauses?|paragraphs?)\b(?! \d)", re.I)
 _SECREF = re.compile(r"\bSections? \d+\.\d+")
 
 

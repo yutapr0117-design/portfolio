@@ -66,13 +66,16 @@ import re
 
 # 468u の目印 (条, 句)。**一覧はここだけに置く** —— measure_clause_overlap.py --guard が同じ一覧を import して
 # 試作ファイルに当てる (2 か所に持つと食い違う)。§2.8 / §15.5 は CLARITY-TRIAL 試作 e の効果の保存、
-# §8.4 / §8.2 は B10 の立証 (gap-measurements.md §1.133) が依拠する句。
+# §8.4 / §8.2 は B10 の立証 (gap-measurements.md §1.133) が依拠する句。§5.1 の除外と §8.4 の "content" は §8.4 の
+# 限定を支える (2026-11-06・portfolio-25 の依頼)。§5.1 の除外が落ちると、§8.4 が外した請求項まで不行使になる。
 EFFECT_MARKERS_468U = (
     ("2.8", "nor Section 12.4 narrows this Section"),
     ("15.5", '"person" includes an entity'),
     ("8.4", "resulting from that use"),
     ("8.4", "deliberately absent"),
     ("8.2", "not terminable by the Dedicator on any ground"),
+    ("5.1", "other than for patent infringement"),
+    ("8.4", "from the content of the Work"),
 )
 
 
