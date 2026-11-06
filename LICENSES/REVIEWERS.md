@@ -209,8 +209,8 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 | The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders in the clauses (one in §16.1's notice template) |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
-| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 388 worked entries, indexed by the question rather than the filename |
-| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 283 adverse facts, written by us. Two have no answer |
+| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 390 worked entries, indexed by the question rather than the filename |
+| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 284 adverse facts, written by us. Two have no answer |
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
 | **What we would ask a lawyer** | [`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) | ACD has had no legal review. Nine questions on which a lawyer's reading would most change the text, ranked by consequence, each answerable on its own |
 | **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 63 known imprecisions, all unrepaired in 1.0 while the freeze holds, with what the successor does (the Status column is authoritative) |
