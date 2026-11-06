@@ -207,6 +207,34 @@ submitted**"*。**取り下げは、手続きが想定している通常の一�
 **打てる手。** 実在のプロジェクトが関心を示すことは、AI には作れないが、オーナーは尋ねることができる。
 リポジトリの側では `ADOPTING.md` に、使う人が公に述べられる場所を案内した。捏造は失格事由である。
 
+### 2d. 使われていないことは、単独では理由にされてこなかった（2026-11-07 に読んだ委員会の理由書）
+
+委員会が理事会へ出す勧告には Rationale Document が付く。使用について述べた 2 通が在り、どちらも承認の勧告である。
+MIT-0 は我々と同じ PD 等価の類型で、理事会は 2020-08-14 にこの勧告どおり承認した。
+
+> *"There was some discussion whether the license was actually in use, but this is not a basis for rejection
+> that the OSI has applied in the past (and the OSI has historically approved newly drafted licenses not yet
+> in use)."* —— License Committee, Rationale Document, MIT-0（Chestek 委員長・2020-08-04・`rounds/2020-08-04-license-review-mit0-committee-rationale-observed.txt`）
+
+> *"There was some discussion about whether a license in such limited use should have the attention of the OSI,
+> but it has been submitted for approval and, to date, OSI has not used the number of projects adopting a license
+> as a factor in deciding whether a license can be approved."* —— 同・Jam（2021-09-12・`rounds/2021-09-12-license-review-jam-committee-rationale-observed.txt`）
+
+**組み合わせると、記録はこう並ぶ。** 2020 と 2021 の理由書は「使用は拒否の根拠でも要素でもない」と述べ、
+2025 の理事会は「拒否は OSD 違反に限る」と述べ、使用を持ち出すのは *duplicative* と結んだときだけである。
+**使われていないことが単独で否決の理由になった記録は、我々の読んだ範囲に無い。** Atkinson 氏の 2021-02 の文
+（法的レビューも使用も無い）は参加者の見解で、その 7 か月後の委員会の理由書は別のことを述べている。
+
+**逆側を同じ重さで書く。**
+
+- **どちらも過去についての文である。** *"in the past"* と *"to date"* と述べており、今後を約束していない。
+- **後の記録は向きが変わっている。** 同じ Chestek 氏が 2026-08-26 に、委員としてこう述べている ——
+  *"We want to see licenses early to correct them, but are less inclined to approve a license that doesn't have a
+  track record."* 理事会の留め置き（2025）と Tiwaz の保留（§2c）も 2021 より後である。
+- **理由書の 2 通は承認の側で、既存テキストの legacy 承認である。** MIT-0 は MIT から 1 文を除いたもの、Jam は 20 年使われたもので、
+  新規の長いテキストについての文ではない。ただし MIT-0 の括弧書き（*"newly drafted licenses not yet in use"*）は新規について述べている。
+- **理由書は OSI を拘束しない。** *"prior approval … does not bind"* は我々に有利な先例にも同じように当たる。
+
 ## 3. 🔴 その区別は、14 か月経っても公表されていない
 
 同じ議事録の次の文はこう続く:

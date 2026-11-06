@@ -54,7 +54,7 @@ OSI に承認され得るかの自問自答と、より承認されやすくす�
 2. **条件を 1 つも課さないので、否決の最大の束が当たらない。** 否決の理由は「条件・利用制限・差別」と「起草の粗さ・解釈問題」の 2 束で（`ACD-OSI-BOTTLENECKS.md` 冒頭 6）、前者は §10.1 により構造上当たらない。後者は我々が直せる側で、1.4 草案が閉じ続けている。
 3. **新規ライセンスの基準 8 条は、どれも本文の中に答えが在る**（`ACD-1.0.gap-measurements.md` §1.134・英語の表は `REVIEWERS.md`）。義務が無いので「提出時に遵守できる」は自明で、外部参照が無いので「完全なテキスト」も本文で確かめられる。足りるかを決めるのが OSI である基準も在る。
 4. **承認済みの全部が持たない効果を、本文で示せる。** 作品を超える特許許諾を条件も終了も無しに与えるものは 141 本中 0 本で、ACD は §8.4 + §8.2 でそれを与える（B10・基準 7）。
-5. **決める側の言葉が、この提出を門前払いにしていない。** 理事会は *"a license should be rejected only if it violates the OSD"* と述べ（2025-07-18）、委員長（当時）は法的レビューについて *"we do not require review by a lawyer, only recommend it. That is not a blocker."* と述べた（2024-12）。同じスレッドで逆を述べた Piana 氏は同じ日に撤回した（#127）。「重複」は承認の区分としても存在する（MIT-CMU は *Redundant with More Popular* として承認）。
+5. **決める側の言葉が、この提出を門前払いにしていない。** 委員会の理由書は、使われていないことを *"not a basis for rejection that the OSI has applied in the past (and the OSI has historically approved newly drafted licenses not yet in use)"* と述べた（MIT-0・2020・`board-decisions.md` §2d）。理事会は *"a license should be rejected only if it violates the OSD"* と述べ（2025-07-18）、委員長（当時）は法的レビューについて *"we do not require review by a lawyer, only recommend it. That is not a blocker."* と述べた（2024-12）。同じスレッドで逆を述べた Piana 氏は同じ日に撤回した（#127）。「重複」は承認の区分としても存在する（MIT-CMU は *Redundant with More Popular* として承認）。
 
 理由の全文と、OSD 10 条・基準 8 条を本文で 1 つずつ通した表は `SUBMISSION-MATERIALS.md` §1c に在る。
 
@@ -62,7 +62,7 @@ OSI に承認され得るかの自問自答と、より承認されやすくす�
 
 **残る論点は 3 つで、消えていない。** どれも審査者が持ちうる最強の反論なので、先に名指す。
 
-1. **法的レビューも第三者の採用も無い（B1・B2）。** Atkinson 氏（2021-02）は *"submitted licenses should have either received legal review or at least non-negligible use. This license has neither"* と述べて承認しないよう求めた。**我々は今、どちらも無い。** 2026-11-06 訂正: 旧文は「どちらか一方でも、断る十分な理由になる」と書いていた。氏の文は両方が無いことを問題にしており、公表基準 8 条にどちらも無く、委員長は法的レビューを要件でないと述べているので、**旧文は一次資料より不利に書いていた**（`REVIEWERS.md` と `against.md` の同じ文も直した）。
+1. **法的レビューも第三者の採用も無い（B1・B2）。** Atkinson 氏（2021-02）は *"submitted licenses should have either received legal review or at least non-negligible use. This license has neither"* と述べて承認しないよう求めた。**我々は今、どちらも無い。** ただしこれは参加者の文で、7 か月後の委員会の理由書は *"to date, OSI has not used the number of projects adopting a license as a factor"* と述べている（Jam・2021）。 2026-11-06 訂正: 旧文は「どちらか一方でも、断る十分な理由になる」と書いていた。氏の文は両方が無いことを問題にしており、公表基準 8 条にどちらも無く、委員長は法的レビューを要件でないと述べているので、**旧文は一次資料より不利に書いていた**（`REVIEWERS.md` と `against.md` の同じ文も直した）。
 2. **過去 33 か月に承認された 4 件はすべて既存テキストで、新規の道具は 1 件も無い**（`ACD-OSI-BOTTLENECKS.md` 冒頭 5）。我々の輪郭は否決された側に一致する（#128）。
 3. **基準を全部満たしても十分条件にはならない。** 公表規則が *"even where they cannot identify a specific aspect of the OSD … that is not met"* と明記している（#130）。理事会は「重複し、どのプロジェクトにも使われていないものは承認しないまま留め置きうる」とも述べており（2025-07-18）、否決より先に備えるべき帰結はこれである。委員会はこの形を Tiwaz に当て、解く条件を「1 つ以上のプロジェクトが使い始める、または関心を示す」と述べた（2025-09-11・`board-decisions.md` §2c）。答えは 3 の「重複ではない」の 1 点に絞る（`SUBMISSION-MATERIALS.md` §2）。
 

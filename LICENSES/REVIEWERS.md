@@ -22,9 +22,9 @@ that it must be**. *(Re-measure: `git ls-files -z LICENSES ':!LICENSES/rounds' |
 | :-- | --: | :-- |
 | [`ACD-1.0.txt`](ACD-1.0.txt) | **4,896** | the licence. Nothing outside it fixes it |
 | the two facts **#1 and #4** in [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~220 | **no lawyer has read this text**, and **the only project using it is the author's**. These are the strongest points against it. Neither is one of the eight published criteria, and the Licensing Committee's chair has called legal review *"not a blocker"*, but a reviewer may weigh both |
-| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **2,608** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
+| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **2,668** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
 
-**≈ 7,720 words** *(`wc -w`, 2026-11-07.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
+**≈ 7,780 words** *(`wc -w`, 2026-11-07.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
 jurisdiction analysis, and the archive measurements — **all of which are evidence for claims,
 not claims themselves.** The four commands below check the licence text without trusting any
 of it.
@@ -191,6 +191,7 @@ past does not bind the OSI"*, and a list message is its author's own view.
 | The need | Christopher Sean Morrison, 2017-10-26: *"so many federal agencies moving into open source, commensurately searching the legal landscape for something close to public domain yet still addressing indemnification and contributor patent grants"* | §3, §2.6 and §8. This is a stated need, nine years old, and not an adoption. He goes on: *"All leading to proliferation"* |
 | Burdens on the licensee | Pamela Chestek, 2025-03-02, on ModelGo: *"Imposing too many burdens and obligations on the licensee means that benefits of the open source ecosystem won't be realized."* | §10.1 imposes none |
 | One steward | Bradley Kuhn, 2018: *"OSI really does need to trust the license steward when an upgrade clause is in play"*. Lawrence Rosen, 2012, on distrust of him personally: section 16 of AFL and OSL *"declared authorship but disclaimed control over changes"* | ACD has no upgrade clause, and §16.4 has the same shape as that section 16. The steward keeps new versions under the name, and no successor is named |
+| Use | The Committee's rationale for MIT-0, which the Board approved in 2020: *"this is not a basis for rejection that the OSI has applied in the past (and the OSI has historically approved newly drafted licenses not yet in use)"*. For Jam, 2021: *"to date, OSI has not used the number of projects adopting a license as a factor"* | Both speak of the past. Chestek in 2026: *"less inclined to approve a license that doesn't have a track record"*, and the later records join non-use to duplication |
 | Refusal | The Board, 2025-07-18: *"a license should be rejected only if it violates the OSD"* | It has not been said to violate the OSD. The same minutes allow a licence to stay unapproved (see `ACD-1.0.objection-map.md`). The one such hold on record, on Tiwaz in 2025, lifts when *"one or more projects begin using this license or express an interest in doing so"* |
 | Legal review | Pamela Chestek as chair, 2024-12-18: *"we do not require review by a lawyer, only recommend it. That is not a blocker."* Carlo Piana, who had written the opposite that morning, withdrew it the same day: *"bad choice of words on my side"* | It is still our largest weakness, and the Unlicense did pass with lawyers' agreement |
 | No governing-law clause | The Board, approving the Open Logistics License in 2023: *"it does not believe that choice of law provisions are necessary or advisable in open source licenses"* | §15.7 names no law (§15.3 from 1.1) |

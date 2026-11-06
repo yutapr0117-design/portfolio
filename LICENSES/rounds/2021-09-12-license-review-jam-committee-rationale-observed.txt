@@ -1,0 +1,142 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2021-September.txt
+Retrieved: 2026-11-07
+Date: Sun, 12 Sep 2021 13:51:57 -0400
+From: Pamela Chestek
+Subject: [License-review] Legacy Approval, Licnese of Jam
+Position: the License Committee recommendation and Rationale Document for the Jam licence. It says the number of projects adopting a licence has not been a factor. Not addressed to us.
+
+----- begin verbatim -----
+From pamela.chestek at opensource.org  Sun Sep 12 17:51:57 2021
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Sun, 12 Sep 2021 13:51:57 -0400
+Subject: [License-review] Legacy Approval, Licnese of Jam
+In-Reply-To: <alpine.DEB.2.21.2104251721000.2109@marsh.hcoop.net>
+References: <alpine.DEB.2.21.2104251721000.2109@marsh.hcoop.net>
+Message-ID: <0e9fc03d-7a8f-822b-f521-a3224d652cab@opensource.org>
+
+Dear License-Review,
+
+Below is the recommendation of the License Committee to the Board that
+the JAM License be approved as an Open Source Initiative Approved
+License. I apologize for the delay in making the recommendation to the
+Board.
+
+Pam
+
+Pamela Chestek
+Chair, License Committee
+Open Source Initiative
+
+License: JAM License (Exhibit A)
+Submitted: April 25, 2021,
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2021-April/005139.html
+Decision date: due no later than the first Board meeting after June 24,
+2021.
+
+License Review Committee Recommendation:
+
+Resolved that it is the opinion of the OSI that the JAM License be
+approved as an Open Source Initiative Approved license in the
+Other/Miscellaneous category of licenses.
+
+_Rationale Document_
+
+Notes: This license has been in use for at least 20 years. It is not
+widely used but needed to build the widely distributed Argyll Color
+Management System.
+
+One commenter noted that the license does not expressly grant the right
+to modify, although it can be construed as implying a right to modify by
+stating that modifications must be marked. Another commenter pointed out
+that less-than-perfect language is common in older open source licenses
+and opined that ?In this case it is clear from the license text that
+?use? was meant to encompass permission to modify.? Both Debian and
+Fedora distribute software with this license, so presumably these
+projects find that it meets their standards for free and open source
+licenses. The original commenter agreed that ?this one probably meets
+the OSD if you assume a lot of liberality on implied license grants
+(both copyright, and patent).?
+
+There was some discussion about whether a license in such limited use
+should have the attention of the OSI, but it has been submitted for
+approval and, to date, OSI has not used the number of projects adopting
+a license as a factor in deciding whether a license can be approved.
+
+For these reasons we recommend that the license be approved.
+
+/Exhibit A/
+
+License is hereby granted to use this software and distribute it freely,
+as long as this copyright notice is retained and modifications are
+clearly marked.
+
+ALL WARRANTIES ARE HEREBY DISCLAIMED.
+
+
+
+
+On 4/25/2021 5:34 PM, Jack Hill wrote:
+> As a licensee of Jam, I'm asking for legacy approval of the following
+> terms:
+>
+> """
+> License is hereby granted to use this software and distribute it
+> freely, as long as this copyright notice is retained and modifications
+> are clearly marked.
+>
+> ALL WARRANTIES ARE HEREBY DISCLAIMED.
+> """
+>
+> This is the license used by Jam [0] and its forks [1][2][3] (n.b. the
+> boost version is also distributed under the Boost license). Outside of
+> Boost, I don't believe this build tool is widely used. However, it is
+> needed to build at least one important open source package: the Argyll
+> Color Management System. Argyll is the only open source package that I
+> know of that can generate color calibration profiles, so it is
+> critically important for the use of open source software in fields
+> where that is important.
+>
+> I believe that the proliferation category for this license is
+> Other/Miscellaneous.
+>
+> In other discussions [4] I've had about this license, the problematic
+> points were what "distribute freely" meant, and how modifications
+> could be clearly marked. The Argyll fork of Jam marks modifications as
+> follows:
+>
+> """
+> This if "Argyll-Jam", a simple derivative of the "FT-Jam" build tool,
+> based and
+> 100% compatible with Jam 2.5. See http://www.freetype.org/jam/ for more
+> details about FT-Jam.
+>
+> This is the "FT-Jam" 2.5.2 release, with minor ArgyllCMS tweaks,
+> and the ArgyllCMS V1.3.3 Jambase as the default rule set.
+>
+> Note that you'll find the original Jam README in the file README.ORG
+> """
+>
+> [0] https://www.perforce.com/documentation/jam-documentation
+> [1] https://www.freetype.org/jam/index.html
+> [2] http://www.argyllcms.com/doc/Compiling.html
+> [3]
+> https://www.boost.org/doc/libs/1_76_0/tools/build/doc/html/index.html#bbv2.jam
+> [4] https://lists.gnu.org/archive/html/guix-devel/2021-04/msg00436.html
+>
+> Best,
+> Jack
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Communication from
+> the Open Source Initiative will be sent from an opensource.org email
+> address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20210912/a5dfa376/attachment.html>
