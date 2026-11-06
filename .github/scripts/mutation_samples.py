@@ -590,7 +590,7 @@ _E2E_TAIL.append({
     "name": "HTML 標準の license リンクが消える —— rel=license は権利宣言の最も標準的な入口で、"
             "JSON-LD を読まないツール (ライセンススキャナ等) にとっては唯一の手掛かり",
     "file": ROOT / "index.html",
-    "find": '<link rel="license" href="/portfolio/LICENSES/ACD-1.3.txt" />',
+    "find": f'<link rel="license" href="/portfolio/LICENSES/{APPLIED_ID}.txt" />',
     "replace": '<!-- removed by mutation probe -->',
     "test": "HTML 標準の license リンクが全ルートで解決可能な形で存在する",
 })

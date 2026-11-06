@@ -1,4 +1,10 @@
+const fs = require('fs');
+const path = require('path');
 const { test, expect } = require('@playwright/test');
+
+// 適用する版は LICENSE が単一ソース。決め打ちすると適用する版を上げる日にこの spec も手で直すことになる。
+const APPLIED_ID = fs.readFileSync(path.join(__dirname, '..', 'LICENSE'), 'utf8')
+  .match(/^SPDX-License-Identifier: (ACD-\d+\.\d+)$/m)[1];
 
 // ===== ライセンス宣言が「実際にレンダリングされた DOM」で機械可読であること =====
 // 静的 Check (444) は index.html のソースを読むが、**このサイトは runtime で JSON-LD を
@@ -100,7 +106,7 @@ test('レンダリング後の全 CreativeWork ノードが同一のライセン
 
   // 面ごとに違う URL を指していたら「どれが正か」を機械が決められない
   expect(state.urls, `${route.path}: ライセンス URL が面ごとに食い違っている`).toEqual([
-    'https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.3.txt',
+    `https://yutapr0117-design.github.io/portfolio/LICENSES/${APPLIED_ID}.txt`,
   ]);
   }
 });
@@ -111,7 +117,7 @@ test('HTML 標準の license リンクが全ルートで解決可能な形で存
     await page.waitForLoadState('domcontentloaded');
     const href = await page.locator('link[rel="license"]').getAttribute('href');
     expect(href, `${route}: rel=license の link が無い`).toBeTruthy();
-    expect(href, `${route}: license リンクが全文を指していない`).toContain('LICENSES/ACD-1.3.txt');
+    expect(href, `${route}: license リンクが全文を指していない`).toContain(`LICENSES/${APPLIED_ID}.txt`);
 
     // 宣言だけで届かないのを防ぐため、実際に取得できることまで確かめる。
     // [環境] 本番は GitHub Pages の project site なので `/portfolio/` 配下だが、
