@@ -100,6 +100,11 @@ whether a covenant given alongside the licence (the 1.4 form) is treated differe
 arises only on a holding (the 1.3 form). (e) Whether "use" in a covenant not to assert patent claims is read as
 the statutory act of using only, which is the reading the 1.4 change assumes and guards against.
 
+(f) In the 1.4 draft §8.4 says the proviso on subject matter contained in the Work is deliberately
+absent, then limits the grant to a feature resulting from the content of the Work. We read §8.1 as
+testing what the Work contains and §8.4 as testing where a feature of a model or output came from.
+A reader may instead see one limit taken away and the same limit put back.
+
 **An answer would change** the wording of §8.4 (register B7; errata E6 and E15).
 
 ## 3. Are the moral-rights covenants enforceable where waiver is not? (§12.1 to §12.5)
