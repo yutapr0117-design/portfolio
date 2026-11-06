@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-07 時点・286 ファイル）
+## いまの状態（2026-11-07 時点・287 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -351,6 +351,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2020-08-04 | `license-review`（観測）| **委員会の MIT-0 の勧告と Rationale Document → 観測保存** | *"this is not a basis for rejection that the OSI has applied in the past (and the OSI has historically approved newly drafted licenses not yet in use)"*。理事会はこの勧告どおり承認した（`board-decisions.md` §2d）|
 | 2021-09-12 | `license-review`（観測）| **委員会の Jam の勧告と Rationale Document → 観測保存** | *"to date, OSI has not used the number of projects adopting a license as a factor in deciding whether a license can be approved"*（`board-decisions.md` §2d）|
 | 2021-01-09 | `license-review`（観測）| **委員会の CERN-OHL の勧告と Rationale Document → 観測保存（抜粋）** | *"they are written such that they can be used for software, so they are appropriate for the OSI's review"*。審査対象の基準である（`board-decisions.md` §2e）。本文の Exhibit A（ライセンス全文）は省いた |
+| 2015-11-12 | `license-review`（観測）| **Richard Fontana 氏の 0BSD（当時 Free Public License）承認の告知 → 観測保存** | *"the OSI obtained outside legal counsel concerning the legal and policy issues raised by 'ultra-permissive' licenses like the FPL which do not impose conditions on the licensee"*。助言の中身は公開されていない（`board-decisions.md` §8.6）|
 
 **ACD-1.0 そのものについては、依然として受領がゼロである。** 2026-09-09 時点で
 **ACD-1.0 の投稿は 2 通あり、どちらも別スレッドとして立ち、どちらにも返信が無い**

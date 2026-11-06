@@ -1,0 +1,76 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2015-November.txt
+Retrieved: 2026-11-07
+Date: Thu, 12 Nov 2015 16:44:27 -0500
+From: Richard Fontana
+Subject: [License-review] Approval Request: Free Public License 1.0.0
+Position: the message announcing that the Board approved the Free Public License 1.0.0, now 0BSD, and that the OSI took outside legal counsel on licences that impose no conditions. Not addressed to us.
+
+----- begin verbatim -----
+From fontana at sharpeleven.org  Thu Nov 12 21:44:27 2015
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Thu, 12 Nov 2015 16:44:27 -0500
+Subject: [License-review] Approval Request: Free Public License 1.0.0
+In-Reply-To: <CAM6WPeMhT_OZSXqBvN15gdZFfbC7Qj-tF4bg79xgP3c45XK8bg@mail.gmail.com>
+References: <CAM6WPeMhT_OZSXqBvN15gdZFfbC7Qj-tF4bg79xgP3c45XK8bg@mail.gmail.com>
+Message-ID: <20151112214427.GA5677@sharpeleven.org>
+
+On Sun, Aug 30, 2015 at 12:48:43AM +0000, Christian Bundy wrote:
+> We (Fraction) would like to formally submit the Free Public License for OSI
+> approval. The FPL is a permissive license designed to allow anyone do anything
+> (except hold anyone liable).
+
+The Free Public License 1.0.0 has been approved by the OSI Board.
+
+In response to several comments from the license-review community
+concerning the FPL, the OSI obtained outside legal counsel concerning
+the legal and policy issues raised by 'ultra-permissive' licenses like
+the FPL which do not impose conditions on the licensee (particularly
+notice-preservation conditions).
+
+Richard
+
+
+
+> 
+> 
+>     Free Public License 1.0.0
+> 
+>     Permission to use, copy, modify, and/or distribute this software for
+>     any?purpose with or without fee is hereby granted.
+> 
+>     THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL
+>     WARRANTIES?WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES
+>     OF?MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE
+>     FOR?ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY
+>     DAMAGES?WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN
+>     AN?ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT
+>     OF?OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+> 
+> 
+> Public domain dedications are attractive to anyone who needs something more
+> permissive than traditional licenses like the MIT license, but they're?
+> inherently problematic. Public license fallbacks in the CC0 and Unlicense were
+> designed to solve this problem, but it seems like the best solution would be an
+> ultimately permissive public license.
+> 
+> The FPL is a modified ISC license that removes both the copyright notice and
+> the requirement that "...the above copyright notice and this permission notice
+> appear in all copies." While there's only a small textual difference between
+> the two licenses, removing the copyright notice and copyright requirement solve
+> the problem of software public domain dedication.
+> 
+> There hasn't been any external legal review or legal analysis of the FPL, as
+> the only changes were the two removals mentioned above.?
+> 
+> The FPL's license proliferation category would most likely be "Other/
+> Miscellaneous"
+> 
+> Thanks for taking the time to review this license for approval.
+> 
+> Christian Bundy
+> Fraction
+
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
