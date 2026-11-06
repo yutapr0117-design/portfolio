@@ -10,6 +10,10 @@
         (c) READY-TO-SUBMIT.md の「Check N (M 部)」⟺ 実装の下位部 N[a-z] の種類数 (2026-11-03)
    474. 不利な事実の register が、潰すための backlog として機械可読であること (BLOCKING)
    475. 反証表の全行が日付つきの状態を宣言していること (BLOCKING)
+  491. register の英語の索引が日本語の索引の写しであること (BLOCKING・2026-11-06)。審査者が読むのは英語の索引で、
+        項目を足すと片方だけ増える形なので、ID の集合と重大度の一致を見る。
+        あわせて objection-map が against.md の最大番号に追いついているかを ADVISORY で出す。読んで
+        「足す反論は無い」と判断して数を上げるだけの増分も正当なので、止めない。
 """
 
 import re
@@ -256,3 +260,34 @@ def run(ctx):
         check(False, "Check 475: 対象ファイル",
               f"Check 475: 検査対象 {_as475.relative_to(ROOT).as_posix()} が無い —— 改名・移動したならこの Check の参照先を直す (黙って skip しない)")
 
+    # ── 491. register の英語の索引が日本語の索引の写しであること (BLOCKING) ───────────────
+    #   英語の審査者が読むのは冒頭の索引で、日本語の索引は下に在る。項目を足すと片方だけ増える。
+    _br491 = _L460 / "ACD-OSI-BOTTLENECKS.md"
+    _t491 = _br491.read_text(encoding="utf-8") if _br491.exists() else ""
+    _en491 = dict(re.findall(r"^\| (B\d+) \|[^|]*\| (Highest|High|Medium|Low) \|", _t491, re.M))
+    _sev491 = {"最高": "Highest", "高": "High", "中": "Medium", "低": "Low"}
+    _ja491 = {_b: _sev491.get(_v.strip(" *"), _v.strip()) for _b, _v in
+              re.findall(r"^\| \*\*(B\d+)\*\* \|[^|]*\| ([^|]+?) \|", _t491, re.M)}
+    _diff491 = sorted((_b, _en491.get(_b), _ja491.get(_b)) for _b in set(_en491) | set(_ja491)
+                      if _en491.get(_b) != _ja491.get(_b))
+    check(
+        len(_en491) >= 10 and not _diff491,
+        f"Check 491: register の英語の索引 {len(_en491)} 項目が日本語の索引と ID・重大度で一致",
+        (f"Check 491: register の 2 つの索引が食い違う (項目 {len(_en491)} / 差 (ID, 英語, 日本語) {_diff491})。"
+         "**審査者が読むのは英語の索引である。** 項目を足したら両方へ書け"),
+        blocking=True,
+    )
+    _om491 = _L460 / "ACD-1.0.objection-map.md"
+    _mc491 = re.search(r"last caught up at #(\d+)", _om491.read_text(encoding="utf-8") if _om491.exists() else "")
+    _ag491 = _L460 / "ACD-1.0.against.md"
+    _top491 = max((int(_n) for _n in re.findall(r"^\| (\d+) \|", _ag491.read_text(encoding="utf-8"), re.M)), default=0) if _ag491.exists() else 0
+    check(bool(_mc491), "Check 491: objection-map が追いついた番号を述べる",
+          "Check 491: objection-map から \"last caught up at #N\" の文が消えた (鮮度を見られなくなる)", blocking=True)
+    if _mc491:
+        check(
+            int(_mc491.group(1)) >= _top491,
+            f"Check 491 (ADVISORY): objection-map は against.md の最新 #{_top491} まで追いついている",
+            (f"Check 491 (ADVISORY): objection-map は #{_mc491.group(1)} までで、against.md は #{_top491} まで在る。"
+             "読んで反論を足すか、足すものが無いと判断したなら数を上げよ (この表は 2 度古くなった)"),
+            blocking=False,
+        )

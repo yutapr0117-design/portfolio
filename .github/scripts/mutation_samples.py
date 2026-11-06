@@ -526,6 +526,20 @@ _MUTATIONS_TAIL.append({
     "replace": "| [`AUDIT-LEDGER.md`](AUDIT-LEDGER.md) | English |",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 491: 英語の索引の重大度だけが日本語の索引と違う —— 審査者が読む側だけ軽く見える",
+    "file": ROOT / "LICENSES" / "ACD-OSI-BOTTLENECKS.md",
+    "find": "| B1 | No legal review | Highest |",
+    "replace": "| B1 | No legal review | Medium |",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 491: 鮮度の文を消して黙らせる",
+    "file": ROOT / "LICENSES" / "ACD-1.0.objection-map.md",
+    "find": "last caught up at #",
+    "replace": "was last read at #",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
