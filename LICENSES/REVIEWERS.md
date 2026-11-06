@@ -22,9 +22,9 @@ that it must be**. *(Re-measure: `git ls-files -z LICENSES ':!LICENSES/rounds' |
 | :-- | --: | :-- |
 | [`ACD-1.0.txt`](ACD-1.0.txt) | **4,896** | the licence. Nothing outside it fixes it |
 | the two facts **#1 and #4** in [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~220 | **no lawyer has read this text**, and **the only project using it is the author's**. These are the strongest points against it. Neither is one of the eight published criteria, and the Licensing Committee's chair has called legal review *"not a blocker"*, but a reviewer may weigh both |
-| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **2,758** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
+| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **2,775** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
 
-**≈ 7,870 words** *(`wc -w`, 2026-11-07.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
+**≈ 7,890 words** *(`wc -w`, 2026-11-07.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
 jurisdiction analysis, and the archive measurements — **all of which are evidence for claims,
 not claims themselves.** The four commands below check the licence text without trusting any
 of it.
@@ -185,6 +185,7 @@ past does not bind the OSI"*, and a list message is its author's own view.
 | On this point | What was said | Where it meets ACD |
 |---|---|---|
 | A dedication alone, and CC0 | OSI's FAQ (last modified 2025-01-21): *"even where it is clear what it means, it's still not a license"*; on CC0, *"The most serious of the concerns raised had to do with the effects of clause 4(a)"*, the patent exclusion | §4 is a licence and §8 grants patents. The same FAQ says *"rather than try to waive copyright altogether"*, which is §3, and values attribution, which §10.2 gives up |
+| Patents | McCoy Smith, a Licensing Committee member, on OSI's blog, 2025-12-04: CC0 is *"perhaps the best example of a comprehensive effort to dedicate content to the public domain"*, but its patent disclaimer raised concerns; *"well-crafted explicit patent license grants in Open Source licenses (with or without defensive termination provisions) go a long way to reducing the risks"* | §8 is an express grant and §8.2 has no defensive termination. The same article calls Apache-2.0's clause *"a form of mutual patent peace"*, and it is his article, not a decision |
 | Surrender plus licence | An article on OSI's site, 2017: *"A solution would be"* to *"disclaim ownership for the jurisdictions where that is possible, and then grant a copyright license that has the same practical effect"*; CC0 stalled *"during a complex discussion about patent rights"* | §3 and §4 are those two parts, §4 is not limited to those jurisdictions (§4.4), and §8 grants patents. The article is one author's, not a decision, and ends by recommending MIT |
 | Liability, in the public domain | The same FAQ: *"we don't know how or whether the author would be protected from liability for software released into the public domain"* | §13 and §14 |
 | Why CC0 stopped | Board minutes, 2012-03-07: *"Recommend disapprove, due to clause 4a"*, and Chris DiBona: *"I don't think that any new licenses should be approved unless they include patent clauses"* | §8. The same report says of CC0's academic users that *"the patent exception is important to them"* |
