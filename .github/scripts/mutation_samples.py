@@ -568,6 +568,20 @@ _MUTATIONS_TAIL.append({
     "replace": "    from measure_citation_drift import CITE, FACES, FIRST_READ, cited_rows\n",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 472m: 入口の短い経路の合計を実物とずらす —— 審査者に示す読む費用が、手で書いた値のまま古くなる",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "**≈ ",
+    "replace": "**≈ 1",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 472m: 入口の表の objection-map の語数を実物とずらす —— 直すたびに手で書き直していた行",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "(ACD-1.0.objection-map.md) | **",
+    "replace": "(ACD-1.0.objection-map.md) | **1",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
