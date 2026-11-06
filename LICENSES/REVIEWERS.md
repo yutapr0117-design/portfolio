@@ -195,7 +195,7 @@ past does not bind the OSI"*, and a list message is its author's own view.
 | No governing-law clause | The Board, approving the Open Logistics License in 2023: *"it does not believe that choice of law provisions are necessary or advisable in open source licenses"* | §15.7 names no law (§15.3 from 1.1) |
 | Proliferation | Board minutes, 2007-11-07, on SimPL, which allows relicensing under the GPL: *"it does not create a licensing dead-end and thus does not exacerbate the negative aspects of licensing proliferation"* | §4.5: the Work may go out under any terms. One decision, nineteen years ago |
 | Vanity | The Board, 2007: *"does not give that argument much weight as long as the license is reusable"* | §16.3, and the commands below |
-| AI and ML | The Board, 2025-07-18: *"When licenses aimed at AI/ML projects are approved"*, and such a licence is reviewed against the OSD and the standard criteria | ACD is reviewed on those terms |
+| AI and ML | The Board, 2025-07-18: *"When licenses aimed at AI/ML projects are approved"*, and such a licence is reviewed against the OSD and the standard criteria. OSI's page of questions on the Open Source AI Definition, on parameters: *"They may be free by nature, or a license or other legal instrument may be required"*, and *"we require an explicit assertion"* that they are free | ACD is reviewed on those terms, and it gives that assertion without assuming a right subsists (§9.2, §16.3). OSAID is not the approval standard |
 
 **What we cannot fix.** No lawyer has read this licence, and none has been
 engaged ([`against.md`](ACD-1.0.against.md) #1). The step that resolved the closest precedent —
