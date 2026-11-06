@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.1-CHANGELIST.md
 audience: ai, 監査人, OSI license-review / license-discuss participants, 第三者全般
-last-updated: 2026-11-03
+last-updated: 2026-11-06
 canonical-ref: LICENSES/ACD-1.0.errata.md (欠陥の一次記録) / LICENSES/REVISION-PROTOCOL.md (§1 ラウンドの流れ・§2 版管理) / LICENSES/FROZEN.md (1.0 が動かないことの機械強制)
 ---
 
@@ -369,6 +369,12 @@ open だった理由が 4 件とも違った。** 宣言ではなく errata の�
 > **(3) 条数は 1.0 = 82 / 1.1 = 78 / 1.2 草案 = 80**（2026-09-26 実測）。下の「82 → 77」は 1.1 草案時の値で、**確定した 1.1 は 78** だった。
 > **(4) E10 は 1.1 では閉じた**（`ACD-1.1.machine.json` の `reservationsAndLimits.textRedistribution`）。**記述子は版ごとに作るので、
 > 1.2 の記述子にも同じ key を入れる**（`ACD-1.2-CHANGELIST.md` の E10 の項）。逐語引用の再抽出は `ACD-1.2-CHANGELIST.md` で既に 1 回回してあるが、**確定時にもう一度回す**。
+
+> **⚠ 2026-11-06 追記 —— 申請する版の凍結ヘッダは、確定した日の事実として書く（5a の予行で判明・判断は 25）。**
+> 1.1〜1.3 の 1 行目は *"FROZEN TEXT. NOT SUBMITTED FOR APPROVAL."*、箇条書きは *"It has not been submitted to OSI license-review"* と現在形で述べる。**申請する版を同じ型で確定すると、申請した瞬間に偽になり、凍結中なので直せない。** 審査者が canonical として開く file の 1 行目で、同じヘッダの *"A frozen text cannot be updated, so it does not record facts that can change"* にも反する。
+> **1 行目は `ACD-<版> -- FROZEN TEXT.` だけにし**（Check 453b と 468 は `FROZEN TEXT` の語を見る）、箇条書きの法的レビューと提出の文を次の 1 件へ置き換える: *"On the date this text was fixed (<date>), it had had no legal review, it had not been submitted to OSI license-review, and it was not on the SPDX License List. A frozen text cannot be updated, so this line describes that date only; LICENSES/FROZEN.md records what has happened since."*
+> **文を外して `FROZEN.md` を指すだけにしない。** 法的レビューが無いことは最大の弱点で（B1）、審査者が開く file で先に言う開示である。日付を付ければ、後から弁護士が読んでも申請しても真のままなので、開示と凍結は両立する。**⚠ 逆側**: 日付つきの文は「今はどうか」を答えないので、読み手は `FROZEN.md` まで行く必要がある。
+> 凍結済みの 1.1〜1.3 は申請しない版なので、現在形のまま真である。
 
 **版に紐づく Check が 2 種類ある。** **確定の瞬間に、片方は古い版を、もう片方は消えた file を指す。**
 
