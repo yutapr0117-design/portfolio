@@ -606,9 +606,14 @@ def run(ctx):
         #   修飾語の付き先を直し、"no earlier text" と "has borne" の間へ移した。目印の存在だけを見る形では、
         #   この例外が後から広げられても (「a draft or a corrected text」等) 黙って通る。目印の間に
         #   置けるのは、この 1 句か何も無いかのどちらかに限る (例外を消して厳しくするのは通す)。
-        _mx468m = re.search(r"no earlier text(.*?)has borne", _s468m)
-        if _mx468m and _mx468m.group(1).strip(" ,") not in ("", "other than a draft identified as such"):
-            _bad468.append(f"468m: §16.4 の例外句が変わった: {_mx468m.group(1).strip(' ,')!r} "
+        #   "has borne" の後ろも見る (5a の相互検証・2026-11-06): 間の区間だけでは、例外を後ろへ戻して広げても
+        #   正しい句の後ろに足しても通った。文の形が読めないときも黙って通さない。
+        _mx468m = re.search(r"no earlier text(.*?)has borne(.*?)so that each name", _s468m)
+        if not _mx468m:
+            _bad468.append("468m: §16.4 の 'no earlier text … has borne … so that each name' の形が読めない")
+        elif (_mx468m.group(1).strip(" ,") not in ("", "other than a draft identified as such")
+              or _mx468m.group(2).strip(" ,")):
+            _bad468.append(f"468m: §16.4 の例外句が変わった: {(_mx468m.group(1) + '|' + _mx468m.group(2)).strip(' ,|')!r} "
                            "(許すのは 'other than a draft identified as such' か無し。広げると 1 識別子 = 1 固定本文が崩れる)")
 
         # ── 468l: 草案の全行が 80 桁以内であること ─────────────────────────────────────
