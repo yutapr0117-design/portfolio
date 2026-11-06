@@ -143,6 +143,16 @@ import re
 import sys
 from types import SimpleNamespace  # noqa: F401  (ctx の型を読者に示すためだけの import)
 
+# 件数の語の表。版を確定するたびに凍結件数が増えるので、ここに無い語で照合が止まる日を作らない
+# (2026-11-07 の予行で、1.4 確定後の 12 件を "twelve" と書くと 460 (q) が読めなかった)。
+_ONES = ("one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen "
+         "sixteen seventeen eighteen nineteen").split()
+_TENS = "twenty thirty forty fifty sixty seventy eighty ninety".split()
+_NUM_WORDS = {_w: _i for _i, _w in enumerate(_ONES, 1)}
+for _i, _t in enumerate(_TENS):
+    _NUM_WORDS[_t] = 20 + 10 * _i
+    _NUM_WORDS.update({f"{_t}-{_o}": 21 + 10 * _i + _j for _j, _o in enumerate(_ONES[:9])})
+
 # NOTE: `re` / `json` は本 module が自分で import する（切り出し時に忘れて NameError を出し、run() 途中の例外で
 # 本 Check と後続が一度も走らないまま traceback で止まった・#885 / Check 400 と同形。grep '^ERROR' は空を返す）。
 # **抽出した module は、意図した Check の OK 行が出ているかで確かめること。**
@@ -499,8 +509,7 @@ def run(ctx):
                 _tbl = len([l for l in _closes_blk.splitlines()
                             if re.match(r"^> \|", l) and not re.match(r"^> \|\s*(Difference|-)", l)])
                 _open_j = len(re.findall(r"^> \*\*\d+\. ", _open_blk, re.M))
-                _WORD = {"four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10}
-                _decl = _WORD.get(_m_j.group(1).lower())
+                _decl = _NUM_WORDS.get(_m_j.group(1).lower())
                 if _decl is None:
                     _bad460.append(f"comparison.md §1.35: 総数の語 {_m_j.group(1)!r} を解釈できない")
                 elif _decl != _tbl + _open_j:
@@ -544,12 +553,7 @@ def run(ctx):
         if _erp460.exists():
             _et_l = _erp460.read_text(encoding="utf-8")
             _rows_l = len(re.findall(r"^\| (E\d+) \|", _et_l, re.M))
-            _WORDS_L = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7,
-                        "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12, "thirteen": 13,
-                        "fourteen": 14, "fifteen": 15, "sixteen": 16, "seventeen": 17,
-                        "eighteen": 18, "nineteen": 19, "twenty": 20, "thirty": 30,
-                        "forty": 40, "fifty": 50, "sixty": 60, "seventy": 70,
-                        "eighty": 80, "ninety": 90}
+            _WORDS_L = _NUM_WORDS
 
             def _word2int_l(_w):
                 """**綴りの上限は、Check 自身が持っていた scale 天井だった。**
@@ -696,8 +700,7 @@ def run(ctx):
         if _bp460o.exists() and _rv460o.exists():
             _rows460o = re.findall(r"^\| \*\*B\d+\*\* \|[^|]*\|([^|]*)\|", _bp460o.read_text(encoding="utf-8"), re.M)
             _top460o = sum(1 for _c in _rows460o if "最高" in _c)
-            _WORDS460o = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
-                          "seven": 7, "eight": 8, "nine": 9, "ten": 10}
+            _WORDS460o = _NUM_WORDS
             _m460o = re.search(r"\*\*([a-z]+|\d+) are marked highest severity", _rv460o.read_text(encoding="utf-8"))
             if not _m460o:
                 _bad460.append("REVIEWERS.md: register の最高 severity 件数の申告が見つからない "
@@ -743,8 +746,6 @@ def run(ctx):
         _fz460q = _L460 / "FROZEN.md"
         if _fz460q.exists():
             _n460q = len(re.findall(r"(?m)^[0-9a-f]{64}  \S+", _fz460q.read_text(encoding="utf-8")))
-            _WORD460Q = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five",
-                         6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten"}
             for _nm460q in ("REVIEWERS.md", "ACD-1.0.errata.md"):
                 _p460q = _L460 / _nm460q
                 if not _p460q.exists():
@@ -757,9 +758,9 @@ def run(ctx):
                             f"FROZEN.md の digest 行 {_n460q} 件 "
                             "(審査者が走らせて最初に気づく種類のずれ)")
                 # 散文側 —— 「N files」の N も同じ数に縛る (綴り語と数字の両方)
-                for _m460r in re.finditer(r"(?:pins the SHA-256 of|prints `OK` for all) ([a-z]+|\d+) files?", _t460q):
+                for _m460r in re.finditer(r"(?:pins the SHA-256 of|prints `OK` for all) ([a-z-]+|\d+) files?", _t460q):
                     _raw460r = _m460r.group(1)
-                    _got460r = int(_raw460r) if _raw460r.isdigit() else {v: k for k, v in _WORD460Q.items()}.get(_raw460r)
+                    _got460r = int(_raw460r) if _raw460r.isdigit() else _NUM_WORDS.get(_raw460r)
                     if _got460r is None:
                         _bad460.append(f"{_nm460q}: 凍結件数の語 {_raw460r!r} を解釈できない")
                     elif _got460r != _n460q:
