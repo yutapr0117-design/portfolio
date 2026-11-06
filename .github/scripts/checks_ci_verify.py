@@ -405,6 +405,7 @@ def run(ctx):
         (["measure_descriptor_carryover.py"], r"が引く条 [1-9]\d* 件"),
         (["measure_clause_clarity.py"], r"ACD-\S+ draft +[1-9]"),
         (["measure_clause_overlap.py", "--compare", _draft489, _draft489], r"依拠するドシエの箇所 .*: 0 —— 外向き 0"),
+        (["prepare_version_freeze.py", "--report", _mqd489._current_draft_version()], r"全部読む面: \d+ 行"),
     )
     _bad489 = []
     for _args, _want in _tools489:

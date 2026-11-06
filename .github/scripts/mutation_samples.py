@@ -561,6 +561,13 @@ _MUTATIONS_TAIL.append({
     "replace": "    if False:\n        print(\"# REVIEW REQUIRED",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 489: 確定の道具の --report が走らなくなる —— 切り替えの日にしか使わないので、当日まで誰も気付かない",
+    "file": ROOT / ".github" / "scripts" / "prepare_version_freeze.py",
+    "find": "    from measure_citation_drift import CITE, FACES, FIRST_READ, cited_lines\n",
+    "replace": "    from measure_citation_drift import CITE, FACES, FIRST_READ, cited_rows\n",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

@@ -27,6 +27,7 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
    - §4c の機械監査の値: `python3 .github/scripts/measure_section4c.py <版>`
    - 逐語引用の版間の差: `python3 .github/scripts/measure_quote_drift.py <前の版> <版>`
    - 提出対象を切り替える前に読む行: `python3 .github/scripts/prepare_version_freeze.py --report <版>`（番号が残って別の条になる行、日付つきの実測、版を決め打ちした検証コマンド。Check 472 は無くなった条しか捕まえない）
+     行番号は文書が動くとずれるので、`ACD-1.4-CHANGELIST.md` の段 7 の節にある行ごとの判断と、文で突き合わせて直す。
 4. 本文を **plain text の添付**にする（OSI の手続きが添付を求める）。
 5. 送信後、**公開アーカイブで届いた形を確かめる**（`REVISION-PROTOCOL.md` ゲート 10）。届くまで「提出済み」と書かない。
 
