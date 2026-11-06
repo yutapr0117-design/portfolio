@@ -1,0 +1,100 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2014-May.txt
+Retrieved: 2026-11-06
+Date: Sun, 04 May 2014 11:48:13 -0500
+From: Karl Fogel
+Subject: [License-discuss] Can OSI take stance that U.S. public domain is open source?
+Position: he suggests certifying a public-domain status when accompanied by a patent non-assertion text. Not addressed to us. His capacity on that date is not established here.
+
+----- begin verbatim -----
+From kfogel at red-bean.com  Sun May  4 16:48:13 2014
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Sun, 04 May 2014 11:48:13 -0500
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+	is open source?
+In-Reply-To: <20140503201337.GF31120@mercury.ccil.org> (John Cowan's message
+	of "Sat, 3 May 2014 16:13:37 -0400")
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com> <20140503155316.4d149d8f@riley>
+	<20140503201337.GF31120@mercury.ccil.org>
+Message-ID: <87wqe1a3si.fsf@floss.red-bean.com>
+
+John Cowan <cowan at mercury.ccil.org> writes:
+>I continue to think that our CC0 decision was wrong insofar as it can
+>be read as saying that the CC0 license is not an open-source (as opposed
+>to OSI Certified) license.  There may be reasons not to certify it,
+>but not to deny that it is open source.
+
+[warning: long]
+
+IMHO it would be a long-term problem for the OSI (and for open source in
+general, given the useful standardization/certification role OSI plays)
+to have there be licenses that we call "open source" but don't certify.
+
+After all, the *definition* of "open source" is supposed to be just
+"whatever complies with the OSD".  And our certification process is also
+"Does this comply with the OSD?"...  So the two shouldn't diverge; to
+the extent that they do, we have a problem.
+
+The distinction we are being pushed toward, I think, is the subset of
+open source licenses (that is, OSD-compliant licenses) that the OSI
+would *recommend* for use.  Er, if we did recommending :-).  Right now,
+we don't, officially.  We're edging into it warily, though, with the
+rearrangement of the http://opensource.org/licenses/ page, which starts
+off with the "Popular Licenses" section.
+
+This is not a criticism, by the way.  Such tentative steps are the right
+way to get there.  But in the long run I think we have two mutually
+exclusive choices:
+
+  1) Have licenses out in the world that are OSD-compliant, and that we
+     informally agree are "open source", but that we don't certify.
+     This will cause growing divergence between "what is open source"
+     and "what the OSI has approved".  That would be very, very bad.
+
+  2) Officially certify any license (or PD status / PD dedication) that
+     is OSD-compliant as open source, but for most of them attach
+     commentary explaining why most people probably shouldn't use it and
+     why one should one of the popular licenses instead.
+
+(1) is a disaster.  It will defeat much of the point of the OSI, in the
+long run.
+
+We're sort of doing the complement of (2) right now, with the "Popular
+Licenses" section.  Whether it's useful to limit ourselves to labeling
+some licenses preferable, or should do the other side as well and label
+other licenses as "yeah, it's open source, but we don't recommend using
+it for new code unless you have no choice" is, of course, a complicated
+political question.  We don't need to resolve it in this thread...
+
+...but I think we do need to come to some sort of solution soon.  The
+U.S. government is going to keep releasing what is (obviously) open
+source software into the public domain; CC0 is also becoming more
+popular in non-software works and will inevitably make inroads into
+software too.
+
+These works are all basically OSD-compliant, and will be treated by
+people as open source.  If we don't find some way to incorporate those
+terms into our certification process, it's the certification mark that
+will be hurt in the long run, not the licenses / PD statuses.  That's
+why I'm so worried by threads like that one I saw on GitHub that started
+this.  Those folks are crying out for us to provide clarity, even if
+they don't know it yet :-), and we must find a way to do so.
+
+I completely agree, by the way, that we can be active about requiring
+certain kinds of patent promises.  E.g., maybe we wouldn't certify PD
+itself for software works, but would certify PD *when accompanied by* a
+particular patent non-assertion text.  We'd have a lot of leverage to do
+so, given that refusing to make that non-assertion promise, when asked
+for it, would draw attention to the fact that the party has now publicly
+decided not to be open source enough for the OSI.  So I'm not saying we
+should just certify PD and CC0 and be done with it -- it's more complex
+than that.
+
+But the current limbo is not stable, and will inevitably damage the
+remarkable unanimity we currently have around OSI certification.  We'll
+have to solve this, probably sooner rather than later.
+
+Best,
+-K
+
+
