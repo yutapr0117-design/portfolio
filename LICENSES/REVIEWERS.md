@@ -287,7 +287,8 @@ python3 .github/scripts/measure_patent_reach.py          # the conditions and te
 The last line reads `# Patent grant reaching beyond the work with no condition found: 0 []`. The
 tool quotes the condition or termination in each licence it counts; **which licences reach beyond
 the work is the census's reading, not something the tool verifies**
-([`ACD-1.0.gap-census.md`](ACD-1.0.gap-census.md)).
+([`ACD-1.0.gap-census.md`](ACD-1.0.gap-census.md)). If the SPDX list has moved since the census was
+made, the tool stops rather than report a partial count, and the census has to be rebuilt first.
 
 The repository's own CI enforces the rest: that the licence is declared identically across every
 published surface, that the counts these documents quote match reality, and that the frozen files
