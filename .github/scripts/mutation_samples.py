@@ -526,6 +526,13 @@ _MUTATIONS_TAIL.append({
     "replace": "(ACD-1.0.objection-map.md) | **1",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 472n: 入口の引用の語を読みやすく動かす —— 2026-11-07 までに 6 回出た誤りで、手の照合でしか見つからなかった",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "It's not the goal of the OSI to have licenses",
+    "replace": "It is not the goal of the OSI to have licences",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

@@ -120,6 +120,25 @@ def run(ctx):
         blocking=True,
     )
 
+    # 472n — 入口の面の斜体の引用が、rounds/ か manifest で解決すること (2026-11-07)。引用を読みやすく動かす誤りが
+    #   6 回出て、どれも手の照合でしか見つからなかった。全 corpus は CI に無いので、手元で確かめた引用の hash を置く。
+    #   語を 1 つ動かすと hash が外れて RED になる。直し方は --record-entry で原文に当て直すこと。
+    import verify_dossier_quotations as _vdq472n
+    _entry472n = _vdq472n.entry_quotes(str(ROOT))
+    _keys472n, _own472n = _vdq472n.read_entry_manifest(str(ROOT))
+    _base472n = _vdq472n.load_sources(str(ROOT), cache=False)
+    _miss472n = [f"{_loc}: {_q[:70]}" for _q, _loc in _entry472n.items()
+                 if _vdq472n.entry_key(_q) not in _keys472n and _vdq472n.norm(_q) not in _own472n
+                 and not _vdq472n.present(_q, _base472n)]
+    check(
+        len(_entry472n) >= 100 and not _miss472n,
+        f"Check 472n: 入口の面の斜体の引用 {len(_entry472n)} 件が rounds/ か確認済みの hash で解決する",
+        (f"Check 472n: 入口の面の引用が原文で確かめられていない: {_miss472n or '引用を読めない'}。"
+         "`DOSSIER_ARCHIVE_CACHE=<cache> python3 .github/scripts/verify_dossier_quotations.py --record-entry` で原文に当てよ。"
+         "我々自身の文なら entry_quotes_verified.txt に own: の行を足す"),
+        blocking=True,
+    )
+
     # ── 471. ドシエ内の参照記法が解決すること (BLOCKING) ──────────────────────────────────
     # **Check 460 face (k) は `#N` と `E<n>` だけを見ていた。** 2026-09-14 の敵対的検証
     # （主張の種類 7）で**ドシエの参照記法を数え上げ、1 つずつ壊して測った**ところ、
