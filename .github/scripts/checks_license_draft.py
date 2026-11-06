@@ -51,7 +51,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        足し引きされ、書き忘れると黙ってずれる。読めないセルは 0 扱いにせず RED (25 の提案・2026-11-03)。
        **468m は §16.4 が Steward 例外の中でも「1 識別子 = 1 固定本文」を保つことを見る** ——
        2026-11-01 に外部レビューの指摘で直した保証が、短くする圧力で黙って落ちるのを止める。
-       目印から "so that each name" までの例外句は ", except a draft identified as such," か無しに限る
+       目印の間に置ける例外句は "other than a draft identified as such" か無しに限る
        (2026-11-02・広げる方向だけ RED)。
        **468l は草案の全行が 80 桁以内であることを見る** —— 1.0 は全行 ≤80 だが 1.1〜1.3 は
        語を足した行が 81〜90 桁のまま確定して凍結で直せなくなった (2026-11-01 実測)。
@@ -597,19 +597,19 @@ def run(ctx):
         #   短くする圧力で**黙って落ちる**のを止める (468d と同じく文言は縛らず、marker の存在だけを見る)。
         _m468m = re.search(r"^  16\.4\s.*?(?=^  \d+\.\d+\s|^\d+\.\s)", _t468, re.M | re.S)
         _s468m = " ".join(_m468m.group(0).split()) if _m468m else ""
-        _lack468m = [_k for _k in ("no earlier text has borne", "one fixed text") if _k not in _s468m]
+        _lack468m = [_k for _k in ("no earlier text", "has borne", "one fixed text") if _k not in _s468m]
         if _lack468m:
             _bad468.append(f"468m: §16.4 から「1 識別子 = 1 固定本文」の保証が欠けている: {_lack468m} "
                            "(Steward 例外が同じ識別子で別本文を出せる形に戻っていないか)")
         #   **例外句の形も固定する (2026-11-02)。** 1.4 草案は 25 が自分の後継を作る手順に当てて
-        #   ", except a draft identified as such," を目印の直後に足した (PR #2205・後継の公開草案が
-        #   同じ識別子を名乗るため)。目印の存在だけを見る形では、この例外が後から広げられても
-        #   (「a draft or a corrected text」等) 黙って通る。目印から "so that each name" までに
+        #   草案の例外を足した (PR #2205・後継の公開草案が同じ識別子を名乗るため)。2026-11-06 に
+        #   修飾語の付き先を直し、"no earlier text" と "has borne" の間へ移した。目印の存在だけを見る形では、
+        #   この例外が後から広げられても (「a draft or a corrected text」等) 黙って通る。目印の間に
         #   置けるのは、この 1 句か何も無いかのどちらかに限る (例外を消して厳しくするのは通す)。
-        _mx468m = re.search(r"no earlier text has borne(.*?)so that each name", _s468m)
-        if _mx468m and _mx468m.group(1).strip(" ,") not in ("", "except a draft identified as such"):
+        _mx468m = re.search(r"no earlier text(.*?)has borne", _s468m)
+        if _mx468m and _mx468m.group(1).strip(" ,") not in ("", "other than a draft identified as such"):
             _bad468.append(f"468m: §16.4 の例外句が変わった: {_mx468m.group(1).strip(' ,')!r} "
-                           "(許すのは 'except a draft identified as such' か無し。広げると 1 識別子 = 1 固定本文が崩れる)")
+                           "(許すのは 'other than a draft identified as such' か無し。広げると 1 識別子 = 1 固定本文が崩れる)")
 
         # ── 468l: 草案の全行が 80 桁以内であること ─────────────────────────────────────
         #   1.0 は全行 ≤80 で、本文は `-` × 80 の区切り線と同じ幅で組まれている。1.1 / 1.2 / 1.3 は
