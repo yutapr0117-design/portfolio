@@ -57,7 +57,7 @@ MUTATIONS_ARCHIVE5 = [
 },
     {
     "name": "Check 468s: CHANGELIST の変更表に語数 +1 の行が 1 つ増える —— 表と草案の申告がずれても 468n は見ない",
-    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
     "find": "| 対象 | 何を変えるか | なぜ | 費用（語） | 状態 |\n| :-- | :-- | :-- | :-- | :-- |",
     "replace": "| 対象 | 何を変えるか | なぜ | 費用（語） | 状態 |\n| :-- | :-- | :-- | :-- | :-- |\n| (mutation) | x | x | +1 | x |",
     "check": CHECK,
@@ -472,7 +472,7 @@ MUTATIONS_ARCHIVE5 = [
 },
     {
     "name": "Check 468u: §2.8 の末文から「§5.3 / §12.4 は本条を狭めない」が落ちる —— 試作 e で外した理由の文が担っていた反対解釈の封じが本文から消える",
-    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "file": CURRENT_DRAFT,
     "find": "Section 6 included. Neither Section 5.3 nor Section 12.4 narrows this\n       Section.",
     "replace": "Section 6 included. Sections 5.3 and 12.4 are read with this\n       Section.",
     "check": CHECK,

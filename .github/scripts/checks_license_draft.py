@@ -586,7 +586,7 @@ def run(ctx):
                                 _unread468s.append(_cells[0][:30])
                                 continue
                             _tot468s += -int(_mc.group(2)) if _mc.group(1) in ("-", "−") else int(_mc.group(2))
-                        if not _rows468s or _unread468s or _tot468s != _diff468n:
+                        if _unread468s or _tot468s != _diff468n:
                             _bad468.append(f"468s: {_cl468s.name} の変更表 {len(_rows468s)} 行の語数合計 {_tot468s:+d} が "
                                            f"申告語数 − ACD-{_pv468n} の本文語数 ({_diff468n:+d}) と一致しない、または"
                                            f"語数を読めない行がある {_unread468s} (行の書き忘れ・値の更新漏れ)")

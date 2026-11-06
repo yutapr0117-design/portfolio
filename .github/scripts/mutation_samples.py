@@ -281,28 +281,28 @@ _MUTATIONS_TAIL = [
 
 _MUTATIONS_TAIL.append({
     "name": "Check 468u: §15.5 から「\"person\" includes an entity」が落ちる —— 試作 e で理由の文を外した §12.4 の公的機関・§2.8 の会社の譲受人が person に含まれなくなる",
-    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "file": CURRENT_DRAFT,
     "find": "\"person\" includes an entity;",
     "replace": "\"person\" includes a natural person;",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
     "name": "Check 468u: §8.4 の \"resulting from that use\" が \"that processing\" に縮む —— 特許許諾がモデル・出力のその後の使用・販売に届かなくなり、B10 の唯一の立証済みの効果 (§1.133) が ERROR 無しで消える",
-    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "file": CURRENT_DRAFT,
     "find": "resulting from that use",
     "replace": "resulting from that processing",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
     "name": "Check 468u: §8.4 の \"deliberately absent\" (§8.1 の内容限定を持ち込まない) が落ちる —— 請求項の範囲が CERN-OHL-P と同じ「作品の内容で限る」形へ戻りうる",
-    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "file": CURRENT_DRAFT,
     "find": "deliberately absent",
     "replace": "also present",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
     "name": "Check 468u: §8.2 の \"not terminable by the Dedicator on any ground\" が「for cause なら終了できる」へ変わる —— 条件・終了の不在という §1.133 の組み合わせが崩れ、CERN-OHL の 3 本と区別できなくなる",
-    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "file": CURRENT_DRAFT,
     "find": "not terminable by the Dedicator on any ground",
     "replace": "terminable by the Dedicator for cause",
     "check": CHECK,

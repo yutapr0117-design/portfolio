@@ -540,8 +540,8 @@ MUTATIONS_ARCHIVE4 = [
     "name": "Check 468n: 草案冒頭の変更一覧の 1 箇条の語数申告をずらす —— 申告の合計が「申告語数 − 前の凍結版の語数」と"
             "合わなくなる。一覧は差分のすべてだと宣言しており、468 は合計語数しか見ていなかった (portfolio-25 の自己記述レンズ)",
     "file": CURRENT_DRAFT,
-    "find": "(+21 words.)",
-    "replace": "(+20 words.)",
+    "find": f"  Changes in this draft, relative to ACD-{PREVIOUS_VER}:\n\n",
+    "replace": f"  Changes in this draft, relative to ACD-{PREVIOUS_VER}:\n\n    * Section 1.1 now says nothing new. (+1 word.)\n",
     "check": CHECK,
 },
     {
@@ -787,7 +787,7 @@ MUTATIONS_ARCHIVE4 = [
 },
     {
     "name": 'Check 468o: 草案 §6.4 の動詞 "license" を名詞形 "licence" に変える —— 1.1〜1.3 はこの形のまま凍結された。同じ語数の綴り違いは差分のレンズも語数照合も拾わない',
-    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "file": CURRENT_DRAFT,
     "find": "Nothing in this Dedication requires You to license, disclose",
     "replace": "Nothing in this Dedication requires You to licence, disclose",
     "check": CHECK,
@@ -801,7 +801,7 @@ MUTATIONS_ARCHIVE4 = [
 },
     {
     "name": 'Check 468m: §16.4 の草案の例外を広げる (a draft → a draft or a corrected text) —— 目印は 2 つとも残るので、存在だけを見る形では 1 識別子 = 1 固定本文が崩れても通った',
-    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "file": CURRENT_DRAFT,
     "find": "that no earlier text, other than a draft identified as such, has borne",
     "replace": "that no earlier text, other than a draft or a corrected text, has borne",
     "check": CHECK,
@@ -913,9 +913,11 @@ MUTATIONS_ARCHIVE4 = [
 },
     {
     "name": 'Check 468q: 草案冒頭の §16.6 の箇条が 10.1 / 10.4 / 11.4 の句として引く句を "no one in respect of the Work" へ戻す —— 3 条が使うのは限定句だけで、#2238 前の箇条はこの誤った帰属を述べていた',
-    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
-    "find": 'with the limit "in respect of the Work"\n      that Sections 10.1, 10.4, and 11.4 use.',
-    "replace": 'with the limit "no one in respect of the Work"\n      that Sections 10.1, 10.4, and 11.4 use.',
+    "file": CURRENT_DRAFT,
+    "find": f"  Changes in this draft, relative to ACD-{PREVIOUS_VER}:\n\n",
+    "replace": f"  Changes in this draft, relative to ACD-{PREVIOUS_VER}:\n\n"
+               '    * Section 16.6 now has the limit "no one in respect of the Work"\n'
+               "      that Sections 10.1, 10.4, and 11.4 use. (+0 words.)\n",
     "check": CHECK,
 },
 ]
