@@ -142,7 +142,7 @@ def _standard_header(src: str) -> str:
     #   **条項本文より深くインデント**されている (条項継続 = 7 / 通知 = 11) ので、
     #   そこから導出すれば行を足しても落ちない。
     i = src.index("16.1 To apply this Dedication")
-    block = src[i:src.index("16.2", i)]
+    block = src[i:src.index("\n  16.2 ", i)]  # 行頭で探す。1.4 の §16.1 は本文で "Section 16.2" を引く
     raw = [l.strip() for l in block.splitlines()
            if l.strip() and (len(l) - len(l.lstrip())) >= 11]
     # 79 桁の折り返しを論理単位へ畳む (本文側と同じ規律 —— **折り返しを段落境界にしない**)。
