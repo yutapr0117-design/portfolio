@@ -58,7 +58,10 @@ future"* (§1.2, errata E50). Whether a surrender, waiver or licence of a right 
 effect when the right arises, or needs a further act then, is a question of each forum's law
 that the text cannot answer for itself. (e) In the 1.4 draft a one-line tag can apply the
 Dedication (§16.1, §16.2). Whether so short a mark shows the intention an abandonment needs is
-open; if it does not, §3 may fail there while §4 stands, which is what §4.4 is for.
+open; if it does not, §3 may fail there while §4 stands, which is what §4.4 is for. (f) OSI's FAQ
+says *"we don't know how or whether the author would be protected from liability for software
+released into the public domain"*. Where §3 is effective nothing is left to license, so what do
+§13 and §14 rest on there?
 
 **An answer would change** whether the text keeps three footings (register B4) and how §4.4 says
 "independent".
