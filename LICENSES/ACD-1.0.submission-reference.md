@@ -355,7 +355,9 @@ grants all three of these at once: **(i)** a grant that expressly reaches **non-
 in data** — in the EU the sui generis database right, whose own verbs are *extraction* and
 *re-utilisation*; **(ii)** a **patent licence that survives the transformation of the work into a
 model** and the outputs of that model; and **(iii)** **no condition on the licensee at all**.
-**Two of the three exist in several approved licences. The three together do not.** This is
+**Two of the three exist in several approved licences. The three together do not.** (ii) and
+(iii) differ in effect; (i) differs in what is stated, not in what an unrestricted permission may
+already reach (`ACD-1.0.gap-measurements.md` §1.134). This is
 checkable from the grant clauses themselves rather than from what the texts omit, and the
 clause-by-clause reading is in `ACD-1.0.gap-measurements.md` §1.96.
 
