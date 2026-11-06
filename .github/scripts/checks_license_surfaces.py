@@ -407,7 +407,7 @@ def run(ctx):
             _need445e = []
             try:
                 _i445 = _src445.index("16.1 To apply this Dedication")
-                _blk445 = _src445[_i445:_src445.index("16.2", _i445)]
+                _blk445 = _src445[_i445:_src445.index("\n  16.2 ", _i445)]
                 _need445e = [_l.strip() for _l in _blk445.splitlines()
                              if _l.strip() and (len(_l) - len(_l.lstrip())) >= 11]
             except ValueError:
@@ -481,7 +481,7 @@ def run(ctx):
             _blk451 = ""
             try:
                 _i451 = _src451.index("16.1 To apply this Dedication")
-                _body451 = _src451[_i451:_src451.index("16.2", _i451)]
+                _body451 = _src451[_i451:_src451.index("\n  16.2 ", _i451)]
                 _blk451 = " ".join(
                     " ".join(_l.split()) for _l in _body451.splitlines()
                     if _l.strip() and (len(_l) - len(_l.lstrip())) >= 11
@@ -586,7 +586,9 @@ def run(ctx):
         _blk = ""
         try:
             _i = _src.index("16.1 To apply this Dedication")
-            _body = _src[_i:_src.index("16.2", _i)]
+            # 行頭で探す: 1.4 の §16.1 は本文で "Section 16.2" を引くので、素の "16.2" だと通知文の手前で切れる
+            #   (2026-11-06 の段 7 で判明。確定の日に正しい記述子が 451d で赤くなるところだった)。
+            _body = _src[_i:_src.index("\n  16.2 ", _i)]
             _blk = " ".join(" ".join(_l.split()) for _l in _body.splitlines()
                             if _l.strip() and (len(_l) - len(_l.lstrip())) >= 11)
         except ValueError:
