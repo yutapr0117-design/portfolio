@@ -60,6 +60,7 @@ test('best-practice 違反は既知の 1 パターンだけ (ゲートの死角�
     for (const route of BP_ROUTES) {
         await page.goto('/' + route, { waitUntil: 'domcontentloaded' });
         await expect(page.locator('#content h1').first()).toBeVisible();
+        if (route.includes('#/quiz')) await expect(page.locator('[data-quiz-list] h2').first()).toBeVisible();
         // View Transition のアニメーション中に走らせると **過大に出る**
         //   (実測 #1158: 3 ルートで待ち 120ms なら 594 件 / settle 後は 30 件)。
         await page.waitForTimeout(350);
