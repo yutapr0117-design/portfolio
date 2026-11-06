@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-06 時点・276 ファイル）
+## いまの状態（2026-11-06 時点・277 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -102,6 +102,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-09-03 | `license-review` | 送信 | MG-BY-2.0 のホスト型 Distribution と §2.2(a) の適用について |
 | 2026-09-03 | `license-review` | Michael Dolan → 受領 | 上記 OpenMDW 質問への回答（名指しで応答）|
 | 2014-05-04 | `license-discuss`（観測）| **Karl Fogel 氏の 1 通 → 観測保存** | *"would certify PD *when accompanied by* a particular patent non-assertion text"*。§3 と §8.6 の組み合わせに近い形への発言で、ドシエに記録が無かった |
+| 2017-10-26 | `license-discuss`（観測）| **Christopher Sean Morrison 氏の 1 通 → 観測保存** | *"something close to public domain yet still addressing indemnification and contributor patent grants"*。受益者が少ないという反論（#284）に当たる需要の記述で、採用の実績ではない |
 | 2024-12-18 | `license-review`（観測）| **Carlo Piana 氏の撤回の 1 通（PBZC 審査）→ 観測保存** | *"I stand corrected re: Pam's message on requiring legal review, bad choice of words on my side."* と *"I actually advise to use both"* が同じ 1 通に在る。2 か月間、撤回前の発言だけを不利な事実として数えていた（`ACD-1.0.against.md` #127）|
 | 2026-09-04 | `license-review` | Moming Duan → 受領 | 上記 ModelGo 質問への回答（審査履歴 4 件を引用）|
 | 2026-09-04 | `license-review` | 送信 | Dolan 氏の回答を受けた閾値問題の分解（返信なし）|
