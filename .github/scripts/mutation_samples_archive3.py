@@ -705,8 +705,8 @@ MUTATIONS_ARCHIVE3 = [
     "file": ROOT / ".github" / "scripts" / "checks_mutation_integrity.py",
     # [FIX 2026-11-01] 旧 anchor は先頭の "6,7,10," で、凍結リストを縮めるたびに orphan になった。
     # 構造上 mutation を付けられない 477 (対象が rounds/ と凍結テキスト) は永久にリストに残るので、そこを外す。
-    "find": '442,477")',
-    "replace": '442")',
+    "find": '430,477")',
+    "replace": '430")',
     "check": CHECK,
 },
     {
