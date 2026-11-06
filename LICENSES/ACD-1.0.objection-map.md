@@ -94,4 +94,4 @@ out because we cannot have it, not because leaving it out is better** (register 
    row by row. They do not answer that sentence.**
 3. **It is not exhaustive.** The windows we read are listed in `PEER-REVIEW-WATCH.md` §3.9.
 4. **Nothing updates this page automatically.** An entry added to `ACD-1.0.against.md` does not reach
-   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #283.
+   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #284.
