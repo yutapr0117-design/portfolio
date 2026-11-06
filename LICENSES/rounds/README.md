@@ -1,7 +1,7 @@
 ---
 file: LICENSES/rounds/README.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-discuss・license-review participants / 監査人
-last-updated: 2026-11-06
+last-updated: 2026-11-07
 canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲート 1) / LICENSES/ACD-1.0.discussion-log.md (分解と分類はこちら)
 ---
 
@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-06 時点・280 ファイル）
+## いまの状態（2026-11-07 時点・283 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -345,6 +345,9 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（9/11 部）** | **同じスレッドの 9/11 部。** 本文は無改変で、11 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
 | 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（10/11 部）** | **同じスレッドの 10/11 部。** 本文は無改変で、11 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
 | 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（11/11 部）** | **同じスレッドの 11/11 部。** 本文は無改変で、11 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
+| 2025-09-11 | `license-review`（観測）| **委員会の Tiwaz への保留（Berkus 氏の報告）→ 観測保存** | *"voted to \*defer\* any recommendation"* と、解く条件 *"one or more projects begin using this license or express an interest in doing so"* が在る。B2 に効く決定で、窓の外にあって 14 か月未収録だった（`board-decisions.md` §2c / `against.md` #285）|
+| 2024-12-23 | `license-review`（観測）| **OSC License の提出の 1 通 → 観測保存** | *"there are currently no projects using the license. However, it is planned that the license will be used in mid/late January."* 計画段階の利用で承認された例である（`board-decisions.md` §2c）|
+| 2026-06-19 | `license-review`（観測）| **Carlo Piana 氏の Linkumori への 1 通 → 観測保存** | *"not having an active project with an urgency to adopt a license or to have it approved, I would suggest deferring license review"*。個人の自著の利用が足りるとは限らないことの逆側である（`board-decisions.md` §2c）|
 
 **ACD-1.0 そのものについては、依然として受領がゼロである。** 2026-09-09 時点で
 **ACD-1.0 の投稿は 2 通あり、どちらも別スレッドとして立ち、どちらにも返信が無い**

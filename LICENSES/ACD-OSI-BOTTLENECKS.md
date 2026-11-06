@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-OSI-BOTTLENECKS.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-review participants / 監査人
-last-updated: 2026-11-06
+last-updated: 2026-11-07
 canonical-ref: LICENSES/ACD-1.0.against.md (不利な事実の本体) / LICENSES/ACD-1.0.errata.md (本文の既知欠陥) / LICENSES/AS-OF.md (外部事実と検証日) / LICENSES/ACD-1.0.objection-map.md (反論の当否)
 ---
 
@@ -23,7 +23,7 @@ the 1.0 text.
 | ID | The problem | Severity | Where it stands | Who can move it |
 |---|---|---|---|---|
 | B1 | No legal review | Highest | Nothing here supplies it. The questions a lawyer would need are in `QUESTIONS-FOR-COUNSEL.md` | The owner, by engaging one |
-| B2 | One adopter: this repository | Highest | We can improve discoverability. We cannot produce adoption, and will not claim any | Third parties |
+| B2 | One adopter: this repository | Highest | We can improve discoverability. We cannot produce adoption, and will not claim any. The one hold on record (Tiwaz, 2025-09-11) lifts if one project uses the licence or expresses interest | Third parties; the owner can ask |
 | B3 | Length: 4,896 words, 16 sections, 82 clauses | High | It can be shortened but not answered | Us, in part |
 | B4 | The §3 surrender beside the §4 licence | High | Tested as a possible structural refusal, and that was rejected. The judgment is OSI's | OSI |
 | B5 | The legal account in §4.4 | Medium | The drafting defect closed in 1.1. The design question stays open | OSI |

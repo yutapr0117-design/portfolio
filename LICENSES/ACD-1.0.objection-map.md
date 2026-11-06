@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.objection-map.md
 audience: OSI license-review / license-discuss participants, licence reviewers, auditors
-last-updated: 2026-11-06
+last-updated: 2026-11-07
 canonical-ref: LICENSES/ACD-1.0.review-precedents.md (the original text and our reading of each objection) / LICENSES/ACD-1.0.against.md (the adverse record) / LICENSES/REVIEWERS.md (the entry page)
 ---
 
@@ -54,7 +54,7 @@ Older, or not from the lists, but each one goes to whether ACD can be approved.
 
 | Statement | Source | Why it matters here | Record |
 |---|---|---|---|
-| *"a license could stay in a status where it is **not approved** if it is duplicative and not used by a project"* | OSI Board minutes, 2025-07-18 | **The likeliest outcome for this submission, and it is not a rejection.** The two parts are joined by *and*. "Not used" is true of ACD, so everything rests on "duplicative", which is the patent combination in the first table | #84 / B2 |
+| *"a license could stay in a status where it is **not approved** if it is duplicative and not used by a project"* | OSI Board minutes, 2025-07-18, and the Committee's hold on Tiwaz, 2025-09-11: *"a close variant of an existing license"* with *"no demonstrated uses or planned uses"* | **The outcome to prepare for, and it is not a rejection.** The two parts are joined by *and*, and the hold lifts if *"one or more projects begin using this license or express an interest in doing so"*. ACD is not a variant of an existing text, and the patent combination in the first table answers "duplicative". It has one use, this repository, which is the steward's own. The OSC License was approved on use its submitter's client had planned, but Piana in 2026 (*"not having an active project"*) points the other way | #84 / #285 / B2 |
 | *"we recommend that you always apply an approved Open Source license to software you are releasing, rather than try to waive copyright altogether"*, and a licence *"enables the protection of attribution"* | OSI's FAQ, last modified 2025-01-21 | **§3 does try to waive copyright, and §10.2 gives up attribution.** Our answer is that §4 applies a licence independently of §3. The same FAQ is the strongest record in our favour on the licence and on patents (`REVIEWERS.md`) | §4.4 |
 | *"**The lawyers who opined on the issue, both US and non-US, agreed** that the document would most likely be interpreted as a license and that the license met the OSD."* | Committee rationale for the Unlicense, 2020 | **Our one dedication-plus-licence precedent crossed the line with what we lack** | #270 |
 | *"as open culture licenses, are **not appropriate for OSI approval**"*, naming *"an audiovisual work"* among the subject matter | License Committee recommendation on the Mulan licences; Board decision 2023-09-15 | **§1.2 lists audiovisual material.** The list cannot be narrowed without losing non-code assets, so the text alone does not settle this | #237 / B15 |
@@ -95,4 +95,4 @@ out because we cannot have it, not because leaving it out is better** (register 
    row by row. They do not answer that sentence.**
 3. **It is not exhaustive.** The windows we read are listed in `PEER-REVIEW-WATCH.md` §3.9.
 4. **Nothing updates this page automatically.** An entry added to `ACD-1.0.against.md` does not reach
-   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #284.
+   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #285.

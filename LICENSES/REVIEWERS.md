@@ -1,7 +1,7 @@
 ---
 file: LICENSES/REVIEWERS.md
 audience: OSI license-discuss / license-review participants, licence reviewers, anyone arriving from the mailing list
-last-updated: 2026-11-06
+last-updated: 2026-11-07
 canonical-ref: LICENSES/ACD-1.0.txt (the text posted) / LICENSES/ACD-1.3.txt (the frozen successor this repository applies since 2026-10-25) / LICENSES/FROZEN.md (freeze + venue, single source) / LICENSES/rounds/2026-08-26-license-discuss-sent.txt (what was actually sent) / LICENSES/ACD-1.0.submission.md (the packet prepared for license-review)
 ---
 
@@ -190,7 +190,7 @@ past does not bind the OSI"*, and a list message is its author's own view.
 | A dedication with a patent promise | Karl Fogel, 2014-05-04: *"maybe we wouldn't certify PD itself for software works, but would certify PD *when accompanied by* a particular patent non-assertion text"*, adding *"it's more complex than that"* | §3 with §8.6 |
 | The need | Christopher Sean Morrison, 2017-10-26: *"so many federal agencies moving into open source, commensurately searching the legal landscape for something close to public domain yet still addressing indemnification and contributor patent grants"* | §3, §2.6 and §8. This is a stated need, nine years old, and not an adoption. He goes on: *"All leading to proliferation"* |
 | Burdens on the licensee | Pamela Chestek, 2025-03-02, on ModelGo: *"Imposing too many burdens and obligations on the licensee means that benefits of the open source ecosystem won't be realized."* | §10.1 imposes none |
-| Refusal | The Board, 2025-07-18: *"a license should be rejected only if it violates the OSD"* | It has not been said to violate the OSD. The same minutes allow a licence to stay unapproved (see `ACD-1.0.objection-map.md`) |
+| Refusal | The Board, 2025-07-18: *"a license should be rejected only if it violates the OSD"* | It has not been said to violate the OSD. The same minutes allow a licence to stay unapproved (see `ACD-1.0.objection-map.md`). The one such hold on record, on Tiwaz in 2025, lifts when *"one or more projects begin using this license or express an interest in doing so"* |
 | Legal review | Pamela Chestek as chair, 2024-12-18: *"we do not require review by a lawyer, only recommend it. That is not a blocker."* Carlo Piana, who had written the opposite that morning, withdrew it the same day: *"bad choice of words on my side"* | It is still our largest weakness, and the Unlicense did pass with lawyers' agreement |
 | No governing-law clause | The Board, approving the Open Logistics License in 2023: *"it does not believe that choice of law provisions are necessary or advisable in open source licenses"* | §15.7 names no law (§15.3 from 1.1) |
 | Proliferation | Board minutes, 2007-11-07, on SimPL, which allows relicensing under the GPL: *"it does not create a licensing dead-end and thus does not exacerbate the negative aspects of licensing proliferation"* | §4.5: the Work may go out under any terms. One decision, nineteen years ago |
@@ -217,8 +217,8 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 | The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders in the clauses (one in §16.1's notice template) |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
-| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 390 worked entries, indexed by the question rather than the filename |
-| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 284 adverse facts, written by us. Two have no answer |
+| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 391 worked entries, indexed by the question rather than the filename |
+| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 285 adverse facts, written by us. Two have no answer |
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
 | **What we would ask a lawyer** | [`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) | ACD has had no legal review. Nine questions on which a lawyer's reading would most change the text, ranked by consequence, each answerable on its own |
 | **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 63 known imprecisions, all unrepaired in 1.0 while the freeze holds, with what the successor does (the Status column is authoritative) |

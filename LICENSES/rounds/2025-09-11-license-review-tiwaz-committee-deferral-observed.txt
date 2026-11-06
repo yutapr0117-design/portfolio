@@ -1,0 +1,33 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-September.txt
+Retrieved: 2026-11-07
+Date: Thu, 11 Sep 2025 11:00:16 -0700
+From: Josh Berkus
+Subject: [License-review] Request for OSI Approval: Tiwaz License, version 1.0 (New License)
+Position: the message in which the License Committee defers any recommendation of the Tiwaz licence and states what would lift the hold. Not addressed to us.
+
+----- begin verbatim -----
+From josh.berkus at opensource.org  Thu Sep 11 18:00:16 2025
+From: josh.berkus at opensource.org (Josh Berkus)
+Date: Thu, 11 Sep 2025 11:00:16 -0700
+Subject: [License-review] Request for OSI Approval: Tiwaz License, version
+ 1.0 (New License)
+In-Reply-To: 
+ <ca171a81398548cab51bccab1470924c@63209761299443dcb683d63dc1bbf994>
+References: 
+ <af329c2dd9e840a28958383e9b177b24@f121e783755a443b9970d736a20b092e>
+ <33120722-135c-44f9-9dc9-c8cf8a11496b@opensource.org>
+ <ca171a81398548cab51bccab1470924c@63209761299443dcb683d63dc1bbf994>
+Message-ID: <d2191a81-6e0e-49db-8a53-256960e4db30@opensource.org>
+
+Sviatoslav, All:
+
+The License Committee has voted to *defer* any recommendation of the 
+Tiwaz license, because it is a close variant of an existing license, and 
+there have been no demonstrated uses or planned uses of the license. 
+Should one or more projects begin using this license or express an 
+interest in doing so, please share that information here and we will 
+remove the hold and submit our recommendation to the Board.
+
+-- 
+-- Josh Berkus
+OSI Board Member

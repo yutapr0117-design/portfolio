@@ -1,7 +1,7 @@
 ---
 file: LICENSES/PEER-REVIEW-WATCH.md
 audience: 次のセッションの実装者（一次読者）
-last-updated: 2026-11-01
+last-updated: 2026-11-07
 canonical-ref: LICENSES/ACD-1.0.comparison.md §1.5 (比較の本体) / LICENSES/ACD-1.0.against.md #28-#31 (不利な材料) / LICENSES/REVISION-PROTOCOL.md (改訂サイクル)
 ---
 
@@ -331,6 +331,8 @@ Modified 0BSD）と Piana 氏（2026-09・BOS）。**2 名・3 回・2 年にわ
 と整理している。ACD-1.0 は §4.3 / §10.1 により対価も制限も持たない。
 
 ### Tiwaz License v1.0（2025-05 / 07・16 通）—— 手続きの観測 3 件（2026-09-08 読了）
+
+**⚠ 2026-11-07 訂正: 読んだ窓は 7 月までで、最後の 1 通（2025-09-11・委員会の保留）は窓の外だった。** `board-decisions.md` §2c / #285。
 
 MPL-2.0 から Secondary License 条項を除いた派生。ACD-1.0 とは類型が違うが、**審査者の作法**が
 3 つ観測できた。
@@ -670,7 +672,7 @@ CC0 / Unlicense / 0BSD のどれも含まないので、**#87 の走査では原
 | ✅ | Modified 0BSD (Maintenance-Required)（2026-03・却下）| `review-precedents.md` §1.48 / #102 |
 | ✅ | MGB 1.0（2025-02/03/09・3 ラウンド 47 通）| 本書「取り込んで再提出」節 |
 | ✅ | RAIL（2023-04・4 日で撤回）| 本書「AI ライセンスは 2023 年から」節 / #103 |
-| ✅ | Tiwaz License v1.0（2025-05/07・16 通）| 本書「Tiwaz」節 |
+| ✅ | Tiwaz License v1.0（2025-05/09・16 通）| 本書「Tiwaz」節 / `board-decisions.md` §2c |
 | ✅ | FFOL（2024-10・5 通）| 本書「FFOL」節 —— #97 の外部裏付け |
 
 **未読・優先順つき**（**この一覧は次に消費されるべき候補であって、網羅ではない**）:
