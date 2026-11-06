@@ -289,7 +289,8 @@ python3 .github/scripts/generate_gap_census.py --fetch   # the texts of the appr
 python3 .github/scripts/measure_patent_reach.py          # the conditions and terminations, quoted
 ```
 
-The last line reads `# Patent grant reaching beyond the work with no condition found: 0 []`. The
+The result line reads `# Patent grant reaching beyond the work with no condition found: 0 []`, and the
+tool exits 0. A counterexample prints `REVIEW REQUIRED` and exits 1; an incomplete set of texts exits 2. The
 tool quotes the condition or termination in each licence it counts; **which licences reach beyond
 the work is the census's reading, not something the tool verifies**
 ([`ACD-1.0.gap-census.md`](ACD-1.0.gap-census.md)). If the SPDX list has moved since the census was

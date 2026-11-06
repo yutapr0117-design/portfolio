@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/measure_patent_reach.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-11-06
+last-updated: 2026-11-07
 canonical-ref: LICENSES/ACD-1.0.gap-measurements.md (§1.133・B10 の立証) / LICENSES/ACD-1.0.gap-census.md (範囲の分類) / .github/scripts/generate_gap_census.py (原文の取得)
 ---
 
@@ -26,6 +26,8 @@ python3 .github/scripts/measure_patent_reach.py
 2026-11-04 の実行（SPDX 8791eda・2026-10-28）: 作品を超える特許許諾は 7 本（BlueOak / CERN-OHL-P・S・W / EUPL-1.1・1.2 / UPL）、7 本すべてに条件、UPL 以外の 6 本に終了の定め、両立する本は 0 本。
 
 `--express`（2026-11-04）は、明示の特許許諾を持つ全本（census の「明示」列）の条件の文を逐語で出す。主張は「範囲 ∧ 無条件 ∧ 終了なし」の連言なので、全本が条件を持つなら範囲の分類（読みの判定）に依拠せずに同じ結論が出る。実測 65 本すべてに義務の文があり、見つかった文は人が 1 本ずつ読んで確かめた。**ただし多くの条件は頒布のときにしか発動しない** —— Work を配らず学習だけする受領者には発動しないので、この結論は「条文に条件が在る」ことまでで、「その受領者に条件が掛かる」ことではない。
+
+終了コードは 0 が主張の再現、1 が反例（`REVIEW REQUIRED`）、2 が全数の欠け（結論を出していない）である。Check 489b / 489c が 2 と 1・0 を見る。
 
 ## Constraints
 
