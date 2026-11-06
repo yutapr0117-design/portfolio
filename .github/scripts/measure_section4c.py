@@ -45,14 +45,14 @@ def _current_draft_version() -> str:
             m = re.match(r"ACD-(\d+\.\d+)-DRAFT\.txt$", p.name)
             if m:
                 return m.group(1)
-    raise SystemExit("ERROR: 作業中の草案 (pointer でない ACD-*-DRAFT.txt) が見つからない")
+    raise SystemExit("ERROR: no working draft found (an ACD-*-DRAFT.txt that is not a pointer)")
 
 
 def main() -> int:
     ver = sys.argv[1] if len(sys.argv) > 1 else _current_draft_version()
     path = _path(ver)
     if not path.exists():
-        raise SystemExit(f"ERROR: {path.relative_to(ROOT)} が無い")
+        raise SystemExit(f"ERROR: {path.relative_to(ROOT)} does not exist")
     raw = path.read_bytes()
     text = raw.decode("utf-8")
     sep = "\n" + "-" * 80 + "\n"
@@ -83,18 +83,18 @@ def main() -> int:
     deontic = {w: len(re.findall(r"\b%s\b" % w, body)) for w in ("shall", "must")}
 
     print(f"ACD-{ver}  ({path.relative_to(ROOT)})")
-    print(f"  1. 定義語 {len(terms)} 件 (§{terms[0][0]}–§{terms[-1][0]})・未使用 {len(unused)}"
+    print(f"  1. defined terms: {len(terms)} (§{terms[0][0]}–§{terms[-1][0]}), unused: {len(unused)}"
           + (f" {unused}" if unused else "")
-          + (f"・最少使用 {min(uses.values())} 回 ({', '.join(t for t, n in uses.items() if n == min(uses.values()))})" if uses else ""))
+          + (f", fewest uses: {min(uses.values())} ({', '.join(t for t, n in uses.items() if n == min(uses.values()))})" if uses else ""))
     contiguous = sections == list(range(1, len(sections) + 1))
-    print(f"  2. 節 {len(sections)} 個・1–{len(sections)} 連番: {'yes' if contiguous else 'NO ' + str(sections)}")
-    print(f"  3. 非 ASCII バイト: {sum(1 for b in raw if b > 127)}")
-    print(f"  4. 内部参照 {occ} 箇所 ({len(refs)} 条)・解決しないもの {len(dangling)}" + (f" {dangling}" if dangling else ""))
+    print(f"  2. sections: {len(sections)}, numbered 1–{len(sections)} without a gap: {'yes' if contiguous else 'NO ' + str(sections)}")
+    print(f"  3. non-ASCII bytes: {sum(1 for b in raw if b > 127)}")
+    print(f"  4. internal references: {occ} ({len(refs)} clauses), unresolved: {len(dangling)}" + (f" {dangling}" if dangling else ""))
     # 「authoritative」の語で決める (English + translation で探すと §16 の翻訳の扱いの文を拾う・初版で実測)
     al = [k for k, v in flat.items() if "authoritative" in v.lower()]
-    print(f"  5. authoritative language の条: {', '.join('§' + k for k in al) or 'なし'}")
-    print(f"  6. 本文の shall {deontic['shall']} / must {deontic['must']}  (区切り線より後のみ・状態ブロックは除外)")
-    print(f"  7. 条 {len(clauses)}・語 {len(body.split())} (本文) / {len(text.split())} (file 全体・草案は状態ブロックを含む)")
+    print(f"  5. authoritative language clause: {', '.join('§' + k for k in al) or 'none'}")
+    print(f"  6. in the terms: shall {deontic['shall']} / must {deontic['must']}  (after the separator line; the status block is excluded)")
+    print(f"  7. clauses: {len(clauses)}, words: {len(body.split())} (terms) / {len(text.split())} (whole file, including any status block)")
     md = LIC / f"ACD-{ver}.machine.json"
     if md.exists():
         cited = []
@@ -112,9 +112,9 @@ def main() -> int:
 
         walk(json.loads(md.read_text(encoding="utf-8")))
         bad = sorted({c for c in cited if c not in clauses})
-        print(f"  8. 記述子の clause {len(cited)} 件・本文に無いもの {len(bad)}" + (f" {bad}" if bad else ""))
+        print(f"  8. descriptor clause references: {len(cited)}, not in the text: {len(bad)}" + (f" {bad}" if bad else ""))
     else:
-        print(f"  8. 記述子 {md.name} はまだ無い (版の確定時に作る)")
+        print(f"  8. descriptor {md.name} does not exist yet (it is made when the version is fixed)")
     return 0
 
 

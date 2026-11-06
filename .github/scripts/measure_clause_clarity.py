@@ -130,8 +130,8 @@ def main():
     for r in rows:
         print(f"{r[0]:16}{r[1]:>6}{r[2]:>7}{r[3]:>8}{r[4]:>6}{r[5]:>7}{r[6]:>7}{r[7]:>7}")
     if missing:
-        print(f"\n⚠ 比較対象が手元に無い: {missing} —— `--fetch` を付けて取得せよ。"
-              "**欠けたまま出した表を「比較した」と読まないこと。**", file=sys.stderr)
+        print(f"\nWARNING: comparison texts are not available: {missing}. Run with --fetch. "
+              "A table with texts missing is not a comparison.", file=sys.stderr)
 
 
 if __name__ == "__main__":

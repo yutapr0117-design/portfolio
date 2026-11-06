@@ -398,7 +398,7 @@ def run(ctx):
     _tools489 = (
         (["measure_quote_drift.py"], r"本文に在る断片: [1-9]\d*"),
         (["measure_citation_drift.py"], r"の条: [1-9]\d* 件"),
-        (["measure_section4c.py"], r"定義語 [1-9]\d* 件"),
+        (["measure_section4c.py"], r"defined terms: [1-9]\d*"),
         (["measure_descriptor_carryover.py"], r"が引く条 [1-9]\d* 件"),
         (["measure_clause_clarity.py"], r"ACD-\S+ draft +[1-9]"),
         (["measure_clause_overlap.py", "--compare", _draft489, _draft489], r"依拠するドシエの箇所 .*: 0 —— 外向き 0"),

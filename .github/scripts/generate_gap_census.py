@@ -383,9 +383,9 @@ if "--check" in sys.argv:
     def _sans_fetch(t):
         return [ln for ln in t.split("\n") if not ln.startswith(("last-updated:", "# ACD-1.0 gap census", "- **取得**:"))]
     if _sans_fetch(_cur) == _sans_fetch(_new):
-        print("OK: census は現在のキャッシュからの生成結果と一致する")
+        print("OK: the census matches what the cached SPDX sources generate")
         raise SystemExit(0)
-    print("DRIFT: census が生成結果と一致しない（手で編集されたか、キャッシュの版が違う）")
+    print("DRIFT: the census differs from what the cached SPDX sources generate (edited by hand, or a different version of the list)")
     raise SystemExit(1)
 OUTFILE.write_text(_new, encoding="utf-8")
 print(N, dict(by), dict(sc), len(express), len(mention))
