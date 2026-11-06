@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.faq.md
 audience: 採用検討者, 法務, ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-03
+last-updated: 2026-11-06
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (逐条リファレンス) / LICENSES/ACD-1.0.comparison.md (族ごとの比較) / LICENSES/ACD-1.0.jurisdictions.md (法域別の問い)
 ---
 
@@ -23,7 +23,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LIC
 > **English:** Yes, without asking. Section 16.3 states that this Dedication may be applied by
 > anyone, to any work, without permission from, notice to, or any relationship with its
 > authors, and that it is not specific to any project, person, organisation, jurisdiction or
-> field. Section 16.1 gives the notice form.
+> field. Section 16.1 gives a notice form.
 
 **先に確認すること**: **あなたがその作品の権利を持っているか**。職務著作や譲渡で雇用主が権利を持つ場合、あなたは適用できる立場にない（**A20** 参照）。共同で作ったものなら **A13** も見ること。
 
@@ -591,6 +591,21 @@ Dedicator が既に公開した写しについて「さらなる条件・制限�
 - **止められるか**: 止められない。§8.2 は条件も終了も置かないので、許諾の範囲を後から狭めることも、特許訴訟で報復することもできない。
 - **どうすればよいか**: その方法の特許を保ちたいなら、説明文書に ACD を付けない。**特許を持つ組織が文書に適用する前に確かめるべき最大の点である**（`against.md` #16 / #282・register B7）。
 - **版**: 1.0 の §8.4 は因果の限定を持たず、もっと広い。1.1〜1.3 は読みが割れている（#282）。
+
+**これは法律の助言ではない。** 法的レビューは受けていない。
+
+### A33. ACD のファイルのタグを残したまま手を入れた。自分の改変分まで ACD になるのか
+
+> **English:** Keeping a tag that was already there is not applying the Dedication, on our reading.
+> Section 16.1 speaks of placing a notice in order to apply it, and Section 1.4 (1.0: Section 1.3)
+> makes a Dedicator of the person applying it. You are free to keep or remove the tag (Section 10.2).
+> If your changes are under other terms, say so next to the tag. No court has tested this.
+
+**なぜ問うか**: §3 は取り消せず §8 は終了しないので、誤って成立したときの費用が他のライセンスより重い。SPDX のタグは REUSE などの道具が既定で残すので、起きやすい。1.4 草案からタグだけでも適用になるので（§16.1・`ACD-1.1-SELF-AUDIT.md` §3v）、この線がタグにも引かれる。
+
+- **読みの根拠**: §16.1 は *"To apply this Dedication, place a notice"* で、目的の語と「置く」行為の語を持つ。残すことはどちらにも当たらない。
+- **どうすればよいか**: 改変分を別の条件で出すなら、タグの隣にそう書く。書かないと次の読み手には区別できない。
+- **⚠ 逆側**: これは読みであって判決ではない。残したまま配ったことを適用の表示と見る余地はある。
 
 **これは法律の助言ではない。** 法的レビューは受けていない。
 

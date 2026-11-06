@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.1-SELF-AUDIT.md
 audience: a future drafter (the current draft is 1.4), OSI license-review participants, licence reviewers
-last-updated: 2026-11-03
+last-updated: 2026-11-06
 canonical-ref: LICENSES/ACD-1.4-DRAFT.txt (the current draft; ACD-1.2.txt frozen 2026-10-17, ACD-1.3.txt frozen 2026-10-25 and applied to this repository) / LICENSES/ACD-1.1.txt (frozen 2026-09-17) / LICENSES/ACD-1.4-CHANGELIST.md (all other changes for the current draft; ACD-1.1〜1.3-CHANGELIST.md are the closed records for those versions) / LICENSES/ACD-1.0.errata.md (defects in 1.0)
 ---
 
@@ -753,4 +753,14 @@ Dedicator が自分では主張せず、独占的なライセンスを受けた�
 **(2) §16.3（E2 が足した）**: *"in which they hold rights"* は適用する者に権利の確定を求める形で、§9.2 が権利の存否を述べないことと食い違う。AI が生成したコードの持ち主は権利が在るか分からず、gap の 3 つ目の採用者そのものである。1.4 草案は *"hold or may hold rights of their own"* へ直した。**最初の案 *"hold or may hold rights"* は不成立だった** —— *may hold* は可能性の語で、E2 が閉じた害（他人の著作物に notice を付ける誘い）が戻る。
 
 **一般形**: E60 と同じである。**絞るための文に可能性の語を入れると絞りが緩む。** 欠陥を閉じる語は、閉じた当時に見えていた読みしか見ていない（§3p）。
+
+## 3v. 直した条が作った入口の穴と、1.1 が足した括弧 —— §16.1 の適用の行為と §6.4 の *"(Section 9)"*（2026-11-06）
+
+**どちらも 1.0 に無いので errata ではなくここへ記録する。** 25 のレンズ（修正の入口・指す先の主題）で見つかり、bb が反例を当てた。経緯は `ACD-1.4-SECOND-CLARITY-TRIAL.md` §10。
+
+**(1) §16.1 / §16.2（1.4 草案が H-02 で持ち込んだ）**: 1.3 の §16.2 は *"Where a work is accompanied by …"* で、タグだけでも条件全体が及ぶと読めた。H-02 はこれを「Dedicator が適用した著作物」へ限定し、第三者が勝手に付けたタグでは成立しないようにした。だが適用の行為を述べる条は §16.1 しかなく、§16.1 は長い通知文の形だけを挙げるので、ファイルの先頭にタグだけを置く権利者（SPDX の通常の使い方）について、適用したと言えるかが条文から決まらなくなった。§15.1 は適用のあとで働くので救えない。1.4 草案は *"in a form Section 16.2 names or in substantially the following form"* へ直した（+7 語）。**⚠ 逆側**: タグは道具が既定で残すので、改変したファイルに残ったタグが「適用」と読まれる余地が増えた（`ACD-1.0.faq.md` A33）。1 語のタグが §3 の放棄の意思として足りるかは問 1 の (e) に置いた。足りなくても §4.4 が受け止める。
+
+**(2) §6.4（1.1 が E4 を閉じたときに足した）**: *"(Section 9)"* の指す先は Work の部分を論じていて、§6.4 の *"any such thing"*（モデル・パラメータ・重み・埋め込み・出力）は Work の部分ではない。読者は自分の問いに答えない条へ案内され、§9.2 の *"apply to it in full"* が出力の権利に及ぶという誤読の足場にもなっていた。1.4 草案で外した（−2 語）。1.1〜1.3 は凍結のまま未修正。
+
+**一般形**: **直した条は、直した問いとは別の問いの入口になる。** H-02 は「誰が適用できるか」を閉じて「何が適用か」を開いた。修正を入れたら、その条が前提にしている別の条の行為まで読み直す。
 

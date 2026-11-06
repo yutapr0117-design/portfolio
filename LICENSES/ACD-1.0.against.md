@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.against.md
 audience: OSI license-discuss / license-review participants, licence reviewers
-last-updated: 2026-11-04
+last-updated: 2026-11-06
 canonical-ref: LICENSES/ACD-1.0.txt (authoritative text) / LICENSES/ACD-1.0.submission.md (the packet prepared for license-review) / LICENSES/rounds/2026-08-26-license-discuss-sent.txt (what was actually sent) / LICENSES/READY-TO-SUBMIT.md
 ---
 
@@ -381,7 +381,7 @@ scales while its surviving side is frozen is not more honest, it is differently 
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **283 adverse facts, 62
+   prompted by third parties, four self-initiated — have produced **283 adverse facts, 63
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
