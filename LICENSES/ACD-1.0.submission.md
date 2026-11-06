@@ -166,7 +166,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1703 words**, measured 2026-11-01)
+### B.0 The message as it should actually be sent (**1663 words**, measured 2026-11-06)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -212,7 +212,7 @@ Open Source Definition, and to say where the licence is used.
 **Why this section exists.** The reference material this message points at — §1 through §5, which
 moved to `ACD-1.0.submission-reference.md` and `ACD-1.0.submission-osd.md` on 2026-09-09 — is
 **close to an order of magnitude longer than the message** (14,651 words against 1,701, measured
-2026-09-27 — the message is 1,703 since 2026-11-01; the authority for the message's own length is the §B.0 heading, and Check 460 (p)
+2026-09-27 — the message has moved since; the authority for the message's own length is the §B.0 heading, and Check 460 (p)
 checks it against the text). The list's code of conduct asks for "concise and low-volume" and that
 was restated in the August 2026 review (`REVISION-PROTOCOL.md` §3.7). **Pasting the reference
 material would contradict the design this dossier is built on**, which is that the repository holds
@@ -278,6 +278,8 @@ who knows the test, as not knowing the test.** **+133 words**（段落そのも�
 
 **And 1,703 on 2026-11-01**, when the OSD 9 citation was corrected from §5.2(b) and §2.3 (the grounds for OSD 10) to §4.3 and §10.1. **−7 words, spent on citing the right clause** —— OSD 9 を名指しで満たすと述べる段落で根拠の条を取り違えていた。
 
+**And 1,663 on 2026-11-06**, when the gap paragraph stopped counting §6 and §9 as differences. The 2026-11-04 re-verification (`gap-measurements.md` §1.134) had removed them from what makes this instrument distinct, and `REVIEWERS.md` and `SUBMISSION-MATERIALS.md` had followed, but this paragraph still said *"three things no approved licence does together"* and gave 149 texts where the same message gave 141 further down. It now leads with the one combination that differs in effect. **−40 words** —— 読まれる順の最初の面が最後に直った。#241 と同じ形である。
+
 **Why that last addition earns its words.** *"Why another public-domain-equivalent?"* is the opening
 move in this category — Rob Landley put it as fungibility (#84), David Woolley put it to the
 UPD 1.5.2 author, Carlo Piana has put it as proliferation — and until 2026-09-09 the only answer in
@@ -341,20 +343,17 @@ recipient. A criterion-by-criterion analysis of all ten is in the repository, an
 is a companion section setting out, for each, **where a reviewer could argue the opposite**.
 
 **The gap.** In one sentence: the approved licences that impose no conditions say nothing about
-machine learning, and the machine-learning licences brought to this list have so far added
-conditions; ACD-1.0 is the intersection — no condition of any kind (§10.1), and explicit about
-training, models and outputs (§6, §8.4, §9). **In detail**, ACD-1.0 is written for works meant
-to be learned from. It does three things no
-approved licence does together: it expressly permits machine learning and text-and-data-mining and
-declines to make any reservation (§6); it grants a patent licence that reaches models and outputs
-of computational use (§8.4); and it makes the recipient's permissions independent of whether
-copyright subsists in machine-generated material at all (§9). **That claim is measurable, and I
-measured it**: across all 149 OSI-approved texts (SPDX List 3.28.0, fetched 2026-09-10) the strings
-"machine learning", "text and data mining", "machine-generated" and "subsist" occur **zero** times.
-Absence of the words is not absence of effect — a permissive licence allows training by allowing
-everything — but it is what leaves §6, §8.4 and §9 open. The command is in the repository.
-**The nearest approach:** CERN-OHL-P-2.0 grants patents over work *"arising from the … processing
-of Covered Source"*, which can be read to reach a model. It does not name models and has conditions.
+patents or machine learning, and the machine-learning licences brought to this list have so far
+added conditions; ACD-1.0 is the intersection. **What differs in effect is one combination**: a
+patent licence that reaches models and outputs of computational use (§8.4), with no condition and
+no termination (§8.2, §10.1). **That is measurable, and I measured it**: of the 141 approved texts
+(SPDX List 3.29.0, deprecated identifiers excluded), the three with no condition (0BSD, MIT-0, the
+Unlicense) never use the word "patent", and all seven whose patent grant goes beyond the work have
+conditions. §6 and §9 state things rather than differ in effect: none of the 141 names machine
+learning or text and data mining, but a permissive licence allows training by allowing everything.
+The census is in the repository. **The nearest approach:** CERN-OHL-P-2.0 grants patents over work
+*"arising from the … processing of Covered Source"*, which can be read to reach a model. It does
+not name models and has conditions.
 
 **Why now, since the objection is reasonable.** Licences for machine learning have been brought to
 this list since at least April 2023 — the Restricted Artificial Intelligence License, withdrawn four
