@@ -79,6 +79,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (aio-monitoring / architecture-validation / auto-update-aio-digests) に上限が無かった。無いと
        既定の 6 時間まで居座り、concurrency で後続の run を塞ぐ。YAML として読めない workflow と、
        job 検出 5 未満も RED。(BLOCKING)
+  489b. measure_patent_reach.py が、原文の欠けたキャッシュで結論を出さない (2026-11-06)。提出の最も強い主張を
+       審査者が再現する道具で、欠けた本を黙って飛ばすと不完全な 0 が完全に見える。空のキャッシュで確かめる。
   489. 版確定日に手で回す道具が今の tree で動く: 確定手順 (ACD-1.1-CHANGELIST.md §0.13) が頼る道具は
        CI のどこからも実行されず、版の命名や本文の書式が変わって壊れても確定当日まで分からない。実際に
        実行し、終了コードと「何かを測った」ことを示す出力 (件数が 0 でない等) を見る。
@@ -90,6 +92,8 @@ import json
 import os
 import subprocess
 import sys
+import tempfile
+from pathlib import Path
 
 
 def run(ctx):
@@ -414,6 +418,29 @@ def run(ctx):
             compile(_py.read_text(encoding="utf-8"), str(_py), "exec")
         except SyntaxError as _e:
             _bad489.append(f"{_py.name}: 構文エラー {_e.lineno} 行")
+    # 489b — 全数が揃わなければ結論を出さないこと。census の識別子だけを持つ空のキャッシュを作り、両モードで止まるかを見る。
+    #   SPDX の原文は CI に無いので、欠けた形だけを確かめる (正常な形は審査者の手元で走る)。
+    _ids489 = [_l.split("|")[1].strip().strip("`")
+               for _l in (ROOT / "LICENSES" / "ACD-1.0.gap-census.md").read_text(encoding="utf-8").splitlines()
+               if _l.startswith("| `")]
+    _open489 = []
+    with tempfile.TemporaryDirectory() as _d489:
+        (Path(_d489) / "_meta.json").write_text(json.dumps({
+            "approved_nondeprecated": len(_ids489), "fetched": len(_ids489), "failed": [],
+            "sha256": {_i: "0" * 64 for _i in _ids489}}), encoding="utf-8")
+        for _mode489 in ([], ["--express"]):
+            _r = subprocess.run([sys.executable, str(_sc489 / "measure_patent_reach.py"), *_mode489], cwd=ROOT, text=True,
+                                capture_output=True, timeout=60,
+                                env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1", "GAP_CENSUS_CACHE": _d489})
+            if _r.returncode != 2 or "comparison is incomplete" not in _r.stderr or "found" in _r.stdout:
+                _open489.append(f"{_mode489 or '既定'}: rc={_r.returncode} {(_r.stderr or _r.stdout)[-120:]!r}")
+    check(
+        len(_ids489) > 100 and not _open489,
+        f"Check 489b: measure_patent_reach.py は原文の欠けたキャッシュで結論を出さない ({len(_ids489)} 本・両モード)",
+        (f"Check 489b: 原文が欠けても結論を出す形に戻っている: {_open489}。審査者が再現する提出の最も強い主張なので、"
+         "欠けた本を黙って飛ばすと不完全な 0 が完全に見える"),
+        blocking=True,
+    )
     check(
         not _bad489,
         f"Check 489: 版確定日の道具 {len(_tools489)} 本が今の tree で動き、scripts の構文も通る",

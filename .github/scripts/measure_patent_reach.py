@@ -28,6 +28,7 @@
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import re
@@ -65,8 +66,48 @@ EXPRESS_COND = [re.compile(p + r"[^.]{0,150}", re.I) for p in (
 )]
 
 
-def express() -> int:
-    rows = [ln for ln in CENSUS.read_text(encoding="utf-8").splitlines() if ln.startswith("| `")]
+def verify_sources(meta: dict, rows: list[str]) -> bool:
+    """全数が揃っていなければ結論を出さない。
+
+    2026-11-06 まで、原文が欠けた本は黙って飛ばされ、最後の "0" は欠けたまま完全に見えた (別の AI の patch の
+    指摘・オーナーが渡した)。census の sha256 も照合するので、census と取得物が別の時点のものなら止まる。
+    """
+    cells = [[c.strip().strip("`") for c in ln.split("|")] for ln in rows]
+    ids = [c[1] for c in cells]
+    digests = meta.get("sha256")
+    issues = []
+    if not ids or len(set(ids)) != len(ids):
+        issues.append("the census is empty or has duplicate identifiers")
+    if meta.get("approved_nondeprecated") != len(ids):
+        issues.append("the census row count differs from the fetched SPDX population")
+    if meta.get("failed") or meta.get("fetched") != len(ids):
+        issues.append("the SPDX fetch was incomplete")
+    if not isinstance(digests, dict):
+        issues.append("the source checksum manifest is missing")
+        digests = {}
+    if set(digests) != set(ids):
+        issues.append("the census identifiers and the source checksum manifest differ")
+    for c in cells:
+        lid, recorded = c[1], c[2]
+        source = CACHE / f"{lid}.txt"
+        if not source.is_file():
+            issues.append(f"{lid}: the SPDX source is missing")
+            continue
+        actual = hashlib.sha256(source.read_bytes()).hexdigest()
+        if lid in digests and actual != digests[lid]:
+            issues.append(f"{lid}: the SPDX source differs from the fetched checksum")
+        if actual[:12] != recorded:
+            issues.append(f"{lid}: the census was generated from a different text")
+    if issues:
+        for issue in issues[:20]:
+            print(f"ERROR: the comparison is incomplete: {issue}", file=sys.stderr)
+        print(f"ERROR: {len(issues)} problem(s). No full-population result is given. If the SPDX list has moved since the "
+              "census was made, run: python3 .github/scripts/generate_gap_census.py", file=sys.stderr)
+        return False
+    return True
+
+
+def express(rows: list[str]) -> int:
     ids = []
     for ln in rows:
         cells = [c.strip() for c in ln.split("|")]
@@ -90,10 +131,12 @@ def main() -> int:
     if not (CACHE / "_meta.json").exists():
         print(f"SPDX sources not found in {CACHE}. Run first: python3 .github/scripts/generate_gap_census.py --fetch")
         return 2
-    if "--express" in sys.argv:
-        return express()
     meta = json.loads((CACHE / "_meta.json").read_text(encoding="utf-8"))
     rows = [ln for ln in CENSUS.read_text(encoding="utf-8").splitlines() if ln.startswith("| `")]
+    if not verify_sources(meta, rows):
+        return 2
+    if "--express" in sys.argv:
+        return express(rows)
     beyond = []
     for ln in rows:
         cells = [c.strip() for c in ln.split("|")]
@@ -106,9 +149,6 @@ def main() -> int:
     unconditional = []
     for lid in beyond:
         p = CACHE / f"{lid}.txt"
-        if not p.exists():
-            print(f"## {lid}: source not in the cache")
-            continue
         t = " ".join(p.read_text(encoding="utf-8", errors="replace").split())
         c = next((m for m in (rx.search(t) for rx in COND) if m), None)
         e = TERM.search(t)
