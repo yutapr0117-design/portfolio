@@ -634,9 +634,9 @@ appropriate, I send them as written."*
 - **前半の例外が意味を持つのは、後半が「文言を AI が作った」より狭いときだけ**である。
   広く読むと、**AI が起草した投稿はすべて後半に当たり、前半の例外は一度も働かない。**
 - **moderator 自身が 2026-09-07 に同じ区別を書いている** ——
-  *"an important distinction between **AI assisting an accountable human participant** and
-  **an AI system independently generating** an extended legal discussion or using the mailing
-  lists as an experimental environment **without disclosure**"*。
+  **説明責任を負う人を AI が補助すること**と、**AI が独立に長い法的議論を生成すること、
+  または開示なしにリストを実験の場にすること**を分けている
+  （私信なので要約）。
 - **2026-09-09 の公開通知も、外国語で legalese を理解し応答するための AI 利用を
   *"appropriate"* と明示している。**
 

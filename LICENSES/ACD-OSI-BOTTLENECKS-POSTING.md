@@ -26,9 +26,8 @@ canonical-ref: LICENSES/ACD-OSI-BOTTLENECKS.md (索引・分類・集計の単�
 >
 > **状態の区別を 3 つ、混ぜずに書く。**
 >
-> **(1) 前提条件は満たされている。** moderator が 2026-09-07 に出した
-> *"Please reply directly to this message before making further submissions related to ACD-1.0"*
-> に対し、steward は**同日中に 5 問すべてへ回答している**。
+> **(1) 前提条件は満たされている。** moderator が 2026-09-07 に出した、
+> 以後の提出の前に直接返信するようにという求めに対し、steward は**同日中に 5 問すべてへ回答している**。
 > **(2) それでも投稿は通っていない。** ——**「前提条件を満たした」と「投稿できる」は別の状態である。**
 > **(3) 拒否されたのは ACD-1.0 の提出ではない。** **他者のライセンスへの review コメント**であり、
 > **ACD-1.0 自体は別のリスト（`license-discuss`）で 2026-08-26 以降 返信ゼロのままである。**
@@ -152,8 +151,7 @@ and very legalese, **is appropriate**"*。**境界は「補助か、代筆か」
 **公開通知（2026-09-09）の 2 日前、2026-09-07 に moderator（Nick Vidal 氏）が
 **我々へ直接**、ACD-1.0 を名指しして 5 問を送っていた**（逐語は
 `rounds/2026-09-07-offlist-nick-vidal-moderator-exchange.txt`・**公開アーカイブには無い**）。
-末尾は *"Please reply directly to this message **before making further submissions related to
-ACD-1.0**."*
+末尾は、ACD-1.0 に関する以後の提出の前に直接返信するようにという求めである。
 
 **steward は 5 問すべてに答えている** —— 初稿は AI で**本人が毎通確認して送信** / **自律投稿は無し** /
 **ACD-1.0 の条文は AI が起草し、持つ判断と方向は本人が決めた** / **自律参加の実験は目的ではない（目的は承認）** /

@@ -16,8 +16,7 @@ canonical-ref: LICENSES/ACD-1.0.review-corpus.md §1.85 (測定結果) / LICENSE
 ## Why
 
 **2026-09-15、OSI の moderator が steward へ直接この測定を求めた** ——
-*"Map out the **length and density** of your emails and compare it with the length and density of
-other emails sent to these two mailing lists by humans."*
+自分のメールの**長さと密度**を、人間が両リストへ送ったメールと比べるように、という求めである（私信なので要約）。
 
 **測れる問いに散文で答えるのは、入口ページが掲げる *check us* に反する。** だから道具を置いて、
 **誰でも同じ数を出せる**ようにした。結果は `review-corpus.md` §1.85。

@@ -754,7 +754,7 @@ probe は All 364 caught。** **そして同日夜、オーナーが「現行は
 （NOT IN FORCE の明示 / 純 ASCII / 参照の解決 / 申告語数の一致）。
 **そして 2026-09-10 夜、オーナーが moderator（Nick Vidal 氏）との off-list の往復を逐語で提供した** ——
 **公開通知の 2 日前（09-07）に、moderator は我々へ直接、ACD-1.0 を名指しして 5 問を送っていた**
-（*"Please reply directly to this message before making further submissions related to ACD-1.0"*）。
+（ACD-1.0 に関する以後の提出の前に、直接返信するよう求める内容）。
 **steward は 5 問すべてに答え、その返信への応答はまだ無い。** **前提条件は満たされたが、
 発信可否はオーナーと OSI の側にあり、`POSTING-STATUS` は `paused` のまま。**
 **齟齬が 1 件出て、同日に解消した（#125。⚠ その解消も足りておらず 2026-09-23 に #216 で再訂正された —— 旧文である）** ——§E.1 は *"I did not direct the drafting"* とだけ述べ、
