@@ -21,6 +21,9 @@ CLAUDE.md §7 が *「自動監視は CI に入れない（外部フォーラム
     # 未確認を全件出す（既定は上位 15 件）:
     DOSSIER_ALL=1 DOSSIER_ARCHIVE_CACHE=<同上> python3 ...
 
+**cache の当月は月の途中で取った版のことがある。** 2026-11-07 に 10 月分が月初の版で、10-14 の発言 2 件が
+未確認に落ちた。回す前に最新の取得へ差し替える。
+
 **corpus の置き場所の規約**: 月次アーカイブは `<cache>/*.txt` であれば名前は問わない
 （`discuss-2024-10.txt` でも `license-discuss-2024-October.txt` でもよい）。
 **2026-09-19 時点で必要な範囲は 2012 / 2017〜2026 の両リスト**で、
@@ -282,6 +285,29 @@ def fetch(months, limit=200):
     return got
 
 
+def near_misses(miss, blob):
+    """未確認のうち、断片の先頭か末尾の 5 語以上が原文に在るものを返す。
+
+    **語を落とした引用は全文では一致しないが、前後は一致する。** 話者名で分類する規則は、知らない名前の
+    近くの誤りを見落とす (2026-11-07: Engelfriet 氏の *also when saying* を *even when saying* にしていた)。
+    自分の文の強調もここに残るので、結果は 1 件ずつ読む。
+    """
+    out = []
+    for q, locs in miss.items():
+        best = None
+        for seg in re.split(r"\.{3}|…", q):
+            words = norm(seg).split()
+            if len(words) < 6 or " ".join(words) in blob:
+                continue
+            head = next((k for k in range(len(words) - 1, 4, -1) if " ".join(words[:k]) in blob), 0)
+            tail = next((k for k in range(len(words) - 1, 4, -1) if " ".join(words[-k:]) in blob), 0)
+            if (head or tail) and (best is None or (head + tail) / len(words) > best[0]):
+                best = ((head + tail) / len(words), locs[0], seg.strip())
+        if best:
+            out.append(best)
+    return sorted(out, key=lambda x: -x[0])
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--fetch", action="store_true", help="不足月をアーカイブから取得する")
@@ -335,6 +361,10 @@ def main():
             print(f"  [{locs[0]}] {q[:110]}")
         print("\n**未確認 = 誤引用ではない。** 我々自身の文を強調で括ったものと、"
               "まだ取得していない月の両方が入る。**分類してから結論すること。**")
+        near = near_misses(miss, blob)
+        print(f"\n--- 前後だけ原文に一致する引用（{len(near)} 件・語を落とした誤引用はここに出る） ---")
+        for score, loc, seg in near:
+            print(f"  {score:.2f} [{loc}] {seg[:110]}")
     return 0
 
 
