@@ -1,0 +1,75 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2017-October.txt
+Retrieved: 2026-11-06
+Date: Thu, 26 Oct 2017 02:18:29 -0400
+From: Christopher Sean Morrison
+Subject: [License-discuss] resolving ambiguities in OSD (was [License-review])
+Position: he describes federal agencies looking for something close to public domain that still addresses contributor patent grants. Not addressed to us, and not an adoption of anything.
+
+----- begin verbatim -----
+From brlcad at mac.com  Thu Oct 26 06:18:29 2017
+From: brlcad at mac.com (Christopher Sean Morrison)
+Date: Thu, 26 Oct 2017 02:18:29 -0400
+Subject: [License-discuss] resolving ambiguities in OSD (was
+ [License-review])
+In-Reply-To: <mailman.35182.1508901810.1919.license-review@opensource.org>
+References: <mailman.35182.1508901810.1919.license-review@opensource.org>
+Message-ID: <4A5B2C33-6FC9-4A7F-AA7E-5B4453CF4074@mac.com>
+
+
+> Date: Tue, 24 Oct 2017 18:13:23 -0700
+> From: Bruce Perens <bruce at perens.com>
+> To: License submissions for OSI review <license-review at opensource.org>
+> Subject: Re: [License-review] resolving ambiguities in OSD [was Re:
+> 	For Approval: License Zero Reciprocal Public License]
+> 
+> Most of this is implicit within the OSD but they are useful to keep in mind:
+> 
+> With regard to *simple users,* those who make use of the Open Source
+> software and do not modify or redistribute it, there should be as close to *no
+> legal load* as possible. We need to be cognizant that many of these users
+> are individuals and very small businesses that can't reasonably assume any
+> legal load at all. We can't protect them from patent issues brought by
+> others than the licensor of the software, but to the extent that we can
+> protect them, we should. In particular, *simple users should not ever have
+> to read the license.*
+> 
+> We should also endeavor to keep the legal load upon *Open Source developers* as
+> low as possible. These are also individuals, small businesses, etc. We
+> expect them to understand the license somewhat, but they are not legal
+> experts and do not necessarily have easy access to legal experts or even
+> the inclination to use them.
+
+Bruce,
+
+This is fascinating and refreshing.  It?s great to be reminded of some of the implicit founding principles that sometimes get diluted over time.
+
+This also reminds me of the discussions from a couple months ago where the issue at hand was licenses that explicitly deny a patent grant and thus violate the OSD (by my analysis) IF the licensor/contributor holds patent rights and asserts them via any royalty basis or discriminatory manner.
+
+This issue is rather pressing now with so many federal agencies moving into open source, commensurately searching the legal landscape for something close to public domain yet still addressing indemnification and contributor patent grants.  Some landed on CC0 (oops), others on preambles and DCOs, others trying to craft new licenses to fill the perceived void.  All leading to proliferation and...
+
+> So, we can think about some things that would increase the load on those
+> communities.
+
+? increased load.  How can OSI decrease this load?  Patent rights as they pertain to our source code is an undeniable burden on communities and developers alike currently.
+
+One possible solution could be to amend the OSD replacing instances of "license? with ?license and all contributors?.   Thus, for example, OSD#1 is clearly violated if there is not a patent grant mechanism in place: ?The license and all contributors shall not restrict any party from selling or giving away the software ?? and it would likely mean licenses like CC0 fail without an accompanying grant.
+
+I can think of a few other possibilities, but that seems like the most direct approach that instills that it?s not just the license that determines whether code is ?Open".  People do.
+
+> License proliferation: We don't want them to have to do more license
+> combinatorial analysis than should be necessary. Thus, we should not in
+> general accept new licenses, unless they in some way present a benefit to
+> the community in a way that presently-accepted licenses do not.
+
+Assuming software patents don?t go anywhere anytime soon, logically one can predict an approximate 2x proliferation given only a handful (5?) address patent rights.  BSD+Patent is exemplary.
+
+> there are a few
+> unfortunately-OSI-accepted time bombs waiting for new victims.
+
+How about creating a deprecation policy?  This community could (should?) define formal revocation criteria for delisting, timeframes, appeal process.  They dilute and ? increase load.
+
+Cheers!
+Sean
+
+
+
