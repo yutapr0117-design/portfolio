@@ -16,6 +16,7 @@
     "mutation-probe-e2e": "python3 .github/scripts/mutation_probe.py --e2e",
     "verify": "npm run check && npm run lint:css && npm run lint && npm run lint:js",
     "rotate-mutations": "python3 .github/scripts/rotate_mutation_samples.py",
+    "sync-sizes": "python3 .github/scripts/sync_size_table.py",
     "spdx-xml": "python3 .github/scripts/generate_spdx_license_xml.py"
   },
   "devDependencies": {
