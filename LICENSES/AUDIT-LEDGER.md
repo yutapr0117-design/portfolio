@@ -143,6 +143,10 @@ cache 3 つ（`~/Downloads/portfolio-fetch-24-tools/{full,arc}`・`~/osi-archive
 
 話者の近くにある 22 件は、取得物の原文でも確かめた。議事録・ブログ・イベント頁は Mac の取得物に在り、`#214` 系の 3 件は私信である。
 
+**続けて、OSI のサイトの取得物も照合先にした**（`DOSSIER_EXTRA_SOURCES`）。これまで原理的に未確認へ落ちていた種類で、同じ検出器を当てると 3 件目が出た。`OSI-EVENTS-2026-10.md` の 2 箇所が *"It was not workable as drafted"* としていたが、原文は *"It wasn't workable as drafted"* である。語形を直して読みやすくする、同じ向きの誤りだった。
+
+入口の 7 面（REVIEWERS / objection-map / submission 系 3 本 / SUBMISSION-MATERIALS / ADOPTING）の斜体の引用 233 件も、話者名の条件を外して当てた。原文が見つからなかった 8 件はすべて我々自身の文で、外部の発言の誤りは 0 件だった。
+
 **この回が establish しないこと**: 引用の途中の語だけが違い、前後が 5 語に満たない短い引用は、この検出器も拾わない。
 
 ## 退避した回 —— 2026-09-27・2026-09-27〜28・2026-10-10 の 3 回は `AUDIT-LEDGER-ARCHIVE.md` へ

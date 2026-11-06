@@ -33,6 +33,8 @@ python3 .github/scripts/verify_dossier_quotations.py --fetch   # 不足月を導
 
 未確認の引用のうち、断片の先頭か末尾の 5 語以上が原文に在るものは別の一覧に出る（`near_misses()`）。語を落とした誤引用はここに現れ、話者名の分類に頼らない。cache の当月は月の途中で取った版のことがあるので、回す前に最新の取得へ差し替える。
 
+`DOSSIER_EXTRA_SOURCES` に `:` 区切りの dir を渡すと、OSI のサイトやイベント頁の取得物も照合先になる。HTML のタグを落として読む。
+
 ## Constraints
 
 - **CI に入れない（意図的）。** 検証に外部アーカイブの取得が要り、CLAUDE.md §7 が

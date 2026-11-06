@@ -20,6 +20,8 @@ CLAUDE.md §7 が *「自動監視は CI に入れない（外部フォーラム
     DOSSIER_ARCHIVE_CACHE=<同上> python3 .github/scripts/verify_dossier_quotations.py --fetch
     # 未確認を全件出す（既定は上位 15 件）:
     DOSSIER_ALL=1 DOSSIER_ARCHIVE_CACHE=<同上> python3 ...
+    # OSI のサイトの取得物も照合先にする:
+    DOSSIER_EXTRA_SOURCES=~/osi-fetch/fetch DOSSIER_ARCHIVE_CACHE=<同上> python3 ...
 
 **cache の当月は月の途中で取った版のことがある。** 2026-11-07 に 10 月分が月初の版で、10-14 の発言 2 件が
 未確認に落ちた。回す前に最新の取得へ差し替える。
@@ -38,6 +40,7 @@ CLAUDE.md §7 が *「自動監視は CI に入れない（外部フォーラム
 import argparse
 import collections
 import glob
+import html
 import json
 import os
 import re
@@ -85,6 +88,14 @@ def load_sources(root="."):
     #   (b) rounds/ の長い一次資料は行境界で `-NofM` に分割して保存してあり (Check 365 の 1,000 行
     #   上限のため)、**分割の境目をまたぐ引用は、どの断片にも丸ごとは無い**。断片を番号順に
     #   連結してから読む (無改変保存の規約は bytes の分割であって、連結すれば原文に戻る)。
+    # OSI のサイトやイベント頁の取得物はアーカイブに無い。DOSSIER_EXTRA_SOURCES (":" 区切りの dir) で足す。
+    #   タグを落として読むので、JSON と HTML の両方で語の並びが残る。
+    for _dir in filter(None, os.environ.get("DOSSIER_EXTRA_SOURCES", "").split(":")):
+        for _dp, _dn, _fn in os.walk(_dir):
+            for _f in _fn:
+                if _f != "MANIFEST.md":
+                    with open(os.path.join(_dp, _f), encoding="utf-8", errors="replace") as _h:
+                        out.append(norm(html.unescape(re.sub(r"<[^>]+>", " ", _h.read().replace("\\u2019", "'")))))
     pats = [f"{CACHE}/*.txt", f"{root}/LICENSES/ACD-*.txt", f"{root}/LICENSE"]
     for pat in pats:
         for f in sorted(glob.glob(pat)):
