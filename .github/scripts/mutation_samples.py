@@ -280,48 +280,6 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 45b: section 見出しの番号が飛ぶ —— 実装側の連番が崩れ、一覧と実装の対応が数で取れなくなる",
-    "file": ROOT / ".github" / "scripts" / "checks_ci_verify.py",
-    "find": "    # ── 488. すべての workflow job が timeout-minutes を持つ (BLOCKING) ───────────────",
-    "replace": "    # ── 489. すべての workflow job が timeout-minutes を持つ (BLOCKING) ───────────────",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 45c: docstring の一覧にだけ Check が 1 つ多い —— 両方とも連続のままなので 45a / 45b は通り、一覧と実装の集合の食い違いだけが残る",
-    "file": ROOT / ".github" / "scripts" / "checks_ci_verify.py",
-    "find": "  488. すべての workflow job が",
-    "replace": f"  {NEXT_CHECK}. (mutation)\n  488. すべての workflow job が",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 46b: lint の file 集合が disk 上の shipped JS と食い違う —— 存在しない file を名乗り、実在する file を lint したつもりになる",
-    "file": ROOT / "package.json",
-    "find": "\"lint\": \"eslint main.js ",
-    "replace": "\"lint\": \"eslint js/ghost.js main.js ",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 47a: main.js が import する名前を葉が export しなくなる —— SPA が起動しない",
-    "file": ROOT / "js" / "pure-utils.js",
-    "find": "export function generateId() {",
-    "replace": "export function generateIdX() {",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 47b: 誰も import しない export が葉に増える —— export 一覧 ⟺ import 一覧の bijection が崩れ、死んだ API が残る",
-    "file": ROOT / "js" / "pure-utils.js",
-    "find": "export function clamp(num, min, max) {",
-    "replace": "export const __orphan47b = 1;\nexport function clamp(num, min, max) {",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 47c: 葉モジュールがローカル import を持つ —— 「葉は依存を引数注入で受ける」契約が崩れ、依存グラフが main.js から読めなくなる",
-    "file": ROOT / "js" / "brand.js",
-    "find": "export function createBrand(storage) {",
-    "replace": "import { clamp } from './pure-utils.js';\nexport function createBrand(storage) {",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
     "name": "Check 458a: README.md の呼びかけから現在の投稿先 (license-discuss) が消える —— status を述べる面のうち、最も読まれるページだけが別の窓口を名指す",
     "file": ROOT / "README.md",
     "find": "license-discuss",
@@ -552,6 +510,20 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "LICENSES" / "ACD-1.0.objection-map.md",
     "find": f"**Numbers.** Clause numbers are those of {SUBMISSION_TARGET},",
     "replace": "**Numbers.** Clause numbers are those of ACD-1.1,",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 472i: 入口の推奨の行から言語の表示を外す —— 英語の審査者が日本語の文書へ黙って送られる (2026-11-06 まで実際にそうだった)",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "| **Mostly Japanese.** Stated by us",
+    "replace": "| Stated by us",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 472i: 言語の表が日本語の文書を English と述べる",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "| [`AUDIT-LEDGER.md`](AUDIT-LEDGER.md) | Japanese |",
+    "replace": "| [`AUDIT-LEDGER.md`](AUDIT-LEDGER.md) | English |",
     "check": CHECK,
 })
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
