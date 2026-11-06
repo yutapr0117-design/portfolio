@@ -33,7 +33,7 @@ the 1.0 text.
 | B9 | §7 database right | Low | Checked and kept | Decided |
 | B10 | Is the remaining gap enough for a new licence? | Highest | One effect stands on the text of all 141 approved licences: a patent grant beyond the work with no condition and no termination. Whether that is enough is OSI's call | OSI |
 | B11 | SPDX and REUSE naming | Low | Deliberately not submitted yet | OSI, then SPDX |
-| B12 | One steward, and succession | Low | We know no way to resolve it | The owner |
+| B12 | One steward, and succession | Low | The recorded worry is control, and ACD has no upgrade clause. No successor is named | The owner, and someone willing |
 | B13 | The cost of understanding this submission | High | Continuing. It is the only real relief for B3 | Us |
 | B14 | The moderators' notice on AI-written posts | Highest | The decision is OSI's. At least three posts were rejected by moderation | OSI, the owner |
 | B15 | Subject matter: §1.2's list touches a reason the Board gave in 2023 | High | The text alone cannot settle it | OSI |
@@ -101,7 +101,7 @@ the 1.0 text.
 | **B9** | §7 データベース権の必要性 | 低 | 2 | **検証済み・保持**（§7.2 は行為の語で独立に働く）| — | — | — |
 | **B10** | **新規ライセンスを承認するだけの gap が残っているか** | **最高** | 10 | **OSI 判断依存**（2026-11-04: 既存の承認済み 141 本では達成できない効果を**少なくとも 1 件、原典の条文で立証** —— §8.4 + §8.2「作品を超える対象への特許許諾 ∧ 条件も終了も無い」を同時に持つものは 0 本。**gap が承認に足りるかは依然 OSI の判断**・EXTERNAL の B10 節。**同日後半の再検証: 条文比較で立つのは「明示の特許許諾 ∧ 無条件 = OSI の全テキストで 0 本」で、モデルの販売への届き方は §8.4 末文の読みに依存する** —— `ACD-1.0.gap-measurements.md` §1.133。**2026-11-06**: 行為の類型で当て直し、差が立つのはモデルの販売と出力の利用だと絞った（§1.135）。最強の反論は受益者の少なさ（#284・§1.136））| — | — | ○ |
 | **B11** | SPDX 未登録 / REUSE 命名（#108）| 低 | 承認で消える | **意図的に未実施**（所在を動かさない・#106 は承認後も残る）| — | — | ○ |
-| **B12** | steward が 1 人 / 承継 | 低 | 11 | **解消方法不明** | ○ | — | — |
+| **B12** | steward が 1 人 / 承継 | 低 | 9 | **リストが恐れたのは支配で、ACD に upgrade 条項は無い。承継先は未定**（2026-11-07 に 11 から移した）| ○ | — | — |
 | **B13** | reviewer の理解コスト | 高 | 1 / 3 | **継続対象**（B3 の結論により、長さへの唯一の実効的緩和）| — | — | — |
 | **B14** | **AI 起草の投稿は拒否すると両リストの moderator が宣言した（2026-09-09）** | **最高** | 新設 | **規制判断は OSI（組織）**（AI には解けない）。**2026-09-28 訂正（旧文「オーナーは Nick 氏個人とリスト外で対応中」は 09-10 時点の現在形のまま残っていた）**: 発信は 2026-09-17 に再開（状態の単一ソースは `FROZEN.md` の `POSTING-STATUS`）、**少なくとも 3 通が moderation で拒否**（#136 / #215 / #222）、リスト外の往復は `rounds/` に 09-07 / 09-13 / 09-15 / 09-17〜18 の記録がある（本文は撤回済みの stub・#217）。**それ以後の状態は我々からは分からない** ——「対応中」とも「終わった」とも書かない | ○ | — | ○ |
 | **B15** | **主題適格 —— §1.2 の列挙が、2023 年に理事会が不承認とした当の理由に触れている** | **高** | 10 | **OSI 判断依存・本文では解けない**（列挙の語を落としても範囲は変わらず、範囲を縮めると非コード資産を失う・#237・`gap-measurements.md` §1.134。2026-11-04: 1.4 が §1.3 と §9.1 で自分で足したパラメータの名指しは戻した —— 範囲・B10 は不変・`ACD-1.4-CLARITY-TRIAL.md` §7）| — | — | ○ |
@@ -444,7 +444,7 @@ gap 部 1,041 語を削れば届くが、**それは B10（新規性の根拠が
 
 ---
 
-## B12 —— class 11（解消方法不明）
+## B12 —— class 9（2026-11-07 に 11 から移した）
 
 **steward が 1 人**で、承継の仕組みが無い。**設計変更では解けない**（条文を直しても steward は
 増えない）。分類 9（外部証拠）に見えるが、**採用を増やすためにライセンスを歪めない**という
@@ -461,6 +461,45 @@ separate entity"*・SPDX の canonical text で逐語確認）。
 **分類は 11 のままにする。** 残っているのは **(a)** で、そこは条文では動かない ——
 **「半分が条文の問題だった」を「解消した」と読み替えない。** 承継が*可能*であることと、
 **承継先が実在すること**は別であり、後者はいま存在しない。
+
+**⚠ 2026-11-07 ——「解消方法不明」も、出典より不利に書いていた。分類を 9 へ移す。**
+残っていた (a) を一次資料へ当てると、リストが恐れてきたのは人数ではなく**支配**だった。
+
+- **信頼が要る場面は名指しされている。** Bradley Kuhn 氏（`license-review` 2018-11-22・SSPL の審査）:
+  *"Brendan's comments caused me to realize that OSI really does need to trust the license steward when an
+  upgrade clause is in play."* ACD に upgrade 条項は無い。§16.2 は版を名指し、§16.4 は各名前と識別子を 1 つの固定テキストに結ぶので、
+  受領者は steward を信頼しなくても固定の本文に依拠でき、新しい版は既に献呈された著作物へ届かない。
+- **個人への不信は実際に述べられ、解かれている。** Lawrence Rosen 氏の回想（`license-discuss` 2012-10-03）:
+  *"Nobody trusted that I personally (or my heirs) would forever have the good of the community at heart. I agreed
+  with them. That was my incentive to write section 16 of those licenses, which declared authorship but disclaimed
+  control over changes."* その §16 は、改変を別の名前でなら許し、名前を独占し、既存の著作物の再許諾を封じる形で、
+  ACD §16.4 と同じ構造である。AFL-3.0 / OSL-3.0 / NPOSL-3.0 は今も承認済みの一覧に在り、
+  本文は *"Copyright © 2005 Lawrence Rosen"* と述べ、本人は 2016 年に *"this license steward (me!)"* と書いている。
+- **steward を持たないことも普通である。** 141 本の本文を測ると、*license steward* / *agreement steward* の語を持つものは
+  8 本である（語の検索なので床）。Richard Fontana 氏（`license-discuss` 2019-05-31）:
+  *"MIT is not the license steward of the MIT license -- there is no license steward"*。
+- **上の版を外す選択も退けられていない。** Piana 氏（`license-review` 2025-05-29・Tiwaz）:
+  *"a legitimate choice and I won't fuss about it. There are different views on this kind of provisions."*
+
+**逆側を同じ重さで書く。**
+
+- **steward が誰かは見られる。** 同じ Kuhn 氏の同じ 1 通: *"I \*do\* think OSI should consider who the license steward is
+  and what their motivations are as part of the license approval process."* 氏の見解であって OSI の声明ではないが、
+  upgrade 条項に限っていない。
+- **版を動かせない設計には費用がある。** Rob Landley 氏（`license-review` 2025-07-19）:
+  *"Given that the law tends to change every few years even in individual jurisdictions, walling that option off for
+  anything nontrivial seems a bit weird."* Brendan Hickey 氏（同 2019-01）: *"Use a well known open license with an upgrade
+  clause if you're concerned about novel legal developments."* ACD の答えは新しい版と再適用で、すでに配られた著作物には届かない。
+- **Rosen 氏は弁護士で、回想は 1 人の記憶である。** 同じ解き方が個人の非弁護士にも効くとは言えない。
+  Piana 氏は「個人であること」を理由に下げないでほしいという提出者への返信で、審査の延期を勧めている（2026-06-19）。
+- **§16.4 は Steward に新しい版の権利を残す。** OSL の §16 との差は 2 点で、OSL は改変ライセンスに OSI の承認なしで
+  open source と言うなと足し、ACD は Steward の版の出し方を書く。役割の非対称は `submission-osd.md` §3b-i に在る。
+- **承継先は実在しない。** §16.5 は譲渡を許すが、譲渡の前に steward が欠ければ役割は空く。その場合に止まるのは
+  その名前での新しい版だけで、著作物の許諾は何も変わらない（§10.4）。別の名前での改変も止まらない。
+
+**分類を 9 に移す理由。** 解き方は分かっている —— 引き受ける人を見つけて §16.5 で指名することである。
+必要なのは第三者の同意で、それは分類 9 の形である。**steward が 1 人である事実は変わっていない。**
+**「解き方が分かった」を「解けた」と読まない。**
 
 **一般形**: **1 つの項目を確かめて、項目が指す集合について結論していた。**
 `BLIND-SPOTS.md` が「集合の 1 つを確かめて集合について結論した」と呼んでいる形の、register 側の実例である。

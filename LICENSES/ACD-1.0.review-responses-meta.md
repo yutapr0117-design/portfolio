@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses-meta.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-01
+last-updated: 2026-11-07
 canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威)
 ---
 
@@ -149,6 +149,8 @@ OSI のリストは法的な場だが、AI 学習に対する価値判断は 202
 > this text to anything and Section 16.5 permits translation without permission.
 
 **⚠ 2026-09-13 に第 1 の柱を書き直した。** 直前まで *"Section 16.4 makes the text of ACD-1.0 immutable: it may be copied and distributed verbatim only, and any change is a different version under a different identifier"* と書いていたが、**§16.4 は 2 点ともそう述べていない** ——第 3 文が*"A modified text may be distributed under a different name"* と**改変を明示的に許し**、識別子は **`ACD-1.0` しか名指ししていない**（後継識別子に届かないことは **E14** として**2026-09-10 に自分で記録済み**だった）。**欠陥を集めた file に書いておきながら、その欠陥に依拠する主張のほうを直していなかった**（`against.md` #138）。**主張自体は生き残る** ——Q12 の論点は「利用者が保守活動に依存しない」ことで、それを支えるのは §10.4 と凍結 pin であり、E14 はどちらにも触れない。**生き残らなかったのは言い方のほうである。**
+
+**⚠ 2026-11-07 追記 —— 答えに足せる記録。** リストが恐れてきたのは人数ではなく支配である。Kuhn 氏 2018-11-22 *"OSI really does need to trust the license steward when an upgrade clause is in play"*、Rosen 氏 2012-10-03 の回想 *"Nobody trusted that I personally (or my heirs) would forever have the good of the community at heart"* と、その解き方である AFL / OSL の §16。ACD に upgrade 条項は無く、§16.4 は同じ構造である。逆側（Kuhn 氏 *"who the license steward is"*・Landley 氏 *"walling that option off"*）も含めて register B12 に在る。
 
 **なぜこう答えるか**: 個人 steward は率直に弱点である。だが**「維持を必要としない設計になっている」**ことは実際に条文上そうなっており（§16.4 の不変性・§10.4 の非条件性）、これは言い訳ではなく設計の帰結である。**「将来版が必要になったときだけ困る」と限定して認める**のが正確。
 
