@@ -85,7 +85,7 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 1. **受領者に条件が 1 つも無い。** §10.1 がそう述べ、§8.2 が特許についても述べる。否決理由の最大の束（条件・利用制限・差別）は、当たる文が本文に無い。
 2. **OSI の委員が公に挙げた穴を埋める。** CC0 の特許の全面除外は *"was thought to potentially run afoul of at least OSD 7"* で、同様の除外は *"have been similarly rejected"*（McCoy Smith 氏・OSI ブログ 2025-12）。ACD は公有化と同じ効果を持ちながら、§8.1 で特許を許諾し、§8.3 で除外の読みを退ける。同じ記事は Apache-2.0 の防御的終了を *"a form of mutual patent peace"* と肯定しており、ACD はそれを持たない（§8.2・費用は `against.md` #174）。
 3. **既存が埋めない gap を、全数の測定で示せる。** モデルと出力に及ぶ特許許諾を条件も終了も無しに与える承認済みライセンスは、141 本のうち 0 本である（§8.4・§8.2）。
-4. **献呈が無効でも許諾が立つことを、本文が述べる。** Unlicense は 2020 年に、この議論がリストで述べられ、意見を述べた弁護士の一致を経て通った（#270）。ACD では §4.4 が同じことを本文で述べるので、受領者も裁判所も推論しなくてよい。弁護士の一致はまだ無い（B1）。
+4. **献呈が無効でも許諾が立つことを、本文が述べる。** Unlicense は 2020 年に、この議論がリストで述べられ、意見を述べた弁護士の一致を経て通った（#270）。ACD では §4.4 が同じことを本文で述べるので、受領者も裁判所も推論しなくてよい。献呈と許諾の併用は、Piana 氏が *"I actually advise to use both in the admittedly rare case I am asked."*、McCoy Smith 氏が *"not necessarily fatal"* と述べている（どちらも 2024-12-18）。McCoy 氏の条件は明確に書くことで、§4.4 がそれを述べる。弁護士の一致はまだ無い（B1）。
 5. **誰でも本文を変えずに使える。** §16.3 がそう述べ、§16.1 の通知の 1 欄のほかに書き換える箇所は無い。vanity の異議について理事会は *"does not give that argument much weight as long as the license is reusable"* と述べている（2007・`review-doctrine.md`）。
 
 **審査記録の中の追い風は 6 点ある。** Piana 氏の *"I actually advise to use both"*（献呈と許諾）、理事会の *"a license should be rejected only if it violates the OSD"*、委員長の *"That is not a blocker"*、理事会の準拠法条項についての言葉、vanity についての言葉、AI/ML についての言葉で、逐語と出典は `REVIEWERS.md` の "What the record already says in its favour" に在る。過去の発言は誰も拘束しない。
