@@ -166,7 +166,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1679 words**, measured 2026-11-06)
+### B.0 The message as it should actually be sent (**1692 words**, measured 2026-11-07)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -282,6 +282,8 @@ who knows the test, as not knowing the test.** **+133 words**（段落そのも�
 
 **And 1,679 later the same day**, when the Unlicense paragraph stopped giving the argument alone as what answered the veto. The Committee's rationale says *"The lawyers who opined on the issue, both US and non-US, agreed"* (`against.md` #2, #270), and a reviewer who knows that record would have read the omission as selective. **+16 words**.
 
+**And 1,692 on 2026-11-07**, when the subject-matter paragraph stopped naming only the decision that went against this kind of text. The Committee's rationale on CERN-OHL (2021) states the other side of the same line. **+13 words**.
+
 **Why that last addition earns its words.** *"Why another public-domain-equivalent?"* is the opening
 move in this category — Rob Landley put it as fungibility (#84), David Woolley put it to the
 UPD 1.5.2 author, Carlo Piana has put it as proliferation — and until 2026-09-09 the only answer in
@@ -387,8 +389,9 @@ message, and the repository's history shows that.
 Licenses were declined as open culture licences rather than for any Open Source Definition failure,
 and the rationale quoted their own list of covered works. ACD-1.0's §1.2 lists "audiovisual
 material" beside source and object code. I have not narrowed it, because datasets and model weights
-are the non-code material the gap is about; the overlap, and the committee's own line between a
-licence tied to software and one unrelated to it, are set out in the reference (§3d).
+are the non-code material the gap is about. The Committee's 2021 rationale on CERN-OHL found licences
+whose primary use is not software *"appropriate for the OSI's review"* because *"they can be used for
+software"*; the overlap and that line are set out in the reference (§3d).
 
 **Nearest approved licences.** It is closest in effect to the Unlicense, MIT-0 and 0BSD (and to
 CC0, which is not approved), and in patent terms to UPL-1.0, BlueOak-1.0.0 and BSD-2-Clause-Patent,
