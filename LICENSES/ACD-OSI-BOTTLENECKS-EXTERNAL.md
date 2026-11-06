@@ -758,7 +758,7 @@ surround it"* で、適用先はソフトウェアのリポジトリである。
    落とすと定義から外れると述べたが、列挙は例示（§15.5）で範囲は変わらない。`CLARITY-TRIAL.md` の A1 が正しい。)*
    範囲が縮むのはソフトウェアに限る案（A2）だけで、§8.4 + §8.2 の組み合わせはソフトウェアの Work について残るが、
    データセット・モデルを Work にできなくなる。**A1 は疑義を見えにくくするだけなので採らない**（`gap-measurements.md` §1.134）。
-   **本文で B15 を解く手は無く、判断は OSI に残る。**
+   **本文で B15 を解く手は無く、判断は OSI に残る。** **⚠ 2026-11-07: ただし基準は委員会が述べていた。** CERN-OHL の理由書（2021）*"they are written such that they can be used for software, so they are appropriate for the OSI's review"*。ソフトウェアが主な用途でなくてよいと明記している。ACD はこの基準に本文で答え、Mulan の不承認とも矛盾しない。逆側（§1.2 は CERN より広い・2023 より前の文・Fontana 氏）は `board-decisions.md` §2e に在る。
 
 **この節が establish しないこと。** *"cross over into data ... when tied to software"* が
 ACD を含むというのは**我々の読みであって委員会の判断ではない**。

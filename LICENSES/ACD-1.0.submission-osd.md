@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.submission-osd.md
 audience: OSI license-review participants / licence reviewers / 監査人 / 次のセッションの実装者
-last-updated: 2026-11-06
+last-updated: 2026-11-07
 canonical-ref: LICENSES/ACD-1.0.submission-reference.md (切り出し元・§1〜§2 / §4〜§5) / LICENSES/ACD-1.0.submission.md (送る文面は §B.0。**これを貼らない**)
 ---
 
@@ -216,3 +216,12 @@ it exists to cover. **We would rather carry the objection than narrow the instru
 **The cost is real and is not cured by saying so:** a reviewer may conclude, as the Board did in
 2023, that the subject matter places the instrument outside the OSI's purview, and nothing in this
 section prevents that conclusion.
+
+**The Committee has stated a test (added 2026-11-07).** Its rationale for CERN-OHL in 2021 reads:
+*"Although software is not the primary use case for the license, and the licenses include some unusual
+terminology that make the licenses more difficult to interpret, they are written such that they can be
+used for software, so they are appropriate for the OSI's review."* §1.2 opens with source code and object
+code, and this text is applied to a software repository, so ACD meets that test on its face. The Mulan
+definition had no software in it, so the two records do not conflict. Three limits: §1.2 is wider than
+CERN's *"designs that includes both hardware and software"*, the statement predates the 2023 refusal, and
+being appropriate for review is not approval.

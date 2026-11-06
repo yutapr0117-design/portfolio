@@ -1,0 +1,82 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2021-January.txt
+Retrieved: 2026-11-07
+Date: Sat, 9 Jan 2021 17:31:52 -0500
+From: Pamela Chestek
+Subject: [License-review] =?utf-8?q?For_Approval_=E2=80=93_CERN_Open_Hard?= =?utf-8?q?ware_Licence_Version_2=E2=80=93_Strongly_Reciprocal_=28SPDX=3A_?= =?utf-8?q?CERN-OHL-S-2=2E0=29=3B_CERN_Open_Hardware_Licence_Version_2?= =?utf-8?q?=E2=80=93_Weakly_Reciprocal_=28SPDX=3A_CERN-OHL-W-2=2E0=29=3B_C?= =?utf-8?q?ERN_Open_Hardware_Licence_Version_2=E2=80=93_Permissive_=28SPDX?= =?utf-8?q?=3A_CERN-OHL-P-2=2E0=29?=
+Position: the License Committee recommendation and Rationale Document for the CERN Open Hardware Licences. It says they are appropriate for the OSI's review because they can be used for software. Not addressed to us. This file ends where the message's Exhibit A begins: the licence texts that follow are omitted, and the source link has them.
+
+----- begin verbatim -----
+From pamela.chestek at opensource.org  Sat Jan  9 22:31:52 2021
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Sat, 9 Jan 2021 17:31:52 -0500
+Subject: [License-review] 
+ =?utf-8?q?For_Approval_=E2=80=93_CERN_Open_Hard?=
+ =?utf-8?q?ware_Licence_Version_2=E2=80=93_Strongly_Reciprocal_=28SPDX=3A_?=
+ =?utf-8?q?CERN-OHL-S-2=2E0=29=3B_CERN_Open_Hardware_Licence_Version_2?=
+ =?utf-8?q?=E2=80=93_Weakly_Reciprocal_=28SPDX=3A_CERN-OHL-W-2=2E0=29=3B_C?=
+ =?utf-8?q?ERN_Open_Hardware_Licence_Version_2=E2=80=93_Permissive_=28SPDX?=
+ =?utf-8?q?=3A_CERN-OHL-P-2=2E0=29?=
+In-Reply-To: <91FAA873-B2C9-4F9E-B8D7-E0C2FF332782@gmail.com>
+References: <dcab82dd-3389-14f5-588b-17201f60bd07@cern.ch>
+ <91FAA873-B2C9-4F9E-B8D7-E0C2FF332782@gmail.com>
+Message-ID: <9a17e8ba-fac8-2332-e6a7-35ce17a1bcfe@opensource.org>
+
+All,
+
+Below is the recommendation of the License Committee recommending to the 
+Board that it approve of the CERN OHL family of licenses.
+
+Pamela Chestek
+Chair, License Committee
+Open Source Initiative
+
+License: CERN OHL Family
+CERN Open Hardware Licence Version 2? Strongly Reciprocal (SPDX: 
+CERN-OHL-S-2.0) (Exhibit A)
+CERN Open Hardware Licence Version 2? Weakly Reciprocal (SPDX: 
+CERN-OHL-W-2.0) (Exhibit B)
+CERN Open Hardware Licence Version 2? Permissive (SPDX: CERN-OHL-P-2.0) 
+(Exhibit C)
+
+Submitted: June 29, 2020, 
+https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2020-June/004892.html
+Decision date: due no later than the first Board meeting after August 
+29, 2020
+
+License Review Committee Recommendation:
+
+/Resolved that it is the opinion of the OSI that the CERN Open Hardware 
+License Version 2 - Strongly Reciprocal, CERN Open Hardware License 
+Version 2 - Weakly Reciprocal,and CERN Open Hardware License Version 2 - 
+Permissive, conform to the OSD and assure software freedom and the 
+licenses therefore be approved as an Open Source Initiative Certified 
+license in the Special Purpose category of licenses./
+
+_Rationale Document_
+
+Notes: There was discussion about whether the licenses, primarily 
+intended for hardware, were appropriate for review by the OSI. The 
+intention of the license drafters was to create a single license that 
+could be used for designs that includes both hardware and software. 
+Although software is not the primary use case for the license, and the 
+licenses include some unusual terminology that make the licenses more 
+difficult to interpret, they are written such that they can be used for 
+software, so they are appropriate for the OSI?s review.
+
+One reviewer (the Chair of the License Committee) interpreted the Strong 
+Reciprocal version of the license as requiring the disclosure of 
+?Covered Source? that might be an independent component. The license 
+drafters? explanation for why the license did not impose that duty, 
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2020-November/004958.html, 
+satisfied the reviewer that her interpretation was incorrect.
+
+Two members of the license-review list stated affirmatively that the 
+licenses comply with the OSD and should be approved: 
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2020-July/004914.html, 
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2020-August/004916.html. 
+There were no responses to a specific request by the Chair of the 
+License Committee for objections to approval. 
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2020-December/004992.html 
+
+
+The License Committee therefore recommends that the licenses be approved.
