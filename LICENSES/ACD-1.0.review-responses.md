@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-03
+last-updated: 2026-11-06
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文) / LICENSES/ACD-1.0.submission.md (提出パケット) / LICENSES/READY-TO-SUBMIT.md (提出判断) / LICENSES/FROZEN.md (凍結宣言) / docs/architecture/acd-license-rationale.md (設計根拠)
 ---
 
@@ -338,7 +338,7 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 
 想定問答・逐条・族比較・法域はいずれも**審査を受ける側の視点**で書かれている。だが
 「疑問が全てリポジトリを見たら潰せる」には**使う側の実務**が要る ——
-**`LICENSES/ACD-1.0.faq.md`**（使う側 32 問 / プロセス 5 問 / **リポジトリ逆引き表**）。
+**`LICENSES/ACD-1.0.faq.md`**（使う側 33 問 / プロセス 5 問 / **リポジトリ逆引き表**）。
 
 とくに **SPDX 未登録ゆえの表記（`LicenseRef-ACD-1.0`）**と**依存スキャナが「未知」と言う場合の
 扱い**は、他のどの文書にも答えが無かった実務問題である。

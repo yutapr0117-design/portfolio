@@ -156,8 +156,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       applied this Dedication. (+7 words.)
     * Section 6.4 no longer points to Section 9, which speaks of parts of the
       Work and not of models or outputs. (-2 words.)
-    * Section 15.1 now says on whom the least obligation falls, "upon You".
-      (+2 words.)
+    * Section 15.1 now says on whom the least obligation falls, "upon You"
+      (errata E63). (+2 words.)
     * ACD-1.3: 5443 words, 80 clauses. This draft: 5410 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
