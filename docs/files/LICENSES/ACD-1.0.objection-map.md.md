@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.objection-map.md
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-09-09
+last-updated: 2026-11-06
 canonical-ref: LICENSES/ACD-1.0.review-precedents.md / LICENSES/ACD-1.0.against.md / LICENSES/REVIEWERS.md
 ---
 
@@ -11,7 +11,7 @@ canonical-ref: LICENSES/ACD-1.0.review-precedents.md / LICENSES/ACD-1.0.against.
 
 **直近 24 か月に `license-review` / `license-discuss` で出た反論を全部並べ、ACD-1.0 に当たるかを
 1 表にした文書。** 当たるものを先に置き、当たらないものには**条文で確かめた理由**を付ける。
-出典は全て公開アーカイブで、発言者と日付を書く。
+出典は全て公開アーカイブで、発言者と日付を書く。**読み手が審査者なので本文は英語で書く**（2026-11-06 に日本語から書き直した）。24 か月より古くても判断を左右する発言は別の表に置く。
 
 ## Why
 

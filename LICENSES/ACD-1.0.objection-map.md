@@ -1,99 +1,96 @@
 ---
 file: LICENSES/ACD-1.0.objection-map.md
-audience: OSI license-review / license-discuss participants, licence reviewers, 監査人
-last-updated: 2026-09-22
-canonical-ref: LICENSES/ACD-1.0.review-precedents.md (各反論の原文と読みはこちら) / LICENSES/ACD-1.0.against.md (不利な事実の本体) / LICENSES/REVIEWERS.md (入口)
+audience: OSI license-review / license-discuss participants, licence reviewers, auditors
+last-updated: 2026-11-06
+canonical-ref: LICENSES/ACD-1.0.review-precedents.md (the original text and our reading of each objection) / LICENSES/ACD-1.0.against.md (the adverse record) / LICENSES/REVIEWERS.md (the entry page)
 ---
 
-# 既知の反論が ACD-1.0 に当たるか —— 1 表
+# Which known objections land on ACD
 
-**この文書は 1 節しか持たない。** `ACD-1.0.review-precedents.md` から 2026-09-09 に切り出した
-（同 file が advisory を越えたため）。**節番号 §1.62 は変えていない**ので既存の参照は解決する。
+## 1.62 The objections we found, and whether each one lands
 
-**分けた理由は規模だけではない。** ここに在るのは**他の節の合成**であって precedent の記録では
-なく、**審査者が最初に読むべきもの**である。900 行の末尾に置いておくのは、
-`against.md` #6（長さ）に対して我々ができる数少ない実務的な対処を捨てることになる。
+**This page is not here to show that we are right.** A reviewer's first question is which known
+objections apply to this submission and which do not, so the ones that land come first.
 
-## 1.62 直近 24 か月に**見つけた**反論を並べ、ACD-1.0 に当たるかを 1 表にする
+**Sources.** Everything is from the public `license-review` / `license-discuss` archives, with
+speaker and date. **It is a floor, not a census**: we listed every subject line, read the threads
+that matched, and kept objections that bear on a public-domain-equivalent or AI-facing instrument.
+The main table covers the last 24 months. Objections can have been missed; the OpenMDW thread alone
+ran to 86 messages in 2026-08, and we did not break all of them down. **"Does not land" is our
+reading, not a reviewer's finding.**
 
-**この節は「我々が正しい」を示すためのものではない。** 審査者が最初に知りたいのは
-**どの既知の反論がこの提出に当たり、どれが当たらないか**であり、それを 1 箇所で読めるように
-する。`REVIEWERS.md` の規約に従い **当たるものを先に置く**。
+**Numbers.** Clause numbers are those of ACD-1.0, the text posted to `license-discuss`, unless a
+version is named. `#N` is an entry in [`ACD-1.0.against.md`](ACD-1.0.against.md); `§1.x` is a section
+of the dossier, in Japanese unless it says otherwise.
 
-**出典は全て `license-review` / `license-discuss` の公開アーカイブで、日付と発言者を書く。**
-**⚠ 範囲は「全部」ではない（2026-09-10 に言い直した）。** 集め方は**件名の全数調査 + 該当した
-スレッドの通読**で、対象は**公有化型または AI に関わる instrument に当たる反論**である。
-**#87 が我々自身に対して出した教訓 ——「名前一致は下限であって全数ではない」—— がここにも当たる。**
-**見落とした反論が在りうる。** 実際、2026-08 の OpenMDW スレッドだけで 86 通あり、
-**その全部を反論の単位まで分解したわけではない。**
-**「当たらない」は我々の読みであって、審査者の判断ではない。**
+### Objections that land
 
-### 当たるもの
-
-| 反論（原文の要点） | 出所 | ACD-1.0 のどこに当たるか | 記録 |
+| Objection | Source | Where it lands on ACD | Record |
 |---|---|---|---|
-| *"you'd likely need to have the help of a lawyer. **Waivers/disclaimers of IP rights are quite complex**"* | McCoy Smith・`license-discuss` 2026-08-07 | **法的レビューが無い。** 答えは「そのとおりで、我々にはそれが無い」以外に無い | #5 / #79 / §1.52 |
-| *"**why you're doing another one?**"*（PD 等価は代替可能な唯一の類型で 0BSD が在る）| Rob Landley・同 2026-08-07 | **類型に 1 件足す理由。** 部分的な答えは §1.59（人格権）と不在の 3 主題 | #84 / §1.59 |
-| *"**It is excessively wordy** and proscriptive… no one other than you will ever use this license"* | Pamela Chestek・同 2026-06-23 | **長さと採用。** 語数は GPLv3 本体より 43 語短い（§4c）が、**採用 1 件は動かない** | #6 / §1.60 |
-| *"**Which is it, a dedication to the public domain or a license? You can't have it both ways.**"* | Pamela Chestek・同 2025-10-16 | **§3 + §4 + §4.4 の構造そのもの。** §11.3 は予期して書かれているが、答えは 4 条を要する。**批判の実体は「個別に留保する」ことなので、承認済みライセンスが同じ位置に置いている条項と比べられる** —— **BSD-3-Clause の第 3 条は条件、Apache-2.0 §6 は reach の限界で、どちらも承認済み（`comparison.md` §1.7）** | #110 / #118 / §1.61 / §1.7 |
-| **人格権条項の追加を "mission creep" と名指し** | Pamela Chestek・同 2026-06-23 | **§12。** §1.59 が「incumbent に無い穴」と評価した当の条項 | #6 / §1.59 / §1.60 |
-| *"**these are not licensable**, so anything the license says one way or the other, nothing changes"*（人格権） | Carlo Piana・`license-review` 2023-11 | **§12.1（放棄）に当たる。** §12.2（不行使の合意）は同じ反論では倒れない | #104 |
-| *"**it is an issue as to whether a license of this scope would gain significant uptake at least from patent holders**"* | McCoy Smith・`license-review` 2025-05-14 | **§8.1 + §8.4 + 報復ゼロ。** OSD 違反ではないが **SPDX の実使用条件**に効く | #107 / §1.58 |
-| *"three different things with one document"* | Pamela Chestek・`license-discuss` 2026-03-29 | **16 節の構成。** ただし ACD-1.0 の各節は同一 Work に作用する法的機構である | #105 |
-| **「一つの instrument に一つの権利」** | Rob Landley | **§3〜§12 が複数の権利種を扱うこと。** #105 と逆を向いており、並べ替えでは両立しない | #102 |
-| *"there is **no requirement for a court to consider statements outside the four corners of** the license itself… **you can't count on FAQs** to prevent an unintended interpretation"* | Pamela Chestek・`license-review` 2026-09-01 | **このドシエ全体の形。** 本文外の説明は意図の証拠にしかならない。**答えは書き足すことではない** ——§4.4 は、この論点を FAQ でなく条文に置いた 1 例 | #124 |
-| *"**it's not worth including Output at all** in the license"*（言及すること自体が否定的含意と曖昧さを生む）| Pamela Chestek・同 2025-12-15 | **§6.4。意図して採っている設計**なので、指摘される前に `submission.md` §B.0 で名指しした。**同じ発言に *"I wouldn't reject the license for that reason"* も在る** | #133 |
-| **covered work が何かをどう知るのか**（1 か月の審査で繰り返された中心的な問い。**逐語ではなく要約である** ——原文はスレッド全体に散っており、この 1 文は `against.md` #134 の characterisation）| Richard Fontana・同 2026-08-16 | **§1.2（適用という行為で Work を定める）+ §2.7 + Dedicator の識別義務。** 部分的にしか答えていない | #134 |
-| *"probably going to be parsed in court as a **dedication to the public domain rather than a contract**. There is thus **some question of how binding the terms could be on the grantor**"* | Bruce Perens・`license-discuss` 2024-04-06 | **§3 の上に Dedicator の約束を 3 つ置いていること。** 「当たるもの」の 4 行目（献呈か許諾か）と同じ根 | #135 |
-| *"The OSI **does not currently have a process for de-listing** licenses"* | Richard Fontana・`license-review` 2026-09-11（+ Piana 氏 2026-09-14）| **#84 への我々の答えの費用側。** 「この類型に 1 件足す費用は低い」は「**低いが取り消せない**」へ書き換えた | #146 |
-| *"putting the **burden on the potentially wronged party**… assuming the licensee **has knowledge**… **that's not the reality**"* | Pamela Chestek・同 2026-09-11 | **§6.3** ——ACD で唯一、第三者の行為に対して働くと述べる条項。**1.1 草案では閉じている**（1.0 は凍結） | #147 |
-| **OSD 5 を「役割の非対称」まで広げて読む**（我々は「人・集団への差別」としてしか当てていなかった）| McCoy Smith・同 2026-09-16 | **§16.4 の Steward 例外。** 広い読みで当て直すと、**差は在るが この基準が支配する対象ではない、と認めるしかない。論破していない** | #179 / §3b-i |
+| *"you'd likely need to have the help of a lawyer. **Waivers/disclaimers of IP rights are quite complex**"* | McCoy Smith, `license-discuss` 2026-08-07 | **No legal review.** The only answer is that this is true and we do not have one | #5 / #79 / §1.52 |
+| *"**why you're doing another one?**"* (public-domain equivalents are the one fungible class, and 0BSD exists) | Rob Landley, same list 2026-08-07 | **The reason to add one more.** Our partial answers are a patent grant that goes beyond the work with no condition and no termination (§1.133), and moral rights (§1.59) | #84 / §1.59 |
+| *"A patent grant with zero attribution seems equivalent to abandoning the patent."* / *"It's not the goal of the OSI to have licenses for every possible combination of conditions"* | Rob Landley; Josh Berkus, same list 2026-10-14, on 0BSD-P | **§8 + §10.2 is that combination**, though neither message addresses ACD. The chain-of-custody cost is real and we admit it. Berkus's question, what specific use needs this, we cannot answer with one adopter | #276 |
+| *"**It is excessively wordy** and proscriptive… no one other than you will ever use this license"* | Pamela Chestek, same list 2026-06-23 | **Length and adoption.** The short route through this directory helps with the first. **One adopter does not move** | #6 / §1.60 |
+| *"**Which is it, a dedication to the public domain or a license? You can't have it both ways.**"* | Pamela Chestek, same list 2025-10-16 | **The §3 + §4 + §4.4 structure itself.** §11.3 anticipates it, but the answer takes four clauses. The substance of her criticism is reserving rights one by one, so the comparison is with what approved licences place in the same position: BSD-3-Clause's third clause is a condition and Apache-2.0 §6 a limit of reach (§1.7) | #110 / #118 / §1.61 / §1.7 |
+| **Moral-rights clause called "mission creep"** | Pamela Chestek, same list 2026-06-23 | **§12**, the clause §1.59 counts as a gap in the incumbents | #6 / §1.59 / §1.60 |
+| *"**these are not licensable**, so anything the license says one way or the other, nothing changes"* (moral rights) | Carlo Piana, `license-review` 2023-11 | **Lands on the §12.1 waiver.** The §12.2 covenant not to exercise does not fall to the same objection | #104 |
+| *"**it is an issue as to whether a license of this scope would gain significant uptake at least from patent holders**"* | McCoy Smith, `license-review` 2025-05-14 | **§8.1 + §8.4 + no retaliation.** Not an OSD problem, but it bears on SPDX's real-use condition | #107 / §1.58 |
+| *"three different things with one document"* | Pamela Chestek, `license-discuss` 2026-03-29 | **The 16-section structure**, although each section acts on the same Work | #105 |
+| **One instrument should carry one right** (a summary, not a quotation) | Rob Landley | **§3 to §12 cover several kinds of right.** This pulls against #105, and reordering cannot satisfy both | #102 |
+| *"there is **no requirement for a court to consider statements outside the four corners of** the license itself… **you can't count on FAQs** to prevent an unintended interpretation"* | Pamela Chestek, `license-review` 2026-09-01 | **The shape of this whole dossier.** Text outside the licence is at most evidence of intent. The answer is not to write more; §4.4 is one case of putting the point in the clause | #124 |
+| *"**it's not worth including Output at all** in the license"* (mentioning it creates a negative implication and ambiguity) | Pamela Chestek, same list 2025-12-15 | **§6.4, a deliberate design.** The same message says *"I wouldn't reject the license for that reason"* | #133 |
+| **How do you know what the covered work is?** (the central question of a month's review; this is a summary, not a quotation, and the wording is #134's) | Richard Fontana, same list 2026-08-16 | **§1.2 (the act of applying fixes the Work) + §2.7 + the Dedicator's undertaking to identify.** Only partly answered | #134 |
+| *"probably going to be parsed in court as a **dedication to the public domain rather than a contract**. There is thus **some question of how binding the terms could be on the grantor**"* | Bruce Perens, `license-discuss` 2024-04-06 | **The three promises the Dedicator makes on top of §3.** Same root as "which is it" above | #135 |
+| *"The OSI **does not currently have a process for de-listing** licenses"* | Richard Fontana, `license-review` 2026-09-11 (and Carlo Piana 2026-09-14) | **The cost side of our answer to #84.** "Adding one to this class costs little" became "costs little and cannot be undone" | #146 |
+| *"putting the **burden on the potentially wronged party**… assuming the licensee **has knowledge**… **that's not the reality**"* | Pamela Chestek, same list 2026-09-11 | **§6.3**, the one clause said to operate on third parties' acts. **Closed from ACD-1.1**; 1.0 stays frozen | #147 |
+| **OSD 5 read as far as asymmetry of roles** (we had applied it only to discrimination against persons and groups) | McCoy Smith, same list 2026-09-16 | **The Steward exception in §16.4.** On the wide reading there is a difference, and all we can say is that this standard does not govern it. **We have not refuted it** | #179 / §3b-i |
+| *"**structurally put the licensor in a more favored position** than any licensee"* (a published criterion) / *"**That is the discrimination**"* | Pamela Chestek, with McCoy Smith, same list 2026-09-20 to 22, on ModelGo | Said of a termination trigger limited to suits against the Licensor. ACD terminates nothing, but **§13 and §14 protect the Dedicator**, and the criterion has not been applied to them | #265 / §1.123 |
+| *"**flawed in its basic conception**"*: *"a single license that applies to everything"* | Richard Fontana, same list 2026-09-11, on OpenMDW | **§1.2 also puts many kinds of material under one text.** The harm he names needs a clause that some of the material cannot justify; ACD's material-specific clauses only remove duties or add permissions (§1.125). That is our reading, and the steward's defence he was answering is not a committee finding | #266 / §1.125 |
+| Traditional licences are *"appropriate even in situations where copyrightability is relatively dubious"* | Richard Fontana, `license-discuss` 2026-04-06 | **§9's reason for being.** We agree that §9 adds no effect, and it is not a ground of uniqueness (§1.134) | #211 / §1.134 |
 
-### 当たらないもの（理由は条文で確かめた）
+### Older statements that decide this submission
 
-| 反論 | 出所 | なぜ当たらないか |
+Outside the 24 months, but each one goes to whether ACD can be approved.
+
+| Statement | Source | Why it matters here | Record |
+|---|---|---|---|
+| *"**The lawyers who opined on the issue, both US and non-US, agreed** that the document would most likely be interpreted as a license and that the license met the OSD."* | Committee rationale for the Unlicense, 2020 | **Our one dedication-plus-licence precedent crossed the line with what we lack** | #270 |
+| *"as open culture licenses, are **not appropriate for OSI approval**"*, naming *"an audiovisual work"* among the subject matter | License Committee recommendation on the Mulan licences; Board decision 2023-09-15 | **§1.2 lists audiovisual material.** The list cannot be narrowed without losing non-code assets, so the text alone does not settle this | #237 / B15 |
+| *"**widespread** need for many different FOSS communities"* and *"wholly unserved by all existing FOSS licenses"* | Bradley M. Kuhn, 2022-12-23 | **A two-part test for a vanity licence.** The census answers the second part. One adopter does not answer the first | #255 |
+| *"it is an active disservice to the programmers of the world"*, *"please get a lawyer to write a license for you"* | Bruce Perens, 2019-05-28 | **§16.3 invites anyone to adopt ACD**, and the harm he names falls on adopters. Disclosure does not remove that | #262 |
+| *"There are reasons beyond OSD conformance why we might not want to approve the license."* | Russ Nelson, OSI President, 2009-02-17 | **Conformance is a floor.** Meeting every listed criterion does not oblige approval | #263 |
+| *"I almost feel like you wrote three different licenses here and combined them into one."* | Richard Fontana, 2014-04-13 | **§3, §4 and §5 say the same thing three ways by design.** Three such pairs did disagree (E42 to E44); the 1.4 draft closes them | #280 |
+
+### Objections that do not land (checked against the text)
+
+| Objection | Source | Why it does not land |
 |---|---|---|
-| *"OSI doesn't approve **partial licenses or add-ons to existing licenses**"* | McCoy Smith・`license-discuss` 2026-08-03 | ACD-1.0 は既存ライセンスへの追加条項ではなく**独立した完結した文書**である（`ACD-1.0.txt` 単体で 16 節 82 項）|
-| 商用・非商用で扱いを変える条項 | Henrik Ingo・同 2026-08-05 ほか。**OSD 6 の由来は Bruce Perens 氏が同 2026-08-06 に自ら説明している**（Berkeley SPICE の南アフリカ警察条項）| **§4.3** —— 許諾は「あなたが誰か」「何に使うか」に条件づけられない |
-| **商標まで放棄している** | subham mahesh・同 2026-08-07 | **§1.5** が商標を Covered Rights から除き、**§11.1** が商標の権利を与えないと明言する |
-| **特許訴訟による自動終了**（OSD 5 / 過度に広い引き金）| Chestek・2025-10-16 / McCoy・2026-09-07 の Q3・Q4 | **§8.2** —— *"contains no patent retaliation provision, and its absence is deliberate"* |
+| *"OSI doesn't approve **partial licenses or add-ons to existing licenses**"* | McCoy Smith, `license-discuss` 2026-08-03 | ACD is a complete, free-standing document (`ACD-1.0.txt` alone: 16 sections, 82 clauses) |
+| Clauses that treat commercial and non-commercial use differently | Henrik Ingo, same list 2026-08-05, and others. Bruce Perens explained OSD 6's origin there on 2026-08-06 (the Berkeley SPICE clause on South African police) | **§4.3**: the licence is not conditioned on who you are or what you do with the Work |
+| **Giving up trademarks too** | subham mahesh, same list 2026-08-07 | **§1.5** excludes trademarks from Covered Rights and **§11.1** grants no trademark right |
+| **Automatic termination on a patent suit** (OSD 5, an over-broad trigger) | Pamela Chestek 2025-10-16; McCoy Smith 2026-09-07 (Q3, Q4) | **§8.2**: *"contains no patent retaliation provision, and its absence is deliberate"*. This has a cost; see the note below |
+| **A clause forbidding unlawful use** (a reservation) | Pamela Chestek 2025-10-16 | Not in the text (`unlawful` / `illegal`: 0 occurrences, measured 2026-09-09) |
+| **"Irrevocable" beside automatic termination** | Pamela Chestek, `license-review` 2026-01 (PUWL) | **§10.4** terminates nothing, and §4.1 is irrevocable and perpetual |
+| **Wording borrowed from existing licences** | Lukas Atkinson and McCoy Smith, on other submissions | No shared 8-word run with MIT, MIT-0, 0BSD, Apache-2.0, CC0 or the Unlicense (§4c gives the method and a control) |
+| **A model has no source code to open, so Freedoms 1 and 3 fail** | John Colagioia, `license-review` 2026-08-29 | ACD is not a model licence. Its subject is the Work, and §9.2 makes no representation about machine-generated material |
+| **Not open without the training data** (*"or any other license with similar flaws"*) | Preston Maness, same list 2026-09-08 | As above. ACD never claims that a given model is open |
+| **Duties to label or disclose outputs** (where AI-era submissions stopped on OSD 3, 7 and 10) | The AI-MIT, RAIL and FMLL threads | **§10.1**: no condition of any kind |
 
-**⚠ この行は片側しか載せていなかった（2026-09-20 追記）。** 上に並ぶのは
-**「報復条項は過度に広く OSD に触れうる」という審査者側の懸念**だけである。
-**報復条項がエコシステムに存在する理由**は書いていなかった ——
-**Apache-2.0 §3 も GPLv3 §10 も、受領者が提訴したらライセンスを失わせることで、
-パテント・トロールや競合からの攻撃を抑止する防御機構として置いている。**
-**§8.2 がそれを持たないということは、その抑止も持たないということである。**
+**The cost of no retaliation.** The row above records only the reviewers' concern. Retaliation clauses
+exist for a reason: Apache-2.0 §3 and GPLv3 §10 end a recipient's licence if it sues, which deters
+patent attacks. §8.2 gives up that deterrent, so a competitor can absorb the technology and still sue
+the Dedicator (#174). §10.1 allows no condition, so such a clause cannot be placed here. **We leave it
+out because we cannot have it, not because leaving it out is better** (register B7).
 
-**2026-09-20 の敵対的レビューがこの側から述べた** ——
-*「競合他社は本ライセンスを悪用してデディケーターの技術をノーリスクで吸収し、
-同時にデディケーターに対して特許訴訟を仕掛けることが可能となる」*（`against.md` #174）。
+### Limits of this page
 
-**どちらを取るかは我々には決められない。** §10.1 が条件を 1 つも許さない以上、
-**報復条項は構造上置けない**（B7 が同じ結論を別経路で出している）。
-**言えるのは「置けないから置いていない」であって「置かない方が良いから置いていない」ではない。**
-| **違法な利用を許さない条項**（留保に当たる）| Chestek・2025-10-16 | 本文に存在しない（`unlawful` / `illegal` の出現 **0 件**・実測 2026-09-09）|
-| **「撤回不能」と「自動終了」の同居** | Chestek・`license-review` 2026-01（PUWL）| **§10.4** は何も終了させない。§4.1 は irrevocable かつ perpetual |
-| **既存ライセンスからの文言の借用** | Atkinson 氏 / McCoy 氏が別の提出で名指し | **8 語連鎖の共有 0**（MIT / MIT-0 / 0BSD / Apache-2.0 / CC0 / Unlicense の 6 本に対し・§4c に測定法と control）|
-| **モデルには開くべき source code が無く Freedom 1 と 3 が成立しない** | John Colagioia・`license-review` 2026-08-29 | ACD-1.0 は**モデルのライセンスではない**。対象は Work であり、§9.2 は機械生成物について**表明しない**と明言する |
-| **訓練データが無ければ open ではない**（*"or any other license with similar flaws"*）| Preston Maness・同 2026-09-08 | 同上。ACD-1.0 は「あるモデルが open である」と一度も主張しない |
-| **出力への表示義務・透明性義務**（AI 時代の提出が OSD 3 / 7 / 10 で止まった論点）| AI-MIT / RAIL / FMLL の各スレッド | **§10.1** —— 条件を一切課さない。§B.0 が「反対方向の賭け」と述べているのはこの点 |
-
-### この表の限界
-
-**⚠ この表は 2026-09-09 から 2026-09-22 まで更新が止まり、その間に記録された
-「当たる反論」7 件が入っていなかった**（#124 / #133 / #134 / #135 / #146 / #147 / #179・
-`against.md` #196）。**B13（長さ）の緩和はこの「短い扉」に懸かっているので、
-扉が古くなることは長さの問題を悪化させる。** **誰も見ていない** ——
-`against.md` に entry を足しても、この表に足す機構は無い。
-
-1. **「当たらない」は我々の読みである。** 審査者が同じ語をどの条項へ向けるかは我々が決められない
-   —— とくに **AI** の語は、上の 3 つの型を反射的に呼びうる（`rounds/` の Maness 氏 mirror doc）。
-2. **反論は組み合わさる。** 「長い」＋「採用 1 件」＋「弁護士が読んでいない」は、
-   個別には答えられても**束ねられると 1 つの推論になる** —— Chestek 氏が実際にそう束ねている。
-   **そして束ね方は 1 通りではない**: Lukas Atkinson 氏は 2021-02-14 に
-   *"submitted licenses should have either received **legal review** or at least
-   **non-negligible use**. This license has **neither**"* として、
-   **弁護士と採用を 1 文で結んで**承認しないよう Board に求めている（#113 / `reviewer-positions.md` §1.64）。
-   **上の表は 1 行ずつ答えるが、束ねられた 1 文には答えていない。**
-3. **網羅ではない。** 読んだ窓は `PEER-REVIEW-WATCH.md` §3.9 と全数調査の節に列挙してある。
+1. **"Does not land" is our reading.** We do not decide where a reviewer aims a word, and *AI* in
+   particular can call up the three AI-related rows above by reflex.
+2. **Objections combine.** "Long", "one adopter" and "no lawyer" can each be answered and still add up
+   to one inference, and Pamela Chestek has combined them that way. Lukas Atkinson joined two of them
+   in one sentence on 2021-02-14: *"submitted licenses should have either received **legal review** or
+   at least **non-negligible use**. This license has **neither**"* (#113, §1.64). **The tables answer
+   row by row. They do not answer that sentence.**
+3. **It is not exhaustive.** The windows we read are listed in `PEER-REVIEW-WATCH.md` §3.9.
+4. **Nothing updates this page automatically.** An entry added to `ACD-1.0.against.md` does not reach
+   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #283.
