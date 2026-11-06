@@ -1,0 +1,6 @@
+Source: https://opensource.org/meeting-minutes/minutes20120307
+Retrieved: 2026-10-17 (hand-off fetch)
+Position: the License Committee part of the OSI Board minutes of 2012-03-07 on the outcome of the CC0 submission, as text extracted from the page (markup removed, whitespace normalised).
+
+----- begin verbatim -----
+License Committee (Mr. Fogel) Mr. Fogel reports: Outcome of CC0 submission process Recommend disapprove, due to clause 4a: “No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected by this document.” Potential incompatibility with OSD-7 due to explicit disclaimer of what in other licenses might be interpreted as an explicit patent grant. We could just take no action, since Creative Commons withdrew the application after seeing the problems with 4a. CC0 result has long-term implications for OSI approval process. De facto use of CC0 for academic/scientific works (involving software combined with open-access published papers) will probably continue — the patent exception is important to them. OSI needs to figure out how to handle this. Chris DiBona: “-1 I don’t think that any new licenses should be approved unless they include patent clauses and that the osi should move towards deprecating licenses that do not.”

@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.board-decisions.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-review participants / 監査人
-last-updated: 2026-11-01
+last-updated: 2026-11-06
 canonical-ref: LICENSES/rounds/2026-09-13-osi-board-meeting-minutes-2025-06-to-2026-06.txt (逐語の一次資料) / LICENSES/ACD-1.0.review-corpus.md (アーカイブ全体の測定) / LICENSES/ACD-OSI-BOTTLENECKS.md (B2 / B10)
 ---
 
@@ -245,7 +245,7 @@ of communication with their submitters**."*
 **そして承認 8 件のうち 7 件が legacy か既存テキストで、"regular" は BSD-3-Clause-Open-MPI 1 件だけ。**
 **§1.68 の「承認はいずれも既存テキスト」は、より良い資料でも崩れない。**
 
-## 6. 有利な事実 2 件（同じ規律で書く）
+## 6. 有利な事実（同じ規律で書く）
 
 **(1) AI/ML 向けライセンスは審査対象であり、承認されうる。** 2025-07-18 に理事会が確認している ——
 *"when reviewing a license for an OS model, the committee can still **review the license against the
@@ -260,6 +260,8 @@ communicate the difference between a license approval and OSAID compliance."*
 except for the names of the departments"* だった。**提出パケット §4b（本文の固有名詞 0・置換テキスト 0（§16.1 の推奨 notice の雛形 1 欄 `<location of this file>` を除く —— 採用者が自分の notice に書く欄で、本文は編集しない）・
 採用に本文編集が 1 箇所も要らない）は、我々が思いついた論点ではなく、
 委員会が現に手を動かしている論点である。**
+
+**(3) CC0 が止まった理由は、議事録が述べている（2026-11-06 に足した）。** 2012-03-07 の License Committee の報告は *"Recommend disapprove, due to clause 4a"* と述べ、Chris DiBona 氏の *"I don't think that any new licenses should be approved unless they include patent clauses"* を載せる（`rounds/2012-03-07-osi-board-minutes-cc0-outcome-observed.txt`）。§8 はこの理由に直接当たる。**⚠ 逆側**: 同じ報告は学術の利用者について *"the patent exception is important to them"* と述べる。特許の除外を望む利用者が居たという記録である。
 
 ## 8. 2005〜2026 の 36 回から出た決定（2026-09-20 取得）
 
