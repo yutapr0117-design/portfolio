@@ -533,6 +533,13 @@ _MUTATIONS_TAIL.append({
     "replace": "It is not the goal of the OSI to have licences",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 492: 一覧の hash が tree の語の連なりに当たる —— 私信の文は mutation に書けないので、REVIEWERS.md の 8 語の hash を一覧へ足す",
+    "file": ROOT / ".github" / "scripts" / "private_phrase_hashes.txt",
+    "find": "# --- hashes ---\n",
+    "replace": "# --- hashes ---\na0e549c47bd9\n",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

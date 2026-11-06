@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """measure_list_verbosity.py — 我々のメールの長さと密度を、同じ窓の他の参加者と比べる道具
 
-**なぜ在るか。** 2026-09-15、OSI の moderator が steward へ直接こう求めた ——
-*"Map out the **length and density** of your emails and compare it with the length and density of
-other emails sent to these two mailing lists by humans."*（`rounds/2026-09-15-offlist-…txt`）。
+**なぜ在るか。** 2026-09-15、OSI の moderator が steward へ直接、我々のメールの長さと密度を
+同じ 2 つのリストの他の参加者と比べるよう求めた（私信なので要約する・`rounds/README.md` の例外節）。
 
 **この問いは測れる。** 測れる問いに散文で答えるのは、`REVIEWERS.md` が掲げる *check us* に反する。
 **だから道具を置いて、誰でも同じ数を出せるようにした。**
