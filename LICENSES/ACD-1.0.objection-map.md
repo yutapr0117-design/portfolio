@@ -13,7 +13,7 @@ canonical-ref: LICENSES/ACD-1.0.review-precedents.md (the original text and our 
 objections apply to this submission and which do not, so the ones that land come first.
 
 **Sources.** Everything is from the public `license-review` / `license-discuss` archives, with
-speaker and date. **It is a floor, not a census**: we listed every subject line, read the threads
+speaker and date, except the Board minutes in the second table. **It is a floor, not a census**: we listed every subject line, read the threads
 that matched, and kept objections that bear on a public-domain-equivalent or AI-facing instrument.
 The main table covers the last 24 months. Objections can have been missed; the OpenMDW thread alone
 ran to 86 messages in 2026-08, and we did not break all of them down. **"Does not land" is our
@@ -48,12 +48,13 @@ of the dossier, in Japanese unless it says otherwise.
 | *"**flawed in its basic conception**"*: *"a single license that applies to everything"* | Richard Fontana, same list 2026-09-11, on OpenMDW | **§1.2 also puts many kinds of material under one text.** The harm he names needs a clause that some of the material cannot justify; ACD's material-specific clauses only remove duties or add permissions (§1.125). That is our reading, and the steward's defence he was answering is not a committee finding | #266 / §1.125 |
 | Traditional licences are *"appropriate even in situations where copyrightability is relatively dubious"* | Richard Fontana, `license-discuss` 2026-04-06 | **§9's reason for being.** We agree that §9 adds no effect, and it is not a ground of uniqueness (§1.134) | #211 / §1.134 |
 
-### Older statements that decide this submission
+### Statements from outside that window that decide this submission
 
-Outside the 24 months, but each one goes to whether ACD can be approved.
+Older, or not from the lists, but each one goes to whether ACD can be approved.
 
 | Statement | Source | Why it matters here | Record |
 |---|---|---|---|
+| *"a license could stay in a status where it is **not approved** if it is duplicative and not used by a project"* | OSI Board minutes, 2025-07-18 | **The likeliest outcome for this submission, and it is not a rejection.** The two parts are joined by *and*. "Not used" is true of ACD, so everything rests on "duplicative", which is the patent combination in the first table | #84 / B2 |
 | *"**The lawyers who opined on the issue, both US and non-US, agreed** that the document would most likely be interpreted as a license and that the license met the OSD."* | Committee rationale for the Unlicense, 2020 | **Our one dedication-plus-licence precedent crossed the line with what we lack** | #270 |
 | *"as open culture licenses, are **not appropriate for OSI approval**"*, naming *"an audiovisual work"* among the subject matter | License Committee recommendation on the Mulan licences; Board decision 2023-09-15 | **§1.2 lists audiovisual material.** The list cannot be narrowed without losing non-code assets, so the text alone does not settle this | #237 / B15 |
 | *"**widespread** need for many different FOSS communities"* and *"wholly unserved by all existing FOSS licenses"* | Bradley M. Kuhn, 2022-12-23 | **A two-part test for a vanity licence.** The census answers the second part. One adopter does not answer the first | #255 |

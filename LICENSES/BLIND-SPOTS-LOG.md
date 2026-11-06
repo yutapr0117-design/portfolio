@@ -616,3 +616,5 @@ clean だったもの: `against.md` #169、`jurisdictions.md`「三重構造が�
 
 **一般形: 「読む順」を決めたら、その順の文書を読み手の言語と読み手の版で 1 回開く。** 使った次元でも、新しい推奨には当て直す（`reference_dimension_reapplied_to_new_objects` と同じ形）。
 
+同じ日に、入口の "What to open first" が勧める全部の文書を測り直した。**register は 70%、`READY-TO-SUBMIT.md` は 66% が日本語で、どちらも言語の表示が無かった**（表の先頭と末尾の行）。`objection-map` を直したあとで、同じ問いを表の全行へ当てて初めて出た。1 件直したら同じ集合を全部当たる（PR 1037 の教訓）。register の冒頭に英語の索引を足し、入口の行に言語を書いた。
+

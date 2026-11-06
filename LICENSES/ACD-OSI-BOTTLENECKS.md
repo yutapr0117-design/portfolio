@@ -14,6 +14,30 @@ canonical-ref: LICENSES/ACD-1.0.against.md (不利な事実の本体) / LICENSES
 残る不可制御要因を減らすこと**である。不利な事実（`against.md`）は**入力**であって、
 ここに載るのは**承認確率に効くもの**だけである。
 
+## English index for reviewers
+
+**The analysis below is mostly in Japanese, so this table is the whole register in English.** "Who can
+move it" names who has to act. The status is our own reading, not OSI's. Section numbers are those of
+the 1.0 text.
+
+| ID | The problem | Severity | Where it stands | Who can move it |
+|---|---|---|---|---|
+| B1 | No legal review | Highest | Nothing here supplies it. The questions a lawyer would need are in `QUESTIONS-FOR-COUNSEL.md` | The owner, by engaging one |
+| B2 | One adopter: this repository | Highest | We can improve discoverability. We cannot produce adoption, and will not claim any | Third parties |
+| B3 | Length: 4,896 words, 16 sections, 82 clauses | High | It can be shortened but not answered | Us, in part |
+| B4 | The §3 surrender beside the §4 licence | High | Tested as a possible structural refusal, and that was rejected. The judgment is OSI's | OSI |
+| B5 | The legal account in §4.4 | Medium | The drafting defect closed in 1.1. The design question stays open | OSI |
+| B6 | The name | Medium | Decided on 2026-10-24: no rename | Decided |
+| B7 | §8.4's patent reach may lower uptake | Medium | A one-way trade with B10. Both mitigations are structurally closed | OSI |
+| B8 | §12 moral rights | Medium | The same clause has been called a gap and mission creep. Both are recorded | A lawyer |
+| B9 | §7 database right | Low | Checked and kept | Decided |
+| B10 | Is the remaining gap enough for a new licence? | Highest | One effect stands on the text of all 141 approved licences: a patent grant beyond the work with no condition and no termination. Whether that is enough is OSI's call | OSI |
+| B11 | SPDX and REUSE naming | Low | Deliberately not submitted yet | OSI, then SPDX |
+| B12 | One steward, and succession | Low | We know no way to resolve it | The owner |
+| B13 | The cost of understanding this submission | High | Continuing. It is the only real relief for B3 | Us |
+| B14 | The moderators' notice on AI-written posts | Highest | The decision is OSI's. At least three posts were rejected by moderation | OSI, the owner |
+| B15 | Subject matter: §1.2's list touches a reason the Board gave in 2023 | High | The text alone cannot settle it | OSI |
+
 ## 2026-09-11 の掘削で確定したこと（この節は結論だけ。逐語は `review-corpus.md` §1.67〜§1.70a）
 
 **この日、`license-review` の 2024-01〜2026-09（33 か月・804 通・111 スレッド）を取得し、
@@ -287,7 +311,7 @@ Shuji Sado 氏（Open Source Group Japan 会長）は 2024-03 に、**著作権�
 
 **🔴 2026-11-06 に測り直した入口ページ**: `REVIEWERS.md` は **4,353 → 5,370 語（+23%）** に伸びていた。"In one screen" は 641 語で 1 画面ではなくなり、Status は 1,159 語で、審査者が主張へ着く前に経緯の段落を読む形だった。中身も 11-04 の結論からずれていて、*"The same gap, in detail"* が §6 / §8.4 / §9 を「同じ gap」と名乗り、§1.134 が独自性の根拠から外した §6.1 と §9 を含む別の 3 項目を挙げていた。直して **4,411 語**、"In one screen" は 7 割（**先頭から 375 語の位置**）、最近似への到達は **886 → 666 語**、Status は 524 語にした。経緯の細部は B14 と `against.md` に既に在るものだけを外し、開示は減らしていない。**2 度目の退行である**（1 度目は 09-24）——**追記のたびに伸びるのは入口ページの性質で、1 度直しても止まらない。**
 
-**🔴 2026-11-06: 勧めた文書が、勧めた相手に読めなかった。** `REVIEWERS.md` は英語の審査者へ「3 つ読めば足りる」と案内し、その 1 つが `objection-map.md` だが、**表の 30 行中 28 行に日本語が入っていた**（案内の 827 語は ASCII を含む語だけの数で、日本語の分を数えていなかった）。"short path" の 3 分の 1 が審査者に読めない状態で、2026-09-09 から続いていた。本文を英語へ書き直し、09-22 以降に抜けていた反論（#211 / #265 / #266 / #276）と、窓の外でも判断を左右する 6 件（#237 / #255 / #262 / #263 / #270 / #280）を足した。Landley 氏の行の答えは §1.133 の結論へ改め、「GPLv3 より 43 語短い」は相手がしていない比較なので外した（#116）。**短い道は 5,950 語から約 7,350 語へ増えた** —— 語数が増えたのではなく、数えていなかった分が見えた。
+**🔴 2026-11-06: 勧めた文書が、勧めた相手に読めなかった。** `REVIEWERS.md` は英語の審査者へ「3 つ読めば足りる」と案内し、その 1 つが `objection-map.md` だが、**表の 30 行中 28 行に日本語が入っていた**（案内の 827 語は ASCII を含む語だけの数で、日本語の分を数えていなかった）。"short path" の 3 分の 1 が審査者に読めない状態で、2026-09-09 から続いていた。本文を英語へ書き直し、09-22 以降に抜けていた反論（#211 / #265 / #266 / #276）と、窓の外でも判断を左右する 6 件（#237 / #255 / #262 / #263 / #270 / #280）を足した。Landley 氏の行の答えは §1.133 の結論へ改め、「GPLv3 より 43 語短い」は相手がしていない比較なので外した（#116）。**短い道は 5,950 語から約 7,450 語へ増えた** —— 語数が増えたのではなく、数えていなかった分が見えた。
 
 **やったこと**: 入口ページの冒頭に **"In one screen"** を置いた ——**何であるか / 主張する gap /
 最近似の承認済みライセンス / 2 つの弱点 / 提出者専用でないこと / 次に読む 1 件**。

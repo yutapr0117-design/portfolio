@@ -22,9 +22,9 @@ that it must be**. *(Re-measure: `git ls-files -z LICENSES ':!LICENSES/rounds' |
 | :-- | --: | :-- |
 | [`ACD-1.0.txt`](ACD-1.0.txt) | **4,896** | the licence. Nothing outside it fixes it |
 | the two facts **#1 and #4** in [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~220 | **no lawyer has read this text**, and **the only project using it is the author's**. Either is a sufficient reason to decline |
-| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **2,238** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
+| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **2,324** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
 
-**≈ 7,350 words** *(`wc -w`, 2026-11-06.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
+**≈ 7,450 words** *(`wc -w`, 2026-11-06.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
 jurisdiction analysis, and the archive measurements — **all of which are evidence for claims,
 not claims themselves.** The four commands below check the licence text without trusting any
 of it.
@@ -174,7 +174,7 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 
 | | File | Note |
 |---|---|---|
-| **What is blocking approval** | [`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md) | **The register.** Each item says why it is an approval problem, what is fact and what is inference, the smallest resolution, what would be lost, and who can move it — **four are marked highest severity, and none of them is repaired by editing the licence**: no legal review (B1) and one adopter (B2) advance only by submitting and by time; whether the gap justifies a new licence is OSI's call (B10); and the moderators' notice about AI-written posts is for OSI as an organisation to decide (B14). Its summary line is derived from the table by a CI check, so it cannot quietly understate what is left |
+| **What is blocking approval** | [`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md) | **The register. Mostly Japanese; it opens with a full index in English.** Each item says why it is an approval problem, what is fact and what is inference, the smallest resolution, what would be lost, and who can move it — **four are marked highest severity, and none of them is repaired by editing the licence**: no legal review (B1) and one adopter (B2) advance only by submitting and by time; whether the gap justifies a new licence is OSI's call (B10); and the moderators' notice about AI-written posts is for OSI as an organisation to decide (B14). Its summary line is derived from the table by a CI check, so it cannot quietly understate what is left |
 | **Which known objections land** | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **In English.** Every objection **we have found** in the `license-review` / `license-discuss` archives of the last two years **that bears on a public-domain-equivalent or AI-facing instrument**, plus the older statements that decide this submission — found by a subject census plus reading the threads that matched, which is **a floor, not a census of every objection ever raised** (#87). Whether each applies to ACD-1.0, and — for the ones that do not — the clause that answers it. **Objections that land are listed first** |
 | The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders in the clauses (one in §16.1's notice template) |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
@@ -184,7 +184,7 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
 | **What we would ask a lawyer** | [`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) | ACD has had no legal review. Nine questions on which a lawyer's reading would most change the text, ranked by consequence, each answerable on its own |
 | **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 63 known imprecisions, all unrepaired in 1.0 while the freeze holds, with what the successor does (the Status column is authoritative) |
-| Known weaknesses, longer form | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) | Stated by us, before you have to find them |
+| Known weaknesses, longer form | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) | **Mostly Japanese.** Stated by us, before you have to find them |
 
 ## Disclosures you should not have to dig for
 
@@ -266,10 +266,11 @@ them and would have sent a reviewer away from material they can read.
 | [`ACD-1.0.review-responses-meta.md`](ACD-1.0.review-responses-meta.md) | Mixed; answers in English | Objections about the instrument's provenance, name, stewardship, versioning and machine-readability |
 | [`ACD-1.0.discussion-log.md`](ACD-1.0.discussion-log.md) | Japanese | Reserved for **actual** feedback once it arrives. Deliberately not filled with guesses |
 
-**The documents a reviewer is most likely to want are already in English**: the adverse case, the
-errata, this page, the question index, the submission packet, and both of the anticipated-response
-files that deal with clauses and with comparison. What is Japanese is mostly the clause-by-clause
-reference and the jurisdiction map.
+**The documents a reviewer is most likely to want are already in English**: the objection map, the
+adverse case, the errata, this page, the question index, the submission packet, and both of the
+anticipated-response files that deal with clauses and with comparison. What is Japanese is mostly
+the clause-by-clause reference, the jurisdiction map, the analysis in the register, and
+`READY-TO-SUBMIT.md`.
 
 If something you need is only in Japanese and matters to your review, say so on the list and it
 will be translated. Nothing here is withheld — the language is an artefact of who wrote it, not
