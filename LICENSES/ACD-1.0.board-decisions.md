@@ -225,12 +225,19 @@ MIT-0 は我々と同じ PD 等価の類型で、理事会は 2020-08-14 にこ�
 **使われていないことが単独で否決の理由になった記録は、我々の読んだ範囲に無い。** Atkinson 氏の 2021-02 の文
 （法的レビューも使用も無い）は参加者の見解で、その 7 か月後の委員会の理由書は別のことを述べている。
 
+**使用の短さが効いた先は区分だった。** Mulan PSL の理由書（2020）は *"The license has not been in existence long enough to be
+considered for the 'Popular and Widely Used or With Strong Communities' category"* と述べ、承認したうえで International へ置いている。
+
 **逆側を同じ重さで書く。**
 
 - **どちらも過去についての文である。** *"in the past"* と *"to date"* と述べており、今後を約束していない。
 - **後の記録は向きが変わっている。** 同じ Chestek 氏が 2026-08-26 に、委員としてこう述べている ——
   *"We want to see licenses early to correct them, but are less inclined to approve a license that doesn't have a
   track record."* 理事会の留め置き（2025）と Tiwaz の保留（§2c）も 2021 より後である。
+- **実績の無さへの反対は実際に述べられている。** Bradley Kuhn 氏（2020-01-01・CAL の審査）: *"I can't find an example when OSI approved a novel
+  copyleft license that hadn't yet been used in practice and therefore had no track record of use for any FOSS project."*
+  同じ 1 通は *"OSI also made a decision to cease considering such single-use licenses"* とも述べる（氏の見解で、我々は決定の原文を確かめていない）。
+  CAL は 2 か月後に承認され、理由書の批判の一覧にこの点は無い。
 - **理由書の 2 通は承認の側で、既存テキストの legacy 承認である。** MIT-0 は MIT から 1 文を除いたもの、Jam は 20 年使われたもので、
   新規の長いテキストについての文ではない。ただし MIT-0 の括弧書き（*"newly drafted licenses not yet in use"*）は新規について述べている。
 - **理由書は OSI を拘束しない。** *"prior approval … does not bind"* は我々に有利な先例にも同じように当たる。
@@ -504,6 +511,13 @@ impossible to determine whether or not it complies with the OSD"* と**同じ構
    へ育っている**（§2）。**B2 は 10 年かけて重くなった。**
 3. **NOTE が付いている** ——*"we will have a review done to assess potencial harm … with such a format"*。
    **承認は、この形式への留保つきで出ている。**
+   **⚠ 2026-11-07: そのレビューは行われている。** Richard Fontana 氏が 2015-11-12 にリストへ報告した ——
+   *"In response to several comments from the license-review community concerning the FPL, the OSI obtained outside
+   legal counsel concerning the legal and policy issues raised by 'ultra-permissive' licenses like the FPL which do not
+   impose conditions on the licensee (particularly notice-preservation conditions)."*
+   （`rounds/2015-11-12-license-review-fpl-outside-counsel-observed.txt`）。**OSI は ACD §10.1 と同じ型の問いに、外部の法律家の助言を取っている。**
+   助言の中身は公開されておらず、結論は分からない。確かめられるのは、0BSD が承認のまま一覧に在ることである。
+   FPL は短い許諾で、献呈も特許も持たないので、助言が ACD の条項に及ぶとは言えない。
 
 ### 8.7 我々の 3 大ボトルネックは、2005 年に「3 つの追加テスト」として提案されたものである
 
