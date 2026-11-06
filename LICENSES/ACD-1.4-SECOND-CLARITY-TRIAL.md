@@ -157,6 +157,7 @@ T6 は反例なし（出力が Work に取り込まれれば §9 が自分の条
 ### 13.5 見て残したもの（5a の敵対読みを含む）
 
 - **§8.3 の語**: bb の案は文頭に *"Within the reach of Sections 8.1 and 8.4,"*（+8 語）で、25 の案（−2 語）と効果は同じなので短い方を採った。
+- **同じ型の掃引の範囲**: 5a は全 80 条の約束と否定の文、bb は *any / every / all / no* + 権利の語と、名詞を持たない全称・動詞の側の全称・句の射程・定義語の経由の 4 形、25 は 1.0 のあとに足した 76 文を読んだ。特許へ漏れるのは §5.1 と §8.3 だけだった。
 - **§6.4 の *"You owe nothing"***: §8.4 が *"Section 6.4 alone would leave Computational Use permitted as to the Covered Rights while exposed as to patents"* と述べるので、§6.4 は特許に届かないと本文が答えている。
 - **§9.2 の *"asserts no right in Machine-Generated Material"***（5a）: Covered Rights に限られていないが、宣言の文で約束ではなく、特許は素材の中の権利でもないので残す。
 - ***in part* と閾値なしの合算**（5a）: 学習した特徴はどれも一部は Work から生じたと読める。*in part* を外すと 2 つのデータが各々十分な原因である場面で受領者が外れる。同じ語の表裏なので文を動かさず、費用として B7 に書く。
