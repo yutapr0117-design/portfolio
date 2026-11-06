@@ -166,7 +166,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1663 words**, measured 2026-11-06)
+### B.0 The message as it should actually be sent (**1679 words**, measured 2026-11-06)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -279,6 +279,8 @@ who knows the test, as not knowing the test.** **+133 words**（段落そのも�
 **And 1,703 on 2026-11-01**, when the OSD 9 citation was corrected from §5.2(b) and §2.3 (the grounds for OSD 10) to §4.3 and §10.1. **−7 words, spent on citing the right clause** —— OSD 9 を名指しで満たすと述べる段落で根拠の条を取り違えていた。
 
 **And 1,663 on 2026-11-06**, when the gap paragraph stopped counting §6 and §9 as differences. The 2026-11-04 re-verification (`gap-measurements.md` §1.134) had removed them from what makes this instrument distinct, and `REVIEWERS.md` and `SUBMISSION-MATERIALS.md` had followed, but this paragraph still said *"three things no approved licence does together"* and gave 149 texts where the same message gave 141 further down. It now leads with the one combination that differs in effect. **−40 words** —— 読まれる順の最初の面が最後に直った。#241 と同じ形である。
+
+**And 1,679 later the same day**, when the Unlicense paragraph stopped giving the argument alone as what answered the veto. The Committee's rationale says *"The lawyers who opined on the issue, both US and non-US, agreed"* (`against.md` #2, #270), and a reviewer who knows that record would have read the omission as selective. **+16 words**.
 
 **Why that last addition earns its words.** *"Why another public-domain-equivalent?"* is the opening
 move in this category — Rob Landley put it as fungibility (#84), David Woolley put it to the
@@ -400,7 +402,8 @@ records that a dedication *taken alone* would not be approved; ACD-1.0 is not ta
 
 **Why that matters, and why another public-domain-equivalent.** The 2020 veto against the Unlicense
 was that it was *"very much not clear"*. What answered it was the argument that, even if the
-dedication were ineffective, the enumerated permissions would still operate. **That argument is not
+dedication were ineffective, the enumerated permissions would still operate, and the lawyers who
+opined agreed that it would most likely be read as a licence. **That argument is not
 in the Unlicense's text — it had to be made on this list.** §4.4 states it, so no recipient and no
 court has to reach it.
 
