@@ -38,7 +38,8 @@ PINNED_COMMAND = re.compile(r"`(?:grep|shasum|wc)\b[^`]*ACD-\d+\.\d+\.txt[^`]*`"
 RULE = "-" * 80 + "\n"
 APPLY_FILES = (".well-known/agent-skills/index.json", ".well-known/aio-manifest.json", ".well-known/index.json",
                ".well-known/llms.txt", ".well-known/llms_well-known.txt", "LICENSE", "README.md", "index.html",
-               "js/components.js", "llms-full.txt", "llms.txt", "llms_well-known.txt", "main.js", "robots.txt", "sitemap.xml")
+               "js/components.js", "llms-full.txt", "llms.txt", "llms_well-known.txt", "main.js", "robots.txt", "sitemap.xml",
+               "REUSE.toml")
 
 
 def bump_applied(text: str, old: str, new: str, old_date: str, date: str) -> str:

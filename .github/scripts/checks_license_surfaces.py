@@ -14,6 +14,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        top-level `license` の spdx_id と url が整合する / 444d sitemap に全文の `<loc>` がある /
        444e llms.txt と llms-full.txt が SPDX 識別子に言及する。
        **444k (2026-11-06)** 人が読む 2 面 (README の案内と画面のフッター) が、適用する版の全文を指す。
+       **444n (2026-11-08)** REUSE.toml の全 file への宣言 (`path = "**"`) が適用する版であること。
+       どの Check も読まず、LICENSE が 1.3 へ進んだあとも 1.0 のままだった。
        **444l / 444m (2026-11-07)** 適用する版の隣の日付がその版を確定した日である / 外向きの文書の
        「適用している版」の主張が実際の版である。確定の道具は版を置換するので、どちらも無音で偽になっていた。
        適用する版を上げる日に面を 1 つずつ戻す予行で、この 2 面だけ戻しても無音だった。
@@ -234,6 +236,15 @@ def run(ctx):
             _cp444k = _strip444k((ROOT / "js" / "components.js").read_text(encoding="utf-8"))
             if f"/portfolio/{_rel444}" not in _cp444k or f"License: {_spdx444}" not in _cp444k:
                 _bad444.append(f"444k: 画面のフッター (js/components.js) が適用する版 {_spdx444} を指していない")
+
+            # 444n — REUSE.toml の全 file への宣言が、適用する版であること。REUSE を読む道具はここだけを見る。
+            #   どの Check も読んでいなかったので、LICENSE が 1.3 へ進んだあとも 1.0 のままだった
+            #   (2026-09-23〜2026-11-08。2026-11-08 の監査で発見)。
+            _ru444n = re.search(r'path = "\*\*"[^\[]*?SPDX-License-Identifier = "([^"]+)"',
+                                (ROOT / "REUSE.toml").read_text(encoding="utf-8"), re.S)
+            if not _ru444n or _ru444n.group(1) != f"LicenseRef-{_spdx444}":
+                _bad444.append(f"444n: REUSE.toml の path = \"**\" が {_ru444n.group(1) if _ru444n else '読めない'} "
+                               f"と宣言し、適用する版 LicenseRef-{_spdx444} と食い違う")
 
             # 444l — 適用する版の隣の日付が、その版を確定した日であること。版を置換しても日付は残るので、
             #   "ACD-1.4 (ACD-1.0 until 2026-10-25)" のように公開面が偽を述べても無音だった (2026-11-07 の予行)。
