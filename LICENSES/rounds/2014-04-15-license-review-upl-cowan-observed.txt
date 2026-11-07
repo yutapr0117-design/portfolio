@@ -1,0 +1,56 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2014-April.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-07)
+Date: Tue, 15 Apr 2014 11:33:30 -0400
+From: John Cowan
+Subject: [License-review] Request for Approval of Universal Permissive License (UPL)
+Position: a reply in the review of a licence that one participant said could not be trusted because of who wrote it. Not addressed to us and not about ACD. The reading is in LICENSES/ACD-OSI-BOTTLENECKS-POSTING.md.
+
+----- begin verbatim -----
+From cowan at mercury.ccil.org  Tue Apr 15 15:33:30 2014
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Tue, 15 Apr 2014 11:33:30 -0400
+Subject: [License-review] Request for Approval of Universal Permissive
+ License (UPL)
+In-Reply-To: <CAEq5uwkfoXXrmQXGQbKWCAvv-+LWTFPYKFkNiupFwkYdzzd-iw@mail.gmail.com>
+References: <28A89AAA-16F3-487F-842E-69484561474C@oracle.com>
+	<5349B13B.3030406@postgresql.org>
+	<EE9102AB-244F-437A-85FE-66D7936FFE3D@oracle.com>
+	<534BEFD5.3050107@postgresql.org>
+	<3CB4B011-F0C4-4D8F-8F87-2BC21B62B19B@oracle.com>
+	<CAEq5uwkfoXXrmQXGQbKWCAvv-+LWTFPYKFkNiupFwkYdzzd-iw@mail.gmail.com>
+Message-ID: <20140415153330.GJ3238@mercury.ccil.org>
+
+Chris DiBona scripsit:
+
+> Stab you? Seriously? How dare you use that kind of violent imagery
+> here when Oracle has sued half a dozen companies for daring to use
+> "open source" java. ylYou're pretending to be all friendly now?
+
+It wasn't the violent imagery, it was the personal reference that
+surprised me.  However, it seemed likely that it was some kind of
+playful reference to some shared history between the two of you.
+Evidently not (or else you're trolling us, which seems unlikely).
+
+> What a joke. Its clear to me that UPL can't be trusted because oracle
+> wrote it.
+
+And yet OSI approved two Microsoft licenses.  I had a little bit to do
+with that, and I defended myself on both Groklaw and Reddit by saying
+that a license-writer's motives are irrelevant: what counts is the work.
+
+> If OSI approves it we'll need to acknowledge that it has finally and
+> conclusively lost it's way in a time when it was honestly on the
+> ascent. OSI should not abandon its credibility and even continue this
+> conversation with what is no better than a schoolyard bully.
+
+Eh, we've heard this song before.  Negotiations never hurt anyone's
+credibility where it matters.  "If Hitler invaded hell I would make at
+least a favorable reference to the devil in the House of Commons."
+
+-- 
+John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+All Gaul is divided into three parts: the part that cooks with lard and goose
+fat, the part that cooks with olive oil, and the part that cooks with butter.
+  --David Chessler
+
+

@@ -61,10 +61,18 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-07 時点・294 ファイル）
+## いまの状態（2026-11-07 時点・302 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
+| 2012-01〜04 | `license-review` | **観測（CC0 の審査から引いた 27 通・2 分割の 1/2 部）** | ドシエが引いた通だけを束ねた。スレッド全体ではない。`2012-01-to-04-license-review-cc0-cited-observed-1of2.txt` |
+| 2012-01〜04 | `license-review` | **観測（CC0 の審査から引いた 27 通・2 分割の 2/2 部）** | 同じ束の 2/2 部。`2012-01-to-04-license-review-cc0-cited-observed-2of2.txt` |
+| 2012-03 | `license-review` | **観測（CC0 の意向調査・全 25 通・2 分割の 1/2 部）** | 票数そのものが証拠なのでスレッドを全部置いた（規則 6）。`2012-03-license-review-cc0-straw-poll-observed-1of2.txt` |
+| 2012-03 | `license-review` | **観測（CC0 の意向調査・全 25 通・2 分割の 2/2 部）** | 同じ束の 2/2 部。`2012-03-license-review-cc0-straw-poll-observed-2of2.txt` |
+| 2014-04-15 | `license-review` | **観測（UPL の審査の 1 通）** | `2014-04-15-license-review-upl-cowan-observed.txt` |
+| 2019-05〜06 | `license-review` / `license-discuss` | **観測（2019 年の通知と、その筆者たちの発言・10 通・2 分割の 1/2 部）** | `2019-05-license-lists-review-process-cited-observed-1of2.txt` |
+| 2019-05〜06 | `license-review` / `license-discuss` | **観測（同じ束の 2/2 部）** | `2019-05-license-lists-review-process-cited-observed-2of2.txt` |
+| 2019-05〜06 | `license-discuss` | **観測（2012 年の CC0 の審査を 7 年後に語った 6 通）** | `2019-05-license-discuss-cc0-retrospective-observed.txt` |
 | 2018-12 | `license-review` | **観測（第 3 の帰結が選ばれた実例・2 通）** | **`board-decisions.md` が議事録から確立した「承認でも否決でもない第 3 の帰結」の、リスト側の実例。** Fontana 氏 *"I recommended that the OSI **reject** … Subsequently … the OSI decided to **withhold approval** … **pending submission of a redrafted version**"*／Phipps 氏（President）*"OSI's Board **does not give legal advice, practice law or design licenses** … we opted to **withhold approval instead (under the clarified process)**"*。**後者は §1.52（提出が弁護士の目を通す経路）の射程を狭める**（`against.md` #274）。**⚠ 両刃** —— 「否決されにくい」の証拠にも「決まらないまま置かれる」の証拠にもなる。 |
 | 2010-04 / 2017-04〜05 | `license-review` | **観測（我々の類型の提出 2 件・全 10 通・2 分割の 1/2 部）** | **全期間 census（199 か月）が挙げた 27 件のうち、ドシエ未言及だった 2 件。** **(B) の最初の実質返信は Fontana 氏の *"Do you see anything distinctive about your license relative to FPL/0BSD?"*** ——**Landley 氏が後に我々へ向けたのと同じ問いが 9 年前に在った**。**そして McCoy 氏が試験を言葉にしている** —— *"the wording they use in CC0 is **much more comprehensive** … The language you use is **quite brief**"*。**当てた結果は 5 要素中 4 つ被覆・1 つ未対応**（`review-doctrine.md` §1.129）。**(A) は我々の類型で返信ゼロの 1 例。** |
 | 2010-04 / 2017-04〜05 | `license-review` | **観測（我々の類型の提出 2 件・2 分割の 2/2 部）** | **同じ束の 2/2 部。** 本文は無改変で、2 部を順に結合すれば元に戻る（分割は早期警告 800 行のため・**行境界**。**一次資料に予算行を与えるのではなく、下に収める**）|

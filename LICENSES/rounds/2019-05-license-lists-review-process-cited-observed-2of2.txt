@@ -1,0 +1,223 @@
+Source: https://lists.opensource.org/pipermail/ (license-review 2019-May.txt and 2019-June.txt; license-discuss 2019-May.txt and 2019-June.txt)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-07)
+Messages: 10 messages cited by this dossier from the 2019 threads "Evolving the License Review process for OSI" (126 messages across both lists) and "popularity, usage, re-review of old licenses". Not a whole thread. Part 2 of 2 (4 messages).
+Senders: Pamela Chestek, Richard Fontana, Simon Phipps, Luis Villa
+Position: the Board's notice of 2019-05-24 on the review process and what its authors said about it. Not addressed to us and not about ACD. Each message keeps its archive headers. The reading is in LICENSES/ACD-1.0.board-decisions.md section 2h.
+
+----- begin verbatim -----
+From webmink at opensource.org  Sat Jun  1 15:46:20 2019
+From: webmink at opensource.org (Simon Phipps)
+Date: Sat, 1 Jun 2019 16:46:20 +0100
+Subject: [License-review] Evolving the License Review process for OSI
+In-Reply-To: <CAFjZtRfzyezVSMGoPf+CGhprtgq5Aa8mhRcx0J_WPUEy+RkYtA@mail.gmail.com>
+References: <473cb721-da83-195e-1b46-21f61ef35db6@opensource.org>
+ <CAFjZtReB=w3cfd+KfA3F=t4x0pvLkCajLVFW=PM-4z_MyZredg@mail.gmail.com>
+ <CA+beq9vC0Ky83+x1sVyRBuakrjS7SaZ_7PKXHVtkm2b9E8DocA@mail.gmail.com>
+ <CAD2gp_S-EvsfPwdA29xhd10ThS+yZH86DnE6z14STEE2yeVpmA@mail.gmail.com>
+ <CAFjZtRfzyezVSMGoPf+CGhprtgq5Aa8mhRcx0J_WPUEy+RkYtA@mail.gmail.com>
+Message-ID: <CAA4ffp-4RZxTP7pT_ZhEJQxpoV+C0NQghtprAGNLEhqj-LsF1Q@mail.gmail.com>
+
+On Sat, Jun 1, 2019 at 4:26 PM Luis Villa <luis at lu.is> wrote:
+
+>
+> With this change, OSI has swung _radically_
+>
+
+That's pure speculation, Luis - no "swing" has in fact occurred.
+
+
+> towards absolute discretion with no reasoning, explanation, or
+> justification.
+>
+
+Every decision OSI has ever made about approving a license has been
+accompanied by a summary of the discussion and a recommendation from the
+Director responsible. That has not changed and will not change (in fact I
+think recommendations are about to get more detailed rather than less).
+
+
+> It's a get-out-of-jail-free card for having to explain anything.
+>
+
+Like the DFSG from which it forked, the OSD is a tool for determining
+whether the permissions ("freedoms") users and developers depend upon as
+the basis for open source free software are delivered by a given license.
+We added the statement you so vigorously oppose when it became apparent
+that there were submitters who wanted to game the OSD on the basis that OSI
+had made no rule that permitted the exercise of discretion in this pursuit.
+
+It's possible it needs better phrasing and the new license commiteee would
+welcome suggested improvements, but that's why the statement is there - to
+explain the discretion OSI always has, and always will, choose to exercise
+when novel devices are unveiled. There's been no swing, just a
+clarification in response to list members.
+
+S.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190601/a37f040c/attachment.html>
+
+From rfontana at redhat.com  Mon Jun  3 02:30:26 2019
+From: rfontana at redhat.com (Richard Fontana)
+Date: Sun, 2 Jun 2019 22:30:26 -0400
+Subject: [License-discuss] [License-review] Evolving the License Review
+ process for OSI
+In-Reply-To: <CAFjZtReB=w3cfd+KfA3F=t4x0pvLkCajLVFW=PM-4z_MyZredg@mail.gmail.com>
+References: <473cb721-da83-195e-1b46-21f61ef35db6@opensource.org>
+ <CAFjZtReB=w3cfd+KfA3F=t4x0pvLkCajLVFW=PM-4z_MyZredg@mail.gmail.com>
+Message-ID: <CAC1cPGzdCZ7V2khK4wum8VqciMgGL3jcs6ay-3LMJjwEjPDxtw@mail.gmail.com>
+
+On Fri, May 31, 2019 at 7:47 PM Luis Villa <luis at lu.is> wrote:
+>
+> From the updated https://opensource.org/approval:
+> "the OSI determines that the license ... guarantees software freedom."
+>
+> I still have seen no coherent explanation of what software freedom means in the OSI context. Richard has asserted on Twitter that it isn't necessarily the same thing as FSF's definition, but OSI has not (as best as I can tell) proposed an alternative either, so we're left with a limbo of having some idea what FSF means, but knowing that OSI's definition is somehow, in unknown directions, different.
+
+This isn't how I see it. "Software freedom" is a recently-popularized
+(still not so popular) term, which has actually been in use for quite
+a while, to describe a set of evolving community values and traditions
+around the core legal and ethical underpinnings free software/open
+source software, reflected in a few widely-respected and influential
+definitional efforts -- the DFSG, the OSD, and the 4-part FSD, but
+additionally reflected in the actual demonstrable choices and
+attitudes of the main participants in free software/open source
+development.
+
+If the OSI board agrees at all with any of that, maybe it could add
+some words to that effect.
+
+> Until more specific, less vague language is used, I remain deeply concerned that this makes the process even more deeply political by allowing the board to veto any license on virtually any grounds it feels like, as long as it can be vaguely tied to "freedom" for some person or company.
+
+The constraint ought to be a commitment to the tying of "software
+freedom" to demonstrable community values and traditions. Of course
+the OSI should not be using "software freedom" to justify any
+arbitrary decision.
+
+Also, frankly, hasn't it been the case in practice that the OSD is
+broad, vague and in some places oddly-worded enough that it can also
+be criticized as facilitating arbitrary decisionmaking? I have
+recently pointed out that basically any critique of a submitted
+license can be couched as an OSD 5/6 violation, because any
+conceivable problematic feature of a quasi-FLOSS license is going to
+be describable as a discrimination against *someone*. What has
+preserved the OSI's legitimacy -- despite what I believe was the
+mistaken approval of a few largely-obsolete licenses years ago -- is
+not really the constraint provided by the 10-part OSD, but rather the
+commitment of the OSI in practice to adhering to shared community
+values and expectations about what an open source license can and
+can't be -- which I believe is neatly expressed using the phrase
+"software freedom".
+
+>  It also leaves it less clear than ever what useful role, if any, OSI plays that distinguishes it from FSF. If both organizations are using essentially identical criteria, I'd again urge the two orgs to consider merging their license lists and review processes.
+
+This is not a bad idea (though it's currently somewhat unrealistic).
+But it has been a good idea for a long time, because in reality the
+two organizations *have* been using the same underlying criteria, for
+the OSI at least since the mid-2000s. Both organizations seek to
+recognize as respective-definition-conformant licenses that can be
+expected to guarantee software freedom. They just happen to use
+different definitions, much as Debian and the FSF use different
+definitions of "free software". That after all is why the two
+organizations have few significant disagreements about the
+FLOSS-legitimacy of particular licenses. If the two organizations were
+really aimed at markedly different value systems we'd expect to see
+major differences between the FSF's list of free software licenses and
+the OSI's list of approved licenses.
+
+Richard
+
+
+From pamela at chesteklegal.com  Tue Jun  4 13:14:12 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Tue, 4 Jun 2019 09:14:12 -0400
+Subject: [License-discuss] popularity, usage,
+ re-review of old licenses [was Re: Evolving the License Review
+ process for OSI
+In-Reply-To: <CAFjZtRd=rmkihb0q4dFLYYxec0q5Okbj30WO9qPhUOhbT4LO3Q@mail.gmail.com>
+References: <473cb721-da83-195e-1b46-21f61ef35db6@opensource.org>
+ <CAFjZtReB=w3cfd+KfA3F=t4x0pvLkCajLVFW=PM-4z_MyZredg@mail.gmail.com>
+ <CAC1cPGzdCZ7V2khK4wum8VqciMgGL3jcs6ay-3LMJjwEjPDxtw@mail.gmail.com>
+ <CAGi9AuWTjUjXvaZnkyd2y0vT=i=s9XUR4o_ZoPo7XYVRRUquCA@mail.gmail.com>
+ <Pine.BSM.4.64L.1906031453500.28110@herc.mirbsd.org>
+ <2D52F7EE739F8542A700CAB96276B5198B166E4A@fmsmsx117.amr.corp.intel.com>
+ <3447dc03-af33-ee57-d156-9c15911361c7@chesteklegal.com>
+ <CAFjZtRd=rmkihb0q4dFLYYxec0q5Okbj30WO9qPhUOhbT4LO3Q@mail.gmail.com>
+Message-ID: <0519e102-9972-14a3-dbdb-9530c5045307@chesteklegal.com>
+
+
+
+On 6/3/2019 7:13 PM, Luis Villa wrote:
+> for basic "is it used by any modern-ish software at all" those could
+> give you a pretty good start.
+
+It might reduce some of the perceived risks with changing opinions or
+classifications of licenses if they aren't in use anyway. It's also a
+bit of proof in the pudding, meaning the fact that no one is using it
+may be evidence that the intended audience perceived unacceptable
+drawbacks with the license that were missed at the time of approval.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+From luis at lu.is  Fri Jun  7 23:14:25 2019
+From: luis at lu.is (Luis Villa)
+Date: Fri, 7 Jun 2019 16:14:25 -0700
+Subject: [License-discuss] popularity, usage,
+ re-review of old licenses [was Re: Evolving the License Review
+ process for OSI
+In-Reply-To: <0519e102-9972-14a3-dbdb-9530c5045307@chesteklegal.com>
+References: <473cb721-da83-195e-1b46-21f61ef35db6@opensource.org>
+ <CAFjZtReB=w3cfd+KfA3F=t4x0pvLkCajLVFW=PM-4z_MyZredg@mail.gmail.com>
+ <CAC1cPGzdCZ7V2khK4wum8VqciMgGL3jcs6ay-3LMJjwEjPDxtw@mail.gmail.com>
+ <CAGi9AuWTjUjXvaZnkyd2y0vT=i=s9XUR4o_ZoPo7XYVRRUquCA@mail.gmail.com>
+ <Pine.BSM.4.64L.1906031453500.28110@herc.mirbsd.org>
+ <2D52F7EE739F8542A700CAB96276B5198B166E4A@fmsmsx117.amr.corp.intel.com>
+ <3447dc03-af33-ee57-d156-9c15911361c7@chesteklegal.com>
+ <CAFjZtRd=rmkihb0q4dFLYYxec0q5Okbj30WO9qPhUOhbT4LO3Q@mail.gmail.com>
+ <0519e102-9972-14a3-dbdb-9530c5045307@chesteklegal.com>
+Message-ID: <CAFjZtRdnXuABB77wPbzY6d-p1tOmmzBxRD02BVBeKmOUw=QPdw@mail.gmail.com>
+
+On Tue, Jun 4, 2019 at 6:47 AM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+>
+> On 6/3/2019 7:13 PM, Luis Villa wrote:
+> > for basic "is it used by any modern-ish software at all" those could
+> > give you a pretty good start.
+>
+> It might reduce some of the perceived risks with changing opinions or
+> classifications of licenses if they aren't in use anyway. It's also a
+>
+bit of proof in the pudding, meaning the fact that no one is using it
+> may be evidence that the intended audience perceived unacceptable
+> drawbacks with the license that were missed at the time of approval.
+>
+
+As has been pointed out in other emails[1], it's impossible to prove the
+negative - "absolutely no one is using this". There is no
+guaranteed-comprehensive database of FOSS-y code. So one should be careful
+with saying things like "not in use".
+
+But if a license can't be found in the tens of millions of projects on
+GitHub, plus Fedora/Debian[2], then for many (all?) policy purposes I think
+OSI should feel comfortable saying "this is unused, or close enough that we
+feel OK treating it as unused"...
+
+Luis
+
+[1] who did not notice my "basic internet 101" subject change ;)
+[2] I suspect OSI should probably focus on *live* software in most policy
+questions, otherwise I'd also have included Software Heritage
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190607/be6390b1/attachment.html>
+
