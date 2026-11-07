@@ -269,6 +269,11 @@ def report(version: str) -> int:
     print(f"\n### 残りの面: {len(rest)} 行のうち ACD-{base} と名指していない {len(unnamed)} 行")
     for f, i, hit, line in unnamed:
         print(f"  {f}:{i}  {' '.join('§' + n for n in hit)}  {_snippet(line, CITE.search(line).start())}")
+    print(f"\n## submission.md の §A が ACD-{base} を述べる行（送る本文は Check 472o が見る。履歴の文は残す）")
+    head = (L / "ACD-1.0.submission.md").read_text(encoding="utf-8").split("\n## B. ")[0].split("\n")
+    for i, line in enumerate(head, 1):
+        if re.search(rf"(?<![\w-])ACD-{re.escape(base)}(?![.\w-]*\.md)", line) and not line.startswith(">"):
+            print(f"  ACD-1.0.submission.md:{i}  {_snippet(line, line.index('ACD-'))}")
     print("\n## 日付つきの実測（走らせ直して値と日付を直す）")
     pinned = []
     for f in FACES:
