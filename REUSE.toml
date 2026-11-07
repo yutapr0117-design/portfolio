@@ -34,6 +34,12 @@
 #   the same distinction the root `LICENSE` file draws: "Authorship remains a historical fact;
 #   the rights do not." Anyone reading this file for permission should read `LICENSE`.
 
+# ⚠ THE APPLIED VERSION
+#   The `path = "**"` annotation names the version this repository applies, the one `LICENSE`
+#   names. It stayed at ACD-1.0 from 2026-09-23 until 2026-11-08 while `LICENSE` moved to
+#   ACD-1.3, because no check read this file. Check 444n now compares the two, and the version
+#   freeze tool updates this file with the other applied surfaces.
+
 version = 1
 
 SPDX-PackageName = "portfolio"
@@ -42,8 +48,8 @@ SPDX-PackageDownloadLocation = "https://github.com/yutapr0117-design/portfolio"
 [[annotations]]
 path = "**"
 precedence = "aggregate"
-SPDX-FileCopyrightText = "2026 Yuta Yokoi (横井雄太) — authorship recorded as a historical fact; all Covered Rights are surrendered by ACD-1.0 Section 3"
-SPDX-License-Identifier = "LicenseRef-ACD-1.0"
+SPDX-FileCopyrightText = "2026 Yuta Yokoi (横井雄太) — authorship recorded as a historical fact; all Covered Rights are surrendered by ACD-1.3 Section 3"
+SPDX-License-Identifier = "LicenseRef-ACD-1.3"
 
 # The received texts in LICENSES/rounds/ are other people's words, preserved unmodified.
 # They are quoted for the record; no licence is asserted over them by this repository.

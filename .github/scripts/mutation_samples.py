@@ -560,6 +560,13 @@ _MUTATIONS_TAIL.append({
     "replace": "remove. Section 8.1 governs a feature added to the Work, by",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 444n: REUSE.toml の全 file への宣言を前の版へ戻す —— 2026-09-23〜11-08 に実際にこの状態だった (どの Check も読んでいなかった)",
+    "file": ROOT / "REUSE.toml",
+    "find": f'SPDX-License-Identifier = "LicenseRef-{APPLIED_ID}"',
+    "replace": 'SPDX-License-Identifier = "LicenseRef-ACD-1.0"',
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
