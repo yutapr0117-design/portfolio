@@ -25,8 +25,8 @@ CLAUDE.md §7 が *「自動監視は CI に入れない（外部フォーラム
     # OSI のサイトの取得物も照合先にする:
     DOSSIER_EXTRA_SOURCES=~/osi-fetch/fetch DOSSIER_ARCHIVE_CACHE=<同上> python3 ...
 
-**cache の当月は月の途中で取った版のことがある。** 2026-11-07 に 10 月分が月初の版で、10-14 の発言 2 件が
-未確認に落ちた。回す前に最新の取得へ差し替える。
+**cache は古くなる。** 2026-11-07 に cache が 9 月までで、10-14 の発言 2 件が未確認に落ちた。月の途中で取った
+file と、最新の file より後の終わった月は、実行の冒頭に警告で出る。
 
 **corpus の置き場所の規約**: 月次アーカイブは `<cache>/*.txt` であれば名前は問わない
 （`discuss-2024-10.txt` でも `license-discuss-2024-October.txt` でもよい）。
@@ -40,7 +40,9 @@ CLAUDE.md §7 が *「自動監視は CI に入れない（外部フォーラム
 **母数が大きすぎるときは、母数の作り方が間違っている。**
 """
 import argparse
+import calendar
 import collections
+import datetime
 import glob
 import hashlib
 import html
@@ -300,6 +302,24 @@ def fetch(months, limit=200):
     return got
 
 
+def stale_months():
+    """cache の欠けを返す: その月が終わる前に取得した file と、最新の file より後の終わった月。"""
+    months = {m: i for i, m in enumerate(calendar.month_name) if m}
+    today = datetime.date.today()
+    partial, newest = [], {}
+    for path in glob.glob(f"{CACHE}/*.txt"):
+        m = re.search(r"([a-z-]+?)[-_](\d{4})-([A-Z][a-z]+)\.txt$", os.path.basename(path))
+        if m and m.group(3) in months:
+            year, month = int(m.group(2)), months[m.group(3)]
+            end = datetime.date(year + month // 12, month % 12 + 1, 1)
+            if datetime.date.fromtimestamp(os.path.getmtime(path)) < end <= today:
+                partial.append(os.path.basename(path))
+            newest[m.group(1)] = max(newest.get(m.group(1), (0, 0)), (year, month))
+    behind = [f"{lst} は {y}-{mo:02d} まで" for lst, (y, mo) in sorted(newest.items())
+              if (y, mo) < ((today.year, today.month - 1) if today.month > 1 else (today.year - 1, 12))]
+    return sorted(partial) + behind
+
+
 def entry_quotes(root="."):
     """審査者と採用者が最初に読む面の斜体の引用を {引用: 最初の場所} で返す。話者名の条件は付けない。"""
     from measure_citation_drift import FACES, FIRST_READ
@@ -386,6 +406,8 @@ def main():
     if args.record_entry:
         return record_entry(args.root)
 
+    if stale_months():
+        print(f"⚠ cache に欠けがある: {stale_months()}。その月の発言が未確認に落ちるので足す")
     quotes = collect_quotes(args.root)
     blob = load_sources(args.root)
     miss = {q: sorted(v) for q, v in quotes.items() if not present(q, blob)}
