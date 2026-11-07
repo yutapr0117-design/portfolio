@@ -228,7 +228,10 @@ def run(ctx):
             _stale444k = sorted({_v for _v in re.findall(r"LICENSES/(ACD-\d+\.\d+)\.txt", _rd444k)} - {_spdx444, "ACD-1.0"})
             if _stale444k:
                 _bad444.append(f"444k: README.md が適用していない版の本文を案内している: {_stale444k}")
-            _cp444k = (ROOT / "js" / "components.js").read_text(encoding="utf-8")
+            # コメントを除いてから見る。フッターをリンクごとコメントにすると画面から消えるのに、
+            #   素の `in` ではコメントの中の URL で通っていた (2026-11-08 の監査で実測)。
+            from _lib_io import strip_js_comments as _strip444k
+            _cp444k = _strip444k((ROOT / "js" / "components.js").read_text(encoding="utf-8"))
             if f"/portfolio/{_rel444}" not in _cp444k or f"License: {_spdx444}" not in _cp444k:
                 _bad444.append(f"444k: 画面のフッター (js/components.js) が適用する版 {_spdx444} を指していない")
 

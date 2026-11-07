@@ -103,8 +103,10 @@ def run(ctx):
     # js/components.js から js/ai-knowhow-page.js へ分離された。marker の実在場所が移動しただけで
     # 「サイトに現運用モデル記述あり」invariant は不変ゆえ、両ファイルの union を scan する。
     _comp123_files = [ROOT / "js" / "components.js", ROOT / "js" / "ai-knowhow-page.js"]
+    # コメントを除いてから見る。節ごと /* */ で無効化すると画面から消えるのに、3 語がコメントの中に
+    # 残るので通っていた。節の直前の行コメントも「現在の運用モデル」を持つ (2026-11-08 の監査で実測)。
     _comp123_t = "".join(
-        _f.read_text(encoding="utf-8") for _f in _comp123_files if _f.exists()
+        strip_js_comments(_f.read_text(encoding="utf-8")) for _f in _comp123_files if _f.exists()
     )
     _site_ok123 = ("現在の運用モデル" in _comp123_t) and ("Claude Code" in _comp123_t) and ("自走" in _comp123_t)
     check(
