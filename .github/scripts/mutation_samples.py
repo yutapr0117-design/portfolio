@@ -540,6 +540,13 @@ _MUTATIONS_TAIL.append({
     "replace": "# --- hashes ---\na0e549c47bd9\n",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 493: 採用者の受け口のリンクが無い template を指す —— GitHub は黙って空の issue 画面へ落とす",
+    "file": ROOT / "README.md",
+    "find": "issues/new?template=acd-use.yml",
+    "replace": "issues/new?template=acd-usage.yml",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
