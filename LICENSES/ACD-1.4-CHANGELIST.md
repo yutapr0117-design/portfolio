@@ -329,6 +329,7 @@ OSAID の要件を 1 つずつ条文に当てた。**OSAID が定めるものに
 | `SUBMISSION-MATERIALS.md` 44・96・109・141 | **直さない**。1.4 の番号である |
 | `QUESTIONS-FOR-COUNSEL.md`（472h）| 冒頭の *Which text* と canonical-ref を 1.4 へ。問 2 の §8.4 と問 5 の §5.1 は「1.3 の文、そのあと 1.4 の差」の順なので、1.4 の文を先に置き、1.3 は *in ACD-1.3* と名指して残す。*the 1.4 draft* は *ACD-1.4* へ。§2.8 の版の差を述べる文はそのままでよい |
 | `REVIEWERS.md` の §8.4 の限定の引用 | 1.3 の文である。切り替えの日に 1.4 の §8.4 の限定の文へ替える |
+| `submission.md` §B.0 の本文の *ACD-1.0*（Check 472o）| 件名・冒頭・header・URL は 472f が見る。本文の 7 箇所のうち 6 箇所（OSD の宣言、gap、条件の段、§6.4 の段、§1.2 の段、*taken alone*）は版を替える。§1.2 の段は §1.3 へ替える。Provenance の *"The name ACD-1.0"* は履歴の文なので、版を替えず *"The name ACD"* とする |
 
 
 ## Constraints
