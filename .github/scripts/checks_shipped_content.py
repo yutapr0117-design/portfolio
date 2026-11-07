@@ -113,31 +113,59 @@ def run(ctx):
               "Check 236: aio-manifest.json が無い", blocking=True)
 
     # ── 238. HTML head singleton tags appear exactly once (BLOCKING) ──────────────
-    # index.html の head 内 singleton tag (title / link rel=canonical /
-    # meta name=description / meta property=og:url / meta property=og:title) が
-    # それぞれちょうど 1 件で存在することを BLOCKING 強制。複数 instance は SILENT
-    # に browser/crawler が「first」「last」を非決定的に選び canonical signal を希釈。
+    # head の singleton (title / link rel=canonical / 全ての meta name・property・http-equiv) が
+    # それぞれちょうど 1 件であることを BLOCKING 強制。複数あると browser/crawler が「first」「last」を
+    # 非決定的に選び、しかも多くの Check は re.search で **先頭の 1 本しか読まない** ので、2 本目の
+    # 食い違いはどの層にも見えない。
+    # [FIX 2026-11-08] 監査で 3 つの穴を実測した: (1) 対象が 5 種だけで、og:image / twitter:* /
+    #   og:type / ai:* / asset:* など first-match で読まれる meta の 2 本目を誰も見ていなかった
+    #   (Check 153〜156 / 164 / 17 / 281〜284 / 426c が同じ形) (2) 属性の順序を固定した正規表現で、
+    #   `<meta content=… property=…>` の 2 本目が数えられなかった (3) コメントの中の <title> を
+    #   1 件と数えていた。いまは HTML として読み、コメントと <template> / <noscript> の中は数えない。
+    #   theme-color は media ごとに 1 本ずつ置く設計 (light / dark) なので、(名前, media) の組で数える。
     _idx238 = ROOT / "index.html"
     if _idx238.exists():
-        _isrc238 = _idx238.read_text(encoding="utf-8")
-        _patterns238 = [
-            ("<title>", r"<title>[^<]+</title>"),
-            ('<link rel="canonical">', r'<link\s+rel=["\']canonical["\']'),
-            ('<meta name="description">', r'<meta\s+name=["\']description["\']'),
-            ('<meta property="og:url">', r'<meta\s+property=["\']og:url["\']'),
-            ('<meta property="og:title">', r'<meta\s+property=["\']og:title["\']'),
-        ]
-        _bad238: list[str] = []
-        for _label, _pat in _patterns238:
-            _n = len(re.findall(_pat, _isrc238))
-            if _n != 1:
-                _bad238.append(f"{_label} count={_n} (expected 1)")
-        _ok238 = not _bad238
+        from html.parser import HTMLParser as _HP238
+        from collections import Counter as _C238
+
+        class _Head238(_HP238):
+            def __init__(self):
+                super().__init__()
+                self.count = _C238()
+                self.inert = 0
+
+            def handle_starttag(self, tag, attrs):
+                if tag in ("template", "noscript"):
+                    self.inert += 1
+                    return
+                if self.inert:
+                    return
+                d = {k.lower(): (v or "") for k, v in attrs}
+                if tag == "title":
+                    self.count[("title", "", "")] += 1
+                elif tag == "link" and d.get("rel", "").lower() == "canonical":
+                    self.count[("link", "canonical", "")] += 1
+                elif tag == "meta":
+                    key = d.get("name") or d.get("property") or d.get("http-equiv")
+                    if key:
+                        self.count[("meta", key.lower(), d.get("media", ""))] += 1
+
+            def handle_endtag(self, tag):
+                if tag in ("template", "noscript") and self.inert:
+                    self.inert -= 1
+
+        _hp238 = _Head238()
+        _hp238.feed(_idx238.read_text(encoding="utf-8"))
+        _bad238 = [f"{k[0]} {k[1]}{' media=' + k[2] if k[2] else ''} count={n}"
+                   for k, n in sorted(_hp238.count.items()) if n != 1]
+        _bad238 += [f"{lb} count=0" for lb, k in (("<title>", ("title", "", "")),
+                                                   ('<link rel="canonical">', ("link", "canonical", "")))
+                    if _hp238.count[k] == 0]
         check(
-            _ok238,
-            f"Check 238: HTML head singleton tags 全て exactly 1 件",
-            (f"Check 238: singleton 違反: {_bad238!r} — browser/crawler が非決定的に "
-             "選択し canonical signal が希釈。各 head singleton tag を exactly 1 件へ整理"),
+            not _bad238,
+            f"Check 238: HTML head の singleton ({len(_hp238.count)} 種: title / canonical / 全 meta) が全て exactly 1 件",
+            (f"Check 238: singleton 違反: {_bad238!r} — browser/crawler が非決定的に選択し、"
+             "先頭の 1 本しか読まない Check には 2 本目の食い違いが見えない。各 tag を exactly 1 件へ整理"),
             blocking=True,
         )
     else:
