@@ -587,6 +587,22 @@ impossible to determine whether or not it complies with the OSD"* と**同じ構
    助言の中身は公開されておらず、有利だったかどうかも分からない。確かめられるのは、0BSD が承認のまま一覧に在ることだけである。
    FPL は短い許諾で、献呈も特許も持たないので、助言が ACD の条項に及ぶとは言えない。
 
+**2026-11-07 追記 —— 投票の前日の委員会報告を読んだ。理事会は「使用の要素」を採らずに承認している。**
+Richard Fontana 氏の報告（2015-10-13・`rounds/2015-10-13-license-review-fontana-committee-report-fpl-observed.txt`）:
+
+> *"The license is clearly OSD-conformant. I do not find the policy objections to the Free Public License persuasive"*
+> *"To me, the only reasonable basis of objection is that the license may be too 'immature' for OSI approval."*
+> *"OSI has approved thought-experiment licenses before (e.g. the SimPL) as well as licenses that were not used prior to OSI approval (e.g. the UPL)."*
+> *"Recommendation: Approval, or else OSI to adopt some formal maturity/real-world-use factor for approval considerations such that approval of this license would be deferred"*
+
+提出者は個人で法律家ではなく、ライセンスはまだ使われていなかった。報告はそれを述べたうえで 2 択を示し、理事会は翌日 8 対 0 で承認した。
+**これが ACD に最も近い先例である** —— 個人、非弁護士、未使用、条件なし。重複の問いにも答えがある。Berkus 氏の *"does the FPL offer anything which can not already be accomplished"* に、
+Fontana 氏は *"there doesn't seem to be any proliferation concern with FPL. I think there's no other OSI-approved license like it."* と答えた（`rounds/2015-10-13-license-review-fontana-reply-berkus-fpl-observed.txt`）。
+
+**逆側。** (1) FPL は ISC から 1 条件を除いた短い本文で、ACD は新しい長い本文である。(2) 同じ報告は SimPL について *"I am not sure the present-day OSI would be as happy to approve it"* と述べている。
+(3) 2015 年に採らなかった使用の要素は、2025 年に留め置きの形で入った（§2・§2c）。(4) 重複の答えは 2015 年の FPL には使えたが、0BSD が在る今の ACD に使えるのは特許の 1 点である。
+(5) Berkus 氏が同じ 1 通で挙げた懸念は §16.2 に当たる（#287）。
+
 ### 8.7 我々の 3 大ボトルネックは、2005 年に「3 つの追加テスト」として提案されたものである
 
 **2005-09-12 の議題そのものが *"1. Three New Criteria"* で、中身は

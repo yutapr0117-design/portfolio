@@ -1,0 +1,68 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2015-October.txt
+Retrieved: 2026-11-07
+Date: Tue, 13 Oct 2015 22:24:56 -0400
+From: Richard Fontana
+Subject: [License-review] License Committee Report
+Position: his reply to Josh Berkus on proliferation and legal review of the Free Public License, quoting Berkus. Not addressed to us.
+
+----- begin verbatim -----
+From fontana at sharpeleven.org  Wed Oct 14 02:24:56 2015
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Tue, 13 Oct 2015 22:24:56 -0400
+Subject: [License-review] License Committee Report
+In-Reply-To: <561DAA89.10903@postgresql.org>
+References: <20151013225637.GA5292@sharpeleven.org>
+ <561DAA89.10903@postgresql.org>
+Message-ID: <20151014022456.GB6428@sharpeleven.org>
+
+On Tue, Oct 13, 2015 at 06:06:17PM -0700, Josh Berkus wrote:
+> On 10/13/2015 03:56 PM, Richard Fontana wrote:
+> > Free Public License 1.0.0
+> > =========================
+> 
+> > OSI has approved thought-experiment licenses before (e.g. the SimPL)
+> > as well as licenses that were not used prior to OSI approval (e.g. the
+> > UPL). I am not sure how to distinguish the Free Public License from
+> > the SimPL (though I am not sure the present-day OSI would be as happy
+> > to approve it) or the UPL. Or rather I *do*, but it would somehow be
+> > to point out that Christian Bundy (evidently, judging from his
+> > LinkedIn profile, a web developer who graduated from high school in
+> > 2011) is not a law professor (like Bob Gemulkiewicz) or a former legal
+> > counsel and present or former executive at at a major IT company (like
+> > Gemulkiewicz and Jim Wright).
+> 
+> What about a non-proliferation objection?  That is, does the FPL offer
+> anything which can not already be accomplished with either the SimPL or CC0?
+
+Well, CC0 was withdrawn before it could be formally considered for
+approval, and SimPL doesn't have the features of the FPL (it purports
+to be a GPL-like license and requires notice preservation).
+
+So actually there doesn't seem to be any proliferation concern with
+FPL. I think there's no other OSI-approved license like it. At most
+one could argue that you could achieve what FPL seeks to achieve
+through additional permissions, but that argument would imply that we
+have no need for noncopyleft licenses (for example).
+
+> If you're moving towards approval on this one, then some legal mind
+> needs to review its provisions for applicability.  Specifically, the
+> license claims that its terms apply even when no copy of the license is
+> present, or even if no copy has been present for several generations of
+> copying.
+
+I'm not sure it does claim that. 
+
+> The lawyers on this list who reviewed that provision found it
+> legally dubious, which means that before approval it needs additional
+> legal review.
+
+IAAL FWIW (and may be more skeptical about the value of legal review
+than you are) but I will mention this to the board if FPL is
+discussed.
+
+The same issue is raised by the much-admired CC0, which probably
+(given what I know of Creative Commons) was drafted in close
+consultation with one or more lawyers with particular expertise in
+copyright law.
+
+Richard
