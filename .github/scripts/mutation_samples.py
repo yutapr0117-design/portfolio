@@ -280,91 +280,6 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 490f: 申請する版を、冒頭が提出状況を現在形で述べる版へ向ける —— 申請した瞬間に偽になり、凍結中なので直せない",
-    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": f"<!-- SUBMISSION-TARGET: {SUBMISSION_TARGET} -->",
-    "replace": "<!-- SUBMISSION-TARGET: ACD-1.3 -->",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 468v: 草案の冒頭が最新の凍結版を 1 つ前の版と述べる —— 次の草案を作る日に書き換えを忘れた形",
-    "file": CURRENT_DRAFT,
-    "find": f"is ACD-{PREVIOUS_VER} (LICENSES/ACD-{PREVIOUS_VER}.txt)",
-    "replace": "is ACD-1.1 (LICENSES/ACD-1.1.txt)",
-    "check": CHECK,
-})
-_FILLER472 = " ".join(["padding"] * 120)
-_MUTATIONS_TAIL.append({
-    "name": "Check 472d: \"In one screen\" の前へ 120 語足す —— 節は壊れず、審査者が読む語数だけが閾値を越える",
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "## In one screen\n",
-    "replace": _FILLER472 + "\n\n## In one screen\n",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 472g: \"In one screen\" の節へ 120 語足す —— 位置は変わらず、節だけが黙って伸びる",
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "## Which text you are looking at\n",
-    "replace": _FILLER472 + "\n\n## Which text you are looking at\n",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 472g: \"Status\" の節へ 120 語足す",
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "## The case, and the strongest thing against each part of it\n",
-    "replace": _FILLER472 + "\n\n## The case, and the strongest thing against each part of it\n",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 444k: 画面のフッターだけ適用する版の表示が別の版のまま —— 適用する版を上げる日の戻し忘れ",
-    "file": ROOT / "js" / "components.js",
-    "find": f"'License: {APPLIED_ID}'",
-    "replace": "'License: ACD-1.0'",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 444k: README が適用していない版の本文を案内する —— 適用する版を上げる日の戻し忘れ",
-    "file": ROOT / "README.md",
-    "find": f"[`LICENSES/{APPLIED_ID}.txt`](LICENSES/{APPLIED_ID}.txt)",
-    "replace": "[`LICENSES/ACD-1.1.txt`](LICENSES/ACD-1.1.txt)",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 472h: 入口ページの節数の申告が実物と違う",
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": " lines, 16 sections",
-    "replace": " lines, 15 sections",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 472h: 入口ページの語数の行が提出対象を指さない —— marker を切り替えて入口を直し忘れた形",
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": f"| [`{SUBMISSION_TARGET}.txt`]({SUBMISSION_TARGET}.txt) | **",
-    "replace": "| [`ACD-1.1.txt`](ACD-1.1.txt) | **",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 472h: 検証コマンドの 1 本だけ別の版を見る —— 472c は実行結果しか見ないので通る",
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": f'grep -cE "^[0-9]+\\. [A-Z]" LICENSES/{SUBMISSION_TARGET}.txt',
-    "replace": 'grep -cE "^[0-9]+\\. [A-Z]" LICENSES/ACD-1.1.txt',
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 472h: 質問票の基準の版が適用する版でない",
-    "file": ROOT / "LICENSES" / "QUESTIONS-FOR-COUNSEL.md",
-    "find": f"Clause numbers are those of **{APPLIED_ID}**",
-    "replace": "Clause numbers are those of **ACD-1.1**",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 472h: objection-map の条番号の基準が提出対象でない",
-    "file": ROOT / "LICENSES" / "ACD-1.0.objection-map.md",
-    "find": f"**Numbers.** Clause numbers are those of {SUBMISSION_TARGET},",
-    "replace": "**Numbers.** Clause numbers are those of ACD-1.1,",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
     "name": "Check 472i: 入口の推奨の行から言語の表示を外す —— 英語の審査者が日本語の文書へ黙って送られる (2026-11-06 まで実際にそうだった)",
     "file": ROOT / "LICENSES" / "REVIEWERS.md",
     "find": "| **Mostly Japanese.** Stated by us",
@@ -553,6 +468,31 @@ _MUTATIONS_TAIL.append({
     "replace": "\n\n| 20 | **§16.3 invites anyone",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 495a: CLAUDE.md の上限を実物より下げる —— 全 session が読む file がバイト数の上限を超えた状態",
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": "CLAUDE.md | 170000 | 200000\n.claude",
+    "replace": "CLAUDE.md | 1000 | 2000\n.claude",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 495b: advisory を ceiling より上にする —— 早期警告が鳴らず、いきなり BLOCKING へ飛ぶ",
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": "LICENSES/AS-OF.md | 130000 | 200000",
+    "replace": "LICENSES/AS-OF.md | 210000 | 200000",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 495c: 長い行の大きな file を予算から外す —— その file は行数の上限にも当たらず無制限に伸びる",
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": "LICENSES/ACD-1.0.errata.md | 160000 | 250000\n",
+    "replace": "",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 495d: 1 つの行に 64 KiB を超えて積む —— runbook §9 のセルが 222 KB になった形",
+    "file": ROOT / "docs" / "session-records" / "runbook-check-history.md",
+    "find": "# runbook §9「consistency Check 総数」の行にあった追加の経緯（アーカイブ）",
+    "replace": "# " + "x" * 70000,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
