@@ -20,6 +20,8 @@ CLAUDE.md §7 が *「自動監視は CI に入れない（外部フォーラム
     DOSSIER_ARCHIVE_CACHE=<同上> python3 .github/scripts/verify_dossier_quotations.py --fetch
     # 未確認を全件出す（既定は上位 15 件）:
     DOSSIER_ALL=1 DOSSIER_ARCHIVE_CACHE=<同上> python3 ...
+    # 人名の近傍に限らず、斜体の引用をすべて当てる (語を動かした引用は人名の無い行にもある):
+    DOSSIER_ALL=1 DOSSIER_ARCHIVE_CACHE=<同上> python3 .github/scripts/verify_dossier_quotations.py --all-italics
     # 入口の面の引用を全 corpus に当てて manifest を更新する (Check 472n が読む):
     DOSSIER_ARCHIVE_CACHE=<同上> python3 .github/scripts/verify_dossier_quotations.py --record-entry
     # OSI のサイトの取得物も照合先にする:
@@ -161,14 +163,14 @@ def load_self(root="."):
     return " || ".join(out)
 
 
-def collect_quotes(root="."):
-    """`*"..."*` 形式で、人名の近傍にある英語の逐語引用を集める。"""
+def collect_quotes(root=".", named=True):
+    """`*"..."*` 形式の英語の逐語引用を集める。named は人名の近傍のものに絞る。"""
     quotes = {}
     for path in sorted(glob.glob(f"{root}/LICENSES/*.md")):
         lines = open(path, encoding="utf-8").read().split("\n")
         for n, line in enumerate(lines):
             context = " ".join(lines[max(0, n - 3):n + 3])
-            if not NAME.search(context):
+            if named and not NAME.search(context):
                 continue
             for m in re.finditer(r'\*"([^"]{25,400})"\*', line):
                 # **生のまま集める。** norm() は約物を落とすので、ここで正規化すると
@@ -388,6 +390,8 @@ def near_misses(miss, blob):
             words = norm(seg).split()
             if len(words) < 6 or " ".join(words) in blob:
                 continue
+            if " ".join(words[:5]) not in blob and " ".join(words[-5:]) not in blob:
+                continue
             head = next((k for k in range(len(words) - 1, 4, -1) if " ".join(words[:k]) in blob), 0)
             tail = next((k for k in range(len(words) - 1, 4, -1) if " ".join(words[-k:]) in blob), 0)
             if (head or tail) and (best is None or (head + tail) / len(words) > best[0]):
@@ -402,13 +406,14 @@ def main():
     ap.add_argument("--fetch", action="store_true", help="不足月をアーカイブから取得する")
     ap.add_argument("--root", default=".")
     ap.add_argument("--record-entry", action="store_true", help="入口の引用を全 corpus に当てて manifest を更新する")
+    ap.add_argument("--all-italics", action="store_true", help="人名の近傍に限らず、斜体の引用をすべて当てる")
     args = ap.parse_args()
     if args.record_entry:
         return record_entry(args.root)
 
     if stale_months():
         print(f"⚠ cache に欠けがある: {stale_months()}。その月の発言が未確認に落ちるので足す")
-    quotes = collect_quotes(args.root)
+    quotes = collect_quotes(args.root, named=not args.all_italics)
     blob = load_sources(args.root)
     miss = {q: sorted(v) for q, v in quotes.items() if not present(q, blob)}
     print(f"帰属つき英語の逐語引用: {len(quotes)}")

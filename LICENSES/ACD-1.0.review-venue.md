@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-venue.md
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人
-last-updated: 2026-11-01
+last-updated: 2026-11-07
 canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの審査者の立場) / LICENSES/ACD-1.0.review-corpus.md (アーカイブ全体の測定) / LICENSES/ACD-1.0.against.md
 ---
 
@@ -255,7 +255,7 @@ Endeavor clause. **I wrote that clause.**"* ——ACD-1.0 §4.3 / §10.1 は利�
 |---|---|---|
 | 2026-09-03 `license-review`（OpenMDW）| **終了条項の限定原理** ——OpenMDW-1.1 は著作権・特許・営業秘密・データベース権を付与しながら、**終了の引き金は特許と著作権の訴訟に限られる**。*"That creates an apparent asymmetry between the scope of the grant and the scope of the termination trigger, and I would like to understand whether that asymmetry is deliberate."* | **§10.4** ——ACD は**終了条項を持たない**。非対称が生じる余地そのものが無い |
 | 2026-09-03 `license-review`（ModelGo）| **hosted-only の Distribution で §2.2(a) の条件がどう働くか** ——定義は API / web アクセスを Distribution に含むのに、課される条件は複製の引き渡しを前提にしている | **§6.4 / Computational Use** ——ACD は出力にもモデルにも何も課さないので、この gap が生じない |
-| 2026-09-04 `license-review`（OpenMDW）| **threshold question の切り出し** ——*"whether copyright litigation may legitimately trigger termination"* を、nexus（請求と対象の近さ）と proportionality（結果の広さ）から分けた。**佐渡氏の論点を名指しで受けて発展させ**、Gay 氏・Chestek 氏がこの段落を引いた | **§10.4 + §8.2**（報復条項が無いことは設計であり、§8.2 がそれを明示する）|
+| 2026-09-04 `license-review`（OpenMDW）| **threshold question の切り出し** ——*"whether copyright litigation may legitimately be used as a termination trigger at all"* を、nexus（請求と対象の近さ）と proportionality（結果の広さ）から分けた。**佐渡氏の論点を名指しで受けて発展させ**、Gay 氏・Chestek 氏がこの段落を引いた | **§10.4 + §8.2**（報復条項が無いことは設計であり、§8.2 がそれを明示する）|
 | 2026-09-06 `license-discuss`（ACD-1.0）| **§3 と §4 の 1 点に絞った threshold question。** 2020 年の Unlicense 審査を読んだうえで、*"I do not regard approval of the Unlicense as controlling precedent for ACD-1.0"* と**自分から先例性を退けている** | **B4**（献呈と許諾の並置）——register は「Unlicense が先例」と「legacy ゆえ切り離されうる」の両方を書いているが、**steward が自分で先例扱いを退けている事実を使っていない** |
 | 2026-09-06 `license-discuss`（network copyleft）| **trigger と scope は独立した設計次元である** ——*"the event that triggers reciprocity and the code to which reciprocity applies are separate drafting dimensions"*。CPAL-1.0 を例に挙げた | 同上（終了・報復の設計を語る語彙そのもの）|
 

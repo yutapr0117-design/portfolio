@@ -380,7 +380,7 @@ avoid running into the same problems."*
 > **No, it does not meet the definition of "licence".**
 
 > it's not just about what a court would think, it's just as much about **promising to my (as a
-> distributor) downstreams that the stuff I take from upstream is under a good licence**.
+> distributor) down streams that the stuff I take from upstream is under a good licence**.
 > This one is clearly not good and almost certainly not a licence.
 
 > [「訴えられない」に対し] **Wrong, at least for the part of the world not USA.**
