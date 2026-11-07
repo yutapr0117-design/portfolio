@@ -613,6 +613,7 @@ MUTATIONS_ARCHIVE5 = [
     {
     "name": "Check 444k: README が適用していない版の本文を案内する —— 適用する版を上げる日の戻し忘れ",
     "file": ROOT / "README.md",
+    "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
     "find": f"[`LICENSES/{APPLIED_ID}.txt`](LICENSES/{APPLIED_ID}.txt)",
     "replace": "[`LICENSES/ACD-1.1.txt`](LICENSES/ACD-1.1.txt)",
     "check": CHECK,
@@ -627,6 +628,7 @@ MUTATIONS_ARCHIVE5 = [
     {
     "name": "Check 472h: 入口ページの語数の行が提出対象を指さない —— marker を切り替えて入口を直し忘れた形",
     "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
     "find": f"| [`{SUBMISSION_TARGET}.txt`]({SUBMISSION_TARGET}.txt) | **",
     "replace": "| [`ACD-1.1.txt`](ACD-1.1.txt) | **",
     "check": CHECK,

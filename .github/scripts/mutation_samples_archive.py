@@ -68,6 +68,7 @@ MUTATIONS_ARCHIVE = [
     {
         "name": "Check 111 (e2e no-networkidle): use waitForLoadState('networkidle') in a behavior test",
         "file": ROOT / "e2e" / "aio-meta.spec.js",
+        "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
         "find": "waitForLoadState('domcontentloaded')",
         "replace": "waitForLoadState('networkidle')",
     },
@@ -168,6 +169,7 @@ MUTATIONS_ARCHIVE = [
     {
         "name": "Check 142 (e2e gate toolchain coverage): drop package.json from playwright-regression.yml paths",
         "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
+        "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
         "find": "      - 'package.json'\n      - 'package-lock.json'",
         "replace": "      - 'package-lock.json'",
     },
@@ -372,6 +374,7 @@ MUTATIONS_ARCHIVE = [
     {
         "name": "Check 176 (JSON-LD @id canonical prefix): drift a #person @id to sibling project",
         "file": ROOT / "index.html",
+        "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
         "find": '"@id": "https://yutapr0117-design.github.io/portfolio/#person",',
         "replace": '"@id": "https://yutapr0117-design.github.io/portfolio-PROBE-DRIFT/#person",',
     },
@@ -414,6 +417,7 @@ MUTATIONS_ARCHIVE = [
     {
         "name": "Check 183 (sitemap lastmod ISO-8601): drift first lastmod to locale format",
         "file": ROOT / "sitemap.xml",
+        "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
         "find": "<lastmod>2026-05-31</lastmod>",
         "replace": "<lastmod>2026/05/31</lastmod>",
     },
@@ -542,12 +546,14 @@ MUTATIONS_ARCHIVE = [
     {
         "name": "Check 205 (JSON-LD url HTTPS): downgrade a Zenn url to http",
         "file": ROOT / "index.html",
+        "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
         "find": '"url": "https://zenn.dev/yuta_yokoi/articles/5d1d7a7438d48d"',
         "replace": '"url": "http://zenn.dev/yuta_yokoi/articles/5d1d7a7438d48d"',
     },
     {
         "name": "Check 206 (JSON-LD @id HTTPS): downgrade hero-image @id to http",
         "file": ROOT / "index.html",
+        "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
         "find": '"@id": "https://yutapr0117-design.github.io/portfolio/#hero-image"',
         "replace": '"@id": "http://yutapr0117-design.github.io/portfolio/#hero-image"',
     },
@@ -578,6 +584,7 @@ MUTATIONS_ARCHIVE = [
     {
         "name": "Check 211 (JSON-LD contentUrl canonical prefix): drift contentUrl to external CDN",
         "file": ROOT / "index.html",
+        "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
         "find": '"contentUrl": "https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp"',
         "replace": '"contentUrl": "https://cdn.probe-drift.example/yuta-yokoi-ai-pm-orchestration-system.webp"',
     },
@@ -620,6 +627,7 @@ MUTATIONS_ARCHIVE = [
     {
         "name": "Check 218 (datePublished <= dateModified): drift datePublished after dateModified",
         "file": ROOT / "index.html",
+        "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
         "find": '"datePublished": "2026-01-01",\n                  "dateModified": "2026-05-24"',
         "replace": '"datePublished": "2026-09-01",\n                  "dateModified": "2026-05-24"',
     },
@@ -681,6 +689,7 @@ MUTATIONS_ARCHIVE = [
     {
         "name": "Check 228 (sitemap changefreq spec-valid): drift weekly to typo weakly",
         "file": ROOT / "sitemap.xml",
+        "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
         "find": "<changefreq>weekly</changefreq>",
         "replace": "<changefreq>weakly</changefreq>",
     },
@@ -693,6 +702,7 @@ MUTATIONS_ARCHIVE = [
     {
         "name": "Check 230 (sitemap exactly 1 priority=1.0 == canonical): duplicate 1.0 on a 0.9 entry",
         "file": ROOT / "sitemap.xml",
+        "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
         "find": "<priority>0.9</priority>",
         "replace": "<priority>1.0</priority>",
     },
@@ -765,6 +775,7 @@ MUTATIONS_ARCHIVE = [
     {
         "name": "Check 242 (inline handler allowlist): drift onload to non-allowlisted alert",
         "file": ROOT / "index.html",
+        "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
         "find": "media=\"print\" onload=\"this.media='all'\"",
         "replace": "media=\"print\" onload=\"alert(1)\"",
     },
@@ -837,6 +848,7 @@ MUTATIONS_ARCHIVE = [
     {
         "name": "Check 254 (.well-known/index.json digest format): drift digest to malformed length",
         "file": ROOT / ".well-known" / "index.json",
+        "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
         # [FIX 2026-08-23] digest の**値そのもの**を掴んでいたため、AIO 層を編集して digest を
         #   再生成するたび orphan 化した (本日 4 件目の同 class)。不変な接頭辞だけを掴む。
         #   `sha-256:` を `sha256:` に潰すと Check 254 の形式検証が同じように RED になる。
@@ -930,17 +942,5 @@ MUTATIONS_ARCHIVE = [
         "file": ROOT / "index.html",
         "find": '"headline": "AI-Driven PM Portfolio — PM-led AI Orchestration Experiment by Yuta Yokoi (横井雄太)",',
         "replace": '"headline": "x",',
-    },
-    {
-        "name": "Check 269 (binary asset byte budget): tighten hero.webp budget to 1 byte (simulates over-budget)",
-        "file": ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # Check 269 は checks_shipped_static.py へ抽出済 (split Phase 33)
-        "find": '(_HERO_WEBP269, 200_000, "hero.webp"),',
-        "replace": '(_HERO_WEBP269, 1, "hero.webp"),',
-    },
-    {
-        "name": "Check 270 (text asset byte budget): tighten style.css budget to 1 byte (simulates over-budget)",
-        "file": ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # Check 270 は checks_shipped_static.py へ抽出済 (split Phase 33)
-        "find": '(ROOT / "style.css", 100_000, "style.css"),',
-        "replace": '(ROOT / "style.css", 1, "style.css"),',
     },
 ]

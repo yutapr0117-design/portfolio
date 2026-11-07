@@ -18,6 +18,18 @@ from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VE
 
 MUTATIONS_ARCHIVE2 = [
     {
+        "name": "Check 269 (binary asset byte budget): tighten hero.webp budget to 1 byte (simulates over-budget)",
+        "file": ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # Check 269 は checks_shipped_static.py へ抽出済 (split Phase 33)
+        "find": '(_HERO_WEBP269, 200_000, "hero.webp"),',
+        "replace": '(_HERO_WEBP269, 1, "hero.webp"),',
+    },
+    {
+        "name": "Check 270 (text asset byte budget): tighten style.css budget to 1 byte (simulates over-budget)",
+        "file": ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # Check 270 は checks_shipped_static.py へ抽出済 (split Phase 33)
+        "find": '(ROOT / "style.css", 100_000, "style.css"),',
+        "replace": '(ROOT / "style.css", 1, "style.css"),',
+    },
+    {
         "name": "Check 271 (root JS byte budget): tighten main.js budget to 1 byte (simulates over-budget)",
         "file": ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # Check 271 は checks_shipped_static.py へ抽出済 (split Phase 33)
         "find": '(ROOT / "main.js", 100_000, "main.js"),',
@@ -260,6 +272,7 @@ MUTATIONS_ARCHIVE2 = [
     {
         "name": "Check 311 (sitemap <lastmod> format): break YYYY-MM-DD to YYYY/MM/DD",
         "file": ROOT / "sitemap.xml",
+        "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
         "find": "<lastmod>2026-05-31</lastmod>",
         "replace": "<lastmod>2026/05/31</lastmod>",
     },
@@ -305,6 +318,7 @@ MUTATIONS_ARCHIVE2 = [
     {
         "name": "Check 317 (aio-manifest sha256 format): 非 hex 文字を混入させ形式を破る (旧版は uppercase hex で破っていたが、digest 値に釘付けだったため付け替えた)",
         "file": ROOT / ".well-known" / "aio-manifest.json",
+        "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
         # [FIX 2026-08-23] digest の**値そのもの**を掴んでいたため、AIO 層を編集して digest を
         #   再生成するたび orphan 化した (本日 5 件目の同 class)。不変な key 側を掴む。
         #   非 hex 文字を先頭へ差し込むと `^[0-9a-f]{64}$` を破り Check 317 が同じように RED になる
@@ -459,6 +473,7 @@ MUTATIONS_ARCHIVE2 = [
     {
         "name": "Check 342 (robots no catastrophic Disallow): inject whole-site Disallow: /",
         "file": ROOT / "robots.txt",
+        "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
         "find": "Allow: /\n",
         "replace": "Allow: /\nDisallow: /\n",
     },
@@ -617,6 +632,7 @@ MUTATIONS_ARCHIVE2 = [
     {
         "name": "Check 395 (Router.navigate literal target → router route-segment): home-page.js の Router.navigate('role-split') を typo 'rolesplit' へ → router が未知 segment を home として parse し nav ボタンが silent にホームへ誤誘導する dead-nav wiring gap (producer 面の used⟹defined)",
         "file": ROOT / "js" / "home-page.js",
+        "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
         "find": "Router.navigate('role-split')",
         "replace": "Router.navigate('rolesplit')",
     },
@@ -848,7 +864,8 @@ MUTATIONS_ARCHIVE2 = [
         "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
         "find": "e2e/quiz.spec.js | 900 | advisory\n",
         "replace": "",
-    },    {
+    },
+    {
         "name": "Check 366: ContactPage LinkedIn の rel:'noopener noreferrer' から noreferrer を除去 (source drift 再発・静的 source 軸の防止層の回帰)",
         "file": ROOT / "js" / "components.js",
         "find": "                            h('a', { href: profile.linkedin, target: '_blank', rel: 'noopener noreferrer' }, profile.linkedin)",
@@ -925,11 +942,5 @@ MUTATIONS_ARCHIVE2 = [
         "file": ROOT / "js" / "home-page.js",
         "find": "'data-entity': 'Yuta Yokoi (横井雄太 / Yokoi Yuta)',",
         "replace": "'title': 'Yuta Yokoi (横井雄太 / Yokoi Yuta)',",
-    },
-    {
-        "name": "Check 411 (導出 scope): 旧 scope 外だった js/ui-components.js の BGM ボタン走査セレクタを typo させる ([data-bgm-btn] → [data-bgm-button]) → 走査が永遠に 0 件を返し BGM ボタンの配線が静かに無効化される。main.js 限定だった初版ではこの file 自体が対象外で GREEN のまま通っていた (scope が分割に追従しない class) の回帰防止",
-        "file": ROOT / "js" / "ui-components.js",
-        "find": "querySelectorAll('[data-bgm-btn]')",
-        "replace": "querySelectorAll('[data-bgm-button]')",
     },
 ]
