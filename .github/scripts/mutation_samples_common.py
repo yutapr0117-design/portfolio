@@ -26,10 +26,14 @@ CURRENT_DRAFT = _current_draft()
 _m = re.match(r"ACD-(\d+)\.(\d+)-DRAFT\.txt$", CURRENT_DRAFT.name)
 CURRENT_DRAFT_VER = f"{_m.group(1)}.{_m.group(2)}" if _m else "0.0"
 PREVIOUS_VER = f"{_m.group(1)}.{int(_m.group(2)) - 1}" if _m and int(_m.group(2)) > 0 else "0.0"
+FROZEN_PREVIOUS = ROOT / "LICENSES" / f"ACD-{PREVIOUS_VER}.txt"
 
 # LICENSE が宣言する適用中の版。適用する版を上げる日に mutation が的を外さないよう導出する。
 _ml = re.search(r"^SPDX-License-Identifier: (ACD-\d+\.\d+)$", (ROOT / "LICENSE").read_text(encoding="utf-8"), re.M)
 APPLIED_ID = _ml.group(1) if _ml else "ACD-UNRESOLVED"
+_pd = ROOT / "LICENSES" / f"{APPLIED_ID}-DRAFT.txt"
+_mp = re.search(r"frozen on (\d{4}-\d{2}-\d{2})", " ".join(_pd.read_text(encoding="utf-8").split())) if _pd.exists() else None
+APPLIED_DATE = _mp.group(1) if _mp else "UNRESOLVED"
 
 # 提出対象の版 (submission.md の marker)。marker を切り替える日に mutation が的を外さないよう導出する。
 _mt = re.search(r"<!-- SUBMISSION-TARGET: (ACD-\d+\.\d+) -->", (ROOT / "LICENSES" / "ACD-1.0.submission.md").read_text(encoding="utf-8"))

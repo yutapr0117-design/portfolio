@@ -26,7 +26,7 @@ if sys.version_info < (3, 10):
     print("ERROR: mutation_samples.py requires Python 3.10+ (got %d.%d)" % sys.version_info[:2])
     sys.exit(1)
 
-from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK, APPLIED_ID, SUBMISSION_TARGET  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK, APPLIED_ID, APPLIED_DATE, SUBMISSION_TARGET, FROZEN_PREVIOUS  # noqa: F401 (entry 内で参照)
 from mutation_samples_archive import MUTATIONS_ARCHIVE
 from mutation_samples_archive5 import MUTATIONS_ARCHIVE5
 from mutation_samples_archive4 import MUTATIONS_ARCHIVE4
@@ -279,42 +279,6 @@ _MUTATIONS_TAIL = [
 
 
 
-_FROZEN490 = ROOT / "LICENSES" / f"ACD-{PREVIOUS_VER}.txt"
-_MUTATIONS_TAIL.append({
-    "name": "Check 490a: 確定本文の 1 行目が別の版を名乗る —— 前の版の冒頭を書き写して版を直し忘れた形",
-    "file": _FROZEN490,
-    "find": f"ACD-{PREVIOUS_VER} -- FROZEN TEXT.",
-    "replace": "ACD-0.9 -- FROZEN TEXT.",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 490b: 確定本文の題名が別の版のまま —— 468j は草案しか見ない",
-    "file": _FROZEN490,
-    "find": f"                              Version {PREVIOUS_VER}\n",
-    "replace": "                              Version 0.9\n",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 490c: 確定本文の末尾が欠ける —— 2026-11-06 の予行で最後の節を落としても全部緑だった",
-    "file": _FROZEN490,
-    "find": "END OF TERMS",
-    "replace": "END OF TEXT",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 490d: 確定本文の冒頭の語数の申告が実測と違う —— 前の版の冒頭の数を持ち越した形",
-    "file": _FROZEN490,
-    "find": "This version: ",
-    "replace": "This version: 1",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 490e: 確定本文の冒頭が別の版の CHANGELIST を指す",
-    "file": _FROZEN490,
-    "find": f"LICENSES/ACD-{PREVIOUS_VER}-CHANGELIST.md",
-    "replace": "LICENSES/ACD-0.9-CHANGELIST.md",
-    "check": CHECK,
-})
 _MUTATIONS_TAIL.append({
     "name": "Check 490f: 申請する版を、冒頭が提出状況を現在形で述べる版へ向ける —— 申請した瞬間に偽になり、凍結中なので直せない",
     "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
@@ -559,6 +523,20 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
     "find": "Start at https://github.com/yutapr0117-design/portfolio/blob/main/LICENSES/REVIEWERS.md.",
     "replace": "Start at `LICENSES/REVIEWERS.md`.",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 444 (444l): 適用する版の隣の日付が確定した日と違う —— 版だけ置換すると公開面が偽の日付を述べる (2026-11-07 の予行)",
+    "file": ROOT / "README.md",
+    "find": f"frozen successor {APPLIED_ID} since {APPLIED_DATE}",
+    "replace": f"frozen successor {APPLIED_ID} since 2020-01-01",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 444m: 入口が適用していない版を「適用している」と述べる —— 確定の道具は機械の面しか直さない",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": f"({APPLIED_ID} is the one this repository applies)",
+    "replace": "(ACD-1.1 is the one this repository applies)",
     "check": CHECK,
 })
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
