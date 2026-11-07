@@ -182,8 +182,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       recipient may never have seen it. (+7 words.)
     * Section 5.1 now reaches a claim "for" a permitted use, where it said
       "arising from or relating to", and excepts trademark rights, rights in
-      a name, and a representation Section 11.3 describes. Section 5.2(d)
-      excepts that representation too. (+19 words.)
+      a name, and a false statement (Section 11.3). Section 5.2(d) excepts a
+      false statement too. (+20 words.)
     * Sections 8.1 and 8.4 now make the acts the object of the licence, and
       Section 8.3 speaks of the claims "as to the acts they describe", so
       that a person who never uses the Work holds nothing under a claim the
@@ -198,7 +198,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       passes to others, and a contributor sees the notice. (+3 words.)
     * Section 8.6 no longer explains the three footings, which the Preamble
       states. (-33 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5437 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5438 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -449,8 +449,8 @@ PREAMBLE (informative; not part of the operative terms)
        claim or cause of action, whether now known or unknown, for a use of the
        Work that this Dedication permits, other than for patent infringement
        (Section 8), under trademark rights or rights in a name (Section 11.1),
-       for a representation Section 11.3 describes, or for a payment You agreed
-       to make.
+       for a false statement (Section 11.3), or for a payment You agreed to
+       make.
 
   5.2  The Dedicator further covenants that the Dedicator will not, in respect
        of the Work:
@@ -471,8 +471,8 @@ PREAMBLE (informative; not part of the operative terms)
        (d)  assert, or authorise or assist any other person to assert,
             against You a right of privacy, publicity, or personality held by
             the Dedicator, in respect of any use of the Work that this
-            Dedication permits, other than a representation Section 11.3
-            describes. This is a covenant about the Dedicator's own conduct
+            Dedication permits, other than for a false statement (Section
+            11.3). This is a covenant about the Dedicator's own conduct
             and not a grant: Section 11.4 is unaffected, and rights of this
             kind held by any other person are untouched.
 
