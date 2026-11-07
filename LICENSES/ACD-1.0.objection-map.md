@@ -64,6 +64,7 @@ Older, or not from the lists, but each one goes to whether ACD can be approved.
 | *"**widespread** need for many different FOSS communities"* and *"wholly unserved by all existing FOSS licenses"* | Bradley M. Kuhn, 2022-12-23 | **A two-part test for a vanity licence.** The census answers the second part. One adopter does not answer the first | #255 |
 | *"it is an active disservice to the programmers of the world"*, *"please get a lawyer to write a license for you"* | Bruce Perens, 2019-05-28 | **§16.3 invites anyone to adopt ACD**, and the harm he names falls on adopters. Disclosure does not remove that | #262 |
 | *"There are reasons beyond OSD conformance why we might not want to approve the license."* | Russ Nelson, OSI President, 2009-02-17 | **Conformance is a floor.** Meeting every listed criterion does not oblige approval | #263 |
+| *"A patent license is antithetical to a public domain declaration."*, and *"to whom would any waiver of patent rights apply then?"* | Russ Nelson and Karl Fogel, `license-review` 2012-02-18, on CC0 | **The form ACD takes.** §8.1 goes straight from the Dedicator to You, depends on no copyright licence (§2.4), and does not travel with a copy or a notice (§2.3, §10.2). It reaches what is derived from the Work, not what someone reinvents. No review has tested this form | #288 / §1.138 |
 | *"I almost feel like you wrote three different licenses here and combined them into one."* | Richard Fontana, 2014-04-13 | **§3, §4 and §5 say the same thing three ways by design.** Three such pairs did disagree (E42 to E44); the 1.4 draft closes them | #280 |
 
 ### Objections that do not land (checked against the text)
@@ -99,4 +100,4 @@ out because we cannot have it, not because leaving it out is better** (register 
    date, OSI has not used the number of projects adopting a license as a factor"* (Jam rationale, 2021-09-12).
 3. **It is not exhaustive.** The windows we read are listed in `PEER-REVIEW-WATCH.md` §3.9.
 4. **Nothing updates this page automatically.** An entry added to `ACD-1.0.against.md` does not reach
-   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #287.
+   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #289.

@@ -345,6 +345,28 @@ Mulan の不承認（2023-09）の 1 年後、OSI の事務局長が `license-re
 - **同じスレッドの Berkus 氏は、審査はこれまで著作権の枠内だったと述べ**、学ぶ必要があると書いた。Maffulli 氏は *"limp along, mess up and be ready to iterate quickly"* と述べている。審査の費用は高い。
 - **佐渡氏は同じスレッドで、データのライセンスには人格権・パブリシティ権・プライバシー権を行使させない確保が要ると述べた。** ACD §11.4 はパブリシティとプライバシーを許諾しない。§12 が答えるのは人格権までである。
 
+### 2h. 2019 年の通知 —— 承認の文は動いている。いまの文は合意の手続きである（2026-11-07 に読んだ）
+
+**理事会は 2019-05-24 に両リストへ通知を出した**（署名は委員長の Chestek 氏。Phipps 氏 *"authored collectively by the Board and is our shared view"*）。スレッド *"Evolving the License Review process for OSI"* は両リスト合わせて 126 通で、ドシエは一度も読んでいなかった。原文は `rounds/2019-05-license-lists-review-process-cited-observed-*`。
+
+**(1) 承認の文は 2 度動いている。**
+
+| 時点 | 文 |
+|---|---|
+| 2019-05 より前 | *"Approve, if (a) there is sufficient consensus emerging from community discussion that approval is justified, and (b) the OSI determines that the license conforms to the Open Source Definition and guarantees software freedom."* |
+| 2019-05-24 | *"Approve if, after taking into consideration community discussion, the OSI determines that the license conforms to the Open Source Definition and guarantees software freedom."* |
+| いまの process ページ | *"license approval is a consensus process"*。委員会は *"whether there is consensus on approving or rejecting the license"* を見る |
+
+**2019 年の文を現行として引かないこと。** Fontana 氏の *"OSI has a responsibility to determine whether a license meets the OSD and provides software freedom regardless of what direction the l-r discussion is going in."*（2019-05-22）も当時の個人の見解である。いまの文は合意を求めるので、議論が起きないと決定へ進まない。B14 が手続きの不便で済まない理由はここにある。
+
+**(2) 裁量の文には由来がある。** Phipps 氏 2019-06-01: *"We added the statement you so vigorously oppose when it became apparent that there were submitters who wanted to game the OSD"*、*"to explain the discretion OSI always has, and always will, choose to exercise when novel devices are unveiled."* Chestek 氏は同じ日、OSD は *"can be gamed to do exactly the opposite of what the goals and purposes of open source software are"* と述べた。`against.md` #130 の天井はここから来ている。向けられた先は、OSD の字句を満たしながら自由を狭める提出で、ACD は何も狭めない。**⚠ 逆側: 裁量の範囲は限定されていない。ACD は *"novel devices"* にあたり、自由を狭めないことは裁量の外に出る理由にならない。**
+
+**(3) 同じ人が理由を書くと述べた。** Chestek 氏 2019-06-01: *"I am strongly opposed to any "because we say so" standard of license approval."*、*"I expect to be providing a rationale document about the OSI's decisions on license approval."* 2019 年以降の理由書（§2d・§2e）の出発点である。個人の資格の発言で、規則ではない。
+
+**(4) 決定に至る提出は多くない。** Fontana 氏 2019-05-26: *"Of the licenses formally and informally submitted for approval, most never make it to a board decision."*、*"the licenses that tend to make it to a board decision are relatively uninteresting (from a commercial/community perspective) and non-controversial"*。BSD+Patent が通った理由も *"takes noncontroversial, widely used language"* と述べる。**⚠ ACD の本文は広く使われた文を借りていない。** 借用しないことは他所で有利に数えたが、ここでは逆に働く。
+
+**(5) 通知のうち、いまのページに無い文がある。** 通知は *"discussion of substantive issues off-list is not recommended"* と述べ、提出者が off-list の問いに答えるときは *"encouraged to copy the license-review list also on their response after redacting the identity of the person sending the communication"* と勧めた。公開の場での開発も勧めている（*"We recommend that you carry out your license development process on a publicly viewable venue (preferably one where collaboration is also possible) and regularly seek views on license-discuss."*）。ACD の開発はこの形である。いまのページに残るのは *"we also encourage license submitters to ask for advice on the license-discuss list before formally submitting a license"* までで、どちらの文も現行の規則としては引けない。ただし委員会が見るのはリストなので、off-list で答えた内容は、提出の本文で述べ直さないと委員会の記録に入らない。
+
 ## 3. 🔴 その区別は、14 か月経っても公表されていない
 
 同じ議事録の次の文はこう続く:

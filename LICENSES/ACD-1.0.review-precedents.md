@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-precedents.md
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人
-last-updated: 2026-11-01
+last-updated: 2026-11-07
 canonical-ref: LICENSES/ACD-1.0.comparison.md (条項レベルの比較はこちら) / LICENSES/PEER-REVIEW-WATCH.md (手続きの観測) / LICENSES/AS-OF.md (日付つきの外部事実)
 ---
 
@@ -783,3 +783,97 @@ but rather are proprietary by default**"*（Berne 以降、著作権は創作と
 **当たらない、または既知のもの**: Anonymous Hero（2008・作者の表示を**禁じる**ライセンス。Nelson 氏 *"A license that binds users? I don't think that will fly."* —— ACD は表示を求めも禁じもしない §10.2）/ Chicken Dance（2011・冗談の提出）/ Public Software License（2014・MIT / PostgreSQL に近い寛容型。Berkus 氏が「既存の MIT / BSD で足りない理由」を求め、Villa 氏が法的レビューと proliferation 分類の申告を求めた —— どちらも既知の論点で、`against.md` #84 と register B1 が扱う）/ Forget Me Not（2012・このアーカイブには提出文しか無く、決める側の発言が無い。§1.131 の 2015 年の「未決定 11 件」に含まれる）。
 
 **この節が establish しないこと**: (2) は承認の見込みではない。2008 年の会長が「同じ構造を思いつく」ことは、その構造が審査を通ることを意味しない。
+
+---
+
+## 1.138 CC0 の審査を本体から読んだ —— 反対は特許に集まり、放棄と許諾の構造は争点にならなかった（2026-11-07）
+
+**ACD に最も近い先例の本体を、ドシエは読んでいなかった。** 2012 年の 4 本である ——
+*"Submitting CC0 for OSI approval"*（103 通）/ *"CC withdrawl of CC0 from OSI process"*（44 通）/
+*"Request for consultation with CC on patent issue"*（30 通）/ *"Non-binding straw poll: Do you think CC0 should be approved?"*（25 通）。
+1 本目から引いていたのは Perens 氏の 1 か所だけだった（8 語連鎖で照合した。他の一致は CC0 の条文と法律の文面である）。引用が 1 行でもあるスレッドは未読の集計に出ないので、
+#233 の測定はこれを拾わなかった。原文は `rounds/2012-01-to-04-license-review-cc0-cited-observed-*`
+（引用した 27 通）と `rounds/2012-03-license-review-cc0-straw-poll-observed-*`（意向調査の全 25 通）に置いた。
+
+### 意向調査の結果
+
+理事会へ License Committee の結果を報告した Karl Fogel 氏が、Creative Commons の撤回のあと 2012-03-02 に取った。
+*"the approval process is not a matter of majority vote"* と断ったうえで、
+*"the 4a objection (or any other problem)"* が却下に足りるかを問うている。手で数えた結果は次のとおり。
+
+| 票 | 人数 | 誰か |
+|---|---|---|
+| −1 | **13** | Perens / Ingo / Piana / Sherrill / Swiger（*"for now"*）/ Fontana / Wielaard / Evans / Berkus / DiBona / Markham / Zumbrunn / Scott |
+| +1 | **8** | Cowan / Tzeng / Glaser / Rosen / Perrin / Wilson / Terekhov / Boettiger |
+| 条件つき | **1** | Nelson（*"+1 or -1 if we also deprecate any license without an explicit patent grant"*）|
+
+残る 3 通は Fogel 氏の 2 通と Swiger 氏の返信で、票ではない。
+
+**−1 の 13 人は全員、理由に特許か clause 4a を含めている。放棄と許諾の構造を理由にした人はいない。**
+Ingo 氏は *"it seems likely that this is the only problem and there are no others"* と述べ、
+Swiger 氏は −1 のまま *"The CC0 is OSD-compliant."* と書いた。Perens 氏だけ別の理由も足しており、
+それは構造ではなく目的である（*"not primarily intended for software, but for scientific data"*）。
+Fogel 氏は +1 の暗黙の理由を *"that the license fallback portion of CC0 is OSD-compatible"* と書いた ——
+評価の対象は許諾の部分だった。ACD ではそれが §4 にあたる。
+
+**2 人は要件を逆向きに述べている。** Markham 氏 *"any newly-approved open source license needs a patent grant"*、
+DiBona 氏 *"I don't think that any new licenses should be approved unless they include patent clauses"*
+（議事録が引いた文である）。
+
+### 最初の反応と、異議を出した本人の回想
+
+初日の反応は *"CC0 is an open-and-shut open source license."*（Cowan 氏）、
+*"Clearly an open source license."*（Nelson 氏）、fallback と免責の条を
+*"a competently written and valid permissive licence"* と呼んだ Moen 氏である。
+Fontana 氏の最初の問いも *"I'm not suggesting that CC0 does not meet the OSI definition"* から始まる。
+Fogel 氏は撤回のあと *"I too thought it was basically an open and shut case"* と振り返り、
+*"the discussion has *not* revealed with certainty that CC0 is not approvable."* と書いた。
+Phipps 氏は *"I would rather see CC0 as it stands now approved so that OSI's list includes a public domain dedication."* と述べている。
+
+Fontana 氏は 2019 年に経緯を語った（`rounds/2019-05-license-discuss-cc0-retrospective-observed.txt`）。
+*"I do seem to recall being the person who called attention to the patent language."*、
+*"I was not troubled by the idea of approval of CC0 as such."*、そして
+*"I suspect OSI would have approved CC0 if, er, someone hadn't inconveniently brought up the whole patent issue."*
+
+### 「dedication」という名前について
+
+Fogel 氏 2012-01-02（提出の前）: *"The fact that one is called a "license" and the other is called a "dedication" does not lessen their essential similarity: they are promises that certain monopoly powers will not be enforced.  Those sorts of promises are what the OSI evaluates and sometimes approves."*
+続けて *"We could decide, for other reasons, not to evaluate any PD dedications.  I just don't think we should decide that on the basis of nominalism."* と述べる。
+**B6（名称）と #112 への、決める側に近い発言である。**
+
+### 同じ審査が、ACD の形へ向けた問い
+
+特許の除外を外して特許を明示的に含める形は、このとき実際に論じられた。
+Evans 氏 *"a CC00 or CIP0 public domain dedication that additionally includes patent right abandonment as well?"*。
+これに Fogel 氏と Nelson 氏が問いを返している。**ACD が答えるべき問いの一覧であり、1 問ずつ条へ当てた。**
+
+| 問い | ACD の答え（1.4 草案） |
+|---|---|
+| Fogel 氏 *"would it just be about abanding patent rights for the code as released by the original licensor, or would it mean abandoning patent rights on derivative works?"* | 両方である。§8.1 は *"anything derived from the Work"* に及び、侵害の原因が Work に含まれる内容である場合に限る |
+| Nelson 氏 *"What about people who have made slight changes to the code? Is it still "this code"?"* | 同じ。変更の大小ではなく、侵害の原因が元の内容かどうかで決まる。足された内容には及ばない |
+| Nelson 氏 *"What about somebody who has made sufficient changes to the public domain code to be able to claim a copyright. Does the patent waiver still apply to them?"* | 同じ。§8.1 の基準は著作権の有無を見ない |
+| Nelson 氏 *"What about people who reinvented that algorithm and are infringing the patent?"* | 及ばない。独立に作ったものは *"derived from the Work"* ではない |
+| Nelson 氏 *"What about somebody who got a copy of the public domain code without the license. Does the patent waiver still apply to them even though they don't have or need the license to which it is tied?"* / Fogel 氏 *"to whom would any waiver of patent rights apply then?"* | 及ぶ。§8.1 は鎖を伝わらず、Dedicator から「You」へ直接与えられる。§2.3 は受諾の行為を要せず、§10.2 は本文の保持を求めない（`review-responses-clauses.md` の *chain of custody* の問答）。**費用は残る**: 由来を示す手がかりが写しに残らないことがある。§1.6 の *"exercising permissions"* が Dedication を知らない者を含むかは、本文の語からは読むしかない |
+| Nelson 氏 *"With no copyright license, there is no patent license."* | §8.1 は著作権の許諾に依存しない（§2.4）。Dedicator が保持する特許を、それ自体として許諾している |
+| Perens 氏 *"either an abandonment of rights OR acquiescence, but not both"* | §4.4 と §2.4。許諾は放棄の代替ではなく、並行して働く（`comparison.md` §1.4）|
+| Perens 氏 *"I am not as concerned about the n-1 people who can still sue a developer over patents as I am about the successors to the party that uses the CC0 dedication."* | §2.8 は承継人と特許の譲受人を拘束する |
+| Perens 氏 *"a party that has licensed a patent and dedicates the software exercising that patent is obligated to help the licensee of the patent to prosecute the party using the software"* | §8.6 は他者の主張を *"authorise or assist"* しないと約束する。ただし §8.5 が及ぶのは Dedicator が持つか支配する請求項までで、既に他者へ渡した分には届かない |
+
+### 逆側
+
+- **票は −1 が多い。** 13 対 8 で、委員会の報告は *"Recommend disapprove"* だった。Phipps 氏の *"a majority view supporting CC0"* と Tzeng 氏の *"the list was in favor of approval"* は、この集計と一致しない。「リストは賛成だった」とは書けない。
+- **ACD の形そのものへの反対が記録にある。** Nelson 氏 *"A patent license is antithetical to a public domain declaration."*、*"Am pretty sure that tying a patent license to a public domain declaration is not a good solution."*（`against.md` #288）。Fogel 氏も *"It gets messy really quickly :-)."* と述べた。
+- **構造が争点にならなかったのは、特許が先に当たったからかもしれない。** Ingo 氏も *"didn't try hard to find more problems"* と断っている。特許の除外を除いた CC0 を審査した人はいない。Scott 氏は放棄の部分を *"statement of forbearance"* と呼び、それだけでは足りないと読む。ACD では §3 ではなく §4 がこれに答える。
+- **求められた形は短かった。** Evans 氏は *"a 10-15 line "MIT" style copyright *and* patent public domain dedication"* を求め、CC0 すら *"simply too long"* と書いた。ACD はそれより長い（B3）。
+- **法律家の支えが前提とされていた。** Phipps 氏 *"this will only happen if someone who does write licenses thinks it through with support from legal professionals and then submits it for approval."* ACD にはそれが無い（B1）。
+- **Fontana 氏の回想は本人の推測である。** *"I suspect"* であり *"I have not reviewed the thread"* と断っている。同じ回想は、CC0 の承認が OSI の見解と *"inconsistent"* だったとも述べる。
+- **FAQ の該当文は争われている。** 書いたのは Fogel 氏で（2012-04-03 *"I hope I've reflected the general consensus of the License Review committee accurately"*）、Fontana 氏は 2019 年に *"may not fully reflect the current view of the OSI board"* と述べ、Tzeng 氏は *"a significant overstatement"* と呼んだ。原因の根拠としては、議事録と撤回文の方が強い。
+- **どれも 14 年前の発言で、OSI を拘束しない。**
+
+### 需要の記録
+
+Evans 氏 2012-02-25: *"an instrument that is succinct, covers patents as well as copyrights, is both a dedication and fallback doesn't exist.  If it is created, I'd imagine many people will "cut over"."* 1 人の見込みであり、採用の証拠ではない。そのあと Unlicense と 0BSD が承認されたが、どちらも特許を明示していない。
+
+### この節が establish すること、しないこと
+
+**言えること**: 最も近い先例で、記録に残る反対は特許に集まっていた。ACD はそこを明示的な許諾へ置き換えている。**言えないこと**: 特許を足せば通る、とは言えない。同じ形を審査した記録は無い。
