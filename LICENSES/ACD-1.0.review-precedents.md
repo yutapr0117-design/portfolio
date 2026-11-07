@@ -872,7 +872,7 @@ Evans 氏 *"a CC00 or CIP0 public domain dedication that additionally includes p
 
 ### 需要の記録
 
-Evans 氏 2012-02-25: *"an instrument that is succinct, covers patents as well as copyrights, is both a dedication and fallback doesn't exist.  If it is created, I'd imagine many people will "cut over"."* 1 人の見込みであり、採用の証拠ではない。そのあと Unlicense と 0BSD が承認されたが、どちらも特許を明示していない。
+Evans 氏 2012-02-25: *"an instrument that is succinct, covers patents as well as copyrights, is both a dedication and fallback doesn't exist.  If it is created, I'd imagine many people will "cut over"."* 1 人の見込みであり、採用の証拠ではない。同じ通で挙げた 5 条件のうち（短い / 特許まで / 仮名で使える / 謝辞を許す / 免責）、ACD は短さ以外の 4 つを持つ（§8 / §1.4 / §11.2 / §13・§14）。そのあと Unlicense と 0BSD が承認されたが、どちらも特許を明示していない。
 
 ### この節が establish すること、しないこと
 
