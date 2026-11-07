@@ -101,6 +101,8 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録・�
 **そして定義に当てるかぎり ACD は当たらない。当たるのは定義ではなく、
 その周りで述べられている 2 つの派生**である。
 
+**2026-11-07 追記。** いまの基準を作った作業部会は、この考えを規則にしなかった。委員長: *"There are some "unwritten rules" that we discussed but didn't adopt, like the "no vanity license" philosophy."*（2023-01-27・`reviewer-positions.md` §1.142）。不文律として在ったことを認めた文でもあり、語は 2026 年も使われている。
+
 ### 定義 —— OSI の License Proliferation Report のカテゴリ 5
 
 **同じ 2 文が、2020 年に 3 人から独立に引用されている**（Richard Fontana 氏 2020-03-31 /

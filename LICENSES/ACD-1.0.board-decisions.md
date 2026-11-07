@@ -526,7 +526,9 @@ impossible to determine whether or not it complies with the OSD"* と**同じ構
 
 | 年 | 文言 | 帰結 |
 |---|---|---|
+| 2005-03 に Nelson 氏が引いた議事録（会議の年は不明）| *"we decided that even though it was open source, the differences were not significant enough to approve it outright. We resolved to send it back and ask him to use the BSD license. If he refuses, we'll re-consider approving it."*（Wonka Public License）| OSD に適合しても承認せず、BSD を勧めて戻した（#302）|
 | 2007-06-06 | *"we **decline to approve at this time** and suggest that the committee in future consider compatibility for licenses that advertise simplification"*（Simple Public License）| 承認でも却下でもない |
+| 2008-05 | *"return the UOML License to the submitter for justification due to similarity to the SISSL"* | 類似を理由に差し戻した |
 | 2009-03-04 | *"Discussion continues, but Bruce says **'Deny approval' because the benefits aren't worth the cost**"*（TGPPL）| **費用対効果**で語られている |
 | 2017 秋 | *"can **neither approve nor reject**"*（NOSA 2.0）| 上記 |
 | 2025-07-18 | *"could stay in a status where it is **not approved** if it is duplicative and not used by a project"* | §2 |
@@ -639,7 +641,7 @@ Fontana 氏は *"there doesn't seem to be any proliferation concern with FPL. I 
 
 **B10（gap = uniqueness）/ `submission-reference.md` §4b（提出者専用でない = re-usable）/
 B13（理解コスト = readability）は、偶然 3 つなのではない。** 2005 年に**OSD とは別の追加テスト**
-として提案され、**OSD に入れるかどうかが未決のまま**「推奨」に落とされた 3 つと同じである。
+として提案され、**OSD に入れるかどうかが未決のまま**残った 3 つと同じである。同じ議事録には推奨へ落とす案が在るが、同じ日の Eric S. Raymond 氏の報告は *"They are passed policy decisions of the OSI and are to be applied to all licenses submitted after they were passed in March 2005."* と述べている（2026-11-07 訂正。旧文は「「推奨」に落とされた」で、案を結果のように書いていた。読みやすさの水準は `against.md` #304）。
 
 **有利**: **これらは OSD の条項ではない。** 2025-07-18 の理事会も
 *"a license should be rejected only if it violates the OSD"* と述べている（§2）。
