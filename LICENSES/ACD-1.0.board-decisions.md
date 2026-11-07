@@ -235,7 +235,7 @@ considered for the 'Popular and Widely Used or With Strong Communities' category
   *"We want to see licenses early to correct them, but are less inclined to approve a license that doesn't have a
   track record."* 理事会の留め置き（2025）と Tiwaz の保留（§2c）も 2021 より後である。
 - **同じ年に、決める側の 2 人の記憶は割れている。** Josh Berkus 氏（`license-discuss` 2020-08-26）: *"I don't know that we've passed a license that didn't have at
-  least one substantial project behind it in the last 10 years."* 翌日の Fontana 氏の返信が逆である: *"several of the licenses approved by OSI in the past 10 years were not, at
+  least one substantial project behind it in the last 10 years."* 同じ日の Fontana 氏の返信が逆である: *"several of the licenses approved by OSI in the past 10 years were not, at
   the time of approval, in use by any substantial project ... and I believe several may not have been used by any projects at all."* 氏はそれを *"thought experiment licenses"* の傾向と呼び、
   少なくなったとも述べている。ACD の 1 件が *"substantial"* かは誰も述べていない。
 - **実績の無さへの反対は実際に述べられている。** Bradley Kuhn 氏（2020-01-01・CAL の審査）: *"I can't find an example when OSI approved a novel
