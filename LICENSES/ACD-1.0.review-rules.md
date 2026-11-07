@@ -211,7 +211,7 @@ corpus は**メーリングリストのアーカイブ全体を測った記録**
 | 規範文書 | 読んだ | **1 条ずつ当てた** | 置き場 |
 |---|---|---|---|
 | **Open Source Definition**（10 条）| 2026-09-06 | **✅ 2026-09-13 に完了**（4/6/7/9/10 は 09-06、1/2/3/5/8 は 09-13）| `submission-reference.md` §3 / §3b |
-| **review-process "How to submit a request"**（legacy 8 + new 3）| 2026-09-06 | **✅ 2026-09-13**（1 件欠落を発見・補填）| §1.76 / Check 463（**12 項目を機械強制**）|
+| **review-process "How to submit a request"**（legacy 8 + new 3）| 2026-09-06 | **✅ 2026-09-13**（1 件欠落を発見・補填）| §1.76 / Check 463（**要求項目を機械強制**）|
 | **review-process "Standard for new licenses"**（8 条）| 2026-09-11 | **✅ 2026-09-11** | §1.70 |
 | **review-process "License approval standards" 前文** | 2026-09-11 | **✅**（天井 2 つ）| `against.md` #130 |
 | **common-reasons-for-rejection** | 2026-09-07 | **✅** | `submission-reference.md` §3c |
