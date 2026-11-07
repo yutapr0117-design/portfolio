@@ -178,8 +178,8 @@ enough is yours to judge.
 | *"fill a gap that currently existing licenses do not fill"* | §8.4 and §8.2: see "In one screen" above |
 | *"complete license"* | One file, no external references, no overlay |
 
-**What the record already says in its favour.** These are quoted from the lists and the Board's
-minutes. None of them binds anyone: *"Approval of a license with the same or similar terms in the
+**What the record already says in its favour.** These are quoted from the lists, the Committee's
+rationale documents, the Board's minutes and OSI's site. None of them binds anyone: *"Approval of a license with the same or similar terms in the
 past does not bind the OSI"*, and a list message is its author's own view.
 
 | On this point | What was said | Where it meets ACD |
