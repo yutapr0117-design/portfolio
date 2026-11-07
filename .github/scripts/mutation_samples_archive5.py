@@ -485,10 +485,10 @@ MUTATIONS_ARCHIVE5 = [
     "check": CHECK,
 },
     {
-    "name": "Check 468u: §8.4 の \"resulting from that use\" が \"that processing\" に縮む —— 特許許諾がモデル・出力のその後の使用・販売に届かなくなり、B10 の唯一の立証済みの効果 (§1.133) が ERROR 無しで消える",
+    "name": "Check 468u: §8.4 の \"resulting from Computational Use of the Work\" が \"that processing\" に縮む —— 特許許諾がモデル・出力のその後の使用・販売に届かなくなり、B10 の唯一の立証済みの効果 (§1.133) が ERROR 無しで消える",
     "file": CURRENT_DRAFT,
-    "find": "resulting from that use",
-    "replace": "resulting from that processing",
+    "find": "output resulting from Computational\n       Use of the Work, under every",
+    "replace": "output resulting from that processing, under every",
     "check": CHECK,
 },
     {

@@ -785,6 +785,7 @@ Dedicator が自分では主張せず、独占的なライセンスを受けた�
 | §8.3 第 1 文 | 文は 1.0 から、衝突は 1.1 の限定から | *"any patent right of the Dedicator in respect of the Work"* に限定が無く、§8.4 の限定の外に残る請求項が *"leaves unaffected"* に当たる。第 3 文と §15.1 が組むと K3〜K5 が戻る | *"any patent claim that Sections 8.1 and 8.4 reach"*（−2 語）|
 | §8.4 の限定 | 1.4 草案の T4 | 方法の請求項では工程が Work の処理そのものなので、*"from the use of the Work"* が同語反復に読め、K4 が戻る | *use* を *content* へ（0 語）|
 | §8.6 第 1 文 | 1.1 の限定から | *"the patent claims described in Sections 8.1 and 8.4"* が第 1 文だけを指すと読むと、約束が許諾より広くなる | *"the patent claims that Sections 8.1 and 8.4 reach"*（§11.4 も同じ語へ）|
+| §5.1 第 2 肢（商標と表示）| 1.2（#272）| 2026-11-07 の本文だけの読み。除外を名指しすると名指しされない商標は不行使に入ると読め、1.3 の点検の根拠（§11.3 の行為は *permits* に入らない）は §5.2(d) が同じ語を §11.4 の与えない権利に使っているので閉じない。*relating to* は負傷や中傷の請求まで入る | *"for a use …"* へ改め、*"under trademark rights or rights in a name (Section 11.1)"* と *"for a representation Section 11.3 describes"* を除外に足し、§5.2(d) にも足した（+19 語・`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.1）|
 
 **効果**: 受領者は K3〜K5 を別の条から取り戻せなくなり、特許権者の費用は §8.4 の限定の内へ戻った。K1・K2 の受領者の地位は変わらない。本文の語は 1.0 の方向へ広がったのではなく、1.1 が意図した範囲へ揃った。
 

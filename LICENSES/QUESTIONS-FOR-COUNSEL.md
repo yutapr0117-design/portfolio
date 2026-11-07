@@ -111,6 +111,16 @@ absent, then limits the grant to a feature resulting from the content of the Wor
 testing what the Work contains and §8.4 as testing where a feature of a model or output came from.
 A reader may instead see one limit taken away and the same limit put back.
 
+(g) In ACD-1.3 the acts sit in a relative clause that selects the claims, so the licence reads as a
+licence under the claim. The 1.4 draft (2026-11-07) makes the acts the object: *"licence to make,
+have made, use, offer to sell, sell, import, and otherwise practise or transfer the Work or anything
+derived from it"*, and §8.4 follows it. Does that list leave out an act a national law names, such
+as export and lending (Japan, Patent Act Art. 2(3)) or possession (Germany, PatG §9)? We added
+*"otherwise practise"* so that it should not, and we have not tested the phrase.
+(h) The 1.4 draft adds to §8.4 *"Section 8.1 alone governs a feature added to the Work, by whatever
+means."* Does it hold the line between a feature added to the Work and a feature of a model or
+output, including where the Work is itself a model?
+
 **An answer would change** the wording of §8.4 (register B7; errata E6 and E15).
 
 ## 3. Are the moral-rights covenants enforceable where waiver is not? (§12.1 to §12.5)
@@ -152,28 +162,37 @@ for licences such as Apache-2.0 (§5), but a public-domain surrender may need mo
 **An answer would change** whether §2.6 should require an affirmative statement, at a cost to
 projects that accept contributions informally.
 
-## 5. How far does the covenant against "any claim or cause of action" reach? (§5.1, §11)
+## 5. How far does the covenant against "any claim or cause of action" reach? (§5.1, §5.2(d), §11)
 
-**The clause.** §5.1 covenants not to assert *"any claim or cause of action, whether now known or
-unknown, arising from or relating to a use of the Work that this Dedication permits"*. §11.1
-grants no trademark right; §11.3 places misrepresentation of authorship or endorsement outside
-the Dedication's reach; §11.4 states that the §5 covenants are not limited by its own sentence on
-reach.
+**The clause.** In ACD-1.3 §5.1 covenants not to assert *"any claim or cause of action, whether now
+known or unknown, arising from or relating to a use of the Work that this Dedication permits"*.
+The 1.4 draft reads *"any claim or cause of action, whether now known or unknown, for a use of the
+Work that this Dedication permits, other than for patent infringement (Section 8), under trademark
+rights or rights in a name (Section 11.1), for a representation Section 11.3 describes, or for a
+payment You agreed to make"*, and §5.2(d) carries the same exception for the representation. §11.1
+grants no trademark right; §11.3 places misrepresentation of authorship or endorsement outside the
+Dedication's reach; §11.4 states that the §5 covenants are not limited by its own sentence on reach.
 
-**Our reading.** Trademark and passing-off claims survive, because the conduct they address is
-the misrepresentation §11.3 excludes, which is not "a use … that this Dedication permits"
-(recorded as examined in `ACD-1.3-CHANGELIST.md`).
+**Our reading.** "For a use" keeps the claims that attack the use itself, such as unjust enrichment
+and unfair competition, and leaves out a claim that only accompanies a use, such as an injury
+caused by a machine You run. A claim against selling a trained model stays in, because §1.7 makes
+that sale a Computational Use and so a use of the Work.
 
-**Why we doubt it.** The reading needs three clauses read together, and "relating to" is broad.
-If a court read §5.1 as releasing trademark claims against distributions of the Work, a Dedicator
-with a mark could be said to have licensed it without control.
+**Why we doubt it.** In 1.3 we read trademark claims as surviving because the conduct is the
+misrepresentation §11.3 excludes (`ACD-1.3-CHANGELIST.md`). That reading does not hold on the
+words: §5.2(d) uses the same *"use of the Work that this Dedication permits"* for rights §11.4 does
+not grant, and a fork that keeps the name and logo need not represent anything. A Dedicator with a
+mark could then be said to have licensed it without control, so the 1.4 draft says it in words.
+We have not tested whether "for" draws the line we describe, and the exception does not name data
+protection, because §5.2(d) was written to stop a Dedicator's own personal rights from defeating a
+permitted use (errata E31).
 
-The 1.4 draft excepts a payment You agreed to make (2026-11-07) and patent infringement from this
-covenant (2026-11-06): in 1.2 and 1.3 the words
-can be read to bar a patent claim that §8.4 does not license, because the use is permitted as to
-the Covered Rights.
+The 1.4 draft also excepts a payment You agreed to make (2026-11-07) and patent infringement
+(2026-11-06): in 1.2 and 1.3 the words can be read to bar a patent claim that §8.4 does not license,
+because the use is permitted as to the Covered Rights.
 
-**An answer would change** whether §5.1 should say expressly that Section 11 is unaffected.
+**An answer would change** whether "for" is the right word, and whether data protection needs its
+own exception.
 
 ## 6. Do the text-and-data-mining declarations do anything? (§6.2, §6.3)
 
