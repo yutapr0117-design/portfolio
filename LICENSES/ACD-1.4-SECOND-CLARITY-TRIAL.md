@@ -191,3 +191,88 @@ T6 は反例なし（出力が Work に取り込まれれば §9 が自分の条
 - **§13 / §14**: 知らない受領者は免責の文を見ていない。§10.2 から既に生じている事実で、問 1 の (f) にある。
 
 **費用**: 文は法に対して成立を保証しない。問 1 の (g) に置いた。
+
+## 14. 本文だけを 7 つの視点で読み、反証と反例を当てた（2026-11-07・25、bb、5a）
+
+読み手 7 体が本文の 1 ファイルだけを読んだ（素通り、主体のずれ、特許、不整合、理由の文、下流と時間、OSD 逐条）。候補 40 件のうち 1 件は「外さない」の記録で、残り 39 件を統合すると 32 件になった。候補ごとに本文の反証役と記録の照合役を当て、6 件が残った。そのあと bb が反例を当て、5 件を形を変えて入れた。agent の読みは読みであって、法律家の判断ではない。
+
+### 14.1 T16: §5.1 と §5.2(d)（+19 語）
+
+**Before**: *"… any claim or cause of action, whether now known or unknown, other than for patent infringement (Section 8) or for a payment You agreed to make, arising from or relating to a use of the Work that this Dedication permits."*
+**After**: *"… any claim or cause of action, whether now known or unknown, for a use of the Work that this Dedication permits, other than for patent infringement (Section 8), under trademark rights or rights in a name (Section 11.1), for a representation Section 11.3 describes, or for a payment You agreed to make."*
+§5.2(d) の末尾に *", other than a representation Section 11.3 describes"* を足した。
+
+**欠陥**: 除外を 2 つ名指ししたので、名指しされない商標の請求は不行使に入ると読める。§16.1 は *"are not granted"* と告げていて食い違う。`ACD-1.3-CHANGELIST.md` の点検は「§11.3 の行為は *permits* に入らない」で clean としたが、§5.2(d) が同じ *"use of the Work that this Dedication permits"* を §11.4 の与えない privacy に使っているので、この読みは閉じない。名前もロゴも変えない fork は §11.3 の表示をしなくても起きる。
+
+**bb の反例 2 件**: (1) 虚偽の推奨を right of publicity で、氏名の侵害を personality で立てると、§5.1 を外れても §5.2(d) に入る。§2.4 により両方は独立に働く。(2) 名指しが 4 つになると、名指しされない請求は入るという読みが強まる。You の機械で Dedicator が負傷した請求や、改変版が Dedicator を中傷した請求が *relating to* に入る。§15.1 では切れないので、語で切る。
+
+**T14 との関係**: *"or relating to"* だけを外す案は、学習済みモデルの販売への不正競争の請求が Work の利用から生じるとは言い切れないので落ちた。*for a use* では、§1.7 がモデルの販売を Computational Use に含め、§6.1 がそれを許しているので、この請求は許された使用そのものを問う請求である。
+
+**逆側**: 使用に付随するだけの請求は covenant から出る。データ保護は除外に足していない。E31 が Dedicator 自身の権利の不行使を意図したからで、§5.2(d) の privacy などと同じ向きである。
+
+### 14.2 T17: §8.1・§8.3・§8.4（+6 語）
+
+**Before**（§8.1）: *"licence under every patent claim owned or controlled by the Dedicator, now or in future, that would be infringed by making, having made, using, offering to sell, selling, importing, or otherwise transferring the Work, or by doing any of those things in respect of anything derived from the Work, where the infringement is caused by …"*
+**After**（§8.1）: *"licence to make, have made, use, offer to sell, sell, import, and otherwise practise or transfer the Work or anything derived from it, under every patent claim owned or controlled by the Dedicator, now or in future, that those acts would infringe, where the infringement is caused by …"*
+§8.4 は同じ形で *"to put the Work to Computational Use and to make, have made, use, offer to sell, sell, import, and otherwise practise or transfer any model, parameter set, weight, embedding, or output resulting from Computational Use of the Work"*。§8.3 第 1 文の末尾に *", as to the acts they describe"*。
+
+**欠陥**: 今の形は *licence under every patent claim* で終わり、行為は請求項を選ぶ関係節の中にある。短いコードを公開すると、その請求項の下の許諾を Work を使わない競合が主張する読みが語で閉じない。Apache-2.0、MPL-2.0、EPL-2.0、OSL-3.0 はみな行為を目的語にしている。Berkus 氏の *"carte blanche"* の文に当たる形である。workflow の案は §8.5 に 1 文を足す形（+28 語）だったが、こちらの方が短い。
+
+**bb の反例と手当て**: (1) 動詞の列が許諾の上限になる。特許法 2 条 3 項 1 号は「譲渡等（譲渡及び貸渡し…）」と輸出を挙げ、ドイツ特許法 9 条は *"besitzen"* を挙げる（どちらも 2026-11-07 に一次資料で確認）。§15.1 は語を足せないので *"and otherwise practise or transfer"* にした。*practise* は §8.3 と §8.5 が使う語で、目的語は Work のままなので第三者の読みは閉じたままである。(2) *that use* は不定詞の主語が You なので、モデルだけを受け取った者には自分の使用と読める。*"resulting from Computational Use of the Work"* にした。(3) *"the Work or anything derived from it"* にして *and* の読みを消した。(4) §8.3 も請求項の単位のままだったので、§8.6 にそろえた。
+
+**逆側**: 請求項の全範囲が許諾されるという You に有利な読みが消える。Chestek 氏 2025-02-09 の *"The patent grant in a FOSS license must be for all possible uses of the code."* には、*use* と *otherwise practise* で答える。法律家への問い 2 の (g) に足した。
+
+### 14.3 T18: §8.4 の足した機能（+13 語）
+
+**After**: *"Section 8.1 alone governs a feature added to the Work, by whatever means."* を *"… restore the exposure this Section exists to remove."* の次に置いた。
+
+**欠陥**: Work を自動処理に通して新しい機能 Z を足すと、手で足せば §8.1 の末尾で外れる Z が *output* として戻り、*in part* で届くと読める。反証役は「常に戻る」は退けたが、入口は閉じなかった。§8.1 の除外が手で改変した者にしか効かない形になる。
+
+**初案は不成立だった**: *"A feature does not so result merely because it was adapted to the Work or combined with it."* は bb の反例で落ちた。You が自分の base model を Work で fine-tune すると、既にあった機能が Work の領域へ特化する。これは機械学習の語で domain adaptation そのもので、§8.4 の本来の場面である。方向で切る bb の案を短くしたのが今の文で、*by whatever means* は手と機械を区別しない。
+
+**確認**: agent が Z を足す → §8.1 の末尾で外れる。agent が Work の教える方法を足す → §8.1 で入る。自分の base model の fine-tune → Work へ足していないので §8.4 に残る。Work が model で、それを fine-tune して足した機能 → §8.1 で判定する（問 2 の (h)）。別ファイルの plugin は手でも同じ *anything derived* の問いである。
+
+### 14.4 T19: §1.9 の宛先（+3 語）
+
+**After**: *"a repository or forum offering the Work under this Dedication"*。
+
+**欠陥**: 宛先が *"the Dedicator maintains"* なので、保守を引き継いだ者が Dedicator でないと §2.6 の経路が切れる。適用の問いなので §15.1 は使えない。
+
+**初案は不成立だった**: *"or has maintained"* は bb の反例で落ちた。repository が会社へ移り §4.5 どおり新しい版が proprietary になると、ACD の表示を見ていない人が PR を送って Dedicator になり、著作権と将来の特許まで撤回不能に出す。今の欠陥の失敗は「寄与が覆われない」で後から取れるが、初案の失敗は取り返せない。人ではなく表示で切ると、寄与者が ACD を見ている場面だけに掛かる。
+
+**逆側**: ACD のままの fork への寄与も入る。寄与者は同じ表示を見ているので不意打ちにならない。§2.6 の識別の約束を負う者がいない場面は残る。
+
+### 14.5 T20: §8.6 第 3 文（−33 語）
+
+*"Permission under the Covered Rights stands here on three footings, surrender (Section 3), licence (Section 4), and covenant (Section 5); this Section gives the patent grant the second footing it would otherwise lack."* を外した。
+
+理由の文のレンズで B（外しても読みが動かない）として反証に残った唯一の文である。作用は第 1、第 2、最終文にあり、説明は前文が持つ。§2.4 は 4 節を挙げるので *three* とも数が合わない。Chestek 氏の *"I question whether they belong in the agreement at all."*（#295）に当たる。**逆側**: なぜ許諾と約束が両方あるかが §8 からは読めない。答えは前文と `REVIEWERS.md` にある。E54 が直した文を外すので、E54 の行は「語を直し、のちに文を外した」と読む。
+
+### 14.6 見て残したもの
+
+| 候補 | 判定 |
+| :-- | :-- |
+| §6.4 *"You owe nothing"* に範囲の語が無い | 退いた。§8.4 の *"The grant is necessary because … Section 6.4 alone would leave …"* が本文の答えで、同じ文の前半と §6.5、§5.1 も閉じる |
+| §8.6 の *reach* が 2 つの意味 | 退いた。T17 でさらに閉じる |
+| §9.2 の *"asserts no right"* が特許や商標を通らない | 退いた。第 3 文が Sections 3 to 8 へ送り、§9.3 と両立しない |
+| §12.1 の放棄が虚偽の帰属まで及ぶ | 退いた。§12.2 の末文が、どちらが適用されても許される行為は変わらないと述べる |
+| 下流が識別子を置くだけで Dedicator になる | 退いた。§16.2 の *is accompanied* は適用済みの Work の通知の語で、§16.1 は目的と手段の形である。行為で人を Dedicator にするとき、本文は §2.6 のように明記する |
+| §2.8 が譲受人自身の権利まで届く | 退いた。§1.4 の Dedicator は適用した者で、§2.8 は *binds* と述べるだけである |
+| §5.2(a)(b) が Dedicator 自身の頒布を止める | 退いた。§4.5 は licence が課さないものを述べ、§5 の約束は別の足場に立つ（§2.4）|
+| 本文の写しが Work の中を移動すると §16.4 が空になる | 退いた。§16.4 が制限するのは名前と識別子のもとでの頒布で、名前は Covered Rights の外にある（§1.5、§11.1）|
+| §8.4 の *in whole or in part* と閾値の否定 | 記録の結論どおり既知の費用である（§13.5、B7）|
+| §8.1 の *caused by* と組み合わせの請求項 | 表題の読みは退いた。組み合わせの請求項は既知の費用（B7）として残す |
+| §8.5 と独占実施権 | 退いた。§8.5 が §2.7 へ送り、§11.4 が他人の権利を外す |
+| §12.2 の発動条件 | 退いた。§1.2 の *incapable of transfer* を §12.2 は *incapable of waiver* に替えている |
+| §1.9 の標示に時点が無い | 退いた。§2.2 と §10.4 が撤回を閉じる |
+| §1.4 / §2.8 の *patent claim in the Work* が §8.4 より狭い | 退いた。Dedicator から買った者は *assigns* に入る |
+| §8.1 の *the Work* が寄与か全体か | 退いた。どちらでも結論が同じになる |
+| §5.1 の *payment* に料金の絞りが無い | 退いた。§5.2(b) が別に止める |
+| §16.4 の *without charge or permission* | 退いた |
+| §8.4 が自動処理か否かで分かれる（OSD 10）| 退いた。T18 で §8.1 と §8.4 の線も語になった |
+| 理由の文（§8.4 の 4 か所、§6.5、§9.4、§8.2、§12）| 記録の結論か本文の語で退いた。§8.2 の *policy preference* の語だけ、Berkus 氏の問いとの関係は記録が無い |
+| §6.2 の末文 | 外さない。2026-08-23 の修正で足した文で、`faq.md`、`review-doctrine.md`、`jurisdictions.md` が引く |
+| §6.4 第 2 文 | 外さない。E4 の防ぎとの関係を確かめていない |
+| §11.1 の末文 | 外さない。E7 を閉じた文である |
+
+**次のレンズ（bb）**: Chestek 氏 2026-02-23 は、最初の指摘を *"to demonstrate that there were significant problems in the first few paragraphs, indicating that undoubtedly the drafting problems were throughout."* と述べた。審査者は冒頭の数段落で全体を判定する。§1 と §3、§4 の最初の文を、他より重く読む。

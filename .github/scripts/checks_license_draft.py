@@ -71,7 +71,7 @@ import re
 EFFECT_MARKERS_468U = (
     ("2.8", "nor Section 12.4 narrows this Section"),
     ("15.5", '"person" includes an entity'),
-    ("8.4", "resulting from that use"),
+    ("8.4", "resulting from Computational Use of the Work"),
     ("8.4", "deliberately absent"),
     ("8.2", "not terminable by the Dedicator on any ground"),
     ("5.1", "other than for patent infringement"),
@@ -448,7 +448,7 @@ def run(ctx):
         #   「§8.4 の範囲 + 条件なし + 終了なし」の 3 つが同時に在ることに依拠する。承認済み 141 本のうち
         #   作品を超える対象への特許許諾と条件の不在を同時に持つものは 0 本で、これが唯一の立証済みの効果である。
         #   短くする圧力で次の 3 句のどれかが落ちると、その効果が ERROR 無しで消える:
-        #   §8.4 "resulting from that use" (結果に届く) / §8.4 "deliberately absent" (内容限定を外す) /
+        #   §8.4 "resulting from Computational Use of the Work" (結果に届く) / §8.4 "deliberately absent" (内容限定を外す) /
         #   §8.2 "not terminable by the Dedicator on any ground" (終了なし)。
         _lack468u = []
         for _sec468u, _mk468u in EFFECT_MARKERS_468U:
