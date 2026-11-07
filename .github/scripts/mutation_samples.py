@@ -567,6 +567,21 @@ _MUTATIONS_TAIL.append({
     "replace": 'SPDX-License-Identifier = "LicenseRef-ACD-1.0"',
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 238: og:image の 2 本目を属性の順序を変えて足す —— 先頭しか読まない Check 153 には見えず、旧 238 は属性順を固定していた",
+    "file": ROOT / "index.html",
+    "find": '    <meta property="og:image" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp" />',
+    "replace": ('    <meta property="og:image" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp" />'
+                '<meta content="https://example.com/other.webp" property="og:image" />'),
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 238: ai:canonical の 2 本目を別の URL で足す —— 先頭しか読まない Check 282 には見えない",
+    "file": ROOT / "index.html",
+    "find": '    <meta name="ai:canonical" content="https://yutapr0117-design.github.io/portfolio/" />',
+    "replace": ('    <meta name="ai:canonical" content="https://yutapr0117-design.github.io/portfolio/" />'
+                '<meta name="ai:canonical" content="https://example.com/" />'),
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
