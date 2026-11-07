@@ -21,7 +21,7 @@ canonical-ref: .github/scripts/verify_dossier_quotations.py (`--record-entry` �
 DOSSIER_ARCHIVE_CACHE=<cache> python3 .github/scripts/verify_dossier_quotations.py --record-entry
 ```
 
-確認できた引用の hash を書き直す。`own: ` の行と `#` の行は残す。確認できない引用は一覧に出る。
+確認できた引用の hash を書き直す。`own: ` の行と `#` の行は残す。確認できない引用が 1 件でもあれば一覧に出して、file は書き換えない。
 
 ## Constraints
 

@@ -340,14 +340,18 @@ def record_entry(root="."):
     quotes = entry_quotes(root)
     good = sorted({entry_key(q) for q in quotes if norm(q) not in own and present(q, blob)})
     bad = {q: [loc] for q, loc in quotes.items() if norm(q) not in own and not present(q, blob)}
-    with open(f"{root}/{ENTRY_MANIFEST}", "w", encoding="utf-8") as fh:
-        fh.write("".join(head) + "\n".join(good) + "\n")
     print(f"入口の引用 {len(quotes)} 件: 確認 {len(good)} / 我々の文 {len(own)} / 確認できない {len(bad)}")
     for q, locs in bad.items():
         print(f"  [{locs[0]}] {q[:110]}")
     for score, loc, seg in near_misses(bad, blob):
         print(f"  前後が一致 {score:.2f} [{loc}] {seg[:100]}")
-    return 1 if bad else 0
+    # 確認できない引用があるときは書かない。corpus が足りないと確認済みが消える (2026-11-07 に変数なしで 60 件消えた)。
+    if bad:
+        print("manifest は書き換えていない。原文に当てるか、cache と DOSSIER_EXTRA_SOURCES を足して回し直す")
+        return 1
+    with open(f"{root}/{ENTRY_MANIFEST}", "w", encoding="utf-8") as fh:
+        fh.write("".join(head) + "\n".join(good) + "\n")
+    return 0
 
 
 def near_misses(miss, blob):
