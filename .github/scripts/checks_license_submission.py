@@ -189,6 +189,8 @@ def run(ctx):
                 # 実測: この行を "**Legal review status.**" へ変えると Check 463 が RED になる
                 # (`review-precedents.md` §1.75)。
                 ("legal review", r"\*\*Legal review: none\.\*\*"),
+                ("entry page URL", r"https://github\.com/\S+/blob/main/LICENSES/REVIEWERS\.md"),  # 読み手に入口への道が無かった
+                ("project URL", r"Approved or Used by Projects:.*https://"),
             ]
             _miss463 = [_n for _n, _r in _req463 if not re.search(_r, _b0, re.M)]
             if _miss463:

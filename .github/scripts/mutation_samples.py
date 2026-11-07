@@ -554,6 +554,13 @@ _MUTATIONS_TAIL.append({
     "replace": "everything except `rounds/` — is **1",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 463: 送る文面が入口を URL でなく path で述べる —— メールの読み手は 2026-11-07 まで入口へ辿れなかった",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": "Start at https://github.com/yutapr0117-design/portfolio/blob/main/LICENSES/REVIEWERS.md.",
+    "replace": "Start at `LICENSES/REVIEWERS.md`.",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
