@@ -110,6 +110,8 @@ the row above on its own terms. **The reading quoted here is one participant's p
 thread, not a settled rule**, and it is recorded because a submission that ignores how the criterion
 is currently being argued is answering a question nobody is asking.
 
+| Criterion | The argument against | Why it is nonetheless met |
+|---|---|---|
 | **OSD 10** Technology-neutral | §2.3 forbids click-through, but §6 is written around a particular technology | §2.3 is the operative provision for OSD 10 and it removes the acceptance ritual entirely. §6's subject matter is technological; its **effect** is a grant with no technological predicate |
 
 **The one that would actually be litigated on the list is OSD 7**, and not because the criterion

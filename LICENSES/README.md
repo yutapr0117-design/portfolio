@@ -7,21 +7,14 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 
 # LICENSES/ — 何がどこにあるか
 
-> **発信は 2026-09-17 に再開した**（オーナーが ACD-1.1 の短い Discussion Request を自分の言葉で `license-discuss` へ送った）。2026-09-09 から 09-17 までは止めていた —— OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と投稿したため（`ACD-1.0.against.md` #119 / `ACD-OSI-BOTTLENECKS.md` **B14**・逐語は `rounds/`）。**再開後の 1 通（2026-09-17）は moderation で拒否されており、リストに届いていない**（`against.md` #215・2026-09-23 に steward が提供した転記による。09-21 時点の「現れたかは未確認」は #192）。**単一ソースは `FROZEN.md` の `POSTING-STATUS` marker**で、**Check 467 が状態を述べる面と恒久の手続きの面を両方向で照合し、467c が「停止している」という現在形の残存を LICENSES 全体で禁じる。**
-
-
-> **Reviewing ACD-1.0 and cannot read Japanese?** Start at
+> **Reviewing the licence and cannot read Japanese?** Start at
 > **[`REVIEWERS.md`](REVIEWERS.md)** — it is in English, states the submission status, says which
 > documents are already in English, and gives the commands to verify every claim made here.
 > The authoritative text is [`ACD-1.0.txt`](ACD-1.0.txt); the case against approving it is
 > [`ACD-1.0.against.md`](ACD-1.0.against.md), written by us.
-| 「**その記述は、本当に確かめられたのか**」 | [`AUDIT-LEDGER.md`](AUDIT-LEDGER.md) —— **ドシエ自身への敵対的検証の台帳**。主張を種類（逐語引用 / 件数 / 不在の主張 / 条項の挙動…）に分け、種類ごとに母数・確認済み・道具を持つ。**進捗は宣言せず道具から導出する** |
-| 「**前の回の台帳はどこへ行ったのか**」 | [`AUDIT-LEDGER-ARCHIVE.md`](AUDIT-LEDGER-ARCHIVE.md) —— 台帳から退避した日付つきの回（2026-09-27〜10-10）。**本文は無改変**で、引用の分類規則の原典もここにある。新しい回は本台帳へ |
-| 「**外部の敵対的監査（172 観点）は、どれが既知でどれが新しく、何を直したのか**」 | [`ACD-1.4-ADVERSARIAL-TRIAGE.md`](ACD-1.4-ADVERSARIAL-TRIAGE.md) —— 2026-11-01 に別の AI から届いた 1.4 草案への監査を 1 件ずつ当てた表。**AI のレビューであって法的レビューではない**。報告書の本文は置かない |
-| 「**法的効果を保ったまま、言い直しと読みの分岐を減らせるか**」 | [`ACD-1.4-CLARITY-TRIAL.md`](ACD-1.4-CLARITY-TRIAL.md) —— 1.4 草案の B3 / B13（明瞭性・解釈の負荷）の試作。草案を上書きせず、候補・試作・効果の対照・反例を置き、**反例が出ず効果の保存を条ごとに説明できたものだけ**を草案へ反映する。§10 からは [`ACD-1.4-SECOND-CLARITY-TRIAL.md`](ACD-1.4-SECOND-CLARITY-TRIAL.md) に続く |
-| 「**機械可読な面（記述子・spdx.xml・LICENSE・REUSE.toml・manifest）が述べていることは、いま真か**」 | [`MACHINE-SURFACES-AUDIT.md`](MACHINE-SURFACES-AUDIT.md) —— 2026-09-24 の検証報告。**欠陥は直さず候補として列挙**してある |
-| 「**OSI 承認までに必要なものは何で、いまどこにいるのか**」 | [`OSI-APPROVAL-PLAN.md`](OSI-APPROVAL-PLAN.md) —— OSD 10 条・新規ライセンスの基準 8 条・提出要件 12 項目・却下理由 5 型・手続きを全部並べた計画と、「いま出したら通るか」の自問自答。**オーナーの裁可を要するものは無い（2026-10-24）。越えない線は 1 本 —— 外へ送る文面はオーナーが自分の言葉で書いて送る（B14）** |
-| 「**10 月の OSI イベントから何を取り込んだか（取れなかったものも）**」 | [`OSI-EVENTS-2026-10.md`](OSI-EVENTS-2026-10.md) —— イベントごとの日付と根拠の種類（一次 / 検索結果のみ）、日付順の取り込みログ。**方針は `PEER-REVIEW-WATCH.md` の同名の節** |
+
+> **発信は 2026-09-17 に再開した**（オーナーが ACD-1.1 の短い Discussion Request を自分の言葉で `license-discuss` へ送った）。2026-09-09 から 09-17 までは止めていた —— OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と投稿したため（`ACD-1.0.against.md` #119 / `ACD-OSI-BOTTLENECKS.md` **B14**・逐語は `rounds/`）。**再開後の 1 通（2026-09-17）は moderation で拒否されており、リストに届いていない**（`against.md` #215・2026-09-23 に steward が提供した転記による。09-21 時点の「現れたかは未確認」は #192）。**単一ソースは `FROZEN.md` の `POSTING-STATUS` marker**で、**Check 467 が状態を述べる面と恒久の手続きの面を両方向で照合し、467c が「停止している」という現在形の残存を LICENSES 全体で禁じる。**
+
 
 このディレクトリには **Autonomous Commons Dedication (ACD)** の各版の本文（1.0〜1.3 は凍結・1.4 は草案）と、その周辺文書が
 置いてある。**このリポジトリが適用しているのは ACD-1.3**（2026-10-25〜）で、周辺文書の分析の多くは**リストで議論された ACD-1.0** に対して書かれている。**目的は「疑問がこのリポジトリを見れば潰せる」ことである。**
@@ -93,6 +86,13 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | **いまどの段階か / 凍結の状態** | [`FROZEN.md`](FROZEN.md) |
 | **古くなりうる事実と、最後に確かめた日（英語）** | [`AS-OF.md`](AS-OF.md) |
 | 機械可読な記述子 | [`ACD-1.0.machine.json`](ACD-1.0.machine.json) / [`ACD-1.0.spdx.xml`](ACD-1.0.spdx.xml) |
+| 「**その記述は、本当に確かめられたのか**」 | [`AUDIT-LEDGER.md`](AUDIT-LEDGER.md) —— **ドシエ自身への敵対的検証の台帳**。主張を種類（逐語引用 / 件数 / 不在の主張 / 条項の挙動…）に分け、種類ごとに母数・確認済み・道具を持つ。**進捗は宣言せず道具から導出する** |
+| 「**前の回の台帳はどこへ行ったのか**」 | [`AUDIT-LEDGER-ARCHIVE.md`](AUDIT-LEDGER-ARCHIVE.md) —— 台帳から退避した日付つきの回（2026-09-27〜10-10）。**本文は無改変**で、引用の分類規則の原典もここにある。新しい回は本台帳へ |
+| 「**外部の敵対的監査（172 観点）は、どれが既知でどれが新しく、何を直したのか**」 | [`ACD-1.4-ADVERSARIAL-TRIAGE.md`](ACD-1.4-ADVERSARIAL-TRIAGE.md) —— 2026-11-01 に別の AI から届いた 1.4 草案への監査を 1 件ずつ当てた表。**AI のレビューであって法的レビューではない**。報告書の本文は置かない |
+| 「**法的効果を保ったまま、言い直しと読みの分岐を減らせるか**」 | [`ACD-1.4-CLARITY-TRIAL.md`](ACD-1.4-CLARITY-TRIAL.md) —— 1.4 草案の B3 / B13（明瞭性・解釈の負荷）の試作。草案を上書きせず、候補・試作・効果の対照・反例を置き、**反例が出ず効果の保存を条ごとに説明できたものだけ**を草案へ反映する。§10 からは [`ACD-1.4-SECOND-CLARITY-TRIAL.md`](ACD-1.4-SECOND-CLARITY-TRIAL.md) に続く |
+| 「**機械可読な面（記述子・spdx.xml・LICENSE・REUSE.toml・manifest）が述べていることは、いま真か**」 | [`MACHINE-SURFACES-AUDIT.md`](MACHINE-SURFACES-AUDIT.md) —— 2026-09-24 の検証報告。**欠陥は直さず候補として列挙**してある |
+| 「**OSI 承認までに必要なものは何で、いまどこにいるのか**」 | [`OSI-APPROVAL-PLAN.md`](OSI-APPROVAL-PLAN.md) —— OSD 10 条・新規ライセンスの基準 8 条・提出要件 12 項目・却下理由 5 型・手続きを全部並べた計画と、「いま出したら通るか」の自問自答。**オーナーの裁可を要するものは無い（2026-10-24）。越えない線は 1 本 —— 外へ送る文面はオーナーが自分の言葉で書いて送る（B14）** |
+| 「**10 月の OSI イベントから何を取り込んだか（取れなかったものも）**」 | [`OSI-EVENTS-2026-10.md`](OSI-EVENTS-2026-10.md) —— イベントごとの日付と根拠の種類（一次 / 検索結果のみ）、日付順の取り込みログ。**方針は `PEER-REVIEW-WATCH.md` の同名の節** |
 
 設計根拠と申請ドシエは、このディレクトリの外にある
 —— [`docs/architecture/acd-license-rationale.md`](../docs/architecture/acd-license-rationale.md)。

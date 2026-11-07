@@ -546,6 +546,13 @@ _MUTATIONS_TAIL.append({
     "replace": "**I affirm that ACD-1.1 complies with the Open Source Definition**, and",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 494: 表の行の間に空行が入る —— GitHub は残りの行を段落として描き、文字列を読む Check は緑のまま",
+    "file": ROOT / "LICENSES" / "ACD-1.0.against.md",
+    "find": "\n| 20 | **§16.3 invites anyone",
+    "replace": "\n\n| 20 | **§16.3 invites anyone",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
