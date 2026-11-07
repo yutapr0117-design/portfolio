@@ -85,6 +85,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §8.4（足した機能）| *"Section 8.1 alone governs a feature added to the Work, by whatever means."* を足す | 同じ読み（§14.3）。手で足せば §8.1 の末尾で外れる機能が、自動処理を通すと *output* と *in part* で戻る読みがあった。初案の *adapted* は bb の反例（fine-tune）で落ちた | +13 | 反映済 |
 | §1.9（宛先）| *"a repository or forum the Dedicator maintains"* を *"a repository or forum offering the Work under this Dedication"* へ | 同じ読み（§14.4）。保守を引き継いだ者が Dedicator でないと §2.6 の経路が切れ、適用の問いなので §15.1 は使えない。初案の *has maintained* は bb の反例（proprietary へ移った repository）で落ちた | +3 | 反映済 |
 | §8.6（第 3 文）| *"Permission under the Covered Rights stands here on three footings, …; this Section gives the patent grant the second footing it would otherwise lack."* を外す | 同じ読み（§14.5）。作用は第 1、第 2、最終文にあり、説明は前文が持つ。#295 の問いにも当たる | -33 | 反映済 |
+| §5.1 / §5.2(d)（虚偽の言明）| 除外の *"for a representation Section 11.3 describes"* を *"for a false statement (Section 11.3)"* へ、§5.2(d) の *"other than a representation Section 11.3 describes"* を *"other than for a false statement (Section 11.3)"* へ | 2 回目の本文の読み（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.7）。学習済みモデルの出力の公表は §1.7 と §6.1 で許された使用なので、出力が Dedicator について虚偽を述べても、名誉毀損の請求が第 2 肢と §5.2(d) の personality に入ると読めた。§11.3 の表示は作者・推薦・関係に限られる。§11.3 の第 1 文の語へ広げて閉じた | +1 | 反映済 |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
