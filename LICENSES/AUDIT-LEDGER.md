@@ -1,7 +1,7 @@
 ---
 file: LICENSES/AUDIT-LEDGER.md
 audience: 次のセッションの実装者（一次読者）/ 監査人
-last-updated: 2026-11-06
+last-updated: 2026-11-07
 canonical-ref: LICENSES/ACD-1.0.against.md (不利な事実の本体) / LICENSES/BLIND-SPOTS.md (探索の次元) / .github/scripts/verify_dossier_quotations.py (引用照合の道具)
 ---
 
@@ -146,6 +146,14 @@ cache 3 つ（`~/Downloads/portfolio-fetch-24-tools/{full,arc}`・`~/osi-archive
 **続けて、OSI のサイトの取得物も照合先にした**（`DOSSIER_EXTRA_SOURCES`）。これまで原理的に未確認へ落ちていた種類で、同じ検出器を当てると 3 件目が出た。`OSI-EVENTS-2026-10.md` の 2 箇所が *"It was not workable as drafted"* としていたが、原文は *"It wasn't workable as drafted"* である。語形を直して読みやすくする、同じ向きの誤りだった。
 
 入口の 7 面（REVIEWERS / objection-map / submission 系 3 本 / SUBMISSION-MATERIALS / ADOPTING）の斜体の引用 233 件も、話者名の条件を外して当てた。原文が見つからなかった 8 件はすべて我々自身の文で、外部の発言の誤りは 0 件だった。
+
+**同じ日の 3 回目は、話者名の条件を外した**（`--all-italics`）。全 `LICENSES/*.md` の斜体の引用 2,062 件を 508 か月の cache と取得物に当て、未解決 284 件のうち前後が一致する 54 件を読んだ。大半は我々の草案と試作の文で、不正確が 3 件出た。
+
+| 場所 | 原文 | 我々の文 |
+| :-- | :-- | :-- |
+| `AS-OF.md`（Anna 氏）| *"Thank you **again** for the clear and thorough analysis."* | *again* を省略の印なしで落としていた |
+| `AS-OF.md` / `review-precedents.md`（Thorsten Glaser 氏・2020 年の Unlicense の審査）| *"**down streams** that the stuff I take from upstream"* | *downstreams* へ綴りを直していた |
+| `review-venue.md`（2026-09-04）| *"may legitimately **be used as a termination trigger at all**"* | *"may legitimately trigger termination"* と言い換えていた |
 
 **この回が establish しないこと**: 引用の途中の語だけが違い、前後が 5 語に満たない短い引用は、この検出器も拾わない。
 

@@ -37,6 +37,8 @@ python3 .github/scripts/verify_dossier_quotations.py --fetch   # 不足月を導
 
 `--record-entry` は入口の面の斜体の引用を全 corpus に当て、確認できたものの hash を `entry_quotes_verified.txt` へ書く。Check 472n がそれを読む。
 
+`--all-italics` は人名の近傍に限らず斜体の引用をすべて当てる。
+
 ## Constraints
 
 - **CI に入れない（意図的）。** 検証に外部アーカイブの取得が要り、CLAUDE.md §7 が

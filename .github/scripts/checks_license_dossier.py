@@ -134,6 +134,7 @@ def run(ctx):
             _status458 = [
                 "LICENSES/FROZEN.md",
                 "LICENSES/READY-TO-SUBMIT.md",
+                "LICENSES/REVIEWERS.md",  # 状態の節を持つ、最も読まれる面 (2026-11-07 まで一覧の外だった)
                 "LICENSES/ACD-1.0.submission.md",
                 "LICENSES/ACD-1.0.review-responses.md",
                 "CLAUDE.md",
@@ -168,7 +169,7 @@ def run(ctx):
                 #   行という単位が粗すぎたのが原因なので、**近接** (venue の直後 40 字以内) で見る。
                 #   間に否定語が挟まる `license-review へはまだ出していない` は違反にしない。
                 _neg458 = re.compile(r"まだ|出していない|未実施|未投稿|ではない|でもない"
-                                     r"|not sent|not yet|has not|Not sent|へは")
+                                     r"|not sent|not yet|has not|Not sent|へは|nothing")
                 _claim458 = re.compile(r"投稿済み|提出済|submitted")
                 for _o458 in _others458:
                     for _mo458 in re.finditer(re.escape(_o458), _t458):
