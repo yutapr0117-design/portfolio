@@ -166,10 +166,13 @@ T6 は反例なし（出力が Work に取り込まれれば §9 が自分の条
 - **§2.8 の *"a patent claim in the Work"***（5a）: §8.4 の請求項より狭く読めるが、同じ文の *assigns* と、§11.4 の同じ句が受ける。
 - **モデルを組み込んだ装置の組み合わせの請求項**（5a）: §8.4 は装置を名指さないので外れる。受領者の費用である。
 
-### 13.6 T14: §5.1 の *relating to*（−3 語）
+### 13.6 T14: §5.1 の対価（+8 語）
 
-**Before**: *"… arising from or relating to a use of the Work that this Dedication permits."* / **After**: *"… arising from a use of the Work that this Dedication permits."*
+**Before**: *"… other than for patent infringement (Section 8), arising from or relating to a use of the Work that this Dedication permits."*
+**After**: *"… other than for patent infringement (Section 8) or for a payment You agreed to make, arising from or relating to a use …"*
 
-**欠陥**: ACD を適用した会社が有償のサポートを売ると、代金の請求は許された利用に「関する」請求と読める。`faq.md` A30 と J-16 は対価を課せると答えていて、§15.1 の広い読みと食い違う。第 2 肢の目的は §1.5 が除く権利の外の請求で、利用から生じるものに足りる。
+**欠陥**: ACD を適用した会社が有償のサポートを売ると、代金の請求は許された利用に「関する」請求と読める。`faq.md` A30 と J-16 は対価を課せると答えていて、§15.1 の広い読みと食い違う。
 
-**先に登録する反例（bb へ）**: (a) 不当利得の請求は *arising from* に入るか、(b) §5.2(b) の付随の義務と重ならないか、(c) 1.2 の #272 の答えを弱めないか。
+**初案は不成立だった**: *"or relating to"* を外す案（−3 語）は bb の反例で落ちた。学習済みモデルの販売への不正競争の請求は Work の利用から生じるとは言い切れず、§1.135 の差が立つ行為の保護が緩む。契約前責任も落ちる。*associated* に近い #272 の答えも半分弱まる。従量の料金も *arising from a use* のままで解けない。
+
+**残るもの**: Work について対価を求める契約は §5.2(b) が別に止める。*relating to* の広さの問い（問 5）は残る。
