@@ -278,3 +278,16 @@ T6 は反例なし（出力が Work に取り込まれれば §9 が自分の条
 | §11.1 の末文 | 外さない。E7 を閉じた文である |
 
 **次のレンズ（bb）**: Chestek 氏 2026-02-23 は、最初の指摘を *"to demonstrate that there were significant problems in the first few paragraphs, indicating that undoubtedly the drafting problems were throughout."* と述べた。審査者は冒頭の数段落で全体を判定する。§1 と §3、§4 の最初の文を、他より重く読む。
+
+### 14.7 T21: 虚偽の言明（+1 語・2 回目の読み）
+
+同じ 7 視点の方法で、2026-11-07 に変えた語と冒頭の数段落（PREAMBLE、§1〜§4。Chestek 氏の *"significant problems in the first few paragraphs"* と、同じ対象を別の語で述べる草案への *"Why did you add them?"* を視点にした）を読んだ。候補 28 件のうち反証に残ったのは 2 件だった。
+
+**欠陥**: 学習済みモデルの出力を公表することは、§1.7 と §6.1 により許された使用である。その出力が Dedicator について虚偽の事実を述べると、名誉毀損の請求が第 2 肢の *"for a use of the Work that this Dedication permits"* に入り、人格権としての名誉は §5.2(d) の *personality* にも入ると読める。§11.3 の表示は作者・推薦・関係に限られ、虚偽の事実の摘示を含まない。T16 で *for a use* に変えたときは、改変版の中傷は使用に付随するだけの請求として外れると見ていたが、出力の公表は使用そのものだった。
+
+**After**: §5.1 *"for a false statement (Section 11.3)"*、§5.2(d) *"other than for a false statement (Section 11.3)"*。§11.3 の第 1 文 *"This Dedication does not make a false statement true"* の語に合わせた。workflow の案は *"for a false statement of fact about the Dedicator"* を 2 か所に足す形（+18 語）だったが、§11.3 の語へ広げると名指しの数が増えず、語数もほぼ変わらない。
+
+**逆側**: Dedicator は、許された使用の結果であっても、自分についての虚偽の言明を理由に請求できる。不正確な個人データを理由とするデータ保護の請求の一部もここに入りうる。どちらも、学ばれるための著作物を出した人が名誉まで手放すと読める形より、審査者にとって説明しやすい。
+
+**見て残したもの**: §1.9 の *"material sent for discussion only"* は表示を要件にせず、提出者が後から「議論用だった」と主張できると読める。しかし表示があるまで取り込みと推定すると、議論の場にパッチを貼った人が、知らないうちに特許まで含む Dedicator になる（T19 の初案と同じ失敗の向き）。Apache-2.0 も *"intentionally submitted"* の主観の語に表示の除外を添える同じ形なので、残す。他の 26 件は本文の語か記録の結論で退いた（要旨: 第三者を通じた請求は §5.3 と第 1 肢で閉じる / 氏名の publicity は E31 の意図どおり / §8.4 の擬制は Rb′ として記録済み / 定義の循環、§3.1 の公有化、§4.1 の形、*rights in a name* の未定義はいずれも本文の語で閉じる）。
+
