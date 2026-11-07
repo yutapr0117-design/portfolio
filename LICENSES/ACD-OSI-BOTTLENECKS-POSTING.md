@@ -289,3 +289,5 @@ a latin parody of my name."*（逐語は `rounds/2026-09-09-license-discuss-pere
 
 **逆側。** どれも個人の発言で、AI には触れていない。Cowan 氏が言うのは書き手の動機で、書き手が何者かではない。Tzeng 氏は 2019 年に *"I believe that historically the L-R list has been quite successful in overcoming submitter bias"* と述べており、Fontana 氏の見方も争われている。そしてどの発言も、投稿が通らないときに本文を読む人が現れることまでは保証しない（`board-decisions.md` §2h の (1)）。
 
+**同じ審査の場に、逆の記録もある（#292）。** Chestek 氏は 2025-08-14 に AFN-License について *"Looks like AI slop to me and is clearly not OSD-compliant from the description"*、*"I will be ignoring."* と書いた。通知の 13 か月前で、投稿ではなくライセンスの本文についての発言である。OSD の不適合も理由に挙げている。
+

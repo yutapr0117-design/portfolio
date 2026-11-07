@@ -1,4 +1,4 @@
-Source: three public pages, each marked below
+Source: public pages, each marked below
 Retrieved: 2026-11-07
 Position: what Fedora decided about CC0 for code in 2022, and what its data file says now. Not addressed to us and not about ACD. The first message on the Fedora list could not be fetched (lists.fedoraproject.org returned a bot check and LWN's mirror of it returned 401), so its words are given as LWN and BleepingComputer print them. The reply in part 2 is LWN's mirror of the list message. The reading is in LICENSES/ACD-1.0.gap-measurements.md section 1.139.
 
@@ -215,3 +215,60 @@ Richard
   "fedora": {}
  }
 ]
+
+=== Part 5. Fedora legal documentation, https://gitlab.com/fedora/legal/fedora-legal-docs/-/raw/main/modules/ROOT/pages/license-approval.adoc (source of the page published at https://docs.fedoraproject.org/en-US/legal/license-approval/; these passages, in their order) ===
+== Allowed Licenses
+
+A license is _allowed_ if Fedora determines that the license is a free
+software / open source license. At a high level, the inquiry involves
+determining whether the license provides software freedom, and
+(equivalently) making sure that the license does not place burdens on
+users' exercise of its permissions that are inconsistent with evolving
+community norms and traditions around what is acceptable in a free
+software / open source license.
+
+As a general rule, all code made available by Fedora must be governed
+by an _allowed_ license. A license that is in the general _allowed_
+category can be used for anything in Fedora, not just code.
+
+== Licenses Allowed for Content
+
+For purposes of Fedora license classification, “content” means any
+material that is not clearly code, documentation, fonts or firmware.  
+Here are some examples of content:
+
+* graphic image files
+* audio files
+* nonfunctional data sets
+* AppStream metainfo.xml files
+* standards documents
+* certain files relating to functionality and management of markup languages, 
+including XML schema files and resource resolution files, XSL files, SGML declaration files,
+and ancillary informal documentation accompanying such files
+* checkpoints or comparable machine learning model files containing trained parameters
+* non-script slide presentation resources, except to the extent slide presentation content functions as documentation
+* game engine package files that contain game data
+
+Fedora will designate a license as allowed for content
+(_allowed-content_) if it meets the criteria for _allowed_ licenses
+with the following exceptions:
+
+* The license may restrict or prohibit modification
+* The license may say that it does not cover patents or grant any patent licenses
+
+IMPORTANT: `CC0-1.0`, which has a clause that says that it does not license
+or otherwise "affect" patent rights, is no longer _allowed_, but it
+continues to be _allowed-content_.
+
+== Changes in License Status
+
+Fedora aims for stability in its license classifications, but its
+treatment of a particular license or license type may change as
+community standards and expectations around acceptable licensing
+evolve or as new issues and concerns come to light. In rare cases, an
+allowed license may be reclassified as _not-allowed_, or an _allowed_
+license may be reclassified as allowed only for a specific category of
+material, as when `CC0-1.0` was reclassified from _allowed_ to
+_allowed-content_. When this sort of reclassification is done, we
+will try to minimize disruption, including by defining appropriate
+`usage` exceptions.

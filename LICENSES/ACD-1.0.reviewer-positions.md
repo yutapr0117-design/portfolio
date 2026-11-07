@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.reviewer-positions.md
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人
-last-updated: 2026-11-01
+last-updated: 2026-11-07
 canonical-ref: LICENSES/ACD-1.0.review-precedents.md (提出ごとの記録) / LICENSES/ACD-1.0.objection-map.md (1 表の要約) / LICENSES/ACD-1.0.against.md
 ---
 
@@ -646,3 +646,81 @@ releasing all rights whatsoever… **The document is internally contradictory.**
 ---
 
 **2026-09-24: §1.67 以降（§1.67 / §1.68 / §1.69 / §1.92 / §1.98・§1.99 の移転先 / §1.106 / §1.107 / §1.99）は [`ACD-1.0.review-venue.md`](ACD-1.0.review-venue.md) へ移した**（この file が Check 365 の 1,000 行上限まで 2 行だったため）。**節番号は動かしていない。**
+
+---
+
+## 1.140 決める側の「承認しない」の文を全期間で数えた —— 法律家・起草・未使用・特許・本文の説明・AI（2026-11-07）
+
+**何をしたか。** 全 508 か月の 28,901 通から、理事・委員・役員と主な審査者（約 60 名）の発言だけを取り、「承認しない・適合しない」の形の文を抜き出した。重複を除いて 1,278 文あった。受領者への条件についての 181 文は ACD に条件が無いので読まず、残る 1,097 文を読んだ。道具は正規表現なので、言い回しが違う文は取りこぼす。**下限である。** 原文は `rounds/2004-to-2026-license-lists-rule-census-cited-observed-*` と `rounds/2013-license-review-drafting-quality-cited-observed-*` に置いた。
+
+これまでの規則の集計（`review-corpus.md` の R 表）は 33 か月分だった。以下はドシエに無かった文である。
+
+### 法律家（B1）
+
+入口は委員長の *"That is not a blocker."*（2024-12-18）を書いている。手続きとしていまも正しいが、片側だった（`against.md` #291）。
+
+| 時点 | 誰 | 文 |
+|---|---|---|
+| 2013-05-30 | Berkus 氏 | *"I don't have a problem with making legal review a de facto requirement of submitting a new license."*、*"every single license I've seen submitted to this list without prior legal help over the last 2 years was a complete waste of time"*。Piana 氏 *"I like your reasoning"* |
+| 2013-06-05 | Berkus 氏 | *"We should not be approving licenses which no lawyer has ever taken a hard look at.  So either the legal review happens before submission, or it happens afterwards."* |
+| 2017-10-19 | Perens 氏 | *"We should not today approve licenses that were developed without the assistance of a lawyer"* |
+| 2018-09-27 | Perens 氏 | *"OSI should not accept licenses written by non-attorneys any longer."* |
+| 2025-10-26 | McCoy Smith 氏 | *"this license really needs to go through a legal review before submission/resubmission."* |
+| 2026-01-24 | Chestek 氏 | *"The OSI does not approve licenses that are poorly drafted"*、*"problems that a lawyer skilled in drafting would avoid."* |
+| 2026-02-14 | Berkus 氏（委員会の結果の告知）| *"or to obtain help from an attorney to draft an improved version of this license."* |
+| 2026-03-14 | 佐渡氏 | *"I think this proposal should receive legal review before the community debates whether it should be approved by OSI."* |
+| 2026-04-14 | Chestek 氏 | *"a license of this complexity needs to be drafted by a professional."* |
+
+**逆の記録も同じ人たちの議論に在る。** Fontana 氏 2013-04-07: *"access to good legal advice will be unrealistic to many developers, and yet they seem to me to have as much a right to draft new purportedly open source licenses"*、*"the OSI will be rewarding the represented and punishing the unrepresented"*。Rosen 氏 2013-04-08: *"we don't want to treat open source licensing like a game that only the rich and their lawyers can play."* Fontana 氏 2013-05-30: *"Some of the most problematic pseudo or questionably-FLOSS licenses I've seen over the years clearly *were* drafted with legal help."* Villa 氏 2013-04-07: *"as currently drafted, the OSD has no formal requirement for such a consultation."*
+
+**読み。** 規則は要件にしていない。2013 年に要件化が論じられ、要件にはならなかった。だが委員は個別の提出に法律家を求め続けている。Berkus 氏の *"it happens afterwards"* は §1.52（提出が弁護士の目を通す経路である）と同じ向きで、残る道はそこにある。
+
+### 起草
+
+Fontana 氏 2014-06-30（委員会の報告のスレッド）: *"We should not be quick to approve new licenses that seem to have problematically-drafted provisions even if the problems are not mentioned in the OSD (e.g., excessive vagueness, problems of comprehensibility, inconsistency across provisions)."* 続けて *"If this were an entirely new provision in a new license submitted by a non-lawyer with no affiliation with a prestigious institution, I am sure it would be criticized."*（#293）。
+
+Chestek 氏: *"The license may last to perpetuity, so it needs to be really well written."*（2020）、*"the open source license can't be sloppy; it has to be as perfect as possible."*（2025）、*"Because of the unintended complexity of this license, I do not believe that it should be approved."*（2024）。**1.4 草案が閉じ続けている欠陥の型は、この 3 つの語（曖昧・理解・条の間の不整合）に当たる。**
+
+### 未使用（B2）
+
+Berkus 氏 2020-04-23（MIT-0）: *"if there's nobody using it, we shouldn't approve it as "technically OSS but not really needed"."* McCoy Smith 氏の返答は *"Is that a reason for denial that has been used in the past?"* で、委員会の理由書は後者の側へ出た（`board-decisions.md` §2d）。Piana 氏 2025-08-18: 使用の見込みは要件ではないが *"it is a point that must be evaluated when deciding whether to begin the approval process"*、さもないと *"a flood of thought exercise licenses"*（#294）。Fontana 氏 2013-05-30: *"the waste-of-time licenses are most often just the work of one developer acting in isolation"*。2013-06-05 には *"It needn't be a big community, maybe just a few reasonable people, but some credible showing that there's more than one person who supports the submission"*。
+
+**逆側の有利な記録。** Fontana 氏 2013-06-06: *"There is a bit of a chicken/egg problem, as the absence of OSI approval may significantly deter projects *independent of the steward* from choosing the new license."*
+
+### 特許（§8 へ当てた）
+
+| 文 | §8 |
+|---|---|
+| Chestek 氏 2025-02-09 *"a license is granted for any potential infringement, no matter what the theory."* | §8.1 は *"would be infringed by"* で測る。一致 |
+| 同 *"The patent grant in a FOSS license must be for all possible uses of the code."* | §8.1 は作る・使う・売る等の全部を挙げる。一致 |
+| Chestek 氏 2025-09-19 *"New infringement is the only kind of patent claims that can be excluded in an open source license."* | §8.1 が外すのは Work の内容に原因が無い侵害だけで、これに当たる。ただし読みの確認が要る |
+| 同 *"withholds the patent license the moment a change is made to the software"* は *"unacceptable"* | §8.1 は派生物へ及ぶ。当たらない |
+| Chestek 氏 2026-02-20 *"The OSI has long disapproved licensees that don't, at least implicitly, grant a patent license"*。譲受人が許諾者のとき問題になると述べる | §1.4 は特許の保有者を含む Dedicator が与える。当たらない |
+| Berkus 氏 2019-12-06 *"a patent grant cannot include carte blanche grants to any patent affecting the software regardless of modifications, and no existing license does."* | **§8.4 の広さに当たりうる。** §8.4 は原因の要件で絞るが、B7 のとおり広い |
+
+### 本文の説明（#295）
+
+Piana 氏 2026-01-16（IDCIYMI-1.0）: *"the addition of aspirational language in legal text, especially without a clear indication that this is not legal text, is IMHO a source of potentially confusing language"*。Berkus 氏は同じ日に *"why creator intent should show up in the license at all"* と問う。Chestek 氏 2026-01-24: *"The unnumbered parts appear to be explanatory material, so I question whether they belong in the agreement at all."* McCoy Smith 氏 2025-10-26 は前文の定義語を *"preambles can be construed as not part of the license"* として問題にする。**ACD の前文は表題で *"informative; not part of the operative terms"* と述べ、定義語を置いていない。** 条の中の理由の文は別で、外部レビューの指摘で 10.0% と測り、大半は外へ出せないと判断した（`discussion-log.md`）。2026 年のこの 3 文は、同じ指摘がリスト上の評価でも現れることを示す。
+
+### AI の提出（B14・#292）
+
+Chestek 氏 2025-08-14（AFN-License）: *"Looks like AI slop to me and is clearly not OSD-compliant from the description"*、*"I will be ignoring."* 通知の 13 か月前である。委員会は 2025-09 に、OSD との衝突を理由に不承認を理事会へ勧告した。
+
+### 審査するのは本文である
+
+Piana 氏 2018-10-17: *"A license must be approved for its text, not for its context"*。2019-01-29: *"there is no salvation or damnation outside the legal text, since this is what we judge"*。**これは 2 方向に働く。** 書き手の属性で決めない根拠になり、同時に、本文の外のドシエでは本文の弱さを補えない。
+
+### 法域（B4・B8）
+
+ドイツの弁護士 Till Jaeger 氏の見解を、Chestek 氏が本人の許可を得てリストへ載せた（2020-05-19・Unlicense）: *"Under German law the Unlicense would work as a license."*、*"it is the prevailing opinion that even without such license language a public domain dedication needs to be interpreted as a license without license conditions (but moral rights still apply)."* 委員会の理由書の *"The lawyers who opined"* の 1 人である。1 人の見解で、1 法域である。
+
+### 一般的な規則の移り変わり
+
+Nelson 氏 2001-10: *"If we're to reject a license, it MUST be for something in the OSD."* 2004-12: *"If you don't know why the world needs your license, we don't know why we should approve it, so ... we won't."* 2009（#263）は OSD 適合は十分条件でないと述べた。Chestek 氏 2019-07: *"I disagree with your framing that every license must be approved unless we can point to a specific rule broken."* Fontana 氏 2026-08-28 はその由来を *"Artful license drafters were arguing that the OSI was compelled to approve any license with some sort of novel controversial provision if a clear conflict with a specific OSD provision could not be identified."* と述べた（`board-decisions.md` §2h の (2)）。
+
+### 当たらないと確かめたもの
+
+Chestek 氏 2026-04-18 *"it is also better practice not to define the the grant by enumerating specific rights"*: §4.1 は全 Covered Rights を与え、§4.2 は例示である。同 2026-01-16 *"every possible variation of the license must meet the OSD"*: §16.1 の埋める欄は所在だけで、条件を足す欄が無い。Chestek 氏 2024-02 *"A "contribution" is not defined"*: §1.9 が定義する。
+
+**この節が establish しないこと。** どれも他の提出についての発言で、OSI の決定ではない。文の選択は我々の読みである。
+

@@ -229,7 +229,7 @@ embedding / output にまで特許許諾を及ぼす。** 射程はこの発言�
 >
 > > *"Yes, the review process certainly creates a **Catch-22**. **We want to see licenses early to
 > > correct them, but are less inclined to approve a license that doesn't have a track record.**"*
-> > —— Pamela Chestek 氏・`license-review` 2026-08-26（OpenMDW 審査）。同じ人は 2019-06-04 に、使われていないことは欠点の証拠になりうると述べた（#289）。
+> > —— Pamela Chestek 氏・`license-review` 2026-08-26（OpenMDW 審査）。同じ人は 2019-06-04 に、使われていないことは欠点の証拠になりうると述べた（#289）。賛否の全体は `reviewer-positions.md` §1.140（#291・#294）。
 >
 > **この register は B2 を「解消可能・未実施（discoverability のみ制御可）」と書いてきたが、
 > *その板挟みが OSI の側にも在り、Chestek 氏（委員・元委員長）がそう認めている* ことを記録していなかった。**

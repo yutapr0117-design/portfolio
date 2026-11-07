@@ -1,0 +1,582 @@
+Source: https://lists.opensource.org/pipermail/ (license-review and license-discuss, the months named in each message's Date line)
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-07)
+Messages: 3 of the 30 messages this dossier cites from a census of rule-like sentences across all 508 archived months. Not a thread. Part 3 of 6.
+Senders: Pamela Chestek, Carlo Piana
+Position: statements by people who decide or advise on approval, each about another submission. Not addressed to us and not about ACD. Each message keeps its archive headers. Two long messages (Date lines Sat, 24 Jan 2026 15:14:40 -0800 and Tue, 14 Apr 2026 19:27:47 +0200) end at the author's signature here; the quoted material below it is in the archive. The reading is in LICENSES/ACD-1.0.reviewer-positions.md section 1.140.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Thu Aug 14 16:28:28 2025
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Thu, 14 Aug 2025 09:28:28 -0700
+Subject: [License-review] AFN-License
+In-Reply-To: <tencent_B5D66281D70A5455CD6CC78740BA3AA9600A@qq.com>
+References: <tencent_B5D66281D70A5455CD6CC78740BA3AA9600A@qq.com>
+Message-ID: <0ceddb3e-4ed5-b539-80dc-12b1212606e1@chesteklegal.com>
+
+Looks like AI slop to me and is clearly not OSD-compliant from the 
+description: "This license aims to provide a solution for creators who 
+want their work to be freely used, modified, and distributed, but not 
+directly monetized as a commodity itself." I will be ignoring.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+On 7/24/2025 1:05 AM, 1248044293 via License-review wrote:
+>
+> Dear Open Source Initiative License Review Committee,
+>
+> I am writing to formally submit the *AFN-License 2.0* for your 
+> comprehensive review and consideration for approval by the Open Source 
+> Initiative. We are confident that this license offers a distinctive 
+> and vital framework designed to address an unmet need within the 
+> open-source community, providing a balanced approach that champions 
+> both robust intellectual property protection and flexible commercial 
+> application.
+>
+> The official repository for AFN-License 2.0, providing its complete 
+> text and usage guidelines, is available at: 
+> https://github.com/H2O-ME/AFN-License
+>
+> *1. License Identification and General Characteristics:*
+>
+>  *
+>
+>     *License Name:* AFN-License 2.0
+>
+>  *
+>
+>     *Version:* 2.0
+>
+>  *
+>
+>     *Unique Identifiers (SPDX / ScanCode):* A request has been
+>     submitted to SPDX.https://github.com/spdx/license-list-XML/issues/2794
+>
+>  *
+>
+>     *Suggested Tags:* Attribution, Sustainable Commercialization,
+>     Service-Oriented, Permissive-like, Copyleft-Compatible.
+>
+>  *
+>
+>     *Reusability:* The AFN-License 2.0 is meticulously designed to be
+>     fully reusable by any licensor without modification of its terms.
+>     Its structure ensures that the rights and obligations remain
+>     consistent regardless of the project or entity applying it, thus
+>     preventing terms from having different outcomes for different
+>     licensors.
+>
+>  *
+>
+>     *No Structural Advantage for Licensor:* We have carefully drafted
+>     the license to ensure it contains no terms that structurally place
+>     the licensor in a more advantageous position than any licensee.
+>     The rights and permissions granted are equally applicable to all
+>     users, fostering a balanced and fair licensing relationship.
+>
+>  *
+>
+>     *Clarity and Lack of Ambiguity:* The license text has been crafted
+>     to be clear, concise, and grammatically sound, facilitating
+>     straightforward understanding for its users. While legal language
+>     can sometimes involve complexity, we believe any potential
+>     ambiguities are minimal and do not significantly impact the core
+>     application or spirit of the license.
+>
+>  *
+>
+>     *Complete Text:* The AFN-License 2.0 is presented as a complete,
+>     standalone license text. It is not an overlay, an exception to
+>     another license (e.g., it is not a 'Commons Clause' or 'ClassPath
+>     exception'), or a partial set of terms. This ensures its
+>     integrity, clarity, and independent enforceability.
+>
+> *2. Open Source Definition (OSD) Compliance Statement:*
+>
+> We affirm that the AFN-License 2.0 has been meticulously designed with 
+> the explicit intent to comply with the Open Source Definition. We 
+> specifically highlight its alignment with the following OSD clauses, 
+> and address how it meets the criteria for new licenses:
+>
+>  *
+>
+>     *OSD 3 (Derived Works):* The license explicitly permits the
+>     creation and distribution of derived works, including
+>     modifications. It allows these derived works to be closed-source
+>     and to be integrated into commercial projects, fostering
+>     innovation and broad application without undue restrictions on
+>     subsequent development.
+>
+>  *
+>
+>     *OSD 5 (No Discrimination Against Persons or Groups):* The license
+>     places no restrictions on any person or group from using,
+>     modifying, or distributing the software. It ensures equal access
+>     and opportunity for all individuals and organizations, promoting
+>     inclusivity in the open-source community.
+>
+>  *
+>
+>     *OSD 6 (No Discrimination Against Fields of Endeavor):* This
+>     clause represents the most nuanced and critical aspect of
+>     AFN-License 2.0, and indeed, its core innovation. While the
+>     license explicitly prohibits the /direct sale of the software
+>     itself/ or its derivatives as a standalone product (e.g., selling
+>     copies, activation codes, or subscriptions where the software is
+>     the core value proposition), it /emphatically permits and
+>     encourages commercial use/ through value-added services. These
+>     include, but are not limited to, SaaS offerings, technical
+>     support, custom development, and integration into hardware
+>     products, provided the basic software remains freely obtainable to
+>     users.
+>
+>     The AFN-License 2.0 aims to provide a framework that both protects
+>     intellectual property and offers flexibility for various
+>     commercial and technical environments. It is particularly suited
+>     for situations where creators wish to safeguard their original
+>     contributions while enabling a degree of commercial utilization
+>     and even closed-source development. This license strikes a unique
+>     balance, encouraging broad participation and development while
+>     safeguarding original authors from improper commercial
+>     exploitation, specifically the commoditization of their direct
+>     software product. Community members can contribute code, report
+>     bugs, and suggest improvements without fear that their
+>     contributions will be used for unauthorized commercial activities,
+>     particularly the direct commoditization of the software itself. We
+>     contend that this specific restriction is not a discrimination
+>     against a "field of endeavor" but rather a carefully crafted
+>     mechanism to promote a /different model of open-source
+>     sustainability/. It ensures that the software remains freely
+>     available and modifiable for all uses, while preventing a specific
+>     form of commercialization that can undermine the original
+>     creators' ability to maintain and develop the project, thereby
+>     fostering a vibrant and sustainable ecosystem. We believe this
+>     approach channels commercial value towards service-based models,
+>     rewarding innovation and ongoing investment in the project.
+>
+>  *
+>
+>     *OSD 9 (License Must Not Contaminate Other Software):* The license
+>     is designed to be compatible with other open-source licenses,
+>     including permissive ones (e.g., MIT, Apache) and even "copyleft"
+>     licenses (e.g., GPL/AGPL). It ensures that it does not impose
+>     additional restrictions on other software distributed alongside
+>     it, beyond its own specific terms for the licensed work, thus
+>     preventing "license contamination."
+>
+>  *
+>
+>     *Compliance Across All Variants:* Every possible variant of the
+>     license's application, particularly concerning its commercial use
+>     clauses, is intended to conform with the Open Source Definition.
+>     The prohibition on direct sale is clearly defined and consistently
+>     applied across all scenarios.
+>
+>  *
+>
+>     *Ability to Comply:* The terms of the AFN-License 2.0 are designed
+>     to be fully compliant and enforceable by any licensee in practice.
+>     There are no clauses that would render the license practically
+>     impossible to adhere to, unlike the example of the SSPL's copyleft
+>     scope.
+>
+> *3. Context and Rationale for a New License:*
+>
+>  *
+>
+>     *Gap Filled:* The AFN-License 2.0 addresses a specific, unmet need
+>     within the open-source ecosystem. Many developers desire the
+>     collaborative benefits and freedom of open source, require clear
+>     attribution for their intellectual work, but wish to prevent their
+>     software from being directly commoditized and sold as a standalone
+>     product. Current OSI-approved licenses generally do not offer this
+>     specific protection against direct product sale while
+>     simultaneously permitting and encouraging broad commercial use
+>     through services. This license aims to provide a solution for
+>     creators who want their work to be freely used, modified, and
+>     distributed, but not directly monetized as a commodity itself.
+>
+>  *
+>
+>     *Comparison to Similar OSI-Approved Licenses:*
+>
+>       o *Similarities:* Like permissive licenses such as MIT, Apache
+>         2.0, and BSD licenses, AFN-License 2.0 requires attribution,
+>         allows free use, modification, and distribution, and permits
+>         inclusion in closed-source commercial projects. It also grants
+>         a non-exclusive, worldwide patent license, similar to Apache
+>         2.0. Its compatibility with copyleft licenses also aligns with
+>         the broader open-source ecosystem.
+>       o *Key Differences:* The primary and most significant
+>         distinction is the explicit prohibition against the /direct
+>         sale/ of the software or its derivatives as a product. This
+>         contrasts sharply with most existing OSI-approved licenses
+>         (e.g., MIT, Apache, BSD, GPL) which generally permit direct
+>         sales as a form of commercial use. AFN-License 2.0 seeks to
+>         clearly differentiate between selling the software as a
+>         commodity and deriving revenue through value-added services
+>         built upon or around the software.
+>  *
+>
+>     *Legal Review Status:* The AFN-License 2.0 has undergone an
+>     initial legal review by *Beijing Zhiyuan Legal Consulting*
+>     (北京智远法律咨询), a reputable law firm based in China with expertise
+>     in intellectual property and technology law. This review confirmed
+>     its adherence to general legal principles and the spirit of the
+>     'Regulations on Computer Software Protection of the People's
+>     Republic of China.' While this review provided valuable insights
+>     and contributed to its high quality and enforceability, we
+>     recognize the distinct requirements of the Open Source Definition
+>     and are open to further independent legal scrutiny to ensure full
+>     compliance with international open-source licensing standards.
+>     This AFN-License 2.0 agreement is a high-quality, highly
+>     executable, and custom license agreement that provides clear
+>     guidance for its application, informed by Chinese legal
+>     principles. It achieves an excellent balance between the spirit of
+>     open source and the protection of authors' commercial interests.
+>
+>  *
+>
+>     *Projects Currently Using the License:* As a newly proposed
+>     license designed to fill a specific niche, AFN-License 2.0 is
+>     primarily hosted on its official GitHub repository
+>     (https://github.com/H2O-ME/AFN-License), which serves as its
+>     primary public reference and a demonstration of its structure.
+>     While it is not yet widely adopted by other third-party
+>     projects,But I've used it in some of my personal open source
+>     projects, for
+>     example:https://github.com/H2O-ME/qsgz、https://github.com/H2O-ME/clear-tabandhttps://github.com/H2O-ME/ClassRoll-Pro
+>     I hope that once it is approved by OSI, it will be used for more
+>     open source projects in the future, and it will be a valuable
+>     choice for other developers with similar needs.
+>
+> *4. Submitter and Steward Information:*
+>
+>   * *Submitter:* THW
+>   * *Submitter Contact Email:* thw at thw.lol
+>  *
+>     *License Steward :* THW
+>  *
+>     *Project Homepage/Official Information:* https://afn.thw.lol/
+>     https://github.com/H2O-ME/AFN-License
+>
+> *5. Additional Information for Review:*
+>
+> We reiterate our understanding that the "No Direct Sale" clause, 
+> particularly concerning OSD 6, is the most significant point of 
+> discussion for this submission. We are confident that our 
+> interpretation, focusing on enabling a service-based commercial model 
+> while preventing direct product commoditization, aligns with the 
+> spirit of fostering open collaboration and innovation. We believe this 
+> license offers a valuable new option for a segment of the open-source 
+> community, promoting a sustainable model where creators are empowered 
+> to contribute freely without fear of their work being unfairly 
+> commoditized.
+>
+> We welcome the committee's rigorous review and are available to 
+> clarify any aspects of the license or our rationale. We appreciate 
+> your dedication to maintaining the integrity and clarity of the Open 
+> Source Definition.
+>
+> Thank you for your time and consideration. We look forward to your 
+> valuable feedback.
+>
+> Sincerely,
+>
+> THW thw at thw.lolAFN.thw.lol
+>
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20250814/94619d58/attachment-0001.htm>
+
+From carlo at piana.eu  Mon Aug 18 08:11:46 2025
+From: carlo at piana.eu (Carlo Piana)
+Date: Mon, 18 Aug 2025 10:11:46 +0200 (CEST)
+Subject: [License-review] License Review Submission: Irrevocable MIT
+ License (MIT-I)
+In-Reply-To: <b96bc7e5-54bc-426a-bd6c-a2692fb0899d@app.fastmail.com>
+References: <ff4d5f0a-40a5-47dc-ba7c-e3a5994fe9d0@app.fastmail.com>
+ <ba0a580d-8aa5-4754-adc2-4d1c90f35d94@berkus.org>
+ <badd507d-41c9-4b5e-88c9-a91ed2625c09@lexpan.law>
+ <7b1bcafa-5cfb-093e-b06d-33dfe3114978@chesteklegal.com>
+ <347cb90e-8970-49ba-95e5-f8ec9b1e3661@berkus.org>
+ <97cff8ed-4943-59ae-821d-3eb23d8cf8b2@chesteklegal.com>
+ <b96bc7e5-54bc-426a-bd6c-a2692fb0899d@app.fastmail.com>
+Message-ID: <833740485.802631.1755504706996.JavaMail.zimbra@piana.eu>
+
+I have already expressed the opinion that since OSI approval is a scarce resource and it only must go to licenses that, besides not violating the OSD, meet certain minimum requirements to justify an examination, such as a scorecard where all elements weigh in to justify an approval. 
+
+Here I don't see sufficient quality to justify an approval, on suspects that requiring positive distribution of the code even past the time the actual binary is also distributed (a basic tenet of copyleft) is even against OSD. 
+
+Plus the language is suboptimal from a legal standpoint and would create a lot of uncertainty. 
+
+I don't see any statement indicating that it is actually being used or there is a bona fide expectation to be used by any substantial projects in due course, pending approval. While this should not be a requirement for approving a new license, it is a point that must be evaluated when deciding whether to begin the approval process. Otherwise, there is a risk of receiving a flood of thought exercise licenses, which would create unnecessary noise.
+
+This license scores low IMHO, on the above concerns.
+
+K 
+
+
+----- Messaggio originale -----
+> Da: "Kevin P. Fleming" <lists.osi-license-review at kevin.km6g.us>
+> A: "license-review at lists.opensource.org" <license-review at lists.opensource.org>
+> Inviato: Sabato, 16 agosto 2025 13:03:07
+> Oggetto: Re: [License-review] License Review Submission: Irrevocable MIT License (MIT-I)
+
+> On Fri, Aug 15, 2025, at 22:12, Pamela Chestek wrote:
+>> Requirements like this are why it just impossible for the OSI to
+>> describe everything that makes a license unacceptable, because there's
+>> no limit to the human imagination. Instead it is, I think rightly,
+>> within the OSI's discretion to make the judgment call based on a
+>> holistic view of whether the license advances or inhibits the adoption
+>> and use of open source software.
+> 
+> +1000 to that.
+> 
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily
+> those of the Open Source Initiative. Communication from the Open Source
+> Initiative will be sent from an opensource.org email address.
+> 
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+From pamela at chesteklegal.com  Sat Sep 20 00:41:33 2025
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Fri, 19 Sep 2025 17:41:33 -0700
+Subject: [License-review] Request for approval of new "MGB 1.0" license
+In-Reply-To: 
+ <DM6PR04MB65586E11DA343C3C53CC9519CE11A@DM6PR04MB6558.namprd04.prod.outlook.com>
+References: 
+ <DM6PR04MB65586E11DA343C3C53CC9519CE11A@DM6PR04MB6558.namprd04.prod.outlook.com>
+Message-ID: <91c6f3e8-b584-a9cb-82e7-b85c64782142@chesteklegal.com>
+
+I believe this license is still problematic for several reasons.
+
+
+_Section 2(B), patent grant_ (why is B uppercase here, but lowercase in 
+Section 3?)
+
+> For clarity, no patent license is granted by a Contributor for 
+> infringements caused by:
+>
+> (i) your or any other party's Derivative Works, ...
+This language withholds the patent license the moment a change is made 
+to the software, whether it has anything to do with the patented 
+function or not. In other words, no one who makes any change downstream 
+has a patent license. This is unacceptable for an open source license.
+
+
+> (ii) the combination of the Work with anything other than the 
+> Contributor Version. 
+I can't parse this language, because I don't think you mean "Work" as it 
+is defined in the license. As you've defined it, the "Contributor 
+Version" /is/ the "Work," so how can there be a combination of these two 
+things? I assume what you're trying to get at is the concept of 
+combining your Contributor Version with some other software, but I don't 
+think that's what it says. However, my understanding of what you're 
+trying to say is problematic too, because, like above, you are 
+withholding the patent license even though the combination may not 
+create a new infringement. New infringement is the only kind of patent 
+claims that can be excluded in an open source license.
+
+
+_Section 3(d), new attribution requirement_
+
+
+The newly added 3(d) is problematic. First, it's unclear. The 
+requirement is to "conspicuously mark[] any portion of the Work ..." 
+Mark it where? In the source code? In the marketing materials? In the 
+documentation? It is also atypical, in that it appears to require a user 
+to add new information that is not already contained in the software. 
+Your license (and the Apache license) state that copyright notices have 
+to be retained, so why isn't it sufficient for you to include the 
+copyright notice you desire, which then others cannot remove? Why are 
+you putting an affirmative burden on a user to figure it out? What 
+problem are you trying to solve with this?
+
+
+_Section 4, Personal Information_
+
+
+It's questionably written and I believe unnecessary. It has the wording 
+of a limit on the license grant, "The Work may include data, graphs, and 
+Models, and if so, You may use and modify such data, graphs, and Models, 
+/provided that/ ..." "Provided that" is typically interpreted as a 
+condition on the previous permission. However, what follows isn't a 
+condition, just a statement of fact, "You may have obligations to comply 
+with laws concerning privacy or protected health information ...." But 
+are you trying to condition the license grant on compliance with the 
+privacy laws? If you are, that would be a violation of OSD6.
+
+
+The section is also problematic because it cites US law. Open source 
+licenses are ideally for an international audience. The waiver of 
+warranty is redundant to Section 8. I would weigh whether it really is 
+necessary to tell people what they should already know, which is that 
+they have to abide by the law, and consider taking the entire paragraph out.
+
+Pam
+
+
+Pamela S. Chestek
+
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal
+www.chesteklegal.com
+
+
+On 9/19/2025 9:03 AM, Barksdale, Marvin via License-review wrote:
+> I Marvin Barksdale JD, the license steward and license submitter, 
+> attests that this new “MGB 1.0” license complies with the Open Source 
+> Definition, including:
+> OSD 3 – The license must allow modifications and derived works and 
+> must allow them to be distributed under the same terms as the license 
+> of the original software.
+> OSD 5 – The license must not discriminate against any person or group 
+> of persons.
+> OSD 6 – The license must not restrict anyone from making use of the 
+> program in a specific field of endeavor.
+> and OSD 9 – The license must not place restrictions on other software 
+> that is distributed along with the licensed software. For example, the 
+> license must not insist that all other programs distributed on the 
+> same medium must be open source software.
+> License Rationale
+> The MGB Open Source License 1.0 (“MGB 1.0”) is a permissive open 
+> source license that was created to catalyze open source distribution 
+> and open science among the health care innovator and research 
+> development community, particularly those employed at Academic Medical 
+> Centers (AMCs) receiving federal grant funding, such as Mass General 
+> Brigham Incorporated (MGB).  AMCs are collectively organized hospitals 
+> and laboratories that are integrated with a medical school, featuring 
+> a federally regulated mission to provide patient care, train 
+> healthcare professionals, and conduct innovative research.  In recent 
+> years these complex organizations have evolved to perform several 
+> ancillary commercial functions including IP co-development, 
+> administration, and out-licensing, all of which aimed to support their 
+> central mission of the advancement of medicine.  Aligned with this 
+> central mission is the proliferation of open science activity at AMCs, 
+> in that many of their researchers and developers have shifted to open 
+> collaborative approaches where research data, methodologies, source 
+> code and findings are shared at no cost to spur innovation. But, 
+> despite the alignment with system goals, AMCs have been slow to adopt 
+> open source best practices.    At Mass General Brigham, for example, 
+> despite receiving over $77M in NIH funding over the past 10 years to 
+> support 200+ software research projects in yielding fruitful open 
+> source communities and innovations, instead there is a large silo of 
+> health care researchers, clinicians, and developers who operate in the 
+> grey areas of open source, NIH, Open Access Journal, and MGB compliance.
+> The goal of MGB 1.0 is to provide developers who are building 
+> innovative technology within highly regulated health care environments 
+> with a permissive open source license that incorporates the best 
+> practices of digital health licensing, enabling compliant open source 
+> collaboration both across and external to AMCs.
+> Beyond addressing the open data, open source, and open access 
+> approaches of digital health researchers and software developers, MGB 
+> 1.0 also looks to support the rise of open AI model development that 
+> often utilizes sensitive health data for training purposes. Thus, 
+> although MGB 1.0 uses a similar licensing approach as Apache 2.0, it 
+> expands its applicability to AI models and other shared works and 
+> derivatives spanning “model architecture, code, data descriptions, 
+> data, and the model weights.” This expanded scope is important because 
+> there are few open source licenses in current use that are suitable 
+> for releasing AI models and their related artifacts.
+> Through internal cross-functional approval MGB 1.0 is now the default 
+> open source license for emerging MGB research and innovations 
+> involving open science, and for over 500 active GitHub repositories 
+> authored and / or controlled by MGB clinicians, researchers, labs, and 
+> developers. The MGB Open Science Program Office manages the MGB IP 
+> Policy pertaining to open source licensing and drives compliance 
+> through the promotion of open science best practices.
+> Legal Analysis
+> Although MGB 1.0 uses a pro-commercialization, pro-modification, 
+> highly compatible licensing scheme similar to Apache 2.0, it is 
+> critically different in three ways: clarified patent terms, coverage 
+> of AI artifacts, and clarified interaction with data regulation. 
+> Licensors of open source software have long struggled with the 
+> ambiguities of the patent license grant in Apache 2.0. In this license 
+> each Contributor grants a no-charge patent license to the Work, 
+> applying to “patent claims that are necessarily infringed by their 
+> Contribution(s) or by the combination of their Contribution to the 
+> Work.”  As evidenced by the AFL, and later, the GNU v3 licenses, all 
+> approved by OSI, there has been a shift in OSI license patent grants 
+> to language that “applies only to specific set of patent claims…that 
+> are embodied in the in the Original Work as furnished by the Licensor. 
+> [They are] not license[s] to the Licensor’s entire patent portfolio.“ 
+> [Lawrence Rosen “Open Source Licensing – Software Freedom and 
+> Intellectual Property Law” p 189].
+> As Apache 2.0’s patent grant features a broad patent grant application 
+> extending to those claims infringed by the combination of the original 
+> Work and a Contribution,  MGB 1.0 builds on Rosen’s focused approach: 
+> “claims embodied by the original work,” to explicitly apply to patent 
+> claims claiming inventions embodied in contribution. The license also 
+> leverages clarifying patent language from Section 2.3 of the Mozilla 
+> Public License version 2.0 also approved by OSI.
+> MGB 1.0 was co drafted by myself, Marvin Barksdale JD, Preston Regehr 
+> Esq. of Tech Law Ventures PLLC, and Heather Meeker Esq. of Tech Law 
+> Partners LLP before being reviewed and approved for system use by Mass 
+> General Brigham’s Office of General Counsel’s IP Group.
+> Summary
+> MGB 1.0 provides express licensing provisions that are best practice 
+> in digital health, while explicitly preserving opportunities for 
+> commercial activity by licensors who are patent portfolio holders and 
+> innovators.   To these ends, MGB 1.0 utilizes a clearer approach than 
+> the MIT, BSD and Apache 2.0 licenses. Furthermore, MGB 1.0, explicitly 
+> contemplates the inclusion of AI model artifacts in the licensed work. 
+> Beyond the clarified patent grant, MGB 1.0 also adds HIPAA 
+> acknowledgement language that will provide AMC’s and other open source 
+> innovators sharing models trained on health data comfort that they can 
+> release materials under this license and still comply with law in a 
+> heavily regulated field. MGB 1.0 provides developers who are building 
+> innovative software within highly regulated health care environments 
+> with a permissive open source license that incorporates the best 
+> practices of digital health licensing, catalyzing compliant open 
+> source collaboration.
+>
+>
+>
+> The information in this e-mail is intended only for the person to whom 
+> it is addressed.  If you believe this e-mail was sent to you in error 
+> and the e-mail contains patient information, please contact the Mass 
+> General Brigham Compliance HelpLine at 
+> https://www.massgeneralbrigham.org/complianceline .
+>
+>
+> Please note that this e-mail is not secure (encrypted).  If you do not 
+> wish to continue communication over unencrypted e-mail, please notify 
+> the sender of this message immediately.  Continuing to send or respond 
+> to e-mail after receiving this message means you understand and accept 
+> this risk and wish to continue to communicate over unencrypted e-mail.
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20250919/c2d7a8f5/attachment-0001.htm>
+
