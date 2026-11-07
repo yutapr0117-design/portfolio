@@ -7,7 +7,7 @@
 多くが無音だった (Check 490 / 468v / 442d / 444k / 472h で閉じた)。この道具はその手順の機械的な部分を行う。
 
 やること: 確定本文 (冒頭は §0.13 の型) / 草案の pointer / 次の草案 / 次の CHANGELIST / 記述子 / FREEZE-DATA /
-mirror / 適用する面の版 / binary の権利表示 / SPDX XML。草案の冒頭は CHANGELIST の付録へ逐語で移す。
+mirror / 適用する面の版と日付 / binary の権利表示 / SPDX XML / 凍結件数 / 「いまの作業場」の行 / digest と STATUS.md。草案の冒頭は CHANGELIST の付録へ逐語で移す。
 
 やらないこと: 判断。外向きの文書の書き換え、REVIEWERS.md の表、語数の申告の文、`measure_descriptor_carryover.py`
 が出す条の読み直しは人が行う。走ったあとの consistency の RED が、次に直す場所の一覧である。
@@ -212,6 +212,32 @@ def _snippet(line: str, at: int) -> str:
     return " ".join(line[max(0, at - 50):at + 110].split())
 
 
+def finish(v: str, nxt: str, date: str) -> None:
+    """機械で決まる残りを片付ける。文を読むもの (Check 444m / 472h) は人に残す。"""
+    from checks_license_self_reporting import _NUM_WORDS
+
+    pins = len(re.findall(r"(?m)^[0-9a-f]{64}  \S+", (L / "FROZEN.md").read_text(encoding="utf-8")))
+    word = next(w for w, n in _NUM_WORDS.items() if n == pins)
+    for name in ("REVIEWERS.md", "ACD-1.0.errata.md"):
+        text = re.sub(r"\d+× OK", f"{pins}× OK", (L / name).read_text(encoding="utf-8"))
+        text = re.sub(r"(pins the SHA-256 of|prints `OK` for all) [a-z-]+ files", rf"\1 {word} files", text)
+        (L / name).write_text(re.sub(r"\(re-run \d{4}-\d{2}-\d{2},", f"(re-run {date},", text), encoding="utf-8")
+    # 「いまの作業場」の行は Check 468k / 468t が場所を名指す。同じ規則を 2 か所に書かない。
+    report = subprocess.run([sys.executable, ".github/scripts/check_repository_consistency.py"], cwd=ROOT, text=True, capture_output=True).stdout
+    found = next((line for line in report.splitlines() if line.startswith("ERROR: Check 468:")), "")
+    for path, n in re.findall(r"'([^':]+):(\d+) → ACD-[\d.]+-DRAFT\.txt'", found):
+        lines = (ROOT / path).read_text(encoding="utf-8").split("\n")
+        lines[int(n) - 1] = lines[int(n) - 1].replace(f"ACD-{v}-DRAFT.txt", f"ACD-{nxt}-DRAFT.txt")
+        (ROOT / path).write_text("\n".join(lines), encoding="utf-8")
+    block = re.search(r"468t: [^\[]*\[([^\]]*)\]", found)
+    for path in re.findall(r"'([^':]+) → ", block.group(1)) if block else []:
+        target = f"ACD-{v}.txt" if f"ACD-{v}-" in path else f"ACD-{nxt}-DRAFT.txt"
+        text = (ROOT / path).read_text(encoding="utf-8")
+        (ROOT / path).write_text(re.sub(r"(?m)^canonical-ref:.*$", lambda m: m.group(0).replace(f"ACD-{v}-DRAFT.txt", target), text, count=1), encoding="utf-8")
+    for tool in ("update_aio_digests.py", "generate_status.py", "sync_size_table.py"):
+        subprocess.run([sys.executable, f".github/scripts/{tool}"], cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
+
+
 def report(version: str) -> int:
     """提出対象を切り替える日に人が読む行を列挙する。何も書き換えない。"""
     from measure_citation_drift import CITE, FACES, FIRST_READ, cited_lines
@@ -328,7 +354,7 @@ def main() -> int:
         rows = rows.replace(row, f"| **次版に反映するものの集約点（{nxt}）** | [`ACD-{nxt}-CHANGELIST.md`](ACD-{nxt}-CHANGELIST.md) |\n"
                             f"| {v} の変更の記録 | [`ACD-{v}-CHANGELIST.md`](ACD-{v}-CHANGELIST.md) |\n", 1)
     index.write_text(rows, encoding="utf-8")
-    subprocess.run([sys.executable, ".github/scripts/sync_size_table.py"], cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
+    finish(v, nxt, args.date)
     print(f"ACD-{v} を確定した ({w:,} 語・{c} 条)。次の草案は ACD-{nxt}-DRAFT.txt。git add のあと consistency の RED を順に直す。")
     print(f"提出対象を切り替える日に読む行は `prepare_version_freeze.py --report {v}` が出す。")
     return 0
