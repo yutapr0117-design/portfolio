@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/generate_spdx_license_xml.py
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-11-01
+last-updated: 2026-11-07
 canonical-ref: LICENSES/ACD-1.0.txt / LICENSES/ACD-1.0.spdx.xml / .github/scripts/generate_status.py
 ---
 
@@ -32,6 +32,8 @@ SPDX への収録が受理されると提出者は **XML とテストテキス�
     Full text: LICENSES/ACD-1.0.txt
 
 Check 444 と同じ単一ソースなので、path を変えても生成器と Check が同時に追従する。
+
+`notes` は 1.0 だけ凍結された文を使い、1.1 以降は今の主張を述べる。出力は SPDX の `ListedLicense.xsd` で検証できる（`xmllint --noout --schema`）。2026-11-07 に 1.0 と予行の 1.4 が通った。
 
 ## Constraints
 
