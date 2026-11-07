@@ -1,0 +1,79 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2024-September.txt
+Retrieved: 2026-11-07
+Date: Tue, 10 Sep 2024 08:51:30 -0400
+From: Pamela Chestek
+Subject: [License-review] Adapting the license-review process to AI
+Position: the message in which the chair of the License Committee says this area needs room to develop and that OSI should not dictate one approach. Not addressed to us.
+
+----- begin verbatim -----
+From pamela.chestek at opensource.org  Tue Sep 10 12:51:30 2024
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Tue, 10 Sep 2024 08:51:30 -0400
+Subject: [License-review] Adapting the license-review process to AI
+In-Reply-To: <a897d4df-d160-4c2f-b72a-8dc0c43430fb@rolandturner.com>
+References: <CAH=j4iTnb2ZvZX5zc644HofPok1xFMyzrcdT-A6TyGgmaKzMVQ@mail.gmail.com>
+ <9b32b1a0-981f-46ab-8d10-e91b7711c236@berkus.org>
+ <0812c430-1d59-4579-be43-86ebb1ba90d4@chesteklegal.com>
+ <33661976-6260-4e11-a139-caec807a3297@rolandturner.com>
+ <88538684-2d3e-471b-a129-863de9a9bfbf@opensource.org>
+ <a897d4df-d160-4c2f-b72a-8dc0c43430fb@rolandturner.com>
+Message-ID: <f8e922b0-5fcd-4874-be9b-78bf2b5fa944@opensource.org>
+
+
+On 9/10/2024 2:38 AM, Roland Turner via License-review wrote:
+>
+>   * But limiting review and approval merely to component terms
+>     destroys the meaning of OSI-approval for OSAID (because there
+>     would be no such thing), in that it is by no means certain that
+>     the combination of a set of compliant component terms will
+>     automatically yield a compliant whole[3].
+>
+> Naturally the few hundred largest systems will engage teams of lawyers 
+> to tailor their terms ? particularly at this early stage of 
+> development ? and these organisations are free to seek OSI approval 
+> for their specific constellation of terms should they wish to, but 
+> leaving the next million projects in the lurch, having to cobble their 
+> own system terms together seems like a serious problem. Yes, OSI can't 
+> and doesn't offer legal advice, but the availability of a body of 
+> "likely reasonable" approved terms for selection at the very beginning 
+> of a small project has been a very important benefit of OSI's approval 
+> process (and the reason for a published list of approved licenses, and 
+> for the non-proliferation work, etc.). I'd suggest that it would be 
+> serious own-goal for OSI to fail to provide analogous 
+> whole-system-terms approvals for the OSAID.
+>
+You've identified one reason why the OSI will not be doing this work. 
+"Engage teams of lawyers" -- yes, that's what it will take to develop 
+the necessary agreement or agreements and the OSI does not have access 
+to teams of lawyers, or at least not ones that have the capacity to 
+undertake this work as volunteers.
+
+A second reason is that it is going to take some creativity to create a 
+document or documents that ensure the necessary freedoms are granted. I 
+don't know anyone who has figured it out yet, although a lot of people 
+are thinking about it. We don't even all agree on what rights mechanisms 
+might apply to models in particular, and data to a lesser degree. 
+Copyleft was a brilliant insight; there may be an equally brilliant 
+insight that figures out how to manage this much more difficult area. 
+This area needs room to develop, which may not happen if the OSI 
+dictates what it believes the correct approach is, including whether 
+that is a single license for all components or separate licenses for 
+different components.
+
+A third reason is that there are already licensing schemes in use. We 
+don't want to create greater barriers to entry by forcing someone to 
+adopt our standard when theirs might be perfectly fine with a tweak or two.
+
+> *Stefano*, is there a current documented position on the intended 
+> approach?
+
+No, there is not.
+
+Pam
+
+Pamela S. Chestek
+Chair, Licensing Committee
+Open Source Initiative
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20240910/fd5e2c89/attachment.htm>

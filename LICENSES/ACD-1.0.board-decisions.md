@@ -302,6 +302,45 @@ FAQ（2025）の 2 点と同じ結論へ、別の文書から届く。Chestek �
 - **記事が名指す実物の CC0 は、今も承認されていない。** 「再開された」と記事が述べたあとも承認は無い。
 - **ACD は CC0 でも記事の形そのものでもない。** 言えるのは 2 部を持つことまでで、§4.4 は独立の許諾である。記事が ACD を評価したわけではない。
 
+### 2g. OSI の事務局長と委員長は、AI 向けの文書の審査をどう述べたか（2024-09・2026-11-07 に読んだ）
+
+Mulan の不承認（2023-09）の 1 年後、OSI の事務局長が `license-review` へ問いを出した（スレッド *Adapting the license-review process to AI*・23 通）。
+ドシエはこのスレッドを持っていなかった。
+
+> *"It is likely that OSI will be receiving requests to approve new licenses, agreements, and terms of use/distribution for open
+> source AI works. These documents may apply, not just to copyrighted software, but to non-software artifacts like datasets,
+> documentation, and model parameters (aka weights)."* —— Stefano Maffulli 氏（Executive Director・2024-09-01）
+
+委員長の答えは 3 点である。
+
+> *"The reason to use the word "terms" instead of "license" is because the documents may assure the necessary rights through the
+> use of legal mechanisms other than a license."* —— Pamela Chestek 氏（Chair・2024-09-10 00:09）
+
+> *"it is going to take some creativity to create a document or documents that ensure the necessary freedoms are granted. I don't
+> know anyone who has figured it out yet, although a lot of people are thinking about it. We don't even all agree on what rights
+> mechanisms might apply to models in particular, and data to a lesser degree. Copyleft was a brilliant insight; there may be an
+> equally brilliant insight that figures out how to manage this much more difficult area. This area needs room to develop, which
+> may not happen if the OSI dictates what it believes the correct approach is, including whether that is a single license for all
+> components or separate licenses for different components."* —— 同（2024-09-10 08:51）
+
+> *"We consider patent rights specifically, and we have recently discussed moral rights. I believe there is sufficient expertise on
+> the committee to evaluate non-copyright provisions."* —— 同（2024-09-09）
+
+**ACD の論点へ当てると 4 つ動く。**
+
+- **B15**: 審査の対象は、データセット・文書・パラメータに及ぶ文書を含むと事務局長が述べた。§2e の CERN-OHL より新しく、Mulan の不承認より後の文である。
+- **B4**: 権利を保証する手段はライセンスに限らないと委員長が述べた。§3 と §4 の 2 部構成に当たる。
+- **1 本で全部を覆う設計**: Fontana 氏の *"flawed in its basic conception"*（2026）の前に、委員長は 1 本か複数かを OSI が決めないと述べていた。
+- **B8 / B9**: 非著作権の条項を委員会は評価できると委員長が述べた。§7 と §12 は審査の外ではない。
+
+**逆側を同じ重さで書く。**
+
+- **文脈は OSAID の *"OSI-approved terms"* である。** ACD は license として出す。委員長は同じ日に *"as I see it, and I may be completely wrong"* とも書いている。
+- **2024 年の見解で、規則ではない。** process ページは変わっておらず、OpenMDW と ModelGo の決定は取得時点で公表されていない。
+- **Fontana 氏の批判は後の文で、委員の 1 人のものとして今も立っている。** 委員長の文は「OSI が決めない」であって「1 本でよい」ではない。
+- **同じスレッドの Berkus 氏は、審査はこれまで著作権の枠内だったと述べ**、学ぶ必要があると書いた。Maffulli 氏は *"limp along, mess up and be ready to iterate quickly"* と述べている。審査の費用は高い。
+- **佐渡氏は同じスレッドで、データのライセンスには人格権・パブリシティ権・プライバシー権を行使させない確保が要ると述べた。** ACD §11.4 はパブリシティとプライバシーを許諾しない。§12 が答えるのは人格権までである。
+
 ## 3. 🔴 その区別は、14 か月経っても公表されていない
 
 同じ議事録の次の文はこう続く:

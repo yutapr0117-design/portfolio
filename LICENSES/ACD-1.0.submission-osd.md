@@ -225,3 +225,8 @@ code, and this text is applied to a software repository, so ACD meets that test 
 definition had no software in it, so the two records do not conflict. Three limits: §1.2 is wider than
 CERN's *"designs that includes both hardware and software"*, the statement predates the 2023 refusal, and
 being appropriate for review is not approval.
+
+**OSI's Executive Director went further in 2024**: such documents *"may apply, not just to copyrighted software,
+but to non-software artifacts like datasets, documentation, and model parameters"*, and the chair of the Committee
+said *"the documents may assure the necessary rights through the use of legal mechanisms other than a license"*
+(`license-review`, 2024-09-01 and 2024-09-10). That was said of OSAID terms, and it is not a published rule.

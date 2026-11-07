@@ -1,0 +1,47 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2024-September.txt
+Retrieved: 2026-11-07
+Date: Tue, 10 Sep 2024 00:09:56 -0400
+From: Pamela Chestek
+Subject: [License-review] Adapting the license-review process to AI
+Position: the message in which the chair of the License Committee says "terms" is used because documents may rely on legal mechanisms other than a license. Not addressed to us.
+
+----- begin verbatim -----
+From pamela.chestek at opensource.org  Tue Sep 10 04:09:56 2024
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Tue, 10 Sep 2024 00:09:56 -0400
+Subject: [License-review] Adapting the license-review process to AI
+In-Reply-To: <354f0254-dc5f-421a-8247-da63a7ba78c5@rolandturner.com>
+References: <CAH=j4iTnb2ZvZX5zc644HofPok1xFMyzrcdT-A6TyGgmaKzMVQ@mail.gmail.com>
+ <9b32b1a0-981f-46ab-8d10-e91b7711c236@berkus.org>
+ <354f0254-dc5f-421a-8247-da63a7ba78c5@rolandturner.com>
+Message-ID: <9a68a043-63c2-400c-bcf0-748889941c6c@opensource.org>
+
+
+On 9/9/2024 11:23 PM, Roland Turner via License-review wrote:
+> On 10/9/24 07:31, Josh Berkus wrote:
+>
+> This does open another process question: to date the process to 
+> develop OSAID has happened independently of L-R. Presumably this 
+> thread is the start of a convergence process. I am wondering whether 
+> putting an initial set of terms through L-W on an own-initiative basis 
+> is part of the plan.
+The OSI does not plan to create documents that implement the OSAID but 
+expects the review process will function as the software license 
+approval currently does, through submission.
+>
+>
+>> Finally, I think we'll want to list approved documents which are not
+>> software licenses separately on the website from the software licenses.
+>
+> I'd wondered about this. "Under OSD-conformant terms" looks like a 
+> mistake. 
+It's a term we formerly used, but have now adopted "OSI-approved terms" 
+instead for non-software components. The reason to use the word "terms" 
+instead of "license" is because the documents may assure the necessary 
+rights through the use of legal mechanisms other than a license.
+
+Pam
+
+Pamela S. Chestek
+Chair, License Committee
+Open Source Initiative
