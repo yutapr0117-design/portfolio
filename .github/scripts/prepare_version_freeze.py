@@ -303,6 +303,7 @@ def main() -> int:
     start = lic.index(f"Until {args.date} this repository")
     end = lic.index("\n\n", start)
     history = re.sub(r"Everything ACD-\d+\.\d+ gave away", "Everything those versions gave away", " ".join(lic[start:end].split()))
+    history = re.sub(r"\(ACD-\d+\.\d+ §2\.2\)", "(§2.2 of each)", history)
     (ROOT / "LICENSE").write_text(lic[:start] + textwrap.fill(history, width=78) + lic[end:], encoding="utf-8")
     subprocess.run([sys.executable, ".github/scripts/update_binary_aio_rights.py"], cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
     subprocess.run([sys.executable, ".github/scripts/generate_spdx_license_xml.py", "--version", v], cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
