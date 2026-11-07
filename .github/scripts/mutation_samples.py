@@ -547,6 +547,13 @@ _MUTATIONS_TAIL.append({
     "replace": "issues/new?template=acd-usage.yml",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 472m: 入口のドシエ全体の語数を実物とずらす —— 読む費用を少なく述べる向きが最も悪い",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "everything except `rounds/` — is **",
+    "replace": "everything except `rounds/` — is **1",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
