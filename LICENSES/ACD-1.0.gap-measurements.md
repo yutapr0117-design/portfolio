@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.gap-measurements.md
 audience: OSI license-review participants / licence reviewers / 監査人 / 後任 AI
-last-updated: 2026-11-06
+last-updated: 2026-11-07
 canonical-ref: LICENSES/ACD-1.0.comparison.md (切り出し元・条項比較) / LICENSES/ACD-1.0.gap-census.md (同じ 141 本への 3 gap の全数表)
 ---
 
@@ -552,4 +552,25 @@ bb が 6 本を立てて原文で反証した（H1-a BlueOak / H1-b CERN-OHL-P /
 ### この節が変えたもの
 
 **この節は費用と反論の正確な記録で、それ自体は説明の改善である。** 承認の見込みの根拠に数えない。**同じ検証から本文の効果が変わったのは別にある** —— §5.1 と §8.3 が §8.4 の限定を素通りする読みを 1.4 草案が閉じた（`ACD-1.1-SELF-AUDIT.md` §3x）。上の表の費用は、その修正のあとの射程で読む。
+
+## 1.137 承認された新規の許容型は、隣との差が 1 点だった。それだけでは足りないことも記録に在る（2026-11-07）
+
+**問い**: gap が狭いことは、それ自体で問題か（B10）。承認された許容型の差の大きさを、提出と理由書で測った。
+
+| ライセンス | 承認 | 隣との差 | 記録された理由 |
+|---|---|---|---|
+| 0BSD（当時 Free Public License）| 2015 | ISC から notice の条件を除く | 議事録 *"basically the ISC License"*。*"is it really going to be used?"* と問われて承認 |
+| BSD-2-Clause-Patent | 2017 | BSD-2-Clause に明示の特許許諾を足す | McCoy Smith 氏の提出（2016-01）*"a specific problem that has been encountered with existing licenses"*。GPLv2 と両立する許容型で明示の特許許諾を持つものを、組織が望んでいた |
+| MIT-0 | 2020 | MIT から帰属を除く | 理由書 *"the same language as the MIT License except that the attribution requirement of the MIT License in its second paragraph is removed"* |
+| OSC License v1 | 2025 | MIT にドイツ法で有効な責任制限を足す | 提出 *"does not contain a limitation of liability that is effective under German law"* |
+
+**4 本とも差は 1 点である。** ACD の差（条件ゼロの許諾に、作品を超える特許許諾を足す）も 1 つの組み合わせで、
+差が狭いこと自体が承認を止めた記録は、この 4 本には無い。
+
+**逆側を同じ重さで書く。**
+
+- **4 本は既存テキストの派生である。** 審査の費用が小さい。ACD は新規の長いテキストなので、差に見合うかの問いが重い（`board-decisions.md` §8.3 の *"the benefits aren't worth the cost"*）。
+- **差が 1 点でも保留された例が在る。** Tiwaz は MPL-2.0 の近い変種で、*"no demonstrated uses or planned uses"* として保留された（`board-decisions.md` §2c）。BSD-2-Clause-Patent と OSC は具体的な需要を述べていた。0BSD と MIT-0 は使用を問われて通った。
+- **ACD の組み合わせそのものが、リストで退けられている。** 0BSD-P への Berkus 氏の問いは具体的な用途で（#276）、提出者は答えられずに取り下げた。ACD が述べられる用途は 1 つである。
+- **過去の承認は OSI を拘束しない。**
 
