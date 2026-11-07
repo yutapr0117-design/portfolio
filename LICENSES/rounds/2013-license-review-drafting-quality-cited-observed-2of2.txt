@@ -1,0 +1,665 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2013-April.txt, 2013-May.txt, 2013-June.txt)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-07)
+Messages: 10 of the 13 messages this dossier cites from "License drafting quality and process" (33 messages). Not the whole thread. Part 2 of 2.
+Senders: Lawrence Rosen, Josh Berkus, Carlo Piana, Richard Fontana, Luis Villa
+Position: the 2013 debate on whether a submission should need a lawyer. Not addressed to us and not about ACD. Each message keeps its archive headers. The reading is in LICENSES/ACD-1.0.reviewer-positions.md section 1.140.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Mon Apr  8 19:19:26 2013
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Mon, 8 Apr 2013 12:19:26 -0700
+Subject: [License-review] License drafting quality and process [was Re:
+	Comment on MOSL and similar licenses]
+In-Reply-To: <CAB4rVPZ8pBQ6XShbo_FgAKGa7wX6anWR5_UzK0C8=eN=OWqRZQ@mail.gmail.com>
+References: <CAFPTOkV_VP05gBpadtG8J76w5wqRFc77jrf0BDvDwp=59V6oTg@mail.gmail.com>	<20130408022547.GB24315@sharpeleven.org>	<Pine.BSM.4.64L.1304081218390.22981@herc.mirbsd.org>
+	<CAB4rVPZ8pBQ6XShbo_FgAKGa7wX6anWR5_UzK0C8=eN=OWqRZQ@mail.gmail.com>
+Message-ID: <00ea01ce348d$fc7da990$f578fcb0$@rosenlaw.com>
+
+Patrice-Emmanuel Schmitz wrote:
+
+> If the license could be interesting for developers in Europe or if the
+license steward could propose it for software distribution trough the
+European Commissions' Joinup.eu platform (this may probably be applicable to
+most cases), there is currently one way for obtaining free legal suport: 
+
+ 
+
+ 
+
+It is great that people can get free legal advice in Europe to develop new
+open source licenses. I also agree with Richard Fontana that we don?t want
+to treat open source licensing like a game that only the rich and their
+lawyers can play.
+
+ 
+
+At this stage of our open source paradigm development, however, how many new
+wrinkles on license provisions are likely to matter?  I hope that your group
+will only provide legal assistance (free or fee-based) to projects that can
+identify a clear rationale for a new license rather than simply a new way to
+say the same old things.
+
+ 
+
+In my view, the wrinkles we might actually like in new licenses are those
+that solve patent problems, or apply in new ways to cloud-based or embedded
+or mobile software. We don?t need any more Apache or BSD licenses, do we, no
+matter how eloquently phrased? 
+
+ 
+
+I personally have been frustrated by writing licenses that don?t actually
+rock the world of software; how much more such frustration do license
+drafters and license reviewers need? This gets back to our old argument
+about license proliferation. Too many amateurs and their free lawyers
+writing new licenses will only exacerbate that problem.
+
+ 
+
+And so, to quote Patrice-Emmanuel once again, this is the most important
+factor:
+
+> - explanations on your licensing project, why you submit it, why no
+existing licenses does not fit...
+
+ 
+
+Regards,
+
+ 
+
+/Larry
+
+ 
+
+ 
+
+From: Patrice-Emmanuel Schmitz [mailto:pe.schmitz at googlemail.com] 
+Sent: Monday, April 08, 2013 7:02 AM
+To: license-review at opensource.org
+Subject: Re: [License-review] License drafting quality and process [was Re:
+Comment on MOSL and similar licenses]
+
+ 
+
+Richard Fontana dixit:
+
+
+> ... access to good legal advice will be unrealistic to many developers,
+...
+
+ 
+
+If the license could be interesting for developers in Europe or if the
+license steward could propose it for software distribution trough the
+European Commissions' Joinup.eu platform (this may probably be applicable to
+most cases), there is currently one way for obtaining free legal suport: 
+
+ 
+
+Path:
+
+1. Visit the Joinup Open Source Software page
+<https://joinup.ec.europa.eu/software/all>
+https://joinup.ec.europa.eu/software/all
+
+2. Hit the right button "Ask a legal question"
+
+3. Fill the form and select the category "Questions on legal issues"
+
+   Example:
+
+"I may propose the new license hereunder to Joinup Open Source developpers,
+do you have any legal comments on the draft and rationale prior submission
+to OSI?"
+
+ 
+
+This is possible now, without formal guarantee of course (depending on
+workload).
+
+It is recommended to prepare two separate sections (to insert in the form or
+to provide on request to the Joinup team, if too long):
+
+- the draft licence
+
+- explanations on your licensing project, why you submit it, why no existing
+licenses does not fit...
+
+ 
+
+Best wishes,
+
+P-E.
+
+ 
+
+ 
+
+2013/4/8 Thorsten Glaser <tg at mirbsd.de>
+
+Richard Fontana dixit:
+
+
+>agree. Certainly 'cut and paste isn't sufficient', but access to good
+>legal advice will be unrealistic to many developers, and yet they seem
+
+I had Till J?ger from the ifrOSS have a short look-over,
+which he kindly made for free (though they normally focus
+on copyleft licences). Probably better than nothing.
+
+Might be a suggestion. If the prospective author has _some_
+resources, maybe the ifrOSS would be happy to negotiate;
+asking them probably isn?t bad.
+
+On the other hand, I don?t know which legislations they
+can operate in
+
+
+bye,
+//mirabilos
+--
+  "Using Lynx is like wearing a really good pair of shades: cuts out
+   the glare and harmful UV (ultra-vanity), and you feel so-o-o COOL."
+                                         -- Henry Nelson, March 1999
+
+_______________________________________________
+License-review mailing list
+License-review at opensource.org
+http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+
+
+ 
+
+-- 
+Patrice-Emmanuel Schmitz
+pe.schmitz at googlemail.com
+tel. + 32 478 50 40 65 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20130408/f51270fa/attachment.html>
+
+From josh at postgresql.org  Thu May 30 19:52:33 2013
+From: josh at postgresql.org (Josh Berkus)
+Date: Thu, 30 May 2013 12:52:33 -0700
+Subject: [License-review] License drafting quality and process [was Re:
+ Comment on MOSL and similar licenses]
+In-Reply-To: <Pine.BSM.4.64L.1304081218390.22981@herc.mirbsd.org>
+References: <CAFPTOkV_VP05gBpadtG8J76w5wqRFc77jrf0BDvDwp=59V6oTg@mail.gmail.com>
+	<20130408022547.GB24315@sharpeleven.org>
+	<Pine.BSM.4.64L.1304081218390.22981@herc.mirbsd.org>
+Message-ID: <51A7AE01.80705@postgresql.org>
+
+Luis, All:
+
+Personally, I don't have a problem with making legal review a de facto
+requirement of submitting a new license.  It's a good threshold of
+seriousness for developers wanting to craft their own licenses.  While
+the goals of not imposing financial barriers to licensing are all nice
+and public-minded, every single license I've seen submitted to this list
+without prior legal help over the last 2 years was a complete waste of
+time, for both us and the submitter.
+
+For the sufficiently determined, there are multiple ways to get legal
+help without paying for it personally.  SFLC, SPI, pro-bono help,
+corporate sponsors, Kickstarter, etc.  The insufficiently determined
+aren't going to their their license through regardless.
+
+Or to put it another way: do we *really* want people creating new
+licenses who don't have the organization to raise $1000 to pay an
+attorney?  Seems like a recipe for lots of poorl-conceived orphan
+licenses, if you ask me.
+
+Now, in the best of all possible worlds, OSI would have some way to
+provide legal review assistance.  Failing that, we could simply provide
+a referral page, where attorneys and organizations who did this sort of
+thing could list themselves.
+
+--Josh Berkus
+
+
+From osi-review at piana.eu  Thu May 30 20:04:55 2013
+From: osi-review at piana.eu (Carlo Piana)
+Date: Thu, 30 May 2013 22:04:55 +0200
+Subject: [License-review] License drafting quality and process [was Re:
+	Comment on MOSL and similar licenses]
+In-Reply-To: <51A7AE01.80705@postgresql.org>
+References: <CAFPTOkV_VP05gBpadtG8J76w5wqRFc77jrf0BDvDwp=59V6oTg@mail.gmail.com>
+	<20130408022547.GB24315@sharpeleven.org>
+	<Pine.BSM.4.64L.1304081218390.22981@herc.mirbsd.org>
+	<51A7AE01.80705@postgresql.org>
+Message-ID: <670c1810-06db-4a98-b83d-b5fece2f325c@email.android.com>
+
+
+
+Josh Berkus <josh at postgresql.org> wrote:
+
+>Luis, All:
+>
+>Personally, I don't have a problem with making legal review a de facto
+>requirement of submitting a new license.  It's a good threshold of
+>seriousness for developers wanting to craft their own licenses.  While
+>the goals of not imposing financial barriers to licensing are all nice
+>and public-minded, every single license I've seen submitted to this
+>list
+>without prior legal help over the last 2 years was a complete waste of
+>time, for both us and the submitter.
+>
+>For the sufficiently determined, there are multiple ways to get legal
+>help without paying for it personally.  SFLC, SPI, pro-bono help,
+>corporate sponsors, Kickstarter, etc.  The insufficiently determined
+>aren't going to their their license through regardless.
+>
+>Or to put it another way: do we *really* want people creating new
+>licenses who don't have the organization to raise $1000 to pay an
+>attorney?  Seems like a recipe for lots of poorl-conceived orphan
+>licenses, if you ask me.
+>
+>Now, in the best of all possible worlds, OSI would have some way to
+>provide legal review assistance.  Failing that, we could simply provide
+>a referral page, where attorneys and organizations who did this sort of
+>thing could list themselves.
+>
+>--Josh Berkus
+>______________
+
+Josh,
+
+I like your reasoning, makes a lot of sense.
+
+Carlo
+
+
+
+
+From fontana at sharpeleven.org  Thu May 30 20:30:53 2013
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Thu, 30 May 2013 16:30:53 -0400
+Subject: [License-review] License drafting quality and process [was Re:
+ Comment on MOSL and similar licenses]
+In-Reply-To: <51A7AE01.80705@postgresql.org>
+References: <CAFPTOkV_VP05gBpadtG8J76w5wqRFc77jrf0BDvDwp=59V6oTg@mail.gmail.com>
+	<20130408022547.GB24315@sharpeleven.org>
+	<Pine.BSM.4.64L.1304081218390.22981@herc.mirbsd.org>
+	<51A7AE01.80705@postgresql.org>
+Message-ID: <20130530203053.GA14843@sharpeleven.org>
+
+On Thu, May 30, 2013 at 12:52:33PM -0700, Josh Berkus wrote:
+> Luis, All:
+> 
+> Personally, I don't have a problem with making legal review a de facto
+> requirement of submitting a new license.  It's a good threshold of
+> seriousness for developers wanting to craft their own licenses.  While
+> the goals of not imposing financial barriers to licensing are all nice
+> and public-minded, every single license I've seen submitted to this list
+> without prior legal help over the last 2 years was a complete waste of
+> time, for both us and the submitter.
+
+It is probably true that such licenses were a waste of time. I just do
+not see why one would assume that consulting an arbitrary attorney
+would on average have resulted in something better (whatever that
+means here -- conformance to the OSI definition, which is not
+something that lawyers are trained to interpret? Nonduplicativeness,
+which also is not something lawyers are more competent to judge than
+nonlawyers? The vast majority of lawyers, even the vast majority of
+that subset which specializes in copyright or software licensing, have
+at best passing familiarity with open source and its cultural and
+legal traditions).
+
+Some of the most problematic pseudo or questionably-FLOSS licenses
+I've seen over the years clearly *were* drafted with legal help.
+Licenses drafted with legal assistance do tend to look different from
+those that aren't -- more 'professional', perhaps -- but that doesn't
+mean one is better than the other if the concern is maintaining the
+integrity of the system of open source licensing. And the licenses
+promoted by the OSI as being 'popular' or 'widely used' are far from
+being free of legal flaws.  I will admit that it is often lawyers who
+are good at identifying those flaws, but these are not going to be
+lawyers retained by the license proposer for assistance with drafting.
+
+ - RF
+
+
+From fontana at sharpeleven.org  Thu May 30 21:13:03 2013
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Thu, 30 May 2013 17:13:03 -0400
+Subject: [License-review] License drafting quality and process [was Re:
+ Comment on MOSL and similar licenses]
+In-Reply-To: <51A7B95B.2090501@postgresql.org>
+References: <CAFPTOkV_VP05gBpadtG8J76w5wqRFc77jrf0BDvDwp=59V6oTg@mail.gmail.com>
+	<20130408022547.GB24315@sharpeleven.org>
+	<Pine.BSM.4.64L.1304081218390.22981@herc.mirbsd.org>
+	<51A7AE01.80705@postgresql.org>
+	<20130530203053.GA14843@sharpeleven.org>
+	<51A7B95B.2090501@postgresql.org>
+Message-ID: <20130530211303.GA15243@sharpeleven.org>
+
+On Thu, May 30, 2013 at 01:40:59PM -0700, Josh Berkus wrote:
+> Richard,
+> 
+> > It is probably true that such licenses were a waste of time. I just do
+> > not see why one would assume that consulting an arbitrary attorney
+> > would on average have resulted in something better
+> 
+> Mostly just because it requires convincing at least one other person
+> that your license is worth someone's time and/or money before you come here.
+> 
+> > Some of the most problematic pseudo or questionably-FLOSS licenses
+> > I've seen over the years clearly *were* drafted with legal help.
+> 
+> No question.  If you come up with a way to screen most of those out,
+> too, I'm all ears.
+
+I don't think that category can be screened out (prior to discussion
+on a list like this). I wonder whether the other category could be
+screened out by requiring some threshold number of supporters > 1 (as
+an alternative to the suggestion of getting legal review). I get the
+sense that the waste-of-time licenses are most often just the work of
+one developer acting in isolation, as opposed to, say, a group of
+developers.
+
+- RF
+
+
+From fontana at sharpeleven.org  Wed Jun  5 06:11:14 2013
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Wed, 5 Jun 2013 02:11:14 -0400
+Subject: [License-review] License drafting quality and process [was Re:
+ Comment on MOSL and similar licenses]
+In-Reply-To: <CAFPTOkXi6z7rAPJhEDwikMS+kz3aKape+WXk6rDYEqe3oS9y=w@mail.gmail.com>
+References: <CAFPTOkV_VP05gBpadtG8J76w5wqRFc77jrf0BDvDwp=59V6oTg@mail.gmail.com>
+	<20130408022547.GB24315@sharpeleven.org>
+	<Pine.BSM.4.64L.1304081218390.22981@herc.mirbsd.org>
+	<51A7AE01.80705@postgresql.org>
+	<20130530203053.GA14843@sharpeleven.org>
+	<51A7B95B.2090501@postgresql.org>
+	<20130530211303.GA15243@sharpeleven.org>
+	<CAFPTOkXi6z7rAPJhEDwikMS+kz3aKape+WXk6rDYEqe3oS9y=w@mail.gmail.com>
+Message-ID: <20130605061113.GA9343@sharpeleven.org>
+
+On Tue, Jun 04, 2013 at 10:33:33PM -0700, Luis Villa wrote:
+> On Thu, May 30, 2013 at 2:13 PM, Richard Fontana
+> <fontana at sharpeleven.org> wrote:
+> >
+> > I don't think that category can be screened out (prior to discussion
+> > on a list like this). I wonder whether the other category could be
+> > screened out by requiring some threshold number of supporters > 1 (as
+> > an alternative to the suggestion of getting legal review).
+> 
+> By "supporter" do you mean +1s to this list? A community specific to
+> the license (such as the one you've created for copyleft-next)? A
+> functional software community affiliated with/supporting the license
+> (e.g., as Mozilla/Eclipse did for their licenses)?
+> 
+> I think I had the second or third options in mind with my earlier
+> proposals, but would be open to discussing the first if people think
+> that would be fruitful/workable.
+
+I was thinking of a community specific to the license. It needn't be a
+big community, maybe just a few reasonable people, but some credible
+showing that there's more than one person who supports the submission
+of the license for OSI approval. 
+
+Where the license is associated with an organization, such as a
+particular foundation which is the license steward of a 'later
+version' license, this requirement ought to mean that some people
+outside the foundation should indicate support for the license. Oddly
+the FSF's v3 family met this requirement in 2007 because those
+licenses had to be submitted by non-FSF people (because the FSF would
+have never submitted them for OSI approval). CC0 is an example of a
+license (or quasi-license) that would have easily met this
+requirement, as it was initially people outside of Creative Commons
+who were urging its submission for OSI approval prior to the formal
+submission by Chris Webber who was, at the time, affiliated with CC.
+
+So I guess I mean the second option. Not mere +1s on this list
+(license-review) by people who haven't previously reviewed the license
+prior to its submission. Perhaps license-discuss could become one
+medium for attracting potential 'community' members.
+
+- RF
+
+
+
+From josh at postgresql.org  Wed Jun  5 18:40:19 2013
+From: josh at postgresql.org (Josh Berkus)
+Date: Wed, 05 Jun 2013 11:40:19 -0700
+Subject: [License-review] License drafting quality and process [was Re:
+ Comment on MOSL and similar licenses]
+In-Reply-To: <1370086690.5423.140661238462569.616AE20A@webmail.messagingengine.com>
+References: <CAFPTOkV_VP05gBpadtG8J76w5wqRFc77jrf0BDvDwp=59V6oTg@mail.gmail.com>
+	<20130408022547.GB24315@sharpeleven.org>
+	<Pine.BSM.4.64L.1304081218390.22981@herc.mirbsd.org>
+	<51A7AE01.80705@postgresql.org>
+	<20130530203053.GA14843@sharpeleven.org>
+	<51A7B95B.2090501@postgresql.org>
+	<20130530211303.GA15243@sharpeleven.org>
+	<1370086690.5423.140661238462569.616AE20A@webmail.messagingengine.com>
+Message-ID: <51AF8613.8080803@postgresql.org>
+
+Clark,
+
+> What if the "discussion" part of the process were mandatory  -- the
+> first step would be a "need" validation on license-discuss by posting a
+> synopsis that outlines the "real world" licensing problem being
+> addressed and why other licenses are inadequate.   
+
+> The discussion could then be focused on validating if this "need" is
+> consistent with the vision of the OSI.   If so, then the participant
+> could be *invited* to submit their license design and perhaps even
+> official legally prepared license text to license-review.
+
+I like this general idea, actually.  I think there would be significant
+non-proliferation benefit to having a multi-stage approval process for
+new licenses, an important part of which could be license-discuss.  If
+nothing else, the time that this process takes would discourage "crayon"
+licenses.
+
+Everyone: note that Clark is talking about discussion on
+license-discuss, NOT here.
+
+I'm not sure that his should be explained in terms of "needs" though,
+which is not part of the OSI charter.  Rather, it should be explained in
+terms of:
+
+(1) does the license fit the OSD?
+(2) is it sufficiently different from all existing licenses?
+
+The desires of the requestor in creating the license would come out in
+discussion of (2).
+
+> I'm reluctant to shut down good
+> ideas, just because the submitter doesn't have $10k spare cash to throw
+> at an attorney.  In other words, asking for varnish isn't going to help
+> when the wood is rotten.
+
+I'll take a couple exceptions to that:
+
+First, *at some point* the new license will need legal review by
+*somebody*.  We should not be approving licenses which no lawyer has
+ever taken a hard look at.  So either the legal review happens before
+submission, or it happens afterwards.
+
+Second, I take the tack that if someone *does* have the resources for
+professional legal staff to handle licensing, we *have* to handle them
+here because we can't ignore them.  They've demonstrated the resources,
+organization and resolve that they might go ahead and deploy their
+license whether or not we approve it, so we have a limited window of
+time to talk them into modifying it or (better) using an existing
+license instead.
+
+Third, I'm not convinced that there are any new "good" ideas in OSS
+licenses.  I take the extreme position that if we never approved another
+license, it would be a good thing.
+
+--Josh Berkus
+
+
+
+From fontana at sharpeleven.org  Thu Jun  6 12:36:22 2013
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Thu, 6 Jun 2013 08:36:22 -0400
+Subject: [License-review] License drafting quality and process [was Re:
+ Comment on MOSL and similar licenses]
+In-Reply-To: <CAB4rVPYsTsKZY2girZ58-fCCsdyYO5cOaGvh+udPiGXP_gbF2w@mail.gmail.com>
+References: <CAFPTOkV_VP05gBpadtG8J76w5wqRFc77jrf0BDvDwp=59V6oTg@mail.gmail.com>
+	<20130408022547.GB24315@sharpeleven.org>
+	<Pine.BSM.4.64L.1304081218390.22981@herc.mirbsd.org>
+	<51A7AE01.80705@postgresql.org>
+	<20130530203053.GA14843@sharpeleven.org>
+	<51A7B95B.2090501@postgresql.org>
+	<20130530211303.GA15243@sharpeleven.org>
+	<1370086690.5423.140661238462569.616AE20A@webmail.messagingengine.com>
+	<51AF8613.8080803@postgresql.org>
+	<CAB4rVPYsTsKZY2girZ58-fCCsdyYO5cOaGvh+udPiGXP_gbF2w@mail.gmail.com>
+Message-ID: <20130606123622.GA27600@sharpeleven.org>
+
+On Thu, Jun 06, 2013 at 12:34:08PM +0200, Patrice-Emmanuel Schmitz wrote:
+[...]
+> Another suggestion would be to deliver more rapidly a simple "certificate of
+> OSD compliance" which would be a first step. OSI approval would be given only
+> as a second step, i.e. once the steward bring the evidence (names + URLs) that
+> a minimum number of projects (100, 250, 500?) are published under his license.
+
+I agreed with a good deal of your first suggestion (snipped) but not
+with this one. Requiring evidence of 100+ projects using a proposed
+license will have the same chilling effect against further reform and
+evolution of open source licensing. 
+
+There is a bit of a chicken/egg problem, as the absence of OSI
+approval may significantly deter projects *independent of the steward*
+from choosing the new license. Indeed this is a primary reason why the
+OSI remains a socially influential organization. The likely result is
+that the only new licenses that will be submitted for review are
+updates of already-approved licenses associated with well-established
+FLOSS organizations, or else, perhaps, new or updated licenses
+introduced by sufficiently powerful non-FLOSS institutions with the
+ability to mandate mass adoption of some particular new license (as,
+for example, by legislative or regulatory fiat).
+
+- RF
+
+
+
+From luis at lu.is  Thu Jun  6 15:10:08 2013
+From: luis at lu.is (Luis Villa)
+Date: Thu, 6 Jun 2013 08:10:08 -0700
+Subject: [License-review] License drafting quality and process [was Re:
+ Comment on MOSL and similar licenses]
+In-Reply-To: <20130606145505.GB3090@mercury.ccil.org>
+References: <Pine.BSM.4.64L.1304081218390.22981@herc.mirbsd.org>
+	<51A7AE01.80705@postgresql.org>
+	<20130530203053.GA14843@sharpeleven.org>
+	<51A7B95B.2090501@postgresql.org>
+	<20130530211303.GA15243@sharpeleven.org>
+	<1370086690.5423.140661238462569.616AE20A@webmail.messagingengine.com>
+	<51AF8613.8080803@postgresql.org>
+	<CAB4rVPYsTsKZY2girZ58-fCCsdyYO5cOaGvh+udPiGXP_gbF2w@mail.gmail.com>
+	<20130606123622.GA27600@sharpeleven.org>
+	<CAB4rVPYh62whsJWkCwfxxmiriL-kKSpjp0CGK0BvMqx8gyKC1g@mail.gmail.com>
+	<20130606145505.GB3090@mercury.ccil.org>
+Message-ID: <CAFPTOkXsEPW01Zg-4ecefvV5v=rGNAhCqRPTOeS7Edojye5Pxw@mail.gmail.com>
+
+On Thu, Jun 6, 2013 at 7:55 AM, John Cowan <cowan at mercury.ccil.org> wrote:
+>
+> Anyway, all this strikes me as a solution in search of a problem.  We are
+> really not being inundated with new licenses these days.
+
+I bring it up because we don't have all the tools we need to say no to
+those licenses - it is quite possible to submit a license that
+complies with all our formal requirements without improving the
+overall ecosystem, and we have no formal way to say no to those.
+
+[I do think there are still improvements possible in licenses, else I
+wouldn't have done MPL 2, or participated heavily in copyleft-next.]
+
+Luis
+
+
+From josh at postgresql.org  Wed Jun 12 17:56:17 2013
+From: josh at postgresql.org (Josh Berkus)
+Date: Wed, 12 Jun 2013 10:56:17 -0700
+Subject: [License-review] License drafting quality and process [was Re:
+ Comment on MOSL and similar licenses]
+In-Reply-To: <CAB4rVPYrT9zxXqKcc5SP2okWg6mHRdU5HahBNoRGiGaMCZN7Yw@mail.gmail.com>
+References: <Pine.BSM.4.64L.1304081218390.22981@herc.mirbsd.org>
+	<51A7AE01.80705@postgresql.org>
+	<20130530203053.GA14843@sharpeleven.org>
+	<51A7B95B.2090501@postgresql.org>
+	<20130530211303.GA15243@sharpeleven.org>
+	<1370086690.5423.140661238462569.616AE20A@webmail.messagingengine.com>
+	<51AF8613.8080803@postgresql.org>
+	<CAB4rVPYsTsKZY2girZ58-fCCsdyYO5cOaGvh+udPiGXP_gbF2w@mail.gmail.com>
+	<20130606123622.GA27600@sharpeleven.org>
+	<CAB4rVPYh62whsJWkCwfxxmiriL-kKSpjp0CGK0BvMqx8gyKC1g@mail.gmail.com>
+	<20130606145505.GB3090@mercury.ccil.org>
+	<CAB4rVPYrT9zxXqKcc5SP2okWg6mHRdU5HahBNoRGiGaMCZN7Yw@mail.gmail.com>
+Message-ID: <51B8B641.1080909@postgresql.org>
+
+
+> This was not at all my idea, if you read me correctly: I suggested the
+> rapid deliverance of an "OSD compliance certificate" (even if the license
+> does not improve / revolutionate the FLOSS ecosystem). The certificate will
+> be the evidence that the licence is open source (facilitating the adoption
+> by the first followers).
+> OSI may then take more time to classify eventually the license as
+> "OSI-approved" once a representative level of projects will use it (as the
+> case may be).
+
+What problem are you trying to solve here?  It doesn't seem like a
+problem we actually have.  I'll also point out that popularity is no
+guarantee of validity.  For example, the "Beerware" license is extremely
+popular, but is completely unenforceable.
+
+First, let me agree with Rick and point out that the only licenses we've
+approved in the last year were new versions of old approved licenses.
+Every other proposed license we've seen has been rejected as either (a)
+not OSD-compliant, or (b) very poorly conceived and written, or (c)
+wholly duplicative of an existing license.  As far as I'm concerned,
+that part of the process is working fine.
+
+What's not working fine is how people *feel* about the rejection
+process.  What happens currently in the worst case is:
+
+(1) Crayon license submitter (CLS) emails their "clever" idea for a new
+license to this list.
+
+(2) We point out some of the shortcomings in the license and reject it.
+
+(3) CLS becomes indignant and accuses us of personal enmity and/or
+incompetence.
+
+(4) CLS attempts to lobby and/or harass us into submission.  This
+doesn't work.
+
+(5) We are contemptuous of CLS.  CLS hates us.
+
+(6) CLS decides to use their "license" anyway.
+
+My thinking was that an explicit process where the submitter *had* to
+consult an attorney before submitting ... and where the only reply we'd
+give to one who didn't was to point to that requirement ... would cause
+the CLS to talk to an attorney first who would at least point out that
+the license they're sending is badly written and unenforceable.  Or,
+more likely, get hung up on finding an attorney and never write their
+crayon license in the first place.
+
+However, I think enough people on here have pointed out that CLS's are
+ignoring any kind of reasonable process anyway, so adding process
+requirements won't work; they'll simply ignore them.
+
+In a way, this is actually the process working as designed.  As the
+number of possible new licenses which are OSD-compliant, original and
+sensible approaches the vanishing point, increasingly the only
+submissions we're going to see are going to be from the ill-informed and
+impulsive.  So maybe there's no fixable problem here, at all.
+
+--Josh Berkus
+
+
+
+

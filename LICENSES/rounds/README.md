@@ -61,10 +61,18 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-07 時点・303 ファイル）
+## いまの状態（2026-11-07 時点・311 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
+| 2004〜2026 | `license-review` / `license-discuss` | **観測（規則の全数から引いた 30 通・6 分割の 1/6 部）** | 長い 2 通は署名までで切り、ヘッダにそう書いた。`2004-to-2026-license-lists-rule-census-cited-observed-1of6.txt` |
+| 2004〜2026 | `license-review` / `license-discuss` | **観測（規則の全数から引いた 30 通・6 分割の 2/6 部）** | 長い 2 通は署名までで切り、ヘッダにそう書いた。`2004-to-2026-license-lists-rule-census-cited-observed-2of6.txt` |
+| 2004〜2026 | `license-review` / `license-discuss` | **観測（規則の全数から引いた 30 通・6 分割の 3/6 部）** | 長い 2 通は署名までで切り、ヘッダにそう書いた。`2004-to-2026-license-lists-rule-census-cited-observed-3of6.txt` |
+| 2004〜2026 | `license-review` / `license-discuss` | **観測（規則の全数から引いた 30 通・6 分割の 4/6 部）** | 長い 2 通は署名までで切り、ヘッダにそう書いた。`2004-to-2026-license-lists-rule-census-cited-observed-4of6.txt` |
+| 2004〜2026 | `license-review` / `license-discuss` | **観測（規則の全数から引いた 30 通・6 分割の 5/6 部）** | 長い 2 通は署名までで切り、ヘッダにそう書いた。`2004-to-2026-license-lists-rule-census-cited-observed-5of6.txt` |
+| 2004〜2026 | `license-review` / `license-discuss` | **観測（規則の全数から引いた 30 通・6 分割の 6/6 部）** | 長い 2 通は署名までで切り、ヘッダにそう書いた。`2004-to-2026-license-lists-rule-census-cited-observed-6of6.txt` |
+| 2013-04〜06 | `license-review` | **観測（法律家を要件にするかの議論・13 通・2 分割の 1/2 部）** | `2013-license-review-drafting-quality-cited-observed-1of2.txt` |
+| 2013-04〜06 | `license-review` | **観測（法律家を要件にするかの議論・13 通・2 分割の 2/2 部）** | `2013-license-review-drafting-quality-cited-observed-2of2.txt` |
 | 2022-07 | Fedora legal list / LWN / BleepingComputer / Fedora のデータ | **観測（CC0 をコードから外した判断と、いまのデータ）** | 最初の 1 通は取得できず、LWN と BleepingComputer の引用で置いた。`2022-07-fedora-legal-cc0-classification-observed.txt` |
 | 2012-01〜04 | `license-review` | **観測（CC0 の審査から引いた 27 通・2 分割の 1/2 部）** | ドシエが引いた通だけを束ねた。スレッド全体ではない。`2012-01-to-04-license-review-cc0-cited-observed-1of2.txt` |
 | 2012-01〜04 | `license-review` | **観測（CC0 の審査から引いた 27 通・2 分割の 2/2 部）** | 同じ束の 2/2 部。`2012-01-to-04-license-review-cc0-cited-observed-2of2.txt` |

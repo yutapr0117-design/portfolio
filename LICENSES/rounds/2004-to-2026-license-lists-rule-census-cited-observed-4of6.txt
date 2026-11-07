@@ -1,0 +1,651 @@
+Source: https://lists.opensource.org/pipermail/ (license-review and license-discuss, the months named in each message's Date line)
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-07)
+Messages: 5 of the 30 messages this dossier cites from a census of rule-like sentences across all 508 archived months. Not a thread. Part 4 of 6.
+Senders: McCoy Smith, Carlo Piana, Pamela Chestek, Josh Berkus
+Position: statements by people who decide or advise on approval, each about another submission. Not addressed to us and not about ACD. Each message keeps its archive headers. Two long messages (Date lines Sat, 24 Jan 2026 15:14:40 -0800 and Tue, 14 Apr 2026 19:27:47 +0200) end at the author's signature here; the quoted material below it is in the archive. The reading is in LICENSES/ACD-1.0.reviewer-positions.md section 1.140.
+
+----- begin verbatim -----
+From mccoy at lexpan.law  Sun Oct 26 15:17:17 2025
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Sun, 26 Oct 2025 08:17:17 -0700
+Subject: [License-review] Submission of Orivex Syscall Note License
+ (OSN-1.0) for OSI Approval - Revised Submission (Kartik Pawar)
+In-Reply-To: 
+ <CAE0NYFG5QXWP31re0R=CHgjhJTRwspto7+oxyrQZ7K3vA4o5JQ@mail.gmail.com>
+References: 
+ <CAE0NYFG5QXWP31re0R=CHgjhJTRwspto7+oxyrQZ7K3vA4o5JQ@mail.gmail.com>
+Message-ID: <200e4928-2f67-4a1e-b627-6c5b1c44b603@lexpan.law>
+
+In my opinion, speaking personally, this license really needs to go 
+through a legal review before submission/resubmission. Here are a few 
+reasons:
+
+1. The preamble includes a defined term ("Software") that is used within 
+the text of the grants. Given that preambles can be construed as not 
+part of the license, I think this is a significant drafting flaw that 
+can render the subsequent grants ambiguous.
+
+2. The defined terms include at least one term ("Syscall Boundary") 
+which is used nowhere in the rights and obligations of the license; at 
+best, it is used recursively (and not as a defined term) in the 
+definition itself or in the preamble definition above (also, not as a 
+defined term).
+
+3. The term "Software" as used throughout the license to define the 
+rights and obligations, appears to be limited to "kernel-facing 
+artifacts such as kernel headers, syscall interface definitions, formal 
+ABI documentation, and related API/ABI files." That means any other 
+software to which this license is attached is not licensed at all. So 
+this license winds up being quasi-open source depending upon whether the 
+software to which it is attached fits fully, partially, or not at all 
+within the defined term "Software." I don't think OSI should be 
+approving a license as being open source when it can be used in a way 
+that closes off (or more accurately, does not license at all) some or 
+all of the software to which it is attached. The fact that the steward 
+might only wish to use it for software falling within that definition 
+doesn't mean that others might not, and thus you wind up having an OSI 
+approved license that doesn't grant all (or any) rights to the software 
+it is used with. I also am not sure to what extent a Derivative Work of 
+Software which doesn't fit into the definition of "Software" as 
+specified above is or is not licensed under a grant of this scope. I 
+think it could be argued either way, thus rendering the license grants 
+potentially ambiguous.
+
+4. I don't see what the point is of having a license like this that is 
+restricted to a specific class of software. If you want to attach this 
+license to interfaces, syscalls, and the like, you could just as easily 
+release those components with an MIT or Apache license attached, as the 
+licensed "Software" (or "Work" in Apache) and get essentially the same 
+result. If, for whatever reason you don't like the attribution 
+requirements of MIT or Apache and prefer the attribution requirements in 
+Sec 4, then just write a standard open source grant (like either of 
+those licenses, or others) with this new attribution requirement.
+
+5. At least the Limitation of Liability clause (8) and the Indemnity 
+clause (9) are in conflict. The limitation of liability clause disclaims 
+all liability to the licensor or any contributor, but the indemnity 
+clause appears to attempt to impose back some amount of liability at 
+least on Contributors. It also says it is an indemnity clause, but then 
+says "create any affirmative obligation for the Licensor or any 
+Contributor to indemnify any party." I'm not sure what exactly the 
+obligations are in the "Indemnity" clause because of that, and the 
+clause also appears to be discriminatory, since it imposes the 
+obligation only on the licensee and not the licensor (because it applies 
+to "You" -- the licensee, and not the Licensor).
+
+6. The survival of Sec 3, but not Sec 2 (or for that matter, Sec 5) upon 
+termination doesn't make a whole lot of sense to me and I'd like to 
+understand why this license structures survival in that way.
+
+In summary, this license still has a lot of fairly fundamental 
+philosophical and drafting issues that really need addressing before it 
+is in any shape for approval.
+
+
+On 10/25/2025 12:08 AM, Righteousness wrote:
+> Dear License Review Committee,
+>
+> Thank you for the helpful feedback on our initial OSN-1.0 submission, 
+> and particularly to McCoy Smith for the detailed comments. I have 
+> revised the license to address the issues raised (clarified 
+> contributor/CLA interaction, tightened redistribution language, 
+> defined the syscall boundary, softened indemnity, and moved 
+> non-normative guidance to a single, explicitly-labeled advisory 
+> section). Below is a concise summary of the changes and explanations 
+> requested by the committee.
+>
+> *Who authored & legal review*
+>
+>   * *Author: *Kartik Pawar (Orivex Project Lead)
+>   * *Legal review: *The text was drafted by the project team (Kartik
+>     Pawar) and has undergone internal peer review by Orivex
+>     contributors. It has not yet been through external counsel. We are
+>     prepared to obtain and provide an independent legal review if the
+>     committee recommends it.
+>
+> *What gap OSN-1.0 fills (short statement)*
+> OSN-1.0 fills a narrow interoperability gap not directly covered by 
+> common permissive licenses: it provides a clear, normative treatment 
+> of *syscall/ABI boundary files *(headers, syscall numbers, 
+> ABI-structure layouts, formal ABI docs) so those files may be licensed 
+> in a way that preserves attribution and patent grants while *avoiding 
+> the creation of derivative-work obligations for callers across the 
+> syscall boundary*. In short: OSN clarifies how syscall/ABI interface 
+> artifacts can be reused by both open-source and proprietary userland 
+> implementations without producing unintended downstream copyleft 
+> consequences.
+>
+> *Comparison with Apache-2.0 (short)*
+>
+>   * *Form & grants: *OSN borrows familiar structure and grant language
+>     (copyright + patent) similar to Apache-2.0.
+>   * *Key differences: *OSN introduces a *normative definition of
+>     "Syscall Boundary" *and places explicit, enforceable conditions
+>     for syscall/ABI interface redistributions (attribution, notice
+>     pointers). OSN also clarifies the relationship between automatic
+>     contribution licensing and optional CLAs so that a CLA cannot
+>     reduce downstream rights already granted under the license. Unlike
+>     Apache, OSN is scoped to syscall/ABI interface files and their
+>     reuse semantics at kernel/userland boundaries.
+>
+> *Responses to McCoy's specific points*
+>
+>  1. *Contribution section / CLA ambiguity: *Fixed by making the
+>     automatic contribution license (Section 5.2) effective on
+>     submission and explicitly stating that a CLA (if offered) *may not
+>     reduce downstream recipient rights *for Contributions already
+>     licensed under Section 5.2. If a Contributor later explicitly
+>     states a Contribution is governed solely by a CLA, that fact will
+>     control only as to that later Contribution. This resolves
+>     precedence and ambiguity concerns.
+>  2. *Section 5.4 / unnecessary statements removed: *Any redundant or
+>     advisory text implying projects must accept contributions was
+>     removed. Contribution process guidance is governance material and
+>     explicitly separated from the operative license terms.
+>  3. *"Should" vs "Must" language in redistribution: *Where
+>     preservation of provenance/notice is required for license
+>     integrity, advisory “should” language was changed to *"must"
+>     *(Sections 4.1-4.3, 4.4 for binaries). Traceability encouragement
+>     (e.g., SYSCALL-CHANGES.md) is explicitly non-normative and
+>     advisory only.
+>  4. *Syscall boundary definition: *Added an explicit, normative
+>     definition of *"Syscall Boundary" *in the Definitions section to
+>     anchor what files the license targets.
+>  5. *Indemnity clause: *Softened to state that contributors/users are
+>     responsible for claims arising from their own modifications or
+>     distributions, and removed any broad affirmative indemnity
+>     obligations for Licensors. Any additional indemnity must be in a
+>     separate written agreement.
+>  6. *Termination & multiple Licensors: *Clarified that only the
+>     Licensor whose rights are affected may initiate termination as to
+>     their portion of the Software.
+>  7. *Non-normative material reduced: * All prior
+>     explanatory/templating content was removed or consolidated into a
+>     single, explicitly-labelled non-normative suggestion section
+>     (Section 14). The operative license (Sections 1–13) is normative.
+>  8. *SPDX identifier & formatting: *SPDX identifier normalized to
+>     Orivex-syscall-note-1.0 and author name updated to *Kartik Pawar*.
+>
+> *What I'm submitting now*
+>
+>   * The *revised OSN-1.0 *license text is attached for your convenience.
+>
+> Thank you for your time and guidance. Please let me know if the 
+> committee would prefer the redline as an attachment or if any 
+> additional edits would make review easier.
+>
+> Sincerely,
+> *Kartik Pawar*
+> Orivex Project Lead
+> karuman2013 at gmail.com
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20251026/17e6077c/attachment-0001.htm>
+
+From carlo at piana.eu  Fri Jan 16 09:08:52 2026
+From: carlo at piana.eu (Carlo Piana)
+Date: Fri, 16 Jan 2026 10:08:52 +0100 (CET)
+Subject: [License-review] License Review: IDCIYMI-1.0 (I Don't Care If
+ You Mod It)
+In-Reply-To: 
+ <CAM8L+9R4xTSfOB2KLSfLLo-93WJzUKL0MdOP74NUeC5jyWxoGw@mail.gmail.com>
+References: 
+ <CAM8L+9R4xTSfOB2KLSfLLo-93WJzUKL0MdOP74NUeC5jyWxoGw@mail.gmail.com>
+Message-ID: <1118897675.28379739.1768554532580.JavaMail.zimbra@piana.eu>
+
+Dear Bernardo, 
+
+I notice that the most relevant change to the MIT is the removal of the
+
+> and to permit persons to whom the Software is furnished to do so, subject to the following conditions
+
+part. This is the "sublicensing" permission. I am not sure a sublicensing permission is required, since the later users of the software can derive this permission from the original licensing, however they would receive the software, without the need to receive it as an effect of the last distribution. But I don't quite get the rationale of having a new MIT-style license which leaves this implicit. Has a lawyer performed any kind of assessment here? Why?
+
+Moreover, the addition of aspirational language in legal text, especially without a clear indication that this is not legal text, is IMHO a source of potentially confusing language, and is for sure an invitation to create more proliferation and entropy. Have you have ever tried to perform an OSS compliance audit on any piece of software only to find the umpteenth license to clear for no reason at all, but nonetheless requiring human intervention -- as it is slightly different from allo others? This is a total waste of time and energy and I personally invite all submitters NOT to do that unless there are really compelling legal reasons, or proof of widespread adoption, both totally absent here.
+
+I take the view that this license does not meet the requirements for being added to the list of officially approved licenses, although per se does not seem to violate any OSD rule, at a cursory evaluation.
+
+Cheers
+
+Carlo, in his personal capacity.
+
+
+     
+
+----- Messaggio originale -----
+> Da: "PTFS" <pfts.offical at gmail.com>
+> A: "license-review at lists.opensource.org" <license-review at lists.opensource.org>
+> Inviato: Sabato, 10 gennaio 2026 14:14:18
+> Oggetto: [License-review] License Review: IDCIYMI-1.0 (I Don't Care If You Mod It)
+
+> Dear OSI License Review Committee,
+> I am formally submitting the "I Don't Care If You Mod It" (IDCIYMI) license,
+> version 1.0, for official approval as an Open Source license.
+
+>     1. License Text
+
+> ========================================================
+> IDCIYMI License (I Don't Care If You Mod It)
+> Copyright (c) 2026 [Name]
+> Permission is hereby granted, free of charge, to any person obtaining a copy
+> of this software and associated documentation files (the "Software"), to deal
+> in the Software without restriction, including without limitation the rights
+> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+> copies of the Software.
+> The only condition is that the above copyright notice and this permission
+> notice shall be included in all copies or substantial portions of the Software.
+> CREATOR NOTE:
+> [Add your note here. For example: "I built this for the community—please mod it
+> and share what you create!"]
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+> OUT OF OR IN CONNECTION WITH THE SOFTWARE.
+> ==============================================
+
+>    1. Rationale The IDCIYMI license fills a unique social gap by standardizing a
+>    "Creator Note" field within a permissive legal framework. While legally similar
+>    to MIT, it provides a dedicated space for authors to express their intent and
+>    encouragement for modifications without introducing legally binding
+>    restrictions that would violate the OSD. This fosters a culture of remixing and
+>     open collaboration.
+>    2. Open Source Definition (OSD) Affirmation I affirmatively state that this
+>     license complies with the Open Source Definition. Specifically:
+
+>     *
+> OSD 3 (Derived Works): It explicitly permits modifications and sublicensing.
+>    * OSD 5 & 6 (No Discrimination): The license and its "Creator Note" are
+>     structured to ensure no groups or fields of endeavor are restricted.
+>    * OSD 9 (License Must Not Restrict Other Software): It does not restrict other
+>     software distributed with it.
+
+>     1.
+> Stewardship I, Bernardo Hora, am the steward of this license.
+>    2. Existing Usage Since I do not use GitHub, the license and the software using
+>     it can be found at the following public locations:
+
+> site : [ https://idciymi.neocities.org/ | https://idciymi.neocities.org/ ] (the
+> site is in wip)
+
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily
+> those of the Open Source Initiative. Communication from the Open Source
+> Initiative will be sent from an opensource.org email address.
+
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+From pamela at chesteklegal.com  Fri Jan 16 17:58:29 2026
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Fri, 16 Jan 2026 09:58:29 -0800
+Subject: [License-review] License Review: IDCIYMI-1.0 (I Don't Care If You
+ Mod It)
+In-Reply-To: 
+ <CAM8L+9R4xTSfOB2KLSfLLo-93WJzUKL0MdOP74NUeC5jyWxoGw@mail.gmail.com>
+References: 
+ <CAM8L+9R4xTSfOB2KLSfLLo-93WJzUKL0MdOP74NUeC5jyWxoGw@mail.gmail.com>
+Message-ID: <3848ec6d-cf73-1733-edca-41ef525b2ad9@chesteklegal.com>
+
+I do not think this license can be approved because of the optional 
+language. Anything at all could be added here, such as "I would love for 
+you to use it, but you cannot use it for profit!" The submission 
+guidelines <https://opensource.org/licenses/review-process> say that a 
+license cannot have ambiguous terms that have a material effect on the 
+license and that every possible variation of the license must meet the 
+OSD. These aren't true where there is a possibility that more terms 
+could be added to the license.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+On 1/10/2026 5:14 AM, PTFS wrote:
+> Dear OSI License Review Committee,
+> I am formally submitting the "I Don't Care If You Mod It" (IDCIYMI) 
+> license, version 1.0, for official approval as an Open Source license.
+>
+>  1. */License Text/*
+>
+> *========================================================*
+> IDCIYMI License (I Don't Care If You Mod It)
+> Copyright (c) 2026 [Name]
+> Permission is hereby granted, free of charge, to any person obtaining 
+> a copy
+> of this software and associated documentation files (the "Software"), 
+> to deal
+> in the Software without restriction, including without limitation the 
+> rights
+> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+> copies of the Software.
+> The only condition is that the above copyright notice and this permission
+> notice shall be included in all copies or substantial portions of the 
+> Software.
+> CREATOR NOTE:
+> [Add your note here. For example: "I built this for the 
+> community—please mod it
+> and share what you create!"]
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT 
+> SHALL THE
+> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+> ARISING FROM,
+> OUT OF OR IN CONNECTION WITH THE SOFTWARE.
+> ==============================================
+>
+>  2. Rationale
+>     The IDCIYMI license fills a unique social gap by standardizing a
+>     "Creator Note" field within a permissive legal framework. While
+>     legally similar to MIT, it provides a dedicated space for authors
+>     to express their intent and encouragement for modifications
+>     without introducing legally binding restrictions that would
+>     violate the OSD. This fosters a culture of remixing and open
+>     collaboration.
+>  3. Open Source Definition (OSD) Affirmation
+>     I affirmatively state that this license complies with the Open
+>     Source Definition. Specifically:
+>
+>   * OSD 3 (Derived Works): It explicitly permits modifications and
+>     sublicensing.
+>   * OSD 5 & 6 (No Discrimination): The license and its "Creator Note"
+>     are structured to ensure no groups or fields of endeavor are
+>     restricted.
+>   * OSD 9 (License Must Not Restrict Other Software): It does not
+>     restrict other software distributed with it.
+>
+>  4. Stewardship
+>     I, Bernardo Hora, am the steward of this license.
+>  5. Existing Usage
+>     Since I do not use GitHub, the license and the software using it
+>     can be found at the following public locations:
+>
+> site : https://idciymi.neocities.org/ (the site is in wip)
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260116/0626cc74/attachment.htm>
+
+From josh at berkus.org  Fri Jan 16 20:46:38 2026
+From: josh at berkus.org (Josh Berkus)
+Date: Fri, 16 Jan 2026 12:46:38 -0800
+Subject: [License-review] License Review: IDCIYMI-1.0 (I Don't Care If You
+ Mod It)
+In-Reply-To: 
+ <CAM8L+9SXjT30G4uH=8DN-895umKx7=GhV69-V2gAE6+fOsjQVQ@mail.gmail.com>
+References: 
+ <CAM8L+9R4xTSfOB2KLSfLLo-93WJzUKL0MdOP74NUeC5jyWxoGw@mail.gmail.com>
+ <1118897675.28379739.1768554532580.JavaMail.zimbra@piana.eu>
+ <CAM8L+9SXjT30G4uH=8DN-895umKx7=GhV69-V2gAE6+fOsjQVQ@mail.gmail.com>
+Message-ID: <5a660cec-3615-42fc-9fa4-ea3df2cfb6ea@berkus.org>
+
+On 1/16/26 3:36 AM, PTFS wrote:
+> 2. Rationale and Proliferation:
+> I hear your invitation not to create "entropy." However, I believe 
+> IDCIYMI addresses a specific social gap in 2026. While the legal core is 
+> MIT, the "Creator Note" is intended to be a standardized, non-binding 
+> (non-legal) field. In current practice, creator intent is scattered 
+> across READMEs and NOTICE files in inconsistent ways. IDCIYMI aims to 
+> provide a formal, predictable "home" for this aspirational language 
+> without altering the legal conditions of the license itself.
+
+What I'm not understanding here is why creator intent should show up in 
+the license at all.  What's wrong with it being in the README or a FAQ, 
+which is generally better formatted for developers to read in any case?
+
+-- 
+Josh Berkus
+
+
+From mccoy at lexpan.law  Fri Jan 16 23:24:58 2026
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Fri, 16 Jan 2026 15:24:58 -0800
+Subject: [License-review] License Review: IDCIYMI-1.0 (I Don't Care If You
+ Mod It)
+In-Reply-To: 
+ <CAM8L+9SXjT30G4uH=8DN-895umKx7=GhV69-V2gAE6+fOsjQVQ@mail.gmail.com>
+References: 
+ <CAM8L+9R4xTSfOB2KLSfLLo-93WJzUKL0MdOP74NUeC5jyWxoGw@mail.gmail.com>
+ <1118897675.28379739.1768554532580.JavaMail.zimbra@piana.eu>
+ <CAM8L+9SXjT30G4uH=8DN-895umKx7=GhV69-V2gAE6+fOsjQVQ@mail.gmail.com>
+Message-ID: <a51350ca-aa14-4bf8-9368-8ba370013ccc@lexpan.law>
+
+One requirement for approval of new licenses is:
+
+  * Describe any legal review the license has been through, including
+    whether it was drafted by a lawyer.
+
+I don't see that that has been done here.
+
+This is particularly important in this case because you state that the 
+"Creator Note" is intended to be a "standardized, non-binding 
+(non-legal) field" but you have not explained how the language used here 
+creates that effect, or how it prevents the "Creator Note" from being 
+written to be binding and OSD-incompliant.
+
+Absent that, I don't see how there is any way to establish that this 
+license is not amenable to being modified, according to its terms, in a 
+way that violates the OSD.
+
+On 1/16/2026 3:36 AM, PTFS wrote:
+> Dear  Carlo,
+> Thank you for your candid and professional feedback. I understand your 
+> concerns regarding license proliferation and the legal nuances of the 
+> MIT structure.
+> To be clear, the reason it's confusing to read is because I 
+> have Autism and ADHD, which means that when I tell people stuff in a 
+> different way.
+> 1. Regarding Sublicensing:
+> The removal of the sub licensing clause was an attempt at 
+> simplification, but I acknowledge that it creates legal ambiguity. I 
+> will restore the standard MIT language ("and to permit persons to whom 
+> the Software is furnished to do so...") to ensure full legal 
+> compatibility and clarity for downstream users.
+> 2. Rationale and Proliferation:
+> I hear your invitation not to create "entropy." However, I believe 
+> IDCIYMI addresses a specific social gap in 2026. While the legal core 
+> is MIT, the "Creator Note" is intended to be a standardized, 
+> non-binding (non-legal) field. In current practice, creator intent is 
+> scattered across READMEs and NOTICE files in inconsistent ways. 
+> IDCIYMI aims to provide a formal, predictable "home" for this 
+> aspirational language without altering the legal conditions of the 
+> license itself.
+> 3. Clarifying Aspirational Language:
+> To avoid the "confusion" you mentioned, I will add a clear prefix to 
+> the section stating: /"The following Creator Note is for informational 
+> purposes only and does not constitute a legal condition of this license."/
+> I am a beginner developer (Bernardo Hora) passionate about modding 
+> culture. My goal is to lower the "fear of entry" for new modders who 
+> find traditional legal text intimidating. I am open to further 
+> adjusting the text to ensure it provides value to the ecosystem 
+> without wasting the community's time.
+> Best regards,
+> Bernardo Hora
+> ------------------------------------------------------------------------
+>
+>
+> On Fri, Jan 16, 2026 at 11:10 AM Carlo Piana via License-review 
+> <license-review at lists.opensource.org> wrote:
+>
+>     Dear Bernardo,
+>
+>     I notice that the most relevant change to the MIT is the removal
+>     of the
+>
+>     > and to permit persons to whom the Software is furnished to do
+>     so, subject to the following conditions
+>
+>     part. This is the "sublicensing" permission. I am not sure a
+>     sublicensing permission is required, since the later users of the
+>     software can derive this permission from the original licensing,
+>     however they would receive the software, without the need to
+>     receive it as an effect of the last distribution. But I don't
+>     quite get the rationale of having a new MIT-style license which
+>     leaves this implicit. Has a lawyer performed any kind of
+>     assessment here? Why?
+>
+>     Moreover, the addition of aspirational language in legal text,
+>     especially without a clear indication that this is not legal text,
+>     is IMHO a source of potentially confusing language, and is for
+>     sure an invitation to create more proliferation and entropy. Have
+>     you have ever tried to perform an OSS compliance audit on any
+>     piece of software only to find the umpteenth license to clear for
+>     no reason at all, but nonetheless requiring human intervention --
+>     as it is slightly different from allo others? This is a total
+>     waste of time and energy and I personally invite all submitters
+>     NOT to do that unless there are really compelling legal reasons,
+>     or proof of widespread adoption, both totally absent here.
+>
+>     I take the view that this license does not meet the requirements
+>     for being added to the list of officially approved licenses,
+>     although per se does not seem to violate any OSD rule, at a
+>     cursory evaluation.
+>
+>     Cheers
+>
+>     Carlo, in his personal capacity.
+>
+>
+>
+>
+>     ----- Messaggio originale -----
+>     > Da: "PTFS" <pfts.offical at gmail.com>
+>     > A: "license-review at lists.opensource.org"
+>     <license-review at lists.opensource.org>
+>     > Inviato: Sabato, 10 gennaio 2026 14:14:18
+>     > Oggetto: [License-review] License Review: IDCIYMI-1.0 (I Don't
+>     Care If You Mod It)
+>
+>     > Dear OSI License Review Committee,
+>     > I am formally submitting the "I Don't Care If You Mod It"
+>     (IDCIYMI) license,
+>     > version 1.0, for official approval as an Open Source license.
+>
+>     >     1. License Text
+>
+>     > ========================================================
+>     > IDCIYMI License (I Don't Care If You Mod It)
+>     > Copyright (c) 2026 [Name]
+>     > Permission is hereby granted, free of charge, to any person
+>     obtaining a copy
+>     > of this software and associated documentation files (the
+>     "Software"), to deal
+>     > in the Software without restriction, including without
+>     limitation the rights
+>     > to use, copy, modify, merge, publish, distribute, sublicense,
+>     and/or sell
+>     > copies of the Software.
+>     > The only condition is that the above copyright notice and this
+>     permission
+>     > notice shall be included in all copies or substantial portions
+>     of the Software.
+>     > CREATOR NOTE:
+>     > [Add your note here. For example: "I built this for the
+>     community—please mod it
+>     > and share what you create!"]
+>     > THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+>     EXPRESS OR
+>     > IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+>     MERCHANTABILITY,
+>     > FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+>     EVENT SHALL THE
+>     > AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+>     OTHER
+>     > LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+>     ARISING FROM,
+>     > OUT OF OR IN CONNECTION WITH THE SOFTWARE.
+>     > ==============================================
+>
+>     >    1. Rationale The IDCIYMI license fills a unique social gap by
+>     standardizing a
+>     >    "Creator Note" field within a permissive legal framework.
+>     While legally similar
+>     >    to MIT, it provides a dedicated space for authors to express
+>     their intent and
+>     >    encouragement for modifications without introducing legally
+>     binding
+>     >    restrictions that would violate the OSD. This fosters a
+>     culture of remixing and
+>     >     open collaboration.
+>     >    2. Open Source Definition (OSD) Affirmation I affirmatively
+>     state that this
+>     >     license complies with the Open Source Definition. Specifically:
+>
+>     >     *
+>     > OSD 3 (Derived Works): It explicitly permits modifications and
+>     sublicensing.
+>     >    * OSD 5 & 6 (No Discrimination): The license and its "Creator
+>     Note" are
+>     >     structured to ensure no groups or fields of endeavor are
+>     restricted.
+>     >    * OSD 9 (License Must Not Restrict Other Software): It does
+>     not restrict other
+>     >     software distributed with it.
+>
+>     >     1.
+>     > Stewardship I, Bernardo Hora, am the steward of this license.
+>     >    2. Existing Usage Since I do not use GitHub, the license and
+>     the software using
+>     >     it can be found at the following public locations:
+>
+>     > site : [ https://idciymi.neocities.org/ |
+>     https://idciymi.neocities.org/ ] (the
+>     > site is in wip)
+>
+>     > _______________________________________________
+>     > The opinions expressed in this email are those of the sender and
+>     not necessarily
+>     > those of the Open Source Initiative. Communication from the Open
+>     Source
+>     > Initiative will be sent from an opensource.org
+>     <http://opensource.org> email address.
+>
+>     > License-review mailing list
+>     > License-review at lists.opensource.org
+>     >
+>     http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>     _______________________________________________
+>     The opinions expressed in this email are those of the sender and
+>     not necessarily those of the Open Source Initiative. Communication
+>     from the Open Source Initiative will be sent from an
+>     opensource.org <http://opensource.org> email address.
+>
+>     License-review mailing list
+>     License-review at lists.opensource.org
+>     http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260116/dec15893/attachment-0001.htm>
+

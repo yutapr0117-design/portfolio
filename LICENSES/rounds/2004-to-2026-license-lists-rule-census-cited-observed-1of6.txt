@@ -1,0 +1,747 @@
+Source: https://lists.opensource.org/pipermail/ (license-review and license-discuss, the months named in each message's Date line)
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-07)
+Messages: 11 of the 30 messages this dossier cites from a census of rule-like sentences across all 508 archived months. Not a thread. Part 1 of 6.
+Senders: Russell Nelson, Richard Fontana, Bruce Perens, Carlo Piana, Pamela Chestek, Josh Berkus, McCoy Smith
+Position: statements by people who decide or advise on approval, each about another submission. Not addressed to us and not about ACD. Each message keeps its archive headers. Two long messages (Date lines Sat, 24 Jan 2026 15:14:40 -0800 and Tue, 14 Apr 2026 19:27:47 +0200) end at the author's signature here; the quoted material below it is in the archive. The reading is in LICENSES/ACD-1.0.reviewer-positions.md section 1.140.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Wed Dec  1 23:22:08 2004
+From: nelson at crynwr.com (Russell Nelson)
+Date: Wed, 1 Dec 2004 18:22:08 -0500
+Subject: For Approval: German Free Software License
+In-Reply-To: <1101928752.2422.52.camel@stellifer>
+References: <84D511A814FAF742BF6927D883CF67C177C2A6@mpg-hap-info.mpipriv-hh.mpg.de>
+	<16813.60035.670491.782759@desk.crynwr.com>
+	<1101928752.2422.52.camel@stellifer>
+Message-ID: <16814.21024.468915.165133@desk.crynwr.com>
+
+Bjorn Reese writes:
+ > On Wed, 2004-12-01 at 17:00, Russell Nelson wrote:
+ > 
+ > > for a favor.  You want to create the best open source license you can
+ > > -- a license that is visibly better than any other license.  If you're
+ > > uninterested in doing that, then you're not going to get your license
+ > > approved, because the world does not have an intrinsic need for any
+ > > more open source licenses.  Since you have been offered suggestions
+ > 
+ > Is this an official policy? The submission procedure only mentions
+ > conformance to the OSD (apart from some bureaucratical steps) as the
+ > criterion for acceptance or refusal. It does not mention an upper
+ > limit to the amount of licenses that can be accepted.
+
+This: "Explain why that license will not suffice for your needs."
+is not a bureaucratic step.  If you cannot explain why an existing
+license is insufficient to meet your needs, then why should we approve
+your license.  If you don't know why the world needs your license, we
+don't know why we should approve it, so ... we won't.
+
+The upper limit on licenses is intrinsic to that requirement, and the
+OSD itself.  There are an infinite number of licenses which are
+trivially different from all other existing licenses.  We have no
+plans to approve all of them.  Therefore, there *is* an upper limit to
+the number of licenses which will be approved.  Could I give you a
+number?  No.
+
+-- 
+--My blog is at angry-economist.russnelson.com  | Violence never solves
+Crynwr sells support for free software  | PGPok | problems, it just changes
+521 Pleasant Valley Rd. | +1 315-323-1241 cell  | them into more subtle
+Potsdam, NY 13676-3213  | +1 212-202-2318 VOIP  | problems.
+
+
+From fontana at sharpeleven.org  Mon Jun 30 14:15:20 2014
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Mon, 30 Jun 2014 10:15:20 -0400
+Subject: [License-review] License Committee Report - for board meeting
+ of 2013-11-06 [NASA, EUPL, and Tidepool]
+In-Reply-To: <1073897725056E4A944FC4FD0DB6EF7176C01E10C7@aplesstar.dom1.jhuapl.edu>
+References: <CAFPTOkU=1FvwZwcwh-zC54CaZT=kA=oNA_EK-VTyNNjqUFyY8g@mail.gmail.com>
+	<CAFPTOkVFydUXiYLq2FMEQWWHUKWjwfG6Dozh4HjQDkFD2a64tA@mail.gmail.com>
+	<20131031210144.69c59479@riley.home>
+	<EEA0F71EB77D4141B3E9ABFB96C6EB54180C9C@NDMSMBX404.ndc.nasa.gov>
+	<20140625222059.7a7153d6@dizzy.home>
+	<1073897725056E4A944FC4FD0DB6EF7176C01E10C7@aplesstar.dom1.jhuapl.edu>
+Message-ID: <20140630101520.51b2fcc5@riley>
+
+On Thu, 26 Jun 2014 08:10:36 -0400
+"Tzeng, Nigel H." <Nigel.Tzeng at jhuapl.edu> wrote:
+
+> Or simply to ignore it since your corner case is highly unlikely to
+> ever occur in the real world.  The number of non-NASA contributors to
+> a NOSA project that is not another government agency or contractor
+> for a governmental agency approaches zero. 
+
+I don't believe OSI should approve/disapprove licenses based on
+assumptions about which particular (few) entities are likely to use the
+license. 
+
+> In any case, which open source requirement is violated even if the
+> existing wording is unchanged?  A question you've sidestepped twice.  
+
+You mean OSD planks? I can come up with arguments for why the provision
+as it exists could in practice be used to discriminate against fields of
+endeavor, but the problem mainly lies outside the OSD. I'm no
+arch-anti-proliferationist but this license clearly implicates the
+policy against license proliferation, so it has to be scrutinized
+closely for that reason. We should not be quick to approve new licenses
+that seem to have problematically-drafted provisions even if the
+problems are not mentioned in the OSD (e.g., excessive vagueness,
+problems of comprehensibility, inconsistency across provisions). 
+
+If this were an entirely new provision in a new license submitted by a
+non-lawyer with no affiliation with a prestigious institution, I am
+sure it would be criticized.
+
+The awkward situation here is that the existing OSI-approved version of
+NOSA contains a substantially similar provision. To me, personally, that
+doesn't dispose of the issue. 
+
+What bothers me particularly here is that Bryan says that this
+provision is *required* to be in this license by virtue of the NASA
+enabling statute. That is a really strong statement -- I understand it
+as a contention that NASA would somehow be violating its own statutory
+mandate if this provision weren't in the license. I don't know if that
+argument was made back when the original version of NOSA was approved.
+As some indication that this is dubious I point to the following
+(clearly non-FOSS) NASA license, which contains no such provision:
+https://fedoraproject.org/wiki/Licensing/NasaCDF
+
+Then there are things like this:
+https://review.openstack.org/gitweb?p=openstack/gantt.git;a=blob;f=gantt/__init__.py;h=b8044faecee0a314ab7144a06d1cab6ae5e54988;hb=092bd857cc1aa504c782214f2993b12ad2d7cbe8
+
+If (as may be the case, based on what I know about OpenStack) that
+should not be read as NASA granting a license under the Apache License
+2.0, we presumably had NASA signing the OpenStack US Government CLA:
+https://wiki.openstack.org/wiki/GovernmentCLA
+
+If I'm not mistaken that special CLA was prepared by Rackspace because
+NASA said it couldn't sign the regular CCLA. However it too is a
+software license containing no counterpart to the anti-endorsement
+clause in NOSA.
+
+- RF
+
+
+From bruce at perens.com  Fri Oct 20 04:09:07 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 19 Oct 2017 21:09:07 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public
+	License
+In-Reply-To: <20171019235827.GD9707@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com>
+ <20170923000911.GN14929@dev.kemitchell.com>
+ <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org>
+ <086b2989-c50c-c984-5192-bc966380788e@piana.eu>
+ <20170926020744.GK6204@dev.kemitchell.com>
+ <46261d9e-733f-7414-ca75-e7128ca99ada@piana.eu>
+ <20171019235827.GD9707@dev.kemitchell.com>
+Message-ID: <CAK2MWOvkjP+SSYr99NX8Bxs6H9S29tfVKSqcKOuD1aZbMsue5A@mail.gmail.com>
+
+There was quite a lot I did not think of when writing the OSD, and which
+perhaps did not belong in the OSD but which OSI should do as part of the
+license approval process for the benefit of developers and users. It's
+probably time to put together a list of what those things are, for
+everybody's information.
+
+With regard to *simple users,* those who make use of the Open Source
+software and do not modify or redistribute it, there should be as close to *no
+legal load* as possible. We need to be cognizant that many of these users
+are individuals and very small businesses that can't reasonably assume any
+legal load at all. We can't protect them from patent issues brought by
+others than the licensor of the software, but to the extent that we can
+protect them, we should. In particular, *simple users should not ever have
+to read the license.*
+
+We should also endeavor to keep the legal load upon *Open Source developers*
+as low as possible. These are also individuals, small businesses, etc. We
+expect them to understand the license somewhat, but they are not legal
+experts and do not necessarily have easy access to legal experts or even
+the inclination to use them.
+
+So, we can think about some things that would increase the load on those
+communities.
+
+Use-coupled license responsibilities. We should not allow them at all. If
+you're an infringer if you don't put the correct web badge on your site,
+it's a bad license for Open Source because it means the user has to track
+what programs they're running and put the proper badges online, and make
+sure in perpetuity that those badges keep being presented. No thanks.
+
+License proliferation: We don't want them to have to do more license
+combinatorial analysis than should be necessary. Thus, we should not in
+general accept new licenses, unless they in some way present a benefit to
+the community in a way that presently-accepted licenses do not.
+
+Crayon licenses: We should not today approve licenses that were developed
+without the assistance of a lawyer, because they are likely to not be
+parsed by a judge the way the developer expects. The name "crayon license"
+comes from a Monty Python sketch including a "cat license" which has "dog"
+crossed out and "cat" written in, in crayon. Some developers have been
+really seriously harmed (by Artistic License 1) and there are a few
+unfortunately-OSI-accepted time bombs waiting for new victims.
+
+Additional loads on the developer: We already place a number of loads on
+them when distributing, in general they have to present a copyright
+statement and license, sometimes a notice of source code availability,
+sometimes they have to distribute source code, and they perform some
+management of contributors and their rights. That's already a significant
+load, and additional loads upon the developer might not be a reasonable
+expectation.
+
+What we get from this is that there will be some licenses which are
+OSD-compliant but which should not be OSI-certified.
+
+Surely there are more things we should watch out for, this is just off the
+top of my head.
+
+    Thanks
+
+    Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171019/f14d322d/attachment.html>
+
+From bruce at perens.com  Thu Sep 27 23:45:08 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 27 Sep 2018 16:45:08 -0700
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <e5cc750e-c47c-ffda-1424-5baac9614c05@elstel.org>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+ <10df1617-122f-bedc-adb5-d31a93ab198c@piana.eu>
+ <CAJ-h4vvJhieBxL8p6xOSm6rYjLr-NBDKwfD2KcFafUPKe2LxXg@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5197F76DFA1@FMSMSX108.amr.corp.intel.com>
+ <20180926191113.GM15538@dev.kemitchell.com>
+ <e5cc750e-c47c-ffda-1424-5baac9614c05@elstel.org>
+Message-ID: <CAK2MWOsJQ333MaG2Oad0yU7T-LxD4PZCwUno3ZXSxNS2nTt_Ag@mail.gmail.com>
+
+>
+>
+> >> This seems to fall afoul of lots of privacy law and possibly GDPR
+>
+
+I don't know much about GDPR yet, but this is yet another reason that we
+use contributor license agreements. Nobody's going to rule that you can't
+require the identity of a party to an agreement.
+
+Elmar wrote:
+
+>    Nobody is forced to contribute. If a contributor has read the license
+> he can then decide thereupon whether he wants to contribute or not.
+
+
+It is an unfortunate fact that most of the developers do not have access to
+legal counsel, and are poorly equipped to parse the license on their own.
+So "caveat emptor" isn't a really good argument here. OSI should not
+approve a license with language that works as a trap for the unwary
+developer.
+
+
+> This statement is crucial for maintaining the quality of the
+> software. If someone has contributed various times introducing blatant
+> security risks future contributions of that author may f.i. need to be
+> examined in detail.
+>
+
+This is why projects like Debian establish a cryptographic web of trust for
+their developers. No check-in goes unidentified, and if something malicious
+is done, it can be traced (and the law enforced, if necessary). If you
+really want to enforce this sort of security, you should do it as part of
+your operational process, not in your license.
+
+And finally, the entire purpose of a license is for a judge to parse it
+correctly in court and thus decide whether a party has complied with its
+terms (and thus avoided infringing copyright) or not. "you need to leave
+your name" is not the sort of legal language that we could ever count on a
+judge parsing correctly.
+
+Another license, the original Artistic License written by a non-attorney
+got to court and the lower court parsed it in a completely unintended
+fashion, costing an Open Source developer some money and years of pain, and
+requiring various lawyers and I to spend a lot of time helping the appeals
+court get it straight. So, OSI should not accept licenses written by
+non-attorneys any longer.
+
+    Thanks
+
+    Bruce
+-- 
+Bruce Perens K6BP - CEO, Legal Engineering
+Standards committee chair, license review committee member, co-founder,
+Open Source Initiative
+President, Open Research Institute; Board Member, Fashion Freedom
+Initiative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180927/08c1143b/attachment.html>
+
+From carlo at piana.eu  Wed Oct 17 08:34:18 2018
+From: carlo at piana.eu (Carlo Piana)
+Date: Wed, 17 Oct 2018 10:34:18 +0200
+Subject: [License-review] Approval: Server Side Public License,
+ Version 1 (SSPL v1)
+In-Reply-To: <20181017065226.kot7caxslpofjrfv@ebb.org>
+References: <CAJ6sj3fnPf4ovFyWF7R_i_6tVLuC=J9BBfE4WqnuoB_-jjhzCg@mail.gmail.com>
+ <20181016230655.GB12946@bluenote> <20181017065226.kot7caxslpofjrfv@ebb.org>
+Message-ID: <fa796eb1-d99b-a6cc-a04d-f25b8dd49de7@piana.eu>
+
+On 17/10/18 08:52, Bradley M. Kuhn wrote:
+> Copyleft licenses are a different breed, and there is clever (and
+> difficult-to-interpret) drafting in the OSD to allow copyleft licenses to
+> qualify.  I think it's totally reasonable that OSI needs a higher standard
+> for copylefts than other types of licenses.
+>
+> Furthermore, I think it is completely reasonable for the OSI to reject a
+> license review request not necessarily for the content of the license, but
+> on grounds that a public process of comment and discussion were not used to
+> draft a license containing a major policy change in FOSS licensing.  The
+> copyleft community has evolved from a single drafter vetting the drafts
+> through a single law firm (as RMS did for the Emacs Public License, GPLv1
+> and GPLV2), to a community process.  copyleft-next should be the standard,
+> and license stewards of copyleft licenses should be required to explain
+> why they *didn't* follow a process similar to copyleft-next's process as
+> part of their application to OSI.
+>
+> I therefore suggest the OSI ask MongoDB to withdraw its submission, and ask
+> MongoDB to go back and engage in a public comment and drafting process.
+
+Not sure I agree or disagree with the need for public debate over a
+license to qualify, I leave it to more thoughtful contributors, but I am
+sympathetic to the concept. I also agree that copyleft licenses need a
+higher drafting standard to be approved. Sloppy non-copyleft license can
+do little harm, sloppy or not thought-through strong copyleft licenses
+can be devastatingly bad.
+
+I only notice that what MongoDB is seeking is a **perversion** of
+copyleft, and it gives copyleft a bad name (cit).
+
+Copyleft was conceived to preserve commons and avoid proprietarization.
+Meanwhile, all drafters have been so far very careful not to be too
+eager and "greedy", defining clear, although as expansive as reasonable,
+boundaries to the reach of copyleft. Rules are there to be gamed, and
+the "ASP loophole" was one of them. "TiVoization" was sort of another,
+they have been tentatively fixed in further drafting iterations. It's a
+fine game, but it has always been clear that the golden rule for the
+scope of copyright was "derivativeness". Copyleft-next seems to me in
+the same vein. And all of that for some good reasons.
+
+With SSPL that boundary considerably blurs, to be replaced with a much
+vaguer concept of "derivation of value" and other unclear rules that
+seem to directly contradict other rules in the same legal text (e.g.
+"mere aggregation"). Is that a good faith attempt to close an existing
+(yes there still are) loophole with cloud? No, I read it as an attempt
+to poison the wells of copyleft, including their own, detracting from
+its viability in for-profit environments just to push the proprietary
+licensing forward.
+
+A for profit with a dual licensing offering is just too tainted to be
+given the benefit of doubt. It is the same direction Commons Clause
+takes, although they have had the decency of not calling it "open
+source" and not to apply here.
+
+My clients want to know where their obligations end. To have as clear as
+possible boundaries. This license fall remarkably, strikingly short of that.
+
+Finally, the FAQ. The FAQ are not part of the license. They are
+immaterial, beside being belied by the very text of the license. They
+can help, but they do not add to or detract from the license. A license
+must be approved for its text, not for its context (I have expressed
+this concept already WRT W3C), otherwise we will be submerged by badge
+licenses that we should review in the context of their proponents and
+our appraisal would be subject to changes of corporate policy or of
+other unrelated and unapproved texts.
+
+NO! The license must be self-contained and provide directly all the
+safeguards, rights and obligations that are needed and sufficient to
+comply with it. And those rules must be well drafted in an attempt to
+reduce uncertainty.
+
+I am totally in favour of outright rejection, without any second thought
+given.
+
+Yours aye!
+
+Carlo
+
+
+
+From carlo at piana.eu  Tue Jan 29 09:26:19 2019
+From: carlo at piana.eu (Carlo Piana)
+Date: Tue, 29 Jan 2019 10:26:19 +0100
+Subject: [License-review] Approval: Server Side Public License,
+ Version 2 (SSPL v2)
+In-Reply-To: <CAJ6sj3cBJMV18BVgpEAGFnO+uy-8tm5-F670V_ZhDR9Onyy2RQ@mail.gmail.com>
+References: <CAJ6sj3eKuX=KkgA=_dqmSp_wUgRqG===dMQJexTgX4bF45ax+Q@mail.gmail.com>
+ <CAJ6sj3fjph2bAJvxUCo6AxH7_sSRJOAuMbFZBdWvqBDPAa534w@mail.gmail.com>
+ <CAJ6sj3cBJMV18BVgpEAGFnO+uy-8tm5-F670V_ZhDR9Onyy2RQ@mail.gmail.com>
+Message-ID: <9e757e10-a8d1-0aa3-97ef-11bf08dd87b2@piana.eu>
+
+
+
+On 28/01/19 22:29, Eliot Horowitz via License-review wrote:
+> We have spent a significant amount of time over the past couple months
+> considering the comments posted on license-review regarding the SSPL.?
+> We have also met with several individual members of the list to get
+> additional feedback and discuss how we can improve the SSPL.? It has
+> become apparent from those discussions that confusion around the
+> purpose and intent of the license remains, and we would like to try to
+> clear up that confusion.??
+>
+
+[...]
+
+Eliot, all,
+
+I am not commenting the license text per se, rather the scope of review.
+
+I don't think that the intention is relevant, unless it transpares and
+transpires from the text of the license and shapes the rules that it
+sets up against the principles that guide our actions and decisions. I
+have submitted that there is no salvation or damnation outside the legal
+text, since this is what we judge, since it it the text that needs to be
+cleared and since this is what people are likely to pick up in other
+projects, which may be oblivious of the context or context might not be
+the same for them.
+
+On the one hand, I think I have proclaimed myself in favor of approving
+a Microsoft license, despite at the time I had reasons to believe that
+their intent was less than genuine: the license was there and spoke by
+itself. On the other hand, I have spoken against W3C when the patent
+carving provision was being held irrelevant against the W3C patent IPR
+policy, which is immaterial however in a discussion about licenses, not
+projects. But I was ruled against and I have my objections on the records.
+
+In this context, I still insist that any clarification, binding
+statement, covenants and anything else that one particular project can
+issue, is as well immaterial in this discussion list, unless they are
+made a binding declaration materially attached to the license, so that
+they become part of the deed that we have under scrutiny. Albeit, in my
+view, license text should remain self-contained (even though made of
+multiple documents linked together).
+
+Again, it is worth repeating it: we are evaluating licensing texts, not
+projects.
+
+Cheers
+
+Carlo
+
+
+
+From pamela.chestek at opensource.org  Fri Feb 28 20:18:55 2020
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Fri, 28 Feb 2020 15:18:55 -0500
+Subject: [License-discuss] [Non-DoD Source] Re: Resources to discourage
+ governments from bespoke licenses?
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97CC55984E@UMECHPA7F.easf.csd.disa.mil>
+References: <d3958a2f-3f1d-4659-80ca-9921ba3f0e96@www.fastmail.com>
+ <1CE0ADD9-AB6B-4741-8A75-868ED5BA2C0A@lexpan.law>
+ <A677A9FB362B2F499BEFD6F80687FE97CC559560@UMECHPA7F.easf.csd.disa.mil>
+ <01e301d5ee64$cba95470$62fbfd50$@lexpan.law>
+ <A677A9FB362B2F499BEFD6F80687FE97CC55984E@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <ed8c0d17-3fc2-4401-2d59-a3c3ab8270cc@opensource.org>
+
+On 2/28/2020 2:05 PM, Karan, Cem F CIV USARMY CCDC ARL (USA) via
+License-discuss wrote:
+> I don't know the full reasoning behind why they couldn't participate on the list, but I do know that they were more open to talking with lawyers directly, off list.  Is that an option for you?
+Unfortunately, that's not a likely path to success. The licenses are
+discussed publicly, so the people who wrote the license are ideally the
+ones explaining it to the license-review list because they know the ins
+and outs. We've had proxies participate in the past and it doesn't go
+well. There also needs to be some willingness to modify the license
+based on feedback. The license may last to perpetuity, so it needs to be
+really well written. If it's presented to license-review as "take it or
+leave it," the outcome for a newly written license is likely going to be
+"leave it."
+
+The anonymous lawyers should think of the license-review process as a
+really great tool for improving their work product. The list does a
+great job at stress testing a license (not to mention the equanimity of
+the license steward!) and will identify problems that the original
+authors didn't think about, so that the ultimately approved license is
+much higher quality than the originally submitted license.
+
+Pam
+
+Pamela Chestek
+Chair, License Review Committee
+Open Source Initiative
+
+
+From josh at berkus.org  Thu Apr 23 17:09:12 2020
+From: josh at berkus.org (Josh Berkus)
+Date: Thu, 23 Apr 2020 10:09:12 -0700
+Subject: [License-discuss] Certifying MIT-0
+In-Reply-To: <CAC1cPGxxbh9w8SgbbubJR5F1GfhvZgUSvvSf_hQkqeYE8N1v+g@mail.gmail.com>
+References: <CAKgxSaA6=dOnjcSxiTRbt-wNJfPXrYKDSnHUFzn__w4NrEMyLw@mail.gmail.com>
+ <CAC1cPGxxbh9w8SgbbubJR5F1GfhvZgUSvvSf_hQkqeYE8N1v+g@mail.gmail.com>
+Message-ID: <4316a9e3-320e-4d87-e529-1070279161d5@berkus.org>
+
+On 4/22/20 7:33 PM, Richard Fontana wrote:
+> It seems likely it would be approved, given the approval a few years
+> ago of the similar, ISC-based license now known as Zero-Clause BSD,
+> though perhaps some would object on anti-proliferation grounds.
+
+Here is my non-proliferation question:
+
+Is there significant use of MIT-0 in the field?
+
+I would argue that, if there's nobody using it, we shouldn't approve it
+as "technically OSS but not really needed".  But if projects are using
+it, then approve it as a "redundant" license.
+
+-- 
+Josh Berkus
+
+
+From mccoy at lexpan.law  Thu Apr 23 17:56:27 2020
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Thu, 23 Apr 2020 10:56:27 -0700
+Subject: [License-discuss] Certifying MIT-0
+In-Reply-To: <4316a9e3-320e-4d87-e529-1070279161d5@berkus.org>
+References: <CAKgxSaA6=dOnjcSxiTRbt-wNJfPXrYKDSnHUFzn__w4NrEMyLw@mail.gmail.com>
+ <CAC1cPGxxbh9w8SgbbubJR5F1GfhvZgUSvvSf_hQkqeYE8N1v+g@mail.gmail.com>
+ <4316a9e3-320e-4d87-e529-1070279161d5@berkus.org>
+Message-ID: <02e001d61998$83461560$89d24020$@lexpan.law>
+
+> -----Original Message-----
+> From: License-discuss <license-discuss-bounces at lists.opensource.org> On
+> Behalf Of Josh Berkus
+> Sent: Thursday, April 23, 2020 10:09 AM
+> To: license-discuss at lists.opensource.org; Richard Fontana
+> <rfontana at redhat.com>
+> Subject: Re: [License-discuss] Certifying MIT-0
+> 
+> 
+> I would argue that, if there's nobody using it, we shouldn't approve it as
+"technically OSS but not really needed".  
+
+Is that a reason for denial that has been used in the past? At a minimum,
+I'd think the argument for MIT-0 against that rationale is that it
+eliminates the perceived-by-some-as unwieldy license and notice requirements
+of plain-old MIT, while retaining all the other features of MIT.  In fact,
+I'd venture to guess that at some point someone will argue that those sorts
+of obligations ought to be eliminated or allowed to be streamlined.
+
+
+
+
+From pamela at chesteklegal.com  Tue May 19 11:54:09 2020
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Tue, 19 May 2020 07:54:09 -0400
+Subject: [License-review] veto against Unlicence
+In-Reply-To: <1722221.bhtF3C78IN@hermes>
+References: <Pine.BSM.4.64L.2004241436270.10072@herc.mirbsd.org>
+ <CAMkzgA6-=9__Fy3f2OJMrnU+HS3FfA82PMNDxDLEgAKm+tmBJA@mail.gmail.com>
+ <3934c330-e63e-a5ea-f8d0-cc35e1466655@chesteklegal.com>
+ <1722221.bhtF3C78IN@hermes>
+Message-ID: <1d657b01-24b1-a753-1c81-93658d759a9a@chesteklegal.com>
+
+I heard privately from Till Jaeger, a German lawyer, who wrote this
+(published with his permission):
+
+"Under German law the Unlicense would work as a license. The intention
+of the
+text is obvious and I see no reason for any problems.
+
+Even more, it is the prevailing opinion that even without such license
+language a public domain dedication needs to be interpreted as a license
+without license conditions (but moral rights still apply). Of course, this
+is not true for works which are in the public domain based on other reason
+than a decision of the copyright owner (works from public authorities which
+are not protected because of local law)."
+
+He tells me that this position is stated in his book /Open Source
+Software/,
+https://www.beck-shop.de/jaeger-metzger-open-source-software/product/26549144.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+On 5/16/2020 5:59 AM, Matija ?uklje wrote:
+> Die 15. 05. 20 et hora 20:33 Pamela Chestek scripsit:
+>> There are lots of lawyers on the list; if any thought that the position
+>> had merit I would have expected that person to pipe up.
+> I?ll bite ? writing in my private capacity, as a Slovenian lawyer.
+>
+> 	TL;DR: looks fine to me
+>
+> The Slovenian Zakon o avtorski in sorodnih pravicah [ZASP] (Copyright and 
+> Related Rights Act)? is pretty similar to the German one, and it shares with 
+> France the inability of a full copyright assignment (mostly due to moral 
+> rights not being transferable) as well as the inability to dedicate something 
+> to the public domain.
+>
+> Now, if we were to look at only the law act?s text itself, first thing of note 
+> is that the public domain is not mentioned even once. It is implicit in the 
+> ZASP ?58, which dictates that the copyright protection ceases after the 
+> appropriate amount of time lapses (typically 70 years after death ? see ?59 
+> and below).
+>
+> ZASP ?73 and below handle copyright contract law ? which talks about exclusive 
+> and non-exclusive assignments (odd choice of words, I agree) of individual 
+> rights.
+>
+> ZASP ?80 handles the needed formalities for such an ?assignment? (exclusive or 
+> non-exclusive) of economic and other author?s rights ? and the only one is 
+> that it needs to be in written form. Any noncompliance  with  the  formality,  
+> all controversial or unclear stipulations are to be interpreted in favour of 
+> the author. The Unlicense is very much in written form.
+>
+> Interestingly enough, the Copyright and Related Rights Act only covers 
+> statutory licenses, so for a license agreement we need to look into the 
+> general Obligacijski zakonik [OZ] (Obligations Code)?, which in turn oddly 
+> enough talks only about ?the right to exploit a patented invention, technical 
+> know-how or experience, or a trademark, pattern or model?, not copyright. But 
+> it is assumed it covers copyright licenses as well.
+>
+> There you will again find (in OZ ?705) the only formality is that a license 
+> agreement needs to be in written form. Which with Unlicense is the case.
+>
+> So I would argue under Slovenian law the formality is met.
+>
+> You also need to remember that esp. if you think about artists, a lot of not 
+> just licenses, but even full assignments happen in very sloppy ways. It is all 
+> a very messy business, and in the computer industry we tend to be (sometimes a 
+> bit too) organised and clean.
+>
+> The next question is the content then.
+>
+> As mentioned before, in Slovenia you cannot assign something to the public 
+> domain, so that stipulation?s dead.
+>
+> But the second paragraph:
+>
+> ?Anyone is free to copy, modify, publish, use, compile, sell, or distribute 
+> this software, either in source code form or as a compiled binary, for any 
+> purpose, commercial or non-commercial, and by any means.? 
+>
+> So, does paragraph cover enough rights to be FOSS?
+> 0. Use? ? check
+> 1. Study? ? check
+> 2. Share? ? check
+> 3. Improve? ? check
+>
+> seems well enough for me as a unilateral license agreement/assignment of those 
+> individual economic author?s rights to ?anyone?. 
+>
+> The third paragraph is a bit weird, and would probably be subject to 
+> interpretation on what the author(s) meant with it ? but I would wager a 
+> reasonable interpretation would be that the (obviously) lay person drafting 
+> this license/dedication intended their code to be 1) released into the public 
+> domain, and where that is not possible, semi-implicitly 2) everyone is given 
+> the individual rights as described in paragraph 2.
+>
+> In any case the moral rights remain untouched, but according to ZASP ??17-20, 
+> those that apply to computer programs are:
+> ? right to the first disclosure
+> ? right to recognition (or not) as the author
+> ? right to integrity of the work, if such tampering could be prejudicial to 
+> the author?s person
+>
+> I would be very surprised if Unlicense did not get interpreted as a valid 
+> copyright license/?non-exclusive assignment? here.
+>
+> Granted, it is not the best worded license out there, but it meets the legal 
+> formality and does mention the individual rights.
+>
+> Would I suggest using Unlicense? Hell no. CC0-1.0 does a way better job at 
+> achieving the same thing.
+>
+> But I find it extremely hard to interpret it in any other way than it is a 
+> valid FOSS license in my jurisdiction.
+>
+>
+> cheers,
+> Matija
+> ?
+> 1	http://www.pisrs.si/Pis.web/pregledPredpisa?id=ZAKO403#
+>
+> 	English translation:
+> 	http://www.uil-sipo.si/fileadmin/upload_folder/zakonodaja/
+> ZASP_EN_2007.pdf
+>
+> 2	http://www.pisrs.si/Pis.web/pregledPredpisa?id=ZAKO1263
+>
+> 	English translation:
+> 	http://www.uil-sipo.si/fileadmin/upload_folder/zakonodaja/povezano/
+> Obligations-Code_Slovenia_2001.pdf
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200519/0538698d/attachment.html>
+
+From mccoy at lexpan.law  Tue Aug 15 15:22:14 2023
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Tue, 15 Aug 2023 08:22:14 -0700
+Subject: [License-review] A request for checking the review status of
+ Mulan OWLs v1
+In-Reply-To: <cc74c82f-5243-92cf-a873-9baf3b56847f@opensource.org>
+References: <tencent_432242E7C4943D054CCD1A4363B191998608@qq.com>
+ <1545611467.2073870.1688565578446.JavaMail.zimbra@piana.eu>
+ <b425c2dc-3ae6-e31f-1ed0-c120be7e5fb1@opensource.org>
+ <d97a8028-ca18-486c-afbb-ff9ab38ea935@berkus.org>
+ <003b01d9cc74$2c5941e0$850bc5a0$@lexpan.law>
+ <51714949-539f-174b-b02c-ace93789412a@chesteklegal.com>
+ <144958de-68d3-4176-9f96-e56cc27422a2@berkus.org>
+ <cc74c82f-5243-92cf-a873-9baf3b56847f@opensource.org>
+Message-ID: <007001d9cf8c$4bf07080$e3d15180$@lexpan.law>
+
+FWIW, I agree that licenses that disclaim patent grants are not approvable. That's the lesson of CC. I continue to think that the OSI should articulate that as a hard-and-fast rule about approvable licenses so that future submitters know that that's a requirement for any submitted license. There's an underlying issue within that about whether a license that doesn't disclaim patent licenses but doesn't articulate any express patent license is approvable (at least, going forward) which probably also should be addressed (and explained wrt to the approved licenses that do do that).
+
+I'm not sure I agree that a "content" license is not approvable. Not sure, but don't think, that was an impediment to a consideration of CC. Also, there are licenses already on the list that are not specifically limited to software and could be equally applied to content. For example, the Fair license: https://opensource.org/license/fair/  They've also approved the CERN OHLs.  I think if OSI is going to limit itself to only "software" licenses, it need to make that policy decision and make it clear, and perhaps articulate how one distinguishes between a "software" (or "primarily software") and a "non-software" (or "primarily non-software") license, keeping in mind that software licenses have and are being applied to non-software, and vice versa. I suppose a "content" license that expressly states that it must not or cannot be used for software probably shouldn't be approved, but absent that I see no reason why it shouldn't be approved if it could be used with software equally with content.
+
+
+> -----Original Message-----
+> From: License-review <license-review-bounces at lists.opensource.org> On
+> Behalf Of Pamela Chestek
+> Sent: Tuesday, August 15, 2023 7:46 AM
+> To: license-review at lists.opensource.org
+> Subject: Re: [License-review] A request for checking the review status of
+> Mulan OWLs v1
+> 
+> 
+> On 8/14/2023 5:31 PM, Josh Berkus wrote:
+> > On 8/11/23 09:56, Pamela Chestek wrote:
+> >> The context of the question is whether to approve the submitted Mulan
+> >> OWL licenses, so the discussion needs to be on license-review. It's
+> >> specifically whether we should approve these licenses. The only
+> >> issues that anyone mentioned were that they were content licenses
+> >> (and I raised the patent issue).
+> >
+> > Those are sufficient issues, no?  I mean, they're not going to change
+> > these from being content licenses, and right now we have no idea how
+> > to approve content licenses.
+> >
+> I think so, it's only that the response on the list has been somewhat
+> equivocal, so I want to make sure everyone is in agreement.
+> 
+> Pam
+> 
+> Pamela S. Chestek
+> Chair, License Committee
+> Open Source Initiative
+> 
+> 
+> 
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Communication from the
+> Open Source Initiative will be sent from an opensource.org email address.
+> 
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-
+> review_lists.opensource.org
+
+
+

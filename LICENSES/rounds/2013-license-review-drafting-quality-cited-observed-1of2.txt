@@ -1,0 +1,481 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2013-April.txt, 2013-May.txt, 2013-June.txt)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-07)
+Messages: 3 of the 13 messages this dossier cites from "License drafting quality and process" (33 messages). Not the whole thread. Part 1 of 2.
+Senders: Luis Villa, Richard Fontana
+Position: the 2013 debate on whether a submission should need a lawyer. Not addressed to us and not about ACD. Each message keeps its archive headers. The reading is in LICENSES/ACD-1.0.reviewer-positions.md section 1.140.
+
+----- begin verbatim -----
+From luis at lu.is  Mon Apr  8 01:01:09 2013
+From: luis at lu.is (Luis Villa)
+Date: Sun, 7 Apr 2013 18:01:09 -0700
+Subject: [License-review] License drafting quality and process [was Re:
+ Comment on MOSL and similar licenses]
+Message-ID: <CAFPTOkV_VP05gBpadtG8J76w5wqRFc77jrf0BDvDwp=59V6oTg@mail.gmail.com>
+
+On Tue, Apr 2, 2013 at 12:35 PM, Lawrence Rosen <lrosen at rosenlaw.com> wrote:
+> Hadrian G. wrote:
+>> Thus, what I'm doing instead is to take as much inspiration as possible
+> from existing OSI-approved licenses, which I assume should be bullet-proof,
+> and then take advantage of the fact that as part of the OSI review process,
+> my proposal will also be subjected to the scrutinity of several specialists
+> of open-source legal matters who have chosen to dedicate some of their free
+> time to the improvement of the open-source ecosystem.
+>
+>
+> I'm sorry, Hadrian, both assumptions are demonstrably false. /Larry
+
+I have to agree with Larry here - it really isn't a good idea at this
+point to draft a license without real legal consultation; cut and
+paste isn't sufficient. Unfortunately, as currently drafted, the OSD
+has no formal requirement for such a consultation.
+
+Doing a full legal review of all incoming licenses is impractical for
+OSI (for a variety of reasons) but I'd be interested in hearing
+suggestions on what other things might stand in as a proxy for such a
+review.
+
+For example, in the past others have suggested that a public community
+process involving lawyers, such as those conducted for
+GPL3/MPL2/CC[2-4]/copyleft-next, would be a useful proxy and something
+that OSI could more objectively measure than "quality".
+
+Thoughts?
+Luis
+
+> -----Original Message-----
+> From: Hadrien G. [mailto:knights_of_ni at gmx.com]
+> Sent: Monday, April 01, 2013 11:40 PM
+> To: license-review at opensource.org
+> Subject: Re: [License-review] Comment on MOSL and similar licenses
+>
+> Ah, there's the beginning an answer to my last mail's question ! I was
+> wondering what an OSI-approved license, or a software license as a whole for
+> that matter, was allowed to cover in the spectrum of software ranging from
+> the original work to any largely unrelated work that happens to make use of
+> former.
+>
+> To answer your own question: even if I knew of a local attorney who has
+> significant experience in both open-source copyright matters and
+> international law, I strongly doubt that my current income would be enough
+> to hire him/her so as to discuss the matter in private. Thus, what I'm doing
+> instead is to take as much inspiration as possible from existing
+> OSI-approved licenses, which I assume should be bullet-proof, and then take
+> advantage of the fact that as part of the OSI review process, my proposal
+> will also be subjected to the scrutinity of several specialists of
+> open-source legal matters who have chosen to dedicate some of their free
+> time to the improvement of the open-source ecosystem.
+>
+>
+> The sentence which you quote is actually an example of the former practice,
+> since it is borrowed from the Sleepycat license. A similar clause may also
+> be found in the GPLv3 license, as its definition of the "Corresponding
+> Source" also includes "interface definition files associated with source
+> files for the work, and the source code for shared libraries and dynamically
+> linked subprograms that the work is specifically designed to require". The
+> GPL, however, does clarify that "[unmodified] general-purpose tools or
+> generally available free programs" are not covered by the license.
+>
+> Thus, I would like to understand why this sentence works in the context of
+> the Sleepycat License, but not in the context of the MOSL draft.
+>
+>
+> Taking a step aside, there is also something else which is a bit unclear
+> to me at this point regarding the overall notion of copyright misuse. If
+> one person's copyright cannot be used to affect another person's work in
+> any way, doesn't it mean that any software license which states that
+> modified versions of the covered work should have its source
+> redistributed qualify as copyright misuse? After all, following this
+> logic to its extreme, someone who modifies a work licensed under the GPL
+> could well claim that the modifications are his sole intellectual
+> property, that as such, he can license them under any license he likes,
+> and that the only source code which he can be forced to redistribute is
+> the original GPL-licensed work which he started from.
+>
+> As far as I can tell, the reason why GPL-like licenses are still allowed
+> to exist in spite of this consideration is that by doing so, our
+> developer would violate the original's software license agreement and
+> thus no longer be able to distribute it along his modifications. Since a
+> diff of the modifications alone is useless, this means that the
+> developer needs to comply with the license agreement of the original
+> software so as to be able to distribute it, and thus, that he must
+> redistribute the source code for his modifications too.
+>
+> This reasoning would also apply for the whole notion of requiring
+> disclosure of all modules contained in an executable file: by using such
+> a licensing term, a software author A does not require a user of its
+> source code B to disclose all the source code for his software. He only
+> states that "If B wants to distribute software based on my licensed
+> work, then he must disclose all source code for it. If B chooses not to
+> do so, then he must not redistribute any part of my work as part of the
+> final executable, which is sure to make the development of derivatives
+> quite cumbersome". Doing so would not be a violation of B's intellectual
+> property rights, but only an assertion of what is needed for him to
+> distribute A's product as part of his own.
+>
+> Or is there a reasoning or legal mistake in any of these last three
+> paragraphs?
+>
+> Hadrien
+>
+> Le 02/04/2013 05:01, Lawrence Rosen a ?crit :
+>> Hadrien G. wrote in the proposed MOSL:
+>>> "For an executable file, complete source code means the source code for
+>> all modules it contains,"
+>>
+>> Over the years since the introduction of the original GPL, many people
+> have
+>> proposed licenses that attempt to extend the requirement to disclose
+> source
+>> code to works those people didn't create themselves. That doesn't fly,
+>> either under antitrust law (for large software distributors) or as a
+>> practical business matter (for small software vendors). Nobody
+> knowledgeable
+>> will use software if it requires the disclosure of "all modules" contained
+>> in an "executable file".
+>>
+>> If a software work were protected by a patent license rather than a
+>> copyright license, its distributor might be accused of "patent misuse" for
+> a
+>> provision like this in his license. It is one thing to prevent one's own
+>> patents from being used by third parties; it is another thing altogether
+> to
+>> interfere with what people can do with *other* things that they own by
+>> asserting those *limited* patent rights.
+>>
+>> While copyright law is different from patent law, there is also a concept
+> of
+>> copyright misuse. [1] This can be summarized as an attempt by a licensor
+> to
+>> extend her legitimate rights to license her own work under terms of her
+> own
+>> choosing by placing restrictions or conditions on the copyrights of works
+>> she doesn't own.
+>>
+>> Have you reviewed that prospect for the MOSL with your attorney in your
+>> jurisdiction?
+>>
+>> /Larry
+>>
+>> [1] See http://en.wikipedia.org/wiki/Copyright_misuse
+>>
+>> Lawrence Rosen
+>> Rosenlaw & Einschlag, a technology law firm (www.rosenlaw.com)
+>> 3001 King Ranch Rd., Ukiah, CA 95482
+>> Office: 707-485-1242
+>> Linkedin profile: http://linkd.in/XXpHyu
+>>
+>>
+>> -----Original Message-----
+>> From: Hadrien G. [mailto:knights_of_ni at gmx.com]
+>> Sent: Thursday, March 28, 2013 10:16 AM
+>> To: license-review at opensource.org
+>> Subject: Re: [License-review] License Committee Report - for board meeting
+>> of 2013-04-03
+>>
+>> A few updates on my part regarding the MOSL's situation...
+>>
+>> I have since proposed a fourth working draft (
+>>
+> http://projects.opensource.org/pipermail/license-review/2013-January/000505.
+>> html
+>> ), which removed the unnecessary "unless agreed to in writing" part from
+> the
+>> disclaimer.
+>>
+>> Following the comments of Richard Fontana and Bruce Perens regarding OSD
+>> 9 compliance, I have also proposed (
+>>
+> http://projects.opensource.org/pipermail/license-review/2013-March/000538.ht
+>> ml
+>> ) a wording change which follows Bruce Perens' suggestion of a GPL-like
+>> wording, so as to clarify which software is covered by the license.
+>>
+>> I have not received any comment on the updated wording for more than two
+>> weeks, so I can only guess that it means no one has a problem with it.
+>> Assuming this is the case, here's a fifth working draft which includes it.
+>>
+>> ===
+>>
+>> **************************************************
+>> ***    Modular Open Software License (MOSL)    ***
+>> ***       Working Draft 5, 11 March 2013       ***
+>> ***  Copyright (c) 2012-2013 Hadrien Grasland  ***
+>> **************************************************
+>>
+>> Redistribution and use of this software, or modified forms of it, are
+>> permitted provided that the following conditions are met:
+>>
+>> * Redistributions of source code must retain this list of conditions, the
+>> above copyright notice, and the following disclaimer.
+>> * Redistributions in binary form must include a copy of this list of
+>> conditions, the above copyright notice, and the following disclaimer,
+>> whether in documentation or in other provided materials.
+>> * Redistributions in any form must be accompanied by information on how to
+>> obtain complete source code for the software, and any accompanying work
+> that
+>> is based on it. Source code must either be included in the distribution,
+> or
+>> be available for no more than the cost of its distribution. For an
+>> executable file, complete source code means the source code for all
+> modules
+>> it contains, save for modules or files that are typically provided with
+> the
+>> operating system on which the executable file runs.
+>>
+>> UNLESS REQUIRED BY APPLICABLE LAW, THIS SOFTWARE IS PROVIDED "AS IS",
+>> WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING BUT NOT LIMITED TO
+> THE
+>> IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, OR FITNESS FOR A
+>> PARTICULAR PURPOSE. IN NO EVENT SHALL THE AUTHORS OF THE SOFTWARE BE
+> LIABLE,
+>> FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY OR CONSEQUENTIAL
+>> DAMAGES, HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, ARISING IN ANY WAY
+>> OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+> SUCH
+>> DAMAGE.
+>>
+>>
+>> Le 28/03/2013 15:10, Luis Villa a ?crit :
+>>> This email is my report for licenses currently submitted to the OSI.
+>>> If anybody disagrees with my assessment of the list's comments or
+>>> conclusions, please say so before the meeting of April 3rd.
+>>>
+>>> CeCILL 2.1
+>>> ========
+>>>
+>>> Submission:
+>>> http://projects.opensource.org/pipermail/license-review/2012-May/00041
+>>> 4.html
+>>>
+>>> Comments: Several clarifying questions were asked, indicating the
+>>> license had been read, but no list members challenged the OSD
+>>> compliance of the license itself.
+>>>
+>>> Recommendation: Board should approve.
+>>>
+>>> EUPL 1.2
+>>> =======
+>>>
+>>> Submission:
+>>> http://projects.opensource.org/pipermail/license-review/2013-March/000
+>>> 540.html
+>>>
+>>> Comments: John Cowan reviewed the changes to the (earlier-approved)
+>>> versions of the EUPL, and found nothing objectionable.
+>>>
+>>> Recommendation: Board should approve.
+>>>
+>>> MOSL (working draft 3)
+>>> =================
+>>> Submission:
+>>> http://projects.opensource.org/pipermail/license-review/2013-January/0
+>>> 00505.html
+>>>
+>>> Comments: Richard Fontana and Bruce Perens objected to current
+>>> language on redistribution as a violation of OSD 9.
+>>>
+>>> Recommendation: Not accept at this time.
+>>> _______________________________________________
+>>> License-review mailing list
+>>> License-review at opensource.org
+>>> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at opensource.org
+>> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at opensource.org
+>> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+From fontana at sharpeleven.org  Mon Apr  8 02:25:47 2013
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Sun, 7 Apr 2013 22:25:47 -0400
+Subject: [License-review] License drafting quality and process [was Re:
+ Comment on MOSL and similar licenses]
+In-Reply-To: <CAFPTOkV_VP05gBpadtG8J76w5wqRFc77jrf0BDvDwp=59V6oTg@mail.gmail.com>
+References: <CAFPTOkV_VP05gBpadtG8J76w5wqRFc77jrf0BDvDwp=59V6oTg@mail.gmail.com>
+Message-ID: <20130408022547.GB24315@sharpeleven.org>
+
+On Sun, Apr 07, 2013 at 06:01:09PM -0700, Luis Villa wrote:
+> On Tue, Apr 2, 2013 at 12:35 PM, Lawrence Rosen <lrosen at rosenlaw.com> wrote:
+> > Hadrian G. wrote:
+> >> Thus, what I'm doing instead is to take as much inspiration as possible
+> > from existing OSI-approved licenses, which I assume should be bullet-proof,
+> > and then take advantage of the fact that as part of the OSI review process,
+> > my proposal will also be subjected to the scrutinity of several specialists
+> > of open-source legal matters who have chosen to dedicate some of their free
+> > time to the improvement of the open-source ecosystem.
+> >
+> >
+> > I'm sorry, Hadrian, both assumptions are demonstrably false. /Larry
+> 
+> I have to agree with Larry here
+
+As do I.
+
+> - it really isn't a good idea at this
+> point to draft a license without real legal consultation; cut and
+> paste isn't sufficient. Unfortunately, as currently drafted, the OSD
+> has no formal requirement for such a consultation.
+
+I imagine Larry would agree with this, but I don't entirely
+agree. Certainly 'cut and paste isn't sufficient', but access to good
+legal advice will be unrealistic to many developers, and yet they seem
+to me to have as much a right to draft new purportedly open source
+licenses as those developers, or organizations, that do have the
+resources to get what is assumed to be good-quality legal
+consultation. And they have as much a right to have their new licenses
+taken seriously (at least at the outset) as those institutions that
+have the resources to hire or otherwise retain legal experts (or to
+set up processes likely to encourage helpful lawyer feedback). One
+might say they nonetheless have no particular right to have their
+licenses given equal review by the OSI, which is true, but this then
+means that the OSI will be rewarding the represented and punishing the
+unrepresented (which is going to approximate "rich and poor"
+respectively).
+
+Not all lawyers give good advice anyway -- hope I'm not revealing
+another guild secret here. :-)
+ 
+> Doing a full legal review of all incoming licenses is impractical for
+> OSI (for a variety of reasons) 
+
+Unquestionably.
+
+> but I'd be interested in hearing
+> suggestions on what other things might stand in as a proxy for such a
+> review.
+> 
+> For example, in the past others have suggested that a public community
+> process involving lawyers, such as those conducted for
+> GPL3/MPL2/CC[2-4]/copyleft-next, would be a useful proxy and something
+> that OSI could more objectively measure than "quality".
+
+I suppose it will necessarily be something the OSI will take into
+account (perhaps in some cases in the form of a mistaken
+guess). That's unavoidable. I would hope that it is not seen as
+necessary to formalize it.
+
+(Interesting that you mention copyleft-next, given that it is designed
+explicitly to discourage lawyers from participating, though of course
+some lawyers have been involved. :)
+
+- RF
+
+
+
+From luis at lu.is  Mon Apr  8 02:37:27 2013
+From: luis at lu.is (Luis Villa)
+Date: Sun, 7 Apr 2013 19:37:27 -0700
+Subject: [License-review] License drafting quality and process [was Re:
+ Comment on MOSL and similar licenses]
+In-Reply-To: <20130408022547.GB24315@sharpeleven.org>
+References: <CAFPTOkV_VP05gBpadtG8J76w5wqRFc77jrf0BDvDwp=59V6oTg@mail.gmail.com>
+	<20130408022547.GB24315@sharpeleven.org>
+Message-ID: <CAFPTOkUh3piL3Yzay8Pr54KYRSvxg_bBHPS2Oap-T4BTrNG9TA@mail.gmail.com>
+
+On Sun, Apr 7, 2013 at 7:25 PM, Richard Fontana <fontana at sharpeleven.org>wrote:
+
+> On Sun, Apr 07, 2013 at 06:01:09PM -0700, Luis Villa wrote:
+> > - it really isn't a good idea at this
+> > point to draft a license without real legal consultation; cut and
+> > paste isn't sufficient. Unfortunately, as currently drafted, the OSD
+> > has no formal requirement for such a consultation.
+>
+> I imagine Larry would agree with this, but I don't entirely
+> agree. Certainly 'cut and paste isn't sufficient', but access to good
+> legal advice will be unrealistic to many developers, and yet they seem
+> to me to have as much a right to draft new purportedly open source
+> licenses as those developers, or organizations, that do have the
+> resources to get what is assumed to be good-quality legal
+> consultation. And they have as much a right to have their new licenses
+> taken seriously (at least at the outset) as those institutions that
+> have the resources to hire or otherwise retain legal experts (or to
+> set up processes likely to encourage helpful lawyer feedback). One
+> might say they nonetheless have no particular right to have their
+> licenses given equal review by the OSI, which is true, but this then
+> means that the OSI will be rewarding the represented and punishing the
+> unrepresented (which is going to approximate "rich and poor"
+> respectively).
+>
+
+I sympathize a great deal with this concern; this sort of requirement could
+easily strongly dampen real innovation in the license space, and I would
+love alternatives that are better in this respect.
+
+If I were going to quibble with this point, I'm not sure that any
+individual - lawyer or developer - has much right to have their license
+taken seriously. At this point, I'm inclined to think that only communities
+of people who have identified a specific problem, and drafted a license
+expressly to attack that problem, have much right to have their license
+taken seriously. But I am not deeply attached to that perspective and could
+probably be persuaded otherwise.
+
+
+> Not all lawyers give good advice anyway -- hope I'm not revealing
+> another guild secret here. :-)
+>
+
+Of course :)
+
+
+> > Doing a full legal review of all incoming licenses is impractical for
+> > OSI (for a variety of reasons)
+>
+> Unquestionably.
+>
+> > but I'd be interested in hearing
+> > suggestions on what other things might stand in as a proxy for such a
+> > review.
+> >
+> > For example, in the past others have suggested that a public community
+> > process involving lawyers, such as those conducted for
+> > GPL3/MPL2/CC[2-4]/copyleft-next, would be a useful proxy and something
+> > that OSI could more objectively measure than "quality".
+>
+> I suppose it will necessarily be something the OSI will take into
+> account (perhaps in some cases in the form of a mistaken
+> guess). That's unavoidable. I would hope that it is not seen as
+> necessary to formalize it.
+>
+> (Interesting that you mention copyleft-next, given that it is designed
+> explicitly to discourage lawyers from participating, though of course
+> some lawyers have been involved. :)
+>
+
+I specifically mentioned copyleft-next for exactly that reason- the other
+processes listed were somewhere between "lawyer-led" and
+"lawyer-dominated", and I wanted to be clear that processes that were
+less-lawyer-friendly were within scope. But as copyleft-next has also
+demonstrated, a transparent, community-driven process that identifies real
+problems and seeks to remedy them will probably attract lawyers to help out
+(for better and for worse).
+
+Thanks-
+Luis
+
+
+> - RF
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20130407/e0b7353d/attachment.html>
+

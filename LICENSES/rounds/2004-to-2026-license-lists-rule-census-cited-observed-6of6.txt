@@ -1,0 +1,364 @@
+Source: https://lists.opensource.org/pipermail/ (license-review and license-discuss, the months named in each message's Date line)
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-07)
+Messages: 3 of the 30 messages this dossier cites from a census of rule-like sentences across all 508 archived months. Not a thread. Part 6 of 6.
+Senders: Pamela Chestek, Richard Fontana
+Position: statements by people who decide or advise on approval, each about another submission. Not addressed to us and not about ACD. Each message keeps its archive headers. Two long messages (Date lines Sat, 24 Jan 2026 15:14:40 -0800 and Tue, 14 Apr 2026 19:27:47 +0200) end at the author's signature here; the quoted material below it is in the archive. The reading is in LICENSES/ACD-1.0.reviewer-positions.md section 1.140.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Tue Apr 14 17:27:47 2026
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Tue, 14 Apr 2026 19:27:47 +0200
+Subject: [License-review] Request for OSI Approval: Project Tick General
+ Public License v3
+In-Reply-To: <26FC3779-2AAC-47FA-8448-8C34FA44D8FF@icloud.com>
+References: <225EABD1-A84E-4472-927E-37163C76C202@icloud.com>
+ <fdeddaaa-e7ef-4d9a-a186-b1e40f63e498@chesteklegal.com>
+ <26FC3779-2AAC-47FA-8448-8C34FA44D8FF@icloud.com>
+Message-ID: <ee7ff147-71f5-420d-b915-40d6f1af40c6@chesteklegal.com>
+
+As with your previous versions, this license is very poorly drafted, 
+making it difficult to understand. As a major flaw that makes it 
+unacceptable for approval, I do not see where the license grants the 
+right to modify the software. I may have missed it because the license 
+is so disorganized, but I see the right to convey verbatim copies in 
+section 16, and I see the right to convey modified copies in 2, but not 
+the right to modify the software, or to exercise any rights of a 
+copyright owner other than convey.
+
+There are very confusing overlapping terms and repetition of phrases 
+that make it almost impossible to parse this license. For example, you 
+have defined "Source Code" and "Corresponding Source" in ways that 
+overlap: "'Source Code' ... includes all files, interface definitions, 
+scripts, build instructions ...", and "'Corresponding Source' includ[es] 
+build scripts, control files, interface definitions, and configuration 
+files that are specifically required for those purposes. ¶ Corresponding 
+Source includes scripts and configuration files specifically required to 
+build, install, and run the Work itself." If Corresponding Source is a 
+subset of Source Code, but Source Code includes all files, interface 
+definitions, etc., then why are similar terms also used in the 
+definition of Corresponding Source? Are they meant to be different? And 
+why does the definition of Corresponding Source talk about "build 
+scripts, control files, interface definitions, and configuration files" 
+in one spot and "scripts and configuration files specifically required 
+to build, install, and run the Work" in another? Is there a difference? 
+If they are different, why aren't these all in the same sentence?
+
+There are internal inconsistencies. For example, you say "If the Work is 
+Conveyed in Source Code form, the Source code itself constitutes the 
+Corresponding Source." But does it? If it's missing /all/ files (of 
+what, I'm not sure), interface definitions, scripts and build 
+instructions, how can it nevertheless be Corresponding Source? Or are 
+you saying that it should be deemed adequate as Corresponding Source 
+even if it's missing all that stuff?
+
+Your changes to the anti-circumvention provision of the AGPL make your 
+version of the provision largely ineffective. As I read the AGPL (and 
+happy to be corrected), the paragraph prevents someone /other than/ the 
+licensor from adding anti-circumvention measures, e.g., a commercial 
+company conveys a software program to its customers and wraps it in DRM. 
+Your revision to this concept limits the restriction to only the 
+licensor, someone who is unlikely to impose DRM.
+
+The above is a very limited set of problems with the license and by no 
+means comprehensive. It's so disorganized with unnecessary complexities 
+that, in my opinion, it's not ready for consideration by OSI.
+
+As mentioned to you in the past, a license of this complexity needs to 
+be drafted by a professional.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+From pamela at chesteklegal.com  Sat Apr 18 12:47:33 2026
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sat, 18 Apr 2026 14:47:33 +0200
+Subject: [License-review] [SUBMISSION] CompanioNation Public Licence,
+ version 1.0 (CNPL-1.0)
+In-Reply-To: 
+ <CAKz6_JOm_paPyZOTgsObQu=kqb60VUBgdzhyci3jeiou5CP7Pg@mail.gmail.com>
+References: 
+ <CAKz6_JOm_paPyZOTgsObQu=kqb60VUBgdzhyci3jeiou5CP7Pg@mail.gmail.com>
+Message-ID: <b2c9a563-5435-4a93-ae5a-9a67010f9d4f@chesteklegal.com>
+
+I have the following comments on the license:
+
+OSI will not approve licenses where the title refers to a particular 
+person, entity or software or that have them "hard coded" into the 
+license (see "Standard for New Licenses" para. 1, 
+https://opensource.org/licenses/review-process). For this reason, the 
+license name and the text of the license cannot include "CompanionNation."
+
+The license does not grant all the rights under copyright, at least 
+under US law. US law also includes the right to publicly perform and 
+publicly display. This matters because, as an example, use in SaaS might 
+be considered a public performance or display of the software. That 
+said, it is also better practice not to define the the grant by 
+enumerating specific rights, since those may be country-specific, and 
+instead state more generally that all necessary rights have been granted 
+subject to the conditions of the license.
+
+The definition of "Software" is ambiguous. It is defined as software 
+that "includ[es] any modifications or derivative works." This "or" 
+statement suggests that modifications are different from derivative 
+works, but there is no description or definition of a "modification." 
+This matters because in the grant clause in some places you have granted 
+the right to make derivative works but not modifications. For this 
+reason too you have not necessarily granted all rights under copyright.
+
+You say that the license is a "simple permissive license," but the 
+definition of "Software" can lead to a conclusion that it is a copyleft 
+license.  If I modify the "Software," and "Software" includes "any 
+modifications or derivative works," are my modifications now subject to 
+this license?
+
+Also, the possibility that "modifications" that are not within the scope 
+of copyright may nevertheless become subject to the license may violate 
+OSD 9.
+
+You have overstated what you perceive to be one flaw with the Apache 
+license, which is that the Apache license "imposes a NOTICE file 
+requirement." It is true that IF a notice file exists there are 
+obligations for others to provide it, but there is no duty for the 
+original licensor to include a NOTICE file ("*/If /*the Work includes a 
+'NOTICE' text file as part of its distribution ..."). You can avoid the 
+complexity of the NOTICE file requirement by not including one.
+
+You also say that a flaw of the MIT license is that it "requires 
+retention of the copyright notice and permission notice only," 
+suggesting that a copy of the license is not required. That is not 
+accurate; the "permission notice" that you mention must be provided 
+*/IS/* the license.  Thus, the gap that you claim exists between your 
+proposed license and the MIT and Apache licenses is not as broad as you 
+claim.
+
+Please also note, per the license review guidelines, "a license cannot 
+be changed while it is being considered. If the license submitter would 
+like to change the language of the license, the current version of the 
+license should be withdrawn from review and an updated version 
+submitted. We recommend that, if changes are going to be made, that the 
+license submitter wait and collect all the desired changes in a single 
+new submission rather than withdrawing and resubmitting the same license 
+several times."
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+On 4/17/2026 6:22 AM, Drew McPherson wrote:
+> To the license-review list,
+>
+> I am submitting the CompanioNation Public Licence, version 1.0 
+> (CNPL-1.0) for OSI approval. I am the author and license steward.
+>
+> License steward and submitter:
+>   Drew McPherson (DrewZero®)
+> drew.mcpherson at gmail.com
+>
+> The full license text is attached as plain text.
+>
+> ---
+>
+> ## 1. Unique name and identifier
+>
+> CompanioNation Public Licence, version 1.0
+> Proposed SPDX identifier: CNPL-1.0
+>
+> Note: I am aware that CPL-1.0 is already registered (IBM Common Public 
+> License). CNPL-1.0 is intentionally distinct.
+>
+> ---
+>
+> ## 2. OSD compliance affirmations
+>
+> I affirm that CNPL-1.0 complies with the Open Source Definition. 
+> Specifically:
+>
+> - OSD §3 (Derived Works): Section 2 grants unrestricted rights to 
+> prepare and distribute derivative works. ✓
+> - OSD §5 (No Discrimination Against Persons or Groups): The license 
+> places no restrictions on any person or group. ✓
+> - OSD §6 (No Discrimination Against Fields of Endeavor): The license 
+> explicitly permits commercial use, SaaS deployment, and any other 
+> purpose. ✓
+> - OSD §9 (License Must Not Restrict Other Software): The license 
+> contains no such restriction. ✓
+>
+> Full OSD mapping:
+>
+> §1 Free Redistribution — Sections 2 and 3 grant unconditional 
+> redistribution rights with no royalty. ✓
+> §2 Source Code — The license imposes no source-withholding restriction. ✓
+> §3 Derived Works — See above. ✓
+> §4 Integrity of Author's Source Code — No patch-file or name-change 
+> restriction is imposed. ✓
+> §5 No Discrimination — See above. ✓
+> §6 No Field Restriction — See above. ✓
+> §7 Distribution of License — Rights apply to all downstream recipients 
+> automatically. ✓
+> §8 Not Specific to a Product — Section 1 defines "Software" 
+> generically; no product dependency. ✓
+> §9 No Restriction on Other Software — See above. ✓
+> §10 Technology Neutral — No technology-specific provision exists. ✓
+>
+> ---
+>
+> ## 3. Projects using this license
+>
+> CNPL-1.0 is a new license. It is currently in use by one project:
+>
+>   CompanioNation™ — an open-source online dating platform
+> https://github.com/CompanioNation/Core
+>
+> ---
+>
+> ## 4. Gap not filled by existing licenses
+>
+> CNPL-1.0 is a simple permissive license with two features not combined 
+> in any single currently approved license:
+>
+> a) An explicit, broad patent grant (as in Apache 2.0) combined with 
+> permissive, copyleft-free terms (as in MIT). The MIT License contains 
+> no patent grant. Apache 2.0 contains one, but also imposes a NOTICE 
+> file requirement and has considerably more complexity.
+>
+> b) A redistribution condition requiring the complete license text (not 
+> merely a copyright notice) to be retained. This ensures downstream 
+> recipients always receive the full grant of rights — including the 
+> patent licence — rather than just a copyright attribution line that 
+> may be stripped of legal context.
+>
+> The intent is a license that is as simple as MIT, but legally 
+> complete: explicit patent grant, full-text redistribution, and no 
+> overhead.
+>
+> ---
+>
+> ## 5. Comparison to similar approved licenses
+>
+> Most similar: MIT License
+> - Both are permissive, copyleft-free, and impose minimal conditions.
+> - MIT requires retention of the copyright notice and permission notice 
+> only. CNPL-1.0 requires retention of the complete license text.
+> - MIT contains no patent grant. CNPL-1.0 includes an explicit patent 
+> grant with a litigation termination clause.
+>
+> Also comparable: Apache License 2.0
+> - Both include explicit patent grants with litigation termination.
+> - Apache 2.0 requires a NOTICE file, tracks modifications, and is 
+> substantially longer. CNPL-1.0 imposes none of those requirements.
+> - Apache 2.0 is permissive but complex. CNPL-1.0 is intentionally minimal.
+>
+> In short: CNPL-1.0 occupies the space between MIT (no patent grant, 
+> notice-only) and Apache 2.0 (patent grant, significant overhead).
+>
+> ---
+>
+> ## 6. Legal review
+>
+> The license was drafted by the submitter, who is not a lawyer. No 
+> formal legal review has been conducted. I welcome scrutiny of the text 
+> on this list.
+>
+> ---
+>
+> ## 7. Proposed tags
+>
+> Permissive, Patent-Grant, Simple
+>
+> ---
+>
+> The license text is attached. I have subscribed to license-review and 
+> will be attentive and responsive to discussion.
+>
+> Thank you for your consideration.
+>
+> Drew McPherson
+> License Steward, CNPL-1.0
+> drew.mcpherson at gmail.com
+> https://github.com/CompanioNation/Core
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260418/8d7ed7a7/attachment.htm>
+
+From rfontana at redhat.com  Fri Aug 28 22:08:39 2026
+From: rfontana at redhat.com (Richard Fontana)
+Date: Fri, 28 Aug 2026 18:08:39 -0400
+Subject: [License-review] For Approval: OpenMDW License Agreement,
+ versions 1.1 (OpenMDW-1.1)
+In-Reply-To: <987ab794-583b-4229-8a07-fa921ecaee48@lexpan.law>
+References: 
+ <CAFV=PSG=bsLTemzjyCKYYz9j=rX9dcNo6=2T6htbxTRgervMrA@mail.gmail.com>
+ <CAC1cPGxE=ozAmGTfHt4k+SePQcstym_Kaq=w4Aj5_=hvkp15hA@mail.gmail.com>
+ <CAC1cPGyZf3indkwzeCHvodDFxyPmKhfRqGdbBx=+X+1wB9v86g@mail.gmail.com>
+ <CAFV=PSH_wNaPuPQi5i6-JZP2wfyx5UpudQsrjao3TCCSE4jb9w@mail.gmail.com>
+ <CAC1cPGzpjtL=UyGT=bzu+6JmohsY567PPU=0ZxGJOrM7vNDdyw@mail.gmail.com>
+ <CAFV=PSE7swjqNpbLqLFoJJJOnf03khMJHa_FL_bP9ow40c0E2Q@mail.gmail.com>
+ <4d892328-fe83-471b-8714-bb0b818c54d9@chesteklegal.com>
+ <0e164b03-ff31-48b2-bf23-f1f53e490ecf@maffulli.net>
+ <03dfe4a9-6a89-451c-9b07-0eeb73ba563e@chesteklegal.com>
+ <84ff911e-31c4-4a07-99db-e51a3e0ff0a4@maffulli.net>
+ <10992f43-01cc-45d5-a4e3-6790cd407b0a@landley.net>
+ <39f2cc82-687f-42d8-a646-8d4feaa82604@maffulli.net>
+ <bd9eb42d-8e48-4f44-bba8-49ceadec2ffc@landley.net>
+ <32f4c773-b06b-4e59-989d-495c93cfa4e5@lexpan.law>
+ <CAC1cPGwK2rVxUp2B+gcHSXLV9PH+zs4JYo23ryLPHSAGE1vFmQ@mail.gmail.com>
+ <CAFV=PSEBqNxDD5RLPMMCn1t747Y-U8Rr5x_6ScjnR-TK4BXOug@mail.gmail.com>
+ <987ab794-583b-4229-8a07-fa921ecaee48@lexpan.law>
+Message-ID: 
+ <CAC1cPGzP+0f8BOv6hf55x1akPhy6B5MySqGJsRNktWwdOM8fbQ@mail.gmail.com>
+
+On Fri, Aug 28, 2026 at 5:45 PM McCoy Smith <mccoy at lexpan.law> wrote:
+>
+> For AI licenses, OSI doesn't have looser or stricter standards; they are evaluated against both OSD https://opensource.org/osd as with any license, and the OSAID https://opensource.org/ai/open-source-ai-definition which is applicable to licenses designed to be used on AI. Beyond that, the evaluation is the same.
+>
+> If, for whatever reason, people believe there should be other tests (like "advancing software freedom" or "Freedom Zero"), I'd be interested in hearing that (although several have already advanced those), but in order for the Board to understand what those tests are and how to apply them to licenses, I think we'd need to hear specificity on how to apply those tests in practice (both against the recently submitted AI licenses: ModelGo-Zero, ModelGo-Attribution, and OpenMDW-1.1, as well as against future licenses). I'd also like to understand if those tests are equally applicable to non-AI licenses, and if not, why not.
+
+Just to be clear, the OSI already is supposed to consider "software
+freedom", as I noted earlier, as stated at
+https://opensource.org/licenses/review-process
+
+The purpose of OSI license review is, in part, to "Ensure approved
+licenses conform to the Open Source Definition *and* provide software
+freedom".
+(emphasis added - the important thing is that "conformance to the OSD"
+and "providing software freedom" are not equivalent)
+
+and
+
+"[The license-review participants'] consensus that a license does not
+ensure software freedom may, in some cases, be the justification for
+rejecting a license even where they cannot identify a specific aspect
+of the OSD or the approval guidelines below that is not met."
+
+That's not an articulated "test" but since adoption of that language
+in . . . 2019 or so? . . . the OSI has at least in some cases made
+reference to the concept of "software freedom" in explaining its
+dispositions of particular submitted licenses. And I explained the
+historical reason for this: Artful license drafters were arguing that
+the OSI was compelled to approve any license with some sort of novel
+controversial provision if a clear conflict with a specific OSD
+provision could not be identified. In some respects this is a
+recognition of problems with the OSD itself.
+
+Richard
+
+

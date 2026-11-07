@@ -582,6 +582,8 @@ bb が 6 本を立てて原文で反証した（H1-a BlueOak / H1-b CERN-OHL-P /
 
 Richard Fontana 氏（当時 Red Hat）の告知は、LWN の引用で *"Over a long period of time a consensus has been building in FOSS that licenses that preclude any form of patent licensing or patent forbearance cannot be considered FOSS."*。理由として CC0 の clause 4(a) を挙げている。BleepingComputer の引用では *"We plan to classify CC0 as allowed-content only, so that CC0 would no longer be allowed for code"*。
 
+Fedora の文書は基準をこう書いている（`license-approval.adoc`）。コードに使える *allowed* の基準に対し、内容物の基準は *"The license may say that it does not cover patents or grant any patent licenses"* を例外として認める。つまりコードのライセンスは、特許を含まないと言ってはならない。CC0 については *"`CC0-1.0`, which has a clause that says that it does not license or otherwise "affect" patent rights, is no longer _allowed_, but it continues to be _allowed-content_."*
+
 Fedora のいまのデータ（`fedora-licenses.json`・2026-11-07 取得）は次のとおりで、2022 年の扱いは続いている。
 
 | 表現 | status |
@@ -593,6 +595,8 @@ Fedora のいまのデータ（`fedora-licenses.json`・2026-11-07 取得）は�
 **ここから言えること。** 公有化の形そのものはコードから外されていない。外れたのは特許を除外した 1 本である。§1.138 の審査の記録と同じ向きで、ACD の §8 は除外の逆にあたる。
 
 **逆側（`against.md` #290）。** 代わりを問われた Fontana 氏の答えは *"These days in similar situations (Involving code, at least) I have typically been recommending MIT No Attribution (SPDX: MIT-0)"*（2022-07-23）で、MIT-0 は特許について何も書いていない。基準の語は *"preclude"* で、明示の許諾を求めていない。Fedora では、CC0 が空けた穴は承認済みのライセンスで埋まった。これは #84（もう 1 本要るのか）の、実務の側からの答えである。ACD が足すのは沈黙ではなく明示の許諾で、それが要るかは #236 / #238 の争点のままである。
+
+**§8.4 についての逆側。** 同じ文書は内容物の例に *"checkpoints or comparable machine learning model files containing trained parameters"* を挙げる。学習済みパラメータのファイルでは、Fedora はライセンスが特許を含まないと言うことを認めている。§8.4 が届く先について、この基準は特許の許諾を求めていない。
 
 **この節が establish しないこと。** Fedora の判断は OSI の決定ではない。Fedora の一覧に ACD は無く、載せる経路はいま使えない（`OSI-APPROVAL-PLAN.md` §3.6）。
 

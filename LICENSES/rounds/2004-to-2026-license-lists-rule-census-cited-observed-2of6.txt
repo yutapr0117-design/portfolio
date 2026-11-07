@@ -1,0 +1,737 @@
+Source: https://lists.opensource.org/pipermail/ (license-review and license-discuss, the months named in each message's Date line)
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-07)
+Messages: 3 of the 30 messages this dossier cites from a census of rule-like sentences across all 508 archived months. Not a thread. Part 2 of 6.
+Senders: Pamela Chestek
+Position: statements by people who decide or advise on approval, each about another submission. Not addressed to us and not about ACD. Each message keeps its archive headers. Two long messages (Date lines Sat, 24 Jan 2026 15:14:40 -0800 and Tue, 14 Apr 2026 19:27:47 +0200) end at the author's signature here; the quoted material below it is in the archive. The reading is in LICENSES/ACD-1.0.reviewer-positions.md section 1.140.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Tue Dec 17 06:37:06 2024
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Mon, 16 Dec 2024 22:37:06 -0800
+Subject: [License-review] Berkeley Artistic License V5
+In-Reply-To: <1660624129.47817961.1728550087432.JavaMail.zimbra@piana.eu>
+References: <Mime4j.2.5807ff285d12e3fe.1925c474383@imap.gmail.com>
+ <d3be0c69-1270-4843-a360-5e86f575bbb7@app.fastmail.com>
+ <1660624129.47817961.1728550087432.JavaMail.zimbra@piana.eu>
+Message-ID: <2d57e92f-1116-5597-f9e5-d493d95bb987@chesteklegal.com>
+
+I agree with the others' views that using "Berkeley" and "Artistic," 
+when the license is neither, isn't acceptable.
+
+I also don't believe the interpretation of the license is sufficiently 
+predictable for the license to be approved.
+
+Section 3 says "You may otherwise modify your copy of this Software in 
+any way, provided that your modifications use this same license or do 
+not distribute the resulting code." However, the concept is that if I 
+make change beyond "bug fixes, portability fixes and ... modifications 
+... to enable this software to work with modern tools, new hardware, new 
+operating systems, etc.," I am supposed to change the Metadata section 
+of the license to reflect that this is a Modified Version rather than 
+the Standard Version. But when I make that change it becomes a different 
+license, so how can it be under the "same license"? Listing 
+"Contributors" as part of the license creates the same problem - if 
+someone's name was added, is that the "same license"?
+
+As Carlo mentioned, having a Standard Version and Modified Version with 
+different terms is confusing, hard to follow, and seems to create more 
+work for the person creating the Modified Version.
+
+The only difference in treatment I could find is the obligation to 
+"provide a method to obtain both the source of the Standard Version and 
+the source of your Modified Version." This appears to create an 
+obligation to maintain a separation between the Standard Version and the 
+Modified Version and provide them separately. Making it more difficult, 
+there is a lot of ambiguity around what could be considered the Standard 
+Version, since it can also include "bug fixes, portability fixes and ... 
+modifications ... to enable this software to work with modern tools, new 
+hardware, new operating systems, etc." The scope of these changes is 
+both imprecise and broad, making it difficult for someone to know 
+whether they created a Standard Version or Modified Version.
+
+It also creates a cascading problem. Suppose I create a Modified 
+Version. I change the Project name - but what do I change it to? May I 
+refer to it as a derivative work of the Standard Version? If the Project 
+Name is AuroraForge, my inclination would be to name my version 
+NewAuroraForge. Is that ok?
+
+Now suppose I make a Modified Version of the Modified Version. This 
+license says that the Original Project was Project AuroraForge and the 
+name of the Project is BorealisForge. I name my project CelestialForge 
+so I need to change the license. I now say that the Original Project 
+name is BorealisForge and use Celestial Forge as the Project name. But 
+what is the status of AuroraForge, which is the actual origin of 
+everything? Is that now lost as the original version of the software?
+
+Now I, CelestialForge have contributed my changes to AuroraForge but not 
+all of them were accepted. The accepted changes become part of the 
+Standard Version and are now called AuroraForge, but the unaccepted ones 
+aren't part of AuroraForge. So how do I comply with the obligation to 
+provide the two different codebases? Do I have to now modify my 
+codebases to match what is now the current version of AuroraForge?
+
+The also creates difficulty with Section 6. "You may distribute this 
+Software, with or without fee, provided that you do not advertise the 
+Standard Version of this Software as a product of your own." The way 
+this is worded suggests that one can advertise the Modified Version as 
+your own product. But how do you distinguish the two? If I have called 
+my version NewAuroraForge, is that advertising the Standard Version 
+because the name is incorporated into my name?
+
+You use the term "origin point" without defining it. It's not a standard 
+term of art in software, which means that there can be a great deal of 
+argument about what an "origin point" is.
+
+Because of the unintended complexity of this license, I do not believe 
+that it should be approved.
+
+Pam
+
+Pamela S. Chestek (in my personal capacity)
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal
+www.chesteklegal.com
+
+
+On 10/10/2024 1:48 AM, Carlo Piana wrote:
+> Lucy,
+>
+> I will echo Josh's and Kevin's remarks, and add that I am never entirely fine with having one single "original" and treat the derivatives differently, not allowing them being "original" to other downstream project. I understand that this may fit under the general umbrella of #4, but I would regard #4 as an exception, rather than a rule as it refers only to retain the integrity of the source code, not to granting special rights or status to the originating work beyond that.
+>
+> Coming to a more technical analysis, the language of Section 5 seems a bit nontechnical, hard to parse and with some typos (like version "as a the project" -- last word non capitalized). While the first sentence seems an effort to comply with #4 by expressly allowing distribution of modified binary originating from patched software, not particularly problematic, the second part does not provide clear guidance to the reader as to what they are supposed to do.
+>
+> I note that the obligation/condition to provide a method to receive the Standard Version does not clarify whether it is the code from which the Modified Version has been forked or the current version, since Standard Version refers to a project, not to an identified codebase.  If the interpretation is the latter one, I think the license violates the OSD #1 at least. If it's the first, it should be stated more clearly (Artistic v2 here is different and the rationale for requiring keeping source of the Original Version current is more clear, since it refers to object code distributed /without/ the source, and not two separate codebases for one artifact, one not being the actual source of the distributed artifact).
+>
+> All in all the license does not seem to have been checked by a lawyer, nor that there is any mention of a legal review. Could you please clarify?
+>
+> https://opensource.org/licenses/review-process.
+>
+> All the best,
+>
+> Carlo (in his personal capacity)
+>
+> PS: as a generic remark, not specific to the submission, I take exception any time people bash on GPLv* for being complex. It certainly has some rough spots and verbosity, but creating an elegant copyleft license and avoid many loopholes in few words is no easy feat (or even possible).  Many who have attempted have simply removed guardrails and allowed loopholes. Others simply ignored they existed, and the result is often buggy, messy, ineffective and delusional.
+>
+>
+>
+>
+> ----- Messaggio originale -----
+>> Da: "Kevin P. Fleming" <lists.osi-license-review at kevin.km6g.us>
+>> A: "License-review" <license-review at lists.opensource.org>
+>> Inviato: Marted?, 8 ottobre 2024 13:21:26
+>> Oggetto: Re: [License-review] Berkeley Artistic License V5
+>> On Sat, Oct 5, 2024, at 06:43, Lucy Brown via License-review wrote:
+>>> This is a submission of Berkeley Artistic License v5.
+>>> This is a ?New? License that was made as a means of creating a more legible,
+>>> correct, and up to date variation of Artistic License V1, that has been
+>>> conformed to my personal interpretation of the BSD, (Berkeley), style. It
+>>> differs from BSD-4 and Artistic v2 in that it is not re-licensable and it is
+>>> copyleft rather than permissive. It differs from GPL in that it's short, Clear,
+>>> and accessible and it contains Metadata to credit developers within the
+>>> license.
+>> I understand that you've chosen to name this license 'Berkeley Artistic' because
+>> you followed the style of the BSD licenses, but those licenses use that name
+>> because they originated at Berkeley, not because someone liked that name :-)
+>> If this license is not associated with UC Berkeley then it seems unwise to use
+>> their name for the license, given that their name is a well-known 'brand' in
+>> the context of software licenses.
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not necessarily
+>> those of the Open Source Initiative. Communication from the Open Source
+>> Initiative will be sent from an opensource.org email address.
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+From pamela at chesteklegal.com  Mon Feb 10 06:17:12 2025
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sun, 9 Feb 2025 22:17:12 -0800
+Subject: [License-review] Request for approval of new "MGB 1.0" license
+In-Reply-To: <BY5PR04MB6550387D8034F1055FD5697DCEF42@BY5PR04MB6550.namprd04.prod.outlook.com>
+References: <BY5PR04MB6550387D8034F1055FD5697DCEF42@BY5PR04MB6550.namprd04.prod.outlook.com>
+Message-ID: <b2c019ec-edc5-a449-0066-751baceec7ab@chesteklegal.com>
+
+Dear Marvin,
+
+I haven't review the license completely, but based on your email it 
+sounds like you are trying to do something that you just can't do with 
+an open source license. Open source licenses assure that no patent owned 
+by the open source licensor will be asserted against someone using the 
+software. The boundaries are somewhat different in different licenses, 
+but they do ensure that one can use the version of the software released 
+by the licensor without a threat of a patent claim. That is why the 
+patent grant in the open source license is measured by infringement - a 
+license is granted for any potential infringement, no matter what the 
+theory. It sounds like your patent "trolls" may simply be asking for the 
+rights that an open source license granted them.
+
+You license grants a patent license "only to the extent such patent 
+claims are necessary for a person with ordinary skill in the art to 
+recreate the Work or create Derivative Works thereof." It doesn't grant 
+a license to run the software and from your explanation it sounds like 
+that is intentional. The patent grant in a FOSS license must be for all 
+possible uses of the code. So you can't grant a license to copy, modify 
+and distribute the code but not also run the software.
+
+I also don't think section 7 is acceptable. It expressly states that 
+some part of the licensed work is not subject to the license grant, 
+which is an impermissible restriction. I understand your motive, but 
+there is a difference between someone's duty to comply with the law and 
+making it a contractual obligation. Making it a contractual obligation 
+is what makes it an unacceptable restriction on the use of the software. 
+It also seems unfair to the licensee - how are they supposed to know 
+what and whether there is PII in the Work? Particularly if it's become 
+part of a model? I assume the motive was to try to avoid liability, but 
+will that actually happen if you are making software (or data, graphs or 
+models) available to third parties? Don't you have liability for PII 
+merely by giving it to third parties, and therefore should have 
+sanitized it before making it publicly available?
+
+The open source ecosystem only works because anyone can use the software 
+for any purpose without having to worry about getting sued by the 
+licensor. Many, many others have had the same desire to preserve patent 
+rights, including where there are competing divisions with different 
+motives and goals, and encountered this dilemma. The result is that they 
+either don't use an open source license or they get comfortable with the 
+position that the benefit of using an open source license outweighs the 
+loss of the exclusivity of patent. But there isn't a solution whereby 
+some patent rights can be preserved.
+
+Pam
+
+Pamela S. Chestek (in my personal capacity)
+Chestek Legal
+PLEASE NOTE OUR NEW MAILING ADDRESS
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal
+www.chesteklegal.com
+
+
+On 2/4/2025 3:51 PM, Barksdale, Marvin wrote:
+>
+> /I Marvin Barksdale JD, the license steward and license submitter, 
+> attests that this new ?MGB 1.0? license complies with the Open Source 
+> Definition, including:/
+>
+> /OSD 3 ? The license must allow modifications and derived works and 
+> must allow them to be distributed under the same terms as the license 
+> of the original software./
+>
+> /OSD 5 ? The license must not discriminate against any person or group 
+> of persons./
+>
+> /OSD 6 ? The license must not restrict anyone from making use of the 
+> program in a specific field of endeavor. /
+>
+> /and OSD 9 ? The license must not place restrictions on other software 
+> that is distributed along with the licensed software. For example, the 
+> license must not insist that all other programs distributed on the 
+> same medium must be open source software./
+>
+> //
+>
+> _License Rationale_
+>
+> The MGB Open-Source License 1.0 (?MGB 1.0?) is a permissive 
+> open-source software license that was drafted to catalyze open-source 
+> distribution and open science among the health care innovator and 
+> research community, particularly those employed at Academic Medical 
+> Centers (AMCs) receiving federal grant funding, such as Mass General 
+> Brigham Incorporated (MGB).? AMCs are hospitals and laboratories, 
+> frequently collectively organized, that are integrated with a medical 
+> school, with a federally regulated mission to provide patient care, 
+> train healthcare professionals, and conduct innovative research.? As 
+> self-contained businesses, these complex organizations have evolved to 
+> perform several ancillary commercial functions including patent 
+> administration, licensing, co-development, all of which to support 
+> their central mission of the advancement of medicine. Aligned with 
+> this central mission is the proliferation of open science innovation 
+> at AMCs.?? While AMCs have evolved their proprietary IP strategies, 
+> many of their research and clinical employes have shifted to open 
+> science collaborative approaches where research data, methodologies, 
+> source code and findings are licensed to be shared at no cost to 
+> catalyze innovation. Despite both approaches purporting to be 
+> operating in the benefit of AMC system goals, there has been a 
+> historical lack of alignment been open and proprietary licensing.??? 
+> At Mass General Brigham, for example, despite receiving over $77M in 
+> NIH funding over the past 10 years for 200+ software research projects 
+> that should have yielded open-science results and commercial 
+> innovation, there is a large clandestine community of researchers, 
+> clinicians, developers, and other health care employees, who operate 
+> in the grey areas of open source, NIH, Open Access Journal, and AMC 
+> compliance.? The goal of MGB 1.0 is to bring open-source licensing 
+> into AMC licensing compliance, which mandates employees out-license 
+> AMC assets under express risk mitigation terms spanning several 
+> federal mandates and best practices including: HIPAA laws not to share 
+> ?Protected Health Information? and other personal info, federal 501 
+> c-3 anti-endorsement laws, and licensing software on an ?As-Is? basis 
+> without implied warranties, representations, and damages. These terms 
+> are not explicitly outlined in similarly permissive licenses such as 
+> MIT and BSD, but all can align with fundamental principles of openness.
+>
+> Beyond bringing NIH funded researchers and health care innovators into 
+> an AMC compliant open-source licensing scheme, MGB 1.0 aims to balance 
+> the modern AMCs mission driven commercialization activities with its 
+> scientific mission to break down barriers to knowledge access and 
+> collaboration within healthcare.? Although MGB 1.0 uses a similar 
+> pro-commercialization, pro-modification, highly compatible licensing 
+> scheme as Apache 2.0, it limits an express patent license to the 
+> foundational purpose of openness: recreating and making derivatives of 
+> the shared work. The Apache 2.0 license has long been prohibited by 
+> Mass General Brigham and other AMCs, as instead of a reasonable open 
+> source aligned license to patents needed to recreate the shared work, 
+> it opens the door to a license to all claims infringed by a 
+> contribution to the work.? AMC counsel has defended AMCs in the past 
+> from patent trolls who have attempted to utilize ?infringement? to 
+> gain unintended patent rights, and in light of MGB?s $15Million dollar 
+> per year patent registration spend, it, like other AMCs, is committed 
+> to a conservative position on granting possibly exploitive patent 
+> rights for the purpose of open science distribution.
+>
+> MGB looks forward to putting the full weight of its internal and 
+> external resources behind its Open Science Program Office, the MGB 
+> Open Science Digital Hub, and an OSI approved open-source License.? As 
+> the largest driver of NIH research funding in the country and a member 
+> of a number of influential Health Care Data Ai Consortiums, MGB 
+> promoting an OSI approved license as its default open-source approach 
+> presents an exciting opportunity to bring more health care innovators 
+> closer to the open-source developer community through thoughtful 
+> governance, as well as to catalyze the above ground adoption of Open 
+> Source best practices throughout AMCs.
+>
+> _Legal Analysis_
+>
+> The question has been posed: ?How is MGB 1.0s Patent License not the 
+> legal equivalent of the Apace 2.0 patent license?? Patent law?s broad 
+> definition of infringement and the courts broad interpretation of the 
+> Doctrine of Equivalence sits at the center of MGBs divergence in 
+> approach.? 35 USC 271 states that? ?for a licensee to successfully 
+> assert that their contribution or derivative work is infringing on a 
+> patent, the licensee must show that they are making, using, selling, 
+> etc. some thing or process that is covered by the patent.?? Thus, via 
+> 35 USC 271,? showing infringement requires performing a comparison 
+> between ?a patented invention?s claim? and ?whatever it is that the 
+> defendant makes, uses, offers to sell, or sells.? According to the 
+> court in Bai v. L L Wings, Inc., "determining whether a patent claim 
+> has been infringed involves two steps: (1) claim construction to 
+> determine the scope of the claims, followed by (2) determination 
+> whether the properly construed claim encompasses the accused 
+> structure. The first step, claim construction, is a matter of law. . . 
+> . The second step, determination of infringement, whether literal or 
+> under the doctrine of equivalents , is a question of fact."
+>
+> For more than 150 years (dating back to the 1853 Supreme Court case 
+> Winans v Denmead), courts have found patent infringement reaching 
+> beyond literal infringement of patent claims either by way of a? 
+> ?insubstantial differences? test or a ??function-way-result? test,? 
+> both of which requiring a difficult factual assessment for the jury 
+> (or judge in a bench trial). Presenting even more uncertainty for 
+> potential infringers, courts have more recently found an additional 
+> way to prove equivalency by showing that the accused equivalent and 
+> the claimed patent feature were known ?in the art? to be used 
+> interchangeably. Hilton Davis v Warner-Jenkinson. Ultimately,? just as 
+> the Supreme Court in Davis opined that ?the doctrine of equivalents, 
+> when applied broadly, conflicts with the definitional and 
+> public-notice functions of [patent] requirements,? the doctrine of 
+> equivalents when applied broadly as the rationale for granting a 
+> patent license via the Apache 2.0 license may conflict with OSD 5 by 
+> discriminating against patent owners who are later opened up to patent 
+> trolling beyond literal infringement. By subjecting licensors to 
+> infringement claims of interchangeability in the art that arise after 
+> their license grant, Apache 2.0 and other osi licenses that included 
+> express patent grants, may unfairly prejudice licensors managing 
+> patent portfolios via patent exposure.
+>
+> Accordingly, an example where the Apache license can be trolled for 
+> expanded patent access would be in cases of "overlapping 
+> infringement." Here, a single work can potentially infringe on two 
+> similar patents when the work incorporates elements that fall within 
+> the claims of both patents, meaning it essentially "uses" aspects of 
+> both inventions without permission from the same or different patent 
+> holder.? Eg, A researcher at Mass General Brigham creates patented 
+> process [A] to create a protein that includes a generative AI 
+> algorithm [B] for 3d mapping that is released open source under Apache 
+> 2.0.?? Sometime later another MGB research lab creates a patented 
+> process [C] to create a protein using a different proprietary 
+> generative AI technique [D] to achieve the same goal, featuring 
+> similar data structure and harness, different mapping tech, but a 
+> broad patent claim with less limitations and no open source elements. 
+> Here a Licensee troll can license Open Source work [B], and create a 
+> derivative work from it that is similar but not identical to patent 
+> [C], but? then claim an express? license to patent [C] via Apache, if 
+> the derivative work contribution they?ve created? infringes on C via 
+> ?providing substantially the same function in substantially the same 
+> way to obtain the same result (mapping a protein)" to patent [C].? As 
+> AMCs frequently manage and administer their own overlapping patents in 
+> the same area with different IP strategy outlooks, Apache's approach 
+> of triggering a patent license via infringement can have unintended 
+> results, especially considering the doctrine of equivalents as a test 
+> for infringement.? Using the MGB 1.0 License, as Patent C isn?t 
+> necessary to the use, sale, or distribution of work B, C would be 
+> rightfully excluded from the patent license in favor of A.
+>
+> MGB 1.0 was co drafted by myself, Marvin Barksdale JD, and Preston 
+> Regehr Esq. of Tech Law Ventures PLLC, before being reviewed and 
+> approved for system use by Mass General Brigham?s Office of General 
+> Counsel?s IP Group. This Group proposed an additional hypothetical 
+> under which the MGB 1.0 license provides a preferred risk mitigation 
+> outcome. In scenarios where a patent contains sperate unified claims, 
+> for example a patent including claims for making and driving a ?car.? 
+> In one possible scenario under this hypo, an open source author wants 
+> to release ?how to make the car? code via the MGB 1.0 license, but a 
+> nefarious licensee (?npe?) wanted to gain a free patent to ?drive the 
+> car? as well. As a patent claim to ?driving the car? would not be 
+> necessary to be able to recreate the source code around ?making the 
+> car?, the npe would not gain the unintended patent access. In a 
+> circumstance where the inventor wants to MGB 1.0 license ?how to drive 
+> the car?, similarly a npe would not obtain patent rights surrounding 
+> the cars design & construction as in the scope of the MGB 1.0 
+> license?s intent, it is not necessary to have the patent to make / 
+> sell the car in order to replicate the source code to drive it.? If 
+> the open source author / inventor wanted to MGB 1.0 license code to 
+> both ?make and drive the car?, then the included code and readme files 
+> would reflect both and accordingly licensees would receive both.? As 
+> MGB 1.0 utilizes an express patent based on ?claims? rather than 
+> ?infringement?, inventors have superior patent flexibility to express 
+> patent licenses such as Apache 2.0.
+>
+>
+> _Summary_
+>
+> MGB 1.0 provides express open source code licensing risk provisions 
+> required by AMC Tech Transfer and General Counsel Offices, while 
+> protecting AMC commercial activity as a patent portfolio holder and as 
+> an ongoing code contributor via AMC resources.?? To these ends MGB 1.0 
+> utilizes a more direct risk mitigation approach than the MIT or BSD 
+> licenses. Furthermore, although MGB 1.0 uses a similar compatibility 
+> and license modification approach to Apache 2.0, MGB 1.0 more 
+> reasonably confines the express license grant to the foundational 
+> principal of open source, a grant to those patent claims that are 
+> necessary for a person with ordinary skill in the art to recreate the 
+> Work or create Derivative Works.? The Apache 2.0 adds a high level of 
+> uncertainty to patent owners who shouldn?t be discriminated against or 
+> chilled from releasing work in an open-source schema where patents 
+> unnecessary for recreating the work are granted to open source trolls 
+> who claim patent infringement through the doctrine of equivalence via 
+> interchangeability in the art or otherwise.
+>
+> *__________________*
+>
+> Marvin Barksdale, JD
+>
+> Associate Director, Business Development and Digital Health, Innovation
+>
+> mbarksdale at mgb.org
+>
+> *Mass General Brigham*
+>
+> 399 Revolution Drive, Suite 955, Somerville, MA 02145
+>
+> The information in this e-mail is intended only for the person to whom 
+> it is addressed.? If you believe this e-mail was sent to you in error 
+> and the e-mail contains patient information, please contact the Mass 
+> General Brigham Compliance HelpLine at 
+> https://www.massgeneralbrigham.org/complianceline .
+>
+>
+> Please note that this e-mail is not secure (encrypted).? If you do not 
+> wish to continue communication over unencrypted e-mail, please notify 
+> the sender of this message immediately.? Continuing to send or respond 
+> to e-mail after receiving this message means you understand and accept 
+> this risk and wish to continue to communicate over unencrypted e-mail.
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20250209/6301da1f/attachment-0001.htm>
+
+From pamela at chesteklegal.com  Mon Mar  3 02:14:19 2025
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sun, 2 Mar 2025 18:14:19 -0800
+Subject: [License-review] ModelGo Attribution-OpenSource License,
+ Version 2.0
+In-Reply-To: <8043D0AF-08C0-4712-812C-3DEEF2359F6A@gmail.com>
+References: <8043D0AF-08C0-4712-812C-3DEEF2359F6A@gmail.com>
+Message-ID: <70b674a8-9910-2def-702a-878afe2a5b5e@chesteklegal.com>
+
+Dear Moming,
+
+First off, thank you for submitting the licenses. I've attached a .odt 
+version of the BY-OS license with extensive comments. This is more about 
+using your license as a teaching opportunity than directed at your 
+licenses specifically. Since you plan to revise and resubmit the 
+licenses, I took advantage of an opportunity to provide some suggestions 
+on improvements. They are intentionally very detailed, some admittedly 
+picayune, because I am using them to educate more broadly.
+
+Open source licenses are quite different from ordinary commercial 
+licenses. Open source licenses are meant to give away as much as 
+possible, with only a few conditions that the licensor requires as their 
+benefit from granting the license (attribution, copyleft), and some 
+protection from claims.
+
+On the other hand, commercials licenses are designed to grant as few 
+rights as possible and shift as much of the risk and burden to the 
+licensee as the licensor can get away with. For that reason 
+stylistically they are quite different from the open source license, 
+where there is not generally a shift of risk or burden but just 
+protection for the licensor. Think of the open source license as a gift 
+- when you give a gift you protect yourself ("I'll give you the car but 
+you have to register it in your own name") but when you start to impose 
+too many burdens on the gift recipient ("you have to pay me $50 a week 
+or I'll take the car back") it's no longer a gift. Open source as a 
+practice is successful only because licensees know that they can used 
+the software (or model, in this case) freely without worrying about what 
+limits there might be on their use because there are only very few, 
+well-known limits. Imposing too many burdens and obligations on the 
+licensee means that benefits of the open source ecosystem won't be realized.
+
+Another difference is that commercial licenses are low risks as 
+documents. They are between only a few parties; even a click-through 
+license pales in the number of licensees compared to an open source 
+license. We now know that open source licenses have lifespans of decades 
+but commercial licenses generally don't. The commercial licensor will 
+generally be able to modify and improve their license over time as they 
+discover weaknesses or ambiguities, but that doesn't happen in open 
+source licenses because they are perpetual. In open source one might be 
+able to change a license for a later version of the software (depending 
+on whether the open source licensor own all the rights), but anyone who 
+has either updated a license version or changed licenses will tell you 
+what a difficult, multiyear process it is. This means that the open 
+source license can't be sloppy; it has to be as perfect as possible.
+
+The ModelGo licenses were written in the style of commercial licenses 
+and so have terms that perhaps shouldn't be included an open source 
+license. I've also taken the liberty to point out many areas with 
+imprecise drafting that creates interpretive problems. To the extent 
+poor drafting creates ambiguity about whether all necessary rights are 
+granted, it will mean that, in my view, the license shouldn't be approved.
+
+In that category, unintended ambiguities that I think are fatal to the 
+license are:
+
+Definition of Licensed Materials -- you say "'Licensed Materials' means, 
+collectively, the Model and/or Complementary Materials ...." Are you 
+saying that what is licensed under this license must include both the 
+Model AND the Complementary Materials (as indicated by the word 
+"collectively") or can the license be applied to only a Model (as 
+indicated by the words "and/or")? I don't know if this license is meant 
+for everything for an AI system except the data or it can be used for a 
+model alone without all the supporting materials. This ambiguity about 
+what is being licensed creates a lot of interpretive problemes. Say for 
+example that I receive both the Model and Complementary Materials but I 
+want to Distribute only the Model - is it ok that I don't give my 
+distributees all the materials I received? Or must I Distribute the full 
+package? If it's ok that I distribute the Model only, do I still need to 
+provide the Source Code for the Complementary Materials? If I create 
+both a new model and have new Complementary Materials, but I plan to 
+distribute only my new model as the Derivative Materials, do I have to 
+nevertheless have to provide my own Complementary Materials?
+
+2.1(a) -- you grant a license to "worldwide right and license (including 
+the relevant copyrights and patent rights) ..." However, you have 
+defined "Intellectual Property Rights" more broadly than patent and 
+copyright, so by negative implication you appear not to have granted all 
+rights that the user might need, i.e., you have not granted Intellectual 
+Property Rights that aren't copyright or patent.
+
+2.1(a)(i)-(ii) -- as worded, it sounds like you are NOT granting rights 
+to use, reproduce and Distribute Derivative Materials, so you are not 
+granting all rights needed for someone to exercise all rights required 
+for an open source license. I think there is an argument around it 
+(i.e., romanette (i) grants the necessary rights for any Licensed 
+Materials that are embodied in the Derivative Materials, and the 
+Licensor can't grant any rights for the portion of the Derivative 
+Materials the Licensor did not create because the Licensor doesn't own 
+them, its the person who created the Derivative Materials who has to 
+grant the license for their share of the Derivative Materials), but it 
+could be worded more clearly.
+
+2.5(a) -- you have reserved rights that may be needed for someone to 
+exercise the full grant required for an open source license, in 
+particular because you expressly aren't granting rights in database. One 
+theory for the protection of models is database rights, so you might 
+have unintentionally withheld the right to reproduce the Model.
+
+I'm not suggesting that all of my comments are right or you have to 
+adopt them. My suggestions may also be inconsistent; making sure 
+licenses are internally consistent is quite time consuming. License 
+drafting is also iterative; you have to see changes before you spot the 
+problems the new changes created or exposed. So don't take these 
+suggestions as absolute truth or necessary, but food for thought about 
+how to draft a higher quality open source license.
+
+Pam
+
+Pamela S. Chestek (in my personal capacity)
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal
+www.chesteklegal.com
+
+
+On 2/12/2025 5:26 AM, Moming Duan wrote:
+> Dear OSI Community,
+>
+>
+> I am Moming Duan, a researcher at the National University of Singapore 
+> and the submitter and license steward of 
+> *ModelGo?Attribution-OpenSource?License 2.0*, which I am submitting 
+> for OSI review through this email. The license TEXT file is attached, 
+> and below is a brief overview of this license.
+>
+> *License Name*:ModelGo Attribution-OpenSource?License
+> *Version*: 2.0
+> *Short Identifier: *MG-BY-OS-2.0
+> *Copyleft:*No
+> *Legacy or New*: New License
+> *Drafted By Lawyer*: Yes,?Rajah & Tann Singapore LLP
+> *Approved or Used?by Projects*: No
+>
+> *License URL*:https://ids.nus.edu.sg/modelgo-mg-by-os.html
+> *Introduction and Video*:https://www.modelgo.li/
+>
+> *Overview*:
+>
+> ModelGo Attribution-OpenSource?License Version 2.0 (MG-BY-OS-2.0) is a 
+> new license designed for publishing models (typically neural networks 
+> like Llama2, DeepSeek). It is one of the variants in the ModelGo 
+> License family. MG-BY-OS-2.0 is the a copyleft license in the ModelGo 
+> family, requiring that the original license?and attribution?be 
+> provided when distributing the original Licensed Materials or 
+> Derivative Materials (Licensed Materials and Derivative Materials 
+> aredefined in Clause 1.1). A statement of modification is required, if 
+> applicable. Derivative Materials should be licensed under the same 
+> terms as MG-BY-OS-2.0, and redistribution of original works or 
+> derivatives should include the source code.?This license is intended 
+> to be an open-source model license that provides?as much openness as 
+> possible?within the scope of the model itself (in contrast to Llama2 
+> license and OpenRAIL licenses). While it is not a determining factor 
+> for an open-source AI system, it can be considered one of its 
+> requirements.
+> (Green content represents the differences from MG-BY-2.0 license)
+>
+> *Complies with OSD:*
+> *
+> *
+> OSD 3 Derived Works?? MG-BY-OS-2.0 Clause 2.1 (a) grants copyright and 
+> patent rights to create derivatives.
+> OSD 5?and OSD 6 ? No discrimination clause is included in MG-BY-OS-2.0.
+> OSD 9?License Must Not Restrict Other Software ? No such restriction 
+> is included in MG-BY-OS-2.0.
+>
+> *The Gap to Fill:*
+> Model sharing is very common on the web, with over 1.4 million models 
+> currently listed on Hugging Face (https://huggingface.co/models). 
+> However, most of these models are not properly licensed. When 
+> publishing their models, developers typically choose from three main 
+> options (as seen in the model license tags on the Hugging Face website):
+>
+>   * OSS licenses, e.g., Apache-2.0, MIT
+>   * Open responsible AI licenses (OpenRAILs),
+>     e.g.,?CreativeML-OpenRAIL-M,?OpenRAIL++
+>   * Proprietary Licenses, e.g., Llama2, Llama3
+>
+>
+> However, not all licenses are well-suited for model publishing.
+>
+> *Why not use OSS licenses? *
+> Traditional OSS licenses lack clear definitions regarding machine 
+> learning concepts, such as Models, Output, and Derivatives created 
+> through knowledge transfer. This ambiguity?can result in certain ML 
+> activities (e.g., Distillation, Mix-of-Expert) being beyond the 
+> control of the model owner.
+>
+> *Why not use OpenRAILs? *
+> Recently, Responsible AI Licenses (https://www.licenses.ai/) have been 
+> widely advocated to govern AI technologies, aiming to restrict 
+> unlawful and unethical uses of models. While I acknowledge the growing 
+> need for such governance, these copyleft-style restrictions do not 
+> comply with the OSD and may cause incompatibility with licenses like 
+> GPL-3.0. Another concern is that these behavioral restrictions may 
+> proliferate within the AI model ecosystem, increasing the risk of 
+> license breaches.
+>
+> *Why not use Llama2 or Llama3 Licenses?*
+> These licenses are proprietary licenses that are not reusable. 
+> Furthermore, they include exclusive terms such as "You will not use 
+> the Llama Materials or any output or results of the Llama Materials to 
+> improve any other large language model" and copyleft-style behavioral 
+> restrictions.
+>
+> In fact, the dilemma in current model publishing is the lack of a 
+> general-purpose license for model developers. Additionally, since no 
+> single license meets diverse model publishing needs, some developers 
+> resort to using CC licenses with different elements. However, CC 
+> licenses are ill-suited for this purpose as they do not grant patent 
+> rights. This motivated the drafting of ModelGo License family, which 
+> provides different licensing elements similar to CC but specifically 
+> designed for model publishing.
+>
+> *Comparison with Existing OSI-Approved Licenses:*
+> Since I could not find an OSI-approved model license, I can only 
+> compare MG-BY-OS-2.0 with one similar OSS license ? Apache-2.0
+>
+> # MG-BY-OS-2.0 defines licensed materials and derivative works 
+> differently from Apache-2.0, tailoring them to models.
+> # MG-BY-OS-2.0 Clause 2.4 includes provisions regarding model output.
+> # MG-BY-OS-2.0 Clause 2.2(a) clarifies the ownership of Derivative 
+> Materials.
+> # MG-BY-OS-2.0 Clause 7 specifies the governing law.
+> # MG-BY-OS-2.0 Annex A includes a Model Sheet to help users choose and 
+> understand the license content.
+> # MG-BY-OS-2.0 can govern the remote access (e.g., chatbot) scenario.
+> # MG-BY-OS-2.0 is a copyleft license and requires the source code to be 
+> provided during redistribution.
+>
+> If further comparisons or supporting evidence are needed to strengthen 
+> my claims, please let me know. I am more than willing to engage in 
+> further discussions with the OSI community about this license and 
+> contribute to promoting standardized model publishing. ?
+>
+>
+> Best,
+> Moming
+>
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20250302/f582183c/attachment-0001.htm>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: MG-BY-OS-2.0 redlined.odt
+Type: application/vnd.oasis.opendocument.text
+Size: 72851 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20250302/f582183c/attachment-0001.odt>
+

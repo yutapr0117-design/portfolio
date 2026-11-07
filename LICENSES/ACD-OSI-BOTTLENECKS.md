@@ -22,7 +22,7 @@ the 1.0 text.
 
 | ID | The problem | Severity | Where it stands | Who can move it |
 |---|---|---|---|---|
-| B1 | No legal review | Highest | Nothing here supplies it. The questions a lawyer would need are in `QUESTIONS-FOR-COUNSEL.md` | The owner, by engaging one |
+| B1 | No legal review | Highest | Nothing here supplies it. It is not a requirement, and members keep asking submitters for one (#291). The questions a lawyer would need are in `QUESTIONS-FOR-COUNSEL.md` | The owner, by engaging one |
 | B2 | One adopter: this repository | Highest | We can improve discoverability. We cannot produce adoption, and will not claim any. Non-use alone has not been a ground (Committee rationale, 2020 and 2021). The one hold on record (Tiwaz, 2025-09-11) lifts if one project uses the licence or expresses interest | Third parties; the owner can ask |
 | B3 | Length: 4,896 words, 16 sections, 82 clauses | High | It can be shortened but not answered | Us, in part |
 | B4 | The §3 surrender beside the §4 licence | High | Tested as a possible structural refusal, and that was rejected. An article on OSI's site named the two parts as the solution in 2017. In the 2012 straw poll on CC0 all 13 votes against named patents and none named the structure, though one reviewer objected to the form that year. The judgment is OSI's | OSI |

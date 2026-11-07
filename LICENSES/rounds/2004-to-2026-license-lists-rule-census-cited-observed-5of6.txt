@@ -1,0 +1,719 @@
+Source: https://lists.opensource.org/pipermail/ (license-review and license-discuss, the months named in each message's Date line)
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-07)
+Messages: 5 of the 30 messages this dossier cites from a census of rule-like sentences across all 508 archived months. Not a thread. Part 5 of 6.
+Senders: Pamela Chestek, Josh Berkus, Shuji Sado
+Position: statements by people who decide or advise on approval, each about another submission. Not addressed to us and not about ACD. Each message keeps its archive headers. Two long messages (Date lines Sat, 24 Jan 2026 15:14:40 -0800 and Tue, 14 Apr 2026 19:27:47 +0200) end at the author's signature here; the quoted material below it is in the archive. The reading is in LICENSES/ACD-1.0.reviewer-positions.md section 1.140.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Sat Jan 24 23:14:40 2026
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sat, 24 Jan 2026 15:14:40 -0800
+Subject: [License-discuss] Draft for discussion: Project Tick General
+ Public License v2.0 (only)
+In-Reply-To: <2AD0CE01-BFB8-49A1-90B7-C378DD9479CD@icloud.com>
+References: <18546324-53D5-4436-9CA2-D3227D8C4D0A@icloud.com>
+ <CAK2MWOsaaVUGgd9KAj_qqX3SPWud3ktV_y=-NoJC=5xD89Z0fQ@mail.gmail.com>
+ <35A48F14-21BB-4B17-A757-4DCA73D777E3@icloud.com>
+ <CAK2MWOuR2v8ON=Wci5O-ZzwUxBu6acOJW8ukiGWynff3ZGvYRQ@mail.gmail.com>
+ <2AD0CE01-BFB8-49A1-90B7-C378DD9479CD@icloud.com>
+Message-ID: <f88a7934-1188-4291-beb7-cad367caff5c@chesteklegal.com>
+
+This license is a good example of why it is highly unlikely that a 
+license not written by a lawyer can be approved. Legal writing is very 
+formulaic with a number of interpretive principles applied when they are 
+written. If you are not familiar with these principles and following 
+standard drafting practices, there is a high risk that the legal 
+document will not function as intended. I did not read much past the 
+definitions section and spotted many, many drafting problems.
+
+I am looking at the version of the license you submitted to 
+license-discuss on January 21 at 10:10 am PST; there are so many 
+versions I'm not sure what's what. I see that the one you just submitted 
+to license-review appears substantially different but I haven't looked 
+at that license.
+
+In terms of drafting problems, first, a preamble is to provide context 
+for interpretation of the operative terms of the agreement. When an 
+agreement is well-drafted, the preamble does not have any operative 
+terms in it. The reason is when you say the same thing twice, once in 
+the preamble and then in the terms, you have almost surely created a 
+loophole or ambiguity. The preamble is also not a place to explain what 
+you're trying to do - what you're trying to do should be clear from the 
+terms of the agreement. If you have to explain what you are trying to do 
+in the preamble, then there may be something wrong with how you've 
+written the terms.
+
+With that context, your preamble is problematic. As an easy example, you 
+grant a patent license in the preamble, stating "Each contributor to a 
+covered Work grants a non-exclusive, worldwide, royalty-free patent 
+license ..." and also grant a license in section VIII. Undoubtedly these 
+two grants can be interpreted in different ways because anytime you say 
+things twice, unless they are /exactly/ the same, you created the 
+potential for two different interpretations. As another example, you say 
+in the preamble "this License does not impose any obligation to 
+distribute future versions of a Work under the same terms." However, in 
+Section III(c) you say "You must license the modified Work, as a whole, 
+under this License ..." Isn't a "future version" also a "modified Work"? 
+So which is correct?
+
+You have even blurred the line between operative terms and the preamble 
+in your own questions. Below you say
+
+> 1. Explicit opt-in for network-based source obligations
+>
+> Relevant text:
+> > This License does not require network-based source disclosure
+> > unless the copyright holder has expressly chosen to enable such
+> > obligations by an Explicit Network Use Notice.
+>
+> > “Explicit Network Use Notice” means a clear and prominent notice
+> > placed by the copyright holder stating that operation of the Work
+> > through a computer network shall be treated as conveying for the
+> > purposes of source availability.
+
+The text you quote, "This License does not require ...", is in the 
+preamble. It is immediately followed by the sentence "The binding terms 
+governing use, modification, and conveyance of covered Works are set 
+forth below." So you have quoted a part of the agreement that isn't a 
+operative term for your statement that there isn't a requirement to 
+disclose source code unless one opts in.
+
+When I dig deeper and try to figure how this requirement is manifested 
+in the actual terms of the agreement, it's anything but clear. There is 
+something called an "Explicit Network Use Notice" where,"If the Work, or 
+a modified version of the Work, is operated primarily for the purpose of 
+providing its functionality or output to third parties through a 
+computer network, including via hosted, remote, or internet-accessible 
+services, such operation may be treated as conveyance solely for the 
+purpose of triggering the source availability obligations expressly set 
+forth in this License, where an Explicit Network Use Notice applies." 
+There is nothing in the license that says where this notice is supposed 
+to be - is it appended to the license, is it in the documentation, is it 
+on a webpage somewhere, how is the user supposed to know whether or not 
+they've located the "Explicit Network Use Notice"? If this is acceptable 
+for an open source license at all (and I agree with Bruce that this 
+mechanism, in effect, means this is two different licenses, one that 
+treats availability remotely as a "conveyance" and one that does not), 
+it is poorly implemented.
+
+Moving to the definitions, I stopped after the first two.
+
+> "Compatible License" means a license that is compatible with this
+> License under applicable copyright law, without imposing additional
+> restrictions on the exercise of the rights granted under this License.
+Defining "compatible" circularly as "compatible" isn't helpful. In my 
+experience, license compatibility is a concept unique to open source 
+licenses, and I bet if you polled open source lawyers even they wouldn't 
+agree on exactly what it means. So this term probably needs more 
+explanation.
+>
+>  "Copyright" refers to laws similar to copyright that apply to other
+> types of Works, such as semiconductor chips.
+>
+What, the term "Copyright" doesn't include copyright law itself, only 
+laws "similar" to copyright law??
+
+I didn't review all the definitions, but I assume there others have 
+similar flaws.
+
+And, although you have a definitions section, there are also multiple 
+definitions in at least Sections II and VIII for terms that are used 
+throughout the agreement. It's okay to have a definition within a 
+section if it's only relevant to that section (like "entity transaction" 
+in Section VII), but if someone needs to go find a definition it should 
+be easy to find.
+
+There are numbered and unnumbered subsections. The unnumbered parts 
+appear to be explanatory material, so I question whether they belong in 
+the agreement at all. If they are needed, they should be numbered so 
+they can be easily referenced, either elsewhere in the document or when 
+talking about the document, as we are doing here.
+
+The OSI does not approve licenses that are poorly drafted, so these are 
+problems that have to be fixed before you submit the license for 
+approval. These, and many other issues, are all problems that a lawyer 
+skilled in drafting would avoid.
+
+You also asked some policy questions:
+
+> - Explicit opt-in treatment of network-based source obligations
+This makes use and adoption of the license more challenging for several 
+reasons. First is practical; you haven't made it easy for a user to 
+figure out whether they have the obligation or not. Second is that 
+adoption is more unlikely because the compliance obligations are more 
+complicated. Or should the user just assume that all the works under 
+this license have the notice and meet the more stringent compliance 
+obligations, to make their lives simpler? In that case you've undermined 
+your reason for relieving them of the obligation. License compliance is 
+already quite difficult and you're making it harder. The OSI only 
+approves licenses that have a potential audience larger than just one 
+project, and this complexity is a strike against it.
+
+I also don't see the niche that this option fills. In the network 
+context, if someone doesn't want to impose any compliance obligations 
+for a network service, then use the GPL. If you want to impose them, 
+then use the AGPL. So what unserved need does this license fill?
+
+> - Network operation triggers source availability only, not full 
+> conveyance
+I don't know what you mean by "full conveyance." To "convey" is defined 
+as "any kind of propagation that enables other parties to make or 
+receive copies ...", so I don't know what "full" means in association 
+with the word "conveyance."
+
+I assume what you are trying to say is that someone providing the 
+software as a service over a network has a more limited set of 
+obligations than someone who is distributing the software. If that's the 
+meaning, there are clearer ways to state it in the text. Your quoted 
+language uses "source availability obligations" without either defining 
+it or pointing to a section number, which creates significant 
+interpretation problems. But I don't see a problem with the concept 
+under open source principles that some users have fewer obligations than 
+others, as long as the rights of the least privileged are sufficient.
+
+> - Service-aware definition of Corresponding Resource
+I don't see the definition of "Corresponding Resource" as narrower than 
+Source Code or service-aware. The definition of "Corresponding 
+Resource"//starts with "all Source Code required to generate, install, 
+run, and modify the Work, including ...." and then adds more components. 
+The definition of "Source Code" also has its own laundry list of parts, 
+"includ[ing] all files, definitions, scripts, build instructions, and 
+materials necessary ..." So if you are saying that someone providing the 
+software over a network only has to provide "Corresponding Resource," 
+the definitions say they have to provide the Source Code plus something 
+more - or maybe not, depending on the congruence of the laundry lists 
+for the two definitions.  You also use the term "Corresponding Resource" 
+in the definition of "User Product," which is not a network interaction, 
+further confusing things. So I don't think you've accomplished what you 
+were trying to accomplish.
+
+> -  Anti-gatekeeping and equal-access requirements
+I believe you go too far when you say a distributor must not condition 
+access on "payment, exclusive agreements, subscription status, [or] 
+customer classification." What this means is that the "Corresponding 
+Resource" must be made available to the public. This is beyond what the 
+GPL requires, which is that you only have to give the source code to 
+those who have the object code, not the public at large. You are also 
+possibly saying that the code has to be maintained in perpetuity because 
+someone's "policy" of deleting deprecated versions interferes with 
+access. I think the concept is fine, but the way its been implemented is 
+overreaching.
+> - Managed platforms and technological measures
+>
+The license says
+
+> This Section does not prohibit the use of technical mechanisms that are
+> designed solely to ensure system integrity, security, authenticity, or
+> reliable distribution, including but not limited to secure boot
+> mechanisms, cryptographic signature verification, or platform-level
+> distribution requirements, provided that such mechanisms do not prevent
+> recipients from accessing, modifying, or conveying the Corresponding
+> Resource of the covered Work under the terms of this License.
+
+I believe this is an acceptable provision and may not even go far 
+enough. Right now the Software Freedom Conservancy is trying to assert a 
+right to reinstall the software on the original device. Your requirement 
+doesn't assure that, but perhaps it should, with "accessing, modifying, 
+conveying /and reinstalling/ ...."
+
+To summarize, the OSI can't overlook poor quality drafting; the quality 
+of the writing is as important as the rights and obligations you are 
+trying to convey because the rights and obligations can't be observed as 
+you intend if they aren't stated in a clear and precise way with as 
+little ambiguity as humanly possible. You have told us what you are 
+trying to do with the license, but the question is whether the language 
+of the license actually does what you are trying to do, and at the 
+moment it does not.
+
+Finally, my comments are by no means comprehensive and are just 
+exemplary, to demonstrate the kinds of problems that the document 
+contains. I am sympathetic to what you want to do, but this license is 
+never going to be a high enough quality for the OSI to approve if you 
+don't have it cleaned up by a contract lawyer who is at least familiar 
+with, if not highly skilled in, open source licenses.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+From josh.berkus at opensource.org  Sat Feb 14 22:03:48 2026
+From: josh.berkus at opensource.org (Josh Berkus)
+Date: Sat, 14 Feb 2026 14:03:48 -0800
+Subject: [License-review] License Review: IDCIYMI-1.0 (I Don't Care If You
+ Mod It)
+In-Reply-To: 
+ <CAM8L+9RWg5frBPAf9SK=zYszWgM_n6jY2d7kY=fQfi07Y8eFHg@mail.gmail.com>
+References: 
+ <CAM8L+9R4xTSfOB2KLSfLLo-93WJzUKL0MdOP74NUeC5jyWxoGw@mail.gmail.com>
+ <1118897675.28379739.1768554532580.JavaMail.zimbra@piana.eu>
+ <CAM8L+9SXjT30G4uH=8DN-895umKx7=GhV69-V2gAE6+fOsjQVQ@mail.gmail.com>
+ <a51350ca-aa14-4bf8-9368-8ba370013ccc@lexpan.law>
+ <CAM8L+9RWg5frBPAf9SK=zYszWgM_n6jY2d7kY=fQfi07Y8eFHg@mail.gmail.com>
+Message-ID: <2e561189-c166-4e87-bab9-c262e14f5cb1@opensource.org>
+
+License Submitter:
+
+After discussion on this list, the License Committee has made a 
+recommendation to the Board.  It should be voted on in the February or 
+March meetings.
+
+The License Committee recommends that we reject the IDCIYMI-1.0 since
+it does not comply with the OSD in every possible variation.
+
+We encourage you to either review the over 200 approved licenses already 
+in the OSI catalog to find one that suits your needs, or to obtain help 
+from an attorney to draft an improved version of this license.
+
+-- 
+-- Josh Berkus
+OSI Board Member
+
+From pamela at chesteklegal.com  Fri Feb 20 17:09:56 2026
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Fri, 20 Feb 2026 09:09:56 -0800
+Subject: [License-review] Submission: Open Source Copyleft License (OSCL)
+ v1.0
+In-Reply-To: <159c04b4-e645-4033-b5dc-8702db41fd33@app.fastmail.com>
+References: 
+ <CAOm0KL_CR6haifvx8U642sHN8T8jZDrRtA-hJTOH73tsc=caKQ@mail.gmail.com>
+ <159c04b4-e645-4033-b5dc-8702db41fd33@app.fastmail.com>
+Message-ID: <71e49578-89af-4509-b556-d35d20564cbf@chesteklegal.com>
+
+
+On 2/20/2026 5:37 AM, Kevin P. Fleming via License-review wrote:
+> On Fri, Feb 20, 2026, at 05:12, Timofey Zakharcuk wrote:
+>>  I, Timofey Zakharchuk, am the author and proposed steward of the 
+>> OSCL, can be contacted at: timofey.zakharchuk.research at gmail.com
+>>
+>>  OSCL is a strong copyleft license designed to preserve software 
+>> freedom  while offering
+>> clear definitions of derivative works, linking, and unified works. It 
+>> aims to provide a modern alternative to the GPL, while retaining 
+>> compatibility with the GNU General Public License. It is intended to 
+>> fill the gap between permissive and strong copyleft licenses, for 
+>> people who want strong copyleft of the GPL and the file-level 
+>> copyleft of MPL at one time, offering freedom and clarity to its users.
+>
+> As noted in the License Review process page, there are some additional 
+> items of information you will need to provide:
+>
+> # Compare it to and contrast it with the most similar OSI-approved 
+> license(s).
+> # Describe any legal review the license has been through, including 
+> whether it was drafted by a lawyer.
+>
+>
+The clear answer to the second bullet is that no lawyer was involved in 
+the drafting of this license. This was evident from the first two lines.
+
+The grant is to "use, copy, modify, merge, publish, and distribute the 
+Software." This is a very odd assortment of rights granted that don't 
+track with copyright or patent law in any jurisdiction. I assume it's 
+taken from the MIT license, albeit without "sell copies" and also 
+missing the critical "to deal in the Software without restriction," the 
+saving language of the MIT license.
+
+The licensing party for the patent rights is the Author, the "original 
+creator of the Software." The original creator may not be the one 
+granting the license. The original creator may have assigned their 
+copyright and patent rights to someone else who is granting the license. 
+If so, the assignee is not granting the patent rights since it is the 
+Author (who now doesn't have any) who grants the rights to them. The OSI 
+has long disapproved licensees that don't, at least implicitly, grant a 
+patent license and this one in some situations may not.
+
+The same flaw is in the definition of "Contributor," which refers to the 
+Author accepting submissions when the Author may no longer even be 
+involved in the project.
+
+I did not go any further because it's clear this license requires 
+further work - please don't think that you can fix these two problems 
+and the license will be fine, there are many other inconsistencies 
+throughout the license.
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260220/74fc09f4/attachment-0001.htm>
+
+From pamela at chesteklegal.com  Mon Feb 16 22:35:47 2026
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Mon, 16 Feb 2026 14:35:47 -0800
+Subject: [License-review] Subject: Re: License Approval: FARCL-1.0
+In-Reply-To: 
+ <CAP0kKs9Cfk5VXHxLgOxkAg=W_5Jnpm7zaTyRQE8cnBKAKfcqDQ@mail.gmail.com>
+References: 
+ <CAP0kKs9Cfk5VXHxLgOxkAg=W_5Jnpm7zaTyRQE8cnBKAKfcqDQ@mail.gmail.com>
+Message-ID: <cb27944c-ffdc-438f-ac57-972f066aad95@chesteklegal.com>
+
+The problem I have with this license is that it's very context-specific 
+-- there seems to be a particular problem that has arisen, and the 
+license an attempt to solve the problem, but it's so specific in its 
+drafting that the license won't make sense outside of this specific 
+context.
+
+You mention the license "explicitly addresses the legal 'grey area' of 
+decompiling End-of-Life (EOL) formats (like .FLA) for the purpose of 
+source code reconstruction." I'm not quite sure what that means. If an 
+EOL format is under the MIT license, then without a doubt a use can 
+"decompile, transpile, or convert archived assets into human-readable 
+source code." So this license, applied at the time of development in 
+contemplation of a later EOL, doesn't allow anything that an existing 
+license would not also allow. You also say "decompile, transpile, or 
+convert archived assets (/*including proprietary or legacy binary 
+formats*/) into human-readable source code." But if the licenses on 
+those existing proprietary or legacy binary formats don't permit the 
+decompiling, etc., you can't change that by slapping a different license 
+on the reverse-engineered work and you will still have breached the 
+original license on the binary. Perhaps I've misunderstood what you're 
+trying to do, but that goes back to my point that this appears to be a 
+very context-specific license but without enough context to make it 
+understandable.
+
+It also has drafting problems that IMO mean it should not be approved. 
+Section 1 is unclear because I read it as stating that attribution might 
+have to be//moved around into new files, versus simply not altering 
+existing files. The word "maintained" doesn't clarify the point; in 
+contrast the Apache license says that you have to "retain" existing 
+information and the GPLv3 says you have to "keep intact" the notices, 
+both of which much more clearly state that you don't have to change 
+anything, not that you have to create new files. However your sentence 
+"This replaces the requirement for mandatory inline legal notices within 
+every source file to facilitate interoperability between different 
+technical formats" suggests that it is instead a duty to move them 
+around based on the technical format. So I'm not sure what is meant here.
+
+There are other interpretative problems. Some of your paragraphs have an 
+explanatory sentence, but these are going to create more problems than 
+they solve. For example, in the second paragraph you say "This is 
+recognized as a necessary process for digital preservation, technical 
+study, and long-term interoperability." Is that a list limiting the 
+decompiling, etc. to only those purposes? I promise you that, if this 
+license was the subject of a legal claim (say for example the software 
+was decompiled to use for AI training), whether this list is exemplary 
+or comprehensive would be disputed and litigated.
+
+What is the value of the word "digital" before "works" in the license 
+grant? That is another example of a word that would be litigated because 
+of its mere presence. Under our rules of contract interpretation every 
+word is there because it has meaning, so a court may assign it meaning 
+even if it's really just a throwaway (I doubt this license would be used 
+for anything but digital works). For example, a court may decide that 
+"digital " is there to distinguish "code" from "illustrations," and so 
+the license doesn't apply to illustrations contained in the work.
+
+Contract drafting is not a creative writing exercise; there are very 
+specific rules of construction and interpretation that need to be 
+followed. If the drafter is not versed in those rules, then the legal 
+interpretation of the license is not going to be what the drafter thinks 
+it is, even if they believe that the plain language is clear.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+On 2/12/2026 4:15 PM, Bauti el cyerborg Shitpost wrote:
+> Dear OSI License-Review Committee,
+>
+> Thank you for the detailed feedback. I have significantly revised the 
+> FARCL-1.0 to address the concerns regarding OSD compliance, undefined 
+> roles, and legal terminology.
+>
+> Below is the updated text of the license, followed by a summary of how 
+> this version resolves the previous issues:
+>
+> ============================================================
+> Free Archive License (FARCL-1.0)
+> ============================================================
+>
+> Copyright (c) <YEAR>, <USERNAME>
+>
+> Permission is hereby granted, free of charge, to any person obtaining 
+> a copy of this digital work, to use, copy, modify, merge, and 
+> distribute the work, subject to the following conditions:
+>
+> 1. FLEXIBLE ACCREDITATION: Attribution must be maintained in a 
+> dedicated CREDITS file, project README, or within the work's metadata. 
+> This replaces the requirement for mandatory inline legal notices 
+> within every source file to facilitate interoperability between 
+> different technical formats.
+>
+> 2. OPEN CONVERSION: Users are explicitly authorized to decompile, 
+> transpile, or convert archived assets (including proprietary or legacy 
+> binary formats) into human-readable source code. This is recognized as 
+> a necessary process for digital preservation, technical study, and 
+> long-term interoperability.
+>
+> 3. REDISTRIBUTION: Any public fork or redistribution of this work, in 
+> its original or converted form, must retain the original copyright 
+> notice and identify the work as a FARCL-licensed archive to ensure the 
+> integrity of its origin.
+>
+> 4. SOURCE PERSISTENCE: Source code derived from the conversion of 
+> assets under this license shall inherit these same permissions. This 
+> ensures that data recovered from closed formats remains accessible and 
+> cannot be re-restricted under more hardware-limited or proprietary terms.
+>
+> DISCLAIMER: THIS WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY 
+> KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+> OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+> NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE 
+> LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION 
+> OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION 
+> WITH THE WORK OR THE USE OR OTHER DEALINGS IN THE WORK.
+>
+> ============================================================
+>
+> Summary of Changes & Clarifications:
+>
+> - Elimination of Undefined Roles: The term "Archivist" has been 
+> removed. The license now uses standard legal subjects ("Person", 
+> "User") and "Username", which is the de facto identity standard in 
+> communities like GitHub/GitLab.
+>
+> - Compliance with OSD 6 (No Discrimination): The prohibition of binary 
+> distribution has been removed. The license now grants an explicit 
+> additional right for conversion/decompilation, ensuring it does not 
+> restrict fields of endeavor but empowers preservation.
+>
+> - Justification over Existing Licenses: Unlike MIT or BSD, the 
+> FARCL-1.0 explicitly addresses the legal "grey area" of decompiling 
+> End-of-Life (EOL) formats (like .FLA) for the purpose of source code 
+> reconstruction. This provides a specific legal shield for 
+> preservationists that general-purpose licenses lack.
+>
+> - Expected Adopters: This license is aimed at the Flashpoint Archive 
+> community, the Software Preservation Network, and developers using 
+> tools like Ruffle or OpenFL to migrate legacy assets into open standards.
+>
+> I believe this revision is now fully aligned with the Open Source 
+> Definition. I look forward to further discussion.
+>
+> Best regards,
+>
+> B4uti4GD
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260216/2a8aa6b3/attachment.htm>
+
+From shujisado at gmail.com  Sat Mar 14 09:45:50 2026
+From: shujisado at gmail.com (Shuji Sado)
+Date: Sat, 14 Mar 2026 18:45:50 +0900
+Subject: [License-review] =?utf-8?q?=5BSUBMISSION=5D_AI-MIT_License_1?=
+	=?utf-8?q?=2E0_=E2=80=94_permissive_license_for_AI-generated_code?=
+In-Reply-To: 
+ <CALoGuP33x+Egm5aV6V0a52FgT=Xh-wjtp=g2w9P_yYZg2JzN8g@mail.gmail.com>
+References: 
+ <CALoGuP0cedKVm4_V-S0VBWUGjD-0r_G0JvkX72CSiosUh8f6QA@mail.gmail.com>
+ <18108e57-6a6e-4930-814a-d84e30f4b27f@opensource.org>
+ <CALoGuP33x+Egm5aV6V0a52FgT=Xh-wjtp=g2w9P_yYZg2JzN8g@mail.gmail.com>
+Message-ID: 
+ <CAAvo7O5EMkimhzQQEfoQ7hHQUd3s2mn4A9+AeoOZHdWV4raCQg@mail.gmail.com>
+
+Hi Nik-san,
+
+I think this proposal should receive legal review before the community
+debates whether it should be approved by OSI. The threshold question is
+whether it is actually consistent with the OSD.
+I understand the motivation to address new issues raised by AI, but that is
+the basic starting point.
+
+In my view, AIAL-1.0 at least raises a substantial question under OSD #10,
+because its Transparency clause is triggered not only by redistribution,
+but also by use as input for further AI training. Its per-file and
+project-level attribution requirements also seem to raise questions under
+OSD #3 and #7. In addition, it is not clear how conditions derived from
+copyright can be imposed in a stable way on code for which copyright may
+not exist at all.
+
+More broadly, this does not look like a matter of community preference.
+It looks like a threshold question of legal validity and legal design, and
+I think that should be reviewed first.
+
+Best,
+Shuji
+
+2026/3/14 4:35 Nik <nik.sharky at gmail.com>:
+
+> Thank you for the substantive feedback. Both points are well taken and I
+> want to
+> address them directly. I attach new license text according to raised
+> questions and propositions.
+>
+> ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+>
+> POINT 1 — THE NAME
+>
+> You are correct that "MIT" is a registered trademark of the Massachusetts
+> Institute
+> of Technology, and using it in a new license name creates ambiguity at
+> best and
+> trademark risk at worst.
+>
+> It is good idea to rename it to:
+>
+>   AI-Attribution License (AIAL)
+>
+> The new name reflects what the license actually does — extends attribution
+> requirements to cover AI authorship — without borrowing the MIT name.
+> It is also more descriptive for developers choosing a license.
+>
+> The SPDX identifier would become: AIAL-1.0
+>
+> I welcome any alternative name suggestions from the community if there are
+> objections to "AI-Attribution License" as well.
+>
+> ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+>
+> POINT 2 — PER-FILE ATTRIBUTION
+>
+> This is the more substantive point and I agree with it completely.
+>
+> You correctly identified that a single project-level Authorship
+> Declaration is
+> insufficient for any real-world project with a development history.
+> Real projects can contain:
+>   - files written entirely by humans (pre-AI era)
+>   - files generated by AI, never touched by humans
+>   - files where a human wrote 80% and AI generated 20%
+>   - files inherited from third-party OSS projects
+>   - files modified by multiple AI tools across multiple years
+>
+> A single checkbox in a root LICENSE file cannot honestly describe this mix.
+>
+> The solution, as you suggested (referencing APL2.0), is per-file
+> attribution.
+> The good news is that the ecosystem for this already exists and is widely
+> adopted: the REUSE Specification (reuse.software, FSFE) combined with SPDX
+> per-file headers.
+>
+> REUSE already defines two standard tags per file:
+>
+>   # SPDX-FileCopyrightText: 2026 Jane Doe
+>   # SPDX-License-Identifier: GPL-3.0-or-later
+>
+> The revised license extends this with
+> two new optional-but-recommended AI-specific SPDX tags:
+>
+>   SPDX-AI-Authorship: [fully-generated | ai-assisted | human-authored]
+>   SPDX-AI-Tool:       [tool name and version]
+>
+> These tags are:
+>   - Consistent with existing SPDX tag-value syntax
+>   - Backward-compatible (they are optional for human-authored files where
+>     no AI was involved at all)
+>   - Machine-readable and scannable with standard grep/REUSE tooling
+>   - Compatible with the REUSE specification — they sit alongside existing
+>     SPDX-FileCopyrightText and SPDX-License-Identifier tags
+>
+> The project-level LICENSE file retains a simplified Authorship
+> Declaration as a default/fallback for projects that have not yet adopted
+> per-file headers, but per-file headers take precedence where present.
+>
+> ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+>
+> REVISED LICENSE — AI-Attribution License (AIAL) v1.0
+>
+> The revised license text is attached as AIAL-1.0.txt. Key changes:
+>   1. Name changed from "AI-MIT License" to "AI-Attribution License (AIAL)"
+>   2. SPDX identifier changed from AI-MIT-1.0 to AIAL-1.0
+>   3. Project-level Authorship Declaration retained as fallback default
+>   4. Per-file attribution via new SPDX tags defined and required for
+>      files where the project-level declaration does not apply uniformly
+>   5. Precedence rule: per-file tags override project-level declaration
+>   6. Inherited OSS files: explicit provision for files where AI authorship
+>      status is unknown (SPDX-AI-Authorship: unknown)
+>
+> ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+>
+> Thank you again for the careful reading. This kind of feedback is exactly
+> what makes the process valuable.
+>
+> Nik
+> nik.sharky at gmail.com
+>
+> пт, 13 мар. 2026 г. в 18:35, Josh Berkus <josh.berkus at opensource.org>:
+>
+>> On 3/12/26 5:30 PM, Nik wrote:
+>> > I am submitting the AI-MIT License, Version 1.0 for OSI approval. The
+>> > full license text is attached to this email as a plain text file (AI-
+>> > MIT-License-1.0.txt).
+>>
+>> So this is interesting, but will need some iterations I think
+>> (completely aside from any requirements the attorneys have).
+>>
+>> The first part is the name; we may not be able to call it MIT, which is
+>> after all a trademark of the folks in Cambridge and this is not their
+>> license.  So we might need to call it AI-Attribution or something (which
+>> would be a good name considering the purpose of the license).
+>>
+>> The second, larger problem occurs in the actual construction of software
+>> with AI assistance.  As written, this license targets only brand-new
+>> projects which are created "from scratch" and never modified again.
+>> This is fine for those, but I think project creators want to plan for
+>> success.
+>>
+>> For any substantial project which has a history of development, there is
+>> going to be a mix, including: files that are wholly AI-generated, files
+>> which are AI-assisted, files which were written by humans, and files
+>> which were inherited from other OSS projects whose licenses do not
+>> require AI attribution so we don't know. Further, files which have been
+>> modified several times are going to have been modified by several AI
+>> tools.
+>>
+>> If you want to follow this concept, I really think that some kind of
+>> per-file attribution (ala APL2.0) is going to be necessary, rather than
+>> a single statement of authorship over the whole project.
+>>
+>> --
+>> -- Josh Berkus
+>> OSI Board Member
+>>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Communication from the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+
+
+-- 
+Shuji Sado
+Chairman, Open Source Group Japan
+https://opensource.jp/
+English blog: https://shujisado.org/
+Japanese blog: https://shujisado.com/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260314/a4cc4dad/attachment-0001.htm>
+
