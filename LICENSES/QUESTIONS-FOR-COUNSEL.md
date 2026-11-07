@@ -71,7 +71,7 @@ alone?
 
 ## 2. Does the patent licence reach what it is meant to reach? (§8.1, §8.4, §8.6)
 
-**The clauses.** §8.1 licenses *"every patent claim owned or controlled by the Dedicator, now or
+**The clauses.** In ACD-1.3, §8.1 licenses *"every patent claim owned or controlled by the Dedicator, now or
 in future"* infringed by making, using, selling or importing the Work or a derivative, *"where the
 infringement is caused by subject matter contained in the Work as made available"*. §8.4 licenses
 claims infringed by Computational Use or by making or using *"any model, parameter set, weight,
