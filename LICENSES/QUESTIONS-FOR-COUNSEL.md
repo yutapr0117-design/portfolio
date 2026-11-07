@@ -63,7 +63,8 @@ says *"we don't know how or whether the author would be protected from liability
 released into the public domain"*. Where §3 is effective nothing is left to license, so what do
 §13 and §14 rest on there? (g) §10.2 lets a copy travel with no notice, and in the 1.4 draft §2.3 says
 You need not know of the Dedication. Where a licence is read as a contract, can a person who has
-never seen the text hold it, or does such a person rest on §3 and §5 alone?
+never seen the text hold it, or does such a person rest on §3 and §5 alone and, for patents, on §8.6
+alone?
 
 **An answer would change** whether the text keeps three footings (register B4) and how §4.4 says
 "independent".
