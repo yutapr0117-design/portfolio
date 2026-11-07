@@ -176,3 +176,11 @@ T6 は反例なし（出力が Work に取り込まれれば §9 が自分の条
 **初案は不成立だった**: *"or relating to"* を外す案（−3 語）は bb の反例で落ちた。学習済みモデルの販売への不正競争の請求は Work の利用から生じるとは言い切れず、§1.135 の差が立つ行為の保護が緩む。契約前責任も落ちる。*associated* に近い #272 の答えも半分弱まる。従量の料金も *arising from a use* のままで解けない。
 
 **残るもの**: Work について対価を求める契約は §5.2(b) が別に止める。*relating to* の広さの問い（問 5）は残る。
+
+### 13.7 T15: §2.3 の知らない受領者（+3 語）
+
+**Before**: *"You need not sign, register, notify, request, or agree to anything"* / **After**: *"You need not know of it, sign, register, notify, request, or agree to anything"*
+
+**欠陥（bb の問い）**: §10.2 は通知を外してよいとするので、Dedication を見たことのない受領者が通常の場面になる。§1.6 の *"exercising permissions"* を「知って行使する」と読むと、その人に特許の許諾が及ぶかが語から決まらない。Nelson 氏と Fogel 氏が CC0 の審査で問うた当の場面である（`review-precedents.md` §1.138）。§16.2 は識別子が残る写しの文で、全部外れた写しには届かない。§1.6 を替えない理由は、Apache-2.0 と同じ定型で、E20 などが依拠しているからである。
+
+**費用**: 文は法に対して成立を保証しない。問 1 の (g) に置いた。
