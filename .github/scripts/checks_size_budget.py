@@ -667,11 +667,15 @@ def run(ctx):
     _doc495 = ROOT / "docs" / "architecture" / "file-size-budget.md"
     _m495 = re.search(r"<!-- BYTE-BUDGET-DATA\n(.*?)\n-->", _doc495.read_text(encoding="utf-8"), re.S)
     _rows495 = {}
+    _dup495 = []
     for _ln495 in (_m495.group(1).splitlines() if _m495 else []):
         _c495 = [x.strip() for x in _ln495.split("|")]
         if len(_c495) == 3 and _c495[1].isdigit() and _c495[2].isdigit():
+            if _c495[0] in _rows495:
+                _dup495.append(_c495[0])
             _rows495[_c495[0]] = (int(_c495[1]), int(_c495[2]))
     _over495, _inverted495, _near495 = [], [], []
+    _inverted495 += [f"{_d} (行が重複し、後の行が前の行を黙って上書きする)" for _d in _dup495]
     for _rel495, (_adv495, _ceil495) in sorted(_rows495.items()):
         _p495 = ROOT / _rel495
         if _adv495 >= _ceil495:
@@ -694,8 +698,8 @@ def run(ctx):
     )
     check(
         not _inverted495,
-        "Check 495b: BYTE-BUDGET-DATA の advisory はどれも ceiling 未満",
-        "Check 495b: advisory が ceiling 以上で、早期警告が鳴らない: " + ", ".join(_inverted495[:5]),
+        "Check 495b: BYTE-BUDGET-DATA の advisory はどれも ceiling 未満で、file の行は重複しない",
+        "Check 495b: advisory が ceiling 以上で早期警告が鳴らない、または行が重複している: " + ", ".join(_inverted495[:5]),
         blocking=True,
     )
     if _near495:

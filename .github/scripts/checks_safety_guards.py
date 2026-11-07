@@ -17,9 +17,11 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
   124. site visible-text anonymity guard: the site UI is deliberately anonymized to "yuta" for
        general-public privacy, while the real name (横井雄太) is exposed only in the AIO/entity
        layer (sr-only / JSON-LD / meta / alt / data-entity attributes / llms-full.txt). This Check
-       asserts that in the visible page renderers the real name appears ONLY on lines carrying an
-       attribute marker (alt:/data-entity/data-ai-entity/
-       aria-), never as a bare visible h() text node (124a). 124b enforces js/identity.js's documented
+       asserts that in the visible page renderers the real name, in kanji or romaji and with or
+       without a space, appears ONLY as the value of an attribute key (alt / data-entity /
+       data-ai-entity / aria-*), never as a bare visible h() text node (124a). The scan covers
+       js/**/*.js (quiz data is rendered too), main.js and the <noscript> text of index.html,
+       which no-JS readers see. 124b enforces js/identity.js's documented
        contract (UI → DISPLAY_NAME only): the visible renderers must NOT reference the real-name entity
        constants (AUTHORITATIVE_NAME/JAPANESE_NAME) either, closing the identifier-based leak path
        (literal grep alone would miss a variable-rendered name). Together they structurally prevent the
@@ -145,9 +147,16 @@ def run(ctx):
         "js/identity.js",         # 実名定数そのものを定義する単一ソース
         "js/meta-management.js",  # AIO meta/JSON-LD 層 (entity 帰属のため実名が正当)
     }
-    _SCAN124 = [f"js/{_p124.name}" for _p124 in sorted((ROOT / "js").glob("*.js"))] + ["main.js"]
-    _NAME124 = "横井雄太"
-    _ATTR_MARKERS124 = ("alt:", "data-entity", "data-ai-entity", "aria-")
+    # [FIX 2026-11-08] 監査で 3 つの穴を実測した: (1) 照合が漢字の完全一致だけで、`Yuta Yokoi` と
+    #   `横井 雄太` は同じ実名なのに通った (2) 走査が js/*.js 直下と main.js だけで、画面に描画される
+    #   js/quiz/*.js と、JS 無効時に見える index.html の <noscript> を見ていなかった (3) 除外が行単位で、
+    #   同じ行に aria- があれば可視テキストの実名も許していた (`alt:` は `default:` にも一致した)。
+    #   いまは出現ごとに、その文字列がどの鍵の値かを見る。main.js の `description` は WebMCP の
+    #   ツール記述で画面に描画されないので許す。
+    _SCAN124 = sorted(f"js/{_p124.relative_to(ROOT / 'js').as_posix()}" for _p124 in (ROOT / "js").rglob("*.js")) + ["main.js"]
+    _NAME_RX124 = re.compile(r"横井[ \u3000]?雄太|Yuta\s+Yokoi|Yokoi\s+Yuta", re.I)
+    _ATTR_KEY_RX124 = re.compile(r"""(?:^|[\s{,(])['"]?(alt|aria-[a-z]+|data-entity|data-ai-entity)['"]?\s*:\s*$""")
+    _MACHINE_KEY_RX124 = re.compile(r"""(?:^|[\s{,(])['"]?description['"]?\s*:\s*$""")
     _leak124 = []
     _idleak124 = []
     # UI → DISPLAY_NAME only / AIO → AUTHORITATIVE_NAME etc. (js/identity.js の明文契約)。
@@ -165,13 +174,24 @@ def run(ctx):
         # 削らないため (Check 412 で踏んだ罠)。
         _src124 = strip_js_comments(_f124.read_text(encoding="utf-8"))
         for _i124, _code124 in enumerate(_src124.splitlines(), 1):
-            if _NAME124 in _code124 and not any(_mk in _code124 for _mk in _ATTR_MARKERS124):
+            for _mn124 in _NAME_RX124.finditer(_code124):
+                # 出現を含む文字列リテラルの開き引用符を探し、その手前が属性の鍵かを見る
+                _q124 = max(_code124.rfind(_c, 0, _mn124.start()) for _c in "'\"`")
+                _before124 = _code124[:_q124] if _q124 >= 0 else ""
+                if _ATTR_KEY_RX124.search(_before124):
+                    continue
+                if _rel124 == "main.js" and _MACHINE_KEY_RX124.search(_before124):
+                    continue
                 _leak124.append(f"{_rel124}:{_i124}")
             if any(_id in _code124 for _id in _NAME_IDENTS124):
                 _idleak124.append(f"{_rel124}:{_i124}")
+    _html124 = (ROOT / "index.html").read_text(encoding="utf-8")
+    for _ns124 in re.finditer(r"<noscript>(.*?)</noscript>", _html124, re.S):
+        if _NAME_RX124.search(re.sub(r"<[^>]+>", " ", _ns124.group(1))):
+            _leak124.append(f"index.html:{_html124.count(chr(10), 0, _ns124.start()) + 1} (<noscript>)")
     check(
         not _leak124,
-        f"Check 124a: 視覚 site renderer に実名の bare テキスト漏れ無し (anonymity guard・scanned {len(_SCAN124) - len(_ALLOW124)} files)",
+        f"Check 124a: 視覚 site renderer に実名の bare テキスト漏れ無し (anonymity guard・scanned {len(_SCAN124) - len(_ALLOW124)} files + index.html <noscript>)",
         "Check 124a: 視覚 site テキストに実名「横井雄太」が漏れている — サイト UI は匿名 (yuta) が design。"
         "実名は alt/data-entity/aria- 等の AIO 属性 context でのみ許可。違反: " + ", ".join(_leak124[:10]),
         blocking=True,
