@@ -76,6 +76,10 @@ EFFECT_MARKERS_468U = (
     ("8.2", "not terminable by the Dedicator on any ground"),
     ("5.1", "other than for patent infringement"),
     ("8.4", "from the content of the Work"),
+    # 2026-11-08 (T16〜T20・#2602): 許諾の目的語を請求項から行為へ移した結果、効果を運ぶ句になった
+    ("8.1", "otherwise practise or transfer"),
+    ("8.4", "Section 8.1 alone governs"),
+    ("5.1", "for a use of the Work"),
 )
 
 
