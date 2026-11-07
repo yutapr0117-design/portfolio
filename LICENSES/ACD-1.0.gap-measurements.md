@@ -564,8 +564,10 @@ bb が 6 本を立てて原文で反証した（H1-a BlueOak / H1-b CERN-OHL-P /
 | MIT-0 | 2020 | MIT から帰属を除く | 理由書 *"the same language as the MIT License except that the attribution requirement of the MIT License in its second paragraph is removed"* |
 | OSC License v1 | 2025 | MIT にドイツ法で有効な責任制限を足す | 提出 *"does not contain a limitation of liability that is effective under German law"* |
 
-**4 本とも差は 1 点である。** ACD の差（条件ゼロの許諾に、作品を超える特許許諾を足す）も 1 つの組み合わせで、
+**4 本とも差は 1 点である。** ACD の効果の差も 1 点と言える。0BSD から見れば、条件が無いことは既に持っている性質で、
+足すのは作品を超える特許許諾だけである（§8.2 はその許諾に同じ性質を保つ文）。BlueOak や CERN-OHL-P から見れば、差は条件と終了の有無である。
 差が狭いこと自体が承認を止めた記録は、この 4 本には無い。
+**ただし効果の差は 1 点でも、本文の差は 1 点ではない。** 4 本は既存の本文の小さな派生で、ACD はその 1 点のために 5,400 語の新しい本文を持つ（B3）。
 
 **逆側を同じ重さで書く。**
 
