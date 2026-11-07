@@ -12,6 +12,8 @@ checks_license_references.py — ドシエが書いた矢印が、指した先�
 **宣言と実測の差は、宣言した本人には見えない。**
 
 Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()):
+  494. **表の行が表の中にあること** (BLOCKING・2026-11-07): 行の間に空行が入るか見出しが無いと、GitHub は残りの
+       行を `|` の見える段落として描く。`against.md` の 325 行のうち表になっていたのは 57 行だった。
   493. **採用者の受け口のリンクが template へ解決すること** (BLOCKING・2026-11-07): `issues/new?template=X` は
        X が無いと GitHub が黙って空の issue 画面へ落とす。委員会が保留の解除に挙げた「使う・関心を示す」の
        唯一の受け口なので、読み手に見えない形で壊さない。form の必須の鍵も見る。
@@ -172,6 +174,27 @@ def run(ctx):
         f"Check 472o: 送る本文が述べる ACD の版 {len(_ids472o)} 箇所が提出対象に合う",
         (f"Check 472o: 送る本文が提出対象でない版を述べている: {_bad472o or '本文か提出対象を読めない'}。"
          "別の版の適合を宣言したまま送らないよう、1 文ずつ読んで提出対象へ向ける"),
+        blocking=True,
+    )
+
+    # ── 494. 表の行が表の中にあること (BLOCKING) ───────────────────────────────────────────
+    #   どの Check も本文の文字列を読むので、描画が崩れても緑のままだった。審査者は描画された形を読む。
+    _orphans494 = []
+    for _p494 in [*sorted((ROOT / "LICENSES").glob("*.md")), ROOT / "README.md"]:
+        _l494 = _p494.read_text(encoding="utf-8").split("\n")
+        _fence494 = False
+        for _i494, _r494 in enumerate(_l494):
+            if _r494.lstrip().startswith("```"):
+                _fence494 = not _fence494
+            _next494 = _l494[_i494 + 1] if _i494 + 1 < len(_l494) else ""
+            if (not _fence494 and _r494.startswith("|") and _r494.rstrip().endswith("|")
+                    and not (_l494[_i494 - 1] if _i494 else "").startswith("|")
+                    and not re.match(r"^\|[\s:|-]+\|\s*$", _next494)):
+                _orphans494.append(f"{_p494.name}:{_i494 + 1}")
+    check(
+        not _orphans494,
+        "Check 494: LICENSES/*.md と README の表の行がすべて表の中にある",
+        f"Check 494: 見出しの無い表の行がある: {_orphans494[:8]}。空行を除くか、見出しの行を足す。GitHub は `|` の見える段落として描く",
         blocking=True,
     )
 
