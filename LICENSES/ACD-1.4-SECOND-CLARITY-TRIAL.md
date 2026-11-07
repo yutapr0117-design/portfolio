@@ -177,10 +177,17 @@ T6 は反例なし（出力が Work に取り込まれれば §9 が自分の条
 
 **残るもの**: Work について対価を求める契約は §5.2(b) が別に止める。*relating to* の広さの問い（問 5）は残る。
 
-### 13.7 T15: §2.3 の知らない受領者（+3 語）
+### 13.7 T15: §2.3 の知らない受領者（+6 語）
 
-**Before**: *"You need not sign, register, notify, request, or agree to anything"* / **After**: *"You need not know of it, sign, register, notify, request, or agree to anything"*
+**Before**: *"You need not sign, register, notify, request, or agree to anything, and nothing You do or fail to do can cause You to lose a permission granted here."*
+**After**: *"To hold a permission granted here, You need not know of it, sign, register, notify, request, or agree to anything, and nothing You do or fail to do can cause You to lose one."*
 
 **欠陥（bb の問い）**: §10.2 は通知を外してよいとするので、Dedication を見たことのない受領者が通常の場面になる。§1.6 の *"exercising permissions"* を「知って行使する」と読むと、その人に特許の許諾が及ぶかが語から決まらない。Nelson 氏と Fogel 氏が CC0 の審査で問うた当の場面である（`review-precedents.md` §1.138）。§16.2 は識別子が残る写しの文で、全部外れた写しには届かない。§1.6 を替えない理由は、Apache-2.0 と同じ定型で、E20 などが依拠しているからである。
+
+**初案は不成立だった**: *"You need not know of it"* だけだと受領の側に限っておらず、§2.6 と組むと、Dedication を知らないまま貢献した人を Dedicator にする読みに引ける（§8 は将来の請求項まで取り消せない）。*To hold a permission* で受領の側へ閉じた。
+
+**見て残したもの**:
+- **§5.3 の *"relied upon"***（bb）: 「援用できる」と「事実として信頼した」の 2 通りに読め、後の読みなら知らない受領者は外れる。著作権の側は同じ条の最終文が §3 / §4 を残し、特許の側は §8.6 の *against You* が §5.3 の外で働くので実害が小さい。語を替えると §4.6 と外向きの引用へ波及するので残す。
+- **§13 / §14**: 知らない受領者は免責の文を見ていない。§10.2 から既に生じている事実で、問 1 の (f) にある。
 
 **費用**: 文は法に対して成立を保証しない。問 1 の (g) に置いた。
