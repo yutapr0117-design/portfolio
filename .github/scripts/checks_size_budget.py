@@ -138,8 +138,17 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `STRONG_ADVISORY_MAX_RATIO` (1.25) 以内であることを強制する。file が縮んだら比が
        上がって RED になる = ラチェットダウンを促す挙動で、これは分類が明記する
        「減少方向が望ましい」と一致する意図的な設計。(BLOCKING)
+  495. **行数で見えない肥大をバイト数で止めること** (BLOCKING): Check 365 は行数を見るので、
+       1 項目を 1 行で書く file は上限に近づかないまま伸びる。実測 (2026-11-07): `CLAUDE.md` は
+       269 行で 443 KB になり、全 session と全 subagent の開始費用を押し上げていた。runbook §9 は
+       1 つの表のセルが 222 KB だった。`file-size-budget.md` の `BYTE-BUDGET-DATA` が file ごとに
+       advisory と ceiling を持つ。495a は ceiling を超えた file と登録先の無い行を止める。
+       495b は advisory が ceiling 未満であることを見る (そうでないと警告が鳴らない)。495c は
+       10 万バイト以上で 1 行の平均が 300 バイト以上の file の登録漏れを止める。495d は 1 行が
+       64 KiB を超えることを止める。`LICENSES/rounds/` は無改変保存の場所なので対象外。(BLOCKING)
 """
 import re
+import subprocess
 
 from sync_size_table import allowed_drift
 
@@ -158,6 +167,12 @@ EARLY_WARNING_FLOOR = 800
 # §1 の分類表は strong-advisory を「現行行数に近い tight な上限」と定義しているので、
 # その定義を機械が読める形にした値。1.25 = 実測の 25% 増しまでを tight と認める。
 STRONG_ADVISORY_MAX_RATIO = 1.25
+
+# Check 495: 行数の上限の射程の外。1,000 行を 1 行 100 バイトで読むと 10 万バイトで、そこを超えて
+# 1 行が平均 300 バイト以上の file は、行数ではもう大きさが測れない。
+BYTE_REGISTER_FLOOR = 100_000
+BYTE_REGISTER_MEAN = 300
+LONG_LINE_CEILING = 65_536
 
 # design-constraint A group / AIO C6 / 自動生成 / bot 追記ログ —— hard ceiling の対象外
 CEILING_EXEMPT_NAMES = frozenset([
@@ -644,3 +659,75 @@ def run(ctx):
         )
     except OSError as _e455:
         warnings.append(f"Check 455: budget doc を読めない ({_e455}) — tightness 検査を skip")
+
+    # ── 495. 行数で見えない肥大をバイト数で止める (BLOCKING) ──────────────────────────
+    # Check 365 は行数を見る。CLAUDE.md は 269 行で 443 KB に、runbook §9 は 1 つのセルが 222 KB に
+    # なったが、どちらも行数の上限には近づかなかった。CLAUDE.md は全 session と全 subagent が毎回
+    # 読むので、この肥大はそのまま開始費用になる (2026-11-07 に実測)。
+    _doc495 = ROOT / "docs" / "architecture" / "file-size-budget.md"
+    _m495 = re.search(r"<!-- BYTE-BUDGET-DATA\n(.*?)\n-->", _doc495.read_text(encoding="utf-8"), re.S)
+    _rows495 = {}
+    for _ln495 in (_m495.group(1).splitlines() if _m495 else []):
+        _c495 = [x.strip() for x in _ln495.split("|")]
+        if len(_c495) == 3 and _c495[1].isdigit() and _c495[2].isdigit():
+            _rows495[_c495[0]] = (int(_c495[1]), int(_c495[2]))
+    _over495, _inverted495, _near495 = [], [], []
+    for _rel495, (_adv495, _ceil495) in sorted(_rows495.items()):
+        _p495 = ROOT / _rel495
+        if _adv495 >= _ceil495:
+            _inverted495.append(f"{_rel495} ({_adv495} >= {_ceil495})")
+        if not _p495.is_file():
+            _over495.append(f"{_rel495} (file が無い)")
+            continue
+        _n495 = _p495.stat().st_size
+        if _n495 > _ceil495:
+            _over495.append(f"{_rel495} ({_n495} > {_ceil495})")
+        elif _n495 > _adv495:
+            _near495.append(f"{_rel495} ({_n495} > {_adv495})")
+    check(
+        bool(_rows495) and not _over495,
+        f"Check 495a: BYTE-BUDGET-DATA の {len(_rows495)} file がバイト数の上限内",
+        ("Check 495a: バイト数の上限を超えた (または登録先が無い): " + ", ".join(_over495[:5])
+         if _rows495 else "Check 495a: file-size-budget.md の BYTE-BUDGET-DATA を読めない")
+        + "。古い記録を別の file へ移すか分割せよ。上限を上げて黙らせない",
+        blocking=True,
+    )
+    check(
+        not _inverted495,
+        "Check 495b: BYTE-BUDGET-DATA の advisory はどれも ceiling 未満",
+        "Check 495b: advisory が ceiling 以上で、早期警告が鳴らない: " + ", ".join(_inverted495[:5]),
+        blocking=True,
+    )
+    if _near495:
+        warnings.append("Check 495 (ADVISORY): バイト数の advisory を超えた: " + ", ".join(_near495))
+    _ls495 = subprocess.run(["git", "ls-files", "-z"], cwd=str(ROOT), capture_output=True, text=True)
+    _tracked495 = [x for x in _ls495.stdout.split("\0") if x]
+    _unreg495, _long495 = [], []
+    for _rel495 in _tracked495:
+        _p495 = ROOT / _rel495
+        if (_rel495.startswith("LICENSES/rounds/") or _p495.name in CEILING_EXEMPT_NAMES
+                or _p495.suffix in CEILING_EXEMPT_EXTS or _rel495.startswith(CEILING_EXEMPT_PREFIXES)
+                or not _p495.is_file()):
+            continue
+        _lines495 = _p495.read_bytes().splitlines()
+        _n495 = sum(len(x) + 1 for x in _lines495)
+        if (_n495 >= BYTE_REGISTER_FLOOR and _n495 // max(len(_lines495), 1) >= BYTE_REGISTER_MEAN
+                and _rel495 not in _rows495):
+            _unreg495.append(f"{_rel495} ({_n495} バイト / {len(_lines495)} 行)")
+        if any(len(x) > LONG_LINE_CEILING for x in _lines495):
+            _long495.append(_rel495)
+    check(
+        len(_tracked495) > 0 and not _unreg495,
+        f"Check 495c: 行数で大きさを測れない file はすべて BYTE-BUDGET-DATA にある ({len(_tracked495)} file を走査)",
+        ("Check 495c: BYTE-BUDGET-DATA に登録の無い file: " + ", ".join(_unreg495[:5])
+         if _tracked495 else "Check 495c: git ls-files が 0 件で走査できない")
+        + "。file-size-budget.md へ advisory と ceiling を足せ",
+        blocking=True,
+    )
+    check(
+        not _long495,
+        f"Check 495d: {LONG_LINE_CEILING} バイトを超える行が無い",
+        f"Check 495d: 1 行が {LONG_LINE_CEILING} バイトを超える file: " + ", ".join(_long495[:5])
+        + "。追記が 1 つの行に積まれている形なので、行を分けるか別の file へ移せ",
+        blocking=True,
+    )
