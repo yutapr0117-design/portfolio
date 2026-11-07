@@ -36,7 +36,7 @@ the 1.0 text.
 | B12 | One steward, and succession | Low | The recorded worry is control, and ACD has no upgrade clause. No successor is named | The owner, and someone willing |
 | B13 | The cost of understanding this submission | High | Continuing. It is the only real relief for B3 | Us |
 | B14 | The moderators' notice on AI-written posts | Highest | The decision is OSI's. At least three posts were rejected by moderation | OSI, the owner |
-| B15 | Subject matter: §1.2's list touches a reason the Board gave in 2023 | High | The Committee stated a test in 2021 (CERN-OHL): licences *"written such that they can be used for software"* are appropriate for review. ACD meets it on its face. §1.2 is wider than CERN's, and the judgment is OSI's | OSI |
+| B15 | Subject matter: §1.2's list touches a reason the Board gave in 2023 | High | The Committee stated a test in 2021 (CERN-OHL): licences *"written such that they can be used for software"* are appropriate for review. ACD meets it on its face. In 2024 OSI's Executive Director said review may reach datasets and model parameters. §1.2 is wider than CERN's, and the judgment is OSI's | OSI |
 
 ## 2026-09-11 の掘削で確定したこと（この節は結論だけ。逐語は `review-corpus.md` §1.67〜§1.70a）
 
@@ -104,7 +104,7 @@ the 1.0 text.
 | **B12** | steward が 1 人 / 承継 | 低 | 9 | **リストが恐れたのは支配で、ACD に upgrade 条項は無い。承継先は未定**（2026-11-07 に 11 から移した）| ○ | — | — |
 | **B13** | reviewer の理解コスト | 高 | 1 / 3 | **継続対象**（B3 の結論により、長さへの唯一の実効的緩和）| — | — | — |
 | **B14** | **AI 起草の投稿は拒否すると両リストの moderator が宣言した（2026-09-09）** | **最高** | 新設 | **規制判断は OSI（組織）**（AI には解けない）。**2026-09-28 訂正（旧文「オーナーは Nick 氏個人とリスト外で対応中」は 09-10 時点の現在形のまま残っていた）**: 発信は 2026-09-17 に再開（状態の単一ソースは `FROZEN.md` の `POSTING-STATUS`）、**少なくとも 3 通が moderation で拒否**（#136 / #215 / #222）、リスト外の往復は `rounds/` に 09-07 / 09-13 / 09-15 / 09-17〜18 の記録がある（本文は撤回済みの stub・#217）。**それ以後の状態は我々からは分からない** ——「対応中」とも「終わった」とも書かない | ○ | — | ○ |
-| **B15** | **主題適格 —— §1.2 の列挙が、2023 年に理事会が不承認とした当の理由に触れている** | **高** | 10 | **OSI 判断依存**。**2026-11-07: 委員会は 2021 年に審査対象の基準を述べていた** —— *"written such that they can be used for software"*（CERN-OHL・`board-decisions.md` §2e）。ACD はこれに本文で答える。本文を変えて解く手は無い（列挙の語を落としても範囲は変わらず、範囲を縮めると非コード資産を失う・#237・`gap-measurements.md` §1.134。2026-11-04: 1.4 が §1.3 と §9.1 で自分で足したパラメータの名指しは戻した —— 範囲・B10 は不変・`ACD-1.4-CLARITY-TRIAL.md` §7）| — | — | ○ |
+| **B15** | **主題適格 —— §1.2 の列挙が、2023 年に理事会が不承認とした当の理由に触れている** | **高** | 10 | **OSI 判断依存**。**2026-11-07: 委員会は 2021 年に審査対象の基準を述べていた** —— *"written such that they can be used for software"*（CERN-OHL・`board-decisions.md` §2e）。事務局長は 2024 年に、審査はデータセットとパラメータの文書にも及ぶと述べた（§2g）。ACD はこれに本文で答える。本文を変えて解く手は無い（列挙の語を落としても範囲は変わらず、範囲を縮めると非コード資産を失う・#237・`gap-measurements.md` §1.134。2026-11-04: 1.4 が §1.3 と §9.1 で自分で足したパラメータの名指しは戻した —— 範囲・B10 は不変・`ACD-1.4-CLARITY-TRIAL.md` §7）| — | — | ○ |
 
 **深い分析の所在**: **B1 + B2 / B4 / B5 / B7 / B10 / B11 / B15** は [`ACD-OSI-BOTTLENECKS-EXTERNAL.md`](ACD-OSI-BOTTLENECKS-EXTERNAL.md) に在る（**外の答えに依存する項目**）。**B14 だけは [`ACD-OSI-BOTTLENECKS-POSTING.md`](ACD-OSI-BOTTLENECKS-POSTING.md)** ——**instrument の中身ではなく、そもそも投稿できるかという手続きの問題**だから（2026-09-25 に主題で分離）。**B3 / B6 / B8 / B9 / B12 / B13** はこの file の下。**索引・分類・集計は分離していない。**
 

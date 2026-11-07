@@ -1,0 +1,43 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2024-September.txt
+Retrieved: 2026-11-07
+Date: Sun, 1 Sep 2024 14:53:00 +0200
+From: Stefano Maffulli
+Subject: [License-review] Adapting the license-review process to AI
+Position: the message in which OSI's Executive Director says review will cover documents for non-software artifacts like datasets and model parameters. Not addressed to us.
+
+----- begin verbatim -----
+From stefano at opensource.org  Sun Sep  1 12:53:00 2024
+From: stefano at opensource.org (Stefano Maffulli)
+Date: Sun, 1 Sep 2024 14:53:00 +0200
+Subject: [License-review] Adapting the license-review process to AI
+Message-ID: <CAH=j4iTnb2ZvZX5zc644HofPok1xFMyzrcdT-A6TyGgmaKzMVQ@mail.gmail.com>
+
+Dear license-review volunteers,
+
+It is likely that OSI will be receiving requests to approve new licenses,
+agreements, and terms of use/distribution for open source AI works. These
+documents may apply, not just to copyrighted software, but to non-software
+artifacts like datasets, documentation, and model parameters (aka weights).
+
+To be clear, the OSI has no intention to be evaluating AI systems for
+compliance to the Open Source AI Definition. This is only about reviewing
+licenses and other legal documents, whether intended to accompany a
+complete AI system or the individual components of AI systems.
+
+The questions for this group:
+- Do you believe that this group should be the one to review the new
+documents, or should a separate group be created for it?
+- What new challenges do you expect to see in reviewing these licenses?
+- Do you recommend any changes to the process in light of potential new
+challenges?
+
+Thanks,
+Stef
+
+-- 
+
+*Executive Director - Open Source Initiative*
+Book a meeting: https://cal.com/smaffulli/meeting
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20240901/cf6f6060/attachment.htm>
