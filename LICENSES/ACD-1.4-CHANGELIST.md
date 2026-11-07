@@ -326,6 +326,8 @@ OSAID の要件を 1 つずつ条文に当てた。**OSAID が定めるものに
 | `submission-reference.md` 435 | **直さない**。CERN-OHL の §1.4 である |
 | `submission-reference.md` 666・667・669、`submission-osd.md` 147・68、`submission.md` 20、`READY-TO-SUBMIT.md` 44、`REVIEWERS.md` 97〜104・195 | **直さない**。版を名指すか、1.1 以降の番号か、番号の対応を説明する文である |
 | `SUBMISSION-MATERIALS.md` 44・96・109・141 | **直さない**。1.4 の番号である |
+| `QUESTIONS-FOR-COUNSEL.md`（472h）| 冒頭の *Which text* と canonical-ref を 1.4 へ。問 2 の §8.4 と問 5 の §5.1 は「1.3 の文、そのあと 1.4 の差」の順なので、1.4 の文を先に置き、1.3 は *in ACD-1.3* と名指して残す。*the 1.4 draft* は *ACD-1.4* へ。§2.8 の版の差を述べる文はそのままでよい |
+| `REVIEWERS.md` の §8.4 の限定の引用 | 1.3 の文である。切り替えの日に 1.4 の §8.4 の限定の文へ替える |
 
 
 ## Constraints
