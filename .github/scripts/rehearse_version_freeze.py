@@ -22,7 +22,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 # 確定の直後に残って正しい RED。直し方は docs/files/.github/scripts/prepare_version_freeze.py.md の表にある。
-EXPECTED = {"362", "444m", "472h"}
+EXPECTED = {"362", "444m"}
 
 
 def git(*args: str, cwd: Path = ROOT) -> str:
