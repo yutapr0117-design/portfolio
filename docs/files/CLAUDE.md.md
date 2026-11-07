@@ -1,7 +1,7 @@
 ---
 file: CLAUDE.md
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-11-07
 canonical-ref: AI2AI.md (canon) / llms-full.txt (ground truth) / Check 87
 ---
 
@@ -38,7 +38,7 @@ Claude Code session-start
 
 ## Change impact
 
-- §7 handoff 更新 → 各 increment で必須 (現在状態 reflect)
+- §7 handoff 更新 → 各 increment で必須 (現在状態 reflect)。全 session と全 subagent に毎回読み込まれるので、run ごとの全文は置かない。規則・現在の状態・教訓を残し、全文は `docs/session-records/CLAUDE-handoff-archive.md` へ移す
 - §2 C1-C7 編集 → AI2AI.md canon と同期 (canon が master)
 - §4 routing map 編集 → docs/architecture/* の存在と整合
 
