@@ -1,0 +1,435 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2019-May.txt, 2019-June.txt)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-07)
+Messages: 6 messages cited by this dossier from "comprehensiveness (or not) of the OSI-approved list" (45 messages) and "Evolving the License Review process for OSI". Not a whole thread.
+Senders: Richard Fontana, Tzeng, Nigel H., Henrik Ingo
+Position: what participants in the 2012 CC0 review said about it seven years later. Not addressed to us and not about ACD. Each message keeps its archive headers. The reading is in LICENSES/ACD-1.0.review-precedents.md section 1.138.
+
+----- begin verbatim -----
+From rfontana at redhat.com  Tue May 21 16:55:42 2019
+From: rfontana at redhat.com (Richard Fontana)
+Date: Tue, 21 May 2019 12:55:42 -0400
+Subject: [License-discuss] comprehensiveness (or not) of the
+ OSI-approved list
+In-Reply-To: <4a266e0702004facaa41b33dded1af41@nalasexr03f.na.qualcomm.com>
+References: <4a266e0702004facaa41b33dded1af41@nalasexr03f.na.qualcomm.com>
+Message-ID: <CAC1cPGyOH0pjuo+mkvpgnuqQuoop6ehgfGZ=4NpnXyHqyJ3QSg@mail.gmail.com>
+
+On Tue, May 21, 2019 at 12:30 PM Nicholas Matthew Neft Weinstock
+<nweinsto at qti.qualcomm.com> wrote:
+[...]
+
+> OSI does not do so with regards to prospective licenses.  It considers other factors besides the published definition.
+>
+[...]
+> OSI?s License Review committee was unable to reach consensus on approving CC0,
+
+The wording in the FAQ you referenced
+(https://opensource.org/faq#cc-zero) is slightly but meaningfully
+different: "the License Review Committee was unable to reach consensus
+that it should be approved". Based on what I recall of the discussion,
+that seems to be a polite way of saying that there was a quickly
+growing consensus that it should be rejected.
+
+> but not because it failed any element of the OSD (https://opensource.org/faq#cc-zero).
+
+The sentence "While many open source licenses simply do not mention
+patents, it is exceedingly rare for open source licenses to explicitly
+disclaim any conveyance of patent rights, and the Committee felt that
+approving such a license would set a dangerous precedent, and possibly
+even weaken patent infringement defenses available to users of
+software released under CC0." was written by an OSI board member
+several years ago and may not fully reflect the current view of the
+OSI board; I recommend that they review this FAQ.
+
+I am not sure if you are doing this intentionally (I notice you are
+writing from a Qualcomm address) but there's nothing in that FAQ that
+suggests that CC0, in the views of the participants in that l-r
+discussion, did *not* think it failed elements of the OSD. Indeed my
+recollection is that some participants in that discussion specifically
+pointed to OSD 7 as a basis for nonconformance of CC0 with the OSD.
+
+(I don't necessarily disagree with the main point you were making.)
+
+ Richard
+
+
+From Nigel.Tzeng at jhuapl.edu  Wed May 22 13:12:58 2019
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Wed, 22 May 2019 13:12:58 +0000
+Subject: [License-discuss] comprehensiveness (or not) of the
+ OSI-approved list
+In-Reply-To: <CAC1cPGyOH0pjuo+mkvpgnuqQuoop6ehgfGZ=4NpnXyHqyJ3QSg@mail.gmail.com>
+References: <4a266e0702004facaa41b33dded1af41@nalasexr03f.na.qualcomm.com>
+ <CAC1cPGyOH0pjuo+mkvpgnuqQuoop6ehgfGZ=4NpnXyHqyJ3QSg@mail.gmail.com>
+Message-ID: <26A7030B-B5BA-498E-9143-9F7BEDF0725A@jhuapl.edu>
+
+Let's clarify the history on CC0.
+
+
+
+Objection to CC0 was primarily you and Bruce which made it DOA regardless of the opinions of the rest of the list.  There was no "quickly growing consensus" when they pulled the plug.
+
+
+
+Many, if not the majority, of folks on L-R thought this should have been an easy open and shut approval:
+
+
+
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-February/001429.html
+
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-February/001430.html
+
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-February/001432.html
+
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-February/001434.html
+
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-February/001443.html
+
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-February/001441.html
+
+
+
+And I got tired of reading that thread again?.folks that care to can do so to see that the list was in favor of approval.
+
+
+
+What was happening behind the scenes on the OSI board I cannot say but to say that ?the Committee felt that approving such a license would set a dangerous precedent? is a significant overstatement.
+
+
+
+The fact remains that CC0 is a widely used Open Source license approved by CC, FSF and the USG.  OSI approval, or lack thereof, has had minimal impact on its use.  John Cowan succinctly made this point in 2012:
+
+
+
+"I would, and gladly.  But it wouldn't be CC0.  People are *already* publishing software under CC0, and now they can't even say it's Open Source.  That *sucks*."
+
+
+
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-February/001570.html
+
+
+
+ObDis: Speaking for myself and not APL.
+
+
+
+?On 5/21/19, 12:56 PM, "License-discuss on behalf of Richard Fontana" <license-discuss-bounces at lists.opensource.org on behalf of rfontana at redhat.com> wrote:
+
+
+
+    On Tue, May 21, 2019 at 12:30 PM Nicholas Matthew Neft Weinstock
+
+    <nweinsto at qti.qualcomm.com> wrote:
+
+    [...]
+
+
+
+    > OSI does not do so with regards to prospective licenses.  It considers other factors besides the published definition.
+
+    >
+
+    [...]
+
+    > OSI?s License Review committee was unable to reach consensus on approving CC0,
+
+
+
+    The wording in the FAQ you referenced
+
+    (https://opensource.org/faq#cc-zero) is slightly but meaningfully
+
+    different: "the License Review Committee was unable to reach consensus
+
+    that it should be approved". Based on what I recall of the discussion,
+
+    that seems to be a polite way of saying that there was a quickly
+
+    growing consensus that it should be rejected.
+
+
+
+    > but not because it failed any element of the OSD (https://opensource.org/faq#cc-zero).
+
+
+
+    The sentence "While many open source licenses simply do not mention
+
+    patents, it is exceedingly rare for open source licenses to explicitly
+
+    disclaim any conveyance of patent rights, and the Committee felt that
+
+    approving such a license would set a dangerous precedent, and possibly
+
+    even weaken patent infringement defenses available to users of
+
+    software released under CC0." was written by an OSI board member
+
+    several years ago and may not fully reflect the current view of the
+
+    OSI board; I recommend that they review this FAQ.
+
+
+
+    I am not sure if you are doing this intentionally (I notice you are
+
+    writing from a Qualcomm address) but there's nothing in that FAQ that
+
+    suggests that CC0, in the views of the participants in that l-r
+
+    discussion, did *not* think it failed elements of the OSD. Indeed my
+
+    recollection is that some participants in that discussion specifically
+
+    pointed to OSD 7 as a basis for nonconformance of CC0 with the OSD.
+
+
+
+    (I don't necessarily disagree with the main point you were making.)
+
+
+
+     Richard
+
+
+
+    _______________________________________________
+
+    License-discuss mailing list
+
+    License-discuss at lists.opensource.org
+
+    http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190522/c600c032/attachment.html>
+
+From rfontana at redhat.com  Wed May 22 14:05:03 2019
+From: rfontana at redhat.com (Richard Fontana)
+Date: Wed, 22 May 2019 10:05:03 -0400
+Subject: [License-discuss] comprehensiveness (or not) of the
+ OSI-approved list
+In-Reply-To: <26A7030B-B5BA-498E-9143-9F7BEDF0725A@jhuapl.edu>
+References: <4a266e0702004facaa41b33dded1af41@nalasexr03f.na.qualcomm.com>
+ <CAC1cPGyOH0pjuo+mkvpgnuqQuoop6ehgfGZ=4NpnXyHqyJ3QSg@mail.gmail.com>
+ <26A7030B-B5BA-498E-9143-9F7BEDF0725A@jhuapl.edu>
+Message-ID: <CAC1cPGwW4ijvupPX8bTx8Tfi_-6bV9R_j4y0jMx_pZAU6ZTowA@mail.gmail.com>
+
+On Wed, May 22, 2019 at 9:15 AM Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu> wrote:
+>
+> Let's clarify the history on CC0.
+>
+>
+>
+> Objection to CC0 was primarily you and Bruce which made it DOA regardless of the opinions of the rest of the list.  There was no "quickly growing consensus" when they pulled the plug.
+
+You're right, Nigel  -- except that I can't see why that would have
+made it DOA. Apart from that, I withdraw that characterization. I have
+not reviewed the thread, but I do seem to recall being the person who
+called attention to the patent language. I remember what bothered me
+at the time was that if CC0 were summarily approved -- and yes, it
+seems that that was the direction things were going in -- it would be
+inconsistent with the hostile reception of the MXM license that Carlo
+Piana had submitted, which I believe was based on MPL but with a
+significantly narrowed patent license grant.
+
+I was not troubled by the idea of approval of CC0 as such. Back in
+those days I was a big fan of CC0. I used to recommend its use to Red
+Hat developers, for certain purposes. I was known for saying "I love
+CC0" (yes, I used that phrasing) so often that I remember Aaron
+Williamson joking about this at an OSCON talk.
+
+What concerned me, and I remember Carlo noting this as well, was the
+possibility that OSI, or l-r, would treat similar licenses differently
+based on varying sentimental attitudes toward the license submitter.
+Creative Commons, in those days perhaps even more than today, was
+viewed very positively in the open source community. (I feel that
+today there is more distance between the CC and open source
+communities.) The MXM license was associated with MPEG and more
+generally with the controversial topic of media codec patent
+licensing. Since you brought up NOSA, my concerns about that license
+in a sense came out of the earlier MXM/CC0 experience. NASA is another
+entity that, I had come to perceive, was viewed very positively in the
+open source community for what seemed to be, at root, sentimental
+reasons connected to NASA's relationship with tech culture (I was
+seeing this at the time in the OpenStack project, whose early
+popularizers made much of its NASA origins).
+
+At least from today's perspective, we saw the problem play out a
+couple of years later with the UPL submission. The hostile initial
+reaction to UPL, on l-r and elsewhere, was obviously connected to
+general community hostility towards Oracle, especially during that
+period.
+
+So you've motivated me to say this: I think OSI should dispense with
+the whole idea that it should passively react to any supposed
+consensus that emerges from license-review. OSI has a responsibility
+to determine whether a license meets the OSD and provides software
+freedom regardless of what direction the l-r discussion is going in.
+One reason for this is the history of inconsistent attitudes on l-r
+towards submitted licenses based apparently on views of the license
+submitter.
+
+> What was happening behind the scenes on the OSI board I cannot say but to say that ?the Committee felt that approving such a license would set a dangerous precedent? is a significant overstatement.
+
+I agree.
+
+> The fact remains that CC0 is a widely used Open Source license approved by CC, FSF and the USG.  OSI approval, or lack thereof, has had minimal impact on its use.
+
+I think things are more complicated than you suggest. The discussion
+of CC0 (and the inconsistent earlier discussion of MXM) exposed a
+policy problem surrounding open source and patents that had previously
+been ignored or misunderstood. Or perhaps it showed the beginnings of
+an evolution in community understanding of the issue.
+
+One of the major open source policy issues of the present day, at
+least from my standpoint, is the controversy over open source in the
+FRAND licensing context. A couple of companies have been promoting the
+view that (a) "copyright only" licenses that explicitly withhold
+patent licenses can be open source, (b) widely-used permissive open
+source licenses that do not explicitly mention patents should be
+interpreted as "copyright only". The OSI has in recent years been
+fairly clear and activist in its opposition to this campaign. The
+approval of CC0 would have been inconsistent with the OSI's own
+emerging view on interpretation of the OSD in relation to this issue.
+
+Richard
+
+
+From henrik.ingo at avoinelama.fi  Wed May 22 14:09:56 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Wed, 22 May 2019 17:09:56 +0300
+Subject: [License-discuss] comprehensiveness (or not) of the
+ OSI-approved list
+In-Reply-To: <26A7030B-B5BA-498E-9143-9F7BEDF0725A@jhuapl.edu>
+References: <4a266e0702004facaa41b33dded1af41@nalasexr03f.na.qualcomm.com>
+ <CAC1cPGyOH0pjuo+mkvpgnuqQuoop6ehgfGZ=4NpnXyHqyJ3QSg@mail.gmail.com>
+ <26A7030B-B5BA-498E-9143-9F7BEDF0725A@jhuapl.edu>
+Message-ID: <CAKHykesoYtqFxWBaCQVj4wi4nZmZnGu6O7+WDKp3jxP=Rytnog@mail.gmail.com>
+
+On Wed, May 22, 2019 at 4:43 PM Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu> wrote:
+>
+> Let's clarify the history on CC0.
+>
+>
+>
+> Objection to CC0 was primarily you and Bruce which made it DOA regardless of the opinions of the rest of the list.  There was no "quickly growing consensus" when they pulled the plug.
+>
+
+And me, and others... This was the quickly growing consensus.
+
+Also, opposition to software patents is yet another good example of
+something that shouldn't surprise anyone that knows the basics of
+history of software freedom movement.
+
+Can we please let these old reviews go to rest now? Just because you
+disagree with something doesn't mean you need to bring it back here 7
+years later!
+
+henrik
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+
+
+From Nigel.Tzeng at jhuapl.edu  Wed May 22 19:36:03 2019
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Wed, 22 May 2019 19:36:03 +0000
+Subject: [License-discuss] comprehensiveness (or not) of the
+ OSI-approved list
+In-Reply-To: <CAC1cPGwW4ijvupPX8bTx8Tfi_-6bV9R_j4y0jMx_pZAU6ZTowA@mail.gmail.com>
+References: <4a266e0702004facaa41b33dded1af41@nalasexr03f.na.qualcomm.com>
+ <CAC1cPGyOH0pjuo+mkvpgnuqQuoop6ehgfGZ=4NpnXyHqyJ3QSg@mail.gmail.com>
+ <26A7030B-B5BA-498E-9143-9F7BEDF0725A@jhuapl.edu>
+ <CAC1cPGwW4ijvupPX8bTx8Tfi_-6bV9R_j4y0jMx_pZAU6ZTowA@mail.gmail.com>
+Message-ID: <E73835D8-2CCF-4274-B831-B7E274CADEB5@jhuapl.edu>
+
+On 5/22/19, 10:06 AM, "License-discuss on behalf of Richard Fontana" <license-discuss-bounces at lists.opensource.org on behalf of rfontana at redhat.com> wrote:
+        
+>    What concerned me, and I remember Carlo noting this as well, was the
+>    possibility that OSI, or l-r, would treat similar licenses differently
+>    based on varying sentimental attitudes toward the license submitter.
+>    Creative Commons, in those days perhaps even more than today, was
+>    viewed very positively in the open source community. (I feel that
+>    today there is more distance between the CC and open source
+>    communities.) The MXM license was associated with MPEG and more
+>    generally with the controversial topic of media codec patent
+>    licensing. 
+
+...
+    
+>    At least from today's perspective, we saw the problem play out a
+>    couple of years later with the UPL submission. The hostile initial
+>    reaction to UPL, on l-r and elsewhere, was obviously connected to
+>    general community hostility towards Oracle, especially during that
+>    period.
+  
+I would argue that Microsoft was even more disliked and MS-PL and MS-RL passed review with L-R consensus for approval despite the widespread distrust.
+
+For the most part I assume that everyone on L-R is acting in good faith and are likely more aware of their own biases than most.  From what I remember of the Microsoft discussion, folks were going out of their way to not simply reject it out of hand.
+
+UPL also passed and I seem to be quoting John a lot but here goes:
+
+"And yet OSI approved two Microsoft licenses.  I had a little bit to do with that, and I defended myself on both Groklaw and Reddit by saying that a license-writer's motives are irrelevant: what counts is the work."
+
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2014-April/002138.html
+  
+>    So you've motivated me to say this: I think OSI should dispense with
+>    the whole idea that it should passively react to any supposed
+>    consensus that emerges from license-review. OSI has a responsibility
+>    to determine whether a license meets the OSD and provides software
+>    freedom regardless of what direction the l-r discussion is going in.
+>    One reason for this is the history of inconsistent attitudes on l-r
+>    towards submitted licenses based apparently on views of the license
+>    submitter.
+  
+I would counter that the 2012 list was much more diverse and engaged than the 2019 list and could be again under the right stewardship.  If the 2019 list lacks engagement I would say it's not because of the mailing list format but because of the perception that you and Bruce dominate the L-R list.  
+
+We dance around this issue because nobody wants to get personal about things and understand that I do hold you and Bruce in the highest regard. But if we're doing honest root-cause analysis it must be at least examined.  You can also note that while I respect you guys that doesn't mean you two don't really piss me off from time to time.  But as I said, I assume everyone is acting in good faith and I generally don't look at their mailing address.  Most folks participating on L-R and L-D are open source proponents regardless of who they work for.
+
+Changing OSI policy is up to the OSI board...but I think it would be a premature action to dispense with the role of L-R and I believe that historically the L-R list has been quite successful in overcoming submitter bias. 
+
+ObDis: Speaking only for myself.
+  
+ 
+
+
+From rfontana at redhat.com  Mon Jun  3 01:49:15 2019
+From: rfontana at redhat.com (Richard Fontana)
+Date: Sun, 2 Jun 2019 21:49:15 -0400
+Subject: [License-discuss] [License-review] Evolving the License Review
+ process for OSI
+In-Reply-To: <CAFjZtRdfJr+57AEiFB1CJP9Co+cBXnbwRov_C5mvVGWwuO1H-Q@mail.gmail.com>
+References: <473cb721-da83-195e-1b46-21f61ef35db6@opensource.org>
+ <CAFjZtReB=w3cfd+KfA3F=t4x0pvLkCajLVFW=PM-4z_MyZredg@mail.gmail.com>
+ <69b80a2d-b43b-0a84-ef79-30f2907f6918@chesteklegal.com>
+ <CAFjZtRdfJr+57AEiFB1CJP9Co+cBXnbwRov_C5mvVGWwuO1H-Q@mail.gmail.com>
+Message-ID: <CAC1cPGwXDcZo=Ow40Uh0T5EQyoDKtfd0WtoLDvyshXJq6Zxkzw@mail.gmail.com>
+
+On Sat, Jun 1, 2019 at 12:03 PM Luis Villa <luis at lu.is> wrote:
+>
+> Where there's been a substantial point made, I think the answer is probably yes - a concise and board-endorsed summary of the CC0 withdrawal, for example, would have been repeatedly useful to be able to point at over the years.
+
+There is a statement about the CC0 withdrawal in an OSI FAQ, which
+Nigel has argued (convincingly I think) is misleading and inaccurate.
+It just shows the difficulty in trying to summarize a license
+submission withdrawal, which was not an OSI decision and at least IMO
+can't fairly be described as a "decision" of license-review, or the
+then-semi-fictional License Committee. Chris Webber actually gave a
+pretty candid explanation for the withdrawal
+(http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-February/001565.html),
+but I am not sure what value a summary of that explanation would have
+for people trying to understand how OSI itself makes decisions. I
+suspect OSI would have approved CC0 if, er, someone hadn't
+inconveniently brought up the whole patent issue.
+
+Richard
+
+

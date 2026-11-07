@@ -1,0 +1,658 @@
+Source: https://lists.opensource.org/pipermail/ (license-review 2019-May.txt and 2019-June.txt; license-discuss 2019-May.txt and 2019-June.txt)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-07)
+Messages: 10 messages cited by this dossier from the 2019 threads "Evolving the License Review process for OSI" (126 messages across both lists) and "popularity, usage, re-review of old licenses". Not a whole thread. Part 1 of 2 (6 messages).
+Senders: Pamela Chestek, Richard Fontana, Simon Phipps, Luis Villa
+Position: the Board's notice of 2019-05-24 on the review process and what its authors said about it. Not addressed to us and not about ACD. Each message keeps its archive headers. The reading is in LICENSES/ACD-1.0.board-decisions.md section 2h.
+
+----- begin verbatim -----
+From pamela.chestek at opensource.org  Fri May 24 14:50:56 2019
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Fri, 24 May 2019 10:50:56 -0400
+Subject: [License-review] Evolving the License Review process for OSI
+Message-ID: <473cb721-da83-195e-1b46-21f61ef35db6@opensource.org>
+
+_Summary_
+The directors of the board of the Open Source Initiative recognize the
+process for discussion and review of new licenses proposed for approval
+by the organization can use improvement and would benefit from
+evolution. In particular, it does not appear as though all points of
+view on open source licensing are represented in the discussion here. To
+address this situation we have created a Board Committee for license
+approval to evaluate responses on-list, appointed more moderators, and
+will devise a new moderation strategy.
+
+_Proposal_
+We anticipate that the effort to improve the quality of discussion on
+the license lists will be an iterative process. This email describes our
+first step, which is to approach the community and elicit feedback on
+this approach. We anticipate further steps including a review of tools,
+but we?re not yet at that stage.
+
+_Channels_
+License review vs. License discuss lists
+
+License-review at lists.opensource.org is the email address for submitting
+a license for which you seek OSI approval following the process at
+https://opensource.org/approval. The list is open to the public, so
+anyone can give their opinion about a license. The OSI License Committee
+considers the viewpoints expressed on the license-review list in making
+its license approval recommendation to the OSI Board. Since the purpose
+of the list is to inform the Committee and the Board, discussion of
+substantive issues off-list is not recommended. If a license submitter
+elects to respond to a substantive question submitted to them off-list,
+the submitter is encouraged to copy the license-review list also on
+their response after redacting the identity of the person sending the
+communication.
+
+License-discuss at lists.opensource.org is for general questions about open
+source licenses and for licenses in early stage development. The list is
+open to the public and anyone can give feedback. A moderator may decide
+that a license submitted to license-review isn?t sufficiently developed
+and will move it to license-discuss for additional work. We recommend
+that you carry out your license development process on a publicly
+viewable venue (preferably one where collaboration is also possible) and
+regularly seek views on license-discuss. Note that agreement on
+license-discuss does not guarantee agreement on license-review, as the
+audiences differ.
+
+_Moderation_
+The board recognizes that the license-review mailing list would benefit
+from further, more concerted moderation, both to ensure appropriate
+conversation and to maintain the pace of discussions. This more
+concerted process will evolve in the following steps:
+
+  * We will develop rules to encourage wider participation. We perceive
+    that some are discouraged from participating because of offensive
+    tone, frequency, or repetitiveness of messages. We will develop
+    moderation standards to address these hurdles.
+  * A moderator will also advance the conversation, by following up with
+    the license steward on unanswered questions and ensuring that all
+    topics of interest have been fully fleshed out.
+  * We will assure observance of the Code of Conduct for the mailing
+    lists, available at: https://opensource.org/codeofconduct/licensing.
+
+
+_Changes to the Website_
+We have also made a minor change to the language describing the license
+review process on https://opensource.org/approval. The page formerly
+said ?Approve, if (a) there is sufficient consensus emerging from
+community discussion that approval is justified, and (b) the OSI
+determines that the license conforms to the Open Source Definition and
+guarantees software freedom." The page now says ?Approve if, after
+taking into consideration community discussion, the OSI determines that
+the license conforms to the Open Source Definition and guarantees
+software freedom.?
+
+We have also clarified the timing of the review decision.
+
+_License Review Committee_
+The License Review Committee is an OSI Board committee made up of the
+following board members, as of May 2019:
+
+Pamela Chestek, chair, pamela.chestek at opensource.org
+Elana Hashman, elana.hashman at opensource.org
+Chris Lamb, chris.lamb at opensource.org
+Simon Phipps, webmink at opensource.org
+
+The License Review Committee will summarize and report the
+license-review discussions to the Board for the Board?s approval or
+disapproval of a proposed license. Members of the Committee also serve
+as moderators for the two mailing lists.
+
+_What We?re Asking_
+Let us know what you think of these changes.
+
+Pam
+
+-- 
+Pamela Chestek
+Chair, License Review Committee
+Open Source Initiative
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190524/896900ed/attachment.html>
+
+From rfontana at redhat.com  Sat May 25 12:55:24 2019
+From: rfontana at redhat.com (Richard Fontana)
+Date: Sat, 25 May 2019 08:55:24 -0400
+Subject: [License-discuss] Evolving the License Review process for OSI
+In-Reply-To: <473cb721-da83-195e-1b46-21f61ef35db6@opensource.org>
+References: <473cb721-da83-195e-1b46-21f61ef35db6@opensource.org>
+Message-ID: <CAC1cPGzrixceJ9OQzezGH8FhLvby4XUKwyS81jw7jWOcfkY2wQ@mail.gmail.com>
+
+On Fri, May 24, 2019 at 10:52 AM Pamela Chestek
+<pamela.chestek at opensource.org> wrote:
+>
+> Changes to the Website
+> We have also made a minor change to the language describing the license review process on https://opensource.org/approval. The page formerly said ?Approve, if (a) there is sufficient consensus emerging from community discussion that approval is justified, and (b) the OSI determines that the license conforms to the Open Source Definition and guarantees software freedom." The page now says ?Approve if, after taking into consideration community discussion, the OSI determines that the license conforms to the Open Source Definition and guarantees software freedom.?
+
+This is a good change. I am not sure it is so minor. But I think it
+more accurately describes how the OSI has reached, and (as I see it)
+should reach its approval decisions.
+
+> License Review Committee
+> The License Review Committee is an OSI Board committee made up of the following board members, as of May 2019:
+>
+> Pamela Chestek, chair, pamela.chestek at opensource.org
+> Elana Hashman, elana.hashman at opensource.org
+> Chris Lamb, chris.lamb at opensource.org
+> Simon Phipps, webmink at opensource.org
+>
+> The License Review Committee will summarize and report the license-review discussions to the Board for the Board?s approval or disapproval of a proposed license. Members of the Committee also serve as moderators for the two mailing lists.
+
+Recently Luis explained that when he was on the OSI board there was a
+notion that the License Review Committee was identical with all
+participants on the license-review list, and that the list itself was
+effectively a board committee. A few participants certainly spoke of
+it that way (most recently in Bruce's message). That was never how I
+saw it, frankly, even before ~2013, but anyway to the extent this
+marks a significant change in how the concept of the License Review
+Committee is understood I support this. I'd note that what I have
+found frustrating in some of the recent criticism of OSI is what I saw
+as a conflation of mailing list discussion with the board itself,
+though Luis explained (either here or on Twitter, I can't recall) why
+this conflation may have been justified, and I think in his view it
+was partly because the mailing list was conceived in some sense as a
+board committee.
+
+Richard
+
+
+From webmink at opensource.org  Sat May 25 20:25:59 2019
+From: webmink at opensource.org (Simon Phipps)
+Date: Sat, 25 May 2019 23:25:59 +0300
+Subject: [License-discuss] Evolving the License Review process for OSI
+In-Reply-To: <CAP7YuAS_OGzf7oaFv4ZrOkYVGd4qzkYJJh69+Ek=VYzT83Vosw@mail.gmail.com>
+References: <473cb721-da83-195e-1b46-21f61ef35db6@opensource.org>
+ <CAK2MWOs1NzN0CoOhR0bdaXkEZSd1ojnMDyWXkZKSgZJPpibNsA@mail.gmail.com>
+ <05d901d5130c$96103ec0$c230bc40$@rosenlaw.com>
+ <863b24c8-5310-5594-44c8-ca73f259b3de@opensource.org>
+ <CAP7YuAS_OGzf7oaFv4ZrOkYVGd4qzkYJJh69+Ek=VYzT83Vosw@mail.gmail.com>
+Message-ID: <CAA4ffp-gidB-viTN=FWkm+MTTRsM2t_3Q6oCNZKvxATPNrTeYg@mail.gmail.com>
+
+(not citing the author as this is directed at all rather than a response to
+him)
+
+  I think Pam?s approach is very reasonable, why not let?s try it and see!
+>
+
+In case this is unclear to anyone, Pam is acting here as the Director
+responsible. The message she sent about OSI's process was authored
+collectively by the Board and is our shared view, which she has artfully
+edited. While she is doing a great job here, list members should understand
+she is acting representatively and has our full support.
+
+S.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190525/e226fcd3/attachment.html>
+
+From rfontana at redhat.com  Sun May 26 14:03:24 2019
+From: rfontana at redhat.com (Richard Fontana)
+Date: Sun, 26 May 2019 10:03:24 -0400
+Subject: [License-discuss] Evolving the License Review process for OSI
+In-Reply-To: <76d9d0c9-a02e-bba8-a00f-5b97b05ac581@chesteklegal.com>
+References: <473cb721-da83-195e-1b46-21f61ef35db6@opensource.org>
+ <CAK2MWOs1NzN0CoOhR0bdaXkEZSd1ojnMDyWXkZKSgZJPpibNsA@mail.gmail.com>
+ <05d901d5130c$96103ec0$c230bc40$@rosenlaw.com>
+ <863b24c8-5310-5594-44c8-ca73f259b3de@opensource.org>
+ <20190526070427.GM21249@linuxmafia.com>
+ <76d9d0c9-a02e-bba8-a00f-5b97b05ac581@chesteklegal.com>
+Message-ID: <CAC1cPGw6mNsjsOXtNQL7RBK4QSGYNunQPOJX-=-rd0mHBjxiNg@mail.gmail.com>
+
+On Sun, May 26, 2019 at 8:32 AM Pamela Chestek <pamela at chesteklegal.com> wrote:
+[replying to Rick Moen]
+
+> But I hope to ease your concern that I am a rigid rule follower and can
+> be gamed that way. First, even if I could be gamed or I have nefarious
+> intent, the License Review Committee is four people and the Board is
+> eleven people. I surely can't act unilaterally. Second, I'm not a rigid
+> rule follower, although I am someone who believes that decisions should
+> be consistent and backed up with rationale more compelling than "because
+> we say so."
+
+I've said this before: one of the reasons why the OSI is perceived as
+making unpredictable decisions or decisions without rationale is the
+result of how the license approval process has worked. Of the licenses
+formally and informally submitted for approval, most never make it to
+a board decision. Many submitters were never very serious and quickly
+end their engagement. Some other licenses are more interesting and
+controversial and what has happened in a number of those cases is the
+license submitter withdraws after the mailing list discussion proceeds
+in a negative or hostile way (not necessarily in a way that would
+raise code-of-conduct issues). Anyway, the licenses that tend to make
+it to a board decision are relatively uninteresting (from a
+commercial/community perspective) and non-controversial (not raising
+significant software freedom policy issues or OSD interpretation). Or
+at least so it seems at the time. It is possible that the only case of
+a formal board rejection of a license was one that occurred fairly
+recently.
+
+For the uninteresting/noncontroversial license approvals, the OSI's
+silence on rationale hasn't been such a big deal because official
+rationale wouldn't tell us much that isn't already obvious. Take
+BSD+Patent: the license takes noncontroversial, widely used language
+from the 2-clause BSD license and adds in some language from the
+widely-accepted patent license grant clauses of the Apache License 2.0
+and the EPL in a fairly straightforward way. It is not surprising that
+this license was approved by the OSI, and I'm not sure what the OSI
+should have said about the rationale that would have been particularly
+enlightening for future license submissions.
+
+Where official rationale would be helpful from a precedent or
+predictability perspective is with the more controversial licenses --
+but the OSI has no opportunity to provide any because of the
+withdrawal or disengagement. I accept the OSI board's view that there
+is a need for policing behavior on license-review, but I am not sure
+problematic behavior on license-review is causing that disengagement
+(which some OSI critics have at least hinted at). Maybe the OSI should
+be rendering advisory opinions on license submissions that don't make
+it to a final decision. We're left with uncertainty over the
+significance of the failed submissions of L0-R and SSPLv2 -- recent
+license submissions that raised significant and related policy
+decisions concerning the acceptable limits of copyleft and
+restrictions on "freedom 0" for an open source license.
+
+> For example, I direct your attention to (brought to my
+> attention by Kyle Mitchell) the OSI-approved  Reciprocal Public
+> License.[^1] This license says "Regarding deployment, under the RPL your
+> changes, bug fixes, extensions, etc. must be made available to the open
+> source community at large when you Deploy in any form -- either
+> internally or to an outside party. Once you start running the software
+> you have to start sharing the software." How do you reconcile that with
+> the current position, and a supposed basis for refusing a license, that
+> there must be freedom to run software? "Because we say so" works, but I
+> think people would be justified in their unhappiness if there is no
+> explanation (which might be "oops, that one slipped through!")
+
+I believe one problem is that the OSI has been very reluctant
+institutionally to admit that it could have made a mistake in
+judgment. A less obvious issue which I think probably goes well beyond
+the OSI is the difficulty seeing that what "software freedom", or a
+particular provision of the OSD, means might change over time rather
+than somehow being fixed, though someone could reasonably take issue
+with that just as a matter of software freedom philosophy.
+
+Another license Kyle inconveniently brings up is the Adaptive Public
+License -- the approval of which is completely inconsistent not just
+with the OSI's current position on open source and patents but also,
+arguably, with official OSI pronouncements on patents that predate
+APL's approval.
+
+Once in a while someone here suggests the OSI adopt an official
+de-listing procedure (beyond the existing limited possibility for
+license steward deprecation). I'd like to propose that the OSI board
+reconsider this idea, so that a *very* small number of licenses
+approved earlier in the OSI's history can be reexamined, at the
+initiative of any community member, to see whether they should be
+removed from the approved list, whether because the license was likely
+approved in error, or (and this would probably be even more unusual)
+because software freedom values have evolved sufficiently to make the
+past approval inappropriate today. I realize that adopting a
+de-listing procedure raises its own predictability-related policy
+concerns.
+
+Richard
+
+
+From pamela at chesteklegal.com  Sun May 26 12:31:43 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sun, 26 May 2019 08:31:43 -0400
+Subject: [License-discuss] Evolving the License Review process for OSI
+In-Reply-To: <20190526070427.GM21249@linuxmafia.com>
+References: <473cb721-da83-195e-1b46-21f61ef35db6@opensource.org>
+ <CAK2MWOs1NzN0CoOhR0bdaXkEZSd1ojnMDyWXkZKSgZJPpibNsA@mail.gmail.com>
+ <05d901d5130c$96103ec0$c230bc40$@rosenlaw.com>
+ <863b24c8-5310-5594-44c8-ca73f259b3de@opensource.org>
+ <20190526070427.GM21249@linuxmafia.com>
+Message-ID: <76d9d0c9-a02e-bba8-a00f-5b97b05ac581@chesteklegal.com>
+
+
+On 5/26/2019 3:04 AM, Rick Moen wrote:
+> Please pardon a wee bit more pontificating:  I take Board good faith
+> Board as given, but IMO it's well to be wary of Internet gamesmanship,
+> that a cynic might imagine being behind _some_ claims of oppression from
+> some never-identified silent majority[1] or whatever.
+Hi Rick,
+
+Speaking in my personal capacity here and quoting only a bit of your
+email for context, but I take your point in the whole email.
+
+What I believe you are linking two things happening that are actually
+unrelated. Putting the content of the recent open source license
+submissions aside, the OSI has been criticized recently on two vectors,
+that the mailing list fails to function as originally intended and the
+unpredictability of license approval. On the functioning of the mailing
+list, as Simon pointed out the Board was in agreement that this was a
+problem and approved the email that was sent.
+
+There are probably differences of opinion within the Board (at least I
+perceive Simon and I to have differences of opinion) on whether the
+second point is actually something that needs to be fixed. The voices
+who are complaining about the second issue that immediately come to my
+mind are lawyers, and I agree with them. I suspect we are used to
+working in a world where we have statutes and regulations and
+precedential case law, so we are unhappy when the answer is only
+"because we say so." I also think that the OSI will be significantly
+harmed, perhaps existentially, if it is perceived as acting on whims
+rather than demonstrating leadership through rational explanation and
+justification.
+
+But I hope to ease your concern that I am a rigid rule follower and can
+be gamed that way. First, even if I could be gamed or I have nefarious
+intent, the License Review Committee is four people and the Board is
+eleven people. I surely can't act unilaterally. Second, I'm not a rigid
+rule follower, although I am someone who believes that decisions should
+be consistent and backed up with rationale more compelling than "because
+we say so." For example, I direct your attention to (brought to my
+attention by Kyle Mitchell) the OSI-approved? Reciprocal Public
+License.[^1] This license says "Regarding deployment, under the RPL your
+changes, bug fixes, extensions, etc. must be made available to the open
+source community at large when you Deploy in any form -- either
+internally or to an outside party. Once you start running the software
+you have to start sharing the software." How do you reconcile that with
+the current position, and a supposed basis for refusing a license, that
+there must be freedom to run software? "Because we say so" works, but I
+think people would be justified in their unhappiness if there is no
+explanation (which might be "oops, that one slipped through!")
+
+So, stay tuned on how the rigor of the decision-making process plays out
+in the future.
+
+I understand that people on this list may be skeptical of my commitment
+to software freedom and/or open source software, and for you time will
+tell. That's fine with me. I do hope, though, that there is room for
+healthy disagreement about what exactly "software freedom" means. We
+have a recent challenge to the scope of the concept, which is whether it
+extends to data portability (and if you want to talk about that, lets
+start a new thread). I do hope that simply having a different opinion on
+the meaning of software freedom at the fringes doesn't mean that one has
+become captive to anti-freedom forces.
+
+Pam Chestek
+
+[^1]: https://opensource.org/licenses/RPL-1.5
+
+
+
+
+
+
+
+
+From pamela at chesteklegal.com  Sat Jun  1 12:11:35 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sat, 1 Jun 2019 08:11:35 -0400
+Subject: [License-discuss] [License-review] Evolving the License Review
+ process for OSI
+In-Reply-To: <CAFjZtReB=w3cfd+KfA3F=t4x0pvLkCajLVFW=PM-4z_MyZredg@mail.gmail.com>
+References: <473cb721-da83-195e-1b46-21f61ef35db6@opensource.org>
+ <CAFjZtReB=w3cfd+KfA3F=t4x0pvLkCajLVFW=PM-4z_MyZredg@mail.gmail.com>
+Message-ID: <69b80a2d-b43b-0a84-ef79-30f2907f6918@chesteklegal.com>
+
+Hi Luis,
+
+Thanks for the comments. Speaking entirely for myself here, I agree with
+you. I hope everyone appreciates that this email was just a first step.
+We are also aware that email sucks (I'm about to tear my hair out after
+only a month of it, so I hear you) and will be working on a better
+tooling solution. I don't expect that to happen too soon, though. Small
+org, volunteers, you get it I'm sure.
+
+Speaking personally still (have I made that clear enough yet?), I am
+strongly opposed to any "because we say so" standard of license
+approval. As I suspect everyone understands though, there are also new
+and novel questions raised in submitted licenses, the CAL license being
+a good example, so sometimes the answer has to come from fundamental
+policy principles. As is also well-known, the OSD (like any law) can be
+gamed to do exactly the opposite of what the goals and purposes of open
+source software are, so it is appropriate that the OSI ensures that
+doesn't happen. My take is that is what is meant by "software freedom,"
+but I agree with you that parroting the phrase is entirely unhelpful.
+
+As to rationale and recordkeeping, I expect to be providing a rationale
+document about the OSI's decisions on license approval. However, Richard
+Fontana has pointed out the process problem where there is a pile-on in
+license-review, causing the license submitter to withdraw the license
+and then no opportunity for the OSI to provide any feedback on what the
+OSI itself actually thought about the license. Should the OSI be in the
+business of giving "advisory opinions," and if so, how? How about how
+the "Master's-Console Open Source Definitive License," a license clearly
+not ready for review, was handled? The problems were quite obvious with
+it, so does anything more need to be said about it? ICYMI, I sent out an
+email stating we were assuming that it was withdrawn because the
+submitter moved the discussion to L-D, although never communicated to us
+that it was formally withdrawn. Should this have been handled differently?
+
+And what about a license that is approved? Every license has flaws that
+people note. Should a rationale document explain why these weren't
+considered problematic, or is approval good enough?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+On 5/31/19 7:46 PM, Luis Villa wrote:
+> Hi, Pam, board-
+>
+> Thanks for taking the time to write this down - I fully support the
+> overall direction of these changes, fully endorse almost all of these
+> specific changes, and greatly appreciate the effort it must have taken
+> to put even this modest proposal together.
+>
+> One specific concern about this set of changes, and one thought for
+> the longer-term, neither terribly new but trying to put them together
+> concisely here:
+>
+> /Specific to this set of changes:
+> /
+>
+> From the updated https://opensource.org/approval:?
+> "the OSI determines that the license ... guarantees software freedom."
+>
+> I still have seen no coherent explanation of what software freedom
+> means in the OSI context. Richard has asserted on Twitter that it
+> isn't necessarily the same thing as FSF's definition, but OSI has not
+> (as best as I can tell) proposed an alternative either, so we're left
+> with a limbo of having some idea what FSF means, but knowing that
+> OSI's definition is somehow, in unknown directions, different.
+>
+> Until more specific, less vague language is used, I remain deeply
+> concerned that this makes the process even more deeply political by
+> allowing the board to veto any license on virtually any grounds it
+> feels like, as long as it can be vaguely tied to "freedom" for some
+> person or company. It also leaves it less clear than ever what useful
+> role, if any, OSI plays that distinguishes it from FSF. If both
+> organizations are using essentially identical criteria, I'd again urge
+> the two orgs to consider merging their license lists and review
+> processes. If there's some substantive difference, I'd urge the board
+> to retract this change until it can offer a coherent explanation of
+> what software freedom means /for OSI/, how that's different from FSF,
+> and how it is to be evaluated.
+>
+> /One thought for the longer term:/
+> These reforms seem to me to be focused on clarifying /the
+> decision-making/ /process/ of OSI. Which is worthy! But much of this
+> effort will go to waste if there is not a matching set of improvements
+> to the /record-keeping process/ that documents the outcomes of the
+> decision-making process.
+>
+> Imagine trying to understand US constitutional law if all you had were
+> clerk's notes of the US Supreme Court's lunch discussions - that's
+> roughly what being told "you can understand the OSD by reading the
+> mailing list archives" is.[1] A set of rules that is literally
+> incomprehensible, because the associated record-keeping is terrible,
+> is hardly worth being called a set of rules.[2] But that's our
+> situation - whether the formal record is the mailing list archives or
+> the skimpy board meeting minutes, neither is well-suited to the
+> "constitutional court" role of the OSI, which must not only decide but
+> /explain/ those decisions in a way that others can learn from.
+>
+> The next step in the long run should be to figure out how to create
+> authoritative summaries of license proposal discussions, so that
+> newcomers and non-experts can reasonably and transparently understand
+> OSI and OSD. There are many process models for running RFCs - and more
+> critically /summarizing /RFCs/-/ that OSI could build on. This post
+> from a Rust leader on collaborative summary documents
+> <http://smallcultfollowing.com/babysteps/blog/2019/04/22/aic-collaborative-summary-documents/>
+> is terrific, and Wikipedia has a wealth of institutional knowledge on
+> closing and summarizing RFCs
+> <https://en.wikipedia.org/wiki/Wikipedia:Advice_on_closing_discussions#Writing_the_close>.
+> I'm sure there are others from other communities as well.
+>
+> This need not involve moving away from mailing lists altogether[3] but
+> it definitely means that they should be replaced as the long-term
+> repository of institutional knowledge.
+>
+> Again, I can't stress enough how pleased I am that the current board
+> appears to take seriously the need to revise and improve OSI's
+> procedures. I hope these comments are taken in that spirit.
+>
+> Sincerely-
+> Luis
+>
+> [1] Or, as an experienced person in this space told me more bluntly
+> yesterday, "'read the archives' is OSI's way of saying 'fuck you'".
+> [2] I speculate, though of course I can't prove, that much of the 'the
+> rules are too gameable!' problem the "software freedom" bandaid is
+> attempting to fix would not be a problem at all if OSI had kept clear,
+> detailed, referenceable records of past decisions made.
+> [3] Though, as I just posted on l-d, I'm increasingly convinced that's
+> a good idea if we want OSI to be the locus of a thriving, healthy
+> community.
+>
+>
+> On Fri, May 24, 2019 at 7:51 AM Pamela Chestek
+> <pamela.chestek at opensource.org <mailto:pamela.chestek at opensource.org>>
+> wrote:
+>
+>     _Summary_
+>     The directors of the board of the Open Source Initiative recognize
+>     the process for discussion and review of new licenses proposed for
+>     approval by the organization can use improvement and would benefit
+>     from evolution. In particular, it does not appear as though all
+>     points of view on open source licensing are represented in the
+>     discussion here. To address this situation we have created a Board
+>     Committee for license approval to evaluate responses on-list,
+>     appointed more moderators, and will devise a new moderation strategy.
+>
+>     _Proposal_
+>     We anticipate that the effort to improve the quality of discussion
+>     on the license lists will be an iterative process. This email
+>     describes our first step, which is to approach the community and
+>     elicit feedback on this approach. We anticipate further steps
+>     including a review of tools, but we?re not yet at that stage.
+>
+>     _Channels_
+>     License review vs. License discuss lists
+>
+>     License-review at lists.opensource.org
+>     <mailto:License-review at lists.opensource.org> is the email address
+>     for submitting a license for which you seek OSI approval following
+>     the process at https://opensource.org/approval. The list is open
+>     to the public, so anyone can give their opinion about a license.
+>     The OSI License Committee considers the viewpoints expressed on
+>     the license-review list in making its license approval
+>     recommendation to the OSI Board. Since the purpose of the list is
+>     to inform the Committee and the Board, discussion of substantive
+>     issues off-list is not recommended. If a license submitter elects
+>     to respond to a substantive question submitted to them off-list,
+>     the submitter is encouraged to copy the license-review list also
+>     on their response after redacting the identity of the person
+>     sending the communication.
+>
+>     License-discuss at lists.opensource.org
+>     <mailto:License-discuss at lists.opensource.org> is for general
+>     questions about open source licenses and for licenses in early
+>     stage development. The list is open to the public and anyone can
+>     give feedback. A moderator may decide that a license submitted to
+>     license-review isn?t sufficiently developed and will move it to
+>     license-discuss for additional work. We recommend that you carry
+>     out your license development process on a publicly viewable venue
+>     (preferably one where collaboration is also possible) and
+>     regularly seek views on license-discuss. Note that agreement on
+>     license-discuss does not guarantee agreement on license-review, as
+>     the audiences differ.
+>
+>     _Moderation_
+>     The board recognizes that the license-review mailing list would
+>     benefit from further, more concerted moderation, both to ensure
+>     appropriate conversation and to maintain the pace of discussions.
+>     This more concerted process will evolve in the following steps:
+>
+>       * We will develop rules to encourage wider participation. We
+>         perceive that some are discouraged from participating because
+>         of offensive tone, frequency, or repetitiveness of messages.
+>         We will develop moderation standards to address these hurdles.
+>       * A moderator will also advance the conversation, by following
+>         up with the license steward on unanswered questions and
+>         ensuring that all topics of interest have been fully fleshed out.
+>       * We will assure observance of the Code of Conduct for the
+>         mailing lists, available at:
+>         https://opensource.org/codeofconduct/licensing.
+>
+>
+>     _Changes to the Website_
+>     We have also made a minor change to the language describing the
+>     license review process on https://opensource.org/approval. The
+>     page formerly said ?Approve, if (a) there is sufficient consensus
+>     emerging from community discussion that approval is justified, and
+>     (b) the OSI determines that the license conforms to the Open
+>     Source Definition and guarantees software freedom." The page now
+>     says ?Approve if, after taking into consideration community
+>     discussion, the OSI determines that the license conforms to the
+>     Open Source Definition and guarantees software freedom.?
+>
+>     We have also clarified the timing of the review decision.
+>
+>     _License Review Committee_
+>     The License Review Committee is an OSI Board committee made up of
+>     the following board members, as of May 2019:
+>
+>     Pamela Chestek, chair, pamela.chestek at opensource.org
+>     <mailto:pamela.chestek at opensource.org>
+>     Elana Hashman, elana.hashman at opensource.org
+>     <mailto:elana.hashman at opensource.org>
+>     Chris Lamb, chris.lamb at opensource.org
+>     <mailto:chris.lamb at opensource.org>
+>     Simon Phipps, webmink at opensource.org <mailto:webmink at opensource.org>
+>
+>     The License Review Committee will summarize and report the
+>     license-review discussions to the Board for the Board?s approval
+>     or disapproval of a proposed license. Members of the Committee
+>     also serve as moderators for the two mailing lists.
+>
+>     _What We?re Asking_
+>     Let us know what you think of these changes.
+>
+>     Pam
+>
+>     -- 
+>     Pamela Chestek
+>     Chair, License Review Committee
+>     Open Source Initiative
+>
+>     _______________________________________________
+>     License-review mailing list
+>     License-review at lists.opensource.org
+>     <mailto:License-review at lists.opensource.org>
+>     http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190601/861555d7/attachment-0001.html>
+

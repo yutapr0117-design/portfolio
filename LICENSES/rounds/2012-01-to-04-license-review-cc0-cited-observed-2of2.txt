@@ -1,0 +1,747 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2012-January.txt, 2012-February.txt, 2012-April.txt)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-07)
+Messages: 13 of the 27 messages this dossier cites from the 2012 threads on CC0, in the order listed here. Not a whole thread. Part 2 of 2.
+Threads: OSI, legal conditions outside the "four corners" of the license / Submitting CC0 for OSI approval (103 messages) / CC0 decision process / CC withdrawl of CC0 from OSI process / New OSI FAQ items posted about Public Domain and CC0
+Senders: Bruce Perens, Clark C. Evans, Russ Nelson, Karl Fogel, Christopher Allan Webber, Simon Phipps, Brendan Scott
+Position: the review of the instrument nearest in structure to this one. Not addressed to us and not about ACD. Each message keeps its archive headers. The reading is in LICENSES/ACD-1.0.review-precedents.md section 1.138.
+
+----- begin verbatim -----
+From bruce at perens.com  Sun Feb 19 04:23:51 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 18 Feb 2012 20:23:51 -0800
+Subject: [License-review] Submitting CC0 for OSI approval
+In-Reply-To: <87obsvh3b5.fsf@floss.red-bean.com>
+References: <CANqjSzZLAa6aMwA2DRev4JcAGxOikUTNyqV7VvB=hHyHkb8jag@mail.gmail.com>
+	<20120217215614.GC4038@redhat.com>
+	<Pine.BSM.4.64L.1202172202240.32725@herc.mirbsd.org>
+	<20120217230308.GA5813@redhat.com> <87boowp0jd.fsf@grumps.lan>
+	<20120218185116.GC5319@mercury.ccil.org>
+	<1329622552.3379.140661038374389@webmail.messagingengine.com>
+	<87obsvh3b5.fsf@floss.red-bean.com>
+Message-ID: <4F407957.7000201@perens.com>
+
+On 02/18/2012 08:09 PM, Karl Fogel wrote:
+> So my feeling is, to reject CC0 because of clause 4a, we have to be
+> *sure*  that clause 4a actually
+>
+>    * Increases a recipient's risk of being an infringement claim target,
+>         -->  and/or -->
+>    * Weakens a recipient's defense against an infringement claim.
+More likely we reject CC0 because a dedication to the public domain 
+weakens a recipient's defense from patent infringement when compared to 
+the form of acquiescence in a use license.
+
+There is a set of licenses that comply with the requirements of the OSD 
+but would be a bad idea for anyone to use. OSI has mostly avoided 
+certifying such licenses.
+
+     Thanks
+
+     Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120218/11c65b52/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bruce.vcf
+Type: text/x-vcard
+Size: 266 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120218/11c65b52/attachment.vcf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4447 bytes
+Desc: S/MIME Cryptographic Signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120218/11c65b52/attachment.p7s>
+
+From cce at clarkevans.com  Mon Feb 20 01:02:57 2012
+From: cce at clarkevans.com (Clark C. Evans)
+Date: Sun, 19 Feb 2012 20:02:57 -0500
+Subject: [License-review] Submitting CC0 for OSI approval
+In-Reply-To: <20120219223705.GA7910@redhat.com>
+References: <CANqjSzZLAa6aMwA2DRev4JcAGxOikUTNyqV7VvB=hHyHkb8jag@mail.gmail.com><20120217215614.GC4038@redhat.com><Pine.BSM.4.64L.1202172202240.32725@herc.mirbsd.org><20120217230308.GA5813@redhat.com>
+	<87boowp0jd.fsf@grumps.lan><20120218185116.GC5319@mercury.ccil.org><1329622552.3379.140661038374389@webmail.messagingengine.com><4F407621.9070707@perens.com>
+	<20120219154032.GB552@redhat.com> <20120219223705.GA7910@redhat.com>
+Message-ID: <1329699777.19865.140661038659101@webmail.messagingengine.com>
+
+On Sun, Feb 19, 2012, at 05:37 PM, Richard Fontana wrote:
+> In considering certain of the issues that have been raised regarding
+> the submission of CC0 for OSI approval, I would call attention to
+> something that may have been forgotten, which is Carlo Piana's
+> unsuccessful effort to obtain OSI approval for the "MXM Public
+> License" in April 2009.
+> 
+> The thread may be viewed at:
+> http://www.crynwr.com/cgi-bin/ezmlm-cgi?17:iis:770:201002 ("For
+> Approval: MXM Public License", with some offshoot threads)
+
+I think this thread provides the precedent that the OSI does not 
+approve licenses that explicitly exclude patent license.  I truly
+hope that the OSI continues with this rule, it is absolutely the
+correct approach.  I include Larry Rosen's commentary by reference.  
+
+Interestingly enough, I was just thinking that the CC0 would be 
+an excellent "OSI approved" unlicense for someone having a bunch 
+of patents and wanting to encourage adoption of infringing works.
+
+Perhaps not so interesting is that the MIT/BSD debate here is a
+simple regurgitation, some 3 years out.  That this license remains
+popular and there is experimentation with public domain dedications
+means that there is an unmet demand for a simple, "GIFT" license
+that is "about as safe as you can be" for developers to use.  From
+my own perspective, the Apache license is simply too long/complex.
+If there was a short/safe alternative, and the OSI showcased such 
+an option, I'm sure many would switch over to use it.
+
+On Sat, Feb 18, 2012, at 11:01 PM, Russ Nelson wrote:
+> Good luck with that ignorance. If you don't bother to register the
+> copyright on your software, it may as well be public domain, because
+> you don't have an enforcible copyright in a court of law.
+
+You arn't even bothering to understand what I said.  Most developers
+either work for companies and the company worries about this, or they
+engage in producing "gift" works, or they do a bit of both. 
+
+For my "gift" works, I don't register the copyright and I could care 
+less if it is enforcable or not.  The goal of the license  isn't to 
+please me, but to ensure that other people are confident that the 
+software is, in fact, a gift and not a trojan horse.   The problem 
+with the CC0 is that it could possibly be a trojan horse... otherwise
+appearing to be a gift license but lacking a criticial component
+needed to be viable glue for the constrution of permissive works.
+
+If the MIT/BSD is a sucky gift license, would someone who is a 
+compentent lawyer please draft one that is parsimonious and covers 
+the holes.  Would then the OSI approve and recommend it?
+
+Best,
+
+Clark
+
+
+
+
+From nelson at crynwr.com  Mon Feb 20 01:08:04 2012
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sun, 19 Feb 2012 20:08:04 -0500
+Subject: [License-review] Submitting CC0 for OSI approval
+In-Reply-To: <20120219223705.GA7910@redhat.com>
+References: <CANqjSzZLAa6aMwA2DRev4JcAGxOikUTNyqV7VvB=hHyHkb8jag@mail.gmail.com>
+	<20120217215614.GC4038@redhat.com>
+	<Pine.BSM.4.64L.1202172202240.32725@herc.mirbsd.org>
+	<20120217230308.GA5813@redhat.com> <87boowp0jd.fsf@grumps.lan>
+	<20120218185116.GC5319@mercury.ccil.org>
+	<1329622552.3379.140661038374389@webmail.messagingengine.com>
+	<4F407621.9070707@perens.com> <20120219154032.GB552@redhat.com>
+	<20120219223705.GA7910@redhat.com>
+Message-ID: <20289.40180.47567.196998@desk.crynwr.com>
+
+Richard Fontana writes:
+ > The thread may be viewed at:
+ > http://www.crynwr.com/cgi-bin/ezmlm-cgi?17:iis:770:201002 ("For
+ > Approval: MXM Public License", with some offshoot threads)
+
+Thanks for pointing that out, Richard. I think we dropped the ball
+with that license approval. It would have been a *good* thing to have
+a freely copyable implementation of patented software. People who are
+not subject to software patents could have used and improved the
+implementation, and we let them down.
+
+And Carl is right ... our policy should be reflected in the OSD rather
+than being something you find out only when you submit your license
+for approval.
+
+Patent licensing is a complicated topic which deserves its own
+committee. Am pretty sure that tying a patent license to a public
+domain declaration is not a good solution. Nor is holding up approval
+of this license waiting for that committee a good idea.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-600-8815
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From kfogel at red-bean.com  Wed Feb 22 08:34:33 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Wed, 22 Feb 2012 02:34:33 -0600
+Subject: [License-review] CC0 decision process, waiting for CC response, etc.
+In-Reply-To: <CAN_1p9wMw7ha9+60rbR5WDqXugFCV71gJetqjcF+2HwoXvrkjQ@mail.gmail.com>
+	(Carl Boettiger's message of "Mon, 20 Feb 2012 09:00:15 -0800")
+References: <20289.22230.16291.943180@desk.crynwr.com>
+	<CB67D7D2.142CF%Nigel.Tzeng@jhuapl.edu>
+	<CAN_1p9wMw7ha9+60rbR5WDqXugFCV71gJetqjcF+2HwoXvrkjQ@mail.gmail.com>
+Message-ID: <87hayj9sh2.fsf_-_@floss.red-bean.com>
+
+Carl Boettiger <cboettig at gmail.com> writes:
+>As an observer, this has been a very interesting thread, but perhaps
+>someone could clarify: Is the decision-making process one of majority
+>vote, consensus of board members, or something else?
+
+Essentially, the Board votes.  Ideally, it rubber-stamps the consensus
+of this committee.  If there are deep divisions here, the Board is
+unlikely to approve the license.  (I might make a recommendation, but it
+would be just that: a recommendation.  Anyway, I'm unlikely to make one
+when there are important outstanding questions!)
+
+Christopher Allan Webber of Creative Commons has already posted (in the
+"Request for consultation with CC on patent issue" thread) saying that
+they're drafting a response to the concerns raised, so we should see
+what CC says.
+
+It might help to take a step back and think about how CC0 could be
+useful to open source.  I had thought of it primarily as part of the
+answer to the many "But what about the public domain?" questions we see
+(at OSI and elsewhere).  But there may be ways to answer those questions
+even without CC0 being an OSI-approved license.  I'm not trying to
+prejudge the question, I'm just saying that the larger context is
+important to bear in mind.  It's not that CC0 is a software license
+already applied to lots of programs -- rather, it's that people have
+questions about the public domain and open source, and CC0 might help
+make them a bit less complicated to answer.  This could be still be true
+whether or not it is approved.
+
+-Karl
+
+>On Mon, Feb 20, 2012 at 8:27 AM, Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu> wrote:
+>> On 2/19/12 3:08 PM, "Russ Nelson" <nelson at crynwr.com> wrote:
+>>
+>>>Patent licensing is a mess. It would be better to establish one policy
+>>>for all OSI-approved licenses, possibly modifying the OSD, than to try
+>>>to piecemeal it one license at a time.
+>>
+>> +1
+>>
+>> As a partial counterpoint to MXM PL, OSI has approved patent grants
+>> explicitly limited to only those patents held by the individual
+>> contributors of the code and not the whole organization they belong to in
+>> ECL 2.0.
+>>
+>> Someone attempting to game the system with a patent trap inside software
+>> under an OSI approved licensed could as easily do so with ECL 2.0. ?Just
+>> make sure the software devs don't hold the patents in question. ?If some
+>> of you try to get ECL revoked on such silly grounds I will be annoyed with
+>> you and call you names.
+>>
+>> FWIW I view CC0 as fine as written. ?Given the explicit language CC put it
+>> there for a reason. ?An explanation would be nice but not approving for
+>> that reason strikes me as counter-productive if CC is unwilling to
+>> change/clarify the clause. ?I don't see the patent risks as any higher
+>> with or without the clause but I do see the community poorer without a CC0
+>> option.
+>>
+>> If you guys have that much heartache park it in that "special purpose
+>> licenses" category. ?Which I notice is still pointing at ECL 1.0 and not
+>> 2.0 on the website.
+>>
+>> IANAL, speaking only for me, etc.
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at opensource.org
+>> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+From cwebber at creativecommons.org  Fri Feb 24 22:20:01 2012
+From: cwebber at creativecommons.org (Christopher Allan Webber)
+Date: Fri, 24 Feb 2012 16:20:01 -0600
+Subject: [License-review] CC withdrawl of CC0 from OSI process
+Message-ID: <87sjhzq3fy.fsf@grumps.lan>
+
+Hello all,
+
+We've discussed this internally, and unfortunately we agree that it's
+best to withdraw CC0 from the OSI review process at this time.  There
+have been several issues raised around the language declaring patents
+out of scope in the tool (that they weaken equitable estoppel defenses
+against patents or that they heighten risk by putting someone "on
+notice" about patent risks in the associated code).
+
+There have been questions about why that lanugage is there.  First of
+all, speculation that we did not anticipate CC0 usage for software at
+the time is true.  The patent language that exists comes out of
+conversations with the scientific data community, whom were a large
+target of adoption for the tool.  This community felt strongly that
+there was a need to clearly waive something into the public domain
+without also waiving patents in the process.  Hence the language.
+
+It has been suggested that CC simply remove this text from the CC0
+legalcode.  This would of course require releasing a new version, as
+we can't change the 1.0 legalcode once it has been released.
+Unfortunately, even doing a small versioning of something with as
+straightforward of an action as this is not as simple as it might
+sound.  First of all, releasing a new version of a legal tool,
+including CC0, requires a large conversation between many parties and
+experts, and thus inevitably is not a quick task.  On top of this, the
+CC 4.0 process is in full swing, and there is not enough bandwidth
+within the organization to do a CC0 revisioning at the same time.
+Thus, beginning the process for a new version of CC0 would have to
+wait until CC 4.0 is out, which means that won't start until at
+least 2013.
+
+That said, this experience has certainly been informative, and will be
+taken into consideration in possible future CC0 versioning, should
+that happen.
+
+ - Christopher Allan Webber and Creative Commons
+
+
+From simon at webmink.com  Sat Feb 25 13:38:14 2012
+From: simon at webmink.com (Simon Phipps)
+Date: Sat, 25 Feb 2012 13:38:14 +0000
+Subject: [License-review] CC withdrawl of CC0 from OSI process
+In-Reply-To: <20120225070119.GD25640@mercury.ccil.org>
+References: <87sjhzq3fy.fsf@grumps.lan>
+	<20120225035300.GB25640@mercury.ccil.org>
+	<4F486CEB.8090303@perens.com>
+	<20120225070119.GD25640@mercury.ccil.org>
+Message-ID: <CAF4JVJD0bg1xqBpzN8tpZ_vNsagTku=sZ22KpLF-C-bfOC+czg@mail.gmail.com>
+
+On Feb 25, 2012 7:01 AM, "John Cowan" <cowan at mercury.ccil.org> wrote:
+>
+> Bruce Perens scripsit:
+>
+> > If you feel strongly, please do the work.
+>
+> I would, and gladly.  But it wouldn't be CC0.  People are *already*
+> publishing software under CC0, and now they can't even say it's
+> Open Source.  That *sucks*.
+
+I completely agree. Given the license appears to be OSD compatible to most
+eyes, and that the cases where it's argued it's not appear to be outside
+the scope of all OSI decisions to date, I would rather see CC0 as it stands
+now approved so that OSI's list includes a public domain dedication.
+
+S.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120225/370d9713/attachment.html>
+
+From cce at clarkevans.com  Sat Feb 25 13:45:18 2012
+From: cce at clarkevans.com (Clark C. Evans)
+Date: Sat, 25 Feb 2012 08:45:18 -0500
+Subject: [License-review] CC withdrawl of CC0 from OSI process
+In-Reply-To: <CAF4JVJD0bg1xqBpzN8tpZ_vNsagTku=sZ22KpLF-C-bfOC+czg@mail.gmail.com>
+References: <87sjhzq3fy.fsf@grumps.lan><20120225035300.GB25640@mercury.ccil.org><4F486CEB.8090303@perens.com><20120225070119.GD25640@mercury.ccil.org>
+	<CAF4JVJD0bg1xqBpzN8tpZ_vNsagTku=sZ22KpLF-C-bfOC+czg@mail.gmail.com>
+Message-ID: <1330177518.1612.140661041175905@webmail.messagingengine.com>
+
+On Sat, Feb 25, 2012, at 01:38 PM, Simon Phipps wrote:
+| I completely agree. Given the license appears to be OSD
+| compatible to most eyes, and that the cases where it's argued
+| it's not appear to be outside the scope of all OSI decisions
+| to date, I would rather see CC0 as it stands now approved so
+| that OSI's list includes a public domain dedication.
+
+In this case, the OSI should also approve a MIT derivative
+with an additional term that says that patents are explicitly
+*excluded* from the grant.   Christopher said the patent
+exclusion in the CC0 was deliberate because those who would
+use the CC0 *have* patents relevant to the material being 
+released under the CC0 and do not wish to also grant them.
+
+The OSI should instead focus on a 10-15 line "MIT" style 
+copyright *and* patent public domain dedication and approve
+this.  The FSF would approve it and recommend it over the
+CC0 I'm quite sure.  If it is short & sweet, it'll spread 
+very rapidly by those who are truly making a gift.  
+
+Best,
+
+Clark
+
+
+
+
+
+From simon at webmink.com  Sat Feb 25 13:49:27 2012
+From: simon at webmink.com (Simon Phipps)
+Date: Sat, 25 Feb 2012 13:49:27 +0000
+Subject: [License-review] CC withdrawl of CC0 from OSI process
+In-Reply-To: <1330177518.1612.140661041175905@webmail.messagingengine.com>
+References: <87sjhzq3fy.fsf@grumps.lan>
+	<20120225035300.GB25640@mercury.ccil.org>
+	<4F486CEB.8090303@perens.com>
+	<20120225070119.GD25640@mercury.ccil.org>
+	<CAF4JVJD0bg1xqBpzN8tpZ_vNsagTku=sZ22KpLF-C-bfOC+czg@mail.gmail.com>
+	<1330177518.1612.140661041175905@webmail.messagingengine.com>
+Message-ID: <CAF4JVJAXmDh0=kg3aLmt3GQzdTamMYpFx3tGvphZYWyf_by5Lw@mail.gmail.com>
+
+On Feb 25, 2012 1:45 PM, "Clark C. Evans" <cce at clarkevans.com> wrote:
+>
+> On Sat, Feb 25, 2012, at 01:38 PM, Simon Phipps wrote:
+> | I completely agree. Given the license appears to be OSD
+> | compatible to most eyes, and that the cases where it's argued
+> | it's not appear to be outside the scope of all OSI decisions
+> | to date, I would rather see CC0 as it stands now approved so
+> | that OSI's list includes a public domain dedication.
+>
+> In this case, the OSI should also approve a MIT derivative
+> with an additional term that says that patents are explicitly
+> *excluded* from the grant.   Christopher said the patent
+> exclusion in the CC0 was deliberate because those who would
+> use the CC0 *have* patents relevant to the material being
+> released under the CC0 and do not wish to also grant them.
+>
+> The OSI should instead focus on a 10-15 line "MIT" style
+> copyright *and* patent public domain dedication and approve
+> this.  The FSF would approve it and recommend it over the
+> CC0 I'm quite sure.  If it is short & sweet, it'll spread
+> very rapidly by those who are truly making a gift.
+
+Since "the OSI" doesn't write licenses, this will only happen if someone
+who does write licenses thinks it through with support from legal
+professionals and then submits it for approval.  I believe that's what
+Christopher has said  CC will do, just not straight away.
+
+S.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120225/83259c2b/attachment.html>
+
+From cce at clarkevans.com  Sat Feb 25 14:40:22 2012
+From: cce at clarkevans.com (Clark C. Evans)
+Date: Sat, 25 Feb 2012 09:40:22 -0500
+Subject: [License-review] CC withdrawl of CC0 from OSI process
+In-Reply-To: <CAF4JVJAXmDh0=kg3aLmt3GQzdTamMYpFx3tGvphZYWyf_by5Lw@mail.gmail.com>
+References: <87sjhzq3fy.fsf@grumps.lan><20120225035300.GB25640@mercury.ccil.org><4F486CEB.8090303@perens.com><20120225070119.GD25640@mercury.ccil.org><CAF4JVJD0bg1xqBpzN8tpZ_vNsagTku=sZ22KpLF-C-bfOC+czg@mail.gmail.com><1330177518.1612.140661041175905@webmail.messagingengine.com>
+	<CAF4JVJAXmDh0=kg3aLmt3GQzdTamMYpFx3tGvphZYWyf_by5Lw@mail.gmail.com>
+Message-ID: <1330180822.12799.140661041186645@webmail.messagingengine.com>
+
+On Sat, Feb 25, 2012, at 01:49 PM, Simon Phipps wrote:
+| Since "the OSI" doesn't write licenses, this will only happen
+| if someone who does write licenses thinks it through with
+| support from legal professionals and then submits it for
+| approval.  I believe that's what Christopher has said  CC will
+| do, just not straight away.
+
+By developed by the OSI, I meant, on the license-discuss list
+under public view and recorded so that anyone interested may 
+participate.  I realise this isn't the same thing, of course.
+
+I think a joint public domain dedication & fallback license 
+would be broadly adopted if:
+
+(a) is short and plainly written
+(b) covers not just copyright but also patent
+(c) is pseudonym friendly
+(d) grants permission for others to acknowlege
+(e) disclaims liability as much as possible
+
+Being short and plainly written is important if such an
+instrument would be used over the MIT.  In this regard the
+CC0 is simply too long and will be less popular because of
+its length & legal formality.
+
+Explicitly granting/abandoning patents would fill the gap
+in the MIT license and meet with the *intent* of GIFTs.  
+It would also help explain why someone should use this 
+instrument over other public domain statements.
+
+Many people use pseudonym, so, if the instrument could be
+friendly with regard to those (such as Why the Lucky Stiff)
+it would even see more adoption.  Not that this is a problem
+with current dedications or licenses, however, it is a core
+requirement that I wouldn't want to see overlooked.
+
+I've talked with many people about acknowledgments, and part
+of the problem is that people are worried about including an
+acknowlegement since they don't want to be violating trademark.
+If the license has something that permits recognition but 
+not implying endorcement, it'd help resolve this ambiguity.
+
+I think disclaiming warranty is part and parcel to the whole
+point/concept of a gift.  Something like this could be short
+(or at the end yelling in all caps) then it'd also help.
+
+In summary, an instrument that is succinct, covers patents as
+well as copyrights, is both a dedication and fallback doesn't 
+exist.  If it is created, I'd imagine many people will "cut over".
+
+I'd certainly use it for a number of my works over the MIT, 
+and would start to ask people who use the MIT to use it instead.
+Having patent claims explicitly abandoned, or granted as a 
+fallback, would really move the state of the art forward.
+
+Best,
+
+Clark
+
+
+From lists at opensourcelaw.biz  Sun Feb 26 08:04:40 2012
+From: lists at opensourcelaw.biz (Brendan Scott)
+Date: Sun, 26 Feb 2012 19:04:40 +1100
+Subject: [License-review] CC withdrawl of CC0 from OSI process
+In-Reply-To: <Pine.BSM.4.64L.1202260100180.4374@herc.mirbsd.org>
+References: <CAF4JVJD0bg1xqBpzN8tpZ_vNsagTku=sZ22KpLF-C-bfOC+czg@mail.gmail.com>	<1330177518.1612.140661041175905@webmail.messagingengine.com>	<4F491727.6000309@perens.com>
+	<01a801ccf3ef$321804f0$96480ed0$@com>	<20120225200542.GD29866@mercury.ccil.org>	<01e001ccf41d$f97f4c00$ec7de400$@com>
+	<Pine.BSM.4.64L.1202260100180.4374@herc.mirbsd.org>
+Message-ID: <4F49E798.8090001@opensourcelaw.biz>
+
+On 02/26/2012 12:07 PM, Thorsten Glaser wrote:
+ 
+[]
+
+I don't think it makes sense to have a licence which grants only some of the necessary rights.  If a person could exercise  rights A and B to prevent, eg, distribution of derived works per OSD3, then permitting the exercise of right A only would not, to my mind, satisfy OSD3 (since it wouldn't necessarily allow them to be distributed).  Whether rights A and B are copyright and patent rights respectively is not really to the point.  The OSD doesn't mention copyright.  It talks about "distribution terms" and "the license".  
+
+Arguably, if a licence which was only over right A then "the licence" would not itself (eg) "restrict any party from selling or giving away the software...", but this would allow licences which did not actually permit any of the things listed in OSD 1 through 10.  I might craft a licence strictly restricted to the exercise of copyright done within 10 metres of some point on the map. It would also pass muster if this interpretation was adopted. I think for a licence to pass muster it ought to substantively, not just technically, meet all the OSD requirements. 
+
+I think it is clear that software licensed under a licence which was restricted to right A only would not be free software, in that it would not meet the four freedoms. 
+
+I think it's been mentioned before, but OSD#2 does not state a characteristic of a licence.  
+
+In respect of CC0 in particular, the PD dedication part of it does not seem to me to be a licence.  I don't think a statement of the form "I agree not to enforce any of my copyrights over software x" would pass muster under the OSD, since it's not a permission to do something.  Rather it's statement of forbearance (for similar reasons I think convenants not to sue should not, in general, be seen as licences).  
+
+
+From kfogel at red-bean.com  Mon Feb 27 07:55:15 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Mon, 27 Feb 2012 01:55:15 -0600
+Subject: [License-review] CC withdrawl of CC0 from OSI process
+In-Reply-To: <87wr7bn2vb.fsf@grumps.lan> (Christopher Allan Webber's message
+	of "Fri, 24 Feb 2012 19:00:40 -0600")
+References: <CB6D8C5B.1452F%Nigel.Tzeng@jhuapl.edu> <87wr7bn2vb.fsf@grumps.lan>
+Message-ID: <871upg678c.fsf@floss.red-bean.com>
+
+Christopher Allan Webber <cwebber at creativecommons.org> writes:
+>I'm feeling pretty informal after sending out that more formal email, so
+>let me put on my not-work-free-software-activist hat, without taking the
+>effort to switch email addresses.  Pretend I sent this from
+>cwebber at dustycloud.org, or something.
+>
+>Basically, for the universe I wish existed, I think it's a shame that
+>CC0 didn't finish the OSI process, but for the universe that exists,
+>it probably makes sense.  And I kind of hope CC0 for software doesn't
+>totally drop.  But it would also be good if this conversation that
+>happened here does more than just drop CC0 1.0 on the OSI floor, and
+>something significant comes out of this
+>much-longer-than-I-think-anyone-expected conversation.  I for one did
+>think this was an "open and shut case", as I think some other people
+>said.  But it turns out I was wrong.  What's the lessons to be learned
+>from this?  Not sure yet.  But I hope something comes out of it.
+
++1 on all counts, Christopher.
+
+Thanks very much for your patience as this thread wound its unexpected
+course.  I too thought it was basically an open and shut case, but the
+more I saw of some of the legal points being made (significantly, by
+experienced FOSS lawyers) the less comfortable I was with the odd patent
+position the license portion might put a recipient in.
+
+I'm going to try to come up with a good answer for the OSI FAQ on the
+public domain and open source, and in it both summarize and point to
+this thread as an example of how the issue is not as simple as we all
+wish it would be.
+
+I would also note that even though CC has withdrawn the license from
+submission, that does not formally preclude the OSI from continuing to
+consider it, and from bringing in more concentrated legal resources to
+investigate how much of a problem 4a really is.  The discussion here has
+revealed that there are issues that need careful looking into -- that
+this can't be a simple approval process.  IMHO, however, the discussion
+has *not* revealed with certainty that CC0 is not approvable.  The
+points Carl Boettiger raises in his email (link quoted below) are good
+ones.
+
+Best,
+-Karl
+
+>I also think Carl Boettiger wrote a beautiful email here:
+>  http://projects.opensource.org/pipermail/license-review/2012-February/000230.html
+>and it raises interesting points, and I hope that conversation
+>continues, even though CC has withdrawn CC0 formally from this process.
+>
+>Related to the statements in Carl's email about legal tools that span
+>domains, and your statement below of making CC 4.0 software friendly,
+>what I can say is I am trying.  Indeed, aside from my primary duties of
+>making CC's infrastructure and external developer tools and metadata
+>goals all work and everything that's actually written as part of my
+>dayjob, my not so secret agenda while working here is to do as much as
+>possible to bridge the free and open source software and CC/free culture
+>gap(s).  To that end, and specifically around 4.0, you may enjoy:
+>
+>  http://wiki.creativecommons.org/4.0/Games_3d_printing_and_functional_content
+>
+>and the possible GPL compatibility discussion here:
+>
+>  http://lists.ibiblio.org/pipermail/cc-community/2012-February/006888.html
+>  http://lists.ibiblio.org/pipermail/cc-community/2012-February/006895.html
+>  (and also a billion emails on the subject from the January 2012
+>  archives, but I'll leave pulling those up as an excercise for the reader)
+>
+>... but if that sort of thing interests you, and you care about this, I
+>highly encourage anyone and everyone on this list to get actively
+>involved in the CC 4.0 process:
+>
+>  http://wiki.creativecommons.org/4.0
+>
+>and subscribe to:
+>  http://lists.ibiblio.org/mailman/listinfo/cc-licenses
+>  http://lists.ibiblio.org/mailman/listinfo/cc-community
+>
+>Anyway, if you're worried about CC and FOSS concerns, that's something I
+>am constantly thinking about and trying to put on CC's agenda, to the
+>extent I can make excuses to do it.  Always happy to hear what people
+>have to say on it, if you want to reach out to me about it whenever.
+>
+> - Chris
+>
+>PS: We will be making an adjustment to the CC0 FAQ on Monday... it's
+>already written, actualy.  It won't make a statement deprecating the
+>possible use of CC0 for software and will mostly remain the same, but
+>will have a note at the bottom noting that CC0 is not OSI approved.  We
+>figured that was a good compromise solution.
+>
+>
+>"Tzeng, Nigel H." <Nigel.Tzeng at jhuapl.edu> writes:
+>
+>> Christopher,
+>>
+>> There's no need in my mind to change the license.  Being able to release
+>> CC0 code alongside CC0 data is a useful thing for the science community
+>> and open source.  I hope that you do not change the FAQ nor deprecate the
+>> use of CC0 for software.
+>>
+>> I know you're in the absurd position of being courted to submit CC0 to the
+>> OSI and then being told, well, gee we don't know if this is such a good
+>> idea maybe you should change it even though the FSF has already approved
+>> it so most folks would think this is a no brainer.
+>>
+>> This experience certainly has been informative.
+>>
+>> Can you guys make CC 4.0 software friendly please?  Pretty please?
+>>
+>> Thanks,
+>>
+>> Nigel
+>>
+>> On 2/24/12 5:20 PM, "Christopher Allan Webber"
+>> <cwebber at creativecommons.org> wrote:
+>>
+>>>Hello all,
+>>>
+>>>We've discussed this internally, and unfortunately we agree that it's
+>>>best to withdraw CC0 from the OSI review process at this time.  There
+>>>have been several issues raised around the language declaring patents
+>>>out of scope in the tool (that they weaken equitable estoppel defenses
+>>>against patents or that they heighten risk by putting someone "on
+>>>notice" about patent risks in the associated code).
+>>>
+>>>There have been questions about why that lanugage is there.  First of
+>>>all, speculation that we did not anticipate CC0 usage for software at
+>>>the time is true.  The patent language that exists comes out of
+>>>conversations with the scientific data community, whom were a large
+>>>target of adoption for the tool.  This community felt strongly that
+>>>there was a need to clearly waive something into the public domain
+>>>without also waiving patents in the process.  Hence the language.
+>>>
+>>>It has been suggested that CC simply remove this text from the CC0
+>>>legalcode.  This would of course require releasing a new version, as
+>>>we can't change the 1.0 legalcode once it has been released.
+>>>Unfortunately, even doing a small versioning of something with as
+>>>straightforward of an action as this is not as simple as it might
+>>>sound.  First of all, releasing a new version of a legal tool,
+>>>including CC0, requires a large conversation between many parties and
+>>>experts, and thus inevitably is not a quick task.  On top of this, the
+>>>CC 4.0 process is in full swing, and there is not enough bandwidth
+>>>within the organization to do a CC0 revisioning at the same time.
+>>>Thus, beginning the process for a new version of CC0 would have to
+>>>wait until CC 4.0 is out, which means that won't start until at
+>>>least 2013.
+>>>
+>>>That said, this experience has certainly been informative, and will be
+>>>taken into consideration in possible future CC0 versioning, should
+>>>that happen.
+>>>
+>>> - Christopher Allan Webber and Creative Commons
+>>>_______________________________________________
+>>>License-review mailing list
+>>>License-review at opensource.org
+>>>http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at opensource.org
+>> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+>_______________________________________________
+>License-review mailing list
+>License-review at opensource.org
+>http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+From simon at webmink.com  Mon Feb 27 14:31:15 2012
+From: simon at webmink.com (Simon Phipps)
+Date: Mon, 27 Feb 2012 14:31:15 +0000
+Subject: [License-review] CC withdrawl of CC0 from OSI process
+In-Reply-To: <024301ccf4ec$eb8605b0$c2921110$@com>
+References: <CAF4JVJD0bg1xqBpzN8tpZ_vNsagTku=sZ22KpLF-C-bfOC+czg@mail.gmail.com>
+	<1330177518.1612.140661041175905@webmail.messagingengine.com>
+	<4F491727.6000309@perens.com> <01a801ccf3ef$321804f0$96480ed0$@com>
+	<20120225200542.GD29866@mercury.ccil.org>
+	<01e001ccf41d$f97f4c00$ec7de400$@com>
+	<Pine.BSM.4.64L.1202260100180.4374@herc.mirbsd.org>
+	<024301ccf4ec$eb8605b0$c2921110$@com>
+Message-ID: <CAF4JVJD8aRdHyN6VyNMKBeeQo86ZWvAK0mN6q_hJVQ1L6-p=EA@mail.gmail.com>
+
+On Feb 27, 2012 1:13 AM, "Lawrence Rosen" <lrosen at rosenlaw.com> wrote:
+> Now that we have driven our Creative Commons friends into the closet,
+> can we please invite them back and approve their CC0 license even
+> though many of us don't really like it a lot? Then someone document
+> this thread in an article for IFOSSLR so that the public at large can
+learn
+> from this discussion.
+
+My view exactly, Larry. While there have been interesting points raised, I
+still see a majority view supporting CC0 as a (flawed) OSD-compliant
+licensing arrangement.
+
+S.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120227/51794590/attachment.html>
+
+From kfogel at red-bean.com  Wed Apr  4 00:53:45 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Tue, 03 Apr 2012 19:53:45 -0500
+Subject: [License-review] New OSI FAQ items posted about Public Domain and
+	CC0.
+Message-ID: <877gxwxqp2.fsf@kwarm.red-bean.com>
+
+(This seems appropriate for both license-discuss@ and license-review@, so
+I'm posting it in both places.)
+
+I've been seeing an increasing number of inquiries about the public
+domain and open source, and about CC0 and open source.  A few of those
+inquiries have come here, but I'm also getting them elsewhere.
+
+So I've tried to formulate good answers:
+
+   http://opensource.org/faq#public-domain
+   http://opensource.org/faq#cc-zero
+
+I hope I've reflected the general consensus of the License Review
+committee accurately, not made any legal mistakes, etc.  I'd appreciate
+feedback on these.
+
+The "public domain" entry is complex.  It felt wrong to simply say that
+PD is not open source, when it clearly exhibits most or all of the
+important properties of Open Source and is at least capable of meeting
+the OSD; on the other hand, it is not a license and therefore cannot be
+OSI-approved, and it has some portability problems.  So I've tried to
+express all of that in the answer, and recommend that people use
+OSI-approved licenses wherever possible.
+
+The CC0 entry is more straightforward, but also would benefit from peer
+review.
+
+Please hold the flamethrowers, anyone who might be tempted to flame, and
+remember that these are inherently contentious and complicated subjects!
+It would be easier for the OSI to just say nothing on the topics :-),
+but silence on these questions would not serve our mission very well.
+
+Thanks,
+-Karl
+
+

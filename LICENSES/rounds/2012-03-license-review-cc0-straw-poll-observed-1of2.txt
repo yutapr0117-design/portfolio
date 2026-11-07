@@ -1,0 +1,595 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-07)
+Thread: [License-review] Non-binding straw poll on CC0 approval: the whole thread, 25 messages, in archive order. Part 1 of 2 (13 messages). Joining the parts at the message boundary gives the original sequence.
+Senders: Karl Fogel, Bruce Perens, Henrik Ingo, Russ Nelson, John Cowan, Carlo Piana, Joel Sherrill, Chuck Swiger, Richard Fontana, Mark Wielaard, Tzeng, Nigel H.
+Position: the poll Karl Fogel took after Creative Commons withdrew CC0. The tally is the evidence, so the thread is kept whole (rounds/README.md rule 6). Not addressed to us and not about ACD. The count and the reading are in LICENSES/ACD-1.0.review-precedents.md section 1.138.
+
+----- begin verbatim -----
+From kfogel at red-bean.com  Fri Mar  2 06:21:04 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Fri, 02 Mar 2012 00:21:04 -0600
+Subject: [License-review] Non-binding straw poll: Do you think CC0 should be
+	approved?
+Message-ID: <87ipincylr.fsf@floss.red-bean.com>
+
+The CC0 thread was so enormous that it could sometimes be hard to
+distinguish between the volume and the content behind each point made.
+
+Now, the approval process is not a matter of majority vote, but still
+I'm curious to see how many people felt the 4a objection (or any other
+problem) was serious enough to warrant rejection, and how many would
+approve anyway.  Knowing these ratios would help us determine whether to
+continue investigating, perhaps by bringing in some more legal
+expertise.  (For example, one thing I wanted to do, but didn't have
+time, was bring in the people at the FSF who evaluated CC0 and hear
+their reasoning.)
+
+If you wish to participate in this straw poll, please follow up to this
+mail with "+1" if you think CC0 should be approved, or "-1" *followed by
+the reason* if you don't think it should be approved.
+
+Any -1 that isn't accompanied by a reason I won't count in my tally.
+(+1 responses have an implicit reason -- that the license fallback
+portion of CC0 is OSD-compatible -- so there's no need to state it).
+
+Thanks!
+
+-Karl
+
+
+From bruce at perens.com  Fri Mar  2 06:30:54 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 01 Mar 2012 22:30:54 -0800
+Subject: [License-review] Non-binding straw poll: Do you think CC0
+ should be approved?
+In-Reply-To: <87ipincylr.fsf@floss.red-bean.com>
+References: <87ipincylr.fsf@floss.red-bean.com>
+Message-ID: <4F50691E.7040504@perens.com>
+
+-1
+
+ From CC's own admission, the dedication and fallback license are not 
+primarily intended for software, but for scientific data.
+Again by their own admission, the /intent /was to exclude a patent 
+grant. This is of course the wrong answer for software.
+It would be simple enough for us to construct a version of the document 
+without the problem. We have sufficient counsel available.
+So, the only reason to approve the version with the problem is that it 
+comes from CC, and that we feel it's important to support CC even when 
+the result isn't that good for software. If this is the case, we would 
+be approving the document for political reasons rather than because it's 
+a good document for software developers to use.
+
+Under the CC document, a party that has licensed a patent and dedicates 
+the software exercising that patent is obligated to help the licensee of 
+the patent to prosecute the party using the software.
+Why would we want to put our own developers in that trap?
+If OSI approves the document, naive programmers will use it, relying on 
+OSI's imprimateur with no awareness of its problems.
+
+     Thanks
+
+     Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120301/83490665/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bruce.vcf
+Type: text/x-vcard
+Size: 266 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120301/83490665/attachment.vcf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4447 bytes
+Desc: S/MIME Cryptographic Signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120301/83490665/attachment.p7s>
+
+From kfogel at red-bean.com  Fri Mar  2 06:42:54 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Fri, 2 Mar 2012 00:42:54 -0600
+Subject: [License-review] Non-binding straw poll: Do you think CC0
+ should be approved?
+In-Reply-To: <4F50691E.7040504@perens.com>
+References: <87ipincylr.fsf@floss.red-bean.com> <4F50691E.7040504@perens.com>
+Message-ID: <CAPiWUYo5MEhwhsXDPGtiLZRxSAyFx3Q40La2HUSd8CEBvm4X0A@mail.gmail.com>
+
+Thanks for that succint -1 explanation, Bruce.
+
+I forgot to mention one thing in my original mail:
+
+Everyone, please do NOT use this thread as a place for further
+discussion of particular points. This poll is for data collection, not
+discussion.  If you wish to respond to points someone makes in their
+-1, then follow up using a *different* subject line, so as to start a
+new thread for that sub-discussion.
+
+I do not want to have to wade through another zillion exchanges just
+to get the results of the poll.  Please help my mailreader help me
+:-).
+
+Thank you,
+-Karl
+
+On Fri, Mar 2, 2012 at 12:30 AM, Bruce Perens <bruce at perens.com> wrote:
+> -1
+>
+> From CC's own admission, the dedication and fallback license are not
+> primarily intended for software, but for scientific data.
+> Again by their own admission, the intent was to exclude a patent grant. This
+> is of course the wrong answer for software.
+> It would be simple enough for us to construct a version of the document
+> without the problem. We have sufficient counsel available.
+> So, the only reason to approve the version with the problem is that it comes
+> from CC, and that we feel it's important to support CC even when the result
+> isn't that good for software. If this is the case, we would be approving the
+> document for political reasons rather than because it's a good document for
+> software developers to use.
+>
+> Under the CC document, a party that has licensed a patent and dedicates the
+> software exercising that patent is obligated to help the licensee of the
+> patent to prosecute the party using the software.
+> Why would we want to put our own developers in that trap?
+> If OSI approves the document, naive programmers will use it, relying on
+> OSI's imprimateur with no awareness of its problems.
+>
+> ??? Thanks
+>
+> ??? Bruce
+
+
+From henrik.ingo at avoinelama.fi  Fri Mar  2 06:44:58 2012
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Fri, 2 Mar 2012 08:44:58 +0200
+Subject: [License-review] Non-binding straw poll: Do you think CC0
+ should be approved?
+In-Reply-To: <87ipincylr.fsf@floss.red-bean.com>
+References: <87ipincylr.fsf@floss.red-bean.com>
+Message-ID: <CAKHykesKtou5FQY9xfQDT9V6zvE1S5o+2Z8orzh1nGhKYxuoQg@mail.gmail.com>
+
+-1
+
+Reason: the exclusion of patents in 4a. (I was mostly perhaps focusing
+on this since it had already been pointed out, and hence didn't try
+hard to find more problems. But it seems likely that this is the only
+problem and there are no others.) Explicit exclusion of patents is
+against OSI license-review precendent (MXM).
+
+Also a few observations around this reason:
+
+It was also argued that other text in the license waives the Affirmers
+right to take patent action *for the Work in question*. My
+interpretation is that the situation is at least ambiguous. Also the
+eventual statement from CC itself didn't support that interpretation
+(perhaps didn't strongly reject it either).
+
+Another observation is that also among those that were in favor of
+approval, the justifications seemed to be evenly divided among those
+that 1) say the CC0 does include a sufficient patent waiver and is
+therefore compliant with OSD; and those that 2) say the CC0 does
+exclude any patent license and this is a good thing and not required
+by OSD. My point here is that the interpretation of the license was
+highly ambiguous also within the +1 camp.
+
+
+henrik
+
+
+
+On Fri, Mar 2, 2012 at 8:21 AM, Karl Fogel <kfogel at red-bean.com> wrote:
+> The CC0 thread was so enormous that it could sometimes be hard to
+> distinguish between the volume and the content behind each point made.
+>
+> Now, the approval process is not a matter of majority vote, but still
+> I'm curious to see how many people felt the 4a objection (or any other
+> problem) was serious enough to warrant rejection, and how many would
+> approve anyway. ?Knowing these ratios would help us determine whether to
+> continue investigating, perhaps by bringing in some more legal
+> expertise. ?(For example, one thing I wanted to do, but didn't have
+> time, was bring in the people at the FSF who evaluated CC0 and hear
+> their reasoning.)
+>
+> If you wish to participate in this straw poll, please follow up to this
+> mail with "+1" if you think CC0 should be approved, or "-1" *followed by
+> the reason* if you don't think it should be approved.
+>
+> Any -1 that isn't accompanied by a reason I won't count in my tally.
+> (+1 responses have an implicit reason -- that the license fallback
+> portion of CC0 is OSD-compatible -- so there's no need to state it).
+>
+> Thanks!
+>
+> -Karl
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-8211286 skype: henrik.ingo irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://www.linkedin.com/profile/view?id=9522559
+
+
+From nelson at crynwr.com  Fri Mar  2 06:59:08 2012
+From: nelson at crynwr.com (Russ Nelson)
+Date: Fri, 2 Mar 2012 01:59:08 -0500
+Subject: [License-review] Non-binding straw poll: Do you think CC0
+ should be approved?
+In-Reply-To: <4F50691E.7040504@perens.com>
+References: <87ipincylr.fsf@floss.red-bean.com> <4F50691E.7040504@perens.com>
+Message-ID: <20304.28604.5729.430060@desk.crynwr.com>
+
+Either:
+
++1 or
+
+-1 if we also deprecate any license without an explicit patent grant.
+
+By Bruce's own logic, we should be telling people to avoid gray
+areas. The implicit patent grant is a gray area. Thus, if Bruce is
+correct, we should deprecate the BSD and many other licenses.
+-russ
+
+Bruce Perens writes:
+ > -1
+ > 
+ >  From CC's own admission, the dedication and fallback license are not 
+ > primarily intended for software, but for scientific data.
+ > Again by their own admission, the /intent /was to exclude a patent 
+ > grant. This is of course the wrong answer for software.
+ > It would be simple enough for us to construct a version of the document 
+ > without the problem. We have sufficient counsel available.
+ > So, the only reason to approve the version with the problem is that it 
+ > comes from CC, and that we feel it's important to support CC even when 
+ > the result isn't that good for software. If this is the case, we would 
+ > be approving the document for political reasons rather than because it's 
+ > a good document for software developers to use.
+ > 
+ > Under the CC document, a party that has licensed a patent and dedicates 
+ > the software exercising that patent is obligated to help the licensee of 
+ > the patent to prosecute the party using the software.
+ > Why would we want to put our own developers in that trap?
+ > If OSI approves the document, naive programmers will use it, relying on 
+ > OSI's imprimateur with no awareness of its problems.
+ > 
+ >      Thanks
+ > 
+ >      Bruce
+ > <html>
+ >   <head>
+ >     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+ >   </head>
+ >   <body text="#000000" bgcolor="#FFFFFF">
+ >     -1<br>
+ >     <br>
+ >     From CC's own admission, the dedication and fallback license are not
+ >     primarily intended for software, but for scientific data.<br>
+ >     Again by their own admission, the <i>intent </i>was to exclude a
+ >     patent grant. This is of course the wrong answer for software.<br>
+ >     It would be simple enough for us to construct a version of the
+ >     document without the problem. We have sufficient counsel available.<br>
+ >     So, the only reason to approve the version with the problem is that
+ >     it comes from CC, and that we feel it's important to support CC even
+ >     when the result isn't that good for software. If this is the case,
+ >     we would be approving the document for political reasons rather than
+ >     because it's a good document for software developers to use.<br>
+ >     <br>
+ >     Under the CC document, a party that has licensed a patent and
+ >     dedicates the software exercising that patent is obligated to help
+ >     the licensee of the patent to prosecute the party using the
+ >     software.<br>
+ >     Why would we want to put our own developers in that trap?<br>
+ >     If OSI approves the document, naive programmers will use it, relying
+ >     on OSI's imprimateur with no awareness of its problems.<br>
+ >     <br>
+ >     ??? Thanks<br>
+ >     <br>
+ >     ??? Bruce<br>
+ >   </body>
+ > </html>
+ > begin:vcard
+ > fn:Bruce Perens
+ > n:Perens;Bruce
+ > org:Perens LLC
+ > adr:1563 Solano Ave.;;PMB 549;Berkeley;CA;94707;USA
+ > email;internet:bruce at perens.com
+ > title:Strategic Consultant
+ > tel;work:+1-510-4PERENS (510-473-7367)
+ > url:http://perens.com/
+ > version:2.1
+ > end:vcard
+ > _______________________________________________
+ > License-review mailing list
+ > License-review at opensource.org
+ > http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+From cowan at mercury.ccil.org  Fri Mar  2 07:03:29 2012
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Fri, 2 Mar 2012 02:03:29 -0500
+Subject: [License-review] Non-binding straw poll: Do you think
+	CC0	should be approved?
+In-Reply-To: <87ipincylr.fsf@floss.red-bean.com>
+References: <87ipincylr.fsf@floss.red-bean.com>
+Message-ID: <20120302070329.GB4917@mercury.ccil.org>
+
+Karl Fogel scripsit:
+
+> If you wish to participate in this straw poll, please follow up to this
+> mail with "+1" if you think CC0 should be approved, or "-1" *followed by
+> the reason* if you don't think it should be approved.
+
+Firm +1.  CC0 is at the very least a legacy license, and it does not violate
+the OSD.
+
+-- 
+Mark Twain on Cecil Rhodes:                    John Cowan
+I admire him, I freely admit it,               http://www.ccil.org/~cowan
+and when his time comes I shall                cowan at ccil.org
+buy a piece of the rope for a keepsake.
+
+
+From osi-review at piana.eu  Fri Mar  2 07:22:48 2012
+From: osi-review at piana.eu (Carlo Piana)
+Date: Fri, 02 Mar 2012 08:22:48 +0100
+Subject: [License-review] Non-binding straw poll: Do you think CC0
+ should be approved?
+In-Reply-To: <CAKHykesKtou5FQY9xfQDT9V6zvE1S5o+2Z8orzh1nGhKYxuoQg@mail.gmail.com>
+References: <87ipincylr.fsf@floss.red-bean.com>
+	<CAKHykesKtou5FQY9xfQDT9V6zvE1S5o+2Z8orzh1nGhKYxuoQg@mail.gmail.com>
+Message-ID: <4F507548.6090204@piana.eu>
+
+-1
+
+As a submitter of the MXM license, I would be puzzled if CC0 was 
+approved and MXM remained disapproved. Or someone should in case explain 
+which different rationale applies apart from an /ad personam/ one or 
+that the MXM contained at least a limited patent covenant for 
+distribution in source code.
+
+FYI, MPEG adopted BSD for the MXM reference software after rejection of 
+MXM license. I am not aware that MPEG has changed its stance on patents 
+ever since.
+
+http://mpeg.chiariglione.org/technologies/mpeg-m/mpm-rsc/index.htm
+http://mxm.wg11.sc29.org/?p=241
+
+And neither have I, being firmly and aggressively against software 
+patents ? but this is hardly the point. As it is the fact that I 
+understand, respect, and probably approve the reason for rejection of my 
+own submission
+
+Cheers
+
+Carlo
+
+
+
+
+On 02/03/2012 07:44, Henrik Ingo wrote:
+> -1
+>
+> Reason: the exclusion of patents in 4a. (I was mostly perhaps focusing
+> on this since it had already been pointed out, and hence didn't try
+> hard to find more problems. But it seems likely that this is the only
+> problem and there are no others.) Explicit exclusion of patents is
+> against OSI license-review precendent (MXM).
+>
+>
+
+
+
+From joel.sherrill at oarcorp.com  Fri Mar  2 07:31:12 2012
+From: joel.sherrill at oarcorp.com (Joel Sherrill)
+Date: Fri, 2 Mar 2012 08:31:12 +0100
+Subject: [License-review] Non-binding straw poll: Do you think CC0
+ should be approved?
+Message-ID: <8qk9d79f5yvyoj9fm7u3f0hq.1330673472076@email.android.com>
+
+-1
+
+I normally lurk but this is important.
+
+I very much agree with Bruce. In the RTEMS community, we try to not push any obligations on our users because it makes it too easy for them to unintentionally violate a term. Yes they should read and understand the license but normal FOSS obligations are source redistribution and advertising.  If OSI wants to add another class of obligation as OSI approved, that should be discussed independent of any particular license. 
+
+IMO pushing patent obligations on users is a bad thing.
+
+--joel sherrill
+RTEMS
+
+Bruce Perens <bruce at perens.com> wrote:
+
+>-1
+>
+>From CC's own admission, the dedication and fallback license are not primarily intended for software, but for scientific data.
+>Again by their own admission, the intent was to exclude a patent grant. This is of course the wrong answer for software.
+>It would be simple enough for us to construct a version of the document without the problem. We have sufficient counsel available.
+>So, the only reason to approve the version with the problem is that it comes from CC, and that we feel it's important to support CC even when the result isn't that good for software. If this is the case, we would be approving the document for political reasons rather than because it's a good document for software developers to use.
+>
+>Under the CC document, a party that has licensed a patent and dedicates the software exercising that patent is obligated to help the licensee of the patent to prosecute the party using the software.
+>Why would we want to put our own developers in that trap?
+>If OSI approves the document, naive programmers will use it, relying on OSI's imprimateur with no awareness of its problems.
+>
+>    Thanks
+>
+>    Bruce
+
+From chuck at codefab.com  Fri Mar  2 07:37:35 2012
+From: chuck at codefab.com (Chuck Swiger)
+Date: Thu, 01 Mar 2012 23:37:35 -0800
+Subject: [License-review] Non-binding straw poll: Do you think CC0
+ should be approved?
+In-Reply-To: <87ipincylr.fsf@floss.red-bean.com>
+References: <87ipincylr.fsf@floss.red-bean.com>
+Message-ID: <AE86049E-7322-4995-BA2F-D00332523A6E@codefab.com>
+
+On Mar 1, 2012, at 10:21 PM, Karl Fogel wrote:
+> If you wish to participate in this straw poll, please follow up to this
+> mail with "+1" if you think CC0 should be approved, or "-1" *followed by
+> the reason* if you don't think it should be approved.
+
+-1 for now.
+
+The CC0 is OSD-compliant.  However, I don't think the OSI board should make an immediate decision about approving it, primarily because Creative Commons has asked to withdraw it, but also because I don't believe that what the license actually does and what the CC FAQ claims it does with regard to the 4a patent/trademark exception are in alignment.
+
+Regards,
+-- 
+-Chuck
+
+
+
+From rfontana at redhat.com  Fri Mar  2 07:51:50 2012
+From: rfontana at redhat.com (Richard Fontana)
+Date: Fri, 2 Mar 2012 02:51:50 -0500
+Subject: [License-review] Non-binding straw poll: Do you think CC0
+ should be approved?
+In-Reply-To: <87ipincylr.fsf@floss.red-bean.com>
+References: <87ipincylr.fsf@floss.red-bean.com>
+Message-ID: <20120302075150.GA10870@redhat.com>
+
+On Fri, Mar 02, 2012 at 12:21:04AM -0600, Karl Fogel wrote:
+> Now, the approval process is not a matter of majority vote, but still
+> I'm curious to see how many people felt the 4a objection (or any other
+> problem) was serious enough to warrant rejection, and how many would
+> approve anyway.  Knowing these ratios would help us determine whether to
+> continue investigating, perhaps by bringing in some more legal
+> expertise.  (For example, one thing I wanted to do, but didn't have
+> time, was bring in the people at the FSF who evaluated CC0 and hear
+> their reasoning.)
+> 
+> If you wish to participate in this straw poll, please follow up to this
+> mail with "+1" if you think CC0 should be approved, or "-1" *followed by
+> the reason* if you don't think it should be approved.
+
+I must vote "-1" given how the issue has been presented.
+
+The OSI should not be in the business of rubber-stamping submitted
+licenses, and I think the OSI should be attempting to judge submitted
+licenses against *something* -- some principle, some standard. You
+seem to be suggesting, as others have, that the OSD *is* at least
+partly what submitted licenses are supposed to be measured against,
+which is one of the questions I had earlier asked the OSI to
+confirm. Perhaps there is still some question as to whether the actual
+content of the OSD matters, or whether the OSD has come to mean
+something more general or ceremonial than its actual rather specific
+words.
+
+I vote -1 because, until the OSI says otherwise, I still assume that
+the text of the OSD is what primarily guides the OSI license approval
+process, and I do not believe that the consistency of CC0 with the OSD
+has been adequately explained, particularly with respect to the
+relationship between CC0 4a and OSD 7. Nor have I seen any effort to
+explain why the de facto rejection of the MXM license is consistent
+with approval of CC0, given the similarity of the issues raised *and*
+the strength of the opinions in opposition to the MXM license. Summary
+approvals of licenses by OSI should no longer be appropriate.
+
+I suppose my further concern is that without such adequate rationale
+for approval, it looks like approval may be based on factors that
+perhaps ought to be illegitimate (or else ought to be disclosed by OSI
+as legitimate factors for consideration), such as the status of the
+license steward.
+
+
+- Richard
+
+
+From chuck at codefab.com  Fri Mar  2 08:02:18 2012
+From: chuck at codefab.com (Chuck Swiger)
+Date: Fri, 02 Mar 2012 00:02:18 -0800
+Subject: [License-review] Non-binding straw poll: Do you think CC0
+ should be approved?
+In-Reply-To: <4F507548.6090204@piana.eu>
+References: <87ipincylr.fsf@floss.red-bean.com>
+	<CAKHykesKtou5FQY9xfQDT9V6zvE1S5o+2Z8orzh1nGhKYxuoQg@mail.gmail.com>
+	<4F507548.6090204@piana.eu>
+Message-ID: <89376739-4BF2-4484-B731-C06D3ADA3369@codefab.com>
+
+On Mar 1, 2012, at 11:22 PM, Carlo Piana wrote:
+> As a submitter of the MXM license, I would be puzzled if CC0 was approved and MXM remained disapproved. Or someone should in case explain which different rationale applies apart from an /ad personam/ one or that the MXM contained at least a limited patent covenant for distribution in source code.
+
+The MXM license was obviously not OSD-compliant because you cannot discriminate against commercial use of  software and still be "open source".
+
+I think the actual effect of the CC0 license includes a covenant or promise by the Affirmer to not bring action to users of the CC0-licensed work for any reason, including patent rights, trademarks, or anything else.  If that isn't what folks mean to do, then they should find a different license to use than CC0.
+
+Regards,
+-- 
+-Chuck
+
+
+
+From mark at klomp.org  Fri Mar  2 08:36:55 2012
+From: mark at klomp.org (Mark Wielaard)
+Date: Fri, 2 Mar 2012 09:36:55 +0100
+Subject: [License-review] Non-binding straw poll: Do you think CC0
+ should be approved?
+In-Reply-To: <87ipincylr.fsf@floss.red-bean.com>
+References: <87ipincylr.fsf@floss.red-bean.com>
+Message-ID: <20120302083654.GA2760@toonder.wildebeest.org>
+
+On Fri, Mar 02, 2012 at 12:21:04AM -0600, Karl Fogel wrote:
+> If you wish to participate in this straw poll, please follow up to this
+> mail with "+1" if you think CC0 should be approved, or "-1" *followed by
+> the reason* if you don't think it should be approved.
+
+-1.
+
+I used to be +1 because I thought clause 4 wasn't meant to clawback
+any usage rights granted in earlier clauses. The FAQ entry that
+explains the clause is explicitly meant to take back any (implicit)
+patents rights granted and suggests users of the work have to get an
+additional (patent) license from the grantor turned my +1 into a -1
+because I now feel this fails OSD 7.
+
+
+From Nigel.Tzeng at jhuapl.edu  Fri Mar  2 13:21:30 2012
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Fri, 2 Mar 2012 08:21:30 -0500
+Subject: [License-review] Non-binding straw poll: Do you think CC0
+ should be approved?
+In-Reply-To: <87ipincylr.fsf@floss.red-bean.com>
+Message-ID: <CB763381.14B1A%Nigel.Tzeng@jhuapl.edu>
+
++1
+
+On 3/2/12 1:21 AM, "Karl Fogel" <kfogel at red-bean.com> wrote:
+
+>The CC0 thread was so enormous that it could sometimes be hard to
+>distinguish between the volume and the content behind each point made.
+>
+>Now, the approval process is not a matter of majority vote, but still
+>I'm curious to see how many people felt the 4a objection (or any other
+>problem) was serious enough to warrant rejection, and how many would
+>approve anyway.  Knowing these ratios would help us determine whether to
+>continue investigating, perhaps by bringing in some more legal
+>expertise.  (For example, one thing I wanted to do, but didn't have
+>time, was bring in the people at the FSF who evaluated CC0 and hear
+>their reasoning.)
+>
+>If you wish to participate in this straw poll, please follow up to this
+>mail with "+1" if you think CC0 should be approved, or "-1" *followed by
+>the reason* if you don't think it should be approved.
+>
+>Any -1 that isn't accompanied by a reason I won't count in my tally.
+>(+1 responses have an implicit reason -- that the license fallback
+>portion of CC0 is OSD-compatible -- so there's no need to state it).
+>
+>Thanks!
+>
+>-Karl
+>_______________________________________________
+>License-review mailing list
+>License-review at opensource.org
+>http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
