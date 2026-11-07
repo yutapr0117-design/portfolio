@@ -56,8 +56,8 @@ narrow band where those assumptions fail together.
 
 There is nothing to register, and you do not need to tell us.
 
-**If you use it or plan to, and are willing to say so publicly, an
-[issue here](https://github.com/yutapr0117-design/portfolio/issues) helps.** Use by a project is the
+**If you use it or plan to, and are willing to say so publicly,
+[this form](https://github.com/yutapr0117-design/portfolio/issues/new?template=acd-use.yml) helps.** Use by a project is the
 one thing the steward cannot supply. OSI's committee has said of another licence that one project
 using it or expressing interest would lift a hold. Say so only if it is true.
 

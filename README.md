@@ -16,6 +16,7 @@
 > **Read [`LICENSES/ADOPTING.md`](LICENSES/ADOPTING.md) first**: the text gives you no way to undo
 > the act, **no lawyer has reviewed the text, it is not OSI-approved, and it is not on the SPDX License List.**
 > The full case against it is [`LICENSES/ACD-1.0.against.md`](LICENSES/ACD-1.0.against.md).
+> If a project of yours uses it or plans to, [you can say so here](https://github.com/yutapr0117-design/portfolio/issues/new?template=acd-use.yml). Nothing requires it.
 
 ## 30-second summary
 
