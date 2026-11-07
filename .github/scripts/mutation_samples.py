@@ -552,6 +552,13 @@ _MUTATIONS_TAIL.append({
     "replace": "Drafted By Lawyer:              No\nDrafted By Lawyer:              No\nApproved or Used by Projects:   One — my own repository",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 468: §8.4 から「Section 8.1 alone governs」の alone を落とす —— 付け足した機能に §8.4 が及ぶかの線が消える (468u の目印)",
+    "file": CURRENT_DRAFT,
+    "find": "remove. Section 8.1 alone governs a feature added to the Work, by",
+    "replace": "remove. Section 8.1 governs a feature added to the Work, by",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
