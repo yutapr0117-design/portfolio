@@ -38,7 +38,7 @@ RED にならないものが 1 つある。質問票の問 2 と問 5 は 1.3 �
 python3 .github/scripts/prepare_version_freeze.py --report 1.4
 ```
 
-一覧は 3 種類である。番号が残って別の条になる行（Check 472 は無くなった条しか見ないので、ここは黙って通る）、日付つきの実測、版を決め打ちした検証コマンド。上の段は全部読み、下の段は前の版と名指していない行だけ読む。範囲は `measure_clause_overlap.py` の `_OUTWARD` から導出する。
+一覧は 4 種類である。番号が残って別の条になる行（Check 472 は無くなった条しか見ないので、ここは黙って通る）、`submission.md` の §A が前の版を述べる行、日付つきの実測、版を決め打ちした検証コマンド。送る本文が述べる版は Check 472o が RED で止める。上の段は全部読み、下の段は前の版と名指していない行だけ読む。範囲は `measure_clause_overlap.py` の `_OUTWARD` から導出する。
 
 申請の日に `submission.md` の `SUBMISSION-TARGET` を切り替えると、Check 472 / 472f / 472h が版に紐づく欄を名指す。2026-11-07 の予行では、欄を直すと Check はすべて満たせた（満たせない Check は無かった）。Check が止めない行は上の `--report` で読む。
 

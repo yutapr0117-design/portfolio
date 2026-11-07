@@ -97,7 +97,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        提出対象と一致すること。
        **(472l・2026-11-06)** 入口ページと申請日の 1 枚が OSI の FAQ として引く文が、`rounds/` の FAQ の本文に在ること。
        承認されるべき理由の先頭に置いた出典なので、語を読みやすく動かすと審査者が最初に確かめて落ちる。
-       **(472m / 472n・2026-11-07)** 入口の表の語数が実物に合うこと / 入口の引用が原文で確かめられていること (`checks_license_references.py`)。
+       **(472m / 472n / 472o・2026-11-07)** 入口の表の語数 / 入口の引用 / 送る本文が述べる版 (`checks_license_references.py`)。
        **(472k・2026-11-06)** `objection-map.md` が引く §2〜§16 の条が提出対象に在ること。472 はどれかの版に在る番号しか
        見ないので、どの版にも無い番号は黙って通っていた。§1.x はドシエの節と同じ形なので対象外。
        **(472j・2026-11-06)** `ADOPTING.md` の "the same in every version" の主張。引く条が凍結版すべてと草案に在ること。
@@ -159,7 +159,7 @@ def run(ctx):
             _b0 = _t463[_i463:_j463]
             _req463 = [
                 ("attachment", r"attached as plain text"),
-                ("OSD affirmation", r"I affirm that ACD-1\.0 complies with the Open Source Definition"),
+                ("OSD affirmation", r"I affirm that ACD-\d+\.\d+ complies with the Open Source Definition"),
                 # **要件は「OSD に準拠する」ではなく「OSD 3, 5, 6, 9 を満たすと specifically 明言する」**。
                 # 原文: "Affirmatively state that the license complies with the Open Source Definition,
                 # including specifically affirming it meets OSD 3, 5, 6 and 9."

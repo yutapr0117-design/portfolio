@@ -539,6 +539,13 @@ _MUTATIONS_TAIL.append({
     "replace": "(ACD-1.1 is the one this repository applies)",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 472o: 送る本文の適合の宣言が別の版を述べる —— 472f の 16 欄の外で、切り替えた日に無音で残るところだった",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": f"**I affirm that {SUBMISSION_TARGET} complies with the Open Source Definition**, and",
+    "replace": "**I affirm that ACD-1.1 complies with the Open Source Definition**, and",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
