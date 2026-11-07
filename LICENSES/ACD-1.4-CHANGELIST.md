@@ -115,6 +115,9 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | E61 | §1.3 | *"in whole or in part"* を外す（−5 語・上の表の「§1.3（3 回目）」行と同じ変更） | **反映済み**（2026-11-04）|
 | E62 | §12.2 | *", directly or indirectly"* を足す（+3 語・上の表の「§12.2（受領者）」行と同じ変更） | **反映済み**（2026-11-04）|
 | E63 | §15.1 | *"upon You"* を足す（+2 語・上の表の「§15.1（宛先）」行と同じ変更） | **反映済み**（2026-11-06）|
+| E64 | §8.1 / §8.3 / §8.4 | 許諾の目的語を請求項から行為へ移し、*"otherwise practise or transfer"* で終える。§8.3 に *"as to the acts they describe"*（計 +6 語・T17） | **反映済み**（2026-11-08）|
+| E65 | §1.9 | 宛先を *"a repository or forum offering the Work under this Dedication"* へ（+3 語・T19） | **反映済み**（2026-11-08）|
+| E66 | §8.4 | *"Section 8.1 alone governs a feature added to the Work, by whatever means."* を足す（+13 語・T18） | **反映済み**（2026-11-08）|
 
 ## 外部資料 5 本を当てた結果（2026-10-28・オーナーが URL を渡した・clean も書き残す）
 
