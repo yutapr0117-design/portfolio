@@ -401,6 +401,7 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 472m: 入口の表の objection-map の語数を実物とずらす —— 直すたびに手で書き直していた行",
     "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
     "find": "(ACD-1.0.objection-map.md) | **",
     "replace": "(ACD-1.0.objection-map.md) | **1",
     "check": CHECK,

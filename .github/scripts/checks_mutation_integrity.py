@@ -138,9 +138,10 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        project-detail-page.js に **2 箇所**（not-found 分岐の「一覧へ戻る」と詳細本体の
        「← 一覧に戻る」）あり、mutation は前者だけを壊してテストは通り続けた。
        **週次 mutation-probe が SURVIVED として検出**したが、それまで誰も気付いていない。
-       consistency 側 (`MUTATIONS`) は対象外 — あちらの Check は file 全体を走査するので
-       どの出現を壊しても捕捉され、非一意でも害が無い（実際 sitemap.xml / index.html には
-       正当な非一意 anchor が複数ある）。behavior 側だけが「特定の実行経路に当てる」性質を持つ。
+       consistency 側 (`MUTATIONS`) は当初対象外だった (file 全体を走査する Check はどの出現を
+       壊しても捕捉する)。**2026-11-08 にこの前提が節を限る Check には成り立たないと実測した**
+       (463 の mutation が §A の同じ 3 行に当たって生き残った)。いまは consistency 側も、非一意の
+       find は `first_occurrence: True` (先頭の出現が狙いだと確かめた印) を持たねばならない。
        (BLOCKING)
   479. **名指しする mutation が 1 件も無い Check を増やさない**（ratchet）。週次 probe が検証するのは
        mutation が名指しした Check だけで、名指しが 0 件の Check は**一度も検証されない**。
@@ -418,12 +419,23 @@ def run(ctx):
             _n420 = _f420.read_text(encoding="utf-8", errors="replace").count(_mu420["find"])
             if _n420 > 1:
                 _dupe420.append(f"{_f420.name}: x{_n420} ({_mu420['name'][:50]}…)")
+        # [2026-11-08] consistency 側も見る。「file 全体を走査する Check が受けるので非一意でも害が無い」は
+        #   節を限って見る Check (463 は §B.0 の送る部分だけを見る) には成り立たない。§A と §B.0 に
+        #   同じ 3 行がある file で、先頭の出現 (§A) を壊した mutation が生き残った (実測)。
+        #   非一意の find は、先頭の出現が狙いだと確かめた印 `first_occurrence` を持たねばならない。
+        for _mu420 in _ms420.MUTATIONS:
+            _f420 = _mu420["file"]
+            if _mu420.get("first_occurrence") or not _f420.exists():
+                continue
+            _n420 = _f420.read_text(encoding="utf-8", errors="replace").count(_mu420["find"])
+            if _n420 > 1:
+                _dupe420.append(f"{_f420.name}: x{_n420} ({_mu420['name'][:50]}…) [consistency・first_occurrence の印が無い]")
     except Exception as _e420:
         _dupe420.append(f"mutation_samples を import できない: {_e420}")
     check(
         not _dupe420,
-        f"Check 420: E2E_MUTATIONS の find が全て対象 file 内で一意 ({_n_e2e420} 件)",
-        ("Check 420: find が対象 file 内で複数箇所にマッチする behavior mutation がある: "
+        f"Check 420: mutation の find が対象 file 内で一意 (E2E {_n_e2e420} 件。consistency 側は非一意なら first_occurrence の印を持つ)",
+        ("Check 420: find が対象 file 内で複数箇所にマッチする mutation がある: "
          + "; ".join(_dupe420[:5])
          + " — mutation_probe は replace(find, replace, 1) で **先頭 1 件しか置換しない**ため、"
            "テストが通る経路とは別の場所が壊れて silent SURVIVED になる。"

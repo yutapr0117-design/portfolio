@@ -245,6 +245,7 @@ MUTATIONS_ARCHIVE4 = [
     {
     "name": 'Check 32: index.html の JSON-LD を JSON として壊す —— 構造化データが丸ごと読めなくなる',
     "file": ROOT / "index.html",
+    "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
     "find": '"@context": "https://schema.org",',
     "replace": '"@context": "https://schema.org",,',
     "check": CHECK,
