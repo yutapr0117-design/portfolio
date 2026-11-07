@@ -41,6 +41,21 @@ APPLY_FILES = (".well-known/agent-skills/index.json", ".well-known/aio-manifest.
                "js/components.js", "llms-full.txt", "llms.txt", "llms_well-known.txt", "main.js", "robots.txt", "sitemap.xml")
 
 
+def bump_applied(text: str, old: str, new: str, old_date: str, date: str) -> str:
+    """適用する版を上げる。版を述べる行の適用の日付も一緒に直す (版だけ置換すると公開面が偽の日付を述べる)。"""
+    lines = []
+    for line in text.split("\n"):
+        if old in line or f"Dedication {old[4:]}" in line:
+            line = line.replace(old, new).replace(f"Dedication {old[4:]}", f"Dedication {new[4:]}")
+            line = re.sub(r"\(ACD-\d+\.\d+ until \d{4}-\d{2}-\d{2}\)", f"({old} until {date})", line)
+            line = re.sub(r"\d{4}-\d{2}-\d{2} までは ACD-\d+\.\d+", f"{date} までは {old}", line)
+            line = line.replace(f"since {old_date}", f"since {date}").replace(f"{old_date} から", f"{date} から")
+        lines.append(line)
+    out = "\n".join(lines)
+    # sitemap の lastmod は版を述べる <loc> の次の行にある。
+    return re.sub(rf"({re.escape(new)}\.[a-z.]+</loc>\n\s*<lastmod>){re.escape(old_date)}", rf"\g<1>{date}", out)
+
+
 def para(text: str, indent: str = "  ", first: str | None = None) -> str:
     return textwrap.fill(" ".join(text.split()), width=78, initial_indent=first if first is not None else indent,
                          subsequent_indent=indent, break_long_words=False, break_on_hyphens=False)
@@ -268,10 +283,10 @@ def main() -> int:
     (L / f"ACD-{v}.machine.json").write_text(descriptor(v, prev, body, args.date), encoding="utf-8")
 
     old = re.search(r"^SPDX-License-Identifier: (ACD-\d+\.\d+)$", (ROOT / "LICENSE").read_text(encoding="utf-8"), re.M).group(1)
+    old_date = re.search(r"frozen on (\d{4}-\d{2}-\d{2})", " ".join((L / f"{old}-DRAFT.txt").read_text(encoding="utf-8").split())).group(1)
     for f in APPLY_FILES:
         p = ROOT / f
-        p.write_bytes(p.read_bytes().replace(old.encode(), f"ACD-{v}".encode())
-                      .replace(f"Dedication {old[4:]}".encode(), f"Dedication {v}".encode()))
+        p.write_text(bump_applied(p.read_text(encoding="utf-8"), old, f"ACD-{v}", old_date, args.date), encoding="utf-8")
     subprocess.run([sys.executable, ".github/scripts/update_binary_aio_rights.py"], cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
     subprocess.run([sys.executable, ".github/scripts/generate_spdx_license_xml.py", "--version", v], cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
 

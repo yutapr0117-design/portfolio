@@ -3,7 +3,7 @@
 rotate_mutation_samples.py が受け皿の余裕を実測して選び、埋まったら次を起こす。
 **新しい mutation は mutation_samples.py の tail へ足すこと** (ここは退避先)。
 """
-from mutation_samples_common import ROOT, CHECK, APPLIED_ID, SUBMISSION_TARGET, NEXT_CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, APPLIED_ID, SUBMISSION_TARGET, NEXT_CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER, FROZEN_PREVIOUS  # noqa: F401 (entry 内で参照)
 
 MUTATIONS_ARCHIVE5 = [
     {
@@ -531,6 +531,41 @@ MUTATIONS_ARCHIVE5 = [
     "file": ROOT / "LICENSE",
     "find": f"SPDX-License-Identifier: {APPLIED_ID}\n",
     "replace": "SPDX-License-Identifier: ACD-1.0\n",
+    "check": CHECK,
+},
+    {
+    "name": "Check 490a: 確定本文の 1 行目が別の版を名乗る —— 前の版の冒頭を書き写して版を直し忘れた形",
+    "file": FROZEN_PREVIOUS,
+    "find": f"ACD-{PREVIOUS_VER} -- FROZEN TEXT.",
+    "replace": "ACD-0.9 -- FROZEN TEXT.",
+    "check": CHECK,
+},
+    {
+    "name": "Check 490b: 確定本文の題名が別の版のまま —— 468j は草案しか見ない",
+    "file": FROZEN_PREVIOUS,
+    "find": f"                              Version {PREVIOUS_VER}\n",
+    "replace": "                              Version 0.9\n",
+    "check": CHECK,
+},
+    {
+    "name": "Check 490c: 確定本文の末尾が欠ける —— 2026-11-06 の予行で最後の節を落としても全部緑だった",
+    "file": FROZEN_PREVIOUS,
+    "find": "END OF TERMS",
+    "replace": "END OF TEXT",
+    "check": CHECK,
+},
+    {
+    "name": "Check 490d: 確定本文の冒頭の語数の申告が実測と違う —— 前の版の冒頭の数を持ち越した形",
+    "file": FROZEN_PREVIOUS,
+    "find": "This version: ",
+    "replace": "This version: 1",
+    "check": CHECK,
+},
+    {
+    "name": "Check 490e: 確定本文の冒頭が別の版の CHANGELIST を指す",
+    "file": FROZEN_PREVIOUS,
+    "find": f"LICENSES/ACD-{PREVIOUS_VER}-CHANGELIST.md",
+    "replace": "LICENSES/ACD-0.9-CHANGELIST.md",
     "check": CHECK,
 },
 ]

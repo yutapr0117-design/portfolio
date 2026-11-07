@@ -14,6 +14,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        top-level `license` の spdx_id と url が整合する / 444d sitemap に全文の `<loc>` がある /
        444e llms.txt と llms-full.txt が SPDX 識別子に言及する。
        **444k (2026-11-06)** 人が読む 2 面 (README の案内と画面のフッター) が、適用する版の全文を指す。
+       **444l / 444m (2026-11-07)** 適用する版の隣の日付がその版を確定した日である / 外向きの文書の
+       「適用している版」の主張が実際の版である。確定の道具は版を置換するので、どちらも無音で偽になっていた。
        適用する版を上げる日に面を 1 つずつ戻す予行で、この 2 面だけ戻しても無音だった。
        **444h (2026-09-24)** sitemap の `<image:license>` がすべて canonical を指す —— 存在の検査は、
        矛盾する宣言の共存を検出しない（CC BY-NC-ND 4.0 が同じ画像について残っていた）。
@@ -230,6 +232,19 @@ def run(ctx):
             if f"/portfolio/{_rel444}" not in _cp444k or f"License: {_spdx444}" not in _cp444k:
                 _bad444.append(f"444k: 画面のフッター (js/components.js) が適用する版 {_spdx444} を指していない")
 
+            # 444l — 適用する版の隣の日付が、その版を確定した日であること。版を置換しても日付は残るので、
+            #   "ACD-1.4 (ACD-1.0 until 2026-10-25)" のように公開面が偽を述べても無音だった (2026-11-07 の予行)。
+            _ptr444l = re.search(r"frozen on (\d{4}-\d{2}-\d{2})", " ".join((ROOT / "LICENSES" / f"{_spdx444}-DRAFT.txt").read_text(encoding="utf-8").split()))
+            if not _ptr444l:
+                _bad444.append(f"444l: {_spdx444} を確定した日が草案の pointer から読めない")
+            else:
+                for _f444l in ("README.md", "llms.txt", "llms_well-known.txt", ".well-known/llms.txt", ".well-known/llms_well-known.txt", "robots.txt", "sitemap.xml"):
+                    for _l444l in (ROOT / _f444l).read_text(encoding="utf-8").splitlines():
+                        if _spdx444 in _l444l:
+                            _bad444 += [f"444l: {_f444l} が {_spdx444} の隣で {_d or _e} と述べる / 確定は {_ptr444l.group(1)}"
+                                        for _d, _e in re.findall(r"(?:until|since) (\d{4}-\d{2}-\d{2})|(\d{4}-\d{2}-\d{2}) ?(?:まで|から)", _l444l)
+                                        if (_d or _e) != _ptr444l.group(1)]
+
             # 444e — llms 層が識別子に言及すること
             for _lf444 in ("llms.txt", "llms-full.txt"):
                 if _spdx444 not in (ROOT / _lf444).read_text(encoding="utf-8"):
@@ -279,6 +294,31 @@ def run(ctx):
                  "canonical は LICENSE の `Full text:` 行と `SPDX-License-Identifier:` 行が単一ソース"),
                 blocking=True,
             )
+
+    # 444m — 外向きの文書の「適用している版」の主張が、実際に適用している版であること。確定の道具が書き換えるのは
+    #   機械可読面だけなので、REVIEWERS.md の "ACD-1.3 is the one this repository applies" は版を上げても残る。
+    _lic444m = re.search(r"^SPDX-License-Identifier:\s*(\S+)", (ROOT / "LICENSE").read_text(encoding="utf-8"), re.M)
+    if _lic444m:
+        from measure_citation_drift import FACES as _faces444m
+        _say444m = re.compile(r"this repository applies|applied to this repository|適用している|適用中")
+        _stale444m = []
+        for _f444m in [ROOT / "LICENSES" / _n for _n in _faces444m if "against" not in _n and "discussion-log" not in _n]:
+            for _n444m, _l444m in enumerate(_f444m.read_text(encoding="utf-8").splitlines(), 1):
+                for _m444m in _say444m.finditer(_l444m):
+                    # 主張に最も近い版を見る。後ろは同じ文の中だけ。file 名の中の版は数えない。
+                    _ids444m = [_i for _i in re.finditer(r"ACD-\d+\.\d+(?![.\w-]*\.md)", _l444m)]
+                    _pre444m = [_i for _i in _ids444m if 0 < _m444m.start() - _i.start() < 70]
+                    _post444m = [_i for _i in _ids444m if 0 < _i.start() - _m444m.start() < 30
+                                 and not re.search(r"\. |。", _l444m[_m444m.end():_i.start()])]
+                    _hit444m = min(_pre444m + _post444m, key=lambda _i: abs(_i.start() - _m444m.start()), default=None)
+                    if _hit444m and _hit444m.group(0) != _lic444m.group(1):
+                        _stale444m.append(f"{_f444m.name}:{_n444m}")
+        check(
+            not _stale444m,
+            f"Check 444m: 外向きの文書の「適用している版」の主張が {_lic444m.group(1)} に合う",
+            f"Check 444m: 適用していない版を「適用している」と述べる行がある: {sorted(set(_stale444m))}。文を読んで直す",
+            blocking=True,
+        )
 
     # ── 445. SPDX 提出用 XML がライセンス本文と同期していること (BLOCKING) ─────────────
     # 提出物を手書きすると本文の改善に追従せず silent に古くなる。単一ソース (ACD-1.0.txt) から
