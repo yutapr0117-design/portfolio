@@ -45,6 +45,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 """
 
 import re
+import subprocess
 import sys
 
 
@@ -118,9 +119,22 @@ def run(ctx):
             _bad472m.append(f"objection-map {_got472m[2]} 語 / 実測 {_real472m} 語")
         if abs(sum(_got472m[:3]) - _got472m[3]) > 10:
             _bad472m.append(f"合計 ≈ {_got472m[3]} 語 / 3 行の和 {sum(_got472m[:3])} 語")
+    # ドシエ全体の語数は増え続けるので 10% の幅を持つ。09-28 の値のまま 3 分の 1 少なく述べていた (2026-11-07)。
+    _all472m = re.search(r"is \*\*([\d,]+) words\*\*, \*\*(\d+) times the licence\*\*", _rv472m)
+    _ls472m = subprocess.run(["git", "ls-files", "-z", "LICENSES", ":!LICENSES/rounds"], cwd=ROOT, text=True, capture_output=True).stdout
+    _size472m = sum(len((ROOT / _f).read_text(encoding="utf-8", errors="replace").split()) for _f in _ls472m.split("\0") if _f)
+    if not _all472m or not _lic472m:
+        _bad472m.append("ドシエ全体の語数の文が読めない")
+    else:
+        _said472m = int(_all472m.group(1).replace(",", ""))
+        _lw472m = int(_lic472m.group(1).replace(",", ""))
+        if abs(_said472m - _size472m) > _size472m * 0.1:
+            _bad472m.append(f"ドシエ全体 {_said472m} 語 / 実測 {_size472m} 語")
+        if abs(int(_all472m.group(2)) - _said472m / _lw472m) > 1:
+            _bad472m.append(f"{_all472m.group(2)} 倍 / {_said472m} ÷ {_lw472m}")
     check(
         not _bad472m,
-        f"Check 472m: 入口の短い経路の表が objection-map の {_real472m} 語と合計に合う",
+        f"Check 472m: 入口の短い経路の表が objection-map の {_real472m} 語と合計に合い、ドシエ全体の語数も 10% の幅に収まる",
         (f"Check 472m: 入口の短い経路の表が実物と違う: {_bad472m}。審査者に示す読む費用なので、"
          "objection-map を直したら同じ commit で表と合計を直せ"),
         blocking=True,

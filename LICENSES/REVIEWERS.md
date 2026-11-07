@@ -9,8 +9,8 @@ canonical-ref: LICENSES/ACD-1.0.txt (the text posted) / LICENSES/ACD-1.3.txt (th
 
 ## The short path, and what it costs you
 
-**You are a volunteer. Nothing here is required reading.** Measured 2026-09-28, the analysis in
-this directory — everything except `rounds/` — is **254,371 words**, **52 times the licence**, and
+**You are a volunteer. Nothing here is required reading.** Measured 2026-11-07, the analysis in
+this directory — everything except `rounds/` — is **377,814 words**, **77 times the licence**, and
 more than that in fact, because Japanese is not space-delimited. `rounds/` holds the primary
 sources verbatim so that every quotation can be checked against what was actually sent; **nobody
 is asked to read it.** The whole of it exists so that a claim we make can be checked, **not so
