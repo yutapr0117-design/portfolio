@@ -108,8 +108,8 @@ def frozen_header(v: str, prev: str, nxt: str, date: str, pw: int, pc: int, w: i
             bullet(f"Clause numbers follow ACD-{prev}, not ACD-1.0. Citations to an earlier version must keep using that "
                    "version's text."),
             bullet(f"Every change from ACD-{prev}, with what it closes and what it cost in words, is recorded in "
-                   f"LICENSES/ACD-{v}-CHANGELIST.md, which also keeps, word for word, the change list this file carried "
-                   "while it was a draft."),
+                   f"LICENSES/ACD-{v}-CHANGELIST.md. That record is in Japanese; its appendix keeps, word for word and in "
+                   "English, the change list this file carried while it was a draft."),
             bullet(f"ACD-{prev}: {pw:,} words, {pc} clauses. This version: {w:,} words, {c} clauses."),
         ]),
         "  The terms begin below.",
