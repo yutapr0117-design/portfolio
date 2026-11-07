@@ -489,7 +489,7 @@ only recommend it"* も、R2〜R5 の 4 規則も、**既定では発言者個�
 
 - **「OSI からの連絡」は「OSI の決定」ではない。** 通知は moderation の運用と CoC 改定予告で
   あって理事会決議ではなく、**ACD-1.0 についての立場は依然 1 語も述べていない。**
-  `CLAUDE.md` §7 の「組織の立場は依然不明」は**そのまま生きる** ——変わるのは
+  `CLAUDE.md` §7 の「組織の立場は依然不明」（2026-11-08 に `docs/session-records/CLAUDE-handoff-archive.md` へ移した 2026-09-13 の項）は**そのまま生きる** ——変わるのは
   「moderator の行為は一個人の行為ではない」という点だけである。
 - **フッタの規則は必要条件であって十分条件ではない。** *"will be sent from an opensource.org
   email address"* は、そのアドレスからの全てが公式だとは述べていない。
