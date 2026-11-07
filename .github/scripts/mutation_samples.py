@@ -538,6 +538,20 @@ _MUTATIONS_TAIL.append({
     "replace": "                class: 'card card--accent-left', 'data-accent': 'primary', role: 'region', 'aria-label': '運用の記録：AI自走運用への進化'\n            },\n                h('div', { class: 'card-body flex flex-col gap-3' },\n                    sectionHeader('🔄', '運用の記録 — 対話型から AI 自走運用への進化', C.primary),",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 463: 送る文面の法的レビューの段落を HTML コメントに隠す —— 描画されず送られないのに、生の markdown で照合して通っていた",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": "**Legal review: none.** No lawyer has drafted or read it.",
+    "replace": "<!-- **Legal review: none.** No lawyer has drafted or read it. -->",
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 463: 送る文面から「新規か legacy か」の行を消す —— 申請日の 1 枚は要件に持つのに、§B.0 の照合には無かった",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": "Legacy or New:                  New License\nDrafted By Lawyer:              No\nApproved or Used by Projects:   One — my own repository",
+    "replace": "Drafted By Lawyer:              No\nDrafted By Lawyer:              No\nApproved or Used by Projects:   One — my own repository",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
