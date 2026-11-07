@@ -12,6 +12,9 @@ checks_license_references.py — ドシエが書いた矢印が、指した先�
 **宣言と実測の差は、宣言した本人には見えない。**
 
 Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()):
+  493. **採用者の受け口のリンクが template へ解決すること** (BLOCKING・2026-11-07): `issues/new?template=X` は
+       X が無いと GitHub が黙って空の issue 画面へ落とす。委員会が保留の解除に挙げた「使う・関心を示す」の
+       唯一の受け口なので、読み手に見えない形で壊さない。form の必須の鍵も見る。
   492. **私信の語の連なりが tree へ戻っていないこと** (BLOCKING・2026-11-07): 第三者との private off-list
        correspondence は本文を公開しない。手の掃引は mirror doc を直して元の script を見落とした。
        本文を持たず hash の一覧だけで、8 語の連なりを見る。
@@ -153,6 +156,22 @@ def run(ctx):
         f"Check 492: 私信の語の連なり {len(_keys492)} 件が tree に無い",
         (f"Check 492: 私信の語の連なりが tree にある: {_hits492 or '一覧が読めない'}。"
          "逐語を要約へ置き換えよ。steward 本人の文や公開の文に当たったのなら build_private_phrase_hashes.py の除外を確かめる"),
+        blocking=True,
+    )
+
+    # ── 493. 採用者の受け口のリンクが template へ解決すること (BLOCKING) ───────────────────
+    _forms493 = ROOT / ".github" / "ISSUE_TEMPLATE"
+    _links493 = []
+    for _p493 in [ROOT / "README.md", *sorted((ROOT / "LICENSES").glob("*.md"))]:
+        _links493 += [(_p493.name, _t) for _t in re.findall(r"issues/new\?template=([\w.-]+)", _p493.read_text(encoding="utf-8"))]
+    _bad493 = [f"{_f} → {_t}" for _f, _t in _links493 if not (_forms493 / _t).is_file()]
+    for _t in {_t for _, _t in _links493 if (_forms493 / _t).is_file()}:
+        _body493 = (_forms493 / _t).read_text(encoding="utf-8")
+        _bad493 += [f"{_t}: 鍵 {_k} が無い" for _k in ("name", "description", "body") if not re.search(rf"(?m)^{_k}:", _body493)]
+    check(
+        len(_links493) >= 2 and not _bad493,
+        f"Check 493: 採用者の受け口のリンク {len(_links493)} 件が template へ解決する",
+        f"Check 493: 採用者の受け口が壊れている: {_bad493 or 'リンクが無い'}。GitHub は黙って空の issue 画面へ落とす",
         blocking=True,
     )
 
