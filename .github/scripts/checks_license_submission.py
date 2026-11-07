@@ -17,7 +17,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        3 件を欠いていた**（OSD 準拠の積極的言明 / ScanCode 識別子 / 提案 tag —— #77）。
        欠落の原因は「要件表を隣人の提出から再構成し、出典で読んでいなかった」ことで、
        **同じ形は静かに再発する** —— 文面は増分のたびに書き換えられ、項目は 1 つずつ落ちる。
-       10 個の marker が §B.0 に存在することを機械強制する。**中身の質は検査しない**
+       要求項目ごとの marker が、§B.0 のうち実際に送る部分（行頭の **Subject:** から後・HTML
+       コメントを除く）に在ることを機械強制する（数は実装の `_req463` が権威）。**中身の質は検査しない**
        （それは散文の判断である）。守るのは「**項目が消えていないこと**」だけ。(BLOCKING)
        **(468g・2026-09-22)** 草案の**本文側**に `shall` / `must` が無いこと。提出パケットは
        「ACD-1.0 は measurably not proscriptive ——`shall` と `must` は **0 回**」を #116 への
@@ -157,25 +158,26 @@ def run(ctx):
             _bad463.append("§B.0 / §B.1 の見出しが見つからない (送る文面と参考資料の境界が失われている)")
         else:
             _b0 = _t463[_i463:_j463]
+            # [FIX 2026-11-08] 照合は実際に送る部分だけ。見出しから **Subject:** までの作業メモ (約 13 KB) と、
+            #   送られない HTML コメントは除く (法的レビューの段落をコメントにしても通ることを実測した)。
+            _s463 = re.search(r"^\*\*Subject:\*\*", _b0, re.M)
+            if not _s463:
+                _bad463.append("§B.0 に送る文面の始まり (行頭の **Subject:**) が見つからない")
+            _b0 = re.sub(r"<!--.*?-->", "", _b0[_s463.start():] if _s463 else "", flags=re.S)
             _req463 = [
                 ("attachment", r"attached as plain text"),
                 ("OSD affirmation", r"I affirm that ACD-\d+\.\d+ complies with the Open Source Definition"),
-                # **要件は「OSD に準拠する」ではなく「OSD 3, 5, 6, 9 を満たすと specifically 明言する」**。
-                # 原文: "Affirmatively state that the license complies with the Open Source Definition,
-                # including specifically affirming it meets OSD 3, 5, 6 and 9."
-                # 一般的な準拠宣言だけでは要件を満たさない。2026-09-07 に Carlo Piana 氏が別の提出に対し
-                # 「required information が無いので**解決するまでコメントしない**」と述べており
-                # (`against.md` #97)、欠落は議論の遅れではなく**議論の不成立**を招く。
+                # 要件は「OSD 3, 5, 6, 9 を満たすと specifically 明言する」(原文 "including specifically
+                # affirming it meets OSD 3, 5, 6 and 9")。欠落は議論の不成立を招く (`against.md` #97)。
                 ("OSD 3/5/6/9 specific", r"OSD 3\*\*[\s\S]{0,400}?OSD 5 and OSD 6\*\*[\s\S]{0,400}?OSD 9\*\*"),
                 ("projects using it", r"Approved or Used by Projects"),
+                # [2026-11-08] 463b が要件に持つのに、ここに無かった 2 項目 (行を消しても通ることを実測)。
+                ("legacy or new", r"^Legacy or New:\s*\S"),
+                ("subject", r"^\*\*Subject:\*\*.*For Approval:"),
                 ("steward contact", r"Steward:.*@"),
                 ("name and version", r"License Name:"),
-                # **2026-09-13 追加。** 要件リストを原典で 1 項目ずつ突き合わせたら、
-                # *"Provide **any additional information** … For example, approval of the license by
-                # **Debian, the FSF or the Fedora Project** would be relevant"* だけが §B.0 で
-                # 答えられていなかった (#77 と同じ形 —— 原典で読んで初めて出る欠落)。
-                # **我々の答えは「無い」なので、書き落としても文面は自然に読める** ——
-                # だから機械で縛る (`review-precedents.md` §1.76)。
+                # 2026-09-13 追加。Debian / FSF / Fedora の承認を問う項目だけが答えられていなかった。
+                # 答えが「無い」項目ほど書き落としても自然に読めるので機械で縛る (`review-precedents.md` §1.76)。
                 ("third-party endorsement", r"Third-party Endorsement:"),
                 ("SPDX / ScanCode", r"SPDX / ScanCode Identifier"),
                 ("proposed tags", r"Proposed Tags:"),
@@ -185,9 +187,7 @@ def run(ctx):
                 # 提出に対し、欠けている項目のうち**この 1 件だけを名指しして**
                 # *"in particular do not skip 'Describe any legal review the license has been
                 # through, including whether it was drafted by a lawyer.'"* と述べている (2026-07-23)。
-                # **我々の最大の弱点そのものを述べる項目なので、書き落とす方向の圧力が構造的にある。**
-                # 実測: この行を "**Legal review status.**" へ変えると Check 463 が RED になる
-                # (`review-precedents.md` §1.75)。
+                # 最大の弱点を述べる項目なので書き落とす圧力が構造的にある (`review-precedents.md` §1.75)。
                 ("legal review", r"\*\*Legal review: none\.\*\*"),
                 ("entry page URL", r"https://github\.com/\S+/blob/main/LICENSES/REVIEWERS\.md"),  # 読み手に入口への道が無かった
                 ("project URL", r"Approved or Used by Projects:.*https://"),
