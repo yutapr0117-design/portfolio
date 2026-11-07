@@ -216,7 +216,7 @@ corpus は**メーリングリストのアーカイブ全体を測った記録**
 | **review-process "License approval standards" 前文** | 2026-09-11 | **✅**（天井 2 つ）| `against.md` #130 |
 | **common-reasons-for-rejection** | 2026-09-07 | **✅** | `submission-reference.md` §3c |
 | **OSAID v1.0** | 2026-09-06 | **✅** | `review-responses-meta.md` Q32d |
-| **SPDX inclusion principles** | 2026-09-06 | **✅** | `against.md` #78 |
+| **SPDX inclusion principles** | 2026-09-06（**2026-10-27 に書き直され、2026-11-07 に再読**）| **✅** | `against.md` #78 / #296 |
 | **Mailing List Code of Conduct** | 2026-09-09（**全文確保は 09-13**）| **❌ 我々自身の行動に当てていなかった** | **本節** |
 
 **最後の 1 行が、いちばん当てるべきものだった** ——**2026-09-09 の通知が援用したのはこの文書である。**

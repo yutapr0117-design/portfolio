@@ -39,7 +39,7 @@ OSI に承認され得るかの自問自答と、より承認されやすくす�
 | 段階 | 何が起きれば「達した」か | 決める主体 |
 | :-- | :-- | :-- |
 | G1 | ACD（提出する版）が OSI の承認済みライセンス一覧に載る | Licensing Committee が勧告し、**理事会が決議する** |
-| G2 | SPDX License List に識別子が載る（OSI 承認は SPDX 収録の経路になる） | SPDX legal team |
+| G2 | SPDX License List に識別子が載る（OSI 承認は審査なしの収録の経路で、2026-10-27 の書き直しのあとも残っている・`against.md` #296） | SPDX legal team |
 | G3 | `LICENSES/LicenseRef-ACD-*` の命名問題（`against.md` #108）が消え、REUSE に適合する | 我々 |
 
 **G1 以外は G1 の後に来る。** 「承認されやすくする」は G1 の確率を上げることを指す。

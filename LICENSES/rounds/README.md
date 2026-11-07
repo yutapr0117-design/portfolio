@@ -61,10 +61,11 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-07 時点・311 ファイル）
+## いまの状態（2026-11-07 時点・312 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
+| 2026-11-07 | SPDX | **観測（収録基準の現行と前の版）** | `2026-11-07-spdx-license-inclusion-guidelines-snapshot.txt` |
 | 2004〜2026 | `license-review` / `license-discuss` | **観測（規則の全数から引いた 30 通・6 分割の 1/6 部）** | 長い 2 通は署名までで切り、ヘッダにそう書いた。`2004-to-2026-license-lists-rule-census-cited-observed-1of6.txt` |
 | 2004〜2026 | `license-review` / `license-discuss` | **観測（規則の全数から引いた 30 通・6 分割の 2/6 部）** | 長い 2 通は署名までで切り、ヘッダにそう書いた。`2004-to-2026-license-lists-rule-census-cited-observed-2of6.txt` |
 | 2004〜2026 | `license-review` / `license-discuss` | **観測（規則の全数から引いた 30 通・6 分割の 3/6 部）** | 長い 2 通は署名までで切り、ヘッダにそう書いた。`2004-to-2026-license-lists-rule-census-cited-observed-3of6.txt` |
