@@ -61,7 +61,9 @@ Dedication (§16.1, §16.2). Whether so short a mark shows the intention an aban
 open; if it does not, §3 may fail there while §4 stands, which is what §4.4 is for. (f) OSI's FAQ
 says *"we don't know how or whether the author would be protected from liability for software
 released into the public domain"*. Where §3 is effective nothing is left to license, so what do
-§13 and §14 rest on there?
+§13 and §14 rest on there? (g) §10.2 lets a copy travel with no notice, and in the 1.4 draft §2.3 says
+You need not know of the Dedication. Where a licence is read as a contract, can a person who has
+never seen the text hold it, or does such a person rest on §3 and §5 alone?
 
 **An answer would change** whether the text keeps three footings (register B4) and how §4.4 says
 "independent".
