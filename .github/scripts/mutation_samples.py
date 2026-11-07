@@ -471,8 +471,8 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 495a: CLAUDE.md の上限を実物より下げる —— 全 session が読む file がバイト数の上限を超えた状態",
     "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
-    "find": "CLAUDE.md | 170000 | 200000\n.claude",
-    "replace": "CLAUDE.md | 1000 | 2000\n.claude",
+    "find": "\n.claude/CLAUDE.md |",
+    "replace": "\nCLAUDE.md | 1000 | 2000\n.claude/CLAUDE.md |",
 })
 _MUTATIONS_TAIL.append({
     "name": "Check 495b: advisory を ceiling より上にする —— 早期警告が鳴らず、いきなり BLOCKING へ飛ぶ",
@@ -491,6 +491,34 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "docs" / "session-records" / "runbook-check-history.md",
     "find": "# runbook §9「consistency Check 総数」の行にあった追加の経緯（アーカイブ）",
     "replace": "# " + "x" * 70000,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 124a: 画面の見出しに実名をローマ字で出す —— 漢字の完全一致だけを見ていた頃は通った (2026-11-08 の監査で実測)",
+    "file": ROOT / "js" / "components.js",
+    "find": "h('div', { class: 'h4' }, AUTHOR.DISPLAY_NAME),",
+    "replace": "h('div', { class: 'h4' }, 'Yuta Yokoi'),",
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 124a: quiz の設問に実名を書く —— quiz のデータは画面に描画されるのに、js/ 直下しか見ていなかった",
+    "file": ROOT / "js" / "quiz" / "aws-quiz-data.js",
+    "find": '"title": "Q1. ステータスチェックの厳密な切り分け",',
+    "replace": '"title": "Q1. 横井 雄太のステータスチェック",',
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 124a: aria-label を持つ要素の可視テキストに実名を書く —— 行に aria- があるだけで行全体を許していた",
+    "file": ROOT / "js" / "home-page.js",
+    "find": "h('ul', { class: 'hero-value-list', 'aria-label': 'Value Points' },",
+    "replace": "h('ul', { class: 'hero-value-list', 'aria-label': 'Value Points' }, '横井雄太',",
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 124a: JS 無効時の説明に実名を出す —— <noscript> は JS を切った読み手に見えるのに走査の外だった",
+    "file": ROOT / "index.html",
+    "find": "<h1>JavaScript を有効にしてください</h1>",
+    "replace": "<h1>Yokoi Yuta のポートフォリオ</h1>",
 })
 
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
