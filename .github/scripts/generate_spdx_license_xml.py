@@ -163,6 +163,20 @@ def _standard_header(src: str) -> str:
     return "\n".join(out)
 
 
+# 1.0 の文は凍結された提出物なので動かさない。§6 と §9 を差と述べるのは 2026-11-04 の再検証で外した主張で、
+# 提出状況の文は凍結のあとに偽になるので、1.1 以降の文には入れない (2026-11-07)。
+NOTES_1_0 = """      A zero-condition public dedication written for works that are meant to be learned
+      from. It differs from existing dedications in three operative respects: it grants an
+      express patent licence (section 8), it affirmatively permits text and data mining and
+      machine learning and declines to make any reservation (section 6), and it makes the
+      recipient's permissions independent of whether copyright subsists in machine-generated
+      material (section 9). Not submitted to OSI at the time of this entry."""
+NOTES = """      A dedication and an independent licence, written for works that are meant to be learned
+      from. It grants patents that reach models and outputs (section 8.4), imposes no condition
+      on the recipient (section 10.1), and names the sui generis database right and its own
+      verbs (section 7.2)."""
+
+
 def build() -> str:
     spdx_id, url, _rel = _meta()
     src = SRC.read_text(encoding="utf-8")
@@ -203,12 +217,7 @@ def build() -> str:
       <crossRef>{escape(url)}</crossRef>
     </crossRefs>
     <notes>
-      A zero-condition public dedication written for works that are meant to be learned
-      from. It differs from existing dedications in three operative respects: it grants an
-      express patent licence (section 8), it affirmatively permits text and data mining and
-      machine learning and declines to make any reservation (section 6), and it makes the
-      recipient's permissions independent of whether copyright subsists in machine-generated
-      material (section 9). Not submitted to OSI at the time of this entry.
+{NOTES_1_0 if VERSION == "1.0" else NOTES}
     </notes>
     <standardLicenseHeader>
 {header}
