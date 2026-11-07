@@ -123,7 +123,7 @@ cache 3 つ（`~/Downloads/portfolio-fetch-24-tools/{full,arc}`・`~/osi-archive
 
 ## 2026-11-07 —— 全数をもう 1 回、話者名に頼らない検出を足して回した
 
-**道具**: `verify_dossier_quotations.py`（`DOSSIER_ALL=1`）。cache は 506 か月に、10 月分だけ最新の取得を差し替えた。
+**道具**: `verify_dossier_quotations.py`（`DOSSIER_ALL=1`）。cache は 506 か月（2026-09 まで）に、10 月分の最新の取得を足した。
 
 | | 件数 |
 | :-- | --: |
