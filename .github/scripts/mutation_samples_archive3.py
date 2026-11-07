@@ -7,6 +7,12 @@ from mutation_samples_common import ROOT, CHECK, APPLIED_ID, SUBMISSION_TARGET, 
 
 MUTATIONS_ARCHIVE3 = [
     {
+        "name": "Check 411 (導出 scope): 旧 scope 外だった js/ui-components.js の BGM ボタン走査セレクタを typo させる ([data-bgm-btn] → [data-bgm-button]) → 走査が永遠に 0 件を返し BGM ボタンの配線が静かに無効化される。main.js 限定だった初版ではこの file 自体が対象外で GREEN のまま通っていた (scope が分割に追従しない class) の回帰防止",
+        "file": ROOT / "js" / "ui-components.js",
+        "find": "querySelectorAll('[data-bgm-btn]')",
+        "replace": "querySelectorAll('[data-bgm-button]')",
+    },
+    {
         "name": "Check 414: 葉モジュールへの組み込み prototype 書き換えの再混入 — perf-guards.js に Element.prototype への代入を戻す → DOM の意味論がサイト内だけ非標準になる。かつて実在した hook (setProperty / setAttribute(\'style\') の rAF 遅延バッチ) は shipped JS が全て直接代入を使うため一度も発火せず利益ゼロだった一方、e2e で style を書いて同期で読む診断を全て偽陰性にし、レイアウト調査 1 サイクルを無効化した実害がある。この class は「壊れる」のではなく「黙って別物になる」ため consistency 以外のどの gate も捕捉しない",
         "file": ROOT / "js" / "perf-guards.js",
         "find": "    return { installMediaLifecycleGuard };",
@@ -117,6 +123,7 @@ MUTATIONS_ARCHIVE3 = [
     {
         "name": "Check 428: 未定義のカスタムプロパティをフォールバック無しで参照しても検出しない — `var(--x)` の `--x` が未定義だと宣言ごと invalid at computed-value time になり **プロパティが初期値へ落ちる**。実測では hover 背景が透明になり『持ち上げて強調する』はずの操作でカードが表面を失っていた。エラーも警告も出ず stylelint も通り screenshot は ADVISORY なので、この Check だけが捕捉層",
         "file": ROOT / "style.css",
+        "first_occurrence": True,  # find は複数回出現し、先頭の出現が狙い (2026-11-08 に週次 probe の結果で確認)
         "find": "            background: var(--surface-hover);",
         "replace": "            background: var(--card-bg);",
     },
