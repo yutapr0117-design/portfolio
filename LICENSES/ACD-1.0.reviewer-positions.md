@@ -651,7 +651,7 @@ releasing all rights whatsoever… **The document is internally contradictory.**
 
 ## 1.140 決める側の「承認しない」の文を全期間で数えた —— 法律家・起草・未使用・特許・本文の説明・AI（2026-11-07）
 
-**何をしたか。** 全 508 か月の 28,901 通から、理事・委員・役員と主な審査者（約 60 名）の発言だけを取り、「承認しない・適合しない」の形の文を抜き出した。重複を除いて 1,278 文あった。受領者への条件についての 181 文は ACD に条件が無いので読まず、残る 1,097 文を読んだ。道具は正規表現なので、言い回しが違う文は取りこぼす。**下限である。** 原文は `rounds/2004-to-2026-license-lists-rule-census-cited-observed-*` と `rounds/2013-license-review-drafting-quality-cited-observed-*` に置いた。
+**何をしたか。** 全 508 か月の 28,901 通から、理事・委員・役員と主な審査者（約 60 名）の発言だけを取り、「承認しない・適合しない」の形の文を抜き出した。重複を除いて 1,278 文あった。受領者への条件についての 181 文は ACD に条件が無いので読まず、残る 1,097 文を読んだ。道具は正規表現なので（`census_decision_statements.py`）、言い回しが違う文は取りこぼす。**下限である。** 実際、入口が引く *"That is not a blocker."* はこの道具に掛からない。 原文は `rounds/2004-to-2026-license-lists-rule-census-cited-observed-*` と `rounds/2013-license-review-drafting-quality-cited-observed-*` に置いた。
 
 これまでの規則の集計（`review-corpus.md` の R 表）は 33 か月分だった。以下はドシエに無かった文である。
 
