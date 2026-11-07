@@ -56,6 +56,16 @@ def bump_applied(text: str, old: str, new: str, old_date: str, date: str) -> str
     return re.sub(rf"({re.escape(new)}\.[a-z.]+</loc>\n\s*<lastmod>){re.escape(old_date)}", rf"\g<1>{date}", out)
 
 
+def record_history(text: str, old: str, date: str) -> str:
+    """適用の履歴へ前の版を足す。前の版の許諾は消えない (§2.2) ので、履歴から落とすと読み手が誤解する。"""
+    m = re.search(r"Until\s+(\d{4}-\d{2}-\d{2})\s+this\s+repository\s+applied\s+(ACD-\d+\.\d+)(,\s+and\s+until)?", text)
+    if m is None:
+        raise SystemExit("ERROR: 適用の履歴の文が見つからない。文を読んで手で直す")
+    joint = "until" if m.group(3) else "and until"
+    out = text[:m.start()] + f"Until {date} this repository applied {old}, {joint} {m.group(1)} {m.group(2)}"
+    return out + (", and until" if m.group(3) else "") + text[m.end():]
+
+
 def para(text: str, indent: str = "  ", first: str | None = None) -> str:
     return textwrap.fill(" ".join(text.split()), width=78, initial_indent=first if first is not None else indent,
                          subsequent_indent=indent, break_long_words=False, break_on_hyphens=False)
@@ -287,6 +297,13 @@ def main() -> int:
     for f in APPLY_FILES:
         p = ROOT / f
         p.write_text(bump_applied(p.read_text(encoding="utf-8"), old, f"ACD-{v}", old_date, args.date), encoding="utf-8")
+    for f in ("LICENSE", "llms-full.txt"):
+        (ROOT / f).write_text(record_history((ROOT / f).read_text(encoding="utf-8"), old, args.date), encoding="utf-8")
+    lic = (ROOT / "LICENSE").read_text(encoding="utf-8")
+    start = lic.index(f"Until {args.date} this repository")
+    end = lic.index("\n\n", start)
+    history = re.sub(r"Everything ACD-\d+\.\d+ gave away", "Everything those versions gave away", " ".join(lic[start:end].split()))
+    (ROOT / "LICENSE").write_text(lic[:start] + textwrap.fill(history, width=78) + lic[end:], encoding="utf-8")
     subprocess.run([sys.executable, ".github/scripts/update_binary_aio_rights.py"], cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
     subprocess.run([sys.executable, ".github/scripts/generate_spdx_license_xml.py", "--version", v], cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
 

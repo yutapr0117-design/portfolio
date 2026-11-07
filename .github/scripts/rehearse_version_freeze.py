@@ -34,6 +34,10 @@ def rehearse(tree: Path) -> list[str]:
                           cwd=tree, text=True, capture_output=True)
     if tool.returncode != 0:
         return [f"確定の道具が止まった: {(tool.stderr or tool.stdout)[-300:]}"]
+    applied = re.search(r"^SPDX-License-Identifier: (\S+)$", (ROOT / "LICENSE").read_text(encoding="utf-8"), re.M).group(1)
+    for name in ("LICENSE", "llms-full.txt"):
+        if not re.search(rf"this\s+repository\s+applied\s+{re.escape(applied)}\b", (tree / name).read_text(encoding="utf-8")):
+            return [f"{name} の適用の履歴が前の版 {applied} を述べていない"]
     git("add", "--", *git("ls-files", "--others", "--exclude-standard", cwd=tree).split(), cwd=tree)
     check = subprocess.run([sys.executable, ".github/scripts/check_repository_consistency.py"], cwd=tree, text=True, capture_output=True)
     out = check.stdout + check.stderr
