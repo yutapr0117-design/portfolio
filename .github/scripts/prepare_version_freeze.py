@@ -212,8 +212,8 @@ def _snippet(line: str, at: int) -> str:
     return " ".join(line[max(0, at - 50):at + 110].split())
 
 
-def finish(v: str, nxt: str, date: str) -> None:
-    """機械で決まる残りを片付ける。文を読むもの (Check 444m / 472h) は人に残す。"""
+def finish(v: str, prev: str, nxt: str, date: str, clauses: int) -> None:
+    """機械で決まる残りを片付ける。文を読むもの (Check 444m) は人に残す。"""
     from checks_license_self_reporting import _NUM_WORDS
 
     pins = len(re.findall(r"(?m)^[0-9a-f]{64}  \S+", (L / "FROZEN.md").read_text(encoding="utf-8")))
@@ -222,6 +222,15 @@ def finish(v: str, nxt: str, date: str) -> None:
         text = re.sub(r"\d+× OK", f"{pins}× OK", (L / name).read_text(encoding="utf-8"))
         text = re.sub(r"(pins the SHA-256 of|prints `OK` for all) [a-z-]+ files", rf"\1 {word} files", text)
         (L / name).write_text(re.sub(r"\(re-run \d{4}-\d{2}-\d{2},", f"(re-run {date},", text), encoding="utf-8")
+    # 質問票は基準の版を述べる文と語だけを動かす。問いの順は `ACD-1.4-CHANGELIST.md` の切り替えの表が決める。
+    counsel = L / "QUESTIONS-FOR-COUNSEL.md"
+    text = re.sub(r"(?m)^(canonical-ref: LICENSES/)ACD-\d+\.\d+\.txt", rf"\g<1>ACD-{v}.txt", counsel.read_text(encoding="utf-8"), count=1)
+    text = re.sub(r"Clause numbers are those of \*\*ACD-[\d.]+\*\* \(`ACD-[\d.]+\.txt`, fixed on \d{4}-\d{2}-\d{2},\s+\d+ clauses\),"
+                  r"(\s+which is the version this repository applies\.)\s+(ACD-[\d.]+) and the successor draft\s+ACD-[\d.]+ use the same numbers;"
+                  r" the draft differs only by the changes its header lists\.",
+                  lambda m: f"Clause numbers are those of **ACD-{v}** (`ACD-{v}.txt`, fixed on {date}, {clauses} clauses),{m.group(1)} "
+                            f"{m.group(2)} and ACD-{prev} use the same numbers.", text)
+    counsel.write_text(text.replace(f"the {v} draft", f"ACD-{v}").replace(f"The {v} draft", f"ACD-{v}"), encoding="utf-8")
     # 「いまの作業場」の行は Check 468k / 468t が場所を名指す。同じ規則を 2 か所に書かない。
     report = subprocess.run([sys.executable, ".github/scripts/check_repository_consistency.py"], cwd=ROOT, text=True, capture_output=True).stdout
     found = next((line for line in report.splitlines() if line.startswith("ERROR: Check 468:")), "")
@@ -354,7 +363,7 @@ def main() -> int:
         rows = rows.replace(row, f"| **次版に反映するものの集約点（{nxt}）** | [`ACD-{nxt}-CHANGELIST.md`](ACD-{nxt}-CHANGELIST.md) |\n"
                             f"| {v} の変更の記録 | [`ACD-{v}-CHANGELIST.md`](ACD-{v}-CHANGELIST.md) |\n", 1)
     index.write_text(rows, encoding="utf-8")
-    finish(v, nxt, args.date)
+    finish(v, prev, nxt, args.date, c)
     print(f"ACD-{v} を確定した ({w:,} 語・{c} 条)。次の草案は ACD-{nxt}-DRAFT.txt。git add のあと consistency の RED を順に直す。")
     print(f"提出対象を切り替える日に読む行は `prepare_version_freeze.py --report {v}` が出す。")
     return 0

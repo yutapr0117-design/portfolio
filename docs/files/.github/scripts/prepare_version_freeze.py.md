@@ -23,13 +23,14 @@ python3 .github/scripts/prepare_version_freeze.py --date 2026-11-13
 
 走ったあと新しい file を明示パスで `git add` し、consistency の RED を順に直す。RED がそのまま残りの作業の一覧である。
 
-道具は、機械で決まるものも片付ける。凍結件数と検証コマンドの期待値、「いまの作業場」の行（Check 468k / 468t が名指す）、digest、`STATUS.md`、予算表である。2026-11-07 の予行で残った RED は次の 3 種だった。
+道具は、機械で決まるものも片付ける。凍結件数と検証コマンドの期待値、質問票の基準の版と *the 1.4 draft* の語、「いまの作業場」の行（Check 468k / 468t が名指す）、digest、`STATUS.md`、予算表である。2026-11-07 の予行で残った RED は次の 2 種だった。
 
 | RED | 直し方 |
 | :-- | :-- |
 | Check 444m | 適用していない版を「適用している」と述べる行。文を読んで直す |
-| Check 472h | QUESTIONS-FOR-COUNSEL.md の基準の版。問いが引く条を 1.4 に当て直してから直す |
-| Check 362 | 上の 2 つを直すと解ける |
+| Check 362 | 444m を直すと解ける |
+
+RED にならないものが 1 つある。質問票の問 2 と問 5 は 1.3 の文のあとに 1.4 の差を述べる順なので、`ACD-1.4-CHANGELIST.md` の切り替えの表に従って順を入れ替える。
 
 提出対象を切り替える前に、読む行を一覧で出す。何も書き換えない。
 
@@ -43,7 +44,7 @@ python3 .github/scripts/prepare_version_freeze.py --report 1.4
 
 ## Constraints
 
-- **判断はしない。** 文を読む書き換え（Check 444m / 472h）と、`measure_descriptor_carryover.py` が出す条の読み直しは人が行う。
+- **判断はしない。** 文を読む書き換え（Check 444m）と、`measure_descriptor_carryover.py` が出す条の読み直しは人が行う。
 - **作業ツリーを書き換える。** LICENSE と llms 系は版を置換し、版を述べる行の適用の日付も直す（Check 444l が照合する）。過去の経緯を述べる文まで変わることがある。commit の前に差分を読み、`ACD-1.1-CHANGELIST.md` §0.13「改名は一括置換しない」に従って直す。
 - AIO 層の編集は `aio-guardian` を通し、`update_aio_digests.py` を回す。
 - 凍結本文の 1 行目と状態の文は §0.13 の型に従う。Check 490 が照合する。
