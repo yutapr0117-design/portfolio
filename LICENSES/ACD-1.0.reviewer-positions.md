@@ -130,6 +130,8 @@ Apache-2.0 は 1 文書で著作権と特許（§3）を扱って承認されて
 
 ## 1.52 「弁護士が要る」への実務的な答えは、審査そのものである
 
+**2026-11-07 追記 —— さらに狭める。** 委員長は *"The license review process is not for workshopping a license, it is for a go/no-go on a license."* と述べている（2023-08-22・§1.142・#298）。審査で論評は得られるが、それは本文を直す場ではない。提出は「論評が付く場に置く」ことで、法律家のレビューの代わりにはならない。
+
 **⚠ 2026-09-28 追記 —— 言い方を狭める。** **Board は法律実務をしないと、OSI の President 自身が
 提出者へ述べている** —— *"**OSI's Board does not give legal advice, practice law or design
 licenses.**"*（Simon Phipps 氏・2018-12-10・`rounds/2018-12-license-review-withhold-approval-observed.txt`）。
@@ -673,7 +675,7 @@ releasing all rights whatsoever… **The document is internally contradictory.**
 
 **逆の記録も同じ人たちの議論に在る。** Fontana 氏 2013-04-07: *"access to good legal advice will be unrealistic to many developers, and yet they seem to me to have as much a right to draft new purportedly open source licenses"*、*"the OSI will be rewarding the represented and punishing the unrepresented"*。Rosen 氏 2013-04-08: *"we don't want to treat open source licensing like a game that only the rich and their lawyers can play."* Fontana 氏 2013-05-30: *"Some of the most problematic pseudo or questionably-FLOSS licenses I've seen over the years clearly *were* drafted with legal help."* Villa 氏 2013-04-07: *"as currently drafted, the OSD has no formal requirement for such a consultation."*
 
-**読み。** 規則は要件にしていない。2013 年に要件化が論じられ、要件にはならなかった。だが委員は個別の提出に法律家を求め続けている。Berkus 氏の *"it happens afterwards"* は §1.52（提出が弁護士の目を通す経路である）と同じ向きで、残る道はそこにある。
+**読み。** 規則は要件にしていない。2013 年に要件化が論じられ、要件にはならなかった。だが委員は個別の提出に法律家を求め続けている。Berkus 氏の *"it happens afterwards"* は §1.52（提出が弁護士の論評を受ける場である）と同じ向きだが、§1.142 の *"go/no-go"* がその射程を狭める。手順の語の経緯は `review-rules.md` §1.141 にある。
 
 ### 起草
 
@@ -724,3 +726,49 @@ Chestek 氏 2026-04-18 *"it is also better practice not to define the the grant 
 
 **この節が establish しないこと。** どれも他の提出についての発言で、OSI の決定ではない。文の選択は我々の読みである。
 
+## 1.142 未読スレッド 344 本を読んだ —— 型・増殖・審査の性質について（2026-11-07）
+
+§1.140 の道具（`census_decision_statements.py threads`）が出した未読の候補 771 本のうち、決める側の発言が多い 344 本を 23 束に分けて読んだ。読み手が 226 件を拾い、重要度の高い 147 件を反証役が原文と草案に当てて 23 件を退けた。残る 200 件はアーカイブの全文に機械で当て、すべて話者本人の本文で一致した（引用の中ではない）。ドシエに既に在ったのは 1 件だった。ここには、原文を読み直したものだけを置く。**427 本は読んでいない。** 全文は `rounds/1999-to-2026-license-lists-unread-threads-cited-observed-*.txt`。
+
+### 型について、ACD の側に立つ発言
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"What you would to be "as good as" BSD would be a public domain declaration coupled with a covenant not-to-sue that extends to the patent claims of the dedicator that are necessary to utilize the work as it was dedicated. And a warranty disclaimer to protect the donor."* | Bruce Perens 氏 2012-02-26、Unlicense について | §3、§8、§13 の型を OSD の起草者が述べた文である。**同じ通が両側を持つ**: 冒頭は *"I am having trouble finding a benefit that would come from fixing it, that we don't already have from short-and-sweet licenses like BSD."*、末尾は *"It ends up not being shorter nor simpler."*。特許の範囲は作品に限られ、§8.4 はそれを越える（#300、#305） |
+| *"we've held that a license *can* discriminate as long as all the possible paths through the license terminate in acceptable terms under the OSD."* | Russ Nelson 氏 2009-05-28 | いまの基準 *"Every possible variation of the application of the license must meet the OSD."* の前身に読める。§3 が効く経路も効かない経路も §4 に着く（§4.4）。同じスレッドで John Cowan 氏は *"Otherwise: no license."* に着く経路を挙げて当てはめを退けた。ACD にその経路は無いが、文脈は OSD 5 である |
+| *"conditional promises of inaction -- and only inaction -- on the part of the only party with any enforcement powers cannot, in principle, change a license from OSD-compliant to OSD-non-compliant."* | Karl Fogel 氏 2012-02-05 | §5 と §8.6 の不行使の約束は OSD 適合を損なえない。承認済みライセンスへの例外の話で、*"(I think)"* が付く |
+| *"I think that there aren't rights listed because any open source license is a grant of all rights with some return obligations, rather than any limitation on the rights granted."* | Pamela Chestek 氏 2024-02-27（委員長） | §4.1 が全 Covered Rights を与え、§4.2 が例示である形に合う。タグ付けの議論の中の文で、最後に *"But I would be interested to hear if that's not true."* と続く |
+| *"copyright licenses generally not being revokable unless specific provisions for it are in the license"* | Brian Behlendorf 氏 2000-09 | §2.2 の向き。逆の発言が 2 つ在る（下の表）|
+
+### 増殖と必要性
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"There are some "unwritten rules" that we discussed but didn't adopt, like the "no vanity license" philosophy."* | Pamela Chestek 氏 2023-01-27（委員長として署名）、作業部会の勧告について | vanity は規則として採られなかった（§1.99 の続き）。不文律として在ったことは認めており、審査者の感覚が消えるわけではない |
+| *"Failing to certify a license as Open Source when it meets the OSD would be both unprincipled and inexpedient. But *requesting* someone to withdraw a license on grounds of redundancy is neither."* | John Cowan 氏 1999-11 | 2 文で両側を持つ。理事会の文は 2025-07-18 の *"rejected only if it violates the OSD"* |
+| *"if there isn't anything in this license that clashes with the OSD, I humbly suggest it should be proposed by the license steward and considered for approval."* | Brian Behlendorf 氏 2025-06-20、OpenMDW について | 必要性の疑問と承認の検討を分けている。同じ通は *"one could have written a guide to distributing a model with existing permissive licensing"* と述べる（§6、§8.4、§9 に向く）。翌月には *"Getting real-world validation of the license through some early adoption is clearly prudent, especially in the AI space"*。提出者は Linux Foundation である |
+| *"proliferation of copyleft licenses has the added disadvantage that they create separate pools of unmixable or semi-mixable code - an impediment that is not created by proliferation of non-copyleft licenses."* | Scott K. Peterson 氏（HP）2005-04 | 増殖の害の本体は非互換で、§4.5 は別の池を作らない。Ian Lance Taylor 氏 2005-03 *"if all licenses were compatible, or permitted appropriate relicensing, I would not be concerned."*、John Cowan 氏 2008-03 も同じ向き。同じ HP の通は *"Proliferation of long licenses creates more complexity than proliferation of short licenses."* と続く |
+| *"Licences submitted to the OSI can be judged either OSD-compliant or not irrespective of the personal merits of the drafter."* | Rick Moen 氏 2007-07 | 審査するのは本文である（§1.140）。文脈は Microsoft の言動で、AI の起草ではない |
+| *"It's not the existance of an Original Contributor. Many licenses name one such. It's the rights granted to the contributor."* | Russell Nelson 氏 2005-11、OVPL について | 単独の steward に権利が流れないこと（B12）。承継の問いには答えていない |
+| *"in my personal opinion MG-BY-OS *could* be an OSD-compatible model license, even if the rest of the package doesn't meet the full OSAID."* | Josh Berkus 氏 2025-02 | モデルを扱うライセンスは審査対象になる（B15）。個人の見解と断っている |
+| *"New licenses that don't include patent licenses might have a more difficult time finding approval"*、長い本文は *"clear and explicit"* でもありうる | Lukas Atkinson 氏 2019-08 | §8 と B3 の向き。審査の参加者の見立てで、規則ではない |
+
+### 審査の性質について、ACD に不利な発言
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"The license review process is not for workshopping a license, it is for a go/no-go on a license."* | Pamela Chestek 氏 2023-08-22（委員長として署名）| §1.52 の「提出が法律家の目を通す経路である」をまた狭める（#298）。Roland Turner 氏 2021-02 も *"As Pamela points out, this is not a workshop or educational forum"*、Luis Villa 氏 2013-11-17 も *"If you/your community/your project have not already conducted a review of the basic license, this isn't the place to get that done."* |
+| *"to demonstrate that there were significant problems in the first few paragraphs, indicating that undoubtedly the drafting problems were throughout."*、*"this is not a task for the layperson."* | Pamela Chestek 氏 2026-02-23、OSCL について | 冒頭で全体が判定される（#303）。OSCL は本文に欠陥があった事例である |
+| *"make different statements about that subject matter. Why did you add them?"* | Pamela Chestek 氏 2019-08-05 | 同じ対象を別の語で重ねる形への問いで、§3、§4、§5 に向く（#299）|
+| *"There has to be a real problem (material ongoing harm) to warrant incurring these costs."* | Roland Turner 氏 2021-02 | 必要性を理論でなく害で問う（#301）。Luis Villa 氏 2013-10 *"the open source approach has never, in practice, been shown to cause problems"* |
+| *"we decided that even though it was open source, the differences were not significant enough to approve it outright."* | 理事会の議事録を Russell Nelson 氏が引いた、2005-03、Wonka | OSD に適合しても承認しなかった古い実例（#302）|
+| *"the goal is for each individual license to be sufficiently clearly written for a non-lawyer to understand."* | Eric S. Raymond 氏 2005-09-12（理事会の決定として）| 可読性の水準（#304）|
+| *"The patent grant in OSL 3.0 is inseparably tied to the copyrighted works in which those patent claims are originally embodied and to derivative works thereof."* | Lawrence Rosen 氏 2005-09 | 特許を作品に結ぶ文で、§8.4 の範囲を支える発言は見つかっていない（#305）|
+| *"Without access to the license, recipients won't know that they have this right."* | Lukas Atkinson 氏 2021-02 | §10.1 と §2.3 に向く（#306）|
+| *"an explanation extrinsic to the license would only be considered under very limited circumstances"*、*"it is only the Licensor's intent, not the license /steward's /intent that matters."* | Pamela Chestek 氏 2019-10-29 | 我々の解説や記述子は本文の読みを決めない（#295 に追記）。Josh Berkus 氏 2019-12: *"I would not be willing to touch a license whose FAQ apparently differed from the license text."* |
+| *"I am also skeptical it would ever be approved because I think it is a fundamental error to try to lump all "IP" together."* | Pamela Chestek 氏 2020-10-19 | §1.5 が特許、商標、人格権、プライバシーを除いて別の条に分ける形はこの批判に当たらない。Covered Rights は著作権系をまとめており、*"Copyright and patents are somewhat similar"* と続くので §8 も外れない。データベース権をどう見るかは言っていない |
+| *"If the Contributed Code is a gift, it can be revoked at any time for any reason."* | Lawrence E. Rosen 氏 2000-08-31 | 対価の無い約束の撤回。§2.5 が向き合っている点で、QUESTIONS-FOR-COUNSEL に在る。John Cowan 氏 2011-07: *"we won't really know until someone gives proper notice that a license is revoked and tries to sue for infringement."* |
+
+**ソフトウェアに限るという古い発言**も読んだ（Nelson 氏 2000 *"We (OSI) have intentionally decided to limit our certification to software."*、同 2006、Perens 氏 2008）。いまの基準は CERN-OHL の理由書の *"written such that they can be used for software"* で、これらより新しい。Nelson 氏 2008-06 は混在について *"It Just Works(tm)."* とも述べている。
+
+**この節が establish しないこと。** どれも他の提出についての発言で、OSI の決定ではない。上の表の型の読みは我々のものである。古い承認を根拠にするときは Richard Fontana 氏 2014-08 の指摘が当たる: *"before the rise of concerns about license proliferation and 'vanity licenses' and such."*

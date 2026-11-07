@@ -542,3 +542,33 @@ and updating it **requires approval from the project manager**"* として**も�
 見込みであって一般則ではない。** また **Check 477 は「テキストが一致する」ことしか見ない** ——
 **届いたかどうかは別の層**であり、我々の投稿が 3 通以上 moderation で拒否されている事実
 （`against.md` #215 / #222）は、この層では一切救えない。
+
+## 1.141 法律家の分析は手順の要件だった —— 2007 年 12 月に外れ、いまは開示である（2026-11-07）
+
+提出の手順は 2007 年まで、免許を持つ法律家の分析を求めていた。同年 12 月の改定で要件は外れ、以後の手順はレビューの有無を述べさせている。要件へ戻す意見は続いたが、手順の語は戻っていない。旧い手順のページは手元に無いので、提出者がリストに引いた文から復元した（`rounds/1999-to-2026-license-lists-unread-threads-cited-observed-1of5.txt`）。
+
+| 時期 | 手順の語 | 誰の文か |
+| :-- | :-- | :-- |
+| 2004-02 | *"the analysis required in step three of the license approval process"* | 提出を考えていた Ann W. Harrison 氏 |
+| 2007-07 | *"Create a legal analysis of the license as it complies with the terms of the Open Source Definition. Each paragraph of the license should be followed by an explanation of how the paragraph interacts with each numbered term of the Open Source Definition. The analysis should come from a licensed practitioner of the law in your country."* | Jean-Marc Lienher 氏が `opensource.org/approval` から引いた。同じ月に Luis Villa 氏は、2 つの手順ページが *"radically different documents"* だと尋ねている |
+| 2007-10 | *"the legal analysis required by step 3"* | Donovan Hawkins 氏 |
+| 2007-12-12 | *"the license approval process has been dramatically revised"* | Ernest Prabhakar 氏（OSI Board Observer） |
+| 2007-12-19 | 新しい手順の最初の提出が 5 項目を並べ、4 番目が *"Results of Any Legal Analysis Available"* で、答えは *"None."* | Sean B. Palmer 氏 |
+| 2014-03-13 | *"our process requires"*、*"Describe any legal review the license has been through, and provide results of any legal analysis if available"* | Luis Villa 氏 |
+| 2023〜 | *"Describe any legal review the license has been through, including whether it was drafted by a lawyer."* | 作業部会の勧告（2023-01-26）の語で、いまの手順ページの語 |
+
+**言えること。** 手順の語は「法律家の分析を出す」から「受けたレビューを述べる」へ動いた。委員長の 2024-12-18 の *"we do not require review by a lawyer, only recommend it. That is not a blocker."* はこの続きにある。
+
+**言えないこと。** 外した理由の文は見つかっていない。議事録 2007-12-12 は *"the new approval process"* と書くだけで、分析の要件に触れていない。要件がどこまで守られていたかも分からない。Prabhakar 氏は 2004-10 に *"there's not strict requirement for prior legal review -- though it is strongly suggested for various reasons."* と述べ、同じ時期に提出者は step 3 を守ろうとしていた。2012-01 にも John Cowan 氏は *"you can reasonably ask for the outside legal review to be waived, given the simplicity of your license."* と述べており、手順が変わったあとも要件のように読まれていた。
+
+**逆側。** 手順の語が緩んでも、審査の実際は緩んでいない。Bruce Perens 氏 2008-03: *"I would think that legal review is a reasonable prerequisite before you submit a license here these days"*。Josh Berkus 氏 2013-05-30: *"Personally, I don't have a problem with making legal review a de facto requirement of submitting a new license."*。McCoy Smith 氏 2021-02: *"ought to be a requirement of submission to license-review"*。どれも個人の意見で手順の語にはなっていないが、審査をするのはこの人たちである。
+
+### レビューが無いと自分で述べた新規の提出は、少なくとも 23 件で、一覧に在るのは 1 件
+
+2007-12 以降の `license-review` で、提出者がレビューの不在を自分で述べた新規の提出を数えた。返信でない第 1 通を語で拾い、手で読んだ床の数で、語を使わずに書いた提出は漏れている。
+
+Æsthetic Permissive（2007）、beer-ware（2008）、Modular Open Software（2012）、Public Software（2014・返信で述べた）、Russian Permissive（2014）、GG（2014）、Non-Coercive Copyleft（2015）、**Free Public License（2015）**、Binary Filters（2015）、YetiForce（2018）、GPL-3+-with-whonix（2019）、ViraTrace（2020）、Qlovatech（2021）、Ritchey Permissive（2021）、Zeppelin（2023）、Setup Tooling（2024）、Accountable Resolver（2024）、PPPL BSD-3（2025）、Irrevocable MIT（2025）、OSCL（2026）、AI-MIT（2026）、Project Tick GPL（2026）、CompanioNation（2026）。
+
+承認の一覧に在るのは Free Public License だけである（いまの 0BSD）。提出者は *"There hasn't been any external legal review or legal analysis of the FPL, as the only changes were the two removals mentioned above."* と述べた。legacy の提出では ICU が承認され、提出者は *"I am not aware of any published legal review of the specific text of this license"* と述べている。
+
+**読み。** 残る 22 件の多くは別の欠陥を持っていた（条件、差別、起草の粗さ、提出の不備）ので、レビューの不在が原因だったとは言えない。承認された 1 件は ACD に最も近い型で、OSI は外部の法律家の助言を自分で取った（`board-decisions.md` §8.6）。**逆側**は、それが ISC から語を除いた短い本文で、ACD は新しい長い本文であることである（`against.md` #297）。
