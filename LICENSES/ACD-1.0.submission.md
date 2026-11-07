@@ -166,7 +166,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1742 words**, measured 2026-11-07)
+### B.0 The message as it should actually be sent (**1743 words**, measured 2026-11-07)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -286,6 +286,8 @@ who knows the test, as not knowing the test.** **+133 words**（段落そのも�
 
 **And 1,742 later the same day**, when the structure paragraph gained the OSI article of 2017 that proposes a disclaimer with a licence beside it (`board-decisions.md` §2f). **+50 words**.
 
+**And 1,743 still the same day**, when the message gained the repository's address. It named `LICENSES/REVIEWERS.md` and the adverse list, and a reader of the email had no link to either; the Pages copy of a `.md` file shows raw text, so the entry goes to GitHub, which renders the tables (5a). **+1 word**.
+
 **Why that last addition earns its words.** *"Why another public-domain-equivalent?"* is the opening
 move in this category — Rob Landley put it as fungibility (#84), David Woolley put it to the
 UPD 1.5.2 author, Carlo Piana has put it as proliferation — and until 2026-09-09 the only answer in
@@ -329,7 +331,7 @@ Short Identifier:               ACD-1.0
 Copyleft:                       No
 Legacy or New:                  New License
 Drafted By Lawyer:              No
-Approved or Used by Projects:   One — my own repository
+Approved or Used by Projects:   One — my own repository (https://github.com/yutapr0117-design/portfolio)
 Steward:                        Yuta Yokoi (横井雄太), yuta.yokoi.r@gmail.com
 Submitter:                      The same person, in his own capacity
 SPDX / ScanCode Identifier:     None (LicenseRef-ACD-1.0 is the conforming form)
@@ -451,7 +453,7 @@ evidence.**
 **Everything else, including the case against approving it.** The repository carries an adverse
 list — written by me, adverse items first, with the two entries that have no answer at the top —
 along with known defects in the text, the jurisdictional questions, and worked answers to the
-objections I expect. Start at `LICENSES/REVIEWERS.md`. I would rather you found those there than
+objections I expect. Start at https://github.com/yutapr0117-design/portfolio/blob/main/LICENSES/REVIEWERS.md. I would rather you found those there than
 had to extract them from me.
 
 Thank you for your time.
