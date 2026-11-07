@@ -43,7 +43,7 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 2. OSD に準拠すると言い、OSD 3・5・6・9 を名指す。OSD 1・7 も足すと良い
 3. gap を 1 文で言い、続けて最も近い承認済みとの比較を 1 文で言う（作品を超える特許許諾 ∧ 条件も終了も無い。手続きの原文もこの順である）
 4. 法的レビューが無いことと、AI の関与を先に言う（§1 の表の該当行）
-5. 入口の `REVIEWERS.md` を指す
+5. 入口の `REVIEWERS.md` を完全な URL で指す（https://github.com/yutapr0117-design/portfolio/blob/main/LICENSES/REVIEWERS.md。GitHub なら表が描画され、Pages の `.md` は生の文字列である）
 
 §1c の理由 5 つと §2 の反論は、メールへ全部は載せない。1 つ足すなら理由 2（OSI の FAQ が挙げた穴）である。
 
