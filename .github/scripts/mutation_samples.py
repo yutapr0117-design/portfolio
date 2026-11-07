@@ -473,8 +473,8 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 468u: §5.1 の特許の除外を落とす —— §8.4 が外した請求項まで「許された使用の請求」として不行使になる",
     "file": CURRENT_DRAFT,
-    "find": "whether now known or unknown, other than for\n       patent infringement (Section 8), arising",
-    "replace": "whether now known or unknown, arising",
+    "find": "whether now known or unknown, other than for\n       patent infringement (Section 8) or for a payment",
+    "replace": "whether now known or unknown, other than for a payment",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({

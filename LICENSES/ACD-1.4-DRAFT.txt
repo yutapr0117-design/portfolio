@@ -175,10 +175,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       is itself the use. (0 words.)
     * Sections 8.6 and 11.4 now say which patent claims the Sections "reach",
       where they said "described". (-1 word.)
-    * Section 5.1 now says "arising from", where it said "arising from or
-      relating to": a fee for a service relates to a use of the Work without
-      arising from it. (-3 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5411 words, 80 clauses.
+    * Section 5.1 now also excepts a payment You agreed to make, so that the
+      second covenant does not reach a fee for a service. (+8 words.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5422 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -427,8 +426,9 @@ PREAMBLE (informative; not part of the operative terms)
        any other person to assert, any Covered Right against You in respect of
        any use of the Work, and further covenants not to assert against You any
        claim or cause of action, whether now known or unknown, other than for
-       patent infringement (Section 8), arising from a use of the Work that this
-       Dedication permits.
+       patent infringement (Section 8) or for a payment You agreed to make,
+       arising from or relating to a use of the Work that this Dedication
+       permits.
 
   5.2  The Dedicator further covenants that the Dedicator will not, in respect
        of the Work:

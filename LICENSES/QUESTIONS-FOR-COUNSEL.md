@@ -165,8 +165,8 @@ the misrepresentation §11.3 excludes, which is not "a use … that this Dedicat
 If a court read §5.1 as releasing trademark claims against distributions of the Work, a Dedicator
 with a mark could be said to have licensed it without control.
 
-The 1.4 draft says "arising from" and drops "relating to" (2026-11-07), and it excepts patent
-infringement from this covenant (2026-11-06): in 1.2 and 1.3 the words
+The 1.4 draft excepts a payment You agreed to make (2026-11-07) and patent infringement from this
+covenant (2026-11-06): in 1.2 and 1.3 the words
 can be read to bar a patent claim that §8.4 does not license, because the use is permitted as to
 the Covered Rights.
 
