@@ -1,0 +1,241 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2015-October.txt
+Retrieved: 2026-11-07
+Date: Tue, 13 Oct 2015 18:56:37 -0400
+From: Richard Fontana
+Subject: [License-review] License Committee Report
+Position: the License Committee report before the Board meeting of 2015-10-14. On the Free Public License, now 0BSD, it recommends approval or a formal real-world-use factor. Not addressed to us.
+
+----- begin verbatim -----
+From fontana at sharpeleven.org  Tue Oct 13 22:56:37 2015
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Tue, 13 Oct 2015 18:56:37 -0400
+Subject: [License-review] License Committee Report
+Message-ID: <20151013225637.GA5292@sharpeleven.org>
+
+Belated report for licenses currently submitted to OSI[1]. There is an
+OSI board meeting tomorrow, Wednesday 14 October.
+
+NASA Open Source Agreement (NOSA) 2.0
+=====================================
+
+For background, see the previous License Committee Report.[2]
+
+I continue to be the blocker here... my apologies, and thanks to the
+folks at NASA for their continued generous patience.
+
+TOPPERS License
+===============
+
+For background, see the previous License Committee Report[2], as
+amended[3].
+
+As noted at [4], the OSI asked the license submitter to seek approval
+for the Japanese-language version of the TOPPERS License as an
+'International License'. The license submitter provided the following
+document
+https://www.dropbox.com/s/u8jla5lgql6wb2q/AffidavitOfTOPPERSLicenseAsInternationalLicense-draft-1.pdf?dl=0
+containing what the license submitter says is the Japanese version of
+the license and a certified English translation, the latter being
+identical to the most recent iteration of the English-language TOPPERS
+License based on submissions to license-review. I overlooked this
+before, but the certification seems formally problematic (though we
+have never had reason to address the question before). What we have
+said is:
+
+   A certified English translation must accompany the license. We require
+   a certified English language translation of the license in order to conduct
+   the license review process, which uses open discussion between many people
+   who share English as a second language regardless of their first language.
+   Submitters can meet this requirement by accompanying the translation with
+   an affidavit from the translator on which the translator has sworn, in the
+   presence of a commissioner authorized to administer oaths in the place
+   where the affidavit is sworn, that the contents of the translation are a
+   true translation and representation of the contents of the original
+   document. The affidavit must include the date of the translation and the
+   full name and contact details of the translator.
+
+I am somewhat torn here as to what to do but I think we ought to err
+on the side of strictness concerning the certified translation
+requirement, at least until we get more experience with the
+International License category.
+
+Recommendation: I will reply separately regarding the certified
+translation issue. No further action at this time. I continue to
+regard the English-language version as worthy of OSI legacy approval.
+
+Free Public License 1.0.0
+=========================
+
+Submission: https://lists.opensource.org/pipermail/license-review/2015-August/001104.html
+
+Comments:
+
+This license is a modification of the ISC license. The license text
+contains no prepended template copyright notice and deletes the ISC
+license notice preservation condition.
+
+Discussion was not too extensive, but some raised policy concerns
+about the essential feature of the license (the absence of any
+expectation of a copyright notice and the implicit permission to
+remove license notices).
+
+The license is clearly OSD-conformant. I do not find the policy
+objections to the Free Public License persuasive, particularly given
+that no such objections were raised when CC0 was submitted. (CC0 also
+has no expectation of CC0-covered works bearing a copyright notice and
+has no notice-preservation condition.) While for historical reasons
+many simple permissive ('lax') licenses have included a template
+copyright notice, many open source licenses have no notion of an
+incorporated copyright notice. One could use this license with a
+copyright notice if one chooses. 
+
+To me, the only reasonable basis of objection is that the license may
+be too 'immature' for OSI approval. It would seem likely that several
+repositories hosted at github.com/fraction would be licensed under the
+Free Public License were it OSI-approved (most seem currently to be
+using the MIT license, though it is labeled the 'Free Public
+License').
+
+OSI has approved thought-experiment licenses before (e.g. the SimPL)
+as well as licenses that were not used prior to OSI approval (e.g. the
+UPL). I am not sure how to distinguish the Free Public License from
+the SimPL (though I am not sure the present-day OSI would be as happy
+to approve it) or the UPL. Or rather I *do*, but it would somehow be
+to point out that Christian Bundy (evidently, judging from his
+LinkedIn profile, a web developer who graduated from high school in
+2011) is not a law professor (like Bob Gemulkiewicz) or a former legal
+counsel and present or former executive at at a major IT company (like
+Gemulkiewicz and Jim Wright).
+
+Recommendation: Approval, or else OSI to adopt some formal
+maturity/real-world-use factor for approval considerations such that
+approval of this license would be deferred, subject to some
+satisfactory explanation why we did not apply such a standard to the
+recently-approved UPL.
+
+OSET Public License
+===================
+
+Submission: https://lists.opensource.org/pipermail/license-review/2015-September/001110.html
+
+Comments:
+
+This license is a modification of MPL 2.0, with changes aimed at
+addressing what are said to be unique obstacles occurring in the
+procurement setting for elections-related software.
+
+Some questioned whether the license is addressing a non-existing
+problem in attempting to resolve procurement barriers within the
+license text.
+
+The discussion got significantly derailed by comments coming from
+persons associated with CAVO which were off-topic to the issue of
+license approval. I accept some blame for allowing this to occur.
+
+The most significant concern expressed about this license had to do
+with section 4, "Inability to Comply Due to Statute or Regulation".
+
+The version in MPL 2.0 (which is based on a provision in MPL 1.1) is:
+
+  If it is impossible for You to comply with any of the terms of this
+  License with respect to some or all of the Covered Software due to
+  statute, judicial order, or regulation then You must: (a) comply
+  with the terms of this License to the maximum extent possible; and
+  (b) describe the limitations and the code they affect. Such
+  description must be placed in a text file included with all
+  distributions of the Covered Software under this License. Except to
+  the extent prohibited by statute or regulation, such description
+  must be sufficiently detailed for a recipient of ordinary skill to
+  be able to understand it.
+
+The material difference in the OSET Public License is that it expands
+"statute, judicial order, or regulation" to "statute, judicial order,
+regulation (including without limitation state and federal procurement
+regulation), national security, or public interest". 
+
+Gerv pointed out: 
+
+  When you add "national security or necessity of public interest"
+  into that mix, you are adding factors which are much woollier, and
+  furthermore _are_ under the control of the licensee (in the case
+  where it's a government using the software for their own elections)
+  and do not have to be written down. Who defines "the public
+  interest" or "national security"? The government does. Does it have
+  to document its decisions and open them for scrutiny? No. Which
+  means they get to ignore any bits of the license they don't like as
+  long as they can come up with a "public interest" reason why obeying
+  the license isn't a good idea.
+https://lists.opensource.org/pipermail/license-review/2015-September/001187.html
+
+Gerv also noted:
+
+  It does seem a little bit like you have written a license with a
+  clause that says "governments can come up with reasons not to obey
+  this license", and the intended use of the license is for software
+  which will generally be used by governments.
+https://lists.opensource.org/pipermail/license-review/2015-September/001211.html
+
+Josh pointed out that the problem is one of inequality based on the
+status of the licensee:
+
+  If I contribute to OSET under the OSET license, and I have to obey
+  the terms of the OSET license if I want to use the OSET software in
+  my own business.  But governments, and favored contractors with
+  complaint legislators, or even just corrupt beaurocrats, get to use
+  my contribution *without* the restrictions which I must obey.  So
+  the OSET license creates a 2-class system, in which people with
+  access to the levers of government have more rights than code
+  contributors do.  [...]
+  Imagine if someone asked us to certify a
+  license which said "corporations can ignore any provision of this
+  license which conflicts with company policy".  This would not be an
+  OSS license.
+https://lists.opensource.org/pipermail/license-review/2015-September/001227.html
+
+Several questioned whether such extra compliance escape routes for,
+apparently, governmental entities were necessary given that the entity
+could presumably rely on laws external to the license. Simon said:
+
+  If this is the case the clauses in question aren't needed so could
+  be dropped. We would surely be foolish to set the precedent that
+  building inequality into a license is acceptable?
+  https://lists.opensource.org/pipermail/license-review/2015-September/001230.html
+
+Recommendation:
+
+Given the serious anti-discrimination concerns that have been
+expressed, I recommend that the Board ask the OSET Foundation to
+revert section 4 to the ancestral language of MPL 2.0.
+
+Qu?bec Free and Open-Source Licence (LiLiQ)
+===========================================
+
+Submission: https://lists.opensource.org/pipermail/license-review/2015-September/001214.html
+
+Comments: This is actually a set of three licenses (LiLiQ-P, LiLiQ-R
+and LiLiQ-R+).
+
+Discussion is ongoing.
+
+An affidavit of true translation, a requirement of the provisional new
+process for 'international' license submissions, has not yet been
+submitted, if I'm not mistaken.
+
+Recommendation: No recommendation at this time.
+
+
+Richard
+
+
+[1]I do not address certain old submissions that were noted in
+https://lists.opensource.org/pipermail/license-review/2015-June/001003.html
+other than NOSA 2.0.
+
+[2]https://lists.opensource.org/pipermail/license-review/2015-September/001144.html
+
+[3]
+https://lists.opensource.org/pipermail/license-review/2015-September/001150.html
+
+[4] https://lists.opensource.org/pipermail/license-review/2015-September/001207.html
+
+	`
