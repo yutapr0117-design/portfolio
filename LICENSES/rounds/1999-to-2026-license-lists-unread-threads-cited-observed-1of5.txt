@@ -1,0 +1,707 @@
+Source: https://lists.opensource.org/pipermail/ (license-review and license-discuss, the months named in each message's Date line)
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-07)
+Messages: 14 of the 57 messages this dossier cites from threads it had not read until 2026-11-07. Not a thread. Part 1 of 5.
+Senders: Jean-Marc Lienher, Luis Villa, Donovan Hawkins, Ernest Prabhakar, Ann W. Harrison, John Cowan, Bruce Perens, Pamela Chestek, Russ Nelson, Karl Fogel
+Position: statements about other submissions and about the process. Not addressed to us and not about ACD. Two long messages are cut after the signature; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From jml at whoow.org  Thu Jul 26 15:32:23 2007
+From: jml at whoow.org (Jean-Marc Lienher)
+Date: Thu, 26 Jul 2007 17:32:23 +0200
+Subject: Near Public Domain license
+In-Reply-To: <6cca531e0707260633r10641aecl4781d76d374efc70@mail.gmail.com>
+References: <004b01c7cf86$84ec6280$8ec52780$@org> <6cca531e0707260633r10641aecl4781d76d374efc70@mail.gmail.com>
+Message-ID: <000301c7cf9a$2c750c10$855f2430$@org>
+
+> And where would you place such a license, if not in the sources or
+> with the binaries?  I am not a lawyer, but I do believe that reason
+
+The license must be in the sources and in a README with the binaries,
+otherwise it is not OSI compliant.
+But I want to allow derivative works or copies to be closed source.
+I create Open Source software, but I don't care if other people don't.
+It's like "Public Domain".
+
+> The license approval process itself costs no money at all.  However,
+> as you recognize, you may need to spend money on legal advice to
+> ensure that the license you submit does the things you want it to do.
+
+No, it's not only a legal advice for me. It is part of the approval process.
+
+The OSI approval process requires :
+"Create a legal analysis of the license as it complies with the terms of the
+Open Source Definition. Each paragraph of the license should be followed by
+an explanation of how the paragraph interacts with each numbered term of the
+Open Source Definition. The analysis should come from a licensed
+practitioner of the law in your country."
+http://opensource.org/approval
+
+It's not 10 minutes work for a lawyer who musts learn about the OSI
+definition. 
+I'm a geek, not a "practitioner of the law" so I can't do it myself.
+
+
+
+
+
+
+
+From luis at tieguy.org  Tue Jul 31 22:49:16 2007
+From: luis at tieguy.org (Luis Villa)
+Date: Tue, 31 Jul 2007 18:49:16 -0400
+Subject: what *is* the approval process? [was Re: License Committee Report for July 2007]
+Message-ID: <2cb10c440707311549oe5cd45ch69cc84404fd23e79@mail.gmail.com>
+
+On 7/30/07, Timothy McIntyre <tmcintyre at terracottatech.com> wrote:
+>
+>  The OSI, to its credit, requires compliance with the following procedures,
+> in order to have a license approved:
+>
+> http://www.opensource.org/docs/certification_mark.html#approval
+
+But Russ linked to:
+
+http://opensource.org/approval
+
+These two links are radically different documents (particularly the
+second link's requirement of a 'legal analysis' of the OSD). Which of
+them is actually the correct process?
+
+Luis
+
+
+From hawkins at cephira.com  Thu Oct 11 22:50:17 2007
+From: hawkins at cephira.com (Donovan Hawkins)
+Date: Thu, 11 Oct 2007 18:50:17 -0400 (EDT)
+Subject: For Approval: Boost Software License - Version 1.0 - August 
+     17th, 2003
+In-Reply-To: <18190.38993.902007.893959@desk.crynwr.com>
+References: <e52efbe10709150723t7c907f75i101dc1b3c7b26424@mail.gmail.com>
+    <18168.23516.951353.204656@desk.crynwr.com>
+    <46F85E80.3090302@gatech.edu> <loom.20071001T210408-107@post.gmane.org>
+    <18188.25582.93134.226559@desk.crynwr.com>
+    <87r6k2lejv.fsf@grogan.peloton>
+    <18189.37569.722692.393363@desk.crynwr.com>
+    <e52efbe10710110342l266b38ecy6d1023e8a4435117@mail.gmail.com>
+    <470E1C24.1040002@gmail.com>
+    <18190.38993.902007.893959@desk.crynwr.com>
+Message-ID: <1175.70.168.251.2.1192143017.squirrel@mymail.myregisteredsite.com>
+
+
+
+Russ Nelson wrote:
+> Shriramana Sharma writes: 
+> > I
+seriously object to making a business out of this. 
+> 
+>
+Exactly why we've never done it. It's a non-starter.?
+
+What
+about the legal analysis required by step 3 listed at http://www.opensource.org/approval?
+I imagine this would cost most people far more than $50...are small groups
+not doing this step or is there someone that is helping with this?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20071011/8a829840/attachment.html>
+
+From ernest.prabhakar at gmail.com  Thu Dec 13 00:03:12 2007
+From: ernest.prabhakar at gmail.com (Ernest Prabhakar)
+Date: Wed, 12 Dec 2007 16:03:12 -0800
+Subject: Welcome to the *new* License Discuss
+Message-ID: <D9A557F7-E8E6-49FC-A8E4-DA7283D458D3@gmail.com>
+
+Dear members of License Discuss,
+
+Today marks a major transition in how the OSI handles its mailing  
+lists, as was recently announced on our blog:
+
+http://opensource.org/reorg-2007-12
+
+Perhaps the most dramatic news is the shift in focus for this mailing  
+list. In particular, the license approval process has been  
+dramatically revised:
+
+and shifted to the new, more-tightly-focused license-review mailing  
+list, which we hope many of you will subscribe to.
+
+Email: license-review-subscribe at opensource.org
+
+General OSI discussion also has a new home on the "issues" mailing list:
+
+Email: issues-subscribe at opensource.org
+
+We trust that will provide a more appropriate and effective forum for  
+discussing how to improve the OSI, as it will be moderated by our  
+President, Michael Tiemann.
+
+Where does that leave this list? We believe it is important for the  
+community to have a place to find and debate answers to common  
+licensing questions, and that seems a natural fit for the constituency  
+of this list. However, it is essential we keep those discussions  
+focused and productive. Therefore, we have redefined the purpose of  
+license-discuss as driving content for the new (albeit rudimentary)  
+Open Source Licensing FAQ:
+
+https://osi.osuosl.org/wiki/help/license
+
+The FAQ is intended to reflect the "best community understanding" of  
+common Open Source issues -- as defined by you, with help from the  
+newly-constituted "editors" list:
+
+https://osi.osuosl.org/wiki/editor
+
+We thank all of you for your faithful participation on this list over  
+the years, and hope that this new structure will make it a more  
+rewarding experience for everyone.  If the new charter no longer makes  
+sense for you, though, you can unsubscribe via:
+
+license-discuss-unsubscribe at opensource.org
+
+If you have any questions or suggestions, please don't hesitate to  
+contact me, as I (for my sins :-) am now the new moderator of License  
+Discuss.
+
+Sincerely,
+Ernest Prabhakar
+OSI Board Observer
+License Discuss Moderator
+
+
+From prabhaka at apple.com  Fri Oct 15 17:54:28 2004
+From: prabhaka at apple.com (Ernest Prabhakar)
+Date: Fri, 15 Oct 2004 10:54:28 -0700
+Subject: ISC copyright for BIND
+In-Reply-To: <20041015162555.GA4037@dali.cs.wm.edu>
+References: <20041015162555.GA4037@dali.cs.wm.edu>
+Message-ID: <425A0122-1ED3-11D9-9C21-000A95AF09B0@apple.com>
+
+There seems to be some confusion here.   Comments below.
+
+On Oct 15, 2004, at 9:25 AM, Zvezdan Petkovic wrote:
+
+> I wonder why somebody doesn't start a procedure for including ISC
+> license (used for BIND nameserver) in Open Source Licenses.
+> You can see it here:
+> 	http://www.isc.org/index.pl?/sw/bind/bind-copyright.php
+
+It sounds like you just did. :-)  Typically the author of the license 
+submits it for consideration, though I don't think that's strictly 
+necessary.
+
+> It is basically equivalent to BSD license.
+> OpenBSD project recommends it for the new code added to the project.
+> This page http://www.openbsd.org/policy.html states:
+>
+> 	The ISC copyright is functionally equivalent to a two-term BSD
+> 	copyright with language removed that is made unnecessary by the
+> 	Berne convention. This is the preferred license for new code
+> 	incorporated into OpenBSD. A sample license is included in the
+> 	source tree as /usr/src/share/misc/license.template.
+
+This does seem to be a reasonable subset of the BSD license.   Normally 
+we discourage new licenses, but since this a historical one from the 
+ISC I would recommend approval.
+
+> Since Open Source Consortium requires that a lawyer reviews the 
+> license,
+> I cannot afford that as an individual.  However, I think it's a shame
+> that a license used by one of the most important programs for Internet
+> is not yet approved by Open Source Consortium.  And frankly I doubt 
+> that
+> this restrictive procedure with lawyer review was applied to GNU, BSD,
+> MIT licenses when they were approved by the consortium.  They were just
+> taken as the reference open source licenses that started the whole
+> thing.  I believe that ISC license falls in the same category.
+
+I'm not sure what you mean by "Open Source Consortium."  This list is 
+run by the Open Source Initiative, and AFAIK there's not strict 
+requirement for prior legal review -- though it is strongly suggested 
+for various reasons.
+
+-- Ernie P.
+IANAL, TINLA, etc.
+Disclaimed: Apple partners with the ISC on OpenDarwin.org, and uses 
+BIND.
+
+
+
+From aharrison at ibphoenix.com  Wed Feb 11 20:52:28 2004
+From: aharrison at ibphoenix.com (Ann W. Harrison)
+Date: Wed, 11 Feb 2004 15:52:28 -0500
+Subject: Initial Developer's Public License
+Message-ID: <6.0.1.1.2.20040211151958.027c4930@firebird.netfrastructure.com>
+
+Hello all,
+
+   As part of the Firebird open source database project, we created
+a close derivative of the Mozilla Public License V1.1 which we call
+the "Initial Developer's Public License."  The license follows the
+instructions in the MPL V1.1 for creating derivative works based on
+the MPL.  The modifications consist of eliminating the right of
+Netscape to create new versions of the license which may be applied
+to the Firebird code and documenting that change.  Our goals are to
+
+    a) Allow the use of the Firebird project code, in whole or
+       in part, in open source and commercial applications
+
+    b) Require that the source code for modifications to the
+       Firebird code and interfaces from the Firebird code to
+       new code be published under the same conditions as the
+       Firebird code if the modifications or extensions are
+       distributed beyond the organization which modified or
+       extended the code.
+
+    c) Make no reference to an originating authority for the
+       license(e.g. Netscape, the Regents of University of
+       California, IBM, Lucent ...)
+
+   Before I engage an intellectual property lawyer to prepare the
+analysis required in step three of the license approval process,
+I'd like to ask two questions.
+
+1) Has an equivalent license been approved already?  I read the
+approved licenses but IANAL and may well have missed one.
+
+2) Is a full legal analysis necessary for those sections which
+are exactly identical to the MPL V1.1?
+
+Thank you for your time and consideration.
+
+
+Sincerely,
+
+
+Ann Harrison
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From cowan at mercury.ccil.org  Wed Jan 18 22:19:35 2012
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Wed, 18 Jan 2012 17:19:35 -0500
+Subject: [License-discuss] a GPLv3 compatible attribution for MIT/BSD?
+In-Reply-To: <1326642212.19072.140661023646861@webmail.messagingengine.com>
+References: <1326549514.24602.140661023342841@webmail.messagingengine.com>
+	<4F12E14F.70909@gmx.at>
+	<1326642212.19072.140661023646861@webmail.messagingengine.com>
+Message-ID: <20120118221935.GC31480@mercury.ccil.org>
+
+Clark C. Evans scripsit:
+
+> That's incorrect.  Both Apache 2.0 and GPLv3 permit a requirement to
+> display author attribution in legal notices shown to the user, this 
+> is beyond MIT/BSD license which requires only that the copyright 
+> notice in the source files be maintained.  So, I'm looking for a clause 
+> for MIT/BSD derivative which would be an equivalent statement, by 
+> "compatible" I mean a "permissive term" by the GPLv3.
+
+You're correct to say that this is a gap in the existing set of open source
+licenses.  What I would do if I were you is to construct such a license
+using the MIT license and the attribution clause you want, carefully
+tracking the language in the GPLv3.  Then follow the process "For Approval"
+at http://www.opensource.org/approval .  IMHO you can reasonably ask for the
+outside legal review to be waived, given the simplicity of your license.
+
+-- 
+John Cowan <cowan at ccil.org>             http://www.ccil.org/~cowan
+Sir, I quite agree with you, but what are we two against so many?
+    --George Bernard Shaw,
+         to a man booing at the opening of _Arms and the Man_
+
+
+From luis at lu.is  Thu Mar 13 14:04:47 2014
+From: luis at lu.is (Luis Villa)
+Date: Thu, 13 Mar 2014 07:04:47 -0700
+Subject: [License-review] For Approval: Public Software License
+In-Reply-To: <a7e20f3b83d93c13a4e2248442a179d9@SDF.ORG>
+References: <a7e20f3b83d93c13a4e2248442a179d9@SDF.ORG>
+Message-ID: <CAFPTOkW5tj6RP--uCxbfM0xLB3-g6ZyJqyVpAP4L81UpsxujWA@mail.gmail.com>
+
+Hi, Nikolos-
+Thanks for reaching out to us. Besides the commentary that has already been
+offered, please note that our process requires:
+
+   - *Legal review:* Describe any legal review the license has been
+   through, and provide results of any legal analysis if available
+   - *Proliferation category:* Recommend which license proliferation
+   category <http://opensource.org/proliferation-report> is appropriate
+
+As described here:
+
+http://opensource.org/approval
+
+Thanks-
+
+Luis
+
+
+
+On Sun, Mar 9, 2014 at 4:03 AM, Nikolaos-Modestos Kougioulis <
+nkougioulis at sdf.org> wrote:
+
+> To whom it may concern,
+>
+> I am writing you this e-mail to request approval for my License, regarding
+> the Open Source definition.
+>
+> 1) The Cryptix General License is the most similar OSI-approved license.
+> To my concern, that permissive, free software licence, does not make a
+> clear definition of Limitation of Liability. The Public Software License is
+> based on the Cryptix General License, with a clear disambiguation between
+> the Disclaimer of Warranty and the Limitation of Liability. Moreover, at
+> the end of the Public Software License, the agreement between the licensor
+> and the end software user is stated clearly, aiming to emphasize the
+> responsibilities of the user regarding the terms of the License.
+>
+> 2) I believe software released under the Public Software License will make
+> the limitations and warranties of the license much more clear, yet under
+> the Permissive free software license scope.
+>
+> 3)
+> Public Software License
+> Version 1.0, 27 December 2012
+>
+> Copyright (c) 2012 Nikolaos-Modestos Kougioulis.
+> All rights Reserved.
+>
+>
+> Permission is hereby granted, free of charge, to any person obtaining
+> a copy of this software and associated documentation files (the
+> "Software"), to deal in the Software without restriction, including
+> without limitation the rights to use, copy, modify, merge, publish,
+> distribute, sublicense, and/or sell copies of the Software, and to
+> permit persons to whom the Software is furnished to do so, subject to
+> the following conditions:
+>
+> The above copyright notice and this permission notice shall be
+> included in all copies or substantial portions of the Software.
+>
+> THE SOFTWARE IS PROVIDED ON AN ``AS IS`` BASIS, UNLESS REQUIRED BY
+> APPLICABLE LAW OR AGREED TO IN WRITING. THAT SHALL MEAN THAT THE LICENSED
+> WORK COMES WITH ABSOLUTELY NO WARRANTY OR CONDITIONS OF ANY KIND, EXPRESSED
+> OR IMPLIED, INCLUDED, BUT NOT LIMITED TO, THE WARRANTIES OF CONDITIONS OF
+> TITLE, NON-INFRIGEMENT, MERCHANTABILITY OR FITNESS FOR A PARTICULAR
+> PURPOSE.
+> YOU ASSUME THE RISKS ACCOMPANIED USING THE PROGRAM. IN NO EVENT SHALL THE
+> AUTHORS BE LIABLE TO YOU FOR ANY DEFECTIVE TYPE OF QUALITY AND PERFORMANCE
+> THAT MAY OCCUR DURING THE USE OF THE WORK.
+>
+> IN NO EVENT, INCLUDING WITHOUT LIMITATION, NEGLIGENCE, UNLESS REQUIRED
+> BY APPLICABLE LAW SHALL THE AUTHOR OR ANY COPYRIGHT HOLDER(INCLUDING
+> CONTRIBUTORS) BE RESPONSIBLE TO YOU FOR DAMAGES, DATA LOSS, COMPUTER
+> MALFUNCTION OR ANY OTHER TYPE OF CONSEQUENTIAL DAMAGES OCCURRING FROM
+> THE MISUSE OF THE PROGRAM, EVEN IF SUCH PARTIES HAVE BEEN ADVISED OF
+> THE POSSIBILITY OF SUCH DAMAGES.
+>
+> You hereby acknowledge that you have fully read and understand the
+> foregoing
+> License and agree that the use of the licensed work is an acknowledgement
+> of
+> your agreement to the terms stated herein.
+>
+>
+>
+> Regards,
+>
+> Nikolaos-Modestos Kougioulis
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20140313/23047a8c/attachment.html>
+
+From bruce at perens.com  Mon Feb 27 00:58:48 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Sun, 26 Feb 2012 16:58:48 -0800
+Subject: [License-discuss] What would be necessary to consider the
+	unlicense?
+In-Reply-To: <1330301130.7835.140661041649413@webmail.messagingengine.com>
+References: <87sjhzq3fy.fsf@grumps.lan><20120225035300.GB25640@mercury.ccil.org><4F486CEB.8090303@perens.com><20120225070119.GD25640@mercury.ccil.org><1330176585.30990.140661041173581@webmail.messagingengine.com><Pine.BSM.4.64L.1202251341060.4374@herc.mirbsd.org><20120225224240.GA2637@hemlock.hydra><20120226082803.GW21991@linuxmafia.com>
+	<20120226220301.GB14375@hemlock.hydra>
+	<1330301130.7835.140661041649413@webmail.messagingengine.com>
+Message-ID: <4F4AD548.5030609@perens.com>
+
+On 02/26/2012 04:05 PM, Clark C. Evans wrote:
+> If it is a broken license, perhaps those with legal expertise might 
+> provide suggestions to fix it?
+I am having trouble finding a benefit that would come from fixing it, 
+that we don't already have from short-and-sweet licenses like BSD.
+What you would to be "as good as" BSD would be a public domain 
+declaration coupled with a covenant not-to-sue that extends to the 
+patent claims of the dedicator that are necessary to utilize the work as 
+it was dedicated. And a warranty disclaimer to protect the donor.
+
+It ends up not being shorter nor simpler.
+
+     Thanks
+
+     Bruce
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bruce.vcf
+Type: text/x-vcard
+Size: 266 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20120226/7b670d45/attachment.vcf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4447 bytes
+Desc: S/MIME Cryptographic Signature
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20120226/7b670d45/attachment.p7s>
+
+From pamela.chestek at opensource.org  Fri Jan 27 23:45:07 2023
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Fri, 27 Jan 2023 18:45:07 -0500
+Subject: [License-discuss] [License-review] License Review working group
+ asks for community input on its recommendations
+In-Reply-To: <c6be85a4-b274-b5e3-5365-48707aabdc5f@berkus.org>
+References: <7f1cea2e-f0c4-7b4c-8e19-ca28544f2cda@opensource.org>
+ <c6be85a4-b274-b5e3-5365-48707aabdc5f@berkus.org>
+Message-ID: <82797580-c607-4b38-f7d2-70970cdcd529@opensource.org>
+
+
+On 1/27/2023 1:01 PM, Josh Berkus wrote:
+> On 1/26/23 18:10, Pamela Chestek wrote:
+>> The OSI has now posted the recommendations of the License Review 
+>> Working Group. The blog post is at 
+>> https://blog.opensource.org/the-license-review-working-group-asks-for-community-input-on-its-recommendations/, 
+>> with a wiki version available for comments. 
+>> https://wiki.opensource.org/bin/Working%20Groups%20%26%20Incubator%20Projects/License%20Review/#
+>
+> None of these recommendations feel new; they all seem to be in line 
+> with our existing practices.? Is that the idea, a codification of 
+> existing practice?
+>
+> BTW, I (still) volunteer for the "license expiration committee". Happy 
+> to help with that.
+>
+That may be the result, but it wasn't by design. The design was also to 
+examine them.
+
+There are some "unwritten rules" that we discussed but didn't adopt, 
+like the "no vanity license" philosophy.
+
+The hoped-for adoption of tagging is new, although the desire for 
+machine-readable licenses is not new, just not yet achieved. And a 
+metrics/quality based sorting of licenses to be listed in a preferred 
+category, as a replacement for "popular and widely-used or with strong 
+communities" is also a change, but I wouldn't say new.
+
+Pam
+
+Pamela Chestek
+Chair, License Committee
+Open Source Initiative
+
+
+
+
+
+From nelson at crynwr.com  Thu May 28 18:25:32 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Thu, 28 May 2009 14:25:32 -0400
+Subject: For Approval By: S-GPL
+In-Reply-To: <4A1ED1E8.9050904@oarcorp.com>
+References: <212696550905281054n7e63ed66k235ecc2fbeb0f5ff@mail.gmail.com>
+	<4A1ED1E8.9050904@oarcorp.com>
+Message-ID: <18974.55068.150763.226304@desk.crynwr.com>
+
+Joel Sherrill writes:
+ > This violates criteria number 5.
+ > 
+ > 5. No Discrimination Against Persons or Groups
+ > 
+ > The license must not discriminate against any person or group of persons.
+
+Well, but we've held that a license *can* discriminate as long as all
+the possible paths through the license terminate in acceptable terms
+under the OSD.  The reason for #5 is to stop people who want to say
+"It's free for everyone but commercial users" or "You can't use this
+software to create nuclear weapons."
+
+ > Ignoring that, you will have definition problems
+ > on non-profit, enterprise, and "contribution".
+
+Sure, those are just definitional problems.  We can work with zhihang
+to fix those.
+
+ > As a project maintainer, I wouldn't want to be put in a position
+ > to arbitrate or track the requirements this license would
+ > require for me to properly administer it.
+
+Then you probably wouldn't use it.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Cloudmade supports http://openstreetmap.org/ 
+521 Pleasant Valley Rd. | +1 315-323-1241    
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From cowan at ccil.org  Thu May 28 18:47:07 2009
+From: cowan at ccil.org (John Cowan)
+Date: Thu, 28 May 2009 14:47:07 -0400
+Subject: For Approval By: S-GPL
+In-Reply-To: <18974.55068.150763.226304@desk.crynwr.com>
+References: <212696550905281054n7e63ed66k235ecc2fbeb0f5ff@mail.gmail.com> <4A1ED1E8.9050904@oarcorp.com> <18974.55068.150763.226304@desk.crynwr.com>
+Message-ID: <20090528184707.GB30273@mercury.ccil.org>
+
+Russ Nelson scripsit:
+
+> Well, but we've held that a license *can* discriminate as long as all
+> the possible paths through the license terminate in acceptable terms
+> under the OSD.  The reason for #5 is to stop people who want to say
+> "It's free for everyone but commercial users" or "You can't use this
+> software to create nuclear weapons."
+
+Doesn't work here:
+
+Non-profit or contributor:  GPL
+Otherwise, with signatures: Apache
+Otherwise: no license.
+
+-- 
+Where the wombat has walked,            John Cowan <cowan at ccil.org>
+it will inevitably walk again.          http://www.ccil.org/~cowan
+
+
+From kfogel at red-bean.com  Mon Feb  6 05:15:35 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Sun, 05 Feb 2012 23:15:35 -0600
+Subject: [License-discuss] CDDL 1.1 and GPL 2 with CPE
+In-Reply-To: <4F2F532D.80301@gatech.edu> (Matthew Flaschen's message of "Sun, 
+	05 Feb 2012 23:12:29 -0500")
+References: <7D3E63356A001547819062C1D8E6E0E0E39F19B7FD@NYWEXMBX2125.msad.ms.com>
+	<20120201205608.GC5152@redhat.com> <87wr8642ds.fsf@floss.red-bean.com>
+	<4F2F532D.80301@gatech.edu>
+Message-ID: <87fweoee4o.fsf@floss.red-bean.com>
+
+Matthew Flaschen <matthew.flaschen at gatech.edu> writes:
+>The first part sounds plausible.  An additional permission should not
+>invalidate it complying with the OSD, as long as you can choose to
+>forget or ignore the exception and say "I just want my GPL."  That
+>applies to GPL + classpath exception.  In fact, it explicitly says
+>(for modified versions, but the modification could be trivial), "If
+>you do not wish to do so, delete this exception statement from your
+>version."
+>
+>However, I think this *is* an additional license, rather than just
+>estoppel or covenant not to sue.
+
+FWIW, I think the line of logic I was spinning out remains true even if
+the exception doesn't contain a self-removal clause.  That is, if the
+license+exception is OSD-compliant for the first downstream recipient,
+then there's no reason that fact changes for the next recipient, or the
+next, on down the chain.  There shouldn't be anything special about the
+first recipient in a chain.
+
+Obviously, this all depends on the nature of the exception.  If the
+exception does more than just make a conditional promise of *inaction*
+on the part of the copyright holder, then license+exception might or
+might not be OSD-compliant.  It's just that we can say with confidence
+(I think) that conditional promises of inaction -- and only inaction --
+on the part of the only party with any enforcement powers cannot, in
+principle, change a license from OSD-compliant to OSD-non-compliant.
+
+-Karl
+
+
+From luis at lu.is  Wed Mar  8 20:24:44 2017
+From: luis at lu.is (Luis Villa)
+Date: Wed, 08 Mar 2017 20:24:44 +0000
+Subject: [License-discuss] [Non-DoD Source] code.mil update
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97BFE3C509@UMECHPA7F.easf.csd.disa.mil>
+References: <dcfdb36e-fbe3-4ad4-b5e8-cc1199ad505c@me.com>
+ <A677A9FB362B2F499BEFD6F80687FE97BFE3C39C@UMECHPA7F.easf.csd.disa.mil>
+ <02C1C994-A807-4FF6-B3CB-9A7486B2EB6B@mac.com>
+ <CAFjZtRcmj3O=ZDsG4tMgBKoAyXCYtLTWwP807xg+HqBUOFY7Sg@mail.gmail.com>
+ <A677A9FB362B2F499BEFD6F80687FE97BFE3C509@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <CAFjZtRe9dpR--u6cyz7dT8mtSXHnLOXcv5-qePZdcS3a5ycO0A@mail.gmail.com>
+
+On Wed, Mar 8, 2017 at 12:11 PM Karan, Cem F CIV USARMY RDECOM ARL (US) <
+cem.f.karan.civ at mail.mil> wrote:
+
+> > -----Original Message-----
+> > From: License-discuss [mailto:license-discuss-bounces at opensource.org]
+> On Behalf Of Luis Villa
+> > Sent: Wednesday, March 08, 2017 2:51 PM
+> > To: license-discuss at opensource.org
+> > Subject: Re: [License-discuss] [Non-DoD Source] code.mil update
+> >
+> > On Wed, Mar 8, 2017 at 7:03 AM Christopher Sean Morrison <brlcad at mac.com
+> < Caution-mailto:brlcad at mac.com > > wrote:
+> >
+> >       > On Mar 8, 2017, at 9:32 AM, Karan, Cem F CIV USARMY RDECOM ARL
+> (US) <cem.f.karan.civ at mail.mil < Caution-
+> > mailto:cem.f.karan.civ at mail.mil > > wrote:
+> >       >
+> >       > You might want to re-read what they posted; the license applies
+> only to those
+> >       > portions of the code that have copyright attached, otherwise
+> it's public
+> >       > domain.  The trick is that while US Government (USG) works are
+> ineligible for
+> >       > copyright within the US, they may be eligible for copyright
+> outside the US,
+> >       > and in those areas the USG works are licensed under the
+> OSI-approved license.
+> >       > I'm not sure what it would mean for code that was moved across
+> jurisdictions,
+> >       > but I do understand and appreciate the intent of their approach.
+> >
+> >       They?ve slapped a copyright-based license file on the collective
+> work with an INTENT file clarifying that it only applies to code that
+> > has copyright attached.  I read what they wrote very carefully.  We?re
+> saying exactly the same thing.
+> >
+> >       It?s an interesting approach that is not new, just untested and a
+> point of dispute in the past as to what might happen.
+> >
+> >
+> >
+> > For what little it is worth, having just read intent.md < Caution-
+> http://intent.md > , I think it's an eminently reasonable policy. It gives
+> > some baseline certainty for non-.gov contributors, non-US entities, and
+> US entities that are satisfied with a baseline set of FOSS rights. For
+> > those who for some reason need the additional flexibility of US-only PD,
+> they can do the research to figure out what is available in that
+> > way.
+> >
+> >
+> > Luis
+>
+> I agree; my only concern with it was that the law might be slightly
+> different with regards to the USG-furnished code as it is public domain
+> within the US, but may have copyright outside of it.  Just so everyone is
+> on a level playing field I'd prefer it if the USG works that don't have
+> copyright were released under CC0, but that is my personal preference.
+>
+> That said, it might be a question to put on the Federal Register, and get
+> some comments.  I mean, would it be beneficial if the USG had a consistent
+> policy on this (public domain or CC0 for works that don't have copyright)?
+>
+
+It certainly seems like the current frankenpolicy across various parts of
+the government is not ideal, but I'm not an expert in how that might be
+resolved.
+
+(As I think I've said before, I think in 2017 CC0 is not an OSI-approvable
+license because of the patent clause. Shame.)
+
+Luis
+-- 
+
+*Luis Villa: Open Law and Strategy <http://lu.is>*
+*+1-415-938-4552*
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20170308/c76f8fa1/attachment.html>
+

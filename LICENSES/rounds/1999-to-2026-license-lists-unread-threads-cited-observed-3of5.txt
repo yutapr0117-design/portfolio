@@ -1,0 +1,742 @@
+Source: https://lists.opensource.org/pipermail/ (license-review and license-discuss, the months named in each message's Date line)
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-07)
+Messages: 10 of the 57 messages this dossier cites from threads it had not read until 2026-11-07. Not a thread. Part 3 of 5.
+Senders: Luis Villa, Pamela Chestek, Josh Berkus, Eric S. Raymond, Brian Behlendorf, Roland Turner
+Position: statements about other submissions and about the process. Not addressed to us and not about ACD. Two long messages are cut after the signature; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From luis at lu.is  Sun Nov 17 18:31:42 2013
+From: luis at lu.is (Luis Villa)
+Date: Sun, 17 Nov 2013 10:31:42 -0800
+Subject: [License-review] Continued discussion of the Scripting FSL
+Message-ID: <CAFPTOkXKgWj0zhAWnyxBVkzk011g6=TpQ8RaBq6e3u8r7=5g_A@mail.gmail.com>
+
+On Sat, Nov 16, 2013 at 1:41 PM, Josh Berkus <josh at postgresql.org> wrote:
+
+>
+>
+> I'm concerned that by continuing to discuss this license with Elmar, we
+> are misleading him that it actually has some chance of being approved.
+
+
+I'm also tempted to shut down the discussion, for a related reason: the
+purpose of this list is not to serve as a replacement for a healthy
+community discussion of a license. If you/your community/your project have
+not already conducted a review of the basic license, this isn't the place
+to get that done.
+
+Thoughts on the process part of that?
+
+Luis
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20131117/937b49b2/attachment.html>
+
+From pamela at chesteklegal.com  Wed Oct 30 01:06:07 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Tue, 29 Oct 2019 21:06:07 -0400
+Subject: [License-review] ESA Permissive PL 2.3
+In-Reply-To: <d0500b58-4c2c-c0b4-a9f9-bb0bde05a636@tcilaw.de>
+References: <CAK2MWOuoXSBOxv2WSUqZ10fzmDpaiskDZFE6V=ZVTcZvz6BtLg@mail.gmail.com>
+ <d0500b58-4c2c-c0b4-a9f9-bb0bde05a636@tcilaw.de>
+Message-ID: <9dde201b-4d99-1792-f37a-3b48e9253979@chesteklegal.com>
+
+
+On 5/6/18 9:45 AM, Carsten Gerlach wrote:
+>> The actual effect of the terms is to guarantee that whatever
+>> license is used, the ESA Permissive PL 2.3 license is still available as
+>> an/alternative license/, and the downstream licensor has to make a
+>> notice to that effect.
+>>
+>> And thus, I'd suggest that you state the actual text of the notice the
+>> poor un-counseled Open Source developer has to make in that case. Here's
+>> my suggested rewrite:
+> This would indeed be helpful, but to achieve this, we would prefer to
+> suggest a notice text in the license FAQ.
+>
+Carsten,
+
+Several times you mentioned changing the FAQs rather than amending the 
+language of the license itself. As a US lawyer, this is troubling to me 
+because under US law (1) an explanation extrinsic to the license would 
+only be considered under very limited circumstances and (2) even if it 
+was considered, it is only the Licensor's intent, not the license 
+/steward's /intent that matters. So where the licensor is not the ESA, 
+any statements by the ESA would be irrelevant.
+
+I understand, however, that this license will be construed under the law 
+of a member state of the EU, not US law. How would information in the 
+FAQ be used to construe the meaning of the license under EU law?
+
+One place I believe you hope to rely on the FAQ rather than changing the 
+license (although I can't find your email that says it) is in Section 
+7.1 regarding when one has "knowledge" that exercising the rights 
+granted by the License infringe third party rights. You stated that 
+"'knowledge' should mean positive knowledge of an infringement, for 
+example if the user is subject to infringement claims himself, has 
+positive knowledge of infringement claims against a third party or if 
+the user?s own intellectual property rights are being infringed." 
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2017-January/002961.html. 
+I don't know why you consider this to be the meaning of the word 
+"knowledge." Given that failure to comply with 7.1 may mean loss of the 
+license, this seems to be a draconian outcome for what may be, for 
+example, just an internal conclusion that a patent may be infringed.
+
+Thanks,
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191029/f6aba2b5/attachment-0001.html>
+
+From josh at berkus.org  Mon Dec  2 20:05:34 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Mon, 2 Dec 2019 12:05:34 -0800
+Subject: [License-review] ESA Permissive PL 2.3
+In-Reply-To: <9dde201b-4d99-1792-f37a-3b48e9253979@chesteklegal.com>
+References: <CAK2MWOuoXSBOxv2WSUqZ10fzmDpaiskDZFE6V=ZVTcZvz6BtLg@mail.gmail.com>
+ <d0500b58-4c2c-c0b4-a9f9-bb0bde05a636@tcilaw.de>
+ <9dde201b-4d99-1792-f37a-3b48e9253979@chesteklegal.com>
+Message-ID: <1bddebee-50cb-beb5-7691-3f0d825270c6@berkus.org>
+
+On 10/29/19 6:06 PM, Pamela Chestek wrote:
+> Several times you mentioned changing the FAQs rather than amending the
+> language of the license itself. As a US lawyer, this is troubling to me
+> because under US law (1) an explanation extrinsic to the license would
+> only be considered under very limited circumstances and (2) even if it
+> was considered, it is only the Licensor's intent, not the license
+> /steward's /intent that matters. So where the licensor is not the ESA,
+> any statements by the ESA would be irrelevant.
+> 
+> I understand, however, that this license will be construed under the law
+> of a member state of the EU, not US law. How would information in the
+> FAQ be used to construe the meaning of the license under EU law?
+
+Even if it's interpreted differently under EU law, as a developer I
+would not be willing to touch a license whose FAQ apparently differed
+from the license text.
+
+-- 
+Josh Berkus
+
+
+From pamela at chesteklegal.com  Mon Aug  5 13:23:57 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Mon, 5 Aug 2019 09:23:57 -0400
+Subject: [License-discuss] For Public Comment: The Contribution Public
+ License
+In-Reply-To: <1970492.MNRfpnOEAK@cylae>
+References: <2763085.alidGh2TMh@cylae> <1970492.MNRfpnOEAK@cylae>
+Message-ID: <5570313d-7fcb-7e81-c323-c1cb3d43ecbe@chesteklegal.com>
+
+You've added confusion with these two new paragraphs:
+
+? ? ?? You are granted a perpetual, universal, non-exclusive,
+??????? no-charge, royalty-free, irrevocable (except by not
+??????? fulfilling the above obligations) copyright license to use
+??????? and distribute this software without restriction.
+
+??????? You are granted a perpetual, universal, non-exclusive,
+??????? no-charge, royalty-free, irrevocable (except by not
+??????? fulfilling the above obligations) patent license for all
+??????? patent claims licensable by any copyright holder your use
+??????? or distribution of this software would otherwise infringe.
+
+The are about the same subject matter as paragraphs 2 and 3 but make
+different statements about that subject matter. Why did you add them?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+On 8/4/2019 10:39 PM, Moritz Maxeiner wrote:
+> (Hopefully replying to my sent mail works and doesn't start a new thread)
+>
+> I've incorporated most suggestions (commit 848faa0 in the previously linked to 
+> GitHub repository) and attached the new draft as both plaintext and universal 
+> diff from previous plaintext.
+>
+> - conditions -> obligations
+> - at least one publication must be available for at least 30 days
+> - patent grants
+> - explicit irrevocability except in case of obligation violations
+>
+> Any additional feedback would be welcome.
+>
+> Thank you for your time.
+>
+> On Saturday, 3 August 2019 23:48:38 CEST Moritz Maxeiner wrote:
+>> Hello,
+>>
+>> [...]
+>>
+>> _______________________________________________
+>> License-discuss mailing list
+>> License-discuss at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190805/7665b364/attachment.html>
+
+From pamela at chesteklegal.com  Tue Oct 20 03:51:07 2020
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Mon, 19 Oct 2020 23:51:07 -0400
+Subject: [License-review] License-review Digest, Vol 95, Issue 7
+In-Reply-To: <CA+ujgfM1ezJhS_95FcFW4tw5FBPyWriBHzba1vx_RLSFf_Fdpg@mail.gmail.com>
+References: <mailman.129.1602860417.23837.license-review_lists.opensource.org@lists.opensource.org>
+ <CA+ujgfM1ezJhS_95FcFW4tw5FBPyWriBHzba1vx_RLSFf_Fdpg@mail.gmail.com>
+Message-ID: <bde2c450-29b0-e2ab-049f-088f85bfc014@chesteklegal.com>
+
+I believe this license is very flawed because it treats all supposed 
+"IP" the same way. There is no clearly defined group of rights that are 
+considered "IP." Even the three exclusive rights commonly assigned to 
+that category (copyright, patent and trademark) have different policy 
+reasons for existing and trying to treat them all the same way is, in my 
+view, misguided.
+
+Copyright and patents are somewhat similar, protecting that which is 
+original and creative. Trademarks, though, are for the protection of 
+commerce and fair competition. This license makes no sense for 
+trademarks (which is why FOSS license almost never encompass 
+trademarks). Trademark exist only because someone has exercised 
+exclusivity over a word. If I adopt a trademark "Escalator" for a set of 
+mechanical stairs, but I then tolerate (or license) everyone using the 
+the word "escalator" for that same device, then it's not a trademark 
+anymore because it doesn't denote a single source. A similar concept is 
+true in trade secret rights - something is a trade secret because it's a 
+secret. If everyone gets to use it then it's not a trade secret anymore.
+
+Trademarks are used to prevent consumer deception. If one cannot stop 
+misuse of their trademark, then there would be no recourse against 
+someone who might be causing great harm. Suppose I have a software 
+program that prevents the installation of malicious software and it is 
+licensed under the Anti-IP license. Some can take that very same 
+software, modify it so that it is itself malicious software, and 
+distribute it with the same name. Under this license there is nothing 
+the original author can do to stop that harmful behavior. That's a bad 
+outcome. It's made even more confusing by your proposed term "No 
+Licensable IP or Restricted work may be used to commit fraud." Is 
+"likelihood of confusion" in trademark law what you mean by "fraud"? And 
+how will the person relying on the license know when their use is lawful 
+or unlawful? The premise of your license doesn't make sense for trademarks.
+
+Universal treatment doesn't make any sense in many of the areas you 
+identified in the license. Why should privacy rights, which protect an 
+individual, be treated the same way as exclusionary rights in copyright 
+and patent? Aren't the interests quite different? Isn't is generally 
+considered beneficial that an individual may stop the unwanted use of 
+their personal information by third parties? What is gained by forcing 
+someone to give that up? Same with fair competition, isn't the ability 
+to ensure fair competition beneficial to society?
+
+For "Restricted Work," you've used the word "derivative," but that is a 
+word very specific to copyright law. It's use in other areas is 
+impossibly ambiguous. What is a "Restricted Work" in anti-circumvention 
+rights for example, where there isn't the concept of "infringement"?
+
+In terms of drafting, I'm not sure what you intend with "Restricted 
+works may only be assigned to someone that has publicly licensed IP 
+under this document." Does that mean that if I want to assign the rights 
+in a Restricted work to someone who is already using the license for a 
+/different/ work? Why? And what does "publicly licensed" mean in the 
+Copyleft section of the license? The word "public" is very unclear.
+
+If I own a Public Restricted work, I have to assign it away? That 
+doesn't make sense. If you mean /if/ I assign it, /then/ I must assign 
+it to a particular person or alternatively grant everyone rights, why is 
+the assignment of Restricted works different from Public Restricted 
+works? And what does it mean to "grant everyone rights to the work under 
+this document"? Isn't that what the license accomplishes, whether it 
+says so in this section or not? What does that sentence add?
+
+I believe this license needs substantial drafting work before it could 
+be approved. I agree with others that it needs the assistance of an 
+attorney who is experienced in drafting licenses - drafting legal 
+documents is a specialized skill. I am also skeptical it would ever be 
+approved because I think it is a fundamental error to try to lump all 
+"IP" together. I suggest withdrawing it from license-review while these 
+issues are more thoroughly considered.
+
+Pam
+
+Pamela Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+
+
+From pamela at chesteklegal.com  Mon Feb 23 21:31:18 2026
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Mon, 23 Feb 2026 13:31:18 -0800
+Subject: [License-review] Revised Submission: Open Source Copyleft License
+ (OSCL) v1.0
+In-Reply-To: 
+ <CAOm0KL-+fyr6SRQ8123QB2u1By+P0W8Cn6RhAk_yKXGx8THTfA@mail.gmail.com>
+References: 
+ <CAOm0KL_Ds7+m7jnFkKYRTg34w1wvizOs9ambUtoGuYdKLQXi6Q@mail.gmail.com>
+ <CAOm0KL-+fyr6SRQ8123QB2u1By+P0W8Cn6RhAk_yKXGx8THTfA@mail.gmail.com>
+Message-ID: <7799b96d-9a37-40d8-8856-b82cac7d5c34@chesteklegal.com>
+
+While I appreciate the acknowledgement, my email comments on the first 
+version were not meant to describe every problem with this license but 
+simply were to demonstrate that there were significant problems in the 
+first few paragraphs, indicating that undoubtedly the drafting problems 
+were throughout. Making changes addressing only my two original 
+criticisms doesn't begin to solve all the problems, and in fact the 
+changes have made it much worse. Now I don't even see a clear grant of a 
+copyright license. This -- "Each Contributor grants a royalty-free, 
+perpetual, worldwide license under their copyright ... they own or 
+control that are necessarily infringed by their Contributions, but only 
+to the extent of the changes they contributed" -- is nonsensical, if 
+that's supposed to be the grant.
+
+As Rob Landley points out, this is not a task for the layperson.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+On 2/21/2026 5:28 AM, Timofey Zakharcuk wrote:
+> Found a problem in my license, anti tivoization is in the preamble, 
+> not the terms.
+>
+> Although the old LICENSE.txt doesn't work anymore, the website is 
+> updated. although, here's the new file, still called v1.0 to prevent 
+> "user confusion"
+>
+> Best,
+>
+> Timofey Zakharchuk
+>
+>
+> On Sat, Feb 21, 2026 at 3:53 PM Timofey Zakharcuk 
+> <timofey.zakharchuk.research at gmail.com> wrote:
+>
+>     I am submitting a revised version of the Open Source Copyleft
+>     License (OSCL) v1.0, dated February 21, 2026, for consideration.
+>
+>
+>     This license was not drafted by a lawyer. Instead, it has been
+>     developed with respect for and in response to the thoughtful
+>     feedback provided by OSI reviewers, including Kevin P. Fleming and
+>     Pamela Chestek. Their insights helped identify key areas for
+>     improvement, and I am grateful for their time and expertise,
+>     honestly, it'd fail on day 1 in not them!
+>
+>
+>     Although the license is named v1.0, I want to note that an earlier
+>     draft also used the v1.0 label. I’ve kept the revised version as
+>     v1.0 to avoid user confusion (e.g., ‘why is there no v1.0?’). The
+>     earlier version was never adopted.
+>
+>
+>     The License is hosted at:
+>
+>     https://areponian.github.io/oscl.html ( OSCL License – AREPONIAN
+>     Project <https://areponian.github.io/oscl.html> )
+>
+>     It's also in the submitted file LICENSE.txt
+>
+>
+>     Off-topic note: some parts of the website (like the buttons) don’t
+>     currently work — it’s in a very “minimal” state right now — but
+>     the license text is fully hosted and accessible  .
+>
+>
+>     Key improvements:
+>
+>      *
+>
+>         Clearer definitions of Licensor, Contributor, and Derivative Work
+>
+>      *
+>
+>         Expanded patent grants applying to Contributors and Distributors
+>
+>      *
+>
+>         Explicit anti‑Tivoization protections
+>
+>      *
+>
+>         A stewardship clause for future license versions
+>
+>      *
+>
+>         One‑way GPL compatibility (OSCL to GPL)
+>
+>      *
+>
+>
+>      *
+>
+>         OSCL is philosophically close to the GPL: it emphasizes user
+>         freedom and strong copyleft.
+>         It includes a preamble about free software and user rights.
+>         At the same time, it resembles the MPL in its compatibility model.
+>         OSCL allows one-way GPL compatibility (OSCL to GPL), enabling
+>         integration without relicensing GPL code.
+>
+>      *
+>
+>
+>      *
+>
+>         I welcome further review and discussion, and I am committed to
+>         refining OSCL to meet OSI standards.
+>
+>      *
+>
+>
+>      *
+>
+>         Best regards, Timofey Zakharchuk
+>
+>      *
+>
+>         timofey.zakharchuk.research at gmail.com
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260223/301dc11e/attachment.htm>
+
+From josh at berkus.org  Thu Feb 12 20:04:29 2026
+From: josh at berkus.org (Josh Berkus)
+Date: Thu, 12 Feb 2026 12:04:29 -0800
+Subject: [License-review] Subject: Dear OSI License Review Committee
+ (sorry, resending)
+In-Reply-To: 
+ <CAP0kKs-Cum_oHB7UWKhRbnXdygJKKpAzUj1aR2Dd3vcZ67REfQ@mail.gmail.com>
+References: 
+ <CAP0kKs-Cum_oHB7UWKhRbnXdygJKKpAzUj1aR2Dd3vcZ67REfQ@mail.gmail.com>
+Message-ID: <41999a58-5951-42cc-8f19-943224f32d67@berkus.org>
+
+
+> I am submitting the Free Archive License (FARCL-1.0) for official 
+> approval. This license was born from the urgent need for digital 
+> preservation in the animation and software communities, specifically to 
+> address the "End-of-Life" (EOL) crisis of proprietary formats.
+
+Can you name any of these communities?  "Expected adopters" is one of 
+the bits of information we ask for from submitters.
+
+The other thing we ask is that you say whether you've consulted an 
+attorney on this.  Given the text, I strongly suspect that you have not.
+
+Beyond that, it seems like you have a fairly specific use case for this 
+license which isn't just "I want to modify and redistribute this digital 
+content".  This is a potentially interesting use case, but I don't think 
+it's sufficiently well thought out in order to approve this license. 
+More below.
+
+ > 1. MANDATORY DUAL ATTRIBUTION:
+ >   Any redistribution, public display, or derivative work must credit:
+ >   - "Archivist/Recreator: [Contributor Name/Username]"
+ >   - "Original by: [Original Author or Copyright Holder]"
+
+So this license has a key role of "archivist" but this role is not 
+defined anywhere in the license.  "Archivist", as far as I know, is not 
+a role that's defined in common copyright law or elsewhere, so it would 
+need to be clearly and explicitly defined by the license.  Can a lawyer 
+confirm this?
+
+ > 2. EOL RECONSTRUCTION & SOURCE CODE LIBERATION:
+ >   The primary goal is the technical migration and reconstruction of
+ >   closed or EOL formats into functional, human-readable source code to
+ >   ensure interoperability and digital preservation. Distribution in
+ >   proprietary or closed binary formats is prohibited; the work must
+ >   be entirely transformed into an open source code project.
+
+So the standard way that copyleft licenses deal with source code 
+requirements is to require the distribution of source code *alongside* 
+any other formats. I am not sure that we would approve a license that 
+prohibited binary distribution, as that seems to fall afoul of OSD6.
+
+There's also the problem that this paragraph contradicts the first 
+paragraph of your license.
+
+ > 3. RECREATION & INTELLECTUAL PROPERTY:
+ >   The Original Author or Copyright Holder remains the sole owner and
+ >   Copyright Holder of the underlying IP (assets/art/ideas). The
+ >   Archivist/Recreator is NOT the owner of the original work, but the
+ >   author of the technical transposition into source code. This license
+ >   ensures the work is transformed from a restricted format into an
+ >   open, reconstructive project.
+
+Now, this is very confusing because here it doesn't sound like you're 
+talking about open source content at all.  It sounds like the purpose of 
+this license is to have a specific release for archiving content in open 
+formats, but for *no other purpose*.   If so, that would be an 
+interesting content license, but not open source.  You might talk to 
+Creative Commons about it.
+
+And, again, this clause contradicts the first paragraph.
+
+In conclusion:  This license is not ready for license-review, it is not 
+near approvability.  It's quite possible that it is not suitable for OSI 
+at all, but instead should go to Creative Commons.  I suggest moving 
+discussion to license-discuss instead.
+
+-- 
+Josh Berkus
+
+From esr at thyrsus.com  Mon Sep 12 19:09:36 2005
+From: esr at thyrsus.com (Eric S. Raymond)
+Date: Mon, 12 Sep 2005 15:09:36 -0400
+Subject: Policy Questions (WAS: License Committee Report)
+In-Reply-To: <B90709A8-3491-4F4A-969E-496BEEC07BBE@apple.com>
+References: <F63E82F3-36AC-4ECE-A4DD-F2E97EB980E8@apple.com> <20050909182719.GA29900@thyrsus.com> <B90709A8-3491-4F4A-969E-496BEEC07BBE@apple.com>
+Message-ID: <20050912190936.GA7981@thyrsus.com>
+
+Ernest Prabhakar <prabhaka at apple.com>:
+> On Sep 9, 2005, at 11:27 AM, Eric S. Raymond wrote:
+> >You are correct to criticize us for not having been sufficiently explicit.
+> >That was the Board's error, for which I apologize on behalf on the Board.
+> >I am certain the other Board members will concur in this.
+> 
+> Thank you. Apology accepted. :-)
+
+Allow me to note that during the BOD meeting concall that concluded
+just before I wrote this note, the Board did in fact concur.
+Addressing this error is high on our priority list.
+ 
+> >My own preference in this situation would be for the license-discuss
+> >members who believe the criteria are broken to put together a statement
+> >of position and recommendations for action, off-list, and then have
+> >a representative (perhaps yourself) present it to the Board directly
+> >on the Board list.
+
+The Board as a whole has endorsed this path forward.
+ 
+> The question is, what next?As seems increasingly clear, we do not  
+> even *know* what the actual criteria are, and how they are supposed  
+> to be implemented, so it is difficult to formulate a coherent critique.
+
+During the concall, we made the following decisions and assigned the
+following action items:
+
+1. The three new criteria, as passed, will be (re)published on the license
+approval process page.  They are passed policy decisions of the OSI
+and are to be applied to all licenses submitted after they were passed
+in March 2005.  (We have to take this line as a matter of procedural
+consistency.)
+
+The approval process page is at:
+
+	http://www.opensource.org/docs/certification_mark.php#approval
+
+I believe Ken Coar is to be responsible for making the republication happen
+there.
+
+2. If the changes and procedural tweaks described below do not resolve
+all the issues with the new criteria, members of license-discuss are
+invited to submit a statement of the problem(s) and proposed changes
+to the Board.  The Board may then elect to alter or delete the criteria.
+
+3. We decided that the readability criterion is to be applied on a 
+per-license basis; that is, the goal is for each individual license 
+to be sufficiently clearly written for a non-lawyer to understand.
+(Russ told us this was the major controversy over the new criteria).
+
+4. Towards this end, Mark Radcliffe is going to find us a set of Plain
+English criteria we can attach to the readability requirement to define
+a lower bar for readability and make the intention of the requirement 
+clearer.  The Board will reserve the option of applying additional 
+readability criteria.
+
+5. As a related issue, we will develop a guideline aimed at getting authors
+to minimize differences when they write a new license derivative of an
+existing one.  This guideline will form part of a License Composition
+HOWTO which will be a medium-term to-do item once the current 
+anti-proliferation effort is wound up.
+
+> Does that sound reasonable? If so, I would also request that the OSI  
+> board appoint someone to act as official spokesperson for the board  
+> during the discussion, so we know who's in charge.
+
+That will be me.  The sense of the Board, along with its apology to 
+license-discuss, was to approve my handling of this issue and to encourage
+me to see the discussion through to completion on the Board's behalf.
+
+Reciprocally, the Board is very pleased to have an interlocutor for
+license-discuss's difficulties with the new criteria who combines 
+candor with levelheadedness in the way you have done.  We encourage
+other license-discuss members to cooperate with you in developing
+license-discuss's critique and amendment proposals.
+-- 
+		<a href="http://www.catb.org/~esr/">Eric S. Raymond</a>
+
+
+From brian at collab.net  Thu Mar 10 00:59:04 2005
+From: brian at collab.net (Brian Behlendorf)
+Date: Wed, 9 Mar 2005 16:59:04 -0800 (PST)
+Subject: An explanation of the difficulty of solving licenseproliferation
+ in one sentence
+In-Reply-To: <422F5292.7090108@mibsoftware.com>
+References: <D2253AA6AF6B7144A2CE94870C47CACF505964@cceexcsp04.americas.cpqcorp.net>
+ <422F459E.1010408@mibsoftware.com> <87fyz4eivx.fsf@sanosuke.troilus.org>
+ <422F5292.7090108@mibsoftware.com>
+Message-ID: <20050309164127.L6613@paz.hyperreal.org>
+
+On Wed, 9 Mar 2005, Forrest J. Cavalier III wrote:
+> If you are referring to the OpenBSD refusal to accept the Apache 2 license
+> was the market working as it should.  One or the other will come around
+> eventually, or they won't.  (It isn't clear to me which the "right" side of
+> that particular case is, but OpenBSD was full aware of the consequences
+> of going it alone.  I wonder if ASF was.....)
+
+Theo's reason for refusal was:
+
+"We've been clear: Their new license contains more stuff, and we do not 
+accept MORE STUFF in licenses." - Theo
+
+During the 2.0 process (which was more than a few years, and a very open 
+process) we added requirements with *extreme* reluctance.  The one that 
+has been most controversial was the patent defense clause - which by 
+itself is almost so toothless as to almost not have been worth it, because 
+it only harms a company using a Apache package that also wishes to sue 
+someone over patents in that same Apache package.  Most likely someone 
+wishing to pursue a case does so because they have a competing package the 
+Apache package disrupts, so they are unlikely to be major users of the 
+Apache package anyways.  We could have made the language more severe - 
+applying to any Apache package the litigant uses, or even any Open Source 
+package the litigant uses.  I think we could have done more, and Open 
+Source projects would be wise to consider similar language.
+
+OpenBSD made their decision after our multi-year process concluded, and we 
+didn't discuss the possibility of a move like that, but I can see they 
+have no choice if they wish the whole of OpenBSD to remain under the BSD 
+license and only that.  Apache for OpenBSD is still available as a port; 
+this was for the version included by default as part of the core OS.  For 
+which they probably wanted a much more stripped down web server anyways.
+Anyways, yes, it is an example of the marketplace working.  It's not 
+really affected Apache anyways, as I can't say we've had much contribution 
+from OpenBSD prior to the license change anyway.
+
+I'm sympathetic to the passion in Theo's words - Apache's license is so 
+permissive for the same reasons, we want our works to be the "Intel 
+Inside" of other people's works no matter what license, and believe in the 
+power of the carrot rather than the stick.  But I also believe that the 
+real clear and present danger that Martin Fink and others should be making 
+noise about is the potential for patents to cause massive pain for all of 
+us.  An out-of-sight, out-of-mind approach to patent licensing like the 
+MIT and BSD licenses take isn't enough anymore.  The problem is so 
+important, it may even be worth an additional OSD clause requiring some 
+mutual defense in new licenses to be approved.
+
+The patent defense language the ASL 2.0 adopted happens to be incompatible 
+with the GPL, despite involving Eben in the drafting of the ASL 2.0 and 
+not hearing about the incompatibility until after the release.  It's our 
+desire and intent that GPL projects be able to incorporate Apache-licensed 
+works into GPL projects, despite the fact that we can't do the opposite. 
+We're just nice like that.  So this is a defect; we're working with Eben 
+now on how to fix it, either in a GPL v3 or an ASL 2.1.  If we do a 2.1 
+the intent would be to license all future Apache releases under that 
+license.  We don't have a relicensing problem because we've taken care to 
+obtain permission from contributors to release code under the license of 
+our choice.
+
+ 	Brian
+
+
+From roland at rolandturner.com  Sun Feb 14 02:52:58 2021
+From: roland at rolandturner.com (Roland Turner)
+Date: Sun, 14 Feb 2021 10:52:58 +0800
+Subject: [License-review] Approval submission for the Qlovatech License
+In-Reply-To: <17793b1d776.e67c079d844832.265036043647634214@quentinquaadgras.com>
+References: <17793b1d776.e67c079d844832.265036043647634214@quentinquaadgras.com>
+Message-ID: <947e0672-2cb1-070b-cfb2-d354d1908867@rolandturner.com>
+
+Hi Quentin,
+
+> > What is the urgent problem being appropriately solved here and why is it
+> > something that is within the limits of the Open Source Definition?
+>
+> *The Problem*
+> Consider the author of a software project is implicitly branded as 
+> (without a registered trademark) 'AwesomeApp'. ThirdParty makes a copy 
+> of this software and distributes 'AwesomeApp' on a popular app store 
+> so that users misleadingly believe that they are using the author's 
+> version of the project. Perhaps 'AwesomeApp' is recognized as a brand 
+> that is updated regularly, does not track it's users, etc, ThirdParty 
+> copy could be unmaintained and contain tracking software. 
+> Alternatively, perhaps this modified version of 'AwesomeApp' is hosted 
+> on a cloud service by ThirdParty and sold as a service to users. Users 
+> may believe the service is using the authors version and does not 
+> track them . This type of brand confusion hurts both the copyright 
+> holders and the users. Filing an international trademark is too 
+> expensive for the author at this time.
+
+You've outlined the form that a problem could take, but you've not 
+provided sufficient empirical data to determine that a problem actually 
+exists, let alone to evaluate its impact. If you elect to submit an 
+updated version of the license, I'd suggest obtaining and including in 
+the rationale empirical, quantitative data on these impacts on authors 
+and users, to the extent that it's available.
+
+OSI faces a serious problem with license proliferation, at least because 
+the more approved licenses we have:
+
+  * the more work *every single open source project* selecting amongst
+    OSI approved licenses has to undertake in selecting an appropriate
+    license;
+  * the more complicated the approval process becomes because of the
+    need to compare with a larger body of existing licenses; and
+  * the greater the risk of harmful licenses slipping under the radar
+    because of the spreading of review resource more thinly.
+
+There has to be a real problem (material ongoing harm) to warrant 
+incurring these costs.
+
+As Pamela points out, this is not a workshop or educational forum, it is 
+the input to OSI's formal approval process. If you elect to submit an 
+updated version of the license, you might consider developing it in 
+cooperation with lawyers with professional competence in copyright law, 
+trademark law, and torts[1] and at least some concrete experience with 
+open source licensing.
+
+Regards,
+
+- Roland
+
+
+1: I suspect that you are barking up the wrong tree entirely. So far as 
+I can tell, the lack of formal protection for unregistered trademarks 
+doesn't mean that the scenario that you propose is realistic, as the 
+common law protections still apply, but correctly characterising the 
+tradeoffs requires legal expertise that I lack.
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20210214/ad98db2d/attachment.html>
+

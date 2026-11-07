@@ -1,0 +1,681 @@
+Source: https://lists.opensource.org/pipermail/ (license-review and license-discuss, the months named in each message's Date line)
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-07)
+Messages: 10 of the 57 messages this dossier cites from threads it had not read until 2026-11-07. Not a thread. Part 5 of 5.
+Senders: Russ Nelson, Bruce Perens, Matthew Flaschen, Lawrence E. Rosen, Brian Behlendorf, John Cowan, Michael Tiemann, Shuji Sado
+Position: statements about other submissions and about the process. Not addressed to us and not about ACD. Two long messages are cut after the signature; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Thu Nov 30 13:57:34 2006
+From: nelson at crynwr.com (Russ Nelson)
+Date: Thu, 30 Nov 2006 08:57:34 -0500
+Subject: OSI logo if I use GNU GDL for our group?
+In-Reply-To: <ec07aade0611292147l5ea65bccha6c0998bdab7ca90@mail.gmail.com>
+References: <ec07aade0611292147l5ea65bccha6c0998bdab7ca90@mail.gmail.com>
+Message-ID: <17774.58190.822190.526510@desk.crynwr.com>
+
+Smith Norton writes:
+ > I want to know if I start an open source group (not related to
+ > software) but say knowledge exchange forum, or security support forum
+ > where the mission is "freedom of knowledge", would the Open Source
+ > Initiative be any help for me?
+ > 
+ > Can I use any open source documentation license and consequently use
+ > the OSI logo along with our site or group.
+
+We consider our expertise restricted to software, so we only allow its
+use with the licenses we list at http://opensource.org/licenses/
+
+-- 
+--my blog is at    http://blog.russnelson.com   | You can do any damn thing
+Crynwr sells support for free software  | PGPok | you want, as long as you
+521 Pleasant Valley Rd. | +1 315-323-1241       | don't expect somebody else
+Potsdam, NY 13676-3213  |     Sheepdog          | to pick up the pieces.
+
+
+From nelson at crynwr.com  Wed Jun  4 05:07:32 2008
+From: nelson at crynwr.com (Russ Nelson)
+Date: Wed, 4 Jun 2008 01:07:32 -0400
+Subject: License Committee Report for May 2008
+Message-ID: <18502.8980.355259.545432@desk.crynwr.com>
+
+I'm the chair of the license approval committee.  I think it's fair to
+say that all of the licenses currently under discussion are still
+under discussion, and are not yet ready to be brought out of
+committee.
+
+We're trying to talk the UOML folks out of incorporating certification
+into their license, the University Jaume I folks out of a mandated
+attempt to report publication of modifications of licensed software,
+the Iggy Wanna License folks out of attempting to impose restrictions
+on software that merely uses licensed software.
+
+The EUPL looks good, and solves (for Europe, anyway) the problem of
+presenting users with a license written in their language.  We're
+waiting for them to approve 1.1 so we can approve it.
+
+The Open Source Content License folks can use either one of Larry
+Rosen's license without concern for the fact that what they're
+licensing is a mixture of code and text.  It Just Works(tm).  If the
+board feels it necessary to take action, then my recommendation is to
+reject the license.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Software that needs
+Crynwr sells support for free software  | PGPok | documentation is software
+521 Pleasant Valley Rd. | +1 315-323-1241       | that needs repair.
+Potsdam, NY 13676-3213  |     Sheepdog          | 
+
+
+From bruce at perens.com  Mon Jun  1 22:27:41 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 01 Jun 2009 15:27:41 -0700
+Subject: For Approval 36 Open Software License Request
+In-Reply-To: <B0CCFF59-64E1-451F-9944-0DA33F6B179E@phoenxsoftware.com>
+References: <1243893046.27597.ezmlm@opensource.org> <B0CCFF59-64E1-451F-9944-0DA33F6B179E@phoenxsoftware.com>
+Message-ID: <4A2455DD.80700@perens.com>
+
+It doesn't seem you have made use of an attorney. In order to protect 
+your own interest, I very highly recommend that you do so, because I 
+don't believe that the text as submitted would protect you or act as you 
+expect. For your own protection, one of the currently-approved licenses 
+would be more likely to work.
+
+Can you explain what currently-approved licenses you considered, why you 
+didn't use them, and what your license does that those licenses do not? 
+There are lots of OSI-approved licenses that provide for 
+source-distributed libraries in a larger, potentially proprietary, 
+application.
+
+Notes.txt seems to be an immutable section. Why should OSI approve such 
+a thing?
+
+All of the files in the directory called LICENSES must be reproduced 
+without modification, even if they are
+not licenses. They might be actual source code. This seems to be a fault 
+in the license design.
+
+The text says "Therefore no actions can be taken against Us if something 
+goes wrong with This Application."
+We all wish it was this easy to inoculate ourselves against lawsuits, 
+but it isn't so.
+
+    Thanks
+
+    Bruce
+
+Renzo Verleysen wrote:
+> Sir/Mrs,
+>
+> I would like to get a license approved which I will be using in the 
+> Open Source distribution of a currently proprietary library of me, for 
+> which I found no valid approved Open Source License.
+> The point of this license is to mix opensource with proprietary code 
+> in a project, so to have eg. a proprietary front end but also use a 
+> library which has to be distributed and redistributed with source.
+> As a surplus people must respect the underlying licenses gathered in a 
+> specific directory of the distribution and must redistribute some 
+> files with the distribution of the code.
+>
+> The full license can be found at : 
+> http://36ic.phoenxsoftware.com/36OSL.txt
+>
+> 36OSL could be seen as a license that is redundant with more popular 
+> licenses or could also be placed in the miscellaneous category.
+>
+> I hope for approval and if you decide to decline my request could you 
+> also give specifications for eventual changes?
+>
+> Thank you in advance.
+>
+> Kind Regards,
+> Renzo Verleysen
+
+
+
+From matthew.flaschen at gatech.edu  Tue Apr  1 23:23:06 2008
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Tue, 01 Apr 2008 19:23:06 -0400
+Subject: Open Source Content License (OSCL) - Other/Miscellaneous licenses
+In-Reply-To: <000001c89334$64b44f60$2e1cee20$@com>
+References: <000001c89334$64b44f60$2e1cee20$@com>
+Message-ID: <47F2C3DA.5030503@gatech.edu>
+
+OSCL Steward wrote:
+ > It was written especially to meet the needs of a project RCB I.T.
+> Solutions has to promote open source software.  
+
+Please be more clear about this.  You need to specify which already 
+approved license(s) is/are closest, then explain in detail how and why 
+your license diverges.
+
+As noted, OSI will need a very good rationale for approving another 
+reciprocal license.
+
+Matt Flaschen
+
+
+From lrosen at rosenlaw.com  Thu Aug 31 18:16:56 2000
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Thu, 31 Aug 2000 11:16:56 -0700
+Subject: OpenSales -- DRAFT developers agreement
+In-Reply-To: <20000830193932.A30509@ix.netcom.com>
+Message-ID: <NEBBKPHBALKOGJFBOLJNMEOHCKAA.lrosen@rosenlaw.com>
+
+I've read through your DRAFT developers agreement.
+
+One of the basic rules of contract law is that there must be "consideration"
+for every contract.  Yet your agreement expressly states that "You do not
+want to receive any compensation, at any time, for any reason from OpenSales
+or anyone else for your Contributed Code."  If the Contributed Code is a
+gift, it can be revoked at any time for any reason.  How do you intend to
+get around that?
+
+The statement that "OpenSales Has The Right To Enforce The GNU GPL For Your
+Contributed Code" won't work.  Under the copyright law, only the copyright
+owner or owner of an exclusive right has the standing to enforce a
+copyright.  That is probably why the FSF requires copyright assignment.
+
+If a contributor grants you a license to his Contributed Code under the GPL,
+then you have the right to use that code as part of a derivative work
+including your own code, as long as your Larger Work is also licensed under
+the GPL.  Why isn't that sufficient?
+
+An easy way to ensure that the recipient of Contributed Code has the right
+to use that code under the GPL is to insist that the contributor include a
+statement like the following in his source:
+
+   (C) Copyright <year> <copyright holder>.  All Rights Reserved.
+
+   This software is subject to the GNU General Public License, Version 2
+   (dated June 1991) (the "License").  You may not copy or use this
+software,
+   in either source code or executable form, except in compliance with the
+   License.
+
+   Software distributed under the License is distributed on an "AS IS"
+basis,
+   WITHOUT WARRANTY OF ANY KIND, either express or implied.  See the License
+for
+   specific language governing rights and limitations under the License.
+
+Then ANY recipient of the source code can use the software, subject to the
+terms of the GPL.
+
+Please explain why you believe that other terms and conditions are
+necessary, or why a contributor would be tempted to agree to any such terms
+and conditions.
+
+/Larry Rosen
+
+> -----Original Message-----
+> From: kmself at ix.netcom.com [mailto:kmself at ix.netcom.com]
+> Sent: Wednesday, August 30, 2000 7:40 PM
+> To: Free Software Business; License-Discuss list
+> Subject: OpenSales -- DRAFT developers agreement
+>
+>
+> OpenSales (my employer) is working on a set of supporting legal
+> documents.  We've drafted a developers agreement as part of our code
+> submission process, and have posted it for review at
+> http://www.opensales.org/html/devagree.shtml
+>
+> Developer agreements are something I've advocated for companies engaged in
+> free software development.  I believe they offer protections to both
+> companies and developers.   Their use is somewhat controversial -- the
+> FSF has one which requires copyright assignment, XFree86 uses one, as do
+> a handful of other projects, but most seem not to use one, or drop those
+> which they've used in the past (eg:  Python and CNRI).
+>
+> Comments and feedback appreciated.
+>
+> Thank you.
+>
+> --
+> Karsten M. Self <kmself at ix.netcom.com>     http://www.netcom.com/~kmself
+>  Evangelist, Opensales, Inc.                    http://www.opensales.org
+>   What part of "Gestalt" don't you understand?   Debian GNU/Linux rocks!
+>    http://gestalt-system.sourceforge.net/    K5: http://www.kuro5hin.org
+> GPG fingerprint: F932 8B25 5FDD 2528 D595 DC61 3847 889F 55F2 B9B0
+>
+
+
+
+From brian at collab.net  Fri Sep  1 05:01:53 2000
+From: brian at collab.net (Brian Behlendorf)
+Date: Thu, 31 Aug 2000 22:01:53 -0700 (PDT)
+Subject: OpenSales -- DRAFT developers agreement
+In-Reply-To: <20000831204819.A7920@ix.netcom.com>
+Message-ID: <Pine.BSF.4.21.0008312158130.11351-100000@yez.hyperreal.org>
+
+On Thu, 31 Aug 2000 kmself at ix.netcom.com wrote:
+> Our intent is that this is possible for you.  The concern is that the
+> original grant under GPL not be revocable.  
+
+It's not anyways; aside from copyright licenses generally not being
+revokable unless specific provisions for it are in the license (a la
+APSL), the GPL seems to cover your case with its section 6.
+
+	Brian
+
+
+
+
+
+From cowan at mercury.ccil.org  Fri Jul 29 03:17:24 2011
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Thu, 28 Jul 2011 23:17:24 -0400
+Subject: IP Clearance
+In-Reply-To: <0a5701cc4d7a$4587ac50$d09704f0$@com>
+References: <1311878349.84406.YahooMailClassic@web27805.mail.ukl.yahoo.com> <314DD6CC-79A3-4F82-9DBD-C569A23A45E9@gbiv.com> <0a3901cc4d70$683a7840$38af68c0$@com> <20110728220957.GC24383@mercury.ccil.org> <0a5701cc4d7a$4587ac50$d09704f0$@com>
+Message-ID: <20110729031724.GA801@mercury.ccil.org>
+
+Lawrence Rosen scripsit:
+
+> Let's please avoid naming or nicknaming individuals here. That's not
+> helpful.
+
+I meant no offense.  But I applied the epithet sincerely.
+
+> What the Apache project wants now is clarity that it can take a
+> version of this software previously licensed to the world under the
+> Apache License, and re-import it into the Apache project. I cannot
+> comment on the usefulness of that effort, merely its (1) legality and
+> (2) compatibility with the Apache Way.
+>
+> As to legality, we all rely on the fact that open source licenses
+> are perpetual. Once you release your software under an open source
+> license, *that software* is free -- in our definition of the word
+> "free". That's the legal intent of our licenses. There is no crossing
+> your fingers behind your back and pretending you didn't mean it.
+
+I'm sure we all hope so.  But we won't really know until someone
+gives proper notice that a license is revoked and tries to sue for
+infringement.  If I got such a notice and wasn't using the software, I
+certainly wouldn't start.  If I were already distributing it or modified
+versions, I might be able to argue promissory estoppel, but it would be
+shaky.
+
+-- 
+John Cowan           http://www.ccil.org/~cowan            cowan at ccil.org
+One of the oil men in heaven started a rumor of a gusher down in hell.  All
+the other oil men left in a hurry for hell.  As he gets to thinking about
+the rumor he had started he says to himself there might be something in
+it after all.  So he leaves for hell in a hurry.    --Carl Sandburg
+
+
+From tiemann at opensource.org  Thu Dec 22 13:57:20 2011
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Thu, 22 Dec 2011 08:57:20 -0500
+Subject: [License-discuss] Greetings, Earthlings! Need quotes for article
+In-Reply-To: <20111221035821.GA21152@redhat.com>
+References: <4EEF56D2.1030503@roblimo.com>
+	<alpine.NEB.2.01.1112190933300.22320@t1.m.reedmedia.net>
+	<4EEF6CE0.4060705@redhat.com> <4EEF7403.40600@roblimo.com>
+	<4EEF7A5B.3010101@redhat.com> <20111219192141.GA13515@redhat.com>
+	<87d3bjgjyd.fsf@kwarm.red-bean.com>
+	<20111220190544.GA20107@redhat.com>
+	<20111220224821.GA25551@mercury.ccil.org>
+	<20111221035821.GA21152@redhat.com>
+Message-ID: <CAGzp6CGi_=dEbpJi304T29U1xt=1c2StDTV=zCa40sC+aMNUUg@mail.gmail.com>
+
+> Well, here's a list of OSI-approved licenses that Tom Callaway and I
+> judged non-FOSS when we examined them (though I haven't looked at
+> these in a few years). (This does not include the Artistic License 1.0
+> and certain of its OSI-approved derivatives, which Fedora treats as
+> non-FOSS based on FSF precedent.) :
+>
+> Adaptive Public License http://opensource.org/licenses/apl1.0.php
+>
+
+Let me try to speak to this.  There was a time when we thought that one
+solution to the proliferation problem was due to the fact that licenses
+were fixed texts (the GNU GPL) or were parametric in the wrong variables
+(MPL).  The Adaptive Public License came along as a highly parametric
+license template.  I think it was approved more on the merits of being a
+potential solution to the proliferation problem than on the merits of being
+an easy-to-understand or quite-excellent open source license.  History has
+essentially proven that to have been an erroneous judgement.
+
+M
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20111222/839500b1/attachment.html>
+
+From brian at behlendorf.com  Thu Jul 17 23:15:33 2025
+From: brian at behlendorf.com (Brian Behlendorf)
+Date: Thu, 17 Jul 2025 23:15:33 -0000
+Subject: [License-discuss] OpenMDW license
+In-Reply-To: 
+ <CAAK=kdHo4afdvJhMqT8brxgzoK406pkQr1Gb-GKcTL6LTd=TLQ@mail.gmail.com>
+References: <f259da5b-cf47-ad4b-a973-003881d397ed@behlendorf.com>
+ <CAGT84B15o3ex-AhZqBiN0gp+uiqKjw0-gMTPdokURNbP-O2mjg@mail.gmail.com>
+ <CAAK=kdHo4afdvJhMqT8brxgzoK406pkQr1Gb-GKcTL6LTd=TLQ@mail.gmail.com>
+Message-ID: <546a3c65-3e84-4b27-c9e1-9dc3fcb34e09@behlendorf.com>
+
+
+[Note: responding late as I only received this and a slew of other 
+messages; from the headers it appears it was caught for moderation or some 
+other reason at osilists.opensource.org, though perhaps it was just for 
+delivery to me if no one else sees this.]
+
+Steve, that's great! Thanks for identifying yourself as the future steward 
+and articulating the commitment to bringing it here. This echoes what I 
+heard from Matt White at OSS-NA.
+
+Getting real-world validation of the license through some early adoption 
+is clearly prudent, especially in the AI space, where the word "Open" has 
+been so dis-used. My hope was that some validation could also come from 
+broader awareness and review by the community here, especially if 
+candidate projects were limited to only OSI-approved licenses. Chicken and 
+egg, many eyeballs, etc.
+
+Brian
+
+On Tue, 24 Jun 2025, Steve Winslow wrote:
+> Hi Brian, thanks for raising this -- and Richard, thanks for flagging it for us. I'm responding on behalf of the Linux Foundation as
+> the OpenMDW license steward. I was involved along with several other internal and external participants in drafting OpenMDW-1.0 and
+> its earlier iterations.
+> 
+> We do intend to submit OpenMDW-1.0 to the license-review list to go through OSI's review process. We are looking to be able to point
+> to broader "use in the wild" before we do so, in case that's helpful as context for the community during the review. We're also
+> aiming to be thoughtful about how this aligns with OSD / OSAID as well as OSI's processes for reviewing AI-related licenses and
+> distribution terms.
+> 
+> We'll plan to follow up (likely in the near future) with an actual submission of OpenMDW-1.0 for formal review by the community. 
+> 
+> Best,
+> Steve
+> 
+> On Sat, Jun 21, 2025 at 9:13 PM Richard Fontana <fontana at sharpeleven.org> wrote:
+>       Copying Matt White and Steve Winslow, don't know if they are
+>       subscribed to this list.
+>
+>       Richard
+> 
+>
+>       On Fri, Jun 20, 2025 at 7:12 PM Brian Behlendorf <brian at behlendorf.com> wrote:
+>       >
+>       > Hi all,
+>       >
+>       > Asking about this here, rather than submitting to license-review, as I am
+>       > not the license steward, nor am I (any longer) involved in the Linux
+>       > Foundation.
+>       >
+>       > About a month ago, the Linux Foundation released a license applicable to
+>       > LLM models called the OpenMDW License:
+>       >
+>       > https://openmdw.ai/license/
+>       >
+>       > The website describes this as an "open source" license, yet I see no
+>       > attempts (by reviewing the archives of license-discuss and license-review)
+>       > by the authors to bring this to OSI for formal approval. Does anyone see
+>       > anything in the license that would hinder such approval?
+>       >
+>       > I'm personally unclear on the problem this solves. The purpose as stated
+>       > on the OpenMDW's FAQ reads a bit like "but it goes to 11". It seems like
+>       > one could have written a guide to distributing a model with existing
+>       > permissive licensing, as typically the purpose of the software is not
+>       > really relevant to its licensing.
+>       >
+>       > It seems to be emphatic about things that don't need stating, like outputs
+>       > of the model aren't covered by the license - but nor are "outputs" of gcc
+>       > or LibreOffice.
+>       >
+>       > It also doesn't require, as OSAID did, that the underlying data used to
+>       > train the model weights be published. This is "fine" from a
+>       > permissive-license POV - I imagine with some digging we can find
+>       > permissive-licensed-works that contain binary blobs, and we've long
+>       > accepted closed-source binary firmware updates as a part of the Linux
+>       > kernel project. So it's still unclear to me that weights couldn't just be
+>       > distributed under current permissive licenses.
+>       >
+>       > The real stand-out portion for me, however, is the second-to-last
+>       > paragraph, disclaiming responsibility for any IP rights that may some day
+>       > be associated with the weights or other model materials, even if derived
+>       > from data not included in the distribution. While the courts have not
+>       > ruled decisively on this, you would not see AI companies signing deals
+>       > with content companies to scrape their data if there wasn't at least some
+>       > OIP risk involved in not doing so. It also seems to ignore that the global
+>       > policy train seem heading in the direction of limiting the ability to
+>       > disclaim liability in a software license, and that doesn't seem to have
+>       > changed under the current US administration. The disclaimer seems
+>       > extraneous, compared to current disclaimers in most permissive licenses.
+>       > Furthermore to the degree that people rely on that disclaimer, it seems
+>       > like it can create novel risks that OSS licenses are supposed to be
+>       > mitigating rather than adding to. This is because if presented with a
+>       > claim of infringement, there may be no way for the end-user or distributor
+>       > to quickly modify the model by modifying the training set and rebuilding.
+>       >
+>       > But none of these concerns are really about potential violations of the
+>       > OSD.
+>       >
+>       > Therefore, for the sake of clarity, if there isn't anything in this
+>       > license that clashes with the OSD, I humbly suggest it should be proposed
+>       > by the license steward and considered for approval. That way the use of
+>       > the term "open source" on the OpenMDW pages is legitimized, and the AI
+>       > community can be reassured that their "unique" needs are being met - even
+>       > if OpenMDW is duplicative of existing permissive licenses. Right now I
+>       > sense a schism emerging between generations that threatens to sideline OSI
+>       > in the minds of developers, and this could be an bridge between the two.
+>       >
+>       > Thoughts?
+>       >
+>       > Brian
+>       >
+>       >
+>       >
+>       >
+>       >
+>       > _______________________________________________
+>       > The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative.
+>       Official statements by the Open Source Initiative will be sent from an opensource.org email address.
+>       >
+>       > License-discuss mailing list
+>       > License-discuss at lists.opensource.org
+>       > http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+> 
+> 
+>
+
+From shujisado at gmail.com  Thu Jul 17 23:35:34 2025
+From: shujisado at gmail.com (Shuji Sado)
+Date: Fri, 18 Jul 2025 08:35:34 +0900
+Subject: [License-discuss] OpenMDW license
+In-Reply-To: 
+ <CAAK=kdHo4afdvJhMqT8brxgzoK406pkQr1Gb-GKcTL6LTd=TLQ@mail.gmail.com>
+References: <f259da5b-cf47-ad4b-a973-003881d397ed@behlendorf.com>
+ <CAGT84B15o3ex-AhZqBiN0gp+uiqKjw0-gMTPdokURNbP-O2mjg@mail.gmail.com>
+ <CAAK=kdHo4afdvJhMqT8brxgzoK406pkQr1Gb-GKcTL6LTd=TLQ@mail.gmail.com>
+Message-ID: 
+ <CAAvo7O4r1AZNPLGxynFiHOFw32BTvmiYS1S58iF0c-Dp0r=3wQ@mail.gmail.com>
+
+Hi all,
+
+I seem to have missed Brian's initial email and only just now caught up on
+this thread. I'm glad to see this discussion about OpenMDW was already
+underway.
+
+Brian, you're right to highlight the due diligence clause. While it's part
+of the disclaimer section, it's a clause we don't often see. When I first
+looked at this license, this clause also concerned me the most.
+However, I ultimately concluded that it likely wouldn't pose a problem for
+OSI approval, though I'm not sure how others will see it.
+My understanding is that model providers cannot escape the mandatory laws
+of each country anyway, and for mere users of a model, the clause serves to
+warn them of the general precautions needed when using AI models.
+
+Including my slight concerns about this due diligence clause, I've written
+an article that explains the Open Source nature of OpenMDW and addresses
+the following questions.
+I would be grateful if you all could take a look:
+https://shujisado.org/2025/07/14/openmdw-license-review/
+
+- Is there any legal meaning in including trade secrets within the scope of
+the grant?
+- Will there be any side effects from the scope of the patent clause
+extending to indirect infringement?
+- Are there any issues with the clause that effectively forces due
+diligence for the model onto the user?
+- Isn't it inferior to Creative Commons when used as a data license?
+- Doesn't it have the potential to encourage openwashing?
+
+Personally, I believe these issues stem from a lack of legal vetting that
+comes with OpenMDW's venture into a new domain.
+If OpenMDW is formally submitted to the approval process, it will be a good
+opportunity for all of us to seriously consider licensing in the AI model
+domain.
+
+Also, this is just my personal opinion, but I believe OpenMDW can be a
+useful license framework in specific cases, such as those involving
+scientific and technical data with patent risks, or where model parameters
+and data are interdependent to ensure reproducibility. While I expect the
+existing approach of separated licensing, like MIT/Apache-2.0 + CC, will
+remain the mainstream, I think OpenMDW can be a useful license option.
+
+2025/7/18 6:07 Steve Winslow <swinslow at linuxfoundation.org>:
+
+> Hi Brian, thanks for raising this -- and Richard, thanks for flagging it
+> for us. I'm responding on behalf of the Linux Foundation as the OpenMDW
+> license steward. I was involved along with several other internal and
+> external participants in drafting OpenMDW-1.0 and its earlier iterations.
+>
+> We do intend to submit OpenMDW-1.0 to the license-review list to go
+> through OSI's review process. We are looking to be able to point to broader
+> "use in the wild" before we do so, in case that's helpful as context for
+> the community during the review. We're also aiming to be thoughtful about
+> how this aligns with OSD / OSAID as well as OSI's processes for reviewing
+> AI-related licenses and distribution terms.
+>
+> We'll plan to follow up (likely in the near future) with an actual
+> submission of OpenMDW-1.0 for formal review by the community.
+>
+> Best,
+> Steve
+>
+> On Sat, Jun 21, 2025 at 9:13 PM Richard Fontana <fontana at sharpeleven.org>
+> wrote:
+>
+>> Copying Matt White and Steve Winslow, don't know if they are
+>> subscribed to this list.
+>>
+>> Richard
+>>
+>>
+>> On Fri, Jun 20, 2025 at 7:12 PM Brian Behlendorf <brian at behlendorf.com>
+>> wrote:
+>> >
+>> > Hi all,
+>> >
+>> > Asking about this here, rather than submitting to license-review, as I
+>> am
+>> > not the license steward, nor am I (any longer) involved in the Linux
+>> > Foundation.
+>> >
+>> > About a month ago, the Linux Foundation released a license applicable to
+>> > LLM models called the OpenMDW License:
+>> >
+>> > https://openmdw.ai/license/
+>> >
+>> > The website describes this as an "open source" license, yet I see no
+>> > attempts (by reviewing the archives of license-discuss and
+>> license-review)
+>> > by the authors to bring this to OSI for formal approval. Does anyone see
+>> > anything in the license that would hinder such approval?
+>> >
+>> > I'm personally unclear on the problem this solves. The purpose as stated
+>> > on the OpenMDW's FAQ reads a bit like "but it goes to 11". It seems like
+>> > one could have written a guide to distributing a model with existing
+>> > permissive licensing, as typically the purpose of the software is not
+>> > really relevant to its licensing.
+>> >
+>> > It seems to be emphatic about things that don't need stating, like
+>> outputs
+>> > of the model aren't covered by the license - but nor are "outputs" of
+>> gcc
+>> > or LibreOffice.
+>> >
+>> > It also doesn't require, as OSAID did, that the underlying data used to
+>> > train the model weights be published. This is "fine" from a
+>> > permissive-license POV - I imagine with some digging we can find
+>> > permissive-licensed-works that contain binary blobs, and we've long
+>> > accepted closed-source binary firmware updates as a part of the Linux
+>> > kernel project. So it's still unclear to me that weights couldn't just
+>> be
+>> > distributed under current permissive licenses.
+>> >
+>> > The real stand-out portion for me, however, is the second-to-last
+>> > paragraph, disclaiming responsibility for any IP rights that may some
+>> day
+>> > be associated with the weights or other model materials, even if derived
+>> > from data not included in the distribution. While the courts have not
+>> > ruled decisively on this, you would not see AI companies signing deals
+>> > with content companies to scrape their data if there wasn't at least
+>> some
+>> > OIP risk involved in not doing so. It also seems to ignore that the
+>> global
+>> > policy train seem heading in the direction of limiting the ability to
+>> > disclaim liability in a software license, and that doesn't seem to have
+>> > changed under the current US administration. The disclaimer seems
+>> > extraneous, compared to current disclaimers in most permissive licenses.
+>> > Furthermore to the degree that people rely on that disclaimer, it seems
+>> > like it can create novel risks that OSS licenses are supposed to be
+>> > mitigating rather than adding to. This is because if presented with a
+>> > claim of infringement, there may be no way for the end-user or
+>> distributor
+>> > to quickly modify the model by modifying the training set and
+>> rebuilding.
+>> >
+>> > But none of these concerns are really about potential violations of the
+>> > OSD.
+>> >
+>> > Therefore, for the sake of clarity, if there isn't anything in this
+>> > license that clashes with the OSD, I humbly suggest it should be
+>> proposed
+>> > by the license steward and considered for approval. That way the use of
+>> > the term "open source" on the OpenMDW pages is legitimized, and the AI
+>> > community can be reassured that their "unique" needs are being met -
+>> even
+>> > if OpenMDW is duplicative of existing permissive licenses. Right now I
+>> > sense a schism emerging between generations that threatens to sideline
+>> OSI
+>> > in the minds of developers, and this could be an bridge between the two.
+>> >
+>> > Thoughts?
+>> >
+>> > Brian
+>> >
+>> >
+>> >
+>> >
+>> >
+>> > _______________________________________________
+>> > The opinions expressed in this email are those of the sender and not
+>> necessarily those of the Open Source Initiative. Official statements by the
+>> Open Source Initiative will be sent from an opensource.org email address.
+>> >
+>> > License-discuss mailing list
+>> > License-discuss at lists.opensource.org
+>> >
+>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+Shuji Sado
+Chairman, Open Source Group Japan
+https://opensource.jp/
+https://shujisado.com/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20250718/4edf75bd/attachment-0001.htm>
+
