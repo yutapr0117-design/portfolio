@@ -177,10 +177,10 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       where they said "described". (-1 word.)
     * Section 5.1 now also excepts a payment You agreed to make, so that the
       second covenant does not reach a fee for a service. (+8 words.)
-    * Section 2.3 now says that to hold a permission You need not know of it.
-      Section 10.2 lets a copy travel without any notice, so a recipient may
-      never have seen one. (+6 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5428 words, 80 clauses.
+    * Section 2.3 now says that to hold a permission You need not know of this
+      Dedication. Section 10.2 lets a copy travel without any notice, so a
+      recipient may never have seen it. (+7 words.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5429 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -310,9 +310,9 @@ PREAMBLE (informative; not part of the operative terms)
        anything this Dedication gives away.
 
   2.3  This Dedication takes effect without any act of acceptance by You. To
-       hold a permission granted here, You need not know of it, sign, register,
-       notify, request, or agree to anything, and nothing You do or fail to do
-       can cause You to lose one.
+       hold a permission granted here, You need not know of this Dedication,
+       sign, register, notify, request, or agree to anything, and nothing You do
+       or fail to do can cause You to lose one.
 
   2.4  Sections 3, 4, 5, and 6 are independent of one another, as is every
        other grant, permission, and covenant in this Dedication. Each operates
