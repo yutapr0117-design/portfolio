@@ -576,3 +576,23 @@ bb が 6 本を立てて原文で反証した（H1-a BlueOak / H1-b CERN-OHL-P /
 - **ACD の組み合わせそのものが、リストで退けられている。** 0BSD-P への Berkus 氏の問いは具体的な用途で（#276）、提出者は答えられずに取り下げた。ACD が述べられる用途は 1 つである。
 - **過去の承認は OSI を拘束しない。**
 
+## 1.139 CC0 の特許の除外は、配布の判断を実際に変えた —— Fedora（2022）。代わりに勧められたのは特許に触れないライセンスだった（2026-11-07）
+
+**Fedora は 2022 年に、CC0 をコードに使えない扱いへ変えた。** 原文の置き場は `rounds/2022-07-fedora-legal-cc0-classification-observed.txt`。リストの最初の 1 通は取得できず（bot の確認と 401）、その語は LWN と BleepingComputer の引用である。
+
+Richard Fontana 氏（当時 Red Hat）の告知は、LWN の引用で *"Over a long period of time a consensus has been building in FOSS that licenses that preclude any form of patent licensing or patent forbearance cannot be considered FOSS."*。理由として CC0 の clause 4(a) を挙げている。BleepingComputer の引用では *"We plan to classify CC0 as allowed-content only, so that CC0 would no longer be allowed for code"*。
+
+Fedora のいまのデータ（`fedora-licenses.json`・2026-11-07 取得）は次のとおりで、2022 年の扱いは続いている。
+
+| 表現 | status |
+|---|---|
+| `CC0-1.0` | `allowed-content`。2022-08-01 より前の既存の利用は残し、*"We encourage Fedora package maintainers to ask upstreams to relicense such files."* |
+| `Unlicense` / `CC-PDDC` / `WTFPL` / `LicenseRef-Fedora-Public-Domain` | `allowed` |
+| `MIT-0` / `0BSD` / `BSD-2-Clause-Patent` / `UPL-1.0` / `BlueOak-1.0.0` | `allowed` |
+
+**ここから言えること。** 公有化の形そのものはコードから外されていない。外れたのは特許を除外した 1 本である。§1.138 の審査の記録と同じ向きで、ACD の §8 は除外の逆にあたる。
+
+**逆側（`against.md` #290）。** 代わりを問われた Fontana 氏の答えは *"These days in similar situations (Involving code, at least) I have typically been recommending MIT No Attribution (SPDX: MIT-0)"*（2022-07-23）で、MIT-0 は特許について何も書いていない。基準の語は *"preclude"* で、明示の許諾を求めていない。Fedora では、CC0 が空けた穴は承認済みのライセンスで埋まった。これは #84（もう 1 本要るのか）の、実務の側からの答えである。ACD が足すのは沈黙ではなく明示の許諾で、それが要るかは #236 / #238 の争点のままである。
+
+**この節が establish しないこと。** Fedora の判断は OSI の決定ではない。Fedora の一覧に ACD は無く、載せる経路はいま使えない（`OSI-APPROVAL-PLAN.md` §3.6）。
+

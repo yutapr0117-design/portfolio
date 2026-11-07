@@ -61,10 +61,11 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-07 時点・302 ファイル）
+## いまの状態（2026-11-07 時点・303 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
+| 2022-07 | Fedora legal list / LWN / BleepingComputer / Fedora のデータ | **観測（CC0 をコードから外した判断と、いまのデータ）** | 最初の 1 通は取得できず、LWN と BleepingComputer の引用で置いた。`2022-07-fedora-legal-cc0-classification-observed.txt` |
 | 2012-01〜04 | `license-review` | **観測（CC0 の審査から引いた 27 通・2 分割の 1/2 部）** | ドシエが引いた通だけを束ねた。スレッド全体ではない。`2012-01-to-04-license-review-cc0-cited-observed-1of2.txt` |
 | 2012-01〜04 | `license-review` | **観測（CC0 の審査から引いた 27 通・2 分割の 2/2 部）** | 同じ束の 2/2 部。`2012-01-to-04-license-review-cc0-cited-observed-2of2.txt` |
 | 2012-03 | `license-review` | **観測（CC0 の意向調査・全 25 通・2 分割の 1/2 部）** | 票数そのものが証拠なのでスレッドを全部置いた（規則 6）。`2012-03-license-review-cc0-straw-poll-observed-1of2.txt` |

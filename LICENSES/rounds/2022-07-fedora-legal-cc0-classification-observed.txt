@@ -1,0 +1,217 @@
+Source: three public pages, each marked below
+Retrieved: 2026-11-07
+Position: what Fedora decided about CC0 for code in 2022, and what its data file says now. Not addressed to us and not about ACD. The first message on the Fedora list could not be fetched (lists.fedoraproject.org returned a bot check and LWN's mirror of it returned 401), so its words are given as LWN and BleepingComputer print them. The reply in part 2 is LWN's mirror of the list message. The reading is in LICENSES/ACD-1.0.gap-measurements.md section 1.139.
+
+----- begin verbatim -----
+=== Part 1. LWN, https://lwn.net/Articles/902410/ (text extracted, markup removed, whitespace normalised) ===
+Fedora to disallow CC0-licensed code [Posted July 25, 2022 by corbet] The Creative Commons CC0 license is essentially a public-domain declaration (or as close as is possible in jurisdictions that lack a public domain). The Fedora project has allowed the distribution of code under this license, but, as announced by Richard Fontana , that policy is changing and CC0 will no longer be allowed for code: The reason for the change: Over a long period of time a consensus has been building in FOSS that licenses that preclude any form of patent licensing or patent forbearance cannot be considered FOSS. CC0 has a clause that says: "No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected by this document." Existing CC0-licensed packages may be grandfathered in, but that evidently has not yet been decided.
+
+=== Part 2. Fedora legal list, as mirrored by LWN, https://lwn.net/ml/fedora-legal/CAC1cPGyCRfTNE-Ff57rCfOf+SLVxLdwB1ck2_8Fn-8x5bMR4Sw@mail.gmail.com/ ===
+From: Richard Fontana
+To: Miro Hrončok
+Cc: Fedora legal mailing list
+Subject: [Fedora-legal-list] Re: Change in classification of CC0
+Date: Sat, 23 Jul 2022 16:24:29 -0400
+
+On Sat, Jul 23, 2022 at 4:04 PM Miro Hrončok <mhroncok@redhat.com> wrote:
+>
+> On 23. 07. 22 3:36, Richard Fontana wrote:
+> > Feel free to ask any questions or make any comments about this!
+>
+> Hey Richard,
+>
+> if I maintain a small piece of software upstream that was licensed as CC0, what
+> are Fedora's recommendation for an alternative? 0BSD?
+
+I don't know if Fedora has an opinion on this but in a Red Hat
+context, years ago I used to recommend CC0 for certain kinds of
+things. These days in similar situations (Involving code, at least) I
+have typically been recommending MIT No Attribution (SPDX: MIT-0)
+https://opensource.org/licenses/MIT-0
+
+As the name suggests, it's the MIT license but with the notice
+preservation requirement removed. Very similar conceptually to
+Zero-Clause BSD (SPDX: 0BSD), which I would be less inclined to
+recommend primarily because I don't like the name, since it's actually
+based on the ISC license. :-)
+
+Richard
+
+=== Part 3. BleepingComputer, https://www.bleepingcomputer.com/news/security/fedora-ditches-cc0-no-rights-reserved-software-over-patent-concerns/ (the passage quoting the first message; text extracted) ===
+"CC0 has been listed by Fedora as a ' good ' license for code and content (corresponding to allowed and allowed-content under the new system). We plan to classify CC0 as allowed-content only, so that CC0 would no longer be allowed for code," announced Richard Fontana , Senior Commercial Counsel at Red Hat via a mailing list this week. "This is a fairly unusual change and may have an impact on a nontrivial number of Fedora packages (that is not clear to me right now), and we may grant a carveout for existing packages that include CC0-covered code." The reason for the policy change is simply this—while Creative Commons' CC0 license allows content creators including software developers to waive copyright to their work, it has no bearing on the patent or trademark rights that the creators continue to retain. One particular clause of CC0, shown below, is what prompted Fedora's decision to ditch the license: "No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected by this document." (The trademark side of that clause is nonproblematic from a FOSS licensing norms standpoint.)
+
+=== Part 4. Fedora's license data, https://gitlab.com/fedora/legal/fedora-license-data/-/jobs/artifacts/main/raw/fedora-licenses.json?job=json (the entries for these expressions, as JSON) ===
+[
+ {
+  "license": {
+   "expression": "CC0-1.0",
+   "status": [
+    "allowed-content"
+   ],
+   "url": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+   "usage": "Existing uses of CC0-1.0 on code files in Fedora packages prior to\n2022-08-01, and subsequent upstream versions of those files in those\npackages, continue to be allowed. We encourage Fedora package\nmaintainers to ask upstreams to relicense such files.\n\nUpstream application of CC0-1.0 to trivial, noncreative, unoriginal,\nand nonexpressive material as part of an effort to achieve conformance\nto the REUSE specification (https://reuse.software/) (for example,\nCI/CD configuration files) is permitted regardless of whether such\nmaterial would normally be classified as \"content\".\n\nImplementations of post-quantum cryptographic algorithms released\nunder CC0-1.0 and included in the liboqs library\n(https://github.com/open-quantum-safe/liboqs) as of 2023-07-12, and\nmodified versions of those implementations, are allowed, as noted in\nhttps://gitlab.com/fedora/legal/fedora-license-data/-/issues/158 .",
+   "packages_with_exceptions": [
+    "argon2",
+    "ruby",
+    "ruby-libs",
+    "ocserv",
+    "sbsigntools"
+   ]
+  },
+  "fedora": {
+   "legacy-name": [
+    "Creative Commons Zero 1.0 Universal"
+   ],
+   "legacy-abbreviation": [
+    "CC0"
+   ]
+  }
+ },
+ {
+  "license": {
+   "expression": "Unlicense",
+   "status": [
+    "allowed"
+   ],
+   "url": "https://fedoraproject.org/wiki/Licensing/Unlicense"
+  },
+  "fedora": {
+   "legacy-name": [
+    "Unlicense"
+   ],
+   "legacy-abbreviation": [
+    "Unlicense"
+   ]
+  }
+ },
+ {
+  "license": {
+   "expression": "CC-PDDC",
+   "status": [
+    "allowed"
+   ],
+   "url": "https://creativecommons.org/licenses/publicdomain/"
+  },
+  "fedora": {}
+ },
+ {
+  "license": {
+   "expression": "WTFPL",
+   "status": [
+    "allowed"
+   ]
+  },
+  "fedora": {
+   "legacy-name": [
+    "Do What The F*ck You Want To Public License"
+   ],
+   "legacy-abbreviation": [
+    "WTFPL"
+   ]
+  }
+ },
+ {
+  "license": {
+   "expression": "LicenseRef-Fedora-Public-Domain",
+   "status": [
+    "allowed"
+   ],
+   "url": "https://docs.fedoraproject.org/en-US/legal/license-field/#_public_domain\nhttps://docs.fedoraproject.org/en-US/legal/update-existing-packages/#_public_domain"
+  },
+  "fedora": {
+   "legacy-name": [
+    "Public Domain"
+   ],
+   "legacy-abbreviation": [
+    "Public Domain"
+   ]
+  }
+ },
+ {
+  "license": {
+   "expression": "MIT-0",
+   "status": [
+    "allowed"
+   ],
+   "url": "https://fedoraproject.org/wiki/Licensing/MIT-0"
+  },
+  "fedora": {
+   "legacy-name": [
+    "MIT No Attribution (MIT-0)"
+   ],
+   "legacy-abbreviation": [
+    "MIT-0"
+   ]
+  }
+ },
+ {
+  "license": {
+   "expression": "0BSD",
+   "status": [
+    "allowed"
+   ],
+   "url": "https://fedoraproject.org/wiki/Licensing/ZeroClauseBSD"
+  },
+  "fedora": {
+   "legacy-name": [
+    "Zero-Clause BSD"
+   ],
+   "legacy-abbreviation": [
+    "0BSD"
+   ]
+  }
+ },
+ {
+  "license": {
+   "expression": "BSD-2-Clause-Patent",
+   "status": [
+    "allowed"
+   ],
+   "url": "https://fedoraproject.org/wiki/Licensing/BSD-2-Clause-Patent"
+  },
+  "fedora": {
+   "legacy-name": [
+    "BSD + Patent"
+   ],
+   "legacy-abbreviation": [
+    "BSD-2-Clause-Patent"
+   ]
+  }
+ },
+ {
+  "license": {
+   "expression": "UPL-1.0",
+   "status": [
+    "allowed"
+   ],
+   "url": "https://fedoraproject.org/wiki/Licensing/UPL"
+  },
+  "fedora": {
+   "legacy-name": [
+    "Universal Permissive License"
+   ],
+   "legacy-abbreviation": [
+    "UPL"
+   ]
+  }
+ },
+ {
+  "license": {
+   "expression": "BlueOak-1.0.0",
+   "status": [
+    "allowed"
+   ],
+   "url": "https://blueoakcouncil.org/license/1.0.0"
+  },
+  "fedora": {}
+ },
+ {
+  "license": {
+   "expression": "CERN-OHL-P-2.0",
+   "status": [
+    "allowed-content"
+   ]
+  },
+  "fedora": {}
+ }
+]
