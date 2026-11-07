@@ -78,6 +78,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §8.3（射程）| *"any patent right of the Dedicator in respect of the Work"* を *"any patent claim that Sections 8.1 and 8.4 reach"* へ| 同じ型（5a の抽出）。§8.4 が外す請求項も「Work についての特許権」と読め、末文と §15.1 が限定を押し戻す。**逆側**: CC0 の除外への対比の語が少し弱くなるが、除外の文が無いことは変わらない | −2 | 反映済み |
 | §8.4（方法の請求項）| *"results, in whole or in part, from the use of the Work"* の *use* を *content* へ（bb の案）| 方法の請求項では工程が Work の処理そのものなので、「使用から生じた」と同語反復に読めた（bb の問い・§13.2）。§9.7 の表の K4 / P を文が保証していなかった。モデルが使用から生じたことは第 1 文が既に求めている。Work が実行されるコードで工程がその動作である場面は *embodies* が受ける。**逆側**: 語が §8.1 の *"subject matter contained in the Work"* に近づく。差は、§8.1 が Work の中に在るものの侵害を見るのに対し、§8.4 はモデルや出力の特徴の由来を見ることである。*in part* と閾値なしの合算は残り、費用として B7 にある | 0 | 反映済み |
 | §8.6・§11.4（*reach*）| *"the patent claims described in …"* を *"the patent claims that Sections 8.1 and 8.4 reach"* / *"the patent claims Section 8 reaches"* へ| *described* を §8.4 の第 1 文だけと読むと約束が許諾より広くなる（§13.3）。§6.1 と §8.4 の語に揃えた | −1 | 反映済み |
+| §5.1（*relating to*）| 第 2 肢の *"arising from or relating to"* を *"arising from"* へ| 採用者の操作のレンズ。ACD を適用した会社が有償のサポートや開発を売ると、代金の請求は「許された利用に関する請求」と読める。`faq.md` A30 と J-16 は対価を課せると答えていて、§15.1 の広い読みと食い違う。問 5 も *relating to* の広さを疑っていた。#272 の目的（不当利得・不正競争など、利用から生じる請求）は *arising from* で足りる。CC0 の語も *associated* で、利用に触れるだけの請求までは求めていない。**逆側**: 利用から生じたとは言いにくい周辺の請求は約束の外に残る | −3 | 反映済み |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
