@@ -1,0 +1,729 @@
+Source: https://lists.opensource.org/pipermail/ (license-review and license-discuss, the months named in each message's Date line)
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-07)
+Messages: 12 of the 57 messages this dossier cites from threads it had not read until 2026-11-07. Not a thread. Part 2 of 5.
+Senders: Brian Behlendorf, John Cowan, Rick Moen, HP Legal), Ian Lance Taylor, Russell Nelson, Josh Berkus, Lukas Atkinson, Pamela Chestek
+Position: statements about other submissions and about the process. Not addressed to us and not about ACD. Two long messages are cut after the signature; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From brian at behlendorf.com  Fri Jun 20 23:10:28 2025
+From: brian at behlendorf.com (Brian Behlendorf)
+Date: Fri, 20 Jun 2025 16:10:28 -0700 (PDT)
+Subject: [License-discuss] OpenMDW license
+Message-ID: <f259da5b-cf47-ad4b-a973-003881d397ed@behlendorf.com>
+
+Hi all,
+
+Asking about this here, rather than submitting to license-review, as I am 
+not the license steward, nor am I (any longer) involved in the Linux 
+Foundation.
+
+About a month ago, the Linux Foundation released a license applicable to 
+LLM models called the OpenMDW License:
+
+https://openmdw.ai/license/
+
+The website describes this as an "open source" license, yet I see no 
+attempts (by reviewing the archives of license-discuss and license-review) 
+by the authors to bring this to OSI for formal approval. Does anyone see 
+anything in the license that would hinder such approval?
+
+I'm personally unclear on the problem this solves. The purpose as stated 
+on the OpenMDW's FAQ reads a bit like "but it goes to 11". It seems like 
+one could have written a guide to distributing a model with existing 
+permissive licensing, as typically the purpose of the software is not 
+really relevant to its licensing.
+
+It seems to be emphatic about things that don't need stating, like outputs 
+of the model aren't covered by the license - but nor are "outputs" of gcc 
+or LibreOffice.
+
+It also doesn't require, as OSAID did, that the underlying data used to 
+train the model weights be published. This is "fine" from a 
+permissive-license POV - I imagine with some digging we can find 
+permissive-licensed-works that contain binary blobs, and we've long 
+accepted closed-source binary firmware updates as a part of the Linux 
+kernel project. So it's still unclear to me that weights couldn't just be 
+distributed under current permissive licenses.
+
+The real stand-out portion for me, however, is the second-to-last 
+paragraph, disclaiming responsibility for any IP rights that may some day 
+be associated with the weights or other model materials, even if derived 
+from data not included in the distribution. While the courts have not 
+ruled decisively on this, you would not see AI companies signing deals 
+with content companies to scrape their data if there wasn't at least some 
+OIP risk involved in not doing so. It also seems to ignore that the global 
+policy train seem heading in the direction of limiting the ability to 
+disclaim liability in a software license, and that doesn't seem to have 
+changed under the current US administration. The disclaimer seems 
+extraneous, compared to current disclaimers in most permissive licenses. 
+Furthermore to the degree that people rely on that disclaimer, it seems 
+like it can create novel risks that OSS licenses are supposed to be 
+mitigating rather than adding to. This is because if presented with a 
+claim of infringement, there may be no way for the end-user or distributor 
+to quickly modify the model by modifying the training set and rebuilding.
+
+But none of these concerns are really about potential violations of the 
+OSD.
+
+Therefore, for the sake of clarity, if there isn't anything in this 
+license that clashes with the OSD, I humbly suggest it should be proposed 
+by the license steward and considered for approval. That way the use of 
+the term "open source" on the OpenMDW pages is legitimized, and the AI 
+community can be reassured that their "unique" needs are being met - even 
+if OpenMDW is duplicative of existing permissive licenses. Right now I 
+sense a schism emerging between generations that threatens to sideline OSI 
+in the minds of developers, and this could be an bridge between the two.
+
+Thoughts?
+
+Brian
+
+
+
+
+
+From jcowan at reutershealth.com  Fri Nov 19 14:19:56 1999
+From: jcowan at reutershealth.com (John Cowan)
+Date: Fri, 19 Nov 1999 09:19:56 -0500
+Subject: OSI Certification Process
+References: <19991118233240.4DA741FF00C@perens.com> <3833BAAE.3310D322@cgl.uwaterloo.ca>
+Message-ID: <38355C8C.E26419BA@reutershealth.com>
+
+Alex Nicolaou wrote:
+
+> In closing I should say that I think it is a mistake to withhold OSI
+> certification simply on the basis of a licence's merits, and not on some
+> more rational basis such as whether it meets the OSD or not.
+
+I agree.  Failing to certify a license as Open Source when it meets the OSD
+would be both unprincipled and inexpedient.  But *requesting* someone to
+withdraw a license on grounds of redundancy is neither.
+
+If Mr. Nicolaou is going to license software under his SOS license with or
+without certification, as appears to be the case, then
+withholding certification would be perverse, and I firmly believe that OSI
+will not do it.
+
+> Then you get to allow new entrants to the
+> field while still making it clear which licenses are the preferred ones.
+> By having objective criteria for moving a license from OSI to OSI Gold
+> status you make it clear that it is an impartial distinction, created by
+> the overall success of the license amongst developers.
+
+De facto this is already being done at the Web site, and I think this
+suggestion has merit.
+
+-- 
+
+John Cowan	http://www.reutershealth.com		jcowan at reutershealth.com
+Schlingt dreifach einen Kreis vom dies! / Schliess eurer Aug vor heiliger Schau
+Den er genoss vom Honig-Tau / Und trank die Milch vom Paradies.
+		-- Coleridge (tr. Politzer)
+
+
+From rick at linuxmafia.com  Tue Jul 31 21:10:44 2007
+From: rick at linuxmafia.com (Rick Moen)
+Date: Tue, 31 Jul 2007 14:10:44 -0700
+Subject: Fwd: OSI approves CPAL at OSCON 2007
+In-Reply-To: <e52efbe10707311357o4c5d15dfu2536a4cafe8b5eea@mail.gmail.com>
+References: <6cca531e0707262243i5fe7f03eufdd64cc7c3dbbd91@mail.gmail.com> <18094.5510.129897.426470@desk.crynwr.com> <46AE4389.4070104@mibsoftware.com> <46AE4C33.8010503@david-woolley.me.uk> <46AE5D80.1050009@mibsoftware.com> <46AF5D45.2000700@Golux.Com> <20070731174226.GJ19464@linuxmafia.com> <e52efbe10707311327m72d44f42gcddab14657520452@mail.gmail.com> <20070731204135.GP19721@linuxmafia.com> <e52efbe10707311357o4c5d15dfu2536a4cafe8b5eea@mail.gmail.com>
+Message-ID: <20070731211044.GL19464@linuxmafia.com>
+
+Quoting Alexander Terekhov (alexander.terekhov at gmail.com):
+> > Wow, _love_ that completely irrelevant, non-sequitur straw man.
+> 
+> I thought you were "just trying to get discussion on the merits or
+> flaws of the license" (the GPLv, that is).
+
+I honestly didn't think I'd made a particularly subtle point (and odds
+are, it was based on misinterpretation of a rather ambiguous upthread
+post), but I'll restate it, anyway:
+
+Licences submitted to the OSI can be judged either OSD-compliant or not
+irrespective of the personal merits of the drafter.  In particular,
+such licences' OSD-compliance in no way hinges on the drafter's
+selection of targets for his/her public bloviating about alleged patents
+-- that sideshow being, as such, simply irrelevant to the question.
+
+> I'm just trying to help you. :-)
+
+Gee, thanks.  Curious minds want to know:  Have we perhaps just been
+treated to a "witnessing" of some kind?
+
+
+
+From scott.k.peterson at hp.com  Tue Apr 12 22:55:51 2005
+From: scott.k.peterson at hp.com (Peterson, Scott K (HP Legal))
+Date: Tue, 12 Apr 2005 18:55:51 -0400
+Subject: OSI's war on corporate licenses
+Message-ID: <6B003D25ADBDE347B5542AFE6A55B42E0694097E@tayexc13.americas.cpqcorp.net>
+
+"war on corporate licenses"? I don't know. I have a different take. I
+see a reason to apply more effort to reduce the number of different
+copyleft licenses than the number of non-copyleft licenses. 
+
+In general, code under a copyleft license cannot be blended code under
+other copyleft licenses. 
+
+In contrast, code under any non-copyleft license can be blended with
+code under any other non-copyleft license (and some of the most popular
+will even blend with copyleft licenses). 
+
+A large number of licenses of any type adds complexity. However,
+proliferation of copyleft licenses has the added disadvantage that they
+create separate pools of unmixable or semi-mixable code - an impediment
+that is not created by proliferation of non-copyleft licenses. 
+
+License proliferation can be the cause of two separate types of
+inhibition that I believe are worth considering separately:
+
+License proliferation creates complexity - often gratuitously.
+Proliferation of long licenses creates more complexity than
+proliferation of short licenses. Complexity can be an inhibitor that we
+ought to seek to reduce. 
+
+License proliferation can impede code reuse. This is an issue unique to
+proliferation of copyleft licenses. 
+
+Thus, I believe there is value in paying somewhat more attention to the
+proliferation of copyleft licenses than to proliferation of non-copyleft
+licenses. 
+
+The licenses generally identified as 'corporate' are often long and
+often include a copyleft feature. Thus, there is a high correlation
+between corporate licenses and the licenses that I think worthy of
+particular attention when trying to reduce impediments flowing from
+license proliferation. 
+
+-- Scott
+______________________________
+Scott K. Peterson
+Senior Counsel
+Hewlett-Packard Company
+scott.k.peterson at hp.com
+
+
+-----Original Message-----
+From: Joel West [mailto:svosrp at gmail.com] 
+Sent: Monday, April 11, 2005 9:23 PM
+To: license-discuss at opensource.org
+Subject: OSI's war on corporate licenses
+
+
+The list has discussed the problem of the proliferation of "vanity"
+licenses. But it seems the OSI board has gone far beyond license
+proliferation, to actively discourage firm-sponsored OSS licenses of any
+kind.
+
+At the new policy
+	http://opensource.org/docs/policy/licenseproliferation.php 
+I found this statement troubling:
+
+>The class of asymmetrical corporate licenses that began with Mozilla
+was a
+>worthy experiment that has failed. The new policy will discourage them.
+
+and particularly
+
+> But seven years later, we think it is is significant that the original
+> corporate open-source license, the Mozilla Public License, has been
+dropped
+> by its originating organization in favor of the GPL. It is becoming
+> increasingly clear from this and other examples that the "middle way"
+> represented by Mozilla and other corporate open-source licenses is not
+> a stable, effective solution even from the point of view of selfish
+> corporate agents.
+
+I don't know anything more than what's on these webpages. But from
+reading these statements, it's not clear what planet the authors are on.
+
+Mozilla is no longer a corporate-sponsored OSS project, but instead is
+an independent stand-alone project that in most respects is
+indistinguishable from projects that began as community-founded projects
+(e.g. Apache). So since they are organized more like Apache or Project
+GNU, it's not surprising that they have a community license. All it
+proves is that AOL gave up on selling browsers.
+
+>These licenses put a hard brake on the growth of development 
+>communities around their products without actually delivering 
+>measurable advantages in revenue, market control, or risk 
+>management. Because these licenses have largely failed to deliver, 
+
+Were any of these people at EclipseCon? There's a lot of development,
+community, revenue and adoption going on in Eclipse as the .NET
+alternative. It's all based on the CPL (soon to be EPL), a slightly
+cleaned up MPL. New strategic developers were announced including a good
+portion of the major ISVs in the tools area (with the notable exception
+of Sun and Microsoft).
+
+So has Eclipse "failed to deliver"?
+
+As Evan said, there is a problem with license incompatibility. This may
+be as much a problem with the conditions of the GPL as it is with the
+problem of the other licenses. And maybe Martin Fink is right, there's a
+problem with license proliferation.
+
+But how does this lead to the conclusion that firm-sponsored OSS
+licenses or projects are a failure? There's a logical leap that's been
+left out.
+
+Or is this just an attack on asymmetric open source business models? And
+if we're going to attack asymmetric models, why the MPL/CPL/CDDL? Why
+not attack the dual license GPL model? In both cases, corporations that
+object to viral (aka copyleft) provisions can pay to escape them. In
+both cases, big bad corporations own the IPR rather than the broader
+community.
+
+We are just beginning to see a huge experimentation in open source
+business models. It's hard to see how OSI or the open source movement
+are helped if those involving dual license get to call themselves "open
+source" but those involving the CPL do not. For that matter, if OSI
+kicks out the CPL crowd (and/or GNU kicks out the dual license crowd),
+we might have a new movement formed with Sun, IBM, HP, Microsoft and
+others. And if that's where all the investment is going, it's hard to
+see how that helps OSS or OSI at all.
+
+Disclaimer: I teach in a business school and believe in market
+incentives to promote maximum innovation and investment. I think the
+original 1998 group (immortalized by "Revolution OS") was brilliant in
+leveraging this principal to create the Open Source movement.
+
+Joel
+
+-- 
+Joel West, Research Director
+Silicon Valley Open Source Research Project
+http://www.cob.sjsu.edu/OpenSource/
+
+
+From cowan at ccil.org  Mon Mar 31 15:21:31 2008
+From: cowan at ccil.org (John Cowan)
+Date: Mon, 31 Mar 2008 11:21:31 -0400
+Subject: Open Source Content License (OSCL) - Other/Miscellaneous licenses
+In-Reply-To: <000001c89334$64b44f60$2e1cee20$@com>
+References: <000001c89334$64b44f60$2e1cee20$@com>
+Message-ID: <20080331152131.GA22032@mercury.ccil.org>
+
+OSCL Steward scripsit:
+
+> I have made the Open Source Content License and am submitting it for review
+> in hopes that it will become OSI approved.  The OSCL can be found at
+> http://rcbitsolutions.com/oscl it would best fit in the category of
+> Other/Miscellaneous licenses.  It was written especially to meet the needs
+> of a project RCB I.T. Solutions has to promote open source software.  It is
+> a collaborative development environment and we were unable to find a good
+> open source license that meets our needs exactly so we wrote this.  We hope
+> that it can be OSI approved and used elsewhere and not just on our site.  
+
+A quick look shows that this license is a reciprocal license: that is,
+any derivative works must be licensed under the same license as the
+original.  This is not a problem in itself, but the proliferation of
+such licenses is, because content licensed under one such license (say,
+yours) and content licensed under another such license (say, the GPL)
+cannot be brought together to form a work that is jointly derivative of
+both works.  In essence, each such license creates a separate commons.
+
+You need to tell us in detail why existing reciprocal
+licenses such as the GPLv2, the GPLv3, and the OSL (see
+http://opensource.org/licenses/alphabetical ) do not meet your needs.
+
+> If anyone here has any legal background and would give a free assessment of the
+> license that would be awesome because do the issue of hiring an attorney to
+> look at it is too expensive for my small company.  Any other input is much
+> appreciated, thanks for your time.
+
+Lawyers can educate and inform people about general principles, but can't give
+specific legal advice for free.  Non-lawyers can't give specific legal advice
+at all, because of the danger of being charged with the unauthorized practice
+of law.
+
+I am not a lawyer; this is not legal advice.
+
+-- 
+Real FORTRAN programmers can program FORTRAN    John Cowan
+in any language.  --Allen Brown                 cowan at ccil.org
+
+
+From ian at airs.com  Wed Mar  9 19:56:38 2005
+From: ian at airs.com (Ian Lance Taylor)
+Date: 09 Mar 2005 14:56:38 -0500
+Subject: An explanation of the difficulty of solving licenseproliferation in one sentence
+In-Reply-To: <0C935A444FF92B67FFA54A77@[192.168.100.25]>
+References: <D2253AA6AF6B7144A2CE94870C47CACF505964@cceexcsp04.americas.cpqco
+	rp.net> <422F459E.1010408@mibsoftware.com>
+	<m3ekeo3984.fsf@gossamer.airs.com>
+	<0C935A444FF92B67FFA54A77@[192.168.100.25]>
+Message-ID: <m36500385l.fsf@gossamer.airs.com>
+
+Alex Bligh <alex at alex.org.uk> writes:
+
+> The point here is the license is the AUTHOR's choice. Good licenses will
+> thrive the same as good code thrives (viz. ESR's bazaar analogy), as if I,
+> HP, Joe Blow, whoever, doesn't like the license, doesn't like the cost of
+> evaluating the license, can't read the license because it's written in
+> English/French/Klingon, then they have the choice of not using it, and
+> using something else instead. That's "the market" / "natural selection".
+> Same as closed-source, except of course they are guaranteed a full refund
+> on FOSS :-)
+
+As far as I can tell, this more or less assumes that good licenses
+will somehow convert code under bad licenses to be under good
+licenses.  What seems more likely to me is that code under bad
+licenses will be lost forever, and/or code will survive in various
+balkanized regimes under incompatible licenses.
+
+Your selection argument is tying together two things that I don't
+think should be tied together.  Natural selection of code is good.
+Natural selection of licenses is good.  Code being driven extinct
+because it is bad is good.  Code being driven extinct because it has a
+bad license is bad.
+
+Mind you, if all licenses were compatible, or permitted appropriate
+relicensing, I would not be concerned.
+
+Ian
+
+
+From nelson at crynwr.com  Wed Mar  9 20:00:01 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Wed, 9 Mar 2005 15:00:01 -0500
+Subject: An explanation of the difficulty of solving license
+	proliferation in one sentence
+In-Reply-To: <1110378897.4797.16.camel@bad.dynu.ca>
+References: <16942.7952.642425.50428@desk.crynwr.com>
+	<1110378897.4797.16.camel@bad.dynu.ca>
+Message-ID: <16943.21953.219451.358454@desk.crynwr.com>
+
+Evan Prodromou writes:
+ > On Tue, 2005-08-03 at 16:54 -0500, Russell Nelson wrote:
+ > > But more than anything else, it points to the difficulty of getting to
+ > > a world with only a handful of licenses.  If there really are to be
+ > > fewer licenses, projects must relicense, as painful as that is.
+ > 
+ > I think that's a completely unacceptable burden
+
+Perhaps, but if you want to reuse software between projects with
+incompatible licenses, then one or the other has to relicense.
+
+There's a benefit to developers: more software you can lift.
+There's a benefit to companies: more software under the license you
+already understand.
+
+ > Software that meets the Open Source Definition is Open Source. OSI
+ > should do its job and certify it.
+
+That hasn't been our policy for many years now.  We have been pushing
+people to use an existing license for at least as long as Danese
+Cooper has been on the board.  I know this, because we denied approval
+to a submittor in the minutes of the same meeting we voted Danese onto
+the board.  Here's what we said:
+
+  In re the Wonka Public License agenda item, we decided that even
+  though it was open source, the differences were not significant enough 
+  to approve it outright.  We resolved to send it back and ask him to
+  use the BSD license.  If he refuses, we'll re-consider approving it.
+  Michael made the point that license proliferation has its costs in
+  terms of increasing the transaction cost of software reuse across
+  licenses.
+
+-- 
+--My blog is at     blog.russnelson.com         | The laws of physics cannot
+Crynwr sells support for free software  | PGPok | be legislated.  Neither can
+521 Pleasant Valley Rd. | +1 315-323-1241 cell  | the laws of countries.
+Potsdam, NY 13676-3213  | +1 212-202-2318 VOIP  | 
+
+
+From nelson at crynwr.com  Mon Nov 14 19:56:21 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Mon, 14 Nov 2005 14:56:21 -0500
+Subject: Questions to OSI Board quorum
+In-Reply-To: <4377F80B.4080008@livemedia.com.au>
+References: <17269.3135.150740.738084@desk.crynwr.com>
+	<43753D49.8050002@livemedia.com.au>
+	<17270.9114.626492.9275@desk.crynwr.com>
+	<4377F80B.4080008@livemedia.com.au>
+Message-ID: <17272.60389.209400.419660@desk.crynwr.com>
+
+David Ryan writes:
+ > I hope these can be answered at the next board meeting (which I
+ > believe is later this week).
+
+We haven't been able to stick to any fixed meeting schedule with the
+
+ > Question 1)  Can the board be more clear in describing how the OVPL 
+ > descriminates?
+
+The OVPL discriminates against anybody who wants to fork the code.
+Code forking is like the USA's Second Amendment.  Only a few enthusiasts
+actually WANT to own a gun, but everybody wants to be FREE to own
+one.  Similarly, nobody WANTS to fork, but everybody needs to be FREE
+to fork code.  If I fork your OVPL code, I must forever grant you a
+license to my code.
+
+ > It is very important that I and others developing licenses have a clear 
+ > understanding of how the OVPL descriminates.  This will ensure that 
+ > future applications for approval will not make the same mistake.  The 
+ > current response is that "parties can never be an 'Original 
+ > Contributor'".  This is true of many licenses.  Take for example the 
+ > GPL.  No contributor can ever be an 'Original Contributor'.  The OVPL 
+ > allows any person or group to take the source code and distribute it 
+ > under the same terms as many other licenses.
+
+Under the GPL I am not obligated to license my modifications to one
+particular party.  Under the OVPL, there is forever one Original
+Contributor who gets a license to any and all modifications.
+
+ > Question 2) Would a license which requires all contributions to be 
+ > licensed uner a BSD style license still be deemed descriminatory?
+
+Probably not, because anybody could then do what they wanted with them.
+The Apache license does something like this, but it's not a reciprocal
+license, requiring all modifications to be contributed.
+
+ > However once again the contributor can never be an 'Original
+ > Contributor'.
+
+It's not the existance of an Original Contributor.  Many licenses name
+one such.  It's the rights granted to the contributor.  For example,
+the OSL 3.0 and AFL 3.0 require that the Original Contributor be
+attributed.  That doesn't discriminate against any subsequent
+contributor, because they can add their own Attribution Notice.
+
+ > It is clear that Trolltech no longer require the QPL.  They now supply 
+ > all open source versions of their tools using the GPL.  I see no reason 
+ > why the board should not remove the QPL from the list of approved licenses.
+
+We can never remove a license from the list of approved licenses.  If
+we did so, we might turn a licensor into an involuntary innocent
+infringer of OSI's Open Source trademark.  To retain ownership of a
+trademark, you must exercise control over the quality of the product.
+If we did something which predictably gave us less control, that
+wouldn't go over well in front of a judge.
+
+ > Question 4) The decision not to approve the OVPL makes it clear that the 
+ > OSI believe all developers should have equal rights to the "code 
+ > commons" they contribute.  To contribute to many commercial open source 
+ > projects requires that a developer sign a "copyright assignment".  Does 
+ > the OSI board believe that these practices are descrimantory? If not, 
+ > why not?
+
+Such a *practice* could discriminatory, sure.  If you don't like it,
+then fork the project and accept contributions using some different
+contribution agreement.
+
+ > While these companies do not use the license to create inequality
+ > between contributors and themselves, they are using other methods
+ > to ensure inequality.
+
+True.  We cannot control those other methods.  They are inherent in
+copyright law.
+
+-- 
+--my blog is at     blog.russnelson.com         | 
+Crynwr sells support for free software  | PGPok | There ought to be a law
+521 Pleasant Valley Rd. | +1 315-323-1241       | against calling for more
+Potsdam, NY 13676-3213  |     Sheepdog          | regulations!
+
+
+From josh at berkus.org  Wed Feb 12 00:17:43 2025
+From: josh at berkus.org (Josh Berkus)
+Date: Tue, 11 Feb 2025 16:17:43 -0800
+Subject: [License-discuss] Pre-Advice for ModelGo Licenses Review
+In-Reply-To: <44E07E8A-4C94-498D-B438-BB84B62C7961@gmail.com>
+References: <44E07E8A-4C94-498D-B438-BB84B62C7961@gmail.com>
+Message-ID: <6c14022a-dffd-48a8-85bc-4b641c62e4de@berkus.org>
+
+On 2/9/25 23:15, "D ?? (dewitt)" wrote:
+> 3) Lastly, while I attempted to align MG-BY-OS (where "OS" stands for 
+> "Open Source") with OSI?s Open AI definition by requiring that 
+> complementary code be licensed under an OSI-approved license, our 
+> lawyers opposed this due to concerns about terms incompatibility. 
+> Currently, the MG-BY-OS license only mandates open-sourcing the model 
+> weights, related code, and scripts (excluding data). I would appreciate 
+> any advice on this point.
+
+This feels like exactly the sort of thing we need to hash out as a test 
+of the OS AI Definition.  Because, depending on the text, in my personal 
+opinion MG-BY-OS *could* be an OSD-compatible model license, even if the 
+  rest of the package doesn't meet the full OSAID.  But, this is the 
+first time we're deciding any such thing so expect it to take a bit of 
+wranging and a bunch of time.
+
+-- 
+Josh Berkus
+
+
+From opensource at lukasatkinson.de  Sun Aug  4 17:49:18 2019
+From: opensource at lukasatkinson.de (Lukas Atkinson)
+Date: Sun, 4 Aug 2019 19:49:18 +0200
+Subject: [License-discuss] For Public Comment: The Contribution Public
+ License
+In-Reply-To: <2763085.alidGh2TMh@cylae>
+References: <2763085.alidGh2TMh@cylae>
+Message-ID: <CAJTYOd2wvaR_MCRqmZ35XyGaYZLkxnuVLrDOSe=CsRiVrwtwjw@mail.gmail.com>
+
+I have two concerns about this license:
+
+1. it seems to disallow private modification and compel disclosure. Even if
+this didn't fail the desert island test, it would be impossible to comply
+because there's no time frame within which a change must be published. Then
+again, publication is only necessary while the changes are distributed ?
+how does that work with undistributed changes, or changes that are only
+distributed once?
+
+1a. Your license requires changes to the software to be published, but
+fails to explicitly require a source form to be provided. This seems like a
+glaring loophole.
+
+Proposed solution: explicitly tie a source publication requirement to
+distribution of non-source forms, similar to the GPL. Preferably, do not
+require publication but only that source is provided to recipients.
+
+2. it doesn't mention patents. New licenses that don't include patent
+licenses might have a more difficult time finding approval, as such
+licenses fail to ensure that the software can be used freely.
+
+Proposed solution: incorporate a patent grant into the license, preferably
+modeled after Apache 2.
+
+Regarding the prior art you mention:
+
+Reciprocal Public License (RPL-1.5):
+> It's not only too long and complex for my purposes, but it also explicitly
+> defers arbitration to Colorado, USA, which I cannot accept.
+>
+> Eiffel Forum License, Version 2
+> While being sensibly short and concise it only encourages - but does not
+> require - modified versions to be publicly released.
+>
+> Microsoft Reciprocal License (MS-RL)
+> It's copy-left for things such as static linking, containers, etc.
+> (section 3,
+> paragraph A) and it deals with patents and trademarks.
+>
+
+RPL binds the publication requirement to  the event that you ?Deploy? the
+software, but explicitly exempts personal use or internal research. The
+license goes to great lengths to draw a usable distinction between uses
+that require publication and uses that do not.
+
+Note that ?long and complex? can also mean ?clear and explicit?, whereas a
+short license might be very complex because a lot is implied and its
+interpretation depends on legal context that might be inaccessible to
+laypersons.
+
+MS-RL only requires that you provide the source code if you distribute the
+software, but doesn't require publication otherwise.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190804/f5db4e96/attachment.html>
+
+From pamela.chestek at opensource.org  Wed Feb 28 02:26:14 2024
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Tue, 27 Feb 2024 21:26:14 -0500
+Subject: [License-discuss] [License-review] Volunteers for tagging
+ licenses
+In-Reply-To: <07e2c288-49ec-4a13-9089-86335720c160@fau.de>
+References: <4aa19bf6-a29a-455f-9857-1985da0aab23@opensource.org>
+ <07e2c288-49ec-4a13-9089-86335720c160@fau.de>
+Message-ID: <ff990dee-ab5c-4f80-b5a0-af1584405936@opensource.org>
+
+
+
+On 2/25/2024 1:41 PM, Dirk Riehle wrote:
+> Hi Pamela, all:
+>
+>> In June 2023, the License Review Working Group completed its work 
+>> revising the license review process. There was an outstanding task 
+>> that grew out of the Working Group, which was to create tags for the 
+>> approved licenses that could be used as an aid in filtering approved 
+>> licenses for their characteristics.
+>>
+>> There are two stages to this task. The first stage is to create a 
+>> list of tags to be attached to licenses. There is already a 
+>> preliminary list 
+>> <https://docs.google.com/document/d/1svyrUgE6xwzaNO4xnhTT0-pHPblwBm__BArtttkQWxk/edit?usp=sharing>, 
+>> so we should be able to complete this task in a fairly short period 
+>> of time.
+>
+> I looked at the list and wondered about its purpose. The tags doesn't 
+> say anything about rights, presumably they are all the same for open 
+> source licenses. But they also don't say anything about disclaimers 
+> and prohibitions?
+>
+> If this is primarily about obligations, I wanted to point out that 
+> German lawyers created a comprehensive system for explaining license 
+> obligations, including instructions on how to fulfill them, using some 
+> form of pseudo code ("if this do that"). I'm talking about the OSADL 
+> folks though I think this stuff is still paywalled.
+>
+> I'm not sure the OSI is up for it but some authoritative model of 
+> license obligations and how to fulfill them would be great. The tags 
+> don't have to state how the obligations should be fulfilled, however, 
+> their completeness and quality would make it much easier to develop 
+> such instructions based on an authoritative ontology (hierarchical 
+> list of tags).
+I should have been clearer about that list. That was about 10 minutes of 
+brainstorming and will be reconsidered and refined as part of this task. 
+I think that there aren't rights listed because any open source license 
+is a grant of all rights with some return obligations, rather than any 
+limitation on the rights granted. But I would be interested to hear if 
+that's not true.
+
+What do you mean by "disclaimers and prohibitions"? Can you give me 
+examples of what you believe fall into that category? There is a variety 
+of choices for copyleft, which I might consider "prohibitions," but what 
+are you thinking of?
+
+One thing we're not undertaking is to provide advice on compliance, 
+license choice, etc. There are several reasons for that, one of which is 
+that advice in those areas is fact-specific and will often require the 
+exercise of legal judgment, which is not the OSI's role. Instead, we 
+intend for the tags to be tools that those who do provide that advice 
+can use to help them in their advising work.
+
+Pam
+
+
+From pamela.chestek at opensource.org  Tue Aug 22 15:36:23 2023
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Tue, 22 Aug 2023 08:36:23 -0700
+Subject: [License-review] License-review Digest, Vol 119, Issue 8
+In-Reply-To: <1959614504.17139629.1692699936714.JavaMail.zimbra@piana.eu>
+References: <mailman.1.1692360001.17260.license-review_lists.opensource.org@lists.opensource.org>
+ <CAHANMqy8KGW7+2TmO07ovmJfnpU_bF_aQfDLMvTEkY-dwf1HnA@mail.gmail.com>
+ <1959614504.17139629.1692699936714.JavaMail.zimbra@piana.eu>
+Message-ID: <253930ed-6815-2358-c365-d686d190ae69@opensource.org>
+
+Muellners,
+
+I do not see the email that Carlo was responding to in the archives and 
+I did not receive a copy. To reiterate one of Carlo's points though, as 
+explained in the license-review process page, you cannot amend a 
+submitted license, it must be withdrawn and a new version resubmitted 
+for reconsideration. The license review process is not for workshopping 
+a license, it is for a go/no-go on a license.? The OSI will therefore 
+not consider this version of the license and will deem the original 
+version of the license withdrawn.
+
+As Carlo also mentioned, for any resubmission, please submit a .txt 
+version of the license.? I would also suggest either subscribing to the 
+list in non-digest form or changing the subject line of your email so 
+that list subscribers know that you are commenting on the Open 
+Constitution License. The preference is to respond to the email so you 
+don't break the thread.
+
+However, given Carlo's comments, it appears that your goals are 
+inconsistent with the OSD. You appear to want to exclude ways that the 
+work can be used. Exclusions of specific uses will never be approved as 
+an OSI-approved license. So you should reconsider whether you are 
+willing to make the changes necessary that would allow the license to be 
+approved.
+
+To reiterate, the OSI considers this license withdrawn and you may 
+resubmit an updated version if you like.
+
+Pamela Chestek
+Chair, License Committee
+Open Source Initiative
+

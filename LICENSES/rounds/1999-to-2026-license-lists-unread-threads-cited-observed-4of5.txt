@@ -1,0 +1,741 @@
+Source: https://lists.opensource.org/pipermail/ (license-review and license-discuss, the months named in each message's Date line)
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-07)
+Messages: 11 of the 57 messages this dossier cites from threads it had not read until 2026-11-07. Not a thread. Part 4 of 5.
+Senders: Luis Villa, Russ Nelson, Lawrence Rosen, Brian Behlendorf, Wilson, Andrew, Lukas Atkinson, Russell Nelson, Bruce Perens
+Position: statements about other submissions and about the process. Not addressed to us and not about ACD. Two long messages are cut after the signature; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From luis at lu.is  Mon Oct 21 15:21:48 2013
+From: luis at lu.is (Luis Villa)
+Date: Mon, 21 Oct 2013 08:21:48 -0700
+Subject: [License-discuss] Newbie post: Localisable open source software
+	license
+In-Reply-To: <AD35751D-6137-42ED-9F9D-61D21C7DC52F@me.com>
+References: <2AF1B3D5-B7FB-4F65-8D3C-52FDDACB8F1B@me.com>
+	<52652C57.9000805@david-woolley.me.uk>
+	<AD35751D-6137-42ED-9F9D-61D21C7DC52F@me.com>
+Message-ID: <CAFPTOkU5qDGrTTgM_q-XA8NYkxdUoUtyyjqt5Sc8eViRPj3rXA@mail.gmail.com>
+
+On Mon, Oct 21, 2013 at 7:17 AM, ChanMaxthon <xcvista at me.com> wrote:
+
+> What I am trying here is to add similar clauses into open source licenses
+> for software, making it similarly localizable. I will also include a
+> single-direction relicensing clause converting the localizable variant to
+> its base license. My current project is an l10n-3BSDL, will also have
+> l10n-2BSDL (converts down to both 2-clause BSDL and MIT), l10n-Apache2,
+> l10n-LGPL3 and l10n-GPL3 forks.
+
+
+I would recommend looking at the equivalent clauses in CC 4.0, which are
+substantially better drafted than the same clauses in CC 3.0.
+
+That said, I would probably still push for OSI to reject them if they were
+submitted to OSI: as CC has learned, this approach leads to fragmentation,
+and the open source approach has never, in practice, been shown to cause
+problems. In other words, you're trying to solve a theoretical problem, not
+a real problem.
+
+Luis
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20131021/8bdc802a/attachment.html>
+
+From nelson at crynwr.com  Thu May 15 05:38:54 2008
+From: nelson at crynwr.com (Russ Nelson)
+Date: Thu, 15 May 2008 01:38:54 -0400
+Subject: UOML License - ticket#137
+In-Reply-To: <WorldClient-F200805142104.AA04080046@sursen.com>
+References: <WorldClient-F200805142104.AA04080046@sursen.com>
+Message-ID: <18475.52334.206847.460502@desk.crynwr.com>
+
+?? writes:
+ > We had modified our License as follow:
+ > On section 3.2:
+ > To ensure the document interoperability, the work should conform to UOML and 
+ > access documents only via UOML. 
+ > change to:
+ > To ensure the document interoperability, the work should conform to UOML. 
+ >   
+ > Others are remained the same.
+ > The new version's url: http://www.uoml.org/uoml_license1.1.html
+
+We had a board meeting yesterday (Wednesday -- moved a week later from
+our usual first week due to JavaOne).  The board voted to "return the
+UOML License to the submitter for justification due to similarity to
+the SISSL".  A lot of work went into the creation and approval of the
+SISSL.  It sure looks like the UOML License intends to solve the same
+problem, so why not use the SISSL?
+
+Given the board vote, you should re-submit your license following the
+procedure here: http://opensource.org/approval .  Include "Compare to
+and contrast with the most similar OSI-approved license(s)".
+
+I would further point out that as far as we know, the SISSL is a
+failure.  Not even Sun uses it anymore, and we know of no current
+users.  Given that the license has been around for a while and yet
+nobody uses it, you should hesitate to try to solve this problem using
+a copyright license.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Software that needs
+Crynwr sells support for free software  | PGPok | documentation is software
+521 Pleasant Valley Rd. | +1 315-323-1241       | that needs repair.
+Potsdam, NY 13676-3213  |     Sheepdog          | 
+
+
+From nelson at crynwr.com  Wed May 14 14:54:48 2008
+From: nelson at crynwr.com (Russ Nelson)
+Date: Wed, 14 May 2008 10:54:48 -0400
+Subject: License Committee Report for May 2008
+Message-ID: <18474.64824.46378.569629@desk.crynwr.com>
+
+Title: European Union Public Licence version 1.1 (EUPL v1.1)
+Submission of 1.0: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:105:200803:kokiblmeljajbpncpbnc
+Submission:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:206:200805:kokiblmeljajbpncpbnc
+License: In the submission
+Comments: The license was re-submitted just yesterday; not enough time
+  has passed to get comments on the changes.
+Recommend: no action
+
+Title: CRIScript Software License, Version 1.0 (CRISSL)
+Submission:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:msp:208:jdmolmeinihcnfldffhm
+License: In the submission
+Comments: The license was submitted just yesterday; not enough time
+  has passed to get comments on the changes.  But the license reads
+  VERY MUCH like the MIT/X11 license, with a somewhat more complex
+  warranty disclaimer and a no-trademark clause.  This license is the
+  poster child for license proliferation.  If we approve this license
+  we will trip many people's bogon detectors.
+Recommend: rejection for similarity
+
+Title: Unstructured Operation Markup Language License (UOML)
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:153:200803:ajlgmjcdbmmllniijbba
+License: http://www.uoml.org/uoml_license.html
+Comments: implicitly withdrawn
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:172:200804:ajlgmjcdbmmllniijbba
+  with further indication that they intend to resubmit here:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:205:200805:oickiojlgifaibncbpjo
+  Comments were universally negative, but pointed to use of the SISSL
+  instead of creating a new license to solve the same problem.
+Recommend: return to submittor for modification
+
+Title: Open Source Content License (OSCL)
+Submission:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:164:200803:hmchkepobaccgdbkicbn
+License: http://rcbitsolutions.com/oscl
+Comments: It's clear from the comments and form of the submission that
+  the submission is not well-thought-out.  A new reciprocal license
+  must have an extremely good justification, as pointed out by John
+  Cowan, Andrew Wilson, Matthew Flaschen, and Bruce Perens.  No such
+  was provided.  Not to mention that the license was not submitted
+  with all the required information.
+Recommend: return to sender for their reconsideration
+
+Title: CUA Office Public License
+Retirement:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:202:200804:fgghaoannhjhkokecfjb
+Comments: none
+Recommend: acceptance, of course, which means sending Patranun the
+  form for license retirement, which I don't have at my fingers.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Software that needs
+Crynwr sells support for free software  | PGPok | documentation is software
+521 Pleasant Valley Rd. | +1 315-323-1241       | that needs repair.
+Potsdam, NY 13676-3213  |     Sheepdog          | 
+
+
+From nelson at crynwr.com  Tue Jul  8 15:41:42 2008
+From: nelson at crynwr.com (Russ Nelson)
+Date: Tue, 8 Jul 2008 11:41:42 -0400
+Subject: For (Legacy?) Approval: The MirOS Licence
+In-Reply-To: <Pine.BSM.4.64L.0807052052150.4256@herc.mirbsd.org>
+References: <Pine.BSM.4.64L.0807052052150.4256@herc.mirbsd.org>
+Message-ID: <18547.35510.392222.417343@desk.crynwr.com>
+
+Have you considered relicensing under an already-approved Open Source
+License?  Having Yet Another license increases EVERYONE's cost forever,
+whereas relicensing is a one-time investment in easier use by your
+users.
+
+I do not deny that your changes may in fact be improvements.  I
+suggest that they are not improvement *enough* to justify Yet Another
+License.
+
+The reason disclaimers are written in all caps is because there is
+U.S. case law making the disclaimer stronger because all caps draw
+attention.  Before you sneer at U.S. law, understand that judges will
+look across the ocean (in both directions) for precedent.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Software that needs
+Crynwr sells support for free software  | PGPok | documentation is software
+521 Pleasant Valley Rd. | +1 315-323-1241       | that needs repair.
+Potsdam, NY 13676-3213  |     Sheepdog          | 
+
+
+From nelson at crynwr.com  Wed Jul  9 04:27:37 2008
+From: nelson at crynwr.com (Russ Nelson)
+Date: Wed, 9 Jul 2008 00:27:37 -0400
+Subject: For (Legacy?) Approval: The MirOS Licence
+In-Reply-To: <Pine.BSM.4.64L.0807081627020.26773@herc.mirbsd.org>
+References: <Pine.BSM.4.64L.0807052052150.4256@herc.mirbsd.org>
+	<18547.35510.392222.417343@desk.crynwr.com>
+	<Pine.BSM.4.64L.0807081627020.26773@herc.mirbsd.org>
+Message-ID: <18548.15929.182347.653325@desk.crynwr.com>
+
+Thorsten Glaser writes:
+ > You mention "everyone's cost", I don't quite see that yet.
+
+There are two schools of thought.  One says that EVERY license which
+complies with the Open Source Definition should be approved.  The
+other says that the value of Open Source derives from being able to
+reuse software between projects, and if every project had its own
+license, no projects would be able to share software.
+
+It's QUITE clear that the Free Software Foundation subscribes to the
+second view, because it encourages everybody to use the GPL, or only
+if absolutely necessary, the Lesser GPL.  Their intent is to create a
+body of code, all of it licensed under the GPL, so that Open Source
+projects can freely mix and match whereas proprietary code can't reuse
+any of it.
+
+So, one cost of Yet Another Open Source License is in reduced reuse,
+which is a cost to everyone.  But redistributors of Open Source
+software (which includes everybody who wants to reuse software in
+their own package) must be aware of the terms of, and maintain a copy
+of, and get users to agree to, each and every license.  Plus, anybody
+with deep pockets (e.g. the Fortune 500) may perceive a risk from
+merely using Open Source code even though the illustrious Open Source
+Initiative has approved the license.  Thus every license requires
+legal review.
+
+I've had people say that the OSI should not approve any more
+licenses.  "If you want to write software, join one of the existing
+communities; don't create your own." is their stance.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Software that needs
+Crynwr sells support for free software  | PGPok | documentation is software
+521 Pleasant Valley Rd. | +1 315-323-1241       | that needs repair.
+Potsdam, NY 13676-3213  |     Sheepdog          | 
+
+
+From lrosen at rosenlaw.com  Thu Sep 15 21:30:27 2005
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Thu, 15 Sep 2005 14:30:27 -0700
+Subject: OSL 3.0 questions
+In-Reply-To: <6DB6CAE987E2CF507B5B15A8@[192.168.100.25]>
+Message-ID: <20050915173035.GA32231@mail26f.sbc-webhosting.com>
+
+Alex Bligh wrote:
+> A few questions on the OSL 3.0 I have come up with whilst 
+> trying to retrofit an OVPL-like clause for intellectual amusement:
+> 
+> 1. The copyright grant in (1)(c) reads:
+> 	"to distribute or communicate copies of the Original Work and
+> 	Derivative Works to the public, with the proviso that"
+> 
+>    Does that imply that there is not a grant to distribute or 
+> communicate
+>    Original Works and Derived Works other than to the public (e.g. to
+>    one individual third party)? I don't think it can be read 
+> (nor would
+>    you want it read) that the proviso is only meant to apply 
+> for public
+>    distribution, but I think it can be read that selective 
+> distribution
+>    is either prohibited (as opposed to "to the public" meaning "to
+>    third parties").
+
+The licensee has a license to distribute copies to the public. The licensee
+doesn't have to distribute to everyone, but he/she/it can.
+
+> 2. The copyright grant in (1)(c) is conditioned upon 
+> compliance with the
+>    source-code proviso. The patent license in (2) is not so 
+> conditioned,
+>    but only applies to the Original Work and Derivative Works. Clearly
+>    the point here is that a patent grant only in relation to the works
+>    themselves is not much use without a copyright grant. I don't think
+>    this matters (I cannot immediately think why a copyright 
+> might expire
+>    first in a situation we care about), but is there a reason for it?
+
+What do you mean, "only" applies to the O-W and D-W? Is there more it should
+apply to? I specifically intended that independent implementations that are
+not either the original or a derivative work are simply not licensed for the
+patents. The patent grant in OSL 3.0 is inseparably tied to the copyrighted
+works in which those patent claims are originally embodied and to derivative
+works thereof. In this way, the patents are licensed for a particular
+commons of open source copyrighted works, not for extraneous stuff.
+
+> 3. Licensor grants a copyright license under (1). Licensor is 
+> defined as
+>    the owner of the Original Work. A contributor produces a 
+> derived work,
+>    and thus is not (as I see it) a Licensor under the 
+> license. However,
+>    the contributor who distributes under 1(c) must distribute 
+> the software
+>    under "this Open Software License". In respect of the 
+> modifications,
+>    to whom exactly are they granting a license, and how? EG 
+> if a third party
+>    receives the modifications (presumably indirectly via others), what
+>    grant clause gives that third party the right to the contributor's
+>    modifications? Where I am stuck here is that (1) is only a grant in
+>    respect of the Original Work (at least for (a), (d) and (e)), not
+>    for Derived works (so we cannot say that the original Licensor is
+>    somehow sublicensing the contributions made). Equally, 
+> there seems to
+>    be no direct grant by the contributor, as even if he does make the
+>    Derived work available "under this Open Software License" he is not
+>    the Licensor with respect to the Original Work. Or is the idea that
+>    the contributor is, with respect to the distributed Derived work,
+>    the new "Licensor" (as the original license was sublicensable) and
+>    in respect of that distribution and new license, the 
+> derived work is
+>    (in the second license) an new original work (in which case the
+>    definition of Licensor is misleading, as he the distributor of a
+>    derived work is not I think best described as its owner).
+
+Note the warranty of provenance in section 7. Does that answer your concern?
+If not, is your concern from the vantage point of the original licensor,
+some downstream distributor, or an end user? See also my answer below to
+your point 4.
+
+> 4. This probably arises from a similar confusion. (6), (7), 
+> (10), (11),
+>    (14) etc. seem only to refer to the Original Work. Is that 
+> intentionally
+>    asymmetric or does each contributor have their own "view" 
+> of the Original
+>    Work? EG (6) appears to prohibit removal of attribution 
+> notices from
+>    the Original Work, but not from Derived Works (e.g. new notices put
+>    in by contributors). This is a non-issue if every Derived Work when
+>    distributed constitutes somehow a new Original Work under 
+> the license.
+
+You said it: "Every Derived Work when distributed constitutes somehow a new
+Original Work under 
+the license." The "somehow" is because of section 1(c).
+
+> 5. I am going to bring up (7) again. The effect of the last 
+> sentence appears
+>    to be that in a jurisdiction which restricts (even 
+> slightly) disclaimer
+>    of warranty, there is no license granted at all. Is that 
+> the intention.
+
+Yes, that's the intention. The disclaimer of warranty "constitutes an
+essential part of this License. No license to the Original Work is granted
+by this License except under this disclaimer."
+
+If some jurisdiction requires this Licensor to accept warranties (other than
+the warranty of provenance, of course), then this License is not valid in
+that jurisdiction. Please note that, even without warranties, the Licensor
+may still be liable (in a limited way) under general liability laws in any
+jurisdiction in which he/she/it chooses to conduct business. See sections 8
+and 11.
+
+/Larry Rosen
+
+
+
+From brian at collab.net  Sun Jan 16 07:57:57 2005
+From: brian at collab.net (Brian Behlendorf)
+Date: Sat, 15 Jan 2005 23:57:57 -0800 (PST)
+Subject: brainstorming
+In-Reply-To: <200501141451.21874.b.rossen@onsnet.nu>
+References: <200501141451.21874.b.rossen@onsnet.nu>
+Message-ID: <20050115233244.Q9356@bez.hyperreal.org>
+
+
+Ben, it can't be mere coincidence that you start this thread on the same 
+day that IBM makes its announcement of its "patents pledge":
+
+http://www.ibm.com/ibm/licensing/patents/pledgedpatents.pdf
+
+And see the corresponding discussions and articles linked from slashdot, 
+osdir.com, etc. I'm not sure why IBM decided to call it a "legally-binding 
+pledge" rather than a license, but I'll call it a license for shorthand.
+
+It's a very good thing to see happen.  It's a defensive move in what 
+people are worried would be the next SCO-like attack on Linux or other 
+open source projects.  While the press releases and articles trumpted the 
+"value" such ideas might bring to the OS community if implemented, the 
+bigger value in publishing this is being able to raise the costs for 
+anyone considering initiating a lawsuit against an Open Source project - 
+because if you do, your rights to use *any* OS-licensed software that 
+implements those patents is terminated.
+
+Even though this license can apply to any OS-licensed software, it
+has a different effect on derivative works than the OS license itself 
+might have, simply because the license doesn't also extend to derivative 
+works that are not OS-licensed.  For example: if a corporation were to 
+download an IBM-patent-encumbered Apache codebase from apache.org, 
+incorporate that codebase into their proprietary work, and then 
+redistribute the resulting work under a non-OS-license, then the IBM 
+patent license would not extend to this new derivative work - even though, 
+by the terms of the Apache license, releasing a non-OS-licensed derivative 
+work is perfectly fine.  This is not *quite* like the GPL since it appears 
+that the corporation could probably find a way to redistribute the 
+patent-encumbered code under an OS license without releasing the whole 
+derivative work; so I won't use the term "viral", but it's at least 
+an additional complication.
+
+If, if, IBM were to say that the patent license applies to any 
+OS-licensed-work, as well as any derivative of that work (so long as the 
+patent being licensed was originally in the OS-licensed-work) that would 
+solve the problem.  It would still mean that licensees would have to 
+refrain from patent enforcement against OS projects, something the Apache 
+license does not require except in a very limited circumstance.  But... I 
+think that's a reasonable additional restriction.
+
+Unless such a change is made, though, anyone writing BSD or 
+Apache-licensed code would probably do well to *not* examine the list of 
+patents that IBM has granted, for that would (I contend) more or less 
+compell them to note any patents that may apply, and that would in essence 
+constitute a major additional restriction above those licenses.  GPL 
+authors would never need to worry; nor would authors who publish under 
+weak copyleft licenses like the MPL or CPL.
+
+Making sure that patent lawsuits are a mutual-assured-desctruction 
+scenario seems more useful (to me) than compelling Open Source 
+redistribution of patent-encumbered works.
+
+ 	Brian
+
+
+
+From andrew.wilson at intel.com  Wed Feb 13 17:46:28 2008
+From: andrew.wilson at intel.com (Wilson, Andrew)
+Date: Wed, 13 Feb 2008 09:46:28 -0800
+Subject: For Approval: Anonymous Hero Public License
+In-Reply-To: <8ac6caaf0802130927n5095077ak5274574e50a6151e@mail.gmail.com>
+References: <8ac6caaf0802130927n5095077ak5274574e50a6151e@mail.gmail.com>
+Message-ID: <CFC8CCBFB0D386448DE64EE85BA15C8D06434097@orsmsx419.amr.corp.intel.com>
+
+Julien Cayzac wrote:
+> Rationale:
+> This license is meant for publishing source code in a way that allows
+> anybody to modify, re-license, or build upon, the licensed work but
+> explicitly forbids to cite its original author.
+> It is not redundant with any license I am aware of, and clearly allows
+> any source code author to control how his/her name is used on the
+> Internet.
+> 
+> License URI:
+> http://ahpl.julien-cayzac.com/anonymous-hero-public-license.txt
+
+The obvious problem with a self-destructing license is that it
+discriminates against downstream recipients of the code.  Once the
+original copyright notice has been stripped, per requirements
+for redistribution, downstream recipients
+have no documentation of any rights to the code nor of its provenance.
+
+May I suggest a better approach would be to set up a non-profit
+organization ("anonymous-heros.org") which could accept assignment
+of copyright from publicity-averse would-be open source authors.
+The .org could then republish submissions under their copyright
+and under an existing OSI-approved permissive license such as
+BSD or AFL.
+
+Andy Wilson
+Intel open source technology center
+
+
+
+From opensource at LukasAtkinson.de  Thu Feb 11 13:39:47 2021
+From: opensource at LukasAtkinson.de (Lukas Atkinson)
+Date: Thu, 11 Feb 2021 14:39:47 +0100
+Subject: [License-review] Approval submission for the Qlovatech License
+In-Reply-To: <1778fe51a86.e4c758ef670395.6835897552761857987@quentinquaadgras.com>
+References: <1778fe51a86.e4c758ef670395.6835897552761857987@quentinquaadgras.com>
+Message-ID: <cec0e434-a428-c863-bbaf-e04405f0b76f@LukasAtkinson.de>
+
+The presented license is a weak copyleft license, broadly comparable 
+with the LGPL but less focused on end user software freedom. 
+Additionally, it tries to strengthen trademarks through contractual 
+mechanisms, and makes a strong distinction between named copyright 
+holders and unnamed contributors.
+
+I do not think it is suitable for approval.
+
+1. License proliferation. The terms that are OK seem somewhat redundant 
+with other licenses. In particular LGPL-3.0 + additional permissions 
+could achieve a similar weak copyleft effect in a much more legally 
+dependable manner.
+
+2. Confusing drafting. IANAL, but some clauses are written in a 
+confusing or possibly contradictory manner. Some discussion below.
+
+3. Potential software freedom or OSD compliance concerns, especially in 
+condition 4.
+3a. Asymmetry: personal vs other use.
+3b. Asymmetry: implied contributor license agreement.
+3c. GitHub-style forks are not practically possible.
+3d. Modifications can accidentally lead to a license violation.
+
+
+Details on confusing drafting
+-----------------------------
+
+* Per section 1, the license + copyright notices only have to be 
+provided upon request. Without access to the license, recipients won't 
+know that they have this right. Compare also the desert island test and 
+OSD #7.
+
+* In section 2, it is prohibited to ?restrict the rights and/or grants 
+this license gives to others? which is then explained as merely not 
+suing users for exercising their rights under the license. Other 
+restrictions of rights are more likely, e.g. making a service 
+conditional on not exercising the rights or by imposing additional 
+conditions on the license.
+
+* In section 1, ?corresponding source-code? is defined along similar 
+lines as in the GPL-3.0, but excluding ?larger work that this software 
+is embedded in?. Yet in section 1, it is said that extracting a part of 
+the covered work into a larger work would bring that larger work into 
+the corresponding source code scope.
+
+* In section 3, the statement ?Each trademark must be declared by 
+exactly one copyright holder? is non-sensical. Copyright and trademark 
+are orthogonal.
+
+* In section 3, it is permitted to move the list of copyright/trademark 
+notices to another file. Retaining this file is not explicitly required. 
+The Apache-2.0 NOTICE file is a better mechanism.
+
+* In section 4, rules on trademark use are specified. Confusingly, 
+certain exceptions are given. These exceptions seem to include 
+non-trademark use and nominative use, but possibly in a way that would 
+actually broaden permitted trademark use beyond the legal minimum.
+
+* Authors do not give an explicit patent license to recipients. The only 
+patent-related terms protect other copyright holders.
+
+On to more fundamental concerns.
+
+
+The license is asymmetric in two ways that require further discussion.
+----------------------------------------------------------------------
+
+(3a) The license allows modifications and copies for personal use 
+without any restrictions, but applies the license terms only for other 
+use. This might be a field of use restriction (OSD #6).
+
+(3b) If an author omits or removes their copyright notice, this amounts 
+to an unrestricted license agreement to the named copyright holders, 
+which can unanimously relicense the software to ?an open source 
+license?, which is not defined more precisely. This reminds me of the 
+Original Authors mechanism [1] in the ?Convertible Free Software 
+License?, which had previously raised concerns on this list. The given 
+license may be more problematic since the given license discourages 
+adding your copyright notice when making modifications, as discussed below.
+
+[1]: https://opensource.org/LicenseReview012019
+
+
+The license makes it difficult to create modified versions.
+-----------------------------------------------------------
+
+(3c) The license allows modifications under two options:
+
+Either, the covered software is renamed to avoid infringing on any of 
+the listed pseudo-trademarks. This may be fine considering OSD #4, 
+though it's not realistic for software in source form in the current 
+environment of open source collaboration.
+
+Or, the software is not renamed BUT the person making the modification 
+must not add a copyright notice (leading to a loss of rights as 
+discussed previously, and possibly in violation of some international 
+copyright laws), and must not ?publicly promote this fork (except 
+optionally to the listed copyright holders so that they can merge your 
+changes)?. This is unreasonably restrictive and hinders the distribution 
+of bug fixes to other users. Prohibition of promoting a fork might be an 
+OSD #6 violation?
+
+(3d) I consider this to be a license trap, since accidental 
+non-compliance would be trivial. Am I in violation if I fork the 
+software on GitHub, make a pull request to the original project, and 
+tweet about my pull request? That might be considered ?promoting my 
+fork?. I also see no way to add a copyright notice in a contribution to 
+an existing project unless the contribution is only submitted privately 
+to one of the named copyright holders.
+
+
+Conclusion
+----------
+
+Even if the drafting is improved with a legal review, the points 3a?3d 
+would remain. I would like to see a much stronger argument for why these 
+kind of terms are necessary and appropriate in the context of an open 
+source license. Hand-waving into the direction of the SSPL is not a very 
+convincing argument here.
+
+My main objection is that the license offers various choices (renaming 
+vs not renaming, adding a copyright notice vs not adding one), but some 
+combinations lead to a disproportionate loss of rights for the 
+contributor or to a license violation. This license may be convenient 
+for a for a BDFL-style project, but it does not look like a good license 
+for the open source community.
+
+
+On 11/02/2021 08:01, Quentin Quaadgras wrote:
+> Hi,
+> 
+> I'd like the Open Source Initiative to consider approving the Qlovatech 
+> License. I have developed the license to fill a gap in the open source 
+> licensing sphere for use in projects I am developing that are intended 
+> to be open source and I want other developers to be able to adopt this 
+> license for their projects.
+> 
+> International trademark protection is expensive and nothing stops a 
+> large company from taking an open-source project from a small to medium 
+> community and stealing the 'brand' and/or title of that project in order 
+> to make money from that brand. The?Qlovatech license is a strong 
+> library-level copyleft license and is designed to automatically protect 
+> the brand and/or title of any project it covers, whilst preserving the 
+> rights of every user of the software. The author and any contributors to 
+> the project can be confident that the brand they establish for their 
+> project and/or the brands of any forks will not be exploited by other 
+> companies or organizations for commercial gain. Everyone has the right 
+> to create a new brand from their copy of the software, or to rename 
+> and/or rebrand the software so that it will be protected by this license.
+> 
+> The Qlovatech License is attached in plaintext below and I believe that 
+> it is a special-purpose open-source license that meets the OSI's 
+> definition. The license fits somewhere between:
+> The GNU Affero General Public License version 3 (AGPL-3.0), the Artistic 
+> License 2.0, the Mozilla Public License 2.0 (MPL-2.0) and the?The 
+> 3-Clause BSD License (BSD3).
+> 
+> I am aware that existing open-source licenses can have additional terms 
+> added to them in order to protect the Integrity of The Author's Source 
+> Code, however I wanted an open-source license that any developer can 
+> apply to their software without any license modification, so that it 
+> automatically protects their brand and the brand of any derivatives of 
+> that software. As far as copyleft goes, I wanted this to apply to the 
+> scope of a project/library rather than the entire program or to 
+> individual files. This allows the license to be a suitable choice for 
+> projects who want to leave the possibility open to be ported 
+> to?proprietary platforms such as video-game consoles or vehicle displays 
+> but still want any extended functionality or bug fixes to be released in 
+> source-code form.
+> 
+> The license hasn't gone through any legal review yet as I do not have 
+> the required funds to do so and I hope this doesn't block the approval 
+> process. I think a license like this is desperately needed by the open 
+> source community to address some of the issues behind why licenses such 
+> as the Server Side Public License were created. Please let me know if 
+> anything is unclear about the license and/or if you believe that it 
+> doesn't?meet the OSI's definition so that I can take steps to clarify 
+> and/or adjust it.
+> 
+> Best Regards,
+> Quentin Quaadgras
+> 
+> 
+> 
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+> 
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+> 
+
+
+From nelson at crynwr.com  Wed Feb 23 17:30:48 2000
+From: nelson at crynwr.com (Russell Nelson)
+Date: Wed, 23 Feb 2000 12:30:48 -0500 (EST)
+Subject: Dominion Games needs help
+In-Reply-To: <38B4159E.ABEF32D7@arrakis.com.au>
+References: <14513.24047.339090.210077@desk.crynwr.com>
+	<38B4159E.ABEF32D7@arrakis.com.au>
+Message-ID: <14516.6281.96876.576819@desk.crynwr.com>
+
+Because it's not software.  We (OSI) have intentionally decided to
+limit our certification to software.  So while people on the
+license-discuss list might want to help Dominion Games, the
+license-discuss mailing list isn't the right place to do it.
+
+license-discuss is *solely* for discussion of licenses proposed for
+OSI approval.  Any other discussion wastes subscriber's time.
+-russ
+
+Roland Turner writes:
+ > Russell Nelson wrote:
+ > 
+ > > Dominion Games wants to apply the Open Source concept to the rules of
+ > > their games.  Such rules are ordinarily copyrighted with the usual
+ > > lack of permissions.  They want to do something different.  They've
+ > > got a license they like.  If you'd like to review their license, send
+ > > them mail at company at dominiongames.com.  Tell 'em OSI sent you.
+ > 
+ > Hi Russell.
+ > 
+ > I'm a little puzzled. If Dominion has a license that they'd like
+ > reviewed, why do they not simply post the license to
+ > license-discuss at opensource.org?
+ > 
+ > - Raz
+
+
+From bruce at perens.com  Mon Mar 31 17:38:28 2008
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 31 Mar 2008 10:38:28 -0700
+Subject: Open Source Content License (OSCL) 
+In-Reply-To: <000001c89334$64b44f60$2e1cee20$@com>
+References: <000001c89334$64b44f60$2e1cee20$@com>
+Message-ID: <47F12194.6080100@perens.com>
+
+OSCL Steward wrote:
+ > any derivative works must be released under this version or a newer 
+version of the Open Source Content License and published by RCB I.T. 
+Solutions
+
+This looks to be clearly against OSD #5, regarding discrimination 
+against persons or groups.
+
+So, is your intent here that derivative works are not licensed unless 
+your own company publishes them?
+
+ > If anyone here has any legal background and would give a free 
+assessment of the license that would be awesome because do the issue of 
+hiring an attorney to look at it is too expensive for my small company.
+
+
+I know you mean well, but the license text either doesn't communicate 
+the intent clearly or the intent is not compliant with the OSD.
+I would think that legal review is a reasonable prerequisite before you 
+submit a license here these days*. The various free legal resources like 
+SFLC don't generally perform work for for-profit entities. If you can't 
+afford counsel, your best choice would be to select one of the existing 
+Open Source or Creative Commons licenses. It looks as if your intent 
+might best fit one of the non-commercial ones.
+
+And also, OSI has historicaly been loath to certify licenses for 
+anything but software.
+
+I suggest that you withdraw your application for certification until you 
+can produce something with legal review and a more clear intent.
+
+
+    Respectfully Submitted
+
+    Bruce Perens
+
+* And I acknowledge that legal review was not available to me 10 years 
+ago when the OSD was created.
+Not speaking for OSI. I created the OSD (for the Debian project), about 
+8 months before OSI formed.
+
+
