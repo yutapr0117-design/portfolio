@@ -229,7 +229,7 @@ embedding / output にまで特許許諾を及ぼす。** 射程はこの発言�
 >
 > > *"Yes, the review process certainly creates a **Catch-22**. **We want to see licenses early to
 > > correct them, but are less inclined to approve a license that doesn't have a track record.**"*
-> > —— Pamela Chestek 氏・`license-review` 2026-08-26（OpenMDW 審査）
+> > —— Pamela Chestek 氏・`license-review` 2026-08-26（OpenMDW 審査）。同じ人は 2019-06-04 に、使われていないことは欠点の証拠になりうると述べた（#289）。
 >
 > **この register は B2 を「解消可能・未実施（discoverability のみ制御可）」と書いてきたが、
 > *その板挟みが OSI の側にも在り、Chestek 氏（委員・元委員長）がそう認めている* ことを記録していなかった。**
@@ -413,7 +413,7 @@ obvious faults that a legal professional would know to avoid."*
 **なぜ承認上の問題か（事実）**: Licensing Committee 委員（元委員長）が
 *"Which is it, a dedication to the public domain or a license? **You can't have it both ways.**
 … The document is internally contradictory."*（2025-10-16）と述べている。
-ACD-1.0 の中核はまさにその並置である（§2.4 / §4.4）。
+ACD-1.0 の中核はまさにその並置である（§2.4 / §4.4）。CC0 の審査本体では構造が争点にならなかった（`review-precedents.md` §1.138）。
 
 **class 12 でない理由（一次情報・2026-09-09）**
 

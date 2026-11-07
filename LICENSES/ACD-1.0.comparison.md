@@ -313,6 +313,8 @@ rule of thumb であって規則でもない。**
 
 ## 1.4 CC0 —— 同型で OSI の審査に入り、**否決されずに取り下げられた**先例（2012）
 
+**審査の本体と意向調査（13 対 8）の読みは `review-precedents.md` §1.138 に在る（2026-11-07）。**
+
 > **⚠ 見出しの訂正（2026-09-25・#236）。** 旧見出しは「OSI で止まった先例」と述べていた。**当時の OSI 会長 Simon Phipps 氏は 2014-05 にリスト上で明言している** —— *"We did not decide against CC0. The discussion was certainly at a low point when Creative Commons withdrew it from the approval process, but that's what happened, **not an OSI denial**."* `review-corpus.md` は既にこれを訂正していたが、**この見出しは古いまま残っていた**（#222 の class）。**訂正で変わらないもの**: 争点が特許だったこと、CC0 が承認されていないこと、**そして「取り下げ」は「否決」ではないが「承認」でもないこと**（#139 の第 3 の帰結）。
 
 **ACD-1.0 に最も近い先例は CC0 であり、その顛末はこの提出にとって最も重要な事実である。**

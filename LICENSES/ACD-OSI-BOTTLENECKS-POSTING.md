@@ -279,3 +279,13 @@ a latin parody of my name."*（逐語は `rounds/2026-09-09-license-discuss-pere
 
 ---
 
+### 「誰が書いたか」について決める側に近い人が述べたこと（2026-11-07）
+
+**これは通知への反論ではない。** 通知が扱うのはリストへの投稿で、提出されたライセンスの本文ではない。リスト上でこの件を論じる材料でもない。ただ、ライセンスの審査が書き手の属性をどう扱ってきたかの記録がある。
+
+- **Cowan 氏 2014-04-15**（UPL の審査）: *"a license-writer's motives are irrelevant: what counts is the work."* 直前に DiBona 氏が *"Its clear to me that UPL can't be trusted because oracle wrote it."* と述べていた（`rounds/2014-04-15-license-review-upl-cowan-observed.txt`）。UPL は承認されている。
+- **Fontana 氏 2012-03-02**（CC0 の意向調査）: 承認が *"factors that perhaps ought to be illegitimate"* に基づくように見えると述べ、例に *"the status of the license steward"* を挙げた。
+- **同じ人 2019-05-22**: *"the possibility that OSI, or l-r, would treat similar licenses differently based on varying sentimental attitudes toward the license submitter"*、*"the history of inconsistent attitudes on l-r towards submitted licenses based apparently on views of the license submitter."*
+
+**逆側。** どれも個人の発言で、AI には触れていない。Cowan 氏が言うのは書き手の動機で、書き手が何者かではない。Tzeng 氏は 2019 年に *"I believe that historically the L-R list has been quite successful in overcoming submitter bias"* と述べており、Fontana 氏の見方も争われている。そしてどの発言も、投稿が通らないときに本文を読む人が現れることまでは保証しない（`board-decisions.md` §2h の (1)）。
+
