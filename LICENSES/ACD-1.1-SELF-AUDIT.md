@@ -781,6 +781,7 @@ Dedicator が自分では主張せず、独占的なライセンスを受けた�
 | 条 | 持ち込んだ版 | 読み | 1.4 草案 |
 |---|---|---|---|
 | §5.1 第 2 肢 | 1.2（#272）| *"any claim or cause of action … relating to a use of the Work that this Dedication permits"* は特許の請求にも当たり、§15.1 の読みでは K3〜K5 の請求項が §8.4 の限定を丸ごと素通りする。1.2 で足したとき検討したのは商標だけだった | *"other than for patent infringement (Section 8)"* を足した（+7 語）|
+| §5.1 第 2 肢（対価）| 1.2（#272）| 同じ語は、ACD を適用した会社の有償サポートの代金請求も「許された利用に関する請求」にする。`faq.md` A30 は対価を取れると答えていて、§15.1 の広い読みと食い違う | *"or for a payment You agreed to make"* を例外に足した（+8 語・`ACD-1.4-SECOND-CLARITY-TRIAL.md` §13.6）。*"or relating to"* を外す案は bb の反例で落ちた |
 | §8.3 第 1 文 | 文は 1.0 から、衝突は 1.1 の限定から | *"any patent right of the Dedicator in respect of the Work"* に限定が無く、§8.4 の限定の外に残る請求項が *"leaves unaffected"* に当たる。第 3 文と §15.1 が組むと K3〜K5 が戻る | *"any patent claim that Sections 8.1 and 8.4 reach"*（−2 語）|
 | §8.4 の限定 | 1.4 草案の T4 | 方法の請求項では工程が Work の処理そのものなので、*"from the use of the Work"* が同語反復に読め、K4 が戻る | *use* を *content* へ（0 語）|
 | §8.6 第 1 文 | 1.1 の限定から | *"the patent claims described in Sections 8.1 and 8.4"* が第 1 文だけを指すと読むと、約束が許諾より広くなる | *"the patent claims that Sections 8.1 and 8.4 reach"*（§11.4 も同じ語へ）|
