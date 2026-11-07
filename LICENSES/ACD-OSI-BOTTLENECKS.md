@@ -231,6 +231,11 @@ Shuji Sado 氏（Open Source Group Japan 会長）は 2024-03 に、**著作権�
 ***"not open source, at least not in Japan"*** と論じている（§1.59）。**理由は同一性保持権が
 日本ではソフトウェアに及び、改変を止めるのに使えるからである。**
 
+**2026-11-07 追記 —— 同じ Chestek 氏の、逆向きの 2 通が在る。** 2021-02-20（本人の資格で・Ritchey）: *"Maybe your intention is to allow all permitted uses under
+copyright law. But what about patent law? What about moral rights?"* 許諾が述べない権利は *"we are left only to guess"* と続く。
+2024-09-09（`license-review`）: *"We consider patent rights specifically, and we have recently discussed moral rights. I believe there is sufficient expertise on the committee to
+evaluate non-copyright provisions."* どちらも §12 を支持した文ではなく、2026 年の *"mission creep"* のほうが新しい。言えるのは、委員長が人格権を審査の外とは述べていないことである。
+
 **つまり同じ §12 が、一方では「範囲外」と呼ばれ、他方では「これが無いと OSD 3 を
 満たさない法域がある」と論じられている。** どちらも `license-discuss` / `license-review` 上の発言である。
 
