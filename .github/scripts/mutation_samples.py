@@ -521,6 +521,23 @@ _MUTATIONS_TAIL.append({
     "replace": "<h1>Yokoi Yuta のポートフォリオ</h1>",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 444k: 画面のフッターのライセンスへのリンクをコメントにする —— 画面から消えるのに、コメントの中の URL で通っていた",
+    "file": ROOT / "js" / "components.js",
+    "find": (f"            h('div', {{ class: 'p-3' }},\n                h('a', {{\n                    class: 'text-xs text-muted',\n"
+             f"                    href: '/portfolio/LICENSES/{APPLIED_ID}.txt',\n                    rel: 'license noopener noreferrer',\n"
+             f"                    target: '_blank'\n                }}, 'License: {APPLIED_ID}')\n            )"),
+    "replace": (f"            null /* h('div', {{ class: 'p-3' }},\n                h('a', {{\n                    class: 'text-xs text-muted',\n"
+                f"                    href: '/portfolio/LICENSES/{APPLIED_ID}.txt',\n                    rel: 'license noopener noreferrer',\n"
+                f"                    target: '_blank'\n                }}, 'License: {APPLIED_ID}')\n            ) */"),
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 123a: 運用モデルの節の見出しから「現在の運用モデル」を外す —— 直前の行コメントがその語を持つので通っていた",
+    "file": ROOT / "js" / "ai-knowhow-page.js",
+    "find": "                class: 'card card--accent-left', 'data-accent': 'primary', role: 'region', 'aria-label': '現在の運用モデル：AI自走運用への進化'\n            },\n                h('div', { class: 'card-body flex flex-col gap-3' },\n                    sectionHeader('🔄', '現在の運用モデル — 対話型から AI 自走運用への進化', C.primary),",
+    "replace": "                class: 'card card--accent-left', 'data-accent': 'primary', role: 'region', 'aria-label': '運用の記録：AI自走運用への進化'\n            },\n                h('div', { class: 'card-body flex flex-col gap-3' },\n                    sectionHeader('🔄', '運用の記録 — 対話型から AI 自走運用への進化', C.primary),",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
