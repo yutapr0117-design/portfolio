@@ -1,0 +1,41 @@
+name: I use, or plan to use, ACD
+description: Say publicly that a project uses or plans to use the Autonomous Commons Dedication. Only if it is true.
+title: "ACD use: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Nothing requires this. The Dedication asks nothing of you, and you do not need to tell anyone.
+
+        Use by a project is the one thing the steward cannot supply. This page exists so that a real project can say so in public, where anyone can check it.
+
+        Read [`LICENSES/ADOPTING.md`](https://github.com/yutapr0117-design/portfolio/blob/main/LICENSES/ADOPTING.md) first. The text gives you no way to take the act back, no lawyer has reviewed it, and it is not OSI-approved.
+  - type: input
+    id: project
+    attributes:
+      label: Project
+      description: A public URL, so that a reader can check it.
+    validations:
+      required: true
+  - type: dropdown
+    id: state
+    attributes:
+      label: Where it stands
+      options:
+        - It is applied to this project
+        - We plan to apply it
+        - We are interested and have not decided
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why this licence (optional)
+      description: What it does for you that another licence did not.
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: This is true, and I can speak for this project.
+          required: true
