@@ -1,0 +1,548 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2018-12, 2019-05, 2019-06)
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-08)
+Messages: 4 messages this dossier cites from two threads on the review process: "Proposed license decision process" (2018-12) and "Evolving the License Review process for OSI" (2019-05 to 06).
+Senders: Lawrence Rosen, Luis Villa, Henrik Ingo, Bruce Perens
+Position: discussions of how licences should be reviewed. Not addressed to us and not about ACD. Each message is whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Thu Dec 13 21:23:06 2018
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Thu, 13 Dec 2018 13:23:06 -0800
+Subject: [License-discuss] Proposed license decision process
+In-Reply-To: <07eadf53593948e3a9e58267d4ac69d2@nalasexr03f.na.qualcomm.com>
+References: <07eadf53593948e3a9e58267d4ac69d2@nalasexr03f.na.qualcomm.com>
+Message-ID: <01da01d4932a$0bafb100$230f1300$@rosenlaw.com>
+
+Nick Weinstock wrote:
+
+> To your question below, I can cite two examples of Richard?s concern:
+
+ 
+
+And you also cited two examples of your own concern about
+unapproved/un-approvable licenses. Thanks! I appreciate that.
+
+ 
+
+*	Ms-LPL: True. That license is not open source because it fails OSD
+#10. It requires a specific technology. I believe it was not approved by
+OSI.
+*	CPOL: True. That license has a "fields of endeavor" limitation
+concerning "illegal, immoral, or improper purposes." I believe it was not
+approved by OSI. They have always rejected such licenses, but the provision
+can be imposed in another, open source friendly way. I avoided that problem
+in OSL 3.0 by merely placing the contractual obligation to obey the law
+(including export restrictions) upon the licensee. 
+
+OSL 3.0 ? 15: "Right to Use. You may use the Original Work in all ways not
+otherwise restricted or conditioned by this License or by law, and Licensor
+promises not to interfere with or be responsible for such uses by You."
+
+*	BSD: True. The patent license is not express. I have complained
+about that loudly every time someone proposes another BSD version. But our
+community is simply not worried about that. However, if a license now is
+proposed without an express patent grant, I'd object to it vociferously
+based on the definition of "open source software" that you quoted. OSI
+recently disapproved a license that expressly excluded a patent license,
+written that way purposefully to collect consideration. On the other hand,
+licenses from universities or research institutions may try to limit patent
+licenses based on previous contractual or legal requirements. That is why it
+becomes important to define "open source software" as software that is
+"actually distributed under terms that grant...," so that nobody can claim
+that their software is open source merely because they can see it. Is it
+"actually distributed" or "terms that grant" that concerns you? The W3C
+Royalty Free Patent Policy requires only that "the RF license conforming to
+the requirements in this policy shall be made available by the licensor as
+long as the Recommendation is in effect." The hope and expectation is that
+actual patent licenses won't be needed. That was also the approach taken by
+the Open Web Foundation. What is OSI's position on this?
+*	There are no open source copyright or royalty-free patent licenses
+that impose "consideration". There is some confusion in our field about the
+difference between "consideration" and "conditions" in licenses. OSI accepts
+license conditions that related to copyright or license enforcement ? such
+as copyleft, attribution, trademark, the warranty of provenance,
+jurisdiction, patent defense ? but those are not forms of consideration. For
+example, the copyleft "condition" for the licensee to reciprocate with
+his/her own software doesn't mean that anyone proposes to make money off
+that condition; copyleft licenses are granted for the purpose of creating
+"open source software," which is its own reward. Academic licenses, on the
+other hand, treat the "condition" of attribution as its own reward, even
+though there is no way to calculate the actual value of any such pleasure.
+
+ 
+
+/Larry
+
+ 
+
+From: Nicholas Matthew Neft Weinstock <nweinsto at qti.qualcomm.com> 
+Sent: Thursday, December 13, 2018 11:37 AM
+To: lrosen at rosenlaw.com; license-discuss at lists.opensource.org
+Subject: Re: [License-discuss] Proposed license decision process
+
+ 
+
+This crossed in the ether with my response to Richard.
+
+ 
+
+To your question below, I can cite two examples of Richard?s concern:
+
+ 
+
+* Ms-LPL is generally viewed as not ?Open Source? because it has a platform
+limitation.  It?s not listed in SPDX or on OSI.  It would satisfy this
+definition.
+
+ 
+
+* Code Project Open License is sometimes viewed as not ?Open Source? because
+it has a ?fields of endeavor? limitation (may not be used for illegal,
+immoral, or improper purposes).  It is listed in SPDX, but not on OSI.  It
+would satisfy this definition.
+
+ 
+
+I can also cite two examples of my concern, that licenses traditionally
+viewed as ?Open Source? could be excluded by a highly literalist reading of
+the OSD:
+
+ 
+
+* A highly literalist reading of ?actually distributed under terms that
+grant? could suggest that the copyright and patent license terms must be
+express.  The standard 3-clause BSD license does not make any mention of
+patents, and could thus fail the OSD.
+
+ 
+
+* A highly literalist contemplation of ?without payment of royalties or
+other consideration, to distribute the unmodified or modified software?
+could extend ?other consideration? to actions that require the licensee to
+become a licensor, such as requiring binary distribution to also make the
+accompanying source (including the licensee?s modifications) available under
+the same terms.  Copyleft licenses such as GPL could thus fail the OSD.
+
+ 
+
+Note: a highly literalist reading might also exclude CPOL, because it
+requires that a distributing licensee must ensure that recipients agree to
+the license, which could be another ?other consideration.?
+
+ 
+
+-Nick
+
+ 
+
+From: Lawrence Rosen
+Sent: Thursday, December 13, 2018 10:09 AM
+Subject: Re: [License-discuss] Proposed license decision process
+
+ 
+
+Richard Fontana wrote:
+
+> I can easily come up with hypothetical licenses that would seem not to
+fail a highly literalist reading of the OSD, but which historically would
+never have been *treated* as conforming to the OSD, because of an obvious
+failure of the license to provide software freedom as traditionally
+understood in the community.
+
+ 
+
+Can you please cite examples that we've screwed up (or create a
+hypothetical) because of a "highly literalist reading of the OSD"? 
+
+ 
+
+"Traditionally understood?" You sound like the late Justice Antonin Scalia!
+(Sorry; that crack is ad hominem!) :-)
+
+ 
+
+/Larry
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20181213/0c50bdec/attachment.html>
+
+From luis at lu.is  Sat Jun  1 16:02:27 2019
+From: luis at lu.is (Luis Villa)
+Date: Sat, 1 Jun 2019 09:02:27 -0700
+Subject: [License-discuss] [License-review] Evolving the License Review
+ process for OSI
+In-Reply-To: <69b80a2d-b43b-0a84-ef79-30f2907f6918@chesteklegal.com>
+References: <473cb721-da83-195e-1b46-21f61ef35db6@opensource.org>
+ <CAFjZtReB=w3cfd+KfA3F=t4x0pvLkCajLVFW=PM-4z_MyZredg@mail.gmail.com>
+ <69b80a2d-b43b-0a84-ef79-30f2907f6918@chesteklegal.com>
+Message-ID: <CAFjZtRdfJr+57AEiFB1CJP9Co+cBXnbwRov_C5mvVGWwuO1H-Q@mail.gmail.com>
+
+On Sat, Jun 1, 2019 at 5:33 AM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+> Hi Luis,
+>
+> Thanks for the comments. Speaking entirely for myself here, I agree with
+> you. I hope everyone appreciates that this email was just a first step. We
+> are also aware that email sucks (I'm about to tear my hair out after only a
+> month of it, so I hear you) and will be working on a better tooling
+> solution. I don't expect that to happen too soon, though. Small org,
+> volunteers, you get it I'm sure.
+>
+
+Yes, absolutely! Like I said, I greatly appreciate this as a first step,
+and will help as best I can. (I'd be happy to participate in a collaborative
+summary document
+<http://smallcultfollowing.com/babysteps/blog/2019/04/22/aic-collaborative-summary-documents/>
+of the CAL in a modern collaboration tool like Dropbox Paper or Google
+Docs, for example; and might even be moved to volunteer as a moderator for
+a Discourse instance.)
+
+
+> As to rationale and recordkeeping, I expect to be providing a rationale
+> document about the OSI's decisions on license approval. However, Richard
+> Fontana has pointed out the process problem where there is a pile-on in
+> license-review, causing the license submitter to withdraw the license and
+> then no opportunity for the OSI to provide any feedback on what the OSI
+> itself actually thought about the license. Should the OSI be in the
+> business of giving "advisory opinions," and if so, how?
+>
+
+Where there's been a substantial point made, I think the answer is probably
+yes - a concise and board-endorsed summary of the CC0 withdrawal, for
+example, would have been repeatedly useful to be able to point at over the
+years.
+
+How about how the "Master's-Console Open Source Definitive License," a
+> license clearly not ready for review, was handled? The problems were quite
+> obvious with it, so does anything more need to be said about it?
+>
+
+I agree that in trivial/obvious cases like that one, a full opinion need
+not be issued. It might still be worth keeping a list of "trivially
+rejected licenses" by general category ("obviously discriminatory",
+"incoherently written", "explicit patent non-grant", "ICE/996-style", etc.)
+as a reference.
+
+
+> ICYMI, I sent out an email stating we were assuming that it was withdrawn
+> because the submitter moved the discussion to L-D, although never
+> communicated to us that it was formally withdrawn. Should this have been
+> handled differently?
+>
+
+I thought that was a good first step! One could imagine, after a suitable
+waiting period, adding a link to that email to
+opensource.org/rejected-licenses so as to memorialize it and make it easy
+to find later?
+
+
+> And what about a license that is approved? Every license has flaws that
+> people note. Should a rationale document explain why these weren't
+> considered problematic, or is approval good enough?
+>
+
+By analogy to the Rust and Wikipedia RFC summary processes I mentioned in
+my first email, I think probably for all serious license proposals the
+board should have before it a community-reviewed (ideally
+community-drafted!) list of pros/cons/substantive issues raised/issued
+resolved, which it could either approve as-is (in obvious/easy cases) or
+add its own color/flavor to (in more complex cases where an actual decision
+is necessary). Some positive effects we might expect to see from this:
+
+   - documentation that supplements institutional memory (why did we
+   approve some of those old licenses? unclear! a summary document might help
+   us understand, and either fix the problems or apply consistent reasoning
+   going forward)
+   - encourage participation from the whole board, not just the
+   license-review committee (good for the institutional legitimacy of the org;
+   consistent with the move towards a broadly elected board)
+   - sharpen/clarify key points of disagreement (speaking with my Wikipedia
+   hat on, the summaries are really helpful for this; seems the Rust folks
+   have had the same experience)
+   - encourage broader non-board participation (these summary documents are
+   a good way to lower the barrier to participation in a variety of ways)
+
+Hope that helps.
+Luis
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190601/db60a89e/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Sun May 26 16:48:44 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Sun, 26 May 2019 19:48:44 +0300
+Subject: [License-discuss] Evolving the License Review process for OSI
+In-Reply-To: <76d9d0c9-a02e-bba8-a00f-5b97b05ac581@chesteklegal.com>
+References: <473cb721-da83-195e-1b46-21f61ef35db6@opensource.org>
+ <CAK2MWOs1NzN0CoOhR0bdaXkEZSd1ojnMDyWXkZKSgZJPpibNsA@mail.gmail.com>
+ <05d901d5130c$96103ec0$c230bc40$@rosenlaw.com>
+ <863b24c8-5310-5594-44c8-ca73f259b3de@opensource.org>
+ <20190526070427.GM21249@linuxmafia.com>
+ <76d9d0c9-a02e-bba8-a00f-5b97b05ac581@chesteklegal.com>
+Message-ID: <CAKHykethKmYVe-fd91xVQPA0_odeJWTgfqXc_OHENVzA8DaMwg@mail.gmail.com>
+
+Thanks Pam
+
+Your personal response seems easier for me to reply to than the
+initial email. But as a general comment on the board decision I had
+been worried that as OSI becomes more active in education, advocacy
+and even lobbying for open source, there will be (and already are)
+Board members with very little interest in reviewing licenses, or even
+reading these emails. The right action indeed is to appoint a
+committee of people specifically dedicated to that activity. As I
+stated in another thread, my humble volunteer contributions here
+strongly depends on someone else, and in particular a lawyer-someone,
+committed to reading every incoming license, because I certainly can't
+commit to that. So I see the committee as a natural evolution of the
+valuable work Richard has been doing here, and (I'm relieved to see!)
+you have now picked up. Historically my biggest concern was that
+licenses could pass because nobody really read them.
+
+I should say I similarly value the hours of his time that Bruce, the
+organizations founder, devotes to reviewing license proposals. I often
+focus my own questions elsewhere exactly because I agree with his
+conclusions and trust that I cannot possibly do a better job than he
+already did. (Where I didn't agree with him, I have said my opinion.)
+
+In this category, big applause also to Lukas Atkinson's monthly
+mailing list summaries!!!!
+
+As was mentioned, the timing of this announcement correlates with
+recent ad hominem attacks on Richard and Bruce, but I choose to
+believe the causality is rather explained by the newly elected board
+having started its term.
+
+On Sun, May 26, 2019 at 3:33 PM Pamela Chestek <pamela at chesteklegal.com> wrote:
+
+> Speaking in my personal capacity here and quoting only a bit of your
+> email for context, but I take your point in the whole email.
+>
+> What I believe you are linking two things happening that are actually
+> unrelated. Putting the content of the recent open source license
+> submissions aside, the OSI has been criticized recently on two vectors,
+> that the mailing list fails to function as originally intended and the
+> unpredictability of license approval. On the functioning of the mailing
+> list, as Simon pointed out the Board was in agreement that this was a
+> problem and approved the email that was sent.
+>
+
+In my observation this list tends to be rather disciplined and on
+topic as internet discussions go. If anything, the main annoyance are
+the participants who's only contribution seems to be to divert
+discussion from the submitted license back to their favorite license
+that was rejected years ago.
+
+Possibly during the MongoDB review (which I couldn't participate in
+due to being an employee) there were participants who aren't regularly
+active on this list who - I can see someone possibly arguing - made
+remarks that were ad hominem and not appropriate. It seems to me also
+in that case the list self regulated well and those participants
+eventually withdrew from the discussion. I don't (and can't) really
+have a strong opinion about that review, my point is really that I
+can't think of *any other* instance in recent years where this should
+be a concern.
+
+As I mentioned in the beginning, I think your initial communication
+mentioning the code of conduct that already exists, can be considered
+a fairly regular action by a newly elected board. But explaining now
+that the board believes there is an actual issue that needs fixing,
+seems to raise more questions rather than providing any answer.
+
+> There are probably differences of opinion within the Board (at least I
+> perceive Simon and I to have differences of opinion) on whether the
+> second point is actually something that needs to be fixed. The voices
+> who are complaining about the second issue that immediately come to my
+> mind are lawyers, and I agree with them.
+
+With respect, they are lawyers whose proposals have been rejected and
+their criticism - quite frankly - comes across either as sad bickering
+or as intentional lobbying to change OSI policy to something more
+favorable to them. It seems like a reason to be concerned when you say
+that any OSI board decision is motivated by these people's criticism.
+
+> I suspect we are used to
+> working in a world where we have statutes and regulations and
+> precedential case law, so we are unhappy when the answer is only
+> "because we say so." I also think that the OSI will be significantly
+> harmed, perhaps existentially, if it is perceived as acting on whims
+> rather than demonstrating leadership through rational explanation and
+> justification.
+
+You mention specifically Kyle Mitchell. In his case the review
+consists of hundreds of emails, and his views have also been
+relitigated in hundreds of tweets on twitter. Claiming that OSI's
+position (or the community's, as the board didn't speak on the issue)
+has not been explained to him, or that it can be captured in a  is
+simple "because we say so", is simply not true and cannot be taken
+seriously. The same can be said about other recurring complaints, like
+CC0.
+
+I agree that even lawyers who are known in the OSS community sometimes
+appear surprised by community reaction to their proposals. In my
+observation, it could help if they factored in at least the following:
+
+1. This is not a court where you present your case as input and
+receive a verdict as output. All of the rejected licenses could have
+passed review, if the submitter was willing to revise the license
+based on feedback. The reason they have been rejected is that the
+submitter refused to do so. Understanding this principle should ease
+the concern about predictability: Even if you failed to do your
+homework and accidentally proposed to - for example - legalize
+copyrightability of APIs, it doesn't mean that you lost your case and
+the door is shut. The door is always open for a revised submission.
+
+2a. The OSI process is as much about policy as it is about technically
+applying the OSD rules correctly. I've often seen lawyers justify
+submissions by arguing they don't violate the OSD, or that their
+client's needs are served by the new license. But they fail to even
+attempt to explain how the new license is necessary or beneficial for
+the open source community as a whole. Or, recognizing that the OSI is
+an inherently business friendly organization, even just justifying how
+a new license benefits commercial open source beyond their specific
+client.
+
+2b. Licenses cannot adversely affect policy objectives of the FOSS
+community. (NASA, CAL, etc...) But just "doing no harm" also isn't
+sufficient, see 2a.
+
+3. Combining 1 and 2, the process isn't unlike a code review process.
+Indeed, the list of OSI approved licenses is really community
+property. Like our code! The licenses aren't approved because your
+single client needed it, but because the license and licensed code can
+be useful to others too.
+
+
+When the FSF has created and advocated for the four freedoms, the
+freedoms themselves were short and simple, but have been backed by
+articles, blogs and conference talks. This also happened around the
+founding of the OSI, though notably I can't remember much debate about
+the OSD. It's almost as if consensus around the OSD was so strong, and
+its rules so obvious, that such discussion wasn't needed?
+
+So maybe what the OSI is lacking is an investment in blogs or other
+educational material that would help lawyers understand what to expect
+and what they need to navigate? Admittedly, many of them seem to
+struggle with passing the process. (And many issues, like software
+patents, or even the issue of US Gov works being public domain,
+shouldn't come as a surprise to a lawyer who did their homework.) This
+could informally serve a similar purpose as case law does in law.  As
+for the actual process and rules, I'm concerned to hear that you think
+they need to evolve. It seems to me the process is now working better,
+and more predictably, than ever. It is worth noting that the specific
+examples you and Richard point out have been approved a long time ago.
+Maybe the flaws in the process back then were fixed and are not the
+problems we need to fix today?
+
+(The above is about fixes beyond the appointment of a committee, which
+I'm optimistic about and seems like a wise extension of Richard's
+one-man-committee.)
+
+While it is a good idea to help lawyers write and propose better new
+open source licenses, I think it is equally important to point out who
+are not complaining about the OSI process being broken and
+unpredictable: open source developers and projects. Their only concern
+seems to be whether OSI will cave to this criticism and approve
+licenses that the community doesn't agree with. This should be the
+boards primary concern, while listening to the criticism from lawyers
+is a valid secondary concern.
+
+> But I hope to ease your concern that I am a rigid rule follower and can
+> be gamed that way. First, even if I could be gamed or I have nefarious
+> intent, the License Review Committee is four people and the Board is
+> eleven people. I surely can't act unilaterally. Second, I'm not a rigid
+> rule follower, although I am someone who believes that decisions should
+> be consistent and backed up with rationale more compelling than "because
+> we say so." For example, I direct your attention to (brought to my
+> attention by Kyle Mitchell) the OSI-approved  Reciprocal Public
+> License.[^1] This license says "Regarding deployment, under the RPL your
+> changes, bug fixes, extensions, etc. must be made available to the open
+> source community at large when you Deploy in any form -- either
+> internally or to an outside party. Once you start running the software
+> you have to start sharing the software." How do you reconcile that with
+> the current position, and a supposed basis for refusing a license, that
+> there must be freedom to run software? "Because we say so" works, but I
+> think people would be justified in their unhappiness if there is no
+> explanation (which might be "oops, that one slipped through!")
+>
+
+With the exception that the OSI process doesn't produce board level
+statements, surely this is the obvious conclusion and has been
+communicated to Kyle many times?
+
+> So, stay tuned on how the rigor of the decision-making process plays out
+> in the future.
+>
+> I understand that people on this list may be skeptical of my commitment
+> to software freedom and/or open source software, and for you time will
+> tell. That's fine with me. I do hope, though, that there is room for
+> healthy disagreement about what exactly "software freedom" means. We
+> have a recent challenge to the scope of the concept, which is whether it
+> extends to data portability (and if you want to talk about that, lets
+> start a new thread). I do hope that simply having a different opinion on
+> the meaning of software freedom at the fringes doesn't mean that one has
+> become captive to anti-freedom forces.
+>
+
+The data portability aspect of CAL is an exception to many other
+proposed "extensions" in that it is clearly motivated by protecting
+user interests. Whether it can be implemented in practice in an OSD
+compliant way remains to be seen, but at least the idea deserves to be
+discussed and can't be rejected "on its face", which is more than can
+be said about many other of the previously rejected proposals.
+
+henrik
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+
+
+From bruce at perens.com  Sat May 25 18:24:53 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 25 May 2019 11:24:53 -0700
+Subject: [License-discuss] [License-review] Evolving the License Review
+ process for OSI
+In-Reply-To: <3b034980-b80c-bd8f-fa4b-06590620245d@opensource.org>
+References: <473cb721-da83-195e-1b46-21f61ef35db6@opensource.org>
+ <CAK2MWOs1NzN0CoOhR0bdaXkEZSd1ojnMDyWXkZKSgZJPpibNsA@mail.gmail.com>
+ <3b034980-b80c-bd8f-fa4b-06590620245d@opensource.org>
+Message-ID: <CAK2MWOvUJ3VsPRDy6Ufe+pqgCeu0sA5h91wH6ucweRMwHvTLDw@mail.gmail.com>
+
+On Sat, May 25, 2019 at 5:07 AM Pamela Chestek <
+pamela.chestek at opensource.org> wrote:
+
+> in the Board discussions about this communication no one ever said that
+> there should be a limit on the number of emails and I expect no one ever
+> will (or at least I would object to it). I know in an earlier email you
+> mentioned this concept also, although I don't know where it came from.
+>
+
+Josh's complaint on this list.
+
+
+> As Van has argued, it is quite close to the policies underlying
+> anti-Tivoization.
+>
+
+I looked through Affero GPL3 and other approved licenses with
+anti-Tivoization clauses. They don't apply to the passive user - a user who
+does not modify the software. As I have stated, the passive user shouldn't
+need a lawyer to use the software. Van's license presents significant terms
+that apply to passive users and do require them to resort to counsel IMO.
+
+Finally, Pamela, your response to me has been to label my words as "simply
+not true" and "isn't true". Obviously I believe these things to be true and
+your outright rejection of my viewpoint in this way goes beyond the
+demeanor I have usually made use of on this list.
+
+    Thanks
+
+    Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190525/97f6a430/attachment.html>
+

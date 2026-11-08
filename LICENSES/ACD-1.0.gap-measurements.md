@@ -703,3 +703,16 @@ David A. Wheeler 氏が「Public Domain」を OSI のライセンスの一覧に
 **逆側。** Cowan 氏は同じスレッドで、公有の作品を改変すると改変分は改変者の著作物になると述べ、*"That's what makes public-domain notices really bad."* と書いた。ACD では寄与は §2.6 で同じ条件に入るが、寄与として出されない改変は改変者の条件で配られる（§4.5）。これは許容型と同じ性質で、ACD が直すものではない。
 
 **この節が establish しないこと。** 個人の発言で、OSI の決定ではない。Fontana 氏の文は「審査することになる」という見立てで、承認するとは述べていない。
+
+## 1.149 明示の特許許諾、すぐ退けられる類型、共同体への必要性の説明 —— 審査の手順をめぐる 2018〜19 年の議論（2026-11-08）
+
+`license-discuss` の「Proposed license decision process」（2018-12）と「Evolving the License Review process for OSI」（2019-05〜06）から（`rounds/2018-to-2019-license-discuss-review-process-cited-observed.txt`）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"if a license now is proposed without an express patent grant, I'd object to it vociferously"*、*"OSI recently disapproved a license that expressly excluded a patent license"* | Lawrence Rosen 氏 2018-12-13 | §8 は明示の許諾である。新しいライセンスに明示の特許許諾を求める声は、2014 年の Cowan 氏（§1.144）に続いてここにも在る |
+| すぐ退けられる類型の例として *"obviously discriminatory", "incoherently written", "explicit patent non-grant"* | Luis Villa 氏 2019-06 | 3 つ目は ACD に当たらない（§8.3 は除外の逆を明示する）。2 つ目の「支離滅裂な起草」は B3 と B13 の側の危険で、1.4 の読みが潰し続けている |
+| *"The OSI process is as much about policy as it is about technically applying the OSD rules correctly."*、*"they fail to even attempt to explain how the new license is necessary or beneficial for the open source community as a whole."* | Henrik Ingo 氏 2019-05 | OSD に反しないことだけでは足りず、共同体にとっての必要と利益を説明せよ、という求め。ACD の説明は gap（B10）と、出力や学習で受領者を露出させないこと（§6.5）で、提出文はこれを依頼者の都合ではなく共同体の利益として書く必要がある |
+| *"the passive user shouldn't need a lawyer to use the software."* | Bruce Perens 氏 2019-05 | ACD の受領者には義務が無い（§10.1）ので、使うだけの人は何も確かめなくてよい（§2.3、§6.5） |
+
+**この節が establish しないこと。** どれも個人の発言で、OSI の決定ではない。Rosen 氏の言う「最近否決された」ライセンスが何かは、この通からは特定できない。
