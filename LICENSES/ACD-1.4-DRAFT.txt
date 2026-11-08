@@ -212,11 +212,12 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 8.5 now defines "controlled" with "if, and only if", so that
       the ordinary sense of control does not reach the claims errata E39
       left out. (+3 words.)
-    * Section 16.2 now says that a tag placed within a file accompanies that
-      file alone, so that one tagged file does not make a repository the
-      Work. (+10 words.)
-    * Section 16.4 now also reaches identifiers that begin with
-      "LicenseRef-ACD-", the form Sections 16.1 and 16.2 name. (+2 words.)
+    * Section 16.2 now says that a tag placed in a file as a comment
+      accompanies that file alone, so that one file header does not make a
+      repository the Work. (+13 words.)
+    * Section 16.4 now reaches any identifier that "contains" "ACD-" followed
+      by a digit, so that "LicenseRef-ACD-1.4", the form Sections 16.1 and
+      16.2 name, is reached too. (-1 word.)
     * ACD-1.3: 5443 words, 80 clauses. This draft: 5488 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
@@ -830,8 +831,8 @@ PREAMBLE (informative; not part of the operative terms)
        terms, and the terms apply in full whether or not a copy of this text
        accompanies the work. A notice a Dedicator places applies this
        Dedication to the material it identifies, or, where it identifies none,
-       to the material it accompanies. A tag placed within a file accompanies
-       that file alone.
+       to the material it accompanies. A tag placed in a file as a comment
+       accompanies that file alone.
 
   16.3 This Dedication may be applied by anyone, to any work in which they hold
        or may hold rights of their own, without permission from, notice to, or
@@ -843,11 +844,10 @@ PREAMBLE (informative; not part of the operative terms)
        anyone, in any medium, for any purpose, without charge or permission.
        Making a modified text is not restricted; what is restricted is
        distributing one. A modified text may not be distributed under the name
-       "Autonomous Commons Dedication" or under any identifier that begins with
-       "ACD-" or "LicenseRef-ACD-" followed by a digit, except by the Steward
-       (Section 16.5), and by the Steward only as a new version under a version
-       number and identifier that no earlier text, other than a draft
-       identified as such, has borne,
+       "Autonomous Commons Dedication" or under any identifier that contains
+       "ACD-" followed by a digit, except by the Steward (Section 16.5), and by
+       the Steward only as a new version under a version number and identifier
+       that no earlier text, other than a draft identified as such, has borne,
        so that each name and identifier in this family continues to denote one
        fixed text. A modified text may be distributed under a different name. A
        translation is not a modified text for this purpose and may be
