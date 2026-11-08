@@ -720,8 +720,8 @@ MUTATIONS_ARCHIVE5 = [
     {
     "name": "Check 468m: §16.4 の例外を has borne の後ろへ足して広げる —— 2026-11-06 に 5a の相互検証で見つかった穴。間の区間だけ見る形では通っていた",
     "file": CURRENT_DRAFT,
-    "find": "has borne,\n       so that each name",
-    "replace": "has borne, or a corrected text,\n       so that each name",
+    "find": "has borne, so that each name",
+    "replace": "has borne, or a corrected text, so that each name",
     "check": CHECK,
 },
     {

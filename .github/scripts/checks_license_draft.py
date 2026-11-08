@@ -631,9 +631,13 @@ def run(ctx):
         #   2026-11-09 (T47): 数える「先の本文」を Steward が公表したものに限った。違反者が先に
         #   同じ識別子で配った改変版が Steward の番号を塞がないようにするためで、Steward 自身が同じ
         #   識別子で別本文を出せないことは変わらない (1 識別子 = 1 固定本文は Steward の本文の間で保つ)。
+        #   2026-11-09 (T49): 譲渡のあと (§16.5・T45) の Steward が前の Steward の公表した番号を使えないよう、
+        #   "the Steward or a former Steward has published" の形も許す。
         elif (_mx468m.group(1).strip(" ,") not in ("", "other than a draft identified as such",
                                                     "the Steward has published",
-                                                    "the Steward has published, other than a draft identified as such")
+                                                    "the Steward has published, other than a draft identified as such",
+                                                    "the Steward or a former Steward has published",
+                                                    "the Steward or a former Steward has published, other than a draft identified as such")
               or _mx468m.group(2).strip(" ,")):
             _bad468.append(f"468m: §16.4 の例外句が変わった: {(_mx468m.group(1) + '|' + _mx468m.group(2)).strip(' ,|')!r} "
                            "(許すのは 'other than a draft identified as such' か無し、その前に 'the Steward has published' を置く形。広げると 1 識別子 = 1 固定本文が崩れる)")
