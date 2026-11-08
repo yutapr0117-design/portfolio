@@ -549,6 +549,36 @@ _MUTATIONS_TAIL.append({
     "find": '\n## In one screen\n',
     "replace": '\n## In one screen\n\nThis is the licence this repository applies.\n',
 })
+_MUTATIONS_TAIL.append({
+    "name": 'Check 147: 実在する要素の id を語の延長に変える —— 語の境界 \\b で探しており、id="role-split-table-x" の中の語で満たされていた',
+    "file": ROOT / 'js' / 'pages.js',
+    "find": "id: 'role-split-table'",
+    "replace": "id: 'role-split-table-x'",
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 147: タグ付きの selector で実在しない class を指す —— `#` / `.` で始まらない selector は黙って外していた',
+    "file": ROOT / 'js' / 'meta-management.js',
+    "find": "'ai-knowhow':  ['h1', '.ai-summary-block', '.sr-only']",
+    "replace": "'ai-knowhow':  ['h1', 'section.no-such-el', '.sr-only']",
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 147: 子孫 selector の 2 つ目に実在しない class を置く —— 先頭の token しか見ていなかった',
+    "file": ROOT / 'js' / 'meta-management.js',
+    "find": "'ai-knowhow':  ['h1', '.ai-summary-block', '.sr-only']",
+    "replace": "'ai-knowhow':  ['h1', '.sr-only .no-such-el', '.sr-only']",
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 147: id でしか無い要素を class の selector で指す —— 記号を捨てた語で探しており、.x が id="x" で満たされた (この bug の実例が同 file の [FIX] にある)',
+    "file": ROOT / 'js' / 'meta-management.js',
+    "find": "'role-split':  ['h1', '#role-split-table', '.sr-only']",
+    "replace": "'role-split':  ['h1', '.role-split-table', '.sr-only']",
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 147: 実在する要素の class だけを変え、宣言は JSON-LD に残す —— index.html の静的 JSON-LD が同じ cssSelector を宣言しており、それ自体が語を満たしていた',
+    "file": ROOT / 'index.html',
+    "find": 'class="sr-only ai-summary-block"',
+    "replace": 'class="sr-only ai-summary-blocks"',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
