@@ -628,10 +628,15 @@ def run(ctx):
         _mx468m = re.search(r"no earlier text(.*?)has borne(.*?)so that each name", _s468m)
         if not _mx468m:
             _bad468.append("468m: §16.4 の 'no earlier text … has borne … so that each name' の形が読めない")
-        elif (_mx468m.group(1).strip(" ,") not in ("", "other than a draft identified as such")
+        #   2026-11-09 (T47): 数える「先の本文」を Steward が公表したものに限った。違反者が先に
+        #   同じ識別子で配った改変版が Steward の番号を塞がないようにするためで、Steward 自身が同じ
+        #   識別子で別本文を出せないことは変わらない (1 識別子 = 1 固定本文は Steward の本文の間で保つ)。
+        elif (_mx468m.group(1).strip(" ,") not in ("", "other than a draft identified as such",
+                                                    "the Steward has published",
+                                                    "the Steward has published, other than a draft identified as such")
               or _mx468m.group(2).strip(" ,")):
             _bad468.append(f"468m: §16.4 の例外句が変わった: {(_mx468m.group(1) + '|' + _mx468m.group(2)).strip(' ,|')!r} "
-                           "(許すのは 'other than a draft identified as such' か無し。広げると 1 識別子 = 1 固定本文が崩れる)")
+                           "(許すのは 'other than a draft identified as such' か無し、その前に 'the Steward has published' を置く形。広げると 1 識別子 = 1 固定本文が崩れる)")
 
         # ── 468l: 草案の全行が 80 桁以内であること ─────────────────────────────────────
         #   1.0 は全行 ≤80 で、本文は `-` × 80 の区切り線と同じ幅で組まれている。1.1 / 1.2 / 1.3 は

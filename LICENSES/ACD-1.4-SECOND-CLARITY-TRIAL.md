@@ -509,3 +509,5 @@ bb が §1.9（T35）で見つけたレンズを 80 条に当てた（2026-11-08
 **由来**: Steward の但し書きは 1.1 で入った文（E14 を閉じたとき）。1.0 に無いので、採るなら `ACD-1.1-SELF-AUDIT.md` に書く。
 
 **逆側**: (1) +4 語（B3）。(2) 違反者の *ACD-1.5* は世に残るので、正規の 1.5 と同じ識別子を帯びた本文が 2 つ在る状態は変わらない。変わるのは、Steward が番号を続けられることと、正規の版の §16.2 がその識別子の札をどの本文に結ぶかを決めることである。(3) 468m の目印と mutation の anchor（*"that no earlier text, other than a draft identified as such, has borne"*）が句の途中に語が入るので割れる。採るなら同じ commit で替える。
+
+**採否（2026-11-09・T46 と T47 を採った・+7 語）**: 5a の比較で、T46 は語 +3・条と重複 +0・指示語 0・468u の目印は欠けない。T47 は語 +4 で、468m（例外句の形）と mutation の anchor 2 件が新しい句で RED になるので、同じ commit で 468m の許す形に *"the Steward has published"* を前に置く形を足し、anchor を *"that no earlier text the"* と *"other than a draft identified as such, has borne"*（どちらも草案で一意）へ替えた。Steward 自身が同じ識別子で別本文を出せないことは変わらないので、468m の目的（1 識別子 = 1 固定本文を Steward の本文の間で保つ）は残る。**訂正**: §14.21 の「由来」に「1.1 で入った文」と書いたが、*no earlier text* の但し書きは 1.4 草案で入った文である（2026-11-01・#279 への対応）。1.3 の §16.4 は *"except by the Steward (Section 16.5)"* までで、番号の再使用を禁じる語を持たない。したがって T47 は SELF-AUDIT ではなく、この記録だけに残す。T46 の大小の穴は 1.0 の *"the identifier "ACD-1.0""* から在るので、errata の番号は bb が付ける。
