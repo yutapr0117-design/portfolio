@@ -568,6 +568,13 @@ _MUTATIONS_TAIL.append({
     "replace": "except by <your name> (Section 16.5), and by",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 468: §16.2 の通知の主語「a Dedicator」を落とす —— タグを残しただけの取り込み手まで通知の適用に入る (468u の目印)",
+    "file": CURRENT_DRAFT,
+    "find": "accompanies the work. A notice a Dedicator places applies this",
+    "replace": "accompanies the work. A notice placed applies this",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
