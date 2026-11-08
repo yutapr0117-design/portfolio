@@ -221,7 +221,7 @@ def run(ctx):
             not _orphans362,
             f"Check 362: all {len(_ms362.MUTATIONS) + len(_ms362.E2E_MUTATIONS)} mutation find-anchors "
             "(MUTATIONS ∪ E2E_MUTATIONS) resolve in their target files",
-            f"Check 362: orphaned mutation find-anchor(s): {_orphans362[:5]}. "
+            f"Check 362: orphaned mutation find-anchor(s) ({len(_orphans362)} 件): {_orphans362[:5]}. "
             "リファクタ/抽出で anchor の対象コードが別 file へ移動/消滅した — mutation_samples.py の該当 "
             "file/find を現行コードへ追従させよ (mutation-probe は CI 非実行ゆえ本 Check が anchor 整合を守る)",
         )
