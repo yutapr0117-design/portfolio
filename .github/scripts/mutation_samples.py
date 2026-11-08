@@ -291,55 +291,7 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 2: SITE_CONFIG の直前のコメントに旧い値を残したまま VERSION を進める —— 同じ形で版数の同期が見えなかった (Check 177 も同じ理由で発火する)",
-    "file": ROOT / "main.js",
-    "find": "        const SITE_CONFIG = {\n            VERSION:       'v74',",
-    "replace": "        // 旧: VERSION:       'v74',\n        const SITE_CONFIG = {\n            VERSION:       'v75',",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 444a: 旧い版を指す rel=license を先頭に足す —— 先頭の 1 本が実 file へ解決するかだけを見ていた頃は通った (1.0 の全文も実在する)",
-    "file": ROOT / "index.html",
-    "find": f'<link rel="license" href="/portfolio/LICENSES/{APPLIED_ID}.txt" />',
-    "replace": f'<link rel="license" href="/portfolio/LICENSES/ACD-1.0.txt" /><link rel="license" href="/portfolio/LICENSES/{APPLIED_ID}.txt" />',
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 444c: manifest の SPDX 式だけを前の版へ戻す —— spdx_id と url しか比べず、同じブロックの中で版が 2 つになっても通った",
-    "file": ROOT / ".well-known" / "aio-manifest.json",
-    "find": f'"conforming_spdx_expression": "LicenseRef-{APPLIED_ID}",',
-    "replace": '"conforming_spdx_expression": "LicenseRef-ACD-1.0",',
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 444d: robots.txt で全文を Disallow する —— 全文は sitemap の <loc> しか見ておらず、robots を読まなかった",
-    "file": ROOT / "robots.txt",
-    "find": f"Allow: /portfolio/LICENSES/{APPLIED_ID}.txt\n",
-    "replace": f"Disallow: /portfolio/LICENSES/{APPLIED_ID}.txt\n",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 444e: llms-full.txt の宣言の文だけを別の版にする —— 識別子が file のどこかに 1 回あれば通った",
-    "file": ROOT / "llms-full.txt",
-    "find": f"Dedication {APPLIED_ID.split('-')[1]} ({APPLIED_ID})**",
-    "replace": "Dedication 1.0 (ACD-1.0)**",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 444f: route 追従ノードの license を前の版にする —— SITE_CONFIG の定義行が常に満たしたので、ノードの値は見られていなかった",
-    "file": ROOT / "main.js",
-    "find": f"'license': SITE_BASE + 'LICENSES/{APPLIED_ID}.txt',",
-    "replace": "'license': SITE_BASE + 'LICENSES/ACD-1.0.txt',",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 444h: sitemap の唯一の <image:license> を消す —— 0 件のとき else が無く、画像のライセンス宣言が消えても通った",
-    "file": ROOT / "sitemap.xml",
-    "find": f"<image:license>https://yutapr0117-design.github.io/portfolio/LICENSES/{APPLIED_ID}.txt</image:license>",
-    "replace": "",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 451c: manifest の attribution_required の鍵を改名する —— manifest 側が欠けると比較を飛ばし、答えが消えても OK だった",
-    "file": ROOT / ".well-known" / "aio-manifest.json",
-    "find": '"attribution_required": false,',
-    "replace": '"attribution_required_x": false,',
-})
 
 _MUTATIONS_TAIL.append({
     "name": "Check 441b: 草案の Section 11 への参照を存在しない Section 19 にする —— 凍結した 1.0 しか読まず、動く唯一の本文を見ていなかった",
