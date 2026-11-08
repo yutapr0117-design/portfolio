@@ -61,11 +61,12 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-08 時点・319 ファイル）
+## いまの状態（2026-11-08 時点・320 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
 | 2026-11-07 | SPDX | **観測（収録基準の現行と前の版）** | `2026-11-07-spdx-license-inclusion-guidelines-snapshot.txt` |
+| 2014〜2024 | `license-discuss` | **観測（公有・特許・AI の 3 本から引いた 11 通）** | `2014-to-2024-license-discuss-public-domain-patents-ai-cited-observed.txt` |
 | 2011〜2017 | `license-discuss` / `license-review` | **観測（waive all rights と BSD + Patent から引いた 16 通・2 分割の 1/2 部）** | `2011-to-2017-license-lists-cc0-patents-and-bsd-patent-cited-observed-1of2.txt` |
 | 2011〜2017 | `license-discuss` / `license-review` | **観測（waive all rights と BSD + Patent から引いた 16 通・2 分割の 2/2 部）** | `2011-to-2017-license-lists-cc0-patents-and-bsd-patent-cited-observed-2of2.txt` |
 | 1999〜2026 | `license-review` / `license-discuss` | **観測（未読スレッドから引いた 57 通・5 分割の 1/5 部）** | 長い 2 通は署名までで切り、ヘッダにそう書いた。`1999-to-2026-license-lists-unread-threads-cited-observed-1of5.txt` |

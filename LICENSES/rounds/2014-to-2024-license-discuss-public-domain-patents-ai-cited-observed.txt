@@ -1,0 +1,610 @@
+Source: https://lists.opensource.org/pipermail/ (license-discuss 2014-05, 2017-03 and 2024-05)
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-08)
+Messages: 11 messages this dossier cites from three threads: "Can OSI take stance that U.S. public domain is open source?" (2014), "patent rights and the OSD" (2017) and "Curious about derived works and AI" (2024). Not one thread.
+Senders: Karl Fogel, John Cowan, Henrik Ingo, Richard Fontana, Josh Berkus, Shuji Sado, Bruce Perens
+Position: statements about public domain, patents and machine learning in general. Not addressed to us and not about ACD. Each message is whole.
+
+----- begin verbatim -----
+From kfogel at red-bean.com  Fri May  2 19:55:55 2014
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Fri, 02 May 2014 14:55:55 -0500
+Subject: [License-discuss] Can OSI take stance that U.S. public domain is
+	open source?
+Message-ID: <87eh0cuf90.fsf@ktab.red-bean.com>
+
+This thread on GitHub gets (needlessly?) complicated.  It's about a
+public-domain software work put out by the U.S. government, and there's
+no clarity on whether calling it "open source" and citing the OSI's
+definition of the term would be appropriate:
+
+  https://github.com/ngageoint/geoevents/issues/2#issuecomment-41739913
+
+Someone cites our FAQ item on it (which, as its primary author, I found
+tickled my vanity :-) ), but really, I wish they didn't have to cite the
+OSI FAQ and could instead just say "yup, public domain is open source".
+
+The things we don't like about public domain (lack of explicit liability
+limitation, different definitions in different jurisdictions) are not in
+themselves counter to the OSD, after all.
+
+Thoughts?  Should OSI look for a route to say that public domain works
+(like ones put out by the U.S. government) are open source too, or is it
+just too problematic?
+
+Stirring the pot,
+-Karl
+
+
+From kfogel at red-bean.com  Sat May  3 19:00:53 2014
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Sat, 03 May 2014 14:00:53 -0500
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+	is open source?
+In-Reply-To: <20140502234420.479f4953@riley> (Richard Fontana's message of
+	"Fri, 2 May 2014 23:44:20 -0400")
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+Message-ID: <87d2fu7km2.fsf@floss.red-bean.com>
+
+Richard Fontana <fontana at sharpeleven.org> writes:
+>This work's authors seem to explicitly say that they are dedicating it
+>to the public domain, not merely (or explicitly at all, as far as
+>I can see here) relying on the notion of statutory public domain for
+>US government works. I'd argue those are two different concepts of
+>"public domain" (one of which is really something more akin to the
+>effect achieved by CC0). 
+
+No, I took away the opposite impression: they are US gov't employees
+working on a gov't project on gov't time, and that they contend they
+therefore have no choice about its public domain status.
+
+That's what they seem to be saying in the comments, and it matches the
+owner of the GitHub account, which is the US National Geospatial Agency:
+
+   https://github.com/ngageoint/geoevents/
+
+>With statutory public domain works, you can't be sure out of context
+>what the status of the work is when published outside the US. See e.g.
+>http://www.cendi.gov/publications/04-8copyright.html#317. I've found
+>that many US government lawyers dealing with open source seem to assume
+>that 17 USC 105 operates worldwide (this sometimes comes up in the form
+>of a refusal to sign CLAs because 'there is no copyright to license').
+>
+>Also with statutory public domain works you have the same old MXM/CC0
+>inconsistency problem in a different form. Consider the case of public
+>domain source code created by a US government employee, having features
+>covered by a patent held by the US government.
+
+The patent issue would apply just as much if it were MIT- or
+BSD-licensed, though, and we'd call it "open source" then, right?
+
+http://www.cendi.gov/publications/04-8copyright.html#317 seems to
+indicate that we'd need an explicit notice that the U.S. government will
+not claim any copyright on the work in jurisdictions outside the U.S.
+
+If the US government were to publish such notice on a given work -- say,
+if standardized language for doing so were approved by the OSI :-) --
+then would there be any sense in which the work would not be compliant
+with the OSD?  E.g., would its open-sourceness be materially different
+from an MIT-licensed work?
+
+It wouldn't have any attribution or no-warranty clause, but the
+*absence* of those clauses is not a problem w.r.t. the OSD.
+
+Best,
+-K
+
+
+From cowan at mercury.ccil.org  Sat May  3 19:10:55 2014
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Sat, 3 May 2014 15:10:55 -0400
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <87d2fu7km2.fsf@floss.red-bean.com>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com>
+Message-ID: <20140503191055.GC31120@mercury.ccil.org>
+
+Karl Fogel scripsit:
+
+> The patent issue would apply just as much if it were MIT- or
+> BSD-licensed, though, and we'd call it "open source" then, right?
+
+Indeed.  We may not be in the business of approving licenses without
+patent grants any more, but nobody can say that licenses that don't
+grant patent rights explicitly are not open-source licenses.
+
+> If the US government were to publish such notice on a given work -- say,
+> if standardized language for doing so were approved by the OSI :-) 
+
+That's essentially what the NASA Open Source Agreement does
+<http://opensource.org/licenses/NASA-1.3>.  It's already fully templated
+(except for the name, which is inessential), and U.S. government employees
+should be urged to use it.
+
+-- 
+John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+Most people are much more ignorant about language than they are about
+[other subjects], but they reckon that because they can talk and read and
+write, their opinions about talking and reading and writing are as well
+informed as anybody's.  And since I have DNA, I'm entitled to carry on at
+length about genetics without bothering to learn anything about it.  Not.
+                        --Mark Liberman
+
+
+From cowan at mercury.ccil.org  Sat May  3 20:13:37 2014
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Sat, 3 May 2014 16:13:37 -0400
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <20140503155316.4d149d8f@riley>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com> <20140503155316.4d149d8f@riley>
+Message-ID: <20140503201337.GF31120@mercury.ccil.org>
+
+Richard Fontana scripsit:
+
+> When the MXM license was considered, some people pointed to OSD #7
+> as suggesting that a sufficiently narrowly-drawn patent license grant
+> in a license would not be Open Source. This was the problem I raised
+> when CC0 was submitted. It was the inconsistency. It depends on your
+> view of how the OSD applies to patents.
+
+Since it nowhere mentions them, I don't see how it can apply to them.
+#7 merely says that licenses of the form "You get rights a, b, and c,
+whereas your transferees only get rights a and b", possibly qualified by
+"unless they sign this", aren't open-source licenses.
+
+I continue to think that our CC0 decision was wrong insofar as it can
+be read as saying that the CC0 license is not an open-source (as opposed
+to OSI Certified) license.  There may be reasons not to certify it,
+but not to deny that it is open source.
+
+-- 
+John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+Female celebrity stalker, on a hot morning in Cairo:
+"Imagine, Colonel Lawrence, ninety-two already!"
+El Auruns's reply:  "Many happy returns of the day!"
+
+
+From henrik.ingo at avoinelama.fi  Sun May  4 06:47:23 2014
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Sun, 4 May 2014 09:47:23 +0300
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <20140503201337.GF31120@mercury.ccil.org>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com> <20140503155316.4d149d8f@riley>
+	<20140503201337.GF31120@mercury.ccil.org>
+Message-ID: <CAKHykesQ4ft24MJPn1TrsZmyFO6pYOnmvYtDYbhmgD045oAhWA@mail.gmail.com>
+
+The analoguous explanation for why cc0 didn't qualify is that it explicitly
+said "you get rights a and b but not c", with c a necessary right to copy
+and use the software. It should be obvious that - even if you'd disagree
+wrt patents - at least for some values of c that is clearly not open source.
+
+The fact that many older licenses are silent/ambiguous about c, and were
+written in a time when c didn't exist, is a different problem.
+
+henrik
+On 3 May 2014 23:14, "John Cowan" <cowan at mercury.ccil.org> wrote:
+
+> Richard Fontana scripsit:
+>
+> > When the MXM license was considered, some people pointed to OSD #7
+> > as suggesting that a sufficiently narrowly-drawn patent license grant
+> > in a license would not be Open Source. This was the problem I raised
+> > when CC0 was submitted. It was the inconsistency. It depends on your
+> > view of how the OSD applies to patents.
+>
+> Since it nowhere mentions them, I don't see how it can apply to them.
+> #7 merely says that licenses of the form "You get rights a, b, and c,
+> whereas your transferees only get rights a and b", possibly qualified by
+> "unless they sign this", aren't open-source licenses.
+>
+> I continue to think that our CC0 decision was wrong insofar as it can
+> be read as saying that the CC0 license is not an open-source (as opposed
+> to OSI Certified) license.  There may be reasons not to certify it,
+> but not to deny that it is open source.
+>
+> --
+> John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+> Female celebrity stalker, on a hot morning in Cairo:
+> "Imagine, Colonel Lawrence, ninety-two already!"
+> El Auruns's reply:  "Many happy returns of the day!"
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20140504/76c3c998/attachment.html>
+
+From fontana at sharpeleven.org  Sat May  3 03:44:20 2014
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Fri, 2 May 2014 23:44:20 -0400
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <87eh0cuf90.fsf@ktab.red-bean.com>
+References: <87eh0cuf90.fsf@ktab.red-bean.com>
+Message-ID: <20140502234420.479f4953@riley>
+
+On Fri, 02 May 2014 14:55:55 -0500
+Karl Fogel <kfogel at red-bean.com> wrote:
+
+> This thread on GitHub gets (needlessly?) complicated.  It's about a
+> public-domain software work put out by the U.S. government, and
+> there's no clarity on whether calling it "open source" and citing the
+> OSI's definition of the term would be appropriate:
+> 
+>   https://github.com/ngageoint/geoevents/issues/2#issuecomment-41739913
+> 
+> Someone cites our FAQ item on it (which, as its primary author, I
+> found tickled my vanity :-) ), but really, I wish they didn't have to
+> cite the OSI FAQ and could instead just say "yup, public domain is
+> open source".
+> 
+> The things we don't like about public domain (lack of explicit
+> liability limitation, different definitions in different
+> jurisdictions) are not in themselves counter to the OSD, after all.
+> 
+> Thoughts?  Should OSI look for a route to say that public domain works
+> (like ones put out by the U.S. government) are open source too, or is
+> it just too problematic?
+
+This work's authors seem to explicitly say that they are dedicating it
+to the public domain, not merely (or explicitly at all, as far as
+I can see here) relying on the notion of statutory public domain for
+US government works. I'd argue those are two different concepts of
+"public domain" (one of which is really something more akin to the
+effect achieved by CC0). 
+
+With statutory public domain works, you can't be sure out of context
+what the status of the work is when published outside the US. See e.g.
+http://www.cendi.gov/publications/04-8copyright.html#317. I've found
+that many US government lawyers dealing with open source seem to assume
+that 17 USC 105 operates worldwide (this sometimes comes up in the form
+of a refusal to sign CLAs because 'there is no copyright to license').
+
+Also with statutory public domain works you have the same old MXM/CC0
+inconsistency problem in a different form. Consider the case of public
+domain source code created by a US government employee, having features
+covered by a patent held by the US government.
+
+ - RF
+
+
+
+From cowan at mercury.ccil.org  Sun May  4 18:49:35 2014
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Sun, 4 May 2014 14:49:35 -0400
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <87wqe1a3si.fsf@floss.red-bean.com>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com> <20140503155316.4d149d8f@riley>
+	<20140503201337.GF31120@mercury.ccil.org>
+	<87wqe1a3si.fsf@floss.red-bean.com>
+Message-ID: <20140504184935.GB12238@mercury.ccil.org>
+
+Karl Fogel scripsit:
+
+> After all, the *definition* of "open source" is supposed to be just
+> "whatever complies with the OSD".  And our certification process is
+> also "Does this comply with the OSD?"...  So the two shouldn't diverge;
+> to the extent that they do, we have a problem.
+
+Actually, that's only part of our process.  We also are supposed to
+"discourage vanity and duplicative licenses".  We have neither the
+resources nor the desire (I think) to certify all the unique licenses
+that companies have cooked up for their products, to say nothing of all
+the skrillions of BSD and MPL variants out there.  So I think the two
+must and should diverge: arse [sic] longa, vita brevis.
+
+What is more, we don't certify a license unless the license steward
+asks us to.  When I proposed that the MSPL be certified, the request
+was (rightly) rejected, because I am not the steward; later, the actual
+steward did request it and it was certified.  At neither time did anyone
+say the license was not open-source.
+
+In the end, certification is just a convenience to the users: it says
+that a group of fairly knowledgeable people are willing to stand behind
+the cliam that each certified license conforms to the OSD.  We don't
+and can't claim to have a comprehensive list.  We know that uncertified
+but compliant licenses are Out There, and new ones can and will appear
+indefinitely.
+
+> But in the long run I think we have two mutually exclusive choices:
+> 
+>   1) Have licenses out in the world that are OSD-compliant, and that we
+>      informally agree are "open source", but that we don't certify.
+
+This is not a choice, it's an accomplished fact.
+
+>      This will cause growing divergence between "what is open source"
+>      and "what the OSI has approved".  That would be very, very bad.
+
+Bad or not, it is inevitable.
+
+>   2) Officially certify any license (or PD status / PD dedication) that
+>      is OSD-compliant as open source, but for most of them attach
+>      commentary explaining why most people probably shouldn't use it and
+>      why one should one of the popular licenses instead.
+
+That would be a return to our original process, when we tried to do
+just that.  Not only did we fail, we got substantial pushback that
+what we were doing is not what users needed, so we adopted our current,
+more conservative process.
+
+> I completely agree, by the way, that we can be active about requiring
+> certain kinds of patent promises.  E.g., maybe we wouldn't certify PD
+> itself for software works, but would certify PD *when accompanied by* a
+> particular patent non-assertion text.  
+
+Unless you can show how a failure to mention patents, or even a completely
+adverse mention of them ("no patent rights whatsoever") contravenes the
+OSD, this position contradicts your above position of "certify anything
+that conforms".  You can't have it both ways.
+
+-- 
+John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+The peculiar excellence of comedy is its excellent fooling, and Aristophanes's
+claim to immortality is based upon one title only: he was a master maker
+of comedy, he could fool excellently.  Here Gilbert stands side by side
+with him.  He, too, could write the most admirable nonsense.  There has
+never been better fooling than his, and a comparison with him carries
+nothing derogatory to the great Athenian. --Edith Hamilton, The Greek Way
+
+
+From fontana at sharpeleven.org  Tue Mar  7 21:09:04 2017
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Tue, 7 Mar 2017 16:09:04 -0500
+Subject: [License-discuss] [Non-DoD Source]  patent rights and the OSD
+In-Reply-To: <f3e26d62-a9dd-4105-a20f-4d99b1f56726@me.com>
+References: <A677A9FB362B2F499BEFD6F80687FE97BFE3B45D@UMECHPA7F.easf.csd.disa.mil>
+ <f3e26d62-a9dd-4105-a20f-4d99b1f56726@me.com>
+Message-ID: <20170307210904.GA21797@dexter>
+
+On Tue, Mar 07, 2017 at 03:55:37PM +0000, Christopher Sean Morrison wrote:
+
+> Of particular significance, it calls into question whether there are
+> any OSI-approved licenses that specifically exclude patent rights in
+> the current portfolio or whether CC0 would be the first of its
+> kind.? If there ARE, then CC0 would not create a precedent situation
+> any worse than currently exists and approval could move forward.
+
+I'm not aware of any.
+
+There is the 'Clear BSD' license, which the FSF considers not only a
+free software license but also GPL-compatible:
+
+https://directory.fsf.org/wiki/License:ClearBSD
+https://www.gnu.org/licenses/license-list.en.html#clearbsd
+
+But I am not aware of this license ever having been submitted for OSI
+approval.
+
+I've also seen one or two companies engage in the practice of
+licensing code under GPLv2 accompanied by a statement that no patent
+licenses are granted.
+
+> If there AREN'T, that begs under non-proliferation for any new licenses that explicitly disclaim patent rights to be found OSD-inadequate, particularly w.r.t. clauses #1 and #7.? Moreover, any license approval for a new license containing a patent disclaimer (e.g., CC0) would necessarily require modification or accompaniment by a required patent grant mechanism (such as ARL's approach) in order to satisfy the OSD.
+
+So in other words, "this license is Open Source to the extent that,
+when used, it is accompanied by [a separate appropriate patent license
+grant]", for example?
+
+Richard
+
+
+From josh at berkus.org  Sat May 25 19:39:25 2024
+From: josh at berkus.org (Josh Berkus)
+Date: Sat, 25 May 2024 12:39:25 -0700
+Subject: [License-discuss] Curious about derived works and AI...
+In-Reply-To: <CAM2D7j3eMQ1GS9WiZXhGsAPCqATv86asrvFDtEKsjwH-2EJ6VA@mail.gmail.com>
+References: <CAM2D7j3eMQ1GS9WiZXhGsAPCqATv86asrvFDtEKsjwH-2EJ6VA@mail.gmail.com>
+Message-ID: <6d95804c-1417-493a-8163-450be53e29b8@berkus.org>
+
+On 5/18/24 17:06, Miles Georgi wrote:
+> Hi! If I open-source a project with a free license, if code from that 
+> project winds up being used as training data or prompt data to a 
+> code-generating AI to generate similar code, would that generated code 
+> be considered a derived work under any circumstances? And does that 
+> potentially depend on what license is chosen?
+
+This is very much a matter of current court cases, so any answer you get 
+now you'd expect to be different in 2-3 years.  Also, edge cases like 
+this will vary by country.
+
+In other words: you will need to retain an attorney to answer this 
+question, and they will likely tell you "it depends".
+
+-- 
+Josh Berkus
+
+
+
+From shujisado at gmail.com  Sun May 26 00:29:48 2024
+From: shujisado at gmail.com (Shuji Sado)
+Date: Sun, 26 May 2024 09:29:48 +0900
+Subject: [License-discuss] Curious about derived works and AI...
+In-Reply-To: <CAK2MWOs4H-rw7FOC2pi4TUY-_fVYfpv3mQ8K-msrhfEgJjw7ZA@mail.gmail.com>
+References: <CAM2D7j3eMQ1GS9WiZXhGsAPCqATv86asrvFDtEKsjwH-2EJ6VA@mail.gmail.com>
+ <CAK2MWOs4H-rw7FOC2pi4TUY-_fVYfpv3mQ8K-msrhfEgJjw7ZA@mail.gmail.com>
+Message-ID: <CAAvo7O78+VF==iSN0Zr5nJv_sho8OSk-CHoJNS9Rb56xKeNw4w@mail.gmail.com>
+
+In general, Japanese copyright law is considered to be one of the most
+compatible with machine learning in the world.
+Training AI with open source code is basically considered legal, and
+even for commercial software code, AI training is legal as long as it
+is not explicitly prohibited by contract.
+
+However, if the output generated by the AI is substantially identical
+to the original code, it will be considered copyright infringement of
+the original code.
+License washing is not permitted.
+
+The Agency for Cultural Affairs in Japan recently published an English
+PDF titled "General Understanding on AI and Copyright in Japan":
+https://www.bunka.go.jp/english/policy/copyright/pdf/94055801_01.pdf .
+Various industries in Japan discussed and submitted tens of thousands
+of public comments for the creation of this document.
+Although it is not a complete document, it provides an understanding
+of how Article 30-4 of the Copyright Act, which is seen as fully
+endorsing machine learning, actually functions.
+
+
+2024/05/26 2:10 Bruce Perens via License-discuss
+<license-discuss at lists.opensource.org>:
+>
+> 1. Not in Japan, because they've decided to make their law that way. 2. It should be the case in most countries, but it is not so far because it's not literal copying and cases which are attempting to make the point that it is copying are still in litigation.
+>
+> On Sat, May 25, 2024, 06:55 Miles Georgi <azimux at gmail.com> wrote:
+>>
+>> Hi! If I open-source a project with a free license, if code from that project winds up being used as training data or prompt data to a code-generating AI to generate similar code, would that generated code be considered a derived work under any circumstances? And does that potentially depend on what license is chosen?
+>>
+>> I'm trying to choose a license for a project I wish to release and I'm assuming there's no way to protect against something like that but figured I'd ask.
+>>
+>> Cheers!
+>>
+>> Miles
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Official statements by the Open Source Initiative will be sent from an opensource.org email address.
+>>
+>> License-discuss mailing list
+>> License-discuss at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Official statements by the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+
+
+
+-- 
+Shuji Sado
+Chairman, Open Source Group Japan
+https://opensource.jp/
+https://shujisado.com/
+
+
+From bruce at perens.com  Mon May 27 21:31:50 2024
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 27 May 2024 14:31:50 -0700
+Subject: [License-discuss] Curious about derived works and AI...
+In-Reply-To: <CAAvo7O78+VF==iSN0Zr5nJv_sho8OSk-CHoJNS9Rb56xKeNw4w@mail.gmail.com>
+References: <CAM2D7j3eMQ1GS9WiZXhGsAPCqATv86asrvFDtEKsjwH-2EJ6VA@mail.gmail.com>
+ <CAK2MWOs4H-rw7FOC2pi4TUY-_fVYfpv3mQ8K-msrhfEgJjw7ZA@mail.gmail.com>
+ <CAAvo7O78+VF==iSN0Zr5nJv_sho8OSk-CHoJNS9Rb56xKeNw4w@mail.gmail.com>
+Message-ID: <CAK2MWOt7Wfb7LfpHBCwbQPNN1AoByiZo7jCuk9ioW1XestfoRw@mail.gmail.com>
+
+Hi Sado-san,
+
+It is unfortunate that Japan made the choice that it did, because it makes
+Open Source software fair game for those who would profit from the work of
+our developers without attribution or remuneration and entirely outside of
+their license terms. I came to the conclusion that this could not be fixed
+under my own rules in the OSD. This is one of the reasons I've been working
+on Post-Open. At this time the Post-Open license requires explicit consent
+for use in Japan (rather than tear-open or implicit consent) because I felt
+that was necessary to work reliably within their law.
+
+    Thanks
+
+    Bruce
+
+On Sat, May 25, 2024 at 5:31?PM Shuji Sado <shujisado at gmail.com> wrote:
+
+> In general, Japanese copyright law is considered to be one of the most
+> compatible with machine learning in the world.
+> Training AI with open source code is basically considered legal, and
+> even for commercial software code, AI training is legal as long as it
+> is not explicitly prohibited by contract.
+>
+> However, if the output generated by the AI is substantially identical
+> to the original code, it will be considered copyright infringement of
+> the original code.
+> License washing is not permitted.
+>
+> The Agency for Cultural Affairs in Japan recently published an English
+> PDF titled "General Understanding on AI and Copyright in Japan":
+> https://www.bunka.go.jp/english/policy/copyright/pdf/94055801_01.pdf .
+> Various industries in Japan discussed and submitted tens of thousands
+> of public comments for the creation of this document.
+> Although it is not a complete document, it provides an understanding
+> of how Article 30-4 of the Copyright Act, which is seen as fully
+> endorsing machine learning, actually functions.
+>
+>
+> 2024/05/26 2:10 Bruce Perens via License-discuss
+> <license-discuss at lists.opensource.org>:
+> >
+> > 1. Not in Japan, because they've decided to make their law that way. 2.
+> It should be the case in most countries, but it is not so far because it's
+> not literal copying and cases which are attempting to make the point that
+> it is copying are still in litigation.
+> >
+> > On Sat, May 25, 2024, 06:55 Miles Georgi <azimux at gmail.com> wrote:
+> >>
+> >> Hi! If I open-source a project with a free license, if code from that
+> project winds up being used as training data or prompt data to a
+> code-generating AI to generate similar code, would that generated code be
+> considered a derived work under any circumstances? And does that
+> potentially depend on what license is chosen?
+> >>
+> >> I'm trying to choose a license for a project I wish to release and I'm
+> assuming there's no way to protect against something like that but figured
+> I'd ask.
+> >>
+> >> Cheers!
+> >>
+> >> Miles
+> >> _______________________________________________
+> >> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+> >>
+> >> License-discuss mailing list
+> >> License-discuss at lists.opensource.org
+> >>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+> >
+> > _______________________________________________
+> > The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+> >
+> > License-discuss mailing list
+> > License-discuss at lists.opensource.org
+> >
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+>
+>
+> --
+> Shuji Sado
+> Chairman, Open Source Group Japan
+> https://opensource.jp/
+> https://shujisado.com/
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens K6BP
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20240527/7a74890e/attachment-0001.html>
+
