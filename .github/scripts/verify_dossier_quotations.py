@@ -329,7 +329,9 @@ def entry_quotes(root="."):
     from measure_citation_drift import FACES, FIRST_READ
 
     found = {}
-    for face in (f for f in FACES if FIRST_READ.search(f)):
+    # register の英語の索引も、入口と同じく審査者が英語で最初に読む面 (portfolio-00 の提案・2026-11-08)
+    faces = [f for f in FACES if FIRST_READ.search(f)] + ["ACD-OSI-BOTTLENECKS.md"]
+    for face in faces:
         with open(f"{root}/LICENSES/{face}", encoding="utf-8") as fh:
             for n, line in enumerate(fh, 1):
                 for raw in re.findall(r'\*"([^"\n]{12,})"\*', line):

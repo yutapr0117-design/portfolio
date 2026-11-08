@@ -8,11 +8,16 @@ own: shall and must appear zero times
 own: that is right, and ACD-1.1 will do X
 own: why another public-domain-equivalent?
 own: three things no approved licence does together
+own: In one screen
+own: The same gap, in detail
 01b69c0a49dea9ff
+023b4e55a9bc364f
 026300de190bc93c
 02d7faec5ee09e77
 041eac13bdcdf298
+042febadb4993244
 05345e25add9e4e4
+0557998945f693c7
 06070aa8779b3022
 06634571af9c8d6b
 0736e5036769177b
@@ -32,11 +37,13 @@ own: three things no approved licence does together
 10c20eef485c7672
 1315e4e8d2369f3b
 13dc2f5c52a4365c
+14dfdd444ae39a57
 150ca4cb06bd4943
 15e3787d3b972d79
 177ea1593a367f9e
 188803e8da77c78a
 18d87a0ab68d01d2
+1946e5c94dcb266e
 198d673b893ab45f
 1ba87e16064babbf
 1cdb45696ab4636c
@@ -50,6 +57,7 @@ own: three things no approved licence does together
 26a92f4c1575d6b0
 273bb82f88d8c06f
 2811bdaaad226d07
+2833f80f59eac532
 285be55452eb8c7e
 286b350b88d65dd0
 28cde6973a44a632
@@ -58,6 +66,7 @@ own: three things no approved licence does together
 2a67eb0d591d1e75
 2afaf76579fdea47
 2b6ecf40b3cb460e
+2c8eebdf782a4b0c
 2e13ad133125fc22
 2e275edf6d2c4c38
 2fe157911e584520
@@ -68,6 +77,7 @@ own: three things no approved licence does together
 33479b023b355f9b
 3375fbce26b8b78f
 3545c8b194b7b061
+366ba5ac56ffd218
 36d2d2d51d3d6866
 384f03ff0e4a8a17
 3a00c986a46af912
@@ -101,6 +111,7 @@ own: three things no approved licence does together
 4f67aed25dbc3ac0
 519077002f0b9fae
 5281c83f0c9f50da
+52fa2db629a642a5
 53062d6f0f9b7e70
 5374cfbd38d87c34
 540df88f4fc56a62
@@ -108,6 +119,7 @@ own: three things no approved licence does together
 558680e11a4c7542
 5732db194a2f7900
 573dd7bdcb6ea7f6
+57e627c03d2969a8
 58142cba65e79184
 5814754fcd892468
 58d87e77f6615c2e
@@ -116,6 +128,7 @@ own: three things no approved licence does together
 5dd2bddd54265ed5
 5e13be647c075db3
 5ecec05ced1937f8
+6070057edd699722
 60ce7c94181d0932
 61ea2658b4538376
 629688a5a5b75d22
@@ -145,6 +158,7 @@ own: three things no approved licence does together
 7588617bd777402a
 791a1c936695c37e
 7a3a2a6130ca94ec
+7a891a6437d5dde8
 7cc3d44e6ce7bdff
 7dc9f3e3544d581c
 7dcaf996dfe47678
@@ -157,6 +171,7 @@ own: three things no approved licence does together
 822697cde27c1575
 82929ae6d4556b31
 837e95b883bf5919
+841cd33cd348182a
 8540aa04f04b9fa1
 866bea2f7c9cabd0
 8725d0a471af6fd1
@@ -166,16 +181,19 @@ own: three things no approved licence does together
 8d51542acd9c3381
 91ddd288ac807ace
 9239999bb33408fe
+932423353eeb41fe
 9660d04077670fe6
 9ab70910fd6c69bf
 9bfb394ae3a2cd71
 9c9d02e010013d70
 9d5db8d1dbcb9d9a
+9dc34cb7ab0d8eb9
 9e8503e5b35b1f54
 9fdbba0ab5a8bdee
 a16e06f1069dc520
 a1f1e3c26e19fd82
 a3008c6fa783b0dc
+a3569d55170ff822
 a493e6f7431a1fe8
 a4d298db33539f1e
 a5e987e935d985f7
@@ -185,26 +203,34 @@ ae59243c1ffafcc5
 aee1aa70e099bdf6
 b02574476cacb81a
 b207fb7ab94cd334
+b2149339edd35ba0
+b2e753d29703da98
 b36ba62724e64812
 b3ad1ac6026073d9
 b422f9513927bc10
+b60c7d855de7ecb5
 b64d613a8d4e4885
 b715e657c81d66c1
 b812d79d8a0330f5
 b942f1943fe4ef6b
 b9ce23cd9d8e575b
 ba16e6321a8f9987
+baf615be0952027f
 bb029c750fdaf2c6
 bb830ca10173e790
 bd5c71028b546a3d
+be5d766e39a956a1
 bef8b528db87f85c
 c02b918b9b57af30
 c234829e24a0a791
 c23ca8dd260f9050
 c4cebc3ff0d4f0ba
+c65cf406a6ab55e0
 c78968974a3b882f
 c9082d11ec5fbadd
 c94115a177d26790
+c9e923a6a24e3205
+ca09ebdbcdc2af69
 ca595ee8a795d44e
 cad4e51f8dcbdce4
 cb090a6f416a7c5c
@@ -214,6 +240,7 @@ d216a3c26a58c74a
 d34d2418d92256e6
 d436ec171c610f3f
 d63be4b216796826
+d77c54052a0d09f9
 d883ec51fa5bba7d
 d9e16cdeddca39c2
 da98a297b0761bcd
@@ -226,6 +253,7 @@ e0c1eea4f05a4843
 e1c693dd94650e7c
 e35f5844926b8b9a
 e39399a7368fdab4
+e3efaa0526ab7a77
 e4abf0cdb0e4fb31
 e50027d2ba523c83
 e5f41d3749bed94f
@@ -237,6 +265,7 @@ e7defac1c30bd20a
 e80cab656131203a
 e88fe297ef8b51cf
 ea222adfe277037a
+eaef58095eefb63b
 eb70ec4bb6fdd4fb
 ed475dbf42d51f5b
 eed854423a2733a8
@@ -247,6 +276,7 @@ f24ec4f219cd75b4
 f2adfa1d29aab35e
 f499b6194b04c3be
 f4ca936b2db78222
+f4cd86f13bdc5d37
 f52e944f0a0bdacc
 f59c4dd797e4b302
 f5c7a06cb3dc9b35
@@ -258,6 +288,7 @@ faa11afcae6a6d1f
 fae1ef22941a9cb1
 fb2b0ec82c390ea8
 fcd11d05a4119c5c
+fcde968456609d18
 fe02ec08eaab2807
 fe9ad59085364573
 fefa5003205da129
