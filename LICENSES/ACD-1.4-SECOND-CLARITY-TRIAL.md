@@ -307,13 +307,16 @@ T6 は反例なし（出力が Work に取り込まれれば §9 が自分の条
 
 **採らなかったもの**: §8.1 の *caused by* を *by itself, infringes* へ狭める案は §8.3 の目的に反し、§8.4 の *teaches* を外す案は記録の Rb′ の判断（巨大なコーパスでは由来を示せない）に反する。
 
-### 14.9 T23: 通知が適用する範囲（+25 語）
+### 14.9 T23: 通知が適用する範囲（+23 語）
 
-**欠陥**: §1.3（1.0 の §1.2）は Work を *"the material to which the Dedicator has applied this Dedication"* と定め、§16.1 は適用を通知を置くことと定める。1.4 で §16.1 がタグや識別子だけの適用を認めたので、タグがどの素材（1 ファイルか、ディレクトリか、全体か）に適用されたかを決める語が要る。§15.1 は適用が成立したかの問いの前に立てない。Fontana 氏 2026-08-16 *"How do you know what the "covered work" is?"* の問いの形である（bb が原文で逐語と確かめた）。
+**欠陥**: §1.3（1.0 の §1.2）は Work を *"the material to which the Dedicator has applied this Dedication"* と定め、§16.1 は適用を通知を置くことと定める。1.4 で §16.1 がタグや識別子だけの適用を認めたので、タグがどの素材（1 ファイルか、ディレクトリか、全体か）に適用されたかを決める語が要る。§15.1 は適用が成立したかの問いの前に立てない。Fontana 氏 2026-08-16 *"How do you know what the \"covered work\" is?"* の問いの形である（bb が原文で逐語と確かめた）。
 
-**After**: §16.2 の末尾に *"A notice a Dedicator places applies this Dedication to the material it identifies, or, where it identifies none, to the material it accompanies when placed."*
+**After**: §16.2 の末尾に *"A notice a Dedicator places applies this Dedication to the material it identifies, or, where it identifies none, to the material it accompanies."*
 
-**初案は形を変えた**: *"A notice applies this Dedication to …"* は bb の反例で落ちた。主語が通知なので、置いた人を問わず通知そのものが適用するように読める。ACD のファイルを別のプロジェクトへ取り込み、タグを残したまま手を入れた人の改変分が、意思なく撤回不能に出る（REUSE などの道具はタグを既定で残す）。後から同じファイルに入った他人の寄与も *accompanies* に入り、§2.6 と二重になる。置いた人（*a Dedicator places*）と時点（*when placed*）を足した。
+**2 度、形を変えた（どちらも bb の反例）**:
+1. 初案 *"A notice applies this Dedication to …"* は、主語が通知なので、置いた人を問わず通知そのものが適用するように読めた。ACD のファイルを別のプロジェクトへ取り込み、タグを残したまま手を入れた人の改変分が、意思なく撤回不能に出る（REUSE などの道具はタグを既定で残す）。置いた人（*a Dedicator places*）を足した。
+2. 次に足した時点の語 *"when placed"* は、Dedicator 自身の後の追加を外した。root に LICENSE を一度置いて、その後もコードを足し続けるのが典型の形で、翌年足したファイルが通知を置き直さないかぎり ACD の外になる。外した。
 
-**逆側**: README だけに通知を置いた Dedicator は、その README が伴う素材の範囲が争点になる。*identifies* で *this project* を名指していれば足り、§16.1 の雛形は *"This work"* と書くので、雛形どおりの通知は概ね足りる。
+**時点の語が無くても取り込み手の場面は閉じている**: 主語が Dedicator なので、タグを残しただけの取り込み手は通知を置いていない。元の Dedicator の通知が取り込み手の改変分を伴っていても、§2.7 *"This Dedication reaches only rights the Dedicator holds"* により、Dedicator の持たない権利には届かない。他人が同じ repository に入れた寄与は §2.6 の Contribution の規則が扱うので、二重にもならない。
 
+**逆側**: root の通知は、Dedicator が後で隣に置いた、公開するつもりのないファイルにも及ぶ。root の LICENSE が repository 全体を覆う慣行どおりで、除外したいものは §2.6 の識別の形で標示する。ただし §3 は取り消せないので、置き間違えの費用は他のライセンスより重い。README だけに通知を置いた Dedicator は、その README が伴う素材の範囲が争点になる。*identifies* で *this project* を名指していれば足り、§16.1 の雛形は *"This work"* と書くので、雛形どおりの通知は概ね足りる。
