@@ -1,0 +1,454 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-February.txt
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-08)
+Messages: 6 messages this dossier cites from the CC0 review in 2012-02, on why CC0 withheld patent rights and on universities.
+Senders: Bruce Perens, Lawrence Rosen, John Cowan, Henrik Ingo
+Position: part of the review of CC0, which was withdrawn in 2012. Not addressed to us and not about ACD. Each message is whole.
+
+----- begin verbatim -----
+From bruce at perens.com  Sat Feb 25 18:08:55 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 25 Feb 2012 10:08:55 -0800
+Subject: [License-review] CC withdrawl of CC0 from OSI process
+In-Reply-To: <4F491727.6000309@perens.com>
+References: <87sjhzq3fy.fsf@grumps.lan><20120225035300.GB25640@mercury.ccil.org><4F486CEB.8090303@perens.com><20120225070119.GD25640@mercury.ccil.org>
+	<CAF4JVJD0bg1xqBpzN8tpZ_vNsagTku=sZ22KpLF-C-bfOC+czg@mail.gmail.com>
+	<1330177518.1612.140661041175905@webmail.messagingengine.com>
+	<4F491727.6000309@perens.com>
+Message-ID: <4F4923B7.6000409@perens.com>
+
+We should note that CC's explanation of the reason for patent language 
+in CC0 was that the entities dedicating the content /did/ have patents 
+related to that same content, and wanted to monetize them. Or they would 
+not have asked for the language. IMO this refutes the argument that they 
+are the parties least likely to bring suit.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120225/2b818323/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bruce.vcf
+Type: text/x-vcard
+Size: 266 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120225/2b818323/attachment.vcf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4447 bytes
+Desc: S/MIME Cryptographic Signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120225/2b818323/attachment.p7s>
+
+From lrosen at rosenlaw.com  Sat Feb 25 18:56:33 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Sat, 25 Feb 2012 10:56:33 -0800
+Subject: [License-review] CC withdrawl of CC0 from OSI process
+In-Reply-To: <4F491727.6000309@perens.com>
+References: <87sjhzq3fy.fsf@grumps.lan><20120225035300.GB25640@mercury.ccil.org><4F486CEB.8090303@perens.com><20120225070119.GD25640@mercury.ccil.org>	<CAF4JVJD0bg1xqBpzN8tpZ_vNsagTku=sZ22KpLF-C-bfOC+czg@mail.gmail.com>	<1330177518.1612.140661041175905@webmail.messagingengine.com>
+	<4F491727.6000309@perens.com>
+Message-ID: <01a801ccf3ef$321804f0$96480ed0$@com>
+
+Bruce Perens wrote:
+> CC0 is a way for the scientists to sneak the data past this system
+> while leaving the piece the universities want to sell. But we need to
+> recognize that the piece that's being held back is not in the interest
+> of software developers and users, and ultimately is used to extort
+> them.
+> We shouldn't further encourage it.
+
+
+Several years ago MIT tried to gain approval of a license that explicitly withheld patent rights for that exact reason. Their (valid) argument was that the academics who contribute software usually don't own the patents that their universities acquire for their inventions. We didn't approve that license then; I vaguely recall that MIT withdrew it from consideration after several of us pointed out that it seemed to be a bald-faced attempt to introduce software into the stream of commerce without even disclosing that patents applied.
+
+I don't necessarily agree with Bruce that the CC0 license reflects such a bad motive. But licenses should at least require the disclosure of known or suspected patent claims so that users aren't ambushed.
+ 
+/Larry
+
+
+
+> -----Original Message-----
+> From: license-review-bounces at opensource.org [mailto:license-review-
+> bounces at opensource.org] On Behalf Of Bruce Perens
+> Sent: Saturday, February 25, 2012 9:15 AM
+> To: license-review at opensource.org
+> Subject: Re: [License-review] CC withdrawl of CC0 from OSI process
+> 
+> On 02/25/2012 05:45 AM, Clark C. Evans wrote:
+> >
+> > In this case, the OSI should also approve a MIT derivative with an
+> additional term that says that patents are explicitly *excluded* from
+> the grant.
+> This isn't a good idea for software.
+> > Christopher said the patent exclusion in the CC0 was deliberate
+> because those who would use the CC0 *have* patents relevant to the
+> material being  released under the CC0 and do not wish to also grant
+> them.
+> The organizations in question are in general performing publicly-funded
+> research. It's unfortunate that the Bayh-Dole act in the U.S. (and
+> similar policy elsewhere) encourages them not to return the benefit of
+> that research to the public that funded it, and instead to patent it
+> and selling that to a monopoly holder. And thus we often find a
+> business being sued for infringement of a patent, after paying taxes
+> that funded the development of the patent.
+> 
+> CC0 is a way for the scientists to sneak the data past this system
+> while leaving the piece the universities want to sell. But we need to
+> recognize that the piece that's being held back is not in the interest
+> of software developers and users, and ultimately is used to extort
+> them.
+> We shouldn't further encourage it.
+> 
+>      Thanks
+> 
+>      Bruce
+
+
+
+From cowan at mercury.ccil.org  Sat Feb 25 20:05:42 2012
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Sat, 25 Feb 2012 15:05:42 -0500
+Subject: [License-review] CC withdrawl of CC0 from OSI process
+In-Reply-To: <01a801ccf3ef$321804f0$96480ed0$@com>
+References: <CAF4JVJD0bg1xqBpzN8tpZ_vNsagTku=sZ22KpLF-C-bfOC+czg@mail.gmail.com>
+	<1330177518.1612.140661041175905@webmail.messagingengine.com>
+	<4F491727.6000309@perens.com> <01a801ccf3ef$321804f0$96480ed0$@com>
+Message-ID: <20120225200542.GD29866@mercury.ccil.org>
+
+Lawrence Rosen scripsit:
+
+> Several years ago MIT tried to gain approval of a license that
+> explicitly withheld patent rights for that exact reason. Their (valid)
+> argument was that the academics who contribute software usually don't
+> own the patents that their universities acquire for their inventions.
+
+My recollection is a bit different.  MIT wanted to exclude patent rights
+because (a) they did not know what patents they had, and (b) they did
+not know what exclusive patent licenses they had already granted and
+to whom.  Consequently, they were afraid of issuing code with a public
+non-exclusive grant that would conflict with existing exclusive grants
+(if any) of their patents (if any).
+
+> I vaguely recall that MIT withdrew it from consideration after several
+> of us pointed out that it seemed to be a bald-faced attempt to
+> introduce software into the stream of commerce without even disclosing
+> that patents applied.
+
+Or in the alternative a spectacular exhibition of public baboonery.
+
+-- 
+John Cowan                                cowan at ccil.org
+At times of peril or dubitation,          http://www.ccil.org/~cowan
+Perform swift circular ambulation,
+With loud and high-pitched ululation.
+
+
+From lrosen at rosenlaw.com  Sun Feb 26 00:31:25 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Sat, 25 Feb 2012 16:31:25 -0800
+Subject: [License-review] CC withdrawl of CC0 from OSI process
+In-Reply-To: <20120225200542.GD29866@mercury.ccil.org>
+References: <CAF4JVJD0bg1xqBpzN8tpZ_vNsagTku=sZ22KpLF-C-bfOC+czg@mail.gmail.com>	<1330177518.1612.140661041175905@webmail.messagingengine.com>	<4F491727.6000309@perens.com>
+	<01a801ccf3ef$321804f0$96480ed0$@com>
+	<20120225200542.GD29866@mercury.ccil.org>
+Message-ID: <01e001ccf41d$f97f4c00$ec7de400$@com>
+
+John Cowan wrote:
+> My recollection is a bit different.  MIT wanted to exclude patent
+> rights because (a) they did not know what patents they had, and 
+> (b) they did not know what exclusive patent licenses they had 
+> already granted and to whom.  Consequently, they were afraid of 
+> issuing code with a public non-exclusive grant that would 
+> conflict with existing exclusive grants (if any) of their 
+> patents (if any).
+
+John has a better recollection of MIT's arguments than I do; my own
+recollection is probably colored by my own arguments at the time. :-) 
+
+I was against approving the proposed new MIT license at the time for reasons
+similar to what has been stated here about CC0, yet I do recall also
+thinking that -- in their environment -- their argument was valid.
+Universities and scientific research in the U.S. work that way.
+
+At the time I was advising a professor at a Canadian university where the
+invention model is quite different. At that university, each professor is
+generally free to convey his or her own inventions in software or otherwise
+as long as the university gets a percentage of whatever profit the professor
+realizes. At MIT, I believe, the university owns the patents and the
+professor gets a cut. 
+
+That difference (along with the Bayh-Dole rule, as Bruce points out) changes
+the institutional and open source dynamic profoundly. I'm quite sure that
+this is a bigger issue than OSI is able to deal with despite our heated
+opinions about patents. For that reason, among others, I'd rather approve
+CC0 with all its uncertainties than wait for the world to change.
+
+/Larry
+
+
+> -----Original Message-----
+> From: license-review-bounces at opensource.org [mailto:license-review-
+> bounces at opensource.org] On Behalf Of John Cowan
+> Sent: Saturday, February 25, 2012 12:06 PM
+> To: license-review at opensource.org
+> Subject: Re: [License-review] CC withdrawl of CC0 from OSI process
+> 
+> Lawrence Rosen scripsit:
+> 
+> > Several years ago MIT tried to gain approval of a license that
+> > explicitly withheld patent rights for that exact reason. Their
+> (valid)
+> > argument was that the academics who contribute software usually don't
+> > own the patents that their universities acquire for their inventions.
+> 
+> My recollection is a bit different.  MIT wanted to exclude patent
+> rights
+> because (a) they did not know what patents they had, and (b) they did
+> not know what exclusive patent licenses they had already granted and
+> to whom.  Consequently, they were afraid of issuing code with a public
+> non-exclusive grant that would conflict with existing exclusive grants
+> (if any) of their patents (if any).
+> 
+> > I vaguely recall that MIT withdrew it from consideration after
+> several
+> > of us pointed out that it seemed to be a bald-faced attempt to
+> > introduce software into the stream of commerce without even
+> disclosing
+> > that patents applied.
+> 
+> Or in the alternative a spectacular exhibition of public baboonery.
+> 
+> --
+> John Cowan                                cowan at ccil.org
+> At times of peril or dubitation,          http://www.ccil.org/~cowan
+> Perform swift circular ambulation,
+> With loud and high-pitched ululation.
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+
+From lrosen at rosenlaw.com  Mon Feb 27 01:12:47 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Sun, 26 Feb 2012 17:12:47 -0800
+Subject: [License-review] CC withdrawl of CC0 from OSI process
+In-Reply-To: <Pine.BSM.4.64L.1202260100180.4374@herc.mirbsd.org>
+References: <CAF4JVJD0bg1xqBpzN8tpZ_vNsagTku=sZ22KpLF-C-bfOC+czg@mail.gmail.com>	<1330177518.1612.140661041175905@webmail.messagingengine.com>	<4F491727.6000309@perens.com>
+	<01a801ccf3ef$321804f0$96480ed0$@com>	<20120225200542.GD29866@mercury.ccil.org>	<01e001ccf41d$f97f4c00$ec7de400$@com>
+	<Pine.BSM.4.64L.1202260100180.4374@herc.mirbsd.org>
+Message-ID: <024301ccf4ec$eb8605b0$c2921110$@com>
+
+Thorsten Glaser, while advocating for license categories, wrote:
+
+> Uh oh. I hope this doesn?t open too much controverse. It?s 2am here so
+
+> please excuse any glaring errors.
+
+ 
+
+I'll excuse you (for whatever that matters) but I won't let your comments ride unchallenged. :-)
+
+ 
+
+Whether you deal with patents or any of the myriad other permutations of rules that can be plugged into open source licenses, there are no easy license categories. We've tried before here, and the resulting categorizations have been nearly useless to simplify the distinctions. Consider, for example, OSI's current categories [1] where they classify as "redundant with more popular licenses" ones that actually address patents in unique and interesting and helpful ways. A popularity contest here resulted in a category called "Other/Miscellaneous Licenses" despite the fact that there's nothing miscellaneous about the ways some of those licenses deal with patents and copyrights. As another example, I'll give you $5 if you can identify anywhere on the OSI website what is special purpose about any of OSI's so-called "Special Purpose Licenses". Perhaps I should state my point more strongly still: Categories of FOSS licenses with labels and sloppy thought behind them are worse than useless; they are misleading.
+
+ 
+
+Even though the CC0 license doesn't deal directly with patents in ways that developers of software might prefer, or deals with both patents and copyrights in jurisdictionally questionable ways, that doesn't justify that we reject it. There is nothing we have identified about the CC0 license that comes close to violating any of the provisions of the OSD. We have approved licenses we don't like in the past -- after arguing about them at length. The existing list of OSI-approved licenses includes many that we have argued are patent-deficient. 
+
+ 
+
+There is an excellent law journal, the IFOSS Law Review [2], where we can educate each other about the strengths and deficiencies of various licenses. OSI is not a replacement for that educational activity. I'm sure IFOSSLR would welcome a quality article that discusses the potential value and risks of the CC0 license for software. 
+
+ 
+
+Now that we have driven our Creative Commons friends into the closet, can we please invite them back and approve their CC0 license even though many of us don't really like it a lot? Then someone document this thread in an article for IFOSSLR so that the public at large can learn from this discussion.
+
+ 
+
+/Larry
+
+ 
+
+[1] http://opensource.org/licenses/category 
+
+[2] http://www.ifosslr.org/ifosslr 
+
+ 
+
+ 
+
+Lawrence Rosen
+
+Rosenlaw & Einschlag, a technology law firm (www.rosenlaw.com) 
+
+3001 King Ranch Road, Ukiah, CA 95482
+
+Cell: 707-478-8932
+
+Apache Software Foundation, board member (www.apache.org) 
+
+Open Web Foundation, board member (www.openwebfoundation.org) 
+
+Stanford University, Instructor in Law
+
+Author, Open Source Licensing: Software Freedom and Intellectual Property Law (Prentice Hall 2004)
+
+ 
+
+ 
+
+> -----Original Message-----
+
+> From: license-review-bounces at opensource.org [mailto:license-review-
+
+> bounces at opensource.org] On Behalf Of Thorsten Glaser
+
+> Sent: Saturday, February 25, 2012 5:08 PM
+
+> To: license-review at opensource.org
+
+> Subject: Re: [License-review] CC withdrawl of CC0 from OSI process
+
+> 
+
+> Lawrence Rosen dixit:
+
+> 
+
+> >opinions about patents. For that reason, among others, I'd rather
+
+> approve
+
+> >CC0 with all its uncertainties than wait for the world to change.
+
+> 
+
+> Some days ago, in one of the CC0 threads, I suggested to have a second
+
+> class of licence approval, for those who meet more standards than just
+
+> being a copyright licence that is OSD compliant.
+
+> 
+
+> How about this? Licences for the second set are drawn from the general
+
+> set of all OSI approved licences, but need not stay in it forever (OSI
+
+> doesn?t revoke approval once granted and not in error), such as when a
+
+> new version comes out. It would address issues beyond OSD. It need not
+
+> make the regular OSI approval mean less, but considering basically any
+
+> OSD compliant licence ought to get it?
+
+> 
+
+> As for the additional standards, they should be simple. I think if you
+
+> say that the licence must give all rights (copyright, patent, database
+
+> and trademark, at least) the distributor can give and allow them to be
+
+> passed on, we get it, for a while. (If that can be done with trademark
+
+> law; otherwise, there should be a note why it?s excluded.) Being writ-
+
+> ten or edited by a legal professional could be another; being current,
+
+> the final one, allowing for swapping in a replacement.
+
+> 
+
+> Uh oh. I hope this doesn?t open too much controverse. It?s 2am here so
+
+> please excuse any glaring errors.
+
+> 
+
+> gn8,
+
+> //mirabilos
+
+> --
+
+> [...] if maybe ext3fs wasn't a better pick, or jfs, or maybe reiserfs,
+
+> oh but
+
+> what about xfs, and if only i had waited until reiser4 was ready... in
+
+> the be-
+
+> ginning, there was ffs, and in the middle, there was ffs, and at the
+
+> end, there
+
+> was still ffs, and the sys admins knew it was good. :)  -- Ted Unangst
+
+> ?ber *fs
+
+> _______________________________________________
+
+> License-review mailing list
+
+> License-review at opensource.org
+
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120226/c3f4643e/attachment.html>
+
+From henrik.ingo at avoinelama.fi  Sun Feb 26 19:34:13 2012
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Sun, 26 Feb 2012 21:34:13 +0200
+Subject: [License-review] CC withdrawl of CC0 from OSI process
+In-Reply-To: <87sjhzq3fy.fsf@grumps.lan>
+References: <87sjhzq3fy.fsf@grumps.lan>
+Message-ID: <CAKHykescXNRPuPbdL=BqmRU+2oO6UxNCgBSW+fxCLYf35Starg@mail.gmail.com>
+
+On Sat, Feb 25, 2012 at 12:20 AM, Christopher Allan Webber
+<cwebber at creativecommons.org> wrote:
+> There have been questions about why that lanugage is there. ?First of
+> all, speculation that we did not anticipate CC0 usage for software at
+> the time is true. ?The patent language that exists comes out of
+> conversations with the scientific data community, whom were a large
+> target of adoption for the tool. ?This community felt strongly that
+> there was a need to clearly waive something into the public domain
+> without also waiving patents in the process. ?Hence the language.
+
+So if a researcher wants to use CC0 when publishing a scientific
+article, or some source data related to an article, or maybe even
+pseudo code in the case of computer science and algorithms, he would
+want his publication to be public domain, yet the university would
+keep right to any patents filed during that research. Is this an
+example use case with that audience?
+
+If yes, sounds entirely understandable to me. Since simply reading or
+copying scientific articles or data has very low risk of infringing
+anyones patents anyway, I perfectly understand the language of CC0
+with this background.
+
+I suppose the good news is that it should be perfectly possible for
+you - once CC has resources to go through such a process - to rewrite
+the sentence in 4a such that this original goal is still achieved,
+while also making it clear that in the case of software (and perhaps
+other fields where patent risk may apply), the Affirmer has indeed
+waived his rights to take legal action against parties using/executing
+the Work that was put under CC0. While I understand your editorial
+process is non-trivial, I certainly hope we will see a day when such a
+license can be OSI certified.
+
+henrik
+-- 
+henrik.ingo at avoinelama.fi
++358-40-8211286 skype: henrik.ingo irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://www.linkedin.com/profile/view?id=9522559
+
+

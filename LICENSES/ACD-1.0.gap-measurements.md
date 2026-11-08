@@ -759,3 +759,18 @@ David A. Wheeler 氏が「Public Domain」を OSI のライセンスの一覧に
 **逆側。** Unlicense は legacy として、広い利用と法律家の一致を経て承認された（#270）。新規の ACD は同じ道を持たない。Atkinson 氏は同じ通で *"The Unlicense is not safe to use and likely fails to achieve its stated goals"* とも述べた。
 
 **この節が establish しないこと。** 個人の発言で、決定は理事会の承認（2020-06-12）だけである。McCoy Smith 氏の通は Outlook 形式で他人の文を引用の印なしに含むので、引いたのは同氏が書いた冒頭の 2 文だけにした。
+
+## 1.153 CC0 が特許を除いたのは、献呈する側が特許を手放せなかったから —— 大学と研究の事情（2012-02）（2026-11-08）
+
+CC0 の審査（`license-review` 2012-02）の中の、特許の除外の理由をめぐる通（`rounds/2012-02-license-review-cc0-patents-and-universities-observed.txt`）。§1.138 は審査の本体を読んだが、この理由の記録は無かった。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"We should note that CC's explanation of the reason for patent language in CC0 was that the entities dedicating the content /did/ have patents related to that same content, and wanted to monetize them."* | Bruce Perens 氏 2012-02-25 | CC0 の clause 4(a) は、献呈する側が特許を保ちたいという需要から来た、という説明。ACD の §8 はその逆を採る |
+| *"Several years ago MIT tried to gain approval of a license that explicitly withheld patent rights for that exact reason. Their (valid) argument was that the academics who contribute software usually don't own the patents that their universities acquire for their inventions."* | Lawrence Rosen 氏 2012-02 | 特許を明示で除くライセンスは、それより前に承認されなかった。John Cowan 氏は MIT の理由を、どの特許をどこへ独占的に許諾したか分からなかったためだと述べた |
+| *"There is nothing we have identified about the CC0 license that comes close to violating any of the provisions of the OSD."*、*"I'd rather approve CC0 with all its uncertainties than wait for the world to change."* | 同 | 特許の除外があっても OSD 違反ではないという立場で、CC0 の承認に傾いた発言である |
+| CC0 を論文や元データの公開に使う研究者の場面を挙げ、*"Since simply reading or copying scientific articles or data has very low risk of infringing anyones patents anyway, I perfectly understand the language of CC0 with this background."* | Henrik Ingo 氏 2012-02 | データの献呈では特許の除外の害が小さい、という見方。ACD の §8.4 は、データを使った学習の結果にまで特許の許諾を及ぼす |
+
+**ACD への当たり方（#311）。** CC0 の 4(a) は、データを献呈しても特許は手放せない大学と研究機関の需要から来た。ACD の §8 と §8.4 はその需要を受けないので、そうした機関は ACD を選べない。B7（§8.4 の広さが採用を下げる）の具体的な層である。逆側: ソフトウェアの利用者から見ればその層こそが 4(a) の罠を作っており（Perens 氏）、ACD はその罠の無い道具として成り立つ。
+
+**この節が establish しないこと。** CC の説明は Perens 氏の要約で、CC の文書は読んでいない。どれも 2012 年の個人の発言で、OSI の決定ではない。
