@@ -100,7 +100,8 @@ def run(ctx):
         len(_quotes472l) >= 3 and not _miss472l,
         f"Check 472l: OSI の FAQ として引く {len(_quotes472l)} 件が rounds/ の本文に在る",
         (f"Check 472l: OSI の FAQ として引く文が保存した本文と違う: {_miss472l or '引用か本文が見つからない'}。"
-         "承認されるべき理由の先頭に置いた出典なので、語を動かさない"),
+         "承認されるべき理由の先頭に置いた出典なので、語を動かさない。REVIEWERS.md の表は「FAQ」の語を含む行の"
+         "引用をすべて FAQ の写しに当てるので、FAQ 以外の出典の引用を足すなら行を分けよ"),
         blocking=True,
     )
 
