@@ -222,7 +222,16 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 16.4 now reaches any identifier that "contains" "ACD-" followed
       by a digit, so that "LicenseRef-ACD-1.4", the form Sections 16.1 and
       16.2 name, is reached too. (-1 word.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5535 words, 80 clauses.
+    * Section 5.2 now ends with two sentences: Section 5 does not reach the
+      Dedicator's rights in material it makes available separately from the
+      Work, such as its own model trained on the Work, or the terms it applies
+      to that material; and paragraphs (a) and (b) do not reach a service
+      that runs the Work for others without providing a copy of it. (+63
+      words.)
+    * Section 16.2 now says that the identifiers it names match without
+      regard to case, as the model and package registries write them. (+9
+      words.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5607 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -501,6 +510,13 @@ PREAMBLE (informative; not part of the operative terms)
             Dedicator's own conduct and not a grant: Section 11.4 is
             unaffected, and rights of this kind held by any other person are
             untouched.
+
+       Section 5 does not reach the Dedicator's rights in material it makes
+       available separately from the Work, or the terms or measures it applies
+       to that material, even where using that material is a Computational
+       Use of the Work. Paragraphs (a) and (b) do not reach a service through
+       which the Dedicator runs the Work for others without providing a copy
+       of it.
 
   5.3  The covenants in Sections 5.1 and 5.2 bind the Dedicator's successors,
        assigns, heirs, and personal representatives, to the fullest extent the
@@ -840,7 +856,8 @@ PREAMBLE (informative; not part of the operative terms)
        material, or by markers that delimit part of a file, or, where it
        identifies none, to the material it accompanies. It does not apply
        this Dedication to material that a narrower notice the Dedicator has
-       placed assigns to other terms.
+       placed assigns to other terms. The identifiers named above match
+       without regard to case.
 
   16.3 This Dedication may be applied by anyone, to any work in which they hold
        or may hold rights of their own, without permission from, notice to, or
