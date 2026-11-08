@@ -31,7 +31,7 @@ the 1.0 text.
 | B7 | §8.4's patent reach may lower uptake | Medium | A one-way trade with B10. Both mitigations are structurally closed | OSI |
 | B8 | §12 moral rights | Medium | The same clause has been called a gap and mission creep. Both are recorded | A lawyer |
 | B9 | §7 database right | Low | Checked and kept | Decided |
-| B10 | Is the remaining gap enough for a new licence? | Highest | One effect stands on the text of all 141 approved licences: a patent grant beyond the work with no condition and no termination. John Cowan observed in 2014: *"We may not be in the business of approving licenses without patent grants any more"* (`gap-measurements.md` §1.144). Every statement we found that fixes the scope of a grant ties it to the work, so the reach past it has no supporter on record (#305). Whether that is enough is OSI's call | OSI |
+| B10 | Is the remaining gap enough for a new licence? | Highest | One effect stands on the text of all 141 approved licences: a patent grant beyond the work with no condition and no termination. John Cowan observed in 2014: *"We may not be in the business of approving licenses without patent grants any more"* (`gap-measurements.md` §1.144). Reach past the work has been approved once, to works the licensor lists: UPL in 2015, after Lawrence Rosen said such reach is *"more generous than the OSD requires"* (`gap-measurements.md` §1.154). No one close to the decision has supported a reach to a model or its output (#305). Whether that is enough is OSI's call | OSI |
 | B11 | SPDX and REUSE naming | Low | Deliberately not submitted yet | OSI, then SPDX |
 | B12 | One steward, and succession | Low | The recorded worry is control, and ACD has no upgrade clause. No successor is named | The owner, and someone willing |
 | B13 | The cost of understanding this submission | High | Continuing. It is the only real relief for B3 | Us |
@@ -90,13 +90,13 @@ the 1.0 text.
 
 | ID | 問題 | 重大度 | 分類 | status | 人間 | 弁護士 | OSI |
 |---|---|---|---|---|---|---|---|
-| **B1** | 法的レビューが無い | **最高** | 8 | **提出の産物**（「待ち」ではない・§B1+B2）| ○ | ○ | — |
-| **B2** | 実使用が 1 リポジトリのみ | **最高** | 9 | 解消可能・未実施（discoverability のみ制御可）。**2026-09-13 追記: 帰結は否決ではなく「承認しないまま留め置かれる」**（理事会 2025-07-18・#84 と連言）。**2026-11-04 確認**: GitHub のコード検索（*"Autonomous Commons Dedication"*・上限 100 件）で現れるリポジトリは本リポジトリ 1 つだけ（45 ファイル）—— **独立した第三者の採用は公開情報で確認できない**（検索が見るのは GitHub が索引した範囲だけ）| — | — | ○ |
+| **B1** | 法的レビューが無い | **最高** | 8 | **提出の産物**（「待ち」ではない・§B1+B2）| ○ **2026-11-08**: UPL（2015）は社外の法律家も見たと書いた提出でも独立の審査を求められ、出された記録の無いまま承認された（`gap-measurements.md` §1.154）。Fontana 氏 2017 は法律家の関与を品質の印としにくいと述べた（`reviewer-positions.md` §1.156）。 | ○ | — |
+| **B2** | 実使用が 1 リポジトリのみ | **最高** | 9 | 解消可能・未実施（discoverability のみ制御可）。**2026-09-13 追記: 帰結は否決ではなく「承認しないまま留め置かれる」**（理事会 2025-07-18・#84 と連言）。**2026-11-04 確認**: GitHub のコード検索（*"Autonomous Commons Dedication"*・上限 100 件）で現れるリポジトリは本リポジトリ 1 つだけ（45 ファイル）—— **独立した第三者の採用は公開情報で確認できない**（検索が見るのは GitHub が索引した範囲だけ）| — **2026-11-08**: 利用を承認の理由に挙げた記録が増えた —— UPL を承認した理事会の議事録（2015-02-04）は *"Oracle intends to release software soon"* を挙げ、審査では Berkus 氏が提出者の利用の予定を、Villa 氏が anchor tenant を求めた（#312）。Blue Oak は 5 年の使用の後に出された（`reviewer-positions.md` §1.158）。逆側: Fontana 氏 2014 は利用の予定の無い提出を退けないと述べ、Villa 氏 2017 の案は OSD を満たせば承認して目立つ一覧に載せない形だった（#315・§1.156）。 | — | ○ |
 | **B3** | 長さ 4,896 語 / 16 節 82 項 | **高** | 3 / 4 | **縮められるが答えきれない**（実測 306 語・機構部を削っても 3,888 語に届かない）。**2026-11-07: CC0 の審査で、放棄と許諾と特許を持つ道具は *"a 10-15 line"* の短さで求められていた**（Evans 氏 2012・§1.138）。**2026-09-20 追記: この bottleneck が実際に決定を生んだ例が出た** ——2017 秋の理事会は NOSA 2.0 について *"in view of the length, complexity, and ambiguities … conformance … cannot be assured"* として**承認も却下もしない**決議を採った（#183）。2026-11-04: 1.4 草案で読みの分岐を 4 件減らしたが結論は不変（下の B3 節）| — | — | — |
 | **B4** | §3 献呈と §4 許諾の並存 | **高** | 10 | **OSI 判断依存**（12 候補として検証し否定）。**2026-11-07: CC0 の審査本体を読んだ。2012 年の意向調査は 13 対 8 で反対だったが、−1 の 13 人は全員が特許を理由に含め、構造を理由にした人はいない**（`review-precedents.md` §1.138）。**⚠ 同じ審査に、特許の許諾を公有化の宣言に結びつける形そのものへの反対が 1 人ある（#288）。****2026-11-07: OSI のサイトの記事（2017）が、放棄と許諾の 2 部構成を *"A solution would be"* と述べていた**（`board-decisions.md` §2f。決定ではない）。**2026-11-06 追記: OSI の FAQ が、公有化は *"still not a license"* で審査の対象にならないと述べ、§4 が要る理由は OSI の文で言える。同じ FAQ の *"rather than try to waive copyright altogether"* は §3 に当たる**。**2026-09-20 追記: 献呈だけの instrument が「著者は自分で献呈できる」という理由で却下された実例（WTFPL・2009-03-04）が理事会記録に在り、同じ 4 行に「ヨーロッパに public domain は無い」という §4 の存在理由も並んでいる**（#182）| — | — | ○ |
 | **B5** | §4.4 の法的説明の正確性 | 中 | 1 / 5 | **起草は閉じ、設計の問いだけ外部**（E11 は 2026-09-14 に 1.1 で閉じた —— 過大な 1 文を削除し 1.1 / 1.2 草案に 0 件。steward が自ら出した問いの設計側（読み A）は未回答・1.0 には文が残る。**2026-09-28 訂正**）| — | — | ○ |
 | **B6** | 名称 "Autonomous Commons Dedication" | 中 | 6 | **決定済み（2026-10-24）: 改名しない**（測定: 識別子は空き・"Commons" 58/58 が CC・ODC / "Dedication" は半分しか言っていない。理由と逆側は §B6）| — | — | — |
-| **B7** | §8.4 の特許射程が uptake を下げる | 中 | 3 | **B10 との一方向の取引**（緩和策 2 つは構造上ふさがっている）。**2026-11-06**: 1.4 草案は §5.1 と §8.3 が §8.4 の限定を素通りする読みを閉じ、費用を限定の内へ戻した。費用の一覧は `gap-measurements.md` §1.136 | — | — | ○ |
+| **B7** | §8.4 の特許射程が uptake を下げる | 中 | 3 | **B10 との一方向の取引**（緩和策 2 つは構造上ふさがっている）。**2026-11-06**: 1.4 草案は §5.1 と §8.3 が §8.4 の限定を素通りする読みを閉じ、費用を限定の内へ戻した。費用の一覧は `gap-measurements.md` §1.136 **2026-11-08**: 広さが承認を止めた記録は無い —— UPL（2015）と Blue Oak（2024）は広い特許許諾のまま承認され、Piana 氏 2023 は特許を持つ側が結果を理解すればよいと述べた。費用は採用の側に出る: 学術医療機関は Apache-2.0 すら避け（2024・#311）、寄与者への警告が 2014 年と 2023 年に出ている（#313）。 | — | — | ○ |
 | **B8** | §12 人格権（licensable でない / mission creep）| 中 | 3 / 4 / 8 | **分岐を記録済み**（同じ条項が gap とも creep とも呼ばれている）| — | ○ | — |
 | **B9** | §7 データベース権の必要性 | 低 | 2 | **検証済み・保持**（§7.2 は行為の語で独立に働く）| — | — | — |
 | **B10** | **新規ライセンスを承認するだけの gap が残っているか** | **最高** | 10 | **2026-11-07: Fedora は 2022 年に CC0 をコードから外し、公有化の形は外していない。代わりに勧められた MIT-0 は特許に触れない（`gap-measurements.md` §1.139・#290）。** **OSI 判断依存**（2026-11-04: 既存の承認済み 141 本では達成できない効果を**少なくとも 1 件、原典の条文で立証** —— §8.4 + §8.2「作品を超える対象への特許許諾 ∧ 条件も終了も無い」を同時に持つものは 0 本。**gap が承認に足りるかは依然 OSI の判断**・EXTERNAL の B10 節。**同日後半の再検証: 条文比較で立つのは「明示の特許許諾 ∧ 無条件 = OSI の全テキストで 0 本」で、モデルの販売への届き方は §8.4 末文の読みに依存する** —— `ACD-1.0.gap-measurements.md` §1.133。**2026-11-06**: 行為の類型で当て直し、差が立つのはモデルの販売と出力の利用だと絞った（§1.135）。最強の反論は受益者の少なさ（#284・§1.136））| — | — | ○ |
@@ -110,6 +110,7 @@ the 1.0 text.
 
 **集計（表から導出・Check 460 (m) が照合する）**: 主要 15 / 解消済み 0 /
 **OSI の判断が要る 8** / **弁護士が要る 2** / **人間が要る 3** / **構造的拒否候補 0**。
+「解消済み」は status 欄が「**解消済み**」で始まる行の数で、「構造的拒否候補」は分類の列に `12` を持つ行の数である。項目を閉じるときは status をその語で始める（2026-11-08・Check 498 (e) が同じ数え方で照合する）。
 
 > **⚠ この行は 2026-09-10 に直した。** 直前まで「**OSI 判断依存 3**（B4・B10・B11 の一部）」と
 > 書いてあり、**実際に ○ が付いている行は 6 つ**だった（B4 / B5 / B7 / B10 / B11 / B14）。
