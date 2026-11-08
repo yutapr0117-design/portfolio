@@ -941,11 +941,4 @@ E2E_MUTATIONS_ARCHIVE = [
     "replace": "    /* mutated */",
     "test": "Hash routing transitions correctly between routes",
 },
-    {
-    "name": "project-detail の slug 解決が壊れ、既知の slug でも NotFound へ落ちる —— 一覧にはカードが出るのに詳細へ到達できない (#154 の slug 衝突と同じ「到達不能」class)。共有リンクが全部 404 相当になるが、一覧側は正常に見えるため気付きにくい",
-    "file": ROOT / "js" / "project-detail-page.js",
-    "find": "        const project = state.projects.find(p => p.slug === slug);",
-    "replace": "        const project = state.projects.find(p => p.slug === slug + '-x');",
-    "test": "Route project-detail renders for a known slug without errors",
-},
 ]

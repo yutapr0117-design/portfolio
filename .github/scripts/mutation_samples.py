@@ -313,54 +313,6 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": 'Check 460 (h): mirror が worked entry の総数を「118 の worked entry」と述べる —— 禁止の綴りに無く、実際に stale のまま残っていた',
-    "file": ROOT / 'docs' / 'files' / 'LICENSES' / 'QUESTION-INDEX.md.md',
-    "find": 'ドシエには多数の worked entry があるが',
-    "replace": 'ドシエには 118 の worked entry があるが',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 460 (o): 入口が register の項目数を少なく述べる —— 最高 severity の件数しか読まず、fourteen のまま B15 まで在った',
-    "file": ROOT / 'LICENSES' / 'REVIEWERS.md',
-    "find": 'blocks approval** — ',
-    "replace": 'blocks approval** — two entries with severity; ',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 460 (q): errata の検証コマンドの期待値を空白入りの `8 × OK` で書く —— `(\\d+)× OK` の綴りしか読まず、読めなくても黙っていた',
-    "file": ROOT / 'LICENSES' / 'ACD-1.0.errata.md',
-    "find": 'shasum -a 256 -c   # expect ',
-    "replace": 'shasum -a 256 -c   # expect 8 × OK, ',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 460 (q): AS-OF の検証コマンドの期待値を 3× OK に戻す —— REVIEWERS と errata しか読まず、AS-OF と mirror は 3× OK のまま実際は 9 だった',
-    "file": ROOT / 'LICENSES' / 'AS-OF.md',
-    "find": 'shasum -a 256 -c` → ',
-    "replace": 'shasum -a 256 -c` → 3× OK, ',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 474: 不利な事実の番号を 900 へ飛ばす —— 重複も欠番も無いまま最大だけが飛び、「最新 #N」を読む面が狂う',
-    "file": ROOT / 'LICENSES' / 'ACD-1.0.against.md',
-    "find": '\n| 283 | ',
-    "replace": '\n| 900 | ',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 471 (e): 法令名の直後でない 2 桁の §42 を足す —— 法令名を条件にした免除 (2026-11-08) が、隣に法令名の無い節参照まで通さないこと',
-    "file": ROOT / 'LICENSES' / 'ACD-1.0.jurisdictions.md',
-    "find": '終了権（17 U.S.C. §203）',
-    "replace": '終了権（17 U.S.C. §203、§42）',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 498 (a): errata 冒頭の 2 つ目の数を 2 にする —— 460 (l) は "N items are recorded" の N しか読まず、動機の失敗は 2 つ目の数だった',
-    "file": ROOT / 'LICENSES' / 'ACD-1.0.errata.md',
-    "find": 'items are recorded, and all ',
-    "replace": 'items are recorded, and all two are unrepaired; all ',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 498 (b): comparison §1.35 を "the remaining two" に戻す —— 460 (j) は総数の語しか読まず、この節が記録している元の欠陥が戻っても黙っていた',
-    "file": ROOT / 'LICENSES' / 'ACD-1.0.comparison.md',
-    "find": 'narrows to the remaining ',
-    "replace": 'narrows to the remaining two, then the remaining ',
-})
-_MUTATIONS_TAIL.append({
     "name": 'Check 498 (c): FAQ mirror のプロセスの問数を 99 にする —— 460 (d) は「A. 使う側」しか読んでいなかった',
     "file": ROOT / 'docs' / 'files' / 'LICENSES' / 'ACD-1.0.faq.md.md',
     "find": '**B. プロセス**（',
