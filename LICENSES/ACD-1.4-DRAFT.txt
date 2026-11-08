@@ -25,12 +25,11 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
   Changes in this draft, relative to ACD-1.3:
 
     * Section 8.5 now says what "controlled" means in "owned or controlled"
-      (errata E39): a claim the Dedicator has the right to license, at the
-      time in question, without breaching an obligation to or paying another
-      person. (+37 words.)
+      (errata E39): a claim under which the Dedicator has the right to grant
+      these licences, at the time in question, without breaching an
+      obligation to or paying another person. (+37 words.)
     * Section 8.4 now names the patent acts with the same words as Section 8.1
-      ("making, having made, using, offering to sell, selling, importing, or
-      otherwise transferring") (errata E40). (-2 words.)
+      (errata E40). (-2 words.)
     * Section 4.3 now names size and revenue of the user, the scale of use,
       and the number of users served among the things the licence is not
       conditioned on. (+13 words.)
@@ -201,9 +200,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       by a digit, so that "LicenseRef-ACD-1.4", the form Sections 16.1 and
       16.2 name, is reached too. (-1 word.)
     * Section 5.2 now leaves outside Section 5 the Dedicator's own material
-      other than the Work, such as its model, and a service that runs the
-      Work without providing a copy; Section 6.4 now says that You owe
-      nothing "under this Dedication". (+69 words.)
+      other than the Work, such as its model, and outside paragraphs (a) and
+      (b) a service that runs the Work without providing a copy; Section 6.4
+      now says that You owe nothing "under this Dedication". (+69 words.)
     * ACD-1.3: 5443 words, 80 clauses. This draft: 5613 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
