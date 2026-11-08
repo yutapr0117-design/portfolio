@@ -144,7 +144,8 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_residual_coherence.py",  # split: residual project/Speakable/route + theme-color/sitemap/manifest (146-148/304-309)
     ROOT / ".github" / "scripts" / "checks_seo_baseline.py",  # split: SEO/AIO date-ISO + URL-resolution + HTTPS/meta baseline (181-189 minus 187)
     ROOT / ".github" / "scripts" / "checks_aio_config.py",  # split: AIO entity/crawler identity + CI/config governance (62-69)
-    ROOT / ".github" / "scripts" / "checks_license_surfaces.py",  # split: ライセンスの機械可読面と凍結 (444/445/451/452/453)
+    ROOT / ".github" / "scripts" / "checks_license_surfaces.py",  # split: ライセンスの提出物と凍結 (445/451/452/453/490)
+    ROOT / ".github" / "scripts" / "checks_license_declaration.py",  # split 2026-11-08: ライセンス宣言の cross-surface coherence (444)
     ROOT / ".github" / "scripts" / "checks_governance_sync.py",  # split: AIO/AI2AI/llms freshness & governance sync (21-27)
     ROOT / ".github" / "scripts" / "checks_license_dossier.py",  # split: ACD-1.0 ドシエの自己整合 (458-461b)
     ROOT / ".github" / "scripts" / "checks_license_submission.py",  # split: 審査者が受け取る面 (463/472/473)
@@ -487,15 +488,15 @@ import checks_eslint_budget as _checks_eslint_budget
 _checks_eslint_budget.run(_ctx)
 
 # ── 62-69. AIO entity/crawler identity + CI/config governance → checks_aio_config.py ──
-# (check.py split track. AIO entity canonical_url(62)/crawler origin(63)/check-map uniqueness(64)/
-#  doc Last-Updated(65)/title entity-id(66)/workflow permissions(67)/dependabot(68)/engines.node(69)。
-#  連続 self-contained・各 Check 自前 read。72(ESLint baseline)は _bsrc59 共有で 59+72 pair ゆえ残置。
-#  62 位置で list 順連続実行。CHECK_SOURCE_FILES 登録で 45/70/105 横断集約。)
+# (AIO entity canonical_url(62)/crawler origin(63)/check-map uniqueness(64)/doc Last-Updated(65)/
+#  title entity-id(66)/workflow permissions(67)/dependabot(68)/engines.node(69)。72 は _bsrc59 共有で残置。)
 import checks_aio_config as _checks_aio_config
 _checks_aio_config.run(_ctx)
-# 444/445/451/452/453 は 2026-10-26 に checks_license_surfaces.py へ分離 (checks_aio_config.py が 980 行)
+# 445/451/452/453/490 は 2026-10-26 に、444 は 2026-11-08 に分離 (それぞれ元の file が advisory を超えた)
 import checks_license_surfaces as _checks_license_surfaces
 _checks_license_surfaces.run(_ctx)
+import checks_license_declaration as _checks_license_declaration
+_checks_license_declaration.run(_ctx)
 
 # ── 70. total-check-runbook.md §9 check-count cross-reference (BLOCKING) ──────
 # docs/architecture/total-check-runbook.md §9 の「consistency Check 総数」行に記述された
@@ -528,7 +529,6 @@ else:
 #  自己整合 Check 45/70/105 が横断集約。)
 import checks_tooling as _checks_tooling
 _checks_tooling.run(_ctx)
-
 
 # ── 81-90. AIO entity / employer-Organization cross-surface coherence → checks_entity.py ──
 # (check.py split track・category "entity/Organization". WebP XMP (81) / MP3 ID3 (82) binary
