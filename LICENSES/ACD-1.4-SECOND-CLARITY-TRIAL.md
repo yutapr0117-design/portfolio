@@ -338,7 +338,7 @@ T6 は反例なし（出力が Work に取り込まれれば §9 が自分の条
 
 **残したもの**: §2.6 で識別した素材にも §16.2 の既定が及ぶ読み（Dedicator はその素材の権利を持たないので §2.7 で届かず、残るのは Dedicator 自身の編集部分という狭い場面）。§5.2(b) が商標の規約を課すことまで止める読み（規約の対象は商標であって Work ではなく、+27 語の除外に見合わない）。境界は bb が示した: 規約が「fork はロゴのファイルを Work から外せ」と求めると、ロゴのファイルは Covered Rights の対象で §4 が許諾済みなので、それは *"an obligation in respect of the Work"* になり §5.2(b) が塞ぐ。名前を変えろという求めは商標法そのもので、§5.1 の除外の側に残る。
 
-### 14.11 T28・T29: §16 を実務の 5 つの立場で読んだ（+48 語）
+### 14.11 T28・T29: §16 を実務の 5 つの立場で読んだ（+47 語）
 
 SPDX 法務、REUSE の保守者、npm・Cargo・PyPI の保守者、Debian・Fedora の法務、企業の OSPO の 5 つの立場で、§16 と、それに関わる §1.3・§1.9・§2.6・§5.2 を読んだ。候補 18 件のうち反証に 7 件が残った。
 
@@ -353,7 +353,7 @@ workflow は 1 件ずつ 1 文足す案（計 +56 語）を出したが、§16.2
 
 **逆側**: Dedicator が後で別条件のファイルを ACD へ移したいときは、そのファイルのヘッダを変える必要がある。誤って撤回不能に出さないための保守的な既定である。寄与者が自分のファイルに置いた別条件のヘッダは *the Dedicator has placed* に入らないが、§2.6 の *unless they state otherwise* と §2.7 で閉じる。SPDX 式 *ACD-1.4 AND Apache-2.0* でラベルが無い場合はパッケージ全体という 1 つの結果に決まり、ACD の側が広く出す向きなので受領者に不利にならない。
 
-**T29 §1.9（+10 語）**: T24 の *"offering the Work with a notice of this Dedication"* では、社内のモノレポに通知ごと vendor した ACD のコードへ従業員が変更依頼を出すと、会社が Dedicator になり、改変と §8 の特許を出す読みがあった。初案の *"to the public"* は bb の反例で落ちた。非公開で 1 年開発してから ACD で公開するチームでは、公開前の仲間の寄与が全部 Contribution でなくなり、§2.6 の第 2 文により公開前の履歴全体を ACD の外と標示する約束が出る。*"to the public, or to those it invites to contribute"* にした。招かれた協力者は入り、vendor した会社の従業員は Work への寄与に招かれた者ではないので外れる。
+**T29 §1.9（+9 語）**: T24 の *"offering the Work with a notice of this Dedication"* では、社内のモノレポに通知ごと vendor した ACD のコードへ従業員が変更依頼を出すと、会社が Dedicator になり、改変と §8 の特許を出す読みがあった。初案の *"to the public"* は bb の反例で落ちた。非公開で 1 年開発してから ACD で公開するチームでは、公開前の仲間の寄与が全部 Contribution でなくなり、§2.6 の第 2 文により公開前の履歴全体を ACD の外と標示する約束が出る。*"to the public, or to those invited to contribute"* にした（*those it invites* の *it* は文の上では repository を指すので、bb の直しで受け身にした）。招かれた協力者は入り、vendor した会社の従業員は Work への寄与に招かれた者ではないので外れる。
 
 **残したもの**: §5.2(a)(b) を Dedicator 自身の製品（ライセンスキー、EULA）に当てる読みは、§5.2(a) の広さとして以前「変えない」と判断した線にある。SPDX が付ける識別子、*LicenseRef-* の局所性、XML 化、草案の例外、本文の写しを通知と読む読みは、本文の語か記録の結論で退いた。
 
