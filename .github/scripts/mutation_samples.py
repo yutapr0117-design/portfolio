@@ -562,6 +562,18 @@ _MUTATIONS_TAIL.append({
     "replace": "licensing (ACD-1.0: was ACD-",
     "first_occurrence": True,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 499: 入口の最後に読んだ時刻を 2000-01-01 にする —— 取得のたびに書き換えないと、古い時刻のまま「返信は無い」と言い続ける",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "when last read, ",
+    "replace": "when last read, 2000-01-01 00:00 UTC (was ",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 499: 入口の最後に読んだ時刻を、記録の無い先の日時にする —— 取得していない時刻を名乗っても、照合が無ければ通った",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "when last read, ",
+    "replace": "when last read, 2099-01-01 00:00 UTC (was ",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

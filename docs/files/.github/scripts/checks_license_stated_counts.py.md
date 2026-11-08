@@ -9,7 +9,7 @@ canonical-ref: .github/scripts/check_repository_consistency.py (CHECK_SOURCE_FIL
 
 ## What
 
-**Check 498**: ドシエの自己申告の文が持つ 2 つ目の数と、隣の文が繰り返す同じ数が、1 つ目と同じ実測に一致することを見る。errata の冒頭、comparison §1.35、FAQ の mirror、提出参考資料 §4c、register の集計行、逐条リファレンス、submission.md の分冊の 7 面。
+**Check 498**: ドシエの自己申告の文が持つ 2 つ目の数と、隣の文が繰り返す同じ数が、1 つ目と同じ実測に一致することを見る。errata の冒頭、comparison §1.35、FAQ の mirror、提出参考資料 §4c、register の集計行、逐条リファレンス、submission.md の分冊の 7 面。**Check 499**（2026-11-09）: 入口（REVIEWERS.md）の "when last read, <時刻> UTC" が、OSI-EVENTS が記録する最新の取得の時刻と合うこと（記録の無い取得と 48 時間以上の遅れは RED、48 時間以内の遅れは ADVISORY）。
 
 ## Why
 
