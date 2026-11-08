@@ -82,6 +82,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | 既知の反論が当たるか（**英語・審査者が最初に読む**） | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) |
 | 審査者は主題について何と言っているか（人格権 / 特許 / 長さ / 構造 …） | [`ACD-1.0.reviewer-positions.md`](ACD-1.0.reviewer-positions.md) |
 | 未読のスレッドと審査の帰結を読んだ記録（§1.164 以降） | [`ACD-1.0.review-readings.md`](ACD-1.0.review-readings.md) —— `reviewer-positions.md` と `gap-measurements.md` が予算に近づいたので 2026-11-09 から新しい節をここに置く（既存の節は動かしていない） |
+| 読んだスレッドの件名の一覧（AS-OF の未読数の元） | [`READ-THREADS.txt`](READ-THREADS.txt) —— 1 行 1 件名。読んだら同じ commit で足す |
 | **審査の場がどう働き、誰がそこで書いているか**（pre-review としての `license-discuss` / 沈黙の比較 / 書き手の記録 / moderator が引いた CoC） | [`ACD-1.0.review-venue.md`](ACD-1.0.review-venue.md) —— `reviewer-positions.md` から 2026-09-24 に切り出した（§1.67 以降・節番号は不変） |
 | リストが我々の類型に付ける呼び名（「クレヨン」「vanity」）と、それが実際に指している害 | [`ACD-1.0.review-labels.md`](ACD-1.0.review-labels.md) |
 | 提出judgment と**残る弱点** | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) |
