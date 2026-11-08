@@ -559,6 +559,32 @@ _MUTATIONS_TAIL.append({
     "replace": '**§ 8.9** terminates nothing, and §4.1 is irrevocable, perpetual',
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (e): against.md の総括の文を言い換える —— 文の形が変わると、何も比べないまま緑だった",
+    "file": ROOT / "LICENSES" / "ACD-1.0.against.md",
+    "first_occurrence": True,  # 先頭の出現が「have produced **N adverse facts」の総括の文 (2026-11-08 に位置で確認)
+    "find": "adverse facts, ",
+    "replace": "negative findings, ",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (p): §B.0 の Subject 行の印を変える —— 送る文面の語数の数え直しを、黙って飛ばしていた",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": "**Subject:** For Approval:",
+    "replace": "**Subject**: For Approval:",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (k): 入口の errata 参照を 3 桁の E124 にする —— E(\\d{1,2}) は 3 桁を読まず、存在しない番号が通った",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "(errata E24)",
+    "replace": "(errata E124)",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460: face が名指す triage の file 名だけを変える —— 改名すると、その face は `if X.exists():` で黙って飛ばされた",
+    "file": ROOT / ".github" / "scripts" / "checks_license_self_reporting.py",
+    "find": '_L460 / "ACD-1.4-ADVERSARIAL-TRIAGE.md"',
+    "replace": '_L460 / "ACD-1.4-EXTERNAL-TRIAGE.md"',
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

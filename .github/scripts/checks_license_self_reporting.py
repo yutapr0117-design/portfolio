@@ -182,6 +182,10 @@ def run(ctx):
     # 古い数字は網羅の主張を嘘にする。
     _L460 = ROOT / "LICENSES"
     _bad460 = _FaceTagged460()
+    # 面が名指す file が改名で消えると、`if X.exists():` の面は黙って飛ばされた (2026-11-08 の監査で実測)
+    for _x460 in sorted(set(re.findall("_L460" + r' / "([^"]+)"', open(__file__, encoding="utf-8").read()))):
+        if not (_L460 / _x460).exists():
+            _bad460.append(f"face が名指す LICENSES/{_x460} が無い —— 改名したなら face を直す")
 
     def _read460(name):
         p = _L460 / name
@@ -313,9 +317,13 @@ def run(ctx):
             for _m5 in re.finditer(r"grown\s+from\s+\d+\s+entries\s+to\s+\*\*(\d+)\*\*", _agt):
                 if int(_m5.group(1)) != _rows460:
                     _bad460.append(f"against.md の規模: 申告 {_m5.group(1)} / 実測 {_rows460}")
+            _decl460e = 0
             for _m6 in re.finditer(r"produced\s+\*\*(\d+)\s+adverse\s+facts", _agt):
+                _decl460e += 1
                 if int(_m6.group(1)) != _rows460:
                     _bad460.append(f"against.md の総括: 申告 {_m6.group(1)} / 実測 {_rows460}")
+            if not _decl460e:  # [2026-11-08] 文の形が変わると、何も比べないまま緑だった
+                _bad460.append("(e) against.md の総括の文 (produced **N adverse facts) が読めない —— 言い換えたなら face を直す")
             _er460 = ROOT / "LICENSES" / "ACD-1.0.errata.md"
             if _er460.exists():
                 _ercnt = len(re.findall(r"^\| E\d+ \|", _er460.read_text(encoding="utf-8"), re.M))
@@ -536,20 +544,18 @@ def run(ctx):
                 (ROOT / "docs" / "files" / "LICENSES").rglob("*.md"))
             for _fk in _scope_k:
                 for _n, _ln in enumerate(_fk.read_text(encoding="utf-8").splitlines(), 1):
-                    for _m in re.finditer(r"(?<![\w/])#(\d{1,4})\b", _ln):
+                    for _m in re.finditer(r"(?<![/&])(?<![\w/])#(\d{1,4})\b|(?<=[A-Za-z])#(\d{1,4})\b", _ln):
+                        if _m.group(2):  # [2026-11-08] PR#2040 の形 (face が禁じる当の形) も読む
+                            _bad460.append(f"{_fk.name}:{_n}: `#{_m.group(2)}` を語に続けて書いている (PR 番号など別の採番)")
+                            continue
                         if int(_m.group(1)) not in _nums_k:
                             _bad460.append(f"{_fk.name}:{_n}: `#{_m.group(1)}` が不利な事実へ解決しない "
                                            f"(PR 番号など別の採番を `#N` で書かない)")
-                    for _m in re.finditer(r"(?<![\w])E(\d{1,2})\b", _ln):
+                    for _m in re.finditer(r"(?<![\w])E(\d{1,3})\b", _ln):  # [2026-11-08] 3 桁 (E124) も読む
                         if f"E{_m.group(1)}" not in _ers_k:
                             _bad460.append(f"{_fk.name}:{_n}: `E{_m.group(1)}` が errata へ解決しない")
-        # (l) **`errata.md` 自身の冒頭が述べる件数が、その下の表の行数と一致すること。**
-        #   実測 (2026-09-09): 冒頭は「**Seven** items are recorded: five imprecisions … **All five**
-        #   are unrepaired」と述べ、表には **10 行**あった。**自分の既知欠陥を列挙するページが、
-        #   いくつ知っているかを過少に申告していた** —— #58 と同じ「開示量を小さく言う」向きで、
-        #   これは間違える向きとして最悪である。REVIEWERS / READY-TO-SUBMIT 側の申告は face (a) が
-        #   既に見ていたが、**当のページ自身の申告だけが無検査だった** —— 「最後に書かれ最初に
-        #   読まれるページ」が抜ける #58 の構造がそのまま繰り返されている。
+        # (l) **`errata.md` 自身の冒頭が述べる件数が、その下の表の行数と一致すること。** 2026-09-09 に冒頭は
+        #   「Seven items」と述べ表は 10 行だった —— 自分の既知欠陥を過少に申告する、最悪の向き (#58 と同じ構造)。
         if _erp460.exists():
             _et_l = _erp460.read_text(encoding="utf-8")
             _rows_l = len(re.findall(r"^\| (E\d+) \|", _et_l, re.M))
@@ -727,8 +733,12 @@ def run(ctx):
             if not _h460p:
                 _bad460.append("submission.md: §B.0 の見出しに語数の申告が無い "
                                "(消して黙らせない —— 長さは B3 そのものなので、数えられる形で書く)")
-            elif _s460p and _e460p > _s460p[0]:
+            elif not _s460p or _e460p <= _s460p[0]:  # [2026-11-08] 印が変わると数え直しを黙って飛ばした
+                _bad460.append("(p) submission.md §B.0 の送る文面の始まり (行頭の **Subject:**) か §B.1 が見つからない")
+            else:
                 _occ460p = [m.start() for m in re.finditer("Yuta Yokoi", _t460p[_s460p[0]:_e460p])]
+                if not _occ460p:
+                    _bad460.append("(p) submission.md §B.0 の署名が見つからない (語数を数える終わりが無い)")
                 if _occ460p:
                     _end460p = _t460p.find("\n", _s460p[0] + _occ460p[-1])
                     _n460p = len(re.findall(r"\S+", _t460p[_s460p[0]:_end460p]))
@@ -737,12 +747,8 @@ def run(ctx):
                         _bad460.append(f"submission.md §B.0 の語数: 申告 {_d460p} / 実測 {_n460p} "
                                        "(instrument は file 自身が書いている: Subject 行から署名まで)")
 
-        # (q) **審査者に示す検証コマンドの期待値が、そのコマンドの実際の出力件数と一致すること。**
-        #   `FROZEN.md` の digest 行数がそのまま `shasum -c` の OK 行数になる。
-        #   **審査者が貼って走らせる 1 行なので、ずれは最初に目に入る** ——しかも
-        #   `REVIEWERS.md` はこれを *"The last one is the important one"* と呼んでいる。
-        #   実測 (2026-09-22): 2 面が「3× OK」、散文 2 箇所が「three files」/「all three files」、
-        #   実際は **5**（1.1 の 2 件が凍結対象に加わったのに期待値が追従していなかった）。
+        # (q) **審査者に示す検証コマンドの期待値が、実際の出力件数 (`FROZEN.md` の digest 行数) と一致すること。**
+        #   審査者が貼って走らせる 1 行。2026-09-22 に「3× OK」と述べ実際は 5 だった (凍結対象の追加に追従せず)。
         _fz460q = _L460 / "FROZEN.md"
         if _fz460q.exists():
             _n460q = len(re.findall(r"(?m)^[0-9a-f]{64}  \S+", _fz460q.read_text(encoding="utf-8")))
@@ -767,16 +773,10 @@ def run(ctx):
                         _bad460.append(
                             f"{_nm460q}: 散文の凍結件数 {_raw460r} / FROZEN.md の digest 行 {_n460q} 件")
 
-        # (r) **`submission.md` の外に書かれた §B.0 の語数は、日付か「見出しが権威」の断りを伴うこと。**
-        #   §B.0 は審査者へ実際に貼る文面で、**改善のたびに伸びる派生値**である。
-        #   face (p) は正本（見出し）を実測と照合するが、**他文書へ手で写した値は誰も見ていなかった**。
-        #   実測 (2026-09-26): `READY-TO-SUBMIT.md` が **「約 600 語」**と述べていた ——
-        #   **実測 1,568 語で 2.6 倍のずれ**。しかも READY-TO-SUBMIT は
-        #   「人間が実際に何をするか」の手順書で、**stale が誤った印象ではなく誤った行動を生む**面である
-        #   (#81 がまさにその class)。
-        #   **規範は既に他の 4 箇所が守っていた** —— 日付を添える (「2026-09-24 時点では」) か、
-        #   「現在値は §B.0 の見出し」と書く。**本 face はその慣行を機械化するだけで、新しい規則ではない。**
-        #   数値を消す選択も正しい (READY-TO-SUBMIT はそうした)。**縛るのは「裸の現在形の数値」だけ。**
+        # (r) **`submission.md` の外に書かれた §B.0 の語数は、日付か「見出しが権威」の断りを伴うこと。** §B.0 は
+        #   改善のたびに伸びる派生値で、他文書へ手で写した値は誰も見ていなかった (2026-09-26 に READY-TO-SUBMIT が
+        #   「約 600 語」、実測 1,568 語)。手順書の stale は誤った行動を生む (#81)。既に 4 箇所が守る慣行の機械化で、
+        #   縛るのは「裸の現在形の数値」だけ (数値を消すのも正しい)。
         _DATE460R = re.compile(r"20\d\d-\d\d(-\d\d)?")
         _PTR460R = ("§B.0 の見出し", "Check 460 (p)", "heading", "見出しが述べる")
         #   **2026-09-27 に 2 つ直した**: (1) 走査先に `docs/architecture/` が無く、check-map の Check 463 の説明が
