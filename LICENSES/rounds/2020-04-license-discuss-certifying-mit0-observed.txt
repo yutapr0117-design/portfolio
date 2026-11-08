@@ -1,0 +1,108 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2020-April.txt
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-08)
+Messages: 3 of the 32 messages in the thread "Certifying MIT-0" (2020-04), the ones this dossier cites.
+Senders: Richard Fontana, Mark Atwood, Josh Berkus
+Position: a discussion of whether MIT-0, a licence asking for no notice, could be approved. Not addressed to us and not about ACD. Each message is whole.
+
+----- begin verbatim -----
+From rfontana at redhat.com  Thu Apr 23 02:33:56 2020
+From: rfontana at redhat.com (Richard Fontana)
+Date: Wed, 22 Apr 2020 22:33:56 -0400
+Subject: [License-discuss] Certifying MIT-0
+In-Reply-To: <CAKgxSaA6=dOnjcSxiTRbt-wNJfPXrYKDSnHUFzn__w4NrEMyLw@mail.gmail.com>
+References: <CAKgxSaA6=dOnjcSxiTRbt-wNJfPXrYKDSnHUFzn__w4NrEMyLw@mail.gmail.com>
+Message-ID: <CAC1cPGxxbh9w8SgbbubJR5F1GfhvZgUSvvSf_hQkqeYE8N1v+g@mail.gmail.com>
+
+On Wed, Apr 22, 2020 at 9:48 PM Tobie Langel <tobie at unlockopen.com> wrote:
+>
+> Hi all,
+>
+> The MIT-0 license[1] is an MIT license with the attribution clause removed. It has notably been used to license example and scaffolding code.
+>
+> It doesn?t look that it has been approved by the OSI. I couldn?t find it on the licenses page[2].
+>
+> I imagine that is has been discussed on license-review@ already, unfortunately I couldn?t find a way to search the archives either. A pointer would be very much appreciated.
+>
+> If this license hasn?t been rejected in the past, would there be a chance for it to be accepted? It seems like it meets the OSD and fulfills a need that?s hard to meet otherwise.
+
+It seems likely it would be approved, given the approval a few years
+ago of the similar, ISC-based license now known as Zero-Clause BSD,
+though perhaps some would object on anti-proliferation grounds.
+
+> If so, could I bring it to license-review@ myself given I?m neither a lawyer nor the author of the license?
+
+Lawyers fortunately do not have a monopoly on the ability to make OSI
+license approval submissions. As for the author, though:
+https://opensource.org/approval implies that the submitter of a normal
+(non-legacy) license approval request should be the license steward,
+while submissions for legacy approval can be by an "interested
+licensee". However it now seems clear that a "legacy" approval doesn't
+necessarily mean the license is particularly ancient. I think I first
+became aware of MIT-0 from its occasional use by Amazon/AWS, but I
+don't know if they were the first ones to use it. To speak of MIT-0 as
+having a "steward" seems questionable, although the experience of
+Zero-Clause BSD shows that people can have a strong authorial sort of
+interest even in minimalist reductions of the most textually
+minimalist open source licenses.
+
+In the case of the v3 GNU licenses, license approval submissions were
+done by someone other than the license steward: if I remember
+correctly, Chris Di Bona submitted GPLv3 and LGPLv3 in 2007 and
+Stefano Maffulli submitted AGPLv3 in 2008. But those were special
+cases, as -- at that time, anyway -- everyone knew it was politically
+unthinkable that the FSF would ever submit a license for OSI approval.
+
+Richard
+
+
+
+From me at mark.atwood.name  Sun Apr 26 02:43:35 2020
+From: me at mark.atwood.name (Mark Atwood)
+Date: Sat, 25 Apr 2020 19:43:35 -0700
+Subject: [License-discuss] Certifying MIT-0
+In-Reply-To: <4316a9e3-320e-4d87-e529-1070279161d5@berkus.org>
+References: <CAKgxSaA6=dOnjcSxiTRbt-wNJfPXrYKDSnHUFzn__w4NrEMyLw@mail.gmail.com>
+ <CAC1cPGxxbh9w8SgbbubJR5F1GfhvZgUSvvSf_hQkqeYE8N1v+g@mail.gmail.com>
+ <4316a9e3-320e-4d87-e529-1070279161d5@berkus.org>
+Message-ID: <d2ccf787-c89a-4722-a72d-55091cf1a2d0@www.fastmail.com>
+
+On Thu, Apr 23, 2020, at 10:09, Josh Berkus wrote:
+> On 4/22/20 7:33 PM, Richard Fontana wrote:
+> Here is my non-proliferation question:
+> Is there significant use of MIT-0 in the field?
+
+Almost all the sample, reference, teaching, documentation, and "blog" code published by Amazon is MIT-0.   Except for the stuff for Alexa and for Lambda, and I'm hoping that changes.   We like MIT-0 for that purpose  because the intent is that our customers can remix it into their own applications with zero concern about the labor of maintaining attribution.
+
+I don't know if that counts as "in the wild" enough.  
+
+It's a useful use case.  Especially for companies who go to the effort to try to be fastidious about maintaining providence and attribution for open source code.   We try to be, so we try to make things as easy as possible for our customers.
+
+..m
+
+
+
+
+
+From josh at berkus.org  Sun Apr 26 06:19:49 2020
+From: josh at berkus.org (Josh Berkus)
+Date: Sat, 25 Apr 2020 23:19:49 -0700
+Subject: [License-discuss] Certifying MIT-0
+In-Reply-To: <d2ccf787-c89a-4722-a72d-55091cf1a2d0@www.fastmail.com>
+References: <CAKgxSaA6=dOnjcSxiTRbt-wNJfPXrYKDSnHUFzn__w4NrEMyLw@mail.gmail.com>
+ <CAC1cPGxxbh9w8SgbbubJR5F1GfhvZgUSvvSf_hQkqeYE8N1v+g@mail.gmail.com>
+ <4316a9e3-320e-4d87-e529-1070279161d5@berkus.org>
+ <d2ccf787-c89a-4722-a72d-55091cf1a2d0@www.fastmail.com>
+Message-ID: <a724e800-f745-6017-491e-c7f8e0aa2a7f@berkus.org>
+
+On 4/25/20 7:43 PM, Mark Atwood wrote:
+> Almost all the sample, reference, teaching, documentation, and "blog" code published by Amazon is MIT-0.   Except for the stuff for Alexa and for Lambda, and I'm hoping that changes.   We like MIT-0 for that purpose  because the intent is that our customers can remix it into their own applications with zero concern about the labor of maintaining attribution.
+> 
+> I don't know if that counts as "in the wild" enough.  
+
+It's sufficient. Just wanted to make sure that somebody was actually
+using it.
+
+-- 
+Josh Berkus
+
+
