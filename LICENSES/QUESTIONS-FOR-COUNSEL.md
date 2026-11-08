@@ -123,6 +123,13 @@ as export and lending (Japan, Patent Act Art. 2(3)) or possession (Germany, PatG
 (h) The 1.4 draft adds to §8.4 *"Section 8.1 alone governs a feature added to the Work, by whatever
 means."* Does it hold the line between a feature added to the Work and a feature of a model or
 output, including where the Work is itself a model?
+(i) §8.1 reaches claims *"owned or controlled by the Dedicator"*, and §8.5 defines *controlled* as the
+Dedicator's own right to license. A claim held by the Dedicator's affiliate is not reached. Apache-2.0
+reaches it, because its *"Legal Entity"* includes entities under common control; UPL-1.0, BlueOak-1.0.0
+and BSD-2-Clause-Patent do not. We left ACD on the narrower side, because a Dedication cannot bind a
+company that has not applied it (§2.7), and a claim transferred to an affiliate after application is
+bound by §2.8. Is the remaining gap (a claim the affiliate already holds) a defect a reviewer would
+press, and if so, is a covenant by the Dedicator not to cause an affiliate to assert it effective?
 
 **An answer would change** the wording of §8.4 (register B7; errata E6 and E15).
 
