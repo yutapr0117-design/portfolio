@@ -554,6 +554,12 @@ _MUTATIONS_TAIL.append({
     "find": 'The *current* operation has evolved into autonomous self-driving by Claude Code — the agentic form of Claude.',
     "replace": 'The *current* operation remains conversational use of Claude, as in the construction phase.',
 })
+_MUTATIONS_TAIL.append({
+    "name": 'Check 417: AI 履歴の filter を括弧つきの引数で truthy 判定へ戻す —— 変数は t、欄は title / text しか読まず、AI 履歴の h && h.prompt を見ていなかった',
+    "file": ROOT / 'js' / 'store.js',
+    "find": '.filter(h => h && isText(h.prompt) && isText(h.response))',
+    "replace": '.filter((h) => h && h.prompt && h.response)',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
@@ -951,5 +957,12 @@ _E2E_TAIL.append({
     "find": "            return Object.prototype.hasOwnProperty.call(map, type) ? map[type] : map.aws;",
     "replace": "            return Object.prototype.hasOwnProperty.call(map, type) ? map[type] : 'Quiz';",
     "test": "Quiz document.title stays in the known-safe set for ?type=",
+})
+_E2E_TAIL.append({
+    "name": "AI 履歴の取り込みの型ガードを truthy 判定へ戻す —— {prompt: {}} の entry が落ちず、空の会話として残る (2026-11-08 まで \"[object Object]\" を描画していた)",
+    "file": ROOT / "js" / "store.js",
+    "find": ".filter(h => h && isText(h.prompt) && isText(h.response))",
+    "replace": ".filter(h => h && h.prompt && h.response)",
+    "test": "Hostile AI history: non-string prompt/response must not render as [object Object]",
 })
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL

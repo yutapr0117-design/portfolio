@@ -700,11 +700,12 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
         // Array.isArray でガードし、非配列は default (空配列) にフォールバックする総関数契約を守る。
         if (Array.isArray(data.ai?.history)) {
             result.ai.history = data.ai.history
-                .filter(h => h && h.prompt && h.response)
+                // [FIX] tasks / todos と同じ isText + safeStr ({} が "[object Object]" で描画されていた)
+                .filter(h => h && isText(h.prompt) && isText(h.response))
                 .map(h => ({
                     ...h,
-                    prompt: String(h.prompt).slice(0, CONSTANTS.LIMITS.AI_MESSAGE),
-                    response: String(h.response).slice(0, CONSTANTS.LIMITS.AI_MESSAGE),
+                    prompt: safeStr(h.prompt, '', CONSTANTS.LIMITS.AI_MESSAGE),
+                    response: safeStr(h.response, '', CONSTANTS.LIMITS.AI_MESSAGE),
                     // timestamp を数値化 (tasks.createdAt と同型)。corrupt/欠損 import で
                     // AIPage の new Date(timestamp).toLocaleTimeString() が 'Invalid Date' 表示になるのを防ぐ。
                     timestamp: Number(h.timestamp) || Date.now()

@@ -406,6 +406,32 @@ test('Hostile appsData import: non-string title/text must not render as [object 
 });
 
 
+// 上と同じ class の AI 履歴の面。正規化は `h && h.prompt && h.response` の truthy 判定で `{}` を通し、
+// `String({})` の "[object Object]" を AI ページの吹き出しへ描画していた (2026-11-08・Check 417 の監査 #73)。
+// 既定の取り込み (追記) は ai を既存のまま残すので、store を seed して load() の正規化を通す。
+// 落ちたことは吹き出しの数で見る: filter だけ戻すと safeStr が {} を空文字にし、空の吹き出しが残る。
+test('Hostile AI history: non-string prompt/response must not render as [object Object]', async ({ page }) => {
+  await page.addInitScript(() => {
+    try {
+      localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({
+        schemaVersion: 12, type: 'full-store', theme: 'system', lastModified: 1,
+        appsData: { ai: { history: [
+          { prompt: {}, response: {}, timestamp: 1 },
+          { prompt: 'ai-prompt-kept-e2e', response: 'ai-response-kept-e2e', timestamp: 2 },
+        ] } },
+      }));
+    } catch (e) { /* noop */ }
+  });
+  await page.goto('/#/apps/ai', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content'), '正当な AI 履歴が型ガードで落ちた (過剰なガード)').toContainText('ai-response-kept-e2e');
+  await expect(page.locator('#content'), '非文字列の prompt / response が "[object Object]" として描画された')
+    .not.toContainText('[object Object]');
+  await expect(page.locator('#content .chat-bubble-other'), '非文字列の AI 履歴が落ちずに空の吹き出しとして残っている')
+    .toHaveCount(1);
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `hostile AI history caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 同じ id の項目を取り込んでも「1 件だけ操作する」が成り立つ =====
 // id は自前生成なら一意だが、**取り込みは信用できない入力**なので保証されない
 // (手編集の JSON / 別バージョンが書いた store / 壊れた localStorage)。同じ id の項目が

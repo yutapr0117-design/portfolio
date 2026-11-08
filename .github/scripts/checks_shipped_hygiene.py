@@ -780,9 +780,10 @@ def run(ctx):
     _src417 = (ROOT / "js" / "store.js").read_text(encoding="utf-8", errors="replace")
     _code417 = strip_js_comments(_src417)
     # (a) untrusted な生値 (raw. / data. / 個々の entry t.) を String() へ直接渡さない
-    _direct417 = re.findall(r"String\(\s*(?:raw|data|t)\.[\w.?\[\]]*", _code417)
+    # 2026-11-08: 変数に h、`?.` も読む。filter は括弧つきの引数と prompt / response の truthy 判定も読む (AI 履歴が外れていた)
+    _direct417 = re.findall(r"String\(\s*(?:raw|data|t|h)\??\.[\w.?\[\]]*", _code417)
     # (b) 必須テキストの filter は isText() を通す (truthy 判定だけの形を禁止)
-    _weak_filter417 = re.findall(r"filter\(\s*(\w+)\s*=>\s*\1\s*&&\s*\1\.(?:title|text)\s*\)", _code417)
+    _weak_filter417 = re.findall(r"filter\(\s*\(?\s*(\w+)\s*\)?\s*=>\s*\1\s*&&\s*\1\??\.(?:title|text|prompt|response)\b", _code417)
     _viol417 = [f"String() へ直接: {_m}" for _m in sorted(set(_direct417))] + \
                [f"必須テキストの filter が isText() を通していない (変数 {_v})" for _v in sorted(set(_weak_filter417))]
     check(
