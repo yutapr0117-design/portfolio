@@ -209,9 +209,10 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 8.6 now says "the covenants in Section 5", where it said
       "the covenant in Section 5" (errata E71). (0 words.)
     * Section 9.2 now says that where a right this Dedication reaches
-      subsists, "this Dedication applies to it". It listed Sections 3 to 8
-      and Section 12, a list that could be read to confine Section 5 to
-      rights that subsist and to leave out Sections 13 and 14. (-3 words.)
+      subsists, "this Dedication applies to it" (errata E72). It listed
+      Sections 3 to 8 and Section 12, a list that could be read to confine
+      Section 5 to rights that subsist and to leave out Sections 13 and 14.
+      (-3 words.)
     * ACD-1.3: 5443 words, 80 clauses. This draft: 5611 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as

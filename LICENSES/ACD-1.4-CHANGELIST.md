@@ -138,6 +138,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | E69 | §16.2 | *"The identifiers named above match without regard to case."*（+9 語・T32） | **反映済み**（2026-11-08）|
 | E70 | §6.4 | *"You owe nothing under this Dedication"*（+3 語・T33） | **反映済み**（2026-11-08）|
 | E71 | §8.6 | *"the covenants in Section 5"*（0 語） | **反映済み**（2026-11-08）|
+| E72 | §9.2 | 第 3 文を *"Where a right that this Dedication reaches subsists, or is later held to subsist, this Dedication applies to it."* へ（−3 語・T34） | **反映済み**（2026-11-08）|
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 
