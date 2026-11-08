@@ -542,6 +542,18 @@ _MUTATIONS_TAIL.append({
     "find": '## [HANDOFF] Session Record #22 — ',
     "replace": '## [HANDOFF] Session Record (twenty-two) — ',
 })
+_MUTATIONS_TAIL.append({
+    "name": 'Check 389: sidebar の葉でダークとライトの名前を入れ替える —— 3 語が窓に在れば通り、同じ状態で 2 面が別の名前を読み上げても緑だった',
+    "file": ROOT / 'js' / 'components.js',
+    "find": "state.theme === 'dark' ? 'ダーク' : 'ライト') + '）'",
+    "replace": "state.theme === 'dark' ? 'ライト' : 'ダーク') + '）'",
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 123b: llms-full.txt の現運用モデルの段落を対話型へ巻き戻す —— 3 語を file 全体の別々の場所で探しており、見出しとほかの節の語で通った',
+    "file": ROOT / 'llms-full.txt',
+    "find": 'The *current* operation has evolved into autonomous self-driving by Claude Code — the agentic form of Claude.',
+    "replace": 'The *current* operation remains conversational use of Claude, as in the construction phase.',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
