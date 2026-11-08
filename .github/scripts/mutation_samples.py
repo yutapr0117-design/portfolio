@@ -484,6 +484,13 @@ _MUTATIONS_TAIL.append({
     "replace": "| レンズ | やったこと | 結果 |",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 472n: register の英語の索引で、B1 を述べる Piana 氏の引用を読みやすく動かす —— register は入口の照合の外だった (2026-11-08 に加えた)",
+    "file": ROOT / "LICENSES" / "ACD-OSI-BOTTLENECKS.md",
+    "find": '*"OSI requires prior review by a lawyer"*',
+    "replace": '*"OSI requires a prior review by a lawyer"*',
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
