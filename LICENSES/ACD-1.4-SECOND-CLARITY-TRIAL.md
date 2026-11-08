@@ -412,3 +412,15 @@ workflow は 1 件ずつ 1 文足す案（計 +56 語）を出したが、§16.2
 **先に登録する反例（bb へ）**: (a) *"a right that this Dedication reaches"* が、権利の有無に加えて「reach するか」の判定を受領者に求めると読まれ、§9.3（判定を求めない）と食い違うか。(b) *"this Dedication applies to it in full"* が §12 の *"to the extent stated"* の限定を外すと読まれるか（§9.2 の旧文も *"Section 12 apply to it in full"* だった）。(c) 後に権利が生じた部分に、§2.2 の撤回不能と §16 の適用がどう掛かるか（旧文は §2 を挙げていなかった）。(d) (A)(B) が新文でもなお立つか。
 
 **採否（2026-11-08・採った。ただし *"in full"* を外した形・−3 語）**: bb の反例のうち (b) が立った。後に Machine-Generated Material に Moral Rights が成り立つと判断された場面で、*"this Dedication applies to it in full"* を §15.1 の「受領者に多く与える読み」で読むと、§11.4 の *"Moral Rights to the extent stated in Section 12"* と §12.5 の除外を *"in full"* が越える読みを §15.1 が選ぶ。§9.2 の旧文は *"Section 12 apply to it in full"* で、§12 を全部当てる意味だったのでこの問題は無かった。*"in full"* が担っていた「一部だけ当てるのではない」は、*"a right that this Dedication reaches"* と各節が自分の範囲を持つことで足りるので外した。(a) は立たない（条件は権利が在るかで、受領者の判定ではない。権利が無ければ受領者は第 2 文でもともと自由なので §9.3 は崩れない）。(c) も立たない（後に在るとされた権利は作成時から在ったことになり、§2.2 と合わせて適用の日から及ぶ。新しく生じる権利は *subsists* の現在形と §1.5 の *"whether or not presently subsisting"* が拾う）。(d) は (A)(B) とも新文で足場が消え、残る第 2 文は *"as to that right"* が §5.2(b) の約束と §13・§14 の免責を外す。`--compare`（*in full* を外した形）: 条 +0 / 語 −3 / 重複 +0 / 先行詞の無い指示語 0、`--guard`: 468u の目印 17 件すべて残る。冒頭の一覧、`This draft` の語数、CHANGELIST の本表の行と語数の内訳、切り替えの日の表の行を同じ commit で直した。E 番号は bb が付ける。
+
+### 14.16 T35: §1.9 の語順（0 語）
+
+**Before**: *"… to a repository or forum offering the Work to the public, or to those invited to contribute, with a notice of this Dedication, for inclusion in the Work."* / **After**: *"… to a repository or forum offering the Work, with a notice of this Dedication, to the public or to those invited to contribute, for inclusion in the Work."*
+
+**欠陥**（bb が逐条リファレンスの下書きの §1.9 の行を本文に当てて見つけた・2026-11-08）: T29 が提供の相手を *offering the Work* と *with a notice* の間に挟んだので、カンマの位置から *"or to those invited to contribute"* を *submits* の 3 つ目の宛先と読み、*"with a notice of this Dedication"* をその最後の肢だけに掛ける読みが立つ。その読みでは公衆に提供する repository / forum に通知の要件が掛からず、T24 が閉じた「通知を外したミラーへの提出で、ACD を見ていない人が Dedicator になる」読みが戻る。§15.1 の *"the reading that grants more to You prevails"* は、寄与を広げるその読みを選ぶ。招かれた共同開発者へ私的に送った変更が寄与になる読みも同時に立つ。
+
+**由来**: 1.4 草案で生まれた文（T19・T24・T29 の順に足した）。1.0〜1.3 には無いので errata ではない。
+
+**採った形**: bb の案 *"that offers the Work, with a notice of this Dedication, to the public or to those invited to contribute"*（+1 語）の語順を、分詞 *offering* のまま取った（0 語）。通知が *offering* の隣に戻り、提供の相手 2 つがカンマ無しで続くので、*to those invited* を *submits* の宛先と読む足場が消える。`measure_clause_overlap.py --compare`: 条 +0 / 語 +0 / 重複 +0 / 先行詞の無い指示語 0。§1.9 を参照する箇所は §2.6 の 1 か所で、除外の参照なので影響しない。`--guard`: 468u の目印 17 件すべて残る。
+
+**逆側**: 挿入句（*with a notice of this Dedication*）が名詞句の途中に入るので、1 文の中の区切りが増えて読みにくい。*"to the public"* が *notice* に掛かる（公衆への通知）と読む筋は、意味が「公衆に提供する」とほぼ同じになるので害が無い。冒頭の一覧の E65 の項目、CHANGELIST の §1.9 の行、逐条リファレンスの §1.9 の行を同じ commit で合わせた。
