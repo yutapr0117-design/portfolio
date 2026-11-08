@@ -525,6 +525,24 @@ _MUTATIONS_TAIL.append({
     "find": "'ai-knowhow': { title: 'AI開発ノウハウ',",
     "replace": "'ai-knowhow': { title: 'AI開発ノウハウ — KERNEL フレームワーク・6 エージェントの役割分担・LLM のコスト管理・検証の自動化・人間の判断の範囲・mutation による安全網の自己検証・週次の確定の予行・AIO の公開面の整合までを全部まとめた長い記事',",
 })
+_MUTATIONS_TAIL.append({
+    "name": 'Check 469: 1.2 の CHANGELIST で E34 の一方の行を「未着手」にする —— 決着の語に「入った」が無く、もう一方の行の「入った」を決着と読めずに矛盾を見逃していた',
+    "file": ROOT / 'LICENSES' / 'ACD-1.2-CHANGELIST.md',
+    "find": '引用側を後継へ合わせた** | **入った** |',
+    "replace": '引用側を後継へ合わせた** | **未着手** |',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 469: 1.1 の CHANGELIST で E12 を「未反映」にする —— 未着手の語に「未反映」が無く、1.2 の決着と食い違っても読めなかった',
+    "file": ROOT / 'LICENSES' / 'ACD-1.1-CHANGELIST.md',
+    "find": '**E3 と同じ 1 文の前半** | **草案に反映済み** |',
+    "replace": '**E3 と同じ 1 文の前半** | **未反映** |',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 469: errata が閉じたと述べる E42 の、ただ 1 つの状態の行を「未着手」にする —— 状態の行が 1 つの E-ID は矛盾の組が作れず、errata とも照合していなかった',
+    "file": ROOT / 'LICENSES' / 'ACD-1.4-CHANGELIST.md',
+    "find": '上の表の §8.6 行と同じ変更） | **反映済み**（2026-11-01）|',
+    "replace": '上の表の §8.6 行と同じ変更） | **未着手**（2026-11-01）|',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
