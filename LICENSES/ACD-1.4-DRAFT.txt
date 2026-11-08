@@ -206,6 +206,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       this Dedication" (errata E70). (+69 words.)
     * Section 5.1 now gives its two covenants as two sentences, so that the
       list of exceptions reads with the second alone. (+1 word.)
+    * Section 8.6 now says "the covenants in Section 5", where it said
+      "the covenant in Section 5" (errata E71). (0 words.)
     * ACD-1.3: 5443 words, 80 clauses. This draft: 5614 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
@@ -619,7 +621,7 @@ PREAMBLE (informative; not part of the operative terms)
   8.6  The Dedicator further covenants not to assert, and not to authorise or
        assist any other person to assert, against You the patent claims that
        Sections 8.1 and 8.4 reach, in respect of any act that those Sections
-       describe. This covenant is given on the same footing as the covenant in
+       describe. This covenant is given on the same footing as the covenants in
        Section 5 and does not wait for either licence to be held ineffective:
        it operates in every jurisdiction alongside them. You are not required
        to determine whether either licence is effective in any jurisdiction,

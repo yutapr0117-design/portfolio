@@ -98,6 +98,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §6.4（範囲）| *"You owe nothing in respect of any of them"* を *"You owe nothing under this Dedication in respect of any of them"* へ | 同じ読み。後半に範囲の語が無いので、§5 の外に出した Dedicator 自身のサービスの出力の条件にも *You owe nothing* が立つと読めた（bb の指摘）。前半の *under this Dedication* と同じ範囲にそろえた | +3 | 反映済 |
 | §16.2（大小を区別しない）| 末尾に *"The identifiers named above match without regard to case."* | 同じ読み。モデルとパッケージのハブは license 欄を小文字で書く（Hugging Face の *license_name: acd-1.4*）。§16.4 にまで効かせると無関係な識別子の一部を縛るので（bb の反例）、§16.2 が名指す識別子に限った | +9 | 反映済 |
 | §5.1（2 文に分ける）| *"any use of the Work, and further covenants not to assert"* を *"any use of the Work. The Dedicator further covenants not to assert"* へ | 今日の除外の追加で §5.1 が本文でいちばん長い文（92 語）になった。2 つの約束を 2 文にし、除外の列が第 2 の約束だけに掛かることを文の切れ目で示した。基準 3（英語として明晰か） | +1 | 反映済 |
+| §8.6（複数形）| *"the same footing as the covenant in Section 5"* を *"the covenants in Section 5"* へ | §5 は 1.0 から §5.1 と §5.2 の 2 つの約束を持ち、§5.3 と §11.4 は複数形で呼ぶ。単数はどちらを指すかを問わせる（portfolio-00 が §5.1 の分割を読んで見つけた・errata E71）。基準 3（英語として明晰か） | 0 | 反映済 |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
@@ -135,6 +136,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | E68 | §5.2 | 写しを渡さずに Work を動かす Dedicator 自身のサービスを (a)(b) の外に置く（T31） | **反映済み**（2026-11-08）|
 | E69 | §16.2 | *"The identifiers named above match without regard to case."*（+9 語・T32） | **反映済み**（2026-11-08）|
 | E70 | §6.4 | *"You owe nothing under this Dedication"*（+3 語・T33） | **反映済み**（2026-11-08）|
+| E71 | §8.6 | *"the covenants in Section 5"*（0 語） | **反映済み**（2026-11-08）|
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 
