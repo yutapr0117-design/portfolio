@@ -434,3 +434,24 @@ workflow は 1 件ずつ 1 文足す案（計 +56 語）を出したが、§16.2
 **変えない理由**: *"or other artefact resulting from …"* のような受け皿を足すと、(1) 足した語があるせいで *output* は推論の出力に限られる、という反対解釈を本文自身が作る（列挙に別の受け皿が在るなら *output* は受け皿ではない）、(2) §8.4 の特許の伸びを語の上で広げて見せる（B7 の費用）。現在の文は受け皿を *resulting from* の因果に置いており、語の流動に対しては呼び名に依らないこの形の方が耐える。
 
 **逆側**: (1) 審査者が *output* を狭く読めば、索引や tokenizer の扱いを §15.1 に頼ることになる。§15.1 は *"that its words allow"* の範囲でしか選ばない。(2) 列挙の費用は、Chestek 氏自身が同じ ModelGo の最初の再提出で、権利の列挙について *"when you enumerate, then you risk failing to grant rights under some regime that has different enumerations"* と述べている（`license-review` 2025-05-14・アーカイブの 2025-May で逐語を確かめた）。列挙して漏れる危険と、列挙しないで何が入るか分からない危険の間の選択で、どちらにも費用がある。ACD は列挙のあとに因果の受け皿を置いて、両方を小さくしようとしている。(3) 法律家に確かめる点として、`QUESTIONS-FOR-COUNSEL.md` 問 2（§8.4 が何に届くか）の範囲に入る。
+
+### 14.18 T36〜T45: 逐条リファレンスの行を本文に当てた読み（候補 47・反証で残った 10）
+
+bb が §1.9（T35）で見つけたレンズを 80 条に当てた（2026-11-08・節ごとの読み手 16 と候補ごとの反証役 46・Explore/opus）。逐条リファレンスの行が述べる読みを、本文の語だけを持つ敵対的な読み手が取るか、§15.1 が別の読みを選ばないかを見た。47 候補のうち 1 件は既に記録があって外し、46 件に反証を当てて 10 件が残った。読みであって、法律家の判断ではない。
+
+| T | 条 | 立つ読み（要約） | 試作（語数） | 25 の判断 |
+| :-- | :-- | :-- | :-- | :-- |
+| T36 | §1.9 Dedicator の肢 | *"to the Dedicator"* の肢には通知と提供の相手の限定が掛からない。§2.6 で寄与者も Dedicator になり、§15.5 で単数は複数を含むので、過去の寄与者へ私的に送った変更も寄与になる。通知を見ていない人が撤回不能に Dedicator になり、特許も出す | *"to a Dedicator, repository, or forum offering the Work, with a notice …"*（−2）。限定を明示する形は *"to the Dedicator or to a repository or forum, in either case offering the Work, …"*（+3） | 採る方向。どちらの形かは bb の反例で決める |
+| T37 | §2.6 第 2 文 | *"and that material is included with the Work"* は受動で、誰が含めても Dedicator が識別の約束を負う（もう関わっていない Dedicator も） | *"a Dedicator who includes that material with the Work will identify it"*（−1） | 採る方向。逆側: Dedicator でない保守者が含めたときは誰も負わない（T19 の空白が語に出る） |
+| T38 | §5.2 末尾の除外 | *"that the Dedicator itself makes available"* は公開しないモデル（社内に留める）を外す。そのモデルに §5 が及び、Dedicator は自分の非公開のモデルの権利を主張できない読み | *"makes or makes available"*（+2） | 採る方向 |
+| T39 | §5.2(d) | *"other than for a false statement or representation (Section 11.3)"* が直前の *use* に掛かり、虚偽の言明「のための使用」だけを外す読み（T21 で閉じた欠陥が戻る） | 除外を (d) の冒頭へ移す（0 語） | 採る |
+| T40 | §10.3 第 2 文 | 第 2 文に範囲の語が無く、第 1 文の *"wherever expressed and however phrased"* と組んで、Dedicator 自身のサービスの条件（AUP・API キー・登録）まで「義務を作らない」と読める。T30・T33 で強制できる側を採った判断と食い違う | *"Under this Dedication, it creates no obligation, …"*（+3・E70 と同じ語） | 採る |
+| T41 | §11.3 第 2 文 | 改変した file に Dedicator の元の著作者表示を残すことが「Dedicator が著作した」という表示に当たるかが語で決まらない | *"or that an altered work is the Dedicator's unaltered work"*（+9） | 保留。除外を広げると §10.2（改変を表示しなくてよい）と緊張し、条件に近づく。bb の反例と法律家への問いへ回す |
+| T42 | §14.1 | 主語 THE DEDICATOR は §1.4 で権利を持つ範囲に限られるので、保守者は自分が権利を持たない部分（寄与者のコード・第三者の素材・権利の無い機械生成物）について免責されない読み。E72 の免責の論点と同じ場所 | *"… OR THE USE OF THE WORK, INCLUDING ANY PART IN WHICH THE DEDICATOR HOLDS NO RIGHT, EVEN IF …"*（+9） | 採る方向 |
+| T43 | §15.1 第 2 文 | *"in respect of the Work"* は第 1 文の主語にしか掛からず、第 2 文の解釈規則が §16.4（名前の保護）にも及んで、改変した本文を配る者に有利に読む | 2 文をつなぎ、第 1 文の主語で両方を受ける（+3）。第 2 文に *"in respect of the Work"* を足す形（+5） | 採る方向（+3 の形） |
+| T44 | §16.4 第 3 文 | 識別子は *"any identifier that contains"* なのに名前は *"the name"* で、対比から「名前を含む別の名前」（"… Dedication Plus" など）は許されると読める | *"under any name that contains "Autonomous Commons Dedication""*（+2） | 採る |
+| T45 | §16.5 | *"and any person or entity to whom that role is assigned"* は累積で、譲渡したあとも最初の公表者と譲受人の両方が Steward になる | *"or, after an assignment, the person or entity to whom that role was last assigned by"*（+4） | 採る方向。逆側: 共同の Steward を置けなくなる |
+
+**語数**: T41 を除き、T36 を −2 の形、T43 を +3 の形で採ると +20 語（B3 の費用）。
+
+**次**: bb が各行に反例を当て、5a が `measure_clause_overlap.py --compare / --guard` で比べ、残ったものを本文・冒頭の一覧・CHANGELIST・逐条リファレンスに入れる。各文が 1.0 に在るかを採る前に確かめ、在れば errata、1.4 で生まれた文なら SELF-AUDIT か記録に振る（T38 の除外は T30、T39 の除外は T21 で 1.4 に入った文）。
