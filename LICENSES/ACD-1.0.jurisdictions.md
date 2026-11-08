@@ -64,6 +64,16 @@ canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LIC
 **§12.2 の不行使特約が、どこまでの範囲で・誰に対して効くかは、助言を得ていない。**
 `review-responses-boilerplate.md` Q31 に詳しい姿勢を書いてある。
 
+**取り戻しの問い（2026-11-08 追記・e-Gov 法令 API で原典）**: 著作者が考えを変えて取り戻す規定は、
+出版権についてだけ在る。84 条 3 項は「複製権等保有者である著作者は、その著作物の内容が自己の確信に
+適合しなくなつたときは、その著作物の出版行為等を廃絶するために、出版権者に通知してその出版権を消滅させる
+ことができる。」と定め、ただし書で損害の事前の賠償を求める。出版権は権利を「専有する」もの（80 条 1 項）で、
+§4 の非独占の許諾はそれに当たらないので、この規定は §4 に及ばない。§2.8 の *"A transferee takes subject
+to it"* は、63 条の 2「利用権は、当該利用権に係る著作物の著作権を取得した者その他の第三者に対抗することが
+できる。」と同じ向きである（登録は要らない）。**確立していないこと**: 方式も相手方の特定も無い一方的な
+付与である §4 が 63 条の「利用の許諾」に当たり、受領者の地位が 63 条の 2 の「利用権」に当たるかは、
+助言を得ていない。
+
 **なぜ §12.3 が限定しているか**: 無制限の放棄より、**限定したほうが生き残る**という判断による。
 
 ### 2a. 30 条の 4 —— 例外は広い。だが**但書がある**（2026-09-19 に原典で確認）
@@ -131,7 +141,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LIC
 
 ただし結論は変わらない。②の severance が残り、**§4.4 によりライセンスは §3 から独立**なので、
 §3 がドイツで脱落しても **§4 は無傷で、利用者は通常の撤回不能・無償・無条件のライセンスを
-持つ**。①が使えないことが効くのは「§3 を部分的にでも生かせるか」という場面に限られ、
+持つ**（ただし下の 42 条の撤回を除く）。①が使えないことが効くのは「§3 を部分的にでも生かせるか」という場面に限られ、
 利用者が持つものは変わらない。
 
 **確立していないこと（追加）**: そもそも ACD-1.0 が標準約款（AGB）に当たるかが不明である ——
@@ -139,12 +149,29 @@ canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LIC
 Reduktion の制限もそのままには及ばない。**どちらであるかは助言を得ていない。**
 本書の方針どおり、ここでは問いとして置く。
 
+**取り戻しの条文（2026-11-08 追記・gesetze-im-internet.de で原典）**: 「作者が考えを変えたら取り戻せる
+のでは」という問いには条文がある。UrhG 42 条 1 項は *„Der Urheber kann ein Nutzungsrecht gegenüber dem
+Inhaber zurückrufen, wenn das Werk seiner Überzeugung nicht mehr entspricht und ihm deshalb die Verwertung
+des Werkes nicht mehr zugemutet werden kann."*、2 項は *„Auf das Rückrufsrecht kann im voraus nicht
+verzichtet werden. Seine Ausübung kann nicht ausgeschlossen werden."* と定め、3 項は相手方に相当の補償を
+払うまで撤回が効かないとする。**§2.2 の irrevocable は、この撤回を事前に排除できない。** 42 条は
+どの Nutzungsrecht にも掛かるので、permissive なライセンスで出した作品も同じ立場にある。41 条（不行使
+による撤回）は *„Inhaber eines ausschließlichen Nutzungsrechts"* に限られ、§4 の非独占の許諾には及ばない。
+**有利な面**: UrhG は *„unentgeltlich ein einfaches Nutzungsrecht für jedermann"*（誰にでも無償で単純な
+利用権を与えること）を 4 か所で明文の例外にしている（31a 条 1 項 2 文・32 条 3 項 3 文・32a 条 3 項
+3 文・32c 条 3 項 2 文）。§4 はこの形で、法はこの形を予定している。**確立していないこと**: 42 条の撤回が
+無償で公衆に与えた許諾にどう働くかと、31a 条 1 項 4 文の撤回権（未知の利用方法）が 2 文の無償の許諾に
+及ぶかは、文言が答えず、助言を得ていない。
+
 > **English:**
 >
 > In a system where copyright cannot be alienated and abandonment is generally regarded as
 > ineffective, Section 3 does not achieve a surrender. Section 4 is unaffected — it does not
 > wait for Section 3 to fail (Section 4.4) — so what the user has is an ordinary irrevocable,
 > royalty-free, condition-free licence: the same thing a permissive licence would give them.
+> Like any licence of a German work, it remains subject to the author's statutory recall for
+> changed conviction (section 42 of the UrhG), which cannot be waived in advance and takes effect only once the
+> holder is compensated; a permissive licence is in the same position.
 > Section 5 sits underneath as a covenant. Section 2.5 addresses the "no consideration, no
 > formality" attack directly by stating that reliance is the purpose, not a side effect.
 
@@ -160,6 +187,18 @@ Reduktion の制限もそのままには及ばない。**どちらであるか�
 **確立していないこと**: 不行使の約束が人格権について有効かは争いがありうる。**§12.5 で
 虚偽帰属への対抗利益を残しているのは、全部を捨てさせない設計だが、それで足りるかは
 助言を得ていない。**
+
+**撤回の条文（2026-11-08 追記・Légifrance で原典）**: フランスには人格権としての撤回権がある。
+L121-4 は *« Nonobstant la cession de son droit d'exploitation, l'auteur, même postérieurement à la
+publication de son oeuvre, jouit d'un droit de repentir ou de retrait vis-à-vis du cessionnaire. »* と
+定め、行使には相手方への事前の補償を要する。**ソフトウェアは外れる**: L121-7 は *« Sauf stipulation
+contraire plus favorable à l'auteur d'un logiciel, celui-ci ne peut : »* と始まり、その 2° が
+*« Exercer son droit de repentir ou de retrait. »* である。**データセットや文書の Work には L121-4 が
+残る**ので、§2.2 の irrevocable はそこで無条件には立たない。**有利な面**: L122-7-1（2006 年創設）は
+*« L'auteur est libre de mettre ses oeuvres gratuitement à la disposition du public »* と、無償で公衆に
+提供する自由を明文で認める。**確立していないこと**: 無償・非独占で誰にでも与えた許諾の受領者が
+L121-4 の *cessionnaire* に当たるか。L121-4 の本文は、取得の道具が断片で返したものを繋いだもので、
+1 か所の句読点が欠けている（25 が 2026-11-08 に取得）。
 
 ---
 
@@ -459,10 +498,14 @@ Material"* と述べているのは、この状況に対してである** ——
 | **17 U.S.C. §201(b)**（職務著作）| §2.6 / §2.7 | 企業に雇用された contributor は、§2.6 が献呈させようとする権利を持っていない | **§2.7 の「保有する権利にしか及ばない」で足りるか** |
 | **DMCA 17 U.S.C. §1202**（CMI）| §16.4 | 名称・識別子の制限が著作権管理情報の要件と交差する | **§16.4 が「本文についての規律」に留まるか** |
 | **消費者契約法 8 条 1 項**（日本）| §14.1 | 故意・重過失の全部免責は無効 | **§14.2 の「法が許す最大限」で足りるか** |
-| **droit de retrait**（フランス）| §2.2 | 撤回権の事前放棄は無効とされる蓋然性 | **§2.2 の irrevocable が、どの法域でどこまで立つか** |
+| **droit de retrait**（フランス）| §2.2 | 撤回権の事前放棄は無効とされる蓋然性 | **✅ 2026-11-08 に原典で読んだ（§4 と下の §9a (11)）。ソフトウェアは L121-7 2° で外れ、それ以外の Work には L121-4 が残る** |
 | **不公正契約条項の枠組み**（EU）| **§15.3**（1.2 草案では §15.6・1.1 は削除）| 不明確な条項を受領者に有利に読む強行規定があり、**contra proferentem の排除は実効性を失う** | **✅ 2026-09-20 に原典で読んだ。下の §9a。** |
 
 ### 9a. 8 件すべてを原典で読んだ —— 判例 2 件のうち 1 件は判決本文、1 件は裁判所自身の発表まで（2026-09-20）
+
+**⚠ 訂正（2026-11-08）**: この見出しは「8 件すべて」と書いたが、下の表に droit de retrait の行は無く、
+2026-11-08 まで原典を読んでいなかった。`against.md` #176 の「8 件中 7 件」も同じ数え違いである。
+読んだ結果は表の最後の行と (11) に置いた。
 
 **⚠ この節は「6 件は未読のまま」と書いて始まった。** その記述は**試さずに書いたもので、誤りだった**
 ——オーナーの指摘（*「そのまま読みに行くことがあなたは可能です」*）で取りに行くと、**7 件が取れた**
@@ -481,6 +524,7 @@ Material"* と述べているのは、この状況に対してである** ——
 | **UrhG 44b 条 / UrhG 60d 条**（Kneschke の争点）| gesetze-im-internet.de | ✅ **条文は逐語。判決本文は未取得**（openjur が captcha）|
 | **HansOLG 5 U 104/24**（Kneschke 控訴審・2025-12-10）| justiz.hamburg.de の press release | ⚠ **裁判所自身の発表は逐語。判決本文ではない**（下の §9a (9)）|
 | **Jaffé v. Samsung**（Qimonda 控訴審・4th Cir. 2013-12-03）| ca4.uscourts.gov の公刊判決 PDF | ✅ **判決本文を全文（64,760 文字）**（下の §9a (10)）|
+| **CPI L121-4 / L121-7**（droit de retrait）| Légifrance LEGIARTI000006278894 / LEGIARTI000006278899 | ✅ **2026-11-08 に逐語**（L121-4 は断片を繋いだもの・下の §9a (11)）|
 
 **読めた 7 件について、レビューの主張は構造としては当たっており、射程は述べられていたより狭い。**
 
@@ -728,6 +772,13 @@ ACD が採るのは別の経路で、**(a) §3 の surrender は完了した行�
 （`against.md` #178）。**⚠ 逆側**: 断定を緩めれば依拠価値が下がり語数も増える（B3）。
 **実際に効いているのは断定ではなく §2.8 との接続**なので、直すべきは文言より、
 **問われたときにこの判決を引ける準備の方である**（`review-responses-boilerplate.md` Q25）。
+
+#### (11) droit de retrait —— CPI L121-4 と L121-7（Légifrance・2026-11-08）
+
+逐語と読みは §4 に置いた。**レビューの主張（撤回権の事前放棄は無効とされる蓋然性）は構造として当たる**
+—— L121-4 は譲渡の後でも撤回を認め、§2.2 の irrevocable はそれを事前に排除できない。**射程は述べられて
+いたより狭い**: ソフトウェアの著作者は L121-7 2° によりこの権利を行使できず、残るのはソフトウェアでない
+Work（データセット、文書）である。ドイツの UrhG 42 条も同じ形の撤回を定める（§3）。
 
 ---
 
