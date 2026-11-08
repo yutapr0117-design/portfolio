@@ -217,9 +217,14 @@ def run(ctx):
             _rd444k = (ROOT / "README.md").read_text(encoding="utf-8")
             if f"]({_rel444})" not in _rd444k:
                 _bad444.append(f"444k: README.md が適用する版の全文 {_rel444} へリンクしていない")
-            _stale444k = sorted({_v for _v in re.findall(r"LICENSES/(ACD-\d+\.\d+)\.txt", _rd444k)} - {_spdx444, "ACD-1.0"})
+            # ACD-1.0 を常に許していたので、英語節のリンクを 1.0 へ戻しても日本語節が満たした (2026-11-08 の監査)
+            _stale444k = sorted({_v for _v in re.findall(r"LICENSES/(ACD-\d+\.\d+)\.txt", _rd444k)} - {_spdx444})
             if _stale444k:
                 _bad444.append(f"444k: README.md が適用していない版の本文を案内している: {_stale444k}")
+            _says444k = re.findall(r"this repository applies (?:its )?(?:frozen )?(?:successor )?(ACD-\d+\.\d+)|このリポジトリのライセンス（(ACD-\d+\.\d+)",
+                                  " ".join(re.sub(r"(?m)^>\s?", "", _rd444k).split()))  # 引用の折り返しをまたいで読む
+            if len(_says444k) < 2 or any((_a or _b) != _spdx444 for _a, _b in _says444k):
+                _bad444.append(f"444k: README.md の英日 2 つの宣言の文が適用する版 {_spdx444} を述べていない: {[_a or _b for _a, _b in _says444k]}")
             # コメントを除いてから見る。フッターをリンクごとコメントにすると画面から消えるのに、
             #   素の `in` ではコメントの中の URL で通っていた (2026-11-08 の監査で実測)。
             from _lib_io import strip_js_comments as _strip444k
@@ -252,11 +257,13 @@ def run(ctx):
             # 444e — llms 層が識別子に言及すること
             # [FIX 2026-11-08] 宣言の文 (released under the **… (ACD-x)**) の版を見る。旧版は識別子が
             #   file のどこかに 1 回あれば通り、宣言の文が別の版を述べても他の行が満たした。
-            for _lf444 in ("llms.txt", "llms-full.txt", "llms_well-known.txt", ".well-known/llms.txt"):
+            #   LICENSE 本文の同じ文も見る。名前の版 (Dedication 1.3) も識別子と同じ版であること (2026-11-08 の監査)
+            for _lf444 in ("llms.txt", "llms-full.txt", "llms_well-known.txt", ".well-known/llms.txt", "LICENSE"):
                 _lt444 = " ".join((ROOT / _lf444).read_text(encoding="utf-8").split())
-                _decl444 = re.findall(r"released under the \*\*Autonomous Commons Dedication [\d.]+ \((ACD-[\d.]+)\)\*\*", _lt444)
+                _decl444 = [f"ACD-{_v}" if f"ACD-{_v}" == _i else f"{_i} (名前は {_v})" for _v, _i in re.findall(
+                    r"released under the \**Autonomous Commons Dedication ([\d.]+) \((ACD-[\d.]+)\)", _lt444)]
                 if not _decl444:
-                    _bad444.append(f"444e: {_lf444} にライセンスの宣言の文 (released under the **…**) が無い")
+                    _bad444.append(f"444e: {_lf444} にライセンスの宣言の文 (released under the …) が無い")
                 elif set(_decl444) != {_spdx444}:
                     _bad444.append(f"444e: {_lf444} の宣言の文が {sorted(set(_decl444))} と述べ、適用する版 {_spdx444} と違う")
 
@@ -310,18 +317,18 @@ def run(ctx):
     _lic444m = re.search(r"^SPDX-License-Identifier:\s*(\S+)", (ROOT / "LICENSE").read_text(encoding="utf-8"), re.M)
     if _lic444m:
         from measure_citation_drift import FACES as _faces444m
-        _say444m = re.compile(r"this repository applies|applied to this repository|適用している|適用中")
+        _say444m = re.compile(r"(?i)\b(?:this|the) repository applies|(?:applied|applies) to this repository|適用している|適用中")
         _stale444m = []
         for _f444m in [ROOT / "LICENSES" / _n for _n in _faces444m if "against" not in _n and "discussion-log" not in _n]:
             for _n444m, _l444m in enumerate(_f444m.read_text(encoding="utf-8").splitlines(), 1):
                 for _m444m in _say444m.finditer(_l444m):
                     # 主張に最も近い版を見る。後ろは同じ文の中だけ。file 名の中の版は数えない。
-                    _ids444m = [_i for _i in re.finditer(r"ACD-\d+\.\d+(?![.\w-]*\.md)", _l444m)]
+                    _ids444m = [_i for _i in re.finditer(r"ACD-\d+\.\d+(?![.\w-]*\.md)|(?<![\w§.])1\.\d+(?=\s*を適用)", _l444m)]
                     _pre444m = [_i for _i in _ids444m if 0 < _m444m.start() - _i.start() < 70]
                     _post444m = [_i for _i in _ids444m if 0 < _i.start() - _m444m.start() < 30
                                  and not re.search(r"\. |。", _l444m[_m444m.end():_i.start()])]
                     _hit444m = min(_pre444m + _post444m, key=lambda _i: abs(_i.start() - _m444m.start()), default=None)
-                    if _hit444m and _hit444m.group(0) != _lic444m.group(1):
+                    if _hit444m and "ACD-" + _hit444m.group(0).removeprefix("ACD-") != _lic444m.group(1):
                         _stale444m.append(f"{_f444m.name}:{_n444m}")
         check(
             not _stale444m,

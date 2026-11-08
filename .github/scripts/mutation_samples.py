@@ -524,6 +524,36 @@ _MUTATIONS_TAIL.append({
     "find": '| 10 | **OSI 判断依存**（12 候補として',
     "replace": '| 10 / 12 | **OSI 判断依存**（12 候補として',
 })
+_MUTATIONS_TAIL.append({
+    "name": 'Check 444k: README の英語節に 1.0 の本文へのリンクを足す —— ACD-1.0 を常に許していたので、英語節を 1.0 へ戻しても日本語節が満たしていた',
+    "file": ROOT / 'README.md',
+    "find": 'names and nothing to edit in the text ([`LICENSES/',
+    "replace": 'names and nothing to edit in the text ([`LICENSES/ACD-1.0.txt`](LICENSES/ACD-1.0.txt), [`LICENSES/',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 444k: README の英語の宣言の文が別の版を適用していると述べる —— README の宣言の文はどの面にも読まれていなかった',
+    "file": ROOT / 'README.md',
+    "find": 'this repository applies its',
+    "replace": 'this repository applies ACD-1.0, not its',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 444e: LICENSE 本文の宣言の文が別の版を述べる —— 444e は llms 層しか読まず、SPDX の識別子の下の文が食い違っても緑だった',
+    "file": ROOT / 'LICENSE',
+    "find": 'This work is released under the Autonomous Commons Dedication ',
+    "replace": 'This work is released under the Autonomous Commons Dedication 1.2 (ACD-1.2); formerly the Autonomous Commons Dedication ',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 444m: 文頭の "This repository applies ACD-1.2." —— 小文字の完全一致しか読まず、文頭の大文字を素通りしていた',
+    "file": ROOT / 'LICENSES' / 'REVIEWERS.md',
+    "find": 'This repository applied it until 2026-10-25.',
+    "replace": 'This repository applies ACD-1.2.',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 444m: 接頭辞の無い「1.2 を適用している」 —— `ACD-x.y` の形しか版として読まず、申請日の 1 枚の現行の文の形を素通りしていた',
+    "file": ROOT / 'LICENSES' / 'SUBMISSION-MATERIALS.md',
+    "find": '（申請時は出す版を適用する）',
+    "replace": '（1.2 を適用している。申請時は出す版を適用する）',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
