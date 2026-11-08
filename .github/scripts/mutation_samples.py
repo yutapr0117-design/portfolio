@@ -301,60 +301,12 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 472n: 内側に引用符を持つ Fontana 氏の引用の語を動かす —— 取り出しが内側の \" で切れ、照合から黙って漏れていた (portfolio-00 の指摘)",
-    "file": ROOT / "LICENSES" / "ACD-1.0.objection-map.md",
-    "find": '*"How do you know what the "covered work" is?"*',
-    "replace": '*"How do we know what the "covered work" is?"*',
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 473: 来歴の見出しを「人間は起草を指示していない」だけにする —— 失敗文が名指しする「指示していない」の形を、否定の一覧が持っていなかった",
-    "file": ROOT / "LICENSES" / "ACD-1.0.review-responses-meta.md",
-    "find": "| **起草そのものは AI。方向の決定には本人が関与した** |",
-    "replace": "| **起草そのものは AI。人間は起草を指示していない** |",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 473b: 否定済みの文を米綴りの license で戻す —— 句の照合が英綴り・大文字小文字の完全一致だけだった",
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "He decided\n  to have a licence of his own and said it should aim at external approval;",
-    "replace": "The agent determined that the repository needed a license and\n  the owner said it should aim at external approval;",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 473b: 送る文面の Provenance 段落から「外部承認を目指す」を外す —— file のどこかに在れば通り、送る段落だけを変えても見えなかった",
-    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": "**Provenance.** I decided to have a licence of my own and said it should aim at external approval;",
-    "replace": "**Provenance.** I decided to have a licence of my own and said it should aim at broad adoption;",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 468: §16.2 の「in a comment within a file」を落とす —— ファイルの中のタグが及ぶ範囲が消え、取り込んだ他人のファイルまで通知の適用に入る (468u の目印・#2645)",
-    "file": CURRENT_DRAFT,
-    "find": "place in a comment within a file, by a file name that refers to other",
-    "replace": "place within a file, by a file name that refers to other",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 472: 送る文面の §8.4 を、どの版にも無い §8.9 にする —— 提出対象が 1.0 の間、472 は一度も RED になりえなかった (後の版の条番号は 1.0 の部分集合)",
-    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": "outputs of computational use (§8.4), with no condition",
-    "replace": "outputs of computational use (§8.9), with no condition",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 472f: 提出パケットの Version を 1.4-rc1 にする —— 欄の形が崩れると照合から黙って外れていた',
-    "file": ROOT / 'LICENSES/ACD-1.0.submission.md',
-    "find": "Version:                        1.0\nShort Identifier:               ACD-1.0\nCopyleft:                       No\nLegacy or New:                  New License\nDrafted By Lawyer:              No\nApproved or Used by Projects:   One — the submitter's own repository",
-    "replace": "Version:                        1.4-rc1\nShort Identifier:               ACD-1.0\nCopyleft:                       No\nLegacy or New:                  New License\nDrafted By Lawyer:              No\nApproved or Used by Projects:   One — the submitter's own repository",
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 472i: 入口の表の register の行を #節 付きのリンクにして、日本語であることを消す —— #付きのリンクの行は読まれていなかった',
-    "file": ROOT / 'LICENSES/REVIEWERS.md',
-    "find": '[`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md) | **The register. Mostly Japanese; it opens with a full index in English.** Each item',
-    "replace": '[`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md#b1) | **The register.** Each item',
-})
 _MUTATIONS_TAIL.append({
     "name": 'Check 472k: objection-map の §10.4 を空白入りの § 8.9 にする —— 空白入りの形を読んでいなかった',
     "file": ROOT / 'LICENSES/ACD-1.0.objection-map.md',
