@@ -1,0 +1,651 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2019-March.txt
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-08)
+Messages: all 15 messages of the thread "The per se license constructor" (2019-03).
+Senders: Bruce Perens, McCoy Smith, Brendan Hickey, Patrick Schleizer, Henrik Ingo, Nigel Tzeng, Van Lindberg, John Cowan, Richard Fontana
+Position: a discussion of whether licences drafted without a lawyer should be submitted. Not addressed to us and not about ACD. Each message is whole.
+
+----- begin verbatim -----
+From bruce at perens.com  Fri Mar 15 20:31:05 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 15 Mar 2019 13:31:05 -0700
+Subject: [License-discuss] The per se license constructor
+Message-ID: <CAK2MWOsDck8_3eEqxi0KMcPNPeT2affnNhaNLqj8BVdcDAXpew@mail.gmail.com>
+
+While we are discussing license approval, this morning's submission had no
+legal review, the excuse being that it was a mashup of what was presumably
+the work of unidentified lawyers.
+
+There is great danger in using a license that has had no legal review,
+since you have little idea of how it will work in court. The per se license
+constructor transmits that danger to others who use their license.
+
+I thus feel all such things should be rejected, although the reason is
+entirely outside of the OSD.
+
+    Thanks
+
+    Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190315/eadc39d1/attachment.html>
+
+From mccoy.smith at intel.com  Fri Mar 15 20:40:08 2019
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Fri, 15 Mar 2019 20:40:08 +0000
+Subject: [License-discuss] The per se license constructor
+In-Reply-To: <CAK2MWOsDck8_3eEqxi0KMcPNPeT2affnNhaNLqj8BVdcDAXpew@mail.gmail.com>
+References: <CAK2MWOsDck8_3eEqxi0KMcPNPeT2affnNhaNLqj8BVdcDAXpew@mail.gmail.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5198B082A06@fmsmsx117.amr.corp.intel.com>
+
+>>From: License-discuss [mailto:license-discuss-bounces at lists.opensource.org] On Behalf Of Bruce Perens
+>>Sent: Friday, March 15, 2019 1:31 PM
+>>To: license-discuss at lists.opensource.org
+>>Subject: [License-discuss] The per se license constructor
+
+>>I thus feel all such things should be rejected, although the reason is entirely outside of the OSD.
+
+At the risk of arguing against my own interest (I?m a lawyer), requiring a submitter to retain a lawyer in license drafting and/or review is a potential barrier to entry (lawyers being expensive) and could come across as the process being taken over by lawyers (and possibly even a limited group of lawyers).  I?m not sure that helps with the perception issues other are expressing in threads the past few days
+
+Drafting or review by a lawyer is no guarantee of quality, and I?d submit that drafting and review by a non-lawyer is not a guarantee of non-quality (pardon the triple negative).
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190315/6a35b326/attachment.html>
+
+From bruce at perens.com  Fri Mar 15 21:34:49 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 15 Mar 2019 14:34:49 -0700
+Subject: [License-discuss] The per se license constructor
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5198B082A06@fmsmsx117.amr.corp.intel.com>
+References: <CAK2MWOsDck8_3eEqxi0KMcPNPeT2affnNhaNLqj8BVdcDAXpew@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5198B082A06@fmsmsx117.amr.corp.intel.com>
+Message-ID: <CAK2MWOs=DuXVLvBOyR+GX=qfO9Ucv1n-domUQNpWLDyPf64hjA@mail.gmail.com>
+
+If the barrier to entry of having a lawyer today is a big enough concern,
+OSI could provide one, sort of like a public defender.
+
+I suspect there could be a credible case that drafting a license and
+promoting it for others to use is unlicensed practice of law.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190315/041d8a66/attachment.html>
+
+From brendan.m.hickey at gmail.com  Sat Mar 16 13:08:04 2019
+From: brendan.m.hickey at gmail.com (Brendan Hickey)
+Date: Sat, 16 Mar 2019 09:08:04 -0400
+Subject: [License-discuss] The per se license constructor
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5198B082A06@fmsmsx117.amr.corp.intel.com>
+References: <CAK2MWOsDck8_3eEqxi0KMcPNPeT2affnNhaNLqj8BVdcDAXpew@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5198B082A06@fmsmsx117.amr.corp.intel.com>
+Message-ID: <CAJ-h4vuKuon1VJFteuoFyEJtBkqZ3WMzen_RzKX-DKsvrL_i9g@mail.gmail.com>
+
+On Fri, Mar 15, 2019 at 4:41 PM Smith, McCoy <mccoy.smith at intel.com> wrote:
+
+> *>>From:* License-discuss [mailto:
+> license-discuss-bounces at lists.opensource.org] *On Behalf Of *Bruce Perens
+> *>>Sent:* Friday, March 15, 2019 1:31 PM
+> *>>To:* license-discuss at lists.opensource.org
+> *>>Subject:* [License-discuss] The per se license constructor
+>
+>
+>
+> >>I thus feel all such things should be rejected, although the reason is
+> entirely outside of the OSD.
+>
+>
+>
+> At the risk of arguing against my own interest (I?m a lawyer), requiring a
+> submitter to retain a lawyer in license drafting and/or review is a
+> potential barrier to entry (lawyers being expensive) and could come across
+> as the process being taken over by lawyers (and possibly even a limited
+> group of lawyers).  I?m not sure that helps with the perception issues
+> other are expressing in threads the past few days
+>
+>
+> Drafting or review by a lawyer is no guarantee of quality, and I?d submit
+> that drafting and review by a non-lawyer is not a guarantee of non-quality
+> (pardon the triple negative).
+>
+
+McCoy makes an excellent point here. Does legal review exist primarily as a
+barrier to weed out low quality or inappropriate submissions, or does it
+serve another purpose?
+
+I don't believe, as Bruce suggests, that it acts to reduce risk to license
+users. Suppose that Bob hires Alice to review a hypothetical Malicious
+Compliance Free Software License (MCFSL), which attempts to abide by the
+OSD in the worst way possible. Alice is Bob's attorney, not mine. Her
+opinion on the fitness of the MCFSL applies to her client, not me.
+
+The legal review requirement is also fairly weak. An oil and gas attorney
+can tell you all about mineral leases, but they don't necessarily have
+useful advice when it comes to copyright.
+
+Perhaps legal review is there in part to raise the bar and filter out
+noise. In that case we're doing a disservice to submitters by providing
+feedback so late in the process. There are entire conceptual classes of
+licenses that can be rejected without access to the full license text.
+Licenses that require royalties, for example. No one should be hiring an
+attorney to draft a license that will be rejected out of hand.
+
+Brendan
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190316/9fc3b565/attachment.html>
+
+From adrelanos at riseup.net  Sat Mar 16 14:58:00 2019
+From: adrelanos at riseup.net (Patrick Schleizer)
+Date: Sat, 16 Mar 2019 14:58:00 +0000
+Subject: [License-discuss] The per se license constructor
+In-Reply-To: <CAJ-h4vuKuon1VJFteuoFyEJtBkqZ3WMzen_RzKX-DKsvrL_i9g@mail.gmail.com>
+References: <CAK2MWOsDck8_3eEqxi0KMcPNPeT2affnNhaNLqj8BVdcDAXpew@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5198B082A06@fmsmsx117.amr.corp.intel.com>
+ <CAJ-h4vuKuon1VJFteuoFyEJtBkqZ3WMzen_RzKX-DKsvrL_i9g@mail.gmail.com>
+Message-ID: <793a3b22-60fe-7bf6-afad-8024072d9932@riseup.net>
+
+Brendan Hickey:
+> Perhaps legal review is there in part to raise the bar and filter out
+> noise. In that case we're doing a disservice to submitters by providing
+> feedback so late in the process.
+
+Indeed. Paying for legal review and then have the license rejected for
+another reason such as non-proliferation would be wasteful.
+
+I've seen that no is being evidence requested about legal review being
+actually done vs just claiming legal review was done.
+
+Previously, I've seen on this mailing list statements like "Legal
+review: I?ve had a lawyer informally have a look, but no in-depth legal
+review has been conducted.", and then it wasn't questioned.
+
+I am not suggesting that anyone lied about it, but the process shouldn't
+encourage to lie about legal review to pass that test while not asking
+for evidence for those that claim that legal review was done.
+
+Kind regards,
+Patrick
+
+
+From henrik.ingo at avoinelama.fi  Sat Mar 16 20:10:48 2019
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Sat, 16 Mar 2019 22:10:48 +0200
+Subject: [License-discuss] The per se license constructor
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5198B082A06@fmsmsx117.amr.corp.intel.com>
+References: <CAK2MWOsDck8_3eEqxi0KMcPNPeT2affnNhaNLqj8BVdcDAXpew@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5198B082A06@fmsmsx117.amr.corp.intel.com>
+Message-ID: <CAKHykevnnzwvA2_GPudgCWwQZ7ee=_C59mXoy5bgNpPkrzvndQ@mail.gmail.com>
+
+It's true that drafting by a lawyer is no guarantee of quality, but I agree
+with Bruce that writing a legal license *for others to use* is bordering
+legal advice. It's therefore a necessary minimum requirement.
+
+I don't see an issue with barrier to entry. The OSI already provides an
+ample menu of approved licenses you can use at no cost. There's no reason
+why approving new licenses should be zero cost, it certainly isn't for the
+OSI! Other FOSS foundations also provide high quality pro bono legal
+advice, it would be clearer if OSI isn't both the prosecutor (or public
+defender, in Bruce's words) and judge.
+
+henrik
+
+On Sat, Mar 16, 2019 at 12:30 AM Smith, McCoy <mccoy.smith at intel.com> wrote:
+
+> *>>From:* License-discuss [mailto:
+> license-discuss-bounces at lists.opensource.org] *On Behalf Of *Bruce Perens
+> *>>Sent:* Friday, March 15, 2019 1:31 PM
+> *>>To:* license-discuss at lists.opensource.org
+> *>>Subject:* [License-discuss] The per se license constructor
+>
+>
+>
+> >>I thus feel all such things should be rejected, although the reason is
+> entirely outside of the OSD.
+>
+>
+>
+> At the risk of arguing against my own interest (I?m a lawyer), requiring a
+> submitter to retain a lawyer in license drafting and/or review is a
+> potential barrier to entry (lawyers being expensive) and could come across
+> as the process being taken over by lawyers (and possibly even a limited
+> group of lawyers).  I?m not sure that helps with the perception issues
+> other are expressing in threads the past few days
+>
+>
+> Drafting or review by a lawyer is no guarantee of quality, and I?d submit
+> that drafting and review by a non-lawyer is not a guarantee of non-quality
+> (pardon the triple negative).
+>
+>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190316/abcd4898/attachment.html>
+
+From bruce at perens.com  Sun Mar 17 06:00:16 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 16 Mar 2019 23:00:16 -0700
+Subject: [License-discuss] The per se license constructor
+In-Reply-To: <793a3b22-60fe-7bf6-afad-8024072d9932@riseup.net>
+References: <CAK2MWOsDck8_3eEqxi0KMcPNPeT2affnNhaNLqj8BVdcDAXpew@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5198B082A06@fmsmsx117.amr.corp.intel.com>
+ <CAJ-h4vuKuon1VJFteuoFyEJtBkqZ3WMzen_RzKX-DKsvrL_i9g@mail.gmail.com>
+ <793a3b22-60fe-7bf6-afad-8024072d9932@riseup.net>
+Message-ID: <CAK2MWOskLpC=J+5c7zkTRHET9sX8QzLcXeHg1tUYncro6oFQGw@mail.gmail.com>
+
+On Sat, Mar 16, 2019 at 7:59 AM Patrick Schleizer <adrelanos at riseup.net>
+wrote:
+
+> I've seen that no is being evidence requested about legal review being
+> actually done vs just claiming legal review was done.
+>
+
+In general we get to talk with the lawyer, and a lot of us on the list know
+most of the lawyers who are likely to get this sort of work. For example,
+Heather Meeker chimed in about SSPL version 1. She happens to be my lawyer
+too, and a great one.
+
+But it's easy for the other attorneys here and even me to tell when someone
+has a lawyer or not. I don't think there is actually any point in lying.
+There are obvious language differences that an experienced person can spot.
+
+Previously, I've seen on this mailing list statements like "Legal review:
+> I?ve had a lawyer informally have a look, but no in-depth legal review has
+> been conducted."
+>
+
+One reason that I feel really strong about this is that I was pro-bono
+expert in the appeal of *Jacobsen v. Katzer. *Bob Jacobsen went through
+some seriously bad times in court because Larry Wall drafted the Artistic
+License Version Zero per-se. The lower court also created what would have
+been an absolutely horrid precedent had it been allowed to stand: that the
+license was tantamount to a dedication to the public domain.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190316/7263735a/attachment.html>
+
+From Nigel.Tzeng at jhuapl.edu  Sun Mar 17 14:04:20 2019
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Sun, 17 Mar 2019 14:04:20 +0000
+Subject: [License-discuss] The per se license constructor
+In-Reply-To: <CAK2MWOsDck8_3eEqxi0KMcPNPeT2affnNhaNLqj8BVdcDAXpew@mail.gmail.com>
+References: <CAK2MWOsDck8_3eEqxi0KMcPNPeT2affnNhaNLqj8BVdcDAXpew@mail.gmail.com>
+Message-ID: <548e29ba651541fdb9a9d783bd65e1c5@aplex02.dom1.jhuapl.edu>
+
+Again, speaking only for myself, but I find it interesting that the need for legal review is considered so important but when a practicing IP lawyer in a specific domain claims that certain license constructs are required to meet the required regulations for a governmental agency that laypersons can simply say ?Nope? and that?s pretty much the end of that.
+
+I guess that ship has sailed and I should simply just drop it in the interest of harmony but if there is soul searching to be done by the OSI then it would be wise to consider why it appears that the current state of affairs on license approval is perceived to be unfair.
+
+From: Bruce Perens <bruce at perens.com<mailto:bruce at perens.com>>
+Date: Friday, Mar 15, 2019, 4:32 PM
+To: license-discuss at lists.opensource.org <license-discuss at lists.opensource.org<mailto:license-discuss at lists.opensource.org>>
+Subject: [License-discuss] The per se license constructor
+
+While we are discussing license approval, this morning's submission had no legal review, the excuse being that it was a mashup of what was presumably the work of unidentified lawyers.
+
+There is great danger in using a license that has had no legal review, since you have little idea of how it will work in court. The per se license constructor transmits that danger to others who use their license.
+
+I thus feel all such things should be rejected, although the reason is entirely outside of the OSD.
+
+    Thanks
+
+    Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190317/39b27fca/attachment.html>
+
+From van.lindberg at gmail.com  Sun Mar 17 22:01:19 2019
+From: van.lindberg at gmail.com (VanL)
+Date: Sun, 17 Mar 2019 17:01:19 -0500
+Subject: [License-discuss] The per se license constructor
+In-Reply-To: <548e29ba651541fdb9a9d783bd65e1c5@aplex02.dom1.jhuapl.edu>
+References: <CAK2MWOsDck8_3eEqxi0KMcPNPeT2affnNhaNLqj8BVdcDAXpew@mail.gmail.com>
+ <548e29ba651541fdb9a9d783bd65e1c5@aplex02.dom1.jhuapl.edu>
+Message-ID: <CAFQvZEPg7GK_6VLwFvHJAf0uQJC0fCiYV2j2nys24xPyTAz8Hg@mail.gmail.com>
+
+I think it gets back to the core purpose of the OSI: To be a steward for
+the OSD and to certify licenses as compliant with the OSD. There are many
+other good things the OSI *can* do, but that is the one thing it *must* do.
+
+So how does that get back to L-D and L-R? Well, the OSI board is not
+composed of lawyers. So L-D and L-R end up being systems for recommending
+(or not recommending) licenses for approval based upon various criteria.
+
+Those criteria seem to include:
+
+1) Compliance with the OSD. This can have a more or less legal feel, but it
+seems necessary to identify whether particular licenses do or don't appear
+to comply with various parts of the OSD.
+
+2) The law. If the license is not legally sound, that is a good reason to
+recommend against it. Board members could vote to approve or deny based
+upon how persuasive those arguments are.
+
+3) Policy choices affecting open source usage or the open source community.
+Certain licenses may implicate policy issues that, on the whole, a board
+member could feel was detrimental to the community as a whole.
+
+4) Community reaction. Licenses are community organizing tools, and having
+communities indicate a willingness to use a particular license is an strong
+indicator of quality or acceptability. Similarly, a strong negative
+reaction from community members could reasonably cause a board member to
+vote against a license.
+
+Thinking back on various discussions, I think that the most substantive
+discussions really ended up focused on one or more of these criteria. It
+also seems reasonable that criteria 1) and 2) are strongly legally
+inflected, but any member can have a well-reasoned opinion with regard to
+3) or 4).
+
+There may be community or policy reasons to recommend against approving a
+particular license. But - channeling McCoy Smith for a moment - when people
+deal with licenses outside of the context of L-R and L-D, we only have the
+text to rely on. So concerns about any of the above issues should be a
+textually grounded.
+
+Thanks,
+Van
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190317/97a2b080/attachment-0001.html>
+
+From cowan at ccil.org  Sun Mar 17 22:19:11 2019
+From: cowan at ccil.org (John Cowan)
+Date: Sun, 17 Mar 2019 18:19:11 -0400
+Subject: [License-discuss] The per se license constructor
+In-Reply-To: <548e29ba651541fdb9a9d783bd65e1c5@aplex02.dom1.jhuapl.edu>
+References: <CAK2MWOsDck8_3eEqxi0KMcPNPeT2affnNhaNLqj8BVdcDAXpew@mail.gmail.com>
+ <548e29ba651541fdb9a9d783bd65e1c5@aplex02.dom1.jhuapl.edu>
+Message-ID: <CAD2gp_QUANvJx=GJ6yE0V+vyebL1GBCLg9OmzZnr=sb4n+1rwg@mail.gmail.com>
+
+On Sun, Mar 17, 2019 at 10:05 AM Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu>
+wrote:
+
+Again, speaking only for myself, but I find it interesting that the need
+> for legal review is considered so important but when a practicing IP lawyer
+> in a specific domain claims that certain license constructs are required to
+> meet the required regulations for a governmental agency that laypersons can
+> simply say ?Nope? and that?s pretty much the end of that.
+>
+
+The "Nope" means "Nope, it doesn't conform to the OSD", not "Nope, it
+doesn't conform to the regulations."  If the regulations prevent release as
+open source, so be it.
+
+And random practicing IP lawyers, like other lawyers, are used to drafting
+documents that preserve their client's rights as opposed to giving them
+away.  That can't be an easy thing to wrap one's head around.
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+The work of Henry James has always seemed divisible by a simple dynastic
+arrangement into three reigns: James I, James II, and the Old Pretender.
+                --Philip Guedalla
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190317/9268557d/attachment.html>
+
+From Nigel.Tzeng at jhuapl.edu  Mon Mar 18 00:44:38 2019
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Mon, 18 Mar 2019 00:44:38 +0000
+Subject: [License-discuss] The per se license constructor
+In-Reply-To: <CAD2gp_QUANvJx=GJ6yE0V+vyebL1GBCLg9OmzZnr=sb4n+1rwg@mail.gmail.com>
+References: <CAK2MWOsDck8_3eEqxi0KMcPNPeT2affnNhaNLqj8BVdcDAXpew@mail.gmail.com>
+ <548e29ba651541fdb9a9d783bd65e1c5@aplex02.dom1.jhuapl.edu>,
+ <CAD2gp_QUANvJx=GJ6yE0V+vyebL1GBCLg9OmzZnr=sb4n+1rwg@mail.gmail.com>
+Message-ID: <b184d844a9df4671964d8b3b1710f6d5@aplex02.dom1.jhuapl.edu>
+
+I really don?t want to relitigate this but my recollection was that
+
+a) the terms that were deemed questionable existed in the already approved 1.3 and
+
+b) a significant part of the discussion wasn?t regarding whether it met the OSD but whether the government had need to retain those terms to follow regulations and that the terms made the license less reusable as a general purpose license.  Which struck me as a particularly specious argument for a license in the special purpose license.
+
+If you believe my recollection is incorrect it?s in the archives and you can correct me. But the fact remains that a license update from a major open source contributor was held up by one individual for years...
+
+Is it necessary to denigrate NASA lawyers operating in good faith to update an already OSI approved license they drafted as ?random IP lawyers? and somehow unfamiliar with the open source domain?
+
+Because that strikes me as seriously unproductive.
+
+
+From: John Cowan <cowan at ccil.org<mailto:cowan at ccil.org>>
+Date: Sunday, Mar 17, 2019, 6:20 PM
+To: license-discuss at lists.opensource.org <license-discuss at lists.opensource.org<mailto:license-discuss at lists.opensource.org>>
+Subject: Re: [License-discuss] The per se license constructor
+
+
+
+On Sun, Mar 17, 2019 at 10:05 AM Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu<mailto:Nigel.Tzeng at jhuapl.edu>> wrote:
+
+Again, speaking only for myself, but I find it interesting that the need for legal review is considered so important but when a practicing IP lawyer in a specific domain claims that certain license constructs are required to meet the required regulations for a governmental agency that laypersons can simply say ?Nope? and that?s pretty much the end of that.
+
+The "Nope" means "Nope, it doesn't conform to the OSD", not "Nope, it doesn't conform to the regulations."  If the regulations prevent release as open source, so be it.
+
+And random practicing IP lawyers, like other lawyers, are used to drafting documents that preserve their client's rights as opposed to giving them away.  That can't be an easy thing to wrap one's head around.
+
+--
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org<mailto:cowan at ccil.org>
+The work of Henry James has always seemed divisible by a simple dynastic
+arrangement into three reigns: James I, James II, and the Old Pretender.
+                --Philip Guedalla
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190318/d5e759c0/attachment.html>
+
+From bruce at perens.com  Mon Mar 18 02:22:18 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Sun, 17 Mar 2019 19:22:18 -0700
+Subject: [License-discuss] The per se license constructor
+In-Reply-To: <b184d844a9df4671964d8b3b1710f6d5@aplex02.dom1.jhuapl.edu>
+References: <CAK2MWOsDck8_3eEqxi0KMcPNPeT2affnNhaNLqj8BVdcDAXpew@mail.gmail.com>
+ <548e29ba651541fdb9a9d783bd65e1c5@aplex02.dom1.jhuapl.edu>
+ <CAD2gp_QUANvJx=GJ6yE0V+vyebL1GBCLg9OmzZnr=sb4n+1rwg@mail.gmail.com>
+ <b184d844a9df4671964d8b3b1710f6d5@aplex02.dom1.jhuapl.edu>
+Message-ID: <CAK2MWOtHppovVL1eO+Ppx+e=QuFd=mfmeh=_2jWtO9BN89_8jA@mail.gmail.com>
+
+On Sun, Mar 17, 2019 at 5:45 PM Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu>
+wrote:
+
+> I really don?t want to relitigate this
+>
+
+Yeah. Before anyone misunderstands, I am not shouting at Nigel. I AM NOT
+SHOUTING :-)
+
+a) the terms that were deemed questionable existed in the already approved
+> 1.3 and
+>
+
+The problem here is that OSI has approval regret. I wasn't there, but I get
+the impression there was a fight around the decision, and now they have
+regret that they approved at all and do not want to go one step farther. I
+can't blame them. I really don't like some of the terms.
+
+
+> whether the government had need to retain those terms to follow regulations
+>
+
+Yes, I am finding it difficult to believe that the government really does
+need those terms to follow regulations. I haven't seen evidence. NASA, and
+lots of other agencies, use other Open Source licenses with impunity.
+
+and that the terms made the license less reusable as a general purpose
+> license.
+>
+
+No, I don't believe this is the problem. The problem is that the terms do
+pernicious things like attempt to limit the public domain to national
+boundaries with contractual terms. It's a terrible precedent for OSI to
+approve.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190317/6ecbd0bb/attachment.html>
+
+From richard.fontana at opensource.org  Mon Mar 18 03:09:45 2019
+From: richard.fontana at opensource.org (Richard Fontana)
+Date: Sun, 17 Mar 2019 23:09:45 -0400
+Subject: [License-discuss] The per se license constructor
+In-Reply-To: <CAFQvZEPg7GK_6VLwFvHJAf0uQJC0fCiYV2j2nys24xPyTAz8Hg@mail.gmail.com>
+References: <CAK2MWOsDck8_3eEqxi0KMcPNPeT2affnNhaNLqj8BVdcDAXpew@mail.gmail.com>
+ <548e29ba651541fdb9a9d783bd65e1c5@aplex02.dom1.jhuapl.edu>
+ <CAFQvZEPg7GK_6VLwFvHJAf0uQJC0fCiYV2j2nys24xPyTAz8Hg@mail.gmail.com>
+Message-ID: <CA+xoNzEBLAuGd4UWi9aS0BBQ7vR5m61n2C4m1MSDZ0yWXd_Yfg@mail.gmail.com>
+
+On Sun, Mar 17, 2019 at 6:02 PM VanL <van.lindberg at gmail.com> wrote:
+>
+>
+> I think it gets back to the core purpose of the OSI: To be a steward for the OSD and to certify licenses as compliant with the OSD. There are many other good things the OSI *can* do, but that is the one thing it *must* do.
+>
+> So how does that get back to L-D and L-R? Well, the OSI board is not composed of lawyers. So L-D and L-R end up being systems for recommending (or not recommending) licenses for approval based upon various criteria.
+
+That seems to imply that determining whether a license is compliant
+with the OSD is task that is fundamentally within the competence of
+lawyers in particular. I do not agree. The OSD (drafted by a nonlawyer
+without access to legal advice, at least in its original form) is not
+a conventional legal document -- it is not a court decision, statute,
+regulation, treaty, constitution or the like. The OSD is a statement
+of philosophy and policy aimed at nonlawyers.
+
+> Those criteria seem to include:
+>
+> 1) Compliance with the OSD. This can have a more or less legal feel, but it seems necessary to identify whether particular licenses do or don't appear to comply with various parts of the OSD.
+
+Okay, I understand the "more or less legal feel". It is true that
+lawyers are generally trained (though, in general, not especially
+well) to interpret legal texts in certain particular ways relevant to
+the way the legal system works. And compliance of a license (itself a
+legal text) with the OSD (again, not a legal text in any conventional
+sense, but has some similarities to some kinds of legal texts) should
+involve a kind of interpretation that resembles the sort of
+interpretation at which, in theory (though often not especially in
+practice) lawyers are supposed to be particularly competent. I would
+argue that the work that most lawyers do bears little resemblance to
+the activity of determining whether a license complies with the OSD.
+On the other hand, a nonlawyer who is steeped in free software/open
+source legal policy (and I know many people who fit this description)
+might be much better qualified to interpret the OSD than the average
+lawyer.
+
+As I was recently saying elsewhere, lawyers often carry certain sorts
+of biases and baggage (due to client interests, professional
+specialization, mercenary aspirations, class and guild loyalties, or
+otherwise) to open source-related work that can negatively affect how
+they approach a task such as interpreting the OSD in relation to
+software licenses.
+
+> 2) The law. If the license is not legally sound, that is a good reason to recommend against it. Board members could vote to approve or deny based upon how persuasive those arguments are.
+
+Perhaps. I don't think it is or should be a primary consideration, at
+least normally. For example, you provided some arguments for why
+SSPLv1 (I think it was v1) was not legally sound, and that was a
+really useful contribution to the discussion, but I think those
+arguments were ultimately less important than, for example, the
+philosophical/policy question of whether SSPL was inappropriately
+discriminatory in violation of OSD 5/6, or unreasonably burdened the
+ability to use or distribute other software in violation of OSD 9.
+
+> 3) Policy choices affecting open source usage or the open source community. Certain licenses may implicate policy issues that, on the whole, a board member could feel was detrimental to the community as a whole.
+
+> 4) Community reaction. Licenses are community organizing tools, and having communities indicate a willingness to use a particular license is an strong indicator of quality or acceptability. Similarly, a strong negative reaction from community members could reasonably cause a board member to vote against a license.
+>
+> Thinking back on various discussions, I think that the most substantive discussions really ended up focused on one or more of these criteria. It also seems reasonable that criteria 1) and 2) are strongly legally inflected, but any member can have a well-reasoned opinion with regard to 3) or 4).
+
+I would say 2) necessitates input from legal specialists, but not 1).
+
+ Richard
+
+
+From cowan at ccil.org  Mon Mar 18 13:06:18 2019
+From: cowan at ccil.org (John Cowan)
+Date: Mon, 18 Mar 2019 09:06:18 -0400
+Subject: [License-discuss] The per se license constructor
+In-Reply-To: <CAK2MWOtHppovVL1eO+Ppx+e=QuFd=mfmeh=_2jWtO9BN89_8jA@mail.gmail.com>
+References: <CAK2MWOsDck8_3eEqxi0KMcPNPeT2affnNhaNLqj8BVdcDAXpew@mail.gmail.com>
+ <548e29ba651541fdb9a9d783bd65e1c5@aplex02.dom1.jhuapl.edu>
+ <CAD2gp_QUANvJx=GJ6yE0V+vyebL1GBCLg9OmzZnr=sb4n+1rwg@mail.gmail.com>
+ <b184d844a9df4671964d8b3b1710f6d5@aplex02.dom1.jhuapl.edu>
+ <CAK2MWOtHppovVL1eO+Ppx+e=QuFd=mfmeh=_2jWtO9BN89_8jA@mail.gmail.com>
+Message-ID: <CAD2gp_Q=5B2QfDZTS7ds57LoLJqjMqkj+ZnS4eoP=XRxgCkMoA@mail.gmail.com>
+
+On Sun, Mar 17, 2019 at 10:23 PM Bruce Perens <bruce at perens.com> wrote:
+
+No, I don't believe this is the problem. The problem is that the terms do
+> pernicious things like attempt to limit the public domain to national
+> boundaries with contractual terms. It's a terrible precedent for OSI to
+> approve.
+>
+
+Well, that pretty much reflects the law:  U.S. government employee work
+product *is* in the public domain in the U.S., and *isn't* in the public
+domain in other countries unless the foreign law makes it so.
+
+Speculation: the "law of the shorter term" which many countries have (but
+the U.S. does not) might treat U.S. government employee works as having a
+copyright term of 0 years, meaning that in such countries the copyright
+term would also be 0 years.  But whether "not copyrighted in the first
+place" is the same as "copyrighted for 0 years" for such purposes is a
+question.
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+Is a chair finely made tragic or comic? Is the portrait of Mona Lisa
+good if I desire to see it? Is the bust of Sir Philip Crampton lyrical,
+epical or dramatic?  If a man hacking in fury at a block of wood make
+there an image of a cow, is that image a work of art? If not, why not?
+                --Stephen Dedalus
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190318/e0833602/attachment.html>
+
+From bruce at perens.com  Mon Mar 18 18:44:52 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 18 Mar 2019 11:44:52 -0700
+Subject: [License-discuss] The per se license constructor
+In-Reply-To: <CAD2gp_Q=5B2QfDZTS7ds57LoLJqjMqkj+ZnS4eoP=XRxgCkMoA@mail.gmail.com>
+References: <CAK2MWOsDck8_3eEqxi0KMcPNPeT2affnNhaNLqj8BVdcDAXpew@mail.gmail.com>
+ <548e29ba651541fdb9a9d783bd65e1c5@aplex02.dom1.jhuapl.edu>
+ <CAD2gp_QUANvJx=GJ6yE0V+vyebL1GBCLg9OmzZnr=sb4n+1rwg@mail.gmail.com>
+ <b184d844a9df4671964d8b3b1710f6d5@aplex02.dom1.jhuapl.edu>
+ <CAK2MWOtHppovVL1eO+Ppx+e=QuFd=mfmeh=_2jWtO9BN89_8jA@mail.gmail.com>
+ <CAD2gp_Q=5B2QfDZTS7ds57LoLJqjMqkj+ZnS4eoP=XRxgCkMoA@mail.gmail.com>
+Message-ID: <CAK2MWOvHZw-J_Mf+Q5jEgy2hd7wJGw5RCjxGziA2v7fbc4dhvQ@mail.gmail.com>
+
+On Mon, Mar 18, 2019 at 6:07 AM John Cowan <cowan at ccil.org> wrote:
+
+> Well, that pretty much reflects the law:  U.S. government employee work
+> product *is* in the public domain in the U.S., and *isn't* in the public
+> domain in other countries unless the foreign law makes it so.
+>
+
+I want to see the United States Government go to court in some other
+country to protect a copyright that it would not honor in its own courts. I
+don't think that would go far. And of course there isn't much real value to
+protect. This is after all supposed to be Open Source software.
+
+>
+> Speculation: the "law of the shorter term" which many countries have (but
+> the U.S. does not) might treat U.S. government employee works as having a
+> copyright term of 0 years, meaning that in such countries the copyright
+> term would also be 0 years.  But whether "not copyrighted in the first
+> place" is the same as "copyrighted for 0 years" for such purposes is a
+> question.
+>
+
+I think the proper handling of this sort of work is for the US to abandon
+such tenuous and probably unenforceable rights, in the interest of clarity.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190318/06b328c9/attachment.html>
+
