@@ -148,7 +148,8 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_license_declaration.py",  # split 2026-11-08: ライセンス宣言の cross-surface coherence (444)
     ROOT / ".github" / "scripts" / "checks_governance_sync.py",  # split: AIO/AI2AI/llms freshness & governance sync (21-27)
     ROOT / ".github" / "scripts" / "checks_license_dossier.py",  # split: ACD-1.0 ドシエの自己整合 (458-461b)
-    ROOT / ".github" / "scripts" / "checks_license_submission.py",  # split: 審査者が受け取る面 (463/472/473)
+    ROOT / ".github" / "scripts" / "checks_license_submission.py",  # split: 審査者が受け取る面 (463/472/477)
+    ROOT / ".github" / "scripts" / "checks_license_provenance.py",  # split 2026-11-08: 来歴の開示 (473)
     ROOT / ".github" / "scripts" / "checks_license_draft.py",  # split: 次版の草案 (468)
     ROOT / ".github" / "scripts" / "checks_license_self_reporting.py",  # split: 自己申告件数 (460)
     ROOT / ".github" / "scripts" / "checks_license_register_structure.py",  # split: register の構造 (469/474/475)
@@ -167,7 +168,6 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_csp_hashes.py",  # split: inline-script CSP hash verification (7b/7c)
     ROOT / ".github" / "scripts" / "checks_artifact_scan.py",  # split: generated/cache artifact tracking guard (37)
 ]
-
 
 def _aggregate_check_numbers():
     """(inventory_nums, section_nums) sorted, aggregated across CHECK_SOURCE_FILES.
@@ -370,12 +370,11 @@ _checks_date_sync.run(_ctx)
 import checks_governance_sync as _checks_governance_sync
 _checks_governance_sync.run(_ctx)
 
-# ── ライセンス面 (LICENSES/) の Check 群: 458-461b ドシエ / 463・472・473 提出物 / 468 草案 /
-#    460 自己申告 / 469・474・475 register 構造 / 470 引用 / 471 参照 → checks_license_*.py ──
-#  NOTE: 番号の直後に "." を置かない —— `_sec_re` は `# ── N.` を section header として数えるので、
-#  ここに書くと module 側の本物と二重計上され Check 45b が RED になる。
+# ── ライセンス面の Check 群 (458-461b ドシエ / 463・472 提出物 / 473 来歴 / 468 草案 / 460 自己申告 / 469・474・475 register /
+#    470 引用 / 471 参照) → checks_license_*.py。番号の直後に "." を置かない (Check 45b が二重計上で RED になる) ──
 import checks_license_dossier as _checks_license_dossier
 import checks_license_submission as _checks_license_submission
+import checks_license_provenance as _checks_license_provenance
 import checks_license_draft as _checks_license_draft
 import checks_license_self_reporting as _checks_license_self_reporting
 import checks_license_register_structure as _checks_license_register_structure
@@ -383,6 +382,7 @@ import checks_license_quotation as _checks_license_quotation
 import checks_license_references as _checks_license_references
 _checks_license_dossier.run(_ctx)
 _checks_license_submission.run(_ctx)
+_checks_license_provenance.run(_ctx)
 _checks_license_draft.run(_ctx)
 _checks_license_self_reporting.run(_ctx)
 _checks_license_register_structure.run(_ctx)
