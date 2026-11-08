@@ -863,3 +863,15 @@ Blue Oak Model License 1.0.0 の審査（`rounds/2023-11-to-2024-01-license-revi
 **読み。** 承認されたライセンスの中で最も新しい「permissive + 強い特許許諾」の審査で、広さは寄与者への警告として出たが、3 人とも承認を止める理由としなかった。Piana 氏は OSD を満たし手続きに沿えば中身の良し悪しは問わない、と述べた。逆側として、Blue Oak には使用の実績が先にあり、提出者は経験のある法律家だった。ACD はどちらも持たない（B1・B2）。
 
 **この節が establish しないこと。** 承認の理由を述べた理事会の議事録は読んでいない（告知は議事録がまだ無いと書いている）。Piana 氏の「merit を問わない」は *"IMHO"* と添えた個人の見解である。
+
+## 1.159 モデルの出力を縛ること、AI の語彙、権利の列挙 —— ModelGo の再提出の審査（2025）（2026-11-08）
+
+`rounds/2025-05-to-12-license-review-modelgo-outputs-and-vocabulary-observed.txt`。どれも Pamela Chestek 氏の発言。
+
+| 発言 | ACD への当たり方 |
+| :-- | :-- |
+| *"I look at it theoretically and believe that the attempt to control Output at all is not justified because it's not limited to derivative works. It's particularly problematic for a model license, because the output is highly unlikely to be protected by copyright."*（2025-12-06） | §6.4 は出力に何も付けない（*"No enforceable claim arises against You, under this Dedication ..."*）。出力を縛らない側の理由として、審査に近い人の言葉で言える |
+| *"One thing to worry about is that the vocabulary for AI is fluid and constantly changing. You might not consider an "agent" a "model" at the moment, but might it take on more model-like characteristics in the future?"*（2025-12-06） | 逆側。§1.7・§6.4・§8.4 は "model, parameter set, weight, embedding, or output" の閉じた列挙で、"model" は定義語ではない。エージェントや検索の索引が 5 つのどれかに入るかは語で決まらない。1.4 の読みの記録は、列挙の末尾の *"output resulting from that processing"* が呼び名に依らない因果の受け皿なので文を変えない、と判断した（受け皿の語を足すと output を狭める反対解釈と B7 の費用を作るため） |
+| *"It's a double-edged sword -- when you enumerate, then you risk failing to grant rights under some regime that has different enumerations."*（2025-05-14・権利の語について） | §8.1 は行為を列挙したうえで *"and otherwise practise or transfer"* で受ける（E64）。列挙の害を受け皿で抑える形である |
+
+**この節が establish しないこと。** どれも別のライセンスの審査での個人の発言で、OSI の決定ではない。

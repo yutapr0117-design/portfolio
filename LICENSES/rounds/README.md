@@ -61,10 +61,11 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-08 時点・340 ファイル）
+## いまの状態（2026-11-08 時点・341 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
+| 2025-05〜12 | `license-review` | **観測（ModelGo の再提出の審査から、出力・AI の語彙・権利の列挙・3 通）** | `2025-05-to-12-license-review-modelgo-outputs-and-vocabulary-observed.txt` |
 | 2023-11〜2024-01 | `license-review` | **観測（Blue Oak の審査から承認の告知まで・6 通）** | `2023-11-to-2024-01-license-review-blue-oak-approval-observed.txt` |
 | 2018-11 | `license-discuss` | **観測（OSD は特許にも及ぶという言明と、特許を含む定義の案・3 通）** | `2018-11-license-discuss-osd-and-patents-observed.txt` |
 | 2017-01〜04 | `license-discuss` | **観測（人気の一覧の作り方の提案と返信・3 通）** | `2017-01-to-04-license-discuss-systematic-approach-popular-licenses-observed.txt` |
