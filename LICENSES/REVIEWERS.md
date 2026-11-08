@@ -22,9 +22,9 @@ that it must be**. *(Re-measure: `git ls-files -z LICENSES ':!LICENSES/rounds' |
 | :-- | --: | :-- |
 | [`ACD-1.0.txt`](ACD-1.0.txt) | **4,896** | the licence. Nothing outside it fixes it |
 | the two facts **#1 and #4** in [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~220 | **no lawyer has read this text**, and **the only project using it is the author's**. These are the strongest points against it. Neither is one of the eight published criteria, and the Licensing Committee's chair has called legal review *"not a blocker"*, but a reviewer may weigh both |
-| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **3,551** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
+| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **3,642** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
 
-**≈ 8,670 words** *(`wc -w`, 2026-11-07.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
+**≈ 8,760 words** *(`wc -w`, 2026-11-07.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
 jurisdiction analysis, and the archive measurements — **all of which are evidence for claims,
 not claims themselves.** The four commands below check the licence text without trusting any
 of it.
@@ -184,7 +184,8 @@ past does not bind the OSI"*, and a list message is its author's own view.
 
 | On this point | What was said | Where it meets ACD |
 |---|---|---|
-| A dedication alone, and CC0 | OSI's FAQ (last modified 2025-01-21): *"even where it is clear what it means, it's still not a license"*; on CC0, *"The most serious of the concerns raised had to do with the effects of clause 4(a)"*, the patent exclusion | §4 is a licence and §8 grants patents. The same FAQ says *"rather than try to waive copyright altogether"*, which is §3, and values attribution, which §10.2 gives up |
+| A dedication alone, and CC0 | OSI's FAQ (last modified 2025-01-21): *"even where it is clear what it means, it's still not a license"*; on CC0, *"The most serious of the concerns raised had to do with the effects of clause 4(a)"*, the patent exclusion. | §4 is a licence and §8 grants patents. The same FAQ says *"rather than try to waive copyright altogether"*, which is §3, and values attribution, which §10.2 gives up |
+| What gets reviewed in a dedication | Lawrence Rosen, 2011-04-18, on CC0: *"OSI could analyze CC0 for its license fallback terms, but not as a public domain dedication."* | §4 is a licence on its own footing (§4.4), so there is a licence to review. The same message calls CC0's silence on patents troubling, which §8 answers |
 | Patents | Josh Berkus, on OSI's blog, 2023-10-03: *"provisions like patent grants have been shown to be necessary"*. McCoy Smith, a Licensing Committee member, on OSI's blog, 2025-12-04: CC0 is *"perhaps the best example of a comprehensive effort to dedicate content to the public domain"*, but its patent disclaimer raised concerns; *"well-crafted explicit patent license grants in Open Source licenses (with or without defensive termination provisions) go a long way to reducing the risks"* | §8 is an express grant and §8.2 has no defensive termination. The same article calls Apache-2.0's clause *"a form of mutual patent peace"*, Berkus goes on *"We've also learned the value of non-proliferation"*, and neither is a decision |
 | Surrender plus licence | An article on OSI's site, 2017: *"A solution would be"* to *"disclaim ownership for the jurisdictions where that is possible, and then grant a copyright license that has the same practical effect"*; CC0 stalled *"during a complex discussion about patent rights"* | §3 and §4 are those two parts, §4 is not limited to those jurisdictions (§4.4), and §8 grants patents. The article is one author's, not a decision, and ends by recommending MIT |
 | Liability, in the public domain | The same FAQ: *"we don't know how or whether the author would be protected from liability for software released into the public domain"* | §13 and §14 |
@@ -227,8 +228,8 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 | The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders in the clauses (one in §16.1's notice template) |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
-| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 412 worked entries, indexed by the question rather than the filename |
-| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 306 adverse facts, written by us. Two have no answer |
+| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 414 worked entries, indexed by the question rather than the filename |
+| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 308 adverse facts, written by us. Two have no answer |
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
 | **What we would ask a lawyer** | [`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) | ACD has had no legal review. Nine questions on which a lawyer's reading would most change the text, ranked by consequence, each answerable on its own |
 | **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 66 known imprecisions, all unrepaired in 1.0 while the freeze holds, with what the successor does (the Status column is authoritative) |
