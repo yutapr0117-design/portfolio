@@ -10,7 +10,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (a) errata 冒頭の "all N are unrepaired" / (b) comparison §1.35 の "Four of" と
        "the remaining N" / "those N carry" / (c) FAQ mirror の「B. プロセス（N 問）」/
        (d) submission-reference §4c の "**X / Y**, no gaps either way" の両辺 / (e) register の
-       集計行の「解消済み N」/ (f) 逐条リファレンスが繰り返す「N 条すべてを収録」「抽出した N 条」/
+       集計行の「解消済み N」「構造的拒否候補 N」(分類の列の `12`) / (f) 逐条リファレンスが繰り返す「N 条すべてを収録」「抽出した N 条」/
        (g) submission.md の "across N files" と、そこで名指す分冊。
        文が読めないことも RED にする（言い換えると黙る形を残さない）。
 """
@@ -88,6 +88,15 @@ def run(ctx):
     elif int(m.group(1)) != sum(1 for s in sts if s.startswith("解消済み")):
         bad.append(f"(e) register の集計行の解消済み: 申告 {m.group(1)} / status が「解消済み」で始まる行 "
                    f"{sum(1 for s in sts if s.startswith('解消済み'))}")
+
+    # 構造的拒否候補 = 分類の列に `12`（凡例「構造的に両立不能の可能性」）を持つ行 (portfolio-00 の定義・2026-11-08)
+    cls_e = [c.split("|")[4] for c in re.findall(r"^\| \*\*B\d+\*\* \|.*$", bt, re.M) if len(c.split("|")) > 5]
+    n12 = sum(1 for c in cls_e if re.search(r"(?<![\d.])12(?![\d.])", c))
+    m = re.search(r"構造的拒否候補\s*(\d+)", bt)
+    if not m:
+        bad.append("(e) ACD-OSI-BOTTLENECKS.md: 集計行の「構造的拒否候補 N」が読めない")
+    elif int(m.group(1)) != n12:
+        bad.append(f"(e) register の集計行の構造的拒否候補: 申告 {m.group(1)} / 分類に 12 を持つ行 {n12}")
 
     # (f) 逐条リファレンス: 460 (c) は題の「全 X 節 Y 条」だけを見て、次の行の繰り返しは読んでいなかった
     cr = text(L / "ACD-1.0.clause-reference.md")
