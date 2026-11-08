@@ -797,3 +797,16 @@ UPL（Universal Permissive License）の審査（`license-review`・2014-04-10 �
 | *"the license is the scope of our analysis, not the intentions of those writing it -- which could signal extra care is required, but that's it. We are reviewing the message, not the messenger"* | Carlo Piana 氏 2014-05-07 | 本文は本文で見られる。ただし書き手の事情は「余計に注意する」合図にはなる、という但し書き付きである（AI が起草した ACD に当たる） |
 
 **この節が establish しないこと。** 理事会の理由は議事録の 3 行で、承認されたのは法律家が書き、大企業が直近の利用を示し、JCP という利用先を持つライセンスである。ACD はそのどれも持たない。審査者の発言は 2014〜2015 年の個人の発言で、議事録の議決以外は OSI の決定ではない。
+
+## 1.160 CC0 に明示の特許の文言を添える道と、承認済みライセンスに別の特許許諾を足す道（2016-12）（2026-11-08）
+
+`license-discuss` 2016-12 の "Views on React licensing?"（`rounds/2016-12-license-discuss-react-patents-and-cc0-patent-language-observed.txt`）。BSD に別ファイルの特許許諾を付けた React について、Richard Fontana 氏が opensource.org のアドレスで意見を求めたスレッドである。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"If the US government standardizes on some particular explicit patent language to use with CC0 I would welcome OSI review of that."*（CC が code.gov 向けに CC0 と特許の許諾の併用を勧めている、という引用への返信。同じ通で、CC0 への懸念は特許の文言の欠如ではなく 4(a) の明示の除外だったと述べる） | Richard Fontana 氏 2016-12-13 | 献呈に明示の特許の文言を添えた形を、OSI が審査する対象として歓迎した言葉。ACD の §3 + §8 はその形を 1 本の本文にしている |
+| 問いの 1 つとして *"is it good practice, and does it affect the open source status of software, to supplement OSI-approved licenses with separate patent license grants or nonasserts? (This has been done by some other companies without significant controversy.)"* | Richard Fontana 氏 2016-12-01 | 逆側。承認済みライセンスに別の特許の約束を足す道（§1.133 の H1-f）が、問題なく使われてきたという観察 |
+| 別ファイルで条件を足した組は *"a combination which as a whole is not OSI approved open source license"* で、足すことは *"only ok if the intent is to submit the new whole as a new license for OSI certification"* | Henrik Ingo 氏 2016-12-06 | H1-f の道は、組として承認済みにはならない。全体を新しいライセンスとして出す ACD の道と同じ向き |
+| *"Good to remember that CC0 is not an OSI approved open source license, precisely because it did not grant a patent license."* | Henrik Ingo 氏 2016-12-12 | CC0 が承認されなかった理由の、審査に近い人の要約（Fontana 氏は同じスレッドで、理由は許諾の欠如ではなく明示の除外だと正した） |
+
+**この節が establish しないこと。** Fontana 氏の「歓迎」は政府の文言を想定した個人の発言で、ACD の §8.4（モデルと出力）までは述べていない。CC の勧めは Nigel Tzeng 氏が引いたもので、CC の文書は読んでいない。
