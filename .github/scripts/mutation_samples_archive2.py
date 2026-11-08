@@ -14,7 +14,7 @@ archive part へ移す (part をさらに増やす場合は mutation_samples_arc
 """
 from __future__ import annotations
 
-from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK, APPLIED_ID, APPLIED_DATE, SUBMISSION_TARGET, FROZEN_PREVIOUS  # noqa: F401 (entry 内で参照・rotate が entry を移しても名前が解決するよう全部を import する)
 
 MUTATIONS_ARCHIVE2 = [
     {

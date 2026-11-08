@@ -15,7 +15,7 @@ budget 975 超過・BLOCKING の 1,000 まで残り 4 行) に達し、**当た�
 """
 from __future__ import annotations
 
-from mutation_samples_common import ROOT, CHECK  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK, APPLIED_ID, APPLIED_DATE, SUBMISSION_TARGET, FROZEN_PREVIOUS  # noqa: F401 (entry 内で参照・rotate が entry を移しても名前が解決するよう全部を import する)
 
 E2E_MUTATIONS_ARCHIVE = [
     {

@@ -5,7 +5,7 @@ archive2 が Check 365 の 1,000 行上限に達したため、最古の連続�
 という consistency 側 (mutation_samples_archive / archive2) と同じ 2 段構成をここでも採る。
 新規 mutation は mutation_samples.py の tail へ追記し、~975 行で archive2 へ rotate する。
 """
-from mutation_samples_common import ROOT  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK, APPLIED_ID, APPLIED_DATE, SUBMISSION_TARGET, FROZEN_PREVIOUS  # noqa: F401 (entry 内で参照・rotate が entry を移しても名前が解決するよう全部を import する)
 
 E2E_MUTATIONS_ARCHIVE3 = [
     {
