@@ -90,6 +90,22 @@ def norm(text):
     return " ".join(re.sub(r"[^A-Za-z0-9]+", " ", text.lower()).split())
 
 
+_ITALIC_PLAIN = re.compile(r'\*"([^"\n]+)"\*')
+# 内側の引用符を対で許す形。*"... the "covered work" is?"* のような引用は、内側の " で切れて
+# 照合から黙って漏れていた (portfolio-00 の指摘・2026-11-08: LICENSES/*.md の英語の引用 32 件)。
+_ITALIC_INNER = re.compile(r'\*"((?:[^"\n]|(?<=\s)"[^"\n*]{1,80}"(?=[\s.,;:!?)\'’]))+?)"\*')
+
+
+def italic_quotes(line, minlen=12, maxlen=100000):
+    """行の斜体の引用 *"..."* を返す。内側の引用符を含む形も拾う (両方の正規表現の和)。"""
+    out = []
+    for rx in (_ITALIC_PLAIN, _ITALIC_INNER):
+        for q in rx.findall(line):
+            if minlen <= len(q) <= maxlen and q not in out:
+                out.append(q)
+    return out
+
+
 def load_sources(root=".", cache=True):
     """照合先: rounds/ の一次資料 + 本文 + 取得済みアーカイブ。cache=False は CI が持つ分だけを読む。"""
     out = []
@@ -174,11 +190,11 @@ def collect_quotes(root=".", named=True):
             context = " ".join(lines[max(0, n - 3):n + 3])
             if named and not NAME.search(context):
                 continue
-            for m in re.finditer(r'\*"([^"]{25,400})"\*', line):
+            for _raw in italic_quotes(line, 25, 400):
                 # **生のまま集める。** norm() は約物を落とすので、ここで正規化すると
                 # **省略記号が消え、present() の分割照合が永久に発火しなくなる**
                 # （2026-09-14 に実際にそうなり、確認数が 193 → 155 へ落ちた）。
-                q = re.sub(r"[*`]", "", " ".join(m.group(1).split()))
+                q = re.sub(r"[*`]", "", " ".join(_raw.split()))
                 if len(q.split()) < 5:
                     continue
                 if sum(ord(c) < 128 for c in q) / len(q) <= 0.9:
@@ -334,7 +350,7 @@ def entry_quotes(root="."):
     for face in faces:
         with open(f"{root}/LICENSES/{face}", encoding="utf-8") as fh:
             for n, line in enumerate(fh, 1):
-                for raw in re.findall(r'\*"([^"\n]{12,})"\*', line):
+                for raw in italic_quotes(line, 12):
                     q = re.sub(r"[*`]", "", raw)
                     if len(q.split()) >= 3 and not re.search(r"[ぁ-んァ-ヶ一-龠]", q):
                         found.setdefault(q, f"{face}:{n}")
