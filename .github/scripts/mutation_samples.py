@@ -586,6 +586,12 @@ _MUTATIONS_TAIL.append({
     "find": '\n| 283 | ',
     "replace": '\n| 900 | ',
 })
+_MUTATIONS_TAIL.append({
+    "name": 'Check 471 (e): 法令名の直後でない 2 桁の §42 を足す —— 法令名を条件にした免除 (2026-11-08) が、隣に法令名の無い節参照まで通さないこと',
+    "file": ROOT / 'LICENSES' / 'ACD-1.0.jurisdictions.md',
+    "find": '終了権（17 U.S.C. §203）',
+    "replace": '終了権（17 U.S.C. §203、§42）',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
