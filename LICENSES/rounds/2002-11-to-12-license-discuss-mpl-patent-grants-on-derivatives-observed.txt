@@ -1,0 +1,177 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2002-November, 2002-December; the month in each message's Date line)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-08)
+Messages: 3 messages this dossier cites from the thread "MPL section 2.2, and patent grants on derivative works" (2002-11 to 2002-12).
+Senders: John Cowan, Lawrence E. Rosen, Brian Behlendorf
+Position: a question asked while the next Apache licence was being drafted, about how far a contributor's patent grant reaches. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From jcowan at reutershealth.com  Fri Nov 22 18:15:56 2002
+From: jcowan at reutershealth.com (John Cowan)
+Date: Fri, 22 Nov 2002 13:15:56 -0500 (EST)
+Subject: MPL section 2.2, and patent grants on derivative works
+In-Reply-To: <F58376A73054D411A63B00508B6C8FDA0A6FD648@pbwtex1.pbwt.com> from "Ravicher, Daniel (x2826)" at Nov 22, 2002 12:20:06 PM
+Message-ID: <200211221830.NAA18937@mail2.reutershealth.com>
+
+"Ravicher, Daniel (x2826)" scripsit:
+
+> This brings up issue (a), in
+> that if Developer, owner of patent claims covering A and B, modifies and
+> distributes the software to cover A, then Developer has granted, under the
+> OSL, a license to practice A with respect to the software as distributed by
+> Developer or any derivative work thereof.  What Developer has most likely
+> not done is grant a license to practice B in anything.  Therefore, a Third
+> Party modifying the Developer's version of the software to now practice A
+> and B, is likely not infringing the A claims, but is most probably
+> infringing the B claims.
+> 
+> So, to cover that situation, a license could hypothetically define Licensed
+> Claims as "patent claims owned or controlled by the Licensor that are
+> embodied in the Original Work as furnished by the Licensor or any Derivative
+> Work made in compliance with this license."
+
+That would make the Developer's patents worthless, one and all.  For an
+unscrupulous person wishing to practice absolutely unrelated patent B would
+simply have to add an utterly irrelevant module to the licensed software
+that would otherwise infringe B and then claim a license from the Developer.
+And the same for patent C, D, E, ...
+
+I should add that I think software patents are stoopid.  But it's one thing
+to ask companies to give away patent rights needed to use the program they
+are also giving away, and quite another to ask them to implicitly surrender
+all their patent rights, software-related or not.
+
+(IANAL, TINLA)
+
+-- 
+What is the sound of Perl?  Is it not the       John Cowan
+sound of a [Ww]all that people have stopped     jcowan at reutershealth.com
+banging their head against?  --Larry            http://www.ccil.org/~cowan
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From lrosen at rosenlaw.com  Fri Nov 22 19:39:26 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Fri, 22 Nov 2002 11:39:26 -0800
+Subject: MPL section 2.2, and patent grants on derivative works
+In-Reply-To: <200211221830.NAA18937@mail2.reutershealth.com>
+Message-ID: <002601c2925e$de74e8a0$927ba8c0@ROSENGARDEN>
+
+Because of the kind of patent situation described in Brian's original
+email and in the response below, I wanted to make the OSL more precise
+than the MPL.  The OSL defines "Licensed Claims" in terms of the
+Original Work:
+
+   "...patent claims owned or controlled by the Licensor that are
+   embodied in the Original Work as furnished by the Licensor...."
+
+Those, and only those, Licensed Claims can be practiced in Derivative
+Works.  See the OSL, section 2.  In the spirit of the open source
+definition, authors of derivative works are expressly licensed under the
+OSL to create improved embodiments of *those* Licensed Claims.  
+
+This response, of course, doesn't help interpret MPL section 2.2.
+
+/Larry Rosen
+
+> -----Original Message-----
+> From: John Cowan [mailto:jcowan at reutershealth.com] 
+> Sent: Friday, November 22, 2002 10:16 AM
+> To: "Ravicher, Daniel (x2826)"
+> Cc: 'brian at collab.net'; 'license-discuss at opensource.org'
+> Subject: Re: MPL section 2.2, and patent grants on derivative works
+> 
+> 
+> "Ravicher, Daniel (x2826)" scripsit:
+> 
+> > This brings up issue (a), in
+> > that if Developer, owner of patent claims covering A and B, 
+> modifies 
+> > and distributes the software to cover A, then Developer has 
+> granted, 
+> > under the OSL, a license to practice A with respect to the 
+> software as 
+> > distributed by Developer or any derivative work thereof.  What 
+> > Developer has most likely not done is grant a license to 
+> practice B in 
+> > anything.  Therefore, a Third Party modifying the 
+> Developer's version 
+> > of the software to now practice A and B, is likely not 
+> infringing the 
+> > A claims, but is most probably infringing the B claims.
+> > 
+> > So, to cover that situation, a license could hypothetically define 
+> > Licensed Claims as "patent claims owned or controlled by 
+> the Licensor 
+> > that are embodied in the Original Work as furnished by the 
+> Licensor or 
+> > any Derivative Work made in compliance with this license."
+> 
+> That would make the Developer's patents worthless, one and 
+> all.  For an unscrupulous person wishing to practice 
+> absolutely unrelated patent B would simply have to add an 
+> utterly irrelevant module to the licensed software that would 
+> otherwise infringe B and then claim a license from the 
+> Developer. And the same for patent C, D, E, ...
+> 
+> I should add that I think software patents are stoopid.  But 
+> it's one thing to ask companies to give away patent rights 
+> needed to use the program they are also giving away, and 
+> quite another to ask them to implicitly surrender all their 
+> patent rights, software-related or not.
+> 
+> (IANAL, TINLA)
+> 
+> -- 
+> What is the sound of Perl?  Is it not the       John Cowan
+> sound of a [Ww]all that people have stopped     
+> jcowan at reutershealth.com
+> banging their head against?  --Larry            
+> http://www.ccil.org/~cowan
+> --
+> license-discuss archive is at 
+> http://crynwr.com/cgi-bin/ezmlm-cgi?3
+> 
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From brian at collab.net  Mon Dec  2 03:17:44 2002
+From: brian at collab.net (Brian Behlendorf)
+Date: Sun, 1 Dec 2002 19:17:44 -0800 (PST)
+Subject: MPL section 2.2, and patent grants on derivative works
+In-Reply-To: <3DDF29E3.9030107@mozilla.org>
+References: <20021118144025.M60166-100000@yez.hyperreal.org>
+ <3DDF29E3.9030107@mozilla.org>
+Message-ID: <20021201190935.F27073-100000@yez.hyperreal.org>
+
+
+Keeping the patent discussion on low-boil:
+
+On Fri, 22 Nov 2002, Mitchell Baker wrote:
+> The scope of the patent grant is not enlarged by subsequent derivative
+> works of the Contributor Version.  If the scope was so enlarged, the
+> Contributor would have  no idea how broad a set of patent grants it
+> would ultimately end up making.
+
+"not enlarged by" I totally understand.  I'm asking whether a patent
+grant, applying to the specific contributions (and previous contributions)
+in that version, survive to a derivative work too.  I'm not asking about a
+derivative work with *new* code that would violate another one of
+Contributor's patents; assume the change between the Contributor Version
+and the derivative work is completely neutral on patent terms.
+
+If not, then the patent grants by contributors ends up being pretty
+useless (since they last only one Version), so I've got to believe this is
+handled, I'm puzzled as to how though, since the language does not appear
+to allow it.
+
+Thanks for the other clarifications.
+
+	Brian
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
