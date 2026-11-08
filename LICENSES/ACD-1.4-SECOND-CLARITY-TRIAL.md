@@ -293,3 +293,15 @@ T6 は反例なし（出力が Work に取り込まれれば §9 が自分の条
 
 **見て残したもの**: §1.9 の *"material sent for discussion only"* は表示を要件にせず、提出者が後から「議論用だった」と主張できると読める。しかし表示があるまで取り込みと推定すると、議論の場にパッチを貼った人が、知らないうちに特許まで含む Dedicator になる（T19 の初案と同じ失敗の向き）。Apache-2.0 も *"intentionally submitted"* の主観の語に表示の除外を添える同じ形なので、残す。他の 26 件は本文の語か記録の結論で退いた（要旨: 第三者を通じた請求は §5.3 と第 1 肢で閉じる / 氏名の publicity は E31 の意図どおり / §8.4 の擬制は Rb′ として記録済み / 定義の循環、§3.1 の公有化、§4.1 の形、*rights in a name* の未定義はいずれも本文の語で閉じる）。
 
+### 14.8 T22: §6.1 の特許の範囲（+8 語・審査者の記録された立場を当てた読み）
+
+記録にある審査者 7 人（Chestek、McCoy Smith、Fontana、Piana、Berkus、Perens、佐渡）について、ドシエに逐語で残る発言だけを根拠に、1.4 草案のどこに当たるかを読んだ。本人の判断を作らないよう、根拠は file:行と日付つきの逐語に限った。候補 21 件のうち反証に 4 件が残った。
+
+**欠陥**: §6.1 は *"the patent claims Section 8 reaches"* と請求項の単位で述べる。T17 で §8.3 を *"as to the acts they describe"* へそろえたとき、同じ対象を述べる §6.1 を見ていなかった。ある出力 O1 で §8.4 が届いた請求項 Y について、Work の内容から生じていない別の出力 O2 を作り、使い、配る行為まで、§6.1 が *"without condition"* に許すと読めた。§6.5 は §6 が §8 の許すことを述べるだけだと言うが、§15.1 の下ではそれで狭く読む根拠にならない。Chestek 氏 2019-08-05 *"The are about the same subject matter as"*（`against.md` #299）の形である。
+
+**After**: *"and the patent claims Sections 8.1 and 8.4 reach as to the acts they describe, are concerned"*。§8.3 と同じ語にした。workflow の案は *"so far as Section 8 reaches it as to the act in question"*（+12 語）だったが、同じ対象は同じ語で呼ぶ。§11.4 の同じ語は届く範囲の上限を述べる文で許可を与えないので、変えない。
+
+**提出資料の訂正**: `submission-reference.md` は、§8.1 の限定が Perens 氏 2024-04-06 の *"necessarily practiced in the work as issued by the grantor"* と「一致する」と書いていた。*necessarily practiced* は請求項の全要素が Work にあることを求めると読め、§8.1 の *caused by* は組み合わせの請求項で広い。§8.4 はこの限定を意図して外している。「同じ種類だが同じ語ではない」へ直した。`review-corpus.md` の同じ主張は portfolio-00 の担当である。
+
+**残したもの**: タグや識別子だけで適用したとき、どの素材が Work になるか（1 ファイルか、ディレクトリか、リポジトリ全体か）を決める語が本文に無い（Fontana 氏の問いの形。ただし `objection-map.md` はその文を要約と書いている）。規則を置く案（+18〜48 語）は、README だけに通知を置いた Dedicator の適用を狭める逆側を持つ。portfolio-00 の反例を待って判断する。§8.1 の *caused by* を *by itself, infringes* へ狭める案と、§8.4 の *teaches* を外す案は採らない。前者は §8.3 の目的に、後者は記録の Rb′ の判断（巨大なコーパスでは由来を示せない）に反する。
+
