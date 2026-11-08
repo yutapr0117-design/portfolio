@@ -1,0 +1,209 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-February.txt
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-08)
+Messages: 4 of the 30 messages in the thread "Request for consultation with CC on patent issue" (2012-02), the ones this dossier cites.
+Senders: Bruce Perens, Russ Nelson, Christopher Allan Webber (Creative Commons)
+Position: a request that Creative Commons explain or revise the patent clause of CC0 during its review. Not addressed to us and not about ACD. Each message is whole.
+
+----- begin verbatim -----
+From bruce at perens.com  Mon Feb 20 07:04:13 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Sun, 19 Feb 2012 23:04:13 -0800
+Subject: [License-review] Request for consultation with CC on patent issue
+Message-ID: <4F41F06D.2020207@perens.com>
+
+Karl,
+
+Fontana and I appear to be agreed that*CC should be asked to add 
+language to CC0: an explicit permission to make use of patent claims 
+necessary to use the software in the form that was dedicated or 
+licensed. This should apply to both public domain, and the fallback license.
+*
+Others on the list are sufficiently concerned with the problem, as 
+evidenced by the current discussion.
+
+At this point, I think you should ask CC to work on that. I don't see 
+why they'd be unwilling to add text clarifying the issue. Consideration 
+of CC0 could then continue without the problem.
+
+Granting approval before CC has at least been given an /opportunity/ to 
+make this clearer would be a disservice to developers.
+
+     Thanks
+
+     Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120219/60e270f4/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bruce.vcf
+Type: text/x-vcard
+Size: 266 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120219/60e270f4/attachment.vcf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4447 bytes
+Desc: S/MIME Cryptographic Signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120219/60e270f4/attachment.p7s>
+
+From bruce at perens.com  Tue Feb 21 19:51:49 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 21 Feb 2012 11:51:49 -0800
+Subject: [License-review] Request for consultation with CC on
+	patent	issue
+In-Reply-To: <20291.9025.419746.748338@desk.crynwr.com>
+References: <4F41F06D.2020207@perens.com>
+	<Pine.BSM.4.64L.1202210013220.20373@herc.mirbsd.org>
+	<4F42ED6A.1090500@perens.com>
+	<20291.9025.419746.748338@desk.crynwr.com>
+Message-ID: <4F43F5D5.8090909@perens.com>
+
+On 02/20/2012 08:53 PM, Russ Nelson wrote:
+> Thorsten is suggesting that your concern is de minimus because the author of the code probably doesn't have any patents. Have you nothing to say to his concern?
+I've already explained that the party dedicating code is actually the 
+one most likely to hold other property related to the field, including 
+patents, because they were obviously working in that field.
+
+I also explained that the fact that we can't do anything about an 
+overwhelming majority does not excuse us from dealing with the party we 
+/can /influence.
+
+I didn't want to burden the list with unnecessary repetition of these 
+arguments, but you demand it.
+
+There are many parties that OSI /can /satisfy in certifying licenses, 
+but there is /one /party that needs the service the most. This is the 
+private developer who, with other such developers, have very little 
+assistance in dealing with the complication of licensing and do not, in 
+general, understand complications such as implied estoppel.
+
+OSI would do those developers a disservice by certifying something that 
+has hidden traps for them without at least taking the opportunity to 
+clear up questionable text. The patent issue in CC0 is one such trap. 
+Richard Fontana has made clear the /oddness/ of the present patent 
+language in the context of other CC licenses.
+
+Regarding tone, there's just no reason to depart from civility in this 
+discussion. I'm a volunteer here, and I demand /that./
+
+     Thanks
+
+     Bruce
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120221/68489a63/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bruce.vcf
+Type: text/x-vcard
+Size: 266 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120221/68489a63/attachment.vcf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4447 bytes
+Desc: S/MIME Cryptographic Signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120221/68489a63/attachment.p7s>
+
+From nelson at crynwr.com  Wed Feb 22 04:48:53 2012
+From: nelson at crynwr.com (Russ Nelson)
+Date: Tue, 21 Feb 2012 23:48:53 -0500
+Subject: [License-review] Request for consultation with CC
+	on	patent	issue
+In-Reply-To: <4F442E44.1030403@postgresql.org>
+References: <CB69341C.14368%Nigel.Tzeng@jhuapl.edu>
+	<1329848220.27113.140661039448409@webmail.messagingengine.com>
+	<190A909A-7E16-4589-99A4-4DAEA1D0E476@codefab.com>
+	<CAKHykeu5uM5QEmVzh1H5DNpaTAFkjQ=Rro+G2xP8qdOtE-VQKw@mail.gmail.com>
+	<1850C859-0C80-4485-8914-E0D10117344D@codefab.com>
+	<CAKHykev-eJh_DBrKk2sL4wnxhk_3i58owBbx7Fz=OMHgjx4o6w@mail.gmail.com>
+	<4F442E44.1030403@postgresql.org>
+Message-ID: <20292.29621.464449.10059@desk.crynwr.com>
+
+Josh Berkus writes:
+ > I agree with Henrik here.  If patent rights are specifically excluded,
+ > we're basically promoting the idea of CC0 being a RAMBUS-style booby
+ > trap.  And personally, I don't think that meets the OSD.
+
+What's the alternative? Should we give people a paper umbrella,
+promising that it will keep them dry when it rains?
+
+Anybody who wants to set a booby trap will take steps to make sure
+that a separate legal entity owns the patent rights (in spite of
+Bruce's naive expectation that the CC0 licensor and patent holder will
+be the same party).
+
+We don't HAVE to construe an explicit lack of a patent license as
+violating OSD#7. If there is no patent (and the OSD says nothing about
+patents), then there is no need for a second agreement.
+
+We *could* add a term to the OSD saying "No license complies with the
+OSD if it is applied to patented software unless all known applicable
+patents are disclosed."  THAT would be a solution with teeth. But as
+I've said before, this is something that should be disussed outside
+any one license's review.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-600-8815
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From cwebber at creativecommons.org  Tue Feb 21 22:08:18 2012
+From: cwebber at creativecommons.org (Christopher Allan Webber)
+Date: Tue, 21 Feb 2012 16:08:18 -0600
+Subject: [License-review] Request for consultation with CC on patent
+	issue
+In-Reply-To: <4F41F06D.2020207@perens.com> (Bruce Perens's message of "Sun, 19
+	Feb 2012 23:04:13 -0800")
+References: <4F41F06D.2020207@perens.com>
+Message-ID: <87obsr7sbx.fsf@grumps.lan>
+
+Sorry that it's taking so long, we just want to respond properly.  We're
+paying close attention and are trying to draft a proper response.
+
+It's a busy time as CC 4.0 initial drafting work is happening at this
+very moment, and I think we didn't anticipate quite how complex this
+conversation was going to get. :)
+
+ - Chris
+
+
+Bruce Perens <bruce at perens.com> writes:
+
+> Karl,
+>
+> Fontana and I appear to be agreed that CC should be asked to add
+> language to CC0: an explicit permission to make use of patent claims
+> necessary to use the software in the form that was dedicated or
+> licensed. This should apply to both public domain, and the fallback
+> license.
+>
+> Others on the list are sufficiently concerned with the problem, as
+> evidenced by the current discussion.
+>
+> At this point, I think you should ask CC to work on that. I don't see
+> why they'd be unwilling to add text clarifying the
+> issue. Consideration of CC0 could then continue without the problem.
+>
+> Granting approval before CC has at least been given an opportunity to
+> make this clearer would be a disservice to developers.
+>
+> ??? Thanks
+>
+> ??? Bruce
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
