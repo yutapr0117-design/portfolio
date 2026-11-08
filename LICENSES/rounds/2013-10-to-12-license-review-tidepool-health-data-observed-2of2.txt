@@ -1,0 +1,260 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2013-October, 2013-November, 2013-December; the month in each message's Date line)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-09)
+Messages: 3 of the 13 messages this dossier cites from the review of the Tidepool Open Access to Health Data Software License (2013-10 to 2013-12), with the committee chair's report of 2013-10-09 and one message on NOSA 2.0 in the same report thread. Not the whole thread. Part 2 of 2.
+Senders: Howard Look, Richard Fontana
+Position: review of another submission. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From howard at tidepool.org  Thu Oct 24 18:44:49 2013
+From: howard at tidepool.org (Howard Look)
+Date: Thu, 24 Oct 2013 11:44:49 -0700
+Subject: [License-review] Request for approval by license steward:
+	Tidepool Open Access to Health Data Software License
+In-Reply-To: <20131024134231.26f11919@riley>
+References: <423B6EA4-BE52-4CE0-98FE-9844DE3E05A5@tidepool.org>
+	<858513BA-E149-4216-846B-299FB53E0879@tidepool.org>
+	<20131024134231.26f11919@riley>
+Message-ID: <CD83A29F-B6F4-44C7-889D-84AA20ED01AE@tidepool.org>
+
+On Oct 24, 2013, at 10:42 AM, Richard Fontana wrote:
+
+> On Sun, 20 Oct 2013 21:01:24 -0700
+> Howard Look <howard at tidepool.org> wrote:
+> 
+>> == Concerns over what data needs to be made open ==
+>> 
+>> Draft license text: ?Health Data? means data pertaining to the
+>> physiological functions of a natural person, including any
+>> information or data specific to understanding the operation, safety
+>> or efficacy of a device or service that accompanies, is assistive in
+>> understanding, or generates such data.
+> 
+> Howard, can you clarify whether 'Health Data' can encompass software
+> itself (i.e., might not there be software that is 'specific for
+> understanding the operation safety or efficacy of a device or service
+> that accompanies, is assistive in understanding, or generates' Health
+> Data in a more intuitive sense)?
+
+Hi Richard, our intent is that "health data" would not encompass software, though it is indeed possible that there are cases where the raw data alone would not be sufficient to make interpretations.
+
+Our intent is, at a minimum, to make the data available. Making the software to interpret the data also available is a big bonus, but not the intent nor a requirement of the license.
+
+A caveat to the above: It is clearly important that the data at least be readable, which is why we included this: ?Open? means that in the event you apply any encryption or obfuscation to the Health Data using the Software, you must provide the Data Owner with any encryption keys or other suitable means, free of charge, to access such Health Data, in a manner sufficient to allow a Data Owner with ordinary skill and knowledge to extract and store the Health Data in a non-proprietary format...
+
+> [...]  
+> For many research studies that use our code, we think that making the
+>> data open to patients _is_ practical, and so this license could
+>> apply. In cases where it's not practical (because it's interim,
+>> unpublished data, for example) a possible solution, at least for
+>> Tidepool, will be to make it clear to researchers that while we
+>> encourage them to make their data open to their study patients, they
+>> can approach us (Tidepool) about licensing our code under different
+>> license terms.
+> 
+> If there is an issue as to this point wrt whether the license is 'Open
+> Source' (I'm not saying there is), I consider the argument that 'if
+> it's too burdensome, they can always ask for a different license'
+> unsatisfactory. 
+> [...]
+
+Yes, I see your point. I think there may actually be two issues here, "burden" and "appropriateness." In the case of a research, it may be about both burden and appropriateness, but my intent was to address appropriateness above, i.e. it may not be appropriate to release the data to patients while the study is going on, for example because the results need to be compiled and studied and published.
+
+In the the case of burden, i.e. "I don't want to do the work needed to create patient- and machine-accessible APIs," you are correct, our intent would not be to offer an alternate license for that reason.
+
+> 
+>> == Concern about dual-license approach and GPL ==
+>> 
+>> (This point is a bit orthogonal to seeking OSI approval for the
+>> Tidepool license, but it is addressed in the blog post that we
+>> referenced in our request for approval, we got several comments on it
+>> private messages.)
+>> 
+>> Several folks have encouraged us to _not_ use a dual license approach
+>> as it creates downstream confusion about how to apply the license and
+>> has fallen out of favor.
+> 
+> Possibly off-topic but I find the 'fallen out of favor' odd. It seems
+> that there may be a confusion between 'proprietary/open source dual
+> licensing' (which I agree has fallen out of favor) and 'disjunctive
+> open source dual-licensing) (which is about as common as it ever has
+> been). 
+
+Yes, thank you for clarifying. I based that statement on the feedback we'd received, but didn't look up the data on dual-license use nor was I precise about the type of dual license (disjunctive vs. proprietary).
+
+I'll try to be more precise: There are three issues that have come up, all multiple times:
+
+1) Concern about any reference to GPL 
+2) Confusion about dual-licensing (how it is interpreted, how to indicate it)
+3) Concern about us offering a new license at all
+
+As I think is often the case with concerns or confusion, there is an education effort that could mitigate them. However not everyone is willing to spend the time or energy to be educated, and it also takes time and energy on our part, which is not core to our mission of helping people with type 1 diabetes, so as the saying goes, we need to pick our battles. In this case, we are choosing to pick #3, but not #1 and #2. (And to be clear, we are also getting lots of feedback to not pick #3.)
+
+On #1, we have gotten feedback directly from enterprises that we would hope to work with, and also from lawyers who support them, as well as other entities that deliver software to them, that they will simply not even look at code, or even pay a lawyer to look at the license if it has the word "GPL" in it, even in the case of a disjunctive dual license.
+
+Here is a sampling of the email feedback (these were all sent in private, so removing attribution):
+
+"you definitely should not use GPL, or even dual license under that - it's a policy issue that will prevent you getting in the door (whether that's valid or not)"
+
+"we won't include GPL or proprietary licenses in our work, so we wouldn't use your stuff. We wouldn't even pay a lawyer to read the license?life's too short. "
+
+"Why even touch the third rail of GPL?"
+
+"The key thing about open-source licensing is to keep it simple and, ideally, standard. Dual licensing is no longer in vogue, and for good reason: it's incredibly difficult to explain how dual-licensing works in practice, and so people tend to stay away. Niche/Custom licenses (e.g. Tidepool Open Access?) are even worse: how do you know if that's compatible with other code published under, say, an Apache license? Do you have to get a lawyer to find out?"
+
+"I'm not sure I'd like to be contained to have all of my app be released under GPL."
+
+Again, it makes us sad, too, because we do believe that completely open code will make for safer health devices systems over time. We hope that some entities will choose to publish all of their code, even though they are not required to under the Tidepool license. We certainly intend to.
+
+> 
+>> Some of these same folks, as well as other
+>> folks, have encouraged us to not refer to GPL or copyleft at all in
+>> our license strategy, since that will scare away most enterprises. As
+>> indicated in our blog post, our intent is to encourage the broadest
+>> possible adoption, while maintaining an open data requirement.
+> 
+> I think I asked this before, and I apologize if you answered it, but I
+> am curious why you think your license is inherently less scary than the
+> GPL.
+> 
+> Let me ask you this, though it is seemingly off topic: What will you do
+> if you find that enterprises turn out to be just as fearful of your
+> license as you believe they are of the GPL?
+
+You are correct, that some (but we hope not all) enterprises will be fearful of our license. We have been actively seeking feedback from device and software manufacturers in our space (diabetes technology), as well as research institutions that might use our code, and continue to seek feedback.
+
+So far, enterprises seem to fall into two camps:
+
+1) Those who inherently agree that the patient owns their own data, and that they should always have access to it, and should be able to elect to do whatever they want with the data.
+
+2) Those who do not agree with this entirely, for example they may believe that the data they collect has monetary value, or could be used to deduce their intellectual property, or that patients should not be able to give it to their competitors, or that patients may not have the skills to interpret the data.
+
+We presume that the latter type of enterprise (2) will choose to not adopt software under the terms of our proposed license, and believe that the former type (1) will, and that over time they will be able to grow their business and market share as patients, doctors and researchers see the value in the open data approach.
+
+Thanks again for the great questions and feedback! Please keep it coming.
+
+Regards,
+Howard
+
+> 
+> - RF
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20131024/4c0892eb/attachment.html>
+
+From fontana at sharpeleven.org  Fri Nov  1 01:01:44 2013
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Thu, 31 Oct 2013 21:01:44 -0400
+Subject: [License-review] License Committee Report - for board meeting
+ of 2013-11-06 [NASA, EUPL, and Tidepool]
+In-Reply-To: <CAFPTOkVFydUXiYLq2FMEQWWHUKWjwfG6Dozh4HjQDkFD2a64tA@mail.gmail.com>
+References: <CAFPTOkU=1FvwZwcwh-zC54CaZT=kA=oNA_EK-VTyNNjqUFyY8g@mail.gmail.com>
+	<CAFPTOkVFydUXiYLq2FMEQWWHUKWjwfG6Dozh4HjQDkFD2a64tA@mail.gmail.com>
+Message-ID: <20131031210144.69c59479@riley.home>
+
+On Wed, 30 Oct 2013 10:49:22 -0700
+Luis Villa <luis at tieguy.org> wrote:
+
+> Reminder: if you have comments on NASA or EUPL (Tidepool still has
+> its own semi-active thread) now is the time for them :)
+
+[...]
+
+> > Comments: There have been some questions about the clarity of the
+> > license, particularly the use of "requests" in a section that NASA
+> > informs us is optional, and suggestions have been made to resolve
+> > those concerns. However, it appears that no substantive concerns
+> > about OSD-compliance have been raised.
+
+License text for reference:
+http://projects.opensource.org/pipermail/license-review/attachments/20130607/0d342a59/attachment-0001.txt
+
+I would like to raise some substantive concerns about OSD-compliance.
+Sorry I did not pay much attention to this earlier. I am cc'ing Bryan
+Geurts who submitted the license. 
+
+A general comment: I believe that because this license is coming from
+NASA, it should be held to a relatively high standard. I think
+there is a natural bias in favor of approval of the license
+(because of NASA's prominence, technological and cultural, as a US
+government agency, and because OSI has certified a predecessor
+license).
+
+3F: What if non-NASA Contributor A or non-NASA recipient B, allow me to
+say that they endorse a product or service provided by me: am I
+violating NASA's license? As drafted this seems to be possible under
+3F, yet it would be an absurd and unfair result.
+
+'Requests' issue (3K):
+
+If, as has been said, 'requests' means 'we'd appreciate it if you did
+this, but you don't have to', there is obviously no OSD-compliance
+concern, but we have to consider reasonable future interpretations by
+others using this license, such as some other government agency. A
+mandatory provision would, IMO, clearly not be open source.
+
+Patent and copyright termination (3J):
+
+If this were limited to termination upon the bringing of patent
+litigation, it would resemble provisions in a number of OSI-approved
+licenses. What I believe is unusual about the NOSA 1.3 provision is the
+extension to copyright infringement litigation. 
+
+This clause seems to say the following: If a NOSA 1.3 work X
+incorporates some (say) upstream MIT-licensed code authored by A, and A
+receives work X, and B, another recipient of X, commits copyright
+infringement as a consequence of failing to comply with the MIT license
+on A's code, if A sues B for copyright infringement, NASA can terminate
+the copyright license granted on X to A. That seems unreasonable to me
+and seems to undermine an implicit open source policy of general
+nonobstruction of legitimate enforcement of open source licenses and
+legitimate pursuit of copyright infringement claims inside the open
+soure licensing system.
+
+My concern about 3J would be eliminated if it were triggered only by
+patent litigation.
+
+Apart from these concerns, I think this license could be made clearer
+in a number of other areas, but I do not think those other parts raise
+OSD-compliance issues. 
+
+In its current form I cannot consider NOSA 1.3 an open source license.
+
+- Richard
+ 
+
+
+From howard at tidepool.org  Thu Dec 19 19:59:55 2013
+From: howard at tidepool.org (Howard Look)
+Date: Thu, 19 Dec 2013 11:59:55 -0800
+Subject: [License-review] Next steps with Tidepool License
+Message-ID: <547333E6-A810-4189-82C0-E56F0DBFD6FF@tidepool.org>
+
+Dear OSI Members,
+
+Thank you all for your extended engagement and feedback over the last couple of months with respect to the Tidepool License.
+
+We got great feedback to our proposed Tidepool License. We had an exciting and productive discussion, but we all came away with the feeling that we have a lot more work still to do on it.
+
+The process has made it clear is that getting a new open source license right is hard - especially one with novel concepts such as the Tidepool License. We need to spend more time carefully considering all of the use cases. Different communities (academics, medical researchers, device manufacturers, patients, etc.) have different requirements, and it?s a challenge to balance all of those needs.
+
+We had been hoping that the process would happen relatively quickly, and we have been waiting until the license was ready before opening up our code publicly. But not developing our code in the open is slowing us down. Tidepool?s vision for an open data platform depends critically on having many eyes on it -- user interface design, API design, testing, and development will all benefit from community commentary and contributions. We have had several people who have offered to contribute, but it?s been challenging to effectively integrate them into our process when our development is happening in private repositories.
+
+We?ve decided we can?t wait any longer. Here?s what we?re going to do for now:
+
+- We?re going to keep working with everyone interested on the Tidepool License. If you?d like to propose changes, we have a GitHub repository with the license text available and we will gladly consider pull requests for changes. We can also use GitHub issues for discussion. For those that prefer an email discussion list, we also set up this Google Group.
+
+- For most of the existing Tidepool code base, we will be releasing the code under the BSD 2-Clause license (a.k.a. BSD-2). 
+
+- For code where keeping changes secret or private would be a safety concern, we will release the code under GPLv2. This will compel people who edit this code to release their changes back to the public.
+
+At some point in the future, when we feel we have achieved a reasonable consensus on the Tidepool License and attained OSI compliance, we?ll relicense future versions of the code under that license. But this plan allows us all to move forward. If you?re motivated to help us continue development of the Tidepool License, we?d love to have you. Please join us on GitHub and/or this Google Group.
+
+Once again, thank you for all your help and advice. We hope you?ll continue to help us as we continue in our quest.
+
+Regards,
+Howard
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20131219/b0e3030b/attachment.html>
+

@@ -1,0 +1,593 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2013-October, 2013-November, 2013-December; the month in each message's Date line)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-09)
+Messages: 10 of the 13 messages this dossier cites from the review of the Tidepool Open Access to Health Data Software License (2013-10 to 2013-12), with the committee chair's report of 2013-10-09 and one message on NOSA 2.0 in the same report thread. Not the whole thread. Part 1 of 2.
+Senders: Howard Look, Josh Berkus, Richard Fontana, John Cowan, Brian Behlendorf, Lawrence Rosen, Luis Villa
+Position: review of another submission. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From howard at tidepool.org  Sat Oct  5 18:58:36 2013
+From: howard at tidepool.org (Howard Look)
+Date: Sat, 5 Oct 2013 11:58:36 -0700
+Subject: [License-review] Request for approval by license steward: Tidepool
+	Open Access to Health Data Software License
+Message-ID: <423B6EA4-BE52-4CE0-98FE-9844DE3E05A5@tidepool.org>
+
+Hello!
+
+== Overview ==
+
+My name is Howard Look. I am President/CEO of Tidepool Project. We are a non-profit, (soon to be) open source project creating an open platform and applications to help reduce the burden on people with Type 1 Diabetes. We are proposing that we a new create a new license, the Tidepool Open Access to Health Data Software License.
+
+Our company and efforts are described here:
+http://tidepool.org
+
+Our rationale and proposed license strategy is detailed here: 
+http://tidepool.org/blog/2013/9/17/wheres-the-code-or-a-funny-thing-happened-while-on-the-way-to-an-open-source-license
+
+The draft license is here (and in plain text below):
+http://tidepool.org/license
+
+FAQ is here:
+http://tidepool.org/tidepool-license-faq
+
+== Rationale ==
+
+We want to require applications, devices and services to keep health data open and accessible to patients, their designated caregivers.
+
+We could not find a source license that included an open data provision. Various open data licenses were close (see http://opendefinition.org/licenses/), but they covered the data and not the software or devices creating the data. They also require open access to everyone, which is not appropriate for private health data where the patient should choose who has access to their data.
+
+We intend for the Tidepool license to be reusable by others. Our initial intent is to license the code created by the Tidepool project, which makes it easier to gather data from various diabetes devices, and to analyze that data in intuitive and actionable ways.
+
+== Distinguish ==
+
+The Tidepool license is permissive as to source code, and "copyleft" as to the open data requirement. The license is most similar to the Apache v2 license, though with the addition of the open data provision.
+
+== Legal Review ==
+
+The license was drafted by Heather Meeker of Greenberg Traurig, who also participated in the creation of the Mozilla licenses.
+
+We have asked for legal review from institutions that we hope to collaborate with, so far UCSF and Stanford, as well as from medical device companies such as Medtronic and Dexcom.
+
+UCSF has concerns about the patent provision and it's broad reach across the UC system. We are awaiting further clarification about whether this is a unique to the Tidepool license, or whether they have similar concerns about they Apache license, for example.
+
+We have not received any other legal review.
+
+== Other Feedback ==
+
+So far, the feedback on our plan falls into these rough buckets:
+0 - Only use GPLv3. Truly free and open software is the only way to go for medical devices and therapy software.
+1 - Steer clear of GPL at all costs. It's a third rail and will cause enterprises to not look at your code. Not worth it.
+2 - The dual-license approach is way more confusing than it's worth.
+3 - Doing a new permissive license is more confusing than it's worth. Just release it under MIT/BSD/Apache and let it speak for itself.
+4 - We love that you are doing a new permissive license and totally agree that patients must own and have access to their own health data.
+
+== Proliferation category ==
+
+We hope that the Tidepool license is reusable, and put it in the category of "Special purpose licenses." We hope that it is reusable by other projects delivering hardware and software medical technology. We discussed this, for example, with members of the Implanted Cardiac Defibrillator community, who have similar desires as the diabetes community for open patient access to data.
+
+Please let me know if you have any further questions. Thanks in advance for your feedback and consideration.
+
+Regards,
+Howard
+
+
+[DRAFT - This draft is open for public review and comment. Please email your comments to legal at tidepool.org or comment on the associated blog post at http://tidepool.org/blog/2013/9/17/wheres-the-code... published September 17, 2013.]
+
+TIDEPOOL OPEN ACCESS TO HEALTH DATA SOFTWARE LICENSE V1
+
+This license governs the use of the software to which this license notice is applied (?Software?). You are not required to accept these license terms; however, nothing else grants you permission to modify or distribute the Software or its derivative works.  The purpose of this license is to ensure that any use of this Software is conditioned upon making Health Data collected or processed by the Software Open to the Data Owner or any party authorized by the Data Owner, and this license should be interpreted in service of that purpose.  
+
+1. Definitions.  As used in this license, the following terms have the following meanings.
+
+A ?Contribution? is the Software, or any modification or addition to the Software made available under this license.  
+
+A ?Contributor? is any person or entity that makes available any Contribution under this license.  
+
+?Data Owner? means the natural person to whom the Health Data applies.
+
+?Distribute? means to distribute, transfer a copy of, or otherwise make available (including via network access).
+
+?Health Data? means data pertaining to the physiological functions of a natural person, including any information or data specific to understanding the operation, safety or efficacy of a device or service that accompanies, is assistive in understanding, or generates such data.
+
+?Licensed Claims? are all claims in issued patents or pending patent applications owned or controlled by any Contributor or any of its Subsidiaries, now or in the future, having claims that, absent the license granted in Section 2(B), would be infringed by the making, having made, use, sale or other exploitation of that Contributor?s Contribution, or by the combination of the Contribution with the remainder of the Software (where such infringement would not arise based on the Software standing alone without the Contribution).
+
+?Open? as applied to Health Data will have the meaning ascribed to such term by the Open Definition promulgated at opendefinition.org, version 1.1 and any later version; provided, however, that no condition of attribution will be applied to use of Health Data and the Health Data need not be made available or accessible to any party other than the Data Owner or parties authorized by the Data Owner.  For avoidance of doubt, as applied to Health Data under this license, ?Open? means that in the event you apply any encryption or obfuscation to the Health Data using the Software, you must provide the Data Owner with any encryption keys or other suitable means, free of charge, to access such Health Data, in a manner sufficient to allow a Data Owner with ordinary skill and knowledge to extract and store the Health Data in a non-proprietary format, in both human-readable and machine-accessible forms. When you provide Health Data in machine-accessible forms, you must also provide data format descriptors suitable for other programs to read the Health Data.
+
+Any reference to the ?Software? includes the Software, in whole or in part, in any medium or any format (such as binary or source code).
+
+A ?Subsidiary? is an entity that is controlled, directly or indirectly, by a Contributor.
+
+In this license, ?you? refers to any recipient of the Software.
+
+2. Grant of Rights
+
+(A) Copyright Grant. Subject to the license conditions and limitations in section 3, each Contributor hereby grants you a non-exclusive, perpetual, irrevocable, worldwide, fully paid-up, royalty-free copyright license to reproduce, prepare derivative works of, and Distribute its Contribution, in whole or in part, or any derivative works thereof that you may create under the foregoing license grant.
+
+(B) Patent Grant. Subject to the license conditions and limitations in section 3, each Contributor hereby grants you a non-exclusive, worldwide, royalty-free license under the Licensed Claims to make, have made, use, sell, offer for sale, import, and otherwise dispose of its Contribution, and to practice any method embodied therein.
+
+(C) No Sublicense.  This license does not grant you the right to sublicense the rights granted to you in this license.  Each time you Distribute the Software, the recipient automatically receives a license directly from the Contributors, subject to the terms of this License.
+
+3. Conditions
+
+(A) License Notice. If you Distribute the Software, whether in source code or binary format, you must provide the recipient with a copy of this license, which will govern the Software.  Such notice may be delivered via any reasonable means that gives the recipient effective notice.
+
+(B) Defensive Termination.  If you bring a claim against any Contributor alleging that the Software directly or indirectly infringes any patent claim, the patent license granted to you under Section 2(B) will automatically terminate.
+
+(C) Open Health Data.  You must ensure that the Health Data remains Open to its Data Owner for a period of three years after the Health Data is first generated.  
+
+(D) Notices.  If you Distribute the Software, you must retain all copyright notices that are present in the Software.
+
+(E) Source Code Distribution.  If you Distribute the Software or any derivative work thereof in source code form, you may do so only under this license by including a complete copy of this license with your distribution.  For clarity, any source code file that does not contain any portion of the Software (other than interface definitions as necessary to interoperate with the Software) is not considered a derivative work of the Software. You may Distribute the Software in binary form under terms of your choice, so long as any license to redistribute the Software includes all of the conditions in this Section 3.  For clarity, this license does not require you to deliver any source code to any recipient, except to the extent it may be necessary to comply with the conditions regarding Open Health Data in Section 3(C).
+
+(F) Disclaimer.  The Software is provided "as-is." All Contributors hereby disclaim, to the maximum extent possible under law, any and all warranties, guarantees or conditions, express or implied.
+
+
+
+
+From josh at postgresql.org  Sat Oct  5 19:40:15 2013
+From: josh at postgresql.org (Josh Berkus)
+Date: Sat, 05 Oct 2013 12:40:15 -0700
+Subject: [License-review] Request for approval by license steward:
+ Tidepool Open Access to Health Data Software License
+In-Reply-To: <423B6EA4-BE52-4CE0-98FE-9844DE3E05A5@tidepool.org>
+References: <423B6EA4-BE52-4CE0-98FE-9844DE3E05A5@tidepool.org>
+Message-ID: <52506B1F.5000807@postgresql.org>
+
+Howard,
+
+> My name is Howard Look. I am President/CEO of Tidepool Project. We
+> are a non-profit, (soon to be) open source project creating an open
+> platform and applications to help reduce the burden on people with
+> Type 1 Diabetes. We are proposing that we a new create a new license,
+> the Tidepool Open Access to Health Data Software License.
+
+Let me thank you for your tremendous thoroughness in preparing for this
+license submission!  It's a real pleasure to receive.
+
+Completely unrelated to approval, have you thought of simply calling it
+the Health Data Software License?   The reason I ask is that you've
+identified a clear need here, and if the license proves viable, it could
+be a template for other projects for whom open data is important.
+
+As a Developer member of this panel, I will comment that the license
+seems clear to me as a programmer, its provisions are fairly easy to
+understand, and it does not appear to duplicate any existing license.
+As a programmer, I would be willing to use this license.
+
+However, the lawyers need to argue about the language used, in which I
+have no expertise whatsoever.  And, you know, whether an OSD-compliant
+license can compel distributors to open up data.
+
+> We hope that the Tidepool license is reusable, and put it in the
+> category of "Special purpose licenses." We hope that it is reusable
+> by other projects delivering hardware and software medical
+> technology. We discussed this, for example, with members of the
+> Implanted Cardiac Defibrillator community, who have similar desires
+> as the diabetes community for open patient access to data.
+
+Actually, I don't think this needs to be limited to Health data.  You
+could easily tweak the license so that every mention of "Health Data"
+was replaced with "Personal Data", and then the license would suddenly
+be useful for tons of mobile apps which keep people's personal stuff.
+Well, you'd have to change more than that, but you see what I'm getting at?
+
+> (C) Open Health Data.  You must ensure that the Health Data remains
+> Open to its Data Owner for a period of three years after the Health
+> Data is first generated.
+
+Why three years?  And what's the definition of "first generated"?
+
+--Josh Berkus
+
+
+From fontana at sharpeleven.org  Sun Oct  6 20:16:57 2013
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Sun, 6 Oct 2013 16:16:57 -0400
+Subject: [License-review] Request for approval by license steward:
+ Tidepool Open Access to Health Data Software License
+In-Reply-To: <423B6EA4-BE52-4CE0-98FE-9844DE3E05A5@tidepool.org>
+References: <423B6EA4-BE52-4CE0-98FE-9844DE3E05A5@tidepool.org>
+Message-ID: <20131006161657.08e8248c@riley.home>
+
+On Sat, 5 Oct 2013 11:58:36 -0700
+Howard Look <howard at tidepool.org> wrote:
+
+> My name is Howard Look. I am President/CEO of Tidepool Project. We
+> are a non-profit, (soon to be) open source project creating an open
+> platform and applications to help reduce the burden on people with
+> Type 1 Diabetes. We are proposing that we a new create a new license,
+> the Tidepool Open Access to Health Data Software License.
+> 
+> Our company and efforts are described here:
+> http://tidepool.org
+> 
+> Our rationale and proposed license strategy is detailed here: 
+> http://tidepool.org/blog/2013/9/17/wheres-the-code-or-a-funny-thing-happened-while-on-the-way-to-an-open-source-license
+
+While the license strategy specific to your software might seem to be
+irrelevant to the question of whether the license itself is 'Open
+Source' or not, I have a few questions about it which I hope you will
+entertain. 
+
+Given that you have decided to dual-license your software under GPLv3
+(an OSI-approved license) and this new license, why are you seeking OSI
+approval for the new license? After all, given your chosen
+dual-licensing approach, your software will be Open Source by
+definition. If it's so important to you to have this new license be
+OSI-approved, why not just plan to use a single-license approach,
+especially since you seem to concede that few if any users are likely
+to take you up on the GPLv3 option?
+
+On that point, your blog post makes much of the anticipated commercial
+resistance to the GPL. Do you then believe that this new license is
+likely to be significantly more commercially palatable than the GPL?
+ 
+Your blog post seems in part to be a response to questions about why
+you have thus far kept your code private. You suggest that you have held
+off on making your software public while "figur[ing] out the right open
+source license to use". I can understand why you might wish to delay
+use of the new license because feedback here and elsewhere might reveal
+some remaining problems with the license text. But if you have decided
+on this dual-license approach, why then wouldn't you just release your
+software under GPLv3 immediately, and add the other license at some
+later date?
+
+- RF
+
+
+
+
+
+From cowan at mercury.ccil.org  Mon Oct  7 03:39:47 2013
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Sun, 6 Oct 2013 23:39:47 -0400
+Subject: [License-review] Request for approval by license steward:
+ Tidepool Open Access to Health Data Software License
+In-Reply-To: <20131005233749.31a593b6@riley.home>
+References: <423B6EA4-BE52-4CE0-98FE-9844DE3E05A5@tidepool.org>
+	<20131005233749.31a593b6@riley.home>
+Message-ID: <20131007033947.GF27398@mercury.ccil.org>
+
+Richard Fontana scripsit:
+
+> A comment on the end of this sentence: You say in your FAQ:
+> 
+>   Q: Is it good enough to provide access to a downloadable CSV or excel
+>   file?
+> 
+>   No, that's not good enough. You need to provide a mechanism for
+>   another application to automatically access the data, such as through
+>   a published API. This is what we mean by "machine-accessible."
+
+I can't agree that a published URI which returns a CSV document, or an
+XML or JSON document, does not count as a "published API".  It may be
+something of a batch API, since it returns all the data, but what of that?
+CSV is machine-processable, so the data is machine-accessible.  In any
+case, this is a technology restriction which looks to me to violate
+OSD #10.
+
+-- 
+John Cowan              http://www.ccil.org/~cowan      cowan at ccil.org
+"After all, would you consider a man without honor wealthy, even if his
+Dinar laid end to end would reach from here to the Temple of Toplat?"
+"No, I wouldn't", the beggar replied.  "Why is that?" the Master asked.
+"A Dinar doesn't go very far these days, Master.        --Kehlog Albran
+Besides, the Temple of Toplat is across the street."      The Profit
+
+
+From fontana at sharpeleven.org  Mon Oct  7 16:34:38 2013
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Mon, 7 Oct 2013 12:34:38 -0400
+Subject: [License-review] Request for approval by license steward:
+ Tidepool Open Access to Health Data Software License
+In-Reply-To: <9879DFDC-B853-445B-9850-BC5431873728@tidepool.org>
+References: <423B6EA4-BE52-4CE0-98FE-9844DE3E05A5@tidepool.org>
+	<20131005233749.31a593b6@riley.home>
+	<9879DFDC-B853-445B-9850-BC5431873728@tidepool.org>
+Message-ID: <20131007123438.6977a833@riley.home>
+
+On Sun, 6 Oct 2013 14:00:43 -0700
+Howard Look <howard at tidepool.org> wrote:
+
+> I think that if a clinic or hospital adapted
+> our code for use with their patients, then we would expect that they
+> would make the data collected available to patients, even if it was a
+> completely private institution.
+> 
+> We also discussed the case of "purely internal" for example if a
+> research institution was doing a study using our platform. We decided
+> that it was important to us that even in this case that data be made
+> available to the patient if they so desired.
+> 
+> Please let us know if you are envisioning something else in the way
+> of "private use" pr "purely internal."
+
+Those are good examples to consider. We also have to think about how
+this license might be used by other individuals and organizations
+with other software. 
+
+I think this is a very interesting license, perhaps the most
+interesting 'open-ish' license I've seen in years. The main issue I see
+with it has to do with the breadth of the key 3(C) feature.
+
+Despite what the OSD literally says or doesn't say, there is an
+expectation in open source that there is some large zone of software
+user privacy, obviously a different form of privacy from the one your
+license is focused on. It is for this reason that people often say
+(with some inaccuracy) that 'if you're only engaged in internal use,
+you don't have to worry about the requirements of open source
+licenses', or variations on that, often when arguing how open source
+licenses have advantages over proprietary licenses. The key idea is
+that open source licenses are supposed to be highly unburdensome --
+more unburdensome than the same licenses may be in the distribution
+context -- if use of the software is not 'public' or external in
+nature. 
+
+Regardless of what the OSI may have decided on any particular license
+in the distant past, I do not believe a license that required
+publication of source code for all acts of purely private or internal
+modification would be legitimately regardable as 'Open Source', because
+it would violate this traditional software user privacy principle. The
+outer bound here, to me, is represented by AGPLv3 and perhaps some of
+the past OSI-approved licenses that had similar conditions, where the
+justification seemed to be that it is okay to treat network services
+interaction as comparable to distribution.
+
+Here, compliance with 3(C) will require publication of data subject
+information for the data subject even for cases of internal use. It is
+apparent that in some cases this will also include providing source code
+for at least some portion of some software being used (which I suppose
+could be software that is entirely unrelated to your software, which
+might violate the spirit of OSD # 9, or violate it by implication).
+
+One can argue there's a special policy justification here that is
+absent in the case of some license that required publication of source
+code for all internal use, but I'm not sure why. Copyleft licenses are
+predicated on the idea that there is a strong policy justification for
+members of the public getting access to source code, but, I am
+contending, we have traditionally balanced that against the software
+user privacy principle.
+
+This is not a conclusion about the license, but an attempt to focus on
+what I think the main issue is.
+
+ - RF
+
+
+
+
+From brian at behlendorf.com  Mon Oct  7 18:09:01 2013
+From: brian at behlendorf.com (Brian Behlendorf)
+Date: Mon, 7 Oct 2013 11:09:01 -0700 (PDT)
+Subject: [License-review] Request for approval by license steward:
+ Tidepool Open Access to Health Data Software License
+In-Reply-To: <20131007123438.6977a833@riley.home>
+References: <423B6EA4-BE52-4CE0-98FE-9844DE3E05A5@tidepool.org>
+	<20131005233749.31a593b6@riley.home>
+	<9879DFDC-B853-445B-9850-BC5431873728@tidepool.org>
+	<20131007123438.6977a833@riley.home>
+Message-ID: <alpine.DEB.2.02.1310071041450.11427@vez>
+
+
+Great to see a new license here which isn't about forging some new 
+"compromise" with proprietary models, but instead about asking whether 
+there are new kinds of rights worthy of protecting with the same kinds of 
+nuances and range that we've managed with protecting access to source code 
+and the rights to modify.
+
+I find myself agreeing both with Nigel's description of need for an 
+exemption for research (unless you think they'll be happy with the GPL) 
+and Josh's suggestion that you look at this as all personal data, not just 
+"health" data.  To the latter point, all data that is personal is also 
+arguably about health - from my diet and walking to location and mood.  I 
+know your interests are specific and the examples are compelling, but it'd 
+be great to avoid a proliferation of licenses with the same terms only 
+because someone decided their personal data use cases weren't primarily 
+"health".  Same reason we've tried to avoid vendor-specific licenses.
+
+Notwithstanding statute and case law (since we ignore those all the time 
+here), there is a viewpoint that a mere copyright license is a weak tool 
+for compelling specific action, in this case making data available to 
+patients in specific ways.  The GPL works well in compelling specific 
+action because those actions are limited to the two parties involved in 
+the transaction (licensor/licensee) and because the source code is shared 
+during the transaction as well (or provided through another means - at the 
+same time - for a reasonable fee).  But, this specific action takes place 
+outside of the license transaction, and involves a third party - the 
+patient - which means it may be difficult to enforce, or police, and 
+difficult to nudge well-meaning but mistaken parties towards correct 
+behavior.
+
+A better vehicle for this may be trademark.  Establish a strong brand - 
+Tidepool, for instance - which stands unequivocally for patient access to 
+their own health data.  Establish a standard for what that means, such 
+that for-profit vendors can pay you a fee to audit them against that 
+standard, in exchange for rights to use the brand.  Perhaps you allow it 
+for use by small non-profits for free, based on self-certification, or 
+something.  Then, patients and doctors will know when they use a 
+Tidepool-certified product, they can get access to the data.  And, you 
+have a sustainable revenue model.
+
+You could build upon that by offering a personal-health-record service, 
+under the Tidepool brand, that aggregates data from these different 
+devices and helps consumers make sense of it all (and at the very least 
+keep a backup).  Because the APIs must be open, data is not trapped in 
+your silo, but the brand connection gives you an advantage when running 
+the service.
+
+Finally, I'd say leave the software under the GPL, and offer corporations 
+allergic to the GPL a private contract to use your code, which is only 
+valid so long as they meet the certification.  Or, they can use it under 
+the GPL without needing to share patient data, but they can *not* use the 
+Tidepool brand if they do so.
+
+Thoughts?
+
+Brian
+
+
+
+From josh at postgresql.org  Thu Oct 10 22:32:16 2013
+From: josh at postgresql.org (Josh Berkus)
+Date: Thu, 10 Oct 2013 15:32:16 -0700
+Subject: [License-review] Request for approval by license steward:
+ Tidepool Open Access to Health Data Software License
+In-Reply-To: <017e01cec545$8c0adae0$a42090a0$@rosenlaw.com>
+References: <1c2801cec3d0$22a8e130$67faa390$@rosenlaw.com>
+	<52539BCE.7090601@gmail.com>
+	<1d9301cec483$be183360$3a489a20$@rosenlaw.com>
+	<017e01cec545$8c0adae0$a42090a0$@rosenlaw.com>
+Message-ID: <52572AF0.8070203@postgresql.org>
+
+So, I think there's a couple of questions to resolve regarding this
+license which are orthagonal discussions:
+
+1) is it open source and original or not?  That's a lawyer question,
+really; the license certainly looks open source from a developer
+perspective.
+
+2) does it do what the Tidepool foundation actually wants?  That's a
+much more complicated question, needing both developer and lawyer input.
+
+I think question (2) kind of goes beyond what license-review as a list
+does, alathough I'm personally quite interested in it.
+
+--Josh Berkus
+
+
+From fontana at sharpeleven.org  Fri Oct 11 14:06:08 2013
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Fri, 11 Oct 2013 10:06:08 -0400
+Subject: [License-review] Request for approval by license steward:
+ Tidepool Open Access to Health Data Software License
+In-Reply-To: <52572AF0.8070203@postgresql.org>
+References: <1c2801cec3d0$22a8e130$67faa390$@rosenlaw.com>
+	<52539BCE.7090601@gmail.com>
+	<1d9301cec483$be183360$3a489a20$@rosenlaw.com>
+	<017e01cec545$8c0adae0$a42090a0$@rosenlaw.com>
+	<52572AF0.8070203@postgresql.org>
+Message-ID: <20131011100608.07aa0e5e@riley.home>
+
+On Thu, 10 Oct 2013 15:32:16 -0700
+Josh Berkus <josh at postgresql.org> wrote:
+
+> So, I think there's a couple of questions to resolve regarding this
+> license which are orthagonal discussions:
+> 
+> 1) is it open source and original or not?  That's a lawyer question,
+> really; the license certainly looks open source from a developer
+> perspective.
+
+I don't think those are exclusively or particularly lawyer questions.
+These are a combination of policy issues and textual interpretation
+(where the main relevant texts are this license and the OSD). Lawyers
+may be able to provide some insight, especially regarding how the
+license itself is likely to be interpreted in practice. Not sure how
+much more useful lawyers qua lawyers are, in general, for things like
+this. 
+
+> 2) does it do what the Tidepool foundation actually wants?  That's a
+> much more complicated question, needing both developer and lawyer
+> input.
+> 
+> I think question (2) kind of goes beyond what license-review as a list
+> does, alathough I'm personally quite interested in it.
+
+I agree with that.  
+
+- RF
+
+
+From lrosen at rosenlaw.com  Sun Oct 13 17:12:36 2013
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Sun, 13 Oct 2013 10:12:36 -0700
+Subject: [License-review] Request for approval by license steward:
+	Tidepool Open Access to Health Data Software License
+In-Reply-To: <20131011100608.07aa0e5e@riley.home>
+References: <1c2801cec3d0$22a8e130$67faa390$@rosenlaw.com>	<52539BCE.7090601@gmail.com>	<1d9301cec483$be183360$3a489a20$@rosenlaw.com>	<017e01cec545$8c0adae0$a42090a0$@rosenlaw.com>	<52572AF0.8070203@postgresql.org>
+	<20131011100608.07aa0e5e@riley.home>
+Message-ID: <06cc01cec837$6ab3ae40$401b0ac0$@rosenlaw.com>
+
+Richard Fontana wrote:
+
+> I don't think those are exclusively or particularly lawyer questions.
+
+> These are a combination of policy issues and textual interpretation
+
+> (where the main relevant texts are this license and the OSD).
+
+> Lawyers may be able to provide some insight, especially regarding
+
+> how the license itself is likely to be interpreted in practice. 
+
+> Not sure how much more useful lawyers qua lawyers are, in
+
+> general, for things like this.
+
+ 
+
++1. 
+
+ 
+
+This license should also be discussed on lists at Creative Commons
+<http://creativecommons.org/>  or at the Electronic Frontier Foundation
+<https://www.eff.org/> . They are the experts on privacy of electronic
+information and the licensing of non-software. 
+
+ 
+
+Most of us are not also on those lists so please let us know if they
+recommend your license.
+
+ 
+
+/Larry
+
+From luis at tieguy.org  Wed Oct  9 13:52:26 2013
+From: luis at tieguy.org (Luis Villa)
+Date: Wed, 9 Oct 2013 06:52:26 -0700
+Subject: [License-review] License Committee Report - for board meeting of
+ 2013-11-06 [NASA, EUPL, and Tidepool]
+Message-ID: <CAFPTOkU=1FvwZwcwh-zC54CaZT=kA=oNA_EK-VTyNNjqUFyY8g@mail.gmail.com>
+
+This email is my report for licenses currently submitted to the OSI.
+If anybody disagrees with my assessment of the list's comments or
+conclusions, please change the subject line to be specific to the
+license you want to discuss, and comment before the meeting of Nov. 6.
+
+NASA OSL 2.0
+===========
+
+Submission: http://projects.opensource.org/pipermail/license-review/2013-June/000610.html
+
+Comments: There have been some questions about the clarity of the
+license, particularly the use of "requests" in a section that NASA
+informs us is optional, and suggestions have been made to resolve
+those concerns. However, it appears that no substantive concerns about
+OSD-compliance have been raised.
+
+Recommendation: Board to approve.
+
+Tidepool Open Access to Health Data Software License
+========================================
+
+Submission: http://projects.opensource.org/pipermail/license-review/2013-October/000646.html
+
+Comments: Discussion is ongoing and active.
+
+Recommendation: No recommendation at this time.
+
+EUPL 1.2
+=======
+
+Submission: http://projects.opensource.org/pipermail/license-review/2013-March/000540.html
+
+Comments: John Cowan reviewed the changes to the (earlier-approved)
+versions of the EUPL, and found nothing objectionable. No further
+objections have been raised, but we have been asked not to approve
+until the license is finalized.
+
+Recommendation: Board to approve when license is finalized.
+
+
