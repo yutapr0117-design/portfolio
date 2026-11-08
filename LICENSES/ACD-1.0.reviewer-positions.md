@@ -799,3 +799,24 @@ Chestek 氏 2026-04-18 *"it is also better practice not to define the the grant 
 **読み。** 規則は要件にしなかった（`review-rules.md` §1.141）。このスレッドでも、後に委員会に入る法律家（Smith 氏）と、OSI のアドレスで書いた Fontana 氏が要件化に反対している。だが Perens 氏の「経験者には言葉で分かる」は、ACD の本文がどう読まれるかに直接当たる（#309）。ACD は AI が起草し、法律家が読んでいないことを開示している（B1、B14）。開示しても、言葉の違いで見抜かれる問題は残る。
 
 **この節が establish しないこと。** どれも個人の発言で、OSI の決定ではない。Fontana 氏のアドレスは所属を示すが、委員会の見解として書いたとは述べていない。
+
+## 1.155 著作権の無いコードに何を付けるか —— ARL OSL の議論と「CC0 に特許の許諾を添える」案（2016-08〜2017-03）（2026-11-08）
+
+米陸軍研究所（ARL）のコードは米国では著作権を持たない。その担当者が `license-discuss` に ARL OSL（Apache-2.0 を元にした独自のライセンス）を出し、7 か月議論した（`rounds/2016-08-to-2017-03-license-discuss-arl-osl-cited-observed-1of2.txt`・`2of2.txt`）。`license-review` への提出は、アーカイブの全月の件名を見ても無い。2017-03-16 の時点で ARL は、著作権の無い部分を CC0 で出し、寄与は OSI 承認のライセンスで受ける方式を OSI が認めるかを尋ねていた。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Any objections to CC-0 also seemed to be patent-related; if the scheme had a patent grant accompanying the CC-0 license, that might solve both of these issues in one go and lead to something very, very good."* | Gervase Markham 氏 2017-02-28 | 献呈に特許の許諾を添える形への肯定。ACD の §3 + §8 はその形である |
+| *"[although CC0 with a plug-in patent grant might work....]"*（2016-08-16）。2017-02-28 には自作の差し込み式の特許許諾について *"isn't OSI approved (nor would it likely ever be as it's not an independent license)"* | McCoy Smith 氏（後に Licensing Committee） | 同じ形を本人も考えていた。差し込み式は単独のライセンスでないので承認の対象にならない、と本人が述べる。ACD は献呈と特許の許諾を 1 本の本文にしている |
+| *"CC0 is evidence that some lawyers have thought otherwise."*、*"(I have actually found CC0 attractive in some situations where there is acknowledged uncertainty about copyright ownership.)"* | Richard Fontana 氏 2016-08-16 | 権利があるか分からない素材に献呈が向く、という見方。§9（機械生成物）が置かれた場面である |
+| *"I believe that to be an effective waiver of liability, despite the fact that there is not copyright rights being conveyed."*（CC0 について）。Rosen 氏も同日 *"A disclaimer of warranty and liability -- even for the public domain portion of a work, within the limitations of the law -- can still be effective in a FOSS license."* | McCoy Smith 氏 2016-08-16 | 献呈の下でも免責は効きうる、という法律家 2 人の見方。ACD の §13・§14 に当たる。逆側: Fontana 氏は 2017-03-01 に *"CC0 does not have a limitation of liability provision as far as I can tell"* と述べ、CC0 の免責は保証の否認に限られると読んだ。ACD は両方を持つ |
+| 政府の方針が *"will also include an express patent pledge that we can all rely on. Copyright isn't enough."*、同じ日の別の通で *"Please vote to list CC0 as an OSI-approved open source license."*、*"Deal with patents separately."* | Lawrence Rosen 氏 2017-03-01 | 明示の特許の約束を求める一方、CC0 は特許を別にしてでも承認せよ、という立場 |
+| *"I would expect a license like CC0 to be necessary to give people outside the USA certainty as to their rights regarding government works."*、*"I realise CC has resource constraints but I would love to see this revisited."* | Simon Phipps 氏 2017-03-01 | 献呈の需要が米国の外の確実さにある、という見方 |
+| *"the controversial issue with CC0 was the explicit refusal to grant a patent license. I don't think a license with a similar feature has been submitted for OSI approval since the CC0 event."* | Richard Fontana 氏 2016-08-19（opensource.org のアドレス） | 争点は特許の拒否だった、という整理（§1.150、§1.153 と同じ向き） |
+| *"the drafting of a new "open source" license requires strong reasons. The reasons that I have seen in the list don't meet that standard."* | Mark Radcliffe 氏 2016-08-17（自身を *"outside General Counsel of the OSI for more than 10 years"* と述べる） | 新しいライセンスには強い理由が要る（#314） |
+| *"A unique FOSS license isn't necessary to "protect copyrights" in public domain works. Almost any FOSS contract will work to protect the licensor."*、Smith 氏 2016-08-16 *"I suspect that virtually every piece of code licensed under Apache 2.0 has some parts that aren't subject to copyright"* | Lawrence Rosen 氏 2016-08-19 | 著作権の無い部分は既存のライセンスで足りる、という見方。§9 を新しいライセンスの理由にしてはならない（#314） |
+| 著作権の無いコードが OSI の承認を必要とする理由として *"whether or not the code will be accepted into various journals (Journal of Open Source Software is one)"* と配布物への採否 | Cem Karan 氏 2017-03-16（提出者側） | 承認の無い献呈の実害の例（B2・#301 の「害」）。提出者側の説明で、雑誌の規則は読んでいない |
+
+**読み。** 献呈に特許の許諾を添える形は、2016〜2017 年に Markham 氏と Smith 氏が望み、Rosen 氏も明示の特許の約束を求めていた。このスレッドの中では、その形を 1 本にした本文は出ていない。逆側も同じ場所にある。審査に近い法律家たちは、著作権の無い部分のために新しいライセンスは要らないと答え、OSI の外部顧問は新しいライセンスには強い理由が要ると述べた。ACD が立てる理由は §8.4 と条件ゼロと §6 で、§9 ではない。
+
+**この節が establish しないこと。** どれも個人の発言で、OSI の決定ではない。Markham 氏と Smith 氏が望んだのは CC0 の形で、ACD の §8.4 の伸び（モデルと出力）までは述べていない。ARL の件は審査に出ていないので、帰結は無い。

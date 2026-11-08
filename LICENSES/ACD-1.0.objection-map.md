@@ -82,6 +82,7 @@ Older, or not from the lists, but each one goes to whether ACD can be approved.
 | *"I almost feel like you wrote three different licenses here and combined them into one."* | Richard Fontana, 2014-04-13 | **§3, §4 and §5 say the same thing three ways by design.** Three such pairs did disagree (E42 to E44); the 1.4 draft closes them | #280 |
 | *"I'm going to vote against any licence which the submitter doesn't intend to actually use to distribute software, even if the license otherwise makes sense."* | Josh Berkus, `license-review` 2014-05-08, on UPL; Luis Villa added *"It's important to have an anchor tenant"* | **ACD is applied to this repository and to nothing else we know of.** That meets the first sentence on its face, and a single personal repository is not an anchor tenant. The Board's minute approving UPL gives *"Oracle intends to release software soon"* beside OSD compliance | #312 |
 | *"what is different is the surprise element"* | Henrik Ingo, `license-review` 2014-04-22, on contributors granting patents through UPL without noticing | **§2.6 makes a contributor a Dedicator, and §8.4 then reaches models.** The grant follows the content the contributor supplied (§1.3, §8.1, §8.4), so a one-line patch does not license claims over a whole project; the surprise that remains is that the grant reaches what is trained on it | #313 |
+| *"the drafting of a new "open source" license requires strong reasons."* | Mark Radcliffe, `license-discuss` 2016-08-17, as OSI's outside General Counsel, on a licence for code without copyright | **The reasons are §8.4, §10.1 and §6, not §9.** The lawyers in that thread said existing licences already cover material without copyright, which is what §9 is about | #314 |
 
 ### Objections that do not land (checked against the text)
 
@@ -116,4 +117,4 @@ out because we cannot have it, not because leaving it out is better** (register 
    date, OSI has not used the number of projects adopting a license as a factor"* (Jam rationale, 2021-09-12).
 3. **It is not exhaustive.** The windows we read are listed in `PEER-REVIEW-WATCH.md` §3.9.
 4. **Nothing updates this page automatically.** An entry added to `ACD-1.0.against.md` does not reach
-   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #313.
+   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #314.

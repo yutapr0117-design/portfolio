@@ -1,0 +1,120 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2016-August, 2017-February, 2017-March; the month in each message's Date line)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-08)
+Messages: 2 of the 21 messages this dossier cites from the license-discuss thread on the U.S. Army Research Laboratory Open Source License (ARL OSL), 2016-08 to 2017-03, which was never submitted for review. Part 2 of 2.
+Senders: Cem Karan, Richard Fontana
+Position: a government lab whose code has no US copyright asks for a licence and is answered with CC0, Apache-2.0 and a patent grant. Not addressed to us and not about ACD. Across the 2 parts, 14 messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From cem.f.karan.civ at mail.mil  Thu Mar 16 19:08:35 2017
+From: cem.f.karan.civ at mail.mil (Karan, Cem F CIV USARMY RDECOM ARL (US))
+Date: Thu, 16 Mar 2017 19:08:35 +0000
+Subject: [License-discuss] [Non-DoD Source] Re: Possible alternative
+ was: Re: U.S. Army Research Laboratory Open Source License (ARL OSL)
+ Version 0.4.1
+In-Reply-To: <782AF51C-5187-49AB-8829-3524520F2655@jhuapl.edu>
+References: <A677A9FB362B2F499BEFD6F80687FE97BFE45E58@UMECHPA7F.easf.csd.disa.mil>
+ <782AF51C-5187-49AB-8829-3524520F2655@jhuapl.edu>
+Message-ID: <A677A9FB362B2F499BEFD6F80687FE97BFE45ECD@UMECHPA7F.easf.csd.disa.mil>
+
+I agree that the Government can release it as open source, but as I understand it, not as Open Source.  The difference is whether or not the code will be accepted into various journals (Journal of Open Source Software is one).  It also affects whether or not various distributions will accept the work (would Debian?  I honestly don't know).
+
+And I'm not after plain vanilla CC0 code to be called Open Source, I'm after the method I outlined earlier.  This side-steps the need to have CC0 put forth by the license steward (I hope!).  I know that is splitting hairs, but at this point I'm tearing my hair out over this, and would like to put it to rest before I have to buy a wig.
+
+Thanks,
+Cem Karan
+
+> -----Original Message-----
+> From: License-discuss [mailto:license-discuss-bounces at opensource.org] On Behalf Of Tzeng, Nigel H.
+> Sent: Thursday, March 16, 2017 2:48 PM
+> To: license-discuss at opensource.org
+> Subject: Re: [License-discuss] [Non-DoD Source] Re: Possible alternative was: Re: U.S. Army Research Laboratory Open Source License (ARL
+> OSL) Version 0.4.1
+> 
+> All active links contained in this email were disabled.  Please verify the identity of the sender, and confirm the authenticity of all links
+> contained within the message prior to copying and pasting the address to a Web browser.
+> 
+> 
+> 
+> 
+> ----
+> 
+> Cem,
+> 
+> The USG does not need OSI?s approval to release code as open source under CC0.  It has done so already on code.gov.  This includes the
+> OPM, NASA, GSA, DOT, DOL, DOC and others. CC0 is compliant with the Federal Source Code Policy for open source release.
+> 
+> It is unlikely that you can push CC0 through license review as you aren?t the license steward.  It is up to CC to resubmit CC0 for approval.
+> 
+> Regards,
+> 
+> Nigel
+> 
+> On 3/16/17, 8:56 AM, "License-discuss on behalf of Karan, Cem F CIV USARMY RDECOM ARL (US)" <license-discuss-
+> bounces at opensource.org on behalf of cem.f.karan.civ at mail.mil> wrote:
+> 
+>     All, I want to keep this alive as I haven't seen a conclusion yet.  Earlier I
+>     asked if OSI would accept the US Government (USG) putting its non-copyrighted
+>     works out under CC0 as Open Source **provided** that the USG accepts and
+>     redistributes copyrighted contributions under an OSI-approved license.  Is
+>     this acceptable to OSI?  Should I move this discussion to the license-review
+>     list?
+> 
+>     To recap:
+> 
+>     1) This would only cover USG works that do not have copyright.  Works that
+>     have copyright would be eligible to use copyright-based licenses, and to be
+>     OSI-approved as Open Source would need to use an OSI-approved license.
+> 
+>     2) The USG work/project would select an OSI-approved license that it accepted
+>     contributions under.  The USG would redistribute the contributions under that
+>     license, but the portions of the work that are not under copyright would be
+>     redistributed under CC0.  That means that for some projects (ones that have no
+>     copyrighted material at all initially), the only license that the works would
+>     have would be CC0.
+> 
+>     I can't speak to patents or other IP rights that the USG has, I can only
+>     comment on what the Army Research Laboratory (ARL) has done
+>     (Caution-https://github.com/USArmyResearchLab/ARL-Open-Source-Guidance-and-Instructions),
+>     which includes a step to affirmatively waive any patent rights that ARL might
+>     have in the project before distributing it.  I am hoping that other agencies
+>     will do something similar, but have no power or authority to say that they
+>     will.
+> 
+>     Given all this, is it time to move this to license-review, or otherwise get a
+>     vote?  I'd like this solved ASAP.
+> 
+>     Thanks,
+>     Cem Karan
+> 
+> 
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at opensource.org
+> Caution-https://lists.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 6419 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20170316/8cb8c6ce/attachment.p7s>
+
+From fontana at sharpeleven.org  Fri Mar 17 15:17:53 2017
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Fri, 17 Mar 2017 11:17:53 -0400
+Subject: [License-discuss] [Non-DoD Source] Re: Possible alternative
+ was: Re: U.S. Army Research Laboratory Open Source License (ARL OSL)
+ Version 0.4.1
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97BFE4B1AB@UMECHPA7F.easf.csd.disa.mil>
+References: <A677A9FB362B2F499BEFD6F80687FE97BFE45E58@UMECHPA7F.easf.csd.disa.mil>
+ <782AF51C-5187-49AB-8829-3524520F2655@jhuapl.edu>
+ <A677A9FB362B2F499BEFD6F80687FE97BFE45ECD@UMECHPA7F.easf.csd.disa.mil>
+ <CANA0HMbhGwXS3r2=fVRjx12Qa3SUH-CUp8k_XZtFVirS_hXBtQ@mail.gmail.com>
+ <A677A9FB362B2F499BEFD6F80687FE97BFE45F18@UMECHPA7F.easf.csd.disa.mil>
+ <CANA0HMZQzKQ3NW_un13x8sKsrpDLLkkCNJUJzqD-zmV+LoFbzg@mail.gmail.com>
+ <A677A9FB362B2F499BEFD6F80687FE97BFE4B1AB@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <20170317151753.GA16940@dexter>
+
+I don't see how you could convince OSI of this in any way that would
+not involve submission and approval of CC0. 
+
