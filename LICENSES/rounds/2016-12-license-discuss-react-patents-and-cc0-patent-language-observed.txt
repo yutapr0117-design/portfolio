@@ -1,0 +1,306 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2016-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-08)
+Messages: 4 messages this dossier cites from the thread "Views on React licensing?" (2016-12).
+Senders: Richard Fontana, Henrik Ingo
+Position: OSI asks for views on a BSD licence with a separate patent grant, and the thread turns to CC0 with patent language. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From fontana at opensource.org  Tue Dec 13 17:07:52 2016
+From: fontana at opensource.org (Richard Fontana)
+Date: Tue, 13 Dec 2016 09:07:52 -0800
+Subject: [License-discuss] Views on React licensing?
+In-Reply-To: <D4758583.3383F%Nigel.Tzeng@jhuapl.edu>
+References: <20161202042602.urhdrc2fqrobqzdn@antelope>
+ <CAKHyket3PPxoBj8CkBS5tNwd6frJY7ryVAirM=RX-LeL=svvyA@mail.gmail.com>
+ <D46C67F2.33199%Nigel.Tzeng@jhuapl.edu>
+ <CAKHykesv4sU1o8AcDe_qbtLsBQUXBjUDPtZYpipFV6r3mi9kUQ@mail.gmail.com>
+ <D46C8D85.331DD%Nigel.Tzeng@jhuapl.edu>
+ <CAKHykevr4B+r_JNa6fs70PVKB_8chY5wzn7He_T-O-Xbo3JsLQ@mail.gmail.com>
+ <20161212231748.GJ19963@linuxmafia.com>
+ <CAKHyketUEWQQA6H5+93_SKyfMaQFrc1wTXHRrc_=io3n_2Qp8Q@mail.gmail.com>
+ <D4758583.3383F%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <20161213170751.wxh5sjxwmph3a6d7@antelope>
+
+On Tue, Dec 13, 2016 at 04:17:03PM +0000, Tzeng, Nigel H. wrote:
+> With or without OSI approval CC0 appears to be an accepted open source
+> license to the US Government.
+> 
+> 
+> https://code.gov/
+>
+> "We understand OSI's reservations (which relate to the lack of
+> explicit patent language), but are comfortable with our assessment
+> that CC0 meets the definition of open source. There are other
+> standard open source licenses which also do not explicitly address
+> patents."
+
+The concern that some on license-review had about CC0 was not about
+lack of explicit patent language (which is characteristic of many
+OSI-approved licenses) but rather the explicit statement: "No
+trademark or patent rights held by Affirmer are waived, abandoned,
+surrendered, licensed or otherwise affected by this document."  (I
+don't think anyone raised any concerns about the trademark side of
+that sentence.)
+
+> Creative Commons recommends that CC0 be used with a patent grant for
+> Code.gov which the government folks at 18F are considering.
+> 
+> "Patents are a thing, and Creative Commons' comment on the White House
+> source code policy 
+> <https://github.com/WhiteHouse/source-code-policy/issues/149>recommends an
+> explicit patent disclaimer, something we're considering at 18F.?
+> 
+> https://github.com/WhiteHouse/source-code-policy/issues/258
+
+If the US government standardizes on some particular explicit patent
+language to use with CC0 I would welcome OSI review of that. 
+
+Richard
+
+
+From fontana at opensource.org  Fri Dec  2 04:26:03 2016
+From: fontana at opensource.org (Richard Fontana)
+Date: Thu, 1 Dec 2016 23:26:03 -0500
+Subject: [License-discuss] Views on React licensing?
+Message-ID: <20161202042602.urhdrc2fqrobqzdn@antelope>
+
+
+The OSI has received several inquiries concerning its opinion on the
+licensing of React [1], which is essentially the 3-clause BSD license
+along with, in a separate file, an 'Additional Grant of Patent Rights'
+[2].
+
+The Additional Grant of Patent Rights is a patent license grant that
+includes certain termination criteria. These termination criteria are
+not entirely unprecedented when you look at the history of patent
+license provisions in OSI-approved licenses, but they are certainly
+broader than the termination criteria [or the equivalent] in several
+familiar modern licenses (the Apache License 2.0, EPL, MPL 2.0, and
+GPLv3).
+
+The 'Additional Grant' has attracted a fair amount of criticism (as
+did an earlier version which apparently resulted in some revisions by
+Facebook). There was a recent blog post by Robert Pierce of El Camino
+Legal [3] (which among other things argues that the React patent
+license is not open source). Luis Villa wrote an interesting response
+[4].
+
+What do members of the license-discuss community think about the
+licensing of React? I see a few issues here:
+
+- does the breadth of the React patent termination criteria raise
+  OSD-conformance issues or otherwise indicate that React should not
+  be considered open source?
+
+- is it good practice, and does it affect the open source status of
+  software, to supplement OSI-approved licenses with separate patent
+  license grants or nonasserts? (This has been done by some other
+  companies without significant controversy.)
+
+- if the React patent license should be seen as not legitimate from an
+  OSI/OSD perspective, what about the substantial number of
+  past-approved (if now mostly obsolete) licenses that incorporated
+  patent license grants with comparably broad termination criteria?
+
+- should Facebook be encouraged to seek OSI approval for the React
+  license including the patent license grant?
+
+Richard
+
+
+[1] https://facebook.github.io/react/
+
+[2] https://github.com/facebook/react/blob/master/PATENTS
+
+[3] http://www.elcaminolegal.com/single-post/2016/10/04/Facebook-Reactjs-License
+
+[4] http://lu.is/blog/2016/10/31/reacts-license-necessary-and-open/
+
+
+From henrik.ingo at avoinelama.fi  Tue Dec  6 20:33:20 2016
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Tue, 6 Dec 2016 22:33:20 +0200
+Subject: [License-discuss] Views on React licensing?
+In-Reply-To: <D46C67F2.33199%Nigel.Tzeng@jhuapl.edu>
+References: <20161202042602.urhdrc2fqrobqzdn@antelope>
+ <CAKHyket3PPxoBj8CkBS5tNwd6frJY7ryVAirM=RX-LeL=svvyA@mail.gmail.com>
+ <D46C67F2.33199%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <CAKHykesv4sU1o8AcDe_qbtLsBQUXBjUDPtZYpipFV6r3mi9kUQ@mail.gmail.com>
+
+On Tue, Dec 6, 2016 at 8:28 PM, Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu> wrote:
+> On 12/5/16, 6:55 AM, "License-discuss on behalf of Henrik Ingo"
+> <license-discuss-bounces at opensource.org on behalf of
+> henrik.ingo at avoinelama.fi> wrote:
+>>On Fri, Dec 2, 2016 at 6:26 AM, Richard Fontana <fontana at opensource.org>
+>>wrote:
+>>> - is it good practice, and does it affect the open source status of
+>>>   software, to supplement OSI-approved licenses with separate patent
+>>>   license grants or nonasserts? (This has been done by some other
+>>>   companies without significant controversy.)
+>>
+>>This should of course be discouraged. However, I sympathize with this
+>>kind of setup if it is intended to be a proposal for a license that
+>>doesn't yet exist. If Facebook a) intends for the combined license to
+>>qualify as open source, and b) eventually submit it for OSI approval,
+>>then it seems to me this is a natural path towards such a goal.
+>
+> React is BSD and therefore already open source.
+>
+> As far as I can tell the OSD doesn?t explicitly address patents.
+> Heartache with CC0 wasn?t based on compliance with the OSD.  Any concerns
+> with React likewise.
+
+The question isn't about patents or copyrights. The point is that
+taking an OSI approved license and making additions to it by adding a
+separate file with additional terms and conditions, results in a
+combination which as a whole is not OSI approved open source license.
+It is no different from taking the BSD license and making additions to
+it within the same file.
+
+Especially in this case, where it is debatable whether the patent
+grant adds or removes rights compared to plain BSD. (I appreciate the
+patent grant precisely tries to clarify that uncertainty, but even
+then the practice of making additions to open source licenses should
+be discouraged, and is only ok if the intent is to submit the new
+whole as a new license for OSI certification.)
+
+>>> - should Facebook be encouraged to seek OSI approval for the React
+>>>   license including the patent license grant?
+>>
+>>Yes. As far as I can see, the BSD + additional stuff should be a
+>>single file and single license, and OSI approved.
+>
+> Why not just use Apache?  Because Facebook wants a competitive advantage.
+> I don?t see how Facebook is any more trustworthy than any other
+> corporation nor do I see any difference between Oracle, Facebook, Google
+> or Microsoft that isn?t a CEO change away.  Sun was very pro-open source
+> until it went out of business and was acquired by Oracle.
+>
+> Patent truces favor the big guys and have zero impact on patent trolls.  I
+> see little need to "allow terms where those companies actually
+> contributing open source software have an equal or even stronger position
+> in patent suits? because the level of contributions changes over time,
+> sometimes rather quickly.
+>
+
+The React license, when used as a generally approved open source
+license, of course wouldn't be written in a way where Facebook gets a
+competitive advantage. It would be written in a way where whoever
+publishes open source - especially useful and popular open source -
+would get the same competitive advantage. In particular, small guys
+can enjoy the competitive advantage by making their own small
+contributions to the React ecosystem (or any other software project
+adopting same license).
+
+Also, since the React license does allow recipients to do counter
+suits in your hypothetical case where FB has turned into a patent
+aggressor, I just don't see the merits of your argument at all.
+
+
+> I believe that license terms should be non-discriminatory and range from
+> more business-friendly terms to more commons-friendly terms so there is a
+> wide range of applicable open source license for all business cases.
+
+I categorize patent grants with wide reaching termination clauses as
+commons-friendly. Like I said, my only regret is that there aren't
+licenses being used that would be even more wide reaching than this
+one.
+
+henrik
+
+
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+
+
+From henrik.ingo at avoinelama.fi  Mon Dec 12 10:44:50 2016
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Mon, 12 Dec 2016 12:44:50 +0200
+Subject: [License-discuss] Views on React licensing?
+In-Reply-To: <D46C8D85.331DD%Nigel.Tzeng@jhuapl.edu>
+References: <20161202042602.urhdrc2fqrobqzdn@antelope>
+ <CAKHyket3PPxoBj8CkBS5tNwd6frJY7ryVAirM=RX-LeL=svvyA@mail.gmail.com>
+ <D46C67F2.33199%Nigel.Tzeng@jhuapl.edu>
+ <CAKHykesv4sU1o8AcDe_qbtLsBQUXBjUDPtZYpipFV6r3mi9kUQ@mail.gmail.com>
+ <D46C8D85.331DD%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <CAKHykevr4B+r_JNa6fs70PVKB_8chY5wzn7He_T-O-Xbo3JsLQ@mail.gmail.com>
+
+On Tue, Dec 6, 2016 at 11:00 PM, Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu> wrote:
+> On 12/6/16, 3:33 PM, "henrik.ingo at gmail.com on behalf of Henrik Ingo"
+> <henrik.ingo at gmail.com on behalf of henrik.ingo at avoinelama.fi> wrote:
+>>The question isn't about patents or copyrights. The point is that taking
+>>an OSI approved license and making additions to it by adding a separate
+>>file with additional terms and conditions, results in a combination which
+>>as a whole is not OSI approved open source license. It is no different
+>>from taking the BSD license and making additions to it within the same
+>>file.
+>
+> In what way is the BSD copyright license impacted by an external patent
+> grant license?
+
+Many people, including significant producers of BSD software, believe
+that the BSD license is also a patent license.
+
+In this context it is not acceptable to use an open source license
+that grants a patent license, and then add a separate "grant" which in
+fact limits and is narrower than the BSD license. In more general
+terms, you cannot take an OSI approved license, add your own
+limitations, and still claim being open source. (You may or may not
+be, but the end result is certainly not OSI approved.)
+
+Note that I'm stating a general principle here, while at the same time
+I'm of the opinion that the patent retaliation clause in the React
+patent grant is in my opinion a good thing.
+
+> How is this different than combining a BSD copyright license and an
+> external trademark license agreement?
+
+If an external trademark license agreement would place requirements on
+the users of open source software that are in conflict with OSD, such
+a combination would also be unacceptable. Arguably, the attempts at
+various badgeware licenses are a good precedent on this topic.
+
+On the other side, organizations like Red Hat and Mozilla protect the
+integrity of their own trademarks - and arguably even their users - by
+asserting that some trademarks can only be present in software
+releases actually made by themselves. In practice this does not limit
+the openness / freedom of the software. As evidenced by the existence
+of CentOS and Iceweasel, it is a simple task to just change that
+trademarked name to your own when forking the code.
+
+Speaking of BSD... Clause #3 in the BSD license is an early historical
+principle of asserting the same principle: People should release
+software in their own name.
+
+> IMHO it has everything to do with whether patents are in or out of scope
+> for OSI license approval for copyright licenses.
+
+Patents are of course in scope for OSI license approval process, are
+usually considered as part of every review of new licenses, and most
+of the commonly used open source licenses have clear and explicit
+clauses about patents.
+
+
+> That?s fine as long as there are open source licenses with far more narrow
+> grants or no grants whatsoever like CC0.
+
+Good to remember that CC0 is not an OSI approved open source license,
+precisely because it did not grant a patent license.
+
+henrik
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+
+
