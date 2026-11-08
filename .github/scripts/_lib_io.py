@@ -353,7 +353,9 @@ def strip_js_comments(src: str) -> str:
     return "".join(out)
 
 
-_ROBOTS_FULL_SITE = re.compile(r"^/(\*\$?)?$")
+# [2026-11-08] サイトは /portfolio/ の下に在るので、その接頭辞の拒否も全サイトの拒否である (Allow: / より
+#   長い一致が勝つ)。`*` の 1 文字も全てに一致する。旧版は / と /* と /*$ だけを見ていた (監査で実測)。
+_ROBOTS_FULL_SITE = re.compile(r"^(\*|/(portfolio/?)?(\*\$?)?)$")
 
 
 def parse_robots_groups(src: str) -> list[tuple[list[str], list[tuple[str, str]]]]:

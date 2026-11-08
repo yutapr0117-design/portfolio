@@ -463,7 +463,7 @@ def run(ctx):
     _robots320 = ROOT / "robots.txt"
     if _robots320.exists():
         _rt_src320 = _robots320.read_text(encoding="utf-8")
-        _sitemap_lines320 = re.findall(r"(?m)^Sitemap:\s+\S+", _rt_src320)
+        _sitemap_lines320 = re.findall(r"(?mi)^sitemap:\s+\S+", _rt_src320)  # 大文字小文字を区別しない (RFC 9309)
         _count320 = len(_sitemap_lines320)
         _ok320 = _count320 == 1
         check(

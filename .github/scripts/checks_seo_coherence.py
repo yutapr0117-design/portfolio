@@ -475,8 +475,9 @@ def run(ctx):
     _robots279 = ROOT / "robots.txt"
     if _robots279.exists():
         _rsrc279 = _robots279.read_text(encoding="utf-8")
-        _smaps279 = re.findall(r"^Sitemap:\s*(\S+)", _rsrc279, flags=re.MULTILINE)
-        _bad279 = [u for u in _smaps279 if u.startswith("http://")]
+        # [2026-11-08] フィールド名は大文字小文字を区別しない (RFC 9309)。https で始まることを肯定で見る
+        _smaps279 = re.findall(r"^sitemap:\s*(\S+)", _rsrc279, flags=re.MULTILINE | re.IGNORECASE)
+        _bad279 = [u for u in _smaps279 if not u.startswith("https://")]
         _ok279 = len(_smaps279) > 0 and not _bad279
         check(
             _ok279,
