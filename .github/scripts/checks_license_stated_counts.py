@@ -1,4 +1,4 @@
-"""checks_license_stated_counts.py — 自己申告の文が持つ 2 つ目の数の Check (498)
+"""checks_license_stated_counts.py — 自己申告の文が持つ 2 つ目の数 (498) と、入口の「最後に読んだ時刻」(499)
 
 2026-11-08 に足した。Check 460 は自己申告の文の最初の数を実測と照合する面を多く持つが、同じ文の
 2 つ目の数と、隣の文が繰り返す同じ数は読んでいなかった（Check の監査 findings #114〜#123）。
@@ -14,7 +14,13 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (g) submission.md の "across N files" と、そこで名指す分冊 / (h) AS-OF の「未読スレッドの残り」の
        「候補 N 本のうち M 本を読んだ。K 本は読んでいない」が N = M + K であること。
        文が読めないことも RED にする（言い換えると黙る形を残さない）。
+  499. **入口の「最後に読んだ時刻」が、OSI-EVENTS が記録する最新の取得と合うこと** (BLOCKING・2026-11-09・
+       portfolio-aa の提案): REVIEWERS.md の Status は "No responses in the archive when last read, <時刻> UTC"
+       と述べ、取得のたびに書き換えないと、古い時刻のまま「返信は無い」と言い続ける。記録の無い取得
+       (最新の取得より後の時刻) と、最新の取得より 48 時間以上古い時刻を RED、48 時間以内の遅れを ADVISORY にする
+       (取得の当日に入口を直す余裕を残す)。
 """
+import datetime
 import re
 
 from checks_license_self_reporting import _NUM_WORDS
@@ -138,3 +144,30 @@ def run(ctx):
          "同じ文の 2 つ目と隣の繰り返しが偽のまま残る"),
         blocking=True,
     )
+
+    # ── 499. 入口の「最後に読んだ時刻」が、記録する最新の取得と合うこと (BLOCKING) ──────────────────
+    # 取得の行は `| YYYY-MM-DD（[YYYY-MM-DD ]HH:MM[〜HH:MM] UTC・… 取得 …` の形 (時刻の無い行は数えない)
+    _fetch499 = []
+    for _f499 in sorted(L.glob("OSI-EVENTS-*.md")):
+        for _m499 in re.finditer(r"(?m)^\| (\d{4}-\d{2}-\d{2})（(?:(\d{4}-\d{2}-\d{2}) )?(\d{2}:\d{2})(?:〜\d{2}:\d{2})? UTC・[^|]*取得", text(_f499)):
+            _fetch499.append(datetime.datetime.fromisoformat(f"{_m499.group(2) or _m499.group(1)}T{_m499.group(3)}"))
+    _rv499 = re.search(r"when last read, (\d{4}-\d{2}-\d{2}) (\d{2}:\d{2}) UTC", text(L / "REVIEWERS.md"))
+    if not _fetch499 or not _rv499:
+        check(False, "", f"Check 499: 取得の記録 ({len(_fetch499)} 行) か入口の \"when last read, … UTC\" が読めない", blocking=True)
+    else:
+        _last499 = max(_fetch499)
+        _said499 = datetime.datetime.fromisoformat(f"{_rv499.group(1)}T{_rv499.group(2)}")
+        _lag499 = (_last499 - _said499).total_seconds() / 3600
+        check(
+            _said499 <= _last499 and _lag499 <= 48,
+            f"Check 499: 入口の最後に読んだ時刻 {_said499:%Y-%m-%d %H:%M} UTC が、最新の取得 {_last499:%Y-%m-%d %H:%M} UTC から 48 時間以内",
+            (f"Check 499: 入口の最後に読んだ時刻 {_said499:%Y-%m-%d %H:%M} UTC が、最新の取得の記録 {_last499:%Y-%m-%d %H:%M} UTC と合わない ("
+             + ("記録の無い取得を名乗っている" if _said499 > _last499 else f"{_lag499:.0f} 時間古い") + ")。取得したら OSI-EVENTS と入口を同じ日に直す"),
+            blocking=True,
+        )
+        check(
+            _said499 == _last499 or _said499 > _last499 or _lag499 > 48,
+            "Check 499 (ADVISORY): 入口の最後に読んだ時刻が最新の取得と一致",
+            f"Check 499 (ADVISORY): 入口の最後に読んだ時刻が最新の取得より {_lag499:.0f} 時間古い (48 時間を越えると RED)",
+            blocking=False,
+        )
