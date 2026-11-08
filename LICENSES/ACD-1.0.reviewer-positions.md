@@ -836,3 +836,15 @@ Luis Villa 氏が、2012〜13 年に自分が調べた結果を理事会の何�
 **読み。** 2017 年の提案は、OSD を満たす新しいライセンスを承認し、扱いの差は一覧の載せ方で付ける、という形だった。ACD はその案の目立つ一覧の条件（法律家か支える組織）を満たさないが、承認の条件は満たしうる。逆側として、同じ日に Fontana 氏は、使われていないライセンスが持ち込まれることを問題として挙げている。
 
 **この節が establish しないこと。** どれも個人の提案と発言で、OSI の決定ではない。2 つ目の一覧が作られたかは確かめていない。
+
+## 1.157 OSD は特許にも及ぶ —— OSI の標準化担当の言明（2018-11）（2026-11-08）
+
+`license-discuss` 2018-11 の "Open source software licenses and the OSD"（`rounds/2018-11-license-discuss-osd-and-patents-observed.txt`）。別のライセンスの審査の最中に、OSD が何を覆うかが論じられた。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"I am the standards chair of OSI. We are indeed concerned with patents in standards, and we spend a lot of time and money on the issue. We assert that the OSD terms apply to patents as well as copyright."* | Bruce Perens 氏 2018-11-09 | §8.3 の *"A dedication that gives away copyright while withholding patent rights leaves the recipient exposed"* と同じ向き。CC0 の 4(a) が問われた理由の、OSI 側の言い方である |
+| *"Freedom is not just about copyright, and any time someone seems to imply that OSI or the OSD is just about copyright, I'll push back"* | Bruce Perens 氏 2018-11-10 | 同上 |
+| 定義の案として *"software actually distributed under terms that grant a copyright and patent license from all contributors to the software for every licensee"*（*"This is a DRAFT, open for your editing and changes."* と添えて） | Lawrence Rosen 氏 2018-11-13 | 著作権と特許の両方の許諾を開いたソフトウェアの定義に入れる案。§2.6 で寄与者を Dedicator にし、§8 で特許を許諾する ACD の形と同じ向き |
+
+**この節が establish しないこと。** Perens 氏の言明は役職を名乗った発言だが、理事会の議決ではない。Rosen 氏の定義は本人が草案と呼んだもので、OSD は改められていない。逆側として、特許の許諾を OSD が要件にしたことはない（`against.md` #233 の Nelson 氏の対称性）。
