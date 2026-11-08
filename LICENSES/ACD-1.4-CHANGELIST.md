@@ -148,6 +148,10 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | E70 | §6.4 | *"You owe nothing under this Dedication"*（+3 語・T33） | **反映済み**（2026-11-08）|
 | E71 | §8.6 | *"the covenants in Section 5"*（0 語） | **反映済み**（2026-11-08）|
 | E72 | §9.2 | 第 3 文を *"Where a right that this Dedication reaches subsists, or is later held to subsist, this Dedication applies to it."* へ（−3 語・T34） | **反映済み**（2026-11-08）|
+| E73 | §1.9 | *"in either case offering the Work, with a notice of this Dedication"* を Dedicator 宛てにも掛ける（+3 語・T36） | **反映済み**（2026-11-08）|
+| E74 | §10.3 | *"Under this Dedication,"* で始め、2 文を 1 文にする（+3 語・T40） | **反映済み**（2026-11-08）|
+| E75 | §15.1 | 2 文をつなぎ、*"in respect of the Work"* を第 2 文の規則にも掛ける（+3 語・T43） | **反映済み**（2026-11-08）|
+| E76 | §16.4 | *"under any name that contains"*（+2 語・T44） | **反映済み**（2026-11-08）|
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 
