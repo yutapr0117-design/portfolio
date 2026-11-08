@@ -540,6 +540,34 @@ _MUTATIONS_TAIL.append({
     "replace": '"attribution_required_x": false,',
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 441b: 草案の Section 11 への参照を存在しない Section 19 にする —— 凍結した 1.0 しか読まず、動く唯一の本文を見ていなかった",
+    "file": CURRENT_DRAFT,
+    "find": "Nothing in Section 11 reduces what any other Section of this",
+    "replace": "Nothing in Section 19 reduces what any other Section of this",
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 441c: 草案の定義語を改名して未使用にする —— 定義が残骸になっても、1.0 だけを読む頃は通った",
+    "file": CURRENT_DRAFT,
+    "find": '  1.2  "Moral Rights" means',
+    "replace": '  1.2  "Author Rights" means',
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 441g: 草案に組織名を英語の通称で書く —— Nihon Keiei / nkgr の綴りしか見ていなかった",
+    "file": CURRENT_DRAFT,
+    "find": "and Section 10.5 applies.",
+    "replace": "and Japan Management applies.",
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 441g: 草案に複数語の置換テキスト <your name> を入れる —— 置換テキストの照合が空白で止まり、§16.1 の例外も正規表現の偶然で通っていた",
+    "file": CURRENT_DRAFT,
+    "find": "except by the Steward (Section 16.5), and by",
+    "replace": "except by <your name> (Section 16.5), and by",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
