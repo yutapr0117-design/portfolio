@@ -187,8 +187,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 8.6 no longer explains the three footings, which the Preamble
       states. (-33 words.)
     * Section 1.9 (errata E65) now reaches a repository or forum offering the
-      Work to the public, or to those invited to contribute, with a notice of
-      this Dedication, where it said one the Dedicator maintains. (+15 words.)
+      Work, with a notice of this Dedication, to the public or to those
+      invited to contribute, where it said one the Dedicator maintains. (+15
+      words.)
     * Section 8.5 now defines "controlled" with "if, and only if", so that
       the ordinary sense of control does not reach the claims errata E39
       left out. (+3 words.)
@@ -318,8 +319,8 @@ PREAMBLE (informative; not part of the operative terms)
   1.9  "Contribution" means any work of authorship, including any modification,
        addition, correction, translation, or accompanying material, that a
        person intentionally submits to the Dedicator or to a repository or
-       forum offering the Work to the public, or to those invited to
-       contribute, with a notice of this Dedication, for inclusion in the
+       forum offering the Work, with a notice of this Dedication, to the
+       public or to those invited to contribute, for inclusion in the
        Work. A submission is intentional if it is made by or on behalf of the
        person for that purpose; material sent for discussion only, and
        material a person marks as not being a Contribution, are excluded.
