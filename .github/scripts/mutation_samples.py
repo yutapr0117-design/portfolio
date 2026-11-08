@@ -567,6 +567,12 @@ _MUTATIONS_TAIL.append({
     "find": '| Mixed; each answer has an English block |',
     "replace": '| Bilingual; each answer has an English block |',
 })
+_MUTATIONS_TAIL.append({
+    "name": 'Check 498 (e): B4 の分類に 12 を足す —— 集計行の「構造的拒否候補 0」は分類の列から導出できるのに、読む層が無かった',
+    "file": ROOT / 'LICENSES' / 'ACD-OSI-BOTTLENECKS.md',
+    "find": '| 10 | **OSI 判断依存**（12 候補として',
+    "replace": '| 10 / 12 | **OSI 判断依存**（12 候補として',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

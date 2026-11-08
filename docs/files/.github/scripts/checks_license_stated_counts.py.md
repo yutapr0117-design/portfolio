@@ -22,7 +22,7 @@ canonical-ref: .github/scripts/check_repository_consistency.py (CHECK_SOURCE_FIL
 ## Constraints
 
 - **文が読めないことも RED にする**: 言い換えると何も比べずに緑になる形を残さない
-- 「構造的拒否候補」は register の表に対応する列が無く導出できないので見ない
+- 「構造的拒否候補」は分類の列に凡例の `12`（構造的に両立不能の可能性）を持つ行の数として数える（portfolio-00 の定義）
 
 ## Change impact
 
