@@ -1,0 +1,129 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2025-May, 2025-December; the month in each message's Date line)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-08)
+Messages: 3 messages this dossier cites from the resubmissions of the ModelGo licences (2025-05-14 and 2025-12-06).
+Senders: Pamela Chestek
+Position: the review of model licences that reach outputs. Not addressed to us and not about ACD. All three messages end in quoted text and are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Sat Dec  6 20:34:20 2025
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sat, 6 Dec 2025 12:34:20 -0800
+Subject: [License-review] [2nd Resubmission] ModelGo Attribution License,
+ Version 2.0
+In-Reply-To: <541EAF35-5686-48A5-8839-5808AA5E20FC@gmail.com>
+References: <883778D3-40CF-4DCF-B65F-AD07D9F427AD@gmail.com>
+ <e325347c-0c66-4294-bfe9-0d01dddbd58f@lexpan.law>
+ <5bca659c-c634-fa6d-5158-7799dc75d48e@chesteklegal.com>
+ <541EAF35-5686-48A5-8839-5808AA5E20FC@gmail.com>
+Message-ID: <6dd33bf3-357a-4f25-8c3b-3ea1ee369e1c@chesteklegal.com>
+
+The definition of "Derivative Materials" includes Output in those cases 
+where the Output is for the purpose of creating of another model.
+
+We seem to be in agreement about the problem, an over-expansive 
+definition of derivative works, but we have identified it for different 
+reasons. I look at it theoretically and believe that the attempt to 
+control Output at all is not justified because it's not limited to 
+derivative works. It's particularly problematic for a model license, 
+because the output is highly unlikely to be protected by copyright. You 
+view it in operation and spot the problem by realizing that the 
+definition will reach agents, which wasn't your intention. I think we 
+get to the same place, just through different lenses.
+
+The unintended expansion is why tying a license scope to the exclusive 
+rights of authors, rather than trying to define the scope by the type or 
+purpose of a change, is, in my view, the sounder approach.
+
+If the attempt to control output that isn't a derivative work was 
+removed, I believe I would probably agree the license is acceptable, 
+although I'd have to review it again to be sure.
+
+Pam
+
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal
+www.chesteklegal.com
+
+From pamela at chesteklegal.com  Sat Dec  6 20:46:19 2025
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sat, 6 Dec 2025 12:46:19 -0800
+Subject: [License-review] [2nd Resubmission] ModelGo Attribution License,
+ Version 2.0
+In-Reply-To: <1B2ED380-0E90-4969-B9D6-B267F105BD2A@gmail.com>
+References: <883778D3-40CF-4DCF-B65F-AD07D9F427AD@gmail.com>
+ <e325347c-0c66-4294-bfe9-0d01dddbd58f@lexpan.law>
+ <5bca659c-c634-fa6d-5158-7799dc75d48e@chesteklegal.com>
+ <541EAF35-5686-48A5-8839-5808AA5E20FC@gmail.com>
+ <1B2ED380-0E90-4969-B9D6-B267F105BD2A@gmail.com>
+Message-ID: <0197fe60-de0b-4ddb-8d42-99095ea228d3@chesteklegal.com>
+
+Why don't agents fit into the description "derivative model developed by 
+transferring patterns of weights, parameters, activations and/or Output 
+from the Model, such as through distillation methods or synthetic data 
+generation techniques, in order to replicate, approximate, or otherwise 
+achieve functional behavior that is similar to the Model"?
+
+Is it because you don't consider them models?
+
+Is it because they don't transfer patterns of weights, etc. or create 
+distillations or synthetic data?
+
+Is it because they don't achieve functional behavior that is similar to 
+a model?
+
+Some other reason?
+
+One thing to worry about is that the vocabulary for AI is fluid and 
+constantly changing. You might not consider an "agent" a "model" at the 
+moment, but might it take on more model-like characteristics in the future?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal
+www.chesteklegal.com
+
+From pamela at chesteklegal.com  Thu May 15 04:21:04 2025
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Wed, 14 May 2025 21:21:04 -0700
+Subject: [License-review] [Resubmission] ModelGo Attribution License,
+ Version 2.0
+In-Reply-To: <f986bc24-a86c-4bc5-bc50-f3aca40dbc51@lexpan.law>
+References: <12881ADD-1CA2-4C3F-82CB-49A90C25561F@gmail.com>
+ <f986bc24-a86c-4bc5-bc50-f3aca40dbc51@lexpan.law>
+Message-ID: <a342bb0d-8828-3f3e-dc57-cc2e7b71e980@chesteklegal.com>
+
+I tend to disagree with the notion that they all have to be enumerated, 
+particularly where there aren't separate grants of copyright and patent 
+licenses. It's a double-edged sword -- when you enumerate, then you risk 
+failing to grant rights under some regime that has different 
+enumerations. Yes, more interpretation is required, but an argument that 
+some rights weren't granted would be so contrary to the current 
+understanding of open source that I am not too concerned about it.
+
+I agree on the patent termination - isn't there at least one license 
+that does include derivative works though?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PLEASE NOTE OUR NEW MAILING ADDRESS
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal
+www.chesteklegal.com
+
