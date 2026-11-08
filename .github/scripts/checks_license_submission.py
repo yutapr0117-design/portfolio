@@ -453,12 +453,15 @@ def run(ctx):
         for _blk in re.findall(r"```sh\n(.*?)```", _rv472c.read_text(encoding="utf-8"), re.S):
             _lines = _blk.split("\n")
             for _k, _ln in enumerate(_lines):
-                _me = re.search(r"→\s*(?:expect\s+(\d+)|(\d+)×\s*OK)", _ln)
+                _me = re.search(r"→\s*(?:expect\s+(\d+)|(\d+)\s*×\s*OK)", _ln)
+                if _ln.lstrip().startswith("#") and "→" in _ln and not _me:  # [2026-11-08] 言い換えた期待値は黙って外れていた
+                    _bad472c.append(f"期待値の形が読めない (→ expect N / → N× OK で書く): {_ln.strip()[-50:]!r}")
                 if not (_ln.lstrip().startswith("#") and _me):
                     continue
                 _cmd = next((_c.strip() for _c in _lines[_k + 1:]
                              if _c.strip() and not _c.lstrip().startswith("#")), "")
                 if not _cmd.startswith("grep "):
+                    _bad472c.append(f"期待値の後のコマンドが grep で始まらないので実行しない: {_cmd[:50]!r}")
                     continue
                 # **書き換えないこと。** 初版は `shasum -a 256 -c` を `sha256sum -c` へ
                 # 置換してから実行していた。Linux では両者が同じ結果を出すので CI は緑のまま
@@ -495,9 +498,8 @@ def run(ctx):
     #   割合ではなく語数で見る: ページを短くしても割合は閾値へ近づくので、割合は読む量を測れない (2026-11-06)。
     if _rv472c.exists():
         _t472d = _rv472c.read_text(encoding="utf-8")
-        _w472d = " ".join(_t472d.split())
-        _i472d = _w472d.find("## In one screen")
-        _p472d = len(_w472d[:_i472d].split()) if _i472d >= 0 else None
+        _i472d = re.search(r"(?m)^## In one screen\s*$", _t472d)  # 行頭の見出しだけ (前のコメントや文中の語を測っていた)
+        _p472d = len(_t472d[:_i472d.start()].split()) if _i472d else None
         check(
             _p472d is not None and _p472d <= 450,
             f"Check 472d: REVIEWERS.md の \"In one screen\" は先頭から {_p472d} 語に在る (≤ 450 語)",
@@ -574,10 +576,15 @@ def run(ctx):
                 if _jp472i(_m.group(1)) >= 0.30 and "Japanese" not in _row:
                     _bad472i.append(f"{_m.group(1)} は日本語 {_jp472i(_m.group(1)):.0%} なのに行が Japanese と述べない")
         for _row in _map472i:
-            _m = re.match(r"\| \[`[^`]+`\]\(([^)#\s]+)(?:#[^)\s]*)?\) \| \**(English|Japanese)\b", _row)
+            _m = re.match(r"\| \[`[^`]+`\]\(([^)#\s]+)(?:#[^)\s]*)?\) \| \**([A-Za-z]+)\b", _row)
             if _m and (ROOT / "LICENSES" / _m.group(1)).exists():
                 _seen472i += 1
-                if (_jp472i(_m.group(1)) >= 0.30) != (_m.group(2) == "Japanese"):
+                if _m.group(2) not in ("English", "Japanese", "Mixed"):  # [2026-11-08] 他の表示は黙って照合から外れていた
+                    _bad472i.append(f"{_m.group(1)} の言語の表示 {_m.group(2)!r} を読めない (English / Japanese / Mixed)")
+                elif _m.group(2) == "Mixed":
+                    if not 0.10 <= _jp472i(_m.group(1)) <= 0.90:
+                        _bad472i.append(f"{_m.group(1)} は Mixed と述べるが日本語 {_jp472i(_m.group(1)):.0%}")
+                elif (_jp472i(_m.group(1)) >= 0.30) != (_m.group(2) == "Japanese"):
                     _bad472i.append(f"{_m.group(1)} は {_m.group(2)} と述べるが日本語 {_jp472i(_m.group(1)):.0%}")
         check(
             _seen472i >= 20 and not _bad472i,
@@ -609,7 +616,7 @@ def run(ctx):
                 _bad472h.append(f"\"The licence itself\" の行が {_tg472h} の {_tt472h.count(chr(10))} lines, {_secs472h} sections を述べていない")
             # digest の照合は grep の正規表現の中に版を書くので、\. の形も読む。素の形だけ見ると、
             # 片方を切り替えたまま審査者の手元で 2 つの digest が食い違っても緑になる (2026-11-07 の予行)。
-            _cmd472h = sorted(set(re.findall(r"^(?:shasum -a 256 |grep .* LICENSES/)(ACD-\d+\.\d+)\.txt$", _t472d, re.M))
+            _cmd472h = sorted(set(re.findall(r"^(?:shasum -a 256 |grep .* )(?:\./)?LICENSES/(ACD-\d+\.\d+)\.txt$", _t472d, re.M))
                               | {_v.replace("\\.", ".") for _v in re.findall(r"LICENSES/(ACD-\d+\\\.\d+)\\\.txt\$'", _t472d)})
             if _cmd472h != [_tg472h]:
                 _bad472h.append(f"検証コマンドの対象が {_tg472h} でない: {_cmd472h}")
@@ -637,8 +644,8 @@ def run(ctx):
 
     # ── 472e. 「placeholder は 0」を無限定で述べないこと ────────────────────────────────
     #   §16.1 の notice 雛形に `<location of this file>` が 1 欄あるので、無限定の 0 は偽。
-    _pat472e = re.compile(r"zero placeholders|no placeholders?\b|placeholders?:\s*0\b|"
-                          r"置換テキスト\s*0|プレースホルダ\s*0", re.I)
+    _pat472e = re.compile(r"zero placeholders|no placeholders?\b|placeholders?:\s*0\b|\b0 placeholders?\b|placeholder-free|"
+                          r"置換テキスト(?:は)?\s*0|プレースホルダ(?:は)?\s*0", re.I)
     #   限定は**直後**に在ること（前方を見ると無関係な語で充足する）。「条項」単独は
     #   後続の別の文にも現れて素通りしたので（mutation で実測）、特定的な語に限る。
     _qual472e = re.compile(r"16\.1|in the (?:operative )?clauses|notice template|雛形", re.I)

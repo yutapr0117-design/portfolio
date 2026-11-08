@@ -536,6 +536,37 @@ _MUTATIONS_TAIL.append({
     "find": ' / `-boilerplate` companions',
     "replace": ' companions',
 })
+_MUTATIONS_TAIL.append({
+    "name": 'Check 472c: 入口の期待値を "→ expected 16" に言い換える —— 形が合わない期待値は黙って照合から外れ、本数が減っても緑だった',
+    "file": ROOT / 'LICENSES' / 'REVIEWERS.md',
+    "find": '→ expect 16',
+    "replace": '→ expected 16',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 472d: 入口の "In one screen" の見出しを ### へ下げる —— 文字列の先頭一致で探しており、### の中の "## In one screen" を見出しとして測っていた',
+    "file": ROOT / 'LICENSES' / 'REVIEWERS.md',
+    "find": '\n## In one screen\n',
+    "replace": '\n### In one screen\n',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 472e: 無限定の "0 placeholders" を書く —— 数字が先の綴りは読んでいなかった',
+    "file": ROOT / 'LICENSES' / 'ADOPTING.md',
+    "find": 'audience: anyone thinking of applying ACD to their own work',
+    "replace": 'audience: anyone thinking of applying ACD to their own work (0 placeholders to fill)',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 472h: 入口の検証コマンドに ./LICENSES/ の綴りで別の版を足す —— `grep .* LICENSES/` の形しか読まず、照合から外れていた',
+    "file": ROOT / 'LICENSES' / 'REVIEWERS.md',
+    "find": '```sh\n',
+    "replace": '```sh\ngrep -c Dedication ./LICENSES/ACD-1.1.txt\n',
+    "first_occurrence": True,
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 472i: 入口の表の言語の表示を Bilingual にする —— English / Japanese 以外の表示は黙って照合から外れていた',
+    "file": ROOT / 'LICENSES' / 'REVIEWERS.md',
+    "find": '| Mixed; each answer has an English block |',
+    "replace": '| Bilingual; each answer has an English block |',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
