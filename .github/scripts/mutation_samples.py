@@ -542,6 +542,12 @@ _MUTATIONS_TAIL.append({
     "find": '<meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)" />',
     "replace": '<meta content="red" name="theme-color" media="(prefers-color-scheme: light)" />',
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 468u: §5.2 の自社素材の除外を T38 の前の形 (makes available) へ戻す —— 公開しない自社のモデルに §5 が及ぶ読みが戻る。目印を替えた日に、替え忘れを個別に名指せるようにする (aa の依頼・2026-11-08)",
+    "file": CURRENT_DRAFT,
+    "find": "the Work, that the Dedicator itself makes or makes available, or the",
+    "replace": "the Work, that the Dedicator itself makes available, or the",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
