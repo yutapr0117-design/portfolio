@@ -129,9 +129,16 @@ def run(ctx):
     #   足されても申告側が追従しない —— 自分の数を機械で担保していない面だった。
     #   区間 = `# ── N.` から次の `# ── <数字>` まで (全 Check module を横断)。
     _rts469 = _L460 / "READY-TO-SUBMIT.md"
-    _rows469c = re.findall(r"Check (\d+) \((\d+) 部\)", _rts469.read_text(encoding="utf-8")) if _rts469.exists() else []
+    # 全角の括弧も読む (2026-11-09・監査 #10): 日本語の文書は全角の括弧で書かれ、`Check 445（9 部）` の行は
+    #   黙って落ち、行が減っても「1 行は在る」の床しか無かった。「部」の数を述べる行で読めないものも RED
+    _rts469t = _rts469.read_text(encoding="utf-8") if _rts469.exists() else ""
+    _rows469c = re.findall(r"Check (\d+) ?[(（](\d+) ?部[)）]", _rts469t)
+    _stray469c = [_l[:40] for _l in _rts469t.splitlines() if re.search(r"Check \d+\D{0,4}\d+ ?部", _l)
+                  and not re.search(r"Check \d+ ?[(（]\d+ ?部[)）]", _l)]
     if not _rows469c:
         _bad469.append("(c) READY-TO-SUBMIT.md から「Check N (M 部)」を 1 件も取り出せない")
+    if _stray469c:
+        _bad469.append(f"(c) READY-TO-SUBMIT.md に読めない部数の申告がある: {_stray469c}")
     _srcs469c = [ROOT / ".github" / "scripts" / "check_repository_consistency.py"] + sorted(
         (ROOT / ".github" / "scripts").glob("checks_*.py"))
     _txt469c = [_f.read_text(encoding="utf-8") for _f in _srcs469c if _f.exists()]

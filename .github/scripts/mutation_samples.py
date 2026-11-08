@@ -543,6 +543,12 @@ _MUTATIONS_TAIL.append({
     "find": '上の表の §8.6 行と同じ変更） | **反映済み**（2026-11-01）|',
     "replace": '上の表の §8.6 行と同じ変更） | **未着手**（2026-11-01）|',
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 469 (c): READY-TO-SUBMIT の部数を全角の括弧で 9 部と書く —— 半角の `Check N (M 部)` しか読まず、全角の行は黙って照合から落ちていた",
+    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
+    "find": "| Check 445 (5 部) |",
+    "replace": "| Check 445（9 部）|",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
