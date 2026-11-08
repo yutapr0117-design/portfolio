@@ -580,6 +580,12 @@ _MUTATIONS_TAIL.append({
     "find": 'shasum -a 256 -c` → ',
     "replace": 'shasum -a 256 -c` → 3× OK, ',
 })
+_MUTATIONS_TAIL.append({
+    "name": 'Check 474: 不利な事実の番号を 900 へ飛ばす —— 重複も欠番も無いまま最大だけが飛び、「最新 #N」を読む面が狂う',
+    "file": ROOT / 'LICENSES' / 'ACD-1.0.against.md',
+    "find": '\n| 283 | ',
+    "replace": '\n| 900 | ',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
