@@ -525,18 +525,27 @@ def run(ctx):
     _idx249 = ROOT / "index.html"
     if _idx249.exists():
         _isrc249 = _idx249.read_text(encoding="utf-8")
-        _vm249 = re.search(
-            r'<meta\s+name=["\']viewport["\'][^>]*content=["\']([^"\']+)["\']', _isrc249
-        )
-        _vv249 = _vm249.group(1) if _vm249 else None
+        # ブラウザは最後の viewport を使う。値は key=value として読み、initial-scale は数として 1 (2026-11-08:
+        #   最初の 1 つだけを読み、`initial-scale=1.5` も語の境界で通っていた)。noscript / template の中は数えない
+        from _lib_io import html_tags as _tags249
+        _vps249 = [_d.get("content") for _n, _d in _tags249(_isrc249, ("template", "noscript"))
+                   if _n == "meta" and (_d.get("name") or "").lower() == "viewport"]
+        _vv249 = _vps249[-1] if _vps249 else None
         _missing249: list[str] = []
         if not isinstance(_vv249, str):
             _missing249.append("viewport 抽出不可")
         else:
-            if "width=device-width" not in _vv249:
+            _kv249 = {_k.strip().lower(): _v.strip() for _k, _, _v in (_p.partition("=") for _p in re.split(r"[,;]", _vv249))}
+            if _kv249.get("width") != "device-width":
                 _missing249.append("width=device-width 不在")
-            if not re.search(r"initial-scale\s*=\s*1(\.0+)?\b", _vv249):
-                _missing249.append("initial-scale=1 不在")
+            try:
+                _is249 = float(_kv249.get("initial-scale", "x"))
+            except ValueError:
+                _is249 = None
+            if _is249 != 1.0:
+                _missing249.append(f"initial-scale=1 不在 ({_kv249.get('initial-scale')!r})")
+            if len(_vps249) > 1:
+                _missing249.append(f"viewport が {len(_vps249)} 個 (最後のものが効く)")
         _ok249 = not _missing249
         check(
             _ok249,
