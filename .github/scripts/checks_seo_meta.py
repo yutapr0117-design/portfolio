@@ -862,13 +862,20 @@ def run(ctx):
             # 文字列中の ` // ` や正規表現リテラルの `//` から行末までを消していた)。
             from _lib_io import strip_js_comments as _strip412
             _msrc412 = _strip412(_main412.read_text(encoding="utf-8"))
-            _base412 = re.search(r"SITE_BASE\s*=\s*'([^']+)'", _msrc412)
-            if _base412:
-                for _f412 in re.findall(r"SITE_BASE\s*\+\s*'(#[\w-]+)'", _msrc412):
-                    _full412 = _base412.group(1) + _f412
-                    # 自ノードの定義 (#webpage-dynamic) は index.html には無くて当然ゆえ除外
-                    if _f412 != "#webpage-dynamic":
-                        _dyn412.append(_full412)
+            # [2026-11-08] 3 つの穴を塞いだ (監査で実測): (1) SITE_BASE を一重引用符でしか読まず、読めないと動的側を
+            #   黙って飛ばした (2) 参照も一重引用符だけで、二重引用符の typo を見なかった (3) Article の JSON-LD は
+            #   js/meta-management.js へ移り SITE_CONFIG.CANONICAL_URL + '#person' と書くのに、main.js しか見ていなかった。
+            _base412 = re.search(r"SITE_BASE\s*=\s*['\"]([^'\"]+)['\"]", _msrc412)
+            _canon412 = re.search(r"CANONICAL_URL:\s*['\"]([^'\"]+)['\"]", _msrc412)
+            if not _base412 or not _canon412:
+                _bad412.append("main.js の SITE_BASE か SITE_CONFIG.CANONICAL_URL が読めない (動的な参照を照合できない)")
+            else:
+                for _src412 in [_msrc412] + [_strip412(_j.read_text(encoding="utf-8")) for _j in sorted((ROOT / "js").glob("*.js"))]:
+                    for _b412n, _f412 in re.findall(r"(SITE_BASE|SITE_CONFIG\.CANONICAL_URL)\s*\+\s*['\"](#[\w-]+)['\"](?!\s*\+)", _src412):
+                        _full412 = (_base412 if _b412n == "SITE_BASE" else _canon412).group(1) + _f412
+                        # 自ノードの定義 (#webpage-dynamic) は index.html には無くて当然ゆえ除外
+                        if _f412 != "#webpage-dynamic":
+                            _dyn412.append(_full412)
         _dangling412 = sorted({_r412 for _r412 in _refs412 if _r412 not in _defined412})
         _dangling_dyn412 = sorted({_d412 for _d412 in _dyn412 if _d412 not in _defined412})
         check(
