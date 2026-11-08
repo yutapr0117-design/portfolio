@@ -803,8 +803,8 @@ MUTATIONS_ARCHIVE4 = [
     {
     "name": 'Check 468m: §16.4 の草案の例外を広げる (a draft → a draft or a corrected text) —— 目印は 2 つとも残るので、存在だけを見る形では 1 識別子 = 1 固定本文が崩れても通った',
     "file": CURRENT_DRAFT,
-    "find": "that no earlier text, other than a draft identified as such, has borne",
-    "replace": "that no earlier text, other than a draft or a corrected text, has borne",
+    "find": "that no earlier text, other than a draft\n       identified as such, has borne",
+    "replace": "that no earlier text, other than a draft\n       or a corrected text, has borne",
     "check": CHECK,
 },
     {
