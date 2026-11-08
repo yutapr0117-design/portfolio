@@ -104,4 +104,53 @@ MUTATIONS_ARCHIVE6 = [
     "find": '"attribution_required": false,',
     "replace": '"attribution_required_x": false,',
 },
+    {
+    "name": "Check 441b: 草案の Section 11 への参照を存在しない Section 19 にする —— 凍結した 1.0 しか読まず、動く唯一の本文を見ていなかった",
+    "file": CURRENT_DRAFT,
+    "find": "Nothing in Section 11 reduces what any other Section of this",
+    "replace": "Nothing in Section 19 reduces what any other Section of this",
+},
+    {
+    "name": "Check 441c: 草案の定義語を改名して未使用にする —— 定義が残骸になっても、1.0 だけを読む頃は通った",
+    "file": CURRENT_DRAFT,
+    "find": '  1.2  "Moral Rights" means',
+    "replace": '  1.2  "Author Rights" means',
+},
+    {
+    "name": "Check 441g: 草案に組織名を英語の通称で書く —— Nihon Keiei / nkgr の綴りしか見ていなかった",
+    "file": CURRENT_DRAFT,
+    "find": "and Section 10.5 applies.",
+    "replace": "and Japan Management applies.",
+},
+    {
+    "name": "Check 441g: 草案に複数語の置換テキスト <your name> を入れる —— 置換テキストの照合が空白で止まり、§16.1 の例外も正規表現の偶然で通っていた",
+    "file": CURRENT_DRAFT,
+    "find": "except by the Steward (Section 16.5), and by",
+    "replace": "except by <your name> (Section 16.5), and by",
+},
+    {
+    "name": "Check 468: §16.2 の通知の主語「a Dedicator」を落とす —— タグを残しただけの取り込み手まで通知の適用に入る (468u の目印)",
+    "file": CURRENT_DRAFT,
+    "find": "accompanies the work. A notice a Dedicator places applies this",
+    "replace": "accompanies the work. A notice placed applies this",
+},
+    {
+    "name": "Check 496: CHANGELIST の表の見出しから「件数」の列を外す —— 行は 4 セルのままなので、GFM は 4 列目を描かずに捨てる (2026-11-08 まで実際にこの状態だった)",
+    # 表は 1.4 の記録に在る。確定の道具が作る次版の CHANGELIST は空で始まるので、草案の版で引くと確定の日に Check 362 が RED になる (2026-11-08 の予行)
+    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
+    "find": "| レンズ | やったこと | 結果 | 件数 |",
+    "replace": "| レンズ | やったこと | 結果 |",
+},
+    {
+    "name": "Check 472n: register の英語の索引で、B1 を述べる Piana 氏の引用を読みやすく動かす —— register は入口の照合の外だった (2026-11-08 に加えた)",
+    "file": ROOT / "LICENSES" / "ACD-OSI-BOTTLENECKS.md",
+    "find": '*"OSI requires prior review by a lawyer"*',
+    "replace": '*"OSI requires a prior review by a lawyer"*',
+},
+    {
+    "name": "Check 468: §8.5 の「if, and only if」を「if」へ縮める —— controlled の定義が片方向の条件になり、§8 が及ぶ請求項が広がる (468u の目印)",
+    "file": CURRENT_DRAFT,
+    "find": "Dedicator if, and only if, at the time in question, the Dedicator has",
+    "replace": "Dedicator if, at the time in question, the Dedicator has",
+},
 ]
