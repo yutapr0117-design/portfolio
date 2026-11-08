@@ -424,3 +424,13 @@ workflow は 1 件ずつ 1 文足す案（計 +56 語）を出したが、§16.2
 **採った形**: bb の案 *"that offers the Work, with a notice of this Dedication, to the public or to those invited to contribute"*（+1 語）の語順を、分詞 *offering* のまま取った（0 語）。通知が *offering* の隣に戻り、提供の相手 2 つがカンマ無しで続くので、*to those invited* を *submits* の宛先と読む足場が消える。`measure_clause_overlap.py --compare`: 条 +0 / 語 +0 / 重複 +0 / 先行詞の無い指示語 0。§1.9 を参照する箇所は §2.6 の 1 か所で、除外の参照なので影響しない。`--guard`: 468u の目印 17 件すべて残る。
 
 **逆側**: 挿入句（*with a notice of this Dedication*）が名詞句の途中に入るので、1 文の中の区切りが増えて読みにくい。*"to the public"* が *notice* に掛かる（公衆への通知）と読む筋は、意味が「公衆に提供する」とほぼ同じになるので害が無い。冒頭の一覧の E65 の項目、CHANGELIST の §1.9 の行、逐条リファレンスの §1.9 の行を同じ commit で合わせた。
+
+### 14.17 AI の語の流動と、*model … or output* の列挙（変えない）
+
+**問い**（bb が ModelGo v2 の審査から持ってきた・2026-11-08）: Chestek 氏は ModelGo の 2 回目の再提出に対して *"One thing to worry about is that the vocabulary for AI is fluid and constantly changing. You might not consider an "agent" a "model" at the moment, but might it take on more model-like characteristics in the future?"* と述べた（`license-review` 2025-12-06・アーカイブの 2025-December で逐語を確かめた）。ACD への発言ではない。§1.7・§6.4・§8.4 は *"model, parameter set, weight, embedding, or output"* と列挙し、*model* は定義語ではない。エージェント（モデルとツールとプロンプトの組）、検索用の索引、tokenizer が列挙のどれかに入るかは語で決まらない、という指摘である。
+
+**読み**: 列挙の末尾は *"output resulting from that processing"*（§1.7）・*"output resulting from Computational Use of the Work"*（§8.4）で、何が入るかは呼び名ではなく因果で決まる。§1.7 の処理は *"indexing, retrieval"* と学習の全工程を含むので、Work を索引した索引、Work から作った tokenizer の語彙、エージェントの中のモデルは、どれもその処理の結果である。エージェントのうち Work の処理から生じない部分（利用者が書いたツールのコードやプロンプト）は、もともと Dedicator の許可を要しない。*output* を推論の出力（生成された文）に狭める読みは立ちうるが、§6.4 と §8.4 はどちらも You に与える側の条なので、§15.1 の *"the reading that grants more to You prevails"* は広い読みを選ぶ。
+
+**変えない理由**: *"or other artefact resulting from …"* のような受け皿を足すと、(1) 足した語があるせいで *output* は推論の出力に限られる、という反対解釈を本文自身が作る（列挙に別の受け皿が在るなら *output* は受け皿ではない）、(2) §8.4 の特許の伸びを語の上で広げて見せる（B7 の費用）。現在の文は受け皿を *resulting from* の因果に置いており、語の流動に対しては呼び名に依らないこの形の方が耐える。
+
+**逆側**: (1) 審査者が *output* を狭く読めば、索引や tokenizer の扱いを §15.1 に頼ることになる。§15.1 は *"that its words allow"* の範囲でしか選ばない。(2) 列挙の費用は、Chestek 氏自身が同じ ModelGo の最初の再提出で、権利の列挙について *"when you enumerate, then you risk failing to grant rights under some regime that has different enumerations"* と述べている（`license-review` 2025-05-14・アーカイブの 2025-May で逐語を確かめた）。列挙して漏れる危険と、列挙しないで何が入るか分からない危険の間の選択で、どちらにも費用がある。ACD は列挙のあとに因果の受け皿を置いて、両方を小さくしようとしている。(3) 法律家に確かめる点として、`QUESTIONS-FOR-COUNSEL.md` 問 2（§8.4 が何に届くか）の範囲に入る。
