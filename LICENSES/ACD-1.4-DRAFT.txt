@@ -206,19 +206,23 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       words.)
     * Section 8.6 no longer explains the three footings, which the Preamble
       states. (-33 words.)
-    * Section 1.9 now reaches a repository or forum offering the Work "with a
-      notice of this Dedication", so that a contributor to a copy without one
-      does not become a Dedicator unawares. (+3 words.)
+    * Section 1.9 now reaches a repository or forum offering the Work "to
+      the public, or to those it invites to contribute, with a notice of this
+      Dedication", so that neither a contributor to a copy without one nor an
+      employee changing a private copy becomes a Dedicator unawares. (+13
+      words.)
     * Section 8.5 now defines "controlled" with "if, and only if", so that
       the ordinary sense of control does not reach the claims errata E39
       left out. (+3 words.)
-    * Section 16.2 now says that a tag placed in a file as a comment
-      accompanies that file alone, so that one file header does not make a
-      repository the Work. (+13 words.)
+    * Section 16.2 now says how a notice identifies material (by its words,
+      by its place in a comment within a file, by a file name that refers to
+      other material, or by markers), and that a narrower notice the
+      Dedicator has placed prevails, so that one file header does not make a
+      repository the Work. (+51 words.)
     * Section 16.4 now reaches any identifier that "contains" "ACD-" followed
       by a digit, so that "LicenseRef-ACD-1.4", the form Sections 16.1 and
       16.2 name, is reached too. (-1 word.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5488 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5536 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -323,9 +327,10 @@ PREAMBLE (informative; not part of the operative terms)
   1.9  "Contribution" means any work of authorship, including any modification,
        addition, correction, translation, or accompanying material, that a
        person intentionally submits to the Dedicator or to a repository or
-       forum offering the Work with a notice of this Dedication, for inclusion
-       in the Work. A submission is intentional if it is made by or on behalf
-       of the person for that purpose; material sent for discussion only, and
+       forum offering the Work to the public, or to those it invites to
+       contribute, with a notice of this Dedication, for inclusion in the
+       Work. A submission is intentional if it is made by or on behalf of the
+       person for that purpose; material sent for discussion only, and
        material a person marks as not being a Contribution, are excluded.
 
   1.10 "Reservation" means any act, notice, marking, metadata, protocol
@@ -830,9 +835,12 @@ PREAMBLE (informative; not part of the operative terms)
        Dedication by name and version, that is sufficient notice of these
        terms, and the terms apply in full whether or not a copy of this text
        accompanies the work. A notice a Dedicator places applies this
-       Dedication to the material it identifies, or, where it identifies none,
-       to the material it accompanies. A tag placed in a file as a comment
-       accompanies that file alone.
+       Dedication to the material it identifies, whether by its words, by its
+       place in a comment within a file, by a file name that refers to other
+       material, or by markers that delimit part of a file, or, where it
+       identifies none, to the material it accompanies. It does not apply
+       this Dedication to material that a narrower notice the Dedicator has
+       placed assigns to other terms.
 
   16.3 This Dedication may be applied by anyone, to any work in which they hold
        or may hold rights of their own, without permission from, notice to, or

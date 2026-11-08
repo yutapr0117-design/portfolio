@@ -85,7 +85,7 @@ EFFECT_MARKERS_468U = (
     ("16.2", "A notice a Dedicator places"),
     # 2026-11-08 (#2630): 特許の「controlled」の双条件と、ファイルの中のタグが及ぶ範囲
     ("8.5", "if, and only if"),
-    ("16.2", "as a comment"),
+    ("16.2", "in a comment within a file"),
 )
 
 
