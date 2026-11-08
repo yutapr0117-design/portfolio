@@ -291,10 +291,26 @@ def run(ctx):
                     _p472 = ROOT / "LICENSES" / _rel472
                     if not _p472.exists():
                         continue
-                    _cited = set(re.findall(r"§\s?(\d{1,2}\.\d{1,2})",
-                                            _p472.read_text(encoding="utf-8")))
+                    _tx472 = _p472.read_text(encoding="utf-8")
+                    _cited = set(re.findall(r"§\s?(\d{1,2}\.\d{1,2})(?!\d)", _tx472))
                     _miss = sorted(_c for _c in _cited
                                    if _c in _universe472 and _c not in _have472)
+                    # [FIX 2026-11-08] 後の版の条番号はどれも 1.0 の部分集合なので、提出対象が 1.0 の間は
+                    #   上の条件が成り立たず、この Check は一度も RED になりえなかった。どの版にも無い番号
+                    #   (§8.4 を §8.9 と書いた誤り) も見ていなかった (監査で実測)。条の形の番号 (1〜16 節・
+                    #   1〜20 項) で、どの版にも無く、前に file 名・他の版・他のライセンスの名前が無く、
+                    #   その file 自身の節でもないものを数える。
+                    _own472 = set(re.findall(r"(?m)^#+\s*(\d{1,2}\.\d{1,2})\b", _tx472))
+                    for _m472c in re.finditer(r"§\s?(\d{1,2})\.(\d{1,2})(?!\d)", _tx472):
+                        _c472 = f"{_m472c.group(1)}.{_m472c.group(2)}"
+                        if (_c472 in _universe472 or _c472 in _own472
+                                or not (1 <= int(_m472c.group(1)) <= 16 and 1 <= int(_m472c.group(2)) <= 20)):
+                            continue
+                        _ctx472 = _tx472[max(0, _m472c.start() - 60):_m472c.start()].replace("\n", " ")
+                        if re.search(r"(\.md`?\)?[^§]{0,14}$|ACD-1\.[1-9]|1\.[1-9] |from 1\.|in 1\.|draft|草案"
+                                     r"|CERN|Apache|GPL|MPL|EPL|CC0|OHL|UPL|Blue ?Oak|FAQ|OSD|minutes)", _ctx472):
+                            continue
+                        _miss.append(f"{_c472} (どの版にも無い)")
                     if _miss:
                         _bad472.append(f"{_rel472}: {_miss}")
                 _cls472 = sorted((ROOT / "LICENSES").glob("ACD-*-CHANGELIST.md"),
