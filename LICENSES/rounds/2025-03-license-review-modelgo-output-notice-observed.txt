@@ -1,0 +1,245 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-March.txt
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-08)
+Messages: 4 of the messages in the thread "Notice requirement for model output: OSD-compliant or not? (ModelGo)" (2025-03), the ones this dossier cites.
+Senders: Josh Berkus, Pamela Chestek, Simon Phipps
+Position: a discussion of a ModelGo clause requiring a notice on model output. Not addressed to us and not about ACD. Each message is whole.
+
+----- begin verbatim -----
+From josh at berkus.org  Sun Mar  2 20:38:42 2025
+From: josh at berkus.org (Josh Berkus)
+Date: Sun, 2 Mar 2025 12:38:42 -0800
+Subject: [License-review] Notice requirement for model output: OSD-compliant
+ or not? (ModelGo)
+Message-ID: <df685206-cd53-4bab-81be-8d3da89b7544@berkus.org>
+
+All,
+
+I wanted to have a quick discussion here about a specific kind of 
+requirement in the ModelGo-OS license:
+
+
+ >> 2.4.b.:  "You may Distribute the Output to third parties provided 
+that You indicate as part of the Distribution that any Output generated 
+through the use of the Licensed Materials and/or Derivative Materials 
+may contain AI-generated content."
+ >> ... this is a pretty novel notice requirement, with no parallel in 
+accepted non-AI licenses; can you explain the motivation behind it and 
+intended effect?
+
+ >I intend for model users to add a proper notice when distributing 
+generated content. This is not a restriction on using the content for 
+specific purposes but rather a requirement to attribute the generated 
+content as AI-assisted, helping to reduce misinformation and misleading 
+claims.
+ >Currently, many AI systems implement similar mechanisms. For example, 
+DeepSeek displays a pop-up when providing legal advice (see below), 
+which is one way to comply with this clause.
+ >Notably, Clause 2.4(b) does not require adding a watermark to 
+generated content, as this could negatively impact content quality.
+
+If you take out the AI aspects of this, this feels like an "advertising 
+requirement", except that conventionally advertising requirements are 
+about advertising the upstream contributors, as opposed to having a 
+caution about usage.  So it's maybe not the same.
+
+As Moming points out, this is likely to be a popular type of requirement 
+since it's common practice already.  So I think we should figure out if 
+it's problematic for the OSD or not.
+
+-- 
+Josh Berkus
+
+
+
+From pamela at chesteklegal.com  Mon Mar  3 02:36:35 2025
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sun, 2 Mar 2025 18:36:35 -0800
+Subject: [License-review] Notice requirement for model output:
+ OSD-compliant or not? (ModelGo)
+In-Reply-To: <df685206-cd53-4bab-81be-8d3da89b7544@berkus.org>
+References: <df685206-cd53-4bab-81be-8d3da89b7544@berkus.org>
+Message-ID: <b377d2a5-c8d6-0ac3-6aae-d5bcf42503a1@chesteklegal.com>
+
+
+On 3/2/2025 12:38 PM, Josh Berkus wrote:
+> All,
+>
+> I wanted to have a quick discussion here about a specific kind of 
+> requirement in the ModelGo-OS license:
+>
+>
+> >> 2.4.b.:? "You may Distribute the Output to third parties provided 
+> that You indicate as part of the Distribution that any Output 
+> generated through the use of the Licensed Materials and/or Derivative 
+> Materials may contain AI-generated content."
+> >> ... this is a pretty novel notice requirement, with no parallel in 
+> accepted non-AI licenses; can you explain the motivation behind it and 
+> intended effect?
+>
+> >I intend for model users to add a proper notice when distributing 
+> generated content. This is not a restriction on using the content for 
+> specific purposes but rather a requirement to attribute the generated 
+> content as AI-assisted, helping to reduce misinformation and 
+> misleading claims.
+> >Currently, many AI systems implement similar mechanisms. For example, 
+> DeepSeek displays a pop-up when providing legal advice (see below), 
+> which is one way to comply with this clause.
+> >Notably, Clause 2.4(b) does not require adding a watermark to 
+> generated content, as this could negatively impact content quality.
+>
+> If you take out the AI aspects of this, this feels like an 
+> "advertising requirement", except that conventionally advertising 
+> requirements are about advertising the upstream contributors, as 
+> opposed to having a caution about usage.? So it's maybe not the same.
+>
+> As Moming points out, this is likely to be a popular type of 
+> requirement since it's common practice already.? So I think we should 
+> figure out if it's problematic for the OSD or not.
+>
+I do not believe that this kind of provision should be accepted for 
+these reasons:
+
+1. It's an overstep. We are imposing value judgment on how AI-created 
+content should be treated. It may be that there is important social 
+value in not saying that output is AI generated. This is the purview of 
+legislation, an area that we have been careful to avoid overlapping with.
+
+2. I believe the nature of open source licenses is that they impose 
+requirements on the licensee only to the extent they assure that the 
+licensor receives the benefit that is their motive for putting software 
+under an open source license and to protect the licensor from harm when 
+they have generously made a gift. However, this term is for the benefit 
+of the public and I don't see what value the licensor gets from it. If 
+that's true, I think it is just another barrier that a licensee has to 
+take into account, thus introducing friction when we are trying to make 
+licensing as frictionless as possible.
+
+Pam (in my personal capacity)
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal
+www.chesteklegal.com
+
+
+
+From pamela at chesteklegal.com  Mon Mar  3 05:50:17 2025
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sun, 2 Mar 2025 21:50:17 -0800
+Subject: [License-review] Notice requirement for model output:
+ OSD-compliant or not? (ModelGo)
+In-Reply-To: <143938DE-DEAA-40D9-B6BB-70032A7059CA@gmail.com>
+References: <df685206-cd53-4bab-81be-8d3da89b7544@berkus.org>
+ <b377d2a5-c8d6-0ac3-6aae-d5bcf42503a1@chesteklegal.com>
+ <143938DE-DEAA-40D9-B6BB-70032A7059CA@gmail.com>
+Message-ID: <eed5d46f-f673-ba63-8aa6-4380a97bf5ec@chesteklegal.com>
+
+
+On 3/2/2025 7:26 PM, Moming Duan wrote:
+> Hi Pamela,
+>
+>
+>> 2. I believe the nature of open source licenses is that they impose 
+>> requirements on the licensee only to the extent they assure that the 
+>> licensor receives the benefit that is their motive for putting 
+>> software under an open source license and to protect the licensor 
+>> from harm when they have generously made a gift. However, this term 
+>> is for the benefit of the public and I don't see what value the 
+>> licensor gets from it. If that's true, I think it is just another 
+>> barrier that a licensee has to take into account, thus introducing 
+>> friction when we are trying to make licensing as frictionless as 
+>> possible.
+>
+> I acknowledge that requiring AI-generated content to be declared may 
+> introduce friction, but the absence of such a provision can also harm 
+> open source. Nowadays, it is common to transfer knowledge by improving 
+> a model based on content generated by other models. If we do not 
+> address this behavior, the sustainability of open source cannot be 
+> guaranteed. Even though the ModelGo License considers knowledge 
+> transfer as creating a derivative work, people can still circumvent 
+> this by publishing generated content as a dataset without disclosing 
+> which model was used (e.g., a model with an open source requirement).
+>
+> I am also considering whether we could narrow this clause so that it 
+> only applies when distributing a collection of outputs, requiring 
+> disclosure of the info of original model and its license. Any 
+> suggestions on this? Thanks.
+
+Yes, I think you are at least being overinclusive, because you are 
+requiring for everyone who creates outputs, even text, audio or visual 
+works. I'm not sure how you would even determine compliance. If I have 
+some AI images and some Getty Images as illustrations for my blog posts, 
+what if I put in my Terms of Use "some images created using AI." Am I in 
+breach or not?
+
+As to using a model for training, I'll leave it to others who are 
+better-versed in AI than I am. But just being a good practice doesn't 
+mean that it must or should be required by the license. If a model 
+doesn't give me adequate information about its provenance, then I expect 
+good practice says be very wary of it. Having a license that requires 
+that you tell me if AI was used doesn't mean someone actually will tell 
+me; licenses aren't self-enforcing. The licensee could have simply 
+elected to be in breach of the license and no one, including the 
+licensor for purposes of enforcement, will be any the wiser.? So, in my 
+opinion, it's greater friction for no benefit.
+
+Pam
+
+
+Pamela S. Chestek (in my personal capacity)
+Chestek Legal
+PLEASE NOTE OUR NEW MAILING ADDRESS
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal
+www.chesteklegal.com
+
+>
+>
+> Best,
+> Moming
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20250302/c326d0c9/attachment.htm>
+
+From simon at webmink.com  Mon Mar  3 11:03:57 2025
+From: simon at webmink.com (Simon Phipps)
+Date: Mon, 3 Mar 2025 11:03:57 +0000
+Subject: [License-review] Notice requirement for model output:
+ OSD-compliant or not? (ModelGo)
+In-Reply-To: <143938DE-DEAA-40D9-B6BB-70032A7059CA@gmail.com>
+References: <df685206-cd53-4bab-81be-8d3da89b7544@berkus.org>
+ <b377d2a5-c8d6-0ac3-6aae-d5bcf42503a1@chesteklegal.com>
+ <143938DE-DEAA-40D9-B6BB-70032A7059CA@gmail.com>
+Message-ID: <CAA4ffp9LSnp31OjggcdavWWGhx+n-p_3OWknmZYc0oE4ROpcxA@mail.gmail.com>
+
+On Mon, Mar 3, 2025 at 3:28?AM Moming Duan <duanmoming at gmail.com> wrote:
+
+>
+> I am also considering whether we could narrow this clause so that it only
+> applies when distributing a collection of outputs, requiring disclosure of
+> the info of original model and its license. Any suggestions on this? Thanks.
+>
+
+That sounds like a restriction or condition on mere use. That would not be
+open source.
+
+Simon
+(in a personal capacity)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20250303/db5e428d/attachment-0001.htm>
+
