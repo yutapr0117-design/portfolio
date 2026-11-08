@@ -581,6 +581,18 @@ _MUTATIONS_TAIL.append({
     "find": '`(全\\|計)N本`',
     "replace": '`(全|計)N本`',
 })
+_MUTATIONS_TAIL.append({
+    "name": 'Check 451f: 1.3 の記述子の note が本文に無い section を引く —— 451a は `clause` の key しか照合せず、散文の中の section 番号を読んでいなかった',
+    "file": ROOT / 'LICENSES' / 'ACD-1.3.machine.json',
+    "find": 'except by the Steward (section 16.5)',
+    "replace": 'except by the Steward (section 16.9)',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 451f: 1.3 の記述子の note の引用を本文に無い名前へ変える —— 散文の引用は本文と照合されていなかった',
+    "file": ROOT / 'LICENSES' / 'ACD-1.3.machine.json',
+    "find": 'under the name \\"Autonomous Commons Dedication\\"',
+    "replace": 'under the name \\"Autonomous Commons Licence\\"',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

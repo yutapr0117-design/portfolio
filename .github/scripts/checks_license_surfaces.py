@@ -22,6 +22,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
   451. ACD-1.0 の機械可読記述子 (`LICENSES/ACD-1.0.machine.json`) が条文と整合すること。
        451d: 1.0 以外の版の記述子 (`ACD-<ver>.machine.json`) も、それぞれの版の本文と整合すること (2026-10-17)。
        451e: 1.3 より後の版の記述子は、gap を担う §6 / §8 / §9 をすべて引くこと (2026-11-01)。
+       451f: 記述子の散文 (note など) が引く section と引用が、その版の本文に在ること (2026-11-08)。
        ACD-1.0 §6.5 は「自動化されたシステムが判定できない許諾は、学習されるための著作物に
        とっては許諾ではない」と述べる。そう述べるライセンス自身が機械から判定できないのは
        自己矛盾なので、採用者がそのままコピーできる非 operative の記述子を置いている。
@@ -413,6 +414,32 @@ def run(ctx):
             if _lack451e:
                 _bad451d.append(f"451e: {_md.name} が gap を担う §{'/§'.join(_lack451e)} を 1 つも引いていない "
                                 "(PREAMBLE の 3 つの gap が記述子から見えない)")
+        # 451f (2026-11-08・portfolio-aa の問い): 451a〜e は `clause` と notice と boolean しか見ず、note などの
+        #   散文を読んでいなかった。散文が引く section の番号と "…" の引用は、自分の版の本文に在ること。
+        #   散文が本文より広い約束を述べていないかは機械に見えないので、確定の日に人が読む。
+        _norm451f = " ".join(_src.split())
+        _secs451f = {_c.split(".", 1)[0] for _c in _nums}
+        _strs451f = []
+
+        def _walk451f(o, k=""):
+            if isinstance(o, dict):
+                for _k, _v in o.items():
+                    _walk451f(_v, _k)
+            elif isinstance(o, list):
+                for _v in o:
+                    _walk451f(_v, k)
+            elif isinstance(o, str) and k not in ("$comment", "notice", "clause", "text"):
+                _strs451f.append(o)
+
+        _walk451f(_d)
+        for _s in _strs451f:
+            for _r in re.finditer(r"\b[Ss]ections?\s+(\d+(?:\.\d+)?(?:(?:,\s*|\s+and\s+|\s+or\s+|\s+to\s+)\d+(?:\.\d+)?)*)", _s):
+                for _c in re.findall(r"\d+(?:\.\d+)?", _r.group(1)):
+                    if _c not in (_nums if "." in _c else _secs451f):
+                        _bad451d.append(f"451f: {_md.name} の散文が ACD-{_ver}.txt に無い section {_c} を引く")
+            for _q in re.findall(r'"([^"]{6,})"', _s):
+                if " ".join(_q.split()) not in _norm451f:
+                    _bad451d.append(f"451f: {_md.name} の散文の引用 {_q[:40]!r} が ACD-{_ver}.txt に無い")
     check(
         bool(_seen451d) and not _bad451d,
         (f"Check 451d: 1.0 以外の版の記述子 {_seen451d} がそれぞれの本文と整合 "
