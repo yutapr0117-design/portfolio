@@ -1,0 +1,406 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2014-April, 2014-May, 2014-August, 2014-September, 2015-February; the month in each message's Date line)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-08)
+Messages: 8 of the 23 messages this dossier cites from the review of the Universal Permissive License (UPL), from its submission on 2014-04-10 to its approval on 2015-02-20. Part 3 of 3.
+Senders: Engel Nyst, Luis Villa, Josh Berkus, Jim Wright, Simon Phipps, Allison Randal
+Position: the review of a permissive licence whose express patent grant reaches beyond the licensed software. Not addressed to us and not about ACD. Across the 3 parts, 8 messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From engel.nyst at gmail.com  Tue Sep  9 17:24:10 2014
+From: engel.nyst at gmail.com (Engel Nyst)
+Date: Tue, 9 Sep 2014 13:24:10 -0400
+Subject: [License-review] Request for Approval of Universal Permissive
+ License (UPL)
+In-Reply-To: <4A506DF1-288A-4A52-A19D-12A0D621C1E7@oracle.com>
+References: <CE7A9790-D53E-46FA-8A5C-080F56AFB060@oracle.com>
+	<3972E81A-A83E-44D2-92BE-6843C3057C03@oracle.com>
+	<4A506DF1-288A-4A52-A19D-12A0D621C1E7@oracle.com>
+Message-ID: <CAMgp1=fbjjJgaQPjq_WwkEvfV1LasO6h4--S=Lgedx1pjML38Q@mail.gmail.com>
+
+In order to read what does the license say on copyright, I get this result:
+
+> [...] permission is hereby granted, [...]under any and all [...]
+> copyright rights owned or freely licensable by each licensor
+> hereunder, whether an original author or another licensor, to any
+> person [receiving a copy of the "Software"], to deal in
+>
+> [...]
+>
+> (b) any piece of software [...] listed in the LARGER_WORKS.TXT file
+> [...]
+>
+> without restriction [...etc]
+
+This text says that, by submitting some software to an entity under the
+UPL, when there is a LARGER_WORKS file, I am giving this copyright
+license for ANY software included in the larger works. I can't do that
+for works I don't have the right to, but I could do that for works the
+maintainers decide to include in the future in a larger work, not
+submitted by me, but owned or licensable by me.
+
+I thought I noted this little detail in a previous email that doesn't
+seem to have made it to the list or was held in the queue.
+
+I'd shortly suggest that if your intention is not to extend 'any and all
+copyright rights owned or freely licensable by each licensor' to (b),
+then please make (b) apply explicitly only to patents. It would also
+clarify other confusions on what (b) means or how it works.
+
+I note that all mainstream licenses with patent grants (A/GPLv3, AL2.0,
+MPL2.0) make the patent grant in a separate section, with its own scope.
+
+
+-- 
+"Excuse me, Professor Lessig, may I ask you to sign this CLA, so we can
+*legally* have your permission to remix and distribute your CC-licensed
+works?"
+~ Permission culture, take two.
+
+
+From engel.nyst at gmail.com  Wed Sep 17 18:56:18 2014
+From: engel.nyst at gmail.com (Engel Nyst)
+Date: Wed, 17 Sep 2014 14:56:18 -0400
+Subject: [License-review] Request for Approval of Universal Permissive
+ License (UPL)
+Message-ID: <CAMgp1=dpr2vO9G3HBc5T7ydGniCBdh8yZ7Fuf5Aoq7=JN4dByQ@mail.gmail.com>
+
+On 09/14/2014 01:30 PM, Jim Wright wrote:
+> Ok, last round with any luck, here is a revision to the UPL
+
+Let me understand this license at a full pass, review below.
+
+> Subject to the condition set forth below, permission is hereby
+> granted, free of charge and under any and all copyright rights in
+> this software, associated documentation and/or data (collectively the
+> "Software")
+
+Thank you for addressing the concern on non-submitted software. However,
+this way documentation and data still remain outside the clarification.
+AFAICT, this concern remains: not every licensor may realize they give
+rights to the entity they submit some works (under UPL with a larger
+works file) to other non-submitted works.
+
+> (b) any piece of software and/or hardware listed in the lrgrwrks.txt
+> file if one is included with the Software (each a "Larger Work" to
+> which the Software is contributed by such licensors),
+
+Well, if I didn't know the discussion, I'd read this as saying that only
+these works are allowed, not all derivative works, like most of the
+mailing list has. I think your intention on this point doesn't really
+match the text.
+
+> create derivative works of (provided that this does not license
+> additional patent claims beyond those covering the unmodified
+> Software and Larger Works),
+
+This says that it doesn't allow to create derivative works unless they
+don't infringe additional patent claims, as noted on this list. It
+breaks OSD 3 and 7, as worded. (I think the problem is that copyright
+and patents are embedded in the same phrase...)
+
+> distribute, and sublicense the Software and the Larger Work(s) on
+> either these or other terms.
+
+OSD 1, 3, 4. UPL can't be said to allow these rights, because according
+to the text, it's *not* the whole license: all I need to do is to add
+somewhere that it's 'really distributed under other terms', which don't
+allow it.
+
+An UPL library included in other works 'switches' its 'real' license
+depending on the 'other terms' of those works... What if it's included
+in a folder that has a license text L1, which is in another folder with
+another license text L2, what is the 'real' license of the library? If I
+simply copy it elsewhere, which license do I have to comply with? If I
+download it from a ftp site, and only it (not other 'surrounding'
+works), what license do I have to comply with?
+
+I really don't get how would this work.
+
+If this was BSD/MIT/AL2.0, then when I copy the work, I get
+BSD/MIT/AL2.0 grant and conditions. I should exercise due diligence, but
+that goes without saying, it still *has* to be true that I can count on
+the license I receive with the work. For UPL, I have no idea.
+
+Your interpretation on GPLv2 and permissive licenses shows you think
+that the 'surrounding' works would 'automatically change' the license of
+independent works in a hard sense, which isn't accurate. According to
+that interpretation, you wrote and intend UPL to be like a chameleon
+license. I'm supposed to be unable to tell what rights I get and what to
+comply with.
+
+OSD 5. No discrimination. UPL text delegates *the permissions being
+granted* to the distributor, initial or subsequent, at the expense of
+every other recipient, and to unknown other terms, which can forbid
+every other party from getting these rights to the software. I don't
+think this passes OSD 5.
+
+OSD 6. Similar to 5.
+
+OSD 7. "The rights attached to the software must apply to all whom the
+program is distributed without the need for execution of an additional
+license by those parties."
+
+In my reading, the "distribute, sublicense on these or other terms"
+breaks OSD 7: the rights apparently attached to the software do NOT flow
+to all recipients to whom the program as-it-is is distributed, without
+the need to rely on another license.
+
+According to your explanation, you *want* rights to *not* flow to all
+recipients, by design, regardless if the licensee bothers to make a
+derivative work or not. You have hardwired in the text another license
+for the original work in unmodified form. It can be arbitrary terms at
+the first distribution place or at subsequent distribution places. All
+one needs to do to subvert the rights apparently granted by UPL is to
+change their terms of service on a site, and this was only the first
+example that came to mind.
+
+Lets say next week Github changes their terms of service, to say "you
+agree that you are not allowed to copy, modify and distribute the
+software hosted on this site". What is the effect for the permissions
+granted by all open licensed projects hosted on it, millions of lines of
+code?
+
+My answer: none. I'd say it's ridiculous to think that what the licenses
+say would be ripped off just like that by a distributor. They've been
+granted irrevocably, to everyone receiving the licensed work.
+(projects might move away, but that's not the question)
+
+Replace Oracle as distributor and UPL as license. The change would wipe
+the permissions apparently granted in the UPL text.
+
+OSD 8. Not specific to a distribution.
+
+Lets say Oracle adds a library under the UPL to Solaris. Do I have the
+right to copy, modify and distribute the UPL library if I want to detach
+it from Solaris? I don't quite understand if I get the rights from UPL
+or from Solaris agreement. The effect of the UPL is, IIUC, intended to
+be exactly distribution-dependent.
+
+OSD 9 and 10. Similar with 5 and 6, I can't assess conformance, because
+it depends on unknown terms.
+
+> This license is subject to the following condition:
+
+Well, I understand what you're trying to achieve, but if I look at it
+from another perspective, this is actually contradicted by the
+distribution and sublicensing under other arbitrary terms: the
+permissions to every recipient of *this software* in source code form
+are *not* granted to everyone subject to only this condition. They are
+changed by external terms, intended to not give these permissions at all.
+
+On a note related to this 'sublicensing', your interpretation of it, and
+UPL text. I guess I could craft terms, which say that the permissions
+grant in UPL for some software distributed from my site is hereby
+revoked, and that applies retroactively to all recipients of the
+software from me.
+
+
+-- 
+~ "We like to think of our forums as a Free-Speech Zone. And freedom
+works best at the point of a bayonet." (Amazon, Inc.)
+
+
+From luis at lu.is  Wed Sep 17 21:14:46 2014
+From: luis at lu.is (Luis Villa)
+Date: Wed, 17 Sep 2014 14:14:46 -0700
+Subject: [License-review] Request for Approval of Universal Permissive
+ License (UPL)
+In-Reply-To: <D5019630-5FC1-409D-A4BF-338F90A608A5@oracle.com>
+References: <CE7A9790-D53E-46FA-8A5C-080F56AFB060@oracle.com>
+	<3972E81A-A83E-44D2-92BE-6843C3057C03@oracle.com>
+	<4A506DF1-288A-4A52-A19D-12A0D621C1E7@oracle.com>
+	<CAMgp1=fbjjJgaQPjq_WwkEvfV1LasO6h4--S=Lgedx1pjML38Q@mail.gmail.com>
+	<12361820-A7B3-493B-A0B8-712AD9934835@oracle.com>
+	<D5019630-5FC1-409D-A4BF-338F90A608A5@oracle.com>
+Message-ID: <CAFPTOkXY58sGyJztwYmeO3KxnpjeJJ3p1Yazfesx35w0=9UxyA@mail.gmail.com>
+
+Thanks for your patience, Jim.
+
+I note that the most recent JCP minutes say UPL will be apparently
+preferred for Open Source-licensed Reference Implementations:
+https://java.net/downloads/jsr358/Meeting%20Materials/JSR-358-IPWG-Minutes-Sept-12-2014.html
+
+Is that this version of UPL then? :) It's important to have an anchor
+tenant, so to speak, and this would appear to address/resolve that concern.
+
+Thanks-
+Luis
+
+From engel.nyst at gmail.com  Sat Sep 20 17:39:35 2014
+From: engel.nyst at gmail.com (Engel Nyst)
+Date: Sat, 20 Sep 2014 13:39:35 -0400
+Subject: [License-review] Request for Approval of Universal Permissive
+ License (UPL)
+In-Reply-To: <732F2A21-0948-4B58-AB2F-42F91F951ADD@oracle.com>
+References: <CAMgp1=dpr2vO9G3HBc5T7ydGniCBdh8yZ7Fuf5Aoq7=JN4dByQ@mail.gmail.com>
+	<732F2A21-0948-4B58-AB2F-42F91F951ADD@oracle.com>
+Message-ID: <541DBBD7.2030308@gmail.com>
+
+On 09/17/2014 03:25 PM, Jim Wright wrote:
+> I'm not sure how you are reading that - it includes the documentation
+> and the data in the definition of the licensed Software, and does not
+> grant rights to non-submitted copyrighted works at all.
+
+I think you're right. I must have misread, this is correct.
+
+> Your objection here and throughout the objections below seems
+> premised on the idea that the ability to sublicense under other
+> terms renders something not actually open source. I do not agree,
+> and having discussed this with lots of other lawyers, including many
+> on the list here (none of whom, I note, raised this objection, either
+> on the list or in our discussions), don't think there's much else to
+> say on the matter.  The ability to sublicense a given work on other
+> terms does not render either the license or the code distributed
+> under it not open source or violate any requirement of the OSD.
+
+I note you don't answer my questions on this subject. You just keep
+delegating it to lawyers and courts, while you avoid to give any answer
+to delegate, not even how will UPL work in reality in the simplest
+cases. An 'argument' by appeal to authority[1] is a logical fallacy,
+without even mentioning (in)appropriateness.
+
+@All
+I strongly suggest OSI to consider not approving this license until, at
+least, we get public answers, and if possible, an independent legal review.
+
+
+ From my armchair, I submit to the attention of the list a case related
+to the (probably obvious) remark that Jim's misunderstanding of BSD and
+GPLv2, and attempts to craft a license to 'solve' a problem that doesn't
+exist, are not really new. They have been made many times on these
+lists, but rather years ago, and not that much for a long time. For
+example, someone was trying in 2007 to 'solve' a problem with
+'sublicensing' and GPL:
+http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:14690:200711:mgjjfbndjmpjbjhbdnbp
+
+"If this software is part of a GPL licensed software then this license
+expands to the MIT license, else this license expands to the 3-BSD license."
+
+Apart from the funny wording of the 'MIT or BSD' license, concerns were
+raised because recipients will not know what license they got on
+verbatim copies. It depended where these copies were used, and on
+variations of MIT and BSD.
+
+UPL is well drafted, but it depends where the copies are used, as well.
+And this time, its disjunction isn't even between open licenses. 'MIT or
+BSD' at least was compliant, but this license is 'MIT-like or arbitrary
+other terms', which contradicts the permissions grant. I might
+be missing something, because I don't get why would this be now acceptable.
+
+
+[1] https://en.wikipedia.org/wiki/Argument_from_authority
+
+-- 
+  "Excuse me, Professor Lessig, may I ask you to sign this CLA, so we can
+*legally* have your permission to remix and distribute your CC-licensed
+works?"
+  ~ Permission culture, take two.
+
+
+From josh at postgresql.org  Wed Feb 18 00:27:33 2015
+From: josh at postgresql.org (Josh Berkus)
+Date: Tue, 17 Feb 2015 16:27:33 -0800
+Subject: [License-review] Request for Approval of Universal Permissive
+ License (UPL)
+In-Reply-To: <54E3BE8F.6090006@opensource.org>
+References: <07465F99-11C6-4920-8145-CF48800EC32F@oracle.com>	<CAKHykevN7BNhiULUkC7BFAT5m2gWmoRLwkPhULk=_JVs5S141g@mail.gmail.com>
+	<54E3BE8F.6090006@opensource.org>
+Message-ID: <54E3DC75.2070909@postgresql.org>
+
+Committee,
+
+I'd really like to pass this license since I now have an immediate use
+for it.  What's required for legal review?
+
+--Josh Berkus
+
+
+
+From jim.wright at oracle.com  Wed Feb 18 19:56:40 2015
+From: jim.wright at oracle.com (Jim Wright)
+Date: Wed, 18 Feb 2015 11:56:40 -0800
+Subject: [License-review] Request for Approval of Universal Permissive
+	License (UPL)
+In-Reply-To: <cf70e0411cb5b2753e156f3f203fa2d2.squirrel@www.ccil.org>
+References: <07465F99-11C6-4920-8145-CF48800EC32F@oracle.com>
+	<CAKHykevN7BNhiULUkC7BFAT5m2gWmoRLwkPhULk=_JVs5S141g@mail.gmail.com>
+	<54E3BE8F.6090006@opensource.org>
+	<b3a6766d9860db8e6f1c4e4e0ba9a818.squirrel@www.ccil.org>
+	<05C904F0-03F5-49D2-93B3-E3CB16C34F0B@oracle.com>
+	<cf70e0411cb5b2753e156f3f203fa2d2.squirrel@www.ccil.org>
+Message-ID: <BC99857B-E03A-40C2-A443-A4623164D52E@oracle.com>
+
+Well, shoot, I thought we were done but I suppose we could possibly address this issue easily and without too many additional words (Simon, consider the nod on hold for a sec) - Allison, John & Henrik, let me know if you all agree this revision is consistent in meaning but clearer.  
+
+ Best,
+  Jim
+
+
+Copyright (c) <year> <copyright holders>
+
+The Universal Permissive License (UPL), Version 1.0
+
+Subject to the condition set forth below, permission is hereby granted to any person obtaining a copy of this software, associated documentation and/or data (collectively the "Software"), free of charge and under any and all copyright rights in the Software, and any and all patent rights owned or freely licensable by each licensor hereunder covering either (i) the unmodified Software as contributed to or provided by such licensor, or (ii) the Larger Works (as defined below), to deal in both
+
+(a) the Software, and
+
+(b) any piece of software and/or hardware listed in the lrgrwrks.txt file if one is included with the Software (each a ?Larger Work? to which the Software is contributed by such licensors),
+
+without restriction, including without limitation the rights to copy, create derivative works of, display, perform, and distribute the Software and make, use, sell, offer for sale, import, export, have made, and have sold the Software and the Larger Work(s), and to sublicense the foregoing rights on either these or other terms.
+
+This license is subject to the following condition:
+
+The above copyright notice and either this complete permission notice or at a minimum a reference to the UPL must be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+
+From simon at webmink.com  Wed Feb 18 15:21:01 2015
+From: simon at webmink.com (Simon Phipps)
+Date: Wed, 18 Feb 2015 15:21:01 +0000
+Subject: [License-review] Request for Approval of Universal Permissive
+ License (UPL)
+In-Reply-To: <54E3DC75.2070909@postgresql.org>
+References: <07465F99-11C6-4920-8145-CF48800EC32F@oracle.com>
+	<CAKHykevN7BNhiULUkC7BFAT5m2gWmoRLwkPhULk=_JVs5S141g@mail.gmail.com>
+	<54E3BE8F.6090006@opensource.org> <54E3DC75.2070909@postgresql.org>
+Message-ID: <CAF4JVJCoW4C+35tP57ObYCqV_8UUJSdHosVMGnVwDxfT2a7P-g@mail.gmail.com>
+
+The OSI Board agreed at its last meeting to approve the license subject to
+the final drafting adjustments we heard needed making, which Jim has now
+performed. As soon as this thread has subsided, and with a nod from Jim, we
+will confirm that approval.
+
+S.
+
+*--*
+*Simon Phipps*  http://webmink.com
+*Meshed Insights Ltd *
+*Office:* +1 (415) 683-7660 *or* +44 (238) 098 7027
+*Mobile*:  +44 774 776 2816
+
+From allison at opensource.org  Fri Feb 20 08:34:20 2015
+From: allison at opensource.org (Allison Randal)
+Date: Fri, 20 Feb 2015 00:34:20 -0800
+Subject: [License-review] Request for Approval of Universal Permissive
+ License (UPL)
+In-Reply-To: <0401505D-8365-4732-A470-66268188EA37@oracle.com>
+References: <07465F99-11C6-4920-8145-CF48800EC32F@oracle.com>
+	<CAKHykevN7BNhiULUkC7BFAT5m2gWmoRLwkPhULk=_JVs5S141g@mail.gmail.com>
+	<54E3BE8F.6090006@opensource.org>
+	<b3a6766d9860db8e6f1c4e4e0ba9a818.squirrel@www.ccil.org>
+	<05C904F0-03F5-49D2-93B3-E3CB16C34F0B@oracle.com>
+	<cf70e0411cb5b2753e156f3f203fa2d2.squirrel@www.ccil.org>
+	<BC99857B-E03A-40C2-A443-A4623164D52E@oracle.com>
+	<f2084034a44abceb42ee2b2418e94120.squirrel@www.ccil.org>
+	<7AEB0BB1-2779-4D81-85B3-5D6A32052C82@oracle.com>
+	<CAKHykesgOe0cnudt2xQ5_nN4o0OXXQLgEgvzQWiY6EbYHwn8HQ@mail.gmail.com>
+	<6C626719-6123-489D-B656-BEDA5A132AB4@oracle.com>
+	<54E50365.8040800@opensource.org>
+	<CAA4ffp-hPm_O03S6a71kjS5rGv=EmGrr1KZ1WXoH7z5N-+QjMg@mail.gmail.com>
+	<0401505D-8365-4732-A470-66268188EA37@oracle.com>
+Message-ID: <54E6F18C.1070101@opensource.org>
+
+Approval decreed, we'll add it to the website.
+
+Thanks all for contributing to the review,
+Allison
+
