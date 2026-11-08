@@ -458,7 +458,7 @@ bb が §1.9（T35）で見つけたレンズを 80 条に当てた（2026-11-08
 
 **採否（2026-11-08・8 件を採った・+22 語）**: bb の反例と 5a の比較（10 件とも条・重複・先行詞の無い指示語は +0、mutation の anchor に当たる試作は無い）のあとで決めた。
 
-- **T36** は +3 の形（*"in either case offering the Work"*）を採った。−2 の形は 3 項の並びの後ろに分詞が付くので、直前語の原則で *offering* が forum だけに掛かり、T36 と T24 の読みが両方戻る（bb）。過去の寄与者を宛先から外して失うものは無い —— 通知の前は §1.4 の Dedicator がいないので、まだ通知を置いていない単独の作者への寄与は今も入っていない。非公開の repository に通知を置いた後の招いた協力者は *"to those invited to contribute"* で入る（bb）。
+- **T36** は +3 の形（*"in either case offering the Work"*）を採った。−2 の形は 3 項の並びの後ろに分詞が付くので、直前語の原則で *offering* が forum だけに掛かり、T36 と T24 の読みが両方戻る（bb）。過去の寄与者を宛先から外して失うものは無い（**§14.22 (1) で訂正**: 寄与を招かずに写しを渡すだけの Dedicator と、もう提供していない Dedicator も外れる）—— 通知の前は §1.4 の Dedicator がいないので、まだ通知を置いていない単独の作者への寄与は今も入っていない。非公開の repository に通知を置いた後の招いた協力者は *"to those invited to contribute"* で入る（bb）。
 - **T37** は bb の *"or causes it to be included"* を足した形（+5）。merge を bot や別の保守者に任せた Dedicator が約束を避ける読みを閉じる。*"binds the Dedicator"* も *"binds that Dedicator"* にした（0 語）。
 - **T38**（+2）。468u の §5.2 の目印を新しい語へ同じ commit で替えた。
 - **T39**（0 語）。§5.1 第 2 文は同じ形だが、除外の列が *under trademark rights* を含み *use* に掛からないので、列が *claim* に掛かることを示す。§5.1 は変えない（bb の問いへの答え）。
@@ -511,3 +511,37 @@ bb が §1.9（T35）で見つけたレンズを 80 条に当てた（2026-11-08
 **逆側**: (1) +4 語（B3）。(2) 違反者の *ACD-1.5* は世に残るので、正規の 1.5 と同じ識別子を帯びた本文が 2 つ在る状態は変わらない。変わるのは、Steward が番号を続けられることと、正規の版の §16.2 がその識別子の札をどの本文に結ぶかを決めることである。(3) 468m の目印と mutation の anchor（*"that no earlier text, other than a draft identified as such, has borne"*）が句の途中に語が入るので割れる。採るなら同じ commit で替える。
 
 **採否（2026-11-09・T46 と T47 を採った・+7 語）**: 5a の比較で、T46 は語 +3・条と重複 +0・指示語 0・468u の目印は欠けない。T47 は語 +4 で、468m（例外句の形）と mutation の anchor 2 件が新しい句で RED になるので、同じ commit で 468m の許す形に *"the Steward has published"* を前に置く形を足し、anchor を *"that no earlier text the"* と *"other than a draft identified as such, has borne"*（どちらも草案で一意）へ替えた。Steward 自身が同じ識別子で別本文を出せないことは変わらないので、468m の目的（1 識別子 = 1 固定本文を Steward の本文の間で保つ）は残る。**訂正**: §14.21 の「由来」に「1.1 で入った文」と書いたが、*no earlier text* の但し書きは 1.4 草案で入った文である（2026-11-01・#279 への対応）。1.3 の §16.4 は *"except by the Steward (Section 16.5)"* までで、番号の再使用を禁じる語を持たない。したがって T47 は SELF-AUDIT ではなく、この記録だけに残す。T46 の大小の穴は 1.0 の *"the identifier "ACD-1.0""* から在るので、errata の番号は bb が付ける。
+
+### 14.22 T34〜T47 どうしを読み合わせた（候補 19・残った 4）と、T48〜T50 の試作（2026-11-09）
+
+今日の変更 T34〜T47 を 5 つの組（寄与、Dedicator 自身の条件、解釈規則、名前と Steward、冒頭の一覧と CHANGELIST）で読み合わせた（読み手 5・反証役 19・Explore/opus）。19 件のうち 15 件は反証で退き、4 件（重複を除く）が残った。そのうち 2 件は今日の変更どうしが組になって作った穴である。
+
+**(1) T36 の記録の言い過ぎ（記録だけ直す）**: §14.18 の採否は「過去の寄与者を宛先から外して失うものは無い」と書いた。正しくは、T36 は Dedicator の肢から、提出の時点で *"offering the Work, with a notice of this Dedication, to the public or to those invited to contribute"* でない Dedicator を外す。外れるのは、過去の寄与者のほかに、(a) 通知を置いた非公開の repository の写しを、寄与を招かずに顧客や査読者へ渡しているだけの Dedicator と、(b) もう Work を提供していない Dedicator である。そうした Dedicator へ送った変更は寄与にならない。逆側として受け入れる（寄与を広く取って撤回不能に Dedicator を作る方が害が大きい）。
+
+**(2) T48: §5.2 末尾のサービスの除外を §5 全体へ（−6 語）**
+
+Before: Section 5 does not reach the Dedicator's rights in material, other than the Work, that the Dedicator itself makes or makes available, or the terms or measures it applies to that material, even where using that material is a Computational Use of the Work. Paragraphs (a) and (b) do not reach a service through which the Dedicator runs the Work for others without providing a copy of it.
+
+After: Section 5 does not reach the Dedicator's rights in material, other than the Work, that the Dedicator itself makes or makes available, or the terms or measures it applies to that material or to a service through which it runs the Work for others without providing a copy of it, even where using that material is a Computational Use of the Work.
+
+欠陥: 第 2 文は (a)(b) だけを外すので、§5.1 第 2 文の約束（*"any claim or cause of action … for a use of the Work that this Dedication permits"*）はサービスの条件の行使をまだ塞ぐ。API 利用者のために Dedicator のサーバが Work を動かすことは §6.1 の許す Computational Use で、§1.6 が許可を利用者に与えるので、AUP やレート制限を破った利用への請求は「許された使用についての請求」に当たる。T31・T33 で強制できる側を採った判断と食い違う。直し方: サービスに付ける条件と手段を第 1 文の除外へ入れ、第 2 文を消す。除外されるのは *terms or measures* だけで、Covered Rights の主張（§5.1 第 1 文）や §5.2(c)(d) は外れない。
+
+**(3) T49: §16.4 の Steward の但し書きで、前の Steward が公表した本文も数える（+4 語）**
+
+Before（§16.4 第 3 文の該当部分）: … and by the Steward only as a new version under a version number and identifier that no earlier text the Steward has published, other than a draft identified as such, has borne, …
+
+After: … and by the Steward only as a new version under a version number and identifier that no earlier text the Steward or a former Steward has published, other than a draft identified as such, has borne, …
+
+欠陥: T45 で、譲渡したあとの Steward は最後の譲受人だけになった。T47 で、番号を塞ぐのは *"the Steward has published"* 本文だけになった。組にすると、A が 1.0〜1.4 を公表して B へ役割を譲ると、B は何も公表していないので、B が別の本文を *ACD-1.4* として出すのを止める語が無い。*"so that each name and identifier in this family continues to denote one fixed text"* の目的と *new version* の語しか残らない。*a former Steward* は §16.5 の定義語をそのまま使う（*"a predecessor in that role"* は §16.4 の中に *that role* の先行詞が無い）。
+
+**(4) T50: §16.4 の名前も大小を区別しない（+3 語）**
+
+Before（同じ文の該当部分）: … under any name that contains "Autonomous Commons Dedication" or under any identifier that contains "ACD-", regardless of case, followed by a digit, …
+
+After: … under any name that contains "Autonomous Commons Dedication", regardless of case, or under any identifier that contains "ACD-", regardless of case, followed by a digit, …
+
+欠陥: T46 は *regardless of case* を識別子の肢だけに置いた。同じ文で対比すると、名前の肢は大小を区別すると読める（T44 が名前に当てたのと同じ対比の読み）。*"AUTONOMOUS COMMONS DEDICATION 1.5"* などが素通りする。T43 で §15.1 は *in respect of the Work* に限られたので、§16.4 の読みを押し戻さない。§14.20 は「空白・全角・別のハイフンの形は名前の側の保護で足りる」と書いたので、名前の側に穴があるとその判断も崩れる。T32 の誤検出の心配は、長い名前では起きない。
+
+**語数**: T48 −6、T49 +4、T50 +3 で +1 語。
+**由来**: T48 の第 2 文は 1.4 草案の T31、T49 は T45 と T47、T50 は T46 が作った（どれも 1.4 草案の文なので errata ではない）。
+**先に登録する反例（bb へ）**: (a) T48 で、Dedicator 自身のサービスの条件が §5 の外に出ることで、Work の写しの受領者（サービスを使わない者）への約束が弱まる読みは立つか。(b) T49 の *a former Steward* が、役割を持たないまま過去に版を出した者（たとえば違反者）を含むと読まれるか。(c) T50 の 2 つの *regardless of case* の繰り返しを 1 つにまとめる形（文頭へ出す）が「いずれにせよ」と読まれない形で書けるか。
