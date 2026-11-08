@@ -110,7 +110,7 @@ analysis below, which is written against 1.0.** Measured, not assumed:
 
 ## Status
 
-**Posted to `license-discuss` and received. No responses in the archive when last read, 2026-11-07 06:39 UTC.** That list is for general
+**Posted to `license-discuss` and received. No responses in the archive when last read, 2026-11-08 00:49 UTC.** That list is for general
 discussion — it is **not** the approval venue. Nothing has been submitted to `license-review`,
 and nothing has been submitted to SPDX. SPDX asks for substantial real-world use, this work has
 one adopter, and we are not submitting something that does not meet the stated bar.
