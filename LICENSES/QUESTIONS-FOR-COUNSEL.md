@@ -223,8 +223,19 @@ The 1.4 draft also excepts a payment You agreed to make (2026-11-07) and patent 
 (2026-11-06): in 1.2 and 1.3 the words can be read to bar a patent claim that §8.4 does not license,
 because the use is permitted as to the Covered Rights.
 
+A second question sits between §10.2 and §11.3. §10.2 says You need not *"state that the Work was
+modified"*; §11.3 keeps outside the Dedication *"Representing that the Dedicator authored, endorsed,
+approved, sponsored, or is associated with a work, when that is not the case"*. A person who alters a
+file and leaves the Dedicator's original authorship line in it, without saying it was altered, may be
+read as representing that the Dedicator authored the altered file. On one reading the Dedicator did
+write it, in part, so nothing false is represented; on the other the altered whole is not what the
+Dedicator wrote. We did not widen §11.3 to name an altered work presented as unaltered, because that
+would turn §10.2 into a condition in practice (`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.18, T41). Which
+reading a court would take, and whether an author's claim for this survives in a jurisdiction where
+§12.2 applies (§12.5 keeps false attribution outside the covenant), we cannot say.
+
 **An answer would change** whether "for" is the right word, and whether data protection needs its
-own exception.
+own exception. An answer to the second question would change whether §11.3 needs the altered-work case in words.
 
 ## 6. Do the text-and-data-mining declarations do anything? (§6.2, §6.3)
 
