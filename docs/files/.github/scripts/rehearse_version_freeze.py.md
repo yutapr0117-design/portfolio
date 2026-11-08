@@ -27,6 +27,7 @@ HEAD を別の worktree に取り出して確定の道具を走らせ、新し�
 
 - HEAD を見る。commit していない変更は予行に入らない。
 - `EXPECTED` は確定の直後に残って正しい RED の一覧である。一覧の外の RED は、確定の日に止まる場所が増えたことを意味する。
+- Check 362 は番号が同じまま別の mutation の anchor でも RED になる。`EXPECTED_ORPHANS` は 362 が名指してよい mutation で、その外を名指すと失敗にする。2026-11-08 の予行で、草案の版で CHANGELIST を引いていた Check 496 の mutation が 362 に加わっていたのに、番号だけでは見えなかった。
 - 道具を壊して試した。`FROZEN TEXT` を別の語にすると Check 490 が一覧の外に出て失敗した（2026-11-07）。
 
 ## Change impact

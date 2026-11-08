@@ -23,6 +23,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 # 確定の直後に残って正しい RED。直し方は docs/files/.github/scripts/prepare_version_freeze.py.md の表にある。
 EXPECTED = {"362", "444m"}
+# 362 は番号が同じまま別の mutation の anchor でも RED になるので、名指された mutation まで見る。
+#   2026-11-08 の予行で、Check 496 の mutation が空の次版 CHANGELIST を指して 362 に加わっていたが、番号では見えなかった。
+EXPECTED_ORPHANS = ("Check 444m",)
 
 
 def git(*args: str, cwd: Path = ROOT) -> str:
@@ -45,7 +48,15 @@ def rehearse(tree: Path) -> list[str]:
         return [f"consistency が traceback で止まった: {out[-300:]}"]
     red = {m.group(1) for m in re.finditer(r"^ERROR: Check (\S+?):", out, re.M)}
     print(f"確定の直後の RED: {sorted(red)}")
-    return [f"一覧の外の RED: Check {n}" for n in sorted(red - EXPECTED)]
+    problems = [f"一覧の外の RED: Check {n}" for n in sorted(red - EXPECTED)]
+    m362 = re.search(r"^ERROR: Check 362: orphaned mutation find-anchor\(s\) \((\d+) 件\): (.*)$", out, re.M)
+    if "362" in red and not m362:
+        problems.append("Check 362 の RED の形が読めない (名指された mutation を照合できない)")
+    elif m362:
+        names = re.findall(r"\[(?:E2E_)?MUTATIONS\] (Check \d+[a-z]?)", m362.group(2))
+        if len(names) < int(m362.group(1)) or not all(n.startswith(EXPECTED_ORPHANS) for n in names):
+            problems.append(f"Check 362 が {EXPECTED_ORPHANS} の外の mutation を名指す: {names} (全 {m362.group(1)} 件)")
+    return problems
 
 
 def main() -> int:
