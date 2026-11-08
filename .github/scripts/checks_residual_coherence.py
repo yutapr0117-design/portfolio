@@ -337,7 +337,7 @@ def run(ctx):
             ('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"', "sitemap 0.9"),
             ('xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"', "image 1.1"),
         ]
-        _urlset308_m = re.search(r"<urlset\s+[^>]*>", _ssrc308, flags=re.DOTALL)
+        _urlset308_m = re.search(r"<urlset\s+[^>]*>", re.sub(r"<!--.*?-->", "", _ssrc308, flags=re.S), flags=re.DOTALL)  # コメントの中の旧いタグを読まない
         _urlset308 = _urlset308_m.group(0) if _urlset308_m else ""
         _missing308 = [_label for _pat, _label in _required_ns308 if _pat not in _urlset308]
         _ok308 = not _missing308 and bool(_urlset308_m)
@@ -358,7 +358,7 @@ def run(ctx):
     _mani309 = ROOT / ".well-known" / "aio-manifest.json"
     if _mani309.exists():
         _msrc309 = _mani309.read_text(encoding="utf-8")
-        _http_urls309 = re.findall(r'"(http://[^"]+)"', _msrc309)
+        _http_urls309 = re.findall(r'(http://[^\s"]+)', _msrc309)  # [2026-11-08] 長い値の中の http:// も読む
         _ok309 = len(_http_urls309) == 0
         check(
             _ok309,

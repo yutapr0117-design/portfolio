@@ -518,6 +518,55 @@ _MUTATIONS_TAIL.append({
     "replace": "the Work, and You owe nothing in respect of any",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 161: robots.txt に Disallow: /portfolio/ を足す —— サイトは /portfolio/ の下に在るので全サイトの拒否なのに、/ と /* だけを全拒否と見ていた',
+    "file": ROOT / 'robots.txt',
+    "find": 'Allow: /googlea7059bedc6fe8bdc.html\n\n# ─── TIER 1',
+    "replace": 'Allow: /googlea7059bedc6fe8bdc.html\nDisallow: /portfolio/\n# ─── TIER 1',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 166: sitemap に CDATA の <loc> で別の origin の URL を足す —— <loc>([^<]+)</loc> は CDATA を読まなかった',
+    "file": ROOT / 'sitemap.xml',
+    "find": '<!-- Canonical SPA root — primary entry point for all crawlers -->',
+    "replace": '<!-- Canonical SPA root — primary entry point for all crawlers --> <url><loc><![CDATA[https://yutapr0117-design.github.io/portfolio2/about]]></loc></url>',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 160: sw.js の AIO_FILES をコメントに残して、生きた方の接頭辞を外す —— コメントの中の path が「/portfolio/ の下に在る」を満たしていた',
+    "file": ROOT / 'sw.js',
+    "find": "const AIO_FILES = ['/portfolio/llms.txt', '/portfolio/llms-full.txt'];",
+    "replace": "/* const AIO_FILES = ['/portfolio/llms.txt', '/portfolio/llms-full.txt']; */ const AIO_FILES = ['/llms.txt', '/llms-full.txt'];",
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 160: sw.js に別の project の path をテンプレートリテラルで足す —— 文字列の正規表現がテンプレートリテラルを読まなかった',
+    "file": ROOT / 'sw.js',
+    "find": "const AIO_FILES = ['/portfolio/llms.txt', '/portfolio/llms-full.txt'];",
+    "replace": "const AIO_FILES = ['/portfolio/llms.txt', '/portfolio/llms-full.txt']; AIO_FILES.push('/.well-known/llms.txt');",
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 279: robots.txt に小文字の sitemap: で http の行を足す —— フィールド名の大文字小文字を区別していた',
+    "file": ROOT / 'robots.txt',
+    "find": '# Therefore, this file is an AIO routing signal and sitemap-submitted policy artifact,\n',
+    "replace": 'sitemap: http://yutapr0117-design.github.io/portfolio/sitemap.xml\n',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 309: manifest の説明の文の中に http:// の URL を入れる —— 値の先頭が http:// のときしか読まなかった',
+    "file": ROOT / '.well-known/aio-manifest.json',
+    "find": '"role": "full AI context",',
+    "replace": '"role": "full AI context (mirror http://yutapr0117-design.github.io/portfolio/llms-full.txt)",',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 148: ARTICLE_ROUTES の旧い値をコメントに残して、本物に存在しないルートを足す —— コメント込みの先頭一致を読んでいた',
+    "file": ROOT / 'main.js',
+    "find": "ARTICLE_ROUTES: ['ai-knowhow'],   // og:type = article を適用するルート",
+    "replace": "/* ARTICLE_ROUTES: ['ai-knowhow'], */ ARTICLE_ROUTES: ['ai-knowhow', 'whitepaper'],",
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 308: sitemap の先頭のコメントに旧い urlset タグを残し、本物の image 名前空間の URI を変える —— コメントの中の旧いタグを読んでいた',
+    "file": ROOT / 'sitemap.xml',
+    "find": '-->\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
+    "replace": '  was: <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"> -->\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:image="http://www.example.com/schemas/sitemap-image/9.9">',
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

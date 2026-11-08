@@ -583,9 +583,12 @@ def run(ctx):
             from urllib.parse import urlparse as _urlparse160
             _canon_path160 = _urlparse160(_link160.group(1)).path
         # extract quoted absolute paths in sw.js: '/foo/...' or "/foo/..."
-        _hardcoded160: list[str] = re.findall(r"""['"](/[^\s'"]+)['"]""", _swsrc160)
+        # [2026-11-08] コメントを除き、テンプレートリテラルも読む。コメントの中の旧い path が「/portfolio/ の下の
+        #   path が在る」を満たし、生きた AIO_FILES が接頭辞を失っても通っていた (監査で実測)
+        from _lib_io import strip_js_comments as _strip160
+        _hardcoded160: list[str] = re.findall(r"""['"`](/[^\s'"`]+)['"`]""", _strip160(_swsrc160))
         # filter to only those starting with a segment (skip bare '/')
-        _segment_paths160 = [p for p in _hardcoded160 if re.match(r"^/[A-Za-z][\w-]*/", p)]
+        _segment_paths160 = [p for p in _hardcoded160 if re.match(r"^/[A-Za-z.][\w.-]*/", p)]  # /.well-known/ も
         _drift160: list[str] = []
         if _canon_path160 and _canon_path160 != "/":
             for _p160 in _segment_paths160:
@@ -795,7 +798,7 @@ def run(ctx):
             r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc166
         )
         _canon166 = _canon166_m.group(1) if _canon166_m else None
-        _locs166 = re.findall(r"<loc>([^<]+)</loc>", _smsrc166)
+        _locs166 = [_l.strip() for _l in re.findall(r"<loc>\s*(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?\s*</loc>", _smsrc166, re.S)]  # CDATA も読む
         _drift166 = [u for u in _locs166 if _canon166 and not u.startswith(_canon166)]
         _ok166 = _canon166 is not None and bool(_locs166) and not _drift166
         check(
