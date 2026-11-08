@@ -25,8 +25,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        **AI クローラから見ると証跡が #14 で途切れ、実体が #29 まである proof-of-work の
        3 分の 1 以上が discovery 層から欠落**していた (2026-08-23 に双方向へ一般化して是正)
   27. llms-full.txt has no stale C1–C6 in current-constraint context (should be C1–C7)
-  441. ACD-1.0 ライセンス本文の構造整合と配線: 本 repo は独自ライセンス
-       `LICENSES/ACD-1.0.txt` (Autonomous Commons Dedication 1.0) を適用しており、これを
+  441. ACD ライセンス本文の構造整合と配線 (2026-11-08 から 441a〜d も全ての版と現在の草案を読む。
+       凍結した 1.0 だけを読んでいて、動く唯一の本文である草案を見ていなかった): 独自ライセンス
+       `LICENSES/ACD-1.0.txt` (Autonomous Commons Dedication 1.0) を起点に、これを
        SPDX License List / OSI License Review へ提出する計画がある。SPDX の inclusion
        principles は「テキストが確定していること」と「収録後に steward が改変しないこと」を
        definitive requirement に置くため、**本文は壊れてはならない成果物**である。しかも
@@ -496,79 +497,77 @@ def run(ctx):
     # §12.5 の相互参照が別条項を指し、§9.4 に義務語が混入した。目視では 3 件とも
     # 見落としており、機械検査だけが捕捉した。
     import re as _re441
-    _lic441 = ROOT / "LICENSES" / "ACD-1.0.txt"
+    # [FIX 2026-11-08] 441a〜d は凍結した 1.0 だけを読んでいた。凍結した本文は動かないので、
+    #   壊れうるのは草案だけなのに、その草案を見ていなかった (監査で実測: 草案の "Section 11" を
+    #   存在しない "Section 19" にしても、定義語を改名して未使用にしても exit 0)。441f / 441g と
+    #   同じく全ての版を読む。pointer (確定済みの草案の置き場) は本文を持たないので除く。
     _proj441 = ROOT / "LICENSE"
-    if _lic441.exists():
-        _src441 = _lic441.read_text(encoding="utf-8")
-        # 操作条項のみを対象にする (PREAMBLE は informative で条項番号を持たない)
-        _nums441 = _re441.findall(r"^  (\d+\.\d+)\s", _src441, _re441.M)
-        _tops441 = set(_re441.findall(r"^(\d+)\.\s+[A-Z]", _src441, _re441.M))
-
-        # 441a — 番号の重複と連番
+    _texts441 = [_t for _t in sorted((ROOT / "LICENSES").glob("ACD-*.txt"))
+                 if "2. SCOPE AND EFFECT" in _t.read_text(encoding="utf-8", errors="replace")]
+    check(
+        any(_t.name == "ACD-1.0.txt" for _t in _texts441),
+        f"Check 441: ACD の本文 {len(_texts441)} 版 (凍結した版と草案) を読む",
+        "Check 441: LICENSES/ACD-1.0.txt が消失している", blocking=True)
+    _dupgap441, _unres441, _unused441, _hits441 = {}, {}, {}, {}
+    _nref441 = 0
+    for _t441 in _texts441:
+        _src441 = _t441.read_text(encoding="utf-8")
+        _nums441 = re.findall(r"^  (\d+\.\d+)\s", _src441, re.M)
+        _tops441 = set(re.findall(r"^(\d+)\.\s+[A-Z]", _src441, re.M))
         _dup441 = sorted({_n for _n in _nums441 if _nums441.count(_n) > 1})
         _by441 = {}
         for _n in _nums441:
             _by441.setdefault(_n.split(".")[0], []).append(int(_n.split(".")[1]))
         _gap441 = {_k: _v for _k, _v in _by441.items() if _v != list(range(1, len(_v) + 1))}
-        check(
-            not _dup441 and not _gap441,
-            f"Check 441a: ACD-1.0 の条項番号が重複なし・節内連番 ({len(_tops441)} 節 / {len(_nums441)} 項)",
-            (f"Check 441a: ACD-1.0 の条項番号が壊れている — 重複: {_dup441} / 連番崩れ: {_gap441}。"
-             "条項を挿入・削除したら同一 commit で以降を再採番し、相互参照 (441b) も追従させよ"),
-            blocking=True,
-        )
-
-        # 441b — 相互参照の解決性
-        # 集合なので数えるのは **参照先の種類**であって出現回数ではない。OK メッセージを
-        # 「相互参照 N 件」と書いていたのは誤解を招く (2026-08-24 是正) —— 新しい参照を足しても
-        # 参照先が既出なら数は動かないので、読み手が「参照は N 個しか無い」と誤読しうる。
-        _occ441 = _re441.findall(r"Sections? (\d+(?:\.\d+)?)", _src441)
-        _refs441 = set(_occ441)
-        _refs441 |= set(_re441.findall(r"Sections \d+(?:\.\d+)? (?:to|and) (\d+(?:\.\d+)?)", _src441))
-        _unres441 = sorted(_r for _r in _refs441 if _r not in set(_nums441) and _r not in _tops441)
-        check(
-            not _unres441,
-            f"Check 441b: ACD-1.0 の相互参照 {len(_occ441)} 箇所 "
-            f"(参照先 {len(_refs441)} 種) がすべて実在条項へ解決",
-            (f"Check 441b: ACD-1.0 の相互参照が解決しない: {_unres441}。"
-             "再採番したら本文中の 'Section N.M' 参照も同一 commit で追従させよ "
-             "(実例: 2026-08-23 に §12.5 が severability を指していたが、条項挿入で番号がずれ別条項を指した)"),
-            blocking=True,
-        )
-
-        # 441c — 定義語が本文で使われているか
-        _def441 = set(_re441.findall(r'^  1\.\d+\s+"([^"]+)"\s+means', _src441, _re441.M))
+        if _dup441 or _gap441:
+            _dupgap441[_t441.name] = (_dup441, _gap441)
+        _occ441 = re.findall(r"Sections? (\d+(?:\.\d+)?)", _src441)
+        _nref441 += len(_occ441)
+        _refs441 = set(_occ441) | set(re.findall(r"Sections \d+(?:\.\d+)? (?:to|and) (\d+(?:\.\d+)?)", _src441))
+        _u441 = sorted(_r for _r in _refs441 if _r not in set(_nums441) and _r not in _tops441)
+        if _u441:
+            _unres441[_t441.name] = _u441
+        _def441 = set(re.findall(r'^  1\.\d+\s+"([^"]+)"\s+means', _src441, re.M))
         _body441 = _src441.split("2. SCOPE AND EFFECT", 1)[-1]
-        _unused441 = sorted(_d for _d in _def441 if _d not in _body441)
-        check(
-            _def441 and not _unused441,
-            f"Check 441c: ACD-1.0 の定義語 {len(_def441)} 件がすべて本文で使用されている",
-            (f"Check 441c: ACD-1.0 に本文で使われていない定義がある: {_unused441}。"
-             "未使用の定義は起草途中の残骸か、削除した条項の痕跡 — どちらも提出前に解消せよ"),
-            blocking=True,
-        )
-
-        # 441d — 利用者への義務語が無いこと (§10.1 との自己矛盾防止)
-        # 「このライセンスは条件を一切課さない」が中核主張なので、義務語の混入は
-        # 他のどの drift よりも重い (主張そのものが偽になる)。
-        _oblig441 = (r"You must\b", r"You shall\b", r"You may not\b", r"You are required\b",
-                     r"provided that\b", r"on condition\b", r"You agree\b")
-        _hits441 = []
-        for _ln, _line in enumerate(_body441.splitlines(), 1):
-            for _pt in _oblig441:
-                if _re441.search(_pt, _line):
-                    _hits441.append(f"{_pt}: {_line.strip()[:70]}")
-        check(
-            not _hits441,
-            "Check 441d: ACD-1.0 に利用者への義務語が無い (§10.1 の無条件宣言と整合)",
-            (f"Check 441d: ACD-1.0 に利用者への義務語が混入している: {_hits441[:3]}。"
-             "§10.1 は『利用者に一切の条件・義務・制限を課さない』と宣言しており、"
-             "義務語は**宣言と本文の自己矛盾**になる。起草者側の不作為義務として書き直すか "
-             "(§5.2 の形)、Dedication の射程外である旨の記述へ改めよ (§11.3 の形)"),
-            blocking=True,
-        )
-    else:
-        check(False, "", "Check 441: LICENSES/ACD-1.0.txt が消失している", blocking=True)
+        _un441 = sorted(_d for _d in _def441 if _d not in _body441)
+        if not _def441 or _un441:
+            _unused441[_t441.name] = _un441 or ["定義が 1 つも読めない"]
+        for _pt in (r"You must\b", r"You shall\b", r"You may not\b", r"You are required\b",
+                    r"provided that\b", r"on condition\b", r"You agree\b"):
+            for _line in _body441.splitlines():
+                if re.search(_pt, _line):
+                    _hits441.setdefault(_t441.name, []).append(f"{_pt}: {_line.strip()[:60]}")
+    check(
+        not _dupgap441,
+        f"Check 441a: ACD の条項番号が {len(_texts441)} 版とも重複なし・節内連番",
+        (f"Check 441a: ACD の条項番号が壊れている: {_dupgap441}。"
+         "条項を挿入・削除したら同一 commit で以降を再採番し、相互参照 (441b) も追従させよ"),
+        blocking=True,
+    )
+    check(
+        not _unres441,
+        f"Check 441b: ACD の相互参照 {_nref441} 箇所 ({len(_texts441)} 版) がすべて実在条項へ解決",
+        (f"Check 441b: ACD の相互参照が解決しない: {_unres441}。"
+         "再採番したら本文中の 'Section N.M' 参照も同一 commit で追従させよ "
+         "(実例: 2026-08-23 に §12.5 が severability を指していたが、条項挿入で番号がずれ別条項を指した)"),
+        blocking=True,
+    )
+    check(
+        not _unused441,
+        f"Check 441c: ACD の定義語が {len(_texts441)} 版ともすべて本文で使用されている",
+        (f"Check 441c: ACD に本文で使われていない定義がある: {_unused441}。"
+         "未使用の定義は起草途中の残骸か、削除した条項の痕跡 — どちらも提出前に解消せよ"),
+        blocking=True,
+    )
+    check(
+        not _hits441,
+        f"Check 441d: ACD の {len(_texts441)} 版に利用者への義務語が無い (§10.1 の無条件宣言と整合)",
+        (f"Check 441d: ACD に利用者への義務語が混入している: {dict(list(_hits441.items())[:2])}。"
+         "§10.1 は『利用者に一切の条件・義務・制限を課さない』と宣言しており、"
+         "義務語は**宣言と本文の自己矛盾**になる。起草者側の不作為義務として書き直すか "
+         "(§5.2 の形)、Dedication の射程外である旨の記述へ改めよ (§11.3 の形)"),
+        blocking=True,
+    )
 
     # 441e — LICENSE が全文へ配線されているか (存在 ≠ 配線)
     if _proj441.exists():
@@ -635,17 +634,22 @@ def run(ctx):
             (r"Yokoi|Yuta|\u6a2a\u4e95", "個人名"),
             (r"https?://", "URL"),
             (r"github", "リポジトリ参照"),
-            (r"Nihon Keiei|nkgr", "組織名"),
+            (r"Nihon Keiei|Japan Management|nkgr", "組織名"),
+            (r"\bwww\.|\b[\w-]+\.(?:com|org|net|io|jp|dev|ai)\b", "ドメイン"),  # [2026-11-08] http なしの URL
             # **置換テキスト**。§16.3 の「固有ではない」は固有名詞の不在だけでなく
             # 「採用に本文編集が要らない」ことでもあり、提出パケット §4b はその 2 つを
             # 「0 and 0」として述べている。**固有名詞の側だけ CI が守り、置換テキストの側は
             # コマンド検証止まりだった** (2026-09-06 実測)。片側だけ機械強制されている状態は、
             # 文書が「CI では強制していない」と書く根拠にもなっていた (#72)。
-            (r"<[a-zA-Z]+>|\[year\]|\[name\]|YYYY|__[A-Z]+__|\{\{", "置換テキスト"),
+            # [2026-11-08] 複数語の置換テキスト (<your name>) も数える。§16.1 の通知の雛形の 1 欄
+            #   (<location of this file>) は記録した例外で、下で §16.1 を除いてから照合する。旧版は
+            #   `<[a-zA-Z]+>` が空白で止まるので、例外がコードではなく正規表現の偶然で通っていた。
+            (r"<[A-Za-z][^<>\n]{0,60}>|\[year\]|\[name\]|YYYY|__[A-Z]+__|\{\{", "置換テキスト"),
         ]
         # **441g も同じ理由で全版へ広げた**（上の 441f の注記を参照）。
         for _vp441 in _versions441:
-            _vt441 = _vp441.read_text(encoding="utf-8", errors="replace")
+            _vt441 = re.sub(r"^  16\.1\s.*?(?=^  16\.2\s)", "", _vp441.read_text(encoding="utf-8", errors="replace"),
+                            flags=re.M | re.S)
             _hits441 = [_lab for _pat441, _lab in _pats441 if re.search(_pat441, _vt441, re.I)]
             if _hits441:
                 _proj441[_vp441.name] = _hits441
