@@ -119,7 +119,10 @@ def run(ctx):
     )
     _llms123 = ROOT / "llms-full.txt"
     _llms123_t = _llms123.read_text(encoding="utf-8") if _llms123.exists() else ""
-    _aio_ok123 = ("Current Operating Model" in _llms123_t) and ("Claude Code" in _llms123_t) and ("self-driving" in _llms123_t)
+    # 2 語は「Current Operating Model」の段落の中で探す (2026-11-08: file 全体の別々の場所で探しており、見出しと
+    #   ほかの節の語が残るので、段落の本文を対話型へ巻き戻しても通った)
+    _sec123 = re.search(r"\*\*Current Operating Model[^\n]*\n(.*?)(?:\n\s*\n|\Z)", _llms123_t, re.S)
+    _aio_ok123 = bool(_sec123) and ("Claude Code" in _sec123.group(1)) and ("self-driving" in _sec123.group(1))
     check(
         _aio_ok123,
         "Check 123b: llms-full.txt が Current Operating Model (Claude Code self-driving) を保持 (AIO↔canon coherence)",
@@ -324,6 +327,7 @@ def run(ctx):
         _prefix389 = "テーマを切り替える（現在:"
         _labels389 = ["システム設定", "ダーク", "ライト"]
         _problems389: list[str] = []
+        _maps389: dict[str, dict[str, str]] = {}
         for _name389, _path389 in (("theme.js", _theme389), ("components.js", _comp389)):
             _src389 = _path389.read_text(encoding="utf-8")
             # [vacuous-gate fix] comment のみ除去してから照合する (#783 Check 131 と同 class)。
@@ -342,6 +346,15 @@ def run(ctx):
             _miss389 = [_l for _l in _labels389 if _l not in _win389]
             if _miss389:
                 _problems389.append(f"{_name389}: aria-label 近傍に state ラベル欠落 {_miss389!r}")
+            # 状態と名前の対も見る (2026-11-08: 3 語が窓に在れば通り、片方の葉でダークとライトを入れ替えても緑だった)
+            _tern389 = re.search(r"(?:state\.)?theme\s*===\s*'(\w+)'\s*\?\s*'([^']+)'\s*:\s*(?:state\.)?theme\s*===\s*'(\w+)'"
+                                 r"\s*\?\s*'([^']+)'\s*:\s*'([^']+)'", _win389)
+            if not _tern389:
+                _problems389.append(f"{_name389}: 状態から名前を選ぶ 3 項の連なりが読めない")
+            else:
+                _maps389[_name389] = {_tern389.group(1): _tern389.group(2), _tern389.group(3): _tern389.group(4), "その他": _tern389.group(5)}
+        if len(_maps389) == 2 and len({tuple(sorted(_v.items())) for _v in _maps389.values()}) != 1:
+            _problems389.append(f"状態と名前の対が 2 葉で違う: {_maps389}")
         check(
             not _problems389,
             "Check 389: theme toggle の aria-label が topbar(theme.js) ↔ sidebar(components.js) で同一文言",
