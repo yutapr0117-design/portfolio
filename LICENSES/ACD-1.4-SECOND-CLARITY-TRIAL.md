@@ -570,3 +570,13 @@ After: … under any name that contains "Autonomous Commons Dedication", regardl
 **逆側**: (1) *permission* は §15.1 の第 1 文に既に在る語なので新しい定義は要らないが、§5 の不行使の約束は「許可」ではなく「約束」なので、約束の範囲の読みに §15.1 が効くかを問う読みが立つ。第 1 文の *"the least obligation upon You"* と §5.2(c) の *"narrower than Section 15.1 requires it to be read"* が約束の側を受けると見る。(2) +1 語（B3）。
 
 **先に登録する反例（bb へ）**: (a) §5 の約束の範囲の読みに §15.1 が効かなくなる読みは立つか。(b) §2.4（*"Section 15.1 governs their construction"*）の 3 つの足場の読みに影響するか。(c) 免責のほかに、*more* を許可に絞ることで受領者が失う読みがあるか。
+
+**採否（2026-11-09・T51 は採らない）**: bb の反例 (a)〜(c) が 3 つとも立った。根は §2.4 が *grant*・*permission*・*covenant* を別のものとして並べ、*"Section 15.1 governs their construction"* と約束していることである。
+
+- (a) *"grants more permission"* は、§2.4 の区別に従えば約束（§5.1・§5.2・§8.6・§12.2）に届かない。第 1 文の *"the least obligation upon You"* も届かない（約束が義務を課すのは Dedicator で、You ではない）。§5.2(c) は *"any permission granted here"* についての約束なので救いにならない。§5.1 の除外の列の範囲が割れたとき、決め手が無くなる。逆側として、§1.6 と §4.6 は *permission* を You が持つもの全体の総称として使っており、その用法なら約束も入る。本文に 2 つの用法が並んでいること自体が問いになる。
+- (b) §2.4 の参照が約束について一部空になる。動詞 *grants* は §3 の放棄（surrender・abandon・relinquish）や §3.3・§12.1 の waiver にも本来合わず、Before は *more* に目的語が無いのでそれを吸収できていた。
+- (c) 免責のほかに、裏打ちの無い 4 つ（§5.1 第 2 文、§5.2(b)(d)、§8.6、§12.2）で受領者に有利な決め手を失う。いちばんはっきりするのは §12.2 で、人格権を放棄できない法域で §12.3 の範囲が割れたときである。
+
+**代案も採らない**: C1 *"the reading that leaves You freer to deal with the Work prevails"*（+4）は、定義の無い第 3 の語を足し、*deal with* を商取引に狭める余地を作る。C2 *"…prevails, other than in Sections 9.2, 13, and 14"*（+7）は、免責や非表明を新しい条に置くたびに列挙を直す保守の落とし穴を作る。*"grants or promises more"* は黙示の保証が *promise* なので T42 の穴をそのまま戻す（bb）。
+
+**結論**: §15.1 は Before のまま残す。免責（§13・§14）を §15.1 で狭く読む主張の足場は残るので、`QUESTIONS-FOR-COUNSEL.md` 問 9 (b) の問いのまま法律家に渡す。*permission* の 2 つの用法（§2.4 の区別と §1.6・§4.6 の総称）は、本文を変えずに記録だけ置く（どちらかへ寄せると、もう一方の条の読みが動く）。
