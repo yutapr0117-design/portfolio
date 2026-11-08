@@ -479,17 +479,22 @@ the CC0 legal code to **explicitly grant patent and trademark rights**"*。
 **（名称は "True Zero License" ——`CC` が Creative Commons の商標だからだと本人が書いている。
 §1.77 (b) の「名称は照合される」および B6 と同じ族の実例である。）**
 
-### 🟢 Bruce Perens 氏が挙げた「正しい文言」は、ACD §8.1 と同じ限定である
+### 🟢 Bruce Perens 氏が挙げた「正しい文言」は、ACD §8.1 と同じ種類の限定である（同じ語ではない）
 
 > *"I think **the proper language** would be to grant rights to patents that are **'necessarily
 > practiced in the work as issued by the grantor'**. Because of course **anyone can modify the work
 > to exercise any patent claim you happen to own**."* —— Bruce Perens 氏・2024-04-06
 
 **ACD §8.1 の末尾**: *"where the infringement is **caused by subject matter contained in the Work
-as made available by the Dedicator**."* ——**同じ限定である。**
-**これで独立な 2 つの出典が同じ形を指している** ——Perens 氏（2024-04・`license-discuss`）と
+as made available by the Dedicator**."* ——**同じ種類の限定で、同じ語ではない。** Perens 氏の
+*"necessarily practiced"* は、請求項の要素がすべて作品の中で実施されることを求めると読める。
+作品の外の要素と組んで初めて侵害になる請求項は外れうる。§8.1 の *"caused by"* はその場面も
+拾うので広く、§8.4 はこの限定を意図して外している（モデルは作品に含まれないため・#305）。
+（2026-11-08 訂正。旧文は「同じ限定である」と書き、「我々は両方を満たしている」と続けていた。
+portfolio-aa の指摘で、`submission-reference.md` の同じ主張も同日に直した。）
+**独立な 2 つの出典が同じ向きを指している** ——Perens 氏（2024-04・`license-discuss`）と
 **Chestek 委員長が「OSI は受け入れる」と述べた形**（2025-02・`license-review`・§1.67 R4）。
-**我々は両方を満たしている。**
+**§8.1 はその向きに在り、§8.4 は意図して外へ出る。**
 
 ### 🔴 同じ人が、献呈そのものについて我々に不利なことも述べている
 
