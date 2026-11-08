@@ -60,8 +60,11 @@ that the text cannot answer for itself. (e) In the 1.4 draft a one-line tag can 
 Dedication (§16.1, §16.2). Whether so short a mark shows the intention an abandonment needs is
 open; if it does not, §3 may fail there while §4 stands, which is what §4.4 is for. (f) OSI's FAQ
 says *"we don't know how or whether the author would be protected from liability for software
-released into the public domain"*. Where §3 is effective nothing is left to license, so what do
-§13 and §14 rest on there? (g) §10.2 lets a copy travel with no notice, and in the 1.4 draft §2.3 says
+released into the public domain"*. The concern is old: Lawrence Rosen, answering a request to list
+public-domain dedications in 2003, wrote *"please consider using a regular open source license that
+contains a disclaimer of warranty. The Public Domain Dedication does not deal with such issues
+because it is not a license."* (`rounds/2003-03-license-discuss-public-domain-on-the-list-observed.txt`).
+Where §3 is effective nothing is left to license, so what do §13 and §14 rest on there? (g) §10.2 lets a copy travel with no notice, and in the 1.4 draft §2.3 says
 You need not know of the Dedication. Where a licence is read as a contract, can a person who has
 never seen the text hold it, or does such a person rest on §3 and §5 alone and, for patents, on §8.6
 alone?
