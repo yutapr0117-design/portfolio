@@ -850,4 +850,56 @@ MUTATIONS_ARCHIVE5 = [
     "find": "\n.claude/CLAUDE.md |",
     "replace": "\nCLAUDE.md | 1000 | 2000\n.claude/CLAUDE.md |",
 },
+    {
+    "name": "Check 495b: advisory を ceiling より上にする —— 早期警告が鳴らず、いきなり BLOCKING へ飛ぶ",
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": "LICENSES/AS-OF.md | 130000 | 200000",
+    "replace": "LICENSES/AS-OF.md | 210000 | 200000",
+},
+    {
+    "name": "Check 495c: 長い行の大きな file を予算から外す —— その file は行数の上限にも当たらず無制限に伸びる",
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": "LICENSES/ACD-1.0.errata.md | 160000 | 250000\n",
+    "replace": "",
+},
+    {
+    "name": "Check 495d: 1 つの行に 64 KiB を超えて積む —— runbook §9 のセルが 222 KB になった形",
+    "file": ROOT / "docs" / "session-records" / "runbook-check-history.md",
+    "find": "# runbook §9「consistency Check 総数」の行にあった追加の経緯（アーカイブ）",
+    "replace": "# " + "x" * 70000,
+},
+    {
+    "name": "Check 124a: 画面の見出しに実名をローマ字で出す —— 漢字の完全一致だけを見ていた頃は通った (2026-11-08 の監査で実測)",
+    "file": ROOT / "js" / "components.js",
+    "find": "h('div', { class: 'h4' }, AUTHOR.DISPLAY_NAME),",
+    "replace": "h('div', { class: 'h4' }, 'Yuta Yokoi'),",
+},
+    {
+    "name": "Check 124a: quiz の設問に実名を書く —— quiz のデータは画面に描画されるのに、js/ 直下しか見ていなかった",
+    "file": ROOT / "js" / "quiz" / "aws-quiz-data.js",
+    "find": '"title": "Q1. ステータスチェックの厳密な切り分け",',
+    "replace": '"title": "Q1. 横井 雄太のステータスチェック",',
+},
+    {
+    "name": "Check 124a: aria-label を持つ要素の可視テキストに実名を書く —— 行に aria- があるだけで行全体を許していた",
+    "file": ROOT / "js" / "home-page.js",
+    "find": "h('ul', { class: 'hero-value-list', 'aria-label': 'Value Points' },",
+    "replace": "h('ul', { class: 'hero-value-list', 'aria-label': 'Value Points' }, '横井雄太',",
+},
+    {
+    "name": "Check 124a: JS 無効時の説明に実名を出す —— <noscript> は JS を切った読み手に見えるのに走査の外だった",
+    "file": ROOT / "index.html",
+    "find": "<h1>JavaScript を有効にしてください</h1>",
+    "replace": "<h1>Yokoi Yuta のポートフォリオ</h1>",
+},
+    {
+    "name": "Check 444k: 画面のフッターのライセンスへのリンクをコメントにする —— 画面から消えるのに、コメントの中の URL で通っていた",
+    "file": ROOT / "js" / "components.js",
+    "find": (f"            h('div', {{ class: 'p-3' }},\n                h('a', {{\n                    class: 'text-xs text-muted',\n"
+             f"                    href: '/portfolio/LICENSES/{APPLIED_ID}.txt',\n                    rel: 'license noopener noreferrer',\n"
+             f"                    target: '_blank'\n                }}, 'License: {APPLIED_ID}')\n            )"),
+    "replace": (f"            null /* h('div', {{ class: 'p-3' }},\n                h('a', {{\n                    class: 'text-xs text-muted',\n"
+                f"                    href: '/portfolio/LICENSES/{APPLIED_ID}.txt',\n                    rel: 'license noopener noreferrer',\n"
+                f"                    target: '_blank'\n                }}, 'License: {APPLIED_ID}')\n            ) */"),
+},
 ]
