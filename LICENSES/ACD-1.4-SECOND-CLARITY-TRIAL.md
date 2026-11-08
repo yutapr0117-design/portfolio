@@ -477,3 +477,17 @@ bb が §1.9（T35）で見つけたレンズを 80 条に当てた（2026-11-08
 **変えない理由**: (1) §13.2 は *"THE DEDICATOR DOES NOT WARRANT … THAT THE DEDICATOR HOLDS ANY RIGHT IN IT"* と書く。本文自身が、権利を持たない Dedicator を想定して §13・§14 の主語にしている。§1.4 の *to the extent* が「何を献呈するか」の範囲であって、§13・§14 が誰を守るかの範囲ではないことを、隣の条が示している。(2) 25 の試作（*"INCLUDING ANY PART IN WHICH THE DEDICATOR HOLDS NO RIGHT"*・+10 語）は、bb の反例どおり、その部分については Dedicator でない者の免責を「Dedicator は」で述べる自己矛盾の文になる。(3) bb の案（主語を *"NO PERSON WHO HAS APPLIED THIS DEDICATION"* にする）は、§2.6 で Dedicator になった寄与者（適用ではなく提出で Dedicator になる）を外す読みを作る。(4) Apache-2.0 §8 は主語を *"shall any Contributor be liable to You for damages"* とし、Contributor を *"Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work"* と定めるので、配布する Licensor を Work 全体について守る形を語で持つ。ACD は同じことを §13.2 との組で言っている。
 
 **逆側**: §13.2 との組で読むのは解釈であって、§14.1 の語だけでは閉じない。§15.1 の解釈規則は You に多く与える読みを選ぶので、免責を狭く読む主張の足場は残る（T43 で §15.1 の解釈規則にも「in respect of the Work」が掛かるようにしたが、免責は Work についての条でもある）。法律家への問いとして `QUESTIONS-FOR-COUNSEL.md` 問 9 (b) に置いた。さらに、§13.2 の否認は権利を一部の部分にしか持たない Dedicator とも両立するので、§1.4 の *to the extent* が主語を権利のある部分に絞る読みを語の上では否定しない（bb・2026-11-08）。免責条項を厳格に読む法域では、§13.2 との組の読みが採られない可能性がある —— 受領者が消費者なら、不公正条項指令 93/13 の第 5 条（疑わしい条項は消費者に最も有利に解釈する）が曖昧な主語の免責を狭い方へ読ませる（`ACD-1.0.jurisdictions.md` §9a で原典を読んでいる）。
+
+### 14.20 T46: §16.4 の識別子を大小を区別せずに照合する（+3 語・試作）
+
+**Before**: *"or under any identifier that contains "ACD-" followed by a digit"* / **After**: *"or under any identifier that contains "ACD-", regardless of case, followed by a digit"*
+
+**欠陥**（bb が T44 の反例で挙げた・2026-11-08）: §16.4 の照合は語のとおり大小を区別するので、改変した本文を小文字の *acd-1.5* で配ると制限を素通りする。Hugging Face などは識別子を小文字で書く（T32）。後に Steward が ACD-1.5 を出すと、その版の §16.2 は大小を区別せずに照合するので、*acd-1.5* の札が付いた作品はどちらの本文を指すかが割れ、*"so that each name and identifier in this family continues to denote one fixed text"* が崩れる。
+
+**T32 との違い**: T32 は大小を区別しない規則を §16.2 に限った。§16.2 で *contains "ACD-"* を大小無しに読むと、無関係な識別子（*LicenseRef-Abacd-3* の *acd-3*）の付いた作品まで ACD の通知を受けたことになり、害が大きいから（bb）。§16.4 で同じ誤検出が起きても、縛られるのは **この Dedication の本文を改変したもの** の名前だけで、改変した本文を *abacd-3* と名付けたい者が別の名前を選べばよい。害は小さい。
+
+**語の選び方**: *"in any case"* は「いずれにせよ」とも読めるので *"regardless of case"* にした。*"in upper or lower case"*（+5）は混在（*Acd-*）を外す読みを作る。
+
+**逆側**: (1) +3 語（B3）。(2) §16.2 と §16.4 で照合の規則が違う理由が本文からは読めない。§16.2 は大小を区別しない規則を *"The identifiers named above"* に限っており、§16.4 は自分の文で述べるので、読み違いは起きにくいと見る。(3) 識別子の区切り（前が英字かどうか）までは決めない。
+
+**先に登録する反例（bb へ）**: (a) *regardless of case* が *followed by a digit* に掛からず、数字の側の書式まで広げると読まれるか。(b) 翻訳の文（§16.4 の *"the name and the identifier"*）との関係。(c) 識別子に *ACD-* を含む既存の別のライセンスやプロジェクト名の例（大小を問わず）を、改変した本文の名前として縛ることの実害。
