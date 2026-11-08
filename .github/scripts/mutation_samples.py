@@ -554,6 +554,12 @@ _MUTATIONS_TAIL.append({
     "find": '（申請時は出す版を適用する）',
     "replace": '（1.2 を適用している。申請時は出す版を適用する）',
 })
+_MUTATIONS_TAIL.append({
+    "name": 'Check 444m: 折り返した段落の前の行に別の版を置き、次の行で「適用している」と述べる —— 行ごとの 70 字の窓で読み、前の行の版を見ていなかった',
+    "file": ROOT / 'LICENSES' / 'REVIEWERS.md',
+    "find": '\n## In one screen\n',
+    "replace": '\n## In one screen\n\nThe version ACD-1.2 is the text\nthis repository applies.\n',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
