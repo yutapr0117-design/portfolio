@@ -484,6 +484,33 @@ _MUTATIONS_TAIL.append({
     "replace": '_L460 / "ACD-1.4-EXTERNAL-TRIAGE.md"',
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 497: JSON-LD の script タグを引用符の無い type 属性にする —— 有効な HTML だが、JSON-LD を読む Check はどれも完全一致で塊を探す",
+    "file": ROOT / "index.html",
+    "first_occurrence": True,  # 先頭の JSON-LD の塊 (2026-11-08 に確認・どちらの塊でも 497 が拾う)
+    "find": '<script type="application/ld+json">',
+    "replace": '<script type=application/ld+json>',
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 497: 主の Person ノードの @type を配列にする —— @type を文字列として読む Check (245 / 247 / 266 ほか) を素通りする",
+    "file": ROOT / "index.html",
+    "find": '                  "@type": "Person",',
+    "replace": '                  "@type": ["Person"],',
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 497: jobTitle を型付きの値 (@value) にする —— 値を素の文字列として読む Check を素通りする",
+    "file": ROOT / "index.html",
+    "find": '"jobTitle": "AI-Driven Project Manager / IT Consultant / KERNEL Framework Designer",',
+    "replace": '"jobTitle": {"@value": "AI-Driven Project Manager / IT Consultant / KERNEL Framework Designer", "@language": "en"},',
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 497: creator の Person ノードに、主のノードに無い別名を足す —— 同じ @id の最初のノードしか読まない Check 275 / 276 には見えない",
+    "file": ROOT / "index.html",
+    "first_occurrence": True,  # 先頭の creator のノード (2026-11-08 に確認)
+    "find": '"alternateName": ["横井雄太", "Yokoi Yuta"]',
+    "replace": '"alternateName": ["横井雄太", "Yokoi Yuta", "Someone Else"]',
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

@@ -44,6 +44,13 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        signals and undermining trust. Sibling of Check 208 (ISO-8601 format)
        for the JSON-LD date semantic ordering surface. (BLOCKING)
 
+  497. **index.html の静的な JSON-LD が、読む側の Check の前提の形だけで書かれていること** (BLOCKING・2026-11-08):
+       JSON-LD を読む Check は 20 を超え、どれも `<script type="application/ld+json">` の完全一致で塊を探し、
+       `@type` を文字列、値を素の文字列として読み、同じ `@id` の最初のノードしか見ない。監査で、引用符の
+       無い type 属性・配列の `@type`・型付きの値 (`{"@value": …}`)・矛盾する 2 つ目のノードが、それぞれ
+       10 件を超える Check を素通りすると実測した。読む側を 1 つずつ直すより、別の形が在りえないことを
+       ここで保証する (Check 238 が meta についてしたのと同じ)。同じ `@id` の 2 つ目以降のノードは、値が
+       いちばん大きいノードの値に含まれていれば許す (JSON-LD のノードの統合で意味が変わらない)。
   219. aio-manifest.json declared paths ⊆ check_aio_digests.py
        MANIFEST_PATH_TO_LOCAL keys: every `path` value in aio-manifest.json
        `source_of_truth` / `supporting_evidence` / `observational_evidence`
@@ -293,3 +300,52 @@ def run(ctx):
     else:
         check(False, "Check 219: aio-manifest.json + check_aio_digests.py present",
               "Check 219: aio-manifest.json もしくは check_aio_digests.py が無い", blocking=True)
+
+    # ── 497. 静的な JSON-LD が、読む側の Check の前提の形だけで書かれていること (BLOCKING) ──
+    _h497 = (ROOT / "index.html").read_text(encoding="utf-8")
+    _bad497 = []
+    _tags497 = [t for t in re.findall(r"<script\b[^>]*>", _h497) if "ld+json" in t.lower()]
+    _bad497 += [f"script の形が違う: {t}" for t in _tags497 if t != '<script type="application/ld+json">']
+    _ids497 = {}
+
+    def _walk497(x, path):
+        if isinstance(x, dict):
+            if isinstance(x.get("@type"), list):
+                _bad497.append(f"{path}: @type が配列")
+            for _k, _v in x.items():
+                if isinstance(_v, dict) and "@value" in _v:
+                    _bad497.append(f"{path}/{_k}: 型付きの値 (@value)")
+                _walk497(_v, f"{path}/{_k}")
+            if "@id" in x and "@type" in x:
+                _ids497.setdefault(x["@id"], []).append((path, x))
+        elif isinstance(x, list):
+            for _i, _y in enumerate(x):
+                _walk497(_y, f"{path}[{_i}]")
+
+    _blocks497 = re.findall(r'<script type="application/ld\+json">(.*?)</script>', _h497, re.S)
+    for _i497, _b497 in enumerate(_blocks497):
+        try:
+            _walk497(json.loads(_b497), f"block{_i497}")
+        except ValueError as _e497:
+            _bad497.append(f"block{_i497}: JSON として読めない ({_e497})")
+
+    def _vals497(v):
+        return {json.dumps(_x, sort_keys=True, ensure_ascii=False) for _x in (v if isinstance(v, list) else [v])}
+
+    for _id497, _nodes497 in _ids497.items():
+        if len(_nodes497) < 2:
+            continue
+        _main497 = max(_nodes497, key=lambda n: len(n[1]))[1]
+        for _p497, _n497 in _nodes497:
+            for _k497, _v497 in _n497.items():
+                if _k497 in ("@id", "@type") or _n497 is _main497:
+                    continue
+                if _k497 not in _main497 or not _vals497(_v497) <= _vals497(_main497[_k497]):
+                    _bad497.append(f"{_p497}: {_id497} の {_k497} がいちばん大きいノードと食い違う")
+    check(
+        len(_blocks497) >= 1 and not _bad497,
+        f"Check 497: 静的な JSON-LD {len(_blocks497)} 塊が、読む側の前提の形だけで書かれている (同じ @id の重複は矛盾なし)",
+        (f"Check 497: 読む側の Check が読めない形の JSON-LD がある: {_bad497[:5] or 'JSON-LD の塊が無い'}。"
+         "JSON-LD を読む Check は 20 を超え、どれもこの形しか読まないので、別の形は全部の Check を素通りする"),
+        blocking=True,
+    )
