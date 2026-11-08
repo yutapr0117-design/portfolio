@@ -491,6 +491,25 @@ _MUTATIONS_TAIL.append({
     "replace": '*"OSI requires a prior review by a lawyer"*',
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 473: 来歴の見出しを「人間は起草を指示していない」だけにする —— 失敗文が名指しする「指示していない」の形を、否定の一覧が持っていなかった",
+    "file": ROOT / "LICENSES" / "ACD-1.0.review-responses-meta.md",
+    "find": "| **起草そのものは AI。方向の決定には本人が関与した** |",
+    "replace": "| **起草そのものは AI。人間は起草を指示していない** |",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 473b: 否定済みの文を米綴りの license で戻す —— 句の照合が英綴り・大文字小文字の完全一致だけだった",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "He decided\n  to have a licence of his own and said it should aim at external approval;",
+    "replace": "The agent determined that the repository needed a license and\n  the owner said it should aim at external approval;",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 473b: 送る文面の Provenance 段落から「外部承認を目指す」を外す —— file のどこかに在れば通り、送る段落だけを変えても見えなかった",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": "**Provenance.** I decided to have a licence of my own and said it should aim at external approval;",
+    "replace": "**Provenance.** I decided to have a licence of my own and said it should aim at broad adoption;",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
