@@ -190,7 +190,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       words.)
     * Section 16.2 now says to what material a notice a Dedicator places
       applies this Dedication: what it identifies, or else what it
-      accompanies when placed. (+25 words.)
+      accompanies. (+23 words.)
     * Sections 8.1 and 8.4 (errata E64) now make the acts the object of the
       licence, and Section 8.3 speaks of the claims "as to the acts they
       describe", so that a person who never uses the Work holds nothing under
@@ -206,7 +206,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       words.)
     * Section 8.6 no longer explains the three footings, which the Preamble
       states. (-33 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5472 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5470 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -819,7 +819,7 @@ PREAMBLE (informative; not part of the operative terms)
        terms, and the terms apply in full whether or not a copy of this text
        accompanies the work. A notice a Dedicator places applies this
        Dedication to the material it identifies, or, where it identifies none,
-       to the material it accompanies when placed.
+       to the material it accompanies.
 
   16.3 This Dedication may be applied by anyone, to any work in which they hold
        or may hold rights of their own, without permission from, notice to, or
