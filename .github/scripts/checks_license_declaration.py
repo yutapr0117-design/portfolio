@@ -232,6 +232,17 @@ def run(ctx):
             if f"/portfolio/{_rel444}" not in _cp444k or f"License: {_spdx444}" not in _cp444k:
                 _bad444.append(f"444k: 画面のフッター (js/components.js) が適用する版 {_spdx444} を指していない")
 
+            # 444o — 版を述べるのに、どの面にも読まれていなかった 3 面 (2026-11-09・Check の監査 #159): index.html の
+            #   RAG 抽出用の `Licence:` の行と、.well-known の 2 つの index.json の skill の description
+            #   (`licensing (ACD-x.y: …)`)。どちらも 1.0 へ戻しても緑だった。確定の道具は版を置換する
+            _ft444o = re.findall(r"Licence:\s*\S*/LICENSES/(ACD-\d+\.\d+)\.txt", (ROOT / "index.html").read_text(encoding="utf-8"))
+            if not _ft444o or set(_ft444o) != {_spdx444}:
+                _bad444.append(f"444o: index.html の RAG 用の Licence: 行が {_ft444o or '読めない'} を指し、適用する版 {_spdx444} と違う")
+            for _ix444o in (".well-known/index.json", ".well-known/agent-skills/index.json"):
+                _v444o = re.findall(r"[Ll]icensing \((ACD-\d+\.\d+):", (ROOT / _ix444o).read_text(encoding="utf-8"))
+                if not _v444o or set(_v444o) != {_spdx444}:
+                    _bad444.append(f"444o: {_ix444o} の skill の licensing が {_v444o or '読めない'} と述べ、適用する版 {_spdx444} と違う")
+
             # 444n — REUSE.toml の全 file への宣言が、適用する版であること。REUSE を読む道具はここだけを見る。
             #   どの Check も読んでいなかったので、LICENSE が 1.3 へ進んだあとも 1.0 のままだった
             #   (2026-09-23〜2026-11-08。2026-11-08 の監査で発見)。
