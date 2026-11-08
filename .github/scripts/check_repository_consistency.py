@@ -20,18 +20,14 @@ authoritative inventory and is kept in sync with the implementation below):
        手で 3 箇所を同期し続ける前提そのものが drift 源。#1141 (mutation を登録したのに
        probe に乗っていなかった) と同じ「登録した ≠ 実行される」class の Check 層面。(BLOCKING)
 
-  45. This check file's self-documentation matches its implementation: the numbered
-      entries in THIS module docstring (the "N. ..." inventory above) and the numbered
-      "# ── N." section-header comments in the code body describe the same set of checks,
-      are contiguous 1..N with no gaps or duplicates on each side, and agree with each
-      other. The inventory and the section headers are two hand-maintained descriptions of
-      the same checks; until now nothing stopped them from silently drifting apart (a new
-      check added in the body but forgotten in the inventory, or renumbered on one side
-      only), which would make this file's own documentation lie about what it enforces.
-      This is a self-referential meta-check: it is true precisely because anyone adding a
-      check updates BOTH descriptions together — exactly the discipline it exists to keep.
-      It asserts structural agreement of the documentation, not the behaviour of any
-      individual check. (BLOCKING)
+  45. This check file's self-documentation matches its implementation: the numbered "N. ..."
+      inventory entries in the module docstrings and the "# ── N." section headers in the code
+      describe the same set of checks, contiguous 1..N with no gaps or duplicates on either side.
+      They are two hand-maintained descriptions of the same checks; nothing else stops them
+      drifting apart (a check added in the body but not the inventory, or renumbered on one side),
+      which would make the documentation lie about what it enforces. It is self-referential: true
+      because anyone adding a check updates BOTH — the discipline it exists to keep. It asserts
+      structural agreement of the documentation, not the behaviour of any check. (BLOCKING)
   70. total-check-runbook.md §9 check-count cross-reference: docs/architecture/total-check-
       runbook.md §9 の「consistency Check 総数」行に記述された Check 件数 (`**N**`) が
       check_repository_consistency.py の実装上の Check 番号最大値と一致することを機械強制する。
@@ -150,6 +146,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_license_dossier.py",  # split: ACD-1.0 ドシエの自己整合 (458-461b)
     ROOT / ".github" / "scripts" / "checks_license_submission.py",  # split: 審査者が受け取る面 (463/472/477)
     ROOT / ".github" / "scripts" / "checks_license_provenance.py",  # split 2026-11-08: 来歴の開示 (473)
+    ROOT / ".github" / "scripts" / "checks_license_stated_counts.py",  # 2026-11-08: 自己申告の文の 2 つ目の数 (498)
     ROOT / ".github" / "scripts" / "checks_license_draft.py",  # split: 次版の草案 (468)
     ROOT / ".github" / "scripts" / "checks_license_self_reporting.py",  # split: 自己申告件数 (460)
     ROOT / ".github" / "scripts" / "checks_license_register_structure.py",  # split: register の構造 (469/474/475)
@@ -371,7 +368,7 @@ import checks_governance_sync as _checks_governance_sync
 _checks_governance_sync.run(_ctx)
 
 # ── ライセンス面の Check 群 (458-461b ドシエ / 463・472 提出物 / 473 来歴 / 468 草案 / 460 自己申告 / 469・474・475 register /
-#    470 引用 / 471 参照) → checks_license_*.py。番号の直後に "." を置かない (Check 45b が二重計上で RED になる) ──
+#    470 引用 / 471 参照 / 498 2 つ目の数) → checks_license_*.py。番号の直後に "." を置かない (Check 45b が二重計上で RED になる) ──
 import checks_license_dossier as _checks_license_dossier
 import checks_license_submission as _checks_license_submission
 import checks_license_provenance as _checks_license_provenance
@@ -380,6 +377,7 @@ import checks_license_self_reporting as _checks_license_self_reporting
 import checks_license_register_structure as _checks_license_register_structure
 import checks_license_quotation as _checks_license_quotation
 import checks_license_references as _checks_license_references
+import checks_license_stated_counts as _checks_license_stated_counts
 _checks_license_dossier.run(_ctx)
 _checks_license_submission.run(_ctx)
 _checks_license_provenance.run(_ctx)
@@ -388,6 +386,7 @@ _checks_license_self_reporting.run(_ctx)
 _checks_license_register_structure.run(_ctx)
 _checks_license_quotation.run(_ctx)
 _checks_license_references.run(_ctx)
+_checks_license_stated_counts.run(_ctx)
 
 # ── 31-41 (minus 37). repository hygiene / doc-dating / artifact / lock-sync → checks_repo_hygiene.py ──
 # (check.py split track. Claude2Claude↔AI2AI(31)/JSON-LD valid(32)/Zenn slug(33)/doc dating(34)/
