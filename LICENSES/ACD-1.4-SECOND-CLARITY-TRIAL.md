@@ -319,4 +319,6 @@ T6 は反例なし（出力が Work に取り込まれれば §9 が自分の条
 
 **時点の語が無くても取り込み手の場面は閉じている**: 主語が Dedicator なので、タグを残しただけの取り込み手は通知を置いていない。元の Dedicator の通知が取り込み手の改変分を伴っていても、§2.7 *"This Dedication reaches only rights the Dedicator holds"* により、Dedicator の持たない権利には届かない。他人が同じ repository に入れた寄与は §2.6 の Contribution の規則が扱うので、二重にもならない。
 
+**2 文の順序（bb）**: §16.2 の第 1 文は *"a work to which a Dedicator has applied this Dedication"* を前提にし、第 2 文がその「適用した素材」を決める。逆の順に読んでも（第 2 文が先に範囲を決め、第 1 文がその範囲に通知の効力を与える）結果は同じである。第 2 文の主語は Dedicator が置いた通知で、第 1 文が効力を与えるのも Dedicator が適用した著作物なので、どちらから読んでも範囲は Dedicator の置いた通知で決まる。Chestek 氏の *"Why did you add them?"*（#299）の形の問いには、この 1 行で答える。
+
 **逆側**: root の通知は、Dedicator が後で隣に置いた、公開するつもりのないファイルにも及ぶ。root の LICENSE が repository 全体を覆う慣行どおりで、除外したいものは §2.6 の識別の形で標示する。ただし §3 は取り消せないので、置き間違えの費用は他のライセンスより重い。README だけに通知を置いた Dedicator は、その README が伴う素材の範囲が争点になる。*identifies* で *this project* を名指していれば足り、§16.1 の雛形は *"This work"* と書くので、雛形どおりの通知は概ね足りる。
