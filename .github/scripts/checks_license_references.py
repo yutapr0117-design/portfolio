@@ -448,6 +448,11 @@ def run(ctx):
                         continue                                  # placeholder / wildcard
                     if re.fullmatch(r"\d{3,}", _sid471):
                         continue                                  # 外国法の条番号
+                    # 2 桁以下の外国法の条は、隣に法令名があるときだけ (UrhG §42 / § 31a UrhG・2026-11-08 aa の依頼)。
+                    #   無条件に免除すると、どこにも無い `\u00a727` のような実欠陥を素通しする。
+                    if (re.search(r"(?:UrhG|BGB|UWG|CPI|LPI|CDPA|LDA|U\.S\.C\.|USC|\u8457\u4f5c\u6a29\u6cd5)\s*$", _l471[max(0, _m471.start() - 16):_m471.start()])
+                            or re.match(r"\s*(?:Abs\.\s*\d+\s*)?(?:UrhG|BGB|UWG|CPI|LPI|CDPA|LDA)\b", _l471[_m471.end():])):
+                        continue
                     # 想定問答の Q 記法（`\u00a731` = Q31）。**行が想定問答を名指ししているときだけ**認める ——
                     # **無条件に認めると、Q27 が在るせいで実欠陥の `\u00a727` が黙って解決してしまう**
                     # （初版で実際にそうなり、動機となった欠陥を gate が素通しした）。
