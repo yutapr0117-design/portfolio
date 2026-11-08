@@ -543,6 +543,12 @@ _MUTATIONS_TAIL.append({
     "find": '\n## In one screen\n',
     "replace": '\n## In one screen\n\nThe version ACD-1.2 is the text\nthis repository applies.\n',
 })
+_MUTATIONS_TAIL.append({
+    "name": 'Check 444m: 版を書かずに「このリポジトリが適用している」と述べる文を足す —— 版の無い主張は黙って通っていた (finding #169)',
+    "file": ROOT / 'LICENSES' / 'REVIEWERS.md',
+    "find": '\n## In one screen\n',
+    "replace": '\n## In one screen\n\nThis is the licence this repository applies.\n',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
