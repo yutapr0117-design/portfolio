@@ -3,7 +3,7 @@
 rotate_mutation_samples.py が受け皿の余裕を実測して選び、埋まったら次を起こす。
 **新しい mutation は mutation_samples.py の tail へ足すこと** (ここは退避先)。
 """
-from mutation_samples_common import ROOT, CHECK, APPLIED_ID, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK, APPLIED_ID, APPLIED_DATE, SUBMISSION_TARGET, FROZEN_PREVIOUS  # noqa: F401 (entry 内で参照・rotate が entry を移しても名前が解決するよう全部を import する)
 
 MUTATIONS_ARCHIVE4 = [
     {
