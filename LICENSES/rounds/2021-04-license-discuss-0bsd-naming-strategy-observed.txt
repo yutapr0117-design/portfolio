@@ -1,0 +1,194 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2021-April.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-08)
+Messages: 1 message from the thread on the name of the Zero-Clause BSD licence (2021-04).
+Senders: Rob Landley
+Position: the author of 0BSD explains why he gave a public-domain-equivalent licence a BSD-family name. Not addressed to us and not about ACD. The message is whole unless it ends in quoted text, in which case it is cut where the quotation begins.
+
+----- begin verbatim -----
+From rob at landley.net  Tue Apr  6 06:48:36 2021
+From: rob at landley.net (Rob Landley)
+Date: Tue, 6 Apr 2021 01:48:36 -0500
+Subject: [License-discuss] [License-review] Please rename "Free Public
+ License-1.0.0" to 0BSD... again.
+In-Reply-To: <CAGT84B00vZZ4XaKmJpjjNetxsvYnMpv=-30B5FPCcTTjWqv_bQ@mail.gmail.com>
+References: <99849bb5-7152-5787-acf0-d9f735a1966c@landley.net>
+ <20181114094554.GA10580@bluenote>
+ <991f45c8-d0d6-1eb5-1580-c87d066dff4f@landley.net>
+ <CAGT84B00vZZ4XaKmJpjjNetxsvYnMpv=-30B5FPCcTTjWqv_bQ@mail.gmail.com>
+Message-ID: <c5f4101b-9989-bd5b-1497-b1a7553d63d5@landley.net>
+
+On 4/5/21 9:54 AM, Richard Fontana wrote:
+> On Mon, Apr 5, 2021 at 9:22 AM Rob Landley <rob at landley.net> wrote:
+>> Could someone please point me to where in the archives this issue was raised
+>> again and voted on again to change the name back without notifying me the issue
+>> was once again in dispute?
+> 
+> So, to be clear, what happened is that the heading "Zero-Clause BSD"
+> apparently got changed to "Zero-Clause BSD / Free Public License
+> 1.0.0". It's not clear when this happened. I left the OSI board at the
+> end of March 2019 (and also ceased having access to edit the OSI
+> website). I don't *think* I would have made this change without
+> remembering it, nor can I think of why I would have wanted to make
+> such a change. I had come to be firmly in support of having
+> "Zero-Clause BSD" be the single name for the license in question.
+
+Thank you. As I've mentioned, the name was chosen strategically.
+
+People have actually grumbled about the success 0BSD has had where their
+preferred public domain equivalent license doesn't get approval from the same
+corporate legal departments:
+
+https://github.com/github/choosealicense.com/issues/805
+
+In fact, there's evidence that success of 0BSD has just recently started to act
+as a precedent/gateway for use of CC0 and The Unlicense within Android:
+
+https://android.googlesource.com/platform/external/toybox/+/5d35ee244cee3
+
+>> If there wasn't a second vote changing the name again, and "0BSD" is still the
+>> acknowledged name for it, could OSI please remove all mention of the no longer
+>> relevant name from the 0BSD page? It does not need a "historical" mention
+>> because it was not what the license was called when it was created and is not
+>> what the license is called now. It does nothing but cause market confusion (Free
+>> as in Free Software Foundation, on the GPL side of GPL-vs-BSD axis, it must be
+>> REALLY viral), and apparently if we don't remove all of this tumor it metastasizes.
+> 
+> I would agree that there is no longer any need for a "historical"
+> mention (in the form of that "Note") because as you say it "is not
+> what the license is called now." Back when the name was changed, it
+> was in my view appropriate to have the note explaining the earlier
+> (from the OSI website perspective) name.
+> 
+> I'd still weakly support the OSI retaining the first sentence in the
+> note that says "Despite its name, Zero-Clause BSD is an alteration of
+> the ISC license, and is not textually derived from licenses in the BSD
+> family". I guess I'm seeing it as equivalent to calling MIT No
+> Attribution (https://opensource.org/licenses/MIT-0) "BSD No
+> Attribution" -- surely a lot of people would be annoyed by that.
+
+Not that I've noticed? I haven't found any software developers annoyed by the
+provenance of 0BSD, and the only person approving or disapproving the use of
+software in corporations that brought it up was you. (And that wasn't even in
+the context of approving the use of software licensed under it within your
+organization, it seemed like an aesthetic complaint?)
+
+20+ years ago the dominant context was the "free software vs open source"
+debates, and these days too many of the younguns seem to have thrown software
+copyrights in the same bucket as software patents, both "Too Dumb To Live" to be
+opted out of until the Boomers die:
+
+https://speakerdeck.com/benbalter/open-source-licensing-by-the-numbers?slide=41
+
+
+Which is a real pain for the rest of us trying to use their code in the
+meantime. I've been trying to promote public domain equivalent licensing as a
+palatable alternative to "not licensing one's code at all because only
+capitalist old fogeys care about that". (Here's a 13 year old Ted talk about why
+so many people under 30 hate the concept of copyright:
+https://www.youtube.com/watch?v=7Q25-S7jzgs )
+
+Outside the legal profession, "GPL vs BSD" seems to be the common axis of "The
+Free Software Foundation's viral stuff vs everybody else".
+
+https://timreview.ca/article/67
+https://fosswire.com/post/2007/04/the-differences-between-the-gpl-lgpl-and-the-bsd/
+https://www.quora.com/What-are-the-consumer-differences-between-GPL-and-BSD-licences
+https://news.ycombinator.com/item?id=5187235
+https://www.reddit.com/r/linuxquestions/comments/biy57v/why_would_any_software_use_a_bsd_license_over_a/
+https://opensource.stackexchange.com/questions/6353/difference-between-gnu-gpl-and-bsd
+
+The differences within the two groups (among multiple "GPL-like" licenses, and
+among multiple "BSD-like" licenses) tend to get lost in the noise, especially
+for software authors who don't want to be lawyers. You yourself said in your
+2015 message to the SPDX list that you thought it was an MIT license, and only
+later corrected that to ISC.
+
+That grouping was the effect I was trying to take advantage of. In terms of
+decision making, "4 clause, 3 clause, 2 clause, zero clause BSD" tends to get
+rubber stamped. Despite other public domain equivalent licenses such as CC0 or
+MIT-0 having significant pushback from the same departments (when proposed
+independently).
+
+Functionally, the minimally modified version is a public domain _equivalent_
+license which is technically a different category from the entire cloud of
+public domain _adjacent_ licenses, and that's why I snuggled it up to a herd of
+zebras and painted stripes on it so people professionally looking gift horses in
+the mouth would go "zebra, I know what that's like, ok then" and hopefully
+rubber stamp it.
+
+Unfortunately, during Richard Stallman's much-publicized return to the Free
+Software Foundation, OSI has essentially renamed 0BSD back to "Free Public
+License 1.0.0" on its website. Not just severing the "4/3/2/0 clause BSD"
+grouping, but placing the license on the GPL side of GPL-vs-BSD, I.E. on the
+Free Software side not the Open Source side. This is a direct attack on an
+otherwise successful marketing strategy.
+
+The name "Free Public License 1.0.0" managed to have THREE marketing problems:
+
+1) The word Free: Richard Stallman's biography was "Free as in Freedom", kinda
+strong association there.
+
+2) The word Public: the first big viral GPL-alternative attempt was the Open
+Public License https://spdx.org/licenses/OPL-1.0.html which was prominent enough
+Linus Torvalds released software (https://lwn.net/Articles/205624/) under it.
+That word means nothing to your average 20-something but has exactly the wrong
+associations to people deep enough into the license world to know more than a
+couple prominent names (I.E. potential license approval decision makers).
+
+3) 1.0.0 says brand new and untested.
+
+> I'll grant you that more people today would be bothered by using the
+> "BSD" label for a license textually derived from the MIT license than
+> by using the "BSD" label for a license textually derived from the ISC
+> license, and that there's a slightly greater historical justification
+> for the latter.
+
+https://www.isc.org/about/ says "ISC was founded in 1994 as Internet Software
+Consortium, Inc., to continue the work of maintaining and enhancing BIND
+following in the footsteps of CSRG at U.C. Berkeley..." And BIND stands for
+Berkeley Internet Name Daemon.
+
+The history's actually fascinating: in 1969 DARPA deployed the original BBN IMPs
+based on a Honeywell minicomputer hardened for submarine use (the main appeal of
+which to them was the bomb-proof sealed metal enclosure, keeping students out of
+the hardware), but 10 years later that hardware was declared obsolete and DARPA
+targeted VAX hardware for the replacement systems. They wanted to use Berkeley's
+Unix port to run the thing. Darpa's network stack pegged the CPU keeping up with
+a 64 kilobit network connection and Bill Joy wrote a replacement that used 2% of
+the CPU to do the same, and that's how Berkeley Unix became the backbone of the
+internet. This article covers it in detail:
+
+  https://www.salon.com/2000/05/16/chapter_2_part_one/
+
+ISC only happened because Berkeley shut down the CSRG (and the BSDi partnership
+with Novell disappeared into a cloud of litigation with AT&T especially after
+they screwed over Bill Jolitz...)
+
+In terms of political lineage, The ISC license is somewhere between a nephew and
+the cadet branch of the BSD lineage. It was explicitly a reaction to it, and
+intended as a replacement for it.
+
+Then OpenBSD circled around and adopted ISC for _its_ packages (as their
+suggested template license), and I adopted it from there while explicitly
+looking for "a BSD license". I also asked Kirk McKusick's permission (the
+second-ish maintainer of BSD back at Berkeley, and the most senior active BSD
+developer in that community) and he approved the name.
+
+That's why I called it Zero Clause BSD.
+
+> And, ultimately, most people probably don't care and
+> just want a convenient way to refer to the license.
+
+Indeed. I generally don't have to explain to people what a BSD license is. I
+would have to explain what ISC or MIT is to most people who don't already have
+fairly broad knowledge of license alternatives.
+
+It's one of those "the market has two dominant players and the rest are lost in
+the noise" things. Coke, pepsi, everybody else. Android, iPhone, everybody else.
+As I said at the start: there was explicit marketing strategy in my attempt to
+make a public domain equivalent license palatable to a broader population, and
+that strategy was working.
+
+Rob
+
+
