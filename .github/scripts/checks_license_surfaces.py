@@ -1,33 +1,14 @@
 """
-checks_license_surfaces.py — ライセンスの機械可読面と凍結の Check 群 (444 / 445 / 451 / 452 / 453)
+checks_license_surfaces.py — ライセンスの提出物と凍結の Check 群 (445 / 451 / 452 / 453 / 490)
 (2026-10-26 に checks_aio_config.py から切り出した — 980 行で Check 52 の advisory 950 を超え、
 1,000 行の BLOCKING (Check 365) まで 20 行だった。OSI の作業で最も触る検査なので、止まる前に分けた)。
 
-444 ライセンス宣言の cross-surface coherence / 445 SPDX 提出用 XML の同期 / 451 機械可読記述子と条文 /
+(444 ライセンス宣言の cross-surface coherence は 2026-11-08 に checks_license_declaration.py へ分けた —
+938 行で Check 52 の advisory 900 を超えた。) 445 SPDX 提出用 XML の同期 / 451 機械可読記述子と条文 /
 452 提出準備マーカー / 453 凍結中の提出物。いずれも自前で対象 file を読み、checks_aio_config.py の
 他の Check (62-69) と変数を共有しない。
 
 Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()):
-  444. **ライセンス宣言の cross-surface coherence** (BLOCKING): 独自ライセンス ACD-1.0 が
-       **機械可読な全面から一貫して発見できる**こと。444a `<link rel="license">` が index.html に
-       あり実 file へ解決する / 444b JSON-LD の `license` が同一 URL を指す / 444c aio-manifest の
-       top-level `license` の spdx_id と url が整合する / 444d sitemap に全文の `<loc>` がある /
-       444e llms.txt と llms-full.txt が SPDX 識別子に言及する。
-       **444k (2026-11-06)** 人が読む 2 面 (README の案内と画面のフッター) が、適用する版の全文を指す。
-       **444n (2026-11-08)** REUSE.toml の全 file への宣言 (`path = "**"`) が適用する版であること。
-       どの Check も読まず、LICENSE が 1.3 へ進んだあとも 1.0 のままだった。
-       **444l / 444m (2026-11-07)** 適用する版の隣の日付がその版を確定した日である / 外向きの文書の
-       「適用している版」の主張が実際の版である。確定の道具は版を置換するので、どちらも無音で偽になっていた。
-       適用する版を上げる日に面を 1 つずつ戻す予行で、この 2 面だけ戻しても無音だった。
-       **444h (2026-09-24)** sitemap の `<image:license>` がすべて canonical を指す —— 存在の検査は、
-       矛盾する宣言の共存を検出しない（CC BY-NC-ND 4.0 が同じ画像について残っていた）。
-       動機 (2026-08-23 実測): LICENSE を ACD-1.0 へ移行した時点で、**7 面すべてに宣言がゼロ**
-       だった —— 「この著作物を学習に使ってよいか」に機械可読な答えが存在しなかった。
-       単なる登録漏れではなく、**ACD-1.0 §6.5 自身が「自動化システムが判定できない許諾は、
-       学習されるための著作物にとっては許諾ではない」と述べている**ので、本文が発見できない状態は
-       ライセンスが自分の主張を満たしていないことを意味する。canonical URL は LICENSE の
-       `Full text:` 行から**導出**する (決め打ちすると path を変えたとき Check だけが古い場所を
-       指す)。
   445. **SPDX 提出用 XML がライセンス本文と同期していること** (BLOCKING): SPDX License List への
        収録が受理されると提出者は **XML とテストテキストの作成**を求められる。その XML を手書きすると
        **本文を改善するたび silent に古くなる** —— しかも XML は普段誰も読まないので drift に
@@ -94,245 +75,6 @@ def run(ctx):
     read = ctx.read
     extract = ctx.extract
     warnings = ctx.warnings
-
-    # ── 444. ライセンス宣言の cross-surface coherence (BLOCKING) ────────────────────
-    # 2026-08-23 実測: ACD-1.0 へ移行した時点で、機械可読な 7 面すべてに宣言がゼロだった。
-    # ACD-1.0 §6.5 自身が「自動化システムが判定できない許諾は許諾ではない」と述べているので、
-    # 本文が発見できない状態は**ライセンスが自分の主張を満たしていない**ことを意味する。
-    # canonical URL は LICENSE の `Full text:` 行から導出する (決め打ちは path 変更時に
-    # Check だけが古い場所を指す — Check 124/411/434b と同じ scope-drift)。
-    import json as _json444
-    _lic_decl444 = ROOT / "LICENSE"
-    if not _lic_decl444.exists():
-        check(False, "", "Check 444: root LICENSE が無い", blocking=True)
-    else:
-        _ld444 = _lic_decl444.read_text(encoding="utf-8")
-        _m_path444 = re.search(r"^Full text:\s*(\S+)$", _ld444, re.M)
-        _m_spdx444 = re.search(r"SPDX-License-Identifier:\s*(\S+)", _ld444)
-        if not (_m_path444 and _m_spdx444):
-            check(False, "", "Check 444: LICENSE から `Full text:` / SPDX 識別子を導出できない "
-                             "(この 2 行は全 Check の単一ソースなので形式を保つこと)", blocking=True)
-        else:
-            _rel444 = _m_path444.group(1)
-            _spdx444 = _m_spdx444.group(1)
-            _full444 = ROOT / _rel444
-            _url444 = f"https://yutapr0117-design.github.io/portfolio/{_rel444}"
-            _bad444 = []
-
-            if not _full444.exists():
-                _bad444.append(f"LICENSE が指す全文 {_rel444} が存在しない")
-
-            # 444a — HTML 標準の license リンク
-            _html444 = (ROOT / "index.html").read_text(encoding="utf-8")
-            _m_link444 = re.search(r'<link\s+rel="license"\s+href="([^"]+)"', _html444)
-            if not _m_link444:
-                _bad444.append("index.html に rel=license の link が無い")
-            elif not (ROOT / _m_link444.group(1).lstrip("/").replace("portfolio/", "", 1)).exists():
-                _bad444.append(f"rel=license の href {_m_link444.group(1)} が実 file へ解決しない")
-
-            # 444b — JSON-LD: **CreativeWork 系ノードはすべて** license を持ち、値が canonical と一致すること。
-            #   旧版は「存在する license 値が canonical と一致するか」しか見ておらず、
-            #   **license を持たない CreativeWork ノードを素通し**していた。実測 (2026-08-23):
-            #   ImageObject / AudioObject (バイナリ資産・XMP と ID3 は ACD-1.0 と言っている) /
-            #   TechArticle / FAQPage の 6 ノードが無宣言で、**同じ資産について面ごとに答えが違う**
-            #   状態だった。schema.org で `license` は CreativeWork に定義されるので、その族を対象にする
-            #   (Person / Organization / BreadcrumbList は CreativeWork ではないので対象外)。
-            _CW444 = {"CreativeWork", "WebSite", "WebPage", "ImageObject", "AudioObject",
-                      "VideoObject", "TechArticle", "Article", "FAQPage", "MediaObject",
-                      "Dataset", "SoftwareApplication"}
-            _ld_urls444 = set()
-            _no_lic444 = []
-            for _blk444 in re.findall(
-                    r'<script type="application/ld\+json">(.*?)</script>', _html444, re.S):
-                try:
-                    _doc444 = _json444.loads(_blk444)
-                except Exception:
-                    continue
-                for _n444 in (_doc444.get("@graph") or [_doc444]):
-                    if not isinstance(_n444, dict) or _n444.get("@type") not in _CW444:
-                        continue
-                    if "license" in _n444:
-                        _ld_urls444.add(_n444["license"])
-                    else:
-                        _no_lic444.append(f"{_n444.get('@type')} {_n444.get('@id', '(no @id)')}")
-            if not _ld_urls444:
-                _bad444.append("JSON-LD にどの CreativeWork ノードも license を持たない")
-            if _no_lic444:
-                _bad444.append(f"license を持たない CreativeWork ノード: {_no_lic444}")
-            if _ld_urls444 and _ld_urls444 != {_url444}:
-                _bad444.append(f"JSON-LD の license が canonical と不一致: {sorted(_ld_urls444)} != {_url444}")
-
-            # 444f — **runtime で注入される JSON-LD** にも license が載ること。
-            #   静的側だけ配線すると、route 追従ノード (#webpage-dynamic) は別 @id なので
-            #   **そのノードだけ許諾不明**になる (レンダリングするクローラが読むのはこちら)。
-            #   実装は shipped JS にあるので、**直接リテラル**か **SITE_CONFIG.LICENSE_URL 経由**の
-            #   どちらかで参照していることを見る (間接参照の方が単一ソースとして優れているので、
-            #   リテラルだけを要求すると**正しい実装を誤検出する** —— 初版で実際に踏んだ)。
-            #   間接参照を許す代わり、SITE_CONFIG.LICENSE_URL の定義値が canonical と一致することを
-            #   別途確かめる (そうしないと「どこかを指してはいるが別物」を素通しする)。
-            _mainjs444 = (ROOT / "main.js").read_text(encoding="utf-8")
-            _m_lu444 = re.search(r"LICENSE_URL:\s*'([^']+)'", _mainjs444)
-            if not _m_lu444:
-                _bad444.append("main.js の SITE_CONFIG に LICENSE_URL が無い")
-            elif _m_lu444.group(1) != _url444:
-                _bad444.append(f"SITE_CONFIG.LICENSE_URL {_m_lu444.group(1)!r} != canonical {_url444!r}")
-            for _f444, _label444 in ((ROOT / "main.js", "route 追従ノード (#webpage-dynamic)"),
-                                     (ROOT / "js" / "meta-management.js", "speakable ノード")):
-                _src444 = _f444.read_text(encoding="utf-8")
-                if _rel444 not in _src444 and "SITE_CONFIG.LICENSE_URL" not in _src444:
-                    _bad444.append(f"{_f444.name} の {_label444} が license を宣言していない "
-                                   f"({_rel444} のリテラルも SITE_CONFIG.LICENSE_URL 参照も無い)")
-
-            # 444c — aio-manifest の license 宣言
-            _mf444 = ROOT / ".well-known" / "aio-manifest.json"
-            try:
-                _mj444 = _json444.loads(_mf444.read_text(encoding="utf-8"))
-            except Exception:
-                _mj444 = {}
-            _lo444 = _mj444.get("license")
-            if not isinstance(_lo444, dict):
-                _bad444.append("aio-manifest.json に top-level license オブジェクトが無い")
-            else:
-                if _lo444.get("spdx_id") != _spdx444:
-                    _bad444.append(f"manifest の spdx_id {_lo444.get('spdx_id')!r} != LICENSE の {_spdx444!r}")
-                if _lo444.get("url") != _url444:
-                    _bad444.append(f"manifest の license.url が canonical と不一致: {_lo444.get('url')!r}")
-
-            # 444d — sitemap から全文へ到達できること
-            _sm444 = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
-            # 照合は <loc> の値の完全一致で行う (コメントは除く)。2026-11-02 まで sitemap 全文の
-            # 部分文字列で見ており、全文の <url> を丸ごと消しても、画像の
-            # `<image:license>` (444h が同じ URL であることを要求する) と説明コメントが同じ URL を
-            # 持つので緑のままだった (Check 132 と同じ class)。
-            _locs444 = set(re.findall(
-                r"<loc>\s*([^<\s]+)\s*</loc>", re.sub(r"<!--.*?-->", "", _sm444, flags=re.S)))
-            if _url444 not in _locs444:
-                _bad444.append(f"sitemap.xml に {_rel444} の <loc> が無い (crawler が到達できない)")
-
-            # 444h — sitemap の画像ライセンス宣言が canonical と食い違わないこと。
-            # 444d は「在ること」しか見ておらず、同じ画像について XMP と JSON-LD が ACD-1.0 を
-            # 述べる横で `<image:license>` が CC BY-NC-ND 4.0 を宣言し続けていた (2026-09-24 発見)。
-            # **存在の検査は、矛盾する宣言の共存を検出しない。**
-            # 値の取り方は `[^<\s]+` ではなく `(.*?)` + re.S + strip にしてある。
-            # **差は実測した** (2026-09-24): 折り返した URL は前者でも拾える (周囲の `\s*` が吸う) が、
-            # **空白を含む値 `CC BY-NC-ND 4.0` と空要素は一致 0 件になり、黙って通る** ——
-            # 人間が手で書けばライセンス*名*を書く方が自然なので、これは現実に起こる形である。
-            # **一致が 0 件であることは「違反が無い」と区別がつかない。**
-            for _il444 in re.findall(r"<image:license>\s*(.*?)\s*</image:license>", _sm444, re.S):
-                if _il444.strip() != _url444:
-                    _bad444.append(f"sitemap.xml の <image:license> が canonical と異なるライセンスを宣言: {_il444.strip()}")
-
-            # 444k — 人が読む面が適用する版を指すこと。README と画面のフッターは機械可読面ではないので
-            #   444a〜444h の外にあり、適用する版を上げる日に戻しても無音だった (2026-11-06 の予行)。
-            _rd444k = (ROOT / "README.md").read_text(encoding="utf-8")
-            if f"]({_rel444})" not in _rd444k:
-                _bad444.append(f"444k: README.md が適用する版の全文 {_rel444} へリンクしていない")
-            _stale444k = sorted({_v for _v in re.findall(r"LICENSES/(ACD-\d+\.\d+)\.txt", _rd444k)} - {_spdx444, "ACD-1.0"})
-            if _stale444k:
-                _bad444.append(f"444k: README.md が適用していない版の本文を案内している: {_stale444k}")
-            # コメントを除いてから見る。フッターをリンクごとコメントにすると画面から消えるのに、
-            #   素の `in` ではコメントの中の URL で通っていた (2026-11-08 の監査で実測)。
-            from _lib_io import strip_js_comments as _strip444k
-            _cp444k = _strip444k((ROOT / "js" / "components.js").read_text(encoding="utf-8"))
-            if f"/portfolio/{_rel444}" not in _cp444k or f"License: {_spdx444}" not in _cp444k:
-                _bad444.append(f"444k: 画面のフッター (js/components.js) が適用する版 {_spdx444} を指していない")
-
-            # 444n — REUSE.toml の全 file への宣言が、適用する版であること。REUSE を読む道具はここだけを見る。
-            #   どの Check も読んでいなかったので、LICENSE が 1.3 へ進んだあとも 1.0 のままだった
-            #   (2026-09-23〜2026-11-08。2026-11-08 の監査で発見)。
-            _ru444n = re.search(r'path = "\*\*"[^\[]*?SPDX-License-Identifier = "([^"]+)"',
-                                (ROOT / "REUSE.toml").read_text(encoding="utf-8"), re.S)
-            if not _ru444n or _ru444n.group(1) != f"LicenseRef-{_spdx444}":
-                _bad444.append(f"444n: REUSE.toml の path = \"**\" が {_ru444n.group(1) if _ru444n else '読めない'} "
-                               f"と宣言し、適用する版 LicenseRef-{_spdx444} と食い違う")
-
-            # 444l — 適用する版の隣の日付が、その版を確定した日であること。版を置換しても日付は残るので、
-            #   "ACD-1.4 (ACD-1.0 until 2026-10-25)" のように公開面が偽を述べても無音だった (2026-11-07 の予行)。
-            _ptr444l = re.search(r"frozen on (\d{4}-\d{2}-\d{2})", " ".join((ROOT / "LICENSES" / f"{_spdx444}-DRAFT.txt").read_text(encoding="utf-8").split()))
-            if not _ptr444l:
-                _bad444.append(f"444l: {_spdx444} を確定した日が草案の pointer から読めない")
-            else:
-                for _f444l in ("README.md", "llms.txt", "llms_well-known.txt", ".well-known/llms.txt", ".well-known/llms_well-known.txt", "robots.txt", "sitemap.xml"):
-                    for _l444l in (ROOT / _f444l).read_text(encoding="utf-8").splitlines():
-                        if _spdx444 in _l444l:
-                            _bad444 += [f"444l: {_f444l} が {_spdx444} の隣で {_d or _e} と述べる / 確定は {_ptr444l.group(1)}"
-                                        for _d, _e in re.findall(r"(?:until|since) (\d{4}-\d{2}-\d{2})|(\d{4}-\d{2}-\d{2}) ?(?:まで|から)", _l444l)
-                                        if (_d or _e) != _ptr444l.group(1)]
-
-            # 444e — llms 層が識別子に言及すること
-            for _lf444 in ("llms.txt", "llms-full.txt"):
-                if _spdx444 not in (ROOT / _lf444).read_text(encoding="utf-8"):
-                    _bad444.append(f"{_lf444} が {_spdx444} に言及していない")
-
-            # 444g — **機械可読記述子**が discovery 面から到達できること。
-            # 記述子 (`LICENSES/ACD-1.0.machine.json`) は「SPDX 識別子だけでは機械学習可否も
-            # 特許許諾も判定できない」という穴を埋めるために置いた面で、**置いただけで
-            # sitemap / robots / manifest から辿れなければ §6.5 が空になる** (本文について
-            # 2026-08-23 に起きたのと同じ class)。存在するときだけ 3 面を検証する。
-            # 2026-10-25: 記述子の path も LICENSE の `Full text:` から導出する (1.0 決め打ちだったため、
-            # 適用する版を 1.3 へ切り替えた日に、manifest が正しく 1.3 の記述子を指しているのを誤検出した)。
-            _mrel444 = _rel444[:-len(".txt")] + ".machine.json" if _rel444.endswith(".txt") else _rel444
-            _md444 = ROOT / _mrel444
-            if _md444.exists():
-                _murl444 = _url444.replace(_rel444, _mrel444)
-                if _murl444 not in _locs444:
-                    _bad444.append(f"sitemap.xml に {_mrel444} の <loc> が無い (記述子へ到達できない)")
-                # robots は Allow rule の値で見る (コメント中の path 言及では満たされない)
-                from _lib_io import parse_robots_groups as _groups444
-                _allow444 = {
-                    _v.lstrip("/") for _ag, _rules in _groups444(
-                        (ROOT / "robots.txt").read_text(encoding="utf-8"))
-                    for _k, _v in _rules if _k == "allow"
-                }
-                if not ({_mrel444, "portfolio/" + _mrel444} & _allow444):
-                    _bad444.append(f"robots.txt が {_mrel444} を Allow していない")
-                try:
-                    _mlic444 = _json444.loads(
-                        (ROOT / ".well-known" / "aio-manifest.json").read_text(encoding="utf-8")
-                    ).get("license", {})
-                except ValueError:
-                    _mlic444 = {}
-                if _mlic444.get("machine_readable") != _murl444:
-                    _bad444.append(
-                        "aio-manifest の license.machine_readable が記述子を指していない "
-                        f"({_mlic444.get('machine_readable')!r})")
-
-            check(
-                not _bad444,
-                f"Check 444 (444a rel=license / 444b JSON-LD / 444c manifest / 444d sitemap / "
-                f"444e llms / 444f runtime JSON-LD / 444g 記述子の到達性 / 444h 画像ライセンスの矛盾): "
-                f"ライセンス宣言が全機械可読面で整合 ({_spdx444} / {_rel444})",
-                (f"Check 444: ライセンス宣言の cross-surface drift: {_bad444}。"
-                 "**ACD-1.0 §6.5 は「自動化システムが判定できない許諾は許諾ではない」と述べている** —— "
-                 "どこか 1 面でも欠けると、その経路の agent は「学習してよいか」を判定できない。"
-                 "canonical は LICENSE の `Full text:` 行と `SPDX-License-Identifier:` 行が単一ソース"),
-                blocking=True,
-            )
-
-    # 444m — 外向きの文書の「適用している版」の主張が、実際に適用している版であること。確定の道具が書き換えるのは
-    #   機械可読面だけなので、REVIEWERS.md の "ACD-1.3 is the one this repository applies" は版を上げても残る。
-    _lic444m = re.search(r"^SPDX-License-Identifier:\s*(\S+)", (ROOT / "LICENSE").read_text(encoding="utf-8"), re.M)
-    if _lic444m:
-        from measure_citation_drift import FACES as _faces444m
-        _say444m = re.compile(r"this repository applies|applied to this repository|適用している|適用中")
-        _stale444m = []
-        for _f444m in [ROOT / "LICENSES" / _n for _n in _faces444m if "against" not in _n and "discussion-log" not in _n]:
-            for _n444m, _l444m in enumerate(_f444m.read_text(encoding="utf-8").splitlines(), 1):
-                for _m444m in _say444m.finditer(_l444m):
-                    # 主張に最も近い版を見る。後ろは同じ文の中だけ。file 名の中の版は数えない。
-                    _ids444m = [_i for _i in re.finditer(r"ACD-\d+\.\d+(?![.\w-]*\.md)", _l444m)]
-                    _pre444m = [_i for _i in _ids444m if 0 < _m444m.start() - _i.start() < 70]
-                    _post444m = [_i for _i in _ids444m if 0 < _i.start() - _m444m.start() < 30
-                                 and not re.search(r"\. |。", _l444m[_m444m.end():_i.start()])]
-                    _hit444m = min(_pre444m + _post444m, key=lambda _i: abs(_i.start() - _m444m.start()), default=None)
-                    if _hit444m and _hit444m.group(0) != _lic444m.group(1):
-                        _stale444m.append(f"{_f444m.name}:{_n444m}")
-        check(
-            not _stale444m,
-            f"Check 444m: 外向きの文書の「適用している版」の主張が {_lic444m.group(1)} に合う",
-            f"Check 444m: 適用していない版を「適用している」と述べる行がある: {sorted(set(_stale444m))}。文を読んで直す",
-            blocking=True,
-        )
 
     # ── 445. SPDX 提出用 XML がライセンス本文と同期していること (BLOCKING) ─────────────
     # 提出物を手書きすると本文の改善に追従せず silent に古くなる。単一ソース (ACD-1.0.txt) から
@@ -566,7 +308,9 @@ def run(ctx):
                 for _mk451, _path451, _ in _pairs451:
                     _mv451 = _lic_blk451.get(_mk451)
                     _dv451 = (_d451.get(_path451[0], {}) or {}).get(_path451[1], {}).get("value")
-                    if _mv451 is not None and _dv451 is not None and _mv451 != _dv451:
+                    # 欠けた答えも不一致として数える (2026-11-08: 鍵の改名・削除・null で答えが manifest から
+                    #   消えても OK のままだった。同じ節の spdx_listed / osi_approved と揃えた)
+                    if _mv451 is None or _dv451 is None or _mv451 != _dv451:
                         _mis451.append(f"{_mk451}: manifest={_mv451} / 記述子={_dv451}")
                 # 登録状態 (記述子では top-level の真偽値)。manifest がそれを名乗るなら一致させる
                 # (2026-09-24: manifest の license ブロックだけが未登録であることを言っていなかった)
