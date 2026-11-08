@@ -201,4 +201,54 @@ MUTATIONS_ARCHIVE6 = [
     "find": '[`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md) | **The register. Mostly Japanese; it opens with a full index in English.** Each item',
     "replace": '[`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md#b1) | **The register.** Each item',
 },
+    {
+    "name": 'Check 472k: objection-map の §10.4 を空白入りの § 8.9 にする —— 空白入りの形を読んでいなかった',
+    "file": ROOT / 'LICENSES/ACD-1.0.objection-map.md',
+    "find": '**§10.4** terminates nothing, and §4.1 is irrevocable and perpetual',
+    "replace": '**§ 8.9** terminates nothing, and §4.1 is irrevocable, perpetual',
+},
+    {
+    "name": "Check 460 (e): against.md の総括の文を言い換える —— 文の形が変わると、何も比べないまま緑だった",
+    "file": ROOT / "LICENSES" / "ACD-1.0.against.md",
+    "first_occurrence": True,  # 先頭の出現が「have produced **N adverse facts」の総括の文 (2026-11-08 に位置で確認)
+    "find": "adverse facts, ",
+    "replace": "negative findings, ",
+},
+    {
+    "name": "Check 460 (p): §B.0 の Subject 行の印を変える —— 送る文面の語数の数え直しを、黙って飛ばしていた",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": "**Subject:** For Approval:",
+    "replace": "**Subject**: For Approval:",
+},
+    {
+    "name": "Check 460 (k): 入口の errata 参照を 3 桁の E124 にする —— E(\\d{1,2}) は 3 桁を読まず、存在しない番号が通った",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "(errata E24)",
+    "replace": "(errata E124)",
+},
+    {
+    "name": "Check 460: face が名指す triage の file 名だけを変える —— 改名すると、その face は `if X.exists():` で黙って飛ばされた",
+    "file": ROOT / ".github" / "scripts" / "checks_license_self_reporting.py",
+    "find": '_L460 / "ACD-1.4-ADVERSARIAL-TRIAGE.md"',
+    "replace": '_L460 / "ACD-1.4-EXTERNAL-TRIAGE.md"',
+},
+    {
+    "name": "Check 497: JSON-LD の script タグを引用符の無い type 属性にする —— 有効な HTML だが、JSON-LD を読む Check はどれも完全一致で塊を探す",
+    "file": ROOT / "index.html",
+    "first_occurrence": True,  # 先頭の JSON-LD の塊 (2026-11-08 に確認・どちらの塊でも 497 が拾う)
+    "find": '<script type="application/ld+json">',
+    "replace": '<script type=application/ld+json>',
+},
+    {
+    "name": "Check 497: 主の Person ノードの @type を配列にする —— @type を文字列として読む Check (245 / 247 / 266 ほか) を素通りする",
+    "file": ROOT / "index.html",
+    "find": '                  "@type": "Person",',
+    "replace": '                  "@type": ["Person"],',
+},
+    {
+    "name": "Check 497: jobTitle を型付きの値 (@value) にする —— 値を素の文字列として読む Check を素通りする",
+    "file": ROOT / "index.html",
+    "find": '"jobTitle": "AI-Driven Project Manager / IT Consultant / KERNEL Framework Designer",',
+    "replace": '"jobTitle": {"@value": "AI-Driven Project Manager / IT Consultant / KERNEL Framework Designer", "@language": "en"},',
+},
 ]
