@@ -23,7 +23,7 @@ python3 .github/scripts/prepare_version_freeze.py --date 2026-11-13
 
 走ったあと新しい file を明示パスで `git add` し、consistency の RED を順に直す。RED がそのまま残りの作業の一覧である。
 
-道具は、機械で決まるものも片付ける。凍結件数と検証コマンドの期待値、質問票の基準の版と *the 1.4 draft* の語、「いまの作業場」の行（Check 468k / 468t が名指す）、digest、`STATUS.md`、予算表である。2026-11-07 の予行で残った RED は次の 2 種だった。
+道具は、機械で決まるものも片付ける。凍結件数と検証コマンドの期待値（REVIEWERS / errata / AS-OF の「Text frozen」の行）、質問票の基準の版と *the 1.4 draft* の語、「いまの作業場」の行（Check 468k / 468t が名指す）、digest、`STATUS.md`、予算表である。2026-11-07 の予行で残った RED は次の 2 種だった。
 
 | RED | 直し方 |
 | :-- | :-- |
