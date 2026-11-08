@@ -567,6 +567,12 @@ _MUTATIONS_TAIL.append({
     "replace": '',
     "first_occurrence": True,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 268: 実行時に注入する Article の元の題を 110 字を越える長さにする —— 静的な index.html しか読まず、ARTICLE_ROUTES のルートで meta-management.js が作る Article の headline を見ていなかった",
+    "file": ROOT / "js" / "page-meta.js",
+    "find": "'ai-knowhow': { title: 'AI開発ノウハウ',",
+    "replace": "'ai-knowhow': { title: 'AI開発ノウハウ — KERNEL フレームワーク・6 エージェントの役割分担・LLM のコスト管理・検証の自動化・人間の判断の範囲・mutation による安全網の自己検証・週次の確定の予行・AIO の公開面の整合までを全部まとめた長い記事',",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
