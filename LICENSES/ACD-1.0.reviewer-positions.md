@@ -774,3 +774,28 @@ Chestek 氏 2026-04-18 *"it is also better practice not to define the the grant 
 **ソフトウェアに限るという古い発言**も読んだ（Nelson 氏 2000 *"We (OSI) have intentionally decided to limit our certification to software."*、同 2006、Perens 氏 2008）。いまの基準は CERN-OHL の理由書の *"written such that they can be used for software"* で、これらより新しい。Nelson 氏 2008-06 は混在について *"It Just Works(tm)."* とも述べている。
 
 **この節が establish しないこと。** どれも他の提出についての発言で、OSI の決定ではない。上の表の型の読みは我々のものである。古い承認を根拠にするときは Richard Fontana 氏 2014-08 の指摘が当たる: *"before the rise of concerns about license proliferation and 'vanity licenses' and such."*
+
+## 1.147 法律家を介さずに書かれたライセンスは出すべきか —— 2019 年のスレッド全 15 通（2026-11-08）
+
+`license-discuss` 2019-03「The per se license constructor」（`rounds/2019-03-license-discuss-per-se-license-constructor-observed.txt`）。B1 の両側が 1 本のスレッドにそろっている。
+
+### 出すべきでない、という側
+
+| 発言 | 誰が |
+| :-- | :-- |
+| *"There is great danger in using a license that has had no legal review, since you have little idea of how it will work in court. The per se license constructor transmits that danger to others who use their license."*、*"I thus feel all such things should be rejected, although the reason is entirely outside of the OSD."* | Bruce Perens 氏 2019-03-15 |
+| *"I suspect there could be a credible case that drafting a license and promoting it for others to use is unlicensed practice of law."* | 同 |
+| *"But it's easy for the other attorneys here and even me to tell when someone has a lawyer or not. I don't think there is actually any point in lying. There are obvious language differences that an experienced person can spot."* | 同 2019-03-16 |
+| *"writing a legal license *for others to use* is bordering legal advice. It's therefore a necessary minimum requirement."* | Henrik Ingo 氏 2019-03-16 |
+
+### 要件にすべきでない、という側
+
+| 発言 | 誰が |
+| :-- | :-- |
+| *"requiring a submitter to retain a lawyer in license drafting and/or review is a potential barrier to entry (lawyers being expensive) and could come across as the process being taken over by lawyers"*、*"Drafting or review by a lawyer is no guarantee of quality"* | McCoy Smith 氏 2019-03-15（自分も法律家だと断ったうえで）|
+| *"That seems to imply that determining whether a license is compliant with the OSD is task that is fundamentally within the competence of lawyers in particular. I do not agree."*、*"The OSD is a statement of philosophy and policy aimed at nonlawyers."* | Richard Fontana 氏 2019-03-17（OSI のアドレスから）|
+| *"If the barrier to entry of having a lawyer today is a big enough concern, OSI could provide one, sort of like a public defender."* | Bruce Perens 氏 2019-03-15 |
+
+**読み。** 規則は要件にしなかった（`review-rules.md` §1.141）。このスレッドでも、後に委員会に入る法律家（Smith 氏）と、OSI のアドレスで書いた Fontana 氏が要件化に反対している。だが Perens 氏の「経験者には言葉で分かる」は、ACD の本文がどう読まれるかに直接当たる（#309）。ACD は AI が起草し、法律家が読んでいないことを開示している（B1、B14）。開示しても、言葉の違いで見抜かれる問題は残る。
+
+**この節が establish しないこと。** どれも個人の発言で、OSI の決定ではない。Fontana 氏のアドレスは所属を示すが、委員会の見解として書いたとは述べていない。

@@ -8,6 +8,7 @@ own: shall and must appear zero times
 own: that is right, and ACD-1.1 will do X
 own: why another public-domain-equivalent?
 own: three things no approved licence does together
+00f51b7a14a73062
 01b69c0a49dea9ff
 026300de190bc93c
 02d7faec5ee09e77
@@ -166,6 +167,7 @@ own: three things no approved licence does together
 8d51542acd9c3381
 91ddd288ac807ace
 9239999bb33408fe
+9457aa925265d1a2
 9660d04077670fe6
 9ab70910fd6c69bf
 9bfb394ae3a2cd71
