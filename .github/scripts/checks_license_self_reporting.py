@@ -367,9 +367,11 @@ def run(ctx):
                     _bad460.append(f"{_label}: 申告が見つからない (規模を述べる文を消すか、数を書くなら数えられる形で書く)")
                 elif int(_mg.group(1)) != _want:
                     _bad460.append(f"{_label}: 申告 {_mg.group(1)} / 実測 {_want}")
-            # 同じ行の「本文の N 倍の長さ」(2026-11-08: "six times" のまま実測 約 20 倍)。語数の比で ±15% まで
+            # 同じ行の「本文の N 倍の長さ」(2026-11-08: "six times" のまま実測 約 20 倍)。語数の比で ±15% まで。分母は
+            #   提出対象の版の本文 (SUBMISSION-TARGET を切り替えると比が 1.0 の 20.3 から 1.4 の約 17.7 へ動く・aa の指摘)
+            _tg460g = re.search(r"<!--\s*SUBMISSION-TARGET:\s*(ACD-\d+\.\d+)\s*-->", (_L460 / "ACD-1.0.submission.md").read_text(encoding="utf-8"))
             _mx460 = re.search(r"([a-z]+|\d+) times the length of the licence", _rvt)
-            _rx460 = len(_agp460.read_text(encoding="utf-8").split()) / len((_L460 / "ACD-1.0.txt").read_text(encoding="utf-8").split())
+            _rx460 = len(_agp460.read_text(encoding="utf-8").split()) / len((_L460 / f"{_tg460g.group(1) if _tg460g else 'ACD-1.0'}.txt").read_text(encoding="utf-8").split())
             _dx460 = _mx460 and (int(_mx460.group(1)) if _mx460.group(1).isdigit() else _NUM_WORDS.get(_mx460.group(1)))
             if _mx460 and (not _dx460 or abs(_dx460 - _rx460) > 0.15 * _rx460):
                 _bad460.append(f"REVIEWERS.md の against.md の長さ: 申告 {_mx460.group(1)} 倍 / 実測 {_rx460:.1f} 倍 (語数の比)")
