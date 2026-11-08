@@ -23,10 +23,9 @@
 `review-rules.md` §1.141 の「少なくとも 23 件」を再現するための面。**語で探すので下限で
 ある**: 不在を別の言い回しで書いた提出、後続の通でだけ述べた提出、件名に提出の語を
 持たない提出は数えない。逆に「弁護士ではない」は起草のレビューの不在を言っていない
-ことがあるので、出力は文ごとに人が読む。2026-11-08 の実測: 提出 200 件のうち 7 件。§1.141 の
-23 件は手で読んだ数で、返信や別の言い回しで不在を述べた提出 (Public Software は返信で述べた、
-Russian Permissive / Non-Coercive Copyleft / YetiForce は第 1 通に法律家の語が無い) を含む。
-**道具が再現するのは 7 件までで、23 件の再現には手読みが要る。**
+ことがあるので、出力は文ごとに人が読む。2026-11-08 の実測: 提出 200 件のうち 13 件。§1.141 の
+23 件は手で読んだ数で、返信で不在を述べた提出 (Public Software) と、この語の幅の外の言い回しを
+含む。**道具が再現するのは 13 件までで、23 件の再現には手読みが要る。**
 
 **どちらも下限である。** 正規表現なので言い回しが違う文は取りこぼす。差出人の名前は
 議事録の出席者と主な審査者から手で選んだ。
@@ -69,8 +68,19 @@ CONDITION = re.compile(
     r"|royalt|fee\b|export|military|endorse|SSPL|data portab", re.I)
 
 
+MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August",
+          "September", "October", "November", "December"]
+
+
+def _chrono(path):
+    """`<list>-<YYYY>-<Month>.txt` を時系列で並べる鍵。名前の辞書順では April が March より前に来て、
+    返信を「最初の通」と取り違えた (2026-11-08 に noreview の 23 件との照合で発覚)。"""
+    m = re.search(r"-(\d{4})-([A-Za-z]+)\.txt$", path)
+    return (path.rsplit("-", 2)[0], int(m.group(1)), MONTHS.index(m.group(2))) if m and m.group(2) in MONTHS else (path, 0, 0)
+
+
 def messages():
-    for path in sorted(glob.glob(str(CACHE / "license-*.txt"))):
+    for path in sorted(glob.glob(str(CACHE / "license-*.txt")), key=_chrono):
         text = open(path, errors="replace").read()
         marks = [m.start() for m in SPLIT.finditer(text)] + [len(text)]
         for a, b in zip(marks, marks[1:]):
