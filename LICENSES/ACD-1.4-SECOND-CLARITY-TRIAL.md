@@ -493,3 +493,19 @@ bb が §1.9（T35）で見つけたレンズを 80 条に当てた（2026-11-08
 **逆側**: (1) +3 語（B3）。(2) §16.2 と §16.4 で照合の規則が違う理由が本文からは読めない。§16.2 は大小を区別しない規則を *"The identifiers named above"* に限っており、§16.4 は自分の文で述べるので、読み違いは起きにくいと見る。(3) 識別子の区切り（前が英字かどうか）までは決めない。
 
 **先に登録する反例（bb へ）**: (a) *regardless of case* が *followed by a digit* に掛からず、数字の側の書式まで広げると読まれるか。(b) 翻訳の文（§16.4 の *"the name and the identifier"*）との関係。(c) 識別子に *ACD-* を含む既存の別のライセンスやプロジェクト名の例（大小を問わず）を、改変した本文の名前として縛ることの実害。
+
+**bb の反例（2026-11-09）**: (a) *regardless of case* が *followed by a digit* に掛かっても、数字に大小は無いので害は無い。(b) 翻訳は *"under the name and the identifier"* で配ってよいので、大小の規則は翻訳の扱いを変えない。(c) 縛られるのは改変した本文の名前だけで、実害は小さい。**残す穴**: *ACD 1.5*（空白）、*ACD1.5*、全角や別のハイフン（U+2010）は T46 でも捕まらない。区切りまで広げると無関係な名前を拾うので、名前の側の保護（T44 の *"any name that contains"*）で足りるとして残す。
+
+### 14.21 T47: §16.4 の Steward の但し書きで、数える本文を Steward が公表したものに限る（+4 語・試作）
+
+**Before**（§16.4 第 3 文の全文・T46 を入れた形）: A modified text may not be distributed under any name that contains "Autonomous Commons Dedication" or under any identifier that contains "ACD-", regardless of case, followed by a digit, except by the Steward (Section 16.5), and by the Steward only as a new version under a version number and identifier that no earlier text, other than a draft identified as such, has borne, so that each name and identifier in this family continues to denote one fixed text.
+
+**After**: A modified text may not be distributed under any name that contains "Autonomous Commons Dedication" or under any identifier that contains "ACD-", regardless of case, followed by a digit, except by the Steward (Section 16.5), and by the Steward only as a new version under a version number and identifier that no earlier text the Steward has published, other than a draft identified as such, has borne, so that each name and identifier in this family continues to denote one fixed text.
+
+**欠陥**（bb・2026-11-09）: *"no earlier text"* に限定が無い。§16.4 に違反して改変した本文を先に *ACD-1.5* で配った者がいれば、それも「その識別子を帯びた先の本文」に当たり、Steward が正規の 1.5 を出せなくなる読みが立つ（識別子の先取り）。T46 で大小を区別しなくなると、*acd-1.5* の先取りでも同じことが起きるので、穴が広がる。
+
+**語の選び方**: §16.5 が Steward を *"first published this text"* と定めるので、*issued* ではなく *published* にそろえた。
+
+**由来**: Steward の但し書きは 1.1 で入った文（E14 を閉じたとき）。1.0 に無いので、採るなら `ACD-1.1-SELF-AUDIT.md` に書く。
+
+**逆側**: (1) +4 語（B3）。(2) 違反者の *ACD-1.5* は世に残るので、正規の 1.5 と同じ識別子を帯びた本文が 2 つ在る状態は変わらない。変わるのは、Steward が番号を続けられることと、正規の版の §16.2 がその識別子の札をどの本文に結ぶかを決めることである。(3) 468m の目印と mutation の anchor（*"that no earlier text, other than a draft identified as such, has borne"*）が句の途中に語が入るので割れる。採るなら同じ commit で替える。
