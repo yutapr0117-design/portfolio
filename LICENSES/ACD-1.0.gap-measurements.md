@@ -744,3 +744,18 @@ David A. Wheeler 氏が「Public Domain」を OSI のライセンスの一覧に
 **B2 への当たり方。** OpenMDW は一覧に識別子を持ち、公開の時点で絞り込みに出る。ACD は採用者が `other` を選ぶので、探す人の目に入りにくい。文書は一覧へ足す依頼の道（*"contact us"*）を示しているが、これは外へ出す行為なので AI は送らない。送るならオーナーの行為で、OSI の承認とは独立に試せる。逆側: 採用の実績が 1 件の段階で一覧に載せる依頼が通るかは分からず、通っても採用そのものは生まれない。
 
 **この節が establish しないこと。** 一覧は hub-docs の main で、取得の後に変わりうる。件数は API の上限で切れている。
+
+## 1.152 Unlicense の審査で使われた基準 —— 「裁判所が OSD に反して読みうるか」（2020-03〜04）（2026-11-08）
+
+献呈と許諾を併せ持つ唯一の承認済みの前例（2020-06-12 承認）の審査から（`rounds/2020-03-to-04-license-review-unlicense-cited-observed.txt`）。ドシエは理由書（#270）と拒否権のスレッドを読んでいたが、ここに置く 4 通の段落は記録していなかった。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"If I were asked to interpret this license, I would say that the use of the term "public domain" is naive and likely incorrect (including in the US), but the intent of the author is clear."*、*"I don't see how a court could misinterpret this document in any way that could be contrary to the OSD."* | Pamela Chestek 氏 2020-04 | 基準は「裁判所がこの文書を OSD に反して読みうるか」だった。ACD は献呈が効かない場合の許諾を §4.4 で明示しており、意図を推し量る必要がない |
+| *"If the lawyers are OK with the Unlicense text, then I don't see any reason to object to it, as a developers."* | Josh Berkus 氏 2020-04 | 法律家の判断に寄せた賛成で、B1 の側に当たる（#270 の *"The lawyers who opined"* と同じ向き）|
+| *"Unlicense contains two (use and sell) of the five (make, use, sell, offer to sell, import) patent "verbs" from the US patent statute."* | McCoy Smith 氏 2020-03-29 | Unlicense の特許は、許諾の動詞から暗に読む余地しかなかった。ACD の §8 は明示の許諾で、§8.1 は 5 つの動詞すべてと "otherwise practise" を持つ |
+| *"I think that the Unlicense is a (bad but still) OSD-compliant device, modulo the lack of a patent license"* | Lukas Atkinson 氏 2020-03 | 承認された前例でさえ、特許の許諾の欠如が留保として挙がった。ACD はその留保に当たらない |
+
+**逆側。** Unlicense は legacy として、広い利用と法律家の一致を経て承認された（#270）。新規の ACD は同じ道を持たない。Atkinson 氏は同じ通で *"The Unlicense is not safe to use and likely fails to achieve its stated goals"* とも述べた。
+
+**この節が establish しないこと。** 個人の発言で、決定は理事会の承認（2020-06-12）だけである。McCoy Smith 氏の通は Outlook 形式で他人の文を引用の印なしに含むので、引いたのは同氏が書いた冒頭の 2 文だけにした。

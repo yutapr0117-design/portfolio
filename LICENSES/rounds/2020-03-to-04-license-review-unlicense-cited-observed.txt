@@ -1,0 +1,219 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2020-March, 2020-April)
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-08)
+Messages: 4 messages this dossier cites from the thread "Request for legacy approval: The Unlicense" (2020-03 to 04).
+Senders: Pamela Chestek, Josh Berkus, McCoy Smith, Lukas Atkinson
+Position: the review of the Unlicense, which was approved on 2020-06-12. Not addressed to us and not about ACD. Each message is whole.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Wed Apr  1 00:48:29 2020
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Tue, 31 Mar 2020 20:48:29 -0400
+Subject: [License-review] Request for legacy approval: The Unlicense
+In-Reply-To: <78c8ac54-5d5b-6acd-3636-ef17f5609600@jaeckel.eu>
+References: <78c8ac54-5d5b-6acd-3636-ef17f5609600@jaeckel.eu>
+Message-ID: <e425f80a-8760-de63-32b5-3cc9a8649b20@chesteklegal.com>
+
+On 3/28/20 11:03 AM, osi-license-review at jaeckel.eu wrote:
+> The license
+> ===========
+>
+> This is free and unencumbered software released into the public domain.
+>
+> Anyone is free to copy, modify, publish, use, compile, sell, or
+> distribute this software, either in source code form or as a compiled
+> binary, for any purpose, commercial or non-commercial, and by any
+> means.
+>
+> In jurisdictions that recognize copyright laws, the author or authors
+> of this software dedicate any and all copyright interest in the
+> software to the public domain. We make this dedication for the benefit
+> of the public at large and to the detriment of our heirs and
+> successors. We intend this dedication to be an overt act of
+> relinquishment in perpetuity of all present and future rights to this
+> software under copyright law.
+>
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+> EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+> MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+> IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+> OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+> ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+> OTHER DEALINGS IN THE SOFTWARE.
+>
+> For more information, please refer to <http://unlicense.org/>
+>
+I don't understand the concern with this document. Why isn't the second 
+paragraph (starting with "Anyone is free ...") an expansive license 
+grant that covers all situations?
+
+If I were asked to interpret this license, I would say that the use of 
+the term "public domain" is naive and likely incorrect (including in the 
+US), but the intent of the author is clear. They want to relinquish all 
+rights, which is effectively accomplished in the second paragraph, and 
+the third paragraph makes it clear how expansive they want the 
+relinquishment to be. I don't see how a court could misinterpret this 
+document in any way that could be contrary to the OSD.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com
+919-800-8033
+www.chesteklegal.com
+
+
+
+
+
+From josh at berkus.org  Wed Apr  1 16:26:21 2020
+From: josh at berkus.org (Josh Berkus)
+Date: Wed, 1 Apr 2020 09:26:21 -0700
+Subject: [License-review] Request for legacy approval: The Unlicense
+In-Reply-To: <e425f80a-8760-de63-32b5-3cc9a8649b20@chesteklegal.com>
+References: <78c8ac54-5d5b-6acd-3636-ef17f5609600@jaeckel.eu>
+ <e425f80a-8760-de63-32b5-3cc9a8649b20@chesteklegal.com>
+Message-ID: <1f9c434d-1966-880c-e5bf-7671f319eb4d@berkus.org>
+
+On 3/31/20 5:48 PM, Pamela Chestek wrote:
+> If I were asked to interpret this license, I would say that the use of
+> the term "public domain" is naive and likely incorrect (including in the
+> US), but the intent of the author is clear. They want to relinquish all
+> rights, which is effectively accomplished in the second paragraph, and
+> the third paragraph makes it clear how expansive they want the
+> relinquishment to be. I don't see how a court could misinterpret this
+> document in any way that could be contrary to the OSD.
+
+If the lawyers are OK with the Unlicense text, then I don't see any
+reason to object to it, as a developers.
+
+-- 
+Josh Berkus
+
+
+From mccoy at lexpan.law  Sun Mar 29 18:45:13 2020
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Sun, 29 Mar 2020 11:45:13 -0700
+Subject: [License-review] Request for legacy approval: The Unlicense
+In-Reply-To: <CAJTYOd2fxY7q=wV+ZWQ0n4uS_UZptvNytye20g_BDzKwsmROTA@mail.gmail.com>
+References: <78c8ac54-5d5b-6acd-3636-ef17f5609600@jaeckel.eu>
+ <CAJTYOd2fxY7q=wV+ZWQ0n4uS_UZptvNytye20g_BDzKwsmROTA@mail.gmail.com>
+Message-ID: <08bd01d605fa$2f1a1650$8d4e42f0$@lexpan.law>
+
+Unlicense contains two (use and sell) of the five (make, use, sell, offer to sell, import) patent ?verbs? from the US patent statute.  See 35 USC ? 271.  
+
+Other countries use slightly different verbs (for example, UK Patent Act Sec 60), but generally capture at least making and selling/?disposing?
+
+ 
+
+From: License-review <license-review-bounces at lists.opensource.org> On Behalf Of Lukas Atkinson
+Sent: Sunday, March 29, 2020 11:25 AM
+To: License submissions for OSI review <license-review at lists.opensource.org>
+Subject: Re: [License-review] Request for legacy approval: The Unlicense
+
+ 
+
+ 
+
+ 
+
+On Sun, 29 Mar 2020 at 16:42, <osi-license-review at jaeckel.eu <mailto:osi-license-review at jaeckel.eu> > wrote:
+
+The Unlicense exists since 10 years [1] to give projects the possibility
+to dedicate their code into the public domain in jurisdictions that
+don't have an understanding of the public domain. The homepage at
+https://unlicense.org/ lists a wide variety of software that already
+uses said license. A search on GitHub for projects using The Unlicense
+[2] returns by the time of writing 133,188 repositories using it (not
+including forks of repositories).
+
+ 
+
+The Unlicense was discussed on this list back in Jan?Mar 2012, in the wider context of the much better written CC0 license (which didn't get approved either). E.g. you can read the Jan 2012 archive in mailbox format, for easy grepping [1]. At some point, Bruce Perens highlights the general problems with crayon licenses [2]. Rick Moen mentions some specific issues with the Unlicense [3]. The issues in jurisdictions without public domain dedications are also well known [4]. Since then, nothing about the Unlicense's problems has changed.
+
+ 
+
+The Unlicense is not safe to use and likely fails to achieve its stated goals, so it would be good if OSI won't lend it legitimacy by approval. If it were to be approved, hopefully only as an explicitly discouraged or deprecated license.
+
+ 
+
+However, I think that the Unlicense is a (bad but still) OSD-compliant device, modulo the lack of a patent license [5], that it may not even be a license, and assuming that its problems are not fatal (I'll let the lawyers discuss that). The FSF [6] was probably right to recognize it as a free software license, but to recommend the ?more thorough and mature? CC0 instead.
+
+ 
+
+[1]: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-January.txt
+
+[2]: https://web.archive.org/web/20150921224734/https://lists.opensource.org/pipermail/license-discuss/2011-December/000039.html <https://web.archive.org/web/20150921224734/https:/lists.opensource.org/pipermail/license-discuss/2011-December/000039.html> 
+
+[3]: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-January/001386.html
+
+[4]: Since the Unlicense is potentially contradictory and defective, I effectively have to treat Unlicense-covered software from e.g. German authors as proprietary, quite contrary to the intent of the license. I might change my opinion when there's good case law on it.
+
+[5]: The Unlicense does allow ?use? in paragraph 2, which has been argued to be an implicit patent grant in the MIT license. But the rights relinquished by the Unlicense only involve copyrights per paragraph 3.
+
+[6]: https://www.gnu.org/licenses/license-list.html#Unlicense
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200329/808fc361/attachment.html>
+
+From opensource at lukasatkinson.de  Sun Mar 29 18:25:05 2020
+From: opensource at lukasatkinson.de (Lukas Atkinson)
+Date: Sun, 29 Mar 2020 18:25:05 +0000
+Subject: [License-review] Request for legacy approval: The Unlicense
+In-Reply-To: <78c8ac54-5d5b-6acd-3636-ef17f5609600@jaeckel.eu>
+References: <78c8ac54-5d5b-6acd-3636-ef17f5609600@jaeckel.eu>
+Message-ID: <CAJTYOd2fxY7q=wV+ZWQ0n4uS_UZptvNytye20g_BDzKwsmROTA@mail.gmail.com>
+
+On Sun, 29 Mar 2020 at 16:42, <osi-license-review at jaeckel.eu> wrote:
+
+> The Unlicense exists since 10 years [1] to give projects the possibility
+> to dedicate their code into the public domain in jurisdictions that
+> don't have an understanding of the public domain. The homepage at
+> https://unlicense.org/ lists a wide variety of software that already
+> uses said license. A search on GitHub for projects using The Unlicense
+> [2] returns by the time of writing 133,188 repositories using it (not
+> including forks of repositories).
+>
+
+The Unlicense was discussed on this list back in Jan?Mar 2012, in the wider
+context of the much better written CC0 license (which didn't get approved
+either). E.g. you can read the Jan 2012 archive in mailbox format, for easy
+grepping [1]. At some point, Bruce Perens highlights the general problems
+with crayon licenses [2]. Rick Moen mentions some specific issues with the
+Unlicense [3]. The issues in jurisdictions without public domain
+dedications are also well known [4]. Since then, nothing about the
+Unlicense's problems has changed.
+
+The Unlicense is not safe to use and likely fails to achieve its stated
+goals, so it would be good if OSI won't lend it legitimacy by approval. If
+it were to be approved, hopefully only as an explicitly discouraged or
+deprecated license.
+
+However, I think that the Unlicense is a (bad but still) OSD-compliant
+device, modulo the lack of a patent license [5], that it may not even be a
+license, and assuming that its problems are not fatal (I'll let the lawyers
+discuss that). The FSF [6] was probably right to recognize it as a free
+software license, but to recommend the ?more thorough and mature? CC0
+instead.
+
+[1]:
+https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-January.txt
+[2]:
+https://web.archive.org/web/20150921224734/https://lists.opensource.org/pipermail/license-discuss/2011-December/000039.html
+[3]:
+https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-January/001386.html
+[4]: Since the Unlicense is potentially contradictory and defective, I
+effectively have to treat Unlicense-covered software from e.g. German
+authors as proprietary, quite contrary to the intent of the license. I
+might change my opinion when there's good case law on it.
+[5]: The Unlicense does allow ?use? in paragraph 2, which has been argued
+to be an implicit patent grant in the MIT license. But the rights
+relinquished by the Unlicense only involve copyrights per paragraph 3.
+[6]: https://www.gnu.org/licenses/license-list.html#Unlicense
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200329/b3964e19/attachment.html>
+
