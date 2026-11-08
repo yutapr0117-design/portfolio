@@ -662,3 +662,15 @@ Richard Fontana 氏 2017-03-07 は、特許に触れないライセンスにつ�
 | *"you will need to retain an attorney to answer this question, and they will likely tell you "it depends"."* | Josh Berkus 氏 2024-05-25 | 学習と派生物の問いは法域と裁判で動く。§6.5 が判定を要しないと書く理由である |
 
 **この節が establish しないこと。** どれも個人の発言で、OSI の決定ではない。Cowan 氏の「特許の無い新しいライセンスは承認しない」は 2014 年の観察で、規則として公表された文ではない。
+
+## 1.145 受領者に要件を課してよいのは、ライセンサーの利益と保護の範囲だけ —— 委員の 2025 年の文（2026-11-08）
+
+ModelGo の「モデル出力に AI 生成と示す」条項について、Josh Berkus 氏が OSD に適合するかを問うたスレッド（`license-review` 2025-03・`rounds/2025-03-license-review-modelgo-output-notice-observed.txt`）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"I believe the nature of open source licenses is that they impose requirements on the licensee only to the extent they assure that the licensor receives the benefit that is their motive for putting software under an open source license and to protect the licensor from harm when they have generously made a gift."* | Pamela Chestek 氏 2025-03-02（*"in my personal capacity"*）| 要件は、ライセンサーが得たい利益と、ライセンサーの保護のためだけに在る、という原則である。ACD の Dedicator は受領者から何も受け取らないので、要件が 0 になる（§10.1）。保護の側は §13 と §14 が持つ。#307（条件が無いと執行できない）への答えもここに在る。執行して得たいものが無い |
+| *"Having a license that requires that you tell me if AI was used doesn't mean someone actually will tell me; licenses aren't self-enforcing."*、*"So, in my opinion, it's greater friction for no benefit."* | 同 2025-03-02 | 出力に通知を求める条項は摩擦だけを生む。§6.4 は出力に何も求めない |
+| *"That sounds like a restriction or condition on mere use. That would not be open source."* | Simon Phipps 氏 2025-03-03（*"in a personal capacity"*）| 出力の扱いを縛る条件を OSD の外と見る。§6.4 と §10.1 はそうした条件を持たない |
+
+**逆側。** どれも個人の資格の発言で、OSI の決定ではない。Chestek 氏の原則は条件を課すライセンスを退ける向きの文で、条件の無いライセンスを積極的に勧めた文ではない。理事会が条件の無い 0BSD を承認した 2015 年の議事録（`board-decisions.md` §8.6）が、その側の記録である。
