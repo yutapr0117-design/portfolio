@@ -477,6 +477,13 @@ _MUTATIONS_TAIL.append({
     "replace": "accompanies the work. A notice placed applies this",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 496: CHANGELIST の表の見出しから「件数」の列を外す —— 行は 4 セルのままなので、GFM は 4 列目を描かずに捨てる (2026-11-08 まで実際にこの状態だった)",
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
+    "find": "| レンズ | やったこと | 結果 | 件数 |",
+    "replace": "| レンズ | やったこと | 結果 |",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

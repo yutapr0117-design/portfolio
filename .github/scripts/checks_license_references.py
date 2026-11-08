@@ -12,6 +12,9 @@ checks_license_references.py — ドシエが書いた矢印が、指した先�
 **宣言と実測の差は、宣言した本人には見えない。**
 
 Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()):
+  496. **表の行のセルが見出しの列の数を超えないこと** (BLOCKING・2026-11-08): GFM は見出しより多い
+       セルを描かずに捨てる。本文の中のエスケープしない `|` や、列の足りない見出しで、AS-OF の出典の列
+       (25 行) や register の Status (#162 / #192) が GitHub 上で消えていた。10 file で 121 行あった。
   494. **表の行が表の中にあること** (BLOCKING・2026-11-07): 行の間に空行が入るか見出しが無いと、GitHub は残りの
        行を `|` の見える段落として描く。`against.md` の 325 行のうち表になっていたのは 57 行だった。
   493. **採用者の受け口のリンクが template へ解決すること** (BLOCKING・2026-11-07): `issues/new?template=X` は
@@ -196,6 +199,40 @@ def run(ctx):
         not _orphans494,
         "Check 494: LICENSES/*.md と README の表の行がすべて表の中にある",
         f"Check 494: 見出しの無い表の行がある: {_orphans494[:8]}。空行を除くか、見出しの行を足す。GitHub は `|` の見える段落として描く",
+        blocking=True,
+    )
+
+    # ── 496. 表の行のセルが見出しの列の数を超えないこと (BLOCKING) ───────────────────────────
+    #   GFM は見出しより多いセルを描かずに捨て、少なければ空のセルを足す。本文の `|` (コードの中も) は
+    #   `\|` と書かないと列を分ける。Check 494 は行が表の中にあるかしか見ず、セルの数は見ていなかった。
+    def _cells496(_row):
+        _r = _row.strip()
+        _r = _r[1:] if _r.startswith("|") else _r
+        _r = _r[:-1] if _r.endswith("|") and not _r.endswith("\\|") else _r
+        return len(re.split(r"(?<!\\)\|", _r))
+    _wide496, _rows496 = [], 0
+    for _p496 in [*sorted((ROOT / "LICENSES").glob("*.md")), *sorted((ROOT / "docs" / "architecture").glob("*.md")),
+                  ROOT / "README.md", ROOT / "CLAUDE.md", ROOT / "AI2AI.md"]:
+        _l496 = _p496.read_text(encoding="utf-8").split("\n")
+        _i496 = 0
+        while _i496 < len(_l496):
+            if (_l496[_i496].startswith("|") and _i496 + 1 < len(_l496)
+                    and re.match(r"^\|?\s*:?-{2,}", _l496[_i496 + 1])):
+                _h496 = _cells496(_l496[_i496])
+                _j496 = _i496 + 2
+                while _j496 < len(_l496) and _l496[_j496].startswith("|"):
+                    _rows496 += 1
+                    if _cells496(_l496[_j496]) > _h496:
+                        _wide496.append(f"{_p496.name}:{_j496 + 1} ({_cells496(_l496[_j496])}>{_h496})")
+                    _j496 += 1
+                _i496 = _j496
+            else:
+                _i496 += 1
+    check(
+        _rows496 > 1000 and not _wide496,
+        f"Check 496: 表の {_rows496} 行が見出しの列の数を超えない",
+        (f"Check 496: 見出しより多いセルを持つ表の行がある: {_wide496[:8] or '表の行が読めない'}。"
+         "GFM は超えた分を描かずに捨てる。本文の `|` は `\\|` と書き、列が足りないなら見出しに列を足す"),
         blocking=True,
     )
 
