@@ -233,6 +233,10 @@ OSI のリストは法的な場だが、AI 学習に対する価値判断は 202
 >   not wait for Section 3 to fail (Section 4.4), so what the user has is an
 >   ordinary irrevocable, royalty-free, condition-free licence — the same thing a
 >   permissive licence would have given them.
+>   Like any licence of a German work, it remains subject to the author's
+>   statutory recall for changed conviction (section 42 of the UrhG), which cannot be waived in
+>   advance and takes effect only once the holder is compensated; a permissive
+>   licence is in the same position.
 > - Section 5 sits underneath both as a covenant not to assert, enforceable on
 >   ordinary principles even where a grant is attacked.
 > - Section 12.1 (waiver of moral rights) will not operate there either, and
