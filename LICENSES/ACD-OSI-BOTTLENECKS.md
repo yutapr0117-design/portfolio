@@ -137,6 +137,8 @@ the 1.0 text.
 
 **2026-11-07 に足した**: 「dedication」という語について、CC0 の提出の前に Karl Fogel 氏が述べている（2012-01-02）—— *"Those sorts of promises are what the OSI evaluates and sometimes approves."*、*"I just don't think we should decide that on the basis of nominalism."* 同じ文に *"We could decide, for other reasons, not to evaluate any PD dedications."* も在る（`review-precedents.md` §1.138）。
 
+**2026-11-08 に足した —— 名前は採用の側にも効く。** 0BSD の作者 Rob Landley 氏は、公有化に等しいライセンスに BSD 系の名前を付けた理由を *"In terms of decision making, "4 clause, 3 clause, 2 clause, zero clause BSD" tends to get rubber stamped. Despite other public domain equivalent licenses such as CC0 or MIT-0 having significant pushback from the same departments (when proposed independently)."* と述べ、*"there was explicit marketing strategy in my attempt to make a public domain equivalent license palatable to a broader population, and that strategy was working."* と書いた（`license-discuss` 2021-04・`rounds/2021-04-license-discuss-0bsd-naming-strategy-observed.txt`）。"Autonomous Commons Dedication" は既知の系列に属さない名前なので、企業の法務で同じ押し返しを受けうる（B2 の採用の側）。**逆側**: 審査は本文で決まる（Piana 氏 2018 *"A license must be approved for its text, not for its context"*・`reviewer-positions.md` §1.140）。Landley 氏の証言は一人の作者の経験で、法務の判断を測ったものではない。2026-10-24 の改名しない判断は変えない。
+
 **#112 が記録したとおり、我々は数週間テキストを敵対的に読みながら、
 「名前そのもの」を一度も検査していなかった。** 0BSD の改名は `license-review` で 54 通を要している。
 
