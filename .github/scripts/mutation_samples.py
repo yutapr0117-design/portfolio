@@ -279,119 +279,17 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 495b: advisory を ceiling より上にする —— 早期警告が鳴らず、いきなり BLOCKING へ飛ぶ",
-    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
-    "find": "LICENSES/AS-OF.md | 130000 | 200000",
-    "replace": "LICENSES/AS-OF.md | 210000 | 200000",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 495c: 長い行の大きな file を予算から外す —— その file は行数の上限にも当たらず無制限に伸びる",
-    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
-    "find": "LICENSES/ACD-1.0.errata.md | 160000 | 250000\n",
-    "replace": "",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 495d: 1 つの行に 64 KiB を超えて積む —— runbook §9 のセルが 222 KB になった形",
-    "file": ROOT / "docs" / "session-records" / "runbook-check-history.md",
-    "find": "# runbook §9「consistency Check 総数」の行にあった追加の経緯（アーカイブ）",
-    "replace": "# " + "x" * 70000,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 124a: 画面の見出しに実名をローマ字で出す —— 漢字の完全一致だけを見ていた頃は通った (2026-11-08 の監査で実測)",
-    "file": ROOT / "js" / "components.js",
-    "find": "h('div', { class: 'h4' }, AUTHOR.DISPLAY_NAME),",
-    "replace": "h('div', { class: 'h4' }, 'Yuta Yokoi'),",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 124a: quiz の設問に実名を書く —— quiz のデータは画面に描画されるのに、js/ 直下しか見ていなかった",
-    "file": ROOT / "js" / "quiz" / "aws-quiz-data.js",
-    "find": '"title": "Q1. ステータスチェックの厳密な切り分け",',
-    "replace": '"title": "Q1. 横井 雄太のステータスチェック",',
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 124a: aria-label を持つ要素の可視テキストに実名を書く —— 行に aria- があるだけで行全体を許していた",
-    "file": ROOT / "js" / "home-page.js",
-    "find": "h('ul', { class: 'hero-value-list', 'aria-label': 'Value Points' },",
-    "replace": "h('ul', { class: 'hero-value-list', 'aria-label': 'Value Points' }, '横井雄太',",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 124a: JS 無効時の説明に実名を出す —— <noscript> は JS を切った読み手に見えるのに走査の外だった",
-    "file": ROOT / "index.html",
-    "find": "<h1>JavaScript を有効にしてください</h1>",
-    "replace": "<h1>Yokoi Yuta のポートフォリオ</h1>",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 444k: 画面のフッターのライセンスへのリンクをコメントにする —— 画面から消えるのに、コメントの中の URL で通っていた",
-    "file": ROOT / "js" / "components.js",
-    "find": (f"            h('div', {{ class: 'p-3' }},\n                h('a', {{\n                    class: 'text-xs text-muted',\n"
-             f"                    href: '/portfolio/LICENSES/{APPLIED_ID}.txt',\n                    rel: 'license noopener noreferrer',\n"
-             f"                    target: '_blank'\n                }}, 'License: {APPLIED_ID}')\n            )"),
-    "replace": (f"            null /* h('div', {{ class: 'p-3' }},\n                h('a', {{\n                    class: 'text-xs text-muted',\n"
-                f"                    href: '/portfolio/LICENSES/{APPLIED_ID}.txt',\n                    rel: 'license noopener noreferrer',\n"
-                f"                    target: '_blank'\n                }}, 'License: {APPLIED_ID}')\n            ) */"),
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 123a: 運用モデルの節の見出しから「現在の運用モデル」を外す —— 直前の行コメントがその語を持つので通っていた",
-    "file": ROOT / "js" / "ai-knowhow-page.js",
-    "find": "                class: 'card card--accent-left', 'data-accent': 'primary', role: 'region', 'aria-label': '現在の運用モデル：AI自走運用への進化'\n            },\n                h('div', { class: 'card-body flex flex-col gap-3' },\n                    sectionHeader('🔄', '現在の運用モデル — 対話型から AI 自走運用への進化', C.primary),",
-    "replace": "                class: 'card card--accent-left', 'data-accent': 'primary', role: 'region', 'aria-label': '運用の記録：AI自走運用への進化'\n            },\n                h('div', { class: 'card-body flex flex-col gap-3' },\n                    sectionHeader('🔄', '運用の記録 — 対話型から AI 自走運用への進化', C.primary),",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 463: 送る文面の法的レビューの段落を HTML コメントに隠す —— 描画されず送られないのに、生の markdown で照合して通っていた",
-    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": "**Legal review: none.** No lawyer has drafted or read it.",
-    "replace": "<!-- **Legal review: none.** No lawyer has drafted or read it. -->",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 463: 送る文面から「新規か legacy か」の行を消す —— 申請日の 1 枚は要件に持つのに、§B.0 の照合には無かった",
-    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": "Legacy or New:                  New License\nDrafted By Lawyer:              No\nApproved or Used by Projects:   One — my own repository",
-    "replace": "Drafted By Lawyer:              No\nDrafted By Lawyer:              No\nApproved or Used by Projects:   One — my own repository",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 468: §8.4 から「Section 8.1 alone governs」の alone を落とす —— 付け足した機能に §8.4 が及ぶかの線が消える (468u の目印)",
-    "file": CURRENT_DRAFT,
-    "find": "remove. Section 8.1 alone governs a feature added to the Work, by",
-    "replace": "remove. Section 8.1 governs a feature added to the Work, by",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 444n: REUSE.toml の全 file への宣言を前の版へ戻す —— 2026-09-23〜11-08 に実際にこの状態だった (どの Check も読んでいなかった)",
-    "file": ROOT / "REUSE.toml",
-    "find": f'SPDX-License-Identifier = "LicenseRef-{APPLIED_ID}"',
-    "replace": 'SPDX-License-Identifier = "LicenseRef-ACD-1.0"',
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 238: og:image の 2 本目を属性の順序を変えて足す —— 先頭しか読まない Check 153 には見えず、旧 238 は属性順を固定していた",
-    "file": ROOT / "index.html",
-    "find": '    <meta property="og:image" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp" />',
-    "replace": ('    <meta property="og:image" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp" />'
-                '<meta content="https://example.com/other.webp" property="og:image" />'),
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 238: ai:canonical の 2 本目を別の URL で足す —— 先頭しか読まない Check 282 には見えない",
-    "file": ROOT / "index.html",
-    "find": '    <meta name="ai:canonical" content="https://yutapr0117-design.github.io/portfolio/" />',
-    "replace": ('    <meta name="ai:canonical" content="https://yutapr0117-design.github.io/portfolio/" />'
-                '<meta name="ai:canonical" content="https://example.com/" />'),
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 17: SITE_CONFIG の直前のコメントに旧い値を残したまま LAST_UPDATED を進める —— コメント込みの先頭一致で読むと、コメントの値が比べられて通っていた (値は v74 の間は変わらない)",
-    "file": ROOT / "main.js",
-    "find": "        const SITE_CONFIG = {\n            VERSION:       'v74',\n            LAST_UPDATED:  '2026-05-31',",
-    "replace": "        // 旧: LAST_UPDATED:  '2026-05-31', VERSION:       'v74',\n        const SITE_CONFIG = {\n            VERSION:       'v74',\n            LAST_UPDATED:  '2026-06-01',",
-})
 _MUTATIONS_TAIL.append({
     "name": "Check 2: SITE_CONFIG の直前のコメントに旧い値を残したまま VERSION を進める —— 同じ形で版数の同期が見えなかった (Check 177 も同じ理由で発火する)",
     "file": ROOT / "main.js",
