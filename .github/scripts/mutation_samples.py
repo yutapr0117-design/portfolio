@@ -533,6 +533,13 @@ _MUTATIONS_TAIL.append({
     "replace": "place within a file, by a file name that refers to other",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 472: 送る文面の §8.4 を、どの版にも無い §8.9 にする —— 提出対象が 1.0 の間、472 は一度も RED になりえなかった (後の版の条番号は 1.0 の部分集合)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": "outputs of computational use (§8.4), with no condition",
+    "replace": "outputs of computational use (§8.9), with no condition",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

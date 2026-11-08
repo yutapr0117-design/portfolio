@@ -370,7 +370,7 @@ equivalent' category **make use of this wealth of prior discussions (well over a
 avoid running into the same problems."*
 
 **その "wealth" の中心が、2020 年の Unlicense legacy 承認に対する veto スレッド（49 通）である。**
-ドシエは §3.9 でこの窓を「読了」としていたが、取り出していたのは **2 つの結論だけ**だった
+ドシエは `PEER-REVIEW-WATCH.md` §3.9 でこの窓を「読了」としていたが、取り出していたのは **2 つの結論だけ**だった
 （「dedication *taken alone* は承認されない」「lawyers both US and non-US が一致した」）。
 **論拠そのものは読んでいなかった**（2026-09-08 に読了）。
 
