@@ -84,7 +84,7 @@ decide what is worth translating, and gives you the commands to check the claims
 | [`ACD-1.0.txt`](ACD-1.0.txt) | **The text posted to `license-discuss` on 2026-08-26.** Frozen since 2026-08-24 so that the text under discussion does not move. This repository applied it until 2026-10-25. |
 | [`ACD-1.1.txt`](ACD-1.1.txt) | **The successor, frozen 2026-09-17.** When it was frozen it closed nineteen of the twenty-one defects then recorded in [`ACD-1.0.errata.md`](ACD-1.0.errata.md); the list has kept growing since, and each entry says which version addresses it. It has **not** been submitted to `license-review` and is **not** applied to this repository. |
 | [`ACD-1.2.txt`](ACD-1.2.txt) | **The second successor, frozen 2026-10-17.** Its own header says what it is. It has **not** been submitted to `license-review` and is **not** applied to this repository. |
-| [`ACD-1.3.txt`](ACD-1.3.txt) | **The third successor, frozen 2026-10-25, and the licence this repository applies from that date** (the root `LICENSE` says so). It has **not** been submitted to `license-review`. |
+| [`ACD-1.3.txt`](ACD-1.3.txt) | **ACD-1.3, the third successor, frozen 2026-10-25, and the licence this repository applies from that date** (the root `LICENSE` says so). It has **not** been submitted to `license-review`. |
 
 **Work on the next version happens in [`ACD-1.4-DRAFT.txt`](ACD-1.4-DRAFT.txt)**, so no
 frozen text moves while it is being discussed. All four are pinned by SHA-256 in
