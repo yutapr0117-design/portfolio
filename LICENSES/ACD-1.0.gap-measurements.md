@@ -716,3 +716,17 @@ David A. Wheeler 氏が「Public Domain」を OSI のライセンスの一覧に
 | *"the passive user shouldn't need a lawyer to use the software."* | Bruce Perens 氏 2019-05 | ACD の受領者には義務が無い（§10.1）ので、使うだけの人は何も確かめなくてよい（§2.3、§6.5） |
 
 **この節が establish しないこと。** どれも個人の発言で、OSI の決定ではない。Rosen 氏の言う「最近否決された」ライセンスが何かは、この通からは特定できない。
+
+## 1.150 CC0 の審査中に出た直し方の提案 —— 献呈と予備の許諾の両方に、明示の特許の許可を（2012-02）（2026-11-08）
+
+`license-review` 2012-02「Request for consultation with CC on patent issue」（30 通・`rounds/2012-02-license-review-cc0-patent-consultation-observed.txt`）。§1.138 の CC0 の審査と同じ時期のスレッドで、ドシエは読んでいなかった。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"CC should be asked to add language to CC0: an explicit permission to make use of patent claims necessary to use the software in the form that was dedicated or licensed. This should apply to both public domain, and the fallback license."* | Bruce Perens 氏 2012-02-19（Fontana 氏と同意見だと述べて）| 献呈と予備の許諾の両方に効く明示の特許の許可、という提案。ACD の §8 は §3 と §4 のどちらにも依らずに立ち（§2.4、§8.6）、この形に当たる。範囲は「献呈された形のまま使うのに要る請求項」までで、§8.4 はそれを越える（#305）|
+| *"there is /one /party that needs the service the most. This is the private developer"*、*"The patent issue in CC0 is one such trap."* | 同 2012-02-21 | 特許の除外を、個人の開発者への罠と見る。§8.3 はその逆を明示する |
+| *"we just want to respond properly"* | Christopher Allan Webber 氏（Creative Commons）2012-02-21 | CC は説明を用意すると述べた。CC0 はいまも 1.0 で、clause 4(a) は残っている |
+
+**逆側（#310）。** Russ Nelson 氏は同じ日に *"Anybody who wants to set a booby trap will take steps to make sure that a separate legal entity owns the patent rights"* と述べた。1.4 の §8.5 は「支配する」を Dedicator 自身が許諾できる権利に限っており（E39）、関連会社が持つ特許には届かない。Apache-2.0 は許諾する者を Legal Entity、*"the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity"* で数えるので、ここは ACD の方が狭い。
+
+**この節が establish しないこと。** 個人の発言で、OSI の決定ではない。CC がその後どう説明したかは、このスレッドの 30 通の中には無い。
