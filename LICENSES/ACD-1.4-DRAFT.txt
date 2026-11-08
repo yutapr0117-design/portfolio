@@ -238,9 +238,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 16.5 now names, after an assignment, "the person or entity to
       whom that role was last assigned", so that an assignor does not remain
       the Steward. (+4 words.)
-    * Section 16.4 now matches an identifier that contains "ACD-" "regardless
-      of case", so that a modified text cannot take a version number in lower
-      case. (+3 words.)
+    * Section 16.4 (errata E77) now matches an identifier that contains
+      "ACD-" "regardless of case", so that a modified text cannot take a
+      version number in lower case. (+3 words.)
     * Section 16.4 now counts only an earlier text "the Steward has published"
       when it bars a version number, so that a modified text distributed in
       breach cannot take the number first. (+4 words.)
