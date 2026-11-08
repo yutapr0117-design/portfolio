@@ -87,7 +87,7 @@ EFFECT_MARKERS_468U = (
     ("8.5", "if, and only if"),
     ("16.2", "in a comment within a file"),
     # 2026-11-08 (#2655): §5.2 が覆う素材とサービスの範囲、§6.4 が「何について」負わないか
-    ("5.2", "other than the Work, that the Dedicator itself makes available"),
+    ("5.2", "other than the Work, that the Dedicator itself makes or makes available"),
     ("5.2", "without providing a copy of it"),
     ("6.4", "under this Dedication in respect of any"),
 )

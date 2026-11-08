@@ -125,8 +125,8 @@ MUTATIONS_ARCHIVE6 = [
     {
     "name": "Check 441g: 草案に複数語の置換テキスト <your name> を入れる —— 置換テキストの照合が空白で止まり、§16.1 の例外も正規表現の偶然で通っていた",
     "file": CURRENT_DRAFT,
-    "find": "except by the Steward (Section 16.5), and by",
-    "replace": "except by <your name> (Section 16.5), and by",
+    "find": "except by the Steward",
+    "replace": "except by <your name>",
 },
     {
     "name": "Check 468: §16.2 の通知の主語「a Dedicator」を落とす —— タグを残しただけの取り込み手まで通知の適用に入る (468u の目印)",
