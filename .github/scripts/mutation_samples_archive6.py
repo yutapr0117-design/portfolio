@@ -445,4 +445,52 @@ MUTATIONS_ARCHIVE6 = [
     "find": 'narrows to the remaining ',
     "replace": 'narrows to the remaining two, then the remaining ',
 },
+    {
+    "name": 'Check 498 (c): FAQ mirror のプロセスの問数を 99 にする —— 460 (d) は「A. 使う側」しか読んでいなかった',
+    "file": ROOT / 'docs' / 'files' / 'LICENSES' / 'ACD-1.0.faq.md.md',
+    "find": '**B. プロセス**（',
+    "replace": '**B. プロセス**（99 問）（',
+},
+    {
+    "name": 'Check 498 (d): §4c の条の行の分母を 81 にする —— 460 (n) は分子だけを掴み、分母は読み捨てていた',
+    "file": ROOT / 'LICENSES' / 'ACD-1.0.submission-reference.md',
+    "find": '**82 / 82**, no gaps either way',
+    "replace": '**82 / 81**, no gaps either way',
+},
+    {
+    "name": 'Check 498 (e): register の集計行に「解消済み 4」を書く —— 460 (m) は解消済みを読まず、有利な向きの偽が通った',
+    "file": ROOT / 'LICENSES' / 'ACD-OSI-BOTTLENECKS.md',
+    "find": '/ 解消済み ',
+    "replace": '/ 解消済み 4 / 解消済み ',
+},
+    {
+    "name": 'Check 498 (f): 逐条リファレンスの「82 条すべてを収録」を 83 にする —— 460 (c) は題の「全 X 節 Y 条」しか読んでいなかった',
+    "file": ROOT / 'LICENSES' / 'ACD-1.0.clause-reference.md',
+    "find": '82 条すべてを収録',
+    "replace": '83 条すべてを収録',
+},
+    {
+    "name": 'Check 498 (g): submission.md の分冊の名指しから -boilerplate を外す —— 2026-11-08 まで実際にそうだった ("three files" で 13 件を持つ分冊を名指していなかった)',
+    "file": ROOT / 'LICENSES' / 'ACD-1.0.submission.md',
+    "find": ' / `-boilerplate` companions',
+    "replace": ' companions',
+},
+    {
+    "name": 'Check 472c: 入口の期待値を "→ expected 16" に言い換える —— 形が合わない期待値は黙って照合から外れ、本数が減っても緑だった',
+    "file": ROOT / 'LICENSES' / 'REVIEWERS.md',
+    "find": '→ expect 16',
+    "replace": '→ expected 16',
+},
+    {
+    "name": 'Check 472d: 入口の "In one screen" の見出しを ### へ下げる —— 文字列の先頭一致で探しており、### の中の "## In one screen" を見出しとして測っていた',
+    "file": ROOT / 'LICENSES' / 'REVIEWERS.md',
+    "find": '\n## In one screen\n',
+    "replace": '\n### In one screen\n',
+},
+    {
+    "name": 'Check 472e: 無限定の "0 placeholders" を書く —— 数字が先の綴りは読んでいなかった',
+    "file": ROOT / 'LICENSES' / 'ADOPTING.md',
+    "find": 'audience: anyone thinking of applying ACD to their own work',
+    "replace": 'audience: anyone thinking of applying ACD to their own work (0 placeholders to fill)',
+},
 ]
