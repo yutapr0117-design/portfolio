@@ -22,16 +22,16 @@ the 1.0 text.
 
 | ID | The problem | Severity | Where it stands | Who can move it |
 |---|---|---|---|---|
-| B1 | No legal review | Highest | Nothing here supplies it. It is not a requirement, and members keep asking submitters for one (#291). The questions a lawyer would need are in `QUESTIONS-FOR-COUNSEL.md` | The owner, by engaging one |
+| B1 | No legal review | Highest | Nothing here supplies it. It is not a requirement: the process asked for an analysis by a licensed practitioner until December 2007 and then dropped it (`review-rules.md` §1.141). Members keep asking submitters for one (#291), and the review is *"not for workshopping a license"* (#298). Of at least 24 new licences submitted with no review, one is on the list (#297). The questions a lawyer would need are in `QUESTIONS-FOR-COUNSEL.md` | The owner, by engaging one |
 | B2 | One adopter: this repository | Highest | We can improve discoverability. We cannot produce adoption, and will not claim any. Non-use alone has not been a ground (Committee rationale, 2020 and 2021). The one hold on record (Tiwaz, 2025-09-11) lifts if one project uses the licence or expresses interest | Third parties; the owner can ask |
 | B3 | Length: 4,896 words, 16 sections, 82 clauses | High | It can be shortened but not answered | Us, in part |
-| B4 | The §3 surrender beside the §4 licence | High | Tested as a possible structural refusal, and that was rejected. An article on OSI's site named the two parts as the solution in 2017. In the 2012 straw poll on CC0 all 13 votes against named patents and none named the structure, though one reviewer objected to the form that year. The judgment is OSI's | OSI |
+| B4 | The §3 surrender beside the §4 licence | High | Tested as a possible structural refusal, and that was rejected. An article on OSI's site named the two parts as the solution in 2017. In the 2012 straw poll on CC0 all 13 votes against named patents and none named the structure, though one reviewer objected to the form that year. What OSI reviews is the licence part: *"OSI could analyze CC0 for its license fallback terms, but not as a public domain dedication"* (Lawrence Rosen, 2011; the same line in 2003, `gap-measurements.md` §1.143, §1.146). The judgment is OSI's | OSI |
 | B5 | The legal account in §4.4 | Medium | The drafting defect closed in 1.1. The design question stays open | OSI |
 | B6 | The name | Medium | Decided on 2026-10-24: no rename | Decided |
 | B7 | §8.4's patent reach may lower uptake | Medium | A one-way trade with B10. Both mitigations are structurally closed | OSI |
 | B8 | §12 moral rights | Medium | The same clause has been called a gap and mission creep. Both are recorded | A lawyer |
 | B9 | §7 database right | Low | Checked and kept | Decided |
-| B10 | Is the remaining gap enough for a new licence? | Highest | One effect stands on the text of all 141 approved licences: a patent grant beyond the work with no condition and no termination. Whether that is enough is OSI's call | OSI |
+| B10 | Is the remaining gap enough for a new licence? | Highest | One effect stands on the text of all 141 approved licences: a patent grant beyond the work with no condition and no termination. John Cowan observed in 2014: *"We may not be in the business of approving licenses without patent grants any more"* (`gap-measurements.md` §1.144). Every statement we found that fixes the scope of a grant ties it to the work, so the reach past it has no supporter on record (#305). Whether that is enough is OSI's call | OSI |
 | B11 | SPDX and REUSE naming | Low | Deliberately not submitted yet | OSI, then SPDX |
 | B12 | One steward, and succession | Low | The recorded worry is control, and ACD has no upgrade clause. No successor is named | The owner, and someone willing |
 | B13 | The cost of understanding this submission | High | Continuing. It is the only real relief for B3 | Us |
