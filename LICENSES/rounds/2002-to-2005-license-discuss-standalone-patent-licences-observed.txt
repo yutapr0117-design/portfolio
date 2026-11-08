@@ -1,0 +1,197 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2002-November, 2005-January; the month in each message's Date line)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-09)
+Messages: 3 messages this dossier cites on patent licences that stand without a copyright grant (2002-11 and 2005-01). Not a thread.
+Senders: Lawrence Rosen
+Position: answers about royalty-free patent policies for standards and about patent-only licences for specifications. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Thu Nov 21 22:39:14 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Thu, 21 Nov 2002 14:39:14 -0800
+Subject: Royalty-free Patent Policies for Open Source?
+In-Reply-To: <C3D9C4C6-FD9E-11D6-AE9F-003065B8701C@apple.com>
+Message-ID: <000001c291ae$d3268810$927ba8c0@ROSENGARDEN>
+
+> I'm aware most Open Source licenses have patent grants.  But 
+> in all the 
+> cases I've seen, those grants are tied to the specific 
+> implementation.  
+>   My impression is that the W3C requires that the patents be 
+> royalty-free for all possible implementations, not just your own.  
+> Right?   Is there anything like that?
+
+Anyone who wants it can have a royalty-free license to patents
+containing Essential Claims for implementing the Recommendation.  
+
+The patent license is for Essential Claims only.  It may also be limited
+to "implementations of the Recommendation, and to what is required by
+the Recommendation."  This so-called field of use limitation was the
+subject of much debate at W3C.  Open source representatives were almost
+alone in lobbying for a patent license of unlimited scope.
+
+In most cases this field of use limitation will have little practical
+effect.  It is unlikely that software patents will have very
+wide-ranging applications but, if they do, and if you want to implement
+software other than the Recommendation, you'll have to get a separate
+license.  
+
+The patent grants in most open source licenses are fully compatible with
+the W3C patent policy.  The patent grants in the OSL and AFL are *not*
+tied to specific implementations and are broader than the W3C patent
+grant.  
+
+/Larry Rosen
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From lrosen at rosenlaw.com  Wed Jan 12 03:52:38 2005
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Tue, 11 Jan 2005 19:52:38 -0800
+Subject: license with patent grants appropriate for specifications?
+In-Reply-To: <41E46547.7070604@Sun.COM>
+Message-ID: <20050111225241.GA84760@mail26a.sbc-webhosting.com>
+
+> So, is it reasonable to take the following approach:
+>   - issue the specification itself under an existing open source license,
+>     one that in and of itself does not grant any patent rights with
+> respect
+>     to implementations of the spec
+>   - provide separately a patent-only license that grants patent rights
+>     to compliant implementations of that specification (or broader if
+>     one wishes)
+> rather than trying to bundle these together into a single open source
+> license? The patent-only license, not being a source license at all,
+> presumably does not have to be an open source license.
+
+Most robust open source licenses contain both copyright grants and patent
+grants. These licenses should be sufficient. But if the only thing that is
+being contributed is a patent without any copyrightable subject matter, then
+a standalone patent license would be needed. But that patent license must be
+compatible with open source. It cannot impose conditions that are
+incompatible with open source.
+
+So, for example, in the Marid working group at IETF, Yahoo licensed
+DomainKeys under a copyright/patent license, but Microsoft used only a
+patent license (in that latter case, one that was not compatible with open
+source).
+
+/Larry
+
+Lawrence Rosen
+Rosenlaw & Einschlag, technology law offices (www.rosenlaw.com)
+3001 King Ranch Road, Ukiah, CA 95482
+707-485-1242  ?  fax: 707-485-1243
+Author of ?Open Source Licensing: Software Freedom 
+               and Intellectual Property Law? (Prentice Hall 2004)
+ 
+
+> -----Original Message-----
+> From: ipr-wg-bounces at ietf.org [mailto:ipr-wg-bounces at ietf.org] On Behalf
+> Of Bob Scheifler
+> Sent: Tuesday, January 11, 2005 3:46 PM
+> To: lrosen at rosenlaw.com
+> Cc: license-discuss at opensource.org; 'Ipr-Wg at Ietf.Org'
+> Subject: Re: license with patent grants appropriate for specifications?
+> 
+> > The compromise I try to reach with patent owners in the context of
+> industry
+> > standards is that
+> > (1) patent owners may choose to limit the scope of their patent license
+> > grants to compliant implementations, and
+> > (2) those patent licenses may not restrict anyone from creating and
+> > distributing non-compliant implementations.
+> >
+> > As to the specification copyright license, it is consistent with open
+> source
+> > principles if it grants you permission to create derivative works of the
+> > specification.
+> 
+> So, is it reasonable to take the following approach:
+>   - issue the specification itself under an existing open source license,
+>     one that in and of itself does not grant any patent rights with
+> respect
+>     to implementations of the spec
+>   - provide separately a patent-only license that grants patent rights
+>     to compliant implementations of that specification (or broader if
+>     one wishes)
+> rather than trying to bundle these together into a single open source
+> license? The patent-only license, not being a source license at all,
+> presumably does not have to be an open source license.
+> 
+> - Bob
+> 
+> _______________________________________________
+> Ipr-wg mailing list
+> Ipr-wg at ietf.org
+> https://www1.ietf.org/mailman/listinfo/ipr-wg
+
+
+
+From lrosen at rosenlaw.com  Sat Jan 15 07:14:16 2005
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Fri, 14 Jan 2005 23:14:16 -0800
+Subject: license with patent grants appropriate for specifications?
+In-Reply-To: <16871.61918.505716.536214@chiark.greenend.org.uk>
+Message-ID: <20050115021418.GA10078@mail26b.sbc-webhosting.com>
+
+> As I wrote earlier, the patent licence must extend at least to
+> noncompliant Open Source derivatives of an original compliant
+> implementation.  Otherwise the software is not Open Source because the
+> community is not free to make and distribute modified versions.
+
+Not as I see it. To be compatible with open source, the patent license must
+at least extend to the creation of conforming implementations, and it must
+not forbid non-conforming implementations. On a case-by-case basis,
+additional patent licenses may be needed from the original licensor or from
+third parties for non-conforming applications.
+
+/Larry Rosen
+
+Lawrence Rosen
+Rosenlaw & Einschlag, technology law offices (www.rosenlaw.com)
+3001 King Ranch Road, Ukiah, CA 95482
+707-485-1242  ?  fax: 707-485-1243
+Author of ?Open Source Licensing: Software Freedom 
+               and Intellectual Property Law? (Prentice Hall 2004)
+ 
+
+> -----Original Message-----
+> From: ipr-wg-bounces at ietf.org [mailto:ipr-wg-bounces at ietf.org] On Behalf
+> Of Ian Jackson
+> Sent: Friday, January 14, 2005 8:23 AM
+> To: Bob.Scheifler at Sun.COM
+> Cc: lrosen at rosenlaw.com; license-discuss at opensource.org; 'Ipr-Wg at Ietf.Org'
+> Subject: Re: license with patent grants appropriate for specifications?
+> 
+> Bob Scheifler writes ("Re: license with patent grants appropriate for
+> specifications?"):
+> > So, is it reasonable to take the following approach:
+> >   - issue the specification itself under an existing open source
+> license,
+> >     one that in and of itself does not grant any patent rights with
+> respect
+> >     to implementations of the spec
+> 
+> Yes, that is fine as far as it goes, but of course as you recognise
+> the patent question must be dealt with as well:
+> 
+> >   - provide separately a patent-only license that grants patent rights
+> >     to compliant implementations of that specification (or broader if
+> >     one wishes)
+> 
+> As I wrote earlier, the patent licence must extend at least to
+> noncompliant Open Source derivatives of an original compliant
+> implementation.  Otherwise the software is not Open Source because the
+> community is not free to make and distribute modified versions.
+> 
+> Ian.
+> 
+> _______________________________________________
+> Ipr-wg mailing list
+> Ipr-wg at ietf.org
+> https://www1.ietf.org/mailman/listinfo/ipr-wg
+
+
+

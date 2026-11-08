@@ -61,10 +61,11 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-09 時点・347 ファイル）
+## いまの状態（2026-11-09 時点・348 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
+| 2002〜2005 | `license-discuss` | **観測（著作権を伴わない特許の許諾と、標準の特許方針・3 通）** | `2002-to-2005-license-discuss-standalone-patent-licences-observed.txt` |
 | 2012-02 | `license-review` | **観測（CC0 の審査から、特許について述べた 7 通）** | `2012-02-license-review-cc0-submission-patent-statements-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
