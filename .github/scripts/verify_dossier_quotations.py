@@ -24,6 +24,8 @@ CLAUDE.md §7 が *「自動監視は CI に入れない（外部フォーラム
     DOSSIER_ALL=1 DOSSIER_ARCHIVE_CACHE=<同上> python3 .github/scripts/verify_dossier_quotations.py --all-italics
     # 入口の面の引用を全 corpus に当てて manifest を更新する (Check 472n が読む):
     DOSSIER_ARCHIVE_CACHE=<同上> python3 .github/scripts/verify_dossier_quotations.py --record-entry
+    # 「要約」と書いた語句が、実は原文に逐語で在るか (在れば、引用の記法と出典を付けるべき):
+    DOSSIER_ARCHIVE_CACHE=<同上> python3 .github/scripts/verify_dossier_quotations.py --summaries
     # OSI のサイトの取得物も照合先にする:
     DOSSIER_EXTRA_SOURCES=~/osi-fetch/fetch DOSSIER_ARCHIVE_CACHE=<同上> python3 ...
 
@@ -401,13 +403,42 @@ def near_misses(miss, blob):
     return sorted(out, key=lambda x: -x[0])
 
 
+SUMMARY_LABEL = re.compile(
+    r"\*\*([^*]{8,240})\*\*\s*[（(]\s*(?:a summary, not a quotation|a summary|summary|要約)[^)）]*[)）]",
+    re.I)
+
+
+def summaries(root="."):
+    """「要約」と書いた語句を原文に当てる (portfolio-00 の提案・2026-11-08)。
+
+    objection-map に「要約」と書いた行が、実は逐語だった (Fontana 氏の 1 行・#2618 で直した)。
+    斜体の引用の照合は記法で引用を探すので、要約と名乗った語句は照合の外にある。要約の記法は
+    `**語句** (a summary, not a quotation)` と `**語句**（要約）`。一致すれば「要約ではなく引用」で、
+    逐語の記法と出典を付けるべき行である。一致しないことは要約であることの証明ではない。
+    """
+    blob = load_sources(root)
+    found = []
+    for path in sorted(glob.glob(os.path.join(root, "LICENSES", "*.md"))):
+        for i, line in enumerate(open(path, encoding="utf-8").read().splitlines(), 1):
+            for m in SUMMARY_LABEL.finditer(line):
+                found.append((f"{os.path.basename(path)}:{i}", m.group(1).strip(), present(m.group(1).strip(), blob)))
+    verbatim = [f for f in found if f[2]]
+    print(f"要約と書いた語句: {len(found)}   うち原文に逐語で在るもの: {len(verbatim)}")
+    for loc, phrase, hit in found:
+        print(f"  {'逐語 (要約ではない)' if hit else '要約として整合'}  [{loc}] {phrase[:90]}")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--fetch", action="store_true", help="不足月をアーカイブから取得する")
     ap.add_argument("--root", default=".")
     ap.add_argument("--record-entry", action="store_true", help="入口の引用を全 corpus に当てて manifest を更新する")
     ap.add_argument("--all-italics", action="store_true", help="人名の近傍に限らず、斜体の引用をすべて当てる")
+    ap.add_argument("--summaries", action="store_true", help="「要約」と書いた語句が原文に逐語で在るかを当てる")
     args = ap.parse_args()
+    if args.summaries:
+        return summaries(args.root)
     if args.record_entry:
         return record_entry(args.root)
 
