@@ -826,3 +826,15 @@ UPL（Universal Permissive License）の審査（`license-review`・2014-04-10 �
 **読み。** 作品に含まれる主題へ許諾を結ぶ形（§8.1）は、許諾者の特許が空になるという 2002 年の懸念への答えとして生まれた形と同じである。§8.4 は、モデルが作品に含まれる主題ではないのでこの限定を外し、因果の限定で代える。**逆側**: Cowan 氏の懸念は §8.4 の伸びにそのまま向く（#16・#305）。因果の限定がそれを抑えるかは、法律家への問いとして開いている（`QUESTIONS-FOR-COUNSEL.md` 2(b)）。
 
 **この節が establish しないこと。** どれも 2002 年の個人の発言で、Apache-2.0 の文言がこのスレッドから決まったという記録は読んでいない。
+
+## 1.162 「もう 1 本のライセンスが要るか」と、それを測る分類の現状（2012・2019〜2020）（2026-11-08）
+
+`rounds/2012-to-2020-license-review-need-and-proliferation-categories-cited-observed.txt`。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"I think a sincere effort by the OSI to create a simple, liberal license which covered the patent issue as a successor to BSD might be well received, actually."*。CC0 については *"By having explicit language around not granting patent rights of any kind, the CC0 sends the message that it is OK, in fact encouraged, to booby-trap free stuff through stealth patent attacks."* | Josh Berkus 氏 2012-03-08（"avoid gray areas?"） | 特許を扱う簡潔な permissive の需要。§8.3 の *"leaves the recipient exposed"* と同じ向き。逆側: その需要は 2015 年の UPL と 2024 年の Blue Oak がすでに満たした（§1.154・#241）。ACD が足すのはその先（条件ゼロ・モデルと出力・献呈）である |
+| *"I wonder if there is such desperate need for yet another license. Except perhaps one in Chinese."* | Carlo Piana 氏 2019-12-03（Mulan PSL v1） | 必要性への疑い（B10）。逆側: Mulan PSL v2 は 2020-02-14 に理事会で 9 対 0 で承認された（Pamela Chestek 氏の告知）。必要性への疑いは承認を止めなかった |
+| 増殖の分類は *"created over a decade ago by a one-off consultative committee"* で、*"did not offer OSI a means to make a continuously-updated judgement"*、*"Consequently, the categories have become outdated through lack of maintenance."* | Simon Phipps 氏 2020-02-15（opensource.org のアドレス） | §1.154 の Fontana 氏 2014 の「重複の枠」は 2005 年の分類に拠っていた。その分類の更新の手段が無いと OSI 側が述べた。重複の判定は分類ではなく、提出ごとの比較（「最も近い承認済みライセンスとの比較」）で行われる |
+
+**この節が establish しないこと。** どれも個人の発言で、決定は Mulan PSL v2 の承認だけである。Berkus 氏の文は OSI が自分で作る場合の話で、外からの提出についてではない。
