@@ -406,7 +406,7 @@ McCoy Smith 氏 11 / Shuji Sado 氏 9 / Luis Villa 氏 8 / Rob Landley 氏 7 ほ
 documentation / data / metadata / audiovisual material）**が、束ねた結果として起こることが
 「全部が同じく無条件に使える」ことだけなので、束ねが不利益を伝播させない。**
 
-### (b) **範囲の判定可能性** —— *"How do you know what the 'covered work' is?"*（Fontana 氏・2026-08-16）
+### (b) **範囲の判定可能性** —— *"How do you know what the "covered work" is?"*（Fontana 氏・2026-08-16。2026-11-08 に原文の二重引用符へ戻した）
 
 **これは我々に当たる論点である。** 審査者が問うているのは「許諾が寛容か」ではなく
 **「第三者が、何が対象かを判定できるか」**である。
