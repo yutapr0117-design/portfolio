@@ -848,3 +848,18 @@ Luis Villa 氏が、2012〜13 年に自分が調べた結果を理事会の何�
 | 定義の案として *"software actually distributed under terms that grant a copyright and patent license from all contributors to the software for every licensee"*（*"This is a DRAFT, open for your editing and changes."* と添えて） | Lawrence Rosen 氏 2018-11-13 | 著作権と特許の両方の許諾を開いたソフトウェアの定義に入れる案。§2.6 で寄与者を Dedicator にし、§8 で特許を許諾する ACD の形と同じ向き |
 
 **この節が establish しないこと。** Perens 氏の言明は役職を名乗った発言だが、理事会の議決ではない。Rosen 氏の定義は本人が草案と呼んだもので、OSD は改められていない。逆側として、特許の許諾を OSD が要件にしたことはない（`against.md` #233 の Nelson 氏の対称性）。
+
+## 1.158 Blue Oak の審査 —— 広い特許許諾を持つ permissive なライセンスが承認されるまで（2023-11〜2024-01）（2026-11-08）
+
+Blue Oak Model License 1.0.0 の審査（`rounds/2023-11-to-2024-01-license-review-blue-oak-approval-observed.txt`）。人格権についての発言は §1.49 が記録している。ここでは特許と承認の基準を見る。2024-01-29 に Stefano Maffulli 氏が *"was approved and it's now published on OSI's website"* と告げた。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| 隙間として *"No existing license boasted all of those features, particularly including plain language drafting and a strong patent grant, so we wrote this one."*。提出の理由は *"it is used by a critical dependency and their policy requires OSI-approved licenses"*（公開から 5 年後） | Luis Villa 氏 2023-11-07（提出者） | 強い特許許諾は隙間として受け取られた。逆側（B2）: Blue Oak は週 1,000 万回取得される npm の依存に使われてから出された |
+| *"The license is evidently OSD-compliant and should probably be approved."*。同じ通で、特許許諾が *"so broad that it would be completely unsafe for anyone who might come into contact with patents to contribute to Blue Oak covered software"*、ただし *"I don't think these aspects are fatal though"* | Lukas Atkinson 氏 2023-11-08 | 広さは承認を止めなかった。寄与者への警告は、§2.6 と §8.4 の組に当たる（#313） |
+| *"Surely the most important thing is that those holding a patent portfolio and not wishing to dilute it in a non-copyleft license understand the consequences of using such license."*、*"if a license is sufficiently marking all checkboxes in OSD, it has been submitted according to the policy, it is not up to OSI to question the merit of the license, IMHO"* | Carlo Piana 氏 2023-11-09（*"we at OSI"* と書いて） | 特許の広さは、特許を持つ側が選ぶことで、承認の問いではない、という見方。§8.4 の費用は採用者の判断に属する（B7） |
+| *"I don't see that it could be construed in a way that violates the OSD nor does it fail to meet the non-OSD requirements."*。同じ通で *"Who is a "contributor" and what legal rights or obligations do they have? It's not defined."* | Pamela Chestek 氏 2023-12-11 | 定義の無い「contributor」への批判。ACD は §1.9 で Contribution を、§1.4 で Dedicator を定め、§2.6 で寄与者を Dedicator にする |
+
+**読み。** 承認されたライセンスの中で最も新しい「permissive + 強い特許許諾」の審査で、広さは寄与者への警告として出たが、3 人とも承認を止める理由としなかった。Piana 氏は OSD を満たし手続きに沿えば中身の良し悪しは問わない、と述べた。逆側として、Blue Oak には使用の実績が先にあり、提出者は経験のある法律家だった。ACD はどちらも持たない（B1・B2）。
+
+**この節が establish しないこと。** 承認の理由を述べた理事会の議事録は読んでいない（告知は議事録がまだ無いと書いている）。Piana 氏の「merit を問わない」は *"IMHO"* と添えた個人の見解である。
