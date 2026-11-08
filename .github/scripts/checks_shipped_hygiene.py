@@ -289,7 +289,7 @@ def run(ctx):
                 continue
             for _j, _n in enumerate(_g244):
                 _total244 += 1
-                if not isinstance(_n, dict) or not isinstance(_n.get("@type"), str) or not _n.get("@type"):
+                if not isinstance(_n, dict) or not isinstance(_n.get("@type"), str) or not _n.get("@type").strip():
                     _violations244.append(f"block{_bi}.@graph[{_j}] missing/empty @type")
         _ok244 = _total244 > 0 and not _violations244
         check(
@@ -404,12 +404,12 @@ def run(ctx):
                                 continue
                             if _it.get("@type") != "ListItem":
                                 _violations246.append(f"{path}.itemListElement[{_i}] @type != ListItem")
-                            if not isinstance(_it.get("position"), int):
+                            if not isinstance(_it.get("position"), int) or isinstance(_it.get("position"), bool):  # bool は int の部分型
                                 _violations246.append(f"{path}.itemListElement[{_i}] position not int")
                             _n = _it.get("name")
                             if not isinstance(_n, str) or not _n.strip():
                                 _violations246.append(f"{path}.itemListElement[{_i}] name 欠落/空")
-                            if "item" not in _it:
+                            if not isinstance(_it.get("item"), (str, dict)) or not _it.get("item"):  # [2026-11-08] 空や null も不可
                                 _violations246.append(f"{path}.itemListElement[{_i}] item 欠落")
                 for k, v in node.items():
                     if isinstance(v, list):
@@ -464,7 +464,7 @@ def run(ctx):
                     _missing = []
                     if not isinstance(node.get("name"), str) or not node.get("name", "").strip():
                         _missing.append("name")
-                    if "contentUrl" not in node and "url" not in node:
+                    if not any(isinstance(node.get(_u), str) and node.get(_u).strip() for _u in ("contentUrl", "url")):  # 空の URL も不可
                         _missing.append("contentUrl|url")
                     if _missing:
                         _violations247.append(f"{path} {_t}: missing {_missing!r}")

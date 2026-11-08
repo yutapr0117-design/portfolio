@@ -484,6 +484,49 @@ _MUTATIONS_TAIL.append({
     "replace": '_L460 / "ACD-1.4-EXTERNAL-TRIAGE.md"',
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 246: パンくずの item を空にする —— キーが在れば値を見ず、空や null の行き先が通った',
+    "file": ROOT / 'index.html',
+    "find": '"item": "https://yutapr0117-design.github.io/portfolio/"',
+    "replace": '"item": ""',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 246: パンくずの position を真偽値にする —— bool は int の部分型なので整数として通った',
+    "file": ROOT / 'index.html',
+    "find": '"item": "https://yutapr0117-design.github.io/portfolio/"\n                        }',
+    "replace": '"item": "https://yutapr0117-design.github.io/portfolio/"\n                        },{"@type":"ListItem","position":true,"name":"Next","item":"https://yutapr0117-design.github.io/portfolio/"}',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 247: 音声ノードの url を空にする —— キーの有無だけを見て、空の URL が通った',
+    "file": ROOT / 'index.html',
+    "find": '"url": "https://yutapr0117-design.github.io/portfolio/yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3",\n                  "name": "Sakura Swing (AI-Generated Portfolio BGM)"',
+    "replace": '"url": "",\n                  "name": "Sakura Swing (AI-Generated Portfolio BGM)"',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 244: ノードの @type を空白 1 文字にする —— 真偽で判定し、空白だけの型が通った',
+    "file": ROOT / 'index.html',
+    "find": '"@type": "AudioObject",\n          "@id": "https://yutapr0117-design.github.io/portfolio/#portfolio-bgm-asset",',
+    "replace": '"@type": " ",\n          "@id": "https://yutapr0117-design.github.io/portfolio/#portfolio-bgm-asset",',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 236: manifest の start_date を全角数字で重ねる —— \\d は全角数字にも一致した',
+    "file": ROOT / '.well-known/aio-manifest.json',
+    "find": '"start_date": "2026-06-11"',
+    "replace": '"start_date": "2026-06-11", "start_date": "2026-06-１１"',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 267: 名前を空白 3 文字にする —— 空白も長さに数えて、空の名前が通った',
+    "file": ROOT / 'index.html',
+    "find": '"name": "Architecture Governance Evidence — Human-led AI implementation control",',
+    "replace": '"name": "   ",',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 287: manifest_version を全角数字で重ねる —— \\d は全角数字にも一致した',
+    "file": ROOT / '.well-known/aio-manifest.json',
+    "find": '"manifest_version": "1.0",',
+    "replace": '"manifest_version": "1.0", "manifest_version": "１.０",',
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

@@ -77,7 +77,7 @@ def run(ctx):
             _gen236 = _md236.get("generated_at")
             if not isinstance(_gen236, str):
                 _bad236.append(f"generated_at 欠落 / 非 string ({_gen236!r})")
-            elif not re.match(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$", _gen236):
+            elif not re.match(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z\Z", _gen236, re.ASCII):
                 _bad236.append(f"generated_at={_gen236!r} (format)")
             else:
                 try:
@@ -90,7 +90,7 @@ def run(ctx):
             )
             if not isinstance(_sd236, str):
                 _bad236.append(f"affiliation.start_date 欠落 / 非 string ({_sd236!r})")
-            elif not re.match(r"^\d{4}-\d{2}-\d{2}$", _sd236):
+            elif not re.match(r"^\d{4}-\d{2}-\d{2}\Z", _sd236, re.ASCII):
                 _bad236.append(f"affiliation.start_date={_sd236!r} (format)")
             else:
                 try:
@@ -251,7 +251,7 @@ def run(ctx):
                     and node.get("@id") and isinstance(_n, str)
                 ):
                     _checked267 += 1
-                    _ln = len(_n)
+                    _ln = len(_n.strip())  # [2026-11-08] 空白だけの名前を長さに数えない
                     if not (3 <= _ln <= 200):
                         _violations267.append(f"{path} {_t}: name len={_ln} value={_n[:30]!r}")
                 for k, v in node.items():
