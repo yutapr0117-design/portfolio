@@ -560,6 +560,13 @@ _MUTATIONS_TAIL.append({
     "find": '"confirmed_citation_events": 0',
     "replace": '"confirmed_citation_events": 1',
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 159: 主ブロックの @context を外す —— 値を全面で pool して 1 件でも在れば通り、別のブロックの値で満たされていた",
+    "file": ROOT / "index.html",
+    "find": '"@context": "https://schema.org",',
+    "replace": '',
+    "first_occurrence": True,
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

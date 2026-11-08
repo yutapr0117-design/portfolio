@@ -531,11 +531,25 @@ def run(ctx):
                 _ctx159.add(_v159)
                 _count159 += 1
         _expected159 = "https://schema.org"
-        _ok159 = _count159 > 0 and _ctx159 == {_expected159}
+        # 静的な JSON-LD はブロックごとに @context を持つこと (2026-11-08・Check の監査 #95): 値を全面で
+        #   pool して 1 件でも在れば通る形では、主ブロック (Person / Organization / WebSite …) が @context を
+        #   失っても別のブロックの値で満たされ、主ブロックの語彙が解釈されなくなっていた
+        import json as _json159
+        _blocks159 = re.findall(r'<script type="application/ld\+json">(.*?)</script>', _idx159.read_text(encoding="utf-8"), re.S)
+        _noctx159 = []
+        for _i159, _b159 in enumerate(_blocks159):
+            try:
+                _d159 = _json159.loads(_b159)
+            except ValueError:
+                _noctx159.append(f"block {_i159}: JSON として読めない")
+                continue
+            if not (isinstance(_d159, dict) and _d159.get("@context") == _expected159):
+                _noctx159.append(f"block {_i159}: @context = {(_d159.get('@context') if isinstance(_d159, dict) else type(_d159).__name__)!r}")
+        _ok159 = _count159 > 0 and _ctx159 == {_expected159} and bool(_blocks159) and not _noctx159
         check(
             _ok159,
             f"Check 159: JSON-LD @context {_count159} 件すべて canonical {_expected159!r}",
-            (f"Check 159: @context drift: 観測値={_ctx159} (期待={_expected159!r}) — "
+            (f"Check 159: @context drift: 観測値={_ctx159} / ブロックごと {_noctx159} (期待={_expected159!r}) — "
              "JSON-LD は parse できるが AI/SEO crawler が schema vocabulary を recognize できず "
              "structured-data signal 全体が unknown 扱いで崩壊する。"
              "index.html / main.js / js/meta-management.js の @context を 'https://schema.org' "
