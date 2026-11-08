@@ -480,7 +480,9 @@ bb が §1.9（T35）で見つけたレンズを 80 条に当てた（2026-11-08
 
 ### 14.20 T46: §16.4 の識別子を大小を区別せずに照合する（+3 語・試作）
 
-**Before**: *"or under any identifier that contains "ACD-" followed by a digit"* / **After**: *"or under any identifier that contains "ACD-", regardless of case, followed by a digit"*
+**Before**（§16.4 第 3 文の全文）: A modified text may not be distributed under any name that contains "Autonomous Commons Dedication" or under any identifier that contains "ACD-" followed by a digit, except by the Steward (Section 16.5), and by the Steward only as a new version under a version number and identifier that no earlier text, other than a draft identified as such, has borne, so that each name and identifier in this family continues to denote one fixed text.
+
+**After**（同じ文の全文）: A modified text may not be distributed under any name that contains "Autonomous Commons Dedication" or under any identifier that contains "ACD-", regardless of case, followed by a digit, except by the Steward (Section 16.5), and by the Steward only as a new version under a version number and identifier that no earlier text, other than a draft identified as such, has borne, so that each name and identifier in this family continues to denote one fixed text.
 
 **欠陥**（bb が T44 の反例で挙げた・2026-11-08）: §16.4 の照合は語のとおり大小を区別するので、改変した本文を小文字の *acd-1.5* で配ると制限を素通りする。Hugging Face などは識別子を小文字で書く（T32）。後に Steward が ACD-1.5 を出すと、その版の §16.2 は大小を区別せずに照合するので、*acd-1.5* の札が付いた作品はどちらの本文を指すかが割れ、*"so that each name and identifier in this family continues to denote one fixed text"* が崩れる。
 
