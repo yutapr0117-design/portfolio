@@ -321,6 +321,30 @@ def run(ctx):
                 _walk268(json.loads(_blk), f"block{_bi}")
             except json.JSONDecodeError:
                 continue
+        # 実行時の Article も見る (2026-11-08・Check の監査 #104): 静的な index.html の TechArticle は 1 件だけで、
+        #   ARTICLE_ROUTES のルートでは js/meta-management.js が headline = fullTitle の Article を注入する。
+        #   fullTitle = PAGE_META の title + ' | ' + DISPLAY_NAME + ' - ' + ROLE_TITLE を同じ式で組み立てて測る
+        from _lib_io import strip_js_comments as _strip268
+        _mm268 = _strip268((ROOT / "js" / "meta-management.js").read_text(encoding="utf-8"))
+        _main268 = _strip268((ROOT / "main.js").read_text(encoding="utf-8"))
+        _pm268 = _strip268((ROOT / "js" / "page-meta.js").read_text(encoding="utf-8"))
+        _id268 = _strip268((ROOT / "js" / "identity.js").read_text(encoding="utf-8"))
+        _form268 = re.search(r"const fullTitle = title \+ ' \| ' \+ AUTHOR\.DISPLAY_NAME \+ ' - ' \+ SITE_CONFIG\.ROLE_TITLE;", _mm268)
+        _routes268 = re.search(r"ARTICLE_ROUTES:\s*\[([^\]]*)\]", _main268)
+        _role268 = re.search(r"ROLE_TITLE:\s*'([^']+)'", _main268)
+        _disp268 = re.search(r"DISPLAY_NAME:\s*'([^']+)'", _id268)
+        if not (_form268 and _routes268 and _role268 and _disp268 and "'headline': fullTitle" in _mm268):
+            _violations268.append("実行時の Article の headline の組み立て (fullTitle の式 / ARTICLE_ROUTES / ROLE_TITLE / DISPLAY_NAME) が読めない")
+        else:
+            for _r268 in re.findall(r"'([^']+)'", _routes268.group(1)):
+                _t268 = re.search(r"['\"]?" + re.escape(_r268) + r"['\"]?\s*:\s*\{\s*title:\s*'([^']+)'", _pm268)
+                if not _t268:
+                    _violations268.append(f"runtime {_r268}: PAGE_META の title が文字列で読めない")
+                    continue
+                _h268 = f"{_t268.group(1)} | {_disp268.group(1)} - {_role268.group(1)}"
+                _checked268 += 1
+                if not (10 <= len(_h268) <= 110):
+                    _violations268.append(f"runtime {_r268} Article: headline len={len(_h268)} ({_h268!r})")
         _ok268 = _checked268 > 0 and not _violations268
         check(
             _ok268,
