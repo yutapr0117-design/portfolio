@@ -469,3 +469,11 @@ bb が §1.9（T35）で見つけたレンズを 80 条に当てた（2026-11-08
 - **採らなかったもの**: T41（§10.2 と緊張する・法律家への問いへ）と T42（bb の反例: §1.4 が Dedicator を権利を持つ範囲に限るので、*"INCLUDING ANY PART IN WHICH THE DEDICATOR HOLDS NO RIGHT"* は自己矛盾の文になる。主語を §1.4 の限定の外で立てる形を含めて別に読む）。
 
 **errata と記録**: T36・T40・T44 の文は 1.0 に在り、T43 は E20 の残りなので、errata の番号は bb が付ける。T37 と T45 は 1.1 で入った文なので `ACD-1.1-SELF-AUDIT.md` §3y に書いた。T38・T39 は 1.4 で入った文（T30・T21）。
+
+### 14.19 T42 を変えない理由（§14.1 の免責の主語・2026-11-08）
+
+**問い**（§14.18 の T42）: §14.1 の主語 *THE DEDICATOR* は、§1.4 が Dedicator を *"to the extent that person or entity holds or may hold Covered Rights, Moral Rights, or patent claims in it"* と定めるので、保守者が権利を持たない部分（寄与者のコード・第三者の素材・権利の無い機械生成物）については保守者を免責しない、という読み。
+
+**変えない理由**: (1) §13.2 は *"THE DEDICATOR DOES NOT WARRANT … THAT THE DEDICATOR HOLDS ANY RIGHT IN IT"* と書く。本文自身が、権利を持たない Dedicator を想定して §13・§14 の主語にしている。§1.4 の *to the extent* が「何を献呈するか」の範囲であって、§13・§14 が誰を守るかの範囲ではないことを、隣の条が示している。(2) 25 の試作（*"INCLUDING ANY PART IN WHICH THE DEDICATOR HOLDS NO RIGHT"*・+10 語）は、bb の反例どおり、その部分については Dedicator でない者の免責を「Dedicator は」で述べる自己矛盾の文になる。(3) bb の案（主語を *"NO PERSON WHO HAS APPLIED THIS DEDICATION"* にする）は、§2.6 で Dedicator になった寄与者（適用ではなく提出で Dedicator になる）を外す読みを作る。(4) Apache-2.0 §8 は主語を *"shall any Contributor be liable to You for damages"* とし、Contributor を *"Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work"* と定めるので、配布する Licensor を Work 全体について守る形を語で持つ。ACD は同じことを §13.2 との組で言っている。
+
+**逆側**: §13.2 との組で読むのは解釈であって、§14.1 の語だけでは閉じない。§15.1 の解釈規則は You に多く与える読みを選ぶので、免責を狭く読む主張の足場は残る（T43 で §15.1 の解釈規則にも「in respect of the Work」が掛かるようにしたが、免責は Work についての条でもある）。法律家への問いとして `QUESTIONS-FOR-COUNSEL.md` 問 9 (b) に置いた。
