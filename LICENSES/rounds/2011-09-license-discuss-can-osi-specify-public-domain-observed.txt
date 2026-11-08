@@ -1,0 +1,181 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2011-September.txt
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-08)
+Messages: 4 of the messages in the thread "Can OSI specify that public domain is open source?" (2011-09), the ones this dossier cites.
+Senders: Karl Fogel, John Cowan, Richard Fontana
+Position: a discussion of whether OSI should state that public-domain software is open source. Not addressed to us and not about ACD. Each message is whole.
+
+----- begin verbatim -----
+From kfogel at red-bean.com  Wed Sep  7 19:03:35 2011
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Wed, 07 Sep 2011 15:03:35 -0400
+Subject: Can OSI specify that public domain is open source?
+In-Reply-To: <20110907185956.GD1501@mercury.ccil.org> (John Cowan's message of
+	"Wed, 7 Sep 2011 14:59:56 -0400")
+References: <87d3fcjj44.fsf@kwarm.red-bean.com>
+	<20110907185956.GD1501@mercury.ccil.org>
+Message-ID: <87pqjci394.fsf@kwarm.red-bean.com>
+
+John Cowan <cowan at mercury.ccil.org> writes:
+>Public domain is already adequately discussed in the FAQ at
+>http://ideas.opensource.org/wiki/help/opensource . The issue is not
+>whether PD works are open source, but whether they exist -- that is,
+>whether merely saying so can make a work public domain.
+
+When U.S. Government employees write software on government time, it is
+public domain by law; they need make no disclaimer of rights, it's just
+automatically so.  
+
+(That's where this came up most recently.)
+
+>See http://creativecommons.org/publicdomain/zero/1.0/legalcode (the
+>CC0 license) for a license that attempts to put works into the public
+>domain, and if that fails, licenses everyone everywhere to use all the
+>owner's copyright rights for the duration of the copyright for any
+>number of copies and for any purpose.
+
+OSI can point out that it might be difficult for certain parties to
+place something in the public domain, but we should be clear about the
+fact that, once it is established that something is in the public
+domain, that thing is open source.  That's what I'd like to do.
+
+I wish the FAQ discussion were adequate, but since I've watched
+knowledgeable people on various lists assert that PD is not OSS, because
+they couldn't find it in the license list or other places where they
+expected to find it, I think that's as much proof as we could ask for
+that the FAQ location is not adequate by itself :-).
+
+-K
+
+
+From cowan at mercury.ccil.org  Wed Sep  7 18:59:56 2011
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Wed, 7 Sep 2011 14:59:56 -0400
+Subject: Can OSI specify that public domain is open source?
+In-Reply-To: <87d3fcjj44.fsf@kwarm.red-bean.com>
+References: <87d3fcjj44.fsf@kwarm.red-bean.com>
+Message-ID: <20110907185956.GD1501@mercury.ccil.org>
+
+Karl Fogel scripsit:
+
+> Yes, I realize that we talk about "licenses" everywhere, and the text
+> would make clear that public domain is not really a license, etc, etc.
+> But I've seen this point cause confusion on a number of lists now,
+> including some that matter, and we should just put it to bed.
+
+Public domain is already adequately discussed in the FAQ at
+http://ideas.opensource.org/wiki/help/opensource . The issue is not
+whether PD works are open source, but whether they exist -- that is,
+whether merely saying so can make a work public domain.
+
+See http://creativecommons.org/publicdomain/zero/1.0/legalcode (the
+CC0 license) for a license that attempts to put works into the public
+domain, and if that fails, licenses everyone everywhere to use all the
+owner's copyright rights for the duration of the copyright for any
+number of copies and for any purpose.
+
+-- 
+If you understand,                      John Cowan
+   things are just as they are;         http://www.ccil.org/~cowan
+if you do not understand,               cowan at ccil.org
+   things are just as they are.
+
+
+From rfontana at redhat.com  Wed Sep  7 21:45:34 2011
+From: rfontana at redhat.com (Richard Fontana)
+Date: Wed, 7 Sep 2011 17:45:34 -0400
+Subject: Can OSI specify that public domain is open source?
+In-Reply-To: <20110907213309.GR8377@linuxmafia.com>
+References: <87d3fcjj44.fsf@kwarm.red-bean.com>
+ <20110907185956.GD1501@mercury.ccil.org>
+ <87pqjci394.fsf@kwarm.red-bean.com>
+ <20110907193110.GF1501@mercury.ccil.org>
+ <8739g8i1r7.fsf@kwarm.red-bean.com>
+ <20110907213309.GR8377@linuxmafia.com>
+Message-ID: <20110907214534.GA7283@redhat.com>
+
+[removed license-review]
+
+On Wed, Sep 07, 2011 at 02:33:09PM -0700, Rick Moen wrote:
+> Quoting Karl Fogel (kfogel at red-bean.com):
+> 
+> > In the current situation, OSI is supposed to either deny or not affirm
+> > that (say) SQLite is open source.  That seems a worse result.
+> 
+> Again, point of order:  OSI has always been really clear that it doesn't
+> certify any software as open source.  There really would be no practical
+> way to do it, so OSI has never aspired or professed to do so.  It only
+> certifies _licences_, and is custodian of the formal definition of open
+> source.  
+> 
+> If a software's surrounding circumstances as a whole result in that
+> definition being met, then the software is open source.  For works whose
+> copyright titles still exist and haven't totally expired (and weren't 
+> non-existent ab initio, as with certain US Federal works), a software 
+> licence is necessary but _not sufficient_.  OSI certifies licences as
+> granting the necessary rights _if_ surrounding circumstance don't
+> prevent their exercise.
+> 
+> So, the correct answer to 'Why doesn't OSI certify SQLite as open
+> source?' is 'OSI doesn't certify _any_ software as open source.'
+
+Maybe a way out of this then is the fact that there is no standard
+form of public domain dedication (leave aside what you may think of
+what a public domain dedication actually is, or what it actually
+achieves). Even in the case of noncopyrighted U.S. government employee
+works, I've seen cases where the developers have put a legal notice
+stating that no copyright is being claimed by the U.S. government -
+and there is no standardized wording for that either. So, perhaps,
+OSI's main business has been certifying particular legal documents,
+and there simply is no standard one in the sphere that's been
+considered (justifiably or not) "public domain". There is CC-0, which
+I believe meets the OSD. I suppose, say, the SQLite project could
+offer their own legal notice as the equivalent of a license for
+certification, and then OSI would have to face the issue. 
+
+- RF
+
+
+
+From cowan at mercury.ccil.org  Wed Sep  7 20:59:30 2011
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Wed, 7 Sep 2011 16:59:30 -0400
+Subject: Can OSI specify that public domain is open source?
+In-Reply-To: <20110907200954.GA8868@guilt.hydra>
+References: <87d3fcjj44.fsf@kwarm.red-bean.com> <20110907185956.GD1501@mercury.ccil.org> <87pqjci394.fsf@kwarm.red-bean.com> <20110907193110.GF1501@mercury.ccil.org> <20110907200954.GA8868@guilt.hydra>
+Message-ID: <20110907205930.GJ1501@mercury.ccil.org>
+
+Chad Perrin scripsit:
+
+> As I understand things, there is no particular requirement for an open
+> source license to be non-removable to meet the standards of the OSD.
+> If we assume for the moment that the public domain can be applied to
+> a work without issues, the fact a derived or modified work can be
+> licensed differently does not make it less "open source", as far as
+> I'm aware, and the same could be said for an open source license that
+> includes a clause that allows relicensing (such as the WTFPL).  Am I
+> mistaken?
+
+No, you are correct.  But consider these scenarios:
+
+You (who are not a federal employee) modify a work named "foo" that has
+a BSD license and publish the modified version.  It is still under the
+BSD license without further action.
+
+You modify another work named "bar" that has a public-domain notice.
+Let's assume for the moment that the work truly is in the public domain;
+perhaps it is written by Barack Obama in the scope of his employment.
+You publish your modified version.  Is the work still in the public
+domain?  Arguably no!  It is now a proprietary work (though without a
+copyright notice, so you will find it hard to sue).
+
+That's what makes public-domain notices really bad.  People assume that
+they can be treated like open-source works, but they cannot, not without
+highly unexpected consequences.
+
+-- 
+No saves, Antonio, loke es morirse en su lingua. Es komo            John Cowan
+kedarse soliko en el silensyo kada dya ke Dyo da, komo          cowan at ccil.org
+ser sikileoso sin saver porke.                      http://www.ccil.org/~cowan
+                        --Marcel Cohen, 1985
+
+
