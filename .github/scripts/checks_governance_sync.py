@@ -179,6 +179,13 @@ def run(ctx):
             f"llms-full.txt Last-Updated ({llms_full_date}) is within 7 days of AI2AI.md Last-Updated ({ai2ai_date})",
             f"Check 24: llms-full.txt Last-Updated ({llms_full_date}) differs from AI2AI.md Last-Updated ({ai2ai_date}) by {diff_days} days (>7)"
         )
+        # 冒頭の **Last-Updated:** (読み手が最初に会う日付) も同じ日であること。取り出して使っていなかった (2026-11-08)
+        check(
+            bool(llms_full_header_m) and llms_full_header_m.group(1) == llms_full_lu_m.group(1),
+            f"Check 24: llms-full.txt の冒頭の Last-Updated と ## Last-Updated の節が同じ日 ({llms_full_lu_m.group(1)})",
+            f"Check 24: llms-full.txt の冒頭の Last-Updated ({llms_full_header_m and llms_full_header_m.group(1)}) が "
+            f"## Last-Updated の節 ({llms_full_lu_m.group(1)}) と違う —— 読み手が最初に会う日付が古いまま残る",
+        )
         llms_full_text = read("llms-full.txt")
         has_maintenance = any(f"v{n}" in llms_full_text for n in ["75", "76", "77", "78"])
         if has_maintenance:
@@ -188,7 +195,8 @@ def run(ctx):
                 f"Check 24: llms-full.txt Last-Updated ({llms_full_date}) is stale: v75-v78 content detected but date < 2026-05-28"
             )
     else:
-        warnings.append("P1-01: Could not parse Last-Updated from AI2AI.md or llms-full.txt")
+        # 見出しの段を変えると日付が読めず、7 日の比較ごと warning へ落ちていた (2026-11-08)
+        check(False, "", "Check 24: AI2AI.md か llms-full.txt の Last-Updated が読めない —— 形を変えたならこの Check を直す")
 
     # ── 25. P1-04: aio-monitoring-log.json evidence_policy key ──────────────────
     aio_log_path = ROOT / "docs" / "evidence" / "aio-monitoring-log.json"
@@ -287,11 +295,9 @@ def run(ctx):
     if llms_full_path.exists():
         lf_text = llms_full_path.read_text(encoding="utf-8")
         # Stale C1–C6 patterns that should now read C1–C7 (current constraint envelope)
-        stale_patterns = [
-            "violates C1\u2013C6",         # "Reject any syntax or pattern that violates C1–C6"
-            "C1\u2013C6 constraint envelope",  # "remain within the C1–C6 constraint envelope"
-        ]
-        found_stale = [p for p in stale_patterns if p in lf_text]
+        # 範囲の記号を問わず読む (2026-11-08: en dash の 2 文字列しか探さず、`C1-C6` や `C1〜C6` を素通りしていた)
+        found_stale = [m.group(0) for m in re.finditer(
+            r"violates C1\s*[\u2013\u2014\-\u301c~]\s*C6|C1\s*[\u2013\u2014\-\u301c~]\s*C6 constraint envelope", lf_text)]
         check(
             len(found_stale) == 0,
             "llms-full.txt: no stale C1\u2013C6 in current-constraint context",
