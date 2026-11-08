@@ -331,10 +331,10 @@ T6 は反例なし（出力が Work に取り込まれれば §9 が自分の条
 | :-- | :-- | :-- |
 | §1.9（T24・+3）| T19 の理由（寄与者は表示を見ている）が語で担保されていない。§10.2 で表示を外したミラーも *"offering the Work under this Dedication"* に当たり、知らない人が修正を送ると Dedicator になる | *"offering the Work with a notice of this Dedication"*。§16.2 によりタグも通知に当たる |
 | §8.5（T25・+3）| *"is controlled by the Dedicator if"* は十分条件の形で、通常の意味の control（上流へ料金を払う独占的実施権者など）が並んで残る。§8.5 は §15.1 の射程にあるので、E39 が外した請求項に届く読みが勝つ | *"if, and only if"* |
-| §16.2（T26・+10）| 1.4 でタグだけの適用を認めたので、1 つのファイルのタグが *accompanies* でリポジトリ全体を Work にする読みがある。E61 が *in whole or in part* を外して閉じた形が戻る | *"A tag placed within a file accompanies that file alone."*（SPDX と REUSE の慣行と同じ）|
-| §16.4（T27・+2）| *"begins with \"ACD-\""* は、§16.1 と §16.2 が使う *LicenseRef-ACD-1.4* に届かない | *"ACD-" or "LicenseRef-ACD-"* |
+| §16.2（T26・+13）| 1.4 でタグだけの適用を認めたので、1 つのファイルのタグが *accompanies* でリポジトリ全体を Work にする読みがある。E61 が *in whole or in part* を外して閉じた形が戻る | *"A tag placed in a file as a comment accompanies that file alone."*（SPDX と REUSE のファイル先頭のヘッダと同じ）。初案 *"placed within a file"* は bb の反例で落ちた: package.json の *"license": "ACD-1.4"*、Cargo.toml、pyproject の license 欄はパッケージ全体の宣言をファイルの中に書くいちばん普通の形で、manifest 1 ファイルだけになる |
+| §16.4（T27・−1）| *begins with "ACD-"* は、§16.1 と §16.2 が使う *LicenseRef-ACD-1.4* に届かない | *contains "ACD-" followed by a digit*。初案の *or "LicenseRef-ACD-"* は bb の反例（SPDX の外部文書参照 *DocumentRef-x:LicenseRef-ACD-1.4* が漏れる）で変えた。逆側: *ACD-* と数字を含む無関係な識別子も当たるが、制限は ACD の改変した本文を配る場合だけに掛かる |
 
-**逆側**: T24 では、表示のない場への寄与は Contribution でなくなり、取り込むと §2.6 の識別の対象になる。T26 では、root にタグ 1 行だけの LICENSE ファイルを置いた Dedicator は、そのファイルにしか適用していないことになる。§16.1 の雛形は *"This work"* と書くので、雛形どおりの通知はこれに当たらない。T27 では、SPDX の *LicenseRef-* は文書ごとの識別子なので、無関係な第三者が自分の別のライセンスに付けても、改変した本文を配らない限り当たらない。
+**逆側**: T24 では、表示のない場への寄与は Contribution でなくなり、取り込むと §2.6 の識別の対象になる。T26 では、ファイル先頭の comment のタグはそのファイルにしか及ばない。manifest の値や LICENSE の本文は comment ではないので、*identifies* か *accompanies* の枝に残る。T27 では、SPDX の *LicenseRef-* は文書ごとの識別子なので、無関係な第三者が自分の別のライセンスに付けても、改変した本文を配らない限り当たらない。
 
-**残したもの**: §2.6 で識別した素材にも §16.2 の既定が及ぶ読み（Dedicator はその素材の権利を持たないので §2.7 で届かず、残るのは Dedicator 自身の編集部分という狭い場面）。§5.2(b) が商標の規約を課すことまで止める読み（規約の対象は商標であって Work ではなく、+27 語の除外に見合わない）。
+**残したもの**: §2.6 で識別した素材にも §16.2 の既定が及ぶ読み（Dedicator はその素材の権利を持たないので §2.7 で届かず、残るのは Dedicator 自身の編集部分という狭い場面）。§5.2(b) が商標の規約を課すことまで止める読み（規約の対象は商標であって Work ではなく、+27 語の除外に見合わない）。境界は bb が示した: 規約が「fork はロゴのファイルを Work から外せ」と求めると、ロゴのファイルは Covered Rights の対象で §4 が許諾済みなので、それは *"an obligation in respect of the Work"* になり §5.2(b) が塞ぐ。名前を変えろという求めは商標法そのもので、§5.1 の除外の側に残る。
 

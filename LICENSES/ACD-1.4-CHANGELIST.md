@@ -90,8 +90,8 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §16.2（通知が適用する範囲）| 末尾に *"A notice a Dedicator places applies this Dedication to the material it identifies, or, where it identifies none, to the material it accompanies."* | 同じ読み（§14.9）。1.4 で §16.1 がタグや識別子だけの適用を認めたので、どの素材が Work になるか（1 ファイルか、ディレクトリか、全体か）を決める語が要る。Fontana 氏 2026-08-16 *"How do you know what the "covered work" is?"* の問いの形。初案の主語 *A notice* は bb の反例（タグを残したまま手を入れた人の改変分が、意思なく撤回不能に出る）で、置いた人を足した。続けて足した時点の語 *when placed* は、bb の 2 つ目の反例（root に LICENSE を置いた Dedicator が翌年足したファイルが外れる）で外した | +23 | 反映済 |
 | §1.9（表示）| *"offering the Work under this Dedication"* を *"offering the Work with a notice of this Dedication"* へ | 1.3 から変わった 35 条を 1 条ずつ読んだ（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.10）。T19 の理由（寄与者は表示を見ている）が語で担保されておらず、§10.2 で表示を外したミラーへの寄与で、知らない人が Dedicator になると読めた | +3 | 反映済 |
 | §8.5（*controlled* の定義）| *"is controlled by the Dedicator if"* を *"if, and only if"* へ | 同じ読み。*if* だけでは十分条件で、通常の意味の control（上流へ料金を払う独占的実施権者など）が並んで残り、§15.1 で E39 が外した請求項に届いた | +3 | 反映済 |
-| §16.2（ファイル内のタグ）| 末尾に *"A tag placed within a file accompanies that file alone."* | 同じ読み。1.4 でタグだけの適用を認めたので、1 つのファイルのタグが *accompanies* でリポジトリ全体を Work にし、E61 が閉じた「部分の適用が全体に及ぶ」読みが戻った | +10 | 反映済 |
-| §16.4（LicenseRef の形）| *begins with "ACD-" followed by a digit* を *begins with "ACD-" or "LicenseRef-ACD-" followed by a digit* へ | 同じ読み。§16.1 と §16.2 が使う *LicenseRef-ACD-1.4* が名前の保護から漏れていた | +2 | 反映済 |
+| §16.2（ファイル内のタグ）| 末尾に *"A tag placed in a file as a comment accompanies that file alone."* | 同じ読み。1.4 でタグだけの適用を認めたので、1 つのファイルのタグが *accompanies* でリポジトリ全体を Work にし、E61 が閉じた「部分の適用が全体に及ぶ」読みが戻った。初案 *"placed within a file"* は bb の反例（package.json や Cargo.toml の license 欄というパッケージ全体の宣言が manifest 1 ファイルだけになる）で、comment の形に絞った | +13 | 反映済 |
+| §16.4（LicenseRef の形）| *begins with "ACD-" followed by a digit* を *contains "ACD-" followed by a digit* へ | 同じ読み。§16.1 と §16.2 が使う *LicenseRef-ACD-1.4* が名前の保護から漏れていた。初案の *or "LicenseRef-ACD-"* は bb の反例（SPDX の *DocumentRef-x:LicenseRef-ACD-1.4* が漏れる）で *contains* に変えた | -1 | 反映済 |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
