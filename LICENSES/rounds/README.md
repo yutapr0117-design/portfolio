@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-08 時点・329 ファイル）
+## いまの状態（2026-11-08 時点・330 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -69,6 +69,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2003-03 | `license-discuss` | **観測（Public Domain を一覧に載せる求め・5 通）** | `2003-03-license-discuss-public-domain-on-the-list-observed.txt` |
 | 2020-03〜04 | `license-review` | **観測（Unlicense の審査から引いた 4 通）** | `2020-03-to-04-license-review-unlicense-cited-observed.txt` |
 | 2026-10-17 | Hugging Face hub-docs | **観測（ライセンスの識別子の一覧・文書の写し）** | `2026-10-17-huggingface-hub-docs-licenses-snapshot.txt` |
+| 2012-02 | `license-review` | **観測（CC0 が特許を除いた理由と大学の事情・6 通）** | `2012-02-license-review-cc0-patents-and-universities-observed.txt` |
 | 2012-02 | `license-review` | **観測（CC への特許の相談・4 通）** | `2012-02-license-review-cc0-patent-consultation-observed.txt` |
 | 2011-09 | `license-discuss` | **観測（Can OSI specify that public domain is open source?・4 通）** | `2011-09-license-discuss-can-osi-specify-public-domain-observed.txt` |
 | 2018〜2019 | `license-discuss` | **観測（審査の手順の 2 本から引いた 4 通）** | `2018-to-2019-license-discuss-review-process-cited-observed.txt` |

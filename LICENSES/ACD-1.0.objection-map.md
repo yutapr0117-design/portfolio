@@ -114,4 +114,4 @@ out because we cannot have it, not because leaving it out is better** (register 
    date, OSI has not used the number of projects adopting a license as a factor"* (Jam rationale, 2021-09-12).
 3. **It is not exhaustive.** The windows we read are listed in `PEER-REVIEW-WATCH.md` §3.9.
 4. **Nothing updates this page automatically.** An entry added to `ACD-1.0.against.md` does not reach
-   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #310.
+   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #311.
