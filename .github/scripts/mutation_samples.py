@@ -512,6 +512,36 @@ _MUTATIONS_TAIL.append({
     "find": '.filter(h => h && isText(h.prompt) && isText(h.response))',
     "replace": '.filter((h) => h && h.prompt && h.response)',
 })
+_MUTATIONS_TAIL.append({
+    "name": 'Check 249: 2 つ目の viewport を後ろに足す —— 最初の 1 つしか読まず、ブラウザが使う最後の tag を見ていなかった',
+    "file": ROOT / 'index.html',
+    "find": '<meta name="viewport" content="width=device-width, initial-scale=1" />',
+    "replace": '<meta name="viewport" content="width=device-width, initial-scale=1" />\n    <meta name="viewport" content="width=900" />',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 249: initial-scale を 1.5 にする —— `1(\\.0+)?\\b` の語の境界で 1.5 が通っていた',
+    "file": ROOT / 'index.html',
+    "find": 'content="width=device-width, initial-scale=1" />',
+    "replace": 'content="width=device-width, initial-scale=1.5" />',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 157: viewport を <noscript> の中へ入れる —— script の動くブラウザでは noscript の中は素のテキストなのに、tag として数えていた',
+    "file": ROOT / 'index.html',
+    "find": '<meta name="viewport" content="width=device-width, initial-scale=1" />',
+    "replace": '<noscript><meta name="viewport" content="width=device-width, initial-scale=1" /></noscript>',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 158: dns-prefetch を <noscript> の中へ入れる —— 157 と同じく noscript の中の link を数えていた',
+    "file": ROOT / 'index.html',
+    "find": '<link rel="dns-prefetch" href="https://fonts.googleapis.com" />',
+    "replace": '<noscript><link rel="dns-prefetch" href="https://fonts.googleapis.com" /></noscript>',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 304: theme-color の属性を content が先の順にして値を色の名前にする —— name= が先の形しか読まず、見えていなかった',
+    "file": ROOT / 'index.html',
+    "find": '<meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)" />',
+    "replace": '<meta content="red" name="theme-color" media="(prefers-color-scheme: light)" />',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
