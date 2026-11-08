@@ -141,15 +141,33 @@ def grams(text, n=8):
     return (hash(" ".join(words[i:i + n])) for i in range(max(0, len(words) - n + 1)))
 
 
+def title_key(subject):
+    return re.sub(r"[^a-z0-9]+", " ", subject_key(subject).lower()).strip()[:90]
+
+
+def listed_titles():
+    """`LICENSES/READ-THREADS.txt` の件名 (候補の一覧から読んだもの・rounds を置かずに読んだものを含む・
+    portfolio-00 が 2026-11-09 に置いた)。"""
+    keys = set()
+    listed = REPO / "LICENSES" / "READ-THREADS.txt"
+    if listed.exists():
+        for line in open(listed, encoding="utf-8"):
+            if line.strip() and not line.startswith("#") and "\t" in line:
+                k = title_key(line.rstrip("\n").split("\t", 1)[1])
+                if len(k) >= 6:
+                    keys.add(k)
+    return keys
+
+
 def read_titles():
-    """rounds/ に逐語で置いた通の件名。そこに在るスレッドは読んだものとして数える。"""
+    """読んだスレッドの件名: rounds/ に逐語で置いた通の件名と、READ-THREADS.txt の一覧。"""
     keys = set()
     for path in (REPO / "LICENSES" / "rounds").glob("*.txt"):
         for m in re.finditer(r"^Subject:\s*(.+)$", open(path, errors="replace").read(), re.M):
-            k = re.sub(r"[^a-z0-9]+", " ", subject_key(m.group(1)).lower()).strip()[:90]
+            k = title_key(m.group(1))
             if len(k) >= 6:
                 keys.add(k)
-    return keys
+    return keys | listed_titles()
 
 
 SUBMISSION = re.compile(r"for (?:legacy )?approval|\bapproval\b|submission|submitting", re.I)
@@ -210,13 +228,18 @@ def threads(out):
             entry["decider_words"] += len(text.split())
     rows = [{k: v for k, v in e.items() if k != "seen"} for e in table.values()
             if e["messages"] >= 3 and e["decider_words"] >= 120]
-    candidates = [r for r in rows if r["dossier_hits"] < 8]
-    read = read_titles()
-    unread = [r for r in candidates if re.sub(r"[^a-z0-9]+", " ", r["title"].lower()).strip()[:90] not in read]
+    read, listed = read_titles(), listed_titles()
+    # 候補の一覧から読んだスレッド (READ-THREADS.txt) は候補に残す: 読むとドシエに語が足されて dossier_hits が
+    #   8 を越え、候補から外れるので、残さないと母数が読むほど縮む (2026-11-09・771 → 726 を実測)。rounds/ だけに
+    #   在るスレッドは候補の一覧から来たとは限らないので、母数には足さない
+    candidates = [r for r in rows if r["dossier_hits"] < 8 or title_key(r["title"]) in listed]
+    unread = [r for r in candidates if title_key(r["title"]) not in read]
     unread.sort(key=lambda r: -r["decider_words"])
     json.dump(unread, open(out, "w"), ensure_ascii=False, indent=0)
     print(f"threads with deciders {len(rows)}; few or no dossier hits {len(candidates)}; "
-          f"of those, not in LICENSES/rounds/ {len(unread)}")
+          f"of those, not read (rounds/ or READ-THREADS.txt) {len(unread)}")
+    # AS-OF の「未読スレッドの残り」の行と同じ形 (Check 498 (h) が和を見る)
+    print(f"AS-OF: 候補 {len(candidates)} 本のうち {len(candidates) - len(unread)} 本を読んだ。{len(unread)} 本は読んでいない")
 
 
 if __name__ == "__main__":
