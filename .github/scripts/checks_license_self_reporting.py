@@ -334,16 +334,12 @@ def run(ctx):
         # (f) QUESTION-INDEX が述べる worked entry の総数。**索引は手で加算していたため 2 ずれていた**。
         _qi460 = ROOT / "LICENSES" / "QUESTION-INDEX.md"
         if _qi460.exists():
-            # **番号行は `against.md` からのみ数える。** 2026-09-06 まではこの区別が無く、
-            # `LICENSES/*.md` 全体の `| N |` を数えていた —— **たまたま番号付きの表が
-            # against.md にしか無かったので正しく見えていただけ**である。実際、
-            # REVISION-PROTOCOL に 7 行の番号付きゲート表を足した瞬間に総数が 152→159 へ跳ね、
-            # 「worked entries（答えのある項目）」でないものが混ざった。**指標の正しさが
-            # 偶然に依存していた**ので、意図（Q&A の項目 ∪ 不利な事実）に合わせて限定する。
+            # 番号行は against.md からのみ数える (2026-09-06: 全 file の `| N |` を数え、ゲート表で 152→159 へ跳ねた)。
+            # 見出しは `### Q12.` の形 (句点まで) に限る: register の `### B1（法的レビュー）` が 3 件混ざっていた (2026-11-08)。
             _tot460 = 0
             for _f in sorted((ROOT / "LICENSES").glob("*.md")):
                 _ft = _f.read_text(encoding="utf-8")
-                _tot460 += len(re.findall(r"^\*\*Q\.|^### (?:Q|A|B)\d+", _ft, re.M))
+                _tot460 += len(re.findall(r"^\*\*Q\.|^### (?:Q|A|B)\d+[a-z]?(?:-\d+)?\.", _ft, re.M))
                 if _f.name == "ACD-1.0.against.md":
                     _tot460 += len(re.findall(r"^\| \d+ \|", _ft, re.M))
             _m8 = re.search(r"There are \*\*(\d+)\*\* worked entries", _qi460.read_text(encoding="utf-8"))
@@ -352,11 +348,8 @@ def run(ctx):
             elif int(_m8.group(1)) != _tot460:
                 _bad460.append(f"索引の総数: 申告 {_m8.group(1)} / 実測 {_tot460}")
 
-        # (g) 入口ページと readiness が述べる規模。**2026-09-05 に 5 件 stale で見つかった** ——
-        #   REVIEWERS.md は「118 worked entries」「All 14 adverse facts」「Five imprecisions」と
-        #   書き、実体は 144 / 57 / 9 だった。**最後に書かれ最初に読まれるページ**が (a)〜(f) の
-        #   どの面にも入っていなかった。しかも 3 つとも**過少**申告で、「全部開示する」と述べる
-        #   ドシエが開示量を小さく言うのは、間違える向きとして最悪である（"All" は完全性の主張）。
+        # (g) 入口ページと readiness が述べる規模 (2026-09-05 に 5 件 stale: 118 / 14 / 5 と書き実体は 144 / 57 / 9)。
+        #   どれも過少申告で、「全部開示する」ドシエが開示量を小さく言うのは間違える向きとして最悪である。
         _erp460 = _L460 / "ACD-1.0.errata.md"
         _ern460 = len(re.findall(r"^\| E\d+ \|", _erp460.read_text(encoding="utf-8"), re.M)) if _erp460.exists() else -1
         _agp460 = _L460 / "ACD-1.0.against.md"
@@ -374,6 +367,12 @@ def run(ctx):
                     _bad460.append(f"{_label}: 申告が見つからない (規模を述べる文を消すか、数を書くなら数えられる形で書く)")
                 elif int(_mg.group(1)) != _want:
                     _bad460.append(f"{_label}: 申告 {_mg.group(1)} / 実測 {_want}")
+            # 同じ行の「本文の N 倍の長さ」(2026-11-08: "six times" のまま実測 約 20 倍)。語数の比で ±15% まで
+            _mx460 = re.search(r"([a-z]+|\d+) times the length of the licence", _rvt)
+            _rx460 = len(_agp460.read_text(encoding="utf-8").split()) / len((_L460 / "ACD-1.0.txt").read_text(encoding="utf-8").split())
+            _dx460 = _mx460 and (int(_mx460.group(1)) if _mx460.group(1).isdigit() else _NUM_WORDS.get(_mx460.group(1)))
+            if _mx460 and (not _dx460 or abs(_dx460 - _rx460) > 0.15 * _rx460):
+                _bad460.append(f"REVIEWERS.md の against.md の長さ: 申告 {_mx460.group(1)} 倍 / 実測 {_rx460:.1f} 倍 (語数の比)")
         _rsp = _L460 / "READY-TO-SUBMIT.md"
         if _rsp.exists():
             _rst = _rsp.read_text(encoding="utf-8")
@@ -386,15 +385,9 @@ def run(ctx):
                 if int(_mg2.group(2)) != _ern460:
                     _bad460.append(f"READY-TO-SUBMIT.md の errata: 申告 {_mg2.group(2)} / 実測 {_ern460}")
 
-        # (h) **維持できない場所では、申告そのものを禁じる。** (a)〜(g) は「申告 vs 実測」を
-        #   比較する形で、**捕まるたびに 1 面ずつ後付けで足してきた**。だから被覆は「これまでに
-        #   drift を目撃した場所」であって「drift しうる場所」ではない。実測 (2026-09-06・外部から
-        #   「まだ一致していない自己申告がある」とだけ指摘を受けて掃引): **4 件が柵の外に残って
-        #   いた** —— `docs/files/LICENSES/` の mirror 3 件（不利な事実「14 件」/ errata「5 件」/
-        #   「54 件の不利な事実」）と CLAUDE.md §7（「10 次元 / 候補 10 件」→ 実体 17 / 3）。
-        #   mirror は「その file が何であるか」を説明する文書で、**規模を述べる読者価値が無い**の
-        #   に対し drift は確実に起きる。よって比較ではなく**禁止**で守る（LICENSES/ 本体では
-        #   規模の申告に読者価値があるので (a)〜(g) の比較で守り続ける）。
+        # (h) **維持できない場所では、申告そのものを禁じる。** (a)〜(g) の比較は捕まるたびに 1 面ずつ足してきたので、
+        #   被覆は「drift を目撃した場所」に留まる (2026-09-06 に柵の外で 4 件)。mirror は規模を述べる読者価値が
+        #   無く drift は確実に起きるので、比較ではなく禁止で守る (本体は (a)〜(g) の比較で守る)。
         _mir460 = ROOT / "docs" / "files" / "LICENSES"
         if _mir460.exists():
             _pat460h = re.compile(
@@ -414,7 +407,8 @@ def run(ctx):
                 r"|[0-9][0-9,]*\s*語・[0-9]+\s*条"
                 r"|[0-9]+\s*節・[0-9]+\s*項"
                 r"|errata[（(]?\s*[0-9]+\s*件"
-                r"|[0-9]+\s*件の\s*worked")
+                r"|[0-9]+\s*件の\s*worked"
+                r"|[0-9]+\s*件の\s*sha256|凍結対象\s*[0-9]+\s*件|[0-9]+\s*の\s*worked\s*entry")  # 2026-11-08: 3 件 stale
             for _fm in sorted(_mir460.glob("*.md")):
                 for _n, _ln in enumerate(_fm.read_text(encoding="utf-8").splitlines(), 1):
                     _hit = _pat460h.search(_ln)
@@ -424,13 +418,9 @@ def run(ctx):
 
         # (i) **提出パケット §4c が述べる「機械的に確かめたこと」の数値。** face (a) は同じ file の
         #   別の 1 文（worked entries / short answers）しか見ておらず、§4c の表は素通りしていた。
-        #   実測 (2026-09-06): 「**50 entries, 1–50**」（実体 63）と「**29 / 29** clause pointers」
-        #   （実体 33 —— Check 451a が同じ値を毎回数えている）。**§4c は「弁護士が読んでいない」に
-        #   対する我々の答え**であり、その価値は「機械が確かめられる」ことにある。審査者が同じ
-        #   コマンドを走らせて別の数字が出るなら、その節は逆の証拠になる。
-        # 2026-09-09: §4c は ACD-1.0.submission-reference.md へ移った（送る文面と参考資料の
-        # 分割）。**節番号は変えていない**ので申告の形は同じだが、読む先は変える必要がある ——
-        # path を直さずに message だけ直すと、Check は存在しない節を探して黙る。
+        #   実測 (2026-09-06): 「50 entries」(実体 63) と「29 / 29 clause pointers」(実体 33)。§4c は「弁護士が
+        #   読んでいない」への答えで、審査者が同じコマンドで別の数字を得れば逆の証拠になる。
+        #   2026-09-09 に §4c は submission-reference.md へ移った (path を直さないと存在しない節を探して黙る)。
         _sbm460 = _L460 / "ACD-1.0.submission-reference.md"
         if _sbm460.exists() and _ag460.exists():
             _st = _sbm460.read_text(encoding="utf-8")
@@ -494,11 +484,8 @@ def run(ctx):
                         _bad460.append(f"submission-reference.md §4c の定義語 最小使用回数: 申告 {_mt.group(1)} / "
                                        f"実測 {_min_i}")
         # (j) **`comparison.md` §1.35 の「N のうち M」が、その下の 2 つの列挙と一致すること。**
-        #   実測 (2026-09-06): 「Four of ... six ... the remaining two」と書きながら、上の表は 4 行、
-        #   下の番号付き列挙は **3 件**で合計 7 だった。**宣言と列挙が同じ commit で入っている**ので
-        #   drift ではなく書いた時点の誤りで、同日 3 件目の同型（29/29・Contribution at 4）。
-        #   審査者が「なぜ Apache ではいけないのか」を確かめに来る節なので、そこの算数が合わないのは
-        #   主張そのものより先に信用を削る。宣言ではなく**列挙から導く**。
+        #   実測 (2026-09-06): 「Four of ... six ... the remaining two」と書き、表 4 行 + 列挙 3 件で 7 だった (書いた
+        #   時点の誤り)。審査者が「なぜ Apache ではいけないか」を確かめる節なので、宣言ではなく列挙から導く。
         #   **初版は走査範囲を切らずに file 全体の `> | a | b |` を数え、他の引用表まで拾って 8 と
         #   報告した** —— 検出器を書いたら、それが正しい対象だけを掴んでいるかを先に確かめること。
         _cmp460 = _L460 / "ACD-1.0.comparison.md"
@@ -718,6 +705,11 @@ def run(ctx):
                     _bad460.append(f"REVIEWERS.md: 件数の語 {_raw460o!r} を解釈できない")
                 elif _decl460o != _top460o:
                     _bad460.append(f"REVIEWERS.md の最高 severity: 申告 {_raw460o} ({_decl460o}) / 実測 {_top460o}")
+            # 同じ入口の「register は N 項目」(2026-11-08: "fourteen entries" のまま B15 まで在った)
+            _m460o2 = re.search(r"([a-z]+|\d+) entries with severity", _rv460o.read_text(encoding="utf-8"))
+            _d460o2 = _m460o2 and (int(_m460o2.group(1)) if _m460o2.group(1).isdigit() else _NUM_WORDS.get(_m460o2.group(1)))
+            if not _m460o2 or _d460o2 != len(_rows460o):
+                _bad460.append(f"REVIEWERS.md の register の項目数: 申告 {_m460o2 and _m460o2.group(1)} / 実測 {len(_rows460o)}")
 
         # (p) **§B.0 の見出しが述べる語数が、その file に書いてある instrument で数え直したものと一致すること。**
         #   §B.0 は **実際にメールへ貼られる文面**で、長さは B3（最重要 bottleneck の一つ）そのものである。
@@ -757,7 +749,9 @@ def run(ctx):
                 if not _p460q.exists():
                     continue
                 _t460q = _p460q.read_text(encoding="utf-8")
-                for _m460q in re.finditer(r"(\d+)× OK", _t460q):
+                if not re.search(r"(\d+)\s*[×x]\s*OK", _t460q):
+                    _bad460.append(f"{_nm460q}: 検証コマンドの期待値 (N× OK) が読めない (消すか綴りを変えると黙っていた)")
+                for _m460q in re.finditer(r"(\d+)\s*[×x]\s*OK", _t460q):
                     if int(_m460q.group(1)) != _n460q:
                         _bad460.append(
                             f"{_nm460q}: 検証コマンドの期待値 {_m460q.group(1)}× OK / "
@@ -772,6 +766,11 @@ def run(ctx):
                     elif _got460r != _n460q:
                         _bad460.append(
                             f"{_nm460q}: 散文の凍結件数 {_raw460r} / FROZEN.md の digest 行 {_n460q} 件")
+            # 同じコマンドを示す他の file と mirror (2026-11-08: AS-OF と mirror が 3× OK のまま実際は 9)
+            for _fq460 in [*sorted(_L460.glob("*.md")), *sorted((ROOT / "docs" / "files" / "LICENSES").glob("*.md"))]:
+                for _mq460 in re.finditer(r"shasum -a 256 -c[^\n]{0,40}?(\d+)\s*[×x]\s*OK", _fq460.read_text(encoding="utf-8")):
+                    if int(_mq460.group(1)) != _n460q:
+                        _bad460.append(f"{_fq460.name}: 検証コマンドの行の期待値 {_mq460.group(1)}× OK / digest 行 {_n460q} 件")
 
         # (r) **`submission.md` の外に書かれた §B.0 の語数は、日付か「見出しが権威」の断りを伴うこと。** §B.0 は
         #   改善のたびに伸びる派生値で、他文書へ手で写した値は誰も見ていなかった (2026-09-26 に READY-TO-SUBMIT が
@@ -819,8 +818,7 @@ def run(ctx):
         #   実測 (2026-09-26): `READY-TO-SUBMIT.md` が **「10 項目」**と述べ、実装は **12**。
         #   **同じ file の 4 行の中に、これと §B.0 の語数（face (r)）の 2 つが同時に古くなっていた**
         #   ——**「要点」だけを書いた block は、一度書いたきり導出し直されない。**
-        #   `review-rules.md` と `OSI-APPROVAL-PLAN.md` は 12 と正しく書いており、
-        #   **正しい写しが 2 つあっても、間違った写しは直らない。**
+        #   **正しい写しが 2 つあっても (review-rules / OSI-APPROVAL-PLAN は 12)、間違った写しは直らない。**
         #   **⚠ 初版は inert だった** —— `_req463` は list なのに正規表現が tuple (`(...)`) を
         #   探しており、**一度も一致せず、静かに素通りしていた**（非 vacuity 検証で判明）。
         #   **導出元が見つからないこと自体を error にする**ことで、同じ形の沈黙を封じる。

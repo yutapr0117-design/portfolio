@@ -27,7 +27,7 @@ canonical-ref: LICENSES/FROZEN.md / LICENSES/PEER-REVIEW-WATCH.md / LICENSES/ACD
 ## How
 
 日付は**書いた日ではなく確かめた日**を書く。各行に**再確認の方法**を併記し、読み手が自分で
-更新できるようにする。凍結の検証はコマンド 1 行（`shasum -a 256 -c` で 3× OK）。
+更新できるようにする。凍結の検証はコマンド 1 行（`shasum -a 256 -c` で `FROZEN.md` の digest 行の数だけ OK）。
 
 **本文についての主張は意図的に入れない。** 本文は凍結され digest が pin されているので、
 as-of ではなく digest 照合で確かめるべきものである。両者を混ぜると「本文も動きうる」と

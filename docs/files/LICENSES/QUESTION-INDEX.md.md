@@ -9,7 +9,7 @@ canonical-ref: LICENSES/REVIEWERS.md / LICENSES/ACD-1.0.against.md / LICENSES/RE
 
 ## What
 
-**疑問の側から引く索引。** ドシエには 118 の worked entry（4,185 行）があるが、既存の索引
+**疑問の側から引く索引。** ドシエには多数の worked entry があるが（総数は本体の冒頭が述べ、Check 460 (f) が数える）、既存の索引
 （`LICENSES/README.md`）は**文書名**で並んでおり、「この疑問はどこに答えがあるか」で引けない。
 本書は 7 分類（最初に来る問い / 適合性 / 本文そのもの / ML・TDM・特許・データ / 法域と効力 /
 使い方 / 手続き）で、質問 → 答えの所在、という形に並べ替える。

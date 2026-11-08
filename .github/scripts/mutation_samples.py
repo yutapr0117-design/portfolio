@@ -544,6 +544,42 @@ _MUTATIONS_TAIL.append({
     "find": 'under the name \\"Autonomous Commons Dedication\\"',
     "replace": 'under the name \\"Autonomous Commons Licence\\"',
 })
+_MUTATIONS_TAIL.append({
+    "name": 'Check 460 (f): Q の見出しを、句点の無い register 風の B 見出しへ変える —— `### B1（法的レビュー）` のような見出しも worked entry に数えていた',
+    "file": ROOT / 'LICENSES' / 'ACD-1.0.review-responses-meta.md',
+    "find": '### Q34. ライセンススキャナが検出できるテキストなのか（SPDX matching guidelines）',
+    "replace": '### B5 補足: ライセンススキャナについて（問いではない）',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 460 (g): 入口が against.md を本文の「2 倍の長さ」と述べる —— 同じ行の倍数を読んでおらず、six のまま実測は約 20 倍だった',
+    "file": ROOT / 'LICENSES' / 'REVIEWERS.md',
+    "find": 'the largest document here — about',
+    "replace": 'the largest document here — two times the length of the licence, about',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 460 (h): mirror が worked entry の総数を「118 の worked entry」と述べる —— 禁止の綴りに無く、実際に stale のまま残っていた',
+    "file": ROOT / 'docs' / 'files' / 'LICENSES' / 'QUESTION-INDEX.md.md',
+    "find": 'ドシエには多数の worked entry があるが',
+    "replace": 'ドシエには 118 の worked entry があるが',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 460 (o): 入口が register の項目数を少なく述べる —— 最高 severity の件数しか読まず、fourteen のまま B15 まで在った',
+    "file": ROOT / 'LICENSES' / 'REVIEWERS.md',
+    "find": 'blocks approval** — ',
+    "replace": 'blocks approval** — two entries with severity; ',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 460 (q): errata の検証コマンドの期待値を空白入りの `8 × OK` で書く —— `(\\d+)× OK` の綴りしか読まず、読めなくても黙っていた',
+    "file": ROOT / 'LICENSES' / 'ACD-1.0.errata.md',
+    "find": 'shasum -a 256 -c   # expect ',
+    "replace": 'shasum -a 256 -c   # expect 8 × OK, ',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 460 (q): AS-OF の検証コマンドの期待値を 3× OK に戻す —— REVIEWERS と errata しか読まず、AS-OF と mirror は 3× OK のまま実際は 9 だった',
+    "file": ROOT / 'LICENSES' / 'AS-OF.md',
+    "find": 'shasum -a 256 -c` → ',
+    "replace": 'shasum -a 256 -c` → 3× OK, ',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
