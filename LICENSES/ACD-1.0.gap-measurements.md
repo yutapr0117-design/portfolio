@@ -727,6 +727,6 @@ David A. Wheeler 氏が「Public Domain」を OSI のライセンスの一覧に
 | *"there is /one /party that needs the service the most. This is the private developer"*、*"The patent issue in CC0 is one such trap."* | 同 2012-02-21 | 特許の除外を、個人の開発者への罠と見る。§8.3 はその逆を明示する |
 | *"we just want to respond properly"* | Christopher Allan Webber 氏（Creative Commons）2012-02-21 | CC は説明を用意すると述べた。CC0 はいまも 1.0 で、clause 4(a) は残っている |
 
-**逆側（#310）。** Russ Nelson 氏は同じ日に *"Anybody who wants to set a booby trap will take steps to make sure that a separate legal entity owns the patent rights"* と述べた。1.4 の §8.5 は「支配する」を Dedicator 自身が許諾できる権利に限っており（E39）、関連会社が持つ特許には届かない。Apache-2.0 は許諾する者を Legal Entity、*"the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity"* で数えるので、ここは ACD の方が狭い。
+**逆側（#310）。** Russ Nelson 氏は同じ日に *"Anybody who wants to set a booby trap will take steps to make sure that a separate legal entity owns the patent rights"* と述べた。1.4 の §8.5 は「支配する」を Dedicator 自身が許諾できる権利に限っており（E39）、関連会社が持つ特許には届かない。Apache-2.0 は許諾する者を Legal Entity、*"the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity"* で数えるので、ここは ACD の方が狭い。UPL-1.0、BlueOak-1.0.0、BSD-2-Clause-Patent も関連会社には届かないので、ACD はこの 3 本と同じ側に立つ。1.4 は変えないと決めた（PR 2647・問 2 (i)）。
 
 **この節が establish しないこと。** 個人の発言で、OSI の決定ではない。CC がその後どう説明したかは、このスレッドの 30 通の中には無い。
