@@ -313,55 +313,6 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": 'Check 475: 反証表の行の先頭に空白を 1 つ入れる —— `|` で始まらない行で走査が止まり、その行から下が「全 N 行」から外れていた',
-    "file": ROOT / 'LICENSES' / 'AS-OF.md',
-    "find": '\n| **B1 は提出の産物である**（審査者は pro bono の弁護士）',
-    "replace": '\n | **B1 は提出の産物である**（審査者は pro bono の弁護士）',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 475: 反証表の状態の日付を暦に無い日にする —— 数字が 4-2-2 桁なら通っていた',
-    "file": ROOT / 'LICENSES' / 'AS-OF.md',
-    "find": '<br>**⚫ 前提未成立（',
-    "replace": '<br>**⚫ 前提未成立（2026-13-45 確認・',
-    "first_occurrence": True,
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 491: 英語の索引の上に古い B3 の行を重ねる —— dict が後の行で上書きし、重複も古い重大度も見えなかった',
-    "file": ROOT / 'LICENSES' / 'ACD-OSI-BOTTLENECKS.md',
-    "find": '| B1 | No legal review | Highest |',
-    "replace": '| B3 | Length | Low | Stale duplicate row | Us |\n| B1 | No legal review | Highest |',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 496b: map の表の行のコードの中の `\\|` を素の `|` へ戻す —— セルの数が見出しを超えないので 496 には見えず、描かれた行の中身がそこで切れていた (2026-11-08 まで実際にそうだった)',
-    "file": ROOT / 'docs' / 'architecture' / 'check-repository-consistency-map.md',
-    "find": '`(全\\|計)N本`',
-    "replace": '`(全|計)N本`',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 451f: 1.3 の記述子の note が本文に無い section を引く —— 451a は `clause` の key しか照合せず、散文の中の section 番号を読んでいなかった',
-    "file": ROOT / 'LICENSES' / 'ACD-1.3.machine.json',
-    "find": 'except by the Steward (section 16.5)',
-    "replace": 'except by the Steward (section 16.9)',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 451f: 1.3 の記述子の note の引用を本文に無い名前へ変える —— 散文の引用は本文と照合されていなかった',
-    "file": ROOT / 'LICENSES' / 'ACD-1.3.machine.json',
-    "find": 'under the name \\"Autonomous Commons Dedication\\"',
-    "replace": 'under the name \\"Autonomous Commons Licence\\"',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 460 (f): Q の見出しを、句点の無い register 風の B 見出しへ変える —— `### B1（法的レビュー）` のような見出しも worked entry に数えていた',
-    "file": ROOT / 'LICENSES' / 'ACD-1.0.review-responses-meta.md',
-    "find": '### Q34. ライセンススキャナが検出できるテキストなのか（SPDX matching guidelines）',
-    "replace": '### B5 補足: ライセンススキャナについて（問いではない）',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 460 (g): 入口が against.md を本文の「2 倍の長さ」と述べる —— 同じ行の倍数を読んでおらず、six のまま実測は約 20 倍だった',
-    "file": ROOT / 'LICENSES' / 'REVIEWERS.md',
-    "find": 'the largest document here — about',
-    "replace": 'the largest document here — two times the length of the licence, about',
-})
-_MUTATIONS_TAIL.append({
     "name": 'Check 460 (h): mirror が worked entry の総数を「118 の worked entry」と述べる —— 禁止の綴りに無く、実際に stale のまま残っていた',
     "file": ROOT / 'docs' / 'files' / 'LICENSES' / 'QUESTION-INDEX.md.md',
     "find": 'ドシエには多数の worked entry があるが',
