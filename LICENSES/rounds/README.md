@@ -61,10 +61,12 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-08 時点・334 ファイル）
+## いまの状態（2026-11-08 時点・336 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
+| 2016-08〜2017-03 | `license-discuss` | **観測（ARL OSL の議論から引いた 21 通・1/2 部）** | `2016-08-to-2017-03-license-discuss-arl-osl-cited-observed-1of2.txt` |
+| 2016-08〜2017-03 | `license-discuss` | **観測（ARL OSL の議論から引いた 21 通・2/2 部）** | `2016-08-to-2017-03-license-discuss-arl-osl-cited-observed-2of2.txt` |
 | 2014-04〜2015-02 | `license-review` | **観測（UPL の審査から引いた 23 通・1/3 部）** | `2014-04-to-2015-02-license-review-upl-cited-observed-1of3.txt` |
 | 2014-04〜2015-02 | `license-review` | **観測（UPL の審査から引いた 23 通・2/3 部）** | `2014-04-to-2015-02-license-review-upl-cited-observed-2of3.txt` |
 | 2014-04〜2015-02 | `license-review` | **観測（UPL の審査から引いた 23 通・3/3 部）** | `2014-04-to-2015-02-license-review-upl-cited-observed-3of3.txt` |
