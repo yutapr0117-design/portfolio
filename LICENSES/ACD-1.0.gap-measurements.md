@@ -600,3 +600,35 @@ Fedora のいまのデータ（`fedora-licenses.json`・2026-11-07 取得）は�
 
 **この節が establish しないこと。** Fedora の判断は OSI の決定ではない。Fedora の一覧に ACD は無く、載せる経路はいま使えない（`OSI-APPROVAL-PLAN.md` §3.6）。
 
+## 1.143 CC0 の特許の除外は 2011 年から問題にされていた。許容型に特許を足した前例は特許の弁護士が書き、審査はその点を問うた（2026-11-08）
+
+未読の候補から 2 本のスレッドを読んだ（`rounds/2011-to-2017-license-lists-cc0-patents-and-bsd-patent-cited-observed-*.txt`）。どちらもドシエに記録が無かった。
+
+### 2011-04「waive all rights」のライセンスを OSI に（`license-discuss`・17 通）
+
+Wikimedia の管理者 Derrick Coetzee 氏が、帰属を求めないライセンスを求めた。出所を問わず断片のコードを使う流れに合わせるためで、特許については *"I think it makes sense to waive any relevant patent rights explicitly and separately"* と書き、*"it'd be nice to have a web page somewhere with somebody officially saying"* ソフトウェアに使ってよいと、と結んだ。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"OSI could analyze CC0 for its license fallback terms, but not as a public domain dedication."* | Lawrence Rosen 氏 2011-04-18 | 審査されるのは許諾の部分である。§4 は §3 から独立した許諾で（§4.4）、審査の対象になる形をしている |
+| *"The CC0 license says nothing about patents. I find this particularly troubling when a CC0 license (or the BSD license, for that matter!) is used for software or specifications by companies that have large patent portfolios. What are you withholding?"*、*"we ask for licenses for things we can just take, and ignore the important stuff (e.g., patents) we really need licenses for."* | 同 | §8 の理由と同じ向きで、2012 年の否決の理由（clause 4(a)）より 10 か月早い |
+| *"I have recently suggested to Creative Commons that the issue should perhaps be revisited in future versions of CC0, now that its suitability for software has been acknowledged."*、*"use of CC0 on a substantial body of code might be another matter."* | Richard Fontana 氏 2011-04-18（当時 Red Hat）| CC0 の後継で特許を扱うことを CC に提案していた。CC0 はいまも 1.0 で、OSI の FAQ（2025）は clause 4(a) を懸念として挙げ続けている |
+| *"For "waive all rights", CC0 is the best thing I can think of. It's not really a license, of course"* | Karl Fogel 氏 2011-04-18 | 翌年の *"Those sorts of promises are what the OSI evaluates and sometimes approves."*（`REVIEWERS.md`）の前の段階 |
+| Intel の Sample Source Code License は *"grants rights equivalent to a permissive license (including patents) without requiring a notice or disclaimer"* | Andrew Wilson 氏（Intel）2011-04-18 | 通知を求めず特許を含める許諾を、企業は OSI の外で既に使っていた。OSI の承認は受けていない |
+
+**逆側。** Rosen 氏は同じ日に *"Be very careful to include attribution and other conditions. It is only because a FOSS license imposes conditions that it may be enforceable by the parties. See /Jacobsen v. Katzer/."* とも述べた（#307）。ACD は条件を課さないので、ライセンサーが条件違反を訴える道も無い。ACD の答えは、守らせる義務がそもそも無いことと、理事会が 2015 年に条件の無いライセンスを 8 対 0 で承認したことである（0BSD・`board-decisions.md` §8.6）。
+
+### 2016-01〜2017-03 BSD + Patent（`license-review`・95 通・2017 承認）
+
+許容型に明示の特許許諾を足したライセンスで、いまの BSD-2-Clause-Patent である。提出者の McCoy Smith 氏は *"So, for what it's worth, I'm a patent lawyer"* と述べた。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"it's not as simple as including a patent grant. I'd really like to see a real patent attorney work on this question."*、*"is the patent grant language of the license correct and successful in granting a patent license on any concepts embodied in the code released, and only on those?"* | Josh Berkus 氏 2016-01-14、01-19 | 特許の許諾の語を特許の弁護士に見てほしいと求めた（#308）。範囲は作品に具わる概念に *"only on those"* かが問われた。§8.4 はそれを越える（#305）|
+| *"This is not an objection, the retaliation is obviously not something that would increase the compliance with OSD"* | Carlo Piana 氏 2016-01-14 | §8.2 が報復条項を持たないことは、OSD の問いにならない |
+| *"since it's not copyleft (at this stage of my analysis), I believe there is little proliferation damage compared to benefit."* | 同 2016-01-21 | §4.5 と同じ向き（B10）|
+| *"adding incremental complexity to a very simple license, that may be more likely to raise doubts among potential users"* | Richard Fontana 氏 2016-01-20、Apache-2.0 に無い特許の機能について | §8.4 も Apache-2.0 に無い機能である |
+| *"I recommend that the OSI approve this license."*（*"I have generally tended to be liberal on proliferationism"* とも）| 同 2017-03-31、理事会に諮るとして | 許容型に特許を足した形は承認された |
+| *"Do you have any project or community intending to adopt it if approved?"* | Simon Phipps 氏 2017-03-31 | 採用の予定を問われた（B2）|
+
+**この節が establish しないこと。** BSD + Patent の承認を除き、どれも個人の発言で OSI の決定ではない。話者の役割は付けず、当時の所属が文中に在るものだけを書いた。
