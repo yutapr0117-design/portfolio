@@ -19,6 +19,13 @@ ROOT = Path(__file__).resolve().parents[2]
 
 E2E_MUTATIONS_ARCHIVE2 = [
     {
+    "name": "project-detail の slug 解決が壊れ、既知の slug でも NotFound へ落ちる —— 一覧にはカードが出るのに詳細へ到達できない (#154 の slug 衝突と同じ「到達不能」class)。共有リンクが全部 404 相当になるが、一覧側は正常に見えるため気付きにくい",
+    "file": ROOT / "js" / "project-detail-page.js",
+    "find": "        const project = state.projects.find(p => p.slug === slug);",
+    "replace": "        const project = state.projects.find(p => p.slug === slug + '-x');",
+    "test": "Route project-detail renders for a known slug without errors",
+},
+    {
     "name": "SR 通知の assertive チャネルが aria-hidden で a11y ツリーから外れる —— 削除 / 取り込み結果 / 並べ替え / フィルタ件数の通知が SR に一切届かなくなる。通知系 e2e は textContent を読むため表示状態に依存せず素通りし、sr-only は元々不可視なので screenshot でも目視でも気付けない",
     "file": ROOT / "index.html",
     "find": '<div id="action-announcement" class="sr-only" aria-live="assertive"',
@@ -934,12 +941,5 @@ E2E_MUTATIONS_ARCHIVE2 = [
         "find": "            State.set(Store.createDefaultStore());",
         "replace": "",
         "test": "Reset data restores defaults after confirm (destructive)",
-    },
-    {
-        "name": "タグをクリックしても絞り込まれなくなる — 検索語の設定を落とすと、カテゴリだけリセットされて一覧は全件のまま。**クリックは効いている (URL も検索欄も変わる) のに結果だけ変わらない**ので、利用者にはタグが壊れているのか一致が無いのか区別できない",
-        "file": ROOT / "js" / "projects-page.js",
-        "find": "                                            q = tag; cat = 'All';",
-        "replace": "                                            cat = 'All';",
-        "test": "Clicking a project card tag filters projects by that tag",
     },
 ]

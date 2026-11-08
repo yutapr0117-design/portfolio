@@ -9,6 +9,13 @@ from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VE
 
 E2E_MUTATIONS_ARCHIVE3 = [
     {
+        "name": "タグをクリックしても絞り込まれなくなる — 検索語の設定を落とすと、カテゴリだけリセットされて一覧は全件のまま。**クリックは効いている (URL も検索欄も変わる) のに結果だけ変わらない**ので、利用者にはタグが壊れているのか一致が無いのか区別できない",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "                                            q = tag; cat = 'All';",
+        "replace": "                                            cat = 'All';",
+        "test": "Clicking a project card tag filters projects by that tag",
+    },
+    {
         "name": "本文中のリンクが色だけで判別される状態に戻る (WCAG 1.4.1) — hero-meta のインラインリンクから下線を外すと、周囲の文と **色でしか区別できなくなる**。色覚特性のある利用者やモノクロ表示では「そこがリンクだと分からない」。screenshot は ADVISORY なので pixel が変わっても止まらず、この computed-style テストだけが捕捉層",
         "file": ROOT / "style.css",
         "find": "        .hero-meta a {\n            text-decoration: underline;\n        }",
