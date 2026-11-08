@@ -318,21 +318,39 @@ def run(ctx):
     if _lic444m:
         from measure_citation_drift import FACES as _faces444m
         _say444m = re.compile(r"(?i)\b(?:this|the) repository applies|(?:applied|applies) to this repository|適用している|適用中")
-        _stale444m = []
+        _id444m = re.compile(r"ACD-\d+\.\d+(?![.\w-]*\.md)|(?<![\w§.])1\.\d+(?=\s*を適用)")
+        _stale444m, _free444m = [], []
         for _f444m in [ROOT / "LICENSES" / _n for _n in _faces444m if "against" not in _n and "discussion-log" not in _n]:
-            for _n444m, _l444m in enumerate(_f444m.read_text(encoding="utf-8").splitlines(), 1):
-                for _m444m in _say444m.finditer(_l444m):
-                    # 主張に最も近い版を見る。後ろは同じ文の中だけ。file 名の中の版は数えない。
-                    _ids444m = [_i for _i in re.finditer(r"ACD-\d+\.\d+(?![.\w-]*\.md)|(?<![\w§.])1\.\d+(?=\s*を適用)", _l444m)]
-                    _pre444m = [_i for _i in _ids444m if 0 < _m444m.start() - _i.start() < 70]
-                    _post444m = [_i for _i in _ids444m if 0 < _i.start() - _m444m.start() < 30
-                                 and not re.search(r"\. |。", _l444m[_m444m.end():_i.start()])]
-                    _hit444m = min(_pre444m + _post444m, key=lambda _i: abs(_i.start() - _m444m.start()), default=None)
-                    if _hit444m and "ACD-" + _hit444m.group(0).removeprefix("ACD-") != _lic444m.group(1):
+            # 段落 (表の行は 1 行ずつ) を単位にし、版は主張と同じ文の中で最も近いものを見る (2026-11-08: 行の
+            #   70 字の窓は、折り返した段落の前の行の版を見ず、版の無い主張は黙って通っていた・aa の提案)
+            _para444m, _buf444m = [], []
+            for _n444m, _l444m in enumerate(_f444m.read_text(encoding="utf-8").splitlines() + [""], 1):
+                _t444m = re.sub(r"^\s*>\s?", "", _l444m)
+                if _buf444m and (not _t444m.strip() or _t444m.lstrip().startswith("|") or _buf444m[0][1].lstrip().startswith("|")):
+                    _para444m.append((_buf444m[0][0], " ".join(_x for _, _x in _buf444m)))
+                    _buf444m = []
+                if _t444m.strip():
+                    _buf444m.append((_n444m, _t444m.strip()))
+            for _n444m, _p444m in _para444m:
+                for _m444m in _say444m.finditer(_p444m):
+                    _st = max([_x.end() for _x in re.finditer(r"[.?!] |。", _p444m[:_m444m.start()])], default=0)
+                    _en = next((_m444m.end() + _x.start() for _x in re.finditer(r"[.?!] |。", _p444m[_m444m.end():])), len(_p444m))
+                    _sent = _p444m[_st:_en]
+                    if re.search(r"(?i)\bnot\s*$", _p444m[_st:_m444m.start()].replace("*", "").rstrip() + " ") or \
+                            re.search(r"(?i)\bnot\b[^.]{0,12}$", _p444m[_st:_m444m.start()].replace("*", "")):
+                        continue  # 否定文 ("is **not** applied to this repository") は主張ではない
+                    if _m444m.group(0).startswith("適用") and "このリポジトリ" not in _sent:
+                        continue  # 日本語は「このリポジトリ」の文だけを主張と読む (FAQ の「全貢献者が適用している」は別の意味)
+                    _hit444m = min((_i for _i in _id444m.finditer(_p444m) if _st <= _i.start() < _en),
+                                   key=lambda _i: abs(_i.start() - _m444m.start()), default=None)
+                    if _hit444m is None:
+                        _free444m.append(f"{_f444m.name}:{_n444m}")
+                    elif "ACD-" + _hit444m.group(0).removeprefix("ACD-") != _lic444m.group(1):
                         _stale444m.append(f"{_f444m.name}:{_n444m}")
         check(
             not _stale444m,
-            f"Check 444m: 外向きの文書の「適用している版」の主張が {_lic444m.group(1)} に合う",
+            (f"Check 444m: 外向きの文書の「適用している版」の主張が {_lic444m.group(1)} に合う "
+             f"(同じ文に版の無い主張 {len(_free444m)} 件: {sorted(set(_free444m))})"),
             f"Check 444m: 適用していない版を「適用している」と述べる行がある: {sorted(set(_stale444m))}。文を読んで直す",
             blocking=True,
         )
