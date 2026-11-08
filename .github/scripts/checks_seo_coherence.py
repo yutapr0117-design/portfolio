@@ -701,7 +701,7 @@ def run(ctx):
         _mver287 = None
         if isinstance(_mdata287, dict):
             _mver287 = _mdata287.get("manifest_version")
-        _ok287 = isinstance(_mver287, str) and bool(re.match(r"^\d+\.\d+$", _mver287))
+        _ok287 = isinstance(_mver287, str) and bool(re.match(r"^\d+\.\d+\Z", _mver287, re.ASCII))  # [2026-11-08] 全角数字と末尾の改行を通さない
         check(
             _ok287,
             f"Check 287: aio-manifest.json manifest_version={_mver287!r} matches ^\\d+\\.\\d+$",
