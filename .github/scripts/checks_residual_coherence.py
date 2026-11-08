@@ -160,12 +160,17 @@ def run(ctx):
         # shipped 面 corpus を構築 (self-match を避けるため meta-management.js は除く)
         _corpus147_paths: list[Path] = [ROOT / "index.html", ROOT / "main.js"]
         _corpus147_paths += sorted((ROOT / "js").glob("*.js"))
+        # 2026-11-08 (Check の監査): index.html の静的 JSON-LD は同じ cssSelector を宣言しているので、それ自体が
+        #   語を満たしていた。JSON-LD と JS のコメントは読まない。
+        from _lib_io import strip_js_comments as _strip147
         _corpus147 = ""
         for _p147 in _corpus147_paths:
             if _p147.name == "meta-management.js":
                 continue
             if _p147.exists():
-                _corpus147 += _p147.read_text(encoding="utf-8") + "\n"
+                _t147 = _p147.read_text(encoding="utf-8")
+                _corpus147 += (re.sub(r'<script\b[^>]*application/ld\+json[^>]*>.*?</script>', " ", _t147, flags=re.S | re.I)
+                               if _p147.suffix == ".html" else _strip147(_t147)) + "\n"
         _dangling147: list[str] = []
         _checked147 = 0
         for _sel147 in _selectors147:
@@ -174,16 +179,21 @@ def run(ctx):
             # 属性のみセレクタ ([attr] / [attr=val]) は catch-all 的に扱い exempt
             if _sel147.startswith("["):
                 continue
-            # 先頭 #id か .class の token を抽出 (.foo.bar や #foo.bar は最初の token のみ評価)
-            _m147 = re.match(r"^([#.])([A-Za-z][\w-]*)", _sel147)
-            if not _m147:
-                # 形式が想定外なら scope 外として skip (false-positive 回避)
+            # 複合・子孫・タグ付きの selector も、全部の #id / .class を記号どおりに見る (2026-11-08: 先頭の 1 つを
+            #   記号を捨てた語で探しており、`.x` が id="x" や任意の語で満たされ、`section.x` は読まれなかった)
+            _toks147 = re.findall(r"([#.])([A-Za-z][\w-]*)", re.sub(r"\[[^\]]*\]", "", _sel147))
+            if not _toks147:
                 continue
-            _token147 = _m147.group(2)
             _checked147 += 1
-            # shipped 面に literal で 1 件以上存在するか (word-boundary)
-            if not re.search(r"\b" + re.escape(_token147) + r"\b", _corpus147):
-                _dangling147.append(_sel147)
+            for _sig147, _token147 in _toks147:
+                if _sig147 == "#":
+                    _live147 = re.search(r"""\bid\s*[:=]\s*['"`]""" + re.escape(_token147) + r"""['"`]""", _corpus147)
+                else:
+                    _live147 = (re.search(r"""\bclass(?:Name)?\s*[:=]\s*['"`][^'"`]*(?<![\w-])""" + re.escape(_token147)
+                                          + r"(?![\w-])", _corpus147)
+                                or re.search(r"""classList\.(?:add|toggle)\([^)]*['"`]""" + re.escape(_token147) + r"""['"`]""", _corpus147))
+                if not _live147:
+                    _dangling147.append(f"{_sel147} ({_sig147}{_token147})")
         check(
             bool(_selectors147) and _checked147 > 0 and not _dangling147,
             f"Check 147: SPEAKABLE_SELECTORS の全 selector が shipped 面に実在 "
