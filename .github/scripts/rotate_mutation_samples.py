@@ -75,7 +75,11 @@ def _pick_archive(stem="mutation_samples_e2e_archive", list_base="E2E_MUTATIONS_
                   # CURRENT_DRAFT / CURRENT_DRAFT_VER / PREVIOUS_VER を参照するので、ROOT と CHECK
                   # だけの受け皿へ移すと NameError になる (archive4 を起こした初回で実際に踏み、
                   # rollback が tree を戻した)。
-                  'from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER  # noqa: F401 (entry 内で参照)\n\n'
+                  # [2026-11-08] 上の「全部」は 5 つの名前の決め打ちで、APPLIED_ID を使う entry を archive6 へ
+                  #   移そうとして NameError で止まった。名前は common から導出する (足したら自動で追従する)。
+                  + 'from mutation_samples_common import '
+                  + ", ".join(re.findall(r"(?m)^([A-Z][A-Z0-9_]*) = ", (base / "mutation_samples_common.py").read_text(encoding="utf-8")))
+                  + '  # noqa: F401 (entry 内で参照)\n\n'
                 + "%s%d = [\n]\n" % (list_base, n),
                 encoding="utf-8",
             )

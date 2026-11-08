@@ -1,0 +1,59 @@
+"""mutation_samples_archive6.py — rotate 先 (自動生成)。
+
+rotate_mutation_samples.py が受け皿の余裕を実測して選び、埋まったら次を起こす。
+**新しい mutation は mutation_samples.py の tail へ足すこと** (ここは退避先)。
+"""
+from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER, FROZEN_PREVIOUS, APPLIED_ID, APPLIED_DATE, SUBMISSION_TARGET, NEXT_CHECK  # noqa: F401 (entry 内で参照)
+
+MUTATIONS_ARCHIVE6 = [
+    {
+    "name": "Check 123a: 運用モデルの節の見出しから「現在の運用モデル」を外す —— 直前の行コメントがその語を持つので通っていた",
+    "file": ROOT / "js" / "ai-knowhow-page.js",
+    "find": "                class: 'card card--accent-left', 'data-accent': 'primary', role: 'region', 'aria-label': '現在の運用モデル：AI自走運用への進化'\n            },\n                h('div', { class: 'card-body flex flex-col gap-3' },\n                    sectionHeader('🔄', '現在の運用モデル — 対話型から AI 自走運用への進化', C.primary),",
+    "replace": "                class: 'card card--accent-left', 'data-accent': 'primary', role: 'region', 'aria-label': '運用の記録：AI自走運用への進化'\n            },\n                h('div', { class: 'card-body flex flex-col gap-3' },\n                    sectionHeader('🔄', '運用の記録 — 対話型から AI 自走運用への進化', C.primary),",
+},
+    {
+    "name": "Check 463: 送る文面の法的レビューの段落を HTML コメントに隠す —— 描画されず送られないのに、生の markdown で照合して通っていた",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": "**Legal review: none.** No lawyer has drafted or read it.",
+    "replace": "<!-- **Legal review: none.** No lawyer has drafted or read it. -->",
+},
+    {
+    "name": "Check 463: 送る文面から「新規か legacy か」の行を消す —— 申請日の 1 枚は要件に持つのに、§B.0 の照合には無かった",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": "Legacy or New:                  New License\nDrafted By Lawyer:              No\nApproved or Used by Projects:   One — my own repository",
+    "replace": "Drafted By Lawyer:              No\nDrafted By Lawyer:              No\nApproved or Used by Projects:   One — my own repository",
+},
+    {
+    "name": "Check 468: §8.4 から「Section 8.1 alone governs」の alone を落とす —— 付け足した機能に §8.4 が及ぶかの線が消える (468u の目印)",
+    "file": CURRENT_DRAFT,
+    "find": "remove. Section 8.1 alone governs a feature added to the Work, by",
+    "replace": "remove. Section 8.1 governs a feature added to the Work, by",
+},
+    {
+    "name": "Check 444n: REUSE.toml の全 file への宣言を前の版へ戻す —— 2026-09-23〜11-08 に実際にこの状態だった (どの Check も読んでいなかった)",
+    "file": ROOT / "REUSE.toml",
+    "find": f'SPDX-License-Identifier = "LicenseRef-{APPLIED_ID}"',
+    "replace": 'SPDX-License-Identifier = "LicenseRef-ACD-1.0"',
+},
+    {
+    "name": "Check 238: og:image の 2 本目を属性の順序を変えて足す —— 先頭しか読まない Check 153 には見えず、旧 238 は属性順を固定していた",
+    "file": ROOT / "index.html",
+    "find": '    <meta property="og:image" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp" />',
+    "replace": ('    <meta property="og:image" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp" />'
+                '<meta content="https://example.com/other.webp" property="og:image" />'),
+},
+    {
+    "name": "Check 238: ai:canonical の 2 本目を別の URL で足す —— 先頭しか読まない Check 282 には見えない",
+    "file": ROOT / "index.html",
+    "find": '    <meta name="ai:canonical" content="https://yutapr0117-design.github.io/portfolio/" />',
+    "replace": ('    <meta name="ai:canonical" content="https://yutapr0117-design.github.io/portfolio/" />'
+                '<meta name="ai:canonical" content="https://example.com/" />'),
+},
+    {
+    "name": "Check 17: SITE_CONFIG の直前のコメントに旧い値を残したまま LAST_UPDATED を進める —— コメント込みの先頭一致で読むと、コメントの値が比べられて通っていた (値は v74 の間は変わらない)",
+    "file": ROOT / "main.js",
+    "find": "        const SITE_CONFIG = {\n            VERSION:       'v74',\n            LAST_UPDATED:  '2026-05-31',",
+    "replace": "        // 旧: LAST_UPDATED:  '2026-05-31', VERSION:       'v74',\n        const SITE_CONFIG = {\n            VERSION:       'v74',\n            LAST_UPDATED:  '2026-06-01',",
+},
+]
