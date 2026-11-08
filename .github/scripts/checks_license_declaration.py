@@ -319,7 +319,7 @@ def run(ctx):
         from measure_citation_drift import FACES as _faces444m
         _say444m = re.compile(r"(?i)\b(?:this|the) repository applies|(?:applied|applies) to this repository|適用している|適用中")
         _id444m = re.compile(r"ACD-\d+\.\d+(?![.\w-]*\.md)|(?<![\w§.])1\.\d+(?=\s*を適用)")
-        _stale444m, _free444m = [], []
+        _stale444m, _free444m, _exm444m = [], [], []
         for _f444m in [ROOT / "LICENSES" / _n for _n in _faces444m if "against" not in _n and "discussion-log" not in _n]:
             # 段落 (表の行は 1 行ずつ) を単位にし、版は主張と同じ文の中で最も近いものを見る (2026-11-08: 行の
             #   70 字の窓は、折り返した段落の前の行の版を見ず、版の無い主張は黙って通っていた・aa の提案)
@@ -344,13 +344,18 @@ def run(ctx):
                     _hit444m = min((_i for _i in _id444m.finditer(_p444m) if _st <= _i.start() < _en),
                                    key=lambda _i: abs(_i.start() - _m444m.start()), default=None)
                     if _hit444m is None:
-                        _free444m.append(f"{_f444m.name}:{_n444m}")
+                        # 版の無い主張は RED。免除は 2 つの語の形だけ (aa の判断・2026-11-08): 主語が族の名前の
+                        #   "ACD"（版を書くと「その版の採用」へ狭まる）と、版を LICENSE に委ねる案内 "names the version"
+                        _exempt444m = (re.search(r"\bACD\b(?!-\d)[^.]{0,20}$", _p444m[_st:_m444m.start()])
+                                       or "names the version" in _sent)
+                        (_exm444m if _exempt444m else _free444m).append(f"{_f444m.name}:{_n444m}")
                     elif "ACD-" + _hit444m.group(0).removeprefix("ACD-") != _lic444m.group(1):
                         _stale444m.append(f"{_f444m.name}:{_n444m}")
         check(
-            not _stale444m,
+            not _stale444m and not _free444m,
             (f"Check 444m: 外向きの文書の「適用している版」の主張が {_lic444m.group(1)} に合う "
-             f"(同じ文に版の無い主張 {len(_free444m)} 件: {sorted(set(_free444m))})"),
-            f"Check 444m: 適用していない版を「適用している」と述べる行がある: {sorted(set(_stale444m))}。文を読んで直す",
+             f"(版の無い主張は免除の形の {len(_exm444m)} 件だけ: {sorted(set(_exm444m))})"),
+            (f"Check 444m: 適用していない版を「適用している」と述べる行 {sorted(set(_stale444m))} / 同じ文に版の無い主張 "
+             f"{sorted(set(_free444m))}。文を読んで直す (版を書くか、族の名前 ACD を主語にするか、版を LICENSE に委ねる案内にする)"),
             blocking=True,
         )
