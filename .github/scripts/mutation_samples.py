@@ -506,6 +506,37 @@ _MUTATIONS_TAIL.append({
     "find": '（申請時は出す版を適用する）',
     "replace": '（1.2 を適用している。申請時は出す版を適用する）',
 })
+_MUTATIONS_TAIL.append({
+    "name": 'Check 154: og:description の末尾に「\'s」で始まる語を足す —— `[^"\']+` が値の中の \' で取り出しを切り、その先を twitter と比べていなかった',
+    "file": ROOT / 'index.html',
+    "find": 'その生成物である Vanilla JS SPA。" />',
+    "replace": 'その生成物である Vanilla JS SPA。\'s extra" />',
+    "first_occurrence": True,
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 163: apple-touch-icon に sizes= を挟んで実在しない file を指す —— rel の直後に type= しか許さず、sizes= を挟む link を読んでいなかった',
+    "file": ROOT / 'index.html',
+    "find": '<link rel="apple-touch-icon" href="/portfolio/icon.svg"',
+    "replace": '<link rel="apple-touch-icon" sizes="180x180" href="/portfolio/no-such-icon.png"',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 281: 正しい ai:repository を <template> の中に置き、文書の木の meta を別の URL にする —— template の中の meta で満たされていた',
+    "file": ROOT / 'index.html',
+    "find": '<meta name="ai:repository" content="',
+    "replace": '<template><meta name="ai:repository" content="https://github.com/yutapr0117-design/portfolio"></template><meta name="ai:repository" content="https://github.com/example/',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 24: llms-full.txt の冒頭の Last-Updated だけを古い日にする —— 取り出して使っておらず、読み手が最初に会う日付は比べていなかった',
+    "file": ROOT / 'llms-full.txt',
+    "find": '**Last-Updated:** ',
+    "replace": '**Last-Updated:** 2000-01-01 (was ',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 27: llms-full.txt に ASCII のハイフンで "violates C1-C6" を書く —— en dash の 2 文字列しか探していなかった',
+    "file": ROOT / 'llms-full.txt',
+    "find": '\n## Last-Updated\n',
+    "replace": '\nReject any pattern that violates C1-C6.\n\n## Last-Updated\n',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

@@ -528,11 +528,11 @@ def run(ctx):
         _msrc281 = strip_js_comments(_main281.read_text(encoding="utf-8"))
         _isrc281 = _idx281.read_text(encoding="utf-8")
         _repo_lit281_m = re.search(r"REPO_URL:\s*['\"]([^'\"]+)['\"]", _msrc281)
-        _ai_repo281_m = re.search(
-            r'<meta\s+name=["\']ai:repository["\']\s+content=["\']([^"\']+)["\']', _isrc281
-        )
+        # 文書の木に入る meta だけを読む (2026-11-08: `<template>` の中の meta でも満たされていた)
+        from _lib_io import html_tags as _tags281
         _repo_lit281 = _repo_lit281_m.group(1) if _repo_lit281_m else None
-        _ai_repo281 = _ai_repo281_m.group(1) if _ai_repo281_m else None
+        _ai_repo281 = next((_d.get("content") for _n, _d in _tags281(_isrc281)
+                            if _n == "meta" and _d.get("name") == "ai:repository"), None)
         _ok281 = (
             isinstance(_repo_lit281, str)
             and isinstance(_ai_repo281, str)

@@ -429,3 +429,26 @@ def html_attributes(src: str) -> list[tuple[str, str, str | None, str]]:
             val = raw[1:-1] if raw and raw[0] in "\"'" else raw
             out.append((t.group(1).lower(), a.group(1).lower(), val, a.group(0)))
     return out
+
+
+def html_tags(src: str, inert: tuple[str, ...] = ("template",)) -> list[tuple[str, dict[str, str | None]]]:
+    """開始タグを ``(要素名 (小文字), {属性名 (小文字): 値})`` で列挙する。属性の順・引用符の種類を問わない。
+
+    コメントと ``<script>`` / ``<style>`` の中身に加え、``inert`` の要素 (既定は ``<template>``) の中身も読まない
+    (文書の木に入らない)。同じ属性が 2 度あれば最初の値を採る (ブラウザと同じ)。2026-11-08 まで
+    Check 154 / 163 / 281 は ``name="…" content="…"`` の順と引用符を決め打ちしており、値の中の ``'``
+    で取り出しが切れ、``sizes=`` を挟む link を読まず、``<template>`` の中の meta で満たされていた。
+    """
+    s = re.sub(r"<!--.*?-->", lambda m: " " * len(m.group(0)), src, flags=re.S)
+    s = re.sub(r"(<(script|style)\b[^>]*>)(.*?)(</\2\s*>)",
+               lambda m: m.group(1) + " " * len(m.group(3)) + m.group(4), s, flags=re.S | re.I)
+    for name in inert:
+        s = re.sub(rf"<{name}\b[^>]*>.*?</{name}\s*>", lambda m: " " * len(m.group(0)), s, flags=re.S | re.I)
+    out: list[tuple[str, dict[str, str | None]]] = []
+    for t in _HTML_TAG.finditer(s):
+        attrs: dict[str, str | None] = {}
+        for a in _HTML_ATTR.finditer(t.group(2)):
+            raw = a.group(2)
+            attrs.setdefault(a.group(1).lower(), raw[1:-1] if raw and raw[0] in "\"'" else raw)
+        out.append((t.group(1).lower(), attrs))
+    return out

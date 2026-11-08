@@ -331,18 +331,12 @@ def run(ctx):
     _idx154 = ROOT / "index.html"
     if _idx154.exists():
         _isrc154 = _idx154.read_text(encoding="utf-8")
-        _meta154_m = re.search(
-            r'<meta\s+name=["\']description["\']\s+content=["\']([^"\']+)["\']', _isrc154
-        )
-        _og154_m = re.search(
-            r'<meta\s+property=["\']og:description["\']\s+content=["\']([^"\']+)["\']', _isrc154
-        )
-        _tw154_m = re.search(
-            r'<meta\s+name=["\']twitter:description["\']\s+content=["\']([^"\']+)["\']', _isrc154
-        )
-        _meta154 = _meta154_m.group(1) if _meta154_m else None
-        _og154 = _og154_m.group(1) if _og154_m else None
-        _tw154 = _tw154_m.group(1) if _tw154_m else None
+        # 属性の順と引用符を問わず読む (2026-11-08: `[^"\']+` は値の中の `'` で取り出しが切れ、その先を比べていなかった)
+        from _lib_io import html_tags as _tags154
+        _metas154 = [_d for _n, _d in _tags154(_isrc154) if _n == "meta"]
+        _meta154 = next((_d.get("content") for _d in _metas154 if _d.get("name") == "description"), None)
+        _og154 = next((_d.get("content") for _d in _metas154 if _d.get("property") == "og:description"), None)
+        _tw154 = next((_d.get("content") for _d in _metas154 if _d.get("name") == "twitter:description"), None)
         _all_present154 = _meta154 and _og154 and _tw154
         _og_tw_match154 = _og154 == _tw154 if (_og154 and _tw154) else False
         check(
@@ -698,12 +692,11 @@ def run(ctx):
         if _link163:
             from urllib.parse import urlparse as _urlparse163
             _canon_path163 = _urlparse163(_link163.group(1)).path or "/"
-        _icon_hrefs163: list[tuple[str, str]] = []  # (rel, href)
-        for _m163 in re.finditer(
-            r'<link\s+rel=["\'](icon|apple-touch-icon)["\']\s+(?:type=["\'][^"\']*["\']\s+)?href=["\']([^"\']+)["\']',
-            _isrc163,
-        ):
-            _icon_hrefs163.append((_m163.group(1), _m163.group(2)))
+        # 属性の順と種類を問わず読む (2026-11-08: `sizes=` を挟む link を読んでいなかった)。rel は空白区切りの集合
+        from _lib_io import html_tags as _tags163
+        _icon_hrefs163: list[tuple[str, str]] = [  # (rel, href)
+            (_r, _d["href"]) for _n, _d in _tags163(_isrc163) if _n == "link" and _d.get("href")
+            for _r in (_d.get("rel") or "").lower().split() if _r in ("icon", "apple-touch-icon")]
         _missing163: list[str] = []
         _checked163 = 0
         for _rel163, _href163 in _icon_hrefs163:
@@ -717,7 +710,7 @@ def run(ctx):
             elif _href163.startswith("/"):
                 _local163 = _href163.lstrip("/")
             _target163 = ROOT / _local163
-            if not _target163.exists():
+            if not _target163.is_file():  # ディレクトリは icon として配信されない
                 _missing163.append(f"{_rel163}={_href163!r} -> {_local163} (not found)")
         check(
             bool(_icon_hrefs163) and _checked163 > 0 and not _missing163,
