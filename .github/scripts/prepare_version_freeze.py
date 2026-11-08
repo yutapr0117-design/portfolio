@@ -223,6 +223,19 @@ def finish(v: str, prev: str, nxt: str, date: str, clauses: int) -> None:
         text = re.sub(r"\d+× OK", f"{pins}× OK", (L / name).read_text(encoding="utf-8"))
         text = re.sub(r"(pins the SHA-256 of|prints `OK` for all) [a-z-]+ files", rf"\1 {word} files", text)
         (L / name).write_text(re.sub(r"\(re-run \d{4}-\d{2}-\d{2},", f"(re-run {date},", text), encoding="utf-8")
+    # 入口の「ドシエ全体は N 語・本文の M 倍」も機械で決まる。確定で増える file (凍結本文・次の草案・CHANGELIST・
+    #   記述子・SPDX XML) で約 1 万語増え、Check 472m の 10% の幅を越えていた (2026-11-09 の予行)。
+    rv = L / "REVIEWERS.md"
+    rvt = rv.read_text(encoding="utf-8")
+    lw = re.search(r"\(ACD-\d+\.\d+\.txt\) \| \*\*([\d,]+)\*\* \| the licence\b", rvt)
+    if lw:
+        total = sum(len(p.read_text(encoding="utf-8", errors="replace").split()) for p in L.rglob("*")
+                    if p.is_file() and "rounds" not in p.relative_to(L).parts and not p.name.startswith("."))
+        rv.write_text(re.sub(r"is \*\*[\d,]+ words\*\*, \*\*\d+ times the licence\*\*",
+                             f"is **{total:,} words**, **{round(total / int(lw.group(1).replace(',', '')))} times the licence**",
+                             re.sub(r"Measured \d{4}-\d{2}-\d{2}, the analysis in", f"Measured {date}, the analysis in", rvt)),
+                    encoding="utf-8")
+
     # AS-OF の「Text frozen」の行も同じコマンドの期待値を述べる。Check 460 (q) が読む (2026-11-08 から)。
     asof = L / "AS-OF.md"
     asof.write_text(re.sub(r"(?m)^(\| Text frozen \| \*\*)\d{4}-\d{2}-\d{2}(\*\* \| Yes; )[a-z-]+( files pinned.*?→ )\d+(× OK)",
