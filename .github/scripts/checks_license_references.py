@@ -95,7 +95,8 @@ def run(ctx):
     _quotes472l = []
     for _l472l in (ROOT / "LICENSES" / "REVIEWERS.md").read_text(encoding="utf-8").splitlines():
         if _l472l.startswith("|") and "FAQ" in _l472l:
-            _quotes472l += [("REVIEWERS.md", _q) for _q in re.findall(r'\*"([^"]{10,})"\*', _l472l)]
+            from verify_dossier_quotations import italic_quotes as _iq472l  # 内側の引用符を含む引用も拾う
+            _quotes472l += [("REVIEWERS.md", _q) for _q in _iq472l(_l472l, 10)]
     _mt472l = (ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md").read_text(encoding="utf-8")
     _quotes472l += [("SUBMISSION-MATERIALS.md", _q) for _q in re.findall(r'(?<!OSAID の )FAQ[^*"]{0,60}\*"([^"]{10,})"\*', _mt472l)]
     _miss472l = [f"{_f}: {_q[:60]}" for _f, _q in _quotes472l if _n472l(_q).rstrip(".,") not in _src472l]

@@ -498,6 +498,13 @@ _MUTATIONS_TAIL.append({
     "replace": "Dedicator if, at the time in question, the Dedicator has",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 472n: 内側に引用符を持つ Fontana 氏の引用の語を動かす —— 取り出しが内側の \" で切れ、照合から黙って漏れていた (portfolio-00 の指摘)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.objection-map.md",
+    "find": '*"How do you know what the "covered work" is?"*',
+    "replace": '*"How do we know what the "covered work" is?"*',
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
