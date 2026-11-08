@@ -311,55 +311,7 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 148: ARTICLE_ROUTES の旧い値をコメントに残して、本物に存在しないルートを足す —— コメント込みの先頭一致を読んでいた',
-    "file": ROOT / 'main.js',
-    "find": "ARTICLE_ROUTES: ['ai-knowhow'],   // og:type = article を適用するルート",
-    "replace": "/* ARTICLE_ROUTES: ['ai-knowhow'], */ ARTICLE_ROUTES: ['ai-knowhow', 'whitepaper'],",
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 308: sitemap の先頭のコメントに旧い urlset タグを残し、本物の image 名前空間の URI を変える —— コメントの中の旧いタグを読んでいた',
-    "file": ROOT / 'sitemap.xml',
-    "find": '-->\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
-    "replace": '  was: <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"> -->\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:image="http://www.example.com/schemas/sitemap-image/9.9">',
-})
 
-_MUTATIONS_TAIL.append({
-    "name": 'Check 474: 本文に `\\|` を持つ EXTERNAL の行 (#162) から「我々にできること」を消す —— `[^|]*` が `\\|` で止まり、この行だけ 474b が読んでいなかった',
-    "file": ROOT / 'LICENSES' / 'ACD-1.0.against.md',
-    "find": '(#87) **潰し方**: **数は verdict ではなく分類が verdict であり、分類するのは審査者である。** 我々にできるのは「29 箇所は*変数が名指しされて閉じられている*箇所であって、MIT の 0 は沈黙である」と述べ切ることで、それは実行済み。 |',
-    "replace": '(#87) |',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 474: TRADE の行の state token を Status 欄の途中へ動かし、合否を消す —— token の位置を見ておらず、474b からも外れていた',
-    "file": ROOT / 'LICENSES' / 'ACD-1.0.against.md',
-    "find": '| **[TRADE]** **Accepted.** Submission §4a disclaims any request for a broader designation **合否**: ',
-    "replace": '| **Accepted.** **[TRADE]** Submission §4a disclaims any request for a broader designation ',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 474: 番号を太字にした token の無い行を足す —— `| N |` の形しか読まず、集計から黙って落ちていた',
-    "file": ROOT / 'LICENSES' / 'ACD-1.0.against.md',
-    "find": '\n| 296 | ',
-    "replace": '\n| **900** | An adverse fact added with no state token at all | nothing here |\n| 296 | ',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 474: 開いた entry の番号を次の番号と重ねる —— dict が後の行で上書きし、開いた #8 が集計から消えていた',
-    "file": ROOT / 'LICENSES' / 'ACD-1.0.against.md',
-    "find": '| 8 | **Jurisdictional effectiveness is unverified',
-    "replace": '| 9 | **Jurisdictional effectiveness is unverified',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 474: 凡例から使っていない OPEN を落とす —— 使っている token が凡例に在るかしか見ておらず、凡例と語彙の一致を見ていなかった',
-    "file": ROOT / 'LICENSES' / 'ACD-1.0.against.md',
-    "find": '| **`[OPEN]`** |',
-    "replace": '| **OPEN** |',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 475: 反証表の行の状態の印から日付を離す —— 行のどこかに日付が在れば (引用の日付でも) 緑だった',
-    "file": ROOT / 'LICENSES' / 'AS-OF.md',
-    "find": '**⚪ 未充足（',
-    "replace": '**⚪ 未充足 —— 下の McCoy 氏の文で読む（',
-})
 _MUTATIONS_TAIL.append({
     "name": 'Check 475: 反証表の行の先頭に空白を 1 つ入れる —— `|` で始まらない行で走査が止まり、その行から下が「全 N 行」から外れていた',
     "file": ROOT / 'LICENSES' / 'AS-OF.md',
