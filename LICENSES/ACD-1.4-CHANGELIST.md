@@ -131,6 +131,10 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | E64 | §8.1 / §8.3 / §8.4 | 許諾の目的語を請求項から行為へ移し、*"otherwise practise or transfer"* で終える。§8.3 に *"as to the acts they describe"*（計 +6 語・T17） | **反映済み**（2026-11-08）|
 | E65 | §1.9 | 宛先を *"a repository or forum offering the Work under this Dedication"* へ（+3 語・T19） | **反映済み**（2026-11-08）|
 | E66 | §8.4 | *"Section 8.1 alone governs a feature added to the Work, by whatever means."* を足す（+13 語・T18） | **反映済み**（2026-11-08）|
+| E67 | §5.2 | Dedicator 自身が出す Work 以外の素材と、それに付ける条件や手段を Section 5 の外に置く（T30） | **反映済み**（2026-11-08）|
+| E68 | §5.2 | 写しを渡さずに Work を動かす Dedicator 自身のサービスを (a)(b) の外に置く（T31） | **反映済み**（2026-11-08）|
+| E69 | §16.2 | *"The identifiers named above match without regard to case."*（+9 語・T32） | **反映済み**（2026-11-08）|
+| E70 | §6.4 | *"You owe nothing under this Dedication"*（+3 語・T33） | **反映済み**（2026-11-08）|
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 

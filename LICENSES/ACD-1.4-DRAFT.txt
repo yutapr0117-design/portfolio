@@ -194,15 +194,16 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       left out. (+3 words.)
     * Section 16.2 now says what material a notice a Dedicator places
       applies this Dedication to, that a narrower notice of the Dedicator
-      prevails, and that its identifiers match without regard to case. (+83
-      words.)
+      prevails, and that its identifiers match without regard to case
+      (errata E69). (+83 words.)
     * Section 16.4 now reaches any identifier that "contains" "ACD-" followed
       by a digit, so that "LicenseRef-ACD-1.4", the form Sections 16.1 and
       16.2 name, is reached too. (-1 word.)
     * Section 5.2 now leaves outside Section 5 the Dedicator's own material
-      other than the Work, such as its model, and outside paragraphs (a) and
-      (b) a service that runs the Work without providing a copy; Section 6.4
-      now says that You owe nothing "under this Dedication". (+69 words.)
+      other than the Work, such as its model (errata E67), and outside
+      paragraphs (a) and (b) a service that runs the Work without providing
+      a copy (errata E68); Section 6.4 now says that You owe nothing "under
+      this Dedication" (errata E70). (+69 words.)
     * Section 5.1 now gives its two covenants as two sentences, so that the
       list of exceptions reads with the second alone. (+1 word.)
     * ACD-1.3: 5443 words, 80 clauses. This draft: 5614 words, 80 clauses.
