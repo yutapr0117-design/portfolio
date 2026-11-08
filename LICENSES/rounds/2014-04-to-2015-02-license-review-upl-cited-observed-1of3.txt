@@ -1,0 +1,631 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2014-April, 2014-May, 2014-August, 2014-September, 2015-February; the month in each message's Date line)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-08)
+Messages: 10 of the 23 messages this dossier cites from the review of the Universal Permissive License (UPL), from its submission on 2014-04-10 to its approval on 2015-02-20. Part 1 of 3.
+Senders: Karl Fogel, Henrik Ingo, Richard Fontana, Josh Berkus, Jim Wright, Gervase Markham, Carlo Piana, Lawrence Rosen
+Position: the review of a permissive licence whose express patent grant reaches beyond the licensed software. Not addressed to us and not about ACD. Across the 3 parts, 8 messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From kfogel at red-bean.com  Sat Apr 12 08:51:22 2014
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Sat, 12 Apr 2014 16:51:22 +0800
+Subject: [License-review] Request for Approval of Universal Permissive
+	License (UPL)
+In-Reply-To: <28A89AAA-16F3-487F-842E-69484561474C@oracle.com> (Jim Wright's
+	message of "Thu, 10 Apr 2014 17:39:42 -0700")
+References: <28A89AAA-16F3-487F-842E-69484561474C@oracle.com>
+Message-ID: <8738hjlylx.fsf@floss.red-bean.com>
+
+Jim Wright <jim.wright at oracle.com> writes:
+>Members of the OSI License Review Community,
+>
+>Below, please find a copy of the proposed Universal Permissive License
+>(UPL) for license review, with the supporting information categories
+>listed at http://opensource.org/approval.
+>
+>Legal Review
+>
+>This license was authored by a lawyer (myself) and was also reviewed
+>and enhanced by other lawyers both inside and outside of Oracle.
+>
+>License Proliferation Category
+>
+>I believe it falls into the Other/Miscellaneous category, and the
+>rationale for the license is as follows.
+>
+>Rationale & Comparison to Similar Licenses
+>
+>Many commercial developers require the ability to use code licensed
+>from other parties in both commercial offerings and copyleft licensed
+>FOSS projects.  They also generally prefer inbound licenses to include
+>an express patent license.  This has resulted, among other things, in
+>the widespread use of contributor agreements containing the desired
+>patent license grants, as neither the BSD nor MIT licenses contain an
+>express patent license or address the concept of contribution to a
+>larger work, and the Apache license is not compatible with the GPLv2.
+
+Thanks for the submission!
+
+Very minor nit, not about the license itself: you wrote "commercial"
+above but really meant "proprietary".
+
+(We see this a lot, and try to push back wherever we can.  When
+"commercial" is used to mean the opposite of "open source", even though
+the two are not opposite and are indeed quite compatible, it's harmful
+to open source, for reasons that are probably obvious.)
+
+Anyway, substituting "proprietary" for "commercial" above, the rationale
+for the license makes a lot of sense.  There has not been a simple
+permissive-style license with a patent grant (at least as far as I'm
+aware), and this could solve that.  Three cheers!
+
+>The proposed license solves this problem with copyright and patent
+>licenses covering both the Software distributed under the license and
+>a Larger Work in the event the license is used for contributions.  It
+>also expressly permits relicensing to facilitate use with both
+>copyleft and commercial licenses, and is GPL compatible.
+
+s/commercial/proprietary/ :-), but *nod* otherwise.
+
+>In addition to performing a non-duplicative function, I aimed for the
+>license to be short, clear, and usable in multiple contexts, and I
+>hope you will agree it is.  Thank you for your consideration.
+
+It's very readable.  I'm not a lawyer, so am not competent to comment
+about whether the drafting means what it intends to mean, but to my
+untrained eye it seems pretty solid.  I have only one question, which
+I'll ask inline below:
+
+>The Universal Permissive License (UPL)
+>
+>Copyright (c) <year> <copyright holders>
+>
+>Subject to the condition set forth below, permission is hereby
+>granted, free of charge and under any and all patent and copyright
+>rights owned or freely licensable by each licensor hereunder, whether
+>an original author or another licensor, to any person obtaining a copy
+>of this software, associated documentation and/or data (collectively
+>the "Software"), to deal in current and future versions of both
+>
+>(a) the Software, and
+>(b) any piece of software and/or hardware listed in the
+>LARGER_WORKS.TXT file included with the Software (each a ?Larger Work?
+>to which the Software is contributed by such licensors),
+>
+>without restriction, including without limitation the rights to make,
+>use, sell, offer for sale, import, export, have made, have sold, copy,
+>create derivative works of, display, perform, distribute, and
+>sublicense the Software and the Larger Work(s) on either these or
+>other terms.
+
+This makes it *sound* like the licensor of the original Software (let's
+say it's some kind of code library) is also granting rights under the
+UPL to any larger work (say, an application that uses that library) that
+is listed in a LARGER_WORKS.TXT file.  In other words, it's not
+completely clear to me who writes the LARGER_WORKS.TXT file, and why,
+and what that file implies for the licenses of said larger works.
+
+Obviously, the author of a code library under the UPL doesn't dictate
+the the license of larger works that use that library -- that would
+defeat the intended purpose of the UPL.  So some other person, who is
+redistributing the original library as part of their larger derivative
+work, adds (or adds to) the LARGER_WORKS.TXT file?
+
+This may just be me being dense, and not reflect any issue with the
+license.  But if enough people are confused by it, it might be worth
+including an example separately from the license, or tweaking the
+wording slightly to make it clearer what's going on.
+
+I think this is a minor issue, anyway.  Overall, +1.  Looking forward to
+hearing some more knowledgeable people on this list (Luis, Richard, et
+al) chime in...
+
+Best,
+-Karl
+
+>This license is subject to the following condition:
+>
+>The above copyright notice and either this complete permission notice
+>or at a minimum a reference to the UPL shall be included in all copies
+>or substantial portions of the Software.
+>
+>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+>EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+>MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+>NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+>LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+>OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+>WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+From henrik.ingo at avoinelama.fi  Sun Apr 13 10:07:24 2014
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Sun, 13 Apr 2014 13:07:24 +0300
+Subject: [License-review] Request for Approval of Universal Permissive
+ License (UPL)
+In-Reply-To: <CAEq5uwm52xGJZ7JX021ZO9XQ4WCPpRF7P2wo6XsjjH-k8pDjbA@mail.gmail.com>
+References: <28A89AAA-16F3-487F-842E-69484561474C@oracle.com>
+	<53493D9F.9080609@info9.net>
+	<CAEq5uwm52xGJZ7JX021ZO9XQ4WCPpRF7P2wo6XsjjH-k8pDjbA@mail.gmail.com>
+Message-ID: <CAKHyketDLyVpRJ3wvC1cxUHR9OnARcFqqoPDDXo6CK-0iDjbfQ@mail.gmail.com>
+
+I concur. This doesn't even have to be seen as a sign of lack of trust,
+having a (inpependent) lawyer analyze a newly written license is just
+proper due diligence.
+
+Other than that, I also concur with everything in Josh Berkus' email that
+followed.
+
+Henrik
+
+From fontana at sharpeleven.org  Mon Apr 14 02:09:23 2014
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Sun, 13 Apr 2014 22:09:23 -0400
+Subject: [License-review] Request for Approval of Universal Permissive
+ License (UPL)
+In-Reply-To: <28A89AAA-16F3-487F-842E-69484561474C@oracle.com>
+References: <28A89AAA-16F3-487F-842E-69484561474C@oracle.com>
+Message-ID: <20140413220923.1af8505d@riley>
+
+On Thu, 10 Apr 2014 17:39:42 -0700
+Jim Wright <jim.wright at oracle.com> wrote:
+
+> License Proliferation Category
+> 
+> I believe it falls into the Other/Miscellaneous category
+
+This issue itself is interesting to me, even if we should regard it as
+a mere detail of OSI license submission procedure. 
+
+These license proliferation categories, created in (I believe) 2005,
+are set forth here:
+http://opensource.org/proliferation-report
+ 
+So does the UPL more properly fall into one of the other license
+proliferation categories? It's obviously not 'superseded' or
+'voluntarily retired'. It is not 'non-reusable'. It is not 'special
+purpose'. It is obviously not 'popular and widely used or with strong
+communities'. 
+
+That leaves "Licenses that are redundant with more popular licenses". 
+The UPL is probably not appropriately considered "redundant with" the
+MIT license even though it is based on it; the inclusion of an express
+patent license alone makes that clear (cf. the noisy discussion of CC0
+on this list some time ago). 
+
+A case *can* be made that the UPL is "redundant with" the Apache License
+2.0, much as the AFL was considered redundant with it in 2005. Both are
+noncopyleft licenses with express patent license grants.  
+
+It's useful therefore to think about how the UPL is different from the
+Apache License 2.0 (as that justifies regarding it as "nonredundant",
+which is important not only because OSI procedure requires this
+classification step but also because of the OSI's policy since 2005
+against license proliferation [with a tendency to favor "popular"
+licenses which category includes the Apache License 2.0]). There are a
+number of substantive and nonsubstantive differences; a few substantive
+ones stand out to me:
+
+1) The Apache License 2.0 patent license grant is more precisely
+scoped, while what we have in the UPL is what we might expect
+the author of the MIT license to have drafted had that author decided
+to address patents explicitly (to be clear, this is not a criticism of
+any of those three licenses, just an important observation :)
+
+2) The Apache License 2.0 has a patent termination clause triggered by
+initiation of patent litigation under some circumstances; the UPL makes
+no reference to patent termination
+
+3) The Apache License 2.0 has an upstream indemnification clause; the
+UPL has nothing like this
+
+Jim did not note those explicitly, but he did assert one difference:
+the Apache License 2.0 is incompatible with GPLv2. (Jim declares this
+as a fact, which most other people who address that topic do as well,
+and I suppose there's no point in this context in arguing over that
+issue.) The UPL is said by Jim to be GPL compatible, which must include
+compatibility with GPLv2 since the asserted incompatibility of the
+Apache License 2.0 with GPLv2 is noted by Jim as a drawback of that
+license. 
+
+GPLv2 compatibility is thus important here because it is something that
+(if present) makes the UPL nonredundant with respect to the Apache
+License 2.0 - although, as Gerv's comment indicated, one can easily
+make the Apache License 2.0 compatible with GPLv2 by appending a
+sentence or so to it. This fact might call into question the value of
+built-in GPLv2 compatibility, but then again developers most often use
+open source licenses as fixed forms.[1]
+
+Tom Marble raises a question about whether UPL is indeed compatible
+with GPLv2. But I annot see how it could be considered incompatible if
+GPL compatibility is more than a meaningless doctrine. Whatever
+differences the UPL has from the MIT license, its ancestor, are all
+'additional permission', to use the GPLv3 concept. 
+
+None of what I've said here goes to the merits of the license, of
+course.
+
+ - RF
+
+[1] I am just noting in a footnote that even if we buy into the notion
+of Apache-GPLv2 incompatibility, I cannot see how the Apache License
+2.0 is incompatible with GPLv2-or-later, which is a far more prevalent
+form of GPL licensing than "GPLv2 only". Thus the drawback of the
+incompatibility of the Apache License with GPLv2 is arguably
+overstated. The problem with this view is that the only people who seem
+willing to accept (other than merely by conduct) what is obvious to me,
+that Apache-GPLv2+ compatibility logically follows from Apache-GPLv3
+compatibility, are me, Chris Aniszczyk, and legions of Red Hat
+developers whom I have persuaded as to this point over the years.
+
+
+From fontana at sharpeleven.org  Mon Apr 14 17:48:35 2014
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Mon, 14 Apr 2014 13:48:35 -0400
+Subject: [License-review] Request for Approval of Universal Permissive
+ License (UPL)
+In-Reply-To: <CAKHykesUkdAm7R2ra7g2kzF7KMJo2Q5aWF=1dD_O8B_MHZCM3A@mail.gmail.com>
+References: <28A89AAA-16F3-487F-842E-69484561474C@oracle.com>
+	<8738hjlylx.fsf@floss.red-bean.com>
+	<AB79C485-0E32-4A26-A235-EE511E0E5E70@oracle.com>
+	<20140414100528.4e03ed09@riley>
+	<CAKHykesUkdAm7R2ra7g2kzF7KMJo2Q5aWF=1dD_O8B_MHZCM3A@mail.gmail.com>
+Message-ID: <20140414134835.3b83de9d@riley>
+
+On Mon, 14 Apr 2014 18:03:04 +0300
+Henrik Ingo <henrik.ingo at avoinelama.fi> wrote:
+  
+> All this is just to say that I don't see this as such a special case
+> after all. There is precendent of a similar arrangement and it's just
+> another normal use for a permissive license. The UPL would be just yet
+> another license that could be used that way - in fact I'd read it in
+> favor of this license that there at least is some intended use for it
+> known by the time of submission. That's not always the case.
+
+Oh, I realize that there's ample precedent for using an existing
+permissive license as a contributor license (specifically for projects
+or codebases that are licensed under copyleft or proprietary terms
+outbound). Red Hat's done that in a few cases, most of which were at
+my suggestion. At one time I saw this as a significant improvement on
+the use of things like the Apache CLAs. (Today I certainly wouldn't say
+'significant' and might say I no longer have this view at all, but all
+that is irrelevant.)
+
+But what's different here is that the principal use case at the outset,
+for this license that no one is using at all right now, is as a CLA
+substitute. That's what I'm saying has no precedent. You might argue
+that that distinction doesn't really matter. 
+
+I agree with you that the fact that Oracle has some specific things it
+wants to do with the UPL already in mind is better than someone merely
+submitting a license 'on spec' as it were, though I wouldn't want to
+discourage the latter.  
+
+One reason why I'm highlighting the fact that the UPL is intended by
+the license steward as a CLA substitute is that this (maybe) makes it
+more difficult to analyze for purposes of OSI approval. Ordinarily the
+problem of purported FLOSS licenses is that they have some restriction
+imposed on the *licensee* that is unreasonable. That occurs because
+open source licenses have generally been drafted by intended
+*licensors* (or, say, entities in the license stewardship business
+creating licenses intended for use by licensors). 
+
+With a contributor agreement the situation is reversed. Here we have a
+license drafted by Oracle seeing itself (I believe) primarily as an
+intended *licensee*, submitted for OSI approval. That has never
+happened before. I am not sure if that's something the OSI is supposed
+to consider when deciding whether to approve a submitted license, or if
+it's just an extrinsic political fact the OSI is supposed to ignore.
+
+- RF
+
+
+ 
+
+
+From josh at postgresql.org  Mon Apr 14 14:25:25 2014
+From: josh at postgresql.org (Josh Berkus)
+Date: Mon, 14 Apr 2014 10:25:25 -0400
+Subject: [License-review] Request for Approval of Universal Permissive
+ License (UPL)
+In-Reply-To: <EE9102AB-244F-437A-85FE-66D7936FFE3D@oracle.com>
+References: <28A89AAA-16F3-487F-842E-69484561474C@oracle.com>	<5349B13B.3030406@postgresql.org>
+	<EE9102AB-244F-437A-85FE-66D7936FFE3D@oracle.com>
+Message-ID: <534BEFD5.3050107@postgresql.org>
+
+Jim,
+
+I think you're now seeing why nobody has created a license like this
+before; it's a bit of a challenge.
+
+
+>> - What if a downstream fork modifies that file?
+> 
+> A downstream fork cannot modify the file and expect this to be
+> legally effective any more than they could simply edit the license
+> text - the authors of the Software are making a grant of specific
+> scope, and a downstream recipient cannot expand that scope.
+
+You're assuming here that the downstream recipient has no patents of
+their own to grant usage to.  Let's give an example:
+
+1. Oracle releases a new compression library under this license.  It
+includes several Java things in LARGER_WORKS.txt.
+
+2. The Google Android team decide to include that compression library
+into Android OS.  At this point, they want to *add* Android to
+LARGER_WORKS, covering any compression patents which Google owns.
+
+So realistically, LARGER WORKS would need to be an append-only file to
+which each downstream contributor adds their own covered works, or
+possibly some kind of online registry. This provision is going to make
+the license significantly more complicated.
+
+>> - Can you give examples of what would go in such a file?
+> 
+> Sure, the first example that I can think of would be Oracle Java,
+> where someone is developing a JSR reference implementation and this
+> therefore allows us to ship that code in either OpenJDK or the
+> proprietary licensed Java packages.  Another example from my own
+> world would be MySQL, which likewise has versions shipping under both
+> GPLv2 and proprietary licenses.
+
+Presumably this would only be a concern for patents which only covered
+UPL licensed technology plus larger work, and not either individually,
+yes?  Sadly, I can imagine several such.
+
+>> - What if a downstream distributor fails to include the
+>> LARGER_WORKS.TXT file with the software?
+>> 
+> 
+> That's a good one.  This is just another form of the downstream
+> distributor choosing to sublicense the code on other terms (just like
+> they could under GPL or Apache or a proprietary license), and would
+> therefore mean the person receiving the Software would not get the
+> broader patent grant from the downstream distributor.  They also
+> might not know they could actually get a broader grant from the
+> original authors without looking, but it doesn't mean they wouldn't
+> benefit from the broader license, since the authors granted those
+> rights when they distributed the Software originally.
+
+That's a problem which would solve itself, I think.  What's a bigger
+issue is that popular libraries licensed under the UPL would accumulate
+multiple, conflicting LARGER_WORKS files.
+
+I do not agree with the other developers on this list that the UPL
+somehow violates the OSD.
+
+--Josh Berkus
+
+
+
+From jim.wright at oracle.com  Tue Apr 15 09:57:28 2014
+From: jim.wright at oracle.com (Jim Wright)
+Date: Tue, 15 Apr 2014 02:57:28 -0700
+Subject: [License-review] Request for Approval of Universal Permissive
+	License (UPL)
+In-Reply-To: <20140414100528.4e03ed09@riley>
+References: <28A89AAA-16F3-487F-842E-69484561474C@oracle.com>
+	<8738hjlylx.fsf@floss.red-bean.com>
+	<AB79C485-0E32-4A26-A235-EE511E0E5E70@oracle.com>
+	<20140414100528.4e03ed09@riley>
+Message-ID: <DCCBA3BF-B3E9-4D84-894E-52BFA2F64390@oracle.com>
+
+This is mostly right, but I would say that I *am* hoping that folks pick it up and use it as a regular open source license as well as a CLA, and it's not at all out of the question that Oracle would do this itself.  
+
+More than one person has also commented to me off-list that they like it and hope to see it broadly adopted, though I won't speculate as to whether that will actually happen.
+
+My intent here really *is* dual-use - I, like many other IP lawyers, prefer not to rely on implied licenses when I can avoid it, and the differences in understanding on those are demonstrated in this very thread, so even as a straight replacement for MIT I would like to think (hubris perhaps :-) that this is an improvement. 
+
+ Best,
+  Jim
+
+From gerv at mozilla.org  Tue Apr 15 15:38:09 2014
+From: gerv at mozilla.org (Gervase Markham)
+Date: Tue, 15 Apr 2014 16:38:09 +0100
+Subject: [License-review] Request for Approval of Universal Permissive
+ License (UPL)
+In-Reply-To: <4B122386-66DA-4FCF-B33A-F157D9B5633A@oracle.com>
+References: <28A89AAA-16F3-487F-842E-69484561474C@oracle.com>	<5347E7E9.1050107@mozilla.org>	<1F5A636B-69D6-46E9-BE4C-A371FCD23DF6@oracle.com>	<534BB626.1050708@mozilla.org>
+	<4B122386-66DA-4FCF-B33A-F157D9B5633A@oracle.com>
+Message-ID: <534D5261.5030403@mozilla.org>
+
+Hi Jim,
+
+On 15/04/14 10:50, Jim Wright wrote:
+> They're separate objections actually.  The patent license in the
+> Apache license is materially narrower than the license here, so yes,
+> that *is* an objection to straight Apache - in a case where you're
+> contributing to a work under proprietary terms, the patent license
+> only covers the contribution under the ASL and not the broader work.
+
+Maybe I've not quite understood this.
+
+Are you saying that if I contribute a one-line patch to a piece of UPL
+code, and that UPL code is used in the Java SDK and lists "Java SDK" in
+its LARGER_WORKS.TXT file, I have just freely licensed any patent I or
+my company owns that covers anything in the Java SDK?
+
+That seems... broad.
+
+> But there's also the issue of introducing 3rd party GPL code to
+> products that may not have any - if I take a contribution under UPL,
+> and someone violates the GPL on OpenJDK but not the UPL, I can freely
+> work with that party to fix the situation.  If there's third party
+> GPL code in there, once I've accused them of a GPL violation, some
+> would certainly argue that I can't fully restore their GPL license
+> because the termination for breach of the GPL applies to that third
+> party GPL code as well and separately, and if I'm not the copyright
+> holder in that code and cannot sublicense it because of the way the
+> GPL works, their license cannot be fully restored without separately
+> interacting with the copyright holder in that other code.
+
+Sorry if I'm being dense, but I can't make head or tail of that :-((
+What has 3rd party GPLed code going into (or not going into) OpenJDK got
+to do with deciding whether the UPL is equivalent to, better than or
+worse than Apache+GPLv2-only-clause?
+
+> Unfortunately I think this problem is not easily solvable and I
+> didn't want to boil the ocean here.  The same issue crops up if you
+> have an MIT license to some code and mix and match it with Apache
+> code - you can end up with different licenses to different pieces of
+> the same component, some subject to an express patent license with
+> particular terms and some not.  I can't fix *everything* here.  :-)
+
+Sure. But I'm not sure it's at all clear from the license how the
+LARGER_WORKS.TXT file is managed and added to, and how you explain which
+parts of the code different entries in the file apply to. Guidance on
+that point, with examples, may help.
+
+Gerv
+
+
+From fontana at sharpeleven.org  Tue Apr 15 16:15:11 2014
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Tue, 15 Apr 2014 12:15:11 -0400
+Subject: [License-review] Request for Approval of Universal Permissive
+ License (UPL)
+In-Reply-To: <534D5261.5030403@mozilla.org>
+References: <28A89AAA-16F3-487F-842E-69484561474C@oracle.com>
+	<5347E7E9.1050107@mozilla.org>
+	<1F5A636B-69D6-46E9-BE4C-A371FCD23DF6@oracle.com>
+	<534BB626.1050708@mozilla.org>
+	<4B122386-66DA-4FCF-B33A-F157D9B5633A@oracle.com>
+	<534D5261.5030403@mozilla.org>
+Message-ID: <20140415121511.096d6b79@riley>
+
+On Tue, 15 Apr 2014 16:38:09 +0100
+Gervase Markham <gerv at mozilla.org> wrote:
+
+> Are you saying that if I contribute a one-line patch to a piece of UPL
+> code, and that UPL code is used in the Java SDK and lists "Java SDK"
+> in its LARGER_WORKS.TXT file, I have just freely licensed any patent
+> I or my company owns that covers anything in the Java SDK?
+> 
+> That seems... broad.
+
+That's a useful observation, though I can't figure out whether it's
+relevant to OSI approval. Gerv's reading is correct, isn't it?
+
+Therefore, isn't this in effect a completely unbounded patent license?
+To take Gerv's example, suppose LARGER_WORKS.TXT says "Java SE". That
+means whoever controls what "Java SE" means can control the scope of
+this patent license grant throughout the remaining life of Java SE, in
+ways that are unpredictable to the licensor. There are things in Java
+SE 8 that no one would have expected to be in, I dunno, Java SE 5 (or
+J2SE 5 if that's what it was called).
+ 
+And if so, why not just be more straightforward and say "Licensor
+licenses all of its patents to you royalty free for any purpose
+whatsoever" and dispense with the LARGER_WORKS.TXT file? If that's the
+intention. If not, I think the license is unclear as to the scope of
+the patent license in ways that could be fairly significant. I
+understand the point that the Apache License 2.0 grant is by comparison
+quite narrow, and some would go on to say it's too narrow (some might
+say it's not narrow enough), but this license goes way beyond to the
+opposite extreme. I think that is also something that makes it
+different from any previous OSI license submission.
+
+This seems arguably to remove the advantage of having an explicit patent
+license instead of whatever we have with the MIT license. It's an
+explicit patent license, but I have no idea what it cover other than
+possibly "potentially my entire patent portfolio". Again, as I keep
+saying, not sure if this is an OSI/OSD issue.
+
+ - RF
+
+
+
+From osi-review at piana.eu  Tue Apr 15 16:09:12 2014
+From: osi-review at piana.eu (Carlo Piana)
+Date: Tue, 15 Apr 2014 18:09:12 +0200
+Subject: [License-review] Request for Approval of Universal Permissive
+ License (UPL)
+In-Reply-To: <CAEq5uwkfoXXrmQXGQbKWCAvv-+LWTFPYKFkNiupFwkYdzzd-iw@mail.gmail.com>
+References: <28A89AAA-16F3-487F-842E-69484561474C@oracle.com>	<5349B13B.3030406@postgresql.org>	<EE9102AB-244F-437A-85FE-66D7936FFE3D@oracle.com>	<534BEFD5.3050107@postgresql.org>	<3CB4B011-F0C4-4D8F-8F87-2BC21B62B19B@oracle.com>
+	<CAEq5uwkfoXXrmQXGQbKWCAvv-+LWTFPYKFkNiupFwkYdzzd-iw@mail.gmail.com>
+Message-ID: <534D59A8.7080206@piana.eu>
+
+Chris, all
+
+not my role to moderate the discussion, but I find it uncharacteristic
+to carry a discussion in a public forum concerning licenses only based
+on the attitude of the proponent. While I myself have strong feelings
+about the action Oracle has brought in the Java space, especially after
+having been told and perjured oh so many times how their patents were
+held only for defensive purposes and never to attack, this is IMHO not
+the right place to discuss the motives or to bring an ad-personam
+argument against a legal text which should be judged as is, not because
+of (possibly not entirely unwarranted, speaking in corporate terms)
+reservations on the proponent's intent in submitting or later using the
+license.
+
+I concur with John Cowan here (who also replied to the same message).
+
+Meanwhile, I have followed too superficially the long and winding
+discussion on how the limitation of scope for the patent grant is
+against the OSD to rule out that the objection is founded. I have been
+reminded far too often of my misdeed by proposing the MXM licence and
+how to exclude patents from the "IP grant" is very likely against OSD.
+The same should apply, ceteris paribus, to any limits the downstream
+reach of the patent grant. Scratching my head here.
+
+Cheers
+
+Carlo
+
+From lrosen at rosenlaw.com  Tue Apr 15 09:05:35 2014
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Tue, 15 Apr 2014 10:05:35 +0100
+Subject: [License-review] Request for Approval of Universal Permissive
+	License (UPL)
+In-Reply-To: <534D59A8.7080206@piana.eu>
+References: <28A89AAA-16F3-487F-842E-69484561474C@oracle.com>	<5349B13B.3030406@postgresql.org>	<EE9102AB-244F-437A-85FE-66D7936FFE3D@oracle.com>	<534BEFD5.3050107@postgresql.org>	<3CB4B011-F0C4-4D8F-8F87-2BC21B62B19B@oracle.com>	<CAEq5uwkfoXXrmQXGQbKWCAvv-+LWTFPYKFkNiupFwkYdzzd-iw@mail.gmail.com>
+	<534D59A8.7080206@piana.eu>
+Message-ID: <004d01cf5889$de799eb0$9b6cdc10$@rosenlaw.com>
+
+Carlo, thank you for making the important point about ad-personam attacks. I
+will note though for the record that there are no innocents here. Google
+itself has included patent-limited software in Android despite the
+overarching Apache License that applies to that software. I personally like
+that motivation, but other views may differ.
+
+ 
+
+Much more important, though, is your following comment:
+
+ 
+
+Meanwhile, I have followed too superficially the long and winding discussion
+on how the limitation of scope for the patent grant is against the OSD to
+rule out that the objection is founded. I have been reminded far too often
+of my misdeed by proposing the MXM licence and how to exclude patents from
+the "IP grant" is very likely against OSD. The same should apply, ceteris
+paribus, to any limits the downstream reach of the patent grant. Scratching
+my head here.
+
+ 
+
+Probably many lawyers here been approached by patent owners seeking to
+license software under an open source copyright license while limiting the
+scope of their patent licenses.  It is a difficult question. Motivation of
+the licensor matters, of course, but not in the ad-personam way that it was
+addressed earlier.
+
+ 
+
+I am not aware of any specific provision of the OSD which *requires* a
+patent owner to grant patent licenses  broader than for the specific
+software work licensed by its copyright license, but many FOSS licenses
+*add* the phrase "Derivative Works" or the more vague "Larger Works" to be
+more generous than the OSD requires.
+
+ 
+
+It would be helpful to me to hear your views about acceptable ways to limit
+the scope of a patent license while the copyrighted software itself remains
+free for open source.
+
+ 
+
+/Larry
+

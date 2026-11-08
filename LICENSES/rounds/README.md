@@ -61,10 +61,14 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-08 時点・330 ファイル）
+## いまの状態（2026-11-08 時点・334 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
+| 2014-04〜2015-02 | `license-review` | **観測（UPL の審査から引いた 23 通・1/3 部）** | `2014-04-to-2015-02-license-review-upl-cited-observed-1of3.txt` |
+| 2014-04〜2015-02 | `license-review` | **観測（UPL の審査から引いた 23 通・2/3 部）** | `2014-04-to-2015-02-license-review-upl-cited-observed-2of3.txt` |
+| 2014-04〜2015-02 | `license-review` | **観測（UPL の審査から引いた 23 通・3/3 部）** | `2014-04-to-2015-02-license-review-upl-cited-observed-3of3.txt` |
+| 2015-02-04 | OSI 理事会 | **観測（UPL を承認した議決・議事録の抜き出し）** | `2015-02-04-osi-board-minutes-upl-approval-observed.txt` |
 | 2026-11-07 | SPDX | **観測（収録基準の現行と前の版）** | `2026-11-07-spdx-license-inclusion-guidelines-snapshot.txt` |
 | 2003-03 | `license-discuss` | **観測（Public Domain を一覧に載せる求め・5 通）** | `2003-03-license-discuss-public-domain-on-the-list-observed.txt` |
 | 2020-03〜04 | `license-review` | **観測（Unlicense の審査から引いた 4 通）** | `2020-03-to-04-license-review-unlicense-cited-observed.txt` |
