@@ -526,6 +526,13 @@ _MUTATIONS_TAIL.append({
     "replace": "**Provenance.** I decided to have a licence of my own and said it should aim at broad adoption;",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 468: §16.2 の「in a comment within a file」を落とす —— ファイルの中のタグが及ぶ範囲が消え、取り込んだ他人のファイルまで通知の適用に入る (468u の目印・#2645)",
+    "file": CURRENT_DRAFT,
+    "find": "place in a comment within a file, by a file name that refers to other",
+    "replace": "place within a file, by a file name that refers to other",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
