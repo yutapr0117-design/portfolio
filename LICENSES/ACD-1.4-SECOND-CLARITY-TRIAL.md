@@ -357,3 +357,13 @@ workflow は 1 件ずつ 1 文足す案（計 +56 語）を出したが、§16.2
 
 **残したもの**: §5.2(a)(b) を Dedicator 自身の製品（ライセンスキー、EULA）に当てる読みは、§5.2(a) の広さとして以前「変えない」と判断した線にある。SPDX が付ける識別子、*LicenseRef-* の局所性、XML 化、草案の例外、本文の写しを通知と読む読みは、本文の語か記録の結論で退いた。
 
+### 14.12 関連会社が持つ特許（変えない・#310）
+
+**問い（bb・`against.md` #310）**: 2012-02 の CC0 の審査中、Russ Nelson 氏は *"Anybody who wants to set a booby trap will take steps to make sure that a separate legal entity owns the patent rights"* と述べた。1.4 の §8.5 は *controlled* を Dedicator 自身が許諾できる権利に限るので（T25 で *if, and only if* にした）、関連会社が持つ請求項には §8 が届かない。
+
+**比べたもの（手元の本文で確かめた）**: Apache-2.0 は *Legal Entity* を *"the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity"* と定め、許諾者をこの単位で数えるので、関連会社の請求項に届く。UPL-1.0 は *"owned or freely licensable by each licensor"*、BlueOak-1.0.0 は *"patent claims they can license or become able to license"*、BSD-2-Clause-Patent は *"licensable by such copyright holder or contributor"* で、どれも関連会社には届かない。
+
+**判断: 変えない。** 理由は 3 つ。(1) 適用していない会社を Dedicator の行為で縛ることになり、§2.7 *"This Dedication reaches only rights the Dedicator holds"* と食い違う。Apache-2.0 は許諾者の定義そのものを企業群に広げることでこれを避けているが、ACD の Dedicator は適用した者ごとに数える（§1.4）。(2) 適用の後に関連会社へ移した請求項は、§2.8 の譲受人の拘束に入る。罠として残るのは、適用の時点で関連会社が既に持っている請求項である。(3) UPL-1.0、BlueOak-1.0.0、BSD-2-Clause-Patent と同じ側に立つ。
+
+**逆側**: 審査者が Apache-2.0 と比べると、この 1 点で ACD は狭い。§8 を Apache-2.0 より広いと書く面では、この点を併記する。Dedicator が関連会社に主張させない約束を足す案（§8.6 の *authorise or assist* を関連会社へ広げる）は、効くかどうかが法の問いなので、法律家への問 2 の (i) に置いた。
+
