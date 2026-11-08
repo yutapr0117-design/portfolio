@@ -83,6 +83,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        disallow guard) for the HTML meta robots surface. (BLOCKING)
 """
 import re
+from _lib_io import strip_js_comments  # SITE_CONFIG の値をコメントから読まない (2026-11-08)
 import json
 
 
@@ -101,7 +102,7 @@ def run(ctx):
     from datetime import date as _date181
     _main181 = ROOT / "main.js"
     if _main181.exists():
-        _msrc181 = _main181.read_text(encoding="utf-8")
+        _msrc181 = strip_js_comments(_main181.read_text(encoding="utf-8"))
         _lu181_m = re.search(r"LAST_UPDATED:\s*['\"]([^'\"]+)['\"]", _msrc181)
         _lu181 = _lu181_m.group(1) if _lu181_m else None
         _iso_ok181 = False

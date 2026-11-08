@@ -19,6 +19,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
   19. sw.js CACHE_NAME version == ai:version
 """
 import re
+from _lib_io import strip_js_comments  # SITE_CONFIG の値をコメントから読まない (2026-11-08)
 import json
 
 
@@ -42,7 +43,7 @@ def run(ctx):
     )
 
     # ── 2. main.js VERSION string ────────────────────────────────────────────────
-    mainjs_v = extract(r"VERSION:\s*['\"]?(v\d+)['\"]?", mainjs)
+    mainjs_v = extract(r"VERSION:\s*['\"]?(v\d+)['\"]?", strip_js_comments(mainjs))
     if mainjs_v:
         check(
             html_v == mainjs_v,
