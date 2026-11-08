@@ -97,6 +97,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §5.2（末尾の 2 文）| *"Section 5 does not reach the Dedicator's rights in material, other than the Work, that the Dedicator itself makes available, or the terms or measures it applies to that material, even where using that material is a Computational Use of the Work. Paragraphs (a) and (b) do not reach a service through which the Dedicator runs the Work for others without providing a copy of it."* | 機械学習の実務の 5 つの立場の読み（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.13）。データセットを ACD で出した保守者の自分のモデルの権利が、§1.7 と §5.1 第 2 肢で主張できなくなると読めた。自社の推論 API の API キーや利用規約が §5.2(a)(b) に触れると読めた。bb の反例で §5 全体と配布の入口を見直し、Dedicator 自身が出す素材に絞った。*separately* は、データとモデルを同じ repository で配る場面を落とすので（bb の反例）外した | +66 | 反映済 |
 | §6.4（範囲）| *"You owe nothing in respect of any of them"* を *"You owe nothing under this Dedication in respect of any of them"* へ | 同じ読み。後半に範囲の語が無いので、§5 の外に出した Dedicator 自身のサービスの出力の条件にも *You owe nothing* が立つと読めた（bb の指摘）。前半の *under this Dedication* と同じ範囲にそろえた | +3 | 反映済 |
 | §16.2（大小を区別しない）| 末尾に *"The identifiers named above match without regard to case."* | 同じ読み。モデルとパッケージのハブは license 欄を小文字で書く（Hugging Face の *license_name: acd-1.4*）。§16.4 にまで効かせると無関係な識別子の一部を縛るので（bb の反例）、§16.2 が名指す識別子に限った | +9 | 反映済 |
+| §5.1（2 文に分ける）| *"any use of the Work, and further covenants not to assert"* を *"any use of the Work. The Dedicator further covenants not to assert"* へ | 今日の除外の追加で §5.1 が本文でいちばん長い文（92 語）になった。2 つの約束を 2 文にし、除外の列が第 2 の約束だけに掛かることを文の切れ目で示した。基準 3（英語として明晰か） | +1 | 反映済 |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
