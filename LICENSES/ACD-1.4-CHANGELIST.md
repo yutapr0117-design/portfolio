@@ -348,6 +348,7 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 | 1.4 の番号で書いた文 | `SUBMISSION-MATERIALS.md` 84・136・149・182 | **直さない** |
 | 個別 | `QUESTIONS-FOR-COUNSEL.md`（472h）| 冒頭の *Which text* と canonical-ref を 1.4 へ。問 2 の §8.4 と問 5 の §5.1 は「1.3 の文、そのあと 1.4 の差」の順なので、1.4 の文を先に置き、1.3 は *in ACD-1.3* と名指して残す。*the 1.4 draft* は *ACD-1.4* へ。§2.8 の版の差を述べる文はそのままでよい |
 | 個別 | `REVIEWERS.md` の §8.4 の限定の引用 | 1.3 の文である。切り替えの日に 1.4 の §8.4 の限定の文へ替える |
+| 個別 | `REVIEWERS.md` の *The case, and the strongest thing against each part of it* の表 | `SUBMISSION-MATERIALS.md` §1c の理由 6（審査者が読み方を既に知っている形: §8.1・§8.4 の行為の列、§11.1・§5.1 の商標、§16.2 の comment のタグ）を英語で 1 行足す。逆側（法的レビューの代わりにならない、§8.4 は意図して見慣れない、関連会社の特許には届かず Apache-2.0 だけが届く・#310）も同じ行に置く。1.0 が審査の対象のあいだは足さない（表が説明する版と食い違うため）|
 | 個別 | §5.1 / §8.1 / §8.3 / §8.4 / §8.6 を引く文（2026-11-07 の T16〜T20）| `submission-reference.md` 73・85、`clause-reference.md` 122、`QUESTION-INDEX.md` 58 の *three footings* は、1.4 では §8.6 に無く前文が持つと直す。`review-corpus.md` R3 の §8.1 の引用は 1.0 の文なので残す。`measure_quote_drift.py 1.3 1.4` が出す §5.1 と §8.4 の行は当日に読む |
 | 個別 | `submission.md` §B.0 の本文の *ACD-1.0*（Check 472o）| 件名・冒頭・header・URL は 472f が見る。本文の 7 箇所のうち 6 箇所（OSD の宣言、gap、条件の段、§6.4 の段、§1.2 の段、*taken alone*）は版を替える。§1.2 の段は §1.3 へ替える。Provenance の *"The name ACD-1.0"* は履歴の文なので、版を替えず *"The name ACD"* とする |
 
