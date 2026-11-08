@@ -548,6 +548,12 @@ _MUTATIONS_TAIL.append({
     "find": "the Work, that the Dedicator itself makes or makes available, or the",
     "replace": "the Work, that the Dedicator itself makes available, or the",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 498 (h): AS-OF の未読スレッドの行で、読んだ数の頭に 1 を足す —— 3 つの数を手で数えており、和が合わなくても通っていた (2026-11-08 に手で 362 / 409 を直した)",
+    "file": ROOT / "LICENSES" / "AS-OF.md",
+    "find": "本のうち ",
+    "replace": "本のうち 1",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

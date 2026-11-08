@@ -11,7 +11,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        "the remaining N" / "those N carry" / (c) FAQ mirror の「B. プロセス（N 問）」/
        (d) submission-reference §4c の "**X / Y**, no gaps either way" の両辺 / (e) register の
        集計行の「解消済み N」「構造的拒否候補 N」(分類の列の `12`) / (f) 逐条リファレンスが繰り返す「N 条すべてを収録」「抽出した N 条」/
-       (g) submission.md の "across N files" と、そこで名指す分冊。
+       (g) submission.md の "across N files" と、そこで名指す分冊 / (h) AS-OF の「未読スレッドの残り」の
+       「候補 N 本のうち M 本を読んだ。K 本は読んでいない」が N = M + K であること。
        文が読めないことも RED にする（言い換えると黙る形を残さない）。
 """
 import re
@@ -121,9 +122,18 @@ def run(ctx):
         if unnamed:
             bad.append(f"(g) submission.md が名指さない分冊: {unnamed}")
 
+    # (h) AS-OF の未読スレッドの行: 候補・読了・残りを手で数えており、2026-11-08 に 362 / 409 を 368 / 403 へ
+    #   直した (portfolio-00)。候補の数は道具 (census_decision_statements.py threads) がアーカイブを読んで出すので
+    #   CI では再現できない。CI で守れるのは同じ文の中の算術だけである
+    m = re.search(r"候補 (\d+) 本のうち (\d+) 本を読んだ。(\d+) 本は読んでいない", text(L / "AS-OF.md"))
+    if not m:
+        bad.append("(h) AS-OF.md: 「候補 N 本のうち M 本を読んだ。K 本は読んでいない」が読めない")
+    elif int(m.group(1)) != int(m.group(2)) + int(m.group(3)):
+        bad.append(f"(h) AS-OF.md の未読スレッド: 候補 {m.group(1)} ≠ 読んだ {m.group(2)} + 読んでいない {m.group(3)}")
+
     check(
         not bad,
-        "Check 498: 自己申告の文の 2 つ目の数と繰り返しが実測と一致 (errata / comparison / faq mirror / §4c / register / 逐条 / 分冊)",
+        "Check 498: 自己申告の文の 2 つ目の数と繰り返しが実測と一致 (errata / comparison / faq mirror / §4c / register / 逐条 / 分冊 / 未読スレッドの和)",
         (f"Check 498: 自己申告の文の 2 つ目の数が実測と合わない: {bad}。1 つ目の数 (Check 460) だけを直すと、"
          "同じ文の 2 つ目と隣の繰り返しが偽のまま残る"),
         blocking=True,
