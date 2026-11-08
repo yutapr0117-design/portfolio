@@ -8,12 +8,25 @@
 使い方:
     DOSSIER_ARCHIVE_CACHE=<dir> python3 .github/scripts/census_decision_statements.py rules <out.json>
     DOSSIER_ARCHIVE_CACHE=<dir> python3 .github/scripts/census_decision_statements.py threads <out.json>
+    DOSSIER_ARCHIVE_CACHE=<dir> python3 .github/scripts/census_decision_statements.py noreview <out.json>
 
 `rules`: 下の DECIDERS の差出人の本文から、承認や適合について規則の形をした文を
 抜き出す。`reviewer-positions.md` §1.140 はこの出力を読んだ記録である。
 
 `threads`: 同じ差出人が発言したスレッドのうち、ドシエの分析文書に 8 語連鎖が
-ほとんど現れないものを並べる。未読の候補であって、未読の証明ではない。
+ほとんど現れず、`LICENSES/rounds/` に逐語で置いた通の件名にも無いものを並べる。
+未読の候補であって、未読の証明ではない。rounds の件名で除いた数も出すので、AS-OF の
+「未読スレッドの残り」を手で数え直さずに済む。
+
+`noreview`: `license-review` の提出 (件名が For Approval / Approval / Submission の
+スレッドの最初の通) のうち、提出者が本文で法的レビューの不在を自分で述べたものを数える。
+`review-rules.md` §1.141 の「少なくとも 23 件」を再現するための面。**語で探すので下限で
+ある**: 不在を別の言い回しで書いた提出、後続の通でだけ述べた提出、件名に提出の語を
+持たない提出は数えない。逆に「弁護士ではない」は起草のレビューの不在を言っていない
+ことがあるので、出力は文ごとに人が読む。2026-11-08 の実測: 提出 200 件のうち 7 件。§1.141 の
+23 件は手で読んだ数で、返信や別の言い回しで不在を述べた提出 (Public Software は返信で述べた、
+Russian Permissive / Non-Coercive Copyleft / YetiForce は第 1 通に法律家の語が無い) を含む。
+**道具が再現するのは 7 件までで、23 件の再現には手読みが要る。**
 
 **どちらも下限である。** 正規表現なので言い回しが違う文は取りこぼす。差出人の名前は
 議事録の出席者と主な審査者から手で選んだ。
@@ -118,6 +131,49 @@ def grams(text, n=8):
     return (hash(" ".join(words[i:i + n])) for i in range(max(0, len(words) - n + 1)))
 
 
+def read_titles():
+    """rounds/ に逐語で置いた通の件名。そこに在るスレッドは読んだものとして数える。"""
+    keys = set()
+    for path in (REPO / "LICENSES" / "rounds").glob("*.txt"):
+        for m in re.finditer(r"^Subject:\s*(.+)$", open(path, errors="replace").read(), re.M):
+            k = re.sub(r"[^a-z0-9]+", " ", subject_key(m.group(1)).lower()).strip()[:90]
+            if len(k) >= 6:
+                keys.add(k)
+    return keys
+
+
+SUBMISSION = re.compile(r"for (?:legacy )?approval|\bapproval\b|submission|submitting", re.I)
+NO_REVIEW = re.compile(r"""(
+ \bno\ (?:formal\ |professional\ |external\ )?legal\ (?:reviews?|advice|counsel|analys[ie]s)\b
+ |\b(?:has|have)(?:\ not|n't)\ (?:yet\ )?been\ (?:any\ |a\ )?(?:formal\ |external\ |professional\ )?legal\ (?:reviews?|analys[ie]s)\b
+ |\b(?:has|have)(?:\ not|n't)\ (?:yet\ )?(?:had|undergone|received)\ (?:a\ |any\ )?(?:formal\ |external\ )?legal\ (?:reviews?|analys[ie]s)\b
+ |\bnot\ (?:been\ |yet\ been\ )?(?:legally\ )?(?:reviewed|drafted|vetted|checked|written)\ by\ (?:a\ |an\ |any\ )?(?:lawyer|attorney|counsel|legal)
+ |\bnot\ (?:been\ |yet\ been\ )?legally\ (?:reviewed|vetted)\b
+ |\bwithout\ (?:any\ )?(?:legal|lawyer|attorney)\ (?:review|input|advice|help)\b
+ |\bno\ lawyer\b|\bnot\ a\ lawyer\b|\bI\ am\ not\ an?\ (?:lawyer|attorney)\b|\bI'm\ not\ an?\ (?:lawyer|attorney)\b|\bIANAL\b
+ |\bdrafted\ by\ (?:a\ )?lawyer\s*[:?]?\s*no\b|\blegal\ review\s*:\s*(?:none|no)\b
+)""", re.I | re.X)
+
+
+def noreview(out):
+    first, found = {}, []
+    for name, head, body in messages():
+        if not name.startswith("license-review"):
+            continue
+        title = subject_key(field(head, "Subject"))
+        key = re.sub(r"[^a-z0-9]+", " ", title.lower()).strip()[:90]
+        if not SUBMISSION.search(title) or key in first:
+            continue
+        first[key] = True
+        flat = re.sub(r"\s+", " ", own_text(body))
+        hits = [x for x in re.split(r"(?<=[.?!])\s+", flat) if NO_REVIEW.search(x)]
+        if hits:
+            found.append({"date": field(head, "Date"), "from": field(head, "From"), "subject": title,
+                          "file": name, "sentences": [h[:300] for h in hits[:3]]})
+    json.dump(found, open(out, "w"), ensure_ascii=False, indent=0)
+    print(f"submissions (first messages) {len(first)}; stating no legal review in their own words {len(found)} (a floor)")
+
+
 def threads(out):
     listed = subprocess.check_output(["git", "-C", str(REPO), "ls-files", "LICENSES"], text=True).split()
     seen_in_dossier = set()
@@ -144,13 +200,16 @@ def threads(out):
             entry["decider_words"] += len(text.split())
     rows = [{k: v for k, v in e.items() if k != "seen"} for e in table.values()
             if e["messages"] >= 3 and e["decider_words"] >= 120]
-    unread = [r for r in rows if r["dossier_hits"] < 8]
+    candidates = [r for r in rows if r["dossier_hits"] < 8]
+    read = read_titles()
+    unread = [r for r in candidates if re.sub(r"[^a-z0-9]+", " ", r["title"].lower()).strip()[:90] not in read]
     unread.sort(key=lambda r: -r["decider_words"])
     json.dump(unread, open(out, "w"), ensure_ascii=False, indent=0)
-    print(f"threads with deciders {len(rows)}; few or no dossier hits {len(unread)}")
+    print(f"threads with deciders {len(rows)}; few or no dossier hits {len(candidates)}; "
+          f"of those, not in LICENSES/rounds/ {len(unread)}")
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3 or sys.argv[1] not in ("rules", "threads"):
+    if len(sys.argv) != 3 or sys.argv[1] not in ("rules", "threads", "noreview"):
         sys.exit(__doc__)
-    {"rules": rules, "threads": threads}[sys.argv[1]](sys.argv[2])
+    {"rules": rules, "threads": threads, "noreview": noreview}[sys.argv[1]](sys.argv[2])
