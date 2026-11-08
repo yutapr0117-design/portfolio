@@ -192,6 +192,10 @@ def run(ctx):
                 continue
             _seen474[_n] = _tok[0]
             _rows474.append((_n, _tok[0], _st))
+        # 番号は 1 から連番 (行を 900 へ書き換えると欠番と飛んだ最大が残り、460 (e) / 491 の「最新 #N」が狂う)
+        _ints474 = sorted(int(_x) for _x in _seen474)
+        if _ints474 and _ints474 != list(range(1, len(_ints474) + 1)):
+            _bad474.append(f"番号が 1 から連番でない (欠番 {sorted(set(range(1, _ints474[-1] + 1)) - set(_ints474))[:5]} / 最大 {_ints474[-1]} / 行 {len(_ints474)})")
         # 凡例は語彙を過不足なく挙げる (使っていない OPEN / UNTRIAGED も、使ってよい語として載せる)
         _leg474 = set(re.findall(r"\*\*`\[([A-Z]+)\]`\*\*", _t474))
         if _leg474 != set(_V474):
