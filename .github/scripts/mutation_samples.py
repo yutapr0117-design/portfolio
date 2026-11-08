@@ -477,6 +477,13 @@ _MUTATIONS_TAIL.append({
     "replace": "accompanies the work. A notice placed applies this",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 468: §8.5 の「if, and only if」を「if」へ縮める —— controlled の定義が片方向の条件になり、§8 が及ぶ請求項が広がる (468u の目印)",
+    "file": CURRENT_DRAFT,
+    "find": "Dedicator if, and only if, at the time in question, the Dedicator has",
+    "replace": "Dedicator if, at the time in question, the Dedicator has",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

@@ -83,6 +83,9 @@ EFFECT_MARKERS_468U = (
     # 2026-11-08 (#2615): 特許の reach の定義と、通知が適用される範囲の主語
     ("8.3", "only as to the acts they describe"),
     ("16.2", "A notice a Dedicator places"),
+    # 2026-11-08 (#2630): 特許の「controlled」の双条件と、ファイルの中のタグが及ぶ範囲
+    ("8.5", "if, and only if"),
+    ("16.2", "as a comment"),
 )
 
 
