@@ -16,6 +16,7 @@
         「足す反論は無い」と判断して数を上げるだけの増分も正当なので、止めない。
 """
 
+import datetime
 import re
 
 from pathlib import Path
@@ -157,27 +158,44 @@ def run(ctx):
     _p474 = ROOT / "LICENSES" / "ACD-1.0.against.md"
     if _p474.exists():
         _t474 = _p474.read_text(encoding="utf-8")
-        _bad474, _seen474 = [], {}
+        # 行は「番号で始まる行」を全部拾い、`| N |` の形でなければ RED にする。太字の番号の行は
+        #   以前の正規表現に見えず、状態の欄が無くても集計から黙って落ちていた (460 (e) と 491 も同じ形で数える)。
+        #   セルは `\|` を除いて分ける。本文の `\|` で止まる `[^|]*` は #162 を 474b から外していた。
+        #   番号の重複も RED: dict は後の行で前の行を上書きし、開いた entry が集計から消えていた。
+        def _cells474(_row):
+            _r = _row.strip()[1:]
+            _r = _r[:-1] if _r.endswith("|") and not _r.endswith("\\|") else _r
+            return [_x.strip() for _x in re.split(r"(?<!\\)\|", _r)]
+        _bad474, _seen474, _rows474 = [], {}, []
         for _l in _t474.splitlines():
-            _m = re.match(r"^\| (\d+) \|[^|]*\|\s*(.*)$", _l)
+            _m = re.match(r"^\s{0,3}\|\s*\**\s*(\d+)\s*\**\s*\|", _l)
             if not _m:
                 continue
-            _n, _rest = _m.group(1), _m.group(2)
-            _tok = re.findall(r"\*\*\[([A-Z]+)\]\*\*", _rest)
+            _n = _m.group(1)
+            if not _l.startswith(f"| {_n} |"):
+                _bad474.append(f"#{_n}: 番号のセルを `| {_n} |` と書いていない (460 (e) と 491 はこの形で数える)")
+                continue
+            if _n in _seen474:
+                _bad474.append(f"#{_n}: 番号が重複している (後の行が前の行を集計から消す)")
+                continue
+            _c = _cells474(_l)
+            _st = _c[2] if len(_c) >= 3 else ""
+            _tok = re.findall(r"\*\*\[([A-Z]+)\]\*\*", " | ".join(_c[1:]))
             if len(_tok) != 1:
                 _bad474.append(f"#{_n}: state token が {len(_tok)} 個 (ちょうど 1 個にせよ)")
+                continue
+            if not re.match(r"\*\*\[[A-Z]+\]\*\*", _st):
+                _bad474.append(f"#{_n}: state token が Status 欄の先頭に無い")
                 continue
             if _tok[0] not in _V474:
                 _bad474.append(f"#{_n}: 未知の state token {_tok[0]!r} (語彙は {_V474})")
                 continue
             _seen474[_n] = _tok[0]
-        # 凡例が、実際に使われている token を過不足なく列挙していること（Check 469 の class）
+            _rows474.append((_n, _tok[0], _st))
+        # 凡例は語彙を過不足なく挙げる (使っていない OPEN / UNTRIAGED も、使ってよい語として載せる)
         _leg474 = set(re.findall(r"\*\*`\[([A-Z]+)\]`\*\*", _t474))
-        _used474 = set(_seen474.values())
-        if _used474 - _leg474:
-            _bad474.append(f"凡例に無い token が使われている: {sorted(_used474 - _leg474)}")
-        if _leg474 - set(_V474):
-            _bad474.append(f"凡例が語彙に無い token を挙げている: {sorted(_leg474 - set(_V474))}")
+        if _leg474 != set(_V474):
+            _bad474.append(f"凡例と語彙が食い違う: 凡例に無い {sorted(set(_V474) - _leg474)} / 語彙に無い {sorted(_leg474 - set(_V474))}")
         # ── 474b: `EXTERNAL` と `TRADE` は「我々に何ができるか」を必ず述べること ───────────
         #   **外部依存を「待ち」ではなく作業へ変える唯一の形は、各件に *我々にできることは
         #   ここまで* と書くことである**（steward 2026-09-23「最終的に全て潰してください」)。
@@ -187,13 +205,8 @@ def run(ctx):
         #   誤っており（我々の側の作業を外部依存と読んでいた）**、そちらも訂正した ——
         #   **「外部依存」に見えるものの中に我々の作業が混じっていることが、待ちを作る。**
         _need474b = ("潰し方", "合否", "我々にできる", "我々の側でできる")
-        _bad474b = []
-        for _l474 in _t474.splitlines():
-            _m474 = re.match(r"^\| (\d+) \|[^|]*\|\s*\*\*\[(EXTERNAL|TRADE)\]\*\*(.*)$", _l474)
-            if not _m474:
-                continue
-            if not any(_k in _m474.group(3) for _k in _need474b):
-                _bad474b.append(f"#{_m474.group(1)} ({_m474.group(2)})")
+        _bad474b = [f"#{_n} ({_k})" for _n, _k, _st in _rows474
+                    if _k in ("EXTERNAL", "TRADE") and not any(_w in _st for _w in _need474b)]
         if _bad474b:
             _bad474.append(
                 f"`EXTERNAL` / `TRADE` なのに「我々に何ができるか」が書かれていない: {_bad474b}"
@@ -227,24 +240,36 @@ def run(ctx):
         # **表は 1 つではない** —— AS-OF.md は「何を測ったか」の在庫表も持つので、
         #   反証表の見出し行から次の空行までに限定する。**初版は file 全体の `| **` を
         #   拾って 65 行を誤検出した** ——走査の起点を決めずに書いた結果である。
+        #   表は空行で終わる (GFM と同じ)。`|` で始まらない行で走査を止めると、先頭に空白が 1 つ入った行から
+        #   下が黙って「全 N 行」から外れていた。印と日付は隣り合うものだけを状態と読む: 行のどこかの日付
+        #   (引用の日付・訂正の日付) で、状態の日付を消した行が緑のままだった。日付は暦として読む。
         _rows475, _in475 = [], False
         for _l in _t475.splitlines():
             if _l.startswith("| いま採っている読み"):
                 _in475 = True
                 continue
             if _in475:
-                if not _l.startswith("|"):
+                if not _l.strip():
                     break
-                if _l.startswith("|---") or set(_l) <= set("|- "):
+                if re.match(r"^\s*\|?[\s:|-]+$", _l):
                     continue
                 _rows475.append(_l)
         _bad475 = []
         for _r475 in _rows475:
-            _head = re.sub(r"\*\*|\*", "", _r475.split("|")[1]).strip()[:36]
-            if not re.search(r"(\U0001F534|\U0001F7E1|\u26aa|\u26ab)", _r475):
+            _head = re.sub(r"\*\*|\*", "", (_r475.split("|") + ["", ""])[1]).strip()[:36]
+            _st475 = re.findall(r"(?:\U0001F534|\U0001F7E1|\u26aa|\u26ab)\s*[^\s|（(<*]{0,8}\s*[（(]?\s*(20\d\d-\d\d-\d\d)", _r475)
+            if not _r475.startswith("|"):
+                _bad475.append(f"「{_head}」が `|` で始まらない")
+            elif not re.search(r"(\U0001F534|\U0001F7E1|\u26aa|\u26ab)", _r475):
                 _bad475.append(f"「{_head}」に状態の印が無い")
-            elif not re.search(r"20\d\d-\d\d-\d\d", _r475):
-                _bad475.append(f"「{_head}」に日付が無い")
+            elif not _st475:
+                _bad475.append(f"「{_head}」の状態の印の隣に日付が無い")
+            else:
+                for _d475 in _st475:
+                    try:
+                        datetime.date.fromisoformat(_d475)
+                    except ValueError:
+                        _bad475.append(f"「{_head}」の状態の日付 {_d475} は暦に無い")
         check(
             bool(_rows475) and not _bad475,
             f"Check 475: 反証表の全 {len(_rows475)} 行が日付つきの状態を宣言",
@@ -264,16 +289,19 @@ def run(ctx):
     #   英語の審査者が読むのは冒頭の索引で、日本語の索引は下に在る。項目を足すと片方だけ増える。
     _br491 = _L460 / "ACD-OSI-BOTTLENECKS.md"
     _t491 = _br491.read_text(encoding="utf-8") if _br491.exists() else ""
-    _en491 = dict(re.findall(r"^\| (B\d+) \|[^|]*\| (Highest|High|Medium|Low) \|", _t491, re.M))
+    #   ID の重複も RED: dict は後の行で前の行を上書きし、上に置いた古い行が差にも件数にも出なかった。
+    _enl491 = re.findall(r"^\| (B\d+) \|[^|]*\| (Highest|High|Medium|Low) \|", _t491, re.M)
     _sev491 = {"最高": "Highest", "高": "High", "中": "Medium", "低": "Low"}
-    _ja491 = {_b: _sev491.get(_v.strip(" *"), _v.strip()) for _b, _v in
-              re.findall(r"^\| \*\*(B\d+)\*\* \|[^|]*\| ([^|]+?) \|", _t491, re.M)}
+    _jal491 = [(_b, _sev491.get(_v.strip(" *"), _v.strip())) for _b, _v in
+               re.findall(r"^\| \*\*(B\d+)\*\* \|[^|]*\| ([^|]+?) \|", _t491, re.M)]
+    _en491, _ja491 = dict(_enl491), dict(_jal491)
+    _dup491 = sorted({_b for _l491 in (_enl491, _jal491) for _b, _ in _l491 if [_x for _x, _ in _l491].count(_b) > 1})
     _diff491 = sorted((_b, _en491.get(_b), _ja491.get(_b)) for _b in set(_en491) | set(_ja491)
                       if _en491.get(_b) != _ja491.get(_b))
     check(
-        len(_en491) >= 10 and not _diff491,
+        len(_en491) >= 10 and not _diff491 and not _dup491,
         f"Check 491: register の英語の索引 {len(_en491)} 項目が日本語の索引と ID・重大度で一致",
-        (f"Check 491: register の 2 つの索引が食い違う (項目 {len(_en491)} / 差 (ID, 英語, 日本語) {_diff491})。"
+        (f"Check 491: register の 2 つの索引が食い違う (項目 {len(_en491)} / 差 (ID, 英語, 日本語) {_diff491} / 重複した ID {_dup491})。"
          "**審査者が読むのは英語の索引である。** 項目を足したら両方へ書け"),
         blocking=True,
     )
