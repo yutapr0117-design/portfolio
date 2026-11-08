@@ -208,10 +208,24 @@ def run(ctx):
                 "aio-monitoring-log.json: evidence_policy key present",
                 "Check 25: aio-monitoring-log.json: evidence_policy key missing — add to clarify attempt_log_only status"
             )
+            # 宣言の値を同じ file の run から導く (2026-11-08・Check の監査 #191): key の在否しか見ず、
+            #   confirmed_citation_events を捏造しても、実際に引用が観測されて 0 のままでも緑だった。
+            #   引用 = status が ok で cited が true の結果。0 件のときだけ attempt_log_only と名乗れる
+            _pol25 = aio_log.get("evidence_policy") or {}
+            _cited25 = sum(1 for _r in aio_log.get("runs", []) for _q in _r.get("queries", [])
+                           for _v in (_q.get("results") or {}).values()
+                           if isinstance(_v, dict) and _v.get("status") == "ok" and _v.get("cited") is True)
+            check(
+                _pol25.get("confirmed_citation_events") == _cited25
+                and (_pol25.get("current_status") == "attempt_log_only") == (_cited25 == 0),
+                f"Check 25: evidence_policy の宣言が run の記録から導いた値と一致 (確認された引用 {_cited25} 件)",
+                (f"Check 25: evidence_policy の宣言 {_pol25} が run の記録と合わない (status ok かつ cited の結果 {_cited25} 件)。"
+                 "引用の件数は捏造しない。観測されたら宣言を同じ commit で直す"),
+            )
         except Exception as _e:
-            warnings.append(f"P1-04: Could not parse aio-monitoring-log.json: {_e}")
+            check(False, "", f"Check 25: aio-monitoring-log.json を読めない ({_e}) —— 黙って warning に落とさない")
     else:
-        warnings.append("P1-04: docs/evidence/aio-monitoring-log.json not found")
+        check(False, "", "Check 25: docs/evidence/aio-monitoring-log.json が無い —— 黙って warning に落とさない")
 
     # ── 26. AIO 層の Session Record archive 宣言 ⟺ 実体 (双方向・BLOCKING) ────────
     # 旧実装は **`AI2AI-archive.md` 1 file 決め打ち**で、role を `#1-#(\d+)` という固定形で

@@ -554,6 +554,12 @@ _MUTATIONS_TAIL.append({
     "find": "本のうち ",
     "replace": "本のうち 1",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 25: 監視ログの確認された引用の件数を 1 と書く —— run に引用の観測が 1 件も無いのに、key の在否しか見ていなかった (捏造が通る)",
+    "file": ROOT / "docs" / "evidence" / "aio-monitoring-log.json",
+    "find": '"confirmed_citation_events": 0',
+    "replace": '"confirmed_citation_events": 1',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

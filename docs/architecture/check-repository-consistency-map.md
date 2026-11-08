@@ -73,7 +73,7 @@ Status        : 本 increment で新設。物理分割はまだ行わない（�
 | 15 | Project Pages の robots/.well-known 制約が文書化されている | BLOCKING |
 | 22 | AI2AI.md の Session Record 見出しが昇順 | BLOCKING |
 | 24 | llms-full.txt の `Last-Updated` が AI2AI.md の 7 日以内かつ v75-v78 floor 以上。**2026-11-08**: llms-full.txt の冒頭の `**Last-Updated:**` も `## Last-Updated` の節と同じ日であることを見る（取り出して使っていなかった）。日付が読めなければ warning ではなく RED | BLOCKING |
-| 25 | `aio-monitoring-log.json` に `evidence_policy` キー（attempt_log_only honesty） | BLOCKING |
+| 25 | `aio-monitoring-log.json` に `evidence_policy` キー（attempt_log_only honesty）。**2026-11-08（Check の監査 #191）**: 宣言の値も同じ file の run から導いて照合する（`confirmed_citation_events` = status が ok で cited が true の結果の数、`current_status` が `attempt_log_only` なのはそれが 0 のときだけ）。key の在否しか見ず、件数を捏造しても、実際に観測されて 0 のままでも緑だった。file が無い・読めないときは warning ではなく RED | BLOCKING |
 | 26 | `aio-manifest.json` の archive role #1-#N が AI2AI-archive.md の最大 Session Record と一致。**26a（2026-11-08）**: 範囲の中の欠番と重複も RED（両端しか比べず、中の 1 件が消えても role の範囲のまま緑だった） | BLOCKING |
 | 27 | llms-full.txt の現行制約文脈に stale な C1–C6 が無い（C1–C7 であるべき）。**2026-11-08**: 範囲の記号を問わず読む（en dash の 2 文字列しか探さず、`C1-C6` や `C1〜C6` を素通りしていた） | BLOCKING |
 | 31 | `Claude2Claude.md` が AI2AI.md の現行最大 Session Record を参照 | BLOCKING |
