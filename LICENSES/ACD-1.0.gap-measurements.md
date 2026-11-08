@@ -632,3 +632,33 @@ Wikimedia の管理者 Derrick Coetzee 氏が、帰属を求めないライセ�
 | *"Do you have any project or community intending to adopt it if approved?"* | Simon Phipps 氏 2017-03-31 | 採用の予定を問われた（B2）|
 
 **この節が establish しないこと。** BSD + Patent の承認を除き、どれも個人の発言で OSI の決定ではない。話者の役割は付けず、当時の所属が文中に在るものだけを書いた。
+
+## 1.144 公有の作品は open source か（2014）、特許を添える形（2017）、学習と OSD（2024）（2026-11-08）
+
+未読の候補から 3 本を読んだ（`rounds/2014-to-2024-license-discuss-public-domain-patents-ai-cited-observed.txt`）。2014 年の 1 通（Fogel 氏の *"when accompanied by"*）は入口に引いていたが、スレッドは読んでいなかった。
+
+### 2014-05「米国の公有の作品を open source と言えるか」
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"The things we don't like about public domain (lack of explicit liability limitation, different definitions in different jurisdictions) are not in themselves counter to the OSD, after all."* | Karl Fogel 氏 2014-05-02 | 公有の型の弱点は OSD の問いではない。ACD は §13、§14 と §4 でその弱点に答える |
+| *"It wouldn't have any attribution or no-warranty clause, but the *absence* of those clauses is not a problem w.r.t. the OSD."* | 同 2014-05-03 | §10.2 が帰属を求めないことは OSD の問いにならない |
+| *"We may not be in the business of approving licenses without patent grants any more, but nobody can say that licenses that don't grant patent rights explicitly are not open-source licenses."* | John Cowan 氏 2014-05-03 | 新しいライセンスには特許の許諾が求められる、という当時の観察で、§8 の向き |
+| *"I continue to think that our CC0 decision was wrong insofar as it can be read as saying that the CC0 license is not an open-source (as opposed to OSI Certified) license."* | 同 | CC0 の扱いを OSD の不適合の認定と読まない立場 |
+| *"The analoguous explanation for why cc0 didn't qualify is that it explicitly said "you get rights a and b but not c", with c a necessary right to copy and use the software."* | Henrik Ingo 氏 2014-05-04 | 止まった理由を明示の除外に置く読みで、§8.3 はその逆を明示する |
+
+**逆側。** Cowan 氏は同じスレッドで *"We also are supposed to "discourage vanity and duplicative licenses"."* と述べた。Fontana 氏は、政府の職員が書いた公有のコードに政府の特許が及ぶ場面を挙げ、*"the same old MXM/CC0 inconsistency problem in a different form"* と呼んだ。
+
+### 2017-03「特許と OSD」
+
+Richard Fontana 氏 2017-03-07 は、特許に触れないライセンスについて *"this license is Open Source to the extent that, when used, it is accompanied by [a separate appropriate patent license grant]"* という形を問いの形で述べた。特許を別に添える考えで、ACD は同じ文書の中で §3 と §8 を並べる。
+
+### 2024-05「AI と派生物」
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"I came to the conclusion that this could not be fixed under my own rules in the OSD."* | Bruce Perens 氏 2024-05-27、帰属も対価も無い学習について | 学習を止める条件は OSD の中では置けない、と OSD の起草者が述べた。§6 が学習を条件なしに許すのは OSD に沿った形である。Perens 氏は日本の選択を *"unfortunate"* と呼び、OSD の外の Post-Open へ進んだ |
+| *"Training AI with open source code is basically considered legal"*、*"License washing is not permitted."* | 佐渡氏 2024-05-26、日本の著作権法 30 条の 4 について | 日本では学習の自由を法が与えるので、§6.1 が足すものは法域で違う。出力が原作と実質的に同じでも、ACD では §4 が許す |
+| *"you will need to retain an attorney to answer this question, and they will likely tell you "it depends"."* | Josh Berkus 氏 2024-05-25 | 学習と派生物の問いは法域と裁判で動く。§6.5 が判定を要しないと書く理由である |
+
+**この節が establish しないこと。** どれも個人の発言で、OSI の決定ではない。Cowan 氏の「特許の無い新しいライセンスは承認しない」は 2014 年の観察で、規則として公表された文ではない。
