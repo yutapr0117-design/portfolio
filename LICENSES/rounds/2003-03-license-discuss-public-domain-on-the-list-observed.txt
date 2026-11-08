@@ -1,0 +1,272 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2003-March.txt
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-08)
+Messages: 5 of the 50 messages in the thread asking OSI to list "Public Domain" (2003-03), the ones this dossier cites.
+Senders: David A. Wheeler, Lawrence E. Rosen, John Cowan
+Position: a request that public domain be listed as open source, and the answers. Not addressed to us and not about ACD. Each message is whole.
+
+----- begin verbatim -----
+From dwheeler at dwheeler.com  Fri Mar 14 16:59:53 2003
+From: dwheeler at dwheeler.com (David A. Wheeler)
+Date: Fri, 14 Mar 2003 08:59:53 -0800 (PST)
+Subject: Please add "Public Domain" to "license" list
+In-Reply-To: <1047660673.22915.ezmlm@opensource.org>
+Message-ID: <20030314165953.96827.qmail@web13505.mail.yahoo.com>
+
+Hello - I'd like to ask OSI to add "Public Domain" to the
+open source software license list at:
+ http://www.opensource.org/licenses/index.php
+
+I have several reasons for this request.
+
+First, it clarifies the status of public domain software.
+Some people do not realize that
+source code in the "public domain" is open source software.
+I've been having discussions with a lawyer specifically on that
+point - the lawyer doesn't think public domain software is
+open source software.  If I could point to the OSI and say
+"look! there it is!", it'd be much clearer.
+
+Second, a "license" text would help people who intend to
+make their source code public domain.  Some programmers don't
+realize that copyright is now automatic, and that they HAVE to
+EXPLICITLY give it into the public domain for it to be
+public domain.  And even if they know that, they may not know
+the right legal incantations to do so.  Some suggested language
+would go a long way.
+
+Third, you could make it clear that the SOURCE CODE has to be
+in the public domain for this to work.  Declaring that an
+object code is in the public domain isn't enough.
+
+Yes, strictly speaking "public domain" isn't a license.
+But it has all the workings of one, so for consistency's sake I
+think you can treat it as a license and all works out.
+
+Version 1.4 of the open source definition made this clear; its
+section 10 states that certification marks could be shown for
+"for source code explicitly placed in the public domain."
+However,  when section 10 was removed, this clarity was
+removed as well.
+
+The OSI has always had the position that public domain software
+is open source software.  I just ask that the OSI clearly
+state this in their current text.
+
+Thank you very much.
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From lrosen at rosenlaw.com  Fri Mar 14 23:46:00 2003
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Fri, 14 Mar 2003 15:46:00 -0800
+Subject: Please add "Public Domain" to "license" list
+In-Reply-To: <3E721BF1.7050603@skybuilders.com>
+Message-ID: <026801c2ea83$df7c8410$927ba8c0@ROSENGARDEN>
+
+The Creative Commons document entitled "Public Domain Dedication" is not
+a license.  That document is a "copyright-only dedication."  It is up to
+copyright holders whether to use it, but it is not something that gets
+approved by OSI.  We only review open source licenses.  
+
+For computer software that may be used by people to perform real-world
+functions, please consider using a regular open source license that
+contains a disclaimer of warranty.  The Public Domain Dedication does
+not deal with such issues because it is not a license.  Consult your
+attorney before dedicating software in this way.
+
+/Larry Rosen
+
+> -----Original Message-----
+> From: Bob Doyle [mailto:bobdoyle at skybuilders.com] 
+> Sent: Friday, March 14, 2003 10:14 AM
+> To: dwheeler at dwheeler.com
+> Cc: license-discuss at opensource.org
+> Subject: Re: Please add "Public Domain" to "license" list
+> 
+> 
+> David,
+> 
+> Although they target "content" itself rather than source 
+> code, you might 
+> take a look at the several Creative Commons licenses 
+> (http://www.creativecommons.org), including one Public Domain.
+> 
+> Another similar effort is the Open COntent License 
+> (http://www.opencontent.org/).
+> 
+> 
+> David A. Wheeler wrote:
+> 
+> >Hello - I'd like to ask OSI to add "Public Domain" to the
+> >open source software license list at:  
+> >http://www.opensource.org/licenses/index.php
+> >
+> >I have several reasons for this request.
+> >
+> >First, it clarifies the status of public domain software.
+> >Some people do not realize that
+> >source code in the "public domain" is open source software. 
+> I've been 
+> >having discussions with a lawyer specifically on that point - the 
+> >lawyer doesn't think public domain software is open source 
+> software.  
+> >If I could point to the OSI and say "look! there it is!", 
+> it'd be much 
+> >clearer.
+> >
+> >Second, a "license" text would help people who intend to
+> >make their source code public domain.  Some programmers 
+> don't realize 
+> >that copyright is now automatic, and that they HAVE to 
+> EXPLICITLY give 
+> >it into the public domain for it to be public domain.  And 
+> even if they 
+> >know that, they may not know the right legal incantations to do so.  
+> >Some suggested language would go a long way.
+> >
+> >Third, you could make it clear that the SOURCE CODE has to be in the 
+> >public domain for this to work.  Declaring that an object code is in 
+> >the public domain isn't enough.
+> >
+> >Yes, strictly speaking "public domain" isn't a license.
+> >But it has all the workings of one, so for consistency's 
+> sake I think 
+> >you can treat it as a license and all works out.
+> >
+> >Version 1.4 of the open source definition made this clear; 
+> its section 
+> >10 states that certification marks could be shown for "for 
+> source code 
+> >explicitly placed in the public domain." However,  when 
+> section 10 was 
+> >removed, this clarity was removed as well.
+> >
+> >The OSI has always had the position that public domain 
+> software is open 
+> >source software.  I just ask that the OSI clearly state this 
+> in their 
+> >current text.
+> >
+> >Thank you very much.
+> >
+> >--
+> >license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+> >  
+> >
+> 
+> 
+> -- 
+> Bob Doyle
+> http://www.skyBuilders.com
+> 77 Huron Avenue
+> Cambridge, MA 02138
+> 617-876-5678 
+> 
+> 
+> --
+> license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+> 
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From lrosen at rosenlaw.com  Sat Mar 15 00:58:20 2003
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Fri, 14 Mar 2003 16:58:20 -0800
+Subject: Please add "Public Domain" to "license" list
+In-Reply-To: <20030314185808.68200.qmail@web13502.mail.yahoo.com>
+Message-ID: <026e01c2ea8d$f926e7c0$927ba8c0@ROSENGARDEN>
+
+> But the U.S. government can only be sued if the U.S. 
+> government allows it, and it can (and does!) produce public 
+> domain software. And people are allowed to give things away, 
+> even if a lawyer would advise them not to.
+
+This is the only really good reason I've heard to state that public
+domain is compatible with open source software.  But other than U.S.
+Government works and works that have entered the public domain by the
+passage of time, I'm still not convinced that there's ever a good reason
+for those who write software, or those who use it, to rely on a simple
+dedication of software to the public.  Use a license.  
+
+/Larry Rosen
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From lrosen at rosenlaw.com  Sun Mar 16 23:39:22 2003
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Sun, 16 Mar 2003 15:39:22 -0800
+Subject: Please add "Public Domain" to "license" list
+In-Reply-To: <20030316220220.55058.qmail@web13507.mail.yahoo.com>
+Message-ID: <02f001c2ec15$478bfc60$927ba8c0@ROSENGARDEN>
+
+> I'm not asking the OSI to RECOMMEND releasing software as 
+> public domain, or to use public domain software.  Just a 
+> clarification that public domain source code (if truly public 
+> domain) is open source software.
+
+But it isn't.  It is usable with open source software without the least
+hesitation, but it isn't a license that conforms with the OSD.  As such,
+OSI has no basis to "approve" it.  
+
+/Larry Rosen
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From jcowan at reutershealth.com  Fri Mar 14 22:08:19 2003
+From: jcowan at reutershealth.com (John Cowan)
+Date: Fri, 14 Mar 2003 17:08:19 -0500 (EST)
+Subject: Please add "Public Domain" to "license" list
+In-Reply-To: <20030314194945.GG1120@linuxmafia.com> from "Rick Moen" at Mar 14, 2003 11:49:45 AM
+Message-ID: <200303142205.RAA27759@mail.reutershealth.com>
+
+Rick Moen scripsit:
+
+> To repeat:  I see nothing in 17 USC that permits destruction of
+> extant copyright title.  
+
+Quite right.  But it is a property right, and in general any sort of property
+right can be abandoned either with words or with the appropriate actions.
+(E.g. you have no property rights in your trash after you have put it in
+the bin, and anyone may search it and use the contents as they wish.)
+
+IANAL, TINLA.
+
+> I suppose the OSI could put a note on http://www.opensource.org/licenses/ 
+> saying "By the way, software you receive in source code form, with or
+> without documentation, that you determine was created by USA Federal
+> employees in the scope of their employment is also open source (at
+> least, it is under USA law), even though there's no actual licence
+> statement that documents this."  
+
+Presumably Augusta Lovelace's programs for the Analytical Engine are 
+Open Source too.  (Are they in print or on the Net anywhere?)
+
+> I very much doubt it.  But, so far, the OSI's main vehicle has been 
+> detailing licences that, when applied as envisioned, produce open-source
+> software.  When the USA Federal government produces software and the
+> source code becomes available, that is very arguably open source, but
+> there's no licence for the OSI's approval process, is there?  ;->
+
+The question is, can you use "OSI Certified" on public domain software?
+There is a risk that the software is not really in the public domain,
+but then there's a risk that your Open Source word processor is really
+a cracked version of Microsoft's.
+
+-- 
+John Cowan   jcowan at reutershealth.com  http://www.ccil.org/~cowan
+Most languages are dramatically underdescribed, and at least one is 
+dramatically overdescribed.  Still other languages are simultaneously 
+overdescribed and underdescribed.  Welsh pertains to the third category.
+     
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+

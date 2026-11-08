@@ -674,3 +674,18 @@ ModelGo の「モデル出力に AI 生成と示す」条項について、Josh 
 | *"That sounds like a restriction or condition on mere use. That would not be open source."* | Simon Phipps 氏 2025-03-03（*"in a personal capacity"*）| 出力の扱いを縛る条件を OSD の外と見る。§6.4 と §10.1 はそうした条件を持たない |
 
 **逆側。** どれも個人の資格の発言で、OSI の決定ではない。Chestek 氏の原則は条件を課すライセンスを退ける向きの文で、条件の無いライセンスを積極的に勧めた文ではない。理事会が条件の無い 0BSD を承認した 2015 年の議事録（`board-decisions.md` §8.6）が、その側の記録である。
+
+## 1.146 2003 年の記録: 献呈はライセンスではないので審査の対象にならない（2026-11-08）
+
+David A. Wheeler 氏が「Public Domain」を OSI のライセンスの一覧に載せるよう求めたスレッド（`license-discuss` 2003-03・50 通・`rounds/2003-03-license-discuss-public-domain-on-the-list-observed.txt`）。読んだ記録の中で、OSI 側が公有の献呈の扱いを述べた最も古いものである。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"The Creative Commons document entitled "Public Domain Dedication" is not a license."*、*"it is not something that gets approved by OSI. We only review open source licenses."* | Lawrence E. Rosen 氏 2003-03-14 | 献呈だけでは審査の対象にならない、という線は 2003 年から在る。ACD が §3 と別に §4 の許諾を持つ理由と同じで、2011 年の同氏の *"OSI could analyze CC0 for its license fallback terms"*（§1.143）へ続く |
+| *"please consider using a regular open source license that contains a disclaimer of warranty. The Public Domain Dedication does not deal with such issues because it is not a license."* | 同 | 無保証を持たないことが献呈の弱点として挙げられた。ACD は §13 と §14 を持つ |
+| *"it isn't a license that conforms with the OSD. As such, OSI has no basis to "approve" it."* | 同 2003-03-16 | 承認の根拠を OSD への適合に置く。ACD は §4 が OSD に照らして読める形をしている |
+| *"in general any sort of property right can be abandoned either with words or with the appropriate actions."* | John Cowan 氏 2003-03-14 | 放棄そのものは可能だという立場。Rick Moen 氏は同じ日に、合衆国法典の 17 編に放棄を許す規定は見当たらないと述べた |
+
+**逆側。** Rosen 氏は同じ日に *"I'm still not convinced that there's ever a good reason for those who write software, or those who use it, to rely on a simple dedication of software to the public. Use a license."* とも述べた。ACD の答えは、献呈に頼らず許諾も置くこと（§4.4）だが、§3 を置く理由そのものへの疑いはこの文に残る。
+
+**この節が establish しないこと。** 2003 年の個人の発言で、OSI の決定ではない。役割は付けていない。
