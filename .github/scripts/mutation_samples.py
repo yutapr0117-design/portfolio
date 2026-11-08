@@ -574,6 +574,12 @@ _MUTATIONS_TAIL.append({
     "find": '| B1 | No legal review | Highest |',
     "replace": '| B3 | Length | Low | Stale duplicate row | Us |\n| B1 | No legal review | Highest |',
 })
+_MUTATIONS_TAIL.append({
+    "name": 'Check 496b: map の表の行のコードの中の `\\|` を素の `|` へ戻す —— セルの数が見出しを超えないので 496 には見えず、描かれた行の中身がそこで切れていた (2026-11-08 まで実際にそうだった)',
+    "file": ROOT / 'docs' / 'architecture' / 'check-repository-consistency-map.md',
+    "find": '`(全\\|計)N本`',
+    "replace": '`(全|計)N本`',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

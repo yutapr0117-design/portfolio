@@ -211,7 +211,7 @@ def run(ctx):
         _r = _r[1:] if _r.startswith("|") else _r
         _r = _r[:-1] if _r.endswith("|") and not _r.endswith("\\|") else _r
         return len(re.split(r"(?<!\\)\|", _r))
-    _wide496, _rows496 = [], 0
+    _wide496, _rows496, _code496 = [], 0, []
     for _p496 in [*sorted((ROOT / "LICENSES").glob("*.md")), *sorted((ROOT / "docs" / "architecture").glob("*.md")),
                   ROOT / "README.md", ROOT / "CLAUDE.md", ROOT / "AI2AI.md"]:
         _l496 = _p496.read_text(encoding="utf-8").split("\n")
@@ -225,6 +225,10 @@ def run(ctx):
                     _rows496 += 1
                     if _cells496(_l496[_j496]) > _h496:
                         _wide496.append(f"{_p496.name}:{_j496 + 1} ({_cells496(_l496[_j496])}>{_h496})")
+                    # 496b: 数が見出しを超えなくても、コードの中の `|` は列を分け、セルの中身を途中で切る
+                    for _cs496 in re.finditer(r"(`+)(.+?)(?<!`)\1(?!`)", _l496[_j496]):
+                        if re.search(r"(?<!\\)\|", _cs496.group(2)):
+                            _code496.append(f"{_p496.name}:{_j496 + 1} {_cs496.group(0)[:40]}")
                     _j496 += 1
                 _i496 = _j496
             else:
@@ -234,6 +238,13 @@ def run(ctx):
         f"Check 496: 表の {_rows496} 行が見出しの列の数を超えない",
         (f"Check 496: 見出しより多いセルを持つ表の行がある: {_wide496[:8] or '表の行が読めない'}。"
          "GFM は超えた分を描かずに捨てる。本文の `|` は `\\|` と書き、列が足りないなら見出しに列を足す"),
+        blocking=True,
+    )
+    check(
+        not _code496,
+        "Check 496b: 表の行のコードの中に `\\|` でない `|` が無い",
+        (f"Check 496b: 表の行のコードの中に素の `|` がある: {_code496[:8]}。GFM はセルを先に分けるので、"
+         "数が見出しを超えなくてもセルの中身がそこで切れる (map の 475 の行がそうだった)。`\\|` と書く"),
         blocking=True,
     )
 
