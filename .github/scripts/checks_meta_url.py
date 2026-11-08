@@ -44,6 +44,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (BLOCKING)
 """
 import re
+from _lib_io import strip_js_comments  # SITE_CONFIG の値をコメントから読まない (2026-11-08)
 import json
 
 
@@ -125,7 +126,7 @@ def run(ctx):
     _main177 = ROOT / "main.js"
     if _lf177.exists() and _main177.exists():
         _lsrc177 = _lf177.read_text(encoding="utf-8")
-        _msrc177 = _main177.read_text(encoding="utf-8")
+        _msrc177 = strip_js_comments(_main177.read_text(encoding="utf-8"))
         _lver177_m = re.search(r"\*\*Version:\*\*\s*(v[0-9]+)", _lsrc177)
         _sver177_m = re.search(r"VERSION:\s*['\"](v[0-9]+)['\"]", _msrc177)
         _lver177 = _lver177_m.group(1) if _lver177_m else None

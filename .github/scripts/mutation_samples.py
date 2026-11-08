@@ -280,104 +280,6 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 472i: 入口の推奨の行から言語の表示を外す —— 英語の審査者が日本語の文書へ黙って送られる (2026-11-06 まで実際にそうだった)",
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "| **Mostly Japanese.** Stated by us",
-    "replace": "| Stated by us",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 472i: 言語の表が日本語の文書を English と述べる",
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "| [`AUDIT-LEDGER.md`](AUDIT-LEDGER.md) | Japanese |",
-    "replace": "| [`AUDIT-LEDGER.md`](AUDIT-LEDGER.md) | English |",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 491: 英語の索引の重大度だけが日本語の索引と違う —— 審査者が読む側だけ軽く見える",
-    "file": ROOT / "LICENSES" / "ACD-OSI-BOTTLENECKS.md",
-    "find": "| B1 | No legal review | Highest |",
-    "replace": "| B1 | No legal review | Medium |",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 491: 鮮度の文を消して黙らせる",
-    "file": ROOT / "LICENSES" / "ACD-1.0.objection-map.md",
-    "find": "last caught up at #",
-    "replace": "was last read at #",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 424: LICENSES/ の行が幅 (±50 行) の外へずれる —— 幅を許しても、表が実物から離れたら止める",
-    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
-    "find": "| `LICENSES/ACD-1.2.txt` | 664 |",
-    "replace": "| `LICENSES/ACD-1.2.txt` | 800 |",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 476c: 入口ページの作品を超える本数が census とずれる —— census を作り直した日に入口だけ古くなる形",
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "Seven extend a patent grant",
-    "replace": "Eight extend a patent grant",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 476c: 材料表の全数が census とずれる",
-    "file": ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md",
-    "find": "作品を超える特許許諾を持つ 7 本",
-    "replace": "作品を超える特許許諾を持つ 6 本",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 472j: ADOPTING.md が全部の版には無い条を引く",
-    "file": ROOT / "LICENSES" / "ADOPTING.md",
-    "find": "§10.2",
-    "replace": "§10.9",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 472k: objection-map がどの版にも無い条を引く —— 472 は他の版に在る番号しか見ないので黙って通っていた",
-    "file": ROOT / "LICENSES" / "ACD-1.0.objection-map.md",
-    "find": "§4.3",
-    "replace": "§4.9",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 468m: §16.4 の例外を has borne の後ろへ足して広げる —— 2026-11-06 に 5a の相互検証で見つかった穴。間の区間だけ見る形では通っていた",
-    "file": CURRENT_DRAFT,
-    "find": "has borne,\n       so that each name",
-    "replace": "has borne, or a corrected text,\n       so that each name",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 468u: §5.1 の特許の除外を落とす —— §8.4 が外した請求項まで「許された使用の請求」として不行使になる",
-    "file": CURRENT_DRAFT,
-    "find": "permits, other than for patent infringement\n       (Section 8), under trademark",
-    "replace": "permits, other than under trademark",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 489b: measure_patent_reach.py の全数の検査を外す —— 欠けた本を飛ばしたまま 0 を出す 2026-11-06 以前の形",
-    "file": ROOT / ".github" / "scripts" / "measure_patent_reach.py",
-    "find": "    if not verify_sources(meta, rows):\n        return 2\n",
-    "replace": "",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 472l: 入口の OSI の FAQ の引用を読みやすく動かす —— 承認されるべき理由の先頭の出典が原文とずれる",
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "it's still not a license",
-    "replace": "it is still not a license",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 472h: digest の照合の grep だけ別の版を見る —— 素の形しか読まないと、審査者の手元で 2 つの digest が食い違っても緑になる (2026-11-07 の予行)",
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "LICENSES/" + SUBMISSION_TARGET.replace(".", "\\.") + "\\.txt$'",
-    "replace": "LICENSES/ACD-0\\.9\\.txt$'",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
     "name": "Check 489c: measure_patent_reach.py が反例を出しても主張を再現したと結ぶ —— 2026-11-07 以前は件数に関わらず同じ結びの文が並んだ",
     "file": ROOT / ".github" / "scripts" / "measure_patent_reach.py",
     "find": "    if unconditional:\n        print(\"# REVIEW REQUIRED",
@@ -580,6 +482,19 @@ _MUTATIONS_TAIL.append({
     "find": '    <meta name="ai:canonical" content="https://yutapr0117-design.github.io/portfolio/" />',
     "replace": ('    <meta name="ai:canonical" content="https://yutapr0117-design.github.io/portfolio/" />'
                 '<meta name="ai:canonical" content="https://example.com/" />'),
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 17: SITE_CONFIG の直前のコメントに旧い値を残したまま LAST_UPDATED を進める —— コメント込みの先頭一致で読むと、コメントの値が比べられて通っていた (値は v74 の間は変わらない)",
+    "file": ROOT / "main.js",
+    "find": "        const SITE_CONFIG = {\n            VERSION:       'v74',\n            LAST_UPDATED:  '2026-05-31',",
+    "replace": "        // 旧: LAST_UPDATED:  '2026-05-31', VERSION:       'v74',\n        const SITE_CONFIG = {\n            VERSION:       'v74',\n            LAST_UPDATED:  '2026-06-01',",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 2: SITE_CONFIG の直前のコメントに旧い値を残したまま VERSION を進める —— 同じ形で版数の同期が見えなかった (Check 177 も同じ理由で発火する)",
+    "file": ROOT / "main.js",
+    "find": "        const SITE_CONFIG = {\n            VERSION:       'v74',",
+    "replace": "        // 旧: VERSION:       'v74',\n        const SITE_CONFIG = {\n            VERSION:       'v75',",
 })
 
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL

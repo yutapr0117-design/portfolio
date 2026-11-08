@@ -146,6 +146,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        392 / 395 / 411, applied to the JSON-LD graph. (BLOCKING)
 """
 import re
+from _lib_io import strip_js_comments  # SITE_CONFIG の値をコメントから読まない (2026-11-08)
 import json
 
 
@@ -167,7 +168,7 @@ def run(ctx):
     _main149 = ROOT / "main.js"
     if _idx149.exists() and _man149.exists() and _main149.exists():
         _isrc149 = _idx149.read_text(encoding="utf-8")
-        _msrc149 = _main149.read_text(encoding="utf-8")
+        _msrc149 = strip_js_comments(_main149.read_text(encoding="utf-8"))
         try:
             _mdata149 = json.loads(_man149.read_text(encoding="utf-8"))
         except json.JSONDecodeError:

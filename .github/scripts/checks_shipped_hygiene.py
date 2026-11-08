@@ -232,7 +232,7 @@ def run(ctx):
     _main243 = ROOT / "main.js"
     _idx243 = ROOT / "index.html"
     if _main243.exists() and _idx243.exists():
-        _msrc243 = _main243.read_text(encoding="utf-8")
+        _msrc243 = strip_js_comments(_main243.read_text(encoding="utf-8"))
         _isrc243 = _idx243.read_text(encoding="utf-8")
         _site243_m = re.search(r"LAST_UPDATED:\s*['\"]([^'\"]+)['\"]", _msrc243)
         _ai_lm243_m = re.search(

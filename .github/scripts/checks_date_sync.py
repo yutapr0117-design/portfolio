@@ -18,6 +18,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
   18. sitemap.xml root <lastmod> == ai:last-modified (per-URL lastmod policy)
 """
 import xml.etree.ElementTree as ET
+from _lib_io import strip_js_comments  # SITE_CONFIG の値をコメントから読まない (2026-11-08)
 
 
 def run(ctx):
@@ -30,7 +31,7 @@ def run(ctx):
 
     # ── 17. Date sync: ai:last-modified == SITE_CONFIG.LAST_UPDATED ──────────────
     html_date = extract(r'name="ai:last-modified" content="([0-9-]+)"', html)
-    mainjs_date = extract(r'LAST_UPDATED:\s+[\'"]([0-9-]+)[\'"]', mainjs)
+    mainjs_date = extract(r'LAST_UPDATED:\s+[\'"]([0-9-]+)[\'"]', strip_js_comments(mainjs))
     check(
         html_date is not None and mainjs_date is not None and html_date == mainjs_date,
         f"ai:last-modified ({html_date}) == SITE_CONFIG.LAST_UPDATED ({mainjs_date})",

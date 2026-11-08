@@ -157,6 +157,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 
 """
 import re
+from _lib_io import strip_js_comments  # SITE_CONFIG の値をコメントから読まない (2026-11-08)
 import json
 
 
@@ -495,7 +496,7 @@ def run(ctx):
     # で始まることを BLOCKING 強制。Check 279 の JS SITE_CONFIG URL-scheme 軸版。
     _main280 = ROOT / "main.js"
     if _main280.exists():
-        _msrc280 = _main280.read_text(encoding="utf-8")
+        _msrc280 = strip_js_comments(_main280.read_text(encoding="utf-8"))
         _canon_lit280 = re.search(r"CANONICAL_URL:\s*['\"]([^'\"]+)['\"]", _msrc280)
         _repo_lit280 = re.search(r"REPO_URL:\s*['\"]([^'\"]+)['\"]", _msrc280)
         _bad280: list[str] = []
@@ -523,7 +524,7 @@ def run(ctx):
     _main281 = ROOT / "main.js"
     _idx281 = ROOT / "index.html"
     if _main281.exists() and _idx281.exists():
-        _msrc281 = _main281.read_text(encoding="utf-8")
+        _msrc281 = strip_js_comments(_main281.read_text(encoding="utf-8"))
         _isrc281 = _idx281.read_text(encoding="utf-8")
         _repo_lit281_m = re.search(r"REPO_URL:\s*['\"]([^'\"]+)['\"]", _msrc281)
         _ai_repo281_m = re.search(
@@ -554,7 +555,7 @@ def run(ctx):
     _main282 = ROOT / "main.js"
     _idx282 = ROOT / "index.html"
     if _main282.exists() and _idx282.exists():
-        _msrc282 = _main282.read_text(encoding="utf-8")
+        _msrc282 = strip_js_comments(_main282.read_text(encoding="utf-8"))
         _isrc282 = _idx282.read_text(encoding="utf-8")
         _cu_lit282_m = re.search(r"CANONICAL_URL:\s*['\"]([^'\"]+)['\"]", _msrc282)
         _ai_cu282_m = re.search(
@@ -652,7 +653,7 @@ def run(ctx):
     # BLOCKING 強制。Check 2 (parity) の format 軸版。
     _main285 = ROOT / "main.js"
     if _main285.exists():
-        _msrc285 = _main285.read_text(encoding="utf-8")
+        _msrc285 = strip_js_comments(_main285.read_text(encoding="utf-8"))
         _ver285_m = re.search(r"VERSION:\s*['\"]([^'\"]+)['\"]", _msrc285)
         _ver285 = _ver285_m.group(1) if _ver285_m else None
         _ok285 = isinstance(_ver285, str) and bool(re.match(r"^v\d+$", _ver285))
@@ -672,7 +673,7 @@ def run(ctx):
     # 強制。Check 19 (version parity) の format 軸版。
     _sw286 = ROOT / "sw.js"
     if _sw286.exists():
-        _ssrc286 = _sw286.read_text(encoding="utf-8")
+        _ssrc286 = strip_js_comments(_sw286.read_text(encoding="utf-8"))
         _cache_lit286_m = re.search(r"CACHE_NAME\s*=\s*['\"]([^'\"]+)['\"]", _ssrc286)
         _cache_lit286 = _cache_lit286_m.group(1) if _cache_lit286_m else None
         _ok286 = isinstance(_cache_lit286, str) and bool(re.match(r"^portfolio-aio-v\d+$", _cache_lit286))
