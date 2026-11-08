@@ -367,17 +367,19 @@ workflow は 1 件ずつ 1 文足す案（計 +56 語）を出したが、§16.2
 
 **逆側**: 審査者が Apache-2.0 と比べると、この 1 点で ACD は狭い。§8 を Apache-2.0 より広いと書く面では、この点を併記する。Dedicator が関連会社に主張させない約束を足す案（§8.6 の *authorise or assist* を関連会社へ広げる）は、効くかどうかが法の問いなので、法律家への問 2 の (i) に置いた。
 
-### 14.13 T30〜T32: 機械学習の実務の 5 つの立場で読んだ（+72 語）
+### 14.13 T30〜T33: 機械学習の実務の 5 つの立場で読んだ（+78 語）
 
 モデルハブのカードを書く者、ウェブ規模のデータセットを編む者、企業でモデルを学習させる者、推論 API を提供する者、学習済みモデルを公開する研究者の 5 つの立場で、§6・§8.4・§9・§16 とそれに関わる条を読んだ。候補 18 件のうち反証に 3 件が残った。どれも裁判所が OSD に反して読む余地を作るものではなく、採用者の障害（B2）である。
 
-**T30 §5.2 末尾の第 1 文（+39 語）**: 保守者がデータセット D を ACD で出し、D で学習した自分のモデル M を非商用の独自ライセンスで出す。第三者が M を商用で配ると、M の配布は §1.7 により Computational Use で、§6.1 が許す use なので、§5.1 第 2 肢が M の著作権に基づく請求まで塞ぐと読めた。データだけを ACD で出すという、ACD に最も合う使い方を妨げる。初案（§5.1 の除外に *"under a right in material other than the Work"*）は bb の反例で足りなかった: §5.2(b) は M の非商用の条件を、§5.2(a) は M の登録制の配布を、同じ理由で止める。bb の案 *"Section 5 does not reach a right in, or a measure or term concerning, material other than the Work …"* は、25 が逆の穴を見つけた: 第三者が D で学習したモデルの出力も「Work 以外の素材」なので、Dedicator がダウンロードの利用規約で「このデータで学習したモデルの出力を使うな」と課せてしまい、§5.2(b) の条件ゼロが崩れる。Dedicator 自身が別に出す素材に絞った: *"the Dedicator's rights in material it makes available separately from the Work, or the terms or measures it applies to that material"*。
+**T30 §5.2 末尾の第 1 文（+42 語）**: 保守者がデータセット D を ACD で出し、D で学習した自分のモデル M を非商用の独自ライセンスで出す。第三者が M を商用で配ると、M の配布は §1.7 により Computational Use で、§6.1 が許す use なので、§5.1 第 2 肢が M の著作権に基づく請求まで塞ぐと読めた。データだけを ACD で出すという、ACD に最も合う使い方を妨げる。初案（§5.1 の除外に *"under a right in material other than the Work"*）は bb の反例で足りなかった: §5.2(b) は M の非商用の条件を、§5.2(a) は M の登録制の配布を、同じ理由で止める。bb の案 *"Section 5 does not reach a right in, or a measure or term concerning, material other than the Work …"* は、25 が逆の穴を見つけた: 第三者が D で学習したモデルの出力も「Work 以外の素材」なので、Dedicator がダウンロードの利用規約で「このデータで学習したモデルの出力を使うな」と課せてしまい、§5.2(b) の条件ゼロが崩れる。Dedicator 自身が出す素材に絞った: *"the Dedicator's rights in material, other than the Work, that the Dedicator itself makes available, or the terms or measures it applies to that material"*。最初に書いた *separately from the Work* は、データ D とモデル M を同じ repository で配り、M にだけ狭い通知で非商用の条件を付ける普通の形を落とすので（bb の反例）、*other than the Work* にした。
 
 **T31 §5.2 末尾の第 2 文（+24 語）**: Dedicator が同じモデルを重みで公開しつつ、自社の推論 API に API キー、登録、AUP を置くと、§5.2(a) の *"technological measure that restricts access to or use of the Work"* と (b) の *"terms of service … registration requirement"* に当たると読めた。§5.1 の *"a payment You agreed to make"* とも食い違う。初案 *"not a service through which the Dedicator puts the Work to use"* は bb の反例で落ちた: 重みのダウンロード自体を API キーと登録の後ろに置き「Work を使わせるサービスだ」と言えば、§5.2(b) が名指しで禁じる登録の要件が戻る。*"runs the Work for others without providing a copy of it"* にして、写しを渡す入口を (a)(b) の中に残した。
 
 **T32 §16.2（+9 語）**: Hugging Face の一覧に ACD は無く、*license: other* と *license_name* で書く（`gap-measurements.md` §1.151）。慣行どおり小文字の *acd-1.4* と書くと、*the identifier "ACD-1.4"* に当たるかが決まらない。*"The identifiers named above match without regard to case."* SPDX も識別子の照合で大小を区別しない。*"Section 16 matches identifiers …"* として §16.4 まで効かせると、*contains "ACD-"* が無関係な識別子の一部（*LicenseRef-Abacd-3* の *acd-3*）まで縛るので（bb の反例）、§16.2 が名指す識別子に限った。
 
-**逆側**: T30 で、Dedicator 自身のサービスが出す出力に Dedicator が課す条件は §5 の外に出る。Dedicator が別に出す素材と同じ扱いである。bb は、API の AUP の出力条項を Dedicator が強制できない方が「Work の使用に条件を付けない」の筋に合うと考えたが、25 は、公開した重み（Work）の使用が無条件のまま残り、サービスは Work とは別の提供なので、強制できる側を採った。法律家に確かめる点として、問 5 の範囲に関わる。§8.4 の特許の許諾は Dedicator 自身の M にも及ぶ（*"any model … resulting from Computational Use"*）が、M の著作権が残れば複製は止められるので害は小さい。
+**T33 §6.4（+3 語）**: §6.4 の後半 *"You owe nothing in respect of any of them"* には範囲の語が無いので、§5 の外に出しても、Dedicator 自身の推論 API の出力（重みを動かした結果なので *output resulting from Computational Use of the Work*）に付けた条件に *You owe nothing* が立つと読めた（bb の指摘）。前半の *under this Dedication* と同じ範囲にそろえ、*"You owe nothing under this Dedication in respect of any of them"* にした。最初の読み（§14 の 1 回目）で、*You owe nothing* の範囲の無さは「§8.4 の文と §6.5 で閉じる」として退いていたが、それは特許と合意した料金についての反証で、別に置いた契約の条件の場面は見ていなかった。
+
+**逆側**: T30 で、Dedicator 自身のサービスが出す出力に Dedicator が課す条件は §5 の外に出る。Dedicator が別に出す素材と同じ扱いである。bb は、API の AUP の出力条項を Dedicator が強制できない方が「Work の使用に条件を付けない」の筋に合うと考えたが、25 は、公開した重み（Work）の使用が無条件のまま残り、サービスは Work とは別の提供なので、強制できる側を採った。本文の上でこれを通すには T33 の §6.4 の範囲が要る。法律家に確かめる点として、問 5 の範囲に関わる。§8.4 の特許の許諾は Dedicator 自身の M にも及ぶ（*"any model … resulting from Computational Use"*）が、M の著作権が残れば複製は止められるので害は小さい。
 
 **残したもの**: カードの YAML の license 欄、safetensors や GGUF の中のメタデータ、§2.6 と §16.2 の重なり、後から足した opt-out の信号（§2.2 と §6.3 が閉じる）、§6.3 の撤回が ACD の外の作品に及ぶ読み、第三者の素材と opt-out の見分け（§2.7・§6.5）は、本文の語か記録の結論で退いた。
 
