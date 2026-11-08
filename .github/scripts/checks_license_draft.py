@@ -80,6 +80,9 @@ EFFECT_MARKERS_468U = (
     ("8.1", "otherwise practise or transfer"),
     ("8.4", "Section 8.1 alone governs"),
     ("5.1", "for a use of the Work"),
+    # 2026-11-08 (#2615): 特許の reach の定義と、通知が適用される範囲の主語
+    ("8.3", "only as to the acts they describe"),
+    ("16.2", "A notice a Dedicator places"),
 )
 
 
