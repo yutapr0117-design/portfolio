@@ -544,6 +544,48 @@ _MUTATIONS_TAIL.append({
     "find": '終了権（17 U.S.C. §203）',
     "replace": '終了権（17 U.S.C. §203、§42）',
 })
+_MUTATIONS_TAIL.append({
+    "name": 'Check 498 (a): errata 冒頭の 2 つ目の数を 2 にする —— 460 (l) は "N items are recorded" の N しか読まず、動機の失敗は 2 つ目の数だった',
+    "file": ROOT / 'LICENSES' / 'ACD-1.0.errata.md',
+    "find": 'items are recorded, and all ',
+    "replace": 'items are recorded, and all two are unrepaired; all ',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 498 (b): comparison §1.35 を "the remaining two" に戻す —— 460 (j) は総数の語しか読まず、この節が記録している元の欠陥が戻っても黙っていた',
+    "file": ROOT / 'LICENSES' / 'ACD-1.0.comparison.md',
+    "find": 'narrows to the remaining ',
+    "replace": 'narrows to the remaining two, then the remaining ',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 498 (c): FAQ mirror のプロセスの問数を 99 にする —— 460 (d) は「A. 使う側」しか読んでいなかった',
+    "file": ROOT / 'docs' / 'files' / 'LICENSES' / 'ACD-1.0.faq.md.md',
+    "find": '**B. プロセス**（',
+    "replace": '**B. プロセス**（99 問）（',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 498 (d): §4c の条の行の分母を 81 にする —— 460 (n) は分子だけを掴み、分母は読み捨てていた',
+    "file": ROOT / 'LICENSES' / 'ACD-1.0.submission-reference.md',
+    "find": '**82 / 82**, no gaps either way',
+    "replace": '**82 / 81**, no gaps either way',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 498 (e): register の集計行に「解消済み 4」を書く —— 460 (m) は解消済みを読まず、有利な向きの偽が通った',
+    "file": ROOT / 'LICENSES' / 'ACD-OSI-BOTTLENECKS.md',
+    "find": '/ 解消済み ',
+    "replace": '/ 解消済み 4 / 解消済み ',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 498 (f): 逐条リファレンスの「82 条すべてを収録」を 83 にする —— 460 (c) は題の「全 X 節 Y 条」しか読んでいなかった',
+    "file": ROOT / 'LICENSES' / 'ACD-1.0.clause-reference.md',
+    "find": '82 条すべてを収録',
+    "replace": '83 条すべてを収録',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 498 (g): submission.md の分冊の名指しから -boilerplate を外す —— 2026-11-08 まで実際にそうだった ("three files" で 13 件を持つ分冊を名指していなかった)',
+    "file": ROOT / 'LICENSES' / 'ACD-1.0.submission.md',
+    "find": ' / `-boilerplate` companions',
+    "replace": ' companions',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

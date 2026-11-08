@@ -48,8 +48,8 @@ canonical-ref: LICENSES/ACD-1.0.txt (the text being submitted) / LICENSES/REVIEW
 **Section E below lists disclosures that section B does not contain.** They apply to whatever
 is posted, including the license-discuss thread that is already open.
 
-Anticipated objections and prepared answers (47 worked entries plus a table of 8 short answers, across three files) are in
-`LICENSES/ACD-1.0.review-responses.md` and its `-clauses` / `-meta` companions.
+Anticipated objections and prepared answers (47 worked entries plus a table of 8 short answers, across four files) are in
+`LICENSES/ACD-1.0.review-responses.md` and its `-clauses` / `-meta` / `-boilerplate` companions.
 
 A clause-by-clause reference covering **all 82 clauses** — what each one is for, and what
 breaks without it — is in `LICENSES/ACD-1.0.clause-reference.md`. If a reviewer cites a
