@@ -262,10 +262,10 @@ def run(ctx):
     _idx304 = ROOT / "index.html"
     if _idx304.exists():
         _isrc304 = _idx304.read_text(encoding="utf-8")
-        _tc_vals304 = re.findall(
-            r'<meta\s+name=["\']theme-color["\'][^>]*content=["\']([^"\']+)["\']',
-            _isrc304,
-        )
+        # 属性の順を問わず読む (2026-11-08: name= が先で content= が引用符つきの形しか見なかった)
+        from _lib_io import html_tags as _tags304
+        _tc_vals304 = [_d.get("content") or "" for _n, _d in _tags304(_isrc304, ("template", "noscript"))
+                       if _n == "meta" and (_d.get("name") or "").lower() == "theme-color"]
         _bad304 = [v for v in _tc_vals304 if not re.match(r"^#[0-9a-fA-F]{6}$", v)]
         _ok304 = len(_tc_vals304) > 0 and not _bad304
         check(

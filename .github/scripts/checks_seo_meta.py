@@ -449,20 +449,18 @@ def run(ctx):
     _idx157 = ROOT / "index.html"
     if _idx157.exists():
         _isrc157 = _idx157.read_text(encoding="utf-8")
+        # 文書の木に入るタグだけを読む (2026-11-08: `<noscript>` の中は script の動くブラウザでは素のテキストで、
+        #   そこに置いたタグも数えていた)。属性の順と rel の複数の語も問わない
+        from _lib_io import html_tags as _tags157
+        _t157 = _tags157(_isrc157, ("template", "noscript"))
+        _metan157 = {(_d.get("name") or "").lower() for _n, _d in _t157 if _n == "meta"}
+        _rels157 = {_r for _n, _d in _t157 if _n == "link" for _r in (_d.get("rel") or "").lower().split()}
         _markers157 = {
-            "<meta charset>": re.search(r'<meta\s+charset\s*=', _isrc157, re.IGNORECASE) is not None,
-            "<meta name=viewport>": re.search(
-                r'<meta\s+name=["\']viewport["\']', _isrc157, re.IGNORECASE
-            ) is not None,
-            "<meta name=theme-color>": re.search(
-                r'<meta\s+name=["\']theme-color["\']', _isrc157, re.IGNORECASE
-            ) is not None,
-            "<link rel=icon>": re.search(
-                r'<link\s+rel=["\']icon["\']', _isrc157, re.IGNORECASE
-            ) is not None,
-            "<link rel=apple-touch-icon>": re.search(
-                r'<link\s+rel=["\']apple-touch-icon["\']', _isrc157, re.IGNORECASE
-            ) is not None,
+            "<meta charset>": any(_n == "meta" and "charset" in _d for _n, _d in _t157),
+            "<meta name=viewport>": "viewport" in _metan157,
+            "<meta name=theme-color>": "theme-color" in _metan157,
+            "<link rel=icon>": "icon" in _rels157,
+            "<link rel=apple-touch-icon>": "apple-touch-icon" in _rels157,
         }
         _missing157 = sorted(k for k, present in _markers157.items() if not present)
         check(
@@ -489,19 +487,14 @@ def run(ctx):
     _idx158 = ROOT / "index.html"
     if _idx158.exists():
         _isrc158 = _idx158.read_text(encoding="utf-8")
+        # 157 と同じく文書の木に入る link だけを、属性の順を問わず読む (2026-11-08)
+        from _lib_io import html_tags as _tags158
+        _links158 = {(_r, (_d.get("href") or "").rstrip("/")) for _n, _d in _tags158(_isrc158, ("template", "noscript"))
+                     if _n == "link" for _r in (_d.get("rel") or "").lower().split()}
         _hints158 = {
-            "preconnect fonts.googleapis.com": re.search(
-                r'<link\s+rel=["\']preconnect["\']\s+href=["\']https://fonts\.googleapis\.com["\']',
-                _isrc158,
-            ) is not None,
-            "preconnect fonts.gstatic.com": re.search(
-                r'<link\s+rel=["\']preconnect["\']\s+href=["\']https://fonts\.gstatic\.com["\']',
-                _isrc158,
-            ) is not None,
-            "dns-prefetch fonts.googleapis.com": re.search(
-                r'<link\s+rel=["\']dns-prefetch["\']\s+href=["\']https://fonts\.googleapis\.com["\']',
-                _isrc158,
-            ) is not None,
+            "preconnect fonts.googleapis.com": ("preconnect", "https://fonts.googleapis.com") in _links158,
+            "preconnect fonts.gstatic.com": ("preconnect", "https://fonts.gstatic.com") in _links158,
+            "dns-prefetch fonts.googleapis.com": ("dns-prefetch", "https://fonts.googleapis.com") in _links158,
         }
         _missing158 = sorted(k for k, present in _hints158.items() if not present)
         check(
