@@ -85,8 +85,9 @@ def run(ctx):
                 f"CHANGELIST のみ {sorted(set(_rows469) - _erids)}")
 
         # 状態語彙: settled = もう動かないと述べたもの / pending = まだと述べたもの
-        _settled469 = ("反映済み", "直さないと決めた", "狭めないと決めた", "触らない")
-        _pending469 = ("未着手", "まだ見ていない", "反映予定")
+        #   2026-11-09 (Check の監査 #7 / #19): CHANGELIST は同じ状態を「閉じた」(34 回)「入った」「未反映」とも書く
+        _settled469 = ("反映済み", "直さないと決めた", "狭めないと決めた", "触らない", "閉じた", "入った")
+        _pending469 = ("未着手", "まだ見ていない", "反映予定", "未反映")
 
         def _ids_on(line):
             """1 行が状態を述べている E-ID 集合 (E6〜E10 のような範囲も展開する)。"""
@@ -113,6 +114,14 @@ def run(ctx):
             if _claim469[i] == {"settled", "pending"}:
                 _bad469.append(
                     f"(b) {i} の状態が file 内で矛盾している (ある行は決着済み / 別の行は未着手)")
+        # errata の冒頭が閉じたと述べる E-ID は、CHANGELIST で未着手だけを述べてはならない (2026-11-09・監査 #6):
+        #   状態の行が 1 つしか無い E-ID は、それを未着手へ書き換えても矛盾の組が作れず黙って通った
+        _cl469 = re.search(r"of them \(([^)]*)\) are closed", _ert)
+        _closed469 = set(re.findall(r"E\d+", _cl469.group(1))) if _cl469 else set()
+        if not _cl469:
+            _bad469.append("(b) errata.md の冒頭の「N of them (E…) are closed」が読めない")
+        for i in sorted((i for i in _claim469 if _claim469[i] == {"pending"} and i in _closed469), key=lambda x: int(x[1:])):
+            _bad469.append(f"(b) {i} は errata が閉じたと述べるのに、CHANGELIST は未着手だけを述べている")
 
     # (c) READY-TO-SUBMIT.md の「Check N (M 部)」⟺ その Check の区間に現れる下位部 N[a-z] の種類数
     #   portfolio-25 の提案 (2026-11-03)。「機械的に担保されていること」と名乗る表が、451 に
