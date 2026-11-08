@@ -730,3 +730,17 @@ David A. Wheeler 氏が「Public Domain」を OSI のライセンスの一覧に
 **逆側（#310）。** Russ Nelson 氏は同じ日に *"Anybody who wants to set a booby trap will take steps to make sure that a separate legal entity owns the patent rights"* と述べた。1.4 の §8.5 は「支配する」を Dedicator 自身が許諾できる権利に限っており（E39）、関連会社が持つ特許には届かない。Apache-2.0 は許諾する者を Legal Entity、*"the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity"* で数えるので、ここは ACD の方が狭い。UPL-1.0、BlueOak-1.0.0、BSD-2-Clause-Patent も関連会社には届かないので、ACD はこの 3 本と同じ側に立つ。1.4 は変えないと決めた（PR 2647・問 2 (i)）。
 
 **この節が establish しないこと。** 個人の発言で、OSI の決定ではない。CC がその後どう説明したかは、このスレッドの 30 通の中には無い。
+
+## 1.151 Hugging Face で ACD はどう表されるか —— 一覧に無いので `license: other` になる（2026-11-08）
+
+モデルとデータセットの主な公開先である Hugging Face Hub は、カードの `license` 欄に書ける識別子の一覧を持つ（`rounds/2026-10-17-huggingface-hub-docs-licenses-snapshot.txt`・2026-10-17 取得）。
+
+**一覧の中身。** `apache-2.0`、`mit`、`cc0-1.0`、`unlicense`、`wtfpl` は在る。OSI 未承認の `openmdw-1.0` と `openmdw-1.1` も在る。OSI 承認済みの 0BSD、MIT-0、BSD-2-Clause-Patent、UPL-1.0、BlueOak-1.0.0 は無い。一覧に載るかと OSI の承認は別の事柄である。
+
+**ACD を使う人の書き方。** 一覧に無いライセンスについて文書は *"In case of `license: other` please add the license's text to a `LICENSE` file inside your repo (or contact us to add the license you use to this list), and set a name for it in `license_name`."* と述べる。ACD のモデルやデータセットは `license: other` と `license_name` で書くことになり、ライセンスの絞り込みでは「other」の山に入る。
+
+**件数の手がかり（API・2026-10-17・上限 1000）。** モデルは `openmdw-1.1` が 383、`openmdw-1.0` が 85、データセットはそれぞれ 33 と 31。`unlicense`、`wtfpl`、`cc0-1.0` のモデルは上限の 1000 に達しており、実数は取れていない（`~/osi-fetch/fetch/2026-10-17/hf/`・リポジトリの外）。
+
+**B2 への当たり方。** OpenMDW は一覧に識別子を持ち、公開の時点で絞り込みに出る。ACD は採用者が `other` を選ぶので、探す人の目に入りにくい。文書は一覧へ足す依頼の道（*"contact us"*）を示しているが、これは外へ出す行為なので AI は送らない。送るならオーナーの行為で、OSI の承認とは独立に試せる。逆側: 採用の実績が 1 件の段階で一覧に載せる依頼が通るかは分からず、通っても採用そのものは生まれない。
+
+**この節が establish しないこと。** 一覧は hub-docs の main で、取得の後に変わりうる。件数は API の上限で切れている。
