@@ -1,0 +1,206 @@
+Source: https://lists.opensource.org/pipermail/ (license-discuss 2011-04, license-review 2016-01 and 2017-03)
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-08)
+Messages: 3 of the 16 messages this dossier cites from two threads: "Towards an OSI-approved 'waive all rights' software license" (2011) and "Approval: BSD + Patent License" (2016-2017). Part 2 of 2.
+Senders: Smith, McCoy, Richard Fontana, Simon Phipps
+Position: statements about CC0, about a permissive licence with a patent grant, and about the review of that licence. Not addressed to us and not about ACD. Each message is whole.
+
+----- begin verbatim -----
+From mccoy.smith at intel.com  Wed Jan 20 19:46:58 2016
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Wed, 20 Jan 2016 19:46:58 +0000
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <569F3629.1080405@postgresql.org>
+References: <CAPaMSD2O0Os_ObguJcukVHGNk2Wr-Ofcctkt0PdXv8sq6STUFQ@mail.gmail.com>
+ <CACJu1NxTEQ-vaov97drzx0w4xstTcTXyjSV9kwH3Ci0vy44KAg@mail.gmail.com>
+ <569F13C6.6050108@postgresql.org> <569F3629.1080405@postgresql.org>
+Message-ID: <2D52F7EE739F8542A700CAB96276B51933DE5856@FMSMSX108.amr.corp.intel.com>
+
+So, for what it's worth, I'm a patent lawyer* and I'm the one submitting the license.
+
+As noted in the original submission, and in some of my responses, I've modeled the patent grant as best as possible to replicate the Apache 2.0/Eclipse 1.0 patent grant formulation, but for the removal of the "patent retaliation"/defensive termination clause (which is one of the stated reasons why Apache 2.0 is GPLv2 incompatible).  I'm pretty sure that the grant in the proposed license (putting aside the response I made to the very salient comments by Jim Wright, Richard Fontana, Carlo Piana, Nigel Tzeng, as well as several people who have contacted me off-list), is of equal scope to those OSI-approved, "popular," licenses.  Given that many of the people I've talked to who like the Apache patent grant, but want a permissive license that is GPLv2 compatible and has such a grant, it should grant a patent license consistent with that desire.
+
+*As an aside, saying you're a patent lawyer just means you've been registered with the relevant government patent office to file patent applications.  It has little or nothing to do with whether you can competently draft patent licenses.  Although some of the lawyers on this list are patent lawyers, many are not, including many of the ones who have actually written the most prominent and widely-used OSI-approved licenses.  I wouldn't put too much weight on whether a patent lawyer has written a license or has given an opinion on it.
+
+-----Original Message-----
+From: License-review [mailto:license-review-bounces at opensource.org] On Behalf Of Josh Berkus
+Sent: Tuesday, January 19, 2016 11:24 PM
+To: mike at opensource.org; License submissions for OSI review
+Subject: Re: [License-review] Approval: BSD + Patent License
+
+On 01/19/2016 08:57 PM, Josh Berkus wrote:
+> On 01/19/2016 06:12 PM, Mike Milinkovich wrote:
+>> Wow, this thread has degraded to the point of silliness. 
+>>
+>> Every OSI Board member who has commented on this license has said 
+>> positive things about it. ?It's a good license. It fills a niche that 
+>> we have long wanted filled.
+> 
+> Yes, and I have an *immediate* use for such a license.
+> 
+> I haven't seen an attorney weigh in on the patent grant issues 
+> inherent in a liberal patent-grant license.  Has one posted a review elsewhere?
+> 
+
+To be specific: is the patent grant language of the license correct and successful in granting a patent license on any concepts embodied in the code released, and only on those?  It's more than a bit opaque to non-lawyers.
+
+--
+Josh Berkus
+PostgreSQL Project
+_______________________________________________
+License-review mailing list
+License-review at opensource.org
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+From fontana at opensource.org  Fri Mar 31 12:55:26 2017
+From: fontana at opensource.org (Richard Fontana)
+Date: Fri, 31 Mar 2017 08:55:26 -0400
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5193438C0BB@FMSMSX108.amr.corp.intel.com>
+References: <2D52F7EE739F8542A700CAB96276B51934339614@FMSMSX108.amr.corp.intel.com>
+ <2D52F7EE739F8542A700CAB96276B5193438C0BB@FMSMSX108.amr.corp.intel.com>
+Message-ID: <20170331125526.GA31093@clifford>
+
+Unless there are any comments raising a compelling reason otherwise I
+plan to ask the OSI board to consider this license submission at the
+forthcoming board meeting, with due attention to the proliferation
+concerns raised by Jim.
+
+I am inclined to agree with McCoy's comments on the proliferation
+issue (but I have generally tended to be liberal on
+proliferationism). I recommend that the OSI approve this license.
+
+Richard
+
+
+
+
+
+
+
+On Thu, Mar 30, 2017 at 07:35:49PM +0000, Smith, McCoy wrote:
+> All:
+> 
+> The BSD+Patent license is in a state where we would now like to request Board approval (preferably, at the April board meeting).  We have incorporated changes to the license (originally submitted on the list in January, 2016), and have received many helpful comments which have resulted in changes to the original draft.  Some comments on the latest version, and the text of the latest version, are below.  We have also attached an odt copy of the license with color coding indicating the origin of the language in the license (as well as a "clean" version of the license language in a separate document), although I think that document might be getting scrubbed by the mail server (if there's a good way to post the doc so that doesn't happen, let me know).
+> 
+> Given that the original submission was so long ago, I've also included answers to the original questions (per the requirements of the approval process) on the license that were answered upon original submission.
+> 
+> RATIONALE:
+> 
+> This license has been created to address a specific problem that has been encountered with existing licenses:  the desire of certain organizations to have a simple permissive license that is compatible with the GNU General Public License (GPL), version 2, but which also has an express patent grant included.
+> 
+> PROLIFERATION CATEGORY:
+> 
+> This license should be categorized as a ?Special Purpose License,? or, alternatively, as an approved variant of the BSD 2-clause license.
+> 
+> DISTINGUISHING FROM OTHER OSI-APPROVED LICENSES:
+> 
+> The BSD 2-clause license is currently categorized as one of the ?Licenses that are popular and widely used or with strong communities.?  The BSD 2-clause license is also considered by the Free Software Foundation (FSF) to be compatible with both GPLv2 and GPLv3.  However, some organizations ? particularly those with large or valuable patent portfolios ? are reluctant to use the BSD (and MIT) licenses because of the lack of an express patent license grant in those licenses.  Because of that issue, many patent holders prefer to use the Apache 2.0 license when they wish to license code permissively, since it has an express, and well-written, patent license grant.  Unfortunately, the FSF has determined that the Apache 2.0 license is not compatible with GPLv2 because ?it has some requirements that are not in that GPL version. These include certain patent termination and indemnification provisions.? 
+> 
+> There is currently only one GPLv2-compatible permissive license that includes an express patent license ? the relatively-recently approved Universal Permissive License (UPL).  In the past, this has created a problem for some authors wishing to license their code permissively, but also including an express patent license grant, and also having the license be GPLv2 compatible so that users have the ability to integrate that code into GPLv2-licensed code (including, for example, the Linux kernel).  Although the UPL provides such an option, we believe that users will still wish to have a license with more familiar, and widely accepted licensing language (like a BSD-variant) that solves the issue of an express patent grant and GPLv2 compatibility.
+> 
+> We believe that this license is non-duplicative (for the reasons set forth above), as it solves an issue all but one OSI-approved license solves (permissive, express patent license grant, GPLv2 compatibility).  The license itself is a combination of language from the BSD 2-clause license, the Apache 2.0 license, and the Eclipse Public License (all of which are already OSI-approved, and all of which are in the category of ?Licenses that are popular and widely used or with strong communities?), with a handful of editorial changes for consistency and clarity (and to remove features that would make the license GPLv2 incompatible).  It therefore should meet all the criteria of the OSD.
+> 
+> LEGAL REVIEW:
+> 
+> The text of the license is reproduced below.  We have also included an attached mark-up of the license showing where the language comes from BSD 2-clause, Apache 2.0 and Eclipse.  The patent grant from Apache 2.0 and Eclipse were used because the combination of the two was more tightly-worded and fit better with the existing language in the BSD 2-clause license.  Note that we have removed the ?patent termination/retaliation? language from both of these licenses because this language is one of the reasons why Apache 2.0 has been found to be incompatible with GPLv2.
+> 
+> In keeping with the License Approval Process submission guidelines:
+> 
+> 	1. We have read the Open Source Definition and ensured that this license complies with it (and in fact, this license is an amalgamation of already OSI-approved licenses).
+> 	2. This is an Approval submission, as this is a new license (albeit derived from existing OSI-approved licenses).
+> 	3. We have appropriate standing to submit this request, as this license was created by us (again, derived from existing OSI-approved licenses).
+> 	4. We are subscribed to license-review.
+> 	5. This communication is our formal request to license-review. 
+> 
+> Please approve this license for inclusion on the OSI approved license list.
+> 
+> Commentary:
+> 
+> 1.  A primary goal of this license is to reproduce, identically, the text of BSD 2-clause given the popularity of that license for those wishing to grant permissive rights.  Other than the patent clause, and two small editorial changes (the adding of a "DISCLAIMER" header above the disclaimer paragraph, and correction of a typographical error in the disclaimer section to recite "CONTRIBUTORS" instead of "CONTRIBUTOR"), this license includes an exact reproduction of BSD 2-clause.  Several commentators have pointed out ambiguities in the language reproduced from BSD 2-clause; to the extent those exist, those exist in BSD 2-clause and this license will also contain such ambiguities.   Those ambiguities have not impeded the adoption and success of BSD 2-clause.  Other than to include an express patent license that will be GPLv2 compatible, it is not our goal to "improve" the language of BSD 2-clause.
+> 
+> 2.  In crafting the patent grant, we have tried to use, as much as possible, terminology that already exists in BSD 2-clause.  Thus "copyright holders and contributors" and "this software" are used in the patent grant as a result of the use of those terms in the disclaimer section of BSD 2-clause.  We have adapted the language of the Apache and Eclipse patent license grant, upon which the patent grant is based, to conform to that terminology.
+> 
+> 3.  The patent grant is primarily based on the language in Apache.  We have, however, included some language from Eclipse that we thought useful to tighten up or clarify the Apache grant:  1) the clarification in Eclipse that the patent grant for combinations is measured at the time a contribution is added; 2) the disclaimer of a grant for other combinations; 3) the general disclaimer of other licenses.
+> 
+> 4.  One feature we added to the Apache patent grant from GPLv3 is the recitation that the license patents are those "already acquired or hereafter acquired."  Although Apache doesn't explicitly say this in its text, the FAQs on Apache say that those are the patents that are licensed (http://www.apache.org/foundation/license-faq.html#PatentScope Answer #2), so we thought adding that clarification in the language was within the spirit of Apache's patent grant.
+> 
+> 5.  We have not added an express right to sublicense (several on the list believe the license should include that).  Neither BSD 2-clause, nor Apache (in its patent grant) nor Eclipse (in its patent grant) recites a right to sublicense.  The license itself is styled as a direct grant from the copyright holders and contributors to those "exercising rights under this license" so sublicense rights should not be needed.  Given the long history of BSD 2-clause and its use in permissive licensing (including conversion of BSD 2-clause code to other licenses, including GPLv2), we did not believe reciting a right to sublicense was needed or within the spirit of reproducing, as much as possible, the language of BSD 2-clause (and the patent grant of Apache/Eclipse).  
+> 
+> 6. As some suggested upon the original submission of this license, we have received confirmation from FSF that this license is GPLv2 compatible.  Once the license is approved by the OSI board, we will be sending that approval to the FSF for consideration of adding the BSD+Patent license to their list of GPL compatible free software licenses.
+> 
+> McCoy Smith
+> Law & Policy Group
+> Intel Corporation
+> 
+> License text reproduced below:
+> 
+> =========================================================================================================================================================================================================================================
+> Copyright (c) <YEAR> <COPYRIGHT HOLDERS>
+> Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+> 1.	Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+> 2.	Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+> Subject to the terms and conditions of this license, each copyright holder and contributor hereby grants to those receiving rights under this license a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except for failure to satisfy the conditions of this license) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer this software, where such license applies only to those patent claims, already acquired or hereafter acquired, licensable by such copyright holder or contributor that are necessarily infringed by:
+> (a) their Contribution(s) (the licensed copyrights of copyright holders and non-copyrightable additions of contributors, in source or binary form) alone; or 
+> (b) combination of their Contribution(s) with the work of authorship to which such Contribution(s) was added by such copyright holder or contributor, if, at the time the Contribution is added, such addition causes such combination to be necessarily infringed. The patent license shall not apply to any other combinations which include the Contribution. 
+> Except as expressly stated above, no rights or licenses from any copyright holder or contributor is granted under this license, whether expressly, by implication, estoppel or otherwise. 
+> DISCLAIMER
+> THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+> =========================================================================================================================================================================================================================================
+> 
+> -----Original Message-----
+> From: Smith, McCoy 
+> Sent: Sunday, March 12, 2017 5:18 PM
+> To: 'License submissions for OSI review' <license-review at opensource.org>
+> Subject: RE: Approval: BSD + Patent License
+> 
+> All:
+> 
+> It has been over a year since the last discussion on this proposal;  I would like to revive it again in view of the following:
+> 
+> 1.  I have gotten some feedback from the FSF on the license.  At the time of initial submission of the license, several on the list suggested that, given the special purpose of this license -- to provide a version of the BSD license that was both GPLv2 compatible and included an express patent license, I should get confirmation from the FSF that it is indeed GPLv2 compatible.  I have heard from the FSF and they have confirmed the present draft [appended and discussed below] is GPLv2 compatible.
+> 
+> 2.  I have also gotten feedback from others on the last draft (on-list, and privately), as well as from the FSF,  which has resulted in me reconsidering the last draft and tightening up and/or altering the text somewhat (not to change the substance, just to change ambiguities or other drafting issues).  So the latest version (reproduced below, as well as appended in color-coded format to show the origin of the text) is in this e-mail.
+> 
+> A few drafting notes on this version:
+> 
+> A.  There are two provisions in this draft that are in square brackets ([]).  Those represent provisions that I have added in response to the comments of others on this list, but which I haven't yet decided should be in the final version.  The first provision (that the licensed patent claims are those "already acquired or hereafter acquired") comes from GPLv3 -- but is not in any of the licenses (BSD, Apache, Eclipse) from which my license is derived.  That provision is intended to make explicit that the license is intended to cover patents acquired by the licensor after the grant has been made.  I think that that is inherent in the grant language of Apache and Eclipse (and the Apache FAQs say it is explicitly), but the language does have the benefit of making it explicit and part of the license text itself.  The second provision is an explicit disclaimer of all other licenses beyond those expressly granted.  That language comes from Eclipse, with modification.  I'm now of the mind to keep in the bracketed provisions, given that I think being express/explicit is better, even if there is an argument that these provisions are somewhat unnecessary given the unbracketed language already covers the concepts.  I'll leave these provisions open for additional comment by anyone who wants to convince me there is a good reason to leave them out.
+> 
+> B.  The patent license grant is on behalf of "copyright holders and contributors."  I have used that language as a result of its existing use in the disclaimer section of 2-clause BSD, which I interpret to be intended to cover those who make copyrightable contributions as well as those who might make contributions not subject to copyright (an issue discussed in some depth in separate threads about military and/or government open source licensing, particularly those not subject to US copyright rights).  In order to make that distinction more clear, the patent clause now has an embedded definition of "Contribution(s)" which intended to now capture both types of contributions -- copyrightable and non-copyrightable.  Although I tend to disfavor embedded definitions in a license of this type (since BSD is free of them), this was one definition that seemed to be needed as a point of clarity.
+> 
+> Further comments are welcome.  Now that the GPLv2 compatibility issue is resolved, I'll leave this one open for additional comments from the member list for a bit,  in case anyone sees further drafting improvements they'd like to suggest -- or express objections as to why the license itself should not be approved.  I will then indicate that the text is finalized and ask for Board approval to add to the OSI list.
+
+
+
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+From simon at webmink.com  Fri Mar 31 11:37:14 2017
+From: simon at webmink.com (Simon Phipps)
+Date: Fri, 31 Mar 2017 12:37:14 +0100
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <7089CCE1-E4BA-459F-BDBE-BAB5375303E7@oracle.com>
+References: <2D52F7EE739F8542A700CAB96276B51934339614@FMSMSX108.amr.corp.intel.com>
+ <2D52F7EE739F8542A700CAB96276B5193438C0BB@FMSMSX108.amr.corp.intel.com>
+ <7089CCE1-E4BA-459F-BDBE-BAB5375303E7@oracle.com>
+Message-ID: <CAA4ffp_3UszHmUGsEXavF8MiWeAqw-+gUKTP6rPOyp2zippw5w@mail.gmail.com>
+
+Two questions:
+
+   1. JIm, is UPL being used as an outbound license for any community or
+   project yet? Your original goal for it was to use it inbound as a
+   substitute for a CLA as I recall?
+   2. McCoy, are you anticipating this license will be used inbound,
+   outbound or both? Do you have any project or community intending to adopt
+   it if approved?
+
+Cheers,
+
+Simon
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170331/d0ce7f49/attachment.html>
+

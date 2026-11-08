@@ -1,0 +1,722 @@
+Source: https://lists.opensource.org/pipermail/ (license-discuss 2011-04, license-review 2016-01 and 2017-03)
+Retrieved: 2026-10-24 to 2026-11-07 (local copy of the public archive; read 2026-11-08)
+Messages: 13 of the 16 messages this dossier cites from two threads: "Towards an OSI-approved 'waive all rights' software license" (2011) and "Approval: BSD + Patent License" (2016-2017). Part 1 of 2.
+Senders: Derrick Coetzee, Karl Fogel, Lawrence Rosen, Richard Fontana, Wilson, Andrew, Josh Berkus, Carlo Piana
+Position: statements about CC0, about a permissive licence with a patent grant, and about the review of that licence. Not addressed to us and not about ACD. Each message is whole.
+
+----- begin verbatim -----
+From dcoetzee at gmail.com  Fri Apr 15 05:32:32 2011
+From: dcoetzee at gmail.com (Derrick Coetzee)
+Date: Thu, 14 Apr 2011 22:32:32 -0700
+Subject: Towards an OSI-approved "waive all rights" software license
+In-Reply-To: <BANLkTikqbVxMTURv0JoNqJS=TjCVRDQkSQ@mail.gmail.com>
+References: <BANLkTikqbVxMTURv0JoNqJS=TjCVRDQkSQ@mail.gmail.com>
+Message-ID: <BANLkTinDLr+pNQU-1HJ=1DAgh=6oYcBV8g@mail.gmail.com>
+
+[Sorry if this is a duplicate message - I just realised I sent it from
+the wrong e-mail account and trying again]
+
+Hi all,
+
+I'm a software developer/grad student and administrator on Wikipedia
+and Wikimedia Commons. As you may be aware, in 2009 Creative Commons
+released the CC0 Waiver, a tool for waiving as many rights as possible
+in a work, worldwide - I use it myself extensively as it appears to be
+the only professional public legal tool that allows an author to make
+a work available without a requirement of attribution.
+
+Nearly every OSI-approved license today - including MIT/X11 and BSD -
+requires not only some form of attribution but also reproduction of
+the license in derivative works. For integrating large components into
+a system, this is feasible and appropriate, but even these
+light-weight requirements can rapidly grow cumbersome for small
+"snippets" of code like individual files, functions, and small
+libraries that are borrowed from open source repositories. There are
+countless examples of snippet sharing sites, snippets are frequently
+shared through documentation and forum posts, and research shows many
+modern programmers have incorporated the rapid assimilation of code
+snippets from diverse sources into their workflow, with little to no
+regard for attribution or the legal consequences. I believe
+facilitating the legal use of snippet repositories in this manner is
+essential to maintain long-term productivity of the developer
+community. An OSI-approved "waive all rights" license could be easily
+adopted by code snippet repository websites as a logical choice, as
+well as by developers without an interest in attribution like myself,
+and would lead to greater community code reuse due to a decreased
+burden on the reuser.
+
+There are two paths I see to this: one is to adopt the existing CC0 in
+its entirety as a software license; the other is to start with CC0 and
+tack on a disclaimer similar to the one in the MIT license, to attempt
+to indemnify developers against liability. I'd like to know your
+thoughts on what other paths are available for a "waive all rights"
+software license, or your thoughts on whether one is needed. Thanks
+for your feedback
+
+-- 
+Derrick Coetzee
+http://www.cs.berkeley.edu/~dcoetzee/
+User:Dcoetzee
+
+
+From kfogel at red-bean.com  Mon Apr 18 04:24:09 2011
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Mon, 18 Apr 2011 00:24:09 -0400
+Subject: Towards an OSI-approved "waive all rights" software license
+In-Reply-To: <BANLkTinDLr+pNQU-1HJ=1DAgh=6oYcBV8g@mail.gmail.com> (Derrick
+	Coetzee's message of "Thu, 14 Apr 2011 22:32:32 -0700")
+References: <BANLkTikqbVxMTURv0JoNqJS=TjCVRDQkSQ@mail.gmail.com>
+	<BANLkTinDLr+pNQU-1HJ=1DAgh=6oYcBV8g@mail.gmail.com>
+Message-ID: <87oc44gpau.fsf@red-bean.com>
+
+Derrick Coetzee <dcoetzee at gmail.com> writes:
+>I'm a software developer/grad student and administrator on Wikipedia
+>and Wikimedia Commons. As you may be aware, in 2009 Creative Commons
+>released the CC0 Waiver, a tool for waiving as many rights as possible
+>in a work, worldwide - I use it myself extensively as it appears to be
+>the only professional public legal tool that allows an author to make
+>a work available without a requirement of attribution.
+>
+>Nearly every OSI-approved license today - including MIT/X11 and BSD -
+>requires not only some form of attribution but also reproduction of
+>the license in derivative works. For integrating large components into
+>a system, this is feasible and appropriate, but even these
+>light-weight requirements can rapidly grow cumbersome for small
+>"snippets" of code like individual files, functions, and small
+>libraries that are borrowed from open source repositories. There are
+>countless examples of snippet sharing sites, snippets are frequently
+>shared through documentation and forum posts, and research shows many
+>modern programmers have incorporated the rapid assimilation of code
+>snippets from diverse sources into their workflow, with little to no
+>regard for attribution or the legal consequences. I believe
+>facilitating the legal use of snippet repositories in this manner is
+>essential to maintain long-term productivity of the developer
+>community. An OSI-approved "waive all rights" license could be easily
+>adopted by code snippet repository websites as a logical choice, as
+>well as by developers without an interest in attribution like myself,
+>and would lead to greater community code reuse due to a decreased
+>burden on the reuser.
+>
+>There are two paths I see to this: one is to adopt the existing CC0 in
+>its entirety as a software license; the other is to start with CC0 and
+>tack on a disclaimer similar to the one in the MIT license, to attempt
+>to indemnify developers against liability. I'd like to know your
+>thoughts on what other paths are available for a "waive all rights"
+>software license, or your thoughts on whether one is needed. Thanks
+>for your feedback
+
+I think the simplest possible "waive all rights" license already exists,
+in the the New (Simplified 2-Clause) BSD License [1]:
+
+  http://www.opensource.org/licenses/bsd-license
+
+It doesn't actually require attribution; it does require that the
+license text itself be reproduced with the sources, as you point out.
+However, this would be necessary to preserve *any* license, given
+third-party redistribution.  So while it does impose a burden, it is
+probably an unavoidable part of having licensing at all.
+
+Now, I just noticed that the OSI's page about the BSD license only gives
+the 3-clause version [2], which is essentially the same as far as our
+discussion goes.  I'm not sure yet whether this is an oversight; I'll
+look into it.  Neither version of the license requires positive
+attribution; they do require that the license text be reproduced (and of
+course, the license text may have some implicit attribution in it, but
+anyway at least it doesn't affect how the covered work is displayed or,
+if it is software, how it runs).
+
+For "waive all rights", CC0 is the best thing I can think of.  It's not
+really a license, of course (as you seem to be aware).
+
+Let me know if any of this analysis seems off to you.
+
+Best,
+-Karl
+
+[1] http://en.wikipedia.org/wiki/BSD_licenses#2-clause_license_.28.22Simplified_BSD_License.22_or_.22FreeBSD_License.22.29
+
+[2] http://www.opensource.org/licenses/bsd-license
+
+
+From lrosen at rosenlaw.com  Mon Apr 18 18:00:21 2011
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Mon, 18 Apr 2011 11:00:21 -0700
+Subject: Towards an OSI-approved "waive all rights" software license
+In-Reply-To: <20110418162229.GA5230@redhat.com>
+References: <BANLkTikqbVxMTURv0JoNqJS=TjCVRDQkSQ@mail.gmail.com> <BANLkTinDLr+pNQU-1HJ=1DAgh=6oYcBV8g@mail.gmail.com> <87oc44gpau.fsf@red-bean.com> <BANLkTi=CRtBD5jxoUY3obJq0vAia_=u0Vw@mail.gmail.com> <EDC0E76513226749BFBC9C3FB031318F013812F96B@orsmsx508.amr.corp.intel.com> <20110418162229.GA5230@redhat.com>
+Message-ID: <00f201cbfdf2$7cf31710$76d94530$@com>
+
+I support Creative Commons licenses. However, I have two concerns about the
+use of CC0 for software:
+
+1. Nobody needs any permission (license or otherwise) for works truly in the
+public domain by law or public policy. There are serious doubts that a
+dedication of a copyrighted work to the public domain can actually be done
+or that such a dedication contains sufficient conditions to be enforceable
+without treating it as a contract, and so CC0 contains a license fallback.
+OSI could analyze CC0 for its license fallback terms, but not as a public
+domain dedication. 
+
+2. The CC0 license says nothing about patents. I find this particularly
+troubling when a CC0 license (or the BSD license, for that matter!) is used
+for software or specifications by companies that have large patent
+portfolios. What are you withholding? That license is not designed for
+software, although I suppose it works for you if you believe that copyright
+is all that matters for functional software.
+
+>From the Creative Commons FAQ:
+
+   Can I use a Creative Commons license for software?
+
+   We do not recommend it. Creative Commons licenses should not be 
+   used for software. We strongly encourage you to use one of the 
+   very good software licenses which are already available. We 
+   recommend considering licenses made available by the Free 
+   Software Foundation or listed at the Open Source Initiative. 
+   Unlike our licenses, which do not make mention of source or 
+   object code, these existing licenses were designed specifically
+   for use with software. Furthermore, our licenses are not 
+   compatible with the GPL, the most frequently used free
+   software license.
+
+Note: CC0 is actually compatible with GPL for copyright purposes only!
+
+/Larry
+
+
+> -----Original Message-----
+> From: Richard Fontana [mailto:rfontana at redhat.com]
+> Sent: Monday, April 18, 2011 9:22 AM
+> To: Wilson, Andrew
+> Cc: license-discuss at opensource.org; dc at moonflare.com
+> Subject: Re: Towards an OSI-approved "waive all rights" software
+> license
+> 
+> On Mon, Apr 18, 2011 at 09:09:26AM -0700, Wilson, Andrew wrote:
+> > We at Intel release a lot of sample code.  For really short code
+> snippets, translations,
+> > or other non-copyrightable material we use CC0.
+> 
+> At Red Hat we have started using CC0 similarly. I have also found it
+> useful in situations where we wish to resolve any doubt about whether
+> we have some meaningful copyright interest in some code (typically
+> some very small, ancient piece of code that has turned up somewhere).
+> 
+>  - Richard
+> 
+> 
+> --
+> Richard E. Fontana
+> Open Source Licensing and Patent Counsel
+> Red Hat, Inc.
+
+
+
+
+From rfontana at redhat.com  Mon Apr 18 18:19:52 2011
+From: rfontana at redhat.com (Richard Fontana)
+Date: Mon, 18 Apr 2011 14:19:52 -0400
+Subject: Towards an OSI-approved "waive all rights" software license
+In-Reply-To: <00f201cbfdf2$7cf31710$76d94530$@com>
+References: <BANLkTikqbVxMTURv0JoNqJS=TjCVRDQkSQ@mail.gmail.com>
+ <BANLkTinDLr+pNQU-1HJ=1DAgh=6oYcBV8g@mail.gmail.com>
+ <87oc44gpau.fsf@red-bean.com>
+ <BANLkTi=CRtBD5jxoUY3obJq0vAia_=u0Vw@mail.gmail.com>
+ <EDC0E76513226749BFBC9C3FB031318F013812F96B@orsmsx508.amr.corp.intel.com>
+ <20110418162229.GA5230@redhat.com>
+ <00f201cbfdf2$7cf31710$76d94530$@com>
+Message-ID: <20110418181952.GA5983@redhat.com>
+
+On Mon, Apr 18, 2011 at 11:00:21AM -0700, Lawrence Rosen wrote:
+> 2. The CC0 license says nothing about patents. I find this particularly
+> troubling when a CC0 license (or the BSD license, for that matter!) is used
+> for software or specifications by companies that have large patent
+> portfolios. 
+
+In fact CC0 explicitly excludes any licensing of patents. 
+
+  No trademark or patent rights held by Affirmer are waived,
+  abandoned, surrendered, licensed or otherwise affected by this
+  document.
+
+I am not too troubled by that to the extent CC0 continues to be
+applied to rather trivial pieces of code, but use of CC0 on a
+substantial body of code might be another matter.
+
+I have recently suggested to Creative Commons that the issue should
+perhaps be revisited in future versions of CC0, now that its
+suitability for software has been acknowledged.
+
+- RF
+
+
+
+
+From lrosen at rosenlaw.com  Mon Apr 18 18:36:35 2011
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Mon, 18 Apr 2011 11:36:35 -0700
+Subject: Towards an OSI-approved "waive all rights" software license
+In-Reply-To: <20110418181952.GA5983@redhat.com>
+References: <BANLkTikqbVxMTURv0JoNqJS=TjCVRDQkSQ@mail.gmail.com> <BANLkTinDLr+pNQU-1HJ=1DAgh=6oYcBV8g@mail.gmail.com> <87oc44gpau.fsf@red-bean.com> <BANLkTi=CRtBD5jxoUY3obJq0vAia_=u0Vw@mail.gmail.com> <EDC0E76513226749BFBC9C3FB031318F013812F96B@orsmsx508.amr.corp.intel.com> <20110418162229.GA5230@redhat.com> <00f201cbfdf2$7cf31710$76d94530$@com> <20110418181952.GA5983@redhat.com>
+Message-ID: <010401cbfdf7$8bf17e00$a3d47a00$@com>
+
+Richard Fontana wrote:
+> I am not too troubled by that to the extent CC0 continues to be
+> applied to rather trivial pieces of code, but use of CC0 on a
+> substantial body of code might be another matter.
+
+I'm not convinced you actually need a license for "rather trivial pieces of
+code" that may be in the *real* public domain and not eligible for copyright
+protection at all. See, e.g., 17 USC 102(b). This is another example of how,
+in the context of open source software, we ask for licenses for things we
+can just take, and ignore the important stuff (e.g., patents) we really need
+licenses for. 
+
+Maybe it depends on your definition of "trivial".
+
+/Larry
+
+
+
+
+> -----Original Message-----
+> From: Richard Fontana [mailto:rfontana at redhat.com]
+> Sent: Monday, April 18, 2011 11:20 AM
+> To: Lawrence Rosen
+> Cc: license-discuss at opensource.org
+> Subject: Re: Towards an OSI-approved "waive all rights" software
+> license
+> 
+> On Mon, Apr 18, 2011 at 11:00:21AM -0700, Lawrence Rosen wrote:
+> > 2. The CC0 license says nothing about patents. I find this
+> particularly
+> > troubling when a CC0 license (or the BSD license, for that matter!)
+> is used
+> > for software or specifications by companies that have large patent
+> > portfolios.
+> 
+> In fact CC0 explicitly excludes any licensing of patents.
+> 
+>   No trademark or patent rights held by Affirmer are waived,
+>   abandoned, surrendered, licensed or otherwise affected by this
+>   document.
+> 
+> I am not too troubled by that to the extent CC0 continues to be
+> applied to rather trivial pieces of code, but use of CC0 on a
+> substantial body of code might be another matter.
+> 
+> I have recently suggested to Creative Commons that the issue should
+> perhaps be revisited in future versions of CC0, now that its
+> suitability for software has been acknowledged.
+> 
+> - RF
+> 
+
+
+
+
+From lrosen at rosenlaw.com  Mon Apr 18 20:02:12 2011
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Mon, 18 Apr 2011 13:02:12 -0700
+Subject: Towards an OSI-approved "waive all rights" software license
+In-Reply-To: <86hb9vbbb1.fsf@ds4.des.no>
+References: <BANLkTikqbVxMTURv0JoNqJS=TjCVRDQkSQ@mail.gmail.com>	<BANLkTinDLr+pNQU-1HJ=1DAgh=6oYcBV8g@mail.gmail.com>	<87oc44gpau.fsf@red-bean.com> <86hb9vbbb1.fsf@ds4.des.no>
+Message-ID: <012001cbfe03$81d618c0$85824a40$@com>
+
+Be very careful to include attribution and other conditions. It is only because a FOSS license imposes conditions that it may be enforceable by the parties. See /Jacobsen v. Katzer/. 
+
+Whatever written works it includes, the public domain isn't a license and doesn't require a license; it has no conditions. It is truly free. 
+
+/Larry
+
+
+
+> -----Original Message-----
+> From: Dag-Erling Sm?rgrav [mailto:des at des.no]
+> Sent: Monday, April 18, 2011 12:38 PM
+> To: Karl Fogel
+> Cc: dc at moonflare.com; license-discuss at opensource.org
+> Subject: Re: Towards an OSI-approved "waive all rights" software
+> license
+> 
+> Karl Fogel <kfogel at red-bean.com> writes:
+> > I think the simplest possible "waive all rights" license already
+> exists,
+> > in the the New (Simplified 2-Clause) BSD License [1]:
+> >
+> >   http://www.opensource.org/licenses/bsd-license
+> >
+> > It doesn't actually require attribution; it does require that the
+> > license text itself be reproduced with the sources, as you point out.
+> 
+> Not just the license text, and not just the source:
+> 
+>   Redistributions of source code must retain the above copyright
+> notice,
+>   this list of conditions and the following disclaimer.
+> 
+>   Redistributions in binary form must reproduce the above copyright
+>   notice, this list of conditions and the following disclaimer in the
+>   documentation and/or other materials provided with the distribution.
+> 
+> The ISC license is equivalent, but significantly shorter.
+> 
+> > For "waive all rights", CC0 is the best thing I can think of.
+> 
+> Or the zlib / libpng license, which, unlike CC0, is actually a software
+> license.
+> 
+> DES
+> --
+> Dag-Erling Sm?rgrav - des at des.no
+
+
+
+
+From andrew.wilson at intel.com  Mon Apr 18 16:09:26 2011
+From: andrew.wilson at intel.com (Wilson, Andrew)
+Date: Mon, 18 Apr 2011 09:09:26 -0700
+Subject: Towards an OSI-approved "waive all rights" software license
+In-Reply-To: <BANLkTi=CRtBD5jxoUY3obJq0vAia_=u0Vw@mail.gmail.com>
+References: <BANLkTikqbVxMTURv0JoNqJS=TjCVRDQkSQ@mail.gmail.com>
+	<BANLkTinDLr+pNQU-1HJ=1DAgh=6oYcBV8g@mail.gmail.com>
+	<87oc44gpau.fsf@red-bean.com>
+ <BANLkTi=CRtBD5jxoUY3obJq0vAia_=u0Vw@mail.gmail.com>
+Message-ID: <EDC0E76513226749BFBC9C3FB031318F013812F96B@orsmsx508.amr.corp.intel.com>
+
+
+Derrick Coetzee wrote:
+
+> I can make a comparison here with public domain
+> works like say the Mona Lisa. It's well-established in US case law
+> that any faithful reproduction of the Mona Lisa from any source can be
+> used without restriction (Bridgeman v. Corel). Now say I set up
+> monalisa.com and just stick a big image of the painting there with no
+> explanation. A clueless reader might imagine it's a new work still
+> under copyright, and be hesitant to reuse it; but anyone who either
+> recognizes the work, or visits another website that includes more
+> information about it, can readily determine that the image is in fact
+> public domain.
+
+[slightly off-topic]
+
+Well.... life is complex.  A few years ago an imaging scientist
+(Pascal Cotte) made a super high resolution, multi-spectrum scan of the
+Mona Lisa.  The scan revealed interesting facts about the
+painting.  He had to invent new techniques to perform the scan
+without damaging the painting.
+See http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.101.7313&rep=rep1&type=pdf
+
+My guess (and it is only a guess; IANAL) is that M. Cotte may own,
+if not the copyright on the Mona Lisa itself which is inarguably PD, then the copyright
+on the digital bits of his super high resolution, multi-spectrum scan
+which presents the painting (quite literally) in a new light.
+Perhaps under European law he owns the moral rights to the digital bits
+of his super hi-res scan as well?  I think a cautious person would not
+reproduce the Cotte version absent a written permission or disclaimer.
+
+[back on the original topic]
+
+We at Intel release a lot of sample code.  For really short code snippets, translations,
+or other non-copyrightable material we use CC0.  For more substantial pieces of code
+where carrying a (c) notice and disclaimer is not too intrusive, we use BSD.
+For code that falls somewhere in between, we use the Intel Sample Source Code License
+which grants rights equivalent to a permissive license (including patents)
+without requiring a notice or disclaimer.
+http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement-2/?wapkw=(sample+code+license)
+
+
+Andy Wilson
+Intel open source technology center
+
+
+
+From dcoetzee at gmail.com  Mon Apr 18 20:26:37 2011
+From: dcoetzee at gmail.com (Derrick Coetzee)
+Date: Mon, 18 Apr 2011 13:26:37 -0700
+Subject: Towards an OSI-approved "waive all rights" software license
+In-Reply-To: <86hb9vbbb1.fsf@ds4.des.no>
+References: <BANLkTikqbVxMTURv0JoNqJS=TjCVRDQkSQ@mail.gmail.com>
+	<BANLkTinDLr+pNQU-1HJ=1DAgh=6oYcBV8g@mail.gmail.com>
+	<87oc44gpau.fsf@red-bean.com>
+	<86hb9vbbb1.fsf@ds4.des.no>
+Message-ID: <BANLkTikbnJMprOEhoytcRwM0LqgeVdqBAQ@mail.gmail.com>
+
+2011/4/18 Dag-Erling Sm?rgrav <des at des.no>:
+>> For "waive all rights", CC0 is the best thing I can think of.
+>
+> Or the zlib / libpng license, which, unlike CC0, is actually a software
+> license.
+
+zlib / libpng doesn't meet the needs of a "waive all rights" scenario
+though; it imposes several restrictions, including reproduction of the
+notice (again) and clearly marking altered versions of the source.
+What I'm really after here is a statement that will allow code reusers
+to simply copy-paste code, reuse it, and alter it with impunity
+without any requirements or restrictions (under the assumption that
+it's free of patent issues). The goal is to streamline code reuse,
+particularly in "mosaic" works composed of small pieces from many
+disparate sources. There's no particular reason why CC0 isn't
+sufficient, since in the absence of any restrictions there is little
+need to discuss matters specific to source code such as the
+differences between source and binary, but there is still a popular
+impression that CC0 is "not for software" - it'd be nice to have a web
+page somewhere with somebody officially saying "no it's really okay
+for software, subject to these concerns (patents, etc.)".
+
+It's worth noting that currently a number of major projects are
+distributed as "public domain", most notably SQLite. I'm not confident
+these projects have all thought through the problematic details of the
+public domain label, such as the issue that works cannot be placed in
+the public domain by the copyright holder in some nations (a license
+waiving all rights is necessary instead), and issues of neighbouring
+rights. CC0 addresses these but has not yet been adopted by this type
+of project.
+
+-- 
+Derrick Coetzee
+
+
+From josh at postgresql.org  Thu Jan 14 18:17:18 2016
+From: josh at postgresql.org (Josh Berkus)
+Date: Thu, 14 Jan 2016 10:17:18 -0800
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <569776FE.4030405@piana.eu>
+References: <2D52F7EE739F8542A700CAB96276B51933DC992E@FMSMSX108.amr.corp.intel.com>
+ <569776FE.4030405@piana.eu>
+Message-ID: <5697E62E.6000809@postgresql.org>
+
+On 01/14/2016 02:22 AM, Carlo Piana wrote:
+> Would this license, in your analysis, cover the following use case:
+> patent holder A takes code X from B, mixes it with code Y, distributes
+> X+Y; A has patents only reading on X; B also uses and distributes X+Y.
+> Would B (as well as any recipient of X+Y) receive a patent grant from A
+> for this? This in my reading would not be the case of Apache (but I
+> might be mistaken, I have not studied it in depth). A is not contributor
+> of X, neither does it technically hold copyright in X.
+
+It seems to me that we discussed this with the Oracle permissive license
+last year?  I understand the desire for this kind of license ... I have
+a keen desire for one myself ... but it's not as simple as including a
+patent grant.  I'd really like to see a real patent attorney work on
+this question.
+
+-- 
+Josh Berkus
+PostgreSQL Project
+
+
+From josh at postgresql.org  Wed Jan 20 07:24:25 2016
+From: josh at postgresql.org (Josh Berkus)
+Date: Tue, 19 Jan 2016 23:24:25 -0800
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <569F13C6.6050108@postgresql.org>
+References: <CAPaMSD2O0Os_ObguJcukVHGNk2Wr-Ofcctkt0PdXv8sq6STUFQ@mail.gmail.com>
+ <CACJu1NxTEQ-vaov97drzx0w4xstTcTXyjSV9kwH3Ci0vy44KAg@mail.gmail.com>
+ <569F13C6.6050108@postgresql.org>
+Message-ID: <569F3629.1080405@postgresql.org>
+
+On 01/19/2016 08:57 PM, Josh Berkus wrote:
+> On 01/19/2016 06:12 PM, Mike Milinkovich wrote:
+>> Wow, this thread has degraded to the point of silliness. 
+>>
+>> Every OSI Board member who has commented on this license has said
+>> positive things about it. ?It's a good license. It fills a niche that we
+>> have long wanted filled. 
+> 
+> Yes, and I have an *immediate* use for such a license.
+> 
+> I haven't seen an attorney weigh in on the patent grant issues inherent
+> in a liberal patent-grant license.  Has one posted a review elsewhere?
+> 
+
+To be specific: is the patent grant language of the license correct and
+successful in granting a patent license on any concepts embodied in the
+code released, and only on those?  It's more than a bit opaque to
+non-lawyers.
+
+-- 
+Josh Berkus
+PostgreSQL Project
+
+
+From osi-review at piana.eu  Thu Jan 14 10:22:54 2016
+From: osi-review at piana.eu (Carlo Piana)
+Date: Thu, 14 Jan 2016 11:22:54 +0100
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B51933DC992E@FMSMSX108.amr.corp.intel.com>
+References: <2D52F7EE739F8542A700CAB96276B51933DC992E@FMSMSX108.amr.corp.intel.com>
+Message-ID: <569776FE.4030405@piana.eu>
+
+McCoy,
+
+I understand the rationale of this license and see where it is aiming.
+
+What is the rationale to exclude a retaliation clause from the patent
+license, which is I would say quite a predominant choice for this type
+of grant even in patent non assertion deeds? This is not an objection,
+the retaliation is obviously not something that would increase the
+compliance with OSD, more of a curiosity thing.
+
+My only criticism to the license is with the patent grant, which mixes
+the concepts of copyright title and contribution. I think that the
+patent right should be granted to and by all who provide contributions
+to the licensed material, whether or not they have copyright title (in
+theory they should, but exceptions must exist), therefore in my humble
+opinion the solution adopted by the Apache license is more elegant,
+although it has some shortcomings itself, which the proposed license
+seems to seek to address.
+
+Would this license, in your analysis, cover the following use case:
+patent holder A takes code X from B, mixes it with code Y, distributes
+X+Y; A has patents only reading on X; B also uses and distributes X+Y.
+Would B (as well as any recipient of X+Y) receive a patent grant from A
+for this? This in my reading would not be the case of Apache (but I
+might be mistaken, I have not studied it in depth). A is not contributor
+of X, neither does it technically hold copyright in X.
+
+Other than that, I think that I am in favor of approving a similar
+license. I have discussed on this list that BSD brings uncertainty on
+patents (as does GPL v.2, for that matter), this addition is useful to
+clarify things a lot (though still not a fan of BSD).
+
+With best regards,
+
+Carlo
+
+
+On 13/01/2016 19:57, Smith, McCoy wrote:
+> OSI License Submission for BSD + Patent License
+>
+> The attached license is submitted to the Open Source Initiative for approval as an OSI-approved Open Source license.
+>
+> RATIONALE:
+>
+> This license has been created to address a specific problem that has been encountered with existing licenses:  the desire of certain organizations to have a simple permissive license that is compatible with the GNU General Public License (GPL), version 2, but which also has an express patent grant included.
+>
+> PROLIFERATION CATEGORY:
+>
+> This license should be categorized as a ?Special Purpose License,? or, alternatively, as an approved variant of the BSD 2-clause license.
+>
+> DISTINGUISHING FROM OTHER OSI-APPROVED LICENSES:
+>
+> The BSD 2-clause license is currently categorized as one of the ?Licenses that are popular and widely used or with strong communities.?  The BSD 2-clause license is also considered by the Free Software Foundation (FSF) to be compatible with both GPLv2 and GPLv3.  However, some organizations ? particularly those with large or valuable patent portfolios ? are reluctant to use the BSD (and MIT) licenses because of the lack of an express patent license grant in those licenses.  Because of that issue, many patent holders prefer to use the Apache 2.0 license when they wish to license code permissively, since it has an express, and well-written, patent license grant.  Unfortunately, the FSF has determined that the Apache 2.0 license is not compatible with GPLv2 because ?it has some requirements that are not in that GPL version. These include certain patent termination and indemnification provisions.? 
+>
+> There is currently only one GPLv2-compatible permissive license that includes an express patent license ? the relatively-recently approved Universal Permissive License (UPL).  In the past, this has created a problem for some authors wishing to license their code permissively, but also including an express patent license grant, and also having the license be GPLv2 compatible so that users have the ability to integrate that code into GPLv2-licensed code (including, for example, the Linux kernel).  Although the UPL provides such an option, we believe that users will still wish to have a license with more familiar, and widely accepted licensing language (like a BSD-variant) that solves the issue of an express patent grant and GPLv2 compatibility.
+>
+> We believe that this license is non-duplicative (for the reasons set forth above), as it solves an issue all but one OSI-approved license solves (permissive, express patent license grant, GPLv2 compatibility).  The license itself is a combination of language from the BSD 2-clause license, the Apache 2.0 license, and the Eclipse Public License (all of which are already OSI-approved, and all of which are in the category of ?Licenses that are popular and widely used or with strong communities?).  It therefore should meet all the criteria of the OSD.
+>
+> LEGAL REVIEW:
+>
+> The text of the license is reproduced below.  We have also included an attached mark-up of the license showing where the language comes from BSD 2-clause, Apache 2.0 and Eclipse.  The patent grant from Apache 2.0 and Eclipse were used because the combination of the two was more tightly-worded and fit better with the existing language in the BSD 2-clause license.  Note that we have removed the ?patent termination/retaliation? language from both of these licenses because this language is one of the reasons why Apache 2.0 has been found to be incompatible with GPLv2.
+>
+> In keeping with the License Approval Process submission guidelines:
+>
+> 	1. We have read the Open Source Definition and ensured that this license complies with it (and in fact, this license is an amalgamation of already OSI-approved licenses).
+> 	2. This is an Approval submission, as this is a new license (albeit derived from existing OSI-approved licenses).
+> 	3. We have appropriate standing to submit this request, as this license was created by us (again, derived from existing OSI-approved licenses).
+> 	4. We are subscribed to license-review.
+> 	5. This communication is our  formal request to license-review. 
+>
+> Please approve this license for inclusion on the OSI approved license list.
+>
+> McCoy Smith
+> Intel Corporation
+> Legal & Corporate Affairs
+>
+>
+> PLAINTEXT COPY OF LICENSE BELOW:
+>
+> =================================================================================================================================================================================================
+> Copyright (c) <YEAR>, <COPYRIGHT HOLDERS>
+>
+> Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+>
+> 1.	Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+> 2.	Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+>
+> Each copyright holder and contributor hereby grants to those exercising copyright rights under this license a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer their copyrighted material (whether in source code or binary form) made available under this license, where such license applies only to those patent claims licensable by such copyright holder or contributor that are necessarily infringed by:
+>
+> (a)  their copyrighted material alone; or 
+> (b) by combination of their copyrighted material with the work of authorship to which such copyrighted material was added by such copyright holder or contributor, if, at the time the copyrighted material was added, such addition causes such combination to be covered by the patent claim. The patent license shall not apply to any other combinations which include their copyrighted material. 
+>
+> No hardware per se is licensed hereunder.
+>
+> THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+>
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20160114/ac54fac7/attachment.html>
+
+From osi-review at piana.eu  Thu Jan 21 08:49:51 2016
+From: osi-review at piana.eu (Carlo Piana)
+Date: Thu, 21 Jan 2016 09:49:51 +0100
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <20160120233803.GA19133@mercury.ccil.org>
+References: <CAPaMSD2O0Os_ObguJcukVHGNk2Wr-Ofcctkt0PdXv8sq6STUFQ@mail.gmail.com>
+ <CACJu1NxTEQ-vaov97drzx0w4xstTcTXyjSV9kwH3Ci0vy44KAg@mail.gmail.com>
+ <569F13C6.6050108@postgresql.org> <D2C4EE91.28881%Nigel.Tzeng@jhuapl.edu>
+ <2D52F7EE739F8542A700CAB96276B51933DE9208@FMSMSX108.amr.corp.intel.com>
+ <20160120233803.GA19133@mercury.ccil.org>
+Message-ID: <56A09BAF.9000808@piana.eu>
+
+On 21/01/2016 00:38, John Cowan wrote:
+> Smith, McCoy scripsit:
+>
+>> [S]o I don't believe FSF designation is required before OSI approval.
+> No, of course not.  But if the whole purpose of the license is GPLv2
+> compatibility, and the FSF is considered the judge of that (ultimately
+> the judge of that is an actual judge, of course), then it makes sense
+> to ask the FSF what it thinks, so that the OSI can determine if the
+> license does what it says on the tin before approving it.
+>
+
+On the other hand, however authoritative, FSF's is an opinion rather
+than an established fact, as our friend Larry has been keen on noting.
+Leaving disagreement on past occurrences and frictions -- incidentally I
+find FSF's position accurate, but then again it's my opinion -- I think
+this point is correct.
+
+I think that the license, once the nuances are cleared, has its own
+merit as it attempts to clarify an ambiguity created with the shifting
+of the legal framework. If it's compatible AND acknowledged so by FSF,
+all much better. But since it's not copyleft (at this stage of my
+analysis), I believe there is little proliferation damage compared to
+benefit.
+
+Best
+
+Carlo
+
+
+
+From fontana at sharpeleven.org  Thu Jan 21 01:48:18 2016
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Wed, 20 Jan 2016 20:48:18 -0500
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B51933DE3D8E@FMSMSX108.amr.corp.intel.com>
+References: <2D52F7EE739F8542A700CAB96276B51933DE3D8E@FMSMSX108.amr.corp.intel.com>
+Message-ID: <20160121014818.GB11491@sharpeleven.org>
+
+On Wed, Jan 20, 2016 at 04:38:39PM +0000, Smith, McCoy wrote:
+> Nigel Tzeng suggested substituting a more general disclaimer (for example " No other express or implied licenses are granted");  I can see some merit to that as an alternative disclaimer.  I'm curious of the mailing list's thoughts on this sort of disclaimer.  I know it is something that is often put in proprietary licenses, although even those sorts of disclaimer don't necessarily preclude an implied license being found (at least in the US, per the Transcore decision and certain progeny).  As to whether this disclaimer might impact GPLv2 compatibility, I think not (given the finding that the Clear BSD -- with a complete disclaimer of all patent licenses -- is GPLv2 and GPLv3 compatible: http://www.gnu.org/licenses/license-list.en.html#clearbsd  )
+
+I agree that it probably would not have an impact on GPLv2
+compatibility. I also do not think it has any relevance to the issue
+of OSD conformance. I would prefer not to see it mainly because it's
+an additional feature, not in the Apache License 2.0 patent provision,
+adding incremental complexity to a very simple license, that may be
+more likely to raise doubts among potential users (whether about GPL
+compatibility, policy soundness, or both) than would otherwise be the
+case.
+
+Richard
+
+
