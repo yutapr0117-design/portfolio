@@ -214,10 +214,10 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       Sections 3 to 8 and Section 12, a list that could be read to confine
       Section 5 to rights that subsist and to leave out Sections 13 and 14.
       (-3 words.)
-    * Section 1.9 now applies "in either case offering the Work, with a notice
-      of this Dedication" to a submission to the Dedicator as well as to a
-      repository or forum, so that a past contributor is not an addressee. (+3
-      words.)
+    * Section 1.9 (errata E73) now applies "in either case offering the Work,
+      with a notice of this Dedication" to a submission to the Dedicator as
+      well as to a repository or forum, so that a past contributor is not an
+      addressee. (+3 words.)
     * Section 2.6 now binds "a Dedicator who includes that material with the
       Work, or causes it to be included", where any inclusion bound every
       Dedicator. (+5 words.)
@@ -227,14 +227,14 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 5.2(d) now places "other than for a false statement or
       representation" before the verb, so that it qualifies the right asserted
       and not the use. (0 words.)
-    * Section 10.3 now opens "Under this Dedication", so that it does not reach
-      terms the Dedicator sets for its own service outside this Dedication. (+3
-      words.)
-    * Section 15.1 now joins its two sentences, so that "in respect of the
-      Work" governs the rule that the reading granting more to You prevails.
-      (+3 words.)
-    * Section 16.4 now restricts "any name that contains" the name, as it
-      restricts any identifier that contains "ACD-". (+2 words.)
+    * Section 10.3 (errata E74) now opens "Under this Dedication", so that it
+      does not reach terms the Dedicator sets for its own service outside this
+      Dedication. (+3 words.)
+    * Section 15.1 (errata E75) now joins its two sentences, so that "in
+      respect of the Work" governs the rule that the reading granting more to
+      You prevails. (+3 words.)
+    * Section 16.4 (errata E76) now restricts "any name that contains" the
+      name, as it restricts any identifier that contains "ACD-". (+2 words.)
     * Section 16.5 now names, after an assignment, "the person or entity to
       whom that role was last assigned", so that an assignor does not remain
       the Steward. (+4 words.)
