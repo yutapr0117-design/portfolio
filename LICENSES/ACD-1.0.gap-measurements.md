@@ -689,3 +689,17 @@ David A. Wheeler 氏が「Public Domain」を OSI のライセンスの一覧に
 **逆側。** Rosen 氏は同じ日に *"I'm still not convinced that there's ever a good reason for those who write software, or those who use it, to rely on a simple dedication of software to the public. Use a license."* とも述べた。ACD の答えは、献呈に頼らず許諾も置くこと（§4.4）だが、§3 を置く理由そのものへの疑いはこの文に残る。
 
 **この節が establish しないこと。** 2003 年の個人の発言で、OSI の決定ではない。役割は付けていない。
+
+## 1.148 「公有化の標準の文書が無い」—— 2011 年に、標準の文書なら審査の対象になりうると述べられていた（2026-11-08）
+
+`license-discuss` 2011-09「Can OSI specify that public domain is open source?」（`rounds/2011-09-license-discuss-can-osi-specify-public-domain-observed.txt`）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"So, perhaps, OSI's main business has been certifying particular legal documents, and there simply is no standard one in the sphere that's been considered (justifiably or not) "public domain". There is CC-0, which I believe meets the OSD. I suppose, say, the SQLite project could offer their own legal notice as the equivalent of a license for certification, and then OSI would have to face the issue."* | Richard Fontana 氏 2011-09-07（当時 Red Hat）| 審査の対象は特定の文書で、公有化の分野には標準の文書が無かった、という見立て。ACD は名前と版を持つ固定した文書（§16.4）で、その欠けていたものに当たる。同じ文で CC0 は OSD に適合すると述べている |
+| *"once it is established that something is in the public domain, that thing is open source."* | Karl Fogel 氏 2011-09 | 公有の状態そのものは open source と読む立場 |
+| *"The issue is not whether PD works are open source, but whether they exist -- that is, whether merely saying so can make a work public domain."* | John Cowan 氏 2011-09 | 問題は宣言で公有になるかどうかだ、という指摘。§4.4 は §3 が効くかどうかに依らずに許諾を立てるので、この問いに答えを預けない |
+
+**逆側。** Cowan 氏は同じスレッドで、公有の作品を改変すると改変分は改変者の著作物になると述べ、*"That's what makes public-domain notices really bad."* と書いた。ACD では寄与は §2.6 で同じ条件に入るが、寄与として出されない改変は改変者の条件で配られる（§4.5）。これは許容型と同じ性質で、ACD が直すものではない。
+
+**この節が establish しないこと。** 個人の発言で、OSI の決定ではない。Fontana 氏の文は「審査することになる」という見立てで、承認するとは述べていない。
