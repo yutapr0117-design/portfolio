@@ -238,7 +238,13 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 16.5 now names, after an assignment, "the person or entity to
       whom that role was last assigned", so that an assignor does not remain
       the Steward. (+4 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5633 words, 80 clauses.
+    * Section 16.4 now matches an identifier that contains "ACD-" "regardless
+      of case", so that a modified text cannot take a version number in lower
+      case. (+3 words.)
+    * Section 16.4 now counts only an earlier text "the Steward has published"
+      when it bars a version number, so that a modified text distributed in
+      breach cannot take the number first. (+4 words.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5640 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -878,10 +884,10 @@ PREAMBLE (informative; not part of the operative terms)
        Making a modified text is not restricted; what is restricted is
        distributing one. A modified text may not be distributed under any name
        that contains "Autonomous Commons Dedication" or under any identifier
-       that contains "ACD-" followed by a digit, except by the Steward
-       (Section 16.5), and by the Steward only as a new version under a version
-       number and identifier
-       that no earlier text, other than a draft identified as such, has borne,
+       that contains "ACD-", regardless of case, followed by a digit,
+       except by the Steward (Section 16.5), and by the Steward only as a new
+       version under a version number and identifier that no earlier text the
+       Steward has published, other than a draft identified as such, has borne,
        so that each name and identifier in this family continues to denote one
        fixed text. A modified text may be distributed under a different name. A
        translation is not a modified text for this purpose and may be

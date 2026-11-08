@@ -109,6 +109,8 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §15.1（2 文をつなぐ・T43） | *"that its words allow. Where a provision"* を *"that its words allow, and so that, where a provision"* へ | *"in respect of the Work"* は第 1 文の主語にしか掛からず、第 2 文の解釈規則が §16.4（名前の保護）に及んで、改変した本文を配る者に有利に読めた（E20 の残り）。2 文をつないで第 1 文の主語で両方を受けた。bb は解釈規則を「許可」に絞る案も出したが、寄与を広げる読みも許可を多く与えるので T35・T36 の根は消えないと見て、別に読む | +3 | 反映済 |
 | §16.4（名前・T44） | *"under the name "Autonomous Commons Dedication""* を *"under any name that contains "Autonomous Commons Dedication""* へ | 識別子は *"any identifier that contains"* なのに名前は *"the name"* で、対比から「名前を含む別の名前」（*… Dedication Plus* など）は許されると読めた。逆側: 注釈版の題に名前を含む本は捕まる。bb が別に挙げた §16.4 の識別子の大小の区別（小文字の *acd-1.5*）は T32 の誤検出の理由があるので、別に読む | +2 | 反映済 |
 | §16.5（Steward・T45） | *"and any person or entity to whom that role is assigned by"* を *"or, after an assignment, the person or entity to whom that role was last assigned by"* へ | *and any* は累積で、譲渡したあとも最初の公表者と譲受人の両方が Steward になり、1 つの名前が 1 つの本文を指す線が割れた。§15.5 により 1 回の譲渡で共同の Steward を置くことは妨げない（bb）。残る空白（譲渡せずに死亡・解散）は新旧どちらの形でも答えない（B12） | +4 | 反映済 |
+| §16.4（識別子の大小・T46） | *"any identifier that contains "ACD-" followed by a digit"* を *"… "ACD-", regardless of case, followed by a digit"* へ | 照合が大小を区別するので、改変した本文を小文字の *acd-1.5* で配ると制限を素通りした。Steward が後に ACD-1.5 を出すと、その版の §16.2 は大小を区別せずに照合するので、札がどちらの本文を指すかが割れる。T32 が大小を区別しない規則を §16.2 に限った理由（*LicenseRef-Abacd-3* の誤検出）は、§16.4 では縛るのが改変した本文の名前だけなので害が小さい。*in any case* は「いずれにせよ」と読めるので避けた（bb の反例 (a)〜(c) は立たない） | +3 | 反映済 |
+| §16.4（識別子の先取り・T47） | *"that no earlier text, other than a draft identified as such, has borne"* を *"that no earlier text the Steward has published, other than a draft identified as such, has borne"* へ | *no earlier text* に限定が無く、違反して先に *ACD-1.5* で配った改変版も「その識別子を帯びた先の本文」に当たり、Steward が正規の 1.5 を出せない読みがあった（bb）。T46 で大小を区別しなくなると *acd-1.5* の先取りでも起きる。Steward 自身が同じ識別子で別本文を出せないことは変わらない。§16.5 の *published* にそろえた。468m の許す形と mutation の anchor 2 件を同じ commit で替えた | +4 | 反映済 |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
@@ -155,18 +157,18 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 
-1.3 の 5,443 語から 1.4 草案は +190 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
+1.3 の 5,443 語から 1.4 草案は +197 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
 
 | 束 | 増減 | 何のための語か |
 | :-- | --: | :-- |
 | 適用と通知（§1.9・§2.3・§2.6・§16.1〜§16.3）| +134 | タグや識別子だけの適用、通知が名指す素材、優先、大小の区別、寄与の宛先。採用者がファイル単位・パッケージ単位で使うときに、意図しない素材を撤回不能に出さないための語 |
 | 不行使と付随の約束（§5）| +118 | 商標と虚偽の表示、合意した支払い、特許の除外、Dedicator 自身のモデルとサービス。データだけを出す組織や、重みと API を両方出す組織が採用できるための語 |
-| 名前の保護（§16.4〜§16.6）| +35 | 1 つの名前と識別子が 1 つの本文を指すための語 |
+| 名前の保護（§16.4〜§16.6）| +42 | 1 つの名前と識別子が 1 つの本文を指すための語 |
 | その他の明瞭化 | +40 | 定義、承継、§4、§9 などの語の付き先 |
 | 特許（§6.1・§8）| −2 | 行為を目的語にし、*reach* を 1 回で定め、三つの足場の説明を外した |
 | 理由・説明の文を外したもの | −135 | §2.8・§11.4・§12.4 の理由の文と、§2.7・§8.5 の案内（Chestek 氏 *"I question whether they belong in the agreement at all."*・#295）|
 
-**読み方**: 増えた語の大半（+252）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −135 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 737 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
+**読み方**: 増えた語の大半（+252）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −135 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 744 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
 
 ## 外部資料 5 本を当てた結果（2026-10-28・オーナーが URL を渡した・clean も書き残す）
 
@@ -397,6 +399,7 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 | 個別 | `REVIEWERS.md` の `against.md` の倍数（*"about twenty times the length of the licence"*）| 分母は `SUBMISSION-TARGET` が名指す版の本文（Check 460(g)・PR 2687）。marker を替えた時点で新しい比で照合されるので、入口の語を数え直す（1.4 なら約 17.7 倍で *"about eighteen"*）|
 | 個別 | `ACD-1.0.clause-reference.md`（全 16 節 82 条・1.0 の番号）と、それを *"all 82 clauses"* と紹介する入口（`submission.md` 54、`REVIEWERS.md` 325、`README.md` 31、`QUESTION-INDEX.md` 59）| 1.4 は 80 条で番号も中身も変わるので、1.0 の逐条リファレンスは提出する版の逐条にならない。Check 460(c) は申告の条数を `ACD-1.0.txt` と照合するので、切り替えても RED にならない（機械はこの食い違いを見ない）。1.4 の逐条リファレンスを草案の段階で作っておき（`ACD-1.4-CLAUSE-REFERENCE-DRAFT.md`・2026-11-08）、入口はそれへ向ける。確定の日に名前から *-DRAFT* を外すかを決め、草案の条文が変わった行を読み直す。1.0 のものは 1.0 の記録として残す |
 | 個別 | §16.4 の名前を *"under the name …"* と引く文（T44）: `against.md` 80（#27）、`faq.md` 226、`submission-osd.md` 138、`submission-reference.md` 657 | 1.0〜1.3 の文としては正しい。提出の版の §16.4 を述べる文は *"under any name that contains …"* へ替え、版を名乗る文と経緯は残す |
+| 個別 | §16.4 の識別子の照合（T46）を引く文: `submission-osd.md` 149、`submission-reference.md` 667 が *"ACD-" followed by a digit* を条番号つきで引く | 1.4 では *"regardless of case"* が入る。提出の版の §16.4 を述べる文は替え、1.0〜1.3 の文として引く文は残す |
 | 個別 | `submission.md` §B.0 の本文の *ACD-1.0*（Check 472o）| 件名・冒頭・header・URL は 472f が見る。本文の 7 箇所のうち 6 箇所（OSD の宣言、gap、条件の段、§6.4 の段、§1.2 の段、*taken alone*）は版を替える。§1.2 の段は §1.3 へ替える。Provenance の *"The name ACD-1.0"* は履歴の文なので、版を替えず *"The name ACD"* とする |
 
 

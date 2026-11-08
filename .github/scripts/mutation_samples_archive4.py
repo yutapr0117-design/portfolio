@@ -375,8 +375,8 @@ MUTATIONS_ARCHIVE4 = [
     "file": CURRENT_DRAFT,
     # 同じ語句が草案冒頭の変更一覧にも引用されている (初版の find は 2 箇所に当たり、先頭 = 変更一覧を
     # 打って §16.4 は無傷だった)。§16.4 の行だけにある直後の "," まで含めて一意にする。
-    "find": "that no earlier text, other than a draft",
-    "replace": "that an earlier text, other than a draft",
+    "find": "that no earlier text the",
+    "replace": "that an earlier text the",
     "check": CHECK,
 },
     {
@@ -803,8 +803,8 @@ MUTATIONS_ARCHIVE4 = [
     {
     "name": 'Check 468m: §16.4 の草案の例外を広げる (a draft → a draft or a corrected text) —— 目印は 2 つとも残るので、存在だけを見る形では 1 識別子 = 1 固定本文が崩れても通った',
     "file": CURRENT_DRAFT,
-    "find": "that no earlier text, other than a draft identified as such, has borne",
-    "replace": "that no earlier text, other than a draft or a corrected text, has borne",
+    "find": "other than a draft identified as such, has borne",
+    "replace": "other than a draft or a corrected text, has borne",
     "check": CHECK,
 },
     {
