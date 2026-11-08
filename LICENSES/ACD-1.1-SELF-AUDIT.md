@@ -791,3 +791,13 @@ Dedicator が自分では主張せず、独占的なライセンスを受けた�
 
 **一般形**: **限定を足したら、同じ対象へ届く一般語を本文全部で探す。** 1.1 が §8.4 へ限定を足したとき、§8.3 の全称は見なかった。1.2 が §5.1 へ請求権の語を足したとき、§8.4 の限定は見なかった。2026-11-06 の掃引で、特許の請求へ届く語はこの 2 か所だけだった。
 
+
+
+## 3y. 逐条リファレンスの行を本文に当てた読みで出た、1.1 が持ち込んだ欠陥 2 件（2026-11-08）
+
+`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.18 の読み（逐条リファレンスの行が述べる読みを、本文の語だけから敵対的な読み手が取るか）で残った 10 件のうち、1.0 の本文に無く 1.1 で入った文は 2 件だった。1.1〜1.3 は凍結のまま未修正。
+
+| 条 | 持ち込んだ版 | 読み | 1.4 草案 |
+|---|---|---|---|
+| §2.6 第 2 文（識別の約束） | 1.1 | *"and that material is included in the Work, the Dedicator will identify it"*（1.4 草案では *with the Work*）は受動で、誰が含めても、もう関わっていない Dedicator も含めて全員に約束を負わせる | *"a Dedicator who includes that material with the Work, or causes it to be included, will identify it"*（+5 語・T37）|
+| §16.5（Steward） | 1.1 | *"and any person or entity to whom that role is assigned"* は累積で、譲渡したあとも最初の公表者が Steward のまま残る | *"or, after an assignment, the person or entity to whom that role was last assigned by"*（+4 語・T45）|

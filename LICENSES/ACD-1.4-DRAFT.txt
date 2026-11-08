@@ -214,7 +214,31 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       Sections 3 to 8 and Section 12, a list that could be read to confine
       Section 5 to rights that subsist and to leave out Sections 13 and 14.
       (-3 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5611 words, 80 clauses.
+    * Section 1.9 now applies "in either case offering the Work, with a notice
+      of this Dedication" to a submission to the Dedicator as well as to a
+      repository or forum, so that a past contributor is not an addressee. (+3
+      words.)
+    * Section 2.6 now binds "a Dedicator who includes that material with the
+      Work, or causes it to be included", where any inclusion bound every
+      Dedicator. (+5 words.)
+    * Section 5.2's closing paragraph now reaches material the Dedicator "makes
+      or makes available", so that a model it keeps to itself is outside
+      Section 5 as well. (+2 words.)
+    * Section 5.2(d) now places "other than for a false statement or
+      representation" before the verb, so that it qualifies the right asserted
+      and not the use. (0 words.)
+    * Section 10.3 now opens "Under this Dedication", so that it does not reach
+      terms the Dedicator sets for its own service outside this Dedication. (+3
+      words.)
+    * Section 15.1 now joins its two sentences, so that "in respect of the
+      Work" governs the rule that the reading granting more to You prevails.
+      (+3 words.)
+    * Section 16.4 now restricts "any name that contains" the name, as it
+      restricts any identifier that contains "ACD-". (+2 words.)
+    * Section 16.5 now names, after an assignment, "the person or entity to
+      whom that role was last assigned", so that an assignor does not remain
+      the Steward. (+4 words.)
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5633 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -319,11 +343,12 @@ PREAMBLE (informative; not part of the operative terms)
   1.9  "Contribution" means any work of authorship, including any modification,
        addition, correction, translation, or accompanying material, that a
        person intentionally submits to the Dedicator or to a repository or
-       forum offering the Work, with a notice of this Dedication, to the
-       public or to those invited to contribute, for inclusion in the
-       Work. A submission is intentional if it is made by or on behalf of the
-       person for that purpose; material sent for discussion only, and
-       material a person marks as not being a Contribution, are excluded.
+       forum, in either case offering the Work, with a notice of this
+       Dedication, to the public or to those invited to contribute, for
+       inclusion in the Work. A submission is intentional if it is made by or
+       on behalf of the person for that purpose; material sent for discussion
+       only, and material a person marks as not being a Contribution, are
+       excluded.
 
   1.10 "Reservation" means any act, notice, marking, metadata, protocol
        element, header, machine-readable signal, contractual term, or other
@@ -366,17 +391,17 @@ PREAMBLE (informative; not part of the operative terms)
   2.6  A Contribution is submitted under this Dedication, and the person making
        it becomes a Dedicator as to that Contribution, unless they state
        otherwise at the time of submission. Where a person states otherwise, or
-       material is excluded from being a Contribution by Section 1.9, and that
-       material is included with the Work, the Dedicator will identify it in a
-       form that accompanies the Work, so that a person or an automated system
-       reading the Work can determine what this Dedication does not cover; this
-       undertaking binds the Dedicator and imposes nothing upon You, and
-       Section 6.5 states why it matters. No separate instrument, assignment,
-       or agreement is needed to place a Contribution under this Dedication.
-       Whether the Dedicator asks a contributor for anything else is a matter
-       of project governance and is not addressed here. Nothing in this Section
-       obliges anyone to submit anything, or obliges the Dedicator to accept
-       anything.
+       material is excluded from being a Contribution by Section 1.9, a
+       Dedicator who includes that material with the Work, or causes it to be
+       included, will identify it in a form that accompanies the Work, so that
+       a person or an automated system reading the Work can determine what this
+       Dedication does not cover; this undertaking binds that Dedicator and
+       imposes nothing upon You, and Section 6.5 states why it matters. No
+       separate instrument, assignment, or agreement is needed to place a
+       Contribution under this Dedication. Whether the Dedicator asks a
+       contributor for anything else is a matter of project governance and is
+       not addressed here. Nothing in this Section obliges anyone to submit
+       anything, or obliges the Dedicator to accept anything.
 
   2.7  This Dedication reaches only rights the Dedicator holds, now or in
        future. Where the Work incorporates material in which another person
@@ -485,21 +510,20 @@ PREAMBLE (informative; not part of the operative terms)
        (c)  assert that any permission granted here is narrower than Section
             15.1 requires it to be read; or
 
-       (d)  assert, or authorise or assist any other person to assert,
-            against You a right of privacy, publicity, or personality held by
-            the Dedicator, in respect of any use of the Work that this
-            Dedication permits, other than for a false statement or
-            representation (Section 11.3). This is a covenant about the
-            Dedicator's own conduct and not a grant: Section 11.4 is
-            unaffected, and rights of this kind held by any other person are
-            untouched.
+       (d)  other than for a false statement or representation (Section 11.3),
+            assert, or authorise or assist any other person to assert, against
+            You a right of privacy, publicity, or personality held by the
+            Dedicator, in respect of any use of the Work that this Dedication
+            permits. This is a covenant about the Dedicator's own conduct and
+            not a grant: Section 11.4 is unaffected, and rights of this kind
+            held by any other person are untouched.
 
        Section 5 does not reach the Dedicator's rights in material, other than
-       the Work, that the Dedicator itself makes available, or the terms or
-       measures it applies to that material, even where using that material is
-       a Computational Use of the Work. Paragraphs (a) and (b) do not reach a
-       service through which the Dedicator runs the Work for others without
-       providing a copy of it.
+       the Work, that the Dedicator itself makes or makes available, or the
+       terms or measures it applies to that material, even where using that
+       material is a Computational Use of the Work. Paragraphs (a) and (b) do
+       not reach a service through which the Dedicator runs the Work for others
+       without providing a copy of it.
 
   5.3  The covenants in Sections 5.1 and 5.2 bind the Dedicator's successors,
        assigns, heirs, and personal representatives, to the fullest extent the
@@ -669,12 +693,12 @@ PREAMBLE (informative; not part of the operative terms)
        anything under these or any other terms, retain this file, or inform
        anyone of anything.
 
-  10.3 Any request, preference, custom, or expectation expressed by the
-       Dedicator in respect of the Work, wherever expressed and however
-       phrased, including a request for attribution or citation, is a request
-       and not a condition. It creates no obligation, its non-observance is not
-       a breach, and it neither limits, qualifies, nor terminates any
-       permission granted here.
+  10.3 Under this Dedication, any request, preference, custom, or expectation
+       expressed by the Dedicator in respect of the Work, wherever expressed
+       and however phrased, including a request for attribution or citation, is
+       a request and not a condition: it creates no obligation, its
+       non-observance is not a breach, and it neither limits, qualifies, nor
+       terminates any permission granted here.
 
   10.4 No permission granted by this Dedication terminates for any reason. This
        Dedication, in respect of the Work, contains no termination provision
@@ -786,8 +810,8 @@ PREAMBLE (informative; not part of the operative terms)
 
   15.1 This Dedication, in respect of the Work, is to be construed so as to
        give the widest permission and the least obligation upon You that its
-       words allow. Where a provision is capable of more than one reading, the
-       reading that grants more to You prevails.
+       words allow, and so that, where a provision is capable of more than one
+       reading, the reading that grants more to You prevails.
 
   15.2 If a provision of this Dedication is held invalid or unenforceable in a
        jurisdiction, it is to be reformed to the minimum extent necessary to
@@ -852,10 +876,11 @@ PREAMBLE (informative; not part of the operative terms)
   16.4 The text of this Dedication may be copied and distributed verbatim by
        anyone, in any medium, for any purpose, without charge or permission.
        Making a modified text is not restricted; what is restricted is
-       distributing one. A modified text may not be distributed under the name
-       "Autonomous Commons Dedication" or under any identifier that contains
-       "ACD-" followed by a digit, except by the Steward (Section 16.5), and by
-       the Steward only as a new version under a version number and identifier
+       distributing one. A modified text may not be distributed under any name
+       that contains "Autonomous Commons Dedication" or under any identifier
+       that contains "ACD-" followed by a digit, except by the Steward
+       (Section 16.5), and by the Steward only as a new version under a version
+       number and identifier
        that no earlier text, other than a draft identified as such, has borne,
        so that each name and identifier in this family continues to denote one
        fixed text. A modified text may be distributed under a different name. A
@@ -870,9 +895,9 @@ PREAMBLE (informative; not part of the operative terms)
        (Section 10.5).
 
   16.5 In Section 16.4, "the Steward" means the person or entity that first
-       published this text under the name and the identifier it bears, and any
-       person or entity to whom that role is assigned by the person or entity
-       then holding that role.
+       published this text under the name and the identifier it bears or, after
+       an assignment, the person or entity to whom that role was last assigned
+       by the person or entity then holding that role.
 
   16.6 Sections 16.4 and 16.5 govern the text of this Dedication as a document.
        They are not terms of the Work, they bind no one in respect of the Work,
