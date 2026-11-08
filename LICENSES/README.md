@@ -29,6 +29,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 |---|---|
 | **条文そのもの** | 議論された版 [`ACD-1.0.txt`](ACD-1.0.txt) / 適用中の版 [`ACD-1.3.txt`](ACD-1.3.txt)（版の一覧は下の表） |
 | この条項は何のためにあるのか（**全 82 条**） | [`ACD-1.0.clause-reference.md`](ACD-1.0.clause-reference.md) |
+| 1.4 草案の条項は何のためにあるのか（下書き） | [`ACD-1.4-CLAUSE-REFERENCE-DRAFT.md`](ACD-1.4-CLAUSE-REFERENCE-DRAFT.md) |
 | 「既存の X で足りるのでは」 | [`ACD-1.0.comparison.md`](ACD-1.0.comparison.md) |
 | 「この提出は実際に何を言われるのか」 | [`ACD-1.0.review-precedents.md`](ACD-1.0.review-precedents.md) —— **個別スレッドを読んで**得た、当たる指摘と当たらない指摘（§1.45〜§1.66）|
 | 「**OSI は実際に何をしたか**」 | [`ACD-1.0.review-outcomes.md`](ACD-1.0.review-outcomes.md) —— 理事会の議決とその理由 / 委員長の手続き運用 / 承認後の扱い / **決まらない場合（留め置き）**。**2026-09-27 に `review-precedents.md` から主題で分離した** ——あちらは「提出そのものの読み」|
