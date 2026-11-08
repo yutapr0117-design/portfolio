@@ -549,6 +549,19 @@ _MUTATIONS_TAIL.append({
     "find": "| Check 445 (5 部) |",
     "replace": "| Check 445（9 部）|",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 444o: index.html の RAG 用の Licence: 行を 1.0 の本文へ戻す —— 版を述べるのにどの面にも読まれておらず、緑のままだった",
+    "file": ROOT / "index.html",
+    "find": "      Licence: https://yutapr0117-design.github.io/portfolio/LICENSES/",
+    "replace": "      Licence: https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt (was LICENSES/",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 444o: agent-skills の index.json の licensing を 1.0 と述べる —— skill の description の版は誰も照合していなかった",
+    "file": ROOT / ".well-known" / "agent-skills" / "index.json",
+    "find": "licensing (ACD-",
+    "replace": "licensing (ACD-1.0: was ACD-",
+    "first_occurrence": True,
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
