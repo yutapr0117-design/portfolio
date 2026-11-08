@@ -86,6 +86,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 
 """
 import re
+from _lib_io import strip_js_comments  # SITE_CONFIG の値をコメントから読まない (2026-11-08)
 import json
 
 
@@ -214,7 +215,7 @@ def run(ctx):
     _main148 = ROOT / "main.js"
     _meta148 = ROOT / "js" / "page-meta.js"
     if _main148.exists() and _meta148.exists():
-        _msrc148 = _main148.read_text(encoding="utf-8")
+        _msrc148 = strip_js_comments(_main148.read_text(encoding="utf-8"))
         _psrc148 = _meta148.read_text(encoding="utf-8")
         _ar148 = re.search(r"ARTICLE_ROUTES:\s*\[([^\]]+)\]", _msrc148)
         _routes148: list[str] = []
