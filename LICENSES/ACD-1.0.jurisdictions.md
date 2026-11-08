@@ -149,6 +149,15 @@ to it"* は、63 条の 2「利用権は、当該利用権に係る著作物の�
 Reduktion の制限もそのままには及ばない。**どちらであるかは助言を得ていない。**
 本書の方針どおり、ここでは問いとして置く。
 
+**ドイツの実務家の見解（2026-11-08 追記）**: Unlicense の審査（2020-05-19）で、Pamela Chestek 氏が
+ドイツの弁護士 Till Jaeger 氏の見解を本人の許可を得てリストに載せた（`rounds/2020-05-license-review-unlicense-veto-observed.txt`・
+`ACD-1.0.reviewer-positions.md` §1.140 の「法域」）: *"Under German law the Unlicense would work as a license."*、
+*"it is the prevailing opinion that even without such license language a public domain dedication needs to be
+interpreted as a license without license conditions (but moral rights still apply)."* この読みなら、§3 の
+surrender はドイツでも少なくとも §4 と同じ作用（条件の無い許諾）に読まれ、上の「§3 が脱落しても §4 が残る」
+より強い。**逆側**: 1 人の見解で、Unlicense についてのものである。人格権は残る（§12 の領分）。同じ通で、
+権利者の決定以外の理由で公有の作品（公的機関の作品）には当てはまらないとも述べている。
+
 **取り戻しの条文（2026-11-08 追記・gesetze-im-internet.de で原典）**: 「作者が考えを変えたら取り戻せる
 のでは」という問いには条文がある。UrhG 42 条 1 項は *„Der Urheber kann ein Nutzungsrecht gegenüber dem
 Inhaber zurückrufen, wenn das Werk seiner Überzeugung nicht mehr entspricht und ihm deshalb die Verwertung

@@ -756,6 +756,8 @@ David A. Wheeler 氏が「Public Domain」を OSI のライセンスの一覧に
 | *"Unlicense contains two (use and sell) of the five (make, use, sell, offer to sell, import) patent "verbs" from the US patent statute."* | McCoy Smith 氏 2020-03-29 | Unlicense の特許は、許諾の動詞から暗に読む余地しかなかった。ACD の §8 は明示の許諾で、§8.1 は 5 つの動詞すべてと "otherwise practise" を持つ |
 | *"I think that the Unlicense is a (bad but still) OSD-compliant device, modulo the lack of a patent license"* | Lukas Atkinson 氏 2020-03 | 承認された前例でさえ、特許の許諾の欠如が留保として挙がった。ACD はその留保に当たらない |
 
+**拒否権のスレッド（2020-05・`rounds/2020-05-license-review-unlicense-veto-observed.txt`）で、§4 の形に当たる 2 つの発言（2026-11-08 追記）。** McCoy Smith 氏 2020-05-15: *"I think everyone acknowledges that a pure public domain dedication without a backstop is problematic"*。Pamela Chestek 氏 2020-05-15: *"The difference with the Unlicense is that it /also/ clearly states what rights are granted. Does that not resolve any concern with the Unlicense?"*。献呈だけでは足りず、許諾を明示した後ろ盾が要る、という読みで、ACD の §4（§3 に依存しない許諾・§4.4）はその形を持つ。逆側は同じ日の Simon Phipps 氏: *"OSI has previously advised that "public domain" does not qualify as open source because exactly this sort of issue, varying in scope and consequence globally, prevents developers from being sure they have the necessary rights without consulting another person first."*（B4）。
+
 **逆側。** Unlicense は legacy として、広い利用と法律家の一致を経て承認された（#270）。新規の ACD は同じ道を持たない。Atkinson 氏は同じ通で *"The Unlicense is not safe to use and likely fails to achieve its stated goals"* とも述べた。
 
 **この節が establish しないこと。** 個人の発言で、決定は理事会の承認（2020-06-12）だけである。McCoy Smith 氏の通は Outlook 形式で他人の文を引用の印なしに含むので、引いたのは同氏が書いた冒頭の 2 文だけにした。
