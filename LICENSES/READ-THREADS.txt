@@ -1,9 +1,9 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 369 subject lines. One thread appears under two subject spellings
-#   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so this is
-#   one more than the thread count in LICENSES/AS-OF.md (368 read on 2026-11-09).
+# Rows: 370 subject lines. One thread appears under two subject spellings
+#   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
+#   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
 #   named in AS-OF.md, "未読スレッドの残り". Add a row when a thread is read, in the same commit.
 1999-04-15	Stop. Stop, stop, stop, stop, stop
@@ -162,6 +162,7 @@
 2007-07-31	GPLv3, LGPLv3 Review
 2007-08-01	GPLv3, again Re: what *is* the approval process?
 2007-09-11	RPL 1.5 discussion
+2007-09-15	For Approval: Boost Software License - Version 1.0 - August 17th, 2003
 2007-10-18	Blogger claiming "shared source" is approved by OSI
 2007-10-18	Microsoft claiming "shared source" is approved by OSI
 2007-10-18	rms@1407.org claiming "licenses aren't contracts" and that...
