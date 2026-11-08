@@ -251,4 +251,53 @@ MUTATIONS_ARCHIVE6 = [
     "find": '"jobTitle": "AI-Driven Project Manager / IT Consultant / KERNEL Framework Designer",',
     "replace": '"jobTitle": {"@value": "AI-Driven Project Manager / IT Consultant / KERNEL Framework Designer", "@language": "en"},',
 },
+    {
+    "name": "Check 497: creator の Person ノードに、主のノードに無い別名を足す —— 同じ @id の最初のノードしか読まない Check 275 / 276 には見えない",
+    "file": ROOT / "index.html",
+    "first_occurrence": True,  # 先頭の creator のノード (2026-11-08 に確認)
+    "find": '"alternateName": ["横井雄太", "Yokoi Yuta"]',
+    "replace": '"alternateName": ["横井雄太", "Yokoi Yuta", "Someone Else"]',
+},
+    {
+    "name": "Check 468: §6.4 から「under this Dedication」を落とす —— 何の下で負わないのかが消え、他の法源の義務まで否定すると読める (468u の目印・#2655)",
+    "file": CURRENT_DRAFT,
+    "find": "the Work, and You owe nothing under this Dedication in respect of any",
+    "replace": "the Work, and You owe nothing in respect of any",
+},
+    {
+    "name": 'Check 161: robots.txt に Disallow: /portfolio/ を足す —— サイトは /portfolio/ の下に在るので全サイトの拒否なのに、/ と /* だけを全拒否と見ていた',
+    "file": ROOT / 'robots.txt',
+    "find": 'Allow: /googlea7059bedc6fe8bdc.html\n\n# ─── TIER 1',
+    "replace": 'Allow: /googlea7059bedc6fe8bdc.html\nDisallow: /portfolio/\n# ─── TIER 1',
+},
+    {
+    "name": 'Check 166: sitemap に CDATA の <loc> で別の origin の URL を足す —— <loc>([^<]+)</loc> は CDATA を読まなかった',
+    "file": ROOT / 'sitemap.xml',
+    "find": '<!-- Canonical SPA root — primary entry point for all crawlers -->',
+    "replace": '<!-- Canonical SPA root — primary entry point for all crawlers --> <url><loc><![CDATA[https://yutapr0117-design.github.io/portfolio2/about]]></loc></url>',
+},
+    {
+    "name": 'Check 160: sw.js の AIO_FILES をコメントに残して、生きた方の接頭辞を外す —— コメントの中の path が「/portfolio/ の下に在る」を満たしていた',
+    "file": ROOT / 'sw.js',
+    "find": "const AIO_FILES = ['/portfolio/llms.txt', '/portfolio/llms-full.txt'];",
+    "replace": "/* const AIO_FILES = ['/portfolio/llms.txt', '/portfolio/llms-full.txt']; */ const AIO_FILES = ['/llms.txt', '/llms-full.txt'];",
+},
+    {
+    "name": 'Check 160: sw.js に別の project の path をテンプレートリテラルで足す —— 文字列の正規表現がテンプレートリテラルを読まなかった',
+    "file": ROOT / 'sw.js',
+    "find": "const AIO_FILES = ['/portfolio/llms.txt', '/portfolio/llms-full.txt'];",
+    "replace": "const AIO_FILES = ['/portfolio/llms.txt', '/portfolio/llms-full.txt']; AIO_FILES.push('/.well-known/llms.txt');",
+},
+    {
+    "name": 'Check 279: robots.txt に小文字の sitemap: で http の行を足す —— フィールド名の大文字小文字を区別していた',
+    "file": ROOT / 'robots.txt',
+    "find": '# Therefore, this file is an AIO routing signal and sitemap-submitted policy artifact,\n',
+    "replace": 'sitemap: http://yutapr0117-design.github.io/portfolio/sitemap.xml\n',
+},
+    {
+    "name": 'Check 309: manifest の説明の文の中に http:// の URL を入れる —— 値の先頭が http:// のときしか読まなかった',
+    "file": ROOT / '.well-known/aio-manifest.json',
+    "find": '"role": "full AI context",',
+    "replace": '"role": "full AI context (mirror http://yutapr0117-design.github.io/portfolio/llms-full.txt)",',
+},
 ]
