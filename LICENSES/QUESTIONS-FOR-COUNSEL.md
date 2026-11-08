@@ -67,10 +67,32 @@ because it is not a license."* (`rounds/2003-03-license-discuss-public-domain-on
 Where §3 is effective nothing is left to license, so what do §13 and §14 rest on there? (g) §10.2 lets a copy travel with no notice, and in the 1.4 draft §2.3 says
 You need not know of the Dedication. Where a licence is read as a contract, can a person who has
 never seen the text hold it, or does such a person rest on §3 and §5 alone and, for patents, on §8.6
-alone?
+alone? (h) Some statutes let an author take a grant back whatever the grant says, which (b) asks
+for the United States. In Germany UrhG section 42(1) provides *"Der Urheber kann ein Nutzungsrecht
+gegenüber dem Inhaber zurückrufen"* where the work no longer reflects the author's convictions;
+section 42(2) says *"Auf das Rückrufsrecht kann im voraus nicht verzichtet werden."*; section 42(3) requires
+the author to compensate the holder, at least for its expenses. UrhG
+section 31a(1) lets the author revoke a grant of rights for types of use unknown when it was made, which
+§4.2's *"by any means now known or later devised"* is; the same paragraph excuses from written form
+a grant made *"unentgeltlich ein einfaches Nutzungsrecht für jedermann"* (free, non-exclusive, to
+everyone), which is ACD's form, and its words do not say whether the revocation right reaches such
+a grant. In France CPI L121-4 gives the author a *"droit de repentir ou de retrait vis-à-vis du
+cessionnaire"* against prior indemnity, but by L121-7 the author of software, *"Sauf stipulation
+contraire plus favorable à l'auteur d'un logiciel"*, cannot *"Exercer son droit de repentir ou de
+retrait."* In Japan the Copyright Act's recall for a change of conviction (Article 84(3)) ends a
+出版権, an exclusive right to publish, and its words do not reach a non-exclusive licence. Our
+reading: these statutes reach every OSI-approved licence alike, §2.2 cannot contract out of them,
+and §15.2 confines their effect to the jurisdiction concerned. We do not know whether section 42 reaches a
+free non-exclusive licence offered to everyone; whether section 31a(1)'s revocation right reaches a grant
+that its second sentence excuses from written form; whether a recipient under ACD is a
+*cessionnaire* for L121-4; whether the documentation and data that §1.3 includes in the Work are
+*logiciel* for L121-7; or whether §5's covenant not to assert would be read as excluding the exercise
+of a recall, which section 42(2) forbids. (Statute text fetched on 2026-11-08 from gesetze-im-internet.de,
+Légifrance LEGIARTI000006278894 and LEGIARTI000006278899, and the e-Gov law API.)
 
 **An answer would change** whether the text keeps three footings (register B4) and how §4.4 says
-"independent".
+"independent". An answer to (b) or (h) would change what the dossier says rather than the text: no
+wording contracts out of a statute that forbids it.
 
 ## 2. Does the patent licence reach what it is meant to reach? (§8.1, §8.4, §8.6)
 
