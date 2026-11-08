@@ -554,3 +554,19 @@ After: … under any name that contains "Autonomous Commons Dedication", regardl
 - T36 の記録の訂正は bb も同じ読みで、逆側として受け入れる。
 
 **T48 の線の例（bb・2026-11-09）**: 境目は、利用規約の条項の目的語が「サービスから得たもの」か「Work そのもの・Work から生じたもの一般」かである。(1)「このサービスを通じて得た出力を、競合モデルの学習に使わない」は、サービスの利用に付けた条件で §5 の外に出る。§6.4 は *"No enforceable claim arises against You, under this Dedication or under any Covered Right of the Dedicator"* なので、サービス契約に基づく請求は §6.4 にも当たらず、強制できる側に残る（T33 の判断と合う）。(2)「この Work（どこで入手したかを問わない）やその出力を、競合モデルの学習に使わない」は、写しの使用と自分で動かした出力まで縛るので Work 全体への条項で、§5.1 第 2 文と §5.2(b) の内に残り、Dedicator は主張できない。実在の AUP は (1) の形（*Output from the Services* など）が多い、と bb は読んでいる（個別の AUP を全数で当てたわけではない）。
+
+### 14.23 T51: §15.1 の解釈規則を「許可」に絞る（+1 語・試作）
+
+**Before**（§15.1 の全文）: This Dedication, in respect of the Work, is to be construed so as to give the widest permission and the least obligation upon You that its words allow, and so that, where a provision is capable of more than one reading, the reading that grants more to You prevails.
+
+**After**: This Dedication, in respect of the Work, is to be construed so as to give the widest permission and the least obligation upon You that its words allow, and so that, where a provision is capable of more than one reading, the reading that grants more permission to You prevails.
+
+**欠陥**: *"the reading that grants more to You"* の *more* は目的語を持たないので、許可でなく請求（損害賠償の請求権）を多く与える読みも含む。受領者は §15.1 を §13・§14 に向け、免責を狭く読めと言える（§14.19 の T42 の逆側・bb の T43 への指摘）。§15.1 の第 1 文の半分（*"the widest permission and the least obligation upon You"*）が述べる方向は許可と義務で、請求ではない。
+
+**効果**: 免責を狭く読む主張の足場が消える。許可の範囲を決める読み（§3〜§8 の許可・不行使の約束）では、許可を多く与える読みが選ばれることは変わらない。
+
+**消えないもの（bb の当初の見込みと違う点）**: §1.9・§2.6 で寄与を広げる読みも、Work に入る素材が増えるので「許可を多く与える」読みである。T35・T36 の根は *permission* に絞っても消えない。これは T36 で寄与の肢を限った語が受け持つ。
+
+**逆側**: (1) *permission* は §15.1 の第 1 文に既に在る語なので新しい定義は要らないが、§5 の不行使の約束は「許可」ではなく「約束」なので、約束の範囲の読みに §15.1 が効くかを問う読みが立つ。第 1 文の *"the least obligation upon You"* と §5.2(c) の *"narrower than Section 15.1 requires it to be read"* が約束の側を受けると見る。(2) +1 語（B3）。
+
+**先に登録する反例（bb へ）**: (a) §5 の約束の範囲の読みに §15.1 が効かなくなる読みは立つか。(b) §2.4（*"Section 15.1 governs their construction"*）の 3 つの足場の読みに影響するか。(c) 免責のほかに、*more* を許可に絞ることで受領者が失う読みがあるか。
