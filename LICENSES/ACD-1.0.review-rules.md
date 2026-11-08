@@ -563,12 +563,12 @@ and updating it **requires approval from the project manager**"* として**も�
 
 **逆側。** 手順の語が緩んでも、審査の実際は緩んでいない。Bruce Perens 氏 2008-03: *"I would think that legal review is a reasonable prerequisite before you submit a license here these days"*。Josh Berkus 氏 2013-05-30: *"Personally, I don't have a problem with making legal review a de facto requirement of submitting a new license."*。McCoy Smith 氏 2021-02: *"ought to be a requirement of submission to license-review"*。どれも個人の意見で手順の語にはなっていないが、審査をするのはこの人たちである。
 
-### レビューが無いと自分で述べた新規の提出は、少なくとも 23 件で、一覧に在るのは 1 件
+### レビューが無いと自分で述べた新規の提出は、少なくとも 24 件で、一覧に在るのは 1 件
 
-2007-12 以降の `license-review` で、提出者がレビューの不在を自分で述べた新規の提出を数えた。返信でない第 1 通を語で拾い、手で読んだ床の数で、語を使わずに書いた提出は漏れている。
+2007-12 以降の `license-review` で、提出者がレビューの不在を自分で述べた新規の提出を数えた。数は 2 つある。道具（`census_decision_statements.py noreview`・2026-11-08）が提出の第 1 通の語で拾うのは 200 件中 13 件で、語の幅を広げて手で読むと 24 件になる（うち 1 件は返信で述べた）。どちらも床の数で、語を使わずに書いた提出は漏れている。道具は最初、アーカイブを月の名の辞書順で読んで 4 月の返信を第 1 通と取り違えており、年と月の順に直して 7 件から 13 件になった（portfolio-9b・PR 2610）。
 
-Æsthetic Permissive（2007）、beer-ware（2008）、Modular Open Software（2012）、Public Software（2014・返信で述べた）、Russian Permissive（2014）、GG（2014）、Non-Coercive Copyleft（2015）、**Free Public License（2015）**、Binary Filters（2015）、YetiForce（2018）、GPL-3+-with-whonix（2019）、ViraTrace（2020）、Qlovatech（2021）、Ritchey Permissive（2021）、Zeppelin（2023）、Setup Tooling（2024）、Accountable Resolver（2024）、PPPL BSD-3（2025）、Irrevocable MIT（2025）、OSCL（2026）、AI-MIT（2026）、Project Tick GPL（2026）、CompanioNation（2026）。
+Æsthetic Permissive（2007）、beer-ware（2008）、Modular Open Software（2012）、Public Software（2014・返信で述べた）、Russian Permissive（2014）、GG（2014）、Non-Coercive Copyleft（2015）、**Free Public License（2015）**、Binary Filters（2015）、YetiForce（2018）、libpng 2.0（2018・*"There was no other legal review that I'm aware of."*）、GPL-3+-with-whonix（2019）、ViraTrace（2020）、Qlovatech（2021）、Ritchey Permissive（2021）、Zeppelin（2023）、Setup Tooling（2024）、Accountable Resolver（2024）、PPPL BSD-3（2025）、Irrevocable MIT（2025）、OSCL（2026）、AI-MIT（2026）、Project Tick GPL（2026）、CompanioNation（2026）。
 
 承認の一覧に在るのは Free Public License だけである（いまの 0BSD）。提出者は *"There hasn't been any external legal review or legal analysis of the FPL, as the only changes were the two removals mentioned above."* と述べた。legacy の提出では ICU が承認され、提出者は *"I am not aware of any published legal review of the specific text of this license"* と述べている。
 
-**読み。** 残る 22 件の多くは別の欠陥を持っていた（条件、差別、起草の粗さ、提出の不備）ので、レビューの不在が原因だったとは言えない。承認された 1 件は ACD に最も近い型で、OSI は外部の法律家の助言を自分で取った（`board-decisions.md` §8.6）。**逆側**は、それが ISC から語を除いた短い本文で、ACD は新しい長い本文であることである（`against.md` #297）。
+**読み。** 残る 23 件の多くは別の欠陥を持っていた（条件、差別、起草の粗さ、提出の不備）ので、レビューの不在が原因だったとは言えない。承認された 1 件は ACD に最も近い型で、OSI は外部の法律家の助言を自分で取った（`board-decisions.md` §8.6）。**逆側**は、それが ISC から語を除いた短い本文で、ACD は新しい長い本文であることである（`against.md` #297）。
