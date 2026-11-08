@@ -1,0 +1,174 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2012-March, 2019-December, 2020-February; the month in each message's Date line)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-08)
+Messages: 4 messages this dossier cites on the need for a new permissive licence with patent terms and on the proliferation categories. Not a thread.
+Senders: Josh Berkus, Carlo Piana, Pamela Chestek, Simon Phipps
+Position: statements made in the CC0 review (2012) and in the review of Mulan PSL (2019-2020). Not addressed to us and not about ACD. Three messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From josh at postgresql.org  Fri Mar  9 00:57:49 2012
+From: josh at postgresql.org (Josh Berkus)
+Date: Thu, 08 Mar 2012 16:57:49 -0800
+Subject: [License-review] avoid gray areas?
+In-Reply-To: <20305.41562.997439.93150@desk.crynwr.com>
+References: <87ipincylr.fsf@floss.red-bean.com> <4F50691E.7040504@perens.com>
+	<20304.28604.5729.430060@desk.crynwr.com>
+	<4F507330.4080007@perens.com> <4F50FD66.1020104@postgresql.org>
+	<20120302185106.GD17174@hemlock.hydra>
+	<4F5126CC.9040807@postgresql.org>
+	<20305.41562.997439.93150@desk.crynwr.com>
+Message-ID: <4F59558D.8080209@postgresql.org>
+
+Russ, All,
+
+> No, I'm arguing that if we should decline the CC0 because code
+> licensed under it doesn't come with a patent license, then we should
+> deprecate the BSD (&etc) because it doesn't come with a patent
+> license. DiBona agreed with this statement.
+
+I don't see the two cases as equivalent for a few reasons:
+
+Simplicity: BSD/MIT etc. contain no patent provisions as they do not
+contain a lot of various clauses; one of the specific goals of those
+licenses is simplicity.  CC0 does not have this quality.
+
+Explicitness: BSD/MIT is mum on the issue of patent grants, leaving the
+idea open that the explicit grant of right to copy could be an implicit
+limited patent grant, or at least grounds for an entrapment defense.  In
+other words, a patent owner asserting patent rights to code they had
+willingly given away under the BSD license would, at least to this
+layman's eyes, be in a compromised position.  CC0 explicitly denies
+patent grants of any kind, making it completely clear that no patent
+grant of any kind is implied.
+
+Intent: BSD/MIT were not composed with the idea of not offering patent
+rights; at the time, nobody was patenting software.  Most of the new
+licenses we see today *do* address patent rights.  In contrast, the CC0
+goes out of its way to deny patent rights for no reason which has been
+adequately explained by the authors.
+
+Message: By having explicit language around not granting patent rights
+of any kind, the CC0 sends the message that it is OK, in fact
+encouraged, to booby-trap free stuff through stealth patent attacks.
+
+> I'm not sure that "our public" is ready to have the BSD license be
+> deprecated. I could be wrong, of course.
+
+I think a sincere effort by the OSI to create a simple, liberal license
+which covered the patent issue as a successor to BSD might be well
+received, actually.  I know that if we could go back in time and rewrite
+The PostgreSQL License, we'd put a couple lines about patents in there.
+
+Last I checked, the OSD was NOT about adhering strictly to copyright
+law. The OSD is about protecting user's access to the source code.
+Rubber-stamping a bad license just because it comes from Creative
+Commons would be a violation of the spirit of the OSD, and an
+invalidation of OSI's mission.
+
+--Josh Berkus
+
+
+
+From carlo at piana.eu  Tue Dec  3 08:54:01 2019
+From: carlo at piana.eu (Carlo Piana)
+Date: Tue, 3 Dec 2019 09:54:01 +0100
+Subject: [License-review] [license review] Mulan PSL V1
+In-Reply-To: <026901d5a9ae$b1e5f8e0$15b1eaa0$@pku.edu.cn>
+References: <026901d5a9ae$b1e5f8e0$15b1eaa0$@pku.edu.cn>
+Message-ID: <527ac956-a32b-a59d-2743-68d23ed7e37e@piana.eu>
+
+Dear professor Zhou,
+
+I have one observation and one criticism.
+
+The observation is that this looks like a couple of licenses like the 
+BSD+patents. While arguably the text is more streamlined and modern, 
+building on the experience in licensing that we have accrued since the 
+BSD times, I wonder if there is such desperate need for yet another 
+license. Except perhaps one in Chinese.
+
+The criticism is founded on a long debated issue about whether 
+multi-language licenses are a good idea. As you know, GNU GPL family 
+decided that the only ever authoritative version is the English one, and 
+I tend to agree with the rationale underneath. It is tremendously 
+difficult to exactly match the same meaning across multiple languages, 
+and my experience in dissecting legal instruments of the EU -- limiting 
+to those few languages I am reasonably confident perusing -- is that it 
+is very difficult to find a single meaning. Often one should find it 
+comparing different versions and with the help of the recitals, and yet 
+it is very difficult to reach a final point.
+
+Moreover, you state in your introduction that the rule is (roughly) 
+"either is normative". But that rule is nowhere expressed in the license 
+itself. I am afraid this would then be totally left to the local court, 
+in case. Yet, a license lives not only in court, but also in the current 
+interpretation of those using it, who would not have the benefit of a 
+third party picking up one version or the other.
+
+Frankly, I see little merit in creating confusion by using two languages 
+on equal footing. On the other hand, the fact that the license is 
+non-copyleft reduces the concerns on possible negative consequences.
+
+I wonder if those concerns have also been tackled in your legal 
+analysis, and what the answer were, in case.
+
+I totally love the name of the license.
+
+With best regards,
+
+Carlo Piana
+
+From pamela.chestek at opensource.org  Fri Feb 14 17:40:10 2020
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Fri, 14 Feb 2020 12:40:10 -0500
+Subject: [License-review] [license review] Mulan PSL V1
+In-Reply-To: <345033a6-3bea-3e92-eb25-fb30a6be1cea@opensource.org>
+References: <000001d5c511$5b2a6a80$117f3f80$@pku.edu.cn>
+ <345033a6-3bea-3e92-eb25-fb30a6be1cea@opensource.org>
+Message-ID: <9d4998a0-94ad-fbb2-1720-a9072e8db063@opensource.org>
+
+At the Board meeting of February 14, 2020, the Board of the Open Source
+Initiative approved the Mulan PSL License v2. The votes was 9 in favor
+of approval, 0 opposed, 0 abstention, and 2 members not present.
+
+Pam
+
+Pamela Chestek
+Chair, License Review committee
+Open Source Initiative
+
+From simon.phipps at opensource.org  Sat Feb 15 16:39:42 2020
+From: simon.phipps at opensource.org (Simon Phipps)
+Date: Sat, 15 Feb 2020 16:39:42 +0000
+Subject: [License-review] [Board]  [license review] Mulan PSL V1
+In-Reply-To: <f2446d98-0fe2-2267-e84f-f6b23c074915@opensource.org>
+References: <000001d5c511$5b2a6a80$117f3f80$@pku.edu.cn>
+ <345033a6-3bea-3e92-eb25-fb30a6be1cea@opensource.org>
+ <9d4998a0-94ad-fbb2-1720-a9072e8db063@opensource.org>
+ <45cc632d-af25-8946-3e6c-e489ed6b28e7@pku.edu.cn>
+ <f2446d98-0fe2-2267-e84f-f6b23c074915@opensource.org>
+Message-ID: <CANDKxoV2BX3P85yrQDJOZOVOz2Df2zHMYRPCW42W+THYdQGKHQ@mail.gmail.com>
+
+As McCoy points out, the various classifications were created over a decade
+ago by a one-off consultative committee chartered by the Board to address
+the extreme proliferation of open source licenses that was topical at the
+time. The Committee found the matter contentious and when they finally
+delivered a report it did not offer OSI a means to make a
+continuously-updated judgement, or even a means to update the one-off
+categories that were recommended. Consequently, the categories have become
+outdated through lack of maintenance.
+
+OSI's Board has been reluctant to tinker with the lists and it's hard to
+see why any given license should be able to appeal for recategorisation
+without the whole exercise being repeated. Indeed, even creating the
+additional "International Licenses" category a few years ago proved
+contentious, despite being a fairly clear-cut category.
+
+I thus don't think writing to the L-R list or even the Board and requesting
+a one-off change like this is going to be the right move. Rather, the next
+OSI Board (which is seated on April 1st 2020) should probably consider a
+maintainable replacement approach for categorising licenses. The current
+License Committee has been casually exploring the topic but it maybe needs
+to be given a time-line.
+
+S.
+
