@@ -287,8 +287,20 @@ precedent, but Apache-2.0 gives no covenant for it to reach, and it excepts what
 requires, naming *"deliberate and grossly negligent acts"*. We found this by setting §14.1 beside
 the covenants, which share no term with it (`ACD-1.4-CHANGELIST.md`, the pre-finalisation checks).
 
+(b) A second question about the same clause concerns whom it protects. §1.4 defines the Dedicator
+*"to the extent that person or entity holds or may hold Covered Rights, Moral Rights, or patent claims
+in it"*. A maintainer who distributes a Work containing contributors' code, third-party material, or
+machine-generated parts in which no right subsists holds no right in those parts. Does §14.1 protect
+that maintainer against a loss caused by such a part? Our reading is that it does: §13.2 disclaims any
+warranty *"THAT THE DEDICATOR HOLDS ANY RIGHT IN IT"*, so the text uses "the Dedicator" for the person
+who applied the Dedication whether or not that person holds a right, and §1.4's limit governs what is
+dedicated, not who is protected. Apache-2.0 §8 reaches the same result in its own words by making the
+subject *"any Contributor"*, defined to include the Licensor. We did not change the text: a wording that
+named the parts without rights produced a sentence about a Dedicator who, for those parts, is not one
+(`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.19).
+
 **An answer would change** whether §14.1 should exclude liability only for the use of the Work, as
-GPL-3.0 does, or say that it does not limit the covenants.
+GPL-3.0 does, or say that it does not limit the covenants. An answer to (b) would change whether §14.1 needs its own subject.
 
 ---
 
