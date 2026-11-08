@@ -511,6 +511,13 @@ _MUTATIONS_TAIL.append({
     "replace": '"alternateName": ["横井雄太", "Yokoi Yuta", "Someone Else"]',
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 468: §6.4 から「under this Dedication」を落とす —— 何の下で負わないのかが消え、他の法源の義務まで否定すると読める (468u の目印・#2655)",
+    "file": CURRENT_DRAFT,
+    "find": "the Work, and You owe nothing under this Dedication in respect of any",
+    "replace": "the Work, and You owe nothing in respect of any",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
