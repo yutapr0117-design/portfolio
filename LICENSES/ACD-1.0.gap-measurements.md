@@ -838,3 +838,15 @@ UPL（Universal Permissive License）の審査（`license-review`・2014-04-10 �
 | 増殖の分類は *"created over a decade ago by a one-off consultative committee"* で、*"did not offer OSI a means to make a continuously-updated judgement"*、*"Consequently, the categories have become outdated through lack of maintenance."* | Simon Phipps 氏 2020-02-15（opensource.org のアドレス） | §1.154 の Fontana 氏 2014 の「重複の枠」は 2005 年の分類に拠っていた。その分類の更新の手段が無いと OSI 側が述べた。重複の判定は分類ではなく、提出ごとの比較（「最も近い承認済みライセンスとの比較」）で行われる |
 
 **この節が establish しないこと。** どれも個人の発言で、決定は Mulan PSL v2 の承認だけである。Berkus 氏の文は OSI が自分で作る場合の話で、外からの提出についてではない。
+
+## 1.163 BSD に別の特許許諾を添える道を、大きな事業者が実際に選んだ記録 —— WebM（2010）（2026-11-08）
+
+`rounds/2010-05-to-06-license-lists-webm-patent-grant-observed.txt`。Google は WebM を BSD と特許の条項で出し、第三者が `license-review` へ持ち込んだ。§1.160 の H1-f の道（承認済みライセンス + 別の特許の約束）の、事業者側の実例である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"This looks like a 3-clause BSD license with a patent grant. Surely something like that exists already?"* | Josh Berkus 氏 2010-05-25 | 「BSD + 特許」はこの時点で既に需要として名指されていた。UPL（2015）と Blue Oak（2024）がその後この位置を占めた（§1.154・§1.158） |
+| *"IMO, your choice is simple. Pick an existing approved license with an explicit patent grant. There are a number that are limited to the art as practiced in the initial contribution. This allows derivative works without giving away more than Google might be prepared to give."* | Bruce Perens 氏 2010-05-26 | 特許の許諾を初めの寄与の技術に限る形を勧めている（§8.1 の内容の限定と同じ向き・#305）。§8.4 の伸びはその外にある |
+| 改訂の理由として *"we effectively created a potentially new open source copyright license, something we are loath to do"*、そして *"we've decoupled patents from copyright, thus preserving the pure BSD nature of the copyright license. This means we are no longer creating a new open source copyright license, and the patent grant can exist on its own."* | Chris DiBona 氏 2010-06-04（WebM のブログを引いて） | 新しいライセンスを作らずに、承認済みの BSD と別の特許許諾で目的を果たした道。H1-f の道が実務で選ばれた記録で、ACD が 1 本の新しいライセンスである理由を問う（#314・§1.160 の Fontana 氏 2016 の観察と同じ向き）。逆側は §1.160 の Ingo 氏（別ファイルの組は全体として承認済みではない）と、別の許諾は Work と一緒に移らないこと（§1.133） |
+
+**この節が establish しないこと。** WebM の特許の文言は読んでいない。Perens 氏の同じ日の通は、法律家の目を通っていないライセンスの承認を誤りとも述べている（#309）。

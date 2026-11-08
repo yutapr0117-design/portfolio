@@ -1,0 +1,172 @@
+Source: https://lists.opensource.org/pipermail/ (license-review 2010-May, license-discuss 2010-June; the month in each message's Date line)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-08)
+Messages: 4 messages this dossier cites on the WebM licence (a BSD licence with a patent grant), 2010-05 to 2010-06.
+Senders: Josh Berkus, Bruce Perens, Chris DiBona
+Position: a third-party submission of a BSD licence with a patent clause, and the licensor's revision that separated the patent grant from the copyright licence. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From josh at postgresql.org  Tue May 25 16:52:45 2010
+From: josh at postgresql.org (Josh Berkus)
+Date: Tue, 25 May 2010 09:52:45 -0700
+Subject: WebM license third-party submission
+In-Reply-To: <4BFB7AF7.8060704@perens.com>
+References: <4BFB7AF7.8060704@perens.com>
+Message-ID: <4BFC005D.7000905@postgresql.org>
+
+On 05/25/2010 12:23 AM, Bruce Perens wrote:
+> Since Google hasn't submitted the WebM license, and it's in the
+> community's interest to review it, I am making a third-party submission.
+> I plan to issue a derivative work of the WebM project under the WebM
+> license, and thus have a legitimate interest in the license.
+>
+> The license as it exists today is at
+> http://www.webmproject.org/license/software/
+
+This looks like a 3-clause BSD license with a patent grant.  Surely 
+something like that exists already?
+
+--Josh Berkus
+
+
+From bruce at perens.com  Wed May 26 21:55:49 2010
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 26 May 2010 14:55:49 -0700
+Subject: WebM license third-party submission
+In-Reply-To: <19453.32955.581496.132435@desk.crynwr.com>
+References: <19453.32955.581496.132435@desk.crynwr.com>
+Message-ID: <4BFD98E5.90704@perens.com>
+
+Chris DiBona wrote:
+> 1) We will want a label explicitly deterring the use of the license.
+>   
+OSI has an existing process for this.
+> 2) We will want the bod list archives open for any discussions of webm. We
+> are not comfortable with OSI being closed.
+>   
+I think you aren't familiar with the way this really works. 
+Unfortunately, most of the OSI board don't want to be involved in 
+license approval. This seems odd to those of us who think that license 
+approval is OSI's only legitimate task, but that's why people like 
+Webmink are trying to reform OSI from inside.
+
+The effect of the above is that the discussion is carried out right here 
+on a public list, and then Russ makes a recommendation based on it, and 
+the board rubber-stamps that.
+
+So, IMO you are already seeing the discussion.
+
+That said, OSI approved one license that had never seen a lawyer last 
+year, and IMO it was a mistake. Standards need to be higher - if you 
+don't have a lawyer working on the license, it is dangerous to the 
+developers and OSI should consider that before approving. The problem 
+was made very clear to us with the initial effect of Artistic 1.0 on the 
+lower court judge's ruling in Jacobsen v. Katzer.
+> 3) We need to know OSI's current corporate status. I heard that osi was a
+> california corporation again, but I would like to know, from the group, that
+> this is true for 2010 and that there aren't any issues there.
+>   
+We would all like to see this fixed, but consider that IETF has never 
+been incorporated and Google implements their standards. And IETF's 
+processes are even more arcane. Ask someone who works with them about 
+the "humming vote", and Larry or I can explain their unenforcible IPR 
+policy. Ultimately whether OSI is an association or a corporation is not 
+relevant to license approval.
+> This might sound stridant, but I think that OSI needs to be more open about its workings to retain credibility in the space.
+>   
+With all due respect, Chris, Google is so arrogant in refusing to 
+discuss its processes with anyone that  this request isn't terribly 
+credible. Remember when I was thrown off of Adsense, and Google wouldn't 
+tell me why, and you had to intervene? Lots of us would be happy to join 
+Google's advisory board when you have one you're willing to listen to.
+
+    Thanks
+
+    Bruce
+
+
+From bruce at perens.com  Wed May 26 22:19:25 2010
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 26 May 2010 15:19:25 -0700
+Subject: WebM license third-party submission
+In-Reply-To: <AANLkTikH47FRaHmewJYL5DtsaQ7nQw1C1F1uv8PkS0YO@mail.gmail.com>
+References: <19453.32955.581496.132435@desk.crynwr.com>	<4BFD98E5.90704@perens.com> <AANLkTikH47FRaHmewJYL5DtsaQ7nQw1C1F1uv8PkS0YO@mail.gmail.com>
+Message-ID: <4BFD9E6D.7010307@perens.com>
+
+Chris DiBona wrote:
+> Wait, I thought you guys had fixed it. Obviously I'm confused.
+I am not one of "you guys" in this case. My participation on the OSI 
+board preceded its incorporation or its opening of a bank account. They 
+say they fixed it, and the reasons given parallel the SPI Branden 
+incident (and Branden's a great guy, just too busy to be a volunteer 
+treasurer) so case closed as far as I'm concerned.
+> We're not really looking to form an advisory board at this time. I'm 
+> sorry you had a bad experience with Adsense 5+ years ago. I didn't see 
+> it  as horrible to help out there, though.
+That of course is just my example. I don't want to start a _detailed_ 
+discussion of how Google is closed about processes that effect half of 
+the world's net users, or we would never get back to license consideration.
+
+IMO, your choice is simple. Pick an existing approved license with an 
+explicit patent grant. There are a number that are limited to the art as 
+practiced in the initial contribution. This allows derivative works 
+without giving away more than Google might be prepared to give.
+
+    Thanks
+
+    Bruce
+
+
+From cdibona at gmail.com  Fri Jun  4 19:07:26 2010
+From: cdibona at gmail.com (Chris DiBona)
+Date: Fri, 4 Jun 2010 15:07:26 -0400
+Subject: WebM license resolution.
+Message-ID: <AANLkTinexhKxP2orbWZIAoQwrmZ76HfIfh8ESbp_JHzf@mail.gmail.com>
+
+>From the blog:
+
+http://webmproject.blogspot.com/2010/06/changes-to-webm-open-source-license.html
+
+You'll see on the WebM license page <http://webmproject.org/license/> and in
+our source code repositories <http://webmproject.org/code> that we've made a
+small change to our open source license. There were a couple of issues that
+popped up after we released WebM at Google I/O a couple weeks ago,
+specifically around how the patent clause was written.
+
+As it was originally written, if a patent action was brought against Google,
+the patent license terminated. This provision itself is not unusual in an
+OSS license, and similar provisions exist in the 2nd Apache License and in
+version 3 of the GPL. The twist was that ours terminated "any" rights and
+not just rights to the patents, which made our license GPLv3 and GPLv2
+incompatible. Also, in doing this, we effectively created a potentially new
+open source copyright license, something we are loath to do.
+
+Using patent language borrowed from both the Apache and GPLv3 patent
+clauses, in this new iteration of the the patent clause we've decoupled
+patents from copyright, thus preserving the pure BSD nature of the copyright
+license. This means we are no longer creating a new open source copyright
+license, and the patent grant can exist on its own. Additionally, we have
+updated the patent grant language to make it clearer that the grant includes
+the right to modify the code and give it to others. (We've updated the
+licensing
+FAQ <http://www.webmproject.org/about/faq/#licensing> to reflect these
+changes as well.)
+
+We've also added a definition for the "this implementation" language, to
+make that more clear.
+
+Thanks for your patience as we worked through this, and we hope you like,
+enjoy (and most importantly) use WebM and join with us in creating more
+freedom online. We had a lot of help on these changes, so thanks to our
+friends in open source and free software who traded many emails, often at
+odd hours, with us.
+
+Not from the blog:
+
+I didn't want to list the people who helped on the blog, as I didn't want to
+imply endorsement. but if they pipe up, I'll say thanks by name :-)
+
+Chris
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20100604/39539e04/attachment.html>
+
