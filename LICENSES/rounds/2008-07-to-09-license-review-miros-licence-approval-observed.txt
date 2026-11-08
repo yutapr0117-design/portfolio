@@ -1,0 +1,449 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ and https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2008-July, 2008-September; the list and month in each message's Date and Subject lines)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-09)
+Messages: 8 messages this dossier cites from the review of the MirOS Licence (license-review 2008-07), the License Committee Report for September 2008 (license-review 2008-09-07), and one reply to that report on license-discuss. Not a thread.
+Senders: Thorsten Glaser, Ernest Prabhakar, Russ Nelson, John Cowan
+Position: review of another submission. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From tg at mirbsd.de  Sat Jul  5 21:10:08 2008
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Sat, 5 Jul 2008 21:10:08 +0000 (UTC)
+Subject: For (Legacy?) Approval: The MirOS Licence
+Message-ID: <Pine.BSM.4.64L.0807052052150.4256@herc.mirbsd.org>
+
+Hello all!
+
+I would like to _re_submit the MirOS Licence; I attached a plain
+ISO_646.irv:1991 text version; URL is http://mirbsd.de/MirOS-Licence
+
+Licence proliferation category: probably ?Other/Miscellaneous licenses?,
+as it?s not really redundant (optimised for EU citizens, see below), but
+doesn?t yet have much community behind it (a big and 2-3 small projects
+are using it), but clearly not a licence most people would want to use,
+especially as it?s just another BSD/MIT/ISC/X11/? variant and no copyleft.
+
+We?ve had discussions about the MirOS Licence and the ISC Licence, both
+of which I submitted (the latter having been approved in 2008), earlier,
+for example in http://osdir.com/ml/miros.general/2004-10/msg00028.html
+or http://osdir.com/ml/licenses.open-source.general/2004-11/msg00005.html
+(as I recall it, c?nsensus was that it?s ?obviously? OSD conformant, but
+nobody was interested enough to let it pass).
+
+The idea behind the MirOS Licence is to
+? create a licence inheriting UCB (BSD) spirit
+? as easy (and understandable) wording as possible
+  ? idea was taken from ?historic permission clause? for some of the text
+  ? disclaimer is *not* written in ALL CAPS (and I got praised for that
+    several times already(
+? as complete wording of permissions as possible
+  ? side-effect: licensor is not necessarily an author or contributor
+? optimise for European citizens
+  ? especially our disclaimer? the EUPL submission?s looks a lot like ours
+? be a work of art but also useful
+  ? re-usable by anyone
+  ? use the term ?work? instead of ?software?
+    ? which has the interesting side-effect that the MirOS Licence also
+      conforms to the Open Knowledge Definition (at least I think)
+? be compact yet universal
+  ? no 18K legal document no user wants to read anyway
+  ? no special treatment of moral rights, no translations, because courts
+    in Germany have already applied enough common sense in their GPL rulings
+? be OSD and DFSG compliant, of course ?
+? allow for advertising clauses in a standardised manner
+  ? the template has since been removed? even in the BSD world, we?re going
+    away from using them (compare the NetBSD? Foundation?s recent decision);
+    it could be justified with the fear of people ?just slapping the GNU GPL
+    on top of our code?, but in the OpenHAL vs ath5k case it was shown that,
+    for an existing codebase, people are actually okay with leaving the BSD-
+    style licence on the code including their extensions, and just apply the
+    copyleft licence of their choice to _extra_ files they develop)
+  ? historic: http://www.mirbsd.org/cvs.cgi/src/share/misc/licence.template.diff?r1=1.23;r2=1.24
+? be OSD and DFSG compliant, of course ?
+
+Note that
+? there is no EUPL-like ?chain of authorship? guarantee
+? there is no ?choice of law? provision
+Since the MirOS Project uses a centralised-style development model, with one
+authority to pull source, sorry, works of authorship, from, we solved this by
+a project-internal agreement (even if it?s not as formal as the NetBSD agree-
+ment ? http://www.netbsd.org/developers/agreement.txt ? which people have to
+sign before being granted commit access over there). Internally, we talk to
+each other and credit sources where they exist (unless we forget that, but in
+that case, the information is supplied later when we get aware of it).
+
+I hereby request that a ticket be opened for approval of ?The MirOS Licence?
+as an OSD-conformant open source licence in the ?other/misc? category.
+It is of course also okay to discuss this licence even if I see little need
+for that myself.
+
+
+Thanks in advance!
+
+bye,
+//mirabilos
+-- 
+Sometimes they [people] care too much: pretty printers [and syntax highligh-
+ting, d.A.] mechanically produce pretty output that accentuates irrelevant
+detail in the program, which is as sensible as putting all the prepositions
+in English text in bold font.	-- Rob Pike in "Notes on Programming in C"
+-------------- next part --------------
+/*-
+ * Copyright (c) year, year, year, ...
+ *	First M. Last <user at host.domain>
+ *
+ * Provided that these terms and disclaimer and all copyright notices
+ * are retained or reproduced in an accompanying document, permission
+ * is granted to deal in this work without restriction, including un-
+ * limited rights to use, publicly perform, distribute, sell, modify,
+ * merge, give away, or sublicence.
+ *
+ * This work is provided "AS IS" and WITHOUT WARRANTY of any kind, to
+ * the utmost extent permitted by applicable law, neither express nor
+ * implied; without malicious intent or gross negligence. In no event
+ * may a licensor, author or contributor be held liable for indirect,
+ * direct, other damage, loss, or other issues arising in any way out
+ * of dealing in the work, even if advised of the possibility of such
+ * damage or existence of a defect, except proven that it results out
+ * of said person's immediate fault when using the work as intended.
+ */
+
+INSTRUCTIONS:
+To apply the template[1] specify the years of copyright (separated by
+comma, not as a range), the legal names of the copyright holders, and
+the real names of the authors if different. Avoid adding text.
+
+RATIONALE:
+This licence is apt for any kind of work (such as source code, fonts,
+documentation, graphics, sound etc.) and the preferred terms for work
+added to MirBSD. It has been drafted as universally usable equivalent
+of the "historic permission notice"[2] adapted to Europen law because
+in some (droit d'auteur) countries authors cannot disclaim all liabi-
+lities. Compliance to OSD[3] 1.9 and DFSG[4] 1.1 is ensured and GPLv2
+compatibility is asserted unless advertising clauses are used.
+
+We believe you are not liable for code inserted which is intellectual
+property of third parties, if you were not aware of the fact, act ap-
+propriately as soon as you become aware of a problem and seek an ami-
+cable solution for all parties.
+
+REFERENCES:
+[1] also at http://mirbsd.de/MirOS-Licence
+[2] http://www.opensource.org/licenses/historical.php
+[3] http://www.opensource.org/docs/osd
+[4] http://www.debian.org/social_contract#guidelines
+
+___________________________________________________________________________
+$MirOS: src/share/misc/licence.template,v 1.24 2008/04/22 11:43:31 tg Rel $
+
+From tg at mirbsd.de  Tue Jul  8 16:33:52 2008
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Tue, 8 Jul 2008 16:33:52 +0000 (UTC)
+Subject: For (Legacy?) Approval: The MirOS Licence
+In-Reply-To: <18547.35510.392222.417343@desk.crynwr.com>
+References: <Pine.BSM.4.64L.0807052052150.4256@herc.mirbsd.org>
+ <18547.35510.392222.417343@desk.crynwr.com>
+Message-ID: <Pine.BSM.4.64L.0807081627020.26773@herc.mirbsd.org>
+
+Russ Nelson dixit:
+
+>Have you considered relicensing under an already-approved Open Source
+>License?
+
+Yes, I considered all of them and do not want to use one of these
+already listed.
+
+>I do not deny that your changes may in fact be improvements.
+
+Thanks.
+
+>I suggest that they are not improvement *enough* to justify Yet Another
+>License.
+
+I understand that, but you understand my case as well, according to
+what you wrote above.
+
+>The reason disclaimers are written in all caps is because there is
+>U.S. case law making the disclaimer stronger because all caps draw
+>attention.  Before you sneer at U.S. law, understand that judges will
+>look across the ocean (in both directions) for precedent.
+
+Yes, and in this case, US judges probably will have to look into our
+direction instead of vice versa. They will have to understand that,
+while the licence text is written in English - since that is what the
+community understands -, it is drafted for EU (especially DE) law.
+
+While I see the reluctance of you having "just another" BSD-style
+licence, I still ask of you to approve it, *because* it conforms
+to the definition, *because* it is in active use, and because some
+platforms (such as BerliOS/Sourceforge/...) discriminate against
+licences that are not OSI approved (as in: contained in the list).
+
+There is precedence for being listed:
+* the ifrOSS Lizenzcenter: http://www.ifross.de/ifross_html/lizenzcenter.html
+* the Open Knowledge Foundation: http://www.opendefinition.org/licenses
+
+You mention "everyone's cost", I don't quite see that yet. The OSI
+board meets regularily anyway, discussing more licences than just one,
+and the website will also be upgraded anyway. Is this a request for
+a monetary donation to the OSI, I wonder?
+
+
+Sincerely,
+//mirabilos
+-- 
+Sometimes they [people] care too much: pretty printers [and syntax highligh-
+ting, d.A.] mechanically produce pretty output that accentuates irrelevant
+detail in the program, which is as sensible as putting all the prepositions
+in English text in bold font.	-- Rob Pike in "Notes on Programming in C"
+
+
+From ernest.prabhakar at gmail.com  Wed Jul  9 13:50:49 2008
+From: ernest.prabhakar at gmail.com (Ernest Prabhakar)
+Date: Wed, 9 Jul 2008 06:50:49 -0700
+Subject: Legacy? Re: For Approval: The MirOS Licence
+In-Reply-To: <Pine.BSM.4.64L.0807082146390.2514@herc.mirbsd.org>
+References: <Pine.BSM.4.64L.0807052052150.4256@herc.mirbsd.org> <4873DE61.1080802@gatech.edu> <Pine.BSM.4.64L.0807082146390.2514@herc.mirbsd.org>
+Message-ID: <18EDA575-C067-4513-8A6F-3FC4F9EA8A83@gmail.com>
+
+Hi Thorsten,
+
+On Jul 8, 2008, at 2:49 PM, Thorsten Glaser wrote:
+> I wonder why the ISC licence, my other submission in 2006, was
+> now (in 2008) accepted, then? It doesn't even have this feature
+> (OKD conformance) _and_ has questionable language ("without fee"
+> vs "with or without fee", and "and" vs "and/or").
+
+If memory serves, we approved the ISC license as a "legacy", because  
+there was a large body of existing code widely used by the community.   
+It sounds like MirOS is a *new* license, only used in code copyrighted  
+by you, so the "legacy" issue doesn't apply.
+
+Is that correct, or am I missing something?
+
+-- Ernie P.
+
+
+
+From tg at mirbsd.de  Wed Jul  9 14:45:12 2008
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Wed, 9 Jul 2008 14:45:12 +0000 (UTC)
+Subject: Legacy? Re: For Approval: The MirOS Licence
+In-Reply-To: <18EDA575-C067-4513-8A6F-3FC4F9EA8A83@gmail.com>
+References: <Pine.BSM.4.64L.0807052052150.4256@herc.mirbsd.org>
+ <4873DE61.1080802@gatech.edu> <Pine.BSM.4.64L.0807082146390.2514@herc.mirbsd.org>
+ <18EDA575-C067-4513-8A6F-3FC4F9EA8A83@gmail.com>
+Message-ID: <Pine.BSM.4.64L.0807091441510.12169@herc.mirbsd.org>
+
+Ernest Prabhakar dixit:
+
+> It sounds like MirOS is a *new* license, only used in code
+> copyrighted by you, so the "legacy" issue doesn't apply.
+
+This is not entirely correct? it?s not new, I?m not the only developer
+of the MirOS Project, and there have been people outside the project
+using it too? although I?d probably have a hard time citing more than
+2-3 people since I never bothered to look, either. So I?m indeed having
+a weak argumentation base here.
+
+(Note that the OpenBSD project doesn?t view the ISC licence as legacy.)
+
+But look at it from this POV: it?s the equivalent of the MIT/BSD/ISC
+style licences for European developers. None of the existing licences
+in ?copycenter? style (and only very few in ?copyleft? style) meet our
+requirements. This is one of the reasons I apply again.
+
+bye,
+//mirabilos
+-- 
+Sometimes they [people] care too much: pretty printers [and syntax highligh-
+ting, d.A.] mechanically produce pretty output that accentuates irrelevant
+detail in the program, which is as sensible as putting all the prepositions
+in English text in bold font.	-- Rob Pike in "Notes on Programming in C"
+
+
+From ernest.prabhakar at gmail.com  Thu Jul 10 21:12:24 2008
+From: ernest.prabhakar at gmail.com (Ernest Prabhakar)
+Date: Thu, 10 Jul 2008 14:12:24 -0700
+Subject: Legacy? Re: For Approval: The MirOS Licence
+In-Reply-To: <11194B4B-F01C-41FF-A877-798B6D6E32F6@codefab.com>
+References: <Pine.BSM.4.64L.0807052052150.4256@herc.mirbsd.org> <4873DE61.1080802@gatech.edu> <Pine.BSM.4.64L.0807082146390.2514@herc.mirbsd.org> <18EDA575-C067-4513-8A6F-3FC4F9EA8A83@gmail.com> <Pine.BSM.4.64L.0807091441510.12169@herc.mirbsd.org> <48766D38.5020009@gatech.edu> <11194B4B-F01C-41FF-A877-798B6D6E32F6@codefab.com>
+Message-ID: <C9925AE7-48EE-43D9-8FBF-30F4E335B836@gmail.com>
+
+Hi Chuck et al,
+
+On Jul 10, 2008, at 1:23 PM, Chuck Swiger wrote:
+> I don't think the lack of such a phrase in the MIT/BSD/etc licenses  
+> are a great concern, but I can also understand why someone in some  
+> locales might want to have a license which corresponded better with  
+> the local legal requirements...
+
+
+That *may* be a valid point, but I'd like to hear some stronger  
+statement from actual European developers before I consider that a  
+'sufficient' reason for a new license.
+
+-- Ernie P.
+
+
+
+
+From nelson at crynwr.com  Mon Jul 14 02:18:02 2008
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sun, 13 Jul 2008 22:18:02 -0400
+Subject: Legacy? Re: For Approval: The MirOS Licence
+In-Reply-To: <Pine.BSM.4.64L.0807102152550.30084@herc.mirbsd.org>
+References: <Pine.BSM.4.64L.0807052052150.4256@herc.mirbsd.org>
+	<4873DE61.1080802@gatech.edu>
+	<Pine.BSM.4.64L.0807082146390.2514@herc.mirbsd.org>
+	<18EDA575-C067-4513-8A6F-3FC4F9EA8A83@gmail.com>
+	<Pine.BSM.4.64L.0807091441510.12169@herc.mirbsd.org>
+	<48766D38.5020009@gatech.edu>
+	<11194B4B-F01C-41FF-A877-798B6D6E32F6@codefab.com>
+	<18550.31513.286737.925027@desk.crynwr.com>
+	<Pine.BSM.4.64L.0807102152550.30084@herc.mirbsd.org>
+Message-ID: <18554.46938.254161.659075@desk.crynwr.com>
+
+Thorsten Glaser writes:
+ > Russ Nelson dixit:
+ > 
+ > >We could change our BSD License template to say this:
+ > [?]
+ > >Thorsten, would that meet your needs?
+ > 
+ > It might have, in 2003~2004, but not now. I specifically asked for
+ > approval of the MirOS Licence template.
+
+Well, I guess we're at an impasse, then.  We've offered you a license
+similar in effect to the MirOS License, and told you that the MirOS
+license is too similar to multiple existing licenses, but you refuse
+to work with us.  What should we do?  Approve your license?  LOTS and
+LOTS of people have told us not to do that.  Basically, you're
+out-voted.
+
+If you simply cannot live with any existing license, then I suggest
+that you convince lots and lots of people that they, too, cannot live
+without your license.  Once you've done that, come back to us, and
+given lots of community support for your license, that will speak to
+us.
+
+Note: I'm just one board member and my opinion doesn't necessarily
+carry the day.  Even the entire license review committee's opinion
+doesn't necessarily carry the day.  The MirOS License will go before
+the board for a vote.  The license review committee members' opinions
+carry a lot of weight and the balance is against you.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Software that needs
+Crynwr sells support for free software  | PGPok | documentation is software
+521 Pleasant Valley Rd. | +1 315-323-1241       | that needs repair.
+Potsdam, NY 13676-3213  |     Sheepdog          | 
+
+
+From nelson at crynwr.com  Sun Sep  7 04:21:54 2008
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sun, 7 Sep 2008 00:21:54 -0400
+Subject: License Committee Report for September 2008
+Message-ID: <18627.22242.941948.492676@desk.crynwr.com>
+
+I'm the chair of the license approval committee.  This is my report
+for the current set of licenses under discussion.  The OSI board will
+be meeting September 10th.
+
+--
+
+Title: RTEMS license
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:333:200808:doaakbfandadomcoblpl
+License: http://www.rtems.org/license/LICENSE
+Comments: They're using the GPLv2 plus extra permissions.
+Recommend: reassure submittor that it's okay to give people extra
+  freedoms by voting to approve the practice of using an OSI-approved
+  license in conjunction with a licensing announcement that removes
+  restrictions on the licensee.
+
+--
+
+Title: MirOS License
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:302:200807:aiphlihjcfanjgikmbfe
+License: http://mirbsd.de/MirOS-Licence
+Comments: The license is obviously OSD compliant, but it is Yet
+  Another academic license of limited difference and limited value.
+  I've asked him to use an existing academic license, but he refuses.
+  I've offered to modify an existing license to make it into a
+  template which will match his license and allow him to use the
+  trademark.  He's uninterested.
+Recommend: approval
+
+--
+
+Title: Iggy Wanna License (IWL)
+Submission:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:234:200805:mnoaiekgfckojngkngna
+License: In the submission
+Comments: It's hard to believe that the "Iguana License" is a
+  serious submission, but the author behaves as if he's serious.
+  Lacking any stronger indication that it's a joke license than the
+  joke name, I'm taking it seriously.
+
+  The license violates at least #9 "License Must Not Restrict Other
+  Software" of the OSD because it intends to impose requirements on
+  software that merely uses IWL licensed software.
+Recommend: rejection
+
+--
+
+Title: University Jaume I License (UJIL)
+Submission:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:269:200806:bmcempcigbolmdlfehig
+License: in the submission.
+Comments: only licenses non-commercial use.
+Recommend: rejection
+
+--
+
+Title: Unstructured Operation Markup Language License (UOML License)
+Submission:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:153:200803:ajlgmjcdbmmllniijbba
+License: http://www.uoml.org/uoml_license1.1.html
+Comments: Requires conformance with a standard without specifying who 
+  decides that conformance (which is in effect a conflict with OSD #7
+  "Distribution of License"), nor does it state what happens when
+  conformance has not been achieved.
+Recommend: rejection
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Software that needs
+Crynwr sells support for free software  | PGPok | documentation is software
+521 Pleasant Valley Rd. | +1 315-323-1241       | that needs repair.
+Potsdam, NY 13676-3213  |     Sheepdog          | 
+
+
+From cowan at ccil.org  Sun Sep  7 17:06:05 2008
+From: cowan at ccil.org (John Cowan)
+Date: Sun, 7 Sep 2008 13:06:05 -0400
+Subject: License Committee Report for September 2008
+In-Reply-To: <48C40325.7080301@gatech.edu>
+References: <18627.22242.941948.492676@desk.crynwr.com> <48C38E08.2000402@gatech.edu> <015f01c91106$777f09a0$6701a8c0@LROSENTOSHIBA> <48C40325.7080301@gatech.edu>
+Message-ID: <20080907170605.GK18634@mercury.ccil.org>
+
+Matthew Flaschen scripsit:
+
+> Perhaps the OSI could say, "An OSI-approved license may be supplemented
+> by an additional permission statement.  The combination will be
+> OSI-compliant, providing that permission /only/ has the effect of
+> waiving conditions in the OSI-approved license, and that such waiver is
+> not conditional."?  But I agree OSI would have to be very careful.
+
+This is essentially a dual license: you may apply the OSI-approved
+license, or you may apply the license with the additional permissions.
+Anything multiply licensed, where at least one license is OSI-compliant,
+is obviously open source.
+
+-- 
+John Cowan                                cowan at ccil.org
+At times of peril or dubitation,          http://www.ccil.org/~cowan
+Perform swift circular ambulation,
+With loud and high-pitched ululation.
+
+
