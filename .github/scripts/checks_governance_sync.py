@@ -263,6 +263,13 @@ def run(ctx):
                     _bad26.append(
                         f"{_p26}: role は #{_m26.group(1)}-#{_m26.group(2)} と宣言するが実体は "
                         f"#{_act26[0]}-#{_act26[1]}")
+                if _act26:
+                    # 範囲の中抜けと重複も見る (2026-11-08: 両端しか比べず、#22 が消えても #15-#30 のままだった)
+                    _all26 = [int(_x) for _x in _re26.findall(r"\[HANDOFF\] Session Record #(\d+)", _f26.read_text(encoding="utf-8"))]
+                    _gap26 = sorted(set(range(_act26[0], _act26[1] + 1)) - set(_all26))
+                    _dup26 = sorted({_x for _x in _all26 if _all26.count(_x) > 1})
+                    if _gap26 or _dup26:
+                        _bad26.append(f"{_p26}: 範囲の中で欠けた Record {_gap26} / 重複 {_dup26}")
             check(
                 _reg26 and not _bad26,
                 f"Check 26a: AIO manifest の archive role {len(_reg26)} 件が実体の Session Record 範囲と一致",
@@ -702,6 +709,14 @@ def run(ctx):
         else:
             _blob447 = "\n".join(_descs447)
             _missing447 = [f"{_k} {_v}" for _k, _v in _canon447 if _v not in _blob447]
+            # 番号と名前の対も見る (2026-11-08: 名前が description のどこかに在れば通り、C1 と C2 の名前を
+            #   入れ替えても、正典に無い名前を足しても緑だった)。列挙は「Cn 名前」を " / " か括弧で区切る形
+            _pairs447 = _re.findall(r"\b(C[1-7]) ([^/（）()\n]+?)(?= / |）|\))", _blob447)
+            _canon_d447 = dict(_canon447)
+            _missing447 += [f"{_k} の名前が {_v.strip()!r} (正典は {_canon_d447[_k]!r})" for _k, _v in _pairs447
+                            if _v.strip() != _canon_d447[_k]]
+            if sorted({_k for _k, _ in _pairs447}) != sorted(_canon_d447):
+                _missing447.append(f"列挙の番号が {sorted({_k for _k, _ in _pairs447})} (正典は C1–C7)")
             check(
                 not _missing447,
                 f"Check 447: mcp.json の制約列挙が正典の C1–C7 名を網羅 ({len(_canon447)} 件)",

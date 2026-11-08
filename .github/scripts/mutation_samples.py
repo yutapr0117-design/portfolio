@@ -579,6 +579,18 @@ _MUTATIONS_TAIL.append({
     "find": 'class="sr-only ai-summary-block"',
     "replace": 'class="sr-only ai-summary-blocks"',
 })
+_MUTATIONS_TAIL.append({
+    "name": 'Check 447: mcp.json の制約の列挙で C1 と C2 の名前を入れ替える —— 名前が description のどこかに在れば通り、番号との対を見ていなかった',
+    "file": ROOT / '.well-known' / 'mcp.json',
+    "find": '（C1 Boring Technology / C2 IIFE / ',
+    "replace": '（C1 IIFE / C2 Boring Technology / ',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 26a: archive の範囲の中の Session Record #22 の見出しを崩す —— 両端の番号しか比べず、中の 1 件が消えても role の #15-#30 のまま緑だった',
+    "file": ROOT / 'docs' / 'session-records' / 'AI2AI-archive-2.md',
+    "find": '## [HANDOFF] Session Record #22 — ',
+    "replace": '## [HANDOFF] Session Record (twenty-two) — ',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
