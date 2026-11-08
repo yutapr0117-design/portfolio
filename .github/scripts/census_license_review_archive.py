@@ -52,7 +52,18 @@ def months():
         urllib.request.Request(BASE, headers={"User-Agent": UA}), timeout=60
     ).read().decode("utf-8", "replace")
     # index は `.txt.gz` へリンクしている。**`.txt` で探すと 0 件になる**（初版で実際にそうなった）。
-    return sorted(set(re.findall(r'href="(\d{4}-[A-Z][a-z]+)\.txt\.gz"', idx)))
+    # 年と月で並べる。名前の辞書順では April が March より前に来て、各スレッドの「最初の月」と
+    # 期間の端がずれた (件数は順序に依らないので、記録した数は変わらない・2026-11-08)。
+    return sorted(set(re.findall(r'href="(\d{4}-[A-Z][a-z]+)\.txt\.gz"', idx)), key=_chrono)
+
+
+_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August",
+           "September", "October", "November", "December"]
+
+
+def _chrono(m):
+    y, _, name = m.partition("-")
+    return (int(y), _MONTHS.index(name) if name in _MONTHS else 99)
 
 
 def load(ms, fetch):
@@ -124,7 +135,7 @@ def main():
         k = norm(subj)
         th[k] += 1
         first.setdefault(k, mon)
-    span = sorted({m for m, _ in rows}, key=lambda x: (int(x.split("-")[0]), x))
+    span = sorted({m for m, _ in rows}, key=_chrono)
     print(f"span {span[0]} → {span[-1]}   months {len(span)}   messages {len(rows)}   threads {len(th)}")
 
     sub = [(k, th[k], first[k]) for k in th if STRICT.match(k)]
