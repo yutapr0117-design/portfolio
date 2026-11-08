@@ -773,7 +773,9 @@ CC0 の審査（`license-review` 2012-02）の中の、特許の除外の理由�
 
 **ACD への当たり方（#311）。** CC0 の 4(a) は、データを献呈しても特許は手放せない大学と研究機関の需要から来た。ACD の §8 と §8.4 はその需要を受けないので、そうした機関は ACD を選べない。B7（§8.4 の広さが採用を下げる）の具体的な層である。逆側: ソフトウェアの利用者から見ればその層こそが 4(a) の罠を作っており（Perens 氏）、ACD はその罠の無い道具として成り立つ。
 
-**この節が establish しないこと。** CC の説明は Perens 氏の要約で、CC の文書は読んでいない。どれも 2012 年の個人の発言で、OSI の決定ではない。
+**2024 年にも同じ需要が出ている（2026-11-08 追記）。** 学術医療機関 Mass General Brigham の Marvin Barksdale 氏は 2024-11-18 の `license-discuss` で、過去 5 年の発明の開示の約半数を出願する機関として、Apache-2.0 について *"MGB's long time stance has been to restrict it's use across the system due to patent overreach and the litigious nature of some in the community"* と述べ、特許の許諾を使うのに必要なものへ狭める案を出した（`rounds/2024-11-license-discuss-academic-medical-center-patents-observed.txt`）。Pamela Chestek 氏（個人として）は判例の *"A nonexclusive patent license is simply a promise not to sue for infringement."* を引き、Apache と案の範囲について *"I don't see any legal difference between the two"* と答えた。Apache-2.0 の範囲でも採らない機関があるので、§8.4 の伸びはその層をさらに遠ざける（#311）。逆側: 審査に近い 2 人（Chestek 氏と Lukas Atkinson 氏）は、狭める文言に法的な差を認めなかった。この層の懸念は文言を工夫しても解けない、という読みになる。
+
+**この節が establish しないこと。** CC の説明は Perens 氏の要約で、CC の文書は読んでいない。どれも 2012 年と 2024 年の個人の発言で、OSI の決定ではない。
 
 ## 1.154 UPL の審査 —— 作品を超えて届く特許許諾が、何を問われて承認されたか（2014-04〜2015-02）（2026-11-08）
 

@@ -1,0 +1,421 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2024-November.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-08)
+Messages: 3 messages, the whole thread "Protection of Academic Medical Center Patent Portfolio" (2024-11-18 to 2024-11-24).
+Senders: Marvin Barksdale, Lukas Atkinson, Pamela Chestek
+Position: an academic medical center asks whether a licence that narrows the patent grant would meet the OSD. Not addressed to us and not about ACD. Each message is whole.
+
+----- begin verbatim -----
+From mbarksdale at mgb.org  Mon Nov 18 14:27:21 2024
+From: mbarksdale at mgb.org (Barksdale, Marvin)
+Date: Mon, 18 Nov 2024 14:27:21 +0000
+Subject: [License-discuss] Protection of Academic Medical Center Patent
+ Portfolio via MGBopensource Proposed License
+Message-ID: <BY5PR04MB65507D3B2FF8FF7C1DDDA868CE272@BY5PR04MB6550.namprd04.prod.outlook.com>
+
+Greetings All,
+Sincere thanks for taking a moment to discuss a core issue at the center of an upcoming submission of a permissive open source  License developed at Mass General Brigham hospital system to support scientific and clinical research and development conducted within MGB, or a similarly situated Academic Medical Center.
+
+The license (included in text below) was developed to align explicit institutional licensing policies of proprietary and open science / source licenses, adding needed clarity to the MIT license popular in this space which currently remains silent regarding issues the healthcare community believes to be critical including restrictions on: Protected Health Information / Personal Information,  Implied Warranties, Representations, Liability for Any Damages, and Endorsement / Mark Rights.
+
+Most controversial (and the core focus of this thread) in the Academic Medical Center  space is the issue of patent rights, especially in the post COVID, cash strapped world of health care / research.  Mass General Brigham, for example, is a national leader in innovation, investing nearly $15 million per year to secure and maintain patent protection for the inventions of its staff.  Statistically, MGB has filed patent applications on roughly 50% of the disclosures it received during the past five years.   Thus, although AMC's are aligned on the concepts behind OSD : 6. No Discrimination Against Fields of Endeavor, 7. Distribution of License, and 9. License Must Not Restrict Other Software, their role as frequent defender of patent rights that provide valuable revenue that lowers the price of patient care, puts the issue of granting patent rights front and center in open source licensing.
+
+Looking at the Apache 2.0 license's approach,  MGB's long time stance has been to restrict it's use across the system due to patent overreach and the litigious nature of some in the community.  MGB has historically taken issue with Apache and like licenses with express patent grants e.g.: "...Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted... "
+"Patent claims that are necessarily infringed by their Contribution alone..." is a broad net, potentially expanding patent licenses to  patents not expressly transferred with the Open Source Work via broad patent claims, Doctrine of Equivalents, Reasonable Interchangeability, Inventions with high invention to replication ratios, and other methods with which courts commonly expand the limits of patent infringement. Thus this express language  causes a chilling effect on MGB and other like-minded patent portfolio owners who are exposed to creative interpretations of infringing Open Source code, that arguably may include implied licenses to other patented IP (not necessary for OS distribution of the work) that is part of MGB's portfolio.
+
+The proposed MGB approach utilizes an implied "use" grant similar to BSD-3 but alters the Apache language to not include "any express or implied license to any invention, patentable subject matter, or patent, of any kind or nature, nor in any jurisdiction in the world that is not necessary to exploit the [use] rights granted in Section 2."   The thought is, if its necessary to exploit the patent rights to use the licensed works, Licensees possess the rights,  but this is a more appropriate standard than "if it infringes on a patent, you have rights to that patent."
+
+Is this approach likely to be considered a violation of OSD 6,7 or 9?
+
+Any discussion or thoughts here are much appreciated. Happy to answer any questions the group may have.
+
+Marvin Barksdale
+
+
+
+
+
+
+MGB OPEN SOURCE LICENSE
+(For use, reproduction, modification, and distribution of modifications)
+1. Definitions.
+"Contribution" shall mean any work of authorship, including the original version of the Work and any modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to Licensor for inclusion in the Work by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner. For the purposes of this definition, "submitted" means any form of electronic, verbal, or written communication sent to Licensor or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, Licensor for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by the copyright owner as "Not a Contribution."
+"Contributor" shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work.
+"Derivative Works" shall mean any work, whether in Source or Object form, or in text or non-code form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work and Derivative Works thereof.
+"Legal Entity" shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, "control" means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding voting shares of such entity, or (iii) beneficial ownership of such entity.
+"License" shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 13 of this document.
+"Licensor" shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.
+"Object" form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.
+"Source" form shall mean the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files.
+"You" (or "Your") shall mean an individual or Legal Entity exercising permissions granted by this License.
+"Work" shall mean the work of authorship, whether in Source or Object form, data, graphs, models, or in text or non-code form, made available under the License, as may be indicated by a copyright notice included in or attached to the work (an example of such notice is provided in Section 5(b), below).
+2. Grant of License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable license to use, reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and to distribute the Work, and Derivative Works, in Source or Object form.
+3. No Patent Litigation. This License does not include any express or implied license to any invention, patentable subject matter, or patent, of any kind or nature, nor in any jurisdiction in the world that is not necessary to exploit the rights granted in Section 2. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit)  alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You relative to the Work shall terminate as of the date such litigation is filed.
+4. Redistribution. You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions:
+(a)  You must give any other recipients of the Work or Derivative Works a copy of this License; and
+(b) You must cause any modified files to carry prominent notices stating that You changed the files; and
+(c)  You must retain, in the Source form of any Derivative Works (and screens generated by the Object form) that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and
+(d) You must follow the attribution and copyright notice requirements of this License.
+5. Attribution and Copyright Notice.
+(a)  If the Work includes a "NOTICE" text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License.
+(b) In marketing Your Derivative Work, You, and Your sublicensee as applicable, shall acknowledge Licensor by conspicuously marking any promotional materials and any portion of the Software included with or integrated into Derivative Work You sublicense with the conspicuous following statement and attribution, or conspicuously including a permanent link to such a statement: Dr. Abe Albert, Dr. Betty Bonnet, Dr. Charlie Caplin Copyright (c) 202_ [LICENSOR NAME]. Licensed with permission. Portions of this software may also be subject to other copyrights.
+(c)  You may add Your own copyright and attribution statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work and Your Derivative Work otherwise complies with this License.
+(d) For purposes of determining attribution, the conduct of a scientific experiment or other research project has many components, including formulation of a hypothesis, development or application of methods, collection of data, analysis of results and creation of a public description of the work. To the degree that contributions to any of these components require not only technical skills but also intellectual input, they are appropriately recognized by authorship.
+6. Submission of Contributions. Any Contribution intentionally submitted for inclusion in the Work by You to Licensor shall be under and subject to the terms and conditions of this License, without any other terms or conditions. You shall require, and shall be deemed to have required, that all Your sublicensees agreed in writing to be bound by the applicable terms and conditions of this License.
+7. Included Data; Personal Information. The Work may include data, graphs, and models, and if so You may use and modify the data, graphs, and  models. However, You have no license to any protected health information (PHI), or other personal information collected by or included by Licensor, whether or not de-identified or aggregated. Licensor has no obligation under this License to provide any such personal information, or to validate any data generated by the use of the Work. For purposes of this License "personal information" means any information relating to an identified or identifiable natural person, including PHI. Licensor has attempted to delete all copies of such personal information in the data, and will undertake to ensure that the Work does not contain any data with personal information. If despite Licensor's efforts in this regard, You identify any personal information in the data, You agree not to use such personal information and to promptly delete all copies of such personal information in Your possession, use or control, and to inform Licensor promptly of the foregoing so that it can remove such personal data from future transmissions of the Work.
+8. No Implied Rights. Except for the limited rights and license expressly granted under this License, nothing in this License grants, by implication, waiver, estoppel, or otherwise, to You, or to any third-party, any intellectual property rights, or other right, title, or interest, in or to any of the Work, or to any intellectual property rights of Licensor, any other Contributor, or any third party. You acknowledge and agree that the rights granted by Licensor under this License may not include all third-party rights, or software, necessary to use or distribute the Work licensed under this License. You are responsible for obtaining and maintaining Your own licenses, at its own cost and expense, to any such third-party rights.
+9. Disclaimer of Warranties. THE Work LICENSED TO You UNDER THIS License IS PROVIDED BY Licensor AND Contributors "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE WARRANTIES OF TITLE, MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, CONFORMANCE WITH SAMPLES OR DEMONSTRATIONS, VALIDITY OF LICENSED INTELLECTUAL PROPERTY, COMPATIBILITY WITH ANY SOFTWARE OR SYSTEMS, AND THE ABSENCE OF LATENT OR OTHER DEFECTS, WHETHER OR NOT DISCOVERABLE, AND HEREBY DISCLAIMS THE SAME. IN NO EVENT SHALL Licensor AND SUBSEQUENT Contributors BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THE WORK, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. Licensor MAKES NO WARRANTY OR REPRESENTATION (i) REGARDING THE VALIDITY OR SCOPE OF ANY OF THE LICENSED INTELLECTUAL PROPERTY, AND (ii) THAT THE EXPLOITATION OF THE LICENSED INTELLECTUAL PROPERTY OR THE SOFTWARE OR DOCUMENTATION, OR THAT ANY SOFTWARE OR DOCUMENTATION WILL NOT INFRINGE ANY PATENTS OR OTHER INTELLECTUAL PROPERTY RIGHTS OF LICENSOR OR OF ANY THIRD PARTY. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.
+10. No Trademark or Name License. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file. Except as provided in the preceding sentence, You shall not use any mark or name of Licensor, or anything confusingly similar thereto or to any Internet website or Universal Resource Locator of Licensor, nor any name of any trustee, director, officer, staff member, employee, student or agent of Licensor, or any adaptation thereof in any advertising, promotional or sales literature, publicity or in any document employed to obtain funds or financing without the prior express written approval, in each instance, of Licensor and any individual whose name is to be used or mentioned.
+11. Limitation of Liability. IN NO EVENT SHALL Licensor OR ANY Contributor, OR ANY OF THEIR AFFILIATES OR ANY OF THEIR RESPECTIVE TRUSTEES, DIRECTORS, OFFICERS, MEDICAL OR PROFESSIONAL STAFF, EMPLOYEES, STUDENTS, VOLUNTEERS, AGENTS, AND/OR ATTORNEYS BE LIABLE TO You, OR ANY Contributor, OR ANY OF THEIR AFFILIATES, SUBCONTRACTORS, CUSTOMERS, SUBLICENSEES OR DISTRIBUTORS FOR INDIRECT, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES OF ANY KIND ARISING IN ANY WAY OUT OF THIS License OR RIGHTS GRANTED HEREUNDER, HOWEVER CAUSED INCLUDING ON ANY THEORY OF LIABILITY, INCLUDING WITHOUT LIMITATION ECONOMIC DAMAGES OR INJURY TO PROPERTY OR LOST PROFITS, REGARDLESS OF WHETHER You OR ANY Contributor SHALL BE ADVISED, SHALL HAVE OTHER REASON TO KNOW, OR IN FACT SHALL KNOW, OF THE POSSIBILITY OF ANY OF THE FOREGOING. SUBJECT IN ANY EVENT TO THE LIMITATIONS IN THE FOREGOING SENTENCE, THE LIABILITY OF You AND Your AFFILIATES OR ANY OF THEIR RESPECTIVE TRUSTEES, DIRECTORS, OFFICERS, MEDICAL OR PROFESSIONAL STAFF, STUDENTS, VOLUNTEERS, EMPLOYEES, AGENTS AND ATTORNEYS, AND THEIR RESPECTIVE SUCCESSORS, HEIRS AND ASSIGNS, WITH RESPECT TO ANY AND ALL SUITS, ACTIONS, LEGAL PROCEEDINGS, CLAIMS, DEMANDS, DAMAGES, COSTS AND EXPENSES ARISING OUT OF THE PERFORMANCE OR NON-PERFORMANCE OF ANY OBLIGATION UNDER THIS License WHETHER BASED ON CONTRACT, WARRANTY, TORT (INCLUDING WITHOUT LIMITATION NEGLIGENCE), STRICT LIABILITY, STATUTORY OR OTHERWISE SHALL NOT EXCEED IN THE AGGREGATE A SUM EQUAL TO THE TOTAL AMOUNTS PAID TO Licensor OR THE Contributor, AS THE CASE MAY BE, UNDER THIS License. THE FOREGOING LIMITATION APPLIES NOTWITHSTANDING THE FAILURE OF ANY AGREED OR OTHER REMEDY OF ITS ESSENTIAL PURPOSE.
+12. Accepting Warranty or Additional Liability. While redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if in Your license to Your sublicensees You also agree with each sublicensee to indemnify, defend, and hold each Contributor harmless form any liability incurred by, or claims asserted against, each Contributor by reason of your accepting any such warranty or additional liability. You agree to be responsible to Licensor and liable for the acts and omissions of Your sublicensees that constitute a breach of this License as if such acts or omissions were Your acts or omissions, and You shall be responsible for and indemnify Contributors for You and Your sublicensee's compliance with this License. Your indemnification obligations under this License mean that You, at Your sole expense, shall indemnify, defend and hold harmless all Contributors and their owners, members and affiliates, sublicensees, subcontractors, and distributors and each of their respective trustees, directors, officers, medical and professional staff, employees, students, volunteers, attorneys, and agents and their respective successors, heirs and assigns (the "Indemnitees"), against any and all liability, damage (including direct, indirect, consequential and special damages), loss or expense (including reasonable attorneys' fees and expenses)(each a "Loss"), incurred by or imposed upon the Indemnitees or any one of them in connection with any third-party claims, suits, actions, investigations, demands, or judgments relating to or arising from, in whole or part: (i) any theory of contractual or product liability (including, but not limited to, actions in the form of contract, tort, warranty, or strict liability) concerning the Software or any licensed product, product, process or service made, used, or sold or performed pursuant to any right or license granted under this License, or (ii) any claim by a third-party that any product, process or service made, used, sold, or performed of or through You pursuant to any right or license granted under this License infringes any patent, copyright, trademark, trade secret, or other intellectual property, or breach of Your or Your sublicensees obligations under this License; except to the extent You can demonstrate by clear and convincing evidence that a Loss as described in this Section directly results from the gross negligence or intentional misconduct of Contributors.
+13. Interpretation. The section and other headings are for convenience of reference only and shall not be definitive of the interpretation of this License. Whenever the context reasonably permits, the singular shall include the plural, the plural shall include the singular, and the whole shall include any part thereof. Any waiver of this License must be in writing and any waiver of one event shall not be construed as a waiver of subsequent events. If any provision of this License is invalid or unenforceable under applicable law, such provision shall be limited, narrowed, construed and altered as necessary to render it valid, but only to the extent necessary to achieve such validity.  If necessary, the invalid provision shall be eliminated from this License. The remaining provisions shall remain in full force and effect. You may not assign or transfer this License.
+
+__________________
+Marvin Barksdale, JD
+
+The information in this e-mail is intended only for the person to whom it is addressed.  If you believe this e-mail was sent to you in error and the e-mail contains patient information, please contact the Mass General Brigham Compliance HelpLine at https://www.massgeneralbrigham.org/complianceline <https://www.massgeneralbrigham.org/complianceline> .
+Please note that this e-mail is not secure (encrypted).  If you do not wish to continue communication over unencrypted e-mail, please notify the sender of this message immediately.  Continuing to send or respond to e-mail after receiving this message means you understand and accept this risk and wish to continue to communicate over unencrypted e-mail. 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20241118/8da811ff/attachment-0001.htm>
+
+From opensource at lukasatkinson.de  Thu Nov 21 11:45:34 2024
+From: opensource at lukasatkinson.de (Lukas Atkinson)
+Date: Thu, 21 Nov 2024 11:45:34 +0000
+Subject: [License-discuss] Protection of Academic Medical Center Patent
+ Portfolio via MGBopensource Proposed License
+In-Reply-To: <BY5PR04MB65507D3B2FF8FF7C1DDDA868CE272@BY5PR04MB6550.namprd04.prod.outlook.com>
+References: <BY5PR04MB65507D3B2FF8FF7C1DDDA868CE272@BY5PR04MB6550.namprd04.prod.outlook.com>
+Message-ID: <CAJTYOd1jCXgG2r7EGbZfxFsPYLjTrVHhoa1KbDS2Eg-kA_EDxg@mail.gmail.com>
+
+I fail to understand how this MGB license is supposed to be more
+patent-friendly than Apache-2.0. I'm not a legal professional, but licenses
+would ideally be both legally sound *and* comprehensible by lay people.
+
+The relevant clauses of Apache-2.0 are:
+
+each Contributor hereby grants to You a ? patent license to make, have
+> made, use, offer to sell, sell, import, and otherwise transfer the Work,
+> where such license applies only to those patent claims licensable by such
+> Contributor that are necessarily infringed by their Contribution(s) alone
+> or by combination of their Contribution(s) with the Work to which such
+> Contribution(s) was submitted.
+
+
+The corresponding parts of this MGB license:
+
+each Contributor hereby grants to You a ? license to use, reproduce,
+> prepare Derivative Works of, publicly display, publicly perform,
+> sublicense, and to distribute the Work, and Derivative Works ?
+> This License does not include any express or implied license to any
+> [patent] that is not necessary to exploit the rights granted in Section 2.
+
+
+You explain as the rationale:
+
+The thought is, if its necessary to exploit the patent rights to use the
+> licensed works, Licensees possess the rights,  but this is a more
+> appropriate standard than ?if it infringes on a patent, you have rights to
+> that patent.?
+
+
+But these two approaches largely seem to end up with the exact same rights
+being licensed.
+
+* Apache: for those patents that are necessary for this Contribution,
+Contributor grants a patent license to use.
+* MGB: Contributor grants a right to use, including any implied patent
+licenses necessary for that use.
+
+It seems that the word "infringed" in the Apache license is causing some
+unease, but both approaches seem to license the same rights: those patents
+that would be infringed by use of the contribution, were it not for this
+license.* What would be an example scenario where there is a difference*,
+where the Apache-2.0 would grant a patent license beyond what is necessary
+to use the Work?
+
+As a lay person, I don't care about whether the patent license triggers on
+"necessarily infringed by their Contribution" or "necessary to exploit the
+rights granted in Section 2", as long as a patent license ends up being
+granted to protect me from infringement claims by the Contributors. The MGB
+license could make this much, much clearer, e.g. by removing the double
+negation and explicitly granting a patent license.
+
+A probably more important distinction is that the Apache-2.0 license
+clearly scopes the patent license to a Contribution, whereas the MGB
+license also seems to grant a patent license for any preparation of
+Derivative Works. This seems unintentionally broad, but this permissiveness
+is of course very welcome from a Software Freedom perspective?
+
+Another difference is the absence of an explicit license to "sell" or
+"import" the Work. If this is an Open Source license then those would be
+allowed, so for the avoidance of doubt it could be worth keeping those two
+verbs.
+
+Taken together, the MGB approach is more complicated and less clear than
+most other licenses. It is likely that this approach still provides
+Software Freedom, but it casts a shadow of FUD over downstream users of the
+Work. The rationale talks about the Apache license's "chilling effect
+on ? patent
+portfolio owners", but I see the MGB license causing a chilling effect on
+downstream users of the software ? which would miss the entire point of
+Open Source. Compare also the discussions surrounding the problematic
+patent clause in the React license between 2014?2017.
+
+*Some notes about other clauses:*
+
+* The advertising clause in 5(b) is likely to be a problem. Note that the
+similar 4-clause (original) BSD license is not OSI-approved. The effect of
+such advertising clauses also goes against the intent of section 10 "no
+trademark or name license", as it would require the Contributors to be
+mentioned in promotional material for objectionable downstream
+modifications.
+
+* I feel uneasy about the combination of the somewhat implicit patent
+license in sections 2+3 in connection with section 8 "no implied rights".
+Someone might interpret this as explicitly withholding any patent license,
+in which case the license would fail to provide Software Freedom.
+
+* I understand the intention of section 7 "personal information", but find
+it confusing. Some data is said to be part of the Work, but then gets a
+separate usage license. It uses the term "protected health information"
+without defining it. The definition of "personal information" would seem to
+include some attribution notices per section 5, then requiring their
+removal. Section 7 also includes a requirement to "inform Licensor", which
+might go against the traditional "desert island test" for Software Freedom.
+
+All in all, the license is similar to Apache-2.0 and close to something
+that looks OSD-compliant. But in every point where it deviates from
+Apache-2.0, I'm increasingly unsure whether and how I would be allowed to
+use Works under this license. It seems less like a license than like a
+labyrinth of contradictions.
+
+If this license were submitted to license-review as-is, I would ask OSI to
+_not approve_ this license (or to at least withhold approval), for the
+following reasons:
+
+* license proliferation, close proximity to Apache-2.0
+* not obvious whether an (implied) patent license is granted, thus possibly
+failing to ensure Software Freedom
+* presence of traditionally non-free clauses like advertising clauses,
+notification requirements
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20241121/39ee004e/attachment.htm>
+
+From pamela at chesteklegal.com  Sun Nov 24 19:08:33 2024
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sun, 24 Nov 2024 11:08:33 -0800
+Subject: [License-discuss] Protection of Academic Medical Center Patent
+ Portfolio via MGBopensource Proposed License
+In-Reply-To: <CAJTYOd1jCXgG2r7EGbZfxFsPYLjTrVHhoa1KbDS2Eg-kA_EDxg@mail.gmail.com>
+References: <BY5PR04MB65507D3B2FF8FF7C1DDDA868CE272@BY5PR04MB6550.namprd04.prod.outlook.com>
+ <CAJTYOd1jCXgG2r7EGbZfxFsPYLjTrVHhoa1KbDS2Eg-kA_EDxg@mail.gmail.com>
+Message-ID: <a06c7faf-e60e-0517-f245-619f7ec8dcf3@chesteklegal.com>
+
+Comment below.
+
+Pamela S. Chestek
+(in my personal capacity)
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal
+www.chesteklegal.com
+
+
+On 11/21/2024 3:45 AM, Lukas Atkinson wrote:
+>
+> I fail to understand how this MGB license is supposed to be more 
+> patent-friendly than Apache-2.0. I'm not a legal professional, but 
+> licenses would ideally be both legally sound /and/ comprehensible by 
+> lay people.
+>
+> The relevant clauses of Apache-2.0 are:
+>
+>     each Contributor hereby grants to You a ? patent license to make,
+>     have made, use, offer to sell, sell, import, and otherwise
+>     transfer the Work, where such license applies only to those patent
+>     claims licensable by such Contributor that are necessarily
+>     infringed by their Contribution(s) alone or by combination of
+>     their Contribution(s) with the Work to which such Contribution(s)
+>     was submitted.
+>
+>
+> The corresponding parts of this MGB license:
+>
+>     each Contributor hereby grants to You a ? license to use,
+>     reproduce, prepare Derivative Works of, publicly display, publicly
+>     perform, sublicense, and to distribute the Work, and Derivative
+>     Works ?
+>     This License does not include any express or implied license to
+>     any [patent] that is not necessary to exploit the rights granted
+>     in Section 2.
+>
+>
+> You explain as the rationale:
+>
+>     The thought is, if its necessary to exploit the patent rights to
+>     use the licensed works, Licensees possess the rights, ?but this is
+>     a more appropriate standard than ?if it infringes on a patent, you
+>     have rights to that patent.?
+>
+>
+> But these two approaches largely seem to end up with the exact same 
+> rights being licensed.
+>
+> * Apache: for those patents that are necessary for this Contribution, 
+> Contributor grants a patent license to use.
+> * MGB: Contributor grants a right to use, including any implied patent 
+> licenses necessary for that use.
+>
+> It seems that the word "infringed" in the Apache license is causing 
+> some unease, but both approaches seem to license the same rights: 
+> those patents that would be infringed by use of the contribution, were 
+> it not for this license.*What would be an example scenario where there 
+> is a difference*, where the Apache-2.0 would grant a patent license 
+> beyond what is necessary to use the Work?
+
+I second this comment. "A nonexclusive patent license is simply a 
+promise not to sue for infringement." /U.S. Philips Corp. v. Int'l Trade 
+Comm'n/, 424 F.3d 1179, 1189. Procedurally, if one is accused of 
+infringement, the accused has an affirmative defense than their 
+infringement is excused by permission given by the rights holder. 
+/Carborundum Co. v. Molten Metal Equip. Innovations, Inc./, 72 F.3d 872, 
+878 ("As the alleged infringer, MMEI had the burden of establishing the 
+existence of an implied license as an affirmative defense.") So a 
+nonexclusive license is only a description of what the licensor will 
+allow others to do that would otherwise infringe the patent, with the 
+burden on the licensee to prove the existence and scope of the license.
+
+The Apache license grants a license to patent claims that are 
+"necessarily infringed" and the MGB license grants a license to whatever 
+is "necessary to exploit" the patent claim. Apache defines the grant by 
+referring to the result (necessarily infringed) and the MGB license 
+describes it in forward-looking terms (necessary to exploit). But I 
+don't see any legal difference between the two, since, no matter how 
+it's phrased, the scope is the same - the extent of the infringement the 
+licensor will tolerate. So I also would like to see an example where the 
+scope of the grant between Apache and MGB is different.
+
+>
+> Another difference is the absence of an explicit license to "sell" or 
+> "import" the Work. If this is an Open Source license then those would 
+> be allowed, so for the avoidance of doubt it could be worth keeping 
+> those two verbs.
+Indeed, by taking the word "Copyright" out of Section 2 but not 
+otherwise amending it to add the patent terms of art you may have failed 
+to grant a license to sell and import.
+
+<snip>
+
+> * I feel uneasy about the combination of the somewhat implicit patent 
+> license in sections 2+3 in connection with section 8 "no implied 
+> rights". Someone might interpret this as explicitly withholding any 
+> patent license, in which case the license would fail to provide 
+> Software Freedom.
+I agree these are directly contradictory.
+>
+> * I understand the intention of section 7 "personal information", but 
+> find it confusing. Some data is said to be part of the Work, but then 
+> gets a separate usage license. It uses the term "protected health 
+> information" without defining it. The definition of "personal 
+> information" would seem to include some attribution notices per 
+> section 5, then requiring their removal. Section 7 also includes a 
+> requirement to "inform Licensor", which might go against the 
+> traditional "desert island test" for Software Freedom.
+I think Section 7 makes the license non-free. In particular:
+
+> The Work may include data, graphs, and models, and if so You may use 
+> and modify the data, graphs, andmodels.
+>
+That's fine, albeit perhaps unnecessary to state.
+>
+> However, You have no license to any protected health information 
+> (PHI), or other personal information collected by or included by 
+> Licensor, whether or not de-identified or aggregated.
+>
+So parts of the software are not covered by the license and therefore 
+non-free.
+>
+> Licensor has no obligation under this License to provide any such 
+> personal information, or to validate any data generated by the use of 
+> the Work.
+>
+For what it's worth this is fine, but it's unnecessary. What else in the 
+license would suggest that there /is/ a duty to provide it? I suppose 
+you could have non-functional software if it's been removed? But I don't 
+think there is any duty to provide /working /software under an open 
+source license.
+>
+> For purposes of this License ?personal information? means any 
+> information relating to an identified or identifiable natural person, 
+> including PHI.
+>
+This statement probably belongs in the definitions, since you have 
+followed the convention of having a section of definitions. And it's 
+quite unrefined as a definition, reading more as an afterthought. As 
+Lukas pointed out, this includes the authors names in notices.
+>
+> Licensor has attempted to delete all copies of such personal 
+> information in the data, and will undertake to ensure that the Work 
+> does not contain any data with personal information. If despite 
+> Licensor?s efforts in this regard, You identify any personal 
+> information in the data, You agree not to use such personal 
+> information and to promptly delete all copies of such personal 
+> information in Your possession, use or control, and to inform Licensor 
+> promptly of the foregoing so that it can remove such personal data 
+> from future transmissions of the Work.
+>
+I understand the impulse here, but I don't agree with it. First off, 
+you're shifting the burden for compliance from you to the user, but you 
+are in the better position to know whether or not there is personal 
+information. Further, the benefit of open source licenses is that they 
+are frictionless. Now, you are telling the downstream user that they 
+cannot use the software with the knowledge that all the rights necessary 
+to use the software have been granted, instead telling them that there 
+might or might not be something in the software that they are not free 
+to use, which they have to go find. I believe that the possibility that 
+there are portions of the software that are not available under the 
+license is also a violation of open source principles generally.
+
+Moreover, obligations imposed by law and those imposed by the license 
+are separate and distinct and we frown on efforts to import obligations 
+imposed by law into the license. All users are obliged to comply with 
+the law that applies to them, whether or not a license says so, so there 
+is no need to duplicate the duty in the license. It also imposes 
+obligations arising in one jurisdiction on others who might not 
+otherwise have them in their jurisdiction, a violation of OSD6 
+(discrimination based on geographic locale).
+
+In addition:
+
+What does Section 4(d) do - how it is different from 4(c), other than to 
+state it in the inverse?
+
+What is Section 5(d) meant to say and do? Are you suggesting that those 
+who don't contribute code, but conducted a scientific experiment, can be 
+listed as authors of the work? The attribution list is generally 
+understood to be those who have made copyrightable contributions to the 
+source code file. This is useful information to have if one needs to 
+contact all the authors for a license change, although it is being 
+replaced by version control information. But by adding people who are 
+not copyright authors you are adding noise to the intended use of the 
+Notice file. Throwing non-authors into the mix might also invite those 
+who don't actually have any rights to bring claims premised on the 
+theory that they do because their name is listed.
+
+
+
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Official statements by the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20241124/94cf0ae0/attachment-0001.htm>
+
