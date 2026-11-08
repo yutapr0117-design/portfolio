@@ -1,0 +1,426 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-February.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-09)
+Messages: 7 messages this dossier cites from the review of CC0 ("Submitting CC0 for OSI approval", 2012-02-17 to 2012-02-20), on patents.
+Senders: Bruce Perens, Russ Nelson, Richard Fontana, Karl Fogel, Lawrence Rosen
+Position: part of the review of CC0, which was withdrawn in 2012. Not addressed to us and not about ACD. One message that ends in quoted text is cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From bruce at perens.com  Sat Feb 18 04:52:18 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 17 Feb 2012 20:52:18 -0800
+Subject: [License-review] Submitting CC0 for OSI approval
+In-Reply-To: <20120218043822.GA15669@mercury.ccil.org>
+References: <CANqjSzZLAa6aMwA2DRev4JcAGxOikUTNyqV7VvB=hHyHkb8jag@mail.gmail.com>
+	<20120217215614.GC4038@redhat.com>
+	<Pine.BSM.4.64L.1202172202240.32725@herc.mirbsd.org>
+	<20120217230308.GA5813@redhat.com> <4F3EEF52.9060406@perens.com>
+	<20120218003946.GO21991@linuxmafia.com>
+	<4F3EF90B.3060608@perens.com>
+	<20120218043822.GA15669@mercury.ccil.org>
+Message-ID: <4F3F2E82.3070504@perens.com>
+
+On 02/17/2012 08:38 PM, John Cowan wrote:
+> Patents are *always* an issue with open source. Unless you have a 
+> patent disclaimer or license from every person or corporation on the 
+> planet, you are always open to being sued for infringement.
+Agreed.
+
+The question is, what should OSI do about it in approving licenses? I 
+can't believe it's still tenable to ignore the problem. Requiring an 
+explicit patent grant in new licenses /might/ be over-reaching. Being 
+sensitive about disclaimers of patent grants and their potential to harm 
+developers is probably appropriate. Understanding the presence of the 
+implied estoppel is necessary. Being sensitive to things that might not 
+carry that estoppel is probably appropriate.
+> Similarly, there is always a risk of copyright recapture under U.S. 
+> law, which explicitly cannot be contracted or disclaimed away. 
+You mean in the case of material that was dedicated to the public 
+domain? I've seen some of this in state law, and there have been various 
+efforts to bring material that found its way into the public domain, 
+such as the film "It's a Wonderful Life", back under ownership.
+
+Bruce Perens:
+
+
+> So, I am reading this as either an abandonment of rights OR acquiescence, but not both.
+John Cowan:
+
+>  Patent rights are not abandoned under either circumstance: a dedication to the public domain of the copyright does not apply an abandonment of relevant (or irrelevant) patent rights.
+
+Right. I should have written that it was an abandonment of copyright rights, not an abandonment of rights.
+
+	Thanks
+
+	Bruce
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120217/de3dcb0e/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bruce.vcf
+Type: text/x-vcard
+Size: 266 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120217/de3dcb0e/attachment.vcf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4447 bytes
+Desc: S/MIME Cryptographic Signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120217/de3dcb0e/attachment.p7s>
+
+From nelson at crynwr.com  Sat Feb 18 03:16:06 2012
+From: nelson at crynwr.com (Russ Nelson)
+Date: Fri, 17 Feb 2012 22:16:06 -0500
+Subject: [License-review] Submitting CC0 for OSI approval
+In-Reply-To: <4F3EEF52.9060406@perens.com>
+References: <CANqjSzZLAa6aMwA2DRev4JcAGxOikUTNyqV7VvB=hHyHkb8jag@mail.gmail.com>
+	<20120217215614.GC4038@redhat.com>
+	<Pine.BSM.4.64L.1202172202240.32725@herc.mirbsd.org>
+	<20120217230308.GA5813@redhat.com> <4F3EEF52.9060406@perens.com>
+Message-ID: <20287.6134.569665.514997@desk.crynwr.com>
+
+Bruce Perens writes:
+ > I can't confirm this on behalf of OSI, as far as I'm aware I'm still 
+ > persona non grata in that camp.
+
+I can't confirm this on behalf of OSI, because like Bruce, I'm not a
+member of the board. Whether I or he is persona non grata is
+completely besides the point he's making.
+
+ > At the time I wrote the OSD, I was ignorant of patent estoppel issues, 
+ > and there were no attorneys that would help us.
+
+You didn't write the OSD. You wrote (with the help of many others) the
+Debian Free Software Guidelines. These guidelines were an internal
+memo for the project. As such, they worked pretty well. You repurposed
+them for the Open Source Definition as requirements for trademark
+licensing. As such, we've managed without your help to make them work,
+with some creative interpretation. For example, they don't say that
+authors have to ship the source code EVER! It's implicit that authors
+do, but requirements would state something that guidelines can assume.
+
+Don't take credit for things you didn't do.
+
+ > up to equitable estoppel regarding patents.
+
+The DFSG has been interpreted (by way of fixing the flaws you put into
+it) includes a "desert island" test. People on a desert island don't
+have to worry about patents; for them this license is 100% open
+source. Same thing for countries which don't suffer from software
+patents, which includes, oh, pretty much the entire civilized world.
+
+We decided long ago that patents -- or any other screwy laws one
+country or another might invent -- are beyond the remit of OSI to
+worry about.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-600-8815
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From rfontana at redhat.com  Sat Feb 18 20:50:42 2012
+From: rfontana at redhat.com (Richard Fontana)
+Date: Sat, 18 Feb 2012 15:50:42 -0500
+Subject: [License-review] Submitting CC0 for OSI approval
+In-Reply-To: <87boowp0jd.fsf@grumps.lan>
+References: <CANqjSzZLAa6aMwA2DRev4JcAGxOikUTNyqV7VvB=hHyHkb8jag@mail.gmail.com>
+	<20120217215614.GC4038@redhat.com>
+	<Pine.BSM.4.64L.1202172202240.32725@herc.mirbsd.org>
+	<20120217230308.GA5813@redhat.com> <87boowp0jd.fsf@grumps.lan>
+Message-ID: <20120218205042.GC11034@redhat.com>
+
+On Sat, Feb 18, 2012 at 10:29:58AM -0600, Christopher Allan Webber wrote:
+> Richard Fontana <rfontana at redhat.com> writes:
+> 
+> > On Fri, Feb 17, 2012 at 10:03:37PM +0000, Thorsten Glaser wrote:
+> >> Richard Fontana dixit:
+> >> 
+> >> >I am not sure whether there is precedent for an OSI-approved license
+> >> >(at least, one that is, today, widely used) that explicitly reserves
+> >> >all patent rights.
+[...]
+
+> Does it reserve patent rights, or does it declare that out of scope of
+> the license?  
+
+What do you see as the difference?
+
+> The actual bit of the license text says:
+> 
+> > 4. Limitations and Disclaimers.
+> > 
+> >   No trademark or patent rights held by Affirmer are waived,
+> >   abandoned, surrendered, licensed or otherwise affected by this
+> >   document.
+> 
+> Let's consider that *most* OSI approved licenses actually effectively
+> are the same, but without explicit statement.  Patent provisions are out
+> of scope of MIT, BSD, and almost every non-apache non-*GPL license tool.
+
+Maybe I am not sure what you mean by "out of scope".
+
+What is the position of Creative Commons on the following question: To
+what extent can a CC0 Affirmer sue a CC0 Affirmee for patent
+infringement for the mere exercise of "Copyright and Related Rights"
+waived/licensed under sections 2 and 3 of CC0? I read 4a as saying
+that the CC0 Affirmee is on notice that he or she or it has no defense
+based on CC0 itself to a subsequent patent infringement claim. That's
+certainly true on the trademark side, and that's entirely
+noncontroversial, because of the relative distance of trademark from
+copyright. Many FLOSS licenses have clauses saying "this license
+doesn't grant you any trademark rights", and I'd argue that those that
+don't (like the GPL) do so by common-sense implication.
+
+> What's being said here isn't "there's a patent license over here that
+> you need to sign onto" but "this is a public domain document, it's about
+> the waiver of copyright, so these other things don't apply".  And as a
+> general purpose public domain tool, it makes sense that patent issues
+> are not directly attached.
+
+I'm not sure I understand that. It does mean *potentially* that
+"there's a patent license over here that you need to sign onto". So if
+OSD 7 does not cover the mere possibility of some later-in-time
+additional license requirement by the same licensor or its successor,
+that's fine. 
+
+My main concern here is actually trying to understand how the OSI
+makes its decisions, and, if the OSD is still relevant, what OSD 7
+actually means.  It may be that the real reason why OSI should approve
+CC0 is that evidence already suggests that CC0 is well-accepted as a
+FLOSS license, as Andy Wilson has pointed out.
+
+> To re-quote that statement of the OSD:
+> 
+> >   The rights attached to the program must apply to all to whom the
+> >   program is redistributed without the need for execution of an
+> >   additional license by those parties.
+> 
+> I think the license does do this... again, the purpose of this section
+> is to say "these issues are out of scope".  They're out of scope of
+> *most* free software licenses also, since they're not mentioned at all.
+
+> So we should reframe this question:
+> 
+>   "Does explicitly stating that software patents are out of scope of a
+>   software license (or public domain tool), as in CC0 1.0, create a
+>   greater software patent threat than if it was never mentioned at all,
+>   but still remained out of scope, as in MIT and BSD?  And if so, by
+>   what mechanism does that happen?"
+
+By possibly absolutely foreclosing an argument of (even perhaps very
+narrow) implied patent licensing or the like. The mainstream members
+of the MIT and BSD family do not do this.
+
+I think your remarks and Mr. Cowan's have been helpful in clarifying
+that analysis of the actual likelihood of a software patent threat (in
+general, and from the actual provider of the software under the legal
+instrument in question) ought to be relevant when considering whether
+a submitted license should be approved as "Open Source" by the OSI,
+and in understanding what the OSD means (assuming it's relevant).
+
+I suspect, or at least would like to think, that if Creative Commons
+were drafting CC0 today, knowing that CC0 would be enthusiastically
+applied to software as well as to nonsoftware content, those two words
+"or patent" might not be in the document, and something else might be
+there in its place, or at least that inclusion of the "or patent"
+language would be accompanied by some satisfying policy rationale
+addressing the issue that I have raised.
+
+- Richard
+
+
+
+From rfontana at redhat.com  Sat Feb 18 21:30:34 2012
+From: rfontana at redhat.com (Richard Fontana)
+Date: Sat, 18 Feb 2012 16:30:34 -0500
+Subject: [License-review] Submitting CC0 for OSI approval
+In-Reply-To: <87aa4hrqx5.fsf@grumps.lan>
+References: <CANqjSzZLAa6aMwA2DRev4JcAGxOikUTNyqV7VvB=hHyHkb8jag@mail.gmail.com>
+	<20120217215614.GC4038@redhat.com> <87aa4hrqx5.fsf@grumps.lan>
+Message-ID: <20120218213034.GB12126@redhat.com>
+
+On Fri, Feb 17, 2012 at 05:17:10PM -0600, Christopher Allan Webber wrote:
+
+> If I remember correctly, you said something about running into something
+> at RedHat where explicitly stating that CC0 stating that it did nothing
+> about patents was worse than if it had simply not mentioned them.  
+
+Actually, no, no such particular issue has arisen at Red Hat.
+
+I've encouraged use of CC0 by Red Hat developers for certain things
+(such as sample code or other kinds of relatively small pieces of
+code), and I've found it an ingeniously useful legal instrument for
+certain other things involving software (I've also used it for
+nonsoftware content). Dents where I profess love for CC0 may have
+vanished, but I believe my voice can be heard saying "I love CC0!" in
+the faif.us episode providing a recording of Karen Sandler and Aaron
+Williamson's 2011 OSCON talk. :-)
+
+- Richard
+
+
+
+From kfogel at red-bean.com  Sun Feb 19 03:50:14 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Sat, 18 Feb 2012 21:50:14 -0600
+Subject: [License-review] Submitting CC0 for OSI approval
+In-Reply-To: <20120219025045.GC28690@mercury.ccil.org> (John Cowan's message
+	of "Sat, 18 Feb 2012 21:50:46 -0500")
+References: <CANqjSzZLAa6aMwA2DRev4JcAGxOikUTNyqV7VvB=hHyHkb8jag@mail.gmail.com>
+	<20120217215614.GC4038@redhat.com>
+	<Pine.BSM.4.64L.1202172202240.32725@herc.mirbsd.org>
+	<20120217230308.GA5813@redhat.com> <87boowp0jd.fsf@grumps.lan>
+	<20120218205042.GC11034@redhat.com>
+	<87r4xriq04.fsf@floss.red-bean.com>
+	<20120219025045.GC28690@mercury.ccil.org>
+Message-ID: <871upriirt.fsf@floss.red-bean.com>
+
+John Cowan <cowan at mercury.ccil.org> writes:
+>> So far I've found one license in category (2) that is directly relevant
+>> to our discussion of CC0 -- the EU DataGrid Software license:
+>
+>Well, I missed that one, but you missed the Frameworx license.
+
+Thank you!  Noted.
+
+So, the language in the Frameworkx license is:
+
+  5. Intellectual Property. Except as expressly provided herein, this
+  License Agreement preserves and respects Your and The Frameworx
+  Companys respective intellectual property rights, including, in the
+  case of The Frameworx Company, its copyrights and patent rights
+  relating to the Frameworx Code Base.
+
+(One of the few licenses I've seen that has an actual typo! :-)  Cursory
+Internet searching indicates the typo is not just in the OSI copy, too.)
+
+Anyway, in context I read that as simply stating that this license does
+not transfer any copyright or patent ownerships.  Previous parts of the
+license grant the recipient the right to use, modify, distribute, etc,
+and do not have any copyright-specific language.  In other words, one
+could make a reasonable claim that in the Frameworx license, the
+licensor conveys all relevant rights, and this clause merely clarifies
+that it's a promise not to enforce rather than being about ownership.
+
+The EU DataGrid license's language is somewhat different, in that it
+actually talks about infringement.  But at least one person has (by
+private email) interpreted EU DataGrid's language as being a disclaimer
+of indemnification, not a refusal to grant patent rights: "In other
+words, work itself could infringe upon their patent, but it doesn't say
+they are witholding a patent license."
+
+So we're sort of approaching CC0 territory but aren't squarely in it,
+with existing OSI-approved licenses, as far as I can tell.
+
+-Karl
+
+
+From lrosen at rosenlaw.com  Mon Feb 20 16:15:17 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Mon, 20 Feb 2012 08:15:17 -0800
+Subject: [License-review] Submitting CC0 for OSI approval
+In-Reply-To: <CAKHykethcPUgYQ9Cxi7hYU3nUwZQCboG6+N5uZ26BtX-EXFLhA@mail.gmail.com>
+References: <CANqjSzZLAa6aMwA2DRev4JcAGxOikUTNyqV7VvB=hHyHkb8jag@mail.gmail.com>	<20120217215614.GC4038@redhat.com>	<Pine.BSM.4.64L.1202172202240.32725@herc.mirbsd.org>	<20120217230308.GA5813@redhat.com>
+	<87boowp0jd.fsf@grumps.lan>	<20120218185116.GC5319@mercury.ccil.org>	<1329622552.3379.140661038374389@webmail.messagingengine.com>	<4F407621.9070707@perens.com>
+	<20120219154032.GB552@redhat.com>	<20120219223705.GA7910@redhat.com>
+	<CAKHykethcPUgYQ9Cxi7hYU3nUwZQCboG6+N5uZ26BtX-EXFLhA@mail.gmail.com>
+Message-ID: <031101ccefea$d6242320$826c6960$@com>
+
+Henrik Ingo wrote:
+> The MPEG patent pool perhaps was a very easy example
+> to discuss as their actively practiced business model is precisely
+> what we want to avoid with open source.
+
+As I understand the situation, most manufacturers of commercial products
+(e.g., Android phone manufacturers) already license the MPEG patent pool.
+Why should distributors of software intended for those products need to
+worry about those MPEG patents?
+
+Speaking more generally, there are at least three common situations:
+
+1. A patent is owned or licensable by the distributor of the software. Most
+mature FOSS licenses explicitly make those patent claims available along
+with the software. In others (BSD, MIT, CC0?) licenses to patent claims are
+implied (and there is possibly an unfortunate assumption by some here that
+implied patent licenses are enforceable in all jurisdictions). 
+
+2. As with the MPEG patent pool, necessary patent claims may be available
+from third parties so that the software distributor need not worry about
+them. This is also true for many patent claims that read on industry
+standards. FOSS licenses can do nothing about these patent claims, nor do
+they need to.
+
+3. In perhaps many cases, patent claims are owned by third parties and all
+we can do is wish for them or ignore them.
+
+/Larry
+
+
+> -----Original Message-----
+> From: license-review-bounces at opensource.org [mailto:license-review-
+> bounces at opensource.org] On Behalf Of Henrik Ingo
+> Sent: Monday, February 20, 2012 12:37 AM
+> To: license-review at opensource.org
+> Subject: Re: [License-review] Submitting CC0 for OSI approval
+> 
+> Thanks Richard
+> 
+> While I was not active with the SPI in 2009, that decision is in line
+> with what I would expect from the OSI "as a customer" of the open
+> source licenses. The MPEG patent pool perhaps was a very easy example
+> to discuss as their actively practiced business model is precisely
+> what we want to avoid with open source. Nevertheless, we should then
+> not create an opportunity for them to use CC0 to meet their goals
+> either.
+> 
+> henrik
+> 
+> On Mon, Feb 20, 2012 at 12:37 AM, Richard Fontana <rfontana at redhat.com>
+
+From bruce at perens.com  Mon Feb 20 19:21:16 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 20 Feb 2012 11:21:16 -0800
+Subject: [License-review] Submitting CC0 for OSI approval
+In-Reply-To: <20120220183132.GX21991@linuxmafia.com>
+References: <CANqjSzZLAa6aMwA2DRev4JcAGxOikUTNyqV7VvB=hHyHkb8jag@mail.gmail.com>
+	<20120217215614.GC4038@redhat.com>
+	<Pine.BSM.4.64L.1202172202240.32725@herc.mirbsd.org>
+	<20120217230308.GA5813@redhat.com> <87boowp0jd.fsf@grumps.lan>
+	<20120218185116.GC5319@mercury.ccil.org>
+	<1329622552.3379.140661038374389@webmail.messagingengine.com>
+	<4F407621.9070707@perens.com>
+	<20120220183132.GX21991@linuxmafia.com>
+Message-ID: <4F429D2C.3050005@perens.com>
+
+Rick,
+
+CC is a cultural works organization and I agree it doesn't appear that 
+they intended software to be the main use of CC0. But artistic works can 
+be infringing of machine, process, and composition patents, especially 
+the leading-edge stuff that CC is so often applied to. Quantel, for 
+example, tried to patent some digital paint-brush effects.
+
+     Thanks
+
+     Bruce
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bruce.vcf
+Type: text/x-vcard
+Size: 266 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120220/58c5a6c1/attachment.vcf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4447 bytes
+Desc: S/MIME Cryptographic Signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120220/58c5a6c1/attachment.p7s>
+
