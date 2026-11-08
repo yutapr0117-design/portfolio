@@ -394,3 +394,19 @@ workflow は 1 件ずつ 1 文足す案（計 +56 語）を出したが、§16.2
 
 **冒頭の一覧の誤りは 3 か所直した**（本文の語は変えていない）。§5.2 の項目は「サービスを Section 5 の外に置く」と読めたが、本文が外すのは (a)(b) だけなので *outside paragraphs (a) and (b)* と書いた。E40 の項目は T17 で置き換わった動名詞の列を本文の語として引いていたので、引用を外した。E39 の項目の *the right to license* は本文の *the right to grant these licences* より広いので、本文の語にした。
 
+
+### 14.15 T34: §9.2 の第 3 文の列挙を外し、§11.4 の語に結ぶ（−1 語）
+
+**Before**: *"Where a right subsists, or is later held to subsist, Sections 3 to 8 and Section 12 apply to it in full."* / **After**: *"Where a right that this Dedication reaches subsists, or is later held to subsist, this Dedication applies to it in full."*
+
+**欠陥**（bb が ARL の議論 `reviewer-positions.md` §1.155 を読んで当てた反例・2026-11-08）: (A) 列挙は §5 を「権利がある場合に働く節」の側に置く。権利の無い Machine-Generated Material の配布をクリックスルーの後ろに置いても §5.2(b) は及ばない、と読める —— 条件を付けない約束がいちばん要る場面で外れる形である。(B) 列挙は §13・§14 を挙げない。権利の無い部分の欠陥で損害を受けた人が、第 2 文と第 3 文を並べて「その部分には免責が及ばない」と主張できる。ARL の議論で出た「著作権に依拠する許諾が崩れると免責も崩れる」と同じ形である。どちらも強い読みではない。§11.4 の *"the covenants in Section 5 are promises about the Dedicator's own conduct"*、§13.1 の *"WITHOUT WARRANTY OR CONDITION OF ANY KIND"*、§13.2 の *"DOES NOT WARRANT THAT ANY RIGHT SUBSISTS IN THE WORK"*、§15.1 が反対の読みを支える。
+
+**由来**: 1.0 から在る文で、1.0〜1.3 で変わっていない。1.3 は errata E37 で第 2 文を *"as to that right"* に限り、E37 は「§8 と §5.2 は権利が無くても働く」と書いた。第 3 文の列挙はその読みの残りで、E37 のときは第 2 文だけを §5.2 と §8 に当てていた。1.0 の errata なので E 番号は bb が付ける。
+
+**最初の 2 案を退いた理由**: (1) bb の案 *"Section 5 and Sections 13 and 14 apply whether or not any right subsists."*（+12 語）は、新しい列挙が §2・§10・§15・§16 を挙げないので、同じ形の推論を別の場所に作る。(2) 列挙を外して *"this Dedication applies to it in full"* とする案（−5 語）は、第 1 文の *"any right"* に商標や人格の権利が入るので、*"in full"* と §15.1 の広い読みが組んで §11.4 の *"It reaches nothing else"* と衝突する（25 が立てた反例）。*"a right that this Dedication reaches"* は §11.4 の語で範囲を閉じる。
+
+**効果**: 許諾の範囲は変わらない。第 3 文が働く節を名指さなくなるので、名指されない節が権利の無い部分に及ばないという推論の足場が消える。§3・§4・§12 は自分の文で Covered Rights と Moral Rights に限られているので、旧文の列挙が運んでいた範囲は §11.4 の *reaches* が運ぶ。`measure_clause_overlap.py --compare`: 条 +0 / 語 −1 / 重複 +0 / 先行詞の無い指示語 0。`--guard`: 468u の目印 17 件がすべて残る。
+
+**逆側**: (1) 旧文は、どの節が権利に働くかを 1 文で示していた。新文の読者は §11.4 まで読まないと何が届くかが分からない。(2) *reach* は §8.3 で特許の請求項について定め（T22）、§11.4 で献呈全体について使う。§9.2 の用法は §11.4 の方である。(3) 外向きの文書 3 か所が旧文を引く（`submission-reference.md` 91–92、`review-responses-clauses.md` 545）。どれも 1.0 の文として正しいので、切り替えの日の表に行を足す。(4) 第 2 文と組んで「権利が無ければ何も働かない」と読む筋は弱くなるが、消えはしない。残りは第 2 文の *"as to that right"*（E37）が担う。
+
+**先に登録する反例（bb へ）**: (a) *"a right that this Dedication reaches"* が、権利の有無に加えて「reach するか」の判定を受領者に求めると読まれ、§9.3（判定を求めない）と食い違うか。(b) *"this Dedication applies to it in full"* が §12 の *"to the extent stated"* の限定を外すと読まれるか（§9.2 の旧文も *"Section 12 apply to it in full"* だった）。(c) 後に権利が生じた部分に、§2.2 の撤回不能と §16 の適用がどう掛かるか（旧文は §2 を挙げていなかった）。(d) (A)(B) が新文でもなお立つか。
