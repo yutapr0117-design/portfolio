@@ -223,6 +223,10 @@ def finish(v: str, prev: str, nxt: str, date: str, clauses: int) -> None:
         text = re.sub(r"\d+× OK", f"{pins}× OK", (L / name).read_text(encoding="utf-8"))
         text = re.sub(r"(pins the SHA-256 of|prints `OK` for all) [a-z-]+ files", rf"\1 {word} files", text)
         (L / name).write_text(re.sub(r"\(re-run \d{4}-\d{2}-\d{2},", f"(re-run {date},", text), encoding="utf-8")
+    # AS-OF の「Text frozen」の行も同じコマンドの期待値を述べる。Check 460 (q) が読む (2026-11-08 から)。
+    asof = L / "AS-OF.md"
+    asof.write_text(re.sub(r"(?m)^(\| Text frozen \| \*\*)\d{4}-\d{2}-\d{2}(\*\* \| Yes; )[a-z-]+( files pinned.*?→ )\d+(× OK)",
+                           rf"\g<1>{date}\g<2>{word}\g<3>{pins}\g<4>", asof.read_text(encoding="utf-8")), encoding="utf-8")
     # 質問票は基準の版を述べる文と語だけを動かす。問いの順は `ACD-1.4-CHANGELIST.md` の切り替えの表が決める。
     counsel = L / "QUESTIONS-FOR-COUNSEL.md"
     text = re.sub(r"(?m)^(canonical-ref: LICENSES/)ACD-\d+\.\d+\.txt", rf"\g<1>ACD-{v}.txt", counsel.read_text(encoding="utf-8"), count=1)
