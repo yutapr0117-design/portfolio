@@ -321,27 +321,27 @@ OSAID の要件を 1 つずつ条文に当てた。**OSAID が定めるものに
 
 **足さないもの**: 候補 (c)（§4.3 の規模・§8.5 の *controlled*・§9.1 の例示・§1.3）は既存の key の `clause` で足りる。§5.2(d) は `covenants` に足せるが、§11.4 の carve-out と並ぶと読み手を迷わせるので確定の日に読んで決める。**確定の日は `measure_descriptor_carryover.py` を回して、変わった条をもう一度読む。**
 
-### 提出対象を切り替える日の読み（2026-11-07・25）
+### 提出対象を切り替える日の読み（2026-11-07・25。2026-11-08 に規則の形へ書き直した）
 
-`prepare_version_freeze.py --report 1.4` の上の段 43 行を先に読んで判断した。当日はこの表を当て、`--report` が新しく出した行だけを読む。
+`prepare_version_freeze.py --report 1.4` の上の段（全部読む面）を先に読んで判断した。**行番号は編集のたびに動く**（2026-11-07 に書いた `objection-map.md` 42・48・60 は、翌日には 46・55・68 になっていた）。そこで判断を**規則**として書き、行番号は 2026-11-08 の report の値を目安として添える。当日は report を回し、各行をこの規則で振り分け、**どの規則にも当たらない行だけを読む**。
 
-| 行 | 判断 |
-| :-- | :-- |
-| `objection-map.md` 42・48・60、`submission.md` 388、`submission-osd.md` 204・208・211、`submission-reference.md` 178・182・223・627 | §1.2 → **§1.3**（Work）|
-| `submission-osd.md` 189 | 1.0 の §1.2 の逐語を 1.4 の §1.3 へ差し替える（E61 で *in whole or in part* が消えている）|
-| `submission-osd.md` 92、`submission-reference.md` 288 | §1.4 → **§1.6**（You）|
-| `submission-osd.md` 53、`submission-reference.md` 546 | 翻訳の規則は §16.5 → **§16.4**。§16.5 は Steward の定義になった |
-| `submission-reference.md` 533・716 | §15.7 → **§15.3** / 716 の §15.2 → **§15.5** |
-| `submission-reference.md` 549・551・711 | §15.8 → **§15.4** |
-| `submission-reference.md` 707 | §15.2 → **§15.5** |
-| `submission-reference.md` 715 | §1.2 → **§1.3**、§1.3 → **§1.4**（Work と Dedicator の組）|
-| `submission-reference.md` 435 | **直さない**。CERN-OHL の §1.4 である |
-| `submission-reference.md` 666・667・669、`submission-osd.md` 147・68、`submission.md` 20、`READY-TO-SUBMIT.md` 44、`REVIEWERS.md` 97〜104・195 | **直さない**。版を名指すか、1.1 以降の番号か、番号の対応を説明する文である |
-| `SUBMISSION-MATERIALS.md` 44・96・109・141 | **直さない**。1.4 の番号である |
-| `QUESTIONS-FOR-COUNSEL.md`（472h）| 冒頭の *Which text* と canonical-ref を 1.4 へ。問 2 の §8.4 と問 5 の §5.1 は「1.3 の文、そのあと 1.4 の差」の順なので、1.4 の文を先に置き、1.3 は *in ACD-1.3* と名指して残す。*the 1.4 draft* は *ACD-1.4* へ。§2.8 の版の差を述べる文はそのままでよい |
-| `REVIEWERS.md` の §8.4 の限定の引用 | 1.3 の文である。切り替えの日に 1.4 の §8.4 の限定の文へ替える |
-| §5.1 / §8.1 / §8.3 / §8.4 / §8.6 を引く文（2026-11-07 の T16〜T20）| `submission-reference.md` 73・85、`clause-reference.md` 122、`QUESTION-INDEX.md` 58 の *three footings* は、1.4 では §8.6 に無く前文が持つと直す。`review-corpus.md` R3 の §8.1 の引用は 1.0 の文なので残す。`measure_quote_drift.py 1.3 1.4` が出す §5.1 と §8.4 の行は当日に読む |
-| `submission.md` §B.0 の本文の *ACD-1.0*（Check 472o）| 件名・冒頭・header・URL は 472f が見る。本文の 7 箇所のうち 6 箇所（OSD の宣言、gap、条件の段、§6.4 の段、§1.2 の段、*taken alone*）は版を替える。§1.2 の段は §1.3 へ替える。Provenance の *"The name ACD-1.0"* は履歴の文なので、版を替えず *"The name ACD"* とする |
+| 規則 | 当たる行（2026-11-08 の report・目安）| 判断 |
+| :-- | :-- | :-- |
+| 1.0 の §1.2（Work）を、版を名乗らずに引く文 | `objection-map.md` 46・55・68、`submission.md` 394、`submission-osd.md` 206・210・213・225・227、`submission-reference.md` 178・182・223・627、`REVIEWERS.md` 202・203 | **§1.3** へ |
+| 1.0 の §1.2 の逐語を引く文 | `submission-osd.md` 191 | 1.4 の §1.3 の逐語へ差し替える（E61 で *in whole or in part* が消えている）|
+| 1.0 の §1.4（You）| `submission-osd.md` 92、`submission-reference.md` 288 | **§1.6** へ |
+| 翻訳の規則を §16.5 と呼ぶ文 | `submission-osd.md` 53、`submission-reference.md` 546 | **§16.4** へ。§16.5 は Steward の定義になった |
+| §15.7（準拠法）| `submission-reference.md` 533・716、`REVIEWERS.md` 206 | **§15.3** へ。206 の *"(§15.3 from 1.1)"* は外す |
+| §15.8（英語が正文）| `submission-reference.md` 549・551・711 | **§15.4** へ |
+| §15.2（数と例示）| `submission-reference.md` 707・716 | **§15.5** へ |
+| Work と Dedicator の組 | `submission-reference.md` 715 | §1.2 → **§1.3**、§1.3 → **§1.4** |
+| 他のライセンスの条番号 | `submission-reference.md` 435（CERN-OHL の §1.4）| **直さない** |
+| 版を名乗る、1.1 以降の番号を使う、番号の対応を説明する文 | `submission-osd.md` 68・149、`submission-reference.md` 666・667・669、`submission.md` 20、`READY-TO-SUBMIT.md` 44、`REVIEWERS.md` 99〜106 | **直さない** |
+| 1.4 の番号で書いた文 | `SUBMISSION-MATERIALS.md` 84・136・149・182 | **直さない** |
+| 個別 | `QUESTIONS-FOR-COUNSEL.md`（472h）| 冒頭の *Which text* と canonical-ref を 1.4 へ。問 2 の §8.4 と問 5 の §5.1 は「1.3 の文、そのあと 1.4 の差」の順なので、1.4 の文を先に置き、1.3 は *in ACD-1.3* と名指して残す。*the 1.4 draft* は *ACD-1.4* へ。§2.8 の版の差を述べる文はそのままでよい |
+| 個別 | `REVIEWERS.md` の §8.4 の限定の引用 | 1.3 の文である。切り替えの日に 1.4 の §8.4 の限定の文へ替える |
+| 個別 | §5.1 / §8.1 / §8.3 / §8.4 / §8.6 を引く文（2026-11-07 の T16〜T20）| `submission-reference.md` 73・85、`clause-reference.md` 122、`QUESTION-INDEX.md` 58 の *three footings* は、1.4 では §8.6 に無く前文が持つと直す。`review-corpus.md` R3 の §8.1 の引用は 1.0 の文なので残す。`measure_quote_drift.py 1.3 1.4` が出す §5.1 と §8.4 の行は当日に読む |
+| 個別 | `submission.md` §B.0 の本文の *ACD-1.0*（Check 472o）| 件名・冒頭・header・URL は 472f が見る。本文の 7 箇所のうち 6 箇所（OSD の宣言、gap、条件の段、§6.4 の段、§1.2 の段、*taken alone*）は版を替える。§1.2 の段は §1.3 へ替える。Provenance の *"The name ACD-1.0"* は履歴の文なので、版を替えず *"The name ACD"* とする |
 
 
 ## Constraints
