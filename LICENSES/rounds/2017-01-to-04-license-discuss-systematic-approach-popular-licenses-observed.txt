@@ -1,0 +1,310 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2017-January, 2017-April; the month in each message's Date line)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-08)
+Messages: 3 of the 24 messages in the thread "notes on a systematic approach to "popular" licenses" (2017-01-10 to 2017-04-09), the three this dossier cites.
+Senders: Luis Villa, Richard Fontana, Lawrence Rosen
+Position: a proposal to the OSI Board on how to list licences, and two replies. Not addressed to us and not about ACD. One message that ends in quoted text is cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From luis at lu.is  Tue Jan 10 16:07:53 2017
+From: luis at lu.is (Luis Villa)
+Date: Tue, 10 Jan 2017 16:07:53 +0000
+Subject: [License-discuss] notes on a systematic approach to "popular"
+	licenses
+Message-ID: <CAFjZtRfEiM4vrBdOaBE99y04dpt36taJpkPDB+EJjUcuKtmumw@mail.gmail.com>
+
+[Apparently I got unsubscribed at some point, so if you've sent an email
+here in recent months seeking my feedback, please resend.]
+
+Hey, all-
+I promised some board members a summary of my investigation in '12-'13 into
+updating, supplementing, or replacing the "popular licenses" list. Here
+goes.
+
+
+*tl;dr*
+I think OSI should have an data-driven short license list with a replicable
+and transparent methodology, supplemented by a new-and-good(?) list that
+captures licenses that aren't yet popular but are high quality and have
+some substantial improvement that advances the goals of OSI.
+
+
+*Purposes of non-comprehensive lists*
+If you Google "open source licenses", OSI pages are the top two hits.
+Historically, those pages were not very helpful unless you already knew
+something about open source. Having a shorter "top" list can help make the
+OSI website more useful to newcomers by suggesting a starting place for
+their exploration and education about open source.
+
+In addition, third parties often look to OSI as a trusted (neutral?) source
+for "top" or "best" licenses that they can incorporate into products. (The
+full OSI-approved list is not practical for many applications.) For
+example, if OSI had an up-to-date short list, it might have been the basis
+for GitHub's license chooser.
+
+A list that is purely based on popularity would freeze open source in a
+particular time, likely making it hard for new licenses with important
+innovations to get adoption. However, a list based on more subjective
+criteria is hard to create and update.
+
+*Past attempts*
+
+The proliferation report attempted to address this problem by categorizing
+existing licenses. These categories were, intentionally or not, seen as the
+"popular or strong communities list" and "everything else". Without a
+process or clear set of criteria to update the "popular" list, however, it
+became frozen in time. It is now difficult to credibly recommend the list
+to newcomers or third parties (MPL 1.1 is deprecated; no mention of
+Blackduck #4 GPL v3; etc.).
+
+There was also substantial work done towards a license "chooser" or
+"wizard". However, this runs into some of the same problems - either the
+chooser is opinionated (and so pisses off people, and potentially locks the
+licenses in time) or is borderline-useless for newcomers (because it still
+requires substantial additional research after using it).
+
+*Data-driven "popular" list*
+
+With all that in mind, I think that OSI needs a (mostly) data-driven
+"popular" shortlist, based on a scan of public code + application of
+(mostly?) objective rules to the outcome of that scan.
+
+To maintain OSI's reputation as being (reasonably) neutral and independent,
+OSI should probably avoid basing this on third-party license surveys
+(e.g., Black
+Duck <https://www.blackducksoftware.com/top-open-source-licenses>) unless
+their methodologies and data sources are well-documented. Ideally someone
+will write code so that the "survey" can be run by OSI and reproduced by
+others.
+
+Hard decisions on how to collect and "process" the data will include:
+
+   - *choice of data sources:* What data sources are drawn on? Key Linux
+   distros? GitHub? per-language repos like maven, cpan, npm, etc?
+   - *what are you counting?* Projects? (May favor small, throwaway
+   projects?) Lines of code? (May favor the largest, most complex projects?)
+   ... ?
+   - *which license tools? *Some scanners are more aggressive in trying to
+   identify *something*, while others prefer accuracy over
+   comprehensiveness. In 2013 there was no good answer to this, but my
+   understanding is that fossology now has three different scanners, so for
+   OSI's purposes it may be sufficient to take those three and average.
+   - Could throw in Black Duck or other non-transparent surveys as a
+      fourth, fifth, etc.?
+      - *new versions? *If a new version exists but isn't widely adopted
+   yet, how does the list reflect that? e.g., MPL 1.1 still shows up in Black
+   Duck's survey; should OSI replace 1.1 with 2.0 in the "processed" list?
+   What about GPL v2 v. v3? BSD/MIT v. UPL?
+   - *gaps/"mistakes":* What happens when the board thinks the data is
+   incorrect? :) e.g., should ISC be listed?
+
+Part of why we didn't go very far in 2013 is because there are no great
+answers for these - different answers will reflect different values, and
+have different engineering impact. They're all hard choices for the board,
+the developers, hopefully license-discuss, and perhaps a broader community.
+
+Hat tip: Daniel German was invaluable to me in thinking through these
+questions.
+
+*Supplementing with high-quality, value-adding options*
+To encourage progress, while still avoiding proliferation, I'd suggest a
+second list of licenses that are good but not (yet?) popular. "Good" would
+be defined as something like:
+
+   1. meets the OSD
+   2. isn't on the data-driven popularity list
+   3. drafted by an attorney (at minimum) or by a collaborative, public
+   drafting process with clear support from a sponsoring-maintaining
+   organization (ideal)
+   4. has a new "feature" that is firmly in keeping with the overall goals
+   of open source and can be concisely explained in a few sentences (e.g., for
+   UPL, "GPL-compatible permissive license with explicit patent grant")
+   1. but not "just for a particular community" - has to be at least
+      plausible applicable to most open source projects
+      2. this is unavoidably subjective; suggest having it fall to the
+      board with pre-discussion on license-review.
+
+#4 allows for some innovation (and OSI support of such innovation) while #3
+applies a quality filter. (Both #3 and #4 have anti-proliferation effects.)
+Hopefully licenses that meet #3 and #4 would eventually move into #2, but
+you could imagine placing a time limit on this list; if you're not in the
+top 10 most popular within five years, then you get retired? But not sure
+that's a good idea at all - just throwing it out as one option.
+
+If a new license meets #1, but not #3 and #4, then OSI's formal policy
+should be to approve, but bury it in one of the other proliferation list
+groups. (Those groups are actually quite good, and should be fairly
+non-controversial ? once you have a good policy for what gets in the more
+"favored" groups.) I don't think a new "deprecated" group is necessary -
+the proliferation categories are basically a good list of that already.
+
+This is still a somewhat subjective process, and if it had been in place in
+'99-'06, it would have been fairly fraught. However, I think most of the
+"action" in open source organization has moved on to other areas (e.g.,
+foundation structure, CoCs, etc.), and the field has matured in other ways,
+so I think this is now a practicable approach in ways it would not have
+been a decade or even five years ago.
+
+*Miscellaneous notes*
+
+   - I don't recommend merely updating the existing "popular and..." list
+   through a subjective or one-time process. The politics of that will be
+   messy, and without a documented, mostly-objective, data-driven method,
+   it'll again become an outdated mess.
+   - The OSD should probably be updated. At the least this should be by
+   addressing things like whether a formal patent grant is required of new
+   licenses; more ambitiously it might follow Open Data Definition 2.x
+   <http://opendefinition.org/od/2.1/en/> by splitting out open licenses
+   from open works.
+   - With SPDX and Fedora providing more comprehensive lists of FOSS
+   licenses, it might make sense for OSI to link to those as "extended"
+   resources, to reduce pressure from obscure license authors to get their
+   license approved.
+   - The biggest pressure on this process will continue to be licenses that
+   try to open up space for new commercial business models (e.g., Fair
+   Source). The more OSI can write/document/buttress OSD #1, the better.
+   - I used to think a license wizard was a good idea, but I don't any
+   more. I thought copyleft spectrum was really the only important
+   decision-making factor, which made the idea plausible, but non-copyleft
+   factors matter much more than I once thought, and make simplifying to a
+   "wizard" too hard for OSI (though perhaps still plausible for a third
+   party).
+   - Documentation of what the copyleft spectrum *is*, what the key
+   licenses on it are, and what other factors might be relevant, is still a
+   good idea, but are secondary to getting the basic lists right.
+
+HTH-
+
+Luis
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20170110/f65965a4/attachment.html>
+
+From fontana at sharpeleven.org  Tue Jan 10 21:55:32 2017
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Tue, 10 Jan 2017 16:55:32 -0500
+Subject: [License-discuss] notes on a systematic approach to "popular"
+ licenses
+In-Reply-To: <CAFjZtRfEiM4vrBdOaBE99y04dpt36taJpkPDB+EJjUcuKtmumw@mail.gmail.com>
+References: <CAFjZtRfEiM4vrBdOaBE99y04dpt36taJpkPDB+EJjUcuKtmumw@mail.gmail.com>
+Message-ID: <20170110215532.5pxss2emojeqeotq@antelope>
+
+On Tue, Jan 10, 2017 at 04:07:53PM +0000, Luis Villa wrote:
+
+> With all that in mind, I think that OSI needs a (mostly) data-driven
+> "popular" shortlist, based on a scan of public code + application of
+> (mostly?) objective rules to the outcome of that scan.
+> 
+> To maintain OSI's reputation as being (reasonably) neutral and independent,
+> OSI should probably avoid basing this on third-party license surveys
+> (e.g., Black
+> Duck <https://www.blackducksoftware.com/top-open-source-licenses>) unless
+> their methodologies and data sources are well-documented. Ideally someone
+> will write code so that the "survey" can be run by OSI and reproduced by
+> others.
+
++1
+
+> *Supplementing with high-quality, value-adding options*
+> To encourage progress, while still avoiding proliferation, I'd suggest a
+> second list of licenses that are good but not (yet?) popular. "Good" would
+> be defined as something like:
+> 
+>    1. meets the OSD
+>    2. isn't on the data-driven popularity list
+>    3. drafted by an attorney (at minimum) or by a collaborative, public
+>    drafting process with clear support from a sponsoring-maintaining
+>    organization (ideal)
+>    4. has a new "feature" that is firmly in keeping with the overall goals
+>    of open source and can be concisely explained in a few sentences (e.g., for
+>    UPL, "GPL-compatible permissive license with explicit patent grant")
+>    1. but not "just for a particular community" - has to be at least
+>       plausible applicable to most open source projects
+>       2. this is unavoidably subjective; suggest having it fall to the
+>       board with pre-discussion on license-review.
+
+> #4 allows for some innovation (and OSI support of such innovation) while #3
+> applies a quality filter. (Both #3 and #4 have anti-proliferation effects.)
+> Hopefully licenses that meet #3 and #4 would eventually move into #2, but
+> you could imagine placing a time limit on this list; if you're not in the
+> top 10 most popular within five years, then you get retired? But not sure
+> that's a good idea at all - just throwing it out as one option.
+
+I like the general idea, and I suppose it corresponds to what the OSI
+was trying to do with the partial updating of the 2006 popular list. I
+would rather have #3 be "must be determined to be well drafted and of
+high quality" without giving specifics (despite the additional
+subjectivity this would introduce). Looking at the whole history of
+open source licensing, it is hard to make the case that involvement of
+an attorney is a likely indicator of higher quality. :)
+
+> If a new license meets #1, but not #3 and #4, then OSI's formal policy
+> should be to approve, but bury it in one of the other proliferation list
+> groups. (Those groups are actually quite good, and should be fairly
+> non-controversial ? once you have a good policy for what gets in the more
+> "favored" groups.) I don't think a new "deprecated" group is necessary -
+> the proliferation categories are basically a good list of that already.
+
+I actually think we should take a fresh look at these proliferation
+categories.
+
+>    - With SPDX and Fedora providing more comprehensive lists of FOSS
+>    licenses, it might make sense for OSI to link to those as "extended"
+>    resources, to reduce pressure from obscure license authors to get their
+>    license approved.
+
+A bigger problem is that somehow, and quite early on, the OSI came to
+be seen as an organization that encouraged "experimental
+licenses". (Not entirely a problem - the good part of this is that it
+actively encouraged creativity and advancement in the field of open
+source licensing.) One characteristic of the SPDX, Fedora, Debian [to
+the extent an actual 'list' of DFSG-compatible licenses exists, which
+I'm not sure of], and the FSF lists is that they deal with the actual
+real world, for the most part: they consider licenses that are really
+being used. OSI came to be a place where one would bring licenses that
+are not being used yet -- which in some cases could mean licenses that
+never end up being used.
+
+SPDX and Fedora are thus not really going to reduce pressure for
+obscure license authors unless those license authors actually see
+their licenses in real use.
+
+Richard
+
+
+From lrosen at rosenlaw.com  Thu Apr  6 16:39:43 2017
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Thu, 6 Apr 2017 09:39:43 -0700
+Subject: [License-discuss] notes on a systematic approach to "popular"
+	licenses
+In-Reply-To: <1491493830.1022235.936445768.2B20D0DD@webmail.messagingengine.com>
+References: <CAFjZtRfEiM4vrBdOaBE99y04dpt36taJpkPDB+EJjUcuKtmumw@mail.gmail.com>
+ <CAFjZtReuyT_3uXYFBi0jHEMMGVbMtGTk7ACYQ9to8Rke1ht6rg@mail.gmail.com>
+ <1491493830.1022235.936445768.2B20D0DD@webmail.messagingengine.com>
+Message-ID: <00b301d2aef4$65bd8c60$3138a520$@rosenlaw.com>
+
+Richard Fontana wrote:
+
+> Interesting but at first glance the data seems too unreliable to be of any use. I started checking the identified projects under the so-called Clear BSD license (the FSF-free, never-OSI-submitted BSD variant that explicitly excludes patent licenses) and the ones I looked at were all spurious matches. 
+
+ 
+
+Luis is noting that the current OSI list of "popular" licenses is unreliable also. Let's not do nothing about it. 
+
+Popularity is important only for social media starlets.
+
+ 
+
+More important for us would be a list that describes the fundamental areas where each license differs from the others. Give licensors a reason to select a license, and give licensees a reason to understand its risks and benefits. Don't limit those descriptions to 2 sentences or to arbitrary classifications. Stating explicitly in this OSD list that certain licenses are "popular" on Black Duck or other lists may be helpful but not determinative.
+
+ 
+
+Yes, that license list is now long. If that length problem is the sole reason that you list certain licenses first in a shorter "recommended" list, do so explicitly but with appropriate caveats not to trust those recommendations.
+
+ 
+
+The alternative to that kind of limited but precise legal analysis is that new proposed licenses will be rejected or discussed to death simply because they aren't popular. They should only be rejected if (1) they don't contain anything legally new (non-proliferation), or (2) they don't satisfy the OSD (not open source).
+
+ 
+
+/Larry
+

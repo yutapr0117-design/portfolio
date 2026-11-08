@@ -22,9 +22,9 @@ that it must be**. *(Re-measure: `git ls-files -z LICENSES ':!LICENSES/rounds' |
 | :-- | --: | :-- |
 | [`ACD-1.0.txt`](ACD-1.0.txt) | **4,896** | the licence. Nothing outside it fixes it |
 | the two facts **#1 and #4** in [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~220 | **no lawyer has read this text**, and **the only project using it is the author's**. These are the strongest points against it. Neither is one of the eight published criteria, and the Licensing Committee's chair has called legal review *"not a blocker"*, but a reviewer may weigh both |
-| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **3,972** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
+| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **4,053** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
 
-**≈ 9,090 words** *(`wc -w`, 2026-11-08.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
+**≈ 9,170 words** *(`wc -w`, 2026-11-08.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
 jurisdiction analysis, and the archive measurements — **all of which are evidence for claims,
 not claims themselves.** The four commands below check the licence text without trusting any
 of it.
@@ -230,8 +230,8 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 | The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders in the clauses (one in §16.1's notice template) |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
-| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 417 worked entries, indexed by the question rather than the filename |
-| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — about twenty times the length of the licence.** All 314 adverse facts, written by us. Two have no answer |
+| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 418 worked entries, indexed by the question rather than the filename |
+| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — about twenty times the length of the licence.** All 315 adverse facts, written by us. Two have no answer |
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
 | **What we would ask a lawyer** | [`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) | ACD has had no legal review. Nine questions on which a lawyer's reading would most change the text, ranked by consequence, each answerable on its own |
 | **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 72 known imprecisions, all unrepaired in 1.0 while the freeze holds, with what the successor does (the Status column is authoritative) |

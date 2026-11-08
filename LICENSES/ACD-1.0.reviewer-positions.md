@@ -820,3 +820,19 @@ Chestek 氏 2026-04-18 *"it is also better practice not to define the the grant 
 **読み。** 献呈に特許の許諾を添える形は、2016〜2017 年に Markham 氏と Smith 氏が望み、Rosen 氏も明示の特許の約束を求めていた。このスレッドの中では、その形を 1 本にした本文は出ていない。逆側も同じ場所にある。審査に近い法律家たちは、著作権の無い部分のために新しいライセンスは要らないと答え、OSI の外部顧問は新しいライセンスには強い理由が要ると述べた。ACD が立てる理由は §8.4 と条件ゼロと §6 で、§9 ではない。
 
 **この節が establish しないこと。** どれも個人の発言で、OSI の決定ではない。Markham 氏と Smith 氏が望んだのは CC0 の形で、ACD の §8.4 の伸び（モデルと出力）までは述べていない。ARL の件は審査に出ていないので、帰結は無い。
+
+## 1.156 OSD を満たすが人気の無い新しいライセンスをどう扱うか —— 2017 年の一覧の提案（2026-11-08）
+
+Luis Villa 氏が、2012〜13 年に自分が調べた結果を理事会の何人かに約束した要約として `license-discuss` に出した提案と、その返信（`rounds/2017-01-to-04-license-discuss-systematic-approach-popular-licenses-observed.txt`）。人気で決める短い一覧に、「良いがまだ人気の無い」ライセンスの 2 つ目の一覧を足す案である。この提案が採られたかは、このスレッドには無い。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| 2 つ目の一覧の条件として *"drafted by an attorney (at minimum) or by a collaborative, public drafting process with clear support from a sponsoring-maintaining organization (ideal)"* と、*"has a new "feature" that is firmly in keeping with the overall goals of open source"*（例として UPL）。続けて *"If a new license meets #1, but not #3 and #4, then OSI's formal policy should be to approve, but bury it in one of the other proliferation list groups."* | Luis Villa 氏 2017-01-10 | 1 番目の条件は OSD。ACD は法律家の起草も、支える組織も持たない（B1・#315）。それでも案の帰結は「承認して、目立つ一覧には載せない」で、承認そのものは OSD で決まる |
+| *"The OSD should probably be updated. At the least this should be by addressing things like whether a formal patent grant is required of new licenses"* | 同 | 明示の特許許諾を新しいライセンスに求めるかを、OSD の課題として挙げた。§8 はそれを持つ |
+| #3 について *"Looking at the whole history of open source licensing, it is hard to make the case that involvement of an attorney is a likely indicator of higher quality. :)"*、条件は *"must be determined to be well drafted and of high quality"* の方がよい | Richard Fontana 氏 2017-01-10 | 法律家の関与を品質の印としない見方（B1 の有利な面。§1.147 の Smith 氏 2019 と同じ向き） |
+| *"OSI came to be a place where one would bring licenses that are not being used yet -- which in some cases could mean licenses that never end up being used."* | 同 | B2 の逆側。利用の無いライセンスを持ち込む場所になったことを、問題として述べている（#315） |
+| *"They should only be rejected if (1) they don't contain anything legally new (non-proliferation), or (2) they don't satisfy the OSD (not open source)."* | Lawrence Rosen 氏 2017-04-06 | 拒む理由を 2 つに限る立場。ACD は §8.4 と条件ゼロで (1) に答え、(2) は OSD の逐条で答える |
+
+**読み。** 2017 年の提案は、OSD を満たす新しいライセンスを承認し、扱いの差は一覧の載せ方で付ける、という形だった。ACD はその案の目立つ一覧の条件（法律家か支える組織）を満たさないが、承認の条件は満たしうる。逆側として、同じ日に Fontana 氏は、使われていないライセンスが持ち込まれることを問題として挙げている。
+
+**この節が establish しないこと。** どれも個人の提案と発言で、OSI の決定ではない。2 つ目の一覧が作られたかは確かめていない。
