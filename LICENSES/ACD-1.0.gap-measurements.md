@@ -812,3 +812,17 @@ UPL（Universal Permissive License）の審査（`license-review`・2014-04-10 �
 | *"Good to remember that CC0 is not an OSI approved open source license, precisely because it did not grant a patent license."* | Henrik Ingo 氏 2016-12-12 | CC0 が承認されなかった理由の、審査に近い人の要約（Fontana 氏は同じスレッドで、理由は許諾の欠如ではなく明示の除外だと正した） |
 
 **この節が establish しないこと。** Fontana 氏の「歓迎」は政府の文言を想定した個人の発言で、ACD の §8.4（モデルと出力）までは述べていない。CC の勧めは Nigel Tzeng 氏が引いたもので、CC の文書は読んでいない。
+
+## 1.161 特許の許諾をどこまで伸ばすと許諾者の特許が空になるか —— Apache-2.0 の前夜の問い（2002-11〜12）（2026-11-08）
+
+`license-discuss` の "MPL section 2.2, and patent grants on derivative works"（`rounds/2002-11-to-12-license-discuss-mpl-patent-grants-on-derivatives-observed.txt`）。Brian Behlendorf 氏が次の Apache ライセンスの起草のために、寄与者の特許の許諾が派生物まで届くかを尋ねたスレッドである。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| 許諾が何にでも伸びるなら *"That would make the Developer's patents worthless, one and all. For an unscrupulous person wishing to practice absolutely unrelated patent B would simply have to add an utterly irrelevant module to the licensed software that would otherwise infringe B and then claim a license from the Developer."*、*"it's one thing to ask companies to give away patent rights needed to use the program they are also giving away, and quite another to ask them to implicitly surrender all their patent rights, software-related or not."* | John Cowan 氏 2002-11-22 | §8.1 の *"where the infringement is caused by subject matter contained in the Work as made available by the Dedicator"* が答える懸念。E66（自動で足した機能は §8.1 だけが決める）は、同じ抜け道の AI の時代の形を閉じた |
+| OSL は Licensed Claims を *"patent claims owned or controlled by the Licensor that are embodied in the Original Work as furnished by the Licensor"* と定め、*"Those, and only those, Licensed Claims can be practiced in Derivative Works."* | Lawrence Rosen 氏 2002-11-22 | §8.1 の "as made available by the Dedicator" と同じ形の、早い先例（2005 年の OSL 3.0 の言い方は #305） |
+| 許諾が 1 つの版にしか残らないなら *"the patent grants by contributors ends up being pretty useless (since they last only one Version)"* | Brian Behlendorf 氏 2002-12-01 | §8.1 は *"the Work or anything derived from it"* と書き、許諾は派生物へ残る |
+
+**読み。** 作品に含まれる主題へ許諾を結ぶ形（§8.1）は、許諾者の特許が空になるという 2002 年の懸念への答えとして生まれた形と同じである。§8.4 は、モデルが作品に含まれる主題ではないのでこの限定を外し、因果の限定で代える。**逆側**: Cowan 氏の懸念は §8.4 の伸びにそのまま向く（#16・#305）。因果の限定がそれを抑えるかは、法律家への問いとして開いている（`QUESTIONS-FOR-COUNSEL.md` 2(b)）。
+
+**この節が establish しないこと。** どれも 2002 年の個人の発言で、Apache-2.0 の文言がこのスレッドから決まったという記録は読んでいない。
