@@ -12,7 +12,7 @@ canonical-ref: LICENSES/ACD-1.0.txt / LICENSES/READY-TO-SUBMIT.md / LICENSES/ACD
 **ACD-1.0 が凍結中であること**を、ファイルの存在で表すマーカー。オーナーが SPDX / OSI へ申請
 するため「結果を伝えるまでライセンスをそのままにしておいてほしい」と述べた（2026-08-24）。
 
-凍結対象 3 件の **sha256 を pin** しており、**Check 453** が BLOCKING で照合する。
+`FREEZE-DATA` に列挙した凍結対象の **sha256 を pin** しており、**Check 453** が BLOCKING で照合する。
 
 ## Why
 
