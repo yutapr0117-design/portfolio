@@ -540,6 +540,25 @@ _MUTATIONS_TAIL.append({
     "replace": "outputs of computational use (§8.9), with no condition",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": 'Check 472f: 提出パケットの Version を 1.4-rc1 にする —— 欄の形が崩れると照合から黙って外れていた',
+    "file": ROOT / 'LICENSES/ACD-1.0.submission.md',
+    "find": "Version:                        1.0\nShort Identifier:               ACD-1.0\nCopyleft:                       No\nLegacy or New:                  New License\nDrafted By Lawyer:              No\nApproved or Used by Projects:   One — the submitter's own repository",
+    "replace": "Version:                        1.4-rc1\nShort Identifier:               ACD-1.0\nCopyleft:                       No\nLegacy or New:                  New License\nDrafted By Lawyer:              No\nApproved or Used by Projects:   One — the submitter's own repository",
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 472i: 入口の表の register の行を #節 付きのリンクにして、日本語であることを消す —— #付きのリンクの行は読まれていなかった',
+    "file": ROOT / 'LICENSES/REVIEWERS.md',
+    "find": '[`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md) | **The register. Mostly Japanese; it opens with a full index in English.** Each item',
+    "replace": '[`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md#b1) | **The register.** Each item',
+})
+_MUTATIONS_TAIL.append({
+    "name": 'Check 472k: objection-map の §10.4 を空白入りの § 8.9 にする —— 空白入りの形を読んでいなかった',
+    "file": ROOT / 'LICENSES/ACD-1.0.objection-map.md',
+    "find": '**§10.4** terminates nothing, and §4.1 is irrevocable and perpetual',
+    "replace": '**§ 8.9** terminates nothing, and §4.1 is irrevocable, perpetual',
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

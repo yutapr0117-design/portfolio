@@ -408,7 +408,7 @@ def run(ctx):
         _pats472f = [
             r"https://yutapr0117-design\.github\.io/portfolio/LICENSES/(ACD-\d+\.\d+)\.",
             r"Short [Ii]dentifier(?: requested)?[:*| ]+`?(ACD-\d+\.\d+)",
-            r"(?m)^Version:\s+(\d+\.\d+)\s*$",
+            r"(?m)^Version:\s+(\S+)\s*$",  # [2026-11-08] 1.4-rc1 のような値も読む (形が崩れると照合から黙って外れた)
             r"\*\*Subject:\*\* For Approval: .*?\((ACD-\d+\.\d+)\)",
             r"\*\*SPDX XML:\*\* `LICENSES/(ACD-\d+\.\d+)\.spdx",
             r"I am submitting the \*\*Autonomous Commons Dedication [\d.]+ \((ACD-\d+\.\d+)\)",
@@ -418,6 +418,10 @@ def run(ctx):
         if _mk472f:
             _tg472f = _mk472f.group(1)
             for _p in _pats472f:
+                # [2026-11-08] 欄ごとに 1 つ以上在ること。旧版は合計の下限 (10) だけで、欄の形が崩れると
+                #   その欄は比べられないまま黙って外れた (16 欄のうち 6 欄まで)
+                if not re.search(_p, _t472f):
+                    _bad472f.append(f"欄が読めない: {_p[:40]}")
                 for _m in re.finditer(_p, _t472f):
                     _seen472f += 1
                     _v = _m.group(1) if _m.group(1).startswith("ACD-") else "ACD-" + _m.group(1)
@@ -524,7 +528,7 @@ def run(ctx):
         _tg472k = _tm472k.group(1) if _tm472k else "?"
         _tp472k = ROOT / "LICENSES" / f"{_tg472k}.txt"
         _have472k = set(re.findall(r"^  (\d+\.\d+) ", _tp472k.read_text(encoding="utf-8"), re.M)) if _tp472k.exists() else set()
-        _cite472k = sorted({_c for _c in re.findall(r"(?<!\.md` )§(\d{1,2}\.\d{1,2})", _ot472k) if 2 <= int(_c.split(".")[0]) <= 16})
+        _cite472k = sorted({_c for _c in re.findall(r"(?<!\.md` )§\s?(\d{1,2}\.\d{1,2})(?!\d)", _ot472k) if 2 <= int(_c.split(".")[0]) <= 16})
         _miss472k = [_c for _c in _cite472k if _c not in _have472k]
         check(
             len(_cite472k) >= 5 and not _miss472k,
@@ -564,13 +568,13 @@ def run(ctx):
         _map472i = _t472d.split("## Map of the supporting documents", 1)[-1].split("\n## ", 1)[0].split("\n")
         _bad472i, _seen472i = [], 0
         for _row in _rows472i:
-            _m = re.search(r"\]\(([^)#\s]+)\)", _row)
+            _m = re.search(r"\]\(([^)#\s]+)(?:#[^)\s]*)?\)", _row)  # [2026-11-08] #節 付きのリンクも読む
             if _row.startswith("|") and _m and (ROOT / "LICENSES" / _m.group(1)).exists():
                 _seen472i += 1
                 if _jp472i(_m.group(1)) >= 0.30 and "Japanese" not in _row:
                     _bad472i.append(f"{_m.group(1)} は日本語 {_jp472i(_m.group(1)):.0%} なのに行が Japanese と述べない")
         for _row in _map472i:
-            _m = re.match(r"\| \[`[^`]+`\]\(([^)#\s]+)\) \| \**(English|Japanese)\b", _row)
+            _m = re.match(r"\| \[`[^`]+`\]\(([^)#\s]+)(?:#[^)\s]*)?\) \| \**(English|Japanese)\b", _row)
             if _m and (ROOT / "LICENSES" / _m.group(1)).exists():
                 _seen472i += 1
                 if (_jp472i(_m.group(1)) >= 0.30) != (_m.group(2) == "Japanese"):
