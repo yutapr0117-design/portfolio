@@ -409,9 +409,11 @@ def run(ctx):
             r"https://yutapr0117-design\.github\.io/portfolio/LICENSES/(ACD-\d+\.\d+)\.",
             r"Short [Ii]dentifier(?: requested)?[:*| ]+`?(ACD-\d+\.\d+)",
             r"(?m)^Version:\s+(\S+)\s*$",  # [2026-11-08] 1.4-rc1 のような値も読む (形が崩れると照合から黙って外れた)
-            r"\*\*Subject:\*\* For Approval: .*?\((ACD-\d+\.\d+)\)",
+            # 件名と書き出しは名前の版と識別子の両方を読む (2026-11-09・監査 #29: 括弧の識別子しか比べず、
+            #   名前の "Dedication 1.0" は確かめていなかった)
+            r"\*\*Subject:\*\* For Approval: Autonomous Commons Dedication ([\d.]+) \((ACD-\d+\.\d+)\)",
             r"\*\*SPDX XML:\*\* `LICENSES/(ACD-\d+\.\d+)\.spdx",
-            r"I am submitting the \*\*Autonomous Commons Dedication [\d.]+ \((ACD-\d+\.\d+)\)",
+            r"I am submitting the \*\*Autonomous Commons Dedication ([\d.]+) \((ACD-\d+\.\d+)\)",
             r"\*\*Full name:\*\* Autonomous Commons Dedication (\d+\.\d+)",
         ]
         _seen472f, _bad472f = 0, []
@@ -424,10 +426,11 @@ def run(ctx):
                     _bad472f.append(f"欄が読めない: {_p[:40]}")
                 for _m in re.finditer(_p, _t472f):
                     _seen472f += 1
-                    _v = _m.group(1) if _m.group(1).startswith("ACD-") else "ACD-" + _m.group(1)
-                    if _v != _tg472f:
-                        _ln = _t472f.count("\n", 0, _m.start()) + 1
-                        _bad472f.append(f"L{_ln} {_v}")
+                    for _g in _m.groups():
+                        _v = _g if _g.startswith("ACD-") else "ACD-" + _g
+                        if _v != _tg472f:
+                            _ln = _t472f.count("\n", 0, _m.start()) + 1
+                            _bad472f.append(f"L{_ln} {_v}")
         check(
             bool(_mk472f) and _seen472f >= 10 and not _bad472f,
             f"Check 472f: 提出パケットの版に紐づく欄 {_seen472f} 箇所が SUBMISSION-TARGET と一致",
