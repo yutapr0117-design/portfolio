@@ -580,6 +580,12 @@ _MUTATIONS_TAIL.append({
     "find": "**Subject:** For Approval: Autonomous Commons Dedication ",
     "replace": "**Subject:** For Approval: Autonomous Commons Dedication 9",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 472j: ADOPTING が版で別の条を指す §1.3 を引く —— 番号が全部の版に在るかしか見ず、§1.3 が 1.0 では Dedicator、1.1 からは Work を定義していても通った",
+    "file": ROOT / "LICENSES" / "ADOPTING.md",
+    "find": "1. **Check that you hold the rights.**",
+    "replace": "1. **Check that you hold the rights in the Work (§1.3).**",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

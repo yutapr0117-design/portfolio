@@ -547,13 +547,22 @@ def run(ctx):
         _ad472j = ROOT / "LICENSES" / "ADOPTING.md"
         _at472j = _ad472j.read_text(encoding="utf-8") if _ad472j.exists() else ""
         _cite472j = sorted(set(re.findall(r"§(\d+\.\d+)", _at472j)))
-        _miss472j = []
+        _miss472j, _id472j = [], {}
         for _v472j in sorted((ROOT / "LICENSES").glob("ACD-*.txt")):
             _t472j = _v472j.read_text(encoding="utf-8")
             if "HAS BEEN FROZEN" in _t472j.split("\n", 1)[0]:
                 continue
             _have472j = set(re.findall(r"^  (\d+\.\d+) ", _t472j, re.M))
             _miss472j += [f"§{_c} が {_v472j.name} に無い" for _c in _cite472j if _c not in _have472j]
+            # 番号が在るだけでなく同じ条であること (2026-11-09・監査 #34): §1.3 は 1.0 で Dedicator、1.1 から Work を
+            #   定義し、§16.5 も 1.0 と 1.1 で別の条である。定義の条は定義する語、それ以外は書き出しの 3 語で比べる
+            for _c in _cite472j:
+                _mb472j = re.search(r"^  " + re.escape(_c) + r"\s+(.*?)(?=^  \d+\.\d+\s|^\d+\. |\Z)", _t472j, re.M | re.S)
+                if _mb472j:
+                    _b = " ".join(_mb472j.group(1).split())
+                    _d = re.match(r'"([^"]+)"\s+means', _b)
+                    _id472j.setdefault(_c, {}).setdefault(_d.group(1) if _d else " ".join(_b.split()[:3]), []).append(_v472j.name)
+        _miss472j += [f"§{_c} は版で別の条を指す: {_ids}" for _c, _ids in sorted(_id472j.items()) if len(_ids) > 1]
         check(
             "the same in every version" in _at472j and len(_cite472j) >= 3 and not _miss472j,
             f"Check 472j: ADOPTING.md が引く {len(_cite472j)} 条が全部の版に在る",
