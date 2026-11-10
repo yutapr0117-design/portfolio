@@ -1,0 +1,527 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2005-March)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-10)
+Messages: 11 messages this dossier cites from "Three new proposed OSD terms" (license-discuss, 2005-03-02 to 2005-03-07; 76 messages in all). Not the whole thread.
+Senders: Russell Nelson, Alex Bligh, Joel West, Ernest Prabhakar, John Cowan, Ian Lance Taylor, Brian Behlendorf, David A. Wheeler
+Position: the committee chair's proposal of three additional terms for new licences, and the list's replies. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Wed Mar  2 15:09:35 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Wed, 2 Mar 2005 10:09:35 -0500
+Subject: Three new proposed OSD terms
+Message-ID: <16933.55087.394250.69781@desk.crynwr.com>
+
+We have always pushed people in this direction, but by adding these
+terms to the OSD, we will be proactively refusing licenses which don't
+meet these requirements.
+
+11. *The license must not be duplicative.*  That is, it is up to the 
+    submitter to demonstrate that the license solves a problem not 
+    sufficiently addressed by an existing certified license.  Certification 
+    may be denied to any submitted license, even a technically OSD-
+    conformant license, if OSI deems it duplicative.
+
+12. *The license must be clearly written, simple, and understandable.* 
+    Open-source licenses are written to serve people who are not
+    attorneys, and they need to be comprehensible by people who are
+    not attorneys.  OSI may deny certification to licenses which,
+    though technically correct and OSD-compliant, are so obscure 
+    and complicated that an intelligent layperson cannot be assured 
+    of knowing his or her rights and liabilities after reading it.
+    The burden of engineering this clarity falls on the submitter.
+
+13. *The license must be reusable*.  If the license contains proper
+    names of individuals, associations, or projects, these must be
+    incorporated by reference from an attachment that declares the
+    names of the issuer and any other cited parties, and which can be
+    modified without changing the terms of the license.  As the sole
+    exception, the license may name its owner and steward.
+
+-- 
+--My blog is at     blog.russnelson.com         | The laws of physics cannot
+Crynwr sells support for free software  | PGPok | be legislated.  Neither can
+521 Pleasant Valley Rd. | +1 315-323-1241 cell  | the laws of countries.
+Potsdam, NY 13676-3213  | +1 212-202-2318 VOIP  | 
+
+
+From alex at alex.org.uk  Wed Mar  2 16:11:16 2005
+From: alex at alex.org.uk (Alex Bligh)
+Date: Wed, 02 Mar 2005 16:11:16 +0000
+Subject: Three new proposed OSD terms
+In-Reply-To: <16933.55087.394250.69781@desk.crynwr.com>
+References: <16933.55087.394250.69781@desk.crynwr.com>
+Message-ID: <0AD53463E442525169771D18@[192.168.100.25]>
+
+
+
+--On 02 March 2005 10:09 -0500 Russell Nelson <nelson at crynwr.com> wrote:
+
+> 11. *The license must not be duplicative.*  That is, it is up to the
+>     submitter to demonstrate that the license solves a problem not
+>     sufficiently addressed by an existing certified license.
+> Certification      may be denied to any submitted license, even a
+> technically OSD-     conformant license, if OSI deems it duplicative.
+
+This seems a little ill-defined. For instance, is a license which
+is identical to an existing license apart from a jurisdiction clause
+duplicative? There are all sorts of reasons why (say) non-Californian
+companies might not want exclusive jurisdiction in (say) California USA.
+
+On the other hand, clearly no license will be entirely duplicative
+(i.e. verbatim identical) because noone would bother to apply.
+
+I would suggest this is rephrased as something like "No new license
+shall be approved which is similar to an existing license unless
+the submitter can show substantive differences between the new
+license and each similar existing license."
+
+Alex
+
+
+From svosrp at gmail.com  Wed Mar  2 16:11:12 2005
+From: svosrp at gmail.com (Joel West)
+Date: Wed, 2 Mar 2005 08:11:12 -0800
+Subject: Three new proposed OSD terms
+In-Reply-To: <16933.55087.394250.69781@desk.crynwr.com>
+References: <16933.55087.394250.69781@desk.crynwr.com>
+Message-ID: <p0611040dbe4b93939151@[10.0.1.63]>
+
+On 10:09 AM -0500 3/2/05, Russell Nelson doth scribe:
+>11. *The license must not be duplicative.* 
+
+This seems like an administrative detail, not a principle of the open source movement.
+
+NY Times: Mr. Nelson, what does the open source movement stand for?"
+Nelson: "We stand for free access to source code, and non-duplicative licenses".
+
+It would be like Moses adding "thou shalt file thy taxes on time" to be the 11th commandment.
+
+It seems like this belongs on the "Getting a License Approved" section. As in, after Bullet Point 4, say "the board reserves the right to reject any license that is similar in form or effect to an existing license".
+
+>12. *The license must be clearly written, simple, and understandable.*
+>    Open-source licenses are written to serve people who are not
+>    attorneys, and they need to be comprehensible by people who are
+>    not attorneys. 
+
+Am I missing something? I though open source licenses were written to allocate the rights to a programmer's efforts in a way that is enforceable in a court of law.
+
+I realize that Larry Rosen may today be a controversial figure here, but read his book (or that of Andrew St. Laurent) on some of the "clearly written" licenses. They may be appealing to a programmer, but who knows what a court will decide if they're ever tested? And if they make an attorney throw up his hands in despair, what company will use them?
+
+I agree the goal is that shorter and clearer are better, but we should not sacrifice legal accuracy either.
+
+>13. *The license must be reusable*.
+
+Agreed.
+
+> If the license contains proper
+>    names of individuals, associations, or projects, these must be
+>    incorporated by reference from an attachment that declares the
+>    names of the issuer and any other cited parties, and which can be
+>    modified without changing the terms of the license.
+
+Incorporated by reference? Or changed within the license by template substitution. Again, the incorporated by reference may have some legal disadvantages.
+
+> As the sole
+>    exception, the license may name its owner and steward.
+
+Define "steward". Does this mean that we encourage people to copyright their licenses? If so, I think there should be a policy as to what license should be used, because any license should be reusable (like code) to make a new license. We wouldn't have the Sleepycat license (from BSD) or the IPL/CPL (from Mozilla) without this principle.
+
+Joel
+
+-- 
+Joel West
+Silicon Valley Open Source Research Project	http://www.cob.sjsu.edu/OpenSource/
+
+
+From prabhaka at apple.com  Wed Mar  2 16:37:39 2005
+From: prabhaka at apple.com (Ernest Prabhakar)
+Date: Wed, 2 Mar 2005 08:37:39 -0800
+Subject: Three new proposed OSD terms
+In-Reply-To: <p0611040dbe4b93939151@[10.0.1.63]>
+References: <16933.55087.394250.69781@desk.crynwr.com> <p0611040dbe4b93939151@[10.0.1.63]>
+Message-ID: <d9579c0b492f231df81a95ee57cd2bec@apple.com>
+
+On Mar 2, 2005, at 8:11 AM, Joel West wrote:
+> This seems like an administrative detail, not a principle of the open 
+> source movement.
+
+I think Joel makes a good point.   These seem like reasonable 
+restrictions on Certification, but philisophically quite different than 
+other aspects of the OSD.
+
+I'd prefer to redefine OSI Certification to add these constraints, 
+rather than burden the OSD per se with them.  As it is now, the OSD is 
+(IMHO) a wonderful statement of "general community standards", rather 
+than a pragmatic statement  of that the OSI wants to handle.  I'd hate 
+to lose that.
+
+-- Ernie P.
+
+
+
+From jcowan at reutershealth.com  Wed Mar  2 17:07:03 2005
+From: jcowan at reutershealth.com (John Cowan)
+Date: Wed, 2 Mar 2005 12:07:03 -0500
+Subject: Three new proposed OSD terms
+In-Reply-To: <p0611040dbe4b93939151@[10.0.1.63]>
+References: <16933.55087.394250.69781@desk.crynwr.com> <p0611040dbe4b93939151@[10.0.1.63]>
+Message-ID: <20050302165433.GA18968@skunk.reutershealth.com>
+
+I agree generally with Joel West's stand on the three proposed additions
+(non-duplicativeness is an administrative detail; judge-friendliness
+trumps programmer-friendliness, though the latter is good too; proper
+names in licenses are bad).
+
+However,
+
+> Define "steward".
+
+I take the steward of the Mumble License to be the person who has the
+right to say when a new version of the Mumble License has been released.
+This is, informally speaking, a trademark rather than a copyright issue.
+
+> Does this mean that we encourage people to copyright their licenses?
+
+Unfortunately, it's not up to us.  Copyrightability is presumed, so every
+license (including ones that say "This license is in the public domain")
+is presumed to be copyrighted until a judge says it isn't.  It's not
+even 100% clear that dedications to the public domain are actually effective.
+
+> If so, I think there should be a policy as to what license should be
+> used, because any license should be reusable (like code) to make a
+> new license. We wouldn't have the Sleepycat license (from BSD) or the
+> IPL/CPL (from Mozilla) without this principle.
+
+I think this should wait until there is some evidence that license authors
+are unreasonably withholding permission.  (Beware, Larry!  :-))
+
+-- 
+Why are well-meaning Westerners so concerned that   John Cowan
+the opening of a Colonel Sanders in Beijing means   jcowan at reutershealth.com
+the end of Chinese culture? [...]  We have had      http://www.reutershealth.com
+Chinese restaurants in America for over a century,  http://www.ccil.org/~cowan
+and it hasn't made us Chinese.  On the contrary,
+we obliged the Chinese to invent chop suey.            --Marshall Sahlins
+
+
+From ian at airs.com  Thu Mar  3 04:31:52 2005
+From: ian at airs.com (Ian Lance Taylor)
+Date: 02 Mar 2005 23:31:52 -0500
+Subject: Three new proposed OSD terms
+In-Reply-To: <16933.55087.394250.69781@desk.crynwr.com>
+References: <16933.55087.394250.69781@desk.crynwr.com>
+Message-ID: <m3psyhwds7.fsf@gossamer.airs.com>
+
+Russell Nelson <nelson at crynwr.com> writes:
+
+> We have always pushed people in this direction, but by adding these
+> terms to the OSD, we will be proactively refusing licenses which don't
+> meet these requirements.
+
+These requirements are unlike the other requirements in the OSD, in
+that rather than trying to write down what we mean by the term "open
+source", they are specific to the issue of whether the OSI should
+approve a given license.  Therefore I do not think they should be
+added to the OSD.
+
+However, I think they are valuable requirements.  Therefore, I think
+the OSI should change its approach to approving licenses to saying
+"the license must meet the OSD, and must also meet these additional
+adminstrative requirements."
+
+In fact, I would another point, along the lines of:
+
+    *The license must not be detrimental to the open source
+    community.* If in the judgement of OSI approving the license would
+    harm the open source community, OSI may deny certification.
+
+Ian
+
+
+From brian at collab.net  Thu Mar  3 18:03:11 2005
+From: brian at collab.net (Brian Behlendorf)
+Date: Thu, 3 Mar 2005 10:03:11 -0800 (PST)
+Subject: Three new proposed OSD terms
+In-Reply-To: <m3psyhwds7.fsf@gossamer.airs.com>
+References: <16933.55087.394250.69781@desk.crynwr.com> <m3psyhwds7.fsf@gossamer.airs.com>
+Message-ID: <20050303095750.F75162@paz.hyperreal.org>
+
+On Wed, 2 Mar 2005, Ian Lance Taylor wrote:
+> In fact, I would another point, along the lines of:
+>
+>    *The license must not be detrimental to the open source
+>    community.* If in the judgement of OSI approving the license would
+>    harm the open source community, OSI may deny certification.
+
+I think this, and two of the other three proposed OSD terms, are the wrong 
+direction.  Certification should not be so subjective - it will only lead 
+to long, drawn out arguments over whether something is detrimental or not, 
+or duplicative or not, and make it difficult to defend a decision as more 
+than a value judgement.  If we're defaulting to the value judgements of 
+the OSI board or of the people here at license-discuss, we're much much 
+closer to the peasants-with-pitchforks Robespierre-esque mis-ideal that 
+our enemies love to malign us as.
+
+I think OSI should leave the certification criteria as they are - even 
+consider taking a fresh look at the existing ones to ask if they're 
+needed.  I think OSI could very well create a gold standard list of 
+licenses that meet additional criteria and are "recommended".  It might 
+take some effort to properly template-ize them, and to provide a chart 
+showing which licenses allow sublicensing under which other licenses.  It 
+might even be useful to attempt to provide standard language for certain 
+upcoming requirements, like patent defense clauses.  All of which is more 
+work than just inventing a few new rules, admittedly.
+
+ 	Brian
+
+
+
+From nelson at crynwr.com  Thu Mar  3 17:57:15 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Thu, 3 Mar 2005 12:57:15 -0500
+Subject: Three new proposed OSD terms
+In-Reply-To: <opsm08z0epiz3etf0c9082f7@pail.measurement-factory.com>
+References: <16933.55087.394250.69781@desk.crynwr.com>
+	<opsm08z0epiz3etf0c9082f7@pail.measurement-factory.com>
+Message-ID: <16935.20475.926452.619688@desk.crynwr.com>
+
+Alex Rousskov writes:
+ > [ Moreover, I doubt the new rules can reject 50% of new
+ > submissions; humans, including lawyers, are very adaptive. ]
+
+They're judgement calls.  The first term alone gives us the discretion
+to say "But your license is just like all the other licenses that
+comply with the open source definition." because it ultimately has to
+comply with the open source definition.
+
+ > 	b) The proposed terms have nothing to do with Open Source Definition,  
+ > IMHO. Only the vague rule #12 is remotely related to what Open Source  
+ > means or should mean. However, as others pointed out, it is not clear  
+ > whether it is possible to write a clear, simple, and understandable legal  
+ > document these days.
+
+Yes, it's possible.  One thing you can do is hide legally required
+language behind definitions.  So instead of saying "change, modify,
+compile, or edit", you make that a definition for "Change".
+
+ > Let the market forces decide what is clear and simple enough.
+
+That's what we've been doing ... and people are not happy with that.
+I think it's been working reasonably well, but still, people are not
+happy and we need to recognize that.
+
+-- 
+--My blog is at     blog.russnelson.com         | The laws of physics cannot
+Crynwr sells support for free software  | PGPok | be legislated.  Neither can
+521 Pleasant Valley Rd. | +1 315-323-1241 cell  | the laws of countries.
+Potsdam, NY 13676-3213  | +1 212-202-2318 VOIP  | 
+
+
+From dwheeler at dwheeler.com  Thu Mar  3 22:37:13 2005
+From: dwheeler at dwheeler.com (David A. Wheeler)
+Date: Thu, 03 Mar 2005 17:37:13 -0500 (EST)
+Subject: Three new proposed OSD terms (next steps?)
+In-Reply-To: <m3sm3cv3jx.fsf@gossamer.airs.com>
+References: <16933.55087.394250.69781@desk.crynwr.com>
+ <m3psyhwds7.fsf@gossamer.airs.com>
+ <20050303095750.F75162@paz.hyperreal.org>
+ <m3sm3cv3jx.fsf@gossamer.airs.com>
+Message-ID: <E1D6ywT-0004JB-Bs@odie.runbox.com>
+
+It appears to me (though I could be wrong)
+that there's a rough working consensus that
+the OSI should continue to accept OSS licenses that meet the
+current OSD, and not change the current OSD. There also seems
+to me to be a rough consensus that OSI should create a new short subset of
+"Gold"/"Recommended" licenses (whatever they're called!).
+This subset would make it especially easy for new projects to pick one of a few
+common licenses, and newcomers would be herded to this
+subset as a suggested place to start.  Let me say  AOL^H^H^Hme too!
+
+Here are actions I think need to happen next, based on some of the
+previous emails I've seen, if this really is what's agreed to:
+
+1. What's needed is a list of criteria for a license to become a "Gold"
+standard.... as well as a good name for this subset.
+The original proposal of 3 items isn't a bad start,
+particularly the requirements for templatability and understandability
+(if a license is to be widely used understandability is even more important).
+I recommend adding "market acceptance" as a critieria (e.g., use
+on several projects as shown by various stats).
+A "Gold" license should have significant marketplace acceptance,
+and while the other criteria are more subjective, you CAN
+measure how many projects & lines of code use a license.
+I point to some data sources at:
+http://www.dwheeler.com/essays/gpl-compatible.html
+That means that anyone can create an OSS license, and have it
+reviewed, but to be a "Gold" standard people actually have to pick it up.
+
+2. You'll need to start creating that set using that criteria, which will really be
+a continuous process.  There are some licenses for which there is
+unanimous agreement (GPL, LGPL, at least one of BSD-new or MIT),
+so start there.  To head off the "what about mine?!" query, make it clear
+that this is an ongoing process, and that more will be added.
+In the end, this decision is going to have to be made by a group others
+can trust, because there will inevitably be some subjectivity in where
+to cut things off.  There are some thickets here. Some licenses
+are only common for certain situations (PHP license
+for PHP code) - should they be listed?
+How popular is "popular enough"?
+And should both BSD-new and MIT licenses be in the list?
+After all, they're BOTH widely used;
+Perens recommends MIT over BSD-new because the MIT license is
+much easier to understand, better meeting the "understandability" criteria.
+
+3. Another useful action will be to create a templatable MPL. Not easy, but
+I think that'd be an excellent idea.  I suspect if you identified the
+top projects using MPL-like licenses, you might be able to hammer
+out something; it'd take time, ESPECIALLY to get anyone to switch..!
+This would take a while, but I see a big-win possibility here.
+
+4. Once you have a Gold list, it'd be useful to have a taxonomy - basically
+an aid to license selectors, so they'll know what some of the important
+differences are between their options, and what is compatible with what.
+As most of you already know, there's already one attempt that might be a good
+starting point, and that's Perens' paper at:
+ http://www.oreilly.com/catalog/opensources/book/perens.html
+I find it interesting that this 1999 paper warns about the very issue
+that started this: "Do not write a new license if it is possible to use one
+of the ones listed here. The propagation of many different and incompatible
+licenses works to the detriment of Open Source software because fragments
+of one program cannot be used in another program with an incompatible license."
+It should also note that some communities have specialized licenses & that
+if it's widespread in that community they should consider using that
+(e.g., PHP license common for OSS/FS PHP code, and
+GNAT-modified GPL is common in OSS/FS Ada software).
+
+5. I think the "Gold" list could also eventually select one of a few common
+"riders", if certain riders become common.  But I think that is for the future.
+
+Hope this helps.
+
+--- David A. Wheeler
+
+
+
+From prabhaka at apple.com  Thu Mar  3 18:23:35 2005
+From: prabhaka at apple.com (Ernest Prabhakar)
+Date: Thu, 3 Mar 2005 10:23:35 -0800
+Subject: Three new proposed OSD terms
+In-Reply-To: <20050303095750.F75162@paz.hyperreal.org>
+References: <16933.55087.394250.69781@desk.crynwr.com> <m3psyhwds7.fsf@gossamer.airs.com> <20050303095750.F75162@paz.hyperreal.org>
+Message-ID: <734C6635-A5AE-4644-89BE-CE23EC10917B@apple.com>
+
+On Mar 3, 2005, at 10:03 AM, Brian Behlendorf wrote:
+> I think OSI should leave the certification criteria as they are - 
+> even consider taking a fresh look at the existing ones to ask if 
+> they're needed.  I think OSI could very well create a gold standard 
+> list of licenses that meet additional criteria and are "recommended". 
+>  It might take some effort to properly template-ize them, and to 
+> provide a chart showing which licenses allow sublicensing under which 
+> other licenses.  It might even be useful to attempt to provide 
+> standard language for certain upcoming requirements, like patent 
+> defense clauses.  All of which is more work than just inventing a few 
+> new rules, admittedly.
+
+Of all the proposals, I like Brian's the best.  If the real goal is to 
+encourage people to reuse existing licenses rather than make new ones, 
+I'd rather invest the effort in making it *easier* to the do the right 
+thing (use a Recommended, Templateable License) rather than make it 
+harder to do the 'wrong' thing (write a new license).
+
+Yeah, it is much more work, but it is more worth doing (I'm happy to 
+help, as a private citizen).   Otherwise, I fear we'll end up diluting 
+a highly-regarded objective standard (the OSD) with subjective 
+administrative criteria, which is a path I don't want to go down.
+
+-- Ernie P.
+
+
+
+From alex at alex.org.uk  Mon Mar  7 21:53:12 2005
+From: alex at alex.org.uk (Alex Bligh)
+Date: Mon, 07 Mar 2005 21:53:12 +0000
+Subject: Three new proposed OSD terms
+In-Reply-To: <422CBA88.4060803@codefab.com>
+References: <E44DA9B66B742C4CB74D5678764BA799C68B2B@slc-mail.exegesys.com>
+ <422CBA88.4060803@codefab.com>
+Message-ID: <69C5F8C9F92FB1058D62B597@[192.168.100.25]>
+
+
+
+--On 07 March 2005 15:33 -0500 Chuck Swiger <chuck at codefab.com> wrote:
+
+> You're right, of course.  However, aside from Richard Stallman, most open
+> source developers seem happy with something like [1]:
+>
+> "THE BEER-WARE LICENSE" (Revision 42):
+> <phk at FreeBSD.ORG> wrote this file.  As long as you retain this notice you
+> can do whatever you want with this stuff.  If we meet some day, and you
+> think
+> this stuff is worth it, you can buy me a beer in return.   Poul-Henning
+> Kamp
+
+It is rather easier to right a license which is entirely permissive (or for
+that matter entirely restrictive) than one which says some things are
+allowed under some conditions, but not under others. Try finding a
+reciprocal license that short, that is enforceable.
+
+You will find this true not only of legal documents, but also of technical
+documents. See RFCs. You will also find that those that do not accurately
+distinguish between what is permitted and what is prohibited, and what is
+mandatory and what is optional, store up trouble for later. Also see RFCs.
+
+> I wonder how much shorter software licenses would be and how much easier
+> they would be to understand if the compensation offered to those in the
+> legal profession was inversely proportional to the number of words they
+> used
+
+I don't know anyone sensible who pays their lawyer by the word, and I know
+several lawyers who spend many an hour simplifying and shortening
+documents. In general, lawyers do what you pay them to do.
+
+Whilst it is true that as far as OSI approved licenses are concerned, the
+lawyer-written licenses are (probably, in general) word for word longer
+than lay-written ones, I bet the discussion in court over what is
+and what isn't permitted under (say) the original artistic license is
+going to be orders of magnitude longer than that under (say) the MPL.
+Larry Rosen makes the point better than I can in his book.
+
+All this boils down to a philosophical point about the purpose of
+licensing. Is the license there to serve as a definitive legal statement of
+the rights and obligations of each contributor, distributor, user and
+modifier, which provides both certainty and legal enforceability OR is it
+there to set out the philosophy of "what the original author would like to
+happen". If it's the latter, a license can perhaps be as simple as a
+statement of aspiration, with some permissive legal effect - from this
+point of view I can see both the point on license wording, and the point on
+license proliferation (how many different ways do you need to say "do what
+you want with it"?). But this thread started off on the assumption that the
+people with problems were large corporates, who have an additional
+transaction cost in assessing each license. For these, firstly I don't have
+a huge amount of sympathy (they are likely to have in house legal teams,
+and because of their size are likely to save more in aggregate over
+conventionally licensed software) and secondly they are precisely the sort
+of user/contributor who is going to be more fussed about the precise nature
+of license terms anyway (and thus want the legal certainty and
+enforceability) for the very reason that they are used to reading
+commercial software license terms and negotiating on them. Without wishing
+to single out Mr Fink of HP, I am quite sure that HP writes its own
+software licenses in precise enforceable legal terms, rather than in
+vague aspirational terms of dubious enforceability in the hope that
+"the layman will understand them" - this should be the very last group
+from whom we should be concerned about special pleading on wording (as
+opposed to, say, consumer end users, where there is a clear case to be
+made to ensure the license is comprehensible).
+
+One corollary of the above is that the explanation of the license need
+not be the license itself. Forrest has produced an excellent tool
+to help for geeks to understand (at least a subset of) OSI licenses
+in terms of what they include. It would not be a bad thing if each
+approved license had to include a (non-binding) explanation in plain
+English as well (the GPL attempts to do this, though inclusion as
+a prologue in the license itself is arguably not necessary).
+
+Alex
+
+

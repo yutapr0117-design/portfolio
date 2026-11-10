@@ -109,3 +109,21 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"One of the filters for frivolity is whether someone submits the license using a pseudonym, or their real name."*、これに Perens 氏が *"The board has total freedom to reject the license, and they should."* と返し、提出者ではなく提出物を見るべきだと述べた | Russ Nelson 氏 2009-01-24、Bruce Perens 氏 2009-01-24 | B14。提出者の名前が審査の扱いに使われた記録。ACD はオーナーが本名で出し、起草の経緯（AI が大半を書いた）も開示している。**逆側**: 審査する人が提出物でなく提出者を見ることがある、という記録でもある。B14 の moderator の宣言（AI が大半を書いた投稿を拒否する）は、その現在の形である |
 
 **この節が establish しないこと。** どれも個人の発言で、OSI の決定ではない。Fogel 氏の「理事会は委員会の合意を追認する」は 2012 年の運用の説明である。
+
+## 1.170 3 つの基準の元の文言 —— 立証の責任は提出者にある、と書かれていた（2005-03）（2026-11-10）
+
+`rounds/2005-03-license-discuss-three-proposed-osd-terms-observed.txt`（11 通・スレッドは全 76 通）。§1.168 の 2005 年 9 月の報告が *"passed and published in March"* と書いた基準の、元の提案である。委員長の Russell Nelson 氏は 2005-03-02 に、OSD に 3 つの条項を足すと提案した。リストの多くは「OSD ではなく承認の手続きに置くべき」と答え、理事会は OSD を変えずに、承認の基準として通した（§1.168）。
+
+| 提案の文言・発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| 11（non-duplicative）: *"That is, it is up to the submitter to demonstrate that the license solves a problem not sufficiently addressed by an existing certified license."* | Russell Nelson 氏（委員長）2005-03-02 | B10。立証の責任は提出者にある。ACD の提出文が先に差を示すのは、この形に合う（register の B10 の行は、承認済み 141 本で達成できない効果を条文で示した）。**逆側**: 同じ委員長は *"They're judgement calls."*・*"The first term alone gives us the discretion to say"* とも書いた（2005-03-03）。示しても、足りるかは審査する側の判断である |
+| 12（clearly written）: *"OSI may deny certification to licenses which, though technically correct and OSD-compliant, are so obscure and complicated that an intelligent layperson cannot be assured of knowing his or her rights and liabilities after reading it."*・*"The burden of engineering this clarity falls on the submitter."* | 同 | B3・B13。基準は語数ではなく、読んだ人が自分の権利と責任を知れるかである。ACD は §10.1 で条件が無いことを 1 文で述べ、§16.1 の通知の書式が要点を数行で述べる。**逆側**: 4,896 語を読み通さないと「何も課されない」を確かめられない、という反論は残る。Alex Bligh 氏は *"It is rather easier to right a license which is entirely permissive (or for that matter entirely restrictive) than one which says some things are allowed under some conditions, but not under others."*（2005-03-07）と書いた。条件の無いライセンスの長さは、条件の複雑さで説明できない |
+| *"judge-friendliness trumps programmer-friendliness"* | John Cowan 氏 2005-03-02 | B3 の逆側（有利）。短さより、裁判所で読まれたときの確かさを優先するという立場。ACD の長さの多くは、狭く読まれる読みを先に閉じる文である。**逆側**: 個人の発言で、12 の文言（素人が読める）とは向きが違う |
+| *"It's not even 100% clear that dedications to the public domain are actually effective."* | John Cowan 氏 2005-03-02 | B4・B5。公有化の宣言が効くかに 2005 年から疑いがあった。ACD が §3 の放棄に §4 の許諾を重ねる理由の 1 つに当たる。**逆側**: 同じ疑いは、公有化を中心に置くライセンスそのものへの疑いにも使える |
+| 13（reusable）: *"As the sole exception, the license may name its owner and steward."* | Russell Nelson 氏 2005-03-02 | 本文が名指してよいのは owner と steward だけ。ACD の本文は個人を名指さない（§1.168）。この基準は満たす |
+| *"Certification should not be so subjective - it will only lead to long, drawn out arguments over whether something is detrimental or not, or duplicative or not, and make it difficult to defend a decision as more than a value judgement."* | Brian Behlendorf 氏 2005-03-03 | B10 の有利な面。重複の判定が主観に寄ることへの反対。同じ日に David A. Wheeler 氏は *"there's a rough working consensus that the OSI should continue to accept OSS licenses that meet the current OSD, and not change the current OSD."* と要約し、推奨の小さな一覧を別に作る案を挙げた。これが後の「承認して、目立つ一覧には載せない」（§1.167、#315）の元の形である。**逆側**: 理事会はそれでも基準を通した（§1.168） |
+| *"This seems like an administrative detail, not a principle of the open source movement."*・*"I'd prefer to redefine OSI Certification to add these constraints, rather than burden the OSD per se with them."* | Joel West 氏 2005-03-02、Ernest Prabhakar 氏 2005-03-02 | 3 つの基準は OSD の外に置かれた。2025 年の理事会が却下を OSD 違反に限った文（`board-decisions.md` §2）と、この置き方は合う。**逆側**: OSD の外に置かれた基準は、却下ではなく留め置きの根拠として働き続けている（§1.168） |
+
+**読み。** 3 つの基準は、最初から「提出者が立証する」形で書かれていた。ACD の提出文が差と読みやすさの根拠を先に出すのは、この形への答えになる。同時に、リストの大勢は 2005 年に、OSD に適合すれば承認し、推奨は別の一覧で扱う、と述べていた。ACD が狙える帰結（承認・推奨なし）は、この大勢の形でもある。
+
+**この節が establish しないこと。** 提案の文言は委員長の案で、理事会が通した文言そのものではない（理事会の側は `board-decisions.md` の 8.7 節）。読みやすさの基準に語数の線は書かれていない。
