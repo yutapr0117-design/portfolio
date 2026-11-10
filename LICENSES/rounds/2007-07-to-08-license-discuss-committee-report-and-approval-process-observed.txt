@@ -1,0 +1,182 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2007-July, 2007-August)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 6 messages this dossier cites from "License Committee Report for July 2007" and its branch "what *is* the approval process?" (license-discuss, 2007-07-23 to 2007-08-03). Not the whole threads.
+Senders: Russ Nelson, Radcliffe, Mark, David Woolley, Rishab Aiyer Ghosh, Chuck Swiger
+Position: the committee chair's report, and the list's replies about the approval process during the review of GPLv3 and LGPLv3. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Mon Jul 23 20:05:35 2007
+From: nelson at crynwr.com (Russ Nelson)
+Date: Mon, 23 Jul 2007 16:05:35 -0400
+Subject: License Committee Report for July 2007
+Message-ID: <18085.2575.701265.407950@desk.crynwr.com>
+
+I'm the chair of the license approval committee.  This is my report
+for the current set of licenses under discussion.
+
+Title: Open Source Hardware License 
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:12911:200707:jmkojcilhopeddgknmdj
+Revised here:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:12941:200707:jmkojcilhopeddgknmdj
+License: In the submission
+Comments: No consensus on license-discuss that OSI should be in the
+  business of Open Source Hardware.
+Recommend: more discussion, with some direction from the board.  Is
+  this a direction that OSI should go in?  And, even if we do, is a
+  license particular to hardware needed?
+
+
+--
+
+Title: Common Public Attribution License (CPAL)
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:12849:200706:pdjppaipccgjbdgekdna
+License: in the submission
+Comments: Andrew Oliver: Tomorrows software will include Socialtext at
+  the bottom of the stack of a much larger aggregation of software.
+  Rick Moen: Let's be tolerant of licence-created problem scenarios that
+  seem, at best, on the far end of "unlikely to actually occur".
+Recommend: I think the board is on its own on this one.  My personal
+  recommendation (as a board member, not the chair) is to approve the
+  license and see if it achieves the Open Source effect.  The APL was
+  not a widely used license, I suspect because of its complexity.
+  Let's give attribution requirements another chance in a simpler
+  license.  If such a licensed software does not achieve the Open
+  Source effect, it will put the issue to rest.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | People have strong opinions
+Crynwr sells support for free software  | PGPok | about economics even though
+521 Pleasant Valley Rd. | +1 315-323-1241       | they've never studied it.
+Potsdam, NY 13676-3213  |     Sheepdog          | Curious how that is!
+
+
+From Mark.Radcliffe at dlapiper.com  Tue Jul 31 05:51:36 2007
+From: Mark.Radcliffe at dlapiper.com (Radcliffe, Mark)
+Date: Mon, 30 Jul 2007 22:51:36 -0700
+Subject: License Committee Report for July 2007
+In-Reply-To: <20070731015119.GG19464@linuxmafia.com>
+Message-ID: <7A1B9D56135EF7438D28510C195DBA2E0594B110@PALOEXCH01.Piper.Root.Local>
+
+
+As General Counsel of OSI, I agree with Rick. Simply because it is the
+"successor" to a widely used license does not mean that it should be
+given an automatic approval. In fact, the GPLv3 is quite different from
+GPLv2 and deserves a standard review. 
+
+Since I was the Chair of Committee C and spent many hours in proposing
+changes to the draft, I have a lot invested in the success of GPLv3 and
+I am confident that it will pass the review, but we should not short
+circuit the process merely because it is a "successor". For a summary of
+the differences, you can see my blog:
+http://lawandlifesiliconvalley.blogspot.com/  
+
+From forums at david-woolley.me.uk  Tue Jul 31 20:03:20 2007
+From: forums at david-woolley.me.uk (David Woolley)
+Date: Tue, 31 Jul 2007 21:03:20 +0100
+Subject: License Committee Report for July 2007
+In-Reply-To: <87lkcw3j7n.fsf@graviton.dyn.troilus.org>
+References: <7A1B9D56135EF7438D28510C195DBA2E0594B110@PALOEXCH01.Piper.Root.Local> <87lkcw3j7n.fsf@graviton.dyn.troilus.org>
+Message-ID: <46AF9588.9010302@david-woolley.me.uk>
+
+Michael Poole wrote:
+
+> forward than I was when I read Timothy McIntyre's email.  The changes
+> in GPLv3 seem deep enough that over-analogy with GPLv2 could obscure
+> important changes, which is the major reason I did not and do not feel
+> comfortable enumerating the changes.
+
+You need to find someone who is capable of doing so, as you will not be
+able to champion the licence through the approvals process unless you
+understand it inside out.  (There is also a preference that the person
+submitting be able to change it in response to feedback, but I think
+these licences are immutable.)
+
+
+-- 
+David Woolley
+Emails are not formal business letters, whatever businesses may want.
+RFC1855 says there should be an address here, but, in a world of spam,
+that is no longer good advice, as archive address hiding may not work.
+
+
+From rishab at dxm.org  Wed Aug  1 16:55:48 2007
+From: rishab at dxm.org (Rishab Aiyer Ghosh)
+Date: Wed, 1 Aug 2007 16:55:48 +0000
+Subject: GPLv3, again Re: what *is* the approval process? [was Re: License Committee Report for July 2007]
+In-Reply-To: <2cb10c440708010747kbdd24c3n34e3ac66d45117f1@mail.gmail.com>; from luis@tieguy.org on Wed, Aug 01, 2007 at 10:47:56AM -0400
+References: <2cb10c440707311549oe5cd45ch69cc84404fd23e79@mail.gmail.com> <18095.58980.377042.460566@desk.crynwr.com> <2cb10c440707311946k7e4bf4a5pf8585efbd9c058c8@mail.gmail.com> <4CA6B2F0-113C-4094-85BE-556D814E846D@gmail.com> <2cb10c440708010414g6b7e511n997c674b4864d8b9@mail.gmail.com> <2cb10c440708010747kbdd24c3n34e3ac66d45117f1@mail.gmail.com>
+Message-ID: <20070801165548.B82776@dxm.org>
+
+
+i think it is fair to implement the rules in context. the need for a legal analysis to be included with a submitted licence assumes that such analysis is new and not previously available to license discuss.
+
+there are reams of legal analyses of gplv3 that are publicly available. while not necessarily point by point with reference to the OSD they tend to cover all points, imho. so perhaps a simpler way of dealing with this would be for anyone to state if they have concerns that the gplv3 does NOT fulfil some OSD criterion.
+
+-rishab
+
+From chuck at codefab.com  Fri Aug  3 14:55:57 2007
+From: chuck at codefab.com (Chuck Swiger)
+Date: Fri, 03 Aug 2007 10:55:57 -0400
+Subject: what *is* the approval process?
+In-Reply-To: <ujrejilt460.fsf@false.linpro.no>
+References: <2cb10c440707311549oe5cd45ch69cc84404fd23e79@mail.gmail.com>	<18095.58980.377042.460566@desk.crynwr.com>	<877iofvmnr.fsf@des.linpro.no> <ujrejilt460.fsf@false.linpro.no>
+Message-ID: <46B341FD.60203@codefab.com>
+
+Hi, DES (and others)--
+
+Dag-Erling Sm?rgrav wrote:
+> I am still waiting for someone to tell me what the *actual*
+> application process is so I can resubmit the Simplified BSD License.
+
+In the past, one needed to create both a plain-text and an HTML version of the 
+license and submit them to both this mailing list and to the license-submit 
+address which you apparently found was not working.
+
+For a submission which is an updated version of an already approved license, 
+such as the case for the Simplified BSDL and for the GPLv3/LGPLv3, the 
+requirement for a detailed legal analysis and comparison/rationale for the 
+license to be approved compared with other existing licenses has generally not 
+been needed.
+
+To my mind, the Simplified BSDL is obviously OSD-compliant and should be 
+approved; the only issue I could see is whether it qualifies as being 
+sufficiently distinctive from the existing "new" or "modified" BSDL for 
+another, separate approval to be meaningful.
+
+-- 
+-Chuck
+
+PS: Thanks for trying to focus attention on the purpose of this list, which is 
+reviewing licenses which have been submitted, and not ad-hoc legal debates on 
+whether the GPL is enforcable.  :-)
+
+
+From nelson at crynwr.com  Fri Aug  3 15:20:32 2007
+From: nelson at crynwr.com (Russ Nelson)
+Date: Fri, 3 Aug 2007 11:20:32 -0400
+Subject: GPLv3, again Re: what *is* the approval process? [was Re: License Committee Report for July 2007]
+In-Reply-To: <2cb10c440708010414g6b7e511n997c674b4864d8b9@mail.gmail.com>
+References: <2cb10c440707311549oe5cd45ch69cc84404fd23e79@mail.gmail.com>
+	<18095.58980.377042.460566@desk.crynwr.com>
+	<2cb10c440707311946k7e4bf4a5pf8585efbd9c058c8@mail.gmail.com>
+	<4CA6B2F0-113C-4094-85BE-556D814E846D@gmail.com>
+	<2cb10c440708010414g6b7e511n997c674b4864d8b9@mail.gmail.com>
+Message-ID: <18099.18368.33580.253862@desk.crynwr.com>
+
+Luis Villa writes:
+ > That process was started a month ago (by Dibona and Flaschen), but
+ > apparently that was insufficient to get it on the committee's radar.
+
+No, the problem there is that we require everyone to follow the
+process, even the best of friends.  If we didn't, we would (very
+reasonably) be accused of cronyism.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | People have strong opinions
+Crynwr sells support for free software  | PGPok | about economics even though
+521 Pleasant Valley Rd. | +1 315-323-1241       | they've never studied it.
+Potsdam, NY 13676-3213  |     Sheepdog          | Curious how that is!
+
+

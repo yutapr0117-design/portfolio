@@ -127,3 +127,18 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **読み。** 3 つの基準は、最初から「提出者が立証する」形で書かれていた。ACD の提出文が差と読みやすさの根拠を先に出すのは、この形への答えになる。同時に、リストの大勢は 2005 年に、OSD に適合すれば承認し、推奨は別の一覧で扱う、と述べていた。ACD が狙える帰結（承認・推奨なし）は、この大勢の形でもある。
 
 **この節が establish しないこと。** 提案の文言は委員長の案で、理事会が通した文言そのものではない（理事会の側は `board-decisions.md` の 8.7 節）。読みやすさの基準に語数の線は書かれていない。
+
+## 1.171 2007 年 7 月の委員会報告とその枝 —— ハードウェアの範囲、承認して効果を見る、後継の版の審査、誰にでも同じ手続き、擁護できる提出者（2007-07〜08）（2026-11-11）
+
+`rounds/2007-07-to-08-license-discuss-committee-report-and-approval-process-observed.txt`（6 通）。報告のスレッド（63 通の大半は GPLv3 と LGPLv3 の互換性の議論）と、手続きをめぐる枝 "what *is* the approval process?"（36 通）を読んだ。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| Open Source Hardware License について *"No consensus on license-discuss that OSI should be in the business of Open Source Hardware."*・*"Is this a direction that OSI should go in? And, even if we do, is a license particular to hardware needed?"* | Russ Nelson 氏（委員長）2007-07-23 | B15。ソフトウェアでないものを OSI が扱うかは、2007 年から問いのままだった。**逆側（有利）**: 委員会は 2021 年に CERN-OHL について *"written such that they can be used for software"* という基準を述べて承認に進んだ（register の B15・`board-decisions.md` §2e）。ACD はソフトウェアに使える形で書かれている |
+| CPAL について *"My personal recommendation (as a board member, not the chair) is to approve the license and see if it achieves the Open Source effect."*・*"If such a licensed software does not achieve the Open Source effect, it will put the issue to rest."* | 同 | B2・B10。新しい要件（帰属表示）を持つライセンスを、使われ方で確かめるために承認する、という立場。CPAL は承認された。**逆側**: 委員長としてではなく個人の勧告で、CPAL には Socialtext という提出元の組織があった。ACD の新しさは要件ではなく許諾の範囲で、「効果を見る」の対象が違う |
+| *"does not mean that it should be given an automatic approval."*・*"In fact, the GPLv3 is quite different from GPLv2 and deserves a standard review."* | Mark Radcliffe 氏（OSI の General Counsel）2007-07-30 | 版の扱い。承認は版から版へ受け継がれない。ACD はどの版も承認されていないので、どの版を出しても通常の審査になる。出す版を申請の日の最新版にする計画（`OSI-APPROVAL-PLAN.md` §4）は、この扱いと食い違わない。**逆側**: Chuck Swiger 氏は同じ枝で、承認済みライセンスの新しい版には詳しい法的分析が *"has generally not been needed."* と書いた。ACD にはその近道が無い |
+| *"No, the problem there is that we require everyone to follow the process, even the best of friends. If we didn't, we would (very reasonably) be accused of cronyism."* | Russ Nelson 氏 2007-08-03 | B12。手続きは誰にでも同じに当てる、という委員長の説明（#317 の「著名さへの偏り」の逆側）。**逆側**: 手続きが同じでも、判断の重みは同じとは限らない（#317） |
+| *"You need to find someone who is capable of doing so, as you will not be able to champion the licence through the approvals process unless you understand it inside out."*・*"There is also a preference that the person submitting be able to change it in response to feedback"* | David Woolley 氏 2007-07-31 | B14・B1。審査を通すには、提出者がライセンスを隅々まで理解して擁護できる必要がある。ACD は AI が起草し、提出と返信はオーナーが自分の言葉で行う（B14）。#318 として記録した。**有利な面**: 後半の「指摘に応じて変えられる」は ACD の steward が満たす（1.1〜1.4 の改訂） |
+| *"the need for a legal analysis to be included with a submitted licence assumes that such analysis is new and not previously available to license discuss."* | Rishab Aiyer Ghosh 氏（理事）2007-08-01 | B1。2007 年には法的分析が提出の要件で、理事はその趣旨を「新しい分析を出すこと」と読んだ。この要件は同じ年の 12 月に外れた（`review-rules.md` §1.141）。ACD の提出文は分析を求められないが、理由と逆側の記録はこの趣旨に近い |
+
+**この節が establish しないこと。** どれも 2007 年の個人の発言か委員長の報告で、理事会の決定文ではない。CPAL の承認の理由は、この報告の勧告からは確かめていない。
