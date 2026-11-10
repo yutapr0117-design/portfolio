@@ -1,0 +1,259 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2009-January, 2012-February)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-10)
+Messages: 4 messages this dossier cites from two short branches: "CC0 decision process, waiting for CC response, etc." (2012-02) and "TGPPL, deterring licence proliferation by withholding the stamp of OSD-conformance" (2009-01). The chair's message that opens the first branch is in 2012-01-to-04-license-review-cc0-cited-observed-2of2.txt. Not a thread.
+Senders: Carl Boettiger, Kuno Woudt, Russ Nelson, Bruce Perens
+Position: review of other submissions. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From cboettig at gmail.com  Wed Feb 22 16:42:19 2012
+From: cboettig at gmail.com (Carl Boettiger)
+Date: Wed, 22 Feb 2012 08:42:19 -0800
+Subject: [License-review] CC0 decision process, waiting for CC response,
+	etc.
+In-Reply-To: <87hayj9sh2.fsf_-_@floss.red-bean.com>
+References: <20289.22230.16291.943180@desk.crynwr.com>
+	<CB67D7D2.142CF%Nigel.Tzeng@jhuapl.edu>
+	<CAN_1p9wMw7ha9+60rbR5WDqXugFCV71gJetqjcF+2HwoXvrkjQ@mail.gmail.com>
+	<87hayj9sh2.fsf_-_@floss.red-bean.com>
+Message-ID: <CAN_1p9wE8k6O-_vGmQEhtEvjYz78z3fVC1dAaWJeGf3pay5fuA@mail.gmail.com>
+
+ Karl Fogel <kfogel at red-bean.com> wrote:
+
+>
+> It might help to take a step back and think about how CC0 could be
+> useful to open source.  I had thought of it primarily as part of the
+> answer to the many "But what about the public domain?" questions we see
+> (at OSI and elsewhere).  But there may be ways to answer those questions
+> even without CC0 being an OSI-approved license.  I'm not trying to
+> prejudge the question, I'm just saying that the larger context is
+> important to bear in mind.  It's not that CC0 is a software license
+> already applied to lots of programs -- rather, it's that people have
+> questions about the public domain and open source, and CC0 might help
+> make them a bit less complicated to answer.  This could be still be true
+> whether or not it is approved.
+>
+
+Thanks Karl, I think the bigger picture of what CC0 would offer is
+important.  Here's my take:
+
+For me, OSI recognition of CC0 means a consistent and frictionless license
+for use & reuse by the scientific community and beyond.  There are often
+not sharp divisions between software, code snippets and scripts,
+documentation, data files, figures, etc in scientific work, and these lines
+are becoming more and more blurred as science moves in a direction to
+provide the complete package of research, where data and software are
+embedded into documents themselves.  We need one license that can cover all
+these "additional products of scientific research," in a way that maximizes
+their reuse.  Currently recognized OSI licenses do not appear applicable
+for these heterogeneous "additional products."
+
+There's a need for public domain licensing in science, and CC0 has already
+been recognized by many players as the best tool available.  The Dryad data
+repository requires CC0.  The Panton principles have recommended CC0, as
+has the open knowledge foundation.  The Comprehensive R Archive Network
+(CRAN) has just acknowledged CC0 as a valid open source license.  R
+packages are incidentally excellent illustrations of something that is
+licensed as software, but contains software, scripts, manuals, data,
+figures, and even complete manuscripts.   Specifying separate licenses for
+the data, the software code, the example scripts, the manual, and the
+vignettes and documentation would be cumbersome at best.
+
+OSI does not recognize a license that provides a robust way to dedicate
+software to the public domain, for which there is a clear and present
+need.
+
+It does sound like all the comments largely recognize this, and just want
+to make sure CC0 is the best tool for the job.
+
+Carl
+
+
+
+
+> >On Mon, Feb 20, 2012 at 8:27 AM, Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu>
+> wrote:
+> >> On 2/19/12 3:08 PM, "Russ Nelson" <nelson at crynwr.com> wrote:
+> >>
+> >>>Patent licensing is a mess. It would be better to establish one policy
+> >>>for all OSI-approved licenses, possibly modifying the OSD, than to try
+> >>>to piecemeal it one license at a time.
+> >>
+> >> +1
+> >>
+> >> As a partial counterpoint to MXM PL, OSI has approved patent grants
+> >> explicitly limited to only those patents held by the individual
+> >> contributors of the code and not the whole organization they belong to
+> in
+> >> ECL 2.0.
+> >>
+> >> Someone attempting to game the system with a patent trap inside software
+> >> under an OSI approved licensed could as easily do so with ECL 2.0.  Just
+> >> make sure the software devs don't hold the patents in question.  If some
+> >> of you try to get ECL revoked on such silly grounds I will be annoyed
+> with
+> >> you and call you names.
+> >>
+> >> FWIW I view CC0 as fine as written.  Given the explicit language CC put
+> it
+> >> there for a reason.  An explanation would be nice but not approving for
+> >> that reason strikes me as counter-productive if CC is unwilling to
+> >> change/clarify the clause.  I don't see the patent risks as any higher
+> >> with or without the clause but I do see the community poorer without a
+> CC0
+> >> option.
+> >>
+> >> If you guys have that much heartache park it in that "special purpose
+> >> licenses" category.  Which I notice is still pointing at ECL 1.0 and not
+> >> 2.0 on the website.
+> >>
+> >> IANAL, speaking only for me, etc.
+> >>
+> >> _______________________________________________
+> >> License-review mailing list
+> >> License-review at opensource.org
+> >> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+
+
+
+-- 
+Carl Boettiger
+UC Davis
+http://www.carlboettiger.info/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120222/51121a43/attachment.html>
+
+From kuno at frob.nl  Fri Feb 24 21:50:22 2012
+From: kuno at frob.nl (Kuno Woudt)
+Date: Fri, 24 Feb 2012 16:50:22 -0500
+Subject: [License-review] CC0 decision process, waiting for CC response,
+ etc.
+In-Reply-To: <87hayj9sh2.fsf_-_@floss.red-bean.com>
+References: <20289.22230.16291.943180@desk.crynwr.com>
+	<CB67D7D2.142CF%Nigel.Tzeng@jhuapl.edu>
+	<CAN_1p9wMw7ha9+60rbR5WDqXugFCV71gJetqjcF+2HwoXvrkjQ@mail.gmail.com>
+	<87hayj9sh2.fsf_-_@floss.red-bean.com>
+Message-ID: <4F48061E.40401@frob.nl>
+
+On 22/02/12 03:34, Karl Fogel wrote:
+> It might help to take a step back and think about how CC0 could be
+> useful to open source.  I had thought of it primarily as part of the
+> answer to the many "But what about the public domain?" questions we see
+> (at OSI and elsewhere).  But there may be ways to answer those questions
+> even without CC0 being an OSI-approved license.
+
+One of the things I value about CC0 is that it also deals with EU Database
+Rights.  For those not familiar with database rights:  In europe database
+rights exist separately from copyright, and are granted automatically on
+creation of the database (like copyright, there is no need to register).
+
+Most free software, open source and free culture licenses do not consider
+database rights.  I am not a lawyer, so when receiving a dataset or
+database covered by such a license from a European person or organization
+it is not be clear to me if I have been granted permission to modify and
+redistribute the database as a whole or only the individual entries in the
+database.
+
+CC0 thus has a lot of value to me as a European when it is applied to
+databases, and my understanding is that it is used quite a lot for this
+purpose by the scientific community.  
+
+Authors of existing open source software may want to incorporate parts of
+CC0 published datasets into their software.  They may want to keep the
+CC0 PD dedication + fallback license on that part of their work so that
+their users receive the same rights to it the authors received.  It would
+be nice if they could keep calling their software open source :)
+
+So, I agree with Carl Boettiger that applying CC0 to software is quite
+useful to those people and organizations already working with CC0 datasets
+or other works, who want to incorporate software into those works or the
+other way around.
+
+-- Kuno.
+ps.  I am new to this list, not a lawyer, just an interested free software
+developer.  It has been very interesting to read the discussion about CC0,
+and I am looking forward to reading the response from creative commons on
+the patent issue.
+
+
+From nelson at crynwr.com  Sat Jan 24 23:22:09 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sat, 24 Jan 2009 18:22:09 -0500
+Subject: TGPPL, deterring licence proliferation by withholding the stamp of OSD-conformance (was: recent submissions merit no action)
+In-Reply-To: <FF13F713-3E28-4CA3-8E1D-E97475ACE538@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com>
+	<803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>
+	<4945D81C.6020600@perens.com>
+	<8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA>
+	<D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>
+	<49473F92.6020003@gatech.edu>
+	<E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>
+	<494C809B.7000007@perens.com>
+	<B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com>
+	<494D5655.4040201@perens.com>
+	<1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>
+	<E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com>
+	<18806.40934.286136.330314@desk.crynwr.com>
+	<4976A32A.20303@gatech.edu>
+	<4976A8FB.8030502@perens.com>
+	<FF13F713-3E28-4CA3-8E1D-E97475ACE538@zooko.com>
+Message-ID: <18811.41633.34669.856030@desk.crynwr.com>
+
+Zooko O'Whielacronx writes:
+ > Obviously the OSI should not entertain frivolous or malicious  
+ > Requests For Approval, but it appears that in your concern about  
+ > licence proliferation you have started to use your power of  
+ > withholding certification of OSD-conformance as a general purpose  
+ > tool to deter the use of licences that you don't like.  This is wrong.
+
+Mmmmm, not exactly the case.  One of the filters for frivolity is
+whether someone submits the license using a pseudonym, or their real
+name.  It's not clear that you have passed that bar yet, Mr. Bryan
+Zooko Wilcox O'Hearn O'Whielacronx.
+
+Ooohhhhh, did I say "not clear"?  I meant to say "damned uncertain".
+
+The community expects us to not waste their time with frivolous
+licenses.  I feel strongly that the time of the people subscribed to
+license-review is valuable, is a contribution to the OSI directly, and
+the community indirectly, and should not be wasted by people who do
+not respect their efforts.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Crynwr sells support for free software  | PGPok | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From bruce at perens.com  Sun Jan 25 02:37:53 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 24 Jan 2009 18:37:53 -0800
+Subject: TGPPL, deterring licence proliferation by withholding the stamp
+ of OSD-conformance
+In-Reply-To: <18811.41633.34669.856030@desk.crynwr.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com>	<803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com>	<4945D81C.6020600@perens.com>	<8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA>	<D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>	<49473F92.6020003@gatech.edu>	<E1D892E2-2388-44F1-8354-ACC8777295C5@zooko.com>	<494C809B.7000007@perens.com>	<B53C3280-0A31-4978-BF5D-77A89367408F@zooko.com>	<494D5655.4040201@perens.com>	<1DCA067C-45D6-494A-BAC9-C430175092E9@zooko.com>	<E48A8931-394F-4357-9F1B-F6FF6EEEF217@zooko.com>	<18806.40934.286136.330314@desk.crynwr.com>	<4976A32A.20303@gatech.edu>	<4976A8FB.8030502@perens.com>	<FF13F713-3E28-4CA3-8E1D-E97475ACE538@zooko.com> <18811.41633.34669.856030@desk.crynwr.com>
+Message-ID: <497BD081.3000401@perens.com>
+
+Russ Nelson wrote:
+> The community expects us to not waste their time with frivolous
+> licenses.  I feel strongly that the time of the people subscribed to
+> license-review is valuable, is a contribution to the OSI directly, and
+> the community indirectly, and should not be wasted by people who do
+> not respect their efforts.
+The board has total freedom to reject the license, and they should. 
+Meanwhile, I am concerned that it looks as if it is your _personal_ 
+action if you dally in psychoanalysis of the submitter rather than the 
+submission while waiting for that to happen. Do the dignified thing and 
+just get the board to say no, without further conversation.
+
+    Thanks
+
+    Bruce
+
+
