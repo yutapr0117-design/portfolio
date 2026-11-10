@@ -142,3 +142,17 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"the need for a legal analysis to be included with a submitted licence assumes that such analysis is new and not previously available to license discuss."* | Rishab Aiyer Ghosh 氏（理事）2007-08-01 | B1。2007 年には法的分析が提出の要件で、理事はその趣旨を「新しい分析を出すこと」と読んだ。この要件は同じ年の 12 月に外れた（`review-rules.md` §1.141）。ACD の提出文は分析を求められないが、理由と逆側の記録はこの趣旨に近い |
 
 **この節が establish しないこと。** どれも 2007 年の個人の発言か委員長の報告で、理事会の決定文ではない。CPAL の承認の理由は、この報告の勧告からは確かめていない。
+
+## 1.172 2009 年 9 月の委員会報告 —— 答えられなかった問い、足りない議論、採用者を待つ、擁護する弁護士（2009-09〜11）（2026-11-11）
+
+`rounds/2009-09-to-11-license-review-committee-report-and-falcon-observed.txt`（6 通）。報告は 5 本すべてに承認を勧めなかった。理由は、反対の多数（MXM）、二重許諾で足りる（Signatured-GPL）、問いに答えが無かった（36 Open Software License）、既存の BSD で足りる（Azure）、議論の不足（Falcon）である。スレッドの後半（2009-11）は Falcon の審査の続きになった。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| 36 Open Software License について *"Comments: Bruce had questions, which didn't get answered."*、勧告は *"Recommend: no approval"* | Russ Nelson 氏（委員長）2009-09-01 | B14。審査で出た問いに答えが無いことが、そのまま不承認の勧告の理由になった。#318 の「オーナーが自分の言葉で答えられるか」は、記録の上で帰結に直結する。**逆側**: 答えれば足りるという記録ではない |
+| Falcon について *"Recommend: discussion has been insufficient to justify approval at this time."* | 同 | B14・B2。議論の量の不足が、勧告を保留にする理由として書かれた。ACD の 1.0 は discuss で返信を得ていない（AS-OF）。review で議論が起きなければ、同じ形になりうる。**逆側**: Falcon には GPL に足した帰属表示の要件があり、OSD への適合の問いが残っていた。ACD は条件を持たない |
+| *"I believe it is wiser to wait until the need is made clear by having many adopters of this language."*・*"Yet Another License needs to be understood in its totality."* | Russ Nelson 氏 2009-09-02 | B2。必要が採用者で示されるまで待つ、という委員長の立場（#161 の 2020 年の Fontana 氏、#312 の 2014 年の Berkus 氏と同じ向きで、さらに古い）。**逆側**: 同じ委員長は前年に、採用の少ない MirOS に承認を勧めた（§1.167）。採用を待つかは、差の大きさで決まる判断に見える |
+| *"I submit that for OSI to approve a license, there should be an attorney willing to stand up for it and either explain why its terms or necessary or repair them."* | Bruce Perens 氏 2009-11-16 | B1。#309（同氏 2019 年）の 10 年前に、同じ要件が述べられていた。#309 に足した。**逆側**: Falcon の提出者は、3 人の弁護士が書いて署名した分析を添えていたと答えた（*"The license is presented together with a well-respected attorney relation."*）。それでも同氏の結論は *"Not convinced it's necessary or worth the cost in license proliferation, as existing licenses perform a very similar service."* で、弁護士の分析は帰結を決めなかった（Tidepool・§1.166、UPL・`gap-measurements.md` §1.154 に続く 3 件目） |
+| *"I would tend to argue the other way around: open source defines a set of freedoms to which business models must adapt."* | Michael Tiemann 氏 2009-09-02（`opensource.org` の宛先から） | 提出者が「事業の形に必要」と述べたことへの返答。ACD の提出は事業の必要を理由にしない（#161 の逆側）。**逆側**: ACD の提出の理由（ポートフォリオの実験・AI による起草）は、別の形で審査の入力になりうる（#161・B14） |
+
+**この節が establish しないこと。** 委員長の勧告と個人の発言で、理事会の決定文ではない。5 本の帰結（理事会が勧告どおり決めたか）は、この節では議事録に当てていない。Tiemann 氏の役職は、この通の署名からは確かめていない（宛先が `opensource.org` であることだけを書いた）。

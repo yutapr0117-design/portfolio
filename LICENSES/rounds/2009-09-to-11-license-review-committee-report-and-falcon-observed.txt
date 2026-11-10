@@ -1,0 +1,226 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2009-September, 2009-November)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 6 messages this dossier cites from "License Committee Report for September 2009" (license-review, 2009-09-01 to 2009-11-17; mostly the review of the Falcon Programming Language License). Not the whole thread.
+Senders: Russ Nelson, Michael Tiemann, Bruce Perens, Giancarlo Niccolai
+Position: the committee chair's report and the review of another submission. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Wed Sep  2 00:37:57 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Tue, 1 Sep 2009 20:37:57 -0400
+Subject: License Committee Report for September 2009
+Message-ID: <19101.48741.946828.109424@desk.crynwr.com>
+
+I'm the chair of the license approval committee.  This is my report
+for the current set of licenses under discussion.  The OSI board will
+be meeting September 2nd.
+
+--
+
+Title: MXM Public license 
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:717:chenjkbbnllffijebmno
+License: in the submission
+Comments: Matthew says no. Chuck says no. Nigel says no. I say
+  no. Bruce says no.
+Recommend: no approval
+
+--
+
+Title: Signatured-GPL
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:776:ogamklhhmiegammjlgjf
+License: in the submission.
+Comments: Several commentators suggested that he simply use
+  dual-licensing.
+Recommend: no approval
+
+--
+
+Title: 36 Open Software License
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:794:ieaabfdiekkhoofbogjd
+License: http://36ic.phoenxsoftware.com/36OSL.txt
+Comments: Bruce had questions, which didn't get answered.  John
+  pointed submittor in the direction of the LGPL.
+Recommend: no approval
+
+--
+
+Title: The Azure License
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:800:200908:mclfkcpnkhbkcceokoho
+License: neither of the links to the license that he's given are working.
+Comments: Dag-Erling points out that the BSD license already requires
+attribution in the form of the required copyright notice. http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:810:mclfkcpnkhbkcceokoho
+Recommend: no approval; that we point him in the direction of the BSD license.
+
+--
+
+Title: Falcon Programming Language License
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:826:naokadpjdjicihdgloog
+License: http://www.falconpl.org/index.ftd?page_id=license_1_1
+Comments: Clearly OSD-compatible but ... it's the GPL with an added
+  freedom to embed the language interpreter creating a single work
+  without invoking the terms of the GPL.  If that were it, then we
+  could leave it there, but Giancarlo adds required attribution above
+  and beyond that required by the GPL.
+Recommend: discussion has been insufficient to justify approval at
+  this time.
+
+
+
+From nelson at crynwr.com  Wed Sep  2 15:21:53 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Wed, 2 Sep 2009 11:21:53 -0400
+Subject: License Committee Report for September 2009
+In-Reply-To: <4A9E26BD.3050401@falconpl.org>
+References: <19101.48741.946828.109424@desk.crynwr.com>
+	<4A9E26BD.3050401@falconpl.org>
+Message-ID: <19102.36241.605368.917895@desk.crynwr.com>
+
+Giancarlo Niccolai writes:
+ > sent with the submission I explained why I thought it is preferable to
+ > stop the "custom license / GPL, but with my own uncontrolled/uncertified
+ > exception" rage, and to offer a standardized license covering this
+ > general need.
+
+I believe it is wiser to wait until the need is made clear by having
+many adopters of this language.  A GPL ... with modifications ... can
+be consider as the GPL unless you particularly care about the extra
+freedom.  Yet Another License needs to be understood in its totality.
+
+ > Could you please clarify the sentence "but Giancarlo adds required
+ > attribution above and beyond that required by the GPL" ?
+
+A restriction saying "along with a general statement about the task
+that the Work is performing in the Embedding Works;" is not in the GPL.
+
+ > Finally; please notice that I proposed  to amend it as the committee
+ > suggests. This includes renaming it.
+
+Don't worry about the name of the license.  We let Microsoft put their
+name in their licenses; why would we do any less for you?
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-323-1241    
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From tiemann at opensource.org  Wed Sep  2 13:17:27 2009
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Wed, 2 Sep 2009 09:17:27 -0400
+Subject: License Committee Report for September 2009
+In-Reply-To: <4A9E26BD.3050401@falconpl.org>
+References: <19101.48741.946828.109424@desk.crynwr.com>
+	 <4A9E26BD.3050401@falconpl.org>
+Message-ID: <6cca531e0909020617l59a80f8dxfa55cf44fcb4f09d@mail.gmail.com>
+
+On Wed, Sep 2, 2009 at 4:03 AM, Giancarlo Niccolai <gc at falconpl.org> wrote:
+
+> The "added freedom" is essential to the business model of an open source
+> embeddable engine (exp. embeddable scripting engine).
+>
+
+I would tend to argue the other way around: open source defines a set of
+freedoms to which business models must adapt.
+
+M
+
+From bruce at perens.com  Mon Nov 16 16:31:42 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 16 Nov 2009 08:31:42 -0800
+Subject: License Committee Report for September 2009
+In-Reply-To: <4589A349-580D-455A-A696-6674E5E974FA@gmail.com>
+References: <19101.48741.946828.109424@desk.crynwr.com> <4A9E26BD.3050401@falconpl.org> <19102.36241.605368.917895@desk.crynwr.com> <200911151851.24759.gc@falconpl.org> <4589A349-580D-455A-A696-6674E5E974FA@gmail.com>
+Message-ID: <4B017E6E.5040804@perens.com>
+
+This could be an example of the problem of non-attorney-written licenses 
+which do even their own authors a disservice because they don't work as 
+expected in court. I submit that for OSI to approve a license, there 
+should be an attorney willing to stand up for it and either explain why 
+its terms or necessary or repair them. OSI, IMO, currently does 
+developers a disservice by accepting (and thus, placing its imprimatur 
+upon) licenses which are legal trash.
+
+    Thanks
+
+    Bruce
+
+From gc at falconpl.org  Mon Nov 16 16:48:38 2009
+From: gc at falconpl.org (Giancarlo Niccolai)
+Date: Mon, 16 Nov 2009 17:48:38 +0100
+Subject: License Committee Report for September 2009
+In-Reply-To: <4B017E6E.5040804@perens.com>
+References: <19101.48741.946828.109424@desk.crynwr.com> <4A9E26BD.3050401@falconpl.org> <19102.36241.605368.917895@desk.crynwr.com> <200911151851.24759.gc@falconpl.org> <4589A349-580D-455A-A696-6674E5E974FA@gmail.com> <4B017E6E.5040804@perens.com>
+Message-ID: <4B018266.3090007@falconpl.org>
+
+Bruce Perens wrote:
+> This could be an example of the problem of non-attorney-written 
+> licenses which do even their own authors a disservice because they 
+> don't work as expected in court. I submit that for OSI to approve a 
+> license, there should be an attorney willing to stand up for it and 
+> either explain why its terms or necessary or repair them. OSI, IMO, 
+> currently does developers a disservice by accepting (and thus, placing 
+> its imprimatur upon) licenses which are legal trash.
+>
+>    Thanks
+>
+>    Bruce
+The license is presented together with a well-respected attorney 
+relation. Actually, the relation has been written by two officially 
+appointed attorneys and finally evaluated and signed by a third 
+attorney, Gaetano Tasca (the chief attorney in the agency).
+
+The relation has been translated in English by me, but I have posted the 
+original copy together with my translation.
+
+The relation has been provided by the following Attorney associated 
+consulting agency: http://www.studiolegaletasca.com/e_index.php
+
+It's one of the most respected Commercial & Company related business 
+attorney in my country.
+
+This information is stated in the submission that is indicated in the 
+Committee mail:
+
+http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:826:naokadpjdjicihdgloog
+
+Maybe, it's not a perfect work, but liquidating this license as "legal 
+trash" is very probably inaccurate.
+
+Moreover, the comment seems not to take into consideration the fact 
+(which is prominently stated in the submission) that legal stuff was 
+done before submitting the license; which is written in the very first 
+lines of the submission mail.
+
+Bests,
+GN.
+
+
+
+From bruce at perens.com  Tue Nov 17 04:16:58 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 16 Nov 2009 20:16:58 -0800
+Subject: License Committee Report for September 2009
+In-Reply-To: <200911162348.24781.gc@falconpl.org>
+References: <19101.48741.946828.109424@desk.crynwr.com> <200911162236.50575.gc@falconpl.org> <4B01D1F9.3040502@perens.com> <200911162348.24781.gc@falconpl.org>
+Message-ID: <4B0223BA.8050201@perens.com>
+
+Giancarlo Niccolai wrote:
+> I think the discussion is going out of tracks here; sorry if I cannot reply so 
+> promptly anymore.
+Sure, I have work to do as well.
+
+Russ, my current sentiment is "Not convinced it's necessary or worth the 
+cost in license proliferation, as existing licenses perform a very 
+similar service."
+
+    Thanks
+
+    Bruce
+
+
