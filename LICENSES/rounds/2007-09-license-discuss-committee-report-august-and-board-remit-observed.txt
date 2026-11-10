@@ -1,0 +1,223 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2007-September)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 4 messages this dossier cites from "License Committee Report for August 2007" (license-discuss, 2007-09-04 to 2007-09-13), including the chair's report of the board's actions of 2007-09-06. Not the whole thread.
+Senders: Russ Nelson, Jamey Hicks
+Position: the committee chair's report, the board's answer to it, and replies. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Tue Sep  4 21:56:23 2007
+From: nelson at crynwr.com (Russ Nelson)
+Date: Tue, 4 Sep 2007 17:56:23 -0400
+Subject: License Committee Report for August 2007
+Message-ID: <18141.54407.406949.773676@desk.crynwr.com>
+
+I'm the chair of the license approval committee.  This is my report
+for the current set of licenses under discussion.
+
+Title: Open Source Hardware License 
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:12911:200707:jmkojcilhopeddgknmdj
+Revised here:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:12941:200707:jmkojcilhopeddgknmdj
+License: In the submission
+Comments: No consensus on license-discuss that OSI should be in the
+  business of Open Source Hardware.
+Recommend: Discussion has stalled.  The board needs to direct license
+  discuss -- is this a direction the organization should move in?
+
+--
+
+Title: GNU General Public License v3 (GPLv3)
+Submission:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:13303:200708:caifnpoiechppjdcppgo
+License:
+  http://www.gnu.org/licenses/gpl.html
+Comments:
+
+  Luis Villa says "my own casual review suggests that the license is
+  OSD-compliant".  Andy Wilson says "the GPLv3 and LGPLv3 should be
+  approved, since they do, IMO, meet the OSD.  dalibor topic says "OSD
+  Compliant. Both of them."  Chris DiBona says "while approval of the
+  lgpl and gpl versions 3 is fine, it should be explicitly stated that
+  any amendments must be put through this process for them to be
+  considered OSI approved."  Larry Rosen says "GPLv3 is obviously
+  OSD-compliant."  Rich Moen says "what you say is abundantly
+  obvious," Matthew Flaschen says "it is OSD-compliant."  Chris
+  Travers, after changing his mind back and forth twice, was unable to
+  convince anybody else that the GPLv3 doesn't comply with the OSD.  
+  Alexander Terekhov is sure that the GPLv3 is a contract, not a
+  license, but ended up in John Cowan's and Rich Moen's killfiles.
+Recommend: approval, placement in Popular category as the successor to
+  the GPLv2.
+
+--
+
+We need to be clear about what we want to do with the SimPL.  We had
+originally thought it incompatible with the GPLv2 because although,
+the license was revised for GPLv2 compatibility, the License: url had
+not been modified.  It is in fact compatible with the GPLv2.  Since
+that was our sole objection, the obvious course is to approve it and
+place it in Redundant.
+
+Title: Simple Public License (SimPL):
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:sss:12796:200705:ljlcebgacpjodogfcegi
+Revised here:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:msn:12796:ljlcebgacpjodogfcegi
+License: http://www.law.washington.edu/CASRIP/License/SimplePublicLicense.html
+Comments: Intended to be a simplified GPL.  DiBona suggests that the
+    GPL is well understood and this license is not useful.
+Recommend: approval, placement in Redundant category.
+
+--
+
+Title: Non-Profit OSL 3.0
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:13299:200708:beaackkhhfafamkcjcdf
+License: http://www.rosenlaw.com/NOSL3.0.htm 
+Diffs from OSL 3.0:
+  http://www.rosenlaw.com/NOSL3.0-red.htm
+Comments: Compatible with the OSL 3.0.  Cowan and Swiger both
+  recommend approval.
+Recommend: Approval, placement in same category as OSL 3.0.
+
+David Woolley
+(http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:13305:200708:beaackkhhfafamkcjcdf)
+says it's a discrimination against a field of endeavour.  My response
+is that it's a discrimination against a type of endeavour not a
+specific endeavour, it's one that gives additional freedoms (err on
+the side of freedom), and the result of the discrimination is to
+compel use of a different, OSI approved, Open Source license.
+Precedent allows this kind of discrimination, since worse comes to
+worst, you have to distribute under an approved Open Source license.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | People have strong opinions
+Crynwr sells support for free software  | PGPok | about economics even though
+521 Pleasant Valley Rd. | +1 315-323-1241       | they've never studied it.
+Potsdam, NY 13676-3213  |     Sheepdog          | Curious how that is!
+
+
+From nelson at crynwr.com  Fri Sep  7 01:32:49 2007
+From: nelson at crynwr.com (Russ Nelson)
+Date: Thu, 6 Sep 2007 21:32:49 -0400
+Subject: License Committee Report for August 2007
+Message-ID: <18144.43585.501874.363051@desk.crynwr.com>
+
+I'm the chair of the license approval committee.  This is my report
+from the board back to the committee.
+
+
+Title: Open Source Hardware License 
+Status: The board encourages more discussion, as Open Source Hardware
+falls within the remit of the Open Source Initiative.
+
+Title: GNU General Public License v3 (GPLv3)
+Title: Lesser GNU General Public License v3 (LGPLv3)
+Status: The Open Source Initiative is pleased to announce that, based
+on broad review and acceptance by both the Board and the community, it
+has confirmed that GPLv3 and LGPLv3 both conform to the Open Source
+Definition. Note that new licenses containing "further restrictions"
+allowed by GPLv3 and LGPLv3 may not be conformant with the OSD, and
+thus will still require separate review and approval. Due to the
+dramatic differences between and viable communities around both the
+GPLv3 family and the GPLv2 family of licenses, we will not be marking
+GPLv2 and LGPLv2 as redundant, even thought they are technically
+superseded respectively by GPLv3 and LGPLv3.
+
+Title: Simple Public License (SimPL):
+Status: The board wants to know what the plan is with respect to the
+GPLv3.  In the interest of preserving as much compatibility between
+licenses, it would be nice if the SimPL allowed promotion to either
+the GPLv2 or GPLv3.
+
+Title: Non-Profit OSL 3.0
+Status: Passed Unanimously.
+
+Title: Microsoft Permissive License (Ms-PL)
+Status: Still under discussion
+
+Title: Microsoft Community License (Ms-CL)
+Status: Still under discussion
+
+Title: Simplified BSD License
+Status: Lost in process
+
+-- 
+--my blog is at    http://blog.russnelson.com   | People have strong opinions
+Crynwr sells support for free software  | PGPok | about economics even though
+521 Pleasant Valley Rd. | +1 315-323-1241       | they've never studied it.
+Potsdam, NY 13676-3213  |     Sheepdog          | Curious how that is!
+
+
+From nelson at crynwr.com  Sun Sep  9 19:39:52 2007
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sun, 9 Sep 2007 15:39:52 -0400
+Subject: License Committee Report for August 2007
+In-Reply-To: <ujr1wdasvm2.fsf@false.linpro.no>
+References: <18141.54407.406949.773676@desk.crynwr.com>
+	<ujrejhdsexv.fsf@false.linpro.no>
+	<18144.24284.592531.440435@desk.crynwr.com>
+	<ujr1wdasvm2.fsf@false.linpro.no>
+Message-ID: <18148.19464.385498.252387@desk.crynwr.com>
+
+Dag-Erling Sm?rgrav writes:
+ > You have had plenty of opportunity to notify me of any
+ > discrepancy.
+
+My apologies.  I simply didn't notice.
+
+ > Am I to conclude that you are deliberately dragging your
+ > feet over this license?
+
+Well, in a sense, yes.  Back in the "bad old days" before we
+established license-discuss, and the process was much less formal,
+people just kinda asked "Hey, does this license comply", the entire
+board looked at it, we scratched our heads and said "Yeah, sure, looks
+like it to me."
+
+Two things since then have caused us to (as you say it) deliberately
+drag our feet.  First, was the APSL 1.0, which we later decided didn't
+comply with the OSD, but which Apple quickly superceded by the APSL
+1.1.  Second was the growing realization within the organization that
+there were too many licenses with too few and too minor differences,
+and too many licenses granted simply because it was as easy as asking.
+
+So how to make licenses harder to get approved?  We quickly rejected
+the idea of charging people money for approving licenses.  First,
+because some of the most interesting licenses were going to come from
+people like you without a monetary incentive for getting the license
+approved.  Second, because we have to tread a fine line between
+actually helping proprietary software users adopt open source, and
+being seen as selling out to proprietary software users just because
+they adopt some open source.
+
+Instead, we've imposed requirements which reduce our workload in
+analyzing licenses.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | People have strong opinions
+Crynwr sells support for free software  | PGPok | about economics even though
+521 Pleasant Valley Rd. | +1 315-323-1241       | they've never studied it.
+Potsdam, NY 13676-3213  |     Sheepdog          | Curious how that is!
+
+
+From jamey.hicks at nokia.com  Thu Sep 13 14:07:19 2007
+From: jamey.hicks at nokia.com (Jamey Hicks)
+Date: Thu, 13 Sep 2007 10:07:19 -0400
+Subject: License Committee Report for August 2007
+In-Reply-To: <18144.43585.501874.363051@desk.crynwr.com>
+References: <18144.43585.501874.363051@desk.crynwr.com>
+Message-ID: <46E94417.5040003@nokia.com>
+
+Hi Russ,
+
+I am glad that the board has decided to include Open Source Hardware. I 
+will be on vacation for the next 3 weeks but will post to the discussion 
+list when I get back. We decided to use the MIT license for our project. 
+I think one thing that would be helpful is for the board to consider the 
+current open source licenses and to evaluate which ones would be usable 
+for hardware projects. GPL, MIT, BSD all seem OK to me for hardware.
+
+Jamey
+
