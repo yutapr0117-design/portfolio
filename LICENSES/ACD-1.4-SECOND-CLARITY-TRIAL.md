@@ -580,3 +580,23 @@ After: … under any name that contains "Autonomous Commons Dedication", regardl
 **代案も採らない**: C1 *"the reading that leaves You freer to deal with the Work prevails"*（+4）は、定義の無い第 3 の語を足し、*deal with* を商取引に狭める余地を作る。C2 *"…prevails, other than in Sections 9.2, 13, and 14"*（+7）は、免責や非表明を新しい条に置くたびに列挙を直す保守の落とし穴を作る。*"grants or promises more"* は黙示の保証が *promise* なので T42 の穴をそのまま戻す（bb）。
 
 **結論**: §15.1 は Before のまま残す。免責（§13・§14）を §15.1 で狭く読む主張の足場は残るので、`QUESTIONS-FOR-COUNSEL.md` 問 9 (b) の問いのまま法律家に渡す。*permission* の 2 つの用法（§2.4 の区別と §1.6・§4.6 の総称）は、本文を変えずに記録だけ置く（どちらかへ寄せると、もう一方の条の読みが動く）。
+
+### 14.24 用語の全出現を読んだ（8 束・候補 22・残った 1）と、試作 T52（§16.2 の狭い通知と §6.2 の留保）
+
+鍵の語 8 束（permission・grant と licence・covenant・Work と material・notice と identifier・reach と applies・use・人を指す語）について、本文の全出現を意味で分け、意味のずれが誰を縛るか・何が許されるか・参照がどの条に届くかを変える所だけを挙げた（読み手 8・反証役 22・Explore/opus）。22 件のうち 21 件は反証で退いた（*permission* の §8.6・§12.2・§6.5 の用法は §14.23 で記録だけ置くと決めた問いの内、など）。残った 1 件が T52 である。
+
+**T52（+16 語・試作）**
+
+Before（§16.2 第 3 文の全文）: It does not apply this Dedication to material that a narrower notice the Dedicator has placed assigns to other terms.
+
+After: It does not apply this Dedication to material that a narrower notice the Dedicator has placed assigns to other terms; a notice that only reserves or withholds Computational Use assigns nothing to other terms (Section 6.2).
+
+**欠陥**: §6.2 は *"no notice, marking, metadata, protocol element, header, robots directive, or other signal associated with the Work is to be read as a Reservation, whatever its form and whoever placed it there"* と言い、§16.2 は Dedicator が置いた狭い通知が *"other terms"* に割り当てた素材には献呈を適用しないと言う。Dedicator がルートに ACD を適用し、`corpus/` に「このディレクトリは TDM や AI の学習に使わない（DSM 指令 4 条 3 項の留保）」とだけ書いた通知を置くと、それが「他の条件への割り当て」（`corpus/` は Work の外）なのか、§6.2 が無視する Reservation（`corpus/` は Work で学習は許される）なのかが語で決まらない。前者の読みが通れば、サイト全体に置いた robots の AI 拒否も「狭い通知」と読まれ、§6 の中心の約束が通知 1 つで外れる。§6.5 の「自動化システムが判定できない許可は許可ではない」にも反する。
+
+**語の選び方**: *"a Reservation is not such a notice"*（+9）は短いが、§1.10 の定義では「All rights reserved」も TDM を留保する手段に当たりうるので、ファイルの「All rights reserved」の表示まで狭い通知でなくなり、独自の条件のファイルを Work へ引き込む（撤回不能の向き）。*"only reserves or withholds Computational Use"* に限れば、全部を留保する表示や別のライセンスへの割り当ては、従来どおり狭い通知として働く。
+
+**逆側**: (1) TDM だけを外したい Dedicator は、opt-out の通知では外せず、その素材を別の条件へ明示して割り当てる必要がある。opt-out だけで外れると思った Dedicator には、学習への献呈が撤回不能に起きる向きである（E61・T19 で避けてきた向き）。ただし Dedicator は §6.2 の *"expressly declines to make one"* を自分で適用しているので、本文から読める。(2) +16 語（B3）。(3) *Computational Use* の留保と他の権利の留保が 1 つの通知に混ざる場合（「TDM と再配布を禁じる」）は、*only* により狭い通知として働く。
+
+**由来**: §16.2 の狭い通知の文は 1.4 草案で入った（T23・T28）。§6.2 は 1.0 から。errata ではなく、この記録に残す。
+
+**先に登録する反例（bb へ）**: (a) 逆側 (1) の撤回不能の向きを、T52 は受け入れてよいか（E61 の判断との整合）。(b) *only* が「TDM と再配布を禁じる」型の通知を狭い通知に残すのは、opt-out を回避する抜け道（再配布の禁止を名目に足す）にならないか。(c) 第三者が置いた留保（§6.3 の他の権利者）との関係。
