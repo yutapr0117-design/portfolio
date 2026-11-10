@@ -30,6 +30,7 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
      行番号は文書が動くとずれるので、`ACD-1.4-CHANGELIST.md` の段 7 の節にある行ごとの判断と、文で突き合わせて直す。
 4. 本文を **plain text の添付**にする（OSI の手続きが添付を求める）。
 5. 送信後、**公開アーカイブで届いた形を確かめる**（`REVISION-PROTOCOL.md` ゲート 10）。届くまで「提出済み」と書かない。
+6. **審査中の問いには答え、答えていない問いを残さない。** 2009-09 の委員会報告は、ある提出について *"Comments: Bruce had questions, which didn't get answered."* と書いて承認を勧めず、別の提出を *"discussion has been insufficient to justify approval at this time."* として保留した（`ACD-1.0.review-readings.md` §1.172・`against.md` #318）。答えはオーナーが自分の言葉で書く（B14・`REVISION-PROTOCOL.md` ゲート 0）。材料は想定問答（`ACD-1.0.review-responses*.md`）と `QUESTIONS-FOR-COUNSEL.md` にある。届いた問いは受領文として `rounds/` へ無改変で置き、答えていない問いの一覧を毎日確かめる。**逆側**: 答えれば承認されるという記録ではない（同じ節）。議論が起きなければ、答える機会もない。
 
 ## 0b. メールの長さと順序の目安（文面ではない）
 
