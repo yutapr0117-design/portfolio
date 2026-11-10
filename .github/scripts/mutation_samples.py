@@ -586,6 +586,12 @@ _MUTATIONS_TAIL.append({
     "find": "1. **Check that you hold the rights.**",
     "replace": "1. **Check that you hold the rights in the Work (§1.3).**",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 146: relatedProjectIds の 1 つを綴りの崩れた id (pO4) にする —— 全要素が pNN の配列しか拾わず、配列ごと参照から消えて dangling が 0 と出ていた",
+    "file": ROOT / "js" / "store.js",
+    "find": '["p02", "p03", "p04"], [], "task"',
+    "replace": '["p02", "p03", "pO4"], [], "task"',
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
