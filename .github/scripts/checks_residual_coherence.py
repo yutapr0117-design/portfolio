@@ -109,12 +109,55 @@ def run(ctx):
     if _store146.exists():
         _src146 = _store146.read_text(encoding="utf-8")
         _ids146 = set(re.findall(r'proj\(\s*"([a-z0-9_]+)"', _src146))
-        # relatedProjectIds = pNN のみから成る配列リテラル (store.js で純 pNN 配列は relatedIds のみ)
-        _ref146 = set()
-        for _arr146 in re.findall(r'\[((?:\s*"p[0-9]+"\s*,?)+)\]', _src146):
-            for _r146 in re.findall(r'"(p[0-9]+)"', _arr146):
-                _ref146.add(_r146)
-        _dangling146 = sorted(_ref146 - _ids146)
+        # proj() の呼び出しを括弧の深さで引数に分け、13 番目 (relatedIds) の配列の要素を全部読む (2026-11-11・監査 #183):
+        #   旧版は「全要素が整った pNN の配列」しか拾わず、1 つでも綴りの崩れた id (pO4) があると配列ごと参照から消えた
+        def _args146(_s, _i):
+            _out, _cur, _d, _q = [], [], 0, None
+            while _i < len(_s):
+                _c = _s[_i]
+                if _q:
+                    _cur.append(_c)
+                    if _c == "\\":
+                        _cur.append(_s[_i + 1])
+                        _i += 1
+                    elif _c == _q:
+                        _q = None
+                elif _c in "\"'`":
+                    _q = _c
+                    _cur.append(_c)
+                elif _c in "([{":
+                    _d += 1
+                    _cur.append(_c)
+                elif _c in ")]}":
+                    if _d == 0:
+                        _out.append("".join(_cur).strip())
+                        return _out
+                    _d -= 1
+                    _cur.append(_c)
+                elif _c == "," and _d == 0:
+                    _out.append("".join(_cur).strip())
+                    _cur = []
+                else:
+                    _cur.append(_c)
+                _i += 1
+            return _out
+        _ref146, _bad146 = set(), []
+        for _m146 in re.finditer(r'(?<![\w.])proj\(\s*"', _src146):
+            _a146 = _args146(_src146, _m146.end() - 1)
+            if len(_a146) < 13:
+                _bad146.append(f"proj({_a146[0] if _a146 else '?'}) の引数が {len(_a146)} 個 (relatedIds を読めない)")
+                continue
+            _rel146 = _a146[12]
+            if not (_rel146.startswith("[") and _rel146.endswith("]")):
+                _bad146.append(f"proj({_a146[0]}) の relatedIds が配列でない: {_rel146[:30]!r}")
+                continue
+            for _e in [_x.strip() for _x in _rel146[1:-1].split(",") if _x.strip()]:
+                _mm = re.fullmatch(r'"([^"]*)"', _e)
+                if not _mm:
+                    _bad146.append(f"proj({_a146[0]}) の relatedIds に文字列でない要素: {_e[:20]!r}")
+                else:
+                    _ref146.add(_mm.group(1))
+        _dangling146 = sorted(_ref146 - _ids146) + _bad146
         check(
             bool(_ids146) and bool(_ref146) and not _dangling146,
             f"Check 146: defaultProjects の relatedProjectIds は全て実在 project を参照 "
