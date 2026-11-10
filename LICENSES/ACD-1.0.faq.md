@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.faq.md
 audience: 採用検討者, 法務, ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-06
+last-updated: 2026-11-10
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (逐条リファレンス) / LICENSES/ACD-1.0.comparison.md (族ごとの比較) / LICENSES/ACD-1.0.jurisdictions.md (法域別の問い)
 ---
 
@@ -610,6 +610,21 @@ Dedicator が既に公開した写しについて「さらなる条件・制限�
 - **どうすればよいか**: 改変分を別の条件で出すなら、タグの隣にそう書く。書かないと次の読み手には区別できない。
 - **⚠ 逆側**: これは読みであって判決ではない。残したまま配ったことを適用の表示と見る余地はある。
 - **本文の外の話**: 改変者の表示に依拠した受領者の主張（黙示の許諾や estoppel）は ACD の外の一般法の問題である。§2.5 は Dedicator 本人の行為にしか掛からない。
+
+**これは法律の助言ではない。** 法的レビューは受けていない。
+
+### A34. 自分の作品の一部（例: `corpus/`）だけは学習に使わせたくない。opt-out の通知を置けば ACD から外れるか
+
+> **English (ACD-1.4 draft):** No. To keep material out of the Dedication, assign it to other terms: a notice that names another licence, or that reserves all rights. A notice that only reserves text and data mining or training (an Article 4(3) DSM opt-out, a robots or "noai" signal) assigns nothing to other terms (Section 16.2), and Section 6.2 does not read it as a Reservation. Material already released under the Dedication cannot be taken back (Section 2.2).
+
+**外れない。素材を ACD から外すには、その素材を別の条件へ割り当てる。DSM 指令 4 条 3 項の opt-out だけでは外れない。** この答えは **1.4 草案の文**についてのもの（§16.2 の第 3 文と、2026-11-10 に足した *"a notice that is only a Reservation assigns nothing to other terms (Section 6.2)"*・`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.24 の T52）。
+
+- **外す方法**: その素材の隣に、別のライセンスを名指す通知か、すべての権利を留保する表示を置く（§16.2 の「狭い通知」）。学習だけを禁じたいなら、そのための別の条件を書いた通知が要る。
+- **外れない通知**: TDM や学習の留保だけを述べる通知、robots の指示、"noai" の meta、ホスティングが既定で付ける信号。どれも「他の条件への割り当て」ではなく、§6.2 はそれを Reservation として読まない。§6.3 は Dedicator 自身が後から置いた Reservation も撤回する。
+- **なぜこう決めたか**: 留保だけの通知で素材が外れると読めると、サイト全体に置いた robots の AI 拒否まで「狭い通知」になり、§6 の約束が通知 1 つで外れる。自動化システムが判定できない許可は許可でない、という §6.5 の理由にも反する。
+- **1.0 では**: 1.0 には「狭い通知」の文が無い。ACD-1.0 の通知が `corpus/` を含む素材に付いていれば、`corpus/` は Work で、そこに置いた opt-out は §6.2 により Reservation と読まれず、§6.3 により撤回される。通知の範囲を `corpus/` の外に限っても、§1.2 の *"in whole or in part"* により素材全体が Work と読まれうる（errata E61・1.4 草案で外した）。1.0 で `corpus/` を確実に外すには、範囲を限るだけでなく、`corpus/` が別の条件に属することを明示する（他のライセンスを名指すか、すべての権利の留保を置く）。E61 自体は害が確実だとは言っていない（*"to which"* と表示の範囲は逆を指す）ので、ここも「読まれうる」に留める（portfolio-aa の指摘で 2026-11-10 に足した）。
+- **⚠ 逆側**: opt-out だけで外れると思って置いた Dedicator には、学習への献呈が取り消せない形で起きる（§2.2）。EU の Dedicator は opt-out を「外す標準の手段」と考えがちなので、この罠は現実にありうる。この項はその緩和のために置いている。
+- **一度出した素材は戻らない**: 後から別の条件の通知を置いても、既に ACD で出した素材は戻らない（§2.2）。受領者からは、どちらの通知が先かが見えにくいことがある。
 
 **これは法律の助言ではない。** 法的レビューは受けていない。
 
