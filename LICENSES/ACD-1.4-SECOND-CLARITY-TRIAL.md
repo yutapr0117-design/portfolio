@@ -600,3 +600,9 @@ After: It does not apply this Dedication to material that a narrower notice the 
 **由来**: §16.2 の狭い通知の文は 1.4 草案で入った（T23・T28）。§6.2 は 1.0 から。errata ではなく、この記録に残す。
 
 **先に登録する反例（bb へ）**: (a) 逆側 (1) の撤回不能の向きを、T52 は受け入れてよいか（E61 の判断との整合）。(b) *only* が「TDM と再配布を禁じる」型の通知を狭い通知に残すのは、opt-out を回避する抜け道（再配布の禁止を名目に足す）にならないか。(c) 第三者が置いた留保（§6.3 の他の権利者）との関係。
+
+**採否（2026-11-10・T52 を採った・bb の語で +14 語）**: bb の反例 (a)〜(c) は、方向を変えるものではなかった。(a) 撤回不能の向きは受け入れる: E61 が守ったのは別の条件へ割り当てた素材で、T52 もその割り当ては狭い通知として残す。外すのは他の条件を何も述べず、1 つの使い方を留保するだけの通知で、割り当てではない。さらに T52 が無いと、狭い通知と読むことで素材が Work の外へ出て、Dedicator 自身が後から置いた Reservation まで撤回する §6.3（*"whether by the Dedicator or by another person, and whether before or after"*）を素通りする順序の穴があった。ホスティングや CMS が既定で付ける AI 拒否の meta などを語で決める効果もある。(b) 「TDM と再配布を禁じる」は本物の別の条件への割り当てで、抜け道にならない。通知の先後を受領者が証明しにくい問いは T23 で *"when placed"* を外したのと同じ根で、T52 とは別。(c) 第三者の留保は §6.3 が扱い、T52 は触れない。
+
+語は bb の形 *"a notice that is only a Reservation"* を採った。25 の *"reserves or withholds Computational Use"* は §1.10 の *opt out* を落としていた。*only* が *notice* と *Reservation* のどちらに掛かるかの揺れは、どちらに掛けても「Reservation のほかに何も述べない通知」になるので害が無いと見た（揺れない形 *"a Reservation and nothing more"* は +3）。5a の比較（試作の形）: 条・重複 +0、指示語 0、468u・468m・mutation の anchor に当たらない。採った形の道具の値は +14（bb の見積もり +13）。
+
+**残す緩和**: EU の Dedicator は DSM 指令 4 条 3 項の opt-out を「素材を外す標準の手段」と思っている可能性が高い。本文ではなく FAQ か案内に「素材を外すには別の条件へ割り当てる。opt-out では外れない」と一行置く（bb に依頼する）。
