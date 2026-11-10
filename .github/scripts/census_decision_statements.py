@@ -7,7 +7,7 @@
 
 使い方:
     DOSSIER_ARCHIVE_CACHE=<dir> python3 .github/scripts/census_decision_statements.py rules <out.json>
-    DOSSIER_ARCHIVE_CACHE=<dir> python3 .github/scripts/census_decision_statements.py threads <out.json>
+    DOSSIER_ARCHIVE_CACHE=<dir> python3 .github/scripts/census_decision_statements.py threads <out.json> [--pin]
     DOSSIER_ARCHIVE_CACHE=<dir> python3 .github/scripts/census_decision_statements.py noreview <out.json>
 
 `rules`: 下の DECIDERS の差出人の本文から、承認や適合について規則の形をした文を
@@ -145,6 +145,29 @@ def title_key(subject):
     return re.sub(r"[^a-z0-9]+", " ", subject_key(subject).lower()).strip()[:90]
 
 
+CANDIDATES = REPO / "LICENSES" / "THREAD-CANDIDATES.txt"
+
+
+def _list_keys(path):
+    """READ-THREADS.txt / THREAD-CANDIDATES.txt の形 (`<日付>\\t<件名>`・# で始まる行は見出し) の件名の key。"""
+    keys = {}
+    if path.exists():
+        for line in open(path, encoding="utf-8"):
+            if line.strip() and not line.startswith("#") and "\t" in line:
+                date, title = line.rstrip("\n").split("\t", 1)
+                k = title_key(title)
+                if len(k) >= 6:
+                    keys.setdefault(k, (date, title))
+    return keys
+
+
+def _iso(date):
+    try:
+        return email.utils.parsedate_to_datetime(date).date().isoformat()
+    except (TypeError, ValueError, IndexError):
+        return (date or "")[:10]
+
+
 def listed_titles():
     """`LICENSES/READ-THREADS.txt` の件名 (候補の一覧から読んだもの・rounds を置かずに読んだものを含む・
     portfolio-00 が 2026-11-09 に置いた)。"""
@@ -235,7 +258,19 @@ def threads(out):
     # 候補の一覧から読んだスレッド (READ-THREADS.txt) は候補に残す: 読むとドシエに語が足されて dossier_hits が
     #   8 を越え、候補から外れるので、残さないと母数が読むほど縮む (2026-11-09・771 → 726 を実測)。rounds/ だけに
     #   在るスレッドは候補の一覧から来たとは限らないので、母数には足さない
-    candidates = [r for r in rows if r["dossier_hits"] < 8 or title_key(r["title"]) in listed]
+    pinned = _list_keys(CANDIDATES)
+    # 一度候補になったスレッドは外さない (THREAD-CANDIDATES.txt・2026-11-11): 未読のまま、ドシエに語が
+    #   入っただけで候補から外れ、読んでいないのに未読が減っていた (§1.171 の語で 2 本が外れた)
+    candidates = [r for r in rows if r["dossier_hits"] < 8 or title_key(r["title"]) in listed
+                  or title_key(r["title"]) in pinned]
+    kept = [r for r in candidates if r["dossier_hits"] >= 8 and title_key(r["title"]) in pinned]
+    new = [r for r in candidates if title_key(r["title"]) not in pinned]
+    if "--pin" in sys.argv and new:
+        lines = [l for l in open(CANDIDATES, encoding="utf-8")] if CANDIDATES.exists() else []
+        head = [l for l in lines if l.startswith("#")]
+        body = [l for l in lines if l.strip() and not l.startswith("#")]
+        body += [f"{_iso(r['first'])}\t{r['title']}\n" for r in new]
+        CANDIDATES.write_text("".join(head) + "".join(sorted(set(body), key=lambda l: (l[:10], l))), encoding="utf-8")
     unread = [r for r in candidates if title_key(r["title"]) not in read]
     unread.sort(key=lambda r: -r["decider_words"])
     json.dump(unread, open(out, "w"), ensure_ascii=False, indent=0)
@@ -245,11 +280,15 @@ def threads(out):
     print(f"threads with deciders {len(rows)}; few or no dossier hits {len(candidates)}; "
           f"of those, not in READ-THREADS.txt {len(unread)}")
     print(f"rounds に在るが READ-THREADS に無い（候補内 {len(rounds_only)} 件）: {out}.rounds-only.json")
+    print(f"いまの語では候補でないが一覧に在る（{len(kept)} 件・うち未読 "
+          f"{sum(1 for r in kept if title_key(r['title']) not in listed)} 件）")
+    print(f"一覧 (THREAD-CANDIDATES.txt) に無い新しい候補 {len(new)} 件"
+          + ("（--pin で一覧に足した）" if "--pin" in sys.argv and new else "（--pin で一覧に足す）" if new else ""))
     # AS-OF の「未読スレッドの残り」の行と同じ形 (Check 498 (h) が和を見る)
     print(f"AS-OF: 候補 {len(candidates)} 本のうち {len(candidates) - len(unread)} 本を読んだ。{len(unread)} 本は読んでいない")
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3 or sys.argv[1] not in ("rules", "threads", "noreview"):
+    if len(sys.argv) not in (3, 4) or sys.argv[1] not in ("rules", "threads", "noreview") or sys.argv[3:] not in ([], ["--pin"]):
         sys.exit(__doc__)
     {"rules": rules, "threads": threads, "noreview": noreview}[sys.argv[1]](sys.argv[2])
