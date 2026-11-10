@@ -574,6 +574,12 @@ _MUTATIONS_TAIL.append({
     "find": "when last read, ",
     "replace": "when last read, 2099-01-01 00:00 UTC (was ",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 472f: 送る件名の名前の版だけを別の版にする —— 括弧の識別子しか比べず、名前の \"Dedication 1.0\" は照合していなかった",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": "**Subject:** For Approval: Autonomous Commons Dedication ",
+    "replace": "**Subject:** For Approval: Autonomous Commons Dedication 9",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
