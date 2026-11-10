@@ -1,0 +1,688 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2005-September)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-09)
+Messages: 9 messages this dossier cites from "License Committee Report for September 2005" and "board action on License Committee Report for September 2005" (license-discuss, 2005-09-08 to 2005-09-14). Not the whole threads.
+Senders: Russell Nelson, Eric S. Raymond, Radcliffe, Mark, Brian Behlendorf
+Position: the licence committee's report to the OSI board, the board's actions on it, and the list's replies. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Thu Sep  8 20:45:44 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Thu, 8 Sep 2005 16:45:44 -0400
+Subject: License Committee Report for September 2005
+Message-ID: <17184.41720.273895.484067@desk.crynwr.com>
+
+I'm the chair of the license approval committee.  This is my report
+for the current set of licenses under discussion.  If anybody
+disagrees with my assessment of the committee's conclusions, say so
+promptly.
+
+I bring two concerns from the committee to the board:
+
+  o Country-specific Warranty disclaimers are a nasty tarball that the
+    board needs to head off.  I (speaking for myself) suggest the
+    board request a report from the license approval committee on
+    suggested actions.
+
+  o The board needs to revisit the three license criteria it added
+    some months ago.  I have tried to apply those criteria to the OVPL,
+    and not had any support.  The license-discuss membership has spoken
+    loudly and clearly that we should approve all licenses that comply
+    with the OSD.  Thus, we should withdraw those criteria and if we're
+    serious about them, set about modifying the Open Source Definition.
+
+--
+
+Title: Fair License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:msp:9784:hhkgifnkgiiejnigaakm
+License: in the submission
+Comments: administrivial change (removal of URL).
+Recommend: approval
+
+--
+
+Title: oxGLODE
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:9769:200503:mobnofemphjfnplghkjm
+License: there is no license submitted
+Comments: Ernie pointed out that he needs to submit a license
+    http://crynwr.com/cgi-bin/ezmlm-cgi?3:msp:9771:mobnofemphjfnplghkjm
+Recommend: rejection
+
+--
+
+The ACE License is a hard case because on the face of it, the license
+intends to be open source.  And yet it's duplicative and not clearly
+written, and even a lawyer says that it doesn't say what it means.  On
+the other hand, the submittor is not the licensor, so getting the
+license changed may start at impossible and get harder from there.
+
+Title: ACE License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:9551:200502:oaoffccikahegfoebbbi
+License: in the submission
+Comments: Rod Dixon recommends rejection:
+    http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:9557:200502:oaoffccikahegfoebbbi
+    because any licensee can distribute the original under a
+    proprietary license.  The submittor, Ken Sedgwick, has not replied
+    to dispute this recommendation.
+Recommend: rejection
+
+--
+
+Australia needs different warranty disclaimer wording.  This is a huge
+nasty ball of wax.  How many different warranty disclaimers are there
+in different countries??
+
+Title: OZPLB Licence
+ReSubmission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:9498:200502:ibddhmkdckpieiodmcjd
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8849:200410:jneejnfcgpacdjcfbokf
+License: In the submission, as proposed.  Existing license is http://nicta.com.au/ozplb_licence.cfm
+Comments: Brendan Scott suggests that disclaimers should go into a
+    rider:
+    http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10228:200505:emhpkgkiogbojalnmdef
+Recommend: approval
+
+--
+
+The OVPL consists of two sets of changes to the CDDL.  One set changes
+policy, and the other set changes implementation.  I have suggested
+that in order for the OVPL to not be duplicative and to increase its
+readability, its implementation changes should actually go into the
+CDDL.  I've asked the submittor to work with the CDDL stewards to get
+those improvements into the CDDL.  I have not gotten any cooperation.
+Instead, he has asked me to submit the OVPL as-is.
+
+Aside from Andy's concern listed below, everybody thinks the license
+complies with the OSD.
+
+Title: Open Vendor Public License (OVPL)
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10257:200506:gmbfhookcommfnneakhi
+License: http://openvendor.org/Licenses/Open_Vendor_Public_License
+Comments: The rationale for the license is at:
+    http://openvendor.org/kb.x?T=15
+    
+    Andy Wilson is not sure that the license's mandatory license-back
+    falls within the letter and spirit of the OSD.
+    http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10642:200508:hlfamcihnmnahfmglhfm
+    
+Recommend: disapproval if you want to require that the OVPL folks
+    negotiate with the CDDL folks on incorporating improvements.
+Recommend: approval otherwise
+
+--
+
+Title: Open Vendor Lessor Public License(OVLPL)
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10257:200506:gmbfhookcommfnneakhi
+License: http://openvendor.org/Licenses/Open_Vendor_Lesser_Public_License
+Comments: modified from the OVPL so that a derived work can be
+    created without causing the OVPL to apply to the portions licensed
+    under another license.
+Recommend: approval should be tied to the OVPL's approval.
+
+--
+
+Title: The Kannel Software License, Version 1.0
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10533:200508:pphogiheomchblkkndnb
+License: http://www.kannel.org/license.shtml
+Comments: Apache 1.1 with s/apache/kannel/g.  Andrew Wilson suggested
+    Apache 2.0.
+Recommend: deferral; still under discussion.
+
+--
+
+Title: CeCILL - 
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10264:200506:cieogbcnmhijcoodgdfa
+License: in the submission
+Comments: Andy Wilson points out that the GPL compatibility clause
+    makes the license trivially OSD compatible, so that it would be
+    more honest to distribute dual-licensed GPL and CeCILL.  He also
+    objects to the language requiring source distribution, and the
+    language requiring conformance to the terms of the license.  John
+    Cowan agrees with these last two but points out that a
+    contribution licensed under the CeCILL would be licensable under
+    both licenses, but that a GPL contribution would not be licensable
+    under the CeCILL.
+Recommend: rejection because of unclear source distribution language.
+
+--
+
+Title: Open-Realty License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10237:200505:ggmklfgghgeljkpkocmb
+License: http://www.open-realty.org/oslicense.html 
+Comments: Not a reusable license.  Submittor announced plans to
+    resubmit license in
+    http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10261:200506:ggmklfgghgeljkpkocmb
+    but never resubmitted.
+Recommend: rejection
+
+-- 
+--my blog is at     blog.russnelson.com         | with some experience 
+Crynwr sells support for free software  | PGPok |     you know what to do.
+521 Pleasant Valley Rd. | +1 315-323-1241       | with more experience
+Potsdam, NY 13676-3213  |                       |     you know what not to do.
+
+
+From esr at thyrsus.com  Thu Sep  8 21:27:18 2005
+From: esr at thyrsus.com (Eric S. Raymond)
+Date: Thu, 8 Sep 2005 17:27:18 -0400
+Subject: License Committee Report for September 2005
+In-Reply-To: <17184.41720.273895.484067@desk.crynwr.com>
+References: <17184.41720.273895.484067@desk.crynwr.com>
+Message-ID: <20050908212718.GB11975@thyrsus.com>
+
+Russell Nelson <nelson at crynwr.com>:
+>   o Country-specific Warranty disclaimers are a nasty tarball that the
+>     board needs to head off.  I (speaking for myself) suggest the
+>     board request a report from the license approval committee on
+>     suggested actions.
+
+I concur, this requires further analysis.
+ 
+>   o The board needs to revisit the three license criteria it added
+>     some months ago.  I have tried to apply those criteria to the OVPL,
+>     and not had any support.  The license-discuss membership has spoken
+>     loudly and clearly that we should approve all licenses that comply
+>     with the OSD.  Thus, we should withdraw those criteria and if we're
+>     serious about them, set about modifying the Open Source Definition.
+
+The license-discuss membership doesn't make policy.  The Board does.
+
+Those criteria were approved after due deliberation by the Board for
+good strategic reasons.  Anyone who is unwilling to apply them may 
+recuse him or herself from the process.
+-- 
+		<a href="http://www.catb.org/~esr/">Eric S. Raymond</a>
+
+
+From Mark.Radcliffe at dlapiper.com  Thu Sep  8 23:47:10 2005
+From: Mark.Radcliffe at dlapiper.com (Radcliffe, Mark)
+Date: Thu, 8 Sep 2005 16:47:10 -0700
+Subject: License Committee Report for September 2005
+Message-ID: <7A1B9D56135EF7438D28510C195DBA2E2432F4@PALOEXCH01.piper.root.local>
+
+
+I agree with Eric. While we need to be sensitive to the concerns
+expressed by members of the community, the OSI board must make these
+decisions. We have done so and should follow the decision until we
+decide that it is incorrect.
+
+From brian at collab.net  Fri Sep  9 17:42:59 2005
+From: brian at collab.net (Brian Behlendorf)
+Date: Fri, 9 Sep 2005 10:42:59 -0700 (PDT)
+Subject: License Committee Report for September 2005
+In-Reply-To: <17185.46277.265909.828604@desk.crynwr.com>
+References: <17184.41720.273895.484067@desk.crynwr.com> <20050908212718.GB11975@thyrsus.com>
+ <acc274b305090822382a1031ee@mail.gmail.com> <20050909062643.GA17079@thyrsus.com>
+ <4321899A.6070409@mibsoftware.com> <17185.41588.116802.42957@desk.crynwr.com>
+ <4321A8A4.7080902@mibsoftware.com> <17185.46277.265909.828604@desk.crynwr.com>
+Message-ID: <20050909103740.G15053@paz.hyperreal.org>
+
+On Fri, 9 Sep 2005, Russell Nelson wrote:
+> Oh, yes, I see what you mean.  I totally lost the "rules" under
+> discussion.  But you're still wrong about "Someone changed the rules."
+
+I took Forrest's comment to mean that these three extra requirements for 
+new licenses were introduced in the last year; and as far as I can tell 
+only in a single email to this list, and not yet even reflected on the OSI 
+web site.  At least, I don't see the "license must be unique" et al on
+
+http://www.opensource.org/docs/certification_mark.php
+
+or
+
+http://www.opensource.org/docs/definition.php
+
+Since it's no longer about conformance to a fairly objective 
+specification, you really should stop referring to it as a "certification 
+mark", IMHO.
+
+> I agree with what Eric says.  The perspective from the hot seat is
+> completely different.  No matter what you do, people complain.
+
+IOW, "now is not the time to play the blame game."
+
+ 	Brian
+
+
+
+From nelson at crynwr.com  Fri Sep  9 05:57:31 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Fri, 9 Sep 2005 01:57:31 -0400
+Subject: License Committee Report for September 2005
+In-Reply-To: <acc274b305090822382a1031ee@mail.gmail.com>
+References: <17184.41720.273895.484067@desk.crynwr.com>
+	<20050908212718.GB11975@thyrsus.com>
+	<acc274b305090822382a1031ee@mail.gmail.com>
+Message-ID: <17185.9291.527407.660201@desk.crynwr.com>
+
+Ben Tilly writes:
+ > On 9/8/05, Eric S. Raymond <esr at thyrsus.com> wrote:
+ > > Russell Nelson <nelson at crynwr.com>:
+ > [...]
+ > > >   o The board needs to revisit the three license criteria it added
+ > > >     some months ago.  I have tried to apply those criteria to the OVPL,
+ > > >     and not had any support.  The license-discuss membership has spoken
+ > > >     loudly and clearly that we should approve all licenses that comply
+ > > >     with the OSD.  Thus, we should withdraw those criteria and if we're
+ > > >     serious about them, set about modifying the Open Source Definition.
+ > > 
+ > > The license-discuss membership doesn't make policy.  The Board does.
+ > > 
+ > > Those criteria were approved after due deliberation by the Board for
+ > > good strategic reasons.  Anyone who is unwilling to apply them may
+ > > recuse him or herself from the process.
+ > 
+ > Do you realize how strongly you've confirmed any qualms that people
+ > might have about the way that the OSI is run?
+
+Sorry, Ben, but you're being a silly Tilly here.  Eric is just
+pointing out that the current policy is the current policy and that
+it's published and people would, could, and should expect it to be
+applied.  To *not* follow the published policy would be a mistake.
+
+Now, if the policy is wrong, that's another matter.
+
+The current difficulty is simply this:  I say that "readable" means
+"readable in context with other licenses; that is, if you make a
+derivative work from another license, you minimize the changes."  Alex
+Bligh says that "readable" means that the license *itself* should be
+readable even if it has to make changes with no legal import.
+
+Obviously, *I* think I'm right, but I think that both of our
+interpretations are reasonable.  Since there's ambiguity, we need to
+go back to the board to get it resolved.
+
+-- 
+--my blog is at     blog.russnelson.com         | with some experience 
+Crynwr sells support for free software  | PGPok |     you know what to do.
+521 Pleasant Valley Rd. | +1 315-323-1241       | with more experience
+Potsdam, NY 13676-3213  |                       |     you know what not to do.
+
+
+From nelson at crynwr.com  Mon Sep 12 06:00:47 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Mon, 12 Sep 2005 02:00:47 -0400
+Subject: License Committee Report for September 2005
+In-Reply-To: <17184.41720.273895.484067@desk.crynwr.com>
+References: <17184.41720.273895.484067@desk.crynwr.com>
+Message-ID: <17189.6543.826906.76568@desk.crynwr.com>
+
+[ note Reply-To ]
+
+I'm the chair of the license approval committee.  This is my report
+for the current set of licenses under discussion.  If anybody
+disagrees with my assessment of the committee's conclusions, say so
+promptly.
+
+I bring two concerns from the committee to the board:
+
+  o Country-specific Warranty disclaimers are a nasty tarball that the
+    board needs to head off.  I (speaking for myself) suggest the
+    board request a report from the license approval committee on
+    suggested actions.
+
+  o The three criteria (readable, reusable and unique) that the board
+    passed and published in March got accidentally deleted in August.
+    They need to be restored to their proper place.  Most
+    license-discuss members seem to believe that that place is in the
+    OSD.  There is not a consensus on this, though.
+
+--
+
+Title: Fair License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:msp:9784:hhkgifnkgiiejnigaakm
+License: in the submission
+Comments: administrivial change (removal of URL).
+Recommend: approval
+
+--
+
+Title: oxGLODE
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:9769:200503:mobnofemphjfnplghkjm
+License: there is no license submitted
+Comments: Ernie pointed out that he needs to submit a license
+    http://crynwr.com/cgi-bin/ezmlm-cgi?3:msp:9771:mobnofemphjfnplghkjm
+Recommend: rejection
+
+--
+
+The ACE License is a hard case because it's duplicative, not very
+readable and not reusable.  It doesn't recognize that some authors may
+have rights they cannot waive.  On the other hand, they submitted the
+license before we adopted the three new criteria.
+
+Title: ACE License
+ReSubmission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:msp:10249:idpbfhfhfaihfnffhpae
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:9551:200502:oaoffccikahegfoebbbi
+License: in the submission
+Comments: Rod Dixon's earlier suggestions were incorporated into the
+    resubmission.
+Recommend: approval
+
+--
+
+Australia needs different warranty disclaimer wording.  This is a huge
+nasty ball of wax.  How many different warranty disclaimers are there
+in different countries??
+
+Title: OZPLB Licence
+ReSubmission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:9498:200502:ibddhmkdckpieiodmcjd
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8849:200410:jneejnfcgpacdjcfbokf
+License: In the submission, as proposed.  Existing license is http://nicta.com.au/ozplb_licence.cfm
+Comments: Brendan Scott suggests that disclaimers should go into a
+    rider:
+    http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10228:200505:emhpkgkiogbojalnmdef
+Recommend: approval
+
+--
+
+The OVPL consists of two sets of changes to the CDDL.  One set changes
+policy, and the other set changes implementation.  I have suggested
+that in order for the OVPL to not be duplicative and to increase its
+readability, its implementation changes should actually go into the
+CDDL.  Simon Phipps and Alex Bligh are discussing this issue.
+
+Aside from Andy's concern listed below, everybody thinks the license
+complies with the OSD.
+
+Title: Open Vendor Public License (OVPL)
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10257:200506:gmbfhookcommfnneakhi
+License: http://openvendor.org/Licenses/Open_Vendor_Public_License
+Comments: The rationale for the license is at:
+    http://openvendor.org/kb.x?T=15
+    
+    Andy Wilson is not sure that the license's mandatory license-back
+    falls within the letter and spirit of the OSD.
+    http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10642:200508:hlfamcihnmnahfmglhfm
+    
+Recommend: rejection if you think that the "Readable" criteria means
+    that a derived license should minimize changes even to the point
+    of not renumbering sections.
+Recommend: approval if you think that the "Readable" criteria means
+    that the license *itself* should be readable even if it has to
+    make changes with no legal import.
+Recommend: deferral if you want to wait to see what Simon and Alex's
+    negotiations produce in the way of changes to the CDDL.
+
+--
+
+Title: Open Vendor Lessor Public License(OVLPL)
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10257:200506:gmbfhookcommfnneakhi
+License: http://openvendor.org/Licenses/Open_Vendor_Lesser_Public_License
+Comments: modified from the OVPL so that a derived work can be
+    created without causing the OVPL to apply to the portions licensed
+    under another license.
+Recommend: approval should be tied to the OVPL's approval.
+
+--
+
+Title: The Kannel Software License, Version 1.0
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10533:200508:pphogiheomchblkkndnb
+License: http://www.kannel.org/license.shtml
+Comments: Apache 1.1 with s/apache/kannel/g.  Andrew Wilson suggested
+    Apache 2.0.
+Recommend: deferral; still under discussion.
+
+--
+
+Title: CeCILL - 
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10264:200506:cieogbcnmhijcoodgdfa
+License: in the submission
+Comments: Andy Wilson points out that the GPL compatibility clause
+    makes the license trivially OSD compatible, so that it would be
+    more honest to distribute dual-licensed GPL and CeCILL.  He also
+    objects to the language requiring source distribution, and the
+    language requiring conformance to the terms of the license.  John
+    Cowan agrees with these last two but points out that a
+    contribution licensed under the CeCILL would be licensable under
+    both licenses, but that a GPL contribution would not be licensable
+    under the CeCILL.
+Recommend: rejection because of unclear source distribution language.
+
+--
+
+Title: Open-Realty License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10237:200505:ggmklfgghgeljkpkocmb
+License: http://www.open-realty.org/oslicense.html 
+Comments: Not a reusable license.  Submittor announced plans to
+    resubmit license in
+    http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10261:200506:ggmklfgghgeljkpkocmb
+    but never resubmitted.
+Recommend: rejection
+
+-- 
+--my blog is at     blog.russnelson.com         | with some experience 
+Crynwr sells support for free software  | PGPok |     you know what to do.
+521 Pleasant Valley Rd. | +1 315-323-1241       | with more experience
+Potsdam, NY 13676-3213  |     Sheepdog          |     you know what not to do.
+
+
+From nelson at crynwr.com  Mon Sep 12 20:33:40 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Mon, 12 Sep 2005 16:33:40 -0400
+Subject: board action on License Committee Report for September 2005
+Message-ID: <17189.58916.637792.732522@desk.crynwr.com>
+
+I'm the chair of the license approval committee.  This is my report of
+the board's actions for the current set of licenses under discussion.
+
+Note: BCC'ed to the license submittors.
+
+--
+
+Title: Fair License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:msp:9784:hhkgifnkgiiejnigaakm
+License: in the submission
+Comments: administrivial change (removal of URL).
+Recommend: approval
+Status: voted as recommended by the OSI board 9/12
+
+--
+
+Title: oxGLODE
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:9769:200503:mobnofemphjfnplghkjm
+License: there is no license submitted
+Comments: Ernie pointed out that he needs to submit a license
+    http://crynwr.com/cgi-bin/ezmlm-cgi?3:msp:9771:mobnofemphjfnplghkjm
+Recommend: rejection
+Status: voted as recommended by the OSI board 9/12
+
+--
+
+The ACE License is a hard case because it's duplicative, not very
+readable and not reusable.  It doesn't recognize that some authors may
+have rights they cannot waive.  On the other hand, they submitted the
+license before we adopted the three new criteria.
+
+Title: ACE License
+ReSubmission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:msp:10249:idpbfhfhfaihfnffhpae
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:9551:200502:oaoffccikahegfoebbbi
+License: in the submission
+Comments: Rod Dixon's earlier suggestions were incorporated into the
+    resubmission.
+Recommend: approval
+Status: deferred by the OSI board 9/12 to ask "Can they relicense?"
+
+--
+
+Australia needs different warranty disclaimer wording.  This is a huge
+nasty ball of wax.  How many different warranty disclaimers are there
+in different countries??
+
+Title: OZPLB Licence
+ReSubmission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:9498:200502:ibddhmkdckpieiodmcjd
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8849:200410:jneejnfcgpacdjcfbokf
+License: In the submission, as proposed.  Existing license is http://nicta.com.au/ozplb_licence.cfm
+Comments: Brendan Scott suggests that disclaimers should go into a
+    rider:
+    http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10228:200505:emhpkgkiogbojalnmdef
+Recommend: approval
+Status: voted as recommended by the OSI board 9/12 with a
+    policy (to be written by ESR and submitted to the board)
+    recommending against country-specific warranty language.
+
+--
+
+The OVPL consists of two sets of changes to the CDDL.  One set changes
+policy, and the other set changes implementation.  I have suggested
+that in order for the OVPL to not be duplicative and to increase its
+readability, its implementation changes should actually go into the
+CDDL.  Simon Phipps and Alex Bligh are discussing this issue.
+
+Aside from Andy's concern listed below, everybody thinks the license
+complies with the OSD.
+
+Title: Open Vendor Public License (OVPL)
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10257:200506:gmbfhookcommfnneakhi
+License: http://openvendor.org/Licenses/Open_Vendor_Public_License
+Comments: The rationale for the license is at:
+    http://openvendor.org/kb.x?T=15
+    
+    Andy Wilson is not sure that the license's mandatory license-back
+    falls within the letter and spirit of the OSD.
+    http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10642:200508:hlfamcihnmnahfmglhfm
+    
+Recommend: deferral if you want to wait to see what Simon and Alex's
+    negotiations produce in the way of changes to the CDDL.
+Status: voted as recommended by the OSI board 9/12
+
+--
+
+Title: Open Vendor Lessor Public License(OVLPL)
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10257:200506:gmbfhookcommfnneakhi
+License: http://openvendor.org/Licenses/Open_Vendor_Lesser_Public_License
+Comments: modified from the OVPL so that a derived work can be
+    created without causing the OVPL to apply to the portions licensed
+    under another license.
+Recommend: approval should be tied to the OVPL's approval.
+Status: voted as recommended by the OSI board 9/12
+
+--
+
+Title: The Kannel Software License, Version 1.0
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10533:200508:pphogiheomchblkkndnb
+License: http://www.kannel.org/license.shtml
+Comments: Apache 1.1 with s/apache/kannel/g.  Andrew Wilson suggested
+    Apache 2.0.
+Recommend: deferral; still under discussion.
+Status: voted as recommended by the OSI board 9/12
+
+--
+
+Title: CeCILL - 
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10264:200506:cieogbcnmhijcoodgdfa
+License: in the submission
+Comments: Andy Wilson points out that the GPL compatibility clause
+    makes the license trivially OSD compatible, so that it would be
+    more honest to distribute dual-licensed GPL and CeCILL.  He also
+    objects to the language requiring source distribution, and the
+    language requiring conformance to the terms of the license.  John
+    Cowan agrees with these last two but points out that a
+    contribution licensed under the CeCILL would be licensable under
+    both licenses, but that a GPL contribution would not be licensable
+    under the CeCILL.
+Recommend: rejection because of unclear source distribution language.
+Status: voted as recommended by the OSI board 9/12
+
+--
+
+Title: Open-Realty License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10237:200505:ggmklfgghgeljkpkocmb
+License: http://www.open-realty.org/oslicense.html 
+Comments: Not a reusable license.  Submittor announced plans to
+    resubmit license in
+    http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:10261:200506:ggmklfgghgeljkpkocmb
+    but never resubmitted.
+Recommend: rejection because of a lack of clarity of which license
+    (submitted versus revised but not submitted should be approved.
+Status: voted as recommended by the OSI board 9/12
+
+-- 
+--my blog is at     blog.russnelson.com         | with some experience 
+Crynwr sells support for free software  | PGPok |     you know what to do.
+521 Pleasant Valley Rd. | +1 315-323-1241       | with more experience
+Potsdam, NY 13676-3213  |     Sheepdog          |     you know what not to do.
+
+
+
+From nelson at crynwr.com  Tue Sep 13 13:50:40 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Tue, 13 Sep 2005 09:50:40 -0400
+Subject: board action on License Committee Report for September 2005
+In-Reply-To: <E3367B24845746439E0D1A6E@[192.168.100.25]>
+References: <17189.58916.637792.732522@desk.crynwr.com>
+	<E3367B24845746439E0D1A6E@[192.168.100.25]>
+Message-ID: <17190.55600.939857.306625@desk.crynwr.com>
+
+Alex Bligh writes:
+ > Could I just verify this means you voted to defer approval
+
+We voted to defer approval with a note "followed by speedy
+re-consideration of the OVPL and CDDL if required".
+
+They stepped all over my notion that readability extended across
+multiple licenses.  You were right, I was wrong.
+
+-- 
+--my blog is at     blog.russnelson.com         | with some experience 
+Crynwr sells support for free software  | PGPok |     you know what to do.
+521 Pleasant Valley Rd. | +1 315-323-1241       | with more experience
+Potsdam, NY 13676-3213  |     Sheepdog          |     you know what not to do.
+
+
+From nelson at crynwr.com  Wed Sep 14 16:08:35 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Wed, 14 Sep 2005 12:08:35 -0400
+Subject: board action on License Committee Report for September 2005
+In-Reply-To: <20050913170256.GA15227@primefactor.com>
+References: <17189.58916.637792.732522@desk.crynwr.com>
+	<20050913170256.GA15227@primefactor.com>
+Message-ID: <17192.19203.404652.206750@desk.crynwr.com>
+
+Mark Shewmaker writes:
+ > That's not at all true.  There were multiple folks, including myself,
+ > who don't think the OVPL complies with the OSD.  We had extensive
+ > discussion on the list on it.
+
+I read all the comments on the OVPL submission, and I didn't see any
+extensive discussion.  Perhaps there was discussion prior to the
+submission?
+
+ > I find that rather confusing.
+
+Sorry to confuse you.  That would be my bad.  It seems like I missed
+some comments.  Could you pull them out of the archives and point me
+at them?
+
+ > licenses which granted the licensor more rights than the
+ > licensee wouldn't be approved
+
+No, it was "The license must be reusable".  Can't name individual
+parties.  Have to use generic terms like "Licensor".  Can't name
+trademarks.  And the principle we've followed has been "As long as
+everyone gets a license that complies with the open source definition,
+it doesn't matter if the license discriminates".
+
+So a license that said "If you're running a nuclear power plant, you
+can't use my software" would not pass muster.
+
+A license that said "If you're running a nuclear power plant, you
+can only redistribute my software under the GPL.  Everyone else gets
+BSD terms" would be approvable.
+
+So I think it would violate that principle to reject a license that
+says "Everybody gets OSD rights, but some people get more rights."
+
+ > Or bringing up reasons why it might be OSD compatible:  For instance,
+ > since a license that required individuals to pay someone $10000.00 for
+ > each and every modification could possibly be argued to be technically
+ > OSD compliant,
+
+Argue away, but it would violate OSD#7. What do you get for your $10K?
+An additional license.
+
+-- 
+--my blog is at     blog.russnelson.com         | with some experience 
+Crynwr sells support for free software  | PGPok |     you know what to do.
+521 Pleasant Valley Rd. | +1 315-323-1241       | with more experience
+Potsdam, NY 13676-3213  |     Sheepdog          |     you know what not to do.
+
+
