@@ -86,6 +86,7 @@ Older, or not from the lists, but each one goes to whether ACD can be approved.
 | *"OSI came to be a place where one would bring licenses that are not being used yet -- which in some cases could mean licenses that never end up being used."* | Richard Fontana, `license-discuss` 2017-01-10, replying to a proposal for a second list that would ask for a lawyer or a sponsoring organisation | **ACD has neither, and one user.** The proposal would still approve an OSD-conformant licence and only keep it off the favoured list | #315 |
 | *"it'd be great to avoid a proliferation of licenses with the same terms only because someone decided their personal data use cases weren't primarily"* health | Brian Behlendorf, `license-review` 2013-10-07, on the Tidepool health-data licence | **The terms differ, not only the field.** No approved licence pairs an express patent grant with no condition (B10). §8.1 does that for any Work. §8.4 reaches beyond the Work only for what automated processing produces (§1.7, which includes indexing and retrieval), though §1.7 also names training and models | #316 |
 | *"I think there is a natural bias in favor of approval of the license"* | Richard Fontana, `license-review` 2013-10-31, on NOSA 2.0 from NASA | **ACD has no prominent steward and no approved predecessor.** The same message asks for a higher standard for that reason, and NOSA 2.0 still waited three and a half years (#257) | #317 |
+| *"you will not be able to champion the licence through the approvals process unless you understand it inside out"* | David Woolley, `license-discuss` 2007-07-31 | **The owner submits and answers in the owner's own words; the text was drafted by an AI.** The steward can revise in response (1.1 to 1.4), and the dossier gives clause-by-clause reasons, but no record can answer for the owner | #318 |
 
 ### Objections that do not land (checked against the text)
 
@@ -120,4 +121,4 @@ out because we cannot have it, not because leaving it out is better** (register 
    date, OSI has not used the number of projects adopting a license as a factor"* (Jam rationale, 2021-09-12).
 3. **It is not exhaustive.** The windows we read are listed in `PEER-REVIEW-WATCH.md` §3.9.
 4. **Nothing updates this page automatically.** An entry added to `ACD-1.0.against.md` does not reach
-   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #317.
+   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #318.

@@ -1,7 +1,7 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 394 subject lines. One thread appears under two subject spellings
+# Rows: 396 subject lines. One thread appears under two subject spellings
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
@@ -9,7 +9,7 @@
 # 2026-11-10: this list became the only source of "read" for the census (rounds/ no longer counts).
 #   18 rows came from the tool's list of candidates found only in rounds/: 14 whose every message
 #   is in rounds/, and 4 short ones read in full that day. 5 were left out because rounds/ holds
-#   only 1 or 2 of their messages (what *is* the approval process?, Noise filter, Initial
+#   only 1 or 2 of their messages (what *is* the approval process? [read in full 2026-11-11], Noise filter, Initial
 #   Developer's Public License, Octopus License, MS-PL/GPL compatibility).
 1999-04-15	Stop. Stop, stop, stop, stop, stop
 1999-04-26	APSL 1.1 certification...
@@ -171,8 +171,10 @@
 2007-06-20	when is an open source license open source?
 2007-07-07	Do I need to inform my employer before contributing to an Open Source Project?
 2007-07-12	searchable list archives?
+2007-07-23	License Committee Report for July 2007
 2007-07-30	OSI approves CPAL at OSCON 2007
 2007-07-31	GPLv3, LGPLv3 Review
+2007-07-31	what *is* the approval process?
 2007-08-01	GPLv3, again Re: what *is* the approval process?
 2007-09-11	RPL 1.5 discussion
 2007-09-15	For Approval: Boost Software License - Version 1.0 - August 17th, 2003
