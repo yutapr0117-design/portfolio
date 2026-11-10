@@ -110,7 +110,7 @@ analysis below, which is written against 1.0.** Measured, not assumed:
 
 ## Status
 
-**Posted to `license-discuss` and received. No responses in the archive when last read, 2026-11-08 21:15 UTC.** (The October archives of both lists were unchanged; the November archive pages returned 404, which says nothing either way about posts — see `OSI-EVENTS-2026-10.md`.) That list is for general
+**Posted to `license-discuss` and received. No responses in the archive when last read, 2026-11-10 11:05 UTC.** (The October archives of both lists were unchanged; the November archive pages returned 404, which says nothing either way about posts — see `OSI-EVENTS-2026-10.md`.) That list is for general
 discussion — it is **not** the approval venue. Nothing has been submitted to `license-review`,
 and nothing has been submitted to SPDX. SPDX asks for substantial real-world use, this work has
 one adopter, and we are not submitting something that does not meet the stated bar.
