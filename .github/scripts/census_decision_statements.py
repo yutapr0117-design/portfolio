@@ -159,15 +159,15 @@ def listed_titles():
     return keys
 
 
-def read_titles():
-    """読んだスレッドの件名: rounds/ に逐語で置いた通の件名と、READ-THREADS.txt の一覧。"""
+def rounds_titles():
+    """rounds/ に逐語で置いた通の件名。1 通だけ置いた別スレッドの件名も入るので、読了には数えない (2026-11-09)。"""
     keys = set()
     for path in (REPO / "LICENSES" / "rounds").glob("*.txt"):
         for m in re.finditer(r"^Subject:\s*(.+)$", open(path, errors="replace").read(), re.M):
             k = title_key(m.group(1))
             if len(k) >= 6:
                 keys.add(k)
-    return keys | listed_titles()
+    return keys
 
 
 SUBMISSION = re.compile(r"for (?:legacy )?approval|\bapproval\b|submission|submitting", re.I)
@@ -228,7 +228,10 @@ def threads(out):
             entry["decider_words"] += len(text.split())
     rows = [{k: v for k, v in e.items() if k != "seen"} for e in table.values()
             if e["messages"] >= 3 and e["decider_words"] >= 120]
-    read, listed = read_titles(), listed_titles()
+    # 読了は READ-THREADS.txt だけから数える (portfolio-00 と 2026-11-09 に決めた): rounds/ の件名を読了に
+    #   数えると、別スレッドの通を 1 通だけ置いたときにそのスレッドまで読了になり、未読が過小になる
+    listed, in_rounds = listed_titles(), rounds_titles()
+    read = listed
     # 候補の一覧から読んだスレッド (READ-THREADS.txt) は候補に残す: 読むとドシエに語が足されて dossier_hits が
     #   8 を越え、候補から外れるので、残さないと母数が読むほど縮む (2026-11-09・771 → 726 を実測)。rounds/ だけに
     #   在るスレッドは候補の一覧から来たとは限らないので、母数には足さない
@@ -236,8 +239,12 @@ def threads(out):
     unread = [r for r in candidates if title_key(r["title"]) not in read]
     unread.sort(key=lambda r: -r["decider_words"])
     json.dump(unread, open(out, "w"), ensure_ascii=False, indent=0)
+    rounds_only = sorted((r for r in candidates if title_key(r["title"]) in in_rounds - listed),
+                         key=lambda r: -r["decider_words"])
+    json.dump(rounds_only, open(str(out) + ".rounds-only.json", "w"), ensure_ascii=False, indent=0)
     print(f"threads with deciders {len(rows)}; few or no dossier hits {len(candidates)}; "
-          f"of those, not read (rounds/ or READ-THREADS.txt) {len(unread)}")
+          f"of those, not in READ-THREADS.txt {len(unread)}")
+    print(f"rounds に在るが READ-THREADS に無い（候補内 {len(rounds_only)} 件）: {out}.rounds-only.json")
     # AS-OF の「未読スレッドの残り」の行と同じ形 (Check 498 (h) が和を見る)
     print(f"AS-OF: 候補 {len(candidates)} 本のうち {len(candidates) - len(unread)} 本を読んだ。{len(unread)} 本は読んでいない")
 
