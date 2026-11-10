@@ -493,4 +493,53 @@ MUTATIONS_ARCHIVE6 = [
     "find": 'audience: anyone thinking of applying ACD to their own work',
     "replace": 'audience: anyone thinking of applying ACD to their own work (0 placeholders to fill)',
 },
+    {
+    "name": 'Check 472h: 入口の検証コマンドに ./LICENSES/ の綴りで別の版を足す —— `grep .* LICENSES/` の形しか読まず、照合から外れていた',
+    "file": ROOT / 'LICENSES' / 'REVIEWERS.md',
+    "find": '```sh\n',
+    "replace": '```sh\ngrep -c Dedication ./LICENSES/ACD-1.1.txt\n',
+    "first_occurrence": True,
+},
+    {
+    "name": 'Check 472i: 入口の表の言語の表示を Bilingual にする —— English / Japanese 以外の表示は黙って照合から外れていた',
+    "file": ROOT / 'LICENSES' / 'REVIEWERS.md',
+    "find": '| Mixed; each answer has an English block |',
+    "replace": '| Bilingual; each answer has an English block |',
+},
+    {
+    "name": 'Check 498 (e): B4 の分類に 12 を足す —— 集計行の「構造的拒否候補 0」は分類の列から導出できるのに、読む層が無かった',
+    "file": ROOT / 'LICENSES' / 'ACD-OSI-BOTTLENECKS.md',
+    "find": '| 10 | **OSI 判断依存**（12 候補として',
+    "replace": '| 10 / 12 | **OSI 判断依存**（12 候補として',
+},
+    {
+    "name": 'Check 444k: README の英語節に 1.0 の本文へのリンクを足す —— ACD-1.0 を常に許していたので、英語節を 1.0 へ戻しても日本語節が満たしていた',
+    "file": ROOT / 'README.md',
+    "find": 'names and nothing to edit in the text ([`LICENSES/',
+    "replace": 'names and nothing to edit in the text ([`LICENSES/ACD-1.0.txt`](LICENSES/ACD-1.0.txt), [`LICENSES/',
+},
+    {
+    "name": 'Check 444k: README の英語の宣言の文が別の版を適用していると述べる —— README の宣言の文はどの面にも読まれていなかった',
+    "file": ROOT / 'README.md',
+    "find": 'this repository applies its',
+    "replace": 'this repository applies ACD-1.0, not its',
+},
+    {
+    "name": 'Check 444e: LICENSE 本文の宣言の文が別の版を述べる —— 444e は llms 層しか読まず、SPDX の識別子の下の文が食い違っても緑だった',
+    "file": ROOT / 'LICENSE',
+    "find": 'This work is released under the Autonomous Commons Dedication ',
+    "replace": 'This work is released under the Autonomous Commons Dedication 1.2 (ACD-1.2); formerly the Autonomous Commons Dedication ',
+},
+    {
+    "name": 'Check 444m: 文頭の "This repository applies ACD-1.2." —— 小文字の完全一致しか読まず、文頭の大文字を素通りしていた',
+    "file": ROOT / 'LICENSES' / 'REVIEWERS.md',
+    "find": 'This repository applied it until 2026-10-25.',
+    "replace": 'This repository applies ACD-1.2.',
+},
+    {
+    "name": 'Check 444m: 接頭辞の無い「1.2 を適用している」 —— `ACD-x.y` の形しか版として読まず、申請日の 1 枚の現行の文の形を素通りしていた',
+    "file": ROOT / 'LICENSES' / 'SUBMISSION-MATERIALS.md',
+    "find": '（申請時は出す版を適用する）',
+    "replace": '（1.2 を適用している。申請時は出す版を適用する）',
+},
 ]
