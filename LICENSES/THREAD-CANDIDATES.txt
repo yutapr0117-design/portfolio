@@ -5,8 +5,10 @@
 #   it first became a candidate (census_decision_statements.py threads).
 # 一度候補になったら外さない。未読から外れるのは READ-THREADS.txt に足したときだけ。
 #   Without this list, a thread left the candidates whenever the dossier's words grew, so the
-#   unread count fell without anything being read (2026-11-10: 2 threads, below, left when
-#   gap/review-readings §1.171 was written).
+#   unread count fell without anything being read (2026-11-11: 2 threads, below, left when
+#   review-readings.md §1.171 was written).
+# A thread in this list stays in the count even if it later drops out of the tool's rows
+#   (e.g. when the list of deciders changes); the tool reports how many such rows it kept.
 # Rows are added by: census_decision_statements.py threads <out.json> --pin
 # 2026-11-11 initial rows: the 2026-11-09 basis of 778 = the 776 candidates of 2026-11-11 plus the
 #   2 unread threads that had left ("Approval request for ZENTAO PUBLIC LICENSE",

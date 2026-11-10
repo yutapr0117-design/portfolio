@@ -263,6 +263,12 @@ def threads(out):
     #   入っただけで候補から外れ、読んでいないのに未読が減っていた (§1.171 の語で 2 本が外れた)
     candidates = [r for r in rows if r["dossier_hits"] < 8 or title_key(r["title"]) in listed
                   or title_key(r["title"]) in pinned]
+    # 一覧に在るのに rows (決める側の語の閾値) から外れた件名も母数に残す (portfolio-00 のレビュー・2026-11-11):
+    #   いまは名簿もアーカイブも動かないが、名簿に人を足すと語数が変わり、一覧の件名が rows から落ちうる
+    in_rows = {title_key(r["title"]) for r in candidates}
+    orphan = [{"title": t, "first": d, "messages": 0, "decider_words": 0, "dossier_hits": 0}
+              for k, (d, t) in pinned.items() if k not in in_rows]
+    candidates += orphan
     kept = [r for r in candidates if r["dossier_hits"] >= 8 and title_key(r["title"]) in pinned]
     new = [r for r in candidates if title_key(r["title"]) not in pinned]
     if "--pin" in sys.argv and new:
@@ -280,6 +286,7 @@ def threads(out):
     print(f"threads with deciders {len(rows)}; few or no dossier hits {len(candidates)}; "
           f"of those, not in READ-THREADS.txt {len(unread)}")
     print(f"rounds に在るが READ-THREADS に無い（候補内 {len(rounds_only)} 件）: {out}.rounds-only.json")
+    print(f"決める側の語の閾値から外れたが一覧に在る（{len(orphan)} 件・母数に残した）")
     print(f"いまの語では候補でないが一覧に在る（{len(kept)} 件・うち未読 "
           f"{sum(1 for r in kept if title_key(r['title']) not in listed)} 件）")
     print(f"一覧 (THREAD-CANDIDATES.txt) に無い新しい候補 {len(new)} 件"
