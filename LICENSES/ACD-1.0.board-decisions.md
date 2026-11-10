@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.board-decisions.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-review participants / 監査人
-last-updated: 2026-11-07
+last-updated: 2026-11-09
 canonical-ref: LICENSES/rounds/2026-09-13-osi-board-meeting-minutes-2025-06-to-2026-06.txt (逐語の一次資料) / LICENSES/ACD-1.0.review-corpus.md (アーカイブ全体の測定) / LICENSES/ACD-OSI-BOTTLENECKS.md (B2 / B10)
 ---
 
@@ -647,7 +647,7 @@ B13（理解コスト = readability）は、偶然 3 つなのではない。** 
 *"a license should be rejected only if it violates the OSD"* と述べている（§2）。
 **不利**: *"we can establish any criteria we want to"* が同じ記録に在り、
 **2025 年の「duplicative and not used なら not approved のまま留め置かれうる」がその実装**である。
-**20 年かけて、追加テストは「却下の根拠」ではなく「承認しないまま置く根拠」として形を得た。**
+**20 年かけて、追加テストは「却下の根拠」ではなく「承認しないまま置く根拠」として形を得た。****2026-11-09 精密化**: リストの側の記録（`review-readings.md` §1.168）では、2005-09-12 の理事会は、重複と読みにくさを指摘された 2 本（ACE License・OVPL）を却下せずに保留した。「承認しないまま置く」は 20 年かけて得た形ではなく、基準を最初に当てた日から在った形である。同じ日に Open-Realty License は却下されたが、形式上の理由はどちらの版を承認するかが不明なことだった。
 
 ### 8.8 「非増殖の成文規則は無い」は、2013 年に委員長が述べている
 
