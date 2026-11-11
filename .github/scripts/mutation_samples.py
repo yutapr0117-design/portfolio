@@ -572,6 +572,12 @@ _MUTATIONS_TAIL.append({
     "find": "\"art4\": {\"CECILL-2.1\", \"IPA\"},",
     "replace": "\"art4\": {\"CECILL-2.1\"},",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 266: JSON-LD の AudioObject の description を 3 字 (BGM) にする —— 型の一覧が 4 型の完全一致で、description を持つ AudioObject / DigitalDocument / Article / PropertyValue を見ていなかった",
+    "file": ROOT / "index.html",
+    "find": "\"description\": \"AI-generated portfolio background music asset for the AI-Driven PM Portfolio by Yuta Yokoi.\",",
+    "replace": "\"description\": \"BGM\",",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

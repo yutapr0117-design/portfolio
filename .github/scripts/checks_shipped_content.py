@@ -24,9 +24,11 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        Check 17/180 (date sync) for the head singleton uniqueness axis.
        (BLOCKING)
 
-  266. JSON-LD entity description length in [20, 1000]: every Person /
-       Organization / ImageObject / CreativeWork node with a `description`
-       field must have its description in [20, 1000] character length.
+  266. JSON-LD entity description length in [20, 1000]: every node with an
+       `@type` (a string or a list; 2026-11-11 — formerly only Person /
+       Organization / ImageObject / CreativeWork, which missed AudioObject /
+       DigitalDocument / Article / PropertyValue) and a `description` field
+       must have its description in [20, 1000] character length.
        Below 20: too brief to be useful for AI/SEO. Above 1000: usually
        indicates copy-paste of full body text into description (Google
        Schema.org spec recommends concise summary). Sibling of Check 224
@@ -173,10 +175,12 @@ def run(ctx):
               "Check 238: index.html が無い", blocking=True)
 
     # ── 266. JSON-LD entity description length in [20, 1000] (BLOCKING) ───────────
-    # index.html JSON-LD で Person/Organization/ImageObject/CreativeWork node の
+    # index.html JSON-LD で @type を持つ全 node の
     # description 値長が [20, 1000] character 内であることを BLOCKING 強制。
     # 下限以下: too brief / 上限以上: copy-paste over-long。Check 224 の JSON-LD 軸版。
-    _DESC_TYPES266 = {"Person", "Organization", "ImageObject", "CreativeWork"}
+    # 型の一覧を持たず、@type を持つ全ノードを見る (2026-11-11・監査 #101)。一覧は 4 型の完全一致で、
+    #   index.html が実際に description を持たせる AudioObject / DigitalDocument / Article / PropertyValue
+    #   (Check 267 は AudioObject を entity として扱う) の短縮を見なかった。@type が配列の形も読む
     _idx266 = ROOT / "index.html"
     if _idx266.exists():
         _isrc266 = _idx266.read_text(encoding="utf-8")
@@ -192,7 +196,8 @@ def run(ctx):
             if isinstance(node, dict):
                 _t = node.get("@type")
                 _d = node.get("description")
-                if isinstance(_t, str) and _t in _DESC_TYPES266 and isinstance(_d, str):
+                _t = "/".join(_x for _x in (_t if isinstance(_t, list) else [_t]) if isinstance(_x, str))
+                if _t and isinstance(_d, str):
                     _checked266 += 1
                     _ln = len(_d)
                     if not (20 <= _ln <= 1000):
