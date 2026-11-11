@@ -1,0 +1,683 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2008-November)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 5 messages this dossier cites from the review of the SIL Open Font License 1.1 (license-review, 2008-11; 51 messages in all). Not the whole thread.
+Senders: Bruce Perens, John Cowan, Nicolas Spalinger, Lawrence Rosen
+Position: review of another submission. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From bruce at perens.com  Wed Nov  5 04:49:45 2008
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 04 Nov 2008 20:49:45 -0800
+Subject: For approval: SIL Open Font License 1.1
+In-Reply-To: <4910FD49.6050402@sil.org>
+References: <4910FD49.6050402@sil.org>
+Message-ID: <491125E9.4020107@perens.com>
+
+OSI refused to consider the Open Hardware License because they felt 
+their task should be limited to software. So, I'm not sure they will 
+wish to take this on at all. Whatever they feel, I feel the license is 
+worth working upon.
+
+If OSI does not take it on, I recommend that you ask the Debian team to 
+look at it, as they require the entire contents of their distribution to 
+comply with the DFSG, which is the document that eventually became the OSD.
+
+    The OFL allows the licensed fonts to be used, studied, modified and
+    redistributed freely
+
+Although we know between ourselves that you mean "libre", we can't 
+expect the rest of the world to know that you don't mean "gratis". It 
+will confuse them. Delete the word? This is more a neatness quibble than 
+a strong complaint.
+
+    as long as they are not sold by themselves. The
+    fonts, including any derivative works, can be bundled, embedded, 
+    redistributed and/or sold with any software
+
+Only software? I can't for example, distribute the fonts as part of a 
+disk full of documents that incorporate them by reference? This seems to 
+me to be a pretty big problem. I understand that you want to avoid the 
+1000-Fonts disks, but it seems the cure is worse than the disease. My 
+free software is on lots of CDs that are sold. If anything, that has 
+helped to enlarge its community.
+
+    provided that any reserved  names
+    names are not used by derivative works.
+
+I understand that you don't want the reserved names to be used as font 
+names in derivative works, so that people will get the font they asked 
+for. But suppose I wrote one of the reserved names into a 
+machine-readable list of front names from which the font was derived. 
+That is useful but fails the above term. Suppose someone had a font 
+named "The", and I had a font named "The Tiger". That one fails too. 
+What if I started with "Lucida" and made a derivative called 
+"Lucida-Munged". Would that be inpermissible? Can you tighten this 
+language up so that the limitation is no larger than necessary?
+
+    The fonts and derivatives,
+    however, cannot be released under any other type of license.
+
+This makes more sense if stated as "All fonts derived from this work 
+must be under this license". You should probably define what fonts are. 
+Maybe "glyphs" too.
+
+    The
+    requirement for fonts to remain under this license does not apply
+    to any document created using the fonts or their derivatives.
+
+So, if the font gets incorporated into a document, and I extract it from 
+that document, I can now put it under any license I like? Better make 
+that more clear.
+
+     
+    DEFINITIONS
+    "Font Software" refers to the set of files released by the Copyright
+    Holder(s) under this license and clearly marked as such. This may
+    include source files, build scripts and documentation.
+
+This is confusing. Is it a computer program, or data? Software generally 
+means a program. If you used the word "The Work" instead of "Font 
+Software", it would be more general. If you don't want to be that 
+general, you can call it "Font Package".
+
+    "Reserved Font Name" refers to any names specified as such after the
+    copyright statement(s).
+     
+    "Original Version" refers to the collection of Font Software
+    components as
+    distributed by the Copyright Holder(s).
+     
+    "Modified Version" refers to any derivative made by adding to,
+    deleting,
+    or substituting -- in part or in whole -- any of the components of the
+    Original Version, by changing formats or by porting the Font
+    Software to a
+    new environment.
+     
+    "Author" refers to any designer, engineer, programmer, technical
+    writer or other person who contributed to the Font Software.
+     
+    PERMISSION & CONDITIONS
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of the Font Software, to use, study, copy, merge, embed, modify,
+    redistribute, and sell modified and unmodified copies of the Font
+    Software, subject to the following conditions:
+     
+    1) Neither the Font Software nor any of its individual components,
+    in Original or Modified Versions, may be sold by itself.
+     
+    2) Original or Modified Versions of the Font Software may be bundled,
+    redistributed and/or sold with any software, provided that each copy
+    contains the above copyright notice and this license. These can be
+    included either as stand-alone text files, human-readable headers or
+    in the appropriate machine-readable metadata fields within text or
+    binary files as long as those fields can be easily viewed by the user.
+
+Outside of the license, please define a standard for where the license 
+goes in the work. Business people tear their hair at the amount of work 
+that must be done just to find the licenses, because they aren't all in 
+the same place or readable with the same tools.
+
+    3) No Modified Version of the Font Software may use the Reserved Font
+    Name(s) unless explicit written permission is granted by the
+    corresponding
+    Copyright Holder. This restriction only applies to the primary font
+    name as
+    presented to the users.
+
+Our experience is that copyright holders die, etc. And then the names 
+are frozen forever. Be nice to the font developer world and provide an 
+escape hatch so that someone can continue to maintain the font and its 
+name once the copyright holder is no longer responding to requests 
+regarding the work for a protracted period.
+
+     
+    4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+    Software shall not be used to promote, endorse or advertise any
+    Modified Version, except to acknowledge the contribution(s) of the
+    Copyright Holder(s) and the Author(s) or with their explicit written
+    permission.
+     
+    5) The Font Software, modified or unmodified, in part or in whole,
+    must be distributed entirely under this license, and must not be
+    distributed under any other license. The requirement for fonts to
+    remain under this license does not apply to any document created
+    using the Font Software.  
+
+This is repeating previous paragraphs. Please condense so that this is 
+said once rather than twice.
+
+    TERMINATION
+    This license becomes null and void if any of the above conditions are
+    not met.
+
+You mean "this license terminates". Null and void could be read as 
+removing the requirements of the license.
+
+    DISCLAIMER
+    THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+    OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+    COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+    INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+    DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+    OTHER DEALINGS IN THE FONT SOFTWARE.
+
+So, have you had a lawyer look at this yet and clean up the language?  
+If I had to guess, I'd say no. I think that's a necessary step before 
+you submit this license to OSI, because you don't want to saddle the 
+whole world of font developers with the unexpected consequences of a 
+license that hasn't had attention from legal counsel. And OSI's board 
+would not be responsible if they approved a license that needed that 
+sort of help. There are various sources of free legal help such as the 
+Software Freedom Law Center.
+
+I think this isn't ready for submission yet. I suggest you withdraw it, 
+move the discussion to a public list other than license-review, and get 
+legal help.
+
+    Thanks
+
+    Bruce
+
+From cowan at ccil.org  Wed Nov  5 19:45:48 2008
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 5 Nov 2008 14:45:48 -0500
+Subject: For approval: SIL Open Font License 1.1
+In-Reply-To: <491125E9.4020107@perens.com>
+References: <4910FD49.6050402@sil.org> <491125E9.4020107@perens.com>
+Message-ID: <20081105194548.GB522@mercury.ccil.org>
+
+Bruce Perens scripsit:
+
+> OSI refused to consider the Open Hardware License because they felt 
+> their task should be limited to software. So, I'm not sure they will 
+> wish to take this on at all. 
+
+I think that would be a grave error (I realize that you don't speak for
+the OSI, and neither do I).  Outline fonts are only copyrightable at
+all (in the U.S., at least) because the hints they contain are in some
+sense software (pure bitmap fonts and the mere appearance of a font are
+not copyrightable).
+
+-- 
+May the hair on your toes never fall out!       John Cowan
+        --Thorin Oakenshield (to Bilbo)         cowan at ccil.org
+
+
+From nicolas_spalinger at sil.org  Wed Nov  5 23:41:59 2008
+From: nicolas_spalinger at sil.org (Nicolas Spalinger)
+Date: Thu, 06 Nov 2008 00:41:59 +0100
+Subject: For approval: SIL Open Font License 1.1
+In-Reply-To: <491125E9.4020107@perens.com>
+References: <4910FD49.6050402@sil.org> <491125E9.4020107@perens.com>
+Message-ID: <49122F47.2080505@sil.org>
+
+Bruce Perens wrote:
+> OSI refused to consider the Open Hardware License because they felt
+> their task should be limited to software. So, I'm not sure they will
+> wish to take this on at all. Whatever they feel, I feel the license is
+> worth working upon.
+
+Fonts *are* software and copyrightable as such in various jurisdictions.
+
+> If OSI does not take it on, I recommend that you ask the Debian team to
+> look at it, as they require the entire contents of their distribution to
+> comply with the DFSG, which is the document that eventually became the OSD.
+
+There has already been discussion with various Debian developers on
+this. I presented a talk about open fonts at the Debconf in Edimburgh.
+As indicated in my submission email, the Debian ftp-masters have
+accepted the license and various OFL-ed fonts are in main. The OFL is
+seen as a solution to fix existing less-than-ideal font licenses used by
+fonts currently present in the Debian archive. We continue packaging new
+OFL-ed fonts.
+
+>    The OFL allows the licensed fonts to be used, studied, modified and
+>    redistributed freely
+> 
+> Although we know between ourselves that you mean "libre", we can't
+> expect the rest of the world to know that you don't mean "gratis". It
+> will confuse them. Delete the word? This is more a neatness quibble than
+> a strong complaint.
+> 
+>    as long as they are not sold by themselves. The
+>    fonts, including any derivative works, can be bundled, embedded,   
+> redistributed and/or sold with any software
+> 
+> Only software? I can't for example, distribute the fonts as part of a
+> disk full of documents that incorporate them by reference? This seems to
+> me to be a pretty big problem.
+
+It depends if you're distributing this for a fee or not. You can satisfy
+the requirement by adding "any software". Documents are data and not
+software.
+
+> I understand that you want to avoid the
+> 1000-Fonts disks, but it seems the cure is worse than the disease. My
+> free software is on lots of CDs that are sold. If anything, that has
+> helped to enlarge its community.
+
+Ask any font designer about this and they will tell you the dark fear of
+the 1000-fonts CD is deeply rooted and it's very understandable. This
+clause is designed as the *key nexus between DFSG/OSD #1 and what font
+designers want*. When sold it *has to come with software* and can't be
+sold on its own.
+
+Your own free software (which rocks BTW) is probably not sold on its own
+but as part of a collection of other software. The purpose of this OFL
+clause is to keep rogue font resellers from simply including OFL-ed
+fonts as such in their current production line and profit directly from
+that but certainly not to prevent inclusion in distro software
+repositories or magazine CDs.
+
+You may look at this as easily circumventable (and yes it is relatively
+so) but it sends a clear message and that's exactly what designers want.
+
+>    provided that any reserved  names
+>    names are not used by derivative works.
+> 
+> I understand that you don't want the reserved names to be used as font
+> names in derivative works, so that people will get the font they asked
+> for. But suppose I wrote one of the reserved names into a
+> machine-readable list of front names from which the font was derived.
+
+This clause is *not intended* to cover font fallback and association
+mechanisms outside of the font software itself so you can write all the
+fontconfig-like matching rules you want. We're talking about font
+software-level and not system-level here.
+
+But if you branch an existing font then you modify the work (for better
+or for worse) the end-result will be different from what you branched
+from so you're asked not to mess up the namespace and break user
+expectations and document rendering. This is essentially the Knuthian
+"please don't create chaos" clause. Allowing freedom to branch while
+maintaining artistic integrity for existing fonts.
+
+The FAQ has these relevant items:
+
+Question: 2.7  Why can't I use the Reserved Font Name(s) in my
+derivative font names? I'd like people to know where the design came from.
+Answer: The best way to acknowledge the source of the design is to thank
+the original authors and any other contributors in the files that are
+distributed with your revised font (although no acknowledgement is
+required). The FONTLOG is a natural place to do this. Reserved Font
+Name(s) ensure that the only fonts that have the original names are the
+unmodified Original Versions. This allows designers to maintain artistic
+integrity while allowing collaboration to happen. It eliminates
+potential confusion and name conflicts. When choosing a name be creative
+and avoid names that reuse almost all the same letters in the same order
+or sound like the original. Keep in mind that the Copyright Holder(s)
+can allow a specific trusted partner to use Reserved Font Name(s)
+through a separate written agreement.
+
+Question: 2.8  What do you mean by "primary name as presented to the
+user"? Are you referring to the font menu name?
+Answer: Yes, the requirement to change the visible name used to
+differentiate the font from others applies to the font menu name and
+other mechanisms to specify a font in a document. It would be fine, for
+example, to keep a text reference to the original fonts in the
+description field, in your modified source file or in documentation
+provided alongside your derivative as long as no one could be confused
+that your modified source is the original. But you cannot use the
+Reserved Font Names in any way to identify the font to the user (unless
+the Copyright Holder(s) allow(s) it through a separate agreement; see
+section 2.7). Users who install derivatives ("Modified Versions") on
+their systems should not see any of the original names ("Reserved Font
+Names") in their font menus, for example. Again, this is to ensure that
+users are not confused and do not mistake a font for another and so
+expect features only another derivative or the Original Version can
+actually offer. Ultimately, creating name conflicts will cause many
+problems for the users as well as for the designer of both the Original
+and Modified versions, so please think ahead and find a good name for
+your own derivative. Font substitution systems like fontconfig, or
+application-level font fallback configuration within OpenOffice.org or
+Scribus, will also get very confused if the name of the font they are
+configured to substitute to actually refers to another physical font on
+the user's hard drive. It will help everyone if Original Versions and
+Modified Versions can easily be distinguished from one another and from
+other derivatives. The substitution mechanism itself is outside the
+scope of the license. Users can always manually change a font reference
+in a document or set up some kind of substitution at a higher level but
+at the lower level the fonts themselves have to respect the Reserved
+Font Name(s) requirement to prevent ambiguity. If a substitution is
+currently active the user should be aware of it.
+
+> That is useful but fails the above term. Suppose someone had a font 
+> named "The", and I had a font named "The Tiger". That one fails too. 
+> What if I started with "Lucida" and made a derivative called 
+> "Lucida-Munged". Would that be inpermissible? Can you tighten this 
+> language up so that the limitation is no larger than necessary?
+
+The limitation is on names not on strict letters. Your article example
+is misleading as articles in font name are rarely used.
+
+The FAQ has these relevant items:
+
+Question: 2.9  Am I not allowed to use any part of the Reserved Font Names?
+Answer: You may not use the words of the font names, but you would be
+allowed to use parts of words, as long as you do not use any word from
+the Reserved Font Names entirely. We do not recommend using parts of
+words because of potential confusion, but it is allowed. For example, if
+"Foobar" was a Reserved Font Name, you would be allowed to use "Foo" or
+"bar", although we would not recommend it. Such an unfortunate choice
+would confuse the users of your fonts as well as make it harder for
+other designers to contribute.
+
+Question: 2.10  So what should I, as an author, identify as Reserved
+Font Names?
+Answer: Original authors are encouraged to name their fonts using clear,
+distinct names, and only declare the unique parts of the name as
+Reserved Font Names. For example, the author of a font called "Foobar
+Sans" would declare "Foobar" as a Reserved Font Name, but not "Sans", as
+that is a common typographical term, and may be a useful word to use in
+a derivative font name. Reserved Font Names should also be single words.
+A font called "Flowing River" should have Reserved Font Names "Flowing"
+and "River", not "Flowing River".
+
+Question: 2.11  Do I, as an author, have to identify any Reserved Font
+Names?
+
+Answer: No, but we strongly encourage you to do so. This is to avoid
+confusion between your work and Modified versions. You may, however,
+give certain trusted parties the right to use any of your Reserved Font
+Names through separate written agreements. For example, even if "Foobar"
+is a RFN, you could write up an agreement to give company "XYZ" the
+right to distribute a modified version with a name that includes
+"Foobar". This allows for freedom without confusion.
+
+
+>    The fonts and derivatives,
+>    however, cannot be released under any other type of license.
+> 
+> This makes more sense if stated as "All fonts derived from this work
+> must be under this license". You should probably define what fonts are.
+
+"Font Software" is defined in the Definitions section.
+
+> Maybe "glyphs" too.
+
+I don't think we want the legalese of defining every word. Designers
+already know what glyphs are.
+
+>    The
+>    requirement for fonts to remain under this license does not apply
+>    to any document created using the fonts or their derivatives.
+> 
+> So, if the font gets incorporated into a document, and I extract it from
+> that document, I can now put it under any license I like? Better make
+> that more clear.
+
+This clause exists to fix a much overlooked problem in the FLOSS world:
+allowing explicit embedding problem when the font software is placed
+under a copyleft license.
+
+Many have actually been using copyleft fonts and not respecting the
+influence that it has on their output document for a long time. (like
+the GPL used without the recent font exception). How about I ask to see
+all the sources for the documents I received from you containing
+embedded GPL fonts? Much more of a practical problem than extraction.
+
+The rather stretched scenario you're proposing usually only allows to
+extract non-functional items from a document say a PDF. There are not a
+lot of tools to do that. PDF generators also sometimes scramble the
+embedded fonts. You can grab some outlines but not an entire font nor
+the smart code or hinting information. There will have to be
+modifications made to it. Also the outlines are considered to be the
+expression of the font software.
+
+>        DEFINITIONS
+>    "Font Software" refers to the set of files released by the Copyright
+>    Holder(s) under this license and clearly marked as such. This may
+>    include source files, build scripts and documentation.
+> 
+> This is confusing. Is it a computer program, or data? Software generally
+> means a program. If you used the word "The Work" instead of "Font
+> Software", it would be more general. If you don't want to be that
+> general, you can call it "Font Package".
+
+This has been the subject of long discussions. The current wording has
+satisfied many relevant parties. Defining font sources is hard. Fonts
+contains software and data. Both artwork and smart code. Font object
+code can be reused and reopened in an editor and modified more easily
+than say C compiled object code. And then there are all the glyphs
+databases, attachment points, text-based smart font code sources, binary
+or XML representations, build and pre-post-processing scripts, etc... We
+felt "Font Software" with the definition above was more satisfactory
+than other definitions out there.
+
+>    "Reserved Font Name" refers to any names specified as such after the
+>    copyright statement(s).
+>        "Original Version" refers to the collection of Font Software
+>    components as
+>    distributed by the Copyright Holder(s).
+>        "Modified Version" refers to any derivative made by adding to,
+>    deleting,
+>    or substituting -- in part or in whole -- any of the components of the
+>    Original Version, by changing formats or by porting the Font
+>    Software to a
+>    new environment.
+>        "Author" refers to any designer, engineer, programmer, technical
+>    writer or other person who contributed to the Font Software.
+>        PERMISSION & CONDITIONS
+>    Permission is hereby granted, free of charge, to any person obtaining
+>    a copy of the Font Software, to use, study, copy, merge, embed, modify,
+>    redistribute, and sell modified and unmodified copies of the Font
+>    Software, subject to the following conditions:
+>        1) Neither the Font Software nor any of its individual components,
+>    in Original or Modified Versions, may be sold by itself.
+>        2) Original or Modified Versions of the Font Software may be
+> bundled,
+>    redistributed and/or sold with any software, provided that each copy
+>    contains the above copyright notice and this license. These can be
+>    included either as stand-alone text files, human-readable headers or
+>    in the appropriate machine-readable metadata fields within text or
+>    binary files as long as those fields can be easily viewed by the user.
+> 
+> Outside of the license, please define a standard for where the license
+> goes in the work. Business people tear their hair at the amount of work
+> that must be done just to find the licenses, because they aren't all in
+> the same place or readable with the same tools.
+
+The OFL FAQ has many recommendations about that and there are templates
+available for human-readable metadata. The OpenType spec has metadata
+field designed for that which we recommend using properly. Fontforge
+includes a OFL button to make it easier to add all the right information
+in the right fields. We have worked on representing the working model of
+the OFL in lawyer-readable / human-readable / machine-readable formats.
+We have worked on improving the exposure of this information throught
+the free desktop. RDF Digital Rights Expression for the OFL is being
+worked on and on track for integration.
+
+The Open Font Library is building these best practises into its CMS.
+
+>    3) No Modified Version of the Font Software may use the Reserved Font
+>    Name(s) unless explicit written permission is granted by the
+>    corresponding
+>    Copyright Holder. This restriction only applies to the primary font
+>    name as
+>    presented to the users.
+> 
+> Our experience is that copyright holders die, etc. And then the names
+> are frozen forever. Be nice to the font developer world and provide an
+> escape hatch so that someone can continue to maintain the font and its
+> name once the copyright holder is no longer responding to requests
+> regarding the work for a protracted period.
+
+The copyright holder can allow use of Reserved Font Names to trusted
+partners. And we strongly recommend the use of a FONTLOG so that people
+have a way of finding out (among other things) the contact details of
+the authors and from that how active they are.
+
+Without this name protection mechanism that can't be deactivated by
+anyone, I doubt we'd any real font designer onboard. We have designed
+the overall model to be sufficiently pragmatic and balanced between
+designers and users.
+
+Fontconfig-like systems can also be made to provide fallback in these
+extreme cases for documents that refer to a particular font when a new
+branch (and a new name) has superseded that particular font.
+
+>        4) The name(s) of the Copyright Holder(s) or the Author(s) of the
+> Font
+>    Software shall not be used to promote, endorse or advertise any
+>    Modified Version, except to acknowledge the contribution(s) of the
+>    Copyright Holder(s) and the Author(s) or with their explicit written
+>    permission.
+>        5) The Font Software, modified or unmodified, in part or in whole,
+>    must be distributed entirely under this license, and must not be
+>    distributed under any other license. The requirement for fonts to
+>    remain under this license does not apply to any document created
+>    using the Font Software. 
+> This is repeating previous paragraphs. Please condense so that this is
+> said once rather than twice.
+
+It is only repeated in condensed form in the preamble paragraph and
+really needs be included clearly in the permissions section of the
+license.  BTW, many - even after years of exposure to FLOSS - don't read
+the full licenses and stop at the preamble. So we express the purpose
+and working model of the license in the preamble and then specify fully
+the permissions and conditions afterwards.
+
+
+>    TERMINATION
+>    This license becomes null and void if any of the above conditions are
+>    not met.
+> 
+> You mean "this license terminates". Null and void could be read as
+> removing the requirements of the license.
+
+That's quite a strech: the whole license becomes null and void not just
+its requirements.
+
+>    DISCLAIMER
+>    THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+>    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+>    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+>    OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+>    COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+>    INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+>    DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+>    FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+>    OTHER DEALINGS IN THE FONT SOFTWARE.
+> 
+> So, have you had a lawyer look at this yet and clean up the language? 
+> If I had to guess, I'd say no. I think that's a necessary step before
+> you submit this license to OSI, because you don't want to saddle the
+> whole world of font developers with the unexpected consequences of a
+> license that hasn't had attention from legal counsel.
+> And OSI's board would not be responsible if they approved a license 
+> that needed that sort of help. There are various sources of free
+> legal help such as the Software Freedom Law Center.
+
+We did follow the good advice that you gave me at the WSIS to contact
+the SFLC experts and Eben Moglen gave us an OK (SFLC interacted with the
+FSF licensing committee about this AFAIK) without requiring changes to
+the wording.
+
+> I think this isn't ready for submission yet. I suggest you withdraw it,
+> move the discussion to a public list other than license-review, and get
+> legal help.
+
+As I indicated in my submission email many designers have already
+welcomed the model and are taking advantage of it and many more users
+are benefiting. The OFL is already adopted and recommended in the
+community.
+
+Let's see what others at OSI think.
+
+>    Thanks
+> 
+>    Bruce
+
+Thank you,
+
+-- 
+Nicolas Spalinger, NRSI volunteer
+http://planet.open-fonts.org
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 260 bytes
+Desc: OpenPGP digital signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20081106/5c569f7a/attachment.sig>
+
+From bruce at perens.com  Sat Nov  8 19:59:18 2008
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 08 Nov 2008 11:59:18 -0800
+Subject: For approval: SIL Open Font License 1.1
+In-Reply-To: <4915EA58.8090604@perens.com>
+References: <4910FD49.6050402@sil.org>	<491125E9.4020107@perens.com>	<4913C1C8.7010701@gatech.edu>	<4913E115.5080107@perens.com>	<49142251.2090207@gatech.edu>	<491449E6.9060101@perens.com>	<4914C7EA.5090106@gatech.edu>	<49151575.9020500@perens.com>	<49151C0B.9020702@gatech.edu>	<4915BFAF.20804@perens.com> <18709.54715.601774.503901@desk.crynwr.com> <4915EA58.8090604@perens.com>
+Message-ID: <4915EF96.2090001@perens.com>
+
+Bruce Perens wrote:
+> You can't really put such a thing in a position for the user to always 
+> get it - but you can go one better and embed the program in the font. 
+> Which is another trivial license circumvention. 
+Oops. Under U.S. copyright case law, it turns out that it is not 
+necessary to have either a script or an embedded program. Because 
+typefaces can't be copyrighted, you need to start with a vector font - 
+which can itself be considered a computer program. It's either a program 
+itself, or it's not copyrightable at all.
+
+Thus, distribution is always permitted, and the license does not achieve 
+its goal of preventing the 1000 Fonts disks.
+
+This doesn't prevent OSI approval. It's just, in my opinion, so 
+deceptive to the developer regarding what can actually be enforced that 
+promoting the license is a disservice to that developer.
+
+    Bruce
+
+
+From lrosen at rosenlaw.com  Mon Nov 10 16:06:17 2008
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Mon, 10 Nov 2008 08:06:17 -0800
+Subject: For approval: SIL Open Font License 1.1
+In-Reply-To: <49178BFC.1090605@perens.com>
+References: <4910FD49.6050402@sil.org> <491125E9.4020107@perens.com> <4913C1C8.7010701@gatech.edu> <4913E115.5080107@perens.com> <49142251.2090207@gatech.edu> <491449E6.9060101@perens.com> <4914C7EA.5090106@gatech.edu> <49151575.9020500@perens.com> <49173E50.7010509@sil.org> <491746EB.7090905@perens.com> <49175C7B.3040701@sil.org> <49178BFC.1090605@perens.com>
+Message-ID: <A98013E5516A479C96D2F81526A67577@LROSENTOSHIBA>
+
+> Nicolas Spalinger wrote:
+> > What I'm asking it how other FLOSS licenses currently used for fonts
+> deal with embedding of fonts in documents?
+>  From a legal perspective, it's just like linking code into a larger
+> program to create a derivative work. Lots of licenses deal with that.
+
+Bruce Perens suggested:
+> 2. When this font, or information derived from this font, is embedded in
+> a document, other information in the document that is unrelated to this
+> font shall not be considered to be a derivative work of this font. For
+> example, embedding this font in a document does not make the text of the
+> document a derivative work of this font.
+
+This is audacious. Nothing you can do with a mere font will make Moby Dick
+(or any other independent copyrightable work) a derivative work of that
+font, regardless of what your license says about linking.
+
+Sometimes open source advocates believe they can revise copyright law by
+crafting special words in their licenses. That doesn't work. It merely
+confuses developers and users and leads them to believe that open source
+licenses can "infect" their own copyrightable works. 
+
+To the extent that a software font can be copyrighted, it can be licensed
+with conditions chosen by the licensor. But those license terms can't cause
+an independent copyrightable work to come under its ambit. 
+
+/Larry
+
+
+
+> -----Original Message-----
+> From: Bruce Perens [mailto:bruce at perens.com]
+> Sent: Sunday, November 09, 2008 5:19 PM
+> To: Nicolas Spalinger
+> Cc: License Review
+> Subject: Re: For approval: SIL Open Font License 1.1
+> 
+
