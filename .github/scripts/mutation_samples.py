@@ -313,54 +313,6 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 469: E12 の行の状態を「未着手（E3 は反映済み）」にする —— 行ごとに分類していたので、両方の語を持つ行は全 E-ID が both になり、E12 の未着手が矛盾の組から消えていた",
-    "file": ROOT / "LICENSES" / "ACD-1.1-CHANGELIST.md",
-    "find": "**E3 と同じ 1 文の前半** | **草案に反映済み** |",
-    "replace": "**E3 と同じ 1 文の前半** | **未着手**（E3 は反映済み）|",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 498: AS-OF の答えていない問いの件数だけを 1 件にする —— 件数は手で書き、状態の欄の件の数とは照合していなかった",
-    "file": ROOT / "LICENSES" / "AS-OF.md",
-    "find": "| **0 件** | ACD への返信は",
-    "replace": "| **1 件** | ACD への返信は",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 498: AS-OF の答えていない問いに件を 1 つ足し、件数を 0 件のままにする —— 件を足して件数を直し忘れると、答えていない問いを 0 件と言い続けた",
-    "file": ROOT / "LICENSES" / "AS-OF.md",
-    "find": "| **0 件** | ACD への返信は",
-    "replace": "| **0 件** | **Q1** 2026-11-11・発言者・`rounds/README.md`・§2.1・未回答；ACD への返信は",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 498: AS-OF の答えていない問いの件が、在らない rounds の file を指す —— 件数が合っていれば、受領文の置き場所は見ていなかった",
-    "file": ROOT / "LICENSES" / "AS-OF.md",
-    "find": "| **0 件** | ACD への返信は",
-    "replace": "| **1 件** | **Q1** 2026-11-11・発言者・`rounds/no-such-file.txt`・§2.1・未回答；ACD への返信は",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 498: AS-OF の答えていない問いの件が、私信の stub でない file を指して条を「—」で書く —— 最後の件が行の説明文まで伸び、説明文の § が件の § の代わりになっていた",
-    "file": ROOT / "LICENSES" / "AS-OF.md",
-    "find": "| **0 件** | ACD への返信は",
-    "replace": "| **1 件** | **Q1** 2026-11-11・発言者・`rounds/README.md`・—・未回答；ACD への返信は",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 498: AS-OF の答えていない問いの件が、私信の stub を指して問われた条 (§) を書く —— 私信の中身の一部を公開の文書に出す形を止めていなかった",
-    "file": ROOT / "LICENSES" / "AS-OF.md",
-    "find": "| **0 件** | ACD への返信は",
-    "replace": "| **1 件** | **Q1** 2026-11-11・moderator・`rounds/2026-09-18-offlist-nick-vidal-round4.txt`・§2.1・未回答；ACD への返信は",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 469: 451e の違反の文を消し、コメントと 451d の OK 行の言及だけを残す —— 区間の全文から 451e の綴りを拾っていたので、実装が無くても 6 部のまま緑だった",
-    "file": ROOT / ".github" / "scripts" / "checks_license_surfaces.py",
-    "find": "            if _lack451e:\n                _bad451d.append(f\"451e: {_md.name} が gap を担う §{'/§'.join(_lack451e)} を 1 つも引いていない \"\n                                \"(PREAMBLE の 3 つの gap が記述子から見えない)\")\n",
-    "replace": "            if _lack451e:\n                pass\n",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 476c: 材料表の「承認済みに無い仕掛け」の表で、作品を超える許諾を 6 本と書く —— 476c は入口の段の 1 か所しか読まず、同じ数を繰り返す表は census と照合されていなかった",
-    "file": ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md",
-    "find": "141 本のうち 0 本（作品を超える許諾の 7 本はすべて条件を持つ",
-    "replace": "141 本のうち 0 本（作品を超える許諾の 6 本はすべて条件を持つ",
-})
-_MUTATIONS_TAIL.append({
     "name": "Check 476c: 材料表の表で、AI を名指す承認済みの本を 1 本と書く —— 「名指す本は 0」は census の結論文に依るのに、表の側の数は照合していなかった",
     "file": ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md",
     "find": "承認済みで AI を名指す本は 0（gap (a) と同じ測定）",
