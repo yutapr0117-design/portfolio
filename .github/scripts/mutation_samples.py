@@ -546,6 +546,12 @@ _MUTATIONS_TAIL.append({
     "find": "    <meta charset=\"utf-8\" />\n",
     "replace": "    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=shift_jis\" />\n",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 144: digest の道具の対応表で real-work-claims.md の値を別の file (ai-pioneer-identity-review.md) にする —— key だけを比べ、道具が別の file の digest を書く形を見ていなかった",
+    "file": ROOT / ".github" / "scripts" / "update_aio_digests.py",
+    "find": "    \"docs/evidence/real-work-claims.md\": ROOT / \"docs\" / \"evidence\" / \"real-work-claims.md\",",
+    "replace": "    \"docs/evidence/real-work-claims.md\": ROOT / \"docs\" / \"evidence\" / \"ai-pioneer-identity-review.md\",",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
