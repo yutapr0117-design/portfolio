@@ -804,7 +804,8 @@ def run(ctx):
                             break
                     _near460r = _line460r + "\n" + _hdr460r
                 else:
-                    _near460r = "\n".join(_lines460r[max(0, _i460r - 3):_i460r + 4])
+                    # 表の外も同じ行で読む (2026-11-11・監査 #137): ±3 行は隣の別の文の日付を拾い裸の語数を通した
+                    _near460r = _line460r
                 for _m460r2 in re.finditer(r"([0-9][0-9,]{2,}|約 ?[0-9][0-9,]*) ?(語|words)", _line460r):
                     _seg460r = _line460r[max(0, _m460r2.start() - 160):_m460r2.end() + 160]
                     if "B.0" not in _seg460r:
