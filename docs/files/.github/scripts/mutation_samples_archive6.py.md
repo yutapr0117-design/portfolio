@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/mutation_samples_archive6.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-11-08
+last-updated: 2026-11-12
 canonical-ref: .github/scripts/mutation_samples.py (hot log・新規はここへ足す) / .github/scripts/rotate_mutation_samples.py (rotate ツール) / docs/architecture/file-size-budget.md (行数予算)
 ---
 
@@ -9,20 +9,20 @@ canonical-ref: .github/scripts/mutation_samples.py (hot log・新規はここへ
 
 ## What
 
-consistency 側 mutation の **4 番目の archive**（退避先）。`MUTATIONS_ARCHIVE6` を定義し、`mutation_samples.py` が import して `MUTATIONS` へ連結する。
+consistency 側 mutation の **6 番目の archive**（退避先）。`MUTATIONS_ARCHIVE6` を定義し、`mutation_samples.py` が import して `MUTATIONS` へ連結する。
 
 **新しい mutation はここへ足さない。** 追加先は常に `mutation_samples.py` の tail（`_MUTATIONS_TAIL.append(...)`）で、ここは rotate が押し出した古い entry の置き場である。
 
 ## Why
 
-mutation は append-only で増え続けるため、hot log は放置すると Check 365 の 1,000 行 BLOCKING に当たる。`rotate_mutation_samples.py` が advisory を跨いだ時点で最古の entry を archive へ移す。archive 自身も無限には伸ばせないので、埋まったら次の番号を起こす ―― 本ファイルはその 4 本目（2026-11-04 に自動生成）。
+mutation は append-only で増え続けるため、hot log は放置すると Check 365 の 1,000 行 BLOCKING に当たる。`rotate_mutation_samples.py` が advisory を跨いだ時点で最古の entry を archive へ移す。archive 自身も無限には伸ばせないので、埋まったら次の番号を起こす ―― 本ファイルはその 6 本目（2026-11-08 に自動生成）。
 
-**きっかけ**: 同日、Check 460 / 469 の face と Check の下位部を名指す mutation を大量に足した（Check 479c / 479d）。粒度を 1 段細かくして「名指した層が赤くなったか」で数えると、mutation の数は面・下位部の数に比例して増える。
+**きっかけ**: 下の「2026-11-08 新設」の行（archive5 が受け皿の余裕を失った）。（2026-11-12 訂正: ここは archive5 の 2026-11-04 のきっかけの写しだった）
 
 ## How
 
 - 構造は最小限（docstring + `from mutation_samples_common import ROOT` + list）。
-- `mutation_samples.py` 側に `from mutation_samples_archive4 import MUTATIONS_ARCHIVE6` と連結式への追加が**同時に**行われる（片方だけだと総数が減り、rotate の不変条件チェックが落ちる）。
+- `mutation_samples.py` 側に `from mutation_samples_archive6 import MUTATIONS_ARCHIVE6` と連結式への追加が**同時に**行われる（片方だけだと総数が減り、rotate の不変条件チェックが落ちる）。
 - rebalance（`REBALANCE_TARGET` 950）の対象でもあり、溢れたら次の archive へ末尾から押し出される。chain は **disk から導出**されるので、本ファイルは追加した時点で自動的に対象に入る。
 
 ## Constraints
@@ -46,7 +46,7 @@ mutation は append-only で増え続けるため、hot log は放置すると C
 
 ### For human engineers（新卒レベル）
 
-テストの安全網を検証するための「わざと壊すパターン集」が増え続けるので、古いものを別ファイルへ移して 1 ファイルが大きくなりすぎないようにしている。その 3 冊目。移動は専用ツールが行い、人もエージェントも手では動かさない。
+テストの安全網を検証するための「わざと壊すパターン集」が増え続けるので、古いものを別ファイルへ移して 1 ファイルが大きくなりすぎないようにしている。その 6 冊目。移動は専用ツールが行い、人もエージェントも手では動かさない。
 
 ### For third parties / auditors
 
