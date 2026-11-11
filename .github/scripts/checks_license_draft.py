@@ -61,7 +61,10 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        "does not licence a claim" のまま凍結された (2026-11-02 に 25 が発見)。引用符の中と全大文字は除く。
        **468w は errata の各行が「N.M draft」として引く逐語が、その版の本文 (作業中なら草案・凍結済みなら
        凍結した本文) に在ることを見る** —— 草案の文が試作で変わったのに、採った日の文を「1.4 draft」として
-       引き続けた行が 10 件あった (portfolio-00 / aa・2026-11-11)。採った日の文は "as adopted on" で書く。 (BLOCKING)
+       引き続けた行が 10 件あった (portfolio-00 / aa・2026-11-11)。採った日の文は "as adopted on" で書く。
+       **468x は草案の CHANGELIST の主表の After (「何を変えるか」の *"…"* へ) が、いまの草案に在るか、
+       主表の後の行の Before が同じ文を引くか、同じ行に「再改」を持つことを見る** —— 草案の文が後で変わったのに
+       主表に記録が無い行が 7 件あった (portfolio-aa・2026-11-11)。 (BLOCKING)
 """
 import json
 import re
@@ -732,6 +735,43 @@ def run(ctx):
             _bad468.append(f"468w: errata が「N.M draft」として引く逐語が、その版の本文 (作業中の草案か凍結した本文) に無い: "
                            f"{_miss468w}。草案の文が後で変わったなら、採った日の文は \"N.M draft as adopted on YYYY-MM-DD:\" と書き、"
                            "いまの文を足す")
+
+        # ── 468x: 草案の CHANGELIST の主表の After が、いまの草案に在るか、後の書き換えの記録を持つこと ────────
+        #   portfolio-aa の依頼 (2026-11-11)。「何を変えるか」の列の *"…"* のうち直後が「へ」のものを After、
+        #   「を」のものを Before とし、** と \" を外して空白を正規化する。After は (1) いまの草案に在る、
+        #   (2) 主表の後の行の Before が同じ文を引く (後で書き換えた記録が主表に在る)、(3) 同じ行に「再改」、
+        #   のどれかを満たすこと。連鎖を主表の外 (試作の表) まで広げると「主表に書かずに草案を変えた」を見逃す
+        _cl468x = _dr468.with_name(_dr468.name.replace("-DRAFT.txt", "-CHANGELIST.md"))
+        _rows468x = []
+        if _cl468x.exists():
+            _ls468x = _cl468x.read_text(encoding="utf-8").split("\n")
+            _h468x = next((_k for _k, _x in enumerate(_ls468x) if _x.startswith("|") and "何を変えるか" in _x), None)
+            for _x in (_ls468x[_h468x + 2:] if _h468x is not None else []):
+                if not _x.startswith("|"):
+                    break
+                _rows468x.append(_x)
+        _nm468x = lambda _q: " ".join(_q.replace("**", "").replace('\\"', '"').split()).strip(" ,;.")
+        _parsed468x = []
+        for _x in _rows468x:
+            _c = re.split(r"(?<!\\)\|", _x)
+            _sp = [(_m.end(), _m.group(1)) for _m in re.finditer(r'\*"(.+?)"\*(?!\*)', _c[2] if len(_c) > 2 else "")]
+            _parsed468x.append((_c[1].strip() if len(_c) > 1 else "", _x,
+                                [_nm468x(_q) for _e, _q in _sp if re.match(r"\s*を", _c[2][_e:])],
+                                [_q for _e, _q in _sp if re.match(r"\s*へ", _c[2][_e:])]))
+        _flat468x = " ".join(_t468.split())
+        _n468x, _miss468x = 0, []
+        for _k, (_key, _row, _bef, _aft) in enumerate(_parsed468x):
+            _later = " ".join(" ".join(_p[2]) for _p in _parsed468x[_k + 1:])
+            for _a in _aft:
+                _n468x += 1
+                _lack = [_y for _y in (_nm468x(_z) for _z in re.split(r"…|\.\.\.", _a)) if len(_y) > 15 and _y not in _flat468x]
+                if _lack and not all(_y in _later for _y in _lack) and "再改" not in _row:
+                    _miss468x.append(f"{_key[:30]}: {_lack[0][:50]!r}")
+        if not _n468x:
+            _bad468.append(f"468x: {_cl468x.name} の主表から After (*\"…\"* へ) を 1 件も読めない (読めないまま黙らせない)")
+        elif _miss468x:
+            _bad468.append(f"468x: {_cl468x.name} の主表の After が、いまの草案に無く、後の行の Before にも「再改」の印にも無い: "
+                           f"{_miss468x}。草案の文を後で変えたなら、主表に行を足すか、元の行に「後の行で再改」と書く")
 
         check(
             not _bad468,
