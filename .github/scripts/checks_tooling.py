@@ -178,6 +178,14 @@ def run(ctx):
     # (`---\ndescription: <text>\n---`) を持つことを機械強制する。description フィールドが
     # 消失すると Claude Code は command を skill listing から拾えなくなり、UI で見えない
     # silent failure に陥る。
+    def _fm_value(_body, _key):
+        """frontmatter の 1 行の値 (行の中だけを読み、引用符を外す)。空なら None (2026-11-11・監査 #127〜#130):
+        `^description:\s*\S` は \s* が改行をまたぎ、空の `description:` が次の行のキーの字で満たされていた。
+        `^name:\s*(\S+)` は最初の語だけを取り、`name: aio-guardian v2` を stem と一致と読んでいた"""
+        _m = re.search(rf"^{_key}:[ \t]*(.*?)[ \t]*$", _body, re.MULTILINE)
+        _v = _m.group(1).strip().strip("\"'").strip() if _m else ""
+        return _v or None
+
     _cmds77_dir = ROOT / ".claude" / "commands"
     if _cmds77_dir.is_dir():
         _cmds77 = sorted(_cmds77_dir.glob("*.md"))
@@ -185,7 +193,7 @@ def run(ctx):
         for _cmd in _cmds77:
             _csrc = _cmd.read_text(encoding="utf-8")
             _fm77 = re.match(r"^---\s*\n([\s\S]*?)\n---\s*\n", _csrc)
-            if not _fm77 or not re.search(r"^description:\s*\S", _fm77.group(1), re.MULTILINE):
+            if not _fm77 or not _fm_value(_fm77.group(1), "description"):
                 _bad77.append(_cmd.name)
         check(
             not _bad77 and len(_cmds77) > 0,
@@ -215,12 +223,12 @@ def run(ctx):
                 _bad78.append(f"{_ag.name}: missing frontmatter")
                 continue
             _fm_body78 = _fm78.group(1)
-            _name78 = re.search(r"^name:\s*(\S+)", _fm_body78, re.MULTILINE)
+            _name78 = _fm_value(_fm_body78, "name")
             if not _name78:
                 _bad78.append(f"{_ag.name}: missing name:")
-            elif _name78.group(1) != _ag.stem:
-                _bad78.append(f"{_ag.name}: name '{_name78.group(1)}' != filename stem '{_ag.stem}'")
-            if not re.search(r"^description:\s*\S", _fm_body78, re.MULTILINE):
+            elif _name78 != _ag.stem:
+                _bad78.append(f"{_ag.name}: name '{_name78}' != filename stem '{_ag.stem}'")
+            if not _fm_value(_fm_body78, "description"):
                 _bad78.append(f"{_ag.name}: missing description:")
         check(
             not _bad78 and len(_agents78) > 0,
@@ -273,12 +281,12 @@ def run(ctx):
                 _bad80.append(f"{_sk.parent.name}/SKILL.md: missing frontmatter")
                 continue
             _fm_body80 = _fm80.group(1)
-            _name80 = re.search(r"^name:\s*(\S+)", _fm_body80, re.MULTILINE)
+            _name80 = _fm_value(_fm_body80, "name")
             if not _name80:
                 _bad80.append(f"{_sk.parent.name}/SKILL.md: missing name:")
-            elif _name80.group(1) != _sk.parent.name:
-                _bad80.append(f"{_sk.parent.name}/SKILL.md: name '{_name80.group(1)}' != dir '{_sk.parent.name}'")
-            if not re.search(r"^description:\s*\S", _fm_body80, re.MULTILINE):
+            elif _name80 != _sk.parent.name:
+                _bad80.append(f"{_sk.parent.name}/SKILL.md: name '{_name80}' != dir '{_sk.parent.name}'")
+            if not _fm_value(_fm_body80, "description"):
                 _bad80.append(f"{_sk.parent.name}/SKILL.md: missing description:")
         if _skills80:
             check(

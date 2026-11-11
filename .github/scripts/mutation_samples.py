@@ -528,6 +528,18 @@ _MUTATIONS_TAIL.append({
     "find": "\u3002\u5b9f\u88c5: `.github/scripts/checks_license_dossier.py`",
     "replace": "\u3002\u5b9f\u88c5: `.github/scripts/checks_license_submission.py`",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 78: aio-guardian の name を 2 語 (aio-guardian v2) にする —— 最初の語だけを取り、stem と一致と読んでいた",
+    "file": ROOT / ".claude" / "agents" / "aio-guardian.md",
+    "find": "\nname: aio-guardian\n",
+    "replace": "\nname: aio-guardian v2\n",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 78: check-author の description を空にし、本文を別のキーへ移す —— \\s* が改行をまたぎ、空の description: が次の行のキーの字で満たされていた",
+    "file": ROOT / ".claude" / "agents" / "check-author.md",
+    "find": "\ndescription: Use this agent when the user (or another agent)",
+    "replace": "\ndescription:\nnote: Use this agent when the user (or another agent)",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
