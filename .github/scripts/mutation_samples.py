@@ -572,6 +572,18 @@ _MUTATIONS_TAIL.append({
     "find": "    steps:\n",
     "replace": "    steps:\n      - uses: docker://alpine:latest\n",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 366: GitHub のリンクの target を二重引用符で書き、rel を noopener だけにする —— `target: '_blank'` の完全一致しか数えず、\"_blank\" の行は走査から落ちていた",
+    "file": ROOT / "js" / "components.js",
+    "find": "h('a', { href: profile.github, target: '_blank', rel: 'noopener noreferrer' }",
+    "replace": "h('a', { href: profile.github, target: \"_blank\", rel: 'noopener' }",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 366: GitHub のリンクの rel を noopener だけにし、同じ行のコメントに noreferrer を書く —— 窓の中の noreferrer の綴りを探したので、コメントが rel の欠けを満たしていた",
+    "file": ROOT / "js" / "components.js",
+    "find": "h('a', { href: profile.github, target: '_blank', rel: 'noopener noreferrer' }",
+    "replace": "h('a', { href: profile.github, target: '_blank', rel: 'noopener' /* noreferrer */ }",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

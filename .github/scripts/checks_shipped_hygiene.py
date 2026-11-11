@@ -73,8 +73,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        content cropped). Check 157 enforces presence; Check 249 enforces
        canonical mobile-baseline content. (BLOCKING)
 
-  366. shipped JS (js/*.js non-recursive) の h() props で `target: '_blank'`
-       を含む行の ±2 行以内に `noreferrer` が現れることを BLOCKING 強制。
+  366. shipped JS (js/**/*.js と main.js・2026-11-11 に非再帰から広げた) の h() props で target に
+       '_blank' を渡す行 (引用符の種類・引用符つきのキーも読む) の ±2 行以内に、コメントを除いた
+       rel の値としての `noreferrer` が現れることを BLOCKING 強制。
        runtime は ui-components.js:h() が全 a[target=_blank] に
        noopener+noreferrer を付与する二重防御だが、source レベルの省略は
        「意図的に noreferrer を省いた」と誤読されるコード drift を生む
@@ -559,20 +560,26 @@ def run(ctx):
               "Check 249: index.html が無い", blocking=True)
 
     # ── 366. shipped JS target='_blank' に ±2行以内で noreferrer あり (BLOCKING) ────
-    # js/*.js (非再帰・main.js 含む) の h() props 内で `target: '_blank'` を含む行の
-    # ±2 行以内に `noreferrer` が現れることを強制。runtime 多重防御 (ui-components.js
+    # js/**/*.js と main.js の h() props 内で target に '_blank' を渡す行の
+    # ±2 行以内に rel の値としての `noreferrer` が現れることを強制。runtime 多重防御 (ui-components.js
     # h() 全 a[target=_blank] 強制 + secureExternalLinks patcher) はあるが source の
     # 省略は「意図的 noreferrer 省略」と誤読されるコード drift を生む。
+    # 2026-11-11 (監査 #63 / #64 / #65): (1) 走査を js/**/*.js と main.js に広げた (glob("*.js") は main.js にも
+    #   入れ子の file にも届かず、上の「main.js 含む」は偽だった)。(2) target の書き方を引用符の種類・空白・
+    #   引用符つきのキーまで読む (`target: '_blank'` の完全一致だけで、"_blank" や target:'_blank' は数えなかった)。
+    #   (3) コメントを除いてから、窓の中に rel の値としての noreferrer を求める (コメントの noreferrer が
+    #   rel が noopener だけの行を満たしていた)。strip_js_comments は行数を保つので行番号はそのまま
+    _t366 = re.compile(r"""['"]?\btarget['"]?\s*:\s*['"`]_blank['"`]""")
+    _r366 = re.compile(r"""['"]?\brel['"]?\s*:\s*['"`][^'"`]*\bnoreferrer\b""")
     _violations366: list[str] = []
     _hit_count366 = 0
-    for _f366 in sorted((ROOT / "js").glob("*.js")):
-        _lines366 = _f366.read_text(encoding="utf-8", errors="replace").splitlines()
+    for _f366 in sorted((ROOT / "js").glob("**/*.js")) + [ROOT / "main.js"]:
+        _lines366 = strip_js_comments(_f366.read_text(encoding="utf-8", errors="replace")).splitlines()
         for _li366, _ln366 in enumerate(_lines366):
-            if "target: '_blank'" not in _ln366:
+            if not _t366.search(_ln366):
                 continue
             _hit_count366 += 1
-            _window366 = _lines366[max(0, _li366 - 2): _li366 + 3]
-            if any("noreferrer" in _wl for _wl in _window366):
+            if _r366.search("\n".join(_lines366[max(0, _li366 - 2): _li366 + 3])):
                 continue
             _violations366.append(f"{_f366.relative_to(ROOT)}:{_li366 + 1}")
     check(
