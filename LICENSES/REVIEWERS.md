@@ -243,8 +243,10 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 - **The goal was the owner's; the concrete legal design and the text are an AI's.** He decided
   to have a licence of his own and said it should aim at external approval; he gave the goal and
   the top-level direction, and **did not write a legal specification or supply a list of legal
-  requirements**. An AI agent generated the concrete legal design and the text and developed it
-  further under a standing delegation. **The name ACD-1.0, the generalised instrument and the
+  requirements**. An AI agent (Claude, an Anthropic model, run through Claude Code) generated the
+  concrete legal design and the text and developed it further under a standing delegation. The
+  model's maker trains models, and §6.4 and §8.4 favour those who do; we name it so that you can
+  read those clauses with that in mind (`ACD-1.0.against.md` #319). **The name ACD-1.0, the generalised instrument and the
   submission material took shape during that delegated work, and he came to know their concrete
   state afterwards.** He read the full text and understood it before sending it. He is the
   Dedicator and the steward and answers for it; **he did not write its clauses**
