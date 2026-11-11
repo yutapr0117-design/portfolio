@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-11 時点・374 ファイル）
+## いまの状態（2026-11-11 時点・375 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -93,6 +93,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2008-03・2012-04 | `license-discuss`・`license-review` | **観測（公有化の 2 スレッドから 7 通・公有のソフトウェアは open source か、FAQ の公有化と CC0 の答えの受け取られ方）** | `2008-03-and-2012-04-license-lists-public-domain-faq-observed.txt` |
 | 2015-10 | `license-discuss` | **観測（"Short permissive no attribution required open source license" から 4 通・公有化の献呈と帰属を求めない fallback の提案、「十分すぎるほど在る」）** | `2015-10-license-discuss-short-permissive-no-attribution-observed.txt` |
 | 2006-03 | `license-discuss` | **観測（"Looking for license stewards" から 1 通・連絡の取れない steward の承認済みライセンス 12 本）** | `2006-03-license-discuss-looking-for-license-stewards-observed.txt` |
+| 2012-01 | `license-review` | **観測（"[PROPOSAL] Invite Creative Commons to submit CC0 Dedication." から 5 通・CC0 を招く前の、放棄と許諾を 1 つに持つ文書を審査できるかの議論）** | `2012-01-license-review-invite-cc0-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
 | 2012〜2020 | `license-review` | **観測（特許を扱う新しい permissive の必要性と、増殖の分類の現状・4 通）** | `2012-to-2020-license-review-need-and-proliferation-categories-cited-observed.txt` |
