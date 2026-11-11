@@ -1,0 +1,176 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2008-March, 2012-April) and https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2012-April)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 7 messages this dossier cites from "Public domain software is not open-source?" (license-discuss, 2008-03; 57 messages) and "New OSI FAQ items posted about Public Domain and CC0." (posted to license-discuss and license-review, 2012-04; 13 messages across the two lists). Not the whole threads.
+Senders: Matthew Flaschen, Rick Moen, Nigel H. Tzeng, Lawrence Rosen, Karl Fogel, Josh Berkus
+Position: a list discussion of whether public-domain software is open source, and the posting of OSI's FAQ answers on the public domain and CC0 with replies. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From matthew.flaschen at gatech.edu  Sun Mar  2 04:17:29 2008
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Sat, 01 Mar 2008 23:17:29 -0500
+Subject: Public domain software is not open-source?
+In-Reply-To: <AA78D806E90D1946A604A61827E7704804581F9B@aplesnation.dom1.jhuapl.edu>
+References: <e52efbe10803010939q3000013by4e4bb587fa942d52@mail.gmail.com> <AA78D806E90D1946A604A61827E7704804581F9B@aplesnation.dom1.jhuapl.edu>
+Message-ID: <47CA2A59.4040405@gatech.edu>
+
+Tzeng, Nigel H. wrote:
+> ESR and Bruce's comments seem FAQ worthy about Public Domain software
+> being Open Source (if the source is in fact available) despite the
+> lack of a license (by definition).
+
+Public domain is certainly not a license, so it can't be an approved 
+open source license.  But, as recent as 2006, OSI believed that PD 
+software with complete source code was open source.  This is shown by 
+the history bar at the left of 
+http://web.archive.org/web/20061117035007/http://www.opensource.org/docs/definition.php 
+.  I think this was lost in translation during the website switch.
+
+Matt Flaschen
+
+
+From rick at linuxmafia.com  Sun Mar  2 10:23:35 2008
+From: rick at linuxmafia.com (Rick Moen)
+Date: Sun, 2 Mar 2008 02:23:35 -0800
+Subject: Public domain software is not open-source?
+In-Reply-To: <47CA7B3E.2080304@gatech.edu>
+References: <e52efbe10803010939q3000013by4e4bb587fa942d52@mail.gmail.com> <AA78D806E90D1946A604A61827E7704804581F9B@aplesnation.dom1.jhuapl.edu> <47CA2A59.4040405@gatech.edu> <20080302074408.GF17554@linuxmafia.com> <47CA6870.7080209@gatech.edu> <20080302094104.GI17554@linuxmafia.com> <47CA7B3E.2080304@gatech.edu>
+Message-ID: <20080302102335.GJ17554@linuxmafia.com>
+
+Quoting Matthew Flaschen (matthew.flaschen at gatech.edu):
+
+> Again, it's a question for someone considering reuse.  OSI has never 
+> been in the business of officially validating license statuses.  They 
+> won't tell you (officially) that program Foo is under license Bar.  Of 
+> course, I agree that verifying this information is critical for reusers.
+
+Given doubt over whether purporting to abolish by fiat the unexpired
+copyright title of a creative work _even_ has a reliable and consistent
+result across legal jurisdictions -- let alone having the result
+intended -- I'd personally rather OSI not even go there, and instead
+await the outcome of test cases (if any) initiated by the foolhardy.
+
+
+
+From Nigel.Tzeng at jhuapl.edu  Mon Mar  3 15:43:14 2008
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Mon, 3 Mar 2008 10:43:14 -0500
+Subject: Public domain software is not open-source?
+References: <e52efbe10803010939q3000013by4e4bb587fa942d52@mail.gmail.com> <AA78D806E90D1946A604A61827E7704804581F9B@aplesnation.dom1.jhuapl.edu> <47CA2A59.4040405@gatech.edu> <20080302074408.GF17554@linuxmafia.com> <e52efbe10803030124j71df7475mc2c0964a5d49440f@mail.gmail.com> <25415DDE-417F-4E15-BE2D-A3F1CCE033FA@gmail.com>
+Message-ID: <AA78D806E90D1946A604A61827E7704804581F9C@aplesnation.dom1.jhuapl.edu>
+
+>Q.  Is Public Domain software also "Open Source"?
+
+>Not really, since it is not under an OSD-approved license.  However, 
+>truly public domain software can always be made available under an OSD 
+>compliant license, so in practice the issue is moot.
+
+I would rephrase to something like (assuming I'm correct):
+
+Public Domain software, when the source code is available, meets all of the OSD requirements but it isn't under a OSI approved Open Source license since there is no license.   However, public domain software can be re-used under an OSD compliant license, so in practice the issue is moot.
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20080303/401265a7/attachment.html>
+
+From lrosen at rosenlaw.com  Mon Mar  3 17:02:21 2008
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Mon, 3 Mar 2008 09:02:21 -0800
+Subject: Public domain software is not open-source?
+In-Reply-To: <AA78D806E90D1946A604A61827E7704804581F9C@aplesnation.dom1.jhuapl.edu>
+References: <e52efbe10803010939q3000013by4e4bb587fa942d52@mail.gmail.com> <AA78D806E90D1946A604A61827E7704804581F9B@aplesnation.dom1.jhuapl.edu> <47CA2A59.4040405@gatech.edu> <20080302074408.GF17554@linuxmafia.com> <e52efbe10803030124j71df7475mc2c0964a5d49440f@mail.gmail.com> <25415DDE-417F-4E15-BE2D-A3F1CCE033FA@gmail.com> <AA78D806E90D1946A604A61827E7704804581F9C@aplesnation.dom1.jhuapl.edu>
+Message-ID: <008701c87d50$5a868480$6401a8c0@LROSENTOSHIBA>
+
+Nigel Tzeng wrote:
+
+Public Domain software, when the source code is available, meets all of the
+OSD requirements but it isn't under a OSI approved Open Source license since
+there is no license.   However, public domain software can be re-used under
+an OSD compliant license, so in practice the issue is moot.
+
+ 
+
+That's a nice, clean summary. /Larry
+
+From kfogel at red-bean.com  Wed Apr  4 00:53:45 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Tue, 03 Apr 2012 19:53:45 -0500
+Subject: [License-discuss] New OSI FAQ items posted about Public Domain and
+	CC0.
+Message-ID: <877gxwxqp2.fsf@kwarm.red-bean.com>
+
+(This seems appropriate for both license-discuss@ and license-review@, so
+I'm posting it in both places.)
+
+I've been seeing an increasing number of inquiries about the public
+domain and open source, and about CC0 and open source.  A few of those
+inquiries have come here, but I'm also getting them elsewhere.
+
+So I've tried to formulate good answers:
+
+   http://opensource.org/faq#public-domain
+   http://opensource.org/faq#cc-zero
+
+I hope I've reflected the general consensus of the License Review
+committee accurately, not made any legal mistakes, etc.  I'd appreciate
+feedback on these.
+
+The "public domain" entry is complex.  It felt wrong to simply say that
+PD is not open source, when it clearly exhibits most or all of the
+important properties of Open Source and is at least capable of meeting
+the OSD; on the other hand, it is not a license and therefore cannot be
+OSI-approved, and it has some portability problems.  So I've tried to
+express all of that in the answer, and recommend that people use
+OSI-approved licenses wherever possible.
+
+The CC0 entry is more straightforward, but also would benefit from peer
+review.
+
+Please hold the flamethrowers, anyone who might be tempted to flame, and
+remember that these are inherently contentious and complicated subjects!
+It would be easier for the OSI to just say nothing on the topics :-),
+but silence on these questions would not serve our mission very well.
+
+Thanks,
+-Karl
+
+
+From lrosen at rosenlaw.com  Wed Apr  4 01:44:58 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Tue, 3 Apr 2012 18:44:58 -0700
+Subject: [License-discuss] New OSI FAQ items posted about Public Domain
+	and	CC0.
+In-Reply-To: <877gxwxqp2.fsf@kwarm.red-bean.com>
+References: <877gxwxqp2.fsf@kwarm.red-bean.com>
+Message-ID: <04b901cd1204$8bbcae60$a3360b20$@com>
+
+Karl, those are excellent FAQ entries! They summarize quite well the
+non-consensus reached on our lists. Good work!  /Larry
+
+
+Lawrence Rosen
+Rosenlaw & Einschlag, a technology law firm (www.rosenlaw.com) 
+3001 King Ranch Road, Ukiah, CA 95482
+Cell: 707-478-8932
+
+From josh at postgresql.org  Wed Apr  4 01:04:23 2012
+From: josh at postgresql.org (Josh Berkus)
+Date: Tue, 03 Apr 2012 18:04:23 -0700
+Subject: [License-review] New OSI FAQ items posted about Public Domain
+ and CC0.
+In-Reply-To: <877gxwxqp2.fsf@kwarm.red-bean.com>
+References: <877gxwxqp2.fsf@kwarm.red-bean.com>
+Message-ID: <4F7B9E17.6030100@postgresql.org>
+
+On 4/3/12 5:53 PM, Karl Fogel wrote:
+> I hope I've reflected the general consensus of the License Review
+> committee accurately, not made any legal mistakes, etc.  I'd appreciate
+> feedback on these.
+
+Well, it reflects my opinion correctly.  I somehow doubt it reflects
+Russ's opinion, though.
+
+--Josh Berkus
+
+
