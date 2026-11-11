@@ -564,6 +564,18 @@ _MUTATIONS_TAIL.append({
     "find": "test('a11y axe: open command palette has no render-neutral critical violations', async",
     "replace": "test('WCAG 1.4.3: ライトの drawer / palette / ' + 'toast に color-contrast 違反がゼロ', async",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 481: checks_behavioral.py の helper の呼び出しを re.compile(r\"//[^\\n]*\").sub(…) に戻す —— re.sub( と // が 1 行に並ぶ形しか知らず、compile してから sub する形を見逃していた",
+    "file": ROOT / ".github" / "scripts" / "checks_behavioral.py",
+    "find": "_src406 = strip_js_comments(_uic406.read_text(encoding=\"utf-8\"))",
+    "replace": "_src406 = re.compile(r\"//[^\\n]*\").sub(\"\", _uic406.read_text(encoding=\"utf-8\"))",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 481: checks_behavioral.py の helper の呼び出しを inline flag の re.sub(r\"(?m)//.*$\", …) に戻す —— (?m) の flag が前に付く形を見逃していた",
+    "file": ROOT / ".github" / "scripts" / "checks_behavioral.py",
+    "find": "_src406 = strip_js_comments(_uic406.read_text(encoding=\"utf-8\"))",
+    "replace": "_src406 = re.sub(r\"(?m)//.*$\", \"\", _uic406.read_text(encoding=\"utf-8\"))",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

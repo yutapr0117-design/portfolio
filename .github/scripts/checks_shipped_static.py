@@ -329,17 +329,11 @@ def run(ctx):
             _src = _p.read_text(encoding="utf-8")
         except (FileNotFoundError, PermissionError):
             continue
-        # Strip string/template literals first to avoid false-positive on
-        # user-facing strings containing "TODO" (e.g. app name "クイックTODO").
-        _stripped = re.sub(r"'(?:\\.|[^'\\])*'", "''", _src)
-        _stripped = re.sub(r'"(?:\\.|[^"\\])*"', '""', _stripped)
-        _stripped = re.sub(r"`(?:\\.|[^`\\])*`", "``", _stripped)
-        # Collect only comment regions (// ... and /* ... */).
-        _comments: list[str] = []
-        for _m in re.finditer(r"/\*.*?\*/", _stripped, flags=re.DOTALL):
-            _comments.append(_m.group(0))
-        for _m in re.finditer(r"//[^\n]*", _stripped):
-            _comments.append(_m.group(0))
+        # コメントの範囲だけを取り出す: 共有の字句 helper はコメントを同じ長さの空白にするので、元と違う字が
+        #   コメントの中身 (2026-11-11・Check 481 の監査 #131: 文字列を消してから `/* */` と `//[^\n]*` を finditer する
+        #   2 段の正規表現をやめた)。文字列の中の "TODO" (アプリ名「クイックTODO」など) はコメントでないので出ない
+        _no_comment = strip_js_comments(_src)
+        _comments: list[str] = ["".join(_c if _c != _k else " " for _c, _k in zip(_src, _no_comment))]
         for _c in _comments:
             _m2 = _cruft_pat264.search(_c)
             if _m2:

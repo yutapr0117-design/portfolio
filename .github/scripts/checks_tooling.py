@@ -326,7 +326,21 @@ def run(ctx):
     # 2026-11-02: 1 段の `//` 除去 (`re.sub(r"//[^\n]*", "", …)`) も禁じる。文字列中の `https://`
     # から行末まで消すので、URL の後ろに書いた違反が見えなくなる (16 箇所を helper へ移した)。
     # `(?<!:)//` 形も、文字列中の ` // ` と正規表現リテラルの `//` で同じことが起きる。
+    # 正規表現の文字列そのものも読む (2026-11-11・監査 #131): `re.sub(` と `//` が 1 行に並ぶ形しか知らず、
+    #   re.compile(...).sub・別名の module・(?m) の inline flag・finditer の形を見逃した (checks_maintainability.py の
+    #   `_re_spec28.sub(r"//.*$", …)` と checks_shipped_static.py の finditer の 2 段が実際に残っていた)。tokenize で
+    #   文字列リテラルの中身を取り、flag と行頭の印の後が `//` + `.*` / `[^\n]*` で始まるものをコメント除去と読む
+    import io as _io481
+    import tokenize as _tk481
+    _str_re481 = re.compile(r"^(?:\(\?[a-zA-Z]+\))?(?:\^\\s\*|\^)?(?:\(\?<!:\))?//(?:\.\*|\[\^\\n\]\*|\[\^\\r\\n\]\*)")
+    _pfx481 = re.compile(r"^[rRbBuU]{0,2}(?:\"{3}|'{3}|\"|')")
     for _p481 in sorted((ROOT / ".github" / "scripts").glob("checks_*.py")):
+        try:
+            for _t481 in _tk481.generate_tokens(_io481.StringIO(_p481.read_text(encoding="utf-8")).readline):
+                if _t481.type == _tk481.STRING and _str_re481.match(_pfx481.sub("", _t481.string)):
+                    _bad481.append(f"{_p481.name}:{_t481.start[0]} (正規表現の文字列で // を消している)")
+        except (_tk481.TokenError, SyntaxError):
+            pass
         _ls481 = _p481.read_text(encoding="utf-8").splitlines()
         for _i481, _l481 in enumerate(_ls481):
             if _l481.lstrip().startswith("#"):
