@@ -35,6 +35,8 @@ OSI の 2 つのリストのアーカイブ全数から、決める側の発言�
 
 `LICENSES/ACD-1.0.reviewer-positions.md` §1.140 と `LICENSES/AS-OF.md` の数はこの道具の出力である。差出人や正規表現を変えると数が動く。
 
+「rounds に在るが READ-THREADS に無い」の照合は、`rounds/` の `Subject:` を折り返し（次の行が空白で始まる）ごとつないで鍵にする（2026-11-12）。1 行目だけを読んでいた間は、折り返した件名（rounds の 100 file・408 件）の会話がこの照合から外れていた。直した日に main で 1 件（2026-09-05 の "Weak copyleft license with network use requirement?"）が新たに出た。読了の数（READ-THREADS の行から数える）はこの照合を使わないので動かない。
+
 ## Audience-specific notes
 
 - AI: 読むのは出力であって、出力の件数は発見の件数ではない。文は原文の文脈で読む
