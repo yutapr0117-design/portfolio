@@ -390,3 +390,15 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **読み。** 弁護士の要否について、list の弁護士は 1 つの声ではない。Fontana 氏は小さな変種の確認に弁護士を求めることを退け、Rosen 氏は素人の起草そのものを退けた。ACD に当たるのは後者の向きで、前者は承認済みのものの扱いに限った話である。2007 年に提出の手順から法律家の分析の要件が外れたこと（`review-rules.md` §1.141）と並べて読む。
 
 **この節が establish しないこと。** 2013 年の個人の発言で、OSI の規則の文ではない。FAQ の答えがどう公開されたかは確かめていない。
+
+## 1.187 list の沈黙は読んだ印ではなく、理事会は前もって判断を示さない —— 2017 年 1 月の委員会報告（2026-11-12）
+
+`rounds/2017-01-and-02-license-review-committee-report-observed.txt`（4 通・会話は全 19 通）。委員長の Richard Fontana 氏が 2017-01-08 に、2015-10 以後に出されて決まっていないライセンスと NOSA 2.0 の推薦を書いた報告と、その後の議論。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"My guess is that most people subscribing to and reading this list have not attempted to read the license and have no particular opinion about it."* | Richard Fontana 氏（委員長）2017-01-09 | 両面。list の沈黙は支持でも反対でもなく、読まれていないことの印だ、という委員長自身の読み。ACD の `license-discuss` への投稿に返信が無いことを、支持と読ませない（`REVIEWERS.md` の Status の書き方）のと同じ向きである。同じ通で *"The 'Recommendations' here are just my own recommendations."* とも書いた |
+| *"At the last OSI board meeting, the OSI decided not to hold a vote on NOSA 2.0, and instead requested that I prepare a document providing my comments about the license."* | Richard Fontana 氏 2017-01-23 | 委員長が却下を勧めても、理事会は採決しないことがある。#257（NOSA 2.0 の留め置き）の 2017 年の段の一次の記録である |
+| *"I think the current Board is not inclined to give the equivalent of "advisory opinions" on the OSD, for better or worse. It is probably better to get clarity on this issue through actual submission of a license embodying some sort of license asymmetry."* | Richard Fontana 氏 2017-02-08 | 不利な面。理事会は OSD の解釈について前もって判断を示さず、はっきりさせるには実際に提出するのがよい、という委員長の見立て。ACD の `license-discuss` への投稿は審査の前の意見を求めたもので、判断は審査に出してからでないと得られない向きである（`REVISION-PROTOCOL.md` §3.6 の分岐 B）。**逆側**: 2017 年の一人の見立てで、議論の場（discuss）で指摘を受けて直すこと自体を否定してはいない |
+
+**この節が establish しないこと。** 委員長の個人の推薦と見立てで、理事会の決定文ではない。2017 年以後に理事会が助言的な判断を示したことがあるかは、この節では確かめていない。同じ "advisory opinions" の語は、2018〜19 年の審査の手順の議論の rounds（`rounds/2018-to-2019-license-discuss-review-process-cited-observed.txt`）にも在る。
