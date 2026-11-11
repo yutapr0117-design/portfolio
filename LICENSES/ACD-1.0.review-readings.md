@@ -170,7 +170,9 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"Second was the growing realization within the organization that there were too many licenses with too few and too minor differences, and too many licenses granted simply because it was as easy as asking."*・*"Instead, we've imposed requirements which reduce our workload in analyzing licenses."* | Russ Nelson 氏 2007-09-09 | B10・B3。承認を難しくした理由は、差の小さいライセンスの多さと、審査の手間だった。ACD の長さ（B3）は審査の手間を増やす向きにある。**有利な面**: 同じ通は、お金を取る案を退けた理由に *"First, because some of the most interesting licenses were going to come from people like you without a monetary incentive for getting the license approved."* を挙げた。個人の提出は、承認の手続きが想定した提出者の内にある |
 | GPLv3 と LGPLv3 の承認の告知: *"Due to the dramatic differences between and viable communities around both the GPLv3 family and the GPLv2 family of licenses, we will not be marking GPLv2 and LGPLv2 as redundant"* | 理事会の対応の報告 2007-09-06 | 版の扱い（§1.171 の Radcliffe 氏と同じ月）。後継の版が承認されても、前の版は使う共同体が在る限り冗長とされない。ACD はどの版も承認されていないので、当たるのは「前の版をどう扱うか」の先例としてだけである |
 
-**この節が establish しないこと。** 理事会の対応は委員長が委員会へ返した報告の文で、議事録の文ではない。オープンソースハードウェアのライセンスが当時承認されたかは、この節では追っていない。
+**2026-11-11 追記（食い違う記録）**: 1 年後の 2008-11-04、Bruce Perens 氏は SIL Open Font License の審査で *"OSI refused to consider the Open Hardware License because they felt their task should be limited to software."* と書いた（§1.175）。理事会が 2007-09 に「範囲に入る」と答えたことと、その後ハードウェアのライセンスを扱わなかったことの両方が、記録に在る。どちらの文が当時の運用を表していたかは、議事録に当てていない。
+
+**この節が establish しないこと。** 理事会の対応は委員長が委員会へ返した報告の文で、議事録の文ではない。オープンソースハードウェアのライセンスが当時承認されたかは、この節では追っていない（Perens 氏の 2008 年の記述は「扱わなかった」と述べる）。
 
 ## 1.174 多くの大学が使うと表明した提出も、使用を制限する条件で一度止まった —— Educational Community License（2004）（2026-11-11）
 
@@ -184,3 +186,16 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"I have to ask: Did you look at the original Apache license?"* | Ernest Prabhakar 氏 2004-06-07 | B10。新しいライセンスに審査者がまず問うのは、既存のもので足りないか、である。ACD への同じ問いの答えは、register の B10 の行と meta Q37 |
 
 **この節が establish しないこと。** 2004 年の審査と 2007 年の承認の間に何が変わったかは、この節では読んでいない（2.0 の審査のスレッドは別に在る）。Engelfriet 氏の読みは個人のもので、法律家の判断としては数えない。
+
+## 1.175 フォントのライセンスは、フォントをソフトウェアとして扱う読みのもとで承認された —— SIL Open Font License 1.1（2008-11〜2009-04）（2026-11-11）
+
+`rounds/2008-11-license-review-sil-open-font-license-observed.txt`（5 通・スレッドは全 51 通）。SIL International の Nicolas Spalinger 氏が 2008-11-05 に出した。審査の大半は Perens 氏の文言への批判（文書に埋め込んだフォントを取り出せば制限を外せる、など）と、提出者の答えだった。理事会は 2009-04-01 に承認した（`board-decisions.md` の 8.9 節。同氏の懸念について *"we've never used likelihood of achieving the author's goals as a criteria for license approval"*）。OSI の一覧の API は、同じ日に IPA Font License の承認も記録している。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"OSI refused to consider the Open Hardware License because they felt their task should be limited to software."* | Bruce Perens 氏 2008-11-04 | B15 の不利な面。2008 年の時点で、OSI の範囲はソフトウェアに限る、という運用の記述。理事会が 2007-09 に述べた「範囲に入る」（§1.173）と食い違う |
+| *"Outline fonts are only copyrightable at all (in the U.S., at least) because the hints they contain are in some sense software"*、提出者は Fonts are *"software and copyrightable as such in various jurisdictions."* | John Cowan 氏 2008-11-05、Nicolas Spalinger 氏 2008-11-06 | B15。フォントのライセンスは、フォントがソフトウェアだという読みのもとで審査され、承認された。2021 年の委員会の基準（ソフトウェアに使える形で書かれているか・`board-decisions.md` §2e）と同じ向きである。**ACD に当てると不利な面が強い**: ACD の §1.2 が含む data・audiovisual material は、ソフトウェアとして扱う読みが立ちにくい。OFL の承認は、ソフトウェアでないものを扱うライセンスの先例としては弱い。**有利な面**: ACD 自身はソフトウェアに使える形で書かれていて（source code、object code を列挙する）、この基準には当たる |
+| *"This doesn't prevent OSI approval."* | Bruce Perens 氏 2008-11-08 | B10・B1。文言で目的を達せないという強い批判をした本人が、それは承認を妨げないと書いた。理事会の「作者の目的を達するかは承認の基準にしてこなかった」（8.9 節）と同じ向きである。**逆側**: 同氏は同じスレッドで、法的レビューを経ないライセンスを出すことに強く反対した（#309 の系譜） |
+| *"Sometimes open source advocates believe they can revise copyright law by crafting special words in their licenses. That doesn't work."* | Lawrence Rosen 氏 2008-11-10 | ACD の §6.5・§9.2・§6.4 のような、法の状態について述べる文への警告。ACD はこれらの文で法を変えると称さず、権利が在るかを決めないと書く（§6.4 の *"is not decided here"* の向き）。**逆側**: 法の状態に触れる文を持つこと自体が、Rosen 氏の言う誤解を生む余地を持つ（条項別の想定問答の §6 の Perens 氏の問いと同じ根） |
+
+**この節が establish しないこと。** OFL の承認の理由は議事録の 1 文と、この審査の発言から読んだもので、承認の告知の文は読んでいない。フォントがソフトウェアかは法域で違い、この節は決めない。Perens 氏の「OSI が拒んだ」という記述を、議事録で確かめていない。
