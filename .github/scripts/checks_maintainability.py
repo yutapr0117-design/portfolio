@@ -213,16 +213,15 @@ def run(ctx):
         # 破損 JSON 文字列 'NOT{VALID' の孤立 `{`）。これを構造ブレースのみ数えるよう堅牢化する。
         # 順序が重要: まず文字列を除去 (内部の // や /* を巻き込む) → 次に // と /* */ コメント除去。
         _str_re28 = _re_spec28.compile(r"'(?:\\.|[^'\\])*'|\"(?:\\.|[^\"\\])*\"|`(?:\\.|[^`\\])*`")
-        _blockc_re28 = _re_spec28.compile(r"/\*.*?\*/")
+        # コメントは共有の字句 helper で file ごと消す (2026-11-11・Check 481 の監査 #131): 行ごとの正規表現 2 段
+        #   (`/* */` → `//.*$`) は、文字列を先に消しても `//` の中の `/*` や行をまたぐブロックコメントを読み違えた
+        from _lib_io import strip_js_comments as _strip28
 
         def _strip_js_literals_28(line: str) -> str:
-            line = _str_re28.sub("", line)        # 文字列リテラル除去 (escape 対応)
-            line = _blockc_re28.sub("", line)     # 単一行 /* ... */ 除去
-            line = _re_spec28.sub(r"//.*$", "", line)  # 行コメント除去
-            return line
+            return _str_re28.sub("", line)        # 文字列リテラル除去 (escape 対応・コメントは file ごと除去済み)
 
         for _sp28 in _specs_28:
-            _spec_lines_28 = _sp28.read_text(encoding="utf-8").splitlines()
+            _spec_lines_28 = _strip28(_sp28.read_text(encoding="utf-8")).splitlines()
             _brace_depth_28 = 0
             _test_start_depth_28 = None   # None = not currently inside a top-level test()
             for _ln28, _line28 in enumerate(_spec_lines_28, 1):
