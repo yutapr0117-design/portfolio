@@ -247,8 +247,19 @@ would turn §10.2 into a condition in practice (`ACD-1.4-SECOND-CLARITY-TRIAL.md
 reading a court would take, and whether an author's claim for this survives in a jurisdiction where
 §12.2 applies (§12.5 keeps false attribution outside the covenant), we cannot say.
 
+A third question sits at the end of §5.2. The 1.4 draft says *"Section 5 does not reach the Dedicator's
+rights in material, other than the Work, that the Dedicator itself makes or makes available, or the
+terms or measures it applies to that material"*. Suppose a Dedicator ships the Work only inside its own
+installer, under a click-through and a licence key that forbid extracting the bundled components. We
+read the copy inside the installer as still the Work (§2.1: *"every separable part of it"*), so the terms
+and the key restrict the Work and stay inside §5.2(a) and (b). If a court treated the installer as one
+piece of "other material", the exclusion would reach terms that in fact restrict the Work
+(`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.26).
+
 **An answer would change** whether "for" is the right word, and whether data protection needs its
 own exception. An answer to the second question would change whether §11.3 needs the altered-work case in words.
+An answer to the third would change whether the end of §5.2 needs to say that it does not reach a term
+or measure in so far as it restricts the Work.
 
 ## 6. Do the text-and-data-mining declarations do anything? (§6.2, §6.3)
 
