@@ -539,6 +539,11 @@ def run(ctx):
     _rows478 = re.findall(
         r"^\|\s*(\d+)[a-z]?\s*\|.*\|\s*(?:BLOCKING|ADVISORY)[^|]*\|\s*`((?:checks_[a-z_0-9]+|check_repository_consistency)\.py)`\s*\|",
         _map478.read_text(encoding="utf-8") if _map478.exists() else "", re.MULTILINE)
+    # 説明の欄の「実装: `.github/scripts/X.py`」も所在として読む (2026-11-11)。所在列だけを読むと、この書き方の
+    #   行は照合されず、473 の行は分割前の checks_license_submission.py を指したままだった (実体は provenance)
+    _rows478 += [(_m.group(1), _m.group(2)) for _m in re.finditer(
+        r"^\|\s*(\d+)[a-z]?\s*\|[^\n]*?実装[:：]\s*`(?:\.github/scripts/)?((?:checks_[a-z_0-9]+|check_repository_consistency)\.py)`",
+        _map478.read_text(encoding="utf-8") if _map478.exists() else "", re.MULTILINE)]
     _bad478 = []
     for _n478, _mod478 in _rows478:
         _p478 = ROOT / ".github" / "scripts" / _mod478
