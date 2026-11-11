@@ -560,6 +560,18 @@ _MUTATIONS_TAIL.append({
     "find": "h('select', { class: 'input', id: 'settingsImportMode', 'aria-label': 'インポートモード', onchange: (e) => { settingsImportMode = e.target.value; } },",
     "replace": "h('select', { class: 'input', 'aria-label': 'インポートモード', onchange: (e) => { const o = { id: 1 }; settingsImportMode = e.target.value; } },",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 476e: census の誤命中の行から param の 1 本 (LGPL-3.0-or-later) を落とす —— (c) の「モデル・パラメータを名指しする許諾は 0 本」は判定した集合に依るのに、判定の行と表の列を照合していなかった",
+    "file": ROOT / "LICENSES" / "ACD-1.0.gap-census.md",
+    "find": "`LGPL-2.1-or-later`、`LGPL-3.0-only`、`LGPL-3.0-or-later`: *\"numerical parameters",
+    "replace": "`LGPL-2.1-or-later`、`LGPL-3.0-only`: *\"numerical parameters",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 476e: 生成器の READ_MISHITS の art4 から IPA を外す —— 生成器は取得し直した日にしか走らないので、読んだ集合の定数と census の判定の行がずれても気付かなかった",
+    "file": ROOT / ".github" / "scripts" / "generate_gap_census.py",
+    "find": "\"art4\": {\"CECILL-2.1\", \"IPA\"},",
+    "replace": "\"art4\": {\"CECILL-2.1\"},",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

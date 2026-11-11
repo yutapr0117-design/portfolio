@@ -108,6 +108,9 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        **476d (2026-11-11)**: `measure_gap_claim.py` の向きの仕分け (estoppel / consideration / rely などが承認済みの
        本文で逆の向きに使われるのを分ける) が、承認済みの本文と ACD-1.4 草案から逐語で取った自己試験の文を
        期待どおりに仕分けること。ネットワーク無しで走る。語族ごとに ACD の向きの文を 1 つは持つこと。
+       **476e (2026-11-11)**: census の「誤命中」節の判定 (`ml` は Multics の組織名、など) が、表の列 (0 でない行)・
+       判定の行の列挙・生成器の `READ_MISHITS` の 3 つで同じ本の集合を指すこと。生成器は集合が違えば止まるが、
+       それは取得し直した日にしか走らないので、CI で同期を見る。
        どの Check も気付かない。** 本数を名乗る数が、実測済みの版の値（`_SPDX476`）の
        どれかであることを強制する。新しい版を測ったら `_SPDX476` に足す（足すこと自体が
        「その版を実際に測った」という記録になる）。(BLOCKING)
@@ -714,5 +717,50 @@ def run(ctx):
         (f"Check 476d: measure_gap_claim.py の向きの仕分けが崩れている: {_out476d.getvalue().strip()[:400]}"
          + (f" / ACD の向きの自己試験の文が無い語族: {_lack476d}" if _lack476d else "")
          + "。材料表 §1c が引く「逆の向き」の数は、この仕分けで出る。正規表現を変えたら自己試験の文が同じ向きに落ちることを確かめよ"),
+        blocking=True,
+    )
+    # 476e —— census の「誤命中」節の判定が、表の列と生成器の READ_MISHITS と同じ本の集合を指す (2026-11-11)。
+    #   census の (a) / (c) の結論文 (「AI を名指しする本は 0 本」「モデル・パラメータを名指しする許諾は 0 本」) と
+    #   誤命中の判定の文は、生成器が固定の文で書く。生成器は命中の集合が READ_MISHITS と違えば止まるが、それは
+    #   取得し直した日にしか走らない。ここでは census の表の列 (0 でない行)・判定の行の列挙・READ_MISHITS の
+    #   3 つが同じ集合であることを CI で見る (art4 は表の列が無いので、判定の行と READ_MISHITS の 2 つ)
+    import ast as _ast476e
+    _cs476e = ROOT / "LICENSES" / "ACD-1.0.gap-census.md"
+    _gn476e = ROOT / ".github" / "scripts" / "generate_gap_census.py"
+    _bad476e, _read476e = [], {}
+    try:
+        for _nd in _ast476e.walk(_ast476e.parse(_gn476e.read_text(encoding="utf-8"))):
+            if isinstance(_nd, _ast476e.Assign) and any(getattr(_t, "id", "") == "READ_MISHITS" for _t in _nd.targets):
+                for _k, _v in zip(_nd.value.keys, _nd.value.values):
+                    _read476e[_ast476e.literal_eval(_k)] = (set() if isinstance(_v, _ast476e.Call)
+                                                            else set(_ast476e.literal_eval(_v)))
+    except (OSError, SyntaxError, ValueError, AttributeError) as _e:
+        _bad476e.append(f"生成器の READ_MISHITS が読めない ({type(_e).__name__})")
+    _ct476e = _cs476e.read_text(encoding="utf-8") if _cs476e.exists() else ""
+    _rows476e = [_l.split("|") for _l in _ct476e.split("\n") if _l.startswith("| `")]
+    _col476e = {"tdm": 6, "ml": 7, "train": 8, "model": 9, "param": 10}
+    for _k in ("tdm", "ml", "train", "model", "param", "art4"):
+        _sets = {}
+        if _k in _col476e:
+            _sets["表の列"] = {_r[1].strip().strip("`") for _r in _rows476e
+                              if len(_r) > _col476e[_k] and _r[_col476e[_k]].strip() not in ("", "0")}
+        _mj = re.search(r"^- `" + _k + r"` の (\d+) 件 —— (.*?): ", _ct476e, re.M)
+        if _mj:
+            _sets["誤命中の行"] = set(re.findall(r"`([^`]+)`", _mj.group(2)))
+            if int(_mj.group(1)) != len(_sets["誤命中の行"]):
+                _bad476e.append(f"{_k}: 誤命中の行が {_mj.group(1)} 件と述べて {len(_sets['誤命中の行'])} 本を挙げる")
+        elif _k != "tdm":
+            _bad476e.append(f"{_k}: census に誤命中の判定の行が無い")
+        if _k not in _read476e:
+            _bad476e.append(f"{_k}: 生成器の READ_MISHITS に無い")
+        else:
+            _sets["READ_MISHITS"] = _read476e[_k]
+        if len({frozenset(_v) for _v in _sets.values()}) > 1:
+            _bad476e.append(f"{_k}: " + " / ".join(f"{_n} {sorted(_v)}" for _n, _v in _sets.items()))
+    check(
+        not _bad476e,
+        f"Check 476e: census の誤命中の判定が、表の列と生成器の READ_MISHITS と同じ本を指す ({', '.join(f'{_k} {len(_v)}' for _k, _v in _read476e.items())})",
+        (f"Check 476e: census の誤命中の判定と表・生成器が食い違う: {_bad476e}。(a) / (c) の結論文は読んだ集合を固定の文で書くので、"
+         "集合が変わったら本文を読み直し、結論文・判定の文・READ_MISHITS を同じ commit で直せ"),
         blocking=True,
     )
