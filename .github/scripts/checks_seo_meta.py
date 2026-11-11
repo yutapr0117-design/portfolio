@@ -671,7 +671,33 @@ def run(ctx):
             "/playwright-report/",
             "/blob-report/",
         ]
-        _missing162 = [r for r in _required162 if r not in _gisrc162]
+        # .gitignore の規則が見本の path に効いているかを、git の規則どおりに読む (2026-11-11・監査 #81): file 全体の
+        #   部分文字列で探すと、コメントにした規則 (`# node_modules/`) も、後の行の否定 (`!node_modules/`) で打ち消した
+        #   規則も「在る」と数えた。git check-ignore に問う形は、worktree が共有する .git/info/exclude の規則で
+        #   .gitignore の欠けが隠れ、ローカルと CI で結果が割れたので使わない。最後に当たった行が決める (`!` は除外)
+        import fnmatch as _fn162
+        _lines162 = [_l.strip() for _l in _gisrc162.splitlines() if _l.strip() and not _l.strip().startswith("#")]
+        _sample162 = {"node_modules/": "node_modules/a.js", "__pycache__/": ".github/scripts/__pycache__/x.pyc",
+                      "/test-results/": "test-results/a.txt", "/playwright-report/": "playwright-report/index.html",
+                      "/blob-report/": "blob-report/a.zip"}
+
+        def _ignored162(_path):
+            _parts, _hit = _path.split("/"), False
+            for _pat in _lines162:
+                _neg = _pat.startswith("!")
+                _p = _pat[1:] if _neg else _pat
+                _dir_only, _p = _p.endswith("/"), _p.rstrip("/")
+                _anch = _p.startswith("/") or "/" in _p
+                _p = _p.lstrip("/")
+                for _k in range(1, len(_parts) + 1):
+                    if _dir_only and _k == len(_parts):
+                        continue
+                    _subj = "/".join(_parts[:_k]) if _anch else _parts[_k - 1]
+                    if _fn162.fnmatchcase(_subj, _p.replace("**/", "*")):
+                        _hit = not _neg
+                        break
+            return _hit
+        _missing162 = [r for r in _required162 if not _ignored162(_sample162[r])]
         check(
             not _missing162,
             f"Check 162: .gitignore baseline 5 rule 全て presence",
