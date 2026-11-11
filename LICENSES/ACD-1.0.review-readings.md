@@ -238,3 +238,18 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"As long as that list remains, I will object. It is inaccurate, incomplete, misleading, subject to cronyism and personal bias by members of the OSI board of directors, and does not reflect the actual importance or uses of those licenses."* | Lawrence Rosen 氏 2012-06-04 | B2。人気や使われ方の一覧を、承認や推奨の根拠にすることへの強い反対。**逆側**: 個人の発言で、一覧は残った |
 
 **この節が establish しないこと。** Villa 氏の文は留保つきの個人の理解で、OSI の方針の文ではない。2012 年の運用の全体は、この節では数えていない。
+
+## 1.179 審査の仕事は 4 つの問い —— OSD、独自で正当な条項、法的な健全さ、大きく持続するプロジェクト（OSET Public License・2015）（2026-11-11）
+
+`rounds/2015-09-to-11-license-review-oset-public-license-observed.txt`（6 通）。Open Source Election Technology Foundation の依頼で Heather Meeker 氏が 2015-09-01 に出した、MPL 2.0 を元にした選挙の技術のためのライセンス。委員会は政府に有利な条項（§4）を MPL 2.0 の元の形へ戻すよう求め、本文から財団の名を外して再利用できる形にしたあと、2015-11-12 に *"The OSI has approved the OSET Foundation Public License version 2.1."* と告げた。2 か月半で、弁護士が起草し財団が出した提出である（同じ弁護士が起草した Tidepool は、提出者が自分で止めた・§1.166）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Our job is to decide: a) does the OSET license meet the letter and spirit of the OSD? b) does it contain unique and valid provisions, such that no existing license is sufficient? c) is it legally sound? d) is it going to be used by a significant and sustained project?"* | Josh Berkus 氏（委員会）2015-09-10 | B10・B1・B2 の不利な面。審査の仕事を 4 つの問いで述べた。ACD は (a) を満たすと主張でき、(b) は register の B10 が条文で示す。(c) は法的なレビューを受けていない（B1）。**(d) には答えられない** —— 本リポジトリ 1 件で、大きく持続するプロジェクトは無い。#312（同氏 2014「使う意思の無いライセンスには反対」）に足した。**逆側**: 個人の言い方で、委員会の規則の文ではない。同氏は翌日 *"It is NOT OUR BUSINESS to tell an OSS project that they should have a different license"* とも書いた |
+| *"I don't think we've been consistently enforcing the 'recommend a proliferation category' requirement at the outset, but would you agree this license ought to be classified as 'special purpose'?"* | Richard Fontana 氏 2015-09-03 | 分類の扱い。提出者が分類を勧める手続きは一貫して当てられていなかった（meta Q37 の「分類は名乗らない」と同じ観察）。委員会の側から特別な目的の分類を示した |
+| *"Given the concerns expressed here about the OSET Public License privileging one class of licensees, we ask that the OSET Foundation revise the OSET Public License to revert section 4 to the corresponding ancestral version of that section in MPL 2.0."* | Richard Fontana 氏（委員会として）2015-10-14 | 受領者の一部（政府）を有利にする条項は戻すよう求められた。ACD は受領者を区別しない（§1.4 の "You"、§10.1）。有利な面 |
+| 提出者の名を本文から外す提案: *"That way, the text of the license will be "templatized" for use by others."* | Heather Meeker 氏 2015-11-04 | reusable の基準が 2015 年にも運用で当てられた例（§1.168・§1.170）。ACD の本文は個人も組織も名指さない（§1.168 の行） |
+
+**読み。** OSET の審査は、弁護士の起草、財団の後ろ盾、具体的なプロジェクト（TrustTheVote）を持つ提出が、条項の修正と名の外しを経て 2 か月半で承認された例である。ACD が持たないのは (c) と (d) で、どちらも提出の前に記録の上で変えられない。
+
+**この節が establish しないこと。** Berkus 氏の 4 つの問いは個人の言い方で、承認の理由として理事会が述べた文ではない。OSET の承認の議事録は読んでいない。
