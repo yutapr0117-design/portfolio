@@ -1,0 +1,202 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2012-June)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 4 messages this dossier cites from "proposal to revise and slightly reorganize the OSI licensing pages" (license-discuss, 2012-06; 93 messages under the subject). Not the whole thread.
+Senders: John Cowan, Luis Villa, Lawrence Rosen
+Position: a board member's proposal for how approved licences are presented, and replies. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From cowan at mercury.ccil.org  Thu Jun  7 22:04:31 2012
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Thu, 7 Jun 2012 18:04:31 -0400
+Subject: [License-discuss] proposal to revise and slightly reorganize
+ the OSI licensing pages
+In-Reply-To: <20120606141323.GA19196@hemlock.hydra>
+References: <CAFPTOkUHg8cXru2+cpUfr_vEdYA20Zj=AT+8jY4ot9LAr=R_aw@mail.gmail.com>
+	<20120606141323.GA19196@hemlock.hydra>
+Message-ID: <20120607220431.GD18004@mercury.ccil.org>
+
+Chad Perrin scripsit:
+
+> Is "have been approved through the [OSI's] license review process" really
+> a requirement for being an "open source license", or is that just a
+> requirement for being *certified* as an "open source license" by the OSI?
+
+Clearly the latter.  The text should be adjusted accordingly, as there are
+several reasons why a license might be Open Source but not OSI-approved:
+
+1) It has not been submitted for certification in proper form.
+
+2) The Board considers it a vanity license.
+
+3) The Board believes that it substantially duplicates an existing license.
+
+> It seems that there is a distinction to be made between "OSI-approved"
+> and merely "open source", where "open source" would *by definition*
+> (tautologically, it seems) be any license that conforms to the definition
+> of open source.
+
+Exactly.
+
+-- 
+Mark Twain on Cecil Rhodes:                    John Cowan
+I admire him, I freely admit it,               http://www.ccil.org/~cowan
+and when his time comes I shall                cowan at ccil.org
+buy a piece of the rope for a keepsake.
+
+
+From luis at tieguy.org  Sat Jun  9 17:00:11 2012
+From: luis at tieguy.org (Luis Villa)
+Date: Sat, 9 Jun 2012 10:00:11 -0700
+Subject: [License-discuss] alternative language proposal,
+ question about history [was Re: proposal to revise and slightly
+ reorganize the OSI licensing pages]
+Message-ID: <CAFPTOkXNYz5+dR7R4u2UxaHhojC18U3QFh-LNaqB5QePx1z71A@mail.gmail.com>
+
+[Since the other thread has degenerated, changing the thread title.]
+
+On Sat, Jun 9, 2012 at 9:42 AM, Chad Perrin <perrin at apotheon.com> wrote:
+> On Thu, Jun 07, 2012 at 03:09:47PM -0700, Luis Villa wrote:
+>> On Thu, Jun 7, 2012 at 3:04 PM, John Cowan <cowan at mercury.ccil.org> wrote:
+>> > Chad Perrin scripsit:
+>> >
+>> >> Is "have been approved through the [OSI's] license review process" really
+>> >> a requirement for being an "open source license", or is that just a
+>> >> requirement for being *certified* as an "open source license" by the OSI?
+>> >
+>> > Clearly the latter. ?The text should be adjusted accordingly, as there are
+>> > several reasons why a license might be Open Source but not OSI-approved:
+>> >
+>> > 1) It has not been submitted for certification in proper form.
+>> >
+>> > 2) The Board considers it a vanity license.
+>> >
+>> > 3) The Board believes that it substantially duplicates an existing license.
+>> >
+>> >> It seems that there is a distinction to be made between "OSI-approved"
+>> >> and merely "open source", where "open source" would *by definition*
+>> >> (tautologically, it seems) be any license that conforms to the definition
+>> >> of open source.
+>> >
+>> > Exactly.
+>>
+>> I've got a partial draft response to Chad drafted, but John covers
+>> most of it - the general point is definitely well-taken. I'm about to
+>> leave on vacation, so am a bit crunched for time- if someone would
+>> propose an alternate wording, I'd appreciate it.
+>
+> I've been without email for about two and a half days, which accounts for
+> the delay in my response. ?I just wanted to thank you both for your
+> replies, clarifying the intent of the passage I quoted.
+>
+> I think the sentence in question can be best "fixed" by breaking it into
+> two sentences, one each about what qualifies as an open source license
+> and what the OSI review process does. ?While the following can surely
+> stand some improvement, it may give a sense of what I mean as an example
+> of how the edited form might be structured:
+>
+> ? ?Open Source licenses are licenses that comply with the Open Source
+> ? ?Definition. ?The Open Source Initiative's review process is used to
+> ? ?approve licenses for certification by the Open Source Initiative, as
+> ? ?examples of licenses that conform to the Open Source Definition that
+> ? ?should be regarded as well-established within the Open Source
+> ? ?community.
+>
+> I hope that helps get the ball rolling on a revision.
+
+That's definitely a useful start. I'm not sure I agree 100% with the
+substance of the second sentence, as (to the best of my knowledge) OSI
+has never formally laid out a policy or criteria by which something
+could be OSD-compliant but not approved and placed into at least
+*some* category. But I'm definitely blurry on that and would welcome
+correction/clarification (both of Chad's proposed language and my
+understanding of the history).
+
+Unfortunately, in 24 hours, I am going off-grid for two weeks - I
+regret the timing but look forward to catching up when I get back and
+hopefully rolling this issue up.
+
+Luis
+
+
+From lrosen at rosenlaw.com  Mon Jun  4 16:36:19 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Mon, 4 Jun 2012 09:36:19 -0700
+Subject: [License-discuss] proposal to revise and slightly
+	reorganize	the OSI licensing pages
+In-Reply-To: <CAFPTOkV=bkbWhqHedt0NPqYAwApD=v6PZX_0zno8B_RKnPAV9g@mail.gmail.com>
+References: <CAFPTOkUHg8cXru2+cpUfr_vEdYA20Zj=AT+8jY4ot9LAr=R_aw@mail.gmail.com>
+	<CAFPTOkV=bkbWhqHedt0NPqYAwApD=v6PZX_0zno8B_RKnPAV9g@mail.gmail.com>
+Message-ID: <1a8f01cd4270$2bb07f50$83117df0$@rosenlaw.com>
+
+Luis Villa writes:
+> The following Open Source licenses are popular, widely used, or 
+> have strong communities:
+
+As long as that list remains, I will object. It is inaccurate, incomplete,
+misleading, subject to cronyism and personal bias by members of the OSI
+board of directors, and does not reflect the actual importance or uses of
+those licenses.  
+
+Get rid of any indication that "popularity" [1] has anything to do with
+legal viability. Define what you mean by "widely used" [2]. What is a
+"strong community" [3]?
+
+/Larry
+
+[1] I've already pointed out that the Black Duck statistics on popularity
+are in error!
+
+[2] Do you mean lines of code? Number of software packages? And where's the
+data to back up that list?
+
+[3] Since when is the community for Open Solaris (CDDL) stronger than the
+community for Magento or the US government software distributed under OSL
+3.0, or the non-Apache software contributed to lots of projects under AFL
+3.0, or the IETF software distributed under NOSL 3.0 (a license, by the way,
+that has no equivalent)? Yes, I'm as biased as the members of the OSI board
+when it comes to licenses, and I intend to be as loud a voice as you are as
+long as you continue to propagate that nonsensical list.
+
+/Larry
+
+Lawrence Rosen
+Rosenlaw & Einschlag, a technology law firm (www.rosenlaw.com)
+3001 King Ranch Rd., Ukiah, CA 95482
+Office: 707-485-1242
+
+From luis at tieguy.org  Mon Jun  4 16:17:07 2012
+From: luis at tieguy.org (Luis Villa)
+Date: Mon, 4 Jun 2012 09:17:07 -0700
+Subject: [License-discuss] proposal to revise and slightly reorganize
+	the OSI licensing pages
+In-Reply-To: <CAFPTOkUHg8cXru2+cpUfr_vEdYA20Zj=AT+8jY4ot9LAr=R_aw@mail.gmail.com>
+References: <CAFPTOkUHg8cXru2+cpUfr_vEdYA20Zj=AT+8jY4ot9LAr=R_aw@mail.gmail.com>
+Message-ID: <CAFPTOkV=bkbWhqHedt0NPqYAwApD=v6PZX_0zno8B_RKnPAV9g@mail.gmail.com>
+
+On Sat, Jun 2, 2012 at 12:35 PM, Luis Villa <luis at tieguy.org> wrote:
+> ? ?The following Open Source licenses are popular, widely used, or
+> have strong communities:
+>
+> ? ? ? ?Apache License, 2.0 (Apache-2.0)
+> ? ? ? ?BSD 3-Clause "New" or "Revised" license (BSD-3-Clause)
+> ? ? ? ?BSD 3-Clause "Simplified" or "FreeBSD" license (BSD-2-Clause)
+> ? ? ? ?GNU General Public License (GPL)
+> ? ? ? ?GNU Library or "Lesser" General Public License (LGPL)
+> ? ? ? ?MIT license (MIT)
+> ? ? ? ?Mozilla Public License 2.0 (MPL-2.0)
+> ? ? ? ?Common Development and Distribution License (CDDL-1.0)
+> ? ? ? ?Eclipse Public License (EPL-1.0)
+
+Because there appears to have been some confusion, judging from
+private emails, let me be explicit that this is exactly the same list
+currently described as "License [sic] that are popular and widely used
+or with strong communities." No changes, editorial or otherwise, have
+been made except to change the category name into a complete sentence.
+
+Do NOT suggest changes to this list at this time. It is not perfect,
+but it is long-settled, and will not be revised until many months
+(more likely years) of work have been done.
+
+Luis
+
+
