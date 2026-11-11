@@ -25,6 +25,8 @@ ACD-1.0 §6 / §8.4 / §9 が扱う主題の語が現れるか。
     python3 .github/scripts/measure_gap_claim.py --verbose       # 該当 licenseId と向きごとの文も出す
     python3 .github/scripts/measure_gap_claim.py --texts DIR     # DIR/<licenseId>.txt を読む（census の cache と同じ形）
     python3 .github/scripts/measure_gap_claim.py --wp-json F...  # opensource.org の WP API の license ページ（content.rendered）
+        取得元: WP_LICENSE_API の page=1, 2, … を順に取って保存したもの（この道具は取得しない）。
+        出力に各 file の sha256 の先頭を出すので、取得の記録（日付と sha256）と結べる
     python3 .github/scripts/measure_gap_claim.py --self-test     # 向きの仕分けを固定の文で確かめる（ネットワーク不要）
 
 既定はネットワークが要る（SPDX の公開 JSON を取得する）。CI では走らせない
@@ -32,6 +34,7 @@ ACD-1.0 §6 / §8.4 / §9 が扱う主題の語が現れるか。
 """
 from __future__ import annotations
 
+import hashlib
 import html
 import json
 import re
@@ -42,6 +45,8 @@ from pathlib import Path
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 INDEX = "https://spdx.org/licenses/licenses.json"
+# --wp-json の入力の取得元 (2026-10-17 の取得もこの形・portfolio-aa の依頼で明記した)。1 ページ 100 件
+WP_LICENSE_API = "https://opensource.org/wp-json/wp/v2/license?orderby=modified&order=desc&per_page=100&page={}"
 DETAIL = "https://spdx.org/licenses/{}.json"
 
 # 出力は英語で書く (2026-11-06)。§B.0 が審査者に走らせる道具で、結果が読めなければ約束が果たせない。
@@ -147,14 +152,17 @@ def _corpus(argv: list[str]):
         files = sorted(d.glob("*.txt"))
         return f"{len(files)} text file(s) in {d}", [(f.stem, f.read_text(encoding="utf-8", errors="replace")) for f in files]
     if "--wp-json" in argv:
-        pages = []
+        pages, digests = [], []
         for f in argv[argv.index("--wp-json") + 1:]:
             if f.startswith("--"):
                 break
-            pages += json.loads(Path(f).read_text(encoding="utf-8"))
+            raw = Path(f).read_bytes()
+            digests.append(f"{Path(f).name} sha256 {hashlib.sha256(raw).hexdigest()[:12]}")
+            pages += json.loads(raw.decode("utf-8"))
         rows = [(p.get("slug", "?"), html.unescape(re.sub(r"<[^>]+>", " ", (p.get("content") or {}).get("rendered", ""))))
                 for p in pages]
-        return f"opensource.org WP API license pages: {len(rows)}", rows
+        return (f"opensource.org WP API license pages: {len(rows)} ({'; '.join(digests)})\n"
+                f"  source: {WP_LICENSE_API.format('1, 2, …')}"), rows
 
     index = json.loads(_get(INDEX))
     osi = [l["licenseId"] for l in index["licenses"] if l.get("isOsiApproved")]

@@ -18,7 +18,7 @@ canonical-ref: LICENSES/ACD-1.0.submission.md §B.0 (この script を「the com
 現れるが**逆の向きで**現れる（*estoppel* は「黙示の許諾を生まない」の列挙に、*consideration* は
 「条件の対価」に）ので、語の有無ではなく文ごとに向きを仕分けて、向きごとの本数を出す。
 入力は SPDX（既定・ネットワーク）のほかに `--texts DIR`（census の cache と同じ `<id>.txt`）と
-`--wp-json F…`（opensource.org の WP API の license ページ）を取れる。2026-10-17 取得の WP 126 本では
+`--wp-json F…`（opensource.org の WP API の license ページ。取得元は `https://opensource.org/wp-json/wp/v2/license?orderby=modified&order=desc&per_page=100&page=N` で、道具は取得しない。出力に入力 file の sha256 の先頭と取得元を出すので、取得の記録と結べる）を取れる。2026-10-17 取得の WP 126 本では
 *independent(ly) of* 4 本はすべて別の向き・*fallback* 0・*estoppel* 7 本はすべて黙示の許諾を否定する向き・
 *consideration* 6 本のうち 5 本が条件の対価・信頼を目的と述べる本 0（portfolio-aa の手の測定と一致）。
 
