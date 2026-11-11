@@ -1,0 +1,159 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2002-October)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 3 messages this dossier cites from "click-wrap is legally supportable?" (license-discuss, 2002-10; 11 messages). Not the whole thread.
+Senders: Rod Dixon, J.D., LL.M., Russell Nelson
+Position: a discussion of whether clicking through a licence forms assent, and what follows for licences that ask for none. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From rod at cyberspaces.org  Mon Oct 28 15:24:05 2002
+From: rod at cyberspaces.org (Rod Dixon, J.D., LL.M.)
+Date: Mon, 28 Oct 2002 10:24:05 -0500
+Subject: click-wrap is legally supportable?
+References: <15805.19445.505651.355851@desk.crynwr.com>
+Message-ID: <000501c27e96$0daa1640$0200a8c0@AIBO2>
+
+Some of your hypotheticals are interesting, but I think you are missing the
+point. We are discussing licenses that are presumably issued by licensors.
+In that respect, it is in the interest of the licensor to follow the steps
+that might ensure that his or her license is enforceable. One of the steps
+relevant for the licensor is contract formation or for the licensee we might
+simply say mutual assent, which is where a mouse click might help.
+
+The questions Russ poses seem to be of the type: well, what about the
+licensee? Certainly, the interests of the licensor are not always consonant
+with those of the licensee, but this isn't a very compelling soapbox issue
+in my opinion. In particular, many on this list seem to have no aversion to
+the warranty disclaimer, which, if enforceable in a particular state, is not
+exactly user-friendly.  Quite honestly, in the balance, I think that the
+clickwrap issue favors end-users more so (or is less one-sided) than a
+warranty disclaimer.  Mutual assent is meant to ensure as best as practical
+that folks know what they are agreeing to be bound by, and in that light
+serves the interests of both parties...whereas the warranty disclaimer
+serves the interest of the licensor, violates consumer protection
+principles, but has the effect in open source of offering a trade of
+interests.
+
+
+
+> I wonder if you are deemed to have accepted a click-wrap license
+> if software requiring a click-wrap appears on your machine?  Have you
+> agreed to every license which was clicked past on your machine?  What
+> if an employee with no authority to bind the company to a contract
+> clicked?  What if someone who has no ability to enter into a contract
+> clicked (e.g. your kid)?  What if a repairman clicked?  Or the cable
+> guy clicked?  In the various cases which are claimed as precedent, did
+> the judge get asked these hard questions?
+> -russ
+
+And, what about the envelopes left at your home from a stranger in a uniform
+that get tossed in the trash, unread. Might any of those items be binding?
+Upon who? Why?  The point is I do not think we need to exploit circumstances
+involving mailmen, the cableguys, or the repairwomen to properly analyze how
+mutual assent applies to open source website licenses. A range of mechanisms
+might be appropriate to ensure mutual assent, including instances where a
+click is unnecessary.
+
+Rod
+
+Rod Dixon
+Visiting Assistant Professor of Law
+Rutgers University Law School - Camden
+rod at cyberspaces.org
+http://www.cyberspaces.org/dixon/
+My papers on the Social Science Research Network (SSRN) are available
+through the following url: http://papers.ssrn.com/author=240132
+
+
+
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From nelson at crynwr.com  Mon Oct 28 20:37:52 2002
+From: nelson at crynwr.com (Russell Nelson)
+Date: Mon, 28 Oct 2002 15:37:52 -0500 (EST)
+Subject: click-wrap is legally supportable?
+In-Reply-To: <000501c27e96$0daa1640$0200a8c0@AIBO2>
+References: <15805.19445.505651.355851@desk.crynwr.com>
+	<000501c27e96$0daa1640$0200a8c0@AIBO2>
+Message-ID: <15805.40421.794806.875105@desk.crynwr.com>
+
+Rod Dixon, J.D., LL.M. writes:
+ > Some of your hypotheticals are interesting, but I think you are missing the
+ > point. We are discussing licenses that are presumably issued by licensors.
+ > In that respect, it is in the interest of the licensor to follow the steps
+ > that might ensure that his or her license is enforceable. One of the steps
+ > relevant for the licensor is contract formation or for the licensee we might
+ > simply say mutual assent, which is where a mouse click might help.
+
+I don't see how a judge could say that assent was formed, when the
+party with whom it was presumably formed may not even have been
+present.
+
+And yet very large corporations are whistling past the cemetary.  Some
+of them (the licensors) are saying "Oh, yes, we have an ironclad
+contract with the customer.  You see, they clicked on the license
+agreement".  Others of them (the licensees) are saying "These things
+are unenforcible.  No judge could be so stupid as to think that a
+minimum wage employee is binding my company to a contract."
+
+I guess I just can't believe that so many sober people take click-wrap 
+so seriously.
+
+-- 
+-russ nelson              http://russnelson.com |
+Crynwr sells support for free software  | PGPok | businesses persuade
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | governments coerce
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rod at cyberspaces.org  Tue Oct 29 04:51:25 2002
+From: rod at cyberspaces.org (Rod Dixon, J.D., LL.M.)
+Date: Mon, 28 Oct 2002 23:51:25 -0500
+Subject: click-wrap is legally supportable?
+References: <005a01c27ebc$c4fe0b50$9ff4a8c0@IBMA30p>
+Message-ID: <003001c27f06$d6541080$0200a8c0@AIBO2>
+
+
+> Question:  If you have a monopoly position (e.g. Microsoft), and force a
+> click-wrap license to get product updates/support (e.g. MSFTs product
+> update facility), is there a legal challenge to the license terms?
+>
+You can certainly challenge the terms of a click-wrap license, but the facts
+in your question do not seem sufficient to raise a relevant challenge. You
+would need to supply additional facts to your hypothetical, including
+whether your idea is that there is uneven bargaining power, that the license
+is a form contract, that the terms were really not negotiated, that the
+terms were drafted by the product developer, that the terms are particularly
+onerous on the party not drafting the license, and so on. Even so, I am
+unsure where this leads unless the harm is fleshed out more.
+
+> What's the end-user supposed to do - not install a critical security fix
+> because they didn't like the license?  MSFTs monopoly position allows
+> them to impose a license on the market.  Is that a basis for challenging
+> the terms of the license?
+>
+> Larry
+>
+
+What license term would you imagine challenging? Why? Simply not "liking" a
+license (or a party to the license) does not spell out a sufficient basis to
+challenge  a license you are bound by when the clickwrap offers amble
+opportunity NOT to consent....that's the point under discussion. If there
+were no clickwrap or if you lived in Russ' world, you might have a better
+argument challenging the license (browser-wrap) on the basis that there is
+no manifestation of mutual assent.
+
+Rod
+
+>
+> --
+> license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
