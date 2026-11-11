@@ -705,3 +705,17 @@ After: It does not apply this Dedication to material that a narrower notice the 
 
 **採ったことの逆側**: 題名からの数が GPL-3.0 を下回ったが、それは結果で、閾値のために削ったのではない（§14.25 と長さの行）。条文の数では 595 語長いまま。errata E56 が直した文は本文から消えた。1.0 の §8.4 の第 2 文は 1.0 にも在るので、F3 の分岐は 1.0〜1.3 の欠陥として errata に記録する（portfolio-00 に頼む）。
 
+### 14.29 いまの状態を恒久の本文に書いた文を、草案全体で探した（作用の条は 0・変えない・2026-11-12）
+
+**レンズ**: T54 の (2)（法の未決という一時的な状態を恒久の本文に書く）を草案全体に当てた。題名から *END OF TERMS* までの本文で、*unresolved / unsettled / uncertain / currently / presently / at present / today / in practice / has proved / is unclear / not yet / so far / now fails / increasingly / in most jurisdictions / common use* を正規表現で探した。
+
+| 出た所 | 読み | 結果 |
+| :-- | :-- | :-- |
+| 前文の 4 文（*"increasingly produced by machines"*・*"That assumption now fails"*・*"It is unclear whether rights subsist"*・*"the question is unsettled in most jurisdictions"*）| いまの状態の記述だが、前文は *"informative; not part of the operative terms"* で、§14.25 で読んで残した | 残す |
+| §6.5 *"silence on this subject has proved ambiguous in practice"* | 過去の観察で、後で偽にならない。1 冊目の §8（T1）で外向きの文書が依拠するとして残した | 残す |
+| §1.5 *"whether or not presently known and whether or not presently subsisting"*、§6.1・§6.2・§7.2 の *"so far as"* | 状態の記述ではなく、範囲の語 | 対象外 |
+
+**結果**: 作用の条で、いまの状態を述べて後で偽になりうる文は 0。T54 で外した §8.4 の文が唯一だった。
+
+**⚠ 逆側**: 前文の 4 文は、法が決まれば古くなる。前文は効力を持たないので作用には響かないが、審査者が読む文としては古びる —— 版を確定する日に、前文の状態の記述がまだ真かを読み直す（確定の手順の段 7 に足す候補）。語の一覧で探したので、一覧に無い言い方（*remains open* など）は漏れうる。
+
