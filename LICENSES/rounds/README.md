@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-12 時点・382 ファイル）
+## いまの状態（2026-11-12 時点・383 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -101,6 +101,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2013-03 | `license-review` | **観測（2013 年 3 月の委員会報告 2 本から 3 通・理事会が求めて復活した正式の報告、CeCILL 2.1 の推薦、個人の起草者への勧め）** | `2013-03-license-review-committee-reports-observed.txt` |
 | 2017-01〜02 | `license-review` | **観測（"License Committee Report - January 2017" から 4 通・推薦は委員長個人のもの、list の沈黙、理事会は前もって判断を示さない）** | `2017-01-and-02-license-review-committee-report-observed.txt` |
 | 2005-04 | `license-discuss` | **観測（"Official License Anti-Proliferation policy?" から 4 通・OSI の 2005-04-08 の声明の写しと、3 つの新しい基準の当てはめ方の説明）** | `2005-04-license-discuss-proliferation-statement-observed.txt` |
+| 2016-06・2017-01 | `license-review` | **観測（"Approval request for ZENTAO PUBLIC LICENSE" から 4 通と 2017-01 の委員会報告の会話から 1 通・badgeware、中国語の正本、利用者の多さでは足りなかった提出）** | `2016-06-license-review-zentao-public-license-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
 | 2012〜2020 | `license-review` | **観測（特許を扱う新しい permissive の必要性と、増殖の分類の現状・4 通）** | `2012-to-2020-license-review-need-and-proliferation-categories-cited-observed.txt` |

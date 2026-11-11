@@ -1,0 +1,274 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2016-June, 2017-January)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 5 messages this dossier cites: 4 from the two ZENTAO conversations of 2016-06 ("ZENTAO PUBLIC LICENSE For Approval" and "Approval request for ZENTAO PUBLIC LICENSE", license-review; 61 messages together) and 1 from "License Committee Report - January 2017" (license-review, 2017-01). Not the whole threads.
+Senders: Josh berkus, John Cowan, Fei Teng
+Position: a company's submission of a licence that requires attribution to remain in the user interface, with a Chinese authoritative text, and replies including one after the chair recommended rejection. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From josh at postgresql.org  Mon Jun  6 15:11:34 2016
+From: josh at postgresql.org (Josh berkus)
+Date: Mon, 6 Jun 2016 08:11:34 -0700
+Subject: [License-review] ZENTAO PUBLIC LICENSE For Approval
+In-Reply-To: <CACTcg1iSrjfrU94BUPPLz5=i-U=Jkd52uybBjp22HuDaTHfD_A@mail.gmail.com>
+References: <SG2PR03MB1744787808093516C544F348B68A0@SG2PR03MB1744.apcprd03.prod.outlook.com>
+ <SG2PR03MB1744105634A0AC381464B940B6870@SG2PR03MB1744.apcprd03.prod.outlook.com>
+ <SG2PR03MB1744D1B0BE936817E067A6A9B67D0@SG2PR03MB1744.apcprd03.prod.outlook.com>
+ <CACTcg1jE5o_miUdoDEfsnZqkkCyJ57EV9DFyeJexT_LKMBog_w@mail.gmail.com>
+ <CACTcg1iSrjfrU94BUPPLz5=i-U=Jkd52uybBjp22HuDaTHfD_A@mail.gmail.com>
+Message-ID: <575592A6.4070809@postgresql.org>
+
+On 06/05/2016 07:10 PM, Fei Teng wrote:
+> 
+> 
+> 
+> ZPL.txt
+> <https://drive.google.com/file/d/0B7BLg073BWRrT2FacXFsMFVZemdqMkJMNF9SYm1NamExZDVj/view?usp=drivesdk>
+
+This is a private Google Docs link, which is not accessible to us.  If
+you expect us to evaluate the license, please attach it to email as a
+text file.  Thanks.
+
+> Dear Review Board,
+> 
+> I am writing to ask the review of our license. Please see the required
+> information below.
+> 
+>  1. the /submission type/ and /license name/ in subject field (to ensure
+> proper tracking) : 
+> 
+> ZENTAO PUBLIC LICENSE For Approval  
+> 
+> 2. a plaintext copy of the license ?see the attachment? 
+> 
+> 3. the supporting data listed below (as appropriate for the type of
+> submission)  
+> 
+>         
+> 
+> /      -//Rationale:// / 
+> 
+>        The new license clearly defines that indications of the software
+> cannot be altered or removed in any way, so that it will make a balance
+> in protecting the interests of the original author and
+> maintaining business cooperation. 
+
+"indications of the software"?
+
+> 
+> 
+> */      /*/-//Distinguish:/ 
+> 
+>        ZENTAO PUBLIC LICENSE clarifies the specific indications of the
+> software that should be changed or removed from the software, such as
+> notes, texts, pictures and links showing copyright of the software. 
+> 
+> 
+> /       -//Proliferation category:/  
+> 
+> *        *Other/Miscellaneous licenses  
+> 
+> 
+> 4. a link to earlier public discussions (if any)
+> 
+>        _http://zpl.pub/page/faq.html_ 
+
+Do you have approved English versions of your documents?  While we can
+use translation tools, we've found that they aren't adequate for licensing.
+
+More questions:
+
+1. What other licenses did you consider, and why were they found not to
+be adequate?
+
+2. Is this license already in use for a project?  If so, what?  If not,
+what project(s) are you planning to use it for?
+
+
+
+
+
+From cowan at mercury.ccil.org  Mon Jun  6 15:52:32 2016
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Mon, 6 Jun 2016 11:52:32 -0400
+Subject: [License-review] ZENTAO PUBLIC LICENSE For Approval
+In-Reply-To: <575594BE.5010604@postgresql.org>
+References: <SG2PR03MB1744787808093516C544F348B68A0@SG2PR03MB1744.apcprd03.prod.outlook.com>
+ <SG2PR03MB1744105634A0AC381464B940B6870@SG2PR03MB1744.apcprd03.prod.outlook.com>
+ <SG2PR03MB1744D1B0BE936817E067A6A9B67D0@SG2PR03MB1744.apcprd03.prod.outlook.com>
+ <CACTcg1jE5o_miUdoDEfsnZqkkCyJ57EV9DFyeJexT_LKMBog_w@mail.gmail.com>
+ <CACTcg1iSrjfrU94BUPPLz5=i-U=Jkd52uybBjp22HuDaTHfD_A@mail.gmail.com>
+ <57559452.8070802@piana.eu> <575594BE.5010604@postgresql.org>
+Message-ID: <20160606155232.GA12890@mercury.ccil.org>
+
+Josh berkus scripsit:
+
+> >> 5.3 Do not modify the source code of the software when you publish
+> >> or integrate it.
+> > 
+> 
+> Doesn't that make it not an open source license?
+
+That's in the context of reuse without modification; I read it as saying
+that if you are modifying, you are no longer in the scope of section 5
+(but section 6 allows modification).  I agree that it is badly drafted.
+
+But more to the point, OSI has historically not accepted badgeware
+licenses like this, because they don't allow for the possibility of
+reuse of parts (especially small parts) of the software in new contexts
+where "texts, images, and links" are no longer relevant.  If you are
+not allowed to use some low-level code module in your embedded device,
+the code is not open source.
+
+Since the endless repetition of the badgeware provision suggests that
+it is first and foremost in the mind of the original poster, I don't
+think this license has much hope of being changed for OSI compliance.
+
+
+-- 
+John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+Consider the matter of Analytic Philosophy.  Dennett and Bennett are well-known.
+Dennett rarely or never cites Bennett, so Bennett rarely or never cites Dennett.
+There is also one Dummett.  By their works shall ye know them.  However, just as
+no trinities have fourth persons (Zeppo Marx notwithstanding), Bummett is hardly
+known by his works.  Indeed, Bummett does not exist.  It is part of the function
+of this and other e-mail messages, therefore, to do what they can to create him.
+
+
+From feiteng854 at gmail.com  Thu Jun 23 13:08:25 2016
+From: feiteng854 at gmail.com (Fei Teng)
+Date: Thu, 23 Jun 2016 08:08:25 -0500
+Subject: [License-review]  Approval request for ZENTAO PUBLIC LICENSE
+In-Reply-To: <576B8D71.6070605@piana.eu>
+References: <HK2PR03MB1731B9E24F1ECFE75F874F6AB6560@HK2PR03MB1731.apcprd03.prod.outlook.com>
+ <HK2PR03MB17311EB14D7F604E260B55F9B6560@HK2PR03MB1731.apcprd03.prod.outlook.com>
+ <15558e83499.cd0b80ae4660.2271457836039604059@moritz30.de>
+ <CACTcg1g0a2DSK0zu27D+rYnfbZUwrpxnoQf7jY7puDQ5=jTvRw@mail.gmail.com>
+ <CACTcg1go+6=_5aEORsPaXiDrCF7=10zNuQ6EkzAL7bCc+sztQQ@mail.gmail.com>
+ <7c52cd98-a409-9106-fb67-7d5de44fac1c@opensource.org>
+ <CACTcg1jw4K_Yuk9Kx_LXW4JLdY7LOAqSEdOwVrmEZm7baHEx3g@mail.gmail.com>
+ <57698B92.3050906@postgresql.org>
+ <CACTcg1jvWNyktkp_tpL2zjhXUEdrEHBmnBNG088HcbKFGcvsFw@mail.gmail.com>
+ <576B8D71.6070605@piana.eu>
+Message-ID: <CACTcg1iV2BGUKs9L3Agi=3rVDYZ6gx+839r_H4eMyt+n2+Zz-Q@mail.gmail.com>
+
+Thanks for sharing your point of view.
+
+ZPL has been applied in three of our products and approved by hundreds of
+thousands users of ours. It has made our team to be able to keep updating
+our software and other developers to benefit from our open source software.
+
+With the spirit of sharing and respect to OSI, we submitted our request for
+approval. But apparently, there is a huge divergence between you who has
+dozens of years experience dealing with open source and us. It might seems
+to you that what we are doing is not open source, which is OK to us,
+because we are more practical and value our users' approval.
+
+Thank you all for your time and advice.
+
+From josh at postgresql.org  Fri Jun 24 18:28:25 2016
+From: josh at postgresql.org (Josh berkus)
+Date: Fri, 24 Jun 2016 11:28:25 -0700
+Subject: [License-review] Approval request for ZENTAO PUBLIC LICENSE
+In-Reply-To: <1558096c90e.ad40f1e7217745.8117141699977707404@moritz30.de>
+References: <HK2PR03MB1731B9E24F1ECFE75F874F6AB6560@HK2PR03MB1731.apcprd03.prod.outlook.com>
+ <HK2PR03MB17311EB14D7F604E260B55F9B6560@HK2PR03MB1731.apcprd03.prod.outlook.com>
+ <15558e83499.cd0b80ae4660.2271457836039604059@moritz30.de>
+ <CACTcg1g0a2DSK0zu27D+rYnfbZUwrpxnoQf7jY7puDQ5=jTvRw@mail.gmail.com>
+ <CACTcg1go+6=_5aEORsPaXiDrCF7=10zNuQ6EkzAL7bCc+sztQQ@mail.gmail.com>
+ <7c52cd98-a409-9106-fb67-7d5de44fac1c@opensource.org>
+ <CACTcg1jw4K_Yuk9Kx_LXW4JLdY7LOAqSEdOwVrmEZm7baHEx3g@mail.gmail.com>
+ <57698B92.3050906@postgresql.org>
+ <CACTcg1jvWNyktkp_tpL2zjhXUEdrEHBmnBNG088HcbKFGcvsFw@mail.gmail.com>
+ <576B8D71.6070605@piana.eu>
+ <CACTcg1iV2BGUKs9L3Agi=3rVDYZ6gx+839r_H4eMyt+n2+Zz-Q@mail.gmail.com>
+ <576BE42B.7020108@piana.eu>
+ <CACTcg1jV+1qGvK+8W0LdZJbv2Gj2a76ebuubu67oxpjKyzU5rg@mail.gmail.com>
+ <1558096c90e.ad40f1e7217745.8117141699977707404@moritz30.de>
+Message-ID: <576D7BC9.7030608@postgresql.org>
+
+On 06/23/2016 09:06 PM, Matthias Merkel wrote:
+> As said before: This makes the situation a completely defferent one. I'm
+> not sure but maybe even legacy approval would be appropriate what would
+> be easier for your license but I can't say that. Maybe Richard can help
+> us there.
+
+Well, I think that legacy approval is the definite correct road.
+
+The new questions are:
+
+1. Can we get a Chinese reader to review the Chinese version, since it's
+the authoritative version?
+
+2. Is there anything in the license which is a direct contradiction of
+the OSD?
+
+3. *Can* Zentao change any of the terms of the license to bring it into
+line with the OSD?
+
+Re: (1) I strongly suspect that some of the issues with the license are
+in translation.
+
+
+From josh at postgresql.org  Mon Jan  9 16:38:24 2017
+From: josh at postgresql.org (Josh berkus)
+Date: Mon, 9 Jan 2017 08:38:24 -0800
+Subject: [License-review] License Committee Report - January 2017
+In-Reply-To: <20170109163528.s57wrhb4lxrdxdtr@antelope>
+References: <20170109035242.5qlp43jceukcw4eg@antelope>
+ <9f07c34d-e91c-fae6-7cb2-495a7fbe0eb1@postgresql.org>
+ <20170109163528.s57wrhb4lxrdxdtr@antelope>
+Message-ID: <9e07d51a-bd37-ce58-4852-716a1461d1e5@postgresql.org>
+
+On 01/09/2017 08:35 AM, Richard Fontana wrote:
+> On Mon, Jan 09, 2017 at 08:08:26AM -0800, Josh berkus wrote:
+>> On 01/08/2017 07:52 PM, Richard Fontana wrote:
+> 
+> [...]
+>>> Zentao Public License
+>>> =====================
+>>>
+>>> Submission:
+>>> https://lists.opensource.org/pipermail/license-review/2016-June/002800.html
+>>>
+>>> Comments: Submission did not fully follow approval
+>>> requirements. Substantive discussion focused on the badgeware issue;
+>>> some suggested that legacy approval might be a more appropriate
+>>> path. 
+>>>
+>>> Recommendation: Reject.
+>>
+>> Why is it "reject" if we're recommending legacy approval?  This doesn't
+>> make any sense.
+> 
+> Legacy approval was recommended casually by one or two people. Maybe I
+> shouldn't have even bothered to note that in the 'Comments'. I am not
+> sure that recommendation itself made that much sense given that many
+> people (yourself included I think) were saying that perhaps OSI just
+> shouldn't approve any badgeware licenses going forward. I am inclined
+> to agree with that policy but I believe it should apply across the
+> board including to legacy approval licenses.
+
+Looking at history, the submitter never clarified if updates to the
+license were possible.  Also, the license's main langauage is Chinese,
+and needs to be reviewed in that language, which I think stalled us.
+
+> 
+> The license submitter himself or herself did not submit the license
+> for legacy approval. Resubmission for legacy approval is a possibility
+> (though I am not sure if legacy approval is really an appropriate
+> category here -- I don't think this was really explored thoroughly; my
+> sense is this license would not fit the intended use of the legacy
+> approval category).
+
+I think we need to introduce that topic.  I don't know if you missed it,
+but this license is *already being used* for an assortment of
+Chinese-language projects with substantial numbers of users.  So if
+there's any way to do legacy approval, I think we should.
+
+-- Josh Berkus
+
+
+
+
+
+
