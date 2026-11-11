@@ -415,7 +415,7 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 
 ### 切り替えの日に `REVIEWERS.md` の *Which text you are looking at* へ入れる英文（下書き・2026-11-11）
 
-1.0 を `license-discuss` で読んだ審査者が、1.4 で何が変わったかを 1 画面で読める場所が無い。草案の冒頭の一覧は 1.3 からの差で、各版の CHANGELIST は版ごと・大半が日本語である。そこで切り替えの日に、番号の対応の段の前へ次の段を入れる。**数はどれも当日に数え直す**（errata の表の状態の列の「1.x 草案で閉じた」の印から版ごとの閉鎖数（正規表現 `(1\.\d) 草案で閉じた` の最初の一致。E24 は 1.2 と 1.3 の両方を持ち、最初の 1.2 に数える）、表の 2 列目の最初の § から節ごとの件数、本文の題名の行から *END OF TERMS* までの `wc -w` と条の数）。下の数は 2026-11-11 に同じ数え方で出した値で、書き写さない。
+1.0 を `license-discuss` で読んだ審査者が、1.4 で何が変わったかを 1 画面で読める場所が無い。草案の冒頭の一覧は 1.3 からの差で、各版の CHANGELIST は版ごと・大半が日本語である。そこで切り替えの日に、番号の対応の段の前へ次の段を入れる。**数はどれも当日に数え直す** —— `python3 .github/scripts/prepare_version_freeze.py --report 1.4` の最後の段「1.0 から何が変わったか」が、errata の閉鎖の版ごとの数（最初の「N.M 草案で閉じた」の印）、印の無い行、節ごとの件数（表の 2 列目の最初の §・無いものは「—」）、両方の本文の語数と条の数を出す（portfolio-9b・PR 2824）。下の数は 2026-11-11 に同じ数え方で出した値で、書き写さない。
 
 > **If you read ACD-1.0 on `license-discuss`, this is what is different in the version submitted.**
 > The direction is unchanged: no condition is placed on You in respect of the Work (§10.1), the
@@ -425,7 +425,8 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 > and 39 for the first time in 1.4. E10 is carried into finalisation and E6 is left as it is by
 > design. By the clause
 > each entry names first, most were in §8 (patents, 12), §16 (applying the text and its name, 12),
-> §2 (scope and effect, 10) and §1 (definitions, 8). Further changes came from our own sweeps of the
+> §2 (scope and effect, 10) and §1 (definitions, 8); seven name the preamble or several clauses at
+> once. Further changes came from our own sweeps of the
 > later drafts and are listed, with their reasons, in each version's change list. The text is
 > longer: 5,658 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
 
