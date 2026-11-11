@@ -58,7 +58,10 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        **468v は草案の冒頭が述べる最新の凍結版・適用中の版・pin された版の一覧が実物と合うことを見る** ——
        版を確定して次の草案を作る日に冒頭の書き換えを 1 つ忘れても無音だった (2026-11-06 の予行)。
        **468o は licence (名詞) / license (動詞) の語形が前の語と合うことを見る** —— 1.1〜1.3 の §8.4 が
-       "does not licence a claim" のまま凍結された (2026-11-02 に 25 が発見)。引用符の中と全大文字は除く。 (BLOCKING)
+       "does not licence a claim" のまま凍結された (2026-11-02 に 25 が発見)。引用符の中と全大文字は除く。
+       **468w は errata の各行が「N.M draft」として引く逐語が、その版の本文 (作業中なら草案・凍結済みなら
+       凍結した本文) に在ることを見る** —— 草案の文が試作で変わったのに、採った日の文を「1.4 draft」として
+       引き続けた行が 10 件あった (portfolio-00 / aa・2026-11-11)。採った日の文は "as adopted on" で書く。 (BLOCKING)
 """
 import json
 import re
@@ -693,6 +696,42 @@ def run(ctx):
                 _bad468.append(f"468v: 冒頭の適用中の版 {_ms468v.group(3)} が LICENSE と違う")
             if re.findall(r"ACD-\d+\.\d+", _mp468v.group(1)) != _fzs468v:
                 _bad468.append(f"468v: 冒頭の pin された版の一覧が実物 {_fzs468v} と違う")
+
+        # ── 468w: errata の各行が「N.M draft」として引く逐語が、その版の本文に在ること ─────────────
+        #   portfolio-00 / aa の依頼 (2026-11-11)。草案の文が試作 (T34〜T52) で変わったのに、errata の修正の列は
+        #   採った日の文を「1.4 draft」として引き続け、10 件がいまの草案に無かった (PR 2801 / 2804 / 2806 で
+        #   "as adopted on YYYY-MM-DD" へ直した)。照合先は、その版の草案が作業中ならその草案、凍結済みなら凍結した
+        #   本文 (確定の日に向け直す作業が無い)。"draft" の後 200 字以内の最初の *"…"* を取り、"…" で切った
+        #   15 字を超える断片がすべて在ること。"as adopted"・行番号 ("line 280")・"earlier version" の説明は除く
+        _er468w = (ROOT / "LICENSES" / "ACD-1.0.errata.md").read_text(encoding="utf-8")
+        _tx468w, _n468w, _miss468w = {}, 0, []
+        for _l in _er468w.split("\n"):
+            _me = re.match(r"^\|\s*\*{0,2}(E\d+)", _l)
+            if not _me:
+                continue
+            for _m in re.finditer(r"(?<![\d.])(\d+\.\d+) draft", _l):
+                _v, _tail = _m.group(1), _l[_m.end():_m.end() + 200]
+                if (re.match(r"\s*as adopted|\s*lines?\s+\d", _tail) or "earlier version" in _tail[:60]
+                        or '*"' not in _tail):
+                    continue
+                _q = re.match(r'\*"(.+?)"\*', _l[_m.end() + _tail.index('*"'):])
+                if not _q:
+                    continue
+                if _v not in _tx468w:
+                    _d, _f = ROOT / "LICENSES" / f"ACD-{_v}-DRAFT.txt", ROOT / "LICENSES" / f"ACD-{_v}.txt"
+                    _src = (_d if _d == _dr468 else _f if _f.exists() else None)
+                    _tx468w[_v] = " ".join(_src.read_text(encoding="utf-8").split()) if _src else None
+                _n468w += 1
+                _parts = [" ".join(_x.split()).strip(" ,;.") for _x in re.split(r"…|\.\.\.", _q.group(1))]
+                _lack = [_x for _x in _parts if len(_x) > 15 and (_tx468w[_v] is None or _x not in _tx468w[_v])]
+                if _lack:
+                    _miss468w.append(f"{_me.group(1)} ({_v} draft): {_lack[0][:60]!r}")
+        if not _n468w:
+            _bad468.append("468w: errata から「N.M draft」の後の逐語を 1 件も読めない (読めないまま黙らせない)")
+        elif _miss468w:
+            _bad468.append(f"468w: errata が「N.M draft」として引く逐語が、その版の本文 (作業中の草案か凍結した本文) に無い: "
+                           f"{_miss468w}。草案の文が後で変わったなら、採った日の文は \"N.M draft as adopted on YYYY-MM-DD:\" と書き、"
+                           "いまの文を足す")
 
         check(
             not _bad468,

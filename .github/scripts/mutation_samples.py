@@ -578,6 +578,18 @@ _MUTATIONS_TAIL.append({
     "find": "\"description\": \"AI-generated portfolio background music asset for the AI-Driven PM Portfolio by Yuta Yokoi.\",",
     "replace": "\"description\": \"BGM\",",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 468w: errata の 1 件の \"as adopted on 2026-11-03\" を外し、採った日の文をいまの草案の文として引く —— 草案の文が試作で変わったのに、errata は採った日の文を「1.4 draft」として引き続けていた",
+    "file": ROOT / "LICENSES" / "ACD-1.0.errata.md",
+    "find": "1.4 draft as adopted on 2026-11-03: *\"Permission under the Covered Rights stands here on three foo",
+    "replace": "1.4 draft: *\"Permission under the Covered Rights stands here on three foo",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 468w: 草案の前文の 1 語を変える (Covered Rights → Covered Right) —— errata が「1.4 draft」として引く逐語が、いまの草案に在るかを照合していなかった",
+    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "find": "  Section 3 surrenders the Covered Rights. Section 4 grants a licence over the",
+    "replace": "  Section 3 surrenders the Covered Right. Section 4 grants a licence over the",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
