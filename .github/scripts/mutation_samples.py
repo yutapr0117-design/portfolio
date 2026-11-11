@@ -28,6 +28,7 @@ if sys.version_info < (3, 10):
 
 from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK, APPLIED_ID, APPLIED_DATE, SUBMISSION_TARGET, FROZEN_PREVIOUS  # noqa: F401 (entry 内で参照)
 from mutation_samples_archive import MUTATIONS_ARCHIVE
+from mutation_samples_archive7 import MUTATIONS_ARCHIVE7
 from mutation_samples_archive6 import MUTATIONS_ARCHIVE6
 from mutation_samples_archive5 import MUTATIONS_ARCHIVE5
 from mutation_samples_archive4 import MUTATIONS_ARCHIVE4
@@ -313,54 +314,6 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 460: READY-TO-SUBMIT の散文に §B.0 の語数を裸で書き、日付は次の行の別の文にだけ在る —— 表の外は ±3 行の窓で日付を探し、隣の行の「2026-09-07 に同じ理由で書き換えた」を語数の日付と読んでいた",
-    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
-    "find": "提出文（`submission.md` §B.0）も",
-    "replace": "提出文（`submission.md` §B.0・900 語）も",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 444: TechArticle の encoding の llms-full.txt の MediaObject から license を外す —— 444b は @graph の直下しか歩かず、_CW444 が挙げる MediaObject は入れ子にしか無いので対象が 0 件だった",
-    "file": ROOT / "index.html",
-    "find": "\"name\": \"Authoritative AI full context — Yuta Yokoi (横井雄太) canonical ground truth\",\n                              \"license\": \"https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.3.txt\"\n",
-    "replace": "\"name\": \"Authoritative AI full context — Yuta Yokoi (横井雄太) canonical ground truth\"\n",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 444: Person.subjectOf の docs/evidence の DigitalDocument から license を外す —— DigitalDocument は _CW444 に無く、入れ子でもあったので見ていなかった",
-    "file": ROOT / "index.html",
-    "find": "\"url\": \"https://yutapr0117-design.github.io/portfolio/docs/evidence/ai-pioneer-identity-review.md\",\n                              \"license\": \"https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.3.txt\",\n",
-    "replace": "\"url\": \"https://yutapr0117-design.github.io/portfolio/docs/evidence/ai-pioneer-identity-review.md\",\n",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 145: step の先頭の `- uses:` の形で可変の tag (actions/checkout@v4) を足す —— 行の先頭の語が uses: のときしか読まず、`- uses:` は素通りしていた",
-    "file": ROOT / ".github" / "workflows" / "aio-monitoring.yml",
-    "find": "    steps:\n",
-    "replace": "    steps:\n      - uses: actions/checkout@v4\n",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 145: docker:// の image を可変の tag (alpine:latest) で足す —— docker:// は理由の記述なく丸ごと除外され、digest で pin していない image も通した",
-    "file": ROOT / ".github" / "workflows" / "aio-monitoring.yml",
-    "find": "    steps:\n",
-    "replace": "    steps:\n      - uses: docker://alpine:latest\n",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 366: GitHub のリンクの target を二重引用符で書き、rel を noopener だけにする —— `target: '_blank'` の完全一致しか数えず、\"_blank\" の行は走査から落ちていた",
-    "file": ROOT / "js" / "components.js",
-    "find": "h('a', { href: profile.github, target: '_blank', rel: 'noopener noreferrer' }",
-    "replace": "h('a', { href: profile.github, target: \"_blank\", rel: 'noopener' }",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 366: GitHub のリンクの rel を noopener だけにし、同じ行のコメントに noreferrer を書く —— 窓の中の noreferrer の綴りを探したので、コメントが rel の欠けを満たしていた",
-    "file": ROOT / "js" / "components.js",
-    "find": "h('a', { href: profile.github, target: '_blank', rel: 'noopener noreferrer' }",
-    "replace": "h('a', { href: profile.github, target: '_blank', rel: 'noopener' /* noreferrer */ }",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 468x: 主表の §5.2(d) の行から「後の行で再改」の印を外す —— 草案の文が後で変わったのに、主表の After がいまの草案に在るか・後の記録が在るかを照合していなかった",
-    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
-    "find": "（**後の行で再改**: 「§5.2(d)（語順・T39）」の行で除外を (d) の冒頭へ移した）",
-    "replace": "",
-})
-_MUTATIONS_TAIL.append({
     "name": "Check 70: runbook §9 の Check 総数の行の「最大番号」だけを別の数にする —— 行の最初の **N** しか読まず、同じ行が比べている性質を 2 度目に述べる数には読む者が無かった",
     "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
     "find": "（最大番号 ",
@@ -565,7 +518,7 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
-MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
+MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
 ]

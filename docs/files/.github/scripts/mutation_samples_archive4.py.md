@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/mutation_samples_archive4.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-11-01
+last-updated: 2026-11-12
 canonical-ref: .github/scripts/mutation_samples.py (hot log・新規はここへ足す) / .github/scripts/rotate_mutation_samples.py (rotate ツール) / docs/architecture/file-size-budget.md (行数予算)
 ---
 
@@ -9,7 +9,7 @@ canonical-ref: .github/scripts/mutation_samples.py (hot log・新規はここへ
 
 ## What
 
-consistency 側 mutation の **3 番目の archive**（退避先）。`MUTATIONS_ARCHIVE4` を定義し、`mutation_samples.py` が import して `MUTATIONS` へ連結する。
+consistency 側 mutation の **4 番目の archive**（退避先）。`MUTATIONS_ARCHIVE4` を定義し、`mutation_samples.py` が import して `MUTATIONS` へ連結する。
 
 **新しい mutation はここへ足さない。** 追加先は常に `mutation_samples.py` の tail（`_MUTATIONS_TAIL.append(...)`）で、ここは rotate が押し出した古い entry の置き場である。
 
@@ -46,7 +46,7 @@ mutation は append-only で増え続けるため、hot log は放置すると C
 
 ### For human engineers（新卒レベル）
 
-テストの安全網を検証するための「わざと壊すパターン集」が増え続けるので、古いものを別ファイルへ移して 1 ファイルが大きくなりすぎないようにしている。その 3 冊目。移動は専用ツールが行い、人もエージェントも手では動かさない。
+テストの安全網を検証するための「わざと壊すパターン集」が増え続けるので、古いものを別ファイルへ移して 1 ファイルが大きくなりすぎないようにしている。その 4 冊目。移動は専用ツールが行い、人もエージェントも手では動かさない。
 
 ### For third parties / auditors
 
