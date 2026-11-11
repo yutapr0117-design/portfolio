@@ -456,10 +456,13 @@ def run(ctx):
             ):
                 if abs(_act413 - _rec413) > 5:
                     _drift413.append(f"{_label413}: 記載 {_rec413} vs 実測 {_act413}")
+            # OK 行にも記載・実測・差を出す (2026-11-11・portfolio-00 の報告): 実測だけを出して「整合」と書いたので、
+            #   許容 (±5) の中の差 (記載 1586 / 実測 1588) が CI の緑の下で見えなかった
             check(
                 not _drift413,
-                f"Check 413 (ADVISORY): runbook §9 の tracked-file baseline が実測と整合 "
-                f"(総数 {_actual_total413} / 非 docs/files source {_actual_src413})",
+                f"Check 413 (ADVISORY): runbook §9 の tracked-file baseline が許容 ±5 の中 "
+                f"(総数 記載 {_rec_total413} / 実測 {_actual_total413} / 差 {_actual_total413 - _rec_total413:+d}・"
+                f"非 docs/files source 記載 {_rec_src413} / 実測 {_actual_src413} / 差 {_actual_src413 - _rec_src413:+d})",
                 f"Check 413 (ADVISORY): runbook §9 の baseline が実測から乖離 — {' / '.join(_drift413)}。"
                 "§9 は CLAUDE.md が「数値の真値」と宣言する面であり、古い値は読み手を誤らせる。"
                 "再測定して §9 を同期せよ (権威 = `git ls-files | wc -l`)",
@@ -495,7 +498,8 @@ def run(ctx):
             _s413 = int(_m_src413.group(1))
             check(
                 _q413 == _s413,
-                f"Check 413c: runbook §9 が引用する Check 108 の件数が source と一致 ({_q413})",
+                f"Check 413c: runbook §9 が引用する Check 108 の件数が同じ行の source と一致 ({_q413}・runbook の中の整合。"
+                "実測との差は 413 が見る)",
                 f"Check 413c: runbook §9 が引用する Check 108 の OK メッセージが {_q413} 件と述べているが、"
                 f"同じ行の「非 docs/files source」は {_s413} 件 — Check 108 の bijection 数は定義上"
                 "「docs/files 配下でない source の数」そのものなので、この 2 つは必ず一致する。"
