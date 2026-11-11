@@ -37,6 +37,8 @@ OSI の 2 つのリストのアーカイブ全数から、決める側の発言�
 
 「rounds に在るが READ-THREADS に無い」の照合は、`rounds/` の `Subject:` を折り返し（次の行が空白で始まる）ごとつないで鍵にする（2026-11-12）。1 行目だけを読んでいた間は、折り返した件名（rounds の 100 file・408 件）の会話がこの照合から外れていた。直した日に main で 1 件（2026-09-05 の "Weak copyleft license with network use requirement?"）が新たに出た。読了の数（READ-THREADS の行から数える）はこの照合を使わないので動かない。
 
+**話題の語で拾う候補の外の会話（2026-11-12・portfolio-00 の依頼）**: 候補は「決める側（`DECIDERS`）が 120 語以上書いた 3 通以上の会話」で選び、話題の語は使わない。そのため撤回と放棄の最も古い記録（2000 年の "Wired Article on the GPL" 41 通など、理事が 1 人も書いていない会話）は外れる。母数（AS-OF の「候補 N 本」）は変えず、`TOPIC`（`revo[ck]|abandon`・irrevocable と non-revocability を含む）に引用を除く本文で `TOPIC_MIN`（3）回以上当たる 3 通以上の会話を `<out>.topic-outside.json` と「話題・未読」の行に別に出す。追加した日の main で 26 件（すべて未読）。下限 3 回なので、話題の語が少ない会話（00 が挙げた "Public Domain and liability" など）は出ない —— 一覧は下限であって網羅ではない。
+
 ## Audience-specific notes
 
 - AI: 読むのは出力であって、出力の件数は発見の件数ではない。文は原文の文脈で読む
