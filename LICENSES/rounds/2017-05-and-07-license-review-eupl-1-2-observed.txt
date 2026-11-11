@@ -1,0 +1,51 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2017-May, 2017-July)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 2 messages this dossier cites from "EUPL v1.2" (license-review, 2017-05 to 2017-07; 9 messages across the conversations). Not the whole thread.
+Senders: Simon Phipps, Richard Fontana
+Position: a reply on the purpose of the International licences category, and the announcement that EUPL v1.2 was approved in all its official language versions. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From simon at webmink.com  Tue May 30 17:38:29 2017
+From: simon at webmink.com (Simon Phipps)
+Date: Tue, 30 May 2017 18:38:29 +0100
+Subject: [License-review] EUPL v1.2
+In-Reply-To: <CAB4rVPa6zu7ha0V9XsGD5n=3K1gC8N57WpqASjYbiBCkjxJ3Pw@mail.gmail.com>
+References: <CAB4rVPa6zu7ha0V9XsGD5n=3K1gC8N57WpqASjYbiBCkjxJ3Pw@mail.gmail.com>
+Message-ID: <CAA4ffp8CgsxJV__WotM0ft8tqusQipF5hJd5KGNMOittksY_YQ@mail.gmail.com>
+
+On Tue, May 30, 2017 at 4:36 PM, Patrice-Emmanuel Schmitz <
+pe.schmitz at googlemail.com> wrote:
+
+>
+> - What are the criteria for being categorized as "International Licenses"
+> (if LiLIQ belongs to this category, why not the multilingual EUPL ?)
+>
+
+That categorisation was created for licenses submitted in languages other
+than English, as it triggers a process that allows the list and board to
+reasonably review the license. My understanding was that all the language
+variants of EUPL were equivalent so reviewing any language is effectively
+the same as reviewing all languages. Is that not the case? If not we might
+need to request certified translations of all the variants...
+
+Regards,
+
+Simon
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170530/6a5d27d5/attachment.html>
+
+From fontana at opensource.org  Thu Jul 13 17:14:21 2017
+From: fontana at opensource.org (Richard Fontana)
+Date: Thu, 13 Jul 2017 13:14:21 -0400
+Subject: [License-review] EUPL v1.2
+In-Reply-To: <CAB4rVPaY_3+LKM6PFtwczeVSo16a9wxuD8S+28Bj12WgUrU2hQ@mail.gmail.com>
+References: <CAB4rVPaY_3+LKM6PFtwczeVSo16a9wxuD8S+28Bj12WgUrU2hQ@mail.gmail.com>
+Message-ID: <20170713171421.GA6634@clifford>
+
+The OSI has approved EUPL v1.2. It will be added to the public list of
+OSI-approved licenses in due course. As with EUPL 1.1, the approval
+extends to all the official language versions of the license.
+
+Richard
+

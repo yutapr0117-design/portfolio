@@ -1,0 +1,153 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2019-February)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 4 messages this dossier cites from "For Approval: Twente License" (license-review, 2019-02; 19 messages). Not the whole thread.
+Senders: Bruce Perens, Josh Berkus, Carlo Piana, Lukas Atkinson
+Position: replies to a submission that added privacy and human-rights conditions on use to the MIT licence. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole. Carlo Piana's message is cut at its Italian attribution line ("… ha scritto:"), which begins the quotation.
+
+----- begin verbatim -----
+From bruce at perens.com  Tue Feb  5 23:08:13 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 5 Feb 2019 15:08:13 -0800
+Subject: [License-review] For Approval: Twente License
+In-Reply-To: <C67F34F4-E084-47DB-A6F6-CA63ED0E0CA8@gmail.com>
+References: <b5f384b1-c266-438d-a483-a4b01d92a303@Spark>
+ <b5667794-40fa-4a57-978b-ee8be06c5b16@Spark>
+ <027c01d4bd9a$80d54220$827fc660$@rosenlaw.com>
+ <bdb5ac8e-6256-4611-9292-0abae077d615@Spark>
+ <CAMkzgA5v2M2EQKiMyvKW0FHZoj-oFdvu5zVvrTBefnf14ZNCsg@mail.gmail.com>
+ <C67F34F4-E084-47DB-A6F6-CA63ED0E0CA8@gmail.com>
+Message-ID: <CAK2MWOsWFc41DCKUt3jq8-vzjFPk_THN8t2sfL7o81fes9B++g@mail.gmail.com>
+
+The OSI board is the entity that issues rejection, but they listen to this
+group. Sorry, I concur this violates OSD #6. That was written with the
+example of an anti-apartheid license which remained in force after the end
+of apartheid and discriminated against innocent people.
+
+From josh at berkus.org  Wed Feb  6 01:43:46 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Tue, 5 Feb 2019 17:43:46 -0800
+Subject: [License-review] For Approval: Twente License
+In-Reply-To: <027c01d4bd9a$80d54220$827fc660$@rosenlaw.com>
+References: <b5f384b1-c266-438d-a483-a4b01d92a303@Spark>
+ <b5667794-40fa-4a57-978b-ee8be06c5b16@Spark>
+ <027c01d4bd9a$80d54220$827fc660$@rosenlaw.com>
+Message-ID: <b42b529a-3012-3921-6531-647ab61fee70@berkus.org>
+
+On 2/5/19 1:33 PM, Lawrence Rosen wrote:
+> ?
+> 
+> But compliance with values is the function of laws rather than a
+> software license. We recognize that limitation in OSD #6 regarding the
+> (somewhat ambiguous) "No Discrimination Against Fields of Endeavor". [1]
+> Our governments adopt protective regulations about "values". (At least
+> recently, Europe often does, the US doesn't as often.) But "privacy,
+> human rights, and other ... values" are far more ambitious than software
+> can protect with its mere open source licenses.
+> 
+
+There's a concrete, rather than technical, reason to not allow this.
+I'm want to share this so that Anand will understand what he needs to
+work around.
+
+"Human rights & privacy" as expressed in the text of a license, are
+matters of opinion, so a developer/distributor cannot know if they have
+violated the license or not, pending litigation.
+
+For example, I would say that the right of free movement was a Human
+Right, as well as the right to marry whomever you want.  However, there
+are many people in the world who would not agree with me on either
+count.  And while you could have a list of specific human rights in the
+license, even by reference, even each of those is open to interpretation
+in court.  There's a whole litigation industry based on arguing whether
+you've violated someone's human rights or not.
+
+So you'd be setting up a situation where a user of the software couldn't
+know if they had violated the license or not based on any kind of
+factual analysis.
+
+To a degree, this is true with other things like "distribute" and
+"modification", but those are simpler concepts and even so have resulted
+in litigation over their exact meaning as it applies to open source.  I
+shudder to think of how a court would handle  a requirement to "uphold
+privacy".
+
+-- 
+Josh Berkus
+
+
+From carlo at piana.eu  Wed Feb  6 07:23:34 2019
+From: carlo at piana.eu (Carlo Piana)
+Date: Wed, 06 Feb 2019 08:23:34 +0100
+Subject: [License-review] For Approval: Twente License
+In-Reply-To: <b5667794-40fa-4a57-978b-ee8be06c5b16@Spark>
+References: <b5f384b1-c266-438d-a483-a4b01d92a303@Spark>
+ <b5667794-40fa-4a57-978b-ee8be06c5b16@Spark>
+Message-ID: <8e669166-5740-486f-abef-b008d9764758@piana.eu>
+
+Deeply against conflating law-abiding provision with licenses. They don't belong there, the entire concept is wrong. Plus, controlling that software doesn't do acts against the law is vague, it changes as law progresses.
+
+Open source MUST be allowed to do illegal things. It is not up to the copyright owners to perform law enforcement. And something that's illegal for someone is legal for others. Spyware is a good example. Something is illegal someplace might be even compulsory elsewhere. 
+
+Please leave this rubbish out of licensing.
+
+Carlo
+
+From opensource at lukasatkinson.de  Wed Feb  6 14:10:03 2019
+From: opensource at lukasatkinson.de (Lukas Atkinson)
+Date: Wed, 6 Feb 2019 15:10:03 +0100
+Subject: [License-review] For Approval: Twente License
+In-Reply-To: <b5667794-40fa-4a57-978b-ee8be06c5b16@Spark>
+References: <b5f384b1-c266-438d-a483-a4b01d92a303@Spark>
+ <b5667794-40fa-4a57-978b-ee8be06c5b16@Spark>
+Message-ID: <CAJTYOd1sp=u7FOBGgQFnXT_RtrxLP_93WM0Wya7o2FeX4NrdaA@mail.gmail.com>
+
+While any open source license expresses certain values, I do not think
+licenses are a good vehicle of ethics. To fulfil the goal of Twente,
+the next best available Open Source license would likely be a network
+copyleft like the AGPL: that way, end users can at least inspect the
+software they are using.
+
+Here, a problem is that the Twente License aims to regulate *use* of
+the software, not just the copying and modification of the software.
+I.e. it regulates something that is out of scope for copyright, and
+takes away rights that users would otherwise have. (Similar problems
+have been discussed regarding the SSPL). This is definitively an
+OSD-incompatible restriction in jurisdictions where these privacy
+rules wouldn't be mandatory anyway.
+
+I'd like to point out that even the EU is such a jurisdiction, as the
+Twente License has a weird intersection with the GDPR: Twente covers a
+more narrow area, but in that area is more restrictive.
+- Twente covers only collecting PII from users and releasing that data
+to third parties. GDPR covers any processing of any personal data, and
+has a clear concept of Data Processors that are not third parties.
+- Twente only recognizes consent as the basis for collection &
+release. GDPR also recognizes legitimate interest, necessity for
+fulfilment of a contract, and legal obligations (like a warrant, or
+maintaining accounting records).
+- Twente does not define critical terms such as user, PII, collect,
+consent, release, third party.
+
+In a literal reading of the Twente license, the privacy paragraph
+could be circumvented by running the Twente-covered software as a
+separate service so that it neither collects nor releases any data
+directly. If Twente's restrictions do not apply to the *software* but
+to the *operator* of the software, this makes it so much clearer that
+this is indeed an OSD #6 violation.
+
+I am also not sure whether Twente-covered software could realistically
+be used e.g. for e-commerce solutions due to the high bar that
+?unambiguous prior consent? represents, for example when sharing
+necessary data with a payment processor or logistics provider.
+
+I think it might be possible to construct a better license by dropping
+any usage restrictions and substituting transparency requirements.
+E.g. when the software is conveyed in non-source form or publicly
+performed so that others can interact with the software, then the
+software must provide (a) proper attribution like under the normal MIT
+license; and (b) a statement on who acts as a Data Controller in the
+sense of the GDPR. Unfortunately, that would make it very difficult to
+distribute binaries without taking on responsibilities as a
+Controller.
+
+
