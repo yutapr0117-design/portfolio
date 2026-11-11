@@ -14,7 +14,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (g) submission.md の "across N files" と、そこで名指す分冊 / (h) AS-OF の「未読スレッドの残り」の
        「候補 N 本のうち M 本を読んだ。K 本は読んでいない」が N = M + K であること /
        (i) AS-OF の「答えていない問い」の行の「**N 件**」が、状態の欄の「**Q1**」「**Q2**」… の数と
-       一致し、番号が 1 から N まで欠けず、各件が届いた日・`rounds/<file>`（実在）・§ と、
+       一致し、番号が 1 から N まで欠けず、各件が届いた日・`rounds/<file>`（実在）・§（私信の stub を指す件は「—」でよい）と、
        「未回答」か「オーナーが回答」を持つこと (2026-11-11・portfolio-00 の依頼。0 件のうちに置く)。
        文が読めないことも RED にする（言い換えると黙る形を残さない）。
   499. **入口の「最後に読んだ時刻」が、OSI-EVENTS が記録する最新の取得と合うこと** (BLOCKING・2026-11-09・
@@ -157,10 +157,21 @@ def run(ctx):
                        " (1 から欠けずに並び、数が件数と一致すること)")
         for k, q in enumerate(qs):
             item = cells[3][q.end():qs[k + 1].start() if k + 1 < len(qs) else len(cells[3])]
+            # 件は「；」で終わる。終わりを切らないと、最後の件が行の説明文 (§ も「未回答」も日付も持つ) まで
+            #   伸び、件に足りないものがあっても説明文が満たしていた
+            if "；" not in item:
+                bad.append(f"(i) AS-OF.md の Q{q.group(1)}: 件の終わりの「；」が無い (件のあとに行の説明文が続く)")
+                continue
+            item = item.split("；", 1)[0]
             rf = re.search(r"`rounds/([^`]+)`", item)
+            rp = L / "rounds" / rf.group(1) if rf else None
+            # 私信の stub (本文を撤去した off-list の file) を指す件は、問われた条を「—」で書いてよい
+            #   (portfolio-00・2026-11-11): 条を書くと私信の中身の一部を公開の文書に出しうる。stub の目印は
+            #   Check 473c の側 (checks_license_provenance.py) と同じ本文の一文で読む
+            stub = bool(rp and rp.is_file() and "THE TEXT HAS BEEN WITHDRAWN" in rp.read_text(encoding="utf-8", errors="replace"))
             miss = [w for w, ok in (("届いた日", re.search(r"\d{4}-\d{2}-\d{2}", item)),
-                                    ("rounds の file", rf and (L / "rounds" / rf.group(1)).is_file()),
-                                    ("§", "§" in item),
+                                    ("rounds の file", rp and rp.is_file()),
+                                    ("§ (stub なら —)", "§" in item or (stub and "—" in item)),
                                     ("状態", re.search(r"未回答|オーナーが回答", item))) if not ok]
             if miss:
                 bad.append(f"(i) AS-OF.md の Q{q.group(1)}: {' / '.join(miss)} が無い (rounds の file は実在すること)")

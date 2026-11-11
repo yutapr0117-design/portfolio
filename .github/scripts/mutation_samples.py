@@ -579,6 +579,12 @@ _MUTATIONS_TAIL.append({
     "find": "| **0 件** | ACD への返信は",
     "replace": "| **1 件** | **Q1** 2026-11-11・発言者・`rounds/no-such-file.txt`・§2.1・未回答；ACD への返信は",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 498: AS-OF の答えていない問いの件が、私信の stub でない file を指して条を「—」で書く —— 最後の件が行の説明文まで伸び、説明文の § が件の § の代わりになっていた",
+    "file": ROOT / "LICENSES" / "AS-OF.md",
+    "find": "| **0 件** | ACD への返信は",
+    "replace": "| **1 件** | **Q1** 2026-11-11・発言者・`rounds/README.md`・—・未回答；ACD への返信は",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
