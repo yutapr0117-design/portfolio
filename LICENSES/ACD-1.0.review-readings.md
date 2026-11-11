@@ -211,3 +211,17 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"Can we assume that your software license objectives are the same as those of W3C? If so, can you use the W3C licenses and not create a new one"* | Lawrence Rosen 氏 2012-05-19 | B10。ここでも最初の問いは既存のもので足りないか、だった（§1.174 の Prabhakar 氏と同じ型）。ACD の答えは register の B10 の行と meta Q37 |
 
 **この節が establish しないこと。** 個人の発言で、CeCILL v2.1 の承認の理由ではない。
+
+## 1.177 「OSD に適合するものを全部か、良いものだけか」—— 委員長の問いと、理事が述べた 3 つの基準の使い方（2005-09）（2026-11-11）
+
+`rounds/2005-09-license-discuss-license-proliferation-observed.txt`（5 通）。件名 "License Proliferation" の議論（2005-08〜09・2 か月で 106 通）は、増殖を扱う委員会ができた時期のもので、§1.168（同じ月の委員会報告）と §1.170（3 月の基準の提案）の間を埋める。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Does OSI certify all licenses that comply with the OSD?"* か *"Does OSI certify all good licenses that comply with the OSD?"*、*"In other words, do we take into account the interests of the community?"* | Russell Nelson 氏（委員長）2005-09-01 | B10 の根の問い。2005 年に委員長自身が答えを決めていなかった。2025 年の理事会は却下を OSD 違反に限ると述べた（`board-decisions.md` §2）が、留め置きでは後者（良いものだけ）の運用が続いている（§1.168） |
+| *"As I've told you often before, my opinion has always been that OSI should approve licenses that comply with the OSD. Period."*・*"But don't keep moving the goal posts when licenses try to cross into the end zone."*・良さ・必要性・法的な適切さについて *"Those needn't be conditions for approval."* | Lawrence Rosen 氏 2005-09-01 | 有利な面。OSD への適合だけで承認し、必要性は教育で扱う、という立場（2017 年にも同氏は拒む理由を新しさの欠如と OSD 不適合に限ると述べた・`reviewer-positions.md` §1.156）。**逆側**: 個人の立場で、同じ月に理事会は基準を戻した |
+| *"ii) They are supplemental to the OSD."*・*"iii) We expect license-discuss to apply them when doing evaluations. The Board will consider them when making final approve/reject decidions."*・*"iv) The rationale for these new criteria is simply that we need to avoid junk licenses. At a time when we're trying to cut down even on the number of non-junk licenses in use, we have to be more strict about what we allow in."* | Eric S. Raymond 氏（理事）2005-09-24 | B10・B3・B13 の不利な面。3 つの基準（readable・reusable・unique）は OSD の補足として、リストが評価に当て、理事会が最終判断で考慮する、と理事が述べた。「使われている良いライセンスの数さえ減らそうとしている時期に、入れるものには厳しくする」。ACD の長さ（B3）と差（B10）は、この基準に当たる |
+| *"simply using "number of projects that use the license" as the criterion is not the best approach - it simply shows what's trendy. The test of a license is surely how many people are willing to participate in the project that's licensed under it, both as developers and as deployers."* | Simon Phipps 氏 2005-09-02（当時は Sun の所属） | B2。使っているプロジェクトの数を基準にすることへの反対（2018 年には OSI President として署名している・#274）。**逆側**: 同氏の代わりの試験（そのライセンスのプロジェクトに参加する人の数）でも、ACD は 1 リポジトリで、参加者はほぼ居ない |
+| *"My understanding is that we cannot be arbitrary. We can change our reasons for approval over time, but not over parties asking for approval."* | Russell Nelson 氏 2005-09-04 | B12。理由は時とともに変えられるが、申請者ごとには変えられない（§1.171 の「仲間うちでも同じ手続き」と同じ向き）。**逆側**: 「時とともに変えられる」ので、2005 年の基準も 2025 年の運用も、提出の日の運用とは限らない |
+
+**この節が establish しないこと。** 理事の Raymond 氏の文は理事会の方針の説明で、議事録の文ではない（議事録の側は `board-decisions.md` の 8.7 節）。Phipps 氏の役職は 2005 年のものとして書いた。
