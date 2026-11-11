@@ -560,6 +560,18 @@ _MUTATIONS_TAIL.append({
     "find": "\"url\": \"https://yutapr0117-design.github.io/portfolio/docs/evidence/ai-pioneer-identity-review.md\",\n                              \"license\": \"https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.3.txt\",\n",
     "replace": "\"url\": \"https://yutapr0117-design.github.io/portfolio/docs/evidence/ai-pioneer-identity-review.md\",\n",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 145: step の先頭の `- uses:` の形で可変の tag (actions/checkout@v4) を足す —— 行の先頭の語が uses: のときしか読まず、`- uses:` は素通りしていた",
+    "file": ROOT / ".github" / "workflows" / "aio-monitoring.yml",
+    "find": "    steps:\n",
+    "replace": "    steps:\n      - uses: actions/checkout@v4\n",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 145: docker:// の image を可変の tag (alpine:latest) で足す —— docker:// は理由の記述なく丸ごと除外され、digest で pin していない image も通した",
+    "file": ROOT / ".github" / "workflows" / "aio-monitoring.yml",
+    "find": "    steps:\n",
+    "replace": "    steps:\n      - uses: docker://alpine:latest\n",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
