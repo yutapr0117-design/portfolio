@@ -1,0 +1,241 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2013-July, 2013-August)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 5 messages this dossier cites from "Open source license chooser choosealicense.com launched." (license-discuss, 2013-07 to 2013-08; 49 messages). Not the whole thread.
+Senders: Karl Fogel, John Cowan, Richard Fontana, Pamela Chestek, Lawrence Rosen
+Position: a question whether OSI should link to a newly launched licence chooser, and the later discussion of choosers and of what is wrong with licence proliferation. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From kfogel at red-bean.com  Mon Jul 15 17:51:09 2013
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Mon, 15 Jul 2013 12:51:09 -0500
+Subject: [License-discuss] Open source license chooser choosealicense.com
+	launched.
+Message-ID: <87mwpnyanm.fsf@kwarm.red-bean.com>
+
+Some of you may have seen this already -- from Ben Balter (of GitHub):
+
+  http://choosealicense.com/
+
+We may want to consider linking to it from OSI's FAQ, but it would be
+great to get people's opinions first.
+
+Ben's announcement is below:
+
+  From: Ben Balter <ben.balter at github.com>
+  Subject: Choosing an open source license doesn't need to be scary -- choosealicense.com
+  To: mil-oss [probably among other places]
+  Date: Mon, 15 Jul 2013 10:45:48 -0700 (PDT)
+  
+  Launched a small resource today, choosealicense.com to help software
+  developers make the decision of which license to use when releasing
+  software.
+  
+  The site itself is open source and I'd love any feedback / pull
+  requests you may have. To make the process even easier, there's also
+  now a license picker when creating a new repository on GitHub.com
+  which will automatically add the license to the project.
+  
+  * The Site: http://choosealicense.com
+  
+  * The Source: https://github.com/github/choosealicense.com
+  
+  * Full Background:
+    https://github.com/blog/1530-choosing-an-open-source-license
+
+  Cheers and open source,
+  - Ben
+
+
+From cowan at mercury.ccil.org  Mon Jul 15 18:10:37 2013
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Mon, 15 Jul 2013 14:10:37 -0400
+Subject: [License-discuss] Open source license chooser
+ choosealicense.com launched.
+In-Reply-To: <87mwpnyanm.fsf@kwarm.red-bean.com>
+References: <87mwpnyanm.fsf@kwarm.red-bean.com>
+Message-ID: <20130715181037.GA5852@mercury.ccil.org>
+
+Karl Fogel scripsit:
+
+>   http://choosealicense.com/
+> 
+> We may want to consider linking to it from OSI's FAQ, but it would be
+> great to get people's opinions first.
+
+While I am obviously just me and not GitHub, and my site is not as
+pretty, I would also ask the OSI to look at <http://ccil.org/~cowan/floss>
+as a license-choosing resource.  Historically OSI has shyed away from
+such things because they involve recommending licenses without being
+lawyers, and also suggest that some licenses are more useful than others.
+
+-- 
+Possession is said to be nine points of the law,                John Cowan
+but that's not saying how many points the law might have.       cowan at ccil.org
+        --Thomas A. Cowan (law professor and my father)
+
+
+From fontana at sharpeleven.org  Sun Aug 18 01:38:03 2013
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Sat, 17 Aug 2013 21:38:03 -0400
+Subject: [License-discuss] Open source license chooser
+ choosealicense.com launched.
+In-Reply-To: <87pptf82d0.fsf@ebb.org>
+References: <87mwpnyanm.fsf@kwarm.red-bean.com>
+	<20130715181037.GA5852@mercury.ccil.org>
+	<F46AD83B-CD39-4787-9236-FDA2DACFCE8D@javaman.com.br>
+	<CAFPTOkWs-bAkhLPrMZJkypv4b_SeBsozNPeQg1=c2mZ4g+oumg@mail.gmail.com>
+	<87pptf82d0.fsf@ebb.org>
+Message-ID: <20130818013803.GB15612@sharpeleven.org>
+
+On Thu, Aug 15, 2013 at 10:17:47AM -0400, Bradley M. Kuhn wrote:
+> Sorry for posting a month late on this thread [I hadn't poked into the
+> folder for this list in some time], but I didn't see a consensus and
+> wanted to add my $0.02.
+> 
+> Luis Villa wrote on 16 July:
+> > In the long-term, I'd actually like OSI to promote a license chooser
+> > of its own. But in the meantime I'm pretty OK with linking to a
+> > variety of license choosers.
+> 
+> Richard Fontana pointed out in his OSCON talk that license choosers
+> generally make political statements about views of licenses.  He used
+> the GitHub chooser as an example, which subtly pushes people toward
+> permissive licenses.
+> 
+> I was told GitHub's chooser accepts patches, and I was planning at some
+> point to try to patch out this bias myself and see if my patch was
+> accepted -- but of course any patch I produce is going to have subtle
+> copyleft biases -- which I think was Fontana's point.
+> 
+> (Fontana, do I have that right?)
+
+It is fairly obvious that the GitHub site's presentation of what
+licenses it recommends, and why, is politically biased, though I
+wouldn't say it "subtly pushes people toward permissive licenses".
+Rather, the impression I get is that it was originally designed to
+blatantly encourage non-copyleft licenses but threw in the GPL in its
+top three recommended licenses as a kind of simple political
+concession.
+
+It is certainly true that any patch you make will reflect your own
+political biases and maybe this is difficult for anyone to avoid
+unless they either struggle to overcome or correct for bias or don't
+have any bias to begin with.
+
+Independent of this point, I'm concerned about inaccurate statements
+made on the choosealicense.com site (one that we talked about was the
+assertion that GPLv3 "restricts use in hardware that forbids software
+alterations"). This is a general problem with all efforts I have seen
+to summarize or provide simplified explanations of licenses, and it
+happens even where the summary is provided by the license steward.
+
+> Therefore, I think OSI should likely avoid license chooser lest OSI
+> end up in the quagmire of taking a position in the copyleft/permissive
+> debates.
+
+Speaking just for myself, it is difficult for me to imagine any
+license chooser or license explanation site that I wouldn't think was
+more problematic than useful. Linking to a *wide* variety of license
+choosers or summary sites with a very strong caveat emptor statement
+might be okay.
+
+ - RF
+
+
+From pamela at chesteklegal.com  Mon Aug 19 13:54:01 2013
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Mon, 19 Aug 2013 09:54:01 -0400
+Subject: [License-discuss] Open source license chooser
+ choosealicense.com launched.
+In-Reply-To: <20130819022150.GA2991@sharpeleven.org>
+References: <87mwpnyanm.fsf@kwarm.red-bean.com>
+	<20130715181037.GA5852@mercury.ccil.org>
+	<F46AD83B-CD39-4787-9236-FDA2DACFCE8D@javaman.com.br>
+	<CAFPTOkWs-bAkhLPrMZJkypv4b_SeBsozNPeQg1=c2mZ4g+oumg@mail.gmail.com>
+	<87pptf82d0.fsf@ebb.org> <20130818013803.GB15612@sharpeleven.org>
+	<5210E3FC.8090908@chesteklegal.com>
+	<20130819022150.GA2991@sharpeleven.org>
+Message-ID: <52122379.6070103@chesteklegal.com>
+
+On 8/18/2013 10:21 PM, Richard Fontana wrote:
+>
+> I really believe it is best for anyone to try to read the actual
+> license in question. A summary can be a reasonable starting point, but
+> it especially bothers me if it is distorted (as I think it may almost
+> always be) by political or cultural bias.
+This can be fixed. Github has asked for patches and no one has reported 
+having a patch rejected.
+> Also, if a license is really
+> too difficult to understand, that is itself useful (for the would-be
+> licensor and for the license steward) to find out.
+>
+I'm still having a hard time reconciling this with the also-held belief 
+that license proliferation is bad. So you would like people to read and 
+comprehend, we'll say conservatively the 11 "Popular Licenses," and find 
+one that has the major substantive aspects they want but that also does 
+not have any aspect that could use some tweaking for their own business 
+model -- say, for example, a delayed release date of source code, which 
+will mean they will write another license, or find another obscure 
+license that does what they want but is obscure for a reason.
+
+I think instead you want licenses to be readily adopted based on 
+decision about the major substantive aspects and the rest of it just 
+falls where it falls.  And the major substantive aspects are what is 
+captured in the summary.
+
+Pam
+
+Pamela S. Chestek, Esq.
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+From lrosen at rosenlaw.com  Tue Aug 20 20:47:34 2013
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Tue, 20 Aug 2013 13:47:34 -0700
+Subject: [License-discuss] Open source license chooser
+	choosealicense.com launched.
+In-Reply-To: <52122379.6070103@chesteklegal.com>
+References: <87mwpnyanm.fsf@kwarm.red-bean.com>	<20130715181037.GA5852@mercury.ccil.org>	<F46AD83B-CD39-4787-9236-FDA2DACFCE8D@javaman.com.br>	<CAFPTOkWs-bAkhLPrMZJkypv4b_SeBsozNPeQg1=c2mZ4g+oumg@mail.gmail.com>	<87pptf82d0.fsf@ebb.org>
+	<20130818013803.GB15612@sharpeleven.org>	<5210E3FC.8090908@chesteklegal.com>	<20130819022150.GA2991@sharpeleven.org>
+	<52122379.6070103@chesteklegal.com>
+Message-ID: <080601ce9de6$809b66b0$81d23410$@rosenlaw.com>
+
+Pamela Chestek wrote:
+> I'm still having a hard time reconciling this with the also-held belief
+that 
+> license proliferation is bad.
+
+Perhaps, but the license proliferation issue is not quite helpful when
+phrased that way. It isn't that MORE licenses are necessarily bad. Instead,
+say that the proliferation of BAD (or "me-too" or "un-templated" or "legally
+questionable") licenses is bad.  
+
+Perhaps we might conclude that there aren't enough GOOD licenses on the
+various Recommended lists.
+
+The problem on this discussion forum is that hardly anyone (including me!)
+is qualified to tell the difference between GOOD and BAD licenses, since
+that depends more on the client's needs than the recommender's
+predilections.
+
+> I think instead you want licenses to be readily adopted based on decision
+> about the major substantive aspects and the rest of it just falls where it
+falls.
+> And the major substantive aspects are what is captured in the summary.
+
+Go ahead and write license summaries. That may be useful. I've done that for
+my own licenses and even for  some licenses I didn't create. But don't try
+to make it seem a trivial matter for software developers to license their
+software by giving them a simple-minded license chooser. That's less than
+helpful. If a lawyer posted such a license chooser that didn't consider the
+unique requirements of the client, it might be considered legal malpractice.
+Unless there were so many disclaimers as to make it useless advice on other
+grounds!
+
+/Larry
+
