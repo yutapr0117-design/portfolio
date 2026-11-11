@@ -597,6 +597,37 @@ instrument で、`LICENSE` が「この作品に適用する」という宣言�
 利用者側の実務上の扱いは `ACD-1.0.faq.md` の A 系（SBOM 表記・スキャナ）に書いてある。
 登録の順番と、いま SPDX へ出していない理由は Q18 と `READY-TO-SUBMIT.md` を参照。
 
+
+### Q35. 承認されたら、AI の会社が訴訟で「OSI が認めた」と引くのではないか
+
+> **English:** The question was put to OpenMDW, whose licence ends if the licensee sues to enforce copyright; Rob Landley asked whether an approval would later be cited in court as the OSI's *"endorsement of copyright termination in response to copyright enforcement"*. ACD has no termination provision of any kind (Section 10.4) and reaches only rights the Dedicator holds (Section 2.7). An approval of ACD says that a rightsholder may give its own work away for training. It says nothing about anyone else's work. We disclose that the text was drafted by an AI model (Claude, made by Anthropic), and we ask reviewers to read §6, §6.4 and §8.4 with that in mind.
+
+**問いの原文**: Rob Landley 氏が OpenMDW の審査で（`license-review` 2026-08-28）—— *"If this OpenMDW license becomes OSI approved, do you believe future models from Antropic and OpenAI won't include similar termination language in their models' licenses, and next time they're in court point to the Open Source Initiative's endorsement of copyright termination in response to copyright enforcement as a reason to uphold its enforceability?"*（`rounds/2026-03-and-08-license-review-ai-drafting-and-endorsement-observed.txt`）。
+
+**答え（ACD に当てると）**:
+
+- **問いの形そのものは当たらない。** 同氏が問うたのは、権利の行使に対して許諾を終わらせる条項への「お墨付き」である。ACD-1.0 は §10.4 で *"This Dedication contains no termination provision and no revival provision"* と述べ、受領者が訴えたら許諾が消える、という仕組みを持たない。
+- **他人の作品には届かない。** §2.7 は Dedicator が持つ権利にしか届かないと述べ、§6.2 は他の権利者の留保を退けると称さない。1.4 草案の §6.3 は、他人の留保を撤回する力が Dedicator に無いと書いている。ACD が承認されても、言えるのは「権利者は自分の作品を学習に差し出してよい」ということだけである。これは CC0 などで既に行われていることで、他人の作品を学習に使う正当化にはならない。
+- **起草者の開示**: 本文は AI（Claude、Anthropic 製）が起草し、方向と責任はオーナーが持つ。同氏の通は同じ会社の著作権訴訟の和解に触れている（*"One example, from this year, for billion dollars, is ad absurdum?"*）。審査者がこの関係に気づいてから疑うより、こちらから述べて、モデルを作る側に有利に働く条（§6、§6.4、§8.4）を疑って読むよう求めるほうがよい（#319）。
+
+**逆側**: §6.1 の *"expressly permitted"* と §6.5 の理由の文は、文脈を外して「オープンソースは学習を認める」という言い方に引かれうる。ACD はそれを防ぐ手段を持たない。
+
+### Q36. AI が書いた本文には著作権が無いかもしれない。それなら §16.4 の名前の保護は何で支えられるのか
+
+> **English:** The review list answered this for another AI-drafted licence in 2026-03: *"There is no requirement that the license be copyrightable."* (Josh Berkus). Nothing a recipient holds depends on Section 16.4; it governs the text as a document (Section 16.6, Section 10.5). No trademark is claimed or registered (`faq.md` A18). If the text is not protected, Section 16.4 still states what the name and the identifier are meant to denote, and a modified text distributed under them would mislead without changing what the original grants.
+
+**問いの原文**: Timofey Zakharcuk 氏が AI-MIT License 1.0 の審査で（2026-03-15）、AI の内容に著作権を主張できないと言いつつ AI が書いた本文を出すのは *"Therefore it contradicts itself and has no legal meaning."* と書いた。
+
+**審査する側の答え（同じスレッド）**:
+
+- Pamela Chestek 氏（2026-03-15）: *"Are you saying that the license text isn't copyrightable because it was AI generated? Why does that matter to how the license operates?"*
+- Richard Fontana 氏（2026-03-15）: *"I'm not sure the possibility that any part of this license is AI-generated matters though."*
+- Josh Berkus 氏（2026-03-17）: *"It matters for claiming copyright over the license itself, but we don't care about that. There is no requirement that the license be copyrightable."*
+
+**ACD に当てると**: 受領者が持つ許諾は §3〜§10 から来て、§16.4 に依存しない。§10.5 は §16 が本文の文書としての扱いであることを述べ、§16.6 は §16.4・§16.5 が文書としての本文を扱うと述べる。名前と識別子が 1 つの本文を指し続けることは §16.4 の目的として述べてあるが、商標は主張も登録もしていない（`faq.md` A18）。
+
+**逆側**: 本文に著作権が無ければ、§16.4 の「変えた本文をこの名前で配らない」は法的に強制できないかもしれない。そのとき名前の一貫性は、SPDX の識別子と読み手の確認に頼ることになる。どの法域で本文に著作権が生じるかは、この文書では決めない（法的レビューは受けていない）。
+
 ---
 
 **Lost?** [`QUESTION-INDEX.md`](QUESTION-INDEX.md) indexes every worked entry in this directory by
