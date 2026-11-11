@@ -414,4 +414,21 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"ZPL has been applied in three of our products and approved by hundreds of thousands users of ours."* | 提出者 2016-06-23 | B2 の逆側の例。数十万の利用者を挙げた提出でも、OSD への疑義と提出の形の不備で退けられた。使われていることは承認の十分な条件ではない |
 | *"Can we get a Chinese reader to review the Chinese version, since it's the authoritative version?"* | Josh Berkus 氏 2016-06-24 | 正本が英語でないと、その言語を読める審査者を探すところから始まる。2017-01 の報告への返信で同氏は *"Also, the license's main langauage is Chinese, and needs to be reviewed in that language, which I think stalled us."* と書いた（原文ママ・2017-01-09）。ACD の英語の正本は、この費用を持たない |
 
+**2026-11-12 の追記 —— 英語以外の正本の扱い（EUPL v1.2・2017）。** `rounds/2017-05-and-07-license-review-eupl-1-2-observed.txt`（2 通）。Simon Phipps 氏は International の分類について *"That categorisation was created for licenses submitted in languages other than English, as it triggers a process that allows the list and board to reasonably review the license."* と書き（2017-05-30）、委員長は 2017-07-13 に *"The OSI has approved EUPL v1.2."*、*"As with EUPL 1.1, the approval extends to all the official language versions of the license."* と告げた。英語以外の正本を持つライセンスにも審査の道は在り、全ての言語の版に承認が及ぶ例である。ACD は英語だけを正本とするので、この分類の手続きを要しない。
+
 **この節が establish しないこと。** 却下の理由は委員長の推薦の文に限り、理事会の決定文は読んでいない。ZENTAO がその後に別の形で出されたかは確かめていない。
+
+## 1.189 プライバシーの条件を利用に課すと退けられる —— Twente License（2019）（2026-11-12）
+
+`rounds/2019-02-license-review-twente-license-observed.txt`（4 通・スレッドは全 19 通）。MIT に、派生物が利用者の同意なく個人の情報を集めないことなどの条件を足したライセンスが 2019-02-05 に出され、同日から OSD 6 に反するという返信が続き、提出者は却下を受け入れた。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"The OSI board is the entity that issues rejection, but they listen to this group. Sorry, I concur this violates OSD #6."* | Bruce Perens 氏 2019-02-05 | 利用の目的や分野で条件を課すライセンスは OSD 6 に反する、という読み。ACD は利用に条件を課さない（§10.1） |
+| 人権とプライバシーは *"as expressed in the text of a license, are matters of opinion, so a developer/distributor cannot know if they have violated the license or not, pending litigation."* | Josh Berkus 氏 2019-02-05 | 条件が意見の問題だと、利用者は守れているかを知れない、という具体的な理由。ACD の §11.3（虚偽の表示）と §11.4（プライバシー等の権利）は条件ではなく到達の限界として書かれ、*"it is not a condition upon You, and Section 10.1 is unaffected by it"* と明記する（1.4 草案）—— 有利な面 |
+| *"Open source MUST be allowed to do illegal things. It is not up to the copyright owners to perform law enforcement."* | Carlo Piana 氏 2019-02-06 | 法を守ることをライセンスの条件にするな、という立場。ACD は違法な利用を禁じる条を持たない。**逆側**: §11.3 は虚偽の表示を Dedication の外に置き、§5.2(d) はプライバシー等の不主張から虚偽の言明を除く —— 条件ではないと書いていても、読み手が「法の執行」に近いと読む余地は残る |
+| *"Here, a problem is that the Twente License aims to regulate *use* of the software, not just the copying and modification of the software."* | Lukas Atkinson 氏 2019-02-06 | 著作権の外の「利用」を規制することへの異議。ACD は利用を規制しない。**逆側**: ACD は §5 で Dedicator 自身の行為（技術的手段・契約による条件の付加）を縛る —— 規制の向きが Dedicator で、利用者ではないことを提出の材料で言う必要がある |
+
+**読み。** Twente は「条件として課す」ことで退けられた。ACD はプライバシーと虚偽の表示を、許諾の範囲の限界として書き、利用者への条件ではないと明記している。この書き分けが、Twente と同じ読みを避ける理由である。
+
+**この節が establish しないこと。** 個人の発言で、理事会の決定文ではない（提出者が却下を受け入れたので、理事会が判断したかは確かめていない）。ACD の書き分けが OSI の審査で同じように読まれるかは、この節は言わない。
