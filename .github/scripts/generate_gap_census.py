@@ -175,6 +175,35 @@ tdm, ml, train, model, param, output, art4 = (nz(k) for k in
     ("tdm", "ml", "train", "model", "param", "output", "art4"))
 mention = [r for r in rows if r[2].startswith("M-")]
 
+# **2026-09-25 に本文を読んで「語は在るが概念は無い」と判定した命中の全集合**（3.29.0）。
+#   下の「誤命中」節と (a) / (c) の結論文（「AI を名指しする本は 0 本」「モデル・パラメータを名指しする
+#   許諾は 0 本」「art4 の命中は全て自条番号」）は、**この集合を読んだ結果を固定の文で書いている**。
+#   新しい版で命中の集合が変われば（新しい本に語が現れた・消えた）、読まずに同じ結論と同じ判定の文を
+#   書き続けないよう止まる（READ_PATENT と同じ形・2026-11-11）。Check 476e が census の「誤命中」節と照合する
+READ_MISHITS = {
+    "tdm": set(),
+    "ml": {"Multics"},
+    "train": {"Frameworx-1.0"},
+    "model": {"AGPL-3.0-only", "AGPL-3.0-or-later", "BlueOak-1.0.0", "CECILL-2.1", "GPL-3.0-only",
+              "GPL-3.0-or-later", "LGPL-3.0-only", "LGPL-3.0-or-later", "LPPL-1.3c", "QPL-1.0", "RPL-1.5"},
+    "param": {"LGPL-2.0-only", "LGPL-2.0-or-later", "LGPL-2.1-only", "LGPL-2.1-or-later", "LGPL-3.0-only",
+              "LGPL-3.0-or-later"},
+    "art4": {"CECILL-2.1", "IPA"},
+}
+
+
+def _mishit_guard():
+    _got = {"tdm": tdm, "ml": ml, "train": train, "model": model, "param": param, "art4": art4}
+    _diff = {k: {"読んでいない命中": sorted(set(_got[k]) - v), "消えた命中": sorted(v - set(_got[k]))}
+             for k, v in READ_MISHITS.items() if set(_got[k]) != v}
+    if _diff:
+        raise SystemExit(f"未判定: 語の命中の集合が、読んで誤命中と判定した集合と違う: {_diff}。"
+                         "増えた本は本文を読み、概念が在れば (a) / (c) の結論文を直し、無ければ READ_MISHITS と"
+                         "「誤命中」節の判定の文に足せ。消えた本は判定の文から外せ")
+
+
+_mishit_guard()
+
 def q(i, pat, before=0, after=260):
     t = text(i); m = re.search(pat, t)
     assert m, (i, pat)

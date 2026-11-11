@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/generate_gap_census.py
 audience: ai, human (新卒), 監査人, OSI license-review participants, 第三者全般
-last-updated: 2026-11-04
+last-updated: 2026-11-11
 canonical-ref: LICENSES/ACD-1.0.gap-census.md (この script の生成物) / .github/scripts/measure_gap_claim.py (同じ母集団で送る本文の主張を測る script)
 ---
 
@@ -26,6 +26,7 @@ census は「承認済み N 本の全数に当てた」と主張する文書で�
 - **本文中の件数はすべて表を数えて出す**。手で書いた数は無い（Check 460 / 476 の教訓: 手で書いた数は他の更新に巻き込まれて drift する）
 - **手で判定したもの**（特許許諾の分類 `明示` / `M-免責` / `M-方針` … と範囲 `S1` / `S2` / `S3`）は script 内の定数に**データとして**置いてある。判定の根拠は census 本文の「判定基準」節
 - **`READ_PATENT`** は 2026-09-25 に本文を読んで分類した `patent` を含む本の全集合（3.29.0・82 本）。新しい版でここに無い本が `patent` を含んでいたら**生成を止める** —— 読まずに既定値 `明示` / `S1` に落ちるのを防ぐため
+- **`READ_MISHITS`**（2026-11-11）は、語（`tdm` / `ml` / `train` / `model` / `param` / `art4`）の命中のうち本文を読んで「概念は無い」と判定した本の全集合。「誤命中」節の判定の文と (a) / (c) の結論文は、この集合を読んだ結果を**固定の文で**書くので、命中の集合が違えば**生成を止める**（読まずに同じ結論を書き続けないため）。Check 476e が census の判定の行・表の列と照合する
 - 移植の証明: 一時ディレクトリの版と同じキャッシュから生成した出力が、既存の census と**バイト単位で一致**することを `--check` で確認した。安全装置は、既読集合から 1 本外すと止まる（exit 1）ことを確認した
 
 `--check` は取得時刻だけで変わる 3 行（`last-updated` / 題 / 取得）を比較しない。含めると取り直すたびに分類が同じでも DRIFT になり、`gap-measurements.md` §1.133 の再現手順が毎回失敗した（2026-11-04・bb）。表の変更は今も DRIFT になることを実測済み。母集団は SPDX の `isOsiApproved` で、OSI の `/licenses` の頁にだけ在る 8 本は含まない（census 本文に明記・結果は §1.133）。
@@ -37,7 +38,7 @@ census は「承認済み N 本の全数に当てた」と主張する文書で�
 
 ## Change impact
 
-SPDX の新しい版を当てるときは `--fetch` → 生成 → 差分を読む。本が増えて止まったら、その本文を読んで分類定数と `READ_PATENT` に足す。
+SPDX の新しい版を当てるときは `--fetch` → 生成 → 差分を読む。本が増えて止まったら、その本文を読んで分類定数と `READ_PATENT` に足す。語の命中が変わって止まったら、増えた本の本文を読み、概念が在れば結論文を、無ければ `READ_MISHITS` と「誤命中」節の判定の文を直す。
 census 本文を手で直すと、次の生成で上書きされる（または `--check` が DRIFT を返す）。
 
 ## Audience-specific notes
