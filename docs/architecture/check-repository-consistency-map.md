@@ -116,7 +116,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 
 | # | 検査内容（要約） | 級 | 所在 |
 |---|---|---|---|
-| 10 | `.github/scripts/*.py` がすべて構文エラーなくパース | BLOCKING |
+| 10 | `.github/scripts/*.py` がすべて構文エラーなくパース。**2026-11-11**: compile して SyntaxWarning（文字列の無効なエスケープ・将来の版で SyntaxError）も誤りにする（ast.parse は通る。checks_tooling.py の docstring の `\s` がこれだった） | BLOCKING |
 | 23 | `.github/workflows/*.yml` と `dependabot.yml` が YAML 構文エラーなし | BLOCKING |
 | 37 | 生成物/キャッシュ（node_modules / __pycache__ / *.pyc / test-results 等）が追跡されていない | BLOCKING |
 | 38 | package.json ↔ package-lock.json 整合（lockfileVersion 3・名前・版・devDeps・private・runtime 依存ゼロ） | BLOCKING |
@@ -151,7 +151,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 73c | hero image preload に `fetchpriority="high"`（LCP 契約） | BLOCKING |
 | 74 | `.github/scripts/_lib_io.py` が 4 public 関数（read / read_bytes / extract / csp_sri_hash）を export | BLOCKING |
 | 75 | docs/incident-artifacts/README.md が配下 artifact を全て列挙（inventory governance） | BLOCKING |
-| 76 | .claude/settings.json が完全自走の安全境界 denies（AI2AI.md STEP 3「越えない安全境界」）を宣言: self-permission-widening 防止 `Edit/Write(.claude/settings.json)` / 破壊的操作 `git push --force`・`-f`・`rm -rf` / 全 stage 事故防止 `git add .`・`-A`・`--all` / C6 binary 保護 `*.webp`・`*.mp3`。とりわけ settings 自己編集 deny が消えると AI が自己権限拡張でき人間の制御境界が崩壊するため最重要 | BLOCKING |
+| 76 | .claude/settings.json が完全自走の安全境界 denies（AI2AI.md STEP 3「越えない安全境界」）を宣言: self-permission-widening 防止 `Edit/Write(.claude/settings.json)` / 破壊的操作 `git push --force`・`-f`・`rm -rf` / 全 stage 事故防止 `git add .`・`-A`・`--all` / C6 binary 保護 `*.webp`・`*.mp3`。とりわけ settings 自己編集 deny が消えると AI が自己権限拡張でき人間の制御境界が崩壊するため最重要。**2026-11-11（監査 #124〜#126）**: deny の要素の部分文字列ではなく、「その境界を越える見本の操作（`git push --force origin some-branch`・`rm -rf build`・`Write` で `yuta.webp` など）に deny の規則が当たるか」で見る（Edit / Write を別々に、settings.local.json も）。規則を狭めても（`Bash(git push --force origin main)`）、Edit と Write の片方を消しても通っていた。settings.json は mutation で書き換えない（権限の設定は一時的にも触らない）ので、非 vacuity は一時ディレクトリの写しで 3 通り（force-push を main に狭める / `Write(*.webp)` を消す / settings.local.json の deny を消す）がすべて RED になることを確かめた | BLOCKING |
 | 77 | .claude/commands/*.md 全 slash-command に frontmatter + description。**2026-11-11（監査 #127〜#130）**: frontmatter の値を 1 行の中だけで読み、引用符を外して空なら欠落とする（`^description:\s*\S` は改行をまたぎ、空の `description:` が次の行のキーの字で満たされていた） | BLOCKING |
 | 78 | .claude/agents/*.md 全 sub-agent に frontmatter + name + description、かつ `name` == ファイル名 stem（docs がファイル名で参照する agent を Claude が name で解決できる identifier-coherence。dangling reference 防止）。**2026-11-11（監査 #127〜#130）**: frontmatter の値を 1 行の中だけで読み、引用符を外して空なら欠落とする（`^description:\s*\S` は改行をまたぎ、空の `description:` が次の行のキーの字で満たされていた）。name は値の全体が stem / ディレクトリ名と一致すること（最初の語だけを取り、`name: aio-guardian v2` を一致と読んでいた） | BLOCKING |
 | 79 | .mcp.json が JSON parse 可能かつ mcpServers dict を含む（存在時 BLOCKING、不在 ADVISORY） | BLOCKING |

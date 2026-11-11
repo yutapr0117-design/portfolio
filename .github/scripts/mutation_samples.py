@@ -552,6 +552,12 @@ _MUTATIONS_TAIL.append({
     "find": "            settings: { ...CONSTANTS.POMODORO_DEFAULT_SETTINGS },\n",
     "replace": "            settings: { work: 30, short: 5, long: 15 },\n",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 10: checks_tooling.py の docstring の r 接頭辞を外し、\\\\s を無効なエスケープに戻す —— ast.parse は通り、3.12 の SyntaxWarning (将来の SyntaxError) を見ていなかった",
+    "file": ROOT / ".github" / "scripts" / "checks_tooling.py",
+    "find": "        r\"\"\"frontmatter の 1 行の値 (行の中だけを読み、引用符を外す)。",
+    "replace": "        \"\"\"frontmatter の 1 行の値 (行の中だけを読み、引用符を外す)。",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

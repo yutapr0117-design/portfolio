@@ -141,10 +141,20 @@ def run(ctx):
         print(f"ERROR: Check 9: sitemap.xml XML parse error: {e}")
 
     # ── 10. .github/scripts/*.py syntax ──────────────────────────────────────────
+    # SyntaxWarning も誤りにする (2026-11-11): 文字列の無効なエスケープ (docstring の `\s` など) は 3.12 では警告だけで
+    #   ast.parse は通るが、将来の版では SyntaxError になる。checks_tooling.py の docstring がこれを持っていた
+    import warnings as _w10
     for py_path in sorted((ROOT / ".github/scripts").glob("*.py")):
         try:
-            ast.parse(py_path.read_text(encoding="utf-8"))
-            print(f"OK: {py_path.name} — Python syntax valid")
+            with _w10.catch_warnings(record=True) as _caught10:
+                _w10.simplefilter("always", SyntaxWarning)
+                compile(py_path.read_text(encoding="utf-8"), str(py_path), "exec")
+            _sw10 = [str(x.message) for x in _caught10 if issubclass(x.category, SyntaxWarning)]
+            if _sw10:
+                errors.append(f"Check 10: {py_path.name}: SyntaxWarning: {_sw10[:2]}")
+                print(f"ERROR: Check 10: {py_path.name}: SyntaxWarning (将来の版で SyntaxError): {_sw10[:2]}")
+            else:
+                print(f"OK: {py_path.name} — Python syntax valid")
         except SyntaxError as e:
             errors.append(f"Check 10: {py_path.name}: Python syntax error: {e}")
             print(f"ERROR: Check 10: {py_path.name}: Python syntax error: {e}")
