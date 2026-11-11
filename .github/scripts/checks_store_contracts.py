@@ -330,7 +330,7 @@ def run(ctx):
             #   監査 #208 / #216): 部分文字列ではコメントの「validateAndNormalize していた」で満たされ、実際の呼び出しを
             #   消しても、呼んで結果を捨てても緑だった
             _code374 = strip_js_comments(_body374)
-            _has_update374 = "State.update(" in _code374
+            _has_update374 = bool(re.search(r"\bState\.update\s*\(", _code374))  # 括弧の前の空白も (監査 #217)
             _vars374 = re.findall(r"(?:const|let|var)\s+(\w+)\s*=\s*(?:Store\.)?validateAndNormalize\(", _code374)
             _has_norm374 = bool(re.search(r"State\.set\(\s*(?:(?:Store\.)?validateAndNormalize\(|(?:"
                                           + "|".join(map(re.escape, _vars374 or ["$^"])) + r")\s*\))", _code374))
@@ -356,16 +356,19 @@ def run(ctx):
     # 表示され続けたまま保存だけされず、リロードで初めて消失に気付く silent data-loss だった)。
     # 対象は UI レイヤー = input/textarea を組み立てる shipped JS のみ (store.js は normalize 層で
     # 入力要素を持たないため自動的に対象外)。
-    _ui410 = sorted((ROOT / "js").glob("*.js"))
+    # 2026-11-11 (監査 #224 / #226): コメントを除いてから読み (コメントにした maxlength が上限を満たしていた)、
+    #   入れ子の js と二重引用符の h("input") / h("textarea") も見る。保存側は slice / substring / substr と
+    #   CONSTANTS. を省いた LIMITS.<KEY> も、UI 側は引用符つきの 'maxlength' と maxLength も読む
+    _ui410 = sorted((ROOT / "js").glob("**/*.js"))
     _viol410, _pairs410 = [], 0
     for _f410 in _ui410:
-        _src410 = _f410.read_text(encoding="utf-8")
-        if "h('input'" not in _src410 and "h('textarea'" not in _src410:
+        _src410 = strip_js_comments(_f410.read_text(encoding="utf-8"))
+        if not re.search(r"""h\(\s*['"](?:input|textarea)['"]""", _src410):
             continue
-        _keys410 = set(re.findall(r"\.slice\(0,\s*CONSTANTS\.LIMITS\.([A-Z_]+)\)", _src410))
+        _keys410 = set(re.findall(r"\.(?:slice|substring|substr)\(\s*0\s*,\s*(?:CONSTANTS\.)?LIMITS\.([A-Z_]+)\s*\)", _src410))
         for _k410 in sorted(_keys410):
             _pairs410 += 1
-            if not re.search(r"maxlength:\s*CONSTANTS\.LIMITS\." + _k410 + r"\b", _src410):
+            if not re.search(r"""['"]?max[lL]ength['"]?\s*:\s*(?:CONSTANTS\.)?LIMITS\.""" + _k410 + r"\b", _src410):
                 _viol410.append(f"{_f410.name}: LIMITS.{_k410}")
     check(
         _pairs410 > 0 and not _viol410,

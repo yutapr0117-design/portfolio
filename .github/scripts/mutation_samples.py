@@ -528,6 +528,18 @@ _MUTATIONS_TAIL.append({
     "find": "s.appsData.pomodoro.settings.work = clamp(parseInt(e.target.value, 10) || 25, 1, 180);",
     "replace": "s.appsData.pomodoro.settings.work = clamp(parseInt(e.target.value, 10) || 25, 1, 240); // was: settings.work = clamp(x, 1, 180)",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 410: TODO の入力の maxlength をコメントにする —— 生のソースを読み、コメントにした maxlength が保存側の上限と一致と数えていた",
+    "file": ROOT / "js" / "apps.js",
+    "find": "                        maxlength: CONSTANTS.LIMITS.TODO_TEXT,\n",
+    "replace": "                        // maxlength: CONSTANTS.LIMITS.TODO_TEXT,\n",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 374: importJSON の State.set の前に、括弧の前に空白のある State.update (…) を足す —— 部分文字列 'State.update(' しか探さず、空白のある有効な呼び出しを見逃していた",
+    "file": ROOT / "js" / "settings-io.js",
+    "find": "                State.set(normalized);",
+    "replace": "                State.update (() => merged);\n                State.set(normalized);",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
