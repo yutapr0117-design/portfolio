@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses-meta.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-07
+last-updated: 2026-11-11
 canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威)
 ---
 
@@ -572,6 +572,8 @@ MPL 系で、いずれも **steward（FSF / Mozilla）が組織として継続�
 別**であり、明示されていないと受領者は読み解く手間を負う。ただしこれは**本文の欠陥ではない**
 ので、審査中の差し替えはしない（審査側が見ているテキストとの乖離を作らないため）。
 
+**2026-11-11 追記（版の変種は 1 つの承認に包まれるか）**: Simon Phipps 氏は 2026-03-10 に、GPL の `-only` と `-or-later` について *"The -only and -or-later variants are all deployment options for the GPL licenses and do not reflect the licenses that OSI has actually approved, which embrace both variants."* と書いた（個人の立場・`against.md` #210）。OSI の承認は 1 つのライセンスが版の変種を包む、という見方である。ACD はこの形に合わない。1.4 草案の §16.4 は家族のどの名前と識別子も 1 つの固定した本文を指すとし、新しい版を出せるのは Steward だけ（§16.5）で、前の本文が使った番号は使わない。だから承認は、実際に出した 1 つの版に付く。どの版を出すかは `REVIEWERS.md` が述べ（1.0 ではなく後の版）、1.0〜1.3 を出すか、承認の無いまま残すかは決めていない。**逆側**: §16.4 が止めるのは、変えた本文をその名前と識別子で配ることだけで、§16.6 は §16.4・§16.5 を文書としての本文に限る。OSI や SPDX が識別子や URL を別名にし、付け替え、転送することは、文言の上では縛らない。そうなれば「1 つの固定した本文」は本文の中では保たれても、登録簿の上では保たれない。#210 はこの緊張を記録したまま、解いていない。
+
 ### Q34. ライセンススキャナが検出できるテキストなのか（SPDX matching guidelines）
 
 **検出しやすい側の性質を持っている。** 根拠は 2 つで、どちらも実測できる。
@@ -627,6 +629,21 @@ instrument で、`LICENSE` が「この作品に適用する」という宣言�
 **ACD に当てると**: 受領者が持つ許諾は §3〜§10 から来て、§16.4 に依存しない。§10.5 は §16 が本文の文書としての扱いであることを述べ、§16.6 は §16.4・§16.5 が文書としての本文を扱うと述べる。名前と識別子が 1 つの本文を指し続けることは §16.4 の目的として述べてあるが、商標は主張も登録もしていない（`faq.md` A18）。
 
 **逆側**: 本文に著作権が無ければ、§16.4 の「変えた本文をこの名前で配らない」は法的に強制できないかもしれない。そのとき名前の一貫性は、SPDX の識別子と読み手の確認に頼ることになる。どの法域で本文に著作権が生じるかは、この文書では決めない（法的レビューは受けていない）。
+
+
+### Q37. 増殖の分類は古くなっている。どの分類にも置けないなら、増殖でないことをどう示すのか
+
+> **English (ACD-1.4 draft):** We claim no category, because none is maintained; Simon Phipps said so in 2020. We set ACD against its nearest approved licences instead, which is how duplication is judged in practice. Against the public-domain equivalents (the Unlicense, MIT-0, 0BSD) and the permissive licences with an express patent grant (UPL-1.0, BlueOak-1.0.0, BSD-2-Clause-Patent), the difference is that ACD imposes no condition (Sections 4.3 and 10.1) and grants a patent licence that reaches models and outputs (Section 8.4) with no condition and no termination (Section 8.2). Because Section 4.5 lets the Work go out under any terms, ACD creates no licensing dead end, the reason the Board gave in 2007 when it approved SimPL. That is one decision, not a maintained test.
+
+**問いの原文**: Simon Phipps 氏（`license-review` 2020-02-15、Mulan PSL v1 の審査・`opensource.org` のアドレスから）—— 増殖の分類は *"created over a decade ago by a one-off consultative committee"* で、*"Consequently, the categories have become outdated through lack of maintenance."*（`gap-measurements.md` §1.162）。
+
+**答え**:
+
+- **分類は名乗らない。** 保守されている分類が無いので、特定の分類を主張しない（`review-responses.md` §7 の「どのカテゴリでの承認を求めるか」と同じ）。
+- **近い承認済みと条文で比べる。** 公有化に当たる Unlicense・MIT-0・0BSD とは、特許の許諾（§8）で違う。特許を明示に許諾する UPL-1.0・BlueOak-1.0.0・BSD-2-Clause-Patent とは、条件の有無で違う（これらは通知の条件を 1 つ持つ・§4.3、§10.1）。承認済み 141 本のうち、作品を超えて届く特許の許諾を、条件も終了も無しに持つものは 0 本である（`gap-census.md`・register の B10）。
+- **行き止まりを作らない。** §4.5 は Work をどんな条件ででも出せるとする。理事会は 2007 年に SimPL を、再ライセンスを許すので *"it does not create a licensing dead-end"* として承認した（`board-decisions.md`）。
+
+**逆側**: SimPL の理由は 1 回の決定で、保守された試験ではない。ACD の家族は 1.0〜1.3 が凍結した別の識別子として在り、1.4 は草案である。後の版を出すとき、前の識別子が増殖と数えられるか、どれかを退かせるかは、記録の上で開いている（Q33 の追記）。差を条文で示しても、足りるかは審査する側の判断である（`review-readings.md` §1.170）。
 
 ---
 
