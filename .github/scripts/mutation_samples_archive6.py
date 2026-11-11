@@ -687,4 +687,53 @@ MUTATIONS_ARCHIVE6 = [
     "find": "本のうち ",
     "replace": "本のうち 1",
 },
+    {
+    "name": "Check 25: 監視ログの確認された引用の件数を 1 と書く —— run に引用の観測が 1 件も無いのに、key の在否しか見ていなかった (捏造が通る)",
+    "file": ROOT / "docs" / "evidence" / "aio-monitoring-log.json",
+    "find": '"confirmed_citation_events": 0',
+    "replace": '"confirmed_citation_events": 1',
+},
+    {
+    "name": "Check 159: 主ブロックの @context を外す —— 値を全面で pool して 1 件でも在れば通り、別のブロックの値で満たされていた",
+    "file": ROOT / "index.html",
+    "find": '"@context": "https://schema.org",',
+    "replace": '',
+    "first_occurrence": True,
+},
+    {
+    "name": "Check 268: 実行時に注入する Article の元の題を 110 字を越える長さにする —— 静的な index.html しか読まず、ARTICLE_ROUTES のルートで meta-management.js が作る Article の headline を見ていなかった",
+    "file": ROOT / "js" / "page-meta.js",
+    "find": "'ai-knowhow': { title: 'AI開発ノウハウ',",
+    "replace": "'ai-knowhow': { title: 'AI開発ノウハウ — KERNEL フレームワーク・6 エージェントの役割分担・LLM のコスト管理・検証の自動化・人間の判断の範囲・mutation による安全網の自己検証・週次の確定の予行・AIO の公開面の整合までを全部まとめた長い記事',",
+},
+    {
+    "name": 'Check 469: 1.2 の CHANGELIST で E34 の一方の行を「未着手」にする —— 決着の語に「入った」が無く、もう一方の行の「入った」を決着と読めずに矛盾を見逃していた',
+    "file": ROOT / 'LICENSES' / 'ACD-1.2-CHANGELIST.md',
+    "find": '引用側を後継へ合わせた** | **入った** |',
+    "replace": '引用側を後継へ合わせた** | **未着手** |',
+},
+    {
+    "name": 'Check 469: 1.1 の CHANGELIST で E12 を「未反映」にする —— 未着手の語に「未反映」が無く、1.2 の決着と食い違っても読めなかった',
+    "file": ROOT / 'LICENSES' / 'ACD-1.1-CHANGELIST.md',
+    "find": '**E3 と同じ 1 文の前半** | **草案に反映済み** |',
+    "replace": '**E3 と同じ 1 文の前半** | **未反映** |',
+},
+    {
+    "name": 'Check 469: errata が閉じたと述べる E42 の、ただ 1 つの状態の行を「未着手」にする —— 状態の行が 1 つの E-ID は矛盾の組が作れず、errata とも照合していなかった',
+    "file": ROOT / 'LICENSES' / 'ACD-1.4-CHANGELIST.md',
+    "find": '上の表の §8.6 行と同じ変更） | **反映済み**（2026-11-01）|',
+    "replace": '上の表の §8.6 行と同じ変更） | **未着手**（2026-11-01）|',
+},
+    {
+    "name": "Check 469 (c): READY-TO-SUBMIT の部数を全角の括弧で 9 部と書く —— 半角の `Check N (M 部)` しか読まず、全角の行は黙って照合から落ちていた",
+    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
+    "find": "| Check 445 (5 部) |",
+    "replace": "| Check 445（9 部）|",
+},
+    {
+    "name": "Check 444o: index.html の RAG 用の Licence: 行を 1.0 の本文へ戻す —— 版を述べるのにどの面にも読まれておらず、緑のままだった",
+    "file": ROOT / "index.html",
+    "find": "      Licence: https://yutapr0117-design.github.io/portfolio/LICENSES/",
+    "replace": "      Licence: https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt (was LICENSES/",
+},
 ]
