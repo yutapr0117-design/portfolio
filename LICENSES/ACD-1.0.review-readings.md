@@ -199,3 +199,15 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"Sometimes open source advocates believe they can revise copyright law by crafting special words in their licenses. That doesn't work."* | Lawrence Rosen 氏 2008-11-10 | ACD の §6.5・§9.2・§6.4 のような、法の状態について述べる文への警告。ACD はこれらの文で法を変えると称さず、権利が在るかを決めないと書く（§6.4 の *"is not decided here"* の向き）。**逆側**: 法の状態に触れる文を持つこと自体が、Rosen 氏の言う誤解を生む余地を持つ（条項別の想定問答の §6 の Perens 氏の問いと同じ根） |
 
 **この節が establish しないこと。** OFL の承認の理由は議事録の 1 文と、この審査の発言から読んだもので、承認の告知の文は読んでいない。フォントがソフトウェアかは法域で違い、この節は決めない。Perens 氏の「OSI が拒んだ」という記述を、議事録で確かめていない。
+
+## 1.176 権利は総称でなく名指す、正本の言語は 1 つにする —— CeCILL v2.1 の審査（2012）（2026-11-11）
+
+`rounds/2012-04-to-05-license-review-cecill-2-1-observed.txt`（3 通・スレッドは全 19 通）。CEA・CNRS・Inria が 2012-02-27 に出した。2005 年の 2.0 は *"rejection because of unclear source distribution language"*（§1.168）で、2013 年に委員長が「増殖の報告に反するように感じられた」と述べている（`board-decisions.md` の 8.8 節）。2.1 の帰結は、この節では追っていない。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"If two of the three main items usually understood under the term are excluded, it would be better not to use the term at all and to be clear what you're talking about."*（"intellectual property" の語について） | Simon Phipps 氏 2012-04-06 | 有利な面。ACD は "intellectual property" の総称を使わず（1.0 と 1.4 草案に 0 回）、§1.5 の Covered Rights で権利を列挙し、特許は §8、商標は §11.1 で別に扱う。**逆側**: 列挙は長さ（B3）の一因で、"any right of similar effect" のような受け皿の語は、総称と同じ曖昧さを一部持つ |
+| *"The court must use whatever mechanisms it normally uses to resolve ambiguity"*（2 つの言語の本文が共に正本のとき） | John Cowan 氏 2012-04-02 | 有利な面。CeCILL は仏語と英語の両方を正本とし、食い違いを裁判所に委ねる形だった。ACD は英語だけを正本とし、翻訳は便宜とする（1.0 の §15.8、1.4 草案の §15.4）。2 つの正本の食い違いという問いを持たない。**逆側**: 英語を母語としない法域の受領者には、正本が読めない負担が残る（`jurisdictions.md`） |
+| *"Can we assume that your software license objectives are the same as those of W3C? If so, can you use the W3C licenses and not create a new one"* | Lawrence Rosen 氏 2012-05-19 | B10。ここでも最初の問いは既存のもので足りないか、だった（§1.174 の Prabhakar 氏と同じ型）。ACD の答えは register の B10 の行と meta Q37 |
+
+**この節が establish しないこと。** 個人の発言で、CeCILL v2.1 の承認の理由ではない。

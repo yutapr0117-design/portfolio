@@ -1,0 +1,147 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2012-April, 2012-May)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 3 messages this dossier cites from the review of CeCILL v2.1 (license-review, 2012-02 to 2012-05; 19 messages in all). Not the whole thread.
+Senders: Simon Phipps, John Cowan, Lawrence Rosen
+Position: review of another submission. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From webmink at gmail.com  Fri Apr  6 22:36:51 2012
+From: webmink at gmail.com (Simon Phipps)
+Date: Fri, 6 Apr 2012 23:36:51 +0100
+Subject: [License-review] CeCILL license V2.1 for Approval
+In-Reply-To: <59B88DFC35B5FA4E8E26595621CC07C0258295@EXDAG0-A1.intra.cea.fr>
+References: <4F4B9214.70306@inria.fr> <87vclhkdi6.fsf@floss.red-bean.com>
+	<59B88DFC35B5FA4E8E26595621CC07C0258295@EXDAG0-A1.intra.cea.fr>
+Message-ID: <CEB0B3EC-4A73-41EF-B027-E0EE9F32C475@gmail.com>
+
+
+On 5 Apr 2012, at 16:42, BAYLE Anne-sophie 174294 wrote:
+> 
+>> -----Message d'origine-----
+>> 
+>> * In section 6.4 ("JOINT PROVISIONS"), it says:
+>> 
+>>  "The Licensee undertakes not to directly or indirectly infringe the
+>>   intellectual property rights of the Holder and/or Contributors on the
+>>   Software and to take, where applicable, vis-?-vis its staff, any and
+>>   all measures required to ensure respect of said intellectual property
+>>   rights of the Holder and/or Contributors."
+>> 
+>>  This is very broad, and (in English) will apply to trademark rights
+>>  and patent rights.  Is it necessary?  There is much disagreement in
+>>  the software world about patents, and I don't see why Licensee should
+>>  have to go beyond whatever laws already govern it by default.  In
+>>  other words, what is this clause for?
+> 
+> The sentence applies to the IPR on the Software as defined by the license. It thus 
+> does not cover trademarks or patents. Patents are treated specifically, see Article 5".
+
+So which "intellectual property rights" do you mean apart from copyright? If two of the three main items usually understood under the term are excluded, it would be better not to use the term at all and to be clear what you're talking about. 
+
+>> 
+>> * Similarly, 6.2 ("OVER THE CONTRIBUTIONS") seems redundant:
+>> 
+>>  "The Licensee who develops a Contribution is the owner of the
+>>   intellectual property rights over this Contribution as defined by
+>>   applicable law."
+>> 
+>>  What concern does this address?
+> 
+> Yes it's perhaps a little redundant but sometimes it could be a good thing notably to make this license understandable by everybody.
+
+Once again, it's unhelpful as it uses a vague term in a general way.
+
+In both cases, I would very much prefer the term "intellectual property" to be replaced with the rights you are actually addressing. 
+
+Thanks,
+
+S.
+
+
+
+From cowan at mercury.ccil.org  Mon Apr  2 22:16:35 2012
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Mon, 2 Apr 2012 18:16:35 -0400
+Subject: [License-review] CeCILL license V2.1 for Approval
+In-Reply-To: <87vclhkdi6.fsf@floss.red-bean.com>
+References: <4F4B9214.70306@inria.fr> <87vclhkdi6.fsf@floss.red-bean.com>
+Message-ID: <20120402221635.GC29043@mercury.ccil.org>
+
+Karl Fogel scripsit:
+
+>   "The Agreement is drafted in both French and English and both
+>   versions are deemed authentic."
+>
+>   I've seen this kind of clause before, but am unclear on what it
+>   means if there is a disagreement between the two versions.
+
+Such a case is in principle no different from a single-language text
+that is ambiguous.  The court must use whatever mechanisms it normally
+uses to resolve ambiguity: it may not discard the French text simply
+because it prefers to use English, nor vice versa, but must take them
+both into account.
+
+If there is no way to reconcile the two (in one Hong Kong case, the
+English version of a law made it an offense to do something that *may*
+cause damage of a particular kind, whereas the Chinese version omitted
+"may"), the court will look to such factors as the intent of the drafters,
+which language(s) were used during the original drafting as working
+languages and which were added later by translation, and so on.
+
+This sort of thing goes on all the time in bilingual countries such as
+Canada, and in all national courts that have to interpret treaties
+and U.N. conventions.
+
+-- 
+John Cowan   cowan at ccil.org    http://ccil.org/~cowan
+I am he that buries his friends alive and drowns them and draws them
+alive again from the water. I came from the end of a bag, but no bag
+went over me.  I am the friend of bears and the guest of eagles. I am
+Ringwinner and Luckwearer; and I am Barrel-rider.  --Bilbo to Smaug
+
+
+From lrosen at rosenlaw.com  Sat May 19 20:35:59 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Sat, 19 May 2012 13:35:59 -0700
+Subject: [License-review] CeCILL license V2.1 for Approval
+In-Reply-To: <4FB7DDC6.6050207@inria.fr>
+References: <4F4B9214.70306@inria.fr>
+	<87vclhkdi6.fsf@floss.red-bean.com>	<59B88DFC35B5FA4E8E26595621CC07C0258295@EXDAG0-A1.intra.cea.fr>	<CEB0B3EC-4A73-41EF-B027-E0EE9F32C475@gmail.com>
+	<4FB7DDC6.6050207@inria.fr>
+Message-ID: <087e01cd35ff$003e06d0$00ba1470$@rosenlaw.com>
+
+Hi Patrick,
+
+ 
+
+I went to the www.inria.fr website to find out more about Mr. Moreau and the
+CeCILL license. I note that Inria ?hosts the first W3C office in France?.
+Can we assume that your software license objectives are the same as those of
+W3C? If so, can you use the W3C licenses and not create a new one, or can
+you work with W3C for a unified new licensing proposal?
+
+ 
+
+Otherwise I am concerned that we?re going to have a lot of confusion about
+French software licenses translated roughly into English.
+
+ 
+
+FWIW, I also serve on the W3C Patents and Standards Working Group and have
+worked with W3C before on their copyright and patent licenses. 
+
+ 
+
+/Larry
+
+ 
+
+Lawrence Rosen
+
+Rosenlaw & Einschlag, a technology law firm ( <http://www.rosenlaw.com>
+www.rosenlaw.com)
+
+3001 King Ranch Rd., Ukiah, CA 95482
+
+Office: 707-485-1242
+
