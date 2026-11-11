@@ -518,6 +518,38 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 463b: 申請日の 1 枚の「利益相反」の事実を「—」にする —— 旧版は空文字列だけを空と数え、字の無い事実を事実ありとして通した"
+            " (2026-11-12・監査 #37)",
+    "file": ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md",
+    "find": "| 利益相反 | 他者のライセンスの審査に意見したことがあるなら 1 行で開示（`REVISION-PROTOCOL.md` 規則 7）",
+    "replace": "| 利益相反 | —",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 463b: 申請日の 1 枚の要件表の見出しを変える —— 旧版は file の全表の行を読むので、要件表を見失っても黙っていた (2026-11-12)",
+    "file": ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md",
+    "find": "| 項目 | 事実（`<版>` は確定した版） |",
+    "replace": "| 要件 | 事実（`<版>` は確定した版） |",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 473b: docs/files/LICENSES/rounds/ の mirror (AI が書く散文) に否定済みの句を訂正の印なしで置く —— 旧版は path に"
+            " rounds が在れば射程から外していた (2026-11-12・監査 #47)",
+    "file": ROOT / "docs" / "files" / "LICENSES" / "rounds" / "1999-2024-license-review-w3c-software-license-observed-1of7.txt.md",
+    "find": "\n## What\n",
+    "replace": "\n## What\n\nThe steward did not ask for it.\n",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 473c: REVISION-PROTOCOL.md の off-list correspondence の例外を「例外ではない」に逆転する —— 旧版は 2 語が在れば"
+            "例外を述べたと数え、stub 5 件と逆の規則が並んでも緑だった (2026-11-12・監査 #43)",
+    "file": ROOT / "LICENSES" / "REVISION-PROTOCOL.md",
+    "find": "1. 受領全文が `rounds/` に無改変で入っている（**⚠ 第三者との private off-list correspondence は例外**",
+    "replace": "1. 受領全文が `rounds/` に無改変で入っている（**⚠ 第三者との private off-list correspondence も例外ではない**",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

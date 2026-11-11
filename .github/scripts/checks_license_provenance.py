@@ -119,10 +119,13 @@ def run(ctx):
     #   実測でそこに 3 件残っていた。**「本体を直した」は「写しも直った」ではない。**
     _scope473b = ([ROOT / "LICENSE"] + sorted((ROOT / "LICENSES").rglob("*.md"))
                   + sorted((ROOT / "docs" / "files" / "LICENSES").rglob("*.md")))
-    _bad473b, _unread473b = [], []
+    _bad473b, _unread473b, _read473b = [], [], 0
     for _f473b in _scope473b:
-        if "rounds" in _f473b.parts:
+        # 無改変保存は `LICENSES/rounds/` だけ (2026-11-12・監査 #47): 旧版は path のどこかに "rounds" が在れば
+        #   外し、`docs/files/LICENSES/rounds/` の mirror (AI が書く通常の散文) まで射程から落としていた
+        if _f473b.is_relative_to(ROOT / "LICENSES" / "rounds"):
             continue
+        _read473b += 1
         try:
             _raw473b = _f473b.read_text(encoding="utf-8")
         except Exception:
@@ -179,7 +182,15 @@ def run(ctx):
         _p = ROOT / _rel
         if not _p.exists():
             _bad473c.append(f"{_rel}: 存在しない"); continue
-        _has = "off-list correspondence" in _p.read_text(encoding="utf-8", errors="replace")
+        # 語の在否ではなく、その語を持つ行が例外を述べているかで見る (2026-11-12・監査 #43): 旧版は
+        #   "off-list correspondence" の 2 語が在れば例外を述べたと数え、「例外ではない」と逆を書いても緑だった
+        _ol473c = [_l for _l in _p.read_text(encoding="utf-8", errors="replace").splitlines()
+                   if "off-list correspondence" in _l]
+        _neg473c = [_l for _l in _ol473c if re.search(r"例外では(?:な|あり)|例外にし(?:な|ませ)|not an exception|"
+                                                      r"no exception|stub に(?:は)?しな|本文を置く(?!か)", _l)]
+        _has = any(re.search(r"例外|stub|exception", _l) for _l in _ol473c) and not _neg473c
+        if _neg473c:
+            _bad473c.append(f"{_rel}: off-list correspondence の例外を打ち消す文がある: {_neg473c[0].strip()[:60]!r}")
         if _stub473c and not _has:
             _bad473c.append(f"{_rel}: stub が {len(_stub473c)} 件在るのに例外が書かれていない")
         if not _stub473c and _has:
@@ -197,7 +208,7 @@ def run(ctx):
 
     check(
         not _bad473b and not _unread473b,
-        f"Check 473b: 来歴 {len(_scope473b)} 面に否定済みの句 0 件（訂正の印つきは可）",
+        f"Check 473b: 来歴 {_read473b} 面に否定済みの句 0 件（訂正の印つきは可・LICENSES/rounds/ の受領文は除く）",
         (f"Check 473b: {_bad473b}。**2026-09-23 に steward 本人が訂正した** —— "
          "ライセンスを持つ判断と上位の方向づけは人間発であり、"
          "*\"the agent determined that the repository needed a licence\"* 等は事実として誤り "

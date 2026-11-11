@@ -194,14 +194,25 @@ def run(ctx):
         if not _sm463.exists():
             _bad463.append("463b: LICENSES/SUBMISSION-MATERIALS.md が無い (申請日の 1 枚)")
         else:
+            # 要件表 (`| 項目 | 事実…` の見出しの表) の中だけを読む (2026-11-12・監査 #37 の隣): 旧版は file の全表の
+            #   行を読み、要件表の行を消しても別の表の同じ語で始まる行が代わりを務めうる形だった。見出しが
+            #   読めなければ RED。事実の列は、字 (英数字・かな・漢字) を 1 つも持たなければ空と数える ——
+            #   旧版は空文字列だけを空とし、事実を「—」にした行を事実ありと数えた (監査 #37)
+            _ls463b = _sm463.read_text(encoding="utf-8").splitlines()
+            _h463b = next((_k for _k, _ln in enumerate(_ls463b) if re.match(r"^\|\s*項目\s*\|\s*事実", _ln)), None)
             _tbl463b = {}
-            for _ln in _sm463.read_text(encoding="utf-8").splitlines():
+            for _ln in (_ls463b[_h463b + 2:] if _h463b is not None else []):
+                if not _ln.lstrip().startswith("|"):
+                    break
                 _cells = [_c.strip().strip("\u3000").strip() for _c in _ln.strip().strip("|").split("|")]
-                if _ln.lstrip().startswith("|") and len(_cells) >= 2:
+                if len(_cells) >= 2:
                     _tbl463b.setdefault(_cells[0], _cells[1])
             _lack463b = [_r for _r in _rows463b
-                         if not any(_k.startswith(_r) and _v for _k, _v in _tbl463b.items())]
-            if _lack463b:
+                         if not any(_k.startswith(_r) and re.search(r"[0-9A-Za-z\u3040-\u30ff\u4e00-\u9fff]", _v)
+                                    for _k, _v in _tbl463b.items())]
+            if _h463b is None:
+                _bad463.append("463b: SUBMISSION-MATERIALS.md に要件表の見出し (| 項目 | 事実…) が無い (読めないまま黙らせない)")
+            elif _lack463b:
                 _bad463.append(f"463b: SUBMISSION-MATERIALS.md の要件表に行が無い (または事実が空): {_lack463b}")
         check(
             not _bad463,
