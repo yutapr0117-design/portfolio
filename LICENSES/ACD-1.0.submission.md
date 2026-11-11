@@ -596,6 +596,13 @@ If the thread is on `license-discuss`, say so plainly, and say what you want fro
   cannot be in violation of rather than assertions of care. What none of that establishes
   is that the reasoning is sound, which is what I am here to find out.
 
+> **送る文ではない注記（2026-11-11）。** 起草に使ったモデルの名前（Anthropic の Claude。
+> Claude Code で動かした）と、名前を出す理由（モデルの作り手はモデルを訓練し、§6.4 と §8.4
+> はそうする者に有利に働く）は、`REVIEWERS.md` の Disclosures と `SUBMISSION-MATERIALS.md`
+> §1 に在る（`ACD-1.0.against.md` #319）。上の E.1 は AI が書いた材料であって、送る本文は
+> オーナーの言葉で書く。そこでモデルの名前を述べるかはオーナーが決める（B14）。述べない場合も
+> 上の 2 か所の開示は残るので、入口から辿る読み手には届く。
+
 ### E.2 What would cause the submission to be withdrawn
 
 Section B explains why the licence is necessary but does not say what would end the
