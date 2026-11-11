@@ -693,7 +693,7 @@ E14 も E18 も「宣言が一部しか覆っていない」欠陥で、直す�
 §2.8 が足した譲受人への拘束が covenant についてだけ引き戻される**。書き換えの当日、変更記録の逆側は「§5.3・§12.4 は重複になるが残す」と書いて閉じていた ——
 **重複と見たものは、文言が同じでないかぎり食い違いである**。
 
-**直したもの**: §2.8 の末尾に *"Neither of those Sections narrows this one."*（+7 語）。限定句は揃えていない（揃えると §2.8 が狭まる・理由は `ACD-1.4-CHANGELIST.md` の §2.8（3 回目）行）。
+**直したもの**: §2.8 の末尾に *"Neither of those Sections narrows this one."*（+7 語）。（採った日の文。2026-11-04 に §2.8 と §12.4 の理由の文を対で外したとき、いまの *"Neither Section 5.3 nor Section 12.4 narrows this Section."* になった。）限定句は揃えていない（揃えると §2.8 が狭まる・理由は `ACD-1.4-CHANGELIST.md` の §2.8（3 回目）行）。
 
 **見つけ方**: 弁護士への質問集の引用を本文に大小区別ありで照合していたとき、並ぶ 3 条（§2.8 / §5.3 / §12.4）の限定句を語ごとに見比べた。
 **一般形: 列挙を「全体」に置き換えると、全体の中にある個別の同種規定と対象が重なる。置き換えた日に、重なった規定の文言が同じかを確かめる。**
@@ -723,7 +723,7 @@ are unchanged and the form is identified as a re-encoding"* を足した（2026-
 Dedicator が自分では主張せず、独占的なライセンスを受けた代理人に主張させる経路が残っていた。1.2・1.3 は同じ文言で、1.0・1.1 には (d) 自体が無い。
 **errata ではない**: 欠陥のある文は 1.0 に無く、`ACD-1.0.errata.md` の冒頭は「全件 1.0 で未修正」と述べる（25 は最初 errata 候補として渡し、同日に取り下げた）。
 
-**直したもの**: 1.4 草案で *"(d) assert, or authorise or assist any other person to assert, against You …"*（+9 語）。§12.2 には足さなかった理由と逆側
+**直したもの**: 1.4 草案で *"(d) assert, or authorise or assist any other person to assert, against You …"*（+9 語）。（採った日の文。2026-11-08 の T39 で除外を (d) の冒頭へ移し、いまは *"(d) other than for a false statement or representation (Section 11.3), assert, …"* である。）§12.2 には足さなかった理由と逆側
 （「authorise しない」は将来に向けた約束で、以前に与えた独占的ライセンスの取消までは約束しない —— §5.1 にも同じ限界がある）は `ACD-1.4-CHANGELIST.md` の「§5.2(d)（authorise or assist）」行にある。1.2・1.3 は凍結のまま残る。
 
 **見つけ方**: 並ぶ条の非対称のレンズ（同じ働きの約束が同じ射程を持つか）を covenant の言い回しに当てた。
@@ -748,7 +748,7 @@ Dedicator が自分では主張せず、独占的なライセンスを受けた�
 
 **どちらも 1.1 が別の欠陥を閉じるために足した語で 1.0 に無いので、errata ではなくここへ記録する。** 25 のレンズ（§15.1 の向き・並行起草の差分）と bb の反例で見つかった。1.1〜1.3 は凍結のまま未修正。
 
-**(1) §2.6（E16 が足した）**: *"that material is included in the Work"* は、Work が Dedication の覆わない素材を含むことを前提にしていた。これは E61 の読み（一部に適用すれば素材全体が Work）を支える材料で、定義の 5 語と組むと読みが強くなる。1.4 草案は *"included with the Work"* へ直した。
+**(1) §2.6（E16 が足した）**: *"that material is included in the Work"* は、Work が Dedication の覆わない素材を含むことを前提にしていた。これは E61 の読み（一部に適用すれば素材全体が Work）を支える材料で、定義の 5 語と組むと読みが強くなる。1.4 草案は *"included with the Work"* へ直した（採った日の文。2026-11-08 の T37 で主語を組み替え、いまは *"a Dedicator who includes that material with the Work, or causes it to be included"* である）。
 
 **(2) §16.3（E2 が足した）**: *"in which they hold rights"* は適用する者に権利の確定を求める形で、§9.2 が権利の存否を述べないことと食い違う。AI が生成したコードの持ち主は権利が在るか分からず、gap の 3 つ目の採用者そのものである。1.4 草案は *"hold or may hold rights of their own"* へ直した。**最初の案 *"hold or may hold rights"* は不成立だった** —— *may hold* は可能性の語で、E2 が閉じた害（他人の著作物に notice を付ける誘い）が戻る。
 
@@ -782,10 +782,10 @@ Dedicator が自分では主張せず、独占的なライセンスを受けた�
 |---|---|---|---|
 | §5.1 第 2 肢 | 1.2（#272）| *"any claim or cause of action … relating to a use of the Work that this Dedication permits"* は特許の請求にも当たり、§15.1 の読みでは K3〜K5 の請求項が §8.4 の限定を丸ごと素通りする。1.2 で足したとき検討したのは商標だけだった | *"other than for patent infringement (Section 8)"* を足した（+7 語）|
 | §5.1 第 2 肢（対価）| 1.2（#272）| 同じ語は、ACD を適用した会社の有償サポートの代金請求も「許された利用に関する請求」にする。`faq.md` A30 は対価を取れると答えていて、§15.1 の広い読みと食い違う | *"or for a payment You agreed to make"* を例外に足した（+8 語・`ACD-1.4-SECOND-CLARITY-TRIAL.md` §13.6）。*"or relating to"* を外す案は bb の反例で落ちた |
-| §8.3 第 1 文 | 文は 1.0 から、衝突は 1.1 の限定から | *"any patent right of the Dedicator in respect of the Work"* に限定が無く、§8.4 の限定の外に残る請求項が *"leaves unaffected"* に当たる。第 3 文と §15.1 が組むと K3〜K5 が戻る | *"any patent claim that Sections 8.1 and 8.4 reach"*（−2 語）|
+| §8.3 第 1 文 | 文は 1.0 から、衝突は 1.1 の限定から | *"any patent right of the Dedicator in respect of the Work"* に限定が無く、§8.4 の限定の外に残る請求項が *"leaves unaffected"* に当たる。第 3 文と §15.1 が組むと K3〜K5 が戻る | *"any patent claim that Sections 8.1 and 8.4 reach"*（−2 語）。採った日の文で、2026-11-08 に *reach* を §8.3 で 1 回定める形へ組み替え、いまは *"Nothing in this Dedication reserves, preserves, or leaves unaffected any patent claim they reach."* である |
 | §8.4 の限定 | 1.4 草案の T4 | 方法の請求項では工程が Work の処理そのものなので、*"from the use of the Work"* が同語反復に読め、K4 が戻る | *use* を *content* へ（0 語）|
 | §8.6 第 1 文 | 1.1 の限定から | *"the patent claims described in Sections 8.1 and 8.4"* が第 1 文だけを指すと読むと、約束が許諾より広くなる | *"the patent claims that Sections 8.1 and 8.4 reach"*（§11.4 も同じ語へ）|
-| §5.1 第 2 肢（商標と表示）| 1.2（#272）| 2026-11-07 の本文だけの読み。除外を名指しすると名指しされない商標は不行使に入ると読め、1.3 の点検の根拠（§11.3 の行為は *permits* に入らない）は §5.2(d) が同じ語を §11.4 の与えない権利に使っているので閉じない。*relating to* は負傷や中傷の請求まで入る | *"for a use …"* へ改め、*"under trademark rights or rights in a name (Section 11.1)"* と *"for a representation Section 11.3 describes"* を除外に足し、§5.2(d) にも足した（+19 語・`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.1）|
+| §5.1 第 2 肢（商標と表示）| 1.2（#272）| 2026-11-07 の本文だけの読み。除外を名指しすると名指しされない商標は不行使に入ると読め、1.3 の点検の根拠（§11.3 の行為は *permits* に入らない）は §5.2(d) が同じ語を §11.4 の与えない権利に使っているので閉じない。*relating to* は負傷や中傷の請求まで入る | *"for a use …"* へ改め、*"under trademark rights or rights in a name (Section 11.1)"* と *"for a representation Section 11.3 describes"* を除外に足し、§5.2(d) にも足した（+19 語・`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.1）。採った日の文で、2026-11-08 に後者を *"for a false statement or representation (Section 11.3)"* へ改めた。いまの §5.2(d) が持つ除外はこの 1 つだけである |
 
 **効果**: 受領者は K3〜K5 を別の条から取り戻せなくなり、特許権者の費用は §8.4 の限定の内へ戻った。K1・K2 の受領者の地位は変わらない。本文の語は 1.0 の方向へ広がったのではなく、1.1 が意図した範囲へ揃った。
 
