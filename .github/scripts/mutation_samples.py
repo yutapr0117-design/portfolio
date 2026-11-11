@@ -528,6 +528,12 @@ _MUTATIONS_TAIL.append({
     "find": "運ばない語として読んだうえで変えないとした（試作 §14.25",
     "replace": "運ばない語として読んだうえで変えないとした（試作 §14.2x",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 468z: 記述子の下書きの outOfScope[1] の note を草案に無い Section 11.9 にする —— 凍結した記述子は 451f が照合するが、確定の日までの下書きの表は照合の外だった",
+    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
+    "find": "No permission is granted under these rights (Section 11.4).",
+    "replace": "No permission is granted under these rights (Section 11.9).",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

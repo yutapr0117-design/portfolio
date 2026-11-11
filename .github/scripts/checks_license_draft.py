@@ -67,7 +67,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        主表に記録が無い行が 7 件あった (portfolio-aa・2026-11-11)。同日、「*"…"* を足す」の引用も同じに扱い、
        「*"…"* を外す」の引用はその行が名指す条の本文から消えていることを見る形に広げた (aa の拡張案)。
        **468y は試作で「変えない」「退けた」とした条 (見出しの §・「変えない理由」の表の 1 列目) の、逐条の下書きの
-       行が、その試作の T 番号か節の番号を含むことを見る** —— いままで手で揃えていた (portfolio-aa・2026-11-11)。 (BLOCKING)
+       行が、その試作の T 番号か節の番号を含むことを見る** —— いままで手で揃えていた (portfolio-aa・2026-11-11)。
+       **468z は CHANGELIST の「記述子の下書き」の表が引く §N.M と note の "Section N.M" が草案に実在することを見る** ——
+       確定の日まで記述子は表の中の下書きで、451f の照合の外だった (portfolio-aa・2026-11-11)。 (BLOCKING)
 """
 import json
 import re
@@ -717,6 +719,30 @@ def run(ctx):
             elif _miss468y:
                 _bad468.append(f"468y: 試作で変えない / 退けたとした条の逐条の行が、その試作に触れていない: {_miss468y}。"
                                "行に T 番号か節の番号 (§N.M) を書き、結論 (変えない理由) を辿れるようにする")
+
+        # ── 468z: CHANGELIST の「記述子の下書き」の表が引く §N.M と note の "Section N.M" が、草案に実在すること ─────
+        #   portfolio-aa の問い (2026-11-11)。凍結した版の記述子の note は 451f が本文と照合するが、確定の日まで記述子は
+        #   CHANGELIST の表の中の下書きで、照合の外だった (outOfScope[1] の note に Section 5.2(d) を置くと決めた日)。
+        #   条の番号は試作で動くので、下書きの番号が草案に無くなったら確定の日を待たずに RED にする
+        _v468z = _dr468.name.split("-")[1]
+        _cltxt468z = _dr468.with_name(_dr468.name.replace("-DRAFT.txt", "-CHANGELIST.md"))
+        _ms468z = re.search(r"^### " + re.escape(_v468z) + r" の記述子の下書き.*?(?=^#{1,3} |\Z)",
+                            _cltxt468z.read_text(encoding="utf-8") if _cltxt468z.exists() else "", re.S | re.M)
+        if _ms468z:
+            _secs468z = {_n.split(".", 1)[0] for _n in _cl468}
+            _miss468z, _n468z = [], 0
+            for _l in (_x for _x in _ms468z.group(0).split("\n") if _x.startswith("|")):
+                _cs = [_c for _m in re.finditer(r"\b[Ss]ections?\s+(\d+(?:\.\d+)?(?:(?:,\s*|\s+and\s+|\s+or\s+|\s+to\s+)"
+                                                  r"\d+(?:\.\d+)?)*)", _l) for _c in re.findall(r"\d+(?:\.\d+)?", _m.group(1))]
+                _cs += re.findall(r"§(\d+\.\d+)", _l)
+                for _c in _cs:
+                    _n468z += 1
+                    if _c not in (_cl468 if "." in _c else _secs468z):
+                        _miss468z.append(_c)
+            if _miss468z:
+                _bad468.append(f"468z: {_cltxt468z.name} の記述子の下書きが、草案に無い条を引く: {sorted(set(_miss468z))}")
+            elif not _n468z:
+                _bad468.append(f"468z: {_cltxt468z.name} の記述子の下書きから条の参照を 1 件も読めない (読めないまま黙らせない)")
 
         # ── 468v: 草案の冒頭が述べる最新の凍結版・適用中の版・pin された版の一覧が実物と合う ─────────
         #   版を確定して次の草案を作る日に、この 1 段落の書き換えを忘れても無音だった (2026-11-06 の予行で
