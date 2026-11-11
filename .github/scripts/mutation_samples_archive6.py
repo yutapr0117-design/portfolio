@@ -881,4 +881,40 @@ MUTATIONS_ARCHIVE6 = [
     "find": "                            id: 'todo-filter',\n                            'aria-label': 'TODO を絞り込み',\n                            onchange: (e) => {",
     "replace": "                            'aria-label': 'TODO を絞り込み',\n                            onChange: (e) => {",
 },
+    {
+    "name": "Check 422: インポートモードの select の id を外し、ハンドラの本体に { id: 1 } を置く —— props の全文から id: を探したので、ハンドラの中の object の id をコントロールの id と読んでいた",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "h('select', { class: 'input', id: 'settingsImportMode', 'aria-label': 'インポートモード', onchange: (e) => { settingsImportMode = e.target.value; } },",
+    "replace": "h('select', { class: 'input', 'aria-label': 'インポートモード', onchange: (e) => { const o = { id: 1 }; settingsImportMode = e.target.value; } },",
+},
+    {
+    "name": "Check 476e: census の誤命中の行から param の 1 本 (LGPL-3.0-or-later) を落とす —— (c) の「モデル・パラメータを名指しする許諾は 0 本」は判定した集合に依るのに、判定の行と表の列を照合していなかった",
+    "file": ROOT / "LICENSES" / "ACD-1.0.gap-census.md",
+    "find": "`LGPL-2.1-or-later`、`LGPL-3.0-only`、`LGPL-3.0-or-later`: *\"numerical parameters",
+    "replace": "`LGPL-2.1-or-later`、`LGPL-3.0-only`: *\"numerical parameters",
+},
+    {
+    "name": "Check 476e: 生成器の READ_MISHITS の art4 から IPA を外す —— 生成器は取得し直した日にしか走らないので、読んだ集合の定数と census の判定の行がずれても気付かなかった",
+    "file": ROOT / ".github" / "scripts" / "generate_gap_census.py",
+    "find": "\"art4\": {\"CECILL-2.1\", \"IPA\"},",
+    "replace": "\"art4\": {\"CECILL-2.1\"},",
+},
+    {
+    "name": "Check 266: JSON-LD の AudioObject の description を 3 字 (BGM) にする —— 型の一覧が 4 型の完全一致で、description を持つ AudioObject / DigitalDocument / Article / PropertyValue を見ていなかった",
+    "file": ROOT / "index.html",
+    "find": "\"description\": \"AI-generated portfolio background music asset for the AI-Driven PM Portfolio by Yuta Yokoi.\",",
+    "replace": "\"description\": \"BGM\",",
+},
+    {
+    "name": "Check 468w: errata の 1 件の \"as adopted on 2026-11-03\" を外し、採った日の文をいまの草案の文として引く —— 草案の文が試作で変わったのに、errata は採った日の文を「1.4 draft」として引き続けていた",
+    "file": ROOT / "LICENSES" / "ACD-1.0.errata.md",
+    "find": "1.4 draft as adopted on 2026-11-03: *\"Permission under the Covered Rights stands here on three foo",
+    "replace": "1.4 draft: *\"Permission under the Covered Rights stands here on three foo",
+},
+    {
+    "name": "Check 468w: 草案の前文の 1 語を変える (Covered Rights → Covered Right) —— errata が「1.4 draft」として引く逐語が、いまの草案に在るかを照合していなかった",
+    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "find": "  Section 3 surrenders the Covered Rights. Section 4 grants a licence over the",
+    "replace": "  Section 3 surrenders the Covered Right. Section 4 grants a licence over the",
+},
 ]
