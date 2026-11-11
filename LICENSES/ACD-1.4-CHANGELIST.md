@@ -413,6 +413,23 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 | 個別 | `submission.md` §B.0 の本文の *ACD-1.0*（Check 472o）| 件名・冒頭・header・URL は 472f が見る。本文の 7 箇所のうち 6 箇所（OSD の宣言、gap、条件の段、§6.4 の段、§1.2 の段、*taken alone*）は版を替える。§1.2 の段は §1.3 へ替える。Provenance の *"The name ACD-1.0"* は履歴の文なので、版を替えず *"The name ACD"* とする |
 
 
+### 切り替えの日に `REVIEWERS.md` の *Which text you are looking at* へ入れる英文（下書き・2026-11-11）
+
+1.0 を `license-discuss` で読んだ審査者が、1.4 で何が変わったかを 1 画面で読める場所が無い。草案の冒頭の一覧は 1.3 からの差で、各版の CHANGELIST は版ごと・大半が日本語である。そこで切り替えの日に、番号の対応の段の前へ次の段を入れる。**数はどれも当日に数え直す**（errata の表の状態の列から版ごとの閉鎖数、表の 2 列目の最初の § から節ごとの件数、本文の題名の行から *END OF TERMS* までの `wc -w` と条の数）。下の数は 2026-11-11 に同じ数え方で出した値で、書き写さない。
+
+> **If you read ACD-1.0 on `license-discuss`, this is what is different in the version submitted.**
+> The direction is unchanged: no condition is placed on You in respect of the Work (§10.1), the
+> surrender, the licence and the covenant stand side by side (§2.4, §4.4), and the patent grant
+> reaches models and outputs (§8.4). What changed is precision. Of the 77 defects recorded against
+> 1.0 in [`ACD-1.0.errata.md`](ACD-1.0.errata.md), 75 are closed (19 in 1.1, 13 in 1.2, 5 in 1.3
+> and 38 in 1.4); E10 is carried into finalisation and E6 is left as it is by design. By the clause
+> each entry names first, most were in §8 (patents, 12), §16 (applying the text and its name, 12),
+> §2 (scope and effect, 10) and §1 (definitions, 8). Further changes came from our own sweeps of the
+> later drafts and are listed, with their reasons, in each version's change list. The text is
+> longer: 5,658 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
+
+**⚠ 逆側**: 短い経路の語数が約 170 語増える（`REVIEWERS.md` の短い経路の表と Check 472m の値を同じ日に直す）。*"The direction is unchanged"* は、1.0 から変わらなかったものを 3 つだけ挙げる文で、ほかに変わらなかったものが無いとは言っていない。逆に、変わったものを errata の件数で数えるので、errata に載らない 1.4 生まれの変更（T34〜T52 の多く）は *"Further changes"* の 1 文にまとまる。数を当日に数え直すのは、草案が確定まで動くからである（2026-11-11 の時点でも 1.4 の閉鎖は 38 件で、まだ動きうる）。
+
 ## Constraints
 
 - 1.0 / 1.1 / 1.2 / 1.3 は凍結中（`FROZEN.md`・Check 453）。直すのは `ACD-1.4-DRAFT.txt` だけ。
