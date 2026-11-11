@@ -64,7 +64,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        引き続けた行が 10 件あった (portfolio-00 / aa・2026-11-11)。採った日の文は "as adopted on" で書く。
        **468x は草案の CHANGELIST の主表の After (「何を変えるか」の *"…"* へ) が、いまの草案に在るか、
        主表の後の行の Before が同じ文を引くか、同じ行に「再改」を持つことを見る** —— 草案の文が後で変わったのに
-       主表に記録が無い行が 7 件あった (portfolio-aa・2026-11-11)。 (BLOCKING)
+       主表に記録が無い行が 7 件あった (portfolio-aa・2026-11-11)。同日、「*"…"* を足す」の引用も同じに扱い、
+       「*"…"* を外す」の引用はその行が名指す条の本文から消えていることを見る形に広げた (aa の拡張案)。 (BLOCKING)
 """
 import json
 import re
@@ -751,22 +752,38 @@ def run(ctx):
                     break
                 _rows468x.append(_x)
         _nm468x = lambda _q: " ".join(_q.replace("**", "").replace('\\"', '"').split()).strip(" ,;.")
+        # 2026-11-11 (aa の拡張案): 「*"…"* を足す」の引用も After と同じに扱い、「*"…"* を外す」の引用は
+        #   その行の「対象」の条 (§N.M) の本文から消えていることを見る (外した語句は他の条に正当に残りうる:
+        #   "in whole or in part" は §1.3 から外したが §8.4 と §12.6 に在る)。条を名指さない行は外す側を見ない。
+        #   印の語は aa が使う「後の行で再改」「次の行で再改」「後の行で外した」
+        _mk468x = ("再改", "後の行で外した")
+        _cls468x = dict(zip(*[iter(re.split(r"(?m)^  (\d+\.\d+) ", _t468)[1:])] * 2))
         _parsed468x = []
         for _x in _rows468x:
             _c = re.split(r"(?<!\\)\|", _x)
-            _sp = [(_m.end(), _m.group(1)) for _m in re.finditer(r'\*"(.+?)"\*(?!\*)', _c[2] if len(_c) > 2 else "")]
+            _w = _c[2] if len(_c) > 2 else ""
+            _sp = [(_m.end(), _m.group(1)) for _m in re.finditer(r'\*"(.+?)"\*(?!\*)', _w)]
             _parsed468x.append((_c[1].strip() if len(_c) > 1 else "", _x,
-                                [_nm468x(_q) for _e, _q in _sp if re.match(r"\s*を", _c[2][_e:])],
-                                [_q for _e, _q in _sp if re.match(r"\s*へ", _c[2][_e:])]))
+                                [_nm468x(_q) for _e, _q in _sp if re.match(r"\s*を", _w[_e:])],
+                                [_q for _e, _q in _sp if re.match(r"\s*へ|\s*を(?:[^。|]{0,12})?足", _w[_e:])],
+                                [_q for _e, _q in _sp if re.match(r"\s*を(?:[^。|]{0,12})?(?:外|削|消|落と)", _w[_e:])]))
         _flat468x = " ".join(_t468.split())
         _n468x, _miss468x = 0, []
-        for _k, (_key, _row, _bef, _aft) in enumerate(_parsed468x):
+        for _k, (_key, _row, _bef, _aft, _rem) in enumerate(_parsed468x):
             _later = " ".join(" ".join(_p[2]) for _p in _parsed468x[_k + 1:])
+            _laterpos = " ".join(_nm468x(_q) for _p in _parsed468x[_k + 1:] for _q in _p[3])
+            _marked = any(_m in _row for _m in _mk468x)
             for _a in _aft:
                 _n468x += 1
                 _lack = [_y for _y in (_nm468x(_z) for _z in re.split(r"…|\.\.\.", _a)) if len(_y) > 15 and _y not in _flat468x]
-                if _lack and not all(_y in _later for _y in _lack) and "再改" not in _row:
+                if _lack and not all(_y in _later for _y in _lack) and not _marked:
                     _miss468x.append(f"{_key[:30]}: {_lack[0][:50]!r}")
+            _nums = re.findall(r"§(\d+\.\d+)", _key)
+            for _r in _rem:
+                _q = _nm468x(_r)
+                _body = " ".join(" ".join(_cls468x.get(_n, "").split()) for _n in _nums)
+                if _nums and len(_q) > 15 and _q in _body and _q not in _laterpos and not _marked:
+                    _miss468x.append(f"{_key[:30]}: 外したはずの {_q[:50]!r} が §{'/§'.join(_nums)} に残る")
         if not _n468x:
             _bad468.append(f"468x: {_cl468x.name} の主表から After (*\"…\"* へ) を 1 件も読めない (読めないまま黙らせない)")
         elif _miss468x:
