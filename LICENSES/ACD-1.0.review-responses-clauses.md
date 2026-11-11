@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses-clauses.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-04
+last-updated: 2026-11-11
 canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威)
 ---
 
@@ -30,6 +30,24 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 > is the layering, not the word "irrevocable" — Section 5 is a covenant not to
 > assert, which is enforceable on ordinary contract or estoppel grounds in most
 > systems even where the surrender in Section 3 is not.
+
+**Q. 裁判所が献呈を bare license と見て禁反言を認めなければ、§2.5 は働かない。そのとき、対価が無いことを理由にした撤回から受領者を何が守るのか。（2026-11-11 追加）**
+
+問いの元は Lawrence Rosen 氏（`license-discuss` 2004-01-27）—— *"I don't think your analysis is correct. Promissory estoppel is a contract doctrine that has nothing to do with a bare license like the GPL."*（`rounds/2004-to-2026-license-lists-bare-licence-and-extrinsic-statements-observed.txt`）。
+
+> **English (ACD-1.4 draft):**
+>
+> If a court treats the Dedication as a bare licence and refuses estoppel, Section 2.5 does no
+> work, and recipients depend on other clauses. Section 3.1 is an irrevocable surrender and
+> abandonment rather than a licence, so where a jurisdiction gives it effect there is no licence
+> left to revoke. Section 4.1 calls the licence irrevocable, and Section 4.4 makes it independent
+> of Section 3. Sections 5.1 and 8.6 are covenants not to assert. We have no record that any of
+> these survives an argument of want of consideration. Our own answer above says the Section 5
+> covenant is enforceable "on ordinary contract or estoppel grounds", and those are the grounds
+> this case removes. "Irrevocable" in Section 2.2 states the Dedicator's position; it does not
+> override the law. Whether any of these clauses holds in that case is open.
+
+**なぜこう答えるか**: §2.5 は依拠と禁反言に立つので、禁反言が働かない読みでは他の条に頼るしかない。その条もそれぞれ、効くかどうかが法域の問いである。上の §2.2 の答えは「契約か禁反言で守られる」と書いており、この問いはまさにその両方を外す。答えられないことを答えられないと書く（`against.md` #236 が Rosen 氏の異論を未回答として記録している。`QUESTIONS-FOR-COUNSEL.md` にはまだ問いとして無い）。portfolio-aa が審査者の問いを当てて残った 1 件である。
 
 **Q. §2.8 が承継人を拘束すると書いているが、そんなことができるのか。**
 
@@ -582,6 +600,26 @@ of copyright** or words of the same purport **that such person knows to be false
 **⚠ ただし「構造上そうなっている」ことと「そう読まれる」ことは別で、
 本 Q&A がその読みを保証するわけではない。**
 
+**Q. §6.1 が学習を「明示的に」許すこと自体が、学習には許可が要るという規範を育てないか。モデルや出力に権利が在るという前提を広めないか。（2026-11-11 追加）**
+
+問いの元は Bruce Perens 氏（`license-discuss` 2026-03-19、上と同じ AI-MIT のスレッド）—— *"One is CREATION OF NORMS. Capitalized because I want Open Source folks to keep it in mind. Courts look at informal norms and codify them, and this is a tremendous risk to us."*（`rounds/1999-to-2026-license-lists-unread-threads-cited-observed-3of5.txt`）。
+
+> **English (ACD-1.4 draft):**
+>
+> The draft is written so as not to assert either premise. The Preamble says "silence is not
+> refusal"; Section 6.5 says Section 6 "states expressly what Sections 3 to 5 and 8 would in any
+> event permit"; Section 6.4 says whether a right subsists in a model or output "is not decided
+> here and does not need to be"; and Section 9.2 "makes no representation that any right
+> subsists" and "asserts no right in Machine-Generated Material". What the text cannot control
+> is how express statements are read in aggregate: whether courts would treat many express
+> training permissions as evidence that permission is needed, and whether Section 8.4's patent
+> licence over models and outputs, or Section 16.3's "may hold", would be read as asserting that
+> such rights exist. We kept Section 6 express as a deliberate trade, for automated readers and
+> for the EU Article 4(3) reservation question, and we accept that this warning weighs against
+> that choice.
+
+**なぜこう答えるか**: 本文はどちらの前提も述べないように書いてある。それでも、明示の許可が集まると規範に見える、という同氏の懸念は、条文の外の問題で本文には答えられない。§6 を明示にした理由（自動の読み手、DSM 指令 4 条 3 項の留保の問い）と、その理由の代償をこの警告として同じ場所に置く（`review-responses.md` A4、`against.md` #132・#133）。portfolio-aa が審査者の問いを当てて残った 1 件である。
+
 **Q. §13 / §14 は Dedicator の側にしか利益が無い。公表されている新規ライセンスの基準は「licensor を構造的に優位に置く条項を持たない」と述べているが、これは当たらないのか。（2026-09-27 追加）**
 
 > **English:**
@@ -788,6 +826,26 @@ ACD はどちらも構造的に回避しているが、**回避しているこ�
 > authoritative so that a translation cannot change the terms.
 
 ---
+
+**Q. ライセンスの外の説明は、裁判で読みを直せない。ドシエが与えている読みは、本文の中に入っているのか。（2026-11-11 追加）**
+
+問いの元は Pamela Chestek 氏 —— 2019-10-29（`license-review`）*"it is only the Licensor's intent, not the license"* steward の意図ではない、2026-09-01（同）*"there is no requirement for a court to consider statements outside the four corners of the license itself"*、*"So you can't count on FAQs to prevent an unintended interpretation."*（`rounds/2004-to-2026-license-lists-bare-licence-and-extrinsic-statements-observed.txt`）。
+
+> **English (ACD-1.4 draft):**
+>
+> We agree with the premise. Where someone other than the Steward applies the Dedication under
+> Section 16.3, our dossier is a non-party's statement. In the 1.4 draft the Steward appears only
+> in Sections 16.4 and 16.5, which Section 16.6 says "bind no one in respect of the Work", so
+> the only readings that reach such a dispute are those each Dedicator adopts with the text: the
+> reason sentences in Sections 6.5 and 8.2 to 8.4, and the construction rules in Sections 15.1
+> and 15.6. For the split between Sections 8.1 and 8.4, the text itself says the Section 8.1
+> proviso is "deliberately absent" from Section 8.4, that "Section 8.1 alone governs a feature
+> added to the Work", and that Section 8.4 reaches a claim only where the infringing feature
+> "results, in whole or in part, from the content of the Work". Whether a court reads that as two
+> tests, or as one limit taken away and put back, is still open. We have not checked every
+> reading the dossier supplies against the 1.4 text.
+
+**なぜこう答えるか**: 前提には同意する。ドシエは本文の外の説明で、§16.3 によって誰でも適用できる以上、争いの当事者は steward でないことが多い。だから読みの答えは本文の理由の文と解釈の規則にしか置けない。§8.1 と §8.4 の分け方は本文に理由を入れたが、それが 2 つの試験と読まれるか、外した限定を戻しただけと読まれるかは開いている（`QUESTIONS-FOR-COUNSEL.md` 2(f)）。どの理由の文を本文の外へ出せるか（`against.md` #295）は、1.4 を確定するまで開いている。portfolio-aa が審査者の問いを当てて残った 1 件である。
 
 ## 第 2 層 —— 定型条項と解釈条項への攻撃（別冊）
 
