@@ -639,15 +639,29 @@ After: It does not apply this Dedication to material that a narrower notice the 
 
 ほかの 9 件（§16.2 と §6.2・§11.3 と §10.2・§8.4 の因果・§16.4 の草案の例外・再符号化の文・§8.4 の *resulting from* の掛かり・§1.2 の *including*・§5.2 末尾の *or the terms or measures* の掛かり・§16.4 の *except by the Steward* の掛かり）は、どれも既存の記録（§14.24 T52・§14.18 T41・§13.5・§14.11・errata E8・§14.2 T17・§14.6・E67/E68・§12 T8）が同じ読みを扱い、閉じていた。
 
-**反証に残った 3 件（どれも low・変えない）**:
+**反証に残った 3 件（どれも low。§2.6 は §14.27 の試作へ）**:
 
 | 条 | 読み | 変えない理由 |
 | :-- | :-- | :-- |
 | §16.2 第 3 文 | Dedicator が置いた狭い通知（例: ファイルの横の *CC-BY-NC* の通知）が途中で落とされても、その素材は Work でないままで、受け取った人は自分の写しからそれを知れない | §2.7 の境界である（Dedicator が献呈しなかった素材には届かない）。提案された直し（落とされた写しを受けた人には他の条件を主張しない、と約束する）は、Dedicator 自身の別の素材に新しい約束を足し、T38 が §5 の外に置いた線を越える。errata E16 と §14.9（T23）の逆側と同じ形 |
-| §8.5 *controlled* | 上流に許諾料を払う独占的実施権者として持つ請求項は §8.1・§8.4・§8.6 の外で、Dedicator が訴えうる | §14.10（T25）で *"if, and only if"* にしたのはまさにこの線を引くためで、errata E39 の逆側に記録してある。広げれば、Dedicator が許諾できない権利を許諾したことになる |
-| §2.6 第 1 文 | 寄稿者は誰にも見えない形（私的なメール）で「この寄稿は ACD の下に無い」と述べられる | 方式を求めないのは Apache-2.0 §5 と同じ形で、errata E16 と試作 §11 の「PR を受ける」の行に記録した設計の費用である。提案された直し（*in or with the submission*）は、方式を求めることで寄稿者に条件を課す読みを開く |
+| §8.5 *controlled* | 上流に許諾料を払う独占的実施権者として持つ請求項は §8.1・§8.4・§8.6 の外で、Dedicator が訴えうる | §14.10（T25）で *"if, and only if"* にしたのはこの線を §8.1・§8.4 の許諾に引くためで、errata E39 の逆側に記録してある。**2026-11-11 訂正（portfolio-00 の反例）**: 最初は「広げれば Dedicator が許諾できない権利を許諾したことになる」と書いたが、それは許諾にしか当たらない。§8.6 の不主張は許諾ではないので、上流に払う実施権者でも「自分では訴えない」は約束でき、§8.6 が *"the patent claims that Sections 8.1 and 8.4 reach"* に範囲を結んでいることが残る穴である。変えない理由として立つのは 2 つ: 上流との契約が実施権者に権利行使を求める場合に不主張が契約違反になりうること、範囲を広げるほど B7 の費用が増えること。上流の特許権者自身の訴えは ACD では止まらないので、広げて得るものは狭い |
+| §2.6 第 1 文 | 寄稿者は誰にも見えない形（私的なメール）で「この寄稿は ACD の下に無い」と述べられる | **2026-11-11 訂正（portfolio-00 の反例）**: 最初は「方式を求めないのは Apache-2.0 §5 と同じ形」「方式を求めると寄稿者に条件を課す読みが開く」と書いたが、どちらも立たない。Apache-2.0 §5 は *"Unless You explicitly state otherwise"* で明示を求め、§1 は *"conspicuously marked or otherwise designated in writing"* を求める。ACD も §1.9 は印を、§2.6 は「提出の時に」を既に求める。方式は既定が当たるかどうかの規則で、誰にも義務を課さない。方式を厳しくする本当の費用は、提出の時に口頭で誠実に断った寄稿者が意に反して献呈したことになる点（同意の問題）である。残る穴は方式ではなく宛先の無さで、Dedicator でない共同管理者への私信の断りは §2.6 第 2 文の識別の約束を働かせない。宛先を足す案は §14.27（T53）で試作する |
 
-**結果**: 変える文は 0。§5 の 3 件は、1.4 の §5.2(b)・§2.4・§5.1 第 1 文が既に閉じている読みだった。
+**結果**: いま変える文は 0（§2.6 の宛先は §14.27 で試作する）。§5 の 3 件は、1.4 の §5.2(b)・§2.4・§5.1 第 1 文が既に閉じている読みだった。
 
 **⚠ 逆側**: (1) 反証は 1 人の読みで、bb の反例に当てていない。(2) レンズは 3 つで、法域ごとの読み（例: 消費者契約法の下の §14）は当てていない。(3) 「既存の記録が扱っている」は、その記録の結論が正しいことを示さない。とくに §5.2 末尾の除外は、反証が「インストーラの中の写しは Work のまま」に依っており、§2.1 の *separable part* の読みが法廷で同じに立つかは開いた問いである。
+
+### 14.27 T53: §2.6 の断りに宛先を足す（+6 語・試作・未採用）
+
+**欠陥**: §2.6 第 2 文の識別の約束（*"a Dedicator who includes that material with the Work, or causes it to be included, will identify it"*）は、受領者を守る唯一の手当てだが、含める Dedicator が断りを知っているときにしか働かない。第 1 文の *"unless they state otherwise at the time of submission"* には宛先が無いので、寄稿者が Dedicator でない共同管理者に私信で断れば、断りは成立し、どの Dedicator も知らず、約束は働かず、受領者の写しの通知は覆う範囲を誤って示す（portfolio-00 の反例・§14.26 の §2.6 の行）。errata E16 は同じ形（断りが跡を残さない）を記録しているが、宛先の線は扱っていない。
+
+**Before（§2.6 第 1 文）**: *"A Contribution is submitted under this Dedication, and the person making it becomes a Dedicator as to that Contribution, unless they state otherwise at the time of submission."*
+
+**After**: *"A Contribution is submitted under this Dedication, and the person making it becomes a Dedicator as to that Contribution, unless they state otherwise, in the submission or to the Dedicator, at the time of submission."*（+6 語）
+
+**§1.9 の forum への提出と噛み合うか（portfolio-00 の問い）**: §1.9 は *"a repository or forum, in either case offering the Work"* への提出も Contribution に数える。forum への提出では Dedicator は直接受け取らないが、*"in the submission"* が覆う（pull request の説明、commit message、投稿そのもの）。forum の運営者への私信は、運営者が Dedicator でなければ数えない —— それがこの案の閉じる穴である。*"to the Dedicator"* の *the Dedicator* は §1.9 の *"submits to the Dedicator"* と同じ語で、同じ者を指す。
+
+**⚠ 逆側**: (1) **同意の問題は残る**。Dedicator でない共同管理者に誠実に断った寄稿者は、この文の下では献呈したことになる。明示の断りを宛先違いだけで退ける文が法廷で通るかは疑わしく、通らなければ受領者は守られず、文は守られると思わせるだけになる。(2) Apache-2.0 §5 は *"Unless You explicitly state otherwise"* で、断りの宛先を定めていない。T53 は Apache より厳しい。(3) 寄稿者が Dedicator に口頭で断った場合は残る（Dedicator は知っているので第 2 文の約束が働く）。閉じるのは「誰も知らない断り」だけである。(4) +6 語で、B3 の費用を払う。
+
+**次**: portfolio-00 の反例（とくに (1) の同意の問題と、複数の Dedicator がいるときの *the Dedicator*）→ portfolio-9b の `measure_clause_overlap.py --compare / --guard` → 採るか退けるかをこの節に書く。採るまで草案は変えない。
 
