@@ -90,9 +90,35 @@ def run(ctx):
             #   (Person / Organization / BreadcrumbList は CreativeWork ではないので対象外)。
             _CW444 = {"CreativeWork", "WebSite", "WebPage", "ImageObject", "AudioObject",
                       "VideoObject", "TechArticle", "Article", "FAQPage", "MediaObject",
-                      "Dataset", "SoftwareApplication"}
+                      "Dataset", "SoftwareApplication", "DigitalDocument"}
+            # 入れ子のノードも歩く (2026-11-11・監査 #155 / #166)。@graph の直下しか見ないと、_CW444 が挙げる
+            #   MediaObject は TechArticle の encoding (llms.txt / llms-full.txt) にしか無いので対象が 0 件で、
+            #   Person.subjectOf の DigitalDocument (docs/evidence の調査記録) も見なかった。入れ子で license を
+            #   求めるのは、識別する URL (@id / url / contentUrl) がこのサイトのものだけ —— Zenn に載る記事
+            #   (Article 22 件) や著者として名指す AI (SoftwareApplication) はこの Dedication の作品ではない
+            _site444 = "https://yutapr0117-design.github.io/portfolio/"
             _ld_urls444 = set()
             _no_lic444 = []
+
+            def _walk444(_n, _top):
+                if isinstance(_n, list):
+                    for _x in _n:
+                        _walk444(_x, False)
+                    return
+                if not isinstance(_n, dict):
+                    return
+                _ts = [_x for _x in (_n.get("@type") if isinstance(_n.get("@type"), list) else [_n.get("@type")])
+                       if isinstance(_x, str)]
+                _own = any(str(_n.get(_k, "")).startswith(_site444) for _k in ("@id", "url", "contentUrl"))
+                if set(_ts) & _CW444 and (_top or (_own and set(_n) - {"@id", "@type"})):
+                    if "license" in _n:
+                        _ld_urls444.add(_n["license"])
+                    else:
+                        _no_lic444.append(f"{'/'.join(_ts)} {_n.get('@id') or _n.get('contentUrl') or _n.get('url') or '(no @id)'}")
+                for _k, _v in _n.items():
+                    if _k != "license":
+                        _walk444(_v, False)
+
             for _blk444 in re.findall(
                     r'<script type="application/ld\+json">(.*?)</script>', _html444, re.S):
                 try:
@@ -100,12 +126,7 @@ def run(ctx):
                 except Exception:
                     continue
                 for _n444 in (_doc444.get("@graph") or [_doc444]):
-                    if not isinstance(_n444, dict) or _n444.get("@type") not in _CW444:
-                        continue
-                    if "license" in _n444:
-                        _ld_urls444.add(_n444["license"])
-                    else:
-                        _no_lic444.append(f"{_n444.get('@type')} {_n444.get('@id', '(no @id)')}")
+                    _walk444(_n444, True)
             if not _ld_urls444:
                 _bad444.append("JSON-LD にどの CreativeWork ノードも license を持たない")
             if _no_lic444:

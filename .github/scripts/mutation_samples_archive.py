@@ -733,8 +733,8 @@ MUTATIONS_ARCHIVE = [
     {
         "name": "Check 235 (Article required fields): drift TechArticle datePublished to typo key",
         "file": ROOT / "index.html",
-        "find": '"name": "Authoritative AI full context — Yuta Yokoi (横井雄太) canonical ground truth"\n                        }\n                  ],\n                  "datePublished": "2026-01-01",',
-        "replace": '"name": "Authoritative AI full context — Yuta Yokoi (横井雄太) canonical ground truth"\n                        }\n                  ],\n                  "datePublishedTYPO": "2026-01-01",',
+        "find": '                        }\n                  ],\n                  "datePublished": "2026-01-01",',
+        "replace": '                        }\n                  ],\n                  "datePublishedTYPO": "2026-01-01",',
     },
     {
         "name": "Check 236 (aio-manifest start_date ISO): drift to locale format",
