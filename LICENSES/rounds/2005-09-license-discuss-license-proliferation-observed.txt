@@ -1,0 +1,322 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2005-September)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 5 messages this dossier cites from "License Proliferation" (license-discuss, 2005-08-31 to 2005-09-24; 106 messages under the subject across the two months). Not the whole thread.
+Senders: Russell Nelson, Lawrence Rosen, Simon Phipps, Eric S. Raymond
+Position: the list's discussion of licence proliferation and of the criteria for approval, including a board member's statement of how the board would use the three criteria. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Fri Sep  2 03:19:28 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Thu, 1 Sep 2005 23:19:28 -0400
+Subject: License Proliferation
+In-Reply-To: <20050831184425.GA97296@mail26c.sbc-webhosting.com>
+References: <20050831184425.GA97296@mail26c.sbc-webhosting.com>
+Message-ID: <17175.50368.361961.60373@desk.crynwr.com>
+
+Lawrence Rosen writes:
+ >    http://www.osdl.org/newsroom/articles/License_Proliferation.pdf
+
+.... and if wishes were fishes everyone would eat.
+
+So are you suggesting that OSI be *even more* proactive about license
+quality?  I've tried to implement your suggestion #1 and gotten
+hammered for it.  The very most basic question (which you don't ask)
+is this:
+
+  Does OSI certify all licenses that comply with the OSD?
+
+or
+
+  Does OSI certify all good licenses that comply with the OSD?
+
+In other words, do we take into account the interests of the
+community?  Or do we act as a conditional rubber stamp -- conditional
+*only* upon compliance with the OSD?
+
+I suggest that the answer is not obvious.  It's not obvious what the
+right answer is, and it's not obvious what the community wants us to
+do.  Ian Lance Taylor was complaining earlier that we don't ask people
+questions.  Presumably, now that I'm asking, he'll have an opinion.
+
+-- 
+--my blog is at     blog.russnelson.com         | with some experience 
+Crynwr sells support for free software  | PGPok |     you know what to do.
+521 Pleasant Valley Rd. | +1 315-323-1241       | with more experience
+Potsdam, NY 13676-3213  |                       |     you know what not to do.
+
+
+From lrosen at rosenlaw.com  Fri Sep  2 04:10:09 2005
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Thu, 1 Sep 2005 21:10:09 -0700
+Subject: License Proliferation
+In-Reply-To: <17175.50368.361961.60373@desk.crynwr.com>
+Message-ID: <20050902001015.GA31275@mail26d.sbc-webhosting.com>
+
+Hi Russ,
+
+> The very most basic question 
+> (which you don't ask) is this:
+> 
+>   Does OSI certify all licenses that comply with the OSD?
+> 
+> or
+> 
+>   Does OSI certify all good licenses that comply with the OSD?
+
+Thanks for asking.
+
+As I've told you often before, my opinion has always been that OSI should
+approve licenses that comply with the OSD. Period. 
+
+If necessary (as was done once during my tenure) revise the OSD. But don't
+keep moving the goal posts when licenses try to cross into the end zone.
+
+I think that the role of license-discuss, the License Proliferation
+committee, and the OSI Board is to help educate people so that the licenses
+that are proposed are good for open source, necessary, and legally proper.
+Those needn't be conditions for approval. They need not even be conditions
+for "tiering" although I'm still open to that option. I just want to have
+hard discussions on this list about particular licenses, the good and the
+bad aired for all to see, without it affecting the approval process. And
+without it becoming personal.
+
+Licenses will survive or fail based upon their merits, the merits of the
+business plans underlying the licenses, and the merits of the software
+itself. 
+
+As soon as the folks on this list have started listening again -- and
+stopped bashing Russ Nelson, Martin Fink, the authors of the OVPL, and each
+other -- I hope to suggest some very practical solutions to encourage more
+"good" licenses. And I will look forward to others once again discussing,
+calmly and with intelligence, these issues here as well.
+
+Best regards,
+
+/Larry
+
+Lawrence Rosen
+Rosenlaw & Einschlag, technology law offices (www.rosenlaw.com)
+3001 King Ranch Road, Ukiah, CA 95482
+707-485-1242  *  fax: 707-485-1243
+Author of "Open Source Licensing: Software Freedom and 
+   Intellectual Property Law" (Prentice Hall 2004) 
+   [Available also at www.rosenlaw.com/oslbook.htm]
+ 
+ 
+
+> -----Original Message-----
+> From: Russell Nelson [mailto:nelson at crynwr.com] 
+> Sent: Thursday, September 01, 2005 8:19 PM
+> To: license-discuss at opensource.org
+> Subject: Re: License Proliferation
+> 
+> Lawrence Rosen writes:
+>  >    http://www.osdl.org/newsroom/articles/License_Proliferation.pdf
+> 
+> .... and if wishes were fishes everyone would eat.
+> 
+> So are you suggesting that OSI be *even more* proactive about 
+> license quality?  I've tried to implement your suggestion #1 
+> and gotten hammered for it.  The very most basic question 
+> (which you don't ask) is this:
+> 
+>   Does OSI certify all licenses that comply with the OSD?
+> 
+> or
+> 
+>   Does OSI certify all good licenses that comply with the OSD?
+> 
+> In other words, do we take into account the interests of the 
+> community?  Or do we act as a conditional rubber stamp -- conditional
+> *only* upon compliance with the OSD?
+> 
+> I suggest that the answer is not obvious.  It's not obvious 
+> what the right answer is, and it's not obvious what the 
+> community wants us to do.  Ian Lance Taylor was complaining 
+> earlier that we don't ask people questions.  Presumably, now 
+> that I'm asking, he'll have an opinion.
+> 
+> -- 
+> --my blog is at     blog.russnelson.com         | with some 
+> experience 
+> Crynwr sells support for free software  | PGPok |     you 
+> know what to do.
+> 521 Pleasant Valley Rd. | +1 315-323-1241       | with more experience
+> Potsdam, NY 13676-3213  |                       |     you 
+> know what not to do.
+
+
+
+From webmink at sun.com  Fri Sep  2 12:13:53 2005
+From: webmink at sun.com (Simon Phipps)
+Date: Fri, 02 Sep 2005 13:13:53 +0100
+Subject: License Proliferation
+In-Reply-To: <43183DDF.6080302@roblimo.com>
+References: <20050831184425.GA97296@mail26c.sbc-webhosting.com>
+ <17175.50368.361961.60373@desk.crynwr.com> <43183DDF.6080302@roblimo.com>
+Message-ID: <a2d9ce52cb4cffd5c2fcfd5a100c6f05@sun.com>
+
+On Sep 2, 2005, at 12:56, Robin 'Roblimo' Miller wrote:
+
+> Another possibilbility: Offer a list of "most popular" licenses. 
+> SourceForge.net could supply this data in multiple forms, if asked. 
+> You can already get a good sense of license popularity by going to - 
+> http://sourceforge.net/softwaremap/trove_list.php?form_cat=14 - but it 
+> might be more useful, and fairer to newer licenses, to show not only 
+> all-time popularity but also licenses chosen by newer projects over 
+> the last 30/90/365 days. This would also make trends in licensing 
+> apparent, which is useful data both individual and corporate open 
+> source developers should have in hand before they make licensing 
+> decisions.
+
+That's an interesting idea, but I'd suggest that simply using "number 
+of projects that use the license" as the criterion is not the best 
+approach - it simply shows what's trendy. The test of a license is 
+surely how many people are willing to participate in the project that's 
+licensed under it, both as developers and as deployers.
+
+S.
+
+
+
+From nelson at crynwr.com  Sun Sep  4 05:00:26 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Sun, 4 Sep 2005 01:00:26 -0400
+Subject: License Proliferation
+In-Reply-To: <4C389994-4CB7-4C17-A9FD-D2F05CA5C001@apple.com>
+References: <20050831184425.GA97296@mail26c.sbc-webhosting.com>
+	<17175.50368.361961.60373@desk.crynwr.com>
+	<4C389994-4CB7-4C17-A9FD-D2F05CA5C001@apple.com>
+Message-ID: <17178.32618.810654.87913@desk.crynwr.com>
+
+Ernest Prabhakar writes:
+ > However, part of the answer *does* seem obvious.  I am NOT a layer,  
+ > and I don't speak for anyone but me, but my understanding is that the  
+ > *legal* obligation of the OSD trademark is that the OSI *must*  
+ > eventually certify all qualifying licenses that are submitted.  Is  
+ > that true, or isn't it?
+
+My understanding is that we cannot be arbitrary.  We can change our
+reasons for approval over time, but not over parties asking for
+approval.  I'm sure that we couldn't get away with rejecting Alex's
+submission because his name starts with A, and accepting Bart's
+submission because his name starts with B.
+
+If you look at what debian-legal does, you'll find that they start
+with the DFSG (Debian Free Software Guidelines), but there's a whole
+bunch more considerations you have to meet before your license is
+considered a free software license suitable for Debian.  Last time I
+knew, those considerations were only discoverably by asking or
+searching the debian-legal archives.  In other words, there is no DFSG
+Guidelines.
+
+ > My personal preference is that we (this list, representing the OSI)  
+ > provide *recommendations* for good drafting procedures and non- 
+ > duplicativity, but always be clear that these are not  
+ > *requirements*.   I suspect it is the confusion between those two  
+ > terms that has been the source of much angst.
+
+No, that's not the cause.  With full knowledge, we (the board)
+converted the long-standing recommendations into requirements (unique,
+readable, and reusable).  The problem is interpreting those
+requirements.  I say that a readable derived license won't change
+anything unless it's needed to make a legal difference.  Alex says
+that a readable derived license will make whatever changes are needed
+to ensure readability.  He doesn't think I'm right, and has asked me
+to submit it to the board for a vote.
+
+In principle, we're doing exactly what debian-legal is doing.  If
+we're wrong to apply extra-OSD requirements, then debian-legal is
+wrong to apply extra-DFSG requirements.
+
+-- 
+--my blog is at     blog.russnelson.com         | with some experience 
+Crynwr sells support for free software  | PGPok |     you know what to do.
+521 Pleasant Valley Rd. | +1 315-323-1241       | with more experience
+Potsdam, NY 13676-3213  |                       |     you know what not to do.
+
+
+From esr at thyrsus.com  Sat Sep 24 04:14:01 2005
+From: esr at thyrsus.com (Eric S. Raymond)
+Date: Sat, 24 Sep 2005 00:14:01 -0400
+Subject: License Proliferation (WAS: Policy)
+In-Reply-To: <2CCD17B6-0DAC-42C6-9A2A-166FEC3D8327@apple.com>
+References: <F63E82F3-36AC-4ECE-A4DD-F2E97EB980E8@apple.com> <20050909182719.GA29900@thyrsus.com> <B90709A8-3491-4F4A-969E-496BEEC07BBE@apple.com> <20050912190936.GA7981@thyrsus.com> <2CCD17B6-0DAC-42C6-9A2A-166FEC3D8327@apple.com>
+Message-ID: <20050924041401.GA9000@thyrsus.com>
+
+Ernest Prabhakar <prabhaka at apple.com>:
+> That said, I still feel like the job needs to be done, and nobody  
+> else seems to be volunteering.  Last call?
+
+I think you're it :-).
+ 
+> If you/the Board want me to do this -- and nobody else in the  
+> community objects or volunteers -- I'm willing to take this on.  BUT,  
+> only under the following conditions.
+> 
+> I. The Board explicitly spells out, on a public web page:
+> 	i) The exact phrasing of the three new criteria
+> 	ii) Whether they are part of, or supplemental to, the OSD
+> 	iii) The mechanism by which they will be applied
+> 	iv) The rationale for making them part of the standard for license  
+> approval
+
+i) Ken, please make sure the version we passed gets published.
+
+ii) They are supplemental to the OSD.
+
+iii) We expect license-discuss to apply them when doing evaluations.
+The Board will consider them when making final approve/reject decidions.
+
+iv) The rationale for these new criteria is simply that we need to avoid
+junk licenses.  At a time when we're trying to cut down even on the number
+of non-junk licenses in use, we have to be more strict about what we
+allow in.
+
+> II.  The discussion takes place openly and officially on "license- 
+> proliferation-discuss"
+> That means:
+> 	i) There is a notice on the aforementioned web page inviting  
+> feedback on that forum
+> 	ii) All four components under (I) are "in play" as valid topics of  
+> discussion
+> 	iii) Eric, representing the Board, also participates in that 
+> 	discussion
+> 	iv) the Board commits to respond, publicly and in detail, to the  
+> summary report I will provide
+
+I will participate in the discussion. I will respond on behalf of
+the Board, having been tasked to do so at the last meeting.
+
+> Again, this seems the minimum necessary to ensure a credible  
+> response. Plus, that finally gets this topic of license-discuss. :-)
+
+A good thing.
+ 
+> And if you're willing to do all that, then:
+> 
+> III.  I personally (not representing Apple) agree to:
+> 	i) Moderate the discussion of these topics on license-proliferation- 
+> discuss
+> 	ii) Formulate a coherent summary representing the community consensus
+> 	iii) Respond to and incorporate community feedback regarding that  
+> summary
+> 	iv) Advocate and elucidate that summary to the OSI Board
+> 
+> Fair enough?
+
+Yes.
+ 
+> Also, let me be up-front about my perspective on this issue.  I see  
+> the Board as *trustees* of the OSD and Certification Mark on behalf  
+> of the *entire* community.  That means that I believe they *do* have  
+> both the right and the duty to amend those as needed to represent the  
+> best interests of the community.  However, that also means they have  
+> an *obligation* to ensure that such action also represent the best  
+> *understanding* of the community, as reflected by considered feedback.
+
+Agreed.  I couldn't have put it better myself.
+-- 
+		<a href="http://www.catb.org/~esr/">Eric S. Raymond</a>
+
+
