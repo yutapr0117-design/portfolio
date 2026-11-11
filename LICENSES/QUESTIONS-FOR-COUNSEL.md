@@ -207,9 +207,9 @@ known or unknown, arising from or relating to a use of the Work that this Dedica
 The 1.4 draft reads *"any claim or cause of action, whether now known or unknown, for a use of the
 Work that this Dedication permits, other than for patent infringement (Section 8), under trademark
 rights or rights in a name (Section 11.1), for a false statement or representation (Section 11.3), or
-for a payment You agreed to make"*, and §5.2(d) carries the same exception. §11.1
-grants no trademark right; §11.3 places misrepresentation of authorship or endorsement outside the
-Dedication's reach; §11.4 states that the §5 covenants are not limited by its own sentence on reach.
+for a payment You agreed to make"*. §5.2(d) carries only one of those exceptions, the one for a false
+statement or representation (Section 11.3). §11.1 grants no trademark right; §11.3 places
+misrepresentation of authorship or endorsement outside the Dedication's reach; §11.4 states that the §5 covenants are not limited by its own sentence on reach.
 
 **Our reading.** "For a use" keeps the claims that attack the use itself, such as unjust enrichment
 and unfair competition, and leaves out a claim that only accompanies a use, such as an injury
