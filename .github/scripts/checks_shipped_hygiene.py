@@ -729,17 +729,23 @@ def run(ctx):
     # clamp-range twin・Check 378 の JS↔CSS cross-layer coherence と同じ 2 レイヤ一致軸)。
     _clamp_ui_re394 = re.compile(r"settings\.(work|short|long) = clamp\([^;]*?,\s*(\d+),\s*(\d+)\)")
     _clamp_store_re394 = re.compile(r"(work|short|long): clamp\([^;]*?,\s*(\d+),\s*(\d+)\)")
-    _ui_src394 = (ROOT / "js" / "pomodoro-page.js").read_text(encoding="utf-8", errors="replace")
-    _store_src394 = (ROOT / "js" / "store.js").read_text(encoding="utf-8", errors="replace")
-    _ui_ranges394 = {m.group(1): (m.group(2), m.group(3)) for m in _clamp_ui_re394.finditer(_ui_src394)}
-    _store_ranges394 = {m.group(1): (m.group(2), m.group(3)) for m in _clamp_store_re394.finditer(_store_src394)}
+    # コメントを除いてから読み、同じ field の clamp が層の中で 2 通りに書かれていたら RED (2026-11-11・監査 #70):
+    #   生のソースの dict 内包は最後の一致を残すので、本物の行の後ろのコメントに古い式を書くと、それが層の値になった
+    _ui_src394 = strip_js_comments((ROOT / "js" / "pomodoro-page.js").read_text(encoding="utf-8", errors="replace"))
+    _store_src394 = strip_js_comments((ROOT / "js" / "store.js").read_text(encoding="utf-8", errors="replace"))
+    _all_ui394 = [(m.group(1), (m.group(2), m.group(3))) for m in _clamp_ui_re394.finditer(_ui_src394)]
+    _all_store394 = [(m.group(1), (m.group(2), m.group(3))) for m in _clamp_store_re394.finditer(_store_src394)]
+    _ui_ranges394, _store_ranges394 = dict(_all_ui394), dict(_all_store394)
     _fields394 = {"work", "short", "long"}
+    _dup394 = [f"{_lay}.{_f}: {sorted({_v for _k, _v in _all if _k == _f})}"
+               for _lay, _all in (("UI", _all_ui394), ("store", _all_store394)) for _f in sorted(_fields394)
+               if len({_v for _k, _v in _all if _k == _f}) > 1]
     # 両ファイルから 3 field すべてを抽出できること (regex が code 形と乖離したら発見漏れ防止) +
     # 各 field の (min, max) が UI↔store で一致すること。
     _mismatch394 = [
         f"{_f}: UI{_ui_ranges394.get(_f)} != store{_store_ranges394.get(_f)}"
         for _f in _fields394 if _ui_ranges394.get(_f) != _store_ranges394.get(_f)
-    ]
+    ] + [f"層の中で 2 通り: {_d}" for _d in _dup394]
     check(
         _fields394 <= set(_ui_ranges394) and _fields394 <= set(_store_ranges394) and not _mismatch394,
         "Check 394: pomodoro settings clamp range が pomodoro-page.js(UI) ↔ store.js(normalize) で "
