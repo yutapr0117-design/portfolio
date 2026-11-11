@@ -345,3 +345,18 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"After all, the requirement that the originator of a license be the one to submit it is not a hard requirement, it's just a tradition that we've kept because it's a good filter."* | Karl Fogel 氏 2012-02-02 | 起草した本人が出すのは厳格な要件ではなく、濾し器としての慣行だ、という説明。同じ通で、CC0 は増殖の費用を払ってでも評価に値すると書いた（*"despite the license proliferation cost"*） |
 
 **この追記が establish しないこと。** 個人の発言で、OSI の決定ではない。Boettiger 氏が後に CC0 以外を選んだかは確かめていない。
+
+## 1.185 採用の入口としてのライセンス選択サイト —— choosealicense.com の公開と、「無名には理由がある」（2013）（2026-11-11）
+
+`rounds/2013-07-and-08-license-discuss-choosealicense-observed.txt`（5 通・スレッドは全 49 通）。GitHub が 2013-07 に公開したライセンス選択サイトを、Karl Fogel 氏が OSI の FAQ から案内するかを問うた議論（*"We may want to consider linking to it from OSI's FAQ, but it would be great to get people's opinions first."*）。8 月には選択サイトの偏りと、増殖の何が悪いかの議論になった。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Historically OSI has shyed away from such things because they involve recommending licenses without being lawyers, and also suggest that some licenses are more useful than others."* | John Cowan 氏 2013-07-15 | OSI 自身は、どのライセンスを使うべきかを勧める場に立ってこなかった。採用の入口は OSI の外に在る（`review-readings.md` §1.181 の下流の一覧と同じ形）。**逆側**: 勧めないことは、承認を推薦と読ませない有利な面でもある |
+| *"It is fairly obvious that the GitHub site's presentation of what licenses it recommends, and why, is politically biased"* | Richard Fontana 氏 2013-08-17 | 選択サイトは中立ではない。同じ通で、要約は不正確になりやすく、案内するなら多くの選択サイトを強い注意書きつきで、と書いた |
+| *"So you would like people to read and comprehend, we'll say conservatively the 11 "Popular Licenses," and find one that has the major substantive aspects they want but that also does not have any aspect that could use some tweaking for their own business model -- say, for example, a delayed release date of source code, which will mean they will write another license, or find another obscure license that does what they want but is obscure for a reason."* | Pamela Chestek 氏 2013-08-19 | B2 の不利な面。無名のライセンスは理由があって無名だ、という読み。#289（同氏 2019「使われていないことは欠陥の証拠かもしれない」）の 6 年前の形で、#289 に足した。同じ通で、選択サイトは主な性質の要約で採用を決めさせるものだと書いた —— ACD の主な性質が短い要約に収まるかは B13 の問いである |
+| *"It isn't that MORE licenses are necessarily bad. Instead, say that the proliferation of BAD (or "me-too" or "un-templated" or "legally questionable") licenses is bad."* | Lawrence Rosen 氏 2013-08-20 | 両面。増殖で悪いのは数ではなく質だ、という立場（有利）。挙げた 3 つの悪さのうち、ACD は「型に合わない」（既存の言い回しを借りない・#184）と「法的に疑わしい」と読まれうる（法律家の読みが無い・B1）。同じ通で、良し悪しは依頼人の必要によるので、この list のほとんど誰も（自分も）見分けられない、とも書いた |
+
+**いまの choosealicense.com（2026-11-11 に WebFetch で読んだ要約・逐語ではない）。** 比較の表（`/appendix/`）は 47 本を挙げ、献呈の型の Unlicense、CC0、0BSD、MIT-0 を含む。OSI が承認していない WTFPL も載っている。ACD は無い。**有利な面**: 献呈の型そのものは、採用の主な入口に既に在る。載るかどうかは OSI の承認と同じ基準ではない。**逆側**: ACD はこの入口に無く、承認されても載るわけではない（#322 に足した）。
+
+**この節が establish しないこと。** 2013 年の個人の発言で、OSI の決定ではない。choosealicense.com が何を基準に載せるかは確かめていない。表は WebFetch の要約で読んだので、逐語の照合はしていない。
