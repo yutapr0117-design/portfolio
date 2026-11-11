@@ -14,7 +14,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (g) submission.md の "across N files" と、そこで名指す分冊 / (h) AS-OF の「未読スレッドの残り」の
        「候補 N 本のうち M 本を読んだ。K 本は読んでいない」が N = M + K であること /
        (i) AS-OF の「答えていない問い」の行の「**N 件**」が、状態の欄の「**Q1**」「**Q2**」… の数と
-       一致し、番号が 1 から N まで欠けず、各件が届いた日・`rounds/<file>`（実在）・§（私信の stub を指す件は「—」でよい）と、
+       一致し、番号が 1 から N まで欠けず、各件が「；」で終わり、届いた日・`rounds/<file>`（実在）・§（私信の stub を
+       指す件は § を書かず「—」）と、
        「未回答」か「オーナーが回答」を持つこと (2026-11-11・portfolio-00 の依頼。0 件のうちに置く)。
        文が読めないことも RED にする（言い換えると黙る形を残さない）。
   499. **入口の「最後に読んだ時刻」が、OSI-EVENTS が記録する最新の取得と合うこと** (BLOCKING・2026-11-09・
@@ -175,6 +176,10 @@ def run(ctx):
                                     ("状態", re.search(r"未回答|オーナーが回答", item))) if not ok]
             if miss:
                 bad.append(f"(i) AS-OF.md の Q{q.group(1)}: {' / '.join(miss)} が無い (rounds の file は実在すること)")
+            # stub を指す件は § を書かない (portfolio-00・2026-11-11): 私信で問われた条は私信の中身の一部で、
+            #   B14 の規律は出さない側に倒す。同じ問いが後でリストに出たら、その通を逐語で置いた別の件にする
+            if stub and "§" in item:
+                bad.append(f"(i) AS-OF.md の Q{q.group(1)}: 私信の stub を指す件が問われた条 (§) を書いている —— 「—」にする")
 
     check(
         not bad,
