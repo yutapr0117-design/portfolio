@@ -542,6 +542,12 @@ _MUTATIONS_TAIL.append({
     "find": "  Section 3 surrenders the Covered Rights. Section 4 grants a licence over the",
     "replace": "  Section 3 surrenders the Covered Right. Section 4 grants a licence over the",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 460: READY-TO-SUBMIT の散文に §B.0 の語数を裸で書き、日付は次の行の別の文にだけ在る —— 表の外は ±3 行の窓で日付を探し、隣の行の「2026-09-07 に同じ理由で書き換えた」を語数の日付と読んでいた",
+    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
+    "find": "提出文（`submission.md` §B.0）も",
+    "replace": "提出文（`submission.md` §B.0・900 語）も",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
