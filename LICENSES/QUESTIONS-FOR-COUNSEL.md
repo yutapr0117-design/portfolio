@@ -126,6 +126,12 @@ that definition is the right one is part of the question.
 model that has once processed the Work; the 1.4 wording tests the infringing feature rather than the
 model, and a licensee must show that the feature came from the Work or that the Work teaches it. (c) We have not examined how an unconditional,
 non-terminable patent licence to the public interacts with the Dedicator's other patent licensing.
+One form of that interaction was raised against CC0 in 2012: Bruce Perens wrote that a party that
+*"has licensed a patent and dedicates the software exercising that patent is obligated to help the
+licensee of the patent to prosecute the party using the software"*
+(`rounds/2012-03-license-review-cc0-straw-poll-observed-1of2.txt`). For ACD the question is whether
+§8.6's promise *"not to authorise or assist any other person to assert"* the claims meets an earlier
+duty owed to an exclusive licensee, and whether that licensee can sue a recipient regardless.
 (d) Whether the §8.6 covenant survives where the licence is held ineffective, or falls with it, and
 whether a covenant given alongside the licence (the 1.4 form) is treated differently from one that
 arises only on a holding (the 1.3 form). (e) Whether "use" in a covenant not to assert patent claims is read as
