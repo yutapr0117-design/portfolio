@@ -558,6 +558,18 @@ _MUTATIONS_TAIL.append({
     "find": "        r\"\"\"frontmatter の 1 行の値 (行の中だけを読み、引用符を外す)。",
     "replace": "        \"\"\"frontmatter の 1 行の値 (行の中だけを読み、引用符を外す)。",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 162: .gitignore の node_modules/ の規則をコメントにする —— file 全体の部分文字列で探し、コメントにした規則も在ると数えていた",
+    "file": ROOT / ".gitignore",
+    "find": "\nnode_modules/\n",
+    "replace": "\n# node_modules/\n",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 162: .gitignore で node_modules/ の直後に否定の !node_modules/ を足す —— 後の行の否定で打ち消された規則も在ると数えていた",
+    "file": ROOT / ".gitignore",
+    "find": "\nnode_modules/\n",
+    "replace": "\nnode_modules/\n!node_modules/\n",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
