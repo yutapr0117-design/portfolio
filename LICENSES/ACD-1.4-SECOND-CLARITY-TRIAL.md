@@ -677,3 +677,25 @@ After: It does not apply this Dedication to material that a narrower notice the 
 
 **⚠ 逆側**: 退けたことで、宛先の無い断りの穴は 1.4 でも開いたままである。受領者にとって T53 は悪くならないので、語数を理由に退けるのは受領者より B3 を重く見た判断である。
 
+### 14.28 T54: §8.4 の理由の文を外し、作用の文だけを残す（−105 語・試作・未採用）
+
+**欠陥**: §8.4（294 語）の 7 文のうち 3 文が、作用の後に理由を述べる。(1) 第 2 文 *"The grant is necessary because …"*（50 語）は、許諾を必要性で根拠づけるので、必要性が生じない場面では §8.4 を狭く読む分岐を生む —— 1 冊目の試作の F3 の表（`ACD-1.4-CLARITY-TRIAL.md`）がこの読みを挙げたまま、採否が記録されていなかった。(2) 第 1 文のコロンの後 *"whether a trained model is "the Work" or derived from it is unresolved, and a provision that merely avoided doubt would be read down …"* は、法の状態（未決）を恒久の本文に書く。法が決まれば本文の文が偽になる —— 一時的な状態を恒久のテキストへ書かない、という既存の判断（`ACD-1.0.discussion-log.md` の 7）と同じ型である。(3) 第 3 文のコロンの後 *"a model is not subject matter contained in the Work, so importing that proviso would restore the exposure …"* は、作用（§8.1 の内容の限定が §8.4 に無いこと）の理由である。条文の中の理由の文には審査者の異議がある（#295）。
+
+**Before（3 文）**:
+- *"This is a grant in its own right and not a clarification of Section 8.1: whether a trained model is "the Work" or derived from it is unresolved, and a provision that merely avoided doubt would be read down with the reading it was meant to correct."*
+- *"The grant is necessary because Covered Rights exclude patent rights (Section 1.5), so Section 6.4 alone would leave Computational Use permitted as to the Covered Rights while exposed as to patents, which is the very result Section 8.3 rejects and one that would defeat the purpose stated in Section 6.5."*
+- *"The proviso in Section 8.1 as to subject matter contained in the Work is deliberately absent from this Section: a model is not subject matter contained in the Work, so importing that proviso would restore the exposure this Section exists to remove."*
+
+**After**:
+- *"This is a grant in its own right and not a clarification of Section 8.1."*（−32 語）
+- 第 2 文は外す（−50 語）。
+- *"The proviso in Section 8.1 as to subject matter contained in the Work is deliberately absent from this Section."*（−23 語・468u の目印 *"deliberately absent"* は残る）
+
+計 −105 語（`split()` で数えた）。
+
+**作用は変わらないと読む理由**: 「確認ではなく独立の許諾」と「§8.1 の内容の限定は無い」は作用の文として残る。必要性の理由が述べていた結論は、§8.3（*"Any reading of this Dedication that would produce that result is to be rejected."*）と §6.5（目的）が持つ。§14.6 で退けた候補（§6.4 の *"You owe nothing"* に範囲の語が無い）は §8.4 第 2 文を答えの 1 つに挙げていたが、同じ行が挙げる §6.5 と §5.1 が残る。
+
+**⚠ 逆側**: (1) 理由の文は解釈の材料でもある（F3 の「反例の種」）。外すと、必要性の説明は本文から消え、§15.1 と §8.3・§6.5 が残るだけになる。(2) 第 2 文は審査者に §8.4 の射程を説明する文として役立ってきた（#16 の費用の議論）。説明は逐条リファレンスと想定問答へ移す必要がある。(3) 外向きの面が 1.0 の文として引いている（`submission-reference.md` の *"would be read down"*、`review-responses-clauses.md` の *"would restore the exposure"*）。1.0 の文としては正しいが、提出の版を 1.4 にする日に切り替えの表の行が要る。(4) −105 語で、題名からの全体の数は 5,658 から 5,553 語になり GPL-3.0（5,644 語）を下回る。これは理由ではなく結果で、閾値のために削る判断ではない（§14.25 と `SUBMISSION-MATERIALS.md` §2 の長さの行）。
+
+**次**: portfolio-00 の反例（とくに F3 の分岐が本当に立つか、外した後に §8.4 が「確認」と読まれる道が残らないか）→ portfolio-9b の `--compare / --guard` → 採否をこの節に書く。採るまで草案は変えない。
+
