@@ -559,6 +559,18 @@ _MUTATIONS_TAIL.append({
     "find": "  1.3  \"Work\" means the material to which the Dedicator has applied this\n",
     "replace": "  1.3  \"Work\" means the material, in whole or in part, to which the Dedicator has applied this\n",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 498: 「1.0 から何が変わったか」の下書きの版ごとの閉鎖数の 1.3 を 5 にする —— 使い捨ての計数で版の語の最初の一致を数え、閉鎖の印 (19 / 13 / 4) と違う数を書いた",
+    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
+    "find": "(19, 13 and 4)",
+    "replace": "(19, 13 and 5)",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 498: 「1.0 から何が変わったか」の下書きの §2 の件数を 11 にする —— 節ごとの件数は errata の表の 2 列目から導けるのに、照合していなかった",
+    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
+    "find": "§2 (scope and effect, 10)",
+    "replace": "§2 (scope and effect, 11)",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

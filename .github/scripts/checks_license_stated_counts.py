@@ -13,6 +13,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        集計行の「解消済み N」「構造的拒否候補 N」(分類の列の `12`) / (f) 逐条リファレンスが繰り返す「N 条すべてを収録」「抽出した N 条」/
        (g) submission.md の "across N files" と、そこで名指す分冊 / (h) AS-OF の「未読スレッドの残り」の
        「候補 N 本のうち M 本を読んだ。K 本は読んでいない」が N = M + K であること /
+       (j) 「1.0 から何が変わったか」の英文 (CHANGELIST の切り替えの日の節・切り替えた後は REVIEWERS) が述べる
+       errata の件数・閉じた件数と版ごとの内訳・残る E-ID・節ごとの件数・語数と条の数が、
+       prepare_version_freeze.py の errata_closures() / size() と一致すること (2026-11-11・portfolio-00 の依頼) /
        (i) AS-OF の「答えていない問い」の行の「**N 件**」が、状態の欄の「**Q1**」「**Q2**」… の数と
        一致し、番号が 1 から N まで欠けず、各件が「；」で終わり、届いた日・`rounds/<file>`（実在）・§（私信の stub を
        指す件は § を書かず「—」）と、
@@ -181,9 +184,49 @@ def run(ctx):
             if stub and "§" in item:
                 bad.append(f"(i) AS-OF.md の Q{q.group(1)}: 私信の stub を指す件が問われた条 (§) を書いている —— 「—」にする")
 
+    # (j) 「1.0 から何が変わったか」の英文の数 (portfolio-00 / aa・2026-11-11)。使い捨ての計数で 1.3 を 5・1.4 を 38 と
+    #   書いた (閉鎖の印でなく版の語の最初の一致を数えた)。数え方は prepare_version_freeze.py の errata_closures() と
+    #   size() に 1 か所だけ置き、--report とここが同じ関数を使う
+    #   語数と条の数は草案を直すたびに動くので、CHANGELIST の下書き (「当日に数え直す」) では ADVISORY、
+    #   REVIEWERS に移した後は BLOCKING。errata の数は errata を閉じる commit で一緒に直すので両方で BLOCKING
+    from prepare_version_freeze import errata_closures, size
+    total_j, closed_j, unmarked_j, sections_j = errata_closures()
+    hits_j, soft_j = 0, []
+    for p in sorted(L.glob("ACD-*-CHANGELIST.md")) + [L / "REVIEWERS.md"]:
+        quote = " ".join(" ".join(x[1:].strip() for x in text(p).split("\n") if x.startswith(">")).split())
+        for m in re.finditer(r"Of the (\d+) defects recorded against 1\.0 .{0,80}?, (\d+) are closed: (\d+) in 1\.1 to "
+                             r"(\d+\.\d+) \(([\d, and]+)\) and (\d+) for the first time in (\d+\.\d+)\.(.{0,900})", quote):
+            hits_j += 1
+            tgt, rest = m.group(7), m.group(8)
+            olds = sorted((v for v in closed_j if v != tgt), key=lambda x: tuple(map(int, x.split("."))))
+            want = [total_j, sum(map(len, closed_j.values())), sum(len(closed_j[v]) for v in olds),
+                    [len(closed_j[v]) for v in olds], len(closed_j.get(tgt, []))]
+            got = [int(m.group(1)), int(m.group(2)), int(m.group(3)),
+                   [int(x) for x in re.findall(r"\d+", m.group(5))], int(m.group(6))]
+            if got != want:
+                bad.append(f"(j) {p.name}: errata の数 {got} / errata の閉鎖の印から {want} (件数・閉じた・{tgt} より前・版ごと・{tgt})")
+            if [e for e in unmarked_j if not re.search(rf"\b{e}\b", rest[:200])]:
+                bad.append(f"(j) {p.name}: 閉鎖の印の無い {unmarked_j} を英文が名指していない")
+            for sec, n in re.findall(r"§(\d+) \([^()]*?, (\d+)\)", rest):
+                if sections_j.get(sec) != int(n):
+                    bad.append(f"(j) {p.name}: §{sec} の件数 {n} / errata の表から {sections_j.get(sec)}")
+            mw = re.search(r"([\d,]+) words from the title to \*?END OF TERMS\*? against 1\.0's ([\d,]+), in (\d+) clauses against (\d+)", rest)
+            tp = L / f"ACD-{tgt}.txt" if (L / f"ACD-{tgt}.txt").exists() else L / f"ACD-{tgt}-DRAFT.txt"
+            if not mw or not tp.exists():
+                bad.append(f"(j) {p.name}: 語数と条の数の文が読めない、または {tp.name} が無い")
+            else:
+                (w1, c1), (w0, c0) = size(text(tp)), size(text(L / "ACD-1.0.txt"))
+                if [int(mw.group(1).replace(",", "")), int(mw.group(2).replace(",", "")), int(mw.group(3)), int(mw.group(4))] != [w1, w0, c1, c0]:
+                    (bad if p.name == "REVIEWERS.md" else soft_j).append(
+                        f"(j) {p.name}: 語数と条の数 {mw.groups()} / 実測 {tp.name} {w1} 語 {c1} 条・1.0 {w0} 語 {c0} 条")
+    if not hits_j:
+        bad.append("(j) 「1.0 から何が変わったか」の英文 (Of the N defects recorded against 1.0 …) が CHANGELIST にも REVIEWERS にも読めない")
+    check(not soft_j, "Check 498 (ADVISORY): 「1.0 から何が変わったか」の下書きの語数と条の数が草案と一致",
+          f"Check 498 (ADVISORY): {soft_j}。下書きの語数は切り替えの日に prepare_version_freeze.py --report の値へ直す", blocking=False)
+
     check(
         not bad,
-        "Check 498: 自己申告の文の 2 つ目の数と繰り返しが実測と一致 (errata / comparison / faq mirror / §4c / register / 逐条 / 分冊 / 未読スレッドの和 / 答えていない問いの件数)",
+        "Check 498: 自己申告の文の 2 つ目の数と繰り返しが実測と一致 (errata / comparison / faq mirror / §4c / register / 逐条 / 分冊 / 未読スレッドの和 / 答えていない問いの件数 / 1.0 からの変化の数)",
         (f"Check 498: 自己申告の文の 2 つ目の数が実測と合わない: {bad}。1 つ目の数 (Check 460) だけを直すと、"
          "同じ文の 2 つ目と隣の繰り返しが偽のまま残る"),
         blocking=True,
