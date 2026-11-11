@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-12 時点・380 ファイル）
+## いまの状態（2026-11-12 時点・381 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -99,6 +99,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2013-03 | `license-review` | **観測（"CeCILL license V2.1 for Approval" の 2013 年の会話から 2 通・1 年止まった提出の再開と、委員長の謝罪）** | `2013-03-license-review-cecill-2-1-restart-observed.txt` |
 | 2013-03 | `license-discuss` | **観測（"FAQ entry for slight variations in licenses?" から 4 通・承認済みライセンスの変種の確認に弁護士は要るか、で 2 人の弁護士が反対を向いた）** | `2013-03-license-discuss-slight-variations-lawyer-observed.txt` |
 | 2013-03 | `license-review` | **観測（2013 年 3 月の委員会報告 2 本から 3 通・理事会が求めて復活した正式の報告、CeCILL 2.1 の推薦、個人の起草者への勧め）** | `2013-03-license-review-committee-reports-observed.txt` |
+| 2017-01〜02 | `license-review` | **観測（"License Committee Report - January 2017" から 4 通・推薦は委員長個人のもの、list の沈黙、理事会は前もって判断を示さない）** | `2017-01-and-02-license-review-committee-report-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
 | 2012〜2020 | `license-review` | **観測（特許を扱う新しい permissive の必要性と、増殖の分類の現状・4 通）** | `2012-to-2020-license-review-need-and-proliferation-categories-cited-observed.txt` |
