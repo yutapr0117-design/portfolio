@@ -178,17 +178,30 @@ def run(ctx):
                 else:
                     _in_paths143 = False
 
-        def _covered143(path, patterns):
-            for _pat143 in patterns:
-                if _pat143 == path:
-                    return True
-                if _pat143.endswith("/**") and (
-                    path == _pat143[:-3] or path.startswith(_pat143[:-2])
-                ):
-                    return True
-            return False
+        # GitHub の path filter の意味で読む (2026-11-11・監査 #57 / #58): 上から順に当て、最後に当たった形が
+        #   決める (`!` で始まる形は除外)。`*` は / を越えず、`**` は越える。以前は否定の形を読まず、literal と
+        #   `prefix/**` だけを被覆と数えたので、`!docs/evidence/**` を足して file を外しても緑だった。
+        #   あわせて push の branches が main を含むことを見る (branches を別の名前にすると、paths は在っても
+        #   main への push で発火しない)
+        def _glob143(_pat):
+            _rx = re.escape(_pat).replace(r"\*\*", "\0").replace(r"\*", "[^/]*").replace("\0", ".*").replace(r"\?", "[^/]")
+            return re.compile("^" + _rx + "$")
 
+        def _covered143(path, patterns):
+            _hit = False
+            for _pat143 in patterns:
+                _neg = _pat143.startswith("!")
+                if _glob143(_pat143[1:] if _neg else _pat143).match(path):
+                    _hit = not _neg
+            return _hit
+
+        _push143 = re.search(r"^\s*push:\s*\n((?:\s{4,}.*\n)+)", _wfsrc143, re.M)
+        _br143 = re.search(r"branches:\s*\[([^\]]*)\]|branches:\s*\n((?:\s*-\s*.*\n)+)", _push143.group(1) if _push143 else "")
+        _brs143 = re.findall(r"['\"]?([\w./*-]+)['\"]?", (_br143.group(1) or _br143.group(2)) if _br143 else "")
+        _main143 = (not _br143) or any(_glob143(_b).match("main") for _b in _brs143 if not _b.startswith("!"))
         _uncovered143 = sorted({p for p in _digested143 if not _covered143(p, _wfpaths143)})
+        if not _main143:
+            _uncovered143.append(f"(push の branches {_brs143} が main を含まない)")
         check(
             bool(_digested143) and not _uncovered143,
             f"Check 143: auto-update-aio-digests.yml の paths は digest 付き manifest file "
