@@ -27,8 +27,8 @@ MUTATIONS_ARCHIVE6 = [
     {
     "name": "Check 468: §8.4 から「Section 8.1 alone governs」の alone を落とす —— 付け足した機能に §8.4 が及ぶかの線が消える (468u の目印)",
     "file": CURRENT_DRAFT,
-    "find": "remove. Section 8.1 alone governs a feature added to the Work, by",
-    "replace": "remove. Section 8.1 governs a feature added to the Work, by",
+    "find": "this Section. Section 8.1 alone governs a",
+    "replace": "this Section. Section 8.1 governs a",
 },
     {
     "name": "Check 444n: REUSE.toml の全 file への宣言を前の版へ戻す —— 2026-09-23〜11-08 に実際にこの状態だった (どの Check も読んでいなかった)",

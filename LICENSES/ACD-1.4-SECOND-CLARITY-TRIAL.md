@@ -677,7 +677,7 @@ After: It does not apply this Dedication to material that a narrower notice the 
 
 **⚠ 逆側**: 退けたことで、宛先の無い断りの穴は 1.4 でも開いたままである。受領者にとって T53 は悪くならないので、語数を理由に退けるのは受領者より B3 を重く見た判断である。
 
-### 14.28 T54: §8.4 の理由の文を外し、作用の文だけを残す（−105 語・試作・未採用）
+### 14.28 T54: §8.4 の理由の文を外し、作用の文だけを残す（−105 語・採った・2026-11-12）
 
 **欠陥**: §8.4（294 語）の 7 文のうち 3 文が、作用の後に理由を述べる。(1) 第 2 文 *"The grant is necessary because …"*（50 語）は、許諾を必要性で根拠づけるので、必要性が生じない場面では §8.4 を狭く読む分岐を生む —— 1 冊目の試作の F3 の表（`ACD-1.4-CLARITY-TRIAL.md`）がこの読みを挙げたまま、採否が記録されていなかった。(2) 第 1 文のコロンの後 *"whether a trained model is "the Work" or derived from it is unresolved, and a provision that merely avoided doubt would be read down …"* は、法の状態（未決）を恒久の本文に書く。法が決まれば本文の文が偽になる —— 一時的な状態を恒久のテキストへ書かない、という既存の判断（`ACD-1.0.discussion-log.md` の 7）と同じ型である。(3) 第 3 文のコロンの後 *"a model is not subject matter contained in the Work, so importing that proviso would restore the exposure …"* は、作用（§8.1 の内容の限定が §8.4 に無いこと）の理由である。条文の中の理由の文には審査者の異議がある（#295）。
 
@@ -699,5 +699,9 @@ After: It does not apply this Dedication to material that a narrower notice the 
 
 **portfolio-00 の反例（2026-11-12）**: (1) **F3 の分岐は具体的な形で立つ。** 第 2 文が述べる必要は *"Section 6.4 alone would leave Computational Use permitted as to the Covered Rights while exposed as to patents"* で、Computational Use という行為の特許の穴だけである。§8.4 の許諾はそれより広く、*"make, have made, use, offer to sell, sell, import … any model, parameter set, weight, embedding, or output resulting from Computational Use"* に及ぶ。目的で読む人は、述べられた必要に合わせて、モデルと出力の販売の枝を「Computational Use を許すのに要る範囲」へ縮めうる。必要の文と許諾の範囲のずれが分岐の根で、§15.1 は逆に働くが、条文の中の理由の文は「語が許す読み」の材料に入るので分岐を消し切らない。(2) **外した後に「確認」と読まれる道は残らない。** 第 1 文の *"This is a grant in its own right and not a clarification of Section 8.1."* が直接閉じる。残る道は、*"a licence on the terms of Section 8.1"* が §8.1 の但し書き（*"where the infringement is caused by subject matter contained in the Work as made available by the Dedicator"*）を持ち込む読みだが、残す第 3 文 *"… is deliberately absent from this Section."* が閉じる。(3) 第 1 文の後半（法が未決という文）を外す理由は立つ。逆側として、その文は「なぜ §8.1 で足りないか」を審査者に一目で示していたので、逐条リファレンスへ移すことは必須である。
 
-**次**: portfolio-9b の `--compare / --guard` → 採否をこの節に書く。採るなら、草案・冒頭の一覧・CHANGELIST の主表と語数の内訳・逐条リファレンスの §8.4 の行（外した理由の説明を移す）・切り替えの日の表（1.0 の文を引く外向きの 2 か所）を同じ commit で直す。採るまで草案は変えない。
+**portfolio-9b の測定（2026-11-12・`measure_clause_overlap.py`）**: §8.4 は 293 → 188 語（札を除く）、全体 −105（条の本文 5,160 → 5,055）。重複 70 → 69 箇所・族 51 は不変・先行詞の無い指示語 0。§8.4 を参照する条は §8.2・§8.3・§8.6 で、内容を述べる形は 0。--guard は 468u の目印 17 件すべて残る。効果を運ぶ語の減りは、外す理由の文の中の *exclude* と *not* の 1 件ずつだけ。外した文に依拠するドシエの箇所は 18（外向き 7・記録 11）で、`SUBMISSION-MATERIALS.md` §1b の「§8.4 自身が述べ」の行は採る日に偽になる（9b の指摘）。
+
+**採否（2026-11-12・採った）**: 欠陥（F3 の分岐が具体的に立つ・法の未決を恒久の本文に書く）が反例で確かめられ、作用は残る文と §8.3・§6.5・§15.1 が持ち、測定で目印も参照も失わない。同じ commit で、草案の §8.4 と冒頭の一覧（§8 の項目を −91 語に・合計 5,553 語）、CHANGELIST の主表（T54 の行と §8.4（as to copyright）の行の「後の行で外した」）・語数の内訳（理由 −240・合計 +110・1.0 から 657 語）・切り替えの日の表（1.0 の文を引く外向きの面の行）・1 画面の英文の語数、逐条リファレンスの §8.4 の行（外した説明を右の列へ移した）、`SUBMISSION-MATERIALS.md` の §1b の行と長さの行、errata E56 の「採った日の文」、mutation の anchor（§8.4 の行の折り返しが変わった）を直した。
+
+**採ったことの逆側**: 題名からの数が GPL-3.0 を下回ったが、それは結果で、閾値のために削ったのではない（§14.25 と長さの行）。条文の数では 595 語長いまま。errata E56 が直した文は本文から消えた。1.0 の §8.4 の第 2 文は 1.0 にも在るので、F3 の分岐は 1.0〜1.3 の欠陥として errata に記録する（portfolio-00 に頼む）。
 
