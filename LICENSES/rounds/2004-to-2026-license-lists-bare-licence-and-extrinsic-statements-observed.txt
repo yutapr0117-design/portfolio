@@ -1,0 +1,262 @@
+Source: https://lists.opensource.org/pipermail/ (license-discuss 2004-January; license-review 2019-October and 2026-September)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 3 messages this dossier cites on whether estoppel reaches a bare licence (Lawrence Rosen, 2004) and whether statements outside a licence can fix its reading (Pamela Chestek, 2019 and 2026). Not a thread.
+Senders: Lawrence E. Rosen, Pamela Chestek
+Position: statements about other submissions. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Tue Jan 27 21:42:00 2004
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Tue, 27 Jan 2004 13:42:00 -0800
+Subject: Public domain mistake? 
+In-Reply-To: <4016C98A.2090807@insightbb.com>
+Message-ID: <092701c3e51e$6e971300$927ba8c0@ROSENGARDEN>
+
+Daniel,
+
+I don't think your analysis is correct. Promissory estoppel is a contract
+doctrine that has nothing to do with a bare license like the GPL. 
+
+/Larry Rosen
+
+> -----Original Message-----
+> From: daniel wallace [mailto:danw6144 at insightbb.com] 
+> Sent: Tuesday, January 27, 2004 12:27 PM
+> To: license-discuss at opensource.org
+> Subject: Public domain mistake? 
+> 
+> 
+> 
+> Under Utah law, the elements of promissory estoppel are:
+> 
+> (1) The promisee acted with prudence and in reasonable
+>     reliance on a promise made by the promisor;
+>     
+> (2) the promisor knew that the promisee had relied on
+> the promise which the promisor should reasonably expect
+> to induce action or forbearance on the part of the promisee
+> or a third person;
+> 
+> (3) the promisor was aware of all material facts; and
+>  
+> (4) the promisee relied on the promise and the reliance 
+> resulted in a loss to the promisee.
+> 
+> --- J.R. Simplot Co. v. Sales King Int'l, Inc., 17 P.3d 1100, 
+> Utah 2000)
+>  
+> In the citation above, I was thinking of the GPL, but it 
+> seems it would apply to open source licenses generally.
+>  
+> If there exists a mistaken presumption of law (not material 
+> fact) which preempts or voids an open source license 
+> agreement and the source code has been widely distributed 
+> under that license, the copyrighted code permissions would 
+> exist in the public domain for all practical purpose.
+>  
+> Anyone who could show they had invested time and effort in 
+> reliance on promised copyright permissions could claim 
+> promissory estoppel to continue developing and expanding 
+> projects into the future.
+> 
+> RMS would be rather disappointed. Microsoft would be happy.
+>    
+> 
+> --
+> license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+> 
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From pamela at chesteklegal.com  Wed Oct 30 01:06:07 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Tue, 29 Oct 2019 21:06:07 -0400
+Subject: [License-review] ESA Permissive PL 2.3
+In-Reply-To: <d0500b58-4c2c-c0b4-a9f9-bb0bde05a636@tcilaw.de>
+References: <CAK2MWOuoXSBOxv2WSUqZ10fzmDpaiskDZFE6V=ZVTcZvz6BtLg@mail.gmail.com>
+ <d0500b58-4c2c-c0b4-a9f9-bb0bde05a636@tcilaw.de>
+Message-ID: <9dde201b-4d99-1792-f37a-3b48e9253979@chesteklegal.com>
+
+
+On 5/6/18 9:45 AM, Carsten Gerlach wrote:
+>> The actual effect of the terms is to guarantee that whatever
+>> license is used, the ESA Permissive PL 2.3 license is still available as
+>> an/alternative license/, and the downstream licensor has to make a
+>> notice to that effect.
+>>
+>> And thus, I'd suggest that you state the actual text of the notice the
+>> poor un-counseled Open Source developer has to make in that case. Here's
+>> my suggested rewrite:
+> This would indeed be helpful, but to achieve this, we would prefer to
+> suggest a notice text in the license FAQ.
+>
+Carsten,
+
+Several times you mentioned changing the FAQs rather than amending the 
+language of the license itself. As a US lawyer, this is troubling to me 
+because under US law (1) an explanation extrinsic to the license would 
+only be considered under very limited circumstances and (2) even if it 
+was considered, it is only the Licensor's intent, not the license 
+/steward's /intent that matters. So where the licensor is not the ESA, 
+any statements by the ESA would be irrelevant.
+
+I understand, however, that this license will be construed under the law 
+of a member state of the EU, not US law. How would information in the 
+FAQ be used to construe the meaning of the license under EU law?
+
+One place I believe you hope to rely on the FAQ rather than changing the 
+license (although I can't find your email that says it) is in Section 
+7.1 regarding when one has "knowledge" that exercising the rights 
+granted by the License infringe third party rights. You stated that 
+"'knowledge' should mean positive knowledge of an infringement, for 
+example if the user is subject to infringement claims himself, has 
+positive knowledge of infringement claims against a third party or if 
+the user?s own intellectual property rights are being infringed." 
+http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2017-January/002961.html. 
+I don't know why you consider this to be the meaning of the word 
+"knowledge." Given that failure to comply with 7.1 may mean loss of the 
+license, this seems to be a draconian outcome for what may be, for 
+example, just an internal conclusion that a patent may be infringed.
+
+Thanks,
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191029/f6aba2b5/attachment-0001.html>
+
+From pamela at chesteklegal.com  Tue Sep  1 17:11:19 2026
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Tue, 1 Sep 2026 10:11:19 -0700
+Subject: [License-review] For Approval: OpenMDW License Agreement,
+ versions 1.1 (OpenMDW-1.1)
+In-Reply-To: 
+ <CAFV=PSFDwnSER7N3keCgHt9O+dppL2JngCiqo0nc2Ebsm7SPDA@mail.gmail.com>
+References: 
+ <CAFV=PSG=bsLTemzjyCKYYz9j=rX9dcNo6=2T6htbxTRgervMrA@mail.gmail.com>
+ <CAFV=PSEyd7Ly8aWtkdcm9X96bpTXBFZToKW0pADpwrhNhXPtog@mail.gmail.com>
+ <bd0fc092-4a3f-4e0a-a446-ccc1f344ee61@chesteklegal.com>
+ <f5ec169a-3f32-4631-a67b-075f18464ad0@berkus.org>
+ <CAC1cPGxNqTn=UhoB8pByXjdUKXicJE1r-bMVcOnRs1wxkzd_HQ@mail.gmail.com>
+ <83b0a64a-2f55-4c37-a235-e20f6c8895cb@chesteklegal.com>
+ <CAC1cPGy7Z3KkgXucNNqwFdpUmAgUK-oF-pnyjyZpG_qjAiNmcw@mail.gmail.com>
+ <920bdeb4-c87f-495d-a015-cd7349088949@chesteklegal.com>
+ <CAC1cPGy_kRtjJ86cstct6An4Ty-ouoda9502o2HehWHxAKe-vg@mail.gmail.com>
+ <43d93f2d-520a-409c-8974-52fb2097969b@lexpan.law>
+ <CAC1cPGzF07tWUkutgm0s2aUXjxH41=gDsa6CfNSH96ny-P1UKg@mail.gmail.com>
+ <TY7PR01MB15702B5B2FF40C26015621ECBADAA2@TY7PR01MB15702.jpnprd01.prod.outlook.com>
+ <85c6ae80-eb3c-4b94-ac7a-975d6f26ebdc@chesteklegal.com>
+ <CAFjZtReCmJfy4xhr+RTK=seNPdEVaqw8MS0C9hd9B+iH27x7Aw@mail.gmail.com>
+ <CAFV=PSFDwnSER7N3keCgHt9O+dppL2JngCiqo0nc2Ebsm7SPDA@mail.gmail.com>
+Message-ID: <59155c35-707b-4123-9f45-8b1b552afb2a@chesteklegal.com>
+
+
+On 9/1/2026 6:58 AM, Michael Dolan wrote:
+>
+> 7. Finally, since several earlier points keep resurfacing as the 
+> thread grows, and it appears people are not going back to read 
+> everything (which is understandable), I thought I’d provide a short 
+> summary of our positions as the steward, which we have already stated 
+> in this thread. Perhaps this will help bring this debate to a close:
+>
+>
+> (a) The termination provision does not preclude or waive any claim or 
+> remedy, and it is merits-neutral. It presumes nothing about whether 
+> any claim, patent or copyright, is valid, and it operates identically 
+> either way, as patent retaliation always has. It does not prevent 
+> anyone from filing any litigation on any topic. It ends only the 
+> claimant's own license to the materials claimed to be infringing upon 
+> filing such a lawsuit. Pre-litigation enforcement is also out of 
+> scope. The license termination provision puts the parties back into 
+> the same position they were in before any license was conveyed.
+>
+>
+> (b) The trigger reaches only claims that the licensed materials 
+> themselves infringe, the class of claims that attacks the subject of 
+> the grant itself. Broader triggers, such as any IP claim or any 
+> lawsuit, were considered and rejected.
+>
+> (c) Terminating copyright grants as a remedy appears in OSI-approved 
+> licenses (e.g., MPL 1.1 §8.2, CDDL 1.1 §6.2, OSL 3.0 §10, CAL-1.0 
+> §5.3), and OSI has approved a trigger broader than patent claims in 
+> OCLC-2.0 §5.
+>
+>
+> (d) OpenMDW does not relicense third-party code, and it doesn’t “grab” 
+> third-party code into its scope. The grant conveys only rights the 
+> providers hold or can pass through for the materials identified as 
+> being provided, and third-party components keep their own licenses and 
+> notices. Unlike other licenses, which may have narrower grants, the 
+> grant is intended to encompass all possible rights a user of an 
+> OpenMDW-license model may need to practice/use the model. This is 
+> intentional and designed to overcome potential lack of clarity in 
+> other licenses when used in an AI model context. For example, 
+> Apache-2.0’s grants are centered on copyright via “the Work” which is 
+> “the work of authorship” (copyright), and then the patent grant is 
+> scoped to “the Work”.
+>
+>
+> (e) “Model Materials” is transaction-scoped to the materials provided 
+> to you under one agreement. Separate releases are separate agreements, 
+> and there is no ever-expanding covered work. The definition's own word 
+> "related" bounds the unit of materials concern that keeps coming up. I 
+> understand that the OpenMDW is novel in the scope of Model Materials, 
+> but honestly, for how many years have we debated “what is the Work” 
+> under Apache-2.0 or “the Program” under EPL-1.0 without ever 
+> questioning if they satisfy the OSD requirements?
+>
+>
+> (f) The clearance paragraph is a risk-allocation disclaimer. The 
+> license has one affirmative condition, notice retention, and one 
+> termination mechanism, the litigation provision. Where this license 
+> family intends a condition, it says so expressly. And licenses such as 
+> §2(c) of EPL-1.0 and EPL-2.0 show that even ifsuch risk-allocation 
+> terms were an explicit condition of the license grant (which they are 
+> not for OpenMDW), an explicit condition would still not conflict with 
+> the OSD.
+>
+>
+> (g) We can clarify many of the concerns raised here with FAQ updates 
+> stating these interpretations and publishing guidance for model 
+> publishers that recommends enumeration of each release's Model Materials.
+>
+These are all statements of how you believe that the license should be 
+interpreted. But a number of people have explained how a party or a 
+court could find ways to construe it differently. As an example, you say 
+in (f) that "the clearance paragraph is a risk-allocation disclaimer." 
+But I previously pointed out, and you acknowledged, that it could be 
+construed as an obligation on the part of the licensee. You have also 
+acknowledged that some of the content could be double-licensed with the 
+OpenMDW-1.1 license and the original third-party license, which is 
+somewhat contrary to how you say the license operates in (d). So I would 
+take all of these statements as what your intention was, not how the 
+license actually operates. And the problem with trying to correct 
+ambiguities with FAQs is that there is no requirement for a court to 
+consider statements outside the four corners of the license itself, 
+particularly when the author of the statements isn't a party to the 
+lawsuit. So you can't count on FAQs to prevent an unintended interpretation.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260901/2d75be8a/attachment-0001.htm>
+

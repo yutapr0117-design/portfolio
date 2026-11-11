@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses-clauses.md
 audience: ai, human (提出者), 監査人, 学術研究者, 第三者全般
-last-updated: 2026-11-02
+last-updated: 2026-11-11
 canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES/ACD-1.0.review-responses-meta.md (出自・名称・運用) / LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威)
 ---
 
