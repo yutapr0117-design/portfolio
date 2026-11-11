@@ -543,6 +543,18 @@ _MUTATIONS_TAIL.append({
     "find": '["p02", "p03", "p04"], [], "task"',
     "replace": '["p02", "p03", "pO4"], [], "task"',
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 472b: 版を示さずに 1.1 の語句 \"except by the Steward\" を引き、直前に §1.2 だけが在る —— 条番号の中の 1.2 を版の目印と読み、明示して引いたと数えていた",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission-osd.md",
+    "find": "preamble's first sentence is *\"Software and the works that surround it\"*, and the work the",
+    "replace": "preamble's first sentence is *\"Software and the works that surround it\"*, §16.4 reads *\"except by the Steward\"*, and the work the",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 472b: 1.1 の語句を平の二重引用符で、版を示さずに引く —— 斜体の *\"…\"* しか読まず、アスタリスク無しの同じ引用が見えなかった",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission-osd.md",
+    "find": "preamble's first sentence is *\"Software and the works that surround it\"*, and the work the",
+    "replace": "preamble's first sentence is *\"Software and the works that surround it\"*, §16.4 reads \"except by the Steward\", and the work the",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
