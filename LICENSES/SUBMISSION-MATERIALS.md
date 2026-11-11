@@ -174,7 +174,7 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 
 ### 承認済みに無い仕掛けと、本文が述べる理由（Phipps 氏の *novel devices* への備え・2026-11-11）
 
-Phipps 氏は OSI の判断について *"to explain the discretion OSI always has, and always will, choose to exercise when novel devices are unveiled."* と書いた（`license-review` 2019-06・`board-decisions.md`）。ACD は新しい仕掛けを持つので、審査者がそれを一つずつ探さなくて済むよう、ここに並べる。「承認済みに無い」と言うのは全数で測った項目だけである。窓は 2 つあり、SPDX の 141 本（census）と OSI の licence ページ 126 本（2026-10-17 取得・EUPL-1.1 のページは本文を載せていない）で、行ごとにどちらかを書く。語の不在は効果の不在ではない（Unlicense は語なしで並べている）。
+Phipps 氏は OSI の判断について *"to explain the discretion OSI always has, and always will, choose to exercise when novel devices are unveiled."* と書いた（`license-review` 2019-06・`board-decisions.md`）。ACD は新しい仕掛けを持つので、審査者がそれを一つずつ探さなくて済むよう、ここに並べる。「承認済みに無い」と言うのは全数で測った項目だけである。窓は 2 つあり、SPDX の 141 本（census）と OSI の licence ページ 126 本（2026-10-17 取得・EUPL-1.1 のページは本文を載せていない）で、行ごとにどちらかを書く。語の不在は効果の不在ではない（Unlicense は語なしで並べている）。126 本の窓は `python3 .github/scripts/measure_gap_claim.py --wp-json wp_license_p1.json wp_license_p2.json` で再現できる（入力は `https://opensource.org/wp-json/wp/v2/license?orderby=modified&order=desc&per_page=100&page=1, 2, …` を 2026-10-17 に保存した 2 file で、sha256 の先頭 12 桁は 09a45e726a8e と a7c831b092d1。file はリポジトリの外に置いてあり、審査者は同じ URL から取り直す）。道具は語を向きで分けて出す（Check 476d）。SPDX 154 本で同じ語の向きはまだ測っていない（取得にネットワークが要る）。
 
 | 仕掛け | 条（1.4 草案） | 本文が述べる理由 | 承認済みとの比較 | 逆側 |
 | :-- | :-- | :-- | :-- | :-- |
