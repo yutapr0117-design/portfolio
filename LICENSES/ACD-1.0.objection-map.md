@@ -91,6 +91,7 @@ Older, or not from the lists, but each one goes to whether ACD can be approved.
 | *"Now, after just 35 days of its existence, and having been put into immediate active use for a key project for those same 35 days, the SS Public License v1 has already been declared deprecated by its license steward."* | Bradley M. Kuhn, `license-review` 2018-11-21, on SSPL | **ACD has had five texts in under three months**, none sent to `license-review`. Each change is reasoned in a change list and no frozen text moves, but only a pause in versions shows that drafting is finished | #320 |
 | *"a non-contractual license (such as the GPL) cannot cause you to give up your warranty rights. Only a contract can do that."* | Russell Nelson, `license-discuss` 2002-08-02, as committee chair | **ACD asks for no assent (§2.3), so where this holds its disclaimers may not bind.** The same is true of every approved licence that asks for no assent; the cost falls on the Dedicator, and §14.2 narrows rather than fails | #321 |
 | *"each package would have to be reviewed as to whether it would be okay"* | Nigel H. Tzeng, `license-discuss` 2015-05-28, on a foundation's policy for third-party licences | **Approval is a floor, not a place on an adopter's list.** ACD asks to be judged against the OSD and is on no downstream list, so each adopter would review it (B2). The dedication type itself is already on at least one foundation's accepted list (`review-readings.md` §1.181) | #322 |
+| *"we do our best to reject licenses that (1) have obvious legal problems, and (2) do not have such an overwhelming community of use that the community itself becomes a legal force."* | Michael Tiemann, `license-discuss` 2007-04-24, on the board's licence categories | **Lands in part.** ACD has no community to absorb a flaw, so the question is its legal soundness, which no lawyer has checked (B1). The test names *obvious* problems, not the absence of review, and MirOS was approved the next year without a community (`review-readings.md` §1.182) | #323 |
 
 ### Objections that do not land (checked against the text)
 
@@ -125,4 +126,4 @@ out because we cannot have it, not because leaving it out is better** (register 
    date, OSI has not used the number of projects adopting a license as a factor"* (Jam rationale, 2021-09-12).
 3. **It is not exhaustive.** The windows we read are listed in `PEER-REVIEW-WATCH.md` §3.9.
 4. **Nothing updates this page automatically.** An entry added to `ACD-1.0.against.md` does not reach
-   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #322.
+   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #323.
