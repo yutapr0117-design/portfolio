@@ -547,6 +547,18 @@ _MUTATIONS_TAIL.append({
     "find": "（最大番号 ",
     "replace": "（最大番号 1",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 468x: 主表が「足す」と述べた語句 (or for a payment You agreed to make) を草案から消す —— After は「へ」の引用しか読まず、「*\"…\"* を足す」の引用は照合していなかった",
+    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "find": "       11.3), or for a payment You agreed to make.\n",
+    "replace": "       11.3).\n",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 468x: 主表が §1.3 から「外す」と述べた語句 (in whole or in part) を §1.3 に戻す —— 「外す」の引用は照合しておらず、外したはずの語が条に残っても通った",
+    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "find": "  1.3  \"Work\" means the material to which the Dedicator has applied this\n",
+    "replace": "  1.3  \"Work\" means the material, in whole or in part, to which the Dedicator has applied this\n",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
