@@ -196,8 +196,11 @@ def rounds_titles():
     """rounds/ に逐語で置いた通の件名。1 通だけ置いた別スレッドの件名も入るので、読了には数えない (2026-11-09)。"""
     keys = set()
     for path in (REPO / "LICENSES" / "rounds").glob("*.txt"):
-        for m in re.finditer(r"^Subject:\s*(.+)$", open(path, errors="replace").read(), re.M):
-            k = title_key(m.group(1))
+        # 折り返した件名 (RFC 5322 の folding・次の行が空白で始まる) をつないで読む (2026-11-12): 1 行目だけを
+        #   読むと "Draft of new OSI licenses landing page;⏎\tplease review." が "please review" を落とした別の鍵になり、
+        #   rounds に置いた会話が「rounds に在るが READ-THREADS に無い」の照合から外れた (rounds の 100 file・408 件の件名)
+        for m in re.finditer(r"^Subject:[ \t]*(.+(?:\n[ \t]+\S.*)*)", open(path, errors="replace").read(), re.M):
+            k = title_key(" ".join(m.group(1).split()))
             if len(k) >= 6:
                 keys.add(k)
     return keys
