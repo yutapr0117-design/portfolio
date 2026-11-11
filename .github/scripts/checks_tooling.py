@@ -147,18 +147,34 @@ def run(ctx):
         try:
             _sdata76 = json.loads(_settings76.read_text(encoding="utf-8"))
             _deny76 = _sdata76.get("permissions", {}).get("deny", [])
-            # 各 safety boundary を「deny リストにその marker を含む要素が存在するか」で判定。
+            # 各 safety boundary を「deny の規則が、その境界を越える見本の操作に当たるか」で判定する (2026-11-11・監査
+            #   #124〜#126)。以前は deny の要素に印の部分文字列が在るかを見ていたので、規則を狭めても (`Bash(git push
+            #   --force origin main)` は他の branch への force-push を止めない)、Edit と Write の片方を消しても
+            #   (`*.webp` は 1 要素で満たされた) 通った。settings.local.json への deny も同じ自己拡張の経路なので見る
+            import fnmatch as _fn76
+
+            def _denies76(_tool, _sample):
+                for _d in _deny76:
+                    _m = re.fullmatch(r"(\w+)\((.*)\)", _d.strip())
+                    if _m and _m.group(1) == _tool and _fn76.fnmatchcase(_sample, _m.group(2)):
+                        return True
+                return False
+
             _req76 = {
-                "Edit(.claude/settings.json) [self-permission-widening 防止]": lambda: any("Edit(.claude/settings.json)" in d for d in _deny76),
-                "Write(.claude/settings.json) [self-permission-widening 防止]": lambda: any("Write(.claude/settings.json)" in d for d in _deny76),
-                "git push --force [force-push 防止]": lambda: any("git push --force" in d for d in _deny76),
-                "git push -f [force-push 防止]": lambda: any("git push -f" in d for d in _deny76),
-                "rm -rf [破壊的削除 防止]": lambda: any("rm -rf" in d for d in _deny76),
-                "git add . [全 stage 事故 防止]": lambda: any("git add ." in d for d in _deny76),
-                "git add -A [全 stage 事故 防止]": lambda: any("git add -A" in d for d in _deny76),
-                "git add --all [全 stage 事故 防止]": lambda: any("git add --all" in d for d in _deny76),
-                "*.webp Edit/Write [C6 binary 保護]": lambda: any("*.webp" in d for d in _deny76),
-                "*.mp3 Edit/Write [C6 binary 保護]": lambda: any("*.mp3" in d for d in _deny76),
+                "Edit(.claude/settings.json) [self-permission-widening 防止]": lambda: _denies76("Edit", ".claude/settings.json"),
+                "Write(.claude/settings.json) [self-permission-widening 防止]": lambda: _denies76("Write", ".claude/settings.json"),
+                "Edit(.claude/settings.local.json) [self-permission-widening 防止]": lambda: _denies76("Edit", ".claude/settings.local.json"),
+                "Write(.claude/settings.local.json) [self-permission-widening 防止]": lambda: _denies76("Write", ".claude/settings.local.json"),
+                "git push --force [force-push 防止]": lambda: _denies76("Bash", "git push --force origin some-branch"),
+                "git push -f [force-push 防止]": lambda: _denies76("Bash", "git push -f origin some-branch"),
+                "rm -rf [破壊的削除 防止]": lambda: _denies76("Bash", "rm -rf build"),
+                "git add . [全 stage 事故 防止]": lambda: _denies76("Bash", "git add ."),
+                "git add -A [全 stage 事故 防止]": lambda: _denies76("Bash", "git add -A"),
+                "git add --all [全 stage 事故 防止]": lambda: _denies76("Bash", "git add --all"),
+                "Edit(*.webp) [C6 binary 保護]": lambda: _denies76("Edit", "yuta.webp"),
+                "Write(*.webp) [C6 binary 保護]": lambda: _denies76("Write", "yuta.webp"),
+                "Edit(*.mp3) [C6 binary 保護]": lambda: _denies76("Edit", "bgm.mp3"),
+                "Write(*.mp3) [C6 binary 保護]": lambda: _denies76("Write", "bgm.mp3"),
             }
             _missing76 = [name for name, fn in _req76.items() if not fn()]
             check(
@@ -179,7 +195,7 @@ def run(ctx):
     # 消失すると Claude Code は command を skill listing から拾えなくなり、UI で見えない
     # silent failure に陥る。
     def _fm_value(_body, _key):
-        """frontmatter の 1 行の値 (行の中だけを読み、引用符を外す)。空なら None (2026-11-11・監査 #127〜#130):
+        r"""frontmatter の 1 行の値 (行の中だけを読み、引用符を外す)。空なら None (2026-11-11・監査 #127〜#130):
         `^description:\s*\S` は \s* が改行をまたぎ、空の `description:` が次の行のキーの字で満たされていた。
         `^name:\s*(\S+)` は最初の語だけを取り、`name: aio-guardian v2` を stem と一致と読んでいた"""
         _m = re.search(rf"^{_key}:[ \t]*(.*?)[ \t]*$", _body, re.MULTILINE)
