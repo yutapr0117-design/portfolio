@@ -22,7 +22,7 @@ canonical-ref: .github/scripts/check_repository_consistency.py (CHECK_SOURCE_FIL
 ## Constraints
 
 - **文が読めないことも RED にする**: 言い換えると何も比べずに緑になる形を残さない
-- 「答えていない問い」の件は portfolio-00 が決めた形（「**Qn** 届いた日・発言者・`rounds/<file>`・§N・未回答｜YYYY-MM-DD にオーナーが回答」を「；」で区切る）で読む。件は「；」で終わること（最後の件が行の説明文まで伸びないように）。私信の stub（本文に "THE TEXT HAS BEEN WITHDRAWN" を持つ file）を指す件は、私信の中身を出さないよう § の代わりに「—」でよい。形を変えたらこの module を同じ commit で直す
+- 「答えていない問い」の件は portfolio-00 が決めた形（「**Qn** 届いた日・発言者・`rounds/<file>`・§N・未回答｜YYYY-MM-DD にオーナーが回答」を「；」で区切る）で読む。件は「；」で終わること（最後の件が行の説明文まで伸びないように）。私信の stub（本文に "THE TEXT HAS BEEN WITHDRAWN" を持つ file）を指す件は、私信の中身を出さないよう § を書かず「—」にする（§ を書けば RED。同じ問いが後でリストに出たら、その通を逐語で置いた別の件にする・portfolio-00）。形を変えたらこの module を同じ commit で直す
 - 「構造的拒否候補」は分類の列に凡例の `12`（構造的に両立不能の可能性）を持つ行の数として数える（portfolio-00 の定義）
 
 ## Change impact
