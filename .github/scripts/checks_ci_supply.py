@@ -238,6 +238,17 @@ def run(ctx):
                 if _p144 and _e144.get("sha256"):
                     _manifest_digested144.add(_p144)
         # ast で MANIFEST_PATH_TO_LOCAL の dict literal key 群を抽出 (import 副作用を避ける)。
+        def _path144(_n):
+            """`ROOT / "a" / "b"` の形の式をつないだ相対 path。読めない形なら None。"""
+            _parts = []
+            while isinstance(_n, ast.BinOp) and isinstance(_n.op, ast.Div):
+                if not (isinstance(_n.right, ast.Constant) and isinstance(_n.right.value, str)):
+                    return None
+                _parts.append(_n.right.value)
+                _n = _n.left
+            return "/".join(reversed(_parts)) if isinstance(_n, ast.Name) and _n.id == "ROOT" and _parts else None
+
+        _wrongval144 = []
         _tool_keys144 = set()
         _parse_ok144 = False
         try:
@@ -252,13 +263,18 @@ def run(ctx):
                 if (isinstance(_target144, ast.Name)
                         and _target144.id == "MANIFEST_PATH_TO_LOCAL"
                         and isinstance(_node144.value, ast.Dict)):
-                    for _k144 in _node144.value.keys:
+                    for _k144, _v144 in zip(_node144.value.keys, _node144.value.values):
                         if isinstance(_k144, ast.Constant) and isinstance(_k144.value, str):
                             _tool_keys144.add(_k144.value)
+                            # 値も見る (2026-11-11・監査 #59): key だけを比べると、値が別の file を指していても通り、
+                            #   道具はその別の file の digest を manifest の key へ書いた。値は `ROOT / "a" / "b"` の形で、
+                            #   つないだ path が key と一致すること
+                            if _path144(_v144) != _k144.value:
+                                _wrongval144.append(f"{_k144.value} → {_path144(_v144) or ast.dump(_v144)[:40]}")
                     _parse_ok144 = True
         except SyntaxError:
             _parse_ok144 = False
-        _missing_in_tool144 = sorted(_manifest_digested144 - _tool_keys144)
+        _missing_in_tool144 = sorted(_manifest_digested144 - _tool_keys144) + [f"(値が key と違う: {_w})" for _w in _wrongval144]
         _orphan_in_tool144 = sorted(_tool_keys144 - _manifest_digested144)
         check(
             _parse_ok144 and bool(_manifest_digested144)
