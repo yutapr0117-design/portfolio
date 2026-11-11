@@ -101,6 +101,10 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        再実行して発覚）。**2 つの量が偶然同じ値を持つと、片方の更新がもう片方を巻き込み、
        **476c (2026-11-06)**: 入口ページと申請日の 1 枚が述べる全数の数 (141 本 / 条件の無い 3 本 / 作品を超える
        特許許諾の 7 本) が census の表から導いた数と一致する。census を作り直した日に入口だけ古くなる形だった。
+       2026-11-11 (portfolio-aa の問い): 材料表の「承認済みに無い仕掛け」の表が繰り返す数 (141 本のうち 0 本 /
+       7 本はすべて条件を持つ / TDM・AI を名指す本は 0) も読み、どの面も最初の 1 か所でなく全出現を照合する。
+       「名指す本は 0」は census の結論文 (`tdm` N 件・`ml` は誤命中 M 件) と誤命中の判定の行に依るので、
+       その文の数が `tdm` / `ml` 列と一致し、判定の行が在ることも前提にする。
        どの Check も気付かない。** 本数を名乗る数が、実測済みの版の値（`_SPDX476`）の
        どれかであることを強制する。新しい版を測ったら `_SPDX476` に足す（足すこと自体が
        「その版を実際に測った」という記録になる）。(BLOCKING)
@@ -617,22 +621,43 @@ def run(ctx):
         _w476c = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10}
         _rt476c = " ".join(_rv476c.read_text(encoding="utf-8").split())
         _st476c = " ".join(_sm476c.read_text(encoding="utf-8").split())
+        # 語の列 (tdm / ml) は「0 は空欄」。0 でない行の数を数える
+        _col476c = lambda _k: sum(1 for _r in _rows476c if len(_r) > _k and _r[_k].strip() not in ("", "0"))
+        _tdm476c, _ml476c = _col476c(6), _col476c(7)
         _bad476c = []
+        # 「名指す本は 0」は census の結論文に依る。結論文の数が列と一致し、ml の誤命中を判定した行が在ること
+        #   (portfolio-aa・2026-11-11): 生成器はこの文を固定の形で書くので、列が動いても文は 0 のまま残りうる
+        _cc476c = re.search(r"\*\*(\d+) 本のうち、TDM・データマイニング・機械学習・AI を名指しする本は (\d+) 本\*\*"
+                            r"（`tdm` (\d+) 件・`ml` は誤命中 (\d+) 件のみ）", _ct476c)
+        _mj476c = re.search(r"^- `ml` の (\d+) 件 —— \S", _ct476c, re.M)
+        if not _cc476c or [int(_x) for _x in _cc476c.groups()] != [_n476c, _tdm476c, _tdm476c, _ml476c]:
+            _bad476c.append(f"census の (a) の結論文: 述べる {_cc476c.groups() if _cc476c else '文が無い'} / "
+                            f"表 ({_n476c}, {_tdm476c}, {_tdm476c}, {_ml476c})")
+        if _ml476c and not (_mj476c and int(_mj476c.group(1)) == _ml476c):
+            _bad476c.append(f"census の誤命中: `ml` の {_ml476c} 件を判定した行が無い")
+        # どの面も全出現を照合する (2026-11-11): search は最初の 1 か所しか見ず、材料表が同じ数を別の行で
+        #   繰り返すと (「承認済みに無い仕掛け」の表)、繰り返しの側は census を作り直しても古いまま残った
         for _label, _pat, _text, _want in (
                 ("REVIEWERS の全数", r"Of the \*\*(\d+) licences", _rt476c, _n476c),
                 ("REVIEWERS の条件ゼロ", r"exactly (\w+) impose no condition", _rt476c, _z476c),
                 ("REVIEWERS の作品を超える本数", r"(\w+) extend a patent grant beyond the work itself", _rt476c, _b476c),
                 ("REVIEWERS の条件つきの本数", r"all (\w+) carry a condition", _rt476c, _b476c),
-                ("材料表の全数", r"承認済みライセンスは (\d+) 本のうち", _st476c, _n476c),
+                ("材料表の全数", r"承認済みライセンスは、? ?(\d+) 本のうち", _st476c, _n476c),
                 ("材料表の作品を超える本数", r"作品を超える特許許諾を持つ (\d+) 本", _st476c, _b476c),
-                ("材料表の条件ゼロ", r"条件ゼロの承認済み (\d+) 本", _st476c, _z476c)):
-            _g = re.search(_pat, _text, re.I)
-            _v = None if not _g else (int(_g.group(1)) if _g.group(1).isdigit() else _w476c.get(_g.group(1).lower()))
-            if _v != _want:
-                _bad476c.append(f"{_label}: 述べる {_g.group(1) if _g else '文が無い'} / census {_want}")
+                ("材料表の条件ゼロ", r"条件ゼロの承認済み (\d+) 本", _st476c, _z476c),
+                ("材料表の「N 本のうち」の N", r"(\d+) 本のうち \d+ 本", _st476c, _n476c),
+                ("材料表の条件の無い作品を超える許諾", r"\d+ 本のうち (\d+) 本", _st476c, 0),
+                ("材料表の「すべて条件を持つ」本数", r"(\d+) 本はすべて条件を持つ", _st476c, _b476c),
+                ("材料表の「承認済み N 本で」", r"承認済み (\d+) 本で", _st476c, _n476c),
+                ("材料表の TDM・AI を名指す / 留保に触れる本", r"(?:名指す|触れる)本[はも] \**(\d+)\**", _st476c, _tdm476c)):
+            _gs = list(re.finditer(_pat, _text, re.I))
+            _vs = [int(_g.group(1)) if _g.group(1).isdigit() else _w476c.get(_g.group(1).lower()) for _g in _gs]
+            if not _vs or any(_v != _want for _v in _vs):
+                _bad476c.append(f"{_label}: 述べる {[_g.group(1) for _g in _gs] or '文が無い'} / census {_want}")
         check(
             _z476c > 0 and not _bad476c,
-            f"Check 476c: 入口と材料表の全数の数が census の表と一致 ({_n476c} 本 / 条件ゼロ {_z476c} / 作品を超える {_b476c})",
+            f"Check 476c: 入口と材料表の全数の数が census の表と一致 ({_n476c} 本 / 条件ゼロ {_z476c} / 作品を超える {_b476c} / "
+            f"TDM・AI を名指す {_tdm476c}・ml の誤命中 {_ml476c})",
             (f"Check 476c: 入口または材料表の数が census と違う: {_bad476c or 'census の公有等価の文が読めない'}。"
              "census を作り直したら審査者が読む 2 面も同じ commit で直せ"),
             blocking=True,

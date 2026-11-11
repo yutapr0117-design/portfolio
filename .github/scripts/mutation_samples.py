@@ -548,6 +548,36 @@ _MUTATIONS_TAIL.append({
     "find": "            if _lack451e:\n                _bad451d.append(f\"451e: {_md.name} が gap を担う §{'/§'.join(_lack451e)} を 1 つも引いていない \"\n                                \"(PREAMBLE の 3 つの gap が記述子から見えない)\")\n",
     "replace": "            if _lack451e:\n                pass\n",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 476c: 材料表の「承認済みに無い仕掛け」の表で、作品を超える許諾を 6 本と書く —— 476c は入口の段の 1 か所しか読まず、同じ数を繰り返す表は census と照合されていなかった",
+    "file": ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md",
+    "find": "141 本のうち 0 本（作品を超える許諾の 7 本はすべて条件を持つ",
+    "replace": "141 本のうち 0 本（作品を超える許諾の 6 本はすべて条件を持つ",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 476c: 材料表の表で、AI を名指す承認済みの本を 1 本と書く —— 「名指す本は 0」は census の結論文に依るのに、表の側の数は照合していなかった",
+    "file": ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md",
+    "find": "承認済みで AI を名指す本は 0（gap (a) と同じ測定）",
+    "replace": "承認済みで AI を名指す本は 1（gap (a) と同じ測定）",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 476c: 材料表の 2 か所目の「承認済みライセンスは、141 本のうち」を 140 本にする —— search は最初の 1 か所しか見ず、繰り返しの側が古いまま残った",
+    "file": ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md",
+    "find": "承認済みライセンスは、141 本のうち 0 本である",
+    "replace": "承認済みライセンスは、140 本のうち 0 本である",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 476c: census の (a) の結論文で ml の誤命中を 0 件にする —— 結論文は生成器が固定の形で書き、ml 列の数と照合していなかった",
+    "file": ROOT / "LICENSES" / "ACD-1.0.gap-census.md",
+    "find": "`ml` は誤命中 1 件のみ）",
+    "replace": "`ml` は誤命中 0 件のみ）",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 476c: census の誤命中の判定の行から ml の件数を消す —— 「AI を名指す本は 0」は ml の 1 件を誤命中と判定した行に依るのに、その行が在るかを見ていなかった",
+    "file": ROOT / "LICENSES" / "ACD-1.0.gap-census.md",
+    "find": "- `ml` の 1 件 —— `Multics`",
+    "replace": "- `ml` の判定 —— `Multics`",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
