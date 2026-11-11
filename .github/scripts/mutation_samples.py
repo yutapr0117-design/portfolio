@@ -561,6 +561,24 @@ _MUTATIONS_TAIL.append({
     "find": "**E3 と同じ 1 文の前半** | **草案に反映済み** |",
     "replace": "**E3 と同じ 1 文の前半** | **未着手**（E3 は反映済み）|",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 498: AS-OF の答えていない問いの件数だけを 1 件にする —— 件数は手で書き、状態の欄の件の数とは照合していなかった",
+    "file": ROOT / "LICENSES" / "AS-OF.md",
+    "find": "| **0 件** | ACD への返信は",
+    "replace": "| **1 件** | ACD への返信は",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 498: AS-OF の答えていない問いに件を 1 つ足し、件数を 0 件のままにする —— 件を足して件数を直し忘れると、答えていない問いを 0 件と言い続けた",
+    "file": ROOT / "LICENSES" / "AS-OF.md",
+    "find": "| **0 件** | ACD への返信は",
+    "replace": "| **0 件** | **Q1** 2026-11-11・発言者・`rounds/README.md`・§2.1・未回答；ACD への返信は",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 498: AS-OF の答えていない問いの件が、在らない rounds の file を指す —— 件数が合っていれば、受領文の置き場所は見ていなかった",
+    "file": ROOT / "LICENSES" / "AS-OF.md",
+    "find": "| **0 件** | ACD への返信は",
+    "replace": "| **1 件** | **Q1** 2026-11-11・発言者・`rounds/no-such-file.txt`・§2.1・未回答；ACD への返信は",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

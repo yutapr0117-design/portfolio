@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/checks_license_stated_counts.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-11-08
+last-updated: 2026-11-11
 canonical-ref: .github/scripts/check_repository_consistency.py (CHECK_SOURCE_FILES と run 呼び出し) / .github/scripts/checks_license_self_reporting.py (Check 460)
 ---
 
@@ -9,7 +9,7 @@ canonical-ref: .github/scripts/check_repository_consistency.py (CHECK_SOURCE_FIL
 
 ## What
 
-**Check 498**: ドシエの自己申告の文が持つ 2 つ目の数と、隣の文が繰り返す同じ数が、1 つ目と同じ実測に一致することを見る。errata の冒頭、comparison §1.35、FAQ の mirror、提出参考資料 §4c、register の集計行、逐条リファレンス、submission.md の分冊の 7 面。**Check 499**（2026-11-09）: 入口（REVIEWERS.md）の "when last read, <時刻> UTC" が、OSI-EVENTS が記録する最新の取得の時刻と合うこと（記録の無い取得と 48 時間以上の遅れは RED、48 時間以内の遅れは ADVISORY）。
+**Check 498**: ドシエの自己申告の文が持つ 2 つ目の数と、隣の文が繰り返す同じ数が、1 つ目と同じ実測に一致することを見る。errata の冒頭、comparison §1.35、FAQ の mirror、提出参考資料 §4c、register の集計行、逐条リファレンス、submission.md の分冊、AS-OF の未読スレッドの和と「答えていない問い」の件数（2026-11-11）の 9 面。**Check 499**（2026-11-09）: 入口（REVIEWERS.md）の "when last read, <時刻> UTC" が、OSI-EVENTS が記録する最新の取得の時刻と合うこと（記録の無い取得と 48 時間以上の遅れは RED、48 時間以内の遅れは ADVISORY）。
 
 ## Why
 
@@ -22,6 +22,7 @@ canonical-ref: .github/scripts/check_repository_consistency.py (CHECK_SOURCE_FIL
 ## Constraints
 
 - **文が読めないことも RED にする**: 言い換えると何も比べずに緑になる形を残さない
+- 「答えていない問い」の件は portfolio-00 が決めた形（「**Qn** 届いた日・発言者・`rounds/<file>`・§N・未回答｜YYYY-MM-DD にオーナーが回答」を「；」で区切る）で読む。形を変えたらこの module を同じ commit で直す
 - 「構造的拒否候補」は分類の列に凡例の `12`（構造的に両立不能の可能性）を持つ行の数として数える（portfolio-00 の定義）
 
 ## Change impact
