@@ -318,3 +318,18 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **読み。** list の人が示した順序は、gap と概念を先に置き、条文と弁護士を最後に置く。ACD の提出の材料はこの順序の前半と合う（gap から述べる）。合わないのは、条文が先に在って版を重ねたことと、最後の段が無いことである。Chestek 氏は list に下書きを出すこと自体を適切とした。
 
 **この節が establish しないこと。** 2019 年の個人の発言で、OSI の規則の文ではない。Smith 氏と Chestek 氏の 2019-08 の役職は、これらの通の署名からは確かめていない。Maxeiner 氏が投稿を止めた理由がこの 2 通だけかは、この節は言わない。
+
+## 1.184 献呈と許諾を 1 つに持つ文書は、審査するなら全体を —— CC0 を招く前の議論（2012-01）（2026-11-11）
+
+`rounds/2012-01-license-review-invite-cc0-observed.txt`（5 通・両 list で 23 通）。Karl Fogel 氏が 2012-01-03 に `license-review` で、Creative Commons に CC0 の提出を招くことに反対はあるかと問うた議論（*"Does anyone here on the license review committee think that inviting Creative Commons to submit the CC0 Dedication for OSI approval is a bad idea, and if so, why?"*）。招いた後の審査本体は `review-precedents.md` §1.138 が読んでいて、意向調査は 13 対 8 で反対、反対の 13 人は全員が特許を理由に含めた。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"I see no problem with approving it as a whole: the combination of a copyright disclaimer with a copyright license is a copyright license."* | John Cowan 氏 2012-01-03 | B4 の有利な面。放棄と許諾の組み合わせは、全体として 1 つの著作権のライセンスだ、という読み。ACD の §3 と §4 の並存は、この読みならそのまま審査の対象になる。同じ通で *"software licensed under CC0 is open source, period."* |
+| *"I don't think it would make sense for OSI to review a portion of an integral legal document like CC0. Either review for certification/approval the whole thing or not at all."* | Richard Fontana 氏 2012-01-04 | B4 の両面。fallback の部分だけを審査する道は無く、§3 の献呈を含む全体が審査される。ACD の提出は §4 だけを見てくれとは言えない。**逆側（有利）**: 全体を一体の文書として審査し、全体を承認しうる、という前提でもある |
+| *"I think submitting the licence fallback of CC0 for review as an Open Source licence is a very good idea. (This is distinct.)"* | Thorsten Glaser 氏 2012-01-03 | B4 の不利な面。同じ通で、全体を見たうえで、著作権が無いと述べる部分は著作権のライセンスとして認証しない、という立場を続けて書いた（原文はアーカイブで引用符が化けているので、ここでは要約で書く）。ACD の §3 は認証の外に置かれうる |
+| *"But let's remember what 99.9% of people are going to understand if we approve this license: "OSI says CC0 is an open source license"."* | Karl Fogel 氏 2012-01-03 | 承認が外からどう読まれるか。献呈を含む文書を承認すれば、ある程度「OSI は公有を open source と言っている」と受け取られる、と同じ通で書いた。ACD の承認も、§3 の献呈ごと「OSI が認めた」と読まれる。**逆側**: 同じ通で、新しい混乱が今の混乱より良いかもしれない（*"IMHO it might well be"*）とも書いた |
+
+**読み。** CC0 の審査が特許で止まる前に、委員会の側は構造（放棄と許諾を 1 つに持つ文書）を審査できるかを論じていた。全体として 1 つのライセンスだという読み（Cowan 氏）と、一体の文書は全体を審査するか、しないかだという立場（Fontana 氏）が出て、どちらも審査そのものを退けていない。放棄の部分を認証から外す立場（Glaser 氏）も在った。BOTTLENECKS の B4 の「意向調査で構造を理由にした人はいない」は意向調査の記録として動かないが、提出の前には構造への留保が在った。
+
+**この節が establish しないこと。** 個人の発言で、OSI の決定ではない。Fogel 氏と Fontana 氏の 2012-01 の役職は、これらの通の署名からは確かめていない。Glaser 氏の文の後半はアーカイブの文字化けのため逐語で引いていない。
