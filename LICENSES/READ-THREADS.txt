@@ -11,8 +11,12 @@
 #   is in rounds/, and 4 short ones read in full that day. 5 were left out because rounds/ holds
 #   only 1 or 2 of their messages (what *is* the approval process? [read in full 2026-11-11], Noise filter, Initial
 #   Developer's Public License, Octopus License, MS-PL/GPL compatibility).
+# 2026-11-11: 10 rows were re-dated to the earliest message of the subject, after the census took the
+#   earliest message across both lists as "first" (portfolio-9b, PR 2842). Subjects and row count unchanged.
+#   "NOSA 2.0?" now carries 2016-02-04: the tool joins the 2016 "NOSA 2.0" messages (read in the NOSA rounds)
+#   and the 2017 "NOSA 2.0?" thread under one subject.
 1999-04-15	Stop. Stop, stop, stop, stop, stop
-1999-04-26	APSL 1.1 certification...
+1999-04-24	APSL 1.1 certification...
 1999-04-27	SGI OpenVault
 1999-05-03	Archive?
 1999-05-12	XXX PUBLIC LICENSE
@@ -207,7 +211,7 @@
 2008-03-10	MS continued attack on OSD #6
 2008-03-17	Request for approval: EUPL (European Union Public Licence) Questions
 2008-03-31	Open Source Content License (OSCL)
-2008-04-01	Open Source Content License (OSCL) - Other/Miscellaneous licenses
+2008-03-31	Open Source Content License (OSCL) - Other/Miscellaneous licenses
 2008-04-01	Speaking of Calling Things Open Source When They Aren't...
 2008-04-02	License committee report for March 2008
 2008-04-02	Open source licenses, using licensed source code under new licenses
@@ -223,7 +227,7 @@
 2008-08-05	restarting License (anti-)Proliferation
 2008-08-13	Strong Court Ruling Upholds the Artistic License (fwd)
 2008-08-22	License Committee Report for May 2008
-2008-09-01	KnowledgeHives Open Source License
+2008-09-02	KnowledgeHives Open Source License
 2008-09-07	License Committee Report for September 2008
 2008-11-05	For approval: SIL Open Font License 1.1
 2009-01-21	EUPL status
@@ -240,7 +244,7 @@
 2010-01-19	move licenses to voluntarily retired list?
 2010-01-19	updating the GPL's status in http://www.opensource.org/licenses/category ?
 2010-03-04	Open Source Decision Models
-2010-05-26	WebM license third-party submission
+2010-05-25	WebM license third-party submission
 2010-06-04	WebM license resolution.
 2010-10-24	Legacy Approval - CodeIgniter License Agreement
 2010-12-01	Defenestrating the GPL
@@ -269,7 +273,7 @@
 2011-12-20	Reply to various recent postings on the crayon license issue
 2011-12-28	Special clauses added to OSI-approved licenses: are they OK, and if not, what can/should w
 2012-01-03	MPL 2.0 released, approved as an open source license by OSI.
-2012-01-05	Invite Creative Commons to submit CC0 Dedication.
+2012-01-03	Invite Creative Commons to submit CC0 Dedication.
 2012-01-31	Small Suggestion
 2012-02-01	CDDL 1.1 and GPL 2 with CPE
 2012-02-01	a GPLv3 compatible attribution for MIT/BSD?
@@ -278,7 +282,7 @@
 2012-02-19	Request for consultation with CC on patent issue
 2012-02-21	Logo for an (O)pen (S)ource (Li)cense (C)ompendium
 2012-02-22	CC0 decision process, waiting for CC response, etc.
-2012-02-26	CC withdrawl of CC0 from OSI process
+2012-02-24	CC withdrawl of CC0 from OSI process
 2012-02-26	What would be necessary to consider the unlicense?
 2012-02-27	CeCILL license V2.1 for Approval
 2012-03-01	avoid gray areas?
@@ -306,7 +310,7 @@
 2013-03-17	What is missing from this post? (license-discuss/review "year in review")
 2013-04-05	Copyright Free Software Foundation, but license not GPL
 2013-04-23	call for volunteers: getting rid of comments on OSI licenses
-2013-05-08	New license submission
+2013-04-27	New license submission
 2013-06-07	For Approval: NASA Open Source Agreement 2.0
 2013-07-07	Some suggested writing projects to improve opensource.org: call for volunteers
 2013-07-07	further license presentation improvements? (inc. call for help)
@@ -340,7 +344,7 @@
 2015-05-26	SF - LAFCO open source voting draft
 2015-08-07	Outstanding license submissions -- tools
 2015-08-17	Category "B" licenses at Apache
-2015-09-03	Submission of OSET Public License for Approval]
+2015-09-01	Submission of OSET Public License for Approval]
 2015-09-09	OSET Foundation
 2015-09-17	Sovereign Immunity
 2015-09-28	GPLv3 for elections software
@@ -350,6 +354,7 @@
 2016-01-13	Approval: BSD + Patent License
 2016-02-03	META: license review tracking
 2016-02-03	Words that don't mean derivative work
+2016-02-04	NOSA 2.0?
 2016-03-23	Some more comments on NOSA 2.0
 2016-05-11	exploring tracking tool for license-review
 2016-06-01	New settings for license-review
@@ -360,7 +365,6 @@
 2017-03-08	code.mil update
 2017-04-06	notes on a systematic approach to "popular" licenses
 2017-07-27	Hooyami License Version 1.0 for Approval
-2017-07-27	NOSA 2.0?
 2017-09-14	New Exhibit A for EPLv2
 2018-06-12	ESA Permissive PL 2.3
 2018-08-07	License-discuss Digest, Vol 78, Issue 4
@@ -387,7 +391,7 @@
 2019-08-08	For Public Comment: The Libre Source License
 2019-09-25	WordPress GPL software
 2019-12-26	Approval Status of MIT-0
-2020-01-04	AGPL timeline & why cautious processes with real-world testing are better
+2020-01-02	AGPL timeline & why cautious processes with real-world testing are better
 2020-02-24	"Fairness" vs. mission objectives
 2020-02-28	Moderation observations
 2020-02-29	Columbia S&T Law Review analysis of the OSI license-discuss mailing list
