@@ -197,8 +197,15 @@ submission."* A Contribution is material *"intentionally"* submitted for inclusi
 an intent to contribute is not obviously an intent to surrender. Inbound-equals-outbound works
 for licences such as Apache-2.0 (§5), but a public-domain surrender may need more than a default.
 
+A second question runs the other way. *"Unless they state otherwise"* names no addressee, so a
+contributor can opt out by telling someone who is not a Dedicator. No Dedicator then knows, and the
+undertaking in §2.6 to identify such material does not bite. We considered requiring the statement
+to be made *"in the submission or to the Dedicator to whom it is submitted"* and did not adopt it
+(`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.27, T53): it would treat an express refusal as ineffective
+because it reached the wrong person, and we do not know whether a court would do that.
+
 **An answer would change** whether §2.6 should require an affirmative statement, at a cost to
-projects that accept contributions informally.
+projects that accept contributions informally, and whether the opt-out needs an addressee.
 
 ## 5. How far does the covenant against "any claim or cause of action" reach? (§5.1, §5.2(d), §11)
 
