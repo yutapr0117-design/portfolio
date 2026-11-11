@@ -508,12 +508,9 @@ if _runbook70.exists() and CHECK_SOURCE_FILES:
     _, _section_nums70 = _aggregate_check_numbers()
     _actual_max70 = max(_section_nums70) if _section_nums70 else 0
     _runbook_src70 = _runbook70.read_text(encoding="utf-8")
-    _runbook_match70 = re.search(r"consistency Check 総数\s*\|\s*\*\*(\d+)\*\*", _runbook_src70)
+    _runbook_match70 = re.search(r"consistency Check 総数\s*\|\s*\*\*(\d+)\*\*(?:（最大番号 (\d+)。)?", _runbook_src70)
     _runbook_n70 = int(_runbook_match70.group(1)) if _runbook_match70 else 0
-    # 同じ行の「（最大番号 N。」も読む (2026-11-11・監査 #15)。比べている性質そのものを 2 度目に述べるのに
-    #   読む者が無く、Check 109 は §9 を走査から外すので、行を上げたときに黙って古くなった
-    _runbook_max70 = re.search(r"consistency Check 総数\s*\|\s*\*\*\d+\*\*（最大番号 (\d+)。", _runbook_src70)
-    _runbook_m70 = int(_runbook_max70.group(1)) if _runbook_max70 else 0
+    _runbook_m70 = int(_runbook_match70.group(2) or 0) if _runbook_match70 else 0  # 同じ行の最大番号 (2026-11-11・監査 #15)
     check(
         _runbook_n70 == _actual_max70 == _runbook_m70 and _actual_max70 > 0,
         f"Check 70: total-check-runbook.md §9 records {_runbook_n70} checks (最大番号 {_runbook_m70}) == implementation max {_actual_max70}",
