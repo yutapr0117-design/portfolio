@@ -552,6 +552,18 @@ _MUTATIONS_TAIL.append({
     "find": "    branches: [\"main\"]\n    paths:\n",
     "replace": "    branches: [\"release\"]\n    paths:\n",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 374: importJSON から validateAndNormalize の呼び出しを消し、マージ結果をそのまま State.set する —— 本体の部分文字列で読み、コメントの「validateAndNormalize していた」で満たされていた",
+    "file": ROOT / "js" / "settings-io.js",
+    "find": "                const normalized = Store.validateAndNormalize(merged);\n                State.set(normalized);",
+    "replace": "                State.set(merged);",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 374: importJSON で validateAndNormalize を呼んで結果を捨て、マージ結果を State.set する —— 呼び出しの在否しか見ず、戻り値が State.set に渡るかを見ていなかった",
+    "file": ROOT / "js" / "settings-io.js",
+    "find": "                const normalized = Store.validateAndNormalize(merged);\n                State.set(normalized);",
+    "replace": "                Store.validateAndNormalize(merged);\n                State.set(merged);",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
