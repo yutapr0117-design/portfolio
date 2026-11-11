@@ -510,11 +510,15 @@ if _runbook70.exists() and CHECK_SOURCE_FILES:
     _runbook_src70 = _runbook70.read_text(encoding="utf-8")
     _runbook_match70 = re.search(r"consistency Check 総数\s*\|\s*\*\*(\d+)\*\*", _runbook_src70)
     _runbook_n70 = int(_runbook_match70.group(1)) if _runbook_match70 else 0
+    # 同じ行の「（最大番号 N。」も読む (2026-11-11・監査 #15)。比べている性質そのものを 2 度目に述べるのに
+    #   読む者が無く、Check 109 は §9 を走査から外すので、行を上げたときに黙って古くなった
+    _runbook_max70 = re.search(r"consistency Check 総数\s*\|\s*\*\*\d+\*\*（最大番号 (\d+)。", _runbook_src70)
+    _runbook_m70 = int(_runbook_max70.group(1)) if _runbook_max70 else 0
     check(
-        _runbook_n70 == _actual_max70 and _actual_max70 > 0,
-        f"Check 70: total-check-runbook.md §9 records {_runbook_n70} checks == implementation max {_actual_max70}",
-        f"Check 70: total-check-runbook.md §9 records {_runbook_n70} but implementation has {_actual_max70}. "
-        f"runbook §9 の「consistency Check 総数」を `**{_actual_max70}**` に同期せよ",
+        _runbook_n70 == _actual_max70 == _runbook_m70 and _actual_max70 > 0,
+        f"Check 70: total-check-runbook.md §9 records {_runbook_n70} checks (最大番号 {_runbook_m70}) == implementation max {_actual_max70}",
+        f"Check 70: total-check-runbook.md §9 records {_runbook_n70} (最大番号 {_runbook_m70 or '読めない'}) but implementation has {_actual_max70}. "
+        f"runbook §9 の「consistency Check 総数」を `**{_actual_max70}**（最大番号 {_actual_max70}。` に同期せよ",
     )
 else:
     warnings.append("Check 70: runbook or check script not found — count cross-reference skipped")

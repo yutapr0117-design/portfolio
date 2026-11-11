@@ -541,6 +541,12 @@ _MUTATIONS_TAIL.append({
     "find": "（**後の行で再改**: 「§5.2(d)（語順・T39）」の行で除外を (d) の冒頭へ移した）",
     "replace": "",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 70: runbook §9 の Check 総数の行の「最大番号」だけを別の数にする —— 行の最初の **N** しか読まず、同じ行が比べている性質を 2 度目に述べる数には読む者が無かった",
+    "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
+    "find": "（最大番号 ",
+    "replace": "（最大番号 1",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

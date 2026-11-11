@@ -143,7 +143,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 67 | 全 .github/workflows/*.yml に top-level `permissions:` ブロック明示（CWE-275 防止 / security baseline） | BLOCKING |
 | 68 | .github/dependabot.yml が `npm` + `github-actions` 両 ecosystem を update 対象に含む（月次更新の保証） | BLOCKING |
 | 69 | Node-version 3 宣言の整合: package.json `engines.node`（許容範囲）が CI workflow の `node-version` pin を含み、**かつ `.nvmrc`（nvm use のローカル開発版）が CI pin と同 major で一致**することを強制。3 宣言のいずれかが drift すると nvm ローカルと CI で実行 Node が分裂する silent env mismatch（eslint/playwright で顕在化しうる）を防ぐ | BLOCKING |
-| 70 | total-check-runbook.md §9 「consistency Check 総数」値が実装の最大 Check 番号と一致（cross-document 整合） | BLOCKING |
+| 70 | total-check-runbook.md §9 「consistency Check 総数」値が実装の最大 Check 番号と一致（cross-document 整合）。**2026-11-11（監査 #15）**: 同じ行の「（最大番号 N。」も読み、`**N**`・最大番号・実装の最大値の 3 つが一致することを見る（比べている性質を 2 度目に述べる数に読む者が無く、Check 109 は §9 を走査から外すので、行を上げたときに黙って古くなった） | BLOCKING |
 | 71 | file-size-budget.md §4 BUDGET-DATA の各 path が実在（Check 52 silent-skip 防止） | BLOCKING |
 | 72 | file-size-budget.md ESLint baseline 値が sanity ceiling 200 以下（Plan A 絶対防衛線） | BLOCKING |
 | 73a | index.html `<link rel="preload">` に `as=` 属性必須（preload 仕様準拠） | BLOCKING |
