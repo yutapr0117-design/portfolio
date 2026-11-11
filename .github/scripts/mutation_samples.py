@@ -564,6 +564,12 @@ _MUTATIONS_TAIL.append({
     "find": "                const normalized = Store.validateAndNormalize(merged);\n                State.set(normalized);",
     "replace": "                Store.validateAndNormalize(merged);\n                State.set(merged);",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 367: インポートモードの select を二重引用符の h(\"select\" で書き、引用符つきの 'value': キーを付ける —— 一重引用符の h('select' しか読まず、二重引用符の形と引用符つきのキーは素通りしていた",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "h('select', { class: 'input', id: 'settingsImportMode', 'aria-label': 'インポートモード', onchange:",
+    "replace": "h(\"select\", { class: 'input', 'value': settingsImportMode, id: 'settingsImportMode', 'aria-label': 'インポートモード', onchange:",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
