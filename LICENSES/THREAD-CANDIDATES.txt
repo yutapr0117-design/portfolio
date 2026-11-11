@@ -1,5 +1,8 @@
-# Candidate threads for the unread count in LICENSES/AS-OF.md ("未読スレッドの残り"), one subject line per row.
-# Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
+# Candidate conversations for the unread count in LICENSES/AS-OF.md ("未読スレッドの残り"), one per row.
+# Format: <date of the first message of the conversation><TAB><subject as the archive gives it>. Sorted by date.
+# A conversation is a subject cut wherever more than 90 days pass between two messages (2026-11-11): grouping by
+#   subject alone joined different conversations that reused a subject, so reading one counted the others as read.
+#   A subject can therefore have more than one row; the date tells the conversations apart.
 # A candidate is a thread on license-review / license-discuss with >= 3 messages and >= 120 words
 #   from the deciders, in which the dossier's own 8-word phrases appeared fewer than 8 times when
 #   it first became a candidate (census_decision_statements.py threads).
@@ -62,6 +65,7 @@
 2000-05-22	The LaTeX Project Public License
 2000-07-22	Plan 9 license
 2000-07-22	prohibiting use that would result in death or personal injury
+2000-08-08	License Approval Process
 2000-08-08	StarOffice under the GPL ?
 2000-08-12	Serious trademark trouble.
 2000-08-14	List of Licenses -- as of 8-14-00
@@ -147,6 +151,7 @@
 2002-09-12	Addendums to the LGPL
 2002-09-30	discuss: OCLC Office of Research Open Source License
 2002-10-03	Modified Artistic License (eNetwizard Content Application Server)
+2002-10-03	Moral Rights
 2002-10-03	Simplified Artistic License (A Proposed Compromise)
 2002-10-06	Procedure for using an approved license
 2002-10-15	RPL version 1.1
@@ -154,6 +159,7 @@
 2002-10-22	OSI certification mark and BSD licence
 2002-10-23	Revised versions of the OSL and AFL
 2002-10-24	BXAPL - request for comments
+2002-10-24	Copyright
 2002-10-25	a proposed change to the OSD
 2002-10-28	Approval Request: RPSL 1.0
 2002-10-28	click-wrap is legally supportable?
@@ -200,10 +206,12 @@
 2004-02-01	IBM and Patents
 2004-02-11	Initial Developer's Public License
 2004-02-12	For Approval: NASA Open Source Agreement Version 1.1
+2004-02-17	License Committee report
 2004-03-03	Help with license decision for "cluster" of similar projects
 2004-03-08	Adaptive Public License
 2004-03-12	Revisions to NASA Open Source Agreement (NOSA)
 2004-03-12	disclosure of known defects
+2004-03-12	proposal: DotGNU Trademark License
 2004-03-14	LAB Public License proposal
 2004-03-19	Use Reciprocal Public License or new license
 2004-04-08	License for a document or presentation?
@@ -214,6 +222,7 @@
 2004-05-17	FYI: Next draft of MySQL FLOSS license exception
 2004-05-24	For approval: wxWindows-to-wxWidgets license name change
 2004-06-04	Creative Commons Attribution
+2004-06-04	Dual licensing
 2004-06-07	For Approval: Educational Community License
 2004-06-14	OSD #6 (fields of endeavor) and research vs commercial rights
 2004-06-16	Effect of the MySQL FLOSS License Exception?
@@ -224,9 +233,11 @@
 2004-08-11	License for Massively Multiplayer Games?
 2004-10-15	ISC copyright for BIND
 2004-10-18	question about bsd-style license requirements - accidental recipr ocity?
+2004-10-22	looking for a license
 2004-11-01	certification mark for "mirbsdksh"?
 2004-11-05	License question: Open Software License 2.1
 2004-11-06	Definition of open source
+2004-11-08	License Committee Report
 2004-11-29	For Approval: Some License Or Another
 2004-12-01	For Approval: Common Development and Distribution License (CDDL)
 2004-12-02	Dual licensing with two copyleft licenses
@@ -313,6 +324,7 @@
 2005-12-09	For Approval: Microsoft Community License
 2006-01-19	Question Regarding GPL
 2006-02-14	Help in choosing appropriate open-source license...
+2006-02-17	OSL 3.0: informing licensees of their rights
 2006-03-11	Looking for license stewards
 2006-04-15	Free Software Licenses not approved as Open Sourse License
 2006-04-20	Open Source Initiative Certification for GPL 3.0]
@@ -372,6 +384,7 @@
 2007-07-31	inconsistency in OSD- software (#2) v. licenses/rights (every other plank)
 2007-07-31	what *is* the approval process?
 2007-08-01	GPLv3, again Re: what *is* the approval process?
+2007-08-10	For Approval: Microsoft Community License
 2007-08-16	Question about the GPL v3
 2007-08-21	MS-PL/GPL compatibility,
 2007-08-22	Groklaw's OSI item
@@ -395,6 +408,7 @@
 2007-11-13	GPL v3 FUD,
 2007-11-13	What should the License Result Communication Process be?
 2007-11-14	Improving the License Approval Proces
+2007-11-15	Simplified BSD license
 2007-11-21	Call for Votes: New OSI-Editors List
 2007-11-21	Open Source vs opensource
 2007-11-22	Question on OSD #5
@@ -429,6 +443,7 @@
 2008-03-14	Censure Re: Affero Licence/AGPL
 2008-03-17	Removal Re: Censure Re: Affero Licence/AGPL
 2008-03-17	Request for approval: EUPL (European Union Public Licence) Questions
+2008-03-27	License for approval
 2008-03-31	Open Source Content License (OSCL)
 2008-03-31	Open Source Content License (OSCL) - Other/Miscellaneous licenses
 2008-04-01	Speaking of Calling Things Open Source When They Aren't...
@@ -478,6 +493,7 @@
 2009-12-08	OKL4 license
 2010-01-19	move licenses to voluntarily retired list?
 2010-01-19	updating the GPL's status in http://www.opensource.org/licenses/category ?
+2010-02-25	Licensing question
 2010-03-04	Open Source Decision Models
 2010-04-02	What does "new" mean in Section 1.9 (b) of the MPL v 1.1.?
 2010-05-25	WebM license third-party submission
@@ -520,6 +536,7 @@
 2011-08-15	MPL RC1 posted to license-review
 2011-08-15	Which list?
 2011-08-16	Terekhov
+2011-08-28	FOR APPROVAL - Python License Changes
 2011-09-07	Can OSI specify that public domain is open source?
 2011-09-07	EPICS Open License (U.S. gov't DOE / ANL project).
 2011-11-23	TCPDF license: LGPLv3 + a special clause: is this still considered "Open Source"?
@@ -576,6 +593,7 @@
 2013-01-06	Is <some PHP program> Open Source?
 2013-01-30	Request for Approval : Modular Open Software License (MOSL)
 2013-02-14	OSI and SPDX license list
+2013-03-05	CeCILL license V2.1 for Approval
 2013-03-05	call for volunteers: getting rid of comments on OSI licenses
 2013-03-06	FAQ entry for slight variations in licenses?
 2013-03-06	License Committee Report - 2013-03-06
@@ -592,6 +610,7 @@
 2013-06-07	For Approval: NASA Open Source Agreement 2.0
 2013-06-25	License compatibility - reg
 2013-07-15	Open source license chooser choosealicense.com launched.
+2013-07-18	Idea for time-dependent license, need comments
 2013-08-16	Minor change to website
 2013-08-28	License incompatibility
 2013-09-02	Red Hat compilation copyright & RHEL contract
@@ -629,6 +648,7 @@
 2015-03-12	Software, licenses, and patents
 2015-03-30	Shortest copyleft licence
 2015-04-07	Strong and weak copyleft
+2015-05-01	License question
 2015-05-20	Proposal: Apache Third Party License Policy
 2015-05-21	Disclosure of patents by Apache projects
 2015-05-26	SF - LAFCO open source voting draft
@@ -637,7 +657,7 @@
 2015-08-07	Outstanding license submissions -- tools
 2015-08-17	Category "B" licenses at Apache
 2015-08-21	Companies that encourage license violations
-2015-09-01	Submission of OSET Public License for Approval]
+2015-09-01	Submission of OSET Public License for Approval
 2015-09-09	OSET Foundation
 2015-09-10	Discussing proposed new licenses
 2015-09-15	-- National Security and Public Policy (3.5B and 4)
@@ -650,8 +670,9 @@
 2016-01-13	Approval: BSD + Patent License
 2016-01-18	AFL/OSL/NOSL 3.0
 2016-01-30	Words that don't mean derivative work
+2016-02-02	Outstanding license submissions
 2016-02-03	META: license review tracking
-2016-02-04	NOSA 2.0?
+2016-02-04	NOSA 2.0
 2016-03-23	Some more comments on NOSA 2.0
 2016-05-11	exploring tracking tool for license-review
 2016-05-19	Source-attribution licenses and Javascript compatibility
@@ -701,6 +722,7 @@
 2019-01-31	Open Source and the extension of copyright
 2019-02-05	For Approval: Twente License
 2019-03-08	Fw: #905674: parallel: move to nonfree
+2019-03-18	The license of OpenMotif (Open Group Public License)
 2019-03-19	The political / technical dichotomy
 2019-04-25	Question about LGPL 2.1 and APL 2.0 Compatibility
 2019-05-13	history of l-r/org relationship
@@ -716,6 +738,7 @@
 2019-07-14	Essential step defense and first sale
 2019-07-23	End of CAL discussion? Paging Arthur Brock.
 2019-07-26	IP licensing: Specific performance (or damages) vs. Infringement - algorithm for (C++) programmers
+2019-07-29	Blue Oak Model License 1.0.0
 2019-08-03	For Public Comment: The Contribution Public License
 2019-08-08	For Discussion: Cryptographic Autonomy License (CAL) Beta 2
 2019-08-08	For Public Comment: The Libre Source License
@@ -760,6 +783,7 @@
 2023-05-21	Network copyleft license without requiring 'Installation Information'
 2023-06-26	License Consistency Working Group, call for volunteers
 2023-08-16	Request for Open Constitution License v1 for Approval
+2023-08-21	License pages cleanup project underway - status update
 2023-08-22	License-review Digest, Vol 119, Issue 8
 2023-09-01	Request for OSI Certification
 2023-10-25	Zenin License
@@ -780,6 +804,7 @@
 2025-07-09	OSI License Submission - PPPL BSD-3
 2025-07-14	A new kind of badgeware license?
 2025-08-15	Dear OSI License Review Committee,
+2025-10-21	OSI License Submission - PPPL BSD-3
 2025-12-03	Total Reciprocity Public License (TRPL v1.0)
 2025-12-07	Review request for "CingXaero Open Source License (COL)"
 2025-12-28	Request for License Review - BarrerSoftware License (BSL)v1.0
