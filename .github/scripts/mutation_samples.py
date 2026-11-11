@@ -537,6 +537,12 @@ _MUTATIONS_TAIL.append({
     "replace": "| **1 件** | **Q1** 2026-11-11・発言者・`rounds/README.md`・—・未回答；ACD への返信は",
 })
 _MUTATIONS_TAIL.append({
+    "name": "Check 498: AS-OF の答えていない問いの件が、私信の stub を指して問われた条 (§) を書く —— 私信の中身の一部を公開の文書に出す形を止めていなかった",
+    "file": ROOT / "LICENSES" / "AS-OF.md",
+    "find": "| **0 件** | ACD への返信は",
+    "replace": "| **1 件** | **Q1** 2026-11-11・moderator・`rounds/2026-09-18-offlist-nick-vidal-round4.txt`・§2.1・未回答；ACD への返信は",
+})
+_MUTATIONS_TAIL.append({
     "name": "Check 469: 451e の違反の文を消し、コメントと 451d の OK 行の言及だけを残す —— 区間の全文から 451e の綴りを拾っていたので、実装が無くても 6 部のまま緑だった",
     "file": ROOT / ".github" / "scripts" / "checks_license_surfaces.py",
     "find": "            if _lack451e:\n                _bad451d.append(f\"451e: {_md.name} が gap を担う §{'/§'.join(_lack451e)} を 1 つも引いていない \"\n                                \"(PREAMBLE の 3 つの gap が記述子から見えない)\")\n",
