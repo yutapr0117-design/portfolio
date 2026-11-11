@@ -235,87 +235,131 @@ def noreview(out):
     print(f"submissions (first messages) {len(first)}; stating no legal review in their own words {len(found)} (a floor)")
 
 
+GAP_DAYS = 90
+
+
+def _list_rows(path):
+    """READ-THREADS.txt / THREAD-CANDIDATES.txt の行 [(件名の key, 日付, 件名)] (会話ごとに 1 行・同じ件名は複数行ありうる)。"""
+    rows = []
+    if path.exists():
+        for line in open(path, encoding="utf-8"):
+            if line.strip() and not line.startswith("#") and "\t" in line:
+                date, title = line.rstrip("\n").split("\t", 1)
+                if len(title_key(title)) >= 6:
+                    rows.append((title_key(title), date, title))
+    return rows
+
+
+def conversations():
+    """件名 key ごとに通を時刻順に並べ、通と通の間が GAP_DAYS を越えるところで会話に切る (2026-11-11・portfolio-00 と
+    決めた)。件名だけでまとめると、年をまたいで同じ件名の別の会話が 1 本になり、1 つを読むと別の会話まで読了に数えて
+    未読を少なく出していた (候補の件名 778 本のうち 48 本が複数の会話を含み、23 本は読了と記録されていた)。
+    戻り値は {key: [(会話の最初の通の日付 ISO, 最後の通の時刻, [通…])]}。日付の読めない通は最初の会話に入れる。"""
+    by_key = collections.defaultdict(list)
+    for _, head, body in messages():
+        title = subject_key(field(head, "Subject"))
+        key = re.sub(r"[^a-z0-9]+", " ", title.lower()).strip()[:90]
+        if len(key) < 6:
+            continue
+        date = field(head, "Date")
+        by_key[key].append((_when(date), date, field(head, "From"), title, body))
+    convs = {}
+    for key, v in by_key.items():
+        groups, prev = [], None
+        for x in sorted((x for x in v if x[0]), key=lambda x: x[0]):
+            if prev is None or (x[0] - prev).days > GAP_DAYS:
+                groups.append([])
+            groups[-1].append(x)
+            prev = x[0]
+        undated = [x for x in v if not x[0]]
+        if undated:
+            (groups[0] if groups else groups.append([]) or groups[0]).extend(undated)
+        convs[key] = [(_iso(g[0][1]), g[-1][0], g) for g in groups]
+    return convs
+
+
 def threads(out):
     listed = subprocess.check_output(["git", "-C", str(REPO), "ls-files", "LICENSES"], text=True).split()
     seen_in_dossier = set()
     for rel in listed:
         if rel.endswith(".md") and "/rounds/" not in rel:
             seen_in_dossier.update(grams(open(REPO / rel, errors="replace").read()))
-    table = collections.defaultdict(lambda: {"messages": 0, "decider_words": 0, "dossier_hits": 0, "seen": set(), "first": ""})
-    for _, head, body in messages():
-        title = subject_key(field(head, "Subject"))
-        key = re.sub(r"[^a-z0-9]+", " ", title.lower()).strip()[:90]
-        if len(key) < 6:
-            continue
-        sender, date = field(head, "From"), field(head, "Date")
-        entry = table[key]
-        if (sender, date) in entry["seen"]:
-            continue
-        entry["seen"].add((sender, date))
-        text = own_text(body)
-        entry["title"] = entry.get("title") or title
-        # 「first」は全体で最も早い通の日付 (2026-11-11・portfolio-00 の問い)。月の file は list ごとに時系列で
-        #   読むので (license-discuss の全期間 → license-review)、先に読んだ通を first にすると、2 つの list に
-        #   またがるスレッドでは後の list の早い通 (提出・"[PROPOSAL]" の起こし) を取り逃した (候補 46 本・1 日以上は 15 本)
-        _ts = _when(date)
-        if not entry["first"] or (_ts and (entry.get("first_ts") is None or _ts < entry["first_ts"])):
-            entry["first"], entry["first_ts"] = date, _ts
-        entry["messages"] += 1
-        entry["dossier_hits"] += sum(1 for g in grams(text) if g in seen_in_dossier)
-        if DECIDERS.search(sender):
-            entry["decider_words"] += len(text.split())
-    rows = [{k: v for k, v in e.items() if k not in ("seen", "first_ts")} for e in table.values()
-            if e["messages"] >= 3 and e["decider_words"] >= 120]
-    # 読了は READ-THREADS.txt だけから数える (portfolio-00 と 2026-11-09 に決めた): rounds/ の件名を読了に
-    #   数えると、別スレッドの通を 1 通だけ置いたときにそのスレッドまで読了になり、未読が過小になる
-    listed, in_rounds = listed_titles(), rounds_titles()
-    read = listed
-    # 候補の一覧から読んだスレッド (READ-THREADS.txt) は候補に残す: 読むとドシエに語が足されて dossier_hits が
-    #   8 を越え、候補から外れるので、残さないと母数が読むほど縮む (2026-11-09・771 → 726 を実測)。rounds/ だけに
-    #   在るスレッドは候補の一覧から来たとは限らないので、母数には足さない
-    pinned = _list_keys(CANDIDATES)
-    # 一度候補になったスレッドは外さない (THREAD-CANDIDATES.txt・2026-11-11): 未読のまま、ドシエに語が
-    #   入っただけで候補から外れ、読んでいないのに未読が減っていた (§1.171 の語で 2 本が外れた)
-    candidates = [r for r in rows if r["dossier_hits"] < 8 or title_key(r["title"]) in listed
-                  or title_key(r["title"]) in pinned]
-    # 一覧に在るのに rows (決める側の語の閾値) から外れた件名も母数に残す (portfolio-00 のレビュー・2026-11-11):
-    #   いまは名簿もアーカイブも動かないが、名簿に人を足すと語数が変わり、一覧の件名が rows から落ちうる
-    in_rows = {title_key(r["title"]) for r in candidates}
-    orphan = [{"title": t, "first": d, "messages": 0, "decider_words": 0, "dossier_hits": 0}
-              for k, (d, t) in pinned.items() if k not in in_rows]
+    convs = conversations()
+    rows = []
+    for key, cs in convs.items():
+        for start, _end, g in cs:
+            seen, n, words, hits = set(), 0, 0, 0
+            for _t, date, sender, title, body in g:
+                if (sender, date) in seen:
+                    continue
+                seen.add((sender, date))
+                n += 1
+                text = own_text(body)
+                hits += sum(1 for gm in grams(text) if gm in seen_in_dossier)
+                if DECIDERS.search(sender):
+                    words += len(text.split())
+            if n >= 3 and words >= 120:
+                rows.append({"title": g[0][3], "first": g[0][1], "start": start, "key": key,
+                             "messages": n, "decider_words": words, "dossier_hits": hits})
+    # 読了は READ-THREADS.txt だけから数える (portfolio-00 と 2026-11-09 に決めた)。行は会話を指す: 日付が会話の
+    #   始まりと一致すればその会話、一致しなければ日付を含む会話 (無ければ日付より前で最も遅く始まる会話) に当て、
+    #   一致しない行の数を出す (READ-THREADS の振り分けは portfolio-00)
+    def to_conv(key, date):
+        """一覧の行 (件名, 日付) が指す会話の始まり。一致しなければ日付を含む会話、無ければ日付より前で最も遅く始まる
+        会話 (それも無ければ最初の会話)。アーカイブに件名が無ければ None。"""
+        cs = convs.get(key, [])
+        if not cs:
+            return None
+        hit = next((c for c in cs if c[0] == date), None) or next(
+            (c for c in cs if c[0] <= date <= c[1].date().isoformat()), None) or max(
+            (c for c in cs if c[0] <= date), key=lambda c: c[0], default=cs[0])
+        return hit[0]
+
+    read, off = set(), []
+    for key, date, title in _list_rows(REPO / "LICENSES" / "READ-THREADS.txt"):
+        start = to_conv(key, date)
+        if start is not None and start != date:
+            off.append(f"{date}\t{title} → {start}")
+        read.add((key, start or date))
+    in_rounds = rounds_titles()
+    pinned_rows = _list_rows(CANDIDATES)
+    # 固定も会話単位 (2026-11-11): 件名で固定すると、会話を 1 つ固定しただけで同じ件名の他の会話まで候補に入り、
+    #   --pin のたびに一覧が増えて収束しなかった。件名単位で書かれた旧い行は、日付が指す会話に当てる
+    pinned = {(k, to_conv(k, d) or d) for k, d, _t in pinned_rows}
+    # 一度候補になった会話は外さない (THREAD-CANDIDATES.txt・2026-11-11): ドシエに語が入っただけで候補から外れ、
+    #   読んでいないのに未読が減っていた
+    candidates = [r for r in rows if r["dossier_hits"] < 8 or (r["key"], r["start"]) in read
+                  or (r["key"], r["start"]) in pinned]
+    pairs = {(r["key"], r["start"]) for r in candidates}
+    # 一覧に在るのに閾値を満たさなくなった会話 (とアーカイブに件名の無い行) も母数に残す (portfolio-00 のレビュー)
+    titles = {k: t for k, _d, t in pinned_rows}
+    orphan = [{"title": titles[k], "first": d, "start": d, "key": k, "messages": 0, "decider_words": 0, "dossier_hits": 0}
+              for k, d in sorted(pinned - pairs)]
     candidates += orphan
-    kept = [r for r in candidates if r["dossier_hits"] >= 8 and title_key(r["title"]) in pinned]
-    new = [r for r in candidates if title_key(r["title"]) not in pinned]
-    # 一覧の日付も最初の通の日付に合わせる (見出しが "<date of the first message>" と述べる)。--pin で直す
-    by_key = {title_key(e["title"]): e["first"] for e in table.values() if e.get("title")}
-    lines = [l for l in open(CANDIDATES, encoding="utf-8")] if CANDIDATES.exists() else []
-    body = [l for l in lines if l.strip() and not l.startswith("#")]
-    redate = {}
-    for l in body:
-        d, t = l.rstrip("\n").split("\t", 1)
-        k = title_key(t)
-        if k in by_key and _iso(by_key[k]) != d:
-            redate[l] = f"{_iso(by_key[k])}\t{t}\n"
-    if "--pin" in sys.argv and (new or redate):
-        head = [l for l in lines if l.startswith("#")]
-        body = [redate.get(l, l) for l in body] + [f"{_iso(r['first'])}\t{r['title']}\n" for r in new]
-        CANDIDATES.write_text("".join(head) + "".join(sorted(set(body), key=lambda l: (l[:10], l))), encoding="utf-8")
-    unread = [r for r in candidates if title_key(r["title"]) not in read]
-    unread.sort(key=lambda r: -r["decider_words"])
+    is_read = lambda r: (r["key"], r["start"]) in read
+    kept = [r for r in candidates if r["dossier_hits"] >= 8 and (r["key"], r["start"]) in pinned]
+    new = [r for r in candidates if (r["key"], r["start"]) not in pinned]
+    stale = [l for l in pinned_rows if (l[0], l[1]) not in pairs | pinned]
+    if "--pin" in sys.argv and (new or stale):
+        head = [l for l in open(CANDIDATES, encoding="utf-8") if l.startswith("#")] if CANDIDATES.exists() else []
+        body = {f"{r['start']}\t{r['title']}\n" for r in candidates}
+        CANDIDATES.write_text("".join(head) + "".join(sorted(body, key=lambda l: (l[:10], l))), encoding="utf-8")
+    unread = sorted((r for r in candidates if not is_read(r)), key=lambda r: -r["decider_words"])
     json.dump(unread, open(out, "w"), ensure_ascii=False, indent=0)
-    rounds_only = sorted((r for r in candidates if title_key(r["title"]) in in_rounds - listed),
-                         key=lambda r: -r["decider_words"])
+    rounds_only = sorted((r for r in candidates if r["key"] in in_rounds and not is_read(r)), key=lambda r: -r["decider_words"])
     json.dump(rounds_only, open(str(out) + ".rounds-only.json", "w"), ensure_ascii=False, indent=0)
-    print(f"threads with deciders {len(rows)}; few or no dossier hits {len(candidates)}; "
-          f"of those, not in READ-THREADS.txt {len(unread)}")
+    print(f"conversations with deciders {len(rows)} (件名 + {GAP_DAYS} 日の空白で切った会話); few or no dossier hits "
+          f"{len(candidates)}; of those, not read {len(unread)}")
     print(f"rounds に在るが READ-THREADS に無い（候補内 {len(rounds_only)} 件）: {out}.rounds-only.json")
-    print(f"決める側の語の閾値から外れたが一覧に在る（{len(orphan)} 件・母数に残した）")
-    print(f"いまの語では候補でないが一覧に在る（{len(kept)} 件・うち未読 "
-          f"{sum(1 for r in kept if title_key(r['title']) not in listed)} 件）")
-    print(f"一覧の日付が最初の通の日付と違う {len(redate)} 行" + ("（--pin で直した）" if "--pin" in sys.argv and redate
-                                                          else "（--pin で直す）" if redate else ""))
-    print(f"一覧 (THREAD-CANDIDATES.txt) に無い新しい候補 {len(new)} 件"
-          + ("（--pin で一覧に足した）" if "--pin" in sys.argv and new else "（--pin で一覧に足す）" if new else ""))
+    print(f"閾値から外れたが一覧に在る会話（{len(orphan)} 件・母数に残した）")
+    print(f"いまの語では候補でないが一覧に在る（{len(kept)} 件・うち未読 {sum(1 for r in kept if not is_read(r))} 件）")
+    print(f"READ-THREADS の行で、日付が会話の始まりと違う {len(off)} 行（日付を含む会話に当てた）" + ("" if not off else ""))
+    for o in off:
+        print(f"  {o}")
+    print(f"一覧 (THREAD-CANDIDATES.txt) に無い候補の会話 {len(new)} 件・日付が会話の始まりでない一覧の行 {len(stale)} 行"
+          + ("（--pin で一覧を作り直した）" if "--pin" in sys.argv and (new or stale) else "（--pin で一覧を作り直す）" if new or stale else ""))
+    for r in sorted(new, key=lambda r: r["start"])[:20]:
+        print(f"  新: {r['start']}\t{r['title']}  (通 {r['messages']}・決める側の語 {r['decider_words']}・ドシエの語 {r['dossier_hits']})")
     # AS-OF の「未読スレッドの残り」の行と同じ形 (Check 498 (h) が和を見る)
     print(f"AS-OF: 候補 {len(candidates)} 本のうち {len(candidates) - len(unread)} 本を読んだ。{len(unread)} 本は読んでいない")
 
