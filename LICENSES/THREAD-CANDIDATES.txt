@@ -17,7 +17,7 @@
 1999-04-14	Get ready....
 1999-04-15	Stop. Stop, stop, stop, stop, stop
 1999-04-19	APSL 1.1 available for comment.
-1999-04-26	APSL 1.1 certification...
+1999-04-24	APSL 1.1 certification...
 1999-04-27	SGI OpenVault
 1999-05-03	Archive?
 1999-05-11	A new open source license
@@ -116,7 +116,7 @@
 2001-11-13	Spirit of OSD - was[Fails OSD #1.]
 2001-11-14	OSD/OpenSource.org Translations
 2001-11-18	Please discuss the PSF license
-2001-11-27	free database licenses
+2001-11-25	free database licenses
 2001-12-07	Does "modification" include translation to another HLL?
 2001-12-10	license-ish vs. Bill of Rights-ish
 2001-12-12	Discussion: ADPL
@@ -186,7 +186,7 @@
 2003-07-16	license idea (revised)
 2003-08-05	proposal: DotGNU Trademark License
 2003-08-06	Apple Public Source License 2.0 submitted for OSI approval
-2003-08-13	Can abandonment be irrevocable?
+2003-08-12	Can abandonment be irrevocable?
 2003-08-27	Open Source Licensing
 2003-09-07	Selecting an open source license
 2003-09-26	please discuss EU DataGrid
@@ -232,8 +232,8 @@
 2004-12-02	Dual licensing with two copyleft licenses
 2004-12-02	Including open source within a larger package
 2004-12-05	Feedback on the OPPL
-2004-12-11	Basic GPL Question (Newbie Warning)
-2004-12-13	pruning "dead" licenses
+2004-12-08	Basic GPL Question (Newbie Warning)
+2004-12-09	pruning "dead" licenses
 2004-12-15	For Approval: CDDL - license stewardship
 2004-12-25	For Approval: MN Open Content License 1.0
 2004-12-27	License Committee Report for December 2004
@@ -417,7 +417,7 @@
 2008-01-18	FAQ - GPL Case Law? : GPL issue at my work place
 2008-01-25	(OT) - NOT A Major Blow to Copyleft Theory
 2008-01-28	compatibility Re: License committee report for January 2008
-2008-02-01	For approval: GNU Affero General Public License
+2008-01-30	For approval: GNU Affero General Public License
 2008-02-09	encforceability of Open Source Licences (Re: (OT) - NOT A Major Blow to Copyleft Theory)
 2008-02-13	For Approval: Anonymous Hero Public License
 2008-02-13	Open Source Licenses and Embrace-Extend-Extinguish
@@ -430,7 +430,7 @@
 2008-03-17	Removal Re: Censure Re: Affero Licence/AGPL
 2008-03-17	Request for approval: EUPL (European Union Public Licence) Questions
 2008-03-31	Open Source Content License (OSCL)
-2008-04-01	Open Source Content License (OSCL) - Other/Miscellaneous licenses
+2008-03-31	Open Source Content License (OSCL) - Other/Miscellaneous licenses
 2008-04-01	Speaking of Calling Things Open Source When They Aren't...
 2008-04-02	Open source licenses, using licensed source code under new licenses
 2008-05-08	UOML License - ticket # 137
@@ -447,7 +447,7 @@
 2008-08-05	restarting License (anti-)Proliferation
 2008-08-13	Strong Court Ruling Upholds the Artistic License (fwd)
 2008-08-31	Open Source Newbie
-2008-09-01	KnowledgeHives Open Source License
+2008-09-02	KnowledgeHives Open Source License
 2008-09-03	The Rails Wheels licencing system and Open Source
 2008-09-07	License Committee Report for September 2008
 2008-10-29	question before attempting an update on AFL
@@ -459,8 +459,8 @@
 2009-01-21	TGPPL, deterring licence proliferation by withholding the stamp of OSD-conformance
 2009-02-27	WTFPL approval, please?
 2009-03-05	What do you recommend?
+2009-03-14	Serious Open Source (SOS) License -- Injunctive Relief clause
 2009-03-17	DISA to open source administrative software
-2009-03-17	Serious Open Source (SOS) License -- Injunctive Relief clause
 2009-03-25	GPL with the Classpath exception - clarification needed
 2009-04-14	MXMPL *is* open source
 2009-05-29	For Approval By: S-GPL
@@ -480,7 +480,7 @@
 2010-01-19	updating the GPL's status in http://www.opensource.org/licenses/category ?
 2010-03-04	Open Source Decision Models
 2010-04-02	What does "new" mean in Section 1.9 (b) of the MPL v 1.1.?
-2010-05-26	WebM license third-party submission
+2010-05-25	WebM license third-party submission
 2010-06-01	License Committee Report for June 2010
 2010-06-04	WebM license resolution.
 2010-06-29	For Approval: SSCL
@@ -527,9 +527,9 @@
 2011-12-20	GPL and proprietary WebAPIs
 2011-12-20	Reply to various recent postings on the crayon license issue
 2011-12-28	Special clauses added to OSI-approved licenses: are they OK, and if not, what can/should we do about it?
+2012-01-03	Invite Creative Commons to submit CC0 Dedication.
 2012-01-03	MPL 2.0 released, approved as an open source license by OSI.
 2012-01-03	Small Suggestion
-2012-01-05	Invite Creative Commons to submit CC0 Dedication.
 2012-01-12	GPL and non-GPL binaries in one distribution
 2012-01-14	a GPLv3 compatible attribution for MIT/BSD?
 2012-01-22	Golan v. Holder
@@ -538,7 +538,7 @@
 2012-02-19	Request for consultation with CC on patent issue
 2012-02-21	Logo for an (O)pen (S)ource (Li)cense (C)ompendium
 2012-02-22	CC0 decision process, waiting for CC response, etc.
-2012-02-26	CC withdrawl of CC0 from OSI process
+2012-02-24	CC withdrawl of CC0 from OSI process
 2012-02-26	What would be necessary to consider the unlicense?
 2012-02-27	CeCILL license V2.1 for Approval
 2012-03-01	avoid gray areas?
@@ -586,11 +586,11 @@
 2013-03-28	License Committee Report - for board meeting of 2013-04-03
 2013-04-01	Comment on MOSL and similar licenses
 2013-04-05	Copyright Free Software Foundation, but license not GPL
+2013-04-27	New license submission
 2013-05-03	Akshar License 1.0 Final Draft
 2013-05-05	Some suggested writing projects to improve opensource.org: call for volunteers
-2013-05-08	New license submission
 2013-06-07	For Approval: NASA Open Source Agreement 2.0
-2013-06-26	License compatibility - reg
+2013-06-25	License compatibility - reg
 2013-07-15	Open source license chooser choosealicense.com launched.
 2013-08-16	Minor change to website
 2013-08-28	License incompatibility
@@ -610,7 +610,7 @@
 2013-11-17	Continued discussion of the Scripting FSL
 2013-11-18	Old submissions
 2013-11-22	Issue on licenses pages
-2013-12-19	Machine readable source of OSI approved licenses?
+2013-12-18	Machine readable source of OSI approved licenses?
 2013-12-28	changing wiki.os.o to xwiki
 2014-02-23	compliance resources
 2014-04-10	Request for Approval of Universal Permissive License (UPL)
@@ -637,7 +637,7 @@
 2015-08-07	Outstanding license submissions -- tools
 2015-08-17	Category "B" licenses at Apache
 2015-08-21	Companies that encourage license violations
-2015-09-03	Submission of OSET Public License for Approval]
+2015-09-01	Submission of OSET Public License for Approval]
 2015-09-09	OSET Foundation
 2015-09-10	Discussing proposed new licenses
 2015-09-15	-- National Security and Public Policy (3.5B and 4)
@@ -651,6 +651,7 @@
 2016-01-18	AFL/OSL/NOSL 3.0
 2016-01-30	Words that don't mean derivative work
 2016-02-03	META: license review tracking
+2016-02-04	NOSA 2.0?
 2016-03-23	Some more comments on NOSA 2.0
 2016-05-11	exploring tracking tool for license-review
 2016-05-19	Source-attribution licenses and Javascript compatibility
@@ -674,7 +675,6 @@
 2017-06-10	FreeAndFair license
 2017-06-21	Moderator Advice
 2017-07-27	Hooyami License Version 1.0 for Approval
-2017-07-27	NOSA 2.0?
 2017-09-14	New Exhibit A for EPLv2
 2018-03-02	ESA Permissive PL 2.3
 2018-03-02	ESA-PL Weak 2.3
@@ -693,7 +693,7 @@
 2018-12-04	Open source license with obligation to display an attribution?
 2018-12-07	International licenses redux
 2018-12-07	Proposed license decision process
-2018-12-18	Support for SSPL v2
+2018-12-13	Support for SSPL v2
 2019-01-09	FYI, opensource.dev released
 2019-01-10	Intimacy in open source
 2019-01-18	Intimacy in open source (SSPL and AGPL)
@@ -720,14 +720,14 @@
 2019-08-08	For Discussion: Cryptographic Autonomy License (CAL) Beta 2
 2019-08-08	For Public Comment: The Libre Source License
 2019-08-08	Private modification
-2019-08-14	Discussion: AGPL and Open Source Definition conflict
+2019-08-13	Discussion: AGPL and Open Source Definition conflict
 2019-08-19	Fact-gathering on OSI-approved licenses
 2019-08-22	Coordinated release of security vulnerability information.
 2019-08-28	The Right of Display
-2019-09-12	Coherent Open Source - Getting underway next Friday
+2019-09-11	Coherent Open Source - Getting underway next Friday
 2019-10-07	Storing source artifacts in ELF files
 2019-12-26	Approval Status of MIT-0
-2020-01-04	AGPL timeline & why cautious processes with real-world testing are better
+2020-01-02	AGPL timeline & why cautious processes with real-world testing are better
 2020-02-20	Ethical open source licensing - Persona non Grata Preamble
 2020-02-24	"Ethical open source" and the Persona Non Grata clause.
 2020-02-24	"Fairness" vs. mission objectives
