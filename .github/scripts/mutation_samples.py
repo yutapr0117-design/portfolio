@@ -570,6 +570,12 @@ _MUTATIONS_TAIL.append({
     "find": "h('select', { class: 'input', id: 'settingsImportMode', 'aria-label': 'インポートモード', onchange:",
     "replace": "h(\"select\", { class: 'input', 'value': settingsImportMode, id: 'settingsImportMode', 'aria-label': 'インポートモード', onchange:",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 394: UI の work の上限を 240 にし、行の後ろのコメントに古い式 (settings.work = clamp(x, 1, 180)) を残す —— 生のソースの最後の一致を層の値にしたので、コメントが本物の行を上書きしていた",
+    "file": ROOT / "js" / "pomodoro-page.js",
+    "find": "s.appsData.pomodoro.settings.work = clamp(parseInt(e.target.value, 10) || 25, 1, 180);",
+    "replace": "s.appsData.pomodoro.settings.work = clamp(parseInt(e.target.value, 10) || 25, 1, 240); // was: settings.work = clamp(x, 1, 180)",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
