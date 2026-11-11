@@ -552,6 +552,12 @@ _MUTATIONS_TAIL.append({
     "find": "    \"docs/evidence/real-work-claims.md\": ROOT / \"docs\" / \"evidence\" / \"real-work-claims.md\",",
     "replace": "    \"docs/evidence/real-work-claims.md\": ROOT / \"docs\" / \"evidence\" / \"ai-pioneer-identity-review.md\",",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 242: </main> の後に <svg/onload=\"alert(1)\"></svg> を足す —— 開始タグの文法が属性の前に空白を要求し、/ で区切った属性 (HTML の tokenizer は区切りとして読む) を列挙から落としていた",
+    "file": ROOT / "index.html",
+    "find": "        </main>\n",
+    "replace": "        </main><svg/onload=\"alert(1)\"></svg>\n",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
