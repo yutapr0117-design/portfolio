@@ -1,0 +1,320 @@
+Source: OSI license-discuss public archive, 2003-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 7 of 14 in the thread (2003-08-12 to 2003-08-19)
+Senders: Peter Fairbrother, John Cowan, Lawrence E. Rosen, Mike Haisley, Ken Brown
+Position: Not addressed to us. Observed. Rosen's message of 2003-08-12 is cut where the quoted copy of the question begins, and Mike Haisley's of 2003-08-13 and Ken Brown's of 2003-08-19 where the forwarded copies ("-----Original Message-----") begin; each message kept here is otherwise whole. The opening question was posted twice: at 2003-08-12 18:25 and, "Resent, because it apparently didn't get through the first time", at 2003-08-13 04:52 (+0100). The resent copy, the one Rosen answered, is kept.
+
+----- begin verbatim -----
+From zenadsl6186 at zen.co.uk  Wed Aug 13 03:52:39 2003
+From: zenadsl6186 at zen.co.uk (Peter Fairbrother)
+Date: Wed, 13 Aug 2003 04:52:39 +0100
+Subject: Can abandonment be irrevocable?
+Message-ID: <BB5F7496.35458%zenadsl6186@zen.co.uk>
+
+Resent, because it apparently didn't get through the first time. Hope there
+is no double posting.
+
+My first post. Not strictly about licences, but it shouldn't be too OT.
+
+Micro-Star v. Formgen Inc., 154 F.3d 1107 (9th Cir. 1998):
+
+"It is well settled that rights gained under the Copyright Act may be
+abandoned. But abandonment of a right must be manifested by some overt act
+indicating an intention to abandon that right. See Hampton v. Paramount
+Pictures Corp., 279 F.2d 100, 104 (9th Cir. 1960)."
+
+The prime source of this idea is "Nimmer on Copyright"[1], widely quoted in
+abandonment cases.
+
+People, including DJ Bernstein, have relied on this as evidence that a
+declaration of abandonment is a) effective b) binding on heirs etc c) final
+and irrevocable and d) a good way to "free" code.
+
+
+My question is:
+
+If someone wants to effectively "put code in the public domain", and states
+that the code has been abandoned, or that copyright in the code has been
+abandoned, can he or his heirs in title later assert ownership, or (re-?)
+assert the copyright?
+
+
+
+
+If so, presumably a party that had not already relied on the abandonment
+would not be able to rely on it after he became aware of the re-assertion.
+
+And a person whose reliance after the assertion was no more detrimental to
+him than being required to licence the code would no longer be able to rely
+on the abandonment?
+
+
+
+Does the author actually "lose" copyright by abandonment? Lose ownership?
+Lose the copyright itself? If so, what happens to it? Copyright exists by
+statute until expiry, so afaict it can't just "disappear".
+
+Copyright is a legal, as opposed to a natural or equitable right, and every
+text on rights I have read says that legal rights cannot be abandoned.
+
+The defense of abandonment of copyright seems to either fly in the face of
+that, or perhaps something else happens? Nimmer says that what happens is
+that "The plaintiff's claim of ownership is thereby countered.", but that
+does not explain what happens to the author's ownership, or the copyright
+itself.
+
+Ianal, so I've probably missed something, like perhaps the author loses the
+equitable right of ownership in the legal rights under copyright - but that
+also seems to fly in the face of the doctrine that a legal right cannot be
+abandoned.
+
+Or perhaps abandonment is just a defence, and the copyright or it's
+ownership isn't actually abandoned at all? That the author has just in
+effect "waived" the right to enforcement?
+
+Does a declaration of abandonment irrevocably "free" code?
+
+Could a waiver do that? I'm thinking about the 35-40 yaer rule here too.
+
+This is US law, does anyone have any idea what happens in other
+jurisdictions? 
+
+Help! I did manage to get the guy in question to BSD-style licence, but
+others are still using "abandonment".
+
+
+
+[1] ?13.06 The Defense of Abandonment of Copyright
+
+? ? ? ? ? ? Abandonment of the copyright by the plaintiff or his predecessor
+in interest obviously constitutes an effective defense in an infringement
+action. The plaintiff's claim of ownership is thereby countered. Despite
+imprecise usage in some of the cases, abandonment must be distinguished from
+forfeiture of copyright. The latter may occur as a consequence of
+publication without proper copyrignt notice3 and is effectuated by operation
+of law regardless of the intent of the copyright owner.
+
+? ? ? ? ? ? Abandonment occurs only if there is an intent by the copyright
+proprietor to surrender rights in his work. There is, moreover, strong
+authority holding that an overt act evidencing such an intent is necessary
+to establish abandonment.
+
+
+-- 
+Peter Fairbrother
+
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From cowan at mercury.ccil.org  Wed Aug 13 04:07:53 2003
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Wed, 13 Aug 2003 00:07:53 -0400
+Subject: Can abandonment be irrevocable?
+In-Reply-To: <BB5F7496.35458%zenadsl6186@zen.co.uk>
+References: <BB5F7496.35458%zenadsl6186@zen.co.uk>
+Message-ID: <20030813040753.GK14624@mercury.ccil.org>
+
+Peter Fairbrother scripsit:
+
+> Does the author actually "lose" copyright by abandonment? Lose ownership?
+> Lose the copyright itself? If so, what happens to it? Copyright exists by
+> statute until expiry, so afaict it can't just "disappear".
+> 
+> Copyright is a legal, as opposed to a natural or equitable right, and every
+> text on rights I have read says that legal rights cannot be abandoned.
+
+Say what?  Every time I throw a piece of paper in the trash, my property
+right in the paper, which exists *in perpetuity* at common law, is
+abandoned, and the paper becomes *res nullius*, which anyone can
+appropriate.  Copyright being a creature of statute and incorporeal,
+can't be appropriated like a piece of paper.  So either abandonment is
+not possible, or it has the effect of dedicating the work to the
+public domain.
+
+-- 
+H?ggledy-p?ggledy / XML programmers            John Cowan
+Try to escape those / I-eighteen-N woes;        http://www.ccil.org/~cowan
+Incontrovertibly / What we need more of is      http://www.reutershealth.com
+Unicode weenies and / Fran)B?ois Yergeaus.        jcowan at reutershealth.com
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From lrosen at rosenlaw.com  Wed Aug 13 04:57:03 2003
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Tue, 12 Aug 2003 21:57:03 -0700
+Subject: Can abandonment be irrevocable?
+In-Reply-To: <BB5F7496.35458%zenadsl6186@zen.co.uk>
+Message-ID: <010501c36157$5942b9a0$927ba8c0@ROSENGARDEN>
+
+Why on earth would you risk "abandonment" given the uncertainties you
+highlighted, when you can get as much or more benefit by simply
+licensing your work under an open source license?  Your questions are
+interesting; perhaps someone will want to write a law review article
+about the topic.  But in the meantime, there's no need to play mind
+games.  Grant an irrevocable license.
+
+/Larry Rosen
+
+From mikehaisley at comcast.net  Wed Aug 13 05:28:02 2003
+From: mikehaisley at comcast.net (Mike Haisley)
+Date: Wed, 13 Aug 2003 00:28:02 -0500
+Subject: Can abandonment be irrevocable?
+In-Reply-To: <010501c36157$5942b9a0$927ba8c0@ROSENGARDEN>
+Message-ID: <003e01c3615b$aba9dc60$52463344@muncie1.in.home.com>
+
+I agree, placing it under an open source license is a much better
+alternative, "public domain" is really risky, the only time I have been
+able to find court evidence supporting "public domain" is for works
+created by government employees, on government time.
+
+-
+Michael Haisley
+This Message is NOT Legal Advice. 
+
+From lrosen at rosenlaw.com  Wed Aug 13 19:58:17 2003
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Wed, 13 Aug 2003 12:58:17 -0700
+Subject: Can abandonment be irrevocable?
+In-Reply-To: <BB6049C0.35524%zenadsl6186@zen.co.uk>
+Message-ID: <016201c361d5$418b4380$927ba8c0@ROSENGARDEN>
+
+> 1) can Alice can regain ownership of the right?
+> 
+> What about 1)? How could Alice go about it??
+
+Regain ownership?  What do you mean by that?  Have her name inscribed on
+a rock somewhere?  Or regain her authority and dominion over a work that
+she previously abandoned so that she can prevent people from doing what
+she previously permitted them to do?
+
+I agree with a previous email, this is probably a question of equitable
+estoppel.  
+
+I don't know why it would any different if one granted an "irrevocable"
+open source license, and then revoked it.  Probably a new licensee with
+notice of the revocation can't obtain a license.
+
+Does this have practical implications for any real-world scenario, or
+are we just speculating here?
+
+/Larry Rosen
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From zenadsl6186 at zen.co.uk  Wed Aug 13 21:19:32 2003
+From: zenadsl6186 at zen.co.uk (Peter Fairbrother)
+Date: Wed, 13 Aug 2003 22:19:32 +0100
+Subject: Can abandonment be irrevocable?
+In-Reply-To: <016201c361d5$418b4380$927ba8c0@ROSENGARDEN>
+Message-ID: <BB6069F4.3553F%zenadsl6186@zen.co.uk>
+
+Lawrence E. Rosen wrote:
+
+>> 1) can Alice can regain ownership of the right?
+>> 
+>> What about 1)? How could Alice go about it??
+> 
+> Regain ownership?  What do you mean by that?  Have her name inscribed on
+> a rock somewhere?  Or regain her authority and dominion over a work that
+> she previously abandoned so that she can prevent people from doing what
+> she previously permitted them to do?
+
+The latter. 
+
+But perhaps Alice's heirs may get ownership by statute, and assert it. I'm
+concerned whether Charles, who hasn't in any way relied on the act
+indicating abandonment, would at a later time be able to rely on a defense
+by abandonment after such an assertion.
+
+> I agree with a previous email, this is probably a question of equitable
+> estoppel.  
+>
+> I don't know why it would any different if one granted an "irrevocable"
+> open source license, and then revoked it.  Probably a new licensee with
+> notice of the revocation can't obtain a license.
+
+A grant of a license is "in deed", and is enforceable even without
+consideration. The license is assumed to be irrevocable unless it says so in
+the licence (ignoring the US 35-40 year rule, and assuming the conditions
+are obeyed etc). 
+
+There might be no harm to Charles if he never relied on a revoked act of
+abandonment while the abandonment was in force; or no harm greater than the
+requirement for a license - I have seen something like that in a judgement
+disallowing an abandonment defense - and no harm, no estoppel.
+
+> Does this have practical implications for any real-world scenario, or
+> are we just speculating here?
+
+Real-world. The question is how to irrevocably and permanently "free" code
+for all others to use, despite any actions anyone else can take in the
+future. Preferably in all jurisdictions.
+
+"Putting it into the public domain" has all sorts of problems, and is
+probably impossible even in the US - it's certainly impossible to "free"
+code by doing so in the UK.
+
+Licences cannot be irrevocable in the US, under the 35-40 year rule.
+
+Waivers? I doubt it.
+
+An act indicating abandonment may or may not be irrevocable - but some
+coders are actually doing it, now, with the intention to irrevocably "free"
+code. 
+
+I'd like to know whether abandonment can be irrevocable, and if so how to do
+it properly. But I don't think it can be.
+
+
+-- 
+Peter Fairbrother
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From kenbrown at erols.com  Tue Aug 19 19:27:11 2003
+From: kenbrown at erols.com (Ken Brown)
+Date: Tue, 19 Aug 2003 15:27:11 -0400
+Subject: Can abandonment be irrevocable?
+In-Reply-To: <BB5EE186.3540A%zenadsl6186@zen.co.uk>
+Message-ID: <000001c36687$e36dfc40$6501a8c0@ctacuatec>
+
+Peter,
+
+Thanks for this.  I have to tell you that you are really onto an
+interesting point.  I am not a lawyer, but I believe that there are some
+legal points here that are probably unprecedented.    
+
+I believe this particularly because the GPL has not been interpreted on
+any of these topics by a court in the U.S. or elsewhere.  The SCO case I
+believe will bring more clarity to the implications.  To date however,
+there has not been a court issued delineation between the finality of
+donating your work vs. changing your mind and asking for your donated
+property back from the "community".    
+
+Briefly, my basic understanding of copyleft is that the rights to what
+you contribute reverse to property of the community/public domain.  This
+is a problem because the community is a non-entity.  There isn't legal
+precedent for a non-entity to defend ownership of anything.  The
+agreement becomes enforceable only to the extent that another user that
+agreed to the same license and using your donated property (in the
+community) would like to challenge your insistence that you "own" the
+property.  
+
+Nevertheless, your point is interesting. The Micro-Star decision
+specifies that their needs to be a clear intention to abandon that
+right.  But that word is kind of vague to me and could go both ways.  I
+believe we are going to have to wait and see if a "giver" challenges the
+irrevocability of their gifts to the public domain.  Jury's seem to very
+lenient when it comes to  reasonability standards.  Indefinite donations
+to a non-entity I believe could easily become a "reasonability"
+question.       
+
+kb
+

@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.gap-measurements.md
 audience: OSI license-review participants / licence reviewers / 監査人 / 後任 AI
-last-updated: 2026-11-11
+last-updated: 2026-11-12
 canonical-ref: LICENSES/ACD-1.0.comparison.md (切り出し元・条項比較) / LICENSES/ACD-1.0.gap-census.md (同じ 141 本への 3 gap の全数表)
 ---
 
@@ -702,6 +702,19 @@ David A. Wheeler 氏が「Public Domain」を OSI のライセンスの一覧に
 | *"I propose a public domain dedication with a BSD-style fallback without the attribution requirement"* と、それへの *"I think that we have more than enough licenses with these characteristics."* | Sagar 氏（利用者）2015-10-20 と Mark Radcliffe 氏 2015-10-21 | 不利な面。ACD と同じ型（公有化の献呈と、帰属を求めない許容型の fallback）が 2015 年に提案され、同じ年の 5 月に自ら OSI の外部の general counsel と書いた人（`review-readings.md` §1.181）が、この性質のライセンスは十分すぎるほど在ると答えた。理事会はその 1 週間前の 2015-10-14 に Free Public License（いまの 0BSD）を 8 対 0 で承認していた（`board-decisions.md`）。#314 に足した。**逆側**: 提案は 4 行の文で特許の許諾を持たない。ACD の gap（条件も終了も無い、作品を超える特許の許諾・B10）は、献呈と帰属の無さの側には無い。帰属を求めないという性質だけで ACD を論じれば、この答えがそのまま当たる |
 
 **この追記が establish しないこと。** 個人の発言で、OSI の決定ではない。いまの FAQ（2025-01-21 改訂の写し）が 2012 年に載った文と同じかは照合していない。Flaschen 氏が挙げた 2006 年のページは開いていない。
+**2026-11-12 の追記 —— 同じ年の 8 月、放棄を撤回できないものにできるか。** `rounds/2003-08-license-discuss-can-abandonment-be-irrevocable-observed.txt`（7 通・スレッドは全 14 通）。Peter Fairbrother 氏が Micro-Star v. Formgen を引いて、公有化を宣言したコードを著作者や承継人が後で取り戻せるかを尋ねた。ACD の §2.2（撤回しない）、§2.5（禁反言）、§3.1（放棄）、§4.1（撤回できない許諾）が答えようとしている問いである。これより前にも同じ問いを扱った通が在る —— 2000 年 3 月の "Wired Article on the GPL"（`license-discuss`・43 通）は、cphack の権利が譲渡されたあとで GPL を撤回できるかを論じ、同じ年の 8 月の "Public Domain and liability" と "Abandonment" は公有化と放棄を論じた。この 3 本はまだ読んでいない（2026-11-12・`THREAD-CANDIDATES.txt` の 800 本の外に在る）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Does a declaration of abandonment irrevocably "free" code?"* | Peter Fairbrother 氏 2003-08-12（届かなかったとして 08-13 に再送。法律家でないと自分で書いた） | 問い。宣言で手放した権利を、本人か承継人が後で主張し直せるか |
+| *"Why on earth would you risk "abandonment" given the uncertainties you highlighted, when you can get as much or more benefit by simply licensing your work under an open source license?"*、*"Grant an irrevocable license."* | Lawrence E. Rosen 氏 2003-08-12 | 有利な面。弁護士の答えは、放棄の代わりに撤回できない許諾を与えることだった。同じ年の 3 月の *"Use a license."* と同じ線である。ACD は放棄（§3）だけに頼らず、§4.1 で撤回できない許諾を与え、§4.4 で §3 が効くかどうかから切り離している |
+| *"So either abandonment is not possible, or it has the effect of dedicating the work to the public domain."* | John Cowan 氏 2003-08-13 | 放棄は効かないか、効けば公有化になる、という 2 つの枝。効く枝は §3 が受け、効かない枝は §4 が受ける |
+| *"placing it under an open source license is a much better alternative, "public domain" is really risky"* | Mike Haisley 氏 2003-08-13（*"This Message is NOT Legal Advice."* と添えた） | Rosen 氏と同じ向き。公有化を支える裁判例は、政府の職員が勤務中に作った著作物についてしか見つからなかったと書いた |
+| *"this is probably a question of equitable estoppel."*、*"I don't know why it would any different if one granted an "irrevocable" open source license, and then revoked it. Probably a new licensee with notice of the revocation can't obtain a license."* | Rosen 氏 2003-08-13 | **不利な面。** 前の日に勧めた撤回できない許諾も、撤回されれば放棄と同じ扱いになりうる、と同じ人が述べた。撤回を知ってから来た受領者は、許諾に *irrevocable* と書いてあっても、おそらく許諾を得られない、という読みである。`QUESTIONS-FOR-COUNSEL.md` の問 1 (i) は、禁反言が働かないとき受領者を守るのは §4.1 の *"irrevocable"* か、§5 の約束か、何も無いかを尋ねている。この文は「何も無い」の側に在る |
+| *"There might be no harm to Charles if he never relied on a revoked act of abandonment while the abandonment was in force"*、*"no harm, no estoppel."*、*"Licences cannot be irrevocable in the US, under the 35-40 year rule."* | Fairbrother 氏 2003-08-13 | 不利な面。禁反言は依拠して害を受けた人しか守らないので、撤回の後に初めて来た人は守られない、という読み。§2.5 は他人の依拠を献呈の目的として書いているが、撤回の後に初めて作品に触れた人の扱いには答えていない。35〜40 年の規則は合衆国法典 17 編 203 条の終了権で、`QUESTIONS-FOR-COUNSEL.md` の問 1 が既に尋ねている |
+| *"I believe we are going to have to wait and see if a "giver" challenges the irrevocability of their gifts to the public domain."* | Ken Brown 氏 2003-08-19（法律家でないと書いた） | スレッドの最後の通。Fairbrother 氏が最後に尋ねた *"how to irrevocably and permanently "free" code"* に答えた通は無く、問いは開いたまま終わった |
+
+**この追記が establish しないこと。** 2003 年の個人の発言で、OSI の決定ではない。Rosen 氏の 2 つ目の文は *"Probably"* と書かれた見通しで、どの法域の話かも述べていない。同氏は 2004 年に、約束的禁反言は bare licence に関わらないと書いた（`ACD-1.0.review-responses-clauses.md` §2 の禁反言の問い）。2003 年の文が言うのは equitable estoppel で、2 つは別の法理なので、食い違いとも同じ主張とも読まない。残りの 7 通（Fairbrother 氏 5 通、うち 1 通は最初の投稿の届かなかった方の写し・Rick Moen 氏 2 通）は ACD に当たる新しい材料を持たない。Moen 氏は、公有化を選ぶ人（D. J. Bernstein 氏）は明示の許諾の文を好まないのだと書き、2-clause BSD で足りるはずだと述べた。
 
 ## 1.148 「公有化の標準の文書が無い」—— 2011 年に、標準の文書なら審査の対象になりうると述べられていた（2026-11-08）
 
