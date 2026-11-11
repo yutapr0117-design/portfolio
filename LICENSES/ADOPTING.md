@@ -61,6 +61,6 @@ There is nothing to register, and you do not need to tell us.
 one thing the steward cannot supply. OSI's committee has said of another licence that one project
 using it or expressing interest would lift a hold. Say so only if it is true.
 
-**This page is not legal advice.** It was written by an AI model working under the steward's
-delegation. The licence text was drafted the same way, to a goal the steward set, and he read
+**This page is not legal advice.** It was written by an AI model (Claude, an Anthropic model)
+working under the steward's delegation. The licence text was drafted the same way, to a goal the steward set, and he read
 ACD-1.0 in full before posting it. Neither has been reviewed by a lawyer.
