@@ -20,7 +20,7 @@
  *   - Toast: 通知 (セッション完了)
  *   - announce: sr-only の状態通知 (js/ui-components.js)
  *   - clamp: 数値クランプ (設定分の範囲制限)
- *   - CONSTANTS: LIMITS.POMODORO_HISTORY (履歴保持件数上限) 用 (js/constants.js)
+ *   - CONSTANTS: LIMITS.POMODORO_HISTORY (履歴保持件数上限) と POMODORO_DEFAULT_SETTINGS (入力が数でないときの既定値) 用 (js/constants.js)
  *   - window.render / Date / setInterval / clearInterval: グローバル
  *
  * 【非破壊性 / 過去修正の温存】
@@ -292,7 +292,7 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, announ
                                     value: pomo.settings.work,
                                     min: 1, max: 180,
                                     onchange: (e) => State.update(s => {
-                                        s.appsData.pomodoro.settings.work = clamp(parseInt(e.target.value, 10) || 25, 1, 180);
+                                        s.appsData.pomodoro.settings.work = clamp(parseInt(e.target.value, 10) || CONSTANTS.POMODORO_DEFAULT_SETTINGS.work, 1, 180);
                                         if (!s.appsData.pomodoro.runtime.isActive && s.appsData.pomodoro.runtime.mode === 'work') {
                                             s.appsData.pomodoro.runtime.remainingSec = s.appsData.pomodoro.settings.work * 60;
                                         }
@@ -315,7 +315,7 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, announ
                                     value: pomo.settings.short,
                                     min: 1, max: 60,
                                     onchange: (e) => State.update(s => {
-                                        s.appsData.pomodoro.settings.short = clamp(parseInt(e.target.value, 10) || 5, 1, 60);
+                                        s.appsData.pomodoro.settings.short = clamp(parseInt(e.target.value, 10) || CONSTANTS.POMODORO_DEFAULT_SETTINGS.short, 1, 60);
                                         // [FIX] work 設定と対称: 短休憩モードで idle 中に短休憩時間を変えたら
                                         // 表示中の remainingSec も即更新する。従来は work だけこの更新があり
                                         // short/long は欠落していたため、短休憩/長休憩モードで idle 中に設定を
@@ -342,7 +342,7 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, announ
                                     value: pomo.settings.long,
                                     min: 1, max: 120,
                                     onchange: (e) => State.update(s => {
-                                        s.appsData.pomodoro.settings.long = clamp(parseInt(e.target.value, 10) || 15, 1, 120);
+                                        s.appsData.pomodoro.settings.long = clamp(parseInt(e.target.value, 10) || CONSTANTS.POMODORO_DEFAULT_SETTINGS.long, 1, 120);
                                         // [FIX] work 設定と対称 (short と同じ): 長休憩モードで idle 中に長休憩時間を
                                         // 変えたら表示中の remainingSec も即更新する (従来 long は更新欠落だった)。
                                         if (!s.appsData.pomodoro.runtime.isActive && s.appsData.pomodoro.runtime.mode === 'long-break') {
