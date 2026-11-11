@@ -833,4 +833,52 @@ MUTATIONS_ARCHIVE6 = [
     "find": "141 本のうち 0 本（作品を超える許諾の 7 本はすべて条件を持つ",
     "replace": "141 本のうち 0 本（作品を超える許諾の 6 本はすべて条件を持つ",
 },
+    {
+    "name": "Check 476c: 材料表の表で、AI を名指す承認済みの本を 1 本と書く —— 「名指す本は 0」は census の結論文に依るのに、表の側の数は照合していなかった",
+    "file": ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md",
+    "find": "承認済みで AI を名指す本は 0（gap (a) と同じ測定）",
+    "replace": "承認済みで AI を名指す本は 1（gap (a) と同じ測定）",
+},
+    {
+    "name": "Check 476c: 材料表の 2 か所目の「承認済みライセンスは、141 本のうち」を 140 本にする —— search は最初の 1 か所しか見ず、繰り返しの側が古いまま残った",
+    "file": ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md",
+    "find": "承認済みライセンスは、141 本のうち 0 本である",
+    "replace": "承認済みライセンスは、140 本のうち 0 本である",
+},
+    {
+    "name": "Check 476c: census の (a) の結論文で ml の誤命中を 0 件にする —— 結論文は生成器が固定の形で書き、ml 列の数と照合していなかった",
+    "file": ROOT / "LICENSES" / "ACD-1.0.gap-census.md",
+    "find": "`ml` は誤命中 1 件のみ）",
+    "replace": "`ml` は誤命中 0 件のみ）",
+},
+    {
+    "name": "Check 476c: census の誤命中の判定の行から ml の件数を消す —— 「AI を名指す本は 0」は ml の 1 件を誤命中と判定した行に依るのに、その行が在るかを見ていなかった",
+    "file": ROOT / "LICENSES" / "ACD-1.0.gap-census.md",
+    "find": "- `ml` の 1 件 —— `Multics`",
+    "replace": "- `ml` の判定 —— `Multics`",
+},
+    {
+    "name": "Check 476d: estoppel の ACD の向き (estopped / will not assert) を読めなくする —— 向きの仕分けは正規表現で、崩れても「それらしい数」のまま出ていた",
+    "file": ROOT / ".github" / "scripts" / "measure_gap_claim.py",
+    "find": "r\"\\bestopped\\b|\\bwill not assert\\b\"",
+    "replace": "r\"\\bestoppedX\\b\"",
+},
+    {
+    "name": "Check 476d: 信頼を目的と述べる向きに reliance の語そのものを足す —— GPL の「in reliance on」が ACD の向きに数えられ、承認済みに無いはずの向きが在ると出る",
+    "file": ROOT / ".github" / "scripts" / "measure_gap_claim.py",
+    "find": "r\"\\b(?:intend\\w*|purpose)\\b\"",
+    "replace": "r\"\\b(?:intend\\w*|purpose|reliance)\\b\"",
+},
+    {
+    "name": "Check 421: 明示の smooth をテンプレートリテラル (`smooth`) で、reduced-motion を問い合わせない file に書く —— 引用符 2 種しか見ず、バッククォートの値は素通りしていた",
+    "file": ROOT / "js" / "ai-page.js",
+    "find": "export function createAIPage({ h, createIcon, State, Router, CONSTANTS, announce }) {",
+    "replace": "export function createAIPage({ h, createIcon, State, Router, CONSTANTS, announce }) {\n    const _scrollOpts = { behavior: `smooth` };",
+},
+    {
+    "name": "Check 422: TODO の絞り込みの select の onchange を onChange にし、id を外す —— h() はイベント名を小文字にするので働くハンドラなのに、小文字の onchange しか見ず走査から落ちていた",
+    "file": ROOT / "js" / "apps.js",
+    "find": "                            id: 'todo-filter',\n                            'aria-label': 'TODO を絞り込み',\n                            onchange: (e) => {",
+    "replace": "                            'aria-label': 'TODO を絞り込み',\n                            onChange: (e) => {",
+},
 ]
