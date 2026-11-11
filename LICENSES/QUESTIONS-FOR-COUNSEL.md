@@ -89,10 +89,18 @@ that its second sentence excuses from written form; whether a recipient under AC
 *logiciel* for L121-7; or whether §5's covenant not to assert would be read as excluding the exercise
 of a recall, which section 42(2) forbids. (Statute text fetched on 2026-11-08 from gesetze-im-internet.de,
 Légifrance LEGIARTI000006278894 and LEGIARTI000006278899, and the e-Gov law API.)
+(i) §2.5 states that others' reliance is the purpose of the Dedication, and that the Dedicator will not
+assert that it is revocable or ineffective for want of consideration or formality, *"and is estopped
+from doing so to the extent the law of any jurisdiction gives that principle effect"*. Lawrence Rosen
+wrote in 2004 that *"Promissory estoppel is a contract doctrine that has nothing to do with a bare
+license like the GPL."* (`against.md` #236). Where a court treats the Dedication as a bare licence and
+does not apply estoppel, what protects a recipient against revocation for want of consideration: the
+words *"irrevocable"* and *"perpetual"* in §4.1, the covenants in §5, or nothing?
 
 **An answer would change** whether the text keeps three footings (register B4) and how §4.4 says
 "independent". An answer to (b) or (h) would change what the dossier says rather than the text: no
-wording contracts out of a statute that forbids it.
+wording contracts out of a statute that forbids it. An answer to (i) would change whether §2.5 needs
+anything beyond §4.1 and §5, or whether the dossier must say that it has no answer.
 
 ## 2. Does the patent licence reach what it is meant to reach? (§8.1, §8.4, §8.6)
 
