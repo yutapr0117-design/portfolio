@@ -1,0 +1,99 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2015-October)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 4 messages this dossier cites from "Short permissive no attribution required open source license" (license-discuss, 2015-10; 7 messages). Not the whole thread.
+Senders: Sagar, Kevin Fleming, Mark Radcliffe, Tim Makarios
+Position: a user's proposal of a public-domain dedication with a permissive fallback that asks for no attribution, and the replies. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From sagar.writeme at gmail.com  Tue Oct 20 08:39:06 2015
+From: sagar.writeme at gmail.com (Sagar)
+Date: Tue, 20 Oct 2015 14:09:06 +0530
+Subject: [License-discuss] Short permissive no attribution required open
+	source license
+Message-ID: <CAMoBiT4h99NLvbBcH2nE8ipL4U3HxYEZWGdhTQbpC8gmXnbM4Q@mail.gmail.com>
+
+Hi,
+
+Is there a short permissive OSI approved license that doesn't require
+attribution?
+
+The popular permissive open source licenses like MIT and BSD require
+attribution. It would be good to have a license where that is not required.
+There are many of us who are happy with attribution but don't want to
+legally enforce it. Here is an example of a popular library using public
+domain dedication with a fallback license:
+
+https://github.com/nothings/stb/blob/master/stb_vorbis.c
+
+I propose a public domain dedication with a BSD-style fallback without the
+attribution requirement:
+
+"This software is in the public domain. Where that dedication is not
+recognized, redistribution and use in source and binary forms, with
+or without modification, are permitted. No warranty for any purpose
+is expressed or implied."
+
+Is the public domain dedication redundant? Will it suffice to just say
+"redistribution and use in source and binary forms, with or without
+modification, are permitted" ?
+
+Thanks,
+Sagar
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20151020/5d9abe86/attachment.html>
+
+From kevin+osi at kpfleming.us  Tue Oct 20 14:05:17 2015
+From: kevin+osi at kpfleming.us (Kevin Fleming)
+Date: Tue, 20 Oct 2015 10:05:17 -0400
+Subject: [License-discuss] Short permissive no attribution required open
+ source license
+In-Reply-To: <CAMoBiT4h99NLvbBcH2nE8ipL4U3HxYEZWGdhTQbpC8gmXnbM4Q@mail.gmail.com>
+References: <CAMoBiT4h99NLvbBcH2nE8ipL4U3HxYEZWGdhTQbpC8gmXnbM4Q@mail.gmail.com>
+Message-ID: <CAE+UdoqqU-UB479deinDTf1AsB5hbeOxo_Un0tXYuo_6XYBqzA@mail.gmail.com>
+
+The zlib license is OSI-approved and does not require attribution:
+
+http://opensource.org/licenses/Zlib
+
+From Mark.Radcliffe at dlapiper.com  Wed Oct 21 20:26:38 2015
+From: Mark.Radcliffe at dlapiper.com (Radcliffe, Mark)
+Date: Wed, 21 Oct 2015 20:26:38 +0000
+Subject: [License-discuss] Short permissive no attribution required open
+ source license
+In-Reply-To: <CAD9S0+aF+wv+jxZ9C6vGvsA7464qmObxZsiCk-tdn7Rdagk-eg@mail.gmail.com>
+References: <CAMoBiT4h99NLvbBcH2nE8ipL4U3HxYEZWGdhTQbpC8gmXnbM4Q@mail.gmail.com>
+ <CAE+UdoqqU-UB479deinDTf1AsB5hbeOxo_Un0tXYuo_6XYBqzA@mail.gmail.com>
+ <CAMoBiT5yGQ7MHUYK-ZC7FEJ_sOOOAShFmQgxfhz+vb7030rh8Q@mail.gmail.com>
+ <CAD9S0+aF+wv+jxZ9C6vGvsA7464qmObxZsiCk-tdn7Rdagk-eg@mail.gmail.com>
+Message-ID: <E682AA2FC88ADD4589420BFC6BE3A92138B4ABE7@SANDMBX01v.piper.root.local>
+
+I think that we have more than enough licenses with these characteristics.
+
+From tjm1983 at gmail.com  Wed Oct 21 23:09:19 2015
+From: tjm1983 at gmail.com (Tim Makarios)
+Date: Thu, 22 Oct 2015 12:09:19 +1300
+Subject: [License-discuss] Short permissive no attribution required open
+ source license
+In-Reply-To: <CAMoBiT5yGQ7MHUYK-ZC7FEJ_sOOOAShFmQgxfhz+vb7030rh8Q@mail.gmail.com>
+References: <CAMoBiT4h99NLvbBcH2nE8ipL4U3HxYEZWGdhTQbpC8gmXnbM4Q@mail.gmail.com>
+ <CAE+UdoqqU-UB479deinDTf1AsB5hbeOxo_Un0tXYuo_6XYBqzA@mail.gmail.com>
+ <CAMoBiT5yGQ7MHUYK-ZC7FEJ_sOOOAShFmQgxfhz+vb7030rh8Q@mail.gmail.com>
+Message-ID: <1445468959.2634.3.camel@qoheleth>
+
+On Wed, 2015-10-21 at 11:56 +0530, Sagar wrote:
+> Do you think the community will be interested in a shorter license? 
+
+You might be interested in the Free Public License, which is currently
+under review on the license-review list [1], and has been recommended
+for consideration by the OSI board [2].
+
+Tim
+<><
+
+[1] http://tinyurl.com/q7ykzna
+[2] http://tinyurl.com/ng4vgzt
+
+
+
+

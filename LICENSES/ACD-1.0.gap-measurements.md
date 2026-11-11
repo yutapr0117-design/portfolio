@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.gap-measurements.md
 audience: OSI license-review participants / licence reviewers / 監査人 / 後任 AI
-last-updated: 2026-11-07
+last-updated: 2026-11-11
 canonical-ref: LICENSES/ACD-1.0.comparison.md (切り出し元・条項比較) / LICENSES/ACD-1.0.gap-census.md (同じ 141 本への 3 gap の全数表)
 ---
 
@@ -689,6 +689,19 @@ David A. Wheeler 氏が「Public Domain」を OSI のライセンスの一覧に
 **逆側。** Rosen 氏は同じ日に *"I'm still not convinced that there's ever a good reason for those who write software, or those who use it, to rely on a simple dedication of software to the public. Use a license."* とも述べた。ACD の答えは、献呈に頼らず許諾も置くこと（§4.4）だが、§3 を置く理由そのものへの疑いはこの文に残る。
 
 **この節が establish しないこと。** 2003 年の個人の発言で、OSI の決定ではない。役割は付けていない。
+
+**2026-11-11 の追記 —— 2008 年・2012 年・2015 年に、同じ線がどう言い直されたか。** `rounds/2008-03-and-2012-04-license-lists-public-domain-faq-observed.txt`（7 通）と `rounds/2015-10-license-discuss-short-permissive-no-attribution-observed.txt`（4 通）。2008 年は "Public domain software is not open-source?"（`license-discuss`・57 通）、2012 年は OSI のサイトの FAQ に公有化と CC0 の 2 問が載ったときの投稿（`license-discuss` と `license-review` の両方・13 通）で、書き出しの 1 通は CC0 の審査の rounds にも在る。2015 年は "Short permissive no attribution required open source license"（`license-discuss`・7 通）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Public domain is certainly not a license, so it can't be an approved open source license. But, as recent as 2006, OSI believed that PD software with complete source code was open source."* | Matthew Flaschen 氏 2008-03-01 | 2003 年の線（献呈は審査の対象でない）と、公有のソフトウェアは open source でありうるという読みが並んでいた。後者は OSI のサイトの 2006 年の版に在り、サイトの移行で消えたと同氏は推測した |
+| *"Public Domain software, when the source code is available, meets all of the OSD requirements but it isn't under a OSI approved Open Source license since there is no license. However, public domain software can be re-used under an OSD compliant license, so in practice the issue is moot."* | Nigel H. Tzeng 氏 2008-03-03（Rosen 氏が同日 *"That's a nice, clean summary."*） | 承認の対象は許諾で、献呈だけでは承認できない。ACD は献呈（§3）と許諾（§4）を並べ、承認を求めるのは許諾を含む文書である。**逆側**: 「実際には問題にならない」という読みは、献呈に許諾を足す型を新しく作る必要は無い、とも読める（B10） |
+| *"I'd personally rather OSI not even go there, and instead await the outcome of test cases (if any) initiated by the foolhardy."* | Rick Moen 氏 2008-03-02 | 不利な面。宣言で公有にできるかが法域で揃わない以上、OSI はそこに踏み込まない方がよい、という立場。ACD の §3 はその宣言で、§4.4 は §3 が効くかどうかに依らずに許諾を立てる（B5） |
+| *"It felt wrong to simply say that PD is not open source, when it clearly exhibits most or all of the important properties of Open Source and is at least capable of meeting the OSD; on the other hand, it is not a license and therefore cannot be OSI-approved, and it has some portability problems."* | Karl Fogel 氏 2012-04-03（FAQ の 2 問を書いた本人として） | 有利な面。FAQ の公有化の答えの書き手が、公有は OSD を満たしうると述べ、承認できない理由を「ライセンスでない」ことに置いた。ACD はライセンスを含む。**逆側**: 同じ通で、できる限り OSI が承認したライセンスを使うよう勧めると書いた（*"recommend that people use OSI-approved licenses wherever possible"*） |
+| *"They summarize quite well the non-consensus reached on our lists."* | Lawrence Rosen 氏 2012-04-03 | 逆側。FAQ の 2 問は、list の合意ではなく合意が無いことの要約として受け取られた。Josh Berkus 氏は同日 *"Well, it reflects my opinion correctly. I somehow doubt it reflects Russ's opinion, though."* と書いた。提出の材料は FAQ を OSI 自身の言葉として置いている（`SUBMISSION-MATERIALS.md`）。FAQ は OSI が公表した文で、その重さは変わらないが、その背後に一致した見解が在ったとは書けない |
+| *"I propose a public domain dedication with a BSD-style fallback without the attribution requirement"* と、それへの *"I think that we have more than enough licenses with these characteristics."* | Sagar 氏（利用者）2015-10-20 と Mark Radcliffe 氏 2015-10-21 | 不利な面。ACD と同じ型（公有化の献呈と、帰属を求めない許容型の fallback）が 2015 年に提案され、同じ年の 5 月に自ら OSI の外部の general counsel と書いた人（`review-readings.md` §1.181）が、この性質のライセンスは十分すぎるほど在ると答えた。理事会はその 1 週間前の 2015-10-14 に Free Public License（いまの 0BSD）を 8 対 0 で承認していた（`board-decisions.md`）。#314 に足した。**逆側**: 提案は 4 行の文で特許の許諾を持たない。ACD の gap（条件も終了も無い、作品を超える特許の許諾・B10）は、献呈と帰属の無さの側には無い。帰属を求めないという性質だけで ACD を論じれば、この答えがそのまま当たる |
+
+**この追記が establish しないこと。** 個人の発言で、OSI の決定ではない。いまの FAQ（2025-01-21 改訂の写し）が 2012 年に載った文と同じかは照合していない。Flaschen 氏が挙げた 2006 年のページは開いていない。
 
 ## 1.148 「公有化の標準の文書が無い」—— 2011 年に、標準の文書なら審査の対象になりうると述べられていた（2026-11-08）
 
