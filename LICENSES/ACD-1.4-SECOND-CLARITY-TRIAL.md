@@ -651,25 +651,29 @@ After: It does not apply this Dedication to material that a narrower notice the 
 
 **⚠ 逆側**: (1) 反証は 1 人の読みで、bb の反例に当てていない。(2) レンズは 3 つで、法域ごとの読み（例: 消費者契約法の下の §14）は当てていない。(3) 「既存の記録が扱っている」は、その記録の結論が正しいことを示さない。とくに §5.2 末尾の除外は、反証が「インストーラの中の写しは Work のまま」に依っており、§2.1 の *separable part* の読みが法廷で同じに立つかは開いた問いである。
 
-### 14.27 T53: §2.6 の断りに宛先を足す（+6 語・試作・未採用）
+### 14.27 T53: §2.6 の断りに宛先を足す（試作・退けた・法律家への問 4 へ回した）
 
 **欠陥**: §2.6 第 2 文の識別の約束（*"a Dedicator who includes that material with the Work, or causes it to be included, will identify it"*）は、受領者を守る唯一の手当てだが、含める Dedicator が断りを知っているときにしか働かない。第 1 文の *"unless they state otherwise at the time of submission"* には宛先が無いので、寄稿者が Dedicator でない共同管理者に私信で断れば、断りは成立し、どの Dedicator も知らず、約束は働かず、受領者の写しの通知は覆う範囲を誤って示す（portfolio-00 の反例・§14.26 の §2.6 の行）。errata E16 は同じ形（断りが跡を残さない）を記録しているが、宛先の線は扱っていない。
 
 **Before（§2.6 第 1 文）**: *"A Contribution is submitted under this Dedication, and the person making it becomes a Dedicator as to that Contribution, unless they state otherwise at the time of submission."*
 
-**After**: *"A Contribution is submitted under this Dedication, and the person making it becomes a Dedicator as to that Contribution, unless they state otherwise, in the submission or to the Dedicator, at the time of submission."*（+6 語）
+**After**: *"A Contribution is submitted under this Dedication, and the person making it becomes a Dedicator as to that Contribution, unless they state otherwise, in the submission or to the Dedicator, at the time of submission."*（+7 語。**訂正**: 最初は +6 と書いた。portfolio-9b の --compare が足した語を *in / the / submission / or / to / the / Dedicator* の 7 語と数えた）
 
 **§1.9 の forum への提出と噛み合うか（portfolio-00 の問い）**: §1.9 は *"a repository or forum, in either case offering the Work"* への提出も Contribution に数える。forum への提出では Dedicator は直接受け取らないが、*"in the submission"* が覆う（pull request の説明、commit message、投稿そのもの）。forum の運営者への私信は、運営者が Dedicator でなければ数えない —— それがこの案の閉じる穴である。*"to the Dedicator"* の *the Dedicator* は §1.9 の *"submits to the Dedicator"* と同じ語で、同じ者を指す。
 
-**⚠ 逆側**: (1) **同意の問題は残る**。Dedicator でない共同管理者に誠実に断った寄稿者は、この文の下では献呈したことになる。明示の断りを宛先違いだけで退ける文が法廷で通るかは疑わしく、通らなければ受領者は守られず、文は守られると思わせるだけになる。(2) Apache-2.0 §5 は *"Unless You explicitly state otherwise"* で、断りの宛先を定めていない。T53 は Apache より厳しい。(3) 寄稿者が Dedicator に口頭で断った場合は残る（Dedicator は知っているので第 2 文の約束が働く）。閉じるのは「誰も知らない断り」だけである。(4) +6 語で、B3 の費用を払う。
+**⚠ 逆側**: (1) **同意の問題は残る**。Dedicator でない共同管理者に誠実に断った寄稿者は、この文の下では献呈したことになる。明示の断りを宛先違いだけで退ける文が法廷で通るかは疑わしく、通らなければ受領者は守られず、文は守られると思わせるだけになる。(2) Apache-2.0 §5 は *"Unless You explicitly state otherwise"* で、断りの宛先を定めていない。T53 は Apache より厳しい。(3) 寄稿者が Dedicator に口頭で断った場合は残る（Dedicator は知っているので第 2 文の約束が働く）。閉じるのは「誰も知らない断り」だけである。(4) +7 語で、B3 の費用を払う。
 
 **portfolio-00 の反例（2026-11-11）**: (1) 同意の問題を受領者の側の理由にするのは比べる相手の取り違えである。比べるのは「T53」と「いま」で、宛先違いで断った寄稿は、いまの文では献呈されず、知らずに含めた Dedicator の約束も働かないので、受領者は文の上でも守られない。T53 では文の上では献呈され、裁判所が文を通せば受領者は守られ、通さなければいまと同じ位置に戻る。受領者にとって T53 は悪くならず、良くなることがある（弱い優越）。「守られると思わせるだけ」の錯覚は、断りが見えない以上いまの文にも同じだけ在る。だから退けるなら理由は寄稿者の側（意に反して献呈したことになる）、Apache より厳しいこと、語数で立てる —— 上の逆側の (1) はこの意味に読み替える。(2) 1.4 草案の §1.4（1.0 の §1.3）は Dedicator を *"each person or entity applying this Dedication to the Work"* と定めるので、*"to the Dedicator"* は「どの 1 人でも」と読まれやすい。過去の寄稿で Dedicator になった、管理者でない人に断れば、含める管理者の Dedicator は知らず、T53 が閉じたかった見えない断りが残る。
 
-**After（反例を受けた形）**: *"A Contribution is submitted under this Dedication, and the person making it becomes a Dedicator as to that Contribution, unless they state otherwise, in the submission or to the Dedicator to whom it is submitted, at the time of submission."*（+10 語）。
+**After（反例を受けた形）**: *"A Contribution is submitted under this Dedication, and the person making it becomes a Dedicator as to that Contribution, unless they state otherwise, in the submission or to the Dedicator to whom it is submitted, at the time of submission."*（+12 語。**訂正**: 最初は +10 と書いた。Before と After を `split()` で数え直した）。
 
 **PR の経路で「提出先の Dedicator」は誰か（portfolio-00 の問い）**: pull request は §1.9 の *"to a repository or forum"* への提出で、*"to the Dedicator"* への提出ではない。だから *"the Dedicator to whom it is submitted"* は誰も指さず、断りは *"in the submission"*（PR の説明・commit message）だけが数える —— 閉じたかったのはまさにこの経路の見えない断りである。Dedicator にメールで直接出す経路では、受け取った Dedicator への断り（口頭を含む）が数え、その Dedicator が含めれば第 2 文の約束が働く。**残る穴**: 受け取った Dedicator が別の Dedicator に渡し、その人が知らずに含める場合。狭いが閉じない。
 
-**⚠ 逆側（直した形について）**: (1) 実際に merge する共同管理者（提出先でない Dedicator）への口頭の断りは数えない —— 寄稿者の同意の費用。(2) Apache-2.0 §5 より厳しい。(3) +10 語で、全体の数の GPL-3.0 との差（14 語）を越える（B3）。(4) 受領者への利益は弱い優越で、断りが宛先違いになる場面に限られる。
+**⚠ 逆側（直した形について）**: (1) 実際に merge する共同管理者（提出先でない Dedicator）への口頭の断りは数えない —— 寄稿者の同意の費用。(2) Apache-2.0 §5 より厳しい。(3) +12 語で、全体の数の GPL-3.0 との差（14 語）にほぼ並ぶ（B3）。(4) 受領者への利益は弱い優越で、断りが宛先違いになる場面に限られる。
 
-**次**: portfolio-9b の `measure_clause_overlap.py --compare / --guard`。そのうえで、(3) と (4) の秤で採るか退けるかをこの節に書く。採るまで草案は変えない。
+**portfolio-9b の測定（最初の形）**: --guard は 468u の目印 17 件の欠け 0（§2.6 の目印はもともと無い）。--compare は 80 条のまま、重複 70 箇所・族 51 は不変、先行詞の無い指示語 0、変更した条を参照する箇所 0。外した語 *"unless they state otherwise at the time of"* を引く外向きの文が 3 か所ある（`against.md` #15 と #313、`QUESTIONS-FOR-COUNSEL.md` 問 4）。
+
+**採否（2026-11-11・退けた）**: 秤の両側を並べた。得るもの: 断りが宛先違いになる場面で、裁判所が文を通せば受領者が守られる（弱い優越・portfolio-00）。払うもの: +12 語（全体の数で GPL-3.0 との差にほぼ並ぶ）、宛先違いで明示の断りを退ける文になること（寄稿者の同意）、Apache-2.0 §5 より厳しいこと、それでも残る穴（受け取った Dedicator が別の Dedicator に渡す）。**portfolio-00 が足した秤の材料**: (i) 理事の Berkus 氏は 2025-12-08 に *"any terms applying to contributors should be in individual projects' contributor documentation and governance, and have no place in an OSS license"* と書いた（`against.md` #286）。誰に断るかは寄稿者の手続きで、T53 はそれを条文に足す —— 不利な材料。§2.6 自身も *"Whether the Dedicator asks a contributor for anything else is a matter of project governance and is not addressed here."* と書く。逆側は同じスレッドに在り、Chestek 氏は *"I am in favor of an express statement in the license and agree that the statement should be inbound=outbound"* と書き、T53 は非対称を作らない。(ii) errata E16 の重さは、E16 自身が書くとおり法効果ではなく被覆範囲の誤解で、1.1 は第 2 文（含める Dedicator が明示する）で閉じた。T53 はそのうち「Dedicator が知らない断り」だけを閉じる第 3 の道である。(iii) 全 508 か月のアーカイブで、本人の文に寄稿者の断りや inbound=outbound が出る件名は 32 あるが、見えない断りで実際に揉めた事例は、件名と最初の当たりを見た範囲では見つかっていない（本文を全部は読んでいないので「無い」とは書かない）。この 3 つと上の秤を並べて、退けた。得るものは、文が通るかを法律家が答えないと決まらないので、本文を変えるより先に問いにした。`QUESTIONS-FOR-COUNSEL.md` 問 4 に、断りの宛先の問いと T53 の形を足した。答えが「通る」なら、そのとき T53 を採る。errata には渡さない（1.0 の §2.6 にも同じ文が在るが、欠陥と決まっていないので E16 の記録に任せる）。
+
+**⚠ 逆側**: 退けたことで、宛先の無い断りの穴は 1.4 でも開いたままである。受領者にとって T53 は悪くならないので、語数を理由に退けるのは受領者より B3 を重く見た判断である。
 
