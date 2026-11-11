@@ -274,9 +274,12 @@ operate under the law of each jurisdiction in which the Work is used."*
 **Why we doubt it.** OSI's board, approving another licence, said *"it does not believe that
 choice of law provisions are necessary or advisable in open source licenses"* (`against.md`
 #254), which supports the omission; but a recipient sued abroad has no clause to point to, and
-the dossier records that as a cost it has not answered (#23, #170).
+the dossier records that as a cost: #23 is answered only in part, and #170 lists national rules a
+forum could apply against several clauses.
 
-**An answer would change** how the dossier answers #23 and #170, which it records as unanswered.
+**An answer would change** whether the second sentence of §15.3 stays. #23 reads *"It is intended to
+operate under the law of each jurisdiction in which the Work is used, according to that law"* as a
+declaration about conflict of laws that a forum need not follow; if it does no work, it can go.
 
 ## 8. Does the Dedication survive the Dedicator's insolvency? (§2.9)
 
