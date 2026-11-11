@@ -1,0 +1,113 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2013-March)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 3 messages this dossier cites from "License Committee Report - 2013-03-06" (11 messages) and "License Committee Report - for board meeting of 2013-04-03" (10 messages), license-review 2013-03. Not the whole threads.
+Senders: Luis Villa, Gervase Markham
+Position: the licence committee chair's reports to the board, the first after the board asked for formal reports again, and a reply to an individual drafter. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From luis at tieguy.org  Thu Mar  7 06:45:03 2013
+From: luis at tieguy.org (Luis Villa)
+Date: Wed, 6 Mar 2013 22:45:03 -0800
+Subject: [License-review] License Committee Report - 2013-03-06
+Message-ID: <CAFPTOkWSM2esOj4reBRm6_scMUn-OaE93q09bQSqSUBnC2D=FA@mail.gmail.com>
+
+[After an absence of some time, the board has asked me to resurrect
+the formal license committee reports. This is the first one. Comments
+and suggestions on format, content, etc. are welcome.]
+
+This email is my report for licenses currently submitted to the OSI.
+If anybody disagrees with my assessment of the list's comments or
+conclusions, please say so within the next week.
+
+CeCILL 2.1
+========
+
+Submission: http://projects.opensource.org/pipermail/license-review/2012-May/000414.html
+
+Comments: Several clarifying questions were asked, indicating the
+license had been read, but no list members challenged the OSD
+compliance of the license itself.
+
+Recommend: Approval
+
+Thanks-
+Luis
+
+
+From luis at tieguy.org  Thu Mar 28 14:10:23 2013
+From: luis at tieguy.org (Luis Villa)
+Date: Thu, 28 Mar 2013 07:10:23 -0700
+Subject: [License-review] License Committee Report - for board meeting of
+	2013-04-03
+Message-ID: <CAFPTOkXo8Rh5CjHsDe7tktRsiEJiZDc+bZ4+5e1PxE3sCrs9fA@mail.gmail.com>
+
+This email is my report for licenses currently submitted to the OSI.
+If anybody disagrees with my assessment of the list's comments or
+conclusions, please say so before the meeting of April 3rd.
+
+CeCILL 2.1
+========
+
+Submission: http://projects.opensource.org/pipermail/license-review/2012-May/000414.html
+
+Comments: Several clarifying questions were asked, indicating the
+license had been read, but no list members challenged the OSD
+compliance of the license itself.
+
+Recommendation: Board should approve.
+
+EUPL 1.2
+=======
+
+Submission: http://projects.opensource.org/pipermail/license-review/2013-March/000540.html
+
+Comments: John Cowan reviewed the changes to the (earlier-approved)
+versions of the EUPL, and found nothing objectionable.
+
+Recommendation: Board should approve.
+
+MOSL (working draft 3)
+=================
+Submission: http://projects.opensource.org/pipermail/license-review/2013-January/000505.html
+
+Comments: Richard Fontana and Bruce Perens objected to current
+language on redistribution as a violation of OSD 9.
+
+Recommendation: Not accept at this time.
+
+
+From gerv at mozilla.org  Thu Mar 28 17:20:15 2013
+From: gerv at mozilla.org (Gervase Markham)
+Date: Thu, 28 Mar 2013 17:20:15 +0000
+Subject: [License-review] License Committee Report - for board meeting
+ of 2013-04-03
+In-Reply-To: <51547AE2.2030206@gmx.com>
+References: <CAFPTOkXo8Rh5CjHsDe7tktRsiEJiZDc+bZ4+5e1PxE3sCrs9fA@mail.gmail.com>
+	<51547AE2.2030206@gmx.com>
+Message-ID: <51547BCF.8010603@mozilla.org>
+
+On 28/03/13 17:16, Hadrien G. wrote:
+> * Redistributions in any form must be accompanied by information on how
+> to obtain complete source code for the software, and any accompanying
+> work that is based on it. Source code must either be included in the
+> distribution, or be available for no more than the cost of its
+> distribution. For an executable file, complete source code means the
+> source code for all modules it contains, save for modules or files that
+> are typically provided with the operating system on which the executable
+> file runs.
+
+What is to prevent me from supplying the source code to you, as required
+by this clause, but under non-open-source terms, e.g. "you can look but
+not compile or modify"? There's nothing here which says "under the terms
+of this licence".
+
+Or is that a design feature?
+
+Perhaps it would be wise to do license design using a) software which
+tracks changes, and b) on a site where you can also post your design
+goals? We seem to be re-inventing parts of the BSD Protection License
+and parts of the GPL here.
+
+Gerv
+
+
