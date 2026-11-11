@@ -736,4 +736,53 @@ MUTATIONS_ARCHIVE6 = [
     "find": "      Licence: https://yutapr0117-design.github.io/portfolio/LICENSES/",
     "replace": "      Licence: https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt (was LICENSES/",
 },
+    {
+    "name": "Check 444o: agent-skills の index.json の licensing を 1.0 と述べる —— skill の description の版は誰も照合していなかった",
+    "file": ROOT / ".well-known" / "agent-skills" / "index.json",
+    "find": "licensing (ACD-",
+    "replace": "licensing (ACD-1.0: was ACD-",
+    "first_occurrence": True,
+},
+    {
+    "name": "Check 499: 入口の最後に読んだ時刻を 2000-01-01 にする —— 取得のたびに書き換えないと、古い時刻のまま「返信は無い」と言い続ける",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "when last read, ",
+    "replace": "when last read, 2000-01-01 00:00 UTC (was ",
+},
+    {
+    "name": "Check 499: 入口の最後に読んだ時刻を、記録の無い先の日時にする —— 取得していない時刻を名乗っても、照合が無ければ通った",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "when last read, ",
+    "replace": "when last read, 2099-01-01 00:00 UTC (was ",
+},
+    {
+    "name": "Check 472f: 送る件名の名前の版だけを別の版にする —— 括弧の識別子しか比べず、名前の \"Dedication 1.0\" は照合していなかった",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": "**Subject:** For Approval: Autonomous Commons Dedication ",
+    "replace": "**Subject:** For Approval: Autonomous Commons Dedication 9",
+},
+    {
+    "name": "Check 472j: ADOPTING が版で別の条を指す §1.3 を引く —— 番号が全部の版に在るかしか見ず、§1.3 が 1.0 では Dedicator、1.1 からは Work を定義していても通った",
+    "file": ROOT / "LICENSES" / "ADOPTING.md",
+    "find": "1. **Check that you hold the rights.**",
+    "replace": "1. **Check that you hold the rights in the Work (§1.3).**",
+},
+    {
+    "name": "Check 146: relatedProjectIds の 1 つを綴りの崩れた id (pO4) にする —— 全要素が pNN の配列しか拾わず、配列ごと参照から消えて dangling が 0 と出ていた",
+    "file": ROOT / "js" / "store.js",
+    "find": '["p02", "p03", "p04"], [], "task"',
+    "replace": '["p02", "p03", "pO4"], [], "task"',
+},
+    {
+    "name": "Check 472b: 版を示さずに 1.1 の語句 \"except by the Steward\" を引き、直前に §1.2 だけが在る —— 条番号の中の 1.2 を版の目印と読み、明示して引いたと数えていた",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission-osd.md",
+    "find": "preamble's first sentence is *\"Software and the works that surround it\"*, and the work the",
+    "replace": "preamble's first sentence is *\"Software and the works that surround it\"*, §16.4 reads *\"except by the Steward\"*, and the work the",
+},
+    {
+    "name": "Check 472b: 1.1 の語句を平の二重引用符で、版を示さずに引く —— 斜体の *\"…\"* しか読まず、アスタリスク無しの同じ引用が見えなかった",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission-osd.md",
+    "find": "preamble's first sentence is *\"Software and the works that surround it\"*, and the work the",
+    "replace": "preamble's first sentence is *\"Software and the works that surround it\"*, §16.4 reads \"except by the Steward\", and the work the",
+},
 ]
