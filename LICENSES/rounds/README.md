@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-11 時点・377 ファイル）
+## いまの状態（2026-11-11 時点・378 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -96,6 +96,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2012-01 | `license-review` | **観測（"[PROPOSAL] Invite Creative Commons to submit CC0 Dedication." から 5 通・CC0 を招く前の、放棄と許諾を 1 つに持つ文書を審査できるかの議論）** | `2012-01-license-review-invite-cc0-observed.txt` |
 | 2012-02 | `license-review` | **観測（"OSI recognition for Creative Commons Zero License?" から 7 通・CC が出す前に利用者が承認を求めた、既存の許容型で足りるか、誰が出すべきか）** | `2012-02-license-review-osi-recognition-cc0-observed.txt` |
 | 2013-07〜08 | `license-discuss` | **観測（"Open source license chooser choosealicense.com launched." から 5 通・選択サイトを案内するか、偏り、「無名には理由がある」、増殖の何が悪いか）** | `2013-07-and-08-license-discuss-choosealicense-observed.txt` |
+| 2013-03 | `license-review` | **観測（"CeCILL license V2.1 for Approval" の 2013 年の会話から 2 通・1 年止まった提出の再開と、委員長の謝罪）** | `2013-03-license-review-cecill-2-1-restart-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
 | 2012〜2020 | `license-review` | **観測（特許を扱う新しい permissive の必要性と、増殖の分類の現状・4 通）** | `2012-to-2020-license-review-need-and-proliferation-categories-cited-observed.txt` |
