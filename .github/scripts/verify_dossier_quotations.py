@@ -24,6 +24,8 @@ CLAUDE.md §7 が *「自動監視は CI に入れない（外部フォーラム
     DOSSIER_ALL=1 DOSSIER_ARCHIVE_CACHE=<同上> python3 .github/scripts/verify_dossier_quotations.py --all-italics
     # 入口の面の引用を全 corpus に当てて manifest を更新する (Check 472n が読む):
     DOSSIER_ARCHIVE_CACHE=<同上> python3 .github/scripts/verify_dossier_quotations.py --record-entry
+    # rounds の各通がアーカイブに逐語で在るか (切った通は、切った位置の直後のアーカイブを出す):
+    DOSSIER_ARCHIVE_CACHE=<同上> python3 .github/scripts/verify_dossier_quotations.py --rounds [LICENSES/rounds/<file> ...]
     # 「要約」と書いた語句が、実は原文に逐語で在るか (在れば、引用の記法と出典を付けるべき):
     DOSSIER_ARCHIVE_CACHE=<同上> python3 .github/scripts/verify_dossier_quotations.py --summaries
     # OSI のサイトの取得物も照合先にする:
@@ -447,14 +449,70 @@ def summaries(root="."):
     return 0
 
 
+def rounds(root=".", files=()):
+    """`LICENSES/rounds/` の各通が、アーカイブの写しに逐語で在るかを当てる (2026-11-11)。
+
+    rounds は「無改変」を約束する (`rounds/README.md` 規則 1)。引用の始まりで切った通は、切った位置までが
+    アーカイブの連続と一致し、その直後がアーカイブでは引用 (`... wrote:` / `-----Original Message-----`) で
+    始まるはずである。通ごとに「全文 / 切った (直後のアーカイブを出す) / 一致しない」を出す。portfolio-00 が
+    新しい rounds を足すたびに portfolio-9b が手で当てていた照合を道具にした。私信の stub と、mbox の From 行を
+    持たない file (サイトの取得物) は当てない。
+    """
+    blob = "".join(open(p, encoding="utf-8", errors="replace").read() for p in sorted(glob.glob(os.path.join(CACHE, "*.txt"))))
+    if not blob:
+        print(f"⚠ cache {CACHE} が空。DOSSIER_ARCHIVE_CACHE を指定する")
+        return 2
+    targets = list(files) or sorted(glob.glob(os.path.join(root, "LICENSES", "rounds", "*.txt")))
+    n = whole = cut = 0
+    bad, other = [], []
+    for f in targets:
+        t = open(f, encoding="utf-8").read()
+        if "----- begin verbatim -----" not in t or "THE TEXT HAS BEEN WITHDRAWN" in t:
+            continue
+        body = t.split("----- begin verbatim -----\n", 1)[-1].split("----- end verbatim -----")[0]
+        for m in re.split(r"(?m)^(?=From \S+ at \S+  \w{3} \w{3} )", body):
+            if not m.startswith("From "):
+                continue
+            n += 1
+            k, head = m.rstrip("\n"), m.split("\n", 1)[0]
+            i = blob.find(k)
+            if i < 0:
+                lo, hi = 0, len(k)
+                while lo < hi:
+                    mid = (lo + hi + 1) // 2
+                    lo, hi = (mid, hi) if blob.find(k[:mid]) >= 0 else (lo, mid - 1)
+                bad.append(f"{os.path.basename(f)}: {head[:60]} —— 先頭 {lo} / {len(k)} 字までしか一致しない。次の字 {k[lo:lo + 40]!r}")
+                continue
+            nxt = blob[i + len(k):i + len(k) + 300]
+            if not nxt.strip() or nxt.lstrip("\n").startswith("From "):
+                whole += 1
+                continue
+            cut += 1
+            # 切った位置の直後が引用の始まりか (ヘッダの「引用の始まりで切る」の約束どおりか)。それ以外は人が読む
+            if re.match(r"\s*(?:On .{0,250}?wrote|[^\n]{0,80}wrote:|-{5} ?Original Message|>|From: |_{10,}\s*\nFrom:|Quoting "
+                        r"|[^\n]{0,80} writes:)", nxt, re.S):
+                continue
+            other.append(f"{os.path.basename(f)}: {head[:60]} → アーカイブの続き {nxt.lstrip()[:45]!r}")
+    print(f"rounds の通 {n} 件: 全文 {whole} / 切った {cut}（うち引用の始まりでない位置 {len(other)}）/ 一致しない {len(bad)}")
+    for o in other:
+        print(f"  引用の始まりでない位置で切った (ヘッダが述べる切り方か読む): {o}")
+    for b in bad:
+        print(f"  一致しない: {b}")
+    return 1 if bad else 0
+
+
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--rounds", nargs="*", metavar="FILE",
+                    help="rounds の各通がアーカイブに逐語で在るかを当てる (FILE を省くと rounds/*.txt の全部)")
     ap.add_argument("--fetch", action="store_true", help="不足月をアーカイブから取得する")
     ap.add_argument("--root", default=".")
     ap.add_argument("--record-entry", action="store_true", help="入口の引用を全 corpus に当てて manifest を更新する")
     ap.add_argument("--all-italics", action="store_true", help="人名の近傍に限らず、斜体の引用をすべて当てる")
     ap.add_argument("--summaries", action="store_true", help="「要約」と書いた語句が原文に逐語で在るかを当てる")
     args = ap.parse_args()
+    if args.rounds is not None:
+        return rounds(args.root, args.rounds)
     if args.summaries:
         return summaries(args.root)
     if args.record_entry:
