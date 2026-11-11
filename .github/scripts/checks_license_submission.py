@@ -362,8 +362,11 @@ def run(ctx):
                     if not _p472.exists():
                         continue
                     _raw472 = _p472.read_text(encoding="utf-8")
-                    for _mq in re.finditer(r'\*"([^"\n]{12,400})"\*', _raw472):
-                        _parts = [_x.strip() for _x in re.split(r"…|\.\.\.", _mq.group(1))
+                    # 平の "…" で引いた本文も読む (2026-11-11・監査 #45: 斜体の *"…"* しか読まず、同じ引用を
+                    #   アスタリスク無しで書くと見えなかった)。どの版の本文にも無い引用 (発言など) は下で対象外になる
+                    for _mq in re.finditer(r'\*"([^"\n]{12,400})"\*|(?<![*\w])"([^"\n]{12,400})"(?![*\w])', _raw472):
+                        _qt472 = _mq.group(1) or _mq.group(2)
+                        _parts = [_x.strip() for _x in re.split(r"…|\.\.\.", _qt472)
                                   if len(_x.strip()) >= 12]
                         if not _parts:
                             continue
@@ -375,11 +378,14 @@ def run(ctx):
                         if all(_x in _tgt472 for _x in _np):
                             continue
                         _pre = _raw472[max(0, _mq.start() - 250):_mq.start()]
-                        if re.search(r"1\.[1-9](?!\d)|successor|draft|草案|次版", _pre, re.I):
+                        # 版の目印は版を名乗る形だけ (2026-11-11・監査 #44): 旧版は §1.2 / §11.1 のような条番号の中の
+                        #   "1.2" や、どの意味の "draft" でも満たされ、版を示さない引用を「明示して引いた」と数えていた
+                        if re.search(r"(?<![§\d.])(?<![Ss]ection )(?:ACD-)?1\.[1-9](?!\d)|\bsuccessor\b|"
+                                     r"\b(?:1\.\d|the|this|next|current)\s+draft\b|草案|次版", _pre, re.I):
                             _marked472 += 1
                             continue
                         _ln = _raw472.count("\n", 0, _mq.start()) + 1
-                        _qbad472.append(f"{_rel472}:{_ln} *\"{_mq.group(1)[:60]}\"* ({'/'.join(_from)} にだけ在る)")
+                        _qbad472.append(f"{_rel472}:{_ln} *\"{_qt472[:60]}\"* ({'/'.join(_from)} にだけ在る)")
                 check(
                     not _qbad472,
                     (f"Check 472b: 提出側 {len(_faces472b)} 面の本文逐語引用 {_nq472} 件のうち "
