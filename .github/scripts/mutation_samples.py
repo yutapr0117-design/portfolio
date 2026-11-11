@@ -536,6 +536,12 @@ _MUTATIONS_TAIL.append({
     "find": "| **0 件** | ACD への返信は",
     "replace": "| **1 件** | **Q1** 2026-11-11・発言者・`rounds/README.md`・—・未回答；ACD への返信は",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 469: 451e の違反の文を消し、コメントと 451d の OK 行の言及だけを残す —— 区間の全文から 451e の綴りを拾っていたので、実装が無くても 6 部のまま緑だった",
+    "file": ROOT / ".github" / "scripts" / "checks_license_surfaces.py",
+    "find": "            if _lack451e:\n                _bad451d.append(f\"451e: {_md.name} が gap を担う §{'/§'.join(_lack451e)} を 1 つも引いていない \"\n                                \"(PREAMBLE の 3 つの gap が記述子から見えない)\")\n",
+    "replace": "            if _lack451e:\n                pass\n",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

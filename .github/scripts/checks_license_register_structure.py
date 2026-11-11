@@ -17,7 +17,9 @@
 """
 
 import datetime
+import io
 import re
+import tokenize
 
 from pathlib import Path
 
@@ -176,11 +178,36 @@ def run(ctx):
     _srcs469c = [ROOT / ".github" / "scripts" / "check_repository_consistency.py"] + sorted(
         (ROOT / ".github" / "scripts").glob("checks_*.py"))
     _txt469c = [_f.read_text(encoding="utf-8") for _f in _srcs469c if _f.exists()]
+
+    def _lits469c(_t):
+        """[(行番号, 文字列リテラルの中身)]。コメントは token にならないので数えない。
+        3.12 の f-string は FSTRING_START の直後の FSTRING_MIDDLE が先頭になる。"""
+        _out, _prev = [], None
+        try:
+            for _tk in tokenize.generate_tokens(io.StringIO(_t).readline):
+                if _tk.type == tokenize.STRING:
+                    _out.append((_tk.start[0], re.sub(r"^[rRbBuUfF]{0,2}(\"\"\"|'\'\'|\"|')", "", _tk.string)))
+                elif _prev is not None and _prev.type == getattr(tokenize, "FSTRING_START", -1) \
+                        and _tk.type == getattr(tokenize, "FSTRING_MIDDLE", -1):
+                    _out.append((_tk.start[0], _tk.string))
+                _prev = _tk
+        except (tokenize.TokenError, SyntaxError):
+            pass
+        return _out
+
+    _lit469c = [_lits469c(_t) for _t in _txt469c]
     for _n, _m in _rows469c:
+        # 部は「その部の名前で始まる文字列」を持つものだけを数える (2026-11-11・監査 #9): check() の
+        #   名前と失敗文 (`Check 451a: …`) か、共有の違反一覧に足す文 (`451e: …`)。区間の全文から
+        #   `N[a-z]` を拾うと、451e の実装を丸ごと消してもコメントと 451d の OK 行の「(451e の対象 …)」が
+        #   残って 6 部のまま緑だった
         _parts = set()
-        for _t in _txt469c:
+        for _t, _lits in zip(_txt469c, _lit469c):
             for _sec in re.finditer(r"^\s*# ── " + _n + r"\..*?(?=^\s*# ── \d|\Z)", _t, re.S | re.M):
-                _parts |= set(re.findall(r"\b" + _n + r"([a-z])\b", _sec.group(0)))
+                _l0 = _t.count("\n", 0, _sec.start()) + 1
+                _l1 = _l0 + _sec.group(0).count("\n")
+                _parts |= {_mm.group(1) for _ln, _s in _lits if _l0 <= _ln <= _l1
+                           for _mm in [re.match(r"(?:Check )?" + _n + r"([a-z]):", _s)] if _mm}
         if len(_parts) != int(_m):
             _bad469.append(f"(c) READY-TO-SUBMIT.md は「Check {_n} ({_m} 部)」と述べるが、実装の区間に在る下位部は "
                            f"{len(_parts)} 種 {sorted(_parts)}")
