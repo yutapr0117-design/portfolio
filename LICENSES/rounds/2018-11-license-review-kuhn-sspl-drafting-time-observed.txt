@@ -1,0 +1,158 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2018-November)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 2 messages by Bradley M. Kuhn in the review of the Server Side Public License (2018-11-13 and 2018-11-21) on how much drafting time a licence should have before review. Not a thread.
+Senders: Bradley M. Kuhn
+Position: review of another submission. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From bkuhn at ebb.org  Thu Nov 22 00:50:42 2018
+From: bkuhn at ebb.org (Bradley M. Kuhn)
+Date: Wed, 21 Nov 2018 16:50:42 -0800
+Subject: [License-review] Approval: Server Side Public License,
+ Version 2 (SSPL v2)
+In-Reply-To: <CAJ6sj3eKuX=KkgA=_dqmSp_wUgRqG===dMQJexTgX4bF45ax+Q@mail.gmail.com>
+References: <CAJ6sj3eKuX=KkgA=_dqmSp_wUgRqG===dMQJexTgX4bF45ax+Q@mail.gmail.com>
+Message-ID: <20181122005042.aenxtejx2ubaqacx@ebb.org>
+
+Eliot Horowitz of MongoDB wrote:
+>    Below is an updated version of the Server Side Public License, which we
+>    are submitting for review in lieu of version 1.0.
+
+My confidence in MongoDB (the for-profit license steward of the SS Public
+License) is now completely gone.  Given this most recent political stunt, we
+should all demand years of trust-building before we take MongoDB seriously as
+a FLOSS license steward (a role they've pursued for only a month anyway).
+
+Let's recap: The SS Public License version 1.0 was put into production
+without any public discussion (nor even private discussion with any license
+evaluation authority), only to be shown to have serious drafting and policy
+flaws.  Now, after just 35 days of its existence, and having been put into
+immediate active use for a key project for those same 35 days, the SS Public
+License v1 has already been declared deprecated by its license steward.  Yet,
+after all that, MongoDB has *still* not engaged in a public collaborative
+process of licensing drafting [0], but instead simply threw a substantially
+modified version of the SS Public License over the wall again to "see if this
+one sticks" instead.
+
+Such a situation, of course, would have been an irrecoverable disaster for
+any normal inbound=outbound FLOSS project.  The only reason the situation
+*might* be salvageable here is that MongoDB is completely opposed to putting
+themselves on equal footing with their users; they refuse to even be bound by
+the terms of the SS Public License themselves.  But that itself points at
+another vector of deep flaws that should lead us to conclude the situation
+with MongoDB and their unilateral licensing changes is likely hopeless.
+
+I renew my call for an outright rejection of the SS Public License by OSI on
+procedural grounds.  OSI should ask for MongoDB to allow for time -- which
+should be counted in years, not days -- for license vetting by the broader
+FLOSS community, of which license-review is just a tiny subset.
+
+  * * *
+
+As an undergraduate in the early 1990s, one evening I was complaining to my
+roommate, Michael Tietjen, about the inefficiency of legislative bodies like
+the US Congress -- arguing that so much time was wasted while nothing was
+accomplished.  Tietjen countered with an excellent argument which immediately
+convinced me to change my position: no one should live in a society where
+the laws can change overnight; laws should be reasonably predictable by the
+populace to plan their lives.  Changes in laws need time to propagate before
+promulgation, so they're well understood before they are enacted.
+
+FLOSS licenses often serve as the de-facto laws of our community.  Licensing
+changes to projects should be planned, discussed by all stakeholders as
+equals, and have ample time to gestate.  MongoDB has done the opposite here:
+whipsawing changes to actual legal terms of an actual project faster than the
+community can effectively digest them and plan.  After doing so twice, MongoDB
+twice came asking OSI for a fast, post-hoc rubber stamp.  We've already
+collectively given MongoDB too much of our valuable time on their preferred
+schedule.  We shouldn't adhere to their unreasonable schedule anymore.
+
+MongoDB, if you want to regain at least some of the credibility you've lost,
+please do the right thing and withdraw your submission to license-review, and
+come back in one year with a license draft that's had the bare minimum of time
+to develop, grow, and receive adequate feedback from the broader FOSS community.
+
+
+[1] It's been made clear by OSI officers that license-review is *not* a place
+    designed for license drafting work, but rather is for evaluation of
+    licenses that have already been through a thorough drafting process.
+
+--
+Bradley M. Kuhn
+
+Pls. support the charity where I work, Software Freedom Conservancy:
+https://sfconservancy.org/supporter/
+
+
+From bkuhn at ebb.org  Tue Nov 13 17:43:33 2018
+From: bkuhn at ebb.org (Bradley M. Kuhn)
+Date: Tue, 13 Nov 2018 09:43:33 -0800
+Subject: [License-review] OSI license approval is not the place for copyleft
+ experimentation (was: License Committee report)
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5198A4DAA99@FMSMSX108.amr.corp.intel.com>
+ (McCoy Smith's message of "Mon, 12 Nov 2018 17:36:37 +0000")
+References: <20181112113649.GA9126@bluenote.homenet.telecomitalia.it>
+ <2D52F7EE739F8542A700CAB96276B5198A4DAA99@FMSMSX108.amr.corp.intel.com>
+Message-ID: <874lckeuuy.fsf_-_@ebb.org>
+
+McCoy Smith wrote at 09:36 (PST) on Monday:
+> there were a few people beyond the license submitters for LZPL & SSPL who
+> were saying there should be room for experimentation around copyleft and
+> that those licenses would qualify as such
+
+I don't think supporting "experimentation around copyleft" (which is
+something I also support) de-facto means that OSI should consider such
+experimentation as a reason to approve an experimental license.  This is
+like asking the FDA to approve a still-experimental drug.
+
+As I pointed out in another post, AGPL was in public use for about seven
+years before any AGPL was approved by OSI.
+
+copyleft-next, the primary place where experimentation on copyleft is
+happening now (in a very public project of license drafting) has (AFAICT)
+also not been submitted to OSI for approval yet, and it's been around for
+more than 5 years now.  (Please do correct me if I'm wrong, I couldn't find
+any indication of this when searching opensource.org for copyleft-next.)
+
+I think it's completely reasonable for OSI to advise would-be copyleft
+experimentors to start a thread on the copyleft-next mailing list about
+their ideas, rather than try to slam through an experimental license draft
+that is less than a month old through the OSI review process.
+
+> I for one see LZPL and SSPL as very similar in the issues they raise in
+> those areas and think they should be probably get an up or down decision
+> together.
+
+I think the problem is that the only way OSI can really make an up or down
+decision is by doing OSD interpretation.  I don't think MongoDB is playing
+fairly by attempting to fast-track that OSD interpretation by surprising the
+community with a license that they are *still* unwilling to draft in public
+with the community.
+
+It's particularly bad when the license steward's own publicly stated
+intention is to never themselves be bound by the license, and their primary
+business plan is to offer a "way out of the license" by selling proprietary
+licenses, something that they literally advertise with a pop-up bubble on
+the SS Public License's official page [0].
+
+Admittedly, an up or down decision is likely the only way to release OSI
+from the heavy and unfair political pressure that MongoDB is placing on the
+OSI, so I would encourage the OSI to actually reject the license on
+procedural grounds, pointing out that other copylefts of this nature were
+not OSI approved for many years and that MongoDB should come back after many
+years and resubmit.
+
+[0] If you visit
+    https://www.mongodb.com/licensing/server-side-public-license with a
+    Javscript-enabled browser, you get a pop-up that asks you if you have
+    "Questions about Pricing and Sales?".  It's the first time I've seen the
+    official draft page for a purported Open Source license ask you: "Are
+    you sure you really want to take our software under this license?"
+-- 
+
+Bradley M. Kuhn
+
+Pls. support the charity where I work, Software Freedom Conservancy:
+https://sfconservancy.org/supporter/
+
+
