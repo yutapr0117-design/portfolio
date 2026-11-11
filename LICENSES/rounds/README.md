@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-11 時点・370 ファイル）
+## いまの状態（2026-11-11 時点・371 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -89,6 +89,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2014-04 | `license-discuss` | **観測（"why standard licenses" の FAQ の下書きから 4 通・承認は受け入れの床か信頼か）** | `2014-04-license-discuss-why-standard-licenses-observed.txt` |
 | 2015-05・08 | `license-discuss` | **観測（Apache の第三者ライセンス方針の 2 件名から 7 通・下流の一覧は各組織が決める、opensource.org からの返信）** | `2015-05-and-08-license-discuss-apache-third-party-policy-observed.txt` |
 | 2007-04 | `license-discuss` | **観測（"License Proliferation Dissatisfaction" から 5 通・分類の採択、理事会が何を却下するか、承認を閉じる案）** | `2007-04-license-discuss-license-proliferation-dissatisfaction-observed.txt` |
+| 2019-08 | `license-discuss` | **観測（"For Public Comment: The Libre Source License" から 4 通・個人の起草者に示された順序、list に出すことの適否）** | `2019-08-license-discuss-libre-source-license-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
 | 2012〜2020 | `license-review` | **観測（特許を扱う新しい permissive の必要性と、増殖の分類の現状・4 通）** | `2012-to-2020-license-review-need-and-proliferation-categories-cited-observed.txt` |

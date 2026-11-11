@@ -1,0 +1,117 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2019-August)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 4 messages this dossier cites from "For Public Comment: The Libre Source License" (license-discuss, 2019-08; 52 messages). Not the whole thread.
+Senders: McCoy Smith, Pamela Chestek, Moritz Maxeiner
+Position: replies to an individual's draft licence, including a suggested order for drafting one, and the drafter's last message on it. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From mccoy.smith at intel.com  Thu Aug  8 17:47:34 2019
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Thu, 8 Aug 2019 17:47:34 +0000
+Subject: [License-discuss] For Public Comment: The Libre Source License
+In-Reply-To: <5270969.IDYBQINuSx@cylae>
+References: <2763085.alidGh2TMh@cylae> <5270969.IDYBQINuSx@cylae>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5199F3DF749@fmsmsx117.amr.corp.intel.com>
+
+This license still doesn't obligate provision of source code.
+The patent grants are also inconsistent as between the preamble and the grant itself.
+
+You really should be working with a legal person on this if you're serious about it; there are a lot of basic drafting issues and language inconsistencies in all the drafts you have presented so far on this mailing list.  People of course are welcome to comment if they so choose but I'm not sure I see a reason for anyone to spend the time given these issues seem to persist as your drafts continue to evolve.
+
+From mccoy.smith at intel.com  Thu Aug  8 19:57:05 2019
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Thu, 8 Aug 2019 19:57:05 +0000
+Subject: [License-discuss] For Public Comment: The Libre Source License
+In-Reply-To: <1830357.i7kZmBb1NT@cylae>
+References: <2763085.alidGh2TMh@cylae> <5270969.IDYBQINuSx@cylae>
+ <2D52F7EE739F8542A700CAB96276B5199F3DF749@fmsmsx117.amr.corp.intel.com>
+ <1830357.i7kZmBb1NT@cylae>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5199F3E062D@fmsmsx117.amr.corp.intel.com>
+
+>>-----Original Message-----
+>>From: License-discuss [mailto:license-discuss-bounces at lists.opensource.org] On Behalf Of Moritz Maxeiner
+>>Sent: Thursday, August 8, 2019 12:45 PM
+>>To: license-discuss at lists.opensource.org
+>>Subject: Re: [License-discuss] For Public Comment: The Libre Source License
+
+>>If I have misunderstood the ML's purpose, I apologize.
+
+IMHO the mailing list is for discussing issues with existing OSI approved licenses, or other issues relevant to interpreting them.  It could serve as a place to pre-discuss licenses to be later submitted (which is what you are trying to do).  I'm not sure its purpose is to get you free advice on license drafting by lawyers (although such advice is sometimes provided, within reason, on mailing list discussions, but usually between lawyers).  Maybe other lawyers on the list would like to do so, but I wouldn't count on it.
+
+If I were you, I'd instead do the following:
+Outline the gaps you are seeing in existing OSI approved licenses vs what your goals are.
+Explain how you'd like to fill those gaps, not via license language, but by discussing the concepts.
+See how people respond as to: whether there are indeed the gaps you see, and whether your goals could be met by an OSD-conformant license.
+
+After that, I'm afraid, you'd likely need to hire a lawyer, if you want a license that meets your goals, meets the OSD, and is drafted according to good legal standards.
+
+Other posters may differ; just my opinion.
+
+
+
+From pamela at chesteklegal.com  Thu Aug  8 20:06:39 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Thu, 8 Aug 2019 16:06:39 -0400
+Subject: [License-discuss] For Public Comment: The Libre Source License
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B5199F3E062D@fmsmsx117.amr.corp.intel.com>
+References: <2763085.alidGh2TMh@cylae> <5270969.IDYBQINuSx@cylae>
+ <2D52F7EE739F8542A700CAB96276B5199F3DF749@fmsmsx117.amr.corp.intel.com>
+ <1830357.i7kZmBb1NT@cylae>
+ <2D52F7EE739F8542A700CAB96276B5199F3E062D@fmsmsx117.amr.corp.intel.com>
+Message-ID: <59ffdb22-19f4-33a2-71c7-1c64edf05a9a@chesteklegal.com>
+
+
+On 8/8/2019 3:57 PM, Smith, McCoy wrote:
+>>> -----Original Message-----
+>>> From: License-discuss [mailto:license-discuss-bounces at lists.opensource.org] On Behalf Of Moritz Maxeiner
+>>> Sent: Thursday, August 8, 2019 12:45 PM
+>>> To: license-discuss at lists.opensource.org
+>>> Subject: Re: [License-discuss] For Public Comment: The Libre Source License
+>>> If I have misunderstood the ML's purpose, I apologize.
+> IMHO the mailing list is for discussing issues with existing OSI approved licenses, or other issues relevant to interpreting them.  It could serve as a place to pre-discuss licenses to be later submitted (which is what you are trying to do).  I'm not sure its purpose is to get you free advice on license drafting by lawyers (although such advice is sometimes provided, within reason, on mailing list discussions, but usually between lawyers).  Maybe other lawyers on the list would like to do so, but I wouldn't count on it.
+>
+> If I were you, I'd instead do the following:
+> Outline the gaps you are seeing in existing OSI approved licenses vs what your goals are.
+> Explain how you'd like to fill those gaps, not via license language, but by discussing the concepts.
+> See how people respond as to: whether there are indeed the gaps you see, and whether your goals could be met by an OSD-conformant license.
+>
+> After that, I'm afraid, you'd likely need to hire a lawyer, if you want a license that meets your goals, meets the OSD, and is drafted according to good legal standards.
+>
+> Other posters may differ; just my opinion.
+>
+My opinion is different, I think everything you have done and asked for
+is appropriate for this list. However McCoy is right that you're only
+getting the largesse of people who have the time and inclination to
+respond, each with their own opinion, and you will often get conflicting
+views. So I'm not sure it's the best way to go about drafting a license.
+But it has been a good demonstration of how difficult it is to write a
+good, solid license.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+From mm at ucw.sh  Thu Aug  8 21:08:00 2019
+From: mm at ucw.sh (Moritz Maxeiner)
+Date: Thu, 08 Aug 2019 23:08:00 +0200
+Subject: [License-discuss] For Public Comment: The Libre Source License
+In-Reply-To: <59ffdb22-19f4-33a2-71c7-1c64edf05a9a@chesteklegal.com>
+References: <2763085.alidGh2TMh@cylae>
+ <2D52F7EE739F8542A700CAB96276B5199F3E062D@fmsmsx117.amr.corp.intel.com>
+ <59ffdb22-19f4-33a2-71c7-1c64edf05a9a@chesteklegal.com>
+Message-ID: <4111838.MYnhRF9vsH@cylae>
+
+I see. To me those opinions are interesting in and of themselves (especially 
+if they're conflicting), but I take both of your points.
+I'll refrain from posting further updates on the LSL itself for a while and 
+rethink my approach.
+
+Moritz
+

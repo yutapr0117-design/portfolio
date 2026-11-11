@@ -303,3 +303,18 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **読み。** 2007 年の分類は、承認の基準ではなく推薦の基準として人気を使った。理事会の側は、承認済みを数本へ絞る案も、承認を閉じる案も採らなかった。一方で、却下の基準を述べた Tiemann 氏の文は、使われていないライセンスには法的な問題を補うものが無いことを示す。ACD にとって、承認の判断は本文の法的な健全さに寄り、それを確かめた法律家は居ない。
 
 **この節が establish しないこと。** Tiemann 氏の文は 2007 年の一人の発言で、理事会の決定文ではない（同氏の 2007-04 の役職は、この通の署名からは確かめていない）。「明らかな法的な問題」が ACD に在るかは、この節は何も言わない。分類の制度はその後も変わっており、いまの分類の運用は `board-decisions.md` が扱う。
+
+## 1.183 個人の起草者に示された順序 —— gap と概念を先に、最後に弁護士（The Libre Source License・2019）（2026-11-11）
+
+`rounds/2019-08-license-discuss-libre-source-license-observed.txt`（4 通・スレッドは全 52 通）。Moritz Maxeiner 氏が個人で起草し、Contribution Public License から Libre Source License へ名を変えて 2019-08-08 に再び出した下書きへの返信。同氏の投稿は全 508 か月の写しで 2019-08 の `license-discuss` だけに在り、`license-review` への提出は無い（2026-11-11 に送り手と件名で grep）。前の名のスレッドで Lukas Atkinson 氏が特許の許諾の無さを指摘した 1 通は `reviewer-positions.md` に在る。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"You really should be working with a legal person on this if you're serious about it; there are a lot of basic drafting issues and language inconsistencies in all the drafts you have presented so far on this mailing list."* | McCoy Smith 氏 2019-08-08 | B1 の不利な面。法律家の無い個人の起草への、同じ年の 2 つ目の指摘（#262 の Perens 氏 2019-05 に足した）。同じ通で *"I'm not sure I see a reason for anyone to spend the time given these issues seem to persist as your drafts continue to evolve."* —— 下書きが変わり続けることが、読む理由を減らすと述べた（#320 に足した） |
+| *"Outline the gaps you are seeing in existing OSI approved licenses vs what your goals are."* に始まる 3 段と、最後の *"After that, I'm afraid, you'd likely need to hire a lawyer, if you want a license that meets your goals, meets the OSD, and is drafted according to good legal standards."* | McCoy Smith 氏 2019-08-08 | 起草の順序の勧め: 既存のライセンスとの gap を述べる → 埋め方を条文でなく概念で述べる → gap が在るか、OSD に適合するライセンスで目標が満たせるかへの反応を見る → 弁護士。ACD は gap の主張（B10）を持ち、提出の材料は gap の行から始まる（`SUBMISSION-MATERIALS.md`）。**逆側**: ACD は条文を先に出し、5 つの版を重ねた。最後の段（弁護士）は無い（B1） |
+| *"My opinion is different, I think everything you have done and asked for is appropriate for this list."* | Pamela Chestek 氏 2019-08-08 | 有利な面。下書きを list に出して意見を求めることは、この list に適切だ、という立場。同じ通で *"So I'm not sure it's the best way to go about drafting a license. But it has been a good demonstration of how difficult it is to write a good, solid license."* とも書いた |
+| *"I'll refrain from posting further updates on the LSL itself for a while and rethink my approach."* | Moritz Maxeiner 氏 2019-08-08 | 帰結。起草者は投稿を止め、提出へは進まなかった |
+
+**読み。** list の人が示した順序は、gap と概念を先に置き、条文と弁護士を最後に置く。ACD の提出の材料はこの順序の前半と合う（gap から述べる）。合わないのは、条文が先に在って版を重ねたことと、最後の段が無いことである。Chestek 氏は list に下書きを出すこと自体を適切とした。
+
+**この節が establish しないこと。** 2019 年の個人の発言で、OSI の規則の文ではない。Smith 氏と Chestek 氏の 2019-08 の役職は、これらの通の署名からは確かめていない。Maxeiner 氏が投稿を止めた理由がこの 2 通だけかは、この節は言わない。
