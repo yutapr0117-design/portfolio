@@ -490,6 +490,7 @@ separate entity"*・SPDX の canonical text で逐語確認）。
 - **steward を持たないことも普通である。** 141 本の本文を測ると、*license steward* / *agreement steward* の語を持つものは
   8 本である（語の検索なので床）。Richard Fontana 氏（`license-discuss` 2019-05-31）:
   *"MIT is not the license steward of the MIT license -- there is no license steward"*。
+- **連絡の取れない steward の下でも、承認は残っている（2026-11-11 に足した）。** Russell Nelson 氏は 2006-03-11 に *"These licenses are ones for whom we have no good steward contact."* と書き、承認済みの 12 本を挙げた（`license-discuss`・`rounds/2006-03-license-discuss-looking-for-license-stewards-observed.txt`）。そのうち 11 本（BSD-3-Clause・EFL-1.0・EFL-2.0・Frameworx-1.0・Motosoto・Naumen・NGPL・QPL-1.0・RSCPL・VSL-1.0・Zlib）は、2026-11-04 に SPDX の `isOsiApproved` で数えた 141 本（`gap-census.md`）に今も在る。CVW だけが無く、理由は確かめていない。**逆側**: これは承認の後の連絡先の話で、承認の時に steward を見るという Kuhn 氏の見解は動かない。141 本は SPDX の印で、OSI の一覧そのものではない。
 - **上の版を外す選択も退けられていない。** Piana 氏（`license-review` 2025-05-29・Tiwaz）:
   *"a legitimate choice and I won't fuss about it. There are different views on this kind of provisions."*
 
