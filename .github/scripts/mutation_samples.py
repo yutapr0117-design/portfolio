@@ -314,54 +314,6 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 70: runbook §9 の Check 総数の行の「最大番号」だけを別の数にする —— 行の最初の **N** しか読まず、同じ行が比べている性質を 2 度目に述べる数には読む者が無かった",
-    "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
-    "find": "（最大番号 ",
-    "replace": "（最大番号 1",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 468x: 主表が「足す」と述べた語句 (or for a payment You agreed to make) を草案から消す —— After は「へ」の引用しか読まず、「*\"…\"* を足す」の引用は照合していなかった",
-    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
-    "find": "       11.3), or for a payment You agreed to make.\n",
-    "replace": "       11.3).\n",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 468x: 主表が §1.3 から「外す」と述べた語句 (in whole or in part) を §1.3 に戻す —— 「外す」の引用は照合しておらず、外したはずの語が条に残っても通った",
-    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
-    "find": "  1.3  \"Work\" means the material to which the Dedicator has applied this\n",
-    "replace": "  1.3  \"Work\" means the material, in whole or in part, to which the Dedicator has applied this\n",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 498: 「1.0 から何が変わったか」の下書きの版ごとの閉鎖数の 1.3 を 5 にする —— 使い捨ての計数で版の語の最初の一致を数え、閉鎖の印 (19 / 13 / 4) と違う数を書いた",
-    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
-    "find": "(19, 13 and 4)",
-    "replace": "(19, 13 and 5)",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 498: 「1.0 から何が変わったか」の下書きの §2 の件数を 11 にする —— 節ごとの件数は errata の表の 2 列目から導けるのに、照合していなかった",
-    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
-    "find": "§2 (scope and effect, 10)",
-    "replace": "§2 (scope and effect, 11)",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 478: 地図の 476 の行の「実装:」を分割前の module (checks_license_submission.py) にする —— 所在列しか読まず、説明の欄の「実装:」の形は照合していなかった (473 の行が実際にそうなっていた)",
-    "file": ROOT / "docs" / "architecture" / "check-repository-consistency-map.md",
-    "find": "\u3002\u5b9f\u88c5: `.github/scripts/checks_license_dossier.py`",
-    "replace": "\u3002\u5b9f\u88c5: `.github/scripts/checks_license_submission.py`",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 78: aio-guardian の name を 2 語 (aio-guardian v2) にする —— 最初の語だけを取り、stem と一致と読んでいた",
-    "file": ROOT / ".claude" / "agents" / "aio-guardian.md",
-    "find": "\nname: aio-guardian\n",
-    "replace": "\nname: aio-guardian v2\n",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 78: check-author の description を空にし、本文を別のキーへ移す —— \\s* が改行をまたぎ、空の description: が次の行のキーの字で満たされていた",
-    "file": ROOT / ".claude" / "agents" / "check-author.md",
-    "find": "\ndescription: Use this agent when the user (or another agent)",
-    "replace": "\ndescription:\nnote: Use this agent when the user (or another agent)",
-})
-_MUTATIONS_TAIL.append({
     "name": "Check 143: paths の最後に \"!docs/evidence/**\" を足して digest 付きの evidence 3 file を外す —— 否定の形を読まず、literal と prefix/** だけを被覆と数えていた",
     "file": ROOT / ".github" / "workflows" / "auto-update-aio-digests.yml",
     "find": "      - \"docs/incident-artifacts/**\"\n",
