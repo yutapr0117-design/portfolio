@@ -98,18 +98,52 @@ def run(ctx):
                 got |= {str(n) for n in range(int(a), int(b) + 1)}
             return {"E" + n for n in got}
 
+        # 状態の語は、それを述べている E-ID にだけ割り当てる (2026-11-11・監査 #8)。行ごとに分類すると、
+        #   両方の語を持つ行は行の全 E-ID が "both" になり、「E12 は未着手（E3 は反映済み）」の未着手が
+        #   {both, settled} に埋もれて矛盾の組から消えた。E-ID を最初のセルに持つ行は、各セルの語を
+        #   その行の E-ID に、セルの中で別の E-ID の後に続く語はその E-ID に割り当てる。
+        #   それ以外の行は、片方の語彙だけなら従来どおり行の全 E-ID に、両方なら同じ規則で割り当てる。
+        #   1 つの E-ID が同じ行で両方を受けたら "both" (「前の状態 / 当てた結果」の表の行)。
+        _id469 = r"(?<![A-Za-z])E\d+(?:\s*[〜～–-]\s*E?\d+)?"
+        _grp469 = re.compile(_id469 + r"(?:\s*(?:[/,、・+＋]|and|と|及び)?\s*" + _id469 + r")*")
+
+        def _words469(seg):
+            return ({"s"} if any(w in seg for w in _settled469) else set()) | (
+                {"p"} if any(w in seg for w in _pending469) else set())
+
+        def _states_on(line):
+            """1 行について {E-ID: 受けた語彙 {'s','p'}}。"""
+            _w = _words469(line)
+            if not _w:
+                return {}
+            _key = re.match(r"^\|\s*\*{0,2}(E\d+)\*{0,2}\s*\|", line)
+            if not _key and len(_w) == 1:
+                return {i: set(_w) for i in _ids_on(line)}
+            _out = {}
+            _cells = re.split(r"(?<!\\)\|", line) if line.startswith("|") else [line]
+            if _key:
+                _cells = _cells[2:]
+            for _cell in _cells:
+                _ms = list(_grp469.finditer(_cell))
+                _owner = {_key.group(1)} if _key else (_ids_on(_ms[0].group(0)) if _ms else set())
+                _pos = 0
+                for _mm in _ms + [None]:
+                    _seg = _cell[_pos:_mm.start()] if _mm else _cell[_pos:]
+                    for i in _owner:
+                        if _words469(_seg):
+                            _out.setdefault(i, set()).update(_words469(_seg))
+                    if _mm:
+                        _owner, _pos = _ids_on(_mm.group(0)), _mm.end()
+            return _out
+
         _claim469 = {}
         for raw in _clt.splitlines():
             line = raw.strip()
             if line.startswith(">"):      # 引用は現在の主張ではない (#977 と同じ線引き)
                 continue
-            hit_s = any(w in line for w in _settled469)
-            hit_p = any(w in line for w in _pending469)
-            if not (hit_s or hit_p):
-                continue
-            for i in _ids_on(line):
-                _claim469.setdefault(i, set()).add("settled" if hit_s and not hit_p else
-                                                   "pending" if hit_p and not hit_s else "both")
+            for i, _w in _states_on(line).items():
+                _claim469.setdefault(i, set()).add("both" if _w == {"s", "p"} else
+                                                   "settled" if _w == {"s"} else "pending")
         for i in sorted(_claim469, key=lambda x: int(x[1:])):
             if _claim469[i] == {"settled", "pending"}:
                 _bad469.append(

@@ -555,6 +555,12 @@ _MUTATIONS_TAIL.append({
     "find": "preamble's first sentence is *\"Software and the works that surround it\"*, and the work the",
     "replace": "preamble's first sentence is *\"Software and the works that surround it\"*, §16.4 reads \"except by the Steward\", and the work the",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 469: E12 の行の状態を「未着手（E3 は反映済み）」にする —— 行ごとに分類していたので、両方の語を持つ行は全 E-ID が both になり、E12 の未着手が矛盾の組から消えていた",
+    "file": ROOT / "LICENSES" / "ACD-1.1-CHANGELIST.md",
+    "find": "**E3 と同じ 1 文の前半** | **草案に反映済み** |",
+    "replace": "**E3 と同じ 1 文の前半** | **未着手**（E3 は反映済み）|",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
