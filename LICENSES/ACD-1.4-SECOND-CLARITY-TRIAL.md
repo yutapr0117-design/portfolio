@@ -663,5 +663,13 @@ After: It does not apply this Dedication to material that a narrower notice the 
 
 **⚠ 逆側**: (1) **同意の問題は残る**。Dedicator でない共同管理者に誠実に断った寄稿者は、この文の下では献呈したことになる。明示の断りを宛先違いだけで退ける文が法廷で通るかは疑わしく、通らなければ受領者は守られず、文は守られると思わせるだけになる。(2) Apache-2.0 §5 は *"Unless You explicitly state otherwise"* で、断りの宛先を定めていない。T53 は Apache より厳しい。(3) 寄稿者が Dedicator に口頭で断った場合は残る（Dedicator は知っているので第 2 文の約束が働く）。閉じるのは「誰も知らない断り」だけである。(4) +6 語で、B3 の費用を払う。
 
-**次**: portfolio-00 の反例（とくに (1) の同意の問題と、複数の Dedicator がいるときの *the Dedicator*）→ portfolio-9b の `measure_clause_overlap.py --compare / --guard` → 採るか退けるかをこの節に書く。採るまで草案は変えない。
+**portfolio-00 の反例（2026-11-11）**: (1) 同意の問題を受領者の側の理由にするのは比べる相手の取り違えである。比べるのは「T53」と「いま」で、宛先違いで断った寄稿は、いまの文では献呈されず、知らずに含めた Dedicator の約束も働かないので、受領者は文の上でも守られない。T53 では文の上では献呈され、裁判所が文を通せば受領者は守られ、通さなければいまと同じ位置に戻る。受領者にとって T53 は悪くならず、良くなることがある（弱い優越）。「守られると思わせるだけ」の錯覚は、断りが見えない以上いまの文にも同じだけ在る。だから退けるなら理由は寄稿者の側（意に反して献呈したことになる）、Apache より厳しいこと、語数で立てる —— 上の逆側の (1) はこの意味に読み替える。(2) 1.4 草案の §1.4（1.0 の §1.3）は Dedicator を *"each person or entity applying this Dedication to the Work"* と定めるので、*"to the Dedicator"* は「どの 1 人でも」と読まれやすい。過去の寄稿で Dedicator になった、管理者でない人に断れば、含める管理者の Dedicator は知らず、T53 が閉じたかった見えない断りが残る。
+
+**After（反例を受けた形）**: *"A Contribution is submitted under this Dedication, and the person making it becomes a Dedicator as to that Contribution, unless they state otherwise, in the submission or to the Dedicator to whom it is submitted, at the time of submission."*（+10 語）。
+
+**PR の経路で「提出先の Dedicator」は誰か（portfolio-00 の問い）**: pull request は §1.9 の *"to a repository or forum"* への提出で、*"to the Dedicator"* への提出ではない。だから *"the Dedicator to whom it is submitted"* は誰も指さず、断りは *"in the submission"*（PR の説明・commit message）だけが数える —— 閉じたかったのはまさにこの経路の見えない断りである。Dedicator にメールで直接出す経路では、受け取った Dedicator への断り（口頭を含む）が数え、その Dedicator が含めれば第 2 文の約束が働く。**残る穴**: 受け取った Dedicator が別の Dedicator に渡し、その人が知らずに含める場合。狭いが閉じない。
+
+**⚠ 逆側（直した形について）**: (1) 実際に merge する共同管理者（提出先でない Dedicator）への口頭の断りは数えない —— 寄稿者の同意の費用。(2) Apache-2.0 §5 より厳しい。(3) +10 語で、全体の数の GPL-3.0 との差（14 語）を越える（B3）。(4) 受領者への利益は弱い優越で、断りが宛先違いになる場面に限られる。
+
+**次**: portfolio-9b の `measure_clause_overlap.py --compare / --guard`。そのうえで、(3) と (4) の秤で採るか退けるかをこの節に書く。採るまで草案は変えない。
 
