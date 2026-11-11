@@ -542,6 +542,24 @@ _MUTATIONS_TAIL.append({
     "find": "r\"\\b(?:intend\\w*|purpose)\\b\"",
     "replace": "r\"\\b(?:intend\\w*|purpose|reliance)\\b\"",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 421: 明示の smooth をテンプレートリテラル (`smooth`) で、reduced-motion を問い合わせない file に書く —— 引用符 2 種しか見ず、バッククォートの値は素通りしていた",
+    "file": ROOT / "js" / "ai-page.js",
+    "find": "export function createAIPage({ h, createIcon, State, Router, CONSTANTS, announce }) {",
+    "replace": "export function createAIPage({ h, createIcon, State, Router, CONSTANTS, announce }) {\n    const _scrollOpts = { behavior: `smooth` };",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 422: TODO の絞り込みの select の onchange を onChange にし、id を外す —— h() はイベント名を小文字にするので働くハンドラなのに、小文字の onchange しか見ず走査から落ちていた",
+    "file": ROOT / "js" / "apps.js",
+    "find": "                            id: 'todo-filter',\n                            'aria-label': 'TODO を絞り込み',\n                            onchange: (e) => {",
+    "replace": "                            'aria-label': 'TODO を絞り込み',\n                            onChange: (e) => {",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 422: インポートモードの select の id を外し、ハンドラの本体に { id: 1 } を置く —— props の全文から id: を探したので、ハンドラの中の object の id をコントロールの id と読んでいた",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "h('select', { class: 'input', id: 'settingsImportMode', 'aria-label': 'インポートモード', onchange: (e) => { settingsImportMode = e.target.value; } },",
+    "replace": "h('select', { class: 'input', 'aria-label': 'インポートモード', onchange: (e) => { const o = { id: 1 }; settingsImportMode = e.target.value; } },",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
