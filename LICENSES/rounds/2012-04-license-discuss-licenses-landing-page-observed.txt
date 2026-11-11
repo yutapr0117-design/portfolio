@@ -1,0 +1,218 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2012-April)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 4 messages this dossier cites from "Draft of new OSI licenses landing page; please review." and its renamed branch "BSD, MIT [was Re: Draft of new OSI licenses landing page …]" (license-discuss, 2012-04; 45 messages together). Not the whole thread.
+Senders: Karl Fogel, Lawrence Rosen, Luis Villa, John Cowan
+Position: a board member's draft of a licences page that would steer newcomers to a short list, and replies on what belongs in it. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From kfogel at red-bean.com  Wed Apr  4 18:40:40 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Wed, 04 Apr 2012 13:40:40 -0500
+Subject: [License-discuss] Draft of new OSI licenses landing page;
+	please review.
+Message-ID: <87iphf732v.fsf@floss.red-bean.com>
+
+(This may be more controversial than my last post -- we'll see.)
+
+For many people, the OSI web site is a first source of information about
+open source licenses.  Historically, we haven't tried to steer newcomers
+toward choosing the most popular / widely-recognized licenses, probably
+because we thought it more important to remain neutral among all
+OSI-approved licenses.
+
+Times change, though.  These days we have a better sense of which
+licenses are most used and where, and even more experience with the
+problem of license proliferation.
+
+Also, somewhat related to the above, our license pages are a bit hard to
+navigate.  One click from the front page the user is faced with a choice
+("alphabetical" vs "by category"), and neither choice quite answers the
+questions newcomers are most likely to have -- although to be fair the
+by-category page makes an effort to.
+
+I think it's possible to steer newcomers toward a small set of
+widely-used licenses without denigrating or hiding all the other
+licenses, and to present all our licenses in a way that's more helpful
+to newcomers while still being useful for experienced people who just
+need a reference.
+
+So I've drafted this page:
+
+  http://opensource.org/licenses-draft
+
+I'm not really seeking consensus about it -- I think it unlikely we'll
+have consensus about something like this.  Ultimately, the Board will
+have to decide.  But I am seeking feedback and corrections, e.g.,
+
+  "The XYZ license is much more/less popular than you think!"
+
+or
+
+  "The FooBar license is not FSF-approved, so maybe it should be listed
+   father down, since all other things being equal we don't want to push
+   a non-FSF-approved license over approved ones".
+
+or
+
+  "There's a better way to present what you're trying to present; let me
+   show you..."
+
+...that sort of thing.
+
+I used both external sources [1] and my own domain knowledge to come up
+with the groupings on the page.  But I know many people here have a lot
+of licensing experience, and welcome suggestions for better ordering or
+grouping.
+
+What I'd like to do is to make this page be "/licenses" on the web site
+-- that is, we'll have exactly one master licenses page, finally (no
+more sync problems), and the old "alphabetical" and "by category" pages
+will be obsoleted and replaced with forwarding pointers.
+
+Finally, please note that this page does *not* reflect an official
+position of the OSI, nor of anyone of the Board.  Luis Villa and I have
+been talking about this problem a bit, but I basically created this page
+out of whole cloth, and neither Luis nor anyone else should be held
+responsible for it... yet :-).
+
+?Karl
+
+[1] http://osrc.blackducksoftware.com/data/licenses/
+    http://johnhaller.com/jh/useful_stuff/open_source_license_popularity/
+    http://google-opensource.blogspot.com/2008/05/standing-against-license-proliferation.html
+    http://www.opensource.org/proliferation-report
+    ...and probably others whose tabs I already closed...
+
+
+From lrosen at rosenlaw.com  Wed Apr  4 23:54:58 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Wed, 4 Apr 2012 16:54:58 -0700
+Subject: [License-discuss] Draft of new OSI licenses landing page;
+	please review.
+In-Reply-To: <87aa2rnkl1.fsf@floss.red-bean.com>
+References: <87iphf732v.fsf@floss.red-bean.com>	<063d01cd12b1$d4ba6870$7e2f3950$@com>	<87zkarnmui.fsf@floss.red-bean.com>	<CAD9S0+YR_m1gKYhNaBaf_JTsuV_hO0ePaTtsOMDJ=ZpbuBM+BA@mail.gmail.com>
+	<87aa2rnkl1.fsf@floss.red-bean.com>
+Message-ID: <068501cd12be$57bdb8b0$07392a10$@com>
+
+Karl Fogel wrote:
+> It makes sense to tune the page toward one special kind of visitor: a
+> person who doesn't know much about licenses, doesn't feel the need to
+> get expert help, and is just going to pick one.
+
+I would probably recommend to someone who doesn't really care about his
+copyright other than to give it away to use CC0 or the BSD license. I'd even
+sign that as the opinion of an open source expert although I'd thoroughly
+disclaim it as legal advice!
+
+That's a cheap recommendation, and worth what you all paid for it.
+
+I'm definitely not prepared to recommend the GPL without a good deal more
+information about the visitor to the website. Neither should OSI.
+
+/Larry
+
+
+
+> -----Original Message-----
+> From: Karl Fogel [mailto:kfogel at red-bean.com]
+> Sent: Wednesday, April 04, 2012 4:28 PM
+> To: license-discuss at opensource.org
+> Subject: Re: [License-discuss] Draft of new OSI licenses landing page;
+> please review.
+> 
+> Michael Bernstein <michael at fandomhome.com> writes:
+> >OSI might even document various well-known reasons to use licenses
+> >other than the ones recommended by OSI.
+> 
+> We could, but that to me feels like going down the slippery slope.
+> 
+> It makes sense to tune the page toward one special kind of visitor: a
+> person who doesn't know much about licenses, doesn't feel the need to
+> get expert help, and is just going to pick one.
+> 
+> Every other kind of person is too complicated for us to give guidance
+> to
+> (Larry's point, basically, which for this set of people I entirely
+> agree
+> with).  For them, the page is a reference, not a recommendation source.
+> 
+> By the way, and not that you were suggesting this, it doesn't work to
+> say to every visitor "You should get expert help."  That's nice, but
+> they won't -- it's not possible in many cases, and it's their
+> responsibility to judge whether it is in their case.
+> 
+> If a lot of VC money is on the line, you can bet they have a lawyer.
+> But if it's somebody's one-off script they wrote late one night and now
+> want to share, then they don't need a lawyer, they just need to pick a
+> license from the first group and release their script.
+> 
+> -K
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+
+
+
+From luis at tieguy.org  Thu Apr  5 14:30:57 2012
+From: luis at tieguy.org (Luis Villa)
+Date: Thu, 5 Apr 2012 07:30:57 -0700
+Subject: [License-discuss] BSD, MIT [was Re: Draft of new OSI licenses
+ landing page; please review.]
+Message-ID: <CAFPTOkW2fX2QN5Th03LV2qHmS6pa8hEOBxEgdGne3gj-w38HDg@mail.gmail.com>
+
+On Thu, Apr 5, 2012 at 7:08 AM, Christopher Allan Webber
+<cwebber at dustycloud.org> wrote:
+> I also agree that Apache License 2.0 should go before BSD and MIT... I
+> feel like we learned that lesson over CC0 discussions.
+
+Without getting into other issues, I'd hope we can agree that BSD/MIT
+do not belong in a first-class list here in 2012. Apache fills the
+same purpose[1] (permissive license) while being better drafted and
+properly handling patents.
+
+Even if the rest of Karl's proposal does not go through, and nothing
+else changes with the license list pages, I'd be perfectly happy
+moving BSD and MIT to the redundant or superseded lists.
+
+Luis
+
+[1] The very short version of my objection to removal of MPL is that
+it addresses a clear need (predictable, compatible copyleft) that is
+not otherwise addressed. Apache, BSD, and MIT address the same need
+(permissive license). The only possible justification for BSD/MIT is
+GPL v2 compatibility, but if that's why we're leaving them in the
+list, then that should be called out as the only justification for
+using them.
+
+
+From cowan at mercury.ccil.org  Thu Apr  5 15:54:14 2012
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Thu, 5 Apr 2012 11:54:14 -0400
+Subject: [License-discuss] BSD, MIT [was Re: Draft of new OSI
+	licenses	landing page; please review.]
+In-Reply-To: <4F7DBDBD.9060502@redhat.com>
+References: <CAFPTOkW2fX2QN5Th03LV2qHmS6pa8hEOBxEgdGne3gj-w38HDg@mail.gmail.com>
+	<20120405153529.GD30384@mercury.ccil.org>
+	<4F7DBDBD.9060502@redhat.com>
+Message-ID: <20120405155414.GE30384@mercury.ccil.org>
+
+Tom Callaway scripsit:
+
+> Perhaps we should simply alphabetize these licenses? I'm not sure we'll
+> ever reach consensus on ordering by "importance" or "value" or "usefulness".
+
+Consensus is not expected (see Karl's original post).  All that matters,
+finally, is an argument good enough to convince 7 out of 12 OSI board
+members; in practice, probably fewer.
+
+-- 
+John Cowan  cowan at ccil.org   http://ccil.org/~cowan
+Consider the matter of Analytic Philosophy.  Dennett and Bennett are well-known.
+Dennett rarely or never cites Bennett, so Bennett rarely or never cites Dennett.
+There is also one Dummett.  By their works shall ye know them.  However, just as
+no trinities have fourth persons (Zeppo Marx notwithstanding), Bummett is hardly
+known by his works.  Indeed, Bummett does not exist.  It is part of the function
+of this and other e-mail messages, therefore, to do what they can to create him.
+
+
