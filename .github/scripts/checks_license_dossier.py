@@ -105,6 +105,9 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        7 本はすべて条件を持つ / TDM・AI を名指す本は 0) も読み、どの面も最初の 1 か所でなく全出現を照合する。
        「名指す本は 0」は census の結論文 (`tdm` N 件・`ml` は誤命中 M 件) と誤命中の判定の行に依るので、
        その文の数が `tdm` / `ml` 列と一致し、判定の行が在ることも前提にする。
+       **476d (2026-11-11)**: `measure_gap_claim.py` の向きの仕分け (estoppel / consideration / rely などが承認済みの
+       本文で逆の向きに使われるのを分ける) が、承認済みの本文と ACD-1.4 草案から逐語で取った自己試験の文を
+       期待どおりに仕分けること。ネットワーク無しで走る。語族ごとに ACD の向きの文を 1 つは持つこと。
        どの Check も気付かない。** 本数を名乗る数が、実測済みの版の値（`_SPDX476`）の
        どれかであることを強制する。新しい版を測ったら `_SPDX476` に足す（足すこと自体が
        「その版を実際に測った」という記録になる）。(BLOCKING)
@@ -684,3 +687,32 @@ def run(ctx):
              "census の分類を確かめてから §1.133 を合わせよ"),
             blocking=True,
         )
+    # 476d —— measure_gap_claim.py の向きの仕分けが、自己試験の文を期待どおりに仕分ける (2026-11-11)。
+    #   材料表 §1c は「承認済みの本文にも在るが逆の向き」(estoppel は黙示の許諾を否定する列挙に、consideration は
+    #   条件の対価に) を述べ、この道具の仕分けで再現できる。仕分けは正規表現なので、変えたときに向きが
+    #   入れ替わっても数は「それらしい数」のまま出る。承認済みの本文と ACD-1.4 草案から逐語で取った文を、
+    #   ネットワーク無しで仕分けて確かめる。語族ごとに ACD の向きの文を 1 つは持つことも見る
+    import contextlib as _cl476d
+    import importlib.util as _iu476d
+    import io as _io476d
+    _out476d = _io476d.StringIO()
+    try:
+        _sp476d = _iu476d.spec_from_file_location("_mgc476d", ROOT / ".github" / "scripts" / "measure_gap_claim.py")
+        _md476d = _iu476d.module_from_spec(_sp476d)
+        _sp476d.loader.exec_module(_md476d)
+        with _cl476d.redirect_stdout(_out476d):
+            _rc476d = _md476d.self_test()
+        _acd476d = {_f for _t, _f, _w in _md476d._SELF_TEST if _w.startswith("ACD's direction")}
+        _lack476d = [_n for _n, *_r in _md476d.DIRECTED if _n not in _acd476d]
+    except Exception as _e476d:  # noqa: BLE001 — 読めないことも RED
+        _rc476d, _lack476d = 2, []
+        _out476d.write(f"{type(_e476d).__name__}: {_e476d}")
+    _last476d = (_out476d.getvalue().strip().splitlines() or [""])[-1]
+    check(
+        _rc476d == 0 and not _lack476d,
+        f"Check 476d: measure_gap_claim.py の向きの仕分けが自己試験の文を期待どおりに仕分ける ({_last476d})",
+        (f"Check 476d: measure_gap_claim.py の向きの仕分けが崩れている: {_out476d.getvalue().strip()[:400]}"
+         + (f" / ACD の向きの自己試験の文が無い語族: {_lack476d}" if _lack476d else "")
+         + "。材料表 §1c が引く「逆の向き」の数は、この仕分けで出る。正規表現を変えたら自己試験の文が同じ向きに落ちることを確かめよ"),
+        blocking=True,
+    )
