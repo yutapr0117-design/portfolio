@@ -647,8 +647,8 @@ MUTATIONS_ARCHIVE4 = [
     {
     "name": 'Check 394: pomodoro の集中時間の UI 側 clamp の上限だけを変える —— UI で入力できた値が reload 後に store の clamp で黙って戻る',
     "file": ROOT / "js" / "pomodoro-page.js",
-    "find": 'settings.work = clamp(parseInt(e.target.value, 10) || 25, 1, 180)',
-    "replace": 'settings.work = clamp(parseInt(e.target.value, 10) || 25, 1, 240)',
+    "find": 'settings.work = clamp(parseInt(e.target.value, 10) || CONSTANTS.POMODORO_DEFAULT_SETTINGS.work, 1, 180)',
+    "replace": 'settings.work = clamp(parseInt(e.target.value, 10) || CONSTANTS.POMODORO_DEFAULT_SETTINGS.work, 1, 240)',
     "check": CHECK,
 },
     {

@@ -692,24 +692,25 @@ def run(ctx):
     # settings fallback だけ magic が残っていた非対称 gap を後から閉じた)。
     # 注: 共有定数オブジェクトの参照共有 mutation を避けるため利用側は必ず spread する
     # ({ ...CONSTANTS.POMODORO_DEFAULT_SETTINGS })。
+    # 2026-11-11 (監査 #68 / #69): 今の値 (25 / 1500) の完全一致ではなく「数の直書き」で探す (`work: 30` も
+    #   既定値の二重持ち)。UI の pomodoro-page.js も見る (入力が数でないときの `|| 25` / `|| 5` / `|| 15` を持ち、
+    #   定数を変えると UI の fallback だけ取り残された)。コメントを除いてから読む
     _pomo_magic370 = [
-        r"work:\s*25\b",                       # settings {work:25,...} リテラルの再注入
-        r"remainingSec:\s*1500\b",             # runtime 既定 remainingSec の再注入
-        r"\|\|\s*1500\b",                      # runtime remainingSec normalize clamp fallback の再注入
-        r"settings\.work\)\s*\|\|\s*\d",       # settings.work normalize clamp fallback magic (|| 25) の再注入
-        r"settings\.short\)\s*\|\|\s*\d",      # settings.short normalize clamp fallback magic (|| 5) の再注入
-        r"settings\.long\)\s*\|\|\s*\d",       # settings.long normalize clamp fallback magic (|| 15) の再注入
+        r"\b(?:work|short|long|remainingSec):\s*\d",                      # 既定の object の数の直書き
+        r"remainingSec[^;\n]*\|\|\s*\d",                                 # runtime remainingSec の fallback
+        r"settings\.(?:work|short|long)\)\s*\|\|\s*\d",                  # store の normalize の fallback (|| 25)
+        r"settings\.(?:work|short|long)\s*=\s*clamp\([^;]*?\|\|\s*\d",   # UI の入力の fallback (|| 25)
     ]
-    _pomo_files370 = [ROOT / "js" / "state.js", ROOT / "js" / "store.js"]
+    _pomo_files370 = [ROOT / "js" / "state.js", ROOT / "js" / "store.js", ROOT / "js" / "pomodoro-page.js"]
     _pomo_violations370: list[str] = []
     for _f370 in _pomo_files370:
-        _src370 = _f370.read_text(encoding="utf-8", errors="replace")
+        _src370 = strip_js_comments(_f370.read_text(encoding="utf-8", errors="replace"))
         for _pat370 in _pomo_magic370:
             if re.search(_pat370, _src370):
                 _pomo_violations370.append(f"{_f370.name}: /{_pat370}/")
     check(
         not _pomo_violations370,
-        "Check 370: state.js / store.js が pomodoro 既定状態を CONSTANTS.POMODORO_DEFAULT_SETTINGS / "
+        "Check 370: state.js / store.js / pomodoro-page.js が pomodoro 既定状態を CONSTANTS.POMODORO_DEFAULT_SETTINGS / "
         "POMODORO_DEFAULT_REMAINING_SEC 経由で参照 (マジックリテラル {work:25...} / 1500 不在)",
         (f"Check 370: pomodoro 既定状態マジックが残存: {_pomo_violations370} "
          "(cross-file default-object drift 防止・Check 369 と同型 class)"),

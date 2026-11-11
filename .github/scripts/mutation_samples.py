@@ -525,8 +525,8 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 394: UI の work の上限を 240 にし、行の後ろのコメントに古い式 (settings.work = clamp(x, 1, 180)) を残す —— 生のソースの最後の一致を層の値にしたので、コメントが本物の行を上書きしていた",
     "file": ROOT / "js" / "pomodoro-page.js",
-    "find": "s.appsData.pomodoro.settings.work = clamp(parseInt(e.target.value, 10) || 25, 1, 180);",
-    "replace": "s.appsData.pomodoro.settings.work = clamp(parseInt(e.target.value, 10) || 25, 1, 240); // was: settings.work = clamp(x, 1, 180)",
+    "find": "s.appsData.pomodoro.settings.work = clamp(parseInt(e.target.value, 10) || CONSTANTS.POMODORO_DEFAULT_SETTINGS.work, 1, 180);",
+    "replace": "s.appsData.pomodoro.settings.work = clamp(parseInt(e.target.value, 10) || CONSTANTS.POMODORO_DEFAULT_SETTINGS.work, 1, 240); // was: settings.work = clamp(x, 1, 180)",
 })
 _MUTATIONS_TAIL.append({
     "name": "Check 410: TODO の入力の maxlength をコメントにする —— 生のソースを読み、コメントにした maxlength が保存側の上限と一致と数えていた",
@@ -539,6 +539,18 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "js" / "settings-io.js",
     "find": "                State.set(normalized);",
     "replace": "                State.update (() => merged);\n                State.set(normalized);",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 370: UI の long の入力の fallback を 15 の直書きに戻す —— state.js / store.js しか見ず、pomodoro-page.js の || 25 / || 5 / || 15 は定数を変えても取り残された",
+    "file": ROOT / "js" / "pomodoro-page.js",
+    "find": "|| CONSTANTS.POMODORO_DEFAULT_SETTINGS.long, 1, 120);",
+    "replace": "|| 15, 1, 120);",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 370: store の既定の settings を別の値の直書き (work: 30) にする —— 今の値 (work: 25) の完全一致しか探さず、別の値の二重持ちは素通りしていた",
+    "file": ROOT / "js" / "store.js",
+    "find": "            settings: { ...CONSTANTS.POMODORO_DEFAULT_SETTINGS },\n",
+    "replace": "            settings: { work: 30, short: 5, long: 15 },\n",
 })
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
