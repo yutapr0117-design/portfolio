@@ -1,0 +1,287 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2007-April)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 5 messages this dossier cites from "License Proliferation Dissatisfaction" (license-discuss, 2007-04; 22 messages). Not the whole thread.
+Senders: Russ Nelson, Lawrence Rosen, Andrew C. Oliver, Brian Behlendorf, Michael Tiemann
+Position: the co-chair of the license proliferation committee announcing the board's adoption of its categories, and the replies, including one that describes what the board rejects. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Sun Apr 22 23:58:23 2007
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sun, 22 Apr 2007 19:58:23 -0400
+Subject: License Proliferation Dissatisfaction
+Message-ID: <17963.63135.760618.474802@desk.crynwr.com>
+
+     I can't get no satisfaction
+     I can't get no satisfaction
+     'Cause I try and I try and I try and I try
+     I can't get no, I can't get no
+
+Like the Rolling Stones, we can't get no satisfaction with open source
+licenses.  We don't have enough, then we have too many, then we don't
+have enough.
+
+The large number of open source licenses has been a problem for a long
+time.  No need to explain the problem here.  We've been addressing the
+problem long before anybody else saw it as a problem, trying to
+encourage people to reuse existing licenses.  Most recently we
+established a committee to categorize the licenses, which I
+co-chaired.  The board has approved the committee's report
+(http://opensource.org/lpc) and endorses the categorization
+(http://opensource.org/licenses/category).
+
+We knew that this process was going to displease some parties.  When
+you set out to recommend some, the others will not be happy.  This is
+the case with Larry Rosen, whose licenses, the AFL and OSL, did not
+come up as top-ranked licenses.  This is unfortunate, because they are
+legally robust licenses.
+
+Larry claims that the license proliferation committee's process was
+political, not legal.  We agree!  We took policy issues into account
+as well as legal issues.  That is because open source licenses do not
+operate in a legal vacuum. They have practical implications and our
+intention was to provide practical advice. We did not consider it
+practical to recommend licences that are rarely used, however sound
+their legal drafting may be.
+
+Unlike Larry, the License Proliferation Committee was not free to
+focus only on "legal merit" as a criteria for categorizing open source
+licenses.  We respected the communities that have grown up around
+these licenses.  We looked at the number of people and projects using
+a license, and gave them credit for popularity in spite of the
+relative legal merit of the license.
+
+If he can get the numbers up on his license, then we will certainly
+consider moving his license(s)s to the "Strong Communities" category.
+
+But given that we expected the process to create unhappiness, the
+existance of Larry's unhappiness is not going to persuade us to
+change our mind about the results of the committee's deliberation.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | You can do any damn thing
+Crynwr sells support for free software  | PGPok | you want, as long as you
+521 Pleasant Valley Rd. | +1 315-323-1241       | don't expect somebody else
+Potsdam, NY 13676-3213  |     Sheepdog          | to pick up the pieces.
+
+
+From lrosen at rosenlaw.com  Mon Apr 23 01:55:08 2007
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Sun, 22 Apr 2007 18:55:08 -0700
+Subject: License Proliferation Dissatisfaction
+In-Reply-To: <17963.63135.760618.474802@desk.crynwr.com>
+References: <17963.63135.760618.474802@desk.crynwr.com>
+Message-ID: <01ce01c7854a$6cba20c0$0202fea9@LROSENTOSHIBA>
+
+Russ Nelson wrote:
+> We respected the communities that have grown up around
+> these licenses.  We looked at the number of people and projects using
+> a license, and gave them credit for popularity in spite of the
+> relative legal merit of the license.
+
+The committee process was blatantly political and whatever attempts were
+made by the committee to determine popularity were clearly as
+methodologically unsound as was its legal analysis. 
+
+What is the popularity or size of the community around CDDL? Or was it
+merely necessary to keep the representatives of Sun happy on your committee?
+Long before CDDL became a license, as of 1/7/05 when I wrote a paper for
+distribution on the OSDL website on the topic of license proliferation,
+OSL/AFL were respectively #11 and #14 on the Sourceforge.net site. Treated
+as a single license (which in principle they are except for one provision),
+it would have been #8, ahead of the CPL (which magically remains "popular"
+on your list to keep IBM happy). I haven't run the statistics since; did
+your committee? 
+
+I'm not trying to disparage CDDL or CPL here. I'm just punching holes in
+Russ' nonsense.
+
+And regardless of statistics, when did OSI start to run fashion shows
+instead of open source education? Remember, I wrote the bylaws and know what
+OSI's mission was supposed to be. "Ranking for popularity" was never a part
+of it. 
+
+/Larry
+
+
+
+
+From acoliver at buni.org  Mon Apr 23 02:20:00 2007
+From: acoliver at buni.org (Andrew C. Oliver)
+Date: Sun, 22 Apr 2007 22:20:00 -0400
+Subject: Radical Suggestion WAS: License Proliferation Dissatisfaction
+In-Reply-To: <17963.63135.760618.474802@desk.crynwr.com>
+References: <17963.63135.760618.474802@desk.crynwr.com>
+Message-ID: <462C17D0.7040308@buni.org>
+
+I think this categorization is helpful.  With that, if License 
+proliferation is bad and the board wishes to stop it -- why not stop 
+it?  Meaning *close* the license approval process and declare "Open 
+Source means software licensed in its entirety under these  licenses" 
+and declare the OSD to be a statement of values and that there are no 
+other open source licenses.  Then state that NO licenses can be approved 
+unless the board is petitioned and at its discretion reopens the license 
+approval process.  Finally state that the board is not well disposed to 
+do so unless there is a change in law or legal climate (such as say the 
+GPL being proved invalid in court).  Make the statement that new 
+revisions of existing licenses (such as the GPLv3) will still be 
+considered provided they are "substantially similar" to their 
+predecessors in terms and spirit. 
+
+From brian at hyperreal.org  Mon Apr 23 16:59:59 2007
+From: brian at hyperreal.org (Brian Behlendorf)
+Date: Mon, 23 Apr 2007 09:59:59 -0700 (PDT)
+Subject: License Proliferation Dissatisfaction
+In-Reply-To: <17964.53761.662071.131719@desk.crynwr.com>
+References: <17963.63135.760618.474802@desk.crynwr.com>
+ <01ce01c7854a$6cba20c0$0202fea9@LROSENTOSHIBA> <17964.11425.272248.551746@desk.crynwr.com>
+ <462CA552.4000600@mibsoftware.com>
+ <17964.53761.662071.131719@desk.crynwr.com>
+Message-ID: <alpine.DEB.0.82.0704230955210.6012@pez2>
+
+On Mon, 23 Apr 2007, Russ Nelson wrote:
+> Forrest J. Cavalier III writes:
+> > In this reply I hear "La, La, La, I'm not listening."
+> >
+> > What concrete method was used by the committee to determine popularity?
+>
+> No, what you're heading is "I don't care if you don't like it.  I
+> expected you to not like it."  And I by "you" I don't mean that we set
+> out to screw Larry Rosen.  I mean that *any* procedure, *any* number
+> of groups, *any* categorization was guaranteed to produce
+> dissatisfaction.
+
+It's pretty disenheartening to hear an OSI board member claim that they 
+didn't even try for objectivity in decision making, based on a premise 
+that objectivity is a total myth.  I certainly think there are approaches 
+that would have built more confidence in the quality of that list.  I find 
+myself agreeing with Larry that the phrases "redundant" and "less popular" 
+are not truthful when describing the list of disrecommended licenses.  Now 
+that OSI has "solved" the license proliferation problem, are any board 
+members interested in working on the credibility problem?
+
+> I feel sorry for Larry, but I'm not going to defend the decision.  It's 
+> reasonable.  It may not be perfect.  It's better than what we had 
+> before.  The best is the enemy of the good.  Deal with improvement and 
+> changes like a grown-up (not that many grown-ups deal with change well 
+> -- but we're *supposed* to).
+
+Isn't the position that new licenses are disrecommended (by definition, 
+licenses that start out as "less popular"), also a position against 
+improvement and change?
+
+ 	Brian
+
+
+
+From tiemann at redhat.com  Tue Apr 24 18:19:11 2007
+From: tiemann at redhat.com (Michael Tiemann)
+Date: Tue, 24 Apr 2007 14:19:11 -0400
+Subject: License Proliferation Dissatisfaction
+In-Reply-To: <462CEACC.1000701@mibsoftware.com>
+References: <17963.63135.760618.474802@desk.crynwr.com>	<01ce01c7854a$6cba20c0$0202fea9@LROSENTOSHIBA>	<17964.11425.272248.551746@desk.crynwr.com>	<462CA552.4000600@mibsoftware.com> <17964.53761.662071.131719@desk.crynwr.com> <462CEACC.1000701@mibsoftware.com>
+Message-ID: <462E4A1F.2020008@redhat.com>
+
+Forrest J. Cavalier III wrote:
+> Russ Nelson wrote:
+>
+>> Forrest J. Cavalier III writes:
+>>  > In this reply I hear "La, La, La, I'm not listening."
+>>  >  > What concrete method was used by the committee to determine 
+>> popularity?
+>>
+>> No, what you're heading is "I don't care if you don't like it.  I
+>> expected you to not like it."  And I by "you" I don't mean that we set
+>> out to screw Larry Rosen.  I mean that *any* procedure, *any* number
+>> of groups, *any* categorization was guaranteed to produce
+>> dissatisfaction.  I feel sorry for Larry, but I'm not going to defend
+>> the decision.  It's reasonable.  It may not be perfect.  It's better
+>> than what we had before.  The best is the enemy of the good.  Deal
+>> with improvement and changes like a grown-up (not that many grown-ups
+>> deal with change well -- but we're *supposed* to).
+>>
+>
+> In the 21st century, quality is recognized by examining the process, 
+> not the result.
+Actually, it's both.  The Innocence Project 
+(http://www.innocenceproject.org/) is an example of an organization 
+dedicated to getting a quality result from a supposedly fair process.  
+There are others.
+> You say Larry didn't like the result. You keep pointing to the result and
+> saying it is "good and reasonable."  But...
+Actually, what we're saying is "having published this report in draft 
+form several months ago, having offered numerous parties numerous 
+opportunities to have a public conversation so that we can gain from the 
+benefits of the collective intelligence of the open source community, we 
+decided that the time had come (based on the process we had run and the 
+comments we had received) to move the report from draft to published 
+status.  Somehow that has ignited far more commentary than any of our 
+requests for commentary.  Russ can blame himself for not getting more of 
+this commentary to appear on public mailing lists while the committee 
+was active, but the participants in the process chose to not use that 
+mechanism.  And for whatever reason the wider community also chose to 
+not use that mechanism when the draft report was published.  Maybe we 
+should have said "well, we cannot have a proper process without more 
+community commentary" but that leaves out the notion of tacit approval 
+and forces us to remain unsure about things that everybody else is sure 
+about.
+
+Yes, we did receive private negative comments from Larry after the draft 
+was published and before it was finalized.  We weighed his comments 
+against the fundamental reason why we chose to address the problem of 
+license proliferation.  A pure free-market approach would have left this 
+whole matter alone and "let the market decide".   We had been taking 
+such an approach, and we began to see license proliferation as a "moment 
+of satisfaction and a lifetime of regret" kind of problem.  At one point 
+it was proposed that we really should try to winnow the field to 3-4 
+licenses, tops--reciprocal, liberal, and one or two others.  We did not 
+take such a drastic approach after looking in more detail at the wide 
+range of licenses and communities using those licenses.
+
+Another point I would like to reinforce is that the OSI has long been 
+clear that WE DO NOT PROVIDE LEGAL ADVICE.  We can provide all kinds of 
+other advice, advocacy, opinions, and occasionally humor, but we cannot 
+tell somebody "this is the legal approach you should take".  Only a 
+lawyer working for you can provide such advice.  For this reason, we 
+specifically decided to keep legal considerations at arms length.  Of 
+course we do judge licenses through a legal lens, and we do our best to 
+reject licenses that (1) have obvious legal problems, and (2) do not 
+have such an overwhelming community of use that the community itself 
+becomes a legal force.  We also provide personal commentary, which is 
+distinct from legal advice, about specific legal questions people 
+raise.  But in terms of the license proliferation problem, the problem 
+we tried to address was how to encourage the strongest and most positive 
+network effect that comes through collaborative contribution, and we did 
+not see legal quality as the #1 barrier to progress.  Others may 
+disagree with that assessment.  We saw community size as a large 
+determinant of the power and viability of a given project, and we saw 
+license compatibility (which, except for the famous example of the TeX 
+license, is trivial when two licenses are the same license) as a 
+potential exponent to community size.  Thus, we chose to focus on 
+popularity as the best strategy for increasing the power of the network 
+effect as applied to open source.
+
+> I asked about the process.    What concrete method was used by the 
+> committee
+> to determine popularity?
+I, too, was not on the committee, so cannot speak to that.  But I do 
+want to reinforce what both Russ and Larry have been saying, which is 
+that for some people, popularity is not the driver of *their* decision.  
+They want a license that solves a particular legal problem, and for 
+them, I would advise that they follow their attorney's advice, not the 
+advice of the OSI, which has more to do with policy, economics, 
+advocacy, and the like.  Just because the LPC did not make legal quality 
+considerations an equal consideration to community popularity does not 
+mean it is not an important factor.  It's just a factor on which (1) the 
+OSI does not have much standing, and (2) how can the OSI make a general 
+claim about the law, which in the US is based so much on particulars?  I 
+do believe that if the ASP provision of the OSL is such an important 
+solution that we will see it become a popular and highly visible 
+license, and I would hope that when that happens, we look at what 
+license or two we should shift to a different category to make room.  In 
+the mean time, we have a document which hopefully normalizes behavior to 
+get people to focus also on doing work that can join with, rather than 
+fragment the community.  That, ultimately, is our goal.
+
+M
+
+

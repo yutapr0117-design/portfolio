@@ -287,3 +287,19 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **読み。** 承認が示すのは受け入れの床で、そこから使われるまでには各組織の一覧と審査がある。ACD の B2（採用者 1）は承認の前の問いで、この節が足すのは承認の後にも同じ費用が残ることである。承認の判断そのものには当たらない。
 
 **この節が establish しないこと。** 2014 年と 2015 年の個人の発言で、OSI の規則の文ではない。Villa 氏の FAQ の下書きが公開されたか、Phipps 氏の 2015-05 の役職は確かめていない。ASF の現行の一覧は WebFetch の要約で読んだので、逐語の照合はしていない。ASF が ACD をどう扱うかは、この節は何も言わない。
+
+## 1.182 理事会は何を却下するか —— 2007 年の分類の採択と "License Proliferation Dissatisfaction"（2026-11-11）
+
+`rounds/2007-04-license-discuss-license-proliferation-dissatisfaction-observed.txt`（5 通・スレッドは全 22 通）。ライセンス増殖の委員会を共同で率いた Russ Nelson 氏が 2007-04-22 に、理事会が委員会の報告を承認し分類を支持したと告げ、分類で下位に置かれた AFL と OSL の作者 Lawrence Rosen 氏の異議に答えた議論。分類は承認の可否ではなく、承認済みのライセンスの並べ方である（分類が承認の category であることは `review-corpus.md` と `review-outcomes.md` が扱う）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"we do our best to reject licenses that (1) have obvious legal problems, and (2) do not have such an overwhelming community of use that the community itself becomes a legal force."* | Michael Tiemann 氏 2007-04-24（理事会の判断を "we" で述べた） | B1 と B2 が 1 つの文で働く形。却下されるのは、明らかな法的な問題を持ち、かつ使う共同体がそれを補うほど大きくないライセンスである。ACD は (2) を必ず満たす（採用者 1）ので、却下されるかは (1) だけで決まり、(1) を誰も法律家として確かめていない（B1）。#323 として記録した。**逆側**: 「明らかな」問題に限った文で、法的なレビューが無いことそのものを理由にしてはいない。2007 年の一人の発言で、規則の文ではない。翌年の MirOS は、共同体の大きさを問われず OSD への適合で承認へ勧められた（§1.167） |
+| *"At one point it was proposed that we really should try to winnow the field to 3-4 licenses, tops--reciprocal, liberal, and one or two others. We did not take such a drastic approach after looking in more detail at the wide range of licenses and communities using those licenses."* | Michael Tiemann 氏 2007-04-24 | 有利な面。理事会は承認済みのライセンスを数本へ絞る案を検討し、採らなかった。Andrew C. Oliver 氏は同じスレッドで、承認の手続きそのものを閉じ、承認済みのものだけをオープンソースと宣言する案を出した。手続きは閉じられず、承認はその後も続いた |
+| *"They want a license that solves a particular legal problem, and for them, I would advise that they follow their attorney's advice, not the advice of the OSI, which has more to do with policy, economics, advocacy, and the like."* | Michael Tiemann 氏 2007-04-24 | 有利な面。人気が判断の軸でない利用者が居ることを、理事会の側が認めた。ACD の gap（B10）は、特定の問題を解くライセンスとして論じる形と合う。**逆側**: 同じ文は、その利用者は自分の弁護士に従え、とも言っている。ACD を選ぶ利用者には弁護士の読みが要り、ACD はそれを持たない（B1） |
+| *"If he can get the numbers up on his license, then we will certainly consider moving his license(s)s to the "Strong Communities" category."* | Russ Nelson 氏 2007-04-22 | 分類は使われ方に従って動く、という約束。承認された後に低い分類に置かれても、そこに固定されない。同じ通で *"We did not consider it practical to recommend licences that are rarely used, however sound their legal drafting may be."* とも書いた。法的な起草の良さは推薦の理由にならない |
+| *"Isn't the position that new licenses are disrecommended (by definition, licenses that start out as "less popular"), also a position against improvement and change?"* | Brian Behlendorf 氏 2007-04-23 | 有利な面の批判。新しいライセンスは定義上「人気が無い」ところから始まる。**逆側**: 批判であって、分類の方針は変わらなかった。Rosen 氏は *"Remember, I wrote the bylaws and know what OSI's mission was supposed to be. "Ranking for popularity" was never a part of it."* と書いた |
+
+**読み。** 2007 年の分類は、承認の基準ではなく推薦の基準として人気を使った。理事会の側は、承認済みを数本へ絞る案も、承認を閉じる案も採らなかった。一方で、却下の基準を述べた Tiemann 氏の文は、使われていないライセンスには法的な問題を補うものが無いことを示す。ACD にとって、承認の判断は本文の法的な健全さに寄り、それを確かめた法律家は居ない。
+
+**この節が establish しないこと。** Tiemann 氏の文は 2007 年の一人の発言で、理事会の決定文ではない（同氏の 2007-04 の役職は、この通の署名からは確かめていない）。「明らかな法的な問題」が ACD に在るかは、この節は何も言わない。分類の制度はその後も変わっており、いまの分類の運用は `board-decisions.md` が扱う。
