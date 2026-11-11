@@ -21,8 +21,8 @@ MUTATIONS_ARCHIVE4 = [
     "name": "Check 469 (a): Check 460 の face 列挙から (d) を落とす —— 実装は 19 面のまま宣言だけ 18 面になる。"
             "列挙は減る側へ drift するので「増えたか」では検出できない (479 の凍結リストに残っていた)",
     "file": ROOT / ".github" / "scripts" / "checks_license_self_reporting.py",
-    "find": "(d) FAQ mirror の件数、",
-    "replace": "FAQ mirror の件数、",
+    "find": "(d) **FAQ mirror の件数**、",
+    "replace": "**FAQ mirror の件数**、",
     "check": CHECK,
 },
     {

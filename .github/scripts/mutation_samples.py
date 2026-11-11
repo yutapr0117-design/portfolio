@@ -540,6 +540,31 @@ _MUTATIONS_TAIL.append({
     "find": "_src406 = strip_js_comments(_uic406.read_text(encoding=\"utf-8\"))",
     "replace": "_src406 = re.sub(r\"(?m)//.*$\", \"\", _uic406.read_text(encoding=\"utf-8\"))",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 469 (a): face (w) の唯一の _bad460.append を pass にする —— コメント `# (w)` は残るので、旧版 (コメントで実装を数える) は"
+            "検査が消えても緑だった (2026-11-12・監査 #145)",
+    "file": ROOT / ".github" / "scripts" / "checks_license_self_reporting.py",
+    "find": "                    _bad460.append(f\"(w) {_p460w.name}:{_n460w} が質問集を {_g.group(0)!r} と述べる / 実数 {_nq460w}\")",
+    "replace": "                    pass",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 469 (a): face (r) の entry を docstring から消す —— 別の face の説明の中の「(r) の §B.0 語数」が残るので、旧版 (区間のどこかの (x) を"
+            "宣言と数える) は宣言が満たされたまま緑だった (2026-11-12・監査 #146)",
+    "file": ROOT / ".github" / "scripts" / "checks_license_self_reporting.py",
+    "find": "(r) **`submission.md` の外に書かれた §B.0 の語数 ↔",
+    "replace": "**`submission.md` の外に書かれた §B.0 の語数 ↔",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 469 (b): E10 の errata の表の行を「未着手」にする —— E10 は別の行で both を受けているので {settled, pending, both} になり、"
+            "旧版 (等号で比べる) は矛盾を見逃した (2026-11-12・監査 #147)",
+    "file": ROOT / "LICENSES" / "ACD-1.1-CHANGELIST.md",
+    "find": "| **1.1 で閉じた**（`ACD-1.1.machine.json` の `textRedistribution`",
+    "replace": "| **未着手**（`ACD-1.1.machine.json` の `textRedistribution`",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
