@@ -172,6 +172,22 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 - **法的レビュー（B1）**: 1 人でも読めば「無い」を「ある」に変えられる。`QUESTIONS-FOR-COUNSEL.md` がその費用を下げる。手続き上の要件ではなく、Chestek 氏は 2024-12 に *not a blocker* と述べた（`review-precedents.md`）。同じスレッドで逆を述べた Piana 氏は同じ日に撤回した（#127）。献呈 + 許諾の先例は弁護士の一致で通った（#270）ので、あれば強い。
 - **第三者の採用（B2）**: 理事会は重複し使われていないものを留め置きうると述べた。委員会が Tiwaz を留めた理由も 2 つの連言で（*"a close variant of an existing license"*、*"no demonstrated uses or planned uses"*・2025-09-11）、解く条件は *"one or more projects begin using this license or express an interest in doing so"* である（`rounds/2025-09-11-license-review-tiwaz-committee-deferral-observed.txt`）。委員会の理由書は別の 2 通で *"the OSI has historically approved newly drafted licenses not yet in use"*（MIT-0・2020）、*"OSI has not used the number of projects adopting a license as a factor in deciding whether a license can be approved"*（Jam・2021）と述べており、どちらも過去についての文である。Chestek 氏は 2026 年に *"less inclined to approve a license that doesn't have a track record"* と述べた（`board-decisions.md` §2d）。ACD は既存の変種ではなく（gap）、このリポジトリが使っている。steward 本人の 1 件が「実証された使用」に数えられるかは記録からは決まらない。計画段階の利用も数えられるので、`ADOPTING.md` で見つけてもらう意味がある。採用の捏造はしない。
 
+### 承認済みに無い仕掛けと、本文が述べる理由（Phipps 氏の *novel devices* への備え・2026-11-11）
+
+Phipps 氏は OSI の判断について *"to explain the discretion OSI always has, and always will, choose to exercise when novel devices are unveiled."* と書いた（`license-review` 2019-06・`board-decisions.md`）。ACD は新しい仕掛けを持つので、審査者がそれを一つずつ探さなくて済むよう、ここに並べる。「承認済みに無い」と言うのは全数で測った項目だけで、測っていない項目はそう書く。
+
+| 仕掛け | 条（1.4 草案） | 本文が述べる理由 | 承認済みとの比較 | 逆側 |
+| :-- | :-- | :-- | :-- | :-- |
+| 放棄・許諾・約束を、互いに頼らず並べる | §2.4・§4.4 | *"granted independently of Section 3, and not as a fallback for it"* —— 受領者がどれが効いたかを決めなくてよい | 献呈と許諾を並べた Unlicense は承認済み（2020）。独立に働かせる語を持つ承認済みの本文があるかは測っていない | 並べ方そのものが問いになる（B4） |
+| 信頼を目的として述べ、約因や方式の欠けを理由に無効を主張しない | §2.5 | 信頼は *"and not merely a foreseeable consequence of it"* | 測っていない。CC0 の審査での禁反言の議論に対して作った | 契約の外で効くかは開いた問い（`QUESTIONS-FOR-COUNSEL.md` 問 1） |
+| TDM の留保をしない・撤回する | §6.2・§6.3 | *"The Dedicator makes no Reservation in respect of the Work and expressly declines to make one"* | 承認済み 141 本で TDM や DSM 指令 4 条 3 項の留保に触れる本は 0（`measure_gap_claim.py`・上の gap (a)） | 明示の不在であって、許諾の不在ではない |
+| モデルと出力に、献呈の下でも Covered Right の下でも請求が生じない | §6.4 | *"No enforceable claim arises against You"* | 出力をライセンスの外に置く規定は GPL-2.0 §0 などに古くから在る（§2 の表） | 出力に触れること自体が曖昧さを生むと言われた（#133） |
+| 作品を超えてモデルと出力に届く特許許諾（条件も終了も無い） | §8.4・§8.2 | *"This is a grant in its own right"* —— Covered Rights が特許を除くので §6 だけでは届かない | 141 本のうち 0 本（作品を超える許諾の 7 本はすべて条件を持つ・上の「gap」の行）。CERN-OHL-P の Products が一部の先例 | 広さは費用でもある（#16・B7） |
+| 機械生成物に権利を主張しない | §9.2 | *"asserts no right in Machine-Generated Material"* —— 権利の存否は決めず、受領者に判定させない（§9.3） | 承認済みで AI を名指す本は 0（gap (a) と同じ測定） | 権利が後に在るとされた部分には献呈が及ぶ（§9.2 第 3 文） |
+| 名前と識別子の族を 1 つの本文に結び、Steward だけが新しい版を出す | §16.4・§16.5 | *"so that each name and identifier in this family continues to denote one fixed text"* | AFL / OSL の §16 と同じ形（§2 の steward の行）。逐語の頒布だけを許す GPL・Apache・MPL の本文の扱いとも同じ向き | 識別子の扱いでは OSI が逆向きに働く場面も同じスレッドに在る（`against.md` #210）。「or later」が書けない費用は `review-responses-meta.md` Q33 |
+
+**この表が establish しないこと。** OSI が新しい仕掛けに裁量をどう使うかは、どの証拠でも決まらない（`board-decisions.md`・`against.md` #130）。理由を本文に書いたことは、理由が正しいことを示さない。
+
 ## 2. 先に自分から名指すと良い反論（審査者が見つける前に）
 
 | 反論 | 我々の答え（事実） | 所在 | 理由書の形（CAL 2020・`review-outcomes.md` §1.126） |
