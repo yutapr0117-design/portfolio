@@ -326,14 +326,20 @@ def run(ctx):
                     if _depth374 == 0:
                         _body374 = _src374[_i374:_k374 + 1]
                         break
-            _has_update374 = "State.update(" in _body374
-            _has_norm374 = "validateAndNormalize" in _body374
+            # コメントを除いて読み、validateAndNormalize の戻り値が State.set に渡ることまで見る (2026-11-11・
+            #   監査 #208 / #216): 部分文字列ではコメントの「validateAndNormalize していた」で満たされ、実際の呼び出しを
+            #   消しても、呼んで結果を捨てても緑だった
+            _code374 = strip_js_comments(_body374)
+            _has_update374 = "State.update(" in _code374
+            _vars374 = re.findall(r"(?:const|let|var)\s+(\w+)\s*=\s*(?:Store\.)?validateAndNormalize\(", _code374)
+            _has_norm374 = bool(re.search(r"State\.set\(\s*(?:(?:Store\.)?validateAndNormalize\(|(?:"
+                                          + "|".join(map(re.escape, _vars374 or ["$^"])) + r")\s*\))", _code374))
             _ok374 = (not _has_update374) and _has_norm374
         check(
             _m374 is not None and _ok374,
             "Check 374: settings-io.js importJSON は生を State.update で adopt せず validateAndNormalize してから State.set (normalize-before-commit ingestion)",
             ("Check 374: settings-io.js importJSON の ingestion が normalize-before-commit でない — "
-             + ("State.update( を呼んでおり生データが render に届きうる" if _has_update374 else "validateAndNormalize を通していない")
+             + ("State.update( を呼んでおり生データが render に届きうる" if _has_update374 else "validateAndNormalize の戻り値を State.set に渡していない (コメントの言及は数えない)")
              + "。マージ結果を Store.validateAndNormalize してから単一 State.set( で commit せよ "
              "(restoreSnapshot と同じ #295/#561 ingestion invariant・Check 130 の ingestion 版)")
             if _m374 else
