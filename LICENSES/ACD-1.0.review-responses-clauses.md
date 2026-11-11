@@ -47,7 +47,7 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 > this case removes. "Irrevocable" in Section 2.2 states the Dedicator's position; it does not
 > override the law. Whether any of these clauses holds in that case is open.
 
-**なぜこう答えるか**: §2.5 は依拠と禁反言に立つので、禁反言が働かない読みでは他の条に頼るしかない。その条もそれぞれ、効くかどうかが法域の問いである。上の §2.2 の答えは「契約か禁反言で守られる」と書いており、この問いはまさにその両方を外す。答えられないことを答えられないと書く（`against.md` #236 が Rosen 氏の異論を未回答として記録している。`QUESTIONS-FOR-COUNSEL.md` は問 1 の (i) で、禁反言が働かないとき何が受領者を守るかを法律家に尋ねる —— 2026-11-12 に portfolio-aa が足した）。portfolio-aa が審査者の問いを当てて残った 1 件である。
+**なぜこう答えるか**: §2.5 は依拠と禁反言に立つので、禁反言が働かない読みでは他の条に頼るしかない。その条もそれぞれ、効くかどうかが法域の問いである。上の §2.2 の答えは「契約か禁反言で守られる」と書いており、この問いはまさにその両方を外す。答えられないことを答えられないと書く（`against.md` #236 が Rosen 氏の異論を未回答として記録している。`QUESTIONS-FOR-COUNSEL.md` は問 1 の (i) で、禁反言が働かないとき何が受領者を守るかを法律家に尋ねる —— 2026-11-12 に portfolio-aa が足した）。portfolio-aa が審査者の問いを当てて残った 1 件である。同じ問いは 2003 年に list で問われ、答えが出ないまま終わっている。Rosen 氏は放棄の代わりに *"Grant an irrevocable license."* と勧め、翌日には *"I don't know why it would any different if one granted an "irrevocable" open source license, and then revoked it. Probably a new licensee with notice of the revocation can't obtain a license."* と書いた（`gap-measurements.md` §1.146 の 2026-11-12 の追記）。§4.1 が撤回できないと書いていても、対価が無いという議論に耐えるという記録は無い、という上の答えは、この記録と同じ向きである。2003 年の文も *"Probably"* と書いた見通しで、答えではない。
 
 **Q. §2.8 が承継人を拘束すると書いているが、そんなことができるのか。**
 
