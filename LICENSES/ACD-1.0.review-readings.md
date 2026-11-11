@@ -266,3 +266,24 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"One of the benefits of the OSI Certified certification mark is that users of such certified software can be assured that the licenses are OSD compliant without having to read and understand the entire license."* | Lawrence E. Rosen 氏 2002-08-14 | B13 の逆側。承認の印は、利用者が本文を全部読まずに済むためのもの、という見方。ACD の長さ（B3）の費用の一部は、承認されれば利用者の側では小さくなる。**逆側**: 審査する側は全部を読む |
 
 **この節が establish しないこと。** 2002 年の個人の発言と委員長の報告で、法律家の判断ではない（Nelson 氏は「法学者から聞いた」と書いている）。保証の否認が契約なしに効くかは法域の問いで、この節は決めない。
+
+## 1.181 承認は受け入れの床であって、下流の一覧ではない —— "why standard licenses"（2014）と Apache の第三者ライセンス方針（2015）（2026-11-11）
+
+`rounds/2014-04-license-discuss-why-standard-licenses-observed.txt`（4 通・スレッドは全 25 通）と `rounds/2015-05-and-08-license-discuss-apache-third-party-policy-observed.txt`（7 通・2 本のスレッドは全 31 通と 11 通）。前者は Luis Villa 氏が 2014-04-27 に、標準的なライセンスを使う理由を説明する文が FAQ にもサイトにも無いとして、FAQ の下書きを示して始めた議論。後者は Lawrence Rosen 氏が、Apache Software Foundation（ASF）が第三者のライセンスを A・B・X に分けて受け入れる方針を、OSI に任せる形へ変えるよう提案した議論で、ASF の legal-discuss から cross-post された。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"OSI approval signifies to me that a license meets minimum standards of acceptability, minimum standards of conformance to FLOSS norms"* | Richard Fontana 氏 2014-04-28 | 有利な面。承認は受け入れられる最低の基準を満たすことの印で、推薦ではない、という読み。ACD が求めているのはこの床である。**逆側**: 同じ通で *"But only some OSI-approved licenses go further and inspire for me the kind of trust and confidence spoken of in Luis's draft FAQ entry."* と続け、承認されても使う側の信頼は別に要る、と書いた |
+| *"The fact that it was approved by the OSI is very important but it does not transform the Attribution Assurance License into something that is "standard" in a common-sense sense."* | Richard Fontana 氏 2014-04-28 | B2 の不利な面。ACD は承認されても、既知の系列に属さない一本の承認済みライセンスになる。#322 に記録した |
+| *"I'm not quarreling with OSI's attempt to get everyone to use approved licenses, but I have long challenged your attempts to steer people toward some subset of those licenses."* | Lawrence Rosen 氏 2014-04-28 | 有利な面。承認済みのものの一部へ人を寄せることへの異議。§1.177 の「全部か、良いものだけか」と同じ線で、承認の判断は OSD への適合で行う、という立場（§1.178 の Villa 氏 2012 と並ぶ）。**逆側**: 個人の発言で、FAQ の下書き自体は標準的なライセンスを使う理由を述べるものだった（FAQ に入ったかは確かめていない） |
+| *"Same with "ALL other" OSI-approved licenses since each package would have to be reviewed as to whether it would be okay."* | Nigel H. Tzeng 氏（利用者の組織）2015-05-28 | B2 の不利な面。利用者の組織は、見慣れた組み合わせの外にある承認済みライセンスを、パッケージごとに審査する。承認は下流の審査を省かせない。#322 |
+| *"OSI *might* be able to determine what we legally can do (though I doubt that), but they have not a clue (no disrespect) what our *policy* is as well as the background and rationale behind that policy."* | Jim Jagielski 氏 2015-05-26 | 下流の一覧は各組織の方針で決まる、という立場。Ross Gardler 氏も同日 *"The OSI is not qualified to make judgments on ASF cultural mission."* と書いた |
+| *"Even though I am outside GC for OSI, I think that these issues are critical to ASF and should remain a decision made by ASF."* | Mark Radcliffe 氏 2015-05-27 | 同じ立場を、OSI の外部の general counsel と自ら書いた人が述べた。OSI の承認と、財団がどのライセンスを受け入れるかは別の決定である |
+| *"It's hard to see why this Apache-specific discussion is being redirected to OSI's mailing list and I suggest we end the conversation unless there is a specific and well-defined question for us to answer."* | Simon Phipps 氏（opensource.org のアドレスから）2015-05-29 | OSI の側も、一つの財団の受け入れの方針を決める場ではない、とした |
+| *"Enforcing compliance with licenses and copyright law requires legal review even for FOSS licenses that Apache lists in Category A."* | Lawrence Rosen 氏 2015-08-22 | 逆側。一覧に載っていても、遵守には法的な確認が要る、という見方。一覧は審査を消すのではなく、審査の入口を決めるものである |
+
+**いまの ASF の一覧（2026-11-11 に WebFetch で読んだ要約・逐語ではない）。** `https://www.apache.org/legal/resolved.html` は、受け入れの基準を OSD への適合に置き（OSI の承認の語は使っていない）、Unlicense と 0BSD を Category A に挙げ、CC0 を public domain と同様に扱うものとして挙げる。一覧に無い場合の一般の規則は書いておらず、問いは Legal Affairs Committee（legal-discuss か JIRA）へ出す。**有利な面**: 献呈の型そのものは、少なくとも一つの大きな財団の一覧で既に受け入れられている。基準が OSD への適合なので、ACD の論じ方（OSD の逐条）はそのまま使える。**逆側**: ACD はどの一覧にも無く、載るかは各組織が決める。0BSD の作者は、CC0 や MIT-0 が企業の法務で押し返しを受けたと証言している（`ACD-OSI-BOTTLENECKS.md` の B6 の 2026-11-08 の注）。
+
+**読み。** 承認が示すのは受け入れの床で、そこから使われるまでには各組織の一覧と審査がある。ACD の B2（採用者 1）は承認の前の問いで、この節が足すのは承認の後にも同じ費用が残ることである。承認の判断そのものには当たらない。
+
+**この節が establish しないこと。** 2014 年と 2015 年の個人の発言で、OSI の規則の文ではない。Villa 氏の FAQ の下書きが公開されたか、Phipps 氏の 2015-05 の役職は確かめていない。ASF の現行の一覧は WebFetch の要約で読んだので、逐語の照合はしていない。ASF が ACD をどう扱うかは、この節は何も言わない。

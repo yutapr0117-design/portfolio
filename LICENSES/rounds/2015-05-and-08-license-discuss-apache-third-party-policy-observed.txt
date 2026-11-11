@@ -1,0 +1,167 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2015-May, 2015-August)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 7 messages this dossier cites from "Proposal: Apache Third Party License Policy" (license-discuss, 2015-05; 31 messages) and "Category "B" licenses at Apache" (license-discuss, 2015-08; 11 messages). Cross-posted from the Apache Software Foundation's legal-discuss list. Not the whole threads.
+Senders: Lawrence Rosen, Ross Gardler, Jim Jagielski, Mark Radcliffe, Nigel H. Tzeng, Simon Phipps
+Position: a proposal that a foundation leave its third-party licence policy to OSI, and the replies, one of them from an opensource.org address. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Mon May 25 18:51:44 2015
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Mon, 25 May 2015 11:51:44 -0700
+Subject: [License-discuss] Proposal: Apache Third Party License Policy
+In-Reply-To: <CALGG8z1ryMb=iq1tag43-15nRiHk3P2pW14bVLfwLUBifB_TKA@mail.gmail.com>
+References: <18c601d09678$9df86cd0$d9e94670$@rosenlaw.com>	<CAFG6u8H_nJi4UDrJt4nsWV=uWiduZh4zA3UYZZfp2r4V7m+r2w@mail.gmail.com>	<199701d096fe$c69d1fb0$53d75f10$@rosenlaw.com>
+	<CALGG8z1ryMb=iq1tag43-15nRiHk3P2pW14bVLfwLUBifB_TKA@mail.gmail.com>
+Message-ID: <19f501d0971b$da773120$8f659360$@rosenlaw.com>
+
+Hen,
+
+ 
+
+An important part of the proposed Apache Third Party License Policy is that we finally leave the sad domain of FOSS license compatibility determination to our friends and experts at OSI.
+
+ 
+
+If we have a question about whether a specific FOSS license "infects" Apache code, ask OSI at license-discuss at opensource.org <mailto:license-discuss at opensource.org> . That's not ASF's expertise. Our PMCs and certainly our board of directors are not qualified to maintain complex "A, B and X" lists of FOSS licenses and exceptions.
+
+ 
+
+And so in open source, different organizations can play their own important roles in our ecosystem. All this without turning one FOSS developer against another FOSS developer here at Apache merely because of their choice of wonderful FOSS license.
+
+ 
+
+/Larry
+
+From Ross.Gardler at microsoft.com  Tue May 26 08:14:43 2015
+From: Ross.Gardler at microsoft.com (Ross Gardler (MS OPEN TECH))
+Date: Tue, 26 May 2015 08:14:43 +0000
+Subject: [License-discuss] Proposal: Apache Third Party License Policy
+In-Reply-To: <19f501d0971b$da773120$8f659360$@rosenlaw.com>
+References: <18c601d09678$9df86cd0$d9e94670$@rosenlaw.com>
+	<CAFG6u8H_nJi4UDrJt4nsWV=uWiduZh4zA3UYZZfp2r4V7m+r2w@mail.gmail.com>
+	<199701d096fe$c69d1fb0$53d75f10$@rosenlaw.com>
+	<CALGG8z1ryMb=iq1tag43-15nRiHk3P2pW14bVLfwLUBifB_TKA@mail.gmail.com>,
+	<19f501d0971b$da773120$8f659360$@rosenlaw.com>
+Message-ID: <BY2PR03MB490A021EA9112522A43CBED99CC0@BY2PR03MB490.namprd03.prod.outlook.com>
+
+Once again this ignores the community motivations for the policy. The OSI is not qualified to make judgments on ASF cultural mission.
+
+Sent from my Windows Phone
+
+From jim at jaguNET.com  Tue May 26 11:42:02 2015
+From: jim at jaguNET.com (Jim Jagielski)
+Date: Tue, 26 May 2015 07:42:02 -0400
+Subject: [License-discuss] Proposal: Apache Third Party License Policy
+In-Reply-To: <BY2PR03MB490A021EA9112522A43CBED99CC0@BY2PR03MB490.namprd03.prod.outlook.com>
+References: <18c601d09678$9df86cd0$d9e94670$@rosenlaw.com>
+	<CAFG6u8H_nJi4UDrJt4nsWV=uWiduZh4zA3UYZZfp2r4V7m+r2w@mail.gmail.com>
+	<199701d096fe$c69d1fb0$53d75f10$@rosenlaw.com>
+	<CALGG8z1ryMb=iq1tag43-15nRiHk3P2pW14bVLfwLUBifB_TKA@mail.gmail.com>
+	<19f501d0971b$da773120$8f659360$@rosenlaw.com>
+	<BY2PR03MB490A021EA9112522A43CBED99CC0@BY2PR03MB490.namprd03.prod.outlook.com>
+Message-ID: <CF8D80DD-4748-4058-B57F-6CC2CF5F035A@jaguNET.com>
+
+FWIW, I agree.
+
+Again, there is a difference between, maybe, what we are allowed
+to do and what we *should* do. OSI *might* be able to determine
+what we legally can do (though I doubt that), but they have
+not a clue (no disrespect) what our *policy* is as well as
+the background and rationale behind that policy.
+
+Letter vs. intent.
+
+From Mark.Radcliffe at dlapiper.com  Wed May 27 01:38:35 2015
+From: Mark.Radcliffe at dlapiper.com (Radcliffe, Mark)
+Date: Wed, 27 May 2015 01:38:35 +0000
+Subject: [License-discuss] Proposal: Apache Third Party License Policy
+In-Reply-To: <CF8D80DD-4748-4058-B57F-6CC2CF5F035A@jaguNET.com>
+References: <18c601d09678$9df86cd0$d9e94670$@rosenlaw.com>
+	<CAFG6u8H_nJi4UDrJt4nsWV=uWiduZh4zA3UYZZfp2r4V7m+r2w@mail.gmail.com>
+	<199701d096fe$c69d1fb0$53d75f10$@rosenlaw.com>
+	<CALGG8z1ryMb=iq1tag43-15nRiHk3P2pW14bVLfwLUBifB_TKA@mail.gmail.com>
+	<19f501d0971b$da773120$8f659360$@rosenlaw.com>
+	<BY2PR03MB490A021EA9112522A43CBED99CC0@BY2PR03MB490.namprd03.prod.outlook.com>
+	<CF8D80DD-4748-4058-B57F-6CC2CF5F035A@jaguNET.com>
+Message-ID: <E682AA2FC88ADD4589420BFC6BE3A921386B5263@SANDMBX01v.piper.root.local>
+
+I agree. Even though I am outside GC for OSI, I think that these issues are critical to ASF and should remain a decision made by ASF.
+
+From Nigel.Tzeng at jhuapl.edu  Thu May 28 16:40:18 2015
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Thu, 28 May 2015 16:40:18 +0000
+Subject: [License-discuss] Proposal: Apache Third Party License Policy
+In-Reply-To: <214e01d098a9$5dbbfb40$1933f1c0$@rosenlaw.com>
+References: <1ea601d09823$2cb633c0$86229b40$@rosenlaw.com>
+	<D18B4D19.17DCE%Nigel.Tzeng@jhuapl.edu>
+	<214e01d098a9$5dbbfb40$1933f1c0$@rosenlaw.com>
+Message-ID: <D18CB58F.17FCC%Nigel.Tzeng@jhuapl.edu>
+
+Larry,
+
+We're not afraid of GPL and use it where applicable.  The "where applicable" part is the issue. Same with "ALL other" OSI-approved licenses since each package would have to be reviewed as to whether it would be okay.
+
+Whereas Apache is currently just ALv2 or ALv2 + some permissive license with a attribution clause.   It is easy for a Project Manager or Legal to say "if it's from Apache it's okay to use".  It's a known quantity and you can trust the brand.  Muddy the waters and this is no longer true and a huge step backwards.
+
+Show me the case law to prove what you term aggregation is not what the FSF calls derivative and provide indemnification against copyright infringement if it isn't aggregation.
+
+THEN the concerns are mitigated.  Otherwise inclusion of any copyleft licensed code in Apache projects is a huge issue for users.
+
+From webmink at opensource.org  Fri May 29 11:51:13 2015
+From: webmink at opensource.org (Simon Phipps)
+Date: Fri, 29 May 2015 12:51:13 +0100
+Subject: [License-discuss] Proposal: Apache Third Party License Policy
+In-Reply-To: <1ea601d09823$2cb633c0$86229b40$@rosenlaw.com>
+References: <1ea601d09823$2cb633c0$86229b40$@rosenlaw.com>
+Message-ID: <CAA4ffp_DKCg_U-W20J9Z0vJTryHN+81ryKh+X89sAv_Ec0-pRQ@mail.gmail.com>
+
+[Removing cross-posting]
+
+It's hard to see why this Apache-specific discussion is being redirected to
+OSI's mailing list and I suggest we end the conversation unless there is a
+specific and well-defined question for us to answer.
+
+Thanks,
+
+Simon
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20150529/e2500cba/attachment.html>
+
+From lrosen at rosenlaw.com  Sat Aug 22 19:11:24 2015
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Sat, 22 Aug 2015 12:11:24 -0700
+Subject: [License-discuss] Category "B" licenses at Apache
+In-Reply-To: <D1FBCC07.1DB0A%Nigel.Tzeng@jhuapl.edu>
+References: <01de01d0d921$bde51700$39af4500$@rosenlaw.com>
+ <D1FBCC07.1DB0A%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <06af01d0dd0e$58360400$08a20c00$@rosenlaw.com>
+
+Responding to Nigel Tzeng's concerns (below) about source and object code:
+
+ 
+
+There is perhaps a smaller risk that someone will make a derivative work of
+Apache software entirely by accident from the binary alone without looking
+for the source code (and finding it) posted on the web. But just in case,
+for that reason and many others, seeking legal review first for a commercial
+product is a great idea before even attempting any derivative work.  
+
+Important derivative works of software are not accidental.
+
+Enforcing compliance with licenses and copyright law requires legal review
+even for FOSS licenses that Apache lists in Category A. I know that because
+I wrote one of those OSI-approved and Apache-approved and FSF-approved FOSS
+licenses (AFL 3.0) that imposes important (non-reciprocal) conditions on
+both copies and derivative work. So do many other FOSS licenses in all
+Apache's "categories." For both binaries and source code. Caveat emptor.
+Caveat derivator.
+
+ 
+
+/Larry
+
+ 
+
+P.S. Nigel is correct. I meant EPL not ECL. I write too fast....
+
