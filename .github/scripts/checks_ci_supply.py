@@ -55,7 +55,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        anti-weakening). Third-party actions (e.g. peter-evans/create-pull-request) are the highest
        attack surface. This Check parses every uses: ref and asserts a 40-hex SHA (local `./` actions
        are exempt), preventing regression to mutable tags; the human-readable `# vN` comment stays
-       and dependabot (github-actions, Check 68) keeps the pins current. (BLOCKING)
+       and dependabot (github-actions, Check 68) keeps the pins current. 2026-11-11: the step form
+       `- uses:` and quoted refs are read too, and a `docker://` image must be pinned by digest
+       (`@sha256:<64 hex>`) instead of being exempt. (BLOCKING)
 """
 import re
 import json
@@ -269,12 +271,14 @@ def run(ctx):
     # 版数タグ (@v6) や branch (@main) は可変で、上流が tag を別 commit へ移動 (or 侵害) すると
     # repo を一切変えずに workflow が別コードを実行しうる (supply-chain risk)。本 Check は
     # .github/workflows/*.yml の全 `uses: owner/repo@ref` の ref が 40-hex commit SHA であることを
-    # 強制し、mutable tag への後退を封じる (local `./` action は exempt)。可読性の `# vN` コメントは
+    # 強制し、mutable tag への後退を封じる (local `./` action は exempt・`docker://` は @sha256 の digest を要求)。可読性の `# vN` コメントは
     # 残り、dependabot (github-actions・Check 68) が pin を最新に保つ。第三者 action が最大の attack
     # surface。Check 67/76/115 と同 security-baseline の supply-chain 版。
     _wf_dir145 = ROOT / ".github" / "workflows"
     if _wf_dir145.is_dir():
-        _uses_re145 = re.compile(r"^\s*uses:\s*(\S+)")
+        # step の先頭に書く `- uses:` の形と、引用符で囲んだ ref も読む (2026-11-11・監査 #55)。行の先頭の語が
+        #   uses: のときしか読まず、`- uses: owner/action@v1` は素通りしていた
+        _uses_re145 = re.compile(r"^\s*(?:-\s+)?uses:\s*['\"]?([^\s'\"#]+)")
         _sha_re145 = re.compile(r"^[0-9a-f]{40}$")
         _unpinned145 = []
         for _wf145 in sorted(_wf_dir145.glob("*.yml")):
@@ -283,8 +287,14 @@ def run(ctx):
                 if not _m145:
                     continue
                 _ref145 = _m145.group(1)
-                if _ref145.startswith("./") or _ref145.startswith("docker://"):
-                    continue  # local / docker action は SHA-pin 対象外
+                if _ref145.startswith("./"):
+                    continue  # local action は SHA-pin 対象外
+                if _ref145.startswith("docker://"):
+                    # docker の image も tag は可変。digest (@sha256:<64 hex>) で pin する (2026-11-11・監査 #56):
+                    #   以前は理由の記述なく丸ごと除外し、docker://alpine:latest も通した
+                    if not re.search(r"@sha256:[0-9a-f]{64}$", _ref145):
+                        _unpinned145.append(f"{_wf145.name}:{_i145} ({_ref145} — image を digest で pin していない)")
+                    continue
                 if "@" not in _ref145:
                     _unpinned145.append(f"{_wf145.name}:{_i145} ({_ref145} — @ref 無し)")
                     continue
