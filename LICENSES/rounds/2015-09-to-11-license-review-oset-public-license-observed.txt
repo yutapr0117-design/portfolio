@@ -1,0 +1,166 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2015-September, 2015-October, 2015-November)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 6 messages this dossier cites from the review of the OSET Public License (license-review, 2015-09 to 2015-11; about 60 messages under the subject). Not the whole thread.
+Senders: Richard Fontana, Josh Berkus, Meeker, Heather J.
+Position: review of another submission, from submission to approval. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From fontana at sharpeleven.org  Thu Sep  3 03:26:39 2015
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Wed, 2 Sep 2015 23:26:39 -0400
+Subject: [License-review] Submission of OSET Public License for Approval
+In-Reply-To: <588CF6CE14FFAB47AF5CEC6660C350764F25A535@USHTMB1X.firm.omm.com>
+References: <588CF6CE14FFAB47AF5CEC6660C350764F25A535@USHTMB1X.firm.omm.com>
+Message-ID: <20150903032639.GA4113@sharpeleven.org>
+
+On Tue, Sep 01, 2015 at 10:18:59PM +0000, Meeker, Heather J. wrote:
+
+> Thank you for your consideration and we look forward to the discussion!
+
+Thanks Heather.
+
+I don't think we've been consistently enforcing the 'recommend a
+proliferation category' requirement at the outset, but would you agree
+this license ought to be classified as 'special purpose'? (See:
+http://opensource.org/proliferation-report)
+
+Richard
+
+
+
+From josh at postgresql.org  Thu Sep 10 16:45:02 2015
+From: josh at postgresql.org (Josh Berkus)
+Date: Thu, 10 Sep 2015 11:45:02 -0500
+Subject: [License-review] OSET Foundation
+In-Reply-To: <011901d0eb3e$776f7fc0$664e7f40$@rosenlaw.com>
+References: <CAG0EJGQC4ErD44cgKafD_cqSsruOrY7kVQzfuJvTXv+mVjoqDw@mail.gmail.com>
+ <0cad01d0ea85$9d3f0f90$d7bd2eb0$@rosenlaw.com>
+ <CAOzx7NxxgcnWtTMJ+1YAmsz6D5YTYo1PAzowRQ61pG7vbQFi7A@mail.gmail.com>
+ <007601d0eb0f$3da86fb0$b8f94f10$@rosenlaw.com>
+ <CAOzx7Nx7kNnA7mn_f10uccEouHqURPr5uREu5D-YjeX2dYBDBA@mail.gmail.com>
+ <00f801d0eb32$316a0bf0$943e23d0$@rosenlaw.com>
+ <D215FFF9.1E9F4%Nigel.Tzeng@jhuapl.edu>
+ <011901d0eb3e$776f7fc0$664e7f40$@rosenlaw.com>
+Message-ID: <55F1B38E.3040903@postgresql.org>
+
+On 09/09/2015 03:31 PM, Lawrence Rosen wrote:
+> Nigel, please don't put me in the false position of claiming that GPLv3
+> is good for everything. You know it has never been my favorite license.
+> :-)  But in this case, considering the essential element of public trust
+> in public election software, I want the (psychologically) strongest
+> license in our arsenal. I DO want the public to be comforted by
+> attorneys at the ready to defend software freedom for this GPL
+> application. That will be reassuring around the world.
+
+*shrug* I agree with you, but that is not our job.
+
+Our job is to decide:
+
+a) does the OSET license meet the letter and spirit of the OSD?
+
+b) does it contain unique and valid provisions, such that no existing
+license is sufficient?
+
+c) is it legally sound?
+
+d) is it going to be used by a significant and sustained project?
+
+Any discussion about which license OSET should adopt and whether they
+really need their provisions or not should take place in other forums.
+ You can do what you want, but I am not going to try to tell someone
+else what license they should pick for their project, and in my opinion
+such posts have no place in license-review.
+
+--Josh Berkus
+
+
+From josh at postgresql.org  Fri Sep 11 15:36:43 2015
+From: josh at postgresql.org (Josh Berkus)
+Date: Fri, 11 Sep 2015 10:36:43 -0500
+Subject: [License-review] [CAVO] OSET Foundation
+In-Reply-To: <20150910140211.dc066b1d4d2e0a1a65719ae85a8071e6.e311255172.wbe@email03.secureserver.net>
+References: <20150910140211.dc066b1d4d2e0a1a65719ae85a8071e6.e311255172.wbe@email03.secureserver.net>
+Message-ID: <55F2F50B.2040200@postgresql.org>
+
+David,
+
+
+> I would contend that the review would fail on this criteria:
+> 
+> b) does it contain unique and valid provisions, such that no existing
+> license is sufficient?
+> 
+> The existing GPL3 "as is" is sufficient for the stated purpose of
+> elections software.
+
+That's a BS argument and you know it.  I could just as well argue that
+the BSD license is really "sufficient" for all OSS and we should abolish
+all other licenses.  But we're not going to do that, so please stop
+trying to disguise an ideological argument as a legal one.  It's not
+working, and it's making you look stupid doing it.
+
+It is NOT OUR BUSINESS to tell an OSS project that they should have a
+different license.  If you want to argue that OSET should use the GPLv3
+instead, then join their project and argue it in their community.
+
+> OSET provided a link to their web site and their stated objectives - it
+> appears the real purpose of the OSET license is to provide the criteria
+> for inclusion in their own repository.
+
+Given that this is exactly what Apache, Eclipse, and Mozilla do, and all
+of those licenses are certified by the OSI, this is actually an argument
+*for* the license, not against it.
+
+--Josh Berkus
+
+
+
+
+From fontana at opensource.org  Wed Oct 14 20:59:51 2015
+From: fontana at opensource.org (Richard Fontana)
+Date: Wed, 14 Oct 2015 16:59:51 -0400
+Subject: [License-review] OSET Public License
+Message-ID: <20151014205951.GB12508@sharpeleven.org>
+
+Hi,
+
+Given the concerns expressed here about the OSET Public License
+privileging one class of licensees, we ask that the OSET Foundation
+revise the OSET Public License to revert section 4 to the
+corresponding ancestral version of that section in MPL 2.0.
+
+Richard
+
+
+From hmeeker at omm.com  Wed Nov  4 22:08:53 2015
+From: hmeeker at omm.com (Meeker, Heather J.)
+Date: Wed, 4 Nov 2015 22:08:53 +0000
+Subject: [License-review] OSET Public License
+In-Reply-To: <20151103030150.GA4251@sharpeleven.org>
+References: <20151014205951.GB12508@sharpeleven.org>
+ <588CF6CE14FFAB47AF5CEC6660C350764F2CBE81@USHTMB1X.firm.omm.com>
+ <20151103030150.GA4251@sharpeleven.org>
+Message-ID: <588CF6CE14FFAB47AF5CEC6660C350764F306F16@USHTMB1X.firm.omm.com>
+
+Richard, we would propose to address the issue in the note below by moving the text around to make the portion mentioning OSET into precatory language, rather than part of the agreement.  It is a little bit like what is done here:  http://opensource.org/licenses/BSD-3-Clause.  That way, the text of the license will be "templatized" for use by others.  To show what I mean, I have a version to submit showing in redline form the changes we are proposing to make.  A process question: How should I deliver it?  I can attach a .pdf to an email to this list -- will that work?  
+
+--Heather
+
+From fontana at sharpeleven.org  Thu Nov 12 21:52:17 2015
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Thu, 12 Nov 2015 16:52:17 -0500
+Subject: [License-review] OSET Public License
+In-Reply-To: <20151108044907.GA15139@sharpeleven.org>
+References: <20151014205951.GB12508@sharpeleven.org>
+ <588CF6CE14FFAB47AF5CEC6660C350764F2CBE81@USHTMB1X.firm.omm.com>
+ <20151103030150.GA4251@sharpeleven.org>
+ <588CF6CE14FFAB47AF5CEC6660C350764F306F16@USHTMB1X.firm.omm.com>
+ <20151104224222.GB14090@sharpeleven.org>
+ <588CF6CE14FFAB47AF5CEC6660C350764F309E39@USHTMB1X.firm.omm.com>
+ <20151108044907.GA15139@sharpeleven.org>
+Message-ID: <20151112215217.GA6619@sharpeleven.org>
+
+The OSI has approved the OSET Foundation Public License version 2.1.
+
+Richard
+
