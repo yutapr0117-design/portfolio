@@ -97,14 +97,16 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       words and ending "otherwise practise or transfer", so that a person who
       never uses the Work holds nothing under them, and Section 8.1 reaches
       "the Work or anything derived from it", where it said "any derivative of
-      the Work" (errata E40, E41, E64). Section 8.4 (errata E56, E66) now
-      speaks of Computational Use permitted "as to the Covered Rights", leaves
-      a feature added to the Work by whatever means to Section 8.1 alone,
-      reaches a claim only where the feature that infringes it results from the
-      content of the Work, where it excluded any claim that a model made
-      without the Work could also infringe, and says that no threshold of
-      quantity is imposed because You could not determine whether one had been
-      crossed (Section 6.5). (+14 words.)
+      the Work" (errata E40, E41, E64). Section 8.4 (errata E66) now leaves a
+      feature added to the Work by whatever means to Section 8.1 alone, reaches
+      a claim only where the feature that infringes it results from the content
+      of the Work, where it excluded any claim that a model made without the
+      Work could also infringe, and says that no threshold of quantity is
+      imposed because You could not determine whether one had been crossed
+      (Section 6.5), and states its grant without the reasons it gave for it:
+      the sentence on why the grant is necessary, which errata E56 had
+      corrected, the unresolved state of the law, and why the proviso in
+      Section 8.1 is absent. (-91 words.)
     * Section 8.3 now says once that Sections 8.1 and 8.4 reach a patent claim
       only as to the acts they describe, where it spoke of any patent right of
       the Dedicator in respect of the Work. (+3 words.)
@@ -192,7 +194,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5658 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5553 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -574,24 +576,16 @@ PREAMBLE (informative; not part of the operative terms)
        parameter set, weight, embedding, or output resulting from Computational
        Use of the Work, under every patent claim owned or controlled by the
        Dedicator, now or in future, that those acts would infringe. This is a
-       grant in its own right and not a clarification of Section 8.1: whether a
-       trained model is "the Work" or derived from it is unresolved, and a
-       provision that merely avoided doubt would be read down with the reading
-       it was meant to correct. The grant is necessary because Covered Rights
-       exclude patent rights (Section 1.5), so Section 6.4 alone would leave
-       Computational Use permitted as to the Covered Rights while exposed as to
-       patents, which is the very result Section 8.3 rejects and one that would
-       defeat the purpose stated in Section 6.5. The proviso in Section 8.1 as
-       to subject matter contained in the Work is deliberately absent from this
-       Section: a model is not subject matter contained in the Work, so
-       importing that proviso would restore the exposure this Section exists to
-       remove. Section 8.1 alone governs a feature added to the Work, by
-       whatever means. This Section reaches a claim only where the feature that
-       infringes it results, in whole or in part, from the content of the Work;
-       a feature that the Work teaches or embodies is taken so to result. That
-       is a question of causation and not of quantity: no threshold of how much
-       of the Work was used is imposed, since You could not determine whether
-       one had been crossed (Section 6.5).
+       grant in its own right and not a clarification of Section 8.1. The
+       proviso in Section 8.1 as to subject matter contained in the Work is
+       deliberately absent from this Section. Section 8.1 alone governs a
+       feature added to the Work, by whatever means. This Section reaches a
+       claim only where the feature that infringes it results, in whole or in
+       part, from the content of the Work; a feature that the Work teaches or
+       embodies is taken so to result. That is a question of causation and not
+       of quantity: no threshold of how much of the Work was used is imposed,
+       since You could not determine whether one had been crossed
+       (Section 6.5).
 
   8.5  Sections 8.1 to 8.4 are subject to Section 2.7: they reach only patent
        claims the Dedicator owns or controls, now or in future, and are neither
