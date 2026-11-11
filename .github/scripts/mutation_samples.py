@@ -522,6 +522,12 @@ _MUTATIONS_TAIL.append({
     "find": "§2 (scope and effect, 10)",
     "replace": "§2 (scope and effect, 11)",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 478: 地図の 476 の行の「実装:」を分割前の module (checks_license_submission.py) にする —— 所在列しか読まず、説明の欄の「実装:」の形は照合していなかった (473 の行が実際にそうなっていた)",
+    "file": ROOT / "docs" / "architecture" / "check-repository-consistency-map.md",
+    "find": "\u3002\u5b9f\u88c5: `.github/scripts/checks_license_dossier.py`",
+    "replace": "\u3002\u5b9f\u88c5: `.github/scripts/checks_license_submission.py`",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
