@@ -333,3 +333,15 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **読み。** CC0 の審査が特許で止まる前に、委員会の側は構造（放棄と許諾を 1 つに持つ文書）を審査できるかを論じていた。全体として 1 つのライセンスだという読み（Cowan 氏）と、一体の文書は全体を審査するか、しないかだという立場（Fontana 氏）が出て、どちらも審査そのものを退けていない。放棄の部分を認証から外す立場（Glaser 氏）も在った。BOTTLENECKS の B4 の「意向調査で構造を理由にした人はいない」は意向調査の記録として動かないが、提出の前には構造への留保が在った。
 
 **この節が establish しないこと。** 個人の発言で、OSI の決定ではない。Fogel 氏と Fontana 氏の 2012-01 の役職は、これらの通の署名からは確かめていない。Glaser 氏の文の後半はアーカイブの文字化けのため逐語で引いていない。
+
+**2026-11-11 の追記 —— 1 か月後、利用者が承認を求めたスレッド（2012-02）。** `rounds/2012-02-license-review-osi-recognition-cc0-observed.txt`（7 通・全 17 通）。Carl Boettiger 氏が CC0 を承認の候補として出し、Creative Commons が自分で出すのを待つことになった。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"What practical problem do you consider this licence (in truth, a professed public domain declaration with a failsafe fallback to a simple permissive licence) to solve that is not already solved by MIT License or Fair License?"* | Rick Moen 氏 2012-02-02 | B10 の不利な面。ACD と同じ型に、既存の許容型で解けていない何を解くのかが最初に問われた。同じ日に同氏は *"A bit perverse and nothing I'd recommend anyone use, but every bit as open source as the endless variety of other simple permissive licence variants."* とも書いた —— 適合は認め、勧めない。ACD の答えは帰属の無さではなく特許の側に在る（B10、`gap-measurements.md` §1.146 の 2015 年の行と同じ） |
+| *"CC0 was explicitly created to solve the license challenges I have (applying equally well to data and code, not burdening the user with deciding what's substantial, and being appropriately vetted by legal experts)."* | Carl Boettiger 氏（利用者）2012-02-02 | B1 の不利な面。利用者が既製の文書を選ぶ理由の一つに、法律家に吟味されていることを挙げた。ACD はそれを持たない。**逆側**: 同じ文が挙げるデータとコードの両方に当たること（ACD の §1.2）は、ACD が答える側の性質である |
+| *"Many people would stay clear off a work with such a notice."* | Thorsten Glaser 氏 2012-02-02 | 有利な面。既存のライセンスに「同梱の要件を放棄する」と自分で書き足せばよいという勧め（Moen 氏）に対し、その場の注記は人を遠ざける、と述べた。標準の文書が要る理由の一つ |
+| *"The normal objection is that a random submitter can't negotiate with the OSI for changes if they are wanted."* | John Cowan 氏 2012-02-02 | B12 と B14 の参考。普通の反対は、起草した側でない提出者は変更の交渉ができないことだ、と述べた。ACD は steward のオーナーが自分で出し、版を改めて応じられる。**逆側**: 本文を書いたのは AI で、交渉に応じる語はオーナーのものになる（B14） |
+| *"After all, the requirement that the originator of a license be the one to submit it is not a hard requirement, it's just a tradition that we've kept because it's a good filter."* | Karl Fogel 氏 2012-02-02 | 起草した本人が出すのは厳格な要件ではなく、濾し器としての慣行だ、という説明。同じ通で、CC0 は増殖の費用を払ってでも評価に値すると書いた（*"despite the license proliferation cost"*） |
+
+**この追記が establish しないこと。** 個人の発言で、OSI の決定ではない。Boettiger 氏が後に CC0 以外を選んだかは確かめていない。
