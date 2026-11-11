@@ -1,0 +1,171 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2013-March)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 4 messages this dossier cites from "FAQ entry for slight variations in licenses?" (license-discuss, 2013-03; 10 messages). Not the whole thread.
+Senders: Karl Fogel, Richard Fontana, Luis Villa, Lawrence Rosen
+Position: a draft FAQ answer on minor variants of approved licences, and an exchange between two lawyers on whether a lawyer should be involved. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From kfogel at red-bean.com  Thu Mar  7 23:01:03 2013
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Thu, 07 Mar 2013 17:01:03 -0600
+Subject: [License-discuss] FAQ entry for slight variations in licenses?
+In-Reply-To: <CAFPTOkUJjhKw5ZRHELiRj3dj6wnZxZ1SwoszwU3NQysgWG2uPQ@mail.gmail.com>
+	(Luis Villa's message of "Wed, 6 Mar 2013 22:19:11 -0800")
+References: <CAFPTOkUJjhKw5ZRHELiRj3dj6wnZxZ1SwoszwU3NQysgWG2uPQ@mail.gmail.com>
+Message-ID: <87d2vazufk.fsf@kwarm.red-bean.com>
+
+Luis Villa <luis at tieguy.org> writes:
+>A comment on the ISC license page (found by Engel- thanks!) points out
+>that there is more than one variation of the ISC license. This is a
+>common issue for the older permissive licenses, unfortunately.
+>
+>Driven by this question, I think we might want a FAQ entry that
+>answers the following question:
+>
+>Q: "I know about a variant of an approved license that differs from
+>the approved license by only one or two words. Is the variant also an
+>approved license?"
+>
+>A: Something along the lines of: "Many older licenses have a variety
+>of minor variations in the language. Unfortunately, it is not possible
+>for OSI to review every variation, so we cannot say if a given
+>variation is approved."
+>
+>Unfortunately, this is a bit of a non-answer, but I'm not seeing a
+>good way to address it. Perhaps someone here can give a more
+>useful/constructive answer that I'm not seeing right now?
+
+"Many older licenses have a variety of minor variations in the
+language. Unfortunately, it is not possible for OSI to review every
+variation, so we cannot say if a given variation is approved.  However,
+if you have a competent lawyer review the variation and you conclude
+that it is minor and could not possibly have any legal signifance, in
+terms of the license being compatible with the Open Source Definition,
+then if you use that license and call the licensed software 'open
+source', there is at least a possibility that any subsequent discussion
+with the OSI about it would go well.  Please use good judgement and be
+conservative in this situation."
+
+Not terribly much more meaningful, really, but maybe enough for most
+people to work with & do what they need to do? :-)
+
+Comments, missiles welcome...
+
+
+
+
+From fontana at sharpeleven.org  Fri Mar  8 02:03:53 2013
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Thu, 7 Mar 2013 21:03:53 -0500
+Subject: [License-discuss] FAQ entry for slight variations in licenses?
+In-Reply-To: <87d2vazufk.fsf@kwarm.red-bean.com>
+References: <CAFPTOkUJjhKw5ZRHELiRj3dj6wnZxZ1SwoszwU3NQysgWG2uPQ@mail.gmail.com>
+	<87d2vazufk.fsf@kwarm.red-bean.com>
+Message-ID: <20130308020353.GB16660@sharpeleven.org>
+
+On Thu, Mar 07, 2013 at 05:01:03PM -0600, Karl Fogel wrote:
+> "Many older licenses have a variety of minor variations in the
+> language. Unfortunately, it is not possible for OSI to review every
+> variation, so we cannot say if a given variation is approved.  However,
+> if you have a competent lawyer review the variation and you conclude
+> that it is minor and could not possibly have any legal signifance, in
+> terms of the license being compatible with the Open Source Definition,
+> then if you use that license and call the licensed software 'open
+> source', there is at least a possibility that any subsequent discussion
+> with the OSI about it would go well.  Please use good judgement and be
+> conservative in this situation."
+> 
+> Not terribly much more meaningful, really, but maybe enough for most
+> people to work with & do what they need to do? :-)
+> 
+> Comments, missiles welcome...
+
+One missile: The idea that you would need a lawyer, competent or
+otherwise, to be involved in such review, though personally appealing
+from a guild-aggrandizement standpoint, seems highly dubious, and
+probably sends the wrong message.
+
+ - RF
+
+
+
+From luis at tieguy.org  Fri Mar  8 03:07:55 2013
+From: luis at tieguy.org (Luis Villa)
+Date: Thu, 7 Mar 2013 19:07:55 -0800
+Subject: [License-discuss] FAQ entry for slight variations in licenses?
+In-Reply-To: <20130308020353.GB16660@sharpeleven.org>
+References: <CAFPTOkUJjhKw5ZRHELiRj3dj6wnZxZ1SwoszwU3NQysgWG2uPQ@mail.gmail.com>
+	<87d2vazufk.fsf@kwarm.red-bean.com>
+	<20130308020353.GB16660@sharpeleven.org>
+Message-ID: <CAFPTOkU3fNFR0dRtEMm0KSFEhF5-NB=Sd=3uQd8mKfkgvzURWA@mail.gmail.com>
+
+On Thu, Mar 7, 2013 at 6:03 PM, Richard Fontana <fontana at sharpeleven.org> wrote:
+> On Thu, Mar 07, 2013 at 05:01:03PM -0600, Karl Fogel wrote:
+>> "Many older licenses have a variety of minor variations in the
+>> language. Unfortunately, it is not possible for OSI to review every
+>> variation, so we cannot say if a given variation is approved.  However,
+>> if you have a competent lawyer review the variation and you conclude
+>> that it is minor and could not possibly have any legal signifance, in
+>> terms of the license being compatible with the Open Source Definition,
+>> then if you use that license and call the licensed software 'open
+>> source', there is at least a possibility that any subsequent discussion
+>> with the OSI about it would go well.  Please use good judgement and be
+>> conservative in this situation."
+>>
+>> Not terribly much more meaningful, really, but maybe enough for most
+>> people to work with & do what they need to do? :-)
+>>
+>> Comments, missiles welcome...
+>
+> One missile: The idea that you would need a lawyer, competent or
+> otherwise, to be involved in such review, though personally appealing
+> from a guild-aggrandizement standpoint, seems highly dubious, and
+> probably sends the wrong message.
+
+Agreed.
+
+On the flip side, I really don't want submissions of every 1-2 word
+variation in a license, which this wording would seem to encourage
+(whether or not filtered through a lawyer).
+
+Luis
+
+
+From lrosen at rosenlaw.com  Fri Mar  8 03:44:20 2013
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Thu, 7 Mar 2013 19:44:20 -0800
+Subject: [License-discuss] FAQ entry for slight variations in licenses?
+In-Reply-To: <20130308020353.GB16660@sharpeleven.org>
+References: <CAFPTOkUJjhKw5ZRHELiRj3dj6wnZxZ1SwoszwU3NQysgWG2uPQ@mail.gmail.com>	<87d2vazufk.fsf@kwarm.red-bean.com>
+	<20130308020353.GB16660@sharpeleven.org>
+Message-ID: <00bb01ce1baf$37f67ad0$a7e37070$@rosenlaw.com>
+
+Richard Fontana wrote:
+> One missile: The idea that you would need a lawyer, competent or 
+> otherwise, to be involved in such review, though personally appealing 
+> from a guild-aggrandizement standpoint, seems highly dubious, and 
+> probably sends the wrong message.
+
+Dear Richard, my fellow guild-member:
+
+As people who would be personally aggrandized by people consulting us
+("competent or otherwise"), we should declare that it is really foolish to
+entrust your copyrighted works to amateur legal efforts. Would you complain
+about the guild-aggrandizement of those who would remove your gall bladder?
+Would you entrust your health and your welfare to your fellow engineers?
+
+Bruce Perens reminded us earlier that amateur license drafting efforts
+caused a whole lot of grief for Jacobsen, and our community spent a lot of
+(mostly donated) legal fees making sure that that license was honored
+despite its amateurishness. It took an appeal to the CAFC to rescue our open
+source licensing paradigm. Let's not encourage the same mistakes in future
+licenses.
+
+As for the expense and nuisance of lawyers reviewing "trivial" modification
+in licenses, that's an education problem that OSI could address. Especially
+valuable would be them teaching people about the foolishness of having
+hundreds of variants on the BSD and MIT licenses that do almost nothing
+legally or practically different under copyright than the original licenses.
+
+/Larry
+

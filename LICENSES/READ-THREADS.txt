@@ -1,7 +1,7 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 423 subject lines. One thread appears under two subject spellings
+# Rows: 431 subject lines. One thread appears under two subject spellings
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
@@ -83,6 +83,7 @@
 2002-10-20	Warranty
 2002-10-23	Revised versions of the OSL and AFL
 2002-10-30	Manifestation of Assent and the OSL
+2002-11-08	a data licensing problem
 2002-11-14	W3C Patent Policy
 2003-03-14	Compatibility of the ASL and LGPL in the specific case of Java
 2003-03-14	Please add "Public Domain" to "license" list
@@ -98,6 +99,7 @@
 2004-02-12	For Approval: NASA Open Source Agreement Version 1.1
 2004-03-12	disclosure of known defects
 2004-03-12	Revisions to NASA Open Source Agreement (NOSA)
+2004-03-12	proposal: DotGNU Trademark License
 2004-05-24	For approval: wxWindows-to-wxWidgets license name change
 2004-06-07	For Approval: Educational Community License
 2004-07-22	Creative Commons 2.0 license suite
@@ -255,6 +257,7 @@
 2010-12-01	OT Discussions
 2010-12-06	MPL Beta 1 Section 10 is an additional permission, not a restriction
 2011-03-08	Updating the Python License
+2011-03-08	Updating the License List
 2011-03-12	Administrivia
 2011-03-24	Request for Approval -- Chicken Dance License
 2011-04-07	Looking for OSI approval of license
@@ -312,6 +315,8 @@
 2013-02-14	OSI and SPDX license list
 2013-03-05	call for volunteers: getting rid of comments on OSI licenses
 2013-03-05	CeCILL license V2.1 for Approval
+2013-03-06	FAQ entry for slight variations in licenses?
+2013-03-07	further license presentation improvements? (inc. call for help)
 2013-03-17	Text version issue on licenses pages
 2013-03-17	What is missing from this post? (license-discuss/review "year in review")
 2013-04-05	Copyright Free Software Foundation, but license not GPL
@@ -334,6 +339,7 @@
 2013-11-13	Proposal to revise (and move?) the CC0 FAQ
 2013-11-17	Continued discussion of the Scripting FSL
 2013-11-18	Old submissions
+2013-12-18	Machine readable source of OSI approved licenses?
 2013-12-28	changing wiki.os.o to xwiki
 2014-02-23	compliance resources
 2014-04-10	Request for Approval of Universal Permissive License (UPL)
@@ -382,6 +388,7 @@
 2018-12-07	International licenses redux
 2018-12-07	Proposed license decision process
 2019-03-08	Fw: #905674: parallel: move to nonfree
+2019-03-18	The license of OpenMotif (Open Group Public License)
 2019-03-19	The political / technical dichotomy
 2019-05-13	history of l-r/org relationship
 2019-05-24	Evolving the License Review process for OSI
@@ -420,6 +427,7 @@
 2023-04-27	License pages cleanup project underway - status update
 2023-05-21	Network copyleft license without requiring 'Installation Information'
 2023-08-16	Request for Open Constitution License v1 for Approval
+2023-08-21	License pages cleanup project underway - status update
 2023-08-22	License-review Digest, Vol 119, Issue 8
 2023-09-01	Request for OSI Certification
 2023-10-25	Zenin License

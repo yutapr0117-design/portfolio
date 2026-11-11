@@ -372,3 +372,17 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **いまの choosealicense.com（2026-11-11 に WebFetch で読んだ要約・逐語ではない）。** 比較の表（`/appendix/`）は 47 本を挙げ、献呈の型の Unlicense、CC0、0BSD、MIT-0 を含む。OSI が承認していない WTFPL も載っている。ACD は無い。**有利な面**: 献呈の型そのものは、採用の主な入口に既に在る。載るかどうかは OSI の承認と同じ基準ではない。**逆側**: ACD はこの入口に無く、承認されても載るわけではない（#322 に足した）。
 
 **この節が establish しないこと。** 2013 年の個人の発言で、OSI の決定ではない。choosealicense.com が何を基準に載せるかは確かめていない。表は WebFetch の要約で読んだので、逐語の照合はしていない。
+
+## 1.186 弁護士は要るか、で list の弁護士 2 人が反対を向いた —— 承認済みライセンスの小さな変種の FAQ（2013）（2026-11-11）
+
+`rounds/2013-03-license-discuss-slight-variations-lawyer-observed.txt`（4 通・スレッドは全 10 通）。委員長の Luis Villa 氏が、承認済みライセンスの 1〜2 語違いの変種は承認済みか、という FAQ の下書きを提案し、Karl Fogel 氏が答えの文案に弁護士の確認を入れた（*"if you have a competent lawyer review the variation and you conclude that it is minor and could not possibly have any legal signifance"*）。そこから弁護士の要否の応酬になった。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"The idea that you would need a lawyer, competent or otherwise, to be involved in such review, though personally appealing from a guild-aggrandizement standpoint, seems highly dubious, and probably sends the wrong message."* | Richard Fontana 氏 2013-03-07 | B1 の有利な面（狭い）。弁護士である本人が、確認に弁護士が要るという考えは疑わしく、間違った合図を送ると述べた。委員長の Villa 氏は *"Agreed."* と答えた。**逆側**: 話は承認済みライセンスの小さな変種の確認で、新しいライセンスの起草ではない |
+| *"we should declare that it is really foolish to entrust your copyrighted works to amateur legal efforts."* | Lawrence Rosen 氏 2013-03-07 | B1 の不利な面。素人の法的な試みに著作物を預けるのは愚かだと宣言すべきだ、と述べ、Jacobsen の件（#262 の Perens 氏と同じ例）を挙げて *"Let's not encourage the same mistakes in future licenses."* と続けた。ACD は法律家の読みを持たない新しいライセンスで、この文が向く先そのものである |
+| *"I really don't want submissions of every 1-2 word variation in a license, which this wording would seem to encourage (whether or not filtered through a lawyer)."* | Luis Villa 氏（委員長）2013-03-07 | 審査の負担への関心。弁護士を通したかどうかに関わらず、細かい変種の提出を増やしたくない、という委員長の立場。ACD は変種ではないが、審査の手が限られていることは §1.176 の追記（CeCILL の 1 年の停止）と同じ向きである |
+
+**読み。** 弁護士の要否について、list の弁護士は 1 つの声ではない。Fontana 氏は小さな変種の確認に弁護士を求めることを退け、Rosen 氏は素人の起草そのものを退けた。ACD に当たるのは後者の向きで、前者は承認済みのものの扱いに限った話である。2007 年に提出の手順から法律家の分析の要件が外れたこと（`review-rules.md` §1.141）と並べて読む。
+
+**この節が establish しないこと。** 2013 年の個人の発言で、OSI の規則の文ではない。FAQ の答えがどう公開されたかは確かめていない。
