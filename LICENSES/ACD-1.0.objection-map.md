@@ -88,6 +88,7 @@ Older, or not from the lists, but each one goes to whether ACD can be approved.
 | *"I think there is a natural bias in favor of approval of the license"* | Richard Fontana, `license-review` 2013-10-31, on NOSA 2.0 from NASA | **ACD has no prominent steward and no approved predecessor.** The same message asks for a higher standard for that reason, and NOSA 2.0 still waited three and a half years (#257) | #317 |
 | *"you will not be able to champion the licence through the approvals process unless you understand it inside out"* | David Woolley, `license-discuss` 2007-07-31 | **The owner submits and answers in the owner's own words; the text was drafted by an AI.** The steward can revise in response (1.1 to 1.4), and the dossier gives clause-by-clause reasons, but no record can answer for the owner | #318 |
 | *"future models from Antropic and OpenAI won't include similar termination language"* | Rob Landley, `license-review` 2026-08-28, on OpenMDW | **ACD has no termination provision (§10.4) and reaches only the Dedicator's own rights (§2.7).** It was drafted by Claude, an Anthropic model, which we state and ask reviewers to weigh (meta Q35) | #319 |
+| *"Now, after just 35 days of its existence, and having been put into immediate active use for a key project for those same 35 days, the SS Public License v1 has already been declared deprecated by its license steward."* | Bradley M. Kuhn, `license-review` 2018-11-21, on SSPL | **ACD has had five texts in under three months**, none sent to `license-review`. Each change is reasoned in a change list and no frozen text moves, but only a pause in versions shows that drafting is finished | #320 |
 
 ### Objections that do not land (checked against the text)
 
@@ -122,4 +123,4 @@ out because we cannot have it, not because leaving it out is better** (register 
    date, OSI has not used the number of projects adopting a license as a factor"* (Jam rationale, 2021-09-12).
 3. **It is not exhaustive.** The windows we read are listed in `PEER-REVIEW-WATCH.md` §3.9.
 4. **Nothing updates this page automatically.** An entry added to `ACD-1.0.against.md` does not reach
-   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #319.
+   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #320.
