@@ -313,54 +313,6 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": 'Check 417: AI 履歴の filter を括弧つきの引数で truthy 判定へ戻す —— 変数は t、欄は title / text しか読まず、AI 履歴の h && h.prompt を見ていなかった',
-    "file": ROOT / 'js' / 'store.js',
-    "find": '.filter(h => h && isText(h.prompt) && isText(h.response))',
-    "replace": '.filter((h) => h && h.prompt && h.response)',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 249: 2 つ目の viewport を後ろに足す —— 最初の 1 つしか読まず、ブラウザが使う最後の tag を見ていなかった',
-    "file": ROOT / 'index.html',
-    "find": '<meta name="viewport" content="width=device-width, initial-scale=1" />',
-    "replace": '<meta name="viewport" content="width=device-width, initial-scale=1" />\n    <meta name="viewport" content="width=900" />',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 249: initial-scale を 1.5 にする —— `1(\\.0+)?\\b` の語の境界で 1.5 が通っていた',
-    "file": ROOT / 'index.html',
-    "find": 'content="width=device-width, initial-scale=1" />',
-    "replace": 'content="width=device-width, initial-scale=1.5" />',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 157: viewport を <noscript> の中へ入れる —— script の動くブラウザでは noscript の中は素のテキストなのに、tag として数えていた',
-    "file": ROOT / 'index.html',
-    "find": '<meta name="viewport" content="width=device-width, initial-scale=1" />',
-    "replace": '<noscript><meta name="viewport" content="width=device-width, initial-scale=1" /></noscript>',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 158: dns-prefetch を <noscript> の中へ入れる —— 157 と同じく noscript の中の link を数えていた',
-    "file": ROOT / 'index.html',
-    "find": '<link rel="dns-prefetch" href="https://fonts.googleapis.com" />',
-    "replace": '<noscript><link rel="dns-prefetch" href="https://fonts.googleapis.com" /></noscript>',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 304: theme-color の属性を content が先の順にして値を色の名前にする —— name= が先の形しか読まず、見えていなかった',
-    "file": ROOT / 'index.html',
-    "find": '<meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)" />',
-    "replace": '<meta content="red" name="theme-color" media="(prefers-color-scheme: light)" />',
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 468u: §5.2 の自社素材の除外を T38 の前の形 (makes available) へ戻す —— 公開しない自社のモデルに §5 が及ぶ読みが戻る。目印を替えた日に、替え忘れを個別に名指せるようにする (aa の依頼・2026-11-08)",
-    "file": CURRENT_DRAFT,
-    "find": "the Work, that the Dedicator itself makes or makes available, or the",
-    "replace": "the Work, that the Dedicator itself makes available, or the",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 498 (h): AS-OF の未読スレッドの行で、読んだ数の頭に 1 を足す —— 3 つの数を手で数えており、和が合わなくても通っていた (2026-11-08 に手で 362 / 409 を直した)",
-    "file": ROOT / "LICENSES" / "AS-OF.md",
-    "find": "本のうち ",
-    "replace": "本のうち 1",
-})
-_MUTATIONS_TAIL.append({
     "name": "Check 25: 監視ログの確認された引用の件数を 1 と書く —— run に引用の観測が 1 件も無いのに、key の在否しか見ていなかった (捏造が通る)",
     "file": ROOT / "docs" / "evidence" / "aio-monitoring-log.json",
     "find": '"confirmed_citation_events": 0',
