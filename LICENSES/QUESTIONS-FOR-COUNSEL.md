@@ -298,6 +298,10 @@ result (errata E5, E30); whether its structure — no obligation on the licensee
 
 **An answer would change** whether §2.9 needs more than the 1.4 draft gives it, and how the dossier
 answers #178 (`jurisdictions.md` §9a (10), on Qimonda).
+In *Jaffé v. Samsung* the result took a four-day evidentiary hearing and a discretionary
+balancing (#178), so the core of the question is whether §2.9's statement that nothing in the
+Dedication is *"suspended by, or revived by"* such a proceeding or an officer's act would be read
+the same way under another jurisdiction's insolvency law.
 
 ## 9. Does the limitation of liability reach a breach of the Dedicator's own covenants? (§14.1, §5, §8.6, §12.2)
 
