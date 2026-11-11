@@ -434,3 +434,17 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **読み。** Twente は「条件として課す」ことで退けられた。ACD はプライバシーと虚偽の表示を、許諾の範囲の限界として書き、利用者への条件ではないと明記している。この書き分けが、Twente と同じ読みを避ける理由である。
 
 **この節が establish しないこと。** 個人の発言で、理事会の決定文ではない（提出者が却下を受け入れたので、理事会が判断したかは確かめていない）。ACD の書き分けが OSI の審査で同じように読まれるかは、この節は言わない。
+
+## 1.190 誰も賛成しなければ 3 週間で「却下」、本文を添えずに配ることへの懸念 —— Non-Coercive Copyleft Licence（2015）（2026-11-12）
+
+`rounds/2015-07-and-08-license-review-nccl-observed.txt`（4 通・スレッドは全 38 通）。Tim Makarios 氏が 2015-07-20 に、CC0 に近いが派生物を同じ条件で配らせるライセンス（本人の言い方では "CC-0-SA" に近いもの）を個人で出した。ACD は同じ条件で配らせる条を持たないので、コピーレフトの論点は当たらない。当たるのは次の 3 点である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| NCCL は、ライセンスを添えずに配ることを勧める（原文は *encourages* を強調）初めての提出だ —— *"distributors to distribute the code without the license attached."*、*"Disributing a copy of the license with the software isn't just about protecting the rights of the original author; it's about protecting the users, but informing them of their rights under the license."*（原文ママ） | Josh Berkus 氏 2015-07-31 | 両面。ACD の §16.2 は識別子だけで足りる通知とし、本文が添えられていなくても条項が全部当たると書く。受領者に義務を課さないので、NCCL の「知らずに条件に縛られる」害は起きない（有利）。**逆側**: 受領者が自分の権利を知らされない、という Berkus 氏の後半の懸念は、条件の有無に関わらず当たる —— 途中で通知が落とされれば、受け取った人は与えられた許諾を知らない |
+| *"Indeed, some courts will NOT enforce a license that has NOT been seen and approved by the licensee."* | Lawrence Rosen 氏 2015-07-31 | 不利な面。#321（同意を求めない形の免責は効かないかもしれない）の 3 例目として #321 に足した。逆側は §1.180 の追記と同じ（受け入れの手順を求めることは OSD 10 が退けた） |
+| *"Nobody on this committee has spoken in favor of it. Therefore, I believe "rejected" is the correct status."*（2015-08-07）、同じ日に *"I don't believe that "30 days" is intended as some kind of guaranteed minimum."*、*"Really, this is up to the Chair, though."* | Josh Berkus 氏 2015-08-07 | 審査の時間の逆の端。提出から 18 日で、委員会で誰も賛成しないことを理由に「却下」と述べられた。個人の起草で、反対は 4 人だった。§1.187 の 2017 年の委員長（list の沈黙は読まれていない印）と並べると、「賛成が無い」の扱いは人と年で違う。同氏は決めるのは委員長だとも書いた |
+
+**読み。** NCCL は CC0 と同じ方向（権利を手放す）とコピーレフトを 1 つにしようとして、両立しないと読まれた。ACD はコピーレフトを持たず、この矛盾は無い。ACD に残るのは、本文を添えない配り方を許すことの両面（義務が無いので害は無いが、権利を知らされない受領者が出る）と、同意を求めない形の費用（#321）と、誰も賛成しないときに早く閉じられうることである。
+
+**この節が establish しないこと。** Berkus 氏の「却下」は委員会の一人の判断で、委員長の推薦や理事会の決定文は読んでいない。NCCL がその後どうなったかは確かめていない。

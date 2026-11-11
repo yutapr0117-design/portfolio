@@ -1,0 +1,181 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2015-August)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 4 messages this dossier cites from "Request for approval of the Non-Coercive Copyleft Licence (NCCL) 1.0" (license-review, 2015-07 to 2015-08; 38 messages). Not the whole thread.
+Senders: Josh Berkus, Lawrence Rosen
+Position: replies to an individual's submission of a licence meant to be close to a share-alike version of CC0, including the statement that it should be treated as rejected. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From josh at postgresql.org  Sat Aug  1 00:49:22 2015
+From: josh at postgresql.org (Josh Berkus)
+Date: Fri, 31 Jul 2015 17:49:22 -0700
+Subject: [License-review] Request for approval of the Non-Coercive
+ Copyleft Licence (NCCL) 1.0
+In-Reply-To: <1438388945.3176.30.camel@qoheleth>
+References: <1437355073.2790.26.camel@qoheleth>
+ <55BACE28.8000309@postgresql.org> <1438318777.719.27.camel@qoheleth>
+ <55BBABE4.2070601@postgresql.org> <1438388945.3176.30.camel@qoheleth>
+Message-ID: <55BC1792.8080909@postgresql.org>
+
+On 07/31/2015 05:29 PM, Tim Makarios wrote:
+> As far as I can see, the only added risk with the NCCL is that you can't
+> sue people who deliberately go around removing references to the
+> licence, perhaps in an effort to deceive people about the licence that
+> applies to their derivative works.  But how likely is this to happen in
+> practice?  Any more likely than that Goldman Sachs would do the same to
+> something licensed under an existing free software licence, and not be
+> sued for it?
+
+The NCCL is the first proposed license I've ever seen which *encourages*
+distributors to distribute the code without the license attached.  While
+other licenses exist which are liberal about how the license text is to
+be distributed, you are proposing a radical new thing.  And you have
+yet, as far as I've seen, to state any real need for it.
+
+Disributing a copy of the license with the software isn't just about
+protecting the rights of the original author; it's about protecting the
+users, but informing them of their rights under the license.  The GPL
+allocates quite a bit of text to this concept, and for good reason.
+
+> The GPL (or any other free software licence) allows people to charge a
+> fee in exchange for copies of the software, but people very rarely do,
+> because others are always free to distribute the same software free of
+> charge.  Likewise, the NCCL allows people to distribute copies of the
+> software without the licence attached, but I suspect that people very
+> rarely would, because if there's demand for explicitly and accurately
+> licensed copies of the software (which there will be among people who
+> aren't copyright-naive, if the software is popular), then others are
+> always free to supply such copies.
+
+Useful code not infrequently survives the original author, and not
+infrequently becomes more popular in a fork or derivative than it did in
+the original release.
+
+>> Based on Tim's explanation of the NCCL, I would neither use it for my
+>> own code, nor would I be willing to use any code licensed under it.
+> 
+> Just to be clear, do you mean you wouldn't even use software licensed
+> under the NCCL?  Or that you wouldn't contribute code to NCCL-licensed
+> projects?  Or just that you wouldn't incorporate NCCL-covered code into
+> other projects?
+
+I wouldn't contribute to it, nor use its code in any project I have.
+And I would actively reject any contribution which I knew to contain
+NCCL-licensed code.  *Assuming I knew*, which is the whole problem with
+your license.  For example, let me revise my original scenario:
+
+1. Tim releases widgetX under the NCCL.
+
+2. Mary releases WidgetX.1.  As is her right, she removes all references
+to the NCCL from the code.
+
+3. George picks up WidgetX.1 and incorporates it into FrameworkQ. The
+rest of FrameworkQ is MIT-licensed.  No license violations have occurred
+at this point.
+
+4. Sheila pulls some code from FrameworkQ and sends me a pull request to
+incorporate it into my Framework100 project.  The code she pulls happens
+to be mostly WidgetX.1.
+
+5. I accept her pull request and release it under the MPL, AGPL, or
+other more-restrictive license . At this point, I'm in voliation of the
+NCCL, even though I would have no reasonable way to know this.
+
+Again, encouraging derivative creators to strip the license from
+distributions is one of the dumber ideas I've heard on this forum, and I
+really don't see why we should discuss it any further than we already have.
+
+--Josh Berkus
+
+
+
+
+From lrosen at rosenlaw.com  Sat Aug  1 04:01:38 2015
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Fri, 31 Jul 2015 21:01:38 -0700
+Subject: [License-review] Request for approval of the Non-Coercive
+	Copyleft Licence (NCCL) 1.0
+In-Reply-To: <55BC1792.8080909@postgresql.org>
+References: <1437355073.2790.26.camel@qoheleth>
+ <55BACE28.8000309@postgresql.org> <1438318777.719.27.camel@qoheleth>
+ <55BBABE4.2070601@postgresql.org> <1438388945.3176.30.camel@qoheleth>
+ <55BC1792.8080909@postgresql.org>
+Message-ID: <07fa01d0cc0e$c60fff50$522ffdf0$@rosenlaw.com>
+
+Josh Berkus wrote:
+> Disributing a copy of the license with the software isn't just about protecting the rights of the original author; it's about protecting the users, but informing them of their rights under the license.  The GPL allocates quite a bit of text to this concept, and for good reason.
+
+
+Indeed, some courts will NOT enforce a license that has NOT been seen and approved by the licensee. Many serious licensors require an "I ACCEPT THE LICENSE" click before download.
+
+/Larry
+
+From josh at postgresql.org  Fri Aug  7 16:48:35 2015
+From: josh at postgresql.org (Josh Berkus)
+Date: Fri, 07 Aug 2015 09:48:35 -0700
+Subject: [License-review] Request for approval of the Non-Coercive
+ Copyleft Licence (NCCL) 1.0
+In-Reply-To: <1438837749.2705.50.camel@qoheleth>
+References: <1437355073.2790.26.camel@qoheleth>
+ <55BACE28.8000309@postgresql.org> <1438318777.719.27.camel@qoheleth>
+ <55BBABE4.2070601@postgresql.org> <1438388945.3176.30.camel@qoheleth>
+ <55BC1792.8080909@postgresql.org> <1438650344.2700.25.camel@qoheleth>
+ <55C0753C.6010409@piana.eu> <1438837749.2705.50.camel@qoheleth>
+Message-ID: <55C4E163.4010205@postgresql.org>
+
+All:
+
+At this point, four people have spoken against the NCCL1.0, and two have
+questioned specific provisions of the license.  Nobody on this committee
+has spoken in favor of it.
+
+Therefore, I believe "rejected" is the correct status.  Whether or not
+Mr. Makarios' general idea is valid, this specific license text is not
+going to be approved.
+
+Given that, any further discussion on the license should happen on
+license-discuss.
+
+--Josh Berkus
+
+
+
+From josh at postgresql.org  Sat Aug  8 00:03:50 2015
+From: josh at postgresql.org (Josh Berkus)
+Date: Fri, 07 Aug 2015 17:03:50 -0700
+Subject: [License-review] Request for approval of the Non-Coercive
+ Copyleft Licence (NCCL) 1.0
+In-Reply-To: <1438990962.2737.4.camel@qoheleth>
+References: <1437355073.2790.26.camel@qoheleth>
+ <55BACE28.8000309@postgresql.org> <1438318777.719.27.camel@qoheleth>
+ <55BBABE4.2070601@postgresql.org> <1438388945.3176.30.camel@qoheleth>
+ <55BC1792.8080909@postgresql.org> <1438650344.2700.25.camel@qoheleth>
+ <55C0753C.6010409@piana.eu> <1438837749.2705.50.camel@qoheleth>
+ <55C4E163.4010205@postgresql.org> <1438990962.2737.4.camel@qoheleth>
+Message-ID: <55C54766.9040306@postgresql.org>
+
+On 08/07/2015 04:42 PM, Tim Makarios wrote:
+> The page describing the licence review process says that "The License
+> Review community will discuss on the mailing list for at least 30
+> days" [1], so I had the impression that I had a bit more time to provide
+> the detailed response you requested in your previous email on this
+> topic.  Once I've done that, I intend to respond to Carlo Piana's latest
+> email about it.
+
+Most submitters are happy to have a clear answer from us sooner than
+that.  You're the first person to object to getting a fast answer.  I
+don't believe that "30 days" is intended as some kind of guaranteed
+minimum.  It's there so that submitters know that we are not going to
+turn around a decision in a week.
+
+Really, this is up to the Chair, though.  She decides whether or not the
+license is passed up to the board.  I overstepped myself a bit, although
+by personal recommendation stands.
+
+You do not need to respond to my email on my personal account; your
+responses to the emails of other committee members are sufficient for me
+to make up my mind on my vote.
+
+--Josh Berkus
+
+
+
