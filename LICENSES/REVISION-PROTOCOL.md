@@ -252,6 +252,8 @@ the basis of this response, I wrote everything else myself"*）。**これを毎
 
 **沈黙は同意でも却下でもない**（§3.5）。だが**無期限の保留の理由にもならない**。
 
+**決める側の見立ても同じ向きを指す（2026-11-12 追記）**: 2017 年の委員長 Fontana 氏は *"I think the current Board is not inclined to give the equivalent of "advisory opinions" on the OSD, for better or worse. It is probably better to get clarity on this issue through actual submission of a license embodying some sort of license asymmetry."* と書いた（`ACD-1.0.review-readings.md` §1.187）。OSD の解釈について理事会の判断は、審査に出してからでないと得られない向きである。同じ報告で同氏は、list の沈黙を読んだ印とは見ていない。**逆側**: 2017 年の一人の見立てで、理事会の決定文ではない。discuss で指摘を受けて直すこと自体は否定していない —— 上の「review を足すのであって discuss をやめるのではない」と両立する。
+
 **根拠は 2026-09-09 に差し替えた。** 旧文は「ModelGo は 3 回のフォローアップにいずれも返信を
 得ていない」を根拠にしていたが、**それは後に返信を得た**（§3.5 の訂正）。**結論は変わらないが、
 理由はより強いものになる** —— 同じ記録が示すのは「返信は来ないかもしれない」ではなく
