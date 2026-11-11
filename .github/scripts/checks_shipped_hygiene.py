@@ -822,7 +822,9 @@ def run(ctx):
         # コメントを除去してから両方を判定する。除去しないと (a) 説明コメント中の 'smooth' が
         # false RED を生み、(b) コメント中の prefers-reduced-motion が実装なしで GREEN にする。
         _code421 = strip_js_comments(_src421)
-        if not re.search(r"['\"]smooth['\"]", _code421):
+        # テンプレートリテラル (`smooth`) も同じ値を渡す (2026-11-11・監査 #75)。引用符 2 種だけを見ると、
+        #   バッククォートで書いた file は reduced-motion を問い合わせなくても通った
+        if not re.search(r"['\"`]smooth['\"`]", _code421):
             continue
         if re.search(r"prefers-reduced-motion", _code421):
             _guarded421.append(_rel421)
@@ -869,6 +871,29 @@ def run(ctx):
             i += 1
         return ""
 
+    def _top422(props):
+        """props の最上位 (深さ 1) だけを残し、入れ子の {} の中身を空白にする (文字列の中の brace は無視)。
+        ハンドラの本体の中の `{ id: … }` を、コントロール自身の id と読まないため (2026-11-11・監査 #77)。"""
+        out, depth, quote = [], 0, None
+        for ch in props:
+            if quote:
+                if ch == quote:
+                    quote = None
+                out.append(ch if depth <= 1 else " ")
+                continue
+            if ch in "'\"`":
+                quote = ch
+            elif ch == "{":
+                depth += 1
+                out.append(ch if depth <= 1 else " ")
+                continue
+            elif ch == "}":
+                depth -= 1
+                out.append(ch if depth <= 0 else " ")
+                continue
+            out.append(ch if depth <= 1 else " ")
+        return "".join(out)
+
     _viol422 = []
     _ok422 = 0
     for _f422 in sorted((ROOT / "js").glob("**/*.js")):
@@ -877,13 +902,16 @@ def run(ctx):
         for _m422 in re.finditer(r"h\(\s*['\"](select|input)['\"]\s*,\s*(?=\{)", _code422):
             _tag422 = _m422.group(1)
             _props422 = _props_span422(_code422, _m422.end())
-            if "onchange" not in _props422:
+            _top = _top422(_props422)
+            # h() はイベント名を小文字にする (key.slice(2).toLowerCase()) ので onChange も働くハンドラ。
+            #   キーを引用符で書く形 ('type': 'checkbox') も同じ (2026-11-11・監査 #76)。最上位のキーだけを見る
+            if not re.search(r"(^|[{,\s])['\"]?onchange['\"]?\s*:", _top, re.I):
                 continue
             if _tag422 == "input":
                 # 「同じコントロールを続けて操作する」ものだけが対象。file は 1 回限りのアクション。
-                if not re.search(r"type\s*:\s*['\"](checkbox|number)['\"]", _props422):
+                if not re.search(r"['\"]?type['\"]?\s*:\s*['\"](checkbox|number)['\"]", _top):
                     continue
-            if re.search(r"(^|[{,\s])id\s*:", _props422):
+            if re.search(r"(^|[{,\s])['\"]?id['\"]?\s*:", _top):
                 _ok422 += 1
             else:
                 _label422 = re.search(r"'aria-label'\s*:\s*([^,\n]+)", _props422)
