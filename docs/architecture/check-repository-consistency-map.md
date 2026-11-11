@@ -152,10 +152,10 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 74 | `.github/scripts/_lib_io.py` が 4 public 関数（read / read_bytes / extract / csp_sri_hash）を export | BLOCKING |
 | 75 | docs/incident-artifacts/README.md が配下 artifact を全て列挙（inventory governance） | BLOCKING |
 | 76 | .claude/settings.json が完全自走の安全境界 denies（AI2AI.md STEP 3「越えない安全境界」）を宣言: self-permission-widening 防止 `Edit/Write(.claude/settings.json)` / 破壊的操作 `git push --force`・`-f`・`rm -rf` / 全 stage 事故防止 `git add .`・`-A`・`--all` / C6 binary 保護 `*.webp`・`*.mp3`。とりわけ settings 自己編集 deny が消えると AI が自己権限拡張でき人間の制御境界が崩壊するため最重要 | BLOCKING |
-| 77 | .claude/commands/*.md 全 slash-command に frontmatter + description | BLOCKING |
-| 78 | .claude/agents/*.md 全 sub-agent に frontmatter + name + description、かつ `name` == ファイル名 stem（docs がファイル名で参照する agent を Claude が name で解決できる identifier-coherence。dangling reference 防止） | BLOCKING |
+| 77 | .claude/commands/*.md 全 slash-command に frontmatter + description。**2026-11-11（監査 #127〜#130）**: frontmatter の値を 1 行の中だけで読み、引用符を外して空なら欠落とする（`^description:\s*\S` は改行をまたぎ、空の `description:` が次の行のキーの字で満たされていた） | BLOCKING |
+| 78 | .claude/agents/*.md 全 sub-agent に frontmatter + name + description、かつ `name` == ファイル名 stem（docs がファイル名で参照する agent を Claude が name で解決できる identifier-coherence。dangling reference 防止）。**2026-11-11（監査 #127〜#130）**: frontmatter の値を 1 行の中だけで読み、引用符を外して空なら欠落とする（`^description:\s*\S` は改行をまたぎ、空の `description:` が次の行のキーの字で満たされていた）。name は値の全体が stem / ディレクトリ名と一致すること（最初の語だけを取り、`name: aio-guardian v2` を一致と読んでいた） | BLOCKING |
 | 79 | .mcp.json が JSON parse 可能かつ mcpServers dict を含む（存在時 BLOCKING、不在 ADVISORY） | BLOCKING |
-| 80 | .claude/skills/*/SKILL.md 全 skill に frontmatter + name + description、かつ `name` == 親ディレクトリ名（Check 78 と同型の identifier-coherence）（存在時 BLOCKING、不在 ADVISORY） | BLOCKING |
+| 80 | .claude/skills/*/SKILL.md 全 skill に frontmatter + name + description、かつ `name` == 親ディレクトリ名（Check 78 と同型の identifier-coherence）（存在時 BLOCKING、不在 ADVISORY）。**2026-11-11（監査 #127〜#130）**: frontmatter の値を 1 行の中だけで読み、引用符を外して空なら欠落とする（`^description:\s*\S` は改行をまたぎ、空の `description:` が次の行のキーの字で満たされていた）。name は値の全体が stem / ディレクトリ名と一致すること（最初の語だけを取り、`name: aio-guardian v2` を一致と読んでいた） | BLOCKING |
 | 81 | WebP XMP に `aio:OrganizationName` / URL / Role / StartDate 4 field（binary AIO layer Organization 強制） | BLOCKING |
 | 82 | MP3 ID3 に `AIO:Organization` / URL / Role / StartDate TXXX frame 4 件（binary AIO layer Organization 強制） | BLOCKING |
 | 83 | aio-manifest.json `entity.affiliation` に 5 field（organization_name / url / named_position / role_name / start_date） | BLOCKING |
