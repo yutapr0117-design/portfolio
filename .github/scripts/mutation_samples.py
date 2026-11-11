@@ -540,6 +540,18 @@ _MUTATIONS_TAIL.append({
     "find": "\ndescription: Use this agent when the user (or another agent)",
     "replace": "\ndescription:\nnote: Use this agent when the user (or another agent)",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 143: paths の最後に \"!docs/evidence/**\" を足して digest 付きの evidence 3 file を外す —— 否定の形を読まず、literal と prefix/** だけを被覆と数えていた",
+    "file": ROOT / ".github" / "workflows" / "auto-update-aio-digests.yml",
+    "find": "      - \"docs/incident-artifacts/**\"\n",
+    "replace": "      - \"docs/incident-artifacts/**\"\n      - \"!docs/evidence/**\"\n",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 143: push の branches を main 以外 (release) にする —— paths だけを見て、main への push で発火するかは見ていなかった",
+    "file": ROOT / ".github" / "workflows" / "auto-update-aio-digests.yml",
+    "find": "    branches: [\"main\"]\n    paths:\n",
+    "replace": "    branches: [\"release\"]\n    paths:\n",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
