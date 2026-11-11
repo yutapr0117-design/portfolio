@@ -391,7 +391,31 @@ def _sync_budget_rows() -> None:
         print("  §2 実測行数を同期: " + " / ".join(changed))
 
 
+def _bad_args(argv: list[str]) -> str:
+    """知らない引数・値の無い --count を、何かを書き換える前に断る (2026-11-12)。
+
+    旧版は sys.argv を「在るか」でしか見ず、`--help` を黙って無視して advisory 超過の hot log を
+    rotate した (実際に踏んだ。結果は要る rotate だったが、判定だけのつもりで叩けば file が動く)。
+    """
+    rest = list(argv)
+    if "--count" in rest:
+        k = rest.index("--count")
+        val = rest[k + 1] if k + 1 < len(rest) else ""
+        if not (val.isdigit() and int(val) > 0):
+            return f"--count には正の整数が要る (受け取った値: {val!r})"
+        del rest[k:k + 2]
+    unknown = [a for a in rest if a not in ("--check", "--force")]
+    return f"知らない引数 {unknown}" if unknown else ""
+
+
 def main() -> int:
+    if any(a in ("-h", "--help") for a in sys.argv[1:]):
+        print("使い方:" + __doc__.split("使い方:", 1)[1].rstrip())
+        return 0
+    bad = _bad_args(sys.argv[1:])
+    if bad:
+        print(f"ERROR: {bad}。何も書き換えていない。使い方は --help")
+        return 2
     lines = len(TAIL.read_text(encoding="utf-8").splitlines())
     e2e_before, cons_before = _totals()
     over_blocking = lines >= BLOCKING
