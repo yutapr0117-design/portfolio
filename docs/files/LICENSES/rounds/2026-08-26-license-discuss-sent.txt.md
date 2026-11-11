@@ -21,7 +21,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約) / LICENSES/ACD-1.0
 しか存在しない**状態が 11 日続いた（`ACD-1.0.against.md` #82）。
 
 同じ期間、`REVIEWERS.md` と 2 つの front matter は `ACD-1.0.submission.md` を
-"the message as sent" と名乗っていた。だが送ったのは 5,778 語で、submission.md §B.0 は
+"the message as sent" と名乗っていた。だが 2026-08-26 に送ったのは 5,778 語で、submission.md §B.0 は
 **11 日後に書いた ≈600 語の別物**である。**送った文面を持っていないと、「送った文面」を
 名乗る文書が別物であることにも気付けない。**
 

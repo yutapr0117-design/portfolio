@@ -480,10 +480,22 @@ def run(ctx):
                 r"(?:LICENSES|docs|\.github)/[\w./-]+\.(?:txt|md|xml|json|py)", _txt452))):
             if not (ROOT / _ref452).exists():
                 _bad452.append(f"参照先が無い: {_ref452}")
+        # 接頭辞の無い名前も見る (2026-11-12・監査 #177): 本文の inline 参照の大半は `ACD-OSI-BOTTLENECKS.md` の
+        #   ような接頭辞なしの名前で、旧版は存在しない名前へ替えても通した。LICENSES/ からの相対・ドシエの略称
+        #   (`against.md` = `ACD-1.0.against.md`)・リポジトリの根・docs/architecture/ の順に解決し、どれでもなければ RED
+        _n452 = 0
+        for _ref452 in sorted(set(re.findall(r"(?<![\w/.-])([\w.-]+(?:/[\w.-]+)*\.(?:txt|md|xml|json|py|yml|html))(?![\w/-])",
+                                             _txt452)) - set(re.findall(r"(?:LICENSES|docs|\.github)/[\w./-]+", _txt452))):
+            if re.match(r"(?:LICENSES|docs|\.github)/", _ref452):
+                continue
+            _n452 += 1
+            if not any(_c.exists() for _c in (ROOT / "LICENSES" / _ref452, ROOT / "LICENSES" / f"ACD-1.0.{_ref452}",
+                                              ROOT / _ref452, ROOT / "docs" / "architecture" / _ref452)):
+                _bad452.append(f"参照先が無い (接頭辞なし): {_ref452}")
         check(
             not _bad452,
             f"Check 452: 提出準備マーカーが実態と一致 ({_real452['節']} 節 / "
-            f"{_real452['項']} 項 / {_real452['行']} 行)",
+            f"{_real452['項']} 項 / {_real452['行']} 行・接頭辞なしの参照 {_n452} 件も実在)",
             (f"Check 452: READY-TO-SUBMIT.md が実態とずれている: {_bad452}。"
              "**マーカーは腐ると最も危険な文書** —— 条文を改訂したあと数値が古いままだと、"
              "読み手は「レビュー結果を見たい水準に達した」という判断を **別のテキストについて** "
