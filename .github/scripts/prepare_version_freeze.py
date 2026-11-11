@@ -81,6 +81,30 @@ def size(text: str) -> tuple[int, int]:
     return len(body.split()), len(set(re.findall(r"^  (\d+\.\d+) ", body, re.M)))
 
 
+def errata_closures() -> tuple[int, dict[str, list[str]], list[str], dict[str, int]]:
+    """errata の表から (件数, {版: [閉じた E-ID]}, [印の無い E-ID], {節: 件数}) を導く。
+
+    数え方は portfolio-00 / aa と決めたもの (2026-11-11): 閉鎖の印は最後の欄の「N.M 草案で閉じた」で、
+    1 件は最初の印の版に数える (E24 は 1.2 と 1.3 の両方の印を持ち、1.2 に数える)。節は 2 列目の最初の §。
+    切り替えの日に REVIEWERS の "Which text" と草案の冒頭が述べる数は、ここから出す (手で数えない)。
+    """
+    rows = [re.split(r"(?<!\\)\|", line) for line in (L / "ACD-1.0.errata.md").read_text(encoding="utf-8").split("\n")
+            if re.match(r"^\|\s*\*{0,2}E\d+", line)]
+    closed: dict[str, list[str]] = {}
+    unmarked, sections = [], {}
+    for c in rows:
+        eid = c[1].strip().strip("*")
+        m = re.search(r"(\d+\.\d+) 草案で閉じた", c[-2])
+        if m:
+            closed.setdefault(m.group(1), []).append(eid)
+        else:
+            unmarked.append(eid)
+        sec = re.search(r"§(\d+)", c[2])
+        key = sec.group(1) if sec else "—"
+        sections[key] = sections.get(key, 0) + 1
+    return len(rows), closed, unmarked, sections
+
+
 def frozen_versions() -> list[str]:
     found = [re.match(r"ACD-(\d+\.\d+)\.txt$", p.name) for p in L.glob("ACD-*.txt")]
     return sorted((m.group(1) for m in found if m), key=lambda v: tuple(map(int, v.split("."))))
@@ -305,6 +329,21 @@ def report(version: str) -> int:
     print("\n## 版を決め打ちした検証コマンド（確定の版へ向ける）")
     for f, i, command in pinned:
         print(f"  {f}:{i}  {command[:110]}")
+    # 1.0 から何が変わったかの数 (portfolio-aa の依頼・2026-11-11)。REVIEWERS の "Which text" と草案の冒頭の
+    #   英文は、この段の数を写す (使い捨ての計数で出すと、版の語の最初の一致を数えて 5・38 と誤った)
+    total, closed, unmarked, sections = errata_closures()
+    vers = sorted(closed, key=lambda x: tuple(map(int, x.split("."))))
+    print(f"\n## 1.0 から何が変わったか（REVIEWERS の \"Which text\" と草案の冒頭が述べる数）")
+    print(f"  errata {total} 件のうち閉じた {sum(map(len, closed.values()))} 件（最初の「N.M 草案で閉じた」の版に数える）: "
+          + " / ".join(f"{v} {len(closed[v])}" for v in vers) + f"・印の無い行 {unmarked}")
+    print("  節ごとの件数（表の 2 列目の最初の §）: "
+          + " / ".join(f"§{k} {n}" for k, n in sorted(sections.items(), key=lambda kv: (-kv[1], kv[0]))))
+    target = L / f"ACD-{version}.txt"
+    if not target.exists():
+        target = working_draft()
+    for path in (L / "ACD-1.0.txt", target):
+        w, c = size(path.read_text(encoding="utf-8"))
+        print(f"  {path.name}: {w:,} 語・{c} 条（区切り線の後から数える。Check 468 と同じ数え方）")
     return 0
 
 
