@@ -353,6 +353,11 @@ def threads(out):
     print(f"rounds に在るが READ-THREADS に無い（候補内 {len(rounds_only)} 件）: {out}.rounds-only.json")
     print(f"閾値から外れたが一覧に在る会話（{len(orphan)} 件・母数に残した）")
     print(f"いまの語では候補でないが一覧に在る（{len(kept)} 件・うち未読 {sum(1 for r in kept if not is_read(r))} 件）")
+    # そのうち未読の会話の名も出す (portfolio-00 の依頼・2026-11-11): ドシエが引用するほど語の当たりが増え、未読の
+    #   会話が「候補の外・一覧に在る」へ移る。母数は一覧で固定されるので数は動かないが、どれが移ったかを AS-OF に
+    #   書けるようにする (語の当たりの数は、候補の閾値 8 を越えた分だけ「読まずにドシエに語が入った」ことを示す)
+    for r in sorted((r for r in kept if not is_read(r)), key=lambda r: r["start"]):
+        print(f"  候補の外・未読: {r['start']}\t{r['title']}  (ドシエの語 {r['dossier_hits']}・決める側の語 {r['decider_words']})")
     print(f"READ-THREADS の行で、日付が会話の始まりと違う {len(off)} 行（日付を含む会話に当てた）" + ("" if not off else ""))
     for o in off:
         print(f"  {o}")
