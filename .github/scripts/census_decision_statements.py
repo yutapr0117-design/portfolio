@@ -67,6 +67,11 @@ RULE = re.compile(r"""(
 CONDITION = re.compile(
     r"copyleft|reciproc|source code|AGPL|\bGPL\b|network|SaaS|field of use|discriminat|commercial"
     r"|royalt|fee\b|export|military|endorse|SSPL|data portab", re.I)
+# 候補の外で読む話題の語 (2026-11-12・portfolio-00 の依頼): 候補は「決める側が書いた会話」で選ぶので、撤回と放棄の
+#   最も古い記録 (2000 年の "Wired Article on the GPL" 41 通など、理事が 1 人も書いていない会話) は語に関係なく外れる。
+#   母数 (AS-OF の「候補 N 本」) は変えず、別の一覧として出す。irrevocable / non-revocability は revoc に含まれる
+TOPIC = re.compile(r"revo[ck]|abandon", re.I)
+TOPIC_MIN = 3   # 会話の本文 (引用を除く) で話題の語に当たる回数の下限
 
 
 MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August",
@@ -288,10 +293,10 @@ def threads(out):
         if rel.endswith(".md") and "/rounds/" not in rel:
             seen_in_dossier.update(grams(open(REPO / rel, errors="replace").read()))
     convs = conversations()
-    rows = []
+    rows, topical = [], []
     for key, cs in convs.items():
         for start, _end, g in cs:
-            seen, n, words, hits = set(), 0, 0, 0
+            seen, n, words, hits, topic = set(), 0, 0, 0, 0
             for _t, date, sender, title, body in g:
                 if (sender, date) in seen:
                     continue
@@ -299,11 +304,15 @@ def threads(out):
                 n += 1
                 text = own_text(body)
                 hits += sum(1 for gm in grams(text) if gm in seen_in_dossier)
+                topic += len(TOPIC.findall(text))
                 if DECIDERS.search(sender):
                     words += len(text.split())
+            row = {"title": g[0][3], "first": g[0][1], "start": start, "key": key,
+                   "messages": n, "decider_words": words, "dossier_hits": hits, "topic_hits": topic}
             if n >= 3 and words >= 120:
-                rows.append({"title": g[0][3], "first": g[0][1], "start": start, "key": key,
-                             "messages": n, "decider_words": words, "dossier_hits": hits})
+                rows.append(row)
+            elif n >= 3 and topic >= TOPIC_MIN:
+                topical.append(row)
     # 読了は READ-THREADS.txt だけから数える (portfolio-00 と 2026-11-09 に決めた)。行は会話を指す: 日付が会話の
     #   始まりと一致すればその会話、一致しなければ日付を含む会話 (無ければ日付より前で最も遅く始まる会話) に当て、
     #   一致しない行の数を出す (READ-THREADS の振り分けは portfolio-00)
@@ -355,6 +364,14 @@ def threads(out):
           f"{len(candidates)}; of those, not read {len(unread)}")
     print(f"rounds に在るが READ-THREADS に無い（候補内 {len(rounds_only)} 件）: {out}.rounds-only.json")
     print(f"閾値から外れたが一覧に在る会話（{len(orphan)} 件・母数に残した）")
+    # 候補の外で話題の語に当たる会話 (母数に入れない・AS-OF の数は動かない)
+    topic_out = sorted((r for r in topical if (r["key"], r["start"]) not in pairs | pinned),
+                       key=lambda r: (is_read(r), r["start"]))
+    json.dump(topic_out, open(str(out) + ".topic-outside.json", "w"), ensure_ascii=False, indent=0)
+    print(f"話題の語 ({TOPIC.pattern}・本文で {TOPIC_MIN} 回以上・3 通以上) に当たる候補の外の会話 {len(topic_out)} 件"
+          f"（未読 {sum(1 for r in topic_out if not is_read(r))} 件・母数に入れない）: {out}.topic-outside.json")
+    for r in (r for r in topic_out if not is_read(r)):
+        print(f"  話題・未読: {r['start']}\t{r['title']}  (通 {r['messages']}・話題の語 {r['topic_hits']}・決める側の語 {r['decider_words']})")
     print(f"いまの語では候補でないが一覧に在る（{len(kept)} 件・うち未読 {sum(1 for r in kept if not is_read(r))} 件）")
     # そのうち未読の会話の名も出す (portfolio-00 の依頼・2026-11-11): ドシエが引用するほど語の当たりが増え、未読の
     #   会話が「候補の外・一覧に在る」へ移る。母数は一覧で固定されるので数は動かないが、どれが移ったかを AS-OF に
