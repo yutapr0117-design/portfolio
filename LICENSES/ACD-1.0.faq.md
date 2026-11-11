@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.faq.md
 audience: 採用検討者, 法務, ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-10
+last-updated: 2026-11-12
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (逐条リファレンス) / LICENSES/ACD-1.0.comparison.md (族ごとの比較) / LICENSES/ACD-1.0.jurisdictions.md (法域別の問い)
 ---
 
@@ -379,6 +379,8 @@ source / object / documentation に加えて **data / metadata / audiovisual** �
 **事業者と消費者の間の契約**を対象にするので、対価なしの一方的な献呈がその枠に入るかは
 法域ごとに別途の判断になる。**「入らないから安心」とは書かない** —— 判断できないことを
 断定しないのが、この文書群の方針である。
+
+**同じ理由が、逆の向きにも働く（2026-11-12 に足した）。** 献呈が契約でないことは、消費者保護法が当たらない理由になりうる一方で、免責そのものが受領者を縛らない理由にもなりうる。受け入れの行為を求めない形（ACD-1.0 の §2.3）について、OSI の委員長は 2002 年に *"From what various legal scholars tell me, a non-contractual license (such as the GPL) cannot cause you to give up your warranty rights. Only a contract can do that."* と書き、同じ年に Rod Dixon 氏（署名に J.D., LL.M.）は同意の表示が無いことを理由に条項を争いやすいと述べ、2015 年に Lawrence Rosen 氏は *"Indeed, some courts will NOT enforce a license that has NOT been seen and approved by the licensee."* と書いた（`review-readings.md` §1.180・§1.190、`against.md` #321）。**免責は受け入れを要らない形で書かれていて、効き方は法域による** —— これがこの問いへの正確な答えである。**逆側**: GPL をはじめ同意を求めない承認済みライセンスも保証を否認しており、ACD だけの問題ではない。受け入れの手順を求めることは OSD 10 が退けている。
 
 **利用者にとっての実務的な帰結は 1 つだけ。** 無保証条項がどこまで効くかに関わらず、
 **この作品は無保証で提供されている**。重要な用途に使うなら、自分で検証する。それは
