@@ -22,6 +22,7 @@ canonical-ref: LICENSES/ACD-1.4-CHANGELIST.md / LICENSES/ACD-1.4-DRAFT.txt
 ## Constraints
 
 - 本文を書き換えない。新しい調査の記録はここへ足さず、その時点の正規の記録先へ書く。
+- errata の状態（E-ID と状態の語）はここに書かない。Check 469(b) は `ACD-*-CHANGELIST.md` だけを読むので、ここに書くと照合から落ちる（portfolio-9b・2026-11-12）。
 
 ## Change impact
 
