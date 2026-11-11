@@ -578,6 +578,18 @@ _MUTATIONS_TAIL.append({
     "find": "- `ml` の 1 件 —— `Multics`",
     "replace": "- `ml` の判定 —— `Multics`",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 476d: estoppel の ACD の向き (estopped / will not assert) を読めなくする —— 向きの仕分けは正規表現で、崩れても「それらしい数」のまま出ていた",
+    "file": ROOT / ".github" / "scripts" / "measure_gap_claim.py",
+    "find": "r\"\\bestopped\\b|\\bwill not assert\\b\"",
+    "replace": "r\"\\bestoppedX\\b\"",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 476d: 信頼を目的と述べる向きに reliance の語そのものを足す —— GPL の「in reliance on」が ACD の向きに数えられ、承認済みに無いはずの向きが在ると出る",
+    "file": ROOT / ".github" / "scripts" / "measure_gap_claim.py",
+    "find": "r\"\\b(?:intend\\w*|purpose)\\b\"",
+    "replace": "r\"\\b(?:intend\\w*|purpose|reliance)\\b\"",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
