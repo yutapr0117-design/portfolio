@@ -155,6 +155,8 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"I submit that for OSI to approve a license, there should be an attorney willing to stand up for it and either explain why its terms or necessary or repair them."* | Bruce Perens 氏 2009-11-16 | B1。#309（同氏 2019 年）の 10 年前に、同じ要件が述べられていた。#309 に足した。**逆側**: Falcon の提出者は、3 人の弁護士が書いて署名した分析を添えていたと答えた（*"The license is presented together with a well-respected attorney relation."*）。それでも同氏の結論は *"Not convinced it's necessary or worth the cost in license proliferation, as existing licenses perform a very similar service."* で、弁護士の分析は帰結を決めなかった（Tidepool・§1.166、UPL・`gap-measurements.md` §1.154 に続く 3 件目） |
 | *"I would tend to argue the other way around: open source defines a set of freedoms to which business models must adapt."* | Michael Tiemann 氏 2009-09-02（`opensource.org` の宛先から） | 提出者が「事業の形に必要」と述べたことへの返答。ACD の提出は事業の必要を理由にしない（#161 の逆側）。**逆側**: ACD の提出の理由（ポートフォリオの実験・AI による起草）は、別の形で審査の入力になりうる（#161・B14） |
 
+**2026-11-11 追記（Falcon の最終の勧告）**: 2009 年 12 月分の委員会報告（2009-11-27）は、Falcon について *"Clearly OSD-compatible but"* と同じ説明を繰り返したうえで、勧告を *"Recommend: Not different enough from the LGPL to warrant approval."* とした（`rounds/2004-to-2009-license-lists-ecl-and-committee-report-december-2009-observed.txt`）。9 月の「議論が足りない」は、OSD に適合すると認めたうえで「差が足りない」へ移った。#302 の系譜（OSD に適合しても承認しない）の 2009 年の例である。
+
 **この節が establish しないこと。** 委員長の勧告と個人の発言で、理事会の決定文ではない。5 本の帰結（理事会が勧告どおり決めたか）は、この節では議事録に当てていない。Tiemann 氏の役職は、この通の署名からは確かめていない（宛先が `opensource.org` であることだけを書いた）。
 
 ## 1.173 理事会は 2007 年に、オープンソースハードウェアを OSI の範囲に入るとした —— 2007 年 8 月の委員会報告と理事会の対応（2026-11-11）
@@ -169,3 +171,16 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | GPLv3 と LGPLv3 の承認の告知: *"Due to the dramatic differences between and viable communities around both the GPLv3 family and the GPLv2 family of licenses, we will not be marking GPLv2 and LGPLv2 as redundant"* | 理事会の対応の報告 2007-09-06 | 版の扱い（§1.171 の Radcliffe 氏と同じ月）。後継の版が承認されても、前の版は使う共同体が在る限り冗長とされない。ACD はどの版も承認されていないので、当たるのは「前の版をどう扱うか」の先例としてだけである |
 
 **この節が establish しないこと。** 理事会の対応は委員長が委員会へ返した報告の文で、議事録の文ではない。オープンソースハードウェアのライセンスが当時承認されたかは、この節では追っていない。
+
+## 1.174 多くの大学が使うと表明した提出も、使用を制限する条件で一度止まった —— Educational Community License（2004）（2026-11-11）
+
+`rounds/2004-to-2009-license-lists-ecl-and-committee-report-december-2009-observed.txt`（ECL の 4 通）。Sakai Project と Open Source Portfolio Initiative の役員が 2004-06-07 に出した。提出文は、複数の大学と企業が使うことに合意したと列挙し、*"Other universities and projects have indicated their interest in using the license if it receives OSI certification."* と書いた。2004-08-30 に委員長の Russell Nelson 氏は、使用への制限を理由に *"So, no go."* と返した。OSI の一覧の API（`opensource.org_api_licenses.json`・2026-10-27 取得）は ECL-1.0 と ECL-2.0 の承認日をどちらも 20070606 とし、2.0 の提出を 2007-05 とする。2004 年の提出から承認まで 3 年かかった。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Other universities and projects have indicated their interest in using the license if it receives OSI certification."* | Bradley C. Wheeler 氏（提出者）2004-06-07 | B2。承認されたら使うという表明を、提出文に並べた例（2025 年の委員会が留め置きを解く条件として挙げた「使う、または関心を表明する」と同じ形・AS-OF）。ACD にはこの表明が無い（窓口は `.github/ISSUE_TEMPLATE/acd-use.yml`・AI は投稿しない）。**逆側**: 表明があっても、2004 年の提出は止まった。表明は承認の十分条件ではない |
+| *"We don't approve licenses that put restrictions on use. Copyright law doesn't allow you to restrict the use to which someone puts a copy that they have lawfully received. Only a contract can do that."* | Russell Nelson 氏（委員長）2004-08-30 | 有利な面。使用を制限する条件や、同意を求める契約の形が止められた。ACD は使用に条件を置かず（§10.1）、受け入れの行為を要らないとする（§2.3）。**逆側**: これは ECL の条件への判断で、ACD のような献呈を論じたものではない |
+| *"So I think that a "permission to use" under copyright law is necessary in EU member states."* | Arnoud Engelfriet 氏 2004-08-30 | ACD の §4.2 が *"use"* を許諾の列挙の最初に置く理由の支え。EU ではプログラムを動かすことが複製に当たり、使用の許諾が要る、という読み。**逆側**: 個人の発言で、プログラムについての指令の話である。データや文書の Work には別の問いがある |
+| *"I have to ask: Did you look at the original Apache license?"* | Ernest Prabhakar 氏 2004-06-07 | B10。新しいライセンスに審査者がまず問うのは、既存のもので足りないか、である。ACD への同じ問いの答えは、register の B10 の行と meta Q37 |
+
+**この節が establish しないこと。** 2004 年の審査と 2007 年の承認の間に何が変わったかは、この節では読んでいない（2.0 の審査のスレッドは別に在る）。Engelfriet 氏の読みは個人のもので、法律家の判断としては数えない。

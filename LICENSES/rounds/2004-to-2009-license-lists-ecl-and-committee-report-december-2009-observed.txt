@@ -1,0 +1,723 @@
+Source: https://lists.opensource.org/pipermail/ (license-discuss 2004-June and 2004-August; license-review 2009-November)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 5 messages this dossier cites: four from the 2004 review of the Educational Community License, and the committee chair's report of 2009-11-27 ("License Committee Report for December 2009"). Not a thread.
+Senders: Russ Nelson, Wheeler, Bradley C., Ernest Prabhakar, Russell Nelson, Arnoud Engelfriet
+Position: reviews of other submissions. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Sat Nov 28 04:33:28 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Fri, 27 Nov 2009 23:33:28 -0500
+Subject: License Committee Report for December 2009
+Message-ID: <19216.43032.566390.777456@desk.crynwr.com>
+
+I'm the chair of the license approval committee.  This is my report
+for the current set of licenses under discussion.  The OSI board will
+be meeting December 2.
+
+Proposition #1: that we turn all approved licenses into generic
+templates even if submitted as party-specific licenses.  This will
+immediately convert a number of licenses which are Mozilla instances
+into "See Mozilla Public License" references.  It will also allow
+submittors of legacy licenses such as PostgreSQL and BlackBox to
+submit a license which they are merely users of, and allow us to
+accept that license as they received it, but approve it for use by the
+rest of the open source community.
+
+Note that Proposition #1 is of my own invention and has not bee
+discussed on the mailing list.  This email is going out long enough
+before the board meeting for sufficient discussion of its wisdom to
+happen.  I will convey the result of that discussion to the board.  It
+needs to be in the report because approval of BlackBox is dependent
+upon it.
+
+--
+
+Title: The PostgreSQL Licence 
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:931:nooneedaahagajmpehif
+Original-Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:874:200909:kodinndfijkmchmflood
+License: In the submission
+Comments: Re-submitted as a general license. Asking for legacy approval.
+Recommend: approval
+
+--
+
+Title: The BlackBox Component Builder Open Source License
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:887:200911:nlcjlommcajfndpfkoni
+License: In the submission and http://www.oberon.ch/BlackBox.html
+Comments: As Cowan says, it's sleepycat with redundancies removed and
+  the names replaced.
+Recommend: approval if Proposition #1 passes; send back for
+  resubmission as generic template if #1 not passed.
+
+--
+
+Title: Falcon Programming Language License
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:826:naokadpjdjicihdgloog
+License: http://www.falconpl.org/index.ftd?page_id=license_1_1
+Comments: Clearly OSD-compatible but ... it's the GPL with an added
+  freedom to embed the language interpreter creating a single work
+  without invoking the terms of the GPL.  If that were it, then we
+  could leave it there, but Giancarlo adds required attribution above
+  and beyond that required by the GPL.
+Recommend: Not different enough from the LGPL to warrant approval.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-323-1241    
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From bwheeler at indiana.edu  Mon Jun  7 17:54:44 2004
+From: bwheeler at indiana.edu (Wheeler, Bradley C.)
+Date: Mon, 7 Jun 2004 13:54:44 -0400
+Subject: For Approval: Educational Community License
+Message-ID: <16580.44004.663675.97115@desk.crynwr.com>
+
+[ Please discuss this license ]
+
+Greetings,
+ 
+The purpose of this message is to submit the Educational Community
+License (ECL) for OSI certification.  This request is driven by a recent
+acceleration of application software projects in higher education (over
+a dozen current projects with new grants pending).  There is a growing
+concern that many of these projects will need to share code and
+interoperate with each other to achieve their full potential for users.
+In the present state, many of these projects are evolving on unique
+licenses from their local host universities.  There is a timely
+opportunity and need for a common license that can be used for these and
+future projects.
+ 
+In a step towards realizing a common license, the Sakai Project
+(www.sakaiproject.org <http://www.sakaiproject.org/> ) ($6.8M project)
+and the Open Source Portfolio Initiative (OSPI)(www.theospi.org
+<http://www.theospi.org/> ) ($1M project) - both funded by the Mellon
+Foundation - have both agreed to use the proposed "Educational Community
+License".  This includes formal acceptance from the administration at
+Foothill-De Anza Community College District, Indiana University, MIT,
+Stanford University, the University of Michigan and several companies
+who provide support for open source software in higher education (no
+small feat to reach common agreement!).  The IMS Global Learning
+consortium (50 members) that works on interoperability matters and
+sharing in the education community has also endorsed the ECL as it sees
+a tremendous need for a common license.  Other universities and projects
+have indicated their interest in using the license if it receives OSI
+certification. As a board member for both the Sakai Project and OSPI, I
+am submitting ECL on their behalf, and I can provide supporting letters
+or emails from any of the institutions named here if those would be
+helpful.  
+ 
+ECL is conceived as a very open license regarding the creation of
+derivative works, reuse of code, and freedom to commercialize.  It
+builds on the very successful university-commercial experiences of the
+uPortal Project that also used a very unrestrictive license.  It adds
+some explicit restrictions deemed necessary to protect the
+trademarks/brands of the copyright holders and provides for a lineage of
+modifications to help users understand the origins of their software.  
+ 
+The title of the license is intended to further adoption among open
+source projects in higher education - especially administrative and
+teaching/learning application software projects.  There is no single
+community, organization, or project implied by the license as the
+pattern is that two-three universities pool their resources with a
+foundation or government grant to create some new application.  Each may
+have its own community of users, identity, and organization, but all are
+generally affiliated in one way or another with educational endeavors.
+ 
+ 
+The following numbered items correspond to the "Getting a License
+Approved" items from the OSI website:
+ 
+1. Title: Educational Community License
+ 
+2. HTML Version in OSI mock up:
+http://wheeler.kelley.indiana.edu/ecl1.htm 
+    Full Plain Text Version is at the end
+ 
+3. Legal Analysis: Comments and references to the Open Source Definition
+are in [brackets].
+ 
+---------------------------------------------
+
+The Educational Community License
+
+This Educational Community License (the "License") applies to any
+original work of authorship (the "Original Work") whose owner (the
+"Licensor") has placed the following notice immediately following the
+copyright notice for the Original Work:
+Copyright (c) <year> <copyright holders>
+Licensed under the Educational Community License version 1.0
+This Original Work, including software, source code, documents, or other
+related items, is being provided by the copyright holder(s) subject to
+the terms of the Educational Community License. By obtaining, using
+and/or copying this Original Work, you agree that you have read,
+understand, and will comply with the following terms and conditions of
+the Educational Community License: [2. Source Code is Provided]
+Permission to use, copy, modify, merge, publish, distribute, and
+sublicense this Original Work and its documentation, with or without
+modification, for any purpose, and without fee or royalty to the
+copyright holder(s) is hereby granted, provided that you include the
+following on ALL copies of the Original Work or portions thereof,
+including modifications or derivatives, that you make: [1. Free
+Redistribution] [3. Derived works can be created and distributed under
+this license or any other license of the author's choice]
+* The full text of the Educational Community License in a location
+viewable to users of the redistributed or derivative work. 
+* Any pre-existing intellectual property disclaimers, notices, or terms
+and conditions. 
+* Notice of any changes or modifications to the Original Work, including
+the date the changes were made.
+* Any modifications of the Original Work must be distributed in such a
+manner as to avoid any confusion with the Original Work of the copyright
+holders. [4. Integrity of Author's Source Code: There are no
+restrictions on patches or modifications to the source code.
+Modifications must be identified so that they can be distinguished from
+the original work]
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+The name and trademarks of copyright holder(s) may NOT be used in
+advertising or publicity pertaining to the Original or Derivative Works
+without specific, written prior permission. Title to copyright in the
+Original Work and any associated documentation will at all times remain
+with the copyright holders. 
+[5. No Discrimination Against Persons: The ECL license makes no
+reference to any person groups whatsoever]
+[6. No Discrimination Against Fields of Endeavor: The ECL license makes
+no restriction regarding any field of endeavor and could be adopted by
+any software project, group, or commercial organization.  Its title is
+intended to imply its applicability in the educational domain where
+educational institutions have a long and common philosophy of
+cooperating and sharing.]
+[7. Distribution of License: The ECL license imposes no requirements for
+execution of any license or documents]
+[8. License Must Not be Specific to a Product: The ECL license imposes
+no restrictions on bundling or severability of modules or their
+modifications and distribution as a whole save for disclosing the
+original work carried this license]
+[9. License Must Not Restrict Other Software: The ECL license imposes no
+restrictions on bundling or any licensing terms chosen for other works
+including derivatives]
+[10. License Must Be Technology-Neutral: The ECL includes no provisions
+regarding the form of consent or distribution method]
+---------------------------------- 
+4.1 Similar License:
+ 
+The Educational Community License is most similar to the MIT license.
+It evolved from the OKI Project at MIT to the CHEF project at the
+University of Michigan to what is now the multi-institutional Sakai and
+ePortfolio projects mentioned above.  The MIT license presented three
+problems in reaching wide-spread agreement among the universities and
+projects that are proposing ECL.
+ 
+a.	It did not contain a provision for making notice of changes and
+modifications (lineage).
+b.	It did not contain a provision for distinguishing modifications
+and derivative works from the Original Work.
+c.	It did not contain explicit language for protecting the
+trademarks of the copyright holders from being using in conjunction with
+publicity of the original or derivative works.  This is particularly
+important as the license is intended to be commercialization friendly
+for the original work and derivative works.
+ 
+The projects and their respective university counsel also reviewed other
+OSI approved licenses as alternatives including BSD and the Academic
+Free License.  There was very strong desire to use a short and easily
+understood license that could be readily understood by developers
+without the consultation of counsel.
+ 
+ 
+4.2 Compatibility with Other Licenses:
+ 
+The ECL is readily compatible with other licenses that provide few
+restrictions on derivative works.  Licenses with copyleft provisions,
+such as GNU General Public License, the Jabber Open Source License, or
+the Open Source License 2.0, would impose obligations on derivative
+works that ECL does not.  Thus, a merging of code based on the ECL, some
+GNU code, and some newly written code would likely be subject to the
+more restrictive GNU licensing rules.  A merging of code based on the
+ECL, BSD 2.0, and some newly written code would invoke ECL requirements
+outlined in section 4.1 above (change notice, distinguishing the
+derivative work, and ban on use of copyright holder trademarks in
+publicity).
+ 
+ 
+4.3 Plain Text Version of Educational Community License:
+ 
+Educational Community License 1.0
+ 
+This Educational Community License (the "License") applies to any
+original work of authorship (the "Original Work") whose owner (the
+"Licensor") has placed the following notice immediately following the
+copyright notice for the Original Work: 
+ 
+Copyright (c) <year> <copyright holders>  
+ 
+Licensed under the Educational Community License version 1.0
+ 
+This Original Work, including software, source code, documents, or other
+related items, is being provided by the copyright holder(s) subject to
+the terms of the Educational Community License. By obtaining, using
+and/or copying this Original Work, you agree that you have read,
+understand, and will comply with the following terms and conditions of
+the Educational Community License:
+ 
+Permission to use, copy, modify, merge, publish, distribute, and
+sublicense this Original Work and its documentation, with or without
+modification, for any purpose, and without fee or royalty to the
+copyright holder(s) is hereby granted, provided that you include the
+following on ALL copies of the Original Work or portions thereof,
+including modifications or derivatives, that you make: 
+ 
+*      The full text of the Educational Community License in a location
+viewable to users of the redistributed or derivative work.
+ 
+*      Any pre-existing intellectual property disclaimers, notices, or
+terms and conditions. 
+ 
+*      Notice of any changes or modifications to the Original Work,
+including the date the changes were made.
+ 
+*      Any modifications of the Original Work must be distributed in
+such a manner as to avoid any confusion with the Original Work of the
+copyright holders.
+ 
+ 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ 
+The name and trademarks of copyright holder(s) may NOT be used in
+advertising or publicity pertaining to the Original or Derivative Works
+without specific, written prior permission. Title to copyright in the
+Original Work and any associated documentation will at all times remain
+with the copyright holders.
+ 
+ 
+ 
+------------------------------------------------------------------ 
+IU Assoc Vice President for Research & Academic Computing and Dean of IT
+     Assoc Professor of Information Systems, Kelley School of Business
+Indiana University Office of the Vice President for IT & CIO, +1
+812.855.3478 
+ 
+ 
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From Prabhaka at apple.com  Mon Jun  7 20:58:53 2004
+From: Prabhaka at apple.com (Ernest Prabhakar)
+Date: Mon, 7 Jun 2004 13:58:53 -0700
+Subject: For Approval: Educational Community License
+In-Reply-To: <16580.44004.663675.97115@desk.crynwr.com>
+References: <16580.44004.663675.97115@desk.crynwr.com>
+Message-ID: <7BD0B8C4-B8C5-11D8-97F0-000393CDCA50@apple.com>
+
+Hi Brad,
+
+A cursory examination doesn't reveal anything that looks like it 
+violates the OSD, but I did have a few comments:
+
+1.   While I think I understand the intent, your HTML version just 
+feels wrong:
+  "http://wheeler.kelley.indiana.edu/ecl1.htm"
+
+One, despite the disclaimers, it looks like a sleazy attempt to pretend 
+compliance. I know you didn't mean that, but it just looks bad.
+
+Second, the usual reason for HTML is to provide better formatting.   
+Your bullet items in the HTML are all mangled up, and its a little hard 
+to say exactly what you're requesting
+
+2.  I have to ask: Did you look at the original Apache license?
+
+http://www.apache.org/licenses/LICENSE-1.1
+
+Perhaps I'm being naive, but I would think you could readily create 
+your own version of that license simply by a) adding a clause about 
+clearly indicating modifications and b) genericizing the trademark 
+clause.
+
+I realize you're already close to it (since you share the MIT 
+heritage), but if there was anyway to adopt the phrasing -- and look & 
+feel -- of Apache 1.1, it might reduce the learning curve still 
+further.
+
+Just my $.02. As I said, I don't see anything OSD-problematic, but I 
+did find the review a little harder than I felt it needed to be.
+
+Best of luck,
+-- enp
+IANAL, TINLA, etc., etc.
+
+
+
+On Jun 7, 2004, at 10:54 AM, Wheeler, Bradley C. wrote:
+
+> [ Please discuss this license ]
+>
+> Greetings,
+>
+> The purpose of this message is to submit the Educational Community
+> License (ECL) for OSI certification.  This request is driven by a 
+> recent
+> acceleration of application software projects in higher education (over
+> a dozen current projects with new grants pending).  There is a growing
+> concern that many of these projects will need to share code and
+> interoperate with each other to achieve their full potential for users.
+> In the present state, many of these projects are evolving on unique
+> licenses from their local host universities.  There is a timely
+> opportunity and need for a common license that can be used for these 
+> and
+> future projects.
+>
+> In a step towards realizing a common license, the Sakai Project
+> (www.sakaiproject.org <http://www.sakaiproject.org/> ) ($6.8M project)
+> and the Open Source Portfolio Initiative (OSPI)(www.theospi.org
+> <http://www.theospi.org/> ) ($1M project) - both funded by the Mellon
+> Foundation - have both agreed to use the proposed "Educational 
+> Community
+> License".  This includes formal acceptance from the administration at
+> Foothill-De Anza Community College District, Indiana University, MIT,
+> Stanford University, the University of Michigan and several companies
+> who provide support for open source software in higher education (no
+> small feat to reach common agreement!).  The IMS Global Learning
+> consortium (50 members) that works on interoperability matters and
+> sharing in the education community has also endorsed the ECL as it sees
+> a tremendous need for a common license.  Other universities and 
+> projects
+> have indicated their interest in using the license if it receives OSI
+> certification. As a board member for both the Sakai Project and OSPI, I
+> am submitting ECL on their behalf, and I can provide supporting letters
+> or emails from any of the institutions named here if those would be
+> helpful.
+>
+> ECL is conceived as a very open license regarding the creation of
+> derivative works, reuse of code, and freedom to commercialize.  It
+> builds on the very successful university-commercial experiences of the
+> uPortal Project that also used a very unrestrictive license.  It adds
+> some explicit restrictions deemed necessary to protect the
+> trademarks/brands of the copyright holders and provides for a lineage 
+> of
+> modifications to help users understand the origins of their software.
+>
+> The title of the license is intended to further adoption among open
+> source projects in higher education - especially administrative and
+> teaching/learning application software projects.  There is no single
+> community, organization, or project implied by the license as the
+> pattern is that two-three universities pool their resources with a
+> foundation or government grant to create some new application.  Each 
+> may
+> have its own community of users, identity, and organization, but all 
+> are
+> generally affiliated in one way or another with educational endeavors.
+>
+>
+> The following numbered items correspond to the "Getting a License
+> Approved" items from the OSI website:
+>
+> 1. Title: Educational Community License
+>
+> 2. HTML Version in OSI mock up:
+> http://wheeler.kelley.indiana.edu/ecl1.htm
+>     Full Plain Text Version is at the end
+>
+> 3. Legal Analysis: Comments and references to the Open Source 
+> Definition
+> are in [brackets].
+>
+> ---------------------------------------------
+>
+> The Educational Community License
+>
+> This Educational Community License (the "License") applies to any
+> original work of authorship (the "Original Work") whose owner (the
+> "Licensor") has placed the following notice immediately following the
+> copyright notice for the Original Work:
+> Copyright (c) <year> <copyright holders>
+> Licensed under the Educational Community License version 1.0
+> This Original Work, including software, source code, documents, or 
+> other
+> related items, is being provided by the copyright holder(s) subject to
+> the terms of the Educational Community License. By obtaining, using
+> and/or copying this Original Work, you agree that you have read,
+> understand, and will comply with the following terms and conditions of
+> the Educational Community License: [2. Source Code is Provided]
+> Permission to use, copy, modify, merge, publish, distribute, and
+> sublicense this Original Work and its documentation, with or without
+> modification, for any purpose, and without fee or royalty to the
+> copyright holder(s) is hereby granted, provided that you include the
+> following on ALL copies of the Original Work or portions thereof,
+> including modifications or derivatives, that you make: [1. Free
+> Redistribution] [3. Derived works can be created and distributed under
+> this license or any other license of the author's choice]
+> * The full text of the Educational Community License in a location
+> viewable to users of the redistributed or derivative work.
+> * Any pre-existing intellectual property disclaimers, notices, or terms
+> and conditions.
+> * Notice of any changes or modifications to the Original Work, 
+> including
+> the date the changes were made.
+> * Any modifications of the Original Work must be distributed in such a
+> manner as to avoid any confusion with the Original Work of the 
+> copyright
+> holders. [4. Integrity of Author's Source Code: There are no
+> restrictions on patches or modifications to the source code.
+> Modifications must be identified so that they can be distinguished from
+> the original work]
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+> OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+> MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+> IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+> CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+> TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+> SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+> The name and trademarks of copyright holder(s) may NOT be used in
+> advertising or publicity pertaining to the Original or Derivative Works
+> without specific, written prior permission. Title to copyright in the
+> Original Work and any associated documentation will at all times remain
+> with the copyright holders.
+> [5. No Discrimination Against Persons: The ECL license makes no
+> reference to any person groups whatsoever]
+> [6. No Discrimination Against Fields of Endeavor: The ECL license makes
+> no restriction regarding any field of endeavor and could be adopted by
+> any software project, group, or commercial organization.  Its title is
+> intended to imply its applicability in the educational domain where
+> educational institutions have a long and common philosophy of
+> cooperating and sharing.]
+> [7. Distribution of License: The ECL license imposes no requirements 
+> for
+> execution of any license or documents]
+> [8. License Must Not be Specific to a Product: The ECL license imposes
+> no restrictions on bundling or severability of modules or their
+> modifications and distribution as a whole save for disclosing the
+> original work carried this license]
+> [9. License Must Not Restrict Other Software: The ECL license imposes 
+> no
+> restrictions on bundling or any licensing terms chosen for other works
+> including derivatives]
+> [10. License Must Be Technology-Neutral: The ECL includes no provisions
+> regarding the form of consent or distribution method]
+> ----------------------------------
+> 4.1 Similar License:
+>
+> The Educational Community License is most similar to the MIT license.
+> It evolved from the OKI Project at MIT to the CHEF project at the
+> University of Michigan to what is now the multi-institutional Sakai and
+> ePortfolio projects mentioned above.  The MIT license presented three
+> problems in reaching wide-spread agreement among the universities and
+> projects that are proposing ECL.
+>
+> a.	It did not contain a provision for making notice of changes and
+> modifications (lineage).
+> b.	It did not contain a provision for distinguishing modifications
+> and derivative works from the Original Work.
+> c.	It did not contain explicit language for protecting the
+> trademarks of the copyright holders from being using in conjunction 
+> with
+> publicity of the original or derivative works.  This is particularly
+> important as the license is intended to be commercialization friendly
+> for the original work and derivative works.
+>
+> The projects and their respective university counsel also reviewed 
+> other
+> OSI approved licenses as alternatives including BSD and the Academic
+> Free License.  There was very strong desire to use a short and easily
+> understood license that could be readily understood by developers
+> without the consultation of counsel.
+>
+>
+> 4.2 Compatibility with Other Licenses:
+>
+> The ECL is readily compatible with other licenses that provide few
+> restrictions on derivative works.  Licenses with copyleft provisions,
+> such as GNU General Public License, the Jabber Open Source License, or
+> the Open Source License 2.0, would impose obligations on derivative
+> works that ECL does not.  Thus, a merging of code based on the ECL, 
+> some
+> GNU code, and some newly written code would likely be subject to the
+> more restrictive GNU licensing rules.  A merging of code based on the
+> ECL, BSD 2.0, and some newly written code would invoke ECL requirements
+> outlined in section 4.1 above (change notice, distinguishing the
+> derivative work, and ban on use of copyright holder trademarks in
+> publicity).
+>
+>
+> 4.3 Plain Text Version of Educational Community License:
+>
+> Educational Community License 1.0
+>
+> This Educational Community License (the "License") applies to any
+> original work of authorship (the "Original Work") whose owner (the
+> "Licensor") has placed the following notice immediately following the
+> copyright notice for the Original Work:
+>
+> Copyright (c) <year> <copyright holders>
+>
+> Licensed under the Educational Community License version 1.0
+>
+> This Original Work, including software, source code, documents, or 
+> other
+> related items, is being provided by the copyright holder(s) subject to
+> the terms of the Educational Community License. By obtaining, using
+> and/or copying this Original Work, you agree that you have read,
+> understand, and will comply with the following terms and conditions of
+> the Educational Community License:
+>
+> Permission to use, copy, modify, merge, publish, distribute, and
+> sublicense this Original Work and its documentation, with or without
+> modification, for any purpose, and without fee or royalty to the
+> copyright holder(s) is hereby granted, provided that you include the
+> following on ALL copies of the Original Work or portions thereof,
+> including modifications or derivatives, that you make:
+>
+> *      The full text of the Educational Community License in a location
+> viewable to users of the redistributed or derivative work.
+>
+> *      Any pre-existing intellectual property disclaimers, notices, or
+> terms and conditions.
+>
+> *      Notice of any changes or modifications to the Original Work,
+> including the date the changes were made.
+>
+> *      Any modifications of the Original Work must be distributed in
+> such a manner as to avoid any confusion with the Original Work of the
+> copyright holders.
+>
+>
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+> OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+> MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+> IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+> CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+> TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+> SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+>
+> The name and trademarks of copyright holder(s) may NOT be used in
+> advertising or publicity pertaining to the Original or Derivative Works
+> without specific, written prior permission. Title to copyright in the
+> Original Work and any associated documentation will at all times remain
+> with the copyright holders.
+>
+>
+>
+> ------------------------------------------------------------------
+> IU Assoc Vice President for Research & Academic Computing and Dean of 
+> IT
+>      Assoc Professor of Information Systems, Kelley School of Business
+> Indiana University Office of the Vice President for IT & CIO, +1
+> 812.855.3478
+>
+>
+> --
+> license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From nelson at crynwr.com  Mon Aug 30 19:31:16 2004
+From: nelson at crynwr.com (Russell Nelson)
+Date: Mon, 30 Aug 2004 15:31:16 -0400
+Subject: For Approval: Educational Community License
+In-Reply-To: <16580.44004.663675.97115@desk.crynwr.com>
+References: <16580.44004.663675.97115@desk.crynwr.com>
+Message-ID: <16691.32900.253882.275647@desk.crynwr.com>
+
+Wheeler, Bradley C. writes:
+ > By obtaining, using
+ > and/or copying this Original Work, you agree that you have read,
+ > understand, and will comply with the following terms and conditions of
+ > the Educational Community License: [2. Source Code is Provided]
+
+ > Permission to use, copy, modify, merge, publish, distribute, and
+ > sublicense this Original Work and its documentation, with or without
+ > modification, for any purpose, and without fee or royalty to the
+ > copyright holder(s) is hereby granted,
+
+We don't approve licenses that put restrictions on use.  Copyright law
+doesn't allow you to restrict the use to which someone puts a copy
+that they have lawfully received.  Only a contract can do that.  There
+are many nasty things that a licensor could require of users in a
+contract, none of which are restricted by the OSD.  It seems clear to
+me that this license is meant to form a contract ("By using [...] you
+agree").  Same for restrictions on modification and merge.
+
+So, no go.  Sorry it took so long for me to notice that.
+
+-- 
+--My blog is at angry-economist.russnelson.com  | Violence never solves
+Crynwr sells support for free software  | PGPok | problems, it just changes
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | them into more subtle
+Potsdam, NY 13676-3213  | FWD# 404529 via VOIP  | problems.
+
+
+From galactus at stack.nl  Mon Aug 30 20:57:44 2004
+From: galactus at stack.nl (Arnoud Engelfriet)
+Date: Mon, 30 Aug 2004 22:57:44 +0200
+Subject: For Approval: Educational Community License
+In-Reply-To: <16691.32900.253882.275647@desk.crynwr.com>
+References: <16580.44004.663675.97115@desk.crynwr.com> <16691.32900.253882.275647@desk.crynwr.com>
+Message-ID: <20040830205744.GA30568@stack.nl>
+
+Russell Nelson wrote:
+> Wheeler, Bradley C. writes:
+>  > By obtaining, using
+>  > and/or copying this Original Work, you agree that you have read,
+>  > understand, and will comply with the following terms and conditions of
+>  > the Educational Community License: [2. Source Code is Provided]
+> 
+>  > Permission to use, copy, modify, merge, publish, distribute, and
+>  > sublicense this Original Work and its documentation, with or without
+>  > modification, for any purpose, and without fee or royalty to the
+>  > copyright holder(s) is hereby granted,
+> 
+> We don't approve licenses that put restrictions on use.  Copyright law
+> doesn't allow you to restrict the use to which someone puts a copy
+> that they have lawfully received.  Only a contract can do that.  
+
+Patent law can do it as well. "Make, use and sell" are the exclusive
+rights. So perhaps you can consider a "use" permission to be a
+patent license? It's not completely consistent with the reference
+to "copyright holder" though.
+
+In addition, there are jurisdictions where use _is_ an exclusive
+right under copyright law. The EU 1991 Copyright Directive specifically
+states that 
+
+   Subject to the provisions of Articles 5 and 6, the exclusive rights of
+   the rightholder within the meaning of Article 2, shall include the
+   right to do or to authorize:
+   (a) the permanent or temporary reproduction of a computer program by
+   any means and in any form, in part or in whole. Insofar as loading,
+   displaying, running, transmision or storage of the computer program
+   necessitate such reproduction, such acts shall be subject to
+   authorization by the rightholder;
+<URL:http://europa.eu.int/smartapi/cgi/sga_doc?smartapi!celexapi!prod!
+CELEXnumdoc&lg=en&numdoc=31991L0250&model=guichett>
+
+So I think that a "permission to use" under copyright law is 
+necessary in EU member states.
+
+Arnoud
+
+-- 
+Arnoud Engelfriet, Dutch patent attorney - Speaking only for myself
+Patents, copyright and IPR explained for techies: http://www.iusmentis.com/
+
+
