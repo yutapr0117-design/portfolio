@@ -1,0 +1,198 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2014-April)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 4 messages this dossier cites from "FAQ entry (and potential website page?) on "why standard licenses"?" (license-discuss, 2014-04; 25 messages). Not the whole thread.
+Senders: Luis Villa, Lawrence Rosen, Richard Fontana
+Position: a draft FAQ entry, posted by Luis Villa, on why to use standard licences, and the list's discussion of what OSI approval signifies. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From luis at lu.is  Mon Apr 28 01:11:17 2014
+From: luis at lu.is (Luis Villa)
+Date: Sun, 27 Apr 2014 18:11:17 -0700
+Subject: [License-discuss] FAQ entry (and potential website page?) on "why
+	standard licenses"?
+Message-ID: <CAFPTOkWya0mRwURaBoiV6Zw+X8kXhQX8Q9ZKJHi84cFDNJGF6Q@mail.gmail.com>
+
+Hi, all-
+
+A few of us were talking and realized the FAQ/website have nothing to
+explain why *using standard licenses* is a good idea. This being a sort of
+basic point, I started remedying the problem :)
+
+Draft FAQ entry addressing the question is here:
+http://wiki.opensource.org/bin/Projects/Why+standardized+licensing%3F
+
+There is also an incomplete potential more-than-FAQ answer that could be
+put somewhere on opensource.org. The more I think about it, the more I
+think the FAQ may be sufficient, but I'd be curious what others here think
+and whether something longer is worthwhile.
+
+Feedback is probably better on-wiki but the list is fine too. :)
+Luis
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20140427/c34cc6af/attachment.html>
+
+From lrosen at rosenlaw.com  Mon Apr 28 15:26:53 2014
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Mon, 28 Apr 2014 08:26:53 -0700
+Subject: [License-discuss] FAQ entry (and potential website page?) on
+	"why standard licenses"?
+In-Reply-To: <CAA4ffp_FBvdCE7KXtOLPY_5tYoFYBjWqMgZ2phWJZDbX9drmkw@mail.gmail.com>
+References: <tbtf05owsmp3dpt74p5ceov9.1398655862673@email.android.com>
+	<CAA4ffp_FBvdCE7KXtOLPY_5tYoFYBjWqMgZ2phWJZDbX9drmkw@mail.gmail.com>
+Message-ID: <006901cf62f6$4a3b2260$deb16720$@rosenlaw.com>
+
+Simon Phipps wrote:
+
+> Mind you, OSI has described itself as a standards body for open source licenses 
+
+> for a long time, see http://opensource.org/about (I believe that text used to be
+
+> on the home page).
+
+ 
+
+Perhaps, but that term has thus been misused. There is absolutely nothing about OSI ? its governance policies, its procedures, its membership rules, its board selections, or its activities ? that would in any sense qualify OSI as a standards organization.
+
+ 
+
+I'm not quarreling with OSI's attempt to get everyone to use approved licenses, but I have long challenged your attempts to steer people toward some subset of those licenses. Especially if you hint that they are in any way, shape or form "standard" licenses.  That's overreach for which you are not legally qualified.
+
+ 
+
+/Larry
+
+ 
+
+Lawrence Rosen
+
+Rosenlaw & Einschlag ( <http://www.rosenlaw.com/> www.rosenlaw.com) 
+
+3001 King Ranch Road, Ukiah, CA 95482
+
+Cell: 707-478-8932   Fax: 707-485-1243
+
+From fontana at sharpeleven.org  Mon Apr 28 16:04:46 2014
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Mon, 28 Apr 2014 12:04:46 -0400
+Subject: [License-discuss] FAQ entry (and potential website page?) on
+ "why standard licenses"?
+In-Reply-To: <CAMhUM_VBAqVQv0uS-26KWc=wL_vLfE-5pLYEr-CjGDBR68b_XA@mail.gmail.com>
+References: <tbtf05owsmp3dpt74p5ceov9.1398655862673@email.android.com>
+	<CAA4ffp_FBvdCE7KXtOLPY_5tYoFYBjWqMgZ2phWJZDbX9drmkw@mail.gmail.com>
+	<006901cf62f6$4a3b2260$deb16720$@rosenlaw.com>
+	<CAMhUM_VBAqVQv0uS-26KWc=wL_vLfE-5pLYEr-CjGDBR68b_XA@mail.gmail.com>
+Message-ID: <20140428120446.68a1429a@riley.home>
+
+On Mon, 28 Apr 2014 11:42:51 -0400
+Ben Cotton <bcotton at fedoraproject.org> wrote:
+
+> On Mon, Apr 28, 2014 at 11:26 AM, Lawrence Rosen
+> <lrosen at rosenlaw.com> wrote:
+> > I'm not quarreling with OSI's attempt to get everyone to use
+> > approved licenses
+> 
+> Larry hit on my suggestion. Anywhere the word "standard" is used, some
+> variant of "approved" or "OSI-approved" is a reasonable replacement.
+ 
+I might be confused but when Luis speaks of "standard" licenses I
+assumed he means a proper subset of the OSI-approved licenses,
+perhaps approximately the set of licenses the OSI has labeled
+"popular" (something I'm known to have criticized in the past), and I
+took Larry's initial response to be based on the same interpretation.
+
+To characterize all of the OSI-approved licenses as being "standard" in
+a common-sense sense would really stretch the common-sense meaning of
+"standard". For an arbitrary example I picked in going down the list of
+OSI-approved licenses, to assert that there is something "standard"
+about the Attribution Assurance License would be bizarre; I trust no
+one would disagree with that. It's a *nonstandard* license. The fact
+that it was approved by the OSI is very important but it does not
+transform the Attribution Assurance License into something that is
+"standard" in a common-sense sense.
+
+As to whether it is appropriate to liken OSI to a standards group, that
+seems to be an orthogonal issue -- it's a different use of the word
+"standard" from the use I believe Luis is employing.
+
+
+ - Richard
+
+
+
+From fontana at sharpeleven.org  Mon Apr 28 19:45:07 2014
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Mon, 28 Apr 2014 15:45:07 -0400
+Subject: [License-discuss] FAQ entry (and potential website page?) on
+ "why standard licenses"?
+In-Reply-To: <C417174C-CAE4-4579-AB15-F22787FF801C@javaman.com.br>
+References: <tbtf05owsmp3dpt74p5ceov9.1398655862673@email.android.com>
+	<CAA4ffp_FBvdCE7KXtOLPY_5tYoFYBjWqMgZ2phWJZDbX9drmkw@mail.gmail.com>
+	<006901cf62f6$4a3b2260$deb16720$@rosenlaw.com>
+	<CAMhUM_VBAqVQv0uS-26KWc=wL_vLfE-5pLYEr-CjGDBR68b_XA@mail.gmail.com>
+	<20140428120446.68a1429a@riley.home>
+	<C417174C-CAE4-4579-AB15-F22787FF801C@javaman.com.br>
+Message-ID: <20140428154507.0ef08d0a@riley.home>
+
+On Mon, 28 Apr 2014 15:03:20 -0300
+"Bruno F. Souza" <bruno at javaman.com.br> wrote:
+
+> Sidestepping the whole discussion around standard's bodies and other
+> meanings of "standard", when I read Luis' FAQ entry, the use of the
+> term "standard" is really confusing...
+
+I think so too now, in light of this thread at least. 
+
+> The entry seems to equate "standard" with "OSI-approved": 
+> 	"Using standard, OSI-approved open source licenses"
+> 	"standard licenses that comply with the Open Source
+> Definition" "standard licenses that have been approved by the Open
+> Source Initiative" "Using standard, widely-used terms that comply
+> with the Open Source Definition"
+> 
+> It has nothing to do with popularity or license proliferation,
+> because "standard" is not used in this way in the text. More
+> specifically: "Using standard licenses [...] particularly those
+> licenses that are widely-used" (for me this clearly states that all
+> approved licenses are "standard", not only the widely-used ones)
+> 
+> It also opposes "standard" with "custom" or "new":
+> 	"reducing [...] legal errors that can be present in new,
+> "custom" licenses."
+> 
+> And some times, it seems to be one thing more then OSI-approved:
+> 	"using a well-known license that is standard in the community
+> *and* [OSI-]approved" (emphasis added)
+> 
+> So, I think the text is really calling for a less confusing term, and
+> I think "OSI-approved" is probably what we want here. After all,
+> talking about the advantages of the OSI-approved licenses for
+> projects, developers and managers is a great way to promote OSI. 
+
+I'll pick on the Motosoto License here since someone else brought it up.
+
+If "OSI-approved" is what is meant by "standard", then these arguments
+get much weaker. There is much to be said for the fact that the
+Motosoto License was OSI-approved. But any new project resurrecting the
+Motosoto License today would not inspire confidence or increase trust
+as a result of that license choice. (Maybe for a legacy project it
+would be different.)  
+
+To make use of another use of the word "standard", OSI approval
+signifies to me that a license meets minimum standards of
+acceptability, minimum standards of conformance to FLOSS norms, and I
+believe this is true of the Motosoto License. But only some OSI-approved
+licenses go further and inspire for me the kind of trust and confidence
+spoken of in Luis's draft FAQ entry. (For me, these are not limited to
+the licenses the OSI has recommended as popular or widely-used.)
+ 
+
+ - RF
+
+
+
+
+
+
+
+
