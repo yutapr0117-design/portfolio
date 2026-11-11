@@ -281,6 +281,8 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"At the July OSI board meeting last week, we approved the Academic Free License (think MIT/BSD/X11/Apache with a patent grant)"* | Russell Nelson 氏 2002-08-02 | B10 の参考。寛容なライセンスに特許の許諾を足したものは 2002 年に承認されている（AFL は通知の条件を持つ）。register の B10 が測った差（明示の特許許諾 ∧ 無条件）は、この型に条件の無さを足したところにある |
 | *"One of the benefits of the OSI Certified certification mark is that users of such certified software can be assured that the licenses are OSD compliant without having to read and understand the entire license."* | Lawrence E. Rosen 氏 2002-08-14 | B13 の逆側。承認の印は、利用者が本文を全部読まずに済むためのもの、という見方。ACD の長さ（B3）の費用の一部は、承認されれば利用者の側では小さくなる。**逆側**: 審査する側は全部を読む |
 
+**2026-11-12 の追記 —— 同じ年の 10 月、click-wrap の議論（2002）。** `rounds/2002-10-license-discuss-click-wrap-observed.txt`（3 通・スレッドは全 11 通）。Rod Dixon 氏（署名に J.D., LL.M.）は、同意を形づくる手順はライセンスを出す側の利益だと書き、*"many on this list seem to have no aversion to the warranty disclaimer, which, if enforceable in a particular state, is not exactly user-friendly."* と続けた。同じスレッドの最後で同氏は *"If there were no clickwrap or if you lived in Russ' world, you might have a better argument challenging the license (browser-wrap) on the basis that there is no manifestation of mutual assent."* と書いた。**不利な面**: 同意を求めない形（ACD の §2.3）は、相互の同意の表示が無いことを理由に条項を争われる余地を残す —— #321 の向きを、法律家の肩書きを持つ人が述べた記録である。**逆側**: Nelson 氏は同じ日に *"I guess I just can't believe that so many sober people take click-wrap so seriously."* と click-wrap の効き目そのものを疑い、OSD は後に特定の受け入れの手順を求めることを退けた（OSD 10）。同意の手順を足すことは ACD の設計（§2.3）と OSD の両方に反する。
+
 **この節が establish しないこと。** 2002 年の個人の発言と委員長の報告で、法律家の判断ではない（Nelson 氏は「法学者から聞いた」と書いている）。保証の否認が契約なしに効くかは法域の問いで、この節は決めない。
 
 ## 1.181 承認は受け入れの床であって、下流の一覧ではない —— "why standard licenses"（2014）と Apache の第三者ライセンス方針（2015）（2026-11-11）
@@ -427,7 +429,7 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"The OSI board is the entity that issues rejection, but they listen to this group. Sorry, I concur this violates OSD #6."* | Bruce Perens 氏 2019-02-05 | 利用の目的や分野で条件を課すライセンスは OSD 6 に反する、という読み。ACD は利用に条件を課さない（§10.1） |
 | 人権とプライバシーは *"as expressed in the text of a license, are matters of opinion, so a developer/distributor cannot know if they have violated the license or not, pending litigation."* | Josh Berkus 氏 2019-02-05 | 条件が意見の問題だと、利用者は守れているかを知れない、という具体的な理由。ACD の §11.3（虚偽の表示）と §11.4（プライバシー等の権利）は条件ではなく到達の限界として書かれ、*"it is not a condition upon You, and Section 10.1 is unaffected by it"* と明記する（1.4 草案）—— 有利な面 |
 | *"Open source MUST be allowed to do illegal things. It is not up to the copyright owners to perform law enforcement."* | Carlo Piana 氏 2019-02-06 | 法を守ることをライセンスの条件にするな、という立場。ACD は違法な利用を禁じる条を持たない。**逆側**: §11.3 は虚偽の表示を Dedication の外に置き、§5.2(d) はプライバシー等の不主張から虚偽の言明を除く —— 条件ではないと書いていても、読み手が「法の執行」に近いと読む余地は残る |
-| *"Here, a problem is that the Twente License aims to regulate *use* of the software, not just the copying and modification of the software."* | Lukas Atkinson 氏 2019-02-06 | 著作権の外の「利用」を規制することへの異議。ACD は利用を規制しない。**逆側**: ACD は §5 で Dedicator 自身の行為（技術的手段・契約による条件の付加）を縛る —— 規制の向きが Dedicator で、利用者ではないことを提出の材料で言う必要がある |
+| Twente は利用を規制しようとしていて、*"not just the copying and modification of the software."*（原文は *use* を強調） | Lukas Atkinson 氏 2019-02-06 | 著作権の外の「利用」を規制することへの異議。ACD は利用を規制しない。**逆側**: ACD は §5 で Dedicator 自身の行為（技術的手段・契約による条件の付加）を縛る —— 規制の向きが Dedicator で、利用者ではないことを提出の材料で言う必要がある |
 
 **読み。** Twente は「条件として課す」ことで退けられた。ACD はプライバシーと虚偽の表示を、許諾の範囲の限界として書き、利用者への条件ではないと明記している。この書き分けが、Twente と同じ読みを避ける理由である。
 
