@@ -225,3 +225,16 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"My understanding is that we cannot be arbitrary. We can change our reasons for approval over time, but not over parties asking for approval."* | Russell Nelson 氏 2005-09-04 | B12。理由は時とともに変えられるが、申請者ごとには変えられない（§1.171 の「仲間うちでも同じ手続き」と同じ向き）。**逆側**: 「時とともに変えられる」ので、2005 年の基準も 2025 年の運用も、提出の日の運用とは限らない |
 
 **この節が establish しないこと。** 理事の Raymond 氏の文は理事会の方針の説明で、議事録の文ではない（議事録の側は `board-decisions.md` の 8.7 節）。Phipps 氏の役職は 2005 年のものとして書いた。
+
+## 1.178 「OSD に適合するものを承認しない方針は、正式に定めたことがない」—— 2012 年の理事の理解と、それと食い違う記録（2026-11-11）
+
+`rounds/2012-06-license-discuss-licensing-pages-proposal-observed.txt`（4 通）。理事の Luis Villa 氏が 2012-06 に、承認済みライセンスのページの見せ方を変える提案を出した。分類（「人気がある・広く使われている」の一覧）は変えない、という提案だった。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"I'm not sure I agree 100% with the substance of the second sentence, as (to the best of my knowledge) OSI has never formally laid out a policy or criteria by which something could be OSD-compliant but not approved and placed into at least"* どこかの分類に | Luis Villa 氏（理事）2012-06-09 | B10・B2 の有利な面。理事の理解では、OSD に適合するのに承認されず、どの分類にも置かれない、という方針は正式に定められていなかった。翌年の議事録で同氏は *"we have no written rules about non-proliferation"* と述べている（`board-decisions.md` の 8.8 節）。**逆側（記録と食い違う）**: 同氏は "to the best of my knowledge" と留保している。実際には、2005 年の Wonka（差が小さく承認しない）、2008-05 の *"Recommend: rejection for similarity"*、2009 年の Falcon の *"Not different enough from the LGPL to warrant approval."* が在る（#302・§1.172）。正式な方針が無くても、勧告の運用は在った。2025 年の理事会の留め置きは、その運用の現在の形である |
+| *"3) The Board believes that it substantially duplicates an existing license."*（オープンソースだが承認されない理由として *"1) It has not been submitted for certification in proper form."*・*"2) The Board considers it a vanity license."* と並べた） | John Cowan 氏 2012-06-07 | Villa 氏の上の通が答えていた相手。リストの古参の理解では、重複は承認されない理由の 1 つだった。Villa 氏の「正式な方針は無い」と、この理解と、#302 の勧告の記録の 3 つが並ぶ。ACD に当たるのは 3 番目で、差は条文で示す（register の B10・meta Q37） |
+| *"It is not perfect, but it is long-settled, and will not be revised until many months (more likely years) of work have been done."*（人気の一覧について） | Luis Villa 氏 2012-06-04 | 分類の一覧は、決めたあと長く手を入れられなかった（Phipps 氏 2020 の「保守されず古くなった」・meta Q37 と同じ観察）。ACD が分類を名乗らない理由の支え |
+| *"As long as that list remains, I will object. It is inaccurate, incomplete, misleading, subject to cronyism and personal bias by members of the OSI board of directors, and does not reflect the actual importance or uses of those licenses."* | Lawrence Rosen 氏 2012-06-04 | B2。人気や使われ方の一覧を、承認や推奨の根拠にすることへの強い反対。**逆側**: 個人の発言で、一覧は残った |
+
+**この節が establish しないこと。** Villa 氏の文は留保つきの個人の理解で、OSI の方針の文ではない。2012 年の運用の全体は、この節では数えていない。
