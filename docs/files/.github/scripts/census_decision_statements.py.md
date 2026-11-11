@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/census_decision_statements.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-11-07
+last-updated: 2026-11-11
 canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (§1.140 が rules の出力を読んだ記録) / LICENSES/AUDIT-LEDGER.md
 ---
 
@@ -20,6 +20,8 @@ OSI の 2 つのリストのアーカイブ全数から、決める側の発言�
 ## How
 
 `DOSSIER_ARCHIVE_CACHE` に月次の写しを置いて手で走らせる。CI には入れない。
+
+- **`first` は全体で最も早い通の日付（2026-11-11）**: 月の file は list ごとに時系列で読む（license-discuss の全期間のあとに license-review）ので、先に読んだ通を first にすると、2 つの list にまたがるスレッドで後の list の早い通（提出・"[PROPOSAL]" の起こし）を取り逃した（候補 778 本のうち 46 本・1 日以上ずれたのは 15 本で、うち 12 本は 2 つの list にまたがる）。Date 欄をタイムゾーンつきの時刻にして最も早いものを取る。`--pin` は一覧（THREAD-CANDIDATES.txt）の既存の行の日付もこの first に合わせ、出力に「一覧の日付が最初の通の日付と違う N 行」を出す。**限界**: スレッドは件名だけでまとめるので、年をまたいで同じ件名の別の会話は 1 本になる（"NOSA 2.0?" は 2016 と 2017 の会話がまとまり、first は 2016 になる）
 
 ## Constraints
 

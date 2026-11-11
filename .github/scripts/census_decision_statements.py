@@ -31,6 +31,7 @@
 議事録の出席者と主な審査者から手で選んだ。
 """
 import collections
+import datetime
 import email.utils
 import glob
 import json
@@ -161,6 +162,15 @@ def _list_keys(path):
     return keys
 
 
+def _when(date):
+    """Date 欄を比べられる時刻にする (タイムゾーンの無いものは UTC と読む)。読めなければ None。"""
+    try:
+        t = email.utils.parsedate_to_datetime(date)
+    except (TypeError, ValueError, IndexError):
+        return None
+    return t if t.tzinfo else t.replace(tzinfo=datetime.timezone.utc)
+
+
 def _iso(date):
     try:
         return email.utils.parsedate_to_datetime(date).date().isoformat()
@@ -244,12 +254,17 @@ def threads(out):
         entry["seen"].add((sender, date))
         text = own_text(body)
         entry["title"] = entry.get("title") or title
-        entry["first"] = entry["first"] or date
+        # 「first」は全体で最も早い通の日付 (2026-11-11・portfolio-00 の問い)。月の file は list ごとに時系列で
+        #   読むので (license-discuss の全期間 → license-review)、先に読んだ通を first にすると、2 つの list に
+        #   またがるスレッドでは後の list の早い通 (提出・"[PROPOSAL]" の起こし) を取り逃した (候補 46 本・1 日以上は 15 本)
+        _ts = _when(date)
+        if not entry["first"] or (_ts and (entry.get("first_ts") is None or _ts < entry["first_ts"])):
+            entry["first"], entry["first_ts"] = date, _ts
         entry["messages"] += 1
         entry["dossier_hits"] += sum(1 for g in grams(text) if g in seen_in_dossier)
         if DECIDERS.search(sender):
             entry["decider_words"] += len(text.split())
-    rows = [{k: v for k, v in e.items() if k != "seen"} for e in table.values()
+    rows = [{k: v for k, v in e.items() if k not in ("seen", "first_ts")} for e in table.values()
             if e["messages"] >= 3 and e["decider_words"] >= 120]
     # 読了は READ-THREADS.txt だけから数える (portfolio-00 と 2026-11-09 に決めた): rounds/ の件名を読了に
     #   数えると、別スレッドの通を 1 通だけ置いたときにそのスレッドまで読了になり、未読が過小になる
@@ -271,11 +286,19 @@ def threads(out):
     candidates += orphan
     kept = [r for r in candidates if r["dossier_hits"] >= 8 and title_key(r["title"]) in pinned]
     new = [r for r in candidates if title_key(r["title"]) not in pinned]
-    if "--pin" in sys.argv and new:
-        lines = [l for l in open(CANDIDATES, encoding="utf-8")] if CANDIDATES.exists() else []
+    # 一覧の日付も最初の通の日付に合わせる (見出しが "<date of the first message>" と述べる)。--pin で直す
+    by_key = {title_key(e["title"]): e["first"] for e in table.values() if e.get("title")}
+    lines = [l for l in open(CANDIDATES, encoding="utf-8")] if CANDIDATES.exists() else []
+    body = [l for l in lines if l.strip() and not l.startswith("#")]
+    redate = {}
+    for l in body:
+        d, t = l.rstrip("\n").split("\t", 1)
+        k = title_key(t)
+        if k in by_key and _iso(by_key[k]) != d:
+            redate[l] = f"{_iso(by_key[k])}\t{t}\n"
+    if "--pin" in sys.argv and (new or redate):
         head = [l for l in lines if l.startswith("#")]
-        body = [l for l in lines if l.strip() and not l.startswith("#")]
-        body += [f"{_iso(r['first'])}\t{r['title']}\n" for r in new]
+        body = [redate.get(l, l) for l in body] + [f"{_iso(r['first'])}\t{r['title']}\n" for r in new]
         CANDIDATES.write_text("".join(head) + "".join(sorted(set(body), key=lambda l: (l[:10], l))), encoding="utf-8")
     unread = [r for r in candidates if title_key(r["title"]) not in read]
     unread.sort(key=lambda r: -r["decider_words"])
@@ -289,6 +312,8 @@ def threads(out):
     print(f"決める側の語の閾値から外れたが一覧に在る（{len(orphan)} 件・母数に残した）")
     print(f"いまの語では候補でないが一覧に在る（{len(kept)} 件・うち未読 "
           f"{sum(1 for r in kept if title_key(r['title']) not in listed)} 件）")
+    print(f"一覧の日付が最初の通の日付と違う {len(redate)} 行" + ("（--pin で直した）" if "--pin" in sys.argv and redate
+                                                          else "（--pin で直す）" if redate else ""))
     print(f"一覧 (THREAD-CANDIDATES.txt) に無い新しい候補 {len(new)} 件"
           + ("（--pin で一覧に足した）" if "--pin" in sys.argv and new else "（--pin で一覧に足す）" if new else ""))
     # AS-OF の「未読スレッドの残り」の行と同じ形 (Check 498 (h) が和を見る)
