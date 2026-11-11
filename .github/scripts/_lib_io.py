@@ -403,8 +403,10 @@ def robots_full_site_disallow(value: str) -> bool:
     return bool(_ROBOTS_FULL_SITE.match(value.strip()))
 
 
+# 属性の区切りは空白か `/` (2026-11-11・監査 #49): HTML の tokenizer は属性名の前の `/` を区切りとして読むので、
+#   `<svg/onload=…>` は onload の属性を持つ要素になる。空白だけを区切りにすると、このタグは文法に合わず列挙から落ちた
 _HTML_TAG = re.compile(
-    r"<([a-zA-Z][\w:-]*)((?:\s+[^\s=>/]+(?:\s*=\s*(?:\"[^\"]*\"|'[^']*'|[^\s>]+))?)*)\s*/?>")
+    r"<([a-zA-Z][\w:-]*)((?:[\s/]+[^\s=>/]+(?:\s*=\s*(?:\"[^\"]*\"|'[^']*'|[^\s>]+))?)*)[\s/]*>")
 _HTML_ATTR = re.compile(r"([^\s=>/]+)(?:\s*=\s*(\"[^\"]*\"|'[^']*'|[^\s>]+))?")
 
 
