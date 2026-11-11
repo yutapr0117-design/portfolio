@@ -257,6 +257,15 @@ purpose of the exception, are questions on which a German appellate court has ru
 about the same exception (HansOLG 5 U 104/24; `jurisdictions.md` §9a(9)) — we have read the
 court's own announcement, not the judgment.
 
+The 1.4 draft adds a rule on the Dedicator's own notices (§16.2, 2026-11-10): *"a notice that is
+only a Reservation assigns nothing to other terms (Section 6.2)"*. It is meant to stop an opt-out
+notice the Dedicator places from taking that material out of the Work. If a court treats such a
+notice as the Dedicator's statutory reservation all the same, §16.2 and the statute point different
+ways for that material, and §6.3's withdrawal is what has to carry it.
+
+**An answer would change** whether §6.2 and §6.3 can stay as statements of the Dedicator's own
+position, and whether the §16.2 rule does what it is meant to do or should be dropped.
+
 ## 7. What follows from naming no governing law and no forum? (§15.3)
 
 **The clause.** *"This Dedication specifies no governing law and no forum. It is intended to
@@ -266,6 +275,8 @@ operate under the law of each jurisdiction in which the Work is used."*
 choice of law provisions are necessary or advisable in open source licenses"* (`against.md`
 #254), which supports the omission; but a recipient sued abroad has no clause to point to, and
 the dossier records that as a cost it has not answered (#23, #170).
+
+**An answer would change** how the dossier answers #23 and #170, which it records as unanswered.
 
 ## 8. Does the Dedication survive the Dedicator's insolvency? (§2.9)
 
@@ -281,6 +292,9 @@ forum's insolvency law, and *Jaffé v. Samsung* (4th Cir. 2013) shows that prote
 11 U.S.C. §365(n) can turn on a balancing in a cross-border case. The text no longer asserts the
 result (errata E5, E30); whether its structure — no obligation on the licensee — keeps it outside
 "executory" is what we cannot judge.
+
+**An answer would change** whether §2.9 needs more than the 1.4 draft gives it, and how the dossier
+answers #178 (`jurisdictions.md` §9a (10), on Qimonda).
 
 ## 9. Does the limitation of liability reach a breach of the Dedicator's own covenants? (§14.1, §5, §8.6, §12.2)
 
