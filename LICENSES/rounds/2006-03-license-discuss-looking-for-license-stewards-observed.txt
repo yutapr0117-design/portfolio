@@ -1,0 +1,36 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2006-March)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 1 message this dossier cites from "Looking for license stewards" (license-discuss, 2006-03; 3 messages). Not the whole thread; the two replies give contact addresses.
+Senders: Russell Nelson
+Position: a request for contact addresses of the stewards of approved licences whose stewards could not be reached. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Sat Mar 11 06:17:24 2006
+From: nelson at crynwr.com (Russell Nelson)
+Date: Sat, 11 Mar 2006 01:17:24 -0500
+Subject: Looking for license stewards
+Message-ID: <17426.27508.926121.921760@desk.crynwr.com>
+
+These licenses are ones for whom we have no good steward contact.
+Does anybody have better addresses?
+
+New BSD license	?
+Eiffel Forum License	Patrick Doyle <doylep at ecf.utoronto.ca>	User unknown
+Eiffel Forum License V2.0	Christian Couder <christian.couder at tuxfamily.org>	unknown user
+Frameworx License	"Mitchel Sonies" <mitch.sonies at frameworx.com>	frameworks.com is a dead hostname
+MITRE Collaborative Virtual Workspace License (CVW License)	Robert Leslie <rob at mitre.org>, Lucy Deus <lucy at mitre.org>, John Kordash <kordash at mitre.org>	kordash unknown, rob unknown, lucy unknown
+Motosoto License	leon at motosoto.com (Leon Gommans)	no host named motosoto.com
+Naumen Public License	Vladimir Pastukhov <vpastukhov at naumen.ru>	User unknown
+Nethack General Public License	?
+Qt Public License (QPL)	?
+Ricoh Source Code Public License	Greg Wolff <wolff at rsv.ricoh.com>	unknown user
+Vovida Software License v. 1.0	Alexandra White <awhite at valinux.com>	unknown user
+zlib/libpng license	?
+
+-- 
+--my blog is at    http://blog.russnelson.com   | A computer without Python is
+Crynwr sells support for free software  | PGPok | like a CPU without memory:
+521 Pleasant Valley Rd. | +1 315-323-1241       | it runs, but you can't do
+Potsdam, NY 13676-3213  |     Sheepdog          | anything useful with it.
+
+
