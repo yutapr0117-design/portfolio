@@ -489,7 +489,7 @@ def rounds(root=".", files=()):
                 continue
             cut += 1
             # 切った位置の直後が引用の始まりか (ヘッダの「引用の始まりで切る」の約束どおりか)。それ以外は人が読む
-            if re.match(r"\s*(?:On .{0,250}?wrote|[^\n]{0,80}wrote:|-{5} ?Original Message|>|From: |_{10,}\s*\nFrom:|Quoting "
+            if re.match(r"\s*(?:On .{0,250}?wrote|[^\n]{0,80}wrote:|-{5} ?Original Message|>|From: |_{5,}\s*\n\s*From:|Quoting "
                         r"|[^\n]{0,80} writes:)", nxt, re.S):
                 continue
             other.append(f"{os.path.basename(f)}: {head[:60]} → アーカイブの続き {nxt.lstrip()[:45]!r}")
