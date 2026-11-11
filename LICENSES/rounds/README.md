@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-11 時点・357 ファイル）
+## いまの状態（2026-11-11 時点・358 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -76,6 +76,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2007-07〜08 | `license-discuss` | **観測（2007 年 7 月の委員会報告と、承認の手続きをめぐる枝から 6 通）** | `2007-07-to-08-license-discuss-committee-report-and-approval-process-observed.txt` |
 | 2009-09〜11 | `license-review` | **観測（2009 年 9 月の委員会報告と Falcon の審査から 6 通）** | `2009-09-to-11-license-review-committee-report-and-falcon-observed.txt` |
 | 2007-09 | `license-discuss` | **観測（2007 年 8 月分の委員会報告と理事会の対応・オープンソースハードウェアを範囲に入れた答えを含む 4 通）** | `2007-09-license-discuss-committee-report-august-and-board-remit-observed.txt` |
+| 2026-03 / 2026-08 | `license-review` | **観測（本文を AI が書いたことは問題か —— AI-MIT の審査の 4 通と、承認が AI の著作権訴訟で引かれる懸念 —— OpenMDW の審査の 1 通）** | `2026-03-and-08-license-review-ai-drafting-and-endorsement-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
 | 2012〜2020 | `license-review` | **観測（特許を扱う新しい permissive の必要性と、増殖の分類の現状・4 通）** | `2012-to-2020-license-review-need-and-proliferation-categories-cited-observed.txt` |

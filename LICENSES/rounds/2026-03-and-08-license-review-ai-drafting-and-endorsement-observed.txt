@@ -1,0 +1,308 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2026-March, 2026-August)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 5 messages this dossier cites: four from the review of the AI-MIT License 1.0 (2026-03-15 to 2026-03-17) on whether it matters that a licence's text was written by an AI, and one from the review of OpenMDW (2026-08-28) on how an OSI approval could be cited in AI copyright litigation. Not a thread.
+Senders: Timofey Zakharcuk, Pamela Chestek, Richard Fontana, Josh Berkus, Rob Landley
+Position: reviews of other submissions. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From timofey.zakharchuk.research at gmail.com  Sun Mar 15 13:12:39 2026
+From: timofey.zakharchuk.research at gmail.com (Timofey Zakharcuk)
+Date: Sun, 15 Mar 2026 16:12:39 +0300
+Subject: [License-review] =?utf-8?q?=5BSUBMISSION=5D_AI-MIT_License_1?=
+	=?utf-8?q?=2E0_=E2=80=94_permissive_license_for_AI-generated_code?=
+Message-ID: 
+ <CAOm0KL8ENiq4mSHcr806UVOfait7sDADnd0R=ydeMZzur_iWCA@mail.gmail.com>
+
+The License states it was made with ai, but it also says that "humans
+shouldn't be able to copyright claim ai content"
+As i saw in Vol 149, Issue 6:
+
+"A note on
+meta-context This license was initially drafted with AI assistance (Claude,
+Anthropic) at the direction of a human. We believe this is appropriate and
+have disclosed it in the repository. The license is itself an example of
+the category of work it governs. We welcome feedback from the committee and
+the community at large."
+
+While the License says:
+
+"3. NO COPYRIGHT CLAIM (Fully AI-generated only)
+   When the "Fully AI-generated" box is checked, the Originator
+   makes no copyright claim over the Software. The Software is
+   dedicated to the public domain to the maximum extent
+   permitted by applicable law. Where public domain dedication
+   is not legally possible, the Originator grants a perpetual,
+   irrevocable, royalty-free license to all parties for any
+   purpose."
+
+AND the Readme of the license on "GitHub" says
+" *This license was itself written by an AI (Claude, Anthropic) at the
+direction of a human author. We think that's fitting."*
+
+Therefore it contradicts itself and has no legal meaning.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260315/fad8d06b/attachment.htm>
+
+From pamela at chesteklegal.com  Sun Mar 15 23:22:20 2026
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sun, 15 Mar 2026 16:22:20 -0700
+Subject: [License-review] =?utf-8?q?=5BSUBMISSION=5D_AI-MIT_License_1?=
+ =?utf-8?q?=2E0_=E2=80=94_permissive_license_for_AI-generated_code?=
+In-Reply-To: 
+ <CAOm0KL8ENiq4mSHcr806UVOfait7sDADnd0R=ydeMZzur_iWCA@mail.gmail.com>
+References: 
+ <CAOm0KL8ENiq4mSHcr806UVOfait7sDADnd0R=ydeMZzur_iWCA@mail.gmail.com>
+Message-ID: <7b50c78a-a86a-4dc6-87fd-340e501aa076@chesteklegal.com>
+
+I'm not following your point. Are you saying that the license text isn't 
+copyrightable because it was AI generated? Why does that matter to how 
+the license operates?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+From rfontana at redhat.com  Mon Mar 16 00:46:42 2026
+From: rfontana at redhat.com (Richard Fontana)
+Date: Sun, 15 Mar 2026 20:46:42 -0400
+Subject: [License-review] =?utf-8?q?=5BSUBMISSION=5D_AI-MIT_License_1?=
+	=?utf-8?q?=2E0_=E2=80=94_permissive_license_for_AI-generated_code?=
+In-Reply-To: 
+ <CAM8L+9T6x_z0jPPjAwM_OWz5itCV9XdArgNaXYVkQFFX=M774w@mail.gmail.com>
+References: 
+ <CAM8L+9SZXfA2C_sm2uDt8w1A108Q8nrV7t08HVfpppms6mkJSA@mail.gmail.com>
+ <CAM8L+9T6x_z0jPPjAwM_OWz5itCV9XdArgNaXYVkQFFX=M774w@mail.gmail.com>
+Message-ID: 
+ <CAC1cPGyVZo65F56gKcbzxJ4ux0YaHhQ5Yn6ZroL6wNPYpuJyBg@mail.gmail.com>
+
+On Sun, Mar 15, 2026 at 9:11 AM PTFS <pfts.offical at gmail.com> wrote:
+>
+> For some reason, it isnt showing the yellow highlight it was,
+
+You shouldn't assume that any colors you intended in your original
+message will survive transmission, given mailing list settings and
+settings for individual email clients that may strip out HTML and so
+forth. Maybe try using some typographical convention like brackets or
+asterisks to enclose what you had intended to show by highlighting.
+
+I'm not sure the possibility that any part of this license is
+AI-generated matters though.
+
+Richard
+
+
+>
+
+From josh at berkus.org  Tue Mar 17 23:26:17 2026
+From: josh at berkus.org (Josh Berkus)
+Date: Tue, 17 Mar 2026 16:26:17 -0700
+Subject: [License-review] =?utf-8?q?=5BSUBMISSION=5D_AI-MIT_License_1?=
+ =?utf-8?q?=2E0_=E2=80=94_permissive_license_for_AI-generated_code?=
+In-Reply-To: 
+ <CAC1cPGyVZo65F56gKcbzxJ4ux0YaHhQ5Yn6ZroL6wNPYpuJyBg@mail.gmail.com>
+References: 
+ <CAM8L+9SZXfA2C_sm2uDt8w1A108Q8nrV7t08HVfpppms6mkJSA@mail.gmail.com>
+ <CAM8L+9T6x_z0jPPjAwM_OWz5itCV9XdArgNaXYVkQFFX=M774w@mail.gmail.com>
+ <CAC1cPGyVZo65F56gKcbzxJ4ux0YaHhQ5Yn6ZroL6wNPYpuJyBg@mail.gmail.com>
+Message-ID: <8f5b4122-0de7-4ef7-a4a4-e75d39ae3ea5@berkus.org>
+
+On 3/15/26 5:46 PM, Richard Fontana via License-review wrote:
+> I'm not sure the possibility that any part of this license is
+> AI-generated matters though.
+
+It matters for claiming copyright over the license itself, but we don't 
+care about that. There is no requirement that the license be copyrightable.
+
+-- 
+Josh Berkus
+
+From rob at landley.net  Fri Aug 28 19:00:23 2026
+From: rob at landley.net (Rob Landley)
+Date: Fri, 28 Aug 2026 14:00:23 -0500
+Subject: [License-review] For Approval: OpenMDW License Agreement,
+ versions 1.1 (OpenMDW-1.1)
+In-Reply-To: <39f2cc82-687f-42d8-a646-8d4feaa82604@maffulli.net>
+References: 
+ <CAFV=PSG=bsLTemzjyCKYYz9j=rX9dcNo6=2T6htbxTRgervMrA@mail.gmail.com>
+ <CAC1cPGxE=ozAmGTfHt4k+SePQcstym_Kaq=w4Aj5_=hvkp15hA@mail.gmail.com>
+ <CAC1cPGyZf3indkwzeCHvodDFxyPmKhfRqGdbBx=+X+1wB9v86g@mail.gmail.com>
+ <CAFV=PSH_wNaPuPQi5i6-JZP2wfyx5UpudQsrjao3TCCSE4jb9w@mail.gmail.com>
+ <CAC1cPGzpjtL=UyGT=bzu+6JmohsY567PPU=0ZxGJOrM7vNDdyw@mail.gmail.com>
+ <CAFV=PSE7swjqNpbLqLFoJJJOnf03khMJHa_FL_bP9ow40c0E2Q@mail.gmail.com>
+ <4d892328-fe83-471b-8714-bb0b818c54d9@chesteklegal.com>
+ <0e164b03-ff31-48b2-bf23-f1f53e490ecf@maffulli.net>
+ <03dfe4a9-6a89-451c-9b07-0eeb73ba563e@chesteklegal.com>
+ <84ff911e-31c4-4a07-99db-e51a3e0ff0a4@maffulli.net>
+ <10992f43-01cc-45d5-a4e3-6790cd407b0a@landley.net>
+ <39f2cc82-687f-42d8-a646-8d4feaa82604@maffulli.net>
+Message-ID: <bd9eb42d-8e48-4f44-bba8-49ceadec2ffc@landley.net>
+
+On 8/28/26 07:50, Stefano Maffulli wrote:
+> I continue getting the impression that the OpenMDW review is tainted by 
+> an ideological bias: Because we don't like big tech
+
+The #2 contributor to my toybox project is the Android Base OS 
+maintainer at Google. (4223 of my commits, 723 of Elliott's, and 781 
+everyone else combined.) I submitted it to SPDX in 2015 because Samsung 
+asked me to.
+
+But ad hominem away I guess...
+
+> The question is if OSI thinks that letting every single tiny copyright 
+> holder (including the babies) to stop/slow the release of [open weight | 
+
+I'm not sure "you are not big enough, you don't matter" as a position 
+you explicitly want OSI to take is really helping your case here.
+
+> Open Source AI | Public AI] (pick whatever term you prefer) is the best 
+> way to promote/defend the open source ecosystem.
+
+I think if Disney used a picture of my cat from my personal website in 
+their advertising without permission, and I objected, and they responded 
+by banning me for life from all disney theme parks citing terms of use 
+in some mickey mouse branded bluetooth headphones I'd bought 5 years 
+ago, that probably wouldn't make them the good guy.
+
+If you think that's an outlandish example, you missed 
+https://www.npr.org/2024/08/14/nx-s1-5074830/disney-wrongful-death-lawsuit-disney
+
+(In case it is not clear to you, I am attempting to highlight the 
+potential for abuse.)
+
+> It's been clear to me for years
+
+In a discussion that's like a week old.
+
+> that the view (that you seem to support) 
+
+By all means, ascribe wider viewpoints to me.
+
+> that generative AI is a form of intellectual expropriation will only 
+> starve the training data commons, limit ai research, stifle open source 
+> AI developers while doing absolutely nothing to hurt, and instead favor 
+> the juggernauts OpenAI/Anthropic/Google & co.
+
+AI's need for Lebensraum is irrelevant to whether copyright termination 
+for an assertion of copyright infringement is compatible with the open 
+source definition.
+
+I would argue that it is not, nor should it be. If this was a term of 
+GPLv2, no company would have ever touched it. It attempts to give 
+sufficiently popular projects blanket permission to infringe any copyright.
+
+If you want to argue "we didn't REALLY infringe, it was fair use, 
+sufficiently clean room, etc" that's great. People have been doing that 
+for decades. Often in court. If you want to say "you cannot present your 
+case to a judge, you're signing away that right and not just to binding 
+arbitration but at all to anybody"... that's not great.
+
+That said, I think it more than 50% likely a judge would grant a 
+temporary restraining order against the termination on the theory that 
+if they succeed at trial to prove that you DID infringe, then one of 
+THEIR remedies may be to stop YOU from distributing the versions 
+incorporating the offending material. (Normally a judge just goes for 
+monetary damages without taking an existing product off the market, but 
+turnabout is fair play. If the license has something like this in it, 
+then "if you lose, you have to recall that model and retrain from 
+scratch" may be on the table. I'd certainly ask for it, pointing out the 
+language in the license as justification. If they think this is 
+proportional, then you may owe money AND a recall...)
+
+> The expropriation exists and it's perpetrated by the proprietary models.
+
+And they get multi-billion dollar judgements against them, as the recent 
+prominent example I referenced demonstrates.
+
+The little guys generally DON'T get multi-billion dollar judgements 
+against them (no point). Deep pockets are most at risk because they're 
+worth suing.
+
+If Nvidia just agreed to buy HuggingFace for $12.9 billion, are you 
+really defending "the little guy" here? This seems to me an attempt to 
+protect deep pockets from those without deep pockets.
+
+(And again, "they're bad so we get to be bad - OSI" isn't an argument I 
+would personally be comfortable making in favor of your position.)
+
+> You won't restore a balance without new policies: the answer this time 
+> is political, not contractual.
+
+Political as in data center bans...? (Are you coming out in favor of...? 
+I'm confused.)
+
+> Back to the license review:
+
+Thank you. That was weird.
+
+> On 8/27/26 16:36, Rob Landley wrote:
+>> Under this license, if any of those authors had a day job requiring 
+>> them to use Claude, participating in the class action lawsuit would 
+>> have either cost them their job or hurt their employer depending how 
+>> it was interpreted. 
+> 
+> Why are you bringing up Claude?
+
+It's the most prominent recent example of a company doing the thing this 
+license attempts to enable. They incorporated lots of data sources they 
+didn't properly license (which the owners of the copyrights isisted they 
+needed to explicitly license), got sued, and paid out.
+
+If this license wasn't created to prevent a recurrence of exactly that, 
+what's it for then?
+
+> Anthropic hasn't shared anything about 
+> the Claude models. If one of Anthropic models was indeed sharing Model 
+> Materials under the OpenMDW then I know I wouldn't be on the side of the 
+> large copyright holders (the same way that I was on the barricades 
+> against RIA/MPAA during the Napster wars that brought us the "lovely" 
+> freedom-depriving DMCA).
+
+Ah, citing the deep magic. I'm old too.
+
+https://www.fool.com/archive/portfolios/rulemaker/1999/03/18/the-rule-maker-portfolio.aspx
+
+> BTW, Anthropic solved the issue by buying the 
+> books, the issue is solved the same way that Google solved it with Books 
+> years ago.
+
+I'm mostly subscribed here in case OSI misnames 0BSD for a third time. 
+Google, Microsoft, Facebook, Intel, and so on have released projects 
+licensed under 0BSD. It was never just "for me" or "about me". I was 
+aware how people who think VERY DIFFERENTLY than me could use or misuse 
+it. (The #1 ranked project in 0BSD on github is written in _rust_. Sigh. 
+Oh well.)
+
+If this OpenMDW license becomes OSI approved, do you believe future 
+models from Antropic and OpenAI won't include similar termination 
+language in their models' licenses, and next time they're in court point 
+to the Open Source Initiative's endorsement of copyright termination in 
+response to copyright enforcement as a reason to uphold its 
+enforceability? (When arguing why the judge _shouldn't_ issue a 
+preliminary injunction putting said termination on hold pending the 
+outcome of the litigation.)
+
+> These examples ad absurdum don't help understand the limits of the license.
+
+One example, from this year, for billion dollars, is ad absurdum?
+
+My sense of time is a bit off since the pandemic, but I believe this 
+license was submitted for discussion to OSI _right_ after the anthropic 
+settlement?
+
+https://www.npr.org/2026/07/27/nx-s1-5904606/anthropic-vs-bartz-ai-copyright-lawsuit-pros-cons
+
+Yeah, July vs August. One month. Are you saying this license is not in 
+any way motivated by the anthropic settlement?
+
+> /stef
+
+Rob
+
