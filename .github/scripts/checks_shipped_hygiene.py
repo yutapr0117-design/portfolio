@@ -505,9 +505,21 @@ def run(ctx):
     _idx248 = ROOT / "index.html"
     if _idx248.exists():
         _isrc248 = _idx248.read_text(encoding="utf-8")
-        _cm248 = re.search(r'<meta\s+charset\s*=\s*["\']?([^"\'\s>]+)', _isrc248, re.IGNORECASE)
-        _cv248 = _cm248.group(1) if _cm248 else None
-        _ok248 = isinstance(_cv248, str) and _cv248.lower() == "utf-8"
+        # 属性の順に依らず全部の宣言を読む (2026-11-11・監査 #61): `<meta charset` の直後しか読まず、属性が前に在る
+        #   `<meta data-x="1" charset="shift_jis">` や http-equiv の Content-Type の宣言は見えなかった。
+        #   宣言は 1 つ以上在り、すべて utf-8 であること (noscript / template の中は数えない)
+        from _lib_io import html_tags as _tags248
+        _decl248 = []
+        for _t, _a in _tags248(_isrc248, inert=("template", "noscript")):
+            if _t != "meta":
+                continue
+            if "charset" in _a:
+                _decl248.append(str(_a.get("charset") or ""))
+            elif str(_a.get("http-equiv", "")).lower() == "content-type":
+                _mc248 = re.search(r"charset\s*=\s*([^;\s]+)", str(_a.get("content", "")), re.I)
+                _decl248.append(_mc248.group(1) if _mc248 else "")
+        _cv248 = _decl248[0] if len(_decl248) == 1 else _decl248
+        _ok248 = bool(_decl248) and all(_d.lower() == "utf-8" for _d in _decl248)
         check(
             _ok248,
             f"Check 248: <meta charset>={_cv248!r} == utf-8 (case-insensitive)",

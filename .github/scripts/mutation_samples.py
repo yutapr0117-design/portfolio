@@ -534,6 +534,18 @@ _MUTATIONS_TAIL.append({
     "find": "No permission is granted under these rights (Section 11.4).",
     "replace": "No permission is granted under these rights (Section 11.9).",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 248: utf-8 の宣言の後に、属性が前に在る 2 つ目の宣言 <meta data-x=\"1\" charset=\"shift_jis\"> を足す —— <meta charset の直後しか読まず、最初の 1 つで満たされていた",
+    "file": ROOT / "index.html",
+    "find": "    <meta charset=\"utf-8\" />\n",
+    "replace": "    <meta charset=\"utf-8\" />\n    <meta data-x=\"1\" charset=\"shift_jis\" />\n",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 248: http-equiv の Content-Type で shift_jis を宣言する —— <meta charset の形しか読まず、http-equiv の宣言は見えなかった",
+    "file": ROOT / "index.html",
+    "find": "    <meta charset=\"utf-8\" />\n",
+    "replace": "    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=shift_jis\" />\n",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
