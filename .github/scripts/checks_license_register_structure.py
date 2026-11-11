@@ -16,11 +16,13 @@
         「足す反論は無い」と判断して数を上げるだけの増分も正当なので、止めない。
 """
 
+import ast
 import datetime
 import io
 import re
 import tokenize
 
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -50,12 +52,50 @@ def run(ctx):
         # **範囲の言及は entry ではない** —— 初版は `(a)〜(p)` の端点まで「宣言済み」と数え、
         # **(p) の記述を丸ごと消しても緑だった**（動機になった drift を素通り）。
         # 前後が波ダッシュのものを落とす。
-        _decl469 = ({m.group(1) for m in re.finditer(r"(?<![〜～])\(([a-z])\)(?![〜～])",
-                                                     _m469.group(0))} if _m469 else set())
-        _impl469 = set(re.findall(r"^\s{8}# \(([a-z])\)", _src469, re.M))
+        # **entry は `(x) **` の形だけ** (2026-11-12・監査 #4 / #146): 旧版は区間のどこかの `(x)` を
+        #   すべて宣言と数え、別の face の説明の中の「face (a) は」「(p) は正本を」が、その face の
+        #   entry を消しても宣言を満たした。entry はどれも `(x) **見出し**` で始めるので、太字が続く
+        #   ものだけを宣言とし、同じ字の entry が 2 つあれば RED にする
+        _ent469 = Counter(re.findall(r"\(([a-z])\) \*\*", _m469.group(0))) if _m469 else Counter()
+        _decl469 = set(_ent469)
+        # **実装は `_bad460.append` の呼び出しで数える** (2026-11-12・監査 #5 / #145): 旧版はコメント行
+        #   `# (x)` があれば実装と数え、face の唯一の append を `pass` にしてもコメントが残るので緑だった。
+        #   face のコメントから次の face のコメント (最後は Check 460 の check 呼び出し) までの区間に、
+        #   AST 上の `_bad460.append(...)` が 1 つも無い face は実装と数えない
+        _cm469 = [(i + 1, mm.group(1)) for i, _ln in enumerate(_src469.splitlines())
+                  for mm in [re.match(r"^\s{8}# \(([a-z])\)", _ln)] if mm]
+        _impl469, _empty469 = set(), []
+        try:
+            _tree469 = ast.parse(_src469)
+        except SyntaxError as _e469:
+            _tree469 = None
+            _bad469.append(f"(a) checks_license_self_reporting.py を parse できない ({_e469.msg}:{_e469.lineno})")
+        if _tree469 is not None:
+            _app469 = sorted(_c.lineno for _c in ast.walk(_tree469)
+                             if isinstance(_c, ast.Call) and isinstance(_c.func, ast.Attribute)
+                             and _c.func.attr == "append" and isinstance(_c.func.value, ast.Name)
+                             and _c.func.value.id == "_bad460")
+            _end469 = min((_c.lineno for _c in ast.walk(_tree469)
+                           if isinstance(_c, ast.Call) and isinstance(_c.func, ast.Name) and _c.func.id == "check"
+                           and _c.args and isinstance(_c.args[0], ast.UnaryOp)
+                           and isinstance(_c.args[0].operand, ast.Name) and _c.args[0].operand.id == "_bad460"),
+                          default=None)
+            if _end469 is None:
+                _bad469.append("(a) Check 460 の check(not _bad460, …) 呼び出しが見つからない")
+            for _k469, (_ln469, _x469) in enumerate(_cm469):
+                _hi469 = _cm469[_k469 + 1][0] if _k469 + 1 < len(_cm469) else (_end469 or 0)
+                if any(_ln469 < _a < _hi469 for _a in _app469):
+                    _impl469.add(_x469)
+                else:
+                    _empty469.append(_x469)
+        if _empty469:
+            _bad469.append(f"(a) face のコメントはあるが、その区間に _bad460.append が無い: {sorted(_empty469)}")
+        _dup469 = sorted(_x for _x, _c in _ent469.items() if _c > 1)
+        if _dup469:
+            _bad469.append(f"(a) 同じ字の face の entry が docstring に 2 つ以上ある: {_dup469}")
         if not _m469:
             _bad469.append("(a) docstring から Check 460 の inventory ブロックを取り出せない")
-        elif _decl469 != _impl469:
+        elif _decl469 != _impl469 and not _empty469:
             _bad469.append(
                 f"(a) face の列挙と実装が食い違う: 宣言のみ {sorted(_decl469 - _impl469)} / "
                 f"実装のみ {sorted(_impl469 - _decl469)} "
@@ -147,7 +187,9 @@ def run(ctx):
                 _claim469.setdefault(i, set()).add("both" if _w == {"s", "p"} else
                                                    "settled" if _w == {"s"} else "pending")
         for i in sorted(_claim469, key=lambda x: int(x[1:])):
-            if _claim469[i] == {"settled", "pending"}:
+            # 部分集合で見る (2026-11-12・監査 #147): 等号は、別の行で "both" を受けた E-ID の
+            #   {settled, pending, both} を矛盾の組から外していた
+            if {"settled", "pending"} <= _claim469[i]:
                 _bad469.append(
                     f"(b) {i} の状態が file 内で矛盾している (ある行は決着済み / 別の行は未着手)")
         # errata の冒頭が閉じたと述べる E-ID は、CHANGELIST で未着手だけを述べてはならない (2026-11-09・監査 #6):
