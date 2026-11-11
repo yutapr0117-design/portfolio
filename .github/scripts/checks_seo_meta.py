@@ -242,16 +242,32 @@ def run(ctx):
     # (Playwright は title で結果を報告するため、ファイルを跨いだ重複も vacuous-pair を生む)。
     _specs151 = sorted((ROOT / "e2e").glob("*.spec.js"))
     if _specs151:
+        # 題名は test( の後の最上位のカンマまでの式を読み、`+` でつないだ文字列を連結する (2026-11-11・監査 #108: 最初の
+        #   閉じ引用符までだと '…' + '…' の題名は前半だけで比べられた)。文字列でない項と `${…}` は `${}` にする
+        def _title151(_src, _i):
+            _out, _lit, _depth = [], False, 0
+            for _m in re.finditer(r"'(?:\\.|[^'\\])*'|\"(?:\\.|[^\"\\])*\"|`(?:\\.|[^`\\])*`|[(\[{]|[)\]}]|,|[^'\"`(\[{)\]},]+", _src[_i:]):
+                _tok = _m.group(0)
+                if _tok in "([{" and len(_tok) == 1:
+                    _depth += 1
+                elif _tok in ")]}" and len(_tok) == 1 or _tok == ",":
+                    if _depth == 0:
+                        break
+                    _depth -= _tok != ","
+                if _depth == 0 and _tok[0] in "'\"`":
+                    _out.append(re.sub(r"\$\{[^}]*\}", "${}", _tok[1:-1]) if _tok[0] == "`" else _tok[1:-1])
+                    _lit = True
+                elif _tok.strip(" +\n\t") and (_depth > 0 or _tok not in "([{"):
+                    _out.append("${}") if not _out or _out[-1] != "${}" else None
+            return "".join(_out) if _lit else None
+
         _titles151 = []
         for _sp151 in _specs151:
             _src151 = _sp151.read_text(encoding="utf-8")
-            _titles151 += re.findall(r"^\s*test\(\s*['\"]([^'\"]+)['\"]", _src151, re.MULTILINE)
-            # backtick テンプレート題名 (パラメタライズド loop) も一意性の対象にする。旧実装は
-            # 引用符リテラルのみを見ており、同一パターンの loop を 2 つ書いても重複を検出できなかった。
-            # 展開後の個々の title ではなく `${…}` を正規化したパターン 1 件として数えるのが正しい
-            # (同じ loop の N 件は Playwright 上も別 title であり衝突しないため)。
-            _titles151 += [re.sub(r"\$\{[^}]*\}", "${}", _tpl151)
-                           for _tpl151 in re.findall(r"^\s*test\(\s*`([^`]*)`", _src151, re.MULTILINE)]
+            for _m151 in re.finditer(r"^\s*test\(\s*", _src151, re.MULTILINE):
+                _t151 = _title151(_src151, _m151.end())
+                if _t151 is not None:
+                    _titles151.append(_t151)
         _seen151: dict[str, int] = {}
         for _t151 in _titles151:
             _seen151[_t151] = _seen151.get(_t151, 0) + 1

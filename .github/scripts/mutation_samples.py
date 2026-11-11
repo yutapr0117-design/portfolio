@@ -558,6 +558,12 @@ _MUTATIONS_TAIL.append({
     "find": "        </main>\n",
     "replace": "        </main><svg/onload=\"alert(1)\"></svg>\n",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 151: a11y-axe の題名を、別の spec の題名と連結で同じになる形 ('…' + '…') にする —— 最初の閉じ引用符までを題名にし、連結の題名は前半だけで比べていた",
+    "file": ROOT / "e2e" / "a11y-axe.spec.js",
+    "find": "test('a11y axe: open command palette has no render-neutral critical violations', async",
+    "replace": "test('WCAG 1.4.3: ライトの drawer / palette / ' + 'toast に color-contrast 違反がゼロ', async",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
