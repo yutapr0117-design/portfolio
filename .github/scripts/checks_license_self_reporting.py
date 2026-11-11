@@ -411,11 +411,16 @@ def run(ctx):
                 r"|errata[（(]?\s*[0-9]+\s*件"
                 r"|[0-9]+\s*件の\s*worked"
                 r"|[0-9]+\s*件の\s*sha256|凍結対象\s*[0-9]+\s*件|[0-9]+\s*の\s*worked\s*entry")  # 2026-11-08: 3 件 stale
-            for _fm in sorted(_mir460.glob("*.md")):
+            # rounds/ の mirror も読む (2026-11-12・監査 #133): glob は最上段の 68 件だけで、同じ Check の face (k) が
+            #   rglob で読む rounds/ の mirror 388 件を見ていなかった。rounds/ の mirror は外の記録の件数を述べるので、
+            #   綴りのうち一般形の「N 件のうち」だけはそこで数えない (実測 12 件がすべて外の件数・ドシエの規模ではない)
+            for _fm in sorted(_mir460.rglob("*.md")):
+                _inr460h = _fm.is_relative_to(_mir460 / "rounds")
                 for _n, _ln in enumerate(_fm.read_text(encoding="utf-8").splitlines(), 1):
-                    _hit = _pat460h.search(_ln)
+                    _hit = next((_h for _h in _pat460h.finditer(_ln)
+                                 if not (_inr460h and re.fullmatch(r"[0-9]+\s*件のうち", _h.group(0)))), None)
                     if _hit:
-                        _bad460.append(f"{_fm.name}:{_n}: mirror がドシエの規模を数字で述べている "
+                        _bad460.append(f"{_fm.relative_to(_mir460)}:{_n}: mirror がドシエの規模を数字で述べている "
                                        f"({_hit.group(0)!r}) — 本体を指すだけにせよ")
 
         # (i) **提出パケット §4c が述べる「機械的に確かめたこと」の数値。** face (a) は同じ file の
@@ -783,7 +788,10 @@ def run(ctx):
         #   **2026-09-27 に 2 つ直した**: (1) 走査先に `docs/architecture/` が無く、check-map の Check 463 の説明が
         #   「~600 語」のまま残っていた（実測 1,701・外部監視の指摘）。(2) ±3 行の窓は密な表で必ず日付を拾って素通り
         #   するので、表の行（`|` 始まり）は同じ行に日付か権威を要求する —— 行が単独で引用されるかで窓を決める。
-        _scan460r = sorted(_L460.glob("*.md")) + sorted((ROOT / "docs" / "architecture").glob("*.md"))
+        # docs/files/LICENSES/ の mirror も読む (2026-11-12・監査 #138): face (h) の綴りに §B.0 の語数は無く、mirror の裸の
+        #   語数はどの face にも届かなかった
+        _scan460r = (sorted(_L460.glob("*.md")) + sorted((ROOT / "docs" / "architecture").glob("*.md"))
+                     + sorted((ROOT / "docs" / "files" / "LICENSES").rglob("*.md")))
         for _p460r in _scan460r:
             if _p460r.name == "ACD-1.0.submission.md":
                 continue          # 正本。face (p) が実測と照合する
@@ -836,14 +844,21 @@ def run(ctx):
                 _n463s = len(re.findall(r"(?m)^\s*\(\"", _m463s.group(1)))
                 if not _n463s:
                     _bad460.append("(s) `_req463` から項目を 1 件も数えられない (抽出の形が合っていない)")
-        for _p463s in sorted(_L460.glob("*.md")) if _n463s else ():
+        # docs/architecture/ と mirror も読み、英語の "N items" も数える (2026-11-12・監査 #136): face (r) は 09-27 に
+        #   docs/architecture/ へ広げたが (s) は LICENSES/ だけで、file-size-budget.md の「10 項目」(実装 16) が残っていた。
+        #   その時点の記録である against.md は (w) と同じく対象外
+        _scan463s = (sorted(_L460.glob("*.md")) + sorted((ROOT / "docs" / "architecture").glob("*.md"))
+                     + sorted((ROOT / "docs" / "files" / "LICENSES").rglob("*.md"))) if _n463s else []
+        for _p463s in _scan463s:
+            if _p463s.name == "ACD-1.0.against.md":
+                continue
             for _l463s in _p463s.read_text(encoding="utf-8").splitlines():
                 if "Check 463" not in _l463s:
                     continue
-                for _m in re.finditer(r"(\d+) ?項目", _l463s):
-                    if int(_m.group(1)) != _n463s:
+                for _m in re.finditer(r"(\d+) ?項目|(?<![\w.])(\d+) (?:required )?items\b", _l463s):
+                    if int(_m.group(1) or _m.group(2)) != _n463s:
                         _bad460.append(
-                            f"{_p463s.name}: 散文の「{_m.group(1)} 項目」/ "
+                            f"{_p463s.name}: 散文の「{_m.group(0)}」/ "
                             f"Check 463 の実装は {_n463s} 項目 "
                             "(数を写さず、Check の OK 行に述べさせること)")
 
@@ -852,12 +867,16 @@ def run(ctx):
         _qfc460w = _L460 / "QUESTIONS-FOR-COUNSEL.md"
         _nq460w = len(re.findall(r"(?m)^## \d+\.", _qfc460w.read_text(encoding="utf-8"))) if _qfc460w.exists() else 0
         _W460 = dict(zip("one two three four five six seven eight nine ten eleven twelve".split(), range(1, 13)))
-        _rx460w = re.compile(r"(?<!第)(?<!第 )\b(\d+) ?問|\b(" + "|".join(_W460) + r") questions\b|\ball (" + "|".join(_W460) + r")\b", re.I)
+        # 数の前の \b を (?<![0-9]) に (2026-11-12・監査 #135): 「全8問」の 全 と 8 はどちらも語の文字で \b が立たず、
+        #   数えなかった。質問集とその mirror の中では、名前を書かない「尋ねたい N 問」「全 N 問」の行も読む
+        _rx460w = re.compile(r"(?<!第)(?<!第 )(?<![0-9])(\d+) ?問|\b(" + "|".join(_W460) + r") questions\b|\ball (" + "|".join(_W460) + r")\b", re.I)
         for _p460w in sorted(_L460.glob("*.md")) + sorted((ROOT / "docs/files/LICENSES").glob("*.md")):
             if _p460w.name == "ACD-1.0.against.md":
                 continue
             for _n460w, _l460w in enumerate(_p460w.read_text(encoding="utf-8").splitlines(), 1):
-                _h460w = list(_rx460w.finditer(_l460w)) if "QUESTIONS-FOR-COUNSEL" in _l460w else []
+                _named460w = "QUESTIONS-FOR-COUNSEL" in _l460w or (
+                    _p460w.name.startswith("QUESTIONS-FOR-COUNSEL") and re.search(r"(?:全|尋ねたい|計) ?\d+ ?問", _l460w))
+                _h460w = list(_rx460w.finditer(_l460w)) if _named460w else []
                 _g = _h460w[-1] if _h460w else None
                 if _g and (int(_g.group(1)) if _g.group(1) else _W460[(_g.group(2) or _g.group(3)).lower()]) != _nq460w:
                     _bad460.append(f"(w) {_p460w.name}:{_n460w} が質問集を {_g.group(0)!r} と述べる / 実数 {_nq460w}")

@@ -502,6 +502,55 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 452: READY-TO-SUBMIT.md の接頭辞なしの参照を存在しない名前へ替える —— 旧版は LICENSES/ 等の接頭辞つきだけを導出し、"
+            "本文の参照の大半 (接頭辞なし) を見なかった (2026-11-12・監査 #177)",
+    "file": ROOT / "LICENSES" / "READY-TO-SUBMIT.md",
+    "find": "`ACD-OSI-BOTTLENECKS.md` **B14**",
+    "replace": "`ACD-OSI-BOTTLENECK.md` **B14**",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (h): docs/files/LICENSES/rounds/ の mirror にドシエの規模の数字を置く —— 旧版は mirror の最上段 (glob) だけを"
+            "読み、rounds/ の mirror を見なかった (2026-11-12・監査 #133)",
+    "file": ROOT / "docs" / "files" / "LICENSES" / "rounds" / "1999-2024-license-review-w3c-software-license-observed-2of7.txt.md",
+    "find": "\n## What\n",
+    "replace": "\n## What\n\n不利な事実 144 件を数えた。\n",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (r): mirror の §B.0 と並ぶ語数から日付を外す —— 旧版は docs/files/LICENSES/ の mirror を読まなかった"
+            " (2026-11-12・監査 #138)",
+    "file": ROOT / "docs" / "files" / "LICENSES" / "rounds" / "2026-08-26-license-discuss-sent.txt.md",
+    "find": "だが 2026-08-26 に送ったのは 5,778 語で、",
+    "replace": "だが送ったのは 5,778 語で、",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (s): file-size-budget.md に Check 463 の項目数を古い値で書く —— 旧版は LICENSES/ だけを読み、"
+            "docs/architecture/ の「10 項目」(実装 16) を見なかった (2026-11-12・監査 #136)",
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": "Check 463（送る文面が OSI の要求項目を含む・項目数は Check 463 の OK 行）",
+    "replace": "Check 463（送る文面が OSI の要求 10 項目を含む）",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (w): 質問集の mirror が名前を書かずに述べる問数を変える —— 旧版は QUESTIONS-FOR-COUNSEL の語を持つ行だけを"
+            "読み、mirror 自身の「尋ねたい 9 問」を読まなかった (2026-11-12・監査 #135)",
+    "file": ROOT / "docs" / "files" / "LICENSES" / "QUESTIONS-FOR-COUNSEL.md.md",
+    "find": "尋ねたい 9 問を、",
+    "replace": "尋ねたい 8 問を、",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (w): 質問集を名指す行に「全8問」と書く —— 旧版は数の前に \\b を要求し、全 と 8 がどちらも語の文字なので"
+            "数えなかった (2026-11-12・監査 #135)",
+    "file": ROOT / "docs" / "files" / "LICENSES" / "QUESTIONS-FOR-COUNSEL.md.md",
+    "find": "**ACD を読む弁護士に尋ねたい 9 問を、",
+    "replace": "**ACD を読む弁護士に尋ねたい `QUESTIONS-FOR-COUNSEL`（全8問）を、",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
