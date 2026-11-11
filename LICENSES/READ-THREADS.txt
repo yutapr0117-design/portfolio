@@ -1,7 +1,7 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 442 subject lines. One thread appears under two subject spellings
+# Rows: 445 subject lines. One thread appears under two subject spellings
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
@@ -80,6 +80,7 @@
 2002-08-02	Legal soundness comes to open source distribution
 2002-08-11	click once, accept all licenses.
 2002-09-12	Addendums to the LGPL
+2002-10-06	Procedure for using an approved license
 2002-10-20	Warranty
 2002-10-23	Revised versions of the OSL and AFL
 2002-10-28	click-wrap is legally supportable?
@@ -301,6 +302,8 @@
 2012-03-05	SPDX License List v1.14 & OSI questions
 2012-04-03	New OSI FAQ items posted about Public Domain and CC0.
 2012-04-04	CPOL 1.02
+2012-04-04	Draft of new OSI licenses landing page; please review.
+2012-04-05	BSD, MIT
 2012-04-30	license for code used for scientific results?
 2012-06-02	proposal to revise and slightly reorganize the OSI licensing pages
 2012-06-04	revising/updating the license categorization

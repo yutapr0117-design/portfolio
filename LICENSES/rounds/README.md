@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-12 時点・387 ファイル）
+## いまの状態（2026-11-12 時点・388 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -106,6 +106,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2019-02 | `license-review` | **観測（"For Approval: Twente License" から 4 通・プライバシーと人権の条件を利用に課して OSD 6 で退けられた）** | `2019-02-license-review-twente-license-observed.txt` |
 | 2002-10 | `license-discuss` | **観測（"click-wrap is legally supportable?" から 3 通・同意を求めないライセンスの条項は争われうるか）** | `2002-10-license-discuss-click-wrap-observed.txt` |
 | 2015-07〜08 | `license-review` | **観測（"Request for approval of the Non-Coercive Copyleft Licence (NCCL) 1.0" から 4 通・本文を添えずに配ることへの懸念、同意を求めない形、誰も賛成せず 18 日で「却下」）** | `2015-07-and-08-license-review-nccl-observed.txt` |
+| 2012-04 | `license-discuss` | **観測（"Draft of new OSI licenses landing page; please review." から 4 通・短い一覧へ導く案、特許を正しく扱うこと、献呈の型を勧める弁護士の文）** | `2012-04-license-discuss-licenses-landing-page-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
 | 2012〜2020 | `license-review` | **観測（特許を扱う新しい permissive の必要性と、増殖の分類の現状・4 通）** | `2012-to-2020-license-review-need-and-proliferation-categories-cited-observed.txt` |
