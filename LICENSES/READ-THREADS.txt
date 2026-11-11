@@ -1,7 +1,7 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 419 subject lines. One thread appears under two subject spellings
+# Rows: 421 subject lines. One thread appears under two subject spellings
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
@@ -273,6 +273,7 @@
 2012-01-31	Small Suggestion
 2012-02-01	CDDL 1.1 and GPL 2 with CPE
 2012-02-01	a GPLv3 compatible attribution for MIT/BSD?
+2012-02-01	OSI recognition for Creative Commons Zero License?
 2012-02-17	Section 203(a) copyright recapture
 2012-02-19	Request for consultation with CC on patent issue
 2012-02-21	Logo for an (O)pen (S)ource (Li)cense (C)ompendium
@@ -387,6 +388,7 @@
 2019-09-25	WordPress GPL software
 2019-12-26	Approval Status of MIT-0
 2020-01-04	AGPL timeline & why cautious processes with real-world testing are better
+2020-02-24	"Fairness" vs. mission objectives
 2020-02-28	Moderation observations
 2020-02-29	Columbia S&T Law Review analysis of the OSI license-discuss mailing list
 2020-03-04	Questions Regarding Open Source Hardware Licenses

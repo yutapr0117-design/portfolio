@@ -1,0 +1,347 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2012-February)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 7 messages this dossier cites from "OSI recognition for Creative Commons Zero License?" (license-review, 2012-02; 17 messages). Not the whole thread.
+Senders: Carl Boettiger, Rick Moen, Thorsten Glaser, John Cowan, Karl Fogel
+Position: a user's request that OSI recognise CC0, made before Creative Commons submitted it, and the replies. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From cboettig at gmail.com  Wed Feb  1 21:34:26 2012
+From: cboettig at gmail.com (Carl Boettiger)
+Date: Wed, 1 Feb 2012 13:34:26 -0800
+Subject: [License-review] OSI recognition for Creative Commons Zero License?
+Message-ID: <CAN_1p9ypazkYabRO7-PuuGisF+Z1R=dairAbdoMrjP9mf=xAqA@mail.gmail.com>
+
+Hello,
+
+I would like to submit the Creative Commons zero license for
+consideration.  I am new to this list, forgive me if it has already been
+considered.
+I understand that this license has been
+considered<http://www.gnu.org/licenses/license-list.html#CC0>GPL
+compatible by the FSF with this recommended
+format<http://wiki.creativecommons.org/CC0_FAQ#May_I_apply_CC0_to_computer_software.3F_If_so.2C_is_there_a_recommended_implementation.3F>
+.
+
+Submission type: Approval
+License Name: Creative Commons Zero, CC0
+Category: Licenses that are popular and widely used or with strong
+communities
+The legal code as plain
+text<http://creativecommons.org/publicdomain/zero/1.0/legalcode.txt>
+.
+
+The scientific community is increasingly embracing this option as the most
+open and compatible license.  It is required by scientific data
+repositories (that also archive scientific software, with cite-able DOIs)
+such as Dryad <http://datadryad.org/depositing#whycc0>.
+
+I feel it is important that this license achieve recognition by the Open
+Source initiative, as certain scientific journals & conferences permit only
+OSI recognized licenses, (e.g. PLoS Computational Biology
+requirements<http://www.ploscompbiol.org/static/guidelines.action>or
+Bioinformatics open source conference
+requirements <http://www.open-bio.org/wiki/BOSC_2012>).
+
+Carl
+-- 
+Carl Boettiger
+UC Davis
+http://www.carlboettiger.info/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120201/8ecc27c3/attachment.html>
+
+From rick at linuxmafia.com  Thu Feb  2 20:51:01 2012
+From: rick at linuxmafia.com (Rick Moen)
+Date: Thu, 2 Feb 2012 12:51:01 -0800
+Subject: [License-review] OSI recognition for Creative Commons Zero
+ License?
+In-Reply-To: <CAN_1p9ypazkYabRO7-PuuGisF+Z1R=dairAbdoMrjP9mf=xAqA@mail.gmail.com>
+References: <CAN_1p9ypazkYabRO7-PuuGisF+Z1R=dairAbdoMrjP9mf=xAqA@mail.gmail.com>
+Message-ID: <20120202205101.GI3834@linuxmafia.com>
+
+Quoting Carl Boettiger (cboettig at gmail.com):
+
+> I would like to submit the Creative Commons zero license for
+> consideration.  I am new to this list, forgive me if it has already been
+> considered.
+
+A number of times, actually, most recently last month.
+
+What practical problem do you consider this licence (in truth, a professed 
+public domain declaration with a failsafe fallback to a simple
+permissive licence) to solve that is not already solved by MIT License
+or Fair License?
+
+> The scientific community is increasingly embracing this option as the most
+> open and compatible license.  It is required by scientific data
+> repositories (that also archive scientific software, with cite-able DOIs)
+> such as Dryad <http://datadryad.org/depositing#whycc0>.
+
+Dryad's requirement of CCO is declared on that page to apply to
+submitted data files, not to associated 'software scripts and other
+files important to the article' submitted with them.
+
+-- 
+Rick Moen               "The four seasons are Spring, Summer, Winter and Fall. 
+rick at linuxmafia.com     For California publications, change to Mudslide, 
+McQ!  (4x80)            Hillfire, Flood, and Earthquake."    -- FakeAPStylebook
+
+
+From rick at linuxmafia.com  Thu Feb  2 21:35:23 2012
+From: rick at linuxmafia.com (Rick Moen)
+Date: Thu, 2 Feb 2012 13:35:23 -0800
+Subject: [License-review] OSI recognition for Creative Commons Zero
+ License?
+In-Reply-To: <Pine.BSM.4.64L.1202022102250.25569@herc.mirbsd.org>
+References: <CAN_1p9ypazkYabRO7-PuuGisF+Z1R=dairAbdoMrjP9mf=xAqA@mail.gmail.com>
+	<20120202205101.GI3834@linuxmafia.com>
+	<Pine.BSM.4.64L.1202022102250.25569@herc.mirbsd.org>
+Message-ID: <20120202213523.GL3834@linuxmafia.com>
+
+Quoting Thorsten Glaser (tg at mirbsd.de):
+
+> What Rick didn???t say is that most think CC should formally
+> submit CC0 for approval.
+
+Good point -- and, FWIW, I'm on record as saying I think the thing
+is clearly OSD-compliant on account of the fallback permissive licence.
+A bit perverse and nothing I'd recommend anyone use, but every bit as
+open source as the endless variety of other simple permissive licence
+variants.
+
+
+
+From tg at mirbsd.de  Thu Feb  2 21:37:55 2012
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Thu, 2 Feb 2012 21:37:55 +0000 (UTC)
+Subject: [License-review] OSI recognition for Creative Commons Zero
+ License?
+In-Reply-To: <20120202213301.GK3834@linuxmafia.com>
+References: <CAN_1p9ypazkYabRO7-PuuGisF+Z1R=dairAbdoMrjP9mf=xAqA@mail.gmail.com>
+	<20120202205101.GI3834@linuxmafia.com>
+	<CAN_1p9y4mjMvrLfnztxTA89ZJbeN1-5XfDxvNxSw3sROzi0iOg@mail.gmail.com>
+	<20120202213301.GK3834@linuxmafia.com>
+Message-ID: <Pine.BSM.4.64L.1202022137250.25569@herc.mirbsd.org>
+
+Rick Moen dixit:
+
+>If you're _really_ concerned about that, put 
+>#Do whatever you want with this codebase.  Copyright (c) 2112 Joe Owner.
+>...as a comment on line one.
+
+I think this is a harmful advice. Many people would
+stay clear off a work with such a notice.
+
+bye,
+//mirabilos
+-- 
+  "Using Lynx is like wearing a really good pair of shades: cuts out
+   the glare and harmful UV (ultra-vanity), and you feel so-o-o COOL."
+                                         -- Henry Nelson, March 1999
+
+
+From cboettig at gmail.com  Thu Feb  2 21:48:15 2012
+From: cboettig at gmail.com (Carl Boettiger)
+Date: Thu, 2 Feb 2012 13:48:15 -0800
+Subject: [License-review] OSI recognition for Creative Commons Zero
+	License?
+In-Reply-To: <20120202213301.GK3834@linuxmafia.com>
+References: <CAN_1p9ypazkYabRO7-PuuGisF+Z1R=dairAbdoMrjP9mf=xAqA@mail.gmail.com>
+	<20120202205101.GI3834@linuxmafia.com>
+	<CAN_1p9y4mjMvrLfnztxTA89ZJbeN1-5XfDxvNxSw3sROzi0iOg@mail.gmail.com>
+	<20120202213301.GK3834@linuxmafia.com>
+Message-ID: <CAN_1p9yuKUZraZaY_0VCEONo9WWvVv7GvmEHSYAg+3mND3KShw@mail.gmail.com>
+
+On Thu, Feb 2, 2012 at 1:33 PM, Rick Moen <rick at linuxmafia.com> wrote:
+
+> Quoting Carl Boettiger (cboettig at gmail.com):
+>
+> > Excellent question.  I believe that the need to include the license
+> itself
+> > in BSD and MIT licenses make them substantially different from the CC0
+> > license.
+>
+> If you don't wish to require inclusion of a licence text, waive that
+> requirement, where present, in your copyright notice.
+>
+
+I'm not sure I understand.  Are you suggesting I write a custom copyright
+notice?  Doesn't this forfeit the benefit using an OSI-approved licenses?
+
+
+>
+> For a long time, I published some technical documentation under GPLv2,
+> carelessly forgetting about its clause 1 requirement to include a copy
+> of the licence.  Someone on OSI licence-discuss pointed out my gaffe,
+> and I amended my copyright notice accordingly.  (I think it was John
+> Cowan.  Thank you, John.)
+>
+> Anyway, MIT License is only about 20 lines.  Fair License is 3 lines.
+> Much as I admire terseness, there is such thing as taking that passion
+> to extremes.
+>
+
+And the creative commons zero license is 121 lines.  I recognize the value
+of an explicit license, but I also believe there is great value of not
+requiring users to include any copy of that license.
+
+>
+> > First, I often distribute software packages with data.  This is common
+> > practice for R packages, for example.  It is unclear that the MIT license
+> > and its kin can apply to the data, which are statements of fact and
+> > not copyright-able material.
+>
+> If your copyright notice is unclear, you should fix that.  I'm sorry,
+> but I cannot see who has a problem, here.
+>
+
+I would like to use an OSI-recognized license.  While I doubt a scientific
+conference or journal that requires the use of OSI licenses would truly
+reject me for using CC0, lacking the support of OSI for CC0 creates an
+additional barrier to my use of a license that I feel would give other
+users and developers maximum benefit of my software.
+
+
+>
+> > Second, such clauses place an additional burden on the reuse of the
+> > software.  If someone wants to grab snippets of code I distribute (i.e.
+> > through github) and paste them into a pastebin or gist and send them
+> around
+> > to all their friends/vistors/etc, they shouldn't have to worry about
+> > whether they've copied a "substantial portion" of the code and if they
+> have
+> > to copy that license somewhere into their gist or blog or what not.
+>
+> Small snippets of code probably don't even have copyright title, and
+> nobody even cares about title to them anyway, and their provenance isn't
+> even in the general case going to be traceable.
+>
+
+> If you're _really_ concerned about that, put
+> #Do whatever you want with this codebase.  Copyright (c) 2112 Joe Owner.
+> ...as a comment on line one.
+>
+
+CC0 was explicitly created to solve the license challenges I have (applying
+equally well to data and code, not burdening the user with deciding what's
+substantial, and being appropriately vetted by legal experts).  For these
+reasons I am not interested in coming up with my own custom solution.
+ Further, is it really the position of OSI that I should write custom
+licenses rather than use one they recognize?
+
+So the primary objection to this recognition is that it comes from a random
+developer and not the folks at Creative Commons.  Is that correct?
+
+Thanks for the lively discussion!
+
+Carl
+
+
+>
+> As a personal comment, I'd like the global copyright regime to go away,
+> too, but we'll need to take it up with the legislatures of the world.
+> Handwaving it away just doesn't work well.  (My view, available to
+> others for a small fee and waiver of reverse-engineering rights.)
+>
+> --
+> Rick Moen              "An easy way that you can save space is to edit out
+> the
+> rick at linuxmafia.com    overused word 'that.'  That's just not a word that
+> needs
+> McQ!  (4x80)           that much use."                       --
+> FakeAPStylebook
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+
+
+
+-- 
+Carl Boettiger
+UC Davis
+http://www.carlboettiger.info/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120202/11cd1da5/attachment.html>
+
+From cowan at mercury.ccil.org  Thu Feb  2 21:56:26 2012
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Thu, 2 Feb 2012 16:56:26 -0500
+Subject: [License-review] OSI recognition for Creative Commons
+	Zero	License?
+In-Reply-To: <CAN_1p9yuKUZraZaY_0VCEONo9WWvVv7GvmEHSYAg+3mND3KShw@mail.gmail.com>
+References: <CAN_1p9ypazkYabRO7-PuuGisF+Z1R=dairAbdoMrjP9mf=xAqA@mail.gmail.com>
+	<20120202205101.GI3834@linuxmafia.com>
+	<CAN_1p9y4mjMvrLfnztxTA89ZJbeN1-5XfDxvNxSw3sROzi0iOg@mail.gmail.com>
+	<20120202213301.GK3834@linuxmafia.com>
+	<CAN_1p9yuKUZraZaY_0VCEONo9WWvVv7GvmEHSYAg+3mND3KShw@mail.gmail.com>
+Message-ID: <20120202215626.GC21161@mercury.ccil.org>
+
+Carl Boettiger scripsit:
+
+> CC0 was explicitly created to solve the license challenges I have (applying
+> equally well to data and code, not burdening the user with deciding what's
+> substantial, and being appropriately vetted by legal experts).  For these
+> reasons I am not interested in coming up with my own custom solution.
+
+I think that's very cogent.
+
+>  Further, is it really the position of OSI that I should write custom
+> licenses rather than use one they recognize?
+
+No, indeed.
+
+> So the primary objection to this recognition is that it comes from a random
+> developer and not the folks at Creative Commons.  Is that correct?
+
+The normal objection is that a random submitter can't negotiate with the
+OSI for changes if they are wanted.  In this case, however, CC probably
+isn't going to negotiate anyway (the license is simple and obviously
+compliant).
+
+I think the OSI board should consider CC0, and I further think they should
+approve it.
+
+-- 
+Business before pleasure, if not too bloomering long before.
+        --Nicholas van Rijn
+                John Cowan <cowan at ccil.org>
+                    http://www.ccil.org/~cowan
+
+
+From kfogel at red-bean.com  Fri Feb  3 00:14:57 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Thu, 02 Feb 2012 18:14:57 -0600
+Subject: [License-review] OSI recognition for Creative Commons Zero
+	License?
+In-Reply-To: <Pine.BSM.4.64L.1202022102250.25569@herc.mirbsd.org> (Thorsten
+	Glaser's message of "Thu, 2 Feb 2012 21:04:15 +0000 (UTC)")
+References: <CAN_1p9ypazkYabRO7-PuuGisF+Z1R=dairAbdoMrjP9mf=xAqA@mail.gmail.com>
+	<20120202205101.GI3834@linuxmafia.com>
+	<Pine.BSM.4.64L.1202022102250.25569@herc.mirbsd.org>
+Message-ID: <871uqclqm6.fsf@kwarm.red-bean.com>
+
+Thorsten Glaser <tg at mirbsd.de> writes:
+>What Rick didn?t say is that most think CC should formally
+>submit CC0 for approval.
+
+[note Rick agreed later in the thread]
+
+FWIW, I think CC may be considering doing this.  If and when they do
+submit, I'll follow up with some thoughts on why I think CC0 is worth
+evaluating for approval (despite the license proliferation cost).
+
+Thanks, Carl Boettiger, for the initial submission.  If CC were to ever
+make it clear that they *weren't* planning to submit the license, I
+think we'd pick up your thread again.  After all, the requirement that
+the originator of a license be the one to submit it is not a hard
+requirement, it's just a tradition that we've kept because it's a good
+filter.  But in this case, my guess is we'll be able to adhere to the
+tradition and still evaluate CC0 eventually :-).
+
+-K
+
+
