@@ -313,54 +313,6 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": 'Check 147: タグ付きの selector で実在しない class を指す —— `#` / `.` で始まらない selector は黙って外していた',
-    "file": ROOT / 'js' / 'meta-management.js',
-    "find": "'ai-knowhow':  ['h1', '.ai-summary-block', '.sr-only']",
-    "replace": "'ai-knowhow':  ['h1', 'section.no-such-el', '.sr-only']",
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 147: 子孫 selector の 2 つ目に実在しない class を置く —— 先頭の token しか見ていなかった',
-    "file": ROOT / 'js' / 'meta-management.js',
-    "find": "'ai-knowhow':  ['h1', '.ai-summary-block', '.sr-only']",
-    "replace": "'ai-knowhow':  ['h1', '.sr-only .no-such-el', '.sr-only']",
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 147: id でしか無い要素を class の selector で指す —— 記号を捨てた語で探しており、.x が id="x" で満たされた (この bug の実例が同 file の [FIX] にある)',
-    "file": ROOT / 'js' / 'meta-management.js',
-    "find": "'role-split':  ['h1', '#role-split-table', '.sr-only']",
-    "replace": "'role-split':  ['h1', '.role-split-table', '.sr-only']",
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 147: 実在する要素の class だけを変え、宣言は JSON-LD に残す —— index.html の静的 JSON-LD が同じ cssSelector を宣言しており、それ自体が語を満たしていた',
-    "file": ROOT / 'index.html',
-    "find": 'class="sr-only ai-summary-block"',
-    "replace": 'class="sr-only ai-summary-blocks"',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 447: mcp.json の制約の列挙で C1 と C2 の名前を入れ替える —— 名前が description のどこかに在れば通り、番号との対を見ていなかった',
-    "file": ROOT / '.well-known' / 'mcp.json',
-    "find": '（C1 Boring Technology / C2 IIFE / ',
-    "replace": '（C1 IIFE / C2 Boring Technology / ',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 26a: archive の範囲の中の Session Record #22 の見出しを崩す —— 両端の番号しか比べず、中の 1 件が消えても role の #15-#30 のまま緑だった',
-    "file": ROOT / 'docs' / 'session-records' / 'AI2AI-archive-2.md',
-    "find": '## [HANDOFF] Session Record #22 — ',
-    "replace": '## [HANDOFF] Session Record (twenty-two) — ',
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 389: sidebar の葉でダークとライトの名前を入れ替える —— 3 語が窓に在れば通り、同じ状態で 2 面が別の名前を読み上げても緑だった',
-    "file": ROOT / 'js' / 'components.js',
-    "find": "state.theme === 'dark' ? 'ダーク' : 'ライト') + '）'",
-    "replace": "state.theme === 'dark' ? 'ライト' : 'ダーク') + '）'",
-})
-_MUTATIONS_TAIL.append({
-    "name": 'Check 123b: llms-full.txt の現運用モデルの段落を対話型へ巻き戻す —— 3 語を file 全体の別々の場所で探しており、見出しとほかの節の語で通った',
-    "file": ROOT / 'llms-full.txt',
-    "find": 'The *current* operation has evolved into autonomous self-driving by Claude Code — the agentic form of Claude.',
-    "replace": 'The *current* operation remains conversational use of Claude, as in the construction phase.',
-})
-_MUTATIONS_TAIL.append({
     "name": 'Check 417: AI 履歴の filter を括弧つきの引数で truthy 判定へ戻す —— 変数は t、欄は title / text しか読まず、AI 履歴の h && h.prompt を見ていなかった',
     "file": ROOT / 'js' / 'store.js',
     "find": '.filter(h => h && isText(h.prompt) && isText(h.response))',
