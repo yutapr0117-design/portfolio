@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/verify_dossier_quotations.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-11-07
+last-updated: 2026-11-11
 canonical-ref: LICENSES/AUDIT-LEDGER.md (結果の台帳) / LICENSES/rounds/README.md (一次資料の保存規約)
 ---
 
@@ -38,6 +38,8 @@ python3 .github/scripts/verify_dossier_quotations.py --fetch   # 不足月を導
 `--record-entry` は入口の面の斜体の引用を全 corpus に当て、確認できたものの hash を `entry_quotes_verified.txt` へ書く。Check 472n がそれを読む。
 
 `--all-italics` は人名の近傍に限らず斜体の引用をすべて当てる。
+
+- **`--rounds [FILE ...]`（2026-11-11）**: `LICENSES/rounds/` の各通（mbox の From 行で分けた 1 通ずつ）が、アーカイブの写しに逐語で在るかを当てる。通ごとに「全文 / 切った / 一致しない」を数え、切った通のうち直後のアーカイブが引用の始まり（`On … wrote` / `X wrote:` / `-----Original Message-----` / `>` / Outlook の区切り）でないものは、ヘッダが述べる切り方かを人が読めるよう、続きの 45 字を出す。私信の stub とサイトの取得物は当てない。新しい rounds を足した PR は、その file を引数に渡せば数秒で当たる（2026-11-11 の全数: 520 通・全文 456・切った 64・一致しない 0）
 
 ## Constraints
 
