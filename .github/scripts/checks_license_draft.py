@@ -728,6 +728,7 @@ def run(ctx):
         _cltxt468z = _dr468.with_name(_dr468.name.replace("-DRAFT.txt", "-CHANGELIST.md"))
         _ms468z = re.search(r"^### " + re.escape(_v468z) + r" の記述子の下書き.*?(?=^#{1,3} |\Z)",
                             _cltxt468z.read_text(encoding="utf-8") if _cltxt468z.exists() else "", re.S | re.M)
+        _n468z, _u468z = None, set()   # 下書きの節が無い版では OK 行に「—」と出す (黙って 0 と書かない)
         if _ms468z:
             _secs468z = {_n.split(".", 1)[0] for _n in _cl468}
             _miss468z, _n468z = [], 0
@@ -737,6 +738,7 @@ def run(ctx):
                 _cs += re.findall(r"§(\d+\.\d+)", _l)
                 for _c in _cs:
                     _n468z += 1
+                    _u468z.add(_c)
                     if _c not in (_cl468 if "." in _c else _secs468z):
                         _miss468z.append(_c)
             if _miss468z:
@@ -856,7 +858,13 @@ def run(ctx):
 
         check(
             not _bad468,
-            f"Check 468: 次版草案が自分を述べ内部的に健全 ({len(_cl468)} 条 / {len(_lic468.split())} 語)",
+            # 面ごとの件数も出す (2026-11-12・portfolio-aa の依頼): 草案を動かした人が、自分の数 (After の数・
+            #   試作と逐条の組・記述子の下書きの参照) と照合できるように。0 件の面は上で RED にしてある
+            (f"Check 468: 次版草案が自分を述べ内部的に健全 ({len(_cl468)} 条 / {len(_lic468.split())} 語 / "
+             f"468w errata の草案の逐語 {_n468w} 件・468x 主表の After {_n468x} 件 "
+             f"({sum(1 for _p in _parsed468x if _p[3])} 行)・468y 試作と逐条の組 {_pairs468y} 件・"
+             f"468z 記述子の下書きの参照 "
+             f"{'—' if _n468z is None else f'{_n468z} 件 (異なる条 {len(_u468z)})'})"),
             (f"Check 468: 次版草案に問題がある: {_bad468}。**草案は 1.0 と書式が同じで条番号だけ"
              "ずれているので、取り違えると凍結中の提出物について誤った条番号を引くことになる。**"
              "自分が何であるかを本文に述べ、1.0 について測っている性質を同じ形で保つこと"),
