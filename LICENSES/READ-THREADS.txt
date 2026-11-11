@@ -1,7 +1,7 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 435 subject lines. One thread appears under two subject spellings
+# Rows: 437 subject lines. One thread appears under two subject spellings
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
@@ -373,6 +373,8 @@
 2016-03-23	Some more comments on NOSA 2.0
 2016-05-11	exploring tracking tool for license-review
 2016-06-01	New settings for license-review
+2016-06-05	ZENTAO PUBLIC LICENSE For Approval
+2016-06-16	Approval request for ZENTAO PUBLIC LICENSE
 2016-08-22	The License Talking-About List
 2016-11-28	Using opensource in a company not in the software business
 2017-01-08	License Committee Report - January 2017

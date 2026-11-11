@@ -402,3 +402,16 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"I think the current Board is not inclined to give the equivalent of "advisory opinions" on the OSD, for better or worse. It is probably better to get clarity on this issue through actual submission of a license embodying some sort of license asymmetry."* | Richard Fontana 氏 2017-02-08 | 不利な面。理事会は OSD の解釈について前もって判断を示さず、はっきりさせるには実際に提出するのがよい、という委員長の見立て。ACD の `license-discuss` への投稿は審査の前の意見を求めたもので、判断は審査に出してからでないと得られない向きである（`REVISION-PROTOCOL.md` §3.6 の分岐 B）。**逆側**: 2017 年の一人の見立てで、議論の場（discuss）で指摘を受けて直すこと自体を否定してはいない |
 
 **この節が establish しないこと。** 委員長の個人の推薦と見立てで、理事会の決定文ではない。2017 年以後に理事会が助言的な判断を示したことがあるかは、この節では確かめていない。同じ "advisory opinions" の語は、2018〜19 年の審査の手順の議論の rounds（`rounds/2018-to-2019-license-discuss-review-process-cited-observed.txt`）にも在る。
+
+## 1.188 数十万の利用者を挙げても退けられた提出 —— ZENTAO Public License（2016）（2026-11-12）
+
+`rounds/2016-06-license-review-zentao-public-license-observed.txt`（5 通・2016-06 の 2 つの会話 "ZENTAO PUBLIC LICENSE For Approval" と "Approval request for ZENTAO PUBLIC LICENSE" で全 61 通、1 通は 2017-01 の委員会報告の会話から）。中国の会社が 2016-06-05 に、自社の製品の画面に出所の表示を残すことを求めるライセンス（badgeware）を出した。正本は中国語だった。委員長の 2017-01 の報告（`review-readings.md` §1.187 の rounds）の推薦は *"Comments: Submission did not fully follow approval requirements. Substantive discussion focused on the badgeware issue; some suggested that legacy approval might be a more appropriate path."*、*"Recommendation: Reject."* だった。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"This is a private Google Docs link, which is not accessible to us. If you expect us to evaluate the license, please attach it to email as a text file."*、同じ通で *"Do you have approved English versions of your documents? While we can use translation tools, we've found that they aren't adequate for licensing."* | Josh Berkus 氏 2016-06-06 | 提出の形。本文は文字のファイルとして添付する。英語の正本が無いと審査の手が止まる。ACD は英語だけを正本とし（1.4 草案の §15.4）、本文は `.txt` で在る —— 有利な面。同じ通の問い（*"What other licenses did you consider, and why were they found not to be adequate?"*）は B10 の問いと同じである |
+| *"But more to the point, OSI has historically not accepted badgeware licenses like this, because they don't allow for the possibility of reuse of parts (especially small parts) of the software in new contexts where "texts, images, and links" are no longer relevant."* | John Cowan 氏 2016-06-06 | 出所の表示を残させる条件は、部品の再利用を妨げるとして退けられてきた。ACD は帰属の義務を持たない（§10.1）—— 有利な面。**逆側**: 帰属の無さは gap ではない（B10・`gap-measurements.md` §1.146 の追記） |
+| *"ZPL has been applied in three of our products and approved by hundreds of thousands users of ours."* | 提出者 2016-06-23 | B2 の逆側の例。数十万の利用者を挙げた提出でも、OSD への疑義と提出の形の不備で退けられた。使われていることは承認の十分な条件ではない |
+| *"Can we get a Chinese reader to review the Chinese version, since it's the authoritative version?"* | Josh Berkus 氏 2016-06-24 | 正本が英語でないと、その言語を読める審査者を探すところから始まる。2017-01 の報告への返信で同氏は *"Also, the license's main langauage is Chinese, and needs to be reviewed in that language, which I think stalled us."* と書いた（原文ママ・2017-01-09）。ACD の英語の正本は、この費用を持たない |
+
+**この節が establish しないこと。** 却下の理由は委員長の推薦の文に限り、理事会の決定文は読んでいない。ZENTAO がその後に別の形で出されたかは確かめていない。
