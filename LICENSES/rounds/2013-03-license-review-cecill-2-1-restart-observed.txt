@@ -1,0 +1,58 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/ (2013-March)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 2 messages this dossier cites from "CeCILL license V2.1 for Approval" (license-review, 2013-03; 3 messages in this conversation, posted to both lists). Not the whole conversation; the third message forwards the 2012 submission.
+Senders: Luis Villa, Karl Fogel
+Position: the licence committee chair restarting the review of a submission that had waited a year, and a former chair's reply. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From luis at tieguy.org  Wed Mar  6 06:15:05 2013
+From: luis at tieguy.org (Luis Villa)
+Date: Tue, 5 Mar 2013 22:15:05 -0800
+Subject: [License-review] Revisiting: CeCILL license V2.1 for Approval
+Message-ID: <CAFPTOkUDCFOnt7sPY_8SCkaJDo=SguxEazDC53+rzdosVO2mRQ@mail.gmail.com>
+
+As mentioned earlier today on license-discuss, CeCILL has approached OSI
+and asked us to again look at CeCILL v2.1. I had intended to summarize the
+comments of the earlier thread, but as far as I can see in my archives no
+one raised specific issues of non-compliance with the OSD.
+
+If I'm mistaken in my readings of the archives, or if you have new
+concerns, please raise them as quickly as possible.
+
+Additionally, I wish to apologize to the authors of CeCILL on behalf of
+myself as the new chair of the licensing committee. While their submission
+predates my chairmanship, I was aware of their submission when I took over
+the chair, and still dropped the ball. There are some reasons for this
+(both personal and organizational) but they can't justify what happened
+here.
+*
+*
+Thanks-
+Luis
+
+From kfogel at red-bean.com  Wed Mar  6 18:49:41 2013
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Wed, 06 Mar 2013 12:49:41 -0600
+Subject: [License-review] Revisiting: CeCILL license V2.1 for Approval
+In-Reply-To: <CAFPTOkUDCFOnt7sPY_8SCkaJDo=SguxEazDC53+rzdosVO2mRQ@mail.gmail.com>
+	(Luis Villa's message of "Tue, 5 Mar 2013 22:15:05 -0800")
+References: <CAFPTOkUDCFOnt7sPY_8SCkaJDo=SguxEazDC53+rzdosVO2mRQ@mail.gmail.com>
+Message-ID: <87y5e0uzwa.fsf@kwarm.red-bean.com>
+
+Luis Villa <luis at tieguy.org> writes:
+>Additionally, I wish to apologize to the authors of CeCILL on behalf
+>of myself as the new chair of the licensing committee. While their
+>submission predates my chairmanship, I was aware of their submission
+>when I took over the chair, and still dropped the ball. There are some
+>reasons for this (both personal and organizational) but they can't
+>justify what happened here.
+
+I'd also like to apologize.  Luis is nobly taking more of the blame than
+is really his here -- I was chair of the license committee for quite a
+bit of the period when this was languishing, and I'm sorry I didn't
+manage to move it farther along.  Kudos to Luis for getting it going
+again now.
+
+-Karl
+
+

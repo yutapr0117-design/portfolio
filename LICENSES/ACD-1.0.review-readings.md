@@ -202,7 +202,7 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 
 ## 1.176 権利は総称でなく名指す、正本の言語は 1 つにする —— CeCILL v2.1 の審査（2012）（2026-11-11）
 
-`rounds/2012-04-to-05-license-review-cecill-2-1-observed.txt`（3 通・スレッドは全 19 通）。CEA・CNRS・Inria が 2012-02-27 に出した。2005 年の 2.0 は *"rejection because of unclear source distribution language"*（§1.168）で、2013 年に委員長が「増殖の報告に反するように感じられた」と述べている（`board-decisions.md` の 8.8 節）。2.1 の帰結は、この節では追っていない。
+`rounds/2012-04-to-05-license-review-cecill-2-1-observed.txt`（3 通・スレッドは全 19 通）。CEA・CNRS・Inria が 2012-02-27 に出した。2005 年の 2.0 は *"rejection because of unclear source distribution language"*（§1.168）で、2013 年に委員長が「増殖の報告に反するように感じられた」と述べている（`board-decisions.md` の 8.8 節）。2.1 の帰結は、この節の末尾の 2026-11-11 の追記が理事会の議事録で追った。
 
 | 発言 | 誰が | ACD への当たり方 |
 | :-- | :-- | :-- |
@@ -211,6 +211,18 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"Can we assume that your software license objectives are the same as those of W3C? If so, can you use the W3C licenses and not create a new one"* | Lawrence Rosen 氏 2012-05-19 | B10。ここでも最初の問いは既存のもので足りないか、だった（§1.174 の Prabhakar 氏と同じ型）。ACD の答えは register の B10 の行と meta Q37 |
 
 **この節が establish しないこと。** 個人の発言で、CeCILL v2.1 の承認の理由ではない。
+
+**2026-11-11 の追記 —— 2.1 の帰結: 提出から約 14 か月で承認された。** `rounds/2013-03-license-review-cecill-2-1-restart-observed.txt`（2 通）と、理事会の議事録の写し（opensource.org・2026-10-17 取得・`board-decisions.md` の 8.8 節が同じ 2013-05-01 の版を引く）。
+
+| いつ | 記録 | ACD への当たり方 |
+| :-- | :-- | :-- |
+| 2010-11-03 | 理事会の議事録: 提出者が理事に状況を尋ね、以前の懸念を受け取って *"his legal team would look into it and prepare a new submission to the OSI."* | 提出の前に、以前の懸念を手にして作り直した。ACD の errata と版の扱いと同じ形 |
+| 2012-04-04 | 理事会の議事録（委員長 Fogel 氏の報告）: *"CeCILL 2.1 in review; have responded to submitters with questions, am awaiting answers."* | 審査の中で、提出者への問いと答えの往復が続いた |
+| 2013-03-05 | 新しい委員長の Villa 氏が list で再開: *"as far as I can see in my archives no one raised specific issues of non-compliance with the OSD."* と書き、*"I was aware of their submission when I took over the chair, and still dropped the ball."* と謝った。前の委員長の Fogel 氏も翌日に謝った | 不利な面（時間）。弁護士が起草し 3 つの公的機関が出した提出でも、委員会の手が回らず 1 年止まった。再開は提出者が改めて問い合わせたことによる。#257（NOSA 2.0 の 3 年半）と並ぶ記録。**有利な面**: 再開の基準は「OSD に適合しないという具体的な指摘が在るか」だった |
+| 2013-03-06 | 理事会の議事録: 委員長が承認を提案し、別の理事が先に委員会の報告を出すよう求めた（*"first like to see the publication of a license committee report, as had been done in the past"*） | 承認の前に、list が正式に意見を言える報告を置く手順が求められた |
+| 2013-05-01 | 理事会の議事録: *"It has been reviewed and discussed on the license-review mailing list and found to be compliant with the OSD."*、増殖の報告に反するように感じられたが成文の規則が無い（`board-decisions.md` の 8.8 節）。Phipps 氏は *"CeCILL was not duplicative when it was first introduced. It was the only license that was enforceable in French courts."* と述べ、*"Villa made a motion to approve the CeCILL 2.1 license. Phipps seconded. Motion passed by general consent."* | 有利な面。増殖の懸念が在っても、OSD への適合と、出たときに重複していなかったこと（特定の法廷で効くという固有の理由）で承認された。**逆側**: CeCILL の固有の理由は法域で、ACD の差（特許の側・B10）とは種類が違う。分類は決まらないまま承認された |
+
+**この追記が establish しないこと。** 議事録は要約の記録で、発言の逐語ではない。承認の理由は議事録に書かれたものに限り、ほかの理事の考えは分からない。CeCILL 2.1 が承認後にどれだけ使われたかは確かめていない。
 
 ## 1.177 「OSD に適合するものを全部か、良いものだけか」—— 委員長の問いと、理事が述べた 3 つの基準の使い方（2005-09）（2026-11-11）
 
