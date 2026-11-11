@@ -522,6 +522,12 @@ _MUTATIONS_TAIL.append({
     "find": "\nnode_modules/\n",
     "replace": "\nnode_modules/\n!node_modules/\n",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 468y: 逐条の §16.1 の行から試作の節 (§14.25・変えない) への言及を消す —— 試作の結論が逐条の行から辿れるかを手で揃えていた",
+    "file": ROOT / "LICENSES" / "ACD-1.4-CLAUSE-REFERENCE-DRAFT.md",
+    "find": "運ばない語として読んだうえで変えないとした（試作 §14.25",
+    "replace": "運ばない語として読んだうえで変えないとした（試作 §14.2x",
+})
 MUTATIONS = MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

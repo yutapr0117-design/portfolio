@@ -65,7 +65,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        **468x は草案の CHANGELIST の主表の After (「何を変えるか」の *"…"* へ) が、いまの草案に在るか、
        主表の後の行の Before が同じ文を引くか、同じ行に「再改」を持つことを見る** —— 草案の文が後で変わったのに
        主表に記録が無い行が 7 件あった (portfolio-aa・2026-11-11)。同日、「*"…"* を足す」の引用も同じに扱い、
-       「*"…"* を外す」の引用はその行が名指す条の本文から消えていることを見る形に広げた (aa の拡張案)。 (BLOCKING)
+       「*"…"* を外す」の引用はその行が名指す条の本文から消えていることを見る形に広げた (aa の拡張案)。
+       **468y は試作で「変えない」「退けた」とした条 (見出しの §・「変えない理由」の表の 1 列目) の、逐条の下書きの
+       行が、その試作の T 番号か節の番号を含むことを見る** —— いままで手で揃えていた (portfolio-aa・2026-11-11)。 (BLOCKING)
 """
 import json
 import re
@@ -679,6 +681,42 @@ def run(ctx):
         )
         if _bad468o:
             _bad468.append(f"468o: licence (名詞) / license (動詞) の語形が前の語と合わない: {_bad468o}")
+
+        # ── 468y: 試作で「変えない」「退けた」とした条の、逐条の下書きの行がその試作に触れていること ─────────
+        #   portfolio-aa の依頼 (2026-11-11)。見出しが「変えない」「退けた」を述べる試作の節について、見出しの §N.M と、
+        #   節の中の「変えない理由」の列を持つ表の 1 列目の §N.M を扱った条とし、逐条の下書きのその条の行が、見出しの
+        #   T 番号か節の番号 (§14.N) を含むこと。審査者は逐条の行で条を読むので、試作の結論 (変えない理由) が
+        #   そこから辿れないと、同じ問いを同じ答えのまま繰り返させる。いままで手で揃えていた (6 組)
+        _v468y = _dr468.name.split("-")[1]
+        _tr468y = ROOT / "LICENSES" / f"ACD-{_v468y}-SECOND-CLARITY-TRIAL.md"
+        _cr468y = ROOT / "LICENSES" / f"ACD-{_v468y}-CLAUSE-REFERENCE-DRAFT.md"
+        _pairs468y, _miss468y = 0, []
+        if _tr468y.exists():
+            _trt = _tr468y.read_text(encoding="utf-8")
+            _rows468y = {}
+            for _l in (_cr468y.read_text(encoding="utf-8").split("\n") if _cr468y.exists() else []):
+                _mr = re.match(r"^\|\s*\*\*(\d+\.\d+)\*\*\s*\|", _l)
+                if _mr:
+                    _rows468y[_mr.group(1)] = _l
+            _secs = list(re.finditer(r"^### (\d+\.\d+) (.*)$", _trt, re.M))
+            for _k, _ms in enumerate(_secs):
+                if not re.search(r"変えない|退けた", _ms.group(2)):
+                    continue
+                _body = _trt[_ms.end():_secs[_k + 1].start() if _k + 1 < len(_secs) else len(_trt)]
+                _cls = set(re.findall(r"§(\d+\.\d+)", _ms.group(2)))
+                for _tm in re.finditer(r"^\|[^\n]*変えない理由[^\n]*\|\n\|[-: |]+\|\n((?:\|[^\n]*\n)+)", _body, re.M):
+                    for _r in _tm.group(1).splitlines():
+                        _cls |= set(re.findall(r"§(\d+\.\d+)", _r.split("|")[1]))
+                _refs = sorted(set(re.findall(r"\bT\d+\b", _ms.group(2)))) + ["§" + _ms.group(1)]
+                for _c in sorted(_cls):
+                    _pairs468y += 1
+                    if not any(re.search(re.escape(_x) + r"(?!\d)", _rows468y.get(_c, "")) for _x in _refs):
+                        _miss468y.append(f"§{_c} ← {'/'.join(_refs)}")
+            if not _cr468y.exists():
+                _bad468.append(f"468y: {_tr468y.name} は在るのに {_cr468y.name} が無い")
+            elif _miss468y:
+                _bad468.append(f"468y: 試作で変えない / 退けたとした条の逐条の行が、その試作に触れていない: {_miss468y}。"
+                               "行に T 番号か節の番号 (§N.M) を書き、結論 (変えない理由) を辿れるようにする")
 
         # ── 468v: 草案の冒頭が述べる最新の凍結版・適用中の版・pin された版の一覧が実物と合う ─────────
         #   版を確定して次の草案を作る日に、この 1 段落の書き換えを忘れても無音だった (2026-11-06 の予行で
