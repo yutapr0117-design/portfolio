@@ -12,7 +12,10 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (d) submission-reference §4c の "**X / Y**, no gaps either way" の両辺 / (e) register の
        集計行の「解消済み N」「構造的拒否候補 N」(分類の列の `12`) / (f) 逐条リファレンスが繰り返す「N 条すべてを収録」「抽出した N 条」/
        (g) submission.md の "across N files" と、そこで名指す分冊 / (h) AS-OF の「未読スレッドの残り」の
-       「候補 N 本のうち M 本を読んだ。K 本は読んでいない」が N = M + K であること。
+       「候補 N 本のうち M 本を読んだ。K 本は読んでいない」が N = M + K であること /
+       (i) AS-OF の「答えていない問い」の行の「**N 件**」が、状態の欄の「**Q1**」「**Q2**」… の数と
+       一致し、番号が 1 から N まで欠けず、各件が届いた日・`rounds/<file>`（実在）・§ と、
+       「未回答」か「オーナーが回答」を持つこと (2026-11-11・portfolio-00 の依頼。0 件のうちに置く)。
        文が読めないことも RED にする（言い換えると黙る形を残さない）。
   499. **入口の「最後に読んだ時刻」が、OSI-EVENTS が記録する最新の取得と合うこと** (BLOCKING・2026-11-09・
        portfolio-aa の提案): REVIEWERS.md の Status は "No responses in the archive when last read, <時刻> UTC"
@@ -137,9 +140,34 @@ def run(ctx):
     elif int(m.group(1)) != int(m.group(2)) + int(m.group(3)):
         bad.append(f"(h) AS-OF.md の未読スレッド: 候補 {m.group(1)} ≠ 読んだ {m.group(2)} + 読んでいない {m.group(3)}")
 
+    # (i) AS-OF の「答えていない問い」の行: 件数「**N 件**」を手で書き、問いが届くたびに状態の欄へ
+    #   「**Qn** 届いた日・発言者・`rounds/<file>`・§N・未回答｜YYYY-MM-DD にオーナーが回答」を「；」で
+    #   足す (portfolio-00 が 2026-11-11 に決めた形)。件を足して件数を直し忘れると、答えていない問いを
+    #   「0 件」と言い続ける。0 件のうちに置けば、最初の 1 件が届いた日に食い違いが出ない
+    m = re.search(r"^\|\s*\*\*答えていない問い\*\*.*$", text(L / "AS-OF.md"), re.M)
+    cells = re.split(r"(?<!\\)\|", m.group(0))[1:] if m else []
+    n_i = re.fullmatch(r"\s*\*\*(\d+) 件\*\*\s*", cells[2]) if len(cells) > 3 else None
+    if not n_i:
+        bad.append("(i) AS-OF.md: 「答えていない問い」の行か、その件数の欄「**N 件**」が読めない")
+    else:
+        qs = list(re.finditer(r"\*\*Q(\d+)\*\*", cells[3]))
+        nums = [int(q.group(1)) for q in qs]
+        if len(qs) != int(n_i.group(1)) or nums != list(range(1, len(qs) + 1)):
+            bad.append(f"(i) AS-OF.md の答えていない問い: 件数 {n_i.group(1)} / 状態の欄の番号 {nums}"
+                       " (1 から欠けずに並び、数が件数と一致すること)")
+        for k, q in enumerate(qs):
+            item = cells[3][q.end():qs[k + 1].start() if k + 1 < len(qs) else len(cells[3])]
+            rf = re.search(r"`rounds/([^`]+)`", item)
+            miss = [w for w, ok in (("届いた日", re.search(r"\d{4}-\d{2}-\d{2}", item)),
+                                    ("rounds の file", rf and (L / "rounds" / rf.group(1)).is_file()),
+                                    ("§", "§" in item),
+                                    ("状態", re.search(r"未回答|オーナーが回答", item))) if not ok]
+            if miss:
+                bad.append(f"(i) AS-OF.md の Q{q.group(1)}: {' / '.join(miss)} が無い (rounds の file は実在すること)")
+
     check(
         not bad,
-        "Check 498: 自己申告の文の 2 つ目の数と繰り返しが実測と一致 (errata / comparison / faq mirror / §4c / register / 逐条 / 分冊 / 未読スレッドの和)",
+        "Check 498: 自己申告の文の 2 つ目の数と繰り返しが実測と一致 (errata / comparison / faq mirror / §4c / register / 逐条 / 分冊 / 未読スレッドの和 / 答えていない問いの件数)",
         (f"Check 498: 自己申告の文の 2 つ目の数が実測と合わない: {bad}。1 つ目の数 (Check 460) だけを直すと、"
          "同じ文の 2 つ目と隣の繰り返しが偽のまま残る"),
         blocking=True,
