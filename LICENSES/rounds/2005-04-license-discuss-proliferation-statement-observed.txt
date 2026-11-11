@@ -1,0 +1,159 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2005-April)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 4 messages this dossier cites from "Official License Anti-Proliferation policy?" (license-discuss, 2005-04; 22 messages). Not the whole thread.
+Senders: Joel West, Laura Majerus, Chuck Swiger, Russell Nelson
+Position: a list participant's copy of OSI's April 2005 statement on licence proliferation, and replies from those involved in applying it. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From svosrp at gmail.com  Tue Apr 12 01:01:45 2005
+From: svosrp at gmail.com (Joel West)
+Date: Mon, 11 Apr 2005 18:01:45 -0700
+Subject: Official License Anti-Proliferation policy?
+In-Reply-To: <DA1CE70F-B373-496C-A413-73166099277B@apple.com>
+References: <DA1CE70F-B373-496C-A413-73166099277B@apple.com>
+Message-ID: <p0611040ebe80cda4e7c9@[130.65.221.30]>
+
+On 4:06 PM -0700 4/11/05, Ernest Prabhakar doth scribe:
+>Is this for real, or just media rumor-mongering?  Not that I particularly mind either way, but I'd like to be sure. :-)
+>
+>http://www.eweek.com/article2/0,1759,1783791,00.asp
+
+
+It's real.
+
+http://www.opensource.org/weblog/2005/04/08#licenseproliferation
+
+OSI News Weblog
+Fri, 08 Apr 2005
+
+OSI Statement on License Proliferation
+The OSI has issued a statement on license proliferation.
+
+http://opensource.org/docs/policy/licenseproliferation.php
+
+License Proliferation
+Executive Summary
+
+* OSI is responding by instituting stricter criteria for license approvals.
+* From now on, approved licenses must meet three new criteria of being (a) non-duplicative, (b) clear and understandable, and (c) reusable.
+* We will be moving to a three-tier system in which licenses are classified as Preferred, Approved, and Deprecated.
+
+Joel
+
+
+
+From LMajerus at fenwick.com  Tue Apr 12 18:33:31 2005
+From: LMajerus at fenwick.com (Laura Majerus)
+Date: Tue, 12 Apr 2005 11:33:31 -0700
+Subject: Official License Anti-Proliferation policy?
+Message-ID: <04520710CFD6EC44B7DFD2EA5436A713021F58A4@exchsvc01.firm.fenwick.llp>
+
+
+You are correct.  We plan/hope to tier existing licenses and licenses going forward. It's not an easy task, but that's the plan. The three criteria are only for new licenses submitted going forward.
+
+Laura
+
+From chuck at codefab.com  Tue Apr 12 19:53:29 2005
+From: chuck at codefab.com (Chuck Swiger)
+Date: Tue, 12 Apr 2005 15:53:29 -0400
+Subject: Official License Anti-Proliferation policy?
+In-Reply-To: <8D5F43CD1194B04CAD2AC656844E8F2B0526BDDB@orsmsx409>
+References: <8D5F43CD1194B04CAD2AC656844E8F2B0526BDDB@orsmsx409>
+Message-ID: <425C2739.8040004@codefab.com>
+
+Smith, McCoy wrote:
+> From: Chuck Swiger [mailto:chuck at codefab.com] 
+[ ...quoting level repaired... ]
+>> For example, I think that when a license is depreciated, there ought to
+>> be a statement made by the original author (and/or the OSI board if the
+>> decision is not agreed-upon by all concerned) notifying people of this,
+>> containing a recommendation what projects using that license ought to
+>> use.
+[ ... ]
+> From Intel's perspective, we think deprecation should not affect code
+> that was licensed using a particular license before the license was
+> deprecated.
+
+Agreed.  OSI's categorization of a license into a tier, or even lack of OSI 
+approval, says nothing about the status of code using that license.
+
+[ At the moment, OSI certification no longer even reflects OSD-compliance.
+If I submitted a duplicative OSD-compliant license today, it would be 
+OSD-compliant by definition, yet would not receive OSI approval per the new 
+policy. ]
+
+> Hence the use of the term "deprecation" (as that term is
+> used in computer programming:  http://en.wikipedia.org/wiki/Deprecate ,
+> i.e., obsolete for future uses) rather than "de-certification."  We also
+> would not want to give legal advice to people as to any particular
+> alternative license they might wish to choose if the Intel Open Source
+> License were deprecated.  I'll leave it to OSI as to whether a wizard or
+> some other informational matrix might be a helpful aid for people who
+> want guidance on choosing a license and don't have the resources of an
+> in-house lawyer to give them advice.
+
+Tsk.  What happens when a lawyer *wants* to make a friendly suggestion which 
+should not be misconstrued as legal advice?  Can you guys do that without 
+jumping through disclaimers as though they were verbal hoops of potential 
+implied liability tossed by a litigious ringmaster?
+
+Live large!  Just think of the headlines, "Intel Boldly Recommends the BSD 
+license to Existing Users of the Intel Open Source License, in order to help 
+OSI's newly announced-- and Controversial-- License Anti-Proliferation Policy".
+
+[ This comment reflects a hypothetical: it would be well not to quote the 
+remark above out-of-context, either, please. :-) ]
+
+-- 
+-Chuck
+
+PS: Besides, even a company with 10 people can afford part-time legal advice-- 
+well, at least that's true of companies in Manhattan, anyway.
+
+
+
+From nelson at crynwr.com  Tue Apr 12 20:00:03 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Tue, 12 Apr 2005 16:00:03 -0400
+Subject: Official License Anti-Proliferation policy?
+In-Reply-To: <63EE38DD-CE83-4D9E-ABC0-E11EEBA4192F@apple.com>
+References: <04520710CFD6EC44B7DFD2EA5436A713021F589C@exchsvc01.firm.fenwick.llp>
+	<DA9EB779-B51D-4166-AEAE-F151F281591D@apple.com>
+	<16988.9298.269649.891637@desk.crynwr.com>
+	<63EE38DD-CE83-4D9E-ABC0-E11EEBA4192F@apple.com>
+Message-ID: <16988.10435.958979.356260@desk.crynwr.com>
+
+Ernest Prabhakar writes:
+ > Hi Russ,
+ > 
+ > On Apr 12, 2005, at 12:41 PM, Russell Nelson wrote:
+ > > Ernest Prabhakar writes:
+ > >
+ > >> Laura, Russ:  So, can we get an official statement about whether this
+ > >> list/committee (license-discuss) is still in existence, or whether it
+ > >> has been superseded by this rules change?  Or, do we need to "re-up"
+ > >> if we want to play in the new regime?
+ > >
+ > > Different committee entirely.  Different mailing list, too, I expect.
+ > 
+ > Um, for which part? Does this committee still ensure OSD compliance,  
+ > but NOT the "other three criteria"?   Or, will the new committee only  
+ > handle the Preferred/Approved/Deprecated tiering?
+
+Sorry.  Let me explain.  The License Approval Committee is not
+changing.  License-discuss will continue to have a direct channel into
+the committee's deliberations.  All the traditional criteria for
+approving a license remain.  Three new criteria have been added:
+template, new/unique, and humane language.
+
+License Proliferation will handle the tiering.  They will undoubtedly
+use the three new criteria to help them, but they'll use other
+criteria of their own devise as well.
+
+-- 
+--My blog is at     blog.russnelson.com         | The laws of physics cannot
+Crynwr sells support for free software  | PGPok | be legislated.  Neither can
+521 Pleasant Valley Rd. | +1 315-323-1241 cell  | the laws of countries.
+Potsdam, NY 13676-3213  | +1 212-202-2318 VOIP  | 
+
+

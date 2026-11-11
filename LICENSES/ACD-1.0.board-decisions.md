@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.board-decisions.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-review participants / 監査人
-last-updated: 2026-11-09
+last-updated: 2026-11-12
 canonical-ref: LICENSES/rounds/2026-09-13-osi-board-meeting-minutes-2025-06-to-2026-06.txt (逐語の一次資料) / LICENSES/ACD-1.0.review-corpus.md (アーカイブ全体の測定) / LICENSES/ACD-OSI-BOTTLENECKS.md (B2 / B10)
 ---
 
@@ -648,6 +648,12 @@ B13（理解コスト = readability）は、偶然 3 つなのではない。** 
 **不利**: *"we can establish any criteria we want to"* が同じ記録に在り、
 **2025 年の「duplicative and not used なら not approved のまま留め置かれうる」がその実装**である。
 **20 年かけて、追加テストは「却下の根拠」ではなく「承認しないまま置く根拠」として形を得た。****2026-11-09 精密化**: リストの側の記録（`review-readings.md` §1.168）では、2005-09-12 の理事会は、重複と読みにくさを指摘された 2 本（ACE License・OVPL）を却下せずに保留した。「承認しないまま置く」は 20 年かけて得た形ではなく、基準を最初に当てた日から在った形である。同じ日に Open-Realty License は却下されたが、形式上の理由はどちらの版を承認するかが不明なことだった。
+
+**2026-11-12 追記 —— 3 つの基準は 2005-04-08 に OSI の声明として公表されていた。** `rounds/2005-04-license-discuss-proliferation-statement-observed.txt`（4 通）。list の参加者が OSI のウェブログの告知を写している: *"From now on, approved licenses must meet three new criteria of being (a) non-duplicative, (b) clear and understandable, and (c) reusable."*（Joel West 氏 2005-04-11 の写し）。Russell Nelson 氏は翌日 *"All the traditional criteria for approving a license remain. Three new criteria have been added: template, new/unique, and humane language."* と説明し、増殖の委員会の長の Laura Majerus 氏は *"The three criteria are only for new licenses submitted going forward."* と書いた。Chuck Swiger 氏は *"At the moment, OSI certification no longer even reflects OSD-compliance."* と受け取った。
+
+**読み。** 3 つの基準は、議事録の上の「案」ではなく、2005 年に新しい提出に当てる規則として公表されていた（上の Raymond 氏の報告と同じ向き）。一方で 8.8 節の 2013 年の委員長は「非増殖の成文の規則は無い」と述べている。2005 年の公表の文が 2013 年までに引っ込められたのか、規則と呼ばれなくなっただけなのかは、この追記では確かめていない。**不利な面**: 新しいライセンスに OSD の外の基準を当てた公表の記録が在る（B10・B13・提出者専用でないこと）。**逆側**: 2013 年の委員長と 2025 年の理事会は、OSD に違反するときだけ却下すると述べている（§2・8.8 節）。
+
+**この追記が establish しないこと。** 声明の本文は list の参加者の写しで読み、OSI のウェブログの原本は開いていない。
 
 ### 8.8 「非増殖の成文規則は無い」は、2013 年に委員長が述べている
 
