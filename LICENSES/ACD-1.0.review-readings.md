@@ -253,3 +253,16 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **読み。** OSET の審査は、弁護士の起草、財団の後ろ盾、具体的なプロジェクト（TrustTheVote）を持つ提出が、条項の修正と名の外しを経て 2 か月半で承認された例である。ACD が持たないのは (c) と (d) で、どちらも提出の前に記録の上で変えられない。
 
 **この節が establish しないこと。** Berkus 氏の 4 つの問いは個人の言い方で、承認の理由として理事会が述べた文ではない。OSET の承認の議事録は読んでいない。
+
+## 1.180 契約でないライセンスは、受領者に保証の権利を放棄させられるか —— 2002 年の委員長の懸念と反論（2026-11-11）
+
+`rounds/2002-08-license-discuss-legal-soundness-observed.txt`（4 通・スレッドは全 88 通）。委員長の Russell Nelson 氏が 2002-08 に、理事会の決定（AFL の承認と、クリックラップを求めるライセンスの扱い）を報告して始めた議論。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"From what various legal scholars tell me, a non-contractual license (such as the GPL) cannot cause you to give up your warranty rights. Only a contract can do that."* | Russell Nelson 氏（委員長）2002-08-02 | §2.3・§13・§14 の不利な面。ACD は受け入れの行為を要らない献呈で（§2.3）、契約を作らない。この読みが立つ法域では、§13 の保証の否認と §14 の責任の制限は、受領者を縛らないかもしれない。#321 として記録した。費用を負うのは受領者ではなく Dedicator で、採用者を遠ざける向き（B2） |
+| *"IMO it's not all that germane to warranty disclaimer, and I'm not buying the chain of extrapolation that leads from this case to the conclusion that click-wrap might be necessary."* | Bruce Perens 氏 2002-08-03 | 逆側。委員長が根拠にした判決は保証の否認には関係が薄い、という反論。GPL をはじめ、同意を求めない承認済みライセンスは、いまも保証を否認している |
+| *"At the July OSI board meeting last week, we approved the Academic Free License (think MIT/BSD/X11/Apache with a patent grant)"* | Russell Nelson 氏 2002-08-02 | B10 の参考。寛容なライセンスに特許の許諾を足したものは 2002 年に承認されている（AFL は通知の条件を持つ）。register の B10 が測った差（明示の特許許諾 ∧ 無条件）は、この型に条件の無さを足したところにある |
+| *"One of the benefits of the OSI Certified certification mark is that users of such certified software can be assured that the licenses are OSD compliant without having to read and understand the entire license."* | Lawrence E. Rosen 氏 2002-08-14 | B13 の逆側。承認の印は、利用者が本文を全部読まずに済むためのもの、という見方。ACD の長さ（B3）の費用の一部は、承認されれば利用者の側では小さくなる。**逆側**: 審査する側は全部を読む |
+
+**この節が establish しないこと。** 2002 年の個人の発言と委員長の報告で、法律家の判断ではない（Nelson 氏は「法学者から聞いた」と書いている）。保証の否認が契約なしに効くかは法域の問いで、この節は決めない。

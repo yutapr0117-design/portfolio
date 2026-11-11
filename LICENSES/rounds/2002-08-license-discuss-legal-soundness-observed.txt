@@ -1,0 +1,192 @@
+Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/ (2002-August)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-11)
+Messages: 4 messages this dossier cites from "Legal soundness comes to open source distribution" (license-discuss, 2002-08; 88 messages). Not the whole thread.
+Senders: Russell Nelson, Bruce Perens, Lawrence E. Rosen
+Position: the committee chair's report of a board decision and the list's discussion of whether licences need assent to protect the licensor. Not addressed to us and not about ACD. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Fri Aug  2 03:18:14 2002
+From: nelson at crynwr.com (Russell Nelson)
+Date: 2 Aug 2002 03:18:14 -0000
+Subject: Legal soundness comes to open source distribution
+Message-ID: <20020802031814.7202.qmail@desk.crynwr.com>
+
+At the July OSI board meeting last week, we approved the Academic Free
+License (think MIT/BSD/X11/Apache with a patent grant) and we sent
+four licenses back for reconsideration.  Here's the hitch: we were
+asked to approve a license which includes a requirement for
+click-wrap.
+
+The submittor had already been asked if that requirement was a
+necessity.  She said yes, because of various legal precedents.  We
+consulted a few people and yes, it looks like a license without
+click-wrap is weaker at protecting your rights.  So, folks, the
+lawyers are coming.
+
+The time is coming when you won't be able to distribute software
+unless you have presented the license to the user and their assent is
+necessary to access the software.  Even free software.  Our industry
+is maturing and we need to be more legally careful and rigorous.
+
+The question here is whether we should amend the Open Source
+Definition so that it is clear whether click-wrap licenses are
+allowable or not.  We could go either way, but we want to hear from
+you first.  Your opinions solicited, and engaged!
+
+-- 
+-russ nelson              http://russnelson.com |  New Internet Acronym:
+Crynwr sells support for free software  | PGPok |
+521 Pleasant Valley Rd. | +1 315 268 1925 voice |         IANAE
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |  I Am Not An Economist
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From nelson at crynwr.com  Sat Aug  3 03:13:46 2002
+From: nelson at crynwr.com (Russell Nelson)
+Date: Fri,  2 Aug 2002 23:13:46 -0400 (EDT)
+Subject: Legal soundness comes to open source distribution
+In-Reply-To: <20020802093416.L251-100000@yez.hyperreal.org>
+References: <20020802031814.7202.qmail@desk.crynwr.com>
+	<20020802093416.L251-100000@yez.hyperreal.org>
+Message-ID: <15691.18496.138489.699438@desk.crynwr.com>
+
+Brian Behlendorf writes:
+ > I see a practical issue - if I install Debian from CD and fire up Mozilla,
+ > I don't want to have to go through ten dozen different dialog boxes with
+
+I don't like it any more than you do.  You're being asked to agree to
+give up the right to any warranty.  From what various legal scholars
+tell me, a non-contractual license (such as the GPL) cannot cause you
+to give up your warranty rights.  Only a contract can do that.  Yes,
+the law *is* an ass, and needs to be changed.  Until then, a warranty
+disclaimer needs agreement.
+
+ > Philosophically, I don't like the idea of someone being restricted
+ > in what they can do once they have the software in their hands.
+
+Agreed.  That's why I think we need to amend the OSD so that it
+clearly states that a license must not restrict use, modification, or
+redistribution of the software.
+
+-- 
+-russ nelson              http://russnelson.com |  New Internet Acronym:
+Crynwr sells support for free software  | PGPok |
+521 Pleasant Valley Rd. | +1 315 268 1925 voice |         IANAE
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |  I Am Not An Economist
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From bruce at perens.com  Sat Aug  3 17:58:13 2002
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 3 Aug 2002 10:58:13 -0700
+Subject: Legal soundness comes to open source distribution
+In-Reply-To: <01bd01c23b0a$5ae230c0$927ba8c0@ROSENGARDEN>
+References: <20020803011044.R17155-100000@yez.hyperreal.org> <01bd01c23b0a$5ae230c0$927ba8c0@ROSENGARDEN>
+Message-ID: <20020803175813.GA8933@perens.com>
+
+> Is there a reference of some sort for this?
+
+It's the case at
+http://www.nysd.uscourts.gov/courtweb/pdf/D02NYSC/01-07482.PDF .
+IMO it's not all that germane to warranty disclaimer, and I'm not buying the
+chain of extrapolation that leads from this case to the conclusion that
+click-wrap might be necessary.
+
+> It's about the only solid reason I see to need to go beyond copyright law.
+
+It's not about copyright law at all. The warranty obligation does not follow
+the copyright. It's about:
+
+1. Is a simple warranty disclaimer that does not require agreement
+   adequate? 
+
+2. How do you need to present the warranty disclaimer?
+
+3. Do you really need a contract that other parties actually agree to in
+   some way, for example by clicking "yes"? It's reasonably clear that you
+   need one if you want someone else to indemnify you. It's not nearly so
+   clear that you need one if you simply want to disclaim warranties.
+
+> Agreed.  That's why I think we need to amend the OSD so that it 
+> clearly states that a license must not restrict use, 
+> modification, or redistribution of the software.
+
+I agree that there should be no restrictions on use, modification, or
+distribution _other_than_those_ necessary to implement the goals of Open
+Source, such as disclaiming the warranty, preserving the copyright
+statement, mandating source distribution when the licensor chooses that
+option, and mandating transmission of the license to all parties. A simple
+"no restrictions" equates to public domain.
+
+Larry Rosen:
+> I am baffled by everyone's confusion and philosophical rantings.
+ 
+That's distressing. This is your own community, or should be, since you
+claim to represent them. If they are confused, shouldn't you blame your
+presentation of the issue? If they are philosophical, and you didn't expect
+that, could it be that you've lost touch with them?
+
+So far, I see some significantly better alternatives than click-through.
+The very first should be a set of guidelines for distributions and other
+environments where free software is installed that would cause them to
+inform the user that:
+
+	1) There are licenses.
+	2) They disclaim warranties.
+	3) This is how you view the licenses.
+	4) This is how you look at the source code to perform your own
+	   due diligence.
+	
+In the case of a distribution, most of them already do this at
+distribution install time. Debian does display a click-through warranty
+disclaimer when you install it. It also has a login message disclaiming
+warranties, but only on the text login. Obviously, this needs to be
+beefed up.
+
+In the case of package installers on something other than a Linux
+distribution, where we have less control of the enivronment, perhaps
+click-through is appropriate, but I still would oppose allowing it to
+be a license requirement. A license that requires it is going to cause
+us no end of trouble with the environments where we can deal with the
+problem more easily.
+
+	Thanks
+
+	Bruce
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From lrosen at rosenlaw.com  Wed Aug 14 16:24:24 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Wed, 14 Aug 2002 09:24:24 -0700
+Subject: Legal soundness comes to open source distribution
+In-Reply-To: <3D5A7E35.5A961574@ix.netcom.com>
+Message-ID: <008601c243af$0d9d36e0$927ba8c0@ROSENGARDEN>
+
+> Carol A. Kunze wrote:
+> This is very helpful.   I would add to this list of issues 
+> the consequences of
+> requiring distributors/programmers to enter into complex 
+> agreements which you need a lawyer to fully comprehend.
+
+One of the benefits of the OSI Certified certification mark is that
+users of such certified software can be assured that the licenses are
+OSD compliant without having to read and understand the entire license.
+
+Of course, that makes it even more important for the OSD to be precise,
+and for the OSI board to be rigorous and not arbitrary in its review of
+licenses.  That's another reason why I don't like Rick Moen's suggestion
+that OSI merely apply the "rule of reason" to its license approval
+process.  I have informed the OSI board that, under trademark law, they
+cannot be arbitrary and capricious and still retain ownership of the
+certification mark.
+
+/Larry
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
