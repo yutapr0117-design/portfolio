@@ -605,12 +605,15 @@ def run(ctx):
     # `(?<![.\w])value\s*:` (オブジェクトキーとしての value:) を探す。
     # `e.target.value` は `;` で終わり `:` が後続しないため false-positive にならない。
     _violations367: list[tuple[str, int]] = []
-    _select_pat367 = re.compile(r"h\('select'")
-    _value_key_pat367 = re.compile(r"(?<![.\w])value\s*:")
-    _option_pat367 = re.compile(r"h\('option'")
-    _js_files367 = sorted((ROOT / "js").glob("*.js"))
+    # 二重引用符の h("select" と引用符つきの 'value': キーも読み、コメントを除き、入れ子の js と main.js まで
+    #   走査する (2026-11-11・監査 #66): 一重引用符の h('select' だけを読み、js/quiz-renderer.js が使う
+    #   h("…") の形と Check 422 が受ける形を見ていなかった。strip_js_comments は行数を保つ
+    _select_pat367 = re.compile(r"""h\(\s*['"]select['"]""")
+    _value_key_pat367 = re.compile(r"""(?<![.\w])['"]?value['"]?\s*:""")
+    _option_pat367 = re.compile(r"""h\(\s*['"]option['"]""")
+    _js_files367 = sorted((ROOT / "js").glob("**/*.js")) + [ROOT / "main.js"]
     for _f367 in _js_files367:
-        _src367 = _f367.read_text(encoding="utf-8", errors="replace")
+        _src367 = strip_js_comments(_f367.read_text(encoding="utf-8", errors="replace"))
         for _m367 in _select_pat367.finditer(_src367):
             _pos367 = _m367.end()
             _tail367 = _src367[_pos367:]
