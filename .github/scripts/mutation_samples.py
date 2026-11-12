@@ -554,8 +554,8 @@ _MUTATIONS_TAIL.append({
     "name": "Check 471 (d): CHANGELIST の SELF-AUDIT の節の参照を存在しない §3zz にする —— 旧版は節番号の末尾の英字を 1 文字まで"
             "しか読まず、§3zz を参照として拾わずに黙って通した (2026-11-12・SELF-AUDIT が 3a〜3z を使い切った)",
     "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
-    "find": "`ACD-1.1-SELF-AUDIT.md` §3z に記録した",
-    "replace": "`ACD-1.1-SELF-AUDIT.md` §3zz に記録した",
+    "find": "errata ではなく `ACD-1.1-SELF-AUDIT.md` §3z に記録した | −2",
+    "replace": "errata ではなく `ACD-1.1-SELF-AUDIT.md` §3zz に記録した | −2",
     "check": CHECK,
 })
 
