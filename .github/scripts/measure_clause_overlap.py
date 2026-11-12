@@ -28,6 +28,7 @@
     python3 .github/scripts/measure_clause_overlap.py --guard TRIAL.txt   # 468u の目印が残っているか
     python3 .github/scripts/measure_clause_overlap.py --sentences DRAFT.txt [N]   # 作用の条の長い文 (上位 N)
     python3 .github/scripts/measure_clause_overlap.py --sync BEFORE.txt AFTER.txt   # 採る commit で直す場所
+    python3 .github/scripts/measure_clause_overlap.py --it-subject DRAFT.txt   # 主語が条・文書の文の中の it / its
     python3 .github/scripts/measure_clause_overlap.py --uses DRAFT.txt Work "Computational Use"   # 定義語を使う条
 """
 from __future__ import annotations
@@ -284,6 +285,11 @@ def _grams(text: str, k: int) -> set[str]:
     return set(_gram_list(text, k))
 
 
+_FUNCTION_WORDS = {"which", "that", "this", "with", "from", "into", "upon", "than", "when", "where", "there", "those", "these",
+                   "their", "they", "them", "what", "whom", "whose", "have", "been", "were", "will", "would", "does", "under",
+                   "over", "about", "after", "before", "only", "also", "such", "each", "every", "other", "against", "within"}
+
+
 def external_reliance(changed: dict[str, tuple[str, str]], after_all: str,
                       k: int = 5) -> list[tuple[str, int, str, str]]:
     """(file, line, 種類, 文脈)。changed = {条番号: (変更前の条, 変更後の条)}、after_all = 変更後の本文全体。
@@ -309,7 +315,9 @@ def external_reliance(changed: dict[str, tuple[str, str]], after_all: str,
         nouns = {w.rstrip("s") for w in _toks(b) if len(w) >= 6 and w.isalpha()}   # 単数でも複数でも当てる
         for g in _grams(b, 3) - _grams(a, 3):
             t = g.split()
-            if t[-1] in ("them", "it", "those", "they", "these") and len(t[-2]) >= 4 and nouns:
+            # 直前が機能語 (which / that / with …) だと、その語に続く任意の名詞に当たって雑音になる (T60 の "through which it" で 25 件)
+            if (t[-1] in ("them", "it", "those", "they", "these") and len(t[-2]) >= 4 and nouns
+                    and t[-2] not in _FUNCTION_WORDS):
                 _pron[re.compile(r"\b" + re.escape(t[-2]) + r" (?:the |those |these |its |their )?(?:"
                                  + "|".join(map(re.escape, sorted(nouns))) + r")s?\b", re.I)] = (sec, g)
     out = []
@@ -473,6 +481,21 @@ def sentences(path: Path, top: int = 15) -> int:
     return 0
 
 
+def it_subject(path: Path) -> int:
+    """主語が条や文書 (Section N / This Section / This Dedication / Nothing in …) の文の中の it / its を全数出す
+    (2026-11-12・portfolio-aa の T60 の型: 文の主語と違うもの —— Dedicator や Work —— を指す it)。先行詞は読む人が決める。"""
+    rows = []
+    subj = re.compile(r"^(?:Sections? \d|This Section|This Dedication|Nothing in (?:this|Section)|Section \d)")
+    for c, v in clauses(path.read_text(encoding="utf-8")).items():
+        for sent in _SENT.split(" ".join(v.split())):
+            if subj.match(sent):
+                rows += [(c, m.group(0), sent[max(0, m.start() - 50):m.end() + 30]) for m in re.finditer(r"\b(?:it|its)\b", sent)]
+    print(f"# {path.name}: 主語が条・文書の文の中の it / its: {len(rows)}")
+    for c, w, ctx in rows:
+        print(f"  §{c} {w!r}: …{ctx}…")
+    return 0
+
+
 def sync(before: Path, after: Path) -> int:
     """試作を採る commit で直す場所を出す (2026-11-12・portfolio-aa の依頼)。
 
@@ -508,6 +531,8 @@ def main(argv: list[str]) -> int:
         return uses(Path(argv[1]), argv[2:])
     if argv and argv[0] == "--sentences" and len(argv) in (2, 3):
         return sentences(Path(argv[1]), int(argv[2]) if len(argv) == 3 else 15)
+    if argv and argv[0] == "--it-subject" and len(argv) == 2:
+        return it_subject(Path(argv[1]))
     if argv and argv[0] == "--sync" and len(argv) == 3:
         return sync(Path(argv[1]), Path(argv[2]))
     n = 6
