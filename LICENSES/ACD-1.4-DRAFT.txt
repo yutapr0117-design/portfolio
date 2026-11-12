@@ -116,15 +116,17 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       these licences under it without breaching an obligation to, or paying,
       another person (errata E39, E60). (+44 words.)
     * Section 8.6's covenant not to assert the patent claims that Sections 8.1
-      and 8.4 reach now operates in every jurisdiction alongside the licences,
-      instead of only where a licence "is held ineffective", and reaches "any
-      act that those Sections describe", where it reached any use of the Work
-      or of anything resulting from Computational Use of it (errata E42, E45).
-      It now stands on the same footing as "the covenants in Section 5", where
-      it said "the covenant", no longer explains the three footings, which the
-      Preamble states, and ends "depends on that question or on how it is
-      answered", the words Sections 4.4 and 12.2 use (errata E54, E71). (-67
-      words.)
+      and 8.4 reach now operates in every jurisdiction, instead of only where a
+      licence "is held ineffective", and reaches "any act that those Sections
+      describe", where it reached any use of the Work or of anything resulting
+      from Computational Use of it (errata E42, E45). It now stands on the same
+      footing as "the covenants in Section 5", where it said "the covenant", no
+      longer explains the three footings, which the Preamble states, and ends
+      "depends on that question or on how it is answered", the words
+      Sections 4.4 and 12.2 use (errata E54, E71), and no longer says that it
+      operates "alongside them", which could be read either as alongside the
+      licences, and so as lasting only while a licence stands, or as alongside
+      the covenants in Section 5. (-69 words.)
     * Section 9.1 now gives code produced by an automated system as an example
       of Machine-Generated Material. (+7 words.)
     * Section 9.2 now says that where a right this Dedication reaches subsists,
@@ -194,7 +196,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5553 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5551 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -600,10 +602,10 @@ PREAMBLE (informative; not part of the operative terms)
        Sections 8.1 and 8.4 reach, in respect of any act that those Sections
        describe. This covenant is given on the same footing as the covenants in
        Section 5 and does not wait for either licence to be held ineffective:
-       it operates in every jurisdiction alongside them. You are not required
-       to determine whether either licence is effective in any jurisdiction,
-       and nothing permitted by this Dedication depends on that question or on
-       how it is answered.
+       it operates in every jurisdiction. You are not required to determine
+       whether either licence is effective in any jurisdiction, and nothing
+       permitted by this Dedication depends on that question or on how it is
+       answered.
 
 
 9. MACHINE-GENERATED MATERIAL AND AUTHORSHIP

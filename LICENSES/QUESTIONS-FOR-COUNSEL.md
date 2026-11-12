@@ -1,7 +1,7 @@
 ---
 file: LICENSES/QUESTIONS-FOR-COUNSEL.md
 audience: a lawyer asked to read ACD, or reading it on license-review / license-discuss; the steward, when asking one
-last-updated: 2026-11-11
+last-updated: 2026-11-12
 canonical-ref: LICENSES/ACD-1.3.txt (the latest fixed text, applied to this repository) / LICENSES/ACD-1.4-DRAFT.txt (the successor draft) / LICENSES/ACD-1.0.jurisdictions.md (where we think each question sits, by jurisdiction) / LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md (B1)
 ---
 
@@ -129,8 +129,8 @@ the use of the Work"* — *"a question of causation and not of quantity"*. The 1
 that limit (2026-11-04): a claim is reached only where *"the feature that infringes it results, in
 whole or in part, from the content of the Work"*, and *"a feature that the Work teaches or embodies is
 taken so to result"*. §8.2 makes both unconditional and non-terminable; §8.6 adds a covenant not to assert. In ACD-1.3 the covenant
-arises where a licence is held ineffective; the 1.4 draft makes it operate alongside the licences
-in every jurisdiction (2026-11-01), because a covenant that arises only on a holding does not
+arises where a licence is held ineffective; the 1.4 draft makes it operate in every jurisdiction
+without waiting for a licence to be held ineffective (2026-11-01), because a covenant that arises only on a holding does not
 exist when the claim that produces the holding is first asserted. The 1.4 draft also ties the covenant's
 reach to "any act that those Sections describe"; 1.3 says "any use of the Work or of anything
 resulting from Computational Use of it", and in a patent covenant "use" may name only one of the
