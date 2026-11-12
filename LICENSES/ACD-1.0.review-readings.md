@@ -572,3 +572,19 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 
 **この節が establish しないこと。** 2007 年の 2 人の文で、OSI の判断ではない。Villa 氏の改訂案が採られたかは、このスレッドには無い。
 
+## 1.195 理事会の側の 2018 年の 2 つの文 —— 変更を求めるのは OSD に反するときと、OSD に適うか曖昧なとき。新しいライセンスは独自の価値を問われる（2026-11-12）
+
+"moving to an issue tracker"（`license-review` 2018-06・32 通・`rounds/2018-06-license-review-board-change-requests-and-unique-value-observed.txt` に 5 通）。portfolio-9b の「途中に決める側」の一覧（DECISION_EVENT で絞った 12 本）から読んだ。Allison Randal 氏は `opensource.org` の宛先から書いている。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"There are two general situations where the board requests or suggests changes to a license: - The text submitted does not comply with the OSD, so we can't approve it - The text submitted is ambiguous, and while it might comply with the OSD, it also might not, and so we can't approve it"* | Allison Randal 氏 2018-06-19 | **基準の文。** 曖昧さが承認を止めるのは、OSD に適うかどうかが曖昧なときである。2007 年の MS-RL（§1.193）で、OSD に関わらない曖昧さが承認を止めなかったことと食い違わない。ACD の語の質の問い（B13）のうち、承認を止めうるのは OSD に触れる部分（§5.2 の禁止、§11 の除外、§16.4 の名前の制限）だと読める |
+| *"the ultimate responsibility of the board is to determine whether a license satisfies the OSD. So, we aren't just considering the opinions expressed on the list, we're also evaluating those opinions against a defined standard."* | Randal 氏 2018-06-19 | 有利な向き。list の意見は OSD という基準に当てて評価される。2025 年の理事会の文（`board-decisions.md` §2）と同じ線である |
+| *"I'm a firm supporter of the license proliferation position that the OSI adopted over a decade ago, and we do continue to consider whether a new license is offering unique value."*、*"the law that open source licenses are built on keeps changing, so over time open source licenses will need to evolve to cope with a legal environment that the current licenses couldn't anticipate."* | Randal 氏 2018-06-19 | **両方の面。** 不利な面: 新しいライセンスは独自の価値を問われる（B10）。有利な面: 既存のライセンスが想定できなかった法の変化に応じることは、独自の価値の理由として理事の口から挙がっている。ACD が独自の価値として挙げるのは、機械学習と TDM の許諾、モデルと出力への特許許諾である（`comparison.md`） |
+| *"There are actually only three useful licenses, a gift-style, a sharing-with-rules-style, and something in between."*、*"All else is embellishment."*、*"The license reviewers aren't waiting to be surprised by some worthy innovation in Open Source licensing. No such thing is coming"* | Bruce Perens 氏 2018-06-19 | **不利な面。** ACD は贈与の型に入り、その型には承認済みのもの（0BSD、MIT-0、Unlicense など）が在る。ACD の追加は飾りだと読まれうる。同じ日に Perens 氏は *"OK, so not just whether it passes the OSD but whether it provides any unique value, too."* と、Randal 氏の文を受けて書いた |
+
+**読み。** 2018 年の理事会の側の文は 2 つの基準を述べる。1 つは OSD への適合で、曖昧さもこの基準に当てて扱われる。もう 1 つは独自の価値（増殖の方針）である。ACD の承認に向けた主張は、前者では語の明確さ、後者では既存のライセンスが想定できなかった法の変化（機械学習と TDM）への対応に置くことになる。Perens 氏の文は後者を正面から否定する立場で、ACD はその立場の審査者を説得する材料を持たない（贈与の型の飾りと読まれるか、新しい問いへの答えと読まれるかは、読み手が機械学習の許諾を新しい問いと見るかで決まる）。
+
+**逆側。** Randal 氏の「法の変化に応じる」は、既存のライセンスの新しい版を想定した文で、新しい起草者の新しいライセンスを想定したものとは読めない。Perens 氏の「三つしかない」は 2018 年の個人の見解で、その後も新しいライセンスは承認されている（Blue Oak・2024、`reviewer-positions.md` の Blue Oak の節）。
+
+**この節が establish しないこと。** Randal 氏の文はその時点の理事の説明で、規則の文書ではない。このスレッドは決める側の通（Randal 氏、Luis Villa 氏、Perens 氏、Chris Lamb 氏など）に絞って読んだ。他の通は読んでいない。

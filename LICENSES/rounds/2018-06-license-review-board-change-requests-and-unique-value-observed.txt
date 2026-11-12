@@ -1,0 +1,297 @@
+Source: OSI license-review public archive, 2018-June.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 5 of 32 in "moving to an issue tracker" (2018-06-19)
+Senders: Allison Randal, Bruce Perens
+Position: Not addressed to us. Observed. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From allison at opensource.org  Tue Jun 19 20:38:10 2018
+From: allison at opensource.org (Allison Randal)
+Date: Tue, 19 Jun 2018 13:38:10 -0700
+Subject: [License-review] moving to an issue tracker [was Re: Some notes
+ for license submitters]
+In-Reply-To: <CAK2MWOt8ty5gvPZyW4yzvGT9jswYyFs4Gj+s3dqXGWXS+7OQfg@mail.gmail.com>
+References: <CAK2MWOs1y7jKmcCCNdVP8sZMqaAqht4+Xo+G6jLKSe5=W-0g0Q@mail.gmail.com>
+ <20180613031725.GI17807@dev.kemitchell.com>
+ <B4AC09F9-E943-4701-BCA3-EAB15191F871@jhuapl.edu>
+ <9d881d39-7288-05af-6b46-034e88d8df57@postgresql.org>
+ <CAFjZtRc=6MZDMXpMrvad6oAuOgj_Kmb8U19qe-kRZw-puAh=8w@mail.gmail.com>
+ <8e39062a-2f4f-4507-5df0-ea7f6e64b509@postgresql.org>
+ <CAJ-h4vsOoE6U9yzje0jpLLgQa-YsFN=wOWpxvEjej7o2dXPdwA@mail.gmail.com>
+ <CAK2MWOvpNVWQdMarz2F9Hr=7gU8jJsyr59E2vMsj1U3YDVqWUg@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B51978BD4E35@FMSMSX108.amr.corp.intel.com>
+ <0e8069da-2fc3-2897-ea2f-7479cdc42c31@opensource.org>
+ <CAK2MWOt8ty5gvPZyW4yzvGT9jswYyFs4Gj+s3dqXGWXS+7OQfg@mail.gmail.com>
+Message-ID: <a7526439-ff77-5fc4-26f3-4c5031ab7849@opensource.org>
+
+There are two general situations where the board requests or suggests
+changes to a license:
+
+- The text submitted does not comply with the OSD, so we can't approve it
+
+- The text submitted is ambiguous, and while it might comply with the
+OSD, it also might not, and so we can't approve it
+
+The submitter is free to ignore the request or suggestion from the
+board, but the license won't be approved at that point without some change.
+
+
+But, far more informally and long before the board reviews a license,
+there's a great deal of value in the discussions that happen in the
+public around a license either before a license is submitted to the OSI
+or during the review process. The submitter is free to ignore that
+feedback, but they may also find that the experience of the open source
+community genuinely does improve their license. The OSI certainly
+doesn't require a public review and revision process, but we do
+recognize it as a healthy, modern best practice in open source licensing.
+
+Allison
+
+From allison at opensource.org  Tue Jun 19 22:07:27 2018
+From: allison at opensource.org (Allison Randal)
+Date: Tue, 19 Jun 2018 15:07:27 -0700
+Subject: [License-review] moving to an issue tracker [was Re: Some notes
+ for license submitters]
+In-Reply-To: <20180619211623.GE18555@dev.kemitchell.com>
+References: <B4AC09F9-E943-4701-BCA3-EAB15191F871@jhuapl.edu>
+ <9d881d39-7288-05af-6b46-034e88d8df57@postgresql.org>
+ <CAFjZtRc=6MZDMXpMrvad6oAuOgj_Kmb8U19qe-kRZw-puAh=8w@mail.gmail.com>
+ <8e39062a-2f4f-4507-5df0-ea7f6e64b509@postgresql.org>
+ <CAJ-h4vsOoE6U9yzje0jpLLgQa-YsFN=wOWpxvEjej7o2dXPdwA@mail.gmail.com>
+ <CAK2MWOvpNVWQdMarz2F9Hr=7gU8jJsyr59E2vMsj1U3YDVqWUg@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B51978BD4E35@FMSMSX108.amr.corp.intel.com>
+ <0e8069da-2fc3-2897-ea2f-7479cdc42c31@opensource.org>
+ <CAK2MWOt8ty5gvPZyW4yzvGT9jswYyFs4Gj+s3dqXGWXS+7OQfg@mail.gmail.com>
+ <a7526439-ff77-5fc4-26f3-4c5031ab7849@opensource.org>
+ <20180619211623.GE18555@dev.kemitchell.com>
+Message-ID: <6c2c4f04-3186-a438-bc0f-6b7c6f057799@opensource.org>
+
+Hi Kyle,
+
+The intention is to wait for consensus, but then it won't always be
+possible for everyone to entirely agree. I don't know the exact
+circumstances you're thinking of, but sometimes there are dissenting
+opinions, and so we consider all opinions in the review.
+
+Keep in mind, that the ultimate responsibility of the board is to
+determine whether a license satisfies the OSD. So, we aren't just
+considering the opinions expressed on the list, we're also evaluating
+those opinions against a defined standard.
+
+I can't imagine there will ever be a time where the mailing list reaches
+consensus to approve a license that doesn't satisfy the OSD, but if it
+did, the board would still have to reject the license or request changes
+before they could approve it.
+
+Allison
+
+From bruce at perens.com  Wed Jun 20 01:02:50 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 19 Jun 2018 18:02:50 -0700
+Subject: [License-review] moving to an issue tracker [was Re: Some notes
+ for license submitters]
+In-Reply-To: <b0baa682-21d7-3bc0-0298-5bba6bac3c07@opensource.org>
+References: <CAFjZtRc=6MZDMXpMrvad6oAuOgj_Kmb8U19qe-kRZw-puAh=8w@mail.gmail.com>
+ <8e39062a-2f4f-4507-5df0-ea7f6e64b509@postgresql.org>
+ <CAJ-h4vsOoE6U9yzje0jpLLgQa-YsFN=wOWpxvEjej7o2dXPdwA@mail.gmail.com>
+ <CAK2MWOvpNVWQdMarz2F9Hr=7gU8jJsyr59E2vMsj1U3YDVqWUg@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B51978BD4E35@FMSMSX108.amr.corp.intel.com>
+ <0e8069da-2fc3-2897-ea2f-7479cdc42c31@opensource.org>
+ <CAK2MWOt8ty5gvPZyW4yzvGT9jswYyFs4Gj+s3dqXGWXS+7OQfg@mail.gmail.com>
+ <a7526439-ff77-5fc4-26f3-4c5031ab7849@opensource.org>
+ <20180619211623.GE18555@dev.kemitchell.com>
+ <6c2c4f04-3186-a438-bc0f-6b7c6f057799@opensource.org>
+ <20180619231234.GG18555@dev.kemitchell.com>
+ <b0baa682-21d7-3bc0-0298-5bba6bac3c07@opensource.org>
+Message-ID: <CAK2MWOt5jTm4_hzgBTtfX2EOKR3L0cM0+uMAj_g+-T9oB0kWGw@mail.gmail.com>
+
+Allison,
+
+The biggest problem here is not that OSI is slow to approve licenses, that
+they provide insufficient feedback, or that they are using the wrong
+software.
+
+It's a greater problem that OSI continues to approve licenses on a regular
+basis, twenty years after the process started.
+
+There aren't that many actually useful variations on the licenses that
+actually pass the OSD. There are actually only three useful licenses, a
+gift-style, a sharing-with-rules-style, and something in between. Given
+Affero and GPL3 terms on those three, essentially all purposes for Open
+Source can be carried out. All else is embellishment.
+
+What we are seeing now are licenses that satisfy a particular attorney.
+These are often introduced as being necessary for the specific needs of the
+venue (Europe, for example) or a particular organization (NASA, focusing on
+restrictions on the public domain). It's arguable that these licenses are
+more useful than existing well-tested ones, even for those organizations.
+For example, I don't see how NASA can *really *benefit from imposing terms
+upon public-domain works or making itself a secondary beneficiary of
+licenses executed by others.
+
+The license reviewers aren't waiting to be surprised by some worthy
+innovation in Open Source licensing. No such thing is coming by. They are
+mainly working to make sure that OSI understands when a license should be
+rejected, and why.
+
+If OSI were to conclude that licenses, at this point, should be approved
+only when there are *compelling *reasons to do so, the community would
+benefit.
+
+    Thanks
+
+    Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180619/f191a5d6/attachment-0001.html>
+
+From allison at opensource.org  Wed Jun 20 02:18:05 2018
+From: allison at opensource.org (Allison Randal)
+Date: Tue, 19 Jun 2018 19:18:05 -0700
+Subject: [License-review] moving to an issue tracker [was Re: Some notes
+ for license submitters]
+In-Reply-To: <CAK2MWOt5jTm4_hzgBTtfX2EOKR3L0cM0+uMAj_g+-T9oB0kWGw@mail.gmail.com>
+References: <CAFjZtRc=6MZDMXpMrvad6oAuOgj_Kmb8U19qe-kRZw-puAh=8w@mail.gmail.com>
+ <8e39062a-2f4f-4507-5df0-ea7f6e64b509@postgresql.org>
+ <CAJ-h4vsOoE6U9yzje0jpLLgQa-YsFN=wOWpxvEjej7o2dXPdwA@mail.gmail.com>
+ <CAK2MWOvpNVWQdMarz2F9Hr=7gU8jJsyr59E2vMsj1U3YDVqWUg@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B51978BD4E35@FMSMSX108.amr.corp.intel.com>
+ <0e8069da-2fc3-2897-ea2f-7479cdc42c31@opensource.org>
+ <CAK2MWOt8ty5gvPZyW4yzvGT9jswYyFs4Gj+s3dqXGWXS+7OQfg@mail.gmail.com>
+ <a7526439-ff77-5fc4-26f3-4c5031ab7849@opensource.org>
+ <20180619211623.GE18555@dev.kemitchell.com>
+ <6c2c4f04-3186-a438-bc0f-6b7c6f057799@opensource.org>
+ <20180619231234.GG18555@dev.kemitchell.com>
+ <b0baa682-21d7-3bc0-0298-5bba6bac3c07@opensource.org>
+ <CAK2MWOt5jTm4_hzgBTtfX2EOKR3L0cM0+uMAj_g+-T9oB0kWGw@mail.gmail.com>
+Message-ID: <608caf65-7c0a-bd55-d2ce-82223a5b3179@opensource.org>
+
+Hi Bruce,
+
+I'm a firm supporter of the license proliferation position that the OSI
+adopted over a decade ago, and we do continue to consider whether a new
+license is offering unique value.
+
+But, I consider it highly unlikely that we have such a perfect set of
+open source license versions today that we'll never need to change them.
+Especially since the law that open source licenses are built on keeps
+changing, so over time open source licenses will need to evolve to cope
+with a legal environment that the current licenses couldn't anticipate.
+
+Allison
+
+From bruce at perens.com  Wed Jun 20 02:27:12 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 19 Jun 2018 19:27:12 -0700
+Subject: [License-review] moving to an issue tracker [was Re: Some notes
+ for license submitters]
+In-Reply-To: <608caf65-7c0a-bd55-d2ce-82223a5b3179@opensource.org>
+References: <CAFjZtRc=6MZDMXpMrvad6oAuOgj_Kmb8U19qe-kRZw-puAh=8w@mail.gmail.com>
+ <8e39062a-2f4f-4507-5df0-ea7f6e64b509@postgresql.org>
+ <CAJ-h4vsOoE6U9yzje0jpLLgQa-YsFN=wOWpxvEjej7o2dXPdwA@mail.gmail.com>
+ <CAK2MWOvpNVWQdMarz2F9Hr=7gU8jJsyr59E2vMsj1U3YDVqWUg@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B51978BD4E35@FMSMSX108.amr.corp.intel.com>
+ <0e8069da-2fc3-2897-ea2f-7479cdc42c31@opensource.org>
+ <CAK2MWOt8ty5gvPZyW4yzvGT9jswYyFs4Gj+s3dqXGWXS+7OQfg@mail.gmail.com>
+ <a7526439-ff77-5fc4-26f3-4c5031ab7849@opensource.org>
+ <20180619211623.GE18555@dev.kemitchell.com>
+ <6c2c4f04-3186-a438-bc0f-6b7c6f057799@opensource.org>
+ <20180619231234.GG18555@dev.kemitchell.com>
+ <b0baa682-21d7-3bc0-0298-5bba6bac3c07@opensource.org>
+ <CAK2MWOt5jTm4_hzgBTtfX2EOKR3L0cM0+uMAj_g+-T9oB0kWGw@mail.gmail.com>
+ <608caf65-7c0a-bd55-d2ce-82223a5b3179@opensource.org>
+Message-ID: <CAK2MWOucUUXWoeT9Y=LdSTryB3oMRbNTuqL4VQa0kc1u2mJ=-Q@mail.gmail.com>
+
+OK, so not just whether it passes the OSD but whether it provides any
+unique value, too.
+
+Sure we need new licenses for new case law. But how many of the licenses
+submitted actually *were *an attempt to catch up with new case law? There
+hasn't been much other than GPL3.
+
+    Thanks
+
+    Bruce
+
+On Tue, Jun 19, 2018 at 7:18 PM, Allison Randal <allison at opensource.org>
+wrote:
+
+> Hi Bruce,
+>
+> I'm a firm supporter of the license proliferation position that the OSI
+> adopted over a decade ago, and we do continue to consider whether a new
+> license is offering unique value.
+>
+> But, I consider it highly unlikely that we have such a perfect set of
+> open source license versions today that we'll never need to change them.
+> Especially since the law that open source licenses are built on keeps
+> changing, so over time open source licenses will need to evolve to cope
+> with a legal environment that the current licenses couldn't anticipate.
+>
+> Allison
+>
+> On 06/19/2018 06:02 PM, Bruce Perens wrote:
+> > Allison,
+> >
+> > The biggest problem here is not that OSI is slow to approve licenses,
+> > that they provide insufficient feedback, or that they are using the
+> > wrong software.
+> >
+> > It's a greater problem that OSI continues to approve licenses on a
+> > regular basis, twenty years after the process started.
+> >
+> > There aren't that many actually useful variations on the licenses that
+> > actually pass the OSD. There are actually only three useful licenses, a
+> > gift-style, a sharing-with-rules-style, and something in between. Given
+> > Affero and GPL3 terms on those three, essentially all purposes for Open
+> > Source can be carried out. All else is embellishment.
+> >
+> > What we are seeing now are licenses that satisfy a particular attorney.
+> > These are often introduced as being necessary for the specific needs of
+> > the venue (Europe, for example) or a particular organization (NASA,
+> > focusing on restrictions on the public domain). It's arguable that these
+> > licenses are more useful than existing well-tested ones, even for those
+> > organizations. For example, I don't see how NASA can /really /benefit
+> > from imposing terms upon public-domain works or making itself a
+> > secondary beneficiary of licenses executed by others.
+> >
+> > The license reviewers aren't waiting to be surprised by some worthy
+> > innovation in Open Source licensing. No such thing is coming by. They
+> > are mainly working to make sure that OSI understands when a license
+> > should be rejected, and why.
+> >
+> > If OSI were to conclude that licenses, at this point, should be approved
+> > only when there are /compelling /reasons to do so, the community would
+> > benefit.
+> >
+> >     Thanks
+> >
+> >     Bruce
+> >
+> >
+> > _______________________________________________
+> > License-review mailing list
+> > License-review at lists.opensource.org
+> > http://lists.opensource.org/mailman/listinfo/license-
+> review_lists.opensource.org
+> >
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-
+> review_lists.opensource.org
+>
+
+
+
+-- 
+Bruce Perens K6BP - CEO, Legal Engineering
+Standards committee chair, license review committee member, co-founder,
+Open Source Initiative
+President, Open Research Institute; Board Member, Fashion Freedom
+Initiative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180619/4bda7994/attachment.html>
+
