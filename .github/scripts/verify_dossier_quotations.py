@@ -527,7 +527,12 @@ def attribution(root="."):
             return str(email.header.make_header(email.header.decode_header(raw)))
         except Exception:
             return raw
-    msgs = [(who(cds.field(h, "From")), cds._when(cds.field(h, "Date")), norm(cds.own_text(b))) for _p, h, b in cds.messages()]
+    def own_plus(body):
+        """引用を除いた本文に、相手の文の中へ ">>…<<" の形で書き込んだ自分の文を足す (portfolio-00 の型 (b)・2026-11-12:
+        McCoy Smith 氏は 2017-04-14 に ">>Have you confirmed … ?<<" と書き、> で始まる行として落ちていた)"""
+        ins = [re.sub(r"(?m)^\s*>+\s?", " ", x) for x in re.findall(r">>(.+?)<<", body, re.S)]
+        return cds.own_text(body) + " " + " ".join(ins)
+    msgs = [(who(cds.field(h, "From")), cds._when(cds.field(h, "Date")), norm(own_plus(b))) for _p, h, b in cds.messages()]
     print(f"通 {len(msgs)} 件 (cache {CACHE})")
     seen, tally, out = set(), collections.Counter(), []
     for f in sorted(glob.glob(f"{root}/LICENSES/*.md")):
@@ -554,11 +559,19 @@ def attribution(root="."):
                     out.append(f"[引用を除いた本文に無い] {os.path.relpath(f, root)}:{n}  {names[-1]} 氏 ← {q[:70]!r}")
                     continue
                 name_ok = any(names[-1].lower() in fr.lower() for fr, _d in hits)
+                line_names = set(re.findall(r"([A-Z][a-zA-Z'\-]+) 氏", line))
+                senders = {re.sub(r"\s+", " ", fr.split("(")[-1]).lower() for fr, _d in hits}
                 year_ok = not years or any(d and str(d.year) == years[-1] for fr, d in hits if names[-1].lower() in fr.lower())
                 if all("yuta.yokoi" in fr for fr, _d in hits):
                     kind = "我々の投稿にだけ在る (ACD の本文など)"
                 elif not name_ok and not any(re.search(r"\(.*[A-Za-z].*\)", fr) for fr, _d in hits):
                     kind = "差出人の名がラテン文字でない (人が見る)"
+                elif not name_ok and len(senders) >= 3:
+                    # 型 (c): ライセンス本文の句や広く引かれた句は、3 人以上の差出人が自分の文として書いている
+                    kind = "3 人以上の差出人の通に在る (ライセンス本文や広く引かれた句)"
+                elif not name_ok and any(n.lower() in fr.lower() for n in line_names for fr, _d in hits):
+                    # 型 (a): 同じ行の別の人名の通に在る。直前の名が別の人の文を指していることが多い
+                    kind = "同じ行の別の人名の通に在る (直前の名を拾った可能性)"
                 else:
                     kind = "一致" if name_ok and year_ok else "人名が違う" if not name_ok else "年が違う (同じ文の別の年を拾いやすい)"
                 tally[kind] += 1
