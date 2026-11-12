@@ -673,5 +673,21 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 
 **逆側。** 「在るなら放棄する」と書くこと自体が、在りうると認める読みを生む。Perens 氏の懸念は、条件を付けて権利を行使するライセンスに向いていた（ハードウェアの設計の著作権で互恵を求める型）。ACD の放棄と許諾がこの懸念の外に在るかは、審査者が「名指すだけで慣行になる」と読むかで決まる。ACD は §6.5 などで、機械学習の許諾を明示する理由を「沈黙は曖昧と分かった」と説明している。この説明は、名指すことの費用を払う理由にもなる。
 
+**portfolio-aa の照合（2026-11-12）。** 草案の作用の条で、*subsist*、*rights in*、*Covered Right(s) in* の全 11 か所を当てた。どれも権利が在ることを前提にしない —— §6.4 *"Whether a right subsists in any such thing is not decided here and does not need to be"*、§9.2 *"makes no representation that any right subsists"* を含む。§6・§8.4 のモデルから出力までの列挙は許諾の目的語（*make, use, sell … any model*）で、権利の対象として名指していない。§5.2 の末文は、Dedicator 自身の素材に権利が在っても §5 は届かないという文で、在ると述べる文ではない。上の「読み」は草案の語で崩れなかった。
+
 **この節が establish しないこと。** CAL の審査の帰結（委員会は 2020-02 までに承認した・`review-outcomes.md` §1.126）は、この会話の後のことで、この節の 2 人の文がそれにどう効いたかは確かめていない。
 
+## 1.201 採用の見込みは承認の基準ではなかった、頼むだけなら条項は要らない —— Persona non Grata の前文（2020）（2026-11-12）
+
+"Ethical open source licensing - Persona non Grata Preamble"（`license-discuss` 2020-02・47 通・決める側の通に絞って読んだ・`rounds/2020-02-license-discuss-adoption-not-a-criterion-observed.txt` に 2 通）。ライセンスの前文で特定の相手を「歓迎しない」と述べる案をめぐる会話で、census の論点の順位（B1・B10・B12・B2・B7/B10・B9）から読んだ。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Likelihood of widespread adoption has never been a formal criteria for certification, aside from proliferation and inadvertant duplication concerns."* | Brian Behlendorf 氏 2020-02-21 | **有利な面（B2）。** 採用の見込みそのものは承認の基準ではない、という元理事の文。例外として挙げた「増殖と不注意の重複」は、2025 年の理事会が Tiwaz に当てた「既存の近い変種で、かつ使われていない」（`SUBMISSION-MATERIALS.md` の名指す 5 行の (1)）と同じ組である。ACD の利用が 1 件であることは、それだけでは基準に当たらず、重複（B10）と組になったときに当たる |
+| *"Probably a better question is whether you intend the new terms to be legally enforceable? Eric makes it clear that enforceability is immaterial since he does not intend it to restrict licensees. Well, given that, the entire thing is moot."*、*"If Eric wants somebody to refrain from using his software, he is free to ask them to refrain. He doesn't need any change in the Open Source licensing regimen."* | Russell Nelson 氏 2020-02-29 | **両方の面。** 拘束しない語はライセンスに要らない、という委員長経験者の文。ACD の §10.3（Dedicator の求めは条件でなく、義務を作らない）は、拘束しないことを本文で宣言する条で、Nelson 氏の線では「要らない語」と読まれうる（B3）。**逆側**: §10.3 は求めを足すための条ではなく、外に置かれた求め（README の依頼など）が条件と読まれないように封じる条で、受領者の側の確かさのために在る |
+
+**読み。** 2020 年の 2 つの文は、ACD の 2 つの論点に当たる。採用（B2）は、それだけでは基準でないが、重複（B10）と組になると基準になる。拘束しない語（§10.3）は、受領者を守るためなら要るが、そう読まれなければ長さの費用になる。
+
+**逆側。** Behlendorf 氏の文は 2020 年の元理事の見解で、2025 年の理事会は採用の欠如を重複と組にして保留の理由にしている。B2 の重さはこの組み合わせで決まり、採用が基準でないという文だけで軽くはならない。
+
+**この節が establish しないこと。** Persona non Grata の前文の案は審査に出された提出ではない。同じ会話の Fontana 氏の文（特定の相手を名指す前文は OSD に適わない見込みが高い）は、ACD が前文で特定の相手を名指さないので、この節では引いていない。
