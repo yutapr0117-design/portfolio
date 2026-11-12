@@ -72,6 +72,11 @@ CONDITION = re.compile(
 #   母数 (AS-OF の「候補 N 本」) は変えず、別の一覧として出す。irrevocable / non-revocability は revoc に含まれる
 TOPIC = re.compile(r"revo[ck]|abandon", re.I)
 TOPIC_MIN = 3   # 会話の本文 (引用を除く) で話題の語に当たる回数の下限
+# 決める側の文書の形 (2026-11-12・portfolio-00 の依頼): 最初の通を決める側が書き、その本文に勧告・議決・承認・却下の
+#   語がある会話。2004 年の委員会報告 3 本のように、未読のうちこの形の会話がいちばん基準を運んでいた
+DECISION = re.compile(r"\bRecommend(?:ation|ed)?\s*:|\bboard (?:has )?(?:voted|approved|rejected|resolved|agreed)\b"
+                      r"|\b(?:not )?approved\b|\brejected\b|\bmotion (?:to|carried|passed)\b|\bresolution\b"
+                      r"|\bLicense Committee [Rr]eport\b", re.I)
 
 
 MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August",
@@ -308,7 +313,8 @@ def threads(out):
                 if DECIDERS.search(sender):
                     words += len(text.split())
             row = {"title": g[0][3], "first": g[0][1], "start": start, "key": key,
-                   "messages": n, "decider_words": words, "dossier_hits": hits, "topic_hits": topic}
+                   "messages": n, "decider_words": words, "dossier_hits": hits, "topic_hits": topic,
+                   "decision_form": bool(g and DECIDERS.search(g[0][2]) and DECISION.search(own_text(g[0][4])))}
             if n >= 3 and words >= 120:
                 rows.append(row)
             elif n >= 3 and topic >= TOPIC_MIN:
@@ -412,6 +418,11 @@ def threads(out):
     for r, where, near in cited:
         names = [f"{n}{' [年]' if n in near else ''}" for n in where]
         print(f"  名が在る・未読: {r['start']}\t{r['title']}  ({', '.join(names[:4])}{' ほか' if len(names) > 4 else ''})")
+    # 決める側の文書の形の未読 (母数の中の並べ替え・数は動かない)
+    dec = sorted((r for r in unread if r.get("decision_form")), key=lambda r: r["start"])
+    print(f"決める側の文書の形 (最初の通が決める側・本文に勧告/議決/承認/却下の語) の未読 {len(dec)} 件")
+    for r in dec:
+        print(f"  決める側・未読: {r['start']}\t{r['title']}  (通 {r['messages']}・決める側の語 {r['decider_words']})")
     # AS-OF の「未読スレッドの残り」の行と同じ形 (Check 498 (h) が和を見る)
     print(f"AS-OF: 候補 {len(candidates)} 本のうち {len(candidates) - len(unread)} 本を読んだ。{len(unread)} 本は読んでいない")
 
