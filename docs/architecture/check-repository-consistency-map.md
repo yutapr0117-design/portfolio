@@ -146,6 +146,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 70 | total-check-runbook.md §9 「consistency Check 総数」値が実装の最大 Check 番号と一致（cross-document 整合）。**2026-11-11（監査 #15）**: 同じ行の「（最大番号 N。」も読み、`**N**`・最大番号・実装の最大値の 3 つが一致することを見る（比べている性質を 2 度目に述べる数に読む者が無く、Check 109 は §9 を走査から外すので、行を上げたときに黙って古くなった） | BLOCKING |
 | 71 | file-size-budget.md §4 BUDGET-DATA の各 path が実在（Check 52 silent-skip 防止） | BLOCKING |
 | 72 | file-size-budget.md ESLint baseline 値が sanity ceiling 200 以下（Plan A 絶対防衛線） | BLOCKING |
+| 73 | index.html の accessibility / Core Web Vitals の HTML 属性の契約（下の 73a〜73c の 3 部） | BLOCKING |
 | 73a | index.html `<link rel="preload">` に `as=` 属性必須（preload 仕様準拠） | BLOCKING |
 | 73b | index.html 全 `<img>` に `alt=` 属性必須（WCAG 1.1.1 Level A） | BLOCKING |
 | 73c | hero image preload に `fetchpriority="high"`（LCP 契約） | BLOCKING |
@@ -180,7 +181,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 102 | 核心運用ポリシー（AI 自走全振り / 人間は制御・監査のみ）が canon に明記（102a: AI2AI.md STEP 3 Operating Model marker / 102b: CLAUDE.md §7 参照 / 102c: 「AI proposes, human disposes」献策ポリシー / 102d: 「No terminal "done" state」継続改善ポリシー＝AI の自発停止・完了宣言を禁止 / 102e: 「Infinite improvement＝改善は無限・完璧は存在しない」真理＝AI が「収束/枯渇」の自己判断を下すことを禁止・padding ガードは増分粒度のみ / 102f: 「reflect-then-organize」＝非自明増分前に簡潔な見解(pros/cons・レンズ確認)を出す品質ステップを AI2AI.md Operating Model + CLAUDE.md §5 に明記＝枯渇誤謬(102e)の打破。2026-06-21 に人間ゼロ入力で AI が 10 案自己生成→6 案自走可能と判明し実証）。核心ガバナンス契約の silent drift を防止 | BLOCKING |
 | 103 | style.css に `@media (prefers-contrast: more)` 高コントラスト fallback 存在（WCAG 1.4.11 強化。render-neutral ゆえ §3 baseline ゲート非該当） | BLOCKING |
 | 104 | npm から呼ばれる全 `.github/scripts/*.py`（package.json `scripts` から導出・hardcode せず）が `sys.version_info < (3, 10)` guard を持つ（PEP 604 `str \| None` 等の 3.10+ 構文を使うため、guard 無しでは Python 3.9 で cryptic な `TypeError` が import 時に出る。明示エラーで止める guard の silent 除去を防止＝AI-agnostic onboarding 保護） | BLOCKING |
-| 105 | check-repository-consistency-map.md ↔ 実装の Check 番号 bijection（map の `\| N \|` 行が実装 `# ── N.` セクションと完全一致。alpha sub-check は整数に正規化）。Check 45（docstring↔section）の cross-document 版で、新 Check 追加時の map 行足し忘れ drift を構造的に防止 | BLOCKING |
+| 105 | check-repository-consistency-map.md ↔ 実装の Check 番号 bijection（map の `\| N \|` 行が実装 `# ── N.` セクションと完全一致。alpha sub-check は整数に正規化）。Check 45（docstring↔section）の cross-document 版で、新 Check 追加時の map 行足し忘れ drift を構造的に防止 **2026-11-12（監査 #12 / #13）**: 実装は本体から `checks_docs_mirror.py` へ移した（本体は予算 950 行ちょうどだったため）。実装した番号はどれも枝番でない `\| N \|` の行を持つこと（7b / 7c が 7 の行の代わりになっていた。73 の行を足した）、各区間が自分の番号を名指す check 呼び出しを AST 上に持つこと（見出しのコメントだけの区間も実装と数えていた・499 区間すべて満たす）を足した。mutation 2 件・旧版は MISATTR / SURVIVED。 | BLOCKING |
 | 106 | `.nvmrc`（ローカル dev 契約）の Node major が全 `.github/workflows/*.yml` の `node-version` pin と一致し、pin 同士も単一 major に揃う。Check 69（engines が pin を許容するか）を補完し、ローカルと CI の interpreter 分裂を防止 | BLOCKING |
 | 107 | total-check-runbook.md §11「CI workflows overview」が全 `.github/workflows/*.yml`（backtick 引用の filename）を過不足なく列挙（doc ↔ ディスク bijection）。workflow 追加/削除時の索引 drift を防止。Check 75（incident README）/ 105（check-map）の CI workflow 面版 | BLOCKING |
 | 108 | 全追跡ファイル（`git ls-files`・docs/files 自身除く）が `docs/files/<path>.md` の 1-to-1 ミラーを持ち、各ミラー（README.md inventory / _template.md 除く）が実 source を持つ（完全 bijection）。Check 96 は Phase-1 shipped-code 33 件のみ強制ゆえ、残り ~100 ミラーの欠落/orphan drift を本 Check が構造的に閉じる | BLOCKING |

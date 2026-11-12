@@ -52,3 +52,5 @@ owner 合意 C-first の check.py 段階分割（**Phase 9**）。96-99 は「`d
 
 ### For third parties / auditors
 - 各 PR で `npm run verify` exit 0・自己整合 Check 45/70/105 が monolith + 6 split module 横断で緑を保ちながら、監査可能な小刻みステップで monolith を縮小している透明な記録（Phase 9 で 14,251→14,053）。
+
+**Check 105 を本体から移した（2026-11-12・監査 #12 / #13）**: check-map と実装の番号の対応に、枝番でない行の存在と、区間ごとの「自分の番号を名指す check 呼び出し」（AST）を足した。本体の `_aggregate_check_numbers` と `CHECK_SOURCE_FILES` は ctx で受け取る。
