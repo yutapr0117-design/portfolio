@@ -171,6 +171,35 @@ def dangling(cl: dict[str, str]) -> list[tuple[str, str]]:
     return out
 
 
+# 先行詞が動きうる代名詞 (2026-11-12・portfolio-aa の依頼): T56 は E71 で直前の文を複数形にした結果、§8.6 の "them" の
+#   先行詞が「許諾」と読める側へ動いた型だった。文そのものが変わったか、直前の文が変わった文の代名詞を挙げる。
+#   先行詞を決めるのは読む人で、道具は読む場所を絞るだけ (It の形式主語なども出る)
+_PRONOUN = re.compile(r"\b(they|them|their|theirs|it|its|those|these|such)\b", re.I)
+_SENT = re.compile(r"(?<=[.;:])\s+(?=[A-Z(])")
+
+
+def pronoun_shift(cb: dict[str, str], ca: dict[str, str]) -> list[tuple[str, str, str, str]]:
+    """(条, 代名詞, 文の抜粋, 理由)。理由は「文が変わった」か「直前の文が変わった」。"""
+    out = []
+    for c in ca:
+        if cb.get(c) == ca[c]:
+            continue
+        sb = [" ".join(x.split()) for x in _SENT.split(" ".join(cb.get(c, "").split())) if x.strip()]
+        sa = [" ".join(x.split()) for x in _SENT.split(" ".join(ca[c].split())) if x.strip()]
+        for j, sent in enumerate(sa):
+            if sent not in sb:
+                why = "文が変わった"
+            else:
+                i = sb.index(sent)
+                prev_b, prev_a = (sb[i - 1] if i else None), (sa[j - 1] if j else None)
+                if prev_b == prev_a:
+                    continue
+                why = "直前の文が変わった"
+            for m in _PRONOUN.finditer(sent):
+                out.append((c, m.group(0), sent[max(0, m.start() - 50):m.end() + 30], why))
+    return out
+
+
 # 条の参照。"Section 6.5" / "Sections 5.3 and 12.4" / "(Section 6.5)" の条番号を拾う。
 _REF = re.compile(r"\bSections? (\d+\.\d+)((?:(?:,| and| or|,? and|,? or) \d+\.\d+)*)")
 # 参照先の**内容を述べる**形 (参照先に意味のある文が残っているかを読む必要がある)。単なる指し先 "(Section 6.5)" と区別する。
@@ -313,6 +342,10 @@ def compare(before: Path, after: Path, n: int) -> None:
     print(f"# 先行詞の無い指示語: Before {len(db)} / After {len(da)}")
     for k, ctx in sorted(da - db):
         print(f"#   ⚠ 新たに宙に浮いた: §{k}: …{ctx}…")
+    _ps = pronoun_shift(cb, ca)
+    print(f"# 文が変わったか直前の文が変わった文の代名詞: {len(_ps)} (先行詞を読み直す・形式主語の it も出る)")
+    for k, w, ctx, why in _ps:
+        print(f"#   ・ §{k} [{why}] {w!r}: …{ctx}…")
     # 参照の宙づり (2026-11-04・25 の依頼): 内容が変わった条を参照している箇所を全部挙げる。
     #   参照先の内容を述べる形 ("the purpose stated in Section 6.5") は、外した文がまさにその内容だった
     #   可能性があるので、After の参照先にその内容が残っているかを人が読む。単なる指し先は件数だけ。
