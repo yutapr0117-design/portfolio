@@ -473,8 +473,8 @@ MUTATIONS_ARCHIVE5 = [
     {
     "name": "Check 468u: §2.8 の末文から「§5.3 / §12.4 は本条を狭めない」が落ちる —— 試作 e で外した理由の文が担っていた反対解釈の封じが本文から消える",
     "file": CURRENT_DRAFT,
-    "find": "Section 6 included. Neither Section 5.3 nor Section 12.4 narrows this\n       Section.",
-    "replace": "Section 6 included. Sections 5.3 and 12.4 are read with this\n       Section.",
+    "find": "Section 6 included. Neither Section 5.3 nor Section 12.4\n       narrows this Section.",
+    "replace": "Section 6 included. Sections 5.3 and 12.4 are read with\n       this Section.",
     "check": CHECK,
 },
     {

@@ -375,8 +375,8 @@ MUTATIONS_ARCHIVE4 = [
     "file": CURRENT_DRAFT,
     # 同じ語句が草案冒頭の変更一覧にも引用されている (初版の find は 2 箇所に当たり、先頭 = 変更一覧を
     # 打って §16.4 は無傷だった)。§16.4 の行だけにある直後の "," まで含めて一意にする。
-    "find": "that no earlier text the",
-    "replace": "that an earlier text the",
+    "find": "that no earlier\n       text the",
+    "replace": "that an earlier\n       text the",
     "check": CHECK,
 },
     {

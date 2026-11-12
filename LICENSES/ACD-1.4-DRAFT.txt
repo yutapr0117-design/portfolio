@@ -48,7 +48,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       excludes from being a Contribution, not only material a person marks as
       not being one, and the undertaking binds only "a Dedicator who includes
       that material with the Work, or causes it to be included", where any
-      inclusion in the Work bound every Dedicator. (+6 words.)
+      inclusion in the Work bound every Dedicator, and it gives the undertaking
+      and whom it binds as two sentences. (+6 words.)
     * Section 2.7 now limits the rights reached to those the Dedicator holds
       "now or in future", the words Sections 8.1 and 8.4 use (errata E60). (+4
       words.)
@@ -58,7 +59,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       (errata E46, E49). Section 2.8 now also says that neither Section 5.3 nor
       Section 12.4 narrows it, since it now reaches the covenants those
       Sections already bind, with a different list of persons and a different
-      limit. (-71 words.)
+      limit. Section 2.8 now says that a transferee takes subject to it "to
+      that extent", where it said so without the limit its first sentence
+      states. (-68 words.)
     * Section 4.2 now names study, inspection, analysis, and reverse
       engineering among the acts the licence includes. (+5 words.)
     * Section 4.3 now names the size and revenue of the user, the scale of use,
@@ -187,8 +190,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       borne by an earlier text it or a former Steward published, drafts
       identified as such aside (errata E76, E77). It now says that both
       provisos, not only the one for translations, are conditions upon
-      distributing the text and not upon any use of the Work (Section 10.5).
-      (+43 words.)
+      distributing the text and not upon any use of the Work (Section 10.5),
+      and it states the Steward's exception and its limit as two sentences
+      ("That exception reaches only a new version"). (+41 words.)
     * Section 16.5 now names, after an assignment, "the person or entity to
       whom that role was last assigned", so that an assignor does not remain
       the Steward. (+4 words.)
@@ -196,7 +200,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5551 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5552 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -353,7 +357,7 @@ PREAMBLE (informative; not part of the operative terms)
        Dedicator who includes that material with the Work, or causes it to be
        included, will identify it in a form that accompanies the Work, so that
        a person or an automated system reading the Work can determine what this
-       Dedication does not cover; this undertaking binds that Dedicator and
+       Dedication does not cover. This undertaking binds that Dedicator and
        imposes nothing upon You, and Section 6.5 states why it matters. No
        separate instrument, assignment, or agreement is needed to place a
        Contribution under this Dedication. Whether the Dedicator asks a
@@ -370,9 +374,9 @@ PREAMBLE (informative; not part of the operative terms)
   2.8  This Dedication, in respect of the Work, binds the Dedicator's
        successors, assigns, heirs, and personal representatives, and any person
        to whom a Covered Right or a patent claim in the Work is transferred, to
-       the fullest extent the law permits. A transferee takes subject to it,
-       Section 6 included. Neither Section 5.3 nor Section 12.4 narrows this
-       Section.
+       the fullest extent the law permits. A transferee takes subject to it to
+       that extent, Section 6 included. Neither Section 5.3 nor Section 12.4
+       narrows this Section.
 
   2.9  Nothing in this Dedication is conditioned on, suspended by, or revived
        by an insolvency, bankruptcy, administration, receivership, liquidation,
@@ -829,9 +833,9 @@ PREAMBLE (informative; not part of the operative terms)
        distributing one. A modified text may not be distributed under any name
        that contains "Autonomous Commons Dedication", regardless of case, or
        under any identifier that contains "ACD-", regardless of case, followed
-       by a digit, except by the Steward (Section 16.5), and by the Steward
-       only as a new version under a version number and identifier
-       that no earlier text the Steward or a former Steward has published,
+       by a digit, except by the Steward (Section 16.5). That exception reaches
+       only a new version under a version number and identifier that no earlier
+       text the Steward or a former Steward has published,
        other than a draft identified as such, has borne, so that each name and
        identifier in this family continues to denote one fixed text. A modified
        text may be distributed under a different name. A translation is not a
