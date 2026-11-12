@@ -27,6 +27,7 @@ Run: `npm run status` (regenerates STATUS.md). CI/Check 121 fails if it is stale
 """
 import json
 import re
+from _lib_dossier import against_text
 import sys
 from pathlib import Path
 
@@ -223,7 +224,7 @@ def build_status() -> str:
                              "—— moderation の拒否は `LICENSES/ACD-OSI-BOTTLENECKS-POSTING.md`（B14）に記録する。")
     else:
         lic_lines.append("- **本文の状態**: 凍結は解除されている（`LICENSES/FROZEN.md` が無い）。")
-    against = _read("LICENSES/ACD-1.0.against.md")
+    against = against_text(ROOT / "LICENSES")   # register の file の一覧は _lib_dossier.py の 1 か所
     errata = _read("LICENSES/ACD-1.0.errata.md")
     n_adv = len(re.findall(r"(?m)^\| (\d+) \|", against))
     n_err = len(re.findall(r"(?m)^\| (E\d+) \|", errata))
