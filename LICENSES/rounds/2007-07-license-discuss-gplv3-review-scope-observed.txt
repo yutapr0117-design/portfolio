@@ -1,0 +1,96 @@
+Source: OSI license-discuss public archive, 2007-July.txt and 2007-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 2 of 84 in "conducting a sane and efficient GPLv3, LGPLv3 Review" (begun 2007-07-31)
+Senders: Luis Villa, Lawrence Rosen
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From luis at tieguy.org  Tue Jul 31 23:33:02 2007
+From: luis at tieguy.org (Luis Villa)
+Date: Tue, 31 Jul 2007 19:33:02 -0400
+Subject: conducting a sane and efficient GPLv3, LGPLv3 Review
+Message-ID: <2cb10c440707311633t5eb00f6am6be173b4491daf52@mail.gmail.com>
+
+[Warning: possible tilting at windmills ahead.]
+
+On 7/31/07, Wilson, Andrew <andrew.wilson at intel.com> wrote:
+> Once you understand this, you see the compatibility problem.
+
+I'd suggest that compatibility, while admittedly a pragmatic problem
+and something we could discuss for many, many hours and many, many
+words, is really not very useful for an OSI analysis of the v3:
+
+* The v3 is already more widely adopted than some other OSI-approved,
+but v2-incompatible licenses, so if a license is to be rejected on
+proliferation grounds merely because it is incompatible, another
+license should be retired instead.
+
+* The OSI (to the best of my knowledge) does not maintain a formal
+compatibility database, so a compatibility analysis does not help with
+that.
+
+More generally, I'd suggest that this discussion should focus very,
+very strictly on whether or not the v3 is OSD-compatible; other issues
+are either obviously resolved or otherwise not relevant:
+
+* OSI typically wants to know if the existence of a new license is
+justified; I'd suggest that the extensive review process and very
+quick adoption of the license indicates very strongly that this is the
+case. We could discuss endlessly whether individual members of this
+list feel that the license is justified, but that would be a waste of
+bits while others go ahead and use the thing.
+
+* the license has already received the most extensive public review of
+any license in history, and is finalized, so discussion of potential
+flaws in the license (except inasmuch as they may impact
+OSD-compatibility) are not useful. Again, time, money, and bits could
+be wasted discussing non-OSD-relevant flaws (like the ACT "analysis"),
+but that seems fairly pointless.
+
+So, yeah. We could spend literally hundreds of hours discussing
+compatibility, 'need', and potential license flaws, and in the process
+finish driving away from license-discuss anyone of goodwill but
+limited time/energy, but I'd strongly suggest that instead we limit
+GPL v3 discussion to the strict question of OSD compatibility and save
+each other the time and energy for other pursuits.
+
+Luis
+
+
+From lrosen at rosenlaw.com  Wed Aug  1 00:41:30 2007
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Tue, 31 Jul 2007 17:41:30 -0700
+Subject: conducting a sane and efficient GPLv3, LGPLv3 Review
+In-Reply-To: <2cb10c440707311633t5eb00f6am6be173b4491daf52@mail.gmail.com>
+References: <2cb10c440707311633t5eb00f6am6be173b4491daf52@mail.gmail.com>
+Message-ID: <00d401c7d3d4$b45deb90$6401a8c0@LROSENTOSHIBA>
+
+Luis Villa wrote:
+> So, yeah. We could spend literally hundreds of hours discussing
+> compatibility, 'need', and potential license flaws, and in the process
+> finish driving away from license-discuss anyone of goodwill but
+> limited time/energy, but I'd strongly suggest that instead we limit
+> GPL v3 discussion to the strict question of OSD compatibility and save
+> each other the time and energy for other pursuits.
+
+I agree. GPLv3 is obviously OSD-compliant. Let's get right to the point. It
+is an open source license, even if RMS prefers to use a different name for
+it. :-)
+
+Quite frankly, I'm more interested to see what category the license will be
+placed in on the OSI list. Is it redundant? Or will OSI immediately call it
+popular?
+
+/Larry 
+
+Lawrence Rosen
+Rosenlaw & Einschlag, a technology law firm (www.rosenlaw.com)
+3001 King Ranch Road, Ukiah, CA 95482
+707-485-1242 * cell: 707-478-8932 * fax: 707-485-1243
+Skype: LawrenceRosen
+Author of "Open Source Licensing: Software Freedom and 
+                Intellectual Property Law" (Prentice Hall 2004)
+
+
+
+

@@ -1,7 +1,7 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 507 subject lines. One thread appears under two subject spellings
+# Rows: 508 subject lines. One thread appears under two subject spellings
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
@@ -222,6 +222,7 @@
 2007-07-31	GPLv3, LGPLv3 Review
 2007-07-31	what *is* the approval process?
 2007-07-31	inconsistency in OSD- software (#2) v. licenses/rights (every other plank)
+2007-07-31	conducting a sane and efficient GPLv3, LGPLv3 Review
 2007-08-01	GPLv3, again Re: what *is* the approval process?
 2007-08-10	For Approval: Microsoft Community License
 2007-08-22	Groklaw's OSI item

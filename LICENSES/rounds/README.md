@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-12 時点・419 ファイル）
+## いまの状態（2026-11-12 時点・420 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -138,6 +138,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2007-07〜08 | `license-discuss` | **観測（OSD 2 の不一致の問いから 2 通・OSD 2 はライセンスでなく配られる物について述べる）** | `2007-07-license-discuss-osd-2-inconsistency-observed.txt` |
 | 2007-03 | `license-discuss` | **観測（Socialtext Public License の審査から 2 通・承認済みの条から取ったので推定が働くべきだという主張と、それへの反論）** | `2007-03-license-discuss-stpl-presumption-from-approved-observed.txt` |
 | 2003-08 | `license-discuss` | **観測（"Open Source Licensing" の全 3 通・OSL の perpetual と 17 U.S.C. §203、法はどのみち勝つので書く必要は無いという文の引用）** | `2003-08-license-discuss-osl-perpetual-and-section-203-observed.txt` |
+| 2007-07〜08 | `license-discuss` | **観測（GPLv3 の審査の進め方から 2 通・審査を OSD だけに絞る主張と、その前提だった採用と検討）** | `2007-07-license-discuss-gplv3-review-scope-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
 | 2012〜2020 | `license-review` | **観測（特許を扱う新しい permissive の必要性と、増殖の分類の現状・4 通）** | `2012-to-2020-license-review-need-and-proliferation-categories-cited-observed.txt` |
