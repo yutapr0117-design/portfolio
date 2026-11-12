@@ -328,7 +328,7 @@ def run(ctx):
         for _hf471 in sorted(_lic471.glob("*.md")) + sorted(_rounds471.glob("*.md")):
             _ids471h = set()
             for _hl471 in _hf471.read_text(encoding="utf-8").split("\n"):
-                _mh471 = re.match(r"^#{1,6}\s+([0-9]+(?:\.[0-9]+)*[a-z]?)\b", _hl471)
+                _mh471 = re.match(r"^#{1,6}\s+([0-9]+(?:\.[0-9]+)*[a-z]{0,2})\b", _hl471)
                 if _mh471:
                     _ids471h.add(_mh471.group(1))
                 _mh471b = re.match(r"^#{1,6}\s+\u00a7?\s*([A-Z](?:\.[0-9]+)*)\b", _hl471)
@@ -337,13 +337,13 @@ def run(ctx):
                 # 見出しが複数の節をまとめる形（`### §10 / §11 —— …`）は、その全部を節として持つ。
                 # **先頭だけ見る実装は、`review-responses-clauses.md` §11 を「実在しない」と誤判定した**（2026-09-28 実測）。
                 if _hl471.startswith("#"):
-                    for _mh471c in re.finditer(r"\u00a7\s?([0-9]+(?:\.[0-9]+)*[a-z]?)(?![0-9.])", _hl471.split("\u2014\u2014")[0]):
+                    for _mh471c in re.finditer(r"\u00a7\s?([0-9]+(?:\.[0-9]+)*[a-z]{0,2})(?![0-9.])", _hl471.split("\u2014\u2014")[0]):
                         _ids471h.add(_mh471c.group(1))
             _heads471[_hf471.name] = _ids471h
 
         # 各 file の見出し番号（`## 1.49 …` / `### B.0 …` / `#### 1.70b …`）
         _head471re = re.compile(
-            r"^#{1,6}\s+\**\s*\u00a7?\s*([0-9]+(?:\.[0-9]+)*[a-z]?|[A-Z](?:\.[0-9]+)*[a-z]?)[ .\uff0e\u3000]")
+            r"^#{1,6}\s+\**\s*\u00a7?\s*([0-9]+(?:\.[0-9]+)*[a-z]{0,2}|[A-Z](?:\.[0-9]+)*[a-z]{0,2})[ .\uff0e\u3000]")
         _headnum471 = {}
         for _hf471 in sorted(_lic471.glob("*.md")):
             _s471 = set()
@@ -370,7 +370,7 @@ def run(ctx):
             _qnum471 |= set(re.findall(r"^#{1,6}\s+Q(\d+)[a-z]?\.",
                                        _qf471.read_text(encoding="utf-8"), re.M))
         _bare471 = re.compile(
-            r"\u00a7\s?([0-9]+(?:\.[0-9]+)*[a-z]?|[A-Z](?:\.[0-9]+)*[a-z]?)(?![0-9a-zA-Z.])")
+            r"\u00a7\s?([0-9]+(?:\.[0-9]+)*[a-z]{0,2}|[A-Z](?:\.[0-9]+)*[a-z]{0,2})(?![0-9a-zA-Z.])")
         _named471 = re.compile(r"`[A-Za-z0-9._\-]+\.md`\s*(?:\u306e)?\s*$")
 
         _bad471 = _FaceTagged471()
@@ -412,7 +412,7 @@ def run(ctx):
                 # リンク形式 `` [`x.md`](x.md) §N `` も同じく射程外だった。
                 for _m471 in re.finditer(
                         r"`([A-Za-z0-9._\-]+\.md)`(?:\]\([^)]*\))?\s*(\u306e)?\s*\u00a7\s*"
-                        r"([0-9]+(?:\.[0-9]+)*[a-z]?|[A-Z](?:\.[0-9]+)*)", _l471):
+                        r"([0-9]+(?:\.[0-9]+)*[a-z]{0,2}|[A-Z](?:\.[0-9]+)*)", _l471):
                     _tgt471, _no471, _sec471 = _m471.group(1), _m471.group(2), _m471.group(3)
                     if _tgt471 not in _heads471 and ("ACD-1.0." + _tgt471) in _heads471:
                         _tgt471 = "ACD-1.0." + _tgt471
@@ -444,7 +444,7 @@ def run(ctx):
                     _sid471 = _m471.group(1)
                     if _named471.search(_l471[:_m471.start()]):
                         continue                                  # face (d) の射程
-                    if re.fullmatch(r"[A-Za-z]|\d+\.\d*[a-z]", _sid471):
+                    if re.fullmatch(r"[A-Za-z]|\d+\.\d*[a-z]{1,2}", _sid471):
                         continue                                  # placeholder / wildcard
                     if re.fullmatch(r"\d{3,}", _sid471):
                         continue                                  # 外国法の条番号
@@ -470,7 +470,7 @@ def run(ctx):
                 # 指していたのを素通りした**（比較は分割時に `submission-reference.md` §2 へ移っていた）。
                 # 英字の節（A.0 / B.0 / E.1 …）は提出パケットにしか無いので、解決先はその 2 file の見出し。
                 # **数字の `Section 8.4` はライセンス条項を指すので対象外**（英字 1 文字で始まる形だけを見る）。
-                for _m471 in re.finditer(r"\b[Ss]ection\s+([A-Z]\.[0-9]+[a-z]?)\b", _l471):
+                for _m471 in re.finditer(r"\b[Ss]ection\s+([A-Z]\.[0-9]+[a-z]{0,2})\b", _l471):
                     if _m471.group(1) not in _pack471:
                         _bad471.append(
                             f"{_f471.name}:{_i471} `section {_m471.group(1)}` \u306f\u63d0\u51fa\u30d1\u30b1\u30c3\u30c8\u306e\u7bc0\u306b\u89e3\u6c7a\u3057\u306a\u3044")
@@ -532,7 +532,7 @@ def run(ctx):
         # 単一の根拠にして導出する（`REVISION-PROTOCOL.md` の §1.5 は**その文書自身の節番号**で
         # 共有系列ではないため、prefix で自然に外れる）。
         _seriesfiles471 = tuple(sorted(_p471.name for _p471 in _lic471.glob("ACD-1.0.*.md")))
-        _own471 = re.compile(r"^#{1,6}\s+\**\s*(1\.\d+[a-z]?)[ .\uff0e\u3000]")
+        _own471 = re.compile(r"^#{1,6}\s+\**\s*(1\.\d+[a-z]{0,2})[ .\uff0e\u3000]")
         _where471 = {}
         for _sf471 in _seriesfiles471:
             _sp471 = _lic471 / _sf471
