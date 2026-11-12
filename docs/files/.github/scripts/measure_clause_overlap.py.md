@@ -27,13 +27,13 @@ ACD の草案と試作文について、条の重複と「効果を運ぶ語」�
 python3 .github/scripts/measure_clause_overlap.py LICENSES/ACD-1.4-DRAFT.txt
 python3 .github/scripts/measure_clause_overlap.py --min 8 LICENSES/ACD-1.4-DRAFT.txt
 python3 .github/scripts/measure_clause_overlap.py --compare LICENSES/ACD-1.4-DRAFT.txt <試作>
-python3 .github/scripts/measure_clause_overlap.py --guard <試作>          # 468u の目印（効果を運ぶ句）が残っているか
+python3 .github/scripts/measure_clause_overlap.py --guard <試作>          # 468u の目印（効果を運ぶ句）が残っているか・468r の状態の語が無いか
 python3 .github/scripts/measure_clause_overlap.py --uses <草案> Work "Computational Use"   # 定義語を使う条と回数
 ```
 
 比較では、内容が変わった条を参照している箇所（`Section N.M`）も全件を文脈つきで出し、参照先の内容を述べる形（前後に purpose / states / explains / why など）に ⚠ を付ける。文を外すと、その文を「理由」や「目的」として指していた参照が宙に浮く（2026-11-04、F3 の T3 で §9.4 "Section 11.3 explains why …" が、外す候補の理由の文そのものを指していると分かった）。括弧の指し先も中身に依拠しうるので、全件を読む前提。
 
-`--guard` の目印の一覧は `checks_license_draft.py` の `EFFECT_MARKERS_468U` だけに置き、Check 468u と同じものを読む（2 か所に持つと食い違う）。`--uses` は、定義を狭める試作（例: B15 の検証で §1.3 の "Work" を狭める）の前に、到達範囲が変わりうる条を一覧にする。
+`--guard` の目印の一覧は `_lib_draft_markers.py` の `EFFECT_MARKERS_468U` だけに置き、Check 468u と同じものを読む（2 か所に持つと食い違う・2026-11-12 に `checks_license_draft.py` から移した）。`--uses` は、定義を狭める試作（例: B15 の検証で §1.3 の "Work" を狭める）の前に、到達範囲が変わりうる条を一覧にする。
 
 族は「同じ言い回しを共有する条の集合」で数える。条を言い回しで結んだ連結成分も参考に出すが、汎用の言い回しが数珠つなぎにする（1.4 草案では 37 条が 1 つになる）ので族の数には使わない。
 
@@ -56,3 +56,5 @@ python3 .github/scripts/measure_clause_overlap.py --uses <草案> Work "Computat
 ## Audience-specific notes
 
 - **AI**: 試作が出たら比較モードを回し、減った「効果を運ぶ語」を反例探しの起点として渡す。数字は Before / After の両方を同じ道具で出す（片方だけ別の数え方にしない）。
+
+**`--guard` は 468r も当てる（2026-11-12）**: 468u の目印に加えて、作用の条の「いまの状態」の語と、条から消えた除外の句を出す（一覧は `_lib_draft_markers.py`・Check 468 と共有）。どれかが在れば exit 1。

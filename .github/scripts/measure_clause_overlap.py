@@ -348,15 +348,22 @@ def compare(before: Path, after: Path, n: int) -> None:
 
 
 def guard(path: Path) -> int:
-    """468u の目印 (効果を運ぶ句) が、草案や試作ファイルの該当条に在るかを出す。一覧は Check と同じ 1 か所から読む。"""
+    """468u の目印 (効果を運ぶ句) が該当条に在るか、468r の「いまの状態」の語が条に無いかを、草案や試作ファイルに
+    当てて出す。一覧は Check と同じ 1 か所 (_lib_draft_markers.py) から読む (468r は 2026-11-12 に足した)。"""
     sys.path.insert(0, str(Path(__file__).resolve().parent))
-    from checks_license_draft import EFFECT_MARKERS_468U
+    from _lib_draft_markers import EFFECT_MARKERS_468U, state_hits
     cl = clauses(path.read_text(encoding="utf-8"))
     lack = [(s, mk) for s, mk in EFFECT_MARKERS_468U if mk not in cl.get(s, "")]
     print(f"# {path.name}: 468u の目印 {len(EFFECT_MARKERS_468U)} 件のうち欠けているもの {len(lack)} 件")
     for s, mk in lack:
         print(f"#   ⚠ §{s}: {mk!r}")
-    return 1 if lack else 0
+    hits, miss = state_hits(cl)
+    print(f"# {path.name}: 468r の「いまの状態」の語 {len(hits)} 件・条に無い除外の句 {len(miss)} 件")
+    for s, w in hits:
+        print(f"#   ⚠ §{s}: {w!r}")
+    for s, x in miss:
+        print(f"#   ⚠ 除外の句が §{s} に無い: {x!r}")
+    return 1 if lack or hits or miss else 0
 
 
 def uses(path: Path, terms: list[str]) -> int:

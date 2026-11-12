@@ -69,40 +69,16 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        **468y は試作で「変えない」「退けた」とした条 (見出しの §・「変えない理由」の表の 1 列目) の、逐条の下書きの
        行が、その試作の T 番号か節の番号を含むことを見る** —— いままで手で揃えていた (portfolio-aa・2026-11-11)。
        **468z は CHANGELIST の「記述子の下書き」の表が引く §N.M と note の "Section N.M" が草案に実在することを見る** ——
-       確定の日まで記述子は表の中の下書きで、451f の照合の外だった (portfolio-aa・2026-11-11)。 (BLOCKING)
+       確定の日まで記述子は表の中の下書きで、451f の照合の外だった (portfolio-aa・2026-11-11)。
+       **468r は作用の条 (第 1 条〜END OF TERMS) に、後で偽になりうる「いまの状態」の語を置かないことを見る** ——
+       T54 で外した §8.4 の「法は未決」の文の型 (portfolio-aa の §14.29・2026-11-12)。語の一覧と、句で持つ除外は
+       `_lib_draft_markers.py` の `STATE_WORDS_468R` / `STATE_EXEMPT_468R` が権威 (§14.29 は最初の測定の記録)。除外の句が条から消えたら RED。 (BLOCKING)
 """
 import json
 import re
 
 
-# 468u の目印 (条, 句)。**一覧はここだけに置く** —— measure_clause_overlap.py --guard が同じ一覧を import して
-# 試作ファイルに当てる (2 か所に持つと食い違う)。§2.8 / §15.5 は CLARITY-TRIAL 試作 e の効果の保存、
-# §8.4 / §8.2 は B10 の立証 (gap-measurements.md §1.133) が依拠する句。§5.1 の除外と §8.4 の "content" は §8.4 の
-# 限定を支える (2026-11-06・portfolio-25 の依頼)。§5.1 の除外が落ちると、§8.4 が外した請求項まで不行使になる。
-EFFECT_MARKERS_468U = (
-    ("2.8", "nor Section 12.4 narrows this Section"),
-    ("15.5", '"person" includes an entity'),
-    ("8.4", "resulting from Computational Use of the Work"),
-    ("8.4", "deliberately absent"),
-    ("8.2", "not terminable by the Dedicator on any ground"),
-    ("5.1", "other than for patent infringement"),
-    ("8.4", "from the content of the Work"),
-    # 2026-11-08 (T16〜T20・#2602): 許諾の目的語を請求項から行為へ移した結果、効果を運ぶ句になった
-    ("8.1", "otherwise practise or transfer"),
-    ("8.4", "Section 8.1 alone governs"),
-    ("5.1", "for a use of the Work"),
-    # 2026-11-08 (#2615): 特許の reach の定義と、通知が適用される範囲の主語
-    ("8.3", "only as to the acts they describe"),
-    ("16.2", "A notice a Dedicator places"),
-    # 2026-11-08 (#2630): 特許の「controlled」の双条件と、ファイルの中のタグが及ぶ範囲
-    ("8.5", "if, and only if"),
-    ("16.2", "in a comment within a file"),
-    # 2026-11-08 (#2655): §5.2 が覆う素材とサービスの範囲、§6.4 が「何について」負わないか
-    ("5.2", "other than the Work, that the Dedicator itself makes or makes available"),
-    ("5.2", "without providing a copy of it"),
-    ("6.4", "under this Dedication in respect of any"),
-)
-
+from _lib_draft_markers import EFFECT_MARKERS_468U, state_hits  # 一覧は _lib_draft_markers.py (measure_clause_overlap.py --guard と共有)
 
 def run(ctx):
     ROOT = ctx.ROOT
@@ -169,6 +145,15 @@ def run(ctx):
                 f"本文側に義務語がある: {_deon468} "
                 "(#116 の緩和は「shall と must は 0 回」を測った値に依っている。"
                 "1.0 は凍結が守るが、草案は誰も守らない)")
+        # ── 468r: 作用の条に「いまの状態」の語を置かない (後で偽になる文を恒久の本文に書かない) ─────────
+        _op468r = re.search(r"(?ms)^1\. [A-Z].*?(?=END OF TERMS)", _lic468)
+        _cl468r = dict(zip(*[iter(re.split(r"(?m)^  (\d+\.\d+) ", _op468r.group(0) if _op468r else "")[1:])] * 2))
+        _hit468r, _miss468r = state_hits(_cl468r)
+        _bad468 += [f"468r: 除外の句 {_x!r} が §{_c} に無い (書き換えたなら、その文が状態を述べていないか読み直して一覧を直す)"
+                    for _c, _x in _miss468r]
+        _bad468 += [f"468r: §{_c} が「いまの状態」の語 {_w!r} を持つ (後で偽になる文を作用の条に書かない・T54)" for _c, _w in _hit468r]
+        if not _cl468r:
+            _bad468.append("468r: 作用の条 (1. 〜 END OF TERMS) を読めない (読めないまま黙らせない)")
         _mw468 = re.search(r"This draft: ([\d,]+) words, (\d+) clauses", _t468)
         if not _mw468:
             _bad468.append("冒頭に語数/条数の申告が無い (消して黙らせない)")
