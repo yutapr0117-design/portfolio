@@ -1,0 +1,151 @@
+Source: OSI license-discuss public archive, 2007-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 2 of 24 in "For Approval: Socialtext Public License ("STPL")" (2007-03-08 to 2007-03-28)
+Senders: Ross Mayfield, Matthew Flaschen
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From ross.mayfield at socialtext.com  Thu Mar 22 15:57:53 2007
+From: ross.mayfield at socialtext.com (Ross Mayfield)
+Date: Thu, 22 Mar 2007 08:57:53 -0700
+Subject: For Approval: Socialtext Public License ("STPL")
+In-Reply-To: <46020CAD.7040500@gatech.edu>
+References: <cf976cd50703080739v7b1154fegedf548021bfab2aa@mail.gmail.com>
+	 <45F0B421.4030209@gatech.edu>
+	 <cf976cd50703211305l4c117e77u8d2c1171d4901a7@mail.gmail.com>
+	 <46020CAD.7040500@gatech.edu>
+Message-ID: <cf976cd50703220857o334d9300kb8bf309812822038@mail.gmail.com>
+
+The draft does not require that the logos  be "large", merely
+prominent. This requirement provides flexibility since the
+requirement of prominence will vary depending on the product and the
+other  material on the screen. This attribution provision is from an
+OSI approved  license (the Attribution Assurance License) adopted
+after OSD  10. Consequently, we believe that the provision should have
+a strong  presumption of acceptability. Otherwise, OSI approval would
+be meaningless as a  guide . We do not understand the  source of the
+burdensome standard:  it is not in the OSD and many approved licenses
+impose obligations which may be  viewed as "burdensome". We believe
+that the "burdensome" requirement is too  subjective and that
+objections should be based on the OSD.  For example,  the MPL, itself,
+ requires "You must cause all Covered Code to which You  contribute to
+contain a file documenting the changes You made to create that
+Covered Code and the date of any change" and   "If Contributor has
+knowledge that  a license under a third party's intellectual property
+rights is required to  exercise the rights granted by such Contributor
+under Sections 2.1 or 2.2,  Contributor must include a text file with
+the Source Code distribution titled  "LEGAL'' which describes the
+claim and the party making the claim in sufficient  detail that a
+recipient will know whom to contact."   Even if the  standard of
+avoiding "burdensome" requirements is accepted, the major concern  you
+express is the possibility that so many developers or companies  will
+adopt the STPL type license and that those products will be combined
+so that the GUI will be overwhelmed with logos. This problem would
+require that  many companies adopt the STPL type licenses for their
+product because only an  "Initial Developer" can impose this
+requirement; for example, a company  modifying the STPL licensed
+product could not add their logos. The  first assumption required for
+this problem to arise is that  many developers and companies will
+adopt this approach. It would not apply  to products licensed under
+the GPL or BSD. Yet the experience of the open source  community  in
+the two years since the first use of the MPL and  attribution has been
+to the contrary: the MPL and attribution has not been  widely adopted:
+ only a limited number of companies have adopted this  approach.
+Second, the products which are combined must all use the STPL  type
+licenses, not BSD, GPL or other open source licenses. Such licenses do
+not  require attribution. Third, even if the combination of products
+requires the use  of multiple logos,  the limited requirement of
+"prominence" can be met by  adjusting the size of the logos. Once
+again, even with the more rigid  requirements of  MPL and attribution,
+this problem has not  arisen. Finally, since the STPL type licenses
+are non exclusive and if  the problem arises, a developer or company
+can obtain a  license under different terms.
+
+We do not agree that the  requirement that the display of "sufficient
+duration to give reasonable notice to the user of the identity  of the
+Initial Developer". It gives the licensee flexibility and  establishes
+a standard based on the action of the human  eye.
+
+Ross
+
+
+From matthew.flaschen at gatech.edu  Thu Mar 22 20:51:11 2007
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Thu, 22 Mar 2007 16:51:11 -0400
+Subject: For Approval: Socialtext Public License ("STPL")
+In-Reply-To: <cf976cd50703220857o334d9300kb8bf309812822038@mail.gmail.com>
+References: <cf976cd50703080739v7b1154fegedf548021bfab2aa@mail.gmail.com>	 <45F0B421.4030209@gatech.edu>	 <cf976cd50703211305l4c117e77u8d2c1171d4901a7@mail.gmail.com>	 <46020CAD.7040500@gatech.edu> <cf976cd50703220857o334d9300kb8bf309812822038@mail.gmail.com>
+Message-ID: <4602EC3F.5090806@gatech.edu>
+
+It would be best if you replied to my comments directly, but I'll try to
+address these new points.
+
+Ross Mayfield wrote:
+> The draft does not require that the logos  be "large", merely
+> prominent. This requirement provides flexibility since the
+> requirement of prominence will vary depending on the product and the
+> other  material on the screen.
+
+As I see it, there are only two ways to make a logo prominent.  Make it
+central, or make it large.  Either way, only a limited number of logos
+can be prominent (and of equal prominence).  If you add more, none will be.
+
+ This attribution provision is from an
+> OSI approved  license (the Attribution Assurance License) adopted
+> after OSD  10.
+
+That's simply false.  AAL does not allow logos, and it was approved
+*before* OSD 10 (see http://opensource3.osdir.com/site_history.php).
+This has been repeatedly mentioned on the list.
+
+ We do not understand the  source of the
+> burdensome standard:  it is not in the OSD and many approved licenses
+> impose obligations which may be  viewed as "burdensome". We believe
+> that the "burdensome" requirement is too  subjective and that
+> objections should be based on the OSD.
+
+It is burdensome mainly because it strains OSD in the ways we've been
+describing.
+
+  For example,  the MPL, itself,
+> requires "You must cause all Covered Code to which You  contribute to
+> contain a file documenting the changes You made to create that
+> Covered Code and the date of any change" 
+> [snip]
+
+These don't affect OSD-compliance.
+
+> Yet the experience of the open source  community  in
+> the two years since the first use of the MPL and  attribution has been
+> to the contrary: the MPL and attribution has not been  widely adopted:
+> only a limited number of companies have adopted this  approach.
+
+I don't have statistics.  However, it seems to me a surprising number
+have adopted Exhibit B licenses, considering they are not OSI-approved.
+ If STPL was OSI-approved, I believe many more would adopt it.  It is
+illogical to approve a license with the hope that few will use it.
+
+> Second, the products which are combined must all use the STPL  type
+> licenses, not BSD, GPL or other open source licenses. Such licenses do
+> not  require attribution.
+
+Of course they do.  They just don't require this kind of branding.
+
+> Finally, since the STPL type licenses
+> are non exclusive and if  the problem arises, a developer or company
+> can obtain a  license under different terms.
+
+That can not be necessary to exercise the rights required by OSD.
+
+> We do not agree that the  requirement that the display of "sufficient
+> duration to give reasonable notice to the user of the identity  of the
+> Initial Developer". It gives the licensee flexibility and  establishes
+> a standard based on the action of the human  eye.
+
+That looks like a typo, but my point was that the sufficient duration is
+highly variable (depending on the viewer), and it unclear how strict a
+standard the program must adopt.
+
+Matt Flaschen
+
+

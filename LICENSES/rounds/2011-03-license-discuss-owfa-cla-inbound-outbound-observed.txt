@@ -1,0 +1,109 @@
+Source: OSI license-discuss public archive, 2011-March.txt and 2011-April.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 3 of 5 in "Announcing OWFa and CLA 1.0" (2011-03-31 to 2011-04-02)
+Senders: John Cowan, David Woolley
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From cowan at mercury.ccil.org  Thu Mar 31 17:04:19 2011
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Thu, 31 Mar 2011 13:04:19 -0400
+Subject: Announcing OWFa and CLA 1.0
+In-Reply-To: <01ec01cbefc3$b6e14970$24a3dc50$@com>
+References: <01ec01cbefc3$b6e14970$24a3dc50$@com>
+Message-ID: <20110331170419.GB23361@mercury.ccil.org>
+
+Lawrence Rosen scripsit:
+
+> I'm sending this to OSI license-discuss@ to see if there is any interest in
+> having OSI review these agreements for compatibility with the OSD. /Larry
+
+I have no problem doing so.  I have a more general question, though.  I've
+never seen the point of signed CLAs.  If a project doesn't want to take
+copyright ownership (as the FSF does), then why isn't it enough to ask
+contributors to license their contributions under some open source license
+compatible with the project's (preferably the same one)?
+
+Indeed, ISTR you making this very point in the past.
+
+-- 
+What is the sound of Perl?  Is it not the       John Cowan
+sound of a [Ww]all that people have stopped     cowan at ccil.org
+banging their head against?  --Larry            http://www.ccil.org/~cowan
+
+
+From cowan at mercury.ccil.org  Fri Apr  1 23:32:28 2011
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Fri, 1 Apr 2011 19:32:28 -0400
+Subject: Announcing OWFa and CLA 1.0
+In-Reply-To: <4D965F29.60100@gmail.com>
+References: <01ec01cbefc3$b6e14970$24a3dc50$@com> <20110331170419.GB23361@mercury.ccil.org> <4D965F29.60100@gmail.com>
+Message-ID: <20110401233228.GA23516@mercury.ccil.org>
+
+jonathon scripsit:
+
+> >  I've never seen the point of signed CLAs.
+>
+> An individual, or organization find some FLOSS that almost suits
+> their needs. They make some changes to it. They are willing to send
+> the changes upstream, under any license upstream wants. What the
+> organization, or individual does not want, is to have to keep track of
+> that contribution.
+>
+> - From the POV of the company, the contributed code is an asset that
+> has nominal value. Keeping it on the books as an asset, costs the
+> company more than the code is worth. Giving the code away saves the
+> company money.
+
+In that case, the company needs to transfer the copyright, which is not
+the same thing as a CLA.  A CLA gives the upstream certain rights, but
+the copyright remains with the originator.
+
+What I don't see is why an upstream license should be different from a
+downstream license.
+
+-- 
+You escaped them by the will-death              John Cowan
+and the Way of the Black Wheel.                 cowan at ccil.org
+I could not.  --Great-Souled Sam                http://www.ccil.org/~cowan
+
+
+From forums at david-woolley.me.uk  Sat Apr  2 08:04:28 2011
+From: forums at david-woolley.me.uk (David Woolley)
+Date: Sat, 02 Apr 2011 09:04:28 +0100
+Subject: Announcing OWFa and CLA 1.0
+In-Reply-To: <20110401233228.GA23516@mercury.ccil.org>
+References: <01ec01cbefc3$b6e14970$24a3dc50$@com> <20110331170419.GB23361@mercury.ccil.org> <4D965F29.60100@gmail.com> <20110401233228.GA23516@mercury.ccil.org>
+Message-ID: <4D96D88C.8080009@david-woolley.me.uk>
+
+John Cowan wrote:
+
+> 
+> In that case, the company needs to transfer the copyright, which is not
+
+Which is what "assign" means.
+
+> the same thing as a CLA.  A CLA gives the upstream certain rights, but
+> the copyright remains with the originator.
+
+Agreed.
+
+> 
+> What I don't see is why an upstream license should be different from a
+> downstream license.
+
+In the case I know of, Asterisk, it is because the primary developer 
+wants to be able to use contributions in their commercial products, so 
+in return for acting as publisher and managing a bug reporting system, 
+they only deal with contributions under their CLA.  The CLA is not open 
+source.
+
+
+
+-- 
+David Woolley
+Emails are not formal business letters, whatever businesses may want.
+RFC1855 says there should be an address here, but, in a world of spam,
+that is no longer good advice, as archive address hiding may not work.
+
+

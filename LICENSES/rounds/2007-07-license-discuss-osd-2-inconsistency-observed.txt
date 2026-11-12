@@ -1,0 +1,123 @@
+Source: OSI license-discuss public archive, 2007-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 2 of 6 in "inconsistency in OSD- software (#2) v. licenses/rights (every other plank)" (2007-07-31 to 2007-08-01)
+Senders: Luis Villa, John Cowan
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From luis at tieguy.org  Wed Aug  1 03:58:31 2007
+From: luis at tieguy.org (Luis Villa)
+Date: Tue, 31 Jul 2007 23:58:31 -0400
+Subject: inconsistency in OSD- software (#2) v. licenses/rights (every other plank)
+Message-ID: <2cb10c440707312058l6269b52ay778e5f1c3e655760@mail.gmail.com>
+
+history/context/clarification question (and last email of the night, I swear):
+
+In doing a quick comparison of the v3 and the OSD, I finally noticed
+that section 2 of the OSD is inconsistent with the rest of the
+document, since it speaks of qualities of specific software, rather
+than rights or qualities of a generic license. This makes it a little
+nonsensical to ask the question (as http://opensource.org/approval
+does) 'does the license under consideration satisfy plank 2 of the
+OSD?'
+
+I know this language comes from OSD's roots in the DFSG. Is there any
+particular reason it hasn't been removed (since presumably anyone
+writing such a license intends to release source code) or updated to
+make it consistent?
+
+If the board were to consider clarifying the language, I might suggest
+something like:
+
+===
+2. Source Code
+
+The license must apply to the preferred form in which a programmer
+would modify the program (typically referred to as source code), and
+must allow distribution in this form as well as compiled form.
+===
+
+I dropped "Where some form of a product is not distributed with source
+code, there must be a well-publicized means of obtaining the source
+code..." since translating those clauses into a license requirement
+would obviously preclude the BSD and other such licenses.
+
+To replace that language, I might rewrite the Introduction to look
+something like:
+
+"Open source doesn't just mean access to source code. To be Open
+Source Software, the source code for the software must be distributed
+along with the software or otherwise easily obtainable, and it must be
+available in the preferred form for modification, without obfuscation
+or pre-processing. The source must also be licensed under an Open
+Source Initiative Approved license.
+
+To be approved, a license must comply with the following criteria:"
+
+Obviously, I realize the OSD has worked fine for a long time despite
+this inconsistency, so this isn't a huge deal. But since there seems
+to be some emphasis right now on process, I thought this might be a
+good time for a suggestion intended to clarify and improve the
+process.
+
+Luis
+
+
+From cowan at ccil.org  Wed Aug  1 11:55:18 2007
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 1 Aug 2007 07:55:18 -0400
+Subject: inconsistency in OSD- software (#2) v. licenses/rights (every other plank)
+In-Reply-To: <2cb10c440707312058l6269b52ay778e5f1c3e655760@mail.gmail.com>
+References: <2cb10c440707312058l6269b52ay778e5f1c3e655760@mail.gmail.com>
+Message-ID: <20070801115518.GA18188@mercury.ccil.org>
+
+Luis Villa scripsit:
+
+> I know this language comes from OSD's roots in the DFSG. Is there any
+> particular reason it hasn't been removed (since presumably anyone
+> writing such a license intends to release source code) or updated to
+> make it consistent?
+
+It's what it needs to be.  The OSD defines what it means for software
+to be Open Source.  OSD #1 and #3-#10 are of the form "Must be released
+under a license with property X".  OSD #2 is more direct:  "Must be
+available in source form".  This is not inconsistency, though it is lack
+of parallelism.
+
+This prevents the claim that some opaque block of binary bits is Open
+Source because you have attached the BSD or similar permissive license
+to it.
+
+> If the board were to consider clarifying the language, I might suggest
+> something like:
+> 
+> ===
+> 2. Source Code
+> 
+> The license must apply to the preferred form in which a programmer
+> would modify the program (typically referred to as source code), and
+> must allow distribution in this form as well as compiled form.
+> ===
+
+That's not enough: the license might apply to source, but if you can't
+get any source, the software isn't Open Source.
+
+> "Open source doesn't just mean access to source code. To be Open
+> Source Software, the source code for the software must be distributed
+> along with the software or otherwise easily obtainable, and it must be
+> available in the preferred form for modification, without obfuscation
+> or pre-processing. The source must also be licensed under an Open
+> Source Initiative Approved license.
+> 
+> To be approved, a license must comply with the following criteria:"
+
+That could work, as it's equivalent to what we now have.  I don't
+know if it would be less confusing or not.  (However, renumbering
+the criteria would be a Bad Thing.)
+
+-- 
+He played King Lear as though           John Cowan <cowan at ccil.org>
+someone had played the ace.             http://www.ccil.org/~cowan
+        --Eugene Field
+
+
