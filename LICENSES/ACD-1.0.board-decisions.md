@@ -694,7 +694,7 @@ B13（理解コスト = readability）は、偶然 3 つなのではない。** 
 
 ### 8.11 2004 年の委員会報告 —— 似たライセンスは「改善でない」が「望めば承認する」、使う人への引用の要求は使用の制限（2026-11-12 に読んだ）
 
-`license-discuss` 2004-02-17、2004-11-08、2004-12-27 の委員会報告（`rounds/2004-license-discuss-committee-reports-observed.txt`）。委員長の Russell Nelson 氏が、審査中のライセンスごとに勧告と理由を 1〜3 文で書いた。2 月の報告について同氏は 2004-02-22 に *"The board voted on Thursday afternoon to accept the committee's recommendations."* と書いた。11 月の報告の時点では *"The board has not yet voted on the licenses."* で、12 月の報告で委員長は *"This report is slightly modified from the November report, which I did not submit."* と書いた —— 11 月の版は理事会に出されず、12 月の版が出された。12 月の版の議決はこのスレッドに無い。下の表の 11 月の行は、12 月の版で変わっていないもの（MirOS だけが変わった）である。
+`license-discuss` 2004-02-17、2004-11-08、2004-12-27 の委員会報告（`rounds/2004-license-discuss-committee-reports-observed.txt`）。委員長の Russell Nelson 氏が、審査中のライセンスごとに勧告と理由を 1〜3 文で書いた。2 月の報告について同氏は 2004-02-22 に *"The board voted on Thursday afternoon to accept the committee's recommendations."* と書いた。11 月の報告の時点では *"The board has not yet voted on the licenses."* で、12 月の報告で委員長は *"This report is slightly modified from the November report, which I did not submit."* と書いた —— 11 月の版は理事会に出されなかった。12 月の版は list に出された報告で、理事会に出されたか、議決されたかはこのスレッドに無い（2026-11-12 訂正。旧文は「12 月の版が出された」で、"which I did not submit" からの推論を事実のように書いていた。portfolio-aa の指摘）。下の表の 11 月の行は、12 月の版で変わっていないもの（MirOS だけが変わった）である。
 
 | ライセンス | 勧告と理由（逐語） | ACD への当たり方 |
 |---|---|---|
@@ -709,7 +709,7 @@ B13（理解コスト = readability）は、偶然 3 つなのではない。** 
 
 **読み。** 2004 年の委員会は、OSD への適合を門にし、似たライセンスの増殖を公式に抑える理由として書きながら、提出者が望めば承認する、と同じ文に書いた。ACD にとって、門の側は OSD への適合（`submission-osd.md`）で、抑制の側に当たるかは、ACD が既存と「十分に違う」と読まれるかである（B10）。使う人への引用の要求を使用の制限として退けた 11 月の勧告は、ACD が帰属を求めないことと同じ向きである。
 
-**この節が establish しないこと。** どれも 2004 年の委員長の報告で、理事会が受け入れたと書かれているのは 2 月の分だけである。12 月の版の議決は読んでいない。いまの手続き（2019 年以降・2h 節）とは時代が違い、2004 年の「望めば承認する」がいまも使われるとは言えない。
+**この節が establish しないこと。** どれも 2004 年の委員長の報告で、理事会が受け入れたと書かれているのは 2 月の分だけである。12 月の版が理事会に出されたか、議決されたかは読んでいない。いまの手続き（2019 年以降・2h 節）とは時代が違い、2004 年の「望めば承認する」がいまも使われるとは言えない。
 
 ## 7. この文書が establish しないこと
 
